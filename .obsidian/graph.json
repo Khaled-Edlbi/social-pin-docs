@@ -55,6 +55,13 @@
         "a": 1,
         "rgb": 7895160
       }
+    },
+    {
+      "query": "tag:#frontend",
+      "color": {
+        "a": 1,
+        "rgb": 2201331
+      }
     }
   ],
   "collapse-display": false,

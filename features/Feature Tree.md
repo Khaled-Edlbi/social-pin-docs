@@ -11,11 +11,11 @@ Every feature of Social Pin, grouped by domain, with its backend status. Status 
 | | Meaning | Features |
 |---|---|---|
 | ✅ | Done | 9 |
-| 🟡 | Partial (needs more) | 10 |
+| 🟡 | Partial (needs more) | 11 |
 | ❌ | TODO | 18 |
 | ⬜ | Frontend only | 1 |
 
-Open tasks: **63** (32 to do, 17 need a decision, 14 blocked). Open decisions: **6**. See [[Task Board]] and [[Backlog]].
+Open tasks: **65** (34 to do, 17 need a decision, 14 blocked). Open decisions: **6**. See [[Task Board]] and [[Backlog]]. Frontend notes for every ✅ feature: [[Frontend Index]].
 
 ## The tree
 
@@ -36,6 +36,7 @@ Social Pin backend
 │   │   └── ❓ T-060 Decide: copy or inherit
 │   ├── ✅ View As & Pin Views  [P0]
 │   ├── ✅ Files Upload  [P1]
+│   │   └── ⬜ T-062 Serve uploaded file bytes by id
 │   ├── ✅ Ring Access Engine  [P0]
 │   ├── 🟡 Counts  [P1]
 │   │   ├── ⬜ T-004 Member count per Ring on list and detail
@@ -105,7 +106,9 @@ Social Pin backend
 │   │   └── ❓ T-047 Orders, payments and the provider webhook
 │   └── ❌ Subscription (Free vs Pro)  [P1]
 │       └── ⬜ T-049 Subscription endpoints and a single Pro gate
-└── Platform & Cross-cutting  (🟡4 ❌5 ⬜1)
+└── Platform & Cross-cutting  (🟡5 ❌5 ⬜1)
+    ├── 🟡 Error Contract  [P0]
+    │   └── ⬜ T-063 Put the ErrorCode on the error body
     ├── 🟡 Code Delivery  [P0]
     │   ├── ⬜ T-001 Wire an email provider for one-time codes
     │   ├── ⬜ T-002 Wire an SMS provider for one-time codes
@@ -145,7 +148,7 @@ Account, profile, Rings, what each Ring shows, and the access engine. The part o
 | [[Ring Members]] | ✅ Done | P0 | s15, s47 | 0 |
 | [[Ring Projection]] | ✅ Done | P0 | s14, s20, s23, s24, s25, s29, s36 | 2 |
 | [[View As & Pin Views]] | ✅ Done | P0 | s10, s31, s44 | 0 |
-| [[Files Upload]] | ✅ Done | P1 | s14, s20, s36 | 0 |
+| [[Files Upload]] | ✅ Done | P1 | s14, s20, s36 | 1 |
 | [[Ring Access Engine]] | ✅ Done | P0 | — | 0 |
 | [[Counts]] | 🟡 Partial (needs more) | P1 | s11, s12, s14, s16, s17, s68 | 2 |
 | [[Photo Library]] | 🟡 Partial (needs more) | P1 | s29, s30 | 2 |
@@ -211,10 +214,11 @@ Orders, payments, payment webhook, Free vs Pro subscription and the Pro gates.
 
 ## Platform & Cross-cutting
 
-Notifications, Gemma AI, devices, interests, widgets, linked accounts, code delivery, audit log, cleanup jobs, e2e tests.
+The error contract, notifications, Gemma AI, devices, interests, widgets, linked accounts, code delivery, audit log, cleanup jobs, e2e tests.
 
 | Feature | Status | Priority | Screens | Open tasks |
 |---|---|---|---|---|
+| [[Error Contract]] | 🟡 Partial (needs more) | P0 | — | 1 |
 | [[Code Delivery]] | 🟡 Partial (needs more) | P0 | s02 | 3 |
 | [[Devices & NFC]] | 🟡 Partial (needs more) | P1 | s75 | 2 |
 | [[Interests]] | 🟡 Partial (needs more) | P1 | s07, s71 | 1 |

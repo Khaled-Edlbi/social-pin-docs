@@ -74,3 +74,13 @@ The comparison this vault was built from. The backend was checked against the de
 6. **Pin name rules** (s06): once-a-year rename and suggested names vs no limit and deliberately no suggestions. → [[D-06 Pin name rules]]
 
 All six are tracked in [[Decisions]]; the tasks they block are on the [[Task Board]].
+
+## Addendum · frontend documentation pass (2026-10-15, later the same day)
+
+Re-verified against the code: 49 endpoints, 9 suites, 168 unit tests green, typecheck green. Writing the per-feature frontend notes ([[Frontend Index]]) surfaced three things the first comparison did not:
+
+1. **`ErrorCode` never reaches the client.** `AllExceptionsFilter` copies `message` and `error` from the exception but not the code, so the body the guide tells clients to branch on does not carry it. → [[Error Contract]], [[T-063 Put the ErrorCode on the error body]] (P0).
+2. **No route serves file bytes by id.** `avatarFileId` and attachment ids are dead ends for a client; `storageKey` is private by design and nothing maps an id to a download. → [[T-062 Serve uploaded file bytes by id]] (P0).
+3. **The members roster carries `userId` only**, and no endpoint resolves a user id to a name, so s15 cannot show people until the contacts work lands. Recorded under [[Ring Members#Gaps]]; belongs to [[T-023 Connection detail and contacts list]].
+
+Smaller notes: an expired Ring 404s on `GET /views/ring/:ringId` for its owner too (View as is for live Rings); a changed email or phone has no dedicated re-verify route ([[Account#Gaps]]).
