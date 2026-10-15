@@ -1,0 +1,72 @@
+{
+  "collapse-filter": false,
+  "search": "-path:templates",
+  "showTags": false,
+  "showAttachments": false,
+  "hideUnresolved": true,
+  "showOrphans": true,
+  "collapse-color": false,
+  "colorGroups": [
+    {
+      "query": "tag:#status/done",
+      "color": {
+        "a": 1,
+        "rgb": 2990170
+      }
+    },
+    {
+      "query": "tag:#status/partial",
+      "color": {
+        "a": 1,
+        "rgb": 15116830
+      }
+    },
+    {
+      "query": "tag:#status/todo",
+      "color": {
+        "a": 1,
+        "rgb": 13777970
+      }
+    },
+    {
+      "query": "tag:#decision",
+      "color": {
+        "a": 1,
+        "rgb": 7882430
+      }
+    },
+    {
+      "query": "tag:#task",
+      "color": {
+        "a": 1,
+        "rgb": 5931740
+      }
+    },
+    {
+      "query": "tag:#design",
+      "color": {
+        "a": 1,
+        "rgb": 3978440
+      }
+    },
+    {
+      "query": "tag:#map",
+      "color": {
+        "a": 1,
+        "rgb": 7895160
+      }
+    }
+  ],
+  "collapse-display": false,
+  "showArrow": false,
+  "textFadeMultiplier": 0,
+  "nodeSizeMultiplier": 1.1,
+  "lineSizeMultiplier": 1,
+  "collapse-forces": false,
+  "centerStrength": 0.5,
+  "repelStrength": 12,
+  "linkStrength": 1,
+  "linkDistance": 220,
+  "scale": 1,
+  "close": false
+}
