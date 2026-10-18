@@ -20,7 +20,7 @@ Social providers for login and import (s68 linked accounts, s01 "Continue with L
 
 | Screen | Name | Note |
 |---|---|---|
-| [[Screen Index#s01|s01]] | Welcome | Promises no password → D-01 |
+| [[Screen Index#s01|s01]] | Welcome | Passwordless (D-01 decided); provider login is the second sign-in method |
 | [[Screen Index#s04|s04]] | Importing |  |
 | [[Screen Index#s68|s68]] | Me / Account |  |
 
@@ -44,13 +44,13 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 
 - LinkedIn OAuth hand-off and callback.
 - Link / unlink a provider from Me.
-- Login with a linked provider (ties into [[D-01 Passwordless login]]).
+- Login with a linked provider (must return a session like `POST /auth/login/verify`; [[D-01 Passwordless login]] is decided).
 
 ## Tasks
 
 | Task | Status | Priority | Effort |
 |---|---|---|---|
-| [[T-019 LinkedIn OAuth link, unlink, login]] | ❓ Needs a decision / info | P1 | L |
+| [[T-019 LinkedIn OAuth link, unlink, login]] | ⬜ To do | P1 | L |
 
 ```dataview
 TABLE status, priority, effort FROM #task WHERE feature = "linked-accounts" SORT priority ASC

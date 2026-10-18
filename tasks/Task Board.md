@@ -11,7 +11,6 @@ kanban-plugin: board
 - [ ] [[T-059 Decide Ring settings]] #P0 #rings
 - [ ] [[T-010 Public browser page for viewers without the app]] #P1 #badge-qr
 - [ ] [[T-018 Widget CRUD on the projection]] #P1 #widgets
-- [ ] [[T-019 LinkedIn OAuth link, unlink, login]] #P1 #linked-accounts
 - [ ] [[T-026 Ring invitations invite, review, decline]] #P1 #ring-invitations
 - [ ] [[T-039 Catalogue products and talks (new table)]] #P1 #events-during
 - [ ] [[T-047 Orders, payments and the provider webhook]] #P1 #payments
@@ -44,6 +43,7 @@ kanban-plugin: board
 
 ## ⬜ Backlog
 
+- [ ] [[T-019 LinkedIn OAuth link, unlink, login]] #P1 #linked-accounts
 - [ ] [[T-001 Wire an email provider for one-time codes]] #P0 #code-delivery
 - [ ] [[T-002 Wire an SMS provider for one-time codes]] #P0 #code-delivery
 - [ ] [[T-007 Issue and rotate the QR token for a Ring]] #P0 #badge-qr

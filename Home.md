@@ -27,7 +27,7 @@ Full description: [[Project Overview]]. Vocabulary: [[Glossary]].
 | Identity core: auth, account, profiles, Rings, members, projections, View as, files, access engine | ✅ Done, 49 endpoints, 168 unit tests green |
 | Code delivery, counts, delegated admins, badge / QR, Event Ring, photo library, devices, interests, widgets, linked accounts | 🟡 Partial: tables exist, endpoints missing |
 | Connections, shared Rings, companies, Discover, PinCast, events, meetings, exhibitor, post-event, payments, subscription, notifications, Gemma, audit log, cleanup jobs, e2e run | ❌ TODO: schema only (about 30 tables with no service) |
-| Design vs backend disagreements | ❓ 6 open [[Decisions]] |
+| Design vs backend disagreements | ❓ 5 open [[Decisions]] (D-01 passwordless: decided and shipped) |
 
 Numbers and the full tree: [[Feature Tree]]. The source comparison: [[Status Report 2026-10-15]].
 
@@ -72,7 +72,7 @@ social-pin-docs/   (= docs/ in the backend repo)
 ## Start here, by role
 
 - **Backend developer picking up work** → [[Backlog]] → the task's feature note → [[Ring Access Model]] → [[Architecture#Build order for a new feature]].
-- **Product / design** → [[Decisions]] first (six answers unblock 20 tasks), then [[Screen Index]] to see what each screen can do today.
+- **Product / design** → [[Decisions]] first (five answers unblock 19 tasks), then [[Screen Index]] to see what each screen can do today.
 - **Frontend developer** → [[Frontend Contract]] and `FRONTEND_API_GUIDE.md`, then the ✅ features in [[Feature Tree]]. **Auth went passwordless on 2026-10-15** — what changed and what to do: [[Frontend Passwordless Migration]].
 - **Anyone new** → [[Project Overview]] → [[Glossary]] → [[Feature Graph]].
 
