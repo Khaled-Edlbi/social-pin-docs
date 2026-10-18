@@ -45,6 +45,14 @@ select { padding: 5px 8px; border: 1px solid var(--line-strong); border-radius: 
 .chip[aria-pressed="true"] { background: var(--c); color: #fff; border-color: var(--c); }
 .chip[aria-pressed="true"] i { background: #fff; }
 .count { color: var(--muted); font-size: 12px; white-space: nowrap; }
+.seg .lbl { padding: 5px 8px 5px 10px; color: var(--muted); font-size: 12px; align-self: center; }
+.menu { position: relative; }
+.menu-list { position: absolute; top: calc(100% + 4px); right: 0; min-width: 220px; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; box-shadow: var(--shadow); padding: 6px; z-index: 6; }
+.menu-list button { display: block; width: 100%; text-align: left; background: none; border: 0; padding: 7px 10px; border-radius: 6px; cursor: pointer; }
+.menu-list button:hover { background: var(--hover); }
+.menu-note { color: var(--muted); font-size: 11px; padding: 4px 10px 6px; border-bottom: 1px solid var(--line); margin-bottom: 4px; }
+.menu-msg { color: var(--s-blocked); font-size: 11px; padding: 4px 10px; }
+.menu-msg:empty { display: none; }
 main { flex: 1; display: grid; grid-template-columns: 1fr minmax(0, 0px); min-height: 0; position: relative; }
 main.pane-open { grid-template-columns: 1fr minmax(360px, 44%); }
 #map, #outline { position: relative; min-height: 0; overflow: hidden; }
@@ -59,7 +67,10 @@ svg.dragging { cursor: grabbing; }
 .legend .ln.thin { border-top-width: 1.5px; border-top-style: dashed; }
 .legend .hint { color: var(--muted); margin-top: 4px; }
 /* svg nodes */
-.n { cursor: pointer; transition: transform .28s cubic-bezier(.2,.8,.2,1), opacity .2s; }
+.n { cursor: grab; transition: transform .28s cubic-bezier(.2,.8,.2,1), opacity .2s; }
+svg.drag-live .n { transition: none; }
+.n.dragging { cursor: grabbing; }
+.n.dragging rect.box { stroke: var(--accent); stroke-width: 2; filter: drop-shadow(0 6px 10px rgba(16,24,40,.25)); }
 .n rect.box { fill: var(--panel); stroke: var(--line-strong); stroke-width: 1; rx: 9; }
 .n.sel rect.box { stroke: var(--accent); stroke-width: 2; }
 .n:hover rect.box, .n.hov rect.box { stroke: var(--accent); stroke-width: 2.5; }
@@ -168,7 +179,22 @@ kbd { font: 11px var(--mono); background: var(--bg); border: 1px solid var(--lin
   <div class="chips" id="f-status" aria-label="Status filter and legend"></div>
   <button class="btn" id="expand">Expand all</button>
   <button class="btn" id="collapse">Collapse all</button>
-  <button class="btn" id="orient" title="Switch the map between top-to-bottom and left-to-right">⇅ Vertical</button>
+  <div class="seg" role="group" aria-label="Map direction">
+    <span class="lbl">Direction</span>
+    <button id="o-vertical" aria-pressed="true" title="Root at the top, levels as rows">⇅ Vertical</button>
+    <button id="o-horizontal" aria-pressed="false" title="Root at the left, levels as columns">⇄ Horizontal</button>
+  </div>
+  <div class="menu" id="layout-menu">
+    <button class="btn" id="layout-btn" aria-haspopup="true" aria-expanded="false" title="Hand-made card positions: reset, export, import">Layout ▾</button>
+    <div class="menu-list" id="layout-list" hidden>
+      <div class="menu-note" id="layout-moved">No cards moved</div>
+      <button id="layout-reset">Reset positions (this direction)</button>
+      <button id="layout-export">Export layout…</button>
+      <button id="layout-import">Import layout…</button>
+      <div class="menu-msg" id="layout-msg"></div>
+      <input type="file" id="layout-file" accept=".json,application/json" hidden>
+    </div>
+  </div>
   <button class="btn" id="theme" title="Switch light / dark">Theme</button>
   <span class="count" id="count"></span>
 </header>
@@ -188,7 +214,7 @@ kbd { font: 11px var(--mono); background: var(--bg); border: 1px solid var(--lin
       <label><input type="checkbox" data-kind="depends" checked><span class="ln thin" style="--c: var(--e-depends)"></span> Depends on</label>
       <label><input type="checkbox" data-kind="decision" checked><span class="ln thin" style="--c: var(--e-decision)"></span> Decision affects</label>
       <label><input type="checkbox" data-kind="wikilink" checked><span class="ln thin" style="--c: var(--e-wikilink)"></span> Mentions (wikilink)</label>
-      <div class="hint">Hover a node to light up its relations. Drag to pan, wheel to zoom. Root at the top; ⇅ switches the direction.</div>
+      <div class="hint">Hover a node to light up its relations. Drag the background to pan, wheel to zoom. Drag a card to move it with its branch; Layout ▾ resets, exports or imports an arrangement.</div>
     </div>
   </section>
   <section id="outline" hidden><ul role="tree" id="otree"></ul></section>
@@ -217,7 +243,7 @@ const EDGE_NAME = { related: 'related', wikilink: 'mentions', depends: 'depends 
 const ROW = 34, COLGAP = 56, PAD = 10, LEVEL = 88, XGAP = 14, H = 14, STACK = 22;
 
 const S = { data: null, inst: [], instById: new Map(), byIid: new Map(), view: 'map', collapsed: new Set(), filters: { status: new Set(), domain: '', kind: '', q: '' },
-  selected: null, hover: null, edgeKinds: new Set(['related', 'depends', 'decision', 'wikilink']), tx: 40, ty: 40, k: 1, laidOut: new Map(), ready: false, orient: 'vertical' };
+  selected: null, hover: null, edgeKinds: new Set(['related', 'depends', 'decision', 'wikilink']), tx: 40, ty: 40, k: 1, laidOut: new Map(), ready: false, orient: 'vertical', offsets: { vertical: {}, horizontal: {} } };
 
 const store = { get(k, d) { try { const v = localStorage.getItem('spt.' + k); return v === null ? d : JSON.parse(v); } catch { return d; } }, set(k, v) { try { localStorage.setItem('spt.' + k, JSON.stringify(v)); } catch {} } };
 
@@ -230,6 +256,8 @@ async function load() {
   if (collapsed) S.collapsed = new Set(collapsed);
   else for (const n of Object.values(S.data.nodes)) if (n.kind === 'feature' || n.kind === 'group' || (n.kind === 'domain' && (S.orient === 'vertical' || n.domain !== 'identity'))) S.collapsed.add(n.id);
   S.orient = store.get('orient', 'vertical');
+  const saved = store.get('offsets', null);
+  if (saved && typeof saved === 'object') S.offsets = { vertical: saved.vertical || {}, horizontal: saved.horizontal || {} };
   const view = store.get('view', window.innerWidth < 720 ? 'outline' : 'map');
   setView(view, false);
   buildFilters();
@@ -320,6 +348,17 @@ function layout(root) {
   place(root);
   return visible;
 }
+// hand-made positions: a delta per node id per direction, inherited by the whole branch
+function applyOffsets(visible) {
+  const offs = S.offsets[S.orient] || {};
+  for (const it of visible) {
+    let dx = 0, dy = 0;
+    for (let a = it; a; a = a.parent) { const o = offs[a.id]; if (o) { dx += o.dx; dy += o.dy; } }
+    it.x += dx; it.y += dy;
+  }
+}
+function movedCount() { return Object.keys(S.offsets[S.orient] || {}).length; }
+function updateMovedCount() { const n = movedCount(); $('#layout-moved').textContent = n ? `${n} card${n === 1 ? '' : 's'} moved in this direction` : 'No cards moved in this direction'; }
 // top-to-bottom: levels are rows, siblings spread horizontally, a parent centred over its children
 function layoutVertical(root) {
   const visible = S.inst.filter((it) => it.visible);
@@ -379,7 +418,26 @@ function renderMap(visible) {
         el('text', { class: 'caret-t', x: it.w, y: 0.5, 'text-anchor': 'middle' }, cg);
         cg.addEventListener('click', (e) => { e.stopPropagation(); toggle(it.id); });
       }
-      g.addEventListener('click', () => select(it.id, it.iid));
+      let drag = null, suppressClick = false;
+      g.addEventListener('pointerdown', (e) => {
+        if ((e.pointerType === 'mouse' && e.button !== 0) || e.target.closest('.caret-g')) return;
+        const o = (S.offsets[S.orient] ||= {})[it.id] || { dx: 0, dy: 0 };
+        drag = { pid: e.pointerId, sx: e.clientX, sy: e.clientY, dx: o.dx, dy: o.dy, moved: false };
+        g.setPointerCapture(e.pointerId); e.stopPropagation();
+      });
+      g.addEventListener('pointermove', (e) => {
+        if (!drag || drag.pid !== e.pointerId) return;
+        if (!drag.moved) { if (Math.hypot(e.clientX - drag.sx, e.clientY - drag.sy) < 4) return; drag.moved = true; g.classList.add('dragging'); svg.classList.add('drag-live'); }
+        S.offsets[S.orient][it.id] = { dx: Math.round(drag.dx + (e.clientX - drag.sx) / S.k), dy: Math.round(drag.dy + (e.clientY - drag.sy) / S.k) };
+        scheduleReposition();
+      });
+      const endDrag = (e) => {
+        if (!drag || drag.pid !== e.pointerId) return;
+        if (drag.moved) { suppressClick = true; store.set('offsets', S.offsets); updateMovedCount(); reposition(); }
+        g.classList.remove('dragging'); svg.classList.remove('drag-live'); drag = null;
+      };
+      g.addEventListener('pointerup', endDrag); g.addEventListener('pointercancel', endDrag);
+      g.addEventListener('click', () => { if (suppressClick) { suppressClick = false; return; } select(it.id, it.iid); });
       g.addEventListener('mouseenter', () => setHover(it.id));
       g.addEventListener('mouseleave', () => setHover(null));
       S.laidOut.set(it.iid, g);
@@ -393,7 +451,11 @@ function renderMap(visible) {
   }
   for (const [iid, g] of S.laidOut) if (!seen.has(iid)) { g.remove(); S.laidOut.delete(iid); }
 
-  // tree edges
+  drawTreeEdges(visible);
+  renderRelEdges(visible);
+  updateHover();
+}
+function drawTreeEdges(visible) {
   gTree.innerHTML = '';
   for (const it of visible) {
     if (!it.parent) continue;
@@ -405,8 +467,15 @@ function renderMap(visible) {
       : `M ${p.x + p.w} ${p.y} C ${p.x + p.w + COLGAP / 2} ${p.y}, ${it.x - COLGAP / 2} ${it.y}, ${it.x} ${it.y}`;
     el('path', { d, class: filtersActive() && !it.match && !it.keep ? 'faded' : '' }, gTree);
   }
-  renderRelEdges(visible);
-  updateHover();
+}
+// re-place the cards that already exist (used while dragging): no instance rebuild, no DOM churn
+let repositionQueued = false;
+function scheduleReposition() { if (repositionQueued) return; repositionQueued = true; requestAnimationFrame(() => { repositionQueued = false; reposition(); }); }
+function reposition() {
+  const root = S.byIid.get(S.data.rootId); if (!root) return;
+  const visible = layout(root); applyOffsets(visible);
+  for (const it of visible) { const g = S.laidOut.get(it.iid); if (g) g.style.transform = `translate(${it.x}px, ${it.y}px)`; }
+  drawTreeEdges(visible); renderRelEdges(visible);
 }
 function countDesc(n) { let c = 0; const seen = new Set(); const v = (id) => { for (const k of node(id).children) { if (seen.has(k)) continue; seen.add(k); c++; v(k); } }; v(n.id); return c; }
 
@@ -535,7 +604,7 @@ function outlineKeys(e, it, row) {
 function refresh(resetView) {
   const root = buildInstances();
   computeVisibility(root);
-  const visible = layout(root);
+  const visible = layout(root); applyOffsets(visible);
   if (S.view === 'map') renderMap(visible); else renderOutline(root);
   $('#count').textContent = `${visible.length} of ${Object.keys(S.data.nodes).length} nodes`;
   if (resetView) fit();
@@ -574,9 +643,37 @@ function buildFilters() {
   let t; $('#search').oninput = (e) => { clearTimeout(t); t = setTimeout(() => { S.filters.q = e.target.value.trim(); refresh(true); }, 120); };
   $('#expand').onclick = () => expandAll(true); $('#collapse').onclick = () => expandAll(false);
   $('#v-map').onclick = () => setView('map'); $('#v-outline').onclick = () => setView('outline');
-  const orientLabel = () => { $('#orient').textContent = S.orient === 'vertical' ? '⇅ Vertical' : '⇄ Horizontal'; };
-  orientLabel();
-  $('#orient').onclick = () => { S.orient = S.orient === 'vertical' ? 'horizontal' : 'vertical'; store.set('orient', S.orient); orientLabel(); refresh(true); };
+  const setOrient = (o, persist = true) => {
+    S.orient = o; if (persist) store.set('orient', o);
+    $('#o-vertical').setAttribute('aria-pressed', o === 'vertical'); $('#o-horizontal').setAttribute('aria-pressed', o === 'horizontal');
+    updateMovedCount(); if (persist) refresh(true);
+  };
+  setOrient(S.orient, false);
+  $('#o-vertical').onclick = () => setOrient('vertical'); $('#o-horizontal').onclick = () => setOrient('horizontal');
+  // layout menu
+  const list = $('#layout-list'), msg = $('#layout-msg');
+  const openMenu = (open) => { list.hidden = !open; $('#layout-btn').setAttribute('aria-expanded', open); if (open) { updateMovedCount(); msg.textContent = ''; } };
+  $('#layout-btn').onclick = (e) => { e.stopPropagation(); openMenu(list.hidden); };
+  document.addEventListener('click', (e) => { if (!e.target.closest('#layout-menu')) openMenu(false); });
+  $('#layout-reset').onclick = () => { S.offsets[S.orient] = {}; store.set('offsets', S.offsets); openMenu(false); refresh(true); };
+  $('#layout-export').onclick = () => {
+    const payload = { schema: 1, orient: S.orient, offsets: S.offsets, collapsed: [...S.collapsed], exportedAt: new Date().toISOString() };
+    const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' })); a.download = 'docs-tree-layout.json'; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1000); openMenu(false);
+  };
+  $('#layout-import').onclick = () => $('#layout-file').click();
+  $('#layout-file').onchange = async (e) => {
+    const f = e.target.files[0]; e.target.value = ''; if (!f) return;
+    try {
+      const data = JSON.parse(await f.text());
+      if (data.schema !== 1 || !data.offsets || typeof data.offsets !== 'object') throw new Error('not a docs-tree layout file');
+      for (const d of ['vertical', 'horizontal']) for (const [id, o] of Object.entries(data.offsets[d] || {})) {
+        if (!S.data.nodes[id] || typeof o?.dx !== 'number' || typeof o?.dy !== 'number') continue;
+        (S.offsets[d] ||= {})[id] = { dx: o.dx, dy: o.dy };
+      }
+      if (Array.isArray(data.collapsed)) { S.collapsed = new Set(data.collapsed.filter((id) => S.data.nodes[id])); store.set('collapsed', [...S.collapsed]); }
+      store.set('offsets', S.offsets); openMenu(false); refresh(true);
+    } catch (err) { msg.textContent = `Import failed: ${err.message}`; }
+  };
   $('#theme').onclick = () => { const cur = document.documentElement.dataset.theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); const next = cur === 'dark' ? 'light' : 'dark'; document.documentElement.dataset.theme = next; store.set('theme', next); };
   for (const cb of document.querySelectorAll('#legend input')) cb.onchange = () => { if (cb.checked) S.edgeKinds.add(cb.dataset.kind); else S.edgeKinds.delete(cb.dataset.kind); renderRelEdges(S.inst.filter((it) => it.visible)); };
   $('#p-close').onclick = closePane;
@@ -589,7 +686,22 @@ function buildFilters() {
 const pane = $('#pane');
 function closePane() { $('#main').classList.remove('pane-open'); S.selected = null; refresh(false); if (location.hash) history.replaceState(null, '', location.pathname); }
 function ghUrl(p) { return S.data.repo.blobBase + p.split('/').map(encodeURIComponent).join('/'); }
-function notesUrl(p) { return 'notes/' + p.split('/').map(encodeURIComponent).join('/'); }
+function encPath(p) { return p.split('/').map(encodeURIComponent).join('/'); }
+function notesUrl(p) { return 'notes/' + encPath(p); }
+// where a note's text may live, in order: the built site, the repo folder next to tree/, GitHub raw
+function noteCandidates(p) {
+  const r = S.data.repo || {};
+  const raw = r.owner && r.name ? `https://raw.githubusercontent.com/${r.owner}/${r.name}/${r.branch || 'main'}/${encPath(p)}` : null;
+  return [{ url: notesUrl(p), init: { cache: 'no-store' } }, { url: '../' + encPath(p), init: { cache: 'no-store' } }, raw && { url: raw, init: {} }].filter(Boolean);
+}
+async function fetchNote(p) {
+  const tried = [];
+  for (const c of noteCandidates(p)) {
+    try { const r = await fetch(c.url, c.init); if (r.ok) return { text: await r.text(), url: c.url, tried }; tried.push(`${c.url} → ${r.status}`); }
+    catch (e) { tried.push(`${c.url} → ${e.message}`); }
+  }
+  return { text: null, tried };
+}
 async function openNode(id) {
   const n = node(id);
   $('#main').classList.add('pane-open');
@@ -638,9 +750,12 @@ async function openFile(path, heading) {
 async function renderFile(path, heading) {
   const art = $('#p-article'); const fm = $('#p-fm');
   art.innerHTML = '<p class="empty">Loading…</p>'; fm.innerHTML = '';
-  let text;
-  try { const r = await fetch(notesUrl(path), { cache: 'no-store' }); if (!r.ok) throw new Error(r.status); text = await r.text(); }
-  catch (e) { art.innerHTML = `<p class="empty">Could not load <code>${esc(path)}</code> (${esc(String(e.message))}). <a href="${ghUrl(path)}" target="_blank" rel="noopener">Open it on GitHub</a>.</p>`; return; }
+  const got = await fetchNote(path);
+  if (got.text === null) {
+    art.innerHTML = `<p class="empty">Could not load <code>${esc(path)}</code> from any of these places:</p><ul class="empty">${got.tried.map((t) => `<li><code>${esc(t)}</code></li>`).join('')}</ul><p class="empty"><a href="${ghUrl(path)}" target="_blank" rel="noopener">Open it on GitHub</a>.</p>`;
+    return;
+  }
+  const text = got.text;
   const { data, body } = splitFrontmatter(text);
   if (data) fm.innerHTML = Object.entries(data).map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(Array.isArray(v) ? v.join(', ') : String(v))}</dd>`).join('');
   art.innerHTML = md(body, path);
