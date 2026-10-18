@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Social Pin Docs Tree</title>
 <meta name="description" content="Every note of the Social Pin docs vault as a readable tree: project → domains → features → docs, user story, frontend requirements, API integration, tasks and decisions. Relations between notes appear behind the tree and light up on hover.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg: #f6f7f9; --panel: #ffffff; --ink: #1c2330; --muted: #5f6b7d; --line: #d9dee6; --line-strong: #aeb7c4;
@@ -12,7 +15,7 @@
   --s-done: #2f9e63; --s-partial: #d99a1a; --s-todo: #8a94a6; --s-in-progress: #2f7de1; --s-blocked: #d9534f;
   --s-needs-decision: #8e5bd6; --s-draft: #3fa7a3; --s-approved: #2f9e63; --s-frontend-only: #9aa3b2; --s-missing: #b0b6c0; --s-reference: #6b7a90;
   --e-tree: #7f8a9b; --e-related: #2f7de1; --e-wikilink: #8a94a6; --e-depends: #d9534f; --e-decision: #8e5bd6;
-  --font: -apple-system, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif; --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --font: "Inter", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
   --bg: #0f1419; --panel: #161c24; --ink: #e6ebf2; --muted: #9aa6b8; --line: #27303c; --line-strong: #3b4654;
@@ -26,7 +29,7 @@
 }
 * { box-sizing: border-box; }
 html, body { height: 100%; margin: 0; }
-body { background: var(--bg); color: var(--ink); font: 14px/1.45 var(--font); display: flex; flex-direction: column; overflow: hidden; }
+body { background: var(--bg); color: var(--ink); font: 14px/1.45 var(--font); font-feature-settings: "cv11", "ss01"; display: flex; flex-direction: column; overflow: hidden; }
 button, select, input { font: inherit; color: inherit; }
 a { color: var(--accent); }
 header { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; padding: 8px 16px; background: var(--panel); border-bottom: 1px solid var(--line); z-index: 3; }
@@ -269,6 +272,7 @@ async function load() {
   S.ready = true;
   route();
   refresh(true);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { if (S.view === 'map') { for (const g of S.laidOut.values()) g.remove(); S.laidOut.clear(); refresh(false); } });
 }
 function node(id) { return S.data.nodes[id]; }
 
