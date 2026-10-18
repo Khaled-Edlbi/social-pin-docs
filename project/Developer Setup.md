@@ -40,7 +40,7 @@ pnpm test:e2e                                            # needs a migrated + se
 
 ## Demo accounts (non-production only)
 
-All share the password `socialpin-dev-password`.
+There are no passwords. Sign in with `POST /auth/login { identifier }` and answer `POST /auth/login/verify` with the `devCode` from the response (see [[Auth Model]]).
 
 | Email | Pin | Role | Why it matters |
 |---|---|---|---|

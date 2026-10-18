@@ -10,7 +10,7 @@ Where the design and the backend disagree. Each needs a product decision before 
 
 | Decision | Status | Affects | Screens |
 |---|---|---|---|
-| [[D-01 Passwordless login]] | open | [[Auth & Sign-up]], [[Linked Accounts (OAuth)]] | s01, s02 |
+| [[D-01 Passwordless login]] | decided (A, code-only) | [[Auth & Sign-up]], [[Linked Accounts (OAuth)]] | s01, s02 |
 | [[D-02 Base profile work fields]] | open | [[Profiles & Pin Name]], [[Ring Projection]], [[Onboarding Imports]], [[Photo Library]] | s05, s06, s11, s23, s29 |
 | [[D-03 Field library vs per-Ring copies]] | open | [[Ring Projection]], [[Widgets]] | s20, s24 |
 | [[D-04 Ring settings]] | open | [[Rings]], [[Ring Members]], [[Ring Invitations & Join]], [[Delegated Admins]], [[Companies]] | s19, s22, s26, s27 |

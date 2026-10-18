@@ -27,5 +27,5 @@ tags: [project]
 | **Gemma** | The AI layer: assistant sheet, Smart Match, suggestions everywhere. Pro gates its automation. | [[Gemma AI]] |
 | **Pro** | The paid account type; gates Smart Match, any-lounge access, Gemma automation, permanent QR. | [[Subscription (Free vs Pro)]] |
 | **Onboarding token** | A 15-minute token proving "this destination was verified for this purpose". Not a session. | [[Auth Model]] |
-| **devCode** | The plaintext OTP returned in development only, because delivery is not wired. | [[Code Delivery]] |
+| **devCode** | The plaintext OTP returned on every issued code, in every environment, because delivery is not wired. Removed once it is. | [[Code Delivery]] |
 | **sNN** | A prototype screen id, e.g. `s44`. | [[Screen Index]] |

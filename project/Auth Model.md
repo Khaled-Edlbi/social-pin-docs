@@ -1,12 +1,14 @@
 ---
 type: project
-updated: 2026-10-15
+updated: 2026-10-18
 tags: [project]
 ---
 
 # Auth Model
 
-As implemented. Feature note: [[Auth & Sign-up]]. Open question: [[D-01 Passwordless login]].
+As implemented. Feature note: [[Auth & Sign-up]]. Decided: [[D-01 Passwordless login]] (code-only, 2026-10-15). Client-facing changes: [[Frontend Passwordless Migration]].
+
+**There is no password anywhere.** Every sign-in is a 6-digit OTP. `users.password_hash` was dropped (`20261015120000_drop_password_hash`); `VERIFICATION_PURPOSE.PASSWORD_RESET`, `E_AUTH_02` and `E_USER_04` are retired and must not be reused.
 
 ## Guarding
 
@@ -21,7 +23,7 @@ As implemented. Feature note: [[Auth & Sign-up]]. Open question: [[D-01 Password
 |---|---|---|---|
 | access | `access` | 15 min | every API call |
 | refresh | `refresh` | 7 days | only `/auth/refresh` and `/auth/logout`; **rotating, single-use**, stored bcrypt-hashed |
-| onboarding | `onboarding` | 15 min | only `complete-registration` / `reset-password` |
+| onboarding | `onboarding` | 15 min | only `complete-registration` |
 
 `JwtStrategy` rejects anything whose scope is not exactly `access`, and **re-reads the user on every request**, so a SUSPENDED account loses access at once.
 
@@ -31,17 +33,26 @@ As implemented. Feature note: [[Auth & Sign-up]]. Open question: [[D-01 Password
 
 ```
 POST /auth/sign-up               → PENDING user + OTP        (public)
-POST /auth/verify-code           → onboarding token          (public)
-POST /auth/complete-registration → password + pinName        (public)
-     └─ one transaction: password, profile, default Ring, Ring projection
+POST /auth/verify-code           → onboarding token, 15 min  (public)
+POST /auth/complete-registration → pinName                   (public)
+     └─ one transaction: activate, profile, default Ring, Ring projection
 ```
 
-The password comes after the code because the brief (§3.1) says so. `complete-registration` is `@Transactional` as a whole: an account with a password but no default Ring has nothing for a scanned QR to resolve to.
+`complete-registration` is `@Transactional` as a whole: an ACTIVE account with no default Ring has nothing for a scanned QR to resolve to, and that is the one state this flow must never leave behind.
+
+## Sign-in (two calls)
+
+```
+POST /auth/login          → LOGIN OTP                            (public)
+POST /auth/login/verify   → session; 403 E_AUTH_03 unless ACTIVE (public)
+```
+
+`request-code` resends a `SIGN_UP` or `LOGIN` code; a new code replaces the previous one. Codes live 10 minutes and burn after 5 wrong attempts (`429 E_AUTH_06`); the attempt counter commits in its own transaction (`Propagation.RequiresNew`) so a thrown error cannot roll it back.
 
 ## Enumeration resistance
 
-One body for all login failures; a bcrypt compare even against a missing account; `request-code` returns a challenge for unknown destinations; the Pin-name availability check never says who holds a name; the `/views` 404 is identical for missing, not shared and blocked.
+`login` and `request-code` return a challenge of the same shape for an unknown destination, with no `devCode` and no code stored; the Pin-name availability check never says who holds a name; the `/views` 404 is identical for missing, not shared and blocked.
 
 ## Not wired
 
-OTP delivery: `AuthService.issueCode` logs the code (`TODO(delivery)`). In `development`, `test` and `local` the code is also returned as `devCode`. The gate is an allow-list, not `!== 'production'`, so a misspelled `NODE_ENV` withholds the credential. See [[Code Delivery]].
+OTP delivery: `AuthService.issueCode` logs the code (`TODO(delivery)`). Because nothing is delivered, `sign-up`, `login` and `request-code` return the plaintext code as `devCode` **in every environment** (product decision, 2026-10-15), so the app can sign in before a provider exists. While it is returned, anyone who knows an account's email or phone can sign in as it. Delete `devCode` from `AuthService.issueCode` and `VerificationChallengeEntity` when delivery is wired. See [[Code Delivery]].

@@ -84,7 +84,7 @@ A service change ships a spec covering every thrown domain error, each query-bui
 
 | Module | Owns | Feature notes |
 |---|---|---|
-| `auth` | sign-up, OTP, tokens, password | [[Auth & Sign-up]], [[Auth Model]] |
+| `auth` | sign-up, OTP sign-in, tokens | [[Auth & Sign-up]], [[Auth Model]] |
 | `user` | `/users/me` | [[Account]] |
 | `profile` | profiles, Pin name | [[Profiles & Pin Name]] |
 | `ring` | Rings, members | [[Rings]], [[Ring Members]] |

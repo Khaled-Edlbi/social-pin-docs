@@ -160,9 +160,9 @@ model instead of turning Social Pin into a generic social network."*
 | 6 | PinCast, nearby discovery, search by ring | schema | `Pincast`, `PincastRecipient`, PostGIS index |
 | 7 | Notifications | schema | `Notification`, `NotificationPreference` |
 | 8 | Sign up with email or phone | **API** | `POST /auth/sign-up` |
-| 8 | Email OTP → enter code → create password | **API** | `verify-code` → `complete-registration`. **Delivery not wired** — see below |
+| 8 | Email OTP → enter code (passwordless; design s01) | **API** | Sign-up: `verify-code` → `complete-registration`. Sign-in: `login` → `login/verify`. **Delivery not wired** — see below |
 | 8 | Social providers | schema | `SocialIdentity` |
-| 8 | Manage account | **API** | `PATCH /users/me`, `POST /auth/change-password` |
+| 8 | Manage account | **API** | `PATCH /users/me` (no password — sign-in is OTP only) |
 | 8 | Free vs Pro | schema | `User.accountType`, `Subscription` |
 | 9–11 | Events: visitor, exhibitor, organizer | schema | `event.prisma`, `business.prisma` |
 | 12 | Meetings and slot-based scheduling | schema | `meeting.prisma`, with the overlap exclusion constraint |
@@ -188,9 +188,9 @@ Stated plainly, because a gap described as done is worse than a gap.
 
 1. **OTP delivery is not wired.** `AuthService.issueCode` logs the code with a
    `TODO(delivery)` and no mail/SMS provider is configured. The flow is
-   otherwise complete, and in a development environment `sign-up` /
-   `request-code` return the code as `devCode` so sign-up can be completed
-   without reading the log. Production never returns it.
+   otherwise complete. Until it is wired, `sign-up`, `login` and
+   `request-code` return the code as `devCode` **in every environment**, so
+   anyone who knows an account's email or phone can sign in as it.
 2. **No module writes to `audit_logs`.** The table, indexes and the list of
    actions to log are in place; the writes are not.
 3. **Retention and expiry jobs are not written.** Nothing sweeps `AUTO_DELETE`
