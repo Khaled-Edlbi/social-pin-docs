@@ -98,9 +98,10 @@ export function loadConfig(errors = []) {
   const flowBack = flow.filter(([a, b]) => flowOrder.indexOf(a) >= flowOrder.indexOf(b));
   // every forward hand-off is also a block: a card waits for the card before it until that one is handed off (its handoff statuses, else its done set)
   const flowBlocks = flow.filter((p) => !flowBack.includes(p)).map(([by, kind]) => ({ kind, by }));
+  const taskLabels = Array.isArray(cfg.taskLabels) ? cfg.taskLabels.filter((l) => typeof l === 'string') : [];
   const frontendOnlySkips = Array.isArray(cfg.frontendOnly?.skips) ? cfg.frontendOnly.skips : [];
   for (const k of frontendOnlySkips) if (!kinds.has(k)) err(`frontendOnly.skips names unknown kind "${k}"`);
-  return { ...cfg, kinds, kindOrder, flowOrder, flowBack, flowBlocks, frontendOnlySkips };
+  return { ...cfg, kinds, kindOrder, flowOrder, flowBack, flowBlocks, frontendOnlySkips, taskLabels };
 }
 
 // ---------------------------------------------------------------- frontmatter
@@ -288,7 +289,7 @@ export function build() {
     id: null, kind: null, layer: null, title: n ? n.stem : null, path: n ? n.rel : null, status: null, effectiveStatus: null, blockedBy: [],
     priority: n?.data?.priority ?? null, effort: n?.data?.effort ?? null, module: n?.data?.module ?? null, feature: null, task: null, code: null, scope: null,
     screens: list(n?.data?.screens), updated: n?.data?.updated ?? n?.data?.created ?? null, tags: list(n?.data?.tags),
-    depends: [], affects: [], related: [], children: [], parents: [], summary: n?.summary ?? null, label: null, parentTask: null, pending: [], frontendOnly: false, ...extra,
+    depends: [], affects: [], related: [], children: [], parents: [], summary: n?.summary ?? null, label: null, parentTask: null, pending: [], frontendOnly: false, labels: [], ...extra,
   });
   const byType = (t) => notes.filter((n) => n.data && n.data.type === t && !n.rel.startsWith('templates/'));
   const requireKeys = (n, keys) => { for (const k of keys) if (n.data[k] === undefined || n.data[k] === null || n.data[k] === '') err(n.rel, `missing frontmatter key "${k}"`); };
@@ -348,7 +349,9 @@ export function build() {
     requireKeys(n, ['id', 'status', 'feature']);
     const status = normStatus(n, 'task');
     const parent = typeof n.data.parent === 'string' && n.data.parent.trim() ? n.data.parent.trim() : null;
-    const t = addNode(base(n, { id: `task:${n.data.id}`, kind: 'task', layer: 'business', feature: n.data.feature, code: n.data.id, status, effectiveStatus: status, label: 'Task', decision: n.data.decision ?? null, dir: null, parentTask: parent }));
+    const labels = [...new Set(list(n.data.labels).map((l) => l.trim().toLowerCase()))];
+    for (const l of labels) if (!cfg.taskLabels.includes(l)) err(n.rel, `labels: "${l}" is not in docs.config.json taskLabels (${cfg.taskLabels.join(', ')})`);
+    const t = addNode(base(n, { id: `task:${n.data.id}`, kind: 'task', layer: 'business', feature: n.data.feature, code: n.data.id, status, effectiveStatus: status, label: 'Task', decision: n.data.decision ?? null, dir: null, parentTask: parent, labels }));
     noteOf.set(t.id, n);
     if (taskNodes.has(n.data.id)) err(n.rel, `second task note with id "${n.data.id}"`);
     taskNodes.set(n.data.id, t);
@@ -732,7 +735,7 @@ export function build() {
 
   return {
     json: {
-      schema: 2, repo: REPO, rootId: 'root', counts, legend: LEGEND, emoji: EMOJI, layers: layersOut, flow: cfg.flow, flowOrder: cfg.flowOrder, flowBack: cfg.flowBack, defaultBlocks: [...cfg.flowBlocks, ...(cfg.defaultBlocks || [])], frontendOnly: { skips: cfg.frontendOnlySkips },
+      schema: 2, repo: REPO, rootId: 'root', counts, legend: LEGEND, emoji: EMOJI, layers: layersOut, flow: cfg.flow, flowOrder: cfg.flowOrder, flowBack: cfg.flowBack, taskLabels: cfg.taskLabels, defaultBlocks: [...cfg.flowBlocks, ...(cfg.defaultBlocks || [])], frontendOnly: { skips: cfg.frontendOnlySkips },
       modules: cfg.modules, generated: GENERATED, nodes, edges, concepts: conceptsOut, byName, files: filesIndex, diagnostics: { errors, warnings },
     },
     errors, warnings, notes, cfg,
@@ -759,7 +762,7 @@ function treeMarkdown(json) {
   const seen = new Set();
   const walkNode = (id, depth) => {
     const n = nodes[id];
-    const extra = [n.label && !['feature', 'module', 'task'].includes(n.kind) ? n.label : null, n.parentTask ? `sub-task of ${n.parentTask}` : null, n.frontendOnly ? 'frontend only' : null, n.pending?.length ? `${n.pending.length} pending note${n.pending.length === 1 ? '' : 's'}` : null, n.priority, n.blockedBy?.length ? `blocked by ${n.blockedBy.map((b) => b.title).join(', ')}` : null].filter(Boolean).join(', ');
+    const extra = [n.label && !['feature', 'module', 'task'].includes(n.kind) ? n.label : null, n.parentTask ? `sub-task of ${n.parentTask}` : null, ...(n.labels || []), n.frontendOnly ? 'frontend only' : null, n.pending?.length ? `${n.pending.length} pending note${n.pending.length === 1 ? '' : 's'}` : null, n.priority, n.blockedBy?.length ? `blocked by ${n.blockedBy.map((b) => b.title).join(', ')}` : null].filter(Boolean).join(', ');
     lines.push(`${'  '.repeat(depth)}- ${EMOJI[n.effectiveStatus] || '•'} ${mdLink(n)}${extra ? ` (${extra})` : ''}`);
     if (seen.has(id) && n.children.length) { lines.push(`${'  '.repeat(depth + 1)}- (see above)`); return; }
     seen.add(id);
@@ -781,7 +784,7 @@ function boardMarkdown(json) {
   for (const [status, title] of cols) {
     lines.push(`## ${title}`, '');
     const rows = taskRows(json).filter((t) => t.effectiveStatus === status).sort((a, b) => prioRank(a.priority) - prioRank(b.priority) || a.code.localeCompare(b.code, 'en', { numeric: true }));
-    for (const t of rows) lines.push(`- [${status === 'done' ? 'x' : ' '}] ${wiki(t)} #${t.priority ?? 'P?'} #${t.feature}${t.pending.length ? ` — ${t.pending.map((p) => (p.to ? `[[${nodes[p.to].title}]]` : p.person ? `@${p.person}` : '') + (p.text ? `: ${p.text}` : '')).join('; ')}` : ''}`);
+    for (const t of rows) lines.push(`- [${status === 'done' ? 'x' : ' '}] ${wiki(t)} #${t.priority ?? 'P?'} #${t.feature}${t.labels.map((l) => ` #${l}`).join('')}${t.pending.length ? ` — ${t.pending.map((p) => (p.to ? `[[${nodes[p.to].title}]]` : p.person ? `@${p.person}` : '') + (p.text ? `: ${p.text}` : '')).join('; ')}` : ''}`);
     lines.push('', '');
   }
   lines.push('%% kanban:settings', '```', '{"kanban-plugin":"board"}', '```', '%%', '');
@@ -802,12 +805,12 @@ function backlogMarkdown(json) {
     const rows = open.filter((t) => (t.priority ?? 'P3') === p);
     if (!rows.length) continue;
     lines.push(`## ${p}`, '', '| Task | Feature | Module | Status | Effort | Depends on / blocked by |', '|---|---|---|---|---|---|');
-    for (const t of rows) lines.push(`| ${wiki(t)} | ${featureTitle(t)} | ${moduleName(t)} | ${status(t)} | ${t.effort ?? '—'} | ${t.blockedBy.length ? t.blockedBy.map((b) => wiki(nodes[b.id], nodes[b.id].code ?? nodes[b.id].title)).join(', ') : dep(t)} |`);
+    for (const t of rows) lines.push(`| ${wiki(t)}${t.labels.length ? ' ' + t.labels.map((l) => `\`${l}\``).join(' ') : ''} | ${featureTitle(t)} | ${moduleName(t)} | ${status(t)} | ${t.effort ?? '—'} | ${t.blockedBy.length ? t.blockedBy.map((b) => wiki(nodes[b.id], nodes[b.id].code ?? nodes[b.id].title)).join(', ') : dep(t)} |`);
     lines.push('');
   }
   const done = taskRows(json).filter((t) => t.effectiveStatus === 'done');
   lines.push('## Done', '', '| Task | Feature | Module | Effort |', '|---|---|---|---|');
-  for (const t of done) lines.push(`| ${wiki(t)} | ${featureTitle(t)} | ${moduleName(t)} | ${t.effort ?? '—'} |`);
+  for (const t of done) lines.push(`| ${wiki(t)}${t.labels.length ? ' ' + t.labels.map((l) => `\`${l}\``).join(' ') : ''} | ${featureTitle(t)} | ${moduleName(t)} | ${t.effort ?? '—'} |`);
   lines.push('');
   return lines.join('\n');
 }
