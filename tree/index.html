@@ -168,6 +168,7 @@ kbd { font: 11px var(--mono); background: var(--bg); border: 1px solid var(--lin
   <div class="chips" id="f-status" aria-label="Status filter and legend"></div>
   <button class="btn" id="expand">Expand all</button>
   <button class="btn" id="collapse">Collapse all</button>
+  <button class="btn" id="orient" title="Switch the map between top-to-bottom and left-to-right">⇅ Vertical</button>
   <button class="btn" id="theme" title="Switch light / dark">Theme</button>
   <span class="count" id="count"></span>
 </header>
@@ -187,7 +188,7 @@ kbd { font: 11px var(--mono); background: var(--bg); border: 1px solid var(--lin
       <label><input type="checkbox" data-kind="depends" checked><span class="ln thin" style="--c: var(--e-depends)"></span> Depends on</label>
       <label><input type="checkbox" data-kind="decision" checked><span class="ln thin" style="--c: var(--e-decision)"></span> Decision affects</label>
       <label><input type="checkbox" data-kind="wikilink" checked><span class="ln thin" style="--c: var(--e-wikilink)"></span> Mentions (wikilink)</label>
-      <div class="hint">Hover a node to light up its relations. Drag to pan, wheel to zoom.</div>
+      <div class="hint">Hover a node to light up its relations. Drag to pan, wheel to zoom. Root at the top; ⇅ switches the direction.</div>
     </div>
   </section>
   <section id="outline" hidden><ul role="tree" id="otree"></ul></section>
@@ -213,10 +214,10 @@ const SVGNS = 'http://www.w3.org/2000/svg';
 const GLYPH = { root: '◉', domain: '🗂', group: '📘', feature: '◆', docs: '📄', story: '💬', requirements: '📋', frontend: '🔌', task: '☐', decision: '❓', project: '📘' };
 const KIND_NAME = { root: 'Project', domain: 'Domain', group: 'Group', feature: 'Feature', docs: 'Docs', story: 'User story', requirements: 'Frontend requirements', frontend: 'API integration', task: 'Task', decision: 'Decision', project: 'Project note' };
 const EDGE_NAME = { related: 'related', wikilink: 'mentions', depends: 'depends on', decision: 'decision affects' };
-const ROW = 34, COLGAP = 56, PAD = 10;
+const ROW = 34, COLGAP = 56, PAD = 10, LEVEL = 88, XGAP = 14, H = 14;
 
 const S = { data: null, inst: [], instById: new Map(), byIid: new Map(), view: 'map', collapsed: new Set(), filters: { status: new Set(), domain: '', kind: '', q: '' },
-  selected: null, hover: null, edgeKinds: new Set(['related', 'depends', 'decision', 'wikilink']), tx: 40, ty: 40, k: 1, laidOut: new Map(), ready: false };
+  selected: null, hover: null, edgeKinds: new Set(['related', 'depends', 'decision', 'wikilink']), tx: 40, ty: 40, k: 1, laidOut: new Map(), ready: false, orient: 'vertical' };
 
 const store = { get(k, d) { try { const v = localStorage.getItem('spt.' + k); return v === null ? d : JSON.parse(v); } catch { return d; } }, set(k, v) { try { localStorage.setItem('spt.' + k, JSON.stringify(v)); } catch {} } };
 
@@ -228,6 +229,7 @@ async function load() {
   const collapsed = store.get('collapsed', null);
   if (collapsed) S.collapsed = new Set(collapsed);
   else for (const n of Object.values(S.data.nodes)) if (n.kind === 'feature' || n.kind === 'group' || (n.kind === 'domain' && n.domain !== 'identity')) S.collapsed.add(n.id);
+  S.orient = store.get('orient', 'vertical');
   const view = store.get('view', window.innerWidth < 720 ? 'outline' : 'map');
   setView(view, false);
   buildFilters();
@@ -300,6 +302,7 @@ function statusText(n) {
   return l;
 }
 function layout(root) {
+  if (S.orient === 'vertical') return layoutVertical(root);
   const visible = S.inst.filter((it) => it.visible);
   const colW = [];
   for (const it of visible) { it.w = nodeWidth(it.node); colW[it.depth] = Math.max(colW[it.depth] || 0, it.w); }
@@ -313,6 +316,27 @@ function layout(root) {
     for (const c of kids) place(c);
     it.y = (kids[0].y + kids[kids.length - 1].y) / 2;
     if (it.node.kind === 'feature' || it.node.kind === 'domain') cursor += 10;
+  };
+  place(root);
+  return visible;
+}
+// top-to-bottom: levels are rows, siblings spread horizontally, a parent centred over its children
+function layoutVertical(root) {
+  const visible = S.inst.filter((it) => it.visible);
+  for (const it of visible) it.w = nodeWidth(it.node);
+  let cursor = 0;
+  const shift = (it, dx) => { it.x += dx; for (const c of it.children) if (c.visible) shift(c, dx); };
+  const place = (it) => {
+    it.y = it.depth * LEVEL;
+    const kids = it.children.filter((c) => c.visible);
+    if (!kids.length) { it.x = cursor; cursor += it.w + XGAP; return; }
+    const start = cursor;
+    for (const c of kids) place(c);
+    const first = kids[0], last = kids[kids.length - 1];
+    it.x = (first.x + last.x + last.w) / 2 - it.w / 2;
+    if (it.x < start) { const dx = start - it.x; for (const c of kids) shift(c, dx); it.x += dx; }
+    cursor = Math.max(cursor, it.x + it.w + XGAP);
+    if (it.node.kind === 'feature' || it.node.kind === 'domain') cursor += 16;
   };
   place(root);
   return visible;
@@ -366,7 +390,9 @@ function renderMap(visible) {
   for (const it of visible) {
     if (!it.parent) continue;
     const p = it.parent;
-    const d = `M ${p.x + p.w} ${p.y} C ${p.x + p.w + COLGAP / 2} ${p.y}, ${it.x - COLGAP / 2} ${it.y}, ${it.x} ${it.y}`;
+    const d = S.orient === 'vertical'
+      ? `M ${p.x + p.w / 2} ${p.y + H} C ${p.x + p.w / 2} ${p.y + LEVEL / 2}, ${it.x + it.w / 2} ${it.y - LEVEL / 2}, ${it.x + it.w / 2} ${it.y - H}`
+      : `M ${p.x + p.w} ${p.y} C ${p.x + p.w + COLGAP / 2} ${p.y}, ${it.x - COLGAP / 2} ${it.y}, ${it.x} ${it.y}`;
     el('path', { d, class: filtersActive() && !it.match && !it.keep ? 'faded' : '' }, gTree);
   }
   renderRelEdges(visible);
@@ -394,10 +420,21 @@ function renderRelEdges(visible) {
     const routed = a.routed || b.routed;
     if (routed && !lit) continue;             // background only between nodes that are really visible
     const x1 = a.it.x + a.it.w / 2, y1 = a.it.y, x2 = b.it.x + b.it.w / 2, y2 = b.it.y;
-    const same = Math.abs(x1 - x2) < 1;
-    const bend = same ? Math.max(40, Math.abs(y2 - y1) * .25) : 0;
-    const d = same ? `M ${x1 + a.it.w / 2} ${y1} C ${x1 + a.it.w / 2 + bend} ${y1}, ${x2 + b.it.w / 2 + bend} ${y2}, ${x2 + b.it.w / 2} ${y2}`
-                   : `M ${x1 < x2 ? a.it.x + a.it.w : a.it.x} ${y1} C ${(x1 + x2) / 2} ${y1}, ${(x1 + x2) / 2} ${y2}, ${x1 < x2 ? b.it.x : b.it.x + b.it.w} ${y2}`;
+    let d;
+    if (S.orient === 'vertical') {
+      if (Math.abs(y1 - y2) < 1) {          // same level: bow below the row
+        const bend = Math.max(36, Math.abs(x2 - x1) * .18);
+        d = `M ${x1} ${y1 + H} C ${x1} ${y1 + H + bend}, ${x2} ${y2 + H + bend}, ${x2} ${y2 + H}`;
+      } else {
+        const [ux, uy, lx, ly] = y1 < y2 ? [x1, y1, x2, y2] : [x2, y2, x1, y1];
+        d = `M ${ux} ${uy + H} C ${ux} ${(uy + ly) / 2}, ${lx} ${(uy + ly) / 2}, ${lx} ${ly - H}`;
+      }
+    } else {
+      const same = Math.abs(x1 - x2) < 1;
+      const bend = same ? Math.max(40, Math.abs(y2 - y1) * .25) : 0;
+      d = same ? `M ${x1 + a.it.w / 2} ${y1} C ${x1 + a.it.w / 2 + bend} ${y1}, ${x2 + b.it.w / 2 + bend} ${y2}, ${x2 + b.it.w / 2} ${y2}`
+               : `M ${x1 < x2 ? a.it.x + a.it.w : a.it.x} ${y1} C ${(x1 + x2) / 2} ${y1}, ${(x1 + x2) / 2} ${y2}, ${x1 < x2 ? b.it.x : b.it.x + b.it.w} ${y2}`;
+    }
     const g = el('g', { class: `k-${e.kind}${lit ? ' lit' : ''}`, 'data-from': e.from, 'data-to': e.to }, gRel);
     el('path', { d, class: `k-${e.kind}${routed ? ' routed' : ''}${lit ? ' lit' : ''}` }, g);
     if (lit && litCount <= 14) { const t = el('text', { x: (x1 + x2) / 2, y: (y1 + y2) / 2 - 4, 'text-anchor': 'middle' }, g); t.textContent = EDGE_NAME[e.kind] + (routed ? ' (collapsed)' : ''); }
@@ -429,9 +466,9 @@ function fit() {
   const r = svg.getBoundingClientRect();
   S.k = Math.min(1.25, Math.max(.3, Math.min((r.width - 40) / (maxX - minX || 1), (r.height - 80) / (maxY - minY || 1))));
   if (S.k < .7) { S.k = .7; }
-  S.tx = 20 - minX * S.k;
-  const h = (maxY - minY) * S.k;
-  S.ty = h < r.height - 60 ? (r.height - h) / 2 - minY * S.k : 30 - minY * S.k;
+  const w = (maxX - minX) * S.k, h = (maxY - minY) * S.k;
+  if (S.orient === 'vertical') { S.tx = w < r.width - 40 ? (r.width - w) / 2 - minX * S.k : 20 - minX * S.k; S.ty = 30 - minY * S.k; }
+  else { S.tx = 20 - minX * S.k; S.ty = h < r.height - 60 ? (r.height - h) / 2 - minY * S.k : 30 - minY * S.k; }
   applyTransform();
 }
 function centerOn(iid) { const it = S.byIid.get(iid); if (!it) return; const r = svg.getBoundingClientRect(); S.tx = r.width / 2 - (it.x + it.w / 2) * S.k; S.ty = r.height / 2 - it.y * S.k; applyTransform(); }
@@ -527,6 +564,9 @@ function buildFilters() {
   let t; $('#search').oninput = (e) => { clearTimeout(t); t = setTimeout(() => { S.filters.q = e.target.value.trim(); refresh(true); }, 120); };
   $('#expand').onclick = () => expandAll(true); $('#collapse').onclick = () => expandAll(false);
   $('#v-map').onclick = () => setView('map'); $('#v-outline').onclick = () => setView('outline');
+  const orientLabel = () => { $('#orient').textContent = S.orient === 'vertical' ? '⇅ Vertical' : '⇄ Horizontal'; };
+  orientLabel();
+  $('#orient').onclick = () => { S.orient = S.orient === 'vertical' ? 'horizontal' : 'vertical'; store.set('orient', S.orient); orientLabel(); refresh(true); };
   $('#theme').onclick = () => { const cur = document.documentElement.dataset.theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); const next = cur === 'dark' ? 'light' : 'dark'; document.documentElement.dataset.theme = next; store.set('theme', next); };
   for (const cb of document.querySelectorAll('#legend input')) cb.onchange = () => { if (cb.checked) S.edgeKinds.add(cb.dataset.kind); else S.edgeKinds.delete(cb.dataset.kind); renderRelEdges(S.inst.filter((it) => it.visible)); };
   $('#p-close').onclick = closePane;
