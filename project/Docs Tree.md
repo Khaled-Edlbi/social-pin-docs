@@ -30,9 +30,11 @@ Social Pin (project)
 │   │   ├── Rings Frontend Delivery              ← frontend   · type: frontend-delivery
 │   │   ├── Rings QA Backend                     ← qa         · type: qa-backend
 │   │   ├── Rings QA Frontend                    ← qa         · type: qa-frontend
-│   │   ├── T-059 Decide Ring settings           ← tasks/… whose `feature:` is rings
-│   │   │   ├── T-059 Backend Delivery …         ← the task's own layer notes, same kinds, code T-059
-│   │   │   └── T-071 …                          ← a sub-task: a task note with `parent: T-059`, with its own layer notes
+│   │   ├── T-004 Member count per Ring …        ← tasks/… whose `feature:` is rings
+│   │   │   ├── T-004 Story                      ← the task's own story (draft until product approves it)
+│   │   │   ├── T-004 Backend Delivery …         ← the task's own layer notes, same kinds, code T-004
+│   │   │   ├── T-004-fe Frontend · Member count ← the frontend half: a sub-task (`parent: T-004`, `labels: [frontend]`) with its own layer notes
+│   │   │   └── T-004-be Backend · Member count  ← the backend half (`labels: [backend]`); a bug found later is another sub-task with `labels: [bug]`
 │   │   └── D-04 Ring settings                   ← decisions/… that name rings in `features:`
 │   └── …
 ├── … seven more modules

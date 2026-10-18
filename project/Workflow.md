@@ -22,7 +22,7 @@ Branches with one name pair the code and its documentation; pull requests link e
 
 ## 1 · Ticket first (business)
 
-Every piece of work starts from `tasks/T-NNN <Title>.md`: the feature, the screens, `depends`, the definition of done. Create it from `templates/Task Template.md` with the next free number; the generated [[Task Board]] and [[Backlog]] pick it up on the next build. Add it to the feature note's *Tasks* table. A ticket in ❓ *Needs a decision* or ⛔ *Blocked* is not workable: the decision or the blocker comes first.
+Every piece of work starts from `tasks/T-NNN <Title>.md`: the feature, the screens, `depends`, the definition of done. Create it from `templates/Task Template.md` with the next free number; the generated [[Task Board]] and [[Backlog]] pick it up on the next build. Add it to the feature note's *Tasks* table. Then split it: `node scripts/build-tree.mjs --scaffold story T-NNN` for its user story, and a `T-NNN-fe Frontend · <title>` and a `T-NNN-be Backend · <title>` sub-task in its folder for the sides that have work ([[Agent Rules#2 · Codes, scopes and the "sum of" rule]]). A ticket in ❓ *Needs a decision* or ⛔ *Blocked* is not workable: the decision or the blocker comes first.
 
 Run `node scripts/build-tree.mjs --impact T-NNN` and paste what it lists into the ticket's `## Impact`: that is the reading list for everyone who picks it up.
 
