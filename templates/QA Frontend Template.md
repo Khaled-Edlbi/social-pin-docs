@@ -9,11 +9,15 @@ screens: []
 depends: []
 affects: []
 related: []
+# pending: ["[[Note]]: what is left", "@who: what is left"]   # done, but a note is left for a card or a person → Partial until cleared
+pending: []
 updated: <date>
 tags: [qa-frontend, qa-frontend/draft, module/<module>, layer/qa]
 ---
 
 # 🧪 <Feature name> · QA Frontend
+
+> Blocked by default until [[<Feature name> Frontend Delivery]] is `done` (the hand-off order in `docs.config.json`); `blockedBy: []` opts out, `blockedBy: [...]` names other blockers.
 
 **Feature:** [[<Feature name>]] · **Verifies:** [[<Feature name> Frontend Delivery]] against [[<Feature name> Story]] · **Verdict:** Draft
 

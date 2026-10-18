@@ -2,18 +2,17 @@
 type: feature
 id: connections
 name: "Connections"
-status: todo
 priority: P0
 module: connections
 screens: [s44, s45, s46, s47, s62]
 related: ["Rings"]
 updated: 2026-10-18
-tags: [feature, status/todo, module/connections, priority/P0]
+tags: [feature, module/connections, priority/P0]
 ---
 
-# ❌ Connections
+# Connections
 
-**Status:** TODO · **Priority:** P0 · **Module:** [[Connections Module|Connections]]
+**Backend:** TODO · **Priority:** P0 · **Module:** [[Connections Module|Connections]]
 
 **Layers:** [[Connections Story|Story]] · [[Connections Frontend Requirements|Frontend Requirements]] · [[Connections Backend Delivery|Backend Delivery]] · [[Connections Backend Integration|Backend Integration]] · [[Connections Frontend Delivery|Frontend Delivery]] · [[Connections QA Backend|QA Backend]] · [[Connections QA Frontend|QA Frontend]]
 

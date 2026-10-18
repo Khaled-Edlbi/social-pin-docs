@@ -2,17 +2,16 @@
 type: feature
 id: counts
 name: "Counts"
-status: partial
 priority: P1
 module: identity
 screens: [s11, s12, s14, s16, s17, s68]
 updated: 2026-10-18
-tags: [feature, status/partial, module/identity, priority/P1]
+tags: [feature, module/identity, priority/P1]
 ---
 
-# 🟡 Counts
+# Counts
 
-**Status:** Partial (needs more) · **Priority:** P1 · **Module:** [[Identity Core Module|Identity Core]]
+**Backend:** Partial (needs more) · **Priority:** P1 · **Module:** [[Identity Core Module|Identity Core]]
 
 **Layers:** [[Counts Story|Story]] · [[Counts Frontend Requirements|Frontend Requirements]] · [[Counts Backend Delivery|Backend Delivery]] · [[Counts Backend Integration|Backend Integration]] · [[Counts Frontend Delivery|Frontend Delivery]] · [[Counts QA Backend|QA Backend]] · [[Counts QA Frontend|QA Frontend]]
 

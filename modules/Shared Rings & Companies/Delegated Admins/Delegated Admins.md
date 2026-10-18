@@ -2,17 +2,16 @@
 type: feature
 id: delegated-admins
 name: "Delegated Admins"
-status: partial
 priority: P1
 module: shared-rings
 screens: [s26, s27]
 updated: 2026-10-18
-tags: [feature, status/partial, module/shared-rings, priority/P1]
+tags: [feature, module/shared-rings, priority/P1]
 ---
 
-# 🟡 Delegated Admins
+# Delegated Admins
 
-**Status:** Partial (needs more) · **Priority:** P1 · **Module:** [[Shared Rings & Companies Module|Shared Rings & Companies]]
+**Backend:** Partial (needs more) · **Priority:** P1 · **Module:** [[Shared Rings & Companies Module|Shared Rings & Companies]]
 
 **Layers:** [[Delegated Admins Story|Story]] · [[Delegated Admins Frontend Requirements|Frontend Requirements]] · [[Delegated Admins Backend Delivery|Backend Delivery]] · [[Delegated Admins Backend Integration|Backend Integration]] · [[Delegated Admins Frontend Delivery|Frontend Delivery]] · [[Delegated Admins QA Backend|QA Backend]] · [[Delegated Admins QA Frontend|QA Frontend]]
 

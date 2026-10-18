@@ -2,17 +2,16 @@
 type: feature
 id: e2e-tests
 name: "E2E Test Run"
-status: todo
 priority: P0
 module: platform
 screens: []
 updated: 2026-10-18
-tags: [feature, status/todo, module/platform, priority/P0]
+tags: [feature, module/platform, priority/P0]
 ---
 
-# ❌ E2E Test Run
+# E2E Test Run
 
-**Status:** TODO · **Priority:** P0 · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
+**Backend:** TODO · **Priority:** P0 · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
 
 **Layers:** [[E2E Test Run Story|Story]] · [[E2E Test Run Frontend Requirements|Frontend Requirements]] · [[E2E Test Run Backend Delivery|Backend Delivery]] · [[E2E Test Run Backend Integration|Backend Integration]] · [[E2E Test Run Frontend Delivery|Frontend Delivery]] · [[E2E Test Run QA Backend|QA Backend]] · [[E2E Test Run QA Frontend|QA Frontend]]
 

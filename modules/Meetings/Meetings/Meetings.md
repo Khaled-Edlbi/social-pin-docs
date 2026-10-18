@@ -2,18 +2,17 @@
 type: feature
 id: meetings
 name: "Meetings"
-status: todo
 priority: P0
 module: meetings
 screens: [s59, s61, s64, s66, s67]
 related: ["View As & Pin Views"]
 updated: 2026-10-18
-tags: [feature, status/todo, module/meetings, priority/P0]
+tags: [feature, module/meetings, priority/P0]
 ---
 
-# ❌ Meetings
+# Meetings
 
-**Status:** TODO · **Priority:** P0 · **Module:** [[Meetings Module|Meetings]]
+**Backend:** TODO · **Priority:** P0 · **Module:** [[Meetings Module|Meetings]]
 
 **Layers:** [[Meetings Story|Story]] · [[Meetings Frontend Requirements|Frontend Requirements]] · [[Meetings Backend Delivery|Backend Delivery]] · [[Meetings Backend Integration|Backend Integration]] · [[Meetings Frontend Delivery|Frontend Delivery]] · [[Meetings QA Backend|QA Backend]] · [[Meetings QA Frontend|QA Frontend]]
 

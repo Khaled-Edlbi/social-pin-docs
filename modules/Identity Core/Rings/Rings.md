@@ -2,17 +2,16 @@
 type: feature
 id: rings
 name: "Rings"
-status: done
 priority: P0
 module: identity
 screens: [s08, s09, s16, s17, s18, s19, s20, s21, s22, s26, s62]
 updated: 2026-10-18
-tags: [feature, status/done, module/identity, priority/P0]
+tags: [feature, module/identity, priority/P0]
 ---
 
-# ✅ Rings
+# Rings
 
-**Status:** Done · **Priority:** P0 · **Module:** [[Identity Core Module|Identity Core]]
+**Backend:** Done · **Priority:** P0 · **Module:** [[Identity Core Module|Identity Core]]
 
 **Layers:** [[Rings Story|Story]] · [[Rings Frontend Requirements|Frontend Requirements]] · [[Rings Backend Delivery|Backend Delivery]] · [[Rings Backend Integration|Backend Integration]] · [[Rings Frontend Delivery|Frontend Delivery]] · [[Rings QA Backend|QA Backend]] · [[Rings QA Frontend|QA Frontend]]
 

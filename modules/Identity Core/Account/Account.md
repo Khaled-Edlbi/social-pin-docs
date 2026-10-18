@@ -2,17 +2,16 @@
 type: feature
 id: account
 name: "Account"
-status: done
 priority: P0
 module: identity
 screens: [s68]
 updated: 2026-10-18
-tags: [feature, status/done, module/identity, priority/P0]
+tags: [feature, module/identity, priority/P0]
 ---
 
-# ✅ Account
+# Account
 
-**Status:** Done · **Priority:** P0 · **Module:** [[Identity Core Module|Identity Core]]
+**Backend:** Done · **Priority:** P0 · **Module:** [[Identity Core Module|Identity Core]]
 
 **Layers:** [[Account Story|Story]] · [[Account Frontend Requirements|Frontend Requirements]] · [[Account Backend Delivery|Backend Delivery]] · [[Account Backend Integration|Backend Integration]] · [[Account Frontend Delivery|Frontend Delivery]] · [[Account QA Backend|QA Backend]] · [[Account QA Frontend|QA Frontend]]
 

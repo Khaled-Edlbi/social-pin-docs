@@ -86,6 +86,10 @@ kanban-plugin: board
 
 
 
+## 🟡 Partial (done, notes pending)
+
+
+
 ## ✅ Done
 
 - [x] [[T-056 Decide passwordless login]] #P0 #auth

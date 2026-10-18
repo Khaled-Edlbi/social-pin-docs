@@ -11,6 +11,8 @@ screens: []
 depends: []
 affects: []
 related: []
+# pending: ["[[Note]]: what is left", "@who: what is left"]   # done, but a note is left for a card or a person → Partial until cleared
+pending: []
 created: <date>
 tags: [task, task/todo, module/<module>, priority/P1]
 ---

@@ -14,6 +14,7 @@
           "file": "Story",
           "statuses": ["draft", "approved", "verified"],
           "done": ["verified"],
+          "handoff": ["approved", "verified"],
           "template": "templates/Story Template.md",
           "description": "Who the user is, what they do, acceptance criteria. Approved by product, verified by QA."
         }
@@ -31,6 +32,7 @@
           "file": "Frontend Requirements",
           "statuses": ["draft", "approved", "delivered"],
           "done": ["delivered"],
+          "handoff": ["approved", "delivered"],
           "template": "templates/Frontend Requirements Template.md",
           "description": "What the client needs from the backend to build the story: data, endpoints, errors, behaviour."
         },
@@ -108,11 +110,8 @@
     ["qa-backend", "story"],
     ["qa-frontend", "story"]
   ],
-  "defaultBlocks": [
-    { "kind": "frontend-delivery", "by": "backend-integration" },
-    { "kind": "qa-backend", "by": "backend-delivery" },
-    { "kind": "qa-frontend", "by": "frontend-delivery" }
-  ],
+  "defaultBlocks": [],
+  "frontendOnly": { "skips": ["backend-delivery", "backend-integration", "qa-backend"] },
   "requiredAtFeatureLevel": ["story", "frontend-requirements", "backend-delivery", "backend-integration", "frontend-delivery", "qa-backend", "qa-frontend"],
   "modules": [
     { "id": "identity", "name": "Identity Core", "description": "Account, profile, Rings, what each Ring shows, and the access engine." },

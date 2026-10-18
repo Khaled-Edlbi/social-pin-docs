@@ -2,17 +2,16 @@
 type: feature
 id: discover-hub
 name: "Discover Hub & Search"
-status: todo
 priority: P1
 module: discovery
 screens: [s38]
 updated: 2026-10-18
-tags: [feature, status/todo, module/discovery, priority/P1]
+tags: [feature, module/discovery, priority/P1]
 ---
 
-# ❌ Discover Hub & Search
+# Discover Hub & Search
 
-**Status:** TODO · **Priority:** P1 · **Module:** [[Discovery Module|Discovery]]
+**Backend:** TODO · **Priority:** P1 · **Module:** [[Discovery Module|Discovery]]
 
 **Layers:** [[Discover Hub & Search Story|Story]] · [[Discover Hub & Search Frontend Requirements|Frontend Requirements]] · [[Discover Hub & Search Backend Delivery|Backend Delivery]] · [[Discover Hub & Search Backend Integration|Backend Integration]] · [[Discover Hub & Search Frontend Delivery|Frontend Delivery]] · [[Discover Hub & Search QA Backend|QA Backend]] · [[Discover Hub & Search QA Frontend|QA Frontend]]
 

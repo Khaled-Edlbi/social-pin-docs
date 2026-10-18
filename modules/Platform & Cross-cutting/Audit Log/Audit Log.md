@@ -2,17 +2,16 @@
 type: feature
 id: audit-log
 name: "Audit Log"
-status: todo
 priority: P0
 module: platform
 screens: []
 updated: 2026-10-18
-tags: [feature, status/todo, module/platform, priority/P0]
+tags: [feature, module/platform, priority/P0]
 ---
 
-# ❌ Audit Log
+# Audit Log
 
-**Status:** TODO · **Priority:** P0 · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
+**Backend:** TODO · **Priority:** P0 · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
 
 **Layers:** [[Audit Log Story|Story]] · [[Audit Log Frontend Requirements|Frontend Requirements]] · [[Audit Log Backend Delivery|Backend Delivery]] · [[Audit Log Backend Integration|Backend Integration]] · [[Audit Log Frontend Delivery|Frontend Delivery]] · [[Audit Log QA Backend|QA Backend]] · [[Audit Log QA Frontend|QA Frontend]]
 

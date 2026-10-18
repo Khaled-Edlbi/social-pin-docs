@@ -2,18 +2,17 @@
 type: feature
 id: companies
 name: "Companies"
-status: todo
 priority: P1
 module: shared-rings
 screens: [s72, s73]
 related: ["Ring Members"]
 updated: 2026-10-18
-tags: [feature, status/todo, module/shared-rings, priority/P1]
+tags: [feature, module/shared-rings, priority/P1]
 ---
 
-# ❌ Companies
+# Companies
 
-**Status:** TODO · **Priority:** P1 · **Module:** [[Shared Rings & Companies Module|Shared Rings & Companies]]
+**Backend:** TODO · **Priority:** P1 · **Module:** [[Shared Rings & Companies Module|Shared Rings & Companies]]
 
 **Layers:** [[Companies Story|Story]] · [[Companies Frontend Requirements|Frontend Requirements]] · [[Companies Backend Delivery|Backend Delivery]] · [[Companies Backend Integration|Backend Integration]] · [[Companies Frontend Delivery|Frontend Delivery]] · [[Companies QA Backend|QA Backend]] · [[Companies QA Frontend|QA Frontend]]
 

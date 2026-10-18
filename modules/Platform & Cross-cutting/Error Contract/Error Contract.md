@@ -2,17 +2,16 @@
 type: feature
 id: error-contract
 name: "Error Contract"
-status: partial
 priority: P0
 module: platform
 screens: []
 updated: 2026-10-18
-tags: [feature, status/partial, module/platform, priority/P0]
+tags: [feature, module/platform, priority/P0]
 ---
 
-# 🟡 Error Contract
+# Error Contract
 
-**Status:** Partial (needs more) · **Priority:** P0 · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
+**Backend:** Partial (needs more) · **Priority:** P0 · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
 
 **Layers:** [[Error Contract Story|Story]] · [[Error Contract Frontend Requirements|Frontend Requirements]] · [[Error Contract Backend Delivery|Backend Delivery]] · [[Error Contract Backend Integration|Backend Integration]] · [[Error Contract Frontend Delivery|Frontend Delivery]] · [[Error Contract QA Backend|QA Backend]] · [[Error Contract QA Frontend|QA Frontend]]
 

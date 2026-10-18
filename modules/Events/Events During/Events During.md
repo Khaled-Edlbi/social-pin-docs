@@ -2,18 +2,17 @@
 type: feature
 id: events-during
 name: "Events During"
-status: todo
 priority: P0
 module: events
 screens: [s53, s54, s55, s56, s57, s58]
 related: ["Rings", "View As & Pin Views"]
 updated: 2026-10-18
-tags: [feature, status/todo, module/events, priority/P0]
+tags: [feature, module/events, priority/P0]
 ---
 
-# ❌ Events During
+# Events During
 
-**Status:** TODO · **Priority:** P0 · **Module:** [[Events Module|Events]]
+**Backend:** TODO · **Priority:** P0 · **Module:** [[Events Module|Events]]
 
 **Layers:** [[Events During Story|Story]] · [[Events During Frontend Requirements|Frontend Requirements]] · [[Events During Backend Delivery|Backend Delivery]] · [[Events During Backend Integration|Backend Integration]] · [[Events During Frontend Delivery|Frontend Delivery]] · [[Events During QA Backend|QA Backend]] · [[Events During QA Frontend|QA Frontend]]
 

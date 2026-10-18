@@ -2,17 +2,16 @@
 type: feature
 id: interests
 name: "Interests"
-status: partial
 priority: P1
 module: platform
 screens: [s07, s71]
 updated: 2026-10-18
-tags: [feature, status/partial, module/platform, priority/P1]
+tags: [feature, module/platform, priority/P1]
 ---
 
-# 🟡 Interests
+# Interests
 
-**Status:** Partial (needs more) · **Priority:** P1 · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
+**Backend:** Partial (needs more) · **Priority:** P1 · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
 
 **Layers:** [[Interests Story|Story]] · [[Interests Frontend Requirements|Frontend Requirements]] · [[Interests Backend Delivery|Backend Delivery]] · [[Interests Backend Integration|Backend Integration]] · [[Interests Frontend Delivery|Frontend Delivery]] · [[Interests QA Backend|QA Backend]] · [[Interests QA Frontend|QA Frontend]]
 
