@@ -5,11 +5,11 @@ status: todo
 priority: P1
 effort: S
 feature: badge-qr
-domain: discovery
+module: discovery
 screens: [s34]
 depends: [T-008]
 created: 2026-10-15
-tags: [task, task/todo, domain/discovery, priority/P1]
+tags: [task, task/todo, module/discovery, priority/P1]
 ---
 
 # ⬜ T-009 · Scan counter and share link

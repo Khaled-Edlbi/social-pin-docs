@@ -5,11 +5,11 @@ status: blocked
 priority: P1
 effort: M
 feature: events-during
-domain: events
+module: events
 screens: [s53]
 depends: [T-034, T-049]
 created: 2026-10-15
-tags: [task, task/blocked, domain/events, priority/P1]
+tags: [task, task/blocked, module/events, priority/P1]
 ---
 
 # ⛔ T-040 · Lounges and upgrades

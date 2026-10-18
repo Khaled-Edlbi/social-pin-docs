@@ -5,11 +5,11 @@ status: todo
 priority: P0
 effort: M
 feature: meetings
-domain: meetings
+module: meetings
 screens: [s59, s67]
 depends: [T-042]
 created: 2026-10-15
-tags: [task, task/todo, domain/meetings, priority/P0]
+tags: [task, task/todo, module/meetings, priority/P0]
 ---
 
 # ⬜ T-043 · Temporary meeting Ring per meeting

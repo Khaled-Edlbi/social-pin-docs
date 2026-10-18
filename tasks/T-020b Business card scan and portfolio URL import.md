@@ -5,11 +5,11 @@ status: needs-info
 priority: P2
 effort: L
 feature: onboarding-imports
-domain: identity
+module: identity
 screens: [s03a, s03b]
 depends: [D-02]
 created: 2026-10-15
-tags: [task, task/needs-info, domain/identity, priority/P2]
+tags: [task, task/needs-info, module/identity, priority/P2]
 ---
 
 # ❓ T-020b · Business card scan and portfolio URL import

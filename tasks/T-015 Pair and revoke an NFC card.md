@@ -5,11 +5,11 @@ status: todo
 priority: P2
 effort: M
 feature: devices
-domain: platform
+module: platform
 screens: [s75]
 depends: [T-007]
 created: 2026-10-15
-tags: [task, task/todo, domain/platform, priority/P2]
+tags: [task, task/todo, module/platform, priority/P2]
 ---
 
 # ⬜ T-015 · Pair and revoke an NFC card

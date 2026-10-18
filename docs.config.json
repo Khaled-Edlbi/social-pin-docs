@@ -1,0 +1,133 @@
+{
+  "$schema": "./scripts/docs.config.schema.json",
+  "project": "Social Pin",
+  "layers": [
+    {
+      "id": "business",
+      "label": "Business",
+      "color": "#7c5cff",
+      "description": "Product: what the feature is for, the user story, decisions and sign-off.",
+      "kinds": [
+        {
+          "id": "story",
+          "label": "User Story",
+          "file": "Story",
+          "statuses": ["draft", "approved", "verified"],
+          "done": ["verified"],
+          "template": "templates/Story Template.md",
+          "description": "Who the user is, what they do, acceptance criteria. Approved by product, verified by QA."
+        }
+      ]
+    },
+    {
+      "id": "frontend",
+      "label": "Frontend",
+      "color": "#0ea5e9",
+      "description": "The client team: what it asks of the backend and what it shipped.",
+      "kinds": [
+        {
+          "id": "frontend-requirements",
+          "label": "Frontend Requirements",
+          "file": "Frontend Requirements",
+          "statuses": ["draft", "approved", "delivered"],
+          "done": ["delivered"],
+          "template": "templates/Frontend Requirements Template.md",
+          "description": "What the client needs from the backend to build the story: data, endpoints, errors, behaviour."
+        },
+        {
+          "id": "frontend-delivery",
+          "label": "Frontend Delivery",
+          "file": "Frontend Delivery",
+          "statuses": ["todo", "in-progress", "done"],
+          "done": ["done"],
+          "template": "templates/Frontend Delivery Template.md",
+          "description": "What the client shipped: screens, state, calls made, what is left."
+        }
+      ]
+    },
+    {
+      "id": "backend",
+      "label": "Backend",
+      "color": "#10b981",
+      "description": "The API team: what it shipped and how the client calls it.",
+      "kinds": [
+        {
+          "id": "backend-delivery",
+          "label": "Backend Delivery",
+          "file": "Backend Delivery",
+          "statuses": ["todo", "in-progress", "done"],
+          "done": ["done"],
+          "template": "templates/Backend Delivery Template.md",
+          "description": "What the backend shipped: endpoints, tables, how it works, what exists, gaps."
+        },
+        {
+          "id": "backend-integration",
+          "label": "Backend Integration",
+          "file": "Backend Integration",
+          "statuses": ["draft", "current"],
+          "done": ["current"],
+          "template": "templates/Backend Integration Template.md",
+          "description": "How the client calls what was shipped: screens to calls, flows, shapes, errors, rules."
+        }
+      ]
+    },
+    {
+      "id": "qa",
+      "label": "QA",
+      "color": "#f59e0b",
+      "description": "Expected behaviour as artefacts (tables, diagrams), not test code; one note per side.",
+      "kinds": [
+        {
+          "id": "qa-backend",
+          "label": "QA Backend",
+          "file": "QA Backend",
+          "statuses": ["draft", "passing", "failing"],
+          "done": ["passing"],
+          "template": "templates/QA Backend Template.md",
+          "description": "Expected API behaviour: given / when / then, state diagram, error matrix, verdict."
+        },
+        {
+          "id": "qa-frontend",
+          "label": "QA Frontend",
+          "file": "QA Frontend",
+          "statuses": ["draft", "passing", "failing"],
+          "done": ["passing"],
+          "template": "templates/QA Frontend Template.md",
+          "description": "Expected screen behaviour against the story: states, journeys, error copy, verdict."
+        }
+      ]
+    }
+  ],
+  "flow": [
+    ["story", "frontend-requirements"],
+    ["frontend-requirements", "backend-delivery"],
+    ["backend-delivery", "backend-integration"],
+    ["backend-integration", "frontend-delivery"],
+    ["backend-delivery", "qa-backend"],
+    ["frontend-delivery", "qa-frontend"],
+    ["qa-backend", "story"],
+    ["qa-frontend", "story"]
+  ],
+  "defaultBlocks": [
+    { "kind": "frontend-delivery", "by": "backend-integration" },
+    { "kind": "qa-backend", "by": "backend-delivery" },
+    { "kind": "qa-frontend", "by": "frontend-delivery" }
+  ],
+  "requiredAtFeatureLevel": ["story", "frontend-requirements", "backend-delivery", "backend-integration", "frontend-delivery", "qa-backend", "qa-frontend"],
+  "modules": [
+    { "id": "identity", "name": "Identity Core", "description": "Account, profile, Rings, what each Ring shows, and the access engine." },
+    { "id": "connections", "name": "Connections", "description": "Connect requests after a scan, accept into a Ring, blocks, contacts." },
+    { "id": "shared-rings", "name": "Shared Rings & Companies", "description": "Rings owned by someone else that you belong to: invitations, joining, companies, delegated admins." },
+    { "id": "discovery", "name": "Discovery", "description": "Badge / QR, Discover hub, PinCast proximity broadcast, nearby by Ring." },
+    { "id": "events", "name": "Events", "description": "Before the event, during, exhibitor tools, post-event." },
+    { "id": "meetings", "name": "Meetings", "description": "Availability slots, slot-based requests, temporary meeting Rings, calendar." },
+    { "id": "commerce", "name": "Commerce", "description": "Orders, payments, Free vs Pro." },
+    { "id": "platform", "name": "Platform & Cross-cutting", "description": "Notifications, Gemma, devices, interests, code delivery, errors, jobs, tests." }
+  ],
+  "projectAreas": [
+    { "id": "business", "folder": "business", "label": "Business docs", "description": "The product, glossary, feature map, status reports." },
+    { "id": "frontend", "folder": "frontend", "label": "Frontend docs", "description": "The client contract, API guide, migrations the client must make, the frontend agent prompt." },
+    { "id": "backend", "folder": "backend", "label": "Backend docs", "description": "Architecture, stack, conventions, auth and Ring access models, database and migrations, setup." },
+    { "id": "shared", "folder": "project", "label": "Project rules", "description": "The workflow, the agent rules and the docs tree: rules every layer follows." }
+  ]
+}

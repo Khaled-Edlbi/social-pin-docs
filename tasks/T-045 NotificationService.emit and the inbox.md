@@ -5,11 +5,11 @@ status: todo
 priority: P1
 effort: M
 feature: notifications
-domain: platform
+module: platform
 screens: [s69]
 depends: []
 created: 2026-10-15
-tags: [task, task/todo, domain/platform, priority/P1]
+tags: [task, task/todo, module/platform, priority/P1]
 ---
 
 # ⬜ T-045 · NotificationService.emit and the inbox

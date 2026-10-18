@@ -5,11 +5,11 @@ status: needs-info
 priority: P0
 effort: S
 feature: profiles
-domain: identity
+module: identity
 screens: [s05]
 depends: []
 created: 2026-10-15
-tags: [task, task/needs-info, domain/identity, priority/P0]
+tags: [task, task/needs-info, module/identity, priority/P0]
 decision: D-02
 ---
 

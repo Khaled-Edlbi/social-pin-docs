@@ -5,11 +5,11 @@ status: todo
 priority: P0
 effort: M
 feature: events-before
-domain: events
+module: events
 screens: [s50]
 depends: [T-033]
 created: 2026-10-15
-tags: [task, task/todo, domain/events, priority/P0]
+tags: [task, task/todo, module/events, priority/P0]
 ---
 
 # ⬜ T-034 · Tickets, packages, levels, sold-out

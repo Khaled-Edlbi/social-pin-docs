@@ -5,11 +5,11 @@ status: todo
 priority: P1
 effort: S
 feature: discover-hub
-domain: discovery
+module: discovery
 screens: [s38]
 depends: []
 created: 2026-10-15
-tags: [task, task/todo, domain/discovery, priority/P1]
+tags: [task, task/todo, module/discovery, priority/P1]
 ---
 
 # ⬜ T-030 · Discover search by !pinname and recent searches

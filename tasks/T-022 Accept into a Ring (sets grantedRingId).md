@@ -5,11 +5,11 @@ status: todo
 priority: P0
 effort: M
 feature: connections
-domain: connections
+module: connections
 screens: [s46]
 depends: [T-021]
 created: 2026-10-15
-tags: [task, task/todo, domain/connections, priority/P0]
+tags: [task, task/todo, module/connections, priority/P0]
 ---
 
 # ⬜ T-022 · Accept into a Ring (sets grantedRingId)

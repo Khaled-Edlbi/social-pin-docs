@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Social Pin Docs Tree</title>
-<meta name="description" content="Every note of the Social Pin docs vault as a readable tree: project → domains → features → docs, user story, frontend requirements, API integration, tasks and decisions. Relations between notes appear behind the tree and light up on hover.">
+<meta name="description" content="Every note of the Social Pin docs vault as a readable tree: project → modules → features → one note per layer (story, frontend requirements, backend delivery and integration, frontend delivery, QA), tasks and decisions. Relations, the hand-off flow and blockers appear behind the tree and light up on hover.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -13,8 +13,8 @@
   --bg: #f6f7f9; --panel: #ffffff; --ink: #1c2330; --muted: #5f6b7d; --line: #d9dee6; --line-strong: #aeb7c4;
   --accent: #2f7de1; --accent-ink: #ffffff; --hover: #eef3fb; --selected: #dfeafb; --shadow: 0 1px 2px rgba(16,24,40,.08), 0 8px 24px rgba(16,24,40,.08);
   --s-done: #2f9e63; --s-partial: #d99a1a; --s-todo: #8a94a6; --s-in-progress: #2f7de1; --s-blocked: #d9534f;
-  --s-needs-decision: #8e5bd6; --s-draft: #3fa7a3; --s-approved: #2f9e63; --s-frontend-only: #9aa3b2; --s-missing: #b0b6c0; --s-reference: #6b7a90;
-  --e-tree: #7f8a9b; --e-related: #2f7de1; --e-wikilink: #8a94a6; --e-depends: #d9534f; --e-decision: #8e5bd6;
+  --s-needs-decision: #8e5bd6; --s-draft: #3fa7a3; --s-approved: #2f9e63; --s-verified: #1f7a5c; --s-delivered: #2f9e63; --s-current: #2f9e63; --s-passing: #2f9e63; --s-failing: #d9534f; --s-frontend-only: #9aa3b2; --s-missing: #b0b6c0; --s-reference: #6b7a90;
+  --e-tree: #7f8a9b; --e-related: #2f7de1; --e-wikilink: #8a94a6; --e-depends: #d9534f; --e-decision: #8e5bd6; --e-affects: #e07b22; --e-blocks: #c9302c; --e-flow: #1f9e8a; --e-shares: #6f9ad1;
   --font: "Inter", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
@@ -43,6 +43,7 @@ header h1 small { color: var(--muted); font-weight: 400; margin-left: 6px; }
 #search { flex: 1 1 180px; min-width: 140px; max-width: 360px; padding: 6px 10px; border: 1px solid var(--line-strong); border-radius: 8px; background: var(--bg); }
 select { padding: 5px 8px; border: 1px solid var(--line-strong); border-radius: 8px; background: var(--panel); }
 .chips { display: flex; flex-wrap: wrap; gap: 4px; }
+.chips.layers { border-left: 1px solid var(--line); padding-left: 10px; }
 .chip { display: inline-flex; align-items: center; gap: 5px; border: 1px solid var(--line-strong); border-radius: 999px; padding: 2px 8px; font-size: 12px; cursor: pointer; background: var(--panel); user-select: none; white-space: nowrap; }
 .chip i { width: 9px; height: 9px; border-radius: 50%; background: var(--c, var(--muted)); display: inline-block; }
 .chip[aria-pressed="true"] { background: var(--c); color: #fff; border-color: var(--c); }
@@ -86,8 +87,9 @@ svg.drag-live .n { transition: none; }
 .n text.lbl { font-size: 10px; fill: var(--muted); }
 .n rect.status { rx: 6; }
 .n text.st { font-size: 10px; fill: #fff; font-weight: 600; }
-.n.k-root text.name, .n.k-domain text.name { font-weight: 700; }
-.n.k-domain rect.box, .n.k-root rect.box, .n.k-group rect.box { stroke-width: 1.5; }
+.n.k-root text.name, .n.k-module text.name { font-weight: 700; }
+.n.k-module rect.box, .n.k-root rect.box, .n.k-group rect.box { stroke-width: 1.5; }
+.n rect.layer { rx: 1.5; opacity: .9; }
 .n.missing rect.box { stroke-dasharray: 4 3; }
 .n.missing text.name { fill: var(--muted); }
 .n.faded { opacity: .22; }
@@ -102,6 +104,13 @@ svg.drag-live .n { transition: none; }
 #rel-edges path.k-wikilink { stroke: var(--e-wikilink); }
 #rel-edges path.k-depends { stroke: var(--e-depends); }
 #rel-edges path.k-decision { stroke: var(--e-decision); }
+#rel-edges path.k-affects { stroke: var(--e-affects); marker-end: url(#arr); }
+#rel-edges path.k-depends { marker-end: url(#arr); }
+#rel-edges path.k-blocks { stroke: var(--e-blocks); marker-end: url(#arr); stroke-width: 1.8; }
+#rel-edges path.k-flow { stroke: var(--e-flow); stroke-dasharray: 6 4; marker-end: url(#arr); }
+#rel-edges path.k-shares { stroke: var(--e-shares); opacity: .1; }
+#rel-edges path.k-decision { marker-end: url(#arr); }
+#arr path { fill: context-stroke; }
 #rel-edges path.routed { stroke-dasharray: 5 4; }
 svg.hovering #rel-edges path { opacity: .04; }
 svg.hovering #rel-edges path.lit { opacity: 1; stroke-width: 2.2; }
@@ -176,12 +185,9 @@ kbd { font: 11px var(--mono); background: var(--bg); border: 1px solid var(--lin
     <button id="v-outline" aria-pressed="false">Outline</button>
   </div>
   <input id="search" type="search" placeholder="Search notes, ids, screens…  ( / )" aria-label="Search">
-  <select id="f-domain" aria-label="Domain"><option value="">All domains</option></select>
-  <select id="f-kind" aria-label="Kind">
-    <option value="">All kinds</option>
-    <option value="feature">Features</option><option value="story">User stories</option><option value="requirements">Frontend requirements</option>
-    <option value="frontend">API integration</option><option value="task">Tasks</option><option value="decision">Decisions</option><option value="project">Project notes</option>
-  </select>
+  <select id="f-module" aria-label="Module"><option value="">All modules</option></select>
+  <select id="f-kind" aria-label="Kind"><option value="">All kinds</option></select>
+  <div class="chips layers" id="f-layer" aria-label="Layer filter"></div>
   <div class="chips" id="f-status" aria-label="Status filter and legend"></div>
   <button class="btn" id="expand">Expand all</button>
   <button class="btn" id="collapse">Collapse all</button>
@@ -208,6 +214,7 @@ kbd { font: 11px var(--mono); background: var(--bg); border: 1px solid var(--lin
 <main id="main">
   <section id="map">
     <svg id="svg" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Docs tree map">
+      <defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs>
       <g id="viewport"><g id="rel-edges"></g><g id="tree-edges"></g><g id="nodes"></g></g>
     </svg>
     <div class="map-tools">
@@ -217,9 +224,13 @@ kbd { font: 11px var(--mono); background: var(--bg); border: 1px solid var(--lin
     </div>
     <div class="legend" id="legend">
       <label><span class="ln" style="--c: var(--e-tree)"></span> Tree (bold)</label>
-      <label><input type="checkbox" data-kind="related" checked><span class="ln thin" style="--c: var(--e-related)"></span> Related feature</label>
-      <label><input type="checkbox" data-kind="depends" checked><span class="ln thin" style="--c: var(--e-depends)"></span> Depends on</label>
-      <label><input type="checkbox" data-kind="decision" checked><span class="ln thin" style="--c: var(--e-decision)"></span> Decision affects</label>
+      <label><input type="checkbox" data-kind="flow" checked><span class="ln thin" style="--c: var(--e-flow)"></span> Flow (hand-off order) →</label>
+      <label><input type="checkbox" data-kind="blocks" checked><span class="ln thin" style="--c: var(--e-blocks)"></span> Blocks →</label>
+      <label><input type="checkbox" data-kind="affects" checked><span class="ln thin" style="--c: var(--e-affects)"></span> Affects →</label>
+      <label><input type="checkbox" data-kind="depends" checked><span class="ln thin" style="--c: var(--e-depends)"></span> Depends on →</label>
+      <label><input type="checkbox" data-kind="related" checked><span class="ln thin" style="--c: var(--e-related)"></span> Related</label>
+      <label><input type="checkbox" data-kind="shares" checked><span class="ln thin" style="--c: var(--e-shares)"></span> Shares an endpoint / code</label>
+      <label><input type="checkbox" data-kind="decision" checked><span class="ln thin" style="--c: var(--e-decision)"></span> Decision affects →</label>
       <label><input type="checkbox" data-kind="wikilink" checked><span class="ln thin" style="--c: var(--e-wikilink)"></span> Mentions (wikilink)</label>
     </div>
   </section>
@@ -243,13 +254,15 @@ kbd { font: 11px var(--mono); background: var(--bg); border: 1px solid var(--lin
 'use strict';
 const $ = (s) => document.querySelector(s);
 const SVGNS = 'http://www.w3.org/2000/svg';
-const GLYPH = { root: '◉', domain: '🗂', group: '📘', feature: '◆', docs: '📄', story: '💬', requirements: '📋', frontend: '🔌', task: '☐', decision: '❓', project: '📘' };
-const KIND_NAME = { root: 'Project', domain: 'Domain', group: 'Group', feature: 'Feature', docs: 'Docs', story: 'User story', requirements: 'Frontend requirements', frontend: 'API integration', task: 'Task', decision: 'Decision', project: 'Project note' };
-const EDGE_NAME = { related: 'related', wikilink: 'mentions', depends: 'depends on', decision: 'decision affects' };
+const GLYPH = { root: '◉', module: '🗂', group: '📘', feature: '◆', story: '💬', 'frontend-requirements': '📋', 'backend-delivery': '🛠', 'backend-integration': '🔌', 'frontend-delivery': '📱', 'qa-backend': '🧪', 'qa-frontend': '🧪', task: '☐', decision: '❓', project: '📘' };
+const KIND_NAME = { root: 'Project', module: 'Module', group: 'Docs', feature: 'Feature', task: 'Task', decision: 'Decision', project: 'Project note' };
+const LAYER = {}; // id -> { label, color }
+const EDGE_NAME = { related: 'related', wikilink: 'mentions', depends: 'depends on', decision: 'decision affects', affects: 'affects', blocks: 'blocks', flow: 'flow', shares: 'shares' };
+const DIRECTED = new Set(['depends', 'decision', 'affects', 'blocks', 'flow']);
 const ROW = 34, COLGAP = 56, PAD = 10, LEVEL = 88, XGAP = 14, H = 14, STACK = 22;
 
-const S = { data: null, inst: [], instById: new Map(), byIid: new Map(), view: 'map', collapsed: new Set(), filters: { status: new Set(), domain: '', kind: '', q: '' },
-  selected: null, hover: null, edgeKinds: new Set(['related', 'depends', 'decision', 'wikilink']), tx: 40, ty: 40, k: 1, laidOut: new Map(), ready: false, orient: 'vertical', offsets: { vertical: {}, horizontal: {} }, focus: null };
+const S = { data: null, inst: [], instById: new Map(), byIid: new Map(), view: 'map', collapsed: new Set(), filters: { status: new Set(), module: '', kind: '', layer: '', q: '' },
+  selected: null, hover: null, edgeKinds: new Set(['related', 'depends', 'decision', 'wikilink', 'affects', 'blocks', 'flow', 'shares']), tx: 40, ty: 40, k: 1, laidOut: new Map(), ready: false, orient: 'vertical', offsets: { vertical: {}, horizontal: {} }, focus: null };
 
 const store = { get(k, d) { try { const v = localStorage.getItem('spt.' + k); return v === null ? d : JSON.parse(v); } catch { return d; } }, set(k, v) { try { localStorage.setItem('spt.' + k, JSON.stringify(v)); } catch {} } };
 
@@ -257,10 +270,12 @@ const store = { get(k, d) { try { const v = localStorage.getItem('spt.' + k); re
 async function load() {
   const res = await fetch('tree.json', { cache: 'no-store' });
   S.data = await res.json();
+  for (const l of S.data.layers || []) { LAYER[l.id] = { label: l.label, color: l.color }; for (const k of l.kinds) { KIND_NAME[k.id] = k.label; if (!GLYPH[k.id]) GLYPH[k.id] = '📄'; } }
+  for (const a of ['business', 'frontend', 'backend', 'qa', 'shared']) if (!LAYER[a]) LAYER[a] = { label: a, color: null };
   const theme = store.get('theme', null); if (theme) document.documentElement.dataset.theme = theme;
   const collapsed = store.get('collapsed', null);
   if (collapsed) S.collapsed = new Set(collapsed);
-  else for (const n of Object.values(S.data.nodes)) if (n.kind === 'feature' || n.kind === 'group' || (n.kind === 'domain' && (S.orient === 'vertical' || n.domain !== 'identity'))) S.collapsed.add(n.id);
+  else for (const n of Object.values(S.data.nodes)) if (n.kind === 'feature' || n.kind === 'group' || (n.kind === 'task' && n.children.length) || (n.kind === 'module' && (S.orient === 'vertical' || n.module !== 'identity'))) S.collapsed.add(n.id);
   S.orient = store.get('orient', 'vertical');
   const saved = store.get('offsets', null);
   if (saved && typeof saved === 'object') S.offsets = { vertical: saved.vertical || {}, horizontal: saved.horizontal || {} };
@@ -292,16 +307,17 @@ function buildInstances() {
 function matches(n) {
   const f = S.filters;
   if (f.status.size && !f.status.has(n.effectiveStatus)) return false;
-  if (f.domain && n.domain !== f.domain && n.kind !== 'root') return false;
-  if (f.kind && n.kind !== f.kind && !(f.kind === 'feature' && n.kind === 'docs')) return false;
+  if (f.module && n.module !== f.module && n.kind !== 'root') return false;
+  if (f.kind && n.kind !== f.kind) return false;
+  if (f.layer && n.layer !== f.layer && n.kind !== 'root' && n.kind !== 'module') return false;
   if (f.q) {
     const q = f.q.toLowerCase();
-    const hay = [n.title, n.id, n.summary || '', ...(n.screens || []), n.feature || ''].join(' ').toLowerCase();
+    const hay = [n.title, n.id, n.code || '', n.summary || '', ...(n.screens || []), n.feature || ''].join(' ').toLowerCase();
     if (!hay.includes(q)) return false;
   }
   return true;
 }
-function filtersActive() { const f = S.filters; return f.status.size || f.domain || f.kind || f.q; }
+function filtersActive() { const f = S.filters; return f.status.size || f.module || f.kind || f.layer || f.q; }
 
 function computeVisibility(root) {
   const active = filtersActive();
@@ -332,8 +348,8 @@ function nodeWidth(n) {
 }
 function statusText(n) {
   const l = S.data.legend[n.effectiveStatus] || n.effectiveStatus;
-  if (n.blockedBy === 'backend' && n.effectiveStatus === 'blocked') return 'blocked · backend';
-  if (n.blockedBy === 'decision') return l + ' · decision';
+  const b = Array.isArray(n.blockedBy) ? n.blockedBy : [];
+  if (b.length && (n.effectiveStatus === 'blocked' || n.effectiveStatus === 'missing')) { const t = node(b[0].id); return `${n.effectiveStatus === 'blocked' ? 'blocked' : l} · ${(t.kind === 'task' || t.kind === 'decision') && t.code ? t.code : (KIND_NAME[t.kind] || t.title)}${b.length > 1 ? ` +${b.length - 1}` : ''}`; }
   return l;
 }
 function layout(root) {
@@ -350,7 +366,7 @@ function layout(root) {
     if (!kids.length) { it.y = cursor; cursor += ROW; return; }
     for (const c of kids) place(c);
     it.y = (kids[0].y + kids[kids.length - 1].y) / 2;
-    if (it.node.kind === 'feature' || it.node.kind === 'domain') cursor += 10;
+    if (it.node.kind === 'feature' || it.node.kind === 'module') cursor += 10;
   };
   place(root);
   return visible;
@@ -378,7 +394,7 @@ function layoutVertical(root) {
     const kids = it.children.filter((c) => c.visible);
     if (!kids.length) { it.x = cursor; cursor += it.w + XGAP; return; }
     // a feature or group whose visible children are all leaves lists them in a column under itself
-    if ((it.node.kind === 'feature' || it.node.kind === 'group') && kids.every((c) => !c.children.some((g) => g.visible))) {
+    if ((it.node.kind === 'feature' || it.node.kind === 'group' || it.node.kind === 'task') && kids.every((c) => !c.children.some((g) => g.visible))) {
       it.stacks = true; it.x = cursor;
       kids.forEach((c, i) => { c.stacked = true; c.x = it.x + STACK; c.y = it.y + ROW * (i + 1); c.stacks = false; });
       cursor += Math.max(it.w, STACK + Math.max(...kids.map((c) => c.w))) + XGAP + 16;
@@ -390,7 +406,7 @@ function layoutVertical(root) {
     it.x = (first.x + last.x + last.w) / 2 - it.w / 2;
     if (it.x < start) { const dx = start - it.x; for (const c of kids) shift(c, dx); it.x += dx; }
     cursor = Math.max(cursor, it.x + it.w + XGAP);
-    if (it.node.kind === 'feature' || it.node.kind === 'domain') cursor += 16;
+    if (it.node.kind === 'feature' || it.node.kind === 'module') cursor += 16;
   };
   place(root);
   return visible;
@@ -413,6 +429,7 @@ function renderMap(visible) {
       const n = it.node;
       el('rect', { class: 'box', x: 0, y: -14, height: 28, width: it.w }, g);
       el('rect', { class: 'stripe', x: 0, y: -14, width: 4, height: 28, fill: statusVar(n.effectiveStatus) }, g);
+      if (n.layer && LAYER[n.layer]?.color && !['feature', 'task', 'decision', 'module', 'group', 'root'].includes(n.kind)) el('rect', { class: 'layer', x: 6, y: 11, width: it.w - 12, height: 3, fill: LAYER[n.layer].color }, g);
       el('text', { class: 'glyph', x: PAD + 2, y: 0 }, g).textContent = GLYPH[n.kind] || '•';
       el('text', { class: 'name', x: PAD + 20, y: 0 }, g).textContent = n.title;
       const stW = Math.ceil(textWidth(statusText(n), '600 10px ' + getComputedStyle(document.body).fontFamily)) + 12;
@@ -458,7 +475,7 @@ function renderMap(visible) {
     }
     g.style.transform = `translate(${it.x}px, ${it.y}px)`;
     const n = it.node;
-    g.setAttribute('class', `n k-${n.kind} s-${n.effectiveStatus}${n.effectiveStatus === 'missing' ? ' missing' : ''}${S.selected === it.id ? ' sel' : ''}${filtersActive() && !it.match ? ' faded' : ''}`);
+    g.setAttribute('class', `n k-${n.kind} l-${n.layer || 'none'} s-${n.effectiveStatus}${n.effectiveStatus === 'missing' ? ' missing' : ''}${S.selected === it.id ? ' sel' : ''}${filtersActive() && !it.match ? ' faded' : ''}`);
     const ct = g.querySelector('.caret-t'); if (ct) ct.textContent = it.open ? '−' : `${countDesc(it.node)}`;
     const cr = g.querySelector('.caret'); if (cr) cr.setAttribute('r', it.open ? 7 : 9);
   }
@@ -514,12 +531,13 @@ function renderRelEdges(visible) {
     const x1 = a.it.x + a.it.w / 2, y1 = a.it.y, x2 = b.it.x + b.it.w / 2, y2 = b.it.y;
     let d;
     if (S.orient === 'vertical') {
-      if (Math.abs(y1 - y2) < 1) {          // same level: bow below the row
+      if (Math.abs(y1 - y2) < 1) {          // same level: bow below the row, from → to
         const bend = Math.min(56, Math.max(24, Math.abs(x2 - x1) * .1));
         d = `M ${x1} ${y1 + H} C ${x1} ${y1 + H + bend}, ${x2} ${y2 + H + bend}, ${x2} ${y2 + H}`;
-      } else {
-        const [ux, uy, lx, ly] = y1 < y2 ? [x1, y1, x2, y2] : [x2, y2, x1, y1];
-        d = `M ${ux} ${uy + H} C ${ux} ${(uy + ly) / 2}, ${lx} ${(uy + ly) / 2}, ${lx} ${ly - H}`;
+      } else if (y1 < y2) {                  // from above to below
+        d = `M ${x1} ${y1 + H} C ${x1} ${(y1 + y2) / 2}, ${x2} ${(y1 + y2) / 2}, ${x2} ${y2 - H}`;
+      } else {                               // from below to above
+        d = `M ${x1} ${y1 - H} C ${x1} ${(y1 + y2) / 2}, ${x2} ${(y1 + y2) / 2}, ${x2} ${y2 + H}`;
       }
     } else {
       const same = Math.abs(x1 - x2) < 1;
@@ -529,7 +547,7 @@ function renderRelEdges(visible) {
     }
     const g = el('g', { class: `k-${e.kind}${lit ? ' lit' : ''}`, 'data-from': e.from, 'data-to': e.to }, gRel);
     el('path', { d, class: `k-${e.kind}${routed ? ' routed' : ''}${lit ? ' lit' : ''}` }, g);
-    if (lit && litCount <= 14) { const t = el('text', { x: (x1 + x2) / 2, y: (y1 + y2) / 2 - 4, 'text-anchor': 'middle' }, g); t.textContent = EDGE_NAME[e.kind] + (routed ? ' (collapsed)' : ''); }
+    if (lit && litCount <= 14) { const t = el('text', { x: (x1 + x2) / 2, y: (y1 + y2) / 2 - 4, 'text-anchor': 'middle' }, g); t.textContent = EDGE_NAME[e.kind] + (e.via ? ': ' + e.via.slice(0, 2).join(', ') + (e.via.length > 2 ? ` +${e.via.length - 2}` : '') : '') + (routed ? ' (collapsed)' : ''); }
   }
 }
 function setHover(id) { S.hover = id; renderRelEdges(S.inst.filter((it) => it.visible)); updateHover(); }
@@ -600,7 +618,7 @@ function renderOutline(root) {
     if (n.children.length) li.setAttribute('aria-expanded', it.open ? 'true' : 'false');
     const row = document.createElement('div'); row.className = 'row' + (S.selected === it.id ? ' sel' : '') + (filtersActive() && !it.match ? ' faded' : ''); row.tabIndex = 0;
     row.innerHTML = `<span class="car">${n.children.length ? (it.open ? '▾' : '▸') : ''}</span><span class="g">${GLYPH[n.kind] || '•'}</span><span class="nm" title="${esc(n.path || n.title)}">${esc(n.title)}</span>`;
-    if (n.kind !== 'feature' && n.kind !== 'domain' && n.kind !== 'root' && n.label) row.insertAdjacentHTML('beforeend', `<span class="rel-chip">${esc(n.label)}</span>`);
+    if (n.kind !== 'feature' && n.kind !== 'module' && n.kind !== 'root' && n.label) row.insertAdjacentHTML('beforeend', `<span class="rel-chip"${n.layer && LAYER[n.layer]?.color ? ` style="border-color:${LAYER[n.layer].color};color:${LAYER[n.layer].color}"` : ''}>${esc(n.label)}</span>`);
     if (n.priority) row.insertAdjacentHTML('beforeend', `<span class="rel-chip">${esc(n.priority)}</span>`);
     row.insertAdjacentHTML('beforeend', `<span class="st-chip" style="--c:${statusVar(n.effectiveStatus)}">${esc(statusText(n))}</span>`);
     row.addEventListener('click', (e) => { if (e.target.classList.contains('car') && n.children.length) toggle(it.id); else select(it.id, it.iid); });
@@ -651,15 +669,27 @@ function select(id, iid) {
 
 // ------------------------------------------------------------ filters UI
 function buildFilters() {
-  const sel = $('#f-domain');
-  for (const id of node(S.data.rootId).children) { const n = node(id); if (n.kind !== 'domain') continue; const o = document.createElement('option'); o.value = n.domain; o.textContent = n.title; sel.appendChild(o); }
+  const sel = $('#f-module');
+  for (const id of node(S.data.rootId).children) { const n = node(id); if (n.kind !== 'module') continue; const o = document.createElement('option'); o.value = n.module; o.textContent = n.name || n.title; sel.appendChild(o); }
+  const kindSel = $('#f-kind');
+  const kinds = [['feature', 'Features'], ...(S.data.layers || []).flatMap((l) => l.kinds.map((k) => [k.id, `${k.label} (${l.label})`])), ['task', 'Tasks'], ['decision', 'Decisions'], ['project', 'Project notes']];
+  for (const [v, label] of kinds) { const o = document.createElement('option'); o.value = v; o.textContent = label; kindSel.appendChild(o); }
+  const lbox = $('#f-layer');
+  const layerBtns = [];
+  const addLayer = (id, label, color) => {
+    const b = document.createElement('button'); b.className = 'chip'; b.setAttribute('aria-pressed', String(S.filters.layer === id)); b.style.setProperty('--c', color || 'var(--accent)'); b.innerHTML = `${color ? '<i></i>' : ''}${esc(label)}`; b.title = id ? `Show only the ${label} layer` : 'Every layer';
+    b.onclick = () => { S.filters.layer = id; for (const [x, bb] of layerBtns) bb.setAttribute('aria-pressed', String(x === id)); refresh(true); };
+    layerBtns.push([id, b]); lbox.appendChild(b);
+  };
+  addLayer('', 'All layers', null);
+  for (const l of S.data.layers || []) addLayer(l.id, l.label, l.color);
   const box = $('#f-status');
   for (const [k, label] of Object.entries(S.data.legend)) {
     const b = document.createElement('button'); b.className = 'chip'; b.setAttribute('aria-pressed', 'false'); b.style.setProperty('--c', statusVar(k)); b.innerHTML = `<i></i>${esc(label)}`; b.title = `Show only "${label}" (toggle)`;
     b.onclick = () => { if (S.filters.status.has(k)) S.filters.status.delete(k); else S.filters.status.add(k); b.setAttribute('aria-pressed', S.filters.status.has(k)); refresh(true); };
     box.appendChild(b);
   }
-  sel.onchange = () => { S.filters.domain = sel.value; refresh(true); };
+  sel.onchange = () => { S.filters.module = sel.value; refresh(true); };
   $('#f-kind').onchange = (e) => { S.filters.kind = e.target.value; refresh(true); };
   let t; $('#search').oninput = (e) => { clearTimeout(t); t = setTimeout(() => { S.filters.q = e.target.value.trim(); refresh(true); }, 120); };
   $('#expand').onclick = () => expandAll(true); $('#collapse').onclick = () => expandAll(false);
@@ -729,17 +759,16 @@ async function openNode(id) {
   $('#main').classList.add('pane-open');
   $('#p-title').textContent = n.title;
   const meta = $('#p-meta'); meta.innerHTML = '';
-  meta.insertAdjacentHTML('beforeend', `<span class="st-chip" style="--c:${statusVar(n.effectiveStatus)}">${esc(statusText(n))}</span><span>${esc(KIND_NAME[n.kind] || n.kind)}</span>`);
+  meta.insertAdjacentHTML('beforeend', `<span class="st-chip" style="--c:${statusVar(n.effectiveStatus)}">${esc(statusText(n))}</span><span>${esc(KIND_NAME[n.kind] || n.kind)}</span>${n.layer && LAYER[n.layer] ? `<span class="rel-chip" style="${LAYER[n.layer].color ? `border-color:${LAYER[n.layer].color};color:${LAYER[n.layer].color}` : ''}">${esc(LAYER[n.layer].label)} layer</span>` : ''}${n.code && n.code !== n.title ? `<span class="mono">${esc(n.code)}</span>` : ''}`);
   if (n.priority) meta.insertAdjacentHTML('beforeend', `<span>${esc(n.priority)}</span>`);
   if (n.path) meta.insertAdjacentHTML('beforeend', `<span class="mono">${esc(n.path)}</span>`);
   $('#p-gh').href = n.path ? ghUrl(n.path) : (n.template ? ghUrl(n.template) : S.data.repo.blobBase);
   $('#p-gh').textContent = n.path ? 'Open on GitHub' : 'Open the template';
   renderRelations(n);
   if (!n.path && n.file) { $('#p-meta').insertAdjacentHTML('beforeend', `<span>${esc(n.file)}</span>`); $('#p-gh').href = ghUrl(n.file); await renderFile(n.file, n.heading); if (n.summary) $('#p-article').insertAdjacentHTML('afterbegin', `<p><em>${esc(n.summary)}</em></p>`); return; }
-  if (!n.path) { $('#p-fm').innerHTML = ''; $('#p-article').innerHTML = `<p class="empty">${esc(n.summary || 'Not written yet.')} ${n.template ? `Create <code>${esc(suggestedPath(n))}</code> from <a href="#f/${encodeURIComponent(n.template)}">${esc(n.template)}</a>.` : ''}</p>`; return; }
+  if (!n.path) { $('#p-fm').innerHTML = ''; $('#p-article').innerHTML = `<p class="empty">${esc(n.summary || 'Not written yet.')}${n.template ? ` Template: <a href="#f/${encodeURIComponent(n.template)}">${esc(n.template)}</a>.` : ''}</p>`; return; }
   await renderFile(n.path);
 }
-function suggestedPath(n) { const f = node('feature:' + n.feature); const folder = f.path.split('/')[1]; const base = f.path.split('/').pop().replace(/\.md$/, ''); return { story: `stories/${folder}/${base} Story.md`, requirements: `requirements/${folder}/${base} Requirements.md`, frontend: `frontend/${folder}/${base} Frontend.md` }[n.kind]; }
 function renderRelations(n) {
   const box = $('#p-rels'); box.innerHTML = '';
   const groups = {};
@@ -747,20 +776,35 @@ function renderRelations(n) {
     if (e.kind === 'tree') continue;
     let other = null, dir = '';
     if (e.from === n.id) { other = e.to; dir = '→'; } else if (e.to === n.id) { other = e.from; dir = '←'; } else continue;
-    (groups[e.kind] = groups[e.kind] || []).push({ other, dir });
+    (groups[e.kind] = groups[e.kind] || []).push({ other, dir, via: e.via || null });
   }
   const parents = n.parents.map((p) => node(p)).filter((p) => p.kind !== 'root');
   if (parents.length) box.insertAdjacentHTML('beforeend', `<h3>In the tree under</h3>` + parents.map((p) => `<a href="#n/${encodeURIComponent(p.id)}">${esc(p.title)}</a>`).join(''));
-  if (n.depends.length) box.insertAdjacentHTML('beforeend', `<h3>Depends on</h3>` + n.depends.map((d) => `<a href="#n/${encodeURIComponent(d)}"><span class="st-chip" style="--c:${statusVar(node(d).effectiveStatus)}">${esc(statusText(node(d)))}</span> ${esc(node(d).title)}</a>`).join(''));
+  const chip = (d) => `<span class="st-chip" style="--c:${statusVar(node(d).effectiveStatus)}">${esc(statusText(node(d)))}</span>`;
+  if (Array.isArray(n.blockedBy) && n.blockedBy.length) box.insertAdjacentHTML('beforeend', `<h3>Blocked by</h3>` + n.blockedBy.map((b) => `<a href="#n/${encodeURIComponent(b.id)}">${chip(b.id)} ${esc(b.title)}</a> <span class="k">${esc(b.why)}</span><br>`).join(''));
+  if (n.depends.length) box.insertAdjacentHTML('beforeend', `<h3>Depends on</h3>` + n.depends.map((d) => `<a href="#n/${encodeURIComponent(d)}">${chip(d)} ${esc(node(d).title)}</a>`).join(''));
   for (const [k, list] of Object.entries(groups)) {
-    if (k === 'depends') continue;
-    box.insertAdjacentHTML('beforeend', `<h3>${esc(EDGE_NAME[k])} <span class="k">(${list.length})</span></h3>` + list.slice(0, 40).map(({ other, dir }) => `<a href="#n/${encodeURIComponent(other)}" title="${dir}">${esc(node(other).title)}</a>`).join('') + (list.length > 40 ? `<span class="k">+${list.length - 40} more</span>` : ''));
+    if (k === 'depends' || k === 'blocks') continue;
+    box.insertAdjacentHTML('beforeend', `<h3>${esc(EDGE_NAME[k])} <span class="k">(${list.length})</span></h3>` + list.slice(0, 40).map(({ other, dir, via }) => `<a href="#n/${encodeURIComponent(other)}" title="${dir}${via ? ' via ' + esc(via.join(', ')) : ''}">${DIRECTED.has(k) ? dir + ' ' : ''}${esc(node(other).title)}</a>`).join('') + (list.length > 40 ? `<span class="k">+${list.length - 40} more</span>` : ''));
   }
+  renderImpact(n, box);
   if (n.rollup) box.insertAdjacentHTML('beforeend', `<h3>Contains</h3>` + Object.entries(n.rollup).map(([s, c]) => `<span class="st-chip" style="--c:${statusVar(s)}; margin-right:4px">${c} ${esc(S.data.legend[s] || s)}</span>`).join(''));
+}
+// the same two-hop list `node scripts/build-tree.mjs --impact` prints: what to read or update when this changes
+function renderImpact(n, box) {
+  const REL = ['related', 'affects', 'depends', 'blocks', 'flow', 'shares', 'decision', 'wikilink'];
+  const family = new Set([n.id, ...n.children]);
+  const hop = (ids) => { const out = new Map(); for (const e of S.data.edges) { if (!REL.includes(e.kind)) continue; for (const id of ids) { const other = e.from === id ? e.to : e.to === id ? e.from : null; if (!other || family.has(other)) continue; if (!out.has(other)) out.set(other, new Set()); out.get(other).add(EDGE_NAME[e.kind] + (e.via ? ` (${e.via.slice(0, 2).join(', ')})` : '')); } } return out; };
+  const first = hop([...family]);
+  const second = hop([...first.keys()]); for (const id of first.keys()) second.delete(id);
+  if (!first.size) return;
+  const byLayer = (map) => { const g = new Map(); for (const [id, why] of map) { const l = node(id).layer || 'business'; if (!g.has(l)) g.set(l, []); g.get(l).push([id, why]); } return [...g.entries()].sort(); };
+  const render = (map) => byLayer(map).map(([l, items]) => `<div><span class="k">${esc(LAYER[l]?.label || l)}:</span> ` + items.sort((a, b) => node(a[0]).title.localeCompare(node(b[0]).title)).slice(0, 30).map(([id, why]) => `<a href="#n/${encodeURIComponent(id)}" title="${esc([...why].join('; '))}">${esc(node(id).title)}</a>`).join('') + (items.length > 30 ? `<span class="k">+${items.length - 30} more</span>` : '') + `</div>`).join('');
+  box.insertAdjacentHTML('beforeend', `<h3>Impact <span class="k">(what a change here touches; same as --impact)</span></h3>` + render(first) + (second.size ? `<h3>Two hops away <span class="k">(${second.size})</span></h3>` + render(second) : ''));
 }
 async function openFile(path, heading) {
   $('#main').classList.add('pane-open');
-  const owner = Object.values(S.data.nodes).find((n) => n.path === path && !n.aliasOf);
+  const owner = Object.values(S.data.nodes).find((n) => n.path === path);
   if (owner) { S.selected = owner.id; refresh(false); }
   $('#p-title').textContent = path.split('/').pop().replace(/\.md$/, '');
   $('#p-meta').innerHTML = `<span>${esc(S.data.files[path]?.type || 'note')}</span><span>${esc(path)}</span>`;

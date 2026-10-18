@@ -5,11 +5,11 @@ status: todo
 priority: P1
 effort: L
 feature: linked-accounts
-domain: platform
+module: platform
 screens: [s01, s04, s68]
 depends: []
 created: 2026-10-15
-tags: [task, task/todo, domain/platform, priority/P1]
+tags: [task, task/todo, module/platform, priority/P1]
 ---
 
 # ⬜ T-019 · LinkedIn OAuth: link, unlink, login

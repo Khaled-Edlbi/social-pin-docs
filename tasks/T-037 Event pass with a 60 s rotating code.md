@@ -5,11 +5,11 @@ status: blocked
 priority: P1
 effort: M
 feature: events-during
-domain: events
+module: events
 screens: [s56]
 depends: [T-007, T-011]
 created: 2026-10-15
-tags: [task, task/blocked, domain/events, priority/P1]
+tags: [task, task/blocked, module/events, priority/P1]
 ---
 
 # ⛔ T-037 · Event pass with a 60 s rotating code

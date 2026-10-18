@@ -5,11 +5,11 @@ status: needs-info
 priority: P1
 effort: L
 feature: payments
-domain: commerce
+module: commerce
 screens: [s51]
 depends: []
 created: 2026-10-15
-tags: [task, task/needs-info, domain/commerce, priority/P1]
+tags: [task, task/needs-info, module/commerce, priority/P1]
 ---
 
 # ❓ T-047 · Orders, payments and the provider webhook

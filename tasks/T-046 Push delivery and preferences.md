@@ -5,11 +5,11 @@ status: blocked
 priority: P1
 effort: M
 feature: notifications
-domain: platform
+module: platform
 screens: [s69]
 depends: [T-045, T-014]
 created: 2026-10-15
-tags: [task, task/blocked, domain/platform, priority/P1]
+tags: [task, task/blocked, module/platform, priority/P1]
 ---
 
 # ⛔ T-046 · Push delivery and preferences

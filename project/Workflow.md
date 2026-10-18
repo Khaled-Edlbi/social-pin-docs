@@ -1,82 +1,75 @@
 ---
 type: project
-updated: 2026-10-15
-tags: [project]
+layer: shared
+updated: 2026-10-18
+related: ["Agent Rules", "Docs Tree"]
+tags: [project, layer/shared]
 ---
 
-# Workflow · ticket → branch → code → docs
+# Workflow · ticket → branch → layers → docs
 
-How a feature moves through the two repositories. This is the vault-side copy
-of the "Feature workflow" section in the backend's `CLAUDE.md`; when they
-differ, `CLAUDE.md` wins.
+How a piece of work moves through the repositories and the layers. The rules behind each step are in [[Agent Rules]]; this note is the sequence.
 
-## The two repositories
+## The repositories
 
 | Repo | Holds | Branch for a ticket |
 |---|---|---|
-| `social-pin` | the NestJS backend, `docs/` with the three mirrored files | `<module>/<ticket-no>/<what-you-do>` |
-| `social-pin-docs` (this vault) | tickets, feature notes, frontend notes, decisions, design index | **the same name** |
+| `social-pin` (backend) | the NestJS API; `docs/README.md` points here | `<module>/<ticket-no>/<what-you-do>` |
+| the frontend repo | the client; its agent rules are in [[Frontend Agent Prompt]] | **the same name** |
+| `social-pin-docs` (this vault) | tickets, modules, features, every layer's notes, decisions, design index, project docs | **the same name** |
 
-Two branches with one name pair the code and its documentation. A pull request
-in one links the pull request in the other.
+Branches with one name pair the code and its documentation; pull requests link each other and the ticket.
 
-## 1 · Ticket first
+## 1 · Ticket first (business)
 
-Every piece of work starts from a note in `tasks/` (`T-NNN <Title>.md`). It
-names the feature, the screens, the dependencies and the definition of done.
-Before coding, open the feature in the [[Docs Tree]] (or read `tree/tree.json`)
-and read its four notes in order: Docs, Story, Requirements, Frontend; then the
-ticket, the screens in [[Screen Index]] and any [[Decisions|decision]] it waits on. A ticket in ❓ *Needs a decision* or
-⛔ *Blocked* is not workable; the decision comes first.
+Every piece of work starts from `tasks/T-NNN <Title>.md`: the feature, the screens, `depends`, the definition of done. Create it from `templates/Task Template.md` with the next free number; the generated [[Task Board]] and [[Backlog]] pick it up on the next build. Add it to the feature note's *Tasks* table. A ticket in ❓ *Needs a decision* or ⛔ *Blocked* is not workable: the decision or the blocker comes first.
 
-No ticket yet? Create one from `templates/Task Template.md` with the next free
-number, add it to [[Task Board]], [[Backlog]] and the feature note's task table.
+Run `node scripts/build-tree.mjs --impact T-NNN` and paste what it lists into the ticket's `## Impact`: that is the reading list for everyone who picks it up.
 
 ## 2 · Branch from the ticket
 
-`ring/T-004/member-count`: the module (a `src/modules/<feature>` folder name, or
-a cross-cutting area such as `prisma`, `common`, `docs`, `ci`), the ticket id
-exactly as the task note spells it, then a short kebab-case summary. This is the
-backend's binding git convention ("Git conventions" in its `CLAUDE.md`). Never
-invent a ticket id; if there is none, create the task note first. One ticket per
-branch. Commits are `<type>(<module>): <message>` with the ticket in the body:
-`feat(ring): add member count to list and detail`.
+`ring/T-004/member-count` in every repo touched: the module (a backend `src/modules/<feature>` folder name or a cross-cutting area such as `prisma`, `common`, `docs`, `ci`), the ticket id exactly as the note spells it, a short kebab-case summary. Never invent a ticket id. One ticket per branch. Commits are `<type>(<module>): <message>` with the ticket in the body. Set the ticket to `status: in-progress`.
 
-Set the ticket to `status: in-progress` and move its card to 🔵 *In progress*.
+## 3 · The layers, in flow order
 
-## 3 · Build
+```
+Story ──▶ Frontend Requirements ──▶ Backend Delivery ──▶ Backend Integration ──▶ Frontend Delivery ──▶ QA Frontend ─┐
+                                          └──────────▶ QA Backend ──────────────────────────────────────────────────┴──▶ Story (verified)
+```
 
-Per [[Architecture#Build order for a new feature]] and [[Ring Access Model]].
-`pnpm typecheck && pnpm test` green before the docs step.
+| Step | Layer | Note (task level; the feature level is its sum) | Done when |
+|---|---|---|---|
+| 1 | Business | `T-NNN Story` (or the feature's story, updated) | `approved` by product |
+| 2 | Frontend | `T-NNN Frontend Requirements` | `approved` by the backend, `delivered` when every row is ✅ |
+| 3 | Backend | `T-NNN Backend Delivery` | `done`: code merged, `pnpm typecheck && pnpm test` green |
+| 4 | Backend | `T-NNN Backend Integration` | `current`: matches `main` |
+| 5 | Frontend | `T-NNN Frontend Delivery` | `done`: screens merged |
+| 6 | QA | `T-NNN QA Backend`, `T-NNN QA Frontend` | `passing` on a named build |
+| 7 | Business | the story | `verified` |
 
-## 4 · Reflect it here — the definition of done
+Create each note with `node scripts/build-tree.mjs --scaffold <kind> T-NNN`; the first one moves the task into its folder. The order is the default from `docs.config.json`; a layer may be blocked by any other through `blockedBy` ([[Agent Rules#4 · Statuses, blocking and sign-off]]), and a new layer slots into the flow by config ([[Agent Rules#5 · Adding a layer]]).
 
-| # | Note | What changes |
-|---|---|---|
-| 1 | `tasks/T-NNN …` | `status: done`, tags, DoD boxes ticked, a `## Log` line: date · branch · what shipped |
-| 2 | [[Task Board]], [[Backlog]] | card to ✅ Done; Backlog row status |
-| 3 | `features/<Domain>/<Feature>.md` | status (frontmatter, tags, emoji), endpoint list, **`## How it works`**, *What exists*, *Gaps*, task table, `updated:`. New feature → new note from the template, plus [[Feature Tree]], [[Feature Graph]], [[Screen Index]] |
-| 4 | `frontend/<Domain>/<Feature> Frontend.md` | the client's guide: screens → calls, flow, shapes, state, errors, rules, not-yet, checklist. New → from `templates/Frontend Template.md`, add to [[Frontend Index]] |
-| 4a | `requirements/<Domain>/<Feature> Requirements.md` | flip the rows the task delivered to ✅ with the endpoint; `status: approved` only when product signed the requirements off |
-| 4b | `stories/<Domain>/<Feature> Story.md` | `status: approved` when product signed off; otherwise update the acceptance criteria that changed |
-| 5 | [[Feature Tree]], [[Home]], [[Frontend Contract]], [[Architecture]] | counts, "Where things stand", the endpoint table and total, the module table for a new module |
-| 6 | `SPEC_MAP.md`, `FRONTEND_API_GUIDE.md`, `DEVELOPER_GUIDE.md` | mirrored in both repos; change both in the same change when the contract moved |
-| 7 | every note touched | today's `updated:` |
-| 8 | `tree/tree.json`, `tree/tree.md` | regenerated with `node scripts/build-tree.mjs` and committed with the notes; `--check` is what CI runs |
+A docs-only or infrastructure task (like [[T-064 Restructure the docs vault]]) has a task note and no layer notes.
+
+## 4 · Roll up — the feature is the sum of its tasks
+
+When a task-level note reaches its done status, the same layer updates the feature-level note of the same kind (`modules/<Module>/<Feature>/<Feature> <Kind>.md`) and links the task note in its *Tasks delivered* table; the build warns otherwise. When the feature's backend state changes, the backend sets the feature note's `status` and the module note's table. Cross-cutting reference (stack, migrations, contracts) goes to the layer's project docs (`backend/`, `frontend/`, `business/`), never into the feature.
 
 ## 5 · Finish
 
-Push both branches, open the two pull requests, reference the ticket in both.
-Report what shipped and what stays open in the same words as the vault.
+1. `--impact` again; update or flag every note it lists that the change made wrong.
+2. Task note: `status: done`, DoD boxes, `## Log` line (date · branch · what shipped, which notes were flagged).
+3. Every touched note: today's `updated:`.
+4. `node scripts/build-tree.mjs`; commit `tree/tree.json`, `tree/tree.md`, `tasks/Task Board.md`, `tasks/Backlog.md` with the notes. `--check` is what CI runs.
+5. Push every branch; open the pull requests; link them to each other and to the ticket. Report what shipped and what stays open in the vault's words.
 
 ## Where to look for what
 
-- Anyone → the [[Docs Tree]] page: project → domain → feature → Docs, Story,
-  Requirements, Frontend, tasks, decisions, with a status chip on each.
-- A frontend developer picking up a done feature → [[Frontend Index]] → the
-  feature's frontend note → the feature note for the *How it works*.
-- A backend developer picking up a ticket → [[Backlog]] → the ticket → the
-  feature note → [[Ring Access Model]].
-- Anyone checking status → [[Feature Tree]] and [[Home]].
+- Anyone → the [[Docs Tree]] page: project → module → feature → the layer notes, tasks, decisions; filter by layer.
+- A frontend developer → [[Frontend Contract]] → the feature's Backend Integration note → [[Frontend API Guide]].
+- A backend developer → [[Backlog]] → the ticket → `--impact` → the feature's Backend Delivery and Frontend Requirements → [[Ring Access Model]].
+- Product → [[Decisions]], the ✏️ Draft stories in the tree, [[Screen Index]].
+- QA → the feature's two delivery notes and its story; the QA templates.
+- Status → [[Home]] and the module notes.
 
-Related: [[Docs Tree]] · [[Architecture]] · [[API Conventions]] · [[Frontend Contract]]
+Related: [[Agent Rules]] · [[Docs Tree]] · [[Architecture]] · [[Frontend Contract]]

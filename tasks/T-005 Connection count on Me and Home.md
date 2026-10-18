@@ -5,11 +5,11 @@ status: blocked
 priority: P1
 effort: S
 feature: counts
-domain: identity
+module: identity
 screens: [s11, s68]
 depends: [T-021]
 created: 2026-10-15
-tags: [task, task/blocked, domain/identity, priority/P1]
+tags: [task, task/blocked, module/identity, priority/P1]
 ---
 
 # ⛔ T-005 · Connection count on Me and Home

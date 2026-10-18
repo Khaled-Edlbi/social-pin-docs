@@ -5,11 +5,11 @@ status: todo
 priority: P0
 effort: M
 feature: connections
-domain: connections
+module: connections
 screens: [s44, s45]
 depends: []
 created: 2026-10-15
-tags: [task, task/todo, domain/connections, priority/P0]
+tags: [task, task/todo, module/connections, priority/P0]
 ---
 
 # ⬜ T-021 · Connect request: send, inbox, cancel

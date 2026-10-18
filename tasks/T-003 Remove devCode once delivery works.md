@@ -5,11 +5,11 @@ status: blocked
 priority: P1
 effort: S
 feature: code-delivery
-domain: platform
+module: platform
 screens: [s02]
 depends: [T-001, T-002]
 created: 2026-10-15
-tags: [task, task/blocked, domain/platform, priority/P1]
+tags: [task, task/blocked, module/platform, priority/P1]
 ---
 
 # ⛔ T-003 · Remove devCode once delivery works

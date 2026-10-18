@@ -5,11 +5,11 @@ status: todo
 priority: P1
 effort: M
 feature: subscription
-domain: commerce
+module: commerce
 screens: [s70]
 depends: []
 created: 2026-10-15
-tags: [task, task/todo, domain/commerce, priority/P1]
+tags: [task, task/todo, module/commerce, priority/P1]
 ---
 
 # ⬜ T-049 · Subscription endpoints and a single Pro gate

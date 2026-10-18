@@ -5,11 +5,11 @@ status: needs-info
 priority: P1
 effort: L
 feature: events-during
-domain: events
+module: events
 screens: [s58]
 depends: [T-036]
 created: 2026-10-15
-tags: [task, task/needs-info, domain/events, priority/P1]
+tags: [task, task/needs-info, module/events, priority/P1]
 ---
 
 # ❓ T-039 · Catalogue: products and talks (new table)

@@ -1,0 +1,49 @@
+---
+type: feature
+id: files
+name: "Files Upload"
+status: done
+priority: P1
+module: identity
+screens: [s14, s20, s36]
+related: ["Rings"]
+updated: 2026-10-18
+tags: [feature, status/done, module/identity, priority/P1]
+---
+
+# ✅ Files Upload
+
+**Status:** Done · **Priority:** P1 · **Module:** [[Identity Core Module|Identity Core]]
+
+**Layers:** [[Files Upload Story|Story]] · [[Files Upload Frontend Requirements|Frontend Requirements]] · [[Files Upload Backend Delivery|Backend Delivery]] · [[Files Upload Backend Integration|Backend Integration]] · [[Files Upload Frontend Delivery|Frontend Delivery]] · [[Files Upload QA Backend|QA Backend]] · [[Files Upload QA Frontend|QA Frontend]]
+
+Multipart upload with type and size checks, metadata read, delete. A file becomes visible only when a reachable context (a Ring projection) references it.
+
+## Design reference
+
+| Screen | Name | Note |
+|---|---|---|
+| [[Screen Index#s14|s14]] | Ring data |  |
+| [[Screen Index#s20|s20]] | New Ring · step 3 (what it shows) | Field library → D-03 |
+| [[Screen Index#s36|s36]] | Add to this Ring |  |
+
+Wireframe brief sections: [[Wireframe Brief#Home — Rings hub + active profile|§4.1 Home — Rings hub + active profile]]
+
+Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map in [[Navigation Map]], see [[Design Reference]].
+
+## Tasks
+
+| Task | Status | Priority | Effort |
+|---|---|---|---|
+| [[T-062 Serve uploaded file bytes by id]] | ⬜ To do | P0 | S |
+
+```dataview
+TABLE status, priority, effort FROM #task WHERE feature = "files" SORT priority ASC
+```
+
+## Related
+
+- [[Photo Library]]
+- [[Ring Projection]]
+
+Project context: [[Ring Access Model]] · [[Architecture]] · [[API Conventions]] · [[Spec Map]]

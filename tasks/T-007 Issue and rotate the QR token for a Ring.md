@@ -5,11 +5,11 @@ status: todo
 priority: P0
 effort: M
 feature: badge-qr
-domain: discovery
+module: discovery
 screens: [s34]
 depends: []
 created: 2026-10-15
-tags: [task, task/todo, domain/discovery, priority/P0]
+tags: [task, task/todo, module/discovery, priority/P0]
 ---
 
 # ⬜ T-007 · Issue and rotate the QR token for a Ring

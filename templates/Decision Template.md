@@ -4,24 +4,29 @@ id: D-NN
 status: open
 features: []
 screens: []
+affects: []
+related: []
 created: <date>
 tags: [decision, decision/open]
 ---
 
 # ❓ D-NN · <Title>
 
-**Status:** open · **Decider:** · **Raised:** <date>
+**Status:** open · **Decider:** <role> · **Raised:** <date>
 
-## Where the design and the backend disagree
+## Context
 
-## Facts
+Where the design and the backend disagree, in one paragraph.
 
 ## Options
 
-## Recommendation
+1. …
+2. …
 
-## Affects
+## Decision
 
-## Tasks waiting on this
+— (fill in, set `status: decided`, and list every feature and task it unblocks in `affects`)
 
-## Outcome
+## Consequences
+
+- …

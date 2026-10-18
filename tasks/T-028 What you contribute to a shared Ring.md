@@ -5,11 +5,11 @@ status: needs-info
 priority: P2
 effort: L
 feature: ring-invitations
-domain: shared-rings
+module: shared-rings
 screens: [s74]
 depends: [T-027]
 created: 2026-10-15
-tags: [task, task/needs-info, domain/shared-rings, priority/P2]
+tags: [task, task/needs-info, module/shared-rings, priority/P2]
 ---
 
 # ❓ T-028 · "What you contribute" to a shared Ring

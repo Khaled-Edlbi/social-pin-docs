@@ -5,11 +5,11 @@ status: todo
 priority: P1
 effort: M
 feature: delegated-admins
-domain: shared-rings
+module: shared-rings
 screens: [s26, s27]
 depends: []
 created: 2026-10-15
-tags: [task, task/todo, domain/shared-rings, priority/P1]
+tags: [task, task/todo, module/shared-rings, priority/P1]
 ---
 
 # ⬜ T-006 · Delegated admin endpoints

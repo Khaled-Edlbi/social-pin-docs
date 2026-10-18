@@ -5,11 +5,11 @@ status: done
 priority: P0
 effort: S
 feature: auth
-domain: identity
+module: identity
 screens: [s01]
 depends: []
 created: 2026-10-15
-tags: [task, task/done, domain/identity, priority/P0]
+tags: [task, task/done, module/identity, priority/P0]
 decision: D-01
 ---
 

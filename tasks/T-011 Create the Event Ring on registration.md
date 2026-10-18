@@ -5,11 +5,11 @@ status: blocked
 priority: P0
 effort: M
 feature: event-ring-auto
-domain: events
+module: events
 screens: [s52]
 depends: [T-033]
 created: 2026-10-15
-tags: [task, task/blocked, domain/events, priority/P0]
+tags: [task, task/blocked, module/events, priority/P0]
 ---
 
 # ⛔ T-011 · Create the Event Ring on registration

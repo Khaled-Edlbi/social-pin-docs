@@ -5,11 +5,11 @@ status: needs-info
 priority: P2
 effort: L
 feature: gemma
-domain: platform
+module: platform
 screens: [s13]
 depends: [T-016, T-049]
 created: 2026-10-15
-tags: [task, task/needs-info, domain/platform, priority/P2]
+tags: [task, task/needs-info, module/platform, priority/P2]
 ---
 
 # ❓ T-051 · Gemma assistant sheet and suggestions

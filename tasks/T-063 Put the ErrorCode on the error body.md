@@ -5,11 +5,11 @@ status: todo
 priority: P0
 effort: S
 feature: error-contract
-domain: platform
+module: platform
 screens: []
 depends: []
 created: 2026-10-15
-tags: [task, task/todo, domain/platform, priority/P0]
+tags: [task, task/todo, module/platform, priority/P0]
 ---
 
 # ⬜ T-063 · Put the ErrorCode on the error body
@@ -20,7 +20,7 @@ tags: [task, task/todo, domain/platform, priority/P0]
 
 Every service throws `new HttpException({ ErrorCode, message }, status)` and the Frontend guide tells clients to **branch on the code and display the message**. But `AllExceptionsFilter` (`src/common/filters/all-exceptions.filter.ts`) copies only `message` and `error` from the exception response into the body it sends. The wire body is `{ statusCode, message, error, path, timestamp }` and `error` reads `"HttpException"` for every domain error. The stable code never reaches the client.
 
-Add `errorCode` (camelCase on the wire, per the naming rule) to `ErrorBody`, copied from the exception response when present and omitted otherwise. Add a filter spec that asserts a domain error's body carries it and a validation error's does not. Update the error-shape examples in `FRONTEND_API_GUIDE.md` (both repos), [[API Conventions]] and [[Frontend Contract]].
+Add `errorCode` (camelCase on the wire, per the naming rule) to `ErrorBody`, copied from the exception response when present and omitted otherwise. Add a filter spec that asserts a domain error's body carries it and a validation error's does not. Update the error-shape examples in `Frontend API Guide.md` (both repos), [[API Conventions]] and [[Frontend Contract]].
 
 ## Design
 
@@ -37,7 +37,7 @@ No screen. Every error state in the app depends on it.
 - [ ] Filter spec: domain error → `errorCode` present; `BadRequestException` from the `ValidationPipe` → absent and `message` is a string array
 - [ ] `pnpm typecheck && pnpm test` green
 - [ ] Branch `common/T-063/error-code-on-body` in both repos
-- [ ] `FRONTEND_API_GUIDE.md` (both repos), [[API Conventions]], [[Frontend Contract]], [[Error Contract]] updated; the "until T-063" lines removed from the frontend notes
+- [ ] `Frontend API Guide.md` (both repos), [[API Conventions]], [[Frontend Contract]], [[Error Contract]] updated; the "until T-063" lines removed from the frontend notes
 - [ ] [[Task Board]], [[Backlog]], [[Feature Tree]] updated
 
 ## Log

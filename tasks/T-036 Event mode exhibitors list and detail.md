@@ -5,11 +5,11 @@ status: blocked
 priority: P0
 effort: M
 feature: events-during
-domain: events
+module: events
 screens: [s53, s54, s55]
 depends: [T-033]
 created: 2026-10-15
-tags: [task, task/blocked, domain/events, priority/P0]
+tags: [task, task/blocked, module/events, priority/P0]
 ---
 
 # ⛔ T-036 · Event mode: exhibitors list and detail

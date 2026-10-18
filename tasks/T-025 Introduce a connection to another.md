@@ -5,11 +5,11 @@ status: needs-info
 priority: P2
 effort: M
 feature: connections
-domain: connections
+module: connections
 screens: [s47]
 depends: [T-023]
 created: 2026-10-15
-tags: [task, task/needs-info, domain/connections, priority/P2]
+tags: [task, task/needs-info, module/connections, priority/P2]
 ---
 
 # ❓ T-025 · Introduce a connection to another

@@ -5,11 +5,11 @@ status: blocked
 priority: P2
 effort: L
 feature: gemma
-domain: platform
+module: platform
 screens: [s60]
 depends: [T-051, T-036]
 created: 2026-10-15
-tags: [task, task/blocked, domain/platform, priority/P2]
+tags: [task, task/blocked, module/platform, priority/P2]
 ---
 
 # ⛔ T-052 · Smart Match

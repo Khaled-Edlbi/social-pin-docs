@@ -5,11 +5,11 @@ status: todo
 priority: P0
 effort: L
 feature: meetings
-domain: meetings
+module: meetings
 screens: [s59, s64]
 depends: [T-041]
 created: 2026-10-15
-tags: [task, task/todo, domain/meetings, priority/P0]
+tags: [task, task/todo, module/meetings, priority/P0]
 ---
 
 # ⬜ T-042 · Meeting request, accept with slots, decline with reason

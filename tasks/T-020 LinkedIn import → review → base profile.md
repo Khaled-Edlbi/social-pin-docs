@@ -5,11 +5,11 @@ status: blocked
 priority: P1
 effort: L
 feature: onboarding-imports
-domain: identity
+module: identity
 screens: [s04, s05]
 depends: [T-019, D-02]
 created: 2026-10-15
-tags: [task, task/blocked, domain/identity, priority/P1]
+tags: [task, task/blocked, module/identity, priority/P1]
 ---
 
 # ⛔ T-020 · LinkedIn import → review → base profile

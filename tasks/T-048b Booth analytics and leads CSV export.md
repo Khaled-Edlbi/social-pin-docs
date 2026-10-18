@@ -5,11 +5,11 @@ status: blocked
 priority: P1
 effort: M
 feature: exhibitor
-domain: events
+module: events
 screens: [s65]
 depends: [T-009, T-036]
 created: 2026-10-15
-tags: [task, task/blocked, domain/events, priority/P1]
+tags: [task, task/blocked, module/events, priority/P1]
 ---
 
 # ⛔ T-048b · Booth analytics and leads CSV export

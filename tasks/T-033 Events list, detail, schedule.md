@@ -5,11 +5,11 @@ status: todo
 priority: P0
 effort: L
 feature: events-before
-domain: events
+module: events
 screens: [s48, s49]
 depends: []
 created: 2026-10-15
-tags: [task, task/todo, domain/events, priority/P0]
+tags: [task, task/todo, module/events, priority/P0]
 ---
 
 # ⬜ T-033 · Events list, detail, schedule

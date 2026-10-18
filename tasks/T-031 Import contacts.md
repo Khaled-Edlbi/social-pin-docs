@@ -5,11 +5,11 @@ status: needs-info
 priority: P2
 effort: M
 feature: discover-hub
-domain: discovery
+module: discovery
 screens: [s38]
 depends: []
 created: 2026-10-15
-tags: [task, task/needs-info, domain/discovery, priority/P2]
+tags: [task, task/needs-info, module/discovery, priority/P2]
 ---
 
 # ❓ T-031 · Import contacts

@@ -5,11 +5,11 @@ status: todo
 priority: P0
 effort: S
 feature: code-delivery
-domain: platform
+module: platform
 screens: [s02]
 depends: [T-001]
 created: 2026-10-15
-tags: [task, task/todo, domain/platform, priority/P0]
+tags: [task, task/todo, module/platform, priority/P0]
 ---
 
 # ⬜ T-002 · Wire an SMS provider for one-time codes
