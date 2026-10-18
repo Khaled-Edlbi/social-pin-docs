@@ -80,13 +80,27 @@ kbd { font-family: var(--mono); font-size: 11px; padding: 0 5px; border: 1px sol
 .dateline { display: flex; align-items: center; gap: 24px; padding: 7px 0; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--color-neutral-700); flex-wrap: wrap; }
 .dateline .num { font-variant-numeric: tabular-nums; }
 .dateline .count { margin-left: auto; }
+#drawer-toggle { gap: 8px; }
+#drawer-toggle[aria-expanded="true"] { background: var(--color-accent-100); color: var(--color-accent-800); border-color: var(--color-accent); }
 #filters-toggle { display: none; }
 
 /* — body — */
 .page { flex: 1; min-height: 0; display: flex; }
-aside.filters { width: 288px; flex: none; overflow: auto; padding: 22px 22px 48px 28px; display: flex; flex-direction: column; gap: 30px; }
+:root { --drawer-w: 288px; --pane-w: 440px; }
+aside.filters { width: var(--drawer-w); min-width: 200px; max-width: 60vw; flex: none; overflow: auto; padding: 22px 22px 48px 28px; display: flex; flex-direction: column; gap: 30px; }
+.page.drawer-closed aside.filters, .page.drawer-closed #rz-filters { display: none; }
+.resizer { flex: none; width: 7px; margin: 0 -3px; cursor: col-resize; position: relative; z-index: 3; touch-action: none; }
+.resizer::after { content: ""; position: absolute; top: 0; bottom: 0; left: 3px; width: 1px; background: var(--color-divider); }
+.resizer:hover::after, .resizer.active::after { left: 2px; width: 3px; background: var(--color-accent); }
+.page.resizing { user-select: none; cursor: col-resize; }
+.page.resizing aside, .page.resizing main { pointer-events: none; }
 .sec { display: flex; flex-direction: column; gap: 8px; }
-.sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; cursor: pointer; user-select: none; border-radius: 2px; }
+.sec-head:hover .sec-title { color: var(--color-accent-700); }
+.sec-head .fold { font-size: 11px; color: var(--color-neutral-600); margin-right: 6px; display: inline-block; transition: transform .15s; }
+.sec.folded .fold { transform: rotate(-90deg); }
+.sec.folded > :not(.sec-head) { display: none; }
+.sec.folded .sec-hint { display: none; }
 .sec-title { font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--color-neutral-800); }
 .sec-hint { font-size: 12px; font-style: italic; color: var(--color-neutral-600); white-space: nowrap; }
 .search-wrap { position: relative; }
@@ -168,7 +182,7 @@ main.stage { flex: 1; min-width: 0; position: relative; border-left: 1px solid v
 .stchip.dashed { border-style: dashed; }
 
 /* — pane — */
-#pane { width: min(440px, 40vw); flex: none; overflow: auto; background: var(--color-neutral-100); border-left: 1px solid var(--color-divider); box-shadow: var(--shadow-md); }
+#pane { width: min(var(--pane-w), 70vw); min-width: 300px; flex: none; overflow: auto; background: var(--color-neutral-100); border-left: 1px solid var(--color-divider); box-shadow: var(--shadow-md); }
 #pane .head { position: sticky; top: 0; z-index: 1; background: var(--color-neutral-100); padding: 20px 26px 14px; display: flex; flex-direction: column; gap: 10px; border-bottom: 1px solid var(--color-divider); }
 #pane .kick { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--color-neutral-700); display: inline-flex; align-items: center; gap: 6px; }
 #pane .kick i { font-size: 15px; }
@@ -227,8 +241,10 @@ article .obsidian-only { border: 1px dashed var(--color-neutral-400); color: var
   .masthead { padding: 12px 16px 0; }
   .brand .name { font-size: 24px; }
   .page { position: relative; }
-  aside.filters { position: absolute; inset: 0; z-index: 5; background: var(--color-bg); display: none; padding: 18px 16px 48px; }
+  aside.filters { position: absolute; inset: 0; z-index: 5; background: var(--color-bg); display: none; padding: 18px 16px 48px; width: auto; max-width: none; }
   aside.filters.open { display: flex; }
+  .page.drawer-closed aside.filters.open { display: flex; }
+  .resizer, #drawer-toggle { display: none !important; }
   #filters-toggle { display: inline-flex; border: 0; background: transparent; cursor: pointer; padding: 0; font: inherit; letter-spacing: inherit; text-transform: inherit; color: var(--color-accent-700); align-items: center; gap: 4px; }
   #pane { position: absolute; inset: 0; width: 100%; z-index: 4; }
   main.stage { border-left: 0; }
@@ -240,6 +256,7 @@ article .obsidian-only { border: 1px dashed var(--color-neutral-400); color: var
 <header class="masthead">
   <div class="row1">
     <div class="brand"><span class="name">Social Pin</span><span class="sub">The docs tree</span></div>
+    <button class="btn btn-secondary" id="drawer-toggle" aria-expanded="true" aria-controls="filters" title="Show or hide the filters (press [)"><i class="ph-duotone ph-sidebar-simple"></i>Filters</button>
     <div class="seg views" role="group" aria-label="View">
       <button class="seg-opt" data-view="tree" aria-pressed="true"><i class="ph-duotone ph-tree-structure"></i>Tree</button>
       <button class="seg-opt" data-view="graph" aria-pressed="false"><i class="ph-duotone ph-graph"></i>Graph</button>
@@ -261,31 +278,32 @@ article .obsidian-only { border: 1px dashed var(--color-neutral-400); color: var
 <div class="page">
   <aside class="filters" id="filters" aria-label="Filters">
     <section class="sec">
-      <div class="sec-head"><span class="sec-title">Find</span><span class="sec-hint">press <kbd>/</kbd></span></div>
+      <div class="sec-head" data-sec="find" role="button" tabindex="0" aria-expanded="true"><span class="sec-title"><i class="ph-duotone ph-caret-down fold"></i>Find</span><span class="sec-hint">press <kbd>/</kbd></span></div>
       <div class="search-wrap"><i class="ph-duotone ph-magnifying-glass"></i><input class="input" id="search" type="search" placeholder="Notes, ids, screens…" aria-label="Search"></div>
     </section>
     <section class="sec">
-      <div class="sec-head"><span class="sec-title">Saved views</span></div>
+      <div class="sec-head" data-sec="presets" role="button" tabindex="0" aria-expanded="true"><span class="sec-title"><i class="ph-duotone ph-caret-down fold"></i>Saved views</span></div>
       <div class="list" id="presets"></div>
     </section>
     <section class="sec">
-      <div class="sec-head"><span class="sec-title">Module</span><span class="sec-hint">where it lives</span></div>
+      <div class="sec-head" data-sec="modules" role="button" tabindex="0" aria-expanded="true"><span class="sec-title"><i class="ph-duotone ph-caret-down fold"></i>Module</span><span class="sec-hint">where it lives</span></div>
       <div class="list" id="modules"></div>
     </section>
     <section class="sec kinds">
-      <div class="sec-head"><span class="sec-title">Note type</span><span class="sec-hint">what it is, by layer</span></div>
+      <div class="sec-head" data-sec="kinds" role="button" tabindex="0" aria-expanded="true"><span class="sec-title"><i class="ph-duotone ph-caret-down fold"></i>Note type</span><span class="sec-hint">what it is, by layer</span></div>
       <div id="kinds" style="display:flex;flex-direction:column;gap:12px"></div>
     </section>
     <section class="sec statuses">
-      <div class="sec-head"><span class="sec-title">Status</span><span class="sec-hint">where it stands</span></div>
+      <div class="sec-head" data-sec="statuses" role="button" tabindex="0" aria-expanded="true"><span class="sec-title"><i class="ph-duotone ph-caret-down fold"></i>Status</span><span class="sec-hint">where it stands</span></div>
       <div id="statuses" style="display:flex;flex-direction:column;gap:12px"></div>
     </section>
     <section class="sec">
-      <div class="sec-head"><span class="sec-title">Relations</span><span class="sec-hint">lines behind the cards</span></div>
+      <div class="sec-head" data-sec="edges" role="button" tabindex="0" aria-expanded="true"><span class="sec-title"><i class="ph-duotone ph-caret-down fold"></i>Relations</span><span class="sec-hint">lines behind the cards</span></div>
       <div class="list" id="edges"></div>
     </section>
     <button class="btn btn-secondary hidden" id="clear"><i class="ph-duotone ph-x-circle"></i>Clear all filters</button>
   </aside>
+  <div class="resizer" id="rz-filters" data-resize="filters" title="Drag to resize · double-click to reset"></div>
 
   <main class="stage">
     <section id="canvas" aria-label="Canvas">
@@ -333,6 +351,7 @@ article .obsidian-only { border: 1px dashed var(--color-neutral-400); color: var
     <section id="outline" class="hidden" aria-label="Outline"><div role="tree" id="otree"></div></section>
   </main>
 
+  <div class="resizer hidden" id="rz-pane" data-resize="pane" title="Drag to resize · double-click to reset"></div>
   <aside id="pane" class="hidden" aria-live="polite">
     <div class="head">
       <div style="display:flex;align-items:center;gap:10px"><span class="kick"><i id="p-icon" class="ph-duotone ph-file"></i><span id="p-kicker"></span></span><button class="btn btn-icon" id="p-close" aria-label="Close"><i class="ph-duotone ph-x"></i></button></div>
@@ -1057,7 +1076,7 @@ async function fetchNote(p) {
   return { text: null, tried };
 }
 function openPane(head) {
-  pane.classList.remove('hidden'); S.pane = head.id; $('#hints').classList.add('hidden');
+  pane.classList.remove('hidden'); $('#rz-pane').classList.remove('hidden'); S.pane = head.id; $('#hints').classList.add('hidden');
   $('#p-icon').className = 'ph-duotone ' + head.icon; $('#p-kicker').textContent = head.kicker; $('#p-title').textContent = head.title;
   const stc = $('#p-status'); stc.className = 'stchip' + (head.dashed ? ' dashed' : ''); stc.style.cssText = head.chip; stc.textContent = head.status;
   $('#p-path').textContent = head.path || ''; $('#p-gh').href = head.gh; $('#p-gh span').textContent = head.ghText;
@@ -1065,7 +1084,7 @@ function openPane(head) {
   $('#p-summary').textContent = head.summary || ''; $('#p-rels').innerHTML = head.rels || ''; $('#p-fm').innerHTML = ''; $('#p-article').innerHTML = '<p class="empty">Loading the note…</p>';
   pane.scrollTop = 0;
 }
-function closePane() { pane.classList.add('hidden'); S.pane = null; S.selected = null; $('#hints').classList.toggle('hidden', false); redraw(false); if (location.hash) history.replaceState(null, '', location.pathname + location.search); }
+function closePane() { pane.classList.add('hidden'); $('#rz-pane').classList.add('hidden'); S.pane = null; S.selected = null; $('#hints').classList.toggle('hidden', false); redraw(false); if (location.hash) history.replaceState(null, '', location.pathname + location.search); }
 const relItem = (id, extra = '') => { const o = node(id); return `<button class="rel" data-go="${esc(id)}" title="${esc(o.path || o.title)}"><span class="dot" style="background:${stOf(o).c}"></span><span class="lt">${esc(o.title)}</span>${extra}</button>`; };
 const relGroup = (title, count, inner, sub) => `<div class="relg"><div class="rt">${esc(title)}${count ? ` <span>${esc(count)}</span>` : ''}</div><div class="items">${inner}${sub ? `<div class="sub">${sub}</div>` : ''}</div></div>`;
 function relationsHtml(n) {
@@ -1215,6 +1234,31 @@ for (const b of document.querySelectorAll('[data-scope]')) b.onclick = () => { S
 $('#expand').onclick = () => expandAll(true); $('#collapse').onclick = () => expandAll(false);
 $('#theme').onclick = () => { S.theme = S.theme === 'dark' ? 'light' : 'dark'; store.set('theme', S.theme); applyTheme(S.theme); };
 $('#filters-toggle').onclick = () => { const open = $('#filters').classList.toggle('open'); $('#filters-toggle').setAttribute('aria-expanded', String(open)); };
+// the filters drawer: open or closed, remembered
+const pageEl = $('.page');
+function setDrawer(open) { pageEl.classList.toggle('drawer-closed', !open); $('#drawer-toggle').setAttribute('aria-expanded', String(open)); store.set('drawer', open); }
+setDrawer(store.get('drawer', true));
+$('#drawer-toggle').onclick = () => setDrawer(pageEl.classList.contains('drawer-closed'));
+// drag the edge of a sidebar to resize it; double-click to go back to the default width
+const SIDES = { filters: { v: '--drawer-w', def: 288, min: 200, max: () => Math.min(600, window.innerWidth * 0.6), el: () => $('#filters'), calc: (e, r) => e.clientX - r.left }, pane: { v: '--pane-w', def: 440, min: 300, max: () => Math.min(900, window.innerWidth * 0.7), el: () => pane, calc: (e, r) => r.right - e.clientX } };
+for (const [k, side] of Object.entries(SIDES)) { const w = store.get('width.' + k, null); if (typeof w === 'number') document.documentElement.style.setProperty(side.v, w + 'px'); }
+for (const h of document.querySelectorAll('.resizer')) {
+  const side = SIDES[h.dataset.resize]; let drag = null;
+  h.addEventListener('pointerdown', (e) => { if (e.button !== 0) return; drag = { pid: e.pointerId, r: side.el().getBoundingClientRect() }; h.setPointerCapture(e.pointerId); h.classList.add('active'); pageEl.classList.add('resizing'); e.preventDefault(); });
+  h.addEventListener('pointermove', (e) => { if (!drag || drag.pid !== e.pointerId) return; const w = Math.round(Math.max(side.min, Math.min(side.max(), side.calc(e, drag.r)))); document.documentElement.style.setProperty(side.v, w + 'px'); store.set('width.' + h.dataset.resize, w); });
+  const end = (e) => { if (!drag || drag.pid !== e.pointerId) return; drag = null; h.classList.remove('active'); pageEl.classList.remove('resizing'); };
+  h.addEventListener('pointerup', end); h.addEventListener('pointercancel', end);
+  h.addEventListener('dblclick', () => { document.documentElement.style.setProperty(side.v, side.def + 'px'); store.set('width.' + h.dataset.resize, null); });
+}
+// each filter section folds on its heading
+const folded = new Set(store.get('folded', []));
+const applyFolds = () => { for (const head of document.querySelectorAll('.sec-head[data-sec]')) { const on = folded.has(head.dataset.sec); head.parentElement.classList.toggle('folded', on); head.setAttribute('aria-expanded', String(!on)); } };
+applyFolds();
+for (const head of document.querySelectorAll('.sec-head[data-sec]')) {
+  const flip = () => { const id = head.dataset.sec; folded.has(id) ? folded.delete(id) : folded.add(id); store.set('folded', [...folded]); applyFolds(); };
+  head.addEventListener('click', (e) => { if (e.target.closest('kbd')) return; flip(); });
+  head.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip(); } });
+}
 $('#z-in').onclick = () => { const r = svg.getBoundingClientRect(); zoomAt(1.25, r.width / 2, r.height / 2); };
 $('#z-out').onclick = () => { const r = svg.getBoundingClientRect(); zoomAt(0.8, r.width / 2, r.height / 2); };
 $('#z-fit').onclick = () => fit();
@@ -1244,7 +1288,8 @@ $('#layout-file').onchange = async (e) => {
 };
 document.addEventListener('keydown', (e) => {
   const tag = (document.activeElement && document.activeElement.tagName) || '';
-  if (e.key === '/' && tag !== 'INPUT' && tag !== 'TEXTAREA') { e.preventDefault(); $('#search').focus(); }
+  if (e.key === '/' && tag !== 'INPUT' && tag !== 'TEXTAREA') { e.preventDefault(); if (pageEl.classList.contains('drawer-closed')) setDrawer(true); if (folded.has('find')) { folded.delete('find'); store.set('folded', [...folded]); applyFolds(); } $('#search').focus(); }
+  if (e.key === '[' && tag !== 'INPUT' && tag !== 'TEXTAREA') { e.preventDefault(); setDrawer(pageEl.classList.contains('drawer-closed')); }
   if (e.key === 'Escape') { if (!list.classList.contains('hidden')) openMenu(false); else if (S.focus) setFocus(null); else if (S.pane) closePane(); }
 });
 window.addEventListener('hashchange', route);
