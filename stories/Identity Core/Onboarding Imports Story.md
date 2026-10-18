@@ -79,7 +79,7 @@ Acceptance criteria:
 ## States and motion the design asks for
 
 - State (§3.2, §3.3): OAuth cancelled / failed, permissions denied, importing, partial import, nothing returned, edit-before-import.
-- Motion: the LinkedIn import assembly, imported fields animating into a profile being built, is signature motion 3 in [[Wireframe Brief#Motion & animation principles (summary for the prototyper)|§14]]. Reduced motion: fields appear together with a fade.
+- Motion: the LinkedIn import assembly, imported fields animating into a profile being built, is signature motion 3 in §14 of the [[Wireframe Brief]]. Reduced motion: fields appear together with a fade.
 - Motion: the ring progress indicator stays as the shared anchor across s03 → s05.
 
 ## Rules the backend already enforces

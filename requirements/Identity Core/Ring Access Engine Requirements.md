@@ -37,6 +37,18 @@ The engine exposes no endpoint. What the client needs from it is a set of guaran
 - Needs: the expired Ring still editable so the disposition can be chosen.
 - Source today: `POST /rings/:id/disposition` passes through `assertCanAdminister`, which ignores expiry.
 
+## Guarantees the client may rely on
+
+| Guarantee | Where it shows | What the client does with it |
+|---|---|---|
+| Resolved per request against the server's `now` | every `/views` answer, Shared with me | no access cache to clear; refetch on focus |
+| Both windows checked, expiry exclusive | a Ring or a membership lapsing | compute "expires in" for the owner only |
+| Block is mutual and overrides membership | `/views` 404, empty `/perspectives` | one message; never say "blocked" |
+| Owner always reads their live Rings, always edits them | View as, editing an expired Ring | View as only on live Rings; s62 edits without preview |
+| Membership private to the owner | no `ringId` on a view, roster owner-only | no "you are in X" copy, switcher by position |
+| Hidden rows excluded by the query | `links`, `infoBlocks`, `attachments` on a view | render what arrives; no `isVisible` to check |
+| Sensitive fields gated in one place | `null` on a view | render "Not shared" |
+
 ## Endpoints required
 
 | Need | Endpoint | Available | Task / decision |

@@ -122,10 +122,16 @@
     "Ring Invitations & Join Story": "story:ring-invitations",
     "Ring Members": "feature:ring-members",
     "Ring Members Frontend": "frontend:ring-members",
+    "Ring Members Requirements": "requirements:ring-members",
+    "Ring Members Story": "story:ring-members",
     "Ring Projection": "feature:ring-projection",
     "Ring Projection Frontend": "frontend:ring-projection",
+    "Ring Projection Requirements": "requirements:ring-projection",
+    "Ring Projection Story": "story:ring-projection",
     "Rings": "feature:rings",
     "Rings Frontend": "frontend:rings",
+    "Rings Requirements": "requirements:rings",
+    "Rings Story": "story:rings",
     "Status Report 2026-10-15": "project:status-report-2026-10-15",
     "Subscription (Free vs Pro)": "feature:subscription",
     "Subscription (Free vs Pro) Requirements": "requirements:subscription",
@@ -197,18 +203,22 @@
     "T-063 Put the ErrorCode on the error body": "task:T-063",
     "View As & Pin Views": "feature:view-as",
     "View As & Pin Views Frontend": "frontend:view-as",
+    "View As & Pin Views Requirements": "requirements:view-as",
+    "View As & Pin Views Story": "story:view-as",
     "Widgets": "feature:widgets",
+    "Widgets Requirements": "requirements:widgets",
+    "Widgets Story": "story:widgets",
     "Workflow": "project:workflow"
   },
   "counts": {
     "decisions": 6,
-    "edges": 1480,
+    "edges": 1559,
     "features": 39,
     "frontend": 9,
-    "notes": 222,
-    "placeholders": 40,
-    "requirements": 34,
-    "stories": 34,
+    "notes": 232,
+    "placeholders": 30,
+    "requirements": 39,
+    "stories": 39,
     "tasks": 65
   },
   "diagnostics": {
@@ -228,27 +238,7 @@
       "features/Identity Core/Counts.md: no frontend note yet (create it from templates/Frontend Template.md)",
       "features/Identity Core/Onboarding Imports.md: no frontend note yet (create it from templates/Frontend Template.md)",
       "features/Identity Core/Photo Library.md: no frontend note yet (create it from templates/Frontend Template.md)",
-      "features/Identity Core/Ring Members.md: no requirements note yet (create it from templates/Requirements Template.md)",
-      "features/Identity Core/Ring Members.md: no story note yet (create it from templates/Story Template.md)",
-      "features/Identity Core/Ring Members.md: wikilink [[Ring Members Requirements]] resolves to no note",
-      "features/Identity Core/Ring Members.md: wikilink [[Ring Members Story]] resolves to no note",
-      "features/Identity Core/Ring Projection.md: no requirements note yet (create it from templates/Requirements Template.md)",
-      "features/Identity Core/Ring Projection.md: no story note yet (create it from templates/Story Template.md)",
-      "features/Identity Core/Ring Projection.md: wikilink [[Ring Projection Requirements]] resolves to no note",
-      "features/Identity Core/Ring Projection.md: wikilink [[Ring Projection Story]] resolves to no note",
-      "features/Identity Core/Rings.md: no requirements note yet (create it from templates/Requirements Template.md)",
-      "features/Identity Core/Rings.md: no story note yet (create it from templates/Story Template.md)",
-      "features/Identity Core/Rings.md: wikilink [[Rings Requirements]] resolves to no note",
-      "features/Identity Core/Rings.md: wikilink [[Rings Story]] resolves to no note",
-      "features/Identity Core/View As & Pin Views.md: no requirements note yet (create it from templates/Requirements Template.md)",
-      "features/Identity Core/View As & Pin Views.md: no story note yet (create it from templates/Story Template.md)",
-      "features/Identity Core/View As & Pin Views.md: wikilink [[View As & Pin Views Requirements]] resolves to no note",
-      "features/Identity Core/View As & Pin Views.md: wikilink [[View As & Pin Views Story]] resolves to no note",
       "features/Identity Core/Widgets.md: no frontend note yet (create it from templates/Frontend Template.md)",
-      "features/Identity Core/Widgets.md: no requirements note yet (create it from templates/Requirements Template.md)",
-      "features/Identity Core/Widgets.md: no story note yet (create it from templates/Story Template.md)",
-      "features/Identity Core/Widgets.md: wikilink [[Widgets Requirements]] resolves to no note",
-      "features/Identity Core/Widgets.md: wikilink [[Widgets Story]] resolves to no note",
       "features/Meetings/Meetings.md: no frontend note yet (create it from templates/Frontend Template.md)",
       "features/Platform & Cross-cutting/App Shell & Onboarding Narrative.md: no frontend note yet (create it from templates/Frontend Template.md)",
       "features/Platform & Cross-cutting/Audit Log.md: no frontend note yet (create it from templates/Frontend Template.md)",
@@ -263,11 +253,7 @@
       "features/Platform & Cross-cutting/Notifications.md: no frontend note yet (create it from templates/Frontend Template.md)",
       "features/Shared Rings & Companies/Companies.md: no frontend note yet (create it from templates/Frontend Template.md)",
       "features/Shared Rings & Companies/Delegated Admins.md: no frontend note yet (create it from templates/Frontend Template.md)",
-      "features/Shared Rings & Companies/Ring Invitations & Join.md: no frontend note yet (create it from templates/Frontend Template.md)",
-      "stories/Identity Core/Account Story.md: wikilink [[Ring Projection Story]] resolves to no note",
-      "stories/Identity Core/Auth & Sign-up Story.md: wikilink [[Rings Story]] resolves to no note",
-      "stories/Identity Core/Profiles & Pin Name Story.md: wikilink [[Ring Projection Story]] resolves to no note",
-      "stories/Identity Core/Profiles & Pin Name Story.md: wikilink [[View As & Pin Views Story]] resolves to no note"
+      "features/Shared Rings & Companies/Ring Invitations & Join.md: no frontend note yet (create it from templates/Frontend Template.md)"
     ]
   },
   "edges": [
@@ -5652,6 +5638,176 @@
       "to": "task:T-063"
     },
     {
+      "from": "requirements:ring-members",
+      "kind": "wikilink",
+      "to": "decision:D-04"
+    },
+    {
+      "from": "requirements:ring-members",
+      "kind": "wikilink",
+      "to": "feature:rings"
+    },
+    {
+      "from": "requirements:ring-members",
+      "kind": "wikilink",
+      "to": "frontend:ring-members"
+    },
+    {
+      "from": "requirements:ring-members",
+      "kind": "wikilink",
+      "to": "story:ring-members"
+    },
+    {
+      "from": "requirements:ring-members",
+      "kind": "wikilink",
+      "to": "task:T-004"
+    },
+    {
+      "from": "requirements:ring-members",
+      "kind": "wikilink",
+      "to": "task:T-006"
+    },
+    {
+      "from": "requirements:ring-members",
+      "kind": "wikilink",
+      "to": "task:T-008"
+    },
+    {
+      "from": "requirements:ring-members",
+      "kind": "wikilink",
+      "to": "task:T-021"
+    },
+    {
+      "from": "requirements:ring-members",
+      "kind": "wikilink",
+      "to": "task:T-022"
+    },
+    {
+      "from": "requirements:ring-members",
+      "kind": "wikilink",
+      "to": "task:T-023"
+    },
+    {
+      "from": "requirements:ring-members",
+      "kind": "wikilink",
+      "to": "task:T-063"
+    },
+    {
+      "from": "requirements:ring-projection",
+      "kind": "wikilink",
+      "to": "decision:D-02"
+    },
+    {
+      "from": "requirements:ring-projection",
+      "kind": "wikilink",
+      "to": "decision:D-03"
+    },
+    {
+      "from": "requirements:ring-projection",
+      "kind": "wikilink",
+      "to": "decision:D-05"
+    },
+    {
+      "from": "requirements:ring-projection",
+      "kind": "wikilink",
+      "to": "feature:view-as"
+    },
+    {
+      "from": "requirements:ring-projection",
+      "kind": "wikilink",
+      "to": "frontend:ring-projection"
+    },
+    {
+      "from": "requirements:ring-projection",
+      "kind": "wikilink",
+      "to": "story:ring-projection"
+    },
+    {
+      "from": "requirements:ring-projection",
+      "kind": "wikilink",
+      "to": "task:T-004"
+    },
+    {
+      "from": "requirements:ring-projection",
+      "kind": "wikilink",
+      "to": "task:T-017"
+    },
+    {
+      "from": "requirements:ring-projection",
+      "kind": "wikilink",
+      "to": "task:T-018"
+    },
+    {
+      "from": "requirements:ring-projection",
+      "kind": "wikilink",
+      "to": "task:T-062"
+    },
+    {
+      "from": "requirements:ring-projection",
+      "kind": "wikilink",
+      "to": "task:T-063"
+    },
+    {
+      "from": "requirements:rings",
+      "kind": "wikilink",
+      "to": "decision:D-04"
+    },
+    {
+      "from": "requirements:rings",
+      "kind": "wikilink",
+      "to": "decision:D-05"
+    },
+    {
+      "from": "requirements:rings",
+      "kind": "wikilink",
+      "to": "feature:view-as"
+    },
+    {
+      "from": "requirements:rings",
+      "kind": "wikilink",
+      "to": "frontend:rings"
+    },
+    {
+      "from": "requirements:rings",
+      "kind": "wikilink",
+      "to": "requirements:ring-projection"
+    },
+    {
+      "from": "requirements:rings",
+      "kind": "wikilink",
+      "to": "story:rings"
+    },
+    {
+      "from": "requirements:rings",
+      "kind": "wikilink",
+      "to": "task:T-004"
+    },
+    {
+      "from": "requirements:rings",
+      "kind": "wikilink",
+      "to": "task:T-006"
+    },
+    {
+      "from": "requirements:rings",
+      "kind": "wikilink",
+      "to": "task:T-026"
+    },
+    {
+      "from": "requirements:rings",
+      "kind": "wikilink",
+      "to": "task:T-027"
+    },
+    {
+      "from": "requirements:rings",
+      "kind": "wikilink",
+      "to": "task:T-054"
+    },
+    {
+      "from": "requirements:rings",
+      "kind": "wikilink",
+      "to": "task:T-063"
+    },
+    {
       "from": "requirements:subscription",
       "kind": "wikilink",
       "to": "feature:badge-qr"
@@ -5702,6 +5858,106 @@
       "to": "task:T-063"
     },
     {
+      "from": "requirements:view-as",
+      "kind": "wikilink",
+      "to": "feature:rings"
+    },
+    {
+      "from": "requirements:view-as",
+      "kind": "wikilink",
+      "to": "frontend:view-as"
+    },
+    {
+      "from": "requirements:view-as",
+      "kind": "wikilink",
+      "to": "requirements:ring-access"
+    },
+    {
+      "from": "requirements:view-as",
+      "kind": "wikilink",
+      "to": "story:view-as"
+    },
+    {
+      "from": "requirements:view-as",
+      "kind": "wikilink",
+      "to": "task:T-007"
+    },
+    {
+      "from": "requirements:view-as",
+      "kind": "wikilink",
+      "to": "task:T-008"
+    },
+    {
+      "from": "requirements:view-as",
+      "kind": "wikilink",
+      "to": "task:T-010"
+    },
+    {
+      "from": "requirements:view-as",
+      "kind": "wikilink",
+      "to": "task:T-018"
+    },
+    {
+      "from": "requirements:view-as",
+      "kind": "wikilink",
+      "to": "task:T-021"
+    },
+    {
+      "from": "requirements:view-as",
+      "kind": "wikilink",
+      "to": "task:T-023"
+    },
+    {
+      "from": "requirements:view-as",
+      "kind": "wikilink",
+      "to": "task:T-062"
+    },
+    {
+      "from": "requirements:view-as",
+      "kind": "wikilink",
+      "to": "task:T-063"
+    },
+    {
+      "from": "requirements:widgets",
+      "kind": "wikilink",
+      "to": "decision:D-03"
+    },
+    {
+      "from": "requirements:widgets",
+      "kind": "wikilink",
+      "to": "feature:ring-projection"
+    },
+    {
+      "from": "requirements:widgets",
+      "kind": "wikilink",
+      "to": "feature:view-as"
+    },
+    {
+      "from": "requirements:widgets",
+      "kind": "wikilink",
+      "to": "frontend:ring-projection"
+    },
+    {
+      "from": "requirements:widgets",
+      "kind": "wikilink",
+      "to": "story:widgets"
+    },
+    {
+      "from": "requirements:widgets",
+      "kind": "wikilink",
+      "to": "task:T-017"
+    },
+    {
+      "from": "requirements:widgets",
+      "kind": "wikilink",
+      "to": "task:T-018"
+    },
+    {
+      "from": "requirements:widgets",
+      "kind": "wikilink",
+      "to": "task:T-063"
+    },
+    {
       "from": "story:account",
       "kind": "wikilink",
       "to": "feature:counts"
@@ -5720,6 +5976,11 @@
       "from": "story:account",
       "kind": "wikilink",
       "to": "story:profiles"
+    },
+    {
+      "from": "story:account",
+      "kind": "wikilink",
+      "to": "story:ring-projection"
     },
     {
       "from": "story:app-shell",
@@ -5750,6 +6011,11 @@
       "from": "story:auth",
       "kind": "wikilink",
       "to": "frontend:auth"
+    },
+    {
+      "from": "story:auth",
+      "kind": "wikilink",
+      "to": "story:rings"
     },
     {
       "from": "story:badge-qr",
@@ -6427,6 +6693,16 @@
       "to": "frontend:profiles"
     },
     {
+      "from": "story:profiles",
+      "kind": "wikilink",
+      "to": "story:ring-projection"
+    },
+    {
+      "from": "story:profiles",
+      "kind": "wikilink",
+      "to": "story:view-as"
+    },
+    {
       "from": "story:ring-access",
       "kind": "wikilink",
       "to": "decision:D-04"
@@ -6477,6 +6753,76 @@
       "to": "task:T-028"
     },
     {
+      "from": "story:ring-members",
+      "kind": "wikilink",
+      "to": "decision:D-04"
+    },
+    {
+      "from": "story:ring-members",
+      "kind": "wikilink",
+      "to": "frontend:ring-members"
+    },
+    {
+      "from": "story:ring-members",
+      "kind": "wikilink",
+      "to": "task:T-023"
+    },
+    {
+      "from": "story:ring-projection",
+      "kind": "wikilink",
+      "to": "decision:D-02"
+    },
+    {
+      "from": "story:ring-projection",
+      "kind": "wikilink",
+      "to": "decision:D-03"
+    },
+    {
+      "from": "story:ring-projection",
+      "kind": "wikilink",
+      "to": "decision:D-05"
+    },
+    {
+      "from": "story:ring-projection",
+      "kind": "wikilink",
+      "to": "frontend:ring-projection"
+    },
+    {
+      "from": "story:ring-projection",
+      "kind": "wikilink",
+      "to": "story:files"
+    },
+    {
+      "from": "story:ring-projection",
+      "kind": "wikilink",
+      "to": "story:view-as"
+    },
+    {
+      "from": "story:rings",
+      "kind": "wikilink",
+      "to": "decision:D-04"
+    },
+    {
+      "from": "story:rings",
+      "kind": "wikilink",
+      "to": "decision:D-05"
+    },
+    {
+      "from": "story:rings",
+      "kind": "wikilink",
+      "to": "frontend:rings"
+    },
+    {
+      "from": "story:rings",
+      "kind": "wikilink",
+      "to": "story:ring-projection"
+    },
+    {
+      "from": "story:rings",
+      "kind": "wikilink",
+      "to": "task:T-006"
+    },
+    {
       "from": "story:subscription",
       "kind": "wikilink",
       "to": "feature:badge-qr"
@@ -6515,6 +6861,41 @@
       "from": "story:subscription",
       "kind": "wikilink",
       "to": "task:T-049"
+    },
+    {
+      "from": "story:view-as",
+      "kind": "wikilink",
+      "to": "frontend:view-as"
+    },
+    {
+      "from": "story:view-as",
+      "kind": "wikilink",
+      "to": "task:T-007"
+    },
+    {
+      "from": "story:view-as",
+      "kind": "wikilink",
+      "to": "task:T-008"
+    },
+    {
+      "from": "story:view-as",
+      "kind": "wikilink",
+      "to": "task:T-021"
+    },
+    {
+      "from": "story:widgets",
+      "kind": "wikilink",
+      "to": "decision:D-03"
+    },
+    {
+      "from": "story:widgets",
+      "kind": "wikilink",
+      "to": "feature:meetings"
+    },
+    {
+      "from": "story:widgets",
+      "kind": "wikilink",
+      "to": "task:T-018"
     },
     {
       "from": "task:T-001",
@@ -8073,6 +8454,26 @@
       "name": "Ring Access Engine Requirements",
       "type": "requirements"
     },
+    "requirements/Identity Core/Ring Members Requirements.md": {
+      "name": "Ring Members Requirements",
+      "type": "requirements"
+    },
+    "requirements/Identity Core/Ring Projection Requirements.md": {
+      "name": "Ring Projection Requirements",
+      "type": "requirements"
+    },
+    "requirements/Identity Core/Rings Requirements.md": {
+      "name": "Rings Requirements",
+      "type": "requirements"
+    },
+    "requirements/Identity Core/View As & Pin Views Requirements.md": {
+      "name": "View As & Pin Views Requirements",
+      "type": "requirements"
+    },
+    "requirements/Identity Core/Widgets Requirements.md": {
+      "name": "Widgets Requirements",
+      "type": "requirements"
+    },
     "requirements/Meetings/Meetings Requirements.md": {
       "name": "Meetings Requirements",
       "type": "requirements"
@@ -8207,6 +8608,26 @@
     },
     "stories/Identity Core/Ring Access Engine Story.md": {
       "name": "Ring Access Engine Story",
+      "type": "story"
+    },
+    "stories/Identity Core/Ring Members Story.md": {
+      "name": "Ring Members Story",
+      "type": "story"
+    },
+    "stories/Identity Core/Ring Projection Story.md": {
+      "name": "Ring Projection Story",
+      "type": "story"
+    },
+    "stories/Identity Core/Rings Story.md": {
+      "name": "Rings Story",
+      "type": "story"
+    },
+    "stories/Identity Core/View As & Pin Views Story.md": {
+      "name": "View As & Pin Views Story",
+      "type": "story"
+    },
+    "stories/Identity Core/Widgets Story.md": {
+      "name": "Widgets Story",
       "type": "story"
     },
     "stories/Meetings/Meetings Story.md": {
@@ -10245,10 +10666,10 @@
       "path": null,
       "priority": null,
       "rollup": {
-        "blocked": 8,
+        "blocked": 10,
         "done": 27,
-        "draft": 10,
-        "missing": 14,
+        "draft": 18,
+        "missing": 4,
         "needs-decision": 14,
         "partial": 6,
         "todo": 7
@@ -11883,7 +12304,7 @@
       "priority": "P0",
       "rollup": {
         "done": 2,
-        "missing": 2,
+        "draft": 2,
         "needs-decision": 1
       },
       "screens": [
@@ -11930,7 +12351,7 @@
       "priority": "P0",
       "rollup": {
         "done": 2,
-        "missing": 2,
+        "draft": 2,
         "needs-decision": 5
       },
       "screens": [
@@ -11980,7 +12401,7 @@
       "priority": "P0",
       "rollup": {
         "done": 2,
-        "missing": 2,
+        "draft": 2,
         "needs-decision": 3
       },
       "screens": [
@@ -12074,7 +12495,7 @@
       "priority": "P0",
       "rollup": {
         "done": 2,
-        "missing": 2
+        "draft": 2
       },
       "screens": [
         "s10",
@@ -12118,7 +12539,8 @@
       "path": "features/Identity Core/Widgets.md",
       "priority": "P1",
       "rollup": {
-        "missing": 3,
+        "blocked": 2,
+        "missing": 1,
         "needs-decision": 2,
         "partial": 1,
         "todo": 1
@@ -14478,7 +14900,7 @@
       "children": [],
       "depends": [],
       "domain": "identity",
-      "effectiveStatus": "missing",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "ring-members",
       "id": "requirements:ring-members",
@@ -14487,22 +14909,28 @@
       "parents": [
         "feature:ring-members"
       ],
-      "path": null,
+      "path": "requirements/Identity Core/Ring Members Requirements.md",
       "priority": null,
-      "screens": [],
-      "status": null,
-      "summary": "Not written yet. Create it from templates/Requirements Template.md.",
-      "tags": [],
-      "template": "templates/Requirements Template.md",
+      "screens": [
+        "s15",
+        "s47"
+      ],
+      "status": "draft",
+      "summary": "What the client needs from the backend to build the owner's roster and the per-person actions, and whether each need is met today. Shapes, the status filter and the window semantics are in Ring…",
+      "tags": [
+        "requirements",
+        "requirements/draft",
+        "domain/identity"
+      ],
       "title": "Ring Members Requirements",
-      "updated": null
+      "updated": "2026-10-18"
     },
     "requirements:ring-projection": {
       "blockedBy": null,
       "children": [],
       "depends": [],
       "domain": "identity",
-      "effectiveStatus": "missing",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "ring-projection",
       "id": "requirements:ring-projection",
@@ -14511,22 +14939,33 @@
       "parents": [
         "feature:ring-projection"
       ],
-      "path": null,
+      "path": "requirements/Identity Core/Ring Projection Requirements.md",
       "priority": null,
-      "screens": [],
-      "status": null,
-      "summary": "Not written yet. Create it from templates/Requirements Template.md.",
-      "tags": [],
-      "template": "templates/Requirements Template.md",
+      "screens": [
+        "s14",
+        "s20",
+        "s23",
+        "s24",
+        "s25",
+        "s29",
+        "s36"
+      ],
+      "status": "draft",
+      "summary": "What the client needs from the backend to build the \"what this Ring shows\" editor across its seven screens, and whether each need is met today. Shapes, the link-type table and field limits are in…",
+      "tags": [
+        "requirements",
+        "requirements/draft",
+        "domain/identity"
+      ],
       "title": "Ring Projection Requirements",
-      "updated": null
+      "updated": "2026-10-18"
     },
     "requirements:rings": {
       "blockedBy": null,
       "children": [],
       "depends": [],
       "domain": "identity",
-      "effectiveStatus": "missing",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "rings",
       "id": "requirements:rings",
@@ -14535,15 +14974,30 @@
       "parents": [
         "feature:rings"
       ],
-      "path": null,
+      "path": "requirements/Identity Core/Rings Requirements.md",
       "priority": null,
-      "screens": [],
-      "status": null,
-      "summary": "Not written yet. Create it from templates/Requirements Template.md.",
-      "tags": [],
-      "template": "templates/Requirements Template.md",
+      "screens": [
+        "s08",
+        "s09",
+        "s16",
+        "s17",
+        "s18",
+        "s19",
+        "s20",
+        "s21",
+        "s22",
+        "s26",
+        "s62"
+      ],
+      "status": "draft",
+      "summary": "What the client needs from the backend to build the Ring lists, the create wizard, the edit screens and the post-event choice, and whether each need is met today. Field rules, enums and the…",
+      "tags": [
+        "requirements",
+        "requirements/draft",
+        "domain/identity"
+      ],
       "title": "Rings Requirements",
-      "updated": null
+      "updated": "2026-10-18"
     },
     "requirements:subscription": {
       "blockedBy": "backend",
@@ -14580,7 +15034,7 @@
       "children": [],
       "depends": [],
       "domain": "identity",
-      "effectiveStatus": "missing",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "view-as",
       "id": "requirements:view-as",
@@ -14589,22 +15043,29 @@
       "parents": [
         "feature:view-as"
       ],
-      "path": null,
+      "path": "requirements/Identity Core/View As & Pin Views Requirements.md",
       "priority": null,
-      "screens": [],
-      "status": null,
-      "summary": "Not written yet. Create it from templates/Requirements Template.md.",
-      "tags": [],
-      "template": "templates/Requirements Template.md",
+      "screens": [
+        "s10",
+        "s31",
+        "s44"
+      ],
+      "status": "draft",
+      "summary": "What the client needs from the backend for every screen that renders another person, and for the owner's preview, and whether each need is met today. The viewer shape and the cache rule are in…",
+      "tags": [
+        "requirements",
+        "requirements/draft",
+        "domain/identity"
+      ],
       "title": "View As & Pin Views Requirements",
-      "updated": null
+      "updated": "2026-10-18"
     },
     "requirements:widgets": {
       "blockedBy": "backend",
       "children": [],
       "depends": [],
       "domain": "identity",
-      "effectiveStatus": "missing",
+      "effectiveStatus": "blocked",
       "effort": null,
       "feature": "widgets",
       "id": "requirements:widgets",
@@ -14613,15 +15074,21 @@
       "parents": [
         "feature:widgets"
       ],
-      "path": null,
+      "path": "requirements/Identity Core/Widgets Requirements.md",
       "priority": null,
-      "screens": [],
-      "status": null,
-      "summary": "Not written yet. Create it from templates/Requirements Template.md.",
-      "tags": [],
-      "template": "templates/Requirements Template.md",
+      "screens": [
+        "s36",
+        "s37"
+      ],
+      "status": "draft",
+      "summary": "What the client needs to build the widget picker and the widget rows on a Ring, and the fact that only the read side exists. The projection already returns widgets[] (Ring Projection Frontend);…",
+      "tags": [
+        "requirements",
+        "requirements/draft",
+        "domain/identity"
+      ],
       "title": "Widgets Requirements",
-      "updated": null
+      "updated": "2026-10-18"
     },
     "root": {
       "blockedBy": null,
@@ -14649,11 +15116,11 @@
       "path": null,
       "priority": null,
       "rollup": {
-        "blocked": 70,
+        "blocked": 72,
         "done": 27,
-        "draft": 12,
+        "draft": 20,
         "frontend-only": 2,
-        "missing": 40,
+        "missing": 30,
         "needs-decision": 23,
         "partial": 27,
         "reference": 13,
@@ -15673,7 +16140,7 @@
       "children": [],
       "depends": [],
       "domain": "identity",
-      "effectiveStatus": "missing",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "ring-members",
       "id": "story:ring-members",
@@ -15682,22 +16149,28 @@
       "parents": [
         "feature:ring-members"
       ],
-      "path": null,
+      "path": "stories/Identity Core/Ring Members Story.md",
       "priority": null,
-      "screens": [],
-      "status": null,
-      "summary": "Not written yet. Create it from templates/Story Template.md.",
-      "tags": [],
-      "template": "templates/Story Template.md",
+      "screens": [
+        "s15",
+        "s47"
+      ],
+      "status": "draft",
+      "summary": "A Ring owner manages who is in a Ring: sees the roster, adds someone, gives them a time-boxed window, moves them to another Ring when the relationship changes, or revokes them. Every change is…",
+      "tags": [
+        "story",
+        "story/draft",
+        "domain/identity"
+      ],
       "title": "Ring Members Story",
-      "updated": null
+      "updated": "2026-10-18"
     },
     "story:ring-projection": {
       "blockedBy": null,
       "children": [],
       "depends": [],
       "domain": "identity",
-      "effectiveStatus": "missing",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "ring-projection",
       "id": "story:ring-projection",
@@ -15706,22 +16179,33 @@
       "parents": [
         "feature:ring-projection"
       ],
-      "path": null,
+      "path": "stories/Identity Core/Ring Projection Story.md",
       "priority": null,
-      "screens": [],
-      "status": null,
-      "summary": "Not written yet. Create it from templates/Story Template.md.",
-      "tags": [],
-      "template": "templates/Story Template.md",
+      "screens": [
+        "s14",
+        "s20",
+        "s23",
+        "s24",
+        "s25",
+        "s29",
+        "s36"
+      ],
+      "status": "draft",
+      "summary": "A Ring owner decides what one audience sees: the name and nickname they go by there, the bio, the photo, the theme, which social and contact links, which info blocks (\"Add a field\"), which files,…",
+      "tags": [
+        "story",
+        "story/draft",
+        "domain/identity"
+      ],
       "title": "Ring Projection Story",
-      "updated": null
+      "updated": "2026-10-18"
     },
     "story:rings": {
       "blockedBy": null,
       "children": [],
       "depends": [],
       "domain": "identity",
-      "effectiveStatus": "missing",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "rings",
       "id": "story:rings",
@@ -15730,15 +16214,30 @@
       "parents": [
         "feature:rings"
       ],
-      "path": null,
+      "path": "stories/Identity Core/Rings Story.md",
       "priority": null,
-      "screens": [],
-      "status": null,
-      "summary": "Not written yet. Create it from templates/Story Template.md.",
-      "tags": [],
-      "template": "templates/Story Template.md",
+      "screens": [
+        "s08",
+        "s09",
+        "s16",
+        "s17",
+        "s18",
+        "s19",
+        "s20",
+        "s21",
+        "s22",
+        "s26",
+        "s62"
+      ],
+      "status": "draft",
+      "summary": "A person has one profile and many audiences. A Ring is one audience bound to one perspective: Family, Clients, Company, a temporary Event Ring. The owner creates Rings, names and colours them,…",
+      "tags": [
+        "story",
+        "story/draft",
+        "domain/identity"
+      ],
       "title": "Rings Story",
-      "updated": null
+      "updated": "2026-10-18"
     },
     "story:subscription": {
       "blockedBy": "backend",
@@ -15775,7 +16274,7 @@
       "children": [],
       "depends": [],
       "domain": "identity",
-      "effectiveStatus": "missing",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "view-as",
       "id": "story:view-as",
@@ -15784,22 +16283,29 @@
       "parents": [
         "feature:view-as"
       ],
-      "path": null,
+      "path": "stories/Identity Core/View As & Pin Views Story.md",
       "priority": null,
-      "screens": [],
-      "status": null,
-      "summary": "Not written yet. Create it from templates/Story Template.md.",
-      "tags": [],
-      "template": "templates/Story Template.md",
+      "screens": [
+        "s10",
+        "s31",
+        "s44"
+      ],
+      "status": "draft",
+      "summary": "Two people, one screen component. The owner flips to \"View as\" to see a Ring exactly as its members do: the \"aha\" that teaches the whole model. A viewer scans a badge or types a !pinname and gets…",
+      "tags": [
+        "story",
+        "story/draft",
+        "domain/identity"
+      ],
       "title": "View As & Pin Views Story",
-      "updated": null
+      "updated": "2026-10-18"
     },
     "story:widgets": {
       "blockedBy": "backend",
       "children": [],
       "depends": [],
       "domain": "identity",
-      "effectiveStatus": "missing",
+      "effectiveStatus": "blocked",
       "effort": null,
       "feature": "widgets",
       "id": "story:widgets",
@@ -15808,15 +16314,21 @@
       "parents": [
         "feature:widgets"
       ],
-      "path": null,
+      "path": "stories/Identity Core/Widgets Story.md",
       "priority": null,
-      "screens": [],
-      "status": null,
-      "summary": "Not written yet. Create it from templates/Story Template.md.",
-      "tags": [],
-      "template": "templates/Story Template.md",
+      "screens": [
+        "s36",
+        "s37"
+      ],
+      "status": "draft",
+      "summary": "A Ring owner wants a Ring to do more than list facts: show availability for a meeting, a way to pay, what they are playing, a testimonial, a map, a gallery. Widgets are blocks on a Ring's…",
+      "tags": [
+        "story",
+        "story/draft",
+        "domain/identity"
+      ],
       "title": "Widgets Story",
-      "updated": null
+      "updated": "2026-10-18"
     },
     "task:T-001": {
       "blockedBy": null,
