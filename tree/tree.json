@@ -32925,7 +32925,7 @@
       "scope": null,
       "screens": [],
       "status": null,
-      "summary": "The docs tree is the readable map of this vault: project → module → feature → one note per layer, then the feature's tasks and decisions. Every node is one Markdown file; the node shows the file's…",
+      "summary": "The docs tree is the readable map of this vault: project → module → feature → one note per layer, then the feature's tasks and decisions. Every card is one Markdown file; it shows the note's kind…",
       "tags": [
         "project",
         "layer/shared",
