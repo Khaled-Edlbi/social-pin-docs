@@ -6,13 +6,13 @@ status: todo
 priority: P0
 domain: platform
 screens: []
-updated: 2026-10-15
+updated: 2026-10-18
 tags: [feature, status/todo, domain/platform, priority/P0]
 ---
 
 # ❌ Audit Log
 
-**Status:** TODO · **Priority:** P0 · **Domain:** [[Feature Tree#Platform & Cross-cutting|Platform & Cross-cutting]]
+**Status:** TODO · **Priority:** P0 · **Domain:** [[Feature Tree#Platform & Cross-cutting|Platform & Cross-cutting]] · **Story:** [[Audit Log Story]] · **Requirements:** [[Audit Log Requirements]]
 
 The `AuditLog` table exists with indexes; nothing writes to it. Required for sensitive admin, access, payment and AI actions.
 

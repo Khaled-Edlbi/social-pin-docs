@@ -6,13 +6,13 @@ status: done
 priority: P0
 domain: identity
 screens: [s14, s20, s23, s24, s25, s29, s36]
-updated: 2026-10-15
+updated: 2026-10-18
 tags: [feature, status/done, domain/identity, priority/P0]
 ---
 
 # ✅ Ring Projection
 
-**Status:** Done · **Priority:** P0 · **Domain:** [[Feature Tree#Identity Core|Identity Core]] · **Frontend guide:** [[Ring Projection Frontend]]
+**Status:** Done · **Priority:** P0 · **Domain:** [[Feature Tree#Identity Core|Identity Core]] · **Frontend guide:** [[Ring Projection Frontend]] · **Story:** [[Ring Projection Story]] · **Requirements:** [[Ring Projection Requirements]]
 
 What a Ring shows: photo, bio, nickname, theme, social and contact links, info blocks ("Add a field"), file attachments, and the per-Ring opt-ins for birthdate, gender, marital status, phone and email.
 

@@ -6,13 +6,13 @@ status: done
 priority: P0
 domain: identity
 screens: [s68]
-updated: 2026-10-15
+updated: 2026-10-18
 tags: [feature, status/done, domain/identity, priority/P0]
 ---
 
 # ✅ Account
 
-**Status:** Done · **Priority:** P0 · **Domain:** [[Feature Tree#Identity Core|Identity Core]] · **Frontend guide:** [[Account Frontend]]
+**Status:** Done · **Priority:** P0 · **Domain:** [[Feature Tree#Identity Core|Identity Core]] · **Frontend guide:** [[Account Frontend]] · **Story:** [[Account Story]] · **Requirements:** [[Account Requirements]]
 
 The authenticated account: read it, change email or phone, soft-delete it.
 

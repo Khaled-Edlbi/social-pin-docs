@@ -6,13 +6,13 @@ status: partial
 priority: P0
 domain: discovery
 screens: [s34, s43, s44, s56]
-updated: 2026-10-15
+updated: 2026-10-18
 tags: [feature, status/partial, domain/discovery, priority/P0]
 ---
 
 # 🟡 Badge & QR
 
-**Status:** Partial (needs more) · **Priority:** P0 · **Domain:** [[Feature Tree#Discovery|Discovery]]
+**Status:** Partial (needs more) · **Priority:** P0 · **Domain:** [[Feature Tree#Discovery|Discovery]] · **Story:** [[Badge & QR Story]] · **Requirements:** [[Badge & QR Requirements]]
 
 The centre-tab badge: a QR bound to the active Ring, rotated every 24 h, a share link, a scan counter, and a browser page for people without the app. Scanning resolves the token into that Ring's view.
 

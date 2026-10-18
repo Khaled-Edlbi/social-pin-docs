@@ -6,13 +6,13 @@ status: todo
 priority: P1
 domain: platform
 screens: []
-updated: 2026-10-15
+updated: 2026-10-18
 tags: [feature, status/todo, domain/platform, priority/P1]
 ---
 
 # ❌ Cleanup Jobs
 
-**Status:** TODO · **Priority:** P1 · **Domain:** [[Feature Tree#Platform & Cross-cutting|Platform & Cross-cutting]]
+**Status:** TODO · **Priority:** P1 · **Domain:** [[Feature Tree#Platform & Cross-cutting|Platform & Cross-cutting]] · **Story:** [[Cleanup Jobs Story]] · **Requirements:** [[Cleanup Jobs Requirements]]
 
 Scheduled sweepers: auto-delete Rings whose disposition is `AUTO_DELETE`, purge `PincastRecipient` rows, delete expired verification codes, and materialise `EXPIRED` statuses for reporting.
 

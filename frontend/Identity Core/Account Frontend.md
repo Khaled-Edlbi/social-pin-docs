@@ -1,7 +1,7 @@
 ---
 type: frontend
 id: account
-feature: "Account"
+feature: account
 domain: identity
 screens: [s68]
 updated: 2026-10-15

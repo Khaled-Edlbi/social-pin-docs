@@ -6,13 +6,13 @@ status: done
 priority: P0
 domain: identity
 screens: [s15, s47]
-updated: 2026-10-15
+updated: 2026-10-18
 tags: [feature, status/done, domain/identity, priority/P0]
 ---
 
 # ✅ Ring Members
 
-**Status:** Done · **Priority:** P0 · **Domain:** [[Feature Tree#Identity Core|Identity Core]] · **Frontend guide:** [[Ring Members Frontend]]
+**Status:** Done · **Priority:** P0 · **Domain:** [[Feature Tree#Identity Core|Identity Core]] · **Frontend guide:** [[Ring Members Frontend]] · **Story:** [[Ring Members Story]] · **Requirements:** [[Ring Members Requirements]]
 
 The owner's roster of a Ring: list, add, edit the access window, move someone to another Ring live, revoke.
 

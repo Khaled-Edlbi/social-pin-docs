@@ -6,13 +6,13 @@ status: partial
 priority: P1
 domain: identity
 screens: [s11, s12, s14, s16, s17, s68]
-updated: 2026-10-15
+updated: 2026-10-18
 tags: [feature, status/partial, domain/identity, priority/P1]
 ---
 
 # 🟡 Counts
 
-**Status:** Partial (needs more) · **Priority:** P1 · **Domain:** [[Feature Tree#Identity Core|Identity Core]]
+**Status:** Partial (needs more) · **Priority:** P1 · **Domain:** [[Feature Tree#Identity Core|Identity Core]] · **Story:** [[Counts Story]] · **Requirements:** [[Counts Requirements]]
 
 Member counts per Ring ("148 people") and connection counts ("218 connections") shown on Home, Ring data, My Rings and Me.
 

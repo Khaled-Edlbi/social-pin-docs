@@ -6,13 +6,13 @@ status: todo
 priority: P1
 domain: events
 screens: [s63, s64, s65]
-updated: 2026-10-15
+updated: 2026-10-18
 tags: [feature, status/todo, domain/events, priority/P1]
 ---
 
 # ❌ Exhibitor
 
-**Status:** TODO · **Priority:** P1 · **Domain:** [[Feature Tree#Events|Events]]
+**Status:** TODO · **Priority:** P1 · **Domain:** [[Feature Tree#Events|Events]] · **Story:** [[Exhibitor Story]] · **Requirements:** [[Exhibitor Requirements]]
 
 Business account setup and business Ring (s63), team on the stand, "Discoverable via Gemma" toggle, booth analytics and leads CSV export (s65), organizer touchpoints (invitation, requested files, booth and payment status).
 

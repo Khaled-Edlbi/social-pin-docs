@@ -6,13 +6,13 @@ status: done
 priority: P0
 domain: identity
 screens: [s06]
-updated: 2026-10-15
+updated: 2026-10-18
 tags: [feature, status/done, domain/identity, priority/P0]
 ---
 
 # ✅ Profiles & Pin Name
 
-**Status:** Done · **Priority:** P0 · **Domain:** [[Feature Tree#Identity Core|Identity Core]] · **Frontend guide:** [[Profiles & Pin Name Frontend]]
+**Status:** Done · **Priority:** P0 · **Domain:** [[Feature Tree#Identity Core|Identity Core]] · **Frontend guide:** [[Profiles & Pin Name Frontend]] · **Story:** [[Profiles & Pin Name Story]] · **Requirements:** [[Profiles & Pin Name Requirements]]
 
 Multiple profiles per account, the `!`-prefixed unique Pin name with a public live availability check, and the sensitive base fields (birthdate, gender, marital status) that Rings opt into.
 

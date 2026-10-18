@@ -1,7 +1,7 @@
 ---
 type: frontend
 id: rings
-feature: "Rings"
+feature: rings
 domain: identity
 screens: [s08, s09, s16, s17, s18, s19, s20, s21, s22, s26, s62]
 updated: 2026-10-15

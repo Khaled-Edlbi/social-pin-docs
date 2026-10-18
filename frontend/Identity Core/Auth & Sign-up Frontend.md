@@ -1,7 +1,7 @@
 ---
 type: frontend
 id: auth
-feature: "Auth & Sign-up"
+feature: auth
 domain: identity
 screens: [s01, s02, s06, s08, s68]
 updated: 2026-10-15

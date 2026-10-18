@@ -6,13 +6,13 @@ status: frontend
 priority: P2
 domain: platform
 screens: [s00a, s00b, s00c, s00d]
-updated: 2026-10-15
+updated: 2026-10-18
 tags: [feature, status/frontend, domain/platform, priority/P2]
 ---
 
 # ⬜ App Shell & Onboarding Narrative
 
-**Status:** Frontend only · **Priority:** P2 · **Domain:** [[Feature Tree#Platform & Cross-cutting|Platform & Cross-cutting]]
+**Status:** Frontend only · **Priority:** P2 · **Domain:** [[Feature Tree#Platform & Cross-cutting|Platform & Cross-cutting]] · **Story:** [[App Shell & Onboarding Narrative Story]] · **Requirements:** [[App Shell & Onboarding Narrative Requirements]]
 
 Splash, the three value panels, tab bar and the signature motions. No backend work.
 

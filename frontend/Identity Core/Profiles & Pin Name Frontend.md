@@ -1,7 +1,7 @@
 ---
 type: frontend
 id: profiles
-feature: "Profiles & Pin Name"
+feature: profiles
 domain: identity
 screens: [s06]
 updated: 2026-10-15

@@ -1,7 +1,7 @@
 ---
 type: frontend
 id: ring-access
-feature: "Ring Access Engine"
+feature: ring-access
 domain: identity
 screens: []
 updated: 2026-10-15

@@ -6,13 +6,13 @@ status: done
 priority: P0
 domain: identity
 screens: [s10, s31, s44]
-updated: 2026-10-15
+updated: 2026-10-18
 tags: [feature, status/done, domain/identity, priority/P0]
 ---
 
 # ✅ View As & Pin Views
 
-**Status:** Done · **Priority:** P0 · **Domain:** [[Feature Tree#Identity Core|Identity Core]] · **Frontend guide:** [[View As & Pin Views Frontend]]
+**Status:** Done · **Priority:** P0 · **Domain:** [[Feature Tree#Identity Core|Identity Core]] · **Frontend guide:** [[View As & Pin Views Frontend]] · **Story:** [[View As & Pin Views Story]] · **Requirements:** [[View As & Pin Views Requirements]]
 
 The viewer-facing read path: open someone by Pin name, render one Ring (QR scan and the owner's "View as"), and list every perspective you hold of one person.
 

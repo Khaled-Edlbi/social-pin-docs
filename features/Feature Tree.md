@@ -15,7 +15,7 @@ Every feature of Social Pin, grouped by domain, with its backend status. Status 
 | ❌ | TODO | 18 |
 | ⬜ | Frontend only | 1 |
 
-Open tasks: **65** (34 to do, 17 need a decision, 14 blocked). Open decisions: **6**. See [[Task Board]] and [[Backlog]]. Frontend notes for every ✅ feature: [[Frontend Index]].
+Open tasks: **65** (34 to do, 17 need a decision, 14 blocked). Open decisions: **6**. See [[Task Board]] and [[Backlog]]. Frontend notes for every ✅ feature: [[Frontend Index]]. The same tree, clickable, with every feature's Docs / Story / Requirements / Frontend notes, tasks and decisions: the [[Docs Tree]] page.
 
 ## The tree
 

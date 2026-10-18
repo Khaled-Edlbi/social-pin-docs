@@ -1,7 +1,7 @@
 ---
 type: frontend
 id: ring-members
-feature: "Ring Members"
+feature: ring-members
 domain: identity
 screens: [s15, s47]
 updated: 2026-10-15

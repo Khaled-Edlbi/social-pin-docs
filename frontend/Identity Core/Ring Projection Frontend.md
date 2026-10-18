@@ -1,7 +1,7 @@
 ---
 type: frontend
 id: ring-projection
-feature: "Ring Projection"
+feature: ring-projection
 domain: identity
 screens: [s14, s20, s23, s24, s25, s29, s36]
 updated: 2026-10-15

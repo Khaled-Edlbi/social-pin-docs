@@ -6,13 +6,13 @@ status: todo
 priority: P1
 domain: discovery
 screens: [s11, s39, s40, s41, s42]
-updated: 2026-10-15
+updated: 2026-10-18
 tags: [feature, status/todo, domain/discovery, priority/P1]
 ---
 
 # ❌ PinCast & Nearby
 
-**Status:** TODO · **Priority:** P1 · **Domain:** [[Feature Tree#Discovery|Discovery]]
+**Status:** TODO · **Priority:** P1 · **Domain:** [[Feature Tree#Discovery|Discovery]] · **Story:** [[PinCast & Nearby Story]] · **Requirements:** [[PinCast & Nearby Requirements]]
 
 Proximity broadcast limited by distance and time (s39 – s42) and nearby-by-Ring. The PostGIS column, trigger and GiST index are in place.
 

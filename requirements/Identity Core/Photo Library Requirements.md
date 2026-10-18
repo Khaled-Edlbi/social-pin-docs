@@ -1,0 +1,76 @@
+---
+type: requirements
+id: photo-library
+feature: photo-library
+status: draft
+domain: identity
+screens: [s29, s30]
+updated: 2026-10-18
+tags: [requirements, requirements/draft, domain/identity]
+---
+
+# Photo Library · Frontend Requirements
+
+**Feature:** [[Photo Library]] · **Status:** Draft · **Story:** [[Photo Library Story]] · **API Integration:** not yet (backend not built)
+
+What the client needs to build the per-Ring photo picker and the library grid, and which of it exists. Upload works ([[Files Upload Frontend]]); setting a Ring's photo works ([[Ring Projection Frontend]]); listing, counting and displaying do not.
+
+## Per screen
+
+### [[Screen Index#s29|s29]] Photo for this Ring
+
+- Needs: this Ring's current `avatarFileId`; set it to a chosen file; clear it ("Reset to Pin"); open the library.
+- Actions: Use for <Ring>, Upload, Reset to Pin.
+- States: current photo, candidate selected, saving, placeholder (bytes not available), "Reset to Pin" disabled.
+- Source today: `GET /rings/:ringId/projection`, `PATCH /rings/:ringId/projection { avatarFileId }`. Bytes: not yet. Base photo: not yet.
+
+### [[Screen Index#s30|s30]] Photo library
+
+- Needs: the owner's image files, newest first, with `id`, `mimeType`, `createdAt` and a per-file "N Rings inherit it"; upload; delete; select for s29.
+- Actions: + Add, select, Done, Cancel, delete (management mode from s68).
+- States: grid, empty, uploading, selected, usage count, delete confirmation.
+- Source today: `POST /files`, `DELETE /files/:id`, `GET /files/:id`. List and usage count: not yet. Thumbnails: not yet.
+
+## Endpoints required
+
+| Need | Endpoint | Available | Task / decision |
+|---|---|---|---|
+| Upload a photo | `POST /files` | ✅ | — |
+| Set a Ring's photo / clear it | `PATCH /rings/:ringId/projection` | ✅ | — (listed under [[Ring Projection]]) |
+| Read a Ring's current photo id | `GET /rings/:ringId/projection` | ✅ | — (listed under [[Ring Projection]]) |
+| Delete a photo | `DELETE /files/:id` | ✅ | — (listed under [[Files Upload]]) |
+| List my files, filter by kind (images) | — | ❌ | [[T-012 List my files (photo library)]] |
+| "N Rings inherit it" per file | — | ❌ | [[T-013 Usage count per file across Rings]] |
+| Thumbnails and the full photo | — | ❌ | [[T-062 Serve uploaded file bytes by id]] |
+| Base profile photo for "Reset to Pin" | — | ❌ | [[D-02 Base profile work fields]] |
+| Inherit-by-default semantics | — | ❌ | [[D-05 Copy or inherit]] |
+
+## Behaviour expectations
+
+- Refetch / realtime: refetch `GET /files` (once it exists) on screen focus and after every upload or delete; refetch the Ring's projection after `PATCH`; invalidate `view:<viewer>:ring:<ringId>` so "View as" shows the new photo once bytes can be served.
+- Caching keys: `files:<userId>:images` for the grid; `projection:<ringId>` for the current photo. Session-only list of uploaded ids until T-012.
+- Pagination / ordering: `GET /files` is expected paginated (`limit` ≤ 50, `meta.total`), newest first, with a `kind` filter; the grid uses infinite scroll on `skip`.
+- Usage count: the client does not compute "N Rings inherit it" by scanning every projection; it waits for `ringCount` on the entity (T-013) and shows nothing until then.
+- Delete: detach from known Rings first (`avatarFileId: null`), then delete; the backend does not cascade.
+- Images: client-side downsizing for very large photos is allowed before upload; the server allow-list and 25 MB limit still apply.
+- Placeholders: without bytes, show the locally picked image during the session and initials afterwards; never build a URL from an id.
+
+## Error states the UI must handle
+
+| Status | ErrorCode | Show |
+|---|---|---|
+| 413 | `E_FILE_03` | "Too large (max 25 MB)" |
+| 415 | `E_FILE_02` | "Unsupported file type" |
+| 404 | `E_FILE_01` | tile removed: "This photo is no longer available" |
+| 400 | `E_FILE_04` | "Choose a photo from your library" |
+| 403 | `E_RING_05` | the Ring is not editable by this user: picker read-only |
+| 404 | `E_RING_02` | the Ring is gone: back to My Rings |
+
+Until [[T-063 Put the ErrorCode on the error body]] ships, branch on status and endpoint.
+
+## Blocked by
+
+- [[T-012 List my files (photo library)]] — the grid on s30 beyond this session's uploads.
+- [[T-013 Usage count per file across Rings]] — "N Rings inherit it".
+- [[T-062 Serve uploaded file bytes by id]] — every thumbnail and the large preview on s29.
+- [[D-02 Base profile work fields]] — "Reset to Pin".

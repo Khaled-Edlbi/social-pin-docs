@@ -6,13 +6,13 @@ status: done
 priority: P1
 domain: identity
 screens: [s14, s20, s36]
-updated: 2026-10-15
+updated: 2026-10-18
 tags: [feature, status/done, domain/identity, priority/P1]
 ---
 
 # ✅ Files Upload
 
-**Status:** Done · **Priority:** P1 · **Domain:** [[Feature Tree#Identity Core|Identity Core]] · **Frontend guide:** [[Files Upload Frontend]]
+**Status:** Done · **Priority:** P1 · **Domain:** [[Feature Tree#Identity Core|Identity Core]] · **Frontend guide:** [[Files Upload Frontend]] · **Story:** [[Files Upload Story]] · **Requirements:** [[Files Upload Requirements]]
 
 Multipart upload with type and size checks, metadata read, delete. A file becomes visible only when a reachable context (a Ring projection) references it.
 

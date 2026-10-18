@@ -6,13 +6,13 @@ status: partial
 priority: P0
 domain: platform
 screens: [s02]
-updated: 2026-10-15
+updated: 2026-10-18
 tags: [feature, status/partial, domain/platform, priority/P0]
 ---
 
 # 🟡 Code Delivery
 
-**Status:** Partial (needs more) · **Priority:** P0 · **Domain:** [[Feature Tree#Platform & Cross-cutting|Platform & Cross-cutting]]
+**Status:** Partial (needs more) · **Priority:** P0 · **Domain:** [[Feature Tree#Platform & Cross-cutting|Platform & Cross-cutting]] · **Story:** [[Code Delivery Story]] · **Requirements:** [[Code Delivery Requirements]]
 
 Delivering the one-time code by email or SMS. Today the code is only logged, and returned as `devCode` in development, test and local environments.
 

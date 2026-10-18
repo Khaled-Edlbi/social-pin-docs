@@ -6,13 +6,13 @@ status: done
 priority: P0
 domain: identity
 screens: [s01, s02, s06, s08, s68]
-updated: 2026-10-15
+updated: 2026-10-18
 tags: [feature, status/done, domain/identity, priority/P0]
 ---
 
 # ✅ Auth & Sign-up
 
-**Status:** Done · **Priority:** P0 · **Domain:** [[Feature Tree#Identity Core|Identity Core]] · **Frontend guide:** [[Auth & Sign-up Frontend]]
+**Status:** Done · **Priority:** P0 · **Domain:** [[Feature Tree#Identity Core|Identity Core]] · **Frontend guide:** [[Auth & Sign-up Frontend]] · **Story:** [[Auth & Sign-up Story]] · **Requirements:** [[Auth & Sign-up Requirements]]
 
 Sign up with email or phone, verify the one-time code, finish registration with a password and Pin name, log in, refresh, log out, log out everywhere, change or reset the password.
 

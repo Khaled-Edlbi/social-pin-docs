@@ -6,13 +6,13 @@ status: partial
 priority: P1
 domain: platform
 screens: [s01, s04, s68]
-updated: 2026-10-15
+updated: 2026-10-18
 tags: [feature, status/partial, domain/platform, priority/P1]
 ---
 
 # 🟡 Linked Accounts (OAuth)
 
-**Status:** Partial (needs more) · **Priority:** P1 · **Domain:** [[Feature Tree#Platform & Cross-cutting|Platform & Cross-cutting]]
+**Status:** Partial (needs more) · **Priority:** P1 · **Domain:** [[Feature Tree#Platform & Cross-cutting|Platform & Cross-cutting]] · **Story:** [[Linked Accounts (OAuth) Story]] · **Requirements:** [[Linked Accounts (OAuth) Requirements]]
 
 Social providers for login and import (s68 linked accounts, s01 "Continue with LinkedIn"). `SocialIdentity` exists; there is no OAuth.
 

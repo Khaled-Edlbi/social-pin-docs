@@ -6,13 +6,13 @@ status: done
 priority: P0
 domain: identity
 screens: [s08, s09, s16, s17, s18, s19, s20, s21, s22, s26, s62]
-updated: 2026-10-15
+updated: 2026-10-18
 tags: [feature, status/done, domain/identity, priority/P0]
 ---
 
 # ✅ Rings
 
-**Status:** Done · **Priority:** P0 · **Domain:** [[Feature Tree#Identity Core|Identity Core]] · **Frontend guide:** [[Rings Frontend]]
+**Status:** Done · **Priority:** P0 · **Domain:** [[Feature Tree#Identity Core|Identity Core]] · **Frontend guide:** [[Rings Frontend]] · **Story:** [[Rings Story]] · **Requirements:** [[Rings Requirements]]
 
 My Rings and Shared-with-me lists, create a Ring with name, colour, type, expiry and temporary flag, edit, set default, delete, and the keep / merge / auto-delete disposition for temporary Rings.
 

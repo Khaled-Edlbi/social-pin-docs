@@ -1,7 +1,7 @@
 ---
 type: frontend
 id: view-as
-feature: "View As & Pin Views"
+feature: view-as
 domain: identity
 screens: [s10, s31, s44]
 updated: 2026-10-15

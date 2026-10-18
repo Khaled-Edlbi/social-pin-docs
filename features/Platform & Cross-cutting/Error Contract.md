@@ -6,13 +6,13 @@ status: partial
 priority: P0
 domain: platform
 screens: []
-updated: 2026-10-15
+updated: 2026-10-18
 tags: [feature, status/partial, domain/platform, priority/P0]
 ---
 
 # 🟡 Error Contract
 
-**Status:** Partial (needs more) · **Priority:** P0 · **Domain:** [[Feature Tree#Platform & Cross-cutting|Platform & Cross-cutting]] · **Frontend guide:** [[Frontend Contract]]
+**Status:** Partial (needs more) · **Priority:** P0 · **Domain:** [[Feature Tree#Platform & Cross-cutting|Platform & Cross-cutting]] · **Frontend guide:** [[Frontend Contract]] · **Story:** [[Error Contract Story]] · **Requirements:** [[Error Contract Requirements]]
 
 One error body for the whole API, with a stable per-domain code the client branches on and a human message it displays.
 

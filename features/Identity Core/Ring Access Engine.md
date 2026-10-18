@@ -6,13 +6,13 @@ status: done
 priority: P0
 domain: identity
 screens: []
-updated: 2026-10-15
+updated: 2026-10-18
 tags: [feature, status/done, domain/identity, priority/P0]
 ---
 
 # ✅ Ring Access Engine
 
-**Status:** Done · **Priority:** P0 · **Domain:** [[Feature Tree#Identity Core|Identity Core]] · **Frontend guide:** [[Ring Access Engine Frontend]]
+**Status:** Done · **Priority:** P0 · **Domain:** [[Feature Tree#Identity Core|Identity Core]] · **Frontend guide:** [[Ring Access Engine Frontend]] · **Story:** [[Ring Access Engine Story]] · **Requirements:** [[Ring Access Engine Requirements]]
 
 `RingAccessService`: the one place that decides whether a viewer may see something. Every read path, and every future feature (events, meetings, chat, posts, Gemma), routes through it.
 

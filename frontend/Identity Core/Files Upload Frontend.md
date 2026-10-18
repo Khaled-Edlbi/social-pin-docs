@@ -1,7 +1,7 @@
 ---
 type: frontend
 id: files
-feature: "Files Upload"
+feature: files
 domain: identity
 screens: [s14, s20, s36]
 updated: 2026-10-15
