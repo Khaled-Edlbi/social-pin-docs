@@ -61,7 +61,7 @@ svg { width: 100%; height: 100%; display: block; cursor: grab; touch-action: non
 svg.dragging { cursor: grabbing; }
 .map-tools { position: absolute; left: 12px; bottom: 12px; display: flex; gap: 6px; z-index: 2; }
 .map-tools .btn { padding: 4px 9px; }
-.legend { position: absolute; right: 12px; bottom: 12px; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 8px 10px; font-size: 12px; box-shadow: var(--shadow); z-index: 2; }
+.legend { position: absolute; right: 12px; bottom: 12px; max-width: min(380px, calc(100% - 180px)); background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 8px 10px; font-size: 12px; box-shadow: var(--shadow); z-index: 2; }
 .legend label { display: flex; align-items: center; gap: 6px; cursor: pointer; margin: 2px 0; }
 .legend .ln { width: 22px; height: 0; border-top: 2px solid var(--c); display: inline-block; }
 .legend .ln.thin { border-top-width: 1.5px; border-top-style: dashed; }
@@ -70,6 +70,10 @@ svg.dragging { cursor: grabbing; }
 .n { cursor: grab; transition: transform .28s cubic-bezier(.2,.8,.2,1), opacity .2s; }
 svg.drag-live .n { transition: none; }
 .n.dragging { cursor: grabbing; }
+.n.focus rect.box { stroke: var(--accent); stroke-width: 3; }
+.n.focus text.name { font-weight: 700; }
+#focus-chip { display: inline-flex; align-items: center; gap: 6px; background: var(--selected); border: 1px solid var(--accent); border-radius: 999px; padding: 2px 6px 2px 10px; font-size: 12px; }
+#focus-chip button { border: 0; background: var(--accent); color: var(--accent-ink); border-radius: 999px; width: 18px; height: 18px; line-height: 18px; font-size: 11px; cursor: pointer; padding: 0; }
 .n.dragging rect.box { stroke: var(--accent); stroke-width: 2; filter: drop-shadow(0 6px 10px rgba(16,24,40,.25)); }
 .n rect.box { fill: var(--panel); stroke: var(--line-strong); stroke-width: 1; rx: 9; }
 .n.sel rect.box { stroke: var(--accent); stroke-width: 2; }
@@ -196,6 +200,7 @@ kbd { font: 11px var(--mono); background: var(--bg); border: 1px solid var(--lin
     </div>
   </div>
   <button class="btn" id="theme" title="Switch light / dark">Theme</button>
+  <span id="focus-chip" hidden><span id="focus-name"></span><button id="focus-clear" title="End focus (Esc)">✕</button></span>
   <span class="count" id="count"></span>
 </header>
 <main id="main">
@@ -214,7 +219,7 @@ kbd { font: 11px var(--mono); background: var(--bg); border: 1px solid var(--lin
       <label><input type="checkbox" data-kind="depends" checked><span class="ln thin" style="--c: var(--e-depends)"></span> Depends on</label>
       <label><input type="checkbox" data-kind="decision" checked><span class="ln thin" style="--c: var(--e-decision)"></span> Decision affects</label>
       <label><input type="checkbox" data-kind="wikilink" checked><span class="ln thin" style="--c: var(--e-wikilink)"></span> Mentions (wikilink)</label>
-      <div class="hint">Hover a node to light up its relations. Drag the background to pan, wheel to zoom. Drag a card to move it with its branch; Layout ▾ resets, exports or imports an arrangement.</div>
+      <div class="hint">Hover a card to light up its relations; <b>click</b> it to keep them lit while you move around, click it again, the background or Esc to end; <b>double-click</b> opens the details. Drag the background to pan, wheel to zoom. Drag a card to move it with its branch; Layout ▾ resets, exports or imports an arrangement.</div>
     </div>
   </section>
   <section id="outline" hidden><ul role="tree" id="otree"></ul></section>
@@ -243,7 +248,7 @@ const EDGE_NAME = { related: 'related', wikilink: 'mentions', depends: 'depends 
 const ROW = 34, COLGAP = 56, PAD = 10, LEVEL = 88, XGAP = 14, H = 14, STACK = 22;
 
 const S = { data: null, inst: [], instById: new Map(), byIid: new Map(), view: 'map', collapsed: new Set(), filters: { status: new Set(), domain: '', kind: '', q: '' },
-  selected: null, hover: null, edgeKinds: new Set(['related', 'depends', 'decision', 'wikilink']), tx: 40, ty: 40, k: 1, laidOut: new Map(), ready: false, orient: 'vertical', offsets: { vertical: {}, horizontal: {} } };
+  selected: null, hover: null, edgeKinds: new Set(['related', 'depends', 'decision', 'wikilink']), tx: 40, ty: 40, k: 1, laidOut: new Map(), ready: false, orient: 'vertical', offsets: { vertical: {}, horizontal: {} }, focus: null };
 
 const store = { get(k, d) { try { const v = localStorage.getItem('spt.' + k); return v === null ? d : JSON.parse(v); } catch { return d; } }, set(k, v) { try { localStorage.setItem('spt.' + k, JSON.stringify(v)); } catch {} } };
 
@@ -437,7 +442,13 @@ function renderMap(visible) {
         g.classList.remove('dragging'); svg.classList.remove('drag-live'); drag = null;
       };
       g.addEventListener('pointerup', endDrag); g.addEventListener('pointercancel', endDrag);
-      g.addEventListener('click', () => { if (suppressClick) { suppressClick = false; return; } select(it.id, it.iid); });
+      let clickTimer = null;
+      g.addEventListener('click', () => {
+        if (suppressClick) { suppressClick = false; return; }
+        clearTimeout(clickTimer);
+        clickTimer = setTimeout(() => { setFocus(S.focus === it.id ? null : it.id); }, 230);
+      });
+      g.addEventListener('dblclick', (e) => { e.stopPropagation(); clearTimeout(clickTimer); setFocus(it.id); select(it.id, it.iid); });
       g.addEventListener('mouseenter', () => setHover(it.id));
       g.addEventListener('mouseleave', () => setHover(null));
       S.laidOut.set(it.iid, g);
@@ -489,7 +500,7 @@ function visibleInstanceFor(id, prefer) {
 }
 function renderRelEdges(visible) {
   gRel.innerHTML = '';
-  const hov = S.hover;
+  const hov = S.hover || S.focus;
   const litCount = hov ? S.data.edges.filter((e) => e.kind !== 'tree' && S.edgeKinds.has(e.kind) && (e.from === hov || e.to === hov)).length : 0;
   for (const e of S.data.edges) {
     if (e.kind === 'tree' || !S.edgeKinds.has(e.kind)) continue;
@@ -521,19 +532,26 @@ function renderRelEdges(visible) {
 }
 function setHover(id) { S.hover = id; renderRelEdges(S.inst.filter((it) => it.visible)); updateHover(); }
 function updateHover() {
-  svg.classList.toggle('hovering', !!S.hover);
+  const act = S.hover || S.focus;
+  svg.classList.toggle('hovering', !!act);
   const far = new Set();
-  if (S.hover) for (const e of S.data.edges) { if (e.kind === 'tree') continue; if (e.from === S.hover) far.add(e.to); if (e.to === S.hover) far.add(e.from); }
+  if (act) for (const e of S.data.edges) { if (e.kind === 'tree') continue; if (e.from === act) far.add(e.to); if (e.to === act) far.add(e.from); }
   for (const [, g] of S.laidOut) {
     const id = g.dataset.id;
-    g.classList.toggle('hov', id === S.hover);
-    g.classList.toggle('far', S.hover && far.has(id));
-    g.classList.toggle('lit', id === S.hover);
+    g.classList.toggle('hov', id === act);
+    g.classList.toggle('focus', id === S.focus);
+    g.classList.toggle('far', act && far.has(id));
+    g.classList.toggle('lit', id === act);
   }
   for (const g of gRel.children) {
-    const on = S.hover && (g.dataset.from === S.hover || g.dataset.to === S.hover);
+    const on = act && (g.dataset.from === act || g.dataset.to === act);
     g.classList.toggle('lit', !!on); g.firstChild.classList.toggle('lit', !!on);
   }
+}
+function setFocus(id) {
+  S.focus = id;
+  const chip = $('#focus-chip'); chip.hidden = !id; if (id) $('#focus-name').textContent = node(id).title;
+  renderRelEdges(S.inst.filter((it) => it.visible)); updateHover();
 }
 
 // pan / zoom
@@ -552,12 +570,13 @@ function fit() {
 }
 function centerOn(iid) { const it = S.byIid.get(iid); if (!it) return; const r = svg.getBoundingClientRect(); S.tx = r.width / 2 - (it.x + it.w / 2) * S.k; S.ty = r.height / 2 - it.y * S.k; applyTransform(); }
 (() => {
-  const pts = new Map(); let last = null, pinch = null;
-  svg.addEventListener('pointerdown', (e) => { if (e.target.closest('.n')) return; pts.set(e.pointerId, { x: e.clientX, y: e.clientY }); svg.setPointerCapture(e.pointerId); last = { x: e.clientX, y: e.clientY }; svg.classList.add('dragging'); });
+  const pts = new Map(); let last = null, pinch = null, panned = false;
+  svg.addEventListener('pointerdown', (e) => { if (e.target.closest('.n')) return; pts.set(e.pointerId, { x: e.clientX, y: e.clientY }); svg.setPointerCapture(e.pointerId); last = { x: e.clientX, y: e.clientY }; panned = false; svg.classList.add('dragging'); });
+  svg.addEventListener('click', (e) => { if (e.target.closest('.n') || panned) return; if (S.focus) setFocus(null); });
   svg.addEventListener('pointermove', (e) => {
     if (!pts.has(e.pointerId)) return; pts.set(e.pointerId, { x: e.clientX, y: e.clientY });
     if (pts.size === 2) { const [a, b] = [...pts.values()]; const d = Math.hypot(a.x - b.x, a.y - b.y); const cx = (a.x + b.x) / 2, cy = (a.y + b.y) / 2; const r = svg.getBoundingClientRect(); if (pinch) zoomAt(d / pinch, cx - r.left, cy - r.top); pinch = d; return; }
-    if (last) { S.tx += e.clientX - last.x; S.ty += e.clientY - last.y; last = { x: e.clientX, y: e.clientY }; applyTransform(); }
+    if (last) { if (Math.hypot(e.clientX - last.x, e.clientY - last.y) > 0) panned = true; S.tx += e.clientX - last.x; S.ty += e.clientY - last.y; last = { x: e.clientX, y: e.clientY }; applyTransform(); }
   });
   const up = (e) => { pts.delete(e.pointerId); if (pts.size < 2) pinch = null; if (!pts.size) { last = null; svg.classList.remove('dragging'); } };
   svg.addEventListener('pointerup', up); svg.addEventListener('pointercancel', up);
@@ -677,7 +696,8 @@ function buildFilters() {
   $('#theme').onclick = () => { const cur = document.documentElement.dataset.theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); const next = cur === 'dark' ? 'light' : 'dark'; document.documentElement.dataset.theme = next; store.set('theme', next); };
   for (const cb of document.querySelectorAll('#legend input')) cb.onchange = () => { if (cb.checked) S.edgeKinds.add(cb.dataset.kind); else S.edgeKinds.delete(cb.dataset.kind); renderRelEdges(S.inst.filter((it) => it.visible)); };
   $('#p-close').onclick = closePane;
-  document.addEventListener('keydown', (e) => { if (e.key === '/' && document.activeElement !== $('#search')) { e.preventDefault(); $('#search').focus(); } if (e.key === 'Escape') closePane(); });
+  $('#focus-clear').onclick = () => setFocus(null);
+  document.addEventListener('keydown', (e) => { if (e.key === '/' && document.activeElement !== $('#search')) { e.preventDefault(); $('#search').focus(); } if (e.key === 'Escape') { if (S.focus) setFocus(null); else closePane(); } });
   window.addEventListener('hashchange', route);
   window.addEventListener('resize', () => { if (S.view === 'map') fit(); });
 }
@@ -767,7 +787,7 @@ async function renderFile(path, heading) {
 // ------------------------------------------------------------ routing
 function route() {
   const h = decodeURIComponent(location.hash || '');
-  if (h.startsWith('#n/')) { const id = h.slice(3); if (node(id)) { S.selected = id; const iid = (S.instById.get(id) || [])[0]?.iid; if (iid) expandAncestors(iid); refresh(false); if (S.view === 'map' && iid) centerOn(iid); openNode(id); } }
+  if (h.startsWith('#n/')) { const id = h.slice(3); if (node(id)) { S.selected = id; S.focus = id; $('#focus-chip').hidden = false; $('#focus-name').textContent = node(id).title; const iid = (S.instById.get(id) || [])[0]?.iid; if (iid) expandAncestors(iid); refresh(false); if (S.view === 'map' && iid) centerOn(iid); openNode(id); } }
   else if (h.startsWith('#f/')) { const [p, hd] = h.slice(3).split('::'); openFile(p, hd); }
 }
 
