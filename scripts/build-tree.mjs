@@ -33,7 +33,7 @@ const GENERATED = ['tree/tree.json', 'tree/tree.md', 'tasks/Task Board.md', 'tas
 const REPO = { owner: 'Khaled-Edlbi', name: 'social-pin-docs', branch: process.env.TREE_BRANCH || 'main' };
 REPO.blobBase = `https://github.com/${REPO.owner}/${REPO.name}/blob/${REPO.branch}/`;
 
-const SKIP_DIRS = new Set(['.git', '.obsidian', 'node_modules', 'site', 'tree', 'scripts', '.github', 'new design']);
+const SKIP_DIRS = new Set(['.git', '.obsidian', 'node_modules', 'site', 'tree', 'scripts', '.github']);
 const BAD_NAME = /[#?%\\]/;
 
 // Structural statuses (not layer-specific). Layer kinds take theirs from docs.config.json.
