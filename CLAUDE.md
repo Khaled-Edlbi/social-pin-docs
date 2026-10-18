@@ -15,7 +15,7 @@ this file is the short form and defers to it.
 | `modules/<Module>/<Module> Module.md` | module: the sum of its features (`type: module`) | `templates/Module Template.md` |
 | `modules/<Module>/<Feature>/<Feature>.md` | feature: the business main node (`type: feature`, no `status:`: the chip is computed from its cards; `frontendOnly: true` when it has no backend part) | `templates/Feature Template.md` |
 | `modules/<Module>/<Feature>/<Feature> <Kind>.md` | one note per layer kind: `Story`, `Frontend Requirements`, `Backend Delivery`, `Backend Integration`, `Frontend Delivery`, `QA Backend`, `QA Frontend` (`scope: feature`, `code: <feature id>`) | `templates/<Kind> Template.md` |
-| `tasks/T-NNN <Title>.md` → `tasks/T-NNN <Title>/` | task (`type: task`; `parent: T-NNN` makes it a sub-task of that task, same feature); the same kinds of notes under its folder, `T-NNN <Kind>.md` (`scope: task`, `code: T-NNN`) | `templates/Task Template.md` + the kind templates |
+| `tasks/T-NNN <Title>.md` → `tasks/T-NNN <Title>/` | task (`type: task`; `parent: T-NNN` makes it a sub-task of that task, same feature; `labels: [bug]` marks a bug, filed as a sub-task of the task it was found against); the same kinds of notes under its folder, `T-NNN <Kind>.md` (`scope: task`, `code: T-NNN`) | `templates/Task Template.md` + the kind templates |
 | `decisions/` | where the design and the backend disagree, `D-NN …` | `templates/Decision Template.md` |
 | `design/` | the design as reference: screen index, navigation map, brief | — |
 | `tree/` `scripts/` | the generated docs tree (`index.html`, `tree.json`, `tree.md`) and `build-tree.mjs` | — |

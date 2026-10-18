@@ -7,6 +7,8 @@ effort: M
 feature: <feature slug>
 module: <module id>
 # parent: T-NNN            # optional: makes this a sub-task of T-NNN (same feature); it then hangs under that task in the tree
+# labels: [bug]            # optional: bug | chore | spike | docs (docs.config.json taskLabels); a bug found against a task is a sub-task with labels: [bug]
+labels: []
 screens: []
 depends: []
 affects: []
