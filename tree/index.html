@@ -438,7 +438,7 @@ const S = {
   offsets: store.get('offsets2', {}),
 };
 const C = { laid: new Map(), mode: null, tx: 40, ty: 40, k: 1, graph: {} };
-let inst = [], byIid = new Map(), instById = new Map(), rootInst = null, items = null, itemByKey = null, totals = null, preFocus = null, relCache = null;
+let inst = [], byIid = new Map(), instById = new Map(), rootInst = null, items = null, itemByKey = null, totals = null, preFocus = null, preFilter = null, relCache = null;
 let vp, gLabels, gRel, gTree, gNodes, svg;
 const D = () => S.D;
 const node = (id) => S.D.nodes[id];
@@ -524,7 +524,7 @@ function buildTree() {
   mark(root);
   const vis = (it, shown) => {
     it.visible = shown && (!active || it.keep || (it.parent && it.parent.match));
-    it.open = active ? (it.keep && it.children.some((c) => c.keep)) || !collapsed.has(it.id) : !collapsed.has(it.id);
+    it.open = !collapsed.has(it.id);
     for (const c of it.children) vis(c, it.visible && it.open);
   };
   vis(root, true);
@@ -896,7 +896,7 @@ function updateHover() {
 
 // ------------------------------------------------------------ actions
 function setCollapsed(c) { S.collapsed = c; store.set('collapsed', c); }
-function toggle(id) { preFocus = null; const c = new Set(S.collapsed); c.has(id) ? c.delete(id) : c.add(id); setCollapsed([...c]); redraw(false); }
+function toggle(id) { preFocus = null; preFilter = null; const c = new Set(S.collapsed); c.has(id) ? c.delete(id) : c.add(id); setCollapsed([...c]); redraw(false); }
 function expandAll(open) { setCollapsed(open ? [] : Object.values(S.D.nodes).filter((n) => n.children.length && n.kind !== 'root').map((n) => n.id)); redraw(true); }
 function expandAncestors(iid, collapsed) { const c = new Set(collapsed); const parts = iid.split('/'); for (let i = 0; i < parts.length - 1; i++) c.delete(parts[i]); return [...c]; }
 function findIid(id) { if (!instById.size) buildTree(); const l = instById.get(id); return l && l[0] ? l[0].iid : null; }
@@ -947,7 +947,20 @@ function updateCount() {
   $('#count').textContent = text;
 }
 function updateMoved() { const n = Object.keys(S.offsets[modeKey()] || {}).length; $('#layout-moved').textContent = n ? `${n} card${n === 1 ? '' : 's'} moved in this view` : 'No cards moved in this view'; }
-function setFilters(patch) { Object.assign(S, patch); renderSidebar(); redraw(true); }
+// switching a filter on opens the path to every match once (the carets then work as usual); clearing it restores the folds from before
+function setFilters(patch) {
+  const was = filtersActive();
+  Object.assign(S, patch);
+  const now = filtersActive();
+  if (now) {
+    if (!was) preFilter = S.collapsed;
+    buildTree();
+    const c = new Set(S.collapsed);
+    for (const it of inst) if (it.match) for (let a = it.parent; a; a = a.parent) c.delete(a.id);
+    setCollapsed([...c]);
+  } else if (was && preFilter) { setCollapsed(preFilter); preFilter = null; }
+  renderSidebar(); redraw(true);
+}
 
 // ------------------------------------------------------------ sidebar
 function renderSidebar() {
