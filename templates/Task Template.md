@@ -6,6 +6,7 @@ priority: P1
 effort: M
 feature: <feature slug>
 module: <module id>
+# parent: T-NNN            # optional: makes this a sub-task of T-NNN (same feature); it then hangs under that task in the tree
 screens: []
 depends: []
 affects: []

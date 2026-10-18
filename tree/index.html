@@ -420,7 +420,9 @@ const PRESETS = [
   { id: 'unapproved', name: 'Unapproved stories', hint: 'User stories · Draft', kinds: ['story'], statuses: ['draft'] },
   { id: 'missing', name: 'Not written yet', hint: 'Placeholders to scaffold', kinds: [], statuses: ['missing'] },
 ];
-const T = { H: 20, ROW: 52, LEVEL: 112, XGAP: 16, STACK: 26, COLGAP: 64 };
+const T = { H: 20, ROW: 52, LROW: 58, LADDER: 16, LEVEL: 112, XGAP: 16, STACK: 26, COLGAP: 64 };
+const CONTAINER = new Set(['feature', 'group', 'task']); // list their children in a column: the layer notes as a ladder in hand-off order, then tasks and decisions
+let FLOW = { order: [], pairs: [], back: [] };
 const store = { get(k, d) { try { const v = localStorage.getItem('spt2.' + k); return v === null ? d : JSON.parse(v); } catch { return d; } }, set(k, v) { try { localStorage.setItem('spt2.' + k, JSON.stringify(v)); } catch {} } };
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const slug = (s) => s.toLowerCase().replace(/[^\wÀ-￿\s-]/g, '').trim().replace(/\s+/g, '-');
@@ -462,6 +464,8 @@ async function load() {
   const d = S.D;
   for (const l of d.layers || []) { LAYER[l.id] = { label: l.label, color: l.color }; for (const k of l.kinds) KIND[k.id] = { name: k.label, short: KIND_SHORT[k.id] || k.label, icon: KIND_ICON[k.id] || 'ph-file-text', layer: l.id }; }
   for (const a of d.modules ? ['business', 'frontend', 'backend', 'qa', 'shared'] : []) if (!LAYER[a]) LAYER[a] = { label: a, color: null };
+  FLOW = { order: d.flowOrder || [], pairs: (d.flow || []).filter((p) => Array.isArray(p) && p.length === 2), back: d.flowBack || [] };
+  if (!FLOW.order.length) { const q = FLOW.pairs.length ? [FLOW.pairs[0][0]] : []; while (q.length) { const k = q.shift(); if (FLOW.order.includes(k)) continue; FLOW.order.push(k); for (const [a, b] of FLOW.pairs) if (a === k) q.push(b); } FLOW.back = FLOW.pairs.filter(([a, b]) => FLOW.order.indexOf(a) >= FLOW.order.indexOf(b)); }
   KIND_GROUPS = [{ title: 'Structure', keys: ['feature'] }, ...(d.layers || []).map((l) => ({ title: l.label, color: l.color, keys: l.kinds.map((k) => k.id) })), { title: 'Work', keys: ['task', 'decision'] }, { title: 'Reference', keys: ['project'] }];
   if (d.repo && d.repo.owner) $('#repo-link').href = `https://github.com/${d.repo.owner}/${d.repo.name}`;
   if (!S.view) S.view = window.innerWidth < 720 ? 'outline' : 'tree';
@@ -493,7 +497,16 @@ function statusText(n) {
   if (b.length && (n.effectiveStatus === 'blocked' || n.effectiveStatus === 'missing')) { const t = node(b[0].id); return `${n.effectiveStatus === 'blocked' ? 'Blocked' : l} · ${(t.kind === 'task' || t.kind === 'decision') && t.code ? t.code : (kindOf(t.kind).name)}${b.length > 1 ? ` +${b.length - 1}` : ''}`; }
   return l;
 }
-const kicker = (n) => kindOf(n.kind).name.toUpperCase() + (n.priority ? ' · ' + n.priority : '');
+const kicker = (n) => kindOf(n.kind).name.toUpperCase() + (n.parentTask ? ' · SUB-TASK OF ' + n.parentTask : '') + (n.priority ? ' · ' + n.priority : '');
+const flowIdx = (kind) => FLOW.order.indexOf(kind);
+const isBack = (pair) => FLOW.back.some(([a, b]) => a === pair[0] && b === pair[1]);
+// how a layer note is reached along the hand-off: 'forward' from the step before it, 'back' when the flow returns to it (the story after QA)
+function flowGlyph(kind) {
+  const into = FLOW.pairs.filter((p) => p[1] === kind);
+  if (!into.length) return null;
+  const fwd = into.filter((p) => !isBack(p));
+  return { dir: fwd.length ? 'forward' : 'back', from: (fwd.length ? fwd : into).map((p) => kindOf(p[0]).name) };
+}
 const chipStyle = (n) => { const st = stOf(n); return `--bg:${st.bg};--ink:${st.ink};--bd:${st.dashed ? st.c : 'transparent'}`; };
 const chipHtml = (n, extraCls = '') => `<span class="stchip${stOf(n).dashed ? ' dashed' : ''}${extraCls ? ' ' + extraCls : ''}" style="${chipStyle(n)}">${esc(statusText(n))}</span>`;
 
@@ -541,15 +554,17 @@ function nodeWidth(n, caret) {
 function layoutTree() {
   const vertical = S.orient === 'vertical';
   const visible = inst.filter((it) => it.visible);
-  for (const it of visible) { it.caret = it.node.children.length > 0; it.w = nodeWidth(it.node, it.caret); }
+  for (const it of visible) { it.caret = it.node.children.length > 0; it.w = nodeWidth(it.node, it.caret); it.lad = -1; it.prevLad = null; it.stacked = false; it.stacks = false; }
+  // the ladder: a container's layer notes, in hand-off order, each chained to the one before
+  for (const it of visible) if (CONTAINER.has(it.node.kind)) { let prev = null, i = 0; for (const c of it.children) if (c.visible && flowIdx(c.node.kind) >= 0) { c.lad = i++; c.prevLad = prev; prev = c; } }
   let cursor = 0;
   if (!vertical) {
-    const colW = []; for (const it of visible) colW[it.depth] = Math.max(colW[it.depth] || 0, it.w);
+    const colW = []; for (const it of visible) colW[it.depth] = Math.max(colW[it.depth] || 0, it.w + Math.max(0, it.lad) * T.LADDER);
     const colX = []; let x = 0; for (let d = 0; d < colW.length; d++) { colX[d] = x; x += (colW[d] || 0) + T.COLGAP; }
     const place = (it) => {
-      it.x = colX[it.depth]; it.stacked = false;
+      it.x = colX[it.depth] + Math.max(0, it.lad) * T.LADDER;
       const kids = it.children.filter((c) => c.visible);
-      if (!kids.length) { it.y = cursor; cursor += T.ROW; return; }
+      if (!kids.length) { if (it.lad >= 0) cursor += T.LROW - T.ROW; it.y = cursor; cursor += T.ROW; return; }
       for (const c of kids) place(c);
       it.y = (kids[0].y + kids[kids.length - 1].y) / 2;
       if (it.node.kind === 'feature' || it.node.kind === 'module') cursor += 12;
@@ -559,13 +574,20 @@ function layoutTree() {
   const shift = (it, dx) => { it.x += dx; for (const c of it.children) if (c.visible) shift(c, dx); };
   const place = (it) => {
     it.y = it.parent && it.parent.stacks ? it.y : it.depth * T.LEVEL;
-    it.stacked = false; it.stacks = false;
+    it.stacks = false;
     const kids = it.children.filter((c) => c.visible);
     if (!kids.length) { it.x = cursor; cursor += it.w + T.XGAP; return; }
-    if ((it.node.kind === 'feature' || it.node.kind === 'group' || it.node.kind === 'task') && kids.every((c) => !c.children.some((g) => g.visible))) {
+    if (CONTAINER.has(it.node.kind)) {
+      // a column under the container: the ladder (one step down and right per hand-off), then the leaf tasks and decisions; an expanded task gets its own column to the right
       it.stacks = true; it.x = cursor;
-      kids.forEach((c, i) => { c.stacked = true; c.x = it.x + T.STACK; c.y = it.y + T.ROW * (i + 1); c.stacks = false; });
-      cursor += Math.max(it.w, T.STACK + Math.max(...kids.map((c) => c.w))) + T.XGAP + 18; return;
+      const ladder = kids.filter((c) => c.lad >= 0), rest = kids.filter((c) => c.lad < 0);
+      const simple = rest.filter((c) => !c.children.some((g) => g.visible)), complex = rest.filter((c) => c.children.some((g) => g.visible));
+      let y = it.y, colW = it.w;
+      for (const c of ladder) { y += T.LROW; c.stacked = true; c.x = it.x + T.STACK + T.LADDER * c.lad; c.y = y; colW = Math.max(colW, c.x - it.x + c.w); }
+      for (const c of simple) { y += T.ROW; c.stacked = true; c.x = it.x + T.STACK; c.y = y; colW = Math.max(colW, T.STACK + c.w); }
+      cursor = it.x + colW + T.XGAP;
+      for (const c of complex) { c.y = it.y + T.ROW; place(c); c.stacked = true; }
+      cursor += 18; return;
     }
     const start = cursor;
     for (const c of kids) place(c);
@@ -705,6 +727,11 @@ function renderCards(list) {
       if (hasLayerMark(n)) { sel('rect', { x: 14, y: -10.5, width: 7, height: 7, rx: 1.5 }, g, { fill: LAYER[n.layer].color }); kx = 25; }
       const k = sel('text', { x: kx, y: -7, 'dominant-baseline': 'middle' }, g, { font: `600 9px ${FONT}`, letterSpacing: '0.1em', fill: 'var(--color-neutral-600)', pointerEvents: 'none' }); k.textContent = kicker(n);
       const tt = sel('text', { x: 14, y: 8, 'dominant-baseline': 'middle' }, g, { font: `600 13px ${FONT}`, fill: st.dashed ? 'var(--color-neutral-700)' : 'var(--color-text)', pointerEvents: 'none' }); tt.textContent = n.title;
+      const fg = S.view === 'tree' ? flowGlyph(n.kind) : null;
+      if (fg) {
+        const a = sel('path', { d: fg.dir === 'forward' ? 'M 3 -33 V -26 H 13 M 10 -29 L 13 -26 L 10 -23' : 'M 13 -23 V -30 H 3 M 6 -27 L 3 -30 L 6 -33' }, g, { fill: 'none', stroke: EDGE.flow.color, strokeWidth: 1.6, strokeLinecap: 'round', strokeLinejoin: 'round', opacity: st.dashed ? 0.55 : 1 });
+        sel('title', {}, a).textContent = fg.dir === 'forward' ? `Hand-off from ${fg.from.join(' / ')}` : `The flow returns here from ${fg.from.join(' / ')}`;
+      }
       const label = statusText(n), cw = Math.ceil(tw(label, `600 10px ${FONT}`)) + 14, cx = it.w - 12 - cw - (it.caret ? 12 : 0);
       sel('rect', { x: cx, y: -9, width: cw, height: 18, rx: 2 }, g, { fill: st.bg, stroke: st.dashed ? st.c : 'none', strokeDasharray: st.dashed ? '3 2' : '' });
       const sx = sel('text', { x: cx + 7, y: 0.5, 'dominant-baseline': 'middle' }, g, { font: `600 10px ${FONT}`, fill: st.ink, pointerEvents: 'none' }); sx.textContent = label;
@@ -761,7 +788,8 @@ function drawStructure(list) {
     const vertical = S.orient === 'vertical';
     for (const it of list) {
       if (!it.parent) continue; const p = it.parent;
-      const d = it.stacked ? `M ${p.x + T.STACK / 2} ${p.y + T.H} V ${it.y} H ${it.x}`
+      const d = it.prevLad ? `M ${it.prevLad.x + 8} ${it.prevLad.y + T.H} V ${it.y} H ${it.x}`
+        : it.stacked ? `M ${p.x + T.STACK / 2} ${p.y + T.H} V ${it.y} H ${it.x}`
         : vertical ? `M ${p.x + p.w / 2} ${p.y + T.H} C ${p.x + p.w / 2} ${p.y + T.LEVEL / 2}, ${it.x + it.w / 2} ${it.y - T.LEVEL / 2}, ${it.x + it.w / 2} ${it.y - T.H}`
         : `M ${p.x + p.w + (p.caret ? 9 : 0)} ${p.y} C ${p.x + p.w + T.COLGAP / 2} ${p.y}, ${it.x - T.COLGAP / 2} ${it.y}, ${it.x} ${it.y}`;
       sel('path', { d }, gTree, { fill: 'none', stroke: 'var(--color-neutral-600)', strokeWidth: 1.8, opacity: active && !it.match && !it.keep ? 0.15 : 0.85 });

@@ -88,7 +88,15 @@ export function loadConfig(errors = []) {
   for (const k of cfg.requiredAtFeatureLevel || []) if (!kinds.has(k)) err(`requiredAtFeatureLevel names unknown kind "${k}"`);
   if (!Array.isArray(cfg.modules) || !cfg.modules.length) err('modules must be a non-empty list');
   if (!Array.isArray(cfg.projectAreas) || !cfg.projectAreas.length) err('projectAreas must be a non-empty list');
-  return { ...cfg, kinds, kindOrder: [...kinds.keys()] };
+  const kindOrder = [...kinds.keys()];
+  // the hand-off order: walk the flow from its first kind, breadth first; a flow pair that points at an earlier kind is a return (QA back to the story)
+  const flow = (cfg.flow || []).filter((p) => Array.isArray(p) && p.length === 2 && kinds.has(p[0]) && kinds.has(p[1]));
+  const flowOrder = [];
+  const queue = [flow.length ? flow[0][0] : kindOrder[0]].filter(Boolean);
+  while (queue.length) { const k = queue.shift(); if (flowOrder.includes(k)) continue; flowOrder.push(k); for (const [a, b] of flow) if (a === k && !flowOrder.includes(b)) queue.push(b); }
+  for (const k of kindOrder) if (!flowOrder.includes(k)) flowOrder.push(k);
+  const flowBack = flow.filter(([a, b]) => flowOrder.indexOf(a) >= flowOrder.indexOf(b));
+  return { ...cfg, kinds, kindOrder, flowOrder, flowBack };
 }
 
 // ---------------------------------------------------------------- frontmatter
@@ -276,7 +284,7 @@ export function build() {
     id: null, kind: null, layer: null, title: n ? n.stem : null, path: n ? n.rel : null, status: null, effectiveStatus: null, blockedBy: [],
     priority: n?.data?.priority ?? null, effort: n?.data?.effort ?? null, module: n?.data?.module ?? null, feature: null, task: null, code: null, scope: null,
     screens: list(n?.data?.screens), updated: n?.data?.updated ?? n?.data?.created ?? null, tags: list(n?.data?.tags),
-    depends: [], affects: [], related: [], children: [], parents: [], summary: n?.summary ?? null, label: null, ...extra,
+    depends: [], affects: [], related: [], children: [], parents: [], summary: n?.summary ?? null, label: null, parentTask: null, ...extra,
   });
   const byType = (t) => notes.filter((n) => n.data && n.data.type === t && !n.rel.startsWith('templates/'));
   const requireKeys = (n, keys) => { for (const k of keys) if (n.data[k] === undefined || n.data[k] === null || n.data[k] === '') err(n.rel, `missing frontmatter key "${k}"`); };
@@ -334,7 +342,8 @@ export function build() {
   for (const n of taskNotes) {
     requireKeys(n, ['id', 'status', 'feature']);
     const status = normStatus(n, 'task');
-    const t = addNode(base(n, { id: `task:${n.data.id}`, kind: 'task', layer: 'business', feature: n.data.feature, code: n.data.id, status, effectiveStatus: status, label: 'Task', decision: n.data.decision ?? null, dir: null }));
+    const parent = typeof n.data.parent === 'string' && n.data.parent.trim() ? n.data.parent.trim() : null;
+    const t = addNode(base(n, { id: `task:${n.data.id}`, kind: 'task', layer: 'business', feature: n.data.feature, code: n.data.id, status, effectiveStatus: status, label: 'Task', decision: n.data.decision ?? null, dir: null, parentTask: parent }));
     noteOf.set(t.id, n);
     if (taskNodes.has(n.data.id)) err(n.rel, `second task note with id "${n.data.id}"`);
     taskNodes.set(n.data.id, t);
@@ -409,11 +418,24 @@ export function build() {
     }
   }
 
-  // tasks under features; decisions under features
+  // tasks under features (a sub-task under its parent task); decisions under features
   for (const [, t] of taskNodes) {
     const f = featureNodes.get(t.feature);
     if (!f) { err(t.path, `feature "${t.feature}" is not a feature id`); continue; }
-    link(f, t);
+    let container = f;
+    if (t.parentTask) {
+      const p = taskNodes.get(t.parentTask);
+      if (!p) { err(t.path, `parent: "${t.parentTask}" is not a task id`); t.parentTask = null; }
+      else if (p.id === t.id) { err(t.path, 'parent: a task cannot be its own parent'); t.parentTask = null; }
+      else if (p.feature !== t.feature) { err(t.path, `parent: ${t.parentTask} belongs to feature "${p.feature}", not "${t.feature}"; a sub-task stays in its parent's feature`); t.parentTask = null; }
+      else {
+        let a = p, depth = 0, cyclic = false;
+        while (a && a.parentTask) { if (a.parentTask === t.code || ++depth > 50) { cyclic = true; break; } a = taskNodes.get(a.parentTask); }
+        if (cyclic) { err(t.path, `parent: ${t.parentTask} makes a cycle of sub-tasks`); t.parentTask = null; }
+        else container = p;
+      }
+    }
+    link(container, t);
     t.module = t.module ?? f.module;
     if (noteOf.get(t.id).data.module && noteOf.get(t.id).data.module !== f.module) err(t.path, `module "${t.module}" does not match the feature's module "${f.module}"`);
   }
@@ -564,7 +586,7 @@ export function build() {
       if (!body.includes(`[[${n.title}`)) warn(fl.path, `does not link [[${n.title}]], a done task-level note: a feature note is the sum of its tasks`);
     }
   }
-  const kindRank = new Map(cfg.kindOrder.map((k, i) => [k, i]));
+  const kindRank = new Map(cfg.flowOrder.map((k, i) => [k, i]));
   const rank = (n) => (kindRank.has(n.kind) ? kindRank.get(n.kind) : n.kind === 'task' ? 100 : n.kind === 'decision' ? 200 : 300);
   for (const n of [...featureNodes.values(), ...taskNodes.values()]) {
     n.children.sort((a, b) => (rank(nodes[a]) - rank(nodes[b])) || nodes[a].title.localeCompare(nodes[b].title, 'en', { numeric: true }));
@@ -672,7 +694,7 @@ export function build() {
 
   return {
     json: {
-      schema: 2, repo: REPO, rootId: 'root', counts, legend: LEGEND, emoji: EMOJI, layers: layersOut, flow: cfg.flow, defaultBlocks: cfg.defaultBlocks,
+      schema: 2, repo: REPO, rootId: 'root', counts, legend: LEGEND, emoji: EMOJI, layers: layersOut, flow: cfg.flow, flowOrder: cfg.flowOrder, flowBack: cfg.flowBack, defaultBlocks: cfg.defaultBlocks,
       modules: cfg.modules, generated: GENERATED, nodes, edges, concepts: conceptsOut, byName, files: filesIndex, diagnostics: { errors, warnings },
     },
     errors, warnings, notes, cfg,
@@ -699,7 +721,7 @@ function treeMarkdown(json) {
   const seen = new Set();
   const walkNode = (id, depth) => {
     const n = nodes[id];
-    const extra = [n.label && !['feature', 'module', 'task'].includes(n.kind) ? n.label : null, n.priority, n.blockedBy?.length ? `blocked by ${n.blockedBy.map((b) => b.title).join(', ')}` : null].filter(Boolean).join(', ');
+    const extra = [n.label && !['feature', 'module', 'task'].includes(n.kind) ? n.label : null, n.parentTask ? `sub-task of ${n.parentTask}` : null, n.priority, n.blockedBy?.length ? `blocked by ${n.blockedBy.map((b) => b.title).join(', ')}` : null].filter(Boolean).join(', ');
     lines.push(`${'  '.repeat(depth)}- ${EMOJI[n.effectiveStatus] || '•'} ${mdLink(n)}${extra ? ` (${extra})` : ''}`);
     if (seen.has(id) && n.children.length) { lines.push(`${'  '.repeat(depth + 1)}- (see above)`); return; }
     seen.add(id);
