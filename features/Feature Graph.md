@@ -70,7 +70,7 @@ graph LR
     app_shell["⬜ App Shell & Onboarding Narrative"]:::frontend
   end
   subgraph decisions["Open decisions"]
-    D_01["❓ D-01 Passwordless login"]:::decision
+    D_01["✅ D-01 Passwordless login"]:::decision
     D_02["❓ D-02 Base profile work fields"]:::decision
     D_03["❓ D-03 Field library vs per-Ring copies"]:::decision
     D_04["❓ D-04 Ring settings"]:::decision

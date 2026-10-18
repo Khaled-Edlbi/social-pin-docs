@@ -6,7 +6,7 @@ status: partial
 priority: P0
 domain: platform
 screens: [s02]
-updated: 2026-10-15
+updated: 2026-10-18
 tags: [feature, status/partial, domain/platform, priority/P0]
 ---
 
@@ -14,7 +14,7 @@ tags: [feature, status/partial, domain/platform, priority/P0]
 
 **Status:** Partial (needs more) · **Priority:** P0 · **Domain:** [[Feature Tree#Platform & Cross-cutting|Platform & Cross-cutting]]
 
-Delivering the one-time code by email or SMS. Today the code is only logged, and returned as `devCode` in development, test and local environments.
+Delivering the one-time code by email or SMS. Today the code is only logged, and returned as `devCode` **in every environment** (product decision 2026-10-15, so the passwordless app can sign in before a provider exists).
 
 ## Design reference
 
@@ -31,6 +31,7 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 **Endpoints**
 
 - `POST /auth/sign-up (devCode)`
+- `POST /auth/login (devCode)`
 - `POST /auth/request-code (devCode)`
 
 **Tables / models:** `VerificationCode`
@@ -40,13 +41,13 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 ### What exists
 
 - The whole OTP flow works end to end; the single line to replace is `AuthService.issueCode`.
-- The `devCode` gate is an allow-list of `NODE_ENV` values, not `!== 'production'`.
+- `devCode` is returned on every issued code, in every environment; absent only when no code was issued (unknown destination). Since login is passwordless, the code is the only credential: while `devCode` is returned, anyone who knows an account's email or phone can sign in as it.
 
 ### Gaps
 
 - No mail provider.
 - No SMS provider.
-- `devCode` must be deleted from `VerificationChallengeEntity` once delivery is wired.
+- `devCode` must be deleted from `AuthService.issueCode` and `VerificationChallengeEntity` once delivery is wired. The client is told to build the code screen as if it did not exist ([[Frontend Passwordless Migration]]).
 - Resend timer and expired-code states (s02) depend on the provider's latency.
 
 ## Tasks

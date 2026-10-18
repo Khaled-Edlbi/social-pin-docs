@@ -6,7 +6,6 @@ kanban-plugin: board
 
 ## ❓ Needs a decision / info
 
-- [ ] [[T-056 Decide passwordless login]] #P0 #auth
 - [ ] [[T-057 Decide base profile work fields]] #P0 #profiles
 - [ ] [[T-058 Decide field library vs per-Ring copies]] #P0 #ring-projection
 - [ ] [[T-059 Decide Ring settings]] #P0 #rings
@@ -84,6 +83,8 @@ kanban-plugin: board
 
 
 ## ✅ Done
+
+- [x] [[T-056 Decide passwordless login]] #P0 #auth
 
 - [x] [[Auth & Sign-up]] #feature-done
 - [x] [[Account]] #feature-done

@@ -23,7 +23,7 @@ Open tasks: **63** (32 to do, 17 need a decision, 14 blocked). Open decisions: *
 Social Pin backend
 ├── Identity Core  (✅9 🟡3 ❌1)
 │   ├── ✅ Auth & Sign-up  [P0]
-│   │   └── ❓ T-056 Decide: passwordless login
+│   │   └── ✅ T-056 Decide: passwordless login (decided: code-only)
 │   ├── ✅ Account  [P0]
 │   ├── ✅ Profiles & Pin Name  [P0]
 │   │   ├── ❓ T-057 Decide: base profile work fields

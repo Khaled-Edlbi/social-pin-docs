@@ -1,16 +1,16 @@
 ---
 type: decision
 id: D-01
-status: open
+status: decided
 features: [auth, linked-accounts]
 screens: [s01, s02]
 created: 2026-10-15
-tags: [decision, decision/open]
+tags: [decision, decision/decided]
 ---
 
-# ❓ D-01 · Passwordless login
+# ✅ D-01 · Passwordless login
 
-**Status:** open · **Decider:** product + backend lead · **Raised:** 2026-10-15
+**Status:** decided (2026-10-15, option A) · **Decider:** product + backend lead · **Raised:** 2026-10-15
 
 ## Where the design and the backend disagree
 
@@ -45,4 +45,10 @@ Screens: [[Screen Index#s01|s01]], [[Screen Index#s02|s02]]
 
 ## Outcome
 
-_Not decided yet. When decided: set `status: decided` above, write the choice here, move the waiting tasks out of ❓._
+**Option A — code-only login**, decided 2026-10-15 and shipped in `social-pin` PR #1 (`feat(auth): passwordless sign-in with OTP codes`).
+
+- `POST /auth/login { identifier }` issues a LOGIN code; `POST /auth/login/verify { identifier, code }` returns the session.
+- `complete-registration` takes only `pinName` / `fullName`; `reset-password` and `change-password` are removed; `users.password_hash` dropped.
+- `devCode` is returned in every environment until [[Code Delivery]] is wired (so the decision did **not** wait on delivery; T-003 removes it later).
+
+Client-facing write-up: [[Frontend Passwordless Migration]]. [[T-056 Decide passwordless login]] is done; [[T-019 LinkedIn OAuth link, unlink, login]] is no longer blocked by this decision.

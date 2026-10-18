@@ -50,7 +50,8 @@ Read it rather than Nest's route log. With URI versioning, Nest prints
 because the `v1` is applied per request and never appears in that line. The
 banner prints the base that actually works.
 
-The seeded demo accounts log in with the password printed by the seed.
+The seeded demo accounts sign in with `POST /auth/login` and the `devCode` it
+returns.
 
 Generate the secrets with:
 
@@ -164,17 +165,18 @@ development, read it from the server output:
 [dev] verification code for sara@example.com (SIGN_UP): 482913
 ```
 
-In a development environment the same code also comes back in the response,
-as `devCode`, so Swagger and curl can finish the flow without the log. The
-gate is an allow-list of `NODE_ENV` values (`development`, `test`, `local`),
-so staging and production withhold it.
+The same code also comes back in the response as `devCode`, **in every
+environment** — there are no passwords, so without it nothing could sign in.
+While it is returned, anyone who knows an account's email or phone can sign in
+as it. Remove it (`AuthService.issueCode`, `VerificationChallengeEntity`) when
+a delivery provider is wired.
 
 ## Walking the main flow by hand
 
 ```bash
 BASE=http://localhost:3000/api/v1
 
-# 1. sign up — no password here; returns a challenge, devCode in dev
+# 1. sign up — returns a challenge with devCode
 curl -s -X POST $BASE/auth/sign-up \
   -H 'content-type: application/json' \
   -d '{"email":"new@example.com"}'
@@ -186,19 +188,23 @@ curl -s -X POST $BASE/auth/verify-code \
   -H 'content-type: application/json' \
   -d '{"destination":"new@example.com","code":"482913","purpose":"SIGN_UP"}'
 
-# 3. set a password and a pin name — creates profile, default ring, projection
+# 3. pick a pin name — creates profile, default ring, projection
 curl -s -X POST $BASE/auth/complete-registration \
   -H 'content-type: application/json' \
-  -d '{"onboardingToken":"<from step 2>","password":"a long enough password",
-       "pinName":"NewPerson","fullName":"New Person"}'
+  -d '{"onboardingToken":"<from step 2>","pinName":"NewPerson","fullName":"New Person"}'
 ```
 
-Or skip all three and log in as a seeded account:
+Or skip all three and sign in as a seeded account — two calls:
 
 ```bash
 curl -s -X POST $BASE/auth/login \
   -H 'content-type: application/json' \
-  -d '{"identifier":"sara@socialpin.test","password":"socialpin-dev-password"}'
+  -d '{"identifier":"sara@socialpin.test"}'
+# → {..., "devCode":"482913"}
+
+curl -s -X POST $BASE/auth/login/verify \
+  -H 'content-type: application/json' \
+  -d '{"identifier":"sara@socialpin.test","code":"482913"}'
 ```
 
 Then the thing worth seeing — the same pin name returning different bodies to
@@ -212,8 +218,8 @@ curl -s $BASE/views/pin/SaraAz -H "Authorization: Bearer <admin's token>"   # 40
 
 ## Seeded demo accounts
 
-Created only when `NODE_ENV !== 'production'`. All share the password
-`socialpin-dev-password`.
+Created only when `NODE_ENV !== 'production'`. Sign in with an OTP code, as
+above.
 
 | Email | Pin | Role | Notes |
 |---|---|---|---|

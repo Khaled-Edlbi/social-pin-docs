@@ -45,6 +45,7 @@ social-pin-docs/   (= docs/ in the backend repo)
 │   ├── Database & Migrations    Prisma 7 rules, the three migrations, deploy-not-dev
 │   ├── Developer Setup          first run, verification, demo accounts
 │   ├── Frontend Contract        what a client must get right, endpoint summary
+│   ├── Frontend Passwordless Migration  what the client must change for OTP-only auth
 │   ├── Glossary
 │   └── Status Report 2026-10-15 the backend vs design comparison this vault is built from
 ├── features/                    one note per feature, grouped by domain
@@ -72,7 +73,7 @@ social-pin-docs/   (= docs/ in the backend repo)
 
 - **Backend developer picking up work** → [[Backlog]] → the task's feature note → [[Ring Access Model]] → [[Architecture#Build order for a new feature]].
 - **Product / design** → [[Decisions]] first (six answers unblock 20 tasks), then [[Screen Index]] to see what each screen can do today.
-- **Frontend developer** → [[Frontend Contract]] and `FRONTEND_API_GUIDE.md`, then the ✅ features in [[Feature Tree]].
+- **Frontend developer** → [[Frontend Contract]] and `FRONTEND_API_GUIDE.md`, then the ✅ features in [[Feature Tree]]. **Auth went passwordless on 2026-10-15** — what changed and what to do: [[Frontend Passwordless Migration]].
 - **Anyone new** → [[Project Overview]] → [[Glossary]] → [[Feature Graph]].
 
 ## How this vault is organised
