@@ -36,7 +36,7 @@ No screen. Every error state in the app depends on it.
 - [ ] `ErrorBody.errorCode?: string`, set from `exception.getResponse().ErrorCode`
 - [ ] Filter spec: domain error → `errorCode` present; `BadRequestException` from the `ValidationPipe` → absent and `message` is a string array
 - [ ] `pnpm typecheck && pnpm test` green
-- [ ] Branch `feat/T-063-error-code-on-body` in both repos
+- [ ] Branch `common/T-063/error-code-on-body` in both repos
 - [ ] `FRONTEND_API_GUIDE.md` (both repos), [[API Conventions]], [[Frontend Contract]], [[Error Contract]] updated; the "until T-063" lines removed from the frontend notes
 - [ ] [[Task Board]], [[Backlog]], [[Feature Tree]] updated
 

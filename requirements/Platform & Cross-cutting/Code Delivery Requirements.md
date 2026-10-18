@@ -20,14 +20,15 @@ What the client needs to make s02 real: the challenge response it already gets, 
 ### [[Screen Index#s02|s02]] Verify
 
 - Needs: the masked `destination` and `channel` (`EMAIL` | `PHONE`) from the challenge; `expiresAt` to drive the countdown; a six-box code input; "Verify and continue", "Resend", "Use a different email"; states code sent, wrong/expired, burned (429), resend timer.
-- Source today: `POST /auth/sign-up` → `201 { destination, channel, expiresAt, devCode? }`; `POST /auth/request-code` → the same challenge shape. The verify call itself, `POST /auth/verify-code`, belongs to [[Auth & Sign-up]] and is documented there. The code reaches the user only through `devCode` on a dev server; against staging or production the screen cannot be completed until a provider is wired.
+- Source today: `POST /auth/sign-up`, `POST /auth/login` → `201 { destination, channel, expiresAt, devCode? }`; `POST /auth/request-code` → the same challenge shape. The verify call itself, `POST /auth/verify-code`, belongs to [[Auth & Sign-up]] and is documented there. The code reaches the user only through `devCode` on a dev server; against staging or production the screen cannot be completed until a provider is wired.
 
 ## Endpoints required
 
 | Need | Endpoint | Available | Task / decision |
 |---|---|---|---|
-| Issue a sign-up code and get the challenge | `POST /auth/sign-up` | ✅ | — (`devCode` in development only) |
-| Resend, or issue a password-reset code | `POST /auth/request-code` | ✅ | — (`devCode` in development only) |
+| Issue a sign-up code and get the challenge | `POST /auth/sign-up` | ✅ | — (`devCode` in every environment until T-003) |
+| Issue a sign-in code | `POST /auth/login` | ✅ | — (`devCode` in every environment until T-003) |
+| Resend a sign-up or sign-in code | `POST /auth/request-code` | ✅ | — (`devCode` in every environment until T-003) |
 | The email actually sent | — | ❌ | [[T-001 Wire an email provider for one-time codes]] |
 | The SMS actually sent | — | ❌ | [[T-002 Wire an SMS provider for one-time codes]] |
 | `devCode` removed from the challenge | — | ❌ | [[T-003 Remove devCode once delivery works]] (blocked on T-001, T-002) |
@@ -36,7 +37,7 @@ What the client needs to make s02 real: the challenge response it already gets, 
 
 - Refetch / realtime: none. The screen waits on the user; no polling for delivery status exists or is planned.
 - Countdown: run the resend timer from `expiresAt` (ten minutes from issue), with a shorter client-side resend cool-down product sets; the backend imposes no resend interval today, so the client must not rely on a 429 to throttle resends.
-- `devCode`: fill the input when present; never require it, never persist it, ignore it in production builds. It disappears when [[T-003 Remove devCode once delivery works]] ships; no client change is needed then if the field is treated as optional.
+- `devCode`: fill the input when present; never require it, never persist it, never infer account existence from it. It disappears when [[T-003 Remove devCode once delivery works]] ships; no client change is needed then if the field is treated as optional.
 - Caching keys: none. Keep the current challenge (`destination`, `channel`, `expiresAt`) in memory for the life of s02 only.
 - Pagination / ordering: none.
 - After a wrong guess keep the digits for editing; after a 429 clear them and disable "Verify" until a new challenge arrives.

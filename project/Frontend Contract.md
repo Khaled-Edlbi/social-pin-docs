@@ -1,12 +1,14 @@
 ---
 type: project
-updated: 2026-10-15
+updated: 2026-10-18
 tags: [project]
 ---
 
 # Frontend Contract
 
 What a client must get right. The OpenAPI document at `/docs` is the signature; [[FRONTEND_API_GUIDE]] is the full explanation; **[[Frontend Index]] has one note per feature** with the screens, the calls, the flow and the errors. Base URL `/api/v1`.
+
+> **2026-10-15 — auth is passwordless.** Every sign-up and sign-in is a 6-digit one-time code; `reset-password` and `change-password` are gone. What changed and what the client must do: [[Frontend Passwordless Migration]].
 
 ## The one concept
 
@@ -19,7 +21,9 @@ What a client must get right. The OpenAPI document at `/docs` is the signature; 
 
 ## Sessions
 
-Access token 15 min, refresh token 7 days, **single-use and rotating**. Serialise refreshes: two concurrent refreshes kill the session. `401 E_AUTH_04` means sign in again. `devCode` in the sign-up response is development-only; never depend on it.
+Access token 15 min, refresh token 7 days, **single-use and rotating**. Serialise refreshes: two concurrent refreshes kill the session. `401 E_AUTH_04` means sign in again.
+
+Sign-up: `sign-up` → `verify-code` → `complete-registration` (pin name, no password). Sign-in: `login { identifier }` issues a code, `login/verify { identifier, code }` returns the session. `devCode` is returned on every issued code **in every environment** until delivery is wired; pre-fill it for now, but build the code screen as if it did not exist.
 
 ## Lists and errors
 
@@ -33,7 +37,7 @@ Access token 15 min, refresh token 7 days, **single-use and rotating**. Serialis
 
 | Feature | Endpoints | Status |
 |---|---|---|
-| [[Auth & Sign-up]] ([[Auth & Sign-up Frontend\|📱]]) | `POST /auth/sign-up`, `request-code`, `verify-code`, `complete-registration`, `login`, `reset-password`, `refresh`, `logout`, `logout-everywhere`, `change-password` | ✅ |
+| [[Auth & Sign-up]] ([[Auth & Sign-up Frontend\|📱]]) | `POST /auth/sign-up`, `request-code`, `verify-code`, `complete-registration`, `login`, `login/verify`, `refresh`, `logout`, `logout-everywhere` | ✅ |
 | [[Account]] ([[Account Frontend\|📱]]) | `GET / PATCH / DELETE /users/me` | ✅ |
 | [[Profiles & Pin Name]] ([[Profiles & Pin Name Frontend\|📱]]) | `GET /profiles/pin-name/:pinName/availability` (public), `GET / POST /profiles`, `GET / PATCH / DELETE /profiles/:id`, `POST /profiles/:id/default` | ✅ |
 | [[Rings]] ([[Rings Frontend\|📱]]) | `GET /rings`, `GET /rings/shared-with-me`, `POST /rings`, `GET / PATCH / DELETE /rings/:id`, `POST /rings/:id/default`, `POST /rings/:id/disposition` | ✅ |
@@ -43,7 +47,7 @@ Access token 15 min, refresh token 7 days, **single-use and rotating**. Serialis
 | [[Files Upload]] ([[Files Upload Frontend\|📱]]) | `POST /files`, `GET / DELETE /files/:id` | ✅ |
 | Everything else | see [[Feature Tree]] | 🟡 / ❌ |
 
-49 endpoints in total (re-counted 2026-10-15). What is not yet available: connections, events, exhibitors, meetings, PinCast, businesses, payments, notifications, Gemma, QR token issue / resolve, device and interest management, file download by id, `ErrorCode` on the error body.
+48 endpoints in total (re-counted 2026-10-18, after the passwordless change). What is not yet available: connections, events, exhibitors, meetings, PinCast, businesses, payments, notifications, Gemma, QR token issue / resolve, device and interest management, file download by id, `ErrorCode` on the error body.
 
 ## Enums worth knowing
 

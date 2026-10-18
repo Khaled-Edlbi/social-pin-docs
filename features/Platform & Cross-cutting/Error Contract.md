@@ -36,7 +36,7 @@ _No prototype screen. Every error state in the app depends on it._
 
 ### What exists
 
-- The enum, 41 codes across AUTH, USER, PROFILE, RING, RING_MEMBER, RING_PROFILE, RING_ACCESS and FILE.
+- The enum, 41 codes across AUTH, USER, PROFILE, RING, RING_MEMBER, RING_PROFILE, RING_ACCESS and FILE; `E_AUTH_02` and `E_USER_04` are retired with the password (kept in the enum, never reused).
 - The filter and the one body shape; `configureApp` wires it for the app and for every e2e spec.
 
 ### Gaps

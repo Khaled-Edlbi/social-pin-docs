@@ -32,7 +32,7 @@ What the client depends on from the audit log: nothing it can see. There is no s
 ## Behaviour expectations
 
 - Refetch / realtime: none. The client never reads the log.
-- No change to request or response shapes: the audit write is a side effect inside the service, so `POST /auth/change-password`, `POST /auth/logout-everywhere`, the `/rings/:ringId/members` routes and, later, payment and Gemma calls keep the bodies documented in their own notes.
+- No change to request or response shapes: the audit write is a side effect inside the service, so `POST /auth/login/verify`, `POST /auth/logout-everywhere`, the `/rings/:ringId/members` routes and, later, payment and Gemma calls keep the bodies documented in their own notes.
 - The client sends no extra field for auditing. `ipAddress` and `userAgent` are taken from the request by the server; the client keeps sending a meaningful `User-Agent` as it does today.
 - A failed audit write must not change the status the client sees; a successful call stays 200/201.
 - Latency: the write is one insert in the same transaction; no visible delay is expected or acceptable.

@@ -30,7 +30,7 @@ What the client depends on from the e2e run: nothing at runtime, everything at b
 
 ## Behaviour expectations
 
-- Guarantees the client builds on, each covered by an e2e spec once the suite runs: `GET /views/pin/:pinName` returns one 404 body for missing, not shared and blocked; no response carries `ringId`, `passwordHash` or a hidden link; the error body is `{ statusCode, message, error, path, timestamp }` with `message` a string array on validation failures; `limit` above 50 is a 400, not a clamp; refresh tokens are single-use.
+- Guarantees the client builds on, each covered by an e2e spec once the suite runs: `GET /views/pin/:pinName` returns one 404 body for missing, not shared and blocked; no response carries `ringId`, or a hidden link; the error body is `{ statusCode, message, error, path, timestamp }` with `message` a string array on validation failures; `limit` above 50 is a 400, not a clamp; refresh tokens are single-use.
 - Until [[T-055 Run the e2e suite in CI against PostGIS]] ships, those guarantees rest on unit specs and code reading. The client should still build to them; nothing in the design depends on a different behaviour.
 - Environment: the e2e run uses `NODE_ENV=test`, so the specs see `devCode`; the client must not read that as production behaviour.
 - Refetch / realtime, caching keys, pagination: none.

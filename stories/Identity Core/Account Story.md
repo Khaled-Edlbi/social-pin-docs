@@ -30,7 +30,7 @@ Acceptance criteria:
 - [ ] Email and phone each show a verified / unverified chip derived from `emailVerifiedAt` / `phoneVerifiedAt` (`null` = unverified).
 - [ ] A Pro badge appears when `accountType` is `PRO`; "Upgrade" leads to s70, which has no backend yet.
 - [ ] The screen refetches on app resume and after any 401 recovery.
-- [ ] No password, hash or token is ever rendered or logged.
+- [ ] No code or token is ever rendered or logged; there is no password to show.
 
 ### S2 · Change the email ([[Screen Index#s68|s68]])
 
@@ -85,7 +85,7 @@ Acceptance criteria:
 
 ## Rules the backend already enforces
 
-- `GET /users/me` reads through a select that never includes `passwordHash`; the secret is absent from the query, not stripped afterwards.
+- `GET /users/me` reads through a narrow select of the `users` row; there is no password column since 2026-10-15 ([[D-01 Passwordless login]]).
 - `PATCH /users/me` normalises (email lower-cased and trimmed, phone to E.164), checks uniqueness (409 `E_USER_02` / `E_USER_03`) and clears the matching `…VerifiedAt`, so a changed destination must be proven again before it can sign in or receive a reset code.
 - `DELETE /users/me` is a soft delete: the row stays (meetings, orders and audit logs reference it), the unique email and phone are released, every refresh token is revoked.
 - There is no `GET /users/:id` and no user search. Another person is reachable only through a Ring projection.

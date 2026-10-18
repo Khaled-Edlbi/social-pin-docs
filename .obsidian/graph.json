@@ -5,7 +5,7 @@
   "showAttachments": false,
   "hideUnresolved": true,
   "showOrphans": true,
-  "collapse-color": false,
+  "collapse-color-groups": true,
   "colorGroups": [
     {
       "query": "tag:#status/done",
@@ -74,6 +74,6 @@
   "repelStrength": 12,
   "linkStrength": 1,
   "linkDistance": 220,
-  "scale": 1,
+  "scale": 0.46776522505740104,
   "close": false
 }

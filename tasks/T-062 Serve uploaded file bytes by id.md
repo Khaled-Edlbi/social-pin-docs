@@ -41,7 +41,7 @@ Add `GET /files/:id/content` (or a signed `url` on the view entities) that strea
 - [ ] A hidden attachment (`isVisible: false`) is not served to a viewer
 - [ ] Spec covers uploader, member of a live Ring, non-member (same 404 body as `/views`), hidden row
 - [ ] `pnpm typecheck && pnpm test` green
-- [ ] Branch `feat/T-062-serve-file-bytes` in both repos
+- [ ] Branch `file/T-062/serve-file-bytes` in both repos
 - [ ] [[Files Upload]], [[Ring Projection]], [[View As & Pin Views]] notes and their frontend notes updated; `FRONTEND_API_GUIDE.md` in both repos
 - [ ] [[Task Board]], [[Backlog]], [[Feature Tree]], [[Frontend Contract]] updated
 

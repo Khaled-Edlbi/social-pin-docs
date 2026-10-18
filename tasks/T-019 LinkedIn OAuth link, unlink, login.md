@@ -1,24 +1,24 @@
 ---
 type: task
 id: T-019
-status: needs-info
+status: todo
 priority: P1
 effort: L
 feature: linked-accounts
 domain: platform
 screens: [s01, s04, s68]
-depends: [D-01]
+depends: []
 created: 2026-10-15
-tags: [task, task/needs-info, domain/platform, priority/P1]
+tags: [task, task/todo, domain/platform, priority/P1]
 ---
 
-# ❓ T-019 · LinkedIn OAuth: link, unlink, login
+# ⬜ T-019 · LinkedIn OAuth: link, unlink, login
 
-**Feature:** [[Linked Accounts (OAuth)]] · **Status:** Needs a decision / info · **Priority:** P1 · **Effort:** L (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Linked Accounts (OAuth)]] · **Status:** To do · **Priority:** P1 · **Effort:** L (S < 1 day, M 1–3 days, L > 3 days)
 
 ## What
 
-Callback writes `SocialIdentity`. Login via provider depends on D-01.
+Callback writes `SocialIdentity`. Login via provider returns a session the same way `POST /auth/login/verify` does (D-01 decided: passwordless, code-only; a linked provider is the second way to prove the identity).
 
 ## Design
 
@@ -28,7 +28,7 @@ Callback writes `SocialIdentity`. Login via provider depends on D-01.
 
 ## Dependencies
 
-- Waits on decision [[D-01 Passwordless login]]
+- [[D-01 Passwordless login]] — decided 2026-10-15, no longer blocking
 - Unblocks [[T-020 LinkedIn import → review → base profile]]
 
 ## Definition of done

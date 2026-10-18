@@ -40,7 +40,7 @@ What the client needs for the LinkedIn button, the return into Importing, and th
 | Callback writing `SocialIdentity` | — | ❌ | [[T-019 LinkedIn OAuth link, unlink, login]] |
 | List my linked identities | — | ❌ | [[T-019 LinkedIn OAuth link, unlink, login]] |
 | Link / unlink a provider from Me | — | ❌ | [[T-019 LinkedIn OAuth link, unlink, login]] |
-| Log in with a linked provider | — | ❌ | [[D-01 Passwordless login]] then [[T-019 LinkedIn OAuth link, unlink, login]] |
+| Log in with a linked provider | — | ❌ | [[T-019 LinkedIn OAuth link, unlink, login]] |
 | Import the provider profile into the base profile | — | ❌ | [[T-020 LinkedIn import → review → base profile]] (owned by [[Onboarding Imports]]) |
 
 ## Behaviour expectations
@@ -50,7 +50,7 @@ What the client needs for the LinkedIn button, the return into Importing, and th
 - Refetch / realtime: refetch the identity list after link and unlink; nothing else changes it.
 - Caching keys: `linkedAccounts:{userId}`; clear on logout.
 - Pagination / ordering: none; a user holds a handful of identities, ordered by `createdAt`.
-- Sign-up path today: after a successful hand-off the user still goes through the Pin name and password steps, because `complete-registration` requires both; the client must not promise "no password" on s01 until D-01 is decided.
+- Sign-up path today: after a successful hand-off the user still goes through the Pin name step (no password since 2026-10-15), because `complete-registration` requires both; the client must not promise "no password" on s01 until D-01 is decided.
 - Multiple identities per provider type are allowed by the schema (unique per provider user id, not per user); render them as separate rows.
 
 ## Error states the UI must handle
@@ -66,4 +66,4 @@ No OAuth codes exist yet; T-019 adds them. `ErrorCode` is not on the wire until 
 
 ## Blocked by
 
-- [[D-01 Passwordless login]] — the login row, and the copy on s01, wait on it; [[T-019 LinkedIn OAuth link, unlink, login]] is ❓ because of it.
+- [[D-01 Passwordless login]] is decided (code-only, 2026-10-15); nothing here waits on it. The login row waits on [[T-019 LinkedIn OAuth link, unlink, login]] is ❓ because of it.

@@ -13,100 +13,82 @@ tags: [requirements, requirements/draft, domain/identity]
 
 **Feature:** [[Auth & Sign-up]] · **Status:** Draft · **Story:** [[Auth & Sign-up Story]] · **API Integration:** [[Auth & Sign-up Frontend]]
 
-What the client needs from the backend to build the welcome, verify, Pin, first-Ring and account-security screens, and whether each need is met today. Request and response shapes, the token store and the refresh rules are in [[Auth & Sign-up Frontend]] and [[Auth Model]].
+What the client needs from the backend for the welcome, code, Pin-name and session screens, and whether each need is met today. Everything here exists; the one thing missing is the delivery of the code itself, which the backend papers over with `devCode` for now. Passwordless since 2026-10-15 ([[D-01 Passwordless login]]); the client-side migration is in [[Frontend Passwordless Migration]].
 
 ## Per screen
 
 ### [[Screen Index#s01|s01]] Welcome
 
-- Needs: start a sign-up with one destination; start a login with identifier and password; a LinkedIn entry; one failure message for login; a hint when the address is already registered.
-- Actions: Continue with Email, Continue with Phone, Continue with LinkedIn, Sign in.
-- States: invalid email / number (client), submitting, "already registered" (409), "not active" (403).
-- Source today: `POST /auth/sign-up`, `POST /auth/login`. LinkedIn: not yet.
+- Needs: start sign-up or sign-in from one email-or-phone field; learn only *when the code expires*, never whether the account exists; a distinct signal when an address already finished sign-up.
+- Source today: `POST /auth/sign-up` → `201 { destination, channel, expiresAt, devCode }`, 409 `E_AUTH_01` when already registered, 400 `E_AUTH_07` when neither field is sent. `POST /auth/login { identifier }` → the same challenge shape (no `devCode` for an unknown identifier).
 
 ### [[Screen Index#s02|s02]] Verify
 
-- Needs: verify a code for `SIGN_UP` or `PASSWORD_RESET`; a resend; the expiry instant for the timer; the onboarding token for the next step.
-- Actions: type six digits, Resend, Use a different email.
-- States: code sent, wrong / expired (400), too many attempts (429), timer running / elapsed, dev pre-fill.
-- Source today: `POST /auth/verify-code`, `POST /auth/request-code`; `expiresAt` and `devCode` from the sign-up / request-code response.
+- Needs: submit a 6-digit code for either flow; resend; know the expiry instant; distinguish wrong code, burned code and inactive account.
+- Source today: `POST /auth/verify-code { destination, code, purpose: "SIGN_UP" }` → onboarding token; `POST /auth/login/verify { identifier, code }` → session; `POST /auth/request-code { destination, purpose: "SIGN_UP" | "LOGIN" }`. Errors 400 `E_AUTH_05`, 429 `E_AUTH_06`, 403 `E_AUTH_03` (verify only).
 
 ### [[Screen Index#s06|s06]] Claim your Pin
 
-- Needs: live availability of a handle; completion of registration with password, Pin name and optional full name; a session afterwards.
-- Actions: type the handle, set the password, Continue.
-- States: checking, available, taken, invalid format, taken-at-submit (409), token expired (400).
-- Source today: `GET /profiles/pin-name/:pinName/availability` (public), `POST /auth/complete-registration`.
+- Needs: live availability of a handle; finish registration with the handle and an optional full name; get a session back.
+- Source today: `GET /profiles/pin-name/:pinName/availability` (public) → `{ pinName, available }`; `POST /auth/complete-registration { onboardingToken, pinName, fullName? }` → session, 409 `E_AUTH_08` / `E_PROFILE_02`.
 
 ### [[Screen Index#s08|s08]] First Ring
 
-- Needs: the default Ring created at registration, by name and colour.
-- Source today: `GET /rings` (default first).
+- Needs: the default Ring and its projection to exist the instant registration returns.
+- Source today: created in the same transaction as the account activation; readable with `GET /rings` and `GET /rings/:id/projection` ([[Rings Frontend]], [[Ring Projection Frontend]]).
 
-### [[Screen Index#s68|s68]] Me / Account (security rows)
+### [[Screen Index#s68|s68]] Me / Account
 
-- Needs: change password, sign out, sign out everywhere.
-- Source today: `POST /auth/change-password`, `POST /auth/logout`, `POST /auth/logout-everywhere`.
-
-### Forgot password (no prototype screen)
-
-- Needs: request a reset code, verify it, set a new password.
-- Source today: `POST /auth/request-code` (`PASSWORD_RESET`), `POST /auth/verify-code`, `POST /auth/reset-password`.
+- Needs: sign out this device; sign out everywhere; silent session renewal.
+- Source today: `POST /auth/logout` (refresh token as bearer), `POST /auth/logout-everywhere` (access token), `POST /auth/refresh` (refresh token as bearer, single-use).
 
 ## Endpoints required
 
 | Need | Endpoint | Available | Task / decision |
 |---|---|---|---|
-| Start sign-up, get a code | `POST /auth/sign-up` | ✅ | — |
-| Resend or request a reset code | `POST /auth/request-code` | ✅ | — |
-| Verify a code, get an onboarding token | `POST /auth/verify-code` | ✅ | — |
-| Set password + Pin name, create the default Ring | `POST /auth/complete-registration` | ✅ | — |
-| Live Pin-name availability | `GET /profiles/pin-name/:pinName/availability` | ✅ | — (listed under [[Profiles & Pin Name]]) |
-| Login | `POST /auth/login` | ✅ | — |
+| Start sign-up with email or phone | `POST /auth/sign-up` | ✅ | — |
+| Verify the sign-up code → onboarding token | `POST /auth/verify-code` | ✅ | — |
+| Check a Pin name | `GET /profiles/pin-name/:pinName/availability` | ✅ | — |
+| Finish registration (pin name, optional full name) → session | `POST /auth/complete-registration` | ✅ | — |
+| Start sign-in with email or phone → code issued | `POST /auth/login` | ✅ | — |
+| Verify the sign-in code → session | `POST /auth/login/verify` | ✅ | — |
+| Resend a code in either flow | `POST /auth/request-code` (`SIGN_UP` / `LOGIN`) | ✅ | — |
 | Rotate the session | `POST /auth/refresh` | ✅ | — |
-| Sign out this device | `POST /auth/logout` | ✅ | — |
-| Sign out everywhere | `POST /auth/logout-everywhere` | ✅ | — |
-| Change password | `POST /auth/change-password` | ✅ | — |
-| Reset password with a code | `POST /auth/reset-password` | ✅ | — |
-| Code actually delivered by email | — | ❌ | [[T-001 Wire an email provider for one-time codes]] |
-| Code actually delivered by SMS | — | ❌ | [[T-002 Wire an SMS provider for one-time codes]] |
-| `devCode` retired from the response | — | ❌ | [[T-003 Remove devCode once delivery works]] |
-| Login without a password (s01 copy) | — | ❌ | [[D-01 Passwordless login]] |
-| Continue with LinkedIn | — | ❌ | [[T-019 LinkedIn OAuth link, unlink, login]] |
-| Register the device on login | — | ❌ | [[T-014 Register devices on login; list and remove]] |
+| Sign out this device / everywhere | `POST /auth/logout`, `POST /auth/logout-everywhere` | ✅ | — |
+| The code actually delivered by email | — | ❌ | [[T-001 Wire an email provider for one-time codes]] |
+| The code actually delivered by SMS | — | ❌ | [[T-002 Wire an SMS provider for one-time codes]] |
+| `devCode` removed from every challenge | — | ❌ | [[T-003 Remove devCode once delivery works]] |
+| Register the device on sign-in (s75) | — | ❌ | [[T-014 Register devices on login; list and remove]] |
+| Sign in with LinkedIn | — | ❌ | [[T-019 LinkedIn OAuth link, unlink, login]] |
+| Stable `ErrorCode` on the error body | — | ❌ | [[T-063 Put the ErrorCode on the error body]] |
+
+Removed on 2026-10-15 and not coming back: `POST /auth/reset-password`, `POST /auth/change-password`, the `PASSWORD_RESET` purpose, the `password` field on `complete-registration` and `login`.
 
 ## Behaviour expectations
 
-- Refetch / realtime: none; every step is a request-response. After `complete-registration` and `login`, fetch `GET /users/me`, `GET /profiles` and `GET /rings` once to seed the shell.
-- Caching keys: none for auth responses. The session pair lives in secure storage keyed by nothing else; the onboarding token and `devCode` live in memory only.
-- Pagination / ordering: none.
-- Token store: atomic pair replacement; one in-flight refresh promise; retry a 401 once; `E_AUTH_04` from refresh clears the store.
-- Timers: the resend countdown runs from the server's `expiresAt`, not from a client-side 10 minutes.
-- Scopes: the refresh token goes only to `/auth/refresh` and `/auth/logout`; the access token everywhere else.
-- Logout: clear the store even when the request fails; logout is idempotent server-side.
-- Change / reset password: on 201 clear the store and go to login, because every session (this one included) is revoked.
-- Enumeration: no copy, timing or styling difference anywhere reveals whether an address is registered. `request-code` for a reset is phrased conditionally.
-- Environment: `devCode` is present only in `development` / `test` / `local`; a build must work when it is absent.
+- **One code screen for both flows.** Same input, same resend, same expiry handling; the submit endpoint and the resend `purpose` are the only differences.
+- **Expiry is server-driven.** The resend cool-down and the "expired" state come from `expiresAt` in the challenge; a resend replaces the previous code.
+- **`devCode` is transitional.** Pre-fill the input when present; never require it, never persist it, never infer account existence from it. It is returned in every environment until T-003.
+- **Refresh is serialised.** One in-flight refresh; 401 callers wait and retry once; a 401 `E_AUTH_04` on refresh is a sign-out.
+- **No enumeration.** `sign-up` on a PENDING address re-issues; `login` and `request-code` return 201 for unknown addresses; the UI copy stays neutral at step 1.
+- **Caching keys.** The session pair per device; the onboarding token in memory only, dropped after `complete-registration`.
 
 ## Error states the UI must handle
 
 | Status | ErrorCode | Show |
 |---|---|---|
-| 400 | `E_AUTH_07` | form validation: one of email or phone |
-| 409 | `E_AUTH_01` | "Already registered, sign in" |
-| 400 | `E_AUTH_05` | "Invalid or expired code" + resend; on complete-registration: back to s02 |
-| 429 | `E_AUTH_06` | "Request a new code"; input locked |
-| 409 | `E_AUTH_08` | go to login |
-| 409 | `E_PROFILE_02` | "That Pin name was just taken", stay on s06 |
-| 401 | `E_AUTH_02` | one login failure message |
-| 403 / 401 | `E_AUTH_03` | "This account is not active"; sign-out state |
+| 400 | `E_AUTH_07` | form validation: email or phone, exactly one |
+| 409 | `E_AUTH_01` | "Already registered" → sign-in with the same address |
+| 400 | `E_AUTH_05` | "Invalid or expired code" (+ "or sign up" on `login/verify`) |
+| 429 | `E_AUTH_06` | input disabled, "Send a new code" |
+| 403 | `E_AUTH_03` | "This account is not active" + "Start sign-up again" (`login/verify`); sign-out state on any other call (401) |
+| 409 | `E_AUTH_08` | "Sign-up already completed" → sign-in |
+| 409 | `E_PROFILE_02` | handle taken, focus the field |
 | 401 | `E_AUTH_04` | sign in again |
-| 400 | `E_USER_04` | "Current password is incorrect", inline |
-| 400 | — (validation; `message` is a string array) | inline field errors |
 
-Until [[T-063 Put the ErrorCode on the error body]] ships, branch on status and endpoint; the body carries no `ErrorCode`.
+`E_AUTH_02` and `E_USER_04` are retired and never returned. Until [[T-063 Put the ErrorCode on the error body]] ships the body carries no `ErrorCode`; branch on status and endpoint.
 
 ## Blocked by
 
-- [[D-01 Passwordless login]] — the s01 copy and whether s06 keeps the password field. Build the password step as the backend requires today.
-- [[T-001 Wire an email provider for one-time codes]], [[T-002 Wire an SMS provider for one-time codes]] — the flow cannot complete against production until a code is delivered; development uses `devCode`.
+- Nothing for the flows above. [[T-001 Wire an email provider for one-time codes]] / [[T-002 Wire an SMS provider for one-time codes]] decide when `devCode` can go ([[T-003 Remove devCode once delivery works]]).
+- [[D-06 Pin name rules]] — suggestions and the rename limit on s06 wait on it.

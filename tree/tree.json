@@ -76,6 +76,7 @@
     "Files Upload Requirements": "requirements:files",
     "Files Upload Story": "story:files",
     "Frontend Contract": "project:frontend-contract",
+    "Frontend Passwordless Migration": "project:frontend-passwordless-migration",
     "Gemma AI": "feature:gemma",
     "Gemma AI Requirements": "requirements:gemma",
     "Gemma AI Story": "story:gemma",
@@ -212,10 +213,10 @@
   },
   "counts": {
     "decisions": 6,
-    "edges": 1559,
+    "edges": 1579,
     "features": 39,
     "frontend": 9,
-    "notes": 232,
+    "notes": 233,
     "placeholders": 30,
     "requirements": 39,
     "stories": 39,
@@ -406,11 +407,6 @@
       "from": "task:T-018",
       "kind": "depends",
       "to": "task:T-017"
-    },
-    {
-      "from": "task:T-019",
-      "kind": "depends",
-      "to": "decision:D-01"
     },
     {
       "from": "task:T-020",
@@ -2545,6 +2541,11 @@
     {
       "from": "group:project",
       "kind": "tree",
+      "to": "project:frontend-passwordless-migration"
+    },
+    {
+      "from": "group:project",
+      "kind": "tree",
       "to": "project:glossary"
     },
     {
@@ -2616,6 +2617,11 @@
       "from": "decision:D-01",
       "kind": "wikilink",
       "to": "feature:code-delivery"
+    },
+    {
+      "from": "decision:D-01",
+      "kind": "wikilink",
+      "to": "project:frontend-passwordless-migration"
     },
     {
       "from": "decision:D-01",
@@ -2740,6 +2746,11 @@
     {
       "from": "feature:auth",
       "kind": "wikilink",
+      "to": "project:frontend-passwordless-migration"
+    },
+    {
+      "from": "feature:auth",
+      "kind": "wikilink",
       "to": "project:ring-access-model"
     },
     {
@@ -2781,6 +2792,11 @@
       "from": "feature:code-delivery",
       "kind": "wikilink",
       "to": "project:architecture"
+    },
+    {
+      "from": "feature:code-delivery",
+      "kind": "wikilink",
+      "to": "project:frontend-passwordless-migration"
     },
     {
       "from": "feature:code-delivery",
@@ -3370,12 +3386,22 @@
     {
       "from": "frontend:auth",
       "kind": "wikilink",
+      "to": "project:frontend-passwordless-migration"
+    },
+    {
+      "from": "frontend:auth",
+      "kind": "wikilink",
       "to": "task:T-001"
     },
     {
       "from": "frontend:auth",
       "kind": "wikilink",
       "to": "task:T-002"
+    },
+    {
+      "from": "frontend:auth",
+      "kind": "wikilink",
+      "to": "task:T-003"
     },
     {
       "from": "frontend:auth",
@@ -3708,6 +3734,11 @@
       "to": "feature:code-delivery"
     },
     {
+      "from": "project:auth-model",
+      "kind": "wikilink",
+      "to": "project:frontend-passwordless-migration"
+    },
+    {
       "from": "project:database-migrations",
       "kind": "wikilink",
       "to": "decision:D-02"
@@ -3751,6 +3782,11 @@
       "from": "project:developer-setup",
       "kind": "wikilink",
       "to": "feature:e2e-tests"
+    },
+    {
+      "from": "project:developer-setup",
+      "kind": "wikilink",
+      "to": "project:auth-model"
     },
     {
       "from": "project:docs-tree",
@@ -3800,12 +3836,42 @@
     {
       "from": "project:frontend-contract",
       "kind": "wikilink",
+      "to": "project:frontend-passwordless-migration"
+    },
+    {
+      "from": "project:frontend-contract",
+      "kind": "wikilink",
       "to": "task:T-062"
     },
     {
       "from": "project:frontend-contract",
       "kind": "wikilink",
       "to": "task:T-063"
+    },
+    {
+      "from": "project:frontend-passwordless-migration",
+      "kind": "wikilink",
+      "to": "project:developer-setup"
+    },
+    {
+      "from": "project:frontend-passwordless-migration",
+      "kind": "wikilink",
+      "to": "task:T-001"
+    },
+    {
+      "from": "project:frontend-passwordless-migration",
+      "kind": "wikilink",
+      "to": "task:T-002"
+    },
+    {
+      "from": "project:frontend-passwordless-migration",
+      "kind": "wikilink",
+      "to": "task:T-003"
+    },
+    {
+      "from": "project:frontend-passwordless-migration",
+      "kind": "wikilink",
+      "to": "task:T-019"
     },
     {
       "from": "project:glossary",
@@ -4320,7 +4386,7 @@
     {
       "from": "requirements:auth",
       "kind": "wikilink",
-      "to": "feature:profiles"
+      "to": "decision:D-06"
     },
     {
       "from": "requirements:auth",
@@ -4330,7 +4396,17 @@
     {
       "from": "requirements:auth",
       "kind": "wikilink",
-      "to": "project:auth-model"
+      "to": "frontend:ring-projection"
+    },
+    {
+      "from": "requirements:auth",
+      "kind": "wikilink",
+      "to": "frontend:rings"
+    },
+    {
+      "from": "requirements:auth",
+      "kind": "wikilink",
+      "to": "project:frontend-passwordless-migration"
     },
     {
       "from": "requirements:auth",
@@ -5960,6 +6036,11 @@
     {
       "from": "story:account",
       "kind": "wikilink",
+      "to": "decision:D-01"
+    },
+    {
+      "from": "story:account",
+      "kind": "wikilink",
       "to": "feature:counts"
     },
     {
@@ -6010,12 +6091,22 @@
     {
       "from": "story:auth",
       "kind": "wikilink",
+      "to": "decision:D-06"
+    },
+    {
+      "from": "story:auth",
+      "kind": "wikilink",
+      "to": "feature:code-delivery"
+    },
+    {
+      "from": "story:auth",
+      "kind": "wikilink",
       "to": "frontend:auth"
     },
     {
       "from": "story:auth",
       "kind": "wikilink",
-      "to": "story:rings"
+      "to": "task:T-001"
     },
     {
       "from": "story:badge-qr",
@@ -6081,6 +6172,11 @@
       "from": "story:code-delivery",
       "kind": "wikilink",
       "to": "project:auth-model"
+    },
+    {
+      "from": "story:code-delivery",
+      "kind": "wikilink",
+      "to": "task:T-003"
     },
     {
       "from": "story:companies",
@@ -7965,6 +8061,11 @@
     {
       "from": "task:T-056",
       "kind": "wikilink",
+      "to": "project:frontend-passwordless-migration"
+    },
+    {
+      "from": "task:T-056",
+      "kind": "wikilink",
       "to": "project:ring-access-model"
     },
     {
@@ -8356,6 +8457,10 @@
     },
     "project/Frontend Contract.md": {
       "name": "Frontend Contract",
+      "type": "project"
+    },
+    "project/Frontend Passwordless Migration.md": {
+      "name": "Frontend Passwordless Migration",
       "type": "project"
     },
     "project/Glossary.md": {
@@ -9002,7 +9107,7 @@
       "children": [],
       "depends": [],
       "domain": null,
-      "effectiveStatus": "needs-decision",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": null,
       "features": [
@@ -9013,8 +9118,8 @@
       "kind": "decision",
       "label": "Decision",
       "parents": [
-        "feature:linked-accounts",
-        "feature:auth"
+        "feature:auth",
+        "feature:linked-accounts"
       ],
       "path": "decisions/D-01 Passwordless login.md",
       "priority": null,
@@ -9022,11 +9127,11 @@
         "s01",
         "s02"
       ],
-      "status": "needs-decision",
+      "status": "approved",
       "summary": "s01 says \"We send a one-time code. No password to remember.\" The backend requires creating a password after the code and logs in with a password. The brief's §3.1 says \"create password\", so the…",
       "tags": [
         "decision",
-        "decision/open"
+        "decision/decided"
       ],
       "title": "D-01 Passwordless login",
       "updated": null
@@ -9338,7 +9443,7 @@
         "s68"
       ],
       "status": "done",
-      "summary": "Sign up with email or phone, verify the one-time code, finish registration with a password and Pin name, log in, refresh, log out, log out everywhere, change or reset the password.",
+      "summary": "Sign up with email or phone, verify the one-time code, finish registration with a Pin name, sign in with a one-time code, refresh, log out, log out everywhere. Passwordless since 2026-10-15 (D-01…",
       "tags": [
         "feature",
         "status/done",
@@ -9432,7 +9537,7 @@
         "s02"
       ],
       "status": "partial",
-      "summary": "Delivering the one-time code by email or SMS. Today the code is only logged, and returned as devCode in development, test and local environments.",
+      "summary": "Delivering the one-time code by email or SMS. Today the code is only logged, and returned as devCode in every environment (product decision 2026-10-15, so the passwordless app can sign in before a…",
       "tags": [
         "feature",
         "status/partial",
@@ -10666,11 +10771,12 @@
       "path": null,
       "priority": null,
       "rollup": {
+        "approved": 1,
         "blocked": 10,
-        "done": 27,
+        "done": 28,
         "draft": 18,
         "missing": 4,
-        "needs-decision": 14,
+        "needs-decision": 12,
         "partial": 6,
         "todo": 7
       },
@@ -10744,13 +10850,14 @@
       "path": null,
       "priority": null,
       "rollup": {
+        "approved": 1,
         "blocked": 23,
         "draft": 2,
         "frontend-only": 2,
         "missing": 11,
-        "needs-decision": 4,
+        "needs-decision": 2,
         "partial": 10,
-        "todo": 20
+        "todo": 21
       },
       "screens": [],
       "status": null,
@@ -10944,9 +11051,9 @@
       "path": "features/Identity Core/Auth & Sign-up.md",
       "priority": "P0",
       "rollup": {
-        "done": 2,
-        "draft": 2,
-        "needs-decision": 2
+        "approved": 1,
+        "done": 3,
+        "draft": 2
       },
       "screens": [
         "s01",
@@ -10956,7 +11063,7 @@
         "s68"
       ],
       "status": "done",
-      "summary": "Sign up with email or phone, verify the one-time code, finish registration with a password and Pin name, log in, refresh, log out, log out everywhere, change or reset the password.",
+      "summary": "Sign up with email or phone, verify the one-time code, finish registration with a Pin name, sign in with a one-time code, refresh, log out, log out everywhere. Passwordless since 2026-10-15 (D-01…",
       "tags": [
         "feature",
         "status/done",
@@ -11091,7 +11198,7 @@
         "s02"
       ],
       "status": "partial",
-      "summary": "Delivering the one-time code by email or SMS. Today the code is only logged, and returned as devCode in development, test and local environments.",
+      "summary": "Delivering the one-time code by email or SMS. Today the code is only logged, and returned as devCode in every environment (product decision 2026-10-15, so the passwordless app can sign in before a…",
       "tags": [
         "feature",
         "status/partial",
@@ -11807,10 +11914,11 @@
       "path": "features/Platform & Cross-cutting/Linked Accounts (OAuth).md",
       "priority": "P1",
       "rollup": {
+        "approved": 1,
         "blocked": 2,
         "missing": 1,
-        "needs-decision": 2,
-        "partial": 1
+        "partial": 1,
+        "todo": 1
       },
       "screens": [
         "s01",
@@ -12660,13 +12768,13 @@
         "s68"
       ],
       "status": null,
-      "summary": "What the client builds: the welcome and verify screens, the claim-your-Pin step, the password step, login, a token store that handles rotation, and the password reset and change flows.",
+      "summary": "What the client builds: the welcome screen, one code-entry screen used by both sign-up and sign-in, the claim-your-Pin step, a token store that handles rotation, and sign-out. There is no password…",
       "tags": [
         "frontend",
         "domain/identity"
       ],
       "title": "Auth & Sign-up Frontend",
-      "updated": "2026-10-15"
+      "updated": "2026-10-18"
     },
     "frontend:badge-qr": {
       "blockedBy": "backend",
@@ -13565,6 +13673,7 @@
         "project:developer-setup",
         "project:docs-tree",
         "project:frontend-contract",
+        "project:frontend-passwordless-migration",
         "project:glossary",
         "project:project-overview",
         "project:ring-access-model",
@@ -13660,12 +13769,12 @@
       "priority": null,
       "screens": [],
       "status": null,
-      "summary": "As implemented. Feature note: Auth & Sign-up. Open question: D-01 Passwordless login.",
+      "summary": "As implemented. Feature note: Auth & Sign-up. Decided: D-01 Passwordless login (code-only, 2026-10-15). Client-facing changes: Frontend Passwordless Migration.",
       "tags": [
         "project"
       ],
       "title": "Auth Model",
-      "updated": "2026-10-15"
+      "updated": "2026-10-18"
     },
     "project:database-migrations": {
       "blockedBy": null,
@@ -13766,7 +13875,34 @@
         "project"
       ],
       "title": "Frontend Contract",
-      "updated": "2026-10-15"
+      "updated": "2026-10-18"
+    },
+    "project:frontend-passwordless-migration": {
+      "blockedBy": null,
+      "children": [],
+      "depends": [],
+      "domain": null,
+      "effectiveStatus": "reference",
+      "effort": null,
+      "feature": null,
+      "id": "project:frontend-passwordless-migration",
+      "kind": "project",
+      "label": "Project note",
+      "parents": [
+        "group:project"
+      ],
+      "path": "project/Frontend Passwordless Migration.md",
+      "priority": null,
+      "screens": [],
+      "status": null,
+      "summary": "Full reference: FRONTENDAPIGUIDE · model notes: Auth Model · feature: Auth & Sign-up.",
+      "tags": [
+        "project",
+        "frontend",
+        "auth"
+      ],
+      "title": "Frontend Passwordless Migration",
+      "updated": "2026-10-18"
     },
     "project:glossary": {
       "blockedBy": null,
@@ -14007,7 +14143,7 @@
         "s68"
       ],
       "status": "draft",
-      "summary": "What the client needs from the backend to build the welcome, verify, Pin, first-Ring and account-security screens, and whether each need is met today. Request and response shapes, the token store…",
+      "summary": "What the client needs from the backend for the welcome, code, Pin-name and session screens, and whether each need is met today. Everything here exists; the one thing missing is the delivery of the…",
       "tags": [
         "requirements",
         "requirements/draft",
@@ -15116,15 +15252,16 @@
       "path": null,
       "priority": null,
       "rollup": {
+        "approved": 1,
         "blocked": 72,
-        "done": 27,
+        "done": 28,
         "draft": 20,
         "frontend-only": 2,
         "missing": 30,
-        "needs-decision": 23,
+        "needs-decision": 20,
         "partial": 27,
-        "reference": 13,
-        "todo": 73
+        "reference": 14,
+        "todo": 74
       },
       "screens": [],
       "status": null,
@@ -15214,7 +15351,7 @@
       "priority": null,
       "screens": [],
       "status": "draft",
-      "summary": "The product owner needs to be able to answer \"who did what to whose access, and when\" after the fact: a Ring grant that a member disputes, a password change the account holder did not make, a…",
+      "summary": "The product owner needs to be able to answer \"who did what to whose access, and when\" after the fact: a Ring grant that a member disputes, a sign-out-everywhere the account holder did not make, a…",
       "tags": [
         "story",
         "story/draft",
@@ -15247,7 +15384,7 @@
         "s68"
       ],
       "status": "draft",
-      "summary": "A new person arrives with an email or a phone number and wants to be inside the app with a Pin name and a first Ring in under two minutes. A returning person wants to sign in and stay signed in…",
+      "summary": "A person arrives with nothing but an email address or a phone number and leaves with a working identity: an active account, a Pin name, a default Ring and its projection. Coming back later costs…",
       "tags": [
         "story",
         "story/draft",
@@ -16920,11 +17057,9 @@
       "blockedBy": null,
       "children": [],
       "decision": null,
-      "depends": [
-        "decision:D-01"
-      ],
+      "depends": [],
       "domain": "platform",
-      "effectiveStatus": "needs-decision",
+      "effectiveStatus": "todo",
       "effort": "L",
       "feature": "linked-accounts",
       "id": "task:T-019",
@@ -16940,11 +17075,11 @@
         "s04",
         "s68"
       ],
-      "status": "needs-decision",
-      "summary": "Callback writes SocialIdentity. Login via provider depends on D-01.",
+      "status": "todo",
+      "summary": "Callback writes SocialIdentity. Login via provider returns a session the same way POST /auth/login/verify does (D-01 decided: passwordless, code-only; a linked provider is the second way to prove…",
       "tags": [
         "task",
-        "task/needs-info",
+        "task/todo",
         "domain/platform",
         "priority/P1"
       ],
@@ -18206,7 +18341,7 @@
         "decision:D-01"
       ],
       "domain": "identity",
-      "effectiveStatus": "needs-decision",
+      "effectiveStatus": "done",
       "effort": "S",
       "feature": "auth",
       "id": "task:T-056",
@@ -18220,11 +18355,11 @@
       "screens": [
         "s01"
       ],
-      "status": "needs-decision",
-      "summary": "See D-01 Passwordless login.",
+      "status": "done",
+      "summary": "See D-01 Passwordless login. Decided: option A, code-only login. Shipped in social-pin PR #1. Frontend write-up: Frontend Passwordless Migration.",
       "tags": [
         "task",
-        "task/needs-info",
+        "task/done",
         "domain/identity",
         "priority/P0"
       ],

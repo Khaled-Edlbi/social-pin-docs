@@ -35,7 +35,7 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-011 Create the Event Ring on registration]] | [[Event Ring Auto-creation]] | Events | ⛔ Blocked | M | [[T-033 Events list, detail, schedule|T-033]] |
 | [[T-035 Registration transaction with order and payment]] | [[Events Before]] | Events | ⛔ Blocked | L | [[T-034 Tickets, packages, levels, sold-out|T-034]], [[T-047 Orders, payments and the provider webhook|T-047]] |
 | [[T-036 Event mode exhibitors list and detail]] | [[Events During]] | Events | ⛔ Blocked | M | [[T-033 Events list, detail, schedule|T-033]] |
-| [[T-056 Decide passwordless login]] | [[Auth & Sign-up]] | Identity Core | ❓ Needs a decision / info | S | — |
+| [[T-056 Decide passwordless login]] | [[Auth & Sign-up]] | Identity Core | ✅ Done | S | — |
 | [[T-057 Decide base profile work fields]] | [[Profiles & Pin Name]] | Identity Core | ❓ Needs a decision / info | S | — |
 | [[T-058 Decide field library vs per-Ring copies]] | [[Ring Projection]] | Identity Core | ❓ Needs a decision / info | S | — |
 | [[T-059 Decide Ring settings]] | [[Rings]] | Identity Core | ❓ Needs a decision / info | S | — |
@@ -62,7 +62,7 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-005 Connection count on Me and Home]] | [[Counts]] | Identity Core | ⛔ Blocked | S | [[T-021 Connect request send, inbox, cancel|T-021]] |
 | [[T-010 Public browser page for viewers without the app]] | [[Badge & QR]] | Discovery | ❓ Needs a decision / info | M | [[T-008 Resolve a scanned QR token|T-008]] |
 | [[T-018 Widget CRUD on the projection]] | [[Widgets]] | Identity Core | ❓ Needs a decision / info | M | [[T-017 Extend WIDGET_TYPE to the design's list|T-017]], [[D-03 Field library vs per-Ring copies]] |
-| [[T-019 LinkedIn OAuth link, unlink, login]] | [[Linked Accounts (OAuth)]] | Platform & Cross-cutting | ❓ Needs a decision / info | L | [[D-01 Passwordless login]] |
+| [[T-019 LinkedIn OAuth link, unlink, login]] | [[Linked Accounts (OAuth)]] | Platform & Cross-cutting | ⬜ To do | L | — (D-01 decided) |
 | [[T-020 LinkedIn import → review → base profile]] | [[Onboarding Imports]] | Identity Core | ⛔ Blocked | L | [[T-019 LinkedIn OAuth link, unlink, login|T-019]], [[D-02 Base profile work fields]] |
 | [[T-026 Ring invitations invite, review, decline]] | [[Ring Invitations & Join]] | Shared Rings & Companies | ❓ Needs a decision / info | M | [[D-04 Ring settings]] |
 | [[T-027 Join a Ring with a code or verified work email]] | [[Ring Invitations & Join]] | Shared Rings & Companies | ⛔ Blocked | M | [[D-04 Ring settings]], [[T-026 Ring invitations invite, review, decline|T-026]] |

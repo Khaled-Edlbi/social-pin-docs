@@ -38,7 +38,7 @@ Acceptance criteria:
 
 Acceptance criteria:
 - [ ] A 409 `E_PROFILE_02` from `POST /auth/complete-registration` keeps the user on s06 with the field focused and the message "That Pin name was just taken".
-- [ ] The password typed on the same screen is retained.
+- [ ] The optional full name typed on the same screen is retained.
 
 ### S3 · Edit my name and nickname (profile editor, reached from [[Screen Index#s68|s68]])
 

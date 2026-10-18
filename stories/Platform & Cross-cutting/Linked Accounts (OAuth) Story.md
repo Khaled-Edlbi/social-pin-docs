@@ -62,14 +62,14 @@ Acceptance criteria:
 
 Acceptance criteria:
 - [ ] Unlink removes the `SocialIdentity` row and refreshes the list.
-- [ ] Unlinking the last way to sign in is refused until the account has a password or another identity; the message says which.
+- [ ] Unlinking is always allowed: the email or phone code remains a way to sign in, so no identity is ever the last one.
 
 ### S6 · Sign in with a linked provider ([[Screen Index#s01|s01]])
 
-**As a** returning user **I want** "Continue with LinkedIn" to sign me in when the identity is already linked **so that** I never set a password I do not need.
+**As a** returning user **I want** "Continue with LinkedIn" to sign me in when the identity is already linked **so that** I skip even the code step.
 
 Acceptance criteria:
-- [ ] Waits on [[D-01 Passwordless login]]; until it is decided the client builds the password step as the backend requires and treats LinkedIn as sign-up plus import only.
+- [ ] [[D-01 Passwordless login]] is decided (code-only): provider login must return the same session pair as `POST /auth/login/verify`; the client treats LinkedIn as sign-up plus import only.
 - [ ] When decided, a successful provider login issues the normal session pair and records `lastLoginAt`.
 
 ## States and motion the design asks for
@@ -80,9 +80,9 @@ Acceptance criteria:
 ## Rules the backend already enforces
 
 - `SocialIdentity` is unique on (`provider`, `providerUserId`) and indexed by user; providers are GOOGLE, APPLE, FACEBOOK, LINKEDIN, MICROSOFT; `email` is optional and informational.
-- Registration today ends with a password and a Pin name in one transaction; a provider cannot bypass that until [[D-01 Passwordless login]] is decided ([[Auth Model]]).
+- Registration today ends with the Pin name in one transaction (no password, [[D-01 Passwordless login]] decided); a provider sign-up still has to pass through `complete-registration` ([[Auth Model]]).
 - Nothing OAuth exists; [[T-019 LinkedIn OAuth link, unlink, login]] is ❓.
 
 ## Open questions
 
-- [[D-01 Passwordless login]] — blocks S6 and decides whether S1 for a returning user is a login or a sign-up.
+- None open: [[D-01 Passwordless login]] is decided (code-only). What remains is [[T-019 LinkedIn OAuth link, unlink, login]].

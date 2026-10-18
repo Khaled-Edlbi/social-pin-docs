@@ -13,7 +13,7 @@ tags: [story, story/draft, domain/platform]
 
 **Feature:** [[Audit Log]] · **Status:** Draft (awaiting product sign-off) · **Requirements:** [[Audit Log Requirements]] · **API Integration:** not yet (backend not built)
 
-The product owner needs to be able to answer "who did what to whose access, and when" after the fact: a Ring grant that a member disputes, a password change the account holder did not make, a payment that was refunded, a meeting request that Gemma sent on someone's behalf. The `AuditLog` table exists for this; nothing writes to it yet. There is no screen.
+The product owner needs to be able to answer "who did what to whose access, and when" after the fact: a Ring grant that a member disputes, a sign-out-everywhere the account holder did not make, a payment that was refunded, a meeting request that Gemma sent on someone's behalf. The `AuditLog` table exists for this; nothing writes to it yet. There is no screen.
 
 ## Persona
 
@@ -23,11 +23,11 @@ The product owner and the operator who handles a support request. Not an end use
 
 ### S1 · Sensitive account actions are recorded
 
-**As the** product owner **I want** every password change, password reset and logout-everywhere written to the audit log **so that** a disputed account takeover can be traced to an actor, an IP and a time.
+**As the** product owner **I want** every sign-in code issue, sign-in and logout-everywhere written to the audit log **so that** a disputed account takeover can be traced to an actor, an IP and a time.
 
 Acceptance criteria:
-- [ ] `change-password`, `reset-password` and `logout-everywhere` each write one `AuditLog` row with `actorId`, `action`, `resourceType = user`, `resourceId`, `ipAddress`, `userAgent`.
-- [ ] `metadata` never contains a password, a hash, a code or a token; redaction happens in the writer, as the schema comment requires.
+- [ ] `login/verify`, `request-code` and `logout-everywhere` each write one `AuditLog` row with `actorId`, `action`, `resourceType = user`, `resourceId`, `ipAddress`, `userAgent`.
+- [ ] `metadata` never contains a code, a hash or a token; redaction happens in the writer, as the schema comment requires.
 
 ### S2 · Ring access changes are recorded
 

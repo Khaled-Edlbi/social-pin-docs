@@ -14,7 +14,7 @@ differ, `CLAUDE.md` wins.
 
 | Repo | Holds | Branch for a ticket |
 |---|---|---|
-| `social-pin` | the NestJS backend, `docs/` with the three mirrored files | `feat/T-NNN-<kebab-slug>` |
+| `social-pin` | the NestJS backend, `docs/` with the three mirrored files | `<module>/<ticket-no>/<what-you-do>` |
 | `social-pin-docs` (this vault) | tickets, feature notes, frontend notes, decisions, design index | **the same name** |
 
 Two branches with one name pair the code and its documentation. A pull request
@@ -34,10 +34,13 @@ number, add it to [[Task Board]], [[Backlog]] and the feature note's task table.
 
 ## 2 · Branch from the ticket
 
-`feat/T-004-member-count-per-ring`: the ticket id, then a short slug of its
-title. `fix/` for a bug fix, `docs/` for a docs-only change. One ticket per
-branch. Commits name the ticket: `feat(ring): member count on list and detail
-(T-004)`.
+`ring/T-004/member-count`: the module (a `src/modules/<feature>` folder name, or
+a cross-cutting area such as `prisma`, `common`, `docs`, `ci`), the ticket id
+exactly as the task note spells it, then a short kebab-case summary. This is the
+backend's binding git convention ("Git conventions" in its `CLAUDE.md`). Never
+invent a ticket id; if there is none, create the task note first. One ticket per
+branch. Commits are `<type>(<module>): <message>` with the ticket in the body:
+`feat(ring): add member count to list and detail`.
 
 Set the ticket to `status: in-progress` and move its card to 🔵 *In progress*.
 

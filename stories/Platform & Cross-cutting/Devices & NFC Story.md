@@ -69,7 +69,7 @@ Acceptance criteria:
 
 ## Rules the backend already enforces
 
-- Refresh tokens are rotating and single-use; `logout-everywhere` revokes all of a user's rows, caller included; `change-password` and `reset-password` do the same ([[Auth Model]]).
+- Refresh tokens are rotating and single-use; `logout-everywhere` revokes all of a user's rows, caller included; it is the only session-wide revocation now that there is no password ([[Auth Model]]).
 - `UserDevice` exists with `deviceId` (client-generated, unique per user), `name`, `platform`, `pushToken`, `lastSeenAt`, `revokedAt`; nothing writes it yet.
 - `NfcToken` mirrors `RingQrToken`: hashed, bound to a Ring, `status` ACTIVE / REVOKED / EXPIRED, revocable. Resolving a tap must go through [[Ring Access Engine]]; a blocked viewer or a dead card gets the same 404 as a missing one.
 

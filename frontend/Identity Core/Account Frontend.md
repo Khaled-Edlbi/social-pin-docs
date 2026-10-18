@@ -25,7 +25,7 @@ What the client builds: the Me / Account screen's account section: who is signed
 ## Flow
 
 1. **`GET /users/me`** → `AccountEntity`:
-   `id`, `email`, `phone`, `status` (`PENDING` / `ACTIVE` / `SUSPENDED` / `DELETED`), `accountType` (`FREE` / `PRO`), `role` (platform role), `emailVerifiedAt`, `phoneVerifiedAt`, `lastLoginAt`, `createdAt`, `updatedAt`. Never a password hash: the query does not read it.
+   `id`, `email`, `phone`, `status` (`PENDING` / `ACTIVE` / `SUSPENDED` / `DELETED`), `accountType` (`FREE` / `PRO`), `role` (platform role), `emailVerifiedAt`, `phoneVerifiedAt`, `lastLoginAt`, `createdAt`, `updatedAt`. There is no password on the account at all: sign-in is passwordless ([[Auth & Sign-up Frontend]]).
 2. **`PATCH /users/me`** with `{ email? }` and / or `{ phone? }`. Changing a value clears its `…VerifiedAt`, so render the new address as *unverified* straight away. 409 `E_USER_02` (email in use) or `E_USER_03` (phone in use).
 3. **`DELETE /users/me`** → 200, no body. The account is soft-deleted, its email and phone released, and every session revoked. Clear the token store and return to Welcome.
 

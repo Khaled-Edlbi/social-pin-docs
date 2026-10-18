@@ -17,7 +17,7 @@ A new user has typed their email or phone on s01 and is now on s02 waiting for a
 
 ## Persona
 
-A first-time personal user signing up, or a returning user resetting a password. Also the developer running a dev build who needs to get past s02 without reading the server log.
+A first-time personal user signing up, or a returning user signing in (every sign-in is a code since 2026-10-15). Also the developer running a dev build who needs to get past s02 without reading the server log.
 
 ## Stories
 
@@ -45,7 +45,7 @@ Acceptance criteria:
 Acceptance criteria:
 - [ ] The countdown runs from the `expiresAt` in the challenge response, not from a client clock alone.
 - [ ] Resend calls `POST /auth/request-code`; the response is a new challenge with a new `expiresAt`, and the timer restarts.
-- [ ] Resend never says whether the destination is registered; the copy is "if an account exists, a code is on its way" for password reset.
+- [ ] Resend never says whether the destination is registered; the copy is "if an account exists, a code is on its way" for sign-in and resend.
 
 ### S4 · Wrong or expired code ([[Screen Index#s02|s02]])
 
@@ -58,12 +58,12 @@ Acceptance criteria:
 
 ### S5 · Dev build fills the code in ([[Screen Index#s02|s02]])
 
-**As a** developer on a dev server **I want** the code pre-filled from `devCode` **so that** I can test the flow without the log.
+**As a** tester on any server **I want** the code pre-filled from `devCode` **so that** I can test the flow without the log.
 
 Acceptance criteria:
 - [ ] If `devCode` is present in the response, the six boxes are filled and the field stays editable.
 - [ ] If `devCode` is absent, nothing changes; the build never requires it and never stores it.
-- [ ] A production build ignores `devCode` even if a misconfigured server returned it.
+- [ ] The build never requires `devCode`; when [[T-003 Remove devCode once delivery works]] removes it, nothing but the pre-fill changes.
 
 ## States and motion the design asks for
 
@@ -75,7 +75,7 @@ Acceptance criteria:
 - The code is six digits, bcrypt-hashed, valid ten minutes; `sign-up` reuses a `PENDING` user and re-issues the code without error ([[Auth & Sign-up]]).
 - Five wrong guesses burn the code (429 `E_AUTH_06`); wrong and expired both answer 400 `E_AUTH_05`.
 - `request-code` returns a plausible challenge for unknown destinations and issues a code only for a real account.
-- `devCode` is returned only when `NODE_ENV` is in the allow-list `development`, `test`, `local`; a misspelled value withholds it ([[Auth Model]]).
+- `devCode` is returned on every issued code, in every environment, until delivery is wired (product decision 2026-10-15); it is absent only when no code was issued ([[Auth Model]]).
 - Delivery is one line, `AuthService.issueCode`, with a `TODO(delivery)`; nothing is sent today.
 
 ## Open questions

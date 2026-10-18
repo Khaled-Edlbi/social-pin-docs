@@ -31,7 +31,7 @@ Full description: [[Project Overview]]. Vocabulary: [[Glossary]].
 | Error contract (`ErrorCode` on the wire), file bytes by id | 🟡 Found by the frontend pass: [[T-063 Put the ErrorCode on the error body]], [[T-062 Serve uploaded file bytes by id]] |
 | Code delivery, counts, delegated admins, badge / QR, Event Ring, photo library, devices, interests, widgets, linked accounts | 🟡 Partial: tables exist, endpoints missing |
 | Connections, shared Rings, companies, Discover, PinCast, events, meetings, exhibitor, post-event, payments, subscription, notifications, Gemma, audit log, cleanup jobs, e2e run | ❌ TODO: schema only (about 30 tables with no service) |
-| Design vs backend disagreements | ❓ 6 open [[Decisions]] |
+| Design vs backend disagreements | ❓ 5 open [[Decisions]] (D-01 passwordless: decided and shipped) |
 
 Numbers and the full tree: [[Feature Tree]]. The source comparison: [[Status Report 2026-10-15]].
 
@@ -51,6 +51,7 @@ social-pin-docs/   (= docs/ in the backend repo)
 │   ├── Frontend Contract        what a client must get right, endpoint summary
 │   ├── Workflow                 ticket → branch → code → docs, in both repos
 │   ├── Docs Tree                how to read the tree page, the JSON index, the after-a-task checklist
+│   ├── Frontend Passwordless Migration  what the client must change for OTP-only auth
 │   ├── Glossary
 │   └── Status Report 2026-10-15 the backend vs design comparison this vault is built from
 ├── features/                    one note per feature, grouped by domain
@@ -86,8 +87,8 @@ social-pin-docs/   (= docs/ in the backend repo)
 ## Start here, by role
 
 - **Backend developer picking up work** → [[Backlog]] → the task's feature note → [[Ring Access Model]] → [[Architecture#Build order for a new feature]].
-- **Product / design** → [[Decisions]] first (six answers unblock 20 tasks), then [[Screen Index]] to see what each screen can do today.
-- **Frontend developer** → [[Frontend Contract]], then [[Frontend Index]] (one note per done feature), then `FRONTEND_API_GUIDE.md` for the long form.
+- **Product / design** → [[Decisions]] first (five answers unblock 19 tasks), then [[Screen Index]] to see what each screen can do today; the user stories to approve are the ✏️ Draft nodes in the [[Docs Tree]].
+- **Frontend developer** → [[Frontend Contract]], then [[Frontend Index]] (one note per done feature), then `FRONTEND_API_GUIDE.md` for the long form. **Auth went passwordless on 2026-10-15** — what changed and what to do: [[Frontend Passwordless Migration]].
 - **Anyone new** → [[Project Overview]] → [[Glossary]] → [[Feature Graph]].
 
 ## How this vault is organised
@@ -95,4 +96,4 @@ social-pin-docs/   (= docs/ in the backend repo)
 - **Six note types, one frontmatter each**: `type: feature` (status `done | partial | todo | frontend`), `type: task` (status `todo | needs-info | blocked | in-progress | done`), `type: decision` (status `open | decided`), `type: story` and `type: requirements` (status `draft | approved`, one per feature), `type: frontend` (one per done feature). Tags mirror them (`#status/done`, `#task/blocked`, `#decision/open`, `#frontend`) so the graph view colours by state (`.obsidian/graph.json`).
 - **Links are the graph.** A feature links its screens, tasks, decisions and related features; a task links its feature and dependencies; a decision links the features it blocks. Open Obsidian's graph view with filter `tag:#feature OR tag:#decision` to see the idea map.
 - **Design ids are the prototype's.** `s44` means screen 44 in `socialPin-design/.proto2.json`. `[[Screen Index#s44]]` lands on it.
-- **Updating.** The ticket comes first, the branch in both repos is named after it (`feat/T-NNN-slug`), and when the code ships the same change updates the task note, the [[Task Board]] and [[Backlog]], the feature note (status, endpoints, *How it works*, gaps), the frontend note, the [[Feature Tree]] counts and this page. The full procedure: [[Workflow]], the after-a-task checklist in [[Docs Tree]]. New work starts from `templates/`. Then `node scripts/build-tree.mjs` and commit `tree/`.
+- **Updating.** The ticket comes first, the branch in both repos is named after it (`<module>/<ticket-no>/<what-you-do>`, e.g. `ring/T-004/member-count`), and when the code ships the same change updates the task note, the [[Task Board]] and [[Backlog]], the feature note (status, endpoints, *How it works*, gaps), the frontend note, the [[Feature Tree]] counts and this page. The full procedure: [[Workflow]], the after-a-task checklist in [[Docs Tree]]. New work starts from `templates/`. Then `node scripts/build-tree.mjs` and commit `tree/`.

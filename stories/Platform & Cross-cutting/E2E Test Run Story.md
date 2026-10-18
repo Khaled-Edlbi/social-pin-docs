@@ -44,7 +44,7 @@ Acceptance criteria:
 
 Acceptance criteria:
 - [ ] The specs asserting identical 404 bodies for "no such name", "not shared" and "blocked" pass.
-- [ ] The specs asserting that `passwordHash`, hidden links and `ringId` never appear in a response pass.
+- [ ] The specs asserting that hidden links and `ringId` never appear in a response pass, and the passwordless sign-in flow (`login` → `login/verify`) is covered end to end.
 - [ ] A spec asserts `devCode` is present under `NODE_ENV=test` and absent otherwise.
 
 ## States and motion the design asks for

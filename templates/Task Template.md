@@ -30,7 +30,7 @@ tags: [task, task/todo, domain/<domain>, priority/P1]
 - [ ] Every visibility decision goes through `RingAccessService` ([[Ring Access Model]])
 - [ ] Spec covers each thrown domain error, each filter, and asserts secret fields are absent
 - [ ] `pnpm typecheck && pnpm test` green
-- [ ] Branch `feat/T-NNN-<slug>` in both repos
+- [ ] Branch `<module>/T-NNN/<what-you-do>` in both repos
 - [ ] Feature note updated (status, endpoints, How it works, gaps)
 - [ ] Requirements note rows flipped to ✅; story updated (approved only with product sign-off)
 - [ ] Frontend note created / updated and listed in [[Frontend Index]]

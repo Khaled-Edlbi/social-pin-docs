@@ -35,7 +35,7 @@ A frontend note exists for every feature whose backend is ✅ done. When a 🟡 
 
 - **The error body does not carry `ErrorCode` yet.** The guide says to branch on it; the filter drops it today. Branch on status and endpoint until [[T-063 Put the ErrorCode on the error body]] ships. See [[Error Contract]].
 - **No file bytes can be fetched.** `avatarFileId` and attachment ids have no URL: placeholders until [[T-062 Serve uploaded file bytes by id]].
-- **Code delivery is not wired.** On a dev server the sign-up response carries `devCode`; see [[Code Delivery]].
+- **Code delivery is not wired, and auth is passwordless.** Every issued code comes back as `devCode`, in every environment, until [[T-003 Remove devCode once delivery works]]; see [[Code Delivery]] and [[Frontend Passwordless Migration]].
 
 ## Not yet documented here (no backend yet)
 

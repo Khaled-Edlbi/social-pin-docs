@@ -31,7 +31,7 @@ YAML frontmatter; it also reads on GitHub. Start at `Home.md`.
 `project/Workflow.md` is the full description; the short form:
 
 1. A ticket (`tasks/T-NNN …`) exists before code is written.
-2. The branch in **both** repos is named after it: `feat/T-NNN-<kebab-slug>`.
+2. The branch in **both** repos is named after it: `<module>/<ticket-no>/<what-you-do>` (e.g. `ring/T-004/member-count`), the backend's git convention.
 3. When the code ships, the same change set updates: the task note (status,
    log), the Task Board and Backlog, the feature note (status, endpoints,
    *How it works*, gaps), the requirements note (rows flipped to ✅), the story

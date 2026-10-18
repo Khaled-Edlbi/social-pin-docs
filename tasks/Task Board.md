@@ -6,13 +6,11 @@ kanban-plugin: board
 
 ## ❓ Needs a decision / info
 
-- [ ] [[T-056 Decide passwordless login]] #P0 #auth
 - [ ] [[T-057 Decide base profile work fields]] #P0 #profiles
 - [ ] [[T-058 Decide field library vs per-Ring copies]] #P0 #ring-projection
 - [ ] [[T-059 Decide Ring settings]] #P0 #rings
 - [ ] [[T-010 Public browser page for viewers without the app]] #P1 #badge-qr
 - [ ] [[T-018 Widget CRUD on the projection]] #P1 #widgets
-- [ ] [[T-019 LinkedIn OAuth link, unlink, login]] #P1 #linked-accounts
 - [ ] [[T-026 Ring invitations invite, review, decline]] #P1 #ring-invitations
 - [ ] [[T-039 Catalogue products and talks (new table)]] #P1 #events-during
 - [ ] [[T-047 Orders, payments and the provider webhook]] #P1 #payments
@@ -45,6 +43,7 @@ kanban-plugin: board
 
 ## ⬜ Backlog
 
+- [ ] [[T-019 LinkedIn OAuth link, unlink, login]] #P1 #linked-accounts
 - [ ] [[T-001 Wire an email provider for one-time codes]] #P0 #code-delivery
 - [ ] [[T-062 Serve uploaded file bytes by id]] #P0 #files
 - [ ] [[T-063 Put the ErrorCode on the error body]] #P0 #error-contract
@@ -86,6 +85,8 @@ kanban-plugin: board
 
 
 ## ✅ Done
+
+- [x] [[T-056 Decide passwordless login]] #P0 #auth
 
 - [x] [[Auth & Sign-up]] #feature-done
 - [x] [[Account]] #feature-done
