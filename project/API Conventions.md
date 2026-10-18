@@ -16,7 +16,7 @@ The response **allow-list**. `implements PrismaModel` is the drift guard: add a 
 
 - `ProfileEntity` (owner) vs `RingProfileViewEntity` (viewer)
 - `RingProfileOwnerEntity` (editing, has `isVisible`, hidden rows) vs `RingProfileViewEntity` (visible rows only)
-- `AccountEntity` (no `passwordHash` in the query at all)
+- `AccountEntity` (a narrow select, not the full `users` row)
 
 `RingProfileViewEntity` is the one computed-payload entity that is not `implements PrismaModel`.
 

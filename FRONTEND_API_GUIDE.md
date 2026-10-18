@@ -46,28 +46,25 @@ isn't available to you"* — and do not try to infer which case it was.
 
 ## Authentication
 
+**There are no passwords.** Every sign-up and every sign-in is a 6-digit
+one-time code sent to an email or a phone.
+
 ### Sign-up is three calls, in order
 
 ```
 POST /auth/sign-up               { email } or { phone }
-  → 201 { destination, channel, expiresAt }          a 6-digit code is sent
-  → in dev also { devCode: "482913" }                delivery is not wired yet
+  → 201 { destination, channel, expiresAt, devCode }   a 6-digit code is issued
 
 POST /auth/verify-code           { destination, code, purpose: "SIGN_UP" }
-  → 201 { onboardingToken, purpose, expiresIn }      valid 15 minutes
+  → 201 { onboardingToken, purpose, expiresIn }        valid 15 minutes
 
-POST /auth/complete-registration { onboardingToken, password, pinName, fullName? }
+POST /auth/complete-registration { onboardingToken, pinName, fullName? }
   → 201 { accessToken, refreshToken, tokenType, expiresIn }
 ```
 
-`devCode` is a development-only convenience: OTP delivery is not wired, so
-without it a client has no way to learn the code. **Never depend on it** — it
-is absent in production, where the code reaches the user by email or SMS and
-is typed in as normal.
-
-The password is set in step 3, not step 1. Step 3 also creates the person's
-profile, their default ring and that ring's projection, so a successful response
-means they have a working identity — not just an account.
+Step 3 creates the person's profile, their default ring and that ring's
+projection, so a successful response means they have a working identity — not
+just an account.
 
 The `onboardingToken` is **not** a session. It proves only "this destination was
 verified, for this purpose", and the API rejects it on every other route. Keep
@@ -76,6 +73,34 @@ it in memory for the length of the form; do not persist it.
 Check the handle before submitting: `GET /profiles/pin-name/:pinName/availability`
 is public and returns `{ pinName, available }`. It never says who holds a taken
 handle.
+
+### Sign-in is two calls
+
+```
+POST /auth/login          { identifier }          email or E.164 phone
+  → 201 { destination, channel, expiresAt, devCode }
+
+POST /auth/login/verify   { identifier, code }
+  → 201 { accessToken, refreshToken, tokenType, expiresIn }
+```
+
+`login/verify` errors: `400 E_AUTH_05` wrong or expired code, `429 E_AUTH_06`
+after 5 wrong tries (request a new code), `403 E_AUTH_03` if the account is
+suspended or never finished sign-up.
+
+To resend a code: `POST /auth/request-code { destination, purpose }` with
+`purpose` `"SIGN_UP"` or `"LOGIN"`. A new code replaces the previous one.
+
+### `devCode` — temporary
+
+OTP delivery (email/SMS) is not wired yet, so every response that issues a
+code also returns it as `devCode`, **in every environment**. Pre-fill or
+auto-submit it for now. It will be removed once codes are sent, so keep the
+code-entry screen working without it.
+
+When the email or phone has no account, `login` and `request-code` still
+return `201` with the same fields **but no `devCode`**, because no code was
+issued.
 
 ### Sessions
 
@@ -98,19 +123,7 @@ Two practical consequences:
 Sending an access token to `/auth/refresh` fails, and vice versa — they are
 signed with different secrets and carry a `scope` claim.
 
-`POST /auth/logout-everywhere` and `POST /auth/change-password` both revoke
-every session, including the caller's.
-
-### Password reset
-
-```
-POST /auth/request-code   { destination, purpose: "PASSWORD_RESET" }
-POST /auth/verify-code    { destination, code, purpose: "PASSWORD_RESET" }
-POST /auth/reset-password { onboardingToken, password }
-```
-
-`request-code` returns `201` with a challenge **whether or not the account
-exists** — do not treat the response as confirmation that it does.
+`POST /auth/logout-everywhere` revokes every session, including the caller's.
 
 ---
 
@@ -166,16 +179,15 @@ it.
 
 | Method | Path | Auth | |
 |---|---|---|---|
-| POST | `/auth/sign-up` | public | Start sign-up; sends a code |
-| POST | `/auth/request-code` | public | Resend, or start a password reset |
-| POST | `/auth/verify-code` | public | Answer a code → onboarding token |
-| POST | `/auth/complete-registration` | public | Password + pin name → session |
-| POST | `/auth/login` | public | Email or phone + password |
-| POST | `/auth/reset-password` | public | With a PASSWORD_RESET onboarding token |
+| POST | `/auth/sign-up` | public | Start sign-up; issues a code |
+| POST | `/auth/request-code` | public | Resend a SIGN_UP or LOGIN code |
+| POST | `/auth/verify-code` | public | Answer a sign-up code → onboarding token |
+| POST | `/auth/complete-registration` | public | Pin name → session |
+| POST | `/auth/login` | public | Email or phone → issues a code |
+| POST | `/auth/login/verify` | public | Answer the login code → session |
 | POST | `/auth/refresh` | **refresh** | Rotates the pair |
 | POST | `/auth/logout` | **refresh** | Revokes the presented token |
 | POST | `/auth/logout-everywhere` | access | Revokes all sessions |
-| POST | `/auth/change-password` | access | Requires the current password |
 
 ### Account — `/users`
 

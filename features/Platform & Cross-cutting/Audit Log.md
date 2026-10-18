@@ -36,7 +36,7 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 
 ### Gaps
 
-- `AuditService.record()` called from auth (password change, logout-everywhere), ring members (grant / revoke / reassign), payments, AI actions.
+- `AuditService.record()` called from auth (logout-everywhere, session revocation), ring members (grant / revoke / reassign), payments, AI actions.
 
 ## Tasks
 
