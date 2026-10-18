@@ -5,11 +5,11 @@ status: blocked
 priority: P0
 effort: L
 feature: events-before
-domain: events
+module: events
 screens: [s51, s52]
 depends: [T-034, T-047]
 created: 2026-10-15
-tags: [task, task/blocked, domain/events, priority/P0]
+tags: [task, task/blocked, module/events, priority/P0]
 ---
 
 # ⛔ T-035 · Registration transaction with order and payment

@@ -1,19 +1,25 @@
 ---
 type: story
-id: <feature slug — same as the feature note's id>
-feature: <feature slug>
+code: <feature id, or T-NNN for a task-level note>
+scope: feature
+feature: <feature id>
+module: <module id>
 status: draft
-domain: <identity|connections|shared-rings|discovery|events|meetings|commerce|platform>
 screens: []
+depends: []
+affects: []
+related: []
+approvedBy: ""
+approvedAt: ""
 updated: <date>
-tags: [story, story/draft, domain/<domain>]
+tags: [story, story/draft, module/<module>, layer/business]
 ---
 
 # <Feature name> · User Story
 
-**Feature:** [[<Feature name>]] · **Status:** Draft (awaiting product sign-off) · **Requirements:** [[<Feature name> Requirements]] · **API Integration:** [[<Feature name> Frontend]]
+**Feature:** [[<Feature name>]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[<Feature name> Frontend Requirements]] · **Backend Integration:** [[<Feature name> Backend Integration]] · **Verified by:** [[<Feature name> QA Backend]], [[<Feature name> QA Frontend]]
 
-One paragraph: who the user is here and what they are trying to get done, in product terms.
+One paragraph: who the user is here and what they are trying to get done, in product terms. `approved` when product signs off (`approvedBy`, `approvedAt`); `verified` when both QA notes are `passing`.
 
 ## Persona
 
@@ -38,7 +44,7 @@ Acceptance criteria:
 
 ## Rules the backend already enforces
 
-Edge cases a story must respect because the backend decides them (from the feature note's *How it works*).
+Edge cases a story must respect because the backend decides them (from the feature's Backend Delivery note).
 
 ## Open questions
 

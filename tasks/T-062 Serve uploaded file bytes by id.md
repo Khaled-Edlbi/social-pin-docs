@@ -5,11 +5,11 @@ status: todo
 priority: P0
 effort: S
 feature: files
-domain: identity
+module: identity
 screens: [s14, s29, s30, s31, s44]
 depends: []
 created: 2026-10-15
-tags: [task, task/todo, domain/identity, priority/P0]
+tags: [task, task/todo, module/identity, priority/P0]
 ---
 
 # ⬜ T-062 · Serve uploaded file bytes by id
@@ -33,7 +33,7 @@ Add `GET /files/:id/content` (or a signed `url` on the view entities) that strea
 ## Dependencies
 
 - None. Found while writing the frontend notes on 2026-10-15.
-- Makes [[Ring Projection Frontend]], [[View As & Pin Views Frontend]] and [[Files Upload Frontend]] renderable.
+- Makes [[Ring Projection Backend Integration]], [[View As & Pin Views Backend Integration]] and [[Files Upload Backend Integration]] renderable.
 
 ## Definition of done
 
@@ -42,7 +42,7 @@ Add `GET /files/:id/content` (or a signed `url` on the view entities) that strea
 - [ ] Spec covers uploader, member of a live Ring, non-member (same 404 body as `/views`), hidden row
 - [ ] `pnpm typecheck && pnpm test` green
 - [ ] Branch `file/T-062/serve-file-bytes` in both repos
-- [ ] [[Files Upload]], [[Ring Projection]], [[View As & Pin Views]] notes and their frontend notes updated; `FRONTEND_API_GUIDE.md` in both repos
+- [ ] [[Files Upload]], [[Ring Projection]], [[View As & Pin Views]] notes and their frontend notes updated; `Frontend API Guide.md` in both repos
 - [ ] [[Task Board]], [[Backlog]], [[Feature Tree]], [[Frontend Contract]] updated
 
 ## Log

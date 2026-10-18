@@ -5,11 +5,11 @@ status: todo
 priority: P0
 effort: M
 feature: badge-qr
-domain: discovery
+module: discovery
 screens: [s43, s44]
 depends: [T-007]
 created: 2026-10-15
-tags: [task, task/todo, domain/discovery, priority/P0]
+tags: [task, task/todo, module/discovery, priority/P0]
 ---
 
 # ⬜ T-008 · Resolve a scanned QR token

@@ -4,48 +4,47 @@ id: <slug>
 name: "<Feature name>"
 status: todo
 priority: P1
-domain: <identity|connections|shared-rings|discovery|events|meetings|commerce|platform>
+module: <identity|connections|shared-rings|discovery|events|meetings|commerce|platform>
 screens: []
+depends: []
+affects: []
+related: []
 updated: <date>
-tags: [feature, status/todo, domain/<domain>, priority/P1]
+tags: [feature, status/todo, module/<module>, priority/P1]
 ---
 
 # ❌ <Feature name>
 
-**Status:** TODO · **Priority:** P1 · **Domain:** [[Feature Tree#<Domain>|<Domain>]] · **Frontend guide:** [[<Feature name> Frontend]]
+**Status:** To do · **Priority:** P1 · **Module:** [[<Module name> Module|<Module name>]]
 
-One paragraph: what the user does, in design terms.
+**Layers:** [[<Feature name> Story|Story]] · [[<Feature name> Frontend Requirements|Frontend Requirements]] · [[<Feature name> Backend Delivery|Backend Delivery]] · [[<Feature name> Backend Integration|Backend Integration]] · [[<Feature name> Frontend Delivery|Frontend Delivery]] · [[<Feature name> QA Backend|QA Backend]] · [[<Feature name> QA Frontend|QA Frontend]]
+
+The **business** note and the main node of the feature: what it is for, in product terms, and which screens it serves. How it was built lives in the layer notes above; this note stays readable by someone who never opens them.
 
 ## Design reference
 
 | Screen | Name | Note |
 |---|---|---|
-| [[Screen Index#sNN\|sNN]] | | |
+| [[Screen Index#sNN|sNN]] | … | … |
 
-Wireframe brief sections: [[Wireframe Brief#<section>|§n]]
+Wireframe brief sections: [[Wireframe Brief#…|§…]]
 
-## Backend state
+## Product rules
 
-**Endpoints:** none yet.
-
-**Tables / models:** `Model`
-
-## How it works
-
-The behaviour, once built: call order, what each call does, which checks go through `RingAccessService`, which steps are one transaction, what each domain error means.
-
-### What exists
-
-### Gaps
+- The rules that hold whatever the implementation (privacy, what a viewer may never learn, limits).
 
 ## Tasks
 
-```dataview
-TABLE status, priority, effort FROM #task WHERE feature = "<slug>" SORT priority ASC
-```
+| Task | Status | Priority | Effort |
+|---|---|---|---|
+| [[T-NNN …]] | ⬜ To do | P1 | M |
 
-## Open decisions
+## Decisions
+
+- [[D-NN …]] — what it blocks here.
 
 ## Related
 
-- [[Ring Access Model]]
+- [[<Other feature>]] — why (shared endpoint, table, screen or rule).
+
+Project context: [[Ring Access Model]] · [[Architecture]] · [[API Conventions]] · [[Spec Map]]

@@ -5,11 +5,11 @@ status: todo
 priority: P1
 effort: L
 feature: exhibitor
-domain: events
+module: events
 screens: [s63]
 depends: [T-029]
 created: 2026-10-15
-tags: [task, task/todo, domain/events, priority/P1]
+tags: [task, task/todo, module/events, priority/P1]
 ---
 
 # ⬜ T-048 · Business account setup → business Ring

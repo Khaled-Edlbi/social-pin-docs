@@ -5,11 +5,11 @@ status: blocked
 priority: P1
 effort: M
 feature: post-event
-domain: events
+module: events
 screens: [s62]
 depends: [T-009, T-023, T-044]
 created: 2026-10-15
-tags: [task, task/blocked, domain/events, priority/P1]
+tags: [task, task/blocked, module/events, priority/P1]
 ---
 
 # ⛔ T-050 · Post-event summary and follow-ups

@@ -5,11 +5,11 @@ status: todo
 priority: P0
 effort: S
 feature: e2e-tests
-domain: platform
+module: platform
 screens: []
 depends: []
 created: 2026-10-15
-tags: [task, task/todo, domain/platform, priority/P0]
+tags: [task, task/todo, module/platform, priority/P0]
 ---
 
 # ⬜ T-055 · Run the e2e suite in CI against PostGIS

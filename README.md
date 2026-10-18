@@ -1,23 +1,21 @@
 # Social Pin · Docs
 
-Obsidian vault for the Social Pin backend. Open this folder as a vault and start at [Home.md](Home.md), or browse it as a tree at **https://khaled-edlbi.github.io/social-pin-docs/** (project → domain → feature → docs, user story, frontend requirements, API integration, tasks, decisions; relations light up on hover).
+The documentation vault for Social Pin: business, frontend, backend and QA notes for every feature and task, the project reference for each side, the tickets, the decisions and the design index. Open this folder as an Obsidian vault and start at [Home.md](Home.md), or browse it as a tree at **https://khaled-edlbi.github.io/social-pin-docs/** (project → module → feature → one note per layer, tasks, decisions; relations light up on hover; filter by layer).
 
 ```bash
-node scripts/build-tree.mjs --serve     # the same page locally, http://127.0.0.1:8787/
-node scripts/build-tree.mjs --check     # validate the notes; what CI runs on every pull request
-node scripts/build-tree.mjs             # regenerate tree/tree.json and tree/tree.md after editing notes
+node scripts/build-tree.mjs --serve                     # the same page locally, http://127.0.0.1:8787/
+node scripts/build-tree.mjs --check                     # validate the notes and the generated files; what CI runs on every pull request
+node scripts/build-tree.mjs                             # regenerate tree/, tasks/Task Board.md, tasks/Backlog.md after editing notes
+node scripts/build-tree.mjs --impact "Ring Access Engine"   # what a change to a note, task, feature or endpoint touches
+node scripts/build-tree.mjs --scaffold backend-delivery T-004   # create a layer note for a task (or a feature id) from its template
 ```
 
-- `project/` — what the product is, architecture, the Ring access model, conventions
-- `features/` — one note per feature with done / partial / TODO status, plus the Feature Tree, Graph and Canvas
-- `stories/` — one user story per feature (draft until product signs off)
-- `requirements/` — one note per feature: what the client needs from the backend, ✅ / ❌ per row
-- `frontend/` — one note per done feature on how the client handles it (screens → calls, flow, shapes, errors, what is not available yet)
-- `tasks/` — one note per task, the Kanban Task Board and the Backlog
+- `docs.config.json` — the layers (business, frontend, backend, QA), their note kinds and statuses, the hand-off flow, the default blocks, the modules. A new layer is a config entry.
+- `business/`, `frontend/`, `backend/` — the project reference for each side; `project/` — the workflow, the agent rules, the docs tree guide
+- `modules/<Module>/<Feature>/` — the feature's business note and one note per layer (story, frontend requirements, backend delivery, backend integration, frontend delivery, QA backend, QA frontend)
+- `tasks/` — one note per task (`T-NNN`), with the same kinds of notes under the task's folder once teams pick it up; the generated Task Board and Backlog
 - `decisions/` — where the design and the backend disagree
 - `design/` — the design as reference: screen index, navigation map, wireframe brief
-- `tree/` — the docs tree page and its generated index (`tree.json`, `tree.md`); `scripts/build-tree.mjs` builds it
+- `templates/` — one template per note kind; `tree/` and `scripts/` — the docs tree page, its generated index and the build script
 
-How work flows between the two repositories (ticket → branch → code → docs): `project/Workflow.md`. How to read the tree and what to update after a task: `project/Docs Tree.md`. Rules for editing the vault: `CLAUDE.md`.
-
-Source code and the design files are in the `social-pin` repository; this vault mirrors its `docs/` folder.
+Rules for anyone (or any agent) editing the vault: `CLAUDE.md` and `project/Agent Rules.md`. The sequence from ticket to merged docs: `project/Workflow.md`. The rules to paste into the frontend repository: `frontend/Frontend Agent Prompt.md`. Source code is in the `social-pin` repository, whose `docs/README.md` points here.

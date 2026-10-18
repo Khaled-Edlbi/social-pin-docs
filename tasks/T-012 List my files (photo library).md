@@ -5,11 +5,11 @@ status: todo
 priority: P1
 effort: S
 feature: photo-library
-domain: identity
+module: identity
 screens: [s30]
 depends: []
 created: 2026-10-15
-tags: [task, task/todo, domain/identity, priority/P1]
+tags: [task, task/todo, module/identity, priority/P1]
 ---
 
 # ⬜ T-012 · List my files (photo library)

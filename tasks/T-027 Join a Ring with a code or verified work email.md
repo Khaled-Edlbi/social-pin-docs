@@ -5,11 +5,11 @@ status: blocked
 priority: P1
 effort: M
 feature: ring-invitations
-domain: shared-rings
+module: shared-rings
 screens: [s74]
 depends: [D-04, T-026]
 created: 2026-10-15
-tags: [task, task/blocked, domain/shared-rings, priority/P1]
+tags: [task, task/blocked, module/shared-rings, priority/P1]
 ---
 
 # ⛔ T-027 · Join a Ring with a code or verified work email

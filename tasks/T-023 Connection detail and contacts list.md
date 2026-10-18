@@ -5,11 +5,11 @@ status: todo
 priority: P0
 effort: M
 feature: connections
-domain: connections
+module: connections
 screens: [s47]
 depends: [T-022]
 created: 2026-10-15
-tags: [task, task/todo, domain/connections, priority/P0]
+tags: [task, task/todo, module/connections, priority/P0]
 ---
 
 # ⬜ T-023 · Connection detail and contacts list

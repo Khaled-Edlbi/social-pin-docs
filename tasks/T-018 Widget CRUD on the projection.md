@@ -5,11 +5,11 @@ status: needs-info
 priority: P1
 effort: M
 feature: widgets
-domain: identity
+module: identity
 screens: [s36, s37]
 depends: [T-017, D-03]
 created: 2026-10-15
-tags: [task, task/needs-info, domain/identity, priority/P1]
+tags: [task, task/needs-info, module/identity, priority/P1]
 ---
 
 # ❓ T-018 · Widget CRUD on the projection

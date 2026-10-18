@@ -5,11 +5,11 @@ status: todo
 priority: P1
 effort: M
 feature: devices
-domain: platform
+module: platform
 screens: [s75]
 depends: []
 created: 2026-10-15
-tags: [task, task/todo, domain/platform, priority/P1]
+tags: [task, task/todo, module/platform, priority/P1]
 ---
 
 # ⬜ T-014 · Register devices on login; list and remove

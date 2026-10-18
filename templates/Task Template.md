@@ -5,38 +5,43 @@ status: todo
 priority: P1
 effort: M
 feature: <feature slug>
-domain: <domain>
+module: <module id>
 screens: []
 depends: []
+affects: []
+related: []
 created: <date>
-tags: [task, task/todo, domain/<domain>, priority/P1]
+tags: [task, task/todo, module/<module>, priority/P1]
 ---
 
 # ⬜ T-NNN · <Title>
 
-**Feature:** [[<Feature name>]] · **Status:** To do · **Priority:** P1 · **Effort:** M
+**Feature:** [[<Feature name>]] · **Status:** To do · **Priority:** P1 · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
+
+**Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-NNN` as each team picks the task up): [[T-NNN Story|Story]] · [[T-NNN Frontend Requirements|Frontend Requirements]] · [[T-NNN Backend Delivery|Backend Delivery]] · [[T-NNN Backend Integration|Backend Integration]] · [[T-NNN Frontend Delivery|Frontend Delivery]] · [[T-NNN QA Backend|QA Backend]] · [[T-NNN QA Frontend|QA Frontend]]
 
 ## What
 
+One paragraph: the change, in product terms, and the code it touches.
+
 ## Design
 
-- [[Screen Index#sNN|sNN]]
+- [[Screen Index#sNN|sNN]] …
 
-## Dependencies
+## Impact
+
+Output of `node scripts/build-tree.mjs --impact T-NNN` when the task was written: the notes this change touches and that must be updated or flagged when it ships.
+
+- …
 
 ## Definition of done
 
-- [ ] DTOs + entity + service + controller per [[Architecture#Build order for a new feature]]
-- [ ] Every visibility decision goes through `RingAccessService` ([[Ring Access Model]])
-- [ ] Spec covers each thrown domain error, each filter, and asserts secret fields are absent
+- [ ] Code per the backend's `CLAUDE.md` (every visibility decision through `RingAccessService`)
 - [ ] `pnpm typecheck && pnpm test` green
-- [ ] Branch `<module>/T-NNN/<what-you-do>` in both repos
-- [ ] Feature note updated (status, endpoints, How it works, gaps)
-- [ ] Requirements note rows flipped to ✅; story updated (approved only with product sign-off)
-- [ ] Frontend note created / updated and listed in [[Frontend Index]]
-- [ ] `node scripts/build-tree.mjs --check` passes; `tree/tree.json` and `tree/tree.md` committed
-- [ ] [[Task Board]], [[Backlog]], [[Feature Tree]], [[Frontend Contract]] updated; mirrored files changed in both repos if the contract moved
+- [ ] Task-level layer notes written by each team that touched it; feature-level notes updated (the feature is the sum of its tasks)
+- [ ] `depends` / `affects` / `related` declared; notes listed by `--impact` updated or flagged
+- [ ] `node scripts/build-tree.mjs` run; tree, board and backlog committed
 
 ## Log
 
-- <date> · created
+- <date> · created from …

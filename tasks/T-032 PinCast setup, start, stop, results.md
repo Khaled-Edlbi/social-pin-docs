@@ -5,11 +5,11 @@ status: todo
 priority: P1
 effort: L
 feature: pincast
-domain: discovery
+module: discovery
 screens: [s39, s40, s41, s42]
 depends: []
 created: 2026-10-15
-tags: [task, task/todo, domain/discovery, priority/P1]
+tags: [task, task/todo, module/discovery, priority/P1]
 ---
 
 # ⬜ T-032 · PinCast: setup, start, stop, results

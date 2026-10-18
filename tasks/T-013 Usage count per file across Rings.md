@@ -5,11 +5,11 @@ status: todo
 priority: P2
 effort: S
 feature: photo-library
-domain: identity
+module: identity
 screens: [s30]
 depends: [T-012]
 created: 2026-10-15
-tags: [task, task/todo, domain/identity, priority/P2]
+tags: [task, task/todo, module/identity, priority/P2]
 ---
 
 # ⬜ T-013 · Usage count per file across Rings

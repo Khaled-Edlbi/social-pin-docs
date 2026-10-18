@@ -5,11 +5,11 @@ status: needs-info
 priority: P1
 effort: M
 feature: ring-invitations
-domain: shared-rings
+module: shared-rings
 screens: [s17]
 depends: [D-04]
 created: 2026-10-15
-tags: [task, task/needs-info, domain/shared-rings, priority/P1]
+tags: [task, task/needs-info, module/shared-rings, priority/P1]
 ---
 
 # ❓ T-026 · Ring invitations: invite, review, decline

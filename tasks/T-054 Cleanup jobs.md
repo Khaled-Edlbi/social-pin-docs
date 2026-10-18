@@ -5,11 +5,11 @@ status: todo
 priority: P1
 effort: M
 feature: cleanup-jobs
-domain: platform
+module: platform
 screens: []
 depends: []
 created: 2026-10-15
-tags: [task, task/todo, domain/platform, priority/P1]
+tags: [task, task/todo, module/platform, priority/P1]
 ---
 
 # ⬜ T-054 · Cleanup jobs

@@ -5,11 +5,11 @@ status: todo
 priority: P1
 effort: S
 feature: interests
-domain: platform
+module: platform
 screens: [s07, s71]
 depends: []
 created: 2026-10-15
-tags: [task, task/todo, domain/platform, priority/P1]
+tags: [task, task/todo, module/platform, priority/P1]
 ---
 
 # ⬜ T-016 · Interests vocabulary and my interests
