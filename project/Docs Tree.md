@@ -62,6 +62,8 @@ A domain's chip rolls up its features (done only when every feature is); the roo
 
 **Controls.** Drag to pan, wheel or pinch to zoom, **Fit** to see everything. The caret on a node collapses or expands its subtree (the number is how many nodes are inside). Search matches names, ids, screen ids (`s44`) and summaries; status chips in the header filter (several can be on); the domain and kind selects narrow further. Filtered-out nodes fade rather than vanish, so lines keep their meaning. **Outline** is the same tree as a list with full keyboard support (↑ ↓ move, → ← expand / collapse, Enter opens, `/` focuses search, Esc closes the pane); it is the default on phones.
 
+**Where the text comes from.** The pane reads a note from the built site (`notes/…`), else from the repo folder next to `tree/`, else from GitHub raw, whichever answers first; when none does, it lists the URLs it tried next to the GitHub link.
+
 **The pane.** Frontmatter as a card, then "In the tree under", "Depends on", the relations by kind (clickable), "Contains" counts for features and domains, then the note itself. Wikilinks inside a note navigate in the page; "Open on GitHub" is the edit button. `#n/<node id>` in the URL is a shareable deep link (for example `#n/story:rings`); `#f/<path>` opens any vault note that is not a node, such as the Screen Index.
 
 **Useful views.** "What can the client build today?" → status chip *Done* + kind *API integration*. "What is waiting on product?" → status *Needs decision*. "What is in flight?" → *In progress*. "Which stories are unapproved?" → kind *User stories* + status *Draft*.

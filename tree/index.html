@@ -686,7 +686,22 @@ function buildFilters() {
 const pane = $('#pane');
 function closePane() { $('#main').classList.remove('pane-open'); S.selected = null; refresh(false); if (location.hash) history.replaceState(null, '', location.pathname); }
 function ghUrl(p) { return S.data.repo.blobBase + p.split('/').map(encodeURIComponent).join('/'); }
-function notesUrl(p) { return 'notes/' + p.split('/').map(encodeURIComponent).join('/'); }
+function encPath(p) { return p.split('/').map(encodeURIComponent).join('/'); }
+function notesUrl(p) { return 'notes/' + encPath(p); }
+// where a note's text may live, in order: the built site, the repo folder next to tree/, GitHub raw
+function noteCandidates(p) {
+  const r = S.data.repo || {};
+  const raw = r.owner && r.name ? `https://raw.githubusercontent.com/${r.owner}/${r.name}/${r.branch || 'main'}/${encPath(p)}` : null;
+  return [{ url: notesUrl(p), init: { cache: 'no-store' } }, { url: '../' + encPath(p), init: { cache: 'no-store' } }, raw && { url: raw, init: {} }].filter(Boolean);
+}
+async function fetchNote(p) {
+  const tried = [];
+  for (const c of noteCandidates(p)) {
+    try { const r = await fetch(c.url, c.init); if (r.ok) return { text: await r.text(), url: c.url, tried }; tried.push(`${c.url} → ${r.status}`); }
+    catch (e) { tried.push(`${c.url} → ${e.message}`); }
+  }
+  return { text: null, tried };
+}
 async function openNode(id) {
   const n = node(id);
   $('#main').classList.add('pane-open');
@@ -735,9 +750,12 @@ async function openFile(path, heading) {
 async function renderFile(path, heading) {
   const art = $('#p-article'); const fm = $('#p-fm');
   art.innerHTML = '<p class="empty">Loading…</p>'; fm.innerHTML = '';
-  let text;
-  try { const r = await fetch(notesUrl(path), { cache: 'no-store' }); if (!r.ok) throw new Error(r.status); text = await r.text(); }
-  catch (e) { art.innerHTML = `<p class="empty">Could not load <code>${esc(path)}</code> (${esc(String(e.message))}). <a href="${ghUrl(path)}" target="_blank" rel="noopener">Open it on GitHub</a>.</p>`; return; }
+  const got = await fetchNote(path);
+  if (got.text === null) {
+    art.innerHTML = `<p class="empty">Could not load <code>${esc(path)}</code> from any of these places:</p><ul class="empty">${got.tried.map((t) => `<li><code>${esc(t)}</code></li>`).join('')}</ul><p class="empty"><a href="${ghUrl(path)}" target="_blank" rel="noopener">Open it on GitHub</a>.</p>`;
+    return;
+  }
+  const text = got.text;
   const { data, body } = splitFrontmatter(text);
   if (data) fm.innerHTML = Object.entries(data).map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(Array.isArray(v) ? v.join(', ') : String(v))}</dd>`).join('');
   art.innerHTML = md(body, path);
