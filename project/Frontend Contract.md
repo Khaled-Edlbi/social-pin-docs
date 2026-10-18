@@ -6,7 +6,7 @@ tags: [project]
 
 # Frontend Contract
 
-What a client must get right. The OpenAPI document at `/docs` is the signature; [[FRONTEND_API_GUIDE]] is the full explanation. Base URL `/api/v1`.
+What a client must get right. The OpenAPI document at `/docs` is the signature; [[FRONTEND_API_GUIDE]] is the full explanation; **[[Frontend Index]] has one note per feature** with the screens, the calls, the flow and the errors. Base URL `/api/v1`.
 
 > **2026-10-15 — auth is passwordless.** Every sign-up and sign-in is a 6-digit one-time code; `reset-password` and `change-password` are gone. What changed and what the client must do: [[Frontend Passwordless Migration]].
 
@@ -27,23 +27,27 @@ Sign-up: `sign-up` → `verify-code` → `complete-registration` (pin name, no p
 
 ## Lists and errors
 
-`{ data, meta: { total } }`, `meta.total` unpaginated, `limit` capped at 50 (a 400 above it, not a clamp). One error body; branch on `ErrorCode`, display `message`; validation failures make `message` a string array. Unknown body keys are a 400.
+`{ data, meta: { total } }`, `meta.total` unpaginated, `limit` capped at 50 (a 400 above it, not a clamp). One error body `{ statusCode, message, error, path, timestamp }`; validation failures make `message` a string array; unknown body keys are a 400.
+
+**The stable `ErrorCode` is not on the wire yet.** Services throw it, the filter drops it ([[T-063 Put the ErrorCode on the error body]]). Until that ships, branch on `statusCode` and the endpoint, and keep `message` display-only; the per-feature notes list the codes each endpoint will carry so the switch can be written now.
+
+**No file bytes can be fetched.** `avatarFileId` and attachment ids have no URL ([[T-062 Serve uploaded file bytes by id]]); render placeholders.
 
 ## Endpoints by feature
 
 | Feature | Endpoints | Status |
 |---|---|---|
-| [[Auth & Sign-up]] | `POST /auth/sign-up`, `request-code`, `verify-code`, `complete-registration`, `login`, `login/verify`, `refresh`, `logout`, `logout-everywhere` | ✅ |
-| [[Account]] | `GET / PATCH / DELETE /users/me` | ✅ |
-| [[Profiles & Pin Name]] | `GET /profiles/pin-name/:pinName/availability` (public), `GET / POST /profiles`, `GET / PATCH / DELETE /profiles/:id`, `POST /profiles/:id/default` | ✅ |
-| [[Rings]] | `GET /rings`, `GET /rings/shared-with-me`, `POST /rings`, `GET / PATCH / DELETE /rings/:id`, `POST /rings/:id/default`, `POST /rings/:id/disposition` | ✅ |
-| [[Ring Members]] | `GET / POST /rings/:ringId/members`, `PATCH / DELETE …/members/:userId`, `POST …/members/:userId/reassign` | ✅ |
-| [[Ring Projection]] | `GET / PATCH /rings/:ringId/projection`, `…/links`, `…/info-blocks`, `…/attachments` | ✅ |
-| [[View As & Pin Views]] | `GET /views/pin/:pinName`, `GET /views/ring/:ringId`, `GET /views/user/:userId/perspectives` | ✅ |
-| [[Files Upload]] | `POST /files`, `GET / DELETE /files/:id` | ✅ |
+| [[Auth & Sign-up]] ([[Auth & Sign-up Frontend\|📱]]) | `POST /auth/sign-up`, `request-code`, `verify-code`, `complete-registration`, `login`, `login/verify`, `refresh`, `logout`, `logout-everywhere` | ✅ |
+| [[Account]] ([[Account Frontend\|📱]]) | `GET / PATCH / DELETE /users/me` | ✅ |
+| [[Profiles & Pin Name]] ([[Profiles & Pin Name Frontend\|📱]]) | `GET /profiles/pin-name/:pinName/availability` (public), `GET / POST /profiles`, `GET / PATCH / DELETE /profiles/:id`, `POST /profiles/:id/default` | ✅ |
+| [[Rings]] ([[Rings Frontend\|📱]]) | `GET /rings`, `GET /rings/shared-with-me`, `POST /rings`, `GET / PATCH / DELETE /rings/:id`, `POST /rings/:id/default`, `POST /rings/:id/disposition` | ✅ |
+| [[Ring Members]] ([[Ring Members Frontend\|📱]]) | `GET / POST /rings/:ringId/members`, `PATCH / DELETE …/members/:userId`, `POST …/members/:userId/reassign` | ✅ |
+| [[Ring Projection]] ([[Ring Projection Frontend\|📱]]) | `GET / PATCH /rings/:ringId/projection`, `…/links`, `…/info-blocks`, `…/attachments` | ✅ |
+| [[View As & Pin Views]] ([[View As & Pin Views Frontend\|📱]]) | `GET /views/pin/:pinName`, `GET /views/ring/:ringId`, `GET /views/user/:userId/perspectives` | ✅ |
+| [[Files Upload]] ([[Files Upload Frontend\|📱]]) | `POST /files`, `GET / DELETE /files/:id` | ✅ |
 | Everything else | see [[Feature Tree]] | 🟡 / ❌ |
 
-48 endpoints in total. What is not yet available: connections, events, exhibitors, meetings, PinCast, businesses, payments, notifications, Gemma, QR token issue / resolve, device and interest management.
+48 endpoints in total (re-counted 2026-10-18, after the passwordless change). What is not yet available: connections, events, exhibitors, meetings, PinCast, businesses, payments, notifications, Gemma, QR token issue / resolve, device and interest management, file download by id, `ErrorCode` on the error body.
 
 ## Enums worth knowing
 

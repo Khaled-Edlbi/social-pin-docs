@@ -6,13 +6,13 @@ status: todo
 priority: P1
 domain: platform
 screens: [s69]
-updated: 2026-10-15
+updated: 2026-10-18
 tags: [feature, status/todo, domain/platform, priority/P1]
 ---
 
 # ❌ Notifications
 
-**Status:** TODO · **Priority:** P1 · **Domain:** [[Feature Tree#Platform & Cross-cutting|Platform & Cross-cutting]]
+**Status:** TODO · **Priority:** P1 · **Domain:** [[Feature Tree#Platform & Cross-cutting|Platform & Cross-cutting]] · **Story:** [[Notifications Story]] · **Requirements:** [[Notifications Requirements]]
 
 Grouped notifications (Today / Yesterday / Last 7 days), mark all read (s69), push delivery, preferences.
 

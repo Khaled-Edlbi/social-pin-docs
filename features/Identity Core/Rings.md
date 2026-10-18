@@ -6,13 +6,13 @@ status: done
 priority: P0
 domain: identity
 screens: [s08, s09, s16, s17, s18, s19, s20, s21, s22, s26, s62]
-updated: 2026-10-15
+updated: 2026-10-18
 tags: [feature, status/done, domain/identity, priority/P0]
 ---
 
 # ✅ Rings
 
-**Status:** Done · **Priority:** P0 · **Domain:** [[Feature Tree#Identity Core|Identity Core]]
+**Status:** Done · **Priority:** P0 · **Domain:** [[Feature Tree#Identity Core|Identity Core]] · **Frontend guide:** [[Rings Frontend]] · **Story:** [[Rings Story]] · **Requirements:** [[Rings Requirements]]
 
 My Rings and Shared-with-me lists, create a Ring with name, colour, type, expiry and temporary flag, edit, set default, delete, and the keep / merge / auto-delete disposition for temporary Rings.
 
@@ -52,6 +52,10 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 **Tables / models:** `Ring`, `RingTemplate`
 
 **Code:** `src/modules/ring/`, `src/modules/ring/ring.query-builder.service.ts`
+
+## How it works
+
+`RingService` owns the lifecycle; every permission question goes to `RingAccessService`. `POST /rings` defaults the type to `PERSONAL`, rejects `EVENT` / `MINI_EVENT` / `MEETING` (400 `E_RING_01`, their own flows create them with a context behind them), checks the per-owner name clash and inserts in one transaction (409 `E_RING_01`), requires `parentRingId` and `profileId` to be the caller's own (400 `E_RING_06` / `E_RING_08`) and falls back to the default profile. `GET /rings` is scoped by `RingQueryBuilderService` (`name`, `type`, `status`, `isTemporary`; `deletedAt: null` in `defaultQuery`), default first then newest. `GET /rings/shared-with-me` applies `ringLiveFilter` **and** `membershipLiveFilter` from the engine, so only Rings the caller can read right now appear, newest first. `PATCH /rings/:id` passes through `assertCanAdminister(…, 'CONTENT_MANAGER')`, which ignores the Ring's expiry so an expired Ring stays editable. `POST /rings/:id/default` demotes then promotes in one transaction (partial unique index: one default per owner). `POST /rings/:id/disposition` runs `UNDECIDED → KEEP | MERGE | AUTO_DELETE`: `KEEP` clears the expiry and the temporary flag; `MERGE` needs another Ring of the same owner (400 `E_RING_07`), upserts every active member into the target with their window (an expired row there is reactivated rather than skipped), marks the source rows `REMOVED` and the Ring `ARCHIVED` with `mergedIntoRingId`; `AUTO_DELETE` archives and sets `expiresAt` to now, leaving the purge to the retention job. `DELETE /rings/:id` is a soft delete and refuses the default (409 `E_RING_04`), because a scanned QR needs one Ring that resolves. The backend never writes `RING_STATUS.EXPIRED`; expiry is evaluated live from the timestamps.
 
 ### What exists
 

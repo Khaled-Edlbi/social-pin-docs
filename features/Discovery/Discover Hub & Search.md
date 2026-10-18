@@ -6,13 +6,13 @@ status: todo
 priority: P1
 domain: discovery
 screens: [s38]
-updated: 2026-10-15
+updated: 2026-10-18
 tags: [feature, status/todo, domain/discovery, priority/P1]
 ---
 
 # ❌ Discover Hub & Search
 
-**Status:** TODO · **Priority:** P1 · **Domain:** [[Feature Tree#Discovery|Discovery]]
+**Status:** TODO · **Priority:** P1 · **Domain:** [[Feature Tree#Discovery|Discovery]] · **Story:** [[Discover Hub & Search Story]] · **Requirements:** [[Discover Hub & Search Requirements]]
 
 Discover tab (s38): search by `!pinname`, recent searches, entry points to People, Events, Companies, Exhibitors, PinCast, import contacts.
 

@@ -29,6 +29,8 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-043 Temporary meeting Ring per meeting]] | [[Meetings]] | Meetings | ⬜ To do | M | [[T-042 Meeting request, accept with slots, decline with reason|T-042]] |
 | [[T-044 My meetings, calendar, detail, reschedule, cancel]] | [[Meetings]] | Meetings | ⬜ To do | M | [[T-042 Meeting request, accept with slots, decline with reason|T-042]] |
 | [[T-053 Audit log writes]] | [[Audit Log]] | Platform & Cross-cutting | ⬜ To do | S | — |
+| [[T-062 Serve uploaded file bytes by id]] | [[Files Upload]] | Identity Core | ⬜ To do | S | — |
+| [[T-063 Put the ErrorCode on the error body]] | [[Error Contract]] | Platform & Cross-cutting | ⬜ To do | S | — |
 | [[T-055 Run the e2e suite in CI against PostGIS]] | [[E2E Test Run]] | Platform & Cross-cutting | ⬜ To do | S | — |
 | [[T-011 Create the Event Ring on registration]] | [[Event Ring Auto-creation]] | Events | ⛔ Blocked | M | [[T-033 Events list, detail, schedule|T-033]] |
 | [[T-035 Registration transaction with order and payment]] | [[Events Before]] | Events | ⛔ Blocked | L | [[T-034 Tickets, packages, levels, sold-out|T-034]], [[T-047 Orders, payments and the provider webhook|T-047]] |
@@ -91,7 +93,7 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 ## Suggested order of work
 
 1. **Unblock the decisions** (T-056 … T-061). Four of them (D-01 … D-04) change the schema; deciding them first avoids rework on everything built on projections and Ring settings.
-2. **Finish the identity core**: code delivery (T-001, T-002), QR issue / resolve (T-007, T-008), counts (T-004), audit log (T-053), e2e in CI (T-055).
+2. **Finish the identity core**: the two found by the frontend pass first, because every client screen needs them (T-063 error codes on the wire, T-062 file bytes by id); then code delivery (T-001, T-002), QR issue / resolve (T-007, T-008), counts (T-004), audit log (T-053), e2e in CI (T-055).
 3. **Connections** (T-021 … T-024) and **notifications** (T-045): the next most important feature after Rings, and the first thing every event or meeting flow needs.
 4. **Events before + payments + Event Ring** (T-033, T-034, T-047, T-035, T-011).
 5. **Meetings** (T-041 … T-044) and **events during** (T-036 … T-040).

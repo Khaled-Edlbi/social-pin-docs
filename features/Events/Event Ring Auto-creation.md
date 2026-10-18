@@ -6,13 +6,13 @@ status: partial
 priority: P0
 domain: events
 screens: [s52]
-updated: 2026-10-15
+updated: 2026-10-18
 tags: [feature, status/partial, domain/events, priority/P0]
 ---
 
 # 🟡 Event Ring Auto-creation
 
-**Status:** Partial (needs more) · **Priority:** P0 · **Domain:** [[Feature Tree#Events|Events]]
+**Status:** Partial (needs more) · **Priority:** P0 · **Domain:** [[Feature Tree#Events|Events]] · **Story:** [[Event Ring Auto-creation Story]] · **Requirements:** [[Event Ring Auto-creation Requirements]]
 
 The `EVENT` Ring type exists and is rejected on manual create; nothing creates one when a registration succeeds (s52 "Event Ring granted").
 

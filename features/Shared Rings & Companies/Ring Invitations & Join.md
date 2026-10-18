@@ -6,13 +6,13 @@ status: todo
 priority: P1
 domain: shared-rings
 screens: [s17, s74]
-updated: 2026-10-15
+updated: 2026-10-18
 tags: [feature, status/todo, domain/shared-rings, priority/P1]
 ---
 
 # ❌ Ring Invitations & Join
 
-**Status:** TODO · **Priority:** P1 · **Domain:** [[Feature Tree#Shared Rings & Companies|Shared Rings & Companies]]
+**Status:** TODO · **Priority:** P1 · **Domain:** [[Feature Tree#Shared Rings & Companies|Shared Rings & Companies]] · **Story:** [[Ring Invitations & Join Story]] · **Requirements:** [[Ring Invitations & Join Requirements]]
 
 Being invited into someone else's Ring: review or decline an invite (s17), join with a code, a verified work email or a colleague's QR (s74), and "what you contribute" to a shared Ring.
 

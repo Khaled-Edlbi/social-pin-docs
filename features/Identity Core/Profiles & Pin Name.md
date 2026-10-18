@@ -6,13 +6,13 @@ status: done
 priority: P0
 domain: identity
 screens: [s06]
-updated: 2026-10-15
+updated: 2026-10-18
 tags: [feature, status/done, domain/identity, priority/P0]
 ---
 
 # ✅ Profiles & Pin Name
 
-**Status:** Done · **Priority:** P0 · **Domain:** [[Feature Tree#Identity Core|Identity Core]]
+**Status:** Done · **Priority:** P0 · **Domain:** [[Feature Tree#Identity Core|Identity Core]] · **Frontend guide:** [[Profiles & Pin Name Frontend]] · **Story:** [[Profiles & Pin Name Story]] · **Requirements:** [[Profiles & Pin Name Requirements]]
 
 Multiple profiles per account, the `!`-prefixed unique Pin name with a public live availability check, and the sensitive base fields (birthdate, gender, marital status) that Rings opt into.
 
@@ -41,6 +41,10 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 **Tables / models:** `Profile`
 
 **Code:** `src/modules/profile/`
+
+## How it works
+
+`ProfileService` owns Pin-name uniqueness and the canonical personal fields; what a Ring shows of them belongs to `RingProfileService`. Uniqueness is global and case-insensitive, decided on `pinNameNormalized` (lower-cased), while the original casing is kept for display; `GET /profiles/pin-name/:pinName/availability` is `@Public()` and answers only a boolean. `POST /profiles` and a `PATCH` that changes the handle run the check and the write in one transaction (409 `E_PROFILE_02` on a clash; two concurrent requests cannot both win). The first profile is created inside `completeRegistration`'s transaction and is the default; `POST /profiles/:id/default` demotes then promotes in one transaction because the partial unique index `profiles_one_default_per_user` allows a single default. `DELETE /profiles/:id` is a soft delete and refuses the default (409 `E_PROFILE_03`): an account with no default profile has no Ring projection to fall back on. `GET /profiles` lists the owner's own rows, default first, through `ProfileQueryBuilderService` (`pinName` partial match, `profileType`), and `meta.total` is the unpaginated count. The three sensitive fields are nullable on the profile and `@MyIsOptional(true)` on the DTO, so `null` clears them; whether an audience sees them is decided per Ring.
 
 ### What exists
 

@@ -6,13 +6,13 @@ status: todo
 priority: P0
 domain: meetings
 screens: [s59, s61, s64, s66, s67]
-updated: 2026-10-15
+updated: 2026-10-18
 tags: [feature, status/todo, domain/meetings, priority/P0]
 ---
 
 # ❌ Meetings
 
-**Status:** TODO · **Priority:** P0 · **Domain:** [[Feature Tree#Meetings|Meetings]]
+**Status:** TODO · **Priority:** P0 · **Domain:** [[Feature Tree#Meetings|Meetings]] · **Story:** [[Meetings Story]] · **Requirements:** [[Meetings Requirements]]
 
 Availability slots, request a meeting with a slot (s59), a temporary Ring created per meeting, accept by offering slots or decline with a reason (s64), my meetings and calendar (s61, s66), meeting detail with agenda, shared files, reschedule and cancel (s67).
 

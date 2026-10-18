@@ -6,13 +6,13 @@ status: partial
 priority: P1
 domain: identity
 screens: [s36, s37]
-updated: 2026-10-15
+updated: 2026-10-18
 tags: [feature, status/partial, domain/identity, priority/P1]
 ---
 
 # 🟡 Widgets
 
-**Status:** Partial (needs more) · **Priority:** P1 · **Domain:** [[Feature Tree#Identity Core|Identity Core]]
+**Status:** Partial (needs more) · **Priority:** P1 · **Domain:** [[Feature Tree#Identity Core|Identity Core]] · **Story:** [[Widgets Story]] · **Requirements:** [[Widgets Requirements]]
 
 Widgets on a Ring (s37). The table exists; no endpoints; the type list does not match the design.
 

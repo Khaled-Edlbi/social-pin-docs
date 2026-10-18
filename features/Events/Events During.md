@@ -6,13 +6,13 @@ status: todo
 priority: P0
 domain: events
 screens: [s53, s54, s55, s56, s57, s58]
-updated: 2026-10-15
+updated: 2026-10-18
 tags: [feature, status/todo, domain/events, priority/P0]
 ---
 
 # ❌ Events During
 
-**Status:** TODO · **Priority:** P0 · **Domain:** [[Feature Tree#Events|Events]]
+**Status:** TODO · **Priority:** P0 · **Domain:** [[Feature Tree#Events|Events]] · **Story:** [[Events During Story]] · **Requirements:** [[Events During Requirements]]
 
 Event mode hub (s53), exhibitors list and detail (s54, s55), event pass with a 60-second rotating code (s56), floor map and booths (s57), catalogue of products and talks (s58), lounges and upgrades.
 

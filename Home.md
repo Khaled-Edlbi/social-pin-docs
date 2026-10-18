@@ -6,6 +6,8 @@ tags: [map]
 
 # Social Pin · Backend Docs Vault
 
+> **Browse it as a tree:** `https://khaled-edlbi.github.io/social-pin-docs/` (or `node scripts/build-tree.mjs --serve` locally). Project → domain → feature → Docs, User Story, Frontend Requirements, API Integration, tasks and decisions, each with a status chip; relations light up on hover. How it works and how to keep it true: [[Docs Tree]].
+>
 > **Open this repository as an Obsidian vault.** It mirrors `docs/` in the backend repo (`social-pin`); the design files it references live there under `socialPin-design/`. Everything is plain Markdown with wikilinks, so it also reads fine on GitHub. Optional plugins that make it nicer: **Dataview** (live tables), **Kanban** (the [[Task Board]]). The canvas and graph colours work with Obsidian's core plugins only.
 
 ## What Social Pin is
@@ -24,7 +26,9 @@ Full description: [[Project Overview]]. Vocabulary: [[Glossary]].
 
 | Area | Status |
 |---|---|
-| Identity core: auth, account, profiles, Rings, members, projections, View as, files, access engine | ✅ Done, 49 endpoints, 168 unit tests green |
+| Identity core: auth, account, profiles, Rings, members, projections, View as, files, access engine | ✅ Done, 49 endpoints, 168 unit tests green (re-verified 2026-10-15); a frontend note per feature in [[Frontend Index]] |
+| User stories and frontend requirements | ✏️ Drafted for all 39 features (2026-10-18), awaiting product sign-off; see the [[Docs Tree]] |
+| Error contract (`ErrorCode` on the wire), file bytes by id | 🟡 Found by the frontend pass: [[T-063 Put the ErrorCode on the error body]], [[T-062 Serve uploaded file bytes by id]] |
 | Code delivery, counts, delegated admins, badge / QR, Event Ring, photo library, devices, interests, widgets, linked accounts | 🟡 Partial: tables exist, endpoints missing |
 | Connections, shared Rings, companies, Discover, PinCast, events, meetings, exhibitor, post-event, payments, subscription, notifications, Gemma, audit log, cleanup jobs, e2e run | ❌ TODO: schema only (about 30 tables with no service) |
 | Design vs backend disagreements | ❓ 5 open [[Decisions]] (D-01 passwordless: decided and shipped) |
@@ -45,6 +49,8 @@ social-pin-docs/   (= docs/ in the backend repo)
 │   ├── Database & Migrations    Prisma 7 rules, the three migrations, deploy-not-dev
 │   ├── Developer Setup          first run, verification, demo accounts
 │   ├── Frontend Contract        what a client must get right, endpoint summary
+│   ├── Workflow                 ticket → branch → code → docs, in both repos
+│   ├── Docs Tree                how to read the tree page, the JSON index, the after-a-task checklist
 │   ├── Frontend Passwordless Migration  what the client must change for OTP-only auth
 │   ├── Glossary
 │   └── Status Report 2026-10-15 the backend vs design comparison this vault is built from
@@ -52,7 +58,14 @@ social-pin-docs/   (= docs/ in the backend repo)
 │   ├── Feature Tree             ✅ 🟡 ❌ tree of every feature and task
 │   ├── Feature Graph            Mermaid: relationships + dependency spine
 │   ├── Feature Map.canvas       Obsidian canvas of the same graph
-│   └── <Domain>/<Feature>.md    design screens · endpoints · tables · gaps · tasks
+│   └── <Domain>/<Feature>.md    design screens · endpoints · how it works · gaps · tasks
+├── stories/                     one user story per feature (type: story, draft → approved)
+│   └── <Domain>/<Feature> Story.md
+├── requirements/                one note per feature: what the client needs from the backend, ✅ / ❌ per row
+│   └── <Domain>/<Feature> Requirements.md
+├── frontend/                    one note per done feature, for the client
+│   ├── Frontend Index           reading order, cross-cutting warnings
+│   └── <Domain>/<Feature> Frontend.md  screens → calls · flow · shapes · state · errors · rules · not yet
 ├── tasks/                       one note per task (T-001 …)
 │   ├── Task Board               Kanban columns: needs decision · blocked · backlog · in progress · done
 │   └── Backlog                  priority-ordered table + suggested order of work
@@ -63,7 +76,9 @@ social-pin-docs/   (= docs/ in the backend repo)
 │   ├── Navigation Map           the click-through map rendered
 │   ├── Wireframe Brief          verbatim copy of the brief, linkable by section
 │   └── Brief Section Map        brief § → features
-├── templates/                   Feature / Task / Decision templates
+├── tree/                        the docs tree page (index.html) and its generated index (tree.json, tree.md)
+├── scripts/                     build-tree.mjs: generate, validate (--check), serve (--serve)
+├── templates/                   Feature / Task / Decision / Story / Requirements / Frontend templates
 ├── SPEC_MAP.md                  (original) spec entity → code map
 ├── DEVELOPER_GUIDE.md           (original) full setup guide
 └── FRONTEND_API_GUIDE.md        (original) full client guide
@@ -72,13 +87,13 @@ social-pin-docs/   (= docs/ in the backend repo)
 ## Start here, by role
 
 - **Backend developer picking up work** → [[Backlog]] → the task's feature note → [[Ring Access Model]] → [[Architecture#Build order for a new feature]].
-- **Product / design** → [[Decisions]] first (five answers unblock 19 tasks), then [[Screen Index]] to see what each screen can do today.
-- **Frontend developer** → [[Frontend Contract]] and `FRONTEND_API_GUIDE.md`, then the ✅ features in [[Feature Tree]]. **Auth went passwordless on 2026-10-15** — what changed and what to do: [[Frontend Passwordless Migration]].
+- **Product / design** → [[Decisions]] first (five answers unblock 19 tasks), then [[Screen Index]] to see what each screen can do today; the user stories to approve are the ✏️ Draft nodes in the [[Docs Tree]].
+- **Frontend developer** → [[Frontend Contract]], then [[Frontend Index]] (one note per done feature), then `FRONTEND_API_GUIDE.md` for the long form. **Auth went passwordless on 2026-10-15** — what changed and what to do: [[Frontend Passwordless Migration]].
 - **Anyone new** → [[Project Overview]] → [[Glossary]] → [[Feature Graph]].
 
 ## How this vault is organised
 
-- **Three note types, one frontmatter each**: `type: feature` (status `done | partial | todo | frontend`), `type: task` (status `todo | needs-info | blocked | in-progress | done`), `type: decision` (status `open | decided`). Tags mirror them (`#status/done`, `#task/blocked`, `#decision/open`) so the graph view colours by state (`.obsidian/graph.json`).
+- **Six note types, one frontmatter each**: `type: feature` (status `done | partial | todo | frontend`), `type: task` (status `todo | needs-info | blocked | in-progress | done`), `type: decision` (status `open | decided`), `type: story` and `type: requirements` (status `draft | approved`, one per feature), `type: frontend` (one per done feature). Tags mirror them (`#status/done`, `#task/blocked`, `#decision/open`, `#frontend`) so the graph view colours by state (`.obsidian/graph.json`).
 - **Links are the graph.** A feature links its screens, tasks, decisions and related features; a task links its feature and dependencies; a decision links the features it blocks. Open Obsidian's graph view with filter `tag:#feature OR tag:#decision` to see the idea map.
 - **Design ids are the prototype's.** `s44` means screen 44 in `socialPin-design/.proto2.json`. `[[Screen Index#s44]]` lands on it.
-- **Updating.** When a task ships: set its `status: done`, move its card on the [[Task Board]], and update the feature note's status, endpoints and gaps. New work starts from `templates/`.
+- **Updating.** The ticket comes first, the branch in both repos is named after it (`<module>/<ticket-no>/<what-you-do>`, e.g. `ring/T-004/member-count`), and when the code ships the same change updates the task note, the [[Task Board]] and [[Backlog]], the feature note (status, endpoints, *How it works*, gaps), the frontend note, the [[Feature Tree]] counts and this page. The full procedure: [[Workflow]], the after-a-task checklist in [[Docs Tree]]. New work starts from `templates/`. Then `node scripts/build-tree.mjs` and commit `tree/`.

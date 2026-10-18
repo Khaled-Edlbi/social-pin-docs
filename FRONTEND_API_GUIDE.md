@@ -141,9 +141,16 @@ One body for every failure:
 }
 ```
 
-Domain errors also carry a stable `ErrorCode` (`E_RING_01`, `E_AUTH_04`, …).
-**Branch on the code, display the message.** The message is for humans and may
-be reworded at any time; the code will not change meaning.
+Domain errors are thrown with a stable `ErrorCode` (`E_RING_01`, `E_AUTH_04`, …)
+and the intent is **branch on the code, display the message**: the message is
+for humans and may be reworded at any time; the code will not change meaning.
+
+**Today the code is not on the wire.** The exception filter writes only
+`statusCode`, `message`, `error`, `path` and `timestamp`, and `error` reads
+`HttpException` for domain errors. Until that is fixed (T-063 in
+`social-pin-docs`), branch on the status and the endpoint; the per-feature
+frontend notes in the docs vault list the code each endpoint will carry, so the
+switch can be written now and lit up later.
 
 Validation failures set `message` to a **string array**, one entry per failed
 constraint. Handle both shapes.
@@ -299,6 +306,10 @@ Uploading does **not** make a file visible to anyone. It becomes readable when a
 context the viewer can reach references it — attach it to a ring projection. The
 response deliberately omits the storage path.
 
+**There is no way to fetch the bytes back yet.** The response has no URL and
+no route serves a file by id, so `avatarFileId` and attachment ids cannot be
+rendered; show placeholders until T-062 ships.
+
 ---
 
 ## Enums
@@ -326,3 +337,6 @@ each.
 
 QR tokens are partially available: `GET /views/ring/:ringId` renders a scanned
 ring, but the endpoints to issue and revoke a badge token are not written yet.
+
+Per-feature client guides (screens → calls, flows, error tables, what is not
+available yet) live in the `social-pin-docs` vault under `frontend/`.

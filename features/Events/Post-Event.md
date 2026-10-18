@@ -6,13 +6,13 @@ status: todo
 priority: P1
 domain: events
 screens: [s62]
-updated: 2026-10-15
+updated: 2026-10-18
 tags: [feature, status/todo, domain/events, priority/P1]
 ---
 
 # ❌ Post-Event
 
-**Status:** TODO · **Priority:** P1 · **Domain:** [[Feature Tree#Events|Events]]
+**Status:** TODO · **Priority:** P1 · **Domain:** [[Feature Tree#Events|Events]] · **Story:** [[Post-Event Story]] · **Requirements:** [[Post-Event Requirements]]
 
 Summary stats (connections, meetings, scans) and follow-up suggestions (s62). The keep / merge / expire choice for the Event Ring already exists.
 

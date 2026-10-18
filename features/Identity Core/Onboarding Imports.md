@@ -6,13 +6,13 @@ status: todo
 priority: P1
 domain: identity
 screens: [s03, s03a, s03b, s04, s05]
-updated: 2026-10-15
+updated: 2026-10-18
 tags: [feature, status/todo, domain/identity, priority/P1]
 ---
 
 # ❌ Onboarding Imports
 
-**Status:** TODO · **Priority:** P1 · **Domain:** [[Feature Tree#Identity Core|Identity Core]]
+**Status:** TODO · **Priority:** P1 · **Domain:** [[Feature Tree#Identity Core|Identity Core]] · **Story:** [[Onboarding Imports Story]] · **Requirements:** [[Onboarding Imports Requirements]]
 
 Start from an import: LinkedIn OAuth → importing → review fields (s04, s05), scan a paper business card (s03a), import from a portfolio or Behance URL (s03b). Only `SocialIdentity` has a table.
 

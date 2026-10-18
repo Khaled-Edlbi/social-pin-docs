@@ -6,13 +6,13 @@ status: partial
 priority: P1
 domain: platform
 screens: [s75]
-updated: 2026-10-15
+updated: 2026-10-18
 tags: [feature, status/partial, domain/platform, priority/P1]
 ---
 
 # 🟡 Devices & NFC
 
-**Status:** Partial (needs more) · **Priority:** P1 · **Domain:** [[Feature Tree#Platform & Cross-cutting|Platform & Cross-cutting]]
+**Status:** Partial (needs more) · **Priority:** P1 · **Domain:** [[Feature Tree#Platform & Cross-cutting|Platform & Cross-cutting]] · **Story:** [[Devices & NFC Story]] · **Requirements:** [[Devices & NFC Requirements]]
 
 Linked-device management (s75): list devices, remove one, sign out all others, pair an NFC card.
 

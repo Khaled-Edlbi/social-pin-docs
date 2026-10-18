@@ -6,13 +6,13 @@ status: todo
 priority: P0
 domain: events
 screens: [s48, s49, s50, s51, s52]
-updated: 2026-10-15
+updated: 2026-10-18
 tags: [feature, status/todo, domain/events, priority/P0]
 ---
 
 # ❌ Events Before
 
-**Status:** TODO · **Priority:** P0 · **Domain:** [[Feature Tree#Events|Events]]
+**Status:** TODO · **Priority:** P0 · **Domain:** [[Feature Tree#Events|Events]] · **Story:** [[Events Before Story]] · **Requirements:** [[Events Before Requirements]]
 
 Events list with filters and "your contacts are going" (s48), event landing page and schedule (s49), tickets, access levels, sub-events, sold out (s50), payment (s51), Event Ring granted on registration (s52).
 

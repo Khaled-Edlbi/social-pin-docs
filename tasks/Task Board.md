@@ -45,6 +45,8 @@ kanban-plugin: board
 
 - [ ] [[T-019 LinkedIn OAuth link, unlink, login]] #P1 #linked-accounts
 - [ ] [[T-001 Wire an email provider for one-time codes]] #P0 #code-delivery
+- [ ] [[T-062 Serve uploaded file bytes by id]] #P0 #files
+- [ ] [[T-063 Put the ErrorCode on the error body]] #P0 #error-contract
 - [ ] [[T-002 Wire an SMS provider for one-time codes]] #P0 #code-delivery
 - [ ] [[T-007 Issue and rotate the QR token for a Ring]] #P0 #badge-qr
 - [ ] [[T-008 Resolve a scanned QR token]] #P0 #badge-qr

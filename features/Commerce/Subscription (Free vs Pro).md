@@ -6,13 +6,13 @@ status: todo
 priority: P1
 domain: commerce
 screens: [s34, s70]
-updated: 2026-10-15
+updated: 2026-10-18
 tags: [feature, status/todo, domain/commerce, priority/P1]
 ---
 
 # ❌ Subscription (Free vs Pro)
 
-**Status:** TODO · **Priority:** P1 · **Domain:** [[Feature Tree#Commerce|Commerce]]
+**Status:** TODO · **Priority:** P1 · **Domain:** [[Feature Tree#Commerce|Commerce]] · **Story:** [[Subscription (Free vs Pro) Story]] · **Requirements:** [[Subscription (Free vs Pro) Requirements]]
 
 Free vs Pro (s70) and the Pro gates: Smart Match, any-lounge access, Gemma automation, permanent QR.
 

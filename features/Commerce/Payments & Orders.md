@@ -6,13 +6,13 @@ status: todo
 priority: P1
 domain: commerce
 screens: [s50, s51]
-updated: 2026-10-15
+updated: 2026-10-18
 tags: [feature, status/todo, domain/commerce, priority/P1]
 ---
 
 # ❌ Payments & Orders
 
-**Status:** TODO · **Priority:** P1 · **Domain:** [[Feature Tree#Commerce|Commerce]]
+**Status:** TODO · **Priority:** P1 · **Domain:** [[Feature Tree#Commerce|Commerce]] · **Story:** [[Payments & Orders Story]] · **Requirements:** [[Payments & Orders Requirements]]
 
 Ticket / package / sub-event purchase (s51): order with price snapshots, payment, provider webhook with idempotent `providerReference`.
 

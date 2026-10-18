@@ -12,7 +12,7 @@ tags: [feature, status/partial, domain/platform, priority/P0]
 
 # 🟡 Code Delivery
 
-**Status:** Partial (needs more) · **Priority:** P0 · **Domain:** [[Feature Tree#Platform & Cross-cutting|Platform & Cross-cutting]]
+**Status:** Partial (needs more) · **Priority:** P0 · **Domain:** [[Feature Tree#Platform & Cross-cutting|Platform & Cross-cutting]] · **Story:** [[Code Delivery Story]] · **Requirements:** [[Code Delivery Requirements]]
 
 Delivering the one-time code by email or SMS. Today the code is only logged, and returned as `devCode` **in every environment** (product decision 2026-10-15, so the passwordless app can sign in before a provider exists).
 

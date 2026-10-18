@@ -6,13 +6,13 @@ status: partial
 priority: P1
 domain: platform
 screens: [s07, s71]
-updated: 2026-10-15
+updated: 2026-10-18
 tags: [feature, status/partial, domain/platform, priority/P1]
 ---
 
 # 🟡 Interests
 
-**Status:** Partial (needs more) · **Priority:** P1 · **Domain:** [[Feature Tree#Platform & Cross-cutting|Platform & Cross-cutting]]
+**Status:** Partial (needs more) · **Priority:** P1 · **Domain:** [[Feature Tree#Platform & Cross-cutting|Platform & Cross-cutting]] · **Story:** [[Interests Story]] · **Requirements:** [[Interests Requirements]]
 
 Interest picking during onboarding (s07) and from Me (s71). Used for search and matchmaking, never shown to others.
 

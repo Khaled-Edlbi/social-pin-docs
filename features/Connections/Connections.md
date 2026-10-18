@@ -6,13 +6,13 @@ status: todo
 priority: P0
 domain: connections
 screens: [s44, s45, s46, s47, s62]
-updated: 2026-10-15
+updated: 2026-10-18
 tags: [feature, status/todo, domain/connections, priority/P0]
 ---
 
 # ❌ Connections
 
-**Status:** TODO · **Priority:** P0 · **Domain:** [[Feature Tree#Connections|Connections]]
+**Status:** TODO · **Priority:** P0 · **Domain:** [[Feature Tree#Connections|Connections]] · **Story:** [[Connections Story]] · **Requirements:** [[Connections Requirements]]
 
 A connection is an **access request**, not a content subscription. Send a request after a scan, review the inbox, accept and pick a Ring (this sets `ConnectionRequest.grantedRingId`), connection detail, introduce, block and unblock, contacts list.
 

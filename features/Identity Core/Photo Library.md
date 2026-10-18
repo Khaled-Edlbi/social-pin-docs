@@ -6,13 +6,13 @@ status: partial
 priority: P1
 domain: identity
 screens: [s29, s30]
-updated: 2026-10-15
+updated: 2026-10-18
 tags: [feature, status/partial, domain/identity, priority/P1]
 ---
 
 # 🟡 Photo Library
 
-**Status:** Partial (needs more) · **Priority:** P1 · **Domain:** [[Feature Tree#Identity Core|Identity Core]]
+**Status:** Partial (needs more) · **Priority:** P1 · **Domain:** [[Feature Tree#Identity Core|Identity Core]] · **Story:** [[Photo Library Story]] · **Requirements:** [[Photo Library Requirements]]
 
 The user's uploaded photos, reusable across Rings, with a "N Rings inherit it" count (s30).
 

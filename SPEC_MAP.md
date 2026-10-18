@@ -205,3 +205,10 @@ Stated plainly, because a gap described as done is worse than a gap.
    indexes and documented intent — and no services or endpoints.
 6. **e2e specs need a seeded, disposable database.** They are written and
    typecheck, but have not been run here: no `DATABASE_URL` was available.
+7. **The `ErrorCode` is not on the error body.** Services throw
+   `{ ErrorCode, message }`, but `AllExceptionsFilter` copies only `message`
+   and `error` into the response, so clients cannot branch on the code yet.
+   Tracked as T-063 in `social-pin-docs`.
+8. **No route serves file bytes by id.** `FileEntity` hides `storageKey` by
+   design and nothing maps a file id to a download, so `avatarFileId` and
+   attachment ids cannot be rendered by a client. Tracked as T-062.

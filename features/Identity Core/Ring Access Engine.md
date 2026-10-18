@@ -6,13 +6,13 @@ status: done
 priority: P0
 domain: identity
 screens: []
-updated: 2026-10-15
+updated: 2026-10-18
 tags: [feature, status/done, domain/identity, priority/P0]
 ---
 
 # ✅ Ring Access Engine
 
-**Status:** Done · **Priority:** P0 · **Domain:** [[Feature Tree#Identity Core|Identity Core]]
+**Status:** Done · **Priority:** P0 · **Domain:** [[Feature Tree#Identity Core|Identity Core]] · **Frontend guide:** [[Ring Access Engine Frontend]] · **Story:** [[Ring Access Engine Story]] · **Requirements:** [[Ring Access Engine Requirements]]
 
 `RingAccessService`: the one place that decides whether a viewer may see something. Every read path, and every future feature (events, meetings, chat, posts, Gemma), routes through it.
 
@@ -31,6 +31,10 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 **Tables / models:** `Ring`, `RingMember`, `RingAdmin`, `UserBlock`
 
 **Code:** `src/modules/ring-access/`
+
+## How it works
+
+`RingAccessService` exposes two reusable `where` fragments and four decisions. `ringLiveFilter(now)`: `ACTIVE`, not deleted, `startsAt` null or past, `expiresAt` null or **strictly** future. `membershipLiveFilter(now)`: the same on the membership row. `resolveAccessibleRings(viewer, owner)`: the owner's own live Rings (default first, then oldest) when viewer = owner; otherwise an empty list if `isBlockedEitherWay`, else the owner's live Rings the viewer is a live member of, in the same order. `resolveDefaultAccess` returns the first of those or throws the not-shared 404 (`E_RING_ACCESS_01`) so that "no such person" and "not shared" are one answer. `assertRingReadable(ringId, viewer)`: the Ring must pass `ringLiveFilter` (404 `E_RING_ACCESS_02`), the owner passes, a block or no live membership gives the not-shared 404. `assertCanAdminister(ringId, actor, minimumLevel)`: finds the Ring **without** the live filter (an expired Ring must stay editable), the owner passes, otherwise a `RingAdmin` row at or above the level (`MEMBER_MANAGER` < `CONTENT_MANAGER` < `FULL`) is required or it is 403 `E_RING_05`. Every call takes `now` as a parameter and queries fresh; nothing is cached. `RingService`, `RingMemberService` and `RingProfileService` import this service and never query `rings` or `ring_members` to decide access themselves.
 
 ### What exists
 

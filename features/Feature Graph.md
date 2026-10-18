@@ -58,6 +58,7 @@ graph LR
     subscription["❌ Subscription (Free vs Pro)"]:::todo
   end
   subgraph platform["Platform & Cross-cutting"]
+    error_contract["🟡 Error Contract"]:::partial
     code_delivery["🟡 Code Delivery"]:::partial
     devices["🟡 Devices & NFC"]:::partial
     interests["🟡 Interests"]:::partial
@@ -106,6 +107,8 @@ graph LR
   view_as --- badge_qr
   view_as --- connections
   files --- photo_library
+  error_contract --- auth
+  error_contract --- view_as
   ring_access --- connections
   ring_access --- events_during
   ring_access --- meetings

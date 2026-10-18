@@ -6,13 +6,13 @@ status: todo
 priority: P0
 domain: platform
 screens: []
-updated: 2026-10-15
+updated: 2026-10-18
 tags: [feature, status/todo, domain/platform, priority/P0]
 ---
 
 # ❌ E2E Test Run
 
-**Status:** TODO · **Priority:** P0 · **Domain:** [[Feature Tree#Platform & Cross-cutting|Platform & Cross-cutting]]
+**Status:** TODO · **Priority:** P0 · **Domain:** [[Feature Tree#Platform & Cross-cutting|Platform & Cross-cutting]] · **Story:** [[E2E Test Run Story]] · **Requirements:** [[E2E Test Run Requirements]]
 
 The e2e specs are written and typecheck but have never run: they need a disposable, migrated and seeded PostGIS database.
 

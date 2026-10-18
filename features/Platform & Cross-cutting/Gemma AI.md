@@ -6,13 +6,13 @@ status: todo
 priority: P2
 domain: platform
 screens: [s13, s60]
-updated: 2026-10-15
+updated: 2026-10-18
 tags: [feature, status/todo, domain/platform, priority/P2]
 ---
 
 # ❌ Gemma AI
 
-**Status:** TODO · **Priority:** P2 · **Domain:** [[Feature Tree#Platform & Cross-cutting|Platform & Cross-cutting]]
+**Status:** TODO · **Priority:** P2 · **Domain:** [[Feature Tree#Platform & Cross-cutting|Platform & Cross-cutting]] · **Story:** [[Gemma AI Story]] · **Requirements:** [[Gemma AI Requirements]]
 
 The cross-cutting assistant: assistant sheet (s13), Smart Match (s60), and suggestions everywhere (Pin name, Ring name, which Ring on accept, bio rewrite, meeting agenda).
 

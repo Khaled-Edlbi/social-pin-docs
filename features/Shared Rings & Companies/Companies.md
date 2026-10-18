@@ -6,13 +6,13 @@ status: todo
 priority: P1
 domain: shared-rings
 screens: [s72, s73]
-updated: 2026-10-15
+updated: 2026-10-18
 tags: [feature, status/todo, domain/shared-rings, priority/P1]
 ---
 
 # ❌ Companies
 
-**Status:** TODO · **Priority:** P1 · **Domain:** [[Feature Tree#Shared Rings & Companies|Shared Rings & Companies]]
+**Status:** TODO · **Priority:** P1 · **Domain:** [[Feature Tree#Shared Rings & Companies|Shared Rings & Companies]] · **Story:** [[Companies Story]] · **Requirements:** [[Companies Requirements]]
 
 My companies (s72) and company detail (s73): the business tables exist (`Business`, `BusinessMember`, tags, files), no endpoints.
 

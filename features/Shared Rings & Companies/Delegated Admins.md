@@ -6,13 +6,13 @@ status: partial
 priority: P1
 domain: shared-rings
 screens: [s26, s27]
-updated: 2026-10-15
+updated: 2026-10-18
 tags: [feature, status/partial, domain/shared-rings, priority/P1]
 ---
 
 # 🟡 Delegated Admins
 
-**Status:** Partial (needs more) · **Priority:** P1 · **Domain:** [[Feature Tree#Shared Rings & Companies|Shared Rings & Companies]]
+**Status:** Partial (needs more) · **Priority:** P1 · **Domain:** [[Feature Tree#Shared Rings & Companies|Shared Rings & Companies]] · **Story:** [[Delegated Admins Story]] · **Requirements:** [[Delegated Admins Requirements]]
 
 Company Rings delegate administration at permission levels (`RingAdmin`). The rules are enforced by `assertCanAdminister`; there is no way to add, change or remove an admin.
 
