@@ -15,7 +15,7 @@ Every feature of Social Pin, grouped by domain, with its backend status. Status 
 | ❌ | TODO | 18 |
 | ⬜ | Frontend only | 1 |
 
-Open tasks: **63** (32 to do, 17 need a decision, 14 blocked). Open decisions: **6**. See [[Task Board]] and [[Backlog]].
+Open tasks: **62** (33 to do, 15 need a decision, 14 blocked). Open decisions: **5** (D-01 decided 2026-10-15). See [[Task Board]] and [[Backlog]].
 
 ## The tree
 
@@ -116,7 +116,7 @@ Social Pin backend
     ├── 🟡 Interests  [P1]
     │   └── ⬜ T-016 Interests vocabulary and my interests
     ├── 🟡 Linked Accounts (OAuth)  [P1]
-    │   └── ❓ T-019 LinkedIn OAuth: link, unlink, login
+    │   └── ⬜ T-019 LinkedIn OAuth: link, unlink, login
     ├── ❌ Notifications  [P1]
     │   ├── ⬜ T-045 NotificationService.emit and the inbox
     │   └── ⛔ T-046 Push delivery and preferences
@@ -138,7 +138,7 @@ Account, profile, Rings, what each Ring shows, and the access engine. The part o
 
 | Feature | Status | Priority | Screens | Open tasks |
 |---|---|---|---|---|
-| [[Auth & Sign-up]] | ✅ Done | P0 | s01, s02, s06, s08, s68 | 1 |
+| [[Auth & Sign-up]] | ✅ Done | P0 | s01, s02, s06, s08, s68 | 0 |
 | [[Account]] | ✅ Done | P0 | s68 | 0 |
 | [[Profiles & Pin Name]] | ✅ Done | P0 | s06 | 2 |
 | [[Rings]] | ✅ Done | P0 | s08, s09, s16, s17, s18, s19, s20, s21, s22, s26, s62 | 1 |
