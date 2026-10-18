@@ -214,7 +214,7 @@ const SVGNS = 'http://www.w3.org/2000/svg';
 const GLYPH = { root: '◉', domain: '🗂', group: '📘', feature: '◆', docs: '📄', story: '💬', requirements: '📋', frontend: '🔌', task: '☐', decision: '❓', project: '📘' };
 const KIND_NAME = { root: 'Project', domain: 'Domain', group: 'Group', feature: 'Feature', docs: 'Docs', story: 'User story', requirements: 'Frontend requirements', frontend: 'API integration', task: 'Task', decision: 'Decision', project: 'Project note' };
 const EDGE_NAME = { related: 'related', wikilink: 'mentions', depends: 'depends on', decision: 'decision affects' };
-const ROW = 34, COLGAP = 56, PAD = 10, LEVEL = 88, XGAP = 14, H = 14;
+const ROW = 34, COLGAP = 56, PAD = 10, LEVEL = 88, XGAP = 14, H = 14, STACK = 22;
 
 const S = { data: null, inst: [], instById: new Map(), byIid: new Map(), view: 'map', collapsed: new Set(), filters: { status: new Set(), domain: '', kind: '', q: '' },
   selected: null, hover: null, edgeKinds: new Set(['related', 'depends', 'decision', 'wikilink']), tx: 40, ty: 40, k: 1, laidOut: new Map(), ready: false, orient: 'vertical' };
@@ -228,7 +228,7 @@ async function load() {
   const theme = store.get('theme', null); if (theme) document.documentElement.dataset.theme = theme;
   const collapsed = store.get('collapsed', null);
   if (collapsed) S.collapsed = new Set(collapsed);
-  else for (const n of Object.values(S.data.nodes)) if (n.kind === 'feature' || n.kind === 'group' || (n.kind === 'domain' && n.domain !== 'identity')) S.collapsed.add(n.id);
+  else for (const n of Object.values(S.data.nodes)) if (n.kind === 'feature' || n.kind === 'group' || (n.kind === 'domain' && (S.orient === 'vertical' || n.domain !== 'identity'))) S.collapsed.add(n.id);
   S.orient = store.get('orient', 'vertical');
   const view = store.get('view', window.innerWidth < 720 ? 'outline' : 'map');
   setView(view, false);
@@ -327,9 +327,17 @@ function layoutVertical(root) {
   let cursor = 0;
   const shift = (it, dx) => { it.x += dx; for (const c of it.children) if (c.visible) shift(c, dx); };
   const place = (it) => {
-    it.y = it.depth * LEVEL;
+    it.y = it.parent && it.parent.stacks ? it.y : it.depth * LEVEL;
+    it.stacked = false; it.stacks = false;
     const kids = it.children.filter((c) => c.visible);
     if (!kids.length) { it.x = cursor; cursor += it.w + XGAP; return; }
+    // a feature or group whose visible children are all leaves lists them in a column under itself
+    if ((it.node.kind === 'feature' || it.node.kind === 'group') && kids.every((c) => !c.children.some((g) => g.visible))) {
+      it.stacks = true; it.x = cursor;
+      kids.forEach((c, i) => { c.stacked = true; c.x = it.x + STACK; c.y = it.y + ROW * (i + 1); c.stacks = false; });
+      cursor += Math.max(it.w, STACK + Math.max(...kids.map((c) => c.w))) + XGAP + 16;
+      return;
+    }
     const start = cursor;
     for (const c of kids) place(c);
     const first = kids[0], last = kids[kids.length - 1];
@@ -390,7 +398,9 @@ function renderMap(visible) {
   for (const it of visible) {
     if (!it.parent) continue;
     const p = it.parent;
-    const d = S.orient === 'vertical'
+    const d = it.stacked
+      ? `M ${p.x + STACK / 2} ${p.y + H} V ${it.y} H ${it.x}`
+      : S.orient === 'vertical'
       ? `M ${p.x + p.w / 2} ${p.y + H} C ${p.x + p.w / 2} ${p.y + LEVEL / 2}, ${it.x + it.w / 2} ${it.y - LEVEL / 2}, ${it.x + it.w / 2} ${it.y - H}`
       : `M ${p.x + p.w} ${p.y} C ${p.x + p.w + COLGAP / 2} ${p.y}, ${it.x - COLGAP / 2} ${it.y}, ${it.x} ${it.y}`;
     el('path', { d, class: filtersActive() && !it.match && !it.keep ? 'faded' : '' }, gTree);
@@ -423,7 +433,7 @@ function renderRelEdges(visible) {
     let d;
     if (S.orient === 'vertical') {
       if (Math.abs(y1 - y2) < 1) {          // same level: bow below the row
-        const bend = Math.max(36, Math.abs(x2 - x1) * .18);
+        const bend = Math.min(56, Math.max(24, Math.abs(x2 - x1) * .1));
         d = `M ${x1} ${y1 + H} C ${x1} ${y1 + H + bend}, ${x2} ${y2 + H + bend}, ${x2} ${y2 + H}`;
       } else {
         const [ux, uy, lx, ly] = y1 < y2 ? [x1, y1, x2, y2] : [x2, y2, x1, y1];
@@ -465,7 +475,7 @@ function fit() {
   const minX = Math.min(...vis.map((i) => i.x)), maxX = Math.max(...vis.map((i) => i.x + i.w)), minY = Math.min(...vis.map((i) => i.y)) - 20, maxY = Math.max(...vis.map((i) => i.y)) + 20;
   const r = svg.getBoundingClientRect();
   S.k = Math.min(1.25, Math.max(.3, Math.min((r.width - 40) / (maxX - minX || 1), (r.height - 80) / (maxY - minY || 1))));
-  if (S.k < .7) { S.k = .7; }
+  if (S.k < (S.orient === 'vertical' ? .45 : .7)) { S.k = S.orient === 'vertical' ? .45 : .7; }
   const w = (maxX - minX) * S.k, h = (maxY - minY) * S.k;
   if (S.orient === 'vertical') { S.tx = w < r.width - 40 ? (r.width - w) / 2 - minX * S.k : 20 - minX * S.k; S.ty = 30 - minY * S.k; }
   else { S.tx = 20 - minX * S.k; S.ty = h < r.height - 60 ? (r.height - h) / 2 - minY * S.k : 30 - minY * S.k; }
