@@ -2,18 +2,17 @@
 type: feature
 id: event-ring-auto
 name: "Event Ring Auto-creation"
-status: partial
 priority: P0
 module: events
 screens: [s52]
 related: ["View As & Pin Views"]
 updated: 2026-10-18
-tags: [feature, status/partial, module/events, priority/P0]
+tags: [feature, module/events, priority/P0]
 ---
 
-# 🟡 Event Ring Auto-creation
+# Event Ring Auto-creation
 
-**Status:** Partial (needs more) · **Priority:** P0 · **Module:** [[Events Module|Events]]
+**Backend:** Partial (needs more) · **Priority:** P0 · **Module:** [[Events Module|Events]]
 
 **Layers:** [[Event Ring Auto-creation Story|Story]] · [[Event Ring Auto-creation Frontend Requirements|Frontend Requirements]] · [[Event Ring Auto-creation Backend Delivery|Backend Delivery]] · [[Event Ring Auto-creation Backend Integration|Backend Integration]] · [[Event Ring Auto-creation Frontend Delivery|Frontend Delivery]] · [[Event Ring Auto-creation QA Backend|QA Backend]] · [[Event Ring Auto-creation QA Frontend|QA Frontend]]
 

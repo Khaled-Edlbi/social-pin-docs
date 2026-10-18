@@ -2,17 +2,16 @@
 type: feature
 id: gemma
 name: "Gemma AI"
-status: todo
 priority: P2
 module: platform
 screens: [s13, s60]
 updated: 2026-10-18
-tags: [feature, status/todo, module/platform, priority/P2]
+tags: [feature, module/platform, priority/P2]
 ---
 
-# ❌ Gemma AI
+# Gemma AI
 
-**Status:** TODO · **Priority:** P2 · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
+**Backend:** TODO · **Priority:** P2 · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
 
 **Layers:** [[Gemma AI Story|Story]] · [[Gemma AI Frontend Requirements|Frontend Requirements]] · [[Gemma AI Backend Delivery|Backend Delivery]] · [[Gemma AI Backend Integration|Backend Integration]] · [[Gemma AI Frontend Delivery|Frontend Delivery]] · [[Gemma AI QA Backend|QA Backend]] · [[Gemma AI QA Frontend|QA Frontend]]
 

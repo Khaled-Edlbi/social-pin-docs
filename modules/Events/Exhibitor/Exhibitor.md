@@ -2,18 +2,17 @@
 type: feature
 id: exhibitor
 name: "Exhibitor"
-status: todo
 priority: P1
 module: events
 screens: [s63, s64, s65]
 related: ["View As & Pin Views"]
 updated: 2026-10-18
-tags: [feature, status/todo, module/events, priority/P1]
+tags: [feature, module/events, priority/P1]
 ---
 
-# ❌ Exhibitor
+# Exhibitor
 
-**Status:** TODO · **Priority:** P1 · **Module:** [[Events Module|Events]]
+**Backend:** TODO · **Priority:** P1 · **Module:** [[Events Module|Events]]
 
 **Layers:** [[Exhibitor Story|Story]] · [[Exhibitor Frontend Requirements|Frontend Requirements]] · [[Exhibitor Backend Delivery|Backend Delivery]] · [[Exhibitor Backend Integration|Backend Integration]] · [[Exhibitor Frontend Delivery|Frontend Delivery]] · [[Exhibitor QA Backend|QA Backend]] · [[Exhibitor QA Frontend|QA Frontend]]
 

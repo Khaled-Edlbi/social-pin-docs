@@ -2,17 +2,16 @@
 type: feature
 id: cleanup-jobs
 name: "Cleanup Jobs"
-status: todo
 priority: P1
 module: platform
 screens: []
 updated: 2026-10-18
-tags: [feature, status/todo, module/platform, priority/P1]
+tags: [feature, module/platform, priority/P1]
 ---
 
-# ❌ Cleanup Jobs
+# Cleanup Jobs
 
-**Status:** TODO · **Priority:** P1 · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
+**Backend:** TODO · **Priority:** P1 · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
 
 **Layers:** [[Cleanup Jobs Story|Story]] · [[Cleanup Jobs Frontend Requirements|Frontend Requirements]] · [[Cleanup Jobs Backend Delivery|Backend Delivery]] · [[Cleanup Jobs Backend Integration|Backend Integration]] · [[Cleanup Jobs Frontend Delivery|Frontend Delivery]] · [[Cleanup Jobs QA Backend|QA Backend]] · [[Cleanup Jobs QA Frontend|QA Frontend]]
 

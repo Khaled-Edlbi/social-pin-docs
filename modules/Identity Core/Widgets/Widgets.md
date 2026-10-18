@@ -2,17 +2,16 @@
 type: feature
 id: widgets
 name: "Widgets"
-status: partial
 priority: P1
 module: identity
 screens: [s36, s37]
 updated: 2026-10-18
-tags: [feature, status/partial, module/identity, priority/P1]
+tags: [feature, module/identity, priority/P1]
 ---
 
-# 🟡 Widgets
+# Widgets
 
-**Status:** Partial (needs more) · **Priority:** P1 · **Module:** [[Identity Core Module|Identity Core]]
+**Backend:** Partial (needs more) · **Priority:** P1 · **Module:** [[Identity Core Module|Identity Core]]
 
 **Layers:** [[Widgets Story|Story]] · [[Widgets Frontend Requirements|Frontend Requirements]] · [[Widgets Backend Delivery|Backend Delivery]] · [[Widgets Backend Integration|Backend Integration]] · [[Widgets Frontend Delivery|Frontend Delivery]] · [[Widgets QA Backend|QA Backend]] · [[Widgets QA Frontend|QA Frontend]]
 

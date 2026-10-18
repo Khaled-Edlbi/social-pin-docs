@@ -9,11 +9,15 @@ screens: []
 depends: []
 affects: []
 related: []
+# pending: ["[[Note]]: what is left", "@who: what is left"]   # done, but a note is left for a card or a person → Partial until cleared
+pending: []
 updated: <date>
 tags: [backend-integration, backend-integration/draft, module/<module>, layer/backend]
 ---
 
 # 🔌 <Feature name> · Backend Integration
+
+> Blocked by default until [[<Feature name> Backend Delivery]] is `done` (the hand-off order in `docs.config.json`); `blockedBy: []` opts out, `blockedBy: [...]` names other blockers.
 
 **Feature:** [[<Feature name>]] · **Backend:** [[<Feature name> Backend Delivery]] · **Read first:** [[Frontend Contract]], [[Frontend API Guide]]
 

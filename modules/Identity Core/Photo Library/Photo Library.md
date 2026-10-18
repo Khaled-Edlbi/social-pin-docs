@@ -2,17 +2,16 @@
 type: feature
 id: photo-library
 name: "Photo Library"
-status: partial
 priority: P1
 module: identity
 screens: [s29, s30]
 updated: 2026-10-18
-tags: [feature, status/partial, module/identity, priority/P1]
+tags: [feature, module/identity, priority/P1]
 ---
 
-# 🟡 Photo Library
+# Photo Library
 
-**Status:** Partial (needs more) · **Priority:** P1 · **Module:** [[Identity Core Module|Identity Core]]
+**Backend:** Partial (needs more) · **Priority:** P1 · **Module:** [[Identity Core Module|Identity Core]]
 
 **Layers:** [[Photo Library Story|Story]] · [[Photo Library Frontend Requirements|Frontend Requirements]] · [[Photo Library Backend Delivery|Backend Delivery]] · [[Photo Library Backend Integration|Backend Integration]] · [[Photo Library Frontend Delivery|Frontend Delivery]] · [[Photo Library QA Backend|QA Backend]] · [[Photo Library QA Frontend|QA Frontend]]
 

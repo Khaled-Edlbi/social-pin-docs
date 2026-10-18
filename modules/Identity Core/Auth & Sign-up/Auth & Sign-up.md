@@ -2,17 +2,16 @@
 type: feature
 id: auth
 name: "Auth & Sign-up"
-status: done
 priority: P0
 module: identity
 screens: [s01, s02, s06, s08, s68]
 updated: 2026-10-18
-tags: [feature, status/done, module/identity, priority/P0]
+tags: [feature, module/identity, priority/P0]
 ---
 
-# ✅ Auth & Sign-up
+# Auth & Sign-up
 
-**Status:** Done · **Priority:** P0 · **Module:** [[Identity Core Module|Identity Core]]
+**Backend:** Done · **Priority:** P0 · **Module:** [[Identity Core Module|Identity Core]]
 
 **Layers:** [[Auth & Sign-up Story|Story]] · [[Auth & Sign-up Frontend Requirements|Frontend Requirements]] · [[Auth & Sign-up Backend Delivery|Backend Delivery]] · [[Auth & Sign-up Backend Integration|Backend Integration]] · [[Auth & Sign-up Frontend Delivery|Frontend Delivery]] · [[Auth & Sign-up QA Backend|QA Backend]] · [[Auth & Sign-up QA Frontend|QA Frontend]]
 

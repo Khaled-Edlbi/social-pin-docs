@@ -2,17 +2,16 @@
 type: feature
 id: ring-projection
 name: "Ring Projection"
-status: done
 priority: P0
 module: identity
 screens: [s14, s20, s23, s24, s25, s29, s36]
 updated: 2026-10-18
-tags: [feature, status/done, module/identity, priority/P0]
+tags: [feature, module/identity, priority/P0]
 ---
 
-# ✅ Ring Projection
+# Ring Projection
 
-**Status:** Done · **Priority:** P0 · **Module:** [[Identity Core Module|Identity Core]]
+**Backend:** Done · **Priority:** P0 · **Module:** [[Identity Core Module|Identity Core]]
 
 **Layers:** [[Ring Projection Story|Story]] · [[Ring Projection Frontend Requirements|Frontend Requirements]] · [[Ring Projection Backend Delivery|Backend Delivery]] · [[Ring Projection Backend Integration|Backend Integration]] · [[Ring Projection Frontend Delivery|Frontend Delivery]] · [[Ring Projection QA Backend|QA Backend]] · [[Ring Projection QA Frontend|QA Frontend]]
 

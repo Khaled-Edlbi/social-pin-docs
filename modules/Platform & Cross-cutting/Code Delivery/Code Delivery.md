@@ -2,17 +2,16 @@
 type: feature
 id: code-delivery
 name: "Code Delivery"
-status: partial
 priority: P0
 module: platform
 screens: [s02]
 updated: 2026-10-18
-tags: [feature, status/partial, module/platform, priority/P0]
+tags: [feature, module/platform, priority/P0]
 ---
 
-# 🟡 Code Delivery
+# Code Delivery
 
-**Status:** Partial (needs more) · **Priority:** P0 · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
+**Backend:** Partial (needs more) · **Priority:** P0 · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
 
 **Layers:** [[Code Delivery Story|Story]] · [[Code Delivery Frontend Requirements|Frontend Requirements]] · [[Code Delivery Backend Delivery|Backend Delivery]] · [[Code Delivery Backend Integration|Backend Integration]] · [[Code Delivery Frontend Delivery|Frontend Delivery]] · [[Code Delivery QA Backend|QA Backend]] · [[Code Delivery QA Frontend|QA Frontend]]
 

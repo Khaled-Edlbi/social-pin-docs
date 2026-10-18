@@ -38,22 +38,21 @@ const BAD_NAME = /[#?%\\]/;
 
 // Structural statuses (not layer-specific). Layer kinds take theirs from docs.config.json.
 const STATUS = {
-  feature: { done: 'done', partial: 'partial', todo: 'todo', frontend: 'frontend-only' },
   task: { todo: 'todo', 'needs-info': 'needs-decision', blocked: 'blocked', 'in-progress': 'in-progress', done: 'done' },
   decision: { open: 'needs-decision', decided: 'approved' },
 };
 const LEGEND = {
   done: 'Done', partial: 'Partial', todo: 'To do', 'in-progress': 'In progress', blocked: 'Blocked',
   'needs-decision': 'Needs decision', draft: 'Draft', approved: 'Approved', verified: 'Verified', delivered: 'Delivered',
-  current: 'Current', passing: 'Passing', failing: 'Failing', 'frontend-only': 'Frontend only',
+  current: 'Current', passing: 'Passing', failing: 'Failing',
   missing: 'Not written yet', reference: 'Reference',
 };
 const EMOJI = {
   done: '✅', partial: '🟡', todo: '⬜', 'in-progress': '🔵', blocked: '⛔', 'needs-decision': '❓',
   draft: '✏️', approved: '✅', verified: '🏁', delivered: '📦', current: '✅', passing: '🟢', failing: '🔴',
-  'frontend-only': '🖼️', missing: '∅', reference: '📘',
+  missing: '∅', reference: '📘',
 };
-const DONE_STATUSES = new Set(['done', 'approved', 'verified', 'delivered', 'current', 'passing', 'frontend-only', 'reference']);
+const DONE_STATUSES = new Set(['done', 'approved', 'verified', 'delivered', 'current', 'passing', 'reference']);
 
 // ---------------------------------------------------------------- config
 export function loadConfig(errors = []) {
@@ -70,6 +69,7 @@ export function loadConfig(errors = []) {
       if (!Array.isArray(k.statuses) || !k.statuses.length) err(`kind "${k.id}": statuses must be a non-empty list`);
       if (!Array.isArray(k.done) || !k.done.length) err(`kind "${k.id}": done must be a non-empty list`);
       else for (const s of k.done) if (!(k.statuses || []).includes(s)) err(`kind "${k.id}": done status "${s}" is not in statuses`);
+      if (k.handoff !== undefined) { if (!Array.isArray(k.handoff) || !k.handoff.length) err(`kind "${k.id}": handoff must be a non-empty list`); else for (const s of k.handoff) if (!(k.statuses || []).includes(s)) err(`kind "${k.id}": handoff status "${s}" is not in statuses`); }
       if (!k.template) err(`kind "${k.id}": template is missing`);
       else if (!fs.existsSync(path.join(ROOT, k.template))) err(`kind "${k.id}": template ${k.template} does not exist`);
       if (!k.file) err(`kind "${k.id}": file (the note-name suffix) is missing`);
@@ -96,7 +96,11 @@ export function loadConfig(errors = []) {
   while (queue.length) { const k = queue.shift(); if (flowOrder.includes(k)) continue; flowOrder.push(k); for (const [a, b] of flow) if (a === k && !flowOrder.includes(b)) queue.push(b); }
   for (const k of kindOrder) if (!flowOrder.includes(k)) flowOrder.push(k);
   const flowBack = flow.filter(([a, b]) => flowOrder.indexOf(a) >= flowOrder.indexOf(b));
-  return { ...cfg, kinds, kindOrder, flowOrder, flowBack };
+  // every forward hand-off is also a block: a card waits for the card before it until that one is handed off (its handoff statuses, else its done set)
+  const flowBlocks = flow.filter((p) => !flowBack.includes(p)).map(([by, kind]) => ({ kind, by }));
+  const frontendOnlySkips = Array.isArray(cfg.frontendOnly?.skips) ? cfg.frontendOnly.skips : [];
+  for (const k of frontendOnlySkips) if (!kinds.has(k)) err(`frontendOnly.skips names unknown kind "${k}"`);
+  return { ...cfg, kinds, kindOrder, flowOrder, flowBack, flowBlocks, frontendOnlySkips };
 }
 
 // ---------------------------------------------------------------- frontmatter
@@ -271,7 +275,7 @@ export function build() {
   const edges = [];
   const edgeByKey = new Map();
   const addNode = (n) => { if (nodes[n.id]) { err(n.path || n.id, `duplicate node id ${n.id}`); return nodes[n.id]; } nodes[n.id] = n; return n; };
-  const DIRECTED = new Set(['tree', 'depends', 'decision', 'affects', 'flow', 'blocks']);
+  const DIRECTED = new Set(['tree', 'depends', 'decision', 'affects', 'flow', 'blocks', 'pending']);
   const addEdge = (from, to, kind, via) => {
     if (!from || !to || from === to) return;
     const k = DIRECTED.has(kind) ? `${kind}|${from}|${to}` : `${kind}|${[from, to].sort().join('|')}`;
@@ -284,7 +288,7 @@ export function build() {
     id: null, kind: null, layer: null, title: n ? n.stem : null, path: n ? n.rel : null, status: null, effectiveStatus: null, blockedBy: [],
     priority: n?.data?.priority ?? null, effort: n?.data?.effort ?? null, module: n?.data?.module ?? null, feature: null, task: null, code: null, scope: null,
     screens: list(n?.data?.screens), updated: n?.data?.updated ?? n?.data?.created ?? null, tags: list(n?.data?.tags),
-    depends: [], affects: [], related: [], children: [], parents: [], summary: n?.summary ?? null, label: null, parentTask: null, ...extra,
+    depends: [], affects: [], related: [], children: [], parents: [], summary: n?.summary ?? null, label: null, parentTask: null, pending: [], frontendOnly: false, ...extra,
   });
   const byType = (t) => notes.filter((n) => n.data && n.data.type === t && !n.rel.startsWith('templates/'));
   const requireKeys = (n, keys) => { for (const k of keys) if (n.data[k] === undefined || n.data[k] === null || n.data[k] === '') err(n.rel, `missing frontmatter key "${k}"`); };
@@ -318,7 +322,9 @@ export function build() {
   // features
   const featureNodes = new Map();
   for (const n of byType('feature')) {
-    requireKeys(n, ['id', 'status', 'module']);
+    requireKeys(n, ['id', 'module']);
+    if (n.data.status !== undefined) err(n.rel, 'a feature\'s status is computed from its cards: remove "status:" (and the status/* tag); use "frontendOnly: true" for a feature with no backend part');
+    else if (list(n.data.tags).some((t) => t.startsWith('status/'))) err(n.rel, 'a feature\'s status is computed from its cards: remove the status/* tag');
     const parts = n.rel.split('/');
     const folderModule = MODULE_BY_NAME.get(parts[1]);
     if (parts[0] !== 'modules' || !folderModule) err(n.rel, `feature notes live in modules/<Module>/<Feature>/<Feature>.md`);
@@ -326,8 +332,7 @@ export function build() {
     const mod = n.data.module;
     if (!MODULE_BY_ID.has(mod)) err(n.rel, `module "${mod}" is not in docs.config.json modules`);
     else if (folderModule && folderModule.id !== mod) err(n.rel, `module "${mod}" does not match folder "${parts[1]}" (${folderModule.id})`);
-    const status = normStatus(n, 'feature');
-    const f = addNode(base(n, { id: `feature:${n.data.id}`, kind: 'feature', layer: 'business', feature: n.data.id, code: n.data.id, status, effectiveStatus: status, module: mod, label: 'Feature', name: n.data.name ?? n.stem, dir: path.posix.dirname(n.rel) }));
+    const f = addNode(base(n, { id: `feature:${n.data.id}`, kind: 'feature', layer: 'business', feature: n.data.id, code: n.data.id, status: null, effectiveStatus: 'todo', module: mod, label: 'Feature', name: n.data.name ?? n.stem, dir: path.posix.dirname(n.rel), frontendOnly: n.data.frontendOnly === true }));
     noteOf.set(f.id, n);
     if (featureNodes.has(n.data.id)) err(n.rel, `second feature note with id "${n.data.id}"`);
     featureNodes.set(n.data.id, f);
@@ -406,6 +411,7 @@ export function build() {
     const s = sib(f);
     for (const kid of cfg.requiredAtFeatureLevel || []) {
       if (s.has(kid)) continue;
+      if (f.frontendOnly && cfg.frontendOnlySkips.includes(kid)) continue;
       const kind = KIND.get(kid);
       const c = addNode(base(null, {
         id: `${kid}:${fid}`, kind: kid, layer: kind.layer, feature: fid, code: fid, scope: 'feature', title: `${f.title} ${kind.file}`, path: null, template: kind.template,
@@ -543,29 +549,49 @@ export function build() {
     }
   }
 
+  // ---------------------------------------------------------- pending: done, but a note is left for a card or a person → Partial until cleared
+  const PENDING_NOTE = /^\[\[([^\]]+?)\]\]\s*:?\s*(.*)$/, PENDING_PERSON = /^@([\w.-]+)\s*:?\s*(.*)$/;
+  for (const [id, note] of noteOf) {
+    const n = nodes[id];
+    if (!(n.kind === 'task' || KIND.has(n.kind))) continue;
+    for (const raw of list(note.data.pending)) {
+      let m, item = { text: raw.trim(), to: null, person: null };
+      if ((m = PENDING_NOTE.exec(raw.trim()))) {
+        const r = resolve(parseWikilink(m[1]).target, n);
+        if (!r) { err(note.rel, `pending: "[[${m[1]}]]" is not a note name, task, decision, feature or sibling kind`); continue; }
+        item = { text: m[2].trim(), to: r.ids[0], person: null };
+        addEdge(id, r.ids[0], 'pending');
+      } else if ((m = PENDING_PERSON.exec(raw.trim()))) item = { text: m[2].trim(), to: null, person: m[1] };
+      n.pending.push(item);
+    }
+    if (n.pending.length && isDone(n)) n.effectiveStatus = 'partial';
+  }
+  // a card is handed off (and stops blocking the next one) at its handoff statuses, else when done
+  const handedOff = (n) => isDone(n) || (KIND.has(n.kind) && (KIND.get(n.kind).handoff || []).includes(n.status));
+
   // ---------------------------------------------------------- blocking
   const blockReason = (target) => `${target.title} is ${String(LEGEND[target.effectiveStatus] ?? target.effectiveStatus).toLowerCase()}`;
   for (const n of layerNodes) {
     const note = noteOf.get(n.id);
     const explicit = note && Array.isArray(note.data.blockedBy) ? list(note.data.blockedBy) : null;
-    const refs = explicit ?? (cfg.defaultBlocks || []).filter((b) => b.kind === n.kind).map((b) => b.by);
+    const refs = explicit ?? [...cfg.flowBlocks, ...(cfg.defaultBlocks || [])].filter((b) => b.kind === n.kind).map((b) => b.by);
     const blockers = [];
     for (const ref of refs) {
       const r = resolve(ref, n);
       if (!r) { if (explicit) err(note.rel, `blockedBy: "${ref}" does not resolve`); continue; }
-      for (const to of r.ids) if (to !== n.id && !isDone(nodes[to])) blockers.push(to);
+      for (const to of r.ids) if (to !== n.id && !handedOff(nodes[to])) blockers.push(to);
     }
-    for (const to of n.depends) if (!isDone(nodes[to])) blockers.push(to);
-    n.blockedBy = [...new Set(blockers)].map((to) => ({ id: to, title: nodes[to].title, why: blockReason(nodes[to]) }));
+    for (const to of n.depends) if (!handedOff(nodes[to])) blockers.push(to);
+    n.blockedBy = isDone(n) ? [] : [...new Set(blockers)].map((to) => ({ id: to, title: nodes[to].title, why: blockReason(nodes[to]) }));
     for (const b of n.blockedBy) addEdge(b.id, n.id, 'blocks');
-    if (n.blockedBy.length && n.path && !isDone(n)) n.effectiveStatus = 'blocked';
+    if (n.blockedBy.length && n.path && n.effectiveStatus !== 'partial') n.effectiveStatus = 'blocked';
   }
   for (const [, t] of taskNodes) {
     const note = noteOf.get(t.id);
     const blockers = [];
-    for (const ref of list(note.data.blockedBy)) { const r = resolve(ref, t); if (!r) { err(note.rel, `blockedBy: "${ref}" does not resolve`); continue; } for (const to of r.ids) if (to !== t.id && !isDone(nodes[to])) blockers.push(to); }
-    for (const to of t.depends) if (!isDone(nodes[to])) blockers.push(to);
-    t.blockedBy = [...new Set(blockers)].map((to) => ({ id: to, title: nodes[to].title, why: blockReason(nodes[to]) }));
+    for (const ref of list(note.data.blockedBy)) { const r = resolve(ref, t); if (!r) { err(note.rel, `blockedBy: "${ref}" does not resolve`); continue; } for (const to of r.ids) if (to !== t.id && !handedOff(nodes[to])) blockers.push(to); }
+    for (const to of t.depends) if (!handedOff(nodes[to])) blockers.push(to);
+    t.blockedBy = isDone(t) ? [] : [...new Set(blockers)].map((to) => ({ id: to, title: nodes[to].title, why: blockReason(nodes[to]) }));
     for (const b of t.blockedBy) addEdge(b.id, t.id, 'blocks');
     if (t.blockedBy.length && t.status === 'todo') t.effectiveStatus = 'blocked';
   }
@@ -660,20 +686,31 @@ export function build() {
     for (const c of nodes[id].children) visit(c);
     nodes[id].rollup = counts;
   };
+  // a container (task with cards, feature, module, project) is Done only when every card is; Partial when every card is done or partial;
+  // In progress when any card is active or the cards are a mix; To do otherwise (Blocked when every card waits on something)
+  const classify = (c) => (c.effectiveStatus === 'partial' ? 'partial' : isDone(c) ? 'done' : c.effectiveStatus === 'in-progress' ? 'active' : c.effectiveStatus === 'blocked' ? 'blocked' : 'todo');
+  const summarize = (ids) => {
+    if (!ids.length) return 'todo';
+    const k = ids.map((id) => classify(nodes[id]));
+    if (k.every((x) => x === 'done')) return 'done';
+    if (k.every((x) => x === 'done' || x === 'partial')) return 'partial';
+    if (k.some((x) => x === 'active' || x === 'done' || x === 'partial')) return 'in-progress';
+    if (k.every((x) => x === 'blocked')) return 'blocked';
+    return 'todo';
+  };
+  const taskDepth = (t) => { let d = 0, a = t; while (a && a.parentTask && d < 60) { a = taskNodes.get(a.parentTask); d++; } return d; };
+  for (const t of [...taskNodes.values()].sort((a, b) => taskDepth(b) - taskDepth(a))) {
+    if (!t.children.length) continue;
+    const s = summarize(t.children);
+    if (t.effectiveStatus === 'done' && s !== 'done') { warn(t.path, `status is done but its cards are not (${s}): a task is done when every card under it is`); t.effectiveStatus = s === 'partial' ? 'partial' : 'in-progress'; }
+  }
+  for (const [, f] of featureNodes) f.effectiveStatus = summarize(f.children);
+  for (const [, d] of moduleNodes) d.effectiveStatus = summarize(d.children);
+  root.effectiveStatus = summarize([...moduleNodes.values()].map((d) => d.id));
   for (const [, t] of taskNodes) rollup(t.id);
   for (const [, f] of featureNodes) rollup(f.id);
-  for (const [, d] of moduleNodes) {
-    rollup(d.id);
-    const feats = d.children.map((c) => nodes[c]);
-    if (feats.length === 0) d.effectiveStatus = 'todo';
-    else if (feats.every((f) => f.effectiveStatus === 'done' || f.effectiveStatus === 'frontend-only')) d.effectiveStatus = 'done';
-    else if (Object.values(nodes).some((n) => n.kind === 'task' && n.module === d.module && n.effectiveStatus === 'in-progress')) d.effectiveStatus = 'in-progress';
-    else if (feats.some((f) => f.effectiveStatus === 'done' || f.effectiveStatus === 'partial')) d.effectiveStatus = 'partial';
-    else d.effectiveStatus = 'todo';
-  }
+  for (const [, d] of moduleNodes) rollup(d.id);
   rollup(root.id);
-  const mods = [...moduleNodes.values()];
-  root.effectiveStatus = mods.every((d) => d.effectiveStatus === 'done') ? 'done' : mods.some((d) => d.effectiveStatus === 'in-progress') ? 'in-progress' : mods.some((d) => d.effectiveStatus === 'done' || d.effectiveStatus === 'partial') ? 'partial' : 'todo';
 
   const byKind = {}, byLayer = {};
   for (const n of Object.values(nodes)) { if (!n.path) continue; byKind[n.kind] = (byKind[n.kind] || 0) + 1; if (n.layer) byLayer[n.layer] = (byLayer[n.layer] || 0) + 1; }
@@ -681,6 +718,7 @@ export function build() {
     modules: moduleNodes.size, features: featureNodes.size, tasks: taskNodes.size, decisions: decisionNodes.size,
     layerNotes: layerNodes.filter((n) => n.path).length, taskLayerNotes: layerNodes.filter((n) => n.path && n.scope === 'task').length,
     placeholders: Object.values(nodes).filter((n) => n.effectiveStatus === 'missing').length,
+    partial: Object.values(nodes).filter((n) => n.effectiveStatus === 'partial').length,
     blocked: Object.values(nodes).filter((n) => n.effectiveStatus === 'blocked').length,
     notes: notes.length, edges: edges.length, concepts: Object.keys(conceptsOut).length, byKind, byLayer,
   };
@@ -694,7 +732,7 @@ export function build() {
 
   return {
     json: {
-      schema: 2, repo: REPO, rootId: 'root', counts, legend: LEGEND, emoji: EMOJI, layers: layersOut, flow: cfg.flow, flowOrder: cfg.flowOrder, flowBack: cfg.flowBack, defaultBlocks: cfg.defaultBlocks,
+      schema: 2, repo: REPO, rootId: 'root', counts, legend: LEGEND, emoji: EMOJI, layers: layersOut, flow: cfg.flow, flowOrder: cfg.flowOrder, flowBack: cfg.flowBack, defaultBlocks: [...cfg.flowBlocks, ...(cfg.defaultBlocks || [])], frontendOnly: { skips: cfg.frontendOnlySkips },
       modules: cfg.modules, generated: GENERATED, nodes, edges, concepts: conceptsOut, byName, files: filesIndex, diagnostics: { errors, warnings },
     },
     errors, warnings, notes, cfg,
@@ -721,7 +759,7 @@ function treeMarkdown(json) {
   const seen = new Set();
   const walkNode = (id, depth) => {
     const n = nodes[id];
-    const extra = [n.label && !['feature', 'module', 'task'].includes(n.kind) ? n.label : null, n.parentTask ? `sub-task of ${n.parentTask}` : null, n.priority, n.blockedBy?.length ? `blocked by ${n.blockedBy.map((b) => b.title).join(', ')}` : null].filter(Boolean).join(', ');
+    const extra = [n.label && !['feature', 'module', 'task'].includes(n.kind) ? n.label : null, n.parentTask ? `sub-task of ${n.parentTask}` : null, n.frontendOnly ? 'frontend only' : null, n.pending?.length ? `${n.pending.length} pending note${n.pending.length === 1 ? '' : 's'}` : null, n.priority, n.blockedBy?.length ? `blocked by ${n.blockedBy.map((b) => b.title).join(', ')}` : null].filter(Boolean).join(', ');
     lines.push(`${'  '.repeat(depth)}- ${EMOJI[n.effectiveStatus] || '•'} ${mdLink(n)}${extra ? ` (${extra})` : ''}`);
     if (seen.has(id) && n.children.length) { lines.push(`${'  '.repeat(depth + 1)}- (see above)`); return; }
     seen.add(id);
@@ -737,12 +775,13 @@ const prioRank = (p) => ({ P0: 0, P1: 1, P2: 2, P3: 3 }[p] ?? 9);
 const wiki = (n, alias) => `[[${n.title}${alias ? `|${alias}` : ''}]]`;
 
 function boardMarkdown(json) {
-  const cols = [['needs-decision', '❓ Needs a decision / info'], ['blocked', '⛔ Blocked'], ['todo', '⬜ To do'], ['in-progress', '🔵 In progress'], ['done', '✅ Done']];
+  const { nodes } = json;
+  const cols = [['needs-decision', '❓ Needs a decision / info'], ['blocked', '⛔ Blocked'], ['todo', '⬜ To do'], ['in-progress', '🔵 In progress'], ['partial', '🟡 Partial (done, notes pending)'], ['done', '✅ Done']];
   const lines = ['---', '', 'kanban-plugin: board', '', '---', '', '<!-- Generated by `node scripts/build-tree.mjs` from the task notes. Do not edit; change the task\'s frontmatter. -->', ''];
   for (const [status, title] of cols) {
     lines.push(`## ${title}`, '');
     const rows = taskRows(json).filter((t) => t.effectiveStatus === status).sort((a, b) => prioRank(a.priority) - prioRank(b.priority) || a.code.localeCompare(b.code, 'en', { numeric: true }));
-    for (const t of rows) lines.push(`- [${status === 'done' ? 'x' : ' '}] ${wiki(t)} #${t.priority ?? 'P?'} #${t.feature}`);
+    for (const t of rows) lines.push(`- [${status === 'done' ? 'x' : ' '}] ${wiki(t)} #${t.priority ?? 'P?'} #${t.feature}${t.pending.length ? ` — ${t.pending.map((p) => (p.to ? `[[${nodes[p.to].title}]]` : p.person ? `@${p.person}` : '') + (p.text ? `: ${p.text}` : '')).join('; ')}` : ''}`);
     lines.push('', '');
   }
   lines.push('%% kanban:settings', '```', '{"kanban-plugin":"board"}', '```', '%%', '');
@@ -754,9 +793,9 @@ function backlogMarkdown(json) {
   const featureTitle = (t) => { const f = nodes[`feature:${t.feature}`]; return f ? wiki(f) : t.feature; };
   const moduleName = (t) => json.modules.find((m) => m.id === t.module)?.name ?? t.module ?? '—';
   const dep = (t) => (t.depends.length ? t.depends.map((d) => wiki(nodes[d], nodes[d].code)).join(', ') : '—');
-  const status = (t) => `${EMOJI[t.effectiveStatus]} ${LEGEND[t.effectiveStatus]}`;
+  const status = (t) => `${EMOJI[t.effectiveStatus]} ${LEGEND[t.effectiveStatus]}${t.pending.length ? ` (${t.pending.length} note${t.pending.length === 1 ? '' : 's'})` : ''}`;
   const lines = ['---', 'type: map', 'layer: shared', 'tags: [map]', '---', '', '# Backlog', '',
-    'Generated by `node scripts/build-tree.mjs` from the task notes; do not edit, change the task\'s frontmatter. Every open task ordered by priority, then the done ones. Status key: ⬜ To do · ❓ Needs a decision / info · ⛔ Blocked · 🔵 In progress · ✅ Done. A task is ⛔ when something in `depends` or `blockedBy` is not done.', '',
+    'Generated by `node scripts/build-tree.mjs` from the task notes; do not edit, change the task\'s frontmatter. Every open task ordered by priority, then the done ones. Status key: ⬜ To do · ❓ Needs a decision / info · ⛔ Blocked · 🔵 In progress · 🟡 Partial (done, `pending` notes left for a card or a person) · ✅ Done. A task is ⛔ when something in `depends` or `blockedBy` is not done.', '',
     'Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a plain checklist).', ''];
   const open = taskRows(json).filter((t) => t.effectiveStatus !== 'done');
   for (const p of ['P0', 'P1', 'P2', 'P3']) {
@@ -810,7 +849,7 @@ export function impact(json, query) {
   for (const n of Object.values(nodes)) if (n.title === q || n.code === q || n.path === q || n.id === q) { start = n; break; }
   if (!start) for (const n of Object.values(nodes)) if (n.title?.toLowerCase().startsWith(q.toLowerCase())) { start = n; break; }
   if (!start) return null;
-  const REL = ['related', 'affects', 'depends', 'blocks', 'flow', 'shares', 'decision', 'wikilink'];
+  const REL = ['related', 'affects', 'depends', 'blocks', 'flow', 'shares', 'decision', 'wikilink', 'pending'];
   const hop = (ids) => {
     const out = new Map(); // id -> [{kind, dir, via, from}]
     for (const e of edges) {

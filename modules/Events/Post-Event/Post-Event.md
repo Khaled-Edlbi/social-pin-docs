@@ -2,18 +2,17 @@
 type: feature
 id: post-event
 name: "Post-Event"
-status: todo
 priority: P1
 module: events
 screens: [s62]
 related: ["View As & Pin Views"]
 updated: 2026-10-18
-tags: [feature, status/todo, module/events, priority/P1]
+tags: [feature, module/events, priority/P1]
 ---
 
-# ❌ Post-Event
+# Post-Event
 
-**Status:** TODO · **Priority:** P1 · **Module:** [[Events Module|Events]]
+**Backend:** TODO · **Priority:** P1 · **Module:** [[Events Module|Events]]
 
 **Layers:** [[Post-Event Story|Story]] · [[Post-Event Frontend Requirements|Frontend Requirements]] · [[Post-Event Backend Delivery|Backend Delivery]] · [[Post-Event Backend Integration|Backend Integration]] · [[Post-Event Frontend Delivery|Frontend Delivery]] · [[Post-Event QA Backend|QA Backend]] · [[Post-Event QA Frontend|QA Frontend]]
 

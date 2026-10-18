@@ -2,18 +2,17 @@
 type: feature
 id: events-before
 name: "Events Before"
-status: todo
 priority: P0
 module: events
 screens: [s48, s49, s50, s51, s52]
 related: ["Rings"]
 updated: 2026-10-18
-tags: [feature, status/todo, module/events, priority/P0]
+tags: [feature, module/events, priority/P0]
 ---
 
-# ❌ Events Before
+# Events Before
 
-**Status:** TODO · **Priority:** P0 · **Module:** [[Events Module|Events]]
+**Backend:** TODO · **Priority:** P0 · **Module:** [[Events Module|Events]]
 
 **Layers:** [[Events Before Story|Story]] · [[Events Before Frontend Requirements|Frontend Requirements]] · [[Events Before Backend Delivery|Backend Delivery]] · [[Events Before Backend Integration|Backend Integration]] · [[Events Before Frontend Delivery|Frontend Delivery]] · [[Events Before QA Backend|QA Backend]] · [[Events Before QA Frontend|QA Frontend]]
 

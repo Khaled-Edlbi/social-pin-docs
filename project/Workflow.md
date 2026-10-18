@@ -47,18 +47,18 @@ Story ──▶ Frontend Requirements ──▶ Backend Delivery ──▶ Backe
 | 6 | QA | `T-NNN QA Backend`, `T-NNN QA Frontend` | `passing` on a named build |
 | 7 | Business | the story | `verified` |
 
-Create each note with `node scripts/build-tree.mjs --scaffold <kind> T-NNN`; the first one moves the task into its folder. The order is the default from `docs.config.json`; a layer may be blocked by any other through `blockedBy` ([[Agent Rules#4 · Statuses, blocking and sign-off]]), and a new layer slots into the flow by config ([[Agent Rules#5 · Adding a layer]]).
+Create each note with `node scripts/build-tree.mjs --scaffold <kind> T-NNN`; the first one moves the task into its folder. The order is the default from `docs.config.json` and **each step is blocked until the step before it is handed off** (the story and the requirements at `approved`, the others at their done status): the tree shows the card as ⛔ Blocked with the reason until then. A layer may be blocked by any other through `blockedBy` ([[Agent Rules#4 · Statuses, blocking and sign-off]]), and a new layer slots into the flow by config ([[Agent Rules#5 · Adding a layer]]).
 
 A docs-only or infrastructure task (like [[T-064 Restructure the docs vault]]) has a task note and no layer notes.
 
 ## 4 · Roll up — the feature is the sum of its tasks
 
-When a task-level note reaches its done status, the same layer updates the feature-level note of the same kind (`modules/<Module>/<Feature>/<Feature> <Kind>.md`) and links the task note in its *Tasks delivered* table; the build warns otherwise. When the feature's backend state changes, the backend sets the feature note's `status` and the module note's table. Cross-cutting reference (stack, migrations, contracts) goes to the layer's project docs (`backend/`, `frontend/`, `business/`), never into the feature.
+When a task-level note reaches its done status, the same layer updates the feature-level note of the same kind (`modules/<Module>/<Feature>/<Feature> <Kind>.md`) and links the task note in its *Tasks delivered* table; the build warns otherwise. The feature's chip is computed: Done only when every card under it is done, Partial when the cards are done but carry `pending` notes, In progress while any card is open; nobody types it. When what the backend shipped changes, the backend updates the module note's *Backend* column and the feature note's `**Backend:**` line. Cross-cutting reference (stack, migrations, contracts) goes to the layer's project docs (`backend/`, `frontend/`, `business/`), never into the feature.
 
 ## 5 · Finish
 
 1. `--impact` again; update or flag every note it lists that the change made wrong.
-2. Task note: `status: done`, DoD boxes, `## Log` line (date · branch · what shipped, which notes were flagged).
+2. Task note: `status: done`, DoD boxes, `## Log` line (date · branch · what shipped, which notes were flagged). Anything left for another card or a person goes in `pending:` (the task shows 🟡 Partial until it is cleared); nothing is typed into the feature note's status.
 3. Every touched note: today's `updated:`.
 4. `node scripts/build-tree.mjs`; commit `tree/tree.json`, `tree/tree.md`, `tasks/Task Board.md`, `tasks/Backlog.md` with the notes. `--check` is what CI runs.
 5. Push every branch; open the pull requests; link them to each other and to the ticket. Report what shipped and what stays open in the vault's words.

@@ -2,17 +2,16 @@
 type: feature
 id: profiles
 name: "Profiles & Pin Name"
-status: done
 priority: P0
 module: identity
 screens: [s06]
 updated: 2026-10-18
-tags: [feature, status/done, module/identity, priority/P0]
+tags: [feature, module/identity, priority/P0]
 ---
 
-# ✅ Profiles & Pin Name
+# Profiles & Pin Name
 
-**Status:** Done · **Priority:** P0 · **Module:** [[Identity Core Module|Identity Core]]
+**Backend:** Done · **Priority:** P0 · **Module:** [[Identity Core Module|Identity Core]]
 
 **Layers:** [[Profiles & Pin Name Story|Story]] · [[Profiles & Pin Name Frontend Requirements|Frontend Requirements]] · [[Profiles & Pin Name Backend Delivery|Backend Delivery]] · [[Profiles & Pin Name Backend Integration|Backend Integration]] · [[Profiles & Pin Name Frontend Delivery|Frontend Delivery]] · [[Profiles & Pin Name QA Backend|QA Backend]] · [[Profiles & Pin Name QA Frontend|QA Frontend]]
 

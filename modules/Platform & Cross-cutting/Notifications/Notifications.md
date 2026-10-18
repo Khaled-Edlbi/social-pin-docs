@@ -2,17 +2,16 @@
 type: feature
 id: notifications
 name: "Notifications"
-status: todo
 priority: P1
 module: platform
 screens: [s69]
 updated: 2026-10-18
-tags: [feature, status/todo, module/platform, priority/P1]
+tags: [feature, module/platform, priority/P1]
 ---
 
-# ❌ Notifications
+# Notifications
 
-**Status:** TODO · **Priority:** P1 · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
+**Backend:** TODO · **Priority:** P1 · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
 
 **Layers:** [[Notifications Story|Story]] · [[Notifications Frontend Requirements|Frontend Requirements]] · [[Notifications Backend Delivery|Backend Delivery]] · [[Notifications Backend Integration|Backend Integration]] · [[Notifications Frontend Delivery|Frontend Delivery]] · [[Notifications QA Backend|QA Backend]] · [[Notifications QA Frontend|QA Frontend]]
 

@@ -2,17 +2,16 @@
 type: feature
 id: subscription
 name: "Subscription (Free vs Pro)"
-status: todo
 priority: P1
 module: commerce
 screens: [s34, s70]
 updated: 2026-10-18
-tags: [feature, status/todo, module/commerce, priority/P1]
+tags: [feature, module/commerce, priority/P1]
 ---
 
-# ❌ Subscription (Free vs Pro)
+# Subscription (Free vs Pro)
 
-**Status:** TODO · **Priority:** P1 · **Module:** [[Commerce Module|Commerce]]
+**Backend:** TODO · **Priority:** P1 · **Module:** [[Commerce Module|Commerce]]
 
 **Layers:** [[Subscription (Free vs Pro) Story|Story]] · [[Subscription (Free vs Pro) Frontend Requirements|Frontend Requirements]] · [[Subscription (Free vs Pro) Backend Delivery|Backend Delivery]] · [[Subscription (Free vs Pro) Backend Integration|Backend Integration]] · [[Subscription (Free vs Pro) Frontend Delivery|Frontend Delivery]] · [[Subscription (Free vs Pro) QA Backend|QA Backend]] · [[Subscription (Free vs Pro) QA Frontend|QA Frontend]]
 

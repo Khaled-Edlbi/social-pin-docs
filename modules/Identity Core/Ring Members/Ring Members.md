@@ -2,18 +2,17 @@
 type: feature
 id: ring-members
 name: "Ring Members"
-status: done
 priority: P0
 module: identity
 screens: [s15, s47]
 related: ["View As & Pin Views"]
 updated: 2026-10-18
-tags: [feature, status/done, module/identity, priority/P0]
+tags: [feature, module/identity, priority/P0]
 ---
 
-# ✅ Ring Members
+# Ring Members
 
-**Status:** Done · **Priority:** P0 · **Module:** [[Identity Core Module|Identity Core]]
+**Backend:** Done · **Priority:** P0 · **Module:** [[Identity Core Module|Identity Core]]
 
 **Layers:** [[Ring Members Story|Story]] · [[Ring Members Frontend Requirements|Frontend Requirements]] · [[Ring Members Backend Delivery|Backend Delivery]] · [[Ring Members Backend Integration|Backend Integration]] · [[Ring Members Frontend Delivery|Frontend Delivery]] · [[Ring Members QA Backend|QA Backend]] · [[Ring Members QA Frontend|QA Frontend]]
 

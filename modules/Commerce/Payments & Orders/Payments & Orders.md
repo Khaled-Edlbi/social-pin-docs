@@ -2,17 +2,16 @@
 type: feature
 id: payments
 name: "Payments & Orders"
-status: todo
 priority: P1
 module: commerce
 screens: [s50, s51]
 updated: 2026-10-18
-tags: [feature, status/todo, module/commerce, priority/P1]
+tags: [feature, module/commerce, priority/P1]
 ---
 
-# ❌ Payments & Orders
+# Payments & Orders
 
-**Status:** TODO · **Priority:** P1 · **Module:** [[Commerce Module|Commerce]]
+**Backend:** TODO · **Priority:** P1 · **Module:** [[Commerce Module|Commerce]]
 
 **Layers:** [[Payments & Orders Story|Story]] · [[Payments & Orders Frontend Requirements|Frontend Requirements]] · [[Payments & Orders Backend Delivery|Backend Delivery]] · [[Payments & Orders Backend Integration|Backend Integration]] · [[Payments & Orders Frontend Delivery|Frontend Delivery]] · [[Payments & Orders QA Backend|QA Backend]] · [[Payments & Orders QA Frontend|QA Frontend]]
 

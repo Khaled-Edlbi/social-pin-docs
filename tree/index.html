@@ -395,7 +395,6 @@ const ST = {
   'in-progress': { c: 'var(--color-accent)', bg: 'var(--color-accent-100)', ink: 'var(--color-accent-800)' },
   draft: { c: 'var(--color-accent-500)', bg: 'var(--color-accent-100)', ink: 'var(--color-accent-800)' },
   todo: { c: 'var(--color-neutral-600)', bg: 'var(--color-neutral-200)', ink: 'var(--color-neutral-800)' },
-  'frontend-only': { c: 'var(--color-neutral-500)', bg: 'var(--color-neutral-200)', ink: 'var(--color-neutral-700)' },
   reference: { c: 'var(--color-neutral-700)', bg: 'var(--color-neutral-200)', ink: 'var(--color-neutral-800)' },
   missing: { c: 'var(--color-neutral-400)', bg: 'transparent', ink: 'var(--color-neutral-700)', dashed: true },
   blocked: { c: 'var(--color-accent-2-600)', bg: 'var(--color-accent-2-100)', ink: 'var(--color-accent-2-800)' },
@@ -403,7 +402,7 @@ const ST = {
   'needs-decision': VIOLET,
 };
 const STATUS_GROUPS = [
-  { title: 'Build', hint: 'features, tasks, deliveries', keys: ['done', 'partial', 'in-progress', 'todo', 'frontend-only'] },
+  { title: 'Build', hint: 'cards and their roll-up', keys: ['done', 'partial', 'in-progress', 'todo'] },
   { title: 'Review', hint: 'stories & requirements', keys: ['draft', 'approved', 'verified', 'delivered'] },
   { title: 'Integration & QA', hint: 'against main, last run', keys: ['current', 'passing', 'failing'] },
   { title: 'Waiting on', hint: 'can’t start yet', keys: ['blocked', 'needs-decision'] },
@@ -428,6 +427,7 @@ const EDGE = {
   flow: { name: 'Flow (hand-off order)', verb: 'flow', color: 'var(--st-green-c)', arrow: true, dash: '6 4' },
   shares: { name: 'Shares an endpoint / code', verb: 'shares', color: 'var(--color-accent-400)' },
   decision: { name: 'Decision affects', verb: 'decision affects', color: 'var(--st-violet-c)', arrow: true },
+  pending: { name: 'Pending note for', verb: 'pending note for', color: 'var(--st-ochre-c)', arrow: true, dash: '2 3' },
   wikilink: { name: 'Mentions (wikilink)', verb: 'mentions', color: 'var(--color-neutral-500)' },
 };
 const EDGE_KINDS = Object.keys(EDGE);
@@ -435,7 +435,8 @@ const PRESETS = [
   { id: 'build', name: 'Buildable today', hint: 'Backend Integration · Current', kinds: ['backend-integration'], statuses: ['current'] },
   { id: 'product', name: 'Waiting on product', hint: 'Needs decision', kinds: [], statuses: ['needs-decision'] },
   { id: 'flight', name: 'In flight', hint: 'In progress', kinds: [], statuses: ['in-progress'] },
-  { id: 'blocked', name: 'Blocked', hint: 'Waiting on another note', kinds: [], statuses: ['blocked'] },
+  { id: 'blocked', name: 'Blocked', hint: 'Waiting on the card before it', kinds: [], statuses: ['blocked'] },
+  { id: 'notes', name: 'Done with notes', hint: 'Partial · pending items to clear', kinds: [], statuses: ['partial'] },
   { id: 'unapproved', name: 'Unapproved stories', hint: 'User stories · Draft', kinds: ['story'], statuses: ['draft'] },
   { id: 'missing', name: 'Not written yet', hint: 'Placeholders to scaffold', kinds: [], statuses: ['missing'] },
 ];
@@ -512,11 +513,12 @@ function computeTotals() {
 }
 function statusText(n) {
   const l = legend(n.effectiveStatus);
+  if (n.effectiveStatus === 'partial' && Array.isArray(n.pending) && n.pending.length) return `Partial · ${n.pending.length} note${n.pending.length === 1 ? '' : 's'}`;
   const b = Array.isArray(n.blockedBy) ? n.blockedBy : [];
   if (b.length && (n.effectiveStatus === 'blocked' || n.effectiveStatus === 'missing')) { const t = node(b[0].id); return `${n.effectiveStatus === 'blocked' ? 'Blocked' : l} · ${(t.kind === 'task' || t.kind === 'decision') && t.code ? t.code : (kindOf(t.kind).name)}${b.length > 1 ? ` +${b.length - 1}` : ''}`; }
   return l;
 }
-const kicker = (n) => kindOf(n.kind).name.toUpperCase() + (n.parentTask ? ' · SUB-TASK OF ' + n.parentTask : '') + (n.priority ? ' · ' + n.priority : '');
+const kicker = (n) => kindOf(n.kind).name.toUpperCase() + (n.parentTask ? ' · SUB-TASK OF ' + n.parentTask : '') + (n.frontendOnly ? ' · FRONTEND ONLY' : '') + (n.priority ? ' · ' + n.priority : '');
 const flowIdx = (kind) => FLOW.order.indexOf(kind);
 const isBack = (pair) => FLOW.back.some(([a, b]) => a === pair[0] && b === pair[1]);
 // how a layer note is reached along the hand-off: 'forward' from the step before it, 'back' when the flow returns to it (the story after QA)
@@ -630,7 +632,7 @@ function simulate(scope) {
   const cols = 3, sx = scope === 'features' ? 720 : 1300, sy = scope === 'features' ? 470 : 900;
   const center = {}; clusters.forEach((c, i) => { center[c] = { x: (i % cols) * sx, y: Math.floor(i / cols) * sy }; });
   const P = N.map((n, i) => { const c = center[clusterOf(n)] || { x: 0, y: 0 }; const a = i * 2.39996, r = 40 + 18 * Math.sqrt(i % 40); return { id: n.id, x: c.x + Math.cos(a) * r, y: c.y + Math.sin(a) * r, vx: 0, vy: 0, w: nodeWidth(n, false), c }; });
-  const W = { related: 1, depends: 1, affects: 0.8, blocks: 0.8, decision: 0.7, flow: 0.5, shares: 0.3, wikilink: scope === 'features' ? 0.12 : 0.05, tree: 1.6 };
+  const W = { related: 1, depends: 1, affects: 0.8, blocks: 0.8, pending: 0.6, decision: 0.7, flow: 0.5, shares: 0.3, wikilink: scope === 'features' ? 0.12 : 0.05, tree: 1.6 };
   const E = [];
   for (const e of d.edges) { const a = idx.get(e.from), b = idx.get(e.to); if (a === undefined || b === undefined || a === b) continue; if (e.kind === 'tree' && scope === 'features') continue; E.push([a, b, W[e.kind] || 0.1]); }
   const n = P.length, iters = scope === 'features' ? 360 : 260;
@@ -1094,6 +1096,7 @@ function relationsHtml(n) {
   const parents = n.parents.filter((p) => node(p).kind !== 'root');
   if (parents.length) out.push(relGroup('In the tree under', '', parents.map((p) => relItem(p)).join('')));
   if (Array.isArray(n.blockedBy) && n.blockedBy.length) out.push(relGroup('Blocked by', String(n.blockedBy.length), n.blockedBy.map((b) => relItem(b.id, `<span class="why">${esc(b.why)}</span>`)).join('')));
+  if (Array.isArray(n.pending) && n.pending.length) out.push(relGroup('Pending', String(n.pending.length), n.pending.map((p) => p.to ? relItem(p.to, `<span class="why">${esc(p.text)}</span>`) : `<span class="rel" style="cursor:default"><i class="ph-duotone ph-user" style="font-size:13px"></i>${p.person ? `<span class="lt">@${esc(p.person)}</span>` : ''}<span class="why">${esc(p.text)}</span></span>`).join(''), n.effectiveStatus === 'partial' ? 'Partial until these are cleared or handed over' : 'Notes left for a card or a person'));
   if (n.depends && n.depends.length) out.push(relGroup('Depends on', String(n.depends.length), n.depends.map((x) => relItem(x)).join('')));
   for (const k of EDGE_KINDS) {
     if (k === 'depends' || k === 'blocks') continue; const l = groups[k]; if (!l) continue;
