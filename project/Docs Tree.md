@@ -31,7 +31,8 @@ Social Pin (project)
 │   │   ├── Rings QA Backend                     ← qa         · type: qa-backend
 │   │   ├── Rings QA Frontend                    ← qa         · type: qa-frontend
 │   │   ├── T-059 Decide Ring settings           ← tasks/… whose `feature:` is rings
-│   │   │   └── T-059 Backend Delivery …         ← the task's own layer notes, same kinds, code T-059
+│   │   │   ├── T-059 Backend Delivery …         ← the task's own layer notes, same kinds, code T-059
+│   │   │   └── T-071 …                          ← a sub-task: a task note with `parent: T-059`, with its own layer notes
 │   │   └── D-04 Ring settings                   ← decisions/… that name rings in `features:`
 │   └── …
 ├── … seven more modules
@@ -41,7 +42,7 @@ Social Pin (project)
 └── Project rules   ← project/    workflow, agent rules, this note
 ```
 
-The seven layer notes come from `docs.config.json`, in the layers' order; a slot with no note yet is drawn as a dashed placeholder whose summary gives the `--scaffold` command that creates it. Adding a layer to the config adds its slots everywhere.
+The seven layer notes come from `docs.config.json`, listed in the **hand-off order** the config's `flow` gives (story → frontend requirements → backend delivery → backend integration → frontend delivery, QA after each delivery, QA back to the story); a slot with no note yet is drawn as a dashed placeholder whose summary gives the `--scaffold` command that creates it. Adding a layer to the config adds its slots everywhere.
 
 ## For humans
 
@@ -69,7 +70,7 @@ A module's chip rolls up its features (done only when every feature is); the roo
 
 **Filters.** The left column narrows every view: **Find** (names, codes, screen ids such as `s44`, summaries; press `/`), **Saved views** (one-click questions: buildable today, waiting on product, in flight, blocked, unapproved stories, not written yet), **Module**, **Note type** grouped by layer (one chip per kind in the config, so a whole team's notes are one or two chips), **Status** grouped by what the status means, and **Relations** (which lines to draw). Chips carry counts; switching a filter on opens the path to every match once, then the carets fold and unfold as usual; clearing the filters restores the folds from before. Cards that do not match fade instead of disappearing, so the tree keeps its shape. Combine them: "what is the frontend waiting on?" → type *Frontend Delivery* + status *Blocked*. "Which stories are unapproved?" → type *Stories* + status *Draft*. "What can the client build today?" → the *Buildable today* saved view (Backend Integration + Current).
 
-**Layout.** Top-to-bottom by default: project, modules, features, each feature's notes in a column under it. **Direction** switches to left-to-right. Drag a card to move it with its branch (in the Graph view, on its own); positions are kept per view in your browser only; **Layout ▾** resets, exports or imports an arrangement. **Graph** shows features and decisions by default, every note with **Every note**; cards settle near the module they belong to and close to what they relate to, so a feature far from its module is one with many cross-module relations. The **Dark / Light** button switches the theme.
+**Layout.** Top-to-bottom by default: project, modules, features, each feature's notes in a **ladder** under it: one step down and one step right per hand-off, in the config's flow order, each card chained to the one before it. The small arrow above a card says how it is reached: a forward arrow for the next step of the hand-off, a mirrored arrow on the card the flow returns to (the story, after QA). The feature's tasks and decisions follow in a plain column; a task opens to the same ladder of its own notes, and a sub-task (`parent: T-NNN`) hangs under its parent task, folding with it. **Direction** switches to left-to-right. Drag a card to move it with its branch (in the Graph view, on its own); positions are kept per view in your browser only; **Layout ▾** resets, exports or imports an arrangement. **Graph** shows features and decisions by default, every note with **Every note**; cards settle near the module they belong to and close to what they relate to, so a feature far from its module is one with many cross-module relations. The **Dark / Light** button switches the theme.
 
 **Focus.** Hovering lights up relations for as long as the pointer stays; **one click** keeps them lit while you pan, zoom, collapse or drag (click again, click the background, press Esc or use the chip's ✕ to end it); **double-click** opens the details pane. A deep link `#n/<id>` focuses and opens a node.
 
@@ -81,9 +82,9 @@ A module's chip rolls up its features (done only when every feature is); the roo
 
 Read `tree/tree.json` **first**: it is the whole vault as one object, and cheaper than walking the folders. Then run `--impact` for the thing you are about to change and read only what it lists ([[Agent Rules#3 · Relations]]).
 
-- `nodes[id]`: `kind` (`root`, `module`, `feature`, `task`, `decision`, `group`, `project`, or a kind id from the config such as `backend-delivery`), `layer`, `title`, `path` (the file to read; `null` for a placeholder, whose `template` and `summary` say how to create it), `code` (`T-NNN` or the feature id), `scope` (`feature` | `task`), `feature`, `task`, `module`, `status` (the note's own), `effectiveStatus` (what the chip shows), `blockedBy` (a list of `{ id, title, why }`), `depends` / `affects` / `related` (resolved ids), `screens`, `priority`, `children`, `parents`, `summary`, `rollup`.
+- `nodes[id]`: `kind` (`root`, `module`, `feature`, `task`, `decision`, `group`, `project`, or a kind id from the config such as `backend-delivery`), `layer`, `title`, `path` (the file to read; `null` for a placeholder, whose `template` and `summary` say how to create it), `code` (`T-NNN` or the feature id), `scope` (`feature` | `task`), `feature`, `task`, `parentTask` (the parent's code on a sub-task), `module`, `status` (the note's own), `effectiveStatus` (what the chip shows), `blockedBy` (a list of `{ id, title, why }`), `depends` / `affects` / `related` (resolved ids), `screens`, `priority`, `children`, `parents`, `summary`, `rollup`.
 - Ids: `feature:rings`, `story:rings`, `backend-delivery:rings`, `backend-delivery:T-004` (task level), `task:T-004`, `decision:D-04`, `module:identity`, `group:backend`, `project:workflow`, `root`.
-- `layers` and `flow` echo `docs.config.json`; `legend` and `emoji` map every status to its label; `modules` lists the module ids and names.
+- `layers` and `flow` echo `docs.config.json`; `flowOrder` is the hand-off order derived from `flow` (the order children are listed in) and `flowBack` the pairs that return to an earlier step; `legend` and `emoji` map every status to its label; `modules` lists the module ids and names.
 - `edges`: `{ from, to, kind, via? }` with kind `tree`, `related`, `affects`, `depends`, `blocks`, `flow`, `shares` (derived; `via` names the endpoints or codes), `decision`, `wikilink`.
 - `concepts`: every endpoint, error code and screen mentioned anywhere → `{ kind, owner, notes, containers }`; `owner` is the feature whose Backend Delivery lists the endpoint.
 - `byName` resolves a wikilink name to a node id; `files` lists every `.md` with its `type`; `generated` names the files the build writes; `diagnostics` holds the warnings.

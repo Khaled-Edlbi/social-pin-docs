@@ -23440,6 +23440,25 @@
       "story"
     ]
   ],
+  "flowBack": [
+    [
+      "qa-backend",
+      "story"
+    ],
+    [
+      "qa-frontend",
+      "story"
+    ]
+  ],
+  "flowOrder": [
+    "story",
+    "frontend-requirements",
+    "backend-delivery",
+    "backend-integration",
+    "qa-backend",
+    "frontend-delivery",
+    "qa-frontend"
+  ],
   "generated": [
     "tree/tree.json",
     "tree/tree.md",
@@ -23659,6 +23678,7 @@
       "label": "Backend Delivery",
       "layer": "backend",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:account"
       ],
@@ -23695,6 +23715,7 @@
       "label": "Backend Delivery",
       "layer": "backend",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:app-shell"
       ],
@@ -23734,6 +23755,7 @@
       "label": "Backend Delivery",
       "layer": "backend",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:audit-log"
       ],
@@ -23768,6 +23790,7 @@
       "label": "Backend Delivery",
       "layer": "backend",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:auth"
       ],
@@ -23808,6 +23831,7 @@
       "label": "Backend Delivery",
       "layer": "backend",
       "module": "discovery",
+      "parentTask": null,
       "parents": [
         "feature:badge-qr"
       ],
@@ -23847,6 +23871,7 @@
       "label": "Backend Delivery",
       "layer": "backend",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:cleanup-jobs"
       ],
@@ -23881,6 +23906,7 @@
       "label": "Backend Delivery",
       "layer": "backend",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:code-delivery"
       ],
@@ -23917,6 +23943,7 @@
       "label": "Backend Delivery",
       "layer": "backend",
       "module": "shared-rings",
+      "parentTask": null,
       "parents": [
         "feature:companies"
       ],
@@ -23954,6 +23981,7 @@
       "label": "Backend Delivery",
       "layer": "backend",
       "module": "connections",
+      "parentTask": null,
       "parents": [
         "feature:connections"
       ],
@@ -23994,6 +24022,7 @@
       "label": "Backend Delivery",
       "layer": "backend",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:counts"
       ],
@@ -24035,6 +24064,7 @@
       "label": "Backend Delivery",
       "layer": "backend",
       "module": "shared-rings",
+      "parentTask": null,
       "parents": [
         "feature:delegated-admins"
       ],
@@ -24072,6 +24102,7 @@
       "label": "Backend Delivery",
       "layer": "backend",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:devices"
       ],
@@ -24108,6 +24139,7 @@
       "label": "Backend Delivery",
       "layer": "backend",
       "module": "discovery",
+      "parentTask": null,
       "parents": [
         "feature:discover-hub"
       ],
@@ -24144,6 +24176,7 @@
       "label": "Backend Delivery",
       "layer": "backend",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:e2e-tests"
       ],
@@ -24178,6 +24211,7 @@
       "label": "Backend Delivery",
       "layer": "backend",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:error-contract"
       ],
@@ -24212,6 +24246,7 @@
       "label": "Backend Delivery",
       "layer": "backend",
       "module": "events",
+      "parentTask": null,
       "parents": [
         "feature:event-ring-auto"
       ],
@@ -24248,6 +24283,7 @@
       "label": "Backend Delivery",
       "layer": "backend",
       "module": "events",
+      "parentTask": null,
       "parents": [
         "feature:events-before"
       ],
@@ -24288,6 +24324,7 @@
       "label": "Backend Delivery",
       "layer": "backend",
       "module": "events",
+      "parentTask": null,
       "parents": [
         "feature:events-during"
       ],
@@ -24329,6 +24366,7 @@
       "label": "Backend Delivery",
       "layer": "backend",
       "module": "events",
+      "parentTask": null,
       "parents": [
         "feature:exhibitor"
       ],
@@ -24367,6 +24405,7 @@
       "label": "Backend Delivery",
       "layer": "backend",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:files"
       ],
@@ -24405,6 +24444,7 @@
       "label": "Backend Delivery",
       "layer": "backend",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:gemma"
       ],
@@ -24442,6 +24482,7 @@
       "label": "Backend Delivery",
       "layer": "backend",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:interests"
       ],
@@ -24479,6 +24520,7 @@
       "label": "Backend Delivery",
       "layer": "backend",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:linked-accounts"
       ],
@@ -24517,6 +24559,7 @@
       "label": "Backend Delivery",
       "layer": "backend",
       "module": "meetings",
+      "parentTask": null,
       "parents": [
         "feature:meetings"
       ],
@@ -24557,6 +24600,7 @@
       "label": "Backend Delivery",
       "layer": "backend",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:notifications"
       ],
@@ -24593,6 +24637,7 @@
       "label": "Backend Delivery",
       "layer": "backend",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:onboarding-imports"
       ],
@@ -24633,6 +24678,7 @@
       "label": "Backend Delivery",
       "layer": "backend",
       "module": "commerce",
+      "parentTask": null,
       "parents": [
         "feature:payments"
       ],
@@ -24670,6 +24716,7 @@
       "label": "Backend Delivery",
       "layer": "backend",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:photo-library"
       ],
@@ -24707,6 +24754,7 @@
       "label": "Backend Delivery",
       "layer": "backend",
       "module": "discovery",
+      "parentTask": null,
       "parents": [
         "feature:pincast"
       ],
@@ -24747,6 +24795,7 @@
       "label": "Backend Delivery",
       "layer": "backend",
       "module": "events",
+      "parentTask": null,
       "parents": [
         "feature:post-event"
       ],
@@ -24783,6 +24832,7 @@
       "label": "Backend Delivery",
       "layer": "backend",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:profiles"
       ],
@@ -24819,6 +24869,7 @@
       "label": "Backend Delivery",
       "layer": "backend",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:ring-access"
       ],
@@ -24853,6 +24904,7 @@
       "label": "Backend Delivery",
       "layer": "backend",
       "module": "shared-rings",
+      "parentTask": null,
       "parents": [
         "feature:ring-invitations"
       ],
@@ -24890,6 +24942,7 @@
       "label": "Backend Delivery",
       "layer": "backend",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:ring-members"
       ],
@@ -24927,6 +24980,7 @@
       "label": "Backend Delivery",
       "layer": "backend",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:ring-projection"
       ],
@@ -24969,6 +25023,7 @@
       "label": "Backend Delivery",
       "layer": "backend",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:rings"
       ],
@@ -25015,6 +25070,7 @@
       "label": "Backend Delivery",
       "layer": "backend",
       "module": "commerce",
+      "parentTask": null,
       "parents": [
         "feature:subscription"
       ],
@@ -25052,6 +25108,7 @@
       "label": "Backend Delivery",
       "layer": "backend",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:view-as"
       ],
@@ -25090,6 +25147,7 @@
       "label": "Backend Delivery",
       "layer": "backend",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:widgets"
       ],
@@ -25127,6 +25185,7 @@
       "label": "Backend Integration",
       "layer": "backend",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:account"
       ],
@@ -25163,6 +25222,7 @@
       "label": "Backend Integration",
       "layer": "backend",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:app-shell"
       ],
@@ -25193,6 +25253,7 @@
       "label": "Backend Integration",
       "layer": "backend",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:audit-log"
       ],
@@ -25223,6 +25284,7 @@
       "label": "Backend Integration",
       "layer": "backend",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:auth"
       ],
@@ -25263,6 +25325,7 @@
       "label": "Backend Integration",
       "layer": "backend",
       "module": "discovery",
+      "parentTask": null,
       "parents": [
         "feature:badge-qr"
       ],
@@ -25293,6 +25356,7 @@
       "label": "Backend Integration",
       "layer": "backend",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:cleanup-jobs"
       ],
@@ -25323,6 +25387,7 @@
       "label": "Backend Integration",
       "layer": "backend",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:code-delivery"
       ],
@@ -25353,6 +25418,7 @@
       "label": "Backend Integration",
       "layer": "backend",
       "module": "shared-rings",
+      "parentTask": null,
       "parents": [
         "feature:companies"
       ],
@@ -25383,6 +25449,7 @@
       "label": "Backend Integration",
       "layer": "backend",
       "module": "connections",
+      "parentTask": null,
       "parents": [
         "feature:connections"
       ],
@@ -25413,6 +25480,7 @@
       "label": "Backend Integration",
       "layer": "backend",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:counts"
       ],
@@ -25443,6 +25511,7 @@
       "label": "Backend Integration",
       "layer": "backend",
       "module": "shared-rings",
+      "parentTask": null,
       "parents": [
         "feature:delegated-admins"
       ],
@@ -25473,6 +25542,7 @@
       "label": "Backend Integration",
       "layer": "backend",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:devices"
       ],
@@ -25503,6 +25573,7 @@
       "label": "Backend Integration",
       "layer": "backend",
       "module": "discovery",
+      "parentTask": null,
       "parents": [
         "feature:discover-hub"
       ],
@@ -25533,6 +25604,7 @@
       "label": "Backend Integration",
       "layer": "backend",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:e2e-tests"
       ],
@@ -25563,6 +25635,7 @@
       "label": "Backend Integration",
       "layer": "backend",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:error-contract"
       ],
@@ -25593,6 +25666,7 @@
       "label": "Backend Integration",
       "layer": "backend",
       "module": "events",
+      "parentTask": null,
       "parents": [
         "feature:event-ring-auto"
       ],
@@ -25623,6 +25697,7 @@
       "label": "Backend Integration",
       "layer": "backend",
       "module": "events",
+      "parentTask": null,
       "parents": [
         "feature:events-before"
       ],
@@ -25653,6 +25728,7 @@
       "label": "Backend Integration",
       "layer": "backend",
       "module": "events",
+      "parentTask": null,
       "parents": [
         "feature:events-during"
       ],
@@ -25683,6 +25759,7 @@
       "label": "Backend Integration",
       "layer": "backend",
       "module": "events",
+      "parentTask": null,
       "parents": [
         "feature:exhibitor"
       ],
@@ -25713,6 +25790,7 @@
       "label": "Backend Integration",
       "layer": "backend",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:files"
       ],
@@ -25751,6 +25829,7 @@
       "label": "Backend Integration",
       "layer": "backend",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:gemma"
       ],
@@ -25781,6 +25860,7 @@
       "label": "Backend Integration",
       "layer": "backend",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:interests"
       ],
@@ -25811,6 +25891,7 @@
       "label": "Backend Integration",
       "layer": "backend",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:linked-accounts"
       ],
@@ -25841,6 +25922,7 @@
       "label": "Backend Integration",
       "layer": "backend",
       "module": "meetings",
+      "parentTask": null,
       "parents": [
         "feature:meetings"
       ],
@@ -25871,6 +25953,7 @@
       "label": "Backend Integration",
       "layer": "backend",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:notifications"
       ],
@@ -25901,6 +25984,7 @@
       "label": "Backend Integration",
       "layer": "backend",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:onboarding-imports"
       ],
@@ -25931,6 +26015,7 @@
       "label": "Backend Integration",
       "layer": "backend",
       "module": "commerce",
+      "parentTask": null,
       "parents": [
         "feature:payments"
       ],
@@ -25961,6 +26046,7 @@
       "label": "Backend Integration",
       "layer": "backend",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:photo-library"
       ],
@@ -25991,6 +26077,7 @@
       "label": "Backend Integration",
       "layer": "backend",
       "module": "discovery",
+      "parentTask": null,
       "parents": [
         "feature:pincast"
       ],
@@ -26021,6 +26108,7 @@
       "label": "Backend Integration",
       "layer": "backend",
       "module": "events",
+      "parentTask": null,
       "parents": [
         "feature:post-event"
       ],
@@ -26051,6 +26139,7 @@
       "label": "Backend Integration",
       "layer": "backend",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:profiles"
       ],
@@ -26087,6 +26176,7 @@
       "label": "Backend Integration",
       "layer": "backend",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:ring-access"
       ],
@@ -26121,6 +26211,7 @@
       "label": "Backend Integration",
       "layer": "backend",
       "module": "shared-rings",
+      "parentTask": null,
       "parents": [
         "feature:ring-invitations"
       ],
@@ -26151,6 +26242,7 @@
       "label": "Backend Integration",
       "layer": "backend",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:ring-members"
       ],
@@ -26188,6 +26280,7 @@
       "label": "Backend Integration",
       "layer": "backend",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:ring-projection"
       ],
@@ -26230,6 +26323,7 @@
       "label": "Backend Integration",
       "layer": "backend",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:rings"
       ],
@@ -26276,6 +26370,7 @@
       "label": "Backend Integration",
       "layer": "backend",
       "module": "commerce",
+      "parentTask": null,
       "parents": [
         "feature:subscription"
       ],
@@ -26306,6 +26401,7 @@
       "label": "Backend Integration",
       "layer": "backend",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:view-as"
       ],
@@ -26344,6 +26440,7 @@
       "label": "Backend Integration",
       "layer": "backend",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:widgets"
       ],
@@ -26378,6 +26475,7 @@
       "label": "Decision",
       "layer": "business",
       "module": null,
+      "parentTask": null,
       "parents": [
         "feature:auth",
         "feature:linked-accounts"
@@ -26420,6 +26518,7 @@
       "label": "Decision",
       "layer": "business",
       "module": null,
+      "parentTask": null,
       "parents": [
         "feature:profiles",
         "feature:ring-projection",
@@ -26465,6 +26564,7 @@
       "label": "Decision",
       "layer": "business",
       "module": null,
+      "parentTask": null,
       "parents": [
         "feature:ring-projection",
         "feature:widgets"
@@ -26508,6 +26608,7 @@
       "label": "Decision",
       "layer": "business",
       "module": null,
+      "parentTask": null,
       "parents": [
         "feature:rings",
         "feature:ring-members",
@@ -26554,6 +26655,7 @@
       "label": "Decision",
       "layer": "business",
       "module": null,
+      "parentTask": null,
       "parents": [
         "feature:rings",
         "feature:ring-projection",
@@ -26597,6 +26699,7 @@
       "label": "Decision",
       "layer": "business",
       "module": null,
+      "parentTask": null,
       "parents": [
         "feature:profiles",
         "feature:gemma"
@@ -26624,10 +26727,10 @@
       "children": [
         "story:account",
         "frontend-requirements:account",
-        "frontend-delivery:account",
         "backend-delivery:account",
         "backend-integration:account",
         "qa-backend:account",
+        "frontend-delivery:account",
         "qa-frontend:account"
       ],
       "code": "account",
@@ -26642,6 +26745,7 @@
       "layer": "business",
       "module": "identity",
       "name": "Account",
+      "parentTask": null,
       "parents": [
         "module:identity"
       ],
@@ -26688,10 +26792,10 @@
       "children": [
         "story:app-shell",
         "frontend-requirements:app-shell",
-        "frontend-delivery:app-shell",
         "backend-delivery:app-shell",
         "backend-integration:app-shell",
         "qa-backend:app-shell",
+        "frontend-delivery:app-shell",
         "qa-frontend:app-shell"
       ],
       "code": "app-shell",
@@ -26706,6 +26810,7 @@
       "layer": "business",
       "module": "platform",
       "name": "App Shell & Onboarding Narrative",
+      "parentTask": null,
       "parents": [
         "module:platform"
       ],
@@ -26748,10 +26853,10 @@
       "children": [
         "story:audit-log",
         "frontend-requirements:audit-log",
-        "frontend-delivery:audit-log",
         "backend-delivery:audit-log",
         "backend-integration:audit-log",
         "qa-backend:audit-log",
+        "frontend-delivery:audit-log",
         "qa-frontend:audit-log",
         "task:T-053"
       ],
@@ -26767,6 +26872,7 @@
       "layer": "business",
       "module": "platform",
       "name": "Audit Log",
+      "parentTask": null,
       "parents": [
         "module:platform"
       ],
@@ -26807,10 +26913,10 @@
       "children": [
         "story:auth",
         "frontend-requirements:auth",
-        "frontend-delivery:auth",
         "backend-delivery:auth",
         "backend-integration:auth",
         "qa-backend:auth",
+        "frontend-delivery:auth",
         "qa-frontend:auth",
         "task:T-056",
         "decision:D-01"
@@ -26827,6 +26933,7 @@
       "layer": "business",
       "module": "identity",
       "name": "Auth & Sign-up",
+      "parentTask": null,
       "parents": [
         "module:identity"
       ],
@@ -26881,10 +26988,10 @@
       "children": [
         "story:badge-qr",
         "frontend-requirements:badge-qr",
-        "frontend-delivery:badge-qr",
         "backend-delivery:badge-qr",
         "backend-integration:badge-qr",
         "qa-backend:badge-qr",
+        "frontend-delivery:badge-qr",
         "qa-frontend:badge-qr",
         "task:T-007",
         "task:T-008",
@@ -26903,6 +27010,7 @@
       "layer": "business",
       "module": "discovery",
       "name": "Badge & QR",
+      "parentTask": null,
       "parents": [
         "module:discovery"
       ],
@@ -26957,10 +27065,10 @@
       "children": [
         "story:cleanup-jobs",
         "frontend-requirements:cleanup-jobs",
-        "frontend-delivery:cleanup-jobs",
         "backend-delivery:cleanup-jobs",
         "backend-integration:cleanup-jobs",
         "qa-backend:cleanup-jobs",
+        "frontend-delivery:cleanup-jobs",
         "qa-frontend:cleanup-jobs",
         "task:T-054"
       ],
@@ -26976,6 +27084,7 @@
       "layer": "business",
       "module": "platform",
       "name": "Cleanup Jobs",
+      "parentTask": null,
       "parents": [
         "module:platform"
       ],
@@ -27015,10 +27124,10 @@
       "children": [
         "story:code-delivery",
         "frontend-requirements:code-delivery",
-        "frontend-delivery:code-delivery",
         "backend-delivery:code-delivery",
         "backend-integration:code-delivery",
         "qa-backend:code-delivery",
+        "frontend-delivery:code-delivery",
         "qa-frontend:code-delivery",
         "task:T-001",
         "task:T-002",
@@ -27036,6 +27145,7 @@
       "layer": "business",
       "module": "platform",
       "name": "Code Delivery",
+      "parentTask": null,
       "parents": [
         "module:platform"
       ],
@@ -27078,10 +27188,10 @@
       "children": [
         "story:companies",
         "frontend-requirements:companies",
-        "frontend-delivery:companies",
         "backend-delivery:companies",
         "backend-integration:companies",
         "qa-backend:companies",
+        "frontend-delivery:companies",
         "qa-frontend:companies",
         "task:T-029",
         "decision:D-04"
@@ -27098,6 +27208,7 @@
       "layer": "business",
       "module": "shared-rings",
       "name": "Companies",
+      "parentTask": null,
       "parents": [
         "module:shared-rings"
       ],
@@ -27143,10 +27254,10 @@
       "children": [
         "story:connections",
         "frontend-requirements:connections",
-        "frontend-delivery:connections",
         "backend-delivery:connections",
         "backend-integration:connections",
         "qa-backend:connections",
+        "frontend-delivery:connections",
         "qa-frontend:connections",
         "task:T-021",
         "task:T-022",
@@ -27166,6 +27277,7 @@
       "layer": "business",
       "module": "connections",
       "name": "Connections",
+      "parentTask": null,
       "parents": [
         "module:connections"
       ],
@@ -27222,10 +27334,10 @@
       "children": [
         "story:counts",
         "frontend-requirements:counts",
-        "frontend-delivery:counts",
         "backend-delivery:counts",
         "backend-integration:counts",
         "qa-backend:counts",
+        "frontend-delivery:counts",
         "qa-frontend:counts",
         "task:T-004",
         "task:T-005"
@@ -27242,6 +27354,7 @@
       "layer": "business",
       "module": "identity",
       "name": "Counts",
+      "parentTask": null,
       "parents": [
         "module:identity"
       ],
@@ -27290,10 +27403,10 @@
       "children": [
         "story:delegated-admins",
         "frontend-requirements:delegated-admins",
-        "frontend-delivery:delegated-admins",
         "backend-delivery:delegated-admins",
         "backend-integration:delegated-admins",
         "qa-backend:delegated-admins",
+        "frontend-delivery:delegated-admins",
         "qa-frontend:delegated-admins",
         "task:T-006",
         "decision:D-04"
@@ -27310,6 +27423,7 @@
       "layer": "business",
       "module": "shared-rings",
       "name": "Delegated Admins",
+      "parentTask": null,
       "parents": [
         "module:shared-rings"
       ],
@@ -27355,10 +27469,10 @@
       "children": [
         "story:devices",
         "frontend-requirements:devices",
-        "frontend-delivery:devices",
         "backend-delivery:devices",
         "backend-integration:devices",
         "qa-backend:devices",
+        "frontend-delivery:devices",
         "qa-frontend:devices",
         "task:T-014",
         "task:T-015"
@@ -27375,6 +27489,7 @@
       "layer": "business",
       "module": "platform",
       "name": "Devices & NFC",
+      "parentTask": null,
       "parents": [
         "module:platform"
       ],
@@ -27419,10 +27534,10 @@
       "children": [
         "story:discover-hub",
         "frontend-requirements:discover-hub",
-        "frontend-delivery:discover-hub",
         "backend-delivery:discover-hub",
         "backend-integration:discover-hub",
         "qa-backend:discover-hub",
+        "frontend-delivery:discover-hub",
         "qa-frontend:discover-hub",
         "task:T-030",
         "task:T-031"
@@ -27439,6 +27554,7 @@
       "layer": "business",
       "module": "discovery",
       "name": "Discover Hub & Search",
+      "parentTask": null,
       "parents": [
         "module:discovery"
       ],
@@ -27482,10 +27598,10 @@
       "children": [
         "story:e2e-tests",
         "frontend-requirements:e2e-tests",
-        "frontend-delivery:e2e-tests",
         "backend-delivery:e2e-tests",
         "backend-integration:e2e-tests",
         "qa-backend:e2e-tests",
+        "frontend-delivery:e2e-tests",
         "qa-frontend:e2e-tests",
         "task:T-055"
       ],
@@ -27501,6 +27617,7 @@
       "layer": "business",
       "module": "platform",
       "name": "E2E Test Run",
+      "parentTask": null,
       "parents": [
         "module:platform"
       ],
@@ -27539,10 +27656,10 @@
       "children": [
         "story:error-contract",
         "frontend-requirements:error-contract",
-        "frontend-delivery:error-contract",
         "backend-delivery:error-contract",
         "backend-integration:error-contract",
         "qa-backend:error-contract",
+        "frontend-delivery:error-contract",
         "qa-frontend:error-contract",
         "task:T-063",
         "task:T-064"
@@ -27559,6 +27676,7 @@
       "layer": "business",
       "module": "platform",
       "name": "Error Contract",
+      "parentTask": null,
       "parents": [
         "module:platform"
       ],
@@ -27598,10 +27716,10 @@
       "children": [
         "story:event-ring-auto",
         "frontend-requirements:event-ring-auto",
-        "frontend-delivery:event-ring-auto",
         "backend-delivery:event-ring-auto",
         "backend-integration:event-ring-auto",
         "qa-backend:event-ring-auto",
+        "frontend-delivery:event-ring-auto",
         "qa-frontend:event-ring-auto",
         "task:T-011"
       ],
@@ -27617,6 +27735,7 @@
       "layer": "business",
       "module": "events",
       "name": "Event Ring Auto-creation",
+      "parentTask": null,
       "parents": [
         "module:events"
       ],
@@ -27663,10 +27782,10 @@
       "children": [
         "story:events-before",
         "frontend-requirements:events-before",
-        "frontend-delivery:events-before",
         "backend-delivery:events-before",
         "backend-integration:events-before",
         "qa-backend:events-before",
+        "frontend-delivery:events-before",
         "qa-frontend:events-before",
         "task:T-033",
         "task:T-034",
@@ -27684,6 +27803,7 @@
       "layer": "business",
       "module": "events",
       "name": "Events Before",
+      "parentTask": null,
       "parents": [
         "module:events"
       ],
@@ -27733,10 +27853,10 @@
       "children": [
         "story:events-during",
         "frontend-requirements:events-during",
-        "frontend-delivery:events-during",
         "backend-delivery:events-during",
         "backend-integration:events-during",
         "qa-backend:events-during",
+        "frontend-delivery:events-during",
         "qa-frontend:events-during",
         "task:T-036",
         "task:T-037",
@@ -27756,6 +27876,7 @@
       "layer": "business",
       "module": "events",
       "name": "Events During",
+      "parentTask": null,
       "parents": [
         "module:events"
       ],
@@ -27811,10 +27932,10 @@
       "children": [
         "story:exhibitor",
         "frontend-requirements:exhibitor",
-        "frontend-delivery:exhibitor",
         "backend-delivery:exhibitor",
         "backend-integration:exhibitor",
         "qa-backend:exhibitor",
+        "frontend-delivery:exhibitor",
         "qa-frontend:exhibitor",
         "task:T-048",
         "task:T-048b"
@@ -27831,6 +27952,7 @@
       "layer": "business",
       "module": "events",
       "name": "Exhibitor",
+      "parentTask": null,
       "parents": [
         "module:events"
       ],
@@ -27878,10 +28000,10 @@
       "children": [
         "story:files",
         "frontend-requirements:files",
-        "frontend-delivery:files",
         "backend-delivery:files",
         "backend-integration:files",
         "qa-backend:files",
+        "frontend-delivery:files",
         "qa-frontend:files",
         "task:T-062"
       ],
@@ -27897,6 +28019,7 @@
       "layer": "business",
       "module": "identity",
       "name": "Files Upload",
+      "parentTask": null,
       "parents": [
         "module:identity"
       ],
@@ -27943,10 +28066,10 @@
       "children": [
         "story:gemma",
         "frontend-requirements:gemma",
-        "frontend-delivery:gemma",
         "backend-delivery:gemma",
         "backend-integration:gemma",
         "qa-backend:gemma",
+        "frontend-delivery:gemma",
         "qa-frontend:gemma",
         "task:T-051",
         "task:T-052",
@@ -27964,6 +28087,7 @@
       "layer": "business",
       "module": "platform",
       "name": "Gemma AI",
+      "parentTask": null,
       "parents": [
         "module:platform"
       ],
@@ -28014,10 +28138,10 @@
       "children": [
         "story:interests",
         "frontend-requirements:interests",
-        "frontend-delivery:interests",
         "backend-delivery:interests",
         "backend-integration:interests",
         "qa-backend:interests",
+        "frontend-delivery:interests",
         "qa-frontend:interests",
         "task:T-016"
       ],
@@ -28033,6 +28157,7 @@
       "layer": "business",
       "module": "platform",
       "name": "Interests",
+      "parentTask": null,
       "parents": [
         "module:platform"
       ],
@@ -28075,10 +28200,10 @@
       "children": [
         "story:linked-accounts",
         "frontend-requirements:linked-accounts",
-        "frontend-delivery:linked-accounts",
         "backend-delivery:linked-accounts",
         "backend-integration:linked-accounts",
         "qa-backend:linked-accounts",
+        "frontend-delivery:linked-accounts",
         "qa-frontend:linked-accounts",
         "task:T-019",
         "decision:D-01"
@@ -28095,6 +28220,7 @@
       "layer": "business",
       "module": "platform",
       "name": "Linked Accounts (OAuth)",
+      "parentTask": null,
       "parents": [
         "module:platform"
       ],
@@ -28140,10 +28266,10 @@
       "children": [
         "story:meetings",
         "frontend-requirements:meetings",
-        "frontend-delivery:meetings",
         "backend-delivery:meetings",
         "backend-integration:meetings",
         "qa-backend:meetings",
+        "frontend-delivery:meetings",
         "qa-frontend:meetings",
         "task:T-041",
         "task:T-042",
@@ -28162,6 +28288,7 @@
       "layer": "business",
       "module": "meetings",
       "name": "Meetings",
+      "parentTask": null,
       "parents": [
         "module:meetings"
       ],
@@ -28214,10 +28341,10 @@
       "children": [
         "story:notifications",
         "frontend-requirements:notifications",
-        "frontend-delivery:notifications",
         "backend-delivery:notifications",
         "backend-integration:notifications",
         "qa-backend:notifications",
+        "frontend-delivery:notifications",
         "qa-frontend:notifications",
         "task:T-045",
         "task:T-046"
@@ -28234,6 +28361,7 @@
       "layer": "business",
       "module": "platform",
       "name": "Notifications",
+      "parentTask": null,
       "parents": [
         "module:platform"
       ],
@@ -28280,10 +28408,10 @@
       "children": [
         "story:onboarding-imports",
         "frontend-requirements:onboarding-imports",
-        "frontend-delivery:onboarding-imports",
         "backend-delivery:onboarding-imports",
         "backend-integration:onboarding-imports",
         "qa-backend:onboarding-imports",
+        "frontend-delivery:onboarding-imports",
         "qa-frontend:onboarding-imports",
         "task:T-020",
         "task:T-020b",
@@ -28301,6 +28429,7 @@
       "layer": "business",
       "module": "identity",
       "name": "Onboarding Imports",
+      "parentTask": null,
       "parents": [
         "module:identity"
       ],
@@ -28349,10 +28478,10 @@
       "children": [
         "story:payments",
         "frontend-requirements:payments",
-        "frontend-delivery:payments",
         "backend-delivery:payments",
         "backend-integration:payments",
         "qa-backend:payments",
+        "frontend-delivery:payments",
         "qa-frontend:payments",
         "task:T-047"
       ],
@@ -28368,6 +28497,7 @@
       "layer": "business",
       "module": "commerce",
       "name": "Payments & Orders",
+      "parentTask": null,
       "parents": [
         "module:commerce"
       ],
@@ -28412,10 +28542,10 @@
       "children": [
         "story:photo-library",
         "frontend-requirements:photo-library",
-        "frontend-delivery:photo-library",
         "backend-delivery:photo-library",
         "backend-integration:photo-library",
         "qa-backend:photo-library",
+        "frontend-delivery:photo-library",
         "qa-frontend:photo-library",
         "task:T-012",
         "task:T-013",
@@ -28434,6 +28564,7 @@
       "layer": "business",
       "module": "identity",
       "name": "Photo Library",
+      "parentTask": null,
       "parents": [
         "module:identity"
       ],
@@ -28479,10 +28610,10 @@
       "children": [
         "story:pincast",
         "frontend-requirements:pincast",
-        "frontend-delivery:pincast",
         "backend-delivery:pincast",
         "backend-integration:pincast",
         "qa-backend:pincast",
+        "frontend-delivery:pincast",
         "qa-frontend:pincast",
         "task:T-032"
       ],
@@ -28498,6 +28629,7 @@
       "layer": "business",
       "module": "discovery",
       "name": "PinCast & Nearby",
+      "parentTask": null,
       "parents": [
         "module:discovery"
       ],
@@ -28547,10 +28679,10 @@
       "children": [
         "story:post-event",
         "frontend-requirements:post-event",
-        "frontend-delivery:post-event",
         "backend-delivery:post-event",
         "backend-integration:post-event",
         "qa-backend:post-event",
+        "frontend-delivery:post-event",
         "qa-frontend:post-event",
         "task:T-050"
       ],
@@ -28566,6 +28698,7 @@
       "layer": "business",
       "module": "events",
       "name": "Post-Event",
+      "parentTask": null,
       "parents": [
         "module:events"
       ],
@@ -28612,10 +28745,10 @@
       "children": [
         "story:profiles",
         "frontend-requirements:profiles",
-        "frontend-delivery:profiles",
         "backend-delivery:profiles",
         "backend-integration:profiles",
         "qa-backend:profiles",
+        "frontend-delivery:profiles",
         "qa-frontend:profiles",
         "task:T-057",
         "task:T-061",
@@ -28634,6 +28767,7 @@
       "layer": "business",
       "module": "identity",
       "name": "Profiles & Pin Name",
+      "parentTask": null,
       "parents": [
         "module:identity"
       ],
@@ -28678,10 +28812,10 @@
       "children": [
         "story:ring-access",
         "frontend-requirements:ring-access",
-        "frontend-delivery:ring-access",
         "backend-delivery:ring-access",
         "backend-integration:ring-access",
         "qa-backend:ring-access",
+        "frontend-delivery:ring-access",
         "qa-frontend:ring-access"
       ],
       "code": "ring-access",
@@ -28696,6 +28830,7 @@
       "layer": "business",
       "module": "identity",
       "name": "Ring Access Engine",
+      "parentTask": null,
       "parents": [
         "module:identity"
       ],
@@ -28743,10 +28878,10 @@
       "children": [
         "story:ring-invitations",
         "frontend-requirements:ring-invitations",
-        "frontend-delivery:ring-invitations",
         "backend-delivery:ring-invitations",
         "backend-integration:ring-invitations",
         "qa-backend:ring-invitations",
+        "frontend-delivery:ring-invitations",
         "qa-frontend:ring-invitations",
         "task:T-026",
         "task:T-027",
@@ -28765,6 +28900,7 @@
       "layer": "business",
       "module": "shared-rings",
       "name": "Ring Invitations & Join",
+      "parentTask": null,
       "parents": [
         "module:shared-rings"
       ],
@@ -28811,10 +28947,10 @@
       "children": [
         "story:ring-members",
         "frontend-requirements:ring-members",
-        "frontend-delivery:ring-members",
         "backend-delivery:ring-members",
         "backend-integration:ring-members",
         "qa-backend:ring-members",
+        "frontend-delivery:ring-members",
         "qa-frontend:ring-members",
         "decision:D-04"
       ],
@@ -28830,6 +28966,7 @@
       "layer": "business",
       "module": "identity",
       "name": "Ring Members",
+      "parentTask": null,
       "parents": [
         "module:identity"
       ],
@@ -28879,10 +29016,10 @@
       "children": [
         "story:ring-projection",
         "frontend-requirements:ring-projection",
-        "frontend-delivery:ring-projection",
         "backend-delivery:ring-projection",
         "backend-integration:ring-projection",
         "qa-backend:ring-projection",
+        "frontend-delivery:ring-projection",
         "qa-frontend:ring-projection",
         "task:T-058",
         "task:T-060",
@@ -28902,6 +29039,7 @@
       "layer": "business",
       "module": "identity",
       "name": "Ring Projection",
+      "parentTask": null,
       "parents": [
         "module:identity"
       ],
@@ -28955,10 +29093,10 @@
       "children": [
         "story:rings",
         "frontend-requirements:rings",
-        "frontend-delivery:rings",
         "backend-delivery:rings",
         "backend-integration:rings",
         "qa-backend:rings",
+        "frontend-delivery:rings",
         "qa-frontend:rings",
         "task:T-059",
         "decision:D-04",
@@ -28976,6 +29114,7 @@
       "layer": "business",
       "module": "identity",
       "name": "Rings",
+      "parentTask": null,
       "parents": [
         "module:identity"
       ],
@@ -29044,10 +29183,10 @@
       "children": [
         "story:subscription",
         "frontend-requirements:subscription",
-        "frontend-delivery:subscription",
         "backend-delivery:subscription",
         "backend-integration:subscription",
         "qa-backend:subscription",
+        "frontend-delivery:subscription",
         "qa-frontend:subscription",
         "task:T-049"
       ],
@@ -29063,6 +29202,7 @@
       "layer": "business",
       "module": "commerce",
       "name": "Subscription (Free vs Pro)",
+      "parentTask": null,
       "parents": [
         "module:commerce"
       ],
@@ -29107,10 +29247,10 @@
       "children": [
         "story:view-as",
         "frontend-requirements:view-as",
-        "frontend-delivery:view-as",
         "backend-delivery:view-as",
         "backend-integration:view-as",
         "qa-backend:view-as",
+        "frontend-delivery:view-as",
         "qa-frontend:view-as"
       ],
       "code": "view-as",
@@ -29125,6 +29265,7 @@
       "layer": "business",
       "module": "identity",
       "name": "View As & Pin Views",
+      "parentTask": null,
       "parents": [
         "module:identity"
       ],
@@ -29180,10 +29321,10 @@
       "children": [
         "story:widgets",
         "frontend-requirements:widgets",
-        "frontend-delivery:widgets",
         "backend-delivery:widgets",
         "backend-integration:widgets",
         "qa-backend:widgets",
+        "frontend-delivery:widgets",
         "qa-frontend:widgets",
         "task:T-017",
         "task:T-018",
@@ -29201,6 +29342,7 @@
       "layer": "business",
       "module": "identity",
       "name": "Widgets",
+      "parentTask": null,
       "parents": [
         "module:identity"
       ],
@@ -29252,6 +29394,7 @@
       "label": "Frontend Delivery",
       "layer": "frontend",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:account"
       ],
@@ -29288,6 +29431,7 @@
       "label": "Frontend Delivery",
       "layer": "frontend",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:app-shell"
       ],
@@ -29324,6 +29468,7 @@
       "label": "Frontend Delivery",
       "layer": "frontend",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:audit-log"
       ],
@@ -29354,6 +29499,7 @@
       "label": "Frontend Delivery",
       "layer": "frontend",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:auth"
       ],
@@ -29390,6 +29536,7 @@
       "label": "Frontend Delivery",
       "layer": "frontend",
       "module": "discovery",
+      "parentTask": null,
       "parents": [
         "feature:badge-qr"
       ],
@@ -29426,6 +29573,7 @@
       "label": "Frontend Delivery",
       "layer": "frontend",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:cleanup-jobs"
       ],
@@ -29462,6 +29610,7 @@
       "label": "Frontend Delivery",
       "layer": "frontend",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:code-delivery"
       ],
@@ -29498,6 +29647,7 @@
       "label": "Frontend Delivery",
       "layer": "frontend",
       "module": "shared-rings",
+      "parentTask": null,
       "parents": [
         "feature:companies"
       ],
@@ -29534,6 +29684,7 @@
       "label": "Frontend Delivery",
       "layer": "frontend",
       "module": "connections",
+      "parentTask": null,
       "parents": [
         "feature:connections"
       ],
@@ -29570,6 +29721,7 @@
       "label": "Frontend Delivery",
       "layer": "frontend",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:counts"
       ],
@@ -29606,6 +29758,7 @@
       "label": "Frontend Delivery",
       "layer": "frontend",
       "module": "shared-rings",
+      "parentTask": null,
       "parents": [
         "feature:delegated-admins"
       ],
@@ -29642,6 +29795,7 @@
       "label": "Frontend Delivery",
       "layer": "frontend",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:devices"
       ],
@@ -29678,6 +29832,7 @@
       "label": "Frontend Delivery",
       "layer": "frontend",
       "module": "discovery",
+      "parentTask": null,
       "parents": [
         "feature:discover-hub"
       ],
@@ -29714,6 +29869,7 @@
       "label": "Frontend Delivery",
       "layer": "frontend",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:e2e-tests"
       ],
@@ -29750,6 +29906,7 @@
       "label": "Frontend Delivery",
       "layer": "frontend",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:error-contract"
       ],
@@ -29786,6 +29943,7 @@
       "label": "Frontend Delivery",
       "layer": "frontend",
       "module": "events",
+      "parentTask": null,
       "parents": [
         "feature:event-ring-auto"
       ],
@@ -29822,6 +29980,7 @@
       "label": "Frontend Delivery",
       "layer": "frontend",
       "module": "events",
+      "parentTask": null,
       "parents": [
         "feature:events-before"
       ],
@@ -29858,6 +30017,7 @@
       "label": "Frontend Delivery",
       "layer": "frontend",
       "module": "events",
+      "parentTask": null,
       "parents": [
         "feature:events-during"
       ],
@@ -29894,6 +30054,7 @@
       "label": "Frontend Delivery",
       "layer": "frontend",
       "module": "events",
+      "parentTask": null,
       "parents": [
         "feature:exhibitor"
       ],
@@ -29924,6 +30085,7 @@
       "label": "Frontend Delivery",
       "layer": "frontend",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:files"
       ],
@@ -29960,6 +30122,7 @@
       "label": "Frontend Delivery",
       "layer": "frontend",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:gemma"
       ],
@@ -29996,6 +30159,7 @@
       "label": "Frontend Delivery",
       "layer": "frontend",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:interests"
       ],
@@ -30032,6 +30196,7 @@
       "label": "Frontend Delivery",
       "layer": "frontend",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:linked-accounts"
       ],
@@ -30068,6 +30233,7 @@
       "label": "Frontend Delivery",
       "layer": "frontend",
       "module": "meetings",
+      "parentTask": null,
       "parents": [
         "feature:meetings"
       ],
@@ -30104,6 +30270,7 @@
       "label": "Frontend Delivery",
       "layer": "frontend",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:notifications"
       ],
@@ -30140,6 +30307,7 @@
       "label": "Frontend Delivery",
       "layer": "frontend",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:onboarding-imports"
       ],
@@ -30176,6 +30344,7 @@
       "label": "Frontend Delivery",
       "layer": "frontend",
       "module": "commerce",
+      "parentTask": null,
       "parents": [
         "feature:payments"
       ],
@@ -30212,6 +30381,7 @@
       "label": "Frontend Delivery",
       "layer": "frontend",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:photo-library"
       ],
@@ -30248,6 +30418,7 @@
       "label": "Frontend Delivery",
       "layer": "frontend",
       "module": "discovery",
+      "parentTask": null,
       "parents": [
         "feature:pincast"
       ],
@@ -30284,6 +30455,7 @@
       "label": "Frontend Delivery",
       "layer": "frontend",
       "module": "events",
+      "parentTask": null,
       "parents": [
         "feature:post-event"
       ],
@@ -30314,6 +30486,7 @@
       "label": "Frontend Delivery",
       "layer": "frontend",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:profiles"
       ],
@@ -30344,6 +30517,7 @@
       "label": "Frontend Delivery",
       "layer": "frontend",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:ring-access"
       ],
@@ -30380,6 +30554,7 @@
       "label": "Frontend Delivery",
       "layer": "frontend",
       "module": "shared-rings",
+      "parentTask": null,
       "parents": [
         "feature:ring-invitations"
       ],
@@ -30410,6 +30585,7 @@
       "label": "Frontend Delivery",
       "layer": "frontend",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:ring-members"
       ],
@@ -30440,6 +30616,7 @@
       "label": "Frontend Delivery",
       "layer": "frontend",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:ring-projection"
       ],
@@ -30470,6 +30647,7 @@
       "label": "Frontend Delivery",
       "layer": "frontend",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:rings"
       ],
@@ -30506,6 +30684,7 @@
       "label": "Frontend Delivery",
       "layer": "frontend",
       "module": "commerce",
+      "parentTask": null,
       "parents": [
         "feature:subscription"
       ],
@@ -30536,6 +30715,7 @@
       "label": "Frontend Delivery",
       "layer": "frontend",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:view-as"
       ],
@@ -30572,6 +30752,7 @@
       "label": "Frontend Delivery",
       "layer": "frontend",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:widgets"
       ],
@@ -30602,6 +30783,7 @@
       "label": "Frontend Requirements",
       "layer": "frontend",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:account"
       ],
@@ -30638,6 +30820,7 @@
       "label": "Frontend Requirements",
       "layer": "frontend",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:app-shell"
       ],
@@ -30677,6 +30860,7 @@
       "label": "Frontend Requirements",
       "layer": "frontend",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:audit-log"
       ],
@@ -30711,6 +30895,7 @@
       "label": "Frontend Requirements",
       "layer": "frontend",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:auth"
       ],
@@ -30751,6 +30936,7 @@
       "label": "Frontend Requirements",
       "layer": "frontend",
       "module": "discovery",
+      "parentTask": null,
       "parents": [
         "feature:badge-qr"
       ],
@@ -30790,6 +30976,7 @@
       "label": "Frontend Requirements",
       "layer": "frontend",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:cleanup-jobs"
       ],
@@ -30824,6 +31011,7 @@
       "label": "Frontend Requirements",
       "layer": "frontend",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:code-delivery"
       ],
@@ -30860,6 +31048,7 @@
       "label": "Frontend Requirements",
       "layer": "frontend",
       "module": "shared-rings",
+      "parentTask": null,
       "parents": [
         "feature:companies"
       ],
@@ -30897,6 +31086,7 @@
       "label": "Frontend Requirements",
       "layer": "frontend",
       "module": "connections",
+      "parentTask": null,
       "parents": [
         "feature:connections"
       ],
@@ -30937,6 +31127,7 @@
       "label": "Frontend Requirements",
       "layer": "frontend",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:counts"
       ],
@@ -30978,6 +31169,7 @@
       "label": "Frontend Requirements",
       "layer": "frontend",
       "module": "shared-rings",
+      "parentTask": null,
       "parents": [
         "feature:delegated-admins"
       ],
@@ -31015,6 +31207,7 @@
       "label": "Frontend Requirements",
       "layer": "frontend",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:devices"
       ],
@@ -31051,6 +31244,7 @@
       "label": "Frontend Requirements",
       "layer": "frontend",
       "module": "discovery",
+      "parentTask": null,
       "parents": [
         "feature:discover-hub"
       ],
@@ -31087,6 +31281,7 @@
       "label": "Frontend Requirements",
       "layer": "frontend",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:e2e-tests"
       ],
@@ -31121,6 +31316,7 @@
       "label": "Frontend Requirements",
       "layer": "frontend",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:error-contract"
       ],
@@ -31155,6 +31351,7 @@
       "label": "Frontend Requirements",
       "layer": "frontend",
       "module": "events",
+      "parentTask": null,
       "parents": [
         "feature:event-ring-auto"
       ],
@@ -31191,6 +31388,7 @@
       "label": "Frontend Requirements",
       "layer": "frontend",
       "module": "events",
+      "parentTask": null,
       "parents": [
         "feature:events-before"
       ],
@@ -31231,6 +31429,7 @@
       "label": "Frontend Requirements",
       "layer": "frontend",
       "module": "events",
+      "parentTask": null,
       "parents": [
         "feature:events-during"
       ],
@@ -31272,6 +31471,7 @@
       "label": "Frontend Requirements",
       "layer": "frontend",
       "module": "events",
+      "parentTask": null,
       "parents": [
         "feature:exhibitor"
       ],
@@ -31310,6 +31510,7 @@
       "label": "Frontend Requirements",
       "layer": "frontend",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:files"
       ],
@@ -31348,6 +31549,7 @@
       "label": "Frontend Requirements",
       "layer": "frontend",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:gemma"
       ],
@@ -31385,6 +31587,7 @@
       "label": "Frontend Requirements",
       "layer": "frontend",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:interests"
       ],
@@ -31422,6 +31625,7 @@
       "label": "Frontend Requirements",
       "layer": "frontend",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:linked-accounts"
       ],
@@ -31460,6 +31664,7 @@
       "label": "Frontend Requirements",
       "layer": "frontend",
       "module": "meetings",
+      "parentTask": null,
       "parents": [
         "feature:meetings"
       ],
@@ -31500,6 +31705,7 @@
       "label": "Frontend Requirements",
       "layer": "frontend",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:notifications"
       ],
@@ -31536,6 +31742,7 @@
       "label": "Frontend Requirements",
       "layer": "frontend",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:onboarding-imports"
       ],
@@ -31576,6 +31783,7 @@
       "label": "Frontend Requirements",
       "layer": "frontend",
       "module": "commerce",
+      "parentTask": null,
       "parents": [
         "feature:payments"
       ],
@@ -31613,6 +31821,7 @@
       "label": "Frontend Requirements",
       "layer": "frontend",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:photo-library"
       ],
@@ -31650,6 +31859,7 @@
       "label": "Frontend Requirements",
       "layer": "frontend",
       "module": "discovery",
+      "parentTask": null,
       "parents": [
         "feature:pincast"
       ],
@@ -31690,6 +31900,7 @@
       "label": "Frontend Requirements",
       "layer": "frontend",
       "module": "events",
+      "parentTask": null,
       "parents": [
         "feature:post-event"
       ],
@@ -31726,6 +31937,7 @@
       "label": "Frontend Requirements",
       "layer": "frontend",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:profiles"
       ],
@@ -31762,6 +31974,7 @@
       "label": "Frontend Requirements",
       "layer": "frontend",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:ring-access"
       ],
@@ -31796,6 +32009,7 @@
       "label": "Frontend Requirements",
       "layer": "frontend",
       "module": "shared-rings",
+      "parentTask": null,
       "parents": [
         "feature:ring-invitations"
       ],
@@ -31833,6 +32047,7 @@
       "label": "Frontend Requirements",
       "layer": "frontend",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:ring-members"
       ],
@@ -31870,6 +32085,7 @@
       "label": "Frontend Requirements",
       "layer": "frontend",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:ring-projection"
       ],
@@ -31912,6 +32128,7 @@
       "label": "Frontend Requirements",
       "layer": "frontend",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:rings"
       ],
@@ -31958,6 +32175,7 @@
       "label": "Frontend Requirements",
       "layer": "frontend",
       "module": "commerce",
+      "parentTask": null,
       "parents": [
         "feature:subscription"
       ],
@@ -31995,6 +32213,7 @@
       "label": "Frontend Requirements",
       "layer": "frontend",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:view-as"
       ],
@@ -32033,6 +32252,7 @@
       "label": "Frontend Requirements",
       "layer": "frontend",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:widgets"
       ],
@@ -32081,6 +32301,7 @@
       "label": "Docs",
       "layer": "backend",
       "module": null,
+      "parentTask": null,
       "parents": [
         "root"
       ],
@@ -32118,6 +32339,7 @@
       "label": "Docs",
       "layer": "business",
       "module": null,
+      "parentTask": null,
       "parents": [
         "root"
       ],
@@ -32154,6 +32376,7 @@
       "label": "Docs",
       "layer": "frontend",
       "module": null,
+      "parentTask": null,
       "parents": [
         "root"
       ],
@@ -32189,6 +32412,7 @@
       "label": "Docs",
       "layer": "shared",
       "module": null,
+      "parentTask": null,
       "parents": [
         "root"
       ],
@@ -32222,6 +32446,7 @@
       "layer": null,
       "module": "commerce",
       "name": "Commerce",
+      "parentTask": null,
       "parents": [
         "root"
       ],
@@ -32264,6 +32489,7 @@
       "layer": null,
       "module": "connections",
       "name": "Connections",
+      "parentTask": null,
       "parents": [
         "root"
       ],
@@ -32309,6 +32535,7 @@
       "layer": null,
       "module": "discovery",
       "name": "Discovery",
+      "parentTask": null,
       "parents": [
         "root"
       ],
@@ -32358,6 +32585,7 @@
       "layer": null,
       "module": "events",
       "name": "Events",
+      "parentTask": null,
       "parents": [
         "root"
       ],
@@ -32415,6 +32643,7 @@
       "layer": null,
       "module": "identity",
       "name": "Identity Core",
+      "parentTask": null,
       "parents": [
         "root"
       ],
@@ -32463,6 +32692,7 @@
       "layer": null,
       "module": "meetings",
       "name": "Meetings",
+      "parentTask": null,
       "parents": [
         "root"
       ],
@@ -32515,6 +32745,7 @@
       "layer": null,
       "module": "platform",
       "name": "Platform & Cross-cutting",
+      "parentTask": null,
       "parents": [
         "root"
       ],
@@ -32565,6 +32796,7 @@
       "layer": null,
       "module": "shared-rings",
       "name": "Shared Rings & Companies",
+      "parentTask": null,
       "parents": [
         "root"
       ],
@@ -32610,6 +32842,7 @@
       "label": "Reference",
       "layer": "shared",
       "module": null,
+      "parentTask": null,
       "parents": [
         "group:shared"
       ],
@@ -32647,6 +32880,7 @@
       "label": "Reference",
       "layer": "backend",
       "module": null,
+      "parentTask": null,
       "parents": [
         "group:backend"
       ],
@@ -32718,6 +32952,7 @@
       "label": "Reference",
       "layer": "backend",
       "module": null,
+      "parentTask": null,
       "parents": [
         "group:backend"
       ],
@@ -32789,6 +33024,7 @@
       "label": "Reference",
       "layer": "backend",
       "module": null,
+      "parentTask": null,
       "parents": [
         "group:backend"
       ],
@@ -32820,6 +33056,7 @@
       "label": "Reference",
       "layer": "backend",
       "module": null,
+      "parentTask": null,
       "parents": [
         "group:backend"
       ],
@@ -32851,6 +33088,7 @@
       "label": "Reference",
       "layer": "backend",
       "module": null,
+      "parentTask": null,
       "parents": [
         "group:backend"
       ],
@@ -32882,6 +33120,7 @@
       "label": "Reference",
       "layer": "backend",
       "module": null,
+      "parentTask": null,
       "parents": [
         "group:backend"
       ],
@@ -32913,6 +33152,7 @@
       "label": "Reference",
       "layer": "shared",
       "module": null,
+      "parentTask": null,
       "parents": [
         "group:shared"
       ],
@@ -32949,6 +33189,7 @@
       "label": "Map",
       "layer": "business",
       "module": null,
+      "parentTask": null,
       "parents": [
         "group:business"
       ],
@@ -32980,6 +33221,7 @@
       "label": "Map",
       "layer": "business",
       "module": null,
+      "parentTask": null,
       "parents": [
         "group:business"
       ],
@@ -33011,6 +33253,7 @@
       "label": "Reference",
       "layer": "frontend",
       "module": null,
+      "parentTask": null,
       "parents": [
         "group:frontend"
       ],
@@ -33048,6 +33291,7 @@
       "label": "Reference",
       "layer": "frontend",
       "module": null,
+      "parentTask": null,
       "parents": [
         "group:frontend"
       ],
@@ -33081,6 +33325,7 @@
       "label": "Reference",
       "layer": "frontend",
       "module": null,
+      "parentTask": null,
       "parents": [
         "group:frontend"
       ],
@@ -33115,6 +33360,7 @@
       "label": "Reference",
       "layer": "frontend",
       "module": null,
+      "parentTask": null,
       "parents": [
         "group:frontend"
       ],
@@ -33148,6 +33394,7 @@
       "label": "Reference",
       "layer": "business",
       "module": null,
+      "parentTask": null,
       "parents": [
         "group:business"
       ],
@@ -33179,6 +33426,7 @@
       "label": "Reference",
       "layer": "business",
       "module": null,
+      "parentTask": null,
       "parents": [
         "group:business"
       ],
@@ -33210,6 +33458,7 @@
       "label": "Reference",
       "layer": "backend",
       "module": null,
+      "parentTask": null,
       "parents": [
         "group:backend"
       ],
@@ -33282,6 +33531,7 @@
       "label": "Reference",
       "layer": "backend",
       "module": null,
+      "parentTask": null,
       "parents": [
         "group:backend"
       ],
@@ -33353,6 +33603,7 @@
       "label": "Report",
       "layer": "business",
       "module": null,
+      "parentTask": null,
       "parents": [
         "group:business"
       ],
@@ -33385,6 +33636,7 @@
       "label": "Reference",
       "layer": "shared",
       "module": null,
+      "parentTask": null,
       "parents": [
         "group:shared"
       ],
@@ -33420,6 +33672,7 @@
       "label": "QA Backend",
       "layer": "qa",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:account"
       ],
@@ -33450,6 +33703,7 @@
       "label": "QA Backend",
       "layer": "qa",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:app-shell"
       ],
@@ -33486,6 +33740,7 @@
       "label": "QA Backend",
       "layer": "qa",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:audit-log"
       ],
@@ -33516,6 +33771,7 @@
       "label": "QA Backend",
       "layer": "qa",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:auth"
       ],
@@ -33552,6 +33808,7 @@
       "label": "QA Backend",
       "layer": "qa",
       "module": "discovery",
+      "parentTask": null,
       "parents": [
         "feature:badge-qr"
       ],
@@ -33588,6 +33845,7 @@
       "label": "QA Backend",
       "layer": "qa",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:cleanup-jobs"
       ],
@@ -33624,6 +33882,7 @@
       "label": "QA Backend",
       "layer": "qa",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:code-delivery"
       ],
@@ -33660,6 +33919,7 @@
       "label": "QA Backend",
       "layer": "qa",
       "module": "shared-rings",
+      "parentTask": null,
       "parents": [
         "feature:companies"
       ],
@@ -33696,6 +33956,7 @@
       "label": "QA Backend",
       "layer": "qa",
       "module": "connections",
+      "parentTask": null,
       "parents": [
         "feature:connections"
       ],
@@ -33732,6 +33993,7 @@
       "label": "QA Backend",
       "layer": "qa",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:counts"
       ],
@@ -33768,6 +34030,7 @@
       "label": "QA Backend",
       "layer": "qa",
       "module": "shared-rings",
+      "parentTask": null,
       "parents": [
         "feature:delegated-admins"
       ],
@@ -33804,6 +34067,7 @@
       "label": "QA Backend",
       "layer": "qa",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:devices"
       ],
@@ -33840,6 +34104,7 @@
       "label": "QA Backend",
       "layer": "qa",
       "module": "discovery",
+      "parentTask": null,
       "parents": [
         "feature:discover-hub"
       ],
@@ -33876,6 +34141,7 @@
       "label": "QA Backend",
       "layer": "qa",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:e2e-tests"
       ],
@@ -33912,6 +34178,7 @@
       "label": "QA Backend",
       "layer": "qa",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:error-contract"
       ],
@@ -33948,6 +34215,7 @@
       "label": "QA Backend",
       "layer": "qa",
       "module": "events",
+      "parentTask": null,
       "parents": [
         "feature:event-ring-auto"
       ],
@@ -33984,6 +34252,7 @@
       "label": "QA Backend",
       "layer": "qa",
       "module": "events",
+      "parentTask": null,
       "parents": [
         "feature:events-before"
       ],
@@ -34020,6 +34289,7 @@
       "label": "QA Backend",
       "layer": "qa",
       "module": "events",
+      "parentTask": null,
       "parents": [
         "feature:events-during"
       ],
@@ -34056,6 +34326,7 @@
       "label": "QA Backend",
       "layer": "qa",
       "module": "events",
+      "parentTask": null,
       "parents": [
         "feature:exhibitor"
       ],
@@ -34086,6 +34357,7 @@
       "label": "QA Backend",
       "layer": "qa",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:files"
       ],
@@ -34122,6 +34394,7 @@
       "label": "QA Backend",
       "layer": "qa",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:gemma"
       ],
@@ -34158,6 +34431,7 @@
       "label": "QA Backend",
       "layer": "qa",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:interests"
       ],
@@ -34194,6 +34468,7 @@
       "label": "QA Backend",
       "layer": "qa",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:linked-accounts"
       ],
@@ -34230,6 +34505,7 @@
       "label": "QA Backend",
       "layer": "qa",
       "module": "meetings",
+      "parentTask": null,
       "parents": [
         "feature:meetings"
       ],
@@ -34266,6 +34542,7 @@
       "label": "QA Backend",
       "layer": "qa",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:notifications"
       ],
@@ -34302,6 +34579,7 @@
       "label": "QA Backend",
       "layer": "qa",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:onboarding-imports"
       ],
@@ -34338,6 +34616,7 @@
       "label": "QA Backend",
       "layer": "qa",
       "module": "commerce",
+      "parentTask": null,
       "parents": [
         "feature:payments"
       ],
@@ -34374,6 +34653,7 @@
       "label": "QA Backend",
       "layer": "qa",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:photo-library"
       ],
@@ -34410,6 +34690,7 @@
       "label": "QA Backend",
       "layer": "qa",
       "module": "discovery",
+      "parentTask": null,
       "parents": [
         "feature:pincast"
       ],
@@ -34446,6 +34727,7 @@
       "label": "QA Backend",
       "layer": "qa",
       "module": "events",
+      "parentTask": null,
       "parents": [
         "feature:post-event"
       ],
@@ -34476,6 +34758,7 @@
       "label": "QA Backend",
       "layer": "qa",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:profiles"
       ],
@@ -34506,6 +34789,7 @@
       "label": "QA Backend",
       "layer": "qa",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:ring-access"
       ],
@@ -34542,6 +34826,7 @@
       "label": "QA Backend",
       "layer": "qa",
       "module": "shared-rings",
+      "parentTask": null,
       "parents": [
         "feature:ring-invitations"
       ],
@@ -34572,6 +34857,7 @@
       "label": "QA Backend",
       "layer": "qa",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:ring-members"
       ],
@@ -34602,6 +34888,7 @@
       "label": "QA Backend",
       "layer": "qa",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:ring-projection"
       ],
@@ -34632,6 +34919,7 @@
       "label": "QA Backend",
       "layer": "qa",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:rings"
       ],
@@ -34668,6 +34956,7 @@
       "label": "QA Backend",
       "layer": "qa",
       "module": "commerce",
+      "parentTask": null,
       "parents": [
         "feature:subscription"
       ],
@@ -34698,6 +34987,7 @@
       "label": "QA Backend",
       "layer": "qa",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:view-as"
       ],
@@ -34734,6 +35024,7 @@
       "label": "QA Backend",
       "layer": "qa",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:widgets"
       ],
@@ -34770,6 +35061,7 @@
       "label": "QA Frontend",
       "layer": "qa",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:account"
       ],
@@ -34806,6 +35098,7 @@
       "label": "QA Frontend",
       "layer": "qa",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:app-shell"
       ],
@@ -34842,6 +35135,7 @@
       "label": "QA Frontend",
       "layer": "qa",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:audit-log"
       ],
@@ -34878,6 +35172,7 @@
       "label": "QA Frontend",
       "layer": "qa",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:auth"
       ],
@@ -34914,6 +35209,7 @@
       "label": "QA Frontend",
       "layer": "qa",
       "module": "discovery",
+      "parentTask": null,
       "parents": [
         "feature:badge-qr"
       ],
@@ -34950,6 +35246,7 @@
       "label": "QA Frontend",
       "layer": "qa",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:cleanup-jobs"
       ],
@@ -34986,6 +35283,7 @@
       "label": "QA Frontend",
       "layer": "qa",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:code-delivery"
       ],
@@ -35022,6 +35320,7 @@
       "label": "QA Frontend",
       "layer": "qa",
       "module": "shared-rings",
+      "parentTask": null,
       "parents": [
         "feature:companies"
       ],
@@ -35058,6 +35357,7 @@
       "label": "QA Frontend",
       "layer": "qa",
       "module": "connections",
+      "parentTask": null,
       "parents": [
         "feature:connections"
       ],
@@ -35094,6 +35394,7 @@
       "label": "QA Frontend",
       "layer": "qa",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:counts"
       ],
@@ -35130,6 +35431,7 @@
       "label": "QA Frontend",
       "layer": "qa",
       "module": "shared-rings",
+      "parentTask": null,
       "parents": [
         "feature:delegated-admins"
       ],
@@ -35166,6 +35468,7 @@
       "label": "QA Frontend",
       "layer": "qa",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:devices"
       ],
@@ -35202,6 +35505,7 @@
       "label": "QA Frontend",
       "layer": "qa",
       "module": "discovery",
+      "parentTask": null,
       "parents": [
         "feature:discover-hub"
       ],
@@ -35238,6 +35542,7 @@
       "label": "QA Frontend",
       "layer": "qa",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:e2e-tests"
       ],
@@ -35274,6 +35579,7 @@
       "label": "QA Frontend",
       "layer": "qa",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:error-contract"
       ],
@@ -35310,6 +35616,7 @@
       "label": "QA Frontend",
       "layer": "qa",
       "module": "events",
+      "parentTask": null,
       "parents": [
         "feature:event-ring-auto"
       ],
@@ -35346,6 +35653,7 @@
       "label": "QA Frontend",
       "layer": "qa",
       "module": "events",
+      "parentTask": null,
       "parents": [
         "feature:events-before"
       ],
@@ -35382,6 +35690,7 @@
       "label": "QA Frontend",
       "layer": "qa",
       "module": "events",
+      "parentTask": null,
       "parents": [
         "feature:events-during"
       ],
@@ -35418,6 +35727,7 @@
       "label": "QA Frontend",
       "layer": "qa",
       "module": "events",
+      "parentTask": null,
       "parents": [
         "feature:exhibitor"
       ],
@@ -35454,6 +35764,7 @@
       "label": "QA Frontend",
       "layer": "qa",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:files"
       ],
@@ -35490,6 +35801,7 @@
       "label": "QA Frontend",
       "layer": "qa",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:gemma"
       ],
@@ -35526,6 +35838,7 @@
       "label": "QA Frontend",
       "layer": "qa",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:interests"
       ],
@@ -35562,6 +35875,7 @@
       "label": "QA Frontend",
       "layer": "qa",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:linked-accounts"
       ],
@@ -35598,6 +35912,7 @@
       "label": "QA Frontend",
       "layer": "qa",
       "module": "meetings",
+      "parentTask": null,
       "parents": [
         "feature:meetings"
       ],
@@ -35634,6 +35949,7 @@
       "label": "QA Frontend",
       "layer": "qa",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:notifications"
       ],
@@ -35670,6 +35986,7 @@
       "label": "QA Frontend",
       "layer": "qa",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:onboarding-imports"
       ],
@@ -35706,6 +36023,7 @@
       "label": "QA Frontend",
       "layer": "qa",
       "module": "commerce",
+      "parentTask": null,
       "parents": [
         "feature:payments"
       ],
@@ -35742,6 +36060,7 @@
       "label": "QA Frontend",
       "layer": "qa",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:photo-library"
       ],
@@ -35778,6 +36097,7 @@
       "label": "QA Frontend",
       "layer": "qa",
       "module": "discovery",
+      "parentTask": null,
       "parents": [
         "feature:pincast"
       ],
@@ -35814,6 +36134,7 @@
       "label": "QA Frontend",
       "layer": "qa",
       "module": "events",
+      "parentTask": null,
       "parents": [
         "feature:post-event"
       ],
@@ -35850,6 +36171,7 @@
       "label": "QA Frontend",
       "layer": "qa",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:profiles"
       ],
@@ -35886,6 +36208,7 @@
       "label": "QA Frontend",
       "layer": "qa",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:ring-access"
       ],
@@ -35922,6 +36245,7 @@
       "label": "QA Frontend",
       "layer": "qa",
       "module": "shared-rings",
+      "parentTask": null,
       "parents": [
         "feature:ring-invitations"
       ],
@@ -35958,6 +36282,7 @@
       "label": "QA Frontend",
       "layer": "qa",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:ring-members"
       ],
@@ -35994,6 +36319,7 @@
       "label": "QA Frontend",
       "layer": "qa",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:ring-projection"
       ],
@@ -36030,6 +36356,7 @@
       "label": "QA Frontend",
       "layer": "qa",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:rings"
       ],
@@ -36066,6 +36393,7 @@
       "label": "QA Frontend",
       "layer": "qa",
       "module": "commerce",
+      "parentTask": null,
       "parents": [
         "feature:subscription"
       ],
@@ -36102,6 +36430,7 @@
       "label": "QA Frontend",
       "layer": "qa",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:view-as"
       ],
@@ -36138,6 +36467,7 @@
       "label": "QA Frontend",
       "layer": "qa",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:widgets"
       ],
@@ -36182,6 +36512,7 @@
       "label": "Project",
       "layer": null,
       "module": null,
+      "parentTask": null,
       "parents": [],
       "path": null,
       "priority": null,
@@ -36223,6 +36554,7 @@
       "label": "User Story",
       "layer": "business",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:account"
       ],
@@ -36259,6 +36591,7 @@
       "label": "User Story",
       "layer": "business",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:app-shell"
       ],
@@ -36298,6 +36631,7 @@
       "label": "User Story",
       "layer": "business",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:audit-log"
       ],
@@ -36332,6 +36666,7 @@
       "label": "User Story",
       "layer": "business",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:auth"
       ],
@@ -36372,6 +36707,7 @@
       "label": "User Story",
       "layer": "business",
       "module": "discovery",
+      "parentTask": null,
       "parents": [
         "feature:badge-qr"
       ],
@@ -36411,6 +36747,7 @@
       "label": "User Story",
       "layer": "business",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:cleanup-jobs"
       ],
@@ -36445,6 +36782,7 @@
       "label": "User Story",
       "layer": "business",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:code-delivery"
       ],
@@ -36481,6 +36819,7 @@
       "label": "User Story",
       "layer": "business",
       "module": "shared-rings",
+      "parentTask": null,
       "parents": [
         "feature:companies"
       ],
@@ -36518,6 +36857,7 @@
       "label": "User Story",
       "layer": "business",
       "module": "connections",
+      "parentTask": null,
       "parents": [
         "feature:connections"
       ],
@@ -36558,6 +36898,7 @@
       "label": "User Story",
       "layer": "business",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:counts"
       ],
@@ -36599,6 +36940,7 @@
       "label": "User Story",
       "layer": "business",
       "module": "shared-rings",
+      "parentTask": null,
       "parents": [
         "feature:delegated-admins"
       ],
@@ -36636,6 +36978,7 @@
       "label": "User Story",
       "layer": "business",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:devices"
       ],
@@ -36672,6 +37015,7 @@
       "label": "User Story",
       "layer": "business",
       "module": "discovery",
+      "parentTask": null,
       "parents": [
         "feature:discover-hub"
       ],
@@ -36708,6 +37052,7 @@
       "label": "User Story",
       "layer": "business",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:e2e-tests"
       ],
@@ -36742,6 +37087,7 @@
       "label": "User Story",
       "layer": "business",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:error-contract"
       ],
@@ -36776,6 +37122,7 @@
       "label": "User Story",
       "layer": "business",
       "module": "events",
+      "parentTask": null,
       "parents": [
         "feature:event-ring-auto"
       ],
@@ -36812,6 +37159,7 @@
       "label": "User Story",
       "layer": "business",
       "module": "events",
+      "parentTask": null,
       "parents": [
         "feature:events-before"
       ],
@@ -36852,6 +37200,7 @@
       "label": "User Story",
       "layer": "business",
       "module": "events",
+      "parentTask": null,
       "parents": [
         "feature:events-during"
       ],
@@ -36893,6 +37242,7 @@
       "label": "User Story",
       "layer": "business",
       "module": "events",
+      "parentTask": null,
       "parents": [
         "feature:exhibitor"
       ],
@@ -36931,6 +37281,7 @@
       "label": "User Story",
       "layer": "business",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:files"
       ],
@@ -36969,6 +37320,7 @@
       "label": "User Story",
       "layer": "business",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:gemma"
       ],
@@ -37006,6 +37358,7 @@
       "label": "User Story",
       "layer": "business",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:interests"
       ],
@@ -37043,6 +37396,7 @@
       "label": "User Story",
       "layer": "business",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:linked-accounts"
       ],
@@ -37081,6 +37435,7 @@
       "label": "User Story",
       "layer": "business",
       "module": "meetings",
+      "parentTask": null,
       "parents": [
         "feature:meetings"
       ],
@@ -37121,6 +37476,7 @@
       "label": "User Story",
       "layer": "business",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:notifications"
       ],
@@ -37157,6 +37513,7 @@
       "label": "User Story",
       "layer": "business",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:onboarding-imports"
       ],
@@ -37197,6 +37554,7 @@
       "label": "User Story",
       "layer": "business",
       "module": "commerce",
+      "parentTask": null,
       "parents": [
         "feature:payments"
       ],
@@ -37234,6 +37592,7 @@
       "label": "User Story",
       "layer": "business",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:photo-library"
       ],
@@ -37271,6 +37630,7 @@
       "label": "User Story",
       "layer": "business",
       "module": "discovery",
+      "parentTask": null,
       "parents": [
         "feature:pincast"
       ],
@@ -37311,6 +37671,7 @@
       "label": "User Story",
       "layer": "business",
       "module": "events",
+      "parentTask": null,
       "parents": [
         "feature:post-event"
       ],
@@ -37347,6 +37708,7 @@
       "label": "User Story",
       "layer": "business",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:profiles"
       ],
@@ -37383,6 +37745,7 @@
       "label": "User Story",
       "layer": "business",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:ring-access"
       ],
@@ -37417,6 +37780,7 @@
       "label": "User Story",
       "layer": "business",
       "module": "shared-rings",
+      "parentTask": null,
       "parents": [
         "feature:ring-invitations"
       ],
@@ -37454,6 +37818,7 @@
       "label": "User Story",
       "layer": "business",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:ring-members"
       ],
@@ -37491,6 +37856,7 @@
       "label": "User Story",
       "layer": "business",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:ring-projection"
       ],
@@ -37533,6 +37899,7 @@
       "label": "User Story",
       "layer": "business",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:rings"
       ],
@@ -37579,6 +37946,7 @@
       "label": "User Story",
       "layer": "business",
       "module": "commerce",
+      "parentTask": null,
       "parents": [
         "feature:subscription"
       ],
@@ -37616,6 +37984,7 @@
       "label": "User Story",
       "layer": "business",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:view-as"
       ],
@@ -37654,6 +38023,7 @@
       "label": "User Story",
       "layer": "business",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:widgets"
       ],
@@ -37693,6 +38063,7 @@
       "label": "Task",
       "layer": "business",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:code-delivery"
       ],
@@ -37740,6 +38111,7 @@
       "label": "Task",
       "layer": "business",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:code-delivery"
       ],
@@ -37793,6 +38165,7 @@
       "label": "Task",
       "layer": "business",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:code-delivery"
       ],
@@ -37832,6 +38205,7 @@
       "label": "Task",
       "layer": "business",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:counts"
       ],
@@ -37880,6 +38254,7 @@
       "label": "Task",
       "layer": "business",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:counts"
       ],
@@ -37920,6 +38295,7 @@
       "label": "Task",
       "layer": "business",
       "module": "shared-rings",
+      "parentTask": null,
       "parents": [
         "feature:delegated-admins"
       ],
@@ -37960,6 +38336,7 @@
       "label": "Task",
       "layer": "business",
       "module": "discovery",
+      "parentTask": null,
       "parents": [
         "feature:badge-qr"
       ],
@@ -38007,6 +38384,7 @@
       "label": "Task",
       "layer": "business",
       "module": "discovery",
+      "parentTask": null,
       "parents": [
         "feature:badge-qr"
       ],
@@ -38055,6 +38433,7 @@
       "label": "Task",
       "layer": "business",
       "module": "discovery",
+      "parentTask": null,
       "parents": [
         "feature:badge-qr"
       ],
@@ -38102,6 +38481,7 @@
       "label": "Task",
       "layer": "business",
       "module": "discovery",
+      "parentTask": null,
       "parents": [
         "feature:badge-qr"
       ],
@@ -38149,6 +38529,7 @@
       "label": "Task",
       "layer": "business",
       "module": "events",
+      "parentTask": null,
       "parents": [
         "feature:event-ring-auto"
       ],
@@ -38188,6 +38569,7 @@
       "label": "Task",
       "layer": "business",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:photo-library"
       ],
@@ -38235,6 +38617,7 @@
       "label": "Task",
       "layer": "business",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:photo-library"
       ],
@@ -38274,6 +38657,7 @@
       "label": "Task",
       "layer": "business",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:devices"
       ],
@@ -38321,6 +38705,7 @@
       "label": "Task",
       "layer": "business",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:devices"
       ],
@@ -38360,6 +38745,7 @@
       "label": "Task",
       "layer": "business",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:interests"
       ],
@@ -38400,6 +38786,7 @@
       "label": "Task",
       "layer": "business",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:widgets"
       ],
@@ -38453,6 +38840,7 @@
       "label": "Task",
       "layer": "business",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:widgets"
       ],
@@ -38493,6 +38881,7 @@
       "label": "Task",
       "layer": "business",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:linked-accounts"
       ],
@@ -38548,6 +38937,7 @@
       "label": "Task",
       "layer": "business",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:onboarding-imports"
       ],
@@ -38596,6 +38986,7 @@
       "label": "Task",
       "layer": "business",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:onboarding-imports"
       ],
@@ -38636,6 +39027,7 @@
       "label": "Task",
       "layer": "business",
       "module": "connections",
+      "parentTask": null,
       "parents": [
         "feature:connections"
       ],
@@ -38684,6 +39076,7 @@
       "label": "Task",
       "layer": "business",
       "module": "connections",
+      "parentTask": null,
       "parents": [
         "feature:connections"
       ],
@@ -38731,6 +39124,7 @@
       "label": "Task",
       "layer": "business",
       "module": "connections",
+      "parentTask": null,
       "parents": [
         "feature:connections"
       ],
@@ -38770,6 +39164,7 @@
       "label": "Task",
       "layer": "business",
       "module": "connections",
+      "parentTask": null,
       "parents": [
         "feature:connections"
       ],
@@ -38817,6 +39212,7 @@
       "label": "Task",
       "layer": "business",
       "module": "connections",
+      "parentTask": null,
       "parents": [
         "feature:connections"
       ],
@@ -38864,6 +39260,7 @@
       "label": "Task",
       "layer": "business",
       "module": "shared-rings",
+      "parentTask": null,
       "parents": [
         "feature:ring-invitations"
       ],
@@ -38917,6 +39314,7 @@
       "label": "Task",
       "layer": "business",
       "module": "shared-rings",
+      "parentTask": null,
       "parents": [
         "feature:ring-invitations"
       ],
@@ -38964,6 +39362,7 @@
       "label": "Task",
       "layer": "business",
       "module": "shared-rings",
+      "parentTask": null,
       "parents": [
         "feature:ring-invitations"
       ],
@@ -39003,6 +39402,7 @@
       "label": "Task",
       "layer": "business",
       "module": "shared-rings",
+      "parentTask": null,
       "parents": [
         "feature:companies"
       ],
@@ -39043,6 +39443,7 @@
       "label": "Task",
       "layer": "business",
       "module": "discovery",
+      "parentTask": null,
       "parents": [
         "feature:discover-hub"
       ],
@@ -39082,6 +39483,7 @@
       "label": "Task",
       "layer": "business",
       "module": "discovery",
+      "parentTask": null,
       "parents": [
         "feature:discover-hub"
       ],
@@ -39121,6 +39523,7 @@
       "label": "Task",
       "layer": "business",
       "module": "discovery",
+      "parentTask": null,
       "parents": [
         "feature:pincast"
       ],
@@ -39163,6 +39566,7 @@
       "label": "Task",
       "layer": "business",
       "module": "events",
+      "parentTask": null,
       "parents": [
         "feature:events-before"
       ],
@@ -39211,6 +39615,7 @@
       "label": "Task",
       "layer": "business",
       "module": "events",
+      "parentTask": null,
       "parents": [
         "feature:events-before"
       ],
@@ -39264,6 +39669,7 @@
       "label": "Task",
       "layer": "business",
       "module": "events",
+      "parentTask": null,
       "parents": [
         "feature:events-before"
       ],
@@ -39312,6 +39718,7 @@
       "label": "Task",
       "layer": "business",
       "module": "events",
+      "parentTask": null,
       "parents": [
         "feature:events-during"
       ],
@@ -39367,6 +39774,7 @@
       "label": "Task",
       "layer": "business",
       "module": "events",
+      "parentTask": null,
       "parents": [
         "feature:events-during"
       ],
@@ -39414,6 +39822,7 @@
       "label": "Task",
       "layer": "business",
       "module": "events",
+      "parentTask": null,
       "parents": [
         "feature:events-during"
       ],
@@ -39461,6 +39870,7 @@
       "label": "Task",
       "layer": "business",
       "module": "events",
+      "parentTask": null,
       "parents": [
         "feature:events-during"
       ],
@@ -39514,6 +39924,7 @@
       "label": "Task",
       "layer": "business",
       "module": "events",
+      "parentTask": null,
       "parents": [
         "feature:events-during"
       ],
@@ -39553,6 +39964,7 @@
       "label": "Task",
       "layer": "business",
       "module": "meetings",
+      "parentTask": null,
       "parents": [
         "feature:meetings"
       ],
@@ -39601,6 +40013,7 @@
       "label": "Task",
       "layer": "business",
       "module": "meetings",
+      "parentTask": null,
       "parents": [
         "feature:meetings"
       ],
@@ -39649,6 +40062,7 @@
       "label": "Task",
       "layer": "business",
       "module": "meetings",
+      "parentTask": null,
       "parents": [
         "feature:meetings"
       ],
@@ -39697,6 +40111,7 @@
       "label": "Task",
       "layer": "business",
       "module": "meetings",
+      "parentTask": null,
       "parents": [
         "feature:meetings"
       ],
@@ -39738,6 +40153,7 @@
       "label": "Task",
       "layer": "business",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:notifications"
       ],
@@ -39791,6 +40207,7 @@
       "label": "Task",
       "layer": "business",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:notifications"
       ],
@@ -39830,6 +40247,7 @@
       "label": "Task",
       "layer": "business",
       "module": "commerce",
+      "parentTask": null,
       "parents": [
         "feature:payments"
       ],
@@ -39877,6 +40295,7 @@
       "label": "Task",
       "layer": "business",
       "module": "events",
+      "parentTask": null,
       "parents": [
         "feature:exhibitor"
       ],
@@ -39930,6 +40349,7 @@
       "label": "Task",
       "layer": "business",
       "module": "events",
+      "parentTask": null,
       "parents": [
         "feature:exhibitor"
       ],
@@ -39969,6 +40389,7 @@
       "label": "Task",
       "layer": "business",
       "module": "commerce",
+      "parentTask": null,
       "parents": [
         "feature:subscription"
       ],
@@ -40028,6 +40449,7 @@
       "label": "Task",
       "layer": "business",
       "module": "events",
+      "parentTask": null,
       "parents": [
         "feature:post-event"
       ],
@@ -40081,6 +40503,7 @@
       "label": "Task",
       "layer": "business",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:gemma"
       ],
@@ -40134,6 +40557,7 @@
       "label": "Task",
       "layer": "business",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:gemma"
       ],
@@ -40173,6 +40597,7 @@
       "label": "Task",
       "layer": "business",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:audit-log"
       ],
@@ -40210,6 +40635,7 @@
       "label": "Task",
       "layer": "business",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:cleanup-jobs"
       ],
@@ -40247,6 +40673,7 @@
       "label": "Task",
       "layer": "business",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:e2e-tests"
       ],
@@ -40286,6 +40713,7 @@
       "label": "Task",
       "layer": "business",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:auth"
       ],
@@ -40333,6 +40761,7 @@
       "label": "Task",
       "layer": "business",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:profiles"
       ],
@@ -40380,6 +40809,7 @@
       "label": "Task",
       "layer": "business",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:ring-projection"
       ],
@@ -40427,6 +40857,7 @@
       "label": "Task",
       "layer": "business",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:rings"
       ],
@@ -40480,6 +40911,7 @@
       "label": "Task",
       "layer": "business",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:ring-projection"
       ],
@@ -40527,6 +40959,7 @@
       "label": "Task",
       "layer": "business",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:profiles"
       ],
@@ -40566,6 +40999,7 @@
       "label": "Task",
       "layer": "business",
       "module": "identity",
+      "parentTask": null,
       "parents": [
         "feature:files"
       ],
@@ -40609,6 +41043,7 @@
       "label": "Task",
       "layer": "business",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:error-contract"
       ],
@@ -40650,6 +41085,7 @@
       "label": "Task",
       "layer": "business",
       "module": "platform",
+      "parentTask": null,
       "parents": [
         "feature:error-contract"
       ],
