@@ -57,7 +57,7 @@ The seven layer notes come from `docs.config.json`, listed in the **hand-off ord
 | Draft / Approved / Delivered | frontend requirements: written, accepted by the backend, every row ✅ |
 | Draft / Current | a Backend Integration note: being written, or matching `main` |
 | Draft / Passing / Failing | a QA note before and after a run |
-| Blocked | the card before it in the hand-off flow is not handed off yet (the default), or something in `depends` or `blockedBy` is not done; the pane names it |
+| Blocked | the card before it in the hand-off flow is not handed off yet (the default), or something in `depends` or `blockedBy` is not done; the pane names it. A blocked card, and every card below it in the ladder that waits in turn, is drawn dim until the blocker is done |
 | Needs decision | a decision that is still open, or a task that asks for one |
 | Not written yet | a placeholder for a missing layer note (feature level only) |
 | *Frontend only* (kicker) | a feature with `frontendOnly: true`: no backend part, so the backend and QA-backend cards are neither required nor counted |

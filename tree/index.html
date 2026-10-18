@@ -171,6 +171,7 @@ main.stage { flex: 1; min-width: 0; position: relative; border-left: 1px solid v
 .orow:hover { background: var(--color-neutral-200); }
 .orow.sel { background: var(--color-accent-100); }
 .orow.faded { opacity: .4; }
+.orow.inactive { opacity: .55; }
 .orow .car { width: 20px; height: 20px; border: 0; background: transparent; display: grid; place-items: center; cursor: pointer; color: var(--color-neutral-700); flex: none; }
 .orow .car i { font-size: 13px; }
 .orow .ki { font-size: 17px; color: var(--color-neutral-700); }
@@ -465,6 +466,8 @@ let vp, gLabels, gRel, gTree, gNodes, svg;
 const D = () => S.D;
 const node = (id) => S.D.nodes[id];
 const stOf = (n) => ST[n.effectiveStatus] || ST.todo;
+// a card that waits on the card before it (and every card below it in the ladder) is drawn dim until the blocker is done
+const inactive = (n) => n.effectiveStatus === 'blocked' || (n.effectiveStatus === 'missing' && Array.isArray(n.blockedBy) && n.blockedBy.length > 0);
 const legend = (s) => (S.D && S.D.legend[s]) || s;
 const kindOf = (k) => KIND[k] || { name: k, short: k, icon: 'ph-file-text' };
 
@@ -772,6 +775,7 @@ function renderCards(list) {
     rec.item = it;
     rec.g.style.transform = `translate(${it.x}px, ${it.y}px)`;
     rec.faded = active && !it.match;
+    rec.inactive = inactive(n);
     if (rec.caretT) { rec.caretT.textContent = it.open ? '−' : String(countDesc(n)); rec.caretC.setAttribute('r', it.open ? 7 : 9); }
   }
   for (const [key, r] of C.laid) if (!seen.has(key)) { r.g.remove(); C.laid.delete(key); }
@@ -938,7 +942,7 @@ function updateHover() {
     r.box.style.stroke = stroke; r.box.style.strokeWidth = sw;
     r.box.style.fill = (S.focus && id === act) ? 'var(--color-accent-100)' : r.baseFill;
     r.box.style.filter = (S.focus && id === act) ? 'drop-shadow(0 0 6px color-mix(in srgb, var(--color-accent) 55%, transparent))' : '';
-    let op = r.faded ? 0.22 : 1; if (act && !isAct && !isFar) op = Math.min(op, 0.32);
+    let op = r.faded ? 0.22 : (r.inactive && !isAct && id !== S.selected) ? 0.45 : 1; if (act && !isAct && !isFar) op = Math.min(op, 0.32);
     r.g.style.opacity = op;
   }
   if (gTree) gTree.style.opacity = act ? 0.35 : 1;
@@ -1044,7 +1048,7 @@ function renderOutline() {
   const frag = document.createDocumentFragment();
   for (const it of flat) {
     const n = it.node, has = n.children.length > 0, big = n.kind === 'root' || n.kind === 'module';
-    const row = document.createElement('div'); row.className = `orow k-${n.kind}${big ? ' big' : ''}${S.selected === it.id ? ' sel' : ''}${active && !it.match ? ' faded' : ''}`;
+    const row = document.createElement('div'); row.className = `orow k-${n.kind}${big ? ' big' : ''}${S.selected === it.id ? ' sel' : ''}${active && !it.match ? ' faded' : ''}${inactive(n) ? ' inactive' : ''}`;
     row.setAttribute('role', 'treeitem'); row.tabIndex = 0; row.dataset.row = it.iid; if (has) row.setAttribute('aria-expanded', String(!!it.open));
     row.style.paddingLeft = (10 + it.depth * 24) + 'px';
     row.innerHTML = `<button class="car" aria-label="Toggle" style="visibility:${has ? 'visible' : 'hidden'}"><i class="ph-duotone ${it.open ? 'ph-caret-down' : 'ph-caret-right'}"></i></button><i class="ki ph-duotone ${kindOf(n.kind).icon}"></i><span class="t" title="${esc(n.path || n.title)}">${esc(n.title)}</span><span class="kick">${n.kind === 'root' ? '' : esc(kicker(n))}</span>${chipHtml(n)}`;
