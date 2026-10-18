@@ -68,7 +68,6 @@ svg.dragging { cursor: grabbing; }
 .legend label { display: flex; align-items: center; gap: 6px; cursor: pointer; margin: 2px 0; }
 .legend .ln { width: 22px; height: 0; border-top: 2px solid var(--c); display: inline-block; }
 .legend .ln.thin { border-top-width: 1.5px; border-top-style: dashed; }
-.legend .hint { color: var(--muted); margin-top: 4px; }
 /* svg nodes */
 .n { cursor: grab; transition: transform .28s cubic-bezier(.2,.8,.2,1), opacity .2s; }
 svg.drag-live .n { transition: none; }
@@ -222,7 +221,6 @@ kbd { font: 11px var(--mono); background: var(--bg); border: 1px solid var(--lin
       <label><input type="checkbox" data-kind="depends" checked><span class="ln thin" style="--c: var(--e-depends)"></span> Depends on</label>
       <label><input type="checkbox" data-kind="decision" checked><span class="ln thin" style="--c: var(--e-decision)"></span> Decision affects</label>
       <label><input type="checkbox" data-kind="wikilink" checked><span class="ln thin" style="--c: var(--e-wikilink)"></span> Mentions (wikilink)</label>
-      <div class="hint">Hover a card to light up its relations; <b>click</b> it to keep them lit while you move around, click it again, the background or Esc to end; <b>double-click</b> opens the details. Drag the background to pan, wheel to zoom. Drag a card to move it with its branch; Layout ▾ resets, exports or imports an arrangement.</div>
     </div>
   </section>
   <section id="outline" hidden><ul role="tree" id="otree"></ul></section>
