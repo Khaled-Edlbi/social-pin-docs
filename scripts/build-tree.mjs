@@ -245,7 +245,7 @@ function readCanvas(fileByPath, rel) {
 }
 
 const list = (v) => (Array.isArray(v) ? v.filter((x) => typeof x === 'string' && x.trim()) : []);
-const isTaskId = (s) => /^T-\d+[a-z]?$/.test(s);
+const isTaskId = (s) => /^T-\d+[a-z]?(-[a-z]{2})?$/.test(s); // T-017, T-020b, and the frontend / backend halves T-017-fe, T-017-be
 const isDecisionId = (s) => /^D-\d+$/.test(s);
 const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 
@@ -356,7 +356,9 @@ export function build() {
     if (taskNodes.has(n.data.id)) err(n.rel, `second task note with id "${n.data.id}"`);
     taskNodes.set(n.data.id, t);
     const expectedFlat = `tasks/${n.stem}.md`, expectedDir = `tasks/${n.stem}/${n.stem}.md`;
-    if (n.rel !== expectedFlat && n.rel !== expectedDir) warn(n.rel, `expected at ${expectedFlat} or ${expectedDir}`);
+    const parentNote = parent ? taskNotes.find((x) => x.data.id === parent) : null;
+    const expectedUnderParent = parentNote ? `tasks/${parentNote.stem}/${n.stem}.md` : null; // a sub-task may live in its parent's folder
+    if (n.rel !== expectedFlat && n.rel !== expectedDir && n.rel !== expectedUnderParent) warn(n.rel, `expected at ${expectedFlat} or ${expectedDir}${expectedUnderParent ? ` or ${expectedUnderParent}` : ''}`);
     if (n.rel === expectedDir) t.dir = `tasks/${n.stem}`;
     if (!n.data.updated && !n.data.created) warn(n.rel, 'missing "created:"');
   }

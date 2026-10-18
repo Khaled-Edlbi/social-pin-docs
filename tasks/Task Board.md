@@ -28,58 +28,167 @@ kanban-plugin: board
 ## ⛔ Blocked
 
 - [ ] [[T-002 Wire an SMS provider for one-time codes]] #P0 #code-delivery
+- [ ] [[T-002-be Backend · Wire an SMS provider for one-time codes]] #P0 #code-delivery #backend
+- [ ] [[T-007-fe Frontend · Issue and rotate the QR token for a Ring]] #P0 #badge-qr #frontend
 - [ ] [[T-008 Resolve a scanned QR token]] #P0 #badge-qr
+- [ ] [[T-008-be Backend · Resolve a scanned QR token]] #P0 #badge-qr #backend
+- [ ] [[T-008-fe Frontend · Resolve a scanned QR token]] #P0 #badge-qr #frontend
 - [ ] [[T-011 Create the Event Ring on registration]] #P0 #event-ring-auto
+- [ ] [[T-011-be Backend · Create the Event Ring on registration]] #P0 #event-ring-auto #backend
+- [ ] [[T-021-fe Frontend · Connect request send, inbox, cancel]] #P0 #connections #frontend
 - [ ] [[T-022 Accept into a Ring (sets grantedRingId)]] #P0 #connections
+- [ ] [[T-022-be Backend · Accept into a Ring (sets grantedRingId)]] #P0 #connections #backend
+- [ ] [[T-022-fe Frontend · Accept into a Ring (sets grantedRingId)]] #P0 #connections #frontend
 - [ ] [[T-023 Connection detail and contacts list]] #P0 #connections
+- [ ] [[T-023-be Backend · Connection detail and contacts list]] #P0 #connections #backend
+- [ ] [[T-023-fe Frontend · Connection detail and contacts list]] #P0 #connections #frontend
+- [ ] [[T-024-fe Frontend · Block and unblock]] #P0 #connections #frontend
+- [ ] [[T-033-fe Frontend · Events list, detail, schedule]] #P0 #events-before #frontend
 - [ ] [[T-034 Tickets, packages, levels, sold-out]] #P0 #events-before
+- [ ] [[T-034-be Backend · Tickets, packages, levels, sold-out]] #P0 #events-before #backend
+- [ ] [[T-034-fe Frontend · Tickets, packages, levels, sold-out]] #P0 #events-before #frontend
 - [ ] [[T-035 Registration transaction with order and payment]] #P0 #events-before
+- [ ] [[T-035-be Backend · Registration transaction with order and payment]] #P0 #events-before #backend
+- [ ] [[T-035-fe Frontend · Registration transaction with order and payment]] #P0 #events-before #frontend
 - [ ] [[T-036 Event mode exhibitors list and detail]] #P0 #events-during
+- [ ] [[T-036-be Backend · Event mode exhibitors list and detail]] #P0 #events-during #backend
+- [ ] [[T-036-fe Frontend · Event mode exhibitors list and detail]] #P0 #events-during #frontend
+- [ ] [[T-041-fe Frontend · Availability slots CRUD]] #P0 #meetings #frontend
 - [ ] [[T-042 Meeting request, accept with slots, decline with reason]] #P0 #meetings
+- [ ] [[T-042-be Backend · Meeting request, accept with slots, decline with reason]] #P0 #meetings #backend
+- [ ] [[T-042-fe Frontend · Meeting request, accept with slots, decline with reason]] #P0 #meetings #frontend
 - [ ] [[T-043 Temporary meeting Ring per meeting]] #P0 #meetings
+- [ ] [[T-043-be Backend · Temporary meeting Ring per meeting]] #P0 #meetings #backend
 - [ ] [[T-044 My meetings, calendar, detail, reschedule, cancel]] #P0 #meetings
+- [ ] [[T-044-be Backend · My meetings, calendar, detail, reschedule, cancel]] #P0 #meetings #backend
+- [ ] [[T-044-fe Frontend · My meetings, calendar, detail, reschedule, cancel]] #P0 #meetings #frontend
+- [ ] [[T-062-fe Frontend · Serve uploaded file bytes by id]] #P0 #files #frontend
+- [ ] [[T-063-fe Frontend · Put the ErrorCode on the error body]] #P0 #error-contract #frontend
 - [ ] [[T-003 Remove devCode once delivery works]] #P1 #code-delivery
+- [ ] [[T-003-be Backend · Remove devCode once delivery works]] #P1 #code-delivery #backend
+- [ ] [[T-004-fe Frontend · Member count per Ring on list and detail]] #P1 #counts #frontend
 - [ ] [[T-005 Connection count on Me and Home]] #P1 #counts
+- [ ] [[T-005-be Backend · Connection count on Me and Home]] #P1 #counts #backend
+- [ ] [[T-005-fe Frontend · Connection count on Me and Home]] #P1 #counts #frontend
+- [ ] [[T-006-fe Frontend · Delegated admin endpoints]] #P1 #delegated-admins #frontend
 - [ ] [[T-009 Scan counter and share link]] #P1 #badge-qr
+- [ ] [[T-009-be Backend · Scan counter and share link]] #P1 #badge-qr #backend
+- [ ] [[T-009-fe Frontend · Scan counter and share link]] #P1 #badge-qr #frontend
+- [ ] [[T-010-be Backend · Public browser page for viewers without the app]] #P1 #badge-qr #backend
+- [ ] [[T-010-fe Frontend · Public browser page for viewers without the app]] #P1 #badge-qr #frontend
+- [ ] [[T-012-fe Frontend · List my files (photo library)]] #P1 #photo-library #frontend
+- [ ] [[T-014-fe Frontend · Register devices on login; list and remove]] #P1 #devices #frontend
+- [ ] [[T-016-fe Frontend · Interests vocabulary and my interests]] #P1 #interests #frontend
+- [ ] [[T-017-fe Frontend · Extend WIDGET_TYPE to the design's list]] #P1 #widgets #frontend
+- [ ] [[T-018-be Backend · Widget CRUD on the projection]] #P1 #widgets #backend
+- [ ] [[T-018-fe Frontend · Widget CRUD on the projection]] #P1 #widgets #frontend
+- [ ] [[T-019-fe Frontend · LinkedIn OAuth link, unlink, login]] #P1 #linked-accounts #frontend
 - [ ] [[T-020 LinkedIn import → review → base profile]] #P1 #onboarding-imports
+- [ ] [[T-020-be Backend · LinkedIn import → review → base profile]] #P1 #onboarding-imports #backend
+- [ ] [[T-020-fe Frontend · LinkedIn import → review → base profile]] #P1 #onboarding-imports #frontend
+- [ ] [[T-026-be Backend · Ring invitations invite, review, decline]] #P1 #ring-invitations #backend
+- [ ] [[T-026-fe Frontend · Ring invitations invite, review, decline]] #P1 #ring-invitations #frontend
 - [ ] [[T-027 Join a Ring with a code or verified work email]] #P1 #ring-invitations
+- [ ] [[T-027-be Backend · Join a Ring with a code or verified work email]] #P1 #ring-invitations #backend
+- [ ] [[T-027-fe Frontend · Join a Ring with a code or verified work email]] #P1 #ring-invitations #frontend
+- [ ] [[T-029-fe Frontend · My companies and company detail]] #P1 #companies #frontend
+- [ ] [[T-030-fe Frontend · Discover search by !pinname and recent searches]] #P1 #discover-hub #frontend
+- [ ] [[T-032-fe Frontend · PinCast setup, start, stop, results]] #P1 #pincast #frontend
 - [ ] [[T-037 Event pass with a 60 s rotating code]] #P1 #events-during
+- [ ] [[T-037-be Backend · Event pass with a 60 s rotating code]] #P1 #events-during #backend
+- [ ] [[T-037-fe Frontend · Event pass with a 60 s rotating code]] #P1 #events-during #frontend
 - [ ] [[T-038 Floor map and booths]] #P1 #events-during
+- [ ] [[T-038-be Backend · Floor map and booths]] #P1 #events-during #backend
+- [ ] [[T-038-fe Frontend · Floor map and booths]] #P1 #events-during #frontend
+- [ ] [[T-039-be Backend · Catalogue products and talks (new table)]] #P1 #events-during #backend
+- [ ] [[T-039-fe Frontend · Catalogue products and talks (new table)]] #P1 #events-during #frontend
 - [ ] [[T-040 Lounges and upgrades]] #P1 #events-during
+- [ ] [[T-040-be Backend · Lounges and upgrades]] #P1 #events-during #backend
+- [ ] [[T-040-fe Frontend · Lounges and upgrades]] #P1 #events-during #frontend
+- [ ] [[T-045-fe Frontend · NotificationService.emit and the inbox]] #P1 #notifications #frontend
 - [ ] [[T-046 Push delivery and preferences]] #P1 #notifications
+- [ ] [[T-046-be Backend · Push delivery and preferences]] #P1 #notifications #backend
+- [ ] [[T-046-fe Frontend · Push delivery and preferences]] #P1 #notifications #frontend
 - [ ] [[T-048 Business account setup → business Ring]] #P1 #exhibitor
+- [ ] [[T-048-be Backend · Business account setup → business Ring]] #P1 #exhibitor #backend
+- [ ] [[T-048-fe Frontend · Business account setup → business Ring]] #P1 #exhibitor #frontend
 - [ ] [[T-048b Booth analytics and leads CSV export]] #P1 #exhibitor
+- [ ] [[T-048b-be Backend · Booth analytics and leads CSV export]] #P1 #exhibitor #backend
+- [ ] [[T-048b-fe Frontend · Booth analytics and leads CSV export]] #P1 #exhibitor #frontend
+- [ ] [[T-049-fe Frontend · Subscription endpoints and a single Pro gate]] #P1 #subscription #frontend
 - [ ] [[T-050 Post-event summary and follow-ups]] #P1 #post-event
+- [ ] [[T-050-be Backend · Post-event summary and follow-ups]] #P1 #post-event #backend
+- [ ] [[T-050-fe Frontend · Post-event summary and follow-ups]] #P1 #post-event #frontend
 - [ ] [[T-013 Usage count per file across Rings]] #P2 #photo-library
+- [ ] [[T-013-be Backend · Usage count per file across Rings]] #P2 #photo-library #backend
+- [ ] [[T-013-fe Frontend · Usage count per file across Rings]] #P2 #photo-library #frontend
 - [ ] [[T-015 Pair and revoke an NFC card]] #P2 #devices
+- [ ] [[T-015-be Backend · Pair and revoke an NFC card]] #P2 #devices #backend
+- [ ] [[T-015-fe Frontend · Pair and revoke an NFC card]] #P2 #devices #frontend
+- [ ] [[T-020b-be Backend · Business card scan and portfolio URL import]] #P2 #onboarding-imports #backend
+- [ ] [[T-020b-fe Frontend · Business card scan and portfolio URL import]] #P2 #onboarding-imports #frontend
+- [ ] [[T-025-be Backend · Introduce a connection to another]] #P2 #connections #backend
+- [ ] [[T-025-fe Frontend · Introduce a connection to another]] #P2 #connections #frontend
+- [ ] [[T-028-be Backend · What you contribute to a shared Ring]] #P2 #ring-invitations #backend
+- [ ] [[T-028-fe Frontend · What you contribute to a shared Ring]] #P2 #ring-invitations #frontend
+- [ ] [[T-031-fe Frontend · Import contacts]] #P2 #discover-hub #frontend
+- [ ] [[T-051-be Backend · Gemma assistant sheet and suggestions]] #P2 #gemma #backend
+- [ ] [[T-051-fe Frontend · Gemma assistant sheet and suggestions]] #P2 #gemma #frontend
 - [ ] [[T-052 Smart Match]] #P2 #gemma
+- [ ] [[T-052-be Backend · Smart Match]] #P2 #gemma #backend
+- [ ] [[T-052-fe Frontend · Smart Match]] #P2 #gemma #frontend
 
 
 ## ⬜ To do
 
 - [ ] [[T-001 Wire an email provider for one-time codes]] #P0 #code-delivery
+- [ ] [[T-001-be Backend · Wire an email provider for one-time codes]] #P0 #code-delivery #backend
 - [ ] [[T-007 Issue and rotate the QR token for a Ring]] #P0 #badge-qr
+- [ ] [[T-007-be Backend · Issue and rotate the QR token for a Ring]] #P0 #badge-qr #backend
 - [ ] [[T-021 Connect request send, inbox, cancel]] #P0 #connections
+- [ ] [[T-021-be Backend · Connect request send, inbox, cancel]] #P0 #connections #backend
 - [ ] [[T-024 Block and unblock]] #P0 #connections
+- [ ] [[T-024-be Backend · Block and unblock]] #P0 #connections #backend
 - [ ] [[T-033 Events list, detail, schedule]] #P0 #events-before
+- [ ] [[T-033-be Backend · Events list, detail, schedule]] #P0 #events-before #backend
 - [ ] [[T-041 Availability slots CRUD]] #P0 #meetings
+- [ ] [[T-041-be Backend · Availability slots CRUD]] #P0 #meetings #backend
 - [ ] [[T-053 Audit log writes]] #P0 #audit-log
+- [ ] [[T-053-be Backend · Audit log writes]] #P0 #audit-log #backend
 - [ ] [[T-055 Run the e2e suite in CI against PostGIS]] #P0 #e2e-tests
+- [ ] [[T-055-be Backend · Run the e2e suite in CI against PostGIS]] #P0 #e2e-tests #backend
 - [ ] [[T-062 Serve uploaded file bytes by id]] #P0 #files
+- [ ] [[T-062-be Backend · Serve uploaded file bytes by id]] #P0 #files #backend
 - [ ] [[T-063 Put the ErrorCode on the error body]] #P0 #error-contract
+- [ ] [[T-063-be Backend · Put the ErrorCode on the error body]] #P0 #error-contract #backend
 - [ ] [[T-004 Member count per Ring on list and detail]] #P1 #counts
+- [ ] [[T-004-be Backend · Member count per Ring on list and detail]] #P1 #counts #backend
 - [ ] [[T-006 Delegated admin endpoints]] #P1 #delegated-admins
+- [ ] [[T-006-be Backend · Delegated admin endpoints]] #P1 #delegated-admins #backend
 - [ ] [[T-012 List my files (photo library)]] #P1 #photo-library
+- [ ] [[T-012-be Backend · List my files (photo library)]] #P1 #photo-library #backend
 - [ ] [[T-014 Register devices on login; list and remove]] #P1 #devices
+- [ ] [[T-014-be Backend · Register devices on login; list and remove]] #P1 #devices #backend
 - [ ] [[T-016 Interests vocabulary and my interests]] #P1 #interests
+- [ ] [[T-016-be Backend · Interests vocabulary and my interests]] #P1 #interests #backend
 - [ ] [[T-017 Extend WIDGET_TYPE to the design's list]] #P1 #widgets
+- [ ] [[T-017-be Backend · Extend WIDGET_TYPE to the design's list]] #P1 #widgets #backend
 - [ ] [[T-019 LinkedIn OAuth link, unlink, login]] #P1 #linked-accounts
+- [ ] [[T-019-be Backend · LinkedIn OAuth link, unlink, login]] #P1 #linked-accounts #backend
 - [ ] [[T-029 My companies and company detail]] #P1 #companies
+- [ ] [[T-029-be Backend · My companies and company detail]] #P1 #companies #backend
 - [ ] [[T-030 Discover search by !pinname and recent searches]] #P1 #discover-hub
+- [ ] [[T-030-be Backend · Discover search by !pinname and recent searches]] #P1 #discover-hub #backend
 - [ ] [[T-032 PinCast setup, start, stop, results]] #P1 #pincast
+- [ ] [[T-032-be Backend · PinCast setup, start, stop, results]] #P1 #pincast #backend
 - [ ] [[T-045 NotificationService.emit and the inbox]] #P1 #notifications
+- [ ] [[T-045-be Backend · NotificationService.emit and the inbox]] #P1 #notifications #backend
+- [ ] [[T-047-be Backend · Orders, payments and the provider webhook]] #P1 #payments #backend
 - [ ] [[T-049 Subscription endpoints and a single Pro gate]] #P1 #subscription
+- [ ] [[T-049-be Backend · Subscription endpoints and a single Pro gate]] #P1 #subscription #backend
 - [ ] [[T-054 Cleanup jobs]] #P1 #cleanup-jobs
+- [ ] [[T-054-be Backend · Cleanup jobs]] #P1 #cleanup-jobs #backend
+- [ ] [[T-031-be Backend · Import contacts]] #P2 #discover-hub #backend
 
 
 ## 🔵 In progress

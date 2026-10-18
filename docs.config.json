@@ -113,7 +113,7 @@
   "defaultBlocks": [],
   "frontendOnly": { "skips": ["backend-delivery", "backend-integration", "qa-backend"] },
   "requiredAtFeatureLevel": ["story", "frontend-requirements", "backend-delivery", "backend-integration", "frontend-delivery", "qa-backend", "qa-frontend"],
-  "taskLabels": ["bug", "chore", "spike", "docs"],
+  "taskLabels": ["bug", "chore", "spike", "docs", "frontend", "backend"],
   "modules": [
     { "id": "identity", "name": "Identity Core", "description": "Account, profile, Rings, what each Ring shows, and the access engine." },
     { "id": "connections", "name": "Connections", "description": "Connect requests after a scan, accept into a Ring, blocks, contacts." },
