@@ -345,7 +345,7 @@ article .obsidian-only { border: 1px dashed var(--color-neutral-400); color: var
         <button class="btn btn-icon" id="z-out" title="Zoom out"><i class="ph-duotone ph-minus"></i></button>
         <button class="btn" id="z-fit" title="Fit to screen"><i class="ph-duotone ph-corners-out"></i>Fit</button>
       </div>
-      <div class="hints" id="hints"><span>Hover · relations</span><span>Click · keep lit</span><span>Double-click · open</span><span>Drag · move</span></div>
+      <div class="hints" id="hints"><span>Hover · relations</span><span>Click · open</span><span>Double-click · keep lit</span><span>Drag · move</span></div>
       <div id="loading">Loading the vault…</div>
     </section>
     <section id="outline" class="hidden" aria-label="Outline"><div role="tree" id="otree"></div></section>
@@ -794,8 +794,9 @@ function wireCard(rec) {
     g.style.cursor = 'pointer'; drag = null;
   };
   g.addEventListener('pointerup', end); g.addEventListener('pointercancel', end);
-  g.addEventListener('click', () => { if (suppress) { suppress = false; return; } clearTimeout(timer); const id = rec.item.id; timer = setTimeout(() => setFocus(S.focus === id ? null : id), 230); });
-  g.addEventListener('dblclick', (e) => { e.stopPropagation(); clearTimeout(timer); setFocus(rec.item.id); select(rec.item.id, rec.item.iid); });
+  // one click opens the details (after the double-click window), two clicks keep the relations lit
+  g.addEventListener('click', () => { if (suppress) { suppress = false; return; } clearTimeout(timer); const it = rec.item; timer = setTimeout(() => select(it.id, it.iid), 230); });
+  g.addEventListener('dblclick', (e) => { e.stopPropagation(); clearTimeout(timer); const id = rec.item.id; setFocus(S.focus === id ? null : id); });
   g.addEventListener('mouseenter', () => { S.hover = rec.item.id; drawRel(); updateHover(); });
   g.addEventListener('mouseleave', () => { S.hover = null; drawRel(); updateHover(); });
 }
