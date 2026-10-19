@@ -8,6 +8,7 @@
  *   node scripts/build-tree.mjs --out DIR            writes the site somewhere else
  *   node scripts/build-tree.mjs --impact "<note|code>"   what a change to that note touches (two hops), grouped by layer; a card code (S-01) works too
  *   node scripts/build-tree.mjs --scaffold <kind> <feature-id|T-NNN>   creates a layer note from its template
+ *   node scripts/build-tree.mjs --scaffold decision "<card>" ["<title>"]   creates the decision card a task, a layer note or a feature needs (blocks it while open)
  *
  * No dependencies: Node 22 built-ins only. The output is key-sorted and carries
  * no timestamps, so it changes only when a note or the config changes.
@@ -424,10 +425,13 @@ export function build() {
   }
   const decisionNodes = new Map();
   for (const n of byType('decision')) {
-    requireKeys(n, ['id', 'status', 'features']);
+    requireKeys(n, ['id', 'status']);
+    if (!list(n.data.blocks).length) requireKeys(n, ['features']); // a decision names the cards that need it (`blocks`) or the features it belongs to
+    if (!isDecisionId(n.data.id)) err(n.rel, `id "${n.data.id}" is not a decision id (D-NN)`);
     const status = normStatus(n, 'decision');
-    const d = addNode(base(n, { id: `decision:${n.data.id}`, kind: 'decision', layer: 'business', code: n.data.id, status, effectiveStatus: status, label: 'Decision', features: list(n.data.features) }));
+    const d = addNode(base(n, { id: `decision:${n.data.id}`, kind: 'decision', layer: 'business', code: n.data.id, status, effectiveStatus: status, label: 'Decision', features: list(n.data.features), blocks: [], decider: typeof n.data.decider === 'string' && n.data.decider.trim() ? n.data.decider.trim() : null }));
     noteOf.set(d.id, n);
+    if (decisionNodes.has(n.data.id)) err(n.rel, `second decision note with id "${n.data.id}"`);
     decisionNodes.set(n.data.id, d);
   }
 
@@ -509,14 +513,6 @@ export function build() {
     link(container, t);
     t.module = t.module ?? f.module;
     if (noteOf.get(t.id).data.module && noteOf.get(t.id).data.module !== f.module) err(t.path, `module "${t.module}" does not match the feature's module "${f.module}"`);
-  }
-  for (const [, d] of decisionNodes) {
-    for (const fid of d.features) {
-      const f = featureNodes.get(fid);
-      if (!f) { err(d.path, `features: "${fid}" is not a feature id`); continue; }
-      addEdge(d.id, f.id, 'decision');
-      if (!d.parents.includes(f.id)) link(f, d);
-    }
   }
 
   // project notes under area groups
@@ -633,6 +629,37 @@ export function build() {
     }
   }
 
+  // ---------------------------------------------------------- decisions: a decision hangs under every card that needs it (`blocks`), else under its features;
+  // each card in `blocks` is Blocked while the decision is open and returns to its own status once it is decided
+  const decisionBlockers = new Map(); // target id -> [decision ids]
+  for (const [, d] of decisionNodes) {
+    const note = noteOf.get(d.id);
+    const covered = new Set(); // features reached through a blocked card: the decision is not repeated under them
+    for (const ref of list(note.data.blocks)) {
+      const r = resolve(ref, d);
+      if (!r || r.via) { err(note.rel, `blocks: "${ref}" is not a task, a layer note or a feature`); continue; }
+      for (const to of r.ids) {
+        const t = nodes[to];
+        if (to === d.id || !(t.kind === 'task' || t.kind === 'feature' || (KIND.has(t.kind) && t.path))) { err(note.rel, `blocks: "${ref}" is ${t.kind === 'decision' ? 'a decision' : `a ${t.label?.toLowerCase() ?? t.kind}`}; a decision blocks a task, a layer note or a feature`); continue; }
+        if (d.blocks.includes(to)) continue;
+        d.blocks.push(to);
+        addEdge(d.id, to, 'decision');
+        if (!d.parents.includes(to)) link(t, d);
+        if (!decisionBlockers.has(to)) decisionBlockers.set(to, []);
+        decisionBlockers.get(to).push(d.id);
+        const fid = t.kind === 'feature' ? t.feature : t.feature;
+        if (fid) { covered.add(fid); if (!d.features.includes(fid)) d.features.push(fid); }
+      }
+    }
+    for (const fid of d.features) {
+      const f = featureNodes.get(fid);
+      if (!f) { err(d.path, `features: "${fid}" is not a feature id`); continue; }
+      addEdge(d.id, f.id, 'decision');
+      if (!covered.has(fid) && !d.parents.includes(f.id)) link(f, d);
+    }
+    d.features.sort();
+  }
+
   // ---------------------------------------------------------- pending: done, but a note is left for a card or a person → Partial until cleared
   const PENDING_NOTE = /^\[\[([^\]]+?)\]\]\s*:?\s*(.*)$/, PENDING_PERSON = /^@([\w.-]+)\s*:?\s*(.*)$/;
   for (const [id, note] of noteOf) {
@@ -654,7 +681,7 @@ export function build() {
   const handedOff = (n) => isDone(n) || (KIND.has(n.kind) && (KIND.get(n.kind).handoff || []).includes(n.status));
 
   // ---------------------------------------------------------- blocking
-  const blockReason = (target) => `${target.title} is ${String(LEGEND[target.effectiveStatus] ?? target.effectiveStatus).toLowerCase()}`;
+  const blockReason = (target) => (target.kind === 'decision' && !isDone(target) ? `needs decision ${target.code} (open)` : `${target.title} is ${String(LEGEND[target.effectiveStatus] ?? target.effectiveStatus).toLowerCase()}`);
   for (const n of layerNodes) {
     const note = noteOf.get(n.id);
     const explicit = note && Array.isArray(note.data.blockedBy) ? list(note.data.blockedBy) : null;
@@ -666,6 +693,7 @@ export function build() {
       for (const to of r.ids) if (to !== n.id && !handedOff(nodes[to])) blockers.push(to);
     }
     for (const to of n.depends) if (!handedOff(nodes[to])) blockers.push(to);
+    for (const to of decisionBlockers.get(n.id) || []) if (!handedOff(nodes[to])) blockers.push(to);
     n.blockedBy = isDone(n) ? [] : [...new Set(blockers)].map((to) => ({ id: to, title: nodes[to].title, why: blockReason(nodes[to]) }));
     for (const b of n.blockedBy) addEdge(b.id, n.id, 'blocks');
     if (n.blockedBy.length && n.path && n.effectiveStatus !== 'partial') n.effectiveStatus = 'blocked';
@@ -675,9 +703,11 @@ export function build() {
     const blockers = [];
     for (const ref of list(note.data.blockedBy)) { const r = resolve(ref, t); if (!r) { err(note.rel, `blockedBy: "${ref}" does not resolve`); continue; } for (const to of r.ids) if (to !== t.id && !handedOff(nodes[to])) blockers.push(to); }
     for (const to of t.depends) if (!handedOff(nodes[to])) blockers.push(to);
+    const openDecisions = (decisionBlockers.get(t.id) || []).filter((to) => !handedOff(nodes[to]));
+    blockers.push(...openDecisions);
     t.blockedBy = isDone(t) ? [] : [...new Set(blockers)].map((to) => ({ id: to, title: nodes[to].title, why: blockReason(nodes[to]) }));
     for (const b of t.blockedBy) addEdge(b.id, t.id, 'blocks');
-    if (t.blockedBy.length && t.status === 'todo') t.effectiveStatus = 'blocked';
+    if (t.blockedBy.length && (t.status === 'todo' || (openDecisions.length && t.effectiveStatus !== 'partial'))) t.effectiveStatus = 'blocked';
   }
 
   // ---------------------------------------------------------- flow edges, "sum of" links, children order
@@ -1108,10 +1138,41 @@ function printImpact(json, r, query) {
 }
 
 // ---------------------------------------------------------------- scaffold
+function scaffoldDecision(result, ref, title) {
+  const { cfg, json } = result;
+  const nodes = json.nodes;
+  const q = (ref || '').trim();
+  const isTarget = (n) => n.path && (n.kind === 'task' || n.kind === 'feature' || cfg.kinds.has(n.kind));
+  let target = null;
+  for (const n of Object.values(nodes)) if (isTarget(n) && (n.title === q || n.code === q || n.card === q || n.id === q)) { target = n; break; }
+  if (!target) for (const n of Object.values(nodes)) if (isTarget(n) && n.title.toLowerCase() === q.toLowerCase()) { target = n; break; }
+  if (!target) { console.error(`no task, layer note or feature named "${ref}" (use the note name, T-NNN, a feature id or a card code)`); process.exit(1); }
+  const taken = new Set(Object.keys(result.cards.retired)); // a retired D-NN is never handed out again
+  for (const n of Object.values(nodes)) if (n.kind === 'decision') taken.add(n.code);
+  let num = 1;
+  while (taken.has(`D-${String(num).padStart(2, '0')}`)) num++;
+  const id = `D-${String(num).padStart(2, '0')}`;
+  const t = (title || `Decide for ${target.title}`).trim().replace(/\s+/g, ' ');
+  if (BAD_NAME.test(t) || /[/:]/.test(t)) { console.error(`title "${t}" cannot contain / : # ? % \\`); process.exit(1); }
+  const dest = path.join(ROOT, 'decisions', `${id} ${t}.md`);
+  if (fs.existsSync(dest)) { console.error(`${path.relative(ROOT, dest)} already exists`); process.exit(1); }
+  const today = new Date().toISOString().slice(0, 10);
+  const { data, body } = parseFrontmatter(fs.readFileSync(path.join(ROOT, 'templates', 'Decision Template.md'), 'utf8'));
+  const feature = target.kind === 'feature' ? target.code : target.feature;
+  const blocks = target.kind === 'task' ? target.code : target.kind === 'feature' ? target.code : target.title; // a task by id, a feature by id, a note by name
+  const out = { ...data, id, status: 'open', features: feature ? [feature] : [], blocks: [blocks], decider: '', screens: target.screens ?? [], affects: [], related: [], created: today, tags: ['decision', 'decision/open'] };
+  const item = (v) => (/^[\w./-]+$/.test(v) ? v : JSON.stringify(v));
+  const yaml = Object.entries(out).map(([k, v]) => `${k}: ${Array.isArray(v) ? `[${v.map(item).join(', ')}]` : typeof v === 'string' && (/[:#]/.test(v) || v === '') ? JSON.stringify(v) : v}`).join('\n');
+  const text = body.replace(/D-NN/g, id).replace(/<Title>/g, t).replace(/<date>/g, today).replace(/<card>/g, `[[${target.title}]]`).replace(/<feature>/g, feature ? `[[${nodes[`feature:${feature}`]?.title ?? feature}]]` : '—');
+  fs.writeFileSync(dest, `---\n${yaml}\n---\n${text}`);
+  console.log(`wrote ${path.relative(ROOT, dest)} (open; blocks ${target.title}); write what has to be decided and who decides (decider), then run node scripts/build-tree.mjs: ${target.title} shows Blocked · ${id} until the decision is decided`);
+}
+
 function scaffold(result, kindId, code) {
   const { cfg, json } = result;
+  if (kindId === 'decision') return scaffoldDecision(result, code, args[args.indexOf('--scaffold') + 3]);
   const kind = cfg.kinds.get(kindId);
-  if (!kind) { console.error(`unknown kind "${kindId}"; kinds in docs.config.json: ${cfg.kindOrder.join(', ')}`); process.exit(1); }
+  if (!kind) { console.error(`unknown kind "${kindId}"; kinds in docs.config.json: ${cfg.kindOrder.join(', ')}, or decision`); process.exit(1); }
   const nodes = json.nodes;
   const template = fs.readFileSync(path.join(ROOT, kind.template), 'utf8');
   const today = new Date().toISOString().slice(0, 10);
