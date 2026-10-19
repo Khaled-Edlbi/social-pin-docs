@@ -8,7 +8,7 @@ tags: [project, layer/shared, map]
 
 # Docs Tree · how to read it, how to keep it true
 
-The docs tree is the readable map of this vault: **project → module → feature → one note per layer, then the feature's tasks and decisions**. Every card is one Markdown file; it shows the note's kind and priority, its layer colour, the file's name and a status chip; double-clicking it opens the full note. Behind the cards, the relations between notes (related, affects, depends, blocks, the hand-off flow, shared endpoints, mentions) are drawn as faint lines that light up when you hover or focus a card. The page has three views of the same data: **Tree** (the hierarchy), **Graph** (features and decisions, or every note, clustered by module and pulled together by their relations) and **Outline** (the tree as a keyboard-friendly list); the filters on the left apply to all three.
+The docs tree is the readable map of this vault: **project → module → feature → one note per layer, then the feature's tasks and decisions**. Every card is one Markdown file; it shows the note's card code (`S-01`, `BD-05`; a task's and a decision's is in its title), kind and priority, its layer colour, the file's name and a status chip; double-clicking it opens the full note. Behind the cards, the relations between notes (related, affects, depends, blocks, the hand-off flow, shared endpoints, mentions) are drawn as faint lines that light up when you hover or focus a card. The page has three views of the same data: **Tree** (the hierarchy), **Graph** (features and decisions, or every note, clustered by module and pulled together by their relations) and **Outline** (the tree as a keyboard-friendly list); the filters on the left apply to all three.
 
 | | |
 |---|---|
