@@ -46,7 +46,7 @@ social-pin-docs/
 ├── business/                      BUSINESS docs: Project Overview · Glossary · Feature Tree · Feature Graph · Feature Map.canvas · Status Report
 ├── frontend/                      FRONTEND docs: Frontend Contract · Frontend API Guide · Frontend Passwordless Migration · Frontend Agent Prompt
 ├── backend/                       BACKEND docs: Architecture · API Conventions · Auth Model · Ring Access Model · Database & Migrations · Developer Setup · Spec Map · Developer Guide
-├── project/                       RULES for every layer: Workflow · Agent Rules · Docs Tree
+├── project/                       RULES for every layer: Workflow · Agent Rules · Docs Tree · PM Agent (the business layer's agent prompt, `/pm`)
 ├── modules/<Module>/
 │   ├── <Module> Module.md         the module = the sum of its features
 │   └── <Feature>/
@@ -66,14 +66,14 @@ social-pin-docs/
 ├── design/                        Design Reference · Screen Index · Navigation Map · Wireframe Brief · Brief Section Map
 ├── templates/                     one per note kind (the scaffold command uses them)
 ├── tree/                          the docs tree page (index.html), its generated index (tree.json, tree.md) and the card-code registry (cards.json)
-└── scripts/build-tree.mjs         build · --check · --serve · --impact · --scaffold
+└── scripts/build-tree.mjs         build · --check · --serve · --impact · --scaffold (layer notes, task, feature, decision)
 ```
 
 ## Start here, by role
 
 - **Backend developer** → [[Backlog]] → the ticket → `node scripts/build-tree.mjs --impact T-NNN` → the feature's Backend Delivery and Frontend Requirements → [[Ring Access Model]] → [[Architecture#Build order for a new feature]].
 - **Frontend developer** → [[Frontend Contract]] → the feature's Backend Integration note → [[Frontend API Guide]]. The rules for the frontend repo's agent: [[Frontend Agent Prompt]]. **Auth is passwordless since 2026-10-15**: [[Frontend Passwordless Migration]].
-- **Product / design** → [[Decisions]] first (five answers unblock 19 tasks), the ✏️ Draft stories in the [[Docs Tree]] to approve, [[Screen Index]] for what each screen can do today.
+- **Product / design** → [[Decisions]] first (five answers unblock 19 tasks), the ✏️ Draft stories in the [[Docs Tree]] to approve, [[Screen Index]] for what each screen can do today. To create a feature, a story, a task or a decision, or to record an approval: `/pm …` in Claude Code, whose whole prompt is [[PM Agent]].
 - **QA** → a feature's two delivery notes and its story; `--scaffold qa-backend <feature>` / `qa-frontend` to start the artefacts.
 - **Anyone new** → [[Project Overview]] → [[Glossary]] → [[Feature Graph]] → [[Docs Tree]].
 

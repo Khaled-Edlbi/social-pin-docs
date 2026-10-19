@@ -103,6 +103,9 @@ node scripts/build-tree.mjs --impact "Ring Access Engine"   # what a change touc
 node scripts/build-tree.mjs --impact T-004           # … for a task; also a feature id, "GET /rings/:id", E_RING_02, s14
 node scripts/build-tree.mjs --scaffold backend-delivery T-004   # create a layer note from its template (moves the task into its folder)
 node scripts/build-tree.mjs --scaffold qa-frontend rings        # … at feature level
+node scripts/build-tree.mjs --scaffold task counts "Member count on the Ring card"   # a task with the next free number, its story and its fe / be halves (--backend-only, --docs-only, --parent T-NNN --label bug)
+node scripts/build-tree.mjs --scaffold feature discovery "Nearby by interest"        # a feature note in its module folder (--id <slug>, --frontend-only)
+node scripts/build-tree.mjs --scaffold decision "Who may see the member count"      # a decision with the next free D-NN
 ```
 
 The build **fails** on: unparsable frontmatter or a missing key, a `type` that is neither structural nor a kind in the config, an unknown `status` for the kind, a `feature` / `task` / `module` / `depends` / `affects` / `related` / `blockedBy` target that does not resolve, two notes with the same code and kind, a card code in `tree/cards.json` given to two cards, reused after it was retired or carrying another kind's prefix, a feature whose `module` does not match its folder, a config that names a missing template, a file name containing `# ? % \`. It **warns** on a note outside its expected path, a wikilink to nothing, a missing `updated:`, a feature-level note that does not link a done task-level note, and a note that uses an endpoint owned by another feature without declaring a relation to it.
@@ -115,6 +118,8 @@ The checklist, by layer, is [[Agent Rules#6 · After a task — the checklist, b
 
 ## Creating a new feature or module
 
-Feature: create `modules/<Module>/<Feature>/<Feature>.md` from `templates/Feature Template.md`, then `--scaffold story <id>` and the other kinds as each layer gets to them; add the feature to the module note's table and the screens it serves in [[Screen Index]]. Module: add it to `modules` in `docs.config.json`, create `modules/<Module>/<Module> Module.md` from `templates/Module Template.md`. Rebuild; the tree picks everything up from the frontmatter. The Feature Map canvas in `business/` is optional and only adds *related* lines.
+Feature: `node scripts/build-tree.mjs --scaffold feature <module-id> "<Name>"` creates `modules/<Module>/<Feature>/<Feature>.md` from `templates/Feature Template.md`, then `--scaffold story <id>` and the other kinds as each layer gets to them; add the feature to the module note's table and the screens it serves in [[Screen Index]]. Module: add it to `modules` in `docs.config.json`, create `modules/<Module>/<Module> Module.md` from `templates/Module Template.md`. Rebuild; the tree picks everything up from the frontmatter. The Feature Map canvas in `business/` is optional and only adds *related* lines.
 
-Related: [[Agent Rules]] · [[Workflow]] · [[Frontend Contract]] · [[Home]]
+The business layer's agent, [[PM Agent]], runs these playbooks on request (`/pm …` in Claude Code).
+
+Related: [[Agent Rules]] · [[Workflow]] · [[PM Agent]] · [[Frontend Contract]] · [[Home]]

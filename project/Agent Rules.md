@@ -3,7 +3,7 @@ type: project
 layer: shared
 updated: 2026-10-19
 affects: ["Workflow", "Docs Tree"]
-related: ["Frontend Agent Prompt"]
+related: ["Frontend Agent Prompt", "PM Agent"]
 tags: [project, layer/shared, rules]
 ---
 
@@ -17,7 +17,7 @@ The vault is organised by **feature**, and inside a feature by **layer**. A laye
 
 | Layer | Writes | Reads first |
 |---|---|---|
-| **Business** (product, PM) | the feature note (`<Feature>.md`, the main node), `<Feature> Story`, decisions `D-NN`, tasks `T-NNN`; signs stories and requirements off | the module note, the screens in [[Screen Index]], open decisions |
+| **Business** (product, PM) | the feature note (`<Feature>.md`, the main node), `<Feature> Story`, decisions `D-NN`, tasks `T-NNN`; signs stories and requirements off. Its agent and the one place its prompt lives: [[PM Agent]] | the module note, the screens in [[Screen Index]], open decisions |
 | **Frontend** | `<Feature> Frontend Requirements` (what the client asks of the backend, **before** backend work), `<Feature> Frontend Delivery` (what the client shipped, **after**), `<Feature> QA Frontend` when it runs the checks | the story, the Backend Integration note, [[Frontend Contract]], [[Frontend API Guide]] |
 | **Backend** | `<Feature> Backend Delivery` (what shipped, how it works, gaps), `<Feature> Backend Integration` (how the client calls it), `<Feature> QA Backend` when it runs the checks | the story, the Frontend Requirements, [[Ring Access Model]], [[Architecture]] |
 | **QA** | `<Feature> QA Backend`, `<Feature> QA Frontend`: expected behaviour as tables and diagrams, **never test code** | the story, both delivery notes |
@@ -95,4 +95,4 @@ A target is a note name (`"Ring Access Engine"`), a task or decision id (`T-022`
 - A `pending` note left behind: it is cleared by its author, or handed over as a flag or a task.
 - A second copy of a rule: the vault has one place for each (this note for rules, [[Workflow]] for the sequence, [[Docs Tree]] for the page and the JSON).
 
-Related: [[Workflow]] · [[Docs Tree]] · [[Frontend Agent Prompt]] · [[Frontend Contract]] · [[Architecture]]
+Related: [[Workflow]] · [[Docs Tree]] · [[PM Agent]] · [[Frontend Agent Prompt]] · [[Frontend Contract]] · [[Architecture]]

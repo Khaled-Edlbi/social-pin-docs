@@ -155,6 +155,7 @@
     "project:frontend-contract": "P-08",
     "project:frontend-passwordless-migration": "P-09",
     "project:glossary": "P-03",
+    "project:pm-agent": "P-21",
     "project:project-overview": "P-04",
     "project:ring-access-model": "P-16",
     "project:spec-map": "P-17",

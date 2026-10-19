@@ -11,7 +11,7 @@ this file is the short form and defers to it.
 | Folder | One note per | Template |
 |---|---|---|
 | `business/` `frontend/` `backend/` | project reference for that layer: overview, glossary, contract, API guide, architecture, conventions, migrations, setup (`type: project`, `layer:`) | `templates/Project Note Template.md` |
-| `project/` | the rules every layer follows: `Workflow`, `Agent Rules`, `Docs Tree` | — |
+| `project/` | the rules every layer follows: `Workflow`, `Agent Rules`, `Docs Tree`; `PM Agent` is the business layer's agent prompt, the one place it lives, loaded by `/pm` (`.claude/skills/pm/SKILL.md`) | — |
 | `modules/<Module>/<Module> Module.md` | module: the sum of its features (`type: module`) | `templates/Module Template.md` |
 | `modules/<Module>/<Feature>/<Feature>.md` | feature: the business main node (`type: feature`, no `status:`: the chip is computed from its cards; `frontendOnly: true` when it has no backend part) | `templates/Feature Template.md` |
 | `modules/<Module>/<Feature>/<Feature> <Kind>.md` | one note per layer kind: `Story`, `Frontend Requirements`, `Backend Delivery`, `Backend Integration`, `Frontend Delivery`, `QA Backend`, `QA Frontend` (`scope: feature`, `code: <feature id>`) | `templates/<Kind> Template.md` |
@@ -41,7 +41,7 @@ the page and the JSON: `project/Docs Tree.md`.
 
 1. A ticket (`tasks/T-NNN …`) exists before code is written; its `## Impact` holds the `--impact` output.
 2. The branch in **every** repo is named after it: `<module>/<ticket-no>/<what-you-do>` (e.g. `ring/T-004/member-count`).
-3. Each layer writes **its own notes only**, created with `node scripts/build-tree.mjs --scaffold <kind> T-NNN`: frontend requirements before backend work; backend delivery + integration when the API ships; frontend delivery when the screens ship; QA notes (artefacts, never test code) when checks run. A feature-level note is the sum of its task-level notes and links them; the module note is the sum of its features.
+3. Each layer writes **its own notes only**, created with `node scripts/build-tree.mjs --scaffold <kind> T-NNN` (a task, a feature or a decision: `--scaffold task <feature-id> "<Title>"`, `--scaffold feature <module-id> "<Name>"`, `--scaffold decision "<Title>"`): frontend requirements before backend work; backend delivery + integration when the API ships; frontend delivery when the screens ship; QA notes (artefacts, never test code) when checks run. A feature-level note is the sum of its task-level notes and links them; the module note is the sum of its features.
 4. Every card in the flow is blocked by default until the card before it is handed off (story and requirements at `approved`, the rest at done); a note's `blockedBy` overrides. Every note declares `depends` / `affects` / `related` (and `blockedBy` when blocked, by any layer) in frontmatter; after the change, `--impact` again and update or flag (`> ⚠ Affected by [[T-NNN …]] (date): …`) every note it lists that you do not own.
 5. `node scripts/build-tree.mjs` is run and the generated files are committed with the notes. CI runs `--check` on every pull request and fails on errors or drift.
 
