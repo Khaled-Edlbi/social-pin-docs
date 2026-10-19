@@ -2,20 +2,20 @@
 type: task
 id: T-034
 status: todo
-priority: P0
+priority: critical
 effort: M
 feature: events-before
 module: events
 screens: [s50]
 depends: [T-033]
 created: 2026-10-15
-updated: 2026-10-18
-tags: [task, task/todo, module/events, priority/P0]
+updated: 2026-10-19
+tags: [task, task/todo, module/events, priority/critical]
 ---
 
 # ⬜ T-034 · Tickets, packages, levels, sold-out
 
-**Feature:** [[Events Before]] · **Status:** To do · **Priority:** P0 · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Events Before]] · **Status:** To do · **Priority:** Critical · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-034-fe Frontend · Tickets, packages, levels, sold-out|Frontend]] · [[T-034-be Backend · Tickets, packages, levels, sold-out|Backend]] · **Story:** [[T-034 Story]]
 

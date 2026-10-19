@@ -2,20 +2,20 @@
 type: task
 id: T-044
 status: todo
-priority: P0
+priority: critical
 effort: M
 feature: meetings
 module: meetings
 screens: [s61, s66, s67]
 depends: [T-042]
 created: 2026-10-15
-updated: 2026-10-18
-tags: [task, task/todo, module/meetings, priority/P0]
+updated: 2026-10-19
+tags: [task, task/todo, module/meetings, priority/critical]
 ---
 
 # ⬜ T-044 · My meetings, calendar, detail, reschedule, cancel
 
-**Feature:** [[Meetings]] · **Status:** To do · **Priority:** P0 · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Meetings]] · **Status:** To do · **Priority:** Critical · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-044-fe Frontend · My meetings, calendar, detail, reschedule, cancel|Frontend]] · [[T-044-be Backend · My meetings, calendar, detail, reschedule, cancel|Backend]] · **Story:** [[T-044 Story]]
 

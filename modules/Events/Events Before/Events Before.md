@@ -2,17 +2,17 @@
 type: feature
 id: events-before
 name: "Events Before"
-priority: P0
+priority: critical
 module: events
 screens: [s48, s49, s50, s51, s52]
 related: ["Rings"]
-updated: 2026-10-18
-tags: [feature, module/events, priority/P0]
+updated: 2026-10-19
+tags: [feature, module/events, priority/critical]
 ---
 
 # Events Before
 
-**Backend:** TODO · **Priority:** P0 · **Module:** [[Events Module|Events]]
+**Backend:** TODO · **Priority:** Critical · **Module:** [[Events Module|Events]]
 
 **Layers:** [[Events Before Story|Story]] · [[Events Before Frontend Requirements|Frontend Requirements]] · [[Events Before Backend Delivery|Backend Delivery]] · [[Events Before Backend Integration|Backend Integration]] · [[Events Before Frontend Delivery|Frontend Delivery]] · [[Events Before QA Backend|QA Backend]] · [[Events Before QA Frontend|QA Frontend]]
 
@@ -36,9 +36,9 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 
 | Task | Status | Priority | Effort |
 |---|---|---|---|
-| [[T-033 Events list, detail, schedule]] | ⬜ To do | P0 | L |
-| [[T-034 Tickets, packages, levels, sold-out]] | ⬜ To do | P0 | M |
-| [[T-035 Registration transaction with order and payment]] | ⛔ Blocked | P0 | L |
+| [[T-033 Events list, detail, schedule]] | ⬜ To do | Critical | L |
+| [[T-034 Tickets, packages, levels, sold-out]] | ⬜ To do | Critical | M |
+| [[T-035 Registration transaction with order and payment]] | ⛔ Blocked | Critical | L |
 
 ```dataview
 TABLE status, priority, effort FROM #task WHERE feature = "events-before" SORT priority ASC

@@ -2,7 +2,7 @@
 type: task
 id: T-010-be
 status: todo
-priority: P1
+priority: high
 effort: M
 feature: badge-qr
 module: discovery
@@ -14,13 +14,13 @@ affects: []
 related: []
 pending: []
 created: 2026-10-18
-updated: 2026-10-18
-tags: [task, task/todo, module/discovery, priority/P1, backend]
+updated: 2026-10-19
+tags: [task, task/todo, module/discovery, priority/high, backend]
 ---
 
 # ⬜ T-010-be · Backend: Public browser page for viewers without the app
 
-**Parent:** [[T-010 Public browser page for viewers without the app]] · **Feature:** [[Badge & QR]] · **Side:** Backend · **Status:** To do · **Priority:** P1 · **Effort:** M (same as the parent until the team sizes it)
+**Parent:** [[T-010 Public browser page for viewers without the app]] · **Feature:** [[Badge & QR]] · **Side:** Backend · **Status:** To do · **Priority:** High · **Effort:** M (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-010-be` when the team picks it up): [[T-010-be Backend Delivery|Backend Delivery]] · [[T-010-be Backend Integration|Backend Integration]] · [[T-010-be QA Backend|QA Backend]]
 

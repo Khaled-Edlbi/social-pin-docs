@@ -2,17 +2,17 @@
 type: feature
 id: event-ring-auto
 name: "Event Ring Auto-creation"
-priority: P0
+priority: critical
 module: events
 screens: [s52]
 related: ["View As & Pin Views"]
-updated: 2026-10-18
-tags: [feature, module/events, priority/P0]
+updated: 2026-10-19
+tags: [feature, module/events, priority/critical]
 ---
 
 # Event Ring Auto-creation
 
-**Backend:** Partial (needs more) · **Priority:** P0 · **Module:** [[Events Module|Events]]
+**Backend:** Partial (needs more) · **Priority:** Critical · **Module:** [[Events Module|Events]]
 
 **Layers:** [[Event Ring Auto-creation Story|Story]] · [[Event Ring Auto-creation Frontend Requirements|Frontend Requirements]] · [[Event Ring Auto-creation Backend Delivery|Backend Delivery]] · [[Event Ring Auto-creation Backend Integration|Backend Integration]] · [[Event Ring Auto-creation Frontend Delivery|Frontend Delivery]] · [[Event Ring Auto-creation QA Backend|QA Backend]] · [[Event Ring Auto-creation QA Frontend|QA Frontend]]
 
@@ -32,7 +32,7 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 
 | Task | Status | Priority | Effort |
 |---|---|---|---|
-| [[T-011 Create the Event Ring on registration]] | ⛔ Blocked | P0 | M |
+| [[T-011 Create the Event Ring on registration]] | ⛔ Blocked | Critical | M |
 
 ```dataview
 TABLE status, priority, effort FROM #task WHERE feature = "event-ring-auto" SORT priority ASC

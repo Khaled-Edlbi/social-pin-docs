@@ -8,7 +8,7 @@ node scripts/build-tree.mjs --check                     # validate the notes and
 node scripts/build-tree.mjs                             # regenerate tree/, Card Index.md, tasks/Task Board.md, tasks/Backlog.md after editing notes
 node scripts/build-tree.mjs --impact "Ring Access Engine"   # what a change to a note, task, feature or endpoint touches
 node scripts/build-tree.mjs --scaffold backend-delivery T-004   # create a layer note for a task (or a feature id) from its template
-node scripts/build-tree.mjs --scaffold task counts "<Title>"     # a task with the next free number, its story and its frontend / backend halves; also `feature <module-id> "<Name>"` and `decision "<Title>"`
+node scripts/build-tree.mjs --scaffold task counts "<Title>"     # a task with the next free number, its story and its frontend / backend halves; also `feature <module-id> "<Name>"` and `decision "<card>" "<Title>"` (the decision card a card needs)
 ```
 
 - `docs.config.json` — the layers (business, frontend, backend, QA), their note kinds and statuses, the hand-off flow, the default blocks, the modules. A new layer is a config entry.

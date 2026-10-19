@@ -2,7 +2,7 @@
 type: task
 id: T-006-be
 status: todo
-priority: P1
+priority: high
 effort: M
 feature: delegated-admins
 module: shared-rings
@@ -14,13 +14,13 @@ affects: []
 related: []
 pending: []
 created: 2026-10-18
-updated: 2026-10-18
-tags: [task, task/todo, module/shared-rings, priority/P1, backend]
+updated: 2026-10-19
+tags: [task, task/todo, module/shared-rings, priority/high, backend]
 ---
 
 # ⬜ T-006-be · Backend: Delegated admin endpoints
 
-**Parent:** [[T-006 Delegated admin endpoints]] · **Feature:** [[Delegated Admins]] · **Side:** Backend · **Status:** To do · **Priority:** P1 · **Effort:** M (same as the parent until the team sizes it)
+**Parent:** [[T-006 Delegated admin endpoints]] · **Feature:** [[Delegated Admins]] · **Side:** Backend · **Status:** To do · **Priority:** High · **Effort:** M (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-006-be` when the team picks it up): [[T-006-be Backend Delivery|Backend Delivery]] · [[T-006-be Backend Integration|Backend Integration]] · [[T-006-be QA Backend|QA Backend]]
 

@@ -2,20 +2,20 @@
 type: task
 id: T-014
 status: todo
-priority: P1
+priority: high
 effort: M
 feature: devices
 module: platform
 screens: [s75]
 depends: []
 created: 2026-10-15
-updated: 2026-10-18
-tags: [task, task/todo, module/platform, priority/P1]
+updated: 2026-10-19
+tags: [task, task/todo, module/platform, priority/high]
 ---
 
 # ⬜ T-014 · Register devices on login; list and remove
 
-**Feature:** [[Devices & NFC]] · **Status:** To do · **Priority:** P1 · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Devices & NFC]] · **Status:** To do · **Priority:** High · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-014-fe Frontend · Register devices on login; list and remove|Frontend]] · [[T-014-be Backend · Register devices on login; list and remove|Backend]] · **Story:** [[T-014 Story]]
 

@@ -2,20 +2,20 @@
 type: task
 id: T-058
 status: needs-info
-priority: P0
+priority: critical
 effort: S
 feature: ring-projection
 module: identity
 screens: [s24]
 depends: []
 created: 2026-10-15
-tags: [task, task/needs-info, module/identity, priority/P0]
+tags: [task, task/needs-info, module/identity, priority/critical]
 decision: D-03
 ---
 
 # ❓ T-058 · Decide: field library vs per-Ring copies
 
-**Feature:** [[Ring Projection]] · **Status:** Needs a decision / info · **Priority:** P0 · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Ring Projection]] · **Status:** Needs a decision / info · **Priority:** Critical · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
 
 ## What
 

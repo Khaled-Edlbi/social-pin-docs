@@ -2,17 +2,17 @@
 type: feature
 id: pincast
 name: "PinCast & Nearby"
-priority: P1
+priority: high
 module: discovery
 screens: [s11, s39, s40, s41, s42]
 related: ["Rings", "View As & Pin Views"]
-updated: 2026-10-18
-tags: [feature, module/discovery, priority/P1]
+updated: 2026-10-19
+tags: [feature, module/discovery, priority/high]
 ---
 
 # PinCast & Nearby
 
-**Backend:** TODO · **Priority:** P1 · **Module:** [[Discovery Module|Discovery]]
+**Backend:** TODO · **Priority:** High · **Module:** [[Discovery Module|Discovery]]
 
 **Layers:** [[PinCast & Nearby Story|Story]] · [[PinCast & Nearby Frontend Requirements|Frontend Requirements]] · [[PinCast & Nearby Backend Delivery|Backend Delivery]] · [[PinCast & Nearby Backend Integration|Backend Integration]] · [[PinCast & Nearby Frontend Delivery|Frontend Delivery]] · [[PinCast & Nearby QA Backend|QA Backend]] · [[PinCast & Nearby QA Frontend|QA Frontend]]
 
@@ -36,7 +36,7 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 
 | Task | Status | Priority | Effort |
 |---|---|---|---|
-| [[T-032 PinCast setup, start, stop, results]] | ⬜ To do | P1 | L |
+| [[T-032 PinCast setup, start, stop, results]] | ⬜ To do | High | L |
 
 ```dataview
 TABLE status, priority, effort FROM #task WHERE feature = "pincast" SORT priority ASC

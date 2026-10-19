@@ -11,7 +11,7 @@
  *   node scripts/build-tree.mjs --scaffold task <feature-id> "<Title>" [--backend-only | --docs-only | --parent T-NNN] [--label <label>] [--priority P1] [--effort M]
  *                                                    creates the task with the next free number, its story and its frontend / backend halves
  *   node scripts/build-tree.mjs --scaffold feature <module-id> "<Name>" [--id <slug>] [--priority P1] [--frontend-only]   creates the feature note
- *   node scripts/build-tree.mjs --scaffold decision "<Title>"   creates the decision with the next free number
+ *   node scripts/build-tree.mjs --scaffold decision "<card>" ["<title>"]   creates the decision card a task, a layer note or a feature needs (blocks it while open)
  *
  * No dependencies: Node 22 built-ins only. The output is key-sorted and carries
  * no timestamps, so it changes only when a note or the config changes.
@@ -126,7 +126,45 @@ export function loadConfig(errors = []) {
   const prefixOf = (kind) => structural[kind] ?? kinds.get(kind)?.prefix ?? null;
   const frontendOnlySkips = Array.isArray(cfg.frontendOnly?.skips) ? cfg.frontendOnly.skips : [];
   for (const k of frontendOnlySkips) if (!kinds.has(k)) err(`frontendOnly.skips names unknown kind "${k}"`);
-  return { ...cfg, kinds, kindOrder, flowOrder, flowBack, flowBlocks, frontendOnlySkips, taskLabels, cardCodes: { pad, structural, prefixes, prefixOf } };
+  // priorities: the enum every card may carry, highest first; `aliases` are old codes (P0 …) the build still reads, with a warning
+  const ID = /^[a-z][a-z0-9-]*$/;
+  const levels = Array.isArray(cfg.priorities?.levels) && cfg.priorities.levels.length ? cfg.priorities.levels : DEFAULT_PRIORITIES;
+  const byPriority = new Map(), aliasOf = new Map();
+  for (const l of levels) {
+    if (!l || typeof l.id !== 'string' || !ID.test(l.id)) { err(`priorities.levels: id ${JSON.stringify(l?.id)} must be lowercase letters, digits and dashes`); continue; }
+    if (byPriority.has(l.id)) err(`priorities.levels: id "${l.id}" is listed twice`);
+    byPriority.set(l.id, { id: l.id, label: l.label || l.id.replace(/^./, (c) => c.toUpperCase()), color: l.color || null, description: l.description || '', aliases: Array.isArray(l.aliases) ? l.aliases.filter((a) => typeof a === 'string') : [] });
+    for (const a of byPriority.get(l.id).aliases) { if (aliasOf.has(a) || byPriority.has(a)) err(`priorities.levels: alias "${a}" is given twice`); aliasOf.set(a, l.id); }
+  }
+  const priorities = { levels: [...byPriority.values()], byId: byPriority, aliasOf, rank: (id) => { const i = [...byPriority.keys()].indexOf(id); return i < 0 ? byPriority.size : i; } };
+  // deadlines: the window before a deadline, split evenly over the zones (farthest first), then `missed`
+  const dl = cfg.deadlines || {};
+  const zones = Array.isArray(dl.zones) && dl.zones.length ? dl.zones : DEFAULT_DEADLINES.zones;
+  for (const z of zones) if (!z || typeof z.id !== 'string' || !ID.test(z.id)) err(`deadlines.zones: id ${JSON.stringify(z?.id)} must be lowercase letters, digits and dashes`);
+  const windowDays = Number.isFinite(dl.windowDays) && dl.windowDays > 0 ? dl.windowDays : DEFAULT_DEADLINES.windowDays;
+  if (dl.windowDays !== undefined && !(Number.isFinite(dl.windowDays) && dl.windowDays > 0)) err('deadlines.windowDays must be a positive number of days');
+  const deadlines = { windowDays, zones: zones.map((z) => ({ id: z.id, label: z.label || z.id, color: z.color || null })), missed: { ...DEFAULT_DEADLINES.missed, ...(dl.missed || {}) } };
+  return { ...cfg, kinds, kindOrder, flowOrder, flowBack, flowBlocks, frontendOnlySkips, taskLabels, priorities, deadlines, cardCodes: { pad, structural, prefixes, prefixOf } };
+}
+const DEFAULT_PRIORITIES = [
+  { id: 'critical', label: 'Critical', color: '#dc2626', aliases: ['P0'] }, { id: 'high', label: 'High', color: '#f97316', aliases: ['P1'] },
+  { id: 'medium', label: 'Medium', color: '#eab308', aliases: ['P2'] }, { id: 'low', label: 'Low', color: '#64748b', aliases: ['P3'] },
+];
+const DEFAULT_DEADLINES = { windowDays: 3, zones: [{ id: 'on-track', label: 'On track', color: '#16a34a' }, { id: 'due-soon', label: 'Due soon', color: '#eab308' }, { id: 'last-day', label: 'Last day', color: '#dc2626' }], missed: { id: 'missed', label: 'Missed', color: '#6b7280', icon: '💀' } };
+const DATE = /^(\d{4})-(\d{2})-(\d{2})$/;
+const isDate = (s) => { const m = typeof s === 'string' ? DATE.exec(s) : null; if (!m) return false; const d = new Date(Date.UTC(+m[1], +m[2] - 1, +m[3])); return d.getUTCFullYear() === +m[1] && d.getUTCMonth() === +m[2] - 1 && d.getUTCDate() === +m[3]; };
+/** Where a deadline stands at `now` (a Date): the zone from the config (the window before the deadline split evenly, the deadline day inclusive), or `missed`
+ *  once the deadline day is over. Computed when asked, never stored: the generated files carry the date only. `daysLeft` counts calendar days, 0 on the deadline day. */
+export function deadlineZone(deadline, now, deadlines = DEFAULT_DEADLINES) {
+  if (!isDate(deadline)) return null;
+  const [y, m, d] = deadline.split('-').map(Number);
+  const end = new Date(y, m - 1, d + 1); // local midnight after the deadline day
+  const left = (end - now) / 86400000;
+  const daysLeft = Math.ceil(left) - 1;
+  if (left <= 0) return { ...deadlines.missed, daysLeft, missed: true };
+  const zones = deadlines.zones, n = zones.length;
+  const idx = Math.max(0, n - 1 - Math.floor((left - 1e-9) * n / deadlines.windowDays));
+  return { ...zones[Math.min(idx, n - 1)], daysLeft, missed: false };
 }
 
 // ---------------------------------------------------------------- frontmatter
@@ -314,6 +352,7 @@ export function build() {
     id: null, kind: null, layer: null, title: n ? n.stem : null, path: n ? n.rel : null, status: null, effectiveStatus: null, blockedBy: [],
     priority: n?.data?.priority ?? null, effort: n?.data?.effort ?? null, module: n?.data?.module ?? null, feature: null, task: null, code: null, scope: null,
     screens: list(n?.data?.screens), updated: n?.data?.updated ?? n?.data?.created ?? null, tags: list(n?.data?.tags),
+    deadline: n?.data?.deadline ?? null, inherits: {},
     depends: [], affects: [], related: [], children: [], parents: [], summary: n?.summary ?? null, label: null, parentTask: null, pending: [], frontendOnly: false, labels: [], card: null, ...extra,
   });
   const byType = (t) => notes.filter((n) => n.data && n.data.type === t && !n.rel.startsWith('templates/'));
@@ -389,10 +428,13 @@ export function build() {
   }
   const decisionNodes = new Map();
   for (const n of byType('decision')) {
-    requireKeys(n, ['id', 'status', 'features']);
+    requireKeys(n, ['id', 'status']);
+    if (!list(n.data.blocks).length) requireKeys(n, ['features']); // a decision names the cards that need it (`blocks`) or the features it belongs to
+    if (!isDecisionId(n.data.id)) err(n.rel, `id "${n.data.id}" is not a decision id (D-NN)`);
     const status = normStatus(n, 'decision');
-    const d = addNode(base(n, { id: `decision:${n.data.id}`, kind: 'decision', layer: 'business', code: n.data.id, status, effectiveStatus: status, label: 'Decision', features: list(n.data.features) }));
+    const d = addNode(base(n, { id: `decision:${n.data.id}`, kind: 'decision', layer: 'business', code: n.data.id, status, effectiveStatus: status, label: 'Decision', features: list(n.data.features), blocks: [], decider: typeof n.data.decider === 'string' && n.data.decider.trim() ? n.data.decider.trim() : null }));
     noteOf.set(d.id, n);
+    if (decisionNodes.has(n.data.id)) err(n.rel, `second decision note with id "${n.data.id}"`);
     decisionNodes.set(n.data.id, d);
   }
 
@@ -475,14 +517,6 @@ export function build() {
     t.module = t.module ?? f.module;
     if (noteOf.get(t.id).data.module && noteOf.get(t.id).data.module !== f.module) err(t.path, `module "${t.module}" does not match the feature's module "${f.module}"`);
   }
-  for (const [, d] of decisionNodes) {
-    for (const fid of d.features) {
-      const f = featureNodes.get(fid);
-      if (!f) { err(d.path, `features: "${fid}" is not a feature id`); continue; }
-      addEdge(d.id, f.id, 'decision');
-      if (!d.parents.includes(f.id)) link(f, d);
-    }
-  }
 
   // project notes under area groups
   const areaNodes = new Map();
@@ -509,6 +543,25 @@ export function build() {
     const t = n.data.type;
     if (t && !['module', 'feature', 'task', 'decision', 'project', 'map', 'report', 'home', 'reference'].includes(t) && !KIND.has(t)) err(n.rel, `type "${t}" is not a structural type or a kind in docs.config.json`);
   }
+
+  // ---------------------------------------------------------- priority and deadline: validated on every card, inherited down the tree
+  // a layer note without its own takes its task's or feature's; a sub-task its parent's; a task its feature's. `inherits` names the source.
+  for (const [id, note] of noteOf) {
+    const n = nodes[id];
+    const raw = note.data.priority;
+    if (raw === undefined || raw === null || raw === '') n.priority = null;
+    else if (typeof raw !== 'string') { err(note.rel, `priority: ${JSON.stringify(raw)} is not one of ${cfg.priorities.levels.map((l) => l.id).join(', ')}`); n.priority = null; }
+    else if (cfg.priorities.byId.has(raw)) n.priority = raw;
+    else if (cfg.priorities.aliasOf.has(raw)) { n.priority = cfg.priorities.aliasOf.get(raw); warn(note.rel, `priority: "${raw}" is an old code; write "${n.priority}" (and the tag priority/${n.priority})`); }
+    else { err(note.rel, `priority: "${raw}" is not one of ${cfg.priorities.levels.map((l) => l.id).join(', ')} (docs.config.json priorities)`); n.priority = null; }
+    const dl = note.data.deadline;
+    if (dl === undefined || dl === null || dl === '') n.deadline = null;
+    else if (!isDate(dl)) { err(note.rel, `deadline: ${JSON.stringify(dl)} must be a date YYYY-MM-DD`); n.deadline = null; }
+    else n.deadline = dl;
+  }
+  const inherit = (n, from) => { if (!from) return; for (const k of ['priority', 'deadline']) if (n[k] === null && from[k] !== null) { n[k] = from[k]; n.inherits[k] = from.inherits[k] || from.id; } };
+  for (const t of [...taskNodes.values()].sort((a, b) => { const depth = (x) => { let d = 0, a = x; while (a && a.parentTask && d < 60) { a = taskNodes.get(a.parentTask); d++; } return d; }; return depth(a) - depth(b); })) inherit(t, t.parentTask ? taskNodes.get(t.parentTask) : featureNodes.get(t.feature));
+  for (const n of layerNodes) if (n.path) inherit(n, n.task ? taskNodes.get(n.task) : featureNodes.get(n.feature));
 
   // ---------------------------------------------------------- lookups
   const ownerOfPath = new Map();
@@ -579,6 +632,37 @@ export function build() {
     }
   }
 
+  // ---------------------------------------------------------- decisions: a decision hangs under every card that needs it (`blocks`), else under its features;
+  // each card in `blocks` is Blocked while the decision is open and returns to its own status once it is decided
+  const decisionBlockers = new Map(); // target id -> [decision ids]
+  for (const [, d] of decisionNodes) {
+    const note = noteOf.get(d.id);
+    const covered = new Set(); // features reached through a blocked card: the decision is not repeated under them
+    for (const ref of list(note.data.blocks)) {
+      const r = resolve(ref, d);
+      if (!r || r.via) { err(note.rel, `blocks: "${ref}" is not a task, a layer note or a feature`); continue; }
+      for (const to of r.ids) {
+        const t = nodes[to];
+        if (to === d.id || !(t.kind === 'task' || t.kind === 'feature' || (KIND.has(t.kind) && t.path))) { err(note.rel, `blocks: "${ref}" is ${t.kind === 'decision' ? 'a decision' : `a ${t.label?.toLowerCase() ?? t.kind}`}; a decision blocks a task, a layer note or a feature`); continue; }
+        if (d.blocks.includes(to)) continue;
+        d.blocks.push(to);
+        addEdge(d.id, to, 'decision');
+        if (!d.parents.includes(to)) link(t, d);
+        if (!decisionBlockers.has(to)) decisionBlockers.set(to, []);
+        decisionBlockers.get(to).push(d.id);
+        const fid = t.kind === 'feature' ? t.feature : t.feature;
+        if (fid) { covered.add(fid); if (!d.features.includes(fid)) d.features.push(fid); }
+      }
+    }
+    for (const fid of d.features) {
+      const f = featureNodes.get(fid);
+      if (!f) { err(d.path, `features: "${fid}" is not a feature id`); continue; }
+      addEdge(d.id, f.id, 'decision');
+      if (!covered.has(fid) && !d.parents.includes(f.id)) link(f, d);
+    }
+    d.features.sort();
+  }
+
   // ---------------------------------------------------------- pending: done, but a note is left for a card or a person → Partial until cleared
   const PENDING_NOTE = /^\[\[([^\]]+?)\]\]\s*:?\s*(.*)$/, PENDING_PERSON = /^@([\w.-]+)\s*:?\s*(.*)$/;
   for (const [id, note] of noteOf) {
@@ -600,7 +684,7 @@ export function build() {
   const handedOff = (n) => isDone(n) || (KIND.has(n.kind) && (KIND.get(n.kind).handoff || []).includes(n.status));
 
   // ---------------------------------------------------------- blocking
-  const blockReason = (target) => `${target.title} is ${String(LEGEND[target.effectiveStatus] ?? target.effectiveStatus).toLowerCase()}`;
+  const blockReason = (target) => (target.kind === 'decision' && !isDone(target) ? `needs decision ${target.code} (open)` : `${target.title} is ${String(LEGEND[target.effectiveStatus] ?? target.effectiveStatus).toLowerCase()}`);
   for (const n of layerNodes) {
     const note = noteOf.get(n.id);
     const explicit = note && Array.isArray(note.data.blockedBy) ? list(note.data.blockedBy) : null;
@@ -612,6 +696,7 @@ export function build() {
       for (const to of r.ids) if (to !== n.id && !handedOff(nodes[to])) blockers.push(to);
     }
     for (const to of n.depends) if (!handedOff(nodes[to])) blockers.push(to);
+    for (const to of decisionBlockers.get(n.id) || []) if (!handedOff(nodes[to])) blockers.push(to);
     n.blockedBy = isDone(n) ? [] : [...new Set(blockers)].map((to) => ({ id: to, title: nodes[to].title, why: blockReason(nodes[to]) }));
     for (const b of n.blockedBy) addEdge(b.id, n.id, 'blocks');
     if (n.blockedBy.length && n.path && n.effectiveStatus !== 'partial') n.effectiveStatus = 'blocked';
@@ -621,9 +706,11 @@ export function build() {
     const blockers = [];
     for (const ref of list(note.data.blockedBy)) { const r = resolve(ref, t); if (!r) { err(note.rel, `blockedBy: "${ref}" does not resolve`); continue; } for (const to of r.ids) if (to !== t.id && !handedOff(nodes[to])) blockers.push(to); }
     for (const to of t.depends) if (!handedOff(nodes[to])) blockers.push(to);
+    const openDecisions = (decisionBlockers.get(t.id) || []).filter((to) => !handedOff(nodes[to]));
+    blockers.push(...openDecisions);
     t.blockedBy = isDone(t) ? [] : [...new Set(blockers)].map((to) => ({ id: to, title: nodes[to].title, why: blockReason(nodes[to]) }));
     for (const b of t.blockedBy) addEdge(b.id, t.id, 'blocks');
-    if (t.blockedBy.length && t.status === 'todo') t.effectiveStatus = 'blocked';
+    if (t.blockedBy.length && (t.status === 'todo' || (openDecisions.length && t.effectiveStatus !== 'partial'))) t.effectiveStatus = 'blocked';
   }
 
   // ---------------------------------------------------------- flow edges, "sum of" links, children order
@@ -767,7 +854,7 @@ export function build() {
   return {
     json: {
       schema: 2, repo: REPO, rootId: 'root', counts, legend: LEGEND, emoji: EMOJI, layers: layersOut, flow: cfg.flow, flowOrder: cfg.flowOrder, flowBack: cfg.flowBack, taskLabels: cfg.taskLabels, defaultBlocks: [...cfg.flowBlocks, ...(cfg.defaultBlocks || [])], frontendOnly: { skips: cfg.frontendOnlySkips },
-      modules: cfg.modules, generated: GENERATED, nodes, edges, concepts: conceptsOut, byName, files: filesIndex, cards: cards.byCode, cardPrefixes: cards.prefixes, diagnostics: { errors, warnings },
+      modules: cfg.modules, priorities: cfg.priorities.levels, deadlines: cfg.deadlines, generated: GENERATED, nodes, edges, concepts: conceptsOut, byName, files: filesIndex, cards: cards.byCode, cardPrefixes: cards.prefixes, diagnostics: { errors, warnings },
     },
     errors, warnings, notes, cfg, cards: cards.registry,
   };
@@ -870,7 +957,7 @@ function treeMarkdown(json) {
   const seen = new Set();
   const walkNode = (id, depth) => {
     const n = nodes[id];
-    const extra = [n.card && n.kind !== 'task' && n.kind !== 'decision' ? n.card : null, n.label && !['feature', 'module', 'task'].includes(n.kind) ? n.label : null, n.parentTask ? `sub-task of ${n.parentTask}` : null, ...(n.labels || []), n.frontendOnly ? 'frontend only' : null, n.pending?.length ? `${n.pending.length} pending note${n.pending.length === 1 ? '' : 's'}` : null, n.priority, n.blockedBy?.length ? `blocked by ${n.blockedBy.map((b) => b.title).join(', ')}` : null].filter(Boolean).join(', ');
+    const extra = [n.card && n.kind !== 'task' && n.kind !== 'decision' ? n.card : null, n.label && !['feature', 'module', 'task'].includes(n.kind) ? n.label : null, n.parentTask ? `sub-task of ${n.parentTask}` : null, ...(n.labels || []), n.frontendOnly ? 'frontend only' : null, n.pending?.length ? `${n.pending.length} pending note${n.pending.length === 1 ? '' : 's'}` : null, priorityLabel(json, n), n.deadline ? `due ${n.deadline}` : null, n.blockedBy?.length ? `blocked by ${n.blockedBy.map((b) => b.title).join(', ')}` : null].filter(Boolean).join(', ');
     lines.push(`${'  '.repeat(depth)}- ${EMOJI[n.effectiveStatus] || '•'} ${mdLink(n)}${extra ? ` (${extra})` : ''}`);
     if (seen.has(id) && n.children.length) { lines.push(`${'  '.repeat(depth + 1)}- (see above)`); return; }
     seen.add(id);
@@ -882,7 +969,8 @@ function treeMarkdown(json) {
 }
 
 const taskRows = (json) => Object.values(json.nodes).filter((n) => n.kind === 'task').sort((a, b) => a.code.localeCompare(b.code, 'en', { numeric: true }));
-const prioRank = (p) => ({ P0: 0, P1: 1, P2: 2, P3: 3 }[p] ?? 9);
+const prioRank = (json, p) => { const i = (json.priorities || []).findIndex((l) => l.id === p); return i < 0 ? 99 : i; };
+const priorityLabel = (json, n) => { const l = n.priority ? (json.priorities || []).find((x) => x.id === n.priority) : null; return l ? l.label : n.priority; };
 const wiki = (n, alias) => `[[${n.title}${alias ? `|${alias}` : ''}]]`;
 
 function boardMarkdown(json) {
@@ -891,8 +979,8 @@ function boardMarkdown(json) {
   const lines = ['---', '', 'kanban-plugin: board', '', '---', '', '<!-- Generated by `node scripts/build-tree.mjs` from the task notes. Do not edit; change the task\'s frontmatter. -->', ''];
   for (const [status, title] of cols) {
     lines.push(`## ${title}`, '');
-    const rows = taskRows(json).filter((t) => t.effectiveStatus === status).sort((a, b) => prioRank(a.priority) - prioRank(b.priority) || a.code.localeCompare(b.code, 'en', { numeric: true }));
-    for (const t of rows) lines.push(`- [${status === 'done' ? 'x' : ' '}] ${wiki(t)} #${t.priority ?? 'P?'} #${t.feature}${t.labels.map((l) => ` #${l}`).join('')}${t.pending.length ? ` — ${t.pending.map((p) => (p.to ? `[[${nodes[p.to].title}]]` : p.person ? `@${p.person}` : '') + (p.text ? `: ${p.text}` : '')).join('; ')}` : ''}`);
+    const rows = taskRows(json).filter((t) => t.effectiveStatus === status).sort((a, b) => prioRank(json, a.priority) - prioRank(json, b.priority) || a.code.localeCompare(b.code, 'en', { numeric: true }));
+    for (const t of rows) lines.push(`- [${status === 'done' ? 'x' : ' '}] ${wiki(t)} #${t.priority ?? 'no-priority'} #${t.feature}${t.labels.map((l) => ` #${l}`).join('')}${t.deadline ? ` 📅 ${t.deadline}` : ''}${t.pending.length ? ` — ${t.pending.map((p) => (p.to ? `[[${nodes[p.to].title}]]` : p.person ? `@${p.person}` : '') + (p.text ? `: ${p.text}` : '')).join('; ')}` : ''}`);
     lines.push('', '');
   }
   lines.push('%% kanban:settings', '```', '{"kanban-plugin":"board"}', '```', '%%', '');
@@ -906,14 +994,15 @@ function backlogMarkdown(json) {
   const dep = (t) => (t.depends.length ? t.depends.map((d) => wiki(nodes[d], nodes[d].code)).join(', ') : '—');
   const status = (t) => `${EMOJI[t.effectiveStatus]} ${LEGEND[t.effectiveStatus]}${t.pending.length ? ` (${t.pending.length} note${t.pending.length === 1 ? '' : 's'})` : ''}`;
   const lines = ['---', 'type: map', 'layer: shared', 'tags: [map]', '---', '', '# Backlog', '',
-    'Generated by `node scripts/build-tree.mjs` from the task notes; do not edit, change the task\'s frontmatter. Every open task ordered by priority, then the done ones. Status key: ⬜ To do · ❓ Needs a decision / info · ⛔ Blocked · 🔵 In progress · 🟡 Partial (done, `pending` notes left for a card or a person) · ✅ Done. A task is ⛔ when something in `depends` or `blockedBy` is not done.', '',
+    'Generated by `node scripts/build-tree.mjs` from the task notes; do not edit, change the task\'s frontmatter. Every open task ordered by priority (' + (json.priorities || []).map((l) => `${l.label} \`${l.id}\``).join(' · ') + ', from `docs.config.json`), then the done ones. Status key: ⬜ To do · ❓ Needs a decision / info · ⛔ Blocked · 🔵 In progress · 🟡 Partial (done, `pending` notes left for a card or a person) · ✅ Done. A task is ⛔ when something in `depends` or `blockedBy` is not done. The deadline is the task\'s own or its feature\'s; the tree page colours it by how close it is.', '',
     'Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a plain checklist).', ''];
   const open = taskRows(json).filter((t) => t.effectiveStatus !== 'done');
-  for (const p of ['P0', 'P1', 'P2', 'P3']) {
-    const rows = open.filter((t) => (t.priority ?? 'P3') === p);
+  const groups = [...(json.priorities || []).map((l) => [l.id, l.label]), [null, 'No priority']];
+  for (const [p, label] of groups) {
+    const rows = open.filter((t) => (t.priority ?? null) === p);
     if (!rows.length) continue;
-    lines.push(`## ${p}`, '', '| Task | Feature | Module | Status | Effort | Depends on / blocked by |', '|---|---|---|---|---|---|');
-    for (const t of rows) lines.push(`| ${wiki(t)}${t.labels.length ? ' ' + t.labels.map((l) => `\`${l}\``).join(' ') : ''} | ${featureTitle(t)} | ${moduleName(t)} | ${status(t)} | ${t.effort ?? '—'} | ${t.blockedBy.length ? t.blockedBy.map((b) => wiki(nodes[b.id], nodes[b.id].code ?? nodes[b.id].title)).join(', ') : dep(t)} |`);
+    lines.push(`## ${label}`, '', '| Task | Feature | Module | Status | Effort | Deadline | Depends on / blocked by |', '|---|---|---|---|---|---|---|');
+    for (const t of rows) lines.push(`| ${wiki(t)}${t.labels.length ? ' ' + t.labels.map((l) => `\`${l}\``).join(' ') : ''} | ${featureTitle(t)} | ${moduleName(t)} | ${status(t)} | ${t.effort ?? '—'} | ${t.deadline ?? '—'} | ${t.blockedBy.length ? t.blockedBy.map((b) => wiki(nodes[b.id], nodes[b.id].code ?? nodes[b.id].title)).join(', ') : dep(t)} |`);
     lines.push('');
   }
   const done = taskRows(json).filter((t) => t.effectiveStatus === 'done');
@@ -953,7 +1042,7 @@ function cardIndexMarkdown(json) {
     const kind = cardPrefixes[prefix];
     lines.push(`## ${prefix} · ${groupLabel[kind] ?? kindName(kind)}`, '', '| Code | Card | Status | Under | Related | Blocked by |', '|---|---|---|---|---|---|');
     for (const n of rows) {
-      const extra = [n.scope === 'task' ? `task ${n.task}` : n.scope === 'feature' ? 'feature level' : null, n.parentTask ? `sub-task of ${n.parentTask}` : null, ...(n.labels || []).map((l) => `\`${l}\``), n.priority, n.frontendOnly ? 'frontend only' : null].filter(Boolean).join(', ');
+      const extra = [n.scope === 'task' ? `task ${n.task}` : n.scope === 'feature' ? 'feature level' : null, n.parentTask ? `sub-task of ${n.parentTask}` : null, ...(n.labels || []).map((l) => `\`${l}\``), priorityLabel(json, n), n.deadline ? `due ${n.deadline}` : null, n.frontendOnly ? 'frontend only' : null].filter(Boolean).join(', ');
       lines.push(`| ${n.card} | ${mdLink(n)}${extra ? ` (${extra})` : ''} | ${status(n)} | ${codes(n.parents)} | ${codes([...(relOf.get(n.id) || [])])} | ${codes((n.blockedBy || []).map((b) => b.id))} |`);
     }
     lines.push('');
@@ -1023,7 +1112,9 @@ function printImpact(json, r, query) {
   if (!r) { console.error(`nothing named "${query}" (try a note name, a task or decision id, a feature id, or a concept like E_RING_02 / "GET /rings/:id" / s14)`); process.exit(1); }
   const { nodes } = json;
   const layerOf = (n) => n.layer ?? 'business';
-  const line = (n) => `${EMOJI[n.effectiveStatus] || '•'} ${n.title}${n.card ? ` [${n.card}]` : ''}${n.code && n.code !== n.title && n.code !== n.card ? ` (${n.code})` : ''}${n.path ? ` — ${n.path}` : ''}`;
+  const now = new Date();
+  const due = (n) => { if (!n.deadline) return ''; const z = deadlineZone(n.deadline, now, json.deadlines); return ` · due ${n.deadline} (${z.missed ? `${z.icon || ''} ${z.label}, ${-z.daysLeft} day${-z.daysLeft === 1 ? '' : 's'} ago`.trim() : `${z.label}, ${z.daysLeft} day${z.daysLeft === 1 ? '' : 's'} left`})`; };
+  const line = (n) => `${EMOJI[n.effectiveStatus] || '•'} ${n.title}${n.card ? ` [${n.card}]` : ''}${n.code && n.code !== n.title && n.code !== n.card ? ` (${n.code})` : ''}${n.priority ? ` · ${priorityLabel(json, n)}` : ''}${due(n)}${n.path ? ` — ${n.path}` : ''}`;
   if (r.concept) {
     console.log(`Concept ${r.concept} (${r.kind})${r.owner ? `, owned by ${nodes[r.owner].title}` : ''} is mentioned by ${r.notes.length} notes:`);
     for (const n of r.notes) console.log(`  ${line(n)}`);
@@ -1162,17 +1253,36 @@ function scaffoldFeature(result, moduleId, name) {
   console.log(`wrote ${rel} (feature ${id} in ${m.name})\nnext: node scripts/build-tree.mjs --scaffold story ${id}; fill the note (what it is for, the screens, the product rules); add the row to [[${m.name} Module]] and the feature to its screens in [[Screen Index]]; then node scripts/build-tree.mjs`);
 }
 
-function scaffoldDecision(result, title) {
-  if (!title) die('usage: node scripts/build-tree.mjs --scaffold decision "<Title>"');
-  if (BAD_NAME.test(title)) die('the title cannot contain # ? % or \\');
-  const code = nextNumber(result, 'D', 2);
-  const date = today();
-  const dest = path.join(ROOT, 'decisions', `${code} ${title}.md`);
-  if (fs.existsSync(dest)) die(`${path.relative(ROOT, dest)} already exists`);
-  const { body } = parseFrontmatter(fs.readFileSync(path.join(ROOT, 'templates/Decision Template.md'), 'utf8'));
-  const fm = { type: 'decision', id: code, status: 'open', features: [], screens: [], affects: [], related: [], created: date, updated: date, tags: ['decision', 'decision/open'] };
-  const rel = writeNote(dest, fm, fill(body, { 'D-NN': code, '<Title>': title, '<date>': date }));
-  console.log(`wrote ${rel}\nnext: fill the context, the options and the recommendation; list the features in \`features:\` and the screens in \`screens:\`; add the row to [[Decisions]]; give the tasks that wait on it \`status: needs-info\`; then node scripts/build-tree.mjs`);
+// ---------------------------------------------------------------- scaffold · the decision card a card needs
+
+function scaffoldDecision(result, ref, title) {
+  const { cfg, json } = result;
+  const nodes = json.nodes;
+  const q = (ref || '').trim();
+  const isTarget = (n) => n.path && (n.kind === 'task' || n.kind === 'feature' || cfg.kinds.has(n.kind));
+  let target = null;
+  for (const n of Object.values(nodes)) if (isTarget(n) && (n.title === q || n.code === q || n.card === q || n.id === q)) { target = n; break; }
+  if (!target) for (const n of Object.values(nodes)) if (isTarget(n) && n.title.toLowerCase() === q.toLowerCase()) { target = n; break; }
+  if (!target) { console.error(`no task, layer note or feature named "${ref}" (use the note name, T-NNN, a feature id or a card code)`); process.exit(1); }
+  const taken = new Set(Object.keys(result.cards.retired)); // a retired D-NN is never handed out again
+  for (const n of Object.values(nodes)) if (n.kind === 'decision') taken.add(n.code);
+  let num = 1;
+  while (taken.has(`D-${String(num).padStart(2, '0')}`)) num++;
+  const id = `D-${String(num).padStart(2, '0')}`;
+  const t = (title || `Decide for ${target.title}`).trim().replace(/\s+/g, ' ');
+  if (BAD_NAME.test(t) || /[/:]/.test(t)) { console.error(`title "${t}" cannot contain / : # ? % \\`); process.exit(1); }
+  const dest = path.join(ROOT, 'decisions', `${id} ${t}.md`);
+  if (fs.existsSync(dest)) { console.error(`${path.relative(ROOT, dest)} already exists`); process.exit(1); }
+  const today = new Date().toISOString().slice(0, 10);
+  const { data, body } = parseFrontmatter(fs.readFileSync(path.join(ROOT, 'templates', 'Decision Template.md'), 'utf8'));
+  const feature = target.kind === 'feature' ? target.code : target.feature;
+  const blocks = target.kind === 'task' ? target.code : target.kind === 'feature' ? target.code : target.title; // a task by id, a feature by id, a note by name
+  const out = { ...data, id, status: 'open', features: feature ? [feature] : [], blocks: [blocks], decider: '', screens: target.screens ?? [], affects: [], related: [], created: today, tags: ['decision', 'decision/open'] };
+  const item = (v) => (/^[\w./-]+$/.test(v) ? v : JSON.stringify(v));
+  const yaml = Object.entries(out).map(([k, v]) => `${k}: ${Array.isArray(v) ? `[${v.map(item).join(', ')}]` : typeof v === 'string' && (/[:#]/.test(v) || v === '') ? JSON.stringify(v) : v}`).join('\n');
+  const text = body.replace(/D-NN/g, id).replace(/<Title>/g, t).replace(/<date>/g, today).replace(/<card>/g, `[[${target.title}]]`).replace(/<feature>/g, feature ? `[[${nodes[`feature:${feature}`]?.title ?? feature}]]` : '—');
+  fs.writeFileSync(dest, `---\n${yaml}\n---\n${text}`);
+  console.log(`wrote ${path.relative(ROOT, dest)} (open; blocks ${target.title}); write what has to be decided and who decides (decider), then run node scripts/build-tree.mjs: ${target.title} shows Blocked · ${id} until the decision is decided`);
 }
 
 // ---------------------------------------------------------------- scaffold · layer notes
@@ -1180,7 +1290,7 @@ function scaffold(result, kindId, code) {
   const extra = args[args.indexOf('--scaffold') + 3];
   if (kindId === 'task') return scaffoldTask(result, code, extra && !extra.startsWith('--') ? extra : null);
   if (kindId === 'feature') return scaffoldFeature(result, code, extra && !extra.startsWith('--') ? extra : null);
-  if (kindId === 'decision') return scaffoldDecision(result, code);
+  if (kindId === 'decision') return scaffoldDecision(result, code, extra);
   const { cfg, json } = result;
   const kind = cfg.kinds.get(kindId);
   if (!kind) { console.error(`unknown kind "${kindId}"; kinds in docs.config.json: ${cfg.kindOrder.join(', ')}; structural: task, feature, decision`); process.exit(1); }

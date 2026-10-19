@@ -2,20 +2,20 @@
 type: task
 id: T-020b
 status: needs-info
-priority: P2
+priority: medium
 effort: L
 feature: onboarding-imports
 module: identity
 screens: [s03a, s03b]
 depends: [D-02]
 created: 2026-10-15
-updated: 2026-10-18
-tags: [task, task/needs-info, module/identity, priority/P2]
+updated: 2026-10-19
+tags: [task, task/needs-info, module/identity, priority/medium]
 ---
 
 # ❓ T-020b · Business card scan and portfolio URL import
 
-**Feature:** [[Onboarding Imports]] · **Status:** Needs a decision / info · **Priority:** P2 · **Effort:** L (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Onboarding Imports]] · **Status:** Needs a decision / info · **Priority:** Medium · **Effort:** L (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-020b-fe Frontend · Business card scan and portfolio URL import|Frontend]] · [[T-020b-be Backend · Business card scan and portfolio URL import|Backend]] · **Story:** [[T-020b Story]]
 

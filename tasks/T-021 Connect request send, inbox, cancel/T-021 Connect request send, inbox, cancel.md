@@ -2,20 +2,20 @@
 type: task
 id: T-021
 status: todo
-priority: P0
+priority: critical
 effort: M
 feature: connections
 module: connections
 screens: [s44, s45]
 depends: []
 created: 2026-10-15
-updated: 2026-10-18
-tags: [task, task/todo, module/connections, priority/P0]
+updated: 2026-10-19
+tags: [task, task/todo, module/connections, priority/critical]
 ---
 
 # ⬜ T-021 · Connect request: send, inbox, cancel
 
-**Feature:** [[Connections]] · **Status:** To do · **Priority:** P0 · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Connections]] · **Status:** To do · **Priority:** Critical · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-021-fe Frontend · Connect request send, inbox, cancel|Frontend]] · [[T-021-be Backend · Connect request send, inbox, cancel|Backend]] · **Story:** [[T-021 Story]]
 

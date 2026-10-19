@@ -2,20 +2,20 @@
 type: task
 id: T-018
 status: needs-info
-priority: P1
+priority: high
 effort: M
 feature: widgets
 module: identity
 screens: [s36, s37]
 depends: [T-017, D-03]
 created: 2026-10-15
-updated: 2026-10-18
-tags: [task, task/needs-info, module/identity, priority/P1]
+updated: 2026-10-19
+tags: [task, task/needs-info, module/identity, priority/high]
 ---
 
 # ❓ T-018 · Widget CRUD on the projection
 
-**Feature:** [[Widgets]] · **Status:** Needs a decision / info · **Priority:** P1 · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Widgets]] · **Status:** Needs a decision / info · **Priority:** High · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-018-fe Frontend · Widget CRUD on the projection|Frontend]] · [[T-018-be Backend · Widget CRUD on the projection|Backend]] · **Story:** [[T-018 Story]]
 

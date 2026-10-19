@@ -2,20 +2,20 @@
 type: task
 id: T-022
 status: todo
-priority: P0
+priority: critical
 effort: M
 feature: connections
 module: connections
 screens: [s46]
 depends: [T-021]
 created: 2026-10-15
-updated: 2026-10-18
-tags: [task, task/todo, module/connections, priority/P0]
+updated: 2026-10-19
+tags: [task, task/todo, module/connections, priority/critical]
 ---
 
 # ⬜ T-022 · Accept into a Ring (sets grantedRingId)
 
-**Feature:** [[Connections]] · **Status:** To do · **Priority:** P0 · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Connections]] · **Status:** To do · **Priority:** Critical · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-022-fe Frontend · Accept into a Ring (sets grantedRingId)|Frontend]] · [[T-022-be Backend · Accept into a Ring (sets grantedRingId)|Backend]] · **Story:** [[T-022 Story]]
 

@@ -2,16 +2,16 @@
 type: feature
 id: photo-library
 name: "Photo Library"
-priority: P1
+priority: high
 module: identity
 screens: [s29, s30]
-updated: 2026-10-18
-tags: [feature, module/identity, priority/P1]
+updated: 2026-10-19
+tags: [feature, module/identity, priority/high]
 ---
 
 # Photo Library
 
-**Backend:** Partial (needs more) · **Priority:** P1 · **Module:** [[Identity Core Module|Identity Core]]
+**Backend:** Partial (needs more) · **Priority:** High · **Module:** [[Identity Core Module|Identity Core]]
 
 **Layers:** [[Photo Library Story|Story]] · [[Photo Library Frontend Requirements|Frontend Requirements]] · [[Photo Library Backend Delivery|Backend Delivery]] · [[Photo Library Backend Integration|Backend Integration]] · [[Photo Library Frontend Delivery|Frontend Delivery]] · [[Photo Library QA Backend|QA Backend]] · [[Photo Library QA Frontend|QA Frontend]]
 
@@ -32,8 +32,8 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 
 | Task | Status | Priority | Effort |
 |---|---|---|---|
-| [[T-012 List my files (photo library)]] | ⬜ To do | P1 | S |
-| [[T-013 Usage count per file across Rings]] | ⬜ To do | P2 | S |
+| [[T-012 List my files (photo library)]] | ⬜ To do | High | S |
+| [[T-013 Usage count per file across Rings]] | ⬜ To do | Medium | S |
 
 ```dataview
 TABLE status, priority, effort FROM #task WHERE feature = "photo-library" SORT priority ASC

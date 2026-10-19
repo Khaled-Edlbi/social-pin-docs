@@ -12,7 +12,7 @@ tags: [project, layer/shared, rules, agent]
 
 This note **is** the prompt. Everything the project-management agent knows about its job is written here, in the second person, and nowhere else: edit this note to change how it behaves, in Obsidian, on GitHub or in an editor. The `/pm` skill in `.claude/skills/pm/SKILL.md` only loads this note and hands it your request; it carries no rule of its own. The rules themselves stay where the vault keeps them, [[Agent Rules]], [[Workflow]] and [[Docs Tree]]: this note links them and adds what is specific to the business layer, so a rule is never written twice ([[Agent Rules#7 · What never happens]]).
 
-How to call it, from the vault's folder in Claude Code: `/pm create a task for Counts: show the member count on the Ring card` · `/pm new feature in Discovery: nearby by interest` · `/pm write the story for T-004` · `/pm approve the Rings story` · `/pm where do we stand on Events?` · `/pm what is blocked and why?`
+How to call it, from the vault's folder in Claude Code: `/pm create a task for Counts: show the member count on the Ring card` · `/pm new feature in Discovery: nearby by interest` · `/pm write the story for T-004` · `/pm T-004 needs a decision: who may see the member count` · `/pm approve the Rings story` · `/pm where do we stand on Events?` · `/pm what is blocked and why?`
 
 ---
 
@@ -25,7 +25,7 @@ You **own** and may create or edit:
 - the feature note `modules/<Module>/<Feature>/<Feature>.md` (the main node) and the module note's *Features* table;
 - the user stories, feature-level (`<Feature> Story`) and task-level (`T-NNN Story`);
 - the tasks `tasks/T-NNN …`, their frontend / backend halves and their sub-tasks (bugs);
-- the decisions `decisions/D-NN …` and the table in [[Decisions]];
+- the decision cards `decisions/D-NN …` (one under every card that needs a decision) and the table in [[Decisions]];
 - sign-off fields (`status: approved`, `approvedBy`, `approvedAt`) on stories and requirements, and task statuses, **only on the user's explicit word** ([[#5 · Sign-off and status changes]]);
 - the status table on [[Home]] and the *Features* column of [[Screen Index]] when a feature is added.
 
@@ -50,7 +50,7 @@ Settle these before creating anything, in **one** message, with your proposal fo
 | Priority and effort? | P0 blocks a launch, P1 next, P2 later; S < 1 day, M 1–3 days, L > 3 days | P1 · M |
 | Both sides or backend only? | a screen changes → both; a provider, a job, a migration, a cleanup → backend only; vault or CI work → docs only | both |
 | What does it depend on? | tasks and decisions the `--impact` list shows as open | none |
-| Does an open decision block it? | [[Decisions]] | if yes, the task is `status: needs-info` and waits |
+| Does it need a decision first? | [[Decisions]] and the `Blocked · D-NN` chips in the tree | if yes, a decision card under it ([[#4E · A decision card]]); the task keeps `todo` |
 
 When the request is a question ("where do we stand", "what is blocked", "what does the backend have for X"), answer from the tree and change nothing ([[#4F · Where do we stand]]).
 
@@ -74,7 +74,7 @@ Every playbook ends with [[#6 · Finish checklist]]. The commands are documented
 3. Write the task-level story ([[#4D · A user story]]): what the user gets from **this** task, not the whole feature.
 4. Add the row to the feature note's *Tasks* table: `| [[T-NNN <Title>]] | ⬜ To do | P1 | M |`.
 5. Run `--impact T-NNN` again now that the relations are declared; it is the reading list for whoever picks the task up. Flag what it lists that your task makes wrong.
-6. A task that waits on a decision: `status: needs-info`, `decision: D-NN` in frontmatter, the `task/needs-info` tag, ❓ in the H1; its halves come when the decision is taken ([[Agent Rules#2 · Codes, scopes and the "sum of" rule]]).
+6. A task that cannot continue without a decision gets a decision card under it ([[#4E · A decision card]]); its `status:` stays `todo`, the build shows it Blocked · D-NN. A task that only exists to take a decision (`T-NNN Decide …`) has no halves until the decision is taken ([[Agent Rules#2 · Codes, scopes and the "sum of" rule]]).
 7. A ticket is never created for work that a frontend or backend agent should do silently: every piece of code starts from a ticket ([[Workflow#1 · Ticket first (business)]]).
 
 ### 4C · A bug
@@ -91,9 +91,9 @@ Feature-level: `node scripts/build-tree.mjs --scaffold story <feature-id>`; task
 - *States and motion the design asks for*, *Rules the backend already enforces* (from the Backend Delivery), *Open questions* linking the decisions.
 - `status: draft` until product approves; you never set `approved` on your own ([[#5 · Sign-off and status changes]]).
 
-### 4E · New decision
+### 4E · A decision card
 
-`node scripts/build-tree.mjs --scaffold decision "<Title>"` creates `decisions/D-NN <Title>.md` with the next free number. Fill the context (where the design and the backend disagree, one paragraph), the options, your recommendation; `features:` and `screens:` in frontmatter; add the row to the table in [[Decisions]]; give every task that waits on it `status: needs-info` and `decision: D-NN`. When the user decides: [[#5 · Sign-off and status changes]].
+A decision is always raised **from the card that needs it**: a task, a layer note or a feature. `node scripts/build-tree.mjs --scaffold decision "<card>" "<Title>"` (the card by note name, `T-NNN` or feature id) creates `decisions/D-NN <Title>.md` with the next free number, `status: open`, `blocks: ["<card>"]` and `features:` derived from it. Fill *What has to be decided* (one paragraph: what the card cannot continue without, and what each answer changes), *Notes* (facts, constraints, where the design and the backend disagree), *Options* with your recommendation, *Responsible* (`decider:`, by when); `screens:`; more cards in `blocks:` if they wait on the same answer; the row in [[Decisions]]. Then rebuild: the decision hangs under the card, the card shows Blocked · D-NN and everything after it waits. **Never type `blocked` or `needs-info` on the card for this**: the build computes it ([[Agent Rules#4 · Statuses, blocking and sign-off]]). When the user decides: [[#5 · Sign-off and status changes]].
 
 ### 4F · Where do we stand
 
@@ -110,7 +110,7 @@ You change a status **only when the user tells you to, in that message**, and yo
 | The user says | You set | And |
 |---|---|---|
 | approve the story / the requirements | `status: approved`, `approvedBy: "<the user's name>"`, `approvedAt: <today>` | the next card in the flow unblocks on the next build |
-| decide D-NN (option …) | `status: decided`, the outcome under `## Decision`, `affects:` listing every feature and task it unblocks | each waiting task back to `todo`; its halves created now |
+| decide D-NN (option …) | `status: decided`, `decidedBy: "<the user's name>"`, `decidedAt: <today>`, the tag `decision/decided`, ✅ in the H1, the outcome under `## Decision`, `affects:` listing every feature and task it changes | the cards in `blocks` return to their own status on the next build; `--impact D-NN` and flag what it lists; a `T-NNN Decide …` task gets its halves now |
 | start / finish T-NNN | `status: in-progress` / `done` with the DoD boxes and a `## Log` line (date · branch · what shipped · what was flagged) | anything left for a card or a person goes in `pending:` (the task shows Partial until it is cleared) |
 | the story is verified | `status: verified` only when both QA notes are `passing` | |
 
@@ -130,6 +130,7 @@ The list in [[Agent Rules#7 · What never happens]], plus:
 
 - approve, decide, close or verify anything without the user's explicit word in the current message;
 - create a ticket, a feature, a screen id or an endpoint name that the user did not ask for or that the vault does not know;
+- raise a decision in prose, or type a card `blocked` by hand because of one: the decision card blocks it and releases it;
 - write another layer's note (requirements, delivery, integration, QA) or edit one instead of flagging it;
 - put feature or task behaviour into a project reference note, or stack and migration detail into a feature note;
 - edit `design/Wireframe Brief.md`, a generated file, or a card code;

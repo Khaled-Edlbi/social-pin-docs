@@ -2,7 +2,8 @@
 type: task
 id: T-NNN
 status: todo
-priority: P1
+priority: high
+# deadline: YYYY-MM-DD      # optional: when it must be done; the tree colours it green → yellow → red as the day comes, 💀 once missed (docs.config.json deadlines); the task's layer notes inherit it
 effort: M
 feature: <feature slug>
 module: <module id>
@@ -16,12 +17,12 @@ related: []
 # pending: ["[[Note]]: what is left", "@who: what is left"]   # done, but a note is left for a card or a person → Partial until cleared
 pending: []
 created: <date>
-tags: [task, task/todo, module/<module>, priority/P1]
+tags: [task, task/todo, module/<module>, priority/high]
 ---
 
 # ⬜ T-NNN · <Title>
 
-**Feature:** [[<Feature name>]] · **Status:** To do · **Priority:** P1 · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[<Feature name>]] · **Status:** To do · **Priority:** High (`critical | high | medium | low`, from `docs.config.json`) · **Deadline:** — · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-NNN` as each team picks the task up): [[T-NNN Story|Story]] · [[T-NNN Frontend Requirements|Frontend Requirements]] · [[T-NNN Backend Delivery|Backend Delivery]] · [[T-NNN Backend Integration|Backend Integration]] · [[T-NNN Frontend Delivery|Frontend Delivery]] · [[T-NNN QA Backend|QA Backend]] · [[T-NNN QA Frontend|QA Frontend]]
 

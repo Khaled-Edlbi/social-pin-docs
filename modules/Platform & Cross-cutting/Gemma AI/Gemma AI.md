@@ -2,16 +2,16 @@
 type: feature
 id: gemma
 name: "Gemma AI"
-priority: P2
+priority: medium
 module: platform
 screens: [s13, s60]
-updated: 2026-10-18
-tags: [feature, module/platform, priority/P2]
+updated: 2026-10-19
+tags: [feature, module/platform, priority/medium]
 ---
 
 # Gemma AI
 
-**Backend:** TODO · **Priority:** P2 · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
+**Backend:** TODO · **Priority:** Medium · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
 
 **Layers:** [[Gemma AI Story|Story]] · [[Gemma AI Frontend Requirements|Frontend Requirements]] · [[Gemma AI Backend Delivery|Backend Delivery]] · [[Gemma AI Backend Integration|Backend Integration]] · [[Gemma AI Frontend Delivery|Frontend Delivery]] · [[Gemma AI QA Backend|QA Backend]] · [[Gemma AI QA Frontend|QA Frontend]]
 
@@ -32,8 +32,8 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 
 | Task | Status | Priority | Effort |
 |---|---|---|---|
-| [[T-051 Gemma assistant sheet and suggestions]] | ❓ Needs a decision / info | P2 | L |
-| [[T-052 Smart Match]] | ⛔ Blocked | P2 | L |
+| [[T-051 Gemma assistant sheet and suggestions]] | ❓ Needs a decision / info | Medium | L |
+| [[T-052 Smart Match]] | ⛔ Blocked | Medium | L |
 
 ```dataview
 TABLE status, priority, effort FROM #task WHERE feature = "gemma" SORT priority ASC

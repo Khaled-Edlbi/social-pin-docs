@@ -2,7 +2,7 @@
 type: task
 id: T-036-fe
 status: todo
-priority: P0
+priority: critical
 effort: M
 feature: events-during
 module: events
@@ -14,13 +14,13 @@ affects: []
 related: []
 pending: []
 created: 2026-10-18
-updated: 2026-10-18
-tags: [task, task/todo, module/events, priority/P0, frontend]
+updated: 2026-10-19
+tags: [task, task/todo, module/events, priority/critical, frontend]
 ---
 
 # ⬜ T-036-fe · Frontend: Event mode exhibitors list and detail
 
-**Parent:** [[T-036 Event mode exhibitors list and detail]] · **Feature:** [[Events During]] · **Side:** Frontend · **Status:** To do · **Priority:** P0 · **Effort:** M (same as the parent until the team sizes it)
+**Parent:** [[T-036 Event mode exhibitors list and detail]] · **Feature:** [[Events During]] · **Side:** Frontend · **Status:** To do · **Priority:** Critical · **Effort:** M (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-036-fe` when the team picks it up): [[T-036-fe Frontend Requirements|Frontend Requirements]] · [[T-036-fe Frontend Delivery|Frontend Delivery]] · [[T-036-fe QA Frontend|QA Frontend]]
 

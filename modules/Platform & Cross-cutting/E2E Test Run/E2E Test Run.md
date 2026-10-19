@@ -2,16 +2,16 @@
 type: feature
 id: e2e-tests
 name: "E2E Test Run"
-priority: P0
+priority: critical
 module: platform
 screens: []
-updated: 2026-10-18
-tags: [feature, module/platform, priority/P0]
+updated: 2026-10-19
+tags: [feature, module/platform, priority/critical]
 ---
 
 # E2E Test Run
 
-**Backend:** TODO · **Priority:** P0 · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
+**Backend:** TODO · **Priority:** Critical · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
 
 **Layers:** [[E2E Test Run Story|Story]] · [[E2E Test Run Frontend Requirements|Frontend Requirements]] · [[E2E Test Run Backend Delivery|Backend Delivery]] · [[E2E Test Run Backend Integration|Backend Integration]] · [[E2E Test Run Frontend Delivery|Frontend Delivery]] · [[E2E Test Run QA Backend|QA Backend]] · [[E2E Test Run QA Frontend|QA Frontend]]
 
@@ -27,7 +27,7 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 
 | Task | Status | Priority | Effort |
 |---|---|---|---|
-| [[T-055 Run the e2e suite in CI against PostGIS]] | ⬜ To do | P0 | S |
+| [[T-055 Run the e2e suite in CI against PostGIS]] | ⬜ To do | Critical | S |
 
 ```dataview
 TABLE status, priority, effort FROM #task WHERE feature = "e2e-tests" SORT priority ASC

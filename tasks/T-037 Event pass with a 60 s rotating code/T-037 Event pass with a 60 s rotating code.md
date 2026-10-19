@@ -2,20 +2,20 @@
 type: task
 id: T-037
 status: blocked
-priority: P1
+priority: high
 effort: M
 feature: events-during
 module: events
 screens: [s56]
 depends: [T-007, T-011]
 created: 2026-10-15
-updated: 2026-10-18
-tags: [task, task/blocked, module/events, priority/P1]
+updated: 2026-10-19
+tags: [task, task/blocked, module/events, priority/high]
 ---
 
 # ⛔ T-037 · Event pass with a 60 s rotating code
 
-**Feature:** [[Events During]] · **Status:** Blocked · **Priority:** P1 · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Events During]] · **Status:** Blocked · **Priority:** High · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-037-fe Frontend · Event pass with a 60 s rotating code|Frontend]] · [[T-037-be Backend · Event pass with a 60 s rotating code|Backend]] · **Story:** [[T-037 Story]]
 

@@ -2,7 +2,7 @@
 type: task
 id: T-007-be
 status: todo
-priority: P0
+priority: critical
 effort: M
 feature: badge-qr
 module: discovery
@@ -14,13 +14,13 @@ affects: []
 related: []
 pending: []
 created: 2026-10-18
-updated: 2026-10-18
-tags: [task, task/todo, module/discovery, priority/P0, backend]
+updated: 2026-10-19
+tags: [task, task/todo, module/discovery, priority/critical, backend]
 ---
 
 # ⬜ T-007-be · Backend: Issue and rotate the QR token for a Ring
 
-**Parent:** [[T-007 Issue and rotate the QR token for a Ring]] · **Feature:** [[Badge & QR]] · **Side:** Backend · **Status:** To do · **Priority:** P0 · **Effort:** M (same as the parent until the team sizes it)
+**Parent:** [[T-007 Issue and rotate the QR token for a Ring]] · **Feature:** [[Badge & QR]] · **Side:** Backend · **Status:** To do · **Priority:** Critical · **Effort:** M (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-007-be` when the team picks it up): [[T-007-be Backend Delivery|Backend Delivery]] · [[T-007-be Backend Integration|Backend Integration]] · [[T-007-be QA Backend|QA Backend]]
 

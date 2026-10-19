@@ -2,20 +2,20 @@
 type: task
 id: T-050
 status: blocked
-priority: P1
+priority: high
 effort: M
 feature: post-event
 module: events
 screens: [s62]
 depends: [T-009, T-023, T-044]
 created: 2026-10-15
-updated: 2026-10-18
-tags: [task, task/blocked, module/events, priority/P1]
+updated: 2026-10-19
+tags: [task, task/blocked, module/events, priority/high]
 ---
 
 # ⛔ T-050 · Post-event summary and follow-ups
 
-**Feature:** [[Post-Event]] · **Status:** Blocked · **Priority:** P1 · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Post-Event]] · **Status:** Blocked · **Priority:** High · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-050-fe Frontend · Post-event summary and follow-ups|Frontend]] · [[T-050-be Backend · Post-event summary and follow-ups|Backend]] · **Story:** [[T-050 Story]]
 

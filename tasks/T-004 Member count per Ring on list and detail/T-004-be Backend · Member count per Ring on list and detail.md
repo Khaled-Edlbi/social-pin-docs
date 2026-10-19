@@ -2,7 +2,7 @@
 type: task
 id: T-004-be
 status: todo
-priority: P1
+priority: high
 effort: S
 feature: counts
 module: identity
@@ -14,13 +14,13 @@ affects: []
 related: []
 pending: []
 created: 2026-10-18
-updated: 2026-10-18
-tags: [task, task/todo, module/identity, priority/P1, backend]
+updated: 2026-10-19
+tags: [task, task/todo, module/identity, priority/high, backend]
 ---
 
 # ⬜ T-004-be · Backend: Member count per Ring on list and detail
 
-**Parent:** [[T-004 Member count per Ring on list and detail]] · **Feature:** [[Counts]] · **Side:** Backend · **Status:** To do · **Priority:** P1 · **Effort:** S (same as the parent until the team sizes it)
+**Parent:** [[T-004 Member count per Ring on list and detail]] · **Feature:** [[Counts]] · **Side:** Backend · **Status:** To do · **Priority:** High · **Effort:** S (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-004-be` when the team picks it up): [[T-004-be Backend Delivery|Backend Delivery]] · [[T-004-be Backend Integration|Backend Integration]] · [[T-004-be QA Backend|QA Backend]]
 

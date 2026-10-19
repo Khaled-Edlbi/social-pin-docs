@@ -2,20 +2,20 @@
 type: task
 id: T-024
 status: todo
-priority: P0
+priority: critical
 effort: S
 feature: connections
 module: connections
 screens: [s47]
 depends: []
 created: 2026-10-15
-updated: 2026-10-18
-tags: [task, task/todo, module/connections, priority/P0]
+updated: 2026-10-19
+tags: [task, task/todo, module/connections, priority/critical]
 ---
 
 # ⬜ T-024 · Block and unblock
 
-**Feature:** [[Connections]] · **Status:** To do · **Priority:** P0 · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Connections]] · **Status:** To do · **Priority:** Critical · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-024-fe Frontend · Block and unblock|Frontend]] · [[T-024-be Backend · Block and unblock|Backend]] · **Story:** [[T-024 Story]]
 

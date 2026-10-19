@@ -2,20 +2,20 @@
 type: task
 id: T-005
 status: blocked
-priority: P1
+priority: high
 effort: S
 feature: counts
 module: identity
 screens: [s11, s68]
 depends: [T-021]
 created: 2026-10-15
-updated: 2026-10-18
-tags: [task, task/blocked, module/identity, priority/P1]
+updated: 2026-10-19
+tags: [task, task/blocked, module/identity, priority/high]
 ---
 
 # ⛔ T-005 · Connection count on Me and Home
 
-**Feature:** [[Counts]] · **Status:** Blocked · **Priority:** P1 · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Counts]] · **Status:** Blocked · **Priority:** High · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-005-fe Frontend · Connection count on Me and Home|Frontend]] · [[T-005-be Backend · Connection count on Me and Home|Backend]] · **Story:** [[T-005 Story]]
 

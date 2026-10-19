@@ -2,16 +2,16 @@
 type: feature
 id: profiles
 name: "Profiles & Pin Name"
-priority: P0
+priority: critical
 module: identity
 screens: [s06]
-updated: 2026-10-18
-tags: [feature, module/identity, priority/P0]
+updated: 2026-10-19
+tags: [feature, module/identity, priority/critical]
 ---
 
 # Profiles & Pin Name
 
-**Backend:** Done · **Priority:** P0 · **Module:** [[Identity Core Module|Identity Core]]
+**Backend:** Done · **Priority:** Critical · **Module:** [[Identity Core Module|Identity Core]]
 
 **Layers:** [[Profiles & Pin Name Story|Story]] · [[Profiles & Pin Name Frontend Requirements|Frontend Requirements]] · [[Profiles & Pin Name Backend Delivery|Backend Delivery]] · [[Profiles & Pin Name Backend Integration|Backend Integration]] · [[Profiles & Pin Name Frontend Delivery|Frontend Delivery]] · [[Profiles & Pin Name QA Backend|QA Backend]] · [[Profiles & Pin Name QA Frontend|QA Frontend]]
 
@@ -31,8 +31,8 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 
 | Task | Status | Priority | Effort |
 |---|---|---|---|
-| [[T-057 Decide base profile work fields]] | ❓ Needs a decision / info | P0 | S |
-| [[T-061 Decide Pin name rules]] | ❓ Needs a decision / info | P1 | S |
+| [[T-057 Decide base profile work fields]] | ❓ Needs a decision / info | Critical | S |
+| [[T-061 Decide Pin name rules]] | ❓ Needs a decision / info | High | S |
 
 ```dataview
 TABLE status, priority, effort FROM #task WHERE feature = "profiles" SORT priority ASC

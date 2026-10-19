@@ -2,7 +2,7 @@
 type: task
 id: T-032-fe
 status: todo
-priority: P1
+priority: high
 effort: L
 feature: pincast
 module: discovery
@@ -14,13 +14,13 @@ affects: []
 related: []
 pending: []
 created: 2026-10-18
-updated: 2026-10-18
-tags: [task, task/todo, module/discovery, priority/P1, frontend]
+updated: 2026-10-19
+tags: [task, task/todo, module/discovery, priority/high, frontend]
 ---
 
 # ⬜ T-032-fe · Frontend: PinCast setup, start, stop, results
 
-**Parent:** [[T-032 PinCast setup, start, stop, results]] · **Feature:** [[PinCast & Nearby]] · **Side:** Frontend · **Status:** To do · **Priority:** P1 · **Effort:** L (same as the parent until the team sizes it)
+**Parent:** [[T-032 PinCast setup, start, stop, results]] · **Feature:** [[PinCast & Nearby]] · **Side:** Frontend · **Status:** To do · **Priority:** High · **Effort:** L (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-032-fe` when the team picks it up): [[T-032-fe Frontend Requirements|Frontend Requirements]] · [[T-032-fe Frontend Delivery|Frontend Delivery]] · [[T-032-fe QA Frontend|QA Frontend]]
 

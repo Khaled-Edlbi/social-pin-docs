@@ -1,12 +1,12 @@
 ---
 type: map
-updated: 2026-10-15
+updated: 2026-10-19
 tags: [map]
 ---
 
 # Decisions
 
-Where the design and the backend disagree. Each needs a product decision before the related tasks can be built without rework. One note per decision, ADR-style: problem, facts, options, recommendation, outcome.
+Where the design and the backend disagree, and every other decision a card needs before it can continue. A decision card is created from the card that needs it (`node scripts/build-tree.mjs --scaffold decision "<card>" "<title>"`); its `blocks:` names that card, which shows **Blocked · D-NN** until the decision is `decided` ([[Agent Rules#4 · Statuses, blocking and sign-off]]). Each needs a decision before the related tasks can be built without rework. One note per decision, ADR-style: problem, facts, options, recommendation, outcome.
 
 | Decision | Status | Affects | Screens |
 |---|---|---|---|

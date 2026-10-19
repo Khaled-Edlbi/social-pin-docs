@@ -2,16 +2,16 @@
 type: feature
 id: rings
 name: "Rings"
-priority: P0
+priority: critical
 module: identity
 screens: [s08, s09, s16, s17, s18, s19, s20, s21, s22, s26, s62]
-updated: 2026-10-18
-tags: [feature, module/identity, priority/P0]
+updated: 2026-10-19
+tags: [feature, module/identity, priority/critical]
 ---
 
 # Rings
 
-**Backend:** Done · **Priority:** P0 · **Module:** [[Identity Core Module|Identity Core]]
+**Backend:** Done · **Priority:** Critical · **Module:** [[Identity Core Module|Identity Core]]
 
 **Layers:** [[Rings Story|Story]] · [[Rings Frontend Requirements|Frontend Requirements]] · [[Rings Backend Delivery|Backend Delivery]] · [[Rings Backend Integration|Backend Integration]] · [[Rings Frontend Delivery|Frontend Delivery]] · [[Rings QA Backend|QA Backend]] · [[Rings QA Frontend|QA Frontend]]
 
@@ -41,7 +41,7 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 
 | Task | Status | Priority | Effort |
 |---|---|---|---|
-| [[T-059 Decide Ring settings]] | ❓ Needs a decision / info | P0 | S |
+| [[T-059 Decide Ring settings]] | ❓ Needs a decision / info | Critical | S |
 
 ```dataview
 TABLE status, priority, effort FROM #task WHERE feature = "rings" SORT priority ASC

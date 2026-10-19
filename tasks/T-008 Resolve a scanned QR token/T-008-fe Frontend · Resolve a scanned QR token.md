@@ -2,7 +2,7 @@
 type: task
 id: T-008-fe
 status: todo
-priority: P0
+priority: critical
 effort: M
 feature: badge-qr
 module: discovery
@@ -14,13 +14,13 @@ affects: []
 related: []
 pending: []
 created: 2026-10-18
-updated: 2026-10-18
-tags: [task, task/todo, module/discovery, priority/P0, frontend]
+updated: 2026-10-19
+tags: [task, task/todo, module/discovery, priority/critical, frontend]
 ---
 
 # ⬜ T-008-fe · Frontend: Resolve a scanned QR token
 
-**Parent:** [[T-008 Resolve a scanned QR token]] · **Feature:** [[Badge & QR]] · **Side:** Frontend · **Status:** To do · **Priority:** P0 · **Effort:** M (same as the parent until the team sizes it)
+**Parent:** [[T-008 Resolve a scanned QR token]] · **Feature:** [[Badge & QR]] · **Side:** Frontend · **Status:** To do · **Priority:** Critical · **Effort:** M (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-008-fe` when the team picks it up): [[T-008-fe Frontend Requirements|Frontend Requirements]] · [[T-008-fe Frontend Delivery|Frontend Delivery]] · [[T-008-fe QA Frontend|QA Frontend]]
 

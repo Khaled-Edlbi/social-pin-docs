@@ -2,20 +2,20 @@
 type: task
 id: T-009
 status: todo
-priority: P1
+priority: high
 effort: S
 feature: badge-qr
 module: discovery
 screens: [s34]
 depends: [T-008]
 created: 2026-10-15
-updated: 2026-10-18
-tags: [task, task/todo, module/discovery, priority/P1]
+updated: 2026-10-19
+tags: [task, task/todo, module/discovery, priority/high]
 ---
 
 # ⬜ T-009 · Scan counter and share link
 
-**Feature:** [[Badge & QR]] · **Status:** To do · **Priority:** P1 · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Badge & QR]] · **Status:** To do · **Priority:** High · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-009-fe Frontend · Scan counter and share link|Frontend]] · [[T-009-be Backend · Scan counter and share link|Backend]] · **Story:** [[T-009 Story]]
 

@@ -2,20 +2,20 @@
 type: task
 id: T-033
 status: todo
-priority: P0
+priority: critical
 effort: L
 feature: events-before
 module: events
 screens: [s48, s49]
 depends: []
 created: 2026-10-15
-updated: 2026-10-18
-tags: [task, task/todo, module/events, priority/P0]
+updated: 2026-10-19
+tags: [task, task/todo, module/events, priority/critical]
 ---
 
 # ⬜ T-033 · Events list, detail, schedule
 
-**Feature:** [[Events Before]] · **Status:** To do · **Priority:** P0 · **Effort:** L (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Events Before]] · **Status:** To do · **Priority:** Critical · **Effort:** L (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-033-fe Frontend · Events list, detail, schedule|Frontend]] · [[T-033-be Backend · Events list, detail, schedule|Backend]] · **Story:** [[T-033 Story]]
 

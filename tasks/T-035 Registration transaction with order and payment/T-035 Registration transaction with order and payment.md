@@ -2,20 +2,20 @@
 type: task
 id: T-035
 status: blocked
-priority: P0
+priority: critical
 effort: L
 feature: events-before
 module: events
 screens: [s51, s52]
 depends: [T-034, T-047]
 created: 2026-10-15
-updated: 2026-10-18
-tags: [task, task/blocked, module/events, priority/P0]
+updated: 2026-10-19
+tags: [task, task/blocked, module/events, priority/critical]
 ---
 
 # ⛔ T-035 · Registration transaction with order and payment
 
-**Feature:** [[Events Before]] · **Status:** Blocked · **Priority:** P0 · **Effort:** L (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Events Before]] · **Status:** Blocked · **Priority:** Critical · **Effort:** L (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-035-fe Frontend · Registration transaction with order and payment|Frontend]] · [[T-035-be Backend · Registration transaction with order and payment|Backend]] · **Story:** [[T-035 Story]]
 

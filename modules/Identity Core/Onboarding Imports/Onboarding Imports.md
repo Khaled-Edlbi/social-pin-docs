@@ -2,17 +2,17 @@
 type: feature
 id: onboarding-imports
 name: "Onboarding Imports"
-priority: P1
+priority: high
 module: identity
 screens: [s03, s03a, s03b, s04, s05]
 related: ["Files Upload"]
-updated: 2026-10-18
-tags: [feature, module/identity, priority/P1]
+updated: 2026-10-19
+tags: [feature, module/identity, priority/high]
 ---
 
 # Onboarding Imports
 
-**Backend:** TODO · **Priority:** P1 · **Module:** [[Identity Core Module|Identity Core]]
+**Backend:** TODO · **Priority:** High · **Module:** [[Identity Core Module|Identity Core]]
 
 **Layers:** [[Onboarding Imports Story|Story]] · [[Onboarding Imports Frontend Requirements|Frontend Requirements]] · [[Onboarding Imports Backend Delivery|Backend Delivery]] · [[Onboarding Imports Backend Integration|Backend Integration]] · [[Onboarding Imports Frontend Delivery|Frontend Delivery]] · [[Onboarding Imports QA Backend|QA Backend]] · [[Onboarding Imports QA Frontend|QA Frontend]]
 
@@ -36,8 +36,8 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 
 | Task | Status | Priority | Effort |
 |---|---|---|---|
-| [[T-020 LinkedIn import → review → base profile]] | ⛔ Blocked | P1 | L |
-| [[T-020b Business card scan and portfolio URL import]] | ❓ Needs a decision / info | P2 | L |
+| [[T-020 LinkedIn import → review → base profile]] | ⛔ Blocked | High | L |
+| [[T-020b Business card scan and portfolio URL import]] | ❓ Needs a decision / info | Medium | L |
 
 ```dataview
 TABLE status, priority, effort FROM #task WHERE feature = "onboarding-imports" SORT priority ASC

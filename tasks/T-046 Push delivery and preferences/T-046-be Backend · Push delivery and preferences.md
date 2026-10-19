@@ -2,7 +2,7 @@
 type: task
 id: T-046-be
 status: todo
-priority: P1
+priority: high
 effort: M
 feature: notifications
 module: platform
@@ -14,13 +14,13 @@ affects: []
 related: []
 pending: []
 created: 2026-10-18
-updated: 2026-10-18
-tags: [task, task/todo, module/platform, priority/P1, backend]
+updated: 2026-10-19
+tags: [task, task/todo, module/platform, priority/high, backend]
 ---
 
 # ⬜ T-046-be · Backend: Push delivery and preferences
 
-**Parent:** [[T-046 Push delivery and preferences]] · **Feature:** [[Notifications]] · **Side:** Backend · **Status:** To do · **Priority:** P1 · **Effort:** M (same as the parent until the team sizes it)
+**Parent:** [[T-046 Push delivery and preferences]] · **Feature:** [[Notifications]] · **Side:** Backend · **Status:** To do · **Priority:** High · **Effort:** M (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-046-be` when the team picks it up): [[T-046-be Backend Delivery|Backend Delivery]] · [[T-046-be Backend Integration|Backend Integration]] · [[T-046-be QA Backend|QA Backend]]
 

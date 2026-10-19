@@ -2,7 +2,7 @@
 type: task
 id: T-045-fe
 status: todo
-priority: P1
+priority: high
 effort: M
 feature: notifications
 module: platform
@@ -14,13 +14,13 @@ affects: []
 related: []
 pending: []
 created: 2026-10-18
-updated: 2026-10-18
-tags: [task, task/todo, module/platform, priority/P1, frontend]
+updated: 2026-10-19
+tags: [task, task/todo, module/platform, priority/high, frontend]
 ---
 
 # ⬜ T-045-fe · Frontend: NotificationService.emit and the inbox
 
-**Parent:** [[T-045 NotificationService.emit and the inbox]] · **Feature:** [[Notifications]] · **Side:** Frontend · **Status:** To do · **Priority:** P1 · **Effort:** M (same as the parent until the team sizes it)
+**Parent:** [[T-045 NotificationService.emit and the inbox]] · **Feature:** [[Notifications]] · **Side:** Frontend · **Status:** To do · **Priority:** High · **Effort:** M (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-045-fe` when the team picks it up): [[T-045-fe Frontend Requirements|Frontend Requirements]] · [[T-045-fe Frontend Delivery|Frontend Delivery]] · [[T-045-fe QA Frontend|QA Frontend]]
 

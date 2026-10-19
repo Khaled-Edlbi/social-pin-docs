@@ -2,16 +2,16 @@
 type: feature
 id: code-delivery
 name: "Code Delivery"
-priority: P0
+priority: critical
 module: platform
 screens: [s02]
-updated: 2026-10-18
-tags: [feature, module/platform, priority/P0]
+updated: 2026-10-19
+tags: [feature, module/platform, priority/critical]
 ---
 
 # Code Delivery
 
-**Backend:** Partial (needs more) · **Priority:** P0 · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
+**Backend:** Partial (needs more) · **Priority:** Critical · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
 
 **Layers:** [[Code Delivery Story|Story]] · [[Code Delivery Frontend Requirements|Frontend Requirements]] · [[Code Delivery Backend Delivery|Backend Delivery]] · [[Code Delivery Backend Integration|Backend Integration]] · [[Code Delivery Frontend Delivery|Frontend Delivery]] · [[Code Delivery QA Backend|QA Backend]] · [[Code Delivery QA Frontend|QA Frontend]]
 
@@ -31,9 +31,9 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 
 | Task | Status | Priority | Effort |
 |---|---|---|---|
-| [[T-001 Wire an email provider for one-time codes]] | ⬜ To do | P0 | S |
-| [[T-002 Wire an SMS provider for one-time codes]] | ⬜ To do | P0 | S |
-| [[T-003 Remove devCode once delivery works]] | ⛔ Blocked | P1 | S |
+| [[T-001 Wire an email provider for one-time codes]] | ⬜ To do | Critical | S |
+| [[T-002 Wire an SMS provider for one-time codes]] | ⬜ To do | Critical | S |
+| [[T-003 Remove devCode once delivery works]] | ⛔ Blocked | High | S |
 
 ```dataview
 TABLE status, priority, effort FROM #task WHERE feature = "code-delivery" SORT priority ASC

@@ -2,17 +2,17 @@
 type: feature
 id: exhibitor
 name: "Exhibitor"
-priority: P1
+priority: high
 module: events
 screens: [s63, s64, s65]
 related: ["View As & Pin Views"]
-updated: 2026-10-18
-tags: [feature, module/events, priority/P1]
+updated: 2026-10-19
+tags: [feature, module/events, priority/high]
 ---
 
 # Exhibitor
 
-**Backend:** TODO · **Priority:** P1 · **Module:** [[Events Module|Events]]
+**Backend:** TODO · **Priority:** High · **Module:** [[Events Module|Events]]
 
 **Layers:** [[Exhibitor Story|Story]] · [[Exhibitor Frontend Requirements|Frontend Requirements]] · [[Exhibitor Backend Delivery|Backend Delivery]] · [[Exhibitor Backend Integration|Backend Integration]] · [[Exhibitor Frontend Delivery|Frontend Delivery]] · [[Exhibitor QA Backend|QA Backend]] · [[Exhibitor QA Frontend|QA Frontend]]
 
@@ -34,8 +34,8 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 
 | Task | Status | Priority | Effort |
 |---|---|---|---|
-| [[T-048 Business account setup → business Ring]] | ⬜ To do | P1 | L |
-| [[T-048b Booth analytics and leads CSV export]] | ⛔ Blocked | P1 | M |
+| [[T-048 Business account setup → business Ring]] | ⬜ To do | High | L |
+| [[T-048b Booth analytics and leads CSV export]] | ⛔ Blocked | High | M |
 
 ```dataview
 TABLE status, priority, effort FROM #task WHERE feature = "exhibitor" SORT priority ASC

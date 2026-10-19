@@ -2,20 +2,20 @@
 type: task
 id: T-061
 status: needs-info
-priority: P1
+priority: high
 effort: S
 feature: profiles
 module: identity
 screens: [s06]
 depends: []
 created: 2026-10-15
-tags: [task, task/needs-info, module/identity, priority/P1]
+tags: [task, task/needs-info, module/identity, priority/high]
 decision: D-06
 ---
 
 # ❓ T-061 · Decide: Pin name rules
 
-**Feature:** [[Profiles & Pin Name]] · **Status:** Needs a decision / info · **Priority:** P1 · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Profiles & Pin Name]] · **Status:** Needs a decision / info · **Priority:** High · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
 
 ## What
 

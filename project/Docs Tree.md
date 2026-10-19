@@ -8,7 +8,7 @@ tags: [project, layer/shared, map]
 
 # Docs Tree · how to read it, how to keep it true
 
-The docs tree is the readable map of this vault: **project → module → feature → one note per layer, then the feature's tasks and decisions**. Every card is one Markdown file; it shows the note's card code (`S-01`, `BD-05`; a task's and a decision's is in its title), kind and priority, its layer colour, the file's name and a status chip; double-clicking it opens the full note. Behind the cards, the relations between notes (related, affects, depends, blocks, the hand-off flow, shared endpoints, mentions) are drawn as faint lines that light up when you hover or focus a card. The page has three views of the same data: **Tree** (the hierarchy), **Graph** (features and decisions, or every note, clustered by module and pulled together by their relations) and **Outline** (the tree as a keyboard-friendly list); the filters on the left apply to all three.
+The docs tree is the readable map of this vault: **project → module → feature → one note per layer, then the feature's tasks and decisions**. Every card is one Markdown file; it shows the note's card code (`S-01`, `BD-05`; a task's and a decision's is in its title) and kind, its layer colour, the file's name, a **priority flag** and a **deadline clock** ([[#Priority and deadline marks]]) and a status chip; double-clicking it opens the full note. Behind the cards, the relations between notes (related, affects, depends, blocks, the hand-off flow, shared endpoints, mentions) are drawn as faint lines that light up when you hover or focus a card. The page has three views of the same data: **Tree** (the hierarchy), **Graph** (features and decisions, or every note, clustered by module and pulled together by their relations) and **Outline** (the tree as a keyboard-friendly list); the filters on the left apply to all three.
 
 | | |
 |---|---|
@@ -36,7 +36,10 @@ Social Pin (project)
 │   │   │   ├── T-004 Backend Delivery …         ← the task's own layer notes, same kinds, code T-004
 │   │   │   ├── T-004-fe Frontend · Member count ← the frontend half: a sub-task (`parent: T-004`, `labels: [frontend]`) with its own layer notes
 │   │   │   └── T-004-be Backend · Member count  ← the backend half (`labels: [backend]`); a bug found later is another sub-task with `labels: [bug]`
-│   │   └── D-04 Ring settings                   ← decisions/… that name rings in `features:`
+│   │   ├── D-04 Ring settings                   ← decisions/… that name rings in `features:`
+│   │   │   └── T-059 Decide Ring settings …     ← a task that depends on it
+│   │   └── (a card that needs a decision)
+│   │       └── D-NN <Title>                     ← decisions/… whose `blocks:` names that card: hangs under it, blocks it while open
 │   └── …
 ├── … seven more modules
 ├── Business docs   ← business/   overview, glossary, feature tree and graph, status reports
@@ -62,11 +65,27 @@ The seven layer notes come from `docs.config.json`, listed in the **hand-off ord
 | Draft / Passing / Failing | a QA note before and after a run |
 | Blocked | the card before it in the hand-off flow is not handed off yet (the default), or something in `depends` or `blockedBy` is not done; the pane names it. A blocked card, and every card below it in the ladder that waits in turn, is drawn dim until the blocker is done |
 | Needs decision | a decision that is still open, or a task that asks for one |
+| Blocked · D-NN | the card needs a decision: the open decision card hangs under it (`blocks:` on the decision) and everything after it waits; the card returns to its own status on the build after the decision is `decided` ([[Agent Rules#4 · Statuses, blocking and sign-off]]) |
 | Not written yet | a placeholder for a missing layer note (feature level only) |
 | *Frontend only* (kicker) | a feature with `frontendOnly: true`: no backend part, so the backend and QA-backend cards are neither required nor counted |
 | Reference | project docs and module notes |
 
 Nothing on a feature, a module or the project is typed by hand: the chip is the sum of the cards below it, and a feature is not Done while a single card under it is open or not written yet.
+
+### Priority and deadline marks
+
+Two badges on the card's corners: the **priority flag** on the top-left, the **deadline clock** on the bottom-right (the story verdict keeps the top-right). Hover either for the words; the outline row and the pane repeat them as small chips.
+
+| Mark | Meaning |
+|---|---|
+| ⚑ flag, red / orange / yellow / grey | the card's **priority**: `critical`, `high`, `medium`, `low` (`priorities` in `docs.config.json`). A layer note without its own shows its task's or feature's, a sub-task its parent's; the tooltip says "from …" when it is inherited |
+| ◷ clock, green | **deadline** more than two days away (`on-track`): the first zone of the window |
+| ◷ clock, yellow | the day before the deadline (`due-soon`) |
+| ◷ clock, red | the deadline day itself (`last-day`) |
+| 💀 | the deadline is **missed**: the day is over and the card is not done |
+| no mark | the card has no priority or no deadline, own or inherited |
+
+The rule behind the colours: the last `deadlines.windowDays` (3) before the deadline are split evenly over `deadlines.zones`, farthest zone first; before the window the card is in the first zone. The zone is computed from today's date when the page is opened, so the generated files never change on their own; `node scripts/build-tree.mjs --impact T-004` prints the same words. The **Priority & deadline** section of the filters narrows the tree to a level or a zone (counts included), and three saved views ask the usual questions: *Overdue*, *Due now* (inside the window), *Critical cards*.
 
 **Lines.** Bold lines are the tree. Thin lines behind it are relations, drawn only between cards that are both visible, each with a checkbox under **Relations** in the left column: *related* (declared or shared concept), *affects* (arrow, from the changed note to what relies on it), *depends on* (arrow), *blocks* (red arrow from the blocker: by default every card in the flow is blocked by the card before it), *flow* (dashed arrow along the hand-off order, between sibling layer notes), *pending* (a done card's note left for another card), *decision affects*, *mentions* (a wikilink). Hover a node: its relations light up with a label (shared endpoints and codes are named), their far ends get an outline, everything else dims. A relation to a collapsed node appears dashed and routed to the nearest visible ancestor.
 
@@ -84,10 +103,11 @@ Nothing on a feature, a module or the project is typed by hand: the chip is the 
 
 Read `tree/tree.json` **first**: it is the whole vault as one object, and cheaper than walking the folders. Then run `--impact` for the thing you are about to change and read only what it lists ([[Agent Rules#3 · Relations]]).
 
-- `nodes[id]`: `kind` (`root`, `module`, `feature`, `task`, `decision`, `group`, `project`, or a kind id from the config such as `backend-delivery`), `layer`, `title`, `path` (the file to read; `null` for a placeholder, whose `template` and `summary` say how to create it), `code` (`T-NNN` or the feature id), `scope` (`feature` | `task`), `feature`, `task`, `parentTask` (the parent's code on a sub-task), `labels` (`bug`, `chore`, `spike`, `docs`), `module`, `status` (the note's own; `null` on a feature, whose status is computed), `effectiveStatus` (what the chip shows), `blockedBy` (a list of `{ id, title, why }`), `pending` (a list of `{ text, to, person }`: the notes that make a done card Partial), `frontendOnly`, `depends` / `affects` / `related` (resolved ids), `screens`, `priority`, `children`, `parents`, `summary`, `rollup`.
+- `nodes[id]`: `kind` (`root`, `module`, `feature`, `task`, `decision`, `group`, `project`, or a kind id from the config such as `backend-delivery`), `layer`, `title`, `path` (the file to read; `null` for a placeholder, whose `template` and `summary` say how to create it), `code` (`T-NNN` or the feature id), `scope` (`feature` | `task`), `feature`, `task`, `parentTask` (the parent's code on a sub-task), `labels` (`bug`, `chore`, `spike`, `docs`), `module`, `status` (the note's own; `null` on a feature, whose status is computed), `effectiveStatus` (what the chip shows), `blockedBy` (a list of `{ id, title, why }`), `pending` (a list of `{ text, to, person }`: the notes that make a done card Partial), `frontendOnly`, `depends` / `affects` / `related` (resolved ids), `screens`, `priority` (a level id from `priorities`, own or inherited), `deadline` (`YYYY-MM-DD`, own or inherited; the zone is not stored), `inherits` (`{ priority?: <source id>, deadline?: <source id> }` for the inherited ones), `children`, `parents`, `summary`, `rollup`.
 - `card` on every node with a file is its unique card code (`M-01`, `F-05`, `S-01`, `FR-05`, `BD-05`, `T-004`, `D-04`, `P-10`; `null` on the root, the groups and placeholders); `cards` maps every code to its node id and `cardPrefixes` every prefix to its kind. The code is stable: `tree/cards.json` remembers it across builds.
+- A decision node carries `blocks` (the ids of the cards that need it, from its `blocks:` frontmatter), `features` (declared or derived from those cards) and `decider`; while it is open every card in `blocks` lists it in `blockedBy` with the reason *needs decision D-NN*.
 - Ids: `feature:rings`, `story:rings`, `backend-delivery:rings`, `backend-delivery:T-004` (task level), `task:T-004`, `decision:D-04`, `module:identity`, `group:backend`, `project:workflow`, `root`.
-- `layers` and `flow` echo `docs.config.json`; `flowOrder` is the hand-off order derived from `flow` (the order children are listed in), `flowBack` the pairs that return to an earlier step, and `defaultBlocks` the blocks in force: one per forward hand-off, plus the config's own extras; `legend` and `emoji` map every status to its label; `modules` lists the module ids and names.
+- `layers` and `flow` echo `docs.config.json`; `flowOrder` is the hand-off order derived from `flow` (the order children are listed in), `flowBack` the pairs that return to an earlier step, and `defaultBlocks` the blocks in force: one per forward hand-off, plus the config's own extras; `legend` and `emoji` map every status to its label; `modules` lists the module ids and names; `priorities` is the enum (`id`, `label`, `color`, `aliases`) and `deadlines` the window and zones the page colours the clock with.
 - `edges`: `{ from, to, kind, via? }` with kind `tree`, `related`, `affects`, `depends`, `blocks`, `flow`, `shares` (derived; `via` names the endpoints or codes), `pending`, `decision`, `wikilink`.
 - `concepts`: every endpoint, error code and screen mentioned anywhere → `{ kind, owner, notes, containers }`; `owner` is the feature whose Backend Delivery lists the endpoint.
 - `byName` resolves a wikilink name to a node id; `files` lists every `.md` with its `type`; `generated` names the files the build writes; `diagnostics` holds the warnings.
@@ -105,10 +125,10 @@ node scripts/build-tree.mjs --scaffold backend-delivery T-004   # create a layer
 node scripts/build-tree.mjs --scaffold qa-frontend rings        # … at feature level
 node scripts/build-tree.mjs --scaffold task counts "Member count on the Ring card"   # a task with the next free number, its story and its fe / be halves (--backend-only, --docs-only, --parent T-NNN --label bug)
 node scripts/build-tree.mjs --scaffold feature discovery "Nearby by interest"        # a feature note in its module folder (--id <slug>, --frontend-only)
-node scripts/build-tree.mjs --scaffold decision "Who may see the member count"      # a decision with the next free D-NN
+node scripts/build-tree.mjs --scaffold decision "Counts Frontend Requirements" "Where the count comes from"   # the decision card a card needs: D-NN, blocks that card while open
 ```
 
-The build **fails** on: unparsable frontmatter or a missing key, a `type` that is neither structural nor a kind in the config, an unknown `status` for the kind, a `feature` / `task` / `module` / `depends` / `affects` / `related` / `blockedBy` target that does not resolve, two notes with the same code and kind, a card code in `tree/cards.json` given to two cards, reused after it was retired or carrying another kind's prefix, a feature whose `module` does not match its folder, a config that names a missing template, a file name containing `# ? % \`. It **warns** on a note outside its expected path, a wikilink to nothing, a missing `updated:`, a feature-level note that does not link a done task-level note, and a note that uses an endpoint owned by another feature without declaring a relation to it.
+The build **fails** on: unparsable frontmatter or a missing key, a `type` that is neither structural nor a kind in the config, an unknown `status` for the kind, a `priority` outside the enum or a `deadline` that is not a date, a `feature` / `task` / `module` / `depends` / `affects` / `related` / `blockedBy` target that does not resolve, two notes with the same code and kind, a card code in `tree/cards.json` given to two cards, reused after it was retired or carrying another kind's prefix, a feature whose `module` does not match its folder, a config that names a missing template, a file name containing `# ? % \`. It **warns** on a note outside its expected path, a wikilink to nothing, a missing `updated:`, an old priority code (`P1` for `high`), a feature-level note that does not link a done task-level note, and a note that uses an endpoint owned by another feature without declaring a relation to it.
 
 **Changing a status** means editing `status:`, the tag (`<kind>/<status>`), the emoji in the H1 and `updated:`, then rebuilding. Never edit a generated file by hand: the next build overwrites it and CI fails on drift.
 

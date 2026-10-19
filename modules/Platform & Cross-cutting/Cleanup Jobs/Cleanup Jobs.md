@@ -2,16 +2,16 @@
 type: feature
 id: cleanup-jobs
 name: "Cleanup Jobs"
-priority: P1
+priority: high
 module: platform
 screens: []
-updated: 2026-10-18
-tags: [feature, module/platform, priority/P1]
+updated: 2026-10-19
+tags: [feature, module/platform, priority/high]
 ---
 
 # Cleanup Jobs
 
-**Backend:** TODO · **Priority:** P1 · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
+**Backend:** TODO · **Priority:** High · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
 
 **Layers:** [[Cleanup Jobs Story|Story]] · [[Cleanup Jobs Frontend Requirements|Frontend Requirements]] · [[Cleanup Jobs Backend Delivery|Backend Delivery]] · [[Cleanup Jobs Backend Integration|Backend Integration]] · [[Cleanup Jobs Frontend Delivery|Frontend Delivery]] · [[Cleanup Jobs QA Backend|QA Backend]] · [[Cleanup Jobs QA Frontend|QA Frontend]]
 
@@ -27,7 +27,7 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 
 | Task | Status | Priority | Effort |
 |---|---|---|---|
-| [[T-054 Cleanup jobs]] | ⬜ To do | P1 | M |
+| [[T-054 Cleanup jobs]] | ⬜ To do | High | M |
 
 ```dataview
 TABLE status, priority, effort FROM #task WHERE feature = "cleanup-jobs" SORT priority ASC

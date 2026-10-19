@@ -2,7 +2,7 @@
 type: task
 id: T-018-fe
 status: todo
-priority: P1
+priority: high
 effort: M
 feature: widgets
 module: identity
@@ -14,13 +14,13 @@ affects: []
 related: []
 pending: []
 created: 2026-10-18
-updated: 2026-10-18
-tags: [task, task/todo, module/identity, priority/P1, frontend]
+updated: 2026-10-19
+tags: [task, task/todo, module/identity, priority/high, frontend]
 ---
 
 # ⬜ T-018-fe · Frontend: Widget CRUD on the projection
 
-**Parent:** [[T-018 Widget CRUD on the projection]] · **Feature:** [[Widgets]] · **Side:** Frontend · **Status:** To do · **Priority:** P1 · **Effort:** M (same as the parent until the team sizes it)
+**Parent:** [[T-018 Widget CRUD on the projection]] · **Feature:** [[Widgets]] · **Side:** Frontend · **Status:** To do · **Priority:** High · **Effort:** M (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-018-fe` when the team picks it up): [[T-018-fe Frontend Requirements|Frontend Requirements]] · [[T-018-fe Frontend Delivery|Frontend Delivery]] · [[T-018-fe QA Frontend|QA Frontend]]
 

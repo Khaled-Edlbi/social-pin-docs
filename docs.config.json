@@ -126,6 +126,25 @@
   "frontendOnly": { "skips": ["backend-delivery", "backend-integration", "qa-backend"] },
   "requiredAtFeatureLevel": ["story", "frontend-requirements", "backend-delivery", "backend-integration", "frontend-delivery", "qa-backend", "qa-frontend"],
   "taskLabels": ["bug", "chore", "spike", "docs", "frontend", "backend"],
+  "priorities": {
+    "description": "The priority enum every card may carry (priority: <id> in frontmatter, mirrored by the tag priority/<id>). A layer note without one inherits its task's or feature's; a sub-task its parent's. The tree draws it as a flag in the level's colour. aliases are the old P-codes, accepted with a warning.",
+    "levels": [
+      { "id": "critical", "label": "Critical", "color": "#dc2626", "aliases": ["P0"], "description": "Launch blocker: nothing ships without it." },
+      { "id": "high", "label": "High", "color": "#f97316", "aliases": ["P1"], "description": "Needed for the release; scheduled next." },
+      { "id": "medium", "label": "Medium", "color": "#eab308", "aliases": ["P2"], "description": "Wanted; after the high ones." },
+      { "id": "low", "label": "Low", "color": "#64748b", "aliases": ["P3"], "description": "Nice to have; whenever there is room." }
+    ]
+  },
+  "deadlines": {
+    "description": "deadline: YYYY-MM-DD on any card (a layer note inherits its task's or feature's). The tree colours a clock by how much of the last windowDays is left, split evenly over zones from farthest to nearest: with windowDays 3, more than two days left is on track (green), the day before is due soon (yellow), the deadline day is the last day (red); after it the card is missed (skull). The colour is computed when the page is viewed, never written into the generated files.",
+    "windowDays": 3,
+    "zones": [
+      { "id": "on-track", "label": "On track", "color": "#16a34a" },
+      { "id": "due-soon", "label": "Due soon", "color": "#eab308" },
+      { "id": "last-day", "label": "Last day", "color": "#dc2626" }
+    ],
+    "missed": { "id": "missed", "label": "Missed", "color": "#6b7280", "icon": "💀" }
+  },
   "modules": [
     { "id": "identity", "name": "Identity Core", "description": "Account, profile, Rings, what each Ring shows, and the access engine." },
     { "id": "connections", "name": "Connections", "description": "Connect requests after a scan, accept into a Ring, blocks, contacts." },
