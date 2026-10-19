@@ -544,7 +544,7 @@ function matches(n) {
   if (S.modules.length && n.kind !== 'root' && !S.modules.includes(n.module)) return false;
   if (S.kinds.length && !S.kinds.includes(n.kind)) return false;
   if (S.label && !(Array.isArray(n.labels) && n.labels.includes(S.label))) return false;
-  if (S.q) { const q = S.q.toLowerCase(); const hay = [n.title, n.id, n.code || '', n.summary || '', ...(n.screens || []), ...(n.labels || []), n.feature || ''].join(' ').toLowerCase(); if (!hay.includes(q)) return false; }
+  if (S.q) { const q = S.q.toLowerCase(); const hay = [n.title, n.id, n.code || '', n.card || '', n.summary || '', ...(n.screens || []), ...(n.labels || []), n.feature || ''].join(' ').toLowerCase(); if (!hay.includes(q)) return false; }
   return true;
 }
 
@@ -1135,7 +1135,7 @@ async function openNode(id) {
   const n = node(id), k = kindOf(n.kind);
   const path = n.path || n.file || null;
   const st = stOf(n);
-  openPane({ id, node: true, icon: k.icon, kicker: kicker(n) + (n.layer && LAYER[n.layer] && KIND[n.kind] && KIND[n.kind].layer ? ' · ' + LAYER[n.layer].label + ' layer' : '') + (n.code && n.code !== n.title && n.kind !== 'feature' ? ' · ' + n.code : ''), title: n.title, path: path || '', gh: path ? ghUrl(path) : (n.template ? ghUrl(n.template) : (S.D.repo.blobBase || '')), ghText: path ? 'Edit on GitHub' : 'Open the template', summary: n.summary || '', rels: relationsHtml(n), chip: chipStyle(n), dashed: st.dashed, status: statusText(n), labels: n.labels || [] });
+  openPane({ id, node: true, icon: k.icon, kicker: kicker(n) + (n.layer && LAYER[n.layer] && KIND[n.kind] && KIND[n.kind].layer ? ' · ' + LAYER[n.layer].label + ' layer' : '') + (n.card ? ' · ' + n.card : (n.code && n.code !== n.title && n.kind !== 'feature' ? ' · ' + n.code : '')), title: n.title, path: path || '', gh: path ? ghUrl(path) : (n.template ? ghUrl(n.template) : (S.D.repo.blobBase || '')), ghText: path ? 'Edit on GitHub' : 'Open the template', summary: n.summary || '', rels: relationsHtml(n), chip: chipStyle(n), dashed: st.dashed, status: statusText(n), labels: n.labels || [] });
   if (!path) { $('#p-article').innerHTML = `<p class="empty">Not written yet.${n.template ? ` Create it from <a href="#f/${encodeURIComponent(n.template)}">${esc(n.template)}</a>.` : ''}</p>`; return; }
   await renderFile(path, n.heading, id);
 }

@@ -18,11 +18,12 @@ this file is the short form and defers to it.
 | `tasks/T-NNN <Title>.md` → `tasks/T-NNN <Title>/` | task (`type: task`; `parent: T-NNN` makes it a sub-task of that task, same feature; `labels: [bug]` marks a bug, filed as a sub-task of the task it was found against); a build task is split into `T-NNN Story` plus `T-NNN-fe Frontend · …` and `T-NNN-be Backend · …` sub-tasks in its folder, one per side that has work; the same kinds of notes under its folder, `T-NNN <Kind>.md` (`scope: task`, `code: T-NNN`) | `templates/Task Template.md` + the kind templates |
 | `decisions/` | where the design and the backend disagree, `D-NN …` | `templates/Decision Template.md` |
 | `design/` | the design as reference: screen index, navigation map, brief | — |
-| `tree/` `scripts/` | the generated docs tree (`index.html`, `tree.json`, `tree.md`) and `build-tree.mjs` | — |
+| `Card Index.md` → `tree/cards.json` | **generated**: one row per card with its unique code (`M-01`, `F-05`, `S-01`, `FR-05`, `BD-05`, `BI-01`, `FD-01`, `QB-01`, `QF-01`, `T-004`, `D-04`, `P-10`); related cards listed as `T-004 \| S-01`; the registry keeps every code ever given | — |
+| `tree/` `scripts/` | the generated docs tree (`index.html`, `tree.json`, `tree.md`), the card-code registry (`cards.json`) and `build-tree.mjs` | — |
 
 `docs.config.json` declares the layers, their kinds, statuses, the hand-off
-flow, the default blocks and the modules. `tasks/Task Board.md`,
-`tasks/Backlog.md`, `tree/tree.json` and `tree/tree.md` are **generated**:
+flow, the default blocks, the card-code prefixes and the modules. `tasks/Task Board.md`,
+`tasks/Backlog.md`, `Card Index.md`, `tree/cards.json`, `tree/tree.json` and `tree/tree.md` are **generated**:
 never edit them by hand.
 
 ## Read the tree first, then only what `--impact` lists
@@ -48,6 +49,7 @@ the page and the JSON: `project/Docs Tree.md`.
 
 - Frontmatter per note type: structural `type: module | feature | task | decision | project` and the kind ids from `docs.config.json` (`story`, `frontend-requirements`, `backend-delivery`, `backend-integration`, `frontend-delivery`, `qa-backend`, `qa-frontend`). Statuses: task `todo | needs-info | blocked | in-progress | done`, decision `open | decided`; each kind's statuses, *done* set and *handoff* set are in the config. A feature's, a module's and the project's status is **computed**: Done only when every card under it is done, Partial when the cards are done but carry notes, In progress while any card is open. A done task or layer note with a `pending: ["[[Note]]: what", "@who: what"]` list is **Partial** until the list is cleared. Tags mirror them (`task/blocked`, `story/approved`, `qa-backend/passing`, `module/<id>`, `layer/<id>`; a feature carries no status tag). Keep frontmatter flat: scalars, quoted strings and inline `[a, b]` lists only; the build script parses nothing else.
 - Headings carry the status emoji: ✅ done · 🟡 partial / in progress · ⬜ todo · 🖼️ frontend only · 🔌 backend integration · 🧪 QA · ❓ decision. Story and requirements notes carry no emoji; their status is the chip in the tree.
+- **Card codes.** Every card (one Markdown file in the tree) has one unique code, `<prefix>-<number>`, listed in `Card Index.md` and kept in `tree/cards.json`: a task's and a decision's code is its id (`T-004`, `D-04`); every other card got the next free number for its kind's prefix (`M` module, `F` feature, `S` story, `FR` frontend requirements, `BD` backend delivery, `BI` backend integration, `FD` frontend delivery, `QB` QA backend, `QF` QA frontend, `P` project note) the first time the build saw it and keeps it. A new card gets the next number, a deleted card's code is retired and never handed out again, and a duplicate, renumbered or wrong-prefix code fails the build. Refer to cards by code as `T-004 | S-01`; `--impact S-01` resolves a code.
 - Wikilink by note name: `[[Rings]]`, `[[Rings Backend Integration]]`, `[[T-004 …]]` with the full title. Screen ids are the prototype's (`[[Screen Index#s44|s44]]`).
 - Dates are `YYYY-MM-DD`; every note touched gets today's `updated:`.
 - Describe things as they **are**. A gap written down is better than a feature described as done. Say "not available yet" and link the task.

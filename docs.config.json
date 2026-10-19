@@ -12,6 +12,7 @@
           "id": "story",
           "label": "User Story",
           "file": "Story",
+          "prefix": "S",
           "statuses": ["draft", "approved", "verified"],
           "done": ["verified"],
           "handoff": ["approved", "verified"],
@@ -30,6 +31,7 @@
           "id": "frontend-requirements",
           "label": "Frontend Requirements",
           "file": "Frontend Requirements",
+          "prefix": "FR",
           "statuses": ["draft", "approved", "delivered"],
           "done": ["delivered"],
           "handoff": ["approved", "delivered"],
@@ -40,6 +42,7 @@
           "id": "frontend-delivery",
           "label": "Frontend Delivery",
           "file": "Frontend Delivery",
+          "prefix": "FD",
           "statuses": ["todo", "in-progress", "done"],
           "done": ["done"],
           "template": "templates/Frontend Delivery Template.md",
@@ -57,6 +60,7 @@
           "id": "backend-delivery",
           "label": "Backend Delivery",
           "file": "Backend Delivery",
+          "prefix": "BD",
           "statuses": ["todo", "in-progress", "done"],
           "done": ["done"],
           "template": "templates/Backend Delivery Template.md",
@@ -66,6 +70,7 @@
           "id": "backend-integration",
           "label": "Backend Integration",
           "file": "Backend Integration",
+          "prefix": "BI",
           "statuses": ["draft", "current"],
           "done": ["current"],
           "template": "templates/Backend Integration Template.md",
@@ -83,6 +88,7 @@
           "id": "qa-backend",
           "label": "QA Backend",
           "file": "QA Backend",
+          "prefix": "QB",
           "statuses": ["draft", "passing", "failing"],
           "done": ["passing"],
           "template": "templates/QA Backend Template.md",
@@ -92,6 +98,7 @@
           "id": "qa-frontend",
           "label": "QA Frontend",
           "file": "QA Frontend",
+          "prefix": "QF",
           "statuses": ["draft", "passing", "failing"],
           "done": ["passing"],
           "template": "templates/QA Frontend Template.md",
@@ -100,6 +107,11 @@
       ]
     }
   ],
+  "cardCodes": {
+    "pad": 2,
+    "structural": { "module": "M", "feature": "F", "project": "P", "task": "T", "decision": "D" },
+    "description": "Every card (one Markdown file in the tree) carries one unique code: <prefix>-<number>. A task's and a decision's code is its id (T-004, D-04); every other card gets the next free number for its kind's prefix, kept in tree/cards.json and listed in Card Index.md; a code is never reused."
+  },
   "flow": [
     ["story", "frontend-requirements"],
     ["frontend-requirements", "backend-delivery"],

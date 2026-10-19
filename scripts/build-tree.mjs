@@ -2,11 +2,11 @@
 /**
  * Builds the docs tree from the vault's frontmatter and docs.config.json.
  *
- *   node scripts/build-tree.mjs                      writes tree/tree.json, tree/tree.md, tasks/Task Board.md, tasks/Backlog.md and site/
+ *   node scripts/build-tree.mjs                      writes tree/tree.json, tree/tree.md, tree/cards.json, Card Index.md, tasks/Task Board.md, tasks/Backlog.md and site/
  *   node scripts/build-tree.mjs --check              validates; exit 1 on errors, 2 if the generated files are stale
  *   node scripts/build-tree.mjs --serve [port]       builds, then serves site/ on http://127.0.0.1:8787
  *   node scripts/build-tree.mjs --out DIR            writes the site somewhere else
- *   node scripts/build-tree.mjs --impact "<note|code>"   what a change to that note touches (two hops), grouped by layer
+ *   node scripts/build-tree.mjs --impact "<note|code>"   what a change to that note touches (two hops), grouped by layer; a card code (S-01) works too
  *   node scripts/build-tree.mjs --scaffold <kind> <feature-id|T-NNN>   creates a layer note from its template
  *
  * No dependencies: Node 22 built-ins only. The output is key-sorted and carries
@@ -29,7 +29,9 @@ const MD_PATH = path.join(TREE_DIR, 'tree.md');
 const CONFIG_PATH = path.join(ROOT, 'docs.config.json');
 const BOARD_PATH = path.join(ROOT, 'tasks', 'Task Board.md');
 const BACKLOG_PATH = path.join(ROOT, 'tasks', 'Backlog.md');
-const GENERATED = ['tree/tree.json', 'tree/tree.md', 'tasks/Task Board.md', 'tasks/Backlog.md'];
+const CARDS_PATH = path.join(TREE_DIR, 'cards.json');
+const INDEX_PATH = path.join(ROOT, 'Card Index.md');
+const GENERATED = ['tree/tree.json', 'tree/tree.md', 'tree/cards.json', 'Card Index.md', 'tasks/Task Board.md', 'tasks/Backlog.md'];
 const REPO = { owner: 'Khaled-Edlbi', name: 'social-pin-docs', branch: process.env.TREE_BRANCH || 'main' };
 REPO.blobBase = `https://github.com/${REPO.owner}/${REPO.name}/blob/${REPO.branch}/`;
 
@@ -99,9 +101,28 @@ export function loadConfig(errors = []) {
   // every forward hand-off is also a block: a card waits for the card before it until that one is handed off (its handoff statuses, else its done set)
   const flowBlocks = flow.filter((p) => !flowBack.includes(p)).map(([by, kind]) => ({ kind, by }));
   const taskLabels = Array.isArray(cfg.taskLabels) ? cfg.taskLabels.filter((l) => typeof l === 'string') : [];
+  // card codes: one prefix per kind (config) and per structural kind (cardCodes.structural); every prefix unique, a task's and a decision's code is its id
+  const cardCodes = cfg.cardCodes || {};
+  const structural = { module: 'M', feature: 'F', project: 'P', task: 'T', decision: 'D', ...(cardCodes.structural || {}) };
+  const prefixes = new Map(); // prefix -> kind id
+  const PREFIX = /^[A-Z]{1,4}$/;
+  const addPrefix = (kind, prefix) => {
+    if (typeof prefix !== 'string' || !PREFIX.test(prefix)) { err(`card prefix for "${kind}" must be 1–4 capital letters (got ${JSON.stringify(prefix)})`); return; }
+    if (prefixes.has(prefix)) err(`card prefix "${prefix}" is used by both "${prefixes.get(prefix)}" and "${kind}"; every prefix is unique`);
+    prefixes.set(prefix, kind);
+  };
+  // listed in the index's order: module, feature, the kinds in hand-off order, then task, decision, project
+  addPrefix('module', structural.module); addPrefix('feature', structural.feature);
+  for (const id of flowOrder) { const k = kinds.get(id); if (k.prefix === undefined) err(`kind "${id}": prefix (its card-code prefix) is missing`); else addPrefix(id, k.prefix); }
+  for (const kind of ['task', 'decision', 'project']) addPrefix(kind, structural[kind]);
+  for (const kind of Object.keys(structural)) if (!['module', 'feature', 'task', 'decision', 'project'].includes(kind)) err(`cardCodes.structural: unknown kind "${kind}" (module, feature, task, decision, project)`);
+  if (structural.task !== 'T') err('cardCodes.structural.task must be "T": a task\'s card code is its id');
+  if (structural.decision !== 'D') err('cardCodes.structural.decision must be "D": a decision\'s card code is its id');
+  const pad = Number.isInteger(cardCodes.pad) && cardCodes.pad >= 1 ? cardCodes.pad : 2;
+  const prefixOf = (kind) => structural[kind] ?? kinds.get(kind)?.prefix ?? null;
   const frontendOnlySkips = Array.isArray(cfg.frontendOnly?.skips) ? cfg.frontendOnly.skips : [];
   for (const k of frontendOnlySkips) if (!kinds.has(k)) err(`frontendOnly.skips names unknown kind "${k}"`);
-  return { ...cfg, kinds, kindOrder, flowOrder, flowBack, flowBlocks, frontendOnlySkips, taskLabels };
+  return { ...cfg, kinds, kindOrder, flowOrder, flowBack, flowBlocks, frontendOnlySkips, taskLabels, cardCodes: { pad, structural, prefixes, prefixOf } };
 }
 
 // ---------------------------------------------------------------- frontmatter
@@ -289,7 +310,7 @@ export function build() {
     id: null, kind: null, layer: null, title: n ? n.stem : null, path: n ? n.rel : null, status: null, effectiveStatus: null, blockedBy: [],
     priority: n?.data?.priority ?? null, effort: n?.data?.effort ?? null, module: n?.data?.module ?? null, feature: null, task: null, code: null, scope: null,
     screens: list(n?.data?.screens), updated: n?.data?.updated ?? n?.data?.created ?? null, tags: list(n?.data?.tags),
-    depends: [], affects: [], related: [], children: [], parents: [], summary: n?.summary ?? null, label: null, parentTask: null, pending: [], frontendOnly: false, labels: [], ...extra,
+    depends: [], affects: [], related: [], children: [], parents: [], summary: n?.summary ?? null, label: null, parentTask: null, pending: [], frontendOnly: false, labels: [], card: null, ...extra,
   });
   const byType = (t) => notes.filter((n) => n.data && n.data.type === t && !n.rel.startsWith('templates/'));
   const requireKeys = (n, keys) => { for (const k of keys) if (n.data[k] === undefined || n.data[k] === null || n.data[k] === '') err(n.rel, `missing frontmatter key "${k}"`); };
@@ -717,6 +738,10 @@ export function build() {
   for (const [, d] of moduleNodes) rollup(d.id);
   rollup(root.id);
 
+  // ---------------------------------------------------------- card codes: one unique code per card, kept in tree/cards.json, never reused
+  const registry = loadCards(errors);
+  const cards = assignCards({ nodes, rootId: root.id, cfg, registry, err: (m) => errors.push(`tree/cards.json: ${m}`) });
+
   const byKind = {}, byLayer = {};
   for (const n of Object.values(nodes)) { if (!n.path) continue; byKind[n.kind] = (byKind[n.kind] || 0) + 1; if (n.layer) byLayer[n.layer] = (byLayer[n.layer] || 0) + 1; }
   const counts = {
@@ -738,10 +763,87 @@ export function build() {
   return {
     json: {
       schema: 2, repo: REPO, rootId: 'root', counts, legend: LEGEND, emoji: EMOJI, layers: layersOut, flow: cfg.flow, flowOrder: cfg.flowOrder, flowBack: cfg.flowBack, taskLabels: cfg.taskLabels, defaultBlocks: [...cfg.flowBlocks, ...(cfg.defaultBlocks || [])], frontendOnly: { skips: cfg.frontendOnlySkips },
-      modules: cfg.modules, generated: GENERATED, nodes, edges, concepts: conceptsOut, byName, files: filesIndex, diagnostics: { errors, warnings },
+      modules: cfg.modules, generated: GENERATED, nodes, edges, concepts: conceptsOut, byName, files: filesIndex, cards: cards.byCode, cardPrefixes: cards.prefixes, diagnostics: { errors, warnings },
     },
-    errors, warnings, notes, cfg,
+    errors, warnings, notes, cfg, cards: cards.registry,
   };
+}
+
+// ---------------------------------------------------------------- card codes
+// A card is a node with a file: a module, a feature, a layer note, a task, a decision, a project note. Its code is `<prefix>-<number>`:
+// a task's and a decision's is its id (T-004, D-04); every other card gets the next free number for its kind's prefix the first time
+// the build sees it, in tree order, and keeps it for good in tree/cards.json. A code is handed out once: when a card disappears its
+// code moves to `retired` and is never reused. The registry is generated, but it is memory: never renumber it by hand.
+function loadCards(errors) {
+  const empty = { schema: 1, cards: {}, retired: {} };
+  if (!fs.existsSync(CARDS_PATH)) return empty;
+  try {
+    const r = JSON.parse(fs.readFileSync(CARDS_PATH, 'utf8'));
+    return { schema: 1, cards: r.cards && typeof r.cards === 'object' ? r.cards : {}, retired: r.retired && typeof r.retired === 'object' ? r.retired : {} };
+  } catch (e) { errors.push(`tree/cards.json: ${e.message}`); return empty; }
+}
+
+const CARD_KINDS = new Set(['module', 'feature', 'task', 'decision', 'project']);
+function assignCards({ nodes, rootId, cfg, registry, err }) {
+  const { pad, prefixes, prefixOf } = cfg.cardCodes;
+  const isCard = (n) => !!n.path && (CARD_KINDS.has(n.kind) || cfg.kinds.has(n.kind));
+  const CODE = /^([A-Z]{1,4})-(\d+)([a-z]?(?:-[a-z]{2})?)$/;
+  const cardsOut = {}; // node id -> code
+  const byCode = {}; // code -> node id
+  const taken = new Set(Object.keys(registry.retired)); // codes that can never be handed out again
+  const claim = (code, id) => {
+    if (byCode[code]) { err(`code ${code} is given to both ${byCode[code]} and ${id}; every card code is unique`); return false; }
+    if (registry.retired[code] && registry.retired[code] !== id) { err(`code ${code} was retired with ${registry.retired[code]} and cannot be given to ${id}; a code is never reused`); return false; }
+    byCode[code] = id; cardsOut[id] = code; taken.add(code); nodes[id].card = code;
+    return true;
+  };
+  // 1 · tasks and decisions: the code is the id
+  for (const n of Object.values(nodes)) {
+    if (!isCard(n) || (n.kind !== 'task' && n.kind !== 'decision')) continue;
+    const kept = registry.cards[n.id];
+    if (kept !== undefined && kept !== n.code) err(`${n.id} is listed as ${kept}, but a ${n.kind}'s card code is its id ${n.code}`);
+    claim(n.code, n.id);
+  }
+  // 2 · every other card keeps the code the registry gives it
+  for (const [id, code] of Object.entries(registry.cards)) {
+    const n = nodes[id];
+    if (!n || !isCard(n) || n.kind === 'task' || n.kind === 'decision') continue; // gone: retired below
+    const m = typeof code === 'string' ? CODE.exec(code) : null;
+    const want = prefixOf(n.kind);
+    if (!m) { err(`${id}: "${code}" is not a card code (<PREFIX>-<number>)`); continue; }
+    if (m[1] !== want) { err(`${id}: code ${code} carries prefix ${m[1]}, but a ${n.kind} card's prefix is ${want}`); continue; }
+    claim(code, id);
+  }
+  // 3 · new cards: the next free number for the prefix, in tree order
+  const next = new Map(); // prefix -> highest number seen (claimed or retired)
+  const note = (code) => { const m = CODE.exec(code); if (m && !m[3]) next.set(m[1], Math.max(next.get(m[1]) || 0, Number(m[2]))); };
+  for (const c of taken) note(c);
+  const seen = new Set();
+  const walkNode = (id) => {
+    if (seen.has(id)) return;
+    seen.add(id);
+    const n = nodes[id];
+    if (isCard(n) && !n.card && n.kind !== 'task' && n.kind !== 'decision') {
+      const prefix = prefixOf(n.kind);
+      if (!prefix) err(`${id}: kind "${n.kind}" has no card prefix`);
+      else {
+        let num = (next.get(prefix) || 0) + 1, code;
+        do { code = `${prefix}-${String(num).padStart(pad, '0')}`; num++; } while (taken.has(code) || byCode[code]);
+        next.set(prefix, num - 1);
+        claim(code, id);
+      }
+    }
+    for (const c of n.children) walkNode(c);
+  };
+  walkNode(rootId);
+  for (const n of Object.values(nodes)) if (isCard(n) && !n.card && n.kind !== 'task' && n.kind !== 'decision') walkNode(n.id); // a card not reachable from the root (should not happen)
+  // 4 · the registry to write back: current cards, plus every code that was ever given and is no longer held
+  const retired = { ...registry.retired };
+  for (const [id, code] of Object.entries(registry.cards)) if (cardsOut[id] !== code && !byCode[code]) retired[code] = id;
+  for (const code of Object.keys(retired)) if (byCode[code] === retired[code]) delete retired[code]; // came back under the same id: not retired after all
+  const prefixesOut = {};
+  for (const [prefix, kind] of prefixes) prefixesOut[prefix] = kind;
+  return { registry: { schema: 1, cards: cardsOut, retired }, byCode, prefixes: prefixesOut };
 }
 
 // ---------------------------------------------------------------- emit
@@ -764,7 +866,7 @@ function treeMarkdown(json) {
   const seen = new Set();
   const walkNode = (id, depth) => {
     const n = nodes[id];
-    const extra = [n.label && !['feature', 'module', 'task'].includes(n.kind) ? n.label : null, n.parentTask ? `sub-task of ${n.parentTask}` : null, ...(n.labels || []), n.frontendOnly ? 'frontend only' : null, n.pending?.length ? `${n.pending.length} pending note${n.pending.length === 1 ? '' : 's'}` : null, n.priority, n.blockedBy?.length ? `blocked by ${n.blockedBy.map((b) => b.title).join(', ')}` : null].filter(Boolean).join(', ');
+    const extra = [n.card && n.kind !== 'task' && n.kind !== 'decision' ? n.card : null, n.label && !['feature', 'module', 'task'].includes(n.kind) ? n.label : null, n.parentTask ? `sub-task of ${n.parentTask}` : null, ...(n.labels || []), n.frontendOnly ? 'frontend only' : null, n.pending?.length ? `${n.pending.length} pending note${n.pending.length === 1 ? '' : 's'}` : null, n.priority, n.blockedBy?.length ? `blocked by ${n.blockedBy.map((b) => b.title).join(', ')}` : null].filter(Boolean).join(', ');
     lines.push(`${'  '.repeat(depth)}- ${EMOJI[n.effectiveStatus] || '•'} ${mdLink(n)}${extra ? ` (${extra})` : ''}`);
     if (seen.has(id) && n.children.length) { lines.push(`${'  '.repeat(depth + 1)}- (see above)`); return; }
     seen.add(id);
@@ -817,6 +919,44 @@ function backlogMarkdown(json) {
   return lines.join('\n');
 }
 
+function cardIndexMarkdown(json) {
+  const { nodes, cardPrefixes } = json;
+  const prefixOrder = Object.keys(cardPrefixes);
+  const parse = (code) => { const m = /^([A-Z]+)-(\d+)(.*)$/.exec(code); return m ? [prefixOrder.indexOf(m[1]), Number(m[2]), m[3]] : [99, 0, code]; };
+  const byCode = (a, b) => { const [pa, na, sa] = parse(a), [pb, nb, sb] = parse(b); return pa - pb || na - nb || sa.localeCompare(sb); };
+  const codes = (ids) => [...new Set(ids.map((id) => nodes[id]?.card).filter(Boolean))].sort(byCode).join(' \\| ') || '—';
+  const REL = new Set(['related', 'affects', 'depends', 'decision', 'pending']);
+  const relOf = new Map();
+  for (const e of json.edges) {
+    if (!REL.has(e.kind)) continue;
+    if (!relOf.has(e.from)) relOf.set(e.from, new Set());
+    if (!relOf.has(e.to)) relOf.set(e.to, new Set());
+    relOf.get(e.from).add(e.to); relOf.get(e.to).add(e.from);
+  }
+  const status = (n) => `${EMOJI[n.effectiveStatus] || '•'} ${LEGEND[n.effectiveStatus] ?? n.effectiveStatus}${n.pending?.length ? ` (${n.pending.length} note${n.pending.length === 1 ? '' : 's'})` : ''}`;
+  const kindName = (kind) => (nodes && (Object.values(nodes).find((n) => n.kind === kind)?.label)) || kind;
+  const groupLabel = { module: 'Modules', feature: 'Features', task: 'Tasks', decision: 'Decisions', project: 'Project reference notes' };
+  const lines = ['---', 'type: map', 'layer: shared', 'tags: [map]', '---', '', '# Card Index', '',
+    'Generated by `node scripts/build-tree.mjs` from the notes and `tree/cards.json`; do not edit, run the build. **One row per card, one code per card, every code unique and never reused.** A card is one Markdown file in the [[Docs Tree]]: a module, a feature, a layer note (story, requirements, deliveries, integration, QA), a task, a decision or a project reference note. The code is `<prefix>-<number>`: a task\'s and a decision\'s code is its id (`T-004`, `D-04`); every other card got the next free number for its kind the first time the build saw it and keeps it for good. A card that is deleted takes its code with it (`retired` in `tree/cards.json`): the number is never handed out again, and renumbering by hand is a build error. Codes list the cards a row is connected to as `T-004 | S-01`: *Under* is the card it hangs from in the tree, *Related* the cards it declares `related` / `affects` / `depends` / `pending` to (and a decision\'s features), *Blocked by* what stops it now. Look a code up with `node scripts/build-tree.mjs --impact S-01`.', '',
+    '| Prefix | Cards | Count |', '|---|---|---|'];
+  const all = Object.values(nodes).filter((n) => n.card).sort((a, b) => byCode(a.card, b.card));
+  const byPrefix = new Map(prefixOrder.map((p) => [p, []]));
+  for (const n of all) { const p = parse(n.card); byPrefix.get(prefixOrder[p[0]])?.push(n); }
+  for (const [prefix, rows] of byPrefix) { const kind = cardPrefixes[prefix]; lines.push(`| \`${prefix}-\` | ${groupLabel[kind] ?? kindName(kind)} (\`${kind}\`) | ${rows.length} |`); }
+  lines.push('');
+  for (const [prefix, rows] of byPrefix) {
+    if (!rows.length) continue;
+    const kind = cardPrefixes[prefix];
+    lines.push(`## ${prefix} · ${groupLabel[kind] ?? kindName(kind)}`, '', '| Code | Card | Status | Under | Related | Blocked by |', '|---|---|---|---|---|---|');
+    for (const n of rows) {
+      const extra = [n.scope === 'task' ? `task ${n.task}` : n.scope === 'feature' ? 'feature level' : null, n.parentTask ? `sub-task of ${n.parentTask}` : null, ...(n.labels || []).map((l) => `\`${l}\``), n.priority, n.frontendOnly ? 'frontend only' : null].filter(Boolean).join(', ');
+      lines.push(`| ${n.card} | ${mdLink(n)}${extra ? ` (${extra})` : ''} | ${status(n)} | ${codes(n.parents)} | ${codes([...(relOf.get(n.id) || [])])} | ${codes((n.blockedBy || []).map((b) => b.id))} |`);
+    }
+    lines.push('');
+  }
+  return lines.join('\n');
+}
+
 function copySite(outDir, notes) {
   fs.rmSync(outDir, { recursive: true, force: true });
   fs.mkdirSync(path.join(outDir, 'notes'), { recursive: true });
@@ -851,7 +991,7 @@ export function impact(json, query) {
   const q = query.trim();
   let start = null;
   if (json.concepts[q]) return { concept: q, ...json.concepts[q], notes: json.concepts[q].notes.map((id) => nodes[id]) };
-  for (const n of Object.values(nodes)) if (n.title === q || n.code === q || n.path === q || n.id === q) { start = n; break; }
+  for (const n of Object.values(nodes)) if (n.title === q || n.code === q || n.card === q || n.path === q || n.id === q) { start = n; break; }
   if (!start) for (const n of Object.values(nodes)) if (n.title?.toLowerCase().startsWith(q.toLowerCase())) { start = n; break; }
   if (!start) return null;
   const REL = ['related', 'affects', 'depends', 'blocks', 'flow', 'shares', 'decision', 'wikilink', 'pending'];
@@ -879,7 +1019,7 @@ function printImpact(json, r, query) {
   if (!r) { console.error(`nothing named "${query}" (try a note name, a task or decision id, a feature id, or a concept like E_RING_02 / "GET /rings/:id" / s14)`); process.exit(1); }
   const { nodes } = json;
   const layerOf = (n) => n.layer ?? 'business';
-  const line = (n) => `${EMOJI[n.effectiveStatus] || '•'} ${n.title}${n.code && n.code !== n.title ? ` (${n.code})` : ''}${n.path ? ` — ${n.path}` : ''}`;
+  const line = (n) => `${EMOJI[n.effectiveStatus] || '•'} ${n.title}${n.card ? ` [${n.card}]` : ''}${n.code && n.code !== n.title && n.code !== n.card ? ` (${n.code})` : ''}${n.path ? ` — ${n.path}` : ''}`;
   if (r.concept) {
     console.log(`Concept ${r.concept} (${r.kind})${r.owner ? `, owned by ${nodes[r.owner].title}` : ''} is mentioned by ${r.notes.length} notes:`);
     for (const n of r.notes) console.log(`  ${line(n)}`);
@@ -966,14 +1106,14 @@ if (result.json) {
 }
 if (result.errors.length) { console.error('\nFix the errors above, then run again.'); process.exit(1); }
 
-const outputs = [[JSON_PATH, text], [MD_PATH, treeMarkdown(result.json)], [BOARD_PATH, boardMarkdown(result.json)], [BACKLOG_PATH, backlogMarkdown(result.json)]];
+const outputs = [[JSON_PATH, text], [MD_PATH, treeMarkdown(result.json)], [CARDS_PATH, stableStringify(result.cards)], [INDEX_PATH, cardIndexMarkdown(result.json)], [BOARD_PATH, boardMarkdown(result.json)], [BACKLOG_PATH, backlogMarkdown(result.json)]];
 if (has('--check')) {
   const stale = outputs.filter(([p, t]) => (fs.existsSync(p) ? fs.readFileSync(p, 'utf8') : '') !== t).map(([p]) => path.relative(ROOT, p));
   if (stale.length) {
     console.error(`\nstale: ${stale.join(', ')}. Run \`node scripts/build-tree.mjs\` and commit ${GENERATED.join(', ')}.`);
     process.exit(2);
   }
-  console.log('tree/tree.json, tree/tree.md, tasks/Task Board.md and tasks/Backlog.md are up to date.');
+  console.log(`${GENERATED.join(', ')} are up to date.`);
   process.exit(0);
 }
 

@@ -5,7 +5,7 @@ The documentation vault for Social Pin: business, frontend, backend and QA notes
 ```bash
 node scripts/build-tree.mjs --serve                     # the same page locally, http://127.0.0.1:8787/
 node scripts/build-tree.mjs --check                     # validate the notes and the generated files; what CI runs on every pull request
-node scripts/build-tree.mjs                             # regenerate tree/, tasks/Task Board.md, tasks/Backlog.md after editing notes
+node scripts/build-tree.mjs                             # regenerate tree/, Card Index.md, tasks/Task Board.md, tasks/Backlog.md after editing notes
 node scripts/build-tree.mjs --impact "Ring Access Engine"   # what a change to a note, task, feature or endpoint touches
 node scripts/build-tree.mjs --scaffold backend-delivery T-004   # create a layer note for a task (or a feature id) from its template
 ```
@@ -16,6 +16,7 @@ node scripts/build-tree.mjs --scaffold backend-delivery T-004   # create a layer
 - `tasks/` — one note per task (`T-NNN`), with the same kinds of notes under the task's folder once teams pick it up; the generated Task Board and Backlog
 - `decisions/` — where the design and the backend disagree
 - `design/` — the design as reference: screen index, navigation map, wireframe brief
-- `templates/` — one template per note kind; `tree/` and `scripts/` — the docs tree page, its generated index and the build script
+- `Card Index.md` — generated: every card with its unique, never-reused code (`M-01`, `F-05`, `S-01`, `FR-05`, `BD-05`, `T-004`, `D-04`, `P-10`) and the cards it links to as `T-004 | S-01`; the registry is `tree/cards.json`
+- `templates/` — one template per note kind; `tree/` and `scripts/` — the docs tree page, its generated index, the card-code registry and the build script
 
 Rules for anyone (or any agent) editing the vault: `CLAUDE.md` and `project/Agent Rules.md`. The sequence from ticket to merged docs: `project/Workflow.md`. The rules to paste into the frontend repository: `frontend/Frontend Agent Prompt.md`. Source code is in the `social-pin` repository, whose `docs/README.md` points here.
