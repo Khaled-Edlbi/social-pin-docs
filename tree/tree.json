@@ -134,6 +134,7 @@
     "Onboarding Imports Backend Delivery": "backend-delivery:onboarding-imports",
     "Onboarding Imports Frontend Requirements": "frontend-requirements:onboarding-imports",
     "Onboarding Imports Story": "story:onboarding-imports",
+    "PM Agent": "project:pm-agent",
     "Payments & Orders": "feature:payments",
     "Payments & Orders Backend Delivery": "backend-delivery:payments",
     "Payments & Orders Frontend Requirements": "frontend-requirements:payments",
@@ -609,6 +610,7 @@
     "P-18": "project:agent-rules",
     "P-19": "project:docs-tree",
     "P-20": "project:workflow",
+    "P-21": "project:pm-agent",
     "S-01": "story:account",
     "S-02": "story:auth",
     "S-03": "story:counts",
@@ -1902,6 +1904,16 @@
         "story:rings"
       ],
       "owner": "feature:rings"
+    },
+    "GET /rings?limit=20": {
+      "containers": [
+        "project:pm-agent"
+      ],
+      "kind": "endpoint",
+      "notes": [
+        "project:pm-agent"
+      ],
+      "owner": null
     },
     "GET /rings?limit=20&skip=0": {
       "containers": [
@@ -4519,7 +4531,7 @@
       "feature": 39,
       "frontend-requirements": 39,
       "module": 8,
-      "project": 20,
+      "project": 21,
       "story": 98,
       "task": 175
     },
@@ -4527,15 +4539,15 @@
       "backend": 56,
       "business": 323,
       "frontend": 43,
-      "shared": 3
+      "shared": 4
     },
-    "concepts": 176,
+    "concepts": 177,
     "decisions": 6,
-    "edges": 4083,
+    "edges": 4092,
     "features": 39,
     "layerNotes": 185,
     "modules": 8,
-    "notes": 457,
+    "notes": 460,
     "partial": 0,
     "placeholders": 145,
     "taskLayerNotes": 59,
@@ -9409,6 +9421,11 @@
       "to": "project:spec-map"
     },
     {
+      "from": "project:agent-rules",
+      "kind": "related",
+      "to": "project:pm-agent"
+    },
+    {
       "from": "project:docs-tree",
       "kind": "related",
       "to": "project:agent-rules"
@@ -9432,6 +9449,21 @@
       "from": "project:frontend-agent-prompt",
       "kind": "related",
       "to": "project:frontend-contract"
+    },
+    {
+      "from": "project:pm-agent",
+      "kind": "related",
+      "to": "project:docs-tree"
+    },
+    {
+      "from": "project:pm-agent",
+      "kind": "related",
+      "to": "project:frontend-agent-prompt"
+    },
+    {
+      "from": "project:pm-agent",
+      "kind": "related",
+      "to": "project:workflow"
     },
     {
       "from": "project:workflow",
@@ -18459,6 +18491,11 @@
     {
       "from": "group:shared",
       "kind": "tree",
+      "to": "project:pm-agent"
+    },
+    {
+      "from": "group:shared",
+      "kind": "tree",
       "to": "project:workflow"
     },
     {
@@ -23907,6 +23944,26 @@
       "to": "project:auth-model"
     },
     {
+      "from": "project:pm-agent",
+      "kind": "wikilink",
+      "to": "project:frontend-contract"
+    },
+    {
+      "from": "project:pm-agent",
+      "kind": "wikilink",
+      "to": "project:glossary"
+    },
+    {
+      "from": "project:pm-agent",
+      "kind": "wikilink",
+      "to": "project:project-overview"
+    },
+    {
+      "from": "project:pm-agent",
+      "kind": "wikilink",
+      "to": "story:rings"
+    },
+    {
       "from": "project:project-overview",
       "kind": "wikilink",
       "to": "feature:connections"
@@ -28997,6 +29054,10 @@
       "name": "Docs Tree",
       "type": "project"
     },
+    "project/PM Agent.md": {
+      "name": "PM Agent",
+      "type": "project"
+    },
     "project/Workflow.md": {
       "name": "Workflow",
       "type": "project"
@@ -29988,6 +30049,14 @@
     "templates/Story Template.md": {
       "name": "Story Template",
       "type": "story"
+    },
+    "templates/Task Backend Half Template.md": {
+      "name": "Task Backend Half Template",
+      "type": "task"
+    },
+    "templates/Task Frontend Half Template.md": {
+      "name": "Task Frontend Half Template",
+      "type": "task"
     },
     "templates/Task Template.md": {
       "name": "Task Template",
@@ -40909,6 +40978,7 @@
       "children": [
         "project:agent-rules",
         "project:docs-tree",
+        "project:pm-agent",
         "project:workflow"
       ],
       "code": null,
@@ -41412,6 +41482,7 @@
       "priority": null,
       "related": [
         "project:frontend-agent-prompt",
+        "project:pm-agent",
         "project:docs-tree",
         "project:workflow"
       ],
@@ -41764,7 +41835,8 @@
       "priority": null,
       "related": [
         "project:agent-rules",
-        "project:workflow"
+        "project:workflow",
+        "project:pm-agent"
       ],
       "scope": null,
       "screens": [],
@@ -41884,7 +41956,8 @@
       "related": [
         "project:agent-rules",
         "project:frontend-contract",
-        "project:frontend-api-guide"
+        "project:frontend-api-guide",
+        "project:pm-agent"
       ],
       "scope": null,
       "screens": [],
@@ -42057,6 +42130,52 @@
       "task": null,
       "title": "Glossary",
       "updated": "2026-10-18"
+    },
+    "project:pm-agent": {
+      "affects": [],
+      "blockedBy": [],
+      "card": "P-21",
+      "children": [],
+      "code": null,
+      "deadline": null,
+      "depends": [],
+      "effectiveStatus": "reference",
+      "effort": null,
+      "feature": null,
+      "frontendOnly": false,
+      "id": "project:pm-agent",
+      "inherits": {},
+      "kind": "project",
+      "label": "Reference",
+      "labels": [],
+      "layer": "shared",
+      "module": null,
+      "parentTask": null,
+      "parents": [
+        "group:shared"
+      ],
+      "path": "project/PM Agent.md",
+      "pending": [],
+      "priority": null,
+      "related": [
+        "project:agent-rules",
+        "project:workflow",
+        "project:docs-tree",
+        "project:frontend-agent-prompt"
+      ],
+      "scope": null,
+      "screens": [],
+      "status": null,
+      "summary": "This note is the prompt. Everything the project-management agent knows about its job is written here, in the second person, and nowhere else: edit this note to change how it behaves, in Obsidian,…",
+      "tags": [
+        "project",
+        "layer/shared",
+        "rules",
+        "agent"
+      ],
+      "task": null,
+      "title": "PM Agent",
+      "updated": "2026-10-19"
     },
     "project:project-overview": {
       "affects": [],
@@ -42320,6 +42439,7 @@
       "priority": null,
       "related": [
         "project:docs-tree",
+        "project:pm-agent",
         "project:agent-rules"
       ],
       "scope": null,
@@ -45639,7 +45759,7 @@
         "in-progress": 14,
         "missing": 145,
         "needs-decision": 20,
-        "reference": 24,
+        "reference": 25,
         "todo": 81
       },
       "scope": null,

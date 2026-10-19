@@ -598,4 +598,5 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
   - 📘 _Project rules_ (Docs)
     - 📘 [Agent Rules](project/Agent%20Rules.md) (P-18, Reference)
     - 📘 [Docs Tree](project/Docs%20Tree.md) (P-19, Reference)
+    - 📘 [PM Agent](project/PM%20Agent.md) (P-21, Reference)
     - 📘 [Workflow](project/Workflow.md) (P-20, Reference)

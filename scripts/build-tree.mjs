@@ -8,6 +8,9 @@
  *   node scripts/build-tree.mjs --out DIR            writes the site somewhere else
  *   node scripts/build-tree.mjs --impact "<note|code>"   what a change to that note touches (two hops), grouped by layer; a card code (S-01) works too
  *   node scripts/build-tree.mjs --scaffold <kind> <feature-id|T-NNN>   creates a layer note from its template
+ *   node scripts/build-tree.mjs --scaffold task <feature-id> "<Title>" [--backend-only | --docs-only | --parent T-NNN] [--label <label>] [--priority P1] [--effort M]
+ *                                                    creates the task with the next free number, its story and its frontend / backend halves
+ *   node scripts/build-tree.mjs --scaffold feature <module-id> "<Name>" [--id <slug>] [--priority P1] [--frontend-only]   creates the feature note
  *   node scripts/build-tree.mjs --scaffold decision "<card>" ["<title>"]   creates the decision card a task, a layer note or a feature needs (blocks it while open)
  *
  * No dependencies: Node 22 built-ins only. The output is key-sorted and carries
@@ -36,7 +39,7 @@ const GENERATED = ['tree/tree.json', 'tree/tree.md', 'tree/cards.json', 'Card In
 const REPO = { owner: 'Khaled-Edlbi', name: 'social-pin-docs', branch: process.env.TREE_BRANCH || 'main' };
 REPO.blobBase = `https://github.com/${REPO.owner}/${REPO.name}/blob/${REPO.branch}/`;
 
-const SKIP_DIRS = new Set(['.git', '.obsidian', 'node_modules', 'site', 'tree', 'scripts', '.github']);
+const SKIP_DIRS = new Set(['.git', '.obsidian', '.claude', 'node_modules', 'site', 'tree', 'scripts', '.github']);
 const BAD_NAME = /[#?%\\]/;
 
 // Structural statuses (not layer-specific). Layer kinds take theirs from docs.config.json.
@@ -1137,7 +1140,121 @@ function printImpact(json, r, query) {
   if (r.dependents.length) { console.log(`\nWaiting on this (depends / blocked by):`); for (const n of r.dependents) console.log(`  ${line(n)}`); }
 }
 
-// ---------------------------------------------------------------- scaffold
+// ---------------------------------------------------------------- scaffold · structural notes (task, feature, decision)
+const die = (m) => { console.error(m); process.exit(1); };
+const today = () => new Date().toISOString().slice(0, 10);
+// the same flat YAML the vault's notes use: scalars, quoted strings and inline lists
+const yamlOf = (out, quote = []) => Object.entries(out).map(([k, v]) => `${k}: ${Array.isArray(v) ? `[${v.join(', ')}]` : typeof v === 'string' && (quote.includes(k) || /[:#]/.test(v) || v === '') ? JSON.stringify(v) : v}`).join('\n');
+const fill = (text, map) => Object.entries(map).reduce((t, [k, v]) => t.split(k).join(v), text);
+const writeNote = (dest, fm, body, quote) => { fs.mkdirSync(path.dirname(dest), { recursive: true }); fs.writeFileSync(dest, `---\n${yamlOf(fm, quote)}\n---\n${body}`); return path.relative(ROOT, dest); };
+// the next free number for a structural prefix (T, D): higher than every code in the tree, in the registry and among the retired codes
+function nextNumber(result, prefix, width) {
+  const re = new RegExp(`^${prefix}-(\\d+)`);
+  let max = 0;
+  const seen = (c) => { const m = re.exec(String(c ?? '')); if (m) max = Math.max(max, Number(m[1])); };
+  for (const n of Object.values(result.json.nodes)) { seen(n.code); seen(n.card); }
+  const reg = result.cards ?? loadCards([]);
+  for (const c of Object.values(reg.cards ?? {})) seen(c);
+  for (const c of Object.keys(reg.retired ?? {})) seen(c);
+  return `${prefix}-${String(max + 1).padStart(width, '0')}`;
+}
+const screenLinks = (screens) => (screens.length ? screens.map((s) => `[[Screen Index#${s}|${s}]]`).join(', ') : '[[Screen Index#sNN|sNN]] …');
+
+function scaffoldTask(result, featureId, title) {
+  const { cfg, json } = result;
+  const usage = 'usage: node scripts/build-tree.mjs --scaffold task <feature-id> "<Title>" [--backend-only | --docs-only | --parent T-NNN] [--label <label>] [--priority P0|P1|P2] [--effort S|M|L]';
+  if (!featureId || !title) die(usage);
+  const f = json.nodes[`feature:${featureId}`];
+  if (!f) die(`no feature with id "${featureId}" (feature ids are the \`id:\` of modules/<Module>/<Feature>/<Feature>.md; see tree/tree.json)`);
+  if (BAD_NAME.test(title)) die('the title cannot contain # ? % or \\');
+  const parentCode = opt('--parent', null);
+  const parent = parentCode ? json.nodes[`task:${parentCode}`] : null;
+  if (parentCode && !parent) die(`no task ${parentCode}`);
+  if (parent && parent.feature !== featureId) die(`${parentCode} belongs to feature "${parent.feature}"; a sub-task stays in its parent's feature`);
+  const label = opt('--label', null);
+  if (label && !cfg.taskLabels.includes(label)) die(`label "${label}" is not in docs.config.json taskLabels (${cfg.taskLabels.join(', ')})`);
+  const priority = opt('--priority', 'P1'), effort = opt('--effort', 'M');
+  if (!/^P[0-3]$/.test(priority)) die(`priority "${priority}": P0, P1, P2 or P3`);
+  if (!/^[SML]$/.test(effort)) die(`effort "${effort}": S, M or L`);
+  const backendOnly = has('--backend-only'), docsOnly = has('--docs-only');
+  const split = !parent && !docsOnly; // a build task gets its story and its halves; a sub-task or a docs-only task does not
+  const code = nextNumber(result, 'T', 3);
+  const stem = `${code} ${title}`;
+  const date = today();
+  const screens = f.screens ?? [];
+  let dir, pnote = null;
+  if (parent) {
+    pnote = result.notes.find((n) => n.rel === parent.path);
+    dir = path.join(ROOT, 'tasks', pnote.stem);
+    if (!parent.dir) { fs.mkdirSync(dir, { recursive: true }); fs.renameSync(pnote.abs, path.join(dir, pnote.name)); console.log(`moved ${pnote.rel} → tasks/${pnote.stem}/${pnote.name}`); }
+  } else dir = split ? path.join(ROOT, 'tasks', stem) : path.join(ROOT, 'tasks');
+  const dest = path.join(dir, `${stem}.md`);
+  if (fs.existsSync(dest)) die(`${path.relative(ROOT, dest)} already exists`);
+  const { body } = parseFrontmatter(fs.readFileSync(path.join(ROOT, 'templates/Task Template.md'), 'utf8'));
+  const fm = { type: 'task', id: code, status: 'todo', priority, effort, feature: featureId, module: f.module };
+  if (parent) fm.parent = parentCode;
+  Object.assign(fm, { labels: label ? [label] : [], screens, depends: [], affects: [], related: [], pending: [], created: date, updated: date, tags: ['task', 'task/todo', `module/${f.module}`, `priority/${priority}`, ...(label ? [label] : [])] });
+  let text = fill(body, { 'T-NNN': code, '<Title>': title, '<Feature name>': f.title, '<date>': date, '- [[Screen Index#sNN|sNN]] …': `- ${screenLinks(screens)}` })
+    .replace('**Status:** To do · **Priority:** P1 · **Effort:** M', `**Status:** To do · **Priority:** ${priority} · **Effort:** ${effort}`)
+    .replace('created from …', `created with --scaffold task${parent ? ` as a sub-task of ${parentCode}` : ''}`);
+  if (parent) text = text.replace('**Feature:**', `**Parent:** [[${pnote.stem}]] · **Feature:**`);
+  if (split) {
+    const halves = [...(backendOnly ? [] : [`[[${code}-fe Frontend · ${title}|Frontend]]`]), `[[${code}-be Backend · ${title}|Backend]]`].join(' · ');
+    text = text.replace(/\*\*Layer notes\*\*[^\n]*\n/, `**Sub-tasks:** ${halves} · **Story:** [[${code} Story]]\n`);
+  }
+  const written = [writeNote(dest, fm, text)];
+  if (split) {
+    for (const side of backendOnly ? ['be'] : ['fe', 'be']) {
+      const Side = side === 'fe' ? 'Frontend' : 'Backend';
+      const h = parseFrontmatter(fs.readFileSync(path.join(ROOT, `templates/Task ${Side} Half Template.md`), 'utf8'));
+      const hcode = `${code}-${side}`;
+      const hfm = { type: 'task', id: hcode, status: 'todo', priority, effort, feature: featureId, module: f.module, parent: code, labels: [side === 'fe' ? 'frontend' : 'backend'], screens, depends: side === 'fe' ? [`${code}-be`] : [], affects: [], related: [], pending: [], created: date, updated: date, tags: ['task', 'task/todo', `module/${f.module}`, `priority/${priority}`, side === 'fe' ? 'frontend' : 'backend'] };
+      const htext = fill(h.body, { 'T-NNN': code, '<Title>': title, '<Feature name>': f.title, '<date>': date, '<priority>': priority, '<effort>': effort, '<screens>': screenLinks(screens) });
+      written.push(writeNote(path.join(dir, `${hcode} ${Side} · ${title}.md`), hfm, htext));
+    }
+  }
+  console.log(`wrote ${written.join(', ')}`);
+  // the story, then the impact list pasted into the task's ## Impact (the reading list for whoever picks it up)
+  let latest = build();
+  if (latest.errors.length) { for (const e of latest.errors) console.error(`error    ${e}`); die(`the vault has errors after writing ${stem}; fix them, then run node scripts/build-tree.mjs --scaffold story ${code}`); }
+  if (split) { scaffold(latest, 'story', code); latest = build(); }
+  const imp = latest.json ? impact(latest.json, code) : null;
+  if (imp && !imp.concept) {
+    const lines = [];
+    const li = (n, why) => { if (n?.path && n.id !== imp.start.id) lines.push(`- [[${n.title}]]${n.card ? ` · ${n.card}` : ''} — ${why}`); };
+    for (const n of imp.family) li(n, 'same task');
+    for (const [id, reasons] of imp.first) li(latest.json.nodes[id], [...new Set(reasons.map((x) => `${x.kind}${x.dir === 'in' ? ' ←' : ' →'}`))].join(', '));
+    if (lines.length) fs.writeFileSync(dest, fs.readFileSync(dest, 'utf8').replace('\n- …\n', `\n${lines.join('\n')}\n`));
+  }
+  console.log(`next: fill What, Design and the Definition of done in ${path.relative(ROOT, dest)}${split ? `, write ${code} Story` : ''}, add the row to the Tasks table of [[${f.title}]], declare depends / affects / related, then node scripts/build-tree.mjs`);
+}
+
+function scaffoldFeature(result, moduleId, name) {
+  const { cfg, json } = result;
+  if (!moduleId || !name) die('usage: node scripts/build-tree.mjs --scaffold feature <module-id> "<Name>" [--id <slug>] [--priority P0|P1|P2] [--frontend-only]');
+  const m = cfg.modules.find((x) => x.id === moduleId);
+  if (!m) die(`no module "${moduleId}"; modules in docs.config.json: ${cfg.modules.map((x) => x.id).join(', ')}`);
+  if (BAD_NAME.test(name)) die('the name cannot contain # ? % or \\');
+  const id = opt('--id', slugify(name));
+  if (!/^[a-z0-9][a-z0-9-]*$/.test(id)) die(`feature id "${id}" must be a lowercase slug`);
+  if (json.nodes[`feature:${id}`]) die(`feature id "${id}" is taken (${json.nodes[`feature:${id}`].path})`);
+  if (json.byName?.[name]) die(`a note named "${name}" already exists (${json.nodes[json.byName[name]].path})`);
+  const priority = opt('--priority', 'P1');
+  if (!/^P[0-3]$/.test(priority)) die(`priority "${priority}": P0, P1, P2 or P3`);
+  const date = today();
+  const dest = path.join(ROOT, 'modules', m.name, name, `${name}.md`);
+  if (fs.existsSync(dest)) die(`${path.relative(ROOT, dest)} already exists`);
+  const { body } = parseFrontmatter(fs.readFileSync(path.join(ROOT, 'templates/Feature Template.md'), 'utf8'));
+  const fm = { type: 'feature', id, name, priority, module: moduleId };
+  if (has('--frontend-only')) fm.frontendOnly = true;
+  Object.assign(fm, { screens: [], depends: [], affects: [], related: [], updated: date, tags: ['feature', `module/${moduleId}`, `priority/${priority}`] });
+  const text = fill(body, { '<Feature name>': name, '<Module name>': m.name, '<date>': date }).replace('**Priority:** P1', `**Priority:** ${priority}`);
+  const rel = writeNote(dest, fm, text, ['name']);
+  console.log(`wrote ${rel} (feature ${id} in ${m.name})\nnext: node scripts/build-tree.mjs --scaffold story ${id}; fill the note (what it is for, the screens, the product rules); add the row to [[${m.name} Module]] and the feature to its screens in [[Screen Index]]; then node scripts/build-tree.mjs`);
+}
+
+// ---------------------------------------------------------------- scaffold · the decision card a card needs
+
 function scaffoldDecision(result, ref, title) {
   const { cfg, json } = result;
   const nodes = json.nodes;
@@ -1168,11 +1285,15 @@ function scaffoldDecision(result, ref, title) {
   console.log(`wrote ${path.relative(ROOT, dest)} (open; blocks ${target.title}); write what has to be decided and who decides (decider), then run node scripts/build-tree.mjs: ${target.title} shows Blocked · ${id} until the decision is decided`);
 }
 
+// ---------------------------------------------------------------- scaffold · layer notes
 function scaffold(result, kindId, code) {
+  const extra = args[args.indexOf('--scaffold') + 3];
+  if (kindId === 'task') return scaffoldTask(result, code, extra && !extra.startsWith('--') ? extra : null);
+  if (kindId === 'feature') return scaffoldFeature(result, code, extra && !extra.startsWith('--') ? extra : null);
+  if (kindId === 'decision') return scaffoldDecision(result, code, extra);
   const { cfg, json } = result;
-  if (kindId === 'decision') return scaffoldDecision(result, code, args[args.indexOf('--scaffold') + 3]);
   const kind = cfg.kinds.get(kindId);
-  if (!kind) { console.error(`unknown kind "${kindId}"; kinds in docs.config.json: ${cfg.kindOrder.join(', ')}, or decision`); process.exit(1); }
+  if (!kind) { console.error(`unknown kind "${kindId}"; kinds in docs.config.json: ${cfg.kindOrder.join(', ')}; structural: task, feature, decision`); process.exit(1); }
   const nodes = json.nodes;
   const template = fs.readFileSync(path.join(ROOT, kind.template), 'utf8');
   const today = new Date().toISOString().slice(0, 10);
@@ -1199,7 +1320,7 @@ function scaffold(result, kindId, code) {
   const { data, body } = parseFrontmatter(template);
   const out = { ...data, ...fm, status, screens: featureNode?.screens ?? [], updated: today, tags: [kind.id, `${kind.id}/${status}`, `module/${fm.module}`, `layer/${kind.layer}`] };
   for (const k of ['depends', 'affects', 'related', 'blockedBy']) if (k in out) out[k] = [];
-  const yaml = Object.entries(out).map(([k, v]) => `${k}: ${Array.isArray(v) ? `[${v.join(', ')}]` : typeof v === 'string' && (/[:#]/.test(v) || v === '') ? JSON.stringify(v) : v}`).join('\n');
+  const yaml = yamlOf(out);
   let text = body.replace(/<Feature name>/g, name).replace(/<date>/g, today).replace(/<feature id>/g, fm.feature).replace(/<module id>/g, fm.module).replace(/<module>/g, fm.module);
   if (taskNode) text = text.replace(/\*\*Feature:\*\* \[\[[^\]]+\]\]/, `**Task:** [[${result.notes.find((n) => n.rel === taskNode.path).stem}]] · **Feature:** [[${featureNode.title}]] · **Feature-level note:** [[${featureNode.title} ${kind.file}]]`).replace(/\[\[([^\]|]+?) (Story|Frontend Requirements|Backend Delivery|Backend Integration|Frontend Delivery|QA Backend|QA Frontend)\]\]/g, (m, who, k) => (who === name ? `[[${code} ${k}]]` : m));
   fs.writeFileSync(dest, `---\n${yaml}\n---\n${text}`);
