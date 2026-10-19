@@ -74,7 +74,7 @@ Nothing on a feature, a module or the project is typed by hand: the chip is the 
 
 ### Priority and deadline marks
 
-Left of the status chip, two small marks; hover either for the words, and the pane repeats them under the title.
+Two badges on the card's corners: the **priority flag** on the top-left, the **deadline clock** on the bottom-right (the story verdict keeps the top-right). Hover either for the words; the outline row and the pane repeat them as small chips.
 
 | Mark | Meaning |
 |---|---|
