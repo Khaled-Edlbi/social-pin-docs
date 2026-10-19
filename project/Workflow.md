@@ -1,7 +1,7 @@
 ---
 type: project
 layer: shared
-updated: 2026-10-18
+updated: 2026-10-19
 related: ["Agent Rules", "Docs Tree"]
 tags: [project, layer/shared]
 ---
@@ -60,7 +60,7 @@ When a task-level note reaches its done status, the same layer updates the featu
 1. `--impact` again; update or flag every note it lists that the change made wrong.
 2. Task note: `status: done`, DoD boxes, `## Log` line (date · branch · what shipped, which notes were flagged). Anything left for another card or a person goes in `pending:` (the task shows 🟡 Partial until it is cleared); nothing is typed into the feature note's status.
 3. Every touched note: today's `updated:`.
-4. `node scripts/build-tree.mjs`; commit `tree/tree.json`, `tree/tree.md`, `tasks/Task Board.md`, `tasks/Backlog.md` with the notes. `--check` is what CI runs.
+4. `node scripts/build-tree.mjs`; commit `tree/tree.json`, `tree/tree.md`, `tree/cards.json`, `Card Index.md`, `tasks/Task Board.md`, `tasks/Backlog.md` with the notes (a new note gets its card code here, see [[Card Index]]). `--check` is what CI runs.
 5. Push every branch; open the pull requests; link them to each other and to the ticket. Report what shipped and what stays open in the vault's words.
 
 ## Where to look for what

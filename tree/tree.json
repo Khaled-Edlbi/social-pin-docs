@@ -434,6 +434,455 @@
     "Widgets Story": "story:widgets",
     "Workflow": "project:workflow"
   },
+  "cardPrefixes": {
+    "BD": "backend-delivery",
+    "BI": "backend-integration",
+    "D": "decision",
+    "F": "feature",
+    "FD": "frontend-delivery",
+    "FR": "frontend-requirements",
+    "M": "module",
+    "P": "project",
+    "QB": "qa-backend",
+    "QF": "qa-frontend",
+    "S": "story",
+    "T": "task"
+  },
+  "cards": {
+    "BD-01": "backend-delivery:account",
+    "BD-02": "backend-delivery:auth",
+    "BD-03": "backend-delivery:counts",
+    "BD-04": "backend-delivery:files",
+    "BD-05": "backend-delivery:onboarding-imports",
+    "BD-06": "backend-delivery:photo-library",
+    "BD-07": "backend-delivery:profiles",
+    "BD-08": "backend-delivery:ring-access",
+    "BD-09": "backend-delivery:ring-members",
+    "BD-10": "backend-delivery:ring-projection",
+    "BD-11": "backend-delivery:rings",
+    "BD-12": "backend-delivery:view-as",
+    "BD-13": "backend-delivery:widgets",
+    "BD-14": "backend-delivery:connections",
+    "BD-15": "backend-delivery:companies",
+    "BD-16": "backend-delivery:delegated-admins",
+    "BD-17": "backend-delivery:ring-invitations",
+    "BD-18": "backend-delivery:badge-qr",
+    "BD-19": "backend-delivery:discover-hub",
+    "BD-20": "backend-delivery:pincast",
+    "BD-21": "backend-delivery:event-ring-auto",
+    "BD-22": "backend-delivery:events-before",
+    "BD-23": "backend-delivery:events-during",
+    "BD-24": "backend-delivery:exhibitor",
+    "BD-25": "backend-delivery:post-event",
+    "BD-26": "backend-delivery:meetings",
+    "BD-27": "backend-delivery:payments",
+    "BD-28": "backend-delivery:subscription",
+    "BD-29": "backend-delivery:app-shell",
+    "BD-30": "backend-delivery:audit-log",
+    "BD-31": "backend-delivery:cleanup-jobs",
+    "BD-32": "backend-delivery:code-delivery",
+    "BD-33": "backend-delivery:devices",
+    "BD-34": "backend-delivery:e2e-tests",
+    "BD-35": "backend-delivery:error-contract",
+    "BD-36": "backend-delivery:gemma",
+    "BD-37": "backend-delivery:interests",
+    "BD-38": "backend-delivery:linked-accounts",
+    "BD-39": "backend-delivery:notifications",
+    "BI-01": "backend-integration:account",
+    "BI-02": "backend-integration:auth",
+    "BI-03": "backend-integration:files",
+    "BI-04": "backend-integration:profiles",
+    "BI-05": "backend-integration:ring-access",
+    "BI-06": "backend-integration:ring-members",
+    "BI-07": "backend-integration:ring-projection",
+    "BI-08": "backend-integration:rings",
+    "BI-09": "backend-integration:view-as",
+    "D-01": "decision:D-01",
+    "D-02": "decision:D-02",
+    "D-03": "decision:D-03",
+    "D-04": "decision:D-04",
+    "D-05": "decision:D-05",
+    "D-06": "decision:D-06",
+    "F-01": "feature:account",
+    "F-02": "feature:auth",
+    "F-03": "feature:counts",
+    "F-04": "feature:files",
+    "F-05": "feature:onboarding-imports",
+    "F-06": "feature:photo-library",
+    "F-07": "feature:profiles",
+    "F-08": "feature:ring-access",
+    "F-09": "feature:ring-members",
+    "F-10": "feature:ring-projection",
+    "F-11": "feature:rings",
+    "F-12": "feature:view-as",
+    "F-13": "feature:widgets",
+    "F-14": "feature:connections",
+    "F-15": "feature:companies",
+    "F-16": "feature:delegated-admins",
+    "F-17": "feature:ring-invitations",
+    "F-18": "feature:badge-qr",
+    "F-19": "feature:discover-hub",
+    "F-20": "feature:pincast",
+    "F-21": "feature:event-ring-auto",
+    "F-22": "feature:events-before",
+    "F-23": "feature:events-during",
+    "F-24": "feature:exhibitor",
+    "F-25": "feature:post-event",
+    "F-26": "feature:meetings",
+    "F-27": "feature:payments",
+    "F-28": "feature:subscription",
+    "F-29": "feature:app-shell",
+    "F-30": "feature:audit-log",
+    "F-31": "feature:cleanup-jobs",
+    "F-32": "feature:code-delivery",
+    "F-33": "feature:devices",
+    "F-34": "feature:e2e-tests",
+    "F-35": "feature:error-contract",
+    "F-36": "feature:gemma",
+    "F-37": "feature:interests",
+    "F-38": "feature:linked-accounts",
+    "F-39": "feature:notifications",
+    "FR-01": "frontend-requirements:account",
+    "FR-02": "frontend-requirements:auth",
+    "FR-03": "frontend-requirements:counts",
+    "FR-04": "frontend-requirements:files",
+    "FR-05": "frontend-requirements:onboarding-imports",
+    "FR-06": "frontend-requirements:photo-library",
+    "FR-07": "frontend-requirements:profiles",
+    "FR-08": "frontend-requirements:ring-access",
+    "FR-09": "frontend-requirements:ring-members",
+    "FR-10": "frontend-requirements:ring-projection",
+    "FR-11": "frontend-requirements:rings",
+    "FR-12": "frontend-requirements:view-as",
+    "FR-13": "frontend-requirements:widgets",
+    "FR-14": "frontend-requirements:connections",
+    "FR-15": "frontend-requirements:companies",
+    "FR-16": "frontend-requirements:delegated-admins",
+    "FR-17": "frontend-requirements:ring-invitations",
+    "FR-18": "frontend-requirements:badge-qr",
+    "FR-19": "frontend-requirements:discover-hub",
+    "FR-20": "frontend-requirements:pincast",
+    "FR-21": "frontend-requirements:event-ring-auto",
+    "FR-22": "frontend-requirements:events-before",
+    "FR-23": "frontend-requirements:events-during",
+    "FR-24": "frontend-requirements:exhibitor",
+    "FR-25": "frontend-requirements:post-event",
+    "FR-26": "frontend-requirements:meetings",
+    "FR-27": "frontend-requirements:payments",
+    "FR-28": "frontend-requirements:subscription",
+    "FR-29": "frontend-requirements:app-shell",
+    "FR-30": "frontend-requirements:audit-log",
+    "FR-31": "frontend-requirements:cleanup-jobs",
+    "FR-32": "frontend-requirements:code-delivery",
+    "FR-33": "frontend-requirements:devices",
+    "FR-34": "frontend-requirements:e2e-tests",
+    "FR-35": "frontend-requirements:error-contract",
+    "FR-36": "frontend-requirements:gemma",
+    "FR-37": "frontend-requirements:interests",
+    "FR-38": "frontend-requirements:linked-accounts",
+    "FR-39": "frontend-requirements:notifications",
+    "M-01": "module:identity",
+    "M-02": "module:connections",
+    "M-03": "module:shared-rings",
+    "M-04": "module:discovery",
+    "M-05": "module:events",
+    "M-06": "module:meetings",
+    "M-07": "module:commerce",
+    "M-08": "module:platform",
+    "P-01": "project:feature-graph",
+    "P-02": "project:feature-tree",
+    "P-03": "project:glossary",
+    "P-04": "project:project-overview",
+    "P-05": "project:status-report-2026-10-15",
+    "P-06": "project:frontend-agent-prompt",
+    "P-07": "project:frontend-api-guide",
+    "P-08": "project:frontend-contract",
+    "P-09": "project:frontend-passwordless-migration",
+    "P-10": "project:api-conventions",
+    "P-11": "project:architecture",
+    "P-12": "project:auth-model",
+    "P-13": "project:database-migrations",
+    "P-14": "project:developer-guide",
+    "P-15": "project:developer-setup",
+    "P-16": "project:ring-access-model",
+    "P-17": "project:spec-map",
+    "P-18": "project:agent-rules",
+    "P-19": "project:docs-tree",
+    "P-20": "project:workflow",
+    "S-01": "story:account",
+    "S-02": "story:auth",
+    "S-03": "story:counts",
+    "S-04": "story:T-004",
+    "S-05": "story:T-005",
+    "S-06": "story:files",
+    "S-07": "story:T-062",
+    "S-08": "story:onboarding-imports",
+    "S-09": "story:T-020",
+    "S-10": "story:T-020b",
+    "S-11": "story:photo-library",
+    "S-12": "story:T-012",
+    "S-13": "story:T-013",
+    "S-14": "story:profiles",
+    "S-15": "story:ring-access",
+    "S-16": "story:ring-members",
+    "S-17": "story:ring-projection",
+    "S-18": "story:rings",
+    "S-19": "story:view-as",
+    "S-20": "story:widgets",
+    "S-21": "story:T-017",
+    "S-22": "story:T-018",
+    "S-23": "story:connections",
+    "S-24": "story:T-021",
+    "S-25": "story:T-022",
+    "S-26": "story:T-023",
+    "S-27": "story:T-024",
+    "S-28": "story:T-025",
+    "S-29": "story:companies",
+    "S-30": "story:T-029",
+    "S-31": "story:delegated-admins",
+    "S-32": "story:T-006",
+    "S-33": "story:ring-invitations",
+    "S-34": "story:T-026",
+    "S-35": "story:T-027",
+    "S-36": "story:T-028",
+    "S-37": "story:badge-qr",
+    "S-38": "story:T-007",
+    "S-39": "story:T-008",
+    "S-40": "story:T-009",
+    "S-41": "story:T-010",
+    "S-42": "story:discover-hub",
+    "S-43": "story:T-030",
+    "S-44": "story:T-031",
+    "S-45": "story:pincast",
+    "S-46": "story:T-032",
+    "S-47": "story:event-ring-auto",
+    "S-48": "story:T-011",
+    "S-49": "story:events-before",
+    "S-50": "story:T-033",
+    "S-51": "story:T-034",
+    "S-52": "story:T-035",
+    "S-53": "story:events-during",
+    "S-54": "story:T-036",
+    "S-55": "story:T-037",
+    "S-56": "story:T-038",
+    "S-57": "story:T-039",
+    "S-58": "story:T-040",
+    "S-59": "story:exhibitor",
+    "S-60": "story:T-048",
+    "S-61": "story:T-048b",
+    "S-62": "story:post-event",
+    "S-63": "story:T-050",
+    "S-64": "story:meetings",
+    "S-65": "story:T-041",
+    "S-66": "story:T-042",
+    "S-67": "story:T-043",
+    "S-68": "story:T-044",
+    "S-69": "story:payments",
+    "S-70": "story:T-047",
+    "S-71": "story:subscription",
+    "S-72": "story:T-049",
+    "S-73": "story:app-shell",
+    "S-74": "story:audit-log",
+    "S-75": "story:T-053",
+    "S-76": "story:cleanup-jobs",
+    "S-77": "story:T-054",
+    "S-78": "story:code-delivery",
+    "S-79": "story:T-001",
+    "S-80": "story:T-002",
+    "S-81": "story:T-003",
+    "S-82": "story:devices",
+    "S-83": "story:T-014",
+    "S-84": "story:T-015",
+    "S-85": "story:e2e-tests",
+    "S-86": "story:T-055",
+    "S-87": "story:error-contract",
+    "S-88": "story:T-063",
+    "S-89": "story:gemma",
+    "S-90": "story:T-051",
+    "S-91": "story:T-052",
+    "S-92": "story:interests",
+    "S-93": "story:T-016",
+    "S-94": "story:linked-accounts",
+    "S-95": "story:T-019",
+    "S-96": "story:notifications",
+    "S-97": "story:T-045",
+    "S-98": "story:T-046",
+    "T-001": "task:T-001",
+    "T-001-be": "task:T-001-be",
+    "T-002": "task:T-002",
+    "T-002-be": "task:T-002-be",
+    "T-003": "task:T-003",
+    "T-003-be": "task:T-003-be",
+    "T-004": "task:T-004",
+    "T-004-be": "task:T-004-be",
+    "T-004-fe": "task:T-004-fe",
+    "T-005": "task:T-005",
+    "T-005-be": "task:T-005-be",
+    "T-005-fe": "task:T-005-fe",
+    "T-006": "task:T-006",
+    "T-006-be": "task:T-006-be",
+    "T-006-fe": "task:T-006-fe",
+    "T-007": "task:T-007",
+    "T-007-be": "task:T-007-be",
+    "T-007-fe": "task:T-007-fe",
+    "T-008": "task:T-008",
+    "T-008-be": "task:T-008-be",
+    "T-008-fe": "task:T-008-fe",
+    "T-009": "task:T-009",
+    "T-009-be": "task:T-009-be",
+    "T-009-fe": "task:T-009-fe",
+    "T-010": "task:T-010",
+    "T-010-be": "task:T-010-be",
+    "T-010-fe": "task:T-010-fe",
+    "T-011": "task:T-011",
+    "T-011-be": "task:T-011-be",
+    "T-012": "task:T-012",
+    "T-012-be": "task:T-012-be",
+    "T-012-fe": "task:T-012-fe",
+    "T-013": "task:T-013",
+    "T-013-be": "task:T-013-be",
+    "T-013-fe": "task:T-013-fe",
+    "T-014": "task:T-014",
+    "T-014-be": "task:T-014-be",
+    "T-014-fe": "task:T-014-fe",
+    "T-015": "task:T-015",
+    "T-015-be": "task:T-015-be",
+    "T-015-fe": "task:T-015-fe",
+    "T-016": "task:T-016",
+    "T-016-be": "task:T-016-be",
+    "T-016-fe": "task:T-016-fe",
+    "T-017": "task:T-017",
+    "T-017-be": "task:T-017-be",
+    "T-017-fe": "task:T-017-fe",
+    "T-018": "task:T-018",
+    "T-018-be": "task:T-018-be",
+    "T-018-fe": "task:T-018-fe",
+    "T-019": "task:T-019",
+    "T-019-be": "task:T-019-be",
+    "T-019-fe": "task:T-019-fe",
+    "T-020": "task:T-020",
+    "T-020-be": "task:T-020-be",
+    "T-020-fe": "task:T-020-fe",
+    "T-020b": "task:T-020b",
+    "T-020b-be": "task:T-020b-be",
+    "T-020b-fe": "task:T-020b-fe",
+    "T-021": "task:T-021",
+    "T-021-be": "task:T-021-be",
+    "T-021-fe": "task:T-021-fe",
+    "T-022": "task:T-022",
+    "T-022-be": "task:T-022-be",
+    "T-022-fe": "task:T-022-fe",
+    "T-023": "task:T-023",
+    "T-023-be": "task:T-023-be",
+    "T-023-fe": "task:T-023-fe",
+    "T-024": "task:T-024",
+    "T-024-be": "task:T-024-be",
+    "T-024-fe": "task:T-024-fe",
+    "T-025": "task:T-025",
+    "T-025-be": "task:T-025-be",
+    "T-025-fe": "task:T-025-fe",
+    "T-026": "task:T-026",
+    "T-026-be": "task:T-026-be",
+    "T-026-fe": "task:T-026-fe",
+    "T-027": "task:T-027",
+    "T-027-be": "task:T-027-be",
+    "T-027-fe": "task:T-027-fe",
+    "T-028": "task:T-028",
+    "T-028-be": "task:T-028-be",
+    "T-028-fe": "task:T-028-fe",
+    "T-029": "task:T-029",
+    "T-029-be": "task:T-029-be",
+    "T-029-fe": "task:T-029-fe",
+    "T-030": "task:T-030",
+    "T-030-be": "task:T-030-be",
+    "T-030-fe": "task:T-030-fe",
+    "T-031": "task:T-031",
+    "T-031-be": "task:T-031-be",
+    "T-031-fe": "task:T-031-fe",
+    "T-032": "task:T-032",
+    "T-032-be": "task:T-032-be",
+    "T-032-fe": "task:T-032-fe",
+    "T-033": "task:T-033",
+    "T-033-be": "task:T-033-be",
+    "T-033-fe": "task:T-033-fe",
+    "T-034": "task:T-034",
+    "T-034-be": "task:T-034-be",
+    "T-034-fe": "task:T-034-fe",
+    "T-035": "task:T-035",
+    "T-035-be": "task:T-035-be",
+    "T-035-fe": "task:T-035-fe",
+    "T-036": "task:T-036",
+    "T-036-be": "task:T-036-be",
+    "T-036-fe": "task:T-036-fe",
+    "T-037": "task:T-037",
+    "T-037-be": "task:T-037-be",
+    "T-037-fe": "task:T-037-fe",
+    "T-038": "task:T-038",
+    "T-038-be": "task:T-038-be",
+    "T-038-fe": "task:T-038-fe",
+    "T-039": "task:T-039",
+    "T-039-be": "task:T-039-be",
+    "T-039-fe": "task:T-039-fe",
+    "T-040": "task:T-040",
+    "T-040-be": "task:T-040-be",
+    "T-040-fe": "task:T-040-fe",
+    "T-041": "task:T-041",
+    "T-041-be": "task:T-041-be",
+    "T-041-fe": "task:T-041-fe",
+    "T-042": "task:T-042",
+    "T-042-be": "task:T-042-be",
+    "T-042-fe": "task:T-042-fe",
+    "T-043": "task:T-043",
+    "T-043-be": "task:T-043-be",
+    "T-044": "task:T-044",
+    "T-044-be": "task:T-044-be",
+    "T-044-fe": "task:T-044-fe",
+    "T-045": "task:T-045",
+    "T-045-be": "task:T-045-be",
+    "T-045-fe": "task:T-045-fe",
+    "T-046": "task:T-046",
+    "T-046-be": "task:T-046-be",
+    "T-046-fe": "task:T-046-fe",
+    "T-047": "task:T-047",
+    "T-047-be": "task:T-047-be",
+    "T-048": "task:T-048",
+    "T-048-be": "task:T-048-be",
+    "T-048-fe": "task:T-048-fe",
+    "T-048b": "task:T-048b",
+    "T-048b-be": "task:T-048b-be",
+    "T-048b-fe": "task:T-048b-fe",
+    "T-049": "task:T-049",
+    "T-049-be": "task:T-049-be",
+    "T-049-fe": "task:T-049-fe",
+    "T-050": "task:T-050",
+    "T-050-be": "task:T-050-be",
+    "T-050-fe": "task:T-050-fe",
+    "T-051": "task:T-051",
+    "T-051-be": "task:T-051-be",
+    "T-051-fe": "task:T-051-fe",
+    "T-052": "task:T-052",
+    "T-052-be": "task:T-052-be",
+    "T-052-fe": "task:T-052-fe",
+    "T-053": "task:T-053",
+    "T-053-be": "task:T-053-be",
+    "T-054": "task:T-054",
+    "T-054-be": "task:T-054-be",
+    "T-055": "task:T-055",
+    "T-055-be": "task:T-055-be",
+    "T-056": "task:T-056",
+    "T-057": "task:T-057",
+    "T-058": "task:T-058",
+    "T-059": "task:T-059",
+    "T-060": "task:T-060",
+    "T-061": "task:T-061",
+    "T-062": "task:T-062",
+    "T-062-be": "task:T-062-be",
+    "T-062-fe": "task:T-062-fe",
+    "T-063": "task:T-063",
+    "T-063-be": "task:T-063-be",
+    "T-063-fe": "task:T-063-fe",
+    "T-064": "task:T-064"
+  },
   "concepts": {
     "DELETE /files/:id": {
       "containers": [
@@ -4086,7 +4535,7 @@
     "features": 39,
     "layerNotes": 185,
     "modules": 8,
-    "notes": 456,
+    "notes": 457,
     "partial": 0,
     "placeholders": 145,
     "taskLayerNotes": 59,
@@ -27694,6 +28143,10 @@
       "name": "CLAUDE",
       "type": null
     },
+    "Card Index.md": {
+      "name": "Card Index",
+      "type": "map"
+    },
     "Home.md": {
       "name": "Home",
       "type": "home"
@@ -29578,6 +30031,8 @@
   "generated": [
     "tree/tree.json",
     "tree/tree.md",
+    "tree/cards.json",
+    "Card Index.md",
     "tasks/Task Board.md",
     "tasks/Backlog.md"
   ],
@@ -29782,6 +30237,7 @@
     "backend-delivery:account": {
       "affects": [],
       "blockedBy": [],
+      "card": "BD-01",
       "children": [],
       "code": "account",
       "depends": [],
@@ -29822,6 +30278,7 @@
     "backend-delivery:app-shell": {
       "affects": [],
       "blockedBy": [],
+      "card": "BD-29",
       "children": [],
       "code": "app-shell",
       "depends": [],
@@ -29871,6 +30328,7 @@
           "why": "Audit Log Frontend Requirements is draft"
         }
       ],
+      "card": "BD-30",
       "children": [],
       "code": "audit-log",
       "depends": [],
@@ -29909,6 +30367,7 @@
     "backend-delivery:auth": {
       "affects": [],
       "blockedBy": [],
+      "card": "BD-02",
       "children": [],
       "code": "auth",
       "depends": [],
@@ -29959,6 +30418,7 @@
           "why": "Badge & QR Frontend Requirements is draft"
         }
       ],
+      "card": "BD-18",
       "children": [],
       "code": "badge-qr",
       "depends": [],
@@ -30008,6 +30468,7 @@
           "why": "Cleanup Jobs Frontend Requirements is draft"
         }
       ],
+      "card": "BD-31",
       "children": [],
       "code": "cleanup-jobs",
       "depends": [],
@@ -30052,6 +30513,7 @@
           "why": "Code Delivery Frontend Requirements is draft"
         }
       ],
+      "card": "BD-32",
       "children": [],
       "code": "code-delivery",
       "depends": [],
@@ -30098,6 +30560,7 @@
           "why": "Companies Frontend Requirements is draft"
         }
       ],
+      "card": "BD-15",
       "children": [],
       "code": "companies",
       "depends": [],
@@ -30145,6 +30608,7 @@
           "why": "Connections Frontend Requirements is draft"
         }
       ],
+      "card": "BD-14",
       "children": [],
       "code": "connections",
       "depends": [],
@@ -30195,6 +30659,7 @@
           "why": "Counts Frontend Requirements is draft"
         }
       ],
+      "card": "BD-03",
       "children": [],
       "code": "counts",
       "depends": [],
@@ -30246,6 +30711,7 @@
           "why": "Delegated Admins Frontend Requirements is draft"
         }
       ],
+      "card": "BD-16",
       "children": [],
       "code": "delegated-admins",
       "depends": [],
@@ -30293,6 +30759,7 @@
           "why": "Devices & NFC Frontend Requirements is draft"
         }
       ],
+      "card": "BD-33",
       "children": [],
       "code": "devices",
       "depends": [],
@@ -30339,6 +30806,7 @@
           "why": "Discover Hub & Search Frontend Requirements is draft"
         }
       ],
+      "card": "BD-19",
       "children": [],
       "code": "discover-hub",
       "depends": [],
@@ -30385,6 +30853,7 @@
           "why": "E2E Test Run Frontend Requirements is draft"
         }
       ],
+      "card": "BD-34",
       "children": [],
       "code": "e2e-tests",
       "depends": [],
@@ -30429,6 +30898,7 @@
           "why": "Error Contract Frontend Requirements is draft"
         }
       ],
+      "card": "BD-35",
       "children": [],
       "code": "error-contract",
       "depends": [],
@@ -30473,6 +30943,7 @@
           "why": "Event Ring Auto-creation Frontend Requirements is draft"
         }
       ],
+      "card": "BD-21",
       "children": [],
       "code": "event-ring-auto",
       "depends": [],
@@ -30519,6 +30990,7 @@
           "why": "Events Before Frontend Requirements is draft"
         }
       ],
+      "card": "BD-22",
       "children": [],
       "code": "events-before",
       "depends": [],
@@ -30569,6 +31041,7 @@
           "why": "Events During Frontend Requirements is draft"
         }
       ],
+      "card": "BD-23",
       "children": [],
       "code": "events-during",
       "depends": [],
@@ -30620,6 +31093,7 @@
           "why": "Exhibitor Frontend Requirements is draft"
         }
       ],
+      "card": "BD-24",
       "children": [],
       "code": "exhibitor",
       "depends": [],
@@ -30662,6 +31136,7 @@
     "backend-delivery:files": {
       "affects": [],
       "blockedBy": [],
+      "card": "BD-04",
       "children": [],
       "code": "files",
       "depends": [],
@@ -30710,6 +31185,7 @@
           "why": "Gemma AI Frontend Requirements is draft"
         }
       ],
+      "card": "BD-36",
       "children": [],
       "code": "gemma",
       "depends": [],
@@ -30757,6 +31233,7 @@
           "why": "Interests Frontend Requirements is draft"
         }
       ],
+      "card": "BD-37",
       "children": [],
       "code": "interests",
       "depends": [],
@@ -30804,6 +31281,7 @@
           "why": "Linked Accounts (OAuth) Frontend Requirements is draft"
         }
       ],
+      "card": "BD-38",
       "children": [],
       "code": "linked-accounts",
       "depends": [],
@@ -30852,6 +31330,7 @@
           "why": "Meetings Frontend Requirements is draft"
         }
       ],
+      "card": "BD-26",
       "children": [],
       "code": "meetings",
       "depends": [],
@@ -30902,6 +31381,7 @@
           "why": "Notifications Frontend Requirements is draft"
         }
       ],
+      "card": "BD-39",
       "children": [],
       "code": "notifications",
       "depends": [],
@@ -30948,6 +31428,7 @@
           "why": "Onboarding Imports Frontend Requirements is draft"
         }
       ],
+      "card": "BD-05",
       "children": [],
       "code": "onboarding-imports",
       "depends": [],
@@ -30998,6 +31479,7 @@
           "why": "Payments & Orders Frontend Requirements is draft"
         }
       ],
+      "card": "BD-27",
       "children": [],
       "code": "payments",
       "depends": [],
@@ -31045,6 +31527,7 @@
           "why": "Photo Library Frontend Requirements is draft"
         }
       ],
+      "card": "BD-06",
       "children": [],
       "code": "photo-library",
       "depends": [],
@@ -31092,6 +31575,7 @@
           "why": "PinCast & Nearby Frontend Requirements is draft"
         }
       ],
+      "card": "BD-20",
       "children": [],
       "code": "pincast",
       "depends": [],
@@ -31142,6 +31626,7 @@
           "why": "Post-Event Frontend Requirements is draft"
         }
       ],
+      "card": "BD-25",
       "children": [],
       "code": "post-event",
       "depends": [],
@@ -31182,6 +31667,7 @@
     "backend-delivery:profiles": {
       "affects": [],
       "blockedBy": [],
+      "card": "BD-07",
       "children": [],
       "code": "profiles",
       "depends": [],
@@ -31222,6 +31708,7 @@
     "backend-delivery:ring-access": {
       "affects": [],
       "blockedBy": [],
+      "card": "BD-08",
       "children": [],
       "code": "ring-access",
       "depends": [],
@@ -31266,6 +31753,7 @@
           "why": "Ring Invitations & Join Frontend Requirements is draft"
         }
       ],
+      "card": "BD-17",
       "children": [],
       "code": "ring-invitations",
       "depends": [],
@@ -31307,6 +31795,7 @@
     "backend-delivery:ring-members": {
       "affects": [],
       "blockedBy": [],
+      "card": "BD-09",
       "children": [],
       "code": "ring-members",
       "depends": [],
@@ -31348,6 +31837,7 @@
     "backend-delivery:ring-projection": {
       "affects": [],
       "blockedBy": [],
+      "card": "BD-10",
       "children": [],
       "code": "ring-projection",
       "depends": [],
@@ -31394,6 +31884,7 @@
     "backend-delivery:rings": {
       "affects": [],
       "blockedBy": [],
+      "card": "BD-11",
       "children": [],
       "code": "rings",
       "depends": [],
@@ -31450,6 +31941,7 @@
           "why": "Subscription (Free vs Pro) Frontend Requirements is draft"
         }
       ],
+      "card": "BD-28",
       "children": [],
       "code": "subscription",
       "depends": [],
@@ -31491,6 +31983,7 @@
     "backend-delivery:view-as": {
       "affects": [],
       "blockedBy": [],
+      "card": "BD-12",
       "children": [],
       "code": "view-as",
       "depends": [],
@@ -31539,6 +32032,7 @@
           "why": "Widgets Frontend Requirements is draft"
         }
       ],
+      "card": "BD-13",
       "children": [],
       "code": "widgets",
       "depends": [],
@@ -31580,6 +32074,7 @@
     "backend-integration:account": {
       "affects": [],
       "blockedBy": [],
+      "card": "BI-01",
       "children": [],
       "code": "account",
       "depends": [],
@@ -31626,6 +32121,7 @@
           "why": "Audit Log Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "audit-log",
       "depends": [],
@@ -31660,6 +32156,7 @@
     "backend-integration:auth": {
       "affects": [],
       "blockedBy": [],
+      "card": "BI-02",
       "children": [],
       "code": "auth",
       "depends": [],
@@ -31710,6 +32207,7 @@
           "why": "Badge & QR Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "badge-qr",
       "depends": [],
@@ -31750,6 +32248,7 @@
           "why": "Cleanup Jobs Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "cleanup-jobs",
       "depends": [],
@@ -31790,6 +32289,7 @@
           "why": "Code Delivery Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "code-delivery",
       "depends": [],
@@ -31830,6 +32330,7 @@
           "why": "Companies Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "companies",
       "depends": [],
@@ -31870,6 +32371,7 @@
           "why": "Connections Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "connections",
       "depends": [],
@@ -31910,6 +32412,7 @@
           "why": "Counts Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "counts",
       "depends": [],
@@ -31950,6 +32453,7 @@
           "why": "Delegated Admins Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "delegated-admins",
       "depends": [],
@@ -31990,6 +32494,7 @@
           "why": "Devices & NFC Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "devices",
       "depends": [],
@@ -32030,6 +32535,7 @@
           "why": "Discover Hub & Search Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "discover-hub",
       "depends": [],
@@ -32070,6 +32576,7 @@
           "why": "E2E Test Run Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "e2e-tests",
       "depends": [],
@@ -32110,6 +32617,7 @@
           "why": "Error Contract Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "error-contract",
       "depends": [],
@@ -32150,6 +32658,7 @@
           "why": "Event Ring Auto-creation Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "event-ring-auto",
       "depends": [],
@@ -32190,6 +32699,7 @@
           "why": "Events Before Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "events-before",
       "depends": [],
@@ -32230,6 +32740,7 @@
           "why": "Events During Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "events-during",
       "depends": [],
@@ -32270,6 +32781,7 @@
           "why": "Exhibitor Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "exhibitor",
       "depends": [],
@@ -32304,6 +32816,7 @@
     "backend-integration:files": {
       "affects": [],
       "blockedBy": [],
+      "card": "BI-03",
       "children": [],
       "code": "files",
       "depends": [],
@@ -32352,6 +32865,7 @@
           "why": "Gemma AI Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "gemma",
       "depends": [],
@@ -32392,6 +32906,7 @@
           "why": "Interests Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "interests",
       "depends": [],
@@ -32432,6 +32947,7 @@
           "why": "Linked Accounts (OAuth) Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "linked-accounts",
       "depends": [],
@@ -32472,6 +32988,7 @@
           "why": "Meetings Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "meetings",
       "depends": [],
@@ -32512,6 +33029,7 @@
           "why": "Notifications Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "notifications",
       "depends": [],
@@ -32552,6 +33070,7 @@
           "why": "Onboarding Imports Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "onboarding-imports",
       "depends": [],
@@ -32592,6 +33111,7 @@
           "why": "Payments & Orders Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "payments",
       "depends": [],
@@ -32632,6 +33152,7 @@
           "why": "Photo Library Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "photo-library",
       "depends": [],
@@ -32672,6 +33193,7 @@
           "why": "PinCast & Nearby Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "pincast",
       "depends": [],
@@ -32712,6 +33234,7 @@
           "why": "Post-Event Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "post-event",
       "depends": [],
@@ -32746,6 +33269,7 @@
     "backend-integration:profiles": {
       "affects": [],
       "blockedBy": [],
+      "card": "BI-04",
       "children": [],
       "code": "profiles",
       "depends": [],
@@ -32786,6 +33310,7 @@
     "backend-integration:ring-access": {
       "affects": [],
       "blockedBy": [],
+      "card": "BI-05",
       "children": [],
       "code": "ring-access",
       "depends": [],
@@ -32830,6 +33355,7 @@
           "why": "Ring Invitations & Join Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "ring-invitations",
       "depends": [],
@@ -32864,6 +33390,7 @@
     "backend-integration:ring-members": {
       "affects": [],
       "blockedBy": [],
+      "card": "BI-06",
       "children": [],
       "code": "ring-members",
       "depends": [],
@@ -32905,6 +33432,7 @@
     "backend-integration:ring-projection": {
       "affects": [],
       "blockedBy": [],
+      "card": "BI-07",
       "children": [],
       "code": "ring-projection",
       "depends": [],
@@ -32951,6 +33479,7 @@
     "backend-integration:rings": {
       "affects": [],
       "blockedBy": [],
+      "card": "BI-08",
       "children": [],
       "code": "rings",
       "depends": [],
@@ -33007,6 +33536,7 @@
           "why": "Subscription (Free vs Pro) Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "subscription",
       "depends": [],
@@ -33041,6 +33571,7 @@
     "backend-integration:view-as": {
       "affects": [],
       "blockedBy": [],
+      "card": "BI-09",
       "children": [],
       "code": "view-as",
       "depends": [],
@@ -33089,6 +33620,7 @@
           "why": "Widgets Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "widgets",
       "depends": [],
@@ -33123,6 +33655,7 @@
     "decision:D-01": {
       "affects": [],
       "blockedBy": [],
+      "card": "D-01",
       "children": [],
       "code": "D-01",
       "depends": [],
@@ -33167,6 +33700,7 @@
     "decision:D-02": {
       "affects": [],
       "blockedBy": [],
+      "card": "D-02",
       "children": [],
       "code": "D-02",
       "depends": [],
@@ -33218,6 +33752,7 @@
     "decision:D-03": {
       "affects": [],
       "blockedBy": [],
+      "card": "D-03",
       "children": [],
       "code": "D-03",
       "depends": [],
@@ -33262,6 +33797,7 @@
     "decision:D-04": {
       "affects": [],
       "blockedBy": [],
+      "card": "D-04",
       "children": [],
       "code": "D-04",
       "depends": [],
@@ -33314,6 +33850,7 @@
     "decision:D-05": {
       "affects": [],
       "blockedBy": [],
+      "card": "D-05",
       "children": [],
       "code": "D-05",
       "depends": [],
@@ -33362,6 +33899,7 @@
     "decision:D-06": {
       "affects": [],
       "blockedBy": [],
+      "card": "D-06",
       "children": [],
       "code": "D-06",
       "depends": [],
@@ -33405,6 +33943,7 @@
     "feature:account": {
       "affects": [],
       "blockedBy": [],
+      "card": "F-01",
       "children": [
         "story:account",
         "frontend-requirements:account",
@@ -33473,6 +34012,7 @@
     "feature:app-shell": {
       "affects": [],
       "blockedBy": [],
+      "card": "F-29",
       "children": [
         "story:app-shell",
         "frontend-requirements:app-shell",
@@ -33535,6 +34075,7 @@
     "feature:audit-log": {
       "affects": [],
       "blockedBy": [],
+      "card": "F-30",
       "children": [
         "story:audit-log",
         "frontend-requirements:audit-log",
@@ -33598,6 +34139,7 @@
     "feature:auth": {
       "affects": [],
       "blockedBy": [],
+      "card": "F-02",
       "children": [
         "story:auth",
         "frontend-requirements:auth",
@@ -33676,6 +34218,7 @@
     "feature:badge-qr": {
       "affects": [],
       "blockedBy": [],
+      "card": "F-18",
       "children": [
         "story:badge-qr",
         "frontend-requirements:badge-qr",
@@ -33754,6 +34297,7 @@
     "feature:cleanup-jobs": {
       "affects": [],
       "blockedBy": [],
+      "card": "F-31",
       "children": [
         "story:cleanup-jobs",
         "frontend-requirements:cleanup-jobs",
@@ -33816,6 +34360,7 @@
     "feature:code-delivery": {
       "affects": [],
       "blockedBy": [],
+      "card": "F-32",
       "children": [
         "story:code-delivery",
         "frontend-requirements:code-delivery",
@@ -33881,6 +34426,7 @@
     "feature:companies": {
       "affects": [],
       "blockedBy": [],
+      "card": "F-15",
       "children": [
         "story:companies",
         "frontend-requirements:companies",
@@ -33950,6 +34496,7 @@
     "feature:connections": {
       "affects": [],
       "blockedBy": [],
+      "card": "F-14",
       "children": [
         "story:connections",
         "frontend-requirements:connections",
@@ -34032,6 +34579,7 @@
     "feature:counts": {
       "affects": [],
       "blockedBy": [],
+      "card": "F-03",
       "children": [
         "story:counts",
         "frontend-requirements:counts",
@@ -34102,6 +34650,7 @@
     "feature:delegated-admins": {
       "affects": [],
       "blockedBy": [],
+      "card": "F-16",
       "children": [
         "story:delegated-admins",
         "frontend-requirements:delegated-admins",
@@ -34170,6 +34719,7 @@
     "feature:devices": {
       "affects": [],
       "blockedBy": [],
+      "card": "F-33",
       "children": [
         "story:devices",
         "frontend-requirements:devices",
@@ -34236,6 +34786,7 @@
     "feature:discover-hub": {
       "affects": [],
       "blockedBy": [],
+      "card": "F-19",
       "children": [
         "story:discover-hub",
         "frontend-requirements:discover-hub",
@@ -34303,6 +34854,7 @@
     "feature:e2e-tests": {
       "affects": [],
       "blockedBy": [],
+      "card": "F-34",
       "children": [
         "story:e2e-tests",
         "frontend-requirements:e2e-tests",
@@ -34364,6 +34916,7 @@
     "feature:error-contract": {
       "affects": [],
       "blockedBy": [],
+      "card": "F-35",
       "children": [
         "story:error-contract",
         "frontend-requirements:error-contract",
@@ -34426,6 +34979,7 @@
     "feature:event-ring-auto": {
       "affects": [],
       "blockedBy": [],
+      "card": "F-21",
       "children": [
         "story:event-ring-auto",
         "frontend-requirements:event-ring-auto",
@@ -34493,6 +35047,7 @@
     "feature:events-before": {
       "affects": [],
       "blockedBy": [],
+      "card": "F-22",
       "children": [
         "story:events-before",
         "frontend-requirements:events-before",
@@ -34566,6 +35121,7 @@
     "feature:events-during": {
       "affects": [],
       "blockedBy": [],
+      "card": "F-23",
       "children": [
         "story:events-during",
         "frontend-requirements:events-during",
@@ -34646,6 +35202,7 @@
     "feature:exhibitor": {
       "affects": [],
       "blockedBy": [],
+      "card": "F-24",
       "children": [
         "story:exhibitor",
         "frontend-requirements:exhibitor",
@@ -34715,6 +35272,7 @@
     "feature:files": {
       "affects": [],
       "blockedBy": [],
+      "card": "F-04",
       "children": [
         "story:files",
         "frontend-requirements:files",
@@ -34784,6 +35342,7 @@
     "feature:gemma": {
       "affects": [],
       "blockedBy": [],
+      "card": "F-36",
       "children": [
         "story:gemma",
         "frontend-requirements:gemma",
@@ -34857,6 +35416,7 @@
     "feature:interests": {
       "affects": [],
       "blockedBy": [],
+      "card": "F-37",
       "children": [
         "story:interests",
         "frontend-requirements:interests",
@@ -34921,6 +35481,7 @@
     "feature:linked-accounts": {
       "affects": [],
       "blockedBy": [],
+      "card": "F-38",
       "children": [
         "story:linked-accounts",
         "frontend-requirements:linked-accounts",
@@ -34989,6 +35550,7 @@
     "feature:meetings": {
       "affects": [],
       "blockedBy": [],
+      "card": "F-26",
       "children": [
         "story:meetings",
         "frontend-requirements:meetings",
@@ -35066,6 +35628,7 @@
     "feature:notifications": {
       "affects": [],
       "blockedBy": [],
+      "card": "F-39",
       "children": [
         "story:notifications",
         "frontend-requirements:notifications",
@@ -35135,6 +35698,7 @@
     "feature:onboarding-imports": {
       "affects": [],
       "blockedBy": [],
+      "card": "F-05",
       "children": [
         "story:onboarding-imports",
         "frontend-requirements:onboarding-imports",
@@ -35206,6 +35770,7 @@
     "feature:payments": {
       "affects": [],
       "blockedBy": [],
+      "card": "F-27",
       "children": [
         "story:payments",
         "frontend-requirements:payments",
@@ -35273,6 +35838,7 @@
     "feature:photo-library": {
       "affects": [],
       "blockedBy": [],
+      "card": "F-06",
       "children": [
         "story:photo-library",
         "frontend-requirements:photo-library",
@@ -35342,6 +35908,7 @@
     "feature:pincast": {
       "affects": [],
       "blockedBy": [],
+      "card": "F-20",
       "children": [
         "story:pincast",
         "frontend-requirements:pincast",
@@ -35414,6 +35981,7 @@
     "feature:post-event": {
       "affects": [],
       "blockedBy": [],
+      "card": "F-25",
       "children": [
         "story:post-event",
         "frontend-requirements:post-event",
@@ -35481,6 +36049,7 @@
     "feature:profiles": {
       "affects": [],
       "blockedBy": [],
+      "card": "F-07",
       "children": [
         "story:profiles",
         "frontend-requirements:profiles",
@@ -35551,6 +36120,7 @@
     "feature:ring-access": {
       "affects": [],
       "blockedBy": [],
+      "card": "F-08",
       "children": [
         "story:ring-access",
         "frontend-requirements:ring-access",
@@ -35620,6 +36190,7 @@
     "feature:ring-invitations": {
       "affects": [],
       "blockedBy": [],
+      "card": "F-17",
       "children": [
         "story:ring-invitations",
         "frontend-requirements:ring-invitations",
@@ -35690,6 +36261,7 @@
     "feature:ring-members": {
       "affects": [],
       "blockedBy": [],
+      "card": "F-09",
       "children": [
         "story:ring-members",
         "frontend-requirements:ring-members",
@@ -35762,6 +36334,7 @@
     "feature:ring-projection": {
       "affects": [],
       "blockedBy": [],
+      "card": "F-10",
       "children": [
         "story:ring-projection",
         "frontend-requirements:ring-projection",
@@ -35842,6 +36415,7 @@
     "feature:rings": {
       "affects": [],
       "blockedBy": [],
+      "card": "F-11",
       "children": [
         "story:rings",
         "frontend-requirements:rings",
@@ -35935,6 +36509,7 @@
     "feature:subscription": {
       "affects": [],
       "blockedBy": [],
+      "card": "F-28",
       "children": [
         "story:subscription",
         "frontend-requirements:subscription",
@@ -36002,6 +36577,7 @@
     "feature:view-as": {
       "affects": [],
       "blockedBy": [],
+      "card": "F-12",
       "children": [
         "story:view-as",
         "frontend-requirements:view-as",
@@ -36079,6 +36655,7 @@
     "feature:widgets": {
       "affects": [],
       "blockedBy": [],
+      "card": "F-13",
       "children": [
         "story:widgets",
         "frontend-requirements:widgets",
@@ -36146,6 +36723,7 @@
     "frontend-delivery:account": {
       "affects": [],
       "blockedBy": [],
+      "card": null,
       "children": [],
       "code": "account",
       "depends": [],
@@ -36180,6 +36758,7 @@
     "frontend-delivery:app-shell": {
       "affects": [],
       "blockedBy": [],
+      "card": null,
       "children": [],
       "code": "app-shell",
       "depends": [],
@@ -36220,6 +36799,7 @@
           "why": "Audit Log Backend Integration is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "audit-log",
       "depends": [],
@@ -36254,6 +36834,7 @@
     "frontend-delivery:auth": {
       "affects": [],
       "blockedBy": [],
+      "card": null,
       "children": [],
       "code": "auth",
       "depends": [],
@@ -36294,6 +36875,7 @@
           "why": "Badge & QR Backend Integration is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "badge-qr",
       "depends": [],
@@ -36334,6 +36916,7 @@
           "why": "Cleanup Jobs Backend Integration is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "cleanup-jobs",
       "depends": [],
@@ -36374,6 +36957,7 @@
           "why": "Code Delivery Backend Integration is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "code-delivery",
       "depends": [],
@@ -36414,6 +36998,7 @@
           "why": "Companies Backend Integration is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "companies",
       "depends": [],
@@ -36454,6 +37039,7 @@
           "why": "Connections Backend Integration is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "connections",
       "depends": [],
@@ -36494,6 +37080,7 @@
           "why": "Counts Backend Integration is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "counts",
       "depends": [],
@@ -36534,6 +37121,7 @@
           "why": "Delegated Admins Backend Integration is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "delegated-admins",
       "depends": [],
@@ -36574,6 +37162,7 @@
           "why": "Devices & NFC Backend Integration is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "devices",
       "depends": [],
@@ -36614,6 +37203,7 @@
           "why": "Discover Hub & Search Backend Integration is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "discover-hub",
       "depends": [],
@@ -36654,6 +37244,7 @@
           "why": "E2E Test Run Backend Integration is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "e2e-tests",
       "depends": [],
@@ -36694,6 +37285,7 @@
           "why": "Error Contract Backend Integration is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "error-contract",
       "depends": [],
@@ -36734,6 +37326,7 @@
           "why": "Event Ring Auto-creation Backend Integration is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "event-ring-auto",
       "depends": [],
@@ -36774,6 +37367,7 @@
           "why": "Events Before Backend Integration is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "events-before",
       "depends": [],
@@ -36814,6 +37408,7 @@
           "why": "Events During Backend Integration is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "events-during",
       "depends": [],
@@ -36854,6 +37449,7 @@
           "why": "Exhibitor Backend Integration is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "exhibitor",
       "depends": [],
@@ -36888,6 +37484,7 @@
     "frontend-delivery:files": {
       "affects": [],
       "blockedBy": [],
+      "card": null,
       "children": [],
       "code": "files",
       "depends": [],
@@ -36928,6 +37525,7 @@
           "why": "Gemma AI Backend Integration is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "gemma",
       "depends": [],
@@ -36968,6 +37566,7 @@
           "why": "Interests Backend Integration is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "interests",
       "depends": [],
@@ -37008,6 +37607,7 @@
           "why": "Linked Accounts (OAuth) Backend Integration is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "linked-accounts",
       "depends": [],
@@ -37048,6 +37648,7 @@
           "why": "Meetings Backend Integration is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "meetings",
       "depends": [],
@@ -37088,6 +37689,7 @@
           "why": "Notifications Backend Integration is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "notifications",
       "depends": [],
@@ -37128,6 +37730,7 @@
           "why": "Onboarding Imports Backend Integration is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "onboarding-imports",
       "depends": [],
@@ -37168,6 +37771,7 @@
           "why": "Payments & Orders Backend Integration is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "payments",
       "depends": [],
@@ -37208,6 +37812,7 @@
           "why": "Photo Library Backend Integration is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "photo-library",
       "depends": [],
@@ -37248,6 +37853,7 @@
           "why": "PinCast & Nearby Backend Integration is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "pincast",
       "depends": [],
@@ -37288,6 +37894,7 @@
           "why": "Post-Event Backend Integration is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "post-event",
       "depends": [],
@@ -37322,6 +37929,7 @@
     "frontend-delivery:profiles": {
       "affects": [],
       "blockedBy": [],
+      "card": null,
       "children": [],
       "code": "profiles",
       "depends": [],
@@ -37356,6 +37964,7 @@
     "frontend-delivery:ring-access": {
       "affects": [],
       "blockedBy": [],
+      "card": null,
       "children": [],
       "code": "ring-access",
       "depends": [],
@@ -37396,6 +38005,7 @@
           "why": "Ring Invitations & Join Backend Integration is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "ring-invitations",
       "depends": [],
@@ -37430,6 +38040,7 @@
     "frontend-delivery:ring-members": {
       "affects": [],
       "blockedBy": [],
+      "card": null,
       "children": [],
       "code": "ring-members",
       "depends": [],
@@ -37464,6 +38075,7 @@
     "frontend-delivery:ring-projection": {
       "affects": [],
       "blockedBy": [],
+      "card": null,
       "children": [],
       "code": "ring-projection",
       "depends": [],
@@ -37498,6 +38110,7 @@
     "frontend-delivery:rings": {
       "affects": [],
       "blockedBy": [],
+      "card": null,
       "children": [],
       "code": "rings",
       "depends": [],
@@ -37538,6 +38151,7 @@
           "why": "Subscription (Free vs Pro) Backend Integration is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "subscription",
       "depends": [],
@@ -37572,6 +38186,7 @@
     "frontend-delivery:view-as": {
       "affects": [],
       "blockedBy": [],
+      "card": null,
       "children": [],
       "code": "view-as",
       "depends": [],
@@ -37612,6 +38227,7 @@
           "why": "Widgets Backend Integration is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "widgets",
       "depends": [],
@@ -37652,6 +38268,7 @@
           "why": "Account Story is draft"
         }
       ],
+      "card": "FR-01",
       "children": [],
       "code": "account",
       "depends": [],
@@ -37698,6 +38315,7 @@
           "why": "App Shell & Onboarding Narrative Story is draft"
         }
       ],
+      "card": "FR-29",
       "children": [],
       "code": "app-shell",
       "depends": [],
@@ -37747,6 +38365,7 @@
           "why": "Audit Log Story is draft"
         }
       ],
+      "card": "FR-30",
       "children": [],
       "code": "audit-log",
       "depends": [],
@@ -37791,6 +38410,7 @@
           "why": "Auth & Sign-up Story is draft"
         }
       ],
+      "card": "FR-02",
       "children": [],
       "code": "auth",
       "depends": [],
@@ -37841,6 +38461,7 @@
           "why": "Badge & QR Story is draft"
         }
       ],
+      "card": "FR-18",
       "children": [],
       "code": "badge-qr",
       "depends": [],
@@ -37890,6 +38511,7 @@
           "why": "Cleanup Jobs Story is draft"
         }
       ],
+      "card": "FR-31",
       "children": [],
       "code": "cleanup-jobs",
       "depends": [],
@@ -37934,6 +38556,7 @@
           "why": "Code Delivery Story is draft"
         }
       ],
+      "card": "FR-32",
       "children": [],
       "code": "code-delivery",
       "depends": [],
@@ -37980,6 +38603,7 @@
           "why": "Companies Story is draft"
         }
       ],
+      "card": "FR-15",
       "children": [],
       "code": "companies",
       "depends": [],
@@ -38027,6 +38651,7 @@
           "why": "Connections Story is draft"
         }
       ],
+      "card": "FR-14",
       "children": [],
       "code": "connections",
       "depends": [],
@@ -38077,6 +38702,7 @@
           "why": "Counts Story is draft"
         }
       ],
+      "card": "FR-03",
       "children": [],
       "code": "counts",
       "depends": [],
@@ -38128,6 +38754,7 @@
           "why": "Delegated Admins Story is draft"
         }
       ],
+      "card": "FR-16",
       "children": [],
       "code": "delegated-admins",
       "depends": [],
@@ -38175,6 +38802,7 @@
           "why": "Devices & NFC Story is draft"
         }
       ],
+      "card": "FR-33",
       "children": [],
       "code": "devices",
       "depends": [],
@@ -38221,6 +38849,7 @@
           "why": "Discover Hub & Search Story is draft"
         }
       ],
+      "card": "FR-19",
       "children": [],
       "code": "discover-hub",
       "depends": [],
@@ -38267,6 +38896,7 @@
           "why": "E2E Test Run Story is draft"
         }
       ],
+      "card": "FR-34",
       "children": [],
       "code": "e2e-tests",
       "depends": [],
@@ -38311,6 +38941,7 @@
           "why": "Error Contract Story is draft"
         }
       ],
+      "card": "FR-35",
       "children": [],
       "code": "error-contract",
       "depends": [],
@@ -38355,6 +38986,7 @@
           "why": "Event Ring Auto-creation Story is draft"
         }
       ],
+      "card": "FR-21",
       "children": [],
       "code": "event-ring-auto",
       "depends": [],
@@ -38401,6 +39033,7 @@
           "why": "Events Before Story is draft"
         }
       ],
+      "card": "FR-22",
       "children": [],
       "code": "events-before",
       "depends": [],
@@ -38451,6 +39084,7 @@
           "why": "Events During Story is draft"
         }
       ],
+      "card": "FR-23",
       "children": [],
       "code": "events-during",
       "depends": [],
@@ -38502,6 +39136,7 @@
           "why": "Exhibitor Story is draft"
         }
       ],
+      "card": "FR-24",
       "children": [],
       "code": "exhibitor",
       "depends": [],
@@ -38550,6 +39185,7 @@
           "why": "Files Upload Story is draft"
         }
       ],
+      "card": "FR-04",
       "children": [],
       "code": "files",
       "depends": [],
@@ -38598,6 +39234,7 @@
           "why": "Gemma AI Story is draft"
         }
       ],
+      "card": "FR-36",
       "children": [],
       "code": "gemma",
       "depends": [],
@@ -38645,6 +39282,7 @@
           "why": "Interests Story is draft"
         }
       ],
+      "card": "FR-37",
       "children": [],
       "code": "interests",
       "depends": [],
@@ -38692,6 +39330,7 @@
           "why": "Linked Accounts (OAuth) Story is draft"
         }
       ],
+      "card": "FR-38",
       "children": [],
       "code": "linked-accounts",
       "depends": [],
@@ -38740,6 +39379,7 @@
           "why": "Meetings Story is draft"
         }
       ],
+      "card": "FR-26",
       "children": [],
       "code": "meetings",
       "depends": [],
@@ -38790,6 +39430,7 @@
           "why": "Notifications Story is draft"
         }
       ],
+      "card": "FR-39",
       "children": [],
       "code": "notifications",
       "depends": [],
@@ -38836,6 +39477,7 @@
           "why": "Onboarding Imports Story is draft"
         }
       ],
+      "card": "FR-05",
       "children": [],
       "code": "onboarding-imports",
       "depends": [],
@@ -38886,6 +39528,7 @@
           "why": "Payments & Orders Story is draft"
         }
       ],
+      "card": "FR-27",
       "children": [],
       "code": "payments",
       "depends": [],
@@ -38933,6 +39576,7 @@
           "why": "Photo Library Story is draft"
         }
       ],
+      "card": "FR-06",
       "children": [],
       "code": "photo-library",
       "depends": [],
@@ -38980,6 +39624,7 @@
           "why": "PinCast & Nearby Story is draft"
         }
       ],
+      "card": "FR-20",
       "children": [],
       "code": "pincast",
       "depends": [],
@@ -39030,6 +39675,7 @@
           "why": "Post-Event Story is draft"
         }
       ],
+      "card": "FR-25",
       "children": [],
       "code": "post-event",
       "depends": [],
@@ -39076,6 +39722,7 @@
           "why": "Profiles & Pin Name Story is draft"
         }
       ],
+      "card": "FR-07",
       "children": [],
       "code": "profiles",
       "depends": [],
@@ -39122,6 +39769,7 @@
           "why": "Ring Access Engine Story is draft"
         }
       ],
+      "card": "FR-08",
       "children": [],
       "code": "ring-access",
       "depends": [],
@@ -39166,6 +39814,7 @@
           "why": "Ring Invitations & Join Story is draft"
         }
       ],
+      "card": "FR-17",
       "children": [],
       "code": "ring-invitations",
       "depends": [],
@@ -39213,6 +39862,7 @@
           "why": "Ring Members Story is draft"
         }
       ],
+      "card": "FR-09",
       "children": [],
       "code": "ring-members",
       "depends": [],
@@ -39260,6 +39910,7 @@
           "why": "Ring Projection Story is draft"
         }
       ],
+      "card": "FR-10",
       "children": [],
       "code": "ring-projection",
       "depends": [],
@@ -39312,6 +39963,7 @@
           "why": "Rings Story is draft"
         }
       ],
+      "card": "FR-11",
       "children": [],
       "code": "rings",
       "depends": [],
@@ -39368,6 +40020,7 @@
           "why": "Subscription (Free vs Pro) Story is draft"
         }
       ],
+      "card": "FR-28",
       "children": [],
       "code": "subscription",
       "depends": [],
@@ -39415,6 +40068,7 @@
           "why": "View As & Pin Views Story is draft"
         }
       ],
+      "card": "FR-12",
       "children": [],
       "code": "view-as",
       "depends": [],
@@ -39463,6 +40117,7 @@
           "why": "Widgets Story is draft"
         }
       ],
+      "card": "FR-13",
       "children": [],
       "code": "widgets",
       "depends": [],
@@ -39504,6 +40159,7 @@
     "group:backend": {
       "affects": [],
       "blockedBy": [],
+      "card": null,
       "children": [
         "project:api-conventions",
         "project:architecture",
@@ -39548,6 +40204,7 @@
     "group:business": {
       "affects": [],
       "blockedBy": [],
+      "card": null,
       "children": [
         "project:feature-graph",
         "project:feature-tree",
@@ -39589,6 +40246,7 @@
     "group:frontend": {
       "affects": [],
       "blockedBy": [],
+      "card": null,
       "children": [
         "project:frontend-agent-prompt",
         "project:frontend-api-guide",
@@ -39629,6 +40287,7 @@
     "group:shared": {
       "affects": [],
       "blockedBy": [],
+      "card": null,
       "children": [
         "project:agent-rules",
         "project:docs-tree",
@@ -39668,6 +40327,7 @@
     "module:commerce": {
       "affects": [],
       "blockedBy": [],
+      "card": "M-07",
       "children": [
         "feature:payments",
         "feature:subscription"
@@ -39716,6 +40376,7 @@
     "module:connections": {
       "affects": [],
       "blockedBy": [],
+      "card": "M-02",
       "children": [
         "feature:connections"
       ],
@@ -39763,6 +40424,7 @@
     "module:discovery": {
       "affects": [],
       "blockedBy": [],
+      "card": "M-04",
       "children": [
         "feature:badge-qr",
         "feature:discover-hub",
@@ -39812,6 +40474,7 @@
     "module:events": {
       "affects": [],
       "blockedBy": [],
+      "card": "M-05",
       "children": [
         "feature:event-ring-auto",
         "feature:events-before",
@@ -39863,6 +40526,7 @@
     "module:identity": {
       "affects": [],
       "blockedBy": [],
+      "card": "M-01",
       "children": [
         "feature:account",
         "feature:auth",
@@ -39926,6 +40590,7 @@
     "module:meetings": {
       "affects": [],
       "blockedBy": [],
+      "card": "M-06",
       "children": [
         "feature:meetings"
       ],
@@ -39972,6 +40637,7 @@
     "module:platform": {
       "affects": [],
       "blockedBy": [],
+      "card": "M-08",
       "children": [
         "feature:app-shell",
         "feature:audit-log",
@@ -40032,6 +40698,7 @@
     "module:shared-rings": {
       "affects": [],
       "blockedBy": [],
+      "card": "M-03",
       "children": [
         "feature:companies",
         "feature:delegated-admins",
@@ -40084,6 +40751,7 @@
         "project:docs-tree"
       ],
       "blockedBy": [],
+      "card": "P-18",
       "children": [],
       "code": null,
       "depends": [],
@@ -40120,11 +40788,12 @@
       ],
       "task": null,
       "title": "Agent Rules",
-      "updated": "2026-10-18"
+      "updated": "2026-10-19"
     },
     "project:api-conventions": {
       "affects": [],
       "blockedBy": [],
+      "card": "P-10",
       "children": [],
       "code": null,
       "depends": [],
@@ -40200,6 +40869,7 @@
     "project:architecture": {
       "affects": [],
       "blockedBy": [],
+      "card": "P-11",
       "children": [],
       "code": null,
       "depends": [],
@@ -40275,6 +40945,7 @@
     "project:auth-model": {
       "affects": [],
       "blockedBy": [],
+      "card": "P-12",
       "children": [],
       "code": null,
       "depends": [],
@@ -40310,6 +40981,7 @@
     "project:database-migrations": {
       "affects": [],
       "blockedBy": [],
+      "card": "P-13",
       "children": [],
       "code": null,
       "depends": [],
@@ -40345,6 +41017,7 @@
     "project:developer-guide": {
       "affects": [],
       "blockedBy": [],
+      "card": "P-14",
       "children": [],
       "code": null,
       "depends": [],
@@ -40380,6 +41053,7 @@
     "project:developer-setup": {
       "affects": [],
       "blockedBy": [],
+      "card": "P-15",
       "children": [],
       "code": null,
       "depends": [],
@@ -40415,6 +41089,7 @@
     "project:docs-tree": {
       "affects": [],
       "blockedBy": [],
+      "card": "P-19",
       "children": [],
       "code": null,
       "depends": [],
@@ -40450,11 +41125,12 @@
       ],
       "task": null,
       "title": "Docs Tree",
-      "updated": "2026-10-18"
+      "updated": "2026-10-19"
     },
     "project:feature-graph": {
       "affects": [],
       "blockedBy": [],
+      "card": "P-01",
       "children": [],
       "code": null,
       "depends": [],
@@ -40490,6 +41166,7 @@
     "project:feature-tree": {
       "affects": [],
       "blockedBy": [],
+      "card": "P-02",
       "children": [],
       "code": null,
       "depends": [],
@@ -40525,6 +41202,7 @@
     "project:frontend-agent-prompt": {
       "affects": [],
       "blockedBy": [],
+      "card": "P-06",
       "children": [],
       "code": null,
       "depends": [],
@@ -40566,6 +41244,7 @@
     "project:frontend-api-guide": {
       "affects": [],
       "blockedBy": [],
+      "card": "P-07",
       "children": [],
       "code": null,
       "depends": [],
@@ -40603,6 +41282,7 @@
     "project:frontend-contract": {
       "affects": [],
       "blockedBy": [],
+      "card": "P-08",
       "children": [],
       "code": null,
       "depends": [],
@@ -40641,6 +41321,7 @@
     "project:frontend-passwordless-migration": {
       "affects": [],
       "blockedBy": [],
+      "card": "P-09",
       "children": [],
       "code": null,
       "depends": [],
@@ -40678,6 +41359,7 @@
     "project:glossary": {
       "affects": [],
       "blockedBy": [],
+      "card": "P-03",
       "children": [],
       "code": null,
       "depends": [],
@@ -40713,6 +41395,7 @@
     "project:project-overview": {
       "affects": [],
       "blockedBy": [],
+      "card": "P-04",
       "children": [],
       "code": null,
       "depends": [],
@@ -40748,6 +41431,7 @@
     "project:ring-access-model": {
       "affects": [],
       "blockedBy": [],
+      "card": "P-16",
       "children": [],
       "code": null,
       "depends": [],
@@ -40824,6 +41508,7 @@
     "project:spec-map": {
       "affects": [],
       "blockedBy": [],
+      "card": "P-17",
       "children": [],
       "code": null,
       "depends": [],
@@ -40899,6 +41584,7 @@
     "project:status-report-2026-10-15": {
       "affects": [],
       "blockedBy": [],
+      "card": "P-05",
       "children": [],
       "code": null,
       "depends": [],
@@ -40935,6 +41621,7 @@
     "project:workflow": {
       "affects": [],
       "blockedBy": [],
+      "card": "P-20",
       "children": [],
       "code": null,
       "depends": [],
@@ -40969,11 +41656,12 @@
       ],
       "task": null,
       "title": "Workflow",
-      "updated": "2026-10-18"
+      "updated": "2026-10-19"
     },
     "qa-backend:account": {
       "affects": [],
       "blockedBy": [],
+      "card": null,
       "children": [],
       "code": "account",
       "depends": [],
@@ -41014,6 +41702,7 @@
           "why": "Audit Log Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "audit-log",
       "depends": [],
@@ -41048,6 +41737,7 @@
     "qa-backend:auth": {
       "affects": [],
       "blockedBy": [],
+      "card": null,
       "children": [],
       "code": "auth",
       "depends": [],
@@ -41088,6 +41778,7 @@
           "why": "Badge & QR Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "badge-qr",
       "depends": [],
@@ -41128,6 +41819,7 @@
           "why": "Cleanup Jobs Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "cleanup-jobs",
       "depends": [],
@@ -41168,6 +41860,7 @@
           "why": "Code Delivery Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "code-delivery",
       "depends": [],
@@ -41208,6 +41901,7 @@
           "why": "Companies Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "companies",
       "depends": [],
@@ -41248,6 +41942,7 @@
           "why": "Connections Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "connections",
       "depends": [],
@@ -41288,6 +41983,7 @@
           "why": "Counts Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "counts",
       "depends": [],
@@ -41328,6 +42024,7 @@
           "why": "Delegated Admins Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "delegated-admins",
       "depends": [],
@@ -41368,6 +42065,7 @@
           "why": "Devices & NFC Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "devices",
       "depends": [],
@@ -41408,6 +42106,7 @@
           "why": "Discover Hub & Search Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "discover-hub",
       "depends": [],
@@ -41448,6 +42147,7 @@
           "why": "E2E Test Run Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "e2e-tests",
       "depends": [],
@@ -41488,6 +42188,7 @@
           "why": "Error Contract Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "error-contract",
       "depends": [],
@@ -41528,6 +42229,7 @@
           "why": "Event Ring Auto-creation Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "event-ring-auto",
       "depends": [],
@@ -41568,6 +42270,7 @@
           "why": "Events Before Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "events-before",
       "depends": [],
@@ -41608,6 +42311,7 @@
           "why": "Events During Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "events-during",
       "depends": [],
@@ -41648,6 +42352,7 @@
           "why": "Exhibitor Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "exhibitor",
       "depends": [],
@@ -41682,6 +42387,7 @@
     "qa-backend:files": {
       "affects": [],
       "blockedBy": [],
+      "card": null,
       "children": [],
       "code": "files",
       "depends": [],
@@ -41722,6 +42428,7 @@
           "why": "Gemma AI Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "gemma",
       "depends": [],
@@ -41762,6 +42469,7 @@
           "why": "Interests Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "interests",
       "depends": [],
@@ -41802,6 +42510,7 @@
           "why": "Linked Accounts (OAuth) Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "linked-accounts",
       "depends": [],
@@ -41842,6 +42551,7 @@
           "why": "Meetings Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "meetings",
       "depends": [],
@@ -41882,6 +42592,7 @@
           "why": "Notifications Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "notifications",
       "depends": [],
@@ -41922,6 +42633,7 @@
           "why": "Onboarding Imports Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "onboarding-imports",
       "depends": [],
@@ -41962,6 +42674,7 @@
           "why": "Payments & Orders Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "payments",
       "depends": [],
@@ -42002,6 +42715,7 @@
           "why": "Photo Library Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "photo-library",
       "depends": [],
@@ -42042,6 +42756,7 @@
           "why": "PinCast & Nearby Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "pincast",
       "depends": [],
@@ -42082,6 +42797,7 @@
           "why": "Post-Event Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "post-event",
       "depends": [],
@@ -42116,6 +42832,7 @@
     "qa-backend:profiles": {
       "affects": [],
       "blockedBy": [],
+      "card": null,
       "children": [],
       "code": "profiles",
       "depends": [],
@@ -42150,6 +42867,7 @@
     "qa-backend:ring-access": {
       "affects": [],
       "blockedBy": [],
+      "card": null,
       "children": [],
       "code": "ring-access",
       "depends": [],
@@ -42190,6 +42908,7 @@
           "why": "Ring Invitations & Join Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "ring-invitations",
       "depends": [],
@@ -42224,6 +42943,7 @@
     "qa-backend:ring-members": {
       "affects": [],
       "blockedBy": [],
+      "card": null,
       "children": [],
       "code": "ring-members",
       "depends": [],
@@ -42258,6 +42978,7 @@
     "qa-backend:ring-projection": {
       "affects": [],
       "blockedBy": [],
+      "card": null,
       "children": [],
       "code": "ring-projection",
       "depends": [],
@@ -42292,6 +43013,7 @@
     "qa-backend:rings": {
       "affects": [],
       "blockedBy": [],
+      "card": null,
       "children": [],
       "code": "rings",
       "depends": [],
@@ -42332,6 +43054,7 @@
           "why": "Subscription (Free vs Pro) Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "subscription",
       "depends": [],
@@ -42366,6 +43089,7 @@
     "qa-backend:view-as": {
       "affects": [],
       "blockedBy": [],
+      "card": null,
       "children": [],
       "code": "view-as",
       "depends": [],
@@ -42406,6 +43130,7 @@
           "why": "Widgets Backend Delivery is blocked"
         }
       ],
+      "card": null,
       "children": [],
       "code": "widgets",
       "depends": [],
@@ -42446,6 +43171,7 @@
           "why": "Account Frontend Delivery is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "account",
       "depends": [],
@@ -42486,6 +43212,7 @@
           "why": "App Shell & Onboarding Narrative Frontend Delivery is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "app-shell",
       "depends": [],
@@ -42526,6 +43253,7 @@
           "why": "Audit Log Frontend Delivery is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "audit-log",
       "depends": [],
@@ -42566,6 +43294,7 @@
           "why": "Auth & Sign-up Frontend Delivery is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "auth",
       "depends": [],
@@ -42606,6 +43335,7 @@
           "why": "Badge & QR Frontend Delivery is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "badge-qr",
       "depends": [],
@@ -42646,6 +43376,7 @@
           "why": "Cleanup Jobs Frontend Delivery is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "cleanup-jobs",
       "depends": [],
@@ -42686,6 +43417,7 @@
           "why": "Code Delivery Frontend Delivery is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "code-delivery",
       "depends": [],
@@ -42726,6 +43458,7 @@
           "why": "Companies Frontend Delivery is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "companies",
       "depends": [],
@@ -42766,6 +43499,7 @@
           "why": "Connections Frontend Delivery is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "connections",
       "depends": [],
@@ -42806,6 +43540,7 @@
           "why": "Counts Frontend Delivery is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "counts",
       "depends": [],
@@ -42846,6 +43581,7 @@
           "why": "Delegated Admins Frontend Delivery is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "delegated-admins",
       "depends": [],
@@ -42886,6 +43622,7 @@
           "why": "Devices & NFC Frontend Delivery is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "devices",
       "depends": [],
@@ -42926,6 +43663,7 @@
           "why": "Discover Hub & Search Frontend Delivery is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "discover-hub",
       "depends": [],
@@ -42966,6 +43704,7 @@
           "why": "E2E Test Run Frontend Delivery is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "e2e-tests",
       "depends": [],
@@ -43006,6 +43745,7 @@
           "why": "Error Contract Frontend Delivery is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "error-contract",
       "depends": [],
@@ -43046,6 +43786,7 @@
           "why": "Event Ring Auto-creation Frontend Delivery is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "event-ring-auto",
       "depends": [],
@@ -43086,6 +43827,7 @@
           "why": "Events Before Frontend Delivery is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "events-before",
       "depends": [],
@@ -43126,6 +43868,7 @@
           "why": "Events During Frontend Delivery is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "events-during",
       "depends": [],
@@ -43166,6 +43909,7 @@
           "why": "Exhibitor Frontend Delivery is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "exhibitor",
       "depends": [],
@@ -43206,6 +43950,7 @@
           "why": "Files Upload Frontend Delivery is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "files",
       "depends": [],
@@ -43246,6 +43991,7 @@
           "why": "Gemma AI Frontend Delivery is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "gemma",
       "depends": [],
@@ -43286,6 +44032,7 @@
           "why": "Interests Frontend Delivery is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "interests",
       "depends": [],
@@ -43326,6 +44073,7 @@
           "why": "Linked Accounts (OAuth) Frontend Delivery is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "linked-accounts",
       "depends": [],
@@ -43366,6 +44114,7 @@
           "why": "Meetings Frontend Delivery is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "meetings",
       "depends": [],
@@ -43406,6 +44155,7 @@
           "why": "Notifications Frontend Delivery is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "notifications",
       "depends": [],
@@ -43446,6 +44196,7 @@
           "why": "Onboarding Imports Frontend Delivery is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "onboarding-imports",
       "depends": [],
@@ -43486,6 +44237,7 @@
           "why": "Payments & Orders Frontend Delivery is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "payments",
       "depends": [],
@@ -43526,6 +44278,7 @@
           "why": "Photo Library Frontend Delivery is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "photo-library",
       "depends": [],
@@ -43566,6 +44319,7 @@
           "why": "PinCast & Nearby Frontend Delivery is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "pincast",
       "depends": [],
@@ -43606,6 +44360,7 @@
           "why": "Post-Event Frontend Delivery is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "post-event",
       "depends": [],
@@ -43646,6 +44401,7 @@
           "why": "Profiles & Pin Name Frontend Delivery is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "profiles",
       "depends": [],
@@ -43686,6 +44442,7 @@
           "why": "Ring Access Engine Frontend Delivery is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "ring-access",
       "depends": [],
@@ -43726,6 +44483,7 @@
           "why": "Ring Invitations & Join Frontend Delivery is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "ring-invitations",
       "depends": [],
@@ -43766,6 +44524,7 @@
           "why": "Ring Members Frontend Delivery is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "ring-members",
       "depends": [],
@@ -43806,6 +44565,7 @@
           "why": "Ring Projection Frontend Delivery is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "ring-projection",
       "depends": [],
@@ -43846,6 +44606,7 @@
           "why": "Rings Frontend Delivery is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "rings",
       "depends": [],
@@ -43886,6 +44647,7 @@
           "why": "Subscription (Free vs Pro) Frontend Delivery is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "subscription",
       "depends": [],
@@ -43926,6 +44688,7 @@
           "why": "View As & Pin Views Frontend Delivery is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "view-as",
       "depends": [],
@@ -43966,6 +44729,7 @@
           "why": "Widgets Frontend Delivery is not written yet"
         }
       ],
+      "card": null,
       "children": [],
       "code": "widgets",
       "depends": [],
@@ -44000,6 +44764,7 @@
     "root": {
       "affects": [],
       "blockedBy": [],
+      "card": null,
       "children": [
         "module:identity",
         "module:connections",
@@ -44057,6 +44822,7 @@
     "story:T-001": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-79",
       "children": [],
       "code": "T-001",
       "depends": [],
@@ -44097,6 +44863,7 @@
     "story:T-002": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-80",
       "children": [],
       "code": "T-002",
       "depends": [],
@@ -44137,6 +44904,7 @@
     "story:T-003": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-81",
       "children": [],
       "code": "T-003",
       "depends": [],
@@ -44177,6 +44945,7 @@
     "story:T-004": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-04",
       "children": [],
       "code": "T-004",
       "depends": [],
@@ -44218,6 +44987,7 @@
     "story:T-005": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-05",
       "children": [],
       "code": "T-005",
       "depends": [],
@@ -44259,6 +45029,7 @@
     "story:T-006": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-32",
       "children": [],
       "code": "T-006",
       "depends": [],
@@ -44300,6 +45071,7 @@
     "story:T-007": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-38",
       "children": [],
       "code": "T-007",
       "depends": [],
@@ -44340,6 +45112,7 @@
     "story:T-008": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-39",
       "children": [],
       "code": "T-008",
       "depends": [],
@@ -44381,6 +45154,7 @@
     "story:T-009": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-40",
       "children": [],
       "code": "T-009",
       "depends": [],
@@ -44421,6 +45195,7 @@
     "story:T-010": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-41",
       "children": [],
       "code": "T-010",
       "depends": [],
@@ -44461,6 +45236,7 @@
     "story:T-011": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-48",
       "children": [],
       "code": "T-011",
       "depends": [],
@@ -44501,6 +45277,7 @@
     "story:T-012": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-12",
       "children": [],
       "code": "T-012",
       "depends": [],
@@ -44541,6 +45318,7 @@
     "story:T-013": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-13",
       "children": [],
       "code": "T-013",
       "depends": [],
@@ -44581,6 +45359,7 @@
     "story:T-014": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-83",
       "children": [],
       "code": "T-014",
       "depends": [],
@@ -44621,6 +45400,7 @@
     "story:T-015": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-84",
       "children": [],
       "code": "T-015",
       "depends": [],
@@ -44661,6 +45441,7 @@
     "story:T-016": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-93",
       "children": [],
       "code": "T-016",
       "depends": [],
@@ -44702,6 +45483,7 @@
     "story:T-017": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-21",
       "children": [],
       "code": "T-017",
       "depends": [],
@@ -44742,6 +45524,7 @@
     "story:T-018": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-22",
       "children": [],
       "code": "T-018",
       "depends": [],
@@ -44783,6 +45566,7 @@
     "story:T-019": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-95",
       "children": [],
       "code": "T-019",
       "depends": [],
@@ -44825,6 +45609,7 @@
     "story:T-020": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-09",
       "children": [],
       "code": "T-020",
       "depends": [],
@@ -44866,6 +45651,7 @@
     "story:T-020b": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-10",
       "children": [],
       "code": "T-020b",
       "depends": [],
@@ -44907,6 +45693,7 @@
     "story:T-021": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-24",
       "children": [],
       "code": "T-021",
       "depends": [],
@@ -44948,6 +45735,7 @@
     "story:T-022": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-25",
       "children": [],
       "code": "T-022",
       "depends": [],
@@ -44988,6 +45776,7 @@
     "story:T-023": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-26",
       "children": [],
       "code": "T-023",
       "depends": [],
@@ -45028,6 +45817,7 @@
     "story:T-024": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-27",
       "children": [],
       "code": "T-024",
       "depends": [],
@@ -45068,6 +45858,7 @@
     "story:T-025": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-28",
       "children": [],
       "code": "T-025",
       "depends": [],
@@ -45108,6 +45899,7 @@
     "story:T-026": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-34",
       "children": [],
       "code": "T-026",
       "depends": [],
@@ -45148,6 +45940,7 @@
     "story:T-027": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-35",
       "children": [],
       "code": "T-027",
       "depends": [],
@@ -45188,6 +45981,7 @@
     "story:T-028": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-36",
       "children": [],
       "code": "T-028",
       "depends": [],
@@ -45228,6 +46022,7 @@
     "story:T-029": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-30",
       "children": [],
       "code": "T-029",
       "depends": [],
@@ -45269,6 +46064,7 @@
     "story:T-030": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-43",
       "children": [],
       "code": "T-030",
       "depends": [],
@@ -45309,6 +46105,7 @@
     "story:T-031": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-44",
       "children": [],
       "code": "T-031",
       "depends": [],
@@ -45349,6 +46146,7 @@
     "story:T-032": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-46",
       "children": [],
       "code": "T-032",
       "depends": [],
@@ -45392,6 +46190,7 @@
     "story:T-033": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-50",
       "children": [],
       "code": "T-033",
       "depends": [],
@@ -45433,6 +46232,7 @@
     "story:T-034": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-51",
       "children": [],
       "code": "T-034",
       "depends": [],
@@ -45473,6 +46273,7 @@
     "story:T-035": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-52",
       "children": [],
       "code": "T-035",
       "depends": [],
@@ -45514,6 +46315,7 @@
     "story:T-036": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-54",
       "children": [],
       "code": "T-036",
       "depends": [],
@@ -45556,6 +46358,7 @@
     "story:T-037": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-55",
       "children": [],
       "code": "T-037",
       "depends": [],
@@ -45596,6 +46399,7 @@
     "story:T-038": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-56",
       "children": [],
       "code": "T-038",
       "depends": [],
@@ -45636,6 +46440,7 @@
     "story:T-039": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-57",
       "children": [],
       "code": "T-039",
       "depends": [],
@@ -45676,6 +46481,7 @@
     "story:T-040": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-58",
       "children": [],
       "code": "T-040",
       "depends": [],
@@ -45716,6 +46522,7 @@
     "story:T-041": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-65",
       "children": [],
       "code": "T-041",
       "depends": [],
@@ -45757,6 +46564,7 @@
     "story:T-042": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-66",
       "children": [],
       "code": "T-042",
       "depends": [],
@@ -45798,6 +46606,7 @@
     "story:T-043": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-67",
       "children": [],
       "code": "T-043",
       "depends": [],
@@ -45839,6 +46648,7 @@
     "story:T-044": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-68",
       "children": [],
       "code": "T-044",
       "depends": [],
@@ -45881,6 +46691,7 @@
     "story:T-045": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-97",
       "children": [],
       "code": "T-045",
       "depends": [],
@@ -45921,6 +46732,7 @@
     "story:T-046": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-98",
       "children": [],
       "code": "T-046",
       "depends": [],
@@ -45961,6 +46773,7 @@
     "story:T-047": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-70",
       "children": [],
       "code": "T-047",
       "depends": [],
@@ -46001,6 +46814,7 @@
     "story:T-048": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-60",
       "children": [],
       "code": "T-048",
       "depends": [],
@@ -46041,6 +46855,7 @@
     "story:T-048b": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-61",
       "children": [],
       "code": "T-048b",
       "depends": [],
@@ -46081,6 +46896,7 @@
     "story:T-049": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-72",
       "children": [],
       "code": "T-049",
       "depends": [],
@@ -46121,6 +46937,7 @@
     "story:T-050": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-63",
       "children": [],
       "code": "T-050",
       "depends": [],
@@ -46161,6 +46978,7 @@
     "story:T-051": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-90",
       "children": [],
       "code": "T-051",
       "depends": [],
@@ -46201,6 +47019,7 @@
     "story:T-052": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-91",
       "children": [],
       "code": "T-052",
       "depends": [],
@@ -46241,6 +47060,7 @@
     "story:T-053": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-75",
       "children": [],
       "code": "T-053",
       "depends": [],
@@ -46279,6 +47099,7 @@
     "story:T-054": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-77",
       "children": [],
       "code": "T-054",
       "depends": [],
@@ -46317,6 +47138,7 @@
     "story:T-055": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-86",
       "children": [],
       "code": "T-055",
       "depends": [],
@@ -46355,6 +47177,7 @@
     "story:T-062": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-07",
       "children": [],
       "code": "T-062",
       "depends": [],
@@ -46399,6 +47222,7 @@
     "story:T-063": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-88",
       "children": [],
       "code": "T-063",
       "depends": [],
@@ -46437,6 +47261,7 @@
     "story:account": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-01",
       "children": [],
       "code": "account",
       "depends": [],
@@ -46477,6 +47302,7 @@
     "story:app-shell": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-73",
       "children": [],
       "code": "app-shell",
       "depends": [],
@@ -46520,6 +47346,7 @@
     "story:audit-log": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-74",
       "children": [],
       "code": "audit-log",
       "depends": [],
@@ -46558,6 +47385,7 @@
     "story:auth": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-02",
       "children": [],
       "code": "auth",
       "depends": [],
@@ -46602,6 +47430,7 @@
     "story:badge-qr": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-37",
       "children": [],
       "code": "badge-qr",
       "depends": [],
@@ -46645,6 +47474,7 @@
     "story:cleanup-jobs": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-76",
       "children": [],
       "code": "cleanup-jobs",
       "depends": [],
@@ -46683,6 +47513,7 @@
     "story:code-delivery": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-78",
       "children": [],
       "code": "code-delivery",
       "depends": [],
@@ -46723,6 +47554,7 @@
     "story:companies": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-29",
       "children": [],
       "code": "companies",
       "depends": [],
@@ -46764,6 +47596,7 @@
     "story:connections": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-23",
       "children": [],
       "code": "connections",
       "depends": [],
@@ -46808,6 +47641,7 @@
     "story:counts": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-03",
       "children": [],
       "code": "counts",
       "depends": [],
@@ -46853,6 +47687,7 @@
     "story:delegated-admins": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-31",
       "children": [],
       "code": "delegated-admins",
       "depends": [],
@@ -46894,6 +47729,7 @@
     "story:devices": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-82",
       "children": [],
       "code": "devices",
       "depends": [],
@@ -46934,6 +47770,7 @@
     "story:discover-hub": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-42",
       "children": [],
       "code": "discover-hub",
       "depends": [],
@@ -46974,6 +47811,7 @@
     "story:e2e-tests": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-85",
       "children": [],
       "code": "e2e-tests",
       "depends": [],
@@ -47012,6 +47850,7 @@
     "story:error-contract": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-87",
       "children": [],
       "code": "error-contract",
       "depends": [],
@@ -47050,6 +47889,7 @@
     "story:event-ring-auto": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-47",
       "children": [],
       "code": "event-ring-auto",
       "depends": [],
@@ -47090,6 +47930,7 @@
     "story:events-before": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-49",
       "children": [],
       "code": "events-before",
       "depends": [],
@@ -47134,6 +47975,7 @@
     "story:events-during": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-53",
       "children": [],
       "code": "events-during",
       "depends": [],
@@ -47179,6 +48021,7 @@
     "story:exhibitor": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-59",
       "children": [],
       "code": "exhibitor",
       "depends": [],
@@ -47221,6 +48064,7 @@
     "story:files": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-06",
       "children": [],
       "code": "files",
       "depends": [],
@@ -47263,6 +48107,7 @@
     "story:gemma": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-89",
       "children": [],
       "code": "gemma",
       "depends": [],
@@ -47304,6 +48149,7 @@
     "story:interests": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-92",
       "children": [],
       "code": "interests",
       "depends": [],
@@ -47345,6 +48191,7 @@
     "story:linked-accounts": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-94",
       "children": [],
       "code": "linked-accounts",
       "depends": [],
@@ -47387,6 +48234,7 @@
     "story:meetings": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-64",
       "children": [],
       "code": "meetings",
       "depends": [],
@@ -47431,6 +48279,7 @@
     "story:notifications": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-96",
       "children": [],
       "code": "notifications",
       "depends": [],
@@ -47471,6 +48320,7 @@
     "story:onboarding-imports": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-08",
       "children": [],
       "code": "onboarding-imports",
       "depends": [],
@@ -47515,6 +48365,7 @@
     "story:payments": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-69",
       "children": [],
       "code": "payments",
       "depends": [],
@@ -47556,6 +48407,7 @@
     "story:photo-library": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-11",
       "children": [],
       "code": "photo-library",
       "depends": [],
@@ -47597,6 +48449,7 @@
     "story:pincast": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-45",
       "children": [],
       "code": "pincast",
       "depends": [],
@@ -47641,6 +48494,7 @@
     "story:post-event": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-62",
       "children": [],
       "code": "post-event",
       "depends": [],
@@ -47681,6 +48535,7 @@
     "story:profiles": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-14",
       "children": [],
       "code": "profiles",
       "depends": [],
@@ -47721,6 +48576,7 @@
     "story:ring-access": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-15",
       "children": [],
       "code": "ring-access",
       "depends": [],
@@ -47759,6 +48615,7 @@
     "story:ring-invitations": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-33",
       "children": [],
       "code": "ring-invitations",
       "depends": [],
@@ -47800,6 +48657,7 @@
     "story:ring-members": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-16",
       "children": [],
       "code": "ring-members",
       "depends": [],
@@ -47841,6 +48699,7 @@
     "story:ring-projection": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-17",
       "children": [],
       "code": "ring-projection",
       "depends": [],
@@ -47887,6 +48746,7 @@
     "story:rings": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-18",
       "children": [],
       "code": "rings",
       "depends": [],
@@ -47937,6 +48797,7 @@
     "story:subscription": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-71",
       "children": [],
       "code": "subscription",
       "depends": [],
@@ -47978,6 +48839,7 @@
     "story:view-as": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-19",
       "children": [],
       "code": "view-as",
       "depends": [],
@@ -48020,6 +48882,7 @@
     "story:widgets": {
       "affects": [],
       "blockedBy": [],
+      "card": "S-20",
       "children": [],
       "code": "widgets",
       "depends": [],
@@ -48061,6 +48924,7 @@
     "task:T-001": {
       "affects": [],
       "blockedBy": [],
+      "card": "T-001",
       "children": [
         "story:T-001",
         "task:T-001-be"
@@ -48110,6 +48974,7 @@
     "task:T-001-be": {
       "affects": [],
       "blockedBy": [],
+      "card": "T-001-be",
       "children": [],
       "code": "T-001-be",
       "decision": null,
@@ -48162,6 +49027,7 @@
           "why": "T-001 Wire an email provider for one-time codes is to do"
         }
       ],
+      "card": "T-002",
       "children": [
         "story:T-002",
         "task:T-002-be"
@@ -48219,6 +49085,7 @@
           "why": "T-001 Wire an email provider for one-time codes is to do"
         }
       ],
+      "card": "T-002-be",
       "children": [],
       "code": "T-002-be",
       "decision": null,
@@ -48278,6 +49145,7 @@
           "why": "T-002 Wire an SMS provider for one-time codes is blocked"
         }
       ],
+      "card": "T-003",
       "children": [
         "story:T-003",
         "task:T-003-be"
@@ -48341,6 +49209,7 @@
           "why": "T-002 Wire an SMS provider for one-time codes is blocked"
         }
       ],
+      "card": "T-003-be",
       "children": [],
       "code": "T-003-be",
       "decision": null,
@@ -48390,6 +49259,7 @@
     "task:T-004": {
       "affects": [],
       "blockedBy": [],
+      "card": "T-004",
       "children": [
         "story:T-004",
         "task:T-004-be",
@@ -48442,6 +49312,7 @@
     "task:T-004-be": {
       "affects": [],
       "blockedBy": [],
+      "card": "T-004-be",
       "children": [],
       "code": "T-004-be",
       "decision": null,
@@ -48495,6 +49366,7 @@
           "why": "T-004-be Backend · Member count per Ring on list and detail is to do"
         }
       ],
+      "card": "T-004-fe",
       "children": [],
       "code": "T-004-fe",
       "decision": null,
@@ -48550,6 +49422,7 @@
           "why": "T-021 Connect request send, inbox, cancel is to do"
         }
       ],
+      "card": "T-005",
       "children": [
         "story:T-005",
         "task:T-005-be",
@@ -48609,6 +49482,7 @@
           "why": "T-021 Connect request send, inbox, cancel is to do"
         }
       ],
+      "card": "T-005-be",
       "children": [],
       "code": "T-005-be",
       "decision": null,
@@ -48669,6 +49543,7 @@
           "why": "T-005-be Backend · Connection count on Me and Home is blocked"
         }
       ],
+      "card": "T-005-fe",
       "children": [],
       "code": "T-005-fe",
       "decision": null,
@@ -48719,6 +49594,7 @@
     "task:T-006": {
       "affects": [],
       "blockedBy": [],
+      "card": "T-006",
       "children": [
         "story:T-006",
         "task:T-006-be",
@@ -48771,6 +49647,7 @@
     "task:T-006-be": {
       "affects": [],
       "blockedBy": [],
+      "card": "T-006-be",
       "children": [],
       "code": "T-006-be",
       "decision": null,
@@ -48824,6 +49701,7 @@
           "why": "T-006-be Backend · Delegated admin endpoints is to do"
         }
       ],
+      "card": "T-006-fe",
       "children": [],
       "code": "T-006-fe",
       "decision": null,
@@ -48873,6 +49751,7 @@
     "task:T-007": {
       "affects": [],
       "blockedBy": [],
+      "card": "T-007",
       "children": [
         "story:T-007",
         "task:T-007-be",
@@ -48924,6 +49803,7 @@
     "task:T-007-be": {
       "affects": [],
       "blockedBy": [],
+      "card": "T-007-be",
       "children": [],
       "code": "T-007-be",
       "decision": null,
@@ -48976,6 +49856,7 @@
           "why": "T-007-be Backend · Issue and rotate the QR token for a Ring is to do"
         }
       ],
+      "card": "T-007-fe",
       "children": [],
       "code": "T-007-fe",
       "decision": null,
@@ -49030,6 +49911,7 @@
           "why": "T-007 Issue and rotate the QR token for a Ring is to do"
         }
       ],
+      "card": "T-008",
       "children": [
         "story:T-008",
         "task:T-008-be",
@@ -49089,6 +49971,7 @@
           "why": "T-007 Issue and rotate the QR token for a Ring is to do"
         }
       ],
+      "card": "T-008-be",
       "children": [],
       "code": "T-008-be",
       "decision": null,
@@ -49149,6 +50032,7 @@
           "why": "T-008-be Backend · Resolve a scanned QR token is blocked"
         }
       ],
+      "card": "T-008-fe",
       "children": [],
       "code": "T-008-fe",
       "decision": null,
@@ -49205,6 +50089,7 @@
           "why": "T-008 Resolve a scanned QR token is blocked"
         }
       ],
+      "card": "T-009",
       "children": [
         "story:T-009",
         "task:T-009-be",
@@ -49263,6 +50148,7 @@
           "why": "T-008 Resolve a scanned QR token is blocked"
         }
       ],
+      "card": "T-009-be",
       "children": [],
       "code": "T-009-be",
       "decision": null,
@@ -49322,6 +50208,7 @@
           "why": "T-009-be Backend · Scan counter and share link is blocked"
         }
       ],
+      "card": "T-009-fe",
       "children": [],
       "code": "T-009-fe",
       "decision": null,
@@ -49377,6 +50264,7 @@
           "why": "T-008 Resolve a scanned QR token is blocked"
         }
       ],
+      "card": "T-010",
       "children": [
         "story:T-010",
         "task:T-010-be",
@@ -49435,6 +50323,7 @@
           "why": "T-008 Resolve a scanned QR token is blocked"
         }
       ],
+      "card": "T-010-be",
       "children": [],
       "code": "T-010-be",
       "decision": null,
@@ -49494,6 +50383,7 @@
           "why": "T-010-be Backend · Public browser page for viewers without the app is blocked"
         }
       ],
+      "card": "T-010-fe",
       "children": [],
       "code": "T-010-fe",
       "decision": null,
@@ -49549,6 +50439,7 @@
           "why": "T-033 Events list, detail, schedule is to do"
         }
       ],
+      "card": "T-011",
       "children": [
         "story:T-011",
         "task:T-011-be"
@@ -49606,6 +50497,7 @@
           "why": "T-033 Events list, detail, schedule is to do"
         }
       ],
+      "card": "T-011-be",
       "children": [],
       "code": "T-011-be",
       "decision": null,
@@ -49654,6 +50546,7 @@
     "task:T-012": {
       "affects": [],
       "blockedBy": [],
+      "card": "T-012",
       "children": [
         "story:T-012",
         "task:T-012-be",
@@ -49705,6 +50598,7 @@
     "task:T-012-be": {
       "affects": [],
       "blockedBy": [],
+      "card": "T-012-be",
       "children": [],
       "code": "T-012-be",
       "decision": null,
@@ -49757,6 +50651,7 @@
           "why": "T-012-be Backend · List my files (photo library) is to do"
         }
       ],
+      "card": "T-012-fe",
       "children": [],
       "code": "T-012-fe",
       "decision": null,
@@ -49811,6 +50706,7 @@
           "why": "T-012 List my files (photo library) is to do"
         }
       ],
+      "card": "T-013",
       "children": [
         "story:T-013",
         "task:T-013-be",
@@ -49869,6 +50765,7 @@
           "why": "T-012 List my files (photo library) is to do"
         }
       ],
+      "card": "T-013-be",
       "children": [],
       "code": "T-013-be",
       "decision": null,
@@ -49928,6 +50825,7 @@
           "why": "T-013-be Backend · Usage count per file across Rings is blocked"
         }
       ],
+      "card": "T-013-fe",
       "children": [],
       "code": "T-013-fe",
       "decision": null,
@@ -49977,6 +50875,7 @@
     "task:T-014": {
       "affects": [],
       "blockedBy": [],
+      "card": "T-014",
       "children": [
         "story:T-014",
         "task:T-014-be",
@@ -50028,6 +50927,7 @@
     "task:T-014-be": {
       "affects": [],
       "blockedBy": [],
+      "card": "T-014-be",
       "children": [],
       "code": "T-014-be",
       "decision": null,
@@ -50080,6 +50980,7 @@
           "why": "T-014-be Backend · Register devices on login; list and remove is to do"
         }
       ],
+      "card": "T-014-fe",
       "children": [],
       "code": "T-014-fe",
       "decision": null,
@@ -50134,6 +51035,7 @@
           "why": "T-007 Issue and rotate the QR token for a Ring is to do"
         }
       ],
+      "card": "T-015",
       "children": [
         "story:T-015",
         "task:T-015-be",
@@ -50192,6 +51094,7 @@
           "why": "T-007 Issue and rotate the QR token for a Ring is to do"
         }
       ],
+      "card": "T-015-be",
       "children": [],
       "code": "T-015-be",
       "decision": null,
@@ -50251,6 +51154,7 @@
           "why": "T-015-be Backend · Pair and revoke an NFC card is blocked"
         }
       ],
+      "card": "T-015-fe",
       "children": [],
       "code": "T-015-fe",
       "decision": null,
@@ -50300,6 +51204,7 @@
     "task:T-016": {
       "affects": [],
       "blockedBy": [],
+      "card": "T-016",
       "children": [
         "story:T-016",
         "task:T-016-be",
@@ -50352,6 +51257,7 @@
     "task:T-016-be": {
       "affects": [],
       "blockedBy": [],
+      "card": "T-016-be",
       "children": [],
       "code": "T-016-be",
       "decision": null,
@@ -50405,6 +51311,7 @@
           "why": "T-016-be Backend · Interests vocabulary and my interests is to do"
         }
       ],
+      "card": "T-016-fe",
       "children": [],
       "code": "T-016-fe",
       "decision": null,
@@ -50454,6 +51361,7 @@
     "task:T-017": {
       "affects": [],
       "blockedBy": [],
+      "card": "T-017",
       "children": [
         "story:T-017",
         "task:T-017-be",
@@ -50505,6 +51413,7 @@
     "task:T-017-be": {
       "affects": [],
       "blockedBy": [],
+      "card": "T-017-be",
       "children": [],
       "code": "T-017-be",
       "decision": null,
@@ -50557,6 +51466,7 @@
           "why": "T-017-be Backend · Extend WIDGET_TYPE to the design's list is to do"
         }
       ],
+      "card": "T-017-fe",
       "children": [],
       "code": "T-017-fe",
       "decision": null,
@@ -50616,6 +51526,7 @@
           "why": "D-03 Field library vs per-Ring copies is needs decision"
         }
       ],
+      "card": "T-018",
       "children": [
         "story:T-018",
         "task:T-018-be",
@@ -50681,6 +51592,7 @@
           "why": "D-03 Field library vs per-Ring copies is needs decision"
         }
       ],
+      "card": "T-018-be",
       "children": [],
       "code": "T-018-be",
       "decision": null,
@@ -50747,6 +51659,7 @@
           "why": "T-018-be Backend · Widget CRUD on the projection is blocked"
         }
       ],
+      "card": "T-018-fe",
       "children": [],
       "code": "T-018-fe",
       "decision": null,
@@ -50798,6 +51711,7 @@
     "task:T-019": {
       "affects": [],
       "blockedBy": [],
+      "card": "T-019",
       "children": [
         "story:T-019",
         "task:T-019-be",
@@ -50851,6 +51765,7 @@
     "task:T-019-be": {
       "affects": [],
       "blockedBy": [],
+      "card": "T-019-be",
       "children": [],
       "code": "T-019-be",
       "decision": null,
@@ -50905,6 +51820,7 @@
           "why": "T-019-be Backend · LinkedIn OAuth link, unlink, login is to do"
         }
       ],
+      "card": "T-019-fe",
       "children": [],
       "code": "T-019-fe",
       "decision": null,
@@ -50966,6 +51882,7 @@
           "why": "D-02 Base profile work fields is needs decision"
         }
       ],
+      "card": "T-020",
       "children": [
         "story:T-020",
         "task:T-020-be",
@@ -51031,6 +51948,7 @@
           "why": "D-02 Base profile work fields is needs decision"
         }
       ],
+      "card": "T-020-be",
       "children": [],
       "code": "T-020-be",
       "decision": null,
@@ -51097,6 +52015,7 @@
           "why": "T-020-be Backend · LinkedIn import → review → base profile is blocked"
         }
       ],
+      "card": "T-020-fe",
       "children": [],
       "code": "T-020-fe",
       "decision": null,
@@ -51154,6 +52073,7 @@
           "why": "D-02 Base profile work fields is needs decision"
         }
       ],
+      "card": "T-020b",
       "children": [
         "story:T-020b",
         "task:T-020b-be",
@@ -51213,6 +52133,7 @@
           "why": "D-02 Base profile work fields is needs decision"
         }
       ],
+      "card": "T-020b-be",
       "children": [],
       "code": "T-020b-be",
       "decision": null,
@@ -51273,6 +52194,7 @@
           "why": "T-020b-be Backend · Business card scan and portfolio URL import is blocked"
         }
       ],
+      "card": "T-020b-fe",
       "children": [],
       "code": "T-020b-fe",
       "decision": null,
@@ -51323,6 +52245,7 @@
     "task:T-021": {
       "affects": [],
       "blockedBy": [],
+      "card": "T-021",
       "children": [
         "story:T-021",
         "task:T-021-be",
@@ -51375,6 +52298,7 @@
     "task:T-021-be": {
       "affects": [],
       "blockedBy": [],
+      "card": "T-021-be",
       "children": [],
       "code": "T-021-be",
       "decision": null,
@@ -51428,6 +52352,7 @@
           "why": "T-021-be Backend · Connect request send, inbox, cancel is to do"
         }
       ],
+      "card": "T-021-fe",
       "children": [],
       "code": "T-021-fe",
       "decision": null,
@@ -51483,6 +52408,7 @@
           "why": "T-021 Connect request send, inbox, cancel is to do"
         }
       ],
+      "card": "T-022",
       "children": [
         "story:T-022",
         "task:T-022-be",
@@ -51541,6 +52467,7 @@
           "why": "T-021 Connect request send, inbox, cancel is to do"
         }
       ],
+      "card": "T-022-be",
       "children": [],
       "code": "T-022-be",
       "decision": null,
@@ -51600,6 +52527,7 @@
           "why": "T-022-be Backend · Accept into a Ring (sets grantedRingId) is blocked"
         }
       ],
+      "card": "T-022-fe",
       "children": [],
       "code": "T-022-fe",
       "decision": null,
@@ -51655,6 +52583,7 @@
           "why": "T-022 Accept into a Ring (sets grantedRingId) is blocked"
         }
       ],
+      "card": "T-023",
       "children": [
         "story:T-023",
         "task:T-023-be",
@@ -51713,6 +52642,7 @@
           "why": "T-022 Accept into a Ring (sets grantedRingId) is blocked"
         }
       ],
+      "card": "T-023-be",
       "children": [],
       "code": "T-023-be",
       "decision": null,
@@ -51772,6 +52702,7 @@
           "why": "T-023-be Backend · Connection detail and contacts list is blocked"
         }
       ],
+      "card": "T-023-fe",
       "children": [],
       "code": "T-023-fe",
       "decision": null,
@@ -51821,6 +52752,7 @@
     "task:T-024": {
       "affects": [],
       "blockedBy": [],
+      "card": "T-024",
       "children": [
         "story:T-024",
         "task:T-024-be",
@@ -51872,6 +52804,7 @@
     "task:T-024-be": {
       "affects": [],
       "blockedBy": [],
+      "card": "T-024-be",
       "children": [],
       "code": "T-024-be",
       "decision": null,
@@ -51924,6 +52857,7 @@
           "why": "T-024-be Backend · Block and unblock is to do"
         }
       ],
+      "card": "T-024-fe",
       "children": [],
       "code": "T-024-fe",
       "decision": null,
@@ -51978,6 +52912,7 @@
           "why": "T-023 Connection detail and contacts list is blocked"
         }
       ],
+      "card": "T-025",
       "children": [
         "story:T-025",
         "task:T-025-be",
@@ -52036,6 +52971,7 @@
           "why": "T-023 Connection detail and contacts list is blocked"
         }
       ],
+      "card": "T-025-be",
       "children": [],
       "code": "T-025-be",
       "decision": null,
@@ -52095,6 +53031,7 @@
           "why": "T-025-be Backend · Introduce a connection to another is blocked"
         }
       ],
+      "card": "T-025-fe",
       "children": [],
       "code": "T-025-fe",
       "decision": null,
@@ -52150,6 +53087,7 @@
           "why": "D-04 Ring settings is needs decision"
         }
       ],
+      "card": "T-026",
       "children": [
         "story:T-026",
         "task:T-026-be",
@@ -52208,6 +53146,7 @@
           "why": "D-04 Ring settings is needs decision"
         }
       ],
+      "card": "T-026-be",
       "children": [],
       "code": "T-026-be",
       "decision": null,
@@ -52267,6 +53206,7 @@
           "why": "T-026-be Backend · Ring invitations invite, review, decline is blocked"
         }
       ],
+      "card": "T-026-fe",
       "children": [],
       "code": "T-026-fe",
       "decision": null,
@@ -52327,6 +53267,7 @@
           "why": "T-026 Ring invitations invite, review, decline is needs decision"
         }
       ],
+      "card": "T-027",
       "children": [
         "story:T-027",
         "task:T-027-be",
@@ -52391,6 +53332,7 @@
           "why": "T-026 Ring invitations invite, review, decline is needs decision"
         }
       ],
+      "card": "T-027-be",
       "children": [],
       "code": "T-027-be",
       "decision": null,
@@ -52456,6 +53398,7 @@
           "why": "T-027-be Backend · Join a Ring with a code or verified work email is blocked"
         }
       ],
+      "card": "T-027-fe",
       "children": [],
       "code": "T-027-fe",
       "decision": null,
@@ -52512,6 +53455,7 @@
           "why": "T-027 Join a Ring with a code or verified work email is blocked"
         }
       ],
+      "card": "T-028",
       "children": [
         "story:T-028",
         "task:T-028-be",
@@ -52570,6 +53514,7 @@
           "why": "T-027 Join a Ring with a code or verified work email is blocked"
         }
       ],
+      "card": "T-028-be",
       "children": [],
       "code": "T-028-be",
       "decision": null,
@@ -52629,6 +53574,7 @@
           "why": "T-028-be Backend · What you contribute to a shared Ring is blocked"
         }
       ],
+      "card": "T-028-fe",
       "children": [],
       "code": "T-028-fe",
       "decision": null,
@@ -52678,6 +53624,7 @@
     "task:T-029": {
       "affects": [],
       "blockedBy": [],
+      "card": "T-029",
       "children": [
         "story:T-029",
         "task:T-029-be",
@@ -52730,6 +53677,7 @@
     "task:T-029-be": {
       "affects": [],
       "blockedBy": [],
+      "card": "T-029-be",
       "children": [],
       "code": "T-029-be",
       "decision": null,
@@ -52783,6 +53731,7 @@
           "why": "T-029-be Backend · My companies and company detail is to do"
         }
       ],
+      "card": "T-029-fe",
       "children": [],
       "code": "T-029-fe",
       "decision": null,
@@ -52832,6 +53781,7 @@
     "task:T-030": {
       "affects": [],
       "blockedBy": [],
+      "card": "T-030",
       "children": [
         "story:T-030",
         "task:T-030-be",
@@ -52883,6 +53833,7 @@
     "task:T-030-be": {
       "affects": [],
       "blockedBy": [],
+      "card": "T-030-be",
       "children": [],
       "code": "T-030-be",
       "decision": null,
@@ -52935,6 +53886,7 @@
           "why": "T-030-be Backend · Discover search by !pinname and recent searches is to do"
         }
       ],
+      "card": "T-030-fe",
       "children": [],
       "code": "T-030-fe",
       "decision": null,
@@ -52983,6 +53935,7 @@
     "task:T-031": {
       "affects": [],
       "blockedBy": [],
+      "card": "T-031",
       "children": [
         "story:T-031",
         "task:T-031-be",
@@ -53034,6 +53987,7 @@
     "task:T-031-be": {
       "affects": [],
       "blockedBy": [],
+      "card": "T-031-be",
       "children": [],
       "code": "T-031-be",
       "decision": null,
@@ -53086,6 +54040,7 @@
           "why": "T-031-be Backend · Import contacts is to do"
         }
       ],
+      "card": "T-031-fe",
       "children": [],
       "code": "T-031-fe",
       "decision": null,
@@ -53134,6 +54089,7 @@
     "task:T-032": {
       "affects": [],
       "blockedBy": [],
+      "card": "T-032",
       "children": [
         "story:T-032",
         "task:T-032-be",
@@ -53188,6 +54144,7 @@
     "task:T-032-be": {
       "affects": [],
       "blockedBy": [],
+      "card": "T-032-be",
       "children": [],
       "code": "T-032-be",
       "decision": null,
@@ -53243,6 +54200,7 @@
           "why": "T-032-be Backend · PinCast setup, start, stop, results is to do"
         }
       ],
+      "card": "T-032-fe",
       "children": [],
       "code": "T-032-fe",
       "decision": null,
@@ -53294,6 +54252,7 @@
     "task:T-033": {
       "affects": [],
       "blockedBy": [],
+      "card": "T-033",
       "children": [
         "story:T-033",
         "task:T-033-be",
@@ -53346,6 +54305,7 @@
     "task:T-033-be": {
       "affects": [],
       "blockedBy": [],
+      "card": "T-033-be",
       "children": [],
       "code": "T-033-be",
       "decision": null,
@@ -53399,6 +54359,7 @@
           "why": "T-033-be Backend · Events list, detail, schedule is to do"
         }
       ],
+      "card": "T-033-fe",
       "children": [],
       "code": "T-033-fe",
       "decision": null,
@@ -53454,6 +54415,7 @@
           "why": "T-033 Events list, detail, schedule is to do"
         }
       ],
+      "card": "T-034",
       "children": [
         "story:T-034",
         "task:T-034-be",
@@ -53512,6 +54474,7 @@
           "why": "T-033 Events list, detail, schedule is to do"
         }
       ],
+      "card": "T-034-be",
       "children": [],
       "code": "T-034-be",
       "decision": null,
@@ -53571,6 +54534,7 @@
           "why": "T-034-be Backend · Tickets, packages, levels, sold-out is blocked"
         }
       ],
+      "card": "T-034-fe",
       "children": [],
       "code": "T-034-fe",
       "decision": null,
@@ -53631,6 +54595,7 @@
           "why": "T-047 Orders, payments and the provider webhook is needs decision"
         }
       ],
+      "card": "T-035",
       "children": [
         "story:T-035",
         "task:T-035-be",
@@ -53696,6 +54661,7 @@
           "why": "T-047 Orders, payments and the provider webhook is needs decision"
         }
       ],
+      "card": "T-035-be",
       "children": [],
       "code": "T-035-be",
       "decision": null,
@@ -53762,6 +54728,7 @@
           "why": "T-035-be Backend · Registration transaction with order and payment is blocked"
         }
       ],
+      "card": "T-035-fe",
       "children": [],
       "code": "T-035-fe",
       "decision": null,
@@ -53819,6 +54786,7 @@
           "why": "T-033 Events list, detail, schedule is to do"
         }
       ],
+      "card": "T-036",
       "children": [
         "story:T-036",
         "task:T-036-be",
@@ -53879,6 +54847,7 @@
           "why": "T-033 Events list, detail, schedule is to do"
         }
       ],
+      "card": "T-036-be",
       "children": [],
       "code": "T-036-be",
       "decision": null,
@@ -53940,6 +54909,7 @@
           "why": "T-036-be Backend · Event mode exhibitors list and detail is blocked"
         }
       ],
+      "card": "T-036-fe",
       "children": [],
       "code": "T-036-fe",
       "decision": null,
@@ -54002,6 +54972,7 @@
           "why": "T-011 Create the Event Ring on registration is blocked"
         }
       ],
+      "card": "T-037",
       "children": [
         "story:T-037",
         "task:T-037-be",
@@ -54066,6 +55037,7 @@
           "why": "T-011 Create the Event Ring on registration is blocked"
         }
       ],
+      "card": "T-037-be",
       "children": [],
       "code": "T-037-be",
       "decision": null,
@@ -54131,6 +55103,7 @@
           "why": "T-037-be Backend · Event pass with a 60 s rotating code is blocked"
         }
       ],
+      "card": "T-037-fe",
       "children": [],
       "code": "T-037-fe",
       "decision": null,
@@ -54187,6 +55160,7 @@
           "why": "T-036 Event mode exhibitors list and detail is blocked"
         }
       ],
+      "card": "T-038",
       "children": [
         "story:T-038",
         "task:T-038-be",
@@ -54245,6 +55219,7 @@
           "why": "T-036 Event mode exhibitors list and detail is blocked"
         }
       ],
+      "card": "T-038-be",
       "children": [],
       "code": "T-038-be",
       "decision": null,
@@ -54304,6 +55279,7 @@
           "why": "T-038-be Backend · Floor map and booths is blocked"
         }
       ],
+      "card": "T-038-fe",
       "children": [],
       "code": "T-038-fe",
       "decision": null,
@@ -54359,6 +55335,7 @@
           "why": "T-036 Event mode exhibitors list and detail is blocked"
         }
       ],
+      "card": "T-039",
       "children": [
         "story:T-039",
         "task:T-039-be",
@@ -54417,6 +55394,7 @@
           "why": "T-036 Event mode exhibitors list and detail is blocked"
         }
       ],
+      "card": "T-039-be",
       "children": [],
       "code": "T-039-be",
       "decision": null,
@@ -54476,6 +55454,7 @@
           "why": "T-039-be Backend · Catalogue products and talks (new table) is blocked"
         }
       ],
+      "card": "T-039-fe",
       "children": [],
       "code": "T-039-fe",
       "decision": null,
@@ -54536,6 +55515,7 @@
           "why": "T-049 Subscription endpoints and a single Pro gate is to do"
         }
       ],
+      "card": "T-040",
       "children": [
         "story:T-040",
         "task:T-040-be",
@@ -54600,6 +55580,7 @@
           "why": "T-049 Subscription endpoints and a single Pro gate is to do"
         }
       ],
+      "card": "T-040-be",
       "children": [],
       "code": "T-040-be",
       "decision": null,
@@ -54665,6 +55646,7 @@
           "why": "T-040-be Backend · Lounges and upgrades is blocked"
         }
       ],
+      "card": "T-040-fe",
       "children": [],
       "code": "T-040-fe",
       "decision": null,
@@ -54715,6 +55697,7 @@
     "task:T-041": {
       "affects": [],
       "blockedBy": [],
+      "card": "T-041",
       "children": [
         "story:T-041",
         "task:T-041-be",
@@ -54767,6 +55750,7 @@
     "task:T-041-be": {
       "affects": [],
       "blockedBy": [],
+      "card": "T-041-be",
       "children": [],
       "code": "T-041-be",
       "decision": null,
@@ -54820,6 +55804,7 @@
           "why": "T-041-be Backend · Availability slots CRUD is to do"
         }
       ],
+      "card": "T-041-fe",
       "children": [],
       "code": "T-041-fe",
       "decision": null,
@@ -54875,6 +55860,7 @@
           "why": "T-041 Availability slots CRUD is to do"
         }
       ],
+      "card": "T-042",
       "children": [
         "story:T-042",
         "task:T-042-be",
@@ -54934,6 +55920,7 @@
           "why": "T-041 Availability slots CRUD is to do"
         }
       ],
+      "card": "T-042-be",
       "children": [],
       "code": "T-042-be",
       "decision": null,
@@ -54994,6 +55981,7 @@
           "why": "T-042-be Backend · Meeting request, accept with slots, decline with reason is blocked"
         }
       ],
+      "card": "T-042-fe",
       "children": [],
       "code": "T-042-fe",
       "decision": null,
@@ -55050,6 +56038,7 @@
           "why": "T-042 Meeting request, accept with slots, decline with reason is blocked"
         }
       ],
+      "card": "T-043",
       "children": [
         "story:T-043",
         "task:T-043-be"
@@ -55108,6 +56097,7 @@
           "why": "T-042 Meeting request, accept with slots, decline with reason is blocked"
         }
       ],
+      "card": "T-043-be",
       "children": [],
       "code": "T-043-be",
       "decision": null,
@@ -55163,6 +56153,7 @@
           "why": "T-042 Meeting request, accept with slots, decline with reason is blocked"
         }
       ],
+      "card": "T-044",
       "children": [
         "story:T-044",
         "task:T-044-be",
@@ -55223,6 +56214,7 @@
           "why": "T-042 Meeting request, accept with slots, decline with reason is blocked"
         }
       ],
+      "card": "T-044-be",
       "children": [],
       "code": "T-044-be",
       "decision": null,
@@ -55284,6 +56276,7 @@
           "why": "T-044-be Backend · My meetings, calendar, detail, reschedule, cancel is blocked"
         }
       ],
+      "card": "T-044-fe",
       "children": [],
       "code": "T-044-fe",
       "decision": null,
@@ -55335,6 +56328,7 @@
     "task:T-045": {
       "affects": [],
       "blockedBy": [],
+      "card": "T-045",
       "children": [
         "story:T-045",
         "task:T-045-be",
@@ -55386,6 +56380,7 @@
     "task:T-045-be": {
       "affects": [],
       "blockedBy": [],
+      "card": "T-045-be",
       "children": [],
       "code": "T-045-be",
       "decision": null,
@@ -55438,6 +56433,7 @@
           "why": "T-045-be Backend · NotificationService.emit and the inbox is to do"
         }
       ],
+      "card": "T-045-fe",
       "children": [],
       "code": "T-045-fe",
       "decision": null,
@@ -55497,6 +56493,7 @@
           "why": "T-014 Register devices on login; list and remove is to do"
         }
       ],
+      "card": "T-046",
       "children": [
         "story:T-046",
         "task:T-046-be",
@@ -55561,6 +56558,7 @@
           "why": "T-014 Register devices on login; list and remove is to do"
         }
       ],
+      "card": "T-046-be",
       "children": [],
       "code": "T-046-be",
       "decision": null,
@@ -55626,6 +56624,7 @@
           "why": "T-046-be Backend · Push delivery and preferences is blocked"
         }
       ],
+      "card": "T-046-fe",
       "children": [],
       "code": "T-046-fe",
       "decision": null,
@@ -55676,6 +56675,7 @@
     "task:T-047": {
       "affects": [],
       "blockedBy": [],
+      "card": "T-047",
       "children": [
         "story:T-047",
         "task:T-047-be"
@@ -55725,6 +56725,7 @@
     "task:T-047-be": {
       "affects": [],
       "blockedBy": [],
+      "card": "T-047-be",
       "children": [],
       "code": "T-047-be",
       "decision": null,
@@ -55777,6 +56778,7 @@
           "why": "T-029 My companies and company detail is to do"
         }
       ],
+      "card": "T-048",
       "children": [
         "story:T-048",
         "task:T-048-be",
@@ -55835,6 +56837,7 @@
           "why": "T-029 My companies and company detail is to do"
         }
       ],
+      "card": "T-048-be",
       "children": [],
       "code": "T-048-be",
       "decision": null,
@@ -55894,6 +56897,7 @@
           "why": "T-048-be Backend · Business account setup → business Ring is blocked"
         }
       ],
+      "card": "T-048-fe",
       "children": [],
       "code": "T-048-fe",
       "decision": null,
@@ -55954,6 +56958,7 @@
           "why": "T-036 Event mode exhibitors list and detail is blocked"
         }
       ],
+      "card": "T-048b",
       "children": [
         "story:T-048b",
         "task:T-048b-be",
@@ -56018,6 +57023,7 @@
           "why": "T-036 Event mode exhibitors list and detail is blocked"
         }
       ],
+      "card": "T-048b-be",
       "children": [],
       "code": "T-048b-be",
       "decision": null,
@@ -56083,6 +57089,7 @@
           "why": "T-048b-be Backend · Booth analytics and leads CSV export is blocked"
         }
       ],
+      "card": "T-048b-fe",
       "children": [],
       "code": "T-048b-fe",
       "decision": null,
@@ -56133,6 +57140,7 @@
     "task:T-049": {
       "affects": [],
       "blockedBy": [],
+      "card": "T-049",
       "children": [
         "story:T-049",
         "task:T-049-be",
@@ -56184,6 +57192,7 @@
     "task:T-049-be": {
       "affects": [],
       "blockedBy": [],
+      "card": "T-049-be",
       "children": [],
       "code": "T-049-be",
       "decision": null,
@@ -56236,6 +57245,7 @@
           "why": "T-049-be Backend · Subscription endpoints and a single Pro gate is to do"
         }
       ],
+      "card": "T-049-fe",
       "children": [],
       "code": "T-049-fe",
       "decision": null,
@@ -56300,6 +57310,7 @@
           "why": "T-044 My meetings, calendar, detail, reschedule, cancel is blocked"
         }
       ],
+      "card": "T-050",
       "children": [
         "story:T-050",
         "task:T-050-be",
@@ -56370,6 +57381,7 @@
           "why": "T-044 My meetings, calendar, detail, reschedule, cancel is blocked"
         }
       ],
+      "card": "T-050-be",
       "children": [],
       "code": "T-050-be",
       "decision": null,
@@ -56441,6 +57453,7 @@
           "why": "T-050-be Backend · Post-event summary and follow-ups is blocked"
         }
       ],
+      "card": "T-050-fe",
       "children": [],
       "code": "T-050-fe",
       "decision": null,
@@ -56503,6 +57516,7 @@
           "why": "T-049 Subscription endpoints and a single Pro gate is to do"
         }
       ],
+      "card": "T-051",
       "children": [
         "story:T-051",
         "task:T-051-be",
@@ -56567,6 +57581,7 @@
           "why": "T-049 Subscription endpoints and a single Pro gate is to do"
         }
       ],
+      "card": "T-051-be",
       "children": [],
       "code": "T-051-be",
       "decision": null,
@@ -56632,6 +57647,7 @@
           "why": "T-051-be Backend · Gemma assistant sheet and suggestions is blocked"
         }
       ],
+      "card": "T-051-fe",
       "children": [],
       "code": "T-051-fe",
       "decision": null,
@@ -56693,6 +57709,7 @@
           "why": "T-036 Event mode exhibitors list and detail is blocked"
         }
       ],
+      "card": "T-052",
       "children": [
         "story:T-052",
         "task:T-052-be",
@@ -56757,6 +57774,7 @@
           "why": "T-036 Event mode exhibitors list and detail is blocked"
         }
       ],
+      "card": "T-052-be",
       "children": [],
       "code": "T-052-be",
       "decision": null,
@@ -56822,6 +57840,7 @@
           "why": "T-052-be Backend · Smart Match is blocked"
         }
       ],
+      "card": "T-052-fe",
       "children": [],
       "code": "T-052-fe",
       "decision": null,
@@ -56872,6 +57891,7 @@
     "task:T-053": {
       "affects": [],
       "blockedBy": [],
+      "card": "T-053",
       "children": [
         "story:T-053",
         "task:T-053-be"
@@ -56919,6 +57939,7 @@
     "task:T-053-be": {
       "affects": [],
       "blockedBy": [],
+      "card": "T-053-be",
       "children": [],
       "code": "T-053-be",
       "decision": null,
@@ -56963,6 +57984,7 @@
     "task:T-054": {
       "affects": [],
       "blockedBy": [],
+      "card": "T-054",
       "children": [
         "story:T-054",
         "task:T-054-be"
@@ -57010,6 +58032,7 @@
     "task:T-054-be": {
       "affects": [],
       "blockedBy": [],
+      "card": "T-054-be",
       "children": [],
       "code": "T-054-be",
       "decision": null,
@@ -57054,6 +58077,7 @@
     "task:T-055": {
       "affects": [],
       "blockedBy": [],
+      "card": "T-055",
       "children": [
         "story:T-055",
         "task:T-055-be"
@@ -57101,6 +58125,7 @@
     "task:T-055-be": {
       "affects": [],
       "blockedBy": [],
+      "card": "T-055-be",
       "children": [],
       "code": "T-055-be",
       "decision": null,
@@ -57145,6 +58170,7 @@
     "task:T-056": {
       "affects": [],
       "blockedBy": [],
+      "card": "T-056",
       "children": [],
       "code": "T-056",
       "decision": "D-01",
@@ -57196,6 +58222,7 @@
           "why": "D-02 Base profile work fields is needs decision"
         }
       ],
+      "card": "T-057",
       "children": [],
       "code": "T-057",
       "decision": "D-02",
@@ -57247,6 +58274,7 @@
           "why": "D-03 Field library vs per-Ring copies is needs decision"
         }
       ],
+      "card": "T-058",
       "children": [],
       "code": "T-058",
       "decision": "D-03",
@@ -57298,6 +58326,7 @@
           "why": "D-04 Ring settings is needs decision"
         }
       ],
+      "card": "T-059",
       "children": [],
       "code": "T-059",
       "decision": "D-04",
@@ -57354,6 +58383,7 @@
           "why": "D-05 Copy or inherit is needs decision"
         }
       ],
+      "card": "T-060",
       "children": [],
       "code": "T-060",
       "decision": "D-05",
@@ -57406,6 +58436,7 @@
           "why": "D-06 Pin name rules is needs decision"
         }
       ],
+      "card": "T-061",
       "children": [],
       "code": "T-061",
       "decision": "D-06",
@@ -57451,6 +58482,7 @@
     "task:T-062": {
       "affects": [],
       "blockedBy": [],
+      "card": "T-062",
       "children": [
         "story:T-062",
         "task:T-062-be",
@@ -57506,6 +58538,7 @@
     "task:T-062-be": {
       "affects": [],
       "blockedBy": [],
+      "card": "T-062-be",
       "children": [],
       "code": "T-062-be",
       "decision": null,
@@ -57562,6 +58595,7 @@
           "why": "T-062-be Backend · Serve uploaded file bytes by id is to do"
         }
       ],
+      "card": "T-062-fe",
       "children": [],
       "code": "T-062-fe",
       "decision": null,
@@ -57614,6 +58648,7 @@
     "task:T-063": {
       "affects": [],
       "blockedBy": [],
+      "card": "T-063",
       "children": [
         "story:T-063",
         "task:T-063-be",
@@ -57663,6 +58698,7 @@
     "task:T-063-be": {
       "affects": [],
       "blockedBy": [],
+      "card": "T-063-be",
       "children": [],
       "code": "T-063-be",
       "decision": null,
@@ -57713,6 +58749,7 @@
           "why": "T-063-be Backend · Put the ErrorCode on the error body is to do"
         }
       ],
+      "card": "T-063-fe",
       "children": [],
       "code": "T-063-fe",
       "decision": null,
@@ -57763,6 +58800,7 @@
         "project:agent-rules"
       ],
       "blockedBy": [],
+      "card": "T-064",
       "children": [],
       "code": "T-064",
       "decision": null,

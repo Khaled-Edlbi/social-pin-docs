@@ -1,6 +1,6 @@
 ---
 type: home
-updated: 2026-10-18
+updated: 2026-10-19
 tags: [map]
 ---
 
@@ -41,7 +41,8 @@ Numbers per module: the eight module notes under `modules/`; the full list: [[Fe
 ```
 social-pin-docs/
 ├── Home.md                        ← you are here
-├── docs.config.json               the layers, their note kinds and statuses, the hand-off flow, default blocks, modules
+├── Card Index.md                  GENERATED: every card with its unique code (M-01, F-05, S-01, FR-05, BD-05, T-004, D-04, P-10) and the cards it links to as T-004 | S-01
+├── docs.config.json               the layers, their note kinds and statuses, the hand-off flow, default blocks, card-code prefixes, modules
 ├── business/                      BUSINESS docs: Project Overview · Glossary · Feature Tree · Feature Graph · Feature Map.canvas · Status Report
 ├── frontend/                      FRONTEND docs: Frontend Contract · Frontend API Guide · Frontend Passwordless Migration · Frontend Agent Prompt
 ├── backend/                       BACKEND docs: Architecture · API Conventions · Auth Model · Ring Access Model · Database & Migrations · Developer Setup · Spec Map · Developer Guide
@@ -64,7 +65,7 @@ social-pin-docs/
 ├── decisions/                     D-01 … D-06, where design and backend disagree
 ├── design/                        Design Reference · Screen Index · Navigation Map · Wireframe Brief · Brief Section Map
 ├── templates/                     one per note kind (the scaffold command uses them)
-├── tree/                          the docs tree page (index.html) and its generated index (tree.json, tree.md)
+├── tree/                          the docs tree page (index.html), its generated index (tree.json, tree.md) and the card-code registry (cards.json)
 └── scripts/build-tree.mjs         build · --check · --serve · --impact · --scaffold
 ```
 
@@ -79,7 +80,7 @@ social-pin-docs/
 ## How this vault is organised
 
 - **Layers are configuration.** `docs.config.json` declares the layers (business, frontend, backend, QA), each kind's statuses and *done* set, the hand-off flow and the default blocks. A new layer (DevOps, AI, Security) is a config entry and a template; the tree, its filter and its arrows follow ([[Agent Rules#5 · Adding a layer]]).
-- **Codes.** A task's `T-NNN` is carried by every note written for it; a feature's id by its feature-level notes. The feature note of a kind is the sum of the task notes of that kind; the module note is the sum of its features.
+- **Codes.** A task's `T-NNN` is carried by every note written for it; a feature's id by its feature-level notes. The feature note of a kind is the sum of the task notes of that kind; the module note is the sum of its features. On top of that, every card has one unique **card code** (`S-01`, `BD-05`, `T-004`, `D-04`…) that never changes and is never reused: the [[Card Index]] lists them all with their related cards as `T-004 | S-01` ([[Agent Rules#2 · Codes, scopes and the "sum of" rule]]).
 - **Relations are the context.** Every note declares `depends`, `affects`, `related` (and `blockedBy` when something blocks it) in frontmatter; `--impact` lists what a change touches so nobody reads the whole vault ([[Agent Rules#3 · Relations]]).
 - **Statuses and sign-off** are frontmatter on the cards (`status`, `approvedBy`, `approvedAt`, `pending`); the tree computes a feature's, a module's and the project's chip from the cards, *Blocked* from the hand-off flow and `depends` / `blockedBy`, and *Partial* from `pending`; the board and backlog are generated from the task notes.
 - **Design ids are the prototype's.** `s44` means screen 44 in `socialPin-design/.proto2.json`. `[[Screen Index#s44]]` lands on it.
