@@ -78,7 +78,7 @@ Nothing on a feature, a module or the project is typed by hand: the chip is the 
 
 **Controls.** Drag to pan, wheel or pinch to zoom, **Fit** to see everything. The caret on a node collapses or expands its subtree. Search matches names, codes, screen ids (`s44`) and summaries. **Outline** is the same tree as a list with keyboard support (arrows to move and fold, Enter to open); it is the default on phones, where the filters open from the **Filters** link under the title.
 
-**The pane.** The note's kind, title, status and path, then **Edit on GitHub** and **Show on canvas** (focus the card in the Tree or Graph). Below: the summary, "In the tree under", "Blocked by" (with the reason), "Depends on", the relations by kind (clickable, with the shared endpoints named), "Impact" (the same two-hop list `--impact` prints, grouped by layer), "Contains" counts, the frontmatter, then the note. Wikilinks inside a note navigate in the page.
+**The pane.** The note's kind, title, status and path, then **Edit on GitHub** and **Show on canvas** (focus the card in the Tree or Graph). Below, the important content first: the summary, then what stops the card now ("Blocked by" with the reason, "Pending" notes), then the note itself, its frontmatter, and at the bottom a **Relations** section: "In the tree under", "Depends on", the relations by kind (clickable, with the shared endpoints named), "Impact" (the same two-hop list `--impact` prints, grouped by layer) and "Contains" counts. Wikilinks inside a note navigate in the page.
 
 ## For agents
 
