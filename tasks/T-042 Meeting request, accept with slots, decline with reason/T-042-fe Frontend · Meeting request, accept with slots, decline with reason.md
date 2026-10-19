@@ -2,7 +2,7 @@
 type: task
 id: T-042-fe
 status: todo
-priority: P0
+priority: critical
 effort: L
 feature: meetings
 module: meetings
@@ -14,13 +14,13 @@ affects: []
 related: []
 pending: []
 created: 2026-10-18
-updated: 2026-10-18
-tags: [task, task/todo, module/meetings, priority/P0, frontend]
+updated: 2026-10-19
+tags: [task, task/todo, module/meetings, priority/critical, frontend]
 ---
 
 # ⬜ T-042-fe · Frontend: Meeting request, accept with slots, decline with reason
 
-**Parent:** [[T-042 Meeting request, accept with slots, decline with reason]] · **Feature:** [[Meetings]] · **Side:** Frontend · **Status:** To do · **Priority:** P0 · **Effort:** L (same as the parent until the team sizes it)
+**Parent:** [[T-042 Meeting request, accept with slots, decline with reason]] · **Feature:** [[Meetings]] · **Side:** Frontend · **Status:** To do · **Priority:** Critical · **Effort:** L (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-042-fe` when the team picks it up): [[T-042-fe Frontend Requirements|Frontend Requirements]] · [[T-042-fe Frontend Delivery|Frontend Delivery]] · [[T-042-fe QA Frontend|QA Frontend]]
 

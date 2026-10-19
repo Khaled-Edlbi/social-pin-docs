@@ -2,20 +2,20 @@
 type: task
 id: T-006
 status: todo
-priority: P1
+priority: high
 effort: M
 feature: delegated-admins
 module: shared-rings
 screens: [s26, s27]
 depends: []
 created: 2026-10-15
-updated: 2026-10-18
-tags: [task, task/todo, module/shared-rings, priority/P1]
+updated: 2026-10-19
+tags: [task, task/todo, module/shared-rings, priority/high]
 ---
 
 # ⬜ T-006 · Delegated admin endpoints
 
-**Feature:** [[Delegated Admins]] · **Status:** To do · **Priority:** P1 · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Delegated Admins]] · **Status:** To do · **Priority:** High · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-006-fe Frontend · Delegated admin endpoints|Frontend]] · [[T-006-be Backend · Delegated admin endpoints|Backend]] · **Story:** [[T-006 Story]]
 

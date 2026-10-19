@@ -2,20 +2,20 @@
 type: task
 id: T-010
 status: needs-info
-priority: P1
+priority: high
 effort: M
 feature: badge-qr
 module: discovery
 screens: [s34]
 depends: [T-008]
 created: 2026-10-15
-updated: 2026-10-18
-tags: [task, task/needs-info, module/discovery, priority/P1]
+updated: 2026-10-19
+tags: [task, task/needs-info, module/discovery, priority/high]
 ---
 
 # ❓ T-010 · Public browser page for viewers without the app
 
-**Feature:** [[Badge & QR]] · **Status:** Needs a decision / info · **Priority:** P1 · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Badge & QR]] · **Status:** Needs a decision / info · **Priority:** High · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-010-fe Frontend · Public browser page for viewers without the app|Frontend]] · [[T-010-be Backend · Public browser page for viewers without the app|Backend]] · **Story:** [[T-010 Story]]
 

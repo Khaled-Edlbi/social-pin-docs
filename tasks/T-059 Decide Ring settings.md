@@ -2,20 +2,20 @@
 type: task
 id: T-059
 status: needs-info
-priority: P0
+priority: critical
 effort: S
 feature: rings
 module: identity
 screens: [s27]
 depends: []
 created: 2026-10-15
-tags: [task, task/needs-info, module/identity, priority/P0]
+tags: [task, task/needs-info, module/identity, priority/critical]
 decision: D-04
 ---
 
 # ❓ T-059 · Decide: Ring settings
 
-**Feature:** [[Rings]] · **Status:** Needs a decision / info · **Priority:** P0 · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Rings]] · **Status:** Needs a decision / info · **Priority:** Critical · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
 
 ## What
 

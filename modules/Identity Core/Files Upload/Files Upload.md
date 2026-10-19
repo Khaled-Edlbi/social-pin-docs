@@ -2,17 +2,17 @@
 type: feature
 id: files
 name: "Files Upload"
-priority: P1
+priority: high
 module: identity
 screens: [s14, s20, s36]
 related: ["Rings"]
-updated: 2026-10-18
-tags: [feature, module/identity, priority/P1]
+updated: 2026-10-19
+tags: [feature, module/identity, priority/high]
 ---
 
 # Files Upload
 
-**Backend:** Done · **Priority:** P1 · **Module:** [[Identity Core Module|Identity Core]]
+**Backend:** Done · **Priority:** High · **Module:** [[Identity Core Module|Identity Core]]
 
 **Layers:** [[Files Upload Story|Story]] · [[Files Upload Frontend Requirements|Frontend Requirements]] · [[Files Upload Backend Delivery|Backend Delivery]] · [[Files Upload Backend Integration|Backend Integration]] · [[Files Upload Frontend Delivery|Frontend Delivery]] · [[Files Upload QA Backend|QA Backend]] · [[Files Upload QA Frontend|QA Frontend]]
 
@@ -34,7 +34,7 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 
 | Task | Status | Priority | Effort |
 |---|---|---|---|
-| [[T-062 Serve uploaded file bytes by id]] | ⬜ To do | P0 | S |
+| [[T-062 Serve uploaded file bytes by id]] | ⬜ To do | Critical | S |
 
 ```dataview
 TABLE status, priority, effort FROM #task WHERE feature = "files" SORT priority ASC

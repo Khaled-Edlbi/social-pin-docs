@@ -2,16 +2,16 @@
 type: feature
 id: view-as
 name: "View As & Pin Views"
-priority: P0
+priority: critical
 module: identity
 screens: [s10, s31, s44]
-updated: 2026-10-18
-tags: [feature, module/identity, priority/P0]
+updated: 2026-10-19
+tags: [feature, module/identity, priority/critical]
 ---
 
 # View As & Pin Views
 
-**Backend:** Done · **Priority:** P0 · **Module:** [[Identity Core Module|Identity Core]]
+**Backend:** Done · **Priority:** Critical · **Module:** [[Identity Core Module|Identity Core]]
 
 **Layers:** [[View As & Pin Views Story|Story]] · [[View As & Pin Views Frontend Requirements|Frontend Requirements]] · [[View As & Pin Views Backend Delivery|Backend Delivery]] · [[View As & Pin Views Backend Integration|Backend Integration]] · [[View As & Pin Views Frontend Delivery|Frontend Delivery]] · [[View As & Pin Views QA Backend|QA Backend]] · [[View As & Pin Views QA Frontend|QA Frontend]]
 

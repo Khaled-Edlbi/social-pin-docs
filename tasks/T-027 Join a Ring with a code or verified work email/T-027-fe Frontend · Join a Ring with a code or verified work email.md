@@ -2,7 +2,7 @@
 type: task
 id: T-027-fe
 status: todo
-priority: P1
+priority: high
 effort: M
 feature: ring-invitations
 module: shared-rings
@@ -14,13 +14,13 @@ affects: []
 related: []
 pending: []
 created: 2026-10-18
-updated: 2026-10-18
-tags: [task, task/todo, module/shared-rings, priority/P1, frontend]
+updated: 2026-10-19
+tags: [task, task/todo, module/shared-rings, priority/high, frontend]
 ---
 
 # ⬜ T-027-fe · Frontend: Join a Ring with a code or verified work email
 
-**Parent:** [[T-027 Join a Ring with a code or verified work email]] · **Feature:** [[Ring Invitations & Join]] · **Side:** Frontend · **Status:** To do · **Priority:** P1 · **Effort:** M (same as the parent until the team sizes it)
+**Parent:** [[T-027 Join a Ring with a code or verified work email]] · **Feature:** [[Ring Invitations & Join]] · **Side:** Frontend · **Status:** To do · **Priority:** High · **Effort:** M (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-027-fe` when the team picks it up): [[T-027-fe Frontend Requirements|Frontend Requirements]] · [[T-027-fe Frontend Delivery|Frontend Delivery]] · [[T-027-fe QA Frontend|QA Frontend]]
 

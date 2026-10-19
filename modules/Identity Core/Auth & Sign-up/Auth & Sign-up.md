@@ -2,16 +2,16 @@
 type: feature
 id: auth
 name: "Auth & Sign-up"
-priority: P0
+priority: critical
 module: identity
 screens: [s01, s02, s06, s08, s68]
-updated: 2026-10-18
-tags: [feature, module/identity, priority/P0]
+updated: 2026-10-19
+tags: [feature, module/identity, priority/critical]
 ---
 
 # Auth & Sign-up
 
-**Backend:** Done · **Priority:** P0 · **Module:** [[Identity Core Module|Identity Core]]
+**Backend:** Done · **Priority:** Critical · **Module:** [[Identity Core Module|Identity Core]]
 
 **Layers:** [[Auth & Sign-up Story|Story]] · [[Auth & Sign-up Frontend Requirements|Frontend Requirements]] · [[Auth & Sign-up Backend Delivery|Backend Delivery]] · [[Auth & Sign-up Backend Integration|Backend Integration]] · [[Auth & Sign-up Frontend Delivery|Frontend Delivery]] · [[Auth & Sign-up QA Backend|QA Backend]] · [[Auth & Sign-up QA Frontend|QA Frontend]]
 
@@ -35,7 +35,7 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 
 | Task | Status | Priority | Effort |
 |---|---|---|---|
-| [[T-056 Decide passwordless login]] | ✅ Done | P0 | S |
+| [[T-056 Decide passwordless login]] | ✅ Done | Critical | S |
 
 ```dataview
 TABLE status, priority, effort FROM #task WHERE feature = "auth" SORT priority ASC

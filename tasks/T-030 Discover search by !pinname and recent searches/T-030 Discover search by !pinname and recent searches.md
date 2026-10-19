@@ -2,20 +2,20 @@
 type: task
 id: T-030
 status: todo
-priority: P1
+priority: high
 effort: S
 feature: discover-hub
 module: discovery
 screens: [s38]
 depends: []
 created: 2026-10-15
-updated: 2026-10-18
-tags: [task, task/todo, module/discovery, priority/P1]
+updated: 2026-10-19
+tags: [task, task/todo, module/discovery, priority/high]
 ---
 
 # ⬜ T-030 · Discover search by !pinname and recent searches
 
-**Feature:** [[Discover Hub & Search]] · **Status:** To do · **Priority:** P1 · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Discover Hub & Search]] · **Status:** To do · **Priority:** High · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-030-fe Frontend · Discover search by !pinname and recent searches|Frontend]] · [[T-030-be Backend · Discover search by !pinname and recent searches|Backend]] · **Story:** [[T-030 Story]]
 

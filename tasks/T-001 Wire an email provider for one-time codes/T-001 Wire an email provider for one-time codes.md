@@ -2,20 +2,20 @@
 type: task
 id: T-001
 status: todo
-priority: P0
+priority: critical
 effort: S
 feature: code-delivery
 module: platform
 screens: [s02]
 depends: []
 created: 2026-10-15
-updated: 2026-10-18
-tags: [task, task/todo, module/platform, priority/P0]
+updated: 2026-10-19
+tags: [task, task/todo, module/platform, priority/critical]
 ---
 
 # ⬜ T-001 · Wire an email provider for one-time codes
 
-**Feature:** [[Code Delivery]] · **Status:** To do · **Priority:** P0 · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Code Delivery]] · **Status:** To do · **Priority:** Critical · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-001-be Backend · Wire an email provider for one-time codes|Backend]] · **Story:** [[T-001 Story]]
 

@@ -2,7 +2,7 @@
 type: task
 id: T-016-fe
 status: todo
-priority: P1
+priority: high
 effort: S
 feature: interests
 module: platform
@@ -14,13 +14,13 @@ affects: []
 related: []
 pending: []
 created: 2026-10-18
-updated: 2026-10-18
-tags: [task, task/todo, module/platform, priority/P1, frontend]
+updated: 2026-10-19
+tags: [task, task/todo, module/platform, priority/high, frontend]
 ---
 
 # ⬜ T-016-fe · Frontend: Interests vocabulary and my interests
 
-**Parent:** [[T-016 Interests vocabulary and my interests]] · **Feature:** [[Interests]] · **Side:** Frontend · **Status:** To do · **Priority:** P1 · **Effort:** S (same as the parent until the team sizes it)
+**Parent:** [[T-016 Interests vocabulary and my interests]] · **Feature:** [[Interests]] · **Side:** Frontend · **Status:** To do · **Priority:** High · **Effort:** S (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-016-fe` when the team picks it up): [[T-016-fe Frontend Requirements|Frontend Requirements]] · [[T-016-fe Frontend Delivery|Frontend Delivery]] · [[T-016-fe QA Frontend|QA Frontend]]
 

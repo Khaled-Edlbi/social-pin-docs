@@ -2,20 +2,20 @@
 type: task
 id: T-052
 status: blocked
-priority: P2
+priority: medium
 effort: L
 feature: gemma
 module: platform
 screens: [s60]
 depends: [T-051, T-036]
 created: 2026-10-15
-updated: 2026-10-18
-tags: [task, task/blocked, module/platform, priority/P2]
+updated: 2026-10-19
+tags: [task, task/blocked, module/platform, priority/medium]
 ---
 
 # ⛔ T-052 · Smart Match
 
-**Feature:** [[Gemma AI]] · **Status:** Blocked · **Priority:** P2 · **Effort:** L (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Gemma AI]] · **Status:** Blocked · **Priority:** Medium · **Effort:** L (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-052-fe Frontend · Smart Match|Frontend]] · [[T-052-be Backend · Smart Match|Backend]] · **Story:** [[T-052 Story]]
 

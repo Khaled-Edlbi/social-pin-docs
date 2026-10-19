@@ -2,7 +2,7 @@
 type: task
 id: T-048b-fe
 status: todo
-priority: P1
+priority: high
 effort: M
 feature: exhibitor
 module: events
@@ -14,13 +14,13 @@ affects: []
 related: []
 pending: []
 created: 2026-10-18
-updated: 2026-10-18
-tags: [task, task/todo, module/events, priority/P1, frontend]
+updated: 2026-10-19
+tags: [task, task/todo, module/events, priority/high, frontend]
 ---
 
 # ⬜ T-048b-fe · Frontend: Booth analytics and leads CSV export
 
-**Parent:** [[T-048b Booth analytics and leads CSV export]] · **Feature:** [[Exhibitor]] · **Side:** Frontend · **Status:** To do · **Priority:** P1 · **Effort:** M (same as the parent until the team sizes it)
+**Parent:** [[T-048b Booth analytics and leads CSV export]] · **Feature:** [[Exhibitor]] · **Side:** Frontend · **Status:** To do · **Priority:** High · **Effort:** M (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-048b-fe` when the team picks it up): [[T-048b-fe Frontend Requirements|Frontend Requirements]] · [[T-048b-fe Frontend Delivery|Frontend Delivery]] · [[T-048b-fe QA Frontend|QA Frontend]]
 

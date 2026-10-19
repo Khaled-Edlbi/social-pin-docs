@@ -2,17 +2,17 @@
 type: feature
 id: app-shell
 name: "App Shell & Onboarding Narrative"
-priority: P2
+priority: medium
 module: platform
 frontendOnly: true
 screens: [s00a, s00b, s00c, s00d]
-updated: 2026-10-18
-tags: [feature, module/platform, priority/P2]
+updated: 2026-10-19
+tags: [feature, module/platform, priority/medium]
 ---
 
 # App Shell & Onboarding Narrative
 
-**Backend:** Frontend only · **Priority:** P2 · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
+**Backend:** Frontend only · **Priority:** Medium · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
 
 **Layers:** [[App Shell & Onboarding Narrative Story|Story]] · [[App Shell & Onboarding Narrative Frontend Requirements|Frontend Requirements]] · [[App Shell & Onboarding Narrative Backend Delivery|Backend Delivery]] · [[App Shell & Onboarding Narrative Backend Integration|Backend Integration]] · [[App Shell & Onboarding Narrative Frontend Delivery|Frontend Delivery]] · [[App Shell & Onboarding Narrative QA Backend|QA Backend]] · [[App Shell & Onboarding Narrative QA Frontend|QA Frontend]]
 

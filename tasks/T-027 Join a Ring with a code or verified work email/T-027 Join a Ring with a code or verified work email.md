@@ -2,20 +2,20 @@
 type: task
 id: T-027
 status: blocked
-priority: P1
+priority: high
 effort: M
 feature: ring-invitations
 module: shared-rings
 screens: [s74]
 depends: [D-04, T-026]
 created: 2026-10-15
-updated: 2026-10-18
-tags: [task, task/blocked, module/shared-rings, priority/P1]
+updated: 2026-10-19
+tags: [task, task/blocked, module/shared-rings, priority/high]
 ---
 
 # ⛔ T-027 · Join a Ring with a code or verified work email
 
-**Feature:** [[Ring Invitations & Join]] · **Status:** Blocked · **Priority:** P1 · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Ring Invitations & Join]] · **Status:** Blocked · **Priority:** High · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-027-fe Frontend · Join a Ring with a code or verified work email|Frontend]] · [[T-027-be Backend · Join a Ring with a code or verified work email|Backend]] · **Story:** [[T-027 Story]]
 

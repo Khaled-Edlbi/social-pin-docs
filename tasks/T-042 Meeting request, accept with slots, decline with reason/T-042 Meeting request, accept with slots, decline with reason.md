@@ -2,20 +2,20 @@
 type: task
 id: T-042
 status: todo
-priority: P0
+priority: critical
 effort: L
 feature: meetings
 module: meetings
 screens: [s59, s64]
 depends: [T-041]
 created: 2026-10-15
-updated: 2026-10-18
-tags: [task, task/todo, module/meetings, priority/P0]
+updated: 2026-10-19
+tags: [task, task/todo, module/meetings, priority/critical]
 ---
 
 # ⬜ T-042 · Meeting request, accept with slots, decline with reason
 
-**Feature:** [[Meetings]] · **Status:** To do · **Priority:** P0 · **Effort:** L (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Meetings]] · **Status:** To do · **Priority:** Critical · **Effort:** L (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-042-fe Frontend · Meeting request, accept with slots, decline with reason|Frontend]] · [[T-042-be Backend · Meeting request, accept with slots, decline with reason|Backend]] · **Story:** [[T-042 Story]]
 

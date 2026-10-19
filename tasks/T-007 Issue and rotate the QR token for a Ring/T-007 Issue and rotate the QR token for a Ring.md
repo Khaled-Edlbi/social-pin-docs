@@ -2,20 +2,20 @@
 type: task
 id: T-007
 status: todo
-priority: P0
+priority: critical
 effort: M
 feature: badge-qr
 module: discovery
 screens: [s34]
 depends: []
 created: 2026-10-15
-updated: 2026-10-18
-tags: [task, task/todo, module/discovery, priority/P0]
+updated: 2026-10-19
+tags: [task, task/todo, module/discovery, priority/critical]
 ---
 
 # ⬜ T-007 · Issue and rotate the QR token for a Ring
 
-**Feature:** [[Badge & QR]] · **Status:** To do · **Priority:** P0 · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Badge & QR]] · **Status:** To do · **Priority:** Critical · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-007-fe Frontend · Issue and rotate the QR token for a Ring|Frontend]] · [[T-007-be Backend · Issue and rotate the QR token for a Ring|Backend]] · **Story:** [[T-007 Story]]
 

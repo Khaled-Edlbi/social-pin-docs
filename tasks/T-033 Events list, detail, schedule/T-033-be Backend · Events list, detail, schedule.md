@@ -2,7 +2,7 @@
 type: task
 id: T-033-be
 status: todo
-priority: P0
+priority: critical
 effort: L
 feature: events-before
 module: events
@@ -14,13 +14,13 @@ affects: []
 related: []
 pending: []
 created: 2026-10-18
-updated: 2026-10-18
-tags: [task, task/todo, module/events, priority/P0, backend]
+updated: 2026-10-19
+tags: [task, task/todo, module/events, priority/critical, backend]
 ---
 
 # ⬜ T-033-be · Backend: Events list, detail, schedule
 
-**Parent:** [[T-033 Events list, detail, schedule]] · **Feature:** [[Events Before]] · **Side:** Backend · **Status:** To do · **Priority:** P0 · **Effort:** L (same as the parent until the team sizes it)
+**Parent:** [[T-033 Events list, detail, schedule]] · **Feature:** [[Events Before]] · **Side:** Backend · **Status:** To do · **Priority:** Critical · **Effort:** L (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-033-be` when the team picks it up): [[T-033-be Backend Delivery|Backend Delivery]] · [[T-033-be Backend Integration|Backend Integration]] · [[T-033-be QA Backend|QA Backend]]
 

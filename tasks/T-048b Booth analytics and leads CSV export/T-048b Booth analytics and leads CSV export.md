@@ -2,20 +2,20 @@
 type: task
 id: T-048b
 status: blocked
-priority: P1
+priority: high
 effort: M
 feature: exhibitor
 module: events
 screens: [s65]
 depends: [T-009, T-036]
 created: 2026-10-15
-updated: 2026-10-18
-tags: [task, task/blocked, module/events, priority/P1]
+updated: 2026-10-19
+tags: [task, task/blocked, module/events, priority/high]
 ---
 
 # ⛔ T-048b · Booth analytics and leads CSV export
 
-**Feature:** [[Exhibitor]] · **Status:** Blocked · **Priority:** P1 · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Exhibitor]] · **Status:** Blocked · **Priority:** High · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-048b-fe Frontend · Booth analytics and leads CSV export|Frontend]] · [[T-048b-be Backend · Booth analytics and leads CSV export|Backend]] · **Story:** [[T-048b Story]]
 

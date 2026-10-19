@@ -2,20 +2,20 @@
 type: task
 id: T-015
 status: todo
-priority: P2
+priority: medium
 effort: M
 feature: devices
 module: platform
 screens: [s75]
 depends: [T-007]
 created: 2026-10-15
-updated: 2026-10-18
-tags: [task, task/todo, module/platform, priority/P2]
+updated: 2026-10-19
+tags: [task, task/todo, module/platform, priority/medium]
 ---
 
 # ⬜ T-015 · Pair and revoke an NFC card
 
-**Feature:** [[Devices & NFC]] · **Status:** To do · **Priority:** P2 · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Devices & NFC]] · **Status:** To do · **Priority:** Medium · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-015-fe Frontend · Pair and revoke an NFC card|Frontend]] · [[T-015-be Backend · Pair and revoke an NFC card|Backend]] · **Story:** [[T-015 Story]]
 

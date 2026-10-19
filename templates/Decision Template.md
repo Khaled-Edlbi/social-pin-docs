@@ -2,6 +2,8 @@
 type: decision
 id: D-NN
 status: open
+# priority: high           # optional: how urgent the decision is (critical | high | medium | low)
+# deadline: YYYY-MM-DD      # optional: when it must be taken
 features: []
 screens: []
 affects: []

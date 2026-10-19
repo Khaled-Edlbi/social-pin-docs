@@ -2,16 +2,16 @@
 type: feature
 id: interests
 name: "Interests"
-priority: P1
+priority: high
 module: platform
 screens: [s07, s71]
-updated: 2026-10-18
-tags: [feature, module/platform, priority/P1]
+updated: 2026-10-19
+tags: [feature, module/platform, priority/high]
 ---
 
 # Interests
 
-**Backend:** Partial (needs more) · **Priority:** P1 · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
+**Backend:** Partial (needs more) · **Priority:** High · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
 
 **Layers:** [[Interests Story|Story]] · [[Interests Frontend Requirements|Frontend Requirements]] · [[Interests Backend Delivery|Backend Delivery]] · [[Interests Backend Integration|Backend Integration]] · [[Interests Frontend Delivery|Frontend Delivery]] · [[Interests QA Backend|QA Backend]] · [[Interests QA Frontend|QA Frontend]]
 
@@ -32,7 +32,7 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 
 | Task | Status | Priority | Effort |
 |---|---|---|---|
-| [[T-016 Interests vocabulary and my interests]] | ⬜ To do | P1 | S |
+| [[T-016 Interests vocabulary and my interests]] | ⬜ To do | High | S |
 
 ```dataview
 TABLE status, priority, effort FROM #task WHERE feature = "interests" SORT priority ASC

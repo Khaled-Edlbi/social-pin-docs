@@ -2,7 +2,7 @@
 type: task
 id: T-055-be
 status: todo
-priority: P0
+priority: critical
 effort: S
 feature: e2e-tests
 module: platform
@@ -14,13 +14,13 @@ affects: []
 related: []
 pending: []
 created: 2026-10-18
-updated: 2026-10-18
-tags: [task, task/todo, module/platform, priority/P0, backend]
+updated: 2026-10-19
+tags: [task, task/todo, module/platform, priority/critical, backend]
 ---
 
 # ⬜ T-055-be · Backend: Run the e2e suite in CI against PostGIS
 
-**Parent:** [[T-055 Run the e2e suite in CI against PostGIS]] · **Feature:** [[E2E Test Run]] · **Side:** Backend · **Status:** To do · **Priority:** P0 · **Effort:** S (same as the parent until the team sizes it)
+**Parent:** [[T-055 Run the e2e suite in CI against PostGIS]] · **Feature:** [[E2E Test Run]] · **Side:** Backend · **Status:** To do · **Priority:** Critical · **Effort:** S (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-055-be` when the team picks it up): [[T-055-be Backend Delivery|Backend Delivery]] · [[T-055-be Backend Integration|Backend Integration]] · [[T-055-be QA Backend|QA Backend]]
 

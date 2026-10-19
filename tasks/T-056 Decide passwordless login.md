@@ -2,20 +2,20 @@
 type: task
 id: T-056
 status: done
-priority: P0
+priority: critical
 effort: S
 feature: auth
 module: identity
 screens: [s01]
 depends: []
 created: 2026-10-15
-tags: [task, task/done, module/identity, priority/P0]
+tags: [task, task/done, module/identity, priority/critical]
 decision: D-01
 ---
 
 # ✅ T-056 · Decide: passwordless login
 
-**Feature:** [[Auth & Sign-up]] · **Status:** Done · **Priority:** P0 · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Auth & Sign-up]] · **Status:** Done · **Priority:** Critical · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
 
 ## What
 

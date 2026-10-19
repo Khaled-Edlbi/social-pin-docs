@@ -2,20 +2,20 @@
 type: task
 id: T-049
 status: todo
-priority: P1
+priority: high
 effort: M
 feature: subscription
 module: commerce
 screens: [s70]
 depends: []
 created: 2026-10-15
-updated: 2026-10-18
-tags: [task, task/todo, module/commerce, priority/P1]
+updated: 2026-10-19
+tags: [task, task/todo, module/commerce, priority/high]
 ---
 
 # ⬜ T-049 · Subscription endpoints and a single Pro gate
 
-**Feature:** [[Subscription (Free vs Pro)]] · **Status:** To do · **Priority:** P1 · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Subscription (Free vs Pro)]] · **Status:** To do · **Priority:** High · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-049-fe Frontend · Subscription endpoints and a single Pro gate|Frontend]] · [[T-049-be Backend · Subscription endpoints and a single Pro gate|Backend]] · **Story:** [[T-049 Story]]
 

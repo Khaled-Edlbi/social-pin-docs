@@ -2,7 +2,7 @@
 type: task
 id: T-005-fe
 status: todo
-priority: P1
+priority: high
 effort: S
 feature: counts
 module: identity
@@ -14,13 +14,13 @@ affects: []
 related: []
 pending: []
 created: 2026-10-18
-updated: 2026-10-18
-tags: [task, task/todo, module/identity, priority/P1, frontend]
+updated: 2026-10-19
+tags: [task, task/todo, module/identity, priority/high, frontend]
 ---
 
 # ⬜ T-005-fe · Frontend: Connection count on Me and Home
 
-**Parent:** [[T-005 Connection count on Me and Home]] · **Feature:** [[Counts]] · **Side:** Frontend · **Status:** To do · **Priority:** P1 · **Effort:** S (same as the parent until the team sizes it)
+**Parent:** [[T-005 Connection count on Me and Home]] · **Feature:** [[Counts]] · **Side:** Frontend · **Status:** To do · **Priority:** High · **Effort:** S (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-005-fe` when the team picks it up): [[T-005-fe Frontend Requirements|Frontend Requirements]] · [[T-005-fe Frontend Delivery|Frontend Delivery]] · [[T-005-fe QA Frontend|QA Frontend]]
 

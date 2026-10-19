@@ -2,20 +2,20 @@
 type: task
 id: T-055
 status: todo
-priority: P0
+priority: critical
 effort: S
 feature: e2e-tests
 module: platform
 screens: []
 depends: []
 created: 2026-10-15
-updated: 2026-10-18
-tags: [task, task/todo, module/platform, priority/P0]
+updated: 2026-10-19
+tags: [task, task/todo, module/platform, priority/critical]
 ---
 
 # ⬜ T-055 · Run the e2e suite in CI against PostGIS
 
-**Feature:** [[E2E Test Run]] · **Status:** To do · **Priority:** P0 · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[E2E Test Run]] · **Status:** To do · **Priority:** Critical · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-055-be Backend · Run the e2e suite in CI against PostGIS|Backend]] · **Story:** [[T-055 Story]]
 

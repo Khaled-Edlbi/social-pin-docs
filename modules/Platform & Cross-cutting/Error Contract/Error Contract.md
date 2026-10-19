@@ -2,16 +2,16 @@
 type: feature
 id: error-contract
 name: "Error Contract"
-priority: P0
+priority: critical
 module: platform
 screens: []
-updated: 2026-10-18
-tags: [feature, module/platform, priority/P0]
+updated: 2026-10-19
+tags: [feature, module/platform, priority/critical]
 ---
 
 # Error Contract
 
-**Backend:** Partial (needs more) · **Priority:** P0 · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
+**Backend:** Partial (needs more) · **Priority:** Critical · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
 
 **Layers:** [[Error Contract Story|Story]] · [[Error Contract Frontend Requirements|Frontend Requirements]] · [[Error Contract Backend Delivery|Backend Delivery]] · [[Error Contract Backend Integration|Backend Integration]] · [[Error Contract Frontend Delivery|Frontend Delivery]] · [[Error Contract QA Backend|QA Backend]] · [[Error Contract QA Frontend|QA Frontend]]
 
@@ -25,7 +25,7 @@ _No prototype screen. Every error state in the app depends on it._
 
 | Task | Status | Priority | Effort |
 |---|---|---|---|
-| [[T-063 Put the ErrorCode on the error body]] | ⬜ To do | P0 | S |
+| [[T-063 Put the ErrorCode on the error body]] | ⬜ To do | Critical | S |
 
 ```dataview
 TABLE status, priority, effort FROM #task WHERE feature = "error-contract" SORT priority ASC

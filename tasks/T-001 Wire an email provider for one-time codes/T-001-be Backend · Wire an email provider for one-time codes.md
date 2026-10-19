@@ -2,7 +2,7 @@
 type: task
 id: T-001-be
 status: todo
-priority: P0
+priority: critical
 effort: S
 feature: code-delivery
 module: platform
@@ -14,13 +14,13 @@ affects: []
 related: []
 pending: []
 created: 2026-10-18
-updated: 2026-10-18
-tags: [task, task/todo, module/platform, priority/P0, backend]
+updated: 2026-10-19
+tags: [task, task/todo, module/platform, priority/critical, backend]
 ---
 
 # ⬜ T-001-be · Backend: Wire an email provider for one-time codes
 
-**Parent:** [[T-001 Wire an email provider for one-time codes]] · **Feature:** [[Code Delivery]] · **Side:** Backend · **Status:** To do · **Priority:** P0 · **Effort:** S (same as the parent until the team sizes it)
+**Parent:** [[T-001 Wire an email provider for one-time codes]] · **Feature:** [[Code Delivery]] · **Side:** Backend · **Status:** To do · **Priority:** Critical · **Effort:** S (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-001-be` when the team picks it up): [[T-001-be Backend Delivery|Backend Delivery]] · [[T-001-be Backend Integration|Backend Integration]] · [[T-001-be QA Backend|QA Backend]]
 

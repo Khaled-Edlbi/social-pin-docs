@@ -2,7 +2,7 @@
 type: task
 id: T-020b-fe
 status: todo
-priority: P2
+priority: medium
 effort: L
 feature: onboarding-imports
 module: identity
@@ -14,13 +14,13 @@ affects: []
 related: []
 pending: []
 created: 2026-10-18
-updated: 2026-10-18
-tags: [task, task/todo, module/identity, priority/P2, frontend]
+updated: 2026-10-19
+tags: [task, task/todo, module/identity, priority/medium, frontend]
 ---
 
 # ⬜ T-020b-fe · Frontend: Business card scan and portfolio URL import
 
-**Parent:** [[T-020b Business card scan and portfolio URL import]] · **Feature:** [[Onboarding Imports]] · **Side:** Frontend · **Status:** To do · **Priority:** P2 · **Effort:** L (same as the parent until the team sizes it)
+**Parent:** [[T-020b Business card scan and portfolio URL import]] · **Feature:** [[Onboarding Imports]] · **Side:** Frontend · **Status:** To do · **Priority:** Medium · **Effort:** L (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-020b-fe` when the team picks it up): [[T-020b-fe Frontend Requirements|Frontend Requirements]] · [[T-020b-fe Frontend Delivery|Frontend Delivery]] · [[T-020b-fe QA Frontend|QA Frontend]]
 

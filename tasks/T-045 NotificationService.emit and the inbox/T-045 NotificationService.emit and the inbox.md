@@ -2,20 +2,20 @@
 type: task
 id: T-045
 status: todo
-priority: P1
+priority: high
 effort: M
 feature: notifications
 module: platform
 screens: [s69]
 depends: []
 created: 2026-10-15
-updated: 2026-10-18
-tags: [task, task/todo, module/platform, priority/P1]
+updated: 2026-10-19
+tags: [task, task/todo, module/platform, priority/high]
 ---
 
 # ⬜ T-045 · NotificationService.emit and the inbox
 
-**Feature:** [[Notifications]] · **Status:** To do · **Priority:** P1 · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Notifications]] · **Status:** To do · **Priority:** High · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-045-fe Frontend · NotificationService.emit and the inbox|Frontend]] · [[T-045-be Backend · NotificationService.emit and the inbox|Backend]] · **Story:** [[T-045 Story]]
 

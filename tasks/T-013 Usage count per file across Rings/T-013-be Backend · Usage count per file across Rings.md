@@ -2,7 +2,7 @@
 type: task
 id: T-013-be
 status: todo
-priority: P2
+priority: medium
 effort: S
 feature: photo-library
 module: identity
@@ -14,13 +14,13 @@ affects: []
 related: []
 pending: []
 created: 2026-10-18
-updated: 2026-10-18
-tags: [task, task/todo, module/identity, priority/P2, backend]
+updated: 2026-10-19
+tags: [task, task/todo, module/identity, priority/medium, backend]
 ---
 
 # ⬜ T-013-be · Backend: Usage count per file across Rings
 
-**Parent:** [[T-013 Usage count per file across Rings]] · **Feature:** [[Photo Library]] · **Side:** Backend · **Status:** To do · **Priority:** P2 · **Effort:** S (same as the parent until the team sizes it)
+**Parent:** [[T-013 Usage count per file across Rings]] · **Feature:** [[Photo Library]] · **Side:** Backend · **Status:** To do · **Priority:** Medium · **Effort:** S (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-013-be` when the team picks it up): [[T-013-be Backend Delivery|Backend Delivery]] · [[T-013-be Backend Integration|Backend Integration]] · [[T-013-be QA Backend|QA Backend]]
 

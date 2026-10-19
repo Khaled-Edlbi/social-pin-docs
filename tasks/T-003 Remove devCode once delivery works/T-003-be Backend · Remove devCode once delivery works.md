@@ -2,7 +2,7 @@
 type: task
 id: T-003-be
 status: todo
-priority: P1
+priority: high
 effort: S
 feature: code-delivery
 module: platform
@@ -14,13 +14,13 @@ affects: []
 related: []
 pending: []
 created: 2026-10-18
-updated: 2026-10-18
-tags: [task, task/todo, module/platform, priority/P1, backend]
+updated: 2026-10-19
+tags: [task, task/todo, module/platform, priority/high, backend]
 ---
 
 # ⬜ T-003-be · Backend: Remove devCode once delivery works
 
-**Parent:** [[T-003 Remove devCode once delivery works]] · **Feature:** [[Code Delivery]] · **Side:** Backend · **Status:** To do · **Priority:** P1 · **Effort:** S (same as the parent until the team sizes it)
+**Parent:** [[T-003 Remove devCode once delivery works]] · **Feature:** [[Code Delivery]] · **Side:** Backend · **Status:** To do · **Priority:** High · **Effort:** S (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-003-be` when the team picks it up): [[T-003-be Backend Delivery|Backend Delivery]] · [[T-003-be Backend Integration|Backend Integration]] · [[T-003-be QA Backend|QA Backend]]
 

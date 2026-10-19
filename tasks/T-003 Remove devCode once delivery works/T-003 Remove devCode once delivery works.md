@@ -2,20 +2,20 @@
 type: task
 id: T-003
 status: blocked
-priority: P1
+priority: high
 effort: S
 feature: code-delivery
 module: platform
 screens: [s02]
 depends: [T-001, T-002]
 created: 2026-10-15
-updated: 2026-10-18
-tags: [task, task/blocked, module/platform, priority/P1]
+updated: 2026-10-19
+tags: [task, task/blocked, module/platform, priority/high]
 ---
 
 # ⛔ T-003 · Remove devCode once delivery works
 
-**Feature:** [[Code Delivery]] · **Status:** Blocked · **Priority:** P1 · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Code Delivery]] · **Status:** Blocked · **Priority:** High · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-003-be Backend · Remove devCode once delivery works|Backend]] · **Story:** [[T-003 Story]]
 

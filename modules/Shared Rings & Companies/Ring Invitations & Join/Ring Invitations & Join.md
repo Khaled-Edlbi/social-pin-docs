@@ -2,17 +2,17 @@
 type: feature
 id: ring-invitations
 name: "Ring Invitations & Join"
-priority: P1
+priority: high
 module: shared-rings
 screens: [s17, s74]
 related: ["View As & Pin Views"]
-updated: 2026-10-18
-tags: [feature, module/shared-rings, priority/P1]
+updated: 2026-10-19
+tags: [feature, module/shared-rings, priority/high]
 ---
 
 # Ring Invitations & Join
 
-**Backend:** TODO · **Priority:** P1 · **Module:** [[Shared Rings & Companies Module|Shared Rings & Companies]]
+**Backend:** TODO · **Priority:** High · **Module:** [[Shared Rings & Companies Module|Shared Rings & Companies]]
 
 **Layers:** [[Ring Invitations & Join Story|Story]] · [[Ring Invitations & Join Frontend Requirements|Frontend Requirements]] · [[Ring Invitations & Join Backend Delivery|Backend Delivery]] · [[Ring Invitations & Join Backend Integration|Backend Integration]] · [[Ring Invitations & Join Frontend Delivery|Frontend Delivery]] · [[Ring Invitations & Join QA Backend|QA Backend]] · [[Ring Invitations & Join QA Frontend|QA Frontend]]
 
@@ -33,9 +33,9 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 
 | Task | Status | Priority | Effort |
 |---|---|---|---|
-| [[T-026 Ring invitations invite, review, decline]] | ❓ Needs a decision / info | P1 | M |
-| [[T-027 Join a Ring with a code or verified work email]] | ⛔ Blocked | P1 | M |
-| [[T-028 What you contribute to a shared Ring]] | ❓ Needs a decision / info | P2 | L |
+| [[T-026 Ring invitations invite, review, decline]] | ❓ Needs a decision / info | High | M |
+| [[T-027 Join a Ring with a code or verified work email]] | ⛔ Blocked | High | M |
+| [[T-028 What you contribute to a shared Ring]] | ❓ Needs a decision / info | Medium | L |
 
 ```dataview
 TABLE status, priority, effort FROM #task WHERE feature = "ring-invitations" SORT priority ASC

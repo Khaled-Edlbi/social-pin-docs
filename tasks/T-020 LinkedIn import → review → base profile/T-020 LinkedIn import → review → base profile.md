@@ -2,20 +2,20 @@
 type: task
 id: T-020
 status: blocked
-priority: P1
+priority: high
 effort: L
 feature: onboarding-imports
 module: identity
 screens: [s04, s05]
 depends: [T-019, D-02]
 created: 2026-10-15
-updated: 2026-10-18
-tags: [task, task/blocked, module/identity, priority/P1]
+updated: 2026-10-19
+tags: [task, task/blocked, module/identity, priority/high]
 ---
 
 # ⛔ T-020 · LinkedIn import → review → base profile
 
-**Feature:** [[Onboarding Imports]] · **Status:** Blocked · **Priority:** P1 · **Effort:** L (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Onboarding Imports]] · **Status:** Blocked · **Priority:** High · **Effort:** L (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-020-fe Frontend · LinkedIn import → review → base profile|Frontend]] · [[T-020-be Backend · LinkedIn import → review → base profile|Backend]] · **Story:** [[T-020 Story]]
 

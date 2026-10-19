@@ -2,20 +2,20 @@
 type: task
 id: T-023
 status: todo
-priority: P0
+priority: critical
 effort: M
 feature: connections
 module: connections
 screens: [s47]
 depends: [T-022]
 created: 2026-10-15
-updated: 2026-10-18
-tags: [task, task/todo, module/connections, priority/P0]
+updated: 2026-10-19
+tags: [task, task/todo, module/connections, priority/critical]
 ---
 
 # ⬜ T-023 · Connection detail and contacts list
 
-**Feature:** [[Connections]] · **Status:** To do · **Priority:** P0 · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Connections]] · **Status:** To do · **Priority:** Critical · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-023-fe Frontend · Connection detail and contacts list|Frontend]] · [[T-023-be Backend · Connection detail and contacts list|Backend]] · **Story:** [[T-023 Story]]
 

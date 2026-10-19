@@ -2,17 +2,17 @@
 type: feature
 id: events-during
 name: "Events During"
-priority: P0
+priority: critical
 module: events
 screens: [s53, s54, s55, s56, s57, s58]
 related: ["Rings", "View As & Pin Views"]
-updated: 2026-10-18
-tags: [feature, module/events, priority/P0]
+updated: 2026-10-19
+tags: [feature, module/events, priority/critical]
 ---
 
 # Events During
 
-**Backend:** TODO · **Priority:** P0 · **Module:** [[Events Module|Events]]
+**Backend:** TODO · **Priority:** Critical · **Module:** [[Events Module|Events]]
 
 **Layers:** [[Events During Story|Story]] · [[Events During Frontend Requirements|Frontend Requirements]] · [[Events During Backend Delivery|Backend Delivery]] · [[Events During Backend Integration|Backend Integration]] · [[Events During Frontend Delivery|Frontend Delivery]] · [[Events During QA Backend|QA Backend]] · [[Events During QA Frontend|QA Frontend]]
 
@@ -37,11 +37,11 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 
 | Task | Status | Priority | Effort |
 |---|---|---|---|
-| [[T-036 Event mode exhibitors list and detail]] | ⛔ Blocked | P0 | M |
-| [[T-037 Event pass with a 60 s rotating code]] | ⛔ Blocked | P1 | M |
-| [[T-038 Floor map and booths]] | ⛔ Blocked | P1 | M |
-| [[T-039 Catalogue products and talks (new table)]] | ❓ Needs a decision / info | P1 | L |
-| [[T-040 Lounges and upgrades]] | ⛔ Blocked | P1 | M |
+| [[T-036 Event mode exhibitors list and detail]] | ⛔ Blocked | Critical | M |
+| [[T-037 Event pass with a 60 s rotating code]] | ⛔ Blocked | High | M |
+| [[T-038 Floor map and booths]] | ⛔ Blocked | High | M |
+| [[T-039 Catalogue products and talks (new table)]] | ❓ Needs a decision / info | High | L |
+| [[T-040 Lounges and upgrades]] | ⛔ Blocked | High | M |
 
 ```dataview
 TABLE status, priority, effort FROM #task WHERE feature = "events-during" SORT priority ASC

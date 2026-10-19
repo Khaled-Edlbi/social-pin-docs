@@ -2,17 +2,17 @@
 type: feature
 id: meetings
 name: "Meetings"
-priority: P0
+priority: critical
 module: meetings
 screens: [s59, s61, s64, s66, s67]
 related: ["View As & Pin Views"]
-updated: 2026-10-18
-tags: [feature, module/meetings, priority/P0]
+updated: 2026-10-19
+tags: [feature, module/meetings, priority/critical]
 ---
 
 # Meetings
 
-**Backend:** TODO · **Priority:** P0 · **Module:** [[Meetings Module|Meetings]]
+**Backend:** TODO · **Priority:** Critical · **Module:** [[Meetings Module|Meetings]]
 
 **Layers:** [[Meetings Story|Story]] · [[Meetings Frontend Requirements|Frontend Requirements]] · [[Meetings Backend Delivery|Backend Delivery]] · [[Meetings Backend Integration|Backend Integration]] · [[Meetings Frontend Delivery|Frontend Delivery]] · [[Meetings QA Backend|QA Backend]] · [[Meetings QA Frontend|QA Frontend]]
 
@@ -36,10 +36,10 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 
 | Task | Status | Priority | Effort |
 |---|---|---|---|
-| [[T-041 Availability slots CRUD]] | ⬜ To do | P0 | M |
-| [[T-042 Meeting request, accept with slots, decline with reason]] | ⬜ To do | P0 | L |
-| [[T-043 Temporary meeting Ring per meeting]] | ⬜ To do | P0 | M |
-| [[T-044 My meetings, calendar, detail, reschedule, cancel]] | ⬜ To do | P0 | M |
+| [[T-041 Availability slots CRUD]] | ⬜ To do | Critical | M |
+| [[T-042 Meeting request, accept with slots, decline with reason]] | ⬜ To do | Critical | L |
+| [[T-043 Temporary meeting Ring per meeting]] | ⬜ To do | Critical | M |
+| [[T-044 My meetings, calendar, detail, reschedule, cancel]] | ⬜ To do | Critical | M |
 
 ```dataview
 TABLE status, priority, effort FROM #task WHERE feature = "meetings" SORT priority ASC

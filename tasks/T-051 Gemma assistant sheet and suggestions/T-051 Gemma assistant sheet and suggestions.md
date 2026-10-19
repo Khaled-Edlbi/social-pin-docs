@@ -2,20 +2,20 @@
 type: task
 id: T-051
 status: needs-info
-priority: P2
+priority: medium
 effort: L
 feature: gemma
 module: platform
 screens: [s13]
 depends: [T-016, T-049]
 created: 2026-10-15
-updated: 2026-10-18
-tags: [task, task/needs-info, module/platform, priority/P2]
+updated: 2026-10-19
+tags: [task, task/needs-info, module/platform, priority/medium]
 ---
 
 # ❓ T-051 · Gemma assistant sheet and suggestions
 
-**Feature:** [[Gemma AI]] · **Status:** Needs a decision / info · **Priority:** P2 · **Effort:** L (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Gemma AI]] · **Status:** Needs a decision / info · **Priority:** Medium · **Effort:** L (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-051-fe Frontend · Gemma assistant sheet and suggestions|Frontend]] · [[T-051-be Backend · Gemma assistant sheet and suggestions|Backend]] · **Story:** [[T-051 Story]]
 

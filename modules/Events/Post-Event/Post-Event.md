@@ -2,17 +2,17 @@
 type: feature
 id: post-event
 name: "Post-Event"
-priority: P1
+priority: high
 module: events
 screens: [s62]
 related: ["View As & Pin Views"]
-updated: 2026-10-18
-tags: [feature, module/events, priority/P1]
+updated: 2026-10-19
+tags: [feature, module/events, priority/high]
 ---
 
 # Post-Event
 
-**Backend:** TODO · **Priority:** P1 · **Module:** [[Events Module|Events]]
+**Backend:** TODO · **Priority:** High · **Module:** [[Events Module|Events]]
 
 **Layers:** [[Post-Event Story|Story]] · [[Post-Event Frontend Requirements|Frontend Requirements]] · [[Post-Event Backend Delivery|Backend Delivery]] · [[Post-Event Backend Integration|Backend Integration]] · [[Post-Event Frontend Delivery|Frontend Delivery]] · [[Post-Event QA Backend|QA Backend]] · [[Post-Event QA Frontend|QA Frontend]]
 
@@ -32,7 +32,7 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 
 | Task | Status | Priority | Effort |
 |---|---|---|---|
-| [[T-050 Post-event summary and follow-ups]] | ⛔ Blocked | P1 | M |
+| [[T-050 Post-event summary and follow-ups]] | ⛔ Blocked | High | M |
 
 ```dataview
 TABLE status, priority, effort FROM #task WHERE feature = "post-event" SORT priority ASC

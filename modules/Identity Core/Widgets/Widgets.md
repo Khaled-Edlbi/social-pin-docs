@@ -2,16 +2,16 @@
 type: feature
 id: widgets
 name: "Widgets"
-priority: P1
+priority: high
 module: identity
 screens: [s36, s37]
-updated: 2026-10-18
-tags: [feature, module/identity, priority/P1]
+updated: 2026-10-19
+tags: [feature, module/identity, priority/high]
 ---
 
 # Widgets
 
-**Backend:** Partial (needs more) · **Priority:** P1 · **Module:** [[Identity Core Module|Identity Core]]
+**Backend:** Partial (needs more) · **Priority:** High · **Module:** [[Identity Core Module|Identity Core]]
 
 **Layers:** [[Widgets Story|Story]] · [[Widgets Frontend Requirements|Frontend Requirements]] · [[Widgets Backend Delivery|Backend Delivery]] · [[Widgets Backend Integration|Backend Integration]] · [[Widgets Frontend Delivery|Frontend Delivery]] · [[Widgets QA Backend|QA Backend]] · [[Widgets QA Frontend|QA Frontend]]
 
@@ -32,8 +32,8 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 
 | Task | Status | Priority | Effort |
 |---|---|---|---|
-| [[T-017 Extend WIDGET_TYPE to the design's list]] | ⬜ To do | P1 | S |
-| [[T-018 Widget CRUD on the projection]] | ❓ Needs a decision / info | P1 | M |
+| [[T-017 Extend WIDGET_TYPE to the design's list]] | ⬜ To do | High | S |
+| [[T-018 Widget CRUD on the projection]] | ❓ Needs a decision / info | High | M |
 
 ```dataview
 TABLE status, priority, effort FROM #task WHERE feature = "widgets" SORT priority ASC

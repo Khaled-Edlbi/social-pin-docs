@@ -2,20 +2,20 @@
 type: task
 id: T-039
 status: needs-info
-priority: P1
+priority: high
 effort: L
 feature: events-during
 module: events
 screens: [s58]
 depends: [T-036]
 created: 2026-10-15
-updated: 2026-10-18
-tags: [task, task/needs-info, module/events, priority/P1]
+updated: 2026-10-19
+tags: [task, task/needs-info, module/events, priority/high]
 ---
 
 # ❓ T-039 · Catalogue: products and talks (new table)
 
-**Feature:** [[Events During]] · **Status:** Needs a decision / info · **Priority:** P1 · **Effort:** L (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Events During]] · **Status:** Needs a decision / info · **Priority:** High · **Effort:** L (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-039-fe Frontend · Catalogue products and talks (new table)|Frontend]] · [[T-039-be Backend · Catalogue products and talks (new table)|Backend]] · **Story:** [[T-039 Story]]
 

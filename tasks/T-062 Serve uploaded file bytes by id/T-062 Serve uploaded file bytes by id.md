@@ -2,20 +2,20 @@
 type: task
 id: T-062
 status: todo
-priority: P0
+priority: critical
 effort: S
 feature: files
 module: identity
 screens: [s14, s29, s30, s31, s44]
 depends: []
 created: 2026-10-15
-updated: 2026-10-18
-tags: [task, task/todo, module/identity, priority/P0]
+updated: 2026-10-19
+tags: [task, task/todo, module/identity, priority/critical]
 ---
 
 # ⬜ T-062 · Serve uploaded file bytes by id
 
-**Feature:** [[Files Upload]] · **Status:** To do · **Priority:** P0 · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Files Upload]] · **Status:** To do · **Priority:** Critical · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-062-fe Frontend · Serve uploaded file bytes by id|Frontend]] · [[T-062-be Backend · Serve uploaded file bytes by id|Backend]] · **Story:** [[T-062 Story]]
 

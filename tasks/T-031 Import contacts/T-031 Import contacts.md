@@ -2,20 +2,20 @@
 type: task
 id: T-031
 status: needs-info
-priority: P2
+priority: medium
 effort: M
 feature: discover-hub
 module: discovery
 screens: [s38]
 depends: []
 created: 2026-10-15
-updated: 2026-10-18
-tags: [task, task/needs-info, module/discovery, priority/P2]
+updated: 2026-10-19
+tags: [task, task/needs-info, module/discovery, priority/medium]
 ---
 
 # ❓ T-031 · Import contacts
 
-**Feature:** [[Discover Hub & Search]] · **Status:** Needs a decision / info · **Priority:** P2 · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Discover Hub & Search]] · **Status:** Needs a decision / info · **Priority:** Medium · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-031-fe Frontend · Import contacts|Frontend]] · [[T-031-be Backend · Import contacts|Backend]] · **Story:** [[T-031 Story]]
 

@@ -181,6 +181,13 @@ main.stage { flex: 1; min-width: 0; position: relative; border-left: 1px solid v
 .orow .kick { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--color-neutral-600); white-space: nowrap; }
 .stchip { font-size: 11px; padding: 2px 8px; border-radius: 2px; background: var(--bg, var(--color-neutral-200)); color: var(--ink, var(--color-neutral-800)); border: 1px solid var(--bd, transparent); white-space: nowrap; }
 .stchip.dashed { border-style: dashed; }
+.mark { display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; border-radius: 3px; border: 1px solid var(--mc); background: color-mix(in srgb, var(--mc) 16%, transparent); color: var(--mc); flex: none; vertical-align: middle; }
+.mark svg { width: 12px; height: 12px; display: block; }
+.mark.skull { font-size: 12px; line-height: 1; }
+.mark.wide { width: auto; padding: 0 7px 0 5px; gap: 5px; font-size: 11px; font-weight: 600; white-space: nowrap; }
+.mark.wide .mt { color: var(--color-text); }
+.mark.wide .ms { font-weight: 400; color: var(--color-neutral-700); }
+.orow .mark { margin-left: 2px; }
 
 /* — pane — */
 #pane { width: min(var(--pane-w), 70vw); min-width: 300px; flex: none; overflow: auto; background: var(--color-neutral-100); border-left: 1px solid var(--color-divider); box-shadow: var(--shadow-md); }
@@ -300,6 +307,10 @@ article .obsidian-only { border: 1px dashed var(--color-neutral-400); color: var
     <section class="sec statuses">
       <div class="sec-head" data-sec="statuses" role="button" tabindex="0" aria-expanded="true"><span class="sec-title"><i class="ph-duotone ph-caret-down fold"></i>Status</span><span class="sec-hint">where it stands</span></div>
       <div id="statuses" style="display:flex;flex-direction:column;gap:12px"></div>
+    </section>
+    <section class="sec">
+      <div class="sec-head" data-sec="urgency" role="button" tabindex="0" aria-expanded="true"><span class="sec-title"><i class="ph-duotone ph-caret-down fold"></i>Priority &amp; deadline</span><span class="sec-hint">how urgent</span></div>
+      <div id="urgency" style="display:flex;flex-direction:column;gap:12px"></div>
     </section>
     <section class="sec">
       <div class="sec-head" data-sec="edges" role="button" tabindex="0" aria-expanded="true"><span class="sec-title"><i class="ph-duotone ph-caret-down fold"></i>Relations</span><span class="sec-hint">lines behind the cards</span></div>
@@ -445,7 +456,34 @@ const PRESETS = [
   { id: 'notes', name: 'Done with notes', hint: 'Partial · pending items to clear', kinds: [], statuses: ['partial'] },
   { id: 'unapproved', name: 'Unapproved stories', hint: 'User stories · Draft', kinds: ['story'], statuses: ['draft'] },
   { id: 'missing', name: 'Not written yet', hint: 'Placeholders to scaffold', kinds: [], statuses: ['missing'] },
+  { id: 'overdue', name: 'Overdue', hint: 'Deadline missed 💀', kinds: [], statuses: [], due: ['missed'] },
+  { id: 'duesoon', name: 'Due now', hint: 'Inside the deadline window', kinds: [], statuses: [], due: ['_window'] },
+  { id: 'critical', name: 'Critical cards', hint: 'Highest priority', kinds: [], statuses: [], priorities: ['_top'] },
 ];
+// priorities and deadlines come from tree.json (docs.config.json priorities / deadlines); these are the fallbacks
+let PRIO = { levels: [], byId: {} };
+let DL = { windowDays: 3, zones: [{ id: 'on-track', label: 'On track', color: '#16a34a' }, { id: 'due-soon', label: 'Due soon', color: '#eab308' }, { id: 'last-day', label: 'Last day', color: '#dc2626' }], missed: { id: 'missed', label: 'Missed', color: '#6b7280', icon: '💀' } };
+const prioOf = (n) => (n && n.priority && PRIO.byId[n.priority]) || null;
+// where a deadline stands now: the window before it split evenly over the zones (deadline day inclusive), `missed` once the day is over. Same rule as scripts/build-tree.mjs deadlineZone().
+function dueOf(n, now = new Date()) {
+  if (!n || !n.deadline || !/^\d{4}-\d{2}-\d{2}$/.test(n.deadline)) return null;
+  const [y, m, d] = n.deadline.split('-').map(Number);
+  const left = (new Date(y, m - 1, d + 1) - now) / 86400000, daysLeft = Math.ceil(left) - 1;
+  if (left <= 0) return { ...DL.missed, daysLeft, missed: true, date: n.deadline, text: `${DL.missed.label} · ${-daysLeft} day${-daysLeft === 1 ? '' : 's'} ago` };
+  const zones = DL.zones, k = zones.length, idx = Math.min(k - 1, Math.max(0, k - 1 - Math.floor((left - 1e-9) * k / DL.windowDays)));
+  return { ...zones[idx], daysLeft, missed: false, date: n.deadline, text: `${zones[idx].label} · ${daysLeft === 0 ? 'today' : daysLeft === 1 ? 'tomorrow' : `in ${daysLeft} days`}` };
+}
+const inheritedFrom = (n, k) => (n.inherits && n.inherits[k] && node(n.inherits[k]) ? ` · from ${node(n.inherits[k]).title}` : '');
+const FLAG_D = 'M -3.5 -5.5 V 5.5 M -3.5 -5.5 H 4 L 2.2 -2.6 L 4 0.3 H -3.5';
+const CLOCK_D = 'M 0 -2.6 V 0.3 L 2.2 1.7 M 0 -5 A 5 5 0 1 1 -0.01 -5';
+const markSvg = (d) => `<svg viewBox="-7 -7 14 14" aria-hidden="true"><path d="${d}" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>`;
+// the two marks as HTML (outline rows, the pane): a flag in the priority colour, a clock in the deadline zone colour or a skull once missed
+function marksHtml(n, wide) {
+  const out = [], p = prioOf(n), z = dueOf(n);
+  if (p) out.push(`<span class="mark${wide ? ' wide' : ''}" style="--mc:${esc(p.color || 'currentColor')}" title="${esc(`Priority: ${p.label}${inheritedFrom(n, 'priority')}`)}">${markSvg(FLAG_D)}${wide ? `<span class="mt">${esc(p.label)}</span>` : ''}</span>`);
+  if (z) out.push(`<span class="mark${z.missed ? ' skull' : ''}${wide ? ' wide' : ''}" style="--mc:${esc(z.color || 'currentColor')}" title="${esc(`Deadline ${z.date} · ${z.text}${inheritedFrom(n, 'deadline')}`)}">${z.missed ? esc(z.icon || '💀') : markSvg(CLOCK_D)}${wide ? `<span class="mt">${esc(z.date)}</span><span class="ms">${esc(z.text)}</span>` : ''}</span>`);
+  return out.join('');
+}
 const LABEL = { bug: { bg: 'var(--color-accent-2-100)', ink: 'var(--color-accent-2-800)', c: 'var(--color-accent-2-600)' }, chore: { bg: 'var(--color-neutral-200)', ink: 'var(--color-neutral-800)', c: 'var(--color-neutral-500)' }, spike: { bg: 'var(--st-violet-bg)', ink: 'var(--st-violet-ink)', c: 'var(--st-violet-c)' }, docs: { bg: 'var(--color-accent-100)', ink: 'var(--color-accent-800)', c: 'var(--color-accent-500)' } };
 const labelStyle = (l) => LABEL[l] || LABEL.chore;
 const T = { H: 20, ROW: 52, LROW: 58, LADDER: 16, LEVEL: 112, XGAP: 16, STACK: 26, COLGAP: 64 };
@@ -461,7 +499,7 @@ function sel(tag, attrs, parent, style) { const e = document.createElementNS(SVG
 
 // ------------------------------------------------------------ state
 const S = {
-  D: null, view: store.get('view', null), q: '', modules: [], kinds: [], statuses: [], label: null,
+  D: null, view: store.get('view', null), q: '', modules: [], kinds: [], statuses: [], label: null, priorities: [], due: [],
   edgeKinds: store.get('edgeKinds', EDGE_KINDS.slice()), orient: store.get('orient', 'vertical'), scope: store.get('scope', 'features'),
   collapsed: [], selected: null, focus: null, pane: null, hover: null,
   theme: store.get('theme', null) || (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'),
@@ -496,6 +534,8 @@ async function load() {
   for (const a of d.modules ? ['business', 'frontend', 'backend', 'qa', 'shared'] : []) if (!LAYER[a]) LAYER[a] = { label: a, color: null };
   FLOW = { order: d.flowOrder || [], pairs: (d.flow || []).filter((p) => Array.isArray(p) && p.length === 2), back: d.flowBack || [] };
   if (!FLOW.order.length) { const q = FLOW.pairs.length ? [FLOW.pairs[0][0]] : []; while (q.length) { const k = q.shift(); if (FLOW.order.includes(k)) continue; FLOW.order.push(k); for (const [a, b] of FLOW.pairs) if (a === k) q.push(b); } FLOW.back = FLOW.pairs.filter(([a, b]) => FLOW.order.indexOf(a) >= FLOW.order.indexOf(b)); }
+  if (Array.isArray(d.priorities) && d.priorities.length) PRIO = { levels: d.priorities, byId: Object.fromEntries(d.priorities.map((l) => [l.id, l])) };
+  if (d.deadlines && Array.isArray(d.deadlines.zones) && d.deadlines.zones.length) DL = { windowDays: d.deadlines.windowDays > 0 ? d.deadlines.windowDays : 3, zones: d.deadlines.zones, missed: { ...DL.missed, ...(d.deadlines.missed || {}) } };
   KIND_GROUPS = [{ title: 'Structure', keys: ['feature'] }, ...(d.layers || []).map((l) => ({ title: l.label, color: l.color, keys: l.kinds.map((k) => k.id) })), { title: 'Work', keys: ['task', 'decision'] }, { title: 'Reference', keys: ['project'] }];
   if (d.repo && d.repo.owner) $('#repo-link').href = `https://github.com/${d.repo.owner}/${d.repo.name}`;
   if (!S.view) S.view = window.innerWidth < 720 ? 'outline' : 'tree';
@@ -512,9 +552,12 @@ async function load() {
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { C.graph = {}; clearCards(); redraw(true); });
 }
 function computeTotals() {
-  const t = { status: {}, kind: {}, module: {}, edge: {} };
+  const t = { status: {}, kind: {}, module: {}, edge: {}, priority: {}, due: {} };
+  const now = new Date();
   for (const n of Object.values(S.D.nodes)) {
     t.status[n.effectiveStatus] = (t.status[n.effectiveStatus] || 0) + 1;
+    if (n.priority) t.priority[n.priority] = (t.priority[n.priority] || 0) + 1;
+    const z = dueOf(n, now); if (z) t.due[z.id] = (t.due[z.id] || 0) + 1;
     t.kind[n.kind] = (t.kind[n.kind] || 0) + 1;
     if (n.module && n.kind === 'feature') t.module[n.module] = (t.module[n.module] || 0) + 1;
   }
@@ -528,7 +571,7 @@ function statusText(n) {
   if (b.length && (n.effectiveStatus === 'blocked' || n.effectiveStatus === 'missing')) { const t = node(b[0].id); return `${n.effectiveStatus === 'blocked' ? 'Blocked' : l} · ${(t.kind === 'task' || t.kind === 'decision') && t.code ? t.code : (kindOf(t.kind).name)}${b.length > 1 ? ` +${b.length - 1}` : ''}`; }
   return l;
 }
-const kicker = (n) => (n.card && !n.title.startsWith(n.card) ? n.card + ' · ' : '') + kindOf(n.kind).name.toUpperCase() + (n.parentTask ? ' · SUB-TASK OF ' + n.parentTask : '') + (n.frontendOnly ? ' · FRONTEND ONLY' : '') + (n.priority ? ' · ' + n.priority : '');
+const kicker = (n) => (n.card && !n.title.startsWith(n.card) ? n.card + ' · ' : '') + kindOf(n.kind).name.toUpperCase() + (n.parentTask ? ' · SUB-TASK OF ' + n.parentTask : '') + (n.frontendOnly ? ' · FRONTEND ONLY' : '');
 const flowIdx = (kind) => FLOW.order.indexOf(kind);
 // is a story fulfilled? the verdict of the QA cards the flow returns from (qa-backend, qa-frontend → story), or the story's own `verified`:
 // 'checked' when every QA card is passing (or the story is verified), 'cross' when any QA card is failing, 'pending' until then
@@ -555,13 +598,17 @@ const chipStyle = (n) => { const st = stOf(n); return `--bg:${st.bg};--ink:${st.
 const chipHtml = (n, extraCls = '') => `<span class="stchip${stOf(n).dashed ? ' dashed' : ''}${extraCls ? ' ' + extraCls : ''}" style="${chipStyle(n)}">${esc(statusText(n))}</span>`;
 
 // ------------------------------------------------------------ filters
-const filtersActive = () => !!(S.q || S.modules.length || S.kinds.length || S.statuses.length || S.label);
+const filtersActive = () => !!(S.q || S.modules.length || S.kinds.length || S.statuses.length || S.label || S.priorities.length || S.due.length);
+const expandDue = (list) => list.flatMap((z) => (z === '_window' ? DL.zones.slice(1).map((x) => x.id) : [z])); // _window: every zone but the first (on track)
+const expandPrio = (list) => list.flatMap((p) => (p === '_top' && PRIO.levels.length ? [PRIO.levels[0].id] : [p]));
 function matches(n) {
   if (S.statuses.length && !S.statuses.includes(n.effectiveStatus)) return false;
+  if (S.priorities.length && !expandPrio(S.priorities).includes(n.priority || '_none')) return false;
+  if (S.due.length) { const z = dueOf(n); if (!expandDue(S.due).includes(z ? z.id : '_none')) return false; }
   if (S.modules.length && n.kind !== 'root' && !S.modules.includes(n.module)) return false;
   if (S.kinds.length && !S.kinds.includes(n.kind)) return false;
   if (S.label && !(Array.isArray(n.labels) && n.labels.includes(S.label))) return false;
-  if (S.q) { const q = S.q.toLowerCase(); const hay = [n.title, n.id, n.code || '', n.card || '', n.summary || '', ...(n.screens || []), ...(n.labels || []), n.feature || ''].join(' ').toLowerCase(); if (!hay.includes(q)) return false; }
+  if (S.q) { const q = S.q.toLowerCase(); const hay = [n.title, n.id, n.code || '', n.card || '', n.summary || '', ...(n.screens || []), ...(n.labels || []), n.feature || '', prioOf(n) ? prioOf(n).label : '', n.deadline || ''].join(' ').toLowerCase(); if (!hay.includes(q)) return false; }
   return true;
 }
 
@@ -595,7 +642,8 @@ function nodeWidth(n, caret) {
   const t = tw(n.title, `600 13px ${FONT}`), kw = tw(k, `600 9px ${FONT}`) + k.length * 0.9 + (hasLayerMark(n) ? 11 : 0);
   const st = tw(statusText(n), `600 10px ${FONT}`) + 14;
   const lb = (n.labels || []).reduce((w, l) => w + Math.ceil(tw(l.toUpperCase(), `700 8px ${FONT}`) + l.length * 0.6) + 10 + 6, 0);
-  return Math.ceil(14 + Math.max(t, kw) + 14 + lb + st + 12 + (caret ? 12 : 0));
+  const mk = ((prioOf(n) ? 1 : 0) + (dueOf(n) ? 1 : 0)) * (16 + 6);
+  return Math.ceil(14 + Math.max(t, kw) + 14 + lb + mk + st + 12 + (caret ? 12 : 0));
 }
 function layoutTree() {
   const vertical = S.orient === 'vertical';
@@ -786,6 +834,11 @@ function renderCards(list) {
       const sx = sel('text', { x: cx + 7, y: 0.5, 'dominant-baseline': 'middle' }, g, { font: `600 10px ${FONT}`, fill: st.ink, pointerEvents: 'none' }); sx.textContent = label;
       let lx = cx - 6;
       for (const l of [...(n.labels || [])].reverse()) { const ls = labelStyle(l), text = l.toUpperCase(), lw = Math.ceil(tw(text, `700 8px ${FONT}`) + text.length * 0.6) + 10; lx -= lw; sel('rect', { x: lx, y: -8, width: lw, height: 16, rx: 2 }, g, { fill: ls.bg, stroke: ls.c, strokeWidth: 1 }); const lt = sel('text', { x: lx + 5, y: 0.5, 'dominant-baseline': 'middle' }, g, { font: `700 8px ${FONT}`, letterSpacing: '0.06em', fill: ls.ink, pointerEvents: 'none' }); lt.textContent = text; lx -= 6; }
+      // the deadline clock (zone colour; a skull once missed) and the priority flag (level colour), right to left before the labels
+      const mark = (color, title, draw) => { lx -= 16; const mg = sel('g', { 'data-mark': '' }, g); sel('rect', { x: lx, y: -8, width: 16, height: 16, rx: 3 }, mg, { fill: `color-mix(in srgb, ${color} 16%, transparent)`, stroke: color, strokeWidth: 1 }); draw(mg, lx + 8, color); sel('title', {}, mg).textContent = title; lx -= 6; };
+      const z = dueOf(n), p = prioOf(n);
+      if (z) mark(z.color || 'currentColor', `Deadline ${z.date} · ${z.text}${inheritedFrom(n, 'deadline')}`, (mg, cx0, color) => { if (z.missed) { const t = sel('text', { x: cx0, y: 0.5, 'text-anchor': 'middle', 'dominant-baseline': 'middle' }, mg, { font: `11px ${FONT}`, pointerEvents: 'none' }); t.textContent = z.icon || '💀'; } else sel('path', { d: CLOCK_D, transform: `translate(${cx0}, 0)` }, mg, { fill: 'none', stroke: color, strokeWidth: 1.6, strokeLinecap: 'round', strokeLinejoin: 'round', pointerEvents: 'none' }); });
+      if (p) mark(p.color || 'currentColor', `Priority: ${p.label}${inheritedFrom(n, 'priority')}`, (mg, cx0, color) => sel('path', { d: FLAG_D, transform: `translate(${cx0}, 0)` }, mg, { fill: 'none', stroke: color, strokeWidth: 1.6, strokeLinecap: 'round', strokeLinejoin: 'round', pointerEvents: 'none' }));
       let caretT = null, caretC = null;
       if (it.caret) {
         const cg = sel('g', {}, g, { cursor: 'pointer' });
@@ -1047,10 +1100,16 @@ function setFilters(patch) {
 function renderSidebar() {
   const d = S.D, tot = totals;
   const same = (a, b) => a.length === b.length && a.every((x) => b.includes(x));
-  $('#presets').innerHTML = PRESETS.map((p) => { const on = same(p.kinds, S.kinds) && same(p.statuses, S.statuses) && (p.label || null) === S.label && !S.q && !S.modules.length; return `<button class="preset" data-preset="${p.id}" aria-pressed="${on}"><span class="pn">${esc(p.name)}</span><span class="ph">${esc(p.hint)}</span></button>`; }).join('');
+  $('#presets').innerHTML = PRESETS.map((p) => { const on = same(p.kinds, S.kinds) && same(p.statuses, S.statuses) && (p.label || null) === S.label && same(p.due || [], S.due) && same(p.priorities || [], S.priorities) && !S.q && !S.modules.length; return `<button class="preset" data-preset="${p.id}" aria-pressed="${on}"><span class="pn">${esc(p.name)}</span><span class="ph">${esc(p.hint)}</span></button>`; }).join('');
   $('#modules').innerHTML = node(d.rootId).children.map(node).filter((n) => n.kind === 'module').map((n) => `<button class="list-btn" data-module="${esc(n.module)}" aria-pressed="${S.modules.includes(n.module)}"><span class="box"><i class="ph-duotone ph-check"></i></span><span class="grow">${esc(n.name || n.title)}</span><span class="n">${tot.module[n.module] || 0}</span></button>`).join('');
   $('#kinds').innerHTML = KIND_GROUPS.map((g) => `<div class="group"><div class="group-title">${g.color ? `<span class="ld" style="background:${g.color}"></span>` : ''}${esc(g.title)}</div><div class="chips">` + g.keys.map((k) => { const kd = kindOf(k); return `<button class="chip" data-kind="${k}" aria-pressed="${S.kinds.includes(k)}" title="${esc(kd.name)}"><i class="ph-duotone ${kd.icon}"></i>${esc(kd.short)}<span class="n">${tot.kind[k] || 0}</span></button>`; }).join('') + '</div></div>').join('');
   $('#statuses').innerHTML = STATUS_GROUPS.map((g) => `<div class="group"><div class="group-title">${esc(g.title)}${g.hint ? `<span class="gh">${esc(g.hint)}</span>` : ''}</div><div class="chips">` + g.keys.map((k) => { const c = tot.status[k] || 0; return `<button class="chip${c ? '' : ' zero'}" data-status="${k}" aria-pressed="${S.statuses.includes(k)}"><span class="dot" style="background:${(ST[k] || ST.todo).c}"></span>${esc(legend(k))}<span class="n">${c}</span></button>`; }).join('') + '</div></div>').join('');
+  const prioChips = PRIO.levels.map((l) => { const c = tot.priority[l.id] || 0; return `<button class="chip${c ? '' : ' zero'}" data-priority="${esc(l.id)}" aria-pressed="${S.priorities.includes(l.id)}" title="${esc(l.description || l.label)}"><span class="mark" style="--mc:${esc(l.color || 'currentColor')};width:16px;height:16px">${markSvg(FLAG_D)}</span>${esc(l.label)}<span class="n">${c}</span></button>`; }).join('');
+  const noPrio = Object.values(d.nodes).filter((n) => n.path && !n.priority).length;
+  const dueChips = [...DL.zones, DL.missed].map((z) => { const c = tot.due[z.id] || 0; return `<button class="chip${c ? '' : ' zero'}" data-due="${esc(z.id)}" aria-pressed="${S.due.includes(z.id)}"><span class="mark${z.id === DL.missed.id ? ' skull' : ''}" style="--mc:${esc(z.color || 'currentColor')};width:16px;height:16px">${z.id === DL.missed.id ? esc(z.icon || '💀') : markSvg(CLOCK_D)}</span>${esc(z.label)}<span class="n">${c}</span></button>`; }).join('');
+  const noDue = Object.values(d.nodes).filter((n) => n.path && !n.deadline).length;
+  $('#urgency').innerHTML = `<div class="group"><div class="group-title">Priority<span class="gh">a flag in the level's colour</span></div><div class="chips">${prioChips}<button class="chip${noPrio ? '' : ' zero'}" data-priority="_none" aria-pressed="${S.priorities.includes('_none')}">No priority<span class="n">${noPrio}</span></button></div></div>` +
+    `<div class="group"><div class="group-title">Deadline<span class="gh">a clock, by how close it is (last ${DL.windowDays} days)</span></div><div class="chips">${dueChips}<button class="chip${noDue ? '' : ' zero'}" data-due="_none" aria-pressed="${S.due.includes('_none')}">No deadline<span class="n">${noDue}</span></button></div></div>`;
   $('#edges').innerHTML = `<div class="list-btn" style="cursor:default;color:var(--color-neutral-700)"><span style="width:14px;flex:none"></span><svg class="sw" width="26" height="8"><line x1="0" y1="4" x2="26" y2="4" stroke="var(--color-neutral-600)" stroke-width="2.2"></line></svg><span class="grow">Tree structure</span><span class="sec-hint">always</span></div>` +
     EDGE_KINDS.map((k) => `<button class="list-btn" data-edge="${k}" aria-pressed="${S.edgeKinds.includes(k)}"><span class="box"><i class="ph-duotone ph-check"></i></span><svg class="sw" width="26" height="8"><line x1="0" y1="4" x2="26" y2="4" stroke="${EDGE[k].color}" stroke-width="1.6" stroke-dasharray="${EDGE[k].dash || '4 3'}"></line></svg><span class="grow">${esc(EDGE[k].name)}${EDGE[k].arrow ? ' →' : ''}</span><span class="n">${tot.edge[k] || 0}</span></button>`).join('');
   $('#clear').classList.toggle('hidden', !filtersActive());
@@ -1058,12 +1117,14 @@ function renderSidebar() {
 const arrToggle = (key, v) => { const a = S[key]; return a.includes(v) ? a.filter((x) => x !== v) : [...a, v]; };
 $('#filters').addEventListener('click', (e) => {
   const b = e.target.closest('button'); if (!b) return;
-  if (b.dataset.preset) { const p = PRESETS.find((x) => x.id === b.dataset.preset); const on = b.getAttribute('aria-pressed') === 'true'; setFilters(on ? { kinds: [], statuses: [], label: null } : { kinds: p.kinds.slice(), statuses: p.statuses.slice(), label: p.label || null, modules: [], q: '' }); if (!on) $('#search').value = ''; }
+  if (b.dataset.preset) { const p = PRESETS.find((x) => x.id === b.dataset.preset); const on = b.getAttribute('aria-pressed') === 'true'; setFilters(on ? { kinds: [], statuses: [], label: null, due: [], priorities: [] } : { kinds: p.kinds.slice(), statuses: p.statuses.slice(), label: p.label || null, due: (p.due || []).slice(), priorities: (p.priorities || []).slice(), modules: [], q: '' }); if (!on) $('#search').value = ''; }
+  else if (b.dataset.priority) setFilters({ priorities: arrToggle('priorities', b.dataset.priority) });
+  else if (b.dataset.due) setFilters({ due: arrToggle('due', b.dataset.due) });
   else if (b.dataset.module) setFilters({ modules: arrToggle('modules', b.dataset.module) });
   else if (b.dataset.kind) setFilters({ kinds: arrToggle('kinds', b.dataset.kind) });
   else if (b.dataset.status) setFilters({ statuses: arrToggle('statuses', b.dataset.status) });
   else if (b.dataset.edge) { S.edgeKinds = arrToggle('edgeKinds', b.dataset.edge); store.set('edgeKinds', S.edgeKinds); relCache = null; renderSidebar(); if (S.view !== 'outline') { drawRel(); updateHover(); } }
-  else if (b.id === 'clear') { $('#search').value = ''; setFilters({ q: '', modules: [], kinds: [], statuses: [], label: null }); }
+  else if (b.id === 'clear') { $('#search').value = ''; setFilters({ q: '', modules: [], kinds: [], statuses: [], label: null, priorities: [], due: [] }); }
 });
 let st; $('#search').addEventListener('input', (e) => { clearTimeout(st); st = setTimeout(() => setFilters({ q: e.target.value.trim() }), 120); });
 
@@ -1078,7 +1139,7 @@ function renderOutline() {
     const row = document.createElement('div'); row.className = `orow k-${n.kind}${big ? ' big' : ''}${S.selected === it.id ? ' sel' : ''}${active && !it.match ? ' faded' : ''}${inactive(n) ? ' inactive' : ''}`;
     row.setAttribute('role', 'treeitem'); row.tabIndex = 0; row.dataset.row = it.iid; if (has) row.setAttribute('aria-expanded', String(!!it.open));
     row.style.paddingLeft = (10 + it.depth * 24) + 'px';
-    row.innerHTML = `<button class="car" aria-label="Toggle" style="visibility:${has ? 'visible' : 'hidden'}"><i class="ph-duotone ${it.open ? 'ph-caret-down' : 'ph-caret-right'}"></i></button><i class="ki ph-duotone ${kindOf(n.kind).icon}"></i><span class="t" title="${esc(n.path || n.title)}">${esc(n.title)}</span><span class="kick">${n.kind === 'root' ? '' : esc(kicker(n))}</span>${(n.labels || []).map((l) => `<span class="stchip" style="--bg:${labelStyle(l).bg};--ink:${labelStyle(l).ink};--bd:${labelStyle(l).c};text-transform:uppercase;letter-spacing:.06em;font-weight:700;font-size:10px">${esc(l)}</span>`).join('')}${chipHtml(n)}`;
+    row.innerHTML = `<button class="car" aria-label="Toggle" style="visibility:${has ? 'visible' : 'hidden'}"><i class="ph-duotone ${it.open ? 'ph-caret-down' : 'ph-caret-right'}"></i></button><i class="ki ph-duotone ${kindOf(n.kind).icon}"></i><span class="t" title="${esc(n.path || n.title)}">${esc(n.title)}</span><span class="kick">${n.kind === 'root' ? '' : esc(kicker(n))}</span>${marksHtml(n)}${(n.labels || []).map((l) => `<span class="stchip" style="--bg:${labelStyle(l).bg};--ink:${labelStyle(l).ink};--bd:${labelStyle(l).c};text-transform:uppercase;letter-spacing:.06em;font-weight:700;font-size:10px">${esc(l)}</span>`).join('')}${chipHtml(n)}`;
     row.querySelector('.car').addEventListener('click', (e) => { e.stopPropagation(); if (has) toggle(it.id); });
     row.addEventListener('click', () => select(it.id, it.iid));
     row.addEventListener('keydown', (e) => {
@@ -1113,7 +1174,8 @@ function openPane(head) {
   pane.classList.remove('hidden'); $('#rz-pane').classList.remove('hidden'); S.pane = head.id; $('#hints').classList.add('hidden');
   $('#p-icon').className = 'ph-duotone ' + head.icon; $('#p-kicker').textContent = head.kicker; $('#p-title').textContent = head.title;
   const stc = $('#p-status'); stc.className = 'stchip' + (head.dashed ? ' dashed' : ''); stc.style.cssText = head.chip; stc.textContent = head.status;
-  for (const e of pane.querySelectorAll('.meta .lbl-chip')) e.remove();
+  for (const e of pane.querySelectorAll('.meta .lbl-chip, .meta .mark')) e.remove();
+  if (head.marks) { const tpl = document.createElement('template'); tpl.innerHTML = head.marks; for (const m of [...tpl.content.children].reverse()) stc.after(m); }
   for (const l of head.labels || []) { const c = document.createElement('span'); c.className = 'stchip lbl-chip'; c.style.cssText = `--bg:${labelStyle(l).bg};--ink:${labelStyle(l).ink};--bd:${labelStyle(l).c};text-transform:uppercase;letter-spacing:.06em;font-weight:700;font-size:10px`; c.textContent = l; stc.after(c); }
   $('#p-path').textContent = head.path || ''; $('#p-gh').href = head.gh; $('#p-gh span').textContent = head.ghText;
   $('#p-focus').classList.toggle('hidden', !head.node);
@@ -1126,6 +1188,8 @@ const relGroup = (title, count, inner, sub) => `<div class="relg"><div class="rt
 // what stops the card right now: shown first, under the summary, because it explains the chip
 function stateHtml(n) {
   const out = [];
+  const z = dueOf(n);
+  if (z) out.push(relGroup(z.missed ? 'Deadline missed' : 'Deadline', '', `<span class="rel" style="cursor:default">${marksHtml({ deadline: n.deadline })}<span class="lt">${esc(z.date)}</span><span class="why">${esc(z.text)}</span></span>`, n.inherits && n.inherits.deadline && node(n.inherits.deadline) ? `Inherited from ${esc(node(n.inherits.deadline).title)}` : `The card's own deadline · the clock turns ${DL.zones.map((x) => x.label.toLowerCase()).join(' → ')} over the last ${DL.windowDays} days, ${DL.missed.icon || '💀'} once missed`));
   if (Array.isArray(n.blockedBy) && n.blockedBy.length) out.push(relGroup('Blocked by', String(n.blockedBy.length), n.blockedBy.map((b) => relItem(b.id, `<span class="why">${esc(b.why)}</span>`)).join('')));
   if (Array.isArray(n.pending) && n.pending.length) out.push(relGroup('Pending', String(n.pending.length), n.pending.map((p) => p.to ? relItem(p.to, `<span class="why">${esc(p.text)}</span>`) : `<span class="rel" style="cursor:default"><i class="ph-duotone ph-user" style="font-size:13px"></i>${p.person ? `<span class="lt">@${esc(p.person)}</span>` : ''}<span class="why">${esc(p.text)}</span></span>`).join(''), n.effectiveStatus === 'partial' ? 'Partial until these are cleared or handed over' : 'Notes left for a card or a person'));
   return out.join('');
@@ -1162,7 +1226,7 @@ async function openNode(id) {
   const n = node(id), k = kindOf(n.kind);
   const path = n.path || n.file || null;
   const st = stOf(n);
-  openPane({ id, node: true, icon: k.icon, kicker: kicker(n) + (n.layer && LAYER[n.layer] && KIND[n.kind] && KIND[n.kind].layer ? ' · ' + LAYER[n.layer].label + ' layer' : '') , title: n.title, path: path || '', gh: path ? ghUrl(path) : (n.template ? ghUrl(n.template) : (S.D.repo.blobBase || '')), ghText: path ? 'Edit on GitHub' : 'Open the template', summary: n.summary || '', state: stateHtml(n), rels: relationsHtml(n), chip: chipStyle(n), dashed: st.dashed, status: statusText(n), labels: n.labels || [] });
+  openPane({ id, node: true, icon: k.icon, kicker: kicker(n) + (n.layer && LAYER[n.layer] && KIND[n.kind] && KIND[n.kind].layer ? ' · ' + LAYER[n.layer].label + ' layer' : '') , title: n.title, path: path || '', gh: path ? ghUrl(path) : (n.template ? ghUrl(n.template) : (S.D.repo.blobBase || '')), ghText: path ? 'Edit on GitHub' : 'Open the template', summary: n.summary || '', state: stateHtml(n), rels: relationsHtml(n), chip: chipStyle(n), dashed: st.dashed, status: statusText(n), labels: n.labels || [], marks: marksHtml(n, true) });
   if (!path) { $('#p-article').innerHTML = `<p class="empty">Not written yet.${n.template ? ` Create it from <a href="#f/${encodeURIComponent(n.template)}">${esc(n.template)}</a>.` : ''}</p>`; return; }
   await renderFile(path, n.heading, id);
 }

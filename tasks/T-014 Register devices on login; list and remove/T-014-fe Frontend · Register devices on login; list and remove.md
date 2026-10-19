@@ -2,7 +2,7 @@
 type: task
 id: T-014-fe
 status: todo
-priority: P1
+priority: high
 effort: M
 feature: devices
 module: platform
@@ -14,13 +14,13 @@ affects: []
 related: []
 pending: []
 created: 2026-10-18
-updated: 2026-10-18
-tags: [task, task/todo, module/platform, priority/P1, frontend]
+updated: 2026-10-19
+tags: [task, task/todo, module/platform, priority/high, frontend]
 ---
 
 # ⬜ T-014-fe · Frontend: Register devices on login; list and remove
 
-**Parent:** [[T-014 Register devices on login; list and remove]] · **Feature:** [[Devices & NFC]] · **Side:** Frontend · **Status:** To do · **Priority:** P1 · **Effort:** M (same as the parent until the team sizes it)
+**Parent:** [[T-014 Register devices on login; list and remove]] · **Feature:** [[Devices & NFC]] · **Side:** Frontend · **Status:** To do · **Priority:** High · **Effort:** M (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-014-fe` when the team picks it up): [[T-014-fe Frontend Requirements|Frontend Requirements]] · [[T-014-fe Frontend Delivery|Frontend Delivery]] · [[T-014-fe QA Frontend|QA Frontend]]
 

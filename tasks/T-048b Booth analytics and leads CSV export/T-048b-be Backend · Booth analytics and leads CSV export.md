@@ -2,7 +2,7 @@
 type: task
 id: T-048b-be
 status: todo
-priority: P1
+priority: high
 effort: M
 feature: exhibitor
 module: events
@@ -14,13 +14,13 @@ affects: []
 related: []
 pending: []
 created: 2026-10-18
-updated: 2026-10-18
-tags: [task, task/todo, module/events, priority/P1, backend]
+updated: 2026-10-19
+tags: [task, task/todo, module/events, priority/high, backend]
 ---
 
 # ⬜ T-048b-be · Backend: Booth analytics and leads CSV export
 
-**Parent:** [[T-048b Booth analytics and leads CSV export]] · **Feature:** [[Exhibitor]] · **Side:** Backend · **Status:** To do · **Priority:** P1 · **Effort:** M (same as the parent until the team sizes it)
+**Parent:** [[T-048b Booth analytics and leads CSV export]] · **Feature:** [[Exhibitor]] · **Side:** Backend · **Status:** To do · **Priority:** High · **Effort:** M (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-048b-be` when the team picks it up): [[T-048b-be Backend Delivery|Backend Delivery]] · [[T-048b-be Backend Integration|Backend Integration]] · [[T-048b-be QA Backend|QA Backend]]
 

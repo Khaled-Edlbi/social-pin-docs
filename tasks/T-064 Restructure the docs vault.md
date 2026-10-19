@@ -2,7 +2,7 @@
 type: task
 id: T-064
 status: done
-priority: P1
+priority: high
 effort: L
 feature: error-contract
 module: platform
@@ -11,12 +11,12 @@ depends: []
 affects: ["Docs Tree", "Workflow", "Agent Rules"]
 related: []
 created: 2026-10-18
-tags: [task, task/done, module/platform, priority/P1]
+tags: [task, task/done, module/platform, priority/high]
 ---
 
 # ✅ T-064 · Restructure the docs vault
 
-**Feature:** [[Error Contract]] (platform, docs-only: no layer notes) · **Status:** Done · **Priority:** P1 · **Effort:** L
+**Feature:** [[Error Contract]] (platform, docs-only: no layer notes) · **Status:** Done · **Priority:** High · **Effort:** L
 
 ## What
 

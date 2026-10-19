@@ -2,16 +2,16 @@
 type: feature
 id: delegated-admins
 name: "Delegated Admins"
-priority: P1
+priority: high
 module: shared-rings
 screens: [s26, s27]
-updated: 2026-10-18
-tags: [feature, module/shared-rings, priority/P1]
+updated: 2026-10-19
+tags: [feature, module/shared-rings, priority/high]
 ---
 
 # Delegated Admins
 
-**Backend:** Partial (needs more) · **Priority:** P1 · **Module:** [[Shared Rings & Companies Module|Shared Rings & Companies]]
+**Backend:** Partial (needs more) · **Priority:** High · **Module:** [[Shared Rings & Companies Module|Shared Rings & Companies]]
 
 **Layers:** [[Delegated Admins Story|Story]] · [[Delegated Admins Frontend Requirements|Frontend Requirements]] · [[Delegated Admins Backend Delivery|Backend Delivery]] · [[Delegated Admins Backend Integration|Backend Integration]] · [[Delegated Admins Frontend Delivery|Frontend Delivery]] · [[Delegated Admins QA Backend|QA Backend]] · [[Delegated Admins QA Frontend|QA Frontend]]
 
@@ -32,7 +32,7 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 
 | Task | Status | Priority | Effort |
 |---|---|---|---|
-| [[T-006 Delegated admin endpoints]] | ⬜ To do | P1 | M |
+| [[T-006 Delegated admin endpoints]] | ⬜ To do | High | M |
 
 ```dataview
 TABLE status, priority, effort FROM #task WHERE feature = "delegated-admins" SORT priority ASC

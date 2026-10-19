@@ -2,7 +2,7 @@
 type: task
 id: T-039-fe
 status: todo
-priority: P1
+priority: high
 effort: L
 feature: events-during
 module: events
@@ -14,13 +14,13 @@ affects: []
 related: []
 pending: []
 created: 2026-10-18
-updated: 2026-10-18
-tags: [task, task/todo, module/events, priority/P1, frontend]
+updated: 2026-10-19
+tags: [task, task/todo, module/events, priority/high, frontend]
 ---
 
 # ⬜ T-039-fe · Frontend: Catalogue products and talks (new table)
 
-**Parent:** [[T-039 Catalogue products and talks (new table)]] · **Feature:** [[Events During]] · **Side:** Frontend · **Status:** To do · **Priority:** P1 · **Effort:** L (same as the parent until the team sizes it)
+**Parent:** [[T-039 Catalogue products and talks (new table)]] · **Feature:** [[Events During]] · **Side:** Frontend · **Status:** To do · **Priority:** High · **Effort:** L (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-039-fe` when the team picks it up): [[T-039-fe Frontend Requirements|Frontend Requirements]] · [[T-039-fe Frontend Delivery|Frontend Delivery]] · [[T-039-fe QA Frontend|QA Frontend]]
 

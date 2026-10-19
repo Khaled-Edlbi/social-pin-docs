@@ -2,7 +2,7 @@
 type: task
 id: T-044-fe
 status: todo
-priority: P0
+priority: critical
 effort: M
 feature: meetings
 module: meetings
@@ -14,13 +14,13 @@ affects: []
 related: []
 pending: []
 created: 2026-10-18
-updated: 2026-10-18
-tags: [task, task/todo, module/meetings, priority/P0, frontend]
+updated: 2026-10-19
+tags: [task, task/todo, module/meetings, priority/critical, frontend]
 ---
 
 # ⬜ T-044-fe · Frontend: My meetings, calendar, detail, reschedule, cancel
 
-**Parent:** [[T-044 My meetings, calendar, detail, reschedule, cancel]] · **Feature:** [[Meetings]] · **Side:** Frontend · **Status:** To do · **Priority:** P0 · **Effort:** M (same as the parent until the team sizes it)
+**Parent:** [[T-044 My meetings, calendar, detail, reschedule, cancel]] · **Feature:** [[Meetings]] · **Side:** Frontend · **Status:** To do · **Priority:** Critical · **Effort:** M (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-044-fe` when the team picks it up): [[T-044-fe Frontend Requirements|Frontend Requirements]] · [[T-044-fe Frontend Delivery|Frontend Delivery]] · [[T-044-fe QA Frontend|QA Frontend]]
 

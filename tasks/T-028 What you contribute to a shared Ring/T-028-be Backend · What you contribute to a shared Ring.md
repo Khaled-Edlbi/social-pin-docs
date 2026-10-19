@@ -2,7 +2,7 @@
 type: task
 id: T-028-be
 status: todo
-priority: P2
+priority: medium
 effort: L
 feature: ring-invitations
 module: shared-rings
@@ -14,13 +14,13 @@ affects: []
 related: []
 pending: []
 created: 2026-10-18
-updated: 2026-10-18
-tags: [task, task/todo, module/shared-rings, priority/P2, backend]
+updated: 2026-10-19
+tags: [task, task/todo, module/shared-rings, priority/medium, backend]
 ---
 
 # ⬜ T-028-be · Backend: What you contribute to a shared Ring
 
-**Parent:** [[T-028 What you contribute to a shared Ring]] · **Feature:** [[Ring Invitations & Join]] · **Side:** Backend · **Status:** To do · **Priority:** P2 · **Effort:** L (same as the parent until the team sizes it)
+**Parent:** [[T-028 What you contribute to a shared Ring]] · **Feature:** [[Ring Invitations & Join]] · **Side:** Backend · **Status:** To do · **Priority:** Medium · **Effort:** L (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-028-be` when the team picks it up): [[T-028-be Backend Delivery|Backend Delivery]] · [[T-028-be Backend Integration|Backend Integration]] · [[T-028-be QA Backend|QA Backend]]
 

@@ -2,20 +2,20 @@
 type: task
 id: T-041
 status: todo
-priority: P0
+priority: critical
 effort: M
 feature: meetings
 module: meetings
 screens: [s59, s64]
 depends: []
 created: 2026-10-15
-updated: 2026-10-18
-tags: [task, task/todo, module/meetings, priority/P0]
+updated: 2026-10-19
+tags: [task, task/todo, module/meetings, priority/critical]
 ---
 
 # ⬜ T-041 · Availability slots CRUD
 
-**Feature:** [[Meetings]] · **Status:** To do · **Priority:** P0 · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Meetings]] · **Status:** To do · **Priority:** Critical · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-041-fe Frontend · Availability slots CRUD|Frontend]] · [[T-041-be Backend · Availability slots CRUD|Backend]] · **Story:** [[T-041 Story]]
 

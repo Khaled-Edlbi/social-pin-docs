@@ -2,7 +2,7 @@
 type: task
 id: T-047-be
 status: todo
-priority: P1
+priority: high
 effort: L
 feature: payments
 module: commerce
@@ -14,13 +14,13 @@ affects: []
 related: []
 pending: []
 created: 2026-10-18
-updated: 2026-10-18
-tags: [task, task/todo, module/commerce, priority/P1, backend]
+updated: 2026-10-19
+tags: [task, task/todo, module/commerce, priority/high, backend]
 ---
 
 # ⬜ T-047-be · Backend: Orders, payments and the provider webhook
 
-**Parent:** [[T-047 Orders, payments and the provider webhook]] · **Feature:** [[Payments & Orders]] · **Side:** Backend · **Status:** To do · **Priority:** P1 · **Effort:** L (same as the parent until the team sizes it)
+**Parent:** [[T-047 Orders, payments and the provider webhook]] · **Feature:** [[Payments & Orders]] · **Side:** Backend · **Status:** To do · **Priority:** High · **Effort:** L (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-047-be` when the team picks it up): [[T-047-be Backend Delivery|Backend Delivery]] · [[T-047-be Backend Integration|Backend Integration]] · [[T-047-be QA Backend|QA Backend]]
 
