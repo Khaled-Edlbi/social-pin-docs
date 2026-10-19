@@ -7,10 +7,11 @@
  *   node scripts/build-tree.mjs --serve [port]       builds, then serves site/ on http://127.0.0.1:8787
  *   node scripts/build-tree.mjs --out DIR            writes the site somewhere else
  *   node scripts/build-tree.mjs --impact "<note|code>"   what a change to that note touches (two hops), grouped by layer; a card code (S-01) works too
+ *   node scripts/build-tree.mjs --find "<words>"     the cards and concepts that match some words (a module, a feature, a screen, an endpoint): how an agent resolves what the user named
  *   node scripts/build-tree.mjs --scaffold <kind> <feature-id|T-NNN>   creates a layer note from its template
- *   node scripts/build-tree.mjs --scaffold task <feature-id> "<Title>" [--backend-only | --docs-only | --parent T-NNN] [--label <label>] [--priority P1] [--effort M]
+ *   node scripts/build-tree.mjs --scaffold task <feature-id> "<Title>" [--backend-only | --docs-only | --parent T-NNN] [--label <label>] [--priority high] [--effort M]
  *                                                    creates the task with the next free number, its story and its frontend / backend halves
- *   node scripts/build-tree.mjs --scaffold feature <module-id> "<Name>" [--id <slug>] [--priority P1] [--frontend-only]   creates the feature note
+ *   node scripts/build-tree.mjs --scaffold feature <module-id> "<Name>" [--id <slug>] [--priority high] [--frontend-only]   creates the feature note
  *   node scripts/build-tree.mjs --scaffold decision "<card>" ["<title>"]   creates the decision card a task, a layer note or a feature needs (blocks it while open)
  *
  * No dependencies: Node 22 built-ins only. The output is key-sorted and carries
@@ -94,6 +95,20 @@ export function loadConfig(errors = []) {
   for (const k of cfg.requiredAtFeatureLevel || []) if (!kinds.has(k)) err(`requiredAtFeatureLevel names unknown kind "${k}"`);
   if (!Array.isArray(cfg.modules) || !cfg.modules.length) err('modules must be a non-empty list');
   if (!Array.isArray(cfg.projectAreas) || !cfg.projectAreas.length) err('projectAreas must be a non-empty list');
+  // agents: one per role, each with the note that is its prompt and the files it may write (scripts/agent-guard.mjs enforces it)
+  const agentList = Array.isArray(cfg.agents?.list) ? cfg.agents.list : [];
+  const agentIds = new Set();
+  const layerIds = new Set([...(cfg.layers || []).map((l) => l.id), 'shared']);
+  for (const a of agentList) {
+    if (!a || typeof a.id !== 'string' || !/^[a-z][a-z0-9-]*$/.test(a.id)) { err(`agents.list: every agent needs a lowercase id (got ${JSON.stringify(a?.id)})`); continue; }
+    if (agentIds.has(a.id)) err(`agents.list: agent "${a.id}" is listed twice`); agentIds.add(a.id);
+    if (typeof a.note !== 'string' || !fs.existsSync(path.join(ROOT, a.note))) err(`agents.list: agent "${a.id}" names a note that does not exist (${a.note})`);
+    if (a.layer && !layerIds.has(a.layer)) err(`agents.list: agent "${a.id}" names unknown layer "${a.layer}"`);
+    const w = a.writes || {};
+    for (const k of [...(w.kinds || []), ...(w.editOnly?.kinds || []), ...(a.signs || []).filter((x) => x !== 'decision')]) if (!kinds.has(k)) err(`agents.list: agent "${a.id}" names unknown kind "${k}"`);
+    for (const t of [...(w.types || []), ...(w.editOnly?.types || [])]) if (!['module', 'feature', 'task', 'decision', 'project'].includes(t)) err(`agents.list: agent "${a.id}" names unknown type "${t}"`);
+  }
+  if (cfg.agents?.protocol && !fs.existsSync(path.join(ROOT, cfg.agents.protocol))) err(`agents.protocol names a note that does not exist (${cfg.agents.protocol})`);
   const kindOrder = [...kinds.keys()];
   // the hand-off order: walk the flow from its first kind, breadth first; a flow pair that points at an earlier kind is a return (QA back to the story)
   const flow = (cfg.flow || []).filter((p) => Array.isArray(p) && p.length === 2 && kinds.has(p[0]) && kinds.has(p[1]));
@@ -854,7 +869,7 @@ export function build() {
   return {
     json: {
       schema: 2, repo: REPO, rootId: 'root', counts, legend: LEGEND, emoji: EMOJI, layers: layersOut, flow: cfg.flow, flowOrder: cfg.flowOrder, flowBack: cfg.flowBack, taskLabels: cfg.taskLabels, defaultBlocks: [...cfg.flowBlocks, ...(cfg.defaultBlocks || [])], frontendOnly: { skips: cfg.frontendOnlySkips },
-      modules: cfg.modules, priorities: cfg.priorities.levels, deadlines: cfg.deadlines, generated: GENERATED, nodes, edges, concepts: conceptsOut, byName, files: filesIndex, cards: cards.byCode, cardPrefixes: cards.prefixes, diagnostics: { errors, warnings },
+      modules: cfg.modules, priorities: cfg.priorities.levels, deadlines: cfg.deadlines, agents: (cfg.agents?.list || []).map((a) => ({ id: a.id, label: a.label, note: a.note, layer: a.layer ?? null })), generated: GENERATED, nodes, edges, concepts: conceptsOut, byName, files: filesIndex, cards: cards.byCode, cardPrefixes: cards.prefixes, diagnostics: { errors, warnings },
     },
     errors, warnings, notes, cfg, cards: cards.registry,
   };
@@ -1108,6 +1123,32 @@ export function impact(json, query) {
   return { start, family: [...family].map((id) => nodes[id]), first, second, dependents };
 }
 
+const nodeLine = (n) => `${EMOJI[n.effectiveStatus] || '•'} ${n.title}${n.card ? ` [${n.card}]` : ''}${n.code && n.code !== n.title && n.code !== n.card ? ` (${n.code})` : ''}${n.path ? ` — ${n.path}` : ''}`;
+
+// ---------------------------------------------------------------- find: the cards and concepts that match some words
+export function find(json, query, limit = 12) {
+  const words = query.toLowerCase().split(/[^a-z0-9!:/_-]+/).filter((w) => w.length > 1);
+  if (!words.length) return { nodes: [], concepts: [] };
+  const score = (fields) => {
+    const text = fields.filter(Boolean).join(' \n ').toLowerCase();
+    let s = 0;
+    for (const w of words) { if (!text.includes(w)) continue; s += 1; if (fields[0]?.toLowerCase().includes(w)) s += 2; if (fields[0]?.toLowerCase() === w || fields[1]?.toLowerCase() === w) s += 3; }
+    return s;
+  };
+  const moduleName = (id) => json.modules.find((m) => m.id === id)?.name ?? '';
+  const nodes = Object.values(json.nodes).filter((n) => n.path || n.kind === 'module').map((n) => ({ n, s: score([n.title, n.code, n.card, n.id, n.summary, (n.screens || []).join(' '), moduleName(n.module), n.feature, n.kind]) })).filter((x) => x.s > 0);
+  nodes.sort((a, b) => b.s - a.s || (a.n.kind === 'feature' ? -1 : 0) - (b.n.kind === 'feature' ? -1 : 0) || a.n.title.localeCompare(b.n.title));
+  const concepts = Object.entries(json.concepts).map(([name, c]) => ({ name, c, s: score([name, c.kind]) })).filter((x) => x.s > 0).sort((a, b) => b.s - a.s).slice(0, 8);
+  return { nodes: nodes.slice(0, limit), concepts };
+}
+function printFind(json, query) {
+  const r = find(json, query);
+  if (!r.nodes.length && !r.concepts.length) { console.log(`nothing matches "${query}"; try a module name, a feature, a screen id (s44), an endpoint or a code (T-004, S-01)`); return; }
+  console.log(`Cards matching "${query}" (best first):`);
+  for (const { n } of r.nodes) console.log(`  ${nodeLine(n)}${n.kind ? ` · ${n.kind}${n.layer ? ` / ${n.layer}` : ''}` : ''}${n.feature && n.kind !== 'feature' ? ` · feature ${n.feature}` : ''}${n.module ? ` · module ${n.module}` : ''}`);
+  if (r.concepts.length) { console.log('Concepts:'); for (const { name, c } of r.concepts) console.log(`  ${name} (${c.kind}${c.owner ? `, owned by ${json.nodes[c.owner]?.title}` : ''}) · mentioned by ${c.notes.length} notes`); }
+}
+
 function printImpact(json, r, query) {
   if (!r) { console.error(`nothing named "${query}" (try a note name, a task or decision id, a feature id, or a concept like E_RING_02 / "GET /rings/:id" / s14)`); process.exit(1); }
   const { nodes } = json;
@@ -1162,7 +1203,7 @@ const screenLinks = (screens) => (screens.length ? screens.map((s) => `[[Screen 
 
 function scaffoldTask(result, featureId, title) {
   const { cfg, json } = result;
-  const usage = 'usage: node scripts/build-tree.mjs --scaffold task <feature-id> "<Title>" [--backend-only | --docs-only | --parent T-NNN] [--label <label>] [--priority P0|P1|P2] [--effort S|M|L]';
+  const usage = 'usage: node scripts/build-tree.mjs --scaffold task <feature-id> "<Title>" [--backend-only | --docs-only | --parent T-NNN] [--label <label>] [--priority critical|high|medium|low] [--effort S|M|L]';
   if (!featureId || !title) die(usage);
   const f = json.nodes[`feature:${featureId}`];
   if (!f) die(`no feature with id "${featureId}" (feature ids are the \`id:\` of modules/<Module>/<Feature>/<Feature>.md; see tree/tree.json)`);
@@ -1173,8 +1214,8 @@ function scaffoldTask(result, featureId, title) {
   if (parent && parent.feature !== featureId) die(`${parentCode} belongs to feature "${parent.feature}"; a sub-task stays in its parent's feature`);
   const label = opt('--label', null);
   if (label && !cfg.taskLabels.includes(label)) die(`label "${label}" is not in docs.config.json taskLabels (${cfg.taskLabels.join(', ')})`);
-  const priority = opt('--priority', 'P1'), effort = opt('--effort', 'M');
-  if (!/^P[0-3]$/.test(priority)) die(`priority "${priority}": P0, P1, P2 or P3`);
+  const priority = opt('--priority', 'high'), effort = opt('--effort', 'M');
+  if (!cfg.priorities.levels.some((l) => l.id === priority)) die(`priority "${priority}": ${cfg.priorities.levels.map((l) => l.id).join(', ')}`);
   if (!/^[SML]$/.test(effort)) die(`effort "${effort}": S, M or L`);
   const backendOnly = has('--backend-only'), docsOnly = has('--docs-only');
   const split = !parent && !docsOnly; // a build task gets its story and its halves; a sub-task or a docs-only task does not
@@ -1231,7 +1272,7 @@ function scaffoldTask(result, featureId, title) {
 
 function scaffoldFeature(result, moduleId, name) {
   const { cfg, json } = result;
-  if (!moduleId || !name) die('usage: node scripts/build-tree.mjs --scaffold feature <module-id> "<Name>" [--id <slug>] [--priority P0|P1|P2] [--frontend-only]');
+  if (!moduleId || !name) die('usage: node scripts/build-tree.mjs --scaffold feature <module-id> "<Name>" [--id <slug>] [--priority critical|high|medium|low] [--frontend-only]');
   const m = cfg.modules.find((x) => x.id === moduleId);
   if (!m) die(`no module "${moduleId}"; modules in docs.config.json: ${cfg.modules.map((x) => x.id).join(', ')}`);
   if (BAD_NAME.test(name)) die('the name cannot contain # ? % or \\');
@@ -1239,8 +1280,8 @@ function scaffoldFeature(result, moduleId, name) {
   if (!/^[a-z0-9][a-z0-9-]*$/.test(id)) die(`feature id "${id}" must be a lowercase slug`);
   if (json.nodes[`feature:${id}`]) die(`feature id "${id}" is taken (${json.nodes[`feature:${id}`].path})`);
   if (json.byName?.[name]) die(`a note named "${name}" already exists (${json.nodes[json.byName[name]].path})`);
-  const priority = opt('--priority', 'P1');
-  if (!/^P[0-3]$/.test(priority)) die(`priority "${priority}": P0, P1, P2 or P3`);
+  const priority = opt('--priority', 'high');
+  if (!cfg.priorities.levels.some((l) => l.id === priority)) die(`priority "${priority}": ${cfg.priorities.levels.map((l) => l.id).join(', ')}`);
   const date = today();
   const dest = path.join(ROOT, 'modules', m.name, name, `${name}.md`);
   if (fs.existsSync(dest)) die(`${path.relative(ROOT, dest)} already exists`);
@@ -1333,6 +1374,12 @@ if (has('--scaffold')) {
   if (result.errors.length) { for (const e of result.errors) console.error(`error    ${e}`); process.exit(1); }
   const i = args.indexOf('--scaffold');
   scaffold(result, args[i + 1], args[i + 2]);
+  process.exit(0);
+}
+if (has('--find')) {
+  if (result.errors.length) for (const e of result.errors) console.error(`error    ${e}`);
+  if (!result.json) process.exit(1);
+  printFind(result.json, opt('--find', ''));
   process.exit(0);
 }
 if (has('--impact')) {

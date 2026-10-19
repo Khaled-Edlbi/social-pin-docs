@@ -46,7 +46,7 @@ social-pin-docs/
 ├── business/                      BUSINESS docs: Project Overview · Glossary · Feature Tree · Feature Graph · Feature Map.canvas · Status Report
 ├── frontend/                      FRONTEND docs: Frontend Contract · Frontend API Guide · Frontend Passwordless Migration · Frontend Agent Prompt
 ├── backend/                       BACKEND docs: Architecture · API Conventions · Auth Model · Ring Access Model · Database & Migrations · Developer Setup · Spec Map · Developer Guide
-├── project/                       RULES for every layer: Workflow · Agent Rules · Docs Tree · PM Agent (the business layer's agent prompt, `/pm`)
+├── project/                       RULES for every layer: Workflow · Agent Rules · Docs Tree · the agents (Agent Protocol · Owner · PM · Backend · Frontend · QA Agent): `/owner` `/pm` `/backend` `/frontend` `/qa`
 ├── modules/<Module>/
 │   ├── <Module> Module.md         the module = the sum of its features
 │   └── <Feature>/
@@ -71,11 +71,11 @@ social-pin-docs/
 
 ## Start here, by role
 
-- **Backend developer** → [[Backlog]] → the ticket → `node scripts/build-tree.mjs --impact T-NNN` → the feature's Backend Delivery and Frontend Requirements → [[Ring Access Model]] → [[Architecture#Build order for a new feature]].
-- **Frontend developer** → [[Frontend Contract]] → the feature's Backend Integration note → [[Frontend API Guide]]. The rules for the frontend repo's agent: [[Frontend Agent Prompt]]. **Auth is passwordless since 2026-10-15**: [[Frontend Passwordless Migration]].
-- **Product / design** → [[Decisions]] first (five answers unblock 19 tasks), the ✏️ Draft stories in the [[Docs Tree]] to approve, [[Screen Index]] for what each screen can do today. To create a feature, a story, a task or a decision, or to record an approval: `/pm …` in Claude Code, whose whole prompt is [[PM Agent]].
-- **QA** → a feature's two delivery notes and its story; `--scaffold qa-backend <feature>` / `qa-frontend` to start the artefacts.
-- **Anyone new** → [[Project Overview]] → [[Glossary]] → [[Feature Graph]] → [[Docs Tree]].
+- **Backend developer** → [[Backlog]] → the ticket → `node scripts/build-tree.mjs --impact T-NNN` → the feature's Backend Delivery and Frontend Requirements → [[Ring Access Model]] → [[Architecture#Build order for a new feature]]. To write the notes: `/backend …` ([[Backend Agent]]).
+- **Frontend developer** → [[Frontend Contract]] → the feature's Backend Integration note → [[Frontend API Guide]]. The rules for the frontend repo's agent: [[Frontend Agent Prompt]]; to write the notes here: `/frontend …` ([[Frontend Agent]]). **Auth is passwordless since 2026-10-15**: [[Frontend Passwordless Migration]].
+- **Product / design** → [[Decisions]] first (five answers unblock 19 tasks), the ✏️ Draft stories in the [[Docs Tree]] to approve, [[Screen Index]] for what each screen can do today. To create a feature, a story, a task or a decision card: `/pm …` ([[PM Agent]]); to approve, decide, change a rule or set priorities: `/owner …` ([[Owner Agent]]).
+- **QA** → a feature's two delivery notes and its story; `--scaffold qa-backend <feature>` / `qa-frontend` to start the artefacts, or `/qa …` ([[QA Agent]]).
+- **Anyone new** → [[Project Overview]] → [[Glossary]] → [[Feature Graph]] → [[Docs Tree]]. How the agents take a request and stay inside their files: [[Agent Protocol]].
 
 ## How this vault is organised
 

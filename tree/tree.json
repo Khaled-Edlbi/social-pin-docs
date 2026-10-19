@@ -1,4 +1,36 @@
 {
+  "agents": [
+    {
+      "id": "owner",
+      "label": "Owner (CEO / CTO)",
+      "layer": "shared",
+      "note": "project/Owner Agent.md"
+    },
+    {
+      "id": "pm",
+      "label": "Product manager",
+      "layer": "business",
+      "note": "project/PM Agent.md"
+    },
+    {
+      "id": "backend",
+      "label": "Backend",
+      "layer": "backend",
+      "note": "project/Backend Agent.md"
+    },
+    {
+      "id": "frontend",
+      "label": "Frontend",
+      "layer": "frontend",
+      "note": "project/Frontend Agent.md"
+    },
+    {
+      "id": "qa",
+      "label": "QA",
+      "layer": "qa",
+      "note": "project/QA Agent.md"
+    }
+  ],
   "byName": {
     "API Conventions": "project:api-conventions",
     "Account": "feature:account",
@@ -6,6 +38,7 @@
     "Account Backend Integration": "backend-integration:account",
     "Account Frontend Requirements": "frontend-requirements:account",
     "Account Story": "story:account",
+    "Agent Protocol": "project:agent-protocol",
     "Agent Rules": "project:agent-rules",
     "App Shell & Onboarding Narrative": "feature:app-shell",
     "App Shell & Onboarding Narrative Backend Delivery": "backend-delivery:app-shell",
@@ -22,6 +55,7 @@
     "Auth & Sign-up Frontend Requirements": "frontend-requirements:auth",
     "Auth & Sign-up Story": "story:auth",
     "Auth Model": "project:auth-model",
+    "Backend Agent": "project:backend-agent",
     "Badge & QR": "feature:badge-qr",
     "Badge & QR Backend Delivery": "backend-delivery:badge-qr",
     "Badge & QR Frontend Requirements": "frontend-requirements:badge-qr",
@@ -104,6 +138,7 @@
     "Files Upload Frontend Requirements": "frontend-requirements:files",
     "Files Upload Story": "story:files",
     "Frontend API Guide": "project:frontend-api-guide",
+    "Frontend Agent": "project:frontend-agent",
     "Frontend Agent Prompt": "project:frontend-agent-prompt",
     "Frontend Contract": "project:frontend-contract",
     "Frontend Passwordless Migration": "project:frontend-passwordless-migration",
@@ -134,6 +169,7 @@
     "Onboarding Imports Backend Delivery": "backend-delivery:onboarding-imports",
     "Onboarding Imports Frontend Requirements": "frontend-requirements:onboarding-imports",
     "Onboarding Imports Story": "story:onboarding-imports",
+    "Owner Agent": "project:owner-agent",
     "PM Agent": "project:pm-agent",
     "Payments & Orders": "feature:payments",
     "Payments & Orders Backend Delivery": "backend-delivery:payments",
@@ -158,6 +194,7 @@
     "Profiles & Pin Name Frontend Requirements": "frontend-requirements:profiles",
     "Profiles & Pin Name Story": "story:profiles",
     "Project Overview": "project:project-overview",
+    "QA Agent": "project:qa-agent",
     "Ring Access Engine": "feature:ring-access",
     "Ring Access Engine Backend Delivery": "backend-delivery:ring-access",
     "Ring Access Engine Backend Integration": "backend-integration:ring-access",
@@ -611,6 +648,11 @@
     "P-19": "project:docs-tree",
     "P-20": "project:workflow",
     "P-21": "project:pm-agent",
+    "P-22": "project:agent-protocol",
+    "P-23": "project:backend-agent",
+    "P-24": "project:frontend-agent",
+    "P-25": "project:owner-agent",
+    "P-26": "project:qa-agent",
     "S-01": "story:account",
     "S-02": "story:auth",
     "S-03": "story:counts",
@@ -4531,7 +4573,7 @@
       "feature": 39,
       "frontend-requirements": 39,
       "module": 8,
-      "project": 21,
+      "project": 26,
       "story": 98,
       "task": 175
     },
@@ -4539,15 +4581,15 @@
       "backend": 56,
       "business": 323,
       "frontend": 43,
-      "shared": 4
+      "shared": 9
     },
     "concepts": 177,
     "decisions": 6,
-    "edges": 4092,
+    "edges": 4153,
     "features": 39,
     "layerNotes": 185,
     "modules": 8,
-    "notes": 460,
+    "notes": 465,
     "partial": 0,
     "placeholders": 145,
     "taskLayerNotes": 59,
@@ -4610,6 +4652,31 @@
     "warnings": []
   },
   "edges": [
+    {
+      "from": "project:agent-protocol",
+      "kind": "affects",
+      "to": "project:backend-agent"
+    },
+    {
+      "from": "project:agent-protocol",
+      "kind": "affects",
+      "to": "project:frontend-agent"
+    },
+    {
+      "from": "project:agent-protocol",
+      "kind": "affects",
+      "to": "project:owner-agent"
+    },
+    {
+      "from": "project:agent-protocol",
+      "kind": "affects",
+      "to": "project:pm-agent"
+    },
+    {
+      "from": "project:agent-protocol",
+      "kind": "affects",
+      "to": "project:qa-agent"
+    },
     {
       "from": "project:agent-rules",
       "kind": "affects",
@@ -6654,6 +6721,31 @@
       "from": "decision:D-06",
       "kind": "decision",
       "to": "feature:profiles"
+    },
+    {
+      "from": "project:backend-agent",
+      "kind": "depends",
+      "to": "project:agent-protocol"
+    },
+    {
+      "from": "project:frontend-agent",
+      "kind": "depends",
+      "to": "project:agent-protocol"
+    },
+    {
+      "from": "project:owner-agent",
+      "kind": "depends",
+      "to": "project:agent-protocol"
+    },
+    {
+      "from": "project:pm-agent",
+      "kind": "depends",
+      "to": "project:agent-protocol"
+    },
+    {
+      "from": "project:qa-agent",
+      "kind": "depends",
+      "to": "project:agent-protocol"
     },
     {
       "from": "task:T-002",
@@ -9421,9 +9513,74 @@
       "to": "project:spec-map"
     },
     {
+      "from": "project:agent-protocol",
+      "kind": "related",
+      "to": "project:agent-rules"
+    },
+    {
+      "from": "project:agent-protocol",
+      "kind": "related",
+      "to": "project:docs-tree"
+    },
+    {
+      "from": "project:agent-protocol",
+      "kind": "related",
+      "to": "project:workflow"
+    },
+    {
+      "from": "project:agent-rules",
+      "kind": "related",
+      "to": "project:backend-agent"
+    },
+    {
+      "from": "project:agent-rules",
+      "kind": "related",
+      "to": "project:frontend-agent"
+    },
+    {
+      "from": "project:agent-rules",
+      "kind": "related",
+      "to": "project:owner-agent"
+    },
+    {
       "from": "project:agent-rules",
       "kind": "related",
       "to": "project:pm-agent"
+    },
+    {
+      "from": "project:agent-rules",
+      "kind": "related",
+      "to": "project:qa-agent"
+    },
+    {
+      "from": "project:backend-agent",
+      "kind": "related",
+      "to": "project:agent-protocol"
+    },
+    {
+      "from": "project:backend-agent",
+      "kind": "related",
+      "to": "project:api-conventions"
+    },
+    {
+      "from": "project:backend-agent",
+      "kind": "related",
+      "to": "project:architecture"
+    },
+    {
+      "from": "project:backend-agent",
+      "kind": "related",
+      "to": "project:frontend-api-guide"
+    },
+    {
+      "from": "project:backend-agent",
+      "kind": "related",
+      "to": "project:ring-access-model"
+    },
+    {
+      "from": "project:backend-agent",
+      "kind": "related",
+      "to": "project:workflow"
     },
     {
       "from": "project:docs-tree",
@@ -9432,6 +9589,31 @@
     },
     {
       "from": "project:docs-tree",
+      "kind": "related",
+      "to": "project:workflow"
+    },
+    {
+      "from": "project:frontend-agent",
+      "kind": "related",
+      "to": "project:agent-protocol"
+    },
+    {
+      "from": "project:frontend-agent",
+      "kind": "related",
+      "to": "project:frontend-agent-prompt"
+    },
+    {
+      "from": "project:frontend-agent",
+      "kind": "related",
+      "to": "project:frontend-api-guide"
+    },
+    {
+      "from": "project:frontend-agent",
+      "kind": "related",
+      "to": "project:frontend-contract"
+    },
+    {
+      "from": "project:frontend-agent",
       "kind": "related",
       "to": "project:workflow"
     },
@@ -9451,6 +9633,31 @@
       "to": "project:frontend-contract"
     },
     {
+      "from": "project:owner-agent",
+      "kind": "related",
+      "to": "project:agent-protocol"
+    },
+    {
+      "from": "project:owner-agent",
+      "kind": "related",
+      "to": "project:docs-tree"
+    },
+    {
+      "from": "project:owner-agent",
+      "kind": "related",
+      "to": "project:pm-agent"
+    },
+    {
+      "from": "project:owner-agent",
+      "kind": "related",
+      "to": "project:workflow"
+    },
+    {
+      "from": "project:pm-agent",
+      "kind": "related",
+      "to": "project:agent-protocol"
+    },
+    {
       "from": "project:pm-agent",
       "kind": "related",
       "to": "project:docs-tree"
@@ -9458,10 +9665,15 @@
     {
       "from": "project:pm-agent",
       "kind": "related",
-      "to": "project:frontend-agent-prompt"
+      "to": "project:workflow"
     },
     {
-      "from": "project:pm-agent",
+      "from": "project:qa-agent",
+      "kind": "related",
+      "to": "project:agent-protocol"
+    },
+    {
+      "from": "project:qa-agent",
       "kind": "related",
       "to": "project:workflow"
     },
@@ -18481,7 +18693,17 @@
     {
       "from": "group:shared",
       "kind": "tree",
+      "to": "project:agent-protocol"
+    },
+    {
+      "from": "group:shared",
+      "kind": "tree",
       "to": "project:agent-rules"
+    },
+    {
+      "from": "group:shared",
+      "kind": "tree",
+      "to": "project:backend-agent"
     },
     {
       "from": "group:shared",
@@ -18491,7 +18713,22 @@
     {
       "from": "group:shared",
       "kind": "tree",
+      "to": "project:frontend-agent"
+    },
+    {
+      "from": "group:shared",
+      "kind": "tree",
+      "to": "project:owner-agent"
+    },
+    {
+      "from": "group:shared",
+      "kind": "tree",
       "to": "project:pm-agent"
+    },
+    {
+      "from": "group:shared",
+      "kind": "tree",
+      "to": "project:qa-agent"
     },
     {
       "from": "group:shared",
@@ -23294,6 +23531,11 @@
       "to": "task:T-064"
     },
     {
+      "from": "project:agent-protocol",
+      "kind": "wikilink",
+      "to": "feature:discover-hub"
+    },
+    {
       "from": "project:agent-rules",
       "kind": "wikilink",
       "to": "frontend-requirements:rings"
@@ -23389,6 +23631,46 @@
       "to": "project:frontend-passwordless-migration"
     },
     {
+      "from": "project:backend-agent",
+      "kind": "wikilink",
+      "to": "project:auth-model"
+    },
+    {
+      "from": "project:backend-agent",
+      "kind": "wikilink",
+      "to": "project:database-migrations"
+    },
+    {
+      "from": "project:backend-agent",
+      "kind": "wikilink",
+      "to": "project:developer-guide"
+    },
+    {
+      "from": "project:backend-agent",
+      "kind": "wikilink",
+      "to": "project:developer-setup"
+    },
+    {
+      "from": "project:backend-agent",
+      "kind": "wikilink",
+      "to": "project:frontend-agent"
+    },
+    {
+      "from": "project:backend-agent",
+      "kind": "wikilink",
+      "to": "project:frontend-contract"
+    },
+    {
+      "from": "project:backend-agent",
+      "kind": "wikilink",
+      "to": "project:qa-agent"
+    },
+    {
+      "from": "project:backend-agent",
+      "kind": "wikilink",
+      "to": "project:spec-map"
+    },
+    {
       "from": "project:database-migrations",
       "kind": "wikilink",
       "to": "decision:D-02"
@@ -23456,7 +23738,22 @@
     {
       "from": "project:docs-tree",
       "kind": "wikilink",
+      "to": "project:backend-agent"
+    },
+    {
+      "from": "project:docs-tree",
+      "kind": "wikilink",
+      "to": "project:frontend-agent"
+    },
+    {
+      "from": "project:docs-tree",
+      "kind": "wikilink",
       "to": "project:frontend-contract"
+    },
+    {
+      "from": "project:docs-tree",
+      "kind": "wikilink",
+      "to": "project:qa-agent"
     },
     {
       "from": "project:feature-graph",
@@ -23769,6 +24066,16 @@
       "to": "project:status-report-2026-10-15"
     },
     {
+      "from": "project:frontend-agent",
+      "kind": "wikilink",
+      "to": "project:frontend-passwordless-migration"
+    },
+    {
+      "from": "project:frontend-agent",
+      "kind": "wikilink",
+      "to": "project:qa-agent"
+    },
+    {
       "from": "project:frontend-agent-prompt",
       "kind": "wikilink",
       "to": "project:docs-tree"
@@ -23944,6 +24251,41 @@
       "to": "project:auth-model"
     },
     {
+      "from": "project:owner-agent",
+      "kind": "wikilink",
+      "to": "project:backend-agent"
+    },
+    {
+      "from": "project:owner-agent",
+      "kind": "wikilink",
+      "to": "project:frontend-agent"
+    },
+    {
+      "from": "project:owner-agent",
+      "kind": "wikilink",
+      "to": "project:glossary"
+    },
+    {
+      "from": "project:owner-agent",
+      "kind": "wikilink",
+      "to": "project:project-overview"
+    },
+    {
+      "from": "project:owner-agent",
+      "kind": "wikilink",
+      "to": "project:qa-agent"
+    },
+    {
+      "from": "project:pm-agent",
+      "kind": "wikilink",
+      "to": "project:backend-agent"
+    },
+    {
+      "from": "project:pm-agent",
+      "kind": "wikilink",
+      "to": "project:frontend-agent"
+    },
+    {
       "from": "project:pm-agent",
       "kind": "wikilink",
       "to": "project:frontend-contract"
@@ -23957,6 +24299,11 @@
       "from": "project:pm-agent",
       "kind": "wikilink",
       "to": "project:project-overview"
+    },
+    {
+      "from": "project:pm-agent",
+      "kind": "wikilink",
+      "to": "project:qa-agent"
     },
     {
       "from": "project:pm-agent",
@@ -29046,16 +29393,36 @@
       "name": "Shared Rings & Companies Module",
       "type": "module"
     },
+    "project/Agent Protocol.md": {
+      "name": "Agent Protocol",
+      "type": "project"
+    },
     "project/Agent Rules.md": {
       "name": "Agent Rules",
+      "type": "project"
+    },
+    "project/Backend Agent.md": {
+      "name": "Backend Agent",
       "type": "project"
     },
     "project/Docs Tree.md": {
       "name": "Docs Tree",
       "type": "project"
     },
+    "project/Frontend Agent.md": {
+      "name": "Frontend Agent",
+      "type": "project"
+    },
+    "project/Owner Agent.md": {
+      "name": "Owner Agent",
+      "type": "project"
+    },
     "project/PM Agent.md": {
       "name": "PM Agent",
+      "type": "project"
+    },
+    "project/QA Agent.md": {
+      "name": "QA Agent",
       "type": "project"
     },
     "project/Workflow.md": {
@@ -40976,9 +41343,14 @@
       "blockedBy": [],
       "card": null,
       "children": [
+        "project:agent-protocol",
         "project:agent-rules",
+        "project:backend-agent",
         "project:docs-tree",
+        "project:frontend-agent",
+        "project:owner-agent",
         "project:pm-agent",
+        "project:qa-agent",
         "project:workflow"
       ],
       "code": null,
@@ -41451,6 +41823,62 @@
       "title": "Shared Rings & Companies Module",
       "updated": "2026-10-18"
     },
+    "project:agent-protocol": {
+      "affects": [
+        "project:owner-agent",
+        "project:pm-agent",
+        "project:backend-agent",
+        "project:frontend-agent",
+        "project:qa-agent"
+      ],
+      "blockedBy": [],
+      "card": "P-22",
+      "children": [],
+      "code": null,
+      "deadline": null,
+      "depends": [],
+      "effectiveStatus": "reference",
+      "effort": null,
+      "feature": null,
+      "frontendOnly": false,
+      "id": "project:agent-protocol",
+      "inherits": {},
+      "kind": "project",
+      "label": "Reference",
+      "labels": [],
+      "layer": "shared",
+      "module": null,
+      "parentTask": null,
+      "parents": [
+        "group:shared"
+      ],
+      "path": "project/Agent Protocol.md",
+      "pending": [],
+      "priority": null,
+      "related": [
+        "project:agent-rules",
+        "project:workflow",
+        "project:docs-tree",
+        "project:backend-agent",
+        "project:frontend-agent",
+        "project:owner-agent",
+        "project:pm-agent",
+        "project:qa-agent"
+      ],
+      "scope": null,
+      "screens": [],
+      "status": null,
+      "summary": "The vault has five agents, one per role, each a note in project/ that is its prompt and a /skill that loads it: Owner Agent (/owner), PM Agent (/pm), Backend Agent (/backend), Frontend Agent…",
+      "tags": [
+        "project",
+        "layer/shared",
+        "rules",
+        "agent"
+      ],
+      "task": null,
+      "title": "Agent Protocol",
+      "updated": "2026-10-19"
+    },
     "project:agent-rules": {
       "affects": [
         "project:workflow",
@@ -41482,7 +41910,12 @@
       "priority": null,
       "related": [
         "project:frontend-agent-prompt",
+        "project:agent-protocol",
+        "project:owner-agent",
         "project:pm-agent",
+        "project:backend-agent",
+        "project:frontend-agent",
+        "project:qa-agent",
         "project:docs-tree",
         "project:workflow"
       ],
@@ -41564,7 +41997,8 @@
         "feature:notifications",
         "feature:companies",
         "feature:delegated-admins",
-        "feature:ring-invitations"
+        "feature:ring-invitations",
+        "project:backend-agent"
       ],
       "scope": null,
       "screens": [],
@@ -41642,7 +42076,8 @@
         "feature:notifications",
         "feature:companies",
         "feature:delegated-admins",
-        "feature:ring-invitations"
+        "feature:ring-invitations",
+        "project:backend-agent"
       ],
       "scope": null,
       "screens": [],
@@ -41692,6 +42127,57 @@
       "task": null,
       "title": "Auth Model",
       "updated": "2026-10-18"
+    },
+    "project:backend-agent": {
+      "affects": [],
+      "blockedBy": [],
+      "card": "P-23",
+      "children": [],
+      "code": null,
+      "deadline": null,
+      "depends": [
+        "project:agent-protocol"
+      ],
+      "effectiveStatus": "reference",
+      "effort": null,
+      "feature": null,
+      "frontendOnly": false,
+      "id": "project:backend-agent",
+      "inherits": {},
+      "kind": "project",
+      "label": "Reference",
+      "labels": [],
+      "layer": "shared",
+      "module": null,
+      "parentTask": null,
+      "parents": [
+        "group:shared"
+      ],
+      "path": "project/Backend Agent.md",
+      "pending": [],
+      "priority": null,
+      "related": [
+        "project:agent-rules",
+        "project:agent-protocol",
+        "project:workflow",
+        "project:architecture",
+        "project:api-conventions",
+        "project:ring-access-model",
+        "project:frontend-api-guide"
+      ],
+      "scope": null,
+      "screens": [],
+      "status": null,
+      "summary": "This note is the prompt of the backend agent; /backend … loads Agent Protocol and then this note. Edit this note to change how it behaves. Its scope is agents.list[id = backend] in…",
+      "tags": [
+        "project",
+        "layer/shared",
+        "rules",
+        "agent"
+      ],
+      "task": null,
+      "title": "Backend Agent",
+      "updated": "2026-10-19"
     },
     "project:database-migrations": {
       "affects": [],
@@ -41834,8 +42320,10 @@
       "pending": [],
       "priority": null,
       "related": [
+        "project:agent-protocol",
         "project:agent-rules",
         "project:workflow",
+        "project:owner-agent",
         "project:pm-agent"
       ],
       "scope": null,
@@ -41927,6 +42415,56 @@
       "title": "Feature Tree",
       "updated": "2026-10-19"
     },
+    "project:frontend-agent": {
+      "affects": [],
+      "blockedBy": [],
+      "card": "P-24",
+      "children": [],
+      "code": null,
+      "deadline": null,
+      "depends": [
+        "project:agent-protocol"
+      ],
+      "effectiveStatus": "reference",
+      "effort": null,
+      "feature": null,
+      "frontendOnly": false,
+      "id": "project:frontend-agent",
+      "inherits": {},
+      "kind": "project",
+      "label": "Reference",
+      "labels": [],
+      "layer": "shared",
+      "module": null,
+      "parentTask": null,
+      "parents": [
+        "group:shared"
+      ],
+      "path": "project/Frontend Agent.md",
+      "pending": [],
+      "priority": null,
+      "related": [
+        "project:agent-rules",
+        "project:agent-protocol",
+        "project:workflow",
+        "project:frontend-contract",
+        "project:frontend-api-guide",
+        "project:frontend-agent-prompt"
+      ],
+      "scope": null,
+      "screens": [],
+      "status": null,
+      "summary": "This note is the prompt of the frontend agent; /frontend … loads Agent Protocol and then this note. Edit this note to change how it behaves. Its scope is agents.list[id = frontend] in…",
+      "tags": [
+        "project",
+        "layer/shared",
+        "rules",
+        "agent"
+      ],
+      "task": null,
+      "title": "Frontend Agent",
+      "updated": "2026-10-19"
+    },
     "project:frontend-agent-prompt": {
       "affects": [],
       "blockedBy": [],
@@ -41957,7 +42495,7 @@
         "project:agent-rules",
         "project:frontend-contract",
         "project:frontend-api-guide",
-        "project:pm-agent"
+        "project:frontend-agent"
       ],
       "scope": null,
       "screens": [],
@@ -41999,7 +42537,9 @@
       "pending": [],
       "priority": null,
       "related": [
-        "project:frontend-agent-prompt"
+        "project:frontend-agent-prompt",
+        "project:backend-agent",
+        "project:frontend-agent"
       ],
       "scope": null,
       "screens": [],
@@ -42040,7 +42580,8 @@
       "priority": null,
       "related": [
         "feature:error-contract",
-        "project:frontend-agent-prompt"
+        "project:frontend-agent-prompt",
+        "project:frontend-agent"
       ],
       "scope": null,
       "screens": [],
@@ -42131,6 +42672,55 @@
       "title": "Glossary",
       "updated": "2026-10-18"
     },
+    "project:owner-agent": {
+      "affects": [],
+      "blockedBy": [],
+      "card": "P-25",
+      "children": [],
+      "code": null,
+      "deadline": null,
+      "depends": [
+        "project:agent-protocol"
+      ],
+      "effectiveStatus": "reference",
+      "effort": null,
+      "feature": null,
+      "frontendOnly": false,
+      "id": "project:owner-agent",
+      "inherits": {},
+      "kind": "project",
+      "label": "Reference",
+      "labels": [],
+      "layer": "shared",
+      "module": null,
+      "parentTask": null,
+      "parents": [
+        "group:shared"
+      ],
+      "path": "project/Owner Agent.md",
+      "pending": [],
+      "priority": null,
+      "related": [
+        "project:agent-rules",
+        "project:agent-protocol",
+        "project:workflow",
+        "project:docs-tree",
+        "project:pm-agent"
+      ],
+      "scope": null,
+      "screens": [],
+      "status": null,
+      "summary": "This note is the prompt of the owner agent; /owner … loads Agent Protocol and then this note. Edit this note to change how the agent behaves. Its scope is agents.list[id = owner] in…",
+      "tags": [
+        "project",
+        "layer/shared",
+        "rules",
+        "agent"
+      ],
+      "task": null,
+      "title": "Owner Agent",
+      "updated": "2026-10-19"
+    },
     "project:pm-agent": {
       "affects": [],
       "blockedBy": [],
@@ -42138,7 +42728,9 @@
       "children": [],
       "code": null,
       "deadline": null,
-      "depends": [],
+      "depends": [
+        "project:agent-protocol"
+      ],
       "effectiveStatus": "reference",
       "effort": null,
       "feature": null,
@@ -42159,14 +42751,15 @@
       "priority": null,
       "related": [
         "project:agent-rules",
+        "project:owner-agent",
+        "project:agent-protocol",
         "project:workflow",
-        "project:docs-tree",
-        "project:frontend-agent-prompt"
+        "project:docs-tree"
       ],
       "scope": null,
       "screens": [],
       "status": null,
-      "summary": "This note is the prompt. Everything the project-management agent knows about its job is written here, in the second person, and nowhere else: edit this note to change how it behaves, in Obsidian,…",
+      "summary": "This note is the prompt of the PM agent; /pm … loads Agent Protocol (how every agent takes a request: load, resolve, align, act in scope, finish) and then this note. Edit this note to change how…",
       "tags": [
         "project",
         "layer/shared",
@@ -42214,6 +42807,53 @@
       "task": null,
       "title": "Project Overview",
       "updated": "2026-10-18"
+    },
+    "project:qa-agent": {
+      "affects": [],
+      "blockedBy": [],
+      "card": "P-26",
+      "children": [],
+      "code": null,
+      "deadline": null,
+      "depends": [
+        "project:agent-protocol"
+      ],
+      "effectiveStatus": "reference",
+      "effort": null,
+      "feature": null,
+      "frontendOnly": false,
+      "id": "project:qa-agent",
+      "inherits": {},
+      "kind": "project",
+      "label": "Reference",
+      "labels": [],
+      "layer": "shared",
+      "module": null,
+      "parentTask": null,
+      "parents": [
+        "group:shared"
+      ],
+      "path": "project/QA Agent.md",
+      "pending": [],
+      "priority": null,
+      "related": [
+        "project:agent-rules",
+        "project:agent-protocol",
+        "project:workflow"
+      ],
+      "scope": null,
+      "screens": [],
+      "status": null,
+      "summary": "This note is the prompt of the QA agent; /qa … loads Agent Protocol and then this note. Edit this note to change how it behaves. Its scope is agents.list[id = qa] in docs.config.json; the guard…",
+      "tags": [
+        "project",
+        "layer/shared",
+        "rules",
+        "agent"
+      ],
+      "task": null,
+      "title": "QA Agent",
+      "updated": "2026-10-19"
     },
     "project:ring-access-model": {
       "affects": [],
@@ -42280,7 +42920,8 @@
         "feature:notifications",
         "feature:companies",
         "feature:delegated-admins",
-        "feature:ring-invitations"
+        "feature:ring-invitations",
+        "project:backend-agent"
       ],
       "scope": null,
       "screens": [],
@@ -42438,8 +43079,13 @@
       "pending": [],
       "priority": null,
       "related": [
+        "project:agent-protocol",
+        "project:backend-agent",
         "project:docs-tree",
+        "project:frontend-agent",
+        "project:owner-agent",
         "project:pm-agent",
+        "project:qa-agent",
         "project:agent-rules"
       ],
       "scope": null,
@@ -45759,7 +46405,7 @@
         "in-progress": 14,
         "missing": 145,
         "needs-decision": 20,
-        "reference": 25,
+        "reference": 30,
         "todo": 81
       },
       "scope": null,

@@ -160,5 +160,52 @@
     { "id": "frontend", "folder": "frontend", "label": "Frontend docs", "description": "The client contract, API guide, migrations the client must make, the frontend agent prompt." },
     { "id": "backend", "folder": "backend", "label": "Backend docs", "description": "Architecture, stack, conventions, auth and Ring access models, database and migrations, setup." },
     { "id": "shared", "folder": "project", "label": "Project rules", "description": "The workflow, the agent rules and the docs tree: rules every layer follows." }
-  ]
+  ],
+  "agents": {
+    "description": "The agents that edit this vault, one per role, invoked as /<id> in Claude Code (.claude/skills/<id>/SKILL.md loads the note). Each one writes only what its `writes` block names: `types` (structural note types), `kinds` (layer-note kinds, feature- and task-level), `taskLabels` (task notes carrying one of these labels), `paths` (globs; `except` removes); `editOnly` is the same but Edit only, never a rewrite or a new file. `signs` are the kinds where the agent may change only the sign-off lines (status, approvedBy / approvedAt, decidedBy / decidedAt, updated, tags, the H1); `fields` the frontmatter keys it may set on any card. Every agent may add a flag line (> ⚠ Affected by …) under any note's H1; nobody edits a generated file or design/Wireframe Brief.md. The hook in .claude/settings.json runs scripts/agent-guard.mjs to enforce this; the shared protocol is project/Agent Protocol.md.",
+    "marker": ".claude/.active-agent",
+    "protocol": "project/Agent Protocol.md",
+    "list": [
+      {
+        "id": "owner",
+        "label": "Owner (CEO / CTO)",
+        "note": "project/Owner Agent.md",
+        "layer": "shared",
+        "writes": { "types": ["module", "decision"], "kinds": [], "paths": ["project/**", "docs.config.json", "templates/**", "scripts/**", ".claude/**", ".github/**", "Home.md", "README.md", "CLAUDE.md", "business/**"] },
+        "signs": ["story", "frontend-requirements", "decision"],
+        "fields": ["priority", "deadline"]
+      },
+      {
+        "id": "pm",
+        "label": "Product manager",
+        "note": "project/PM Agent.md",
+        "layer": "business",
+        "writes": { "types": ["feature", "task", "decision", "module"], "kinds": ["story"], "taskLabels": ["bug", "chore", "spike", "docs"], "paths": ["business/**", "design/Screen Index.md", "Home.md"] },
+        "signs": ["story", "frontend-requirements", "decision"]
+      },
+      {
+        "id": "backend",
+        "label": "Backend",
+        "note": "project/Backend Agent.md",
+        "layer": "backend",
+        "writes": { "kinds": ["backend-delivery", "backend-integration"], "taskLabels": ["backend"], "paths": ["backend/**", "frontend/Frontend API Guide.md"], "editOnly": { "kinds": ["frontend-requirements"], "types": ["feature", "module"] } },
+        "signs": ["frontend-requirements"]
+      },
+      {
+        "id": "frontend",
+        "label": "Frontend",
+        "note": "project/Frontend Agent.md",
+        "layer": "frontend",
+        "writes": { "kinds": ["frontend-requirements", "frontend-delivery"], "taskLabels": ["frontend"], "paths": ["frontend/**"], "except": ["frontend/Frontend API Guide.md"] }
+      },
+      {
+        "id": "qa",
+        "label": "QA",
+        "note": "project/QA Agent.md",
+        "layer": "qa",
+        "writes": { "kinds": ["qa-backend", "qa-frontend"], "taskLabels": ["bug"] },
+        "signs": ["story"]
+      }
+    ]
+  }
 }
