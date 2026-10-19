@@ -3,7 +3,7 @@ type: project
 layer: shared
 updated: 2026-10-19
 affects: ["Workflow", "Docs Tree"]
-related: ["Frontend Agent Prompt", "PM Agent"]
+related: ["Frontend Agent Prompt", "Agent Protocol", "Owner Agent", "PM Agent", "Backend Agent", "Frontend Agent", "QA Agent"]
 tags: [project, layer/shared, rules]
 ---
 
@@ -17,14 +17,14 @@ The vault is organised by **feature**, and inside a feature by **layer**. A laye
 
 | Layer | Writes | Reads first |
 |---|---|---|
-| **Business** (product, PM) | the feature note (`<Feature>.md`, the main node), `<Feature> Story`, decisions `D-NN`, tasks `T-NNN`; signs stories and requirements off. Its agent and the one place its prompt lives: [[PM Agent]] | the module note, the screens in [[Screen Index]], open decisions |
-| **Frontend** | `<Feature> Frontend Requirements` (what the client asks of the backend, **before** backend work), `<Feature> Frontend Delivery` (what the client shipped, **after**), `<Feature> QA Frontend` when it runs the checks | the story, the Backend Integration note, [[Frontend Contract]], [[Frontend API Guide]] |
-| **Backend** | `<Feature> Backend Delivery` (what shipped, how it works, gaps), `<Feature> Backend Integration` (how the client calls it), `<Feature> QA Backend` when it runs the checks | the story, the Frontend Requirements, [[Ring Access Model]], [[Architecture]] |
-| **QA** | `<Feature> QA Backend`, `<Feature> QA Frontend`: expected behaviour as tables and diagrams, **never test code** | the story, both delivery notes |
+| **Business** (product, PM) | the feature note (`<Feature>.md`, the main node), `<Feature> Story`, decisions `D-NN`, tasks `T-NNN`; signs stories and requirements off. Agent: [[PM Agent]]; above it the owner, who writes the rules and the config and signs: [[Owner Agent]] | the module note, the screens in [[Screen Index]], open decisions |
+| **Frontend** | `<Feature> Frontend Requirements` (what the client asks of the backend, **before** backend work), `<Feature> Frontend Delivery` (what the client shipped, **after**), `<Feature> QA Frontend` when it runs the checks. Agent: [[Frontend Agent]] | the story, the Backend Integration note, [[Frontend Contract]], [[Frontend API Guide]] |
+| **Backend** | `<Feature> Backend Delivery` (what shipped, how it works, gaps), `<Feature> Backend Integration` (how the client calls it), `<Feature> QA Backend` when it runs the checks. Agent: [[Backend Agent]] | the story, the Frontend Requirements, [[Ring Access Model]], [[Architecture]] |
+| **QA** | `<Feature> QA Backend`, `<Feature> QA Frontend`: expected behaviour as tables and diagrams, **never test code**. Agent: [[QA Agent]] | the story, both delivery notes |
 
 The default flow, drawn as dashed arrows on the tree page: Story → Frontend Requirements → Backend Delivery → Backend Integration → Frontend Delivery → QA Frontend, and Backend Delivery → QA Backend; both QA notes feed back into the Story, whose `verified` status means the implementation matches it. **Each hand-off is also a block**: a card is blocked by default until the card before it in the flow is handed off (`approved` for a story or a requirements list, the done status for every other kind), so nobody starts a Backend Delivery before the Frontend Requirements are approved, or a QA Frontend note before the Frontend Delivery is done. A note's own `blockedBy` overrides the default ([[#4 · Statuses, blocking and sign-off]]).
 
-A layer writes **only its own notes**. It reads the others. If a backend change makes a frontend note wrong, the backend does not edit it: it flags it ([[#3 · Relations]]) and the frontend updates it.
+A layer writes **only its own notes**. It reads the others. If a backend change makes a frontend note wrong, the backend does not edit it: it flags it ([[#3 · Relations]]) and the frontend updates it. The agents are declared in `docs.config.json` (`agents.list`: the note that is each one's prompt and the files it may write) and held to that by a hook (`scripts/agent-guard.mjs`); how they take a request is [[Agent Protocol]].
 
 ## 2 · Codes, scopes and the "sum of" rule
 
@@ -98,4 +98,4 @@ A target is a note name (`"Ring Access Engine"`), a task or decision id (`T-022`
 - A `pending` note left behind: it is cleared by its author, or handed over as a flag or a task.
 - A second copy of a rule: the vault has one place for each (this note for rules, [[Workflow]] for the sequence, [[Docs Tree]] for the page and the JSON).
 
-Related: [[Workflow]] · [[Docs Tree]] · [[PM Agent]] · [[Frontend Agent Prompt]] · [[Frontend Contract]] · [[Architecture]]
+Related: [[Workflow]] · [[Docs Tree]] · [[Agent Protocol]] · [[Owner Agent]] · [[PM Agent]] · [[Backend Agent]] · [[Frontend Agent]] · [[QA Agent]] · [[Frontend Agent Prompt]] · [[Frontend Contract]] · [[Architecture]]

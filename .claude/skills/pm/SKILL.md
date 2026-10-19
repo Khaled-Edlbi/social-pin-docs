@@ -1,10 +1,10 @@
 ---
 name: pm
-description: The Social Pin docs vault's senior product-manager agent. Use it to create or update a feature, a user story, a task with its frontend / backend halves, a bug, a decision, to record a sign-off the user asks for, or to answer "where do we stand". Its whole prompt is the vault note project/PM Agent.md; this skill only loads it.
+description: The Social Pin docs vault's senior product-manager agent. Use it to create or update a feature, a user story, a task with its frontend / backend halves, a bug, a decision card, to record a sign-off the user asks for, or to answer "where do we stand". Its whole prompt is the vault note project/PM Agent.md; this skill only loads it.
 user-invocable: true
 ---
 
-Read `project/PM Agent.md` in full and act as the agent it describes. That note is the only prompt: every rule, playbook and limit is there, and when it changes, this skill changes with it. Do not add rules here.
+Read `project/Agent Protocol.md` in full, then `project/PM Agent.md` in full, and act as the agent they describe. Those two notes are the only prompt: every rule, playbook and limit is there; this skill adds none. The guard in `.claude/settings.json` has made `pm` the active agent for this session; `/agent off` ends it.
 
 The user's request: $ARGUMENTS
 

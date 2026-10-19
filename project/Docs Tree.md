@@ -121,6 +121,8 @@ node scripts/build-tree.mjs --serve                  # build and serve http://12
 node scripts/build-tree.mjs --impact S-01                  # the same, by card code (see Card Index.md)
 node scripts/build-tree.mjs --impact "Ring Access Engine"   # what a change touches: same feature, direct links, two hops, dependents
 node scripts/build-tree.mjs --impact T-004           # … for a task; also a feature id, "GET /rings/:id", E_RING_02, s14
+node scripts/build-tree.mjs --find "speed search"    # the cards and concepts that match some words, best first: how an agent turns what you said into ids
+node scripts/agent-guard.mjs status                  # which agent is active and what it may write; `selftest` runs the allow / deny matrix
 node scripts/build-tree.mjs --scaffold backend-delivery T-004   # create a layer note from its template (moves the task into its folder)
 node scripts/build-tree.mjs --scaffold qa-frontend rings        # … at feature level
 node scripts/build-tree.mjs --scaffold task counts "Member count on the Ring card"   # a task with the next free number, its story and its fe / be halves (--backend-only, --docs-only, --parent T-NNN --label bug)
@@ -140,6 +142,6 @@ The checklist, by layer, is [[Agent Rules#6 · After a task — the checklist, b
 
 Feature: `node scripts/build-tree.mjs --scaffold feature <module-id> "<Name>"` creates `modules/<Module>/<Feature>/<Feature>.md` from `templates/Feature Template.md`, then `--scaffold story <id>` and the other kinds as each layer gets to them; add the feature to the module note's table and the screens it serves in [[Screen Index]]. Module: add it to `modules` in `docs.config.json`, create `modules/<Module>/<Module> Module.md` from `templates/Module Template.md`. Rebuild; the tree picks everything up from the frontmatter. The Feature Map canvas in `business/` is optional and only adds *related* lines.
 
-The business layer's agent, [[PM Agent]], runs these playbooks on request (`/pm …` in Claude Code).
+The agents run these on request, each inside its own files: [[Owner Agent]] (`/owner`), [[PM Agent]] (`/pm`), [[Backend Agent]] (`/backend`), [[Frontend Agent]] (`/frontend`), [[QA Agent]] (`/qa`); the shared steps and the guard are in [[Agent Protocol]].
 
-Related: [[Agent Rules]] · [[Workflow]] · [[PM Agent]] · [[Frontend Contract]] · [[Home]]
+Related: [[Agent Rules]] · [[Workflow]] · [[Agent Protocol]] · [[Frontend Contract]] · [[Home]]

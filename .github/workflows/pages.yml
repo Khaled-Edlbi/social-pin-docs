@@ -25,6 +25,8 @@ jobs:
           node-version: 22
       - name: Validate the notes and check tree/tree.json is current
         run: node scripts/build-tree.mjs --check
+      - name: Check the agent guard's allow / deny matrix
+        run: node scripts/agent-guard.mjs selftest
       - name: Build the site
         run: node scripts/build-tree.mjs --out site
       - uses: actions/configure-pages@v5

@@ -11,7 +11,8 @@ this file is the short form and defers to it.
 | Folder | One note per | Template |
 |---|---|---|
 | `business/` `frontend/` `backend/` | project reference for that layer: overview, glossary, contract, API guide, architecture, conventions, migrations, setup (`type: project`, `layer:`) | `templates/Project Note Template.md` |
-| `project/` | the rules every layer follows: `Workflow`, `Agent Rules`, `Docs Tree`; `PM Agent` is the business layer's agent prompt, the one place it lives, loaded by `/pm` (`.claude/skills/pm/SKILL.md`) | — |
+| `project/` | the rules every layer follows: `Workflow`, `Agent Rules`, `Docs Tree`; the agents, one note per role that **is** its prompt: `Agent Protocol` (shared), `Owner Agent`, `PM Agent`, `Backend Agent`, `Frontend Agent`, `QA Agent` | — |
+| `.claude/` | `skills/<id>/SKILL.md`: `/owner`, `/pm`, `/backend`, `/frontend`, `/qa` load the agent's note (`/agent` shows the active one, `/agent off` clears it); `settings.json`: the hooks that run `scripts/agent-guard.mjs`, which lets an active agent write only the files its `agents.list` entry in `docs.config.json` names (plus a flag line under any H1, and sign-off lines where allowed) | — |
 | `modules/<Module>/<Module> Module.md` | module: the sum of its features (`type: module`) | `templates/Module Template.md` |
 | `modules/<Module>/<Feature>/<Feature>.md` | feature: the business main node (`type: feature`, no `status:`: the chip is computed from its cards; `frontendOnly: true` when it has no backend part) | `templates/Feature Template.md` |
 | `modules/<Module>/<Feature>/<Feature> <Kind>.md` | one note per layer kind: `Story`, `Frontend Requirements`, `Backend Delivery`, `Backend Integration`, `Frontend Delivery`, `QA Backend`, `QA Frontend` (`scope: feature`, `code: <feature id>`) | `templates/<Kind> Template.md` |
@@ -22,7 +23,7 @@ this file is the short form and defers to it.
 | `tree/` `scripts/` | the generated docs tree (`index.html`, `tree.json`, `tree.md`), the card-code registry (`cards.json`) and `build-tree.mjs` | — |
 
 `docs.config.json` declares the layers, their kinds, statuses, the hand-off
-flow, the default blocks, the card-code prefixes and the modules. `tasks/Task Board.md`,
+flow, the default blocks, the card-code prefixes, the modules and the agents (who writes what). `tasks/Task Board.md`,
 `tasks/Backlog.md`, `Card Index.md`, `tree/cards.json`, `tree/tree.json` and `tree/tree.md` are **generated**:
 never edit them by hand.
 
@@ -32,8 +33,11 @@ never edit them by hand.
 it before walking folders. Before creating or changing any task or note, run
 `node scripts/build-tree.mjs --impact "<note | T-NNN | feature id | endpoint | E_CODE>"`
 and read what it returns: the same feature's notes, the directly linked notes,
-the two-hop notes only when the change crosses a feature boundary. How to read
-the page and the JSON: `project/Docs Tree.md`.
+the two-hop notes only when the change crosses a feature boundary. To turn the
+words a person uses ("the speed search", "the rings module") into cards and ids:
+`node scripts/build-tree.mjs --find "<words>"`. How to read the page and the
+JSON: `project/Docs Tree.md`. How an agent takes a request (resolve, align in
+one question, act in scope, finish): `project/Agent Protocol.md`.
 
 ## The workflow this vault enforces
 
