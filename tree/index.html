@@ -526,14 +526,27 @@ function statusText(n) {
 }
 const kicker = (n) => kindOf(n.kind).name.toUpperCase() + (n.parentTask ? ' · SUB-TASK OF ' + n.parentTask : '') + (n.frontendOnly ? ' · FRONTEND ONLY' : '') + (n.priority ? ' · ' + n.priority : '');
 const flowIdx = (kind) => FLOW.order.indexOf(kind);
-const isBack = (pair) => FLOW.back.some(([a, b]) => a === pair[0] && b === pair[1]);
-// how a layer note is reached along the hand-off: 'forward' from the step before it, 'back' when the flow returns to it (the story after QA)
-function flowGlyph(kind) {
-  const into = FLOW.pairs.filter((p) => p[1] === kind);
-  if (!into.length) return null;
-  const fwd = into.filter((p) => !isBack(p));
-  return { dir: fwd.length ? 'forward' : 'back', from: (fwd.length ? fwd : into).map((p) => kindOf(p[0]).name) };
+// is a story fulfilled? the verdict of the QA cards the flow returns from (qa-backend, qa-frontend → story), or the story's own `verified`:
+// 'checked' when every QA card is passing (or the story is verified), 'cross' when any QA card is failing, 'pending' until then
+const doneSet = (kind) => { for (const l of S.D.layers || []) for (const k of l.kinds) if (k.id === kind) return k.done || []; return []; };
+const skipsFor = (n) => (n && n.frontendOnly && S.D.frontendOnly && Array.isArray(S.D.frontendOnly.skips)) ? S.D.frontendOnly.skips : [];
+function storyVerdict(n) {
+  if (n.kind !== 'story' || n.effectiveStatus === 'missing') return null;
+  const parent = (n.parents || []).map(node).find((p) => p && CONTAINER.has(p.kind));
+  const skips = skipsFor(parent);
+  const backKinds = FLOW.back.filter(([, to]) => to === 'story').map(([from]) => from).filter((k) => !skips.includes(k));
+  const qa = backKinds.map((k) => (parent ? parent.children.map(node).find((c) => c && c.kind === k) : null) || { kind: k, effectiveStatus: 'missing', status: null, title: kindOf(k).name });
+  const line = (c) => `${kindOf(c.kind).name} · ${c.effectiveStatus === 'missing' ? 'not written yet' : legend(c.effectiveStatus)}`;
+  const isDone = (c) => doneSet(c.kind).includes(c.status) || c.effectiveStatus === 'done';
+  if (qa.some((c) => c.status === 'failing')) return { state: 'cross', text: 'Story not fulfilled · QA found wrong results', lines: qa.map(line) };
+  if (n.status === 'verified' || (qa.length && qa.every(isDone))) return { state: 'checked', text: n.status === 'verified' ? 'Story fulfilled · verified by QA' : 'Story fulfilled · QA passing', lines: qa.map(line) };
+  return { state: 'pending', text: 'Story not verified yet', lines: qa.map(line) };
 }
+const VERDICT = {
+  checked: { ...GREEN, d: 'M -3.6 0.2 L -1.2 2.6 L 3.6 -2.6', name: 'Fulfilled' },
+  pending: { ...OCHRE, d: 'M 0 -3.4 V 0.2 L 2.4 1.8 M 0 -5.2 A 5.2 5.2 0 1 1 -0.01 -5.2', name: 'Pending' },
+  cross: { c: ST.failing.c, bg: ST.failing.bg, ink: ST.failing.ink, d: 'M -3 -3 L 3 3 M 3 -3 L -3 3', name: 'Wrong results' },
+};
 const chipStyle = (n) => { const st = stOf(n); return `--bg:${st.bg};--ink:${st.ink};--bd:${st.dashed ? st.c : 'transparent'}`; };
 const chipHtml = (n, extraCls = '') => `<span class="stchip${stOf(n).dashed ? ' dashed' : ''}${extraCls ? ' ' + extraCls : ''}" style="${chipStyle(n)}">${esc(statusText(n))}</span>`;
 
@@ -756,10 +769,13 @@ function renderCards(list) {
       if (hasLayerMark(n)) { sel('rect', { x: 14, y: -10.5, width: 7, height: 7, rx: 1.5 }, g, { fill: LAYER[n.layer].color }); kx = 25; }
       const k = sel('text', { x: kx, y: -7, 'dominant-baseline': 'middle' }, g, { font: `600 9px ${FONT}`, letterSpacing: '0.1em', fill: 'var(--color-neutral-600)', pointerEvents: 'none' }); k.textContent = kicker(n);
       const tt = sel('text', { x: 14, y: 8, 'dominant-baseline': 'middle' }, g, { font: `600 13px ${FONT}`, fill: st.dashed ? 'var(--color-neutral-700)' : 'var(--color-text)', pointerEvents: 'none' }); tt.textContent = n.title;
-      const fg = S.view === 'tree' ? flowGlyph(n.kind) : null;
-      if (fg) {
-        const a = sel('path', { d: fg.dir === 'forward' ? 'M 3 -33 V -26 H 13 M 10 -29 L 13 -26 L 10 -23' : 'M 13 -23 V -30 H 3 M 6 -27 L 3 -30 L 6 -33' }, g, { fill: 'none', stroke: EDGE.flow.color, strokeWidth: 1.6, strokeLinecap: 'round', strokeLinejoin: 'round', opacity: st.dashed ? 0.55 : 1 });
-        sel('title', {}, a).textContent = fg.dir === 'forward' ? `Hand-off from ${fg.from.join(' / ')}` : `The flow returns here from ${fg.from.join(' / ')}`;
+      const vd = storyVerdict(n);
+      if (vd) {
+        // the story's verdict badge on the top-right corner: ✓ fulfilled, ◷ pending, ✕ wrong results
+        const v = VERDICT[vd.state], bg = sel('g', { 'data-verdict': vd.state }, g);
+        sel('circle', { cx: it.w, cy: -T.H, r: 8.5 }, bg, { fill: v.bg, stroke: v.c, strokeWidth: 1.2 });
+        sel('path', { d: v.d, transform: `translate(${it.w}, ${-T.H})` }, bg, { fill: 'none', stroke: v.ink, strokeWidth: 1.6, strokeLinecap: 'round', strokeLinejoin: 'round', pointerEvents: 'none' });
+        sel('title', {}, bg).textContent = [vd.text, ...vd.lines].join('\n');
       }
       const label = statusText(n), cw = Math.ceil(tw(label, `600 10px ${FONT}`)) + 14, cx = it.w - 12 - cw - (it.caret ? 12 : 0);
       sel('rect', { x: cx, y: -9, width: cw, height: 18, rx: 2 }, g, { fill: st.bg, stroke: st.dashed ? st.c : 'none', strokeDasharray: st.dashed ? '3 2' : '' });
