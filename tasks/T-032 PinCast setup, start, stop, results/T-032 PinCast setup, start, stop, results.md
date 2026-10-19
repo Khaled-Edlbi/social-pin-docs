@@ -2,20 +2,20 @@
 type: task
 id: T-032
 status: todo
-priority: P1
+priority: high
 effort: L
 feature: pincast
 module: discovery
 screens: [s39, s40, s41, s42]
 depends: []
 created: 2026-10-15
-updated: 2026-10-18
-tags: [task, task/todo, module/discovery, priority/P1]
+updated: 2026-10-19
+tags: [task, task/todo, module/discovery, priority/high]
 ---
 
 # ⬜ T-032 · PinCast: setup, start, stop, results
 
-**Feature:** [[PinCast & Nearby]] · **Status:** To do · **Priority:** P1 · **Effort:** L (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[PinCast & Nearby]] · **Status:** To do · **Priority:** High · **Effort:** L (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-032-fe Frontend · PinCast setup, start, stop, results|Frontend]] · [[T-032-be Backend · PinCast setup, start, stop, results|Backend]] · **Story:** [[T-032 Story]]
 

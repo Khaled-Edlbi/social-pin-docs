@@ -2,20 +2,20 @@
 type: task
 id: T-016
 status: todo
-priority: P1
+priority: high
 effort: S
 feature: interests
 module: platform
 screens: [s07, s71]
 depends: []
 created: 2026-10-15
-updated: 2026-10-18
-tags: [task, task/todo, module/platform, priority/P1]
+updated: 2026-10-19
+tags: [task, task/todo, module/platform, priority/high]
 ---
 
 # ⬜ T-016 · Interests vocabulary and my interests
 
-**Feature:** [[Interests]] · **Status:** To do · **Priority:** P1 · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Interests]] · **Status:** To do · **Priority:** High · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-016-fe Frontend · Interests vocabulary and my interests|Frontend]] · [[T-016-be Backend · Interests vocabulary and my interests|Backend]] · **Story:** [[T-016 Story]]
 

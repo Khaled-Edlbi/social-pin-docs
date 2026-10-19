@@ -2,7 +2,7 @@
 type: task
 id: T-062-fe
 status: todo
-priority: P0
+priority: critical
 effort: S
 feature: files
 module: identity
@@ -14,13 +14,13 @@ affects: []
 related: []
 pending: []
 created: 2026-10-18
-updated: 2026-10-18
-tags: [task, task/todo, module/identity, priority/P0, frontend]
+updated: 2026-10-19
+tags: [task, task/todo, module/identity, priority/critical, frontend]
 ---
 
 # ⬜ T-062-fe · Frontend: Serve uploaded file bytes by id
 
-**Parent:** [[T-062 Serve uploaded file bytes by id]] · **Feature:** [[Files Upload]] · **Side:** Frontend · **Status:** To do · **Priority:** P0 · **Effort:** S (same as the parent until the team sizes it)
+**Parent:** [[T-062 Serve uploaded file bytes by id]] · **Feature:** [[Files Upload]] · **Side:** Frontend · **Status:** To do · **Priority:** Critical · **Effort:** S (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-062-fe` when the team picks it up): [[T-062-fe Frontend Requirements|Frontend Requirements]] · [[T-062-fe Frontend Delivery|Frontend Delivery]] · [[T-062-fe QA Frontend|QA Frontend]]
 

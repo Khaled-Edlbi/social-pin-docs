@@ -2,7 +2,7 @@
 type: task
 id: T-025-be
 status: todo
-priority: P2
+priority: medium
 effort: M
 feature: connections
 module: connections
@@ -14,13 +14,13 @@ affects: []
 related: []
 pending: []
 created: 2026-10-18
-updated: 2026-10-18
-tags: [task, task/todo, module/connections, priority/P2, backend]
+updated: 2026-10-19
+tags: [task, task/todo, module/connections, priority/medium, backend]
 ---
 
 # ⬜ T-025-be · Backend: Introduce a connection to another
 
-**Parent:** [[T-025 Introduce a connection to another]] · **Feature:** [[Connections]] · **Side:** Backend · **Status:** To do · **Priority:** P2 · **Effort:** M (same as the parent until the team sizes it)
+**Parent:** [[T-025 Introduce a connection to another]] · **Feature:** [[Connections]] · **Side:** Backend · **Status:** To do · **Priority:** Medium · **Effort:** M (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-025-be` when the team picks it up): [[T-025-be Backend Delivery|Backend Delivery]] · [[T-025-be Backend Integration|Backend Integration]] · [[T-025-be QA Backend|QA Backend]]
 

@@ -2,7 +2,7 @@
 type: task
 id: T-025-fe
 status: todo
-priority: P2
+priority: medium
 effort: M
 feature: connections
 module: connections
@@ -14,13 +14,13 @@ affects: []
 related: []
 pending: []
 created: 2026-10-18
-updated: 2026-10-18
-tags: [task, task/todo, module/connections, priority/P2, frontend]
+updated: 2026-10-19
+tags: [task, task/todo, module/connections, priority/medium, frontend]
 ---
 
 # ⬜ T-025-fe · Frontend: Introduce a connection to another
 
-**Parent:** [[T-025 Introduce a connection to another]] · **Feature:** [[Connections]] · **Side:** Frontend · **Status:** To do · **Priority:** P2 · **Effort:** M (same as the parent until the team sizes it)
+**Parent:** [[T-025 Introduce a connection to another]] · **Feature:** [[Connections]] · **Side:** Frontend · **Status:** To do · **Priority:** Medium · **Effort:** M (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-025-fe` when the team picks it up): [[T-025-fe Frontend Requirements|Frontend Requirements]] · [[T-025-fe Frontend Delivery|Frontend Delivery]] · [[T-025-fe QA Frontend|QA Frontend]]
 

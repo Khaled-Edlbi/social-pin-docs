@@ -2,17 +2,17 @@
 type: feature
 id: badge-qr
 name: "Badge & QR"
-priority: P0
+priority: critical
 module: discovery
 screens: [s34, s43, s44, s56]
 related: ["Account", "Rings"]
-updated: 2026-10-18
-tags: [feature, module/discovery, priority/P0]
+updated: 2026-10-19
+tags: [feature, module/discovery, priority/critical]
 ---
 
 # Badge & QR
 
-**Backend:** Partial (needs more) · **Priority:** P0 · **Module:** [[Discovery Module|Discovery]]
+**Backend:** Partial (needs more) · **Priority:** Critical · **Module:** [[Discovery Module|Discovery]]
 
 **Layers:** [[Badge & QR Story|Story]] · [[Badge & QR Frontend Requirements|Frontend Requirements]] · [[Badge & QR Backend Delivery|Backend Delivery]] · [[Badge & QR Backend Integration|Backend Integration]] · [[Badge & QR Frontend Delivery|Frontend Delivery]] · [[Badge & QR QA Backend|QA Backend]] · [[Badge & QR QA Frontend|QA Frontend]]
 
@@ -35,10 +35,10 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 
 | Task | Status | Priority | Effort |
 |---|---|---|---|
-| [[T-007 Issue and rotate the QR token for a Ring]] | ⬜ To do | P0 | M |
-| [[T-008 Resolve a scanned QR token]] | ⬜ To do | P0 | M |
-| [[T-009 Scan counter and share link]] | ⬜ To do | P1 | S |
-| [[T-010 Public browser page for viewers without the app]] | ❓ Needs a decision / info | P1 | M |
+| [[T-007 Issue and rotate the QR token for a Ring]] | ⬜ To do | Critical | M |
+| [[T-008 Resolve a scanned QR token]] | ⬜ To do | Critical | M |
+| [[T-009 Scan counter and share link]] | ⬜ To do | High | S |
+| [[T-010 Public browser page for viewers without the app]] | ❓ Needs a decision / info | High | M |
 
 ```dataview
 TABLE status, priority, effort FROM #task WHERE feature = "badge-qr" SORT priority ASC

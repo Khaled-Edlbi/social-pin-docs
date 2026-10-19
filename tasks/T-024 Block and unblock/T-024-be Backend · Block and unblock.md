@@ -2,7 +2,7 @@
 type: task
 id: T-024-be
 status: todo
-priority: P0
+priority: critical
 effort: S
 feature: connections
 module: connections
@@ -14,13 +14,13 @@ affects: []
 related: []
 pending: []
 created: 2026-10-18
-updated: 2026-10-18
-tags: [task, task/todo, module/connections, priority/P0, backend]
+updated: 2026-10-19
+tags: [task, task/todo, module/connections, priority/critical, backend]
 ---
 
 # ⬜ T-024-be · Backend: Block and unblock
 
-**Parent:** [[T-024 Block and unblock]] · **Feature:** [[Connections]] · **Side:** Backend · **Status:** To do · **Priority:** P0 · **Effort:** S (same as the parent until the team sizes it)
+**Parent:** [[T-024 Block and unblock]] · **Feature:** [[Connections]] · **Side:** Backend · **Status:** To do · **Priority:** Critical · **Effort:** S (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-024-be` when the team picks it up): [[T-024-be Backend Delivery|Backend Delivery]] · [[T-024-be Backend Integration|Backend Integration]] · [[T-024-be QA Backend|QA Backend]]
 

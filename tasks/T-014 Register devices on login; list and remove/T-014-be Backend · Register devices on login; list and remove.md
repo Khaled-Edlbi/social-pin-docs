@@ -2,7 +2,7 @@
 type: task
 id: T-014-be
 status: todo
-priority: P1
+priority: high
 effort: M
 feature: devices
 module: platform
@@ -14,13 +14,13 @@ affects: []
 related: []
 pending: []
 created: 2026-10-18
-updated: 2026-10-18
-tags: [task, task/todo, module/platform, priority/P1, backend]
+updated: 2026-10-19
+tags: [task, task/todo, module/platform, priority/high, backend]
 ---
 
 # ⬜ T-014-be · Backend: Register devices on login; list and remove
 
-**Parent:** [[T-014 Register devices on login; list and remove]] · **Feature:** [[Devices & NFC]] · **Side:** Backend · **Status:** To do · **Priority:** P1 · **Effort:** M (same as the parent until the team sizes it)
+**Parent:** [[T-014 Register devices on login; list and remove]] · **Feature:** [[Devices & NFC]] · **Side:** Backend · **Status:** To do · **Priority:** High · **Effort:** M (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-014-be` when the team picks it up): [[T-014-be Backend Delivery|Backend Delivery]] · [[T-014-be Backend Integration|Backend Integration]] · [[T-014-be QA Backend|QA Backend]]
 

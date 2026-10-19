@@ -2,16 +2,16 @@
 type: feature
 id: notifications
 name: "Notifications"
-priority: P1
+priority: high
 module: platform
 screens: [s69]
-updated: 2026-10-18
-tags: [feature, module/platform, priority/P1]
+updated: 2026-10-19
+tags: [feature, module/platform, priority/high]
 ---
 
 # Notifications
 
-**Backend:** TODO · **Priority:** P1 · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
+**Backend:** TODO · **Priority:** High · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
 
 **Layers:** [[Notifications Story|Story]] · [[Notifications Frontend Requirements|Frontend Requirements]] · [[Notifications Backend Delivery|Backend Delivery]] · [[Notifications Backend Integration|Backend Integration]] · [[Notifications Frontend Delivery|Frontend Delivery]] · [[Notifications QA Backend|QA Backend]] · [[Notifications QA Frontend|QA Frontend]]
 
@@ -31,8 +31,8 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 
 | Task | Status | Priority | Effort |
 |---|---|---|---|
-| [[T-045 NotificationService.emit and the inbox]] | ⬜ To do | P1 | M |
-| [[T-046 Push delivery and preferences]] | ⛔ Blocked | P1 | M |
+| [[T-045 NotificationService.emit and the inbox]] | ⬜ To do | High | M |
+| [[T-046 Push delivery and preferences]] | ⛔ Blocked | High | M |
 
 ```dataview
 TABLE status, priority, effort FROM #task WHERE feature = "notifications" SORT priority ASC

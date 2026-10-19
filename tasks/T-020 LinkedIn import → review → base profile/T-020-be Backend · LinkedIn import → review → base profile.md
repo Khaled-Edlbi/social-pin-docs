@@ -2,7 +2,7 @@
 type: task
 id: T-020-be
 status: todo
-priority: P1
+priority: high
 effort: L
 feature: onboarding-imports
 module: identity
@@ -14,13 +14,13 @@ affects: []
 related: []
 pending: []
 created: 2026-10-18
-updated: 2026-10-18
-tags: [task, task/todo, module/identity, priority/P1, backend]
+updated: 2026-10-19
+tags: [task, task/todo, module/identity, priority/high, backend]
 ---
 
 # ⬜ T-020-be · Backend: LinkedIn import → review → base profile
 
-**Parent:** [[T-020 LinkedIn import → review → base profile]] · **Feature:** [[Onboarding Imports]] · **Side:** Backend · **Status:** To do · **Priority:** P1 · **Effort:** L (same as the parent until the team sizes it)
+**Parent:** [[T-020 LinkedIn import → review → base profile]] · **Feature:** [[Onboarding Imports]] · **Side:** Backend · **Status:** To do · **Priority:** High · **Effort:** L (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-020-be` when the team picks it up): [[T-020-be Backend Delivery|Backend Delivery]] · [[T-020-be Backend Integration|Backend Integration]] · [[T-020-be QA Backend|QA Backend]]
 

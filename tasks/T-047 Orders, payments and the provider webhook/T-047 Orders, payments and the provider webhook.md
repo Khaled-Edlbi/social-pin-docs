@@ -2,20 +2,20 @@
 type: task
 id: T-047
 status: needs-info
-priority: P1
+priority: high
 effort: L
 feature: payments
 module: commerce
 screens: [s51]
 depends: []
 created: 2026-10-15
-updated: 2026-10-18
-tags: [task, task/needs-info, module/commerce, priority/P1]
+updated: 2026-10-19
+tags: [task, task/needs-info, module/commerce, priority/high]
 ---
 
 # ❓ T-047 · Orders, payments and the provider webhook
 
-**Feature:** [[Payments & Orders]] · **Status:** Needs a decision / info · **Priority:** P1 · **Effort:** L (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Payments & Orders]] · **Status:** Needs a decision / info · **Priority:** High · **Effort:** L (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-047-be Backend · Orders, payments and the provider webhook|Backend]] · **Story:** [[T-047 Story]]
 

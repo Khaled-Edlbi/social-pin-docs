@@ -2,20 +2,20 @@
 type: task
 id: T-008
 status: todo
-priority: P0
+priority: critical
 effort: M
 feature: badge-qr
 module: discovery
 screens: [s43, s44]
 depends: [T-007]
 created: 2026-10-15
-updated: 2026-10-18
-tags: [task, task/todo, module/discovery, priority/P0]
+updated: 2026-10-19
+tags: [task, task/todo, module/discovery, priority/critical]
 ---
 
 # ⬜ T-008 · Resolve a scanned QR token
 
-**Feature:** [[Badge & QR]] · **Status:** To do · **Priority:** P0 · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Badge & QR]] · **Status:** To do · **Priority:** Critical · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-008-fe Frontend · Resolve a scanned QR token|Frontend]] · [[T-008-be Backend · Resolve a scanned QR token|Backend]] · **Story:** [[T-008 Story]]
 

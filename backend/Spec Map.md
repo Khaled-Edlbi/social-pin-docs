@@ -1,6 +1,6 @@
 ---
 type: project
-updated: 2026-10-18
+updated: 2026-10-19
 tags: [project]
 layer: backend
 ---
@@ -28,44 +28,44 @@ database/business concept."*
 
 | Spec entity | P | Prisma model | Schema file | Status | Code |
 |---|---|---|---|---|---|
-| `users` | P0 | `User` | `user.prisma` | **schema + API** | `modules/user/` |
-| `profiles` | P0 | `Profile` | `profile.prisma` | **schema + API** | `modules/profile/` |
-| `rings` | P0 | `Ring` | `ring.prisma` | **schema + API** | `modules/ring/` |
-| `ring_members` | P0 | `RingMember` | `ring.prisma` | **schema + API** | `modules/ring/ring-member.service.ts` |
-| `ring_profiles` | P0 | `RingProfile` | `ring.prisma` | **schema + API** | `modules/ring-profile/` |
-| `ring_profile_links` | P0 | `RingProfileLink` | `ring.prisma` | **schema + API** | `modules/ring-profile/` |
-| `connections` | P0 | `Connection` | `connection.prisma` | schema | — |
-| `connection_requests` | P0 | `ConnectionRequest` | `connection.prisma` | schema | — |
-| `businesses` | P1 | `Business` | `business.prisma` | schema | — |
-| `business_members` | P1 | `BusinessMember` | `business.prisma` | schema | — |
-| `events` | P0 | `Event` | `event.prisma` | schema | — |
-| `event_participants` | P0 | `EventParticipant` | `event.prisma` | schema | — |
-| `event_packages` | P1 | `EventPackage` | `event.prisma` | schema | — |
-| `package_entitlements` | P1 | `PackageEntitlement` | `event.prisma` | schema | — |
-| `exhibitors` | P1 | `Exhibitor` | `event.prisma` | schema | — |
-| `booths` | P1 | `Booth` | `event.prisma` | schema | — |
-| `mini_events` | P1 | `MiniEvent` | `event.prisma` | schema | — |
-| `mini_event_access` | P1 | `MiniEventAccess` | `event.prisma` | schema | — |
-| `availability_slots` | P0 | `AvailabilitySlot` | `meeting.prisma` | schema | — |
-| `meeting_requests` | P0 | `MeetingRequest` | `meeting.prisma` | schema | — |
-| `meetings` | P0 | `Meeting` | `meeting.prisma` | schema | — |
-| `meeting_participants` | P0 | `MeetingParticipant` | `meeting.prisma` | schema | — |
-| `pincasts` | P1 | `Pincast` | `discovery.prisma` | schema | — |
-| `pincast_recipients` | P1 | `PincastRecipient` | `discovery.prisma` | schema | — |
-| `files` | P1 | `File` | `file.prisma` | **schema + API** | `modules/file/` |
-| `notifications` | P1 | `Notification` | `notification.prisma` | schema | — |
-| `orders` | P1 | `Order` | `commerce.prisma` | schema | — |
-| `payments` | P1 | `Payment` | `commerce.prisma` | schema | — |
-| `subscriptions` | P1 | `Subscription` | `commerce.prisma` | schema | — |
-| `ai_sessions` | P2 | `AiSession` | `ai.prisma` | schema | — |
-| `ai_messages` | P2 | `AiMessage` | `ai.prisma` | schema | — |
-| `ai_actions` | P2 | `AiAction` | `ai.prisma` | schema | — |
-| `match_results` | P2 | `MatchResult` | `discovery.prisma` | schema | — |
-| `analytics_events` | P1 | `AnalyticsEvent` | `analytics.prisma` | schema | — |
-| `roles` | P0 | `Role` | `auth.prisma` | schema + seeded | `prisma/seed/role.seed.ts` |
-| `permissions` | P0 | `Permission` | `auth.prisma` | schema + seeded | `prisma/seed/permission.seed.ts` |
-| `user_roles` | P0 | `UserRole` | `auth.prisma` | **schema + API** | read by `modules/auth/strategies/jwt.strategy.ts` |
-| `audit_logs` | P0 | `AuditLog` | `analytics.prisma` | schema | — |
+| `users` | Critical | `User` | `user.prisma` | **schema + API** | `modules/user/` |
+| `profiles` | Critical | `Profile` | `profile.prisma` | **schema + API** | `modules/profile/` |
+| `rings` | Critical | `Ring` | `ring.prisma` | **schema + API** | `modules/ring/` |
+| `ring_members` | Critical | `RingMember` | `ring.prisma` | **schema + API** | `modules/ring/ring-member.service.ts` |
+| `ring_profiles` | Critical | `RingProfile` | `ring.prisma` | **schema + API** | `modules/ring-profile/` |
+| `ring_profile_links` | Critical | `RingProfileLink` | `ring.prisma` | **schema + API** | `modules/ring-profile/` |
+| `connections` | Critical | `Connection` | `connection.prisma` | schema | — |
+| `connection_requests` | Critical | `ConnectionRequest` | `connection.prisma` | schema | — |
+| `businesses` | High | `Business` | `business.prisma` | schema | — |
+| `business_members` | High | `BusinessMember` | `business.prisma` | schema | — |
+| `events` | Critical | `Event` | `event.prisma` | schema | — |
+| `event_participants` | Critical | `EventParticipant` | `event.prisma` | schema | — |
+| `event_packages` | High | `EventPackage` | `event.prisma` | schema | — |
+| `package_entitlements` | High | `PackageEntitlement` | `event.prisma` | schema | — |
+| `exhibitors` | High | `Exhibitor` | `event.prisma` | schema | — |
+| `booths` | High | `Booth` | `event.prisma` | schema | — |
+| `mini_events` | High | `MiniEvent` | `event.prisma` | schema | — |
+| `mini_event_access` | High | `MiniEventAccess` | `event.prisma` | schema | — |
+| `availability_slots` | Critical | `AvailabilitySlot` | `meeting.prisma` | schema | — |
+| `meeting_requests` | Critical | `MeetingRequest` | `meeting.prisma` | schema | — |
+| `meetings` | Critical | `Meeting` | `meeting.prisma` | schema | — |
+| `meeting_participants` | Critical | `MeetingParticipant` | `meeting.prisma` | schema | — |
+| `pincasts` | High | `Pincast` | `discovery.prisma` | schema | — |
+| `pincast_recipients` | High | `PincastRecipient` | `discovery.prisma` | schema | — |
+| `files` | High | `File` | `file.prisma` | **schema + API** | `modules/file/` |
+| `notifications` | High | `Notification` | `notification.prisma` | schema | — |
+| `orders` | High | `Order` | `commerce.prisma` | schema | — |
+| `payments` | High | `Payment` | `commerce.prisma` | schema | — |
+| `subscriptions` | High | `Subscription` | `commerce.prisma` | schema | — |
+| `ai_sessions` | Medium | `AiSession` | `ai.prisma` | schema | — |
+| `ai_messages` | Medium | `AiMessage` | `ai.prisma` | schema | — |
+| `ai_actions` | Medium | `AiAction` | `ai.prisma` | schema | — |
+| `match_results` | Medium | `MatchResult` | `discovery.prisma` | schema | — |
+| `analytics_events` | High | `AnalyticsEvent` | `analytics.prisma` | schema | — |
+| `roles` | Critical | `Role` | `auth.prisma` | schema + seeded | `prisma/seed/role.seed.ts` |
+| `permissions` | Critical | `Permission` | `auth.prisma` | schema + seeded | `prisma/seed/permission.seed.ts` |
+| `user_roles` | Critical | `UserRole` | `auth.prisma` | **schema + API** | read by `modules/auth/strategies/jwt.strategy.ts` |
+| `audit_logs` | Critical | `AuditLog` | `analytics.prisma` | schema | — |
 
 ### Tables added beyond the document
 

@@ -2,20 +2,20 @@
 type: task
 id: T-040
 status: blocked
-priority: P1
+priority: high
 effort: M
 feature: events-during
 module: events
 screens: [s53]
 depends: [T-034, T-049]
 created: 2026-10-15
-updated: 2026-10-18
-tags: [task, task/blocked, module/events, priority/P1]
+updated: 2026-10-19
+tags: [task, task/blocked, module/events, priority/high]
 ---
 
 # ⛔ T-040 · Lounges and upgrades
 
-**Feature:** [[Events During]] · **Status:** Blocked · **Priority:** P1 · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Events During]] · **Status:** Blocked · **Priority:** High · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-040-fe Frontend · Lounges and upgrades|Frontend]] · [[T-040-be Backend · Lounges and upgrades|Backend]] · **Story:** [[T-040 Story]]
 

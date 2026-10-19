@@ -2,7 +2,7 @@
 type: task
 id: T-040-fe
 status: todo
-priority: P1
+priority: high
 effort: M
 feature: events-during
 module: events
@@ -14,13 +14,13 @@ affects: []
 related: []
 pending: []
 created: 2026-10-18
-updated: 2026-10-18
-tags: [task, task/todo, module/events, priority/P1, frontend]
+updated: 2026-10-19
+tags: [task, task/todo, module/events, priority/high, frontend]
 ---
 
 # ⬜ T-040-fe · Frontend: Lounges and upgrades
 
-**Parent:** [[T-040 Lounges and upgrades]] · **Feature:** [[Events During]] · **Side:** Frontend · **Status:** To do · **Priority:** P1 · **Effort:** M (same as the parent until the team sizes it)
+**Parent:** [[T-040 Lounges and upgrades]] · **Feature:** [[Events During]] · **Side:** Frontend · **Status:** To do · **Priority:** High · **Effort:** M (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-040-fe` when the team picks it up): [[T-040-fe Frontend Requirements|Frontend Requirements]] · [[T-040-fe Frontend Delivery|Frontend Delivery]] · [[T-040-fe QA Frontend|QA Frontend]]
 

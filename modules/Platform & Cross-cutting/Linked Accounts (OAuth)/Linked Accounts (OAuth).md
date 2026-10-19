@@ -2,16 +2,16 @@
 type: feature
 id: linked-accounts
 name: "Linked Accounts (OAuth)"
-priority: P1
+priority: high
 module: platform
 screens: [s01, s04, s68]
-updated: 2026-10-18
-tags: [feature, module/platform, priority/P1]
+updated: 2026-10-19
+tags: [feature, module/platform, priority/high]
 ---
 
 # Linked Accounts (OAuth)
 
-**Backend:** Partial (needs more) · **Priority:** P1 · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
+**Backend:** Partial (needs more) · **Priority:** High · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
 
 **Layers:** [[Linked Accounts (OAuth) Story|Story]] · [[Linked Accounts (OAuth) Frontend Requirements|Frontend Requirements]] · [[Linked Accounts (OAuth) Backend Delivery|Backend Delivery]] · [[Linked Accounts (OAuth) Backend Integration|Backend Integration]] · [[Linked Accounts (OAuth) Frontend Delivery|Frontend Delivery]] · [[Linked Accounts (OAuth) QA Backend|QA Backend]] · [[Linked Accounts (OAuth) QA Frontend|QA Frontend]]
 
@@ -33,7 +33,7 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 
 | Task | Status | Priority | Effort |
 |---|---|---|---|
-| [[T-019 LinkedIn OAuth link, unlink, login]] | ⬜ To do | P1 | L |
+| [[T-019 LinkedIn OAuth link, unlink, login]] | ⬜ To do | High | L |
 
 ```dataview
 TABLE status, priority, effort FROM #task WHERE feature = "linked-accounts" SORT priority ASC

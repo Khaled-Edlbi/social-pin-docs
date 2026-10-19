@@ -2,7 +2,7 @@
 type: task
 id: T-030-fe
 status: todo
-priority: P1
+priority: high
 effort: S
 feature: discover-hub
 module: discovery
@@ -14,13 +14,13 @@ affects: []
 related: []
 pending: []
 created: 2026-10-18
-updated: 2026-10-18
-tags: [task, task/todo, module/discovery, priority/P1, frontend]
+updated: 2026-10-19
+tags: [task, task/todo, module/discovery, priority/high, frontend]
 ---
 
 # ⬜ T-030-fe · Frontend: Discover search by !pinname and recent searches
 
-**Parent:** [[T-030 Discover search by !pinname and recent searches]] · **Feature:** [[Discover Hub & Search]] · **Side:** Frontend · **Status:** To do · **Priority:** P1 · **Effort:** S (same as the parent until the team sizes it)
+**Parent:** [[T-030 Discover search by !pinname and recent searches]] · **Feature:** [[Discover Hub & Search]] · **Side:** Frontend · **Status:** To do · **Priority:** High · **Effort:** S (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-030-fe` when the team picks it up): [[T-030-fe Frontend Requirements|Frontend Requirements]] · [[T-030-fe Frontend Delivery|Frontend Delivery]] · [[T-030-fe QA Frontend|QA Frontend]]
 

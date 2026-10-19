@@ -2,7 +2,7 @@
 type: task
 id: T-063-be
 status: todo
-priority: P0
+priority: critical
 effort: S
 feature: error-contract
 module: platform
@@ -14,13 +14,13 @@ affects: []
 related: []
 pending: []
 created: 2026-10-18
-updated: 2026-10-18
-tags: [task, task/todo, module/platform, priority/P0, backend]
+updated: 2026-10-19
+tags: [task, task/todo, module/platform, priority/critical, backend]
 ---
 
 # ⬜ T-063-be · Backend: Put the ErrorCode on the error body
 
-**Parent:** [[T-063 Put the ErrorCode on the error body]] · **Feature:** [[Error Contract]] · **Side:** Backend · **Status:** To do · **Priority:** P0 · **Effort:** S (same as the parent until the team sizes it)
+**Parent:** [[T-063 Put the ErrorCode on the error body]] · **Feature:** [[Error Contract]] · **Side:** Backend · **Status:** To do · **Priority:** Critical · **Effort:** S (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-063-be` when the team picks it up): [[T-063-be Backend Delivery|Backend Delivery]] · [[T-063-be Backend Integration|Backend Integration]] · [[T-063-be QA Backend|QA Backend]]
 

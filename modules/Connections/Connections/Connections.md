@@ -2,17 +2,17 @@
 type: feature
 id: connections
 name: "Connections"
-priority: P0
+priority: critical
 module: connections
 screens: [s44, s45, s46, s47, s62]
 related: ["Rings"]
-updated: 2026-10-18
-tags: [feature, module/connections, priority/P0]
+updated: 2026-10-19
+tags: [feature, module/connections, priority/critical]
 ---
 
 # Connections
 
-**Backend:** TODO · **Priority:** P0 · **Module:** [[Connections Module|Connections]]
+**Backend:** TODO · **Priority:** Critical · **Module:** [[Connections Module|Connections]]
 
 **Layers:** [[Connections Story|Story]] · [[Connections Frontend Requirements|Frontend Requirements]] · [[Connections Backend Delivery|Backend Delivery]] · [[Connections Backend Integration|Backend Integration]] · [[Connections Frontend Delivery|Frontend Delivery]] · [[Connections QA Backend|QA Backend]] · [[Connections QA Frontend|QA Frontend]]
 
@@ -36,11 +36,11 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 
 | Task | Status | Priority | Effort |
 |---|---|---|---|
-| [[T-021 Connect request send, inbox, cancel]] | ⬜ To do | P0 | M |
-| [[T-022 Accept into a Ring (sets grantedRingId)]] | ⬜ To do | P0 | M |
-| [[T-023 Connection detail and contacts list]] | ⬜ To do | P0 | M |
-| [[T-024 Block and unblock]] | ⬜ To do | P0 | S |
-| [[T-025 Introduce a connection to another]] | ❓ Needs a decision / info | P2 | M |
+| [[T-021 Connect request send, inbox, cancel]] | ⬜ To do | Critical | M |
+| [[T-022 Accept into a Ring (sets grantedRingId)]] | ⬜ To do | Critical | M |
+| [[T-023 Connection detail and contacts list]] | ⬜ To do | Critical | M |
+| [[T-024 Block and unblock]] | ⬜ To do | Critical | S |
+| [[T-025 Introduce a connection to another]] | ❓ Needs a decision / info | Medium | M |
 
 ```dataview
 TABLE status, priority, effort FROM #task WHERE feature = "connections" SORT priority ASC

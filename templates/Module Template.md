@@ -2,6 +2,8 @@
 type: module
 id: <module id>
 name: "<Module name>"
+# priority: high           # optional (critical | high | medium | low); a module's features carry their own
+# deadline: YYYY-MM-DD      # optional
 updated: <date>
 tags: [module, module/<module id>]
 ---

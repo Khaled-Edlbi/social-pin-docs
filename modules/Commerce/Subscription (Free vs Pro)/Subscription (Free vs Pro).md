@@ -2,16 +2,16 @@
 type: feature
 id: subscription
 name: "Subscription (Free vs Pro)"
-priority: P1
+priority: high
 module: commerce
 screens: [s34, s70]
-updated: 2026-10-18
-tags: [feature, module/commerce, priority/P1]
+updated: 2026-10-19
+tags: [feature, module/commerce, priority/high]
 ---
 
 # Subscription (Free vs Pro)
 
-**Backend:** TODO · **Priority:** P1 · **Module:** [[Commerce Module|Commerce]]
+**Backend:** TODO · **Priority:** High · **Module:** [[Commerce Module|Commerce]]
 
 **Layers:** [[Subscription (Free vs Pro) Story|Story]] · [[Subscription (Free vs Pro) Frontend Requirements|Frontend Requirements]] · [[Subscription (Free vs Pro) Backend Delivery|Backend Delivery]] · [[Subscription (Free vs Pro) Backend Integration|Backend Integration]] · [[Subscription (Free vs Pro) Frontend Delivery|Frontend Delivery]] · [[Subscription (Free vs Pro) QA Backend|QA Backend]] · [[Subscription (Free vs Pro) QA Frontend|QA Frontend]]
 
@@ -32,7 +32,7 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 
 | Task | Status | Priority | Effort |
 |---|---|---|---|
-| [[T-049 Subscription endpoints and a single Pro gate]] | ⬜ To do | P1 | M |
+| [[T-049 Subscription endpoints and a single Pro gate]] | ⬜ To do | High | M |
 
 ```dataview
 TABLE status, priority, effort FROM #task WHERE feature = "subscription" SORT priority ASC

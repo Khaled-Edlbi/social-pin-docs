@@ -2,20 +2,20 @@
 type: task
 id: T-029
 status: todo
-priority: P1
+priority: high
 effort: M
 feature: companies
 module: shared-rings
 screens: [s72, s73]
 depends: []
 created: 2026-10-15
-updated: 2026-10-18
-tags: [task, task/todo, module/shared-rings, priority/P1]
+updated: 2026-10-19
+tags: [task, task/todo, module/shared-rings, priority/high]
 ---
 
 # ⬜ T-029 · My companies and company detail
 
-**Feature:** [[Companies]] · **Status:** To do · **Priority:** P1 · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Companies]] · **Status:** To do · **Priority:** High · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-029-fe Frontend · My companies and company detail|Frontend]] · [[T-029-be Backend · My companies and company detail|Backend]] · **Story:** [[T-029 Story]]
 

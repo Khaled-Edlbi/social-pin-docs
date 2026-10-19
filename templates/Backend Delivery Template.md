@@ -9,6 +9,8 @@ screens: []
 depends: []
 affects: []
 related: []
+# priority: high           # optional: inherits the task's or the feature's when absent (critical | high | medium | low)
+# deadline: YYYY-MM-DD      # optional: inherits the task's or the feature's when absent
 # pending: ["[[Note]]: what is left", "@who: what is left"]   # done, but a note is left for a card or a person → Partial until cleared
 pending: []
 updated: <date>

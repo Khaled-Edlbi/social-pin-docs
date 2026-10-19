@@ -2,20 +2,20 @@
 type: task
 id: T-038
 status: blocked
-priority: P1
+priority: high
 effort: M
 feature: events-during
 module: events
 screens: [s57]
 depends: [T-036]
 created: 2026-10-15
-updated: 2026-10-18
-tags: [task, task/blocked, module/events, priority/P1]
+updated: 2026-10-19
+tags: [task, task/blocked, module/events, priority/high]
 ---
 
 # ⛔ T-038 · Floor map and booths
 
-**Feature:** [[Events During]] · **Status:** Blocked · **Priority:** P1 · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Events During]] · **Status:** Blocked · **Priority:** High · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-038-fe Frontend · Floor map and booths|Frontend]] · [[T-038-be Backend · Floor map and booths|Backend]] · **Story:** [[T-038 Story]]
 

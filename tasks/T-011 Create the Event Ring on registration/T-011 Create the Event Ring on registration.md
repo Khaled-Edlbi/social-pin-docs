@@ -2,20 +2,20 @@
 type: task
 id: T-011
 status: blocked
-priority: P0
+priority: critical
 effort: M
 feature: event-ring-auto
 module: events
 screens: [s52]
 depends: [T-033]
 created: 2026-10-15
-updated: 2026-10-18
-tags: [task, task/blocked, module/events, priority/P0]
+updated: 2026-10-19
+tags: [task, task/blocked, module/events, priority/critical]
 ---
 
 # ⛔ T-011 · Create the Event Ring on registration
 
-**Feature:** [[Event Ring Auto-creation]] · **Status:** Blocked · **Priority:** P0 · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Event Ring Auto-creation]] · **Status:** Blocked · **Priority:** Critical · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-011-be Backend · Create the Event Ring on registration|Backend]] · **Story:** [[T-011 Story]]
 

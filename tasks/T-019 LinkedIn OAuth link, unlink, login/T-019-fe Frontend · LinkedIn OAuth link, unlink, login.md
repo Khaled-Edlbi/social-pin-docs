@@ -2,7 +2,7 @@
 type: task
 id: T-019-fe
 status: todo
-priority: P1
+priority: high
 effort: L
 feature: linked-accounts
 module: platform
@@ -14,13 +14,13 @@ affects: []
 related: []
 pending: []
 created: 2026-10-18
-updated: 2026-10-18
-tags: [task, task/todo, module/platform, priority/P1, frontend]
+updated: 2026-10-19
+tags: [task, task/todo, module/platform, priority/high, frontend]
 ---
 
 # ⬜ T-019-fe · Frontend: LinkedIn OAuth link, unlink, login
 
-**Parent:** [[T-019 LinkedIn OAuth link, unlink, login]] · **Feature:** [[Linked Accounts (OAuth)]] · **Side:** Frontend · **Status:** To do · **Priority:** P1 · **Effort:** L (same as the parent until the team sizes it)
+**Parent:** [[T-019 LinkedIn OAuth link, unlink, login]] · **Feature:** [[Linked Accounts (OAuth)]] · **Side:** Frontend · **Status:** To do · **Priority:** High · **Effort:** L (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-019-fe` when the team picks it up): [[T-019-fe Frontend Requirements|Frontend Requirements]] · [[T-019-fe Frontend Delivery|Frontend Delivery]] · [[T-019-fe QA Frontend|QA Frontend]]
 

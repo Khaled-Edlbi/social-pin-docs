@@ -2,20 +2,20 @@
 type: task
 id: T-004
 status: todo
-priority: P1
+priority: high
 effort: S
 feature: counts
 module: identity
 screens: [s14, s16]
 depends: []
 created: 2026-10-15
-updated: 2026-10-18
-tags: [task, task/todo, module/identity, priority/P1]
+updated: 2026-10-19
+tags: [task, task/todo, module/identity, priority/high]
 ---
 
 # ⬜ T-004 · Member count per Ring on list and detail
 
-**Feature:** [[Counts]] · **Status:** To do · **Priority:** P1 · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Counts]] · **Status:** To do · **Priority:** High · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-004-fe Frontend · Member count per Ring on list and detail|Frontend]] · [[T-004-be Backend · Member count per Ring on list and detail|Backend]] · **Story:** [[T-004 Story]]
 

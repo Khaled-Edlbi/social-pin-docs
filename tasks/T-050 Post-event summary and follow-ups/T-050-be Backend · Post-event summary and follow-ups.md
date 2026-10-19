@@ -2,7 +2,7 @@
 type: task
 id: T-050-be
 status: todo
-priority: P1
+priority: high
 effort: M
 feature: post-event
 module: events
@@ -14,13 +14,13 @@ affects: []
 related: []
 pending: []
 created: 2026-10-18
-updated: 2026-10-18
-tags: [task, task/todo, module/events, priority/P1, backend]
+updated: 2026-10-19
+tags: [task, task/todo, module/events, priority/high, backend]
 ---
 
 # ⬜ T-050-be · Backend: Post-event summary and follow-ups
 
-**Parent:** [[T-050 Post-event summary and follow-ups]] · **Feature:** [[Post-Event]] · **Side:** Backend · **Status:** To do · **Priority:** P1 · **Effort:** M (same as the parent until the team sizes it)
+**Parent:** [[T-050 Post-event summary and follow-ups]] · **Feature:** [[Post-Event]] · **Side:** Backend · **Status:** To do · **Priority:** High · **Effort:** M (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-050-be` when the team picks it up): [[T-050-be Backend Delivery|Backend Delivery]] · [[T-050-be Backend Integration|Backend Integration]] · [[T-050-be QA Backend|QA Backend]]
 

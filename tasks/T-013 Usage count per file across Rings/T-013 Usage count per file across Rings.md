@@ -2,20 +2,20 @@
 type: task
 id: T-013
 status: todo
-priority: P2
+priority: medium
 effort: S
 feature: photo-library
 module: identity
 screens: [s30]
 depends: [T-012]
 created: 2026-10-15
-updated: 2026-10-18
-tags: [task, task/todo, module/identity, priority/P2]
+updated: 2026-10-19
+tags: [task, task/todo, module/identity, priority/medium]
 ---
 
 # ⬜ T-013 · Usage count per file across Rings
 
-**Feature:** [[Photo Library]] · **Status:** To do · **Priority:** P2 · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Photo Library]] · **Status:** To do · **Priority:** Medium · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-013-fe Frontend · Usage count per file across Rings|Frontend]] · [[T-013-be Backend · Usage count per file across Rings|Backend]] · **Story:** [[T-013 Story]]
 

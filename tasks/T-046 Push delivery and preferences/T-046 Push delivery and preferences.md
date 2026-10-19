@@ -2,20 +2,20 @@
 type: task
 id: T-046
 status: blocked
-priority: P1
+priority: high
 effort: M
 feature: notifications
 module: platform
 screens: [s69]
 depends: [T-045, T-014]
 created: 2026-10-15
-updated: 2026-10-18
-tags: [task, task/blocked, module/platform, priority/P1]
+updated: 2026-10-19
+tags: [task, task/blocked, module/platform, priority/high]
 ---
 
 # ⛔ T-046 · Push delivery and preferences
 
-**Feature:** [[Notifications]] · **Status:** Blocked · **Priority:** P1 · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Notifications]] · **Status:** Blocked · **Priority:** High · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-046-fe Frontend · Push delivery and preferences|Frontend]] · [[T-046-be Backend · Push delivery and preferences|Backend]] · **Story:** [[T-046 Story]]
 

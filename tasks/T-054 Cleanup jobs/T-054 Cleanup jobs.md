@@ -2,20 +2,20 @@
 type: task
 id: T-054
 status: todo
-priority: P1
+priority: high
 effort: M
 feature: cleanup-jobs
 module: platform
 screens: []
 depends: []
 created: 2026-10-15
-updated: 2026-10-18
-tags: [task, task/todo, module/platform, priority/P1]
+updated: 2026-10-19
+tags: [task, task/todo, module/platform, priority/high]
 ---
 
 # ⬜ T-054 · Cleanup jobs
 
-**Feature:** [[Cleanup Jobs]] · **Status:** To do · **Priority:** P1 · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Cleanup Jobs]] · **Status:** To do · **Priority:** High · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-054-be Backend · Cleanup jobs|Backend]] · **Story:** [[T-054 Story]]
 

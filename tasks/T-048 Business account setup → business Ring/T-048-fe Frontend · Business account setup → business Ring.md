@@ -2,7 +2,7 @@
 type: task
 id: T-048-fe
 status: todo
-priority: P1
+priority: high
 effort: L
 feature: exhibitor
 module: events
@@ -14,13 +14,13 @@ affects: []
 related: []
 pending: []
 created: 2026-10-18
-updated: 2026-10-18
-tags: [task, task/todo, module/events, priority/P1, frontend]
+updated: 2026-10-19
+tags: [task, task/todo, module/events, priority/high, frontend]
 ---
 
 # ⬜ T-048-fe · Frontend: Business account setup → business Ring
 
-**Parent:** [[T-048 Business account setup → business Ring]] · **Feature:** [[Exhibitor]] · **Side:** Frontend · **Status:** To do · **Priority:** P1 · **Effort:** L (same as the parent until the team sizes it)
+**Parent:** [[T-048 Business account setup → business Ring]] · **Feature:** [[Exhibitor]] · **Side:** Frontend · **Status:** To do · **Priority:** High · **Effort:** L (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-048-fe` when the team picks it up): [[T-048-fe Frontend Requirements|Frontend Requirements]] · [[T-048-fe Frontend Delivery|Frontend Delivery]] · [[T-048-fe QA Frontend|QA Frontend]]
 

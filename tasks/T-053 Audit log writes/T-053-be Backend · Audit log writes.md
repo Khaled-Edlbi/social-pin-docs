@@ -2,7 +2,7 @@
 type: task
 id: T-053-be
 status: todo
-priority: P0
+priority: critical
 effort: S
 feature: audit-log
 module: platform
@@ -14,13 +14,13 @@ affects: []
 related: []
 pending: []
 created: 2026-10-18
-updated: 2026-10-18
-tags: [task, task/todo, module/platform, priority/P0, backend]
+updated: 2026-10-19
+tags: [task, task/todo, module/platform, priority/critical, backend]
 ---
 
 # ⬜ T-053-be · Backend: Audit log writes
 
-**Parent:** [[T-053 Audit log writes]] · **Feature:** [[Audit Log]] · **Side:** Backend · **Status:** To do · **Priority:** P0 · **Effort:** S (same as the parent until the team sizes it)
+**Parent:** [[T-053 Audit log writes]] · **Feature:** [[Audit Log]] · **Side:** Backend · **Status:** To do · **Priority:** Critical · **Effort:** S (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-053-be` when the team picks it up): [[T-053-be Backend Delivery|Backend Delivery]] · [[T-053-be Backend Integration|Backend Integration]] · [[T-053-be QA Backend|QA Backend]]
 

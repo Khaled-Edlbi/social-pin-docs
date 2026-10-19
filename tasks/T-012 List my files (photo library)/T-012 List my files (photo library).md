@@ -2,20 +2,20 @@
 type: task
 id: T-012
 status: todo
-priority: P1
+priority: high
 effort: S
 feature: photo-library
 module: identity
 screens: [s30]
 depends: []
 created: 2026-10-15
-updated: 2026-10-18
-tags: [task, task/todo, module/identity, priority/P1]
+updated: 2026-10-19
+tags: [task, task/todo, module/identity, priority/high]
 ---
 
 # ⬜ T-012 · List my files (photo library)
 
-**Feature:** [[Photo Library]] · **Status:** To do · **Priority:** P1 · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Photo Library]] · **Status:** To do · **Priority:** High · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-012-fe Frontend · List my files (photo library)|Frontend]] · [[T-012-be Backend · List my files (photo library)|Backend]] · **Story:** [[T-012 Story]]
 

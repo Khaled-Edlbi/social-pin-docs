@@ -2,7 +2,7 @@
 type: task
 id: T-012-fe
 status: todo
-priority: P1
+priority: high
 effort: S
 feature: photo-library
 module: identity
@@ -14,13 +14,13 @@ affects: []
 related: []
 pending: []
 created: 2026-10-18
-updated: 2026-10-18
-tags: [task, task/todo, module/identity, priority/P1, frontend]
+updated: 2026-10-19
+tags: [task, task/todo, module/identity, priority/high, frontend]
 ---
 
 # ⬜ T-012-fe · Frontend: List my files (photo library)
 
-**Parent:** [[T-012 List my files (photo library)]] · **Feature:** [[Photo Library]] · **Side:** Frontend · **Status:** To do · **Priority:** P1 · **Effort:** S (same as the parent until the team sizes it)
+**Parent:** [[T-012 List my files (photo library)]] · **Feature:** [[Photo Library]] · **Side:** Frontend · **Status:** To do · **Priority:** High · **Effort:** S (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-012-fe` when the team picks it up): [[T-012-fe Frontend Requirements|Frontend Requirements]] · [[T-012-fe Frontend Delivery|Frontend Delivery]] · [[T-012-fe QA Frontend|QA Frontend]]
 

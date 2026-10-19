@@ -2,7 +2,7 @@
 type: task
 id: T-052-fe
 status: todo
-priority: P2
+priority: medium
 effort: L
 feature: gemma
 module: platform
@@ -14,13 +14,13 @@ affects: []
 related: []
 pending: []
 created: 2026-10-18
-updated: 2026-10-18
-tags: [task, task/todo, module/platform, priority/P2, frontend]
+updated: 2026-10-19
+tags: [task, task/todo, module/platform, priority/medium, frontend]
 ---
 
 # ⬜ T-052-fe · Frontend: Smart Match
 
-**Parent:** [[T-052 Smart Match]] · **Feature:** [[Gemma AI]] · **Side:** Frontend · **Status:** To do · **Priority:** P2 · **Effort:** L (same as the parent until the team sizes it)
+**Parent:** [[T-052 Smart Match]] · **Feature:** [[Gemma AI]] · **Side:** Frontend · **Status:** To do · **Priority:** Medium · **Effort:** L (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-052-fe` when the team picks it up): [[T-052-fe Frontend Requirements|Frontend Requirements]] · [[T-052-fe Frontend Delivery|Frontend Delivery]] · [[T-052-fe QA Frontend|QA Frontend]]
 

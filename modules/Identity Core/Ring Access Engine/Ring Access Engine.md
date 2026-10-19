@@ -2,16 +2,16 @@
 type: feature
 id: ring-access
 name: "Ring Access Engine"
-priority: P0
+priority: critical
 module: identity
 screens: []
-updated: 2026-10-18
-tags: [feature, module/identity, priority/P0]
+updated: 2026-10-19
+tags: [feature, module/identity, priority/critical]
 ---
 
 # Ring Access Engine
 
-**Backend:** Done · **Priority:** P0 · **Module:** [[Identity Core Module|Identity Core]]
+**Backend:** Done · **Priority:** Critical · **Module:** [[Identity Core Module|Identity Core]]
 
 **Layers:** [[Ring Access Engine Story|Story]] · [[Ring Access Engine Frontend Requirements|Frontend Requirements]] · [[Ring Access Engine Backend Delivery|Backend Delivery]] · [[Ring Access Engine Backend Integration|Backend Integration]] · [[Ring Access Engine Frontend Delivery|Frontend Delivery]] · [[Ring Access Engine QA Backend|QA Backend]] · [[Ring Access Engine QA Frontend|QA Frontend]]
 

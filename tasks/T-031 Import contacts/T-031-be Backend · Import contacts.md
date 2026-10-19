@@ -2,7 +2,7 @@
 type: task
 id: T-031-be
 status: todo
-priority: P2
+priority: medium
 effort: M
 feature: discover-hub
 module: discovery
@@ -14,13 +14,13 @@ affects: []
 related: []
 pending: []
 created: 2026-10-18
-updated: 2026-10-18
-tags: [task, task/todo, module/discovery, priority/P2, backend]
+updated: 2026-10-19
+tags: [task, task/todo, module/discovery, priority/medium, backend]
 ---
 
 # ⬜ T-031-be · Backend: Import contacts
 
-**Parent:** [[T-031 Import contacts]] · **Feature:** [[Discover Hub & Search]] · **Side:** Backend · **Status:** To do · **Priority:** P2 · **Effort:** M (same as the parent until the team sizes it)
+**Parent:** [[T-031 Import contacts]] · **Feature:** [[Discover Hub & Search]] · **Side:** Backend · **Status:** To do · **Priority:** Medium · **Effort:** M (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-031-be` when the team picks it up): [[T-031-be Backend Delivery|Backend Delivery]] · [[T-031-be Backend Integration|Backend Integration]] · [[T-031-be QA Backend|QA Backend]]
 

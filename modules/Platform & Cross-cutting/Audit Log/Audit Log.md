@@ -2,16 +2,16 @@
 type: feature
 id: audit-log
 name: "Audit Log"
-priority: P0
+priority: critical
 module: platform
 screens: []
-updated: 2026-10-18
-tags: [feature, module/platform, priority/P0]
+updated: 2026-10-19
+tags: [feature, module/platform, priority/critical]
 ---
 
 # Audit Log
 
-**Backend:** TODO · **Priority:** P0 · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
+**Backend:** TODO · **Priority:** Critical · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
 
 **Layers:** [[Audit Log Story|Story]] · [[Audit Log Frontend Requirements|Frontend Requirements]] · [[Audit Log Backend Delivery|Backend Delivery]] · [[Audit Log Backend Integration|Backend Integration]] · [[Audit Log Frontend Delivery|Frontend Delivery]] · [[Audit Log QA Backend|QA Backend]] · [[Audit Log QA Frontend|QA Frontend]]
 
@@ -27,7 +27,7 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 
 | Task | Status | Priority | Effort |
 |---|---|---|---|
-| [[T-053 Audit log writes]] | ⬜ To do | P0 | S |
+| [[T-053 Audit log writes]] | ⬜ To do | Critical | S |
 
 ```dataview
 TABLE status, priority, effort FROM #task WHERE feature = "audit-log" SORT priority ASC

@@ -2,7 +2,7 @@
 type: task
 id: T-028-fe
 status: todo
-priority: P2
+priority: medium
 effort: L
 feature: ring-invitations
 module: shared-rings
@@ -14,13 +14,13 @@ affects: []
 related: []
 pending: []
 created: 2026-10-18
-updated: 2026-10-18
-tags: [task, task/todo, module/shared-rings, priority/P2, frontend]
+updated: 2026-10-19
+tags: [task, task/todo, module/shared-rings, priority/medium, frontend]
 ---
 
 # ⬜ T-028-fe · Frontend: What you contribute to a shared Ring
 
-**Parent:** [[T-028 What you contribute to a shared Ring]] · **Feature:** [[Ring Invitations & Join]] · **Side:** Frontend · **Status:** To do · **Priority:** P2 · **Effort:** L (same as the parent until the team sizes it)
+**Parent:** [[T-028 What you contribute to a shared Ring]] · **Feature:** [[Ring Invitations & Join]] · **Side:** Frontend · **Status:** To do · **Priority:** Medium · **Effort:** L (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-028-fe` when the team picks it up): [[T-028-fe Frontend Requirements|Frontend Requirements]] · [[T-028-fe Frontend Delivery|Frontend Delivery]] · [[T-028-fe QA Frontend|QA Frontend]]
 

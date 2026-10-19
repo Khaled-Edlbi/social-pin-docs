@@ -2,7 +2,7 @@
 type: task
 id: T-049-be
 status: todo
-priority: P1
+priority: high
 effort: M
 feature: subscription
 module: commerce
@@ -14,13 +14,13 @@ affects: []
 related: []
 pending: []
 created: 2026-10-18
-updated: 2026-10-18
-tags: [task, task/todo, module/commerce, priority/P1, backend]
+updated: 2026-10-19
+tags: [task, task/todo, module/commerce, priority/high, backend]
 ---
 
 # ⬜ T-049-be · Backend: Subscription endpoints and a single Pro gate
 
-**Parent:** [[T-049 Subscription endpoints and a single Pro gate]] · **Feature:** [[Subscription (Free vs Pro)]] · **Side:** Backend · **Status:** To do · **Priority:** P1 · **Effort:** M (same as the parent until the team sizes it)
+**Parent:** [[T-049 Subscription endpoints and a single Pro gate]] · **Feature:** [[Subscription (Free vs Pro)]] · **Side:** Backend · **Status:** To do · **Priority:** High · **Effort:** M (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-049-be` when the team picks it up): [[T-049-be Backend Delivery|Backend Delivery]] · [[T-049-be Backend Integration|Backend Integration]] · [[T-049-be QA Backend|QA Backend]]
 

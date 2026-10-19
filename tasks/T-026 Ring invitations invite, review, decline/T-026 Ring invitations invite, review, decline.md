@@ -2,20 +2,20 @@
 type: task
 id: T-026
 status: needs-info
-priority: P1
+priority: high
 effort: M
 feature: ring-invitations
 module: shared-rings
 screens: [s17]
 depends: [D-04]
 created: 2026-10-15
-updated: 2026-10-18
-tags: [task, task/needs-info, module/shared-rings, priority/P1]
+updated: 2026-10-19
+tags: [task, task/needs-info, module/shared-rings, priority/high]
 ---
 
 # ❓ T-026 · Ring invitations: invite, review, decline
 
-**Feature:** [[Ring Invitations & Join]] · **Status:** Needs a decision / info · **Priority:** P1 · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Ring Invitations & Join]] · **Status:** Needs a decision / info · **Priority:** High · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-026-fe Frontend · Ring invitations invite, review, decline|Frontend]] · [[T-026-be Backend · Ring invitations invite, review, decline|Backend]] · **Story:** [[T-026 Story]]
 

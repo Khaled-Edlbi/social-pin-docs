@@ -2,16 +2,16 @@
 type: feature
 id: discover-hub
 name: "Discover Hub & Search"
-priority: P1
+priority: high
 module: discovery
 screens: [s38]
-updated: 2026-10-18
-tags: [feature, module/discovery, priority/P1]
+updated: 2026-10-19
+tags: [feature, module/discovery, priority/high]
 ---
 
 # Discover Hub & Search
 
-**Backend:** TODO · **Priority:** P1 · **Module:** [[Discovery Module|Discovery]]
+**Backend:** TODO · **Priority:** High · **Module:** [[Discovery Module|Discovery]]
 
 **Layers:** [[Discover Hub & Search Story|Story]] · [[Discover Hub & Search Frontend Requirements|Frontend Requirements]] · [[Discover Hub & Search Backend Delivery|Backend Delivery]] · [[Discover Hub & Search Backend Integration|Backend Integration]] · [[Discover Hub & Search Frontend Delivery|Frontend Delivery]] · [[Discover Hub & Search QA Backend|QA Backend]] · [[Discover Hub & Search QA Frontend|QA Frontend]]
 
@@ -31,8 +31,8 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 
 | Task | Status | Priority | Effort |
 |---|---|---|---|
-| [[T-030 Discover search by !pinname and recent searches]] | ⬜ To do | P1 | S |
-| [[T-031 Import contacts]] | ❓ Needs a decision / info | P2 | M |
+| [[T-030 Discover search by !pinname and recent searches]] | ⬜ To do | High | S |
+| [[T-031 Import contacts]] | ❓ Needs a decision / info | Medium | M |
 
 ```dataview
 TABLE status, priority, effort FROM #task WHERE feature = "discover-hub" SORT priority ASC

@@ -2,20 +2,20 @@
 type: task
 id: T-036
 status: blocked
-priority: P0
+priority: critical
 effort: M
 feature: events-during
 module: events
 screens: [s53, s54, s55]
 depends: [T-033]
 created: 2026-10-15
-updated: 2026-10-18
-tags: [task, task/blocked, module/events, priority/P0]
+updated: 2026-10-19
+tags: [task, task/blocked, module/events, priority/critical]
 ---
 
 # ⛔ T-036 · Event mode: exhibitors list and detail
 
-**Feature:** [[Events During]] · **Status:** Blocked · **Priority:** P0 · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Events During]] · **Status:** Blocked · **Priority:** Critical · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-036-fe Frontend · Event mode exhibitors list and detail|Frontend]] · [[T-036-be Backend · Event mode exhibitors list and detail|Backend]] · **Story:** [[T-036 Story]]
 

@@ -2,7 +2,7 @@
 type: task
 id: T-036-be
 status: todo
-priority: P0
+priority: critical
 effort: M
 feature: events-during
 module: events
@@ -14,13 +14,13 @@ affects: []
 related: []
 pending: []
 created: 2026-10-18
-updated: 2026-10-18
-tags: [task, task/todo, module/events, priority/P0, backend]
+updated: 2026-10-19
+tags: [task, task/todo, module/events, priority/critical, backend]
 ---
 
 # ⬜ T-036-be · Backend: Event mode exhibitors list and detail
 
-**Parent:** [[T-036 Event mode exhibitors list and detail]] · **Feature:** [[Events During]] · **Side:** Backend · **Status:** To do · **Priority:** P0 · **Effort:** M (same as the parent until the team sizes it)
+**Parent:** [[T-036 Event mode exhibitors list and detail]] · **Feature:** [[Events During]] · **Side:** Backend · **Status:** To do · **Priority:** Critical · **Effort:** M (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-036-be` when the team picks it up): [[T-036-be Backend Delivery|Backend Delivery]] · [[T-036-be Backend Integration|Backend Integration]] · [[T-036-be QA Backend|QA Backend]]
 
