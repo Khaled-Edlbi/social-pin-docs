@@ -36,7 +36,10 @@ Social Pin (project)
 │   │   │   ├── T-004 Backend Delivery …         ← the task's own layer notes, same kinds, code T-004
 │   │   │   ├── T-004-fe Frontend · Member count ← the frontend half: a sub-task (`parent: T-004`, `labels: [frontend]`) with its own layer notes
 │   │   │   └── T-004-be Backend · Member count  ← the backend half (`labels: [backend]`); a bug found later is another sub-task with `labels: [bug]`
-│   │   └── D-04 Ring settings                   ← decisions/… that name rings in `features:`
+│   │   ├── D-04 Ring settings                   ← decisions/… that name rings in `features:`
+│   │   │   └── T-059 Decide Ring settings …     ← a task that depends on it
+│   │   └── (a card that needs a decision)
+│   │       └── D-NN <Title>                     ← decisions/… whose `blocks:` names that card: hangs under it, blocks it while open
 │   └── …
 ├── … seven more modules
 ├── Business docs   ← business/   overview, glossary, feature tree and graph, status reports
@@ -62,6 +65,7 @@ The seven layer notes come from `docs.config.json`, listed in the **hand-off ord
 | Draft / Passing / Failing | a QA note before and after a run |
 | Blocked | the card before it in the hand-off flow is not handed off yet (the default), or something in `depends` or `blockedBy` is not done; the pane names it. A blocked card, and every card below it in the ladder that waits in turn, is drawn dim until the blocker is done |
 | Needs decision | a decision that is still open, or a task that asks for one |
+| Blocked · D-NN | the card needs a decision: the open decision card hangs under it (`blocks:` on the decision) and everything after it waits; the card returns to its own status on the build after the decision is `decided` ([[Agent Rules#4 · Statuses, blocking and sign-off]]) |
 | Not written yet | a placeholder for a missing layer note (feature level only) |
 | *Frontend only* (kicker) | a feature with `frontendOnly: true`: no backend part, so the backend and QA-backend cards are neither required nor counted |
 | Reference | project docs and module notes |
@@ -86,6 +90,7 @@ Read `tree/tree.json` **first**: it is the whole vault as one object, and cheape
 
 - `nodes[id]`: `kind` (`root`, `module`, `feature`, `task`, `decision`, `group`, `project`, or a kind id from the config such as `backend-delivery`), `layer`, `title`, `path` (the file to read; `null` for a placeholder, whose `template` and `summary` say how to create it), `code` (`T-NNN` or the feature id), `scope` (`feature` | `task`), `feature`, `task`, `parentTask` (the parent's code on a sub-task), `labels` (`bug`, `chore`, `spike`, `docs`), `module`, `status` (the note's own; `null` on a feature, whose status is computed), `effectiveStatus` (what the chip shows), `blockedBy` (a list of `{ id, title, why }`), `pending` (a list of `{ text, to, person }`: the notes that make a done card Partial), `frontendOnly`, `depends` / `affects` / `related` (resolved ids), `screens`, `priority`, `children`, `parents`, `summary`, `rollup`.
 - `card` on every node with a file is its unique card code (`M-01`, `F-05`, `S-01`, `FR-05`, `BD-05`, `T-004`, `D-04`, `P-10`; `null` on the root, the groups and placeholders); `cards` maps every code to its node id and `cardPrefixes` every prefix to its kind. The code is stable: `tree/cards.json` remembers it across builds.
+- A decision node carries `blocks` (the ids of the cards that need it, from its `blocks:` frontmatter), `features` (declared or derived from those cards) and `decider`; while it is open every card in `blocks` lists it in `blockedBy` with the reason *needs decision D-NN*.
 - Ids: `feature:rings`, `story:rings`, `backend-delivery:rings`, `backend-delivery:T-004` (task level), `task:T-004`, `decision:D-04`, `module:identity`, `group:backend`, `project:workflow`, `root`.
 - `layers` and `flow` echo `docs.config.json`; `flowOrder` is the hand-off order derived from `flow` (the order children are listed in), `flowBack` the pairs that return to an earlier step, and `defaultBlocks` the blocks in force: one per forward hand-off, plus the config's own extras; `legend` and `emoji` map every status to its label; `modules` lists the module ids and names.
 - `edges`: `{ from, to, kind, via? }` with kind `tree`, `related`, `affects`, `depends`, `blocks`, `flow`, `shares` (derived; `via` names the endpoints or codes), `pending`, `decision`, `wikilink`.
@@ -103,6 +108,7 @@ node scripts/build-tree.mjs --impact "Ring Access Engine"   # what a change touc
 node scripts/build-tree.mjs --impact T-004           # … for a task; also a feature id, "GET /rings/:id", E_RING_02, s14
 node scripts/build-tree.mjs --scaffold backend-delivery T-004   # create a layer note from its template (moves the task into its folder)
 node scripts/build-tree.mjs --scaffold qa-frontend rings        # … at feature level
+node scripts/build-tree.mjs --scaffold decision "Counts Frontend Requirements" "Where the count comes from"   # the decision card a card needs: D-NN, blocks that card while open
 ```
 
 The build **fails** on: unparsable frontmatter or a missing key, a `type` that is neither structural nor a kind in the config, an unknown `status` for the kind, a `feature` / `task` / `module` / `depends` / `affects` / `related` / `blockedBy` target that does not resolve, two notes with the same code and kind, a card code in `tree/cards.json` given to two cards, reused after it was retired or carrying another kind's prefix, a feature whose `module` does not match its folder, a config that names a missing template, a file name containing `# ? % \`. It **warns** on a note outside its expected path, a wikilink to nothing, a missing `updated:`, a feature-level note that does not link a done task-level note, and a note that uses an endpoint owned by another feature without declaring a relation to it.

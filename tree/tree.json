@@ -33655,9 +33655,11 @@
     "decision:D-01": {
       "affects": [],
       "blockedBy": [],
+      "blocks": [],
       "card": "D-01",
       "children": [],
       "code": "D-01",
+      "decider": null,
       "depends": [],
       "effectiveStatus": "approved",
       "effort": null,
@@ -33700,18 +33702,20 @@
     "decision:D-02": {
       "affects": [],
       "blockedBy": [],
+      "blocks": [],
       "card": "D-02",
       "children": [],
       "code": "D-02",
+      "decider": null,
       "depends": [],
       "effectiveStatus": "needs-decision",
       "effort": null,
       "feature": null,
       "features": [
-        "profiles",
-        "ring-projection",
         "onboarding-imports",
-        "photo-library"
+        "photo-library",
+        "profiles",
+        "ring-projection"
       ],
       "frontendOnly": false,
       "id": "decision:D-02",
@@ -33722,9 +33726,9 @@
       "module": null,
       "parentTask": null,
       "parents": [
+        "feature:onboarding-imports",
         "feature:profiles",
         "feature:ring-projection",
-        "feature:onboarding-imports",
         "feature:photo-library"
       ],
       "path": "decisions/D-02 Base profile work fields.md",
@@ -33752,9 +33756,11 @@
     "decision:D-03": {
       "affects": [],
       "blockedBy": [],
+      "blocks": [],
       "card": "D-03",
       "children": [],
       "code": "D-03",
+      "decider": null,
       "depends": [],
       "effectiveStatus": "needs-decision",
       "effort": null,
@@ -33772,8 +33778,8 @@
       "module": null,
       "parentTask": null,
       "parents": [
-        "feature:ring-projection",
-        "feature:widgets"
+        "feature:widgets",
+        "feature:ring-projection"
       ],
       "path": "decisions/D-03 Field library vs per-Ring copies.md",
       "pending": [],
@@ -33797,19 +33803,21 @@
     "decision:D-04": {
       "affects": [],
       "blockedBy": [],
+      "blocks": [],
       "card": "D-04",
       "children": [],
       "code": "D-04",
+      "decider": null,
       "depends": [],
       "effectiveStatus": "needs-decision",
       "effort": null,
       "feature": null,
       "features": [
-        "rings",
-        "ring-members",
-        "ring-invitations",
+        "companies",
         "delegated-admins",
-        "companies"
+        "ring-invitations",
+        "ring-members",
+        "rings"
       ],
       "frontendOnly": false,
       "id": "decision:D-04",
@@ -33820,9 +33828,9 @@
       "module": null,
       "parentTask": null,
       "parents": [
+        "feature:ring-invitations",
         "feature:rings",
         "feature:ring-members",
-        "feature:ring-invitations",
         "feature:delegated-admins",
         "feature:companies"
       ],
@@ -33850,17 +33858,19 @@
     "decision:D-05": {
       "affects": [],
       "blockedBy": [],
+      "blocks": [],
       "card": "D-05",
       "children": [],
       "code": "D-05",
+      "decider": null,
       "depends": [],
       "effectiveStatus": "needs-decision",
       "effort": null,
       "feature": null,
       "features": [
-        "rings",
+        "photo-library",
         "ring-projection",
-        "photo-library"
+        "rings"
       ],
       "frontendOnly": false,
       "id": "decision:D-05",
@@ -33871,8 +33881,8 @@
       "module": null,
       "parentTask": null,
       "parents": [
-        "feature:rings",
         "feature:ring-projection",
+        "feature:rings",
         "feature:photo-library"
       ],
       "path": "decisions/D-05 Copy or inherit.md",
@@ -33899,16 +33909,18 @@
     "decision:D-06": {
       "affects": [],
       "blockedBy": [],
+      "blocks": [],
       "card": "D-06",
       "children": [],
       "code": "D-06",
+      "decider": null,
       "depends": [],
       "effectiveStatus": "needs-decision",
       "effort": null,
       "feature": null,
       "features": [
-        "profiles",
-        "gemma"
+        "gemma",
+        "profiles"
       ],
       "frontendOnly": false,
       "id": "decision:D-06",
@@ -51523,7 +51535,7 @@
         {
           "id": "decision:D-03",
           "title": "D-03 Field library vs per-Ring copies",
-          "why": "D-03 Field library vs per-Ring copies is needs decision"
+          "why": "needs decision D-03 (open)"
         }
       ],
       "card": "T-018",
@@ -51589,7 +51601,7 @@
         {
           "id": "decision:D-03",
           "title": "D-03 Field library vs per-Ring copies",
-          "why": "D-03 Field library vs per-Ring copies is needs decision"
+          "why": "needs decision D-03 (open)"
         }
       ],
       "card": "T-018-be",
@@ -51651,7 +51663,7 @@
         {
           "id": "decision:D-03",
           "title": "D-03 Field library vs per-Ring copies",
-          "why": "D-03 Field library vs per-Ring copies is needs decision"
+          "why": "needs decision D-03 (open)"
         },
         {
           "id": "task:T-018-be",
@@ -51879,7 +51891,7 @@
         {
           "id": "decision:D-02",
           "title": "D-02 Base profile work fields",
-          "why": "D-02 Base profile work fields is needs decision"
+          "why": "needs decision D-02 (open)"
         }
       ],
       "card": "T-020",
@@ -51945,7 +51957,7 @@
         {
           "id": "decision:D-02",
           "title": "D-02 Base profile work fields",
-          "why": "D-02 Base profile work fields is needs decision"
+          "why": "needs decision D-02 (open)"
         }
       ],
       "card": "T-020-be",
@@ -52007,7 +52019,7 @@
         {
           "id": "decision:D-02",
           "title": "D-02 Base profile work fields",
-          "why": "D-02 Base profile work fields is needs decision"
+          "why": "needs decision D-02 (open)"
         },
         {
           "id": "task:T-020-be",
@@ -52070,7 +52082,7 @@
         {
           "id": "decision:D-02",
           "title": "D-02 Base profile work fields",
-          "why": "D-02 Base profile work fields is needs decision"
+          "why": "needs decision D-02 (open)"
         }
       ],
       "card": "T-020b",
@@ -52130,7 +52142,7 @@
         {
           "id": "decision:D-02",
           "title": "D-02 Base profile work fields",
-          "why": "D-02 Base profile work fields is needs decision"
+          "why": "needs decision D-02 (open)"
         }
       ],
       "card": "T-020b-be",
@@ -52186,7 +52198,7 @@
         {
           "id": "decision:D-02",
           "title": "D-02 Base profile work fields",
-          "why": "D-02 Base profile work fields is needs decision"
+          "why": "needs decision D-02 (open)"
         },
         {
           "id": "task:T-020b-be",
@@ -53084,7 +53096,7 @@
         {
           "id": "decision:D-04",
           "title": "D-04 Ring settings",
-          "why": "D-04 Ring settings is needs decision"
+          "why": "needs decision D-04 (open)"
         }
       ],
       "card": "T-026",
@@ -53143,7 +53155,7 @@
         {
           "id": "decision:D-04",
           "title": "D-04 Ring settings",
-          "why": "D-04 Ring settings is needs decision"
+          "why": "needs decision D-04 (open)"
         }
       ],
       "card": "T-026-be",
@@ -53198,7 +53210,7 @@
         {
           "id": "decision:D-04",
           "title": "D-04 Ring settings",
-          "why": "D-04 Ring settings is needs decision"
+          "why": "needs decision D-04 (open)"
         },
         {
           "id": "task:T-026-be",
@@ -53259,7 +53271,7 @@
         {
           "id": "decision:D-04",
           "title": "D-04 Ring settings",
-          "why": "D-04 Ring settings is needs decision"
+          "why": "needs decision D-04 (open)"
         },
         {
           "id": "task:T-026",
@@ -53324,7 +53336,7 @@
         {
           "id": "decision:D-04",
           "title": "D-04 Ring settings",
-          "why": "D-04 Ring settings is needs decision"
+          "why": "needs decision D-04 (open)"
         },
         {
           "id": "task:T-026",
@@ -53385,7 +53397,7 @@
         {
           "id": "decision:D-04",
           "title": "D-04 Ring settings",
-          "why": "D-04 Ring settings is needs decision"
+          "why": "needs decision D-04 (open)"
         },
         {
           "id": "task:T-026",
@@ -58219,7 +58231,7 @@
         {
           "id": "decision:D-02",
           "title": "D-02 Base profile work fields",
-          "why": "D-02 Base profile work fields is needs decision"
+          "why": "needs decision D-02 (open)"
         }
       ],
       "card": "T-057",
@@ -58271,7 +58283,7 @@
         {
           "id": "decision:D-03",
           "title": "D-03 Field library vs per-Ring copies",
-          "why": "D-03 Field library vs per-Ring copies is needs decision"
+          "why": "needs decision D-03 (open)"
         }
       ],
       "card": "T-058",
@@ -58323,7 +58335,7 @@
         {
           "id": "decision:D-04",
           "title": "D-04 Ring settings",
-          "why": "D-04 Ring settings is needs decision"
+          "why": "needs decision D-04 (open)"
         }
       ],
       "card": "T-059",
@@ -58375,12 +58387,12 @@
         {
           "id": "decision:D-02",
           "title": "D-02 Base profile work fields",
-          "why": "D-02 Base profile work fields is needs decision"
+          "why": "needs decision D-02 (open)"
         },
         {
           "id": "decision:D-05",
           "title": "D-05 Copy or inherit",
-          "why": "D-05 Copy or inherit is needs decision"
+          "why": "needs decision D-05 (open)"
         }
       ],
       "card": "T-060",
@@ -58433,7 +58445,7 @@
         {
           "id": "decision:D-06",
           "title": "D-06 Pin name rules",
-          "why": "D-06 Pin name rules is needs decision"
+          "why": "needs decision D-06 (open)"
         }
       ],
       "card": "T-061",
