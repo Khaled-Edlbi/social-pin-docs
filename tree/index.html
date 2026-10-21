@@ -133,6 +133,10 @@ aside.filters { width: var(--drawer-w); min-width: 200px; max-width: 60vw; flex:
 .chip .dot { width: 8px; height: 8px; border-radius: 50%; }
 .chip .n { font-size: 11px; opacity: .7; font-variant-numeric: tabular-nums; }
 .chip.zero { opacity: .55; }
+.range { display: flex; align-items: center; gap: 6px; }
+.range .input { flex: 1; min-width: 0; min-height: 32px; padding: 4px 8px; font-size: 13px; }
+.range .input.set { border-color: var(--color-accent); background: var(--color-accent-100); color: var(--color-accent-800); }
+.range .sep { flex: none; font-size: 12px; font-style: italic; color: var(--color-neutral-600); }
 .sec.kinds, .sec.statuses { gap: 12px; }
 #clear { align-self: flex-start; }
 
@@ -313,6 +317,13 @@ article .obsidian-only { border: 1px dashed var(--color-neutral-400); color: var
       <div id="urgency" style="display:flex;flex-direction:column;gap:12px"></div>
     </section>
     <section class="sec">
+      <div class="sec-head" data-sec="dates" role="button" tabindex="0" aria-expanded="true"><span class="sec-title"><i class="ph-duotone ph-caret-down fold"></i>Dates</span><span class="sec-hint">when</span></div>
+      <div id="dates" style="display:flex;flex-direction:column;gap:12px">
+        <div class="group"><div class="group-title">Updated<span class="gh">the note's updated: date</span></div><div class="chips" id="upd-chips"></div><div class="range"><input class="input" type="date" id="upd-from" aria-label="Updated from" title="Updated on or after"><span class="sep">to</span><input class="input" type="date" id="upd-to" aria-label="Updated to" title="Updated on or before"></div></div>
+        <div class="group"><div class="group-title">Deadline<span class="gh">due between two dates</span></div><div class="chips" id="dl-chips"></div><div class="range"><input class="input" type="date" id="dl-from" aria-label="Deadline from" title="Due on or after"><span class="sep">to</span><input class="input" type="date" id="dl-to" aria-label="Deadline to" title="Due on or before"></div></div>
+      </div>
+    </section>
+    <section class="sec">
       <div class="sec-head" data-sec="edges" role="button" tabindex="0" aria-expanded="true"><span class="sec-title"><i class="ph-duotone ph-caret-down fold"></i>Relations</span><span class="sec-hint">lines behind the cards</span></div>
       <div class="list" id="edges"></div>
     </section>
@@ -474,6 +485,16 @@ function dueOf(n, now = new Date()) {
   return { ...zones[idx], daysLeft, missed: false, date: n.deadline, text: `${zones[idx].label} · ${daysLeft === 0 ? 'today' : daysLeft === 1 ? 'tomorrow' : `in ${daysLeft} days`}` };
 }
 const inheritedFrom = (n, k) => (n.inherits && n.inherits[k] && node(n.inherits[k]) ? ` · from ${node(n.inherits[k]).title}` : '');
+// the date filters: a range on `updated:` and one on `deadline:` (both YYYY-MM-DD, so they compare as strings); the quick chips only fill the range
+const isoDay = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+const dayPlus = (k) => { const d = new Date(); d.setDate(d.getDate() + k); return isoDay(d); };
+const DATE_QUICK = {
+  upd: [{ id: 'today', label: 'Today', from: () => dayPlus(0), to: () => dayPlus(0) }, { id: '7d', label: 'Last 7 days', from: () => dayPlus(-6), to: () => dayPlus(0) }, { id: '30d', label: 'Last 30 days', from: () => dayPlus(-29), to: () => dayPlus(0) }],
+  dl: [{ id: 'today', label: 'Today', from: () => dayPlus(0), to: () => dayPlus(0) }, { id: '7d', label: 'Next 7 days', from: () => dayPlus(0), to: () => dayPlus(6) }, { id: '30d', label: 'Next 30 days', from: () => dayPlus(0), to: () => dayPlus(29) }],
+};
+const DATE_FIELDS = { upd: 'updated', dl: 'deadline' };
+const inRange = (v, from, to) => !!v && (!from || v >= from) && (!to || v <= to);
+const dateFiltersActive = () => !!(S.updFrom || S.updTo || S.dlFrom || S.dlTo);
 const FLAG_D = 'M -3.5 -5.5 V 5.5 M -3.5 -5.5 H 4 L 2.2 -2.6 L 4 0.3 H -3.5';
 const CLOCK_D = 'M 0 -2.6 V 0.3 L 2.2 1.7 M 0 -5 A 5 5 0 1 1 -0.01 -5';
 const markSvg = (d) => `<svg viewBox="-7 -7 14 14" aria-hidden="true"><path d="${d}" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>`;
@@ -499,7 +520,7 @@ function sel(tag, attrs, parent, style) { const e = document.createElementNS(SVG
 
 // ------------------------------------------------------------ state
 const S = {
-  D: null, view: store.get('view', null), q: '', modules: [], kinds: [], statuses: [], label: null, priorities: [], due: [],
+  D: null, view: store.get('view', null), q: '', modules: [], kinds: [], statuses: [], label: null, priorities: [], due: [], updFrom: '', updTo: '', dlFrom: '', dlTo: '',
   edgeKinds: store.get('edgeKinds', EDGE_KINDS.slice()), orient: store.get('orient', 'vertical'), scope: store.get('scope', 'features'),
   collapsed: [], selected: null, focus: null, pane: null, hover: null,
   theme: store.get('theme', null) || (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'),
@@ -598,13 +619,15 @@ const chipStyle = (n) => { const st = stOf(n); return `--bg:${st.bg};--ink:${st.
 const chipHtml = (n, extraCls = '') => `<span class="stchip${stOf(n).dashed ? ' dashed' : ''}${extraCls ? ' ' + extraCls : ''}" style="${chipStyle(n)}">${esc(statusText(n))}</span>`;
 
 // ------------------------------------------------------------ filters
-const filtersActive = () => !!(S.q || S.modules.length || S.kinds.length || S.statuses.length || S.label || S.priorities.length || S.due.length);
+const filtersActive = () => !!(S.q || S.modules.length || S.kinds.length || S.statuses.length || S.label || S.priorities.length || S.due.length || dateFiltersActive());
 const expandDue = (list) => list.flatMap((z) => (z === '_window' ? DL.zones.slice(1).map((x) => x.id) : [z])); // _window: every zone but the first (on track)
 const expandPrio = (list) => list.flatMap((p) => (p === '_top' && PRIO.levels.length ? [PRIO.levels[0].id] : [p]));
 function matches(n) {
   if (S.statuses.length && !S.statuses.includes(n.effectiveStatus)) return false;
   if (S.priorities.length && !expandPrio(S.priorities).includes(n.priority || '_none')) return false;
   if (S.due.length) { const z = dueOf(n); if (!expandDue(S.due).includes(z ? z.id : '_none')) return false; }
+  if ((S.updFrom || S.updTo) && !inRange(n.updated, S.updFrom, S.updTo)) return false;
+  if ((S.dlFrom || S.dlTo) && !inRange(n.deadline, S.dlFrom, S.dlTo)) return false;
   if (S.modules.length && n.kind !== 'root' && !S.modules.includes(n.module)) return false;
   if (S.kinds.length && !S.kinds.includes(n.kind)) return false;
   if (S.label && !(Array.isArray(n.labels) && n.labels.includes(S.label))) return false;
@@ -1100,7 +1123,7 @@ function setFilters(patch) {
 function renderSidebar() {
   const d = S.D, tot = totals;
   const same = (a, b) => a.length === b.length && a.every((x) => b.includes(x));
-  $('#presets').innerHTML = PRESETS.map((p) => { const on = same(p.kinds, S.kinds) && same(p.statuses, S.statuses) && (p.label || null) === S.label && same(p.due || [], S.due) && same(p.priorities || [], S.priorities) && !S.q && !S.modules.length; return `<button class="preset" data-preset="${p.id}" aria-pressed="${on}"><span class="pn">${esc(p.name)}</span><span class="ph">${esc(p.hint)}</span></button>`; }).join('');
+  $('#presets').innerHTML = PRESETS.map((p) => { const on = same(p.kinds, S.kinds) && same(p.statuses, S.statuses) && (p.label || null) === S.label && same(p.due || [], S.due) && same(p.priorities || [], S.priorities) && !S.q && !S.modules.length && !dateFiltersActive(); return `<button class="preset" data-preset="${p.id}" aria-pressed="${on}"><span class="pn">${esc(p.name)}</span><span class="ph">${esc(p.hint)}</span></button>`; }).join('');
   $('#modules').innerHTML = node(d.rootId).children.map(node).filter((n) => n.kind === 'module').map((n) => `<button class="list-btn" data-module="${esc(n.module)}" aria-pressed="${S.modules.includes(n.module)}"><span class="box"><i class="ph-duotone ph-check"></i></span><span class="grow">${esc(n.name || n.title)}</span><span class="n">${tot.module[n.module] || 0}</span></button>`).join('');
   $('#kinds').innerHTML = KIND_GROUPS.map((g) => `<div class="group"><div class="group-title">${g.color ? `<span class="ld" style="background:${g.color}"></span>` : ''}${esc(g.title)}</div><div class="chips">` + g.keys.map((k) => { const kd = kindOf(k); return `<button class="chip" data-kind="${k}" aria-pressed="${S.kinds.includes(k)}" title="${esc(kd.name)}"><i class="ph-duotone ${kd.icon}"></i>${esc(kd.short)}<span class="n">${tot.kind[k] || 0}</span></button>`; }).join('') + '</div></div>').join('');
   $('#statuses').innerHTML = STATUS_GROUPS.map((g) => `<div class="group"><div class="group-title">${esc(g.title)}${g.hint ? `<span class="gh">${esc(g.hint)}</span>` : ''}</div><div class="chips">` + g.keys.map((k) => { const c = tot.status[k] || 0; return `<button class="chip${c ? '' : ' zero'}" data-status="${k}" aria-pressed="${S.statuses.includes(k)}"><span class="dot" style="background:${(ST[k] || ST.todo).c}"></span>${esc(legend(k))}<span class="n">${c}</span></button>`; }).join('') + '</div></div>').join('');
@@ -1110,6 +1133,11 @@ function renderSidebar() {
   const noDue = Object.values(d.nodes).filter((n) => n.path && !n.deadline).length;
   $('#urgency').innerHTML = `<div class="group"><div class="group-title">Priority<span class="gh">a flag in the level's colour</span></div><div class="chips">${prioChips}<button class="chip${noPrio ? '' : ' zero'}" data-priority="_none" aria-pressed="${S.priorities.includes('_none')}">No priority<span class="n">${noPrio}</span></button></div></div>` +
     `<div class="group"><div class="group-title">Deadline<span class="gh">a clock, by how close it is (last ${DL.windowDays} days)</span></div><div class="chips">${dueChips}<button class="chip${noDue ? '' : ' zero'}" data-due="_none" aria-pressed="${S.due.includes('_none')}">No deadline<span class="n">${noDue}</span></button></div></div>`;
+  for (const [key, field] of Object.entries(DATE_FIELDS)) {
+    const from = S[key + 'From'], to = S[key + 'To'];
+    $(`#${key}-chips`).innerHTML = DATE_QUICK[key].map((q) => { const f = q.from(), t = q.to(); const c = Object.values(d.nodes).filter((n) => n.path && inRange(n[field], f, t)).length; return `<button class="chip${c ? '' : ' zero'}" data-quick="${key}:${q.id}" aria-pressed="${from === f && to === t}" title="${esc(`${f} to ${t}`)}"><i class="ph-duotone ph-calendar-blank"></i>${esc(q.label)}<span class="n">${c}</span></button>`; }).join('');
+    for (const [end, v] of [['from', from], ['to', to]]) { const el = $(`#${key}-${end}`); if (el.value !== v) el.value = v; el.classList.toggle('set', !!v); }
+  }
   $('#edges').innerHTML = `<div class="list-btn" style="cursor:default;color:var(--color-neutral-700)"><span style="width:14px;flex:none"></span><svg class="sw" width="26" height="8"><line x1="0" y1="4" x2="26" y2="4" stroke="var(--color-neutral-600)" stroke-width="2.2"></line></svg><span class="grow">Tree structure</span><span class="sec-hint">always</span></div>` +
     EDGE_KINDS.map((k) => `<button class="list-btn" data-edge="${k}" aria-pressed="${S.edgeKinds.includes(k)}"><span class="box"><i class="ph-duotone ph-check"></i></span><svg class="sw" width="26" height="8"><line x1="0" y1="4" x2="26" y2="4" stroke="${EDGE[k].color}" stroke-width="1.6" stroke-dasharray="${EDGE[k].dash || '4 3'}"></line></svg><span class="grow">${esc(EDGE[k].name)}${EDGE[k].arrow ? ' →' : ''}</span><span class="n">${tot.edge[k] || 0}</span></button>`).join('');
   $('#clear').classList.toggle('hidden', !filtersActive());
@@ -1117,16 +1145,19 @@ function renderSidebar() {
 const arrToggle = (key, v) => { const a = S[key]; return a.includes(v) ? a.filter((x) => x !== v) : [...a, v]; };
 $('#filters').addEventListener('click', (e) => {
   const b = e.target.closest('button'); if (!b) return;
-  if (b.dataset.preset) { const p = PRESETS.find((x) => x.id === b.dataset.preset); const on = b.getAttribute('aria-pressed') === 'true'; setFilters(on ? { kinds: [], statuses: [], label: null, due: [], priorities: [] } : { kinds: p.kinds.slice(), statuses: p.statuses.slice(), label: p.label || null, due: (p.due || []).slice(), priorities: (p.priorities || []).slice(), modules: [], q: '' }); if (!on) $('#search').value = ''; }
+  if (b.dataset.preset) { const p = PRESETS.find((x) => x.id === b.dataset.preset); const on = b.getAttribute('aria-pressed') === 'true'; setFilters(on ? { kinds: [], statuses: [], label: null, due: [], priorities: [] } : { kinds: p.kinds.slice(), statuses: p.statuses.slice(), label: p.label || null, due: (p.due || []).slice(), priorities: (p.priorities || []).slice(), modules: [], q: '', updFrom: '', updTo: '', dlFrom: '', dlTo: '' }); if (!on) $('#search').value = ''; }
   else if (b.dataset.priority) setFilters({ priorities: arrToggle('priorities', b.dataset.priority) });
   else if (b.dataset.due) setFilters({ due: arrToggle('due', b.dataset.due) });
+  else if (b.dataset.quick) { const [key, id] = b.dataset.quick.split(':'); const q = DATE_QUICK[key].find((x) => x.id === id); const on = b.getAttribute('aria-pressed') === 'true'; setFilters({ [key + 'From']: on ? '' : q.from(), [key + 'To']: on ? '' : q.to() }); }
   else if (b.dataset.module) setFilters({ modules: arrToggle('modules', b.dataset.module) });
   else if (b.dataset.kind) setFilters({ kinds: arrToggle('kinds', b.dataset.kind) });
   else if (b.dataset.status) setFilters({ statuses: arrToggle('statuses', b.dataset.status) });
   else if (b.dataset.edge) { S.edgeKinds = arrToggle('edgeKinds', b.dataset.edge); store.set('edgeKinds', S.edgeKinds); relCache = null; renderSidebar(); if (S.view !== 'outline') { drawRel(); updateHover(); } }
-  else if (b.id === 'clear') { $('#search').value = ''; setFilters({ q: '', modules: [], kinds: [], statuses: [], label: null, priorities: [], due: [] }); }
+  else if (b.id === 'clear') { $('#search').value = ''; setFilters({ q: '', modules: [], kinds: [], statuses: [], label: null, priorities: [], due: [], updFrom: '', updTo: '', dlFrom: '', dlTo: '' }); }
 });
 let st; $('#search').addEventListener('input', (e) => { clearTimeout(st); st = setTimeout(() => setFilters({ q: e.target.value.trim() }), 120); });
+// the date ranges: a picked or typed date applies on change; anything that is not a full YYYY-MM-DD clears that end
+for (const key of Object.keys(DATE_FIELDS)) for (const end of ['From', 'To']) $(`#${key}-${end.toLowerCase()}`).addEventListener('change', (e) => setFilters({ [key + end]: /^\d{4}-\d{2}-\d{2}$/.test(e.target.value) ? e.target.value : '' }));
 
 // ------------------------------------------------------------ outline
 function renderOutline() {
