@@ -234,10 +234,11 @@ The error contract, notifications, Gemma AI, devices, interests, widgets, linked
 
 ## Payments Gateway
 
-How money moves between attendees, exhibitors, organizers and Social Pin through a payment provider: paying for an order, refunds, paying the organizer, paying for Pro ([[Payments Gateway Module]]). The provider is Stripe ([[D-07 Payment provider]]). No feature yet; the first one is the PM's to create.
+How money moves between attendees, exhibitors, organizers and Social Pin through a payment provider: paying for an order, refunds, paying the organizer, paying for Pro ([[Payments Gateway Module]]). The provider is Stripe ([[D-07 Payment provider]]).
 
 | Feature | Status | Priority | Screens | Open tasks |
 |---|---|---|---|---|
+| [[Pay for an order]] | ❌ TODO | High | s51, s52 | 0 |
 
 ## Live view (Dataview plugin)
 

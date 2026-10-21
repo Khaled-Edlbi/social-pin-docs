@@ -17,13 +17,13 @@ A module is the sum of its features; a feature is the sum of its tasks. Each fea
 
 | Feature | Backend | Story | Frontend req. | Backend | Frontend | QA |
 |---|---|---|---|---|---|---|
+| [[Pay for an order]] | ⬜ To do | [[Pay for an order Story\|Story]] | [[Pay for an order Frontend Requirements\|Req.]] | [[Pay for an order Backend Delivery\|Delivery]] · [[Pay for an order Backend Integration\|Integration]] | [[Pay for an order Frontend Delivery\|Delivery]] | [[Pay for an order QA Backend\|Backend]] · [[Pay for an order QA Frontend\|Frontend]] |
 
-No feature yet. The first one is the PM's to create: `node scripts/build-tree.mjs --scaffold feature payments-gateway "<Name>"`, then its story. Candidates, in the order the product needs them:
+After [[Pay for an order]], the next features in the order the product needs them (each is the owner's to create, [[Owner Agent#4I · Create a feature]]):
 
-1. **Pay for an order** — the attendee pays and comes back to the app with a confirmation; the order is settled once the provider says so. First because nothing is sold without it: [[T-035 Registration transaction with order and payment]] and the event flow wait on it.
-2. **Refund a payment** — who may refund, within what window, and what the attendee and the organizer see. Second because an event with tickets needs a way back before it needs anything else.
-3. **Pay the organizer** — the organizer receives what was paid to it, when, and sees the statement. Needs the first two.
-4. **Pay for Pro** — the recurring payment the Pro account type runs on; [[Subscription (Free vs Pro)]] and [[T-049 Subscription endpoints and a single Pro gate]] wait on it.
+1. **Refund a payment** — who may refund, within what window, and what the attendee and the organizer see. Next because an event with tickets needs a way back before it needs anything else.
+2. **Pay the organizer** — the organizer receives what was paid to it, when, and sees the statement. Needs the first two.
+3. **Pay for Pro** — the recurring payment the Pro account type runs on; [[Subscription (Free vs Pro)]] and [[T-049 Subscription endpoints and a single Pro gate]] wait on it.
 
 ## Product rules
 
@@ -44,3 +44,4 @@ No feature yet. The first one is the PM's to create: `node scripts/build-tree.mj
 - 2026-10-21 · created by the owner; first feature handed to the PM
 - 2026-10-21 · rewritten in product terms by the owner: the people, the money flows, the product rules, the open decisions; the provider is no longer named as decided
 - 2026-10-21 · provider decided: Stripe for all four flows ([[D-07 Payment provider]])
+- 2026-10-21 · first feature created by the owner: [[Pay for an order]]; its story handed to the PM

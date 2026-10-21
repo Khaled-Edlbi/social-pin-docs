@@ -172,6 +172,7 @@
     "Onboarding Imports Story": "story:onboarding-imports",
     "Owner Agent": "project:owner-agent",
     "PM Agent": "project:pm-agent",
+    "Pay for an order": "feature:pay-for-an-order",
     "Payments & Orders": "feature:payments",
     "Payments & Orders Backend Delivery": "backend-delivery:payments",
     "Payments & Orders Frontend Requirements": "frontend-requirements:payments",
@@ -588,6 +589,7 @@
     "F-37": "feature:interests",
     "F-38": "feature:linked-accounts",
     "F-39": "feature:notifications",
+    "F-41": "feature:pay-for-an-order",
     "FR-01": "frontend-requirements:account",
     "FR-02": "frontend-requirements:auth",
     "FR-03": "frontend-requirements:counts",
@@ -4014,6 +4016,7 @@
       "containers": [
         "decision:D-07",
         "feature:events-before",
+        "feature:pay-for-an-order",
         "feature:payments",
         "task:T-035",
         "task:T-035-be",
@@ -4027,6 +4030,7 @@
         "backend-delivery:payments",
         "decision:D-07",
         "feature:events-before",
+        "feature:pay-for-an-order",
         "feature:payments",
         "frontend-requirements:events-before",
         "frontend-requirements:payments",
@@ -4046,6 +4050,7 @@
       "containers": [
         "feature:event-ring-auto",
         "feature:events-before",
+        "feature:pay-for-an-order",
         "task:T-011",
         "task:T-011-be",
         "task:T-035",
@@ -4058,6 +4063,7 @@
         "backend-delivery:events-before",
         "feature:event-ring-auto",
         "feature:events-before",
+        "feature:pay-for-an-order",
         "frontend-requirements:event-ring-auto",
         "frontend-requirements:events-before",
         "story:T-011",
@@ -4640,7 +4646,7 @@
       "backend-delivery": 39,
       "backend-integration": 9,
       "decision": 7,
-      "feature": 39,
+      "feature": 40,
       "frontend-requirements": 39,
       "module": 9,
       "project": 26,
@@ -4649,19 +4655,19 @@
     },
     "byLayer": {
       "backend": 56,
-      "business": 329,
+      "business": 330,
       "frontend": 43,
       "shared": 9
     },
     "concepts": 177,
     "decisions": 7,
-    "edges": 4236,
-    "features": 39,
+    "edges": 4268,
+    "features": 40,
     "layerNotes": 190,
     "modules": 9,
-    "notes": 472,
+    "notes": 473,
     "partial": 0,
-    "placeholders": 145,
+    "placeholders": 152,
     "taskLayerNotes": 64,
     "tasks": 175
   },
@@ -4751,6 +4757,21 @@
       "from": "decision:D-07",
       "kind": "affects",
       "to": "task:T-049"
+    },
+    {
+      "from": "feature:pay-for-an-order",
+      "kind": "affects",
+      "to": "feature:event-ring-auto"
+    },
+    {
+      "from": "feature:pay-for-an-order",
+      "kind": "affects",
+      "to": "feature:events-before"
+    },
+    {
+      "from": "feature:pay-for-an-order",
+      "kind": "affects",
+      "to": "feature:payments"
     },
     {
       "from": "project:agent-protocol",
@@ -5023,6 +5044,16 @@
       "to": "qa-backend:onboarding-imports"
     },
     {
+      "from": "backend-delivery:pay-for-an-order",
+      "kind": "blocks",
+      "to": "backend-integration:pay-for-an-order"
+    },
+    {
+      "from": "backend-delivery:pay-for-an-order",
+      "kind": "blocks",
+      "to": "qa-backend:pay-for-an-order"
+    },
+    {
       "from": "backend-delivery:payments",
       "kind": "blocks",
       "to": "backend-integration:payments"
@@ -5201,6 +5232,11 @@
       "from": "backend-integration:onboarding-imports",
       "kind": "blocks",
       "to": "frontend-delivery:onboarding-imports"
+    },
+    {
+      "from": "backend-integration:pay-for-an-order",
+      "kind": "blocks",
+      "to": "frontend-delivery:pay-for-an-order"
     },
     {
       "from": "backend-integration:payments",
@@ -5473,6 +5509,11 @@
       "to": "qa-frontend:onboarding-imports"
     },
     {
+      "from": "frontend-delivery:pay-for-an-order",
+      "kind": "blocks",
+      "to": "qa-frontend:pay-for-an-order"
+    },
+    {
       "from": "frontend-delivery:payments",
       "kind": "blocks",
       "to": "qa-frontend:payments"
@@ -5648,6 +5689,11 @@
       "to": "backend-delivery:onboarding-imports"
     },
     {
+      "from": "frontend-requirements:pay-for-an-order",
+      "kind": "blocks",
+      "to": "backend-delivery:pay-for-an-order"
+    },
+    {
       "from": "frontend-requirements:payments",
       "kind": "blocks",
       "to": "backend-delivery:payments"
@@ -5811,6 +5857,11 @@
       "from": "story:onboarding-imports",
       "kind": "blocks",
       "to": "frontend-requirements:onboarding-imports"
+    },
+    {
+      "from": "story:pay-for-an-order",
+      "kind": "blocks",
+      "to": "frontend-requirements:pay-for-an-order"
     },
     {
       "from": "story:payments",
@@ -6851,6 +6902,16 @@
       "from": "decision:D-07",
       "kind": "decision",
       "to": "task:T-049"
+    },
+    {
+      "from": "feature:pay-for-an-order",
+      "kind": "depends",
+      "to": "decision:D-07"
+    },
+    {
+      "from": "feature:pay-for-an-order",
+      "kind": "depends",
+      "to": "task:T-047"
     },
     {
       "from": "project:backend-agent",
@@ -9201,6 +9262,56 @@
       "from": "feature:onboarding-imports",
       "kind": "related",
       "to": "project:spec-map"
+    },
+    {
+      "from": "feature:pay-for-an-order",
+      "kind": "related",
+      "to": "feature:audit-log"
+    },
+    {
+      "from": "feature:pay-for-an-order",
+      "kind": "related",
+      "to": "feature:event-ring-auto"
+    },
+    {
+      "from": "feature:pay-for-an-order",
+      "kind": "related",
+      "to": "feature:events-before"
+    },
+    {
+      "from": "feature:pay-for-an-order",
+      "kind": "related",
+      "to": "feature:payments"
+    },
+    {
+      "from": "feature:pay-for-an-order",
+      "kind": "related",
+      "to": "feature:subscription"
+    },
+    {
+      "from": "feature:pay-for-an-order",
+      "kind": "related",
+      "to": "project:api-conventions"
+    },
+    {
+      "from": "feature:pay-for-an-order",
+      "kind": "related",
+      "to": "project:architecture"
+    },
+    {
+      "from": "feature:pay-for-an-order",
+      "kind": "related",
+      "to": "project:ring-access-model"
+    },
+    {
+      "from": "feature:pay-for-an-order",
+      "kind": "related",
+      "to": "project:spec-map"
+    },
+    {
+      "from": "feature:pay-for-an-order",
+      "kind": "related",
+      "to": "task:T-035"
     },
     {
       "from": "feature:payments",
@@ -17995,6 +18106,41 @@
       "to": "story:onboarding-imports"
     },
     {
+      "from": "feature:pay-for-an-order",
+      "kind": "tree",
+      "to": "backend-delivery:pay-for-an-order"
+    },
+    {
+      "from": "feature:pay-for-an-order",
+      "kind": "tree",
+      "to": "backend-integration:pay-for-an-order"
+    },
+    {
+      "from": "feature:pay-for-an-order",
+      "kind": "tree",
+      "to": "frontend-delivery:pay-for-an-order"
+    },
+    {
+      "from": "feature:pay-for-an-order",
+      "kind": "tree",
+      "to": "frontend-requirements:pay-for-an-order"
+    },
+    {
+      "from": "feature:pay-for-an-order",
+      "kind": "tree",
+      "to": "qa-backend:pay-for-an-order"
+    },
+    {
+      "from": "feature:pay-for-an-order",
+      "kind": "tree",
+      "to": "qa-frontend:pay-for-an-order"
+    },
+    {
+      "from": "feature:pay-for-an-order",
+      "kind": "tree",
+      "to": "story:pay-for-an-order"
+    },
+    {
       "from": "feature:payments",
       "kind": "tree",
       "to": "backend-delivery:payments"
@@ -18763,6 +18909,11 @@
       "from": "module:meetings",
       "kind": "tree",
       "to": "feature:meetings"
+    },
+    {
+      "from": "module:payments-gateway",
+      "kind": "tree",
+      "to": "feature:pay-for-an-order"
     },
     {
       "from": "module:platform",
@@ -21415,6 +21566,16 @@
       "to": "task:T-020b"
     },
     {
+      "from": "feature:pay-for-an-order",
+      "kind": "wikilink",
+      "to": "decision:D-07"
+    },
+    {
+      "from": "feature:pay-for-an-order",
+      "kind": "wikilink",
+      "to": "task:T-034"
+    },
+    {
       "from": "feature:payments",
       "kind": "wikilink",
       "to": "task:T-047"
@@ -23912,12 +24073,12 @@
     {
       "from": "module:payments-gateway",
       "kind": "wikilink",
-      "to": "project:ring-access-model"
+      "to": "project:owner-agent"
     },
     {
       "from": "module:payments-gateway",
       "kind": "wikilink",
-      "to": "task:T-035"
+      "to": "project:ring-access-model"
     },
     {
       "from": "module:payments-gateway",
@@ -24653,6 +24814,11 @@
       "from": "project:feature-tree",
       "kind": "wikilink",
       "to": "feature:onboarding-imports"
+    },
+    {
+      "from": "project:feature-tree",
+      "kind": "wikilink",
+      "to": "feature:pay-for-an-order"
     },
     {
       "from": "project:feature-tree",
@@ -29684,6 +29850,10 @@
       "name": "Meetings",
       "type": "feature"
     },
+    "modules/Payments Gateway/Pay for an order/Pay for an order.md": {
+      "name": "Pay for an order",
+      "type": "feature"
+    },
     "modules/Payments Gateway/Payments Gateway Module.md": {
       "name": "Payments Gateway Module",
       "type": "module"
@@ -32588,6 +32758,49 @@
       "title": "Onboarding Imports Backend Delivery",
       "updated": "2026-10-18"
     },
+    "backend-delivery:pay-for-an-order": {
+      "affects": [],
+      "blockedBy": [
+        {
+          "id": "frontend-requirements:pay-for-an-order",
+          "title": "Pay for an order Frontend Requirements",
+          "why": "Pay for an order Frontend Requirements is not written yet"
+        }
+      ],
+      "card": null,
+      "children": [],
+      "code": "pay-for-an-order",
+      "deadline": null,
+      "depends": [],
+      "effectiveStatus": "missing",
+      "effort": null,
+      "feature": "pay-for-an-order",
+      "frontendOnly": false,
+      "id": "backend-delivery:pay-for-an-order",
+      "inherits": {},
+      "kind": "backend-delivery",
+      "label": "Backend Delivery",
+      "labels": [],
+      "layer": "backend",
+      "module": "payments-gateway",
+      "parentTask": null,
+      "parents": [
+        "feature:pay-for-an-order"
+      ],
+      "path": null,
+      "pending": [],
+      "priority": null,
+      "related": [],
+      "scope": "feature",
+      "screens": [],
+      "status": null,
+      "summary": "Not written yet. Create it with: node scripts/build-tree.mjs --scaffold backend-delivery pay-for-an-order",
+      "tags": [],
+      "task": null,
+      "template": "templates/Backend Delivery Template.md",
+      "title": "Pay for an order Backend Delivery",
+      "updated": null
+    },
     "backend-delivery:payments": {
       "affects": [],
       "blockedBy": [
@@ -34328,6 +34541,49 @@
       "title": "Onboarding Imports Backend Integration",
       "updated": null
     },
+    "backend-integration:pay-for-an-order": {
+      "affects": [],
+      "blockedBy": [
+        {
+          "id": "backend-delivery:pay-for-an-order",
+          "title": "Pay for an order Backend Delivery",
+          "why": "Pay for an order Backend Delivery is not written yet"
+        }
+      ],
+      "card": null,
+      "children": [],
+      "code": "pay-for-an-order",
+      "deadline": null,
+      "depends": [],
+      "effectiveStatus": "missing",
+      "effort": null,
+      "feature": "pay-for-an-order",
+      "frontendOnly": false,
+      "id": "backend-integration:pay-for-an-order",
+      "inherits": {},
+      "kind": "backend-integration",
+      "label": "Backend Integration",
+      "labels": [],
+      "layer": "backend",
+      "module": "payments-gateway",
+      "parentTask": null,
+      "parents": [
+        "feature:pay-for-an-order"
+      ],
+      "path": null,
+      "pending": [],
+      "priority": null,
+      "related": [],
+      "scope": "feature",
+      "screens": [],
+      "status": null,
+      "summary": "Not written yet. Create it with: node scripts/build-tree.mjs --scaffold backend-integration pay-for-an-order",
+      "tags": [],
+      "task": null,
+      "template": "templates/Backend Integration Template.md",
+      "title": "Pay for an order Backend Integration",
+      "updated": null
+    },
     "backend-integration:payments": {
       "affects": [],
       "blockedBy": [
@@ -35468,6 +35724,7 @@
       "priority": "critical",
       "related": [
         "feature:payments",
+        "feature:pay-for-an-order",
         "feature:auth",
         "feature:ring-members",
         "feature:gemma",
@@ -36381,7 +36638,8 @@
         "project:architecture",
         "project:api-conventions",
         "project:spec-map",
-        "feature:meetings"
+        "feature:meetings",
+        "feature:pay-for-an-order"
       ],
       "rollup": {
         "blocked": 4,
@@ -36449,7 +36707,8 @@
         "project:ring-access-model",
         "project:architecture",
         "project:api-conventions",
-        "project:spec-map"
+        "project:spec-map",
+        "feature:pay-for-an-order"
       ],
       "rollup": {
         "approved": 1,
@@ -37124,6 +37383,80 @@
       "title": "Onboarding Imports",
       "updated": "2026-10-19"
     },
+    "feature:pay-for-an-order": {
+      "affects": [
+        "feature:payments",
+        "feature:events-before",
+        "feature:event-ring-auto"
+      ],
+      "blockedBy": [],
+      "card": "F-41",
+      "children": [
+        "story:pay-for-an-order",
+        "frontend-requirements:pay-for-an-order",
+        "backend-delivery:pay-for-an-order",
+        "backend-integration:pay-for-an-order",
+        "qa-backend:pay-for-an-order",
+        "frontend-delivery:pay-for-an-order",
+        "qa-frontend:pay-for-an-order"
+      ],
+      "code": "pay-for-an-order",
+      "deadline": null,
+      "depends": [
+        "task:T-047",
+        "decision:D-07"
+      ],
+      "dir": "modules/Payments Gateway/Pay for an order",
+      "effectiveStatus": "todo",
+      "effort": null,
+      "feature": "pay-for-an-order",
+      "frontendOnly": false,
+      "id": "feature:pay-for-an-order",
+      "inherits": {},
+      "kind": "feature",
+      "label": "Feature",
+      "labels": [],
+      "layer": "business",
+      "module": "payments-gateway",
+      "name": "Pay for an order",
+      "parentTask": null,
+      "parents": [
+        "module:payments-gateway"
+      ],
+      "path": "modules/Payments Gateway/Pay for an order/Pay for an order.md",
+      "pending": [],
+      "priority": "high",
+      "related": [
+        "feature:payments",
+        "feature:events-before",
+        "feature:event-ring-auto",
+        "feature:audit-log",
+        "feature:subscription",
+        "task:T-035",
+        "project:ring-access-model",
+        "project:architecture",
+        "project:api-conventions",
+        "project:spec-map"
+      ],
+      "rollup": {
+        "missing": 7
+      },
+      "scope": null,
+      "screens": [
+        "s51",
+        "s52"
+      ],
+      "status": null,
+      "summary": "An attendee who has chosen a ticket, a package or a sub-event on s50 pays for it on the Payment screen (s51), comes back to the app, and sees the confirmation that lets them into the event's Ring…",
+      "tags": [
+        "feature",
+        "module/payments-gateway",
+        "priority/high"
+      ],
+      "task": null,
+      "title": "Pay for an order",
+      "updated": "2026-10-21"
+    },
     "feature:payments": {
       "affects": [],
       "blockedBy": [],
@@ -37169,6 +37502,7 @@
         "project:architecture",
         "project:api-conventions",
         "project:spec-map",
+        "feature:pay-for-an-order",
         "decision:D-07"
       ],
       "rollup": {
@@ -37918,6 +38252,7 @@
         "project:api-conventions",
         "project:spec-map",
         "feature:account",
+        "feature:pay-for-an-order",
         "decision:D-07"
       ],
       "rollup": {
@@ -39183,6 +39518,49 @@
       "task": null,
       "template": "templates/Frontend Delivery Template.md",
       "title": "Onboarding Imports Frontend Delivery",
+      "updated": null
+    },
+    "frontend-delivery:pay-for-an-order": {
+      "affects": [],
+      "blockedBy": [
+        {
+          "id": "backend-integration:pay-for-an-order",
+          "title": "Pay for an order Backend Integration",
+          "why": "Pay for an order Backend Integration is not written yet"
+        }
+      ],
+      "card": null,
+      "children": [],
+      "code": "pay-for-an-order",
+      "deadline": null,
+      "depends": [],
+      "effectiveStatus": "missing",
+      "effort": null,
+      "feature": "pay-for-an-order",
+      "frontendOnly": false,
+      "id": "frontend-delivery:pay-for-an-order",
+      "inherits": {},
+      "kind": "frontend-delivery",
+      "label": "Frontend Delivery",
+      "labels": [],
+      "layer": "frontend",
+      "module": "payments-gateway",
+      "parentTask": null,
+      "parents": [
+        "feature:pay-for-an-order"
+      ],
+      "path": null,
+      "pending": [],
+      "priority": null,
+      "related": [],
+      "scope": "feature",
+      "screens": [],
+      "status": null,
+      "summary": "Not written yet. Create it with: node scripts/build-tree.mjs --scaffold frontend-delivery pay-for-an-order",
+      "tags": [],
+      "task": null,
+      "template": "templates/Frontend Delivery Template.md",
+      "title": "Pay for an order Frontend Delivery",
       "updated": null
     },
     "frontend-delivery:payments": {
@@ -41072,6 +41450,49 @@
       "title": "Onboarding Imports Frontend Requirements",
       "updated": "2026-10-18"
     },
+    "frontend-requirements:pay-for-an-order": {
+      "affects": [],
+      "blockedBy": [
+        {
+          "id": "story:pay-for-an-order",
+          "title": "Pay for an order Story",
+          "why": "Pay for an order Story is not written yet"
+        }
+      ],
+      "card": null,
+      "children": [],
+      "code": "pay-for-an-order",
+      "deadline": null,
+      "depends": [],
+      "effectiveStatus": "missing",
+      "effort": null,
+      "feature": "pay-for-an-order",
+      "frontendOnly": false,
+      "id": "frontend-requirements:pay-for-an-order",
+      "inherits": {},
+      "kind": "frontend-requirements",
+      "label": "Frontend Requirements",
+      "labels": [],
+      "layer": "frontend",
+      "module": "payments-gateway",
+      "parentTask": null,
+      "parents": [
+        "feature:pay-for-an-order"
+      ],
+      "path": null,
+      "pending": [],
+      "priority": null,
+      "related": [],
+      "scope": "feature",
+      "screens": [],
+      "status": null,
+      "summary": "Not written yet. Create it with: node scripts/build-tree.mjs --scaffold frontend-requirements pay-for-an-order",
+      "tags": [],
+      "task": null,
+      "template": "templates/Frontend Requirements Template.md",
+      "title": "Pay for an order Frontend Requirements",
+      "updated": null
+    },
     "frontend-requirements:payments": {
       "affects": [],
       "blockedBy": [
@@ -42271,7 +42692,9 @@
       "affects": [],
       "blockedBy": [],
       "card": "M-09",
-      "children": [],
+      "children": [
+        "feature:pay-for-an-order"
+      ],
       "code": null,
       "deadline": null,
       "depends": [],
@@ -42297,7 +42720,10 @@
       "related": [
         "decision:D-07"
       ],
-      "rollup": {},
+      "rollup": {
+        "missing": 7,
+        "todo": 1
+      },
       "scope": null,
       "screens": [],
       "status": null,
@@ -42587,6 +43013,7 @@
         "feature:view-as",
         "feature:widgets",
         "feature:meetings",
+        "feature:pay-for-an-order",
         "feature:app-shell",
         "feature:audit-log",
         "feature:cleanup-jobs",
@@ -42666,6 +43093,7 @@
         "feature:view-as",
         "feature:widgets",
         "feature:meetings",
+        "feature:pay-for-an-order",
         "feature:app-shell",
         "feature:audit-log",
         "feature:cleanup-jobs",
@@ -43510,6 +43938,7 @@
         "feature:view-as",
         "feature:widgets",
         "feature:meetings",
+        "feature:pay-for-an-order",
         "feature:app-shell",
         "feature:audit-log",
         "feature:cleanup-jobs",
@@ -43590,6 +44019,7 @@
         "feature:view-as",
         "feature:widgets",
         "feature:meetings",
+        "feature:pay-for-an-order",
         "feature:app-shell",
         "feature:audit-log",
         "feature:cleanup-jobs",
@@ -44758,6 +45188,49 @@
       "task": null,
       "template": "templates/QA Backend Template.md",
       "title": "Onboarding Imports QA Backend",
+      "updated": null
+    },
+    "qa-backend:pay-for-an-order": {
+      "affects": [],
+      "blockedBy": [
+        {
+          "id": "backend-delivery:pay-for-an-order",
+          "title": "Pay for an order Backend Delivery",
+          "why": "Pay for an order Backend Delivery is not written yet"
+        }
+      ],
+      "card": null,
+      "children": [],
+      "code": "pay-for-an-order",
+      "deadline": null,
+      "depends": [],
+      "effectiveStatus": "missing",
+      "effort": null,
+      "feature": "pay-for-an-order",
+      "frontendOnly": false,
+      "id": "qa-backend:pay-for-an-order",
+      "inherits": {},
+      "kind": "qa-backend",
+      "label": "QA Backend",
+      "labels": [],
+      "layer": "qa",
+      "module": "payments-gateway",
+      "parentTask": null,
+      "parents": [
+        "feature:pay-for-an-order"
+      ],
+      "path": null,
+      "pending": [],
+      "priority": null,
+      "related": [],
+      "scope": "feature",
+      "screens": [],
+      "status": null,
+      "summary": "Not written yet. Create it with: node scripts/build-tree.mjs --scaffold qa-backend pay-for-an-order",
+      "tags": [],
+      "task": null,
+      "template": "templates/QA Backend Template.md",
+      "title": "Pay for an order QA Backend",
       "updated": null
     },
     "qa-backend:payments": {
@@ -46401,6 +46874,49 @@
       "title": "Onboarding Imports QA Frontend",
       "updated": null
     },
+    "qa-frontend:pay-for-an-order": {
+      "affects": [],
+      "blockedBy": [
+        {
+          "id": "frontend-delivery:pay-for-an-order",
+          "title": "Pay for an order Frontend Delivery",
+          "why": "Pay for an order Frontend Delivery is not written yet"
+        }
+      ],
+      "card": null,
+      "children": [],
+      "code": "pay-for-an-order",
+      "deadline": null,
+      "depends": [],
+      "effectiveStatus": "missing",
+      "effort": null,
+      "feature": "pay-for-an-order",
+      "frontendOnly": false,
+      "id": "qa-frontend:pay-for-an-order",
+      "inherits": {},
+      "kind": "qa-frontend",
+      "label": "QA Frontend",
+      "labels": [],
+      "layer": "qa",
+      "module": "payments-gateway",
+      "parentTask": null,
+      "parents": [
+        "feature:pay-for-an-order"
+      ],
+      "path": null,
+      "pending": [],
+      "priority": null,
+      "related": [],
+      "scope": "feature",
+      "screens": [],
+      "status": null,
+      "summary": "Not written yet. Create it with: node scripts/build-tree.mjs --scaffold qa-frontend pay-for-an-order",
+      "tags": [],
+      "task": null,
+      "template": "templates/QA Frontend Template.md",
+      "title": "Pay for an order QA Frontend",
+      "updated": null
+    },
     "qa-frontend:payments": {
       "affects": [],
       "blockedBy": [
@@ -47007,10 +47523,10 @@
         "done": 12,
         "draft": 103,
         "in-progress": 14,
-        "missing": 145,
+        "missing": 152,
         "needs-decision": 20,
         "reference": 30,
-        "todo": 82
+        "todo": 83
       },
       "scope": null,
       "screens": [],
@@ -51224,6 +51740,43 @@
       "task": null,
       "title": "Onboarding Imports Story",
       "updated": "2026-10-18"
+    },
+    "story:pay-for-an-order": {
+      "affects": [],
+      "blockedBy": [],
+      "card": null,
+      "children": [],
+      "code": "pay-for-an-order",
+      "deadline": null,
+      "depends": [],
+      "effectiveStatus": "missing",
+      "effort": null,
+      "feature": "pay-for-an-order",
+      "frontendOnly": false,
+      "id": "story:pay-for-an-order",
+      "inherits": {},
+      "kind": "story",
+      "label": "User Story",
+      "labels": [],
+      "layer": "business",
+      "module": "payments-gateway",
+      "parentTask": null,
+      "parents": [
+        "feature:pay-for-an-order"
+      ],
+      "path": null,
+      "pending": [],
+      "priority": null,
+      "related": [],
+      "scope": "feature",
+      "screens": [],
+      "status": null,
+      "summary": "Not written yet. Create it with: node scripts/build-tree.mjs --scaffold story pay-for-an-order",
+      "tags": [],
+      "task": null,
+      "template": "templates/Story Template.md",
+      "title": "Pay for an order Story",
+      "updated": null
     },
     "story:payments": {
       "affects": [],
@@ -57771,7 +58324,9 @@
       "path": "tasks/T-035 Registration transaction with order and payment/T-035 Registration transaction with order and payment.md",
       "pending": [],
       "priority": "critical",
-      "related": [],
+      "related": [
+        "feature:pay-for-an-order"
+      ],
       "rollup": {
         "approved": 1,
         "blocked": 2,
