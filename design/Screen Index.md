@@ -1,6 +1,6 @@
 ---
 type: map
-updated: 2026-10-15
+updated: 2026-10-21
 tags: [map, design]
 ---
 
@@ -14,7 +14,7 @@ All 78 screens of the prototype (`socialPin-design/.proto2.json`, ids are the pr
 | <a id="s00b"></a>**s00b** | Value · Rings | ⬜ | [[App Shell & Onboarding Narrative]] |  |
 | <a id="s00c"></a>**s00c** | Value · PinCast | ⬜ | [[App Shell & Onboarding Narrative]] |  |
 | <a id="s00d"></a>**s00d** | Value · Events | ⬜ | [[App Shell & Onboarding Narrative]] |  |
-| <a id="s01"></a>**s01** | Welcome | 🟡 | [[Auth & Sign-up]], [[Linked Accounts (OAuth)]] | Promises no password → D-01 |
+| <a id="s01"></a>**s01** | Welcome | 🟡 | [[Auth & Sign-up]], [[Linked Accounts (OAuth)]], [[Google Auth]] | Promises no password → D-01 |
 | <a id="s02"></a>**s02** | Verify | 🟡 | [[Auth & Sign-up]], [[Code Delivery]] | Resend timer, expired code |
 | <a id="s03"></a>**s03** | Start from | ❌ | [[Onboarding Imports]] |  |
 | <a id="s03a"></a>**s03a** | Scan a card | ❌ | [[Onboarding Imports]] |  |
@@ -81,7 +81,7 @@ All 78 screens of the prototype (`socialPin-design/.proto2.json`, ids are the pr
 | <a id="s65"></a>**s65** | Booth analytics | ❌ | [[Exhibitor]] |  |
 | <a id="s66"></a>**s66** | Meetings | ❌ | [[Meetings]] |  |
 | <a id="s67"></a>**s67** | Meeting detail | ❌ | [[Meetings]] |  |
-| <a id="s68"></a>**s68** | Me / Account | 🟡 | [[Account]], [[Linked Accounts (OAuth)]], [[Counts]], [[Subscription (Free vs Pro)]] |  |
+| <a id="s68"></a>**s68** | Me / Account | 🟡 | [[Account]], [[Linked Accounts (OAuth)]], [[Google Auth]], [[Counts]], [[Subscription (Free vs Pro)]] |  |
 | <a id="s69"></a>**s69** | Notifications | ❌ | [[Notifications]] |  |
 | <a id="s70"></a>**s70** | Subscription | ❌ | [[Subscription (Free vs Pro)]] |  |
 | <a id="s71"></a>**s71** | Interests | 🟡 | [[Interests]] |  |
@@ -126,7 +126,7 @@ Reached from: [[Screen Index#s00c|s00c]]
 
 ### s01
 
-**Welcome** · 🟡 Partial (needs more) · Features: [[Auth & Sign-up]], [[Linked Accounts (OAuth)]] · Promises no password → D-01
+**Welcome** · 🟡 Partial (needs more) · Features: [[Auth & Sign-up]], [[Linked Accounts (OAuth)]], [[Google Auth]] · Promises no password → D-01
 
 Leads to: Send me a code → [[Screen Index#s02|s02]], Continue with LinkedIn → [[Screen Index#s04|s04]]
 
@@ -652,7 +652,7 @@ Reached from: [[Screen Index#s13|s13]], [[Screen Index#s61|s61]], [[Screen Index
 
 ### s68
 
-**Me / Account** · 🟡 Partial (needs more) · Features: [[Account]], [[Linked Accounts (OAuth)]], [[Counts]], [[Subscription (Free vs Pro)]]
+**Me / Account** · 🟡 Partial (needs more) · Features: [[Account]], [[Linked Accounts (OAuth)]], [[Google Auth]], [[Counts]], [[Subscription (Free vs Pro)]]
 
 Leads to: Upgrade → [[Screen Index#s70|s70]], Photo library → [[Screen Index#s30|s30]], Interests → [[Screen Index#s71|s71]], My companies → [[Screen Index#s72|s72]], My devices → [[Screen Index#s75|s75]], Business account → [[Screen Index#s63|s63]], Notifications → [[Screen Index#s69|s69]], Home → [[Screen Index#s11|s11]], Events → [[Screen Index#s48|s48]], Me → [[Screen Index#s68|s68]], Badge → [[Screen Index#s34|s34]], Discover → [[Screen Index#s38|s38]]
 
