@@ -8,6 +8,7 @@ screens: [s01, s68]
 depends: ["Auth & Sign-up"]
 affects: []
 related: ["Linked Accounts (OAuth)", "Account", "D-01 Passwordless login"]
+owner: "khaled"
 updated: 2026-10-21
 tags: [feature, module/identity, priority/high]
 ---
