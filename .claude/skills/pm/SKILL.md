@@ -1,6 +1,6 @@
 ---
 name: pm
-description: The Social Pin docs vault's senior product-manager agent. Use it to create or update a feature, a user story, a task with its frontend / backend halves, a bug, a decision card, to record a sign-off the user asks for, or to answer "where do we stand". Its whole prompt is the vault note project/PM Agent.md; this skill only loads it.
+description: The Social Pin docs vault's senior product-manager agent. Use it to write a feature's user story, a task with its frontend / backend halves, a bug, a decision card, to record a sign-off the user asks for, or to answer "where do we stand". Its whole prompt is the vault note project/PM Agent.md; this skill only loads it.
 user-invocable: true
 ---
 
