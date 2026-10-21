@@ -107,34 +107,34 @@ Social Pin backend
 │   │   └── ❓ T-047 Orders, payments and the provider webhook
 │   └── ❌ Subscription (Free vs Pro)  [High]
 │       └── ⬜ T-049 Subscription endpoints and a single Pro gate
-├── Payments Gateway  (no features yet)
-└── Platform & Cross-cutting  (🟡5 ❌5 ⬜1)
-    ├── 🟡 Error Contract  [Critical]
-    │   └── ⬜ T-063 Put the ErrorCode on the error body
-    ├── 🟡 Code Delivery  [Critical]
-    │   ├── ⬜ T-001 Wire an email provider for one-time codes
-    │   ├── ⬜ T-002 Wire an SMS provider for one-time codes
-    │   └── ⛔ T-003 Remove devCode once delivery works
-    ├── 🟡 Devices & NFC  [High]
-    │   ├── ⬜ T-014 Register devices on login; list and remove
-    │   └── ⬜ T-015 Pair and revoke an NFC card
-    ├── 🟡 Interests  [High]
-    │   └── ⬜ T-016 Interests vocabulary and my interests
-    ├── 🟡 Linked Accounts (OAuth)  [High]
-    │   └── ⬜ T-019 LinkedIn OAuth: link, unlink, login
-    ├── ❌ Notifications  [High]
-    │   ├── ⬜ T-045 NotificationService.emit and the inbox
-    │   └── ⛔ T-046 Push delivery and preferences
-    ├── ❌ Gemma AI  [Medium]
-    │   ├── ❓ T-051 Gemma assistant sheet and suggestions
-    │   └── ⛔ T-052 Smart Match
-    ├── ❌ Audit Log  [Critical]
-    │   └── ⬜ T-053 Audit log writes
-    ├── ❌ Cleanup Jobs  [High]
-    │   └── ⬜ T-054 Cleanup jobs
-    ├── ❌ E2E Test Run  [Critical]
-    │   └── ⬜ T-055 Run the e2e suite in CI against PostGIS
-    └── ⬜ App Shell & Onboarding Narrative  [Medium]
+├── Platform & Cross-cutting  (🟡5 ❌5 ⬜1)
+│   ├── 🟡 Error Contract  [Critical]
+│   │   └── ⬜ T-063 Put the ErrorCode on the error body
+│   ├── 🟡 Code Delivery  [Critical]
+│   │   ├── ⬜ T-001 Wire an email provider for one-time codes
+│   │   ├── ⬜ T-002 Wire an SMS provider for one-time codes
+│   │   └── ⛔ T-003 Remove devCode once delivery works
+│   ├── 🟡 Devices & NFC  [High]
+│   │   ├── ⬜ T-014 Register devices on login; list and remove
+│   │   └── ⬜ T-015 Pair and revoke an NFC card
+│   ├── 🟡 Interests  [High]
+│   │   └── ⬜ T-016 Interests vocabulary and my interests
+│   ├── 🟡 Linked Accounts (OAuth)  [High]
+│   │   └── ⬜ T-019 LinkedIn OAuth: link, unlink, login
+│   ├── ❌ Notifications  [High]
+│   │   ├── ⬜ T-045 NotificationService.emit and the inbox
+│   │   └── ⛔ T-046 Push delivery and preferences
+│   ├── ❌ Gemma AI  [Medium]
+│   │   ├── ❓ T-051 Gemma assistant sheet and suggestions
+│   │   └── ⛔ T-052 Smart Match
+│   ├── ❌ Audit Log  [Critical]
+│   │   └── ⬜ T-053 Audit log writes
+│   ├── ❌ Cleanup Jobs  [High]
+│   │   └── ⬜ T-054 Cleanup jobs
+│   ├── ❌ E2E Test Run  [Critical]
+│   │   └── ⬜ T-055 Run the e2e suite in CI against PostGIS
+│   └── ⬜ App Shell & Onboarding Narrative  [Medium]
+└── Payments Gateway  (no features yet)
 ```
 
 ## Identity Core
@@ -214,13 +214,6 @@ Orders, payments, payment webhook, Free vs Pro subscription and the Pro gates.
 | [[Payments & Orders]] | ❌ TODO | High | s50, s51 | 1 |
 | [[Subscription (Free vs Pro)]] | ❌ TODO | High | s34, s70 | 1 |
 
-## Payments Gateway
-
-Stripe as the payment provider: checkout, webhooks, refunds, organizer payouts, Pro billing ([[Payments Gateway Module]]). No feature yet; the first one is the PM's to create.
-
-| Feature | Status | Priority | Screens | Open tasks |
-|---|---|---|---|---|
-
 ## Platform & Cross-cutting
 
 The error contract, notifications, Gemma AI, devices, interests, widgets, linked accounts, code delivery, audit log, cleanup jobs, e2e tests.
@@ -238,6 +231,13 @@ The error contract, notifications, Gemma AI, devices, interests, widgets, linked
 | [[Cleanup Jobs]] | ❌ TODO | High | — | 1 |
 | [[E2E Test Run]] | ❌ TODO | Critical | — | 1 |
 | [[App Shell & Onboarding Narrative]] | ⬜ Frontend only | Medium | s00a, s00b, s00c, s00d | 0 |
+
+## Payments Gateway
+
+Stripe as the payment provider: checkout, webhooks, refunds, organizer payouts, Pro billing ([[Payments Gateway Module]]). No feature yet; the first one is the PM's to create.
+
+| Feature | Status | Priority | Screens | Open tasks |
+|---|---|---|---|---|
 
 ## Live view (Dataview plugin)
 

@@ -153,8 +153,8 @@
     { "id": "events", "name": "Events", "description": "Before the event, during, exhibitor tools, post-event." },
     { "id": "meetings", "name": "Meetings", "description": "Availability slots, slot-based requests, temporary meeting Rings, calendar." },
     { "id": "commerce", "name": "Commerce", "description": "Orders, payments, Free vs Pro." },
-    { "id": "payments-gateway", "name": "Payments Gateway", "description": "Stripe as the payment provider: checkout, webhooks, refunds, organizer payouts, Pro billing." },
-    { "id": "platform", "name": "Platform & Cross-cutting", "description": "Notifications, Gemma, devices, interests, code delivery, errors, jobs, tests." }
+    { "id": "platform", "name": "Platform & Cross-cutting", "description": "Notifications, Gemma, devices, interests, code delivery, errors, jobs, tests." },
+    { "id": "payments-gateway", "name": "Payments Gateway", "description": "Stripe as the payment provider: checkout, webhooks, refunds, organizer payouts, Pro billing." }
   ],
   "projectAreas": [
     { "id": "business", "folder": "business", "label": "Business docs", "description": "The product, glossary, feature map, status reports." },

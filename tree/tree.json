@@ -30766,14 +30766,14 @@
       "name": "Commerce"
     },
     {
-      "description": "Stripe as the payment provider: checkout, webhooks, refunds, organizer payouts, Pro billing.",
-      "id": "payments-gateway",
-      "name": "Payments Gateway"
-    },
-    {
       "description": "Notifications, Gemma, devices, interests, code delivery, errors, jobs, tests.",
       "id": "platform",
       "name": "Platform & Cross-cutting"
+    },
+    {
+      "description": "Stripe as the payment provider: checkout, webhooks, refunds, organizer payouts, Pro billing.",
+      "id": "payments-gateway",
+      "name": "Payments Gateway"
     }
   ],
   "nodes": {
@@ -46492,8 +46492,8 @@
         "module:events",
         "module:meetings",
         "module:commerce",
-        "module:payments-gateway",
         "module:platform",
+        "module:payments-gateway",
         "group:business",
         "group:frontend",
         "group:backend",
