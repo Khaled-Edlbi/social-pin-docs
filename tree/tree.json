@@ -147,8 +147,6 @@
     "Gemma AI Frontend Requirements": "frontend-requirements:gemma",
     "Gemma AI Story": "story:gemma",
     "Glossary": "project:glossary",
-    "Google Auth": "feature:google-auth",
-    "Google Auth Story": "story:google-auth",
     "Identity Core Module": "module:identity",
     "Interests": "feature:interests",
     "Interests Backend Delivery": "backend-delivery:interests",
@@ -582,7 +580,6 @@
     "F-37": "feature:interests",
     "F-38": "feature:linked-accounts",
     "F-39": "feature:notifications",
-    "F-40": "feature:google-auth",
     "FR-01": "frontend-requirements:account",
     "FR-02": "frontend-requirements:auth",
     "FR-03": "frontend-requirements:counts",
@@ -754,7 +751,6 @@
     "S-96": "story:notifications",
     "S-97": "story:T-045",
     "S-98": "story:T-046",
-    "S-99": "story:google-auth",
     "T-001": "task:T-001",
     "T-001-be": "task:T-001-be",
     "T-002": "task:T-002",
@@ -1049,7 +1045,6 @@
         "feature:auth",
         "feature:devices",
         "feature:error-contract",
-        "feature:google-auth",
         "project:auth-model",
         "project:frontend-api-guide",
         "project:frontend-passwordless-migration"
@@ -1067,8 +1062,7 @@
         "project:frontend-api-guide",
         "project:frontend-passwordless-migration",
         "story:account",
-        "story:auth",
-        "story:google-auth"
+        "story:auth"
       ],
       "owner": null
     },
@@ -2334,7 +2328,6 @@
     "POST /auth/complete-registration": {
       "containers": [
         "feature:auth",
-        "feature:google-auth",
         "feature:onboarding-imports",
         "feature:profiles",
         "project:frontend-passwordless-migration",
@@ -2349,7 +2342,6 @@
         "frontend-requirements:profiles",
         "project:frontend-passwordless-migration",
         "project:status-report-2026-10-15",
-        "story:google-auth",
         "story:onboarding-imports",
         "story:profiles"
       ],
@@ -2379,7 +2371,6 @@
       "containers": [
         "feature:audit-log",
         "feature:auth",
-        "feature:google-auth",
         "feature:linked-accounts",
         "project:developer-setup",
         "project:frontend-passwordless-migration",
@@ -2395,7 +2386,6 @@
         "project:developer-setup",
         "project:frontend-passwordless-migration",
         "story:T-019",
-        "story:google-auth",
         "story:linked-accounts",
         "task:T-019"
       ],
@@ -2523,7 +2513,6 @@
       "containers": [
         "feature:auth",
         "feature:code-delivery",
-        "feature:google-auth",
         "project:frontend-passwordless-migration"
       ],
       "kind": "endpoint",
@@ -2534,8 +2523,7 @@
         "frontend-requirements:code-delivery",
         "project:frontend-passwordless-migration",
         "story:auth",
-        "story:code-delivery",
-        "story:google-auth"
+        "story:code-delivery"
       ],
       "owner": "feature:auth"
     },
@@ -2819,7 +2807,6 @@
       "containers": [
         "decision:D-01",
         "feature:auth",
-        "feature:google-auth",
         "feature:linked-accounts",
         "task:T-019",
         "task:T-019-be",
@@ -2833,13 +2820,11 @@
         "backend-integration:auth",
         "decision:D-01",
         "feature:auth",
-        "feature:google-auth",
         "feature:linked-accounts",
         "frontend-requirements:auth",
         "frontend-requirements:linked-accounts",
         "story:T-019",
         "story:auth",
-        "story:google-auth",
         "story:linked-accounts",
         "task:T-019",
         "task:T-019-be",
@@ -4378,7 +4363,6 @@
         "feature:account",
         "feature:auth",
         "feature:counts",
-        "feature:google-auth",
         "feature:linked-accounts",
         "task:T-005",
         "task:T-005-be",
@@ -4398,7 +4382,6 @@
         "feature:account",
         "feature:auth",
         "feature:counts",
-        "feature:google-auth",
         "feature:linked-accounts",
         "frontend-requirements:account",
         "frontend-requirements:auth",
@@ -4409,7 +4392,6 @@
         "story:account",
         "story:auth",
         "story:counts",
-        "story:google-auth",
         "story:linked-accounts",
         "task:T-005",
         "task:T-005-be",
@@ -4588,28 +4570,28 @@
       "backend-delivery": 39,
       "backend-integration": 9,
       "decision": 6,
-      "feature": 40,
+      "feature": 39,
       "frontend-requirements": 39,
       "module": 8,
       "project": 26,
-      "story": 99,
+      "story": 98,
       "task": 175
     },
     "byLayer": {
       "backend": 56,
-      "business": 325,
+      "business": 323,
       "frontend": 43,
       "shared": 9
     },
     "concepts": 177,
     "decisions": 6,
-    "edges": 4200,
-    "features": 40,
-    "layerNotes": 186,
+    "edges": 4153,
+    "features": 39,
+    "layerNotes": 185,
     "modules": 8,
-    "notes": 467,
+    "notes": 465,
     "partial": 0,
-    "placeholders": 151,
+    "placeholders": 145,
     "taskLayerNotes": 59,
     "tasks": 175
   },
@@ -4891,16 +4873,6 @@
       "to": "qa-backend:gemma"
     },
     {
-      "from": "backend-delivery:google-auth",
-      "kind": "blocks",
-      "to": "backend-integration:google-auth"
-    },
-    {
-      "from": "backend-delivery:google-auth",
-      "kind": "blocks",
-      "to": "qa-backend:google-auth"
-    },
-    {
       "from": "backend-delivery:interests",
       "kind": "blocks",
       "to": "backend-integration:interests"
@@ -5104,11 +5076,6 @@
       "from": "backend-integration:gemma",
       "kind": "blocks",
       "to": "frontend-delivery:gemma"
-    },
-    {
-      "from": "backend-integration:google-auth",
-      "kind": "blocks",
-      "to": "frontend-delivery:google-auth"
     },
     {
       "from": "backend-integration:interests",
@@ -5381,11 +5348,6 @@
       "to": "qa-frontend:gemma"
     },
     {
-      "from": "frontend-delivery:google-auth",
-      "kind": "blocks",
-      "to": "qa-frontend:google-auth"
-    },
-    {
       "from": "frontend-delivery:interests",
       "kind": "blocks",
       "to": "qa-frontend:interests"
@@ -5561,11 +5523,6 @@
       "to": "backend-delivery:gemma"
     },
     {
-      "from": "frontend-requirements:google-auth",
-      "kind": "blocks",
-      "to": "backend-delivery:google-auth"
-    },
-    {
       "from": "frontend-requirements:interests",
       "kind": "blocks",
       "to": "backend-delivery:interests"
@@ -5729,11 +5686,6 @@
       "from": "story:gemma",
       "kind": "blocks",
       "to": "frontend-requirements:gemma"
-    },
-    {
-      "from": "story:google-auth",
-      "kind": "blocks",
-      "to": "frontend-requirements:google-auth"
     },
     {
       "from": "story:interests",
@@ -6769,11 +6721,6 @@
       "from": "decision:D-06",
       "kind": "decision",
       "to": "feature:profiles"
-    },
-    {
-      "from": "feature:google-auth",
-      "kind": "depends",
-      "to": "feature:auth"
     },
     {
       "from": "project:backend-agent",
@@ -8961,46 +8908,6 @@
       "to": "project:spec-map"
     },
     {
-      "from": "feature:google-auth",
-      "kind": "related",
-      "to": "decision:D-01"
-    },
-    {
-      "from": "feature:google-auth",
-      "kind": "related",
-      "to": "feature:account"
-    },
-    {
-      "from": "feature:google-auth",
-      "kind": "related",
-      "to": "feature:auth"
-    },
-    {
-      "from": "feature:google-auth",
-      "kind": "related",
-      "to": "feature:linked-accounts"
-    },
-    {
-      "from": "feature:google-auth",
-      "kind": "related",
-      "to": "project:api-conventions"
-    },
-    {
-      "from": "feature:google-auth",
-      "kind": "related",
-      "to": "project:architecture"
-    },
-    {
-      "from": "feature:google-auth",
-      "kind": "related",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "feature:google-auth",
-      "kind": "related",
-      "to": "project:spec-map"
-    },
-    {
       "from": "feature:interests",
       "kind": "related",
       "to": "feature:account"
@@ -10080,26 +9987,6 @@
       ]
     },
     {
-      "from": "story:google-auth",
-      "kind": "related",
-      "to": "decision:D-01"
-    },
-    {
-      "from": "story:google-auth",
-      "kind": "related",
-      "to": "feature:account"
-    },
-    {
-      "from": "story:google-auth",
-      "kind": "related",
-      "to": "feature:auth"
-    },
-    {
-      "from": "story:google-auth",
-      "kind": "related",
-      "to": "feature:linked-accounts"
-    },
-    {
       "from": "story:interests",
       "kind": "related",
       "to": "story:T-016",
@@ -10451,14 +10338,6 @@
       "to": "feature:files",
       "via": [
         "GET /rings/:ringId/projection"
-      ]
-    },
-    {
-      "from": "feature:account",
-      "kind": "shares",
-      "to": "feature:google-auth",
-      "via": [
-        "E_AUTH_03"
       ]
     },
     {
@@ -10905,14 +10784,6 @@
     {
       "from": "feature:audit-log",
       "kind": "shares",
-      "to": "feature:google-auth",
-      "via": [
-        "POST /auth/login/verify"
-      ]
-    },
-    {
-      "from": "feature:audit-log",
-      "kind": "shares",
       "to": "feature:linked-accounts",
       "via": [
         "POST /auth/login/verify"
@@ -11071,17 +10942,6 @@
       "to": "feature:gemma",
       "via": [
         "GET /profiles/pin-name/:pinName/availability"
-      ]
-    },
-    {
-      "from": "feature:auth",
-      "kind": "shares",
-      "to": "feature:google-auth",
-      "via": [
-        "E_AUTH_03",
-        "POST /auth/complete-registration",
-        "POST /auth/login/verify",
-        "POST /auth/verify-code"
       ]
     },
     {
@@ -11911,14 +11771,6 @@
       "to": "feature:error-contract",
       "via": [
         "E_AUTH_05"
-      ]
-    },
-    {
-      "from": "feature:code-delivery",
-      "kind": "shares",
-      "to": "feature:google-auth",
-      "via": [
-        "POST /auth/verify-code"
       ]
     },
     {
@@ -13290,14 +13142,6 @@
     {
       "from": "feature:devices",
       "kind": "shares",
-      "to": "feature:google-auth",
-      "via": [
-        "E_AUTH_03"
-      ]
-    },
-    {
-      "from": "feature:devices",
-      "kind": "shares",
       "to": "feature:interests",
       "via": [
         "E_AUTH_04"
@@ -13661,14 +13505,6 @@
       "via": [
         "E_RING_01",
         "E_RING_02"
-      ]
-    },
-    {
-      "from": "feature:error-contract",
-      "kind": "shares",
-      "to": "feature:google-auth",
-      "via": [
-        "E_AUTH_03"
       ]
     },
     {
@@ -14733,81 +14569,6 @@
       "to": "project:status-report-2026-10-15",
       "via": [
         "GET /profiles/pin-name/:pinName/availability"
-      ]
-    },
-    {
-      "from": "feature:google-auth",
-      "kind": "shares",
-      "to": "feature:linked-accounts",
-      "via": [
-        "POST /auth/login/verify"
-      ]
-    },
-    {
-      "from": "feature:google-auth",
-      "kind": "shares",
-      "to": "feature:onboarding-imports",
-      "via": [
-        "POST /auth/complete-registration"
-      ]
-    },
-    {
-      "from": "feature:google-auth",
-      "kind": "shares",
-      "to": "feature:profiles",
-      "via": [
-        "POST /auth/complete-registration"
-      ]
-    },
-    {
-      "from": "feature:google-auth",
-      "kind": "shares",
-      "to": "project:auth-model",
-      "via": [
-        "E_AUTH_03"
-      ]
-    },
-    {
-      "from": "feature:google-auth",
-      "kind": "shares",
-      "to": "project:developer-setup",
-      "via": [
-        "POST /auth/login/verify"
-      ]
-    },
-    {
-      "from": "feature:google-auth",
-      "kind": "shares",
-      "to": "project:frontend-api-guide",
-      "via": [
-        "E_AUTH_03"
-      ]
-    },
-    {
-      "from": "feature:google-auth",
-      "kind": "shares",
-      "to": "project:frontend-passwordless-migration",
-      "via": [
-        "E_AUTH_03",
-        "POST /auth/complete-registration",
-        "POST /auth/login/verify",
-        "POST /auth/verify-code"
-      ]
-    },
-    {
-      "from": "feature:google-auth",
-      "kind": "shares",
-      "to": "project:status-report-2026-10-15",
-      "via": [
-        "POST /auth/complete-registration"
-      ]
-    },
-    {
-      "from": "feature:google-auth",
-      "kind": "shares",
-      "to": "task:T-019",
-      "via": [
-        "POST /auth/login/verify"
       ]
     },
     {
@@ -18015,41 +17776,6 @@
       "to": "task:T-052"
     },
     {
-      "from": "feature:google-auth",
-      "kind": "tree",
-      "to": "backend-delivery:google-auth"
-    },
-    {
-      "from": "feature:google-auth",
-      "kind": "tree",
-      "to": "backend-integration:google-auth"
-    },
-    {
-      "from": "feature:google-auth",
-      "kind": "tree",
-      "to": "frontend-delivery:google-auth"
-    },
-    {
-      "from": "feature:google-auth",
-      "kind": "tree",
-      "to": "frontend-requirements:google-auth"
-    },
-    {
-      "from": "feature:google-auth",
-      "kind": "tree",
-      "to": "qa-backend:google-auth"
-    },
-    {
-      "from": "feature:google-auth",
-      "kind": "tree",
-      "to": "qa-frontend:google-auth"
-    },
-    {
-      "from": "feature:google-auth",
-      "kind": "tree",
-      "to": "story:google-auth"
-    },
-    {
       "from": "feature:interests",
       "kind": "tree",
       "to": "backend-delivery:interests"
@@ -19083,11 +18809,6 @@
       "from": "module:identity",
       "kind": "tree",
       "to": "feature:files"
-    },
-    {
-      "from": "module:identity",
-      "kind": "tree",
-      "to": "feature:google-auth"
     },
     {
       "from": "module:identity",
@@ -23447,11 +23168,6 @@
     {
       "from": "module:identity",
       "kind": "wikilink",
-      "to": "story:google-auth"
-    },
-    {
-      "from": "module:identity",
-      "kind": "wikilink",
       "to": "story:onboarding-imports"
     },
     {
@@ -25423,26 +25139,6 @@
       "from": "story:gemma",
       "kind": "wikilink",
       "to": "task:T-051"
-    },
-    {
-      "from": "story:google-auth",
-      "kind": "wikilink",
-      "to": "backend-delivery:auth"
-    },
-    {
-      "from": "story:google-auth",
-      "kind": "wikilink",
-      "to": "feature:error-contract"
-    },
-    {
-      "from": "story:google-auth",
-      "kind": "wikilink",
-      "to": "story:linked-accounts"
-    },
-    {
-      "from": "story:google-auth",
-      "kind": "wikilink",
-      "to": "task:T-019"
     },
     {
       "from": "story:interests",
@@ -29273,14 +28969,6 @@
       "name": "Files Upload",
       "type": "feature"
     },
-    "modules/Identity Core/Google Auth/Google Auth Story.md": {
-      "name": "Google Auth Story",
-      "type": "story"
-    },
-    "modules/Identity Core/Google Auth/Google Auth.md": {
-      "name": "Google Auth",
-      "type": "feature"
-    },
     "modules/Identity Core/Identity Core Module.md": {
       "name": "Identity Core Module",
       "type": "module"
@@ -32082,49 +31770,6 @@
       "title": "Gemma AI Backend Delivery",
       "updated": "2026-10-18"
     },
-    "backend-delivery:google-auth": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "frontend-requirements:google-auth",
-          "title": "Google Auth Frontend Requirements",
-          "why": "Google Auth Frontend Requirements is not written yet"
-        }
-      ],
-      "card": null,
-      "children": [],
-      "code": "google-auth",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "missing",
-      "effort": null,
-      "feature": "google-auth",
-      "frontendOnly": false,
-      "id": "backend-delivery:google-auth",
-      "inherits": {},
-      "kind": "backend-delivery",
-      "label": "Backend Delivery",
-      "labels": [],
-      "layer": "backend",
-      "module": "identity",
-      "parentTask": null,
-      "parents": [
-        "feature:google-auth"
-      ],
-      "path": null,
-      "pending": [],
-      "priority": null,
-      "related": [],
-      "scope": "feature",
-      "screens": [],
-      "status": null,
-      "summary": "Not written yet. Create it with: node scripts/build-tree.mjs --scaffold backend-delivery google-auth",
-      "tags": [],
-      "task": null,
-      "template": "templates/Backend Delivery Template.md",
-      "title": "Google Auth Backend Delivery",
-      "updated": null
-    },
     "backend-delivery:interests": {
       "affects": [],
       "blockedBy": [
@@ -33916,49 +33561,6 @@
       "title": "Gemma AI Backend Integration",
       "updated": null
     },
-    "backend-integration:google-auth": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "backend-delivery:google-auth",
-          "title": "Google Auth Backend Delivery",
-          "why": "Google Auth Backend Delivery is not written yet"
-        }
-      ],
-      "card": null,
-      "children": [],
-      "code": "google-auth",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "missing",
-      "effort": null,
-      "feature": "google-auth",
-      "frontendOnly": false,
-      "id": "backend-integration:google-auth",
-      "inherits": {},
-      "kind": "backend-integration",
-      "label": "Backend Integration",
-      "labels": [],
-      "layer": "backend",
-      "module": "identity",
-      "parentTask": null,
-      "parents": [
-        "feature:google-auth"
-      ],
-      "path": null,
-      "pending": [],
-      "priority": null,
-      "related": [],
-      "scope": "feature",
-      "screens": [],
-      "status": null,
-      "summary": "Not written yet. Create it with: node scripts/build-tree.mjs --scaffold backend-integration google-auth",
-      "tags": [],
-      "task": null,
-      "template": "templates/Backend Integration Template.md",
-      "title": "Google Auth Backend Integration",
-      "updated": null
-    },
     "backend-integration:interests": {
       "affects": [],
       "blockedBy": [
@@ -34795,10 +34397,7 @@
       "path": "decisions/D-01 Passwordless login.md",
       "pending": [],
       "priority": null,
-      "related": [
-        "feature:google-auth",
-        "story:google-auth"
-      ],
+      "related": [],
       "scope": null,
       "screens": [
         "s01",
@@ -35124,9 +34723,7 @@
         "project:architecture",
         "project:api-conventions",
         "project:spec-map",
-        "feature:google-auth",
-        "feature:interests",
-        "story:google-auth"
+        "feature:interests"
       ],
       "rollup": {
         "blocked": 1,
@@ -35329,13 +34926,11 @@
         "project:architecture",
         "project:api-conventions",
         "project:spec-map",
-        "feature:google-auth",
         "feature:app-shell",
         "feature:audit-log",
         "feature:cleanup-jobs",
         "feature:devices",
-        "feature:e2e-tests",
-        "story:google-auth"
+        "feature:e2e-tests"
       ],
       "rollup": {
         "approved": 1,
@@ -36596,74 +36191,6 @@
       "title": "Gemma AI",
       "updated": "2026-10-19"
     },
-    "feature:google-auth": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "F-40",
-      "children": [
-        "story:google-auth",
-        "frontend-requirements:google-auth",
-        "backend-delivery:google-auth",
-        "backend-integration:google-auth",
-        "qa-backend:google-auth",
-        "frontend-delivery:google-auth",
-        "qa-frontend:google-auth"
-      ],
-      "code": "google-auth",
-      "deadline": null,
-      "depends": [
-        "feature:auth"
-      ],
-      "dir": "modules/Identity Core/Google Auth",
-      "effectiveStatus": "todo",
-      "effort": null,
-      "feature": "google-auth",
-      "frontendOnly": false,
-      "id": "feature:google-auth",
-      "inherits": {},
-      "kind": "feature",
-      "label": "Feature",
-      "labels": [],
-      "layer": "business",
-      "module": "identity",
-      "name": "Google Auth",
-      "parentTask": null,
-      "parents": [
-        "module:identity"
-      ],
-      "path": "modules/Identity Core/Google Auth/Google Auth.md",
-      "pending": [],
-      "priority": "high",
-      "related": [
-        "feature:linked-accounts",
-        "feature:account",
-        "decision:D-01",
-        "feature:auth",
-        "project:ring-access-model",
-        "project:architecture",
-        "project:api-conventions",
-        "project:spec-map"
-      ],
-      "rollup": {
-        "draft": 1,
-        "missing": 6
-      },
-      "scope": null,
-      "screens": [
-        "s01",
-        "s68"
-      ],
-      "status": null,
-      "summary": "Sign up and sign in with a Google account: a Continue with Google choice on Welcome next to email, phone and LinkedIn, and a Google row under linked accounts on Me so an existing account can add…",
-      "tags": [
-        "feature",
-        "module/identity",
-        "priority/high"
-      ],
-      "task": null,
-      "title": "Google Auth",
-      "updated": "2026-10-21"
-    },
     "feature:interests": {
       "affects": [],
       "blockedBy": [],
@@ -36772,13 +36299,11 @@
       "related": [
         "feature:account",
         "feature:auth",
-        "feature:google-auth",
         "feature:onboarding-imports",
         "project:ring-access-model",
         "project:architecture",
         "project:api-conventions",
-        "project:spec-map",
-        "story:google-auth"
+        "project:spec-map"
       ],
       "rollup": {
         "approved": 1,
@@ -38888,49 +38413,6 @@
       "title": "Gemma AI Frontend Delivery",
       "updated": null
     },
-    "frontend-delivery:google-auth": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "backend-integration:google-auth",
-          "title": "Google Auth Backend Integration",
-          "why": "Google Auth Backend Integration is not written yet"
-        }
-      ],
-      "card": null,
-      "children": [],
-      "code": "google-auth",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "missing",
-      "effort": null,
-      "feature": "google-auth",
-      "frontendOnly": false,
-      "id": "frontend-delivery:google-auth",
-      "inherits": {},
-      "kind": "frontend-delivery",
-      "label": "Frontend Delivery",
-      "labels": [],
-      "layer": "frontend",
-      "module": "identity",
-      "parentTask": null,
-      "parents": [
-        "feature:google-auth"
-      ],
-      "path": null,
-      "pending": [],
-      "priority": null,
-      "related": [],
-      "scope": "feature",
-      "screens": [],
-      "status": null,
-      "summary": "Not written yet. Create it with: node scripts/build-tree.mjs --scaffold frontend-delivery google-auth",
-      "tags": [],
-      "task": null,
-      "template": "templates/Frontend Delivery Template.md",
-      "title": "Google Auth Frontend Delivery",
-      "updated": null
-    },
     "frontend-delivery:interests": {
       "affects": [],
       "blockedBy": [
@@ -40767,49 +40249,6 @@
       "title": "Gemma AI Frontend Requirements",
       "updated": "2026-10-18"
     },
-    "frontend-requirements:google-auth": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "story:google-auth",
-          "title": "Google Auth Story",
-          "why": "Google Auth Story is draft"
-        }
-      ],
-      "card": null,
-      "children": [],
-      "code": "google-auth",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "missing",
-      "effort": null,
-      "feature": "google-auth",
-      "frontendOnly": false,
-      "id": "frontend-requirements:google-auth",
-      "inherits": {},
-      "kind": "frontend-requirements",
-      "label": "Frontend Requirements",
-      "labels": [],
-      "layer": "frontend",
-      "module": "identity",
-      "parentTask": null,
-      "parents": [
-        "feature:google-auth"
-      ],
-      "path": null,
-      "pending": [],
-      "priority": null,
-      "related": [],
-      "scope": "feature",
-      "screens": [],
-      "status": null,
-      "summary": "Not written yet. Create it with: node scripts/build-tree.mjs --scaffold frontend-requirements google-auth",
-      "tags": [],
-      "task": null,
-      "template": "templates/Frontend Requirements Template.md",
-      "title": "Google Auth Frontend Requirements",
-      "updated": null
-    },
     "frontend-requirements:interests": {
       "affects": [],
       "blockedBy": [
@@ -42163,7 +41602,6 @@
         "feature:auth",
         "feature:counts",
         "feature:files",
-        "feature:google-auth",
         "feature:onboarding-imports",
         "feature:photo-library",
         "feature:profiles",
@@ -42202,11 +41640,11 @@
         "blocked": 34,
         "current": 9,
         "done": 10,
-        "draft": 23,
+        "draft": 22,
         "in-progress": 9,
-        "missing": 49,
+        "missing": 43,
         "needs-decision": 12,
-        "todo": 13
+        "todo": 12
       },
       "scope": null,
       "screens": [],
@@ -42536,7 +41974,6 @@
         "feature:auth",
         "feature:counts",
         "feature:files",
-        "feature:google-auth",
         "feature:onboarding-imports",
         "feature:photo-library",
         "feature:profiles",
@@ -42616,7 +42053,6 @@
         "feature:auth",
         "feature:counts",
         "feature:files",
-        "feature:google-auth",
         "feature:onboarding-imports",
         "feature:photo-library",
         "feature:profiles",
@@ -43461,7 +42897,6 @@
         "feature:auth",
         "feature:counts",
         "feature:files",
-        "feature:google-auth",
         "feature:onboarding-imports",
         "feature:photo-library",
         "feature:profiles",
@@ -43542,7 +42977,6 @@
         "feature:auth",
         "feature:counts",
         "feature:files",
-        "feature:google-auth",
         "feature:onboarding-imports",
         "feature:photo-library",
         "feature:profiles",
@@ -44506,49 +43940,6 @@
       "task": null,
       "template": "templates/QA Backend Template.md",
       "title": "Gemma AI QA Backend",
-      "updated": null
-    },
-    "qa-backend:google-auth": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "backend-delivery:google-auth",
-          "title": "Google Auth Backend Delivery",
-          "why": "Google Auth Backend Delivery is not written yet"
-        }
-      ],
-      "card": null,
-      "children": [],
-      "code": "google-auth",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "missing",
-      "effort": null,
-      "feature": "google-auth",
-      "frontendOnly": false,
-      "id": "qa-backend:google-auth",
-      "inherits": {},
-      "kind": "qa-backend",
-      "label": "QA Backend",
-      "labels": [],
-      "layer": "qa",
-      "module": "identity",
-      "parentTask": null,
-      "parents": [
-        "feature:google-auth"
-      ],
-      "path": null,
-      "pending": [],
-      "priority": null,
-      "related": [],
-      "scope": "feature",
-      "screens": [],
-      "status": null,
-      "summary": "Not written yet. Create it with: node scripts/build-tree.mjs --scaffold qa-backend google-auth",
-      "tags": [],
-      "task": null,
-      "template": "templates/QA Backend Template.md",
-      "title": "Google Auth QA Backend",
       "updated": null
     },
     "qa-backend:interests": {
@@ -46192,49 +45583,6 @@
       "title": "Gemma AI QA Frontend",
       "updated": null
     },
-    "qa-frontend:google-auth": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "frontend-delivery:google-auth",
-          "title": "Google Auth Frontend Delivery",
-          "why": "Google Auth Frontend Delivery is not written yet"
-        }
-      ],
-      "card": null,
-      "children": [],
-      "code": "google-auth",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "missing",
-      "effort": null,
-      "feature": "google-auth",
-      "frontendOnly": false,
-      "id": "qa-frontend:google-auth",
-      "inherits": {},
-      "kind": "qa-frontend",
-      "label": "QA Frontend",
-      "labels": [],
-      "layer": "qa",
-      "module": "identity",
-      "parentTask": null,
-      "parents": [
-        "feature:google-auth"
-      ],
-      "path": null,
-      "pending": [],
-      "priority": null,
-      "related": [],
-      "scope": "feature",
-      "screens": [],
-      "status": null,
-      "summary": "Not written yet. Create it with: node scripts/build-tree.mjs --scaffold qa-frontend google-auth",
-      "tags": [],
-      "task": null,
-      "template": "templates/QA Frontend Template.md",
-      "title": "Google Auth QA Frontend",
-      "updated": null
-    },
     "qa-frontend:interests": {
       "affects": [],
       "blockedBy": [
@@ -47053,12 +46401,12 @@
         "blocked": 178,
         "current": 9,
         "done": 12,
-        "draft": 99,
+        "draft": 98,
         "in-progress": 14,
-        "missing": 151,
+        "missing": 145,
         "needs-decision": 20,
         "reference": 30,
-        "todo": 82
+        "todo": 81
       },
       "scope": null,
       "screens": [],
@@ -50715,57 +50063,6 @@
       "task": null,
       "title": "Gemma AI Story",
       "updated": "2026-10-18"
-    },
-    "story:google-auth": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-99",
-      "children": [],
-      "code": "google-auth",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
-      "effort": null,
-      "feature": "google-auth",
-      "frontendOnly": false,
-      "id": "story:google-auth",
-      "inherits": {
-        "priority": "feature:google-auth"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "identity",
-      "parentTask": null,
-      "parents": [
-        "feature:google-auth"
-      ],
-      "path": "modules/Identity Core/Google Auth/Google Auth Story.md",
-      "pending": [],
-      "priority": "high",
-      "related": [
-        "feature:auth",
-        "feature:linked-accounts",
-        "feature:account",
-        "decision:D-01"
-      ],
-      "scope": "feature",
-      "screens": [
-        "s01",
-        "s68"
-      ],
-      "status": "draft",
-      "summary": "Someone who wants into Social Pin with one tap on the Google account already on their phone, and later wants that account to stay a way in, or to stop being one. Nothing here is available yet: no…",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/identity",
-        "layer/business"
-      ],
-      "task": null,
-      "title": "Google Auth Story",
-      "updated": "2026-10-21"
     },
     "story:interests": {
       "affects": [],
