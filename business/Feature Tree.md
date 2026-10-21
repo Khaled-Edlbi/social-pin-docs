@@ -234,7 +234,7 @@ The error contract, notifications, Gemma AI, devices, interests, widgets, linked
 
 ## Payments Gateway
 
-Stripe as the payment provider: checkout, webhooks, refunds, organizer payouts, Pro billing ([[Payments Gateway Module]]). No feature yet; the first one is the PM's to create.
+How money moves between attendees, exhibitors, organizers and Social Pin through a payment provider: paying for an order, refunds, paying the organizer, paying for Pro ([[Payments Gateway Module]]). The provider is Stripe ([[D-07 Payment provider]]). No feature yet; the first one is the PM's to create.
 
 | Feature | Status | Priority | Screens | Open tasks |
 |---|---|---|---|---|

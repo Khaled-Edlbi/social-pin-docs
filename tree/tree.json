@@ -88,6 +88,7 @@
     "D-04 Ring settings": "decision:D-04",
     "D-05 Copy or inherit": "decision:D-05",
     "D-06 Pin name rules": "decision:D-06",
+    "D-07 Payment provider": "decision:D-07",
     "Database & Migrations": "project:database-migrations",
     "Delegated Admins": "feature:delegated-admins",
     "Delegated Admins Backend Delivery": "backend-delivery:delegated-admins",
@@ -547,6 +548,7 @@
     "D-04": "decision:D-04",
     "D-05": "decision:D-05",
     "D-06": "decision:D-06",
+    "D-07": "decision:D-07",
     "F-01": "feature:account",
     "F-02": "feature:auth",
     "F-03": "feature:counts",
@@ -4010,6 +4012,7 @@
     },
     "s51": {
       "containers": [
+        "decision:D-07",
         "feature:events-before",
         "feature:payments",
         "task:T-035",
@@ -4022,6 +4025,7 @@
       "notes": [
         "backend-delivery:events-before",
         "backend-delivery:payments",
+        "decision:D-07",
         "feature:events-before",
         "feature:payments",
         "frontend-requirements:events-before",
@@ -4495,6 +4499,7 @@
     },
     "s70": {
       "containers": [
+        "decision:D-07",
         "feature:subscription",
         "task:T-049",
         "task:T-049-be",
@@ -4503,6 +4508,7 @@
       "kind": "screen",
       "notes": [
         "backend-delivery:subscription",
+        "decision:D-07",
         "feature:subscription",
         "frontend-requirements:subscription",
         "story:T-049",
@@ -4633,7 +4639,7 @@
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
-      "decision": 6,
+      "decision": 7,
       "feature": 39,
       "frontend-requirements": 39,
       "module": 9,
@@ -4643,17 +4649,17 @@
     },
     "byLayer": {
       "backend": 56,
-      "business": 328,
+      "business": 329,
       "frontend": 43,
       "shared": 9
     },
     "concepts": 177,
-    "decisions": 6,
-    "edges": 4215,
+    "decisions": 7,
+    "edges": 4235,
     "features": 39,
     "layerNotes": 190,
     "modules": 9,
-    "notes": 471,
+    "notes": 472,
     "partial": 0,
     "placeholders": 145,
     "taskLayerNotes": 64,
@@ -4716,6 +4722,36 @@
     "warnings": []
   },
   "edges": [
+    {
+      "from": "decision:D-07",
+      "kind": "affects",
+      "to": "feature:payments"
+    },
+    {
+      "from": "decision:D-07",
+      "kind": "affects",
+      "to": "feature:subscription"
+    },
+    {
+      "from": "decision:D-07",
+      "kind": "affects",
+      "to": "module:payments-gateway"
+    },
+    {
+      "from": "decision:D-07",
+      "kind": "affects",
+      "to": "task:T-035"
+    },
+    {
+      "from": "decision:D-07",
+      "kind": "affects",
+      "to": "task:T-047"
+    },
+    {
+      "from": "decision:D-07",
+      "kind": "affects",
+      "to": "task:T-049"
+    },
     {
       "from": "project:agent-protocol",
       "kind": "affects",
@@ -6787,6 +6823,36 @@
       "to": "feature:profiles"
     },
     {
+      "from": "decision:D-07",
+      "kind": "decision",
+      "to": "feature:events-before"
+    },
+    {
+      "from": "decision:D-07",
+      "kind": "decision",
+      "to": "feature:payments"
+    },
+    {
+      "from": "decision:D-07",
+      "kind": "decision",
+      "to": "feature:subscription"
+    },
+    {
+      "from": "decision:D-07",
+      "kind": "decision",
+      "to": "task:T-035"
+    },
+    {
+      "from": "decision:D-07",
+      "kind": "decision",
+      "to": "task:T-047"
+    },
+    {
+      "from": "decision:D-07",
+      "kind": "decision",
+      "to": "task:T-049"
+    },
+    {
       "from": "project:backend-agent",
       "kind": "depends",
       "to": "project:agent-protocol"
@@ -8210,6 +8276,21 @@
       "from": "story:widgets",
       "kind": "flow",
       "to": "frontend-requirements:widgets"
+    },
+    {
+      "from": "decision:D-07",
+      "kind": "related",
+      "to": "feature:payments"
+    },
+    {
+      "from": "decision:D-07",
+      "kind": "related",
+      "to": "feature:subscription"
+    },
+    {
+      "from": "decision:D-07",
+      "kind": "related",
+      "to": "module:payments-gateway"
     },
     {
       "from": "feature:account",
@@ -19656,6 +19737,11 @@
     {
       "from": "task:T-035",
       "kind": "tree",
+      "to": "decision:D-07"
+    },
+    {
+      "from": "task:T-035",
+      "kind": "tree",
       "to": "story:T-035"
     },
     {
@@ -19831,6 +19917,11 @@
     {
       "from": "task:T-047",
       "kind": "tree",
+      "to": "decision:D-07"
+    },
+    {
+      "from": "task:T-047",
+      "kind": "tree",
       "to": "story:T-047"
     },
     {
@@ -19867,6 +19958,11 @@
       "from": "task:T-048b",
       "kind": "tree",
       "to": "task:T-048b-fe"
+    },
+    {
+      "from": "task:T-049",
+      "kind": "tree",
+      "to": "decision:D-07"
     },
     {
       "from": "task:T-049",
@@ -21062,6 +21158,11 @@
       "from": "decision:D-01",
       "kind": "wikilink",
       "to": "project:frontend-passwordless-migration"
+    },
+    {
+      "from": "decision:D-07",
+      "kind": "wikilink",
+      "to": "feature:audit-log"
     },
     {
       "from": "feature:audit-log",
@@ -24417,6 +24518,11 @@
       "from": "project:feature-graph",
       "kind": "wikilink",
       "to": "feature:widgets"
+    },
+    {
+      "from": "project:feature-tree",
+      "kind": "wikilink",
+      "to": "decision:D-07"
     },
     {
       "from": "project:feature-tree",
@@ -29067,6 +29173,10 @@
     },
     "decisions/D-06 Pin name rules.md": {
       "name": "D-06 Pin name rules",
+      "type": "decision"
+    },
+    "decisions/D-07 Payment provider.md": {
+      "name": "D-07 Payment provider",
       "type": "decision"
     },
     "decisions/Decisions.md": {
@@ -35113,6 +35223,72 @@
       "title": "D-06 Pin name rules",
       "updated": "2026-10-15"
     },
+    "decision:D-07": {
+      "affects": [
+        "module:payments-gateway",
+        "feature:payments",
+        "feature:subscription",
+        "task:T-047",
+        "task:T-035",
+        "task:T-049"
+      ],
+      "blockedBy": [],
+      "blocks": [
+        "task:T-047",
+        "task:T-035",
+        "task:T-049"
+      ],
+      "card": "D-07",
+      "children": [],
+      "code": "D-07",
+      "deadline": null,
+      "decider": "owner",
+      "depends": [],
+      "effectiveStatus": "approved",
+      "effort": null,
+      "feature": null,
+      "features": [
+        "events-before",
+        "payments",
+        "subscription"
+      ],
+      "frontendOnly": false,
+      "id": "decision:D-07",
+      "inherits": {},
+      "kind": "decision",
+      "label": "Decision",
+      "labels": [],
+      "layer": "business",
+      "module": null,
+      "parentTask": null,
+      "parents": [
+        "task:T-047",
+        "task:T-035",
+        "task:T-049"
+      ],
+      "path": "decisions/D-07 Payment provider.md",
+      "pending": [],
+      "priority": null,
+      "related": [
+        "module:payments-gateway",
+        "feature:payments",
+        "feature:subscription"
+      ],
+      "scope": null,
+      "screens": [
+        "s51",
+        "s70"
+      ],
+      "status": "approved",
+      "summary": "Which payment provider Social Pin moves money through, for every purchase in the product: an attendee's ticket, package or sub-event, an exhibitor's package and booth, a user's Pro account, and…",
+      "tags": [
+        "decision",
+        "decision/decided"
+      ],
+      "task": null,
+      "title": "D-07 Payment provider",
+      "updated": "2026-10-21"
+    },
     "feature:account": {
       "affects": [],
       "blockedBy": [],
@@ -36271,6 +36447,7 @@
         "project:spec-map"
       ],
       "rollup": {
+        "approved": 1,
         "blocked": 9,
         "draft": 4,
         "missing": 4,
@@ -36986,9 +37163,11 @@
         "project:ring-access-model",
         "project:architecture",
         "project:api-conventions",
-        "project:spec-map"
+        "project:spec-map",
+        "decision:D-07"
       ],
       "rollup": {
+        "approved": 1,
         "blocked": 2,
         "draft": 2,
         "missing": 4,
@@ -37733,9 +37912,11 @@
         "project:architecture",
         "project:api-conventions",
         "project:spec-map",
-        "feature:account"
+        "feature:account",
+        "decision:D-07"
       ],
       "rollup": {
+        "approved": 1,
         "blocked": 3,
         "draft": 2,
         "missing": 4,
@@ -41789,6 +41970,7 @@
       "priority": null,
       "related": [],
       "rollup": {
+        "approved": 1,
         "blocked": 5,
         "draft": 4,
         "missing": 8,
@@ -41945,6 +42127,7 @@
       "priority": null,
       "related": [],
       "rollup": {
+        "approved": 1,
         "blocked": 42,
         "draft": 17,
         "missing": 20,
@@ -42106,12 +42289,14 @@
       "path": "modules/Payments Gateway/Payments Gateway Module.md",
       "pending": [],
       "priority": null,
-      "related": [],
+      "related": [
+        "decision:D-07"
+      ],
       "rollup": {},
       "scope": null,
       "screens": [],
       "status": null,
-      "summary": "Stripe as the payment provider: checkout, webhooks, refunds, organizer payouts, Pro billing. This module holds the provider integration itself; what is bought (orders, tickets, the Pro plan) stays…",
+      "summary": "How money moves between the people of Social Pin. An attendee (visitor, sponsor or VIP) pays an organizer for a ticket, a package or access to a sub-event and gets into the event's Ring once the…",
       "tags": [
         "module",
         "module/payments-gateway"
@@ -46811,7 +46996,7 @@
       "priority": null,
       "related": [],
       "rollup": {
-        "approved": 1,
+        "approved": 2,
         "blocked": 178,
         "current": 9,
         "done": 12,
@@ -57552,7 +57737,8 @@
       "children": [
         "story:T-035",
         "task:T-035-be",
-        "task:T-035-fe"
+        "task:T-035-fe",
+        "decision:D-07"
       ],
       "code": "T-035",
       "deadline": null,
@@ -57582,6 +57768,7 @@
       "priority": "critical",
       "related": [],
       "rollup": {
+        "approved": 1,
         "blocked": 2,
         "draft": 1
       },
@@ -59701,7 +59888,8 @@
       "card": "T-047",
       "children": [
         "story:T-047",
-        "task:T-047-be"
+        "task:T-047-be",
+        "decision:D-07"
       ],
       "code": "T-047",
       "deadline": null,
@@ -59728,6 +59916,7 @@
       "priority": "high",
       "related": [],
       "rollup": {
+        "approved": 1,
         "draft": 1,
         "todo": 1
       },
@@ -60183,7 +60372,8 @@
       "children": [
         "story:T-049",
         "task:T-049-be",
-        "task:T-049-fe"
+        "task:T-049-fe",
+        "decision:D-07"
       ],
       "code": "T-049",
       "deadline": null,
@@ -60210,6 +60400,7 @@
       "priority": "high",
       "related": [],
       "rollup": {
+        "approved": 1,
         "blocked": 1,
         "draft": 1,
         "todo": 1

@@ -15,6 +15,8 @@ tags: [task, task/blocked, module/events, priority/critical]
 
 # ⛔ T-035 · Registration transaction with order and payment
 
+> ⚠ Affected by [[D-07 Payment provider]] (2026-10-21): the payment step of the registration is a Stripe checkout; still waits on T-034 and T-047.
+
 **Feature:** [[Events Before]] · **Status:** Blocked · **Priority:** Critical · **Effort:** L (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-035-fe Frontend · Registration transaction with order and payment|Frontend]] · [[T-035-be Backend · Registration transaction with order and payment|Backend]] · **Story:** [[T-035 Story]]
