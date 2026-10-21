@@ -210,7 +210,8 @@ main.stage { flex: 1; min-width: 0; position: relative; border-left: 1px solid v
 #p-summary { margin: 0; font-size: 16px; font-style: italic; line-height: 1.5; color: var(--color-neutral-800); text-wrap: pretty; font-family: var(--font-heading); }
 #p-summary:empty { display: none; }
 #p-state, #p-rels { display: flex; flex-direction: column; gap: 16px; }
-#p-state:empty, #p-rels:empty { display: none; }
+#p-state:empty, #p-rels:empty, #p-contains:empty { display: none; }
+#p-contains { padding-bottom: 22px; border-bottom: 1px solid var(--color-divider); }
 #p-rels { border-top: 1px solid var(--color-divider); padding-top: 18px; }
 #p-rels .section { font-family: var(--font-heading); font-weight: 600; font-size: 17px; letter-spacing: -.01em; margin: 0 0 -4px; }
 #p-rels .section span { font-family: var(--font-body, inherit); font-weight: 400; font-size: 12px; font-style: italic; color: var(--color-neutral-700); letter-spacing: 0; margin-left: 8px; }
@@ -218,16 +219,25 @@ main.stage { flex: 1; min-width: 0; position: relative; border-left: 1px solid v
 .relg .rt { font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--color-neutral-700); }
 .relg .rt span { font-weight: 400; color: var(--color-neutral-600); letter-spacing: 0; text-transform: none; }
 .relg .items { display: flex; flex-wrap: wrap; gap: 6px; }
+.relg .items > .paged { display: none; }
+.rel.more { border-style: dashed; color: var(--color-neutral-700); font-style: italic; }
+.rel.more:hover { color: var(--color-text); border-color: var(--color-neutral-500); }
 .relg .sub { font-size: 12px; font-style: italic; color: var(--color-neutral-700); width: 100%; margin: 2px 0 0; }
 .rel { display: inline-flex; align-items: center; gap: 7px; border: 1px solid var(--color-divider); background: var(--color-bg); padding: 3px 9px 3px 7px; border-radius: 2px; cursor: pointer; font-size: 13px; text-align: left; white-space: nowrap; max-width: 100%; overflow: hidden; color: var(--color-text); }
 .rel:hover { border-color: var(--color-accent); color: var(--color-accent-800); }
 .rel .dot { width: 7px; height: 7px; border-radius: 50%; flex: none; }
 .rel .lt { overflow: hidden; text-overflow: ellipsis; }
 .rel .why { font-size: 11px; font-style: italic; color: var(--color-neutral-600); }
-#p-fm { margin: 0; display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 16px; font-size: 13px; padding: 14px 16px; background: var(--color-bg); border-radius: 2px; }
+#p-fm { margin: 0; display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 0; font-size: 13px; padding: 14px 22px; background: var(--color-bg); border: 1px solid var(--color-divider); border-radius: var(--radius-lg); }
 #p-fm:empty { display: none; }
-#p-fm dt { color: var(--color-neutral-700); font-style: italic; }
-#p-fm dd { margin: 0; font-family: var(--mono); font-size: 12px; overflow-wrap: anywhere; }
+#p-fm dt, #p-fm dd { padding: 6px 0; min-height: 30px; line-height: 1.45; }
+#p-fm dt { color: var(--color-neutral-700); font-style: italic; font-family: var(--font-heading); font-size: 14px; padding-right: 26px; display: flex; align-items: center; }
+#p-fm dd { margin: 0; font-family: var(--mono); font-size: 12.5px; overflow-wrap: anywhere; color: var(--color-text); display: flex; align-items: center; }
+#p-fm dd > span.v { display: block; }
+#p-fm dd a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--color-neutral-500); }
+#p-fm dd a:hover { color: var(--color-accent); border-color: var(--color-accent); }
+#p-fm dd a.missing { color: var(--color-neutral-600); border-bottom-style: dotted; }
+#p-fm dd .sep { color: var(--color-neutral-600); }
 article { font-size: 15px; line-height: 1.6; overflow-wrap: break-word; }
 article h1, article h2, article h3, article h4 { font-family: var(--font-heading); font-weight: 600; line-height: 1.15; letter-spacing: -.015em; }
 article h1 { font-size: 24px; margin: 4px 0 14px; }
@@ -386,10 +396,11 @@ article .obsidian-only { border: 1px dashed var(--color-neutral-400); color: var
       <div class="acts"><a class="btn btn-primary" id="p-gh" target="_blank" rel="noopener"><i class="ph-duotone ph-pencil-simple-line"></i><span>Edit on GitHub</span></a><button class="btn btn-secondary" id="p-focus"><i class="ph-duotone ph-crosshair"></i>Show on canvas</button></div>
     </div>
     <div class="body">
+      <dl id="p-fm" aria-label="Properties"></dl>
+      <div id="p-contains"></div>
       <p id="p-summary"></p>
       <div id="p-state"></div>
       <article id="p-article"></article>
-      <dl id="p-fm"></dl>
       <div id="p-rels"></div>
     </div>
   </aside>
@@ -1210,11 +1221,14 @@ function openPane(head) {
   for (const l of head.labels || []) { const c = document.createElement('span'); c.className = 'stchip lbl-chip'; c.style.cssText = `--bg:${labelStyle(l).bg};--ink:${labelStyle(l).ink};--bd:${labelStyle(l).c};text-transform:uppercase;letter-spacing:.06em;font-weight:700;font-size:10px`; c.textContent = l; stc.after(c); }
   $('#p-path').textContent = head.path || ''; $('#p-gh').href = head.gh; $('#p-gh span').textContent = head.ghText;
   $('#p-focus').classList.toggle('hidden', !head.node);
-  $('#p-summary').textContent = head.summary || ''; $('#p-state').innerHTML = head.state || ''; $('#p-rels').innerHTML = head.rels || ''; $('#p-fm').innerHTML = ''; $('#p-article').innerHTML = '<p class="empty">Loading the note…</p>';
+  $('#p-summary').textContent = head.summary || ''; $('#p-state').innerHTML = head.state || ''; $('#p-rels').innerHTML = head.rels || ''; $('#p-contains').innerHTML = head.contains || ''; $('#p-fm').innerHTML = ''; $('#p-article').innerHTML = '<p class="empty">Loading the note…</p>';
   pane.scrollTop = 0;
 }
 function closePane() { pane.classList.add('hidden'); $('#rz-pane').classList.add('hidden'); S.pane = null; S.selected = null; $('#hints').classList.toggle('hidden', false); redraw(false); if (location.hash) history.replaceState(null, '', location.pathname + location.search); }
 const relItem = (id, extra = '') => { const o = node(id); return `<button class="rel" data-go="${esc(id)}" title="${esc(o.path || o.title)}"><span class="dot" style="background:${stOf(o).c}"></span><span class="lt">${esc(o.title)}</span>${extra}</button>`; };
+const PAGE = 10;
+// a list of chips that shows the first ten and reveals ten more per click until none are left
+const paged = (items) => items.length <= PAGE ? items.join('') : items.map((h, i) => i < PAGE ? h : `<span class="paged">${h}</span>`).join('') + `<button class="rel more" data-more="1"><span class="lt">Show ${Math.min(PAGE, items.length - PAGE)} more</span><span class="why">${items.length - PAGE} left</span></button>`;
 const relGroup = (title, count, inner, sub) => `<div class="relg"><div class="rt">${esc(title)}${count ? ` <span>${esc(count)}</span>` : ''}</div><div class="items">${inner}${sub ? `<div class="sub">${sub}</div>` : ''}</div></div>`;
 // what stops the card right now: shown first, under the summary, because it explains the chip
 function stateHtml(n) {
@@ -1225,20 +1239,24 @@ function stateHtml(n) {
   if (Array.isArray(n.pending) && n.pending.length) out.push(relGroup('Pending', String(n.pending.length), n.pending.map((p) => p.to ? relItem(p.to, `<span class="why">${esc(p.text)}</span>`) : `<span class="rel" style="cursor:default"><i class="ph-duotone ph-user" style="font-size:13px"></i>${p.person ? `<span class="lt">@${esc(p.person)}</span>` : ''}<span class="why">${esc(p.text)}</span></span>`).join(''), n.effectiveStatus === 'partial' ? 'Partial until these are cleared or handed over' : 'Notes left for a card or a person'));
   return out.join('');
 }
+// what the card holds, by status: shown right under the properties table
+function containsHtml(n) {
+  if (!n.rollup || !Object.keys(n.rollup).length) return '';
+  return relGroup('Contains', '', Object.entries(n.rollup).map(([s, c]) => `<span class="stchip${(ST[s] || {}).dashed ? ' dashed' : ''}" style="--bg:${(ST[s] || ST.todo).bg};--ink:${(ST[s] || ST.todo).ink};--bd:${(ST[s] || {}).dashed ? ST[s].c : 'transparent'}">${c} ${esc(legend(s))}</span>`).join(''));
+}
 // the card's relations: shown last, after the note and its frontmatter
 function relationsHtml(n) {
   const d = S.D, groups = {}, out = [];
   for (const e of d.edges) { if (e.kind === 'tree') continue; let other = null, dir = ''; if (e.from === n.id) { other = e.to; dir = '→'; } else if (e.to === n.id) { other = e.from; dir = '←'; } else continue; (groups[e.kind] ||= []).push({ other, dir, via: e.via || null }); }
   const parents = n.parents.filter((p) => node(p).kind !== 'root');
-  if (parents.length) out.push(relGroup('In the tree under', '', parents.map((p) => relItem(p)).join('')));
-  if (n.depends && n.depends.length) out.push(relGroup('Depends on', String(n.depends.length), n.depends.map((x) => relItem(x)).join('')));
+  if (parents.length) out.push(relGroup('In the tree under', '', paged(parents.map((p) => relItem(p)))));
+  if (n.depends && n.depends.length) out.push(relGroup('Depends on', String(n.depends.length), paged(n.depends.map((x) => relItem(x)))));
   for (const k of EDGE_KINDS) {
     if (k === 'depends' || k === 'blocks') continue; const l = groups[k]; if (!l) continue;
     const arrow = EDGE[k].arrow;
-    out.push(relGroup(EDGE[k].name.replace(/ \(.*\)$/, ''), String(l.length), l.slice(0, 40).map(({ other, dir, via }) => relItem(other, (arrow ? `<span class="why">${dir}</span>` : '') + (via ? `<span class="why">${esc(via.slice(0, 2).join(', '))}${via.length > 2 ? ` +${via.length - 2}` : ''}</span>` : ''))).join('') + (l.length > 40 ? `<span class="why">+${l.length - 40} more</span>` : '')));
+    out.push(relGroup(EDGE[k].name.replace(/ \(.*\)$/, ''), String(l.length), paged(l.map(({ other, dir, via }) => relItem(other, (arrow ? `<span class="why">${dir}</span>` : '') + (via ? `<span class="why">${esc(via.slice(0, 2).join(', '))}${via.length > 2 ? ` +${via.length - 2}` : ''}</span>` : ''))))));
   }
   out.push(impactHtml(n));
-  if (n.rollup && Object.keys(n.rollup).length) out.push(relGroup('Contains', '', Object.entries(n.rollup).map(([s, c]) => `<span class="stchip${(ST[s] || {}).dashed ? ' dashed' : ''}" style="--bg:${(ST[s] || ST.todo).bg};--ink:${(ST[s] || ST.todo).ink};--bd:${(ST[s] || {}).dashed ? ST[s].c : 'transparent'}">${c} ${esc(legend(s))}</span>`).join('')));
   if (!out.length) return '';
   return `<h3 class="section">Relations<span>${n.card ? esc(n.card) + ' · ' : ''}what this card is connected to</span></h3>` + out.join('');
 }
@@ -1250,14 +1268,14 @@ function impactHtml(n) {
   const second = hop([...first.keys()]); for (const id of first.keys()) second.delete(id);
   if (!first.size) return '';
   const byLayer = (map) => { const g = new Map(); for (const [id, why] of map) { const l = node(id).layer || 'business'; if (!g.has(l)) g.set(l, []); g.get(l).push([id, why]); } return [...g.entries()].sort(); };
-  const render = (map) => byLayer(map).map(([l, list]) => `<div class="relg"><div class="group-title">${LAYER[l] && LAYER[l].color ? `<span class="ld" style="background:${LAYER[l].color}"></span>` : ''}${esc(LAYER[l] ? LAYER[l].label : l)}</div><div class="items">` + list.sort((a, b) => node(a[0]).title.localeCompare(node(b[0]).title)).slice(0, 30).map(([id, why]) => { const o = node(id); return `<button class="rel" data-go="${esc(id)}" title="${esc([...why].join('; '))}"><span class="dot" style="background:${stOf(o).c}"></span><span class="lt">${esc(o.title)}</span></button>`; }).join('') + (list.length > 30 ? `<span class="why">+${list.length - 30} more</span>` : '') + '</div></div>').join('');
+  const render = (map) => byLayer(map).map(([l, list]) => `<div class="relg"><div class="group-title">${LAYER[l] && LAYER[l].color ? `<span class="ld" style="background:${LAYER[l].color}"></span>` : ''}${esc(LAYER[l] ? LAYER[l].label : l)}</div><div class="items">` + paged(list.sort((a, b) => node(a[0]).title.localeCompare(node(b[0]).title)).map(([id, why]) => { const o = node(id); return `<button class="rel" data-go="${esc(id)}" title="${esc([...why].join('; '))}"><span class="dot" style="background:${stOf(o).c}"></span><span class="lt">${esc(o.title)}</span></button>`; })) + '</div></div>').join('');
   return `<div class="relg"><div class="rt">Impact <span>what a change here touches, as --impact prints it</span></div>${render(first)}</div>` + (second.size ? `<div class="relg"><div class="rt">Two hops away <span>${second.size}</span></div>${render(second)}</div>` : '');
 }
 async function openNode(id) {
   const n = node(id), k = kindOf(n.kind);
   const path = n.path || n.file || null;
   const st = stOf(n);
-  openPane({ id, node: true, icon: k.icon, kicker: kicker(n) + (n.layer && LAYER[n.layer] && KIND[n.kind] && KIND[n.kind].layer ? ' · ' + LAYER[n.layer].label + ' layer' : '') , title: n.title, path: path || '', gh: path ? ghUrl(path) : (n.template ? ghUrl(n.template) : (S.D.repo.blobBase || '')), ghText: path ? 'Edit on GitHub' : 'Open the template', summary: n.summary || '', state: stateHtml(n), rels: relationsHtml(n), chip: chipStyle(n), dashed: st.dashed, status: statusText(n), labels: n.labels || [], marks: marksHtml(n, true) });
+  openPane({ id, node: true, icon: k.icon, kicker: kicker(n) + (n.layer && LAYER[n.layer] && KIND[n.kind] && KIND[n.kind].layer ? ' · ' + LAYER[n.layer].label + ' layer' : '') , title: n.title, path: path || '', gh: path ? ghUrl(path) : (n.template ? ghUrl(n.template) : (S.D.repo.blobBase || '')), ghText: path ? 'Edit on GitHub' : 'Open the template', summary: n.summary || '', state: stateHtml(n), contains: containsHtml(n), rels: relationsHtml(n), chip: chipStyle(n), dashed: st.dashed, status: statusText(n), labels: n.labels || [], marks: marksHtml(n, true) });
   if (!path) { $('#p-article').innerHTML = `<p class="empty">Not written yet.${n.template ? ` Create it from <a href="#f/${encodeURIComponent(n.template)}">${esc(n.template)}</a>.` : ''}</p>`; return; }
   await renderFile(path, n.heading, id);
 }
@@ -1273,13 +1291,15 @@ async function renderFile(path, heading, forId) {
   const art = $('#p-article');
   if (got.text === null) { art.innerHTML = `<p class="empty">Could not load <code>${esc(path)}</code> from any of these places:</p><ul class="empty">${got.tried.map((t) => `<li><code>${esc(t)}</code></li>`).join('')}</ul><p class="empty"><a href="${ghUrl(path)}" target="_blank" rel="noopener">Open it on GitHub</a>.</p>`; return; }
   const { data, body } = splitFrontmatter(got.text);
-  $('#p-fm').innerHTML = data ? Object.entries(data).map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(Array.isArray(v) ? v.join(', ') : String(v))}</dd>`).join('') : '';
+  $('#p-fm').innerHTML = data ? Object.entries(data).map(([k, v]) => `<dt>${esc(k)}</dt><dd>${fmValue(k, v)}</dd>`).join('') : '';
   art.innerHTML = md(body, path);
   art.querySelectorAll('pre > code.language-dataview').forEach((c) => { const dv = document.createElement('div'); dv.className = 'obsidian-only'; dv.textContent = 'Dataview query — renders in Obsidian only'; c.parentElement.replaceWith(dv); });
   art.querySelectorAll('h1,h2,h3,h4,h5,h6').forEach((h) => { h.id = slug(h.textContent); });
   if (heading) { const core = (t) => slug(t.replace(/^[\d.]+\s*/, '').replace(/\s*\(.*?\)\s*$/, '')); const want = core(heading); const hs = [...art.querySelectorAll('h1,h2,h3,h4,h5,h6')]; const h = hs.find((x) => x.id === slug(heading)) || hs.find((x) => core(x.textContent) === want) || hs.find((x) => core(x.textContent).includes(want) || want.includes(core(x.textContent))); if (h) pane.scrollTop = h.offsetTop - 160; }
 }
 pane.addEventListener('click', (e) => {
+  const more = e.target.closest('[data-more]');
+  if (more) { const hidden = [...more.parentElement.querySelectorAll(':scope > .paged')]; hidden.slice(0, PAGE).forEach((w) => w.replaceWith(...w.childNodes)); const left = hidden.length - PAGE; if (left > 0) { more.querySelector('.lt').textContent = `Show ${Math.min(PAGE, left)} more`; more.querySelector('.why').textContent = `${left} left`; } else more.remove(); return; }
   const go = e.target.closest('[data-go]'); if (go) { select(go.dataset.go); return; }
   const a = e.target.closest('a'); if (!a) return; const href = a.getAttribute('href') || '';
   if (href.startsWith('#n/')) { e.preventDefault(); select(decodeURIComponent(href.slice(3))); }
@@ -1304,10 +1324,38 @@ function splitFrontmatter(text) {
     if (lines[i].trim() === '---') return { data, body: lines.slice(i + 1).join('\n') };
     const m = /^([\w-]+):\s*(.*)$/.exec(lines[i]); if (!m) continue;
     let v = m[2].trim();
-    if (v.startsWith('[') && v.endsWith(']')) v = v.slice(1, -1).split(',').map((x) => x.trim().replace(/^["']|["']$/g, '')).filter(Boolean); else v = v.replace(/^["']|["']$/g, '');
+    if (v.startsWith('[') && v.endsWith(']')) v = splitList(v.slice(1, -1)).map((x) => x.trim().replace(/^["']|["']$/g, '')).filter(Boolean); else v = v.replace(/^["']|["']$/g, '');
     data[m[1]] = v;
   }
   return { data: null, body: text };
+}
+// one inline-list item per comma, leaving commas inside [[...]] and quotes alone
+function splitList(s) {
+  const out = []; let cur = '', depth = 0, q = null;
+  for (const ch of s) {
+    if (q) { cur += ch; if (ch === q) q = null; continue; }
+    if (ch === '"' || ch === "'") { q = ch; cur += ch; continue; }
+    if (ch === '[') depth++; else if (ch === ']') depth = Math.max(0, depth - 1);
+    if (ch === ',' && depth === 0) { out.push(cur); cur = ''; continue; }
+    cur += ch;
+  }
+  out.push(cur); return out;
+}
+// a frontmatter value as the properties table shows it: wikilinks, card codes and ids become card links, lists read "a, b, c"
+const PLAIN_KEYS = new Set(["type", "id", "name", "code", "status", "priority", "effort", "deadline", "created", "updated", "owner", "decider", "tags", "labels", "screens", "scope", "layer", "frontendOnly", "pending"]);
+function fmLink(key, t) {
+  if (PLAIN_KEYS.has(key)) return null;
+  const d = S.D;
+  const id = (d.cards || {})[t] || (key === "module" && d.nodes["module:" + t] ? "module:" + t : null) || (d.nodes["feature:" + t] ? "feature:" + t : null) || (d.nodes["task:" + t] ? "task:" + t : null) || (d.byName || {})[t] || null;
+  return id && d.nodes[id] ? "#n/" + encodeURIComponent(id) : null;
+}
+function fmValue(key, v) {
+  const one = (x) => {
+    const t = String(x).trim(); const m = /^\[\[([^\]]+?)\]\]$/.exec(t);
+    if (m) { const w = wikiHref(m[1]); return "<a class=\"" + w.cls + "\" href=\"" + w.href + "\">" + esc(w.label) + "</a>"; }
+    const href = fmLink(key, t); return href ? "<a href=\"" + href + "\">" + esc(t) + "</a>" : esc(t);
+  };
+  return "<span class=\"v\">" + (Array.isArray(v) ? v.map(one).join("<span class=\"sep\">, </span>") : one(v)) + "</span>";
 }
 function wikiHref(inner) {
   const s = inner.replace(/\\\|/g, '|');
