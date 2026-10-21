@@ -449,10 +449,15 @@
     "T-055-be Backend · Run the e2e suite in CI against PostGIS": "task:T-055-be",
     "T-056 Decide passwordless login": "task:T-056",
     "T-057 Decide base profile work fields": "task:T-057",
+    "T-057 Story": "story:T-057",
     "T-058 Decide field library vs per-Ring copies": "task:T-058",
+    "T-058 Story": "story:T-058",
     "T-059 Decide Ring settings": "task:T-059",
+    "T-059 Story": "story:T-059",
     "T-060 Decide copy or inherit": "task:T-060",
+    "T-060 Story": "story:T-060",
     "T-061 Decide Pin name rules": "task:T-061",
+    "T-061 Story": "story:T-061",
     "T-062 Serve uploaded file bytes by id": "task:T-062",
     "T-062 Story": "story:T-062",
     "T-062-be Backend · Serve uploaded file bytes by id": "task:T-062-be",
@@ -665,6 +670,11 @@
     "S-08": "story:onboarding-imports",
     "S-09": "story:T-020",
     "S-10": "story:T-020b",
+    "S-100": "story:T-057",
+    "S-101": "story:T-061",
+    "S-102": "story:T-058",
+    "S-103": "story:T-060",
+    "S-104": "story:T-059",
     "S-11": "story:photo-library",
     "S-12": "story:T-012",
     "S-13": "story:T-013",
@@ -2986,6 +2996,7 @@
         "decision:D-06",
         "feature:auth",
         "feature:profiles",
+        "task:T-057",
         "task:T-061"
       ],
       "kind": "screen",
@@ -3000,6 +3011,8 @@
         "feature:profiles",
         "frontend-requirements:auth",
         "frontend-requirements:profiles",
+        "story:T-057",
+        "story:T-061",
         "story:auth",
         "story:profiles",
         "task:T-061"
@@ -3029,7 +3042,8 @@
     "s08": {
       "containers": [
         "feature:auth",
-        "feature:rings"
+        "feature:rings",
+        "task:T-059"
       ],
       "kind": "screen",
       "notes": [
@@ -3041,6 +3055,7 @@
         "feature:rings",
         "frontend-requirements:auth",
         "frontend-requirements:rings",
+        "story:T-059",
         "story:auth",
         "story:rings"
       ],
@@ -3048,7 +3063,8 @@
     },
     "s09": {
       "containers": [
-        "feature:rings"
+        "feature:rings",
+        "task:T-059"
       ],
       "kind": "screen",
       "notes": [
@@ -3056,6 +3072,7 @@
         "backend-integration:rings",
         "feature:rings",
         "frontend-requirements:rings",
+        "story:T-059",
         "story:rings"
       ],
       "owner": null
@@ -3142,6 +3159,8 @@
         "task:T-004",
         "task:T-004-be",
         "task:T-004-fe",
+        "task:T-058",
+        "task:T-060",
         "task:T-062",
         "task:T-062-be",
         "task:T-062-fe"
@@ -3160,6 +3179,8 @@
         "frontend-requirements:files",
         "frontend-requirements:ring-projection",
         "story:T-004",
+        "story:T-058",
+        "story:T-060",
         "story:T-062",
         "story:counts",
         "story:files",
@@ -3193,7 +3214,8 @@
         "feature:rings",
         "task:T-004",
         "task:T-004-be",
-        "task:T-004-fe"
+        "task:T-004-fe",
+        "task:T-059"
       ],
       "kind": "screen",
       "notes": [
@@ -3205,6 +3227,7 @@
         "frontend-requirements:counts",
         "frontend-requirements:rings",
         "story:T-004",
+        "story:T-059",
         "story:counts",
         "story:rings",
         "task:T-004",
@@ -3220,7 +3243,8 @@
         "feature:rings",
         "task:T-026",
         "task:T-026-be",
-        "task:T-026-fe"
+        "task:T-026-fe",
+        "task:T-059"
       ],
       "kind": "screen",
       "notes": [
@@ -3235,6 +3259,7 @@
         "frontend-requirements:ring-invitations",
         "frontend-requirements:rings",
         "story:T-026",
+        "story:T-059",
         "story:counts",
         "story:ring-invitations",
         "story:rings",
@@ -3247,7 +3272,8 @@
     "s18": {
       "containers": [
         "decision:D-05",
-        "feature:rings"
+        "feature:rings",
+        "task:T-059"
       ],
       "kind": "screen",
       "notes": [
@@ -3256,6 +3282,7 @@
         "decision:D-05",
         "feature:rings",
         "frontend-requirements:rings",
+        "story:T-059",
         "story:rings"
       ],
       "owner": null
@@ -3263,7 +3290,8 @@
     "s19": {
       "containers": [
         "decision:D-04",
-        "feature:rings"
+        "feature:rings",
+        "task:T-059"
       ],
       "kind": "screen",
       "notes": [
@@ -3272,6 +3300,7 @@
         "decision:D-04",
         "feature:rings",
         "frontend-requirements:rings",
+        "story:T-059",
         "story:rings"
       ],
       "owner": null
@@ -3281,7 +3310,10 @@
         "decision:D-03",
         "feature:files",
         "feature:ring-projection",
-        "feature:rings"
+        "feature:rings",
+        "task:T-058",
+        "task:T-059",
+        "task:T-060"
       ],
       "kind": "screen",
       "notes": [
@@ -3298,6 +3330,9 @@
         "frontend-requirements:files",
         "frontend-requirements:ring-projection",
         "frontend-requirements:rings",
+        "story:T-058",
+        "story:T-059",
+        "story:T-060",
         "story:files",
         "story:ring-projection",
         "story:rings"
@@ -3306,7 +3341,8 @@
     },
     "s21": {
       "containers": [
-        "feature:rings"
+        "feature:rings",
+        "task:T-059"
       ],
       "kind": "screen",
       "notes": [
@@ -3314,6 +3350,7 @@
         "backend-integration:rings",
         "feature:rings",
         "frontend-requirements:rings",
+        "story:T-059",
         "story:rings"
       ],
       "owner": null
@@ -3321,7 +3358,8 @@
     "s22": {
       "containers": [
         "decision:D-04",
-        "feature:rings"
+        "feature:rings",
+        "task:T-059"
       ],
       "kind": "screen",
       "notes": [
@@ -3330,6 +3368,7 @@
         "decision:D-04",
         "feature:rings",
         "frontend-requirements:rings",
+        "story:T-059",
         "story:rings"
       ],
       "owner": null
@@ -3338,7 +3377,9 @@
       "containers": [
         "decision:D-02",
         "decision:D-05",
-        "feature:ring-projection"
+        "feature:ring-projection",
+        "task:T-058",
+        "task:T-060"
       ],
       "kind": "screen",
       "notes": [
@@ -3348,6 +3389,8 @@
         "decision:D-05",
         "feature:ring-projection",
         "frontend-requirements:ring-projection",
+        "story:T-058",
+        "story:T-060",
         "story:ring-projection"
       ],
       "owner": null
@@ -3356,7 +3399,8 @@
       "containers": [
         "decision:D-03",
         "feature:ring-projection",
-        "task:T-058"
+        "task:T-058",
+        "task:T-060"
       ],
       "kind": "screen",
       "notes": [
@@ -3365,6 +3409,8 @@
         "decision:D-03",
         "feature:ring-projection",
         "frontend-requirements:ring-projection",
+        "story:T-058",
+        "story:T-060",
         "story:ring-projection",
         "task:T-058"
       ],
@@ -3372,7 +3418,9 @@
     },
     "s25": {
       "containers": [
-        "feature:ring-projection"
+        "feature:ring-projection",
+        "task:T-058",
+        "task:T-060"
       ],
       "kind": "screen",
       "notes": [
@@ -3380,6 +3428,8 @@
         "backend-integration:ring-projection",
         "feature:ring-projection",
         "frontend-requirements:ring-projection",
+        "story:T-058",
+        "story:T-060",
         "story:ring-projection"
       ],
       "owner": null
@@ -3391,7 +3441,8 @@
         "feature:rings",
         "task:T-006",
         "task:T-006-be",
-        "task:T-006-fe"
+        "task:T-006-fe",
+        "task:T-059"
       ],
       "kind": "screen",
       "notes": [
@@ -3404,6 +3455,7 @@
         "frontend-requirements:delegated-admins",
         "frontend-requirements:rings",
         "story:T-006",
+        "story:T-059",
         "story:delegated-admins",
         "story:rings",
         "task:T-006",
@@ -3454,6 +3506,8 @@
         "decision:D-05",
         "feature:photo-library",
         "feature:ring-projection",
+        "task:T-058",
+        "task:T-060",
         "task:T-062",
         "task:T-062-be",
         "task:T-062-fe"
@@ -3469,6 +3523,8 @@
         "feature:ring-projection",
         "frontend-requirements:photo-library",
         "frontend-requirements:ring-projection",
+        "story:T-058",
+        "story:T-060",
         "story:T-062",
         "story:photo-library",
         "story:ring-projection",
@@ -3579,7 +3635,9 @@
         "feature:widgets",
         "task:T-018",
         "task:T-018-be",
-        "task:T-018-fe"
+        "task:T-018-fe",
+        "task:T-058",
+        "task:T-060"
       ],
       "kind": "screen",
       "notes": [
@@ -3595,6 +3653,8 @@
         "frontend-requirements:ring-projection",
         "frontend-requirements:widgets",
         "story:T-018",
+        "story:T-058",
+        "story:T-060",
         "story:files",
         "story:ring-projection",
         "story:widgets",
@@ -4219,7 +4279,8 @@
         "feature:rings",
         "task:T-050",
         "task:T-050-be",
-        "task:T-050-fe"
+        "task:T-050-fe",
+        "task:T-059"
       ],
       "kind": "screen",
       "notes": [
@@ -4234,6 +4295,7 @@
         "frontend-requirements:post-event",
         "frontend-requirements:rings",
         "story:T-050",
+        "story:T-059",
         "story:connections",
         "story:post-event",
         "story:rings",
@@ -4576,25 +4638,25 @@
       "frontend-requirements": 39,
       "module": 9,
       "project": 26,
-      "story": 98,
+      "story": 103,
       "task": 175
     },
     "byLayer": {
       "backend": 56,
-      "business": 323,
+      "business": 328,
       "frontend": 43,
       "shared": 9
     },
     "concepts": 177,
     "decisions": 6,
-    "edges": 4167,
+    "edges": 4215,
     "features": 39,
-    "layerNotes": 185,
+    "layerNotes": 190,
     "modules": 9,
-    "notes": 466,
+    "notes": 471,
     "partial": 0,
     "placeholders": 145,
-    "taskLayerNotes": 59,
+    "taskLayerNotes": 64,
     "tasks": 175
   },
   "deadlines": {
@@ -10109,6 +10171,22 @@
       ]
     },
     {
+      "from": "story:profiles",
+      "kind": "related",
+      "to": "story:T-057",
+      "via": [
+        "sum-of"
+      ]
+    },
+    {
+      "from": "story:profiles",
+      "kind": "related",
+      "to": "story:T-061",
+      "via": [
+        "sum-of"
+      ]
+    },
+    {
       "from": "story:ring-invitations",
       "kind": "related",
       "to": "story:T-026",
@@ -10128,6 +10206,30 @@
       "from": "story:ring-invitations",
       "kind": "related",
       "to": "story:T-028",
+      "via": [
+        "sum-of"
+      ]
+    },
+    {
+      "from": "story:ring-projection",
+      "kind": "related",
+      "to": "story:T-058",
+      "via": [
+        "sum-of"
+      ]
+    },
+    {
+      "from": "story:ring-projection",
+      "kind": "related",
+      "to": "story:T-060",
+      "via": [
+        "sum-of"
+      ]
+    },
+    {
+      "from": "story:rings",
+      "kind": "related",
+      "to": "story:T-059",
       "via": [
         "sum-of"
       ]
@@ -11535,6 +11637,14 @@
       "to": "project:status-report-2026-10-15",
       "via": [
         "GET /rings",
+        "GET /views/ring/:ringId"
+      ]
+    },
+    {
+      "from": "feature:badge-qr",
+      "kind": "shares",
+      "to": "task:T-008",
+      "via": [
         "GET /views/ring/:ringId"
       ]
     },
@@ -14662,6 +14772,14 @@
       ]
     },
     {
+      "from": "feature:interests",
+      "kind": "shares",
+      "to": "task:T-016",
+      "via": [
+        "GET /interests"
+      ]
+    },
+    {
       "from": "feature:linked-accounts",
       "kind": "shares",
       "to": "feature:notifications",
@@ -14783,6 +14901,14 @@
       "to": "project:status-report-2026-10-15",
       "via": [
         "POST /auth/sign-up"
+      ]
+    },
+    {
+      "from": "feature:linked-accounts",
+      "kind": "shares",
+      "to": "task:T-019",
+      "via": [
+        "POST /auth/login/verify"
       ]
     },
     {
@@ -15047,6 +15173,14 @@
       ]
     },
     {
+      "from": "feature:notifications",
+      "kind": "shares",
+      "to": "task:T-045",
+      "via": [
+        "GET /notifications"
+      ]
+    },
+    {
       "from": "feature:onboarding-imports",
       "kind": "shares",
       "to": "feature:photo-library",
@@ -15117,6 +15251,15 @@
         "GET /profiles/pin-name/:pinName/availability",
         "POST /auth/complete-registration",
         "POST /files"
+      ]
+    },
+    {
+      "from": "feature:onboarding-imports",
+      "kind": "shares",
+      "to": "task:T-020b",
+      "via": [
+        "s03a",
+        "s03b"
       ]
     },
     {
@@ -15322,6 +15465,14 @@
       "via": [
         "PATCH /rings/:ringId/projection",
         "POST /files"
+      ]
+    },
+    {
+      "from": "feature:photo-library",
+      "kind": "shares",
+      "to": "task:T-012",
+      "via": [
+        "GET /files"
       ]
     },
     {
@@ -16928,11 +17079,6 @@
       "to": "story:audit-log"
     },
     {
-      "from": "feature:audit-log",
-      "kind": "tree",
-      "to": "task:T-053"
-    },
-    {
       "from": "feature:auth",
       "kind": "tree",
       "to": "backend-delivery:auth"
@@ -16973,11 +17119,6 @@
       "to": "story:auth"
     },
     {
-      "from": "feature:auth",
-      "kind": "tree",
-      "to": "task:T-056"
-    },
-    {
       "from": "feature:badge-qr",
       "kind": "tree",
       "to": "backend-delivery:badge-qr"
@@ -17011,26 +17152,6 @@
       "from": "feature:badge-qr",
       "kind": "tree",
       "to": "story:badge-qr"
-    },
-    {
-      "from": "feature:badge-qr",
-      "kind": "tree",
-      "to": "task:T-007"
-    },
-    {
-      "from": "feature:badge-qr",
-      "kind": "tree",
-      "to": "task:T-008"
-    },
-    {
-      "from": "feature:badge-qr",
-      "kind": "tree",
-      "to": "task:T-009"
-    },
-    {
-      "from": "feature:badge-qr",
-      "kind": "tree",
-      "to": "task:T-010"
     },
     {
       "from": "feature:cleanup-jobs",
@@ -17068,11 +17189,6 @@
       "to": "story:cleanup-jobs"
     },
     {
-      "from": "feature:cleanup-jobs",
-      "kind": "tree",
-      "to": "task:T-054"
-    },
-    {
       "from": "feature:code-delivery",
       "kind": "tree",
       "to": "backend-delivery:code-delivery"
@@ -17106,21 +17222,6 @@
       "from": "feature:code-delivery",
       "kind": "tree",
       "to": "story:code-delivery"
-    },
-    {
-      "from": "feature:code-delivery",
-      "kind": "tree",
-      "to": "task:T-001"
-    },
-    {
-      "from": "feature:code-delivery",
-      "kind": "tree",
-      "to": "task:T-002"
-    },
-    {
-      "from": "feature:code-delivery",
-      "kind": "tree",
-      "to": "task:T-003"
     },
     {
       "from": "feature:companies",
@@ -17163,11 +17264,6 @@
       "to": "story:companies"
     },
     {
-      "from": "feature:companies",
-      "kind": "tree",
-      "to": "task:T-029"
-    },
-    {
       "from": "feature:connections",
       "kind": "tree",
       "to": "backend-delivery:connections"
@@ -17203,31 +17299,6 @@
       "to": "story:connections"
     },
     {
-      "from": "feature:connections",
-      "kind": "tree",
-      "to": "task:T-021"
-    },
-    {
-      "from": "feature:connections",
-      "kind": "tree",
-      "to": "task:T-022"
-    },
-    {
-      "from": "feature:connections",
-      "kind": "tree",
-      "to": "task:T-023"
-    },
-    {
-      "from": "feature:connections",
-      "kind": "tree",
-      "to": "task:T-024"
-    },
-    {
-      "from": "feature:connections",
-      "kind": "tree",
-      "to": "task:T-025"
-    },
-    {
       "from": "feature:counts",
       "kind": "tree",
       "to": "backend-delivery:counts"
@@ -17261,16 +17332,6 @@
       "from": "feature:counts",
       "kind": "tree",
       "to": "story:counts"
-    },
-    {
-      "from": "feature:counts",
-      "kind": "tree",
-      "to": "task:T-004"
-    },
-    {
-      "from": "feature:counts",
-      "kind": "tree",
-      "to": "task:T-005"
     },
     {
       "from": "feature:delegated-admins",
@@ -17313,11 +17374,6 @@
       "to": "story:delegated-admins"
     },
     {
-      "from": "feature:delegated-admins",
-      "kind": "tree",
-      "to": "task:T-006"
-    },
-    {
       "from": "feature:devices",
       "kind": "tree",
       "to": "backend-delivery:devices"
@@ -17351,16 +17407,6 @@
       "from": "feature:devices",
       "kind": "tree",
       "to": "story:devices"
-    },
-    {
-      "from": "feature:devices",
-      "kind": "tree",
-      "to": "task:T-014"
-    },
-    {
-      "from": "feature:devices",
-      "kind": "tree",
-      "to": "task:T-015"
     },
     {
       "from": "feature:discover-hub",
@@ -17398,16 +17444,6 @@
       "to": "story:discover-hub"
     },
     {
-      "from": "feature:discover-hub",
-      "kind": "tree",
-      "to": "task:T-030"
-    },
-    {
-      "from": "feature:discover-hub",
-      "kind": "tree",
-      "to": "task:T-031"
-    },
-    {
       "from": "feature:e2e-tests",
       "kind": "tree",
       "to": "backend-delivery:e2e-tests"
@@ -17441,11 +17477,6 @@
       "from": "feature:e2e-tests",
       "kind": "tree",
       "to": "story:e2e-tests"
-    },
-    {
-      "from": "feature:e2e-tests",
-      "kind": "tree",
-      "to": "task:T-055"
     },
     {
       "from": "feature:error-contract",
@@ -17483,16 +17514,6 @@
       "to": "story:error-contract"
     },
     {
-      "from": "feature:error-contract",
-      "kind": "tree",
-      "to": "task:T-063"
-    },
-    {
-      "from": "feature:error-contract",
-      "kind": "tree",
-      "to": "task:T-064"
-    },
-    {
       "from": "feature:event-ring-auto",
       "kind": "tree",
       "to": "backend-delivery:event-ring-auto"
@@ -17526,11 +17547,6 @@
       "from": "feature:event-ring-auto",
       "kind": "tree",
       "to": "story:event-ring-auto"
-    },
-    {
-      "from": "feature:event-ring-auto",
-      "kind": "tree",
-      "to": "task:T-011"
     },
     {
       "from": "feature:events-before",
@@ -17568,21 +17584,6 @@
       "to": "story:events-before"
     },
     {
-      "from": "feature:events-before",
-      "kind": "tree",
-      "to": "task:T-033"
-    },
-    {
-      "from": "feature:events-before",
-      "kind": "tree",
-      "to": "task:T-034"
-    },
-    {
-      "from": "feature:events-before",
-      "kind": "tree",
-      "to": "task:T-035"
-    },
-    {
       "from": "feature:events-during",
       "kind": "tree",
       "to": "backend-delivery:events-during"
@@ -17616,31 +17617,6 @@
       "from": "feature:events-during",
       "kind": "tree",
       "to": "story:events-during"
-    },
-    {
-      "from": "feature:events-during",
-      "kind": "tree",
-      "to": "task:T-036"
-    },
-    {
-      "from": "feature:events-during",
-      "kind": "tree",
-      "to": "task:T-037"
-    },
-    {
-      "from": "feature:events-during",
-      "kind": "tree",
-      "to": "task:T-038"
-    },
-    {
-      "from": "feature:events-during",
-      "kind": "tree",
-      "to": "task:T-039"
-    },
-    {
-      "from": "feature:events-during",
-      "kind": "tree",
-      "to": "task:T-040"
     },
     {
       "from": "feature:exhibitor",
@@ -17678,16 +17654,6 @@
       "to": "story:exhibitor"
     },
     {
-      "from": "feature:exhibitor",
-      "kind": "tree",
-      "to": "task:T-048"
-    },
-    {
-      "from": "feature:exhibitor",
-      "kind": "tree",
-      "to": "task:T-048b"
-    },
-    {
       "from": "feature:files",
       "kind": "tree",
       "to": "backend-delivery:files"
@@ -17721,11 +17687,6 @@
       "from": "feature:files",
       "kind": "tree",
       "to": "story:files"
-    },
-    {
-      "from": "feature:files",
-      "kind": "tree",
-      "to": "task:T-062"
     },
     {
       "from": "feature:gemma",
@@ -17768,16 +17729,6 @@
       "to": "story:gemma"
     },
     {
-      "from": "feature:gemma",
-      "kind": "tree",
-      "to": "task:T-051"
-    },
-    {
-      "from": "feature:gemma",
-      "kind": "tree",
-      "to": "task:T-052"
-    },
-    {
       "from": "feature:interests",
       "kind": "tree",
       "to": "backend-delivery:interests"
@@ -17811,11 +17762,6 @@
       "from": "feature:interests",
       "kind": "tree",
       "to": "story:interests"
-    },
-    {
-      "from": "feature:interests",
-      "kind": "tree",
-      "to": "task:T-016"
     },
     {
       "from": "feature:linked-accounts",
@@ -17858,11 +17804,6 @@
       "to": "story:linked-accounts"
     },
     {
-      "from": "feature:linked-accounts",
-      "kind": "tree",
-      "to": "task:T-019"
-    },
-    {
       "from": "feature:meetings",
       "kind": "tree",
       "to": "backend-delivery:meetings"
@@ -17898,26 +17839,6 @@
       "to": "story:meetings"
     },
     {
-      "from": "feature:meetings",
-      "kind": "tree",
-      "to": "task:T-041"
-    },
-    {
-      "from": "feature:meetings",
-      "kind": "tree",
-      "to": "task:T-042"
-    },
-    {
-      "from": "feature:meetings",
-      "kind": "tree",
-      "to": "task:T-043"
-    },
-    {
-      "from": "feature:meetings",
-      "kind": "tree",
-      "to": "task:T-044"
-    },
-    {
       "from": "feature:notifications",
       "kind": "tree",
       "to": "backend-delivery:notifications"
@@ -17951,16 +17872,6 @@
       "from": "feature:notifications",
       "kind": "tree",
       "to": "story:notifications"
-    },
-    {
-      "from": "feature:notifications",
-      "kind": "tree",
-      "to": "task:T-045"
-    },
-    {
-      "from": "feature:notifications",
-      "kind": "tree",
-      "to": "task:T-046"
     },
     {
       "from": "feature:onboarding-imports",
@@ -18003,16 +17914,6 @@
       "to": "story:onboarding-imports"
     },
     {
-      "from": "feature:onboarding-imports",
-      "kind": "tree",
-      "to": "task:T-020"
-    },
-    {
-      "from": "feature:onboarding-imports",
-      "kind": "tree",
-      "to": "task:T-020b"
-    },
-    {
       "from": "feature:payments",
       "kind": "tree",
       "to": "backend-delivery:payments"
@@ -18046,11 +17947,6 @@
       "from": "feature:payments",
       "kind": "tree",
       "to": "story:payments"
-    },
-    {
-      "from": "feature:payments",
-      "kind": "tree",
-      "to": "task:T-047"
     },
     {
       "from": "feature:photo-library",
@@ -18098,16 +17994,6 @@
       "to": "story:photo-library"
     },
     {
-      "from": "feature:photo-library",
-      "kind": "tree",
-      "to": "task:T-012"
-    },
-    {
-      "from": "feature:photo-library",
-      "kind": "tree",
-      "to": "task:T-013"
-    },
-    {
       "from": "feature:pincast",
       "kind": "tree",
       "to": "backend-delivery:pincast"
@@ -18143,11 +18029,6 @@
       "to": "story:pincast"
     },
     {
-      "from": "feature:pincast",
-      "kind": "tree",
-      "to": "task:T-032"
-    },
-    {
       "from": "feature:post-event",
       "kind": "tree",
       "to": "backend-delivery:post-event"
@@ -18181,11 +18062,6 @@
       "from": "feature:post-event",
       "kind": "tree",
       "to": "story:post-event"
-    },
-    {
-      "from": "feature:post-event",
-      "kind": "tree",
-      "to": "task:T-050"
     },
     {
       "from": "feature:profiles",
@@ -18231,16 +18107,6 @@
       "from": "feature:profiles",
       "kind": "tree",
       "to": "story:profiles"
-    },
-    {
-      "from": "feature:profiles",
-      "kind": "tree",
-      "to": "task:T-057"
-    },
-    {
-      "from": "feature:profiles",
-      "kind": "tree",
-      "to": "task:T-061"
     },
     {
       "from": "feature:ring-access",
@@ -18316,21 +18182,6 @@
       "from": "feature:ring-invitations",
       "kind": "tree",
       "to": "story:ring-invitations"
-    },
-    {
-      "from": "feature:ring-invitations",
-      "kind": "tree",
-      "to": "task:T-026"
-    },
-    {
-      "from": "feature:ring-invitations",
-      "kind": "tree",
-      "to": "task:T-027"
-    },
-    {
-      "from": "feature:ring-invitations",
-      "kind": "tree",
-      "to": "task:T-028"
     },
     {
       "from": "feature:ring-members",
@@ -18423,16 +18274,6 @@
       "to": "story:ring-projection"
     },
     {
-      "from": "feature:ring-projection",
-      "kind": "tree",
-      "to": "task:T-058"
-    },
-    {
-      "from": "feature:ring-projection",
-      "kind": "tree",
-      "to": "task:T-060"
-    },
-    {
       "from": "feature:rings",
       "kind": "tree",
       "to": "backend-delivery:rings"
@@ -18478,11 +18319,6 @@
       "to": "story:rings"
     },
     {
-      "from": "feature:rings",
-      "kind": "tree",
-      "to": "task:T-059"
-    },
-    {
       "from": "feature:subscription",
       "kind": "tree",
       "to": "backend-delivery:subscription"
@@ -18516,11 +18352,6 @@
       "from": "feature:subscription",
       "kind": "tree",
       "to": "story:subscription"
-    },
-    {
-      "from": "feature:subscription",
-      "kind": "tree",
-      "to": "task:T-049"
     },
     {
       "from": "feature:view-as",
@@ -18596,16 +18427,6 @@
       "from": "feature:widgets",
       "kind": "tree",
       "to": "story:widgets"
-    },
-    {
-      "from": "feature:widgets",
-      "kind": "tree",
-      "to": "task:T-017"
-    },
-    {
-      "from": "feature:widgets",
-      "kind": "tree",
-      "to": "task:T-018"
     },
     {
       "from": "group:backend",
@@ -18996,6 +18817,336 @@
       "from": "root",
       "kind": "tree",
       "to": "module:shared-rings"
+    },
+    {
+      "from": "story:audit-log",
+      "kind": "tree",
+      "to": "task:T-053"
+    },
+    {
+      "from": "story:auth",
+      "kind": "tree",
+      "to": "task:T-056"
+    },
+    {
+      "from": "story:badge-qr",
+      "kind": "tree",
+      "to": "task:T-007"
+    },
+    {
+      "from": "story:badge-qr",
+      "kind": "tree",
+      "to": "task:T-008"
+    },
+    {
+      "from": "story:badge-qr",
+      "kind": "tree",
+      "to": "task:T-009"
+    },
+    {
+      "from": "story:badge-qr",
+      "kind": "tree",
+      "to": "task:T-010"
+    },
+    {
+      "from": "story:cleanup-jobs",
+      "kind": "tree",
+      "to": "task:T-054"
+    },
+    {
+      "from": "story:code-delivery",
+      "kind": "tree",
+      "to": "task:T-001"
+    },
+    {
+      "from": "story:code-delivery",
+      "kind": "tree",
+      "to": "task:T-002"
+    },
+    {
+      "from": "story:code-delivery",
+      "kind": "tree",
+      "to": "task:T-003"
+    },
+    {
+      "from": "story:companies",
+      "kind": "tree",
+      "to": "task:T-029"
+    },
+    {
+      "from": "story:connections",
+      "kind": "tree",
+      "to": "task:T-021"
+    },
+    {
+      "from": "story:connections",
+      "kind": "tree",
+      "to": "task:T-022"
+    },
+    {
+      "from": "story:connections",
+      "kind": "tree",
+      "to": "task:T-023"
+    },
+    {
+      "from": "story:connections",
+      "kind": "tree",
+      "to": "task:T-024"
+    },
+    {
+      "from": "story:connections",
+      "kind": "tree",
+      "to": "task:T-025"
+    },
+    {
+      "from": "story:counts",
+      "kind": "tree",
+      "to": "task:T-004"
+    },
+    {
+      "from": "story:counts",
+      "kind": "tree",
+      "to": "task:T-005"
+    },
+    {
+      "from": "story:delegated-admins",
+      "kind": "tree",
+      "to": "task:T-006"
+    },
+    {
+      "from": "story:devices",
+      "kind": "tree",
+      "to": "task:T-014"
+    },
+    {
+      "from": "story:devices",
+      "kind": "tree",
+      "to": "task:T-015"
+    },
+    {
+      "from": "story:discover-hub",
+      "kind": "tree",
+      "to": "task:T-030"
+    },
+    {
+      "from": "story:discover-hub",
+      "kind": "tree",
+      "to": "task:T-031"
+    },
+    {
+      "from": "story:e2e-tests",
+      "kind": "tree",
+      "to": "task:T-055"
+    },
+    {
+      "from": "story:error-contract",
+      "kind": "tree",
+      "to": "task:T-063"
+    },
+    {
+      "from": "story:error-contract",
+      "kind": "tree",
+      "to": "task:T-064"
+    },
+    {
+      "from": "story:event-ring-auto",
+      "kind": "tree",
+      "to": "task:T-011"
+    },
+    {
+      "from": "story:events-before",
+      "kind": "tree",
+      "to": "task:T-033"
+    },
+    {
+      "from": "story:events-before",
+      "kind": "tree",
+      "to": "task:T-034"
+    },
+    {
+      "from": "story:events-before",
+      "kind": "tree",
+      "to": "task:T-035"
+    },
+    {
+      "from": "story:events-during",
+      "kind": "tree",
+      "to": "task:T-036"
+    },
+    {
+      "from": "story:events-during",
+      "kind": "tree",
+      "to": "task:T-037"
+    },
+    {
+      "from": "story:events-during",
+      "kind": "tree",
+      "to": "task:T-038"
+    },
+    {
+      "from": "story:events-during",
+      "kind": "tree",
+      "to": "task:T-039"
+    },
+    {
+      "from": "story:events-during",
+      "kind": "tree",
+      "to": "task:T-040"
+    },
+    {
+      "from": "story:exhibitor",
+      "kind": "tree",
+      "to": "task:T-048"
+    },
+    {
+      "from": "story:exhibitor",
+      "kind": "tree",
+      "to": "task:T-048b"
+    },
+    {
+      "from": "story:files",
+      "kind": "tree",
+      "to": "task:T-062"
+    },
+    {
+      "from": "story:gemma",
+      "kind": "tree",
+      "to": "task:T-051"
+    },
+    {
+      "from": "story:gemma",
+      "kind": "tree",
+      "to": "task:T-052"
+    },
+    {
+      "from": "story:interests",
+      "kind": "tree",
+      "to": "task:T-016"
+    },
+    {
+      "from": "story:linked-accounts",
+      "kind": "tree",
+      "to": "task:T-019"
+    },
+    {
+      "from": "story:meetings",
+      "kind": "tree",
+      "to": "task:T-041"
+    },
+    {
+      "from": "story:meetings",
+      "kind": "tree",
+      "to": "task:T-042"
+    },
+    {
+      "from": "story:meetings",
+      "kind": "tree",
+      "to": "task:T-043"
+    },
+    {
+      "from": "story:meetings",
+      "kind": "tree",
+      "to": "task:T-044"
+    },
+    {
+      "from": "story:notifications",
+      "kind": "tree",
+      "to": "task:T-045"
+    },
+    {
+      "from": "story:notifications",
+      "kind": "tree",
+      "to": "task:T-046"
+    },
+    {
+      "from": "story:onboarding-imports",
+      "kind": "tree",
+      "to": "task:T-020"
+    },
+    {
+      "from": "story:onboarding-imports",
+      "kind": "tree",
+      "to": "task:T-020b"
+    },
+    {
+      "from": "story:payments",
+      "kind": "tree",
+      "to": "task:T-047"
+    },
+    {
+      "from": "story:photo-library",
+      "kind": "tree",
+      "to": "task:T-012"
+    },
+    {
+      "from": "story:photo-library",
+      "kind": "tree",
+      "to": "task:T-013"
+    },
+    {
+      "from": "story:pincast",
+      "kind": "tree",
+      "to": "task:T-032"
+    },
+    {
+      "from": "story:post-event",
+      "kind": "tree",
+      "to": "task:T-050"
+    },
+    {
+      "from": "story:profiles",
+      "kind": "tree",
+      "to": "task:T-057"
+    },
+    {
+      "from": "story:profiles",
+      "kind": "tree",
+      "to": "task:T-061"
+    },
+    {
+      "from": "story:ring-invitations",
+      "kind": "tree",
+      "to": "task:T-026"
+    },
+    {
+      "from": "story:ring-invitations",
+      "kind": "tree",
+      "to": "task:T-027"
+    },
+    {
+      "from": "story:ring-invitations",
+      "kind": "tree",
+      "to": "task:T-028"
+    },
+    {
+      "from": "story:ring-projection",
+      "kind": "tree",
+      "to": "task:T-058"
+    },
+    {
+      "from": "story:ring-projection",
+      "kind": "tree",
+      "to": "task:T-060"
+    },
+    {
+      "from": "story:rings",
+      "kind": "tree",
+      "to": "task:T-059"
+    },
+    {
+      "from": "story:subscription",
+      "kind": "tree",
+      "to": "task:T-049"
+    },
+    {
+      "from": "story:widgets",
+      "kind": "tree",
+      "to": "task:T-017"
+    },
+    {
+      "from": "story:widgets",
+      "kind": "tree",
+      "to": "task:T-018"
     },
     {
       "from": "task:T-001",
@@ -19806,6 +19957,31 @@
       "from": "task:T-055",
       "kind": "tree",
       "to": "task:T-055-be"
+    },
+    {
+      "from": "task:T-057",
+      "kind": "tree",
+      "to": "story:T-057"
+    },
+    {
+      "from": "task:T-058",
+      "kind": "tree",
+      "to": "story:T-058"
+    },
+    {
+      "from": "task:T-059",
+      "kind": "tree",
+      "to": "story:T-059"
+    },
+    {
+      "from": "task:T-060",
+      "kind": "tree",
+      "to": "story:T-060"
+    },
+    {
+      "from": "task:T-061",
+      "kind": "tree",
+      "to": "story:T-061"
     },
     {
       "from": "task:T-062",
@@ -20888,14 +21064,339 @@
       "to": "project:frontend-passwordless-migration"
     },
     {
+      "from": "feature:audit-log",
+      "kind": "wikilink",
+      "to": "task:T-053"
+    },
+    {
       "from": "feature:auth",
       "kind": "wikilink",
       "to": "project:frontend-passwordless-migration"
     },
     {
+      "from": "feature:auth",
+      "kind": "wikilink",
+      "to": "task:T-056"
+    },
+    {
+      "from": "feature:badge-qr",
+      "kind": "wikilink",
+      "to": "task:T-007"
+    },
+    {
+      "from": "feature:badge-qr",
+      "kind": "wikilink",
+      "to": "task:T-008"
+    },
+    {
+      "from": "feature:badge-qr",
+      "kind": "wikilink",
+      "to": "task:T-009"
+    },
+    {
+      "from": "feature:badge-qr",
+      "kind": "wikilink",
+      "to": "task:T-010"
+    },
+    {
+      "from": "feature:cleanup-jobs",
+      "kind": "wikilink",
+      "to": "task:T-054"
+    },
+    {
+      "from": "feature:code-delivery",
+      "kind": "wikilink",
+      "to": "task:T-001"
+    },
+    {
+      "from": "feature:code-delivery",
+      "kind": "wikilink",
+      "to": "task:T-002"
+    },
+    {
+      "from": "feature:code-delivery",
+      "kind": "wikilink",
+      "to": "task:T-003"
+    },
+    {
+      "from": "feature:companies",
+      "kind": "wikilink",
+      "to": "task:T-029"
+    },
+    {
+      "from": "feature:connections",
+      "kind": "wikilink",
+      "to": "task:T-021"
+    },
+    {
+      "from": "feature:connections",
+      "kind": "wikilink",
+      "to": "task:T-022"
+    },
+    {
+      "from": "feature:connections",
+      "kind": "wikilink",
+      "to": "task:T-023"
+    },
+    {
+      "from": "feature:connections",
+      "kind": "wikilink",
+      "to": "task:T-024"
+    },
+    {
+      "from": "feature:connections",
+      "kind": "wikilink",
+      "to": "task:T-025"
+    },
+    {
+      "from": "feature:counts",
+      "kind": "wikilink",
+      "to": "task:T-004"
+    },
+    {
+      "from": "feature:counts",
+      "kind": "wikilink",
+      "to": "task:T-005"
+    },
+    {
+      "from": "feature:delegated-admins",
+      "kind": "wikilink",
+      "to": "task:T-006"
+    },
+    {
+      "from": "feature:devices",
+      "kind": "wikilink",
+      "to": "task:T-014"
+    },
+    {
+      "from": "feature:devices",
+      "kind": "wikilink",
+      "to": "task:T-015"
+    },
+    {
+      "from": "feature:discover-hub",
+      "kind": "wikilink",
+      "to": "task:T-030"
+    },
+    {
+      "from": "feature:discover-hub",
+      "kind": "wikilink",
+      "to": "task:T-031"
+    },
+    {
+      "from": "feature:e2e-tests",
+      "kind": "wikilink",
+      "to": "task:T-055"
+    },
+    {
+      "from": "feature:error-contract",
+      "kind": "wikilink",
+      "to": "task:T-063"
+    },
+    {
+      "from": "feature:event-ring-auto",
+      "kind": "wikilink",
+      "to": "task:T-011"
+    },
+    {
+      "from": "feature:events-before",
+      "kind": "wikilink",
+      "to": "task:T-033"
+    },
+    {
+      "from": "feature:events-before",
+      "kind": "wikilink",
+      "to": "task:T-034"
+    },
+    {
+      "from": "feature:events-before",
+      "kind": "wikilink",
+      "to": "task:T-035"
+    },
+    {
+      "from": "feature:events-during",
+      "kind": "wikilink",
+      "to": "task:T-036"
+    },
+    {
+      "from": "feature:events-during",
+      "kind": "wikilink",
+      "to": "task:T-037"
+    },
+    {
+      "from": "feature:events-during",
+      "kind": "wikilink",
+      "to": "task:T-038"
+    },
+    {
+      "from": "feature:events-during",
+      "kind": "wikilink",
+      "to": "task:T-039"
+    },
+    {
+      "from": "feature:events-during",
+      "kind": "wikilink",
+      "to": "task:T-040"
+    },
+    {
+      "from": "feature:exhibitor",
+      "kind": "wikilink",
+      "to": "task:T-048"
+    },
+    {
+      "from": "feature:exhibitor",
+      "kind": "wikilink",
+      "to": "task:T-048b"
+    },
+    {
+      "from": "feature:files",
+      "kind": "wikilink",
+      "to": "task:T-062"
+    },
+    {
+      "from": "feature:gemma",
+      "kind": "wikilink",
+      "to": "task:T-051"
+    },
+    {
+      "from": "feature:gemma",
+      "kind": "wikilink",
+      "to": "task:T-052"
+    },
+    {
+      "from": "feature:interests",
+      "kind": "wikilink",
+      "to": "task:T-016"
+    },
+    {
+      "from": "feature:linked-accounts",
+      "kind": "wikilink",
+      "to": "task:T-019"
+    },
+    {
+      "from": "feature:meetings",
+      "kind": "wikilink",
+      "to": "task:T-041"
+    },
+    {
+      "from": "feature:meetings",
+      "kind": "wikilink",
+      "to": "task:T-042"
+    },
+    {
+      "from": "feature:meetings",
+      "kind": "wikilink",
+      "to": "task:T-043"
+    },
+    {
+      "from": "feature:meetings",
+      "kind": "wikilink",
+      "to": "task:T-044"
+    },
+    {
+      "from": "feature:notifications",
+      "kind": "wikilink",
+      "to": "task:T-045"
+    },
+    {
+      "from": "feature:notifications",
+      "kind": "wikilink",
+      "to": "task:T-046"
+    },
+    {
+      "from": "feature:onboarding-imports",
+      "kind": "wikilink",
+      "to": "task:T-020"
+    },
+    {
+      "from": "feature:onboarding-imports",
+      "kind": "wikilink",
+      "to": "task:T-020b"
+    },
+    {
+      "from": "feature:payments",
+      "kind": "wikilink",
+      "to": "task:T-047"
+    },
+    {
+      "from": "feature:photo-library",
+      "kind": "wikilink",
+      "to": "task:T-012"
+    },
+    {
+      "from": "feature:photo-library",
+      "kind": "wikilink",
+      "to": "task:T-013"
+    },
+    {
+      "from": "feature:pincast",
+      "kind": "wikilink",
+      "to": "task:T-032"
+    },
+    {
+      "from": "feature:post-event",
+      "kind": "wikilink",
+      "to": "task:T-050"
+    },
+    {
+      "from": "feature:profiles",
+      "kind": "wikilink",
+      "to": "task:T-057"
+    },
+    {
+      "from": "feature:profiles",
+      "kind": "wikilink",
+      "to": "task:T-061"
+    },
+    {
       "from": "feature:ring-access",
       "kind": "wikilink",
       "to": "decision:D-04"
+    },
+    {
+      "from": "feature:ring-invitations",
+      "kind": "wikilink",
+      "to": "task:T-026"
+    },
+    {
+      "from": "feature:ring-invitations",
+      "kind": "wikilink",
+      "to": "task:T-027"
+    },
+    {
+      "from": "feature:ring-invitations",
+      "kind": "wikilink",
+      "to": "task:T-028"
+    },
+    {
+      "from": "feature:ring-projection",
+      "kind": "wikilink",
+      "to": "task:T-058"
+    },
+    {
+      "from": "feature:ring-projection",
+      "kind": "wikilink",
+      "to": "task:T-060"
+    },
+    {
+      "from": "feature:rings",
+      "kind": "wikilink",
+      "to": "task:T-059"
+    },
+    {
+      "from": "feature:subscription",
+      "kind": "wikilink",
+      "to": "task:T-049"
+    },
+    {
+      "from": "feature:widgets",
+      "kind": "wikilink",
+      "to": "task:T-017"
+    },
+    {
+      "from": "feature:widgets",
+      "kind": "wikilink",
+      "to": "task:T-018"
     },
     {
       "from": "frontend-requirements:account",
@@ -24753,11 +25254,6 @@
       "to": "feature:rings"
     },
     {
-      "from": "story:audit-log",
-      "kind": "wikilink",
-      "to": "task:T-053"
-    },
-    {
       "from": "story:auth",
       "kind": "wikilink",
       "to": "backend-integration:auth"
@@ -24805,32 +25301,12 @@
     {
       "from": "story:badge-qr",
       "kind": "wikilink",
-      "to": "task:T-007"
-    },
-    {
-      "from": "story:badge-qr",
-      "kind": "wikilink",
-      "to": "task:T-008"
-    },
-    {
-      "from": "story:badge-qr",
-      "kind": "wikilink",
-      "to": "task:T-010"
-    },
-    {
-      "from": "story:badge-qr",
-      "kind": "wikilink",
       "to": "task:T-037"
     },
     {
       "from": "story:cleanup-jobs",
       "kind": "wikilink",
       "to": "feature:ring-access"
-    },
-    {
-      "from": "story:cleanup-jobs",
-      "kind": "wikilink",
-      "to": "task:T-054"
     },
     {
       "from": "story:code-delivery",
@@ -24846,11 +25322,6 @@
       "from": "story:code-delivery",
       "kind": "wikilink",
       "to": "project:auth-model"
-    },
-    {
-      "from": "story:code-delivery",
-      "kind": "wikilink",
-      "to": "task:T-003"
     },
     {
       "from": "story:companies",
@@ -24880,11 +25351,6 @@
     {
       "from": "story:companies",
       "kind": "wikilink",
-      "to": "task:T-029"
-    },
-    {
-      "from": "story:companies",
-      "kind": "wikilink",
       "to": "task:T-048"
     },
     {
@@ -24905,27 +25371,12 @@
     {
       "from": "story:connections",
       "kind": "wikilink",
-      "to": "task:T-022"
-    },
-    {
-      "from": "story:connections",
-      "kind": "wikilink",
-      "to": "task:T-025"
-    },
-    {
-      "from": "story:connections",
-      "kind": "wikilink",
       "to": "task:T-051"
     },
     {
       "from": "story:counts",
       "kind": "wikilink",
       "to": "decision:D-04"
-    },
-    {
-      "from": "story:counts",
-      "kind": "wikilink",
-      "to": "task:T-004"
     },
     {
       "from": "story:delegated-admins",
@@ -24936,11 +25387,6 @@
       "from": "story:delegated-admins",
       "kind": "wikilink",
       "to": "decision:D-04"
-    },
-    {
-      "from": "story:delegated-admins",
-      "kind": "wikilink",
-      "to": "task:T-006"
     },
     {
       "from": "story:delegated-admins",
@@ -24963,11 +25409,6 @@
       "to": "task:T-007"
     },
     {
-      "from": "story:devices",
-      "kind": "wikilink",
-      "to": "task:T-015"
-    },
-    {
       "from": "story:discover-hub",
       "kind": "wikilink",
       "to": "feature:view-as"
@@ -24980,32 +25421,12 @@
     {
       "from": "story:discover-hub",
       "kind": "wikilink",
-      "to": "task:T-030"
-    },
-    {
-      "from": "story:discover-hub",
-      "kind": "wikilink",
-      "to": "task:T-031"
-    },
-    {
-      "from": "story:discover-hub",
-      "kind": "wikilink",
       "to": "task:T-051"
     },
     {
       "from": "story:e2e-tests",
       "kind": "wikilink",
       "to": "project:frontend-contract"
-    },
-    {
-      "from": "story:e2e-tests",
-      "kind": "wikilink",
-      "to": "task:T-055"
-    },
-    {
-      "from": "story:error-contract",
-      "kind": "wikilink",
-      "to": "task:T-063"
     },
     {
       "from": "story:event-ring-auto",
@@ -25021,11 +25442,6 @@
       "from": "story:event-ring-auto",
       "kind": "wikilink",
       "to": "story:post-event"
-    },
-    {
-      "from": "story:event-ring-auto",
-      "kind": "wikilink",
-      "to": "task:T-011"
     },
     {
       "from": "story:event-ring-auto",
@@ -25061,11 +25477,6 @@
       "from": "story:events-before",
       "kind": "wikilink",
       "to": "task:T-023"
-    },
-    {
-      "from": "story:events-before",
-      "kind": "wikilink",
-      "to": "task:T-033"
     },
     {
       "from": "story:events-before",
@@ -25110,11 +25521,6 @@
     {
       "from": "story:events-during",
       "kind": "wikilink",
-      "to": "task:T-039"
-    },
-    {
-      "from": "story:events-during",
-      "kind": "wikilink",
       "to": "task:T-049"
     },
     {
@@ -25153,16 +25559,6 @@
       "to": "task:T-029"
     },
     {
-      "from": "story:exhibitor",
-      "kind": "wikilink",
-      "to": "task:T-048"
-    },
-    {
-      "from": "story:exhibitor",
-      "kind": "wikilink",
-      "to": "task:T-048b"
-    },
-    {
       "from": "story:files",
       "kind": "wikilink",
       "to": "backend-integration:files"
@@ -25171,11 +25567,6 @@
       "from": "story:files",
       "kind": "wikilink",
       "to": "task:T-012"
-    },
-    {
-      "from": "story:files",
-      "kind": "wikilink",
-      "to": "task:T-062"
     },
     {
       "from": "story:gemma",
@@ -25208,19 +25599,9 @@
       "to": "feature:ring-access"
     },
     {
-      "from": "story:gemma",
-      "kind": "wikilink",
-      "to": "task:T-051"
-    },
-    {
       "from": "story:interests",
       "kind": "wikilink",
       "to": "feature:gemma"
-    },
-    {
-      "from": "story:interests",
-      "kind": "wikilink",
-      "to": "task:T-016"
     },
     {
       "from": "story:linked-accounts",
@@ -25238,11 +25619,6 @@
       "to": "project:auth-model"
     },
     {
-      "from": "story:linked-accounts",
-      "kind": "wikilink",
-      "to": "task:T-019"
-    },
-    {
       "from": "story:meetings",
       "kind": "wikilink",
       "to": "feature:rings"
@@ -25251,21 +25627,6 @@
       "from": "story:meetings",
       "kind": "wikilink",
       "to": "project:ring-access-model"
-    },
-    {
-      "from": "story:meetings",
-      "kind": "wikilink",
-      "to": "task:T-041"
-    },
-    {
-      "from": "story:meetings",
-      "kind": "wikilink",
-      "to": "task:T-042"
-    },
-    {
-      "from": "story:meetings",
-      "kind": "wikilink",
-      "to": "task:T-043"
     },
     {
       "from": "story:meetings",
@@ -25283,16 +25644,6 @@
       "to": "feature:devices"
     },
     {
-      "from": "story:notifications",
-      "kind": "wikilink",
-      "to": "task:T-045"
-    },
-    {
-      "from": "story:notifications",
-      "kind": "wikilink",
-      "to": "task:T-046"
-    },
-    {
       "from": "story:onboarding-imports",
       "kind": "wikilink",
       "to": "decision:D-01"
@@ -25306,11 +25657,6 @@
       "from": "story:onboarding-imports",
       "kind": "wikilink",
       "to": "task:T-019"
-    },
-    {
-      "from": "story:onboarding-imports",
-      "kind": "wikilink",
-      "to": "task:T-020b"
     },
     {
       "from": "story:payments",
@@ -25353,11 +25699,6 @@
       "to": "task:T-035"
     },
     {
-      "from": "story:payments",
-      "kind": "wikilink",
-      "to": "task:T-047"
-    },
-    {
       "from": "story:photo-library",
       "kind": "wikilink",
       "to": "decision:D-02"
@@ -25381,11 +25722,6 @@
       "from": "story:pincast",
       "kind": "wikilink",
       "to": "story:connections"
-    },
-    {
-      "from": "story:pincast",
-      "kind": "wikilink",
-      "to": "task:T-032"
     },
     {
       "from": "story:pincast",
@@ -25441,11 +25777,6 @@
       "from": "story:post-event",
       "kind": "wikilink",
       "to": "task:T-044"
-    },
-    {
-      "from": "story:post-event",
-      "kind": "wikilink",
-      "to": "task:T-050"
     },
     {
       "from": "story:profiles",
@@ -25506,21 +25837,6 @@
       "from": "story:ring-invitations",
       "kind": "wikilink",
       "to": "task:T-008"
-    },
-    {
-      "from": "story:ring-invitations",
-      "kind": "wikilink",
-      "to": "task:T-026"
-    },
-    {
-      "from": "story:ring-invitations",
-      "kind": "wikilink",
-      "to": "task:T-027"
-    },
-    {
-      "from": "story:ring-invitations",
-      "kind": "wikilink",
-      "to": "task:T-028"
     },
     {
       "from": "story:ring-members",
@@ -25626,11 +25942,6 @@
       "from": "story:subscription",
       "kind": "wikilink",
       "to": "task:T-047"
-    },
-    {
-      "from": "story:subscription",
-      "kind": "wikilink",
-      "to": "task:T-049"
     },
     {
       "from": "story:T-001",
@@ -25918,6 +26229,31 @@
       "to": "feature:e2e-tests"
     },
     {
+      "from": "story:T-057",
+      "kind": "wikilink",
+      "to": "feature:profiles"
+    },
+    {
+      "from": "story:T-058",
+      "kind": "wikilink",
+      "to": "feature:ring-projection"
+    },
+    {
+      "from": "story:T-059",
+      "kind": "wikilink",
+      "to": "feature:rings"
+    },
+    {
+      "from": "story:T-060",
+      "kind": "wikilink",
+      "to": "feature:ring-projection"
+    },
+    {
+      "from": "story:T-061",
+      "kind": "wikilink",
+      "to": "feature:profiles"
+    },
+    {
       "from": "story:T-062",
       "kind": "wikilink",
       "to": "feature:files"
@@ -25956,11 +26292,6 @@
       "from": "story:widgets",
       "kind": "wikilink",
       "to": "feature:meetings"
-    },
-    {
-      "from": "story:widgets",
-      "kind": "wikilink",
-      "to": "task:T-018"
     },
     {
       "from": "task:T-001",
@@ -28590,6 +28921,11 @@
     {
       "from": "task:T-064",
       "kind": "wikilink",
+      "to": "feature:error-contract"
+    },
+    {
+      "from": "task:T-064",
+      "kind": "wikilink",
       "to": "project:agent-rules"
     },
     {
@@ -30385,29 +30721,49 @@
       "name": "T-055-be Backend · Run the e2e suite in CI against PostGIS",
       "type": "task"
     },
-    "tasks/T-056 Decide passwordless login.md": {
+    "tasks/T-056 Decide passwordless login/T-056 Decide passwordless login.md": {
       "name": "T-056 Decide passwordless login",
       "type": "task"
     },
-    "tasks/T-057 Decide base profile work fields.md": {
+    "tasks/T-057 Decide base profile work fields/T-057 Decide base profile work fields.md": {
       "name": "T-057 Decide base profile work fields",
       "type": "task"
     },
-    "tasks/T-058 Decide field library vs per-Ring copies.md": {
+    "tasks/T-057 Decide base profile work fields/T-057 Story.md": {
+      "name": "T-057 Story",
+      "type": "story"
+    },
+    "tasks/T-058 Decide field library vs per-Ring copies/T-058 Decide field library vs per-Ring copies.md": {
       "name": "T-058 Decide field library vs per-Ring copies",
       "type": "task"
     },
-    "tasks/T-059 Decide Ring settings.md": {
+    "tasks/T-058 Decide field library vs per-Ring copies/T-058 Story.md": {
+      "name": "T-058 Story",
+      "type": "story"
+    },
+    "tasks/T-059 Decide Ring settings/T-059 Decide Ring settings.md": {
       "name": "T-059 Decide Ring settings",
       "type": "task"
     },
-    "tasks/T-060 Decide copy or inherit.md": {
+    "tasks/T-059 Decide Ring settings/T-059 Story.md": {
+      "name": "T-059 Story",
+      "type": "story"
+    },
+    "tasks/T-060 Decide copy or inherit/T-060 Decide copy or inherit.md": {
       "name": "T-060 Decide copy or inherit",
       "type": "task"
     },
-    "tasks/T-061 Decide Pin name rules.md": {
+    "tasks/T-060 Decide copy or inherit/T-060 Story.md": {
+      "name": "T-060 Story",
+      "type": "story"
+    },
+    "tasks/T-061 Decide Pin name rules/T-061 Decide Pin name rules.md": {
       "name": "T-061 Decide Pin name rules",
       "type": "task"
+    },
+    "tasks/T-061 Decide Pin name rules/T-061 Story.md": {
+      "name": "T-061 Story",
+      "type": "story"
     },
     "tasks/T-062 Serve uploaded file bytes by id/T-062 Serve uploaded file bytes by id.md": {
       "name": "T-062 Serve uploaded file bytes by id",
@@ -30441,7 +30797,7 @@
       "name": "T-063-fe Frontend · Put the ErrorCode on the error body",
       "type": "task"
     },
-    "tasks/T-064 Restructure the docs vault.md": {
+    "tasks/T-064 Restructure the docs vault/T-064 Restructure the docs vault.md": {
       "name": "T-064 Restructure the docs vault",
       "type": "task"
     },
@@ -34904,8 +35260,7 @@
         "backend-integration:audit-log",
         "qa-backend:audit-log",
         "frontend-delivery:audit-log",
-        "qa-frontend:audit-log",
-        "task:T-053"
+        "qa-frontend:audit-log"
       ],
       "code": "audit-log",
       "deadline": null,
@@ -34971,7 +35326,6 @@
         "qa-backend:auth",
         "frontend-delivery:auth",
         "qa-frontend:auth",
-        "task:T-056",
         "decision:D-01"
       ],
       "code": "auth",
@@ -35051,11 +35405,7 @@
         "backend-integration:badge-qr",
         "qa-backend:badge-qr",
         "frontend-delivery:badge-qr",
-        "qa-frontend:badge-qr",
-        "task:T-007",
-        "task:T-008",
-        "task:T-009",
-        "task:T-010"
+        "qa-frontend:badge-qr"
       ],
       "code": "badge-qr",
       "deadline": null,
@@ -35132,8 +35482,7 @@
         "backend-integration:cleanup-jobs",
         "qa-backend:cleanup-jobs",
         "frontend-delivery:cleanup-jobs",
-        "qa-frontend:cleanup-jobs",
-        "task:T-054"
+        "qa-frontend:cleanup-jobs"
       ],
       "code": "cleanup-jobs",
       "deadline": null,
@@ -35197,10 +35546,7 @@
         "backend-integration:code-delivery",
         "qa-backend:code-delivery",
         "frontend-delivery:code-delivery",
-        "qa-frontend:code-delivery",
-        "task:T-001",
-        "task:T-002",
-        "task:T-003"
+        "qa-frontend:code-delivery"
       ],
       "code": "code-delivery",
       "deadline": null,
@@ -35266,7 +35612,6 @@
         "qa-backend:companies",
         "frontend-delivery:companies",
         "qa-frontend:companies",
-        "task:T-029",
         "decision:D-04"
       ],
       "code": "companies",
@@ -35337,12 +35682,7 @@
         "backend-integration:connections",
         "qa-backend:connections",
         "frontend-delivery:connections",
-        "qa-frontend:connections",
-        "task:T-021",
-        "task:T-022",
-        "task:T-023",
-        "task:T-024",
-        "task:T-025"
+        "qa-frontend:connections"
       ],
       "code": "connections",
       "deadline": null,
@@ -35422,9 +35762,7 @@
         "backend-integration:counts",
         "qa-backend:counts",
         "frontend-delivery:counts",
-        "qa-frontend:counts",
-        "task:T-004",
-        "task:T-005"
+        "qa-frontend:counts"
       ],
       "code": "counts",
       "deadline": null,
@@ -35496,7 +35834,6 @@
         "qa-backend:delegated-admins",
         "frontend-delivery:delegated-admins",
         "qa-frontend:delegated-admins",
-        "task:T-006",
         "decision:D-04"
       ],
       "code": "delegated-admins",
@@ -35566,9 +35903,7 @@
         "backend-integration:devices",
         "qa-backend:devices",
         "frontend-delivery:devices",
-        "qa-frontend:devices",
-        "task:T-014",
-        "task:T-015"
+        "qa-frontend:devices"
       ],
       "code": "devices",
       "deadline": null,
@@ -35635,9 +35970,7 @@
         "backend-integration:discover-hub",
         "qa-backend:discover-hub",
         "frontend-delivery:discover-hub",
-        "qa-frontend:discover-hub",
-        "task:T-030",
-        "task:T-031"
+        "qa-frontend:discover-hub"
       ],
       "code": "discover-hub",
       "deadline": null,
@@ -35705,8 +36038,7 @@
         "backend-integration:e2e-tests",
         "qa-backend:e2e-tests",
         "frontend-delivery:e2e-tests",
-        "qa-frontend:e2e-tests",
-        "task:T-055"
+        "qa-frontend:e2e-tests"
       ],
       "code": "e2e-tests",
       "deadline": null,
@@ -35769,9 +36101,7 @@
         "backend-integration:error-contract",
         "qa-backend:error-contract",
         "frontend-delivery:error-contract",
-        "qa-frontend:error-contract",
-        "task:T-063",
-        "task:T-064"
+        "qa-frontend:error-contract"
       ],
       "code": "error-contract",
       "deadline": null,
@@ -35834,8 +36164,7 @@
         "backend-integration:event-ring-auto",
         "qa-backend:event-ring-auto",
         "frontend-delivery:event-ring-auto",
-        "qa-frontend:event-ring-auto",
-        "task:T-011"
+        "qa-frontend:event-ring-auto"
       ],
       "code": "event-ring-auto",
       "deadline": null,
@@ -35904,10 +36233,7 @@
         "backend-integration:events-before",
         "qa-backend:events-before",
         "frontend-delivery:events-before",
-        "qa-frontend:events-before",
-        "task:T-033",
-        "task:T-034",
-        "task:T-035"
+        "qa-frontend:events-before"
       ],
       "code": "events-before",
       "deadline": null,
@@ -35980,12 +36306,7 @@
         "backend-integration:events-during",
         "qa-backend:events-during",
         "frontend-delivery:events-during",
-        "qa-frontend:events-during",
-        "task:T-036",
-        "task:T-037",
-        "task:T-038",
-        "task:T-039",
-        "task:T-040"
+        "qa-frontend:events-during"
       ],
       "code": "events-during",
       "deadline": null,
@@ -36063,9 +36384,7 @@
         "backend-integration:exhibitor",
         "qa-backend:exhibitor",
         "frontend-delivery:exhibitor",
-        "qa-frontend:exhibitor",
-        "task:T-048",
-        "task:T-048b"
+        "qa-frontend:exhibitor"
       ],
       "code": "exhibitor",
       "deadline": null,
@@ -36135,8 +36454,7 @@
         "backend-integration:files",
         "qa-backend:files",
         "frontend-delivery:files",
-        "qa-frontend:files",
-        "task:T-062"
+        "qa-frontend:files"
       ],
       "code": "files",
       "deadline": null,
@@ -36208,8 +36526,6 @@
         "qa-backend:gemma",
         "frontend-delivery:gemma",
         "qa-frontend:gemma",
-        "task:T-051",
-        "task:T-052",
         "decision:D-06"
       ],
       "code": "gemma",
@@ -36283,8 +36599,7 @@
         "backend-integration:interests",
         "qa-backend:interests",
         "frontend-delivery:interests",
-        "qa-frontend:interests",
-        "task:T-016"
+        "qa-frontend:interests"
       ],
       "code": "interests",
       "deadline": null,
@@ -36351,7 +36666,6 @@
         "qa-backend:linked-accounts",
         "frontend-delivery:linked-accounts",
         "qa-frontend:linked-accounts",
-        "task:T-019",
         "decision:D-01"
       ],
       "code": "linked-accounts",
@@ -36421,11 +36735,7 @@
         "backend-integration:meetings",
         "qa-backend:meetings",
         "frontend-delivery:meetings",
-        "qa-frontend:meetings",
-        "task:T-041",
-        "task:T-042",
-        "task:T-043",
-        "task:T-044"
+        "qa-frontend:meetings"
       ],
       "code": "meetings",
       "deadline": null,
@@ -36501,9 +36811,7 @@
         "backend-integration:notifications",
         "qa-backend:notifications",
         "frontend-delivery:notifications",
-        "qa-frontend:notifications",
-        "task:T-045",
-        "task:T-046"
+        "qa-frontend:notifications"
       ],
       "code": "notifications",
       "deadline": null,
@@ -36574,8 +36882,6 @@
         "qa-backend:onboarding-imports",
         "frontend-delivery:onboarding-imports",
         "qa-frontend:onboarding-imports",
-        "task:T-020",
-        "task:T-020b",
         "decision:D-02"
       ],
       "code": "onboarding-imports",
@@ -36647,8 +36953,7 @@
         "backend-integration:payments",
         "qa-backend:payments",
         "frontend-delivery:payments",
-        "qa-frontend:payments",
-        "task:T-047"
+        "qa-frontend:payments"
       ],
       "code": "payments",
       "deadline": null,
@@ -36718,8 +37023,6 @@
         "qa-backend:photo-library",
         "frontend-delivery:photo-library",
         "qa-frontend:photo-library",
-        "task:T-012",
-        "task:T-013",
         "decision:D-02",
         "decision:D-05"
       ],
@@ -36789,8 +37092,7 @@
         "backend-integration:pincast",
         "qa-backend:pincast",
         "frontend-delivery:pincast",
-        "qa-frontend:pincast",
-        "task:T-032"
+        "qa-frontend:pincast"
       ],
       "code": "pincast",
       "deadline": null,
@@ -36864,8 +37166,7 @@
         "backend-integration:post-event",
         "qa-backend:post-event",
         "frontend-delivery:post-event",
-        "qa-frontend:post-event",
-        "task:T-050"
+        "qa-frontend:post-event"
       ],
       "code": "post-event",
       "deadline": null,
@@ -36935,8 +37236,6 @@
         "qa-backend:profiles",
         "frontend-delivery:profiles",
         "qa-frontend:profiles",
-        "task:T-057",
-        "task:T-061",
         "decision:D-02",
         "decision:D-06"
       ],
@@ -36977,7 +37276,7 @@
         "blocked": 1,
         "current": 1,
         "done": 1,
-        "draft": 1,
+        "draft": 3,
         "missing": 3,
         "needs-decision": 4
       },
@@ -37080,9 +37379,6 @@
         "qa-backend:ring-invitations",
         "frontend-delivery:ring-invitations",
         "qa-frontend:ring-invitations",
-        "task:T-026",
-        "task:T-027",
-        "task:T-028",
         "decision:D-04"
       ],
       "code": "ring-invitations",
@@ -37228,8 +37524,6 @@
         "qa-backend:ring-projection",
         "frontend-delivery:ring-projection",
         "qa-frontend:ring-projection",
-        "task:T-058",
-        "task:T-060",
         "decision:D-02",
         "decision:D-03",
         "decision:D-05"
@@ -37274,7 +37568,7 @@
         "blocked": 1,
         "current": 1,
         "done": 1,
-        "draft": 1,
+        "draft": 3,
         "missing": 3,
         "needs-decision": 5
       },
@@ -37311,7 +37605,6 @@
         "qa-backend:rings",
         "frontend-delivery:rings",
         "qa-frontend:rings",
-        "task:T-059",
         "decision:D-04",
         "decision:D-05"
       ],
@@ -37366,7 +37659,7 @@
         "blocked": 1,
         "current": 1,
         "done": 1,
-        "draft": 1,
+        "draft": 2,
         "missing": 3,
         "needs-decision": 3
       },
@@ -37406,8 +37699,7 @@
         "backend-integration:subscription",
         "qa-backend:subscription",
         "frontend-delivery:subscription",
-        "qa-frontend:subscription",
-        "task:T-049"
+        "qa-frontend:subscription"
       ],
       "code": "subscription",
       "deadline": null,
@@ -37557,8 +37849,6 @@
         "qa-backend:widgets",
         "frontend-delivery:widgets",
         "qa-frontend:widgets",
-        "task:T-017",
-        "task:T-018",
         "decision:D-03"
       ],
       "code": "widgets",
@@ -41721,7 +42011,7 @@
         "blocked": 34,
         "current": 9,
         "done": 10,
-        "draft": 22,
+        "draft": 27,
         "in-progress": 9,
         "missing": 43,
         "needs-decision": 12,
@@ -42452,7 +42742,7 @@
       "scope": null,
       "screens": [],
       "status": null,
-      "summary": "The docs tree is the readable map of this vault: project → module → feature → one note per layer, then the feature's tasks and decisions. Every card is one Markdown file; it shows the note's card…",
+      "summary": "The docs tree is the readable map of this vault: project → module → feature → one note per layer, the feature's tasks under its story, then its decisions. Every card is one Markdown file; it shows…",
       "tags": [
         "project",
         "layer/shared",
@@ -42460,7 +42750,7 @@
       ],
       "task": null,
       "title": "Docs Tree",
-      "updated": "2026-10-19"
+      "updated": "2026-10-21"
     },
     "project:feature-graph": {
       "affects": [],
@@ -43221,7 +43511,7 @@
       ],
       "task": null,
       "title": "Workflow",
-      "updated": "2026-10-19"
+      "updated": "2026-10-21"
     },
     "qa-backend:account": {
       "affects": [],
@@ -46525,7 +46815,7 @@
         "blocked": 178,
         "current": 9,
         "done": 12,
-        "draft": 98,
+        "draft": 103,
         "in-progress": 14,
         "missing": 145,
         "needs-decision": 20,
@@ -49124,6 +49414,253 @@
       "title": "T-055 Story",
       "updated": "2026-10-18"
     },
+    "story:T-057": {
+      "affects": [],
+      "blockedBy": [],
+      "card": "S-100",
+      "children": [],
+      "code": "T-057",
+      "deadline": null,
+      "depends": [],
+      "effectiveStatus": "draft",
+      "effort": null,
+      "feature": "profiles",
+      "frontendOnly": false,
+      "id": "story:T-057",
+      "inherits": {
+        "priority": "task:T-057"
+      },
+      "kind": "story",
+      "label": "User Story",
+      "labels": [],
+      "layer": "business",
+      "module": "identity",
+      "parentTask": null,
+      "parents": [
+        "task:T-057"
+      ],
+      "path": "tasks/T-057 Decide base profile work fields/T-057 Story.md",
+      "pending": [],
+      "priority": "critical",
+      "related": [],
+      "scope": "task",
+      "screens": [
+        "s06"
+      ],
+      "status": "draft",
+      "summary": "One paragraph: who the user is here and what they are trying to get done, in product terms. approved when product signs off (approvedBy, approvedAt); verified when both QA notes are passing.",
+      "tags": [
+        "story",
+        "story/draft",
+        "module/identity",
+        "layer/business"
+      ],
+      "task": "T-057",
+      "title": "T-057 Story",
+      "updated": "2026-10-21"
+    },
+    "story:T-058": {
+      "affects": [],
+      "blockedBy": [],
+      "card": "S-102",
+      "children": [],
+      "code": "T-058",
+      "deadline": null,
+      "depends": [],
+      "effectiveStatus": "draft",
+      "effort": null,
+      "feature": "ring-projection",
+      "frontendOnly": false,
+      "id": "story:T-058",
+      "inherits": {
+        "priority": "task:T-058"
+      },
+      "kind": "story",
+      "label": "User Story",
+      "labels": [],
+      "layer": "business",
+      "module": "identity",
+      "parentTask": null,
+      "parents": [
+        "task:T-058"
+      ],
+      "path": "tasks/T-058 Decide field library vs per-Ring copies/T-058 Story.md",
+      "pending": [],
+      "priority": "critical",
+      "related": [],
+      "scope": "task",
+      "screens": [
+        "s14",
+        "s20",
+        "s23",
+        "s24",
+        "s25",
+        "s29",
+        "s36"
+      ],
+      "status": "draft",
+      "summary": "One paragraph: who the user is here and what they are trying to get done, in product terms. approved when product signs off (approvedBy, approvedAt); verified when both QA notes are passing.",
+      "tags": [
+        "story",
+        "story/draft",
+        "module/identity",
+        "layer/business"
+      ],
+      "task": "T-058",
+      "title": "T-058 Story",
+      "updated": "2026-10-21"
+    },
+    "story:T-059": {
+      "affects": [],
+      "blockedBy": [],
+      "card": "S-104",
+      "children": [],
+      "code": "T-059",
+      "deadline": null,
+      "depends": [],
+      "effectiveStatus": "draft",
+      "effort": null,
+      "feature": "rings",
+      "frontendOnly": false,
+      "id": "story:T-059",
+      "inherits": {
+        "priority": "task:T-059"
+      },
+      "kind": "story",
+      "label": "User Story",
+      "labels": [],
+      "layer": "business",
+      "module": "identity",
+      "parentTask": null,
+      "parents": [
+        "task:T-059"
+      ],
+      "path": "tasks/T-059 Decide Ring settings/T-059 Story.md",
+      "pending": [],
+      "priority": "critical",
+      "related": [],
+      "scope": "task",
+      "screens": [
+        "s08",
+        "s09",
+        "s16",
+        "s17",
+        "s18",
+        "s19",
+        "s20",
+        "s21",
+        "s22",
+        "s26",
+        "s62"
+      ],
+      "status": "draft",
+      "summary": "One paragraph: who the user is here and what they are trying to get done, in product terms. approved when product signs off (approvedBy, approvedAt); verified when both QA notes are passing.",
+      "tags": [
+        "story",
+        "story/draft",
+        "module/identity",
+        "layer/business"
+      ],
+      "task": "T-059",
+      "title": "T-059 Story",
+      "updated": "2026-10-21"
+    },
+    "story:T-060": {
+      "affects": [],
+      "blockedBy": [],
+      "card": "S-103",
+      "children": [],
+      "code": "T-060",
+      "deadline": null,
+      "depends": [],
+      "effectiveStatus": "draft",
+      "effort": null,
+      "feature": "ring-projection",
+      "frontendOnly": false,
+      "id": "story:T-060",
+      "inherits": {
+        "priority": "task:T-060"
+      },
+      "kind": "story",
+      "label": "User Story",
+      "labels": [],
+      "layer": "business",
+      "module": "identity",
+      "parentTask": null,
+      "parents": [
+        "task:T-060"
+      ],
+      "path": "tasks/T-060 Decide copy or inherit/T-060 Story.md",
+      "pending": [],
+      "priority": "high",
+      "related": [],
+      "scope": "task",
+      "screens": [
+        "s14",
+        "s20",
+        "s23",
+        "s24",
+        "s25",
+        "s29",
+        "s36"
+      ],
+      "status": "draft",
+      "summary": "One paragraph: who the user is here and what they are trying to get done, in product terms. approved when product signs off (approvedBy, approvedAt); verified when both QA notes are passing.",
+      "tags": [
+        "story",
+        "story/draft",
+        "module/identity",
+        "layer/business"
+      ],
+      "task": "T-060",
+      "title": "T-060 Story",
+      "updated": "2026-10-21"
+    },
+    "story:T-061": {
+      "affects": [],
+      "blockedBy": [],
+      "card": "S-101",
+      "children": [],
+      "code": "T-061",
+      "deadline": null,
+      "depends": [],
+      "effectiveStatus": "draft",
+      "effort": null,
+      "feature": "profiles",
+      "frontendOnly": false,
+      "id": "story:T-061",
+      "inherits": {
+        "priority": "task:T-061"
+      },
+      "kind": "story",
+      "label": "User Story",
+      "labels": [],
+      "layer": "business",
+      "module": "identity",
+      "parentTask": null,
+      "parents": [
+        "task:T-061"
+      ],
+      "path": "tasks/T-061 Decide Pin name rules/T-061 Story.md",
+      "pending": [],
+      "priority": "high",
+      "related": [],
+      "scope": "task",
+      "screens": [
+        "s06"
+      ],
+      "status": "draft",
+      "summary": "One paragraph: who the user is here and what they are trying to get done, in product terms. approved when product signs off (approvedBy, approvedAt); verified when both QA notes are passing.",
+      "tags": [
+        "story",
+        "story/draft",
+        "module/identity",
+        "layer/business"
+      ],
+      "task": "T-061",
+      "title": "T-061 Story",
+      "updated": "2026-10-21"
+    },
     "story:T-062": {
       "affects": [],
       "blockedBy": [],
@@ -49313,7 +49850,9 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-74",
-      "children": [],
+      "children": [
+        "task:T-053"
+      ],
       "code": "audit-log",
       "deadline": null,
       "depends": [],
@@ -49356,7 +49895,9 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-02",
-      "children": [],
+      "children": [
+        "task:T-056"
+      ],
       "code": "auth",
       "deadline": null,
       "depends": [],
@@ -49405,7 +49946,12 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-37",
-      "children": [],
+      "children": [
+        "task:T-007",
+        "task:T-008",
+        "task:T-009",
+        "task:T-010"
+      ],
       "code": "badge-qr",
       "deadline": null,
       "depends": [],
@@ -49453,7 +49999,9 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-76",
-      "children": [],
+      "children": [
+        "task:T-054"
+      ],
       "code": "cleanup-jobs",
       "deadline": null,
       "depends": [],
@@ -49496,7 +50044,11 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-78",
-      "children": [],
+      "children": [
+        "task:T-001",
+        "task:T-002",
+        "task:T-003"
+      ],
       "code": "code-delivery",
       "deadline": null,
       "depends": [],
@@ -49541,7 +50093,9 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-29",
-      "children": [],
+      "children": [
+        "task:T-029"
+      ],
       "code": "companies",
       "deadline": null,
       "depends": [],
@@ -49587,7 +50141,13 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-23",
-      "children": [],
+      "children": [
+        "task:T-021",
+        "task:T-022",
+        "task:T-023",
+        "task:T-024",
+        "task:T-025"
+      ],
       "code": "connections",
       "deadline": null,
       "depends": [],
@@ -49636,7 +50196,10 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-03",
-      "children": [],
+      "children": [
+        "task:T-004",
+        "task:T-005"
+      ],
       "code": "counts",
       "deadline": null,
       "depends": [],
@@ -49686,7 +50249,9 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-31",
-      "children": [],
+      "children": [
+        "task:T-006"
+      ],
       "code": "delegated-admins",
       "deadline": null,
       "depends": [],
@@ -49732,7 +50297,10 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-82",
-      "children": [],
+      "children": [
+        "task:T-014",
+        "task:T-015"
+      ],
       "code": "devices",
       "deadline": null,
       "depends": [],
@@ -49777,7 +50345,10 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-42",
-      "children": [],
+      "children": [
+        "task:T-030",
+        "task:T-031"
+      ],
       "code": "discover-hub",
       "deadline": null,
       "depends": [],
@@ -49822,7 +50393,9 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-85",
-      "children": [],
+      "children": [
+        "task:T-055"
+      ],
       "code": "e2e-tests",
       "deadline": null,
       "depends": [],
@@ -49865,7 +50438,10 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-87",
-      "children": [],
+      "children": [
+        "task:T-063",
+        "task:T-064"
+      ],
       "code": "error-contract",
       "deadline": null,
       "depends": [],
@@ -49908,7 +50484,9 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-47",
-      "children": [],
+      "children": [
+        "task:T-011"
+      ],
       "code": "event-ring-auto",
       "deadline": null,
       "depends": [],
@@ -49953,7 +50531,11 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-49",
-      "children": [],
+      "children": [
+        "task:T-033",
+        "task:T-034",
+        "task:T-035"
+      ],
       "code": "events-before",
       "deadline": null,
       "depends": [],
@@ -50002,7 +50584,13 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-53",
-      "children": [],
+      "children": [
+        "task:T-036",
+        "task:T-037",
+        "task:T-038",
+        "task:T-039",
+        "task:T-040"
+      ],
       "code": "events-during",
       "deadline": null,
       "depends": [],
@@ -50052,7 +50640,10 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-59",
-      "children": [],
+      "children": [
+        "task:T-048",
+        "task:T-048b"
+      ],
       "code": "exhibitor",
       "deadline": null,
       "depends": [],
@@ -50099,7 +50690,9 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-06",
-      "children": [],
+      "children": [
+        "task:T-062"
+      ],
       "code": "files",
       "deadline": null,
       "depends": [],
@@ -50146,7 +50739,10 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-89",
-      "children": [],
+      "children": [
+        "task:T-051",
+        "task:T-052"
+      ],
       "code": "gemma",
       "deadline": null,
       "depends": [],
@@ -50192,7 +50788,9 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-92",
-      "children": [],
+      "children": [
+        "task:T-016"
+      ],
       "code": "interests",
       "deadline": null,
       "depends": [],
@@ -50238,7 +50836,9 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-94",
-      "children": [],
+      "children": [
+        "task:T-019"
+      ],
       "code": "linked-accounts",
       "deadline": null,
       "depends": [],
@@ -50285,7 +50885,12 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-64",
-      "children": [],
+      "children": [
+        "task:T-041",
+        "task:T-042",
+        "task:T-043",
+        "task:T-044"
+      ],
       "code": "meetings",
       "deadline": null,
       "depends": [],
@@ -50334,7 +50939,10 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-96",
-      "children": [],
+      "children": [
+        "task:T-045",
+        "task:T-046"
+      ],
       "code": "notifications",
       "deadline": null,
       "depends": [],
@@ -50379,7 +50987,10 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-08",
-      "children": [],
+      "children": [
+        "task:T-020",
+        "task:T-020b"
+      ],
       "code": "onboarding-imports",
       "deadline": null,
       "depends": [],
@@ -50428,7 +51039,9 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-69",
-      "children": [],
+      "children": [
+        "task:T-047"
+      ],
       "code": "payments",
       "deadline": null,
       "depends": [],
@@ -50474,7 +51087,10 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-11",
-      "children": [],
+      "children": [
+        "task:T-012",
+        "task:T-013"
+      ],
       "code": "photo-library",
       "deadline": null,
       "depends": [],
@@ -50520,7 +51136,9 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-45",
-      "children": [],
+      "children": [
+        "task:T-032"
+      ],
       "code": "pincast",
       "deadline": null,
       "depends": [],
@@ -50569,7 +51187,9 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-62",
-      "children": [],
+      "children": [
+        "task:T-050"
+      ],
       "code": "post-event",
       "deadline": null,
       "depends": [],
@@ -50614,7 +51234,10 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-14",
-      "children": [],
+      "children": [
+        "task:T-057",
+        "task:T-061"
+      ],
       "code": "profiles",
       "deadline": null,
       "depends": [],
@@ -50702,7 +51325,11 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-33",
-      "children": [],
+      "children": [
+        "task:T-026",
+        "task:T-027",
+        "task:T-028"
+      ],
       "code": "ring-invitations",
       "deadline": null,
       "depends": [],
@@ -50794,7 +51421,10 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-17",
-      "children": [],
+      "children": [
+        "task:T-058",
+        "task:T-060"
+      ],
       "code": "ring-projection",
       "deadline": null,
       "depends": [],
@@ -50845,7 +51475,9 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-18",
-      "children": [],
+      "children": [
+        "task:T-059"
+      ],
       "code": "rings",
       "deadline": null,
       "depends": [],
@@ -50900,7 +51532,9 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-71",
-      "children": [],
+      "children": [
+        "task:T-049"
+      ],
       "code": "subscription",
       "deadline": null,
       "depends": [],
@@ -50993,7 +51627,10 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-20",
-      "children": [],
+      "children": [
+        "task:T-017",
+        "task:T-018"
+      ],
       "code": "widgets",
       "deadline": null,
       "depends": [],
@@ -51061,7 +51698,7 @@
       "module": "platform",
       "parentTask": null,
       "parents": [
-        "feature:code-delivery"
+        "story:code-delivery"
       ],
       "path": "tasks/T-001 Wire an email provider for one-time codes/T-001 Wire an email provider for one-time codes.md",
       "pending": [],
@@ -51170,7 +51807,7 @@
       "module": "platform",
       "parentTask": null,
       "parents": [
-        "feature:code-delivery"
+        "story:code-delivery"
       ],
       "path": "tasks/T-002 Wire an SMS provider for one-time codes/T-002 Wire an SMS provider for one-time codes.md",
       "pending": [],
@@ -51293,7 +51930,7 @@
       "module": "platform",
       "parentTask": null,
       "parents": [
-        "feature:code-delivery"
+        "story:code-delivery"
       ],
       "path": "tasks/T-003 Remove devCode once delivery works/T-003 Remove devCode once delivery works.md",
       "pending": [],
@@ -51409,7 +52046,7 @@
       "module": "identity",
       "parentTask": null,
       "parents": [
-        "feature:counts"
+        "story:counts"
       ],
       "path": "tasks/T-004 Member count per Ring on list and detail/T-004 Member count per Ring on list and detail.md",
       "pending": [],
@@ -51580,7 +52217,7 @@
       "module": "identity",
       "parentTask": null,
       "parents": [
-        "feature:counts"
+        "story:counts"
       ],
       "path": "tasks/T-005 Connection count on Me and Home/T-005 Connection count on Me and Home.md",
       "pending": [],
@@ -51756,7 +52393,7 @@
       "module": "shared-rings",
       "parentTask": null,
       "parents": [
-        "feature:delegated-admins"
+        "story:delegated-admins"
       ],
       "path": "tasks/T-006 Delegated admin endpoints/T-006 Delegated admin endpoints.md",
       "pending": [],
@@ -51919,7 +52556,7 @@
       "module": "discovery",
       "parentTask": null,
       "parents": [
-        "feature:badge-qr"
+        "story:badge-qr"
       ],
       "path": "tasks/T-007 Issue and rotate the QR token for a Ring/T-007 Issue and rotate the QR token for a Ring.md",
       "pending": [],
@@ -52087,7 +52724,7 @@
       "module": "discovery",
       "parentTask": null,
       "parents": [
-        "feature:badge-qr"
+        "story:badge-qr"
       ],
       "path": "tasks/T-008 Resolve a scanned QR token/T-008 Resolve a scanned QR token.md",
       "pending": [],
@@ -52271,7 +52908,7 @@
       "module": "discovery",
       "parentTask": null,
       "parents": [
-        "feature:badge-qr"
+        "story:badge-qr"
       ],
       "path": "tasks/T-009 Scan counter and share link/T-009 Scan counter and share link.md",
       "pending": [],
@@ -52452,7 +53089,7 @@
       "module": "discovery",
       "parentTask": null,
       "parents": [
-        "feature:badge-qr"
+        "story:badge-qr"
       ],
       "path": "tasks/T-010 Public browser page for viewers without the app/T-010 Public browser page for viewers without the app.md",
       "pending": [],
@@ -52632,7 +53269,7 @@
       "module": "events",
       "parentTask": null,
       "parents": [
-        "feature:event-ring-auto"
+        "story:event-ring-auto"
       ],
       "path": "tasks/T-011 Create the Event Ring on registration/T-011 Create the Event Ring on registration.md",
       "pending": [],
@@ -52742,7 +53379,7 @@
       "module": "identity",
       "parentTask": null,
       "parents": [
-        "feature:photo-library"
+        "story:photo-library"
       ],
       "path": "tasks/T-012 List my files (photo library)/T-012 List my files (photo library).md",
       "pending": [],
@@ -52910,7 +53547,7 @@
       "module": "identity",
       "parentTask": null,
       "parents": [
-        "feature:photo-library"
+        "story:photo-library"
       ],
       "path": "tasks/T-013 Usage count per file across Rings/T-013 Usage count per file across Rings.md",
       "pending": [],
@@ -53083,7 +53720,7 @@
       "module": "platform",
       "parentTask": null,
       "parents": [
-        "feature:devices"
+        "story:devices"
       ],
       "path": "tasks/T-014 Register devices on login; list and remove/T-014 Register devices on login; list and remove.md",
       "pending": [],
@@ -53251,7 +53888,7 @@
       "module": "platform",
       "parentTask": null,
       "parents": [
-        "feature:devices"
+        "story:devices"
       ],
       "path": "tasks/T-015 Pair and revoke an NFC card/T-015 Pair and revoke an NFC card.md",
       "pending": [],
@@ -53424,7 +54061,7 @@
       "module": "platform",
       "parentTask": null,
       "parents": [
-        "feature:interests"
+        "story:interests"
       ],
       "path": "tasks/T-016 Interests vocabulary and my interests/T-016 Interests vocabulary and my interests.md",
       "pending": [],
@@ -53587,7 +54224,7 @@
       "module": "identity",
       "parentTask": null,
       "parents": [
-        "feature:widgets"
+        "story:widgets"
       ],
       "path": "tasks/T-017 Extend WIDGET_TYPE to the design's list/T-017 Extend WIDGET_TYPE to the design's list.md",
       "pending": [],
@@ -53761,7 +54398,7 @@
       "module": "identity",
       "parentTask": null,
       "parents": [
-        "feature:widgets"
+        "story:widgets"
       ],
       "path": "tasks/T-018 Widget CRUD on the projection/T-018 Widget CRUD on the projection.md",
       "pending": [],
@@ -53949,7 +54586,7 @@
       "module": "platform",
       "parentTask": null,
       "parents": [
-        "feature:linked-accounts"
+        "story:linked-accounts"
       ],
       "path": "tasks/T-019 LinkedIn OAuth link, unlink, login/T-019 LinkedIn OAuth link, unlink, login.md",
       "pending": [],
@@ -54129,7 +54766,7 @@
       "module": "identity",
       "parentTask": null,
       "parents": [
-        "feature:onboarding-imports"
+        "story:onboarding-imports"
       ],
       "path": "tasks/T-020 LinkedIn import → review → base profile/T-020 LinkedIn import → review → base profile.md",
       "pending": [],
@@ -54325,7 +54962,7 @@
       "module": "identity",
       "parentTask": null,
       "parents": [
-        "feature:onboarding-imports"
+        "story:onboarding-imports"
       ],
       "path": "tasks/T-020b Business card scan and portfolio URL import/T-020b Business card scan and portfolio URL import.md",
       "pending": [],
@@ -54501,7 +55138,7 @@
       "module": "connections",
       "parentTask": null,
       "parents": [
-        "feature:connections"
+        "story:connections"
       ],
       "path": "tasks/T-021 Connect request send, inbox, cancel/T-021 Connect request send, inbox, cancel.md",
       "pending": [],
@@ -54672,7 +55309,7 @@
       "module": "connections",
       "parentTask": null,
       "parents": [
-        "feature:connections"
+        "story:connections"
       ],
       "path": "tasks/T-022 Accept into a Ring (sets grantedRingId)/T-022 Accept into a Ring (sets grantedRingId).md",
       "pending": [],
@@ -54853,7 +55490,7 @@
       "module": "connections",
       "parentTask": null,
       "parents": [
-        "feature:connections"
+        "story:connections"
       ],
       "path": "tasks/T-023 Connection detail and contacts list/T-023 Connection detail and contacts list.md",
       "pending": [],
@@ -55026,7 +55663,7 @@
       "module": "connections",
       "parentTask": null,
       "parents": [
-        "feature:connections"
+        "story:connections"
       ],
       "path": "tasks/T-024 Block and unblock/T-024 Block and unblock.md",
       "pending": [],
@@ -55194,7 +55831,7 @@
       "module": "connections",
       "parentTask": null,
       "parents": [
-        "feature:connections"
+        "story:connections"
       ],
       "path": "tasks/T-025 Introduce a connection to another/T-025 Introduce a connection to another.md",
       "pending": [],
@@ -55375,7 +56012,7 @@
       "module": "shared-rings",
       "parentTask": null,
       "parents": [
-        "feature:ring-invitations"
+        "story:ring-invitations"
       ],
       "path": "tasks/T-026 Ring invitations invite, review, decline/T-026 Ring invitations invite, review, decline.md",
       "pending": [],
@@ -55562,7 +56199,7 @@
       "module": "shared-rings",
       "parentTask": null,
       "parents": [
-        "feature:ring-invitations"
+        "story:ring-invitations"
       ],
       "path": "tasks/T-027 Join a Ring with a code or verified work email/T-027 Join a Ring with a code or verified work email.md",
       "pending": [],
@@ -55755,7 +56392,7 @@
       "module": "shared-rings",
       "parentTask": null,
       "parents": [
-        "feature:ring-invitations"
+        "story:ring-invitations"
       ],
       "path": "tasks/T-028 What you contribute to a shared Ring/T-028 What you contribute to a shared Ring.md",
       "pending": [],
@@ -55928,7 +56565,7 @@
       "module": "shared-rings",
       "parentTask": null,
       "parents": [
-        "feature:companies"
+        "story:companies"
       ],
       "path": "tasks/T-029 My companies and company detail/T-029 My companies and company detail.md",
       "pending": [],
@@ -56091,7 +56728,7 @@
       "module": "discovery",
       "parentTask": null,
       "parents": [
-        "feature:discover-hub"
+        "story:discover-hub"
       ],
       "path": "tasks/T-030 Discover search by !pinname and recent searches/T-030 Discover search by !pinname and recent searches.md",
       "pending": [],
@@ -56251,7 +56888,7 @@
       "module": "discovery",
       "parentTask": null,
       "parents": [
-        "feature:discover-hub"
+        "story:discover-hub"
       ],
       "path": "tasks/T-031 Import contacts/T-031 Import contacts.md",
       "pending": [],
@@ -56411,7 +57048,7 @@
       "module": "discovery",
       "parentTask": null,
       "parents": [
-        "feature:pincast"
+        "story:pincast"
       ],
       "path": "tasks/T-032 PinCast setup, start, stop, results/T-032 PinCast setup, start, stop, results.md",
       "pending": [],
@@ -56580,7 +57217,7 @@
       "module": "events",
       "parentTask": null,
       "parents": [
-        "feature:events-before"
+        "story:events-before"
       ],
       "path": "tasks/T-033 Events list, detail, schedule/T-033 Events list, detail, schedule.md",
       "pending": [],
@@ -56751,7 +57388,7 @@
       "module": "events",
       "parentTask": null,
       "parents": [
-        "feature:events-before"
+        "story:events-before"
       ],
       "path": "tasks/T-034 Tickets, packages, levels, sold-out/T-034 Tickets, packages, levels, sold-out.md",
       "pending": [],
@@ -56938,7 +57575,7 @@
       "module": "events",
       "parentTask": null,
       "parents": [
-        "feature:events-before"
+        "story:events-before"
       ],
       "path": "tasks/T-035 Registration transaction with order and payment/T-035 Registration transaction with order and payment.md",
       "pending": [],
@@ -57134,7 +57771,7 @@
       "module": "events",
       "parentTask": null,
       "parents": [
-        "feature:events-during"
+        "story:events-during"
       ],
       "path": "tasks/T-036 Event mode exhibitors list and detail/T-036 Event mode exhibitors list and detail.md",
       "pending": [],
@@ -57327,7 +57964,7 @@
       "module": "events",
       "parentTask": null,
       "parents": [
-        "feature:events-during"
+        "story:events-during"
       ],
       "path": "tasks/T-037 Event pass with a 60 s rotating code/T-037 Event pass with a 60 s rotating code.md",
       "pending": [],
@@ -57520,7 +58157,7 @@
       "module": "events",
       "parentTask": null,
       "parents": [
-        "feature:events-during"
+        "story:events-during"
       ],
       "path": "tasks/T-038 Floor map and booths/T-038 Floor map and booths.md",
       "pending": [],
@@ -57701,7 +58338,7 @@
       "module": "events",
       "parentTask": null,
       "parents": [
-        "feature:events-during"
+        "story:events-during"
       ],
       "path": "tasks/T-039 Catalogue products and talks (new table)/T-039 Catalogue products and talks (new table).md",
       "pending": [],
@@ -57888,7 +58525,7 @@
       "module": "events",
       "parentTask": null,
       "parents": [
-        "feature:events-during"
+        "story:events-during"
       ],
       "path": "tasks/T-040 Lounges and upgrades/T-040 Lounges and upgrades.md",
       "pending": [],
@@ -58073,7 +58710,7 @@
       "module": "meetings",
       "parentTask": null,
       "parents": [
-        "feature:meetings"
+        "story:meetings"
       ],
       "path": "tasks/T-041 Availability slots CRUD/T-041 Availability slots CRUD.md",
       "pending": [],
@@ -58244,7 +58881,7 @@
       "module": "meetings",
       "parentTask": null,
       "parents": [
-        "feature:meetings"
+        "story:meetings"
       ],
       "path": "tasks/T-042 Meeting request, accept with slots, decline with reason/T-042 Meeting request, accept with slots, decline with reason.md",
       "pending": [],
@@ -58427,7 +59064,7 @@
       "module": "meetings",
       "parentTask": null,
       "parents": [
-        "feature:meetings"
+        "story:meetings"
       ],
       "path": "tasks/T-043 Temporary meeting Ring per meeting/T-043 Temporary meeting Ring per meeting.md",
       "pending": [],
@@ -58547,7 +59184,7 @@
       "module": "meetings",
       "parentTask": null,
       "parents": [
-        "feature:meetings"
+        "story:meetings"
       ],
       "path": "tasks/T-044 My meetings, calendar, detail, reschedule, cancel/T-044 My meetings, calendar, detail, reschedule, cancel.md",
       "pending": [],
@@ -58726,7 +59363,7 @@
       "module": "platform",
       "parentTask": null,
       "parents": [
-        "feature:notifications"
+        "story:notifications"
       ],
       "path": "tasks/T-045 NotificationService.emit and the inbox/T-045 NotificationService.emit and the inbox.md",
       "pending": [],
@@ -58900,7 +59537,7 @@
       "module": "platform",
       "parentTask": null,
       "parents": [
-        "feature:notifications"
+        "story:notifications"
       ],
       "path": "tasks/T-046 Push delivery and preferences/T-046 Push delivery and preferences.md",
       "pending": [],
@@ -59084,7 +59721,7 @@
       "module": "commerce",
       "parentTask": null,
       "parents": [
-        "feature:payments"
+        "story:payments"
       ],
       "path": "tasks/T-047 Orders, payments and the provider webhook/T-047 Orders, payments and the provider webhook.md",
       "pending": [],
@@ -59194,7 +59831,7 @@
       "module": "events",
       "parentTask": null,
       "parents": [
-        "feature:exhibitor"
+        "story:exhibitor"
       ],
       "path": "tasks/T-048 Business account setup → business Ring/T-048 Business account setup → business Ring.md",
       "pending": [],
@@ -59381,7 +60018,7 @@
       "module": "events",
       "parentTask": null,
       "parents": [
-        "feature:exhibitor"
+        "story:exhibitor"
       ],
       "path": "tasks/T-048b Booth analytics and leads CSV export/T-048b Booth analytics and leads CSV export.md",
       "pending": [],
@@ -59566,7 +60203,7 @@
       "module": "commerce",
       "parentTask": null,
       "parents": [
-        "feature:subscription"
+        "story:subscription"
       ],
       "path": "tasks/T-049 Subscription endpoints and a single Pro gate/T-049 Subscription endpoints and a single Pro gate.md",
       "pending": [],
@@ -59746,7 +60383,7 @@
       "module": "events",
       "parentTask": null,
       "parents": [
-        "feature:post-event"
+        "story:post-event"
       ],
       "path": "tasks/T-050 Post-event summary and follow-ups/T-050 Post-event summary and follow-ups.md",
       "pending": [],
@@ -59957,7 +60594,7 @@
       "module": "platform",
       "parentTask": null,
       "parents": [
-        "feature:gemma"
+        "story:gemma"
       ],
       "path": "tasks/T-051 Gemma assistant sheet and suggestions/T-051 Gemma assistant sheet and suggestions.md",
       "pending": [],
@@ -60156,7 +60793,7 @@
       "module": "platform",
       "parentTask": null,
       "parents": [
-        "feature:gemma"
+        "story:gemma"
       ],
       "path": "tasks/T-052 Smart Match/T-052 Smart Match.md",
       "pending": [],
@@ -60340,7 +60977,7 @@
       "module": "platform",
       "parentTask": null,
       "parents": [
-        "feature:audit-log"
+        "story:audit-log"
       ],
       "path": "tasks/T-053 Audit log writes/T-053 Audit log writes.md",
       "pending": [],
@@ -60437,7 +61074,7 @@
       "module": "platform",
       "parentTask": null,
       "parents": [
-        "feature:cleanup-jobs"
+        "story:cleanup-jobs"
       ],
       "path": "tasks/T-054 Cleanup jobs/T-054 Cleanup jobs.md",
       "pending": [],
@@ -60534,7 +61171,7 @@
       "module": "platform",
       "parentTask": null,
       "parents": [
-        "feature:e2e-tests"
+        "story:e2e-tests"
       ],
       "path": "tasks/T-055 Run the e2e suite in CI against PostGIS/T-055 Run the e2e suite in CI against PostGIS.md",
       "pending": [],
@@ -60616,7 +61253,7 @@
       "depends": [
         "decision:D-01"
       ],
-      "dir": null,
+      "dir": "tasks/T-056 Decide passwordless login",
       "effectiveStatus": "done",
       "effort": "S",
       "feature": "auth",
@@ -60630,9 +61267,9 @@
       "module": "identity",
       "parentTask": null,
       "parents": [
-        "feature:auth"
+        "story:auth"
       ],
-      "path": "tasks/T-056 Decide passwordless login.md",
+      "path": "tasks/T-056 Decide passwordless login/T-056 Decide passwordless login.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -60663,14 +61300,16 @@
         }
       ],
       "card": "T-057",
-      "children": [],
+      "children": [
+        "story:T-057"
+      ],
       "code": "T-057",
       "deadline": null,
       "decision": "D-02",
       "depends": [
         "decision:D-02"
       ],
-      "dir": null,
+      "dir": "tasks/T-057 Decide base profile work fields",
       "effectiveStatus": "needs-decision",
       "effort": "S",
       "feature": "profiles",
@@ -60684,13 +61323,15 @@
       "module": "identity",
       "parentTask": null,
       "parents": [
-        "feature:profiles"
+        "story:profiles"
       ],
-      "path": "tasks/T-057 Decide base profile work fields.md",
+      "path": "tasks/T-057 Decide base profile work fields/T-057 Decide base profile work fields.md",
       "pending": [],
       "priority": "critical",
       "related": [],
-      "rollup": {},
+      "rollup": {
+        "draft": 1
+      },
       "scope": null,
       "screens": [
         "s05"
@@ -60717,14 +61358,16 @@
         }
       ],
       "card": "T-058",
-      "children": [],
+      "children": [
+        "story:T-058"
+      ],
       "code": "T-058",
       "deadline": null,
       "decision": "D-03",
       "depends": [
         "decision:D-03"
       ],
-      "dir": null,
+      "dir": "tasks/T-058 Decide field library vs per-Ring copies",
       "effectiveStatus": "needs-decision",
       "effort": "S",
       "feature": "ring-projection",
@@ -60738,13 +61381,15 @@
       "module": "identity",
       "parentTask": null,
       "parents": [
-        "feature:ring-projection"
+        "story:ring-projection"
       ],
-      "path": "tasks/T-058 Decide field library vs per-Ring copies.md",
+      "path": "tasks/T-058 Decide field library vs per-Ring copies/T-058 Decide field library vs per-Ring copies.md",
       "pending": [],
       "priority": "critical",
       "related": [],
-      "rollup": {},
+      "rollup": {
+        "draft": 1
+      },
       "scope": null,
       "screens": [
         "s24"
@@ -60771,14 +61416,16 @@
         }
       ],
       "card": "T-059",
-      "children": [],
+      "children": [
+        "story:T-059"
+      ],
       "code": "T-059",
       "deadline": null,
       "decision": "D-04",
       "depends": [
         "decision:D-04"
       ],
-      "dir": null,
+      "dir": "tasks/T-059 Decide Ring settings",
       "effectiveStatus": "needs-decision",
       "effort": "S",
       "feature": "rings",
@@ -60792,13 +61439,15 @@
       "module": "identity",
       "parentTask": null,
       "parents": [
-        "feature:rings"
+        "story:rings"
       ],
-      "path": "tasks/T-059 Decide Ring settings.md",
+      "path": "tasks/T-059 Decide Ring settings/T-059 Decide Ring settings.md",
       "pending": [],
       "priority": "critical",
       "related": [],
-      "rollup": {},
+      "rollup": {
+        "draft": 1
+      },
       "scope": null,
       "screens": [
         "s27"
@@ -60830,7 +61479,9 @@
         }
       ],
       "card": "T-060",
-      "children": [],
+      "children": [
+        "story:T-060"
+      ],
       "code": "T-060",
       "deadline": null,
       "decision": "D-05",
@@ -60838,7 +61489,7 @@
         "decision:D-02",
         "decision:D-05"
       ],
-      "dir": null,
+      "dir": "tasks/T-060 Decide copy or inherit",
       "effectiveStatus": "needs-decision",
       "effort": "S",
       "feature": "ring-projection",
@@ -60852,13 +61503,15 @@
       "module": "identity",
       "parentTask": null,
       "parents": [
-        "feature:ring-projection"
+        "story:ring-projection"
       ],
-      "path": "tasks/T-060 Decide copy or inherit.md",
+      "path": "tasks/T-060 Decide copy or inherit/T-060 Decide copy or inherit.md",
       "pending": [],
       "priority": "high",
       "related": [],
-      "rollup": {},
+      "rollup": {
+        "draft": 1
+      },
       "scope": null,
       "screens": [
         "s28"
@@ -60885,14 +61538,16 @@
         }
       ],
       "card": "T-061",
-      "children": [],
+      "children": [
+        "story:T-061"
+      ],
       "code": "T-061",
       "deadline": null,
       "decision": "D-06",
       "depends": [
         "decision:D-06"
       ],
-      "dir": null,
+      "dir": "tasks/T-061 Decide Pin name rules",
       "effectiveStatus": "needs-decision",
       "effort": "S",
       "feature": "profiles",
@@ -60906,13 +61561,15 @@
       "module": "identity",
       "parentTask": null,
       "parents": [
-        "feature:profiles"
+        "story:profiles"
       ],
-      "path": "tasks/T-061 Decide Pin name rules.md",
+      "path": "tasks/T-061 Decide Pin name rules/T-061 Decide Pin name rules.md",
       "pending": [],
       "priority": "high",
       "related": [],
-      "rollup": {},
+      "rollup": {
+        "draft": 1
+      },
       "scope": null,
       "screens": [
         "s06"
@@ -60956,7 +61613,7 @@
       "module": "identity",
       "parentTask": null,
       "parents": [
-        "feature:files"
+        "story:files"
       ],
       "path": "tasks/T-062 Serve uploaded file bytes by id/T-062 Serve uploaded file bytes by id.md",
       "pending": [],
@@ -61128,7 +61785,7 @@
       "module": "platform",
       "parentTask": null,
       "parents": [
-        "feature:error-contract"
+        "story:error-contract"
       ],
       "path": "tasks/T-063 Put the ErrorCode on the error body/T-063 Put the ErrorCode on the error body.md",
       "pending": [],
@@ -61268,7 +61925,7 @@
       "deadline": null,
       "decision": null,
       "depends": [],
-      "dir": null,
+      "dir": "tasks/T-064 Restructure the docs vault",
       "effectiveStatus": "done",
       "effort": "L",
       "feature": "error-contract",
@@ -61282,9 +61939,9 @@
       "module": "platform",
       "parentTask": null,
       "parents": [
-        "feature:error-contract"
+        "story:error-contract"
       ],
-      "path": "tasks/T-064 Restructure the docs vault.md",
+      "path": "tasks/T-064 Restructure the docs vault/T-064 Restructure the docs vault.md",
       "pending": [],
       "priority": "high",
       "related": [],

@@ -515,7 +515,7 @@ export function build() {
   for (const [, t] of taskNodes) {
     const f = featureNodes.get(t.feature);
     if (!f) { err(t.path, `feature "${t.feature}" is not a feature id`); continue; }
-    let container = f;
+    let container = siblings.get(f.id)?.get('story') ?? f; // a task hangs under its feature's story (the placeholder while the story is not written yet); a sub-task under its parent
     if (t.parentTask) {
       const p = taskNodes.get(t.parentTask);
       if (!p) { err(t.path, `parent: "${t.parentTask}" is not a task id`); t.parentTask = null; }
@@ -746,7 +746,7 @@ export function build() {
   }
   const kindRank = new Map(cfg.flowOrder.map((k, i) => [k, i]));
   const rank = (n) => (kindRank.has(n.kind) ? kindRank.get(n.kind) : n.kind === 'task' ? 100 : n.kind === 'decision' ? 200 : 300);
-  for (const n of [...featureNodes.values(), ...taskNodes.values()]) {
+  for (const n of [...featureNodes.values(), ...taskNodes.values(), ...layerNodes.filter((l) => l.children.length)]) {
     n.children.sort((a, b) => (rank(nodes[a]) - rank(nodes[b])) || nodes[a].title.localeCompare(nodes[b].title, 'en', { numeric: true }));
   }
 
@@ -836,7 +836,9 @@ export function build() {
     const s = summarize(t.children);
     if (t.effectiveStatus === 'done' && s !== 'done') { warn(t.path, `status is done but its cards are not (${s}): a task is done when every card under it is`); t.effectiveStatus = s === 'partial' ? 'partial' : 'in-progress'; }
   }
-  for (const [, f] of featureNodes) f.effectiveStatus = summarize(f.children);
+  // a feature's cards: its layer notes and decisions, plus the tasks that hang under its story
+  const featureCards = (f) => [...f.children, ...f.children.flatMap((c) => (nodes[c].kind === 'story' ? nodes[c].children.filter((g) => nodes[g].kind === 'task') : []))];
+  for (const [, f] of featureNodes) f.effectiveStatus = summarize(featureCards(f));
   for (const [, d] of moduleNodes) d.effectiveStatus = summarize(d.children);
   root.effectiveStatus = summarize([...moduleNodes.values()].map((d) => d.id));
   for (const [, t] of taskNodes) rollup(t.id);
@@ -1115,6 +1117,7 @@ export function impact(json, query) {
     return out;
   };
   const family = new Set([start.id, ...start.children, ...(start.kind === 'feature' || start.kind === 'task' ? [] : start.parents)]);
+  if (start.kind === 'feature') for (const c of start.children) if (nodes[c].kind === 'story') for (const g of nodes[c].children) if (nodes[g].kind === 'task') family.add(g); // the tasks under the feature's story
   const first = hop([...family]);
   for (const id of family) first.delete(id);
   const second = hop([...first.keys()]);

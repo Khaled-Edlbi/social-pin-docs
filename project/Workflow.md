@@ -1,7 +1,7 @@
 ---
 type: project
 layer: shared
-updated: 2026-10-19
+updated: 2026-10-21
 related: ["Agent Rules", "Docs Tree"]
 tags: [project, layer/shared]
 ---
@@ -67,7 +67,7 @@ When a task-level note reaches its done status, the same layer updates the featu
 
 ## Where to look for what
 
-- Anyone → the [[Docs Tree]] page: project → module → feature → the layer notes, tasks, decisions; filter by layer.
+- Anyone → the [[Docs Tree]] page: project → module → feature → the layer notes (the tasks under the story), decisions; filter by layer.
 - A frontend developer → [[Frontend Contract]] → the feature's Backend Integration note → [[Frontend API Guide]].
 - A backend developer → [[Backlog]] → the ticket → `--impact` → the feature's Backend Delivery and Frontend Requirements → [[Ring Access Model]].
 - Product → [[Decisions]], the ✏️ Draft stories in the tree, [[Screen Index]].

@@ -519,7 +519,7 @@ function marksHtml(n, wide) {
 const LABEL = { bug: { bg: 'var(--color-accent-2-100)', ink: 'var(--color-accent-2-800)', c: 'var(--color-accent-2-600)' }, chore: { bg: 'var(--color-neutral-200)', ink: 'var(--color-neutral-800)', c: 'var(--color-neutral-500)' }, spike: { bg: 'var(--st-violet-bg)', ink: 'var(--st-violet-ink)', c: 'var(--st-violet-c)' }, docs: { bg: 'var(--color-accent-100)', ink: 'var(--color-accent-800)', c: 'var(--color-accent-500)' } };
 const labelStyle = (l) => LABEL[l] || LABEL.chore;
 const T = { H: 20, ROW: 52, LROW: 58, LADDER: 16, LEVEL: 112, XGAP: 16, STACK: 26, COLGAP: 64 };
-const CONTAINER = new Set(['feature', 'group', 'task']); // list their children in a column: the layer notes as a ladder in hand-off order, then tasks and decisions
+const CONTAINER = new Set(['feature', 'group', 'task']); // list their children in a column: the layer notes as a ladder in hand-off order, then decisions and loose tasks; a feature's tasks hang under its story card, beside the ladder
 let FLOW = { order: [], pairs: [], back: [] };
 const store = { get(k, d) { try { const v = localStorage.getItem('spt2.' + k); return v === null ? d : JSON.parse(v); } catch { return d; } }, set(k, v) { try { localStorage.setItem('spt2.' + k, JSON.stringify(v)); } catch {} } };
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -713,6 +713,16 @@ function layoutTree() {
       for (const c of ladder) { y += T.LROW; c.stacked = true; c.x = it.x + T.STACK + T.LADDER * c.lad; c.y = y; colW = Math.max(colW, c.x - it.x + c.w); }
       for (const c of simple) { y += T.ROW; c.stacked = true; c.x = it.x + T.STACK; c.y = y; colW = Math.max(colW, T.STACK + c.w); }
       cursor = it.x + colW + T.XGAP;
+      // a ladder card with cards of its own (the story's tasks): a column to the right of the ladder, level with the card; an expanded task gets its own column further right
+      for (const c of ladder) {
+        const own = c.children.filter((g) => g.visible); if (!own.length) continue;
+        c.stacks = true;
+        const leaves = own.filter((g) => !g.children.some((h) => h.visible)), deep = own.filter((g) => g.children.some((h) => h.visible));
+        let y2 = c.y, w2 = 0; const x2 = cursor;
+        for (const g of leaves) { g.stacked = true; g.x = x2; g.y = y2; y2 += T.ROW; w2 = Math.max(w2, g.w); }
+        if (leaves.length) cursor = x2 + w2 + T.XGAP;
+        for (const g of deep) { g.y = c.y; place(g); g.stacked = true; }
+      }
       for (const c of complex) { c.y = it.y + T.ROW; place(c); c.stacked = true; }
       cursor += 18; return;
     }

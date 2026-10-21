@@ -1,6 +1,6 @@
 # Social Pin · Docs
 
-The documentation vault for Social Pin: business, frontend, backend and QA notes for every feature and task, the project reference for each side, the tickets, the decisions and the design index. Open this folder as an Obsidian vault and start at [Home.md](Home.md), or browse it as a tree at **https://khaled-edlbi.github.io/social-pin-docs/** (project → module → feature → one note per layer, tasks, decisions, as a tree, a relation graph or an outline; relations light up on hover; filter by module, layer, kind and status).
+The documentation vault for Social Pin: business, frontend, backend and QA notes for every feature and task, the project reference for each side, the tickets, the decisions and the design index. Open this folder as an Obsidian vault and start at [Home.md](Home.md), or browse it as a tree at **https://khaled-edlbi.github.io/social-pin-docs/** (project → module → feature → one note per layer, the tasks under the story, decisions, as a tree, a relation graph or an outline; relations light up on hover; filter by module, layer, kind and status).
 
 ```bash
 node scripts/build-tree.mjs --serve                     # the same page locally, http://127.0.0.1:8787/
