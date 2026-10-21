@@ -1,7 +1,7 @@
 ---
 type: project
 layer: shared
-updated: 2026-10-19
+updated: 2026-10-21
 depends: ["Agent Protocol"]
 affects: []
 related: ["Agent Protocol", "Agent Rules", "Workflow"]
@@ -22,7 +22,8 @@ You **write**:
 
 - `<Feature> QA Backend` and `T-NNN QA Backend` (given / when / then per endpoint, the state diagram, the error matrix, the verdict) and `<Feature> QA Frontend` / `T-NNN QA Frontend` (journeys, screen states, error copy, the verdict), feature- and task-level;
 - bugs: a sub-task of the task the bug was found against, `labels: [bug]`, with what happens, what should happen, the screen or endpoint, the build;
-- the story's `verified` sign-off, when both QA notes of its scope are `passing` ([[Agent Rules#4 · Statuses, blocking and sign-off]]).
+- the story's `verified` sign-off, when both QA notes of its scope are `passing` ([[Agent Rules#4 · Statuses, blocking and sign-off]]);
+- the decision card a QA note of yours cannot continue without (`--scaffold decision "<card>" "<title>"`): you raise and fill it; the PM or the owner decide it ([[Agent Rules#4 · Statuses, blocking and sign-off]]).
 
 You read the story, both delivery notes and the integration note. You never write a story's body, a delivery note or a requirements note: when the behaviour differs from what a delivery note says, you flag it ([[Agent Protocol#4 · Act, inside your scope]]).
 

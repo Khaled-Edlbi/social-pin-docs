@@ -41,7 +41,7 @@ Facts, constraints, where the design and the backend disagree, what was tried.
 
 ## Decision
 
-— (fill in, set `status: decided`, `decidedBy`, `decidedAt` and the tag `decision/decided`, change the H1 emoji to ✅, and list every feature and task it changes in `affects`; then `--impact D-NN` and flag the notes it lists)
+— (the PM or the owner only, on the user's word: fill in, set `status: decided`, `decidedBy`, `decidedAt` and the tag `decision/decided`, change the H1 emoji to ✅, and list every feature and task it changes in `affects`; then `--impact D-NN` and flag the notes it lists)
 
 ## Consequences
 

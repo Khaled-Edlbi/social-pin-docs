@@ -47,6 +47,7 @@ function scopeWords(a) {
   if (w.taskLabels?.length) parts.push(`task notes labelled ${w.taskLabels.join(' / ')}`);
   if (w.paths?.length) parts.push(w.paths.join(', ') + (w.except?.length ? ` (not ${w.except.join(', ')})` : ''));
   if (w.editOnly) { const e = []; if (w.editOnly.kinds?.length) e.push(...w.editOnly.kinds); if (w.editOnly.types?.length) e.push(...w.editOnly.types); if (e.length) parts.push(`edits (never rewrites) in ${e.join(', ')} notes`); }
+  if (w.types?.includes('decision') && !(a.signs || []).includes('decision')) parts.push('decision cards to raise and fill, never to decide (status / decidedBy / decidedAt are the PM\'s or the owner\'s)');
   if (a.signs?.length) parts.push(`sign-off lines on ${a.signs.join(', ')}`);
   if (a.fields?.length) parts.push(`${a.fields.join(' / ')} on any card`);
   parts.push('a flag line (> ⚠ Affected by …) under any note\'s H1');
@@ -100,6 +101,9 @@ const changedLines = (oldS, newS) => {
 const isFlagEdit = (edit) => { if (!edit) return false; const { added, removed } = changedLines(edit.old, edit.new); return removed.length === 0 && added.length >= 1 && added.every((l) => FLAG.test(l) || l.trim() === ''); };
 const onlyLines = (edit, re) => { if (!edit) return false; const { added, removed } = changedLines(edit.old, edit.new); return [...added, ...removed].every((l) => re.test(l)); };
 const fieldLines = (fields) => new RegExp(`^(${fields.join('|')}|updated|tags):`);
+// the lines that take a decision: only an agent whose `signs` lists `decision` may change them (Agent Rules §4)
+const DECIDE_LINES = /^(status|decidedBy|decidedAt):/;
+const touchesDecide = (edit) => { if (!edit) return false; const { added, removed } = changedLines(edit.old, edit.new); return [...added, ...removed].some((l) => DECIDE_LINES.test(l)); };
 
 // ---------------------------------------------------------------- the decision
 export function decide(agent, rel, op, edit) {
@@ -116,6 +120,12 @@ export function decide(agent, rel, op, edit) {
   const claimedElsewhere = c.type === 'task' && c.labels.some((l) => !(w.taskLabels || []).includes(l) && AGENTS.some((o) => o.id !== agent.id && (o.writes?.taskLabels || []).includes(l)));
   const inTypes = c.type && (w.types || []).includes(c.type) && !claimedElsewhere;
   const inLabels = c.type === 'task' && (w.taskLabels || []).some((l) => c.labels.includes(l));
+  // a decision card: anyone who writes decisions raises and fills it; deciding it is for the agents that sign decisions
+  if (c.type === 'decision' && !(agent.signs || []).includes('decision')) {
+    const deciders = AGENTS.filter((a) => (a.signs || []).includes('decision')).map((a) => `/${a.id}`).join(' or ');
+    if (op === 'edit' && touchesDecide(edit)) return { allow: false, message: `${agent.id} agent: "${rel}" is a decision card; you may raise and fill it, but status, decidedBy and decidedAt are set by ${deciders} on the user's word. The rules: ${PROTOCOL}.` };
+    if (op === 'write' && edit && /^status:\s*decided\b/m.test(edit.new)) return { allow: false, message: `${agent.id} agent: "${rel}" would be written as decided; a decision is taken by ${deciders} on the user's word. Write it open, or hand it over. The rules: ${PROTOCOL}.` };
+  }
   if (inPaths || inKinds || inTypes || inLabels) return { allow: true };
   const eo = w.editOnly || {};
   const editOnly = (c.kind && (eo.kinds || []).includes(c.kind)) || (c.type && (eo.types || []).includes(c.type));
@@ -162,6 +172,7 @@ if (cmd === 'check') {
   let op = 'write', edit = null;
   if (tool === 'Edit' && typeof input.old_string === 'string') { op = 'edit'; edit = { old: input.old_string, new: input.new_string ?? '' }; }
   else if (tool === 'MultiEdit' && Array.isArray(input.edits)) { op = 'edit'; edit = { old: input.edits.map((e) => e.old_string ?? '').join('\n'), new: input.edits.map((e) => e.new_string ?? '').join('\n') }; }
+  else if (typeof input.content === 'string') edit = { old: '', new: input.content }; // a Write: the whole file, so the decision rule can read its status
   const d = decide(a, rel, op, edit);
   if (d.allow) process.exit(0);
   console.error(d.message);
@@ -188,6 +199,10 @@ if (cmd === 'selftest') {
   const sign = E('status: draft\napprovedBy: ""\napprovedAt: ""\nupdated: 2026-10-18\ntags: [story, story/draft, module/identity, layer/business]', 'status: approved\napprovedBy: "Khaled"\napprovedAt: 2026-10-19\nupdated: 2026-10-19\ntags: [story, story/approved, module/identity, layer/business]');
   const body = E('**As a** new user', '**As a** returning user');
   const prio = E('priority: high\nupdated: 2026-10-18', 'priority: critical\ndeadline: 2026-11-01\nupdated: 2026-10-19');
+  const dec = 'decisions/D-04 Ring settings.md', newDec = 'decisions/D-99 New.md';
+  const decideSign = E('status: open\ndecidedBy: ""\ndecidedAt: ""\nupdated: 2026-10-18\ntags: [decision, decision/open]', 'status: decided\ndecidedBy: "Khaled"\ndecidedAt: 2026-10-21\nupdated: 2026-10-21\ntags: [decision, decision/decided]');
+  const decBody = E('## Options\n\n1. …', '## Options\n\n1. Per-Ring copies\n2. One field library');
+  const openWrite = E('', '---\ntype: decision\nid: D-99\nstatus: open\n---\n'), decidedWrite = E('', '---\ntype: decision\nid: D-99\nstatus: decided\n---\n');
   const M = [
     // agent, path, op, edit, expected
     ['owner', 'project/Agent Rules.md', 'write', null, true], ['owner', 'docs.config.json', 'write', null, true], ['owner', mod, 'write', null, true], ['owner', 'decisions/D-04 Ring settings.md', 'edit', body, true],
@@ -200,6 +215,11 @@ if (cmd === 'selftest') {
     ['frontend', fr, 'write', null, true], ['frontend', fe, 'edit', body, true], ['frontend', 'frontend/Frontend Contract.md', 'edit', body, true], ['frontend', 'frontend/Frontend API Guide.md', 'edit', body, false],
     ['frontend', bd, 'edit', body, false], ['frontend', bd, 'edit', flag, true], ['frontend', story, 'edit', sign, false], ['frontend', task, 'edit', body, false],
     ['qa', newQa, 'write', null, true], ['qa', 'modules/Identity Core/Rings/Rings QA Frontend.md', 'write', null, true], ['qa', story, 'edit', sign, true], ['qa', story, 'edit', body, false], ['qa', bd, 'edit', flag, true], ['qa', bd, 'edit', body, false], ['qa', task, 'edit', body, false],
+    // decision cards: anyone raises and fills; the PM and the owner decide, and may raise one already decided (Agent Rules §4)
+    ['owner', newDec, 'write', openWrite, true], ['owner', newDec, 'write', decidedWrite, true], ['owner', dec, 'edit', decideSign, true], ['pm', newDec, 'write', decidedWrite, true], ['pm', dec, 'edit', decideSign, true], ['pm', dec, 'edit', decBody, true],
+    ['backend', newDec, 'write', openWrite, true], ['backend', dec, 'edit', decBody, true], ['backend', dec, 'edit', decideSign, false], ['backend', newDec, 'write', decidedWrite, false],
+    ['frontend', newDec, 'write', openWrite, true], ['frontend', dec, 'edit', decBody, true], ['frontend', dec, 'edit', decideSign, false],
+    ['qa', newDec, 'write', openWrite, true], ['qa', dec, 'edit', decBody, true], ['qa', dec, 'edit', decideSign, false], ['qa', newDec, 'write', decidedWrite, false],
   ];
   let bad = 0;
   for (const [id, rel, op, edit, expected] of M) {

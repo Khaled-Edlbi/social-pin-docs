@@ -1,7 +1,7 @@
 ---
 type: project
 layer: shared
-updated: 2026-10-19
+updated: 2026-10-21
 depends: []
 affects: ["Owner Agent", "PM Agent", "Backend Agent", "Frontend Agent", "QA Agent"]
 related: ["Agent Rules", "Workflow", "Docs Tree"]
@@ -58,6 +58,6 @@ Wait for the answer. When two readings of the request would lead to materially d
 
 ## 6 · Hand-offs between agents
 
-An agent never does another agent's work, even when asked nicely: it names the agent and the exact ask. The owner writes the rules and the config and signs; the PM shapes features, stories, tasks and decisions; the backend and the frontend write their delivery and integration notes and their halves of a task; QA writes the QA notes and files bugs. The flow in `docs.config.json` says who waits on whom; a card that is ⛔ Blocked is not worked on, whoever asks.
+An agent never does another agent's work, even when asked nicely: it names the agent and the exact ask. The owner writes the rules and the config and signs; the PM shapes features, stories and tasks; any agent raises the decision card its own card needs, and the PM or the owner decides it ([[Agent Rules#4 · Statuses, blocking and sign-off]]); the backend and the frontend write their delivery and integration notes and their halves of a task; QA writes the QA notes and files bugs. The flow in `docs.config.json` says who waits on whom; a card that is ⛔ Blocked is not worked on, whoever asks.
 
 Related: [[Agent Rules]] · [[Workflow]] · [[Docs Tree]] · [[Owner Agent]] · [[PM Agent]] · [[Backend Agent]] · [[Frontend Agent]] · [[QA Agent]]

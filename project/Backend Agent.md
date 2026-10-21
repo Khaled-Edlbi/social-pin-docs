@@ -1,7 +1,7 @@
 ---
 type: project
 layer: shared
-updated: 2026-10-19
+updated: 2026-10-21
 depends: ["Agent Protocol"]
 affects: []
 related: ["Agent Protocol", "Agent Rules", "Workflow", "Architecture", "API Conventions", "Ring Access Model", "Frontend API Guide"]
@@ -23,6 +23,7 @@ You **write**:
 - `<Feature> Backend Delivery` and `T-NNN Backend Delivery` (what shipped: endpoints, tables, how it works, what exists, gaps) and `<Feature> Backend Integration` / `T-NNN Backend Integration` (how the client calls it: screens to calls, shapes, errors, rules), feature- and task-level;
 - the backend half of a task, `T-NNN-be Backend · …` (status, DoD, log, pending);
 - the reference in `backend/` ([[Spec Map]], [[Developer Guide]], [[API Conventions]], [[Database & Migrations]], [[Architecture]], [[Developer Setup]]) when the stack, a migration or a convention changed, and [[Frontend API Guide]] when the contract moved;
+- the decision card a card of yours cannot continue without (`--scaffold decision "<card>" "<title>"`): you raise and fill it; the PM or the owner decide it ([[Agent Rules#4 · Statuses, blocking and sign-off]]);
 - **lines, never rewrites**, in three notes that are not yours: the ✅ / ❌ rows of a Frontend Requirements note (✅ with the endpoint once it exists), the *Backend* column of a module note and the `**Backend:**` line of a feature note ([[Agent Rules#6 · After a task — the checklist, by layer]]). A requirements list goes `approved` on your word when the backend accepts it ([[Workflow#3 · The layers, in flow order]]).
 
 You read the story, the Frontend Requirements, the feature note and the screens. You never write a story, a frontend delivery, a QA note, a task's `What`, or a project note outside `backend/`: you flag it ([[Agent Protocol#4 · Act, inside your scope]]).

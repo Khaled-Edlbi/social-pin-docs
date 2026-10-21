@@ -41877,7 +41877,7 @@
       ],
       "task": null,
       "title": "Agent Protocol",
-      "updated": "2026-10-19"
+      "updated": "2026-10-21"
     },
     "project:agent-rules": {
       "affects": [
@@ -41930,7 +41930,7 @@
       ],
       "task": null,
       "title": "Agent Rules",
-      "updated": "2026-10-19"
+      "updated": "2026-10-21"
     },
     "project:api-conventions": {
       "affects": [],
@@ -42177,7 +42177,7 @@
       ],
       "task": null,
       "title": "Backend Agent",
-      "updated": "2026-10-19"
+      "updated": "2026-10-21"
     },
     "project:database-migrations": {
       "affects": [],
@@ -42463,7 +42463,7 @@
       ],
       "task": null,
       "title": "Frontend Agent",
-      "updated": "2026-10-19"
+      "updated": "2026-10-21"
     },
     "project:frontend-agent-prompt": {
       "affects": [],
@@ -42719,7 +42719,7 @@
       ],
       "task": null,
       "title": "Owner Agent",
-      "updated": "2026-10-19"
+      "updated": "2026-10-21"
     },
     "project:pm-agent": {
       "affects": [],
@@ -42853,7 +42853,7 @@
       ],
       "task": null,
       "title": "QA Agent",
-      "updated": "2026-10-19"
+      "updated": "2026-10-21"
     },
     "project:ring-access-model": {
       "affects": [],

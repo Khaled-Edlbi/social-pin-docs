@@ -162,7 +162,7 @@
     { "id": "shared", "folder": "project", "label": "Project rules", "description": "The workflow, the agent rules and the docs tree: rules every layer follows." }
   ],
   "agents": {
-    "description": "The agents that edit this vault, one per role, invoked as /<id> in Claude Code (.claude/skills/<id>/SKILL.md loads the note). Each one writes only what its `writes` block names: `types` (structural note types), `kinds` (layer-note kinds, feature- and task-level), `taskLabels` (task notes carrying one of these labels), `paths` (globs; `except` removes); `editOnly` is the same but Edit only, never a rewrite or a new file. `signs` are the kinds where the agent may change only the sign-off lines (status, approvedBy / approvedAt, decidedBy / decidedAt, updated, tags, the H1); `fields` the frontmatter keys it may set on any card. Every agent may add a flag line (> ⚠ Affected by …) under any note's H1; nobody edits a generated file or design/Wireframe Brief.md. The hook in .claude/settings.json runs scripts/agent-guard.mjs to enforce this; the shared protocol is project/Agent Protocol.md.",
+    "description": "The agents that edit this vault, one per role, invoked as /<id> in Claude Code (.claude/skills/<id>/SKILL.md loads the note). Each one writes only what its `writes` block names: `types` (structural note types), `kinds` (layer-note kinds, feature- and task-level), `taskLabels` (task notes carrying one of these labels), `paths` (globs; `except` removes); `editOnly` is the same but Edit only, never a rewrite or a new file. `signs` are the kinds where the agent may change only the sign-off lines (status, approvedBy / approvedAt, decidedBy / decidedAt, updated, tags, the H1); `fields` the frontmatter keys it may set on any card. Every agent raises the decision card its own card needs (`decision` in its `types`), but only an agent with `decision` in `signs` may set a decision's status, decidedBy or decidedAt (project/Agent Rules.md §4). Every agent may add a flag line (> ⚠ Affected by …) under any note's H1; nobody edits a generated file or design/Wireframe Brief.md. The hook in .claude/settings.json runs scripts/agent-guard.mjs to enforce this; the shared protocol is project/Agent Protocol.md.",
     "marker": ".claude/.active-agent",
     "protocol": "project/Agent Protocol.md",
     "list": [
@@ -188,7 +188,7 @@
         "label": "Backend",
         "note": "project/Backend Agent.md",
         "layer": "backend",
-        "writes": { "kinds": ["backend-delivery", "backend-integration"], "taskLabels": ["backend"], "paths": ["backend/**", "frontend/Frontend API Guide.md"], "editOnly": { "kinds": ["frontend-requirements"], "types": ["feature", "module"] } },
+        "writes": { "types": ["decision"], "kinds": ["backend-delivery", "backend-integration"], "taskLabels": ["backend"], "paths": ["backend/**", "frontend/Frontend API Guide.md"], "editOnly": { "kinds": ["frontend-requirements"], "types": ["feature", "module"] } },
         "signs": ["frontend-requirements"]
       },
       {
@@ -196,14 +196,14 @@
         "label": "Frontend",
         "note": "project/Frontend Agent.md",
         "layer": "frontend",
-        "writes": { "kinds": ["frontend-requirements", "frontend-delivery"], "taskLabels": ["frontend"], "paths": ["frontend/**"], "except": ["frontend/Frontend API Guide.md"] }
+        "writes": { "types": ["decision"], "kinds": ["frontend-requirements", "frontend-delivery"], "taskLabels": ["frontend"], "paths": ["frontend/**"], "except": ["frontend/Frontend API Guide.md"] }
       },
       {
         "id": "qa",
         "label": "QA",
         "note": "project/QA Agent.md",
         "layer": "qa",
-        "writes": { "kinds": ["qa-backend", "qa-frontend"], "taskLabels": ["bug"] },
+        "writes": { "types": ["decision"], "kinds": ["qa-backend", "qa-frontend"], "taskLabels": ["bug"] },
         "signs": ["story"]
       }
     ]
