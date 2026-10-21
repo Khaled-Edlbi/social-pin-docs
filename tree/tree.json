@@ -42111,7 +42111,7 @@
       "scope": null,
       "screens": [],
       "status": null,
-      "summary": "Stripe as the payment provider: checkout, webhooks, refunds, organizer payouts, Pro billing. This module holds the provider integration itself; what is bought (orders, tickets, the Pro plan) stays…",
+      "summary": "How money moves between the people of Social Pin. An attendee (visitor, sponsor or VIP) pays an organizer for a ticket, a package or access to a sub-event and gets into the event's Ring once the…",
       "tags": [
         "module",
         "module/payments-gateway"
