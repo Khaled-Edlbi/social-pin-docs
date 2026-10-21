@@ -205,7 +205,7 @@ if (cmd === 'selftest') {
   const openWrite = E('', '---\ntype: decision\nid: D-99\nstatus: open\n---\n'), decidedWrite = E('', '---\ntype: decision\nid: D-99\nstatus: decided\n---\n');
   const M = [
     // agent, path, op, edit, expected
-    ['owner', 'project/Agent Rules.md', 'write', null, true], ['owner', 'docs.config.json', 'write', null, true], ['owner', mod, 'write', null, true], ['owner', 'decisions/D-04 Ring settings.md', 'edit', body, true],
+    ['owner', 'project/Agent Rules.md', 'write', null, true], ['owner', 'docs.config.json', 'write', null, true], ['owner', mod, 'write', null, true], ['owner', feature, 'write', null, true], ['owner', feature, 'edit', body, true], ['owner', 'decisions/D-04 Ring settings.md', 'edit', body, true],
     ['owner', story, 'edit', sign, true], ['owner', story, 'edit', body, false], ['owner', task, 'edit', prio, true], ['owner', bd, 'write', null, false], ['owner', 'tree/tree.json', 'write', null, false],
     ['pm', feature, 'write', null, true], ['pm', story, 'edit', body, true], ['pm', task, 'edit', body, true], ['pm', newTask, 'write', null, true], ['pm', 'decisions/D-99 New.md', 'write', null, true], ['pm', 'design/Screen Index.md', 'edit', body, true],
     ['pm', bd, 'edit', body, false], ['pm', bd, 'edit', flag, true], ['pm', fr, 'edit', sign, true], ['pm', 'project/Agent Rules.md', 'edit', body, false], ['pm', be, 'edit', body, false], ['pm', 'Card Index.md', 'edit', body, false],

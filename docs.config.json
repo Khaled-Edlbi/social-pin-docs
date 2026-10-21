@@ -172,7 +172,7 @@
         "label": "Owner (CEO / CTO)",
         "note": "project/Owner Agent.md",
         "layer": "shared",
-        "writes": { "types": ["module", "decision"], "kinds": [], "paths": ["project/**", "docs.config.json", "templates/**", "scripts/**", ".claude/**", ".github/**", "Home.md", "README.md", "CLAUDE.md", "business/**"] },
+        "writes": { "types": ["module", "feature", "decision"], "kinds": [], "paths": ["project/**", "docs.config.json", "templates/**", "scripts/**", ".claude/**", ".github/**", "Home.md", "README.md", "CLAUDE.md", "business/**"] },
         "signs": ["story", "frontend-requirements", "decision"],
         "fields": ["priority", "deadline"]
       },

@@ -4655,7 +4655,7 @@
     },
     "concepts": 177,
     "decisions": 7,
-    "edges": 4235,
+    "edges": 4236,
     "features": 39,
     "layerNotes": 190,
     "modules": 9,
@@ -24933,6 +24933,11 @@
       "from": "project:owner-agent",
       "kind": "wikilink",
       "to": "project:backend-agent"
+    },
+    {
+      "from": "project:owner-agent",
+      "kind": "wikilink",
+      "to": "project:feature-tree"
     },
     {
       "from": "project:owner-agent",
