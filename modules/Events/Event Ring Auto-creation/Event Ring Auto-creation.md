@@ -12,6 +12,8 @@ tags: [feature, module/events, priority/critical]
 
 # Event Ring Auto-creation
 
+> ⚠ Affected by [[Pay for an order]] (2026-10-21): when the registration carries a payment, the Ring on s52 is granted only after the payment is succeeded, never on pending or failed; a product rule of the new feature F-41.
+
 **Backend:** Partial (needs more) · **Priority:** Critical · **Module:** [[Events Module|Events]]
 
 **Layers:** [[Event Ring Auto-creation Story|Story]] · [[Event Ring Auto-creation Frontend Requirements|Frontend Requirements]] · [[Event Ring Auto-creation Backend Delivery|Backend Delivery]] · [[Event Ring Auto-creation Backend Integration|Backend Integration]] · [[Event Ring Auto-creation Frontend Delivery|Frontend Delivery]] · [[Event Ring Auto-creation QA Backend|QA Backend]] · [[Event Ring Auto-creation QA Frontend|QA Frontend]]
