@@ -9,6 +9,7 @@ screens: [s01, s68]
 depends: []
 affects: []
 related: ["Auth & Sign-up", "Linked Accounts (OAuth)", "Account", "D-01 Passwordless login"]
+owner: "khaled"
 pending: []
 approvedBy: ""
 approvedAt: ""
