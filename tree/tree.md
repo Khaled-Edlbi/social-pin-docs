@@ -575,6 +575,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
         - ✏️ [T-046 Story](tasks/T-046%20Push%20delivery%20and%20preferences/T-046%20Story.md) (S-98, User Story, High)
         - ⛔ [T-046-be Backend · Push delivery and preferences](tasks/T-046%20Push%20delivery%20and%20preferences/T-046-be%20Backend%20%C2%B7%20Push%20delivery%20and%20preferences.md) (sub-task of T-046, backend, High, blocked by T-045 NotificationService.emit and the inbox, T-014 Register devices on login; list and remove)
         - ⛔ [T-046-fe Frontend · Push delivery and preferences](tasks/T-046%20Push%20delivery%20and%20preferences/T-046-fe%20Frontend%20%C2%B7%20Push%20delivery%20and%20preferences.md) (sub-task of T-046, frontend, High, blocked by T-045 NotificationService.emit and the inbox, T-014 Register devices on login; list and remove, T-046-be Backend · Push delivery and preferences)
+  - ⬜ [Payments Gateway Module](modules/Payments%20Gateway/Payments%20Gateway%20Module.md) (M-09)
   - 📘 _Business docs_ (Docs)
     - 📘 [Feature Graph](business/Feature%20Graph.md) (P-01, Map)
     - 📘 [Feature Tree](business/Feature%20Tree.md) (P-02, Map)

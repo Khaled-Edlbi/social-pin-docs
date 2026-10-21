@@ -175,6 +175,7 @@
     "Payments & Orders Backend Delivery": "backend-delivery:payments",
     "Payments & Orders Frontend Requirements": "frontend-requirements:payments",
     "Payments & Orders Story": "story:payments",
+    "Payments Gateway Module": "module:payments-gateway",
     "Photo Library": "feature:photo-library",
     "Photo Library Backend Delivery": "backend-delivery:photo-library",
     "Photo Library Frontend Requirements": "frontend-requirements:photo-library",
@@ -627,6 +628,7 @@
     "M-06": "module:meetings",
     "M-07": "module:commerce",
     "M-08": "module:platform",
+    "M-09": "module:payments-gateway",
     "P-01": "project:feature-graph",
     "P-02": "project:feature-tree",
     "P-03": "project:glossary",
@@ -4572,7 +4574,7 @@
       "decision": 6,
       "feature": 39,
       "frontend-requirements": 39,
-      "module": 8,
+      "module": 9,
       "project": 26,
       "story": 98,
       "task": 175
@@ -4585,11 +4587,11 @@
     },
     "concepts": 177,
     "decisions": 6,
-    "edges": 4153,
+    "edges": 4167,
     "features": 39,
     "layerNotes": 185,
-    "modules": 8,
-    "notes": 465,
+    "modules": 9,
+    "notes": 466,
     "partial": 0,
     "placeholders": 145,
     "taskLayerNotes": 59,
@@ -18983,6 +18985,11 @@
     {
       "from": "root",
       "kind": "tree",
+      "to": "module:payments-gateway"
+    },
+    {
+      "from": "root",
+      "kind": "tree",
       "to": "module:platform"
     },
     {
@@ -23261,6 +23268,66 @@
       "to": "task:T-064"
     },
     {
+      "from": "module:payments-gateway",
+      "kind": "wikilink",
+      "to": "feature:audit-log"
+    },
+    {
+      "from": "module:payments-gateway",
+      "kind": "wikilink",
+      "to": "feature:payments"
+    },
+    {
+      "from": "module:payments-gateway",
+      "kind": "wikilink",
+      "to": "feature:subscription"
+    },
+    {
+      "from": "module:payments-gateway",
+      "kind": "wikilink",
+      "to": "module:commerce"
+    },
+    {
+      "from": "module:payments-gateway",
+      "kind": "wikilink",
+      "to": "project:api-conventions"
+    },
+    {
+      "from": "module:payments-gateway",
+      "kind": "wikilink",
+      "to": "project:architecture"
+    },
+    {
+      "from": "module:payments-gateway",
+      "kind": "wikilink",
+      "to": "project:docs-tree"
+    },
+    {
+      "from": "module:payments-gateway",
+      "kind": "wikilink",
+      "to": "project:frontend-contract"
+    },
+    {
+      "from": "module:payments-gateway",
+      "kind": "wikilink",
+      "to": "project:ring-access-model"
+    },
+    {
+      "from": "module:payments-gateway",
+      "kind": "wikilink",
+      "to": "task:T-035"
+    },
+    {
+      "from": "module:payments-gateway",
+      "kind": "wikilink",
+      "to": "task:T-047"
+    },
+    {
+      "from": "module:payments-gateway",
+      "kind": "wikilink",
+      "to": "task:T-049"
+    },
+    {
       "from": "module:platform",
       "kind": "wikilink",
       "to": "backend-delivery:app-shell"
@@ -24044,6 +24111,11 @@
       "from": "project:feature-tree",
       "kind": "wikilink",
       "to": "feature:widgets"
+    },
+    {
+      "from": "project:feature-tree",
+      "kind": "wikilink",
+      "to": "module:payments-gateway"
     },
     {
       "from": "project:feature-tree",
@@ -29161,6 +29233,10 @@
       "name": "Meetings",
       "type": "feature"
     },
+    "modules/Payments Gateway/Payments Gateway Module.md": {
+      "name": "Payments Gateway Module",
+      "type": "module"
+    },
     "modules/Platform & Cross-cutting/App Shell & Onboarding Narrative/App Shell & Onboarding Narrative Backend Delivery.md": {
       "name": "App Shell & Onboarding Narrative Backend Delivery",
       "type": "backend-delivery"
@@ -30693,6 +30769,11 @@
       "description": "Notifications, Gemma, devices, interests, code delivery, errors, jobs, tests.",
       "id": "platform",
       "name": "Platform & Cross-cutting"
+    },
+    {
+      "description": "Stripe as the payment provider: checkout, webhooks, refunds, organizer payouts, Pro billing.",
+      "id": "payments-gateway",
+      "name": "Payments Gateway"
     }
   ],
   "nodes": {
@@ -41708,6 +41789,48 @@
       "title": "Meetings Module",
       "updated": "2026-10-18"
     },
+    "module:payments-gateway": {
+      "affects": [],
+      "blockedBy": [],
+      "card": "M-09",
+      "children": [],
+      "code": null,
+      "deadline": null,
+      "depends": [],
+      "effectiveStatus": "todo",
+      "effort": null,
+      "feature": null,
+      "frontendOnly": false,
+      "id": "module:payments-gateway",
+      "inherits": {},
+      "kind": "module",
+      "label": "Module",
+      "labels": [],
+      "layer": null,
+      "module": "payments-gateway",
+      "name": "Payments Gateway",
+      "parentTask": null,
+      "parents": [
+        "root"
+      ],
+      "path": "modules/Payments Gateway/Payments Gateway Module.md",
+      "pending": [],
+      "priority": null,
+      "related": [],
+      "rollup": {},
+      "scope": null,
+      "screens": [],
+      "status": null,
+      "summary": "Stripe as the payment provider: checkout, webhooks, refunds, organizer payouts, Pro billing. This module holds the provider integration itself; what is bought (orders, tickets, the Pro plan) stays…",
+      "tags": [
+        "module",
+        "module/payments-gateway"
+      ],
+      "task": null,
+      "template": null,
+      "title": "Payments Gateway Module",
+      "updated": "2026-10-21"
+    },
     "module:platform": {
       "affects": [],
       "blockedBy": [],
@@ -42413,7 +42536,7 @@
       ],
       "task": null,
       "title": "Feature Tree",
-      "updated": "2026-10-19"
+      "updated": "2026-10-21"
     },
     "project:frontend-agent": {
       "affects": [],
@@ -46370,6 +46493,7 @@
         "module:meetings",
         "module:commerce",
         "module:platform",
+        "module:payments-gateway",
         "group:business",
         "group:frontend",
         "group:backend",
@@ -46406,7 +46530,7 @@
         "missing": 145,
         "needs-decision": 20,
         "reference": 30,
-        "todo": 81
+        "todo": 82
       },
       "scope": null,
       "screens": [],
