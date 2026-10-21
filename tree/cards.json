@@ -138,6 +138,7 @@
     "module:events": "M-05",
     "module:identity": "M-01",
     "module:meetings": "M-06",
+    "module:payments-gateway": "M-09",
     "module:platform": "M-08",
     "module:shared-rings": "M-03",
     "project:agent-protocol": "P-22",

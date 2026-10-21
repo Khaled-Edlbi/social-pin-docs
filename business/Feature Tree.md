@@ -1,6 +1,6 @@
 ---
 type: map
-updated: 2026-10-19
+updated: 2026-10-21
 tags: [map]
 layer: business
 ---
@@ -107,6 +107,7 @@ Social Pin backend
 │   │   └── ❓ T-047 Orders, payments and the provider webhook
 │   └── ❌ Subscription (Free vs Pro)  [High]
 │       └── ⬜ T-049 Subscription endpoints and a single Pro gate
+├── Payments Gateway  (no features yet)
 └── Platform & Cross-cutting  (🟡5 ❌5 ⬜1)
     ├── 🟡 Error Contract  [Critical]
     │   └── ⬜ T-063 Put the ErrorCode on the error body
@@ -212,6 +213,13 @@ Orders, payments, payment webhook, Free vs Pro subscription and the Pro gates.
 |---|---|---|---|---|
 | [[Payments & Orders]] | ❌ TODO | High | s50, s51 | 1 |
 | [[Subscription (Free vs Pro)]] | ❌ TODO | High | s34, s70 | 1 |
+
+## Payments Gateway
+
+Stripe as the payment provider: checkout, webhooks, refunds, organizer payouts, Pro billing ([[Payments Gateway Module]]). No feature yet; the first one is the PM's to create.
+
+| Feature | Status | Priority | Screens | Open tasks |
+|---|---|---|---|---|
 
 ## Platform & Cross-cutting
 

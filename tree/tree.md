@@ -431,6 +431,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
         - ✏️ [T-049 Story](tasks/T-049%20Subscription%20endpoints%20and%20a%20single%20Pro%20gate/T-049%20Story.md) (S-72, User Story, High)
         - ⬜ [T-049-be Backend · Subscription endpoints and a single Pro gate](tasks/T-049%20Subscription%20endpoints%20and%20a%20single%20Pro%20gate/T-049-be%20Backend%20%C2%B7%20Subscription%20endpoints%20and%20a%20single%20Pro%20gate.md) (sub-task of T-049, backend, High)
         - ⛔ [T-049-fe Frontend · Subscription endpoints and a single Pro gate](tasks/T-049%20Subscription%20endpoints%20and%20a%20single%20Pro%20gate/T-049-fe%20Frontend%20%C2%B7%20Subscription%20endpoints%20and%20a%20single%20Pro%20gate.md) (sub-task of T-049, frontend, High, blocked by T-049-be Backend · Subscription endpoints and a single Pro gate)
+  - ⬜ [Payments Gateway Module](modules/Payments%20Gateway/Payments%20Gateway%20Module.md) (M-09)
   - 🔵 [Platform & Cross-cutting Module](modules/Platform%20%26%20Cross-cutting/Platform%20%26%20Cross-cutting%20Module.md) (M-08)
     - 🔵 [App Shell & Onboarding Narrative](modules/Platform%20%26%20Cross-cutting/App%20Shell%20%26%20Onboarding%20Narrative/App%20Shell%20%26%20Onboarding%20Narrative.md) (F-29, frontend only, Medium)
       - ✏️ [App Shell & Onboarding Narrative Story](modules/Platform%20%26%20Cross-cutting/App%20Shell%20%26%20Onboarding%20Narrative/App%20Shell%20%26%20Onboarding%20Narrative%20Story.md) (S-73, User Story, Medium)
