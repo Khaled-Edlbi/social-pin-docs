@@ -1,23 +1,24 @@
 ---
 type: decision
 id: D-07
-status: open
+status: decided
 features: [payments, subscription]
 blocks: [T-047, T-035, T-049]
 decider: "owner"
 screens: [s51, s70]
-affects: []
+affects: ["Payments Gateway Module", "Payments & Orders", "Subscription (Free vs Pro)", "T-047 Orders, payments and the provider webhook", "T-035 Registration transaction with order and payment", "T-049 Subscription endpoints and a single Pro gate"]
 related: ["Payments Gateway Module", "Payments & Orders", "Subscription (Free vs Pro)"]
-decidedBy: ""
-decidedAt: ""
+decidedBy: "khaled"
+decidedAt: 2026-10-21
 owner: "khaled"
 created: 2026-10-21
-tags: [decision, decision/open]
+updated: 2026-10-21
+tags: [decision, decision/decided]
 ---
 
-# ❓ D-07 · Payment provider
+# ✅ D-07 · Payment provider
 
-**Status:** open · **Decider:** owner · **Raised:** 2026-10-21 · **Needed by:** [[T-047 Orders, payments and the provider webhook]], [[T-035 Registration transaction with order and payment]], [[T-049 Subscription endpoints and a single Pro gate]] · **Feature:** [[Payments & Orders]], [[Subscription (Free vs Pro)]] · **Module:** [[Payments Gateway Module]]
+**Status:** decided 2026-10-21 by khaled · **Decider:** owner · **Raised:** 2026-10-21 · **Needed by:** [[T-047 Orders, payments and the provider webhook]], [[T-035 Registration transaction with order and payment]], [[T-049 Subscription endpoints and a single Pro gate]] · **Feature:** [[Payments & Orders]], [[Subscription (Free vs Pro)]] · **Module:** [[Payments Gateway Module]]
 
 > The cards in `blocks` are **Blocked · D-07** while this is `open` and return to their own status on the build after it is `decided`. Nobody edits their `status:` for this.
 
@@ -45,8 +46,13 @@ Which payment provider Social Pin moves money through, for every purchase in the
 
 ## Decision
 
-— (the PM or the owner only, on the user's word: fill in, set `status: decided`, `decidedBy`, `decidedAt` and the tag `decision/decided`, change the H1 emoji to ✅, and list every feature and task it changes in `affects`; then `--impact D-07` and flag the notes it lists)
+**Option 1: Stripe for all four flows.** Decided by the owner on 2026-10-21. Stripe is the one payment provider of Social Pin: hosted checkout when an attendee or an exhibitor pays for an order, webhooks to settle it, connected accounts to pay the organizer, subscriptions to bill Pro. One provider, one audit trail, one callback endpoint, all of it in the [[Payments Gateway Module]]. Whether Stripe serves every organizer's country is checked when the organizer onboarding feature is shaped; a market it does not serve is a new decision card then, not a second provider now.
 
 ## Consequences
 
-- …
+- [[Payments Gateway Module]]: the provider is no longer an open question; the candidates become features named for the flow, with Stripe's product behind each.
+- [[T-047 Orders, payments and the provider webhook]]: unblocked; the settlement callback is a Stripe webhook, idempotent on `providerReference`; the PM redraws the boundary with the gateway's first feature and returns the hand-typed `needs-info` to `todo`.
+- [[T-035 Registration transaction with order and payment]]: unblocked on the provider side; still waits on T-034 and T-047.
+- [[T-049 Subscription endpoints and a single Pro gate]]: unblocked; Pro is billed as a Stripe subscription.
+- [[Payments & Orders]] and [[Subscription (Free vs Pro)]]: the stories and the frontend requirements can name Stripe's checkout and billing screens where the design says "payment".
+- Still open, on their own cards when a feature needs them: Social Pin's share of organizer payouts, the refund window and who may refund, which payment methods an organizer may offer.

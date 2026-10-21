@@ -15,6 +15,7 @@ kanban-plugin: board
 - [ ] [[T-018 Widget CRUD on the projection]] #high #widgets
 - [ ] [[T-026 Ring invitations invite, review, decline]] #high #ring-invitations
 - [ ] [[T-039 Catalogue products and talks (new table)]] #high #events-during
+- [ ] [[T-047 Orders, payments and the provider webhook]] #high #payments
 - [ ] [[T-060 Decide copy or inherit]] #high #ring-projection
 - [ ] [[T-061 Decide Pin name rules]] #high #profiles
 - [ ] [[T-020b Business card scan and portfolio URL import]] #medium #onboarding-imports
@@ -108,14 +109,12 @@ kanban-plugin: board
 - [ ] [[T-046 Push delivery and preferences]] #high #notifications
 - [ ] [[T-046-be Backend · Push delivery and preferences]] #high #notifications #backend
 - [ ] [[T-046-fe Frontend · Push delivery and preferences]] #high #notifications #frontend
-- [ ] [[T-047 Orders, payments and the provider webhook]] #high #payments
 - [ ] [[T-048 Business account setup → business Ring]] #high #exhibitor
 - [ ] [[T-048-be Backend · Business account setup → business Ring]] #high #exhibitor #backend
 - [ ] [[T-048-fe Frontend · Business account setup → business Ring]] #high #exhibitor #frontend
 - [ ] [[T-048b Booth analytics and leads CSV export]] #high #exhibitor
 - [ ] [[T-048b-be Backend · Booth analytics and leads CSV export]] #high #exhibitor #backend
 - [ ] [[T-048b-fe Frontend · Booth analytics and leads CSV export]] #high #exhibitor #frontend
-- [ ] [[T-049 Subscription endpoints and a single Pro gate]] #high #subscription
 - [ ] [[T-049-fe Frontend · Subscription endpoints and a single Pro gate]] #high #subscription #frontend
 - [ ] [[T-050 Post-event summary and follow-ups]] #high #post-event
 - [ ] [[T-050-be Backend · Post-event summary and follow-ups]] #high #post-event #backend
@@ -185,6 +184,7 @@ kanban-plugin: board
 - [ ] [[T-045 NotificationService.emit and the inbox]] #high #notifications
 - [ ] [[T-045-be Backend · NotificationService.emit and the inbox]] #high #notifications #backend
 - [ ] [[T-047-be Backend · Orders, payments and the provider webhook]] #high #payments #backend
+- [ ] [[T-049 Subscription endpoints and a single Pro gate]] #high #subscription
 - [ ] [[T-049-be Backend · Subscription endpoints and a single Pro gate]] #high #subscription #backend
 - [ ] [[T-054 Cleanup jobs]] #high #cleanup-jobs
 - [ ] [[T-054-be Backend · Cleanup jobs]] #high #cleanup-jobs #backend

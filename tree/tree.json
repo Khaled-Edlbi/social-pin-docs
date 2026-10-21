@@ -4635,7 +4635,7 @@
     }
   },
   "counts": {
-    "blocked": 180,
+    "blocked": 178,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -4655,7 +4655,7 @@
     },
     "concepts": 177,
     "decisions": 7,
-    "edges": 4231,
+    "edges": 4235,
     "features": 39,
     "layerNotes": 190,
     "modules": 9,
@@ -4722,6 +4722,36 @@
     "warnings": []
   },
   "edges": [
+    {
+      "from": "decision:D-07",
+      "kind": "affects",
+      "to": "feature:payments"
+    },
+    {
+      "from": "decision:D-07",
+      "kind": "affects",
+      "to": "feature:subscription"
+    },
+    {
+      "from": "decision:D-07",
+      "kind": "affects",
+      "to": "module:payments-gateway"
+    },
+    {
+      "from": "decision:D-07",
+      "kind": "affects",
+      "to": "task:T-035"
+    },
+    {
+      "from": "decision:D-07",
+      "kind": "affects",
+      "to": "task:T-047"
+    },
+    {
+      "from": "decision:D-07",
+      "kind": "affects",
+      "to": "task:T-049"
+    },
     {
       "from": "project:agent-protocol",
       "kind": "affects",
@@ -5311,21 +5341,6 @@
       "from": "decision:D-06",
       "kind": "blocks",
       "to": "task:T-061"
-    },
-    {
-      "from": "decision:D-07",
-      "kind": "blocks",
-      "to": "task:T-035"
-    },
-    {
-      "from": "decision:D-07",
-      "kind": "blocks",
-      "to": "task:T-047"
-    },
-    {
-      "from": "decision:D-07",
-      "kind": "blocks",
-      "to": "task:T-049"
     },
     {
       "from": "frontend-delivery:account",
@@ -24507,6 +24522,11 @@
     {
       "from": "project:feature-tree",
       "kind": "wikilink",
+      "to": "decision:D-07"
+    },
+    {
+      "from": "project:feature-tree",
+      "kind": "wikilink",
       "to": "feature:account"
     },
     {
@@ -35204,7 +35224,14 @@
       "updated": "2026-10-15"
     },
     "decision:D-07": {
-      "affects": [],
+      "affects": [
+        "module:payments-gateway",
+        "feature:payments",
+        "feature:subscription",
+        "task:T-047",
+        "task:T-035",
+        "task:T-049"
+      ],
       "blockedBy": [],
       "blocks": [
         "task:T-047",
@@ -35217,7 +35244,7 @@
       "deadline": null,
       "decider": "owner",
       "depends": [],
-      "effectiveStatus": "needs-decision",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": null,
       "features": [
@@ -35252,11 +35279,11 @@
         "s51",
         "s70"
       ],
-      "status": "needs-decision",
+      "status": "approved",
       "summary": "Which payment provider Social Pin moves money through, for every purchase in the product: an attendee's ticket, package or sub-event, an exhibitor's package and booth, a user's Pro account, and…",
       "tags": [
         "decision",
-        "decision/open"
+        "decision/decided"
       ],
       "task": null,
       "title": "D-07 Payment provider",
@@ -36420,10 +36447,10 @@
         "project:spec-map"
       ],
       "rollup": {
+        "approved": 1,
         "blocked": 9,
         "draft": 4,
         "missing": 4,
-        "needs-decision": 1,
         "todo": 2
       },
       "scope": null,
@@ -37140,7 +37167,8 @@
         "decision:D-07"
       ],
       "rollup": {
-        "blocked": 3,
+        "approved": 1,
+        "blocked": 2,
         "draft": 2,
         "missing": 4,
         "needs-decision": 1,
@@ -37888,11 +37916,11 @@
         "decision:D-07"
       ],
       "rollup": {
-        "blocked": 4,
+        "approved": 1,
+        "blocked": 3,
         "draft": 2,
         "missing": 4,
-        "needs-decision": 1,
-        "todo": 1
+        "todo": 2
       },
       "scope": null,
       "screens": [
@@ -41942,11 +41970,12 @@
       "priority": null,
       "related": [],
       "rollup": {
-        "blocked": 7,
+        "approved": 1,
+        "blocked": 5,
         "draft": 4,
         "missing": 8,
         "needs-decision": 1,
-        "todo": 4
+        "todo": 5
       },
       "scope": null,
       "screens": [],
@@ -42098,10 +42127,11 @@
       "priority": null,
       "related": [],
       "rollup": {
+        "approved": 1,
         "blocked": 42,
         "draft": 17,
         "missing": 20,
-        "needs-decision": 2,
+        "needs-decision": 1,
         "todo": 7
       },
       "scope": null,
@@ -46966,8 +46996,8 @@
       "priority": null,
       "related": [],
       "rollup": {
-        "approved": 1,
-        "blocked": 180,
+        "approved": 2,
+        "blocked": 178,
         "current": 9,
         "done": 12,
         "draft": 103,
@@ -46975,7 +47005,7 @@
         "missing": 145,
         "needs-decision": 20,
         "reference": 30,
-        "todo": 81
+        "todo": 82
       },
       "scope": null,
       "screens": [],
@@ -57701,11 +57731,6 @@
           "id": "task:T-047",
           "title": "T-047 Orders, payments and the provider webhook",
           "why": "T-047 Orders, payments and the provider webhook is needs decision"
-        },
-        {
-          "id": "decision:D-07",
-          "title": "D-07 Payment provider",
-          "why": "needs decision D-07 (open)"
         }
       ],
       "card": "T-035",
@@ -57743,9 +57768,9 @@
       "priority": "critical",
       "related": [],
       "rollup": {
+        "approved": 1,
         "blocked": 2,
-        "draft": 1,
-        "needs-decision": 1
+        "draft": 1
       },
       "scope": null,
       "screens": [
@@ -59859,13 +59884,7 @@
     },
     "task:T-047": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "decision:D-07",
-          "title": "D-07 Payment provider",
-          "why": "needs decision D-07 (open)"
-        }
-      ],
+      "blockedBy": [],
       "card": "T-047",
       "children": [
         "story:T-047",
@@ -59877,7 +59896,7 @@
       "decision": null,
       "depends": [],
       "dir": "tasks/T-047 Orders, payments and the provider webhook",
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "needs-decision",
       "effort": "L",
       "feature": "payments",
       "frontendOnly": false,
@@ -59897,8 +59916,8 @@
       "priority": "high",
       "related": [],
       "rollup": {
+        "approved": 1,
         "draft": 1,
-        "needs-decision": 1,
         "todo": 1
       },
       "scope": null,
@@ -60348,13 +60367,7 @@
     },
     "task:T-049": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "decision:D-07",
-          "title": "D-07 Payment provider",
-          "why": "needs decision D-07 (open)"
-        }
-      ],
+      "blockedBy": [],
       "card": "T-049",
       "children": [
         "story:T-049",
@@ -60367,7 +60380,7 @@
       "decision": null,
       "depends": [],
       "dir": "tasks/T-049 Subscription endpoints and a single Pro gate",
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "todo",
       "effort": "M",
       "feature": "subscription",
       "frontendOnly": false,
@@ -60387,9 +60400,9 @@
       "priority": "high",
       "related": [],
       "rollup": {
+        "approved": 1,
         "blocked": 1,
         "draft": 1,
-        "needs-decision": 1,
         "todo": 1
       },
       "scope": null,
@@ -60742,7 +60755,7 @@
         {
           "id": "task:T-049",
           "title": "T-049 Subscription endpoints and a single Pro gate",
-          "why": "T-049 Subscription endpoints and a single Pro gate is blocked"
+          "why": "T-049 Subscription endpoints and a single Pro gate is to do"
         }
       ],
       "card": "T-051",
@@ -60809,7 +60822,7 @@
         {
           "id": "task:T-049",
           "title": "T-049 Subscription endpoints and a single Pro gate",
-          "why": "T-049 Subscription endpoints and a single Pro gate is blocked"
+          "why": "T-049 Subscription endpoints and a single Pro gate is to do"
         }
       ],
       "card": "T-051-be",
@@ -60872,7 +60885,7 @@
         {
           "id": "task:T-049",
           "title": "T-049 Subscription endpoints and a single Pro gate",
-          "why": "T-049 Subscription endpoints and a single Pro gate is blocked"
+          "why": "T-049 Subscription endpoints and a single Pro gate is to do"
         },
         {
           "id": "task:T-051-be",

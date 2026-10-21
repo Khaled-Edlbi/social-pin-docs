@@ -44,7 +44,7 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-034 Tickets, packages, levels, sold-out]] | [[Events Before]] | Events | ⛔ Blocked | M | — | [[T-033 Events list, detail, schedule|T-033]] |
 | [[T-034-be Backend · Tickets, packages, levels, sold-out]] `backend` | [[Events Before]] | Events | ⛔ Blocked | M | — | [[T-033 Events list, detail, schedule|T-033]] |
 | [[T-034-fe Frontend · Tickets, packages, levels, sold-out]] `frontend` | [[Events Before]] | Events | ⛔ Blocked | M | — | [[T-033 Events list, detail, schedule|T-033]], [[T-034-be Backend · Tickets, packages, levels, sold-out|T-034-be]] |
-| [[T-035 Registration transaction with order and payment]] | [[Events Before]] | Events | ⛔ Blocked | L | — | [[T-034 Tickets, packages, levels, sold-out|T-034]], [[T-047 Orders, payments and the provider webhook|T-047]], [[D-07 Payment provider|D-07]] |
+| [[T-035 Registration transaction with order and payment]] | [[Events Before]] | Events | ⛔ Blocked | L | — | [[T-034 Tickets, packages, levels, sold-out|T-034]], [[T-047 Orders, payments and the provider webhook|T-047]] |
 | [[T-035-be Backend · Registration transaction with order and payment]] `backend` | [[Events Before]] | Events | ⛔ Blocked | L | — | [[T-034 Tickets, packages, levels, sold-out|T-034]], [[T-047 Orders, payments and the provider webhook|T-047]] |
 | [[T-035-fe Frontend · Registration transaction with order and payment]] `frontend` | [[Events Before]] | Events | ⛔ Blocked | L | — | [[T-034 Tickets, packages, levels, sold-out|T-034]], [[T-047 Orders, payments and the provider webhook|T-047]], [[T-035-be Backend · Registration transaction with order and payment|T-035-be]] |
 | [[T-036 Event mode exhibitors list and detail]] | [[Events During]] | Events | ⛔ Blocked | M | — | [[T-033 Events list, detail, schedule|T-033]] |
@@ -150,7 +150,7 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-046 Push delivery and preferences]] | [[Notifications]] | Platform & Cross-cutting | ⛔ Blocked | M | — | [[T-045 NotificationService.emit and the inbox|T-045]], [[T-014 Register devices on login; list and remove|T-014]] |
 | [[T-046-be Backend · Push delivery and preferences]] `backend` | [[Notifications]] | Platform & Cross-cutting | ⛔ Blocked | M | — | [[T-045 NotificationService.emit and the inbox|T-045]], [[T-014 Register devices on login; list and remove|T-014]] |
 | [[T-046-fe Frontend · Push delivery and preferences]] `frontend` | [[Notifications]] | Platform & Cross-cutting | ⛔ Blocked | M | — | [[T-045 NotificationService.emit and the inbox|T-045]], [[T-014 Register devices on login; list and remove|T-014]], [[T-046-be Backend · Push delivery and preferences|T-046-be]] |
-| [[T-047 Orders, payments and the provider webhook]] | [[Payments & Orders]] | Commerce | ⛔ Blocked | L | — | [[D-07 Payment provider|D-07]] |
+| [[T-047 Orders, payments and the provider webhook]] | [[Payments & Orders]] | Commerce | ❓ Needs decision | L | — | — |
 | [[T-047-be Backend · Orders, payments and the provider webhook]] `backend` | [[Payments & Orders]] | Commerce | ⬜ To do | L | — | — |
 | [[T-048 Business account setup → business Ring]] | [[Exhibitor]] | Events | ⛔ Blocked | L | — | [[T-029 My companies and company detail|T-029]] |
 | [[T-048-be Backend · Business account setup → business Ring]] `backend` | [[Exhibitor]] | Events | ⛔ Blocked | L | — | [[T-029 My companies and company detail|T-029]] |
@@ -158,7 +158,7 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-048b Booth analytics and leads CSV export]] | [[Exhibitor]] | Events | ⛔ Blocked | M | — | [[T-009 Scan counter and share link|T-009]], [[T-036 Event mode exhibitors list and detail|T-036]] |
 | [[T-048b-be Backend · Booth analytics and leads CSV export]] `backend` | [[Exhibitor]] | Events | ⛔ Blocked | M | — | [[T-009 Scan counter and share link|T-009]], [[T-036 Event mode exhibitors list and detail|T-036]] |
 | [[T-048b-fe Frontend · Booth analytics and leads CSV export]] `frontend` | [[Exhibitor]] | Events | ⛔ Blocked | M | — | [[T-009 Scan counter and share link|T-009]], [[T-036 Event mode exhibitors list and detail|T-036]], [[T-048b-be Backend · Booth analytics and leads CSV export|T-048b-be]] |
-| [[T-049 Subscription endpoints and a single Pro gate]] | [[Subscription (Free vs Pro)]] | Commerce | ⛔ Blocked | M | — | [[D-07 Payment provider|D-07]] |
+| [[T-049 Subscription endpoints and a single Pro gate]] | [[Subscription (Free vs Pro)]] | Commerce | ⬜ To do | M | — | — |
 | [[T-049-be Backend · Subscription endpoints and a single Pro gate]] `backend` | [[Subscription (Free vs Pro)]] | Commerce | ⬜ To do | M | — | — |
 | [[T-049-fe Frontend · Subscription endpoints and a single Pro gate]] `frontend` | [[Subscription (Free vs Pro)]] | Commerce | ⛔ Blocked | M | — | [[T-049-be Backend · Subscription endpoints and a single Pro gate|T-049-be]] |
 | [[T-050 Post-event summary and follow-ups]] | [[Post-Event]] | Events | ⛔ Blocked | M | — | [[T-009 Scan counter and share link|T-009]], [[T-023 Connection detail and contacts list|T-023]], [[T-044 My meetings, calendar, detail, reschedule, cancel|T-044]] |

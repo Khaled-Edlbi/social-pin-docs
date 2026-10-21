@@ -31,7 +31,7 @@ No feature yet. The first one is the PM's to create: `node scripts/build-tree.mj
 - Nobody is charged twice for the same order, whatever the provider sends or resends ([[Payments & Orders]] keeps the order idempotent on its provider reference).
 - Every movement of money is recorded and can be read back by the people it concerns ([[Audit Log]]).
 - The boundary with Commerce: an order, its price snapshot and its state live in [[Payments & Orders]]; the provider integration, including the endpoint the provider calls back to settle an order, lives here, described once. [[T-047 Orders, payments and the provider webhook]] straddles that line today; the PM redraws it when the first feature here is scaffolded.
-- Still to decide, on decision cards and not here: the provider (the candidate is Stripe; the card hangs under [[T-047 Orders, payments and the provider webhook]], and [[T-035 Registration transaction with order and payment]] and [[T-049 Subscription endpoints and a single Pro gate]] wait on the same answer), whether Social Pin keeps a share of what organizers are paid, the refund window and who may refund, which payment methods an organizer may offer.
+- The provider is Stripe for all four flows, decided on [[D-07 Payment provider]] (2026-10-21): hosted checkout, webhooks, connected accounts for organizers, subscriptions for Pro. Still to decide, on decision cards and not here: whether Social Pin keeps a share of what organizers are paid, the refund window and who may refund, which payment methods an organizer may offer.
 
 ## Cross-cutting rules
 
@@ -43,3 +43,4 @@ No feature yet. The first one is the PM's to create: `node scripts/build-tree.mj
 
 - 2026-10-21 · created by the owner; first feature handed to the PM
 - 2026-10-21 · rewritten in product terms by the owner: the people, the money flows, the product rules, the open decisions; the provider is no longer named as decided
+- 2026-10-21 · provider decided: Stripe for all four flows ([[D-07 Payment provider]])

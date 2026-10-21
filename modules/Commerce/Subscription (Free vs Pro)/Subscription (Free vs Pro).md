@@ -11,6 +11,8 @@ tags: [feature, module/commerce, priority/high]
 
 # Subscription (Free vs Pro)
 
+> ⚠ Affected by [[D-07 Payment provider]] (2026-10-21): Pro is billed as a Stripe subscription through the Payments Gateway module; the story and the requirements can name it where the design says "subscription".
+
 **Backend:** TODO · **Priority:** High · **Module:** [[Commerce Module|Commerce]]
 
 **Layers:** [[Subscription (Free vs Pro) Story|Story]] · [[Subscription (Free vs Pro) Frontend Requirements|Frontend Requirements]] · [[Subscription (Free vs Pro) Backend Delivery|Backend Delivery]] · [[Subscription (Free vs Pro) Backend Integration|Backend Integration]] · [[Subscription (Free vs Pro) Frontend Delivery|Frontend Delivery]] · [[Subscription (Free vs Pro) QA Backend|QA Backend]] · [[Subscription (Free vs Pro) QA Frontend|QA Frontend]]

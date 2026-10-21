@@ -11,6 +11,8 @@ tags: [feature, module/commerce, priority/high]
 
 # Payments & Orders
 
+> ⚠ Affected by [[D-07 Payment provider]] (2026-10-21): the provider is Stripe; the order and its state stay here, the Stripe integration and the settlement webhook move to the Payments Gateway module's first feature, described once.
+
 **Backend:** TODO · **Priority:** High · **Module:** [[Commerce Module|Commerce]]
 
 **Layers:** [[Payments & Orders Story|Story]] · [[Payments & Orders Frontend Requirements|Frontend Requirements]] · [[Payments & Orders Backend Delivery|Backend Delivery]] · [[Payments & Orders Backend Integration|Backend Integration]] · [[Payments & Orders Frontend Delivery|Frontend Delivery]] · [[Payments & Orders QA Backend|QA Backend]] · [[Payments & Orders QA Frontend|QA Frontend]]
