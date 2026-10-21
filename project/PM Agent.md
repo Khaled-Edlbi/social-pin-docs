@@ -1,7 +1,7 @@
 ---
 type: project
 layer: shared
-updated: 2026-10-19
+updated: 2026-10-21
 depends: []
 affects: []
 depends: ["Agent Protocol"]
@@ -56,10 +56,12 @@ When the request is a question ("where do we stand", "what is blocked", "what do
 
 Every playbook ends with [[#6 · Finish]]. The commands are documented in [[Docs Tree#For agents]]; the sequence they follow is [[Workflow]].
 
+**Owner on every card.** Every card you create or update carries `owner: "<git user>"` in its frontmatter, the name `git config user.name` prints for the person who commits those files: set it when you scaffold a card and again on every later edit, so it always names who last committed it. A flat quoted string like the rest of the frontmatter; the build neither requires nor rejects it.
+
 ### 4A · New feature
 
 1. `node scripts/build-tree.mjs --scaffold feature <module-id> "<Name>" [--id <slug>] [--priority high] [--frontend-only]` creates `modules/<Module>/<Name>/<Name>.md` from `templates/Feature Template.md`. `--frontend-only` when the feature has no backend part.
-2. Fill the feature note: one paragraph on what it is for, in product terms; the *Design reference* table from [[Screen Index]] with one row per screen and what the screen can do today; the *Product rules* that hold whatever the implementation (privacy, what a viewer may never learn, limits); `screens:`, `depends:`, `affects:`, `related:` in frontmatter; the *Related* list with the reason for each link; `**Backend:**` as it is (`not started` for a new feature).
+2. Fill the feature note: one paragraph on what it is for, in product terms; the *Design reference* table from [[Screen Index]] with one row per screen and what the screen can do today; the *Product rules* that hold whatever the implementation (privacy, what a viewer may never learn, limits); `screens:`, `depends:`, `affects:`, `related:` and `owner:` in frontmatter; the *Related* list with the reason for each link; `**Backend:**` as it is (`not started` for a new feature).
 3. `node scripts/build-tree.mjs --scaffold story <id>` then write the story ([[#4D · A user story]]).
 4. Add the row to the module note's *Features* table (`modules/<Module>/<Module> Module.md`), and the feature to the *Features* column of every screen it serves in [[Screen Index]].
 5. The other layer notes stay placeholders: each layer scaffolds its own when it gets to it. Do not create them.
@@ -87,7 +89,7 @@ Feature-level: `node scripts/build-tree.mjs --scaffold story <feature-id>`; task
 - One story per screen or journey: `### S1 · <Screen or journey> ([[Screen Index#sNN|sNN]])`, then **As a** … **I want** … **so that** ….
 - **Acceptance criteria** are checkable boxes that name the endpoint (`GET /rings?limit=20`), the field, the error code or the copy; what exists today is stated as it is, what does not is "not available yet" with the task that brings it (`[[T-NNN …]]`). The source for "what exists" is the feature's Backend Delivery and Backend Integration notes, never your memory.
 - *States and motion the design asks for*, *Rules the backend already enforces* (from the Backend Delivery), *Open questions* linking the decisions.
-- `status: draft` until product approves; you never set `approved` on your own ([[#5 · Sign-off and status changes]]).
+- `status: draft` until product approves; you never set `approved` on your own ([[#5 · Sign-off and status changes]]); `owner:` the git user who commits it, as on every card.
 
 ### 4E · A decision card
 
@@ -116,7 +118,15 @@ Four things move together on every status change: `status:`, the `<kind>/<status
 
 ## 6 · Finish
 
-[[Agent Protocol#5 · Finish]]. Report what you created or changed by card code and path, what now waits on the user (approvals, decisions, answers), what you flagged for another layer.
+[[Agent Protocol#5 · Finish]], on **your own branch**. The business layer never touches code, so its vault branch pairs with no code branch and does not take the `<module>/<T-NNN>/…` shape of the other layers ([[Workflow#2 · Branch from the ticket]]):
+
+- **The branch is the story's:** `tickets/pm/<M-NN>-<module-id>/<F-NN>-<feature-id>/<S-NNN>-<story-name>`: at every level the card code as [[Card Index]] lists it, a dash, then the id as `docs.config.json` spells it (never a backend folder) or, for the story, the name of what it tells in kebab case: the feature's name for a feature-level story, the task's name for a task-level one. `tickets/pm/M-01-identity/F-40-google-auth/S-99-google-auth` is the feature Google Auth and its story; `tickets/pm/M-08-platform/F-21-error-contract/S-88-error-code-on-body` is task T-063 and its story (`--impact T-063` prints the codes).
+- **Everything around that story rides on its branch:** for a feature story, the feature note, the module's *Features* row, the [[Screen Index]] rows; for a task story, the task note, its halves, a decision card raised from it, a bug sub-task filed against it, the task's status and `## Log`, the feature's *Tasks* row. A second story gets its own branch, even when the same request brought both.
+- **Codes come from the build:** a new feature or task has no `F-NN` or `S-NNN` until `node scripts/build-tree.mjs` has run once. Scaffold, fill, build, read the codes from [[Card Index]], then cut the branch; the working tree carries over.
+- **One commit per change, one card per commit:** `<kind>(<module-id>): <card code> <card name> · <what changed>`, the type being the kind of card the commit changes (`feature`, `story`, `task`, `bug`, `decision`, `module`), never `docs`: `feature(identity): F-40 Google Auth · new feature in Identity Core` · `story(identity): S-99 Google Auth Story · draft written` · `decision(identity): D-07 Match by email · raised from S-99` · `task(identity): T-071 Google callback · filed under F-40, both halves` · `bug(identity): T-071-bug-1 Callback loses the code · filed against T-071` · `story(identity): S-99 Google Auth Story · approved by khaled`. A change that touches a few files around one card (the feature note with its module row and screen rows) names the main card and lists the other files in the body. The body: two or three lines on what changed and why, the other files touched, then the trailers `Story: S-NNN`, `Ticket: T-NNN` when a task is involved, and the attribution line.
+- **The generated files travel with every commit:** rebuild before each commit and include `tree/`, [[Card Index]], [[Task Board]] and [[Backlog]], so every commit passes `--check` on its own. The bash guard reads the attribution line's angle brackets as a redirect, so write the message to a file outside the vault and commit with `git commit -F <file>`.
+
+Then report what you created or changed by card code and path, what now waits on the user (approvals, decisions, answers), what you flagged for another layer.
 
 ## 7 · What you never do
 
@@ -128,6 +138,8 @@ The list in [[Agent Rules#7 · What never happens]], plus:
 - write another layer's note (requirements, delivery, integration, QA) or edit one instead of flagging it;
 - put feature or task behaviour into a project reference note, or stack and migration detail into a feature note;
 - edit `design/Wireframe Brief.md`, a generated file, or a card code;
-- describe something as done that the tree shows as open.
+- describe something as done that the tree shows as open;
+- put two stories on one branch, or a business change on a code-paired `<module>/<T-NNN>/…` branch ([[#6 · Finish]]);
+- leave a card you created or edited without `owner:` ([[#4 · Playbooks]]).
 
 Related: [[Agent Protocol]] · [[Agent Rules]] · [[Workflow]] · [[Docs Tree]] · [[Owner Agent]] · [[Backend Agent]] · [[Frontend Agent]] · [[QA Agent]]
