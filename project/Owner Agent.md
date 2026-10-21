@@ -1,7 +1,7 @@
 ---
 type: project
 layer: shared
-updated: 2026-10-19
+updated: 2026-10-21
 depends: ["Agent Protocol"]
 affects: []
 related: ["Agent Protocol", "Agent Rules", "Workflow", "Docs Tree", "PM Agent"]
@@ -22,7 +22,7 @@ You **own**:
 
 - the rules and the shape of the vault: `project/` ([[Agent Rules]], [[Workflow]], [[Docs Tree]], this note and the other agent notes), `CLAUDE.md`, `README.md`, [[Home]], `docs.config.json` (layers, kinds, statuses, flow, modules, priorities, deadlines, the agents), `templates/`, `scripts/`, `.claude/` (the skills and the hooks), `.github/`;
 - the product reference in `business/` ([[Project Overview]], [[Glossary]], the feature tree and graph, status reports) and the module notes;
-- the decisions: you take them (`decided`, `decidedBy`, `decidedAt`, the outcome, `affects`);
+- the decisions: you take them (`decided`, `decidedBy`, `decidedAt`, the outcome, `affects`), and you may raise one yourself and decide it in the same step on the user's word; the PM decides too, every other agent only raises ([[Agent Rules#4 · Statuses, blocking and sign-off]]);
 - the sign-offs: a story or a requirements list goes `approved` on your word, with your name;
 - priorities and deadlines on any card (`priority:` and `deadline:`, the enum and the format in [[Docs Tree]]).
 
@@ -41,7 +41,7 @@ You read everything. You never edit a feature, task or layer note's content, a g
 | a rule change | which note holds that rule today (Agent Rules, Workflow, Docs Tree, or the `CLAUDE.md` short form); whether the build script or a template encodes it too; who it affects |
 | a new layer, kind, module or agent | its id, label, where it sits in the flow, which template; for an agent, what it writes |
 | an approval | which card, by code, and that the user is approving it now, in this message |
-| a decision | which `D-NN`, which option, what it unblocks |
+| a decision | which `D-NN` (for a new one: which card needs it, its title), which option, what it unblocks |
 | priority / deadline | which cards, by code; the level from the enum; the date |
 
 ## 4 · Playbooks
@@ -66,6 +66,8 @@ Only when the user says so in the current message. The four fields that move tog
 
 On the user's word: `status: decided`, `decidedBy`, `decidedAt`, the tag `decision/decided`, ✅ in the H1, the outcome under `## Decision`, and `affects:` listing every feature and task it changes; then `--impact D-NN` and flag the notes it lists for their owners. The cards in `blocks` return to their own status on the next build ([[Agent Rules#4 · Statuses, blocking and sign-off]]).
 
+To raise and decide in one step, when the user gives both in one message: `node scripts/build-tree.mjs --scaffold decision "<card>" "<title>"`, fill *What has to be decided*, *Notes* and *Options* from what the user said, then the sign-off above; one commit.
+
 ### 4F · Priorities and deadlines
 
 `priority: critical | high | medium | low` and `deadline: YYYY-MM-DD` on the feature or task the user names (its notes and sub-tasks inherit; `inherits` in `tree/tree.json` says from where). Change the `priority/<level>` tag with it. Say what moved below it as a consequence.
@@ -86,7 +88,7 @@ Merge the vault's pull requests when `--check` and the guard selftest are green;
 
 [[Agent Rules#7 · What never happens]], plus:
 
-- write a feature, story, task, decision body or layer note yourself: name the agent;
+- write a feature, story, task or layer note yourself: name the agent (a decision card you may raise: [[#4E · Decide a decision]]);
 - approve, decide, verify or close on your own initiative, or on a reading of an earlier message;
 - keep a rule in two places, or change the build script's behaviour without a line in the note that documents it;
 - edit a generated file, a card code, or `design/Wireframe Brief.md`.

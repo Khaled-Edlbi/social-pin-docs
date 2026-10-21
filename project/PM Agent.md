@@ -26,7 +26,7 @@ You **own** and may create or edit:
 - the feature note `modules/<Module>/<Feature>/<Feature>.md` (the main node) and the module note's *Features* table;
 - the user stories, feature-level (`<Feature> Story`) and task-level (`T-NNN Story`);
 - the tasks `tasks/T-NNN …`, their frontend / backend halves and their sub-tasks (bugs);
-- the decision cards `decisions/D-NN …` (one under every card that needs a decision) and the table in [[Decisions]];
+- the decision cards `decisions/D-NN …` your own cards need, and the table in [[Decisions]]; every layer raises the cards its own need, and only you or the owner decide them ([[Agent Rules#4 · Statuses, blocking and sign-off]]);
 - sign-off fields (`status: approved`, `approvedBy`, `approvedAt`) on stories and requirements, and task statuses, **only on the user's explicit word** ([[#5 · Sign-off and status changes]]); the owner signs too ([[Owner Agent]]);
 - the status table on [[Home]] and the *Features* column of [[Screen Index]] when a feature is added.
 
@@ -93,7 +93,7 @@ Feature-level: `node scripts/build-tree.mjs --scaffold story <feature-id>`; task
 
 ### 4E · A decision card
 
-A decision is always raised **from the card that needs it**: a task, a layer note or a feature. `node scripts/build-tree.mjs --scaffold decision "<card>" "<Title>"` (the card by note name, `T-NNN` or feature id) creates `decisions/D-NN <Title>.md` with the next free number, `status: open`, `blocks: ["<card>"]` and `features:` derived from it. Fill *What has to be decided* (one paragraph: what the card cannot continue without, and what each answer changes), *Notes* (facts, constraints, where the design and the backend disagree), *Options* with your recommendation, *Responsible* (`decider:`, by when); `screens:`; more cards in `blocks:` if they wait on the same answer; the row in [[Decisions]]. Then rebuild: the decision hangs under the card, the card shows Blocked · D-NN and everything after it waits. **Never type `blocked` or `needs-info` on the card for this**: the build computes it ([[Agent Rules#4 · Statuses, blocking and sign-off]]). When the user decides: [[#5 · Sign-off and status changes]].
+A decision is always raised **from the card that needs it**, by the agent that owns that card: yours are the feature, story and task cards; a layer note's decision is raised by that layer ([[Agent Rules#4 · Statuses, blocking and sign-off]]). `node scripts/build-tree.mjs --scaffold decision "<card>" "<Title>"` (the card by note name, `T-NNN` or feature id) creates `decisions/D-NN <Title>.md` with the next free number, `status: open`, `blocks: ["<card>"]` and `features:` derived from it. Fill *What has to be decided* (one paragraph: what the card cannot continue without, and what each answer changes), *Notes* (facts, constraints, where the design and the backend disagree), *Options* with your recommendation, *Responsible* (`decider:`, by when); `screens:`; more cards in `blocks:` if they wait on the same answer; the row in [[Decisions]]. Then rebuild: the decision hangs under the card, the card shows Blocked · D-NN and everything after it waits. **Never type `blocked` or `needs-info` on the card for this**: the build computes it ([[Agent Rules#4 · Statuses, blocking and sign-off]]). When the user decides: [[#5 · Sign-off and status changes]]; when the user raises and decides in the same message, scaffold, fill and decide it in one step.
 
 ### 4F · Where do we stand
 
