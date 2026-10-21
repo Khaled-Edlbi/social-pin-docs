@@ -2,6 +2,7 @@
 type: module
 id: payments-gateway
 name: "Payments Gateway"
+owner: "khaled"
 updated: 2026-10-21
 tags: [module, module/payments-gateway]
 ---

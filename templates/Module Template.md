@@ -4,6 +4,7 @@ id: <module id>
 name: "<Module name>"
 # priority: high           # optional (critical | high | medium | low); a module's features carry their own
 # deadline: YYYY-MM-DD      # optional
+owner: "<git user>"         # who last committed this card: what `git config user.name` prints
 updated: <date>
 tags: [module, module/<module id>]
 ---
