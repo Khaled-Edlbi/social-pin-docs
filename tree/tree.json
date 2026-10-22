@@ -4653,7 +4653,7 @@
     }
   },
   "counts": {
-    "blocked": 180,
+    "blocked": 178,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -4673,7 +4673,7 @@
     },
     "concepts": 177,
     "decisions": 8,
-    "edges": 4290,
+    "edges": 4297,
     "features": 40,
     "layerNotes": 190,
     "modules": 9,
@@ -4769,6 +4769,26 @@
       "from": "decision:D-07",
       "kind": "affects",
       "to": "task:T-049"
+    },
+    {
+      "from": "decision:D-08",
+      "kind": "affects",
+      "to": "feature:events-before"
+    },
+    {
+      "from": "decision:D-08",
+      "kind": "affects",
+      "to": "feature:pay-for-an-order"
+    },
+    {
+      "from": "decision:D-08",
+      "kind": "affects",
+      "to": "feature:payments"
+    },
+    {
+      "from": "decision:D-08",
+      "kind": "affects",
+      "to": "module:payments-gateway"
     },
     {
       "from": "feature:pay-for-an-order",
@@ -5394,11 +5414,6 @@
       "from": "decision:D-06",
       "kind": "blocks",
       "to": "task:T-061"
-    },
-    {
-      "from": "decision:D-08",
-      "kind": "blocks",
-      "to": "feature:pay-for-an-order"
     },
     {
       "from": "frontend-delivery:account",
@@ -20745,6 +20760,11 @@
     {
       "from": "backend-delivery:payments",
       "kind": "wikilink",
+      "to": "decision:D-08"
+    },
+    {
+      "from": "backend-delivery:payments",
+      "kind": "wikilink",
       "to": "frontend-requirements:payments"
     },
     {
@@ -22405,6 +22425,11 @@
     {
       "from": "frontend-requirements:events-before",
       "kind": "wikilink",
+      "to": "decision:D-08"
+    },
+    {
+      "from": "frontend-requirements:events-before",
+      "kind": "wikilink",
       "to": "frontend-requirements:event-ring-auto"
     },
     {
@@ -22861,6 +22886,11 @@
       "from": "frontend-requirements:onboarding-imports",
       "kind": "wikilink",
       "to": "task:T-063"
+    },
+    {
+      "from": "frontend-requirements:payments",
+      "kind": "wikilink",
+      "to": "decision:D-08"
     },
     {
       "from": "frontend-requirements:payments",
@@ -26056,6 +26086,11 @@
       "from": "story:onboarding-imports",
       "kind": "wikilink",
       "to": "task:T-019"
+    },
+    {
+      "from": "story:payments",
+      "kind": "wikilink",
+      "to": "decision:D-08"
     },
     {
       "from": "story:payments",
@@ -35682,7 +35717,12 @@
       "updated": "2026-10-21"
     },
     "decision:D-08": {
-      "affects": [],
+      "affects": [
+        "feature:pay-for-an-order",
+        "feature:payments",
+        "feature:events-before",
+        "module:payments-gateway"
+      ],
       "blockedBy": [],
       "blocks": [
         "feature:pay-for-an-order"
@@ -35693,7 +35733,7 @@
       "deadline": null,
       "decider": "owner",
       "depends": [],
-      "effectiveStatus": "needs-decision",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": null,
       "features": [
@@ -35724,11 +35764,11 @@
       "screens": [
         "s51"
       ],
-      "status": "needs-decision",
+      "status": "approved",
       "summary": "Which payment methods, and through which gateways, an organizer may offer a buyer on the Payment screen (s51) beyond the card checkout Stripe hosts. D-07 Payment provider made Stripe the one…",
       "tags": [
         "decision",
-        "decision/open"
+        "decision/decided"
       ],
       "task": null,
       "title": "D-08 Payment methods and gateways on s51",
@@ -37574,13 +37614,7 @@
         "feature:events-before",
         "feature:event-ring-auto"
       ],
-      "blockedBy": [
-        {
-          "id": "decision:D-08",
-          "title": "D-08 Payment methods and gateways on s51",
-          "why": "needs decision D-08 (open)"
-        }
-      ],
+      "blockedBy": [],
       "card": "F-41",
       "children": [
         "story:pay-for-an-order",
@@ -37599,7 +37633,7 @@
         "decision:D-07"
       ],
       "dir": "modules/Payments Gateway/Pay for an order",
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "pay-for-an-order",
       "frontendOnly": false,
@@ -37631,8 +37665,8 @@
         "project:spec-map"
       ],
       "rollup": {
-        "missing": 7,
-        "needs-decision": 1
+        "approved": 1,
+        "missing": 7
       },
       "scope": null,
       "screens": [
@@ -42893,7 +42927,7 @@
       "code": null,
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "in-progress",
       "effort": null,
       "feature": null,
       "frontendOnly": false,
@@ -42917,9 +42951,9 @@
         "decision:D-08"
       ],
       "rollup": {
-        "blocked": 1,
-        "missing": 7,
-        "needs-decision": 1
+        "approved": 1,
+        "in-progress": 1,
+        "missing": 7
       },
       "scope": null,
       "screens": [],
@@ -47769,14 +47803,14 @@
       "priority": null,
       "related": [],
       "rollup": {
-        "approved": 2,
-        "blocked": 180,
+        "approved": 3,
+        "blocked": 178,
         "current": 9,
         "done": 12,
         "draft": 103,
-        "in-progress": 14,
+        "in-progress": 16,
         "missing": 152,
-        "needs-decision": 21,
+        "needs-decision": 20,
         "reference": 31,
         "todo": 81
       },

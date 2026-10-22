@@ -12,6 +12,8 @@ tags: [story, story/draft, module/commerce, layer/business]
 
 # Payments & Orders · User Story
 
+> ⚠ Affected by [[D-08 Payment methods and gateways on s51]] (2026-10-22): the provider is Stripe (D-07) and the only method is card through its hosted checkout; the open question "card / e-payment per organizer" is answered.
+
 **Feature:** [[Payments & Orders]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Payments & Orders Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 A visitor has picked a package, a sub-event or an in-event upgrade and now pays for it. An order freezes what they saw and at what price; a payment records how it was settled and by whom; the provider's webhook completes the registration and, in the same transaction, grants the Event Ring. The schema is complete; the payment provider is undecided and no endpoint exists.

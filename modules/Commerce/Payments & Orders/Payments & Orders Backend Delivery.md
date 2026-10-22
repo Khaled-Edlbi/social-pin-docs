@@ -12,6 +12,8 @@ tags: [backend-delivery, backend-delivery/todo, module/commerce, layer/backend]
 
 # ⬜ Payments & Orders · Backend Delivery
 
+> ⚠ Affected by [[D-08 Payment methods and gateways on s51]] (2026-10-22): the provider is Stripe (D-07) and the only method is card through its hosted checkout; "provider choice (card / e-payment per organizer) is undecided" is no longer true, and no payment-method field is needed.
+
 **Feature:** [[Payments & Orders]] · **Status:** To do · **Integration guide:** [[Payments & Orders Backend Integration]] · **Requirements:** [[Payments & Orders Frontend Requirements]] · **QA:** [[Payments & Orders QA Backend]]
 
 What the backend shipped for this feature and how it works. The sum of this feature's task-level Backend Delivery notes (see the *Tasks* table below).

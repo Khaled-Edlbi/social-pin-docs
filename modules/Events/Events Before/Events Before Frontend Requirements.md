@@ -12,6 +12,8 @@ tags: [frontend-requirements, frontend-requirements/draft, module/events, layer/
 
 # Events Before · Frontend Requirements
 
+> ⚠ Affected by [[D-08 Payment methods and gateways on s51]] (2026-10-22): s51 offers card only through Stripe's hosted checkout; the "Payment methods" row needs no method picker.
+
 **Feature:** [[Events Before]] · **Status:** Draft · **Story:** [[Events Before Story]] · **API Integration:** not yet (backend not built)
 
 What the client needs to build the events tab, landing page, ticket selection, payment and confirmation, and whether each need is met today. Nothing event-specific is available; the schema is complete.
