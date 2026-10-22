@@ -144,6 +144,7 @@
     "module:payments-gateway": "M-09",
     "module:platform": "M-08",
     "module:shared-rings": "M-03",
+    "project:admin-agent": "P-27",
     "project:agent-protocol": "P-22",
     "project:agent-rules": "P-18",
     "project:api-conventions": "P-10",

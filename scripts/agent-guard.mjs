@@ -2,7 +2,7 @@
 /**
  * The agent guard: keeps each agent of the vault inside the files its layer owns.
  *
- *   node scripts/agent-guard.mjs prompt     UserPromptSubmit hook: "/owner", "/pm", "/backend", "/frontend", "/qa" make that agent active;
+ *   node scripts/agent-guard.mjs prompt     UserPromptSubmit hook: "/owner", "/pm", "/backend", "/frontend", "/qa", "/admin" make that agent active;
  *                                            "/agent off" clears it; "/agent" prints the active one. A plain prompt keeps the active agent.
  *   node scripts/agent-guard.mjs session    SessionStart hook: a new session starts with no active agent
  *   node scripts/agent-guard.mjs check      PreToolUse hook on Edit / Write: exit 2 (blocked) when the active agent may not write that file
@@ -13,7 +13,8 @@
  * The agents and their scopes are `agents.list` in docs.config.json; the rules in words are project/Agent Protocol.md.
  * No active agent → every Edit / Write and every writing shell command is refused with one instruction: ask the user which agent
  * they will use for the change and wait for them to type it (/owner …, /pm …, /admin …); nobody picks an agent for the user.
- * An agent whose `writes.all` is true (/admin) may write anything, generated files and the verbatim brief included. Node 22 built-ins only.
+ * An agent whose `writes.all` is true (/admin, project/Admin Agent.md) may write anything, generated files and the verbatim brief included,
+ * from the shell too. Node 22 built-ins only.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -147,8 +148,12 @@ export function decide(agent, rel, op, edit) {
 const decideOwner = (a, c) => { const w = a.writes || {}; const claimed = c.type === 'task' && c.labels.some((l) => !(w.taskLabels || []).includes(l) && AGENTS.some((o) => o.id !== a.id && (o.writes?.taskLabels || []).includes(l))); return (c.kind && (w.kinds || []).includes(c.kind)) || (c.type && (w.types || []).includes(c.type) && !claimed) || (c.type === 'task' && (w.taskLabels || []).some((l) => c.labels.includes(l))) || (w.paths || []).some((g) => glob(g, c.rel)); };
 
 // no agent active: nothing is written until the user has chosen one (Agent Protocol, "The guard")
-const agentList = () => AGENTS.map((x) => `/${x.id}`).join(', ');
-export const noAgent = () => ({ allow: false, message: `No agent is active, so nothing is written yet. Ask the user which agent they will use for this change — ${agentList()} (/admin may write anything) — and wait for them to type it as the next message (e.g. "/pm <the request>"); do not choose for them and do not retry. The rules: ${PROTOCOL}.` });
+const agentList = () => {
+  const roles = AGENTS.filter((x) => !x.writes?.all).map((x) => `/${x.id}`).join(', ');
+  const admins = AGENTS.filter((x) => x.writes?.all).map((x) => `/${x.id}`).join(', ');
+  return admins ? `${roles} (${admins} may write anything)` : roles;
+};
+export const noAgent = () => ({ allow: false, message: `No agent is active, so nothing is written yet. Ask the user which agent they will use for this change — ${agentList()} — and wait for them to type it as the next message (e.g. "/pm <the request>"); do not choose for them and do not retry. The rules: ${PROTOCOL}.` });
 
 const relOf = (p) => { if (!p) return null; const abs = path.isAbsolute(p) ? p : path.join(ROOT, p); const rel = path.relative(ROOT, abs).split(path.sep).join('/'); return rel.startsWith('..') ? null : rel; };
 
@@ -161,7 +166,7 @@ if (cmd === 'prompt') {
     if (agentOf(name)) { setActive(name); const a = agentOf(name); console.log(`Active agent: ${a.id} (${a.label}). Follow ${PROTOCOL} and ${a.note}. You may write: ${scopeWords(a)}. Everything else is denied by the guard.`); }
     else if (name === 'agent') {
       if (/^off\b/.test(rest.trim())) { clearActive(); console.log(`No agent is active: every write is refused until the user starts one with ${agentList()}.`); }
-      else { const a = agentOf(active() || ''); console.log(a ? `Active agent: ${a.id} (${a.label}); writes ${scopeWords(a)}. "/agent off" clears it.` : `No agent is active: every write is refused until the user starts one with ${agentList()}.`); }
+      else { const a = agentOf(active() || ''); console.log(a ? `Active agent: ${a.id} (${a.label}); writes ${scopeWords(a)}. "/agent off" clears it.` : `No agent is active: every write is refused until the user starts one with ${agentList()}. Ask which one before anything else.`); }
     }
   }
   process.exit(0);
@@ -169,7 +174,7 @@ if (cmd === 'prompt') {
 if (cmd === 'session') { clearActive(); process.exit(0); }
 if (cmd === 'status') {
   const a = agentOf(active() || '');
-  console.log(a ? `Active agent: ${a.id} (${a.label})\nwrites: ${scopeWords(a)}\nnote: ${a.note}\nprotocol: ${PROTOCOL}` : `No agent is active: every write is refused until the user starts one. Agents: ${agentList()} (/admin may write anything).`);
+  console.log(a ? `Active agent: ${a.id} (${a.label})\nwrites: ${scopeWords(a)}\nnote: ${a.note}\nprotocol: ${PROTOCOL}` : `No agent is active: every write is refused until the user starts one. Agents: ${agentList()}. Ask which one before anything else.`);
   process.exit(0);
 }
 if (cmd === 'check') {
@@ -189,14 +194,16 @@ if (cmd === 'check') {
 }
 if (cmd === 'bash') {
   const a = agentOf(active() || '');
-  if (!a) process.exit(0);
+  if (a?.writes?.all) process.exit(0); // the admin: the shell is not guarded either
   const { tool_input: input = {} } = readStdin();
   const c = String(input.command || '').trim();
   const allowed = /^(node scripts\/(build-tree|agent-guard)\.mjs\b|git\b|ls\b|cat\b|head\b|tail\b|grep\b|rg\b|find\b|wc\b|diff\b|sed -n\b|pwd\b|echo\b[^>]*$)/;
   const writes = /(^|[^<>])>{1,2}(?!&)|\btee\b|\bsed\s+-[a-zA-Z]*i|\bperl\s+-[a-zA-Z]*i|\b(mv|cp|rm|touch|mkdir|rmdir|truncate|dd)\b|\bpython3?\b|\bnode\s+(?!scripts\/(build-tree|agent-guard)\.mjs)/;
   if (allowed.test(c) && !/&&|;|\|\s*(tee|sed|perl|python|node|sh|bash)\b/.test(c)) process.exit(0);
-  if (writes.test(c)) { console.error(`${a.id} agent: this command writes files around the guard. Use Edit or Write (the guard checks them), node scripts/build-tree.mjs --scaffold for new notes, and git for commits.`); process.exit(2); }
-  process.exit(0);
+  if (!writes.test(c)) process.exit(0);
+  if (!a) { console.error(noAgent().message); process.exit(2); } // no agent: a writing command is refused like an Edit would be
+  console.error(`${a.id} agent: this command writes files around the guard. Use Edit or Write (the guard checks them), node scripts/build-tree.mjs --scaffold for new notes, and git for commits.`);
+  process.exit(2);
 }
 if (cmd === 'selftest') {
   const E = (o, n) => ({ old: o, new: n });
@@ -229,6 +236,9 @@ if (cmd === 'selftest') {
     ['backend', newDec, 'write', openWrite, true], ['backend', dec, 'edit', decBody, true], ['backend', dec, 'edit', decideSign, false], ['backend', newDec, 'write', decidedWrite, false],
     ['frontend', newDec, 'write', openWrite, true], ['frontend', dec, 'edit', decBody, true], ['frontend', dec, 'edit', decideSign, false],
     ['qa', newDec, 'write', openWrite, true], ['qa', dec, 'edit', decBody, true], ['qa', dec, 'edit', decideSign, false], ['qa', newDec, 'write', decidedWrite, false],
+    // the admin (writes.all): the guard refuses it nothing, the generated files and the verbatim brief included
+    ['admin', 'tree/tree.json', 'write', null, true], ['admin', 'Card Index.md', 'edit', body, true], ['admin', 'design/Wireframe Brief.md', 'edit', body, true], ['admin', 'project/Agent Rules.md', 'write', null, true],
+    ['admin', bd, 'write', null, true], ['admin', fe, 'edit', body, true], ['admin', story, 'edit', sign, true], ['admin', story, 'edit', body, true], ['admin', dec, 'edit', decideSign, true], ['admin', newDec, 'write', decidedWrite, true],
   ];
   let bad = 0;
   for (const [id, rel, op, edit, expected] of M) {

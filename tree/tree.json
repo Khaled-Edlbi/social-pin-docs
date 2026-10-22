@@ -29,6 +29,12 @@
       "label": "QA",
       "layer": "qa",
       "note": "project/QA Agent.md"
+    },
+    {
+      "id": "admin",
+      "label": "Admin (the guard off)",
+      "layer": "shared",
+      "note": "project/Admin Agent.md"
     }
   ],
   "byName": {
@@ -38,6 +44,7 @@
     "Account Backend Integration": "backend-integration:account",
     "Account Frontend Requirements": "frontend-requirements:account",
     "Account Story": "story:account",
+    "Admin Agent": "project:admin-agent",
     "Agent Protocol": "project:agent-protocol",
     "Agent Rules": "project:agent-rules",
     "App Shell & Onboarding Narrative": "feature:app-shell",
@@ -666,6 +673,7 @@
     "P-24": "project:frontend-agent",
     "P-25": "project:owner-agent",
     "P-26": "project:qa-agent",
+    "P-27": "project:admin-agent",
     "S-01": "story:account",
     "S-02": "story:auth",
     "S-03": "story:counts",
@@ -4653,7 +4661,7 @@
       "feature": 40,
       "frontend-requirements": 39,
       "module": 9,
-      "project": 26,
+      "project": 27,
       "story": 103,
       "task": 175
     },
@@ -4661,15 +4669,15 @@
       "backend": 56,
       "business": 331,
       "frontend": 43,
-      "shared": 9
+      "shared": 10
     },
     "concepts": 177,
     "decisions": 8,
-    "edges": 4278,
+    "edges": 4290,
     "features": 40,
     "layerNotes": 190,
     "modules": 9,
-    "notes": 474,
+    "notes": 475,
     "partial": 0,
     "placeholders": 152,
     "taskLayerNotes": 64,
@@ -4776,6 +4784,11 @@
       "from": "feature:pay-for-an-order",
       "kind": "affects",
       "to": "feature:payments"
+    },
+    {
+      "from": "project:agent-protocol",
+      "kind": "affects",
+      "to": "project:admin-agent"
     },
     {
       "from": "project:agent-protocol",
@@ -6926,6 +6939,11 @@
       "from": "feature:pay-for-an-order",
       "kind": "depends",
       "to": "task:T-047"
+    },
+    {
+      "from": "project:admin-agent",
+      "kind": "depends",
+      "to": "project:agent-protocol"
     },
     {
       "from": "project:backend-agent",
@@ -9801,6 +9819,31 @@
       "from": "feature:widgets",
       "kind": "related",
       "to": "project:spec-map"
+    },
+    {
+      "from": "project:admin-agent",
+      "kind": "related",
+      "to": "project:agent-protocol"
+    },
+    {
+      "from": "project:admin-agent",
+      "kind": "related",
+      "to": "project:agent-rules"
+    },
+    {
+      "from": "project:admin-agent",
+      "kind": "related",
+      "to": "project:docs-tree"
+    },
+    {
+      "from": "project:admin-agent",
+      "kind": "related",
+      "to": "project:owner-agent"
+    },
+    {
+      "from": "project:admin-agent",
+      "kind": "related",
+      "to": "project:workflow"
     },
     {
       "from": "project:agent-protocol",
@@ -18782,6 +18825,11 @@
     {
       "from": "group:shared",
       "kind": "tree",
+      "to": "project:admin-agent"
+    },
+    {
+      "from": "group:shared",
+      "kind": "tree",
       "to": "project:agent-protocol"
     },
     {
@@ -24398,6 +24446,26 @@
       "from": "module:shared-rings",
       "kind": "wikilink",
       "to": "task:T-064"
+    },
+    {
+      "from": "project:admin-agent",
+      "kind": "wikilink",
+      "to": "project:backend-agent"
+    },
+    {
+      "from": "project:admin-agent",
+      "kind": "wikilink",
+      "to": "project:frontend-agent"
+    },
+    {
+      "from": "project:admin-agent",
+      "kind": "wikilink",
+      "to": "project:pm-agent"
+    },
+    {
+      "from": "project:admin-agent",
+      "kind": "wikilink",
+      "to": "project:qa-agent"
     },
     {
       "from": "project:agent-protocol",
@@ -30147,6 +30215,10 @@
     "modules/Shared Rings & Companies/Shared Rings & Companies Module.md": {
       "name": "Shared Rings & Companies Module",
       "type": "module"
+    },
+    "project/Admin Agent.md": {
+      "name": "Admin Agent",
+      "type": "project"
     },
     "project/Agent Protocol.md": {
       "name": "Agent Protocol",
@@ -42443,6 +42515,7 @@
       "blockedBy": [],
       "card": null,
       "children": [
+        "project:admin-agent",
         "project:agent-protocol",
         "project:agent-rules",
         "project:backend-agent",
@@ -42976,13 +43049,63 @@
       "title": "Shared Rings & Companies Module",
       "updated": "2026-10-18"
     },
+    "project:admin-agent": {
+      "affects": [],
+      "blockedBy": [],
+      "card": "P-27",
+      "children": [],
+      "code": null,
+      "deadline": null,
+      "depends": [
+        "project:agent-protocol"
+      ],
+      "effectiveStatus": "reference",
+      "effort": null,
+      "feature": null,
+      "frontendOnly": false,
+      "id": "project:admin-agent",
+      "inherits": {},
+      "kind": "project",
+      "label": "Reference",
+      "labels": [],
+      "layer": "shared",
+      "module": null,
+      "parentTask": null,
+      "parents": [
+        "group:shared"
+      ],
+      "path": "project/Admin Agent.md",
+      "pending": [],
+      "priority": null,
+      "related": [
+        "project:agent-protocol",
+        "project:agent-rules",
+        "project:workflow",
+        "project:docs-tree",
+        "project:owner-agent"
+      ],
+      "scope": null,
+      "screens": [],
+      "status": null,
+      "summary": "This note is the prompt of the admin agent; /admin … loads Agent Protocol and then this note. Edit this note to change how it behaves. Its scope is agents.list[id = admin] in docs.config.json:…",
+      "tags": [
+        "project",
+        "layer/shared",
+        "rules",
+        "agent"
+      ],
+      "task": null,
+      "title": "Admin Agent",
+      "updated": "2026-10-22"
+    },
     "project:agent-protocol": {
       "affects": [
         "project:owner-agent",
         "project:pm-agent",
         "project:backend-agent",
         "project:frontend-agent",
-        "project:qa-agent"
+        "project:qa-agent",
+        "project:admin-agent"
       ],
       "blockedBy": [],
       "card": "P-22",
@@ -43009,6 +43132,7 @@
       "pending": [],
       "priority": null,
       "related": [
+        "project:admin-agent",
         "project:agent-rules",
         "project:workflow",
         "project:docs-tree",
@@ -43063,6 +43187,7 @@
       "priority": null,
       "related": [
         "project:frontend-agent-prompt",
+        "project:admin-agent",
         "project:agent-protocol",
         "project:owner-agent",
         "project:pm-agent",
@@ -43475,6 +43600,7 @@
       "pending": [],
       "priority": null,
       "related": [
+        "project:admin-agent",
         "project:agent-protocol",
         "project:agent-rules",
         "project:workflow",
@@ -43856,6 +43982,7 @@
       "pending": [],
       "priority": null,
       "related": [
+        "project:admin-agent",
         "project:agent-rules",
         "project:agent-protocol",
         "project:workflow",
@@ -44236,6 +44363,7 @@
       "pending": [],
       "priority": null,
       "related": [
+        "project:admin-agent",
         "project:agent-protocol",
         "project:backend-agent",
         "project:docs-tree",
@@ -47649,7 +47777,7 @@
         "in-progress": 14,
         "missing": 152,
         "needs-decision": 21,
-        "reference": 30,
+        "reference": 31,
         "todo": 81
       },
       "scope": null,

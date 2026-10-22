@@ -4,7 +4,7 @@ layer: shared
 updated: 2026-10-22
 depends: ["Agent Protocol"]
 affects: []
-related: ["Agent Protocol", "Agent Rules", "Workflow", "Docs Tree", "PM Agent"]
+related: ["Agent Protocol", "Agent Rules", "Workflow", "Docs Tree", "PM Agent", "Admin Agent"]
 tags: [project, layer/shared, rules, agent]
 ---
 
@@ -105,4 +105,4 @@ The feature card is the business note of the feature and its main node; you writ
 - keep a rule in two places, or change the build script's behaviour without a line in the note that documents it;
 - edit a generated file, a card code, or `design/Wireframe Brief.md`.
 
-Related: [[Agent Protocol]] · [[Agent Rules]] · [[Workflow]] · [[Docs Tree]] · [[PM Agent]] · [[Backend Agent]] · [[Frontend Agent]] · [[QA Agent]]
+Related: [[Agent Protocol]] · [[Agent Rules]] · [[Workflow]] · [[Docs Tree]] · [[PM Agent]] · [[Backend Agent]] · [[Frontend Agent]] · [[QA Agent]] · [[Admin Agent]] (the guard off, for repairs; a rule it had to work around is yours to write afterwards)

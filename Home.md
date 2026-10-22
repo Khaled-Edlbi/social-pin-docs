@@ -1,6 +1,6 @@
 ---
 type: home
-updated: 2026-10-21
+updated: 2026-10-22
 tags: [map]
 ---
 
@@ -46,7 +46,7 @@ social-pin-docs/
 ├── business/                      BUSINESS docs: Project Overview · Glossary · Feature Tree · Feature Graph · Feature Map.canvas · Status Report
 ├── frontend/                      FRONTEND docs: Frontend Contract · Frontend API Guide · Frontend Passwordless Migration · Frontend Agent Prompt
 ├── backend/                       BACKEND docs: Architecture · API Conventions · Auth Model · Ring Access Model · Database & Migrations · Developer Setup · Spec Map · Developer Guide
-├── project/                       RULES for every layer: Workflow · Agent Rules · Docs Tree · the agents (Agent Protocol · Owner · PM · Backend · Frontend · QA Agent): `/owner` `/pm` `/backend` `/frontend` `/qa`
+├── project/                       RULES for every layer: Workflow · Agent Rules · Docs Tree · the agents (Agent Protocol · Owner · PM · Backend · Frontend · QA · Admin Agent): `/owner` `/pm` `/backend` `/frontend` `/qa`, `/admin` for repairs
 ├── modules/<Module>/
 │   ├── <Module> Module.md         the module = the sum of its features
 │   └── <Feature>/
@@ -75,7 +75,7 @@ social-pin-docs/
 - **Frontend developer** → [[Frontend Contract]] → the feature's Backend Integration note → [[Frontend API Guide]]. The rules for the frontend repo's agent: [[Frontend Agent Prompt]]; to write the notes here: `/frontend …` ([[Frontend Agent]]). **Auth is passwordless since 2026-10-15**: [[Frontend Passwordless Migration]].
 - **Product / design** → [[Decisions]] first (five answers unblock 19 tasks), the ✏️ Draft stories in the [[Docs Tree]] to approve, [[Screen Index]] for what each screen can do today. To create a feature with its business side: `/owner …` ([[Owner Agent]]); its story or a task: `/pm …` ([[PM Agent]]); a decision card is raised by whichever agent owns the card that needs it and decided by `/pm` or `/owner`; to approve, change a rule or set priorities: `/owner …` ([[Owner Agent]]).
 - **QA** → a feature's two delivery notes and its story; `--scaffold qa-backend <feature>` / `qa-frontend` to start the artefacts, or `/qa …` ([[QA Agent]]).
-- **Anyone new** → [[Project Overview]] → [[Glossary]] → [[Feature Graph]] → [[Docs Tree]]. How the agents take a request and stay inside their files: [[Agent Protocol]].
+- **Anyone new** → [[Project Overview]] → [[Glossary]] → [[Feature Graph]] → [[Docs Tree]]. How the agents take a request and stay inside their files: [[Agent Protocol]]. Nothing is written until an agent is chosen with its slash command; a broken tree or a rename across every layer is `/admin …` ([[Admin Agent]]).
 
 ## How this vault is organised
 
