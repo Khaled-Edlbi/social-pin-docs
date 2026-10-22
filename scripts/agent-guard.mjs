@@ -34,7 +34,7 @@ const HAND_WRITTEN = ['tree/index.html']; // the tree page is source, the owner'
 const VERBATIM = ['design/Wireframe Brief.md'];
 const KINDS = []; // { id, file, layer }
 for (const layer of cfg.layers || []) for (const k of layer.kinds || []) KINDS.push({ id: k.id, file: k.file, layer: layer.id });
-const STRUCTURAL_LAYER = { module: 'business', feature: 'business', task: 'business', decision: 'business', project: 'shared' };
+const STRUCTURAL_LAYER = { module: 'business', feature: 'business', task: 'business', decision: 'business', 'decision-record': 'business', project: 'shared' };
 
 const readStdin = () => { try { return JSON.parse(fs.readFileSync(0, 'utf8') || '{}'); } catch { return {}; } };
 const active = () => { try { return fs.readFileSync(MARKER, 'utf8').trim() || null; } catch { return null; } };
@@ -52,7 +52,7 @@ function scopeWords(a) {
   if (w.taskLabels?.length) parts.push(`task notes labelled ${w.taskLabels.join(' / ')}`);
   if (w.paths?.length) parts.push(w.paths.join(', ') + (w.except?.length ? ` (not ${w.except.join(', ')})` : ''));
   if (w.editOnly) { const e = []; if (w.editOnly.kinds?.length) e.push(...w.editOnly.kinds); if (w.editOnly.types?.length) e.push(...w.editOnly.types); if (e.length) parts.push(`edits (never rewrites) in ${e.join(', ')} notes`); }
-  if (w.types?.includes('decision') && !(a.signs || []).includes('decision')) parts.push('decision cards to raise and fill, never to decide (status / decidedBy / decidedAt are the PM\'s or the owner\'s)');
+  if (w.types?.includes('decision') && !(a.signs || []).includes('decision')) parts.push('decision cards to raise and fill, never to decide (status / decidedBy / decidedAt and the decision record are the PM\'s or the owner\'s)');
   if (a.signs?.length) parts.push(`sign-off lines on ${a.signs.join(', ')}`);
   if (a.fields?.length) parts.push(`${a.fields.join(' / ')} on any card`);
   parts.push('a flag line (> ⚠ Affected by …) under any note\'s H1');
@@ -85,7 +85,7 @@ function classify(rel) {
   if (rel.endsWith('.md')) {
     for (const k of KINDS) if (base.endsWith(` ${k.file}`)) { out.kind = k.id; out.layer = k.layer; return out; }
     if (rel.startsWith('tasks/')) { out.type = 'task'; out.layer = 'business'; const m = /^T-\d+[a-z]?-(fe|be)\b/.exec(base); if (m) out.labels = [m[1] === 'fe' ? 'frontend' : 'backend']; return out; }
-    if (rel.startsWith('decisions/')) { out.type = 'decision'; out.layer = 'business'; return out; }
+    if (rel.startsWith('decisions/')) { out.type = /^decisions\/DR-\d+ /.test(rel) ? 'decision-record' : 'decision'; out.layer = 'business'; return out; }
     if (/^modules\/[^/]+\/[^/]+ Module\.md$/.test(rel)) { out.type = 'module'; out.layer = 'business'; return out; }
     if (/^modules\/[^/]+\/([^/]+)\/\1\.md$/.test(rel)) { out.type = 'feature'; out.layer = 'business'; return out; }
     if (/^(project|business|frontend|backend)\//.test(rel)) { out.type = 'project'; out.layer = rel.split('/')[0] === 'project' ? 'shared' : rel.split('/')[0]; return out; }
@@ -218,6 +218,7 @@ if (cmd === 'selftest') {
   const dec = 'decisions/D-04 Ring settings.md', newDec = 'decisions/D-99 New.md';
   const decideSign = E('status: open\ndecidedBy: ""\ndecidedAt: ""\nupdated: 2026-10-18\ntags: [decision, decision/open]', 'status: decided\ndecidedBy: "Khaled"\ndecidedAt: 2026-10-21\nupdated: 2026-10-21\ntags: [decision, decision/decided]');
   const decBody = E('## Options\n\n1. …', '## Options\n\n1. Per-Ring copies\n2. One field library');
+  const newRec = 'decisions/DR-99 New answer.md', recWrite = E('', '---\ntype: decision-record\nid: DR-99\ndecision: D-99\n---\n');
   const openWrite = E('', '---\ntype: decision\nid: D-99\nstatus: open\n---\n'), decidedWrite = E('', '---\ntype: decision\nid: D-99\nstatus: decided\n---\n');
   const M = [
     // agent, path, op, edit, expected
@@ -236,6 +237,9 @@ if (cmd === 'selftest') {
     ['backend', newDec, 'write', openWrite, true], ['backend', dec, 'edit', decBody, true], ['backend', dec, 'edit', decideSign, false], ['backend', newDec, 'write', decidedWrite, false],
     ['frontend', newDec, 'write', openWrite, true], ['frontend', dec, 'edit', decBody, true], ['frontend', dec, 'edit', decideSign, false],
     ['qa', newDec, 'write', openWrite, true], ['qa', dec, 'edit', decBody, true], ['qa', dec, 'edit', decideSign, false], ['qa', newDec, 'write', decidedWrite, false],
+    // the decision record takes the decision: written by the PM or the owner only; the Decisions table is theirs too
+    ['owner', newRec, 'write', recWrite, true], ['pm', newRec, 'write', recWrite, true], ['backend', newRec, 'write', recWrite, false], ['frontend', newRec, 'write', recWrite, false], ['qa', newRec, 'write', recWrite, false],
+    ['pm', 'decisions/Decisions.md', 'edit', body, true], ['owner', 'decisions/Decisions.md', 'edit', body, true], ['backend', 'decisions/Decisions.md', 'edit', body, false],
     // the admin (writes.all): the guard refuses it nothing, the generated files and the verbatim brief included
     ['admin', 'tree/tree.json', 'write', null, true], ['admin', 'Card Index.md', 'edit', body, true], ['admin', 'design/Wireframe Brief.md', 'edit', body, true], ['admin', 'project/Agent Rules.md', 'write', null, true],
     ['admin', bd, 'write', null, true], ['admin', fe, 'edit', body, true], ['admin', story, 'edit', sign, true], ['admin', story, 'edit', body, true], ['admin', dec, 'edit', decideSign, true], ['admin', newDec, 'write', decidedWrite, true],

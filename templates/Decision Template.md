@@ -41,8 +41,4 @@ Facts, constraints, where the design and the backend disagree, what was tried.
 
 ## Decision
 
-— (the PM or the owner only, on the user's word: fill in, set `status: decided`, `decidedBy`, `decidedAt` and the tag `decision/decided`, change the H1 emoji to ✅, and list every feature and task it changes in `affects`; then `--impact D-NN` and flag the notes it lists)
-
-## Consequences
-
-- …
+— (taken on its own card, never written here: the PM or the owner, on the user's word, runs `node scripts/build-tree.mjs --scaffold record D-NN "<the answer>"` and fills the record DR-NN (what was decided, why, what it changes with every feature and task in its `affects`, what stays open); then signs this card off: `status: decided`, `decidedBy`, `decidedAt` as on the record, the tag `decision/decided`, ✅ in the H1, and this line replaced by `Decided <date> by <who>: option <n>, on its own card, [[DR-NN …]]`; then `--impact DR-NN` and flag the notes it lists)

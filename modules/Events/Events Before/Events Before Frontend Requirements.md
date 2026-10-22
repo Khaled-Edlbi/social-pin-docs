@@ -12,7 +12,7 @@ tags: [frontend-requirements, frontend-requirements/draft, module/events, layer/
 
 # Events Before · Frontend Requirements
 
-> ⚠ Affected by [[D-08 Payment methods and gateways on s51]] (2026-10-22): s51 offers card only through Stripe's hosted checkout; the "Payment methods" row needs no method picker.
+> ⚠ Affected by [[DR-08 Stripe card checkout only]] (2026-10-22): s51 offers card only through Stripe's hosted checkout; the "Payment methods" row needs no method picker.
 
 **Feature:** [[Events Before]] · **Status:** Draft · **Story:** [[Events Before Story]] · **API Integration:** not yet (backend not built)
 
