@@ -592,6 +592,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
       - ∅ _Pay for an order QA Backend_ (QA Backend, blocked by Pay for an order Backend Delivery)
       - ∅ _Pay for an order Frontend Delivery_ (Frontend Delivery, blocked by Pay for an order Backend Integration)
       - ∅ _Pay for an order QA Frontend_ (QA Frontend, blocked by Pay for an order Frontend Delivery)
+      - ❓ [D-08 Payment methods and gateways on s51](decisions/D-08%20Payment%20methods%20and%20gateways%20on%20s51.md) (Decision)
   - 📘 _Business docs_ (Docs)
     - 📘 [Feature Graph](business/Feature%20Graph.md) (P-01, Map)
     - 📘 [Feature Tree](business/Feature%20Tree.md) (P-02, Map)

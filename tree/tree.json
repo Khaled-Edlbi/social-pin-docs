@@ -89,6 +89,7 @@
     "D-05 Copy or inherit": "decision:D-05",
     "D-06 Pin name rules": "decision:D-06",
     "D-07 Payment provider": "decision:D-07",
+    "D-08 Payment methods and gateways on s51": "decision:D-08",
     "Database & Migrations": "project:database-migrations",
     "Delegated Admins": "feature:delegated-admins",
     "Delegated Admins Backend Delivery": "backend-delivery:delegated-admins",
@@ -550,6 +551,7 @@
     "D-05": "decision:D-05",
     "D-06": "decision:D-06",
     "D-07": "decision:D-07",
+    "D-08": "decision:D-08",
     "F-01": "feature:account",
     "F-02": "feature:auth",
     "F-03": "feature:counts",
@@ -4015,6 +4017,7 @@
     "s51": {
       "containers": [
         "decision:D-07",
+        "decision:D-08",
         "feature:events-before",
         "feature:pay-for-an-order",
         "feature:payments",
@@ -4029,6 +4032,7 @@
         "backend-delivery:events-before",
         "backend-delivery:payments",
         "decision:D-07",
+        "decision:D-08",
         "feature:events-before",
         "feature:pay-for-an-order",
         "feature:payments",
@@ -4645,7 +4649,7 @@
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
-      "decision": 7,
+      "decision": 8,
       "feature": 40,
       "frontend-requirements": 39,
       "module": 9,
@@ -4655,17 +4659,17 @@
     },
     "byLayer": {
       "backend": 56,
-      "business": 330,
+      "business": 331,
       "frontend": 43,
       "shared": 9
     },
     "concepts": 177,
-    "decisions": 7,
-    "edges": 4271,
+    "decisions": 8,
+    "edges": 4277,
     "features": 40,
     "layerNotes": 190,
     "modules": 9,
-    "notes": 473,
+    "notes": 474,
     "partial": 0,
     "placeholders": 152,
     "taskLayerNotes": 64,
@@ -6904,6 +6908,11 @@
       "to": "task:T-049"
     },
     {
+      "from": "decision:D-08",
+      "kind": "decision",
+      "to": "feature:pay-for-an-order"
+    },
+    {
       "from": "feature:pay-for-an-order",
       "kind": "depends",
       "to": "decision:D-07"
@@ -8350,6 +8359,26 @@
     },
     {
       "from": "decision:D-07",
+      "kind": "related",
+      "to": "module:payments-gateway"
+    },
+    {
+      "from": "decision:D-08",
+      "kind": "related",
+      "to": "decision:D-07"
+    },
+    {
+      "from": "decision:D-08",
+      "kind": "related",
+      "to": "feature:events-before"
+    },
+    {
+      "from": "decision:D-08",
+      "kind": "related",
+      "to": "feature:payments"
+    },
+    {
+      "from": "decision:D-08",
       "kind": "related",
       "to": "module:payments-gateway"
     },
@@ -18114,6 +18143,11 @@
       "from": "feature:pay-for-an-order",
       "kind": "tree",
       "to": "backend-integration:pay-for-an-order"
+    },
+    {
+      "from": "feature:pay-for-an-order",
+      "kind": "tree",
+      "to": "decision:D-08"
     },
     {
       "from": "feature:pay-for-an-order",
@@ -29365,6 +29399,10 @@
       "name": "D-07 Payment provider",
       "type": "decision"
     },
+    "decisions/D-08 Payment methods and gateways on s51.md": {
+      "name": "D-08 Payment methods and gateways on s51",
+      "type": "decision"
+    },
     "decisions/Decisions.md": {
       "name": "Decisions",
       "type": "map"
@@ -35548,7 +35586,8 @@
       "related": [
         "module:payments-gateway",
         "feature:payments",
-        "feature:subscription"
+        "feature:subscription",
+        "decision:D-08"
       ],
       "scope": null,
       "screens": [
@@ -35564,6 +35603,59 @@
       "task": null,
       "title": "D-07 Payment provider",
       "updated": "2026-10-21"
+    },
+    "decision:D-08": {
+      "affects": [],
+      "blockedBy": [],
+      "blocks": [
+        "feature:pay-for-an-order"
+      ],
+      "card": "D-08",
+      "children": [],
+      "code": "D-08",
+      "deadline": null,
+      "decider": "owner",
+      "depends": [],
+      "effectiveStatus": "needs-decision",
+      "effort": null,
+      "feature": null,
+      "features": [
+        "pay-for-an-order"
+      ],
+      "frontendOnly": false,
+      "id": "decision:D-08",
+      "inherits": {},
+      "kind": "decision",
+      "label": "Decision",
+      "labels": [],
+      "layer": "business",
+      "module": null,
+      "parentTask": null,
+      "parents": [
+        "feature:pay-for-an-order"
+      ],
+      "path": "decisions/D-08 Payment methods and gateways on s51.md",
+      "pending": [],
+      "priority": null,
+      "related": [
+        "decision:D-07",
+        "module:payments-gateway",
+        "feature:payments",
+        "feature:events-before"
+      ],
+      "scope": null,
+      "screens": [
+        "s51"
+      ],
+      "status": "needs-decision",
+      "summary": "Which payment methods, and through which gateways, an organizer may offer a buyer on the Payment screen (s51) beyond the card checkout Stripe hosts. D-07 Payment provider made Stripe the one…",
+      "tags": [
+        "decision",
+        "decision/open"
+      ],
+      "task": null,
+      "title": "D-08 Payment methods and gateways on s51",
+      "updated": "2026-10-22"
     },
     "feature:account": {
       "affects": [],
@@ -36723,7 +36815,8 @@
         "project:architecture",
         "project:api-conventions",
         "project:spec-map",
-        "feature:pay-for-an-order"
+        "feature:pay-for-an-order",
+        "decision:D-08"
       ],
       "rollup": {
         "approved": 1,
@@ -37413,7 +37506,8 @@
         "backend-integration:pay-for-an-order",
         "qa-backend:pay-for-an-order",
         "frontend-delivery:pay-for-an-order",
-        "qa-frontend:pay-for-an-order"
+        "qa-frontend:pay-for-an-order",
+        "decision:D-08"
       ],
       "code": "pay-for-an-order",
       "deadline": null,
@@ -37454,7 +37548,8 @@
         "project:spec-map"
       ],
       "rollup": {
-        "missing": 7
+        "missing": 7,
+        "needs-decision": 1
       },
       "scope": null,
       "screens": [
@@ -37470,7 +37565,7 @@
       ],
       "task": null,
       "title": "Pay for an order",
-      "updated": "2026-10-21"
+      "updated": "2026-10-22"
     },
     "feature:payments": {
       "affects": [],
@@ -37518,7 +37613,8 @@
         "project:api-conventions",
         "project:spec-map",
         "feature:pay-for-an-order",
-        "decision:D-07"
+        "decision:D-07",
+        "decision:D-08"
       ],
       "rollup": {
         "approved": 1,
@@ -42733,10 +42829,12 @@
       "pending": [],
       "priority": null,
       "related": [
-        "decision:D-07"
+        "decision:D-07",
+        "decision:D-08"
       ],
       "rollup": {
         "missing": 7,
+        "needs-decision": 1,
         "todo": 1
       },
       "scope": null,
@@ -47539,7 +47637,7 @@
         "draft": 103,
         "in-progress": 14,
         "missing": 152,
-        "needs-decision": 20,
+        "needs-decision": 21,
         "reference": 30,
         "todo": 83
       },
