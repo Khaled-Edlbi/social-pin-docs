@@ -1,7 +1,7 @@
 ---
 type: project
 layer: shared
-updated: 2026-10-21
+updated: 2026-10-22
 depends: ["Agent Protocol"]
 affects: []
 related: ["Agent Protocol", "Agent Rules", "Workflow", "Docs Tree", "PM Agent"]
@@ -68,7 +68,7 @@ Only when the user says so in the current message. The four fields that move tog
 
 On the user's word: `status: decided`, `decidedBy`, `decidedAt`, the tag `decision/decided`, ✅ in the H1, the outcome under `## Decision`, and `affects:` listing every feature and task it changes; then `--impact D-NN` and flag the notes it lists for their owners. The cards in `blocks` return to their own status on the next build ([[Agent Rules#4 · Statuses, blocking and sign-off]]).
 
-To raise and decide in one step, when the user gives both in one message: `node scripts/build-tree.mjs --scaffold decision "<card>" "<title>"`, fill *What has to be decided*, *Notes* and *Options* from what the user said, then the sign-off above; one commit.
+To raise and decide in one step, when the user gives both in one message: `node scripts/build-tree.mjs --scaffold decision "<card>" "<title>"`, fill *What has to be decided*, *Notes* and *Options* from what the user said, then the sign-off above; one card, one branch, one commit.
 
 ### 4F · Priorities and deadlines
 
@@ -94,7 +94,7 @@ The feature card is the business note of the feature and its main node; you writ
 
 ## 5 · Finish
 
-[[Agent Protocol#5 · Finish]]. A rule change is reported as "rule, where it lived, where it lives now, who it affects".
+[[Agent Protocol#5 · Finish]], on the **card's own branch**: you write no code, so your branch lives in the vault only and is named after the card the change is about, as deep as it sits, `docs/owner/<M-NN>-<module-id>/<F-NN>-<feature-id>/<last>`, with `docs/owner/project/<last>` for the rules, the config, the templates, the scripts, the agents and a decision on any of them, and `docs/owner/business/<last>` for the reference notes ([[Workflow#2 · Branch from the ticket]], which also holds the commit shapes). `node scripts/build-tree.mjs --branch owner <card> [<what-you-do>]` prints the name: `--branch owner M-09 business-side`, `--branch owner F-41 create`, `--branch owner D-07`, `--branch owner S-70 approved`, `--branch owner "Agent Rules" flag-window`. One card per branch: a module note, a feature card, a decision, a sign-off, a priority each get their own, merged in order. A rule change is reported as "rule, where it lived, where it lives now, who it affects".
 
 ## 6 · What you never do
 

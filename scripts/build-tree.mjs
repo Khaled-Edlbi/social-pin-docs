@@ -1152,6 +1152,39 @@ function printFind(json, query) {
   if (r.concepts.length) { console.log('Concepts:'); for (const { name, c } of r.concepts) console.log(`  ${name} (${c.kind}${c.owner ? `, owned by ${json.nodes[c.owner]?.title}` : ''}) · mentioned by ${c.notes.length} notes`); }
 }
 
+// ---------------------------------------------------------------- branch: the business layer's vault-only branch for a card (Workflow §2)
+export function branchName(json, agent, query, what) {
+  const { nodes } = json;
+  if (!/^[a-z][a-z0-9-]*$/.test(agent || '')) return { error: `give the agent first: --branch <owner|pm> <card> [<what-you-do>]` };
+  const q = (query || '').trim();
+  if (!q) return { error: 'give the card: a code (F-41, D-07, S-70, T-047, M-09), a feature id, or a note name' };
+  let n = null;
+  for (const x of Object.values(nodes)) if (x.title === q || x.code === q || x.card === q || x.path === q || x.id === q) { n = x; break; }
+  if (!n) for (const x of Object.values(nodes)) if (x.title?.toLowerCase() === q.toLowerCase()) { n = x; break; }
+  if (!n || !n.card) return { error: `nothing named "${q}" with a card code (try --find "${q}")` };
+  const kebab = (s) => String(s || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  const titleWords = n.title.replace(/^[A-Z]+-\d+[a-z-]*\s*[·:]?\s*/, '');
+  // the card's place: its feature, then its module (a decision takes them from the cards it blocks)
+  let featureId = n.kind === 'feature' ? n.code : n.feature || null;
+  if (!featureId && n.kind === 'decision') featureId = (n.blocks || []).map((id) => nodes[id]?.feature || (nodes[id]?.kind === 'feature' ? nodes[id].code : null)).find(Boolean) || (n.features || [])[0] || null; // the first card it blocks, then its declared features
+  const feature = featureId ? Object.values(nodes).find((x) => x.kind === 'feature' && x.code === featureId) : null;
+  let moduleId = n.kind === 'module' ? n.id.replace(/^module:/, '') : n.module || feature?.module || null;
+  if (!moduleId && n.kind === 'decision') moduleId = (n.blocks || []).map((id) => nodes[id]?.module).find(Boolean) || null;
+  const mod = moduleId ? nodes[`module:${moduleId}`] : null;
+  const parts = [`docs/${agent}`];
+  if (mod) {
+    parts.push(`${mod.card}-${moduleId}`);
+    if (feature && n.kind !== 'module') parts.push(`${feature.card}-${feature.code}`);
+    if (n.kind === 'module' || n.kind === 'feature') { if (!what) return { error: `${n.card} is the ${n.kind} itself: add what you do, e.g. --branch ${agent} ${n.card} ${n.kind === 'module' ? 'business-side' : 'create'}` }; parts.push(kebab(what)); }
+    else parts.push(`${n.card}-${kebab(what || titleWords)}`);
+  } else {
+    parts.push((n.path || '').startsWith('business/') ? 'business' : 'project');
+    if (n.kind === 'decision') parts.push(`${n.card}-${kebab(what || titleWords)}`);
+    else { if (!what) return { error: `${n.card} sits outside the modules: add what you do, e.g. --branch ${agent} "${n.title}" flag-window` }; parts.push(kebab(what)); }
+  }
+  return { branch: parts.join('/'), card: n.card, title: n.title };
+}
+
 function printImpact(json, r, query) {
   if (!r) { console.error(`nothing named "${query}" (try a note name, a task or decision id, a feature id, or a concept like E_RING_02 / "GET /rings/:id" / s14)`); process.exit(1); }
   const { nodes } = json;
@@ -1383,6 +1416,15 @@ if (has('--find')) {
   if (result.errors.length) for (const e of result.errors) console.error(`error    ${e}`);
   if (!result.json) process.exit(1);
   printFind(result.json, opt('--find', ''));
+  process.exit(0);
+}
+if (has('--branch')) {
+  if (result.errors.length) for (const e of result.errors) console.error(`error    ${e}`);
+  if (!result.json) process.exit(1);
+  const i = args.indexOf('--branch');
+  const r = branchName(result.json, args[i + 1], args[i + 2], args[i + 3]);
+  if (r.error) { console.error(r.error); process.exit(1); }
+  console.log(r.branch);
   process.exit(0);
 }
 if (has('--impact')) {

@@ -1,7 +1,7 @@
 ---
 type: project
 layer: shared
-updated: 2026-10-21
+updated: 2026-10-22
 affects: ["Workflow", "Docs Tree"]
 related: ["Frontend Agent Prompt", "Agent Protocol", "Owner Agent", "PM Agent", "Backend Agent", "Frontend Agent", "QA Agent"]
 tags: [project, layer/shared, rules]
@@ -77,7 +77,7 @@ A target is a note name (`"Ring Access Engine"`), a task or decision id (`T-022`
 
 ## 6 · After a task — the checklist, by layer
 
-**Everyone**: `--impact` before and after; relations declared; flags placed; your `pending` entries cleared or handed over (a Partial card is not done); no card started while the card before it in the flow is not handed off, unless its `blockedBy` says otherwise; every touched note gets today's `updated:`; `node scripts/build-tree.mjs` run and `tree/`, `tasks/Task Board.md`, `tasks/Backlog.md` committed with the notes (they are generated; `--check` fails on drift). The branch in every repo is `<module>/<ticket-no>/<what-you-do>`; pull requests link each other and the ticket.
+**Everyone**: `--impact` before and after; relations declared; flags placed; your `pending` entries cleared or handed over (a Partial card is not done); no card started while the card before it in the flow is not handed off, unless its `blockedBy` says otherwise; every touched note gets today's `updated:`; `node scripts/build-tree.mjs` run and `tree/`, `tasks/Task Board.md`, `tasks/Backlog.md` committed with the notes (they are generated; `--check` fails on drift). The branch in every repo is `<module>/<ticket-no>/<what-you-do>`; pull requests link each other and the ticket. The business layer's vault-only branches are `docs/<agent>/…`, named after the card ([[Workflow#2 · Branch from the ticket]]).
 
 **Business**: task note `status`, DoD boxes, `## Log` line; a decision card (`--scaffold decision`) for every card that needs one, with what has to be decided and who decides, and its `decided` sign-off when taken; the feature note's *Tasks* table; a decision's `status: decided` plus `affects` listing what it unblocks; the module note when a feature is added.
 

@@ -1,7 +1,7 @@
 ---
 type: project
 layer: shared
-updated: 2026-10-21
+updated: 2026-10-22
 related: ["Agent Rules", "Docs Tree"]
 tags: [project, layer/shared]
 ---
@@ -18,7 +18,7 @@ How a piece of work moves through the repositories and the layers. The rules beh
 | the frontend repo | the client; its agent rules are in [[Frontend Agent Prompt]] | **the same name** |
 | `social-pin-docs` (this vault) | tickets, modules, features, every layer's notes, decisions, design index, project docs | **the same name** |
 
-Branches with one name pair the code and its documentation; pull requests link each other and the ticket.
+Branches with one name pair the code and its documentation; pull requests link each other and the ticket. The one exception is the business layer, which writes no code: its branches live in the vault only and take the `docs/<agent>/…` shape in [[#2 · Branch from the ticket]].
 
 ## 1 · Ticket first (business)
 
@@ -31,6 +31,42 @@ Run `node scripts/build-tree.mjs --impact T-NNN` and paste what it lists into th
 ## 2 · Branch from the ticket
 
 `ring/T-004/member-count` in every repo touched: the module (a backend `src/modules/<feature>` folder name or a cross-cutting area such as `prisma`, `common`, `docs`, `ci`), the ticket id exactly as the note spells it, a short kebab-case summary. Never invent a ticket id. One ticket per branch. Commits are `<type>(<module>): <message>` with the ticket in the body. Set the ticket to `status: in-progress`.
+
+### Vault-only branches · the business layer
+
+The owner and the PM write no code, so their branches pair with no code branch and never take the `<module>/<T-NNN>/…` shape. They are named after the **card** the change is about, as deep as it sits and no deeper:
+
+```
+docs/<agent>/<M-NN>-<module-id>/<F-NN>-<feature-id>/<last>
+```
+
+- `<agent>` is `owner` or `pm`.
+- Then the card's path: `<M-NN>-<module-id>` when the card sits in a module, `/<F-NN>-<feature-id>` when it sits in a feature; the codes as [[Card Index]] lists them, the ids as `docs.config.json` spells them, never a backend folder.
+- `<last>` is a short kebab-case `<what-you-do>` when the branch's card **is** the module or the feature, and `<card code>-<what-you-do>` for a card under them: a decision, a story sign-off, a task's priority.
+- Outside a module: `docs/<agent>/project/<last>` for the rules, the config, the templates, the scripts, the agents, CI, [[Home]], the README, `CLAUDE.md`, and for a decision raised on any of them; `docs/<agent>/business/<last>` for the reference notes in `business/` ([[Project Overview]], [[Glossary]], [[Feature Tree]], the status reports).
+- **One card per branch.** A request that touches three cards is three branches, merged in order; a decision raised and decided in one step is one card. A second story gets its own branch, even when the same request brought both.
+- **Codes come from the build:** a new feature or decision has no code until `node scripts/build-tree.mjs` has run once. Scaffold, fill, build, then cut the branch; the working tree carries over.
+- `node scripts/build-tree.mjs --branch <agent> <card> [<what-you-do>]` prints the name for any card ([[Docs Tree#For agents]]); nobody assembles the codes by hand.
+
+| Change | Branch |
+|---|---|
+| the owner rewrites the module note M-09 | `docs/owner/M-09-payments-gateway/business-side` |
+| the owner creates the feature F-41 | `docs/owner/M-09-payments-gateway/F-41-pay-for-an-order/create` |
+| the owner raises and decides D-07 under T-047 (feature `payments`, module `commerce`) | `docs/owner/M-07-commerce/F-27-payments/D-07-payment-provider` |
+| the owner decides a vault rule on a decision card | `docs/owner/project/D-08-flag-window` |
+| the owner approves the story S-70 | `docs/owner/M-07-commerce/F-27-payments/S-70-approved` |
+| the owner sets T-047 to critical | `docs/owner/M-07-commerce/F-27-payments/T-047-priority-critical` |
+| the owner changes a rule | `docs/owner/project/owner-creates-features` |
+| the owner adds a Glossary entry | `docs/owner/business/glossary-payment-terms` |
+| the PM writes the feature story S-69 | `docs/pm/M-07-commerce/F-27-payments/S-69-draft` |
+
+**Commits on these branches**, one card per commit:
+
+- a card: `<kind>(<module-id>): <card code> <card name> · <what changed>`, the kind being the card's (`module`, `feature`, `story`, `task`, `bug`, `decision`), never `docs`: `decision(commerce): D-07 Payment provider · decided, Stripe for all four flows` · `story(commerce): S-70 T-047 Story · approved by khaled` · `feature(identity): F-40 Google Auth · T-071 added to the Tasks table`;
+- a rule or any other vault change outside the cards: `rules(project): <what changed>`;
+- a reference note in `business/`: `reference(business): <note name> · <what changed>`.
+
+The body: two or three lines on what changed and why, the other files touched, the trailers `Story: S-NN`, `Ticket: T-NNN`, `Decision: D-NN` when one is involved, then the attribution line. Rebuild before each commit and include the generated files, so every commit passes `--check` on its own. The bash guard reads the attribution line's angle brackets as a redirect: commit with `git commit -F <file outside the vault>`, or with a `git commit -F -` heredoc whose command starts with `git` and contains no `&&` or `;`.
 
 ## 3 · The layers, in flow order
 

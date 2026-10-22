@@ -4661,7 +4661,7 @@
     },
     "concepts": 177,
     "decisions": 7,
-    "edges": 4268,
+    "edges": 4271,
     "features": 40,
     "layerNotes": 190,
     "modules": 9,
@@ -25473,12 +25473,27 @@
     {
       "from": "project:workflow",
       "kind": "wikilink",
+      "to": "project:feature-tree"
+    },
+    {
+      "from": "project:workflow",
+      "kind": "wikilink",
       "to": "project:frontend-api-guide"
     },
     {
       "from": "project:workflow",
       "kind": "wikilink",
       "to": "project:frontend-contract"
+    },
+    {
+      "from": "project:workflow",
+      "kind": "wikilink",
+      "to": "project:glossary"
+    },
+    {
+      "from": "project:workflow",
+      "kind": "wikilink",
+      "to": "project:project-overview"
     },
     {
       "from": "project:workflow",
@@ -42906,7 +42921,7 @@
       ],
       "task": null,
       "title": "Agent Protocol",
-      "updated": "2026-10-21"
+      "updated": "2026-10-22"
     },
     "project:agent-rules": {
       "affects": [
@@ -42959,7 +42974,7 @@
       ],
       "task": null,
       "title": "Agent Rules",
-      "updated": "2026-10-21"
+      "updated": "2026-10-22"
     },
     "project:api-conventions": {
       "affects": [],
@@ -43368,7 +43383,7 @@
       ],
       "task": null,
       "title": "Docs Tree",
-      "updated": "2026-10-21"
+      "updated": "2026-10-22"
     },
     "project:feature-graph": {
       "affects": [],
@@ -43750,7 +43765,7 @@
       ],
       "task": null,
       "title": "Owner Agent",
-      "updated": "2026-10-21"
+      "updated": "2026-10-22"
     },
     "project:pm-agent": {
       "affects": [],
@@ -43799,7 +43814,7 @@
       ],
       "task": null,
       "title": "PM Agent",
-      "updated": "2026-10-21"
+      "updated": "2026-10-22"
     },
     "project:project-overview": {
       "affects": [],
@@ -44131,7 +44146,7 @@
       ],
       "task": null,
       "title": "Workflow",
-      "updated": "2026-10-21"
+      "updated": "2026-10-22"
     },
     "qa-backend:account": {
       "affects": [],

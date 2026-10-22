@@ -1,7 +1,7 @@
 ---
 type: project
 layer: shared
-updated: 2026-10-21
+updated: 2026-10-22
 related: ["Agent Rules", "Workflow"]
 tags: [project, layer/shared, map]
 ---
@@ -122,6 +122,7 @@ node scripts/build-tree.mjs --impact S-01                  # the same, by card c
 node scripts/build-tree.mjs --impact "Ring Access Engine"   # what a change touches: same feature, direct links, two hops, dependents
 node scripts/build-tree.mjs --impact T-004           # … for a task; also a feature id, "GET /rings/:id", E_RING_02, s14
 node scripts/build-tree.mjs --find "speed search"    # the cards and concepts that match some words, best first: how an agent turns what you said into ids
+node scripts/build-tree.mjs --branch owner F-41 create   # the business layer's vault-only branch for a card: docs/<agent>/<M-NN>-<module-id>/<F-NN>-<feature-id>/<last>, as deep as the card sits (Workflow §2)
 node scripts/agent-guard.mjs status                  # which agent is active and what it may write; `selftest` runs the allow / deny matrix
 node scripts/build-tree.mjs --scaffold backend-delivery T-004   # create a layer note from its template (moves the task into its folder)
 node scripts/build-tree.mjs --scaffold qa-frontend rings        # … at feature level
