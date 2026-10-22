@@ -819,7 +819,8 @@ export function build() {
     nodes[id].rollup = counts;
   };
   // a container (task with cards, feature, module, project) is Done only when every card is; Partial when every card is done or partial;
-  // In progress when any card is active or the cards are a mix; To do otherwise (Blocked when every card waits on something)
+  // In progress when any card is active or the cards are a mix; To do otherwise (Blocked when every card waits on something,
+  // or, for a feature, when an open decision was raised on the feature itself: Blocked · D-NN, whatever its cards short of done)
   const classify = (c) => (c.effectiveStatus === 'partial' ? 'partial' : isDone(c) ? 'done' : c.effectiveStatus === 'in-progress' ? 'active' : c.effectiveStatus === 'blocked' ? 'blocked' : 'todo');
   const summarize = (ids) => {
     if (!ids.length) return 'todo';
@@ -838,7 +839,16 @@ export function build() {
   }
   // a feature's cards: its layer notes and decisions, plus the tasks that hang under its story
   const featureCards = (f) => [...f.children, ...f.children.flatMap((c) => (nodes[c].kind === 'story' ? nodes[c].children.filter((g) => nodes[g].kind === 'task') : []))];
-  for (const [, f] of featureNodes) f.effectiveStatus = summarize(featureCards(f));
+  for (const [, f] of featureNodes) {
+    f.effectiveStatus = summarize(featureCards(f));
+    // a decision raised on the feature (`blocks: [<feature id>]`) blocks the feature while it is open (Agent Rules §4), like a task or a layer note
+    const open = (decisionBlockers.get(f.id) || []).filter((to) => !handedOff(nodes[to]));
+    if (open.length && f.effectiveStatus !== 'done' && f.effectiveStatus !== 'partial') {
+      f.blockedBy = open.map((to) => ({ id: to, title: nodes[to].title, why: blockReason(nodes[to]) }));
+      for (const b of f.blockedBy) addEdge(b.id, f.id, 'blocks');
+      f.effectiveStatus = 'blocked';
+    }
+  }
   for (const [, d] of moduleNodes) d.effectiveStatus = summarize(d.children);
   root.effectiveStatus = summarize([...moduleNodes.values()].map((d) => d.id));
   for (const [, t] of taskNodes) rollup(t.id);
