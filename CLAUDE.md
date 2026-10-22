@@ -20,7 +20,7 @@ this file is the short form and defers to it.
 | `decisions/` | a decision a card needs before it can continue, `D-NN …` (`type: decision`, `status: open \| decided`, `blocks: ["<card>"]` the cards that need it, `decider:` who decides); raised by whichever agent owns the card that needs it, with `node scripts/build-tree.mjs --scaffold decision "<card>" "<title>"`, and decided by the PM or the owner only; while open it hangs under each card in `blocks` and makes it **Blocked · D-NN**; once decided the card returns to its own status on the next build | `templates/Decision Template.md` |
 | `design/` | the design as reference: screen index, navigation map, brief | — |
 | `Card Index.md` → `tree/cards.json` | **generated**: one row per card with its unique code (`M-01`, `F-05`, `S-01`, `FR-05`, `BD-05`, `BI-01`, `FD-01`, `QB-01`, `QF-01`, `T-004`, `D-04`, `P-10`); related cards listed as `T-004 \| S-01`; the registry keeps every code ever given | — |
-| `tree/` `scripts/` | the generated docs tree (`index.html`, `tree.json`, `tree.md`), the card-code registry (`cards.json`) and `build-tree.mjs` | — |
+| `tree/` `scripts/` | the docs tree page (`index.html`, hand-written, the owner's), its generated index (`tree.json`, `tree.md`), the card-code registry (`cards.json`) and `build-tree.mjs` | — |
 
 `docs.config.json` declares the layers, their kinds, statuses, the hand-off
 flow, the default blocks, the card-code prefixes, the modules and the agents (who writes what). `tasks/Task Board.md`,
