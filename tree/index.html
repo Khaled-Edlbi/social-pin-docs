@@ -603,7 +603,9 @@ function statusText(n) {
   if (b.length && (n.effectiveStatus === 'blocked' || n.effectiveStatus === 'missing')) { const t = node(b[0].id); return `${n.effectiveStatus === 'blocked' ? 'Blocked' : l} · ${(t.kind === 'task' || t.kind === 'decision') && t.code ? t.code : (kindOf(t.kind).name)}${b.length > 1 ? ` +${b.length - 1}` : ''}`; }
   return l;
 }
-const kicker = (n) => (n.card && !n.title.startsWith(n.card) ? n.card + ' · ' : '') + kindOf(n.kind).name.toUpperCase() + (n.parentTask ? ' · SUB-TASK OF ' + n.parentTask : '') + (n.frontendOnly ? ' · FRONTEND ONLY' : '');
+// a decision's title starts with its code (`D-08 Payment methods…`): the card shows the code in the kicker, like `F-41 · FEATURE`, and the title without it
+const shown = (n) => (n.kind === 'decision' && n.card && n.title.startsWith(n.card) ? n.title.slice(n.card.length).replace(/^[\s·:-]+/, '') || n.title : n.title);
+const kicker = (n) => (n.card && (n.kind === 'decision' || !n.title.startsWith(n.card)) ? n.card + ' · ' : '') + kindOf(n.kind).name.toUpperCase() + (n.parentTask ? ' · SUB-TASK OF ' + n.parentTask : '') + (n.frontendOnly ? ' · FRONTEND ONLY' : '');
 const flowIdx = (kind) => FLOW.order.indexOf(kind);
 // is a story fulfilled? the verdict of the QA cards the flow returns from (qa-backend, qa-frontend → story), or the story's own `verified`:
 // 'checked' when every QA card is passing (or the story is verified), 'cross' when any QA card is failing, 'pending' until then
@@ -673,7 +675,7 @@ function buildTree() {
 const hasLayerMark = (n) => !!(n.layer && LAYER[n.layer] && LAYER[n.layer].color && KIND[n.kind] && KIND[n.kind].layer);
 function nodeWidth(n, caret) {
   const k = kicker(n);
-  const t = tw(n.title, `600 13px ${FONT}`), kw = tw(k, `600 9px ${FONT}`) + k.length * 0.9 + (hasLayerMark(n) ? 11 : 0);
+  const t = tw(shown(n), `600 13px ${FONT}`), kw = tw(k, `600 9px ${FONT}`) + k.length * 0.9 + (hasLayerMark(n) ? 11 : 0);
   const st = tw(statusText(n), `600 10px ${FONT}`) + 14;
   const lb = (n.labels || []).reduce((w, l) => w + Math.ceil(tw(l.toUpperCase(), `700 8px ${FONT}`) + l.length * 0.6) + 10 + 6, 0);
   return Math.ceil(14 + Math.max(t, kw) + 14 + lb + st + 12 + (caret ? 12 : 0));
@@ -863,7 +865,7 @@ function renderCards(list) {
       let kx = 14;
       if (hasLayerMark(n)) { sel('rect', { x: 14, y: -10.5, width: 7, height: 7, rx: 1.5 }, g, { fill: LAYER[n.layer].color }); kx = 25; }
       const k = sel('text', { x: kx, y: -7, 'dominant-baseline': 'middle' }, g, { font: `600 9px ${FONT}`, letterSpacing: '0.1em', fill: 'var(--color-neutral-600)', pointerEvents: 'none' }); k.textContent = kicker(n);
-      const tt = sel('text', { x: 14, y: 8, 'dominant-baseline': 'middle' }, g, { font: `600 13px ${FONT}`, fill: st.dashed ? 'var(--color-neutral-700)' : 'var(--color-text)', pointerEvents: 'none' }); tt.textContent = n.title;
+      const tt = sel('text', { x: 14, y: 8, 'dominant-baseline': 'middle' }, g, { font: `600 13px ${FONT}`, fill: st.dashed ? 'var(--color-neutral-700)' : 'var(--color-text)', pointerEvents: 'none' }); tt.textContent = shown(n);
       const vd = storyVerdict(n);
       if (vd) {
         // the story's verdict badge on the top-right corner: ✓ fulfilled, ◷ pending, ✕ wrong results
@@ -1191,7 +1193,7 @@ function renderOutline() {
     const row = document.createElement('div'); row.className = `orow k-${n.kind}${big ? ' big' : ''}${S.selected === it.id ? ' sel' : ''}${active && !it.match ? ' faded' : ''}${inactive(n) ? ' inactive' : ''}`;
     row.setAttribute('role', 'treeitem'); row.tabIndex = 0; row.dataset.row = it.iid; if (has) row.setAttribute('aria-expanded', String(!!it.open));
     row.style.paddingLeft = (10 + it.depth * 24) + 'px';
-    row.innerHTML = `<button class="car" aria-label="Toggle" style="visibility:${has ? 'visible' : 'hidden'}"><i class="ph-duotone ${it.open ? 'ph-caret-down' : 'ph-caret-right'}"></i></button><i class="ki ph-duotone ${kindOf(n.kind).icon}"></i><span class="t" title="${esc(n.path || n.title)}">${esc(n.title)}</span><span class="kick">${n.kind === 'root' ? '' : esc(kicker(n))}</span>${marksHtml(n)}${(n.labels || []).map((l) => `<span class="stchip" style="--bg:${labelStyle(l).bg};--ink:${labelStyle(l).ink};--bd:${labelStyle(l).c};text-transform:uppercase;letter-spacing:.06em;font-weight:700;font-size:10px">${esc(l)}</span>`).join('')}${chipHtml(n)}`;
+    row.innerHTML = `<button class="car" aria-label="Toggle" style="visibility:${has ? 'visible' : 'hidden'}"><i class="ph-duotone ${it.open ? 'ph-caret-down' : 'ph-caret-right'}"></i></button><i class="ki ph-duotone ${kindOf(n.kind).icon}"></i><span class="t" title="${esc(n.path || n.title)}">${esc(shown(n))}</span><span class="kick">${n.kind === 'root' ? '' : esc(kicker(n))}</span>${marksHtml(n)}${(n.labels || []).map((l) => `<span class="stchip" style="--bg:${labelStyle(l).bg};--ink:${labelStyle(l).ink};--bd:${labelStyle(l).c};text-transform:uppercase;letter-spacing:.06em;font-weight:700;font-size:10px">${esc(l)}</span>`).join('')}${chipHtml(n)}`;
     row.querySelector('.car').addEventListener('click', (e) => { e.stopPropagation(); if (has) toggle(it.id); });
     row.addEventListener('click', () => select(it.id, it.iid));
     row.addEventListener('keydown', (e) => {
@@ -1285,7 +1287,7 @@ async function openNode(id) {
   const n = node(id), k = kindOf(n.kind);
   const path = n.path || n.file || null;
   const st = stOf(n);
-  openPane({ id, node: true, icon: k.icon, kicker: kicker(n) + (n.layer && LAYER[n.layer] && KIND[n.kind] && KIND[n.kind].layer ? ' · ' + LAYER[n.layer].label + ' layer' : '') , title: n.title, path: path || '', gh: path ? ghUrl(path) : (n.template ? ghUrl(n.template) : (S.D.repo.blobBase || '')), ghText: path ? 'Edit on GitHub' : 'Open the template', summary: n.summary || '', state: stateHtml(n), contains: containsHtml(n), rels: relationsHtml(n), chip: chipStyle(n), dashed: st.dashed, status: statusText(n), labels: n.labels || [], marks: marksHtml(n, true) });
+  openPane({ id, node: true, icon: k.icon, kicker: kicker(n) + (n.layer && LAYER[n.layer] && KIND[n.kind] && KIND[n.kind].layer ? ' · ' + LAYER[n.layer].label + ' layer' : '') , title: shown(n), path: path || '', gh: path ? ghUrl(path) : (n.template ? ghUrl(n.template) : (S.D.repo.blobBase || '')), ghText: path ? 'Edit on GitHub' : 'Open the template', summary: n.summary || '', state: stateHtml(n), contains: containsHtml(n), rels: relationsHtml(n), chip: chipStyle(n), dashed: st.dashed, status: statusText(n), labels: n.labels || [], marks: marksHtml(n, true) });
   if (!path) { $('#p-article').innerHTML = `<p class="empty">Not written yet.${n.template ? ` Create it from <a href="#f/${encodeURIComponent(n.template)}">${esc(n.template)}</a>.` : ''}</p>`; return; }
   await renderFile(path, n.heading, id);
 }

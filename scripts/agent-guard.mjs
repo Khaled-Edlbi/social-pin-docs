@@ -27,6 +27,7 @@ const AGENTS = agentsCfg.list || [];
 const MARKER = path.join(ROOT, agentsCfg.marker || '.claude/.active-agent');
 const PROTOCOL = agentsCfg.protocol || 'project/Agent Protocol.md';
 const GENERATED = ['tree/**', 'Card Index.md', 'tasks/Task Board.md', 'tasks/Backlog.md'];
+const HAND_WRITTEN = ['tree/index.html']; // the tree page is source, the owner's (`paths` in its agents.list entry); the build only copies it to site/
 const VERBATIM = ['design/Wireframe Brief.md'];
 const KINDS = []; // { id, file, layer }
 for (const layer of cfg.layers || []) for (const k of layer.kinds || []) KINDS.push({ id: k.id, file: k.file, layer: layer.id });
@@ -61,7 +62,7 @@ const glob = (pattern, rel) => {
 };
 function classify(rel) {
   const tree = readJson(path.join(ROOT, 'tree', 'tree.json'), null);
-  const out = { rel, type: null, kind: null, layer: null, labels: [], generated: GENERATED.some((g) => glob(g, rel)), verbatim: VERBATIM.includes(rel) };
+  const out = { rel, type: null, kind: null, layer: null, labels: [], generated: GENERATED.some((g) => glob(g, rel)) && !HAND_WRITTEN.includes(rel), verbatim: VERBATIM.includes(rel) };
   const node = tree ? Object.values(tree.nodes || {}).find((n) => n.path === rel) : null;
   if (node) {
     out.labels = node.labels || [];
@@ -206,7 +207,7 @@ if (cmd === 'selftest') {
   const M = [
     // agent, path, op, edit, expected
     ['owner', 'project/Agent Rules.md', 'write', null, true], ['owner', 'docs.config.json', 'write', null, true], ['owner', mod, 'write', null, true], ['owner', feature, 'write', null, true], ['owner', feature, 'edit', body, true], ['owner', 'decisions/D-04 Ring settings.md', 'edit', body, true],
-    ['owner', story, 'edit', sign, true], ['owner', story, 'edit', body, false], ['owner', task, 'edit', prio, true], ['owner', bd, 'write', null, false], ['owner', 'tree/tree.json', 'write', null, false],
+    ['owner', story, 'edit', sign, true], ['owner', story, 'edit', body, false], ['owner', task, 'edit', prio, true], ['owner', bd, 'write', null, false], ['owner', 'tree/tree.json', 'write', null, false], ['owner', 'tree/index.html', 'edit', body, true], ['pm', 'tree/index.html', 'edit', body, false], ['backend', 'tree/index.html', 'edit', body, false],
     ['pm', feature, 'write', null, true], ['pm', story, 'edit', body, true], ['pm', task, 'edit', body, true], ['pm', newTask, 'write', null, true], ['pm', 'decisions/D-99 New.md', 'write', null, true], ['pm', 'design/Screen Index.md', 'edit', body, true],
     ['pm', bd, 'edit', body, false], ['pm', bd, 'edit', flag, true], ['pm', fr, 'edit', sign, true], ['pm', 'project/Agent Rules.md', 'edit', body, false], ['pm', be, 'edit', body, false], ['pm', 'Card Index.md', 'edit', body, false],
     ['backend', bd, 'write', null, true], ['backend', newBd, 'write', null, true], ['backend', be, 'edit', body, true], ['backend', 'backend/Architecture.md', 'edit', body, true], ['backend', 'frontend/Frontend API Guide.md', 'edit', body, true],
