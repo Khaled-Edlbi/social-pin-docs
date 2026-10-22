@@ -614,6 +614,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
     - 📘 [Ring Access Model](backend/Ring%20Access%20Model.md) (P-16, Reference)
     - 📘 [Spec Map](backend/Spec%20Map.md) (P-17, Reference)
   - 📘 _Project rules_ (Docs)
+    - 📘 [Admin Agent](project/Admin%20Agent.md) (P-27, Reference)
     - 📘 [Agent Protocol](project/Agent%20Protocol.md) (P-22, Reference)
     - 📘 [Agent Rules](project/Agent%20Rules.md) (P-18, Reference)
     - 📘 [Backend Agent](project/Backend%20Agent.md) (P-23, Reference)

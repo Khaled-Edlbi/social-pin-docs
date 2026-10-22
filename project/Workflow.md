@@ -40,7 +40,7 @@ The owner and the PM write no code, so their branches pair with no code branch a
 docs/<agent>/<M-NN>-<module-id>/<F-NN>-<feature-id>/<last>
 ```
 
-- `<agent>` is `owner` or `pm`.
+- `<agent>` is `owner` or `pm`; `admin` for a repair or a migration by [[Admin Agent]].
 - Then the card's path: `<M-NN>-<module-id>` when the card sits in a module, `/<F-NN>-<feature-id>` when it sits in a feature; the codes as [[Card Index]] lists them, the ids as `docs.config.json` spells them, never a backend folder.
 - `<last>` is a short kebab-case `<what-you-do>` when the branch's card **is** the module or the feature, and `<card code>-<what-you-do>` for a card under them: a decision, a story sign-off, a task's priority.
 - Outside a module: `docs/<agent>/project/<last>` for the rules, the config, the templates, the scripts, the agents, CI, [[Home]], the README, `CLAUDE.md`, and for a decision raised on any of them; `docs/<agent>/business/<last>` for the reference notes in `business/` ([[Project Overview]], [[Glossary]], [[Feature Tree]], the status reports).
@@ -59,6 +59,7 @@ docs/<agent>/<M-NN>-<module-id>/<F-NN>-<feature-id>/<last>
 | the owner changes a rule | `docs/owner/project/owner-creates-features` |
 | the owner adds a Glossary entry | `docs/owner/business/glossary-payment-terms` |
 | the PM writes the feature story S-69 | `docs/pm/M-07-commerce/F-27-payments/S-69-draft` |
+| the admin repairs a stale tree after a merge | `docs/admin/project/repair-tree` |
 
 **Commits on these branches**, one card per commit:
 

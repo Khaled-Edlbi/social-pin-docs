@@ -3,7 +3,7 @@ type: project
 layer: shared
 updated: 2026-10-22
 affects: ["Workflow", "Docs Tree"]
-related: ["Frontend Agent Prompt", "Agent Protocol", "Owner Agent", "PM Agent", "Backend Agent", "Frontend Agent", "QA Agent"]
+related: ["Frontend Agent Prompt", "Agent Protocol", "Owner Agent", "PM Agent", "Backend Agent", "Frontend Agent", "QA Agent", "Admin Agent"]
 tags: [project, layer/shared, rules]
 ---
 
@@ -24,7 +24,7 @@ The vault is organised by **feature**, and inside a feature by **layer**. A laye
 
 The default flow, drawn as dashed arrows on the tree page: Story → Frontend Requirements → Backend Delivery → Backend Integration → Frontend Delivery → QA Frontend, and Backend Delivery → QA Backend; both QA notes feed back into the Story, whose `verified` status means the implementation matches it. **Each hand-off is also a block**: a card is blocked by default until the card before it in the flow is handed off (`approved` for a story or a requirements list, the done status for every other kind), so nobody starts a Backend Delivery before the Frontend Requirements are approved, or a QA Frontend note before the Frontend Delivery is done. A note's own `blockedBy` overrides the default ([[#4 · Statuses, blocking and sign-off]]).
 
-A layer writes **only its own notes**. It reads the others. If a backend change makes a frontend note wrong, the backend does not edit it: it flags it ([[#3 · Relations]]) and the frontend updates it. The agents are declared in `docs.config.json` (`agents.list`: the note that is each one's prompt and the files it may write) and held to that by a hook (`scripts/agent-guard.mjs`); how they take a request is [[Agent Protocol]].
+A layer writes **only its own notes**. It reads the others. If a backend change makes a frontend note wrong, the backend does not edit it: it flags it ([[#3 · Relations]]) and the frontend updates it. The agents are declared in `docs.config.json` (`agents.list`: the note that is each one's prompt and the files it may write) and held to that by a hook (`scripts/agent-guard.mjs`); how they take a request is [[Agent Protocol]]. While no agent is active nothing is written: the first answer is the question which agent to use. One agent is no role: [[Admin Agent]] (`/admin`) may write anything, for the repairs and migrations the roles cannot do; the rules in this note still hold for it, unenforced.
 
 ## 2 · Codes, scopes and the "sum of" rule
 
