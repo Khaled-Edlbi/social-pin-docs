@@ -1,24 +1,24 @@
 ---
 type: decision
 id: D-08
-status: open
+status: decided
 features: [pay-for-an-order]
 blocks: [pay-for-an-order]
 decider: "owner"
 screens: [s51]
-affects: []
+affects: ["Pay for an order", "Payments & Orders", "Events Before", "Payments Gateway Module"]
 related: ["D-07 Payment provider", "Payments Gateway Module", "Payments & Orders", "Events Before"]
-decidedBy: ""
-decidedAt: ""
+decidedBy: "khaled"
+decidedAt: 2026-10-22
 owner: "khaled"
 created: 2026-10-22
 updated: 2026-10-22
-tags: [decision, decision/open]
+tags: [decision, decision/decided]
 ---
 
-# ❓ D-08 · Payment methods and gateways on s51
+# ✅ D-08 · Payment methods and gateways on s51
 
-**Status:** open · **Decider:** owner · **Raised:** 2026-10-22 · **Needed by:** [[Pay for an order]] · **Feature:** [[Pay for an order]] · **Module:** [[Payments Gateway Module]]
+**Status:** decided 2026-10-22 by khaled · **Decider:** owner · **Raised:** 2026-10-22 · **Needed by:** [[Pay for an order]] · **Feature:** [[Pay for an order]] · **Module:** [[Payments Gateway Module]]
 
 > The cards in `blocks` are **Blocked · D-08** while this is `open` and return to their own status on the build after it is `decided`. Nobody edits their `status:` for this.
 
@@ -47,8 +47,12 @@ Which payment methods, and through which gateways, an organizer may offer a buye
 
 ## Decision
 
-— (the PM or the owner only, on the user's word: fill in, set `status: decided`, `decidedBy`, `decidedAt` and the tag `decision/decided`, change the H1 emoji to ✅, and list every feature and task it changes in `affects`; then `--impact D-08` and flag the notes it lists)
+**Option 1: Stripe card checkout only.** Decided by khaled on 2026-10-22, recorded by the PM. The Payment screen ([[Screen Index#s51|s51]]) hands the buyer to Stripe's hosted checkout with card as the only method: no method picker in the app, no per-event or per-organizer setting, no method field on the audited payment, and no second gateway. One callback, one audit trail, one `providerReference`, as [[D-07 Payment provider]] set them. A buyer without a card cannot pay today. Adding Stripe's local methods (option 2) or a second gateway (option 3) is a new decision card when an organizer's market asks for it, not part of this feature.
 
 ## Consequences
 
-- …
+- [[Pay for an order]]: unblocked; its story can say s51 is Stripe's hosted card page and nothing else, and the frontend requirements list no method picker.
+- [[Payments & Orders]]: an order is paid by card through Stripe; no payment-method field on the order or the payment. Its story, frontend requirements and backend delivery still read "card / e-payment per organizer": flagged.
+- [[Events Before]]: s50 hands the total to s51 and offers no method choice; the "payment methods" row of its frontend requirements is card only: flagged.
+- [[Payments Gateway Module]]: "which payment methods an organizer may offer" is no longer open: flagged for the owner.
+- Still open: local payment methods and a second gateway, on a new card when a market needs them.

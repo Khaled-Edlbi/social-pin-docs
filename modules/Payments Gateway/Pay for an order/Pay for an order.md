@@ -49,7 +49,7 @@ No task yet: the first one is the PM's, `node scripts/build-tree.mjs --scaffold 
 ## Decisions
 
 - [[D-07 Payment provider]] — decided 2026-10-21, Stripe: this feature is its first consequence.
-- [[D-08 Payment methods and gateways on s51]] — open, raised 2026-10-22 by the owner: which payment methods and gateways an organizer may offer on s51 beyond Stripe card checkout. This card is Blocked · D-08 until it is decided.
+- [[D-08 Payment methods and gateways on s51]] — decided 2026-10-22, Stripe card checkout only: s51 is Stripe's hosted card page, no method picker, no organizer setting, no second gateway.
 - To raise from this card when the story needs it: how long an unpaid order holds its chosen tickets against sold-out ([[T-034 Tickets, packages, levels, sold-out]]).
 
 ## Related
