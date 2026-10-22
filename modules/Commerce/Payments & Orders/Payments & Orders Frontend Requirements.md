@@ -12,7 +12,7 @@ tags: [frontend-requirements, frontend-requirements/draft, module/commerce, laye
 
 # Payments & Orders · Frontend Requirements
 
-> ⚠ Affected by [[D-08 Payment methods and gateways on s51]] (2026-10-22): payment is Stripe card checkout only (provider decided on D-07); "card / e-payment per organizer" no longer applies, and there is no method picker.
+> ⚠ Affected by [[DR-08 Stripe card checkout only]] (2026-10-22): payment is Stripe card checkout only (provider decided on D-07); "card / e-payment per organizer" no longer applies, and there is no method picker.
 
 **Feature:** [[Payments & Orders]] · **Status:** Draft · **Story:** [[Payments & Orders Story]] · **API Integration:** not yet (backend not built)
 

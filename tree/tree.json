@@ -97,6 +97,9 @@
     "D-06 Pin name rules": "decision:D-06",
     "D-07 Payment provider": "decision:D-07",
     "D-08 Payment methods and gateways on s51": "decision:D-08",
+    "DR-01 Code-only login": "decision-record:DR-01",
+    "DR-07 Stripe for all four flows": "decision-record:DR-07",
+    "DR-08 Stripe card checkout only": "decision-record:DR-08",
     "Database & Migrations": "project:database-migrations",
     "Delegated Admins": "feature:delegated-admins",
     "Delegated Admins Backend Delivery": "backend-delivery:delegated-admins",
@@ -492,6 +495,7 @@
     "BD": "backend-delivery",
     "BI": "backend-integration",
     "D": "decision",
+    "DR": "decision-record",
     "F": "feature",
     "FD": "frontend-delivery",
     "FR": "frontend-requirements",
@@ -559,6 +563,9 @@
     "D-06": "decision:D-06",
     "D-07": "decision:D-07",
     "D-08": "decision:D-08",
+    "DR-01": "decision-record:DR-01",
+    "DR-07": "decision-record:DR-07",
+    "DR-08": "decision-record:DR-08",
     "F-01": "feature:account",
     "F-02": "feature:auth",
     "F-03": "feature:counts",
@@ -4658,6 +4665,7 @@
       "backend-delivery": 39,
       "backend-integration": 9,
       "decision": 8,
+      "decision-record": 3,
       "feature": 40,
       "frontend-requirements": 39,
       "module": 9,
@@ -4667,19 +4675,20 @@
     },
     "byLayer": {
       "backend": 56,
-      "business": 331,
+      "business": 334,
       "frontend": 43,
       "shared": 10
     },
     "concepts": 177,
     "decisions": 8,
-    "edges": 4297,
+    "edges": 4328,
     "features": 40,
     "layerNotes": 190,
     "modules": 9,
-    "notes": 475,
+    "notes": 479,
     "partial": 0,
     "placeholders": 152,
+    "records": 3,
     "taskLayerNotes": 64,
     "tasks": 175
   },
@@ -4741,52 +4750,72 @@
   },
   "edges": [
     {
-      "from": "decision:D-07",
+      "from": "decision-record:DR-01",
+      "kind": "affects",
+      "to": "feature:auth"
+    },
+    {
+      "from": "decision-record:DR-01",
+      "kind": "affects",
+      "to": "feature:linked-accounts"
+    },
+    {
+      "from": "decision-record:DR-01",
+      "kind": "affects",
+      "to": "task:T-019"
+    },
+    {
+      "from": "decision-record:DR-01",
+      "kind": "affects",
+      "to": "task:T-056"
+    },
+    {
+      "from": "decision-record:DR-07",
       "kind": "affects",
       "to": "feature:payments"
     },
     {
-      "from": "decision:D-07",
+      "from": "decision-record:DR-07",
       "kind": "affects",
       "to": "feature:subscription"
     },
     {
-      "from": "decision:D-07",
+      "from": "decision-record:DR-07",
       "kind": "affects",
       "to": "module:payments-gateway"
     },
     {
-      "from": "decision:D-07",
+      "from": "decision-record:DR-07",
       "kind": "affects",
       "to": "task:T-035"
     },
     {
-      "from": "decision:D-07",
+      "from": "decision-record:DR-07",
       "kind": "affects",
       "to": "task:T-047"
     },
     {
-      "from": "decision:D-07",
+      "from": "decision-record:DR-07",
       "kind": "affects",
       "to": "task:T-049"
     },
     {
-      "from": "decision:D-08",
+      "from": "decision-record:DR-08",
       "kind": "affects",
       "to": "feature:events-before"
     },
     {
-      "from": "decision:D-08",
+      "from": "decision-record:DR-08",
       "kind": "affects",
       "to": "feature:pay-for-an-order"
     },
     {
-      "from": "decision:D-08",
+      "from": "decision-record:DR-08",
       "kind": "affects",
       "to": "feature:payments"
     },
     {
-      "from": "decision:D-08",
+      "from": "decision-record:DR-08",
       "kind": "affects",
       "to": "module:payments-gateway"
     },
@@ -8384,6 +8413,36 @@
       "from": "story:widgets",
       "kind": "flow",
       "to": "frontend-requirements:widgets"
+    },
+    {
+      "from": "decision-record:DR-01",
+      "kind": "related",
+      "to": "decision:D-01"
+    },
+    {
+      "from": "decision-record:DR-01",
+      "kind": "related",
+      "to": "feature:code-delivery"
+    },
+    {
+      "from": "decision-record:DR-07",
+      "kind": "related",
+      "to": "decision:D-07"
+    },
+    {
+      "from": "decision-record:DR-07",
+      "kind": "related",
+      "to": "module:payments-gateway"
+    },
+    {
+      "from": "decision-record:DR-08",
+      "kind": "related",
+      "to": "decision:D-07"
+    },
+    {
+      "from": "decision-record:DR-08",
+      "kind": "related",
+      "to": "decision:D-08"
     },
     {
       "from": "decision:D-07",
@@ -17268,6 +17327,21 @@
       ]
     },
     {
+      "from": "decision:D-01",
+      "kind": "tree",
+      "to": "decision-record:DR-01"
+    },
+    {
+      "from": "decision:D-07",
+      "kind": "tree",
+      "to": "decision-record:DR-07"
+    },
+    {
+      "from": "decision:D-08",
+      "kind": "tree",
+      "to": "decision-record:DR-08"
+    },
+    {
       "from": "feature:account",
       "kind": "tree",
       "to": "backend-delivery:account"
@@ -20760,7 +20834,7 @@
     {
       "from": "backend-delivery:payments",
       "kind": "wikilink",
-      "to": "decision:D-08"
+      "to": "decision-record:DR-08"
     },
     {
       "from": "backend-delivery:payments",
@@ -21408,14 +21482,89 @@
       "to": "task:T-021"
     },
     {
-      "from": "decision:D-01",
+      "from": "decision-record:DR-01",
       "kind": "wikilink",
-      "to": "feature:code-delivery"
+      "to": "feature:auth"
+    },
+    {
+      "from": "decision-record:DR-01",
+      "kind": "wikilink",
+      "to": "feature:linked-accounts"
+    },
+    {
+      "from": "decision-record:DR-01",
+      "kind": "wikilink",
+      "to": "project:frontend-passwordless-migration"
+    },
+    {
+      "from": "decision-record:DR-01",
+      "kind": "wikilink",
+      "to": "task:T-019"
+    },
+    {
+      "from": "decision-record:DR-01",
+      "kind": "wikilink",
+      "to": "task:T-056"
+    },
+    {
+      "from": "decision-record:DR-07",
+      "kind": "wikilink",
+      "to": "decision-record:DR-08"
+    },
+    {
+      "from": "decision-record:DR-07",
+      "kind": "wikilink",
+      "to": "decision:D-08"
+    },
+    {
+      "from": "decision-record:DR-07",
+      "kind": "wikilink",
+      "to": "feature:audit-log"
+    },
+    {
+      "from": "decision-record:DR-07",
+      "kind": "wikilink",
+      "to": "feature:payments"
+    },
+    {
+      "from": "decision-record:DR-07",
+      "kind": "wikilink",
+      "to": "feature:subscription"
+    },
+    {
+      "from": "decision-record:DR-07",
+      "kind": "wikilink",
+      "to": "task:T-035"
+    },
+    {
+      "from": "decision-record:DR-07",
+      "kind": "wikilink",
+      "to": "task:T-047"
+    },
+    {
+      "from": "decision-record:DR-07",
+      "kind": "wikilink",
+      "to": "task:T-049"
+    },
+    {
+      "from": "decision-record:DR-08",
+      "kind": "wikilink",
+      "to": "feature:events-before"
+    },
+    {
+      "from": "decision-record:DR-08",
+      "kind": "wikilink",
+      "to": "feature:payments"
+    },
+    {
+      "from": "decision-record:DR-08",
+      "kind": "wikilink",
+      "to": "task:T-035"
     },
     {
       "from": "decision:D-01",
       "kind": "wikilink",
-      "to": "project:frontend-passwordless-migration"
+      "to": "feature:code-delivery"
     },
     {
       "from": "decision:D-07",
@@ -21671,6 +21820,11 @@
       "from": "feature:onboarding-imports",
       "kind": "wikilink",
       "to": "task:T-020b"
+    },
+    {
+      "from": "feature:pay-for-an-order",
+      "kind": "wikilink",
+      "to": "decision-record:DR-08"
     },
     {
       "from": "feature:pay-for-an-order",
@@ -22425,7 +22579,7 @@
     {
       "from": "frontend-requirements:events-before",
       "kind": "wikilink",
-      "to": "decision:D-08"
+      "to": "decision-record:DR-08"
     },
     {
       "from": "frontend-requirements:events-before",
@@ -22890,7 +23044,7 @@
     {
       "from": "frontend-requirements:payments",
       "kind": "wikilink",
-      "to": "decision:D-08"
+      "to": "decision-record:DR-08"
     },
     {
       "from": "frontend-requirements:payments",
@@ -24150,6 +24304,11 @@
     {
       "from": "module:payments-gateway",
       "kind": "wikilink",
+      "to": "decision-record:DR-08"
+    },
+    {
+      "from": "module:payments-gateway",
+      "kind": "wikilink",
       "to": "feature:audit-log"
     },
     {
@@ -25116,6 +25275,11 @@
       "from": "project:frontend-contract",
       "kind": "wikilink",
       "to": "project:frontend-passwordless-migration"
+    },
+    {
+      "from": "project:frontend-passwordless-migration",
+      "kind": "wikilink",
+      "to": "decision:D-01"
     },
     {
       "from": "project:frontend-passwordless-migration",
@@ -26090,7 +26254,7 @@
     {
       "from": "story:payments",
       "kind": "wikilink",
-      "to": "decision:D-08"
+      "to": "decision-record:DR-08"
     },
     {
       "from": "story:payments",
@@ -29397,6 +29561,7 @@
     "approved": "✅",
     "blocked": "⛔",
     "current": "✅",
+    "decided": "⚖️",
     "delivered": "📦",
     "done": "✅",
     "draft": "✏️",
@@ -29510,6 +29675,18 @@
     "decisions/D-08 Payment methods and gateways on s51.md": {
       "name": "D-08 Payment methods and gateways on s51",
       "type": "decision"
+    },
+    "decisions/DR-01 Code-only login.md": {
+      "name": "DR-01 Code-only login",
+      "type": "decision-record"
+    },
+    "decisions/DR-07 Stripe for all four flows.md": {
+      "name": "DR-07 Stripe for all four flows",
+      "type": "decision-record"
+    },
+    "decisions/DR-08 Stripe card checkout only.md": {
+      "name": "DR-08 Stripe card checkout only",
+      "type": "decision-record"
     },
     "decisions/Decisions.md": {
       "name": "Decisions",
@@ -31263,6 +31440,10 @@
       "name": "Backend Integration Template",
       "type": "backend-integration"
     },
+    "templates/Decision Record Template.md": {
+      "name": "Decision Record Template",
+      "type": "decision-record"
+    },
     "templates/Decision Template.md": {
       "name": "Decision Template",
       "type": "decision"
@@ -31522,6 +31703,7 @@
     "approved": "Approved",
     "blocked": "Blocked",
     "current": "Current",
+    "decided": "Decided",
     "delivered": "Delivered",
     "done": "Done",
     "draft": "Draft",
@@ -35337,12 +35519,175 @@
       "title": "Widgets Backend Integration",
       "updated": null
     },
+    "decision-record:DR-01": {
+      "affects": [
+        "feature:auth",
+        "feature:linked-accounts",
+        "task:T-019",
+        "task:T-056"
+      ],
+      "blockedBy": [],
+      "card": "DR-01",
+      "children": [],
+      "code": "DR-01",
+      "deadline": null,
+      "decidedAt": "2026-10-15",
+      "decidedBy": "product + backend lead",
+      "decides": "D-01",
+      "depends": [],
+      "effectiveStatus": "decided",
+      "effort": null,
+      "feature": null,
+      "features": [
+        "auth",
+        "linked-accounts"
+      ],
+      "frontendOnly": false,
+      "id": "decision-record:DR-01",
+      "inherits": {},
+      "kind": "decision-record",
+      "label": "Decision record",
+      "labels": [],
+      "layer": "business",
+      "module": null,
+      "parentTask": null,
+      "parents": [
+        "decision:D-01"
+      ],
+      "path": "decisions/DR-01 Code-only login.md",
+      "pending": [],
+      "priority": null,
+      "related": [
+        "decision:D-01",
+        "feature:code-delivery"
+      ],
+      "scope": null,
+      "screens": [],
+      "status": "decided",
+      "summary": "Options B (password and code) and C (password only) are ruled out.",
+      "tags": [
+        "decision-record"
+      ],
+      "task": null,
+      "title": "DR-01 Code-only login",
+      "updated": "2026-10-22"
+    },
+    "decision-record:DR-07": {
+      "affects": [
+        "module:payments-gateway",
+        "feature:payments",
+        "feature:subscription",
+        "task:T-047",
+        "task:T-035",
+        "task:T-049"
+      ],
+      "blockedBy": [],
+      "card": "DR-07",
+      "children": [],
+      "code": "DR-07",
+      "deadline": null,
+      "decidedAt": "2026-10-21",
+      "decidedBy": "khaled",
+      "decides": "D-07",
+      "depends": [],
+      "effectiveStatus": "decided",
+      "effort": null,
+      "feature": null,
+      "features": [
+        "events-before",
+        "payments",
+        "subscription"
+      ],
+      "frontendOnly": false,
+      "id": "decision-record:DR-07",
+      "inherits": {},
+      "kind": "decision-record",
+      "label": "Decision record",
+      "labels": [],
+      "layer": "business",
+      "module": null,
+      "parentTask": null,
+      "parents": [
+        "decision:D-07"
+      ],
+      "path": "decisions/DR-07 Stripe for all four flows.md",
+      "pending": [],
+      "priority": null,
+      "related": [
+        "decision:D-07",
+        "module:payments-gateway"
+      ],
+      "scope": null,
+      "screens": [],
+      "status": "decided",
+      "summary": "Social Pin's share of organizer payouts, and the refund window and who may refund, each on its own decision card when a feature needs it. Which payment methods an organizer may offer was raised as…",
+      "tags": [
+        "decision-record"
+      ],
+      "task": null,
+      "title": "DR-07 Stripe for all four flows",
+      "updated": "2026-10-22"
+    },
+    "decision-record:DR-08": {
+      "affects": [
+        "feature:pay-for-an-order",
+        "feature:payments",
+        "feature:events-before",
+        "module:payments-gateway"
+      ],
+      "blockedBy": [],
+      "card": "DR-08",
+      "children": [],
+      "code": "DR-08",
+      "deadline": null,
+      "decidedAt": "2026-10-22",
+      "decidedBy": "khaled",
+      "decides": "D-08",
+      "depends": [],
+      "effectiveStatus": "decided",
+      "effort": null,
+      "feature": null,
+      "features": [
+        "pay-for-an-order"
+      ],
+      "frontendOnly": false,
+      "id": "decision-record:DR-08",
+      "inherits": {},
+      "kind": "decision-record",
+      "label": "Decision record",
+      "labels": [],
+      "layer": "business",
+      "module": null,
+      "parentTask": null,
+      "parents": [
+        "decision:D-08"
+      ],
+      "path": "decisions/DR-08 Stripe card checkout only.md",
+      "pending": [],
+      "priority": null,
+      "related": [
+        "decision:D-08",
+        "decision:D-07"
+      ],
+      "scope": null,
+      "screens": [],
+      "status": "decided",
+      "summary": "Local payment methods and a second gateway, on a new decision card when an organizer's market asks for them.",
+      "tags": [
+        "decision-record"
+      ],
+      "task": null,
+      "title": "DR-08 Stripe card checkout only",
+      "updated": "2026-10-22"
+    },
     "decision:D-01": {
       "affects": [],
       "blockedBy": [],
       "blocks": [],
       "card": "D-01",
-      "children": [],
+      "children": [
+        "decision-record:DR-01"
+      ],
       "code": "D-01",
       "deadline": null,
       "decider": null,
@@ -35370,7 +35715,9 @@
       "path": "decisions/D-01 Passwordless login.md",
       "pending": [],
       "priority": null,
-      "related": [],
+      "related": [
+        "decision-record:DR-01"
+      ],
       "scope": null,
       "screens": [
         "s01",
@@ -35384,7 +35731,7 @@
       ],
       "task": null,
       "title": "D-01 Passwordless login",
-      "updated": "2026-10-15"
+      "updated": "2026-10-22"
     },
     "decision:D-02": {
       "affects": [],
@@ -35650,14 +35997,7 @@
       "updated": "2026-10-15"
     },
     "decision:D-07": {
-      "affects": [
-        "module:payments-gateway",
-        "feature:payments",
-        "feature:subscription",
-        "task:T-047",
-        "task:T-035",
-        "task:T-049"
-      ],
+      "affects": [],
       "blockedBy": [],
       "blocks": [
         "task:T-047",
@@ -35665,7 +36005,9 @@
         "task:T-049"
       ],
       "card": "D-07",
-      "children": [],
+      "children": [
+        "decision-record:DR-07"
+      ],
       "code": "D-07",
       "deadline": null,
       "decider": "owner",
@@ -35699,7 +36041,9 @@
         "module:payments-gateway",
         "feature:payments",
         "feature:subscription",
-        "decision:D-08"
+        "decision:D-08",
+        "decision-record:DR-07",
+        "decision-record:DR-08"
       ],
       "scope": null,
       "screens": [
@@ -35714,21 +36058,18 @@
       ],
       "task": null,
       "title": "D-07 Payment provider",
-      "updated": "2026-10-21"
+      "updated": "2026-10-22"
     },
     "decision:D-08": {
-      "affects": [
-        "feature:pay-for-an-order",
-        "feature:payments",
-        "feature:events-before",
-        "module:payments-gateway"
-      ],
+      "affects": [],
       "blockedBy": [],
       "blocks": [
         "feature:pay-for-an-order"
       ],
       "card": "D-08",
-      "children": [],
+      "children": [
+        "decision-record:DR-08"
+      ],
       "code": "D-08",
       "deadline": null,
       "decider": "owner",
@@ -35758,7 +36099,8 @@
         "decision:D-07",
         "module:payments-gateway",
         "feature:payments",
-        "feature:events-before"
+        "feature:events-before",
+        "decision-record:DR-08"
       ],
       "scope": null,
       "screens": [
@@ -36033,6 +36375,7 @@
         "approved": 1,
         "blocked": 1,
         "current": 1,
+        "decided": 1,
         "done": 2,
         "draft": 1,
         "missing": 3
@@ -36239,7 +36582,8 @@
         "project:ring-access-model",
         "project:architecture",
         "project:api-conventions",
-        "project:spec-map"
+        "project:spec-map",
+        "decision-record:DR-01"
       ],
       "rollup": {
         "blocked": 6,
@@ -36938,6 +37282,7 @@
       "rollup": {
         "approved": 1,
         "blocked": 9,
+        "decided": 1,
         "draft": 4,
         "missing": 4,
         "todo": 2
@@ -37369,6 +37714,7 @@
       "rollup": {
         "approved": 1,
         "blocked": 3,
+        "decided": 1,
         "draft": 2,
         "missing": 4,
         "todo": 2
@@ -37666,6 +38012,7 @@
       ],
       "rollup": {
         "approved": 1,
+        "decided": 1,
         "missing": 7
       },
       "scope": null,
@@ -37736,6 +38083,7 @@
       "rollup": {
         "approved": 1,
         "blocked": 2,
+        "decided": 1,
         "draft": 2,
         "missing": 4,
         "needs-decision": 1,
@@ -38486,6 +38834,7 @@
       "rollup": {
         "approved": 1,
         "blocked": 3,
+        "decided": 1,
         "draft": 2,
         "missing": 4,
         "todo": 2
@@ -42627,6 +42976,7 @@
       "rollup": {
         "approved": 1,
         "blocked": 5,
+        "decided": 1,
         "draft": 4,
         "missing": 8,
         "needs-decision": 1,
@@ -42784,6 +43134,7 @@
       "rollup": {
         "approved": 1,
         "blocked": 42,
+        "decided": 1,
         "draft": 17,
         "missing": 20,
         "needs-decision": 1,
@@ -42848,6 +43199,7 @@
         "approved": 1,
         "blocked": 34,
         "current": 9,
+        "decided": 1,
         "done": 10,
         "draft": 27,
         "in-progress": 9,
@@ -42948,10 +43300,12 @@
       "priority": null,
       "related": [
         "decision:D-07",
-        "decision:D-08"
+        "decision:D-08",
+        "decision-record:DR-07"
       ],
       "rollup": {
         "approved": 1,
+        "decided": 1,
         "in-progress": 1,
         "missing": 7
       },
@@ -43011,6 +43365,7 @@
       "rollup": {
         "approved": 1,
         "blocked": 41,
+        "decided": 1,
         "done": 2,
         "draft": 26,
         "in-progress": 3,
@@ -47806,6 +48161,7 @@
         "approved": 3,
         "blocked": 178,
         "current": 9,
+        "decided": 3,
         "done": 12,
         "draft": 103,
         "in-progress": 16,
@@ -58616,6 +58972,7 @@
       "rollup": {
         "approved": 1,
         "blocked": 2,
+        "decided": 1,
         "draft": 1
       },
       "scope": null,
@@ -60763,6 +61120,7 @@
       "related": [],
       "rollup": {
         "approved": 1,
+        "decided": 1,
         "draft": 1,
         "todo": 1
       },
@@ -61248,6 +61606,7 @@
       "rollup": {
         "approved": 1,
         "blocked": 1,
+        "decided": 1,
         "draft": 1,
         "todo": 1
       },

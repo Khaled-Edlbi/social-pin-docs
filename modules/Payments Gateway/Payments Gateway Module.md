@@ -9,7 +9,7 @@ tags: [module, module/payments-gateway]
 
 # Payments Gateway · Module
 
-> ⚠ Affected by [[D-08 Payment methods and gateways on s51]] (2026-10-22): decided, Stripe card checkout only; "which payment methods an organizer may offer" is no longer open (card only, no organizer setting, no second gateway).
+> ⚠ Affected by [[DR-08 Stripe card checkout only]] (2026-10-22): D-08 decided, Stripe card checkout only; "which payment methods an organizer may offer" is no longer open (card only, no organizer setting, no second gateway).
 
 How money moves between the people of Social Pin. An attendee (visitor, sponsor or VIP) pays an organizer for a ticket, a package or access to a sub-event and gets into the event's Ring once the payment is confirmed ([[Screen Index#s51|s51]]). An exhibitor pays for its package and booth and sees where that payment stands. A user pays Social Pin for Pro ([[Subscription (Free vs Pro)]], [[Screen Index#s70|s70]]). An organizer is paid what its attendees and exhibitors paid. [[Commerce Module|Commerce]] says *what* is bought and at what price; this module says how the money gets from one person to the other through a payment provider, and what each of them sees while it is pending, failed, refunded or paid out. It is its own module because the same provider serves every purchase in the product, and a change to it must not be rewritten under each feature that sells something.
 

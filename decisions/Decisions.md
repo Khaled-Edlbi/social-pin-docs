@@ -1,21 +1,23 @@
 ---
 type: map
-updated: 2026-10-19
+updated: 2026-10-22
 tags: [map]
 ---
 
 # Decisions
 
-Where the design and the backend disagree, and every other decision a card needs before it can continue. A decision card is created from the card that needs it (`node scripts/build-tree.mjs --scaffold decision "<card>" "<title>"`); its `blocks:` names that card, which shows **Blocked · D-NN** until the decision is `decided` ([[Agent Rules#4 · Statuses, blocking and sign-off]]). Each needs a decision before the related tasks can be built without rework. One note per decision, ADR-style: problem, facts, options, recommendation, outcome.
+Where the design and the backend disagree, and every other decision a card needs before it can continue. A decision card is created from the card that needs it (`node scripts/build-tree.mjs --scaffold decision "<card>" "<title>"`); its `blocks:` names that card, which shows **Blocked · D-NN** until the decision is `decided` ([[Agent Rules#4 · Statuses, blocking and sign-off]]). Each needs a decision before the related tasks can be built without rework. Two cards per decision: the decision card `D-NN` holds the question (problem, facts, options, recommendation) and stays open until the decision is taken; the **decision record** `DR-NN` holds the answer (what was decided, why, what it changes, what stays open), is written when it is taken (`node scripts/build-tree.mjs --scaffold record D-NN "<the answer>"`) and hangs under the decision in the tree.
 
-| Decision | Status | Affects | Screens |
-|---|---|---|---|
-| [[D-01 Passwordless login]] | decided (A, code-only) | [[Auth & Sign-up]], [[Linked Accounts (OAuth)]] | s01, s02 |
-| [[D-02 Base profile work fields]] | open | [[Profiles & Pin Name]], [[Ring Projection]], [[Onboarding Imports]], [[Photo Library]] | s05, s06, s11, s23, s29 |
-| [[D-03 Field library vs per-Ring copies]] | open | [[Ring Projection]], [[Widgets]] | s20, s24 |
-| [[D-04 Ring settings]] | open | [[Rings]], [[Ring Members]], [[Ring Invitations & Join]], [[Delegated Admins]], [[Companies]] | s19, s22, s26, s27 |
-| [[D-05 Copy or inherit]] | open | [[Rings]], [[Ring Projection]], [[Photo Library]] | s18, s23, s28, s29 |
-| [[D-06 Pin name rules]] | open | [[Profiles & Pin Name]], [[Gemma AI]] | s06 |
+| Decision | Status | Record | Affects | Screens |
+|---|---|---|---|---|
+| [[D-01 Passwordless login]] | decided (A, code-only) | [[DR-01 Code-only login]] | [[Auth & Sign-up]], [[Linked Accounts (OAuth)]] | s01, s02 |
+| [[D-02 Base profile work fields]] | open | — | [[Profiles & Pin Name]], [[Ring Projection]], [[Onboarding Imports]], [[Photo Library]] | s05, s06, s11, s23, s29 |
+| [[D-03 Field library vs per-Ring copies]] | open | — | [[Ring Projection]], [[Widgets]] | s20, s24 |
+| [[D-04 Ring settings]] | open | — | [[Rings]], [[Ring Members]], [[Ring Invitations & Join]], [[Delegated Admins]], [[Companies]] | s19, s22, s26, s27 |
+| [[D-05 Copy or inherit]] | open | — | [[Rings]], [[Ring Projection]], [[Photo Library]] | s18, s23, s28, s29 |
+| [[D-06 Pin name rules]] | open | — | [[Profiles & Pin Name]], [[Gemma AI]] | s06 |
+| [[D-07 Payment provider]] | decided (1, Stripe for all four flows) | [[DR-07 Stripe for all four flows]] | [[Payments Gateway Module]], [[Payments & Orders]], [[Subscription (Free vs Pro)]] | s51, s70 |
+| [[D-08 Payment methods and gateways on s51]] | decided (1, Stripe card checkout only) | [[DR-08 Stripe card checkout only]] | [[Pay for an order]], [[Payments & Orders]], [[Events Before]], [[Payments Gateway Module]] | s51 |
 
 ```dataview
 TABLE status, features FROM #decision
