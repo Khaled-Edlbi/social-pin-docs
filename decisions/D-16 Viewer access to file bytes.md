@@ -8,7 +8,7 @@ decider: "owner"
 screens: [s14, s29, s30, s31, s44]
 affects: []
 related: ["Files Upload", "Ring Projection", "View As & Pin Views"]
-owner: "khaled"
+owner: "omar"
 created: 2026-10-25
 updated: 2026-10-25
 tags: [decision, decision/draft]
