@@ -4819,7 +4819,7 @@
     }
   },
   "counts": {
-    "blocked": 166,
+    "blocked": 165,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -4840,7 +4840,7 @@
     },
     "concepts": 182,
     "decisions": 16,
-    "edges": 4833,
+    "edges": 4832,
     "features": 39,
     "layerNotes": 185,
     "modules": 8,
@@ -6137,11 +6137,6 @@
       "from": "story:gemma",
       "kind": "blocks",
       "to": "frontend-requirements:gemma"
-    },
-    {
-      "from": "story:meetings",
-      "kind": "blocks",
-      "to": "frontend-requirements:meetings"
     },
     {
       "from": "story:notifications",
@@ -42666,7 +42661,7 @@
       "deadline": null,
       "depends": [],
       "dir": "modules/Meetings/Meetings",
-      "effectiveStatus": "todo",
+      "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "meetings",
       "frontendOnly": false,
@@ -42702,7 +42697,8 @@
       ],
       "release": "mvp",
       "rollup": {
-        "blocked": 11,
+        "approved": 1,
+        "blocked": 10,
         "draft": 5,
         "missing": 4,
         "todo": 2
@@ -46791,20 +46787,14 @@
     },
     "frontend-requirements:meetings": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "story:meetings",
-          "title": "Meetings Story",
-          "why": "Meetings Story is draft"
-        }
-      ],
+      "blockedBy": [],
       "card": "FR-26",
       "children": [],
       "code": "meetings",
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "meetings",
       "frontendOnly": false,
@@ -48185,7 +48175,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "todo",
+      "effectiveStatus": "in-progress",
       "effort": null,
       "feature": null,
       "frontendOnly": false,
@@ -48207,10 +48197,12 @@
       "related": [],
       "release": null,
       "rollup": {
-        "blocked": 11,
+        "approved": 1,
+        "blocked": 10,
         "draft": 5,
+        "in-progress": 1,
         "missing": 4,
-        "todo": 3
+        "todo": 2
       },
       "scope": null,
       "screens": [],
@@ -53213,17 +53205,17 @@
         }
       ],
       "rollup": {
-        "approved": 19,
-        "blocked": 166,
+        "approved": 20,
+        "blocked": 165,
         "current": 9,
         "decided": 12,
         "done": 17,
         "draft": 94,
-        "in-progress": 34,
+        "in-progress": 36,
         "missing": 145,
         "needs-decision": 9,
         "reference": 31,
-        "todo": 63,
+        "todo": 61,
         "verified": 12
       },
       "scope": null,
@@ -57387,7 +57379,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "meetings",
       "frontendOnly": false,
@@ -57418,17 +57410,17 @@
         "s66",
         "s67"
       ],
-      "status": "draft",
+      "status": "approved",
       "summary": "A visitor wants to meet an exhibitor (or an exhibitor another exhibitor). They pick a slot from the other party's availability, the request spawns a temporary meeting Ring that holds the meeting's…",
       "tags": [
         "story",
-        "story/draft",
+        "story/approved",
         "module/meetings",
         "layer/business"
       ],
       "task": null,
       "title": "Meetings Story",
-      "updated": "2026-10-18"
+      "updated": "2026-10-25"
     },
     "story:notifications": {
       "affects": [],
