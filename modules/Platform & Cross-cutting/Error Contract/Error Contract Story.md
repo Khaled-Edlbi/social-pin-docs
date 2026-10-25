@@ -6,7 +6,7 @@ feature: error-contract
 module: platform
 status: draft
 screens: []
-owner: "khaled"
+owner: "omar"
 updated: 2026-10-25
 tags: [story, story/draft, module/platform, layer/business]
 ---
