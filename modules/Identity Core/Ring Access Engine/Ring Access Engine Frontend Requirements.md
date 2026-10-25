@@ -12,6 +12,8 @@ tags: [frontend-requirements, frontend-requirements/draft, module/identity, laye
 
 # Ring Access Engine · Frontend Requirements
 
+> ⚠ Affected by [[DR-04 Ring settings at launch and their defaults]] (2026-10-25): D-04 decided, six Ring settings at launch with private defaults (join with a code or invite, approve each one, members can't see each other, invite or save attachments); the owner and the Ring's admins change them; members who may see each other see full cards.
+
 **Feature:** [[Ring Access Engine]] · **Status:** Draft · **Story:** [[Ring Access Engine Story]] · **Backend Integration:** [[Ring Access Engine Backend Integration]]
 
 The engine exposes no endpoint. What the client needs from it is a set of guarantees that other endpoints carry: which Rings appear on Shared with me, what every `/views` route answers, and when an owner route says 403. This note lists those guarantees per surface and the client behaviour they require; the assumptions are spelled out in [[Ring Access Engine Backend Integration]] and [[Ring Access Model]].

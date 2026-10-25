@@ -86,7 +86,6 @@ kanban-plugin: board
 - [ ] [[T-020 LinkedIn import → review → base profile]] #high #onboarding-imports
 - [ ] [[T-020-be Backend · LinkedIn import → review → base profile]] #high #onboarding-imports #backend
 - [ ] [[T-020-fe Frontend · LinkedIn import → review → base profile]] #high #onboarding-imports #frontend
-- [ ] [[T-026-be Backend · Ring invitations invite, review, decline]] #high #ring-invitations #backend
 - [ ] [[T-026-fe Frontend · Ring invitations invite, review, decline]] #high #ring-invitations #frontend
 - [ ] [[T-027 Join a Ring with a code or verified work email]] #high #ring-invitations
 - [ ] [[T-027-be Backend · Join a Ring with a code or verified work email]] #high #ring-invitations #backend
@@ -125,7 +124,6 @@ kanban-plugin: board
 - [ ] [[T-015 Pair and revoke an NFC card]] #medium #devices
 - [ ] [[T-015-be Backend · Pair and revoke an NFC card]] #medium #devices #backend
 - [ ] [[T-015-fe Frontend · Pair and revoke an NFC card]] #medium #devices #frontend
-- [ ] [[T-020b-be Backend · Business card scan and portfolio URL import]] #medium #onboarding-imports #backend
 - [ ] [[T-020b-fe Frontend · Business card scan and portfolio URL import]] #medium #onboarding-imports #frontend
 - [ ] [[T-025-be Backend · Introduce a connection to another]] #medium #connections #backend
 - [ ] [[T-025-fe Frontend · Introduce a connection to another]] #medium #connections #frontend
@@ -175,6 +173,7 @@ kanban-plugin: board
 - [ ] [[T-017-be Backend · Extend WIDGET_TYPE to the design's list]] #high #widgets #backend
 - [ ] [[T-019 LinkedIn OAuth link, unlink, login]] #high #linked-accounts
 - [ ] [[T-019-be Backend · LinkedIn OAuth link, unlink, login]] #high #linked-accounts #backend
+- [ ] [[T-026-be Backend · Ring invitations invite, review, decline]] #high #ring-invitations #backend
 - [ ] [[T-029 My companies and company detail]] #high #companies
 - [ ] [[T-029-be Backend · My companies and company detail]] #high #companies #backend
 - [ ] [[T-030 Discover search by !pinname and recent searches]] #high #discover-hub
@@ -188,6 +187,7 @@ kanban-plugin: board
 - [ ] [[T-049-be Backend · Subscription endpoints and a single Pro gate]] #high #subscription #backend
 - [ ] [[T-054 Cleanup jobs]] #high #cleanup-jobs
 - [ ] [[T-054-be Backend · Cleanup jobs]] #high #cleanup-jobs #backend
+- [ ] [[T-020b-be Backend · Business card scan and portfolio URL import]] #medium #onboarding-imports #backend
 - [ ] [[T-031-be Backend · Import contacts]] #medium #discover-hub #backend
 
 

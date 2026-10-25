@@ -15,6 +15,8 @@ tags: [task, task/needs-info, module/shared-rings, priority/high]
 
 # ❓ T-026 · Ring invitations: invite, review, decline
 
+> ⚠ Affected by [[DR-04 Ring settings at launch and their defaults]] (2026-10-25): D-04 decided, six Ring settings at launch with private defaults (join with a code or invite, approve each one, members can't see each other, invite or save attachments); this task no longer waits on D-04.
+
 **Feature:** [[Ring Invitations & Join]] · **Status:** Needs a decision / info · **Priority:** High · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-026-fe Frontend · Ring invitations invite, review, decline|Frontend]] · [[T-026-be Backend · Ring invitations invite, review, decline|Backend]] · **Story:** [[T-026 Story]]

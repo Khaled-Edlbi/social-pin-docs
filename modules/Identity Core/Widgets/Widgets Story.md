@@ -12,6 +12,8 @@ tags: [story, story/draft, module/identity, layer/business]
 
 # Widgets · User Story
 
+> ⚠ Affected by [[DR-03 Links entered once, switched on or off per Ring]] (2026-10-25): D-03 decided, links are entered once and only switched on or off per Ring; booking, Behance, Dribbble, GitHub and YouTube join the types, detected from the pasted link.
+
 **Feature:** [[Widgets]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Widgets Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 A Ring owner wants a Ring to do more than list facts: show availability for a meeting, a way to pay, what they are playing, a testimonial, a map, a gallery. Widgets are blocks on a Ring's projection, ordered and switchable per Ring, and rendered to viewers through the same perspective as everything else. The table exists; the endpoints and the design's full type list do not.

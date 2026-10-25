@@ -12,6 +12,8 @@ tags: [story, story/draft, module/shared-rings, layer/business]
 
 # Companies · User Story
 
+> ⚠ Affected by [[DR-04 Ring settings at launch and their defaults]] (2026-10-25): D-04 decided, six Ring settings at launch with private defaults (join with a code or invite, approve each one, members can't see each other, invite or save attachments); the owner and the Ring's admins change them; members who may see each other see full cards.
+
 **Feature:** [[Companies]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Companies Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 A person belongs to one or more businesses: as an employee of Acme Studio, as a founder of Northstar, as a speaker inserted into an organizer's business account. Each business shows itself through company Rings (`CORPORATE`, nested with `parentRingId`: public, employees, c-suite), and the person is a member of some of those Rings. "My companies" is the list of those businesses and "Company detail" is one business, seen from the member's side: what it is, which of its Rings I am in, and the door out.

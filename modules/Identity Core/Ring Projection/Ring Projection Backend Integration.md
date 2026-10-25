@@ -12,6 +12,12 @@ tags: [backend-integration, backend-integration/current, module/identity, layer/
 
 # 🔌 Ring Projection · Backend Integration
 
+> ⚠ Affected by [[DR-02 One main profile every Ring starts from]] (2026-10-25): D-02 decided, one main profile (headline, role, company, location, photo, bio) every Ring starts from; a Ring may change all of them but the full name and keeps its own value when the main one changes.
+
+> ⚠ Affected by [[DR-03 Links entered once, switched on or off per Ring]] (2026-10-25): D-03 decided, links are entered once and only switched on or off per Ring; booking, Behance, Dribbble, GitHub and YouTube join the types, detected from the pasted link.
+
+> ⚠ Affected by [[DR-05 Inherit per field, copy without members]] (2026-10-25): D-05 decided, a Ring inherits the main profile field by field until it changes that field; copying a Ring copies fields, bio, photo, colour and settings, never members.
+
 **Feature:** [[Ring Projection]] · **Backend:** ✅ Done · **Read first:** [[Frontend Contract]], [[Ring Access Model]]
 
 What the client builds: the owner's "what this Ring shows" editor: display name, nickname, bio, photo, theme, social and contact links, info blocks ("Add a field"), file attachments, and the five opt-ins for sensitive fields. Then "View as" to check the result ([[View As & Pin Views Backend Integration]]).

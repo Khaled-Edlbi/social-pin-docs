@@ -15,6 +15,8 @@ decision: D-04
 
 # ❓ T-059 · Decide: Ring settings
 
+> ⚠ Affected by [[DR-04 Ring settings at launch and their defaults]] (2026-10-25): D-04 is decided; this task's decision is taken and the PM can close it.
+
 **Feature:** [[Rings]] · **Status:** Needs a decision / info · **Priority:** Critical · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
 
 ## What

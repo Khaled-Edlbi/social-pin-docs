@@ -12,6 +12,8 @@ tags: [story, story/draft, module/identity, layer/business]
 
 # Auth & Sign-up · User Story
 
+> ⚠ Affected by [[DR-06 Yearly rename, old name freed, case-insensitive]] (2026-10-25): D-06 decided, a Pin name can be changed once a year, the old name is free at once, names ignore capitals, suggestions come only from the person's own name.
+
 **Feature:** [[Auth & Sign-up]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Auth & Sign-up Frontend Requirements]] · **Backend Integration:** [[Auth & Sign-up Backend Integration]]
 
 A person arrives with nothing but an email address or a phone number and leaves with a working identity: an active account, a Pin name, a default Ring and its projection. Coming back later costs them one code, never a password. The welcome screen's promise, *"We send a one-time code. No password to remember"*, is the whole contract ([[D-01 Passwordless login]], decided 2026-10-15).

@@ -12,6 +12,8 @@ tags: [story, story/draft, module/shared-rings, layer/business]
 
 # Delegated Admins · User Story
 
+> ⚠ Affected by [[DR-04 Ring settings at launch and their defaults]] (2026-10-25): D-04 decided, six Ring settings at launch with private defaults (join with a code or invite, approve each one, members can't see each other, invite or save attachments); the owner and the Ring's admins change them; members who may see each other see full cards.
+
 **Feature:** [[Delegated Admins]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Delegated Admins Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 A company Ring is too big for one person to run. The owner hands parts of the job to colleagues at a permission level: one may edit what the Ring shows, another may manage who is in it. The owner stays the owner; admins act on the owner's Ring and the engine already honours them on every write. What is missing is any way to appoint, change or remove them.

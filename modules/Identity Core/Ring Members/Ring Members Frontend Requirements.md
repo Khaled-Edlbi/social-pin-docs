@@ -12,6 +12,12 @@ tags: [frontend-requirements, frontend-requirements/draft, module/identity, laye
 
 # Ring Members · Frontend Requirements
 
+> ⚠ Affected by [[DR-04 Ring settings at launch and their defaults]] (2026-10-25): D-04 decided, six Ring settings at launch with private defaults (join with a code or invite, approve each one, members can't see each other, invite or save attachments); the owner and the Ring's admins change them; members who may see each other see full cards.
+
+> ⚠ Affected by [[DR-14 Shared with me lists people, never the Ring]] (2026-10-25): D-14 decided, option 2: Shared with me lists the people who share with me and never shows a Ring's name, colour or type to a member.
+
+> ⚠ Affected by [[DR-15 Several Rings per connection, remove or disconnect]] (2026-10-25): D-15 decided, one person can be in several of my Rings and sees the oldest version first; removing them from my last Ring offers Remove from Rings or Disconnect.
+
 **Feature:** [[Ring Members]] · **Status:** Draft · **Story:** [[Ring Members Story]] · **Backend Integration:** [[Ring Members Backend Integration]]
 
 What the client needs from the backend to build the owner's roster and the per-person actions, and whether each need is met today. Shapes, the `status` filter and the window semantics are in [[Ring Members Backend Integration]].

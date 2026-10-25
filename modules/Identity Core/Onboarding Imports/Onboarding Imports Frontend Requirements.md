@@ -12,6 +12,8 @@ tags: [frontend-requirements, frontend-requirements/draft, module/identity, laye
 
 # Onboarding Imports · Frontend Requirements
 
+> ⚠ Affected by [[DR-02 One main profile every Ring starts from]] (2026-10-25): D-02 decided, one main profile (headline, role, company, location, photo, bio) every Ring starts from; a Ring may change all of them but the full name and keeps its own value when the main one changes.
+
 **Feature:** [[Onboarding Imports]] · **Status:** Draft · **Story:** [[Onboarding Imports Story]] · **API Integration:** not yet (backend not built)
 
 What the client needs to build the import screens of onboarding, and the fact that none of it is served today. The only calls these screens can make now are the fallbacks into [[Auth & Sign-up Backend Integration]] and [[Profiles & Pin Name Backend Integration]].

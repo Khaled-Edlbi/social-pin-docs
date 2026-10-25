@@ -12,6 +12,8 @@ tags: [story, story/draft, module/shared-rings, layer/business]
 
 # Ring Invitations & Join · User Story
 
+> ⚠ Affected by [[DR-04 Ring settings at launch and their defaults]] (2026-10-25): D-04 decided, six Ring settings at launch with private defaults (join with a code or invite, approve each one, members can't see each other, invite or save attachments); the owner and the Ring's admins change them; members who may see each other see full cards.
+
 **Feature:** [[Ring Invitations & Join]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Ring Invitations & Join Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 Being on the receiving end of someone else's Ring. A company invites its new hire into "Acme Team"; an organizer invites a speaker into "TechSummit Speakers"; a colleague hands over a join code. The person reviews what they are being offered, accepts or declines, or joins on their own with a code or a verified work address. Once inside, the Ring appears on Shared with me and the owner's projection becomes readable.

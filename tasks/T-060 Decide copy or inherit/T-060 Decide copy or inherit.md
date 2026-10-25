@@ -15,6 +15,8 @@ decision: D-05
 
 # ❓ T-060 · Decide: copy or inherit
 
+> ⚠ Affected by [[DR-05 Inherit per field, copy without members]] (2026-10-25): D-05 is decided (and D-02, which it needed, by [[DR-02 One main profile every Ring starts from]]); this task's decision is taken and the PM can close it.
+
 **Feature:** [[Ring Projection]] · **Status:** Needs a decision / info · **Priority:** High · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
 
 ## What

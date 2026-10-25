@@ -12,6 +12,10 @@ tags: [story, story/draft, module/identity, layer/business]
 
 # Profiles & Pin Name · User Story
 
+> ⚠ Affected by [[DR-02 One main profile every Ring starts from]] (2026-10-25): D-02 decided, one main profile (headline, role, company, location, photo, bio) every Ring starts from; a Ring may change all of them but the full name and keeps its own value when the main one changes.
+
+> ⚠ Affected by [[DR-06 Yearly rename, old name freed, case-insensitive]] (2026-10-25): D-06 decided, a Pin name can be changed once a year, the old name is free at once, names ignore capitals, suggestions come only from the person's own name.
+
 **Feature:** [[Profiles & Pin Name]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Profiles & Pin Name Frontend Requirements]] · **Backend Integration:** [[Profiles & Pin Name Backend Integration]]
 
 A person claims a `!handle` that is theirs across the whole product, the thing printed on a badge and typed into Discover, and keeps the canonical facts about themselves (name, nickname, birthdate, gender, marital status) in one place. Rings then decide what each audience gets. The Pin name is public by nature; the sensitive fields are private by default and opt-in per Ring.

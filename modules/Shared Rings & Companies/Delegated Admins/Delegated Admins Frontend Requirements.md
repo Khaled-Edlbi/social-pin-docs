@@ -12,6 +12,8 @@ tags: [frontend-requirements, frontend-requirements/draft, module/shared-rings, 
 
 # Delegated Admins · Frontend Requirements
 
+> ⚠ Affected by [[DR-04 Ring settings at launch and their defaults]] (2026-10-25): D-04 decided, six Ring settings at launch with private defaults (join with a code or invite, approve each one, members can't see each other, invite or save attachments); the owner and the Ring's admins change them; members who may see each other see full cards.
+
 **Feature:** [[Delegated Admins]] · **Status:** Draft · **Story:** [[Delegated Admins Story]] · **API Integration:** not yet (backend not built)
 
 What the client needs from the backend to build the screens in [[Delegated Admins Story]], and whether each need is met today. The engine already honours admins on every write; the list, add, change and remove calls do not exist.

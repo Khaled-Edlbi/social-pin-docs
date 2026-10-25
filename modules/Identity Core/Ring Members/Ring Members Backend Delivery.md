@@ -12,6 +12,8 @@ tags: [backend-delivery, backend-delivery/done, module/identity, layer/backend]
 
 # ✅ Ring Members · Backend Delivery
 
+> ⚠ Affected by [[DR-04 Ring settings at launch and their defaults]] (2026-10-25): D-04 decided, six Ring settings at launch with private defaults (join with a code or invite, approve each one, members can't see each other, invite or save attachments); the owner and the Ring's admins change them; members who may see each other see full cards.
+
 **Feature:** [[Ring Members]] · **Status:** Done · **Integration guide:** [[Ring Members Backend Integration]] · **Requirements:** [[Ring Members Frontend Requirements]] · **QA:** [[Ring Members QA Backend]]
 
 What the backend shipped for this feature and how it works. The sum of this feature's task-level Backend Delivery notes (see the *Tasks* table below).

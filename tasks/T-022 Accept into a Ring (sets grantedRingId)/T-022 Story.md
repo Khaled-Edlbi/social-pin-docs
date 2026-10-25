@@ -20,6 +20,12 @@ task: T-022
 
 # T-022 · Accept into a Ring (sets grantedRingId) · User Story
 
+> ⚠ Affected by [[DR-13 The requester sees a declined request]] (2026-10-25): D-13 decided, option 3: the requester sees a declined request as declined; S4's "The requester isn't told it was declined" is reversed.
+
+> ⚠ Affected by [[DR-14 Shared with me lists people, never the Ring]] (2026-10-25): D-14 decided, option 2: Shared with me lists the people who share with me and never shows a Ring's name, colour or type to a member; S3 holds and the open question *Shared with me by name* is answered.
+
+> ⚠ Affected by [[DR-17 Requests expire after 30 days, optional note, ask again at once]] (2026-10-25): a connection request expires after 30 days, may carry an optional note of up to 200 characters, and can be asked again straight away after a decline (S4's "later" becomes "straight away").
+
 **Task:** [[T-022 Accept into a Ring (sets grantedRingId)]] · **Feature:** [[Connections]] · **Feature-level note:** [[Connections Story]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[T-022 Frontend Requirements]] · **Backend Integration:** [[T-022 Backend Integration]] · **Verified by:** [[T-022 QA Backend]], [[T-022 QA Frontend]]
 
 > Derived from the task [[T-022 Accept into a Ring (sets grantedRingId)]]; **not approved by product yet**. The feature-level story is [[Connections Story]]; this note says what the user gets from this task in particular. `approved` when product signs off (`approvedBy`, `approvedAt`); `verified` when both QA notes are `passing`.

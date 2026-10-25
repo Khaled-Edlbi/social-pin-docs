@@ -13,6 +13,16 @@ tags: [story, story/draft, module/connections, layer/business]
 
 # Connections · User Story
 
+> ⚠ Affected by [[DR-04 Ring settings at launch and their defaults]] (2026-10-25): D-04 decided, six Ring settings at launch with private defaults (join with a code or invite, approve each one, members can't see each other, invite or save attachments); the owner and the Ring's admins change them; members who may see each other see full cards.
+
+> ⚠ Affected by [[DR-13 The requester sees a declined request]] (2026-10-25): D-13 decided, option 3: the requester sees a declined request as declined.
+
+> ⚠ Affected by [[DR-14 Shared with me lists people, never the Ring]] (2026-10-25): D-14 decided, option 2: Shared with me lists the people who share with me and never shows a Ring's name, colour or type to a member.
+
+> ⚠ Affected by [[DR-15 Several Rings per connection, remove or disconnect]] (2026-10-25): D-15 decided, one person can be in several of my Rings and sees the oldest version first; removing them from my last Ring offers Remove from Rings or Disconnect.
+
+> ⚠ Affected by [[DR-17 Requests expire after 30 days, optional note, ask again at once]] (2026-10-25): a connection request expires after 30 days, may carry an optional note of up to 200 characters, and can be asked again straight away after a decline.
+
 **Feature:** [[Connections]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Connections Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 Two people met, one scanned the other, and now one of them wants access. A connection in Social Pin is an access request: the requester asks to be let in, the owner decides which Ring to put them in, and from that moment the requester sees exactly that Ring's perspective and nothing about the Ring itself. There is no feed, no follower count on display, no "following back".

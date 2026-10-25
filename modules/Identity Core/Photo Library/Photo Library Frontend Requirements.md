@@ -12,6 +12,10 @@ tags: [frontend-requirements, frontend-requirements/draft, module/identity, laye
 
 # Photo Library · Frontend Requirements
 
+> ⚠ Affected by [[DR-02 One main profile every Ring starts from]] (2026-10-25): D-02 decided, one main profile (headline, role, company, location, photo, bio) every Ring starts from; a Ring may change all of them but the full name and keeps its own value when the main one changes.
+
+> ⚠ Affected by [[DR-05 Inherit per field, copy without members]] (2026-10-25): D-05 decided, a Ring inherits the main profile field by field until it changes that field; copying a Ring copies fields, bio, photo, colour and settings, never members.
+
 **Feature:** [[Photo Library]] · **Status:** Draft · **Story:** [[Photo Library Story]] · **API Integration:** not yet (backend not built)
 
 What the client needs to build the per-Ring photo picker and the library grid, and which of it exists. Upload works ([[Files Upload Backend Integration]]); setting a Ring's photo works ([[Ring Projection Backend Integration]]); listing, counting and displaying do not.

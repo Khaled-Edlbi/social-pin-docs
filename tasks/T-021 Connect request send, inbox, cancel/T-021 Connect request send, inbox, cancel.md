@@ -15,6 +15,10 @@ tags: [task, task/todo, module/connections, priority/critical]
 
 # ⬜ T-021 · Connect request: send, inbox, cancel
 
+> ⚠ Affected by [[DR-13 The requester sees a declined request]] (2026-10-25): D-13 decided, option 3: the requester sees a declined request as declined.
+
+> ⚠ Affected by [[DR-17 Requests expire after 30 days, optional note, ask again at once]] (2026-10-25): a connection request expires after 30 days, may carry an optional note of up to 200 characters, and can be asked again straight away after a decline.
+
 **Feature:** [[Connections]] · **Status:** To do · **Priority:** Critical · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-021-fe Frontend · Connect request send, inbox, cancel|Frontend]] · [[T-021-be Backend · Connect request send, inbox, cancel|Backend]] · **Story:** [[T-021 Story]]

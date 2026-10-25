@@ -15,6 +15,8 @@ tags: [task, task/needs-info, module/identity, priority/high]
 
 # ❓ T-018 · Widget CRUD on the projection
 
+> ⚠ Affected by [[DR-03 Links entered once, switched on or off per Ring]] (2026-10-25): D-03 decided (library model, on/off per Ring); this task no longer waits on it.
+
 **Feature:** [[Widgets]] · **Status:** Needs a decision / info · **Priority:** High · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-018-fe Frontend · Widget CRUD on the projection|Frontend]] · [[T-018-be Backend · Widget CRUD on the projection|Backend]] · **Story:** [[T-018 Story]]

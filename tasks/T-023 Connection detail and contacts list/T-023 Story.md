@@ -20,6 +20,12 @@ task: T-023
 
 # T-023 · Connection detail and contacts list · User Story
 
+> ⚠ Affected by [[DR-04 Ring settings at launch and their defaults]] (2026-10-25): D-04 decided, six Ring settings at launch with private defaults (join with a code or invite, approve each one, members can't see each other, invite or save attachments); the owner and the Ring's admins change them; members who may see each other see full cards.
+
+> ⚠ Affected by [[DR-14 Shared with me lists people, never the Ring]] (2026-10-25): D-14 decided, option 2: Shared with me lists the people who share with me and never shows a Ring's name, colour or type to a member.
+
+> ⚠ Affected by [[DR-15 Several Rings per connection, remove or disconnect]] (2026-10-25): D-15 decided, one person can be in several of my Rings and sees the oldest version first; removing them from my last Ring offers Remove from Rings or Disconnect. S1's "removed from every Ring … is not listed" becomes "disconnected", and the open question *Connected without a Ring* is answered.
+
 **Task:** [[T-023 Connection detail and contacts list]] · **Feature:** [[Connections]] · **Feature-level note:** [[Connections Story]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[T-023 Frontend Requirements]] · **Backend Integration:** [[T-023 Backend Integration]] · **Verified by:** [[T-023 QA Backend]], [[T-023 QA Frontend]]
 
 > Derived from the task [[T-023 Connection detail and contacts list]]; **not approved by product yet**. The feature-level story is [[Connections Story]]; this note says what the user gets from this task in particular. `approved` when product signs off (`approvedBy`, `approvedAt`); `verified` when both QA notes are `passing`.

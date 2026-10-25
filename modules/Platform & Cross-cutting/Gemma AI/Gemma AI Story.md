@@ -12,6 +12,8 @@ tags: [story, story/draft, module/platform, layer/business]
 
 # Gemma AI · User Story
 
+> ⚠ Affected by [[DR-06 Yearly rename, old name freed, case-insensitive]] (2026-10-25): D-06 decided, a Pin name can be changed once a year, the old name is free at once, names ignore capitals, suggestions come only from the person's own name.
+
 **Feature:** [[Gemma AI]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Gemma AI Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 Gemma is the assistant that sits across the app rather than in a tab: a sheet opened from Home, a suggestion inside the accept flow, a list of matches at an event, and small nudges wherever a name or a bio is typed. The user is asking "what should I do next" about their Rings, their connections and their meetings, and the one rule that makes Gemma safe in this product is that she may only see what the asking user may see. Nothing is built; the schema for sessions, messages, actions and match results exists.
