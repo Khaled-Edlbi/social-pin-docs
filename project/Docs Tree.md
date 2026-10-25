@@ -58,7 +58,7 @@ The seven layer notes come from `docs.config.json`, listed in the **hand-off ord
 
 | Chip | Meaning |
 |---|---|
-| Done / Partial / In progress / To do | a card: a delivery note's state, a task. **Partial** is done with `pending` notes left for a card or a person (the chip counts them). A feature, module or the project shows the roll-up of its cards: Done only when every card is done, Partial when every card is done or partial, In progress while the cards are a mix |
+| Done / Partial / In progress / To do | a card: a delivery note's state, a task. **Partial** is done with `pending` notes left for a card or a person (the chip counts them). A feature or module shows the roll-up of its cards (the project card shows its stage and release progress instead, [[#Stage, release and environments]]): Done only when every card is done, Partial when every card is done or partial, In progress while the cards are a mix |
 | Draft ✏️ / Approved 👍 / Fulfilled ✅ | a story: before product sign-off, after it (handed off, not done), and once the PM fulfils it after both QA notes pass with nothing pending (`status: verified`); on the page a fulfilled story folds its flow until you expand it |
 | Draft ✏️ / Approved 👍 / Delivered ✅ | frontend requirements: written, accepted by the backend, and delivered on its own once the backend cards of its scope are done with nothing pending (set by hand only on a `frontendOnly` feature) |
 | Draft ✏️ / Current 🔵 / Delivered ✅ | a Backend Integration note: being written (or out of date); matching `main`, in use by the frontend and QA but not done; and, computed by the build, done once the QA Backend of its scope is passing and its Frontend Delivery done, both with nothing pending |
@@ -95,6 +95,7 @@ Three tags that say where the product stands rather than how much work is done; 
 | Tag | Where | Meaning |
 |---|---|---|
 | **Stage · MVP** (coloured chip) | the project card | the product's stage, typed as `stage:` in [[Project Overview]]: `concept` → `prototype` → `mvp` → `beta` → `live` → `sunset` (`stages` in `docs.config.json`, each with the test that moves it on). The pane shows the stage, its next-stage test and **Release progress**: per release target, the features Done out of the total, as a bar |
+| **MVP 0/18** (progress chip) | the project card, **in place of its status chip** | the features Done out of the total for the release the stage is measured by: the target with the stage's id (`mvp`), else its `requiresRelease` (`beta`, `live` → `mvp`), else the first target; it turns green when every one is Done. The project's computed status stays in `tree/tree.json`, `tree/tree.md` and the pane's *Contains*; the card only stops drawing it, because at that level it reads In progress for the whole build |
 | **MVP** / **v1** / **Later** / **No release** | every feature card | the release the feature is scoped to (`release:` on the feature, `releases` in the config). Its layer notes and tasks inherit it; the pane says "Inherited from …" |
 | **Deployed to** Dev / Staging / Prod | the pane of a Backend or Frontend Delivery note | the environments that delivery runs on (`deployedTo:`, `environments` in the config); "Not deployed yet" while the list is empty. An environment is not a stage |
 
