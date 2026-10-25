@@ -4780,9 +4780,7 @@
   ],
   "diagnostics": {
     "errors": [],
-    "warnings": [
-      "modules/Payments Gateway/Pay for an order/Pay for an order Story.md: does not link [[T-065 Story]], a done task-level note: a feature note is the sum of its tasks"
-    ]
+    "warnings": []
   },
   "edges": [
     {
