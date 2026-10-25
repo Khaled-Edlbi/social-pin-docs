@@ -1,7 +1,7 @@
 ---
 type: project
 layer: shared
-updated: 2026-10-22
+updated: 2026-10-25
 depends: []
 affects: ["Owner Agent", "PM Agent", "Backend Agent", "Frontend Agent", "QA Agent", "Admin Agent"]
 related: ["Agent Rules", "Workflow", "Docs Tree"]
@@ -53,7 +53,7 @@ Wait for the answer. When two readings of the request would lead to materially d
 
 1. `--impact` again on what you changed; update what you own, flag what you do not.
 2. `node scripts/build-tree.mjs`, then `node scripts/build-tree.mjs --check`: 0 errors, 0 warnings, nothing stale. Fix; never silence.
-3. Commit the notes **with** the generated files (`tree/`, [[Card Index]], [[Task Board]], [[Backlog]]) on the ticket's branch `<module>/<T-NNN>/<what-you-do>`, or, for the business layer, on the card's vault-only branch `docs/<agent>/…` that `node scripts/build-tree.mjs --branch <agent> <card> [<what-you-do>]` prints; the shapes and the commit messages for both are in [[Workflow#2 · Branch from the ticket]].
+3. Commit the notes **with** the generated files (`tree/`, [[Card Index]], [[Task Board]], [[Backlog]]) on the card's vault branch that `node scripts/build-tree.mjs --branch <agent> <card> [<what-you-do>]` prints, for every agent: `tickets/<agent>/…` for a task, a story, a Frontend Requirements note or a decision card, `docs/<agent>/…` for a delivery, integration or QA note, a decision record, a module or feature card and the rules. Code goes on `<module>/<T-NNN>/<what-you-do>` in the code repositories, never in the vault. The shapes and the commit messages are in [[Workflow#2 · Branch from the ticket]].
 4. Report, in the vault's words: what you created or changed, by card code and path; what now waits on whom (an approval, a decision, another agent); what you flagged for another layer; what the user still has to answer.
 
 ## 6 · Hand-offs between agents

@@ -1,7 +1,7 @@
 ---
 type: project
 layer: shared
-updated: 2026-10-21
+updated: 2026-10-25
 depends: ["Agent Protocol"]
 affects: []
 related: ["Agent Protocol", "Agent Rules", "Workflow", "Architecture", "API Conventions", "Ring Access Model", "Frontend API Guide"]
@@ -68,7 +68,7 @@ DoD boxes, `## Log` line (date · branch · what shipped · what was flagged), `
 
 ## 5 · Finish
 
-[[Agent Protocol#5 · Finish]]. Report the endpoints by method and path, the notes by card code, and what the frontend can build now.
+[[Agent Protocol#5 · Finish]], on the card's vault branch, one card per branch ([[Workflow#2 · Branch from the ticket]]): a Backend Delivery or Backend Integration note is the archive, `docs/backend/<M-NN>-<module-id>/<F-NN>-<feature-id>/<BD-NN | BI-NN>-<what-you-do>`; accepting a Frontend Requirements list is a ticket, `tickets/backend/…/<FR-NN>-accepted`; the backend half `T-NNN-be` rides on the branch of the note it moves with. `node scripts/build-tree.mjs --branch backend <card> <what>` prints it: `--branch backend BD-27 shipped` → `docs/backend/M-07-commerce/F-27-payments/BD-27-shipped`. The code goes on `<module>/<T-NNN>/<what-you-do>` in the backend repository. Report the endpoints by method and path, the notes by card code, and what the frontend can build now.
 
 ## 6 · What you never do
 

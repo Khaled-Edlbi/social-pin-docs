@@ -44112,7 +44112,7 @@
       ],
       "task": null,
       "title": "Admin Agent",
-      "updated": "2026-10-22"
+      "updated": "2026-10-25"
     },
     "project:agent-protocol": {
       "affects": [
@@ -44170,7 +44170,7 @@
       ],
       "task": null,
       "title": "Agent Protocol",
-      "updated": "2026-10-22"
+      "updated": "2026-10-25"
     },
     "project:agent-rules": {
       "affects": [
@@ -44224,7 +44224,7 @@
       ],
       "task": null,
       "title": "Agent Rules",
-      "updated": "2026-10-22"
+      "updated": "2026-10-25"
     },
     "project:api-conventions": {
       "affects": [],
@@ -44473,7 +44473,7 @@
       ],
       "task": null,
       "title": "Backend Agent",
-      "updated": "2026-10-21"
+      "updated": "2026-10-25"
     },
     "project:database-migrations": {
       "affects": [],
@@ -44634,7 +44634,7 @@
       ],
       "task": null,
       "title": "Docs Tree",
-      "updated": "2026-10-22"
+      "updated": "2026-10-25"
     },
     "project:feature-graph": {
       "affects": [],
@@ -44760,7 +44760,7 @@
       ],
       "task": null,
       "title": "Frontend Agent",
-      "updated": "2026-10-21"
+      "updated": "2026-10-25"
     },
     "project:frontend-agent-prompt": {
       "affects": [],
@@ -45017,7 +45017,7 @@
       ],
       "task": null,
       "title": "Owner Agent",
-      "updated": "2026-10-22"
+      "updated": "2026-10-25"
     },
     "project:pm-agent": {
       "affects": [],
@@ -45066,7 +45066,7 @@
       ],
       "task": null,
       "title": "PM Agent",
-      "updated": "2026-10-22"
+      "updated": "2026-10-25"
     },
     "project:project-overview": {
       "affects": [],
@@ -45151,7 +45151,7 @@
       ],
       "task": null,
       "title": "QA Agent",
-      "updated": "2026-10-21"
+      "updated": "2026-10-25"
     },
     "project:ring-access-model": {
       "affects": [],
@@ -45399,7 +45399,7 @@
       ],
       "task": null,
       "title": "Workflow",
-      "updated": "2026-10-22"
+      "updated": "2026-10-25"
     },
     "qa-backend:account": {
       "affects": [],

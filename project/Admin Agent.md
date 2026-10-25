@@ -1,7 +1,7 @@
 ---
 type: project
 layer: shared
-updated: 2026-10-22
+updated: 2026-10-25
 depends: ["Agent Protocol"]
 affects: []
 related: ["Agent Protocol", "Agent Rules", "Workflow", "Docs Tree", "Owner Agent"]
@@ -64,7 +64,7 @@ Overwrite `design/Wireframe Brief.md` with the new copy as delivered. Then `--im
 
 ## 5 · Finish
 
-[[Agent Protocol#5 · Finish]], on a vault-only branch named after what you did: `docs/admin/project/<what-you-do>` for repairs and rules, `docs/admin/<M-NN>-<module-id>/…` when the change sits in one module, printed by `node scripts/build-tree.mjs --branch admin <card> <what-you-do>` ([[Workflow#2 · Branch from the ticket]]). Commit as `rules(project): <what changed>` for a repair outside the cards, or with the card's own shape when it is one card. Report what you changed, by path, and what the owner has to write as a rule so that the next time a role agent can do it.
+[[Agent Protocol#5 · Finish]], on a vault branch named after what you did: `docs/admin/project/<what-you-do>` for repairs and rules, `docs/admin/<M-NN>-<module-id>/…` when the change sits in one module, `tickets/admin/…` when it is one ticket card (a task, a story, a Frontend Requirements note, a decision), printed by `node scripts/build-tree.mjs --branch admin <card> <what-you-do>` ([[Workflow#2 · Branch from the ticket]]). Commit as `rules(project): <what changed>` for a repair outside the cards, or with the card's own shape when it is one card. Report what you changed, by path, and what the owner has to write as a rule so that the next time a role agent can do it.
 
 ## 6 · What you never do
 
