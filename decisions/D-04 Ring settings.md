@@ -5,12 +5,13 @@ status: open
 features: [rings, ring-members, ring-invitations, delegated-admins, companies]
 screens: [s19, s22, s26, s27]
 created: 2026-10-15
+updated: 2026-10-25
 tags: [decision, decision/open]
 ---
 
-# ❓ D-04 · Ring settings
+# ✅ D-04 · Ring settings
 
-**Status:** open · **Decider:** product + backend lead · **Raised:** 2026-10-15
+**Status:** decided (2026-10-25, the launch set and defaults; storage left to the backend) · **Decider:** product + backend lead · **Raised:** 2026-10-15
 
 ## Where the design and the backend disagree
 
@@ -46,6 +47,6 @@ Screens: [[Screen Index#s19|s19]], [[Screen Index#s22|s22]], [[Screen Index#s26|
 - [[T-027 Join a Ring with a code or verified work email]]
 - [[T-059 Decide Ring settings]]
 
-## Outcome
+## Decision
 
-_Not decided yet. When decided: set `status: decided` above, write the choice here, move the waiting tasks out of ❓._
+Fulfilled by [[DR-04 Ring settings at launch and their defaults]], decided 2026-10-25 by molham: six settings at launch with private defaults; the storage option (A or B) is the backend's.
