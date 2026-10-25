@@ -6,6 +6,7 @@ priority: high
 module: shared-rings
 screens: [s26, s27]
 updated: 2026-10-25
+owner: "omar"
 tags: [feature, module/shared-rings, priority/high]
 ---
 
@@ -43,9 +44,9 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 TABLE status, priority, effort FROM #task WHERE feature = "delegated-admins" SORT priority ASC
 ```
 
-## Open decisions
+## Decisions
 
-- [[D-04 Ring settings]]
+- [[D-04 Ring settings]] — decided, six settings at launch; the owner and the Ring's admins change them ([[DR-04 Ring settings at launch and their defaults|DR-04]])
 
 ## Related
 
