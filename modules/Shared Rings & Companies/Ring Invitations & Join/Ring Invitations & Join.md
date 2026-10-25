@@ -6,7 +6,8 @@ priority: high
 module: shared-rings
 screens: [s17, s74]
 related: ["View As & Pin Views"]
-updated: 2026-10-19
+updated: 2026-10-25
+owner: "omar"
 tags: [feature, module/shared-rings, priority/high]
 ---
 
@@ -41,9 +42,9 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 TABLE status, priority, effort FROM #task WHERE feature = "ring-invitations" SORT priority ASC
 ```
 
-## Open decisions
+## Decisions
 
-- [[D-04 Ring settings]]
+- [[D-04 Ring settings]] — decided, join with a code or by invitation and approve each one by default ([[DR-04 Ring settings at launch and their defaults|DR-04]])
 
 ## Related
 
