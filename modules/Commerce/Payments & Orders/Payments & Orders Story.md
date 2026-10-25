@@ -16,6 +16,8 @@ tags: [story, story/draft, module/commerce, layer/business]
 
 # Payments & Orders · User Story
 
+> ⚠ Affected by [[DR-09 30-minute hold tied to the Stripe checkout]] (2026-10-25): the open question on holding is answered; an order holds its items against sold-out for 30 minutes and is abandoned when the hold ends unpaid.
+
 **Feature:** [[Payments & Orders]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Payments & Orders Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 A visitor has picked a package, a sub-event or an in-event upgrade. This feature is the **order**: it freezes what they chose and at what price, keeps one order per attempt, and lets them read their orders and receipts afterwards. Paying for the order is not here: the hand-over to Stripe's hosted card page on [[Screen Index#s51|s51]], the pending / failed / succeeded states, the webhook that settles the order and the confirmation on s52 are [[Pay for an order]] ([[Pay for an order Story]]), described there once ([[DR-08 Stripe card checkout only]]). The schema is complete; no endpoint exists.

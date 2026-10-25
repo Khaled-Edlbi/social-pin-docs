@@ -1,24 +1,24 @@
 ---
 type: decision
 id: D-09
-status: open
+status: decided
 features: [pay-for-an-order]
 blocks: ["Pay for an order Story"]
 decider: "owner"
 screens: [s50, s51]
 affects: ["Pay for an order", "Events Before", "Payments & Orders"]
 related: ["T-034 Tickets, packages, levels, sold-out", "Payments & Orders", "Events Before", "DR-08 Stripe card checkout only"]
-decidedBy: ""
-decidedAt: ""
+decidedBy: "khaled"
+decidedAt: 2026-10-25
 owner: "khaled"
 created: 2026-10-25
 updated: 2026-10-25
-tags: [decision, decision/open]
+tags: [decision, decision/decided]
 ---
 
-# ❓ D-09 · How long an unpaid order holds its tickets
+# ✅ D-09 · How long an unpaid order holds its tickets
 
-**Status:** open · **Decider:** owner · **Raised:** 2026-10-25 · **Needed by:** [[Pay for an order Story]] · **Feature:** [[Pay for an order]] · **Module:** [[Payments Gateway Module]]
+**Status:** decided 2026-10-25 by khaled · **Decider:** owner · **Raised:** 2026-10-25 · **Needed by:** [[Pay for an order Story]] · **Feature:** [[Pay for an order]] · **Module:** [[Payments Gateway Module]]
 
 > The cards in `blocks` are **Blocked · D-09** while this is `open` and return to their own status on the build after it is `decided`. Nobody edits their `status:` for this.
 
@@ -48,4 +48,4 @@ PM's recommendation: option 2, the shortest hold that lets a failed card be retr
 
 ## Decision
 
-— (taken on its own card, never written here: the PM or the owner, on the user's word, runs `node scripts/build-tree.mjs --scaffold record D-09 "<the answer>"` and fills the record DR-NN (what was decided, why, what it changes with every feature and task in its `affects`, what stays open); then signs this card off: `status: decided`, `decidedBy`, `decidedAt` as on the record, the tag `decision/decided`, ✅ in the H1, and this line replaced by one that says when, by whom, which option, and links the record; then `--impact DR-NN` and flag the notes it lists)
+Decided 2026-10-25 by khaled: option 2, on its own card, [[DR-09 30-minute hold tied to the Stripe checkout]] (what was decided, why, what it changes).

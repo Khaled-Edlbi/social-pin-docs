@@ -19,6 +19,8 @@ tags: [story, story/draft, module/payments-gateway, layer/business]
 
 # Pay for an order · User Story
 
+> ⚠ Affected by [[DR-09 30-minute hold tied to the Stripe checkout]] (2026-10-25): D-09 decided, option 2; an order holds its items for 30 minutes and the Stripe checkout expires with it, so S2's failed state can say how long the tickets are held and "Try again" reuses the order until the hold ends.
+
 **Feature:** [[Pay for an order]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Pay for an order Frontend Requirements]] · **Backend Integration:** [[Pay for an order Backend Integration]] · **Verified by:** [[Pay for an order QA Backend]], [[Pay for an order QA Frontend]]
 
 An attendee has chosen what they want from an event on [[Screen Index#s50|s50]] and now pays for it. The app hands them to Stripe's hosted card page ([[DR-08 Stripe card checkout only]]), brings them back, tells them where the payment stands, and grants the Event Ring only once Stripe has confirmed the payment. The order, its lines and its price snapshot belong to [[Payments & Orders]]; this story is the hand-over to Stripe, the return, the settlement and the confirmation. No backend exists for it today: no checkout endpoint, no webhook, no order status to read ([[Pay for an order Backend Delivery]] is not written).
