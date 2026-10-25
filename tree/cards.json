@@ -40,6 +40,7 @@
     "backend-delivery:subscription": "BD-28",
     "backend-delivery:view-as": "BD-12",
     "backend-delivery:widgets": "BD-13",
+    "backend-integration:T-065-be": "BI-10",
     "backend-integration:account": "BI-01",
     "backend-integration:auth": "BI-02",
     "backend-integration:files": "BI-03",
