@@ -4819,7 +4819,7 @@
     }
   },
   "counts": {
-    "blocked": 150,
+    "blocked": 149,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -4840,7 +4840,7 @@
     },
     "concepts": 182,
     "decisions": 16,
-    "edges": 4817,
+    "edges": 4816,
     "features": 39,
     "layerNotes": 185,
     "modules": 8,
@@ -6122,11 +6122,6 @@
       "from": "story:ring-invitations",
       "kind": "blocks",
       "to": "frontend-requirements:ring-invitations"
-    },
-    {
-      "from": "story:ring-projection",
-      "kind": "blocks",
-      "to": "frontend-requirements:ring-projection"
     },
     {
       "from": "story:rings",
@@ -43471,7 +43466,7 @@
       ],
       "release": "mvp",
       "rollup": {
-        "blocked": 1,
+        "approved": 1,
         "current": 1,
         "decided": 3,
         "done": 3,
@@ -47245,20 +47240,14 @@
     },
     "frontend-requirements:ring-projection": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "story:ring-projection",
-          "title": "Ring Projection Story",
-          "why": "Ring Projection Story is draft"
-        }
-      ],
+      "blockedBy": [],
       "card": "FR-10",
       "children": [],
       "code": "ring-projection",
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "ring-projection",
       "frontendOnly": false,
@@ -47985,8 +47974,8 @@
       "related": [],
       "release": null,
       "rollup": {
-        "approved": 11,
-        "blocked": 24,
+        "approved": 12,
+        "blocked": 23,
         "current": 9,
         "decided": 6,
         "done": 15,
@@ -53052,8 +53041,8 @@
         }
       ],
       "rollup": {
-        "approved": 35,
-        "blocked": 150,
+        "approved": 36,
+        "blocked": 149,
         "current": 9,
         "decided": 12,
         "done": 17,
@@ -57835,7 +57824,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "ring-projection",
       "frontendOnly": false,
@@ -57872,11 +57861,11 @@
         "s29",
         "s36"
       ],
-      "status": "draft",
+      "status": "approved",
       "summary": "A Ring owner decides what one audience sees: the name and nickname they go by there, the bio, the photo, the theme, which social and contact links, which info blocks (\"Add a field\"), which files,…",
       "tags": [
         "story",
-        "story/draft",
+        "story/approved",
         "module/identity",
         "layer/business"
       ],
