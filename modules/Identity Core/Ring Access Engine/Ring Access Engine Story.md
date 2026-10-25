@@ -6,13 +6,13 @@ feature: ring-access
 module: identity
 status: draft
 screens: []
-updated: 2026-10-18
+updated: 2026-10-25
+owner: "omar"
+related: ["DR-04 Ring settings at launch and their defaults", "DR-14 Shared with me lists people, never the Ring", "DR-15 Several Rings per connection, remove or disconnect"]
 tags: [story, story/draft, module/identity, layer/business]
 ---
 
 # Ring Access Engine · User Story
-
-> ⚠ Affected by [[DR-04 Ring settings at launch and their defaults]] (2026-10-25): D-04 decided, six Ring settings at launch with private defaults (join with a code or invite, approve each one, members can't see each other, invite or save attachments); the owner and the Ring's admins change them; members who may see each other see full cards.
 
 **Feature:** [[Ring Access Engine]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Ring Access Engine Frontend Requirements]] · **Backend Integration:** [[Ring Access Engine Backend Integration]]
 
@@ -29,7 +29,8 @@ Two people: a Ring owner who moves, revokes and lets access expire, and a viewer
 **As a** viewer **I want** to open a person and get the Ring I am in **so that** I see what they chose for me and nothing else.
 
 Acceptance criteria:
-- [ ] Shared with me lists only Rings whose access is live right now; tapping one renders `GET /views/ring/:ringId`.
+- [ ] Shared with me lists only access that is live right now, one row per person, never a Ring's name, colour or type ([[DR-14 Shared with me lists people, never the Ring]]); tapping one renders `GET /views/ring/:ringId`. Not available yet: the list returns the Ring's name today.
+- [ ] When the owner has me in several of their Rings, I get the version from the Ring I was put in first ([[DR-15 Several Rings per connection, remove or disconnect]]). Not available yet: the engine renders the owner's default first, then the oldest.
 - [ ] The rendered view carries no `ringId`, no owner user id and no membership row; the UI never labels it "you are in her Clients Ring".
 - [ ] A `null` field reads "Not shared", never "none".
 
@@ -83,6 +84,17 @@ Acceptance criteria:
 - [ ] One message, "This profile isn't available to you", for every `E_RING_ACCESS_01`; no retry hint that differs by cause; no timing-based inference.
 - [ ] The same message to a viewer for `E_RING_ACCESS_02`; "This Ring has expired" only to the owner on their own View as.
 
+### S8 · The Ring's settings are access rules (journey, [[Screen Index#s27|s27]])
+
+**As a** Ring owner **I want** the settings I choose to be enforced wherever a member could act **so that** a switch on the settings screen is a promise, not decoration ([[DR-04 Ring settings at launch and their defaults]]).
+
+Acceptance criteria:
+- [ ] "Members can see each other" (off by default): only when on can a member read the other members, with full cards; while off, every member-facing route behaves as if the roster did not exist.
+- [ ] "Members can invite others" and "members can save attachments" (both off by default) are checked in the engine before an invite or a download, with the same quiet refusal as S6.
+- [ ] "Who can request to join" and "approve each one" decide whether a request or a code creates a live membership at once or waits for the owner ([[Ring Invitations & Join Story]]).
+- [ ] The owner and the Ring's admins may change the settings; the change applies on the next request.
+- [ ] Not available yet: none of the settings exist; the engine enforces the owner-only roster today.
+
 ## States and motion the design asks for
 
 - State: live, lapsed (owner-computed), expired (owner-computed), not available (viewer, one message), read-only (403).
@@ -98,4 +110,5 @@ Acceptance criteria:
 
 ## Open questions
 
-- [[D-04 Ring settings]] — "members can see each other", join policy and the other access rules must be enforced inside the engine; until decided, no screen may imply members see one another.
+- Decided: [[DR-04 Ring settings at launch and their defaults]] (S8), [[DR-14 Shared with me lists people, never the Ring]] and [[DR-15 Several Rings per connection, remove or disconnect]] (S1). Until the settings are built, no screen may imply members see one another. Building them is not ticketed yet.
+- Whether an admin may change every setting or only some (DR-04, *Still open*).
