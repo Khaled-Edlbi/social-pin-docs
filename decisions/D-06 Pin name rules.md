@@ -5,12 +5,13 @@ status: open
 features: [profiles, gemma]
 screens: [s06]
 created: 2026-10-15
+updated: 2026-10-25
 tags: [decision, decision/open]
 ---
 
-# ❓ D-06 · Pin name rules
+# ✅ D-06 · Pin name rules
 
-**Status:** open · **Decider:** product + backend lead · **Raised:** 2026-10-15
+**Status:** decided (2026-10-25, option A) · **Decider:** product + backend lead · **Raised:** 2026-10-15
 
 ## Where the design and the backend disagree
 
@@ -41,6 +42,6 @@ Screens: [[Screen Index#s06|s06]]
 
 - [[T-061 Decide Pin name rules]]
 
-## Outcome
+## Decision
 
-_Not decided yet. When decided: set `status: decided` above, write the choice here, move the waiting tasks out of ❓._
+Fulfilled by [[DR-06 Yearly rename, old name freed, case-insensitive]], decided 2026-10-25 by molham: option A.
