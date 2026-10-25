@@ -601,7 +601,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
         - ✅ [D-09 How long an unpaid order holds its tickets](decisions/D-09%20How%20long%20an%20unpaid%20order%20holds%20its%20tickets.md) (Decision)
           - ⚖️ [DR-09 30-minute hold tied to the Stripe checkout](decisions/DR-09%2030-minute%20hold%20tied%20to%20the%20Stripe%20checkout.md) (Decision record)
       - ✅ [Pay for an order Frontend Requirements](modules/Payments%20Gateway/Pay%20for%20an%20order/Pay%20for%20an%20order%20Frontend%20Requirements.md) (FR-41, Frontend Requirements, High)
-      - ∅ _Pay for an order Backend Delivery_ (Backend Delivery)
+      - 🔵 [Pay for an order Backend Delivery](modules/Payments%20Gateway/Pay%20for%20an%20order/Pay%20for%20an%20order%20Backend%20Delivery.md) (BD-41, Backend Delivery, High)
       - ∅ _Pay for an order Backend Integration_ (Backend Integration, blocked by Pay for an order Backend Delivery)
       - ∅ _Pay for an order QA Backend_ (QA Backend, blocked by Pay for an order Backend Delivery)
       - ∅ _Pay for an order Frontend Delivery_ (Frontend Delivery, blocked by Pay for an order Backend Integration)
