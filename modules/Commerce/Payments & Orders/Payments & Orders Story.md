@@ -6,9 +6,9 @@ feature: payments
 module: commerce
 status: draft
 screens: [s50, s53, s68]
-depends: ["D-07 Payment provider", "D-08 Payment methods and gateways on s51", "T-047 Orders, payments and the provider webhook"]
+depends: ["D-07 Payment provider", "D-08 Payment methods and gateways on s51"]
 affects: ["Pay for an order", "Events Before", "Events During"]
-related: ["Pay for an order", "DR-08 Stripe card checkout only", "Events Before", "Events During", "Subscription (Free vs Pro)", "Audit Log", "T-034 Tickets, packages, levels, sold-out", "T-035 Registration transaction with order and payment", "T-040 Lounges and upgrades"]
+related: ["Pay for an order", "Pay for an order Story", "D-09 How long an unpaid order holds its tickets", "DR-08 Stripe card checkout only", "T-047 Orders, payments and the provider webhook", "Events Before", "Events During", "Subscription (Free vs Pro)", "Audit Log", "T-034 Tickets, packages, levels, sold-out", "T-035 Registration transaction with order and payment", "T-040 Lounges and upgrades"]
 owner: "khaled"
 updated: 2026-10-25
 tags: [story, story/draft, module/commerce, layer/business]
@@ -71,6 +71,6 @@ Acceptance criteria:
 
 ## Open questions
 
-- Whether an unpaid order holds its items against sold-out, and for how long: raised from [[Pay for an order]] as D-09 (owner to decide); S1's sold-out handling follows the answer.
+- Whether an unpaid order holds its items against sold-out, and for how long: [[D-09 How long an unpaid order holds its tickets]], raised from [[Pay for an order Story]] (owner to decide); S1's sold-out handling follows the answer.
 - Whether a free RSVP creates a zero-total order (one history for everything) or no order at all.
 - Who collects (organizer or Social Pin) per organizer: not raised yet; it waits on the Payments Gateway's *Pay the organizer*.
