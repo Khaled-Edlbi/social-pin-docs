@@ -27,6 +27,7 @@
     "backend-delivery:meetings": "BD-26",
     "backend-delivery:notifications": "BD-39",
     "backend-delivery:onboarding-imports": "BD-05",
+    "backend-delivery:pay-for-an-order": "BD-41",
     "backend-delivery:payments": "BD-27",
     "backend-delivery:photo-library": "BD-06",
     "backend-delivery:pincast": "BD-20",
