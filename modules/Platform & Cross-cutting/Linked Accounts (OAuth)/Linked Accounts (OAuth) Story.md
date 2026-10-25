@@ -4,16 +4,19 @@ code: linked-accounts
 scope: feature
 feature: linked-accounts
 module: platform
-status: draft
+status: approved
 screens: [s01, s04, s68]
+approvedBy: "khaled"
+approvedAt: 2026-10-25
+owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-18
-tags: [story, story/draft, module/platform, layer/business]
+updated: 2026-10-25
+tags: [story, story/approved, module/platform, layer/business]
 ---
 
 # Linked Accounts (OAuth) · User Story
 
-**Feature:** [[Linked Accounts (OAuth)]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Linked Accounts (OAuth) Frontend Requirements]] · **API Integration:** not yet (backend not built)
+**Feature:** [[Linked Accounts (OAuth)]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[Linked Accounts (OAuth) Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 On the welcome screen a new user can choose "Continue with LinkedIn" instead of typing an email; the OAuth hand-off returns with a profile to import, which feeds the base profile and then the first Ring. Later, from Me, the same user links or unlinks providers and, once decided, signs in with one. The `SocialIdentity` table exists; no OAuth route does, and whether a provider can log a user in without a password is an open decision.
 

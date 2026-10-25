@@ -4819,7 +4819,7 @@
     }
   },
   "counts": {
-    "blocked": 167,
+    "blocked": 166,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -4840,7 +4840,7 @@
     },
     "concepts": 182,
     "decisions": 16,
-    "edges": 4834,
+    "edges": 4833,
     "features": 39,
     "layerNotes": 185,
     "modules": 8,
@@ -6137,11 +6137,6 @@
       "from": "story:gemma",
       "kind": "blocks",
       "to": "frontend-requirements:gemma"
-    },
-    {
-      "from": "story:linked-accounts",
-      "kind": "blocks",
-      "to": "frontend-requirements:linked-accounts"
     },
     {
       "from": "story:meetings",
@@ -42627,7 +42622,8 @@
       ],
       "release": "v1",
       "rollup": {
-        "blocked": 3,
+        "approved": 1,
+        "blocked": 2,
         "decided": 1,
         "draft": 2,
         "missing": 4,
@@ -46745,20 +46741,14 @@
     },
     "frontend-requirements:linked-accounts": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "story:linked-accounts",
-          "title": "Linked Accounts (OAuth) Story",
-          "why": "Linked Accounts (OAuth) Story is draft"
-        }
-      ],
+      "blockedBy": [],
       "card": "FR-38",
       "children": [],
       "code": "linked-accounts",
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "linked-accounts",
       "frontendOnly": false,
@@ -48278,8 +48268,8 @@
       "related": [],
       "release": null,
       "rollup": {
-        "approved": 9,
-        "blocked": 33,
+        "approved": 10,
+        "blocked": 32,
         "decided": 2,
         "done": 2,
         "draft": 25,
@@ -53223,8 +53213,8 @@
         }
       ],
       "rollup": {
-        "approved": 18,
-        "blocked": 167,
+        "approved": 19,
+        "blocked": 166,
         "current": 9,
         "decided": 12,
         "done": 17,
@@ -57342,7 +57332,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "linked-accounts",
       "frontendOnly": false,
@@ -57371,17 +57361,17 @@
         "s04",
         "s68"
       ],
-      "status": "draft",
+      "status": "approved",
       "summary": "On the welcome screen a new user can choose \"Continue with LinkedIn\" instead of typing an email; the OAuth hand-off returns with a profile to import, which feeds the base profile and then the…",
       "tags": [
         "story",
-        "story/draft",
+        "story/approved",
         "module/platform",
         "layer/business"
       ],
       "task": null,
       "title": "Linked Accounts (OAuth) Story",
-      "updated": "2026-10-18"
+      "updated": "2026-10-25"
     },
     "story:meetings": {
       "affects": [],
