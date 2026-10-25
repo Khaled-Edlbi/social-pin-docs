@@ -17,6 +17,7 @@ Where the design and the backend disagree, and every other decision a card needs
 | [[D-05 Copy or inherit]] | open | — | [[Rings]], [[Ring Projection]], [[Photo Library]] | s18, s23, s28, s29 |
 | [[D-06 Pin name rules]] | open | — | [[Profiles & Pin Name]], [[Gemma AI]] | s06 |
 | [[D-07 Payment provider]] | fulfilled (1, Stripe for all four flows) | [[DR-07 Stripe for all four flows]] | [[Payments & Orders]], [[Subscription (Free vs Pro)]] | s51, s70 |
+| [[D-10 How Connect addresses the scanned person]] | draft | — | [[Badge & QR]], [[Connections]] | s43, s44 |
 
 ```dataview
 TABLE status, features FROM #decision
