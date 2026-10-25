@@ -4951,7 +4951,7 @@
     }
   },
   "counts": {
-    "blocked": 179,
+    "blocked": 178,
     "byKind": {
       "backend-delivery": 42,
       "backend-integration": 12,
@@ -4976,12 +4976,12 @@
     },
     "concepts": 185,
     "decisions": 9,
-    "edges": 5074,
+    "edges": 5073,
     "features": 40,
     "layerNotes": 209,
     "modules": 9,
     "notes": 506,
-    "partial": 3,
+    "partial": 2,
     "placeholders": 145,
     "records": 4,
     "taskLayerNotes": 76,
@@ -7258,11 +7258,6 @@
       "from": "task:T-063-be",
       "kind": "blocks",
       "to": "task:T-063-fe"
-    },
-    {
-      "from": "task:T-066-be",
-      "kind": "blocks",
-      "to": "task:T-066-fe"
     },
     {
       "from": "decision:D-01",
@@ -44592,13 +44587,12 @@
       ],
       "rollup": {
         "approved": 7,
-        "blocked": 1,
         "current": 3,
         "decided": 2,
-        "done": 6,
-        "partial": 3,
+        "done": 7,
+        "partial": 2,
         "passing": 4,
-        "todo": 2,
+        "todo": 3,
         "verified": 1
       },
       "scope": null,
@@ -50405,14 +50399,13 @@
       ],
       "rollup": {
         "approved": 7,
-        "blocked": 1,
         "current": 3,
         "decided": 2,
-        "done": 6,
+        "done": 7,
         "in-progress": 1,
-        "partial": 3,
+        "partial": 2,
         "passing": 4,
-        "todo": 2,
+        "todo": 3,
         "verified": 1
       },
       "scope": null,
@@ -55616,18 +55609,18 @@
       "related": [],
       "rollup": {
         "approved": 9,
-        "blocked": 179,
+        "blocked": 178,
         "current": 12,
         "decided": 4,
-        "done": 18,
+        "done": 19,
         "draft": 103,
         "in-progress": 16,
         "missing": 145,
         "needs-decision": 20,
-        "partial": 3,
+        "partial": 2,
         "passing": 4,
         "reference": 31,
-        "todo": 83,
+        "todo": 84,
         "verified": 1
       },
       "scope": null,
@@ -71277,11 +71270,10 @@
       ],
       "rollup": {
         "approved": 2,
-        "blocked": 1,
         "current": 1,
-        "done": 1,
-        "partial": 1,
-        "passing": 1
+        "done": 2,
+        "passing": 1,
+        "todo": 1
       },
       "scope": null,
       "screens": [
@@ -71316,7 +71308,7 @@
       "decision": null,
       "depends": [],
       "dir": "tasks/T-066-be Backend · Settle an order and confirm it on s52",
-      "effectiveStatus": "partial",
+      "effectiveStatus": "done",
       "effort": "M",
       "feature": "pay-for-an-order",
       "frontendOnly": false,
@@ -71334,13 +71326,7 @@
         "task:T-066"
       ],
       "path": "tasks/T-066-be Backend · Settle an order and confirm it on s52/T-066-be Backend · Settle an order and confirm it on s52.md",
-      "pending": [
-        {
-          "person": "qa",
-          "text": "QA Backend run on the T-066 build (T-066-be QA Backend not written yet)",
-          "to": null
-        }
-      ],
+      "pending": [],
       "priority": "high",
       "related": [
         "backend-delivery:T-066-be",
@@ -71381,13 +71367,7 @@
     },
     "task:T-066-fe": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-066-be",
-          "title": "T-066-be Backend · Settle an order and confirm it on s52",
-          "why": "T-066-be Backend · Settle an order and confirm it on s52 is partial"
-        }
-      ],
+      "blockedBy": [],
       "card": "T-066-fe",
       "children": [
         "frontend-requirements:T-066-fe"
@@ -71399,7 +71379,7 @@
         "task:T-066-be"
       ],
       "dir": "tasks/T-066-fe Frontend · Settle an order and confirm it on s52",
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "todo",
       "effort": "M",
       "feature": "pay-for-an-order",
       "frontendOnly": false,

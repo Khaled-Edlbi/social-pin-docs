@@ -119,7 +119,6 @@ kanban-plugin: board
 - [ ] [[T-050 Post-event summary and follow-ups]] #high #post-event
 - [ ] [[T-050-be Backend · Post-event summary and follow-ups]] #high #post-event #backend
 - [ ] [[T-050-fe Frontend · Post-event summary and follow-ups]] #high #post-event #frontend
-- [ ] [[T-066-fe Frontend · Settle an order and confirm it on s52]] #high #pay-for-an-order #frontend
 - [ ] [[T-013 Usage count per file across Rings]] #medium #photo-library
 - [ ] [[T-013-be Backend · Usage count per file across Rings]] #medium #photo-library #backend
 - [ ] [[T-013-fe Frontend · Usage count per file across Rings]] #medium #photo-library #frontend
@@ -191,6 +190,7 @@ kanban-plugin: board
 - [ ] [[T-054-be Backend · Cleanup jobs]] #high #cleanup-jobs #backend
 - [ ] [[T-065 Open a Stripe checkout for an order]] #high #pay-for-an-order
 - [ ] [[T-066 Settle an order and confirm it on s52]] #high #pay-for-an-order
+- [ ] [[T-066-fe Frontend · Settle an order and confirm it on s52]] #high #pay-for-an-order #frontend
 - [ ] [[T-031-be Backend · Import contacts]] #medium #discover-hub #backend
 
 
@@ -200,7 +200,6 @@ kanban-plugin: board
 
 ## 🟡 Partial (done, notes pending)
 
-- [ ] [[T-066-be Backend · Settle an order and confirm it on s52]] #high #pay-for-an-order #backend — @qa: QA Backend run on the T-066 build (T-066-be QA Backend not written yet)
 
 
 ## ✅ Done
@@ -209,6 +208,7 @@ kanban-plugin: board
 - [x] [[T-064 Restructure the docs vault]] #high #error-contract
 - [x] [[T-065-be Backend · Open a Stripe checkout for an order]] #high #pay-for-an-order #backend
 - [x] [[T-065-fe Frontend · Open a Stripe checkout for an order]] #high #pay-for-an-order #frontend
+- [x] [[T-066-be Backend · Settle an order and confirm it on s52]] #high #pay-for-an-order #backend
 
 
 %% kanban:settings
