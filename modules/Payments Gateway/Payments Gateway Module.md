@@ -3,7 +3,7 @@ type: module
 id: payments-gateway
 name: "Payments Gateway"
 owner: "khaled"
-updated: 2026-10-21
+updated: 2026-10-25
 tags: [module, module/payments-gateway]
 ---
 
@@ -19,7 +19,7 @@ A module is the sum of its features; a feature is the sum of its tasks. Each fea
 
 | Feature | Backend | Story | Frontend req. | Backend | Frontend | QA |
 |---|---|---|---|---|---|---|
-| [[Pay for an order]] | ✅ Done (simulated) | [[Pay for an order Story\|Story]] | [[Pay for an order Frontend Requirements\|Req.]] | [[Pay for an order Backend Delivery\|Delivery]] · [[Pay for an order Backend Integration\|Integration]] | [[Pay for an order Frontend Delivery\|Delivery]] | [[Pay for an order QA Backend\|Backend]] · [[Pay for an order QA Frontend\|Frontend]] |
+| [[Pay for an order]] | ⬜ To do | [[Pay for an order Story\|Story]] | [[Pay for an order Frontend Requirements\|Req.]] | [[Pay for an order Backend Delivery\|Delivery]] · [[Pay for an order Backend Integration\|Integration]] | [[Pay for an order Frontend Delivery\|Delivery]] | [[Pay for an order QA Backend\|Backend]] · [[Pay for an order QA Frontend\|Frontend]] |
 
 After [[Pay for an order]], the next features in the order the product needs them (each is the owner's to create, [[Owner Agent#4I · Create a feature]]):
 
