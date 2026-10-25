@@ -4819,7 +4819,7 @@
     }
   },
   "counts": {
-    "blocked": 155,
+    "blocked": 154,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -4840,7 +4840,7 @@
     },
     "concepts": 182,
     "decisions": 16,
-    "edges": 4822,
+    "edges": 4821,
     "features": 39,
     "layerNotes": 185,
     "modules": 8,
@@ -6117,11 +6117,6 @@
       "from": "story:gemma",
       "kind": "blocks",
       "to": "frontend-requirements:gemma"
-    },
-    {
-      "from": "story:payments",
-      "kind": "blocks",
-      "to": "frontend-requirements:payments"
     },
     {
       "from": "story:photo-library",
@@ -42846,7 +42841,7 @@
       "deadline": null,
       "depends": [],
       "dir": "modules/Commerce/Payments & Orders",
-      "effectiveStatus": "todo",
+      "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "payments",
       "frontendOnly": false,
@@ -42879,7 +42874,8 @@
       ],
       "release": "v1",
       "rollup": {
-        "blocked": 2,
+        "approved": 1,
+        "blocked": 1,
         "decided": 1,
         "draft": 2,
         "missing": 4,
@@ -46872,20 +46868,14 @@
     },
     "frontend-requirements:payments": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "story:payments",
-          "title": "Payments & Orders Story",
-          "why": "Payments & Orders Story is draft"
-        }
-      ],
+      "blockedBy": [],
       "card": "FR-27",
       "children": [],
       "code": "payments",
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "payments",
       "frontendOnly": false,
@@ -47799,14 +47789,14 @@
       "related": [],
       "release": null,
       "rollup": {
-        "approved": 1,
-        "blocked": 4,
+        "approved": 2,
+        "blocked": 3,
         "decided": 1,
         "draft": 4,
-        "in-progress": 1,
+        "in-progress": 2,
         "missing": 8,
         "needs-decision": 1,
-        "todo": 4,
+        "todo": 3,
         "verified": 1
       },
       "scope": null,
@@ -53105,17 +53095,17 @@
         }
       ],
       "rollup": {
-        "approved": 30,
-        "blocked": 155,
+        "approved": 31,
+        "blocked": 154,
         "current": 9,
         "decided": 12,
         "done": 17,
         "draft": 94,
-        "in-progress": 43,
+        "in-progress": 44,
         "missing": 145,
         "needs-decision": 9,
         "reference": 31,
-        "todo": 54,
+        "todo": 53,
         "verified": 12
       },
       "scope": null,
@@ -57447,7 +57437,7 @@
       "depends": [
         "decision:D-07"
       ],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "payments",
       "frontendOnly": false,
@@ -57488,11 +57478,11 @@
         "s53",
         "s68"
       ],
-      "status": "draft",
+      "status": "approved",
       "summary": "A visitor has picked a package, a sub-event or an in-event upgrade and now pays for it. An order freezes what they saw and at what price; a payment records how it was settled and by whom; Stripe's…",
       "tags": [
         "story",
-        "story/draft",
+        "story/approved",
         "module/commerce",
         "layer/business"
       ],
