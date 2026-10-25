@@ -6,21 +6,17 @@ feature: rings
 module: identity
 status: draft
 screens: [s08, s09, s16, s17, s18, s19, s20, s21, s22, s26, s62]
-updated: 2026-10-18
+updated: 2026-10-25
+owner: "omar"
+related: ["DR-04 Ring settings at launch and their defaults", "DR-05 Inherit per field, copy without members", "DR-14 Shared with me lists people, never the Ring"]
 tags: [story, story/draft, module/identity, layer/business]
 ---
 
 # Rings · User Story
 
-> ⚠ Affected by [[DR-04 Ring settings at launch and their defaults]] (2026-10-25): D-04 decided, six Ring settings at launch with private defaults (join with a code or invite, approve each one, members can't see each other, invite or save attachments); the owner and the Ring's admins change them; members who may see each other see full cards.
-
-> ⚠ Affected by [[DR-05 Inherit per field, copy without members]] (2026-10-25): D-05 decided, a Ring inherits the main profile field by field until it changes that field; copying a Ring copies fields, bio, photo, colour and settings, never members.
-
-> ⚠ Affected by [[DR-14 Shared with me lists people, never the Ring]] (2026-10-25): D-14 decided, option 2: Shared with me lists the people who share with me and never shows a Ring's name, colour or type to a member.
-
 **Feature:** [[Rings]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Rings Frontend Requirements]] · **Backend Integration:** [[Rings Backend Integration]]
 
-A person has one profile and many audiences. A Ring is one audience bound to one perspective: Family, Clients, Company, a temporary Event Ring. The owner creates Rings, names and colours them, gives them a window, picks the default (what a scanned badge or a Pin-name lookup resolves to), and, when a temporary Ring lapses, decides whether to keep it, merge it into another, or let it go. Members see the Rings shared with them on a separate list and never the owner's roster.
+A person has one profile and many audiences. A Ring is one audience bound to one perspective: Family, Clients, Company, a temporary Event Ring. The owner creates Rings, names and colours them, gives them a window, picks the default (what a scanned badge or a Pin-name lookup resolves to), and, when a temporary Ring lapses, decides whether to keep it, merge it into another, or let it go. Each Ring has a few settings (who it's for, who can join, approve each request, what members may do), all private by default ([[DR-04 Ring settings at launch and their defaults]]). Members see the people who share with them on a separate list, never a Ring's name or the owner's roster ([[DR-14 Shared with me lists people, never the Ring]]).
 
 ## Persona
 
@@ -49,11 +45,13 @@ Acceptance criteria:
 
 ### S3 · Shared with me ([[Screen Index#s17|s17]])
 
-**As a** member **I want** to see the Rings others shared with me **so that** I can open the perspective they gave me.
+**As a** member **I want** to see everyone who shares with me **so that** I can open the card each of them gave me.
 
 Acceptance criteria:
-- [ ] `GET /rings/shared-with-me`, newest first; only Rings whose access is live right now; refetched on screen focus because it changes without any action of mine.
-- [ ] A row shows the Ring's name and colour and opens the owner's projection through `GET /views/ring/:id`; it never shows a roster or my own membership row.
+- [ ] `GET /rings/shared-with-me`, newest first; only access that is live right now; refetched on screen focus because it changes without any action of mine.
+- [ ] Shared with me is **everyone who shares with me**, however I got in (accepted from a request, added by the owner, an invitation, a code, a company), one row per person ([[DR-14 Shared with me lists people, never the Ring]]).
+- [ ] A row shows **the person** ("Sam's card": their name and photo from their projection), **never the Ring's name, colour or type**, and opens the owner's projection through `GET /views/ring/:id`; it never shows a roster or my own membership row. Not available yet: the endpoint returns the Ring's name, colour and type to members today; the app must not display them until it changes.
+- [ ] Someone who shares several Rings with me is one row; it opens the version from the Ring I was put in first ([[DR-15 Several Rings per connection, remove or disconnect]]).
 - [ ] "Review invite" and "Join with a code" are shown disabled until invitations exist.
 - [ ] Empty state: "Nothing shared with you yet".
 
@@ -62,8 +60,9 @@ Acceptance criteria:
 **As a** Ring owner **I want** a four-step wizard, name → who is in it → what it shows → how you appear, **so that** a Ring is complete when I tap Create.
 
 Acceptance criteria:
-- [ ] Step 1 (s18): name (1–80, unique per owner), colour, type picker limited to `PERSONAL` / `CORPORATE`, temporary switch with `startsAt` / `expiresAt`; "Copy a Ring" disabled until [[D-05 Copy or inherit]]. Next calls `POST /rings` so later steps have a Ring to write to.
-- [ ] Step 2 (s19): the audience settings the design shows are placeholders until [[D-04 Ring settings]]; adding people goes through the roster once a `userId` source exists.
+- [ ] Step 1 (s18): name (1–80, unique per owner), colour, type picker limited to `PERSONAL` / `CORPORATE`, temporary switch with `startsAt` / `expiresAt`. Next calls `POST /rings` so later steps have a Ring to write to.
+- [ ] "Copy a Ring" on step 1 copies another of my Rings' fields, bio, photo, colour and settings, **never its members**; afterwards the two Rings are independent ([[DR-05 Inherit per field, copy without members]]). Not available yet: no copy endpoint; the action is shown disabled.
+- [ ] Step 2 (s19): the launch settings with their defaults, as in S9; adding people goes through the roster once a `userId` source exists. Not available yet: the settings do not exist on a Ring.
 - [ ] Step 3 (s20) and step 4 (s21) edit the projection ([[Ring Projection Story]]); "Create Ring" lands on s14.
 - [ ] A 409 `E_RING_01` on the name is inline on step 1; Cancel deletes the Ring created in step 1.
 
@@ -73,7 +72,7 @@ Acceptance criteria:
 
 Acceptance criteria:
 - [ ] `PATCH /rings/:id { name?, colorHex?, style? }`; Save returns to s14 and the Ring re-composes with the new header.
-- [ ] "Purpose" is a placeholder until [[D-04 Ring settings]].
+- [ ] "Purpose" is the **who it's for** label ("Clients", "Investors"), empty by default ([[DR-04 Ring settings at launch and their defaults]]). Not available yet: shown as a placeholder until the setting exists.
 
 ### S6 · Edit access and expiry ([[Screen Index#s26|s26]])
 
@@ -83,7 +82,7 @@ Acceptance criteria:
 - [ ] `PATCH /rings/:id { startsAt?, expiresAt?, isTemporary? }`; `null` clears a bound; the copy explains expiry applies to every member at that instant.
 - [ ] An expired Ring remains editable here; its members cannot read it.
 - [ ] "Delete Ring" behind a confirmation; `DELETE /rings/:id`; 409 `E_RING_04` on the default reads "Choose another default first".
-- [ ] Settings and Permissions (s27) are placeholders until [[D-04 Ring settings]] and [[T-006 Delegated admin endpoints]].
+- [ ] Settings and Permissions (s27) are S9; until the settings exist and [[T-006 Delegated admin endpoints]] ships, they stay placeholders.
 
 ### S7 · Make a Ring the default ([[Screen Index#s16|s16]])
 
@@ -103,6 +102,17 @@ Acceptance criteria:
 - [ ] Motion: keep stays, merge shows two Rings combining, delete collapses out.
 - [ ] The preview on this sheet must not use `GET /views/ring/:id`, which is a 404 for an expired Ring.
 
+### S9 · Ring settings ([[Screen Index#s19|s19]], [[Screen Index#s26|s26]], [[Screen Index#s27|s27]])
+
+**As a** Ring owner **I want** a short list of settings with safe defaults **so that** a Ring is private until I open it up ([[DR-04 Ring settings at launch and their defaults]]).
+
+Acceptance criteria:
+- [ ] Six settings at launch, with these defaults on a new Ring: **who it's for** (a label, empty), **who can request to join** (anyone who scans, only with a code, or only invited; default **only with a code or by invitation**), **approve each one** (on; off means auto-accept), **members can see each other** (off), **members can invite others** (off), **members can save attachments** (off).
+- [ ] When "members can see each other" is on, members see each other's **full cards**, not just names; while it is off, only the owner sees who is in the Ring.
+- [ ] **The owner and the Ring's admins** can change the settings ([[Delegated Admins Story]]); a member cannot.
+- [ ] Not shown at launch: required work email domain (comes with [[Companies]]), members can message me (comes with messaging), see when I'm at an event (comes with events).
+- [ ] Not available yet: none of these settings exist on a Ring.
+
 ## States and motion the design asks for
 
 - State: default star, temporary badge, expired chip, archived, disposition pending, empty lists, read-only (403), name clash.
@@ -119,5 +129,7 @@ Acceptance criteria:
 
 ## Open questions
 
-- [[D-04 Ring settings]] — who the Ring is for, join policy, members can see each other, required email domain (s19, s22, s26, s27). Blocks step 2 and the access / permissions screens.
-- [[D-05 Copy or inherit]] — "Copy a Ring" on s18.
+- Decided: [[DR-04 Ring settings at launch and their defaults]] (S9, step 2, purpose), [[DR-05 Inherit per field, copy without members]] (Copy a Ring), [[DR-14 Shared with me lists people, never the Ring]] (S3). Building them is not ticketed yet.
+- Whose card a member sees when members can see each other; whether an admin may change every setting (DR-04, *Still open*).
+- Whether a copied Ring's fields keep inheriting where the source Ring inherited (DR-05, *Still open*).
+- Whether a Ring joined openly (a company or event Ring) may show its name to members (DR-14, *Still open*).
