@@ -8,7 +8,7 @@ decider: "owner"
 screens: [s17, s46]
 affects: []
 related: ["Connections", "Rings", "View As & Pin Views"]
-owner: "khaled"
+owner: "omar"
 created: 2026-10-25
 updated: 2026-10-25
 tags: [decision, decision/draft]
