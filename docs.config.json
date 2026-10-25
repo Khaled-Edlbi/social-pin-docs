@@ -209,8 +209,7 @@
         "label": "QA",
         "note": "project/QA Agent.md",
         "layer": "qa",
-        "writes": { "types": ["decision"], "kinds": ["qa-backend", "qa-frontend"], "taskLabels": ["bug"] },
-        "signs": ["story"]
+        "writes": { "types": ["decision"], "kinds": ["qa-backend", "qa-frontend"], "taskLabels": ["bug"] }
       },
       {
         "id": "admin",

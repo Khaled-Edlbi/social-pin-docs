@@ -23,7 +23,7 @@ tags: [qa-backend, qa-backend/draft, module/<module>, layer/qa]
 
 **Feature:** [[<Feature name>]] · **Verifies:** [[<Feature name> Backend Delivery]] against [[<Feature name> Story]] and [[<Feature name> Frontend Requirements]] · **Verdict:** Draft
 
-Expected behaviour of the API, as artefacts a person can check a build against: tables and diagrams, **not test code** (the specs live in the backend repo). `status: passing` or `failing` after a run; the verdict feeds the story's `verified`.
+Expected behaviour of the API, as artefacts a person can check a build against: tables and diagrams, **not test code** (the specs live in the backend repo). `status: passing` or `failing` after a run; the verdict tells the PM whether the story can be fulfilled (passing with nothing pending).
 
 ## Scope
 

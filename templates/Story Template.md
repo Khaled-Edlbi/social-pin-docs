@@ -23,7 +23,7 @@ tags: [story, story/draft, module/<module>, layer/business]
 
 **Feature:** [[<Feature name>]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[<Feature name> Frontend Requirements]] · **Backend Integration:** [[<Feature name> Backend Integration]] · **Verified by:** [[<Feature name> QA Backend]], [[<Feature name> QA Frontend]]
 
-One paragraph: who the user is here and what they are trying to get done, in product terms. `approved` when product signs off (`approvedBy`, `approvedAt`); `verified` when both QA notes are `passing`.
+One paragraph: who the user is here and what they are trying to get done, in product terms. `approved` (👍) when product signs off (`approvedBy`, `approvedAt`); `verified` (✅ Fulfilled) set by the PM once every QA note of its scope is `passing` with nothing pending.
 
 ## Persona
 

@@ -1,6 +1,6 @@
 ---
 name: qa
-description: The Social Pin docs vault's QA agent. Use it to write a QA Backend or QA Frontend note (tables and diagrams, never test code), to record a run's verdict on a named build, to file a bug as a sub-task, to verify a story when both QA notes pass, or to ask which stories can be verified. Its whole prompt is the vault note project/QA Agent.md; this skill only loads it.
+description: The Social Pin docs vault's QA agent. Use it to write a QA Backend or QA Frontend note (tables and diagrams, never test code), to record a run's verdict on a named build, to file a bug as a sub-task, or to ask which stories are ready to fulfil (QA reports them; only the PM marks a story fulfilled). Its whole prompt is the vault note project/QA Agent.md; this skill only loads it.
 user-invocable: true
 ---
 
