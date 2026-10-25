@@ -9,13 +9,12 @@ module: shared-rings
 screens: [s17]
 depends: [D-04]
 created: 2026-10-15
-updated: 2026-10-19
+updated: 2026-10-25
+owner: "omar"
 tags: [task, task/needs-info, module/shared-rings, priority/high]
 ---
 
 # ❓ T-026 · Ring invitations: invite, review, decline
-
-> ⚠ Affected by [[DR-04 Ring settings at launch and their defaults]] (2026-10-25): D-04 decided, six Ring settings at launch with private defaults (join with a code or invite, approve each one, members can't see each other, invite or save attachments); this task no longer waits on D-04.
 
 **Feature:** [[Ring Invitations & Join]] · **Status:** Needs a decision / info · **Priority:** High · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
 
@@ -23,7 +22,7 @@ tags: [task, task/needs-info, module/shared-rings, priority/high]
 
 ## What
 
-Likely a `RingMember` in an INVITED state with accept / decline endpoints. Notification on invite.
+Likely a `RingMember` in an INVITED state with accept / decline endpoints. Notification on invite. Joining by invitation is one of the launch values of "who can request to join" (default: with a code or by invitation), and "members can invite others" is a launch setting, off by default ([[DR-04 Ring settings at launch and their defaults]]).
 
 ## Design
 
@@ -31,7 +30,7 @@ Likely a `RingMember` in an INVITED state with accept / decline endpoints. Notif
 
 ## Dependencies
 
-- Waits on decision [[D-04 Ring settings]]
+- Waited on decision [[D-04 Ring settings]], decided by [[DR-04 Ring settings at launch and their defaults]]
 - Unblocks [[T-027 Join a Ring with a code or verified work email]]
 
 ## Definition of done
@@ -45,3 +44,4 @@ Likely a `RingMember` in an INVITED state with accept / decline endpoints. Notif
 ## Log
 
 - 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
+- 2026-10-25 · D-04 decided ([[DR-04 Ring settings at launch and their defaults]]); What and Dependencies updated, flag cleared. Status left as typed (needs-info) until product says it can move to todo.
