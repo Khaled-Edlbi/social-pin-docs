@@ -1,7 +1,7 @@
 ---
 type: decision
 id: D-15
-status: draft
+status: open
 features: [connections]
 blocks: ["T-023 Story"]
 decider: "owner"
@@ -11,12 +11,12 @@ related: ["Connections", "Ring Members"]
 owner: "khaled"
 created: 2026-10-25
 updated: 2026-10-25
-tags: [decision, decision/draft]
+tags: [decision, decision/open]
 ---
 
-# ❓ D-15 · One Ring or several per connection
+# ✅ D-15 · One Ring or several per connection
 
-**Status:** draft · **Decider:** owner · **Raised:** 2026-10-25 · **Needed by:** [[T-023 Story]] · **Feature:** [[Connections]]
+**Status:** open · **Decider:** owner · **Raised:** 2026-10-25 · **Needed by:** [[T-023 Story]] · **Feature:** [[Connections]]
 
 > The needs-decision card: `draft` while the question is written, `open` once it is ready for the decider; it shows **Fulfilled** by itself once its decision card (DR-NN) is `decided`. The cards in `blocks` are **Blocked · D-15** while this is `draft` or `open` and return to their own status once it is fulfilled. Nobody edits their `status:` for this, and nobody types `fulfilled` or `decided` here.
 
@@ -46,4 +46,4 @@ Recommendation: option 1. It matches the design and the API, and revoking access
 
 ## Decision
 
-— (answered on its decision card, never written here: the PM or the owner, on the user's word, runs `node scripts/build-tree.mjs --scaffold record D-15 "<the answer>"`, fills the decision card DR-NN (what was decided, why, what it changes with every feature and task in its `affects`, what stays open) and sets it `decided` with `decidedBy` and `decidedAt`; this card then shows Fulfilled by itself; the H1 gets ✅, and this line is replaced by "Fulfilled by" and a wikilink to the decision card, then "decided <date> by <who>: option <n>"; then `--impact DR-NN` and flag the notes it lists)
+Fulfilled by [[DR-15 Several Rings per connection, remove or disconnect]], decided 2026-10-25 by molham: option 1, with *Remove from Rings* or *Disconnect* offered at the last removal.
