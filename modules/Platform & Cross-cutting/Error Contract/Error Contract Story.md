@@ -4,16 +4,18 @@ code: error-contract
 scope: feature
 feature: error-contract
 module: platform
-status: draft
+status: approved
 screens: []
-owner: "omar"
+approvedBy: "khaled"
+approvedAt: 2026-10-25
+owner: "khaled"
 updated: 2026-10-25
-tags: [story, story/draft, module/platform, layer/business]
+tags: [story, story/approved, module/platform, layer/business]
 ---
 
 # Error Contract · User Story
 
-**Feature:** [[Error Contract]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Error Contract Frontend Requirements]] · **API Integration:** not yet (backend not built)
+**Feature:** [[Error Contract]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[Error Contract Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 Every error state in the app, from "invalid or expired code" on s02 to "this Ring was deleted", is rendered from one error body. The frontend developer needs two things from it: a stable code to branch on and a message to display. Today the body has the message but drops the code, so the client branches on status and endpoint instead. There is no screen; every screen depends on this.
 
