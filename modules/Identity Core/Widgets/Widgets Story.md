@@ -4,18 +4,20 @@ code: widgets
 scope: feature
 feature: widgets
 module: identity
-status: draft
+status: approved
 screens: [s36, s37]
+approvedBy: "khaled"
+approvedAt: 2026-10-25
 created: 2026-10-18
 updated: 2026-10-25
 owner: "omar"
 related: ["DR-03 Links entered once, switched on or off per Ring"]
-tags: [story, story/draft, module/identity, layer/business]
+tags: [story, story/approved, module/identity, layer/business]
 ---
 
 # Widgets · User Story
 
-**Feature:** [[Widgets]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Widgets Frontend Requirements]] · **API Integration:** not yet (backend not built)
+**Feature:** [[Widgets]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[Widgets Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 A Ring owner wants a Ring to do more than list facts: show availability for a meeting, a way to pay, what they are playing, a testimonial, a map, a gallery. Widgets are blocks on a Ring's projection, ordered and switchable per Ring, and rendered to viewers through the same perspective as everything else. They are built on the library model D-03 chose for links ([[DR-03 Links entered once, switched on or off per Ring]]): a widget is set up once and each Ring switches it on or off. The table exists; the endpoints and the design's full type list do not.
 
