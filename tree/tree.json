@@ -4819,7 +4819,7 @@
     }
   },
   "counts": {
-    "blocked": 169,
+    "blocked": 168,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -4840,7 +4840,7 @@
     },
     "concepts": 182,
     "decisions": 16,
-    "edges": 4836,
+    "edges": 4835,
     "features": 39,
     "layerNotes": 185,
     "modules": 8,
@@ -6132,11 +6132,6 @@
       "from": "story:events-during",
       "kind": "blocks",
       "to": "frontend-requirements:events-during"
-    },
-    {
-      "from": "story:exhibitor",
-      "kind": "blocks",
-      "to": "frontend-requirements:exhibitor"
     },
     {
       "from": "story:gemma",
@@ -42307,7 +42302,7 @@
       "deadline": null,
       "depends": [],
       "dir": "modules/Events/Exhibitor",
-      "effectiveStatus": "todo",
+      "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "exhibitor",
       "frontendOnly": false,
@@ -42340,7 +42335,8 @@
       ],
       "release": "v1",
       "rollup": {
-        "blocked": 8,
+        "approved": 1,
+        "blocked": 7,
         "draft": 3,
         "missing": 4
       },
@@ -46549,20 +46545,14 @@
     },
     "frontend-requirements:exhibitor": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "story:exhibitor",
-          "title": "Exhibitor Story",
-          "why": "Exhibitor Story is draft"
-        }
-      ],
+      "blockedBy": [],
       "card": "FR-24",
       "children": [],
       "code": "exhibitor",
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "exhibitor",
       "frontendOnly": false,
@@ -48111,14 +48101,14 @@
       "related": [],
       "release": null,
       "rollup": {
-        "approved": 1,
-        "blocked": 41,
+        "approved": 2,
+        "blocked": 40,
         "decided": 1,
         "draft": 17,
-        "in-progress": 1,
+        "in-progress": 2,
         "missing": 20,
         "needs-decision": 1,
-        "todo": 6,
+        "todo": 5,
         "verified": 1
       },
       "scope": null,
@@ -53243,17 +53233,17 @@
         }
       ],
       "rollup": {
-        "approved": 16,
-        "blocked": 169,
+        "approved": 17,
+        "blocked": 168,
         "current": 9,
         "decided": 12,
         "done": 17,
         "draft": 94,
-        "in-progress": 32,
+        "in-progress": 33,
         "missing": 145,
         "needs-decision": 9,
         "reference": 31,
-        "todo": 65,
+        "todo": 64,
         "verified": 12
       },
       "scope": null,
@@ -57153,7 +57143,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "exhibitor",
       "frontendOnly": false,
@@ -57182,17 +57172,17 @@
         "s64",
         "s65"
       ],
-      "status": "draft",
+      "status": "approved",
       "summary": "An exhibitor starts as a visitor and, at ticket selection or from Me, creates a business account. The business is showcased through a business Ring that sits beside their personal Rings. In event…",
       "tags": [
         "story",
-        "story/draft",
+        "story/approved",
         "module/events",
         "layer/business"
       ],
       "task": null,
       "title": "Exhibitor Story",
-      "updated": "2026-10-18"
+      "updated": "2026-10-25"
     },
     "story:files": {
       "affects": [],
