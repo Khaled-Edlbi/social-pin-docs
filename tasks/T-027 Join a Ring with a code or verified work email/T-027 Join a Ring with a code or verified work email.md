@@ -9,13 +9,12 @@ module: shared-rings
 screens: [s74]
 depends: [D-04, T-026]
 created: 2026-10-15
-updated: 2026-10-19
+updated: 2026-10-25
+owner: "omar"
 tags: [task, task/blocked, module/shared-rings, priority/high]
 ---
 
 # ⛔ T-027 · Join a Ring with a code or verified work email
-
-> ⚠ Affected by [[DR-04 Ring settings at launch and their defaults]] (2026-10-25): D-04 decided, joining with a code is in the launch set (default: code or invite, approve each one); the required work email domain comes later, with Companies, so the verified-work-email half waits for it.
 
 **Feature:** [[Ring Invitations & Join]] · **Status:** Blocked · **Priority:** High · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
 
@@ -23,7 +22,7 @@ tags: [task, task/blocked, module/shared-rings, priority/high]
 
 ## What
 
-Needs `joinPolicy`, join code and `requiredEmailDomain` on the Ring.
+Needs `joinPolicy`, join code and `requiredEmailDomain` on the Ring. Joining with a code is in the launch set ("who can request to join", default: with a code or by invitation; "approve each one" on by default); the required work email domain comes later, with [[Companies]], so the verified-work-email part waits for it ([[DR-04 Ring settings at launch and their defaults]]).
 
 ## Design
 
@@ -31,7 +30,7 @@ Needs `joinPolicy`, join code and `requiredEmailDomain` on the Ring.
 
 ## Dependencies
 
-- Waits on decision [[D-04 Ring settings]]
+- Waited on decision [[D-04 Ring settings]], decided by [[DR-04 Ring settings at launch and their defaults]]
 - Waits on [[T-026 Ring invitations invite, review, decline]]
 - Unblocks [[T-028 What you contribute to a shared Ring]]
 
@@ -46,3 +45,4 @@ Needs `joinPolicy`, join code and `requiredEmailDomain` on the Ring.
 ## Log
 
 - 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
+- 2026-10-25 · D-04 decided ([[DR-04 Ring settings at launch and their defaults]]); What and Dependencies updated, flag cleared. Still waits on T-026.
