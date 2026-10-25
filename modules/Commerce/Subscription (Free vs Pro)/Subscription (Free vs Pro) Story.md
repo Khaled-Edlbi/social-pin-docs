@@ -4,16 +4,19 @@ code: subscription
 scope: feature
 feature: subscription
 module: commerce
-status: draft
+status: approved
 screens: [s34, s70]
+approvedBy: "khaled"
+approvedAt: 2026-10-25
+owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-18
-tags: [story, story/draft, module/commerce, layer/business]
+updated: 2026-10-25
+tags: [story, story/approved, module/commerce, layer/business]
 ---
 
 # Subscription (Free vs Pro) · User Story
 
-**Feature:** [[Subscription (Free vs Pro)]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Subscription (Free vs Pro) Frontend Requirements]] · **API Integration:** not yet (backend not built)
+**Feature:** [[Subscription (Free vs Pro)]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[Subscription (Free vs Pro) Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 A user meets a Pro lock somewhere in the app (a permanent QR on the badge, Smart Match, any-lounge access, Gemma automation) and lands on one subscription screen that explains the two plans and lets them go Pro. The lock itself is a server decision: `User.accountType` and a `Subscription` row exist in the schema, but there is no endpoint and no single gate yet, so no screen can show a truthful lock today.
 
