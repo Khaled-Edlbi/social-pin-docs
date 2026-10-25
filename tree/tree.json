@@ -4819,7 +4819,7 @@
     }
   },
   "counts": {
-    "blocked": 159,
+    "blocked": 158,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -4840,7 +4840,7 @@
     },
     "concepts": 182,
     "decisions": 16,
-    "edges": 4826,
+    "edges": 4825,
     "features": 39,
     "layerNotes": 185,
     "modules": 8,
@@ -6107,11 +6107,6 @@
       "from": "story:connections",
       "kind": "blocks",
       "to": "frontend-requirements:connections"
-    },
-    {
-      "from": "story:counts",
-      "kind": "blocks",
-      "to": "frontend-requirements:counts"
     },
     {
       "from": "story:delegated-admins",
@@ -41595,7 +41590,7 @@
       "deadline": null,
       "depends": [],
       "dir": "modules/Identity Core/Counts",
-      "effectiveStatus": "todo",
+      "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "counts",
       "frontendOnly": false,
@@ -41625,8 +41620,8 @@
       ],
       "release": "v1",
       "rollup": {
-        "approved": 1,
-        "blocked": 6,
+        "approved": 2,
+        "blocked": 5,
         "draft": 2,
         "missing": 4,
         "todo": 2
@@ -46034,20 +46029,14 @@
     },
     "frontend-requirements:counts": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "story:counts",
-          "title": "Counts Story",
-          "why": "Counts Story is draft"
-        }
-      ],
+      "blockedBy": [],
       "card": "FR-03",
       "children": [],
       "code": "counts",
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "counts",
       "frontendOnly": false,
@@ -48079,16 +48068,16 @@
       "related": [],
       "release": null,
       "rollup": {
-        "approved": 5,
-        "blocked": 30,
+        "approved": 6,
+        "blocked": 29,
         "current": 9,
         "decided": 6,
         "done": 15,
         "draft": 21,
-        "in-progress": 12,
+        "in-progress": 13,
         "missing": 43,
         "needs-decision": 2,
-        "todo": 10,
+        "todo": 9,
         "verified": 6
       },
       "scope": null,
@@ -53145,17 +53134,17 @@
         }
       ],
       "rollup": {
-        "approved": 26,
-        "blocked": 159,
+        "approved": 27,
+        "blocked": 158,
         "current": 9,
         "decided": 12,
         "done": 17,
         "draft": 94,
-        "in-progress": 41,
+        "in-progress": 42,
         "missing": 145,
         "needs-decision": 9,
         "reference": 31,
-        "todo": 56,
+        "todo": 55,
         "verified": 12
       },
       "scope": null,
@@ -56574,7 +56563,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "counts",
       "frontendOnly": false,
@@ -56609,11 +56598,11 @@
         "s17",
         "s68"
       ],
-      "status": "draft",
+      "status": "approved",
       "summary": "A Ring owner glances at Home or My Rings and wants a sense of scale: how many people each Ring reaches (\"148 people\"), how many Rings they own and how many were shared with them, and, on Me, how…",
       "tags": [
         "story",
-        "story/draft",
+        "story/approved",
         "module/identity",
         "layer/business"
       ],

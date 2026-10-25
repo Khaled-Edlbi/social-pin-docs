@@ -4,18 +4,20 @@ code: counts
 scope: feature
 feature: counts
 module: identity
-status: draft
+status: approved
 screens: [s11, s12, s14, s16, s17, s68]
+approvedBy: "khaled"
+approvedAt: 2026-10-25
 owner: "omar"
 created: 2026-10-18
 updated: 2026-10-25
 related: ["DR-04 Ring settings at launch and their defaults", "DR-14 Shared with me lists people, never the Ring"]
-tags: [story, story/draft, module/identity, layer/business]
+tags: [story, story/approved, module/identity, layer/business]
 ---
 
 # Counts · User Story
 
-**Feature:** [[Counts]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Counts Frontend Requirements]] · **API Integration:** not yet (backend not built)
+**Feature:** [[Counts]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[Counts Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 A Ring owner glances at Home or My Rings and wants a sense of scale: how many people each Ring reaches ("148 people"), how many Rings they own and how many were shared with them, and, on Me, how many connections they have ("218 connections"). The numbers are derived from data that exists today; what is missing is a way to read them.
 
