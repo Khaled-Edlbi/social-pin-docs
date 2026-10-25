@@ -5,7 +5,7 @@ name: "Ring Projection"
 priority: critical
 module: identity
 screens: [s14, s20, s23, s24, s25, s29, s36]
-updated: 2026-10-19
+updated: 2026-10-25
 tags: [feature, module/identity, priority/critical]
 ---
 
@@ -22,16 +22,23 @@ What a Ring shows: photo, bio, nickname, theme, social and contact links, info b
 | Screen | Name | Note |
 |---|---|---|
 | [[Screen Index#s14|s14]] | Ring data |  |
-| [[Screen Index#s20|s20]] | New Ring · step 3 (what it shows) | Field library → D-03 |
-| [[Screen Index#s23|s23]] | Edit · how you appear | Inherit → D-05 / D-02 |
-| [[Screen Index#s24|s24]] | Edit · what it shows | "4 of 7 on" → D-03 |
+| [[Screen Index#s20|s20]] | New Ring · step 3 (what it shows) | Field library decided (DR-03), not built |
+| [[Screen Index#s23|s23]] | Edit · how you appear | Inherit decided (DR-05, DR-02), not built |
+| [[Screen Index#s24|s24]] | Edit · what it shows | "4 of 7 on" decided (DR-03), not built |
 | [[Screen Index#s25|s25]] | Edit · social profiles |  |
-| [[Screen Index#s29|s29]] | Photo for this Ring | "Reset to Pin" → D-02 |
+| [[Screen Index#s29|s29]] | Photo for this Ring | "Reset to Pin" decided (DR-02, DR-05), not built |
 | [[Screen Index#s36|s36]] | Add to this Ring |  |
 
 Wireframe brief sections: [[Wireframe Brief#Home — Rings hub + active profile|§4.1 Home — Rings hub + active profile]], [[Wireframe Brief#Ring management|§4.2 Ring management]], [[Wireframe Brief#Account, subscription & settings|§12 Account, subscription & settings]]
 
 Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map in [[Navigation Map]], see [[Design Reference]].
+
+## Product rules
+
+- A Ring shows the **main profile** unless it changed a field for itself; it may change headline, company, location, photo and bio, never the full name ([[DR-02 One main profile every Ring starts from]]).
+- **Inheritance is per field**: editing one field in a Ring stops that field only from following the main profile; "Reset to Pin" returns it ([[DR-05 Inherit per field, copy without members]]). A Ring that changed a field keeps its value when the main one changes.
+- **Links are entered once** and each Ring only switches them **on or off**; a link never has a different value in different Rings ([[DR-03 Links entered once, switched on or off per Ring]]). The type is detected from the pasted link; booking, Behance, Dribbble, GitHub and YouTube join today's types.
+- Not built yet: today each Ring keeps its own copy of every link and info block, and there is no main profile to inherit from.
 
 ## Tasks
 
