@@ -4803,7 +4803,7 @@
     }
   },
   "counts": {
-    "blocked": 181,
+    "blocked": 178,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -6058,11 +6058,6 @@
       "to": "frontend-requirements:auth"
     },
     {
-      "from": "story:badge-qr",
-      "kind": "blocks",
-      "to": "frontend-requirements:badge-qr"
-    },
-    {
       "from": "story:cleanup-jobs",
       "kind": "blocks",
       "to": "frontend-requirements:cleanup-jobs"
@@ -6108,11 +6103,6 @@
       "to": "frontend-requirements:e2e-tests"
     },
     {
-      "from": "story:error-contract",
-      "kind": "blocks",
-      "to": "frontend-requirements:error-contract"
-    },
-    {
       "from": "story:event-ring-auto",
       "kind": "blocks",
       "to": "frontend-requirements:event-ring-auto"
@@ -6131,11 +6121,6 @@
       "from": "story:exhibitor",
       "kind": "blocks",
       "to": "frontend-requirements:exhibitor"
-    },
-    {
-      "from": "story:files",
-      "kind": "blocks",
-      "to": "frontend-requirements:files"
     },
     {
       "from": "story:gemma",
@@ -40412,7 +40397,7 @@
       "deadline": null,
       "depends": [],
       "dir": "modules/Discovery/Badge & QR",
-      "effectiveStatus": "todo",
+      "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "badge-qr",
       "frontendOnly": false,
@@ -40451,7 +40436,8 @@
         "decision-record:DR-06"
       ],
       "rollup": {
-        "blocked": 14,
+        "approved": 1,
+        "blocked": 13,
         "draft": 6,
         "missing": 4,
         "todo": 2
@@ -41147,7 +41133,8 @@
         "project:spec-map"
       ],
       "rollup": {
-        "blocked": 3,
+        "approved": 1,
+        "blocked": 2,
         "done": 1,
         "draft": 2,
         "missing": 4,
@@ -41510,7 +41497,8 @@
         "decision:D-16"
       ],
       "rollup": {
-        "blocked": 3,
+        "approved": 1,
+        "blocked": 2,
         "current": 1,
         "done": 1,
         "draft": 2,
@@ -44789,19 +44777,13 @@
     },
     "frontend-requirements:badge-qr": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "story:badge-qr",
-          "title": "Badge & QR Story",
-          "why": "Badge & QR Story is draft"
-        }
-      ],
+      "blockedBy": [],
       "card": "FR-18",
       "children": [],
       "code": "badge-qr",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "badge-qr",
       "frontendOnly": false,
@@ -45309,19 +45291,13 @@
     },
     "frontend-requirements:error-contract": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "story:error-contract",
-          "title": "Error Contract Story",
-          "why": "Error Contract Story is draft"
-        }
-      ],
+      "blockedBy": [],
       "card": "FR-35",
       "children": [],
       "code": "error-contract",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "error-contract",
       "frontendOnly": false,
@@ -45573,19 +45549,13 @@
     },
     "frontend-requirements:files": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "story:files",
-          "title": "Files Upload Story",
-          "why": "Files Upload Story is draft"
-        }
-      ],
+      "blockedBy": [],
       "card": "FR-04",
       "children": [],
       "code": "files",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "files",
       "frontendOnly": false,
@@ -46931,7 +46901,7 @@
       "code": null,
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "todo",
+      "effectiveStatus": "in-progress",
       "effort": null,
       "feature": null,
       "frontendOnly": false,
@@ -46952,11 +46922,13 @@
       "priority": null,
       "related": [],
       "rollup": {
-        "blocked": 21,
+        "approved": 1,
+        "blocked": 20,
         "draft": 11,
+        "in-progress": 1,
         "missing": 12,
         "needs-decision": 1,
-        "todo": 10
+        "todo": 9
       },
       "scope": null,
       "screens": [],
@@ -47070,7 +47042,8 @@
       "priority": null,
       "related": [],
       "rollup": {
-        "blocked": 34,
+        "approved": 1,
+        "blocked": 33,
         "current": 9,
         "decided": 6,
         "done": 15,
@@ -47184,7 +47157,8 @@
       "priority": null,
       "related": [],
       "rollup": {
-        "blocked": 41,
+        "approved": 1,
+        "blocked": 40,
         "decided": 2,
         "done": 2,
         "draft": 26,
@@ -51892,16 +51866,17 @@
       "priority": null,
       "related": [],
       "rollup": {
-        "blocked": 181,
+        "approved": 3,
+        "blocked": 178,
         "current": 9,
         "decided": 11,
         "done": 17,
         "draft": 98,
-        "in-progress": 22,
+        "in-progress": 24,
         "missing": 145,
         "needs-decision": 9,
         "reference": 31,
-        "todo": 75,
+        "todo": 73,
         "verified": 11
       },
       "scope": null,
@@ -54855,7 +54830,7 @@
       "code": "badge-qr",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "badge-qr",
       "frontendOnly": false,
@@ -54883,11 +54858,11 @@
         "s44",
         "s56"
       ],
-      "status": "draft",
+      "status": "approved",
       "summary": "The badge is the centre tab and the physical moment of the product: two people face to face, one shows a code, the other scans it. The code is bound to the Ring the owner has active at that…",
       "tags": [
         "story",
-        "story/draft",
+        "story/approved",
         "module/discovery",
         "layer/business"
       ],
@@ -55359,7 +55334,7 @@
       "code": "error-contract",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "error-contract",
       "frontendOnly": false,
@@ -55382,11 +55357,11 @@
       "related": [],
       "scope": "feature",
       "screens": [],
-      "status": "draft",
+      "status": "approved",
       "summary": "Every error state in the app, from \"invalid or expired code\" on s02 to \"this Ring was deleted\", is rendered from one error body. The frontend developer needs two things from it: a stable code to…",
       "tags": [
         "story",
-        "story/draft",
+        "story/approved",
         "module/platform",
         "layer/business"
       ],
@@ -55615,7 +55590,7 @@
       "code": "files",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "files",
       "frontendOnly": false,
@@ -55642,11 +55617,11 @@
         "s20",
         "s36"
       ],
-      "status": "draft",
+      "status": "approved",
       "summary": "A Ring owner wants a Ring to carry a photo and a few documents (a portfolio PDF, a pitch deck) without those files becoming public. Upload is a private step: a file belongs to the uploader and is…",
       "tags": [
         "story",
-        "story/draft",
+        "story/approved",
         "module/identity",
         "layer/business"
       ],
