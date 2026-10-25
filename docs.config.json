@@ -126,6 +126,11 @@
   "defaultBlocks": [],
   "frontendOnly": { "skips": ["backend-delivery", "backend-integration", "qa-backend"] },
   "requiredAtFeatureLevel": ["story", "frontend-requirements", "backend-delivery", "backend-integration", "frontend-delivery", "qa-backend", "qa-frontend"],
+  "taskFlow": {
+    "description": "The card flow a task draws under itself: the same chain a feature draws, at task scope, tied to the task's own story. `kinds` are the slots; a slot with no note yet is a dashed placeholder blocked by the card before it, exactly as at feature level. `tasks` says which tasks draw it: a list of task ids turns it on for those only, which is how a change to the flow is tried on one ticket before the vault takes it; \"all\" turns it on for every task. A task whose feature is frontendOnly skips the kinds in frontendOnly.skips.",
+    "kinds": ["story", "frontend-requirements", "backend-delivery", "backend-integration", "frontend-delivery", "qa-backend", "qa-frontend"],
+    "tasks": ["T-063"]
+  },
   "taskLabels": ["bug", "chore", "spike", "docs", "frontend", "backend"],
   "priorities": {
     "description": "The priority enum every card may carry (priority: <id> in frontmatter, mirrored by the tag priority/<id>). A layer note without one inherits its task's or feature's; a sub-task its parent's. The tree draws it as a flag in the level's colour. aliases are the old P-codes, accepted with a warning.",

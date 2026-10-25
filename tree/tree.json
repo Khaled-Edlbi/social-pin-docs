@@ -4840,13 +4840,13 @@
     },
     "concepts": 182,
     "decisions": 16,
-    "edges": 4814,
+    "edges": 4825,
     "features": 39,
     "layerNotes": 185,
     "modules": 8,
     "notes": 489,
     "partial": 0,
-    "placeholders": 145,
+    "placeholders": 151,
     "records": 12,
     "taskLayerNotes": 59,
     "tasks": 175
@@ -5574,6 +5574,16 @@
       "to": "qa-backend:subscription"
     },
     {
+      "from": "backend-delivery:T-063",
+      "kind": "blocks",
+      "to": "backend-integration:T-063"
+    },
+    {
+      "from": "backend-delivery:T-063",
+      "kind": "blocks",
+      "to": "qa-backend:T-063"
+    },
+    {
       "from": "backend-delivery:widgets",
       "kind": "blocks",
       "to": "backend-integration:widgets"
@@ -5722,6 +5732,11 @@
       "from": "backend-integration:subscription",
       "kind": "blocks",
       "to": "frontend-delivery:subscription"
+    },
+    {
+      "from": "backend-integration:T-063",
+      "kind": "blocks",
+      "to": "frontend-delivery:T-063"
     },
     {
       "from": "backend-integration:widgets",
@@ -5944,6 +5959,11 @@
       "to": "qa-frontend:subscription"
     },
     {
+      "from": "frontend-delivery:T-063",
+      "kind": "blocks",
+      "to": "qa-frontend:T-063"
+    },
+    {
       "from": "frontend-delivery:view-as",
       "kind": "blocks",
       "to": "qa-frontend:view-as"
@@ -6092,6 +6112,11 @@
       "from": "frontend-requirements:subscription",
       "kind": "blocks",
       "to": "backend-delivery:subscription"
+    },
+    {
+      "from": "frontend-requirements:T-063",
+      "kind": "blocks",
+      "to": "backend-delivery:T-063"
     },
     {
       "from": "frontend-requirements:widgets",
@@ -23243,6 +23268,36 @@
     {
       "from": "task:T-063",
       "kind": "tree",
+      "to": "backend-delivery:T-063"
+    },
+    {
+      "from": "task:T-063",
+      "kind": "tree",
+      "to": "backend-integration:T-063"
+    },
+    {
+      "from": "task:T-063",
+      "kind": "tree",
+      "to": "frontend-delivery:T-063"
+    },
+    {
+      "from": "task:T-063",
+      "kind": "tree",
+      "to": "frontend-requirements:T-063"
+    },
+    {
+      "from": "task:T-063",
+      "kind": "tree",
+      "to": "qa-backend:T-063"
+    },
+    {
+      "from": "task:T-063",
+      "kind": "tree",
+      "to": "qa-frontend:T-063"
+    },
+    {
+      "from": "task:T-063",
+      "kind": "tree",
       "to": "story:T-063"
     },
     {
@@ -35260,6 +35315,51 @@
     }
   ],
   "nodes": {
+    "backend-delivery:T-063": {
+      "affects": [],
+      "blockedBy": [
+        {
+          "id": "frontend-requirements:T-063",
+          "title": "T-063 Frontend Requirements",
+          "why": "T-063 Frontend Requirements is not written yet"
+        }
+      ],
+      "card": null,
+      "children": [],
+      "code": "T-063",
+      "created": null,
+      "deadline": null,
+      "depends": [],
+      "effectiveStatus": "missing",
+      "effort": null,
+      "feature": "error-contract",
+      "frontendOnly": false,
+      "id": "backend-delivery:T-063",
+      "inherits": {},
+      "kind": "backend-delivery",
+      "label": "Backend Delivery",
+      "labels": [],
+      "layer": "backend",
+      "module": "platform",
+      "parentTask": null,
+      "parents": [
+        "task:T-063"
+      ],
+      "path": null,
+      "pending": [],
+      "priority": null,
+      "related": [],
+      "release": null,
+      "scope": "task",
+      "screens": [],
+      "status": null,
+      "summary": "Not written yet. Create it with: node scripts/build-tree.mjs --scaffold backend-delivery T-063",
+      "tags": [],
+      "task": "T-063",
+      "template": "templates/Backend Delivery Template.md",
+      "title": "T-063 Backend Delivery",
+      "updated": null
+    },
     "backend-delivery:account": {
       "affects": [],
       "blockedBy": [],
@@ -37369,6 +37469,51 @@
       "task": null,
       "title": "Widgets Backend Delivery",
       "updated": "2026-10-18"
+    },
+    "backend-integration:T-063": {
+      "affects": [],
+      "blockedBy": [
+        {
+          "id": "backend-delivery:T-063",
+          "title": "T-063 Backend Delivery",
+          "why": "T-063 Backend Delivery is not written yet"
+        }
+      ],
+      "card": null,
+      "children": [],
+      "code": "T-063",
+      "created": null,
+      "deadline": null,
+      "depends": [],
+      "effectiveStatus": "missing",
+      "effort": null,
+      "feature": "error-contract",
+      "frontendOnly": false,
+      "id": "backend-integration:T-063",
+      "inherits": {},
+      "kind": "backend-integration",
+      "label": "Backend Integration",
+      "labels": [],
+      "layer": "backend",
+      "module": "platform",
+      "parentTask": null,
+      "parents": [
+        "task:T-063"
+      ],
+      "path": null,
+      "pending": [],
+      "priority": null,
+      "related": [],
+      "release": null,
+      "scope": "task",
+      "screens": [],
+      "status": null,
+      "summary": "Not written yet. Create it with: node scripts/build-tree.mjs --scaffold backend-integration T-063",
+      "tags": [],
+      "task": "T-063",
+      "template": "templates/Backend Integration Template.md",
+      "title": "T-063 Backend Integration",
+      "updated": null
     },
     "backend-integration:account": {
       "affects": [],
@@ -41927,7 +42072,7 @@
         "blocked": 2,
         "done": 1,
         "draft": 1,
-        "missing": 4,
+        "missing": 10,
         "todo": 2
       },
       "scope": null,
@@ -43828,6 +43973,51 @@
       "title": "Widgets",
       "updated": "2026-10-25"
     },
+    "frontend-delivery:T-063": {
+      "affects": [],
+      "blockedBy": [
+        {
+          "id": "backend-integration:T-063",
+          "title": "T-063 Backend Integration",
+          "why": "T-063 Backend Integration is not written yet"
+        }
+      ],
+      "card": null,
+      "children": [],
+      "code": "T-063",
+      "created": null,
+      "deadline": null,
+      "depends": [],
+      "effectiveStatus": "missing",
+      "effort": null,
+      "feature": "error-contract",
+      "frontendOnly": false,
+      "id": "frontend-delivery:T-063",
+      "inherits": {},
+      "kind": "frontend-delivery",
+      "label": "Frontend Delivery",
+      "labels": [],
+      "layer": "frontend",
+      "module": "platform",
+      "parentTask": null,
+      "parents": [
+        "task:T-063"
+      ],
+      "path": null,
+      "pending": [],
+      "priority": null,
+      "related": [],
+      "release": null,
+      "scope": "task",
+      "screens": [],
+      "status": null,
+      "summary": "Not written yet. Create it with: node scripts/build-tree.mjs --scaffold frontend-delivery T-063",
+      "tags": [],
+      "task": "T-063",
+      "template": "templates/Frontend Delivery Template.md",
+      "title": "T-063 Frontend Delivery",
+      "updated": null
+    },
     "frontend-delivery:account": {
       "affects": [],
       "blockedBy": [],
@@ -45521,6 +45711,45 @@
       "task": null,
       "template": "templates/Frontend Delivery Template.md",
       "title": "Widgets Frontend Delivery",
+      "updated": null
+    },
+    "frontend-requirements:T-063": {
+      "affects": [],
+      "blockedBy": [],
+      "card": null,
+      "children": [],
+      "code": "T-063",
+      "created": null,
+      "deadline": null,
+      "depends": [],
+      "effectiveStatus": "missing",
+      "effort": null,
+      "feature": "error-contract",
+      "frontendOnly": false,
+      "id": "frontend-requirements:T-063",
+      "inherits": {},
+      "kind": "frontend-requirements",
+      "label": "Frontend Requirements",
+      "labels": [],
+      "layer": "frontend",
+      "module": "platform",
+      "parentTask": null,
+      "parents": [
+        "task:T-063"
+      ],
+      "path": null,
+      "pending": [],
+      "priority": null,
+      "related": [],
+      "release": null,
+      "scope": "task",
+      "screens": [],
+      "status": null,
+      "summary": "Not written yet. Create it with: node scripts/build-tree.mjs --scaffold frontend-requirements T-063",
+      "tags": [],
+      "task": "T-063",
+      "template": "templates/Frontend Requirements Template.md",
+      "title": "T-063 Frontend Requirements",
       "updated": null
     },
     "frontend-requirements:account": {
@@ -48080,7 +48309,7 @@
         "done": 2,
         "draft": 25,
         "in-progress": 11,
-        "missing": 42,
+        "missing": 48,
         "needs-decision": 1,
         "todo": 18,
         "verified": 2
@@ -49546,6 +49775,51 @@
       "task": null,
       "title": "Workflow",
       "updated": "2026-10-25"
+    },
+    "qa-backend:T-063": {
+      "affects": [],
+      "blockedBy": [
+        {
+          "id": "backend-delivery:T-063",
+          "title": "T-063 Backend Delivery",
+          "why": "T-063 Backend Delivery is not written yet"
+        }
+      ],
+      "card": null,
+      "children": [],
+      "code": "T-063",
+      "created": null,
+      "deadline": null,
+      "depends": [],
+      "effectiveStatus": "missing",
+      "effort": null,
+      "feature": "error-contract",
+      "frontendOnly": false,
+      "id": "qa-backend:T-063",
+      "inherits": {},
+      "kind": "qa-backend",
+      "label": "QA Backend",
+      "labels": [],
+      "layer": "qa",
+      "module": "platform",
+      "parentTask": null,
+      "parents": [
+        "task:T-063"
+      ],
+      "path": null,
+      "pending": [],
+      "priority": null,
+      "related": [],
+      "release": null,
+      "scope": "task",
+      "screens": [],
+      "status": null,
+      "summary": "Not written yet. Create it with: node scripts/build-tree.mjs --scaffold qa-backend T-063",
+      "tags": [],
+      "task": "T-063",
+      "template": "templates/QA Backend Template.md",
+      "title": "T-063 QA Backend",
+      "updated": null
     },
     "qa-backend:account": {
       "affects": [],
@@ -51201,6 +51475,51 @@
       "task": null,
       "template": "templates/QA Backend Template.md",
       "title": "Widgets QA Backend",
+      "updated": null
+    },
+    "qa-frontend:T-063": {
+      "affects": [],
+      "blockedBy": [
+        {
+          "id": "frontend-delivery:T-063",
+          "title": "T-063 Frontend Delivery",
+          "why": "T-063 Frontend Delivery is not written yet"
+        }
+      ],
+      "card": null,
+      "children": [],
+      "code": "T-063",
+      "created": null,
+      "deadline": null,
+      "depends": [],
+      "effectiveStatus": "missing",
+      "effort": null,
+      "feature": "error-contract",
+      "frontendOnly": false,
+      "id": "qa-frontend:T-063",
+      "inherits": {},
+      "kind": "qa-frontend",
+      "label": "QA Frontend",
+      "labels": [],
+      "layer": "qa",
+      "module": "platform",
+      "parentTask": null,
+      "parents": [
+        "task:T-063"
+      ],
+      "path": null,
+      "pending": [],
+      "priority": null,
+      "related": [],
+      "release": null,
+      "scope": "task",
+      "screens": [],
+      "status": null,
+      "summary": "Not written yet. Create it with: node scripts/build-tree.mjs --scaffold qa-frontend T-063",
+      "tags": [],
+      "task": "T-063",
+      "template": "templates/QA Frontend Template.md",
+      "title": "T-063 QA Frontend",
       "updated": null
     },
     "qa-frontend:account": {
@@ -53027,7 +53346,7 @@
         "done": 17,
         "draft": 94,
         "in-progress": 44,
-        "missing": 145,
+        "missing": 151,
         "needs-decision": 9,
         "reference": 31,
         "todo": 53,
@@ -68766,6 +69085,12 @@
       "card": "T-063",
       "children": [
         "story:T-063",
+        "frontend-requirements:T-063",
+        "backend-delivery:T-063",
+        "backend-integration:T-063",
+        "qa-backend:T-063",
+        "frontend-delivery:T-063",
+        "qa-frontend:T-063",
         "task:T-063-be",
         "task:T-063-fe"
       ],
@@ -68800,6 +69125,7 @@
       "rollup": {
         "approved": 1,
         "blocked": 1,
+        "missing": 6,
         "todo": 1
       },
       "scope": null,
