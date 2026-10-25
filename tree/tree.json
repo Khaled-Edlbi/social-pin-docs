@@ -4804,7 +4804,7 @@
     }
   },
   "counts": {
-    "blocked": 181,
+    "blocked": 180,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -4825,7 +4825,7 @@
     },
     "concepts": 182,
     "decisions": 15,
-    "edges": 4780,
+    "edges": 4779,
     "features": 39,
     "layerNotes": 185,
     "modules": 8,
@@ -6057,11 +6057,6 @@
       "from": "story:auth",
       "kind": "blocks",
       "to": "frontend-requirements:auth"
-    },
-    {
-      "from": "story:badge-qr",
-      "kind": "blocks",
-      "to": "frontend-requirements:badge-qr"
     },
     {
       "from": "story:cleanup-jobs",
@@ -40395,7 +40390,7 @@
       "deadline": null,
       "depends": [],
       "dir": "modules/Discovery/Badge & QR",
-      "effectiveStatus": "todo",
+      "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "badge-qr",
       "frontendOnly": false,
@@ -40434,7 +40429,8 @@
         "decision-record:DR-06"
       ],
       "rollup": {
-        "blocked": 14,
+        "approved": 1,
+        "blocked": 13,
         "draft": 6,
         "missing": 4,
         "todo": 2
@@ -44772,19 +44768,13 @@
     },
     "frontend-requirements:badge-qr": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "story:badge-qr",
-          "title": "Badge & QR Story",
-          "why": "Badge & QR Story is draft"
-        }
-      ],
+      "blockedBy": [],
       "card": "FR-18",
       "children": [],
       "code": "badge-qr",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "badge-qr",
       "frontendOnly": false,
@@ -46914,7 +46904,7 @@
       "code": null,
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "todo",
+      "effectiveStatus": "in-progress",
       "effort": null,
       "feature": null,
       "frontendOnly": false,
@@ -46935,11 +46925,13 @@
       "priority": null,
       "related": [],
       "rollup": {
-        "blocked": 21,
+        "approved": 1,
+        "blocked": 20,
         "draft": 11,
+        "in-progress": 1,
         "missing": 12,
         "needs-decision": 1,
-        "todo": 10
+        "todo": 9
       },
       "scope": null,
       "screens": [],
@@ -51875,16 +51867,17 @@
       "priority": null,
       "related": [],
       "rollup": {
-        "blocked": 181,
+        "approved": 1,
+        "blocked": 180,
         "current": 9,
         "decided": 11,
         "done": 17,
         "draft": 98,
-        "in-progress": 22,
+        "in-progress": 24,
         "missing": 145,
         "needs-decision": 9,
         "reference": 31,
-        "todo": 75,
+        "todo": 73,
         "verified": 11
       },
       "scope": null,
@@ -54834,7 +54827,7 @@
       "code": "badge-qr",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "badge-qr",
       "frontendOnly": false,
@@ -54862,11 +54855,11 @@
         "s44",
         "s56"
       ],
-      "status": "draft",
+      "status": "approved",
       "summary": "The badge is the centre tab and the physical moment of the product: two people face to face, one shows a code, the other scans it. The code is bound to the Ring the owner has active at that…",
       "tags": [
         "story",
-        "story/draft",
+        "story/approved",
         "module/discovery",
         "layer/business"
       ],
