@@ -74,6 +74,7 @@
     "decision:D-15": "D-15",
     "decision:D-16": "D-16",
     "decision:D-17": "D-17",
+    "decision:D-18": "D-18",
     "feature:account": "F-01",
     "feature:app-shell": "F-29",
     "feature:audit-log": "F-30",

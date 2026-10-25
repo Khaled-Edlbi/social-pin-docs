@@ -45,6 +45,7 @@ TABLE status, priority, effort FROM #task WHERE feature = "ring-invitations" SOR
 ## Decisions
 
 - [[D-04 Ring settings]] — decided, join with a code or by invitation and approve each one by default ([[DR-04 Ring settings at launch and their defaults|DR-04]])
+- [[D-18 Company and invited Ring names shown to members]] — open; blocks [[Ring Invitations & Join Story]] and [[Companies Story]]
 
 ## Related
 
