@@ -90,7 +90,7 @@ Per agent, branch and commit together (a decision record commits as `decision`, 
 | backend | `tickets/backend/M-09-payments-gateway/F-41-pay-for-an-order/FR-41-accepted` | `frontend-requirements(payments-gateway): FR-41 Pay for an order Frontend Requirements · accepted by the backend` |
 | backend | `docs/backend/M-07-commerce/F-27-payments/BD-27-shipped` | `backend-delivery(commerce): BD-27 Payments & Orders Backend Delivery · checkout endpoint shipped` |
 | qa | `docs/qa/M-09-payments-gateway/F-41-pay-for-an-order/QB-NN-passing` | `qa-backend(payments-gateway): QB-NN Pay for an order QA Backend · passing on <build>` |
-| qa | `tickets/qa/M-09-payments-gateway/F-41-pay-for-an-order/T-065-bug-1-filed` | `bug(payments-gateway): T-065-bug-1 <title> · filed against T-065` |
+| qa | `tickets/qa/M-09-payments-gateway/F-41-pay-for-an-order/T-066-filed` | `bug(payments-gateway): T-066 <title> · filed against T-065` (a bug takes the next free task number) |
 | admin | `docs/admin/project/<what>` | `rules(project): <what changed>` |
 
 The body: two or three lines on what changed and why, the other files touched, the trailers `Story: S-NN`, `Ticket: T-NNN`, `Decision: D-NN` when one is involved, then the attribution line. Rebuild before each commit and include the generated files, so every commit passes `--check` on its own. The bash guard reads the attribution line's angle brackets as a redirect: commit with `git commit -F <file outside the vault>`, or with a `git commit -F -` heredoc whose command starts with `git` and contains no `&&` or `;`.
