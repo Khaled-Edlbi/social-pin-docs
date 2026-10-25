@@ -40835,6 +40835,7 @@
       "inherits": {
         "priority": "task:T-065-be"
       },
+      "integrationVerified": true,
       "kind": "backend-integration",
       "label": "Backend Integration",
       "labels": [],
@@ -40930,6 +40931,7 @@
       "inherits": {
         "priority": "task:T-066-be"
       },
+      "integrationVerified": true,
       "kind": "backend-integration",
       "label": "Backend Integration",
       "labels": [],
@@ -42123,6 +42125,7 @@
       "inherits": {
         "priority": "feature:pay-for-an-order"
       },
+      "integrationVerified": true,
       "kind": "backend-integration",
       "label": "Backend Integration",
       "labels": [],
