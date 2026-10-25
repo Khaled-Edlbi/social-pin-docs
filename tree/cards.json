@@ -128,6 +128,7 @@
     "frontend-requirements:meetings": "FR-26",
     "frontend-requirements:notifications": "FR-39",
     "frontend-requirements:onboarding-imports": "FR-05",
+    "frontend-requirements:pay-for-an-order": "FR-41",
     "frontend-requirements:payments": "FR-27",
     "frontend-requirements:photo-library": "FR-06",
     "frontend-requirements:pincast": "FR-20",

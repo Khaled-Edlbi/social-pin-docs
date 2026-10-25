@@ -186,6 +186,7 @@
     "Owner Agent": "project:owner-agent",
     "PM Agent": "project:pm-agent",
     "Pay for an order": "feature:pay-for-an-order",
+    "Pay for an order Frontend Requirements": "frontend-requirements:pay-for-an-order",
     "Pay for an order Story": "story:pay-for-an-order",
     "Payments & Orders": "feature:payments",
     "Payments & Orders Backend Delivery": "backend-delivery:payments",
@@ -656,6 +657,7 @@
     "FR-38": "frontend-requirements:linked-accounts",
     "FR-39": "frontend-requirements:notifications",
     "FR-40": "frontend-requirements:T-065-fe",
+    "FR-41": "frontend-requirements:pay-for-an-order",
     "M-01": "module:identity",
     "M-02": "module:connections",
     "M-03": "module:shared-rings",
@@ -1131,6 +1133,7 @@
         "feature:interests",
         "feature:linked-accounts",
         "feature:notifications",
+        "feature:pay-for-an-order",
         "feature:payments",
         "feature:pincast",
         "feature:post-event",
@@ -1161,6 +1164,7 @@
         "frontend-requirements:interests",
         "frontend-requirements:linked-accounts",
         "frontend-requirements:notifications",
+        "frontend-requirements:pay-for-an-order",
         "frontend-requirements:payments",
         "frontend-requirements:pincast",
         "frontend-requirements:post-event",
@@ -4078,6 +4082,7 @@
         "feature:payments",
         "frontend-requirements:T-065-fe",
         "frontend-requirements:events-before",
+        "frontend-requirements:pay-for-an-order",
         "frontend-requirements:payments",
         "story:T-035",
         "story:T-047",
@@ -4116,6 +4121,7 @@
         "feature:pay-for-an-order",
         "frontend-requirements:event-ring-auto",
         "frontend-requirements:events-before",
+        "frontend-requirements:pay-for-an-order",
         "story:T-011",
         "story:T-035",
         "story:event-ring-auto",
@@ -4704,7 +4710,7 @@
       "decision": 9,
       "decision-record": 4,
       "feature": 40,
-      "frontend-requirements": 40,
+      "frontend-requirements": 41,
       "module": 9,
       "project": 27,
       "story": 105,
@@ -4713,18 +4719,18 @@
     "byLayer": {
       "backend": 56,
       "business": 341,
-      "frontend": 44,
+      "frontend": 45,
       "shared": 10
     },
     "concepts": 177,
     "decisions": 9,
-    "edges": 4449,
+    "edges": 4486,
     "features": 40,
-    "layerNotes": 193,
+    "layerNotes": 194,
     "modules": 9,
-    "notes": 487,
+    "notes": 488,
     "partial": 0,
-    "placeholders": 151,
+    "placeholders": 150,
     "records": 4,
     "taskLayerNotes": 66,
     "tasks": 178
@@ -8512,6 +8518,11 @@
       "to": "frontend-requirements:onboarding-imports"
     },
     {
+      "from": "story:pay-for-an-order",
+      "kind": "flow",
+      "to": "frontend-requirements:pay-for-an-order"
+    },
+    {
       "from": "story:payments",
       "kind": "flow",
       "to": "frontend-requirements:payments"
@@ -10094,10 +10105,40 @@
     {
       "from": "frontend-requirements:pay-for-an-order",
       "kind": "related",
+      "to": "decision-record:DR-08"
+    },
+    {
+      "from": "frontend-requirements:pay-for-an-order",
+      "kind": "related",
+      "to": "decision-record:DR-09"
+    },
+    {
+      "from": "frontend-requirements:pay-for-an-order",
+      "kind": "related",
+      "to": "feature:event-ring-auto"
+    },
+    {
+      "from": "frontend-requirements:pay-for-an-order",
+      "kind": "related",
       "to": "frontend-requirements:T-065-fe",
       "via": [
         "sum-of"
       ]
+    },
+    {
+      "from": "frontend-requirements:pay-for-an-order",
+      "kind": "related",
+      "to": "project:frontend-contract"
+    },
+    {
+      "from": "frontend-requirements:pay-for-an-order",
+      "kind": "related",
+      "to": "story:pay-for-an-order"
+    },
+    {
+      "from": "frontend-requirements:pay-for-an-order",
+      "kind": "related",
+      "to": "task:T-063"
     },
     {
       "from": "frontend-requirements:T-065-fe",
@@ -11223,6 +11264,14 @@
     {
       "from": "feature:account",
       "kind": "shares",
+      "to": "feature:pay-for-an-order",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "feature:account",
+      "kind": "shares",
       "to": "feature:payments",
       "via": [
         "E_AUTH_04"
@@ -11505,6 +11554,14 @@
       "from": "feature:app-shell",
       "kind": "shares",
       "to": "feature:notifications",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "feature:app-shell",
+      "kind": "shares",
+      "to": "feature:pay-for-an-order",
       "via": [
         "E_AUTH_04"
       ]
@@ -11851,6 +11908,14 @@
         "E_PROFILE_02",
         "GET /profiles/pin-name/:pinName/availability",
         "POST /auth/complete-registration"
+      ]
+    },
+    {
+      "from": "feature:auth",
+      "kind": "shares",
+      "to": "feature:pay-for-an-order",
+      "via": [
+        "E_AUTH_04"
       ]
     },
     {
@@ -12209,6 +12274,14 @@
       "from": "feature:badge-qr",
       "kind": "shares",
       "to": "feature:notifications",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "feature:badge-qr",
+      "kind": "shares",
+      "to": "feature:pay-for-an-order",
       "via": [
         "E_AUTH_04"
       ]
@@ -12892,6 +12965,14 @@
     {
       "from": "feature:companies",
       "kind": "shares",
+      "to": "feature:pay-for-an-order",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "feature:companies",
+      "kind": "shares",
       "to": "feature:payments",
       "via": [
         "E_AUTH_04"
@@ -13247,6 +13328,14 @@
       "from": "feature:connections",
       "kind": "shares",
       "to": "feature:notifications",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "feature:connections",
+      "kind": "shares",
+      "to": "feature:pay-for-an-order",
       "via": [
         "E_AUTH_04"
       ]
@@ -13834,6 +13923,14 @@
     {
       "from": "feature:delegated-admins",
       "kind": "shares",
+      "to": "feature:pay-for-an-order",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "feature:delegated-admins",
+      "kind": "shares",
       "to": "feature:payments",
       "via": [
         "E_AUTH_04"
@@ -14085,6 +14182,14 @@
     {
       "from": "feature:devices",
       "kind": "shares",
+      "to": "feature:pay-for-an-order",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "feature:devices",
+      "kind": "shares",
       "to": "feature:payments",
       "via": [
         "E_AUTH_04"
@@ -14246,6 +14351,14 @@
       "to": "feature:onboarding-imports",
       "via": [
         "GET /profiles/pin-name/:pinName/availability"
+      ]
+    },
+    {
+      "from": "feature:discover-hub",
+      "kind": "shares",
+      "to": "feature:pay-for-an-order",
+      "via": [
+        "E_AUTH_04"
       ]
     },
     {
@@ -14481,6 +14594,14 @@
       "to": "feature:onboarding-imports",
       "via": [
         "E_AUTH_05"
+      ]
+    },
+    {
+      "from": "feature:error-contract",
+      "kind": "shares",
+      "to": "feature:pay-for-an-order",
+      "via": [
+        "E_AUTH_04"
       ]
     },
     {
@@ -14919,6 +15040,14 @@
       "from": "feature:events-before",
       "kind": "shares",
       "to": "feature:notifications",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "feature:events-before",
+      "kind": "shares",
+      "to": "feature:pay-for-an-order",
       "via": [
         "E_AUTH_04"
       ]
@@ -15541,6 +15670,14 @@
     {
       "from": "feature:interests",
       "kind": "shares",
+      "to": "feature:pay-for-an-order",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "feature:interests",
+      "kind": "shares",
       "to": "feature:payments",
       "via": [
         "E_AUTH_04"
@@ -15630,6 +15767,14 @@
       "from": "feature:linked-accounts",
       "kind": "shares",
       "to": "feature:notifications",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "feature:linked-accounts",
+      "kind": "shares",
+      "to": "feature:pay-for-an-order",
       "via": [
         "E_AUTH_04"
       ]
@@ -15958,6 +16103,14 @@
     {
       "from": "feature:notifications",
       "kind": "shares",
+      "to": "feature:pay-for-an-order",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "feature:notifications",
+      "kind": "shares",
       "to": "feature:payments",
       "via": [
         "E_AUTH_04"
@@ -16141,6 +16294,86 @@
       "via": [
         "s03a",
         "s03b"
+      ]
+    },
+    {
+      "from": "feature:pay-for-an-order",
+      "kind": "shares",
+      "to": "feature:payments",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "feature:pay-for-an-order",
+      "kind": "shares",
+      "to": "feature:pincast",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "feature:pay-for-an-order",
+      "kind": "shares",
+      "to": "feature:post-event",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "feature:pay-for-an-order",
+      "kind": "shares",
+      "to": "feature:ring-invitations",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "feature:pay-for-an-order",
+      "kind": "shares",
+      "to": "feature:subscription",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "feature:pay-for-an-order",
+      "kind": "shares",
+      "to": "feature:view-as",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "feature:pay-for-an-order",
+      "kind": "shares",
+      "to": "project:frontend-api-guide",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "feature:pay-for-an-order",
+      "kind": "shares",
+      "to": "project:frontend-contract",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "feature:pay-for-an-order",
+      "kind": "shares",
+      "to": "project:frontend-passwordless-migration",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "feature:pay-for-an-order",
+      "kind": "shares",
+      "to": "task:T-065-fe",
+      "via": [
+        "E_AUTH_04"
       ]
     },
     {
@@ -23709,6 +23942,31 @@
       "to": "task:T-063"
     },
     {
+      "from": "frontend-requirements:pay-for-an-order",
+      "kind": "wikilink",
+      "to": "task:T-011"
+    },
+    {
+      "from": "frontend-requirements:pay-for-an-order",
+      "kind": "wikilink",
+      "to": "task:T-035"
+    },
+    {
+      "from": "frontend-requirements:pay-for-an-order",
+      "kind": "wikilink",
+      "to": "task:T-047"
+    },
+    {
+      "from": "frontend-requirements:pay-for-an-order",
+      "kind": "wikilink",
+      "to": "task:T-053"
+    },
+    {
+      "from": "frontend-requirements:pay-for-an-order",
+      "kind": "wikilink",
+      "to": "task:T-065"
+    },
+    {
       "from": "frontend-requirements:payments",
       "kind": "wikilink",
       "to": "decision-record:DR-08"
@@ -24997,6 +25255,11 @@
       "from": "module:payments-gateway",
       "kind": "wikilink",
       "to": "feature:subscription"
+    },
+    {
+      "from": "module:payments-gateway",
+      "kind": "wikilink",
+      "to": "frontend-requirements:pay-for-an-order"
     },
     {
       "from": "module:payments-gateway",
@@ -30913,6 +31176,10 @@
       "name": "Meetings",
       "type": "feature"
     },
+    "modules/Payments Gateway/Pay for an order/Pay for an order Frontend Requirements.md": {
+      "name": "Pay for an order Frontend Requirements",
+      "type": "frontend-requirements"
+    },
     "modules/Payments Gateway/Pay for an order/Pay for an order Story.md": {
       "name": "Pay for an order Story",
       "type": "story"
@@ -33860,7 +34127,7 @@
         {
           "id": "frontend-requirements:pay-for-an-order",
           "title": "Pay for an order Frontend Requirements",
-          "why": "Pay for an order Frontend Requirements is not written yet"
+          "why": "Pay for an order Frontend Requirements is draft"
         }
       ],
       "card": null,
@@ -36422,6 +36689,7 @@
         "decision-record:DR-09",
         "story:payments",
         "story:events-before",
+        "frontend-requirements:pay-for-an-order",
         "story:pay-for-an-order",
         "story:T-065",
         "frontend-requirements:T-065-fe"
@@ -36479,6 +36747,7 @@
         "decision:D-09",
         "decision-record:DR-08",
         "story:pay-for-an-order",
+        "frontend-requirements:pay-for-an-order",
         "story:T-065",
         "frontend-requirements:T-065-fe"
       ],
@@ -38087,6 +38356,7 @@
         "feature:meetings",
         "feature:pay-for-an-order",
         "story:events-before",
+        "frontend-requirements:pay-for-an-order",
         "story:pay-for-an-order"
       ],
       "rollup": {
@@ -38900,8 +39170,8 @@
         "approved": 4,
         "blocked": 1,
         "decided": 2,
-        "draft": 1,
-        "missing": 6,
+        "draft": 2,
+        "missing": 5,
         "todo": 2
       },
       "scope": null,
@@ -41588,6 +41858,7 @@
       "priority": "high",
       "related": [
         "task:T-065-fe",
+        "frontend-requirements:pay-for-an-order",
         "task:T-065-be",
         "story:T-065",
         "story:pay-for-an-order",
@@ -42980,17 +43251,19 @@
     "frontend-requirements:pay-for-an-order": {
       "affects": [],
       "blockedBy": [],
-      "card": null,
+      "card": "FR-41",
       "children": [],
       "code": "pay-for-an-order",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "missing",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "pay-for-an-order",
       "frontendOnly": false,
       "id": "frontend-requirements:pay-for-an-order",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:pay-for-an-order"
+      },
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -43000,19 +43273,34 @@
       "parents": [
         "feature:pay-for-an-order"
       ],
-      "path": null,
+      "path": "modules/Payments Gateway/Pay for an order/Pay for an order Frontend Requirements.md",
       "pending": [],
-      "priority": null,
-      "related": [],
+      "priority": "high",
+      "related": [
+        "story:pay-for-an-order",
+        "frontend-requirements:T-065-fe",
+        "decision-record:DR-08",
+        "decision-record:DR-09",
+        "task:T-063",
+        "feature:event-ring-auto",
+        "project:frontend-contract"
+      ],
       "scope": "feature",
-      "screens": [],
-      "status": null,
-      "summary": "Not written yet. Create it with: node scripts/build-tree.mjs --scaffold frontend-requirements pay-for-an-order",
-      "tags": [],
+      "screens": [
+        "s51",
+        "s52"
+      ],
+      "status": "draft",
+      "summary": "Written by the frontend team, read by the backend: what the client needs to build Pay for an order Story, and whether each need is met today. This note is the sum of the task-level requirements…",
+      "tags": [
+        "frontend-requirements",
+        "frontend-requirements/draft",
+        "module/payments-gateway",
+        "layer/frontend"
+      ],
       "task": null,
-      "template": "templates/Frontend Requirements Template.md",
       "title": "Pay for an order Frontend Requirements",
-      "updated": null
+      "updated": "2026-10-25"
     },
     "frontend-requirements:payments": {
       "affects": [],
@@ -44251,9 +44539,9 @@
         "approved": 4,
         "blocked": 1,
         "decided": 2,
-        "draft": 1,
+        "draft": 2,
         "in-progress": 1,
-        "missing": 6,
+        "missing": 5,
         "todo": 2
       },
       "scope": null,
@@ -45197,6 +45485,7 @@
       "priority": null,
       "related": [
         "feature:error-contract",
+        "frontend-requirements:pay-for-an-order",
         "frontend-requirements:T-065-fe",
         "project:frontend-agent-prompt",
         "project:frontend-agent"
@@ -49111,9 +49400,9 @@
         "current": 9,
         "decided": 4,
         "done": 12,
-        "draft": 104,
+        "draft": 105,
         "in-progress": 16,
-        "missing": 151,
+        "missing": 150,
         "needs-decision": 20,
         "reference": 31,
         "todo": 83
@@ -53430,6 +53719,7 @@
       "related": [
         "decision-record:DR-09",
         "story:payments",
+        "frontend-requirements:pay-for-an-order",
         "feature:payments",
         "task:T-047",
         "feature:events-before",
@@ -64258,6 +64548,7 @@
       "pending": [],
       "priority": "critical",
       "related": [
+        "frontend-requirements:pay-for-an-order",
         "frontend-requirements:T-065-fe"
       ],
       "rollup": {
