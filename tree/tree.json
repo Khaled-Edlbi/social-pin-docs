@@ -4829,7 +4829,7 @@
     },
     "concepts": 183,
     "decisions": 9,
-    "edges": 4641,
+    "edges": 4640,
     "features": 40,
     "layerNotes": 198,
     "modules": 9,
@@ -5531,11 +5531,6 @@
       "from": "backend-integration:onboarding-imports",
       "kind": "blocks",
       "to": "frontend-delivery:onboarding-imports"
-    },
-    {
-      "from": "backend-integration:pay-for-an-order",
-      "kind": "blocks",
-      "to": "frontend-delivery:pay-for-an-order"
     },
     {
       "from": "backend-integration:payments",
@@ -37433,7 +37428,7 @@
       "code": "pay-for-an-order",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "current",
       "effort": null,
       "feature": "pay-for-an-order",
       "frontendOnly": false,
@@ -37493,11 +37488,11 @@
         "s51",
         "s52"
       ],
-      "status": "draft",
+      "status": "current",
       "summary": "What the client builds: the Payment screen (s51) reading an order and handing the buyer to Stripe's card page, and the confirmation (s52) once that part ships. The sum of the task-level…",
       "tags": [
         "backend-integration",
-        "backend-integration/draft",
+        "backend-integration/current",
         "module/payments-gateway",
         "layer/backend"
       ],
@@ -40733,10 +40728,9 @@
       "rollup": {
         "approved": 6,
         "blocked": 1,
-        "current": 1,
+        "current": 2,
         "decided": 2,
         "done": 1,
-        "draft": 1,
         "missing": 3,
         "partial": 2,
         "todo": 1
@@ -42829,13 +42823,7 @@
     },
     "frontend-delivery:pay-for-an-order": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "backend-integration:pay-for-an-order",
-          "title": "Pay for an order Backend Integration",
-          "why": "Pay for an order Backend Integration is draft"
-        }
-      ],
+      "blockedBy": [],
       "card": null,
       "children": [],
       "code": "pay-for-an-order",
@@ -46193,10 +46181,9 @@
       "rollup": {
         "approved": 6,
         "blocked": 1,
-        "current": 1,
+        "current": 2,
         "decided": 2,
         "done": 1,
-        "draft": 1,
         "in-progress": 1,
         "missing": 3,
         "partial": 2,
@@ -51059,10 +51046,10 @@
       "rollup": {
         "approved": 8,
         "blocked": 179,
-        "current": 10,
+        "current": 11,
         "decided": 4,
         "done": 13,
-        "draft": 104,
+        "draft": 103,
         "in-progress": 16,
         "missing": 148,
         "needs-decision": 20,
