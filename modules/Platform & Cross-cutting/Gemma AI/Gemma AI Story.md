@@ -6,13 +6,13 @@ feature: gemma
 module: platform
 status: draft
 screens: [s13, s60]
-updated: 2026-10-18
+updated: 2026-10-25
+owner: "omar"
+related: ["DR-06 Yearly rename, old name freed, case-insensitive"]
 tags: [story, story/draft, module/platform, layer/business]
 ---
 
 # Gemma AI · User Story
-
-> ⚠ Affected by [[DR-06 Yearly rename, old name freed, case-insensitive]] (2026-10-25): D-06 decided, a Pin name can be changed once a year, the old name is free at once, names ignore capitals, suggestions come only from the person's own name.
 
 **Feature:** [[Gemma AI]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Gemma AI Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
@@ -71,7 +71,8 @@ Acceptance criteria:
 **As a** user choosing a Pin name, naming a Ring or writing a bio **I want** Gemma to offer options **so that** blank fields are easier.
 
 Acceptance criteria:
-- [ ] Pin-name suggestions are derived from the user's own input and checked for availability one at a time; none is derived from other users' names.
+- [ ] Pin-name suggestions are derived **only from the user's own name** (what they typed and their full name), the only input Gemma gets for them, and checked for availability one at a time; none is derived from other users' names ([[DR-06 Yearly rename, old name freed, case-insensitive]]). Suggestions that differ from a taken name by capitals only are never offered: names ignore capitals.
+- [ ] On a rename, suggestions are offered only when a rename is allowed (once a year, [[Profiles & Pin Name Story]] S5).
 - [ ] Bio rewrite and Ring-name suggestions are offered inline and never applied without a tap.
 
 ## States and motion the design asks for
@@ -87,5 +88,5 @@ Acceptance criteria:
 
 ## Open questions
 
-- [[D-06 Pin name rules]] — blocks the Pin-name suggestions in S6: suggestions must be generated without probing other users, and a yearly rename limit changes when they are offered.
+- Decided: [[DR-06 Yearly rename, old name freed, case-insensitive]] (S6). Whether the suggestions come from Gemma or from a plain server rule is not decided; either way the input is the person's own name only.
 - [[T-051 Gemma assistant sheet and suggestions]] needs a model and provider decision; no decision note exists for it yet.
