@@ -13,6 +13,8 @@ related: []
 # deadline: YYYY-MM-DD      # optional: inherits the task's or the feature's when absent
 # pending: ["[[Note]]: what is left", "@who: what is left"]   # done, but a note is left for a card or a person → Partial until cleared
 pending: []
+# deployedTo: where this delivery runs, dev | staging | prod (docs.config.json environments); empty until deployed
+deployedTo: []
 updated: <date>
 tags: [backend-delivery, backend-delivery/todo, module/<module>, layer/backend]
 ---

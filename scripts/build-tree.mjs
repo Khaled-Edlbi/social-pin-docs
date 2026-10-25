@@ -11,7 +11,7 @@
  *   node scripts/build-tree.mjs --scaffold <kind> <feature-id|T-NNN>   creates a layer note from its template
  *   node scripts/build-tree.mjs --scaffold task <feature-id> "<Title>" [--backend-only | --docs-only | --parent T-NNN] [--label <label>] [--priority high] [--effort M]
  *                                                    creates the task with the next free number, its story and its frontend / backend halves
- *   node scripts/build-tree.mjs --scaffold feature <module-id> "<Name>" [--id <slug>] [--priority high] [--frontend-only]   creates the feature note
+ *   node scripts/build-tree.mjs --scaffold feature <module-id> "<Name>" [--id <slug>] [--priority high] [--release later] [--frontend-only]   creates the feature note
  *   node scripts/build-tree.mjs --scaffold decision "<card>" ["<title>"]   creates the needs-decision card a task, a layer note or a feature needs (draft; blocks it until fulfilled)
  *   node scripts/build-tree.mjs --scaffold record D-NN "<the answer>" [--by <name>]   creates the decision card DR-NN (draft) that answers D-NN: what was decided, why, what it changes
  *
@@ -167,12 +167,30 @@ export function loadConfig(errors = []) {
   const windowDays = Number.isFinite(dl.windowDays) && dl.windowDays > 0 ? dl.windowDays : DEFAULT_DEADLINES.windowDays;
   if (dl.windowDays !== undefined && !(Number.isFinite(dl.windowDays) && dl.windowDays > 0)) err('deadlines.windowDays must be a positive number of days');
   const deadlines = { windowDays, zones: zones.map((z) => ({ id: z.id, label: z.label || z.id, color: z.color || null })), missed: { ...DEFAULT_DEADLINES.missed, ...(dl.missed || {}) } };
-  return { ...cfg, kinds, kindOrder, flowOrder, flowBack, flowBlocks, frontendOnlySkips, taskLabels, priorities, deadlines, cardCodes: { pad, structural, prefixes, prefixOf } };
+  // stages (typed on the project), release targets (on features) and environments (deployedTo on deliveries): three small enums, same shape
+  const enumOf = (key, items, extra = () => ({})) => {
+    const byId = new Map();
+    for (const l of Array.isArray(items) ? items : []) {
+      if (!l || typeof l.id !== 'string' || !ID.test(l.id)) { err(`${key}: id ${JSON.stringify(l?.id)} must be lowercase letters, digits and dashes`); continue; }
+      if (byId.has(l.id)) err(`${key}: id "${l.id}" is listed twice`);
+      byId.set(l.id, { id: l.id, label: l.label || l.id, color: l.color || null, description: l.description || '', ...extra(l) });
+    }
+    return { list: [...byId.values()], byId, rank: (id) => [...byId.keys()].indexOf(id) };
+  };
+  const releases = enumOf('releases.targets', cfg.releases?.targets ?? DEFAULT_RELEASES);
+  const stages = enumOf('stages.levels', cfg.stages?.levels ?? DEFAULT_STAGES, (l) => ({ exit: l.exit || '', requiresRelease: l.requiresRelease ?? null }));
+  for (const s of stages.list) if (s.requiresRelease !== null && !releases.byId.has(s.requiresRelease)) err(`stages.levels: "${s.id}" requiresRelease "${s.requiresRelease}" is not a release target`);
+  const environments = { ...enumOf('environments.list', cfg.environments?.list ?? DEFAULT_ENVIRONMENTS), kinds: Array.isArray(cfg.environments?.kinds) ? cfg.environments.kinds : ['backend-delivery', 'frontend-delivery'] };
+  for (const k of environments.kinds) if (!kinds.has(k)) err(`environments.kinds names unknown kind "${k}"`);
+  return { ...cfg, kinds, kindOrder, flowOrder, flowBack, flowBlocks, frontendOnlySkips, taskLabels, priorities, deadlines, stages, releases, environments, cardCodes: { pad, structural, prefixes, prefixOf } };
 }
 const DEFAULT_PRIORITIES = [
   { id: 'critical', label: 'Critical', color: '#dc2626', aliases: ['P0'] }, { id: 'high', label: 'High', color: '#f97316', aliases: ['P1'] },
   { id: 'medium', label: 'Medium', color: '#eab308', aliases: ['P2'] }, { id: 'low', label: 'Low', color: '#64748b', aliases: ['P3'] },
 ];
+const DEFAULT_STAGES = ['concept', 'prototype', 'mvp', 'beta', 'live', 'sunset'].map((id) => ({ id, label: id === 'mvp' ? 'MVP' : id.replace(/^./, (c) => c.toUpperCase()), ...(id === 'beta' || id === 'live' ? { requiresRelease: 'mvp' } : {}) }));
+const DEFAULT_RELEASES = [{ id: 'mvp', label: 'MVP' }, { id: 'v1', label: 'v1' }, { id: 'later', label: 'Later' }];
+const DEFAULT_ENVIRONMENTS = [{ id: 'dev', label: 'Dev' }, { id: 'staging', label: 'Staging' }, { id: 'prod', label: 'Prod' }];
 const DEFAULT_DEADLINES = { windowDays: 3, zones: [{ id: 'on-track', label: 'On track', color: '#16a34a' }, { id: 'due-soon', label: 'Due soon', color: '#eab308' }, { id: 'last-day', label: 'Last day', color: '#dc2626' }], missed: { id: 'missed', label: 'Missed', color: '#6b7280', icon: '💀' } };
 const DATE = /^(\d{4})-(\d{2})-(\d{2})$/;
 const isDate = (s) => { const m = typeof s === 'string' ? DATE.exec(s) : null; if (!m) return false; const d = new Date(Date.UTC(+m[1], +m[2] - 1, +m[3])); return d.getUTCFullYear() === +m[1] && d.getUTCMonth() === +m[2] - 1 && d.getUTCDate() === +m[3]; };
@@ -376,7 +394,7 @@ export function build() {
     id: null, kind: null, layer: null, title: n ? n.stem : null, path: n ? n.rel : null, status: null, effectiveStatus: null, blockedBy: [],
     priority: n?.data?.priority ?? null, effort: n?.data?.effort ?? null, module: n?.data?.module ?? null, feature: null, task: null, code: null, scope: null,
     screens: list(n?.data?.screens), updated: n?.data?.updated ?? n?.data?.created ?? null, tags: list(n?.data?.tags),
-    deadline: n?.data?.deadline ?? null, inherits: {},
+    deadline: n?.data?.deadline ?? null, release: null, inherits: {},
     depends: [], affects: [], related: [], children: [], parents: [], summary: n?.summary ?? null, label: null, parentTask: null, pending: [], frontendOnly: false, labels: [], card: null, ...extra,
   });
   const byType = (t) => notes.filter((n) => n.data && n.data.type === t && !n.rel.startsWith('templates/'));
@@ -392,7 +410,12 @@ export function build() {
 
   // root
   const overview = byStem.get('Project Overview') || null;
-  const root = addNode(base(null, { id: 'root', kind: 'root', title: cfg.project || 'Project', path: null, file: overview?.rel ?? null, effectiveStatus: 'reference', label: 'Project', summary: overview?.summary ?? null }));
+  const root = addNode(base(null, { id: 'root', kind: 'root', title: cfg.project || 'Project', path: null, file: overview?.rel ?? null, effectiveStatus: 'reference', label: 'Project', summary: overview?.summary ?? null, stage: null, releases: [] }));
+  // the stage is typed by the owner on the overview note, never computed
+  const rawStage = overview?.data?.stage;
+  if (rawStage === undefined || rawStage === null || rawStage === '') { if (overview) warn(overview.rel, `stage: missing; type one of ${cfg.stages.list.map((s) => s.id).join(', ')} (docs.config.json stages)`); }
+  else if (typeof rawStage === 'string' && cfg.stages.byId.has(rawStage)) root.stage = rawStage;
+  else err(overview.rel, `stage: ${JSON.stringify(rawStage)} is not one of ${cfg.stages.list.map((s) => s.id).join(', ')} (docs.config.json stages)`);
 
   // modules
   const moduleNodes = new Map();
@@ -601,8 +624,22 @@ export function build() {
     if (dl === undefined || dl === null || dl === '') n.deadline = null;
     else if (!isDate(dl)) { err(note.rel, `deadline: ${JSON.stringify(dl)} must be a date YYYY-MM-DD`); n.deadline = null; }
     else n.deadline = dl;
+    // release: a feature's own scope, inherited below it; deployedTo: the environments a delivery runs on
+    const rel = note.data.release;
+    if (rel === undefined || rel === null || rel === '') n.release = null;
+    else if (n.kind !== 'feature') { err(note.rel, `release: belongs on the feature card only; this ${n.kind} inherits its feature's`); n.release = null; }
+    else if (typeof rel === 'string' && cfg.releases.byId.has(rel)) n.release = rel;
+    else { err(note.rel, `release: ${JSON.stringify(rel)} is not one of ${cfg.releases.list.map((r) => r.id).join(', ')} (docs.config.json releases)`); n.release = null; }
+    const dep = note.data.deployedTo;
+    if (dep !== undefined && dep !== null) {
+      if (!cfg.environments.kinds.includes(n.kind)) err(note.rel, `deployedTo: only on ${cfg.environments.kinds.join(', ')} notes`);
+      else {
+        n.deployedTo = [];
+        for (const e of list(dep)) { if (cfg.environments.byId.has(e)) { if (!n.deployedTo.includes(e)) n.deployedTo.push(e); } else err(note.rel, `deployedTo: "${e}" is not one of ${cfg.environments.list.map((x) => x.id).join(', ')} (docs.config.json environments)`); }
+      }
+    }
   }
-  const inherit = (n, from) => { if (!from) return; for (const k of ['priority', 'deadline']) if (n[k] === null && from[k] !== null) { n[k] = from[k]; n.inherits[k] = from.inherits[k] || from.id; } };
+  const inherit = (n, from) => { if (!from) return; for (const k of ['priority', 'deadline', 'release']) if (n[k] === null && from[k] !== null) { n[k] = from[k]; n.inherits[k] = from.inherits[k] || from.id; } };
   for (const t of [...taskNodes.values()].sort((a, b) => { const depth = (x) => { let d = 0, a = x; while (a && a.parentTask && d < 60) { a = taskNodes.get(a.parentTask); d++; } return d; }; return depth(a) - depth(b); })) inherit(t, t.parentTask ? taskNodes.get(t.parentTask) : featureNodes.get(t.feature));
   for (const n of layerNodes) if (n.path) inherit(n, n.task ? taskNodes.get(n.task) : featureNodes.get(n.feature));
 
@@ -936,6 +973,17 @@ export function build() {
   }
   for (const [, d] of moduleNodes) d.effectiveStatus = summarize(d.children);
   root.effectiveStatus = summarize([...moduleNodes.values()].map((d) => d.id));
+  // release progress on the project card: per target, the features Done (and Partial) out of the total; then the stage's own check
+  const featureList = [...featureNodes.values()];
+  root.releases = [...cfg.releases.list.map((r) => r.id), null].map((id) => {
+    const fs_ = featureList.filter((f) => f.release === id);
+    return { id, total: fs_.length, done: fs_.filter((f) => f.effectiveStatus === 'done').length, partial: fs_.filter((f) => f.effectiveStatus === 'partial').length };
+  }).filter((r) => r.id !== null || r.total > 0);
+  const needs = root.stage ? cfg.stages.byId.get(root.stage).requiresRelease : null;
+  if (needs) {
+    const open = featureList.filter((f) => f.release === needs && f.effectiveStatus !== 'done');
+    if (open.length) warn(overview.rel, `stage: "${root.stage}" needs every ${needs} feature Done; ${open.length} ${open.length === 1 ? 'is' : 'are'} not: ${open.map((f) => f.title).join(', ')}`);
+  }
   for (const [, t] of taskNodes) rollup(t.id);
   for (const [, f] of featureNodes) rollup(f.id);
   for (const [, d] of moduleNodes) rollup(d.id);
@@ -966,7 +1014,7 @@ export function build() {
   return {
     json: {
       schema: 2, repo: REPO, rootId: 'root', counts, legend: LEGEND, emoji: EMOJI, layers: layersOut, flow: cfg.flow, flowOrder: cfg.flowOrder, flowBack: cfg.flowBack, taskLabels: cfg.taskLabels, defaultBlocks: [...cfg.flowBlocks, ...(cfg.defaultBlocks || [])], frontendOnly: { skips: cfg.frontendOnlySkips },
-      modules: cfg.modules, priorities: cfg.priorities.levels, deadlines: cfg.deadlines, agents: (cfg.agents?.list || []).map((a) => ({ id: a.id, label: a.label, note: a.note, layer: a.layer ?? null })), generated: GENERATED, nodes, edges, concepts: conceptsOut, byName, files: filesIndex, cards: cards.byCode, cardPrefixes: cards.prefixes, diagnostics: { errors, warnings },
+      modules: cfg.modules, priorities: cfg.priorities.levels, deadlines: cfg.deadlines, stages: cfg.stages.list, releases: cfg.releases.list, environments: { kinds: cfg.environments.kinds, list: cfg.environments.list }, agents: (cfg.agents?.list || []).map((a) => ({ id: a.id, label: a.label, note: a.note, layer: a.layer ?? null })), generated: GENERATED, nodes, edges, concepts: conceptsOut, byName, files: filesIndex, cards: cards.byCode, cardPrefixes: cards.prefixes, diagnostics: { errors, warnings },
     },
     errors, warnings, notes, cfg, cards: cards.registry,
   };
@@ -1069,7 +1117,7 @@ function treeMarkdown(json) {
   const seen = new Set();
   const walkNode = (id, depth) => {
     const n = nodes[id];
-    const extra = [n.card && !ID_CODED.has(n.kind) ? n.card : null, n.label && !['feature', 'module', 'task'].includes(n.kind) ? n.label : null, n.parentTask ? `sub-task of ${n.parentTask}` : null, ...(n.labels || []), n.frontendOnly ? 'frontend only' : null, n.pending?.length ? `${n.pending.length} pending note${n.pending.length === 1 ? '' : 's'}` : null, priorityLabel(json, n), n.deadline ? `due ${n.deadline}` : null, n.blockedBy?.length ? `blocked by ${n.blockedBy.map((b) => b.title).join(', ')}` : null].filter(Boolean).join(', ');
+    const extra = [n.card && !ID_CODED.has(n.kind) ? n.card : null, n.label && !['feature', 'module', 'task'].includes(n.kind) ? n.label : null, n.kind === 'root' ? stageText(json, n) : null, n.kind === 'feature' ? `release ${releaseLabel(json, n.release)}` : null, n.deployedTo?.length ? `on ${n.deployedTo.join(', ')}` : null, n.parentTask ? `sub-task of ${n.parentTask}` : null, ...(n.labels || []), n.frontendOnly ? 'frontend only' : null, n.pending?.length ? `${n.pending.length} pending note${n.pending.length === 1 ? '' : 's'}` : null, priorityLabel(json, n), n.deadline ? `due ${n.deadline}` : null, n.blockedBy?.length ? `blocked by ${n.blockedBy.map((b) => b.title).join(', ')}` : null].filter(Boolean).join(', ');
     lines.push(`${'  '.repeat(depth)}- ${emojiOf(n)} ${mdLink(n)}${extra ? ` (${extra})` : ''}`);
     if (seen.has(id) && n.children.length) { lines.push(`${'  '.repeat(depth + 1)}- (see above)`); return; }
     seen.add(id);
@@ -1082,6 +1130,8 @@ function treeMarkdown(json) {
 
 const taskRows = (json) => Object.values(json.nodes).filter((n) => n.kind === 'task').sort((a, b) => a.code.localeCompare(b.code, 'en', { numeric: true }));
 const prioRank = (json, p) => { const i = (json.priorities || []).findIndex((l) => l.id === p); return i < 0 ? 99 : i; };
+const releaseLabel = (json, id) => (id ? (json.releases || []).find((r) => r.id === id)?.label ?? id : 'No release');
+const stageText = (json, n) => [n.stage ? `stage ${(json.stages || []).find((s) => s.id === n.stage)?.label ?? n.stage}` : 'no stage', ...(n.releases || []).map((r) => `${releaseLabel(json, r.id)} ${r.done}/${r.total} done${r.partial ? ` (${r.partial} partial)` : ''}`)].join(', ');
 const priorityLabel = (json, n) => { const l = n.priority ? (json.priorities || []).find((x) => x.id === n.priority) : null; return l ? l.label : n.priority; };
 const wiki = (n, alias) => `[[${n.title}${alias ? `|${alias}` : ''}]]`;
 
@@ -1154,7 +1204,7 @@ function cardIndexMarkdown(json) {
     const kind = cardPrefixes[prefix];
     lines.push(`## ${prefix} · ${groupLabel[kind] ?? kindName(kind)}`, '', '| Code | Card | Status | Under | Related | Blocked by |', '|---|---|---|---|---|---|');
     for (const n of rows) {
-      const extra = [n.scope === 'task' ? `task ${n.task}` : n.scope === 'feature' ? 'feature level' : null, n.parentTask ? `sub-task of ${n.parentTask}` : null, ...(n.labels || []).map((l) => `\`${l}\``), priorityLabel(json, n), n.deadline ? `due ${n.deadline}` : null, n.frontendOnly ? 'frontend only' : null].filter(Boolean).join(', ');
+      const extra = [n.scope === 'task' ? `task ${n.task}` : n.scope === 'feature' ? 'feature level' : null, n.parentTask ? `sub-task of ${n.parentTask}` : null, ...(n.labels || []).map((l) => `\`${l}\``), priorityLabel(json, n), n.kind === 'feature' ? `release ${releaseLabel(json, n.release)}` : null, n.deadline ? `due ${n.deadline}` : null, n.frontendOnly ? 'frontend only' : null].filter(Boolean).join(', ');
       lines.push(`| ${n.card} | ${mdLink(n)}${extra ? ` (${extra})` : ''} | ${status(n)} | ${codes(n.parents)} | ${codes([...(relOf.get(n.id) || [])])} | ${codes((n.blockedBy || []).map((b) => b.id))} |`);
     }
     lines.push('');
@@ -1405,7 +1455,7 @@ function scaffoldTask(result, featureId, title) {
 
 function scaffoldFeature(result, moduleId, name) {
   const { cfg, json } = result;
-  if (!moduleId || !name) die('usage: node scripts/build-tree.mjs --scaffold feature <module-id> "<Name>" [--id <slug>] [--priority critical|high|medium|low] [--frontend-only]');
+  if (!moduleId || !name) die('usage: node scripts/build-tree.mjs --scaffold feature <module-id> "<Name>" [--id <slug>] [--priority critical|high|medium|low] [--release mvp|v1|later] [--frontend-only]');
   const m = cfg.modules.find((x) => x.id === moduleId);
   if (!m) die(`no module "${moduleId}"; modules in docs.config.json: ${cfg.modules.map((x) => x.id).join(', ')}`);
   if (BAD_NAME.test(name)) die('the name cannot contain # ? % or \\');
@@ -1415,14 +1465,17 @@ function scaffoldFeature(result, moduleId, name) {
   if (json.byName?.[name]) die(`a note named "${name}" already exists (${json.nodes[json.byName[name]].path})`);
   const priority = opt('--priority', 'high');
   if (!cfg.priorities.levels.some((l) => l.id === priority)) die(`priority "${priority}": ${cfg.priorities.levels.map((l) => l.id).join(', ')}`);
+  const release = opt('--release', 'later');
+  if (!cfg.releases.byId.has(release)) die(`release "${release}": ${cfg.releases.list.map((r) => r.id).join(', ')}`);
   const date = today();
   const dest = path.join(ROOT, 'modules', m.name, name, `${name}.md`);
   if (fs.existsSync(dest)) die(`${path.relative(ROOT, dest)} already exists`);
   const { body } = parseFrontmatter(fs.readFileSync(path.join(ROOT, 'templates/Feature Template.md'), 'utf8'));
-  const fm = { type: 'feature', id, name, priority, module: moduleId };
+  const fm = { type: 'feature', id, name, priority, release, module: moduleId };
   if (has('--frontend-only')) fm.frontendOnly = true;
-  Object.assign(fm, { screens: [], depends: [], affects: [], related: [], updated: date, tags: ['feature', `module/${moduleId}`, `priority/${priority}`] });
-  const text = fill(body, { '<Feature name>': name, '<Module name>': m.name, '<date>': date }).replace('**Priority:** P1', `**Priority:** ${priority}`);
+  Object.assign(fm, { screens: [], depends: [], affects: [], related: [], updated: date, tags: ['feature', `module/${moduleId}`, `priority/${priority}`, `release/${release}`] });
+  const text = fill(body, { '<Feature name>': name, '<Module name>': m.name, '<date>': date })
+    .replace('**Priority:** High', `**Priority:** ${cfg.priorities.byId.get(priority).label}`).replace('**Release:** Later', `**Release:** ${cfg.releases.byId.get(release).label}`);
   const rel = writeNote(dest, fm, text, ['name']);
   console.log(`wrote ${rel} (feature ${id} in ${m.name})\nnext: node scripts/build-tree.mjs --scaffold story ${id}; fill the note (what it is for, the screens, the product rules); add the row to [[${m.name} Module]] and the feature to its screens in [[Screen Index]]; then node scripts/build-tree.mjs`);
 }

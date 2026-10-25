@@ -1,11 +1,14 @@
 ---
 type: project
-updated: 2026-10-18
-tags: [project]
+stage: mvp
+updated: 2026-10-25
+tags: [project, stage/mvp]
 layer: business
 ---
 
 # Project Overview
+
+**Stage:** MVP: building the smallest set of features we would release, the ones with `release: mvp`. It moves to Beta when every MVP feature is Done and its QA passes. The stage is typed here by the owner, never computed; the ladder is `stages` in `docs.config.json` and the rule is in [[Docs Tree#Stage, release and environments]].
 
 ## The product
 

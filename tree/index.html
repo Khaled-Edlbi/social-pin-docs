@@ -519,6 +519,17 @@ function marksHtml(n, wide) {
 }
 const LABEL = { bug: { bg: 'var(--color-accent-2-100)', ink: 'var(--color-accent-2-800)', c: 'var(--color-accent-2-600)' }, chore: { bg: 'var(--color-neutral-200)', ink: 'var(--color-neutral-800)', c: 'var(--color-neutral-500)' }, spike: { bg: 'var(--st-violet-bg)', ink: 'var(--st-violet-ink)', c: 'var(--st-violet-c)' }, docs: { bg: 'var(--color-accent-100)', ink: 'var(--color-accent-800)', c: 'var(--color-accent-500)' } };
 const labelStyle = (l) => LABEL[l] || LABEL.chore;
+// the project's stage (typed on the overview note) and a feature's release target, from tree.json (docs.config.json stages / releases / environments)
+let STAGE = {}, RELEASE = {}, ENV = {};
+const tint = (c) => ({ bg: `color-mix(in srgb, ${c} 16%, var(--color-neutral-100))`, ink: `color-mix(in srgb, ${c} 70%, var(--color-text))`, c });
+// the coloured tags a card carries besides its status: the stage on the project card, the release on a feature card
+function tagsOf(n) {
+  const out = [];
+  if (n.kind === 'root' && n.stage && STAGE[n.stage]) out.push({ text: `Stage · ${STAGE[n.stage].label}`, ...tint(STAGE[n.stage].color || 'var(--color-neutral-500)'), title: `${STAGE[n.stage].description}${STAGE[n.stage].exit ? ` Next when: ${STAGE[n.stage].exit}` : ''}` });
+  if (n.kind === 'feature') { const r = n.release && RELEASE[n.release]; out.push(r ? { text: r.label, ...tint(r.color || 'var(--color-neutral-500)'), title: `Release: ${r.label} · ${r.description}` } : { text: 'No release', ...LABEL.chore, title: 'No release: type release: in the feature card' }); }
+  return out;
+}
+const tagsHtml = (n) => tagsOf(n).map((t) => `<span class="stchip lbl-chip" style="--bg:${t.bg};--ink:${t.ink};--bd:${t.c};font-weight:700;font-size:10px" title="${esc(t.title)}">${esc(t.text)}</span>`).join('');
 const T = { H: 20, ROW: 52, LROW: 58, LADDER: 16, LEVEL: 112, XGAP: 16, STACK: 26, COLGAP: 64 };
 const CONTAINER = new Set(['feature', 'group', 'task']); // list their children in a column: the layer notes as a ladder in hand-off order, then decisions and loose tasks; a feature's tasks hang under its story card, beside the ladder
 let FLOW = { order: [], pairs: [], back: [] };
@@ -575,6 +586,8 @@ async function load() {
   FLOW = { order: d.flowOrder || [], pairs: (d.flow || []).filter((p) => Array.isArray(p) && p.length === 2), back: d.flowBack || [] };
   if (!FLOW.order.length) { const q = FLOW.pairs.length ? [FLOW.pairs[0][0]] : []; while (q.length) { const k = q.shift(); if (FLOW.order.includes(k)) continue; FLOW.order.push(k); for (const [a, b] of FLOW.pairs) if (a === k) q.push(b); } FLOW.back = FLOW.pairs.filter(([a, b]) => FLOW.order.indexOf(a) >= FLOW.order.indexOf(b)); }
   if (Array.isArray(d.priorities) && d.priorities.length) PRIO = { levels: d.priorities, byId: Object.fromEntries(d.priorities.map((l) => [l.id, l])) };
+  const byIdOf = (l) => (Array.isArray(l) ? Object.fromEntries(l.map((x) => [x.id, x])) : {});
+  STAGE = byIdOf(d.stages); RELEASE = byIdOf(d.releases); ENV = byIdOf(d.environments && d.environments.list);
   if (d.deadlines && Array.isArray(d.deadlines.zones) && d.deadlines.zones.length) DL = { windowDays: d.deadlines.windowDays > 0 ? d.deadlines.windowDays : 3, zones: d.deadlines.zones, missed: { ...DL.missed, ...(d.deadlines.missed || {}) } };
   KIND_GROUPS = [{ title: 'Structure', keys: ['feature'] }, ...(d.layers || []).map((l) => ({ title: l.label, color: l.color, keys: l.kinds.map((k) => k.id) })), { title: 'Work', keys: ['task', 'decision', 'decision-record'] }, { title: 'Reference', keys: ['project'] }];
   if (d.repo && d.repo.owner) $('#repo-link').href = `https://github.com/${d.repo.owner}/${d.repo.name}`;
@@ -697,7 +710,8 @@ function nodeWidth(n, caret) {
   const k = kicker(n);
   const t = tw(shown(n), `600 13px ${FONT}`), kw = tw(k, `600 9px ${FONT}`) + k.length * 0.9 + (hasLayerMark(n) ? 11 : 0);
   const st = tw(statusText(n), `600 10px ${FONT}`) + 14;
-  const lb = (n.labels || []).reduce((w, l) => w + Math.ceil(tw(l.toUpperCase(), `700 8px ${FONT}`) + l.length * 0.6) + 10 + 6, 0);
+  const lb = (n.labels || []).reduce((w, l) => w + Math.ceil(tw(l.toUpperCase(), `700 8px ${FONT}`) + l.length * 0.6) + 10 + 6, 0)
+    + tagsOf(n).reduce((w, x) => w + Math.ceil(tw(x.text, `700 9px ${FONT}`)) + 12 + 6, 0);
   return Math.ceil(14 + Math.max(t, kw) + 14 + lb + st + 12 + (caret ? 12 : 0));
 }
 function layoutTree() {
@@ -904,6 +918,7 @@ function renderCards(list) {
       sel('rect', { x: cx, y: -9, width: cw, height: 18, rx: 2 }, g, { fill: st.bg, stroke: st.dashed ? st.c : 'none', strokeDasharray: st.dashed ? '3 2' : '' });
       const sx = sel('text', { x: cx + 7, y: 0.5, 'dominant-baseline': 'middle' }, g, { font: `600 10px ${FONT}`, fill: st.ink, pointerEvents: 'none' }); sx.textContent = label;
       let lx = cx - 6;
+      for (const t of [...tagsOf(n)].reverse()) { const tw_ = Math.ceil(tw(t.text, `700 9px ${FONT}`)) + 12; lx -= tw_; sel('rect', { x: lx, y: -8, width: tw_, height: 16, rx: 2 }, g, { fill: t.bg, stroke: t.c, strokeWidth: 1 }); const tt_ = sel('text', { x: lx + 6, y: 0.5, 'dominant-baseline': 'middle' }, g, { font: `700 9px ${FONT}`, fill: t.ink, pointerEvents: 'none' }); tt_.textContent = t.text; lx -= 6; }
       for (const l of [...(n.labels || [])].reverse()) { const ls = labelStyle(l), text = l.toUpperCase(), lw = Math.ceil(tw(text, `700 8px ${FONT}`) + text.length * 0.6) + 10; lx -= lw; sel('rect', { x: lx, y: -8, width: lw, height: 16, rx: 2 }, g, { fill: ls.bg, stroke: ls.c, strokeWidth: 1 }); const lt = sel('text', { x: lx + 5, y: 0.5, 'dominant-baseline': 'middle' }, g, { font: `700 8px ${FONT}`, letterSpacing: '0.06em', fill: ls.ink, pointerEvents: 'none' }); lt.textContent = text; lx -= 6; }
       // the corner badges: the priority flag on the top-left corner, the deadline clock (a skull once missed) on the bottom-right; the story verdict keeps the top-right
       const badge = (cx0, cy0, color, title, draw) => { const bg = sel('g', { 'data-mark': '' }, g); sel('circle', { cx: cx0, cy: cy0, r: 8.5 }, bg, { fill: `color-mix(in srgb, ${color} 18%, var(--color-neutral-100))`, stroke: color, strokeWidth: 1.2 }); draw(bg, cx0, cy0, color); sel('title', {}, bg).textContent = title; };
@@ -1237,7 +1252,7 @@ function renderOutline() {
     const row = document.createElement('div'); row.className = `orow k-${n.kind}${big ? ' big' : ''}${S.selected === it.id ? ' sel' : ''}${active && !it.match ? ' faded' : ''}${inactive(n) ? ' inactive' : ''}`;
     row.setAttribute('role', 'treeitem'); row.tabIndex = 0; row.dataset.row = it.iid; if (has) row.setAttribute('aria-expanded', String(!!it.open));
     row.style.paddingLeft = (10 + it.depth * 24) + 'px';
-    row.innerHTML = `<button class="car" aria-label="Toggle" style="visibility:${has ? 'visible' : 'hidden'}"><i class="ph-duotone ${it.open ? 'ph-caret-down' : 'ph-caret-right'}"></i></button><i class="ki ph-duotone ${kindOf(n.kind).icon}"></i><span class="t" title="${esc(n.path || n.title)}">${esc(shown(n))}</span><span class="kick">${n.kind === 'root' ? '' : esc(kicker(n))}</span>${marksHtml(n)}${(n.labels || []).map((l) => `<span class="stchip" style="--bg:${labelStyle(l).bg};--ink:${labelStyle(l).ink};--bd:${labelStyle(l).c};text-transform:uppercase;letter-spacing:.06em;font-weight:700;font-size:10px">${esc(l)}</span>`).join('')}${chipHtml(n)}`;
+    row.innerHTML = `<button class="car" aria-label="Toggle" style="visibility:${has ? 'visible' : 'hidden'}"><i class="ph-duotone ${it.open ? 'ph-caret-down' : 'ph-caret-right'}"></i></button><i class="ki ph-duotone ${kindOf(n.kind).icon}"></i><span class="t" title="${esc(n.path || n.title)}">${esc(shown(n))}</span><span class="kick">${n.kind === 'root' ? '' : esc(kicker(n))}</span>${marksHtml(n)}${tagsHtml(n)}${(n.labels || []).map((l) => `<span class="stchip" style="--bg:${labelStyle(l).bg};--ink:${labelStyle(l).ink};--bd:${labelStyle(l).c};text-transform:uppercase;letter-spacing:.06em;font-weight:700;font-size:10px">${esc(l)}</span>`).join('')}${chipHtml(n)}`;
     row.querySelector('.car').addEventListener('click', (e) => { e.stopPropagation(); if (has) toggle(it.id); });
     row.addEventListener('click', () => select(it.id, it.iid));
     row.addEventListener('keydown', (e) => {
@@ -1289,6 +1304,13 @@ const relGroup = (title, count, inner, sub) => `<div class="relg"><div class="rt
 // what stops the card right now: shown first, under the summary, because it explains the chip
 function stateHtml(n) {
   const out = [];
+  if (n.kind === 'root') {
+    const s = n.stage && STAGE[n.stage];
+    out.push(relGroup('Stage', '', s ? `${tagsHtml(n)}<span class="rel" style="cursor:default"><span class="why">${esc(s.description)}</span></span>` : '<span class="rel" style="cursor:default"><span class="why">No stage typed: stage: in Project Overview</span></span>', s && s.exit ? `Next stage when: ${esc(s.exit)} · typed by the owner, never computed` : 'Typed by the owner, never computed'));
+    if ((n.releases || []).length) out.push(relGroup('Release progress', '', n.releases.map((r) => { const t = r.id ? RELEASE[r.id] : null, c = (t && t.color) || 'var(--color-neutral-500)', pct = r.total ? Math.round(100 * r.done / r.total) : 0; return `<span class="rel" style="cursor:default;flex-wrap:wrap"><span class="lt">${esc(t ? t.label : 'No release')}</span><span class="why">${r.done} of ${r.total} features done${r.partial ? ` · ${r.partial} partial` : ''}</span><span style="flex-basis:100%;height:4px;border-radius:2px;background:color-mix(in srgb, ${c} 18%, var(--color-neutral-200))"><span style="display:block;height:100%;width:${pct}%;border-radius:2px;background:${c}"></span></span></span>`; }).join(''), 'Features by their release: target, Done out of the total'));
+  }
+  if (n.kind === 'feature' || (n.release && n.inherits && n.inherits.release)) { const r = n.release && RELEASE[n.release]; if (r || n.kind === 'feature') out.push(relGroup('Release', '', `<span class="rel" style="cursor:default"><span class="lt">${esc(r ? r.label : 'No release')}</span>${r ? `<span class="why">${esc(r.description)}</span>` : ''}</span>`, n.inherits && n.inherits.release && node(n.inherits.release) ? `Inherited from ${esc(node(n.inherits.release).title)}` : 'The feature\'s own release target')); }
+  if (Array.isArray(n.deployedTo)) out.push(relGroup('Deployed to', n.deployedTo.length ? String(n.deployedTo.length) : '', n.deployedTo.length ? n.deployedTo.map((e) => { const x = ENV[e] || { label: e }; return `<span class="stchip" style="--bg:${tint(x.color || 'var(--color-neutral-500)').bg};--ink:${tint(x.color || 'var(--color-neutral-500)').ink};--bd:${x.color || 'transparent'}">${esc(x.label)}</span>`; }).join('') : '<span class="rel" style="cursor:default"><span class="why">Not deployed yet</span></span>'));
   const z = dueOf(n);
   if (z) out.push(relGroup(z.missed ? 'Deadline missed' : 'Deadline', '', `<span class="rel" style="cursor:default">${marksHtml({ deadline: n.deadline })}<span class="lt">${esc(z.date)}</span><span class="why">${esc(z.text)}</span></span>`, n.inherits && n.inherits.deadline && node(n.inherits.deadline) ? `Inherited from ${esc(node(n.inherits.deadline).title)}` : `The card's own deadline · the clock turns ${DL.zones.map((x) => x.label.toLowerCase()).join(' → ')} over the last ${DL.windowDays} days, ${DL.missed.icon || '💀'} once missed`));
   if (Array.isArray(n.blockedBy) && n.blockedBy.length) out.push(relGroup('Blocked by', String(n.blockedBy.length), n.blockedBy.map((b) => relItem(b.id, `<span class="why">${esc(b.why)}</span>`)).join('')));
@@ -1331,7 +1353,7 @@ async function openNode(id) {
   const n = node(id), k = kindOf(n.kind);
   const path = n.path || n.file || null;
   const st = stOf(n);
-  openPane({ id, node: true, icon: k.icon, kicker: kicker(n) + (n.layer && LAYER[n.layer] && KIND[n.kind] && KIND[n.kind].layer ? ' · ' + LAYER[n.layer].label + ' layer' : '') , title: shown(n), path: path || '', gh: path ? ghUrl(path) : (n.template ? ghUrl(n.template) : (S.D.repo.blobBase || '')), ghText: path ? 'Edit on GitHub' : 'Open the template', summary: n.summary || '', state: stateHtml(n), contains: containsHtml(n), rels: relationsHtml(n), chip: chipStyle(n), dashed: st.dashed, status: statusText(n), labels: n.labels || [], marks: marksHtml(n, true) });
+  openPane({ id, node: true, icon: k.icon, kicker: kicker(n) + (n.layer && LAYER[n.layer] && KIND[n.kind] && KIND[n.kind].layer ? ' · ' + LAYER[n.layer].label + ' layer' : '') , title: shown(n), path: path || '', gh: path ? ghUrl(path) : (n.template ? ghUrl(n.template) : (S.D.repo.blobBase || '')), ghText: path ? 'Edit on GitHub' : 'Open the template', summary: n.summary || '', state: stateHtml(n), contains: containsHtml(n), rels: relationsHtml(n), chip: chipStyle(n), dashed: st.dashed, status: statusText(n), labels: n.labels || [], marks: marksHtml(n, true) + tagsHtml(n) });
   if (!path) { $('#p-article').innerHTML = `<p class="empty">Not written yet.${n.template ? ` Create it from <a href="#f/${encodeURIComponent(n.template)}">${esc(n.template)}</a>.` : ''}</p>`; return; }
   await renderFile(path, n.heading, id);
 }
@@ -1398,7 +1420,7 @@ function splitList(s) {
   out.push(cur); return out;
 }
 // a frontmatter value as the properties table shows it: wikilinks, card codes and ids become card links, lists read "a, b, c"
-const PLAIN_KEYS = new Set(["type", "id", "name", "code", "status", "priority", "effort", "deadline", "created", "updated", "owner", "decider", "tags", "labels", "screens", "scope", "layer", "frontendOnly", "pending"]);
+const PLAIN_KEYS = new Set(["type", "id", "name", "code", "status", "priority", "effort", "deadline", "created", "updated", "owner", "decider", "tags", "labels", "screens", "scope", "layer", "frontendOnly", "pending", "stage", "release", "deployedTo"]);
 function fmLink(key, t) {
   if (PLAIN_KEYS.has(key)) return null;
   const d = S.D;

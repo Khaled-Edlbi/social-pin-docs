@@ -2,7 +2,7 @@
 type: project
 layer: shared
 updated: 2026-10-25
-related: ["Agent Rules", "Workflow"]
+related: ["Agent Rules", "Workflow", "Project Overview"]
 tags: [project, layer/shared, map]
 ---
 
@@ -87,6 +87,18 @@ Two badges on the card's corners: the **priority flag** on the top-left, the **d
 | no mark | the card has no priority or no deadline, own or inherited |
 
 The rule behind the colours: the last `deadlines.windowDays` (3) before the deadline are split evenly over `deadlines.zones`, farthest zone first; before the window the card is in the first zone. The zone is computed from today's date when the page is opened, so the generated files never change on their own; `node scripts/build-tree.mjs --impact T-004` prints the same words. The **Priority & deadline** section of the filters narrows the tree to a level or a zone (counts included), and three saved views ask the usual questions: *Overdue*, *Due now* (inside the window), *Critical cards*.
+
+### Stage, release and environments
+
+Three tags that say where the product stands rather than how much work is done; they sit beside the status chip and never change it.
+
+| Tag | Where | Meaning |
+|---|---|---|
+| **Stage · MVP** (coloured chip) | the project card | the product's stage, typed as `stage:` in [[Project Overview]]: `concept` → `prototype` → `mvp` → `beta` → `live` → `sunset` (`stages` in `docs.config.json`, each with the test that moves it on). The pane shows the stage, its next-stage test and **Release progress**: per release target, the features Done out of the total, as a bar |
+| **MVP** / **v1** / **Later** / **No release** | every feature card | the release the feature is scoped to (`release:` on the feature, `releases` in the config). Its layer notes and tasks inherit it; the pane says "Inherited from …" |
+| **Deployed to** Dev / Staging / Prod | the pane of a Backend or Frontend Delivery note | the environments that delivery runs on (`deployedTo:`, `environments` in the config); "Not deployed yet" while the list is empty. An environment is not a stage |
+
+The rule: [[Agent Rules#4 · Statuses, blocking and sign-off]]. `tree/tree.md` repeats the stage and the release progress on its first line and the release on every feature.
 
 **Lines.** Bold lines are the tree. Thin lines behind it are relations, drawn only between cards that are both visible, each with a checkbox under **Relations** in the left column: *related* (declared or shared concept), *affects* (arrow, from the changed note to what relies on it), *depends on* (arrow), *blocks* (red arrow from the blocker: by default every card in the flow is blocked by the card before it), *flow* (dashed arrow along the hand-off order, between sibling layer notes), *pending* (a done card's note left for another card), *decision affects*, *mentions* (a wikilink). Hover a node: its relations light up with a label (shared endpoints and codes are named), their far ends get an outline, everything else dims. A relation to a collapsed node appears dashed and routed to the nearest visible ancestor.
 

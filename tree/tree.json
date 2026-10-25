@@ -4836,7 +4836,7 @@
     },
     "concepts": 182,
     "decisions": 16,
-    "edges": 4805,
+    "edges": 4807,
     "features": 39,
     "layerNotes": 185,
     "modules": 8,
@@ -10463,6 +10463,11 @@
       "from": "project:docs-tree",
       "kind": "related",
       "to": "project:agent-rules"
+    },
+    {
+      "from": "project:docs-tree",
+      "kind": "related",
+      "to": "project:project-overview"
     },
     {
       "from": "project:docs-tree",
@@ -27966,6 +27971,11 @@
     {
       "from": "project:agent-rules",
       "kind": "wikilink",
+      "to": "project:project-overview"
+    },
+    {
+      "from": "project:agent-rules",
+      "kind": "wikilink",
       "to": "project:ring-access-model"
     },
     {
@@ -32912,6 +32922,32 @@
     "todo": "⬜",
     "verified": "✅"
   },
+  "environments": {
+    "kinds": [
+      "backend-delivery",
+      "frontend-delivery"
+    ],
+    "list": [
+      {
+        "color": "#64748b",
+        "description": "",
+        "id": "dev",
+        "label": "Dev"
+      },
+      {
+        "color": "#f59e0b",
+        "description": "",
+        "id": "staging",
+        "label": "Staging"
+      },
+      {
+        "color": "#16a34a",
+        "description": "",
+        "id": "prod",
+        "label": "Prod"
+      }
+    ]
+  },
   "files": {
     "CLAUDE.md": {
       "name": "CLAUDE",
@@ -35162,6 +35198,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s68"
@@ -35207,6 +35244,7 @@
       "pending": [],
       "priority": "medium",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s00a",
@@ -35261,6 +35299,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": "todo",
@@ -35304,6 +35343,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s01",
@@ -35359,6 +35399,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s34",
@@ -35413,6 +35454,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": "todo",
@@ -35462,6 +35504,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s02"
@@ -35513,6 +35556,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s72",
@@ -35565,6 +35609,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s44",
@@ -35620,6 +35665,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s11",
@@ -35676,6 +35722,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s26",
@@ -35728,6 +35775,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s75"
@@ -35779,6 +35827,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s38"
@@ -35830,6 +35879,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": "todo",
@@ -35879,6 +35929,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": "in-progress",
@@ -35928,6 +35979,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s52"
@@ -35979,6 +36031,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s48",
@@ -36034,6 +36087,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s53",
@@ -36090,6 +36144,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s63",
@@ -36137,6 +36192,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s14",
@@ -36190,6 +36246,7 @@
       "pending": [],
       "priority": "medium",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s13",
@@ -36242,6 +36299,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s07",
@@ -36294,6 +36352,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s01",
@@ -36347,6 +36406,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s59",
@@ -36402,6 +36462,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s69"
@@ -36453,6 +36514,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s03",
@@ -36508,6 +36570,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s50",
@@ -36560,6 +36623,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s29",
@@ -36612,6 +36676,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s11",
@@ -36667,6 +36732,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s62"
@@ -36712,6 +36778,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s06"
@@ -36757,6 +36824,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": "done",
@@ -36806,6 +36874,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s17",
@@ -36852,6 +36921,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s15",
@@ -36898,6 +36968,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s14",
@@ -36949,6 +37020,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s08",
@@ -37010,6 +37082,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s34",
@@ -37056,6 +37129,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s10",
@@ -37109,6 +37183,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s36",
@@ -37155,6 +37230,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s68"
@@ -37204,6 +37280,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -37243,6 +37320,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s01",
@@ -37296,6 +37374,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -37339,6 +37418,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -37382,6 +37462,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -37425,6 +37506,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -37468,6 +37550,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -37511,6 +37594,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -37554,6 +37638,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -37597,6 +37682,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -37640,6 +37726,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -37683,6 +37770,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -37726,6 +37814,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -37769,6 +37858,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -37812,6 +37902,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -37855,6 +37946,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -37898,6 +37990,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -37937,6 +38030,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s14",
@@ -37988,6 +38082,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -38031,6 +38126,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -38074,6 +38170,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -38117,6 +38214,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -38160,6 +38258,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -38203,6 +38302,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -38246,6 +38346,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -38289,6 +38390,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -38332,6 +38434,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -38375,6 +38478,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -38414,6 +38518,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s06"
@@ -38459,6 +38564,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": "current",
@@ -38506,6 +38612,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -38545,6 +38652,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s15",
@@ -38591,6 +38699,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s14",
@@ -38642,6 +38751,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s08",
@@ -38701,6 +38811,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -38740,6 +38851,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s10",
@@ -38791,6 +38903,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -38843,6 +38956,7 @@
         "decision:D-01",
         "feature:code-delivery"
       ],
+      "release": null,
       "scope": null,
       "screens": [],
       "status": "decided",
@@ -38910,6 +39024,7 @@
         "story:profiles",
         "story:ring-projection"
       ],
+      "release": null,
       "scope": null,
       "screens": [],
       "status": "decided",
@@ -38967,6 +39082,7 @@
         "story:ring-projection",
         "story:widgets"
       ],
+      "release": null,
       "scope": null,
       "screens": [],
       "status": "decided",
@@ -39041,6 +39157,7 @@
         "story:T-004",
         "story:T-023"
       ],
+      "release": null,
       "scope": null,
       "screens": [],
       "status": "decided",
@@ -39101,6 +39218,7 @@
         "story:ring-projection",
         "story:rings"
       ],
+      "release": null,
       "scope": null,
       "screens": [],
       "status": "decided",
@@ -39159,6 +39277,7 @@
         "story:profiles",
         "story:gemma"
       ],
+      "release": null,
       "scope": null,
       "screens": [],
       "status": "decided",
@@ -39215,6 +39334,7 @@
         "decision:D-07",
         "story:payments"
       ],
+      "release": null,
       "scope": null,
       "screens": [],
       "status": "decided",
@@ -39273,6 +39393,7 @@
         "story:T-021",
         "story:T-022"
       ],
+      "release": null,
       "scope": null,
       "screens": [],
       "status": "decided",
@@ -39340,6 +39461,7 @@
         "story:T-022",
         "story:T-023"
       ],
+      "release": null,
       "scope": null,
       "screens": [],
       "status": "decided",
@@ -39399,6 +39521,7 @@
         "story:ring-members",
         "story:T-023"
       ],
+      "release": null,
       "scope": null,
       "screens": [],
       "status": "decided",
@@ -39456,6 +39579,7 @@
         "story:T-021",
         "story:T-022"
       ],
+      "release": null,
       "scope": null,
       "screens": [],
       "status": "decided",
@@ -39507,6 +39631,7 @@
       "related": [
         "decision-record:DR-01"
       ],
+      "release": null,
       "scope": null,
       "screens": [
         "s01",
@@ -39565,6 +39690,7 @@
       "related": [
         "decision-record:DR-02"
       ],
+      "release": null,
       "scope": null,
       "screens": [
         "s05",
@@ -39622,6 +39748,7 @@
       "related": [
         "decision-record:DR-03"
       ],
+      "release": null,
       "scope": null,
       "screens": [
         "s20",
@@ -39682,6 +39809,7 @@
       "related": [
         "decision-record:DR-04"
       ],
+      "release": null,
       "scope": null,
       "screens": [
         "s19",
@@ -39740,6 +39868,7 @@
       "related": [
         "decision-record:DR-05"
       ],
+      "release": null,
       "scope": null,
       "screens": [
         "s18",
@@ -39796,6 +39925,7 @@
       "related": [
         "decision-record:DR-06"
       ],
+      "release": null,
       "scope": null,
       "screens": [
         "s06"
@@ -39857,6 +39987,7 @@
         "feature:subscription",
         "decision-record:DR-07"
       ],
+      "release": null,
       "scope": null,
       "screens": [
         "s51",
@@ -39913,6 +40044,7 @@
         "feature:connections",
         "story:T-021"
       ],
+      "release": null,
       "scope": null,
       "screens": [
         "s43",
@@ -39964,6 +40096,7 @@
       "related": [
         "feature:badge-qr"
       ],
+      "release": null,
       "scope": null,
       "screens": [
         "s34"
@@ -40016,6 +40149,7 @@
       "related": [
         "feature:badge-qr"
       ],
+      "release": null,
       "scope": null,
       "screens": [
         "s34",
@@ -40074,6 +40208,7 @@
         "decision:D-17",
         "decision-record:DR-13"
       ],
+      "release": null,
       "scope": null,
       "screens": [
         "s44",
@@ -40131,6 +40266,7 @@
         "feature:view-as",
         "decision-record:DR-14"
       ],
+      "release": null,
       "scope": null,
       "screens": [
         "s17",
@@ -40187,6 +40323,7 @@
         "feature:ring-members",
         "decision-record:DR-15"
       ],
+      "release": null,
       "scope": null,
       "screens": [
         "s15",
@@ -40240,6 +40377,7 @@
         "feature:ring-projection",
         "feature:view-as"
       ],
+      "release": null,
       "scope": null,
       "screens": [
         "s14",
@@ -40302,6 +40440,7 @@
         "decision-record:DR-13",
         "decision-record:DR-17"
       ],
+      "release": null,
       "scope": null,
       "screens": [
         "s44",
@@ -40362,6 +40501,7 @@
         "feature:ring-invitations",
         "feature:rings"
       ],
+      "release": null,
       "scope": null,
       "screens": [
         "s17",
@@ -40428,6 +40568,7 @@
         "project:spec-map",
         "feature:interests"
       ],
+      "release": null,
       "rollup": {
         "blocked": 1,
         "current": 1,
@@ -40491,6 +40632,7 @@
         "project:api-conventions",
         "project:spec-map"
       ],
+      "release": null,
       "rollup": {
         "blocked": 1,
         "done": 1,
@@ -40562,6 +40704,7 @@
         "project:spec-map",
         "story:payments"
       ],
+      "release": null,
       "rollup": {
         "blocked": 2,
         "draft": 2,
@@ -40634,6 +40777,7 @@
         "feature:devices",
         "feature:e2e-tests"
       ],
+      "release": null,
       "rollup": {
         "blocked": 1,
         "current": 1,
@@ -40717,6 +40861,7 @@
         "decision:D-12",
         "decision-record:DR-06"
       ],
+      "release": null,
       "rollup": {
         "approved": 1,
         "blocked": 13,
@@ -40787,6 +40932,7 @@
         "project:api-conventions",
         "project:spec-map"
       ],
+      "release": null,
       "rollup": {
         "blocked": 2,
         "draft": 2,
@@ -40851,6 +40997,7 @@
         "project:spec-map",
         "decision-record:DR-01"
       ],
+      "release": null,
       "rollup": {
         "blocked": 6,
         "draft": 4,
@@ -40921,6 +41068,7 @@
         "project:spec-map",
         "decision:D-18"
       ],
+      "release": null,
       "rollup": {
         "blocked": 4,
         "decided": 1,
@@ -41005,6 +41153,7 @@
         "decision:D-15",
         "decision:D-17"
       ],
+      "release": null,
       "rollup": {
         "blocked": 13,
         "decided": 4,
@@ -41078,6 +41227,7 @@
         "project:api-conventions",
         "project:spec-map"
       ],
+      "release": null,
       "rollup": {
         "blocked": 6,
         "draft": 3,
@@ -41151,6 +41301,7 @@
         "project:api-conventions",
         "project:spec-map"
       ],
+      "release": null,
       "rollup": {
         "blocked": 3,
         "decided": 1,
@@ -41221,6 +41372,7 @@
         "project:api-conventions",
         "project:spec-map"
       ],
+      "release": null,
       "rollup": {
         "blocked": 6,
         "draft": 3,
@@ -41288,6 +41440,7 @@
         "project:api-conventions",
         "project:spec-map"
       ],
+      "release": null,
       "rollup": {
         "blocked": 4,
         "draft": 3,
@@ -41354,6 +41507,7 @@
         "project:api-conventions",
         "project:spec-map"
       ],
+      "release": null,
       "rollup": {
         "blocked": 2,
         "draft": 2,
@@ -41416,6 +41570,7 @@
         "project:architecture",
         "project:spec-map"
       ],
+      "release": null,
       "rollup": {
         "approved": 1,
         "blocked": 2,
@@ -41488,6 +41643,7 @@
         "story:payments",
         "story:events-before"
       ],
+      "release": null,
       "rollup": {
         "blocked": 4,
         "draft": 2,
@@ -41557,6 +41713,7 @@
         "project:spec-map",
         "story:payments"
       ],
+      "release": null,
       "rollup": {
         "blocked": 9,
         "decided": 1,
@@ -41637,6 +41794,7 @@
         "feature:post-event",
         "story:payments"
       ],
+      "release": null,
       "rollup": {
         "blocked": 16,
         "draft": 6,
@@ -41711,6 +41869,7 @@
         "project:api-conventions",
         "project:spec-map"
       ],
+      "release": null,
       "rollup": {
         "blocked": 8,
         "draft": 3,
@@ -41780,6 +41939,7 @@
         "feature:onboarding-imports",
         "decision:D-16"
       ],
+      "release": null,
       "rollup": {
         "approved": 1,
         "blocked": 2,
@@ -41858,6 +42018,7 @@
         "project:api-conventions",
         "project:spec-map"
       ],
+      "release": null,
       "rollup": {
         "blocked": 7,
         "decided": 1,
@@ -41926,6 +42087,7 @@
         "project:api-conventions",
         "project:spec-map"
       ],
+      "release": null,
       "rollup": {
         "blocked": 3,
         "draft": 2,
@@ -41994,6 +42156,7 @@
         "project:api-conventions",
         "project:spec-map"
       ],
+      "release": null,
       "rollup": {
         "blocked": 3,
         "decided": 1,
@@ -42070,6 +42233,7 @@
         "project:api-conventions",
         "project:spec-map"
       ],
+      "release": null,
       "rollup": {
         "blocked": 11,
         "draft": 5,
@@ -42144,6 +42308,7 @@
         "project:spec-map",
         "feature:ring-invitations"
       ],
+      "release": null,
       "rollup": {
         "blocked": 6,
         "draft": 3,
@@ -42212,6 +42377,7 @@
         "project:api-conventions",
         "project:spec-map"
       ],
+      "release": null,
       "rollup": {
         "blocked": 6,
         "decided": 1,
@@ -42288,6 +42454,7 @@
         "decision:D-07",
         "story:events-before"
       ],
+      "release": null,
       "rollup": {
         "blocked": 2,
         "decided": 1,
@@ -42360,6 +42527,7 @@
         "project:api-conventions",
         "project:spec-map"
       ],
+      "release": null,
       "rollup": {
         "blocked": 6,
         "decided": 2,
@@ -42433,6 +42601,7 @@
         "project:api-conventions",
         "project:spec-map"
       ],
+      "release": null,
       "rollup": {
         "blocked": 3,
         "draft": 2,
@@ -42507,6 +42676,7 @@
         "project:api-conventions",
         "project:spec-map"
       ],
+      "release": null,
       "rollup": {
         "blocked": 5,
         "draft": 2,
@@ -42575,6 +42745,7 @@
         "project:api-conventions",
         "project:spec-map"
       ],
+      "release": null,
       "rollup": {
         "blocked": 1,
         "current": 1,
@@ -42651,6 +42822,7 @@
         "feature:gemma",
         "feature:delegated-admins"
       ],
+      "release": null,
       "rollup": {
         "blocked": 1,
         "current": 1,
@@ -42720,6 +42892,7 @@
         "project:spec-map",
         "decision:D-18"
       ],
+      "release": null,
       "rollup": {
         "blocked": 9,
         "decided": 1,
@@ -42799,6 +42972,7 @@
         "story:T-022",
         "story:T-023"
       ],
+      "release": null,
       "rollup": {
         "blocked": 1,
         "current": 1,
@@ -42877,6 +43051,7 @@
         "project:spec-map",
         "decision:D-16"
       ],
+      "release": null,
       "rollup": {
         "blocked": 1,
         "current": 1,
@@ -42972,6 +43147,7 @@
         "decision:D-18",
         "story:T-022"
       ],
+      "release": null,
       "rollup": {
         "blocked": 1,
         "current": 1,
@@ -43055,6 +43231,7 @@
         "decision:D-07",
         "story:payments"
       ],
+      "release": null,
       "rollup": {
         "blocked": 3,
         "decided": 1,
@@ -43141,6 +43318,7 @@
         "decision-record:DR-15",
         "story:T-023"
       ],
+      "release": null,
       "rollup": {
         "blocked": 1,
         "current": 1,
@@ -43210,6 +43388,7 @@
         "project:api-conventions",
         "project:spec-map"
       ],
+      "release": null,
       "rollup": {
         "blocked": 5,
         "decided": 1,
@@ -43262,6 +43441,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -43299,6 +43479,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -43342,6 +43523,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -43379,6 +43561,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -43422,6 +43605,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -43465,6 +43649,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -43508,6 +43693,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -43551,6 +43737,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -43594,6 +43781,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -43637,6 +43825,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -43680,6 +43869,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -43723,6 +43913,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -43766,6 +43957,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -43809,6 +44001,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -43852,6 +44045,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -43895,6 +44089,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -43938,6 +44133,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -43981,6 +44177,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -44024,6 +44221,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -44061,6 +44259,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -44104,6 +44303,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -44147,6 +44347,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -44190,6 +44391,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -44233,6 +44435,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -44276,6 +44479,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -44319,6 +44523,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -44362,6 +44567,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -44405,6 +44611,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -44448,6 +44655,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -44491,6 +44699,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -44528,6 +44737,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -44565,6 +44775,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -44608,6 +44819,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -44645,6 +44857,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -44682,6 +44895,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -44719,6 +44933,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -44762,6 +44977,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -44799,6 +45015,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -44842,6 +45059,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -44887,6 +45105,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s68"
@@ -44938,6 +45157,7 @@
       "pending": [],
       "priority": "medium",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s00a",
@@ -44992,6 +45212,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": "draft",
@@ -45041,6 +45262,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s01",
@@ -45090,6 +45312,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s34",
@@ -45144,6 +45367,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": "draft",
@@ -45193,6 +45417,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s02"
@@ -45244,6 +45469,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s72",
@@ -45296,6 +45522,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s44",
@@ -45351,6 +45578,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s11",
@@ -45407,6 +45635,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s26",
@@ -45459,6 +45688,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s75"
@@ -45510,6 +45740,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s38"
@@ -45561,6 +45792,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": "draft",
@@ -45604,6 +45836,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": "draft",
@@ -45653,6 +45886,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s52"
@@ -45704,6 +45938,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s48",
@@ -45759,6 +45994,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s53",
@@ -45815,6 +46051,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s63",
@@ -45862,6 +46099,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s14",
@@ -45915,6 +46153,7 @@
       "pending": [],
       "priority": "medium",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s13",
@@ -45967,6 +46206,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s07",
@@ -46019,6 +46259,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s01",
@@ -46072,6 +46313,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s59",
@@ -46127,6 +46369,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s69"
@@ -46178,6 +46421,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s03",
@@ -46233,6 +46477,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s50",
@@ -46285,6 +46530,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s29",
@@ -46337,6 +46583,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s11",
@@ -46392,6 +46639,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s62"
@@ -46443,6 +46691,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s06"
@@ -46494,6 +46743,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": "draft",
@@ -46543,6 +46793,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s17",
@@ -46595,6 +46846,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s15",
@@ -46647,6 +46899,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s14",
@@ -46704,6 +46957,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s08",
@@ -46765,6 +47019,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s34",
@@ -46817,6 +47072,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s10",
@@ -46870,6 +47126,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s36",
@@ -46925,6 +47182,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -46969,6 +47227,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -47012,6 +47271,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -47061,6 +47321,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -47101,6 +47362,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "rollup": {
         "blocked": 5,
         "decided": 1,
@@ -47153,6 +47415,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "rollup": {
         "blocked": 13,
         "decided": 4,
@@ -47207,6 +47470,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "rollup": {
         "approved": 1,
         "blocked": 20,
@@ -47263,6 +47527,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "rollup": {
         "blocked": 42,
         "decided": 1,
@@ -47327,6 +47592,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "rollup": {
         "approved": 1,
         "blocked": 33,
@@ -47383,6 +47649,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "rollup": {
         "blocked": 11,
         "draft": 5,
@@ -47442,6 +47709,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "rollup": {
         "approved": 1,
         "blocked": 40,
@@ -47499,6 +47767,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "rollup": {
         "blocked": 16,
         "decided": 1,
@@ -47557,6 +47826,7 @@
         "project:docs-tree",
         "project:owner-agent"
       ],
+      "release": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -47615,6 +47885,7 @@
         "project:pm-agent",
         "project:qa-agent"
       ],
+      "release": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -47670,6 +47941,7 @@
         "project:docs-tree",
         "project:workflow"
       ],
+      "release": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -47751,6 +48023,7 @@
         "feature:ring-invitations",
         "project:backend-agent"
       ],
+      "release": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -47830,6 +48103,7 @@
         "feature:ring-invitations",
         "project:backend-agent"
       ],
+      "release": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -47868,6 +48142,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -47916,6 +48191,7 @@
         "project:ring-access-model",
         "project:frontend-api-guide"
       ],
+      "release": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -47957,6 +48233,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -47995,6 +48272,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -48033,6 +48311,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -48075,9 +48354,11 @@
         "project:agent-protocol",
         "project:agent-rules",
         "project:workflow",
+        "project:project-overview",
         "project:owner-agent",
         "project:pm-agent"
       ],
+      "release": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -48118,6 +48399,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -48156,6 +48438,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -48203,6 +48486,7 @@
         "project:frontend-api-guide",
         "project:frontend-agent-prompt"
       ],
+      "release": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -48249,6 +48533,7 @@
         "project:frontend-api-guide",
         "project:frontend-agent"
       ],
+      "release": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -48293,6 +48578,7 @@
         "project:backend-agent",
         "project:frontend-agent"
       ],
+      "release": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -48335,6 +48621,7 @@
         "project:frontend-agent-prompt",
         "project:frontend-agent"
       ],
+      "release": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -48373,6 +48660,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -48413,6 +48701,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -48460,6 +48749,7 @@
         "project:docs-tree",
         "project:pm-agent"
       ],
+      "release": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -48509,6 +48799,7 @@
         "project:workflow",
         "project:docs-tree"
       ],
+      "release": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -48549,17 +48840,21 @@
       "path": "business/Project Overview.md",
       "pending": [],
       "priority": null,
-      "related": [],
+      "related": [
+        "project:docs-tree"
+      ],
+      "release": null,
       "scope": null,
       "screens": [],
       "status": null,
       "summary": "Social Pin is a digital-identity app. A person has one account and many Rings. A Ring is an audience (Family, Clients, Company, the people at TechSummit '26, the person I am meeting at 11:20)…",
       "tags": [
-        "project"
+        "project",
+        "stage/mvp"
       ],
       "task": null,
       "title": "Project Overview",
-      "updated": "2026-10-18"
+      "updated": "2026-10-25"
     },
     "project:qa-agent": {
       "affects": [],
@@ -48594,6 +48889,7 @@
         "project:agent-protocol",
         "project:workflow"
       ],
+      "release": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -48677,6 +48973,7 @@
         "decision-record:DR-04",
         "project:backend-agent"
       ],
+      "release": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -48756,6 +49053,7 @@
         "feature:delegated-admins",
         "feature:ring-invitations"
       ],
+      "release": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -48794,6 +49092,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -48843,6 +49142,7 @@
         "project:qa-agent",
         "project:agent-rules"
       ],
+      "release": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -48882,6 +49182,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -48925,6 +49226,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -48962,6 +49264,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -49005,6 +49308,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -49048,6 +49352,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -49091,6 +49396,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -49134,6 +49440,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -49177,6 +49484,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -49220,6 +49528,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -49263,6 +49572,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -49306,6 +49616,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -49349,6 +49660,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -49392,6 +49704,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -49435,6 +49748,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -49478,6 +49792,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -49521,6 +49836,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -49564,6 +49880,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -49607,6 +49924,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -49644,6 +49962,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -49687,6 +50006,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -49730,6 +50050,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -49773,6 +50094,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -49816,6 +50138,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -49859,6 +50182,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -49902,6 +50226,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -49945,6 +50270,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -49988,6 +50314,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -50031,6 +50358,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -50074,6 +50402,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -50111,6 +50440,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -50148,6 +50478,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -50191,6 +50522,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -50228,6 +50560,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -50265,6 +50598,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -50302,6 +50636,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -50345,6 +50680,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -50382,6 +50718,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -50425,6 +50762,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -50468,6 +50806,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -50511,6 +50850,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -50554,6 +50894,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -50597,6 +50938,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -50640,6 +50982,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -50683,6 +51026,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -50726,6 +51070,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -50769,6 +51114,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -50812,6 +51158,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -50855,6 +51202,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -50898,6 +51246,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -50941,6 +51290,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -50984,6 +51334,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -51027,6 +51378,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -51070,6 +51422,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -51113,6 +51466,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -51156,6 +51510,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -51199,6 +51554,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -51242,6 +51598,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -51285,6 +51642,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -51328,6 +51686,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -51371,6 +51730,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -51414,6 +51774,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -51457,6 +51818,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -51500,6 +51862,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -51543,6 +51906,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -51586,6 +51950,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -51629,6 +51994,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -51672,6 +52038,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -51715,6 +52082,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -51758,6 +52126,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -51801,6 +52170,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -51844,6 +52214,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -51887,6 +52258,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -51930,6 +52302,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -51973,6 +52346,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -52016,6 +52390,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -52059,6 +52434,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -52102,6 +52478,7 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": null,
@@ -52151,6 +52528,33 @@
       "pending": [],
       "priority": null,
       "related": [],
+      "release": null,
+      "releases": [
+        {
+          "done": 0,
+          "id": "mvp",
+          "partial": 0,
+          "total": 0
+        },
+        {
+          "done": 0,
+          "id": "v1",
+          "partial": 0,
+          "total": 0
+        },
+        {
+          "done": 0,
+          "id": "later",
+          "partial": 0,
+          "total": 0
+        },
+        {
+          "done": 0,
+          "id": null,
+          "partial": 0,
+          "total": 39
+        }
+      ],
       "rollup": {
         "approved": 3,
         "blocked": 180,
@@ -52167,6 +52571,7 @@
       },
       "scope": null,
       "screens": [],
+      "stage": "mvp",
       "status": null,
       "summary": "Social Pin is a digital-identity app. A person has one account and many Rings. A Ring is an audience (Family, Clients, Company, the people at TechSummit '26, the person I am meeting at 11:20)…",
       "tags": [],
@@ -52203,6 +52608,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [
         "s02"
@@ -52248,6 +52654,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [
         "s02"
@@ -52293,6 +52700,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [
         "s02"
@@ -52340,6 +52748,7 @@
       "related": [
         "decision-record:DR-04"
       ],
+      "release": null,
       "scope": "task",
       "screens": [
         "s14",
@@ -52386,6 +52795,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [
         "s11",
@@ -52432,6 +52842,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [
         "s26",
@@ -52492,6 +52903,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [
         "s34"
@@ -52545,6 +52957,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [
         "s43",
@@ -52591,6 +53004,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [
         "s34"
@@ -52636,6 +53050,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [
         "s34"
@@ -52681,6 +53096,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [
         "s52"
@@ -52726,6 +53142,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [
         "s30"
@@ -52771,6 +53188,7 @@
       "pending": [],
       "priority": "medium",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [
         "s30"
@@ -52816,6 +53234,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [
         "s75"
@@ -52861,6 +53280,7 @@
       "pending": [],
       "priority": "medium",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [
         "s75"
@@ -52906,6 +53326,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [
         "s07",
@@ -52952,6 +53373,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [
         "s37"
@@ -52997,6 +53419,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [
         "s36",
@@ -53043,6 +53466,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [
         "s01",
@@ -53090,6 +53514,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [
         "s04",
@@ -53136,6 +53561,7 @@
       "pending": [],
       "priority": "medium",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [
         "s03a",
@@ -53196,6 +53622,7 @@
         "decision-record:DR-17",
         "decision:D-10"
       ],
+      "release": null,
       "scope": "task",
       "screens": [
         "s44",
@@ -53251,6 +53678,7 @@
         "decision-record:DR-14",
         "decision-record:DR-17"
       ],
+      "release": null,
       "scope": "task",
       "screens": [
         "s46"
@@ -53304,6 +53732,7 @@
         "decision-record:DR-14",
         "decision-record:DR-15"
       ],
+      "release": null,
       "scope": "task",
       "screens": [
         "s47"
@@ -53349,6 +53778,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [
         "s47"
@@ -53394,6 +53824,7 @@
       "pending": [],
       "priority": "medium",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [
         "s47"
@@ -53439,6 +53870,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [
         "s17"
@@ -53484,6 +53916,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [
         "s74"
@@ -53529,6 +53962,7 @@
       "pending": [],
       "priority": "medium",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [
         "s74"
@@ -53574,6 +54008,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [
         "s72",
@@ -53620,6 +54055,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [
         "s38"
@@ -53665,6 +54101,7 @@
       "pending": [],
       "priority": "medium",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [
         "s38"
@@ -53710,6 +54147,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [
         "s39",
@@ -53758,6 +54196,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [
         "s48",
@@ -53804,6 +54243,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [
         "s50"
@@ -53849,6 +54289,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [
         "s51",
@@ -53895,6 +54336,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [
         "s53",
@@ -53942,6 +54384,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [
         "s56"
@@ -53987,6 +54430,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [
         "s57"
@@ -54032,6 +54476,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [
         "s58"
@@ -54077,6 +54522,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [
         "s53"
@@ -54122,6 +54568,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [
         "s59",
@@ -54168,6 +54615,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [
         "s59",
@@ -54214,6 +54662,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [
         "s59",
@@ -54260,6 +54709,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [
         "s61",
@@ -54307,6 +54757,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [
         "s69"
@@ -54352,6 +54803,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [
         "s69"
@@ -54397,6 +54849,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [
         "s51"
@@ -54442,6 +54895,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [
         "s63"
@@ -54487,6 +54941,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [
         "s65"
@@ -54532,6 +54987,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [
         "s70"
@@ -54577,6 +55033,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [
         "s62"
@@ -54622,6 +55079,7 @@
       "pending": [],
       "priority": "medium",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [
         "s13"
@@ -54667,6 +55125,7 @@
       "pending": [],
       "priority": "medium",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [
         "s60"
@@ -54712,6 +55171,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [],
       "status": "draft",
@@ -54755,6 +55215,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [],
       "status": "draft",
@@ -54798,6 +55259,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [],
       "status": "draft",
@@ -54849,6 +55311,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [
         "s14",
@@ -54898,6 +55361,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "task",
       "screens": [],
       "status": "draft",
@@ -54941,6 +55405,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s68"
@@ -54986,6 +55451,7 @@
       "pending": [],
       "priority": "medium",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s00a",
@@ -55036,6 +55502,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": "draft",
@@ -55083,6 +55550,7 @@
       "related": [
         "decision-record:DR-06"
       ],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s01",
@@ -55137,6 +55605,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s34",
@@ -55187,6 +55656,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": "draft",
@@ -55234,6 +55704,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s02"
@@ -55291,6 +55762,7 @@
         "decision-record:DR-04",
         "decision-record:DR-14"
       ],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s72",
@@ -55349,6 +55821,7 @@
         "decision-record:DR-15",
         "decision-record:DR-17"
       ],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s44",
@@ -55404,6 +55877,7 @@
         "decision-record:DR-04",
         "decision-record:DR-14"
       ],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s11",
@@ -55458,6 +55932,7 @@
       "related": [
         "decision-record:DR-04"
       ],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s26",
@@ -55507,6 +55982,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s75"
@@ -55555,6 +56031,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s38"
@@ -55602,6 +56079,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": "draft",
@@ -55648,6 +56126,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": "approved",
@@ -55693,6 +56172,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s52"
@@ -55747,6 +56227,7 @@
         "feature:payments",
         "feature:event-ring-auto"
       ],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s48",
@@ -55802,6 +56283,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s53",
@@ -55855,6 +56337,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s63",
@@ -55904,6 +56387,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s14",
@@ -55956,6 +56440,7 @@
       "related": [
         "decision-record:DR-06"
       ],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s13",
@@ -56004,6 +56489,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s07",
@@ -56052,6 +56538,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s01",
@@ -56104,6 +56591,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s59",
@@ -56156,6 +56644,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s69"
@@ -56206,6 +56695,7 @@
       "related": [
         "decision-record:DR-02"
       ],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s03",
@@ -56274,6 +56764,7 @@
         "task:T-035",
         "task:T-040"
       ],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s50",
@@ -56328,6 +56819,7 @@
         "decision-record:DR-02",
         "decision-record:DR-05"
       ],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s29",
@@ -56376,6 +56868,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s11",
@@ -56427,6 +56920,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s62"
@@ -56478,6 +56972,7 @@
         "decision-record:DR-02",
         "decision-record:DR-06"
       ],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s06"
@@ -56527,6 +57022,7 @@
         "decision-record:DR-14",
         "decision-record:DR-15"
       ],
+      "release": null,
       "scope": "feature",
       "screens": [],
       "status": "draft",
@@ -56584,6 +57080,7 @@
         "decision-record:DR-04",
         "decision-record:DR-14"
       ],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s17",
@@ -56634,6 +57131,7 @@
         "decision-record:DR-14",
         "decision-record:DR-15"
       ],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s15",
@@ -56687,6 +57185,7 @@
         "decision-record:DR-03",
         "decision-record:DR-05"
       ],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s14",
@@ -56744,6 +57243,7 @@
         "decision-record:DR-05",
         "decision-record:DR-14"
       ],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s08",
@@ -56801,6 +57301,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s34",
@@ -56847,6 +57348,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s10",
@@ -56899,6 +57401,7 @@
       "related": [
         "decision-record:DR-03"
       ],
+      "release": null,
       "scope": "feature",
       "screens": [
         "s36",
@@ -56948,6 +57451,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "rollup": {
         "draft": 1,
         "todo": 1
@@ -56999,6 +57503,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -57057,6 +57562,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "rollup": {
         "blocked": 1,
         "draft": 1
@@ -57116,6 +57622,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -57180,6 +57687,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {
         "blocked": 1,
         "draft": 1
@@ -57245,6 +57753,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -57296,6 +57805,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {
         "blocked": 1,
         "draft": 1,
@@ -57349,6 +57859,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -57407,6 +57918,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -57467,6 +57979,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {
         "blocked": 2,
         "draft": 1
@@ -57527,6 +58040,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -57591,6 +58105,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -57643,6 +58158,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {
         "blocked": 1,
         "draft": 1,
@@ -57696,6 +58212,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -57754,6 +58271,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -57806,6 +58324,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "rollup": {
         "blocked": 2,
         "draft": 2,
@@ -57858,6 +58377,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -57915,6 +58435,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -57974,6 +58495,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "rollup": {
         "blocked": 3,
         "draft": 1
@@ -58034,6 +58556,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -58098,6 +58621,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -58158,6 +58682,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {
         "blocked": 2,
         "draft": 1
@@ -58217,6 +58742,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -58280,6 +58806,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -58345,6 +58872,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {
         "blocked": 2,
         "draft": 2
@@ -58404,6 +58932,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -58467,6 +58996,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -58525,6 +59055,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "rollup": {
         "blocked": 1,
         "draft": 1
@@ -58584,6 +59115,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -58635,6 +59167,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {
         "blocked": 1,
         "draft": 1,
@@ -58687,6 +59220,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -58744,6 +59278,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -58803,6 +59338,7 @@
       "pending": [],
       "priority": "medium",
       "related": [],
+      "release": null,
       "rollup": {
         "blocked": 2,
         "draft": 1
@@ -58862,6 +59398,7 @@
       "pending": [],
       "priority": "medium",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -58925,6 +59462,7 @@
       "pending": [],
       "priority": "medium",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -58976,6 +59514,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {
         "blocked": 1,
         "draft": 1,
@@ -59028,6 +59567,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -59085,6 +59625,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -59144,6 +59685,7 @@
       "pending": [],
       "priority": "medium",
       "related": [],
+      "release": null,
       "rollup": {
         "blocked": 2,
         "draft": 1
@@ -59203,6 +59745,7 @@
       "pending": [],
       "priority": "medium",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -59266,6 +59809,7 @@
       "pending": [],
       "priority": "medium",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -59317,6 +59861,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {
         "blocked": 1,
         "draft": 1,
@@ -59370,6 +59915,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -59428,6 +59974,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -59480,6 +60027,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {
         "blocked": 1,
         "draft": 1,
@@ -59532,6 +60080,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -59589,6 +60138,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -59649,6 +60199,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {
         "blocked": 2,
         "draft": 1
@@ -59710,6 +60261,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -59775,6 +60327,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -59827,6 +60380,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {
         "blocked": 1,
         "draft": 1,
@@ -59881,6 +60435,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -59940,6 +60495,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -60002,6 +60558,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {
         "blocked": 2,
         "draft": 1
@@ -60063,6 +60620,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -60128,6 +60686,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -60182,6 +60741,7 @@
       "pending": [],
       "priority": "medium",
       "related": [],
+      "release": null,
       "rollup": {
         "blocked": 1,
         "draft": 1,
@@ -60237,6 +60797,7 @@
       "pending": [],
       "priority": "medium",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -60296,6 +60857,7 @@
       "pending": [],
       "priority": "medium",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -60351,6 +60913,7 @@
         "decision-record:DR-13",
         "decision-record:DR-17"
       ],
+      "release": null,
       "rollup": {
         "blocked": 2,
         "decided": 2,
@@ -60406,6 +60969,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -60464,6 +61028,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -60528,6 +61093,7 @@
         "decision-record:DR-14",
         "decision-record:DR-17"
       ],
+      "release": null,
       "rollup": {
         "blocked": 2,
         "decided": 2,
@@ -60589,6 +61155,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -60652,6 +61219,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -60714,6 +61282,7 @@
         "decision-record:DR-14",
         "decision-record:DR-15"
       ],
+      "release": null,
       "rollup": {
         "blocked": 2,
         "decided": 1,
@@ -60775,6 +61344,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -60838,6 +61408,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -60889,6 +61460,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "rollup": {
         "blocked": 1,
         "draft": 1,
@@ -60941,6 +61513,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -60998,6 +61571,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -61057,6 +61631,7 @@
       "pending": [],
       "priority": "medium",
       "related": [],
+      "release": null,
       "rollup": {
         "blocked": 2,
         "draft": 1
@@ -61116,6 +61691,7 @@
       "pending": [],
       "priority": "medium",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -61179,6 +61755,7 @@
       "pending": [],
       "priority": "medium",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -61232,6 +61809,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {
         "blocked": 1,
         "draft": 1,
@@ -61286,6 +61864,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -61344,6 +61923,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -61404,6 +61984,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {
         "blocked": 2,
         "draft": 1
@@ -61464,6 +62045,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -61528,6 +62110,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -61587,6 +62170,7 @@
       "pending": [],
       "priority": "medium",
       "related": [],
+      "release": null,
       "rollup": {
         "blocked": 2,
         "draft": 1
@@ -61646,6 +62230,7 @@
       "pending": [],
       "priority": "medium",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -61709,6 +62294,7 @@
       "pending": [],
       "priority": "medium",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -61760,6 +62346,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {
         "blocked": 1,
         "draft": 1,
@@ -61813,6 +62400,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -61871,6 +62459,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -61923,6 +62512,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {
         "blocked": 1,
         "draft": 1,
@@ -61975,6 +62565,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -62032,6 +62623,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -62083,6 +62675,7 @@
       "pending": [],
       "priority": "medium",
       "related": [],
+      "release": null,
       "rollup": {
         "blocked": 1,
         "draft": 1,
@@ -62135,6 +62728,7 @@
       "pending": [],
       "priority": "medium",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -62192,6 +62786,7 @@
       "pending": [],
       "priority": "medium",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -62243,6 +62838,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {
         "blocked": 1,
         "draft": 1,
@@ -62298,6 +62894,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -62358,6 +62955,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -62412,6 +63010,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "rollup": {
         "blocked": 1,
         "draft": 1,
@@ -62465,6 +63064,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -62523,6 +63123,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -62585,6 +63186,7 @@
       "related": [
         "story:payments"
       ],
+      "release": null,
       "rollup": {
         "blocked": 2,
         "draft": 1
@@ -62644,6 +63246,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -62707,6 +63310,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -62775,6 +63379,7 @@
       "related": [
         "story:payments"
       ],
+      "release": null,
       "rollup": {
         "blocked": 2,
         "decided": 1,
@@ -62843,6 +63448,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -62913,6 +63519,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -62973,6 +63580,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "rollup": {
         "blocked": 2,
         "draft": 1
@@ -63034,6 +63642,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -63099,6 +63708,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -63166,6 +63776,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {
         "blocked": 2,
         "draft": 1
@@ -63231,6 +63842,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -63300,6 +63912,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -63359,6 +63972,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {
         "blocked": 2,
         "draft": 1
@@ -63418,6 +64032,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -63481,6 +64096,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -63540,6 +64156,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {
         "blocked": 2,
         "draft": 1
@@ -63599,6 +64216,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -63662,6 +64280,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -63729,6 +64348,7 @@
       "related": [
         "story:payments"
       ],
+      "release": null,
       "rollup": {
         "blocked": 2,
         "draft": 1
@@ -63794,6 +64414,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -63863,6 +64484,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -63914,6 +64536,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "rollup": {
         "blocked": 1,
         "draft": 1,
@@ -63967,6 +64590,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -64025,6 +64649,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -64085,6 +64710,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "rollup": {
         "blocked": 2,
         "draft": 1
@@ -64145,6 +64771,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -64209,6 +64836,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -64268,6 +64896,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "rollup": {
         "blocked": 1,
         "draft": 1
@@ -64328,6 +64957,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -64388,6 +65018,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "rollup": {
         "blocked": 2,
         "draft": 1
@@ -64449,6 +65080,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -64514,6 +65146,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -64567,6 +65200,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {
         "blocked": 1,
         "draft": 1,
@@ -64619,6 +65253,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -64676,6 +65311,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -64741,6 +65377,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {
         "blocked": 2,
         "draft": 1
@@ -64806,6 +65443,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -64875,6 +65513,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -64928,6 +65567,7 @@
       "related": [
         "story:payments"
       ],
+      "release": null,
       "rollup": {
         "decided": 1,
         "draft": 1,
@@ -64981,6 +65621,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -65040,6 +65681,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {
         "blocked": 2,
         "draft": 1
@@ -65099,6 +65741,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -65162,6 +65805,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -65227,6 +65871,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {
         "blocked": 2,
         "draft": 1
@@ -65292,6 +65937,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -65361,6 +66007,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -65413,6 +66060,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {
         "blocked": 1,
         "decided": 1,
@@ -65467,6 +66115,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -65524,6 +66173,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -65595,6 +66245,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {
         "blocked": 2,
         "draft": 1
@@ -65666,6 +66317,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -65741,6 +66393,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -65806,6 +66459,7 @@
       "pending": [],
       "priority": "medium",
       "related": [],
+      "release": null,
       "rollup": {
         "blocked": 2,
         "draft": 1
@@ -65871,6 +66525,7 @@
       "pending": [],
       "priority": "medium",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -65940,6 +66595,7 @@
       "pending": [],
       "priority": "medium",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -66005,6 +66661,7 @@
       "pending": [],
       "priority": "medium",
       "related": [],
+      "release": null,
       "rollup": {
         "blocked": 2,
         "draft": 1
@@ -66070,6 +66727,7 @@
       "pending": [],
       "priority": "medium",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -66139,6 +66797,7 @@
       "pending": [],
       "priority": "medium",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -66189,6 +66848,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "rollup": {
         "draft": 1,
         "todo": 1
@@ -66238,6 +66898,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [],
@@ -66286,6 +66947,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {
         "draft": 1,
         "todo": 1
@@ -66335,6 +66997,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [],
@@ -66383,6 +67046,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "rollup": {
         "draft": 1,
         "todo": 1
@@ -66432,6 +67096,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [],
@@ -66479,6 +67144,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -66529,6 +67195,7 @@
       "related": [
         "decision-record:DR-02"
       ],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -66579,6 +67246,7 @@
       "related": [
         "decision-record:DR-03"
       ],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -66629,6 +67297,7 @@
       "related": [
         "decision-record:DR-04"
       ],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -66681,6 +67350,7 @@
         "decision-record:DR-05",
         "decision-record:DR-02"
       ],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -66731,6 +67401,7 @@
       "related": [
         "decision-record:DR-06"
       ],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -66781,6 +67452,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "rollup": {
         "blocked": 2,
         "draft": 1,
@@ -66837,6 +67509,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -66898,6 +67571,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -66953,6 +67627,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "rollup": {
         "blocked": 1,
         "draft": 1,
@@ -67003,6 +67678,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [],
@@ -67058,6 +67734,7 @@
       "pending": [],
       "priority": "critical",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [],
@@ -67107,6 +67784,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
+      "release": null,
       "rollup": {},
       "scope": null,
       "screens": [],
@@ -67161,6 +67839,26 @@
       "label": "Low"
     }
   ],
+  "releases": [
+    {
+      "color": "#0ea5e9",
+      "description": "In the first release: nothing ships without it.",
+      "id": "mvp",
+      "label": "MVP"
+    },
+    {
+      "color": "#8b5cf6",
+      "description": "The release after the MVP.",
+      "id": "v1",
+      "label": "v1"
+    },
+    {
+      "color": "#64748b",
+      "description": "Not scheduled for a release yet.",
+      "id": "later",
+      "label": "Later"
+    }
+  ],
   "repo": {
     "blobBase": "https://github.com/Khaled-Edlbi/social-pin-docs/blob/main/",
     "branch": "main",
@@ -67169,6 +67867,56 @@
   },
   "rootId": "root",
   "schema": 2,
+  "stages": [
+    {
+      "color": "#a855f7",
+      "description": "Idea and design only.",
+      "exit": "The stories are approved.",
+      "id": "concept",
+      "label": "Concept",
+      "requiresRelease": null
+    },
+    {
+      "color": "#6366f1",
+      "description": "Parts are built; the main flow does not run end to end yet.",
+      "exit": "One user can complete the main flow.",
+      "id": "prototype",
+      "label": "Prototype",
+      "requiresRelease": null
+    },
+    {
+      "color": "#0ea5e9",
+      "description": "Building the smallest set of features you would release (the features with release: mvp).",
+      "exit": "Every mvp feature is Done and its QA passes.",
+      "id": "mvp",
+      "label": "MVP",
+      "requiresRelease": null
+    },
+    {
+      "color": "#f59e0b",
+      "description": "Real users, invited or limited.",
+      "exit": "The release decision is taken on a decision card.",
+      "id": "beta",
+      "label": "Beta",
+      "requiresRelease": "mvp"
+    },
+    {
+      "color": "#16a34a",
+      "description": "Publicly released.",
+      "exit": "The product is being phased out.",
+      "id": "live",
+      "label": "Live",
+      "requiresRelease": "mvp"
+    },
+    {
+      "color": "#6b7280",
+      "description": "Being phased out.",
+      "exit": "",
+      "id": "sunset",
+      "label": "Sunset",
+      "requiresRelease": null
+    }
+  ],
   "taskLabels": [
     "bug",
     "chore",
