@@ -6,6 +6,7 @@ priority: critical
 module: identity
 screens: [s14, s20, s23, s24, s25, s29, s36]
 updated: 2026-10-25
+owner: "omar"
 tags: [feature, module/identity, priority/critical]
 ---
 
@@ -44,18 +45,18 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 
 | Task | Status | Priority | Effort |
 |---|---|---|---|
-| [[T-058 Decide field library vs per-Ring copies]] | ❓ Needs a decision / info | Critical | S |
-| [[T-060 Decide copy or inherit]] | ❓ Needs a decision / info | High | S |
+| [[T-058 Decide field library vs per-Ring copies]] | ✅ Done | Critical | S |
+| [[T-060 Decide copy or inherit]] | ✅ Done | High | S |
 
 ```dataview
 TABLE status, priority, effort FROM #task WHERE feature = "ring-projection" SORT priority ASC
 ```
 
-## Open decisions
+## Decisions
 
-- [[D-02 Base profile work fields]]
-- [[D-03 Field library vs per-Ring copies]]
-- [[D-05 Copy or inherit]]
+- [[D-02 Base profile work fields]] — decided, one main profile every Ring starts from ([[DR-02 One main profile every Ring starts from|DR-02]])
+- [[D-03 Field library vs per-Ring copies]] — decided, links entered once, on or off per Ring ([[DR-03 Links entered once, switched on or off per Ring|DR-03]])
+- [[D-05 Copy or inherit]] — decided, inherit per field, copy without members ([[DR-05 Inherit per field, copy without members|DR-05]])
 
 ## Related
 
