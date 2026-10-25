@@ -4819,7 +4819,7 @@
     }
   },
   "counts": {
-    "blocked": 157,
+    "blocked": 156,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -4840,7 +4840,7 @@
     },
     "concepts": 182,
     "decisions": 16,
-    "edges": 4824,
+    "edges": 4823,
     "features": 39,
     "layerNotes": 185,
     "modules": 8,
@@ -6107,11 +6107,6 @@
       "from": "story:connections",
       "kind": "blocks",
       "to": "frontend-requirements:connections"
-    },
-    {
-      "from": "story:events-before",
-      "kind": "blocks",
-      "to": "frontend-requirements:events-before"
     },
     {
       "from": "story:events-during",
@@ -42087,7 +42082,7 @@
       "deadline": null,
       "depends": [],
       "dir": "modules/Events/Events Before",
-      "effectiveStatus": "todo",
+      "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "events-before",
       "frontendOnly": false,
@@ -42121,7 +42116,8 @@
       ],
       "release": "mvp",
       "rollup": {
-        "blocked": 9,
+        "approved": 1,
+        "blocked": 8,
         "decided": 1,
         "draft": 4,
         "missing": 4,
@@ -46363,20 +46359,14 @@
     },
     "frontend-requirements:events-before": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "story:events-before",
-          "title": "Events Before Story",
-          "why": "Events Before Story is draft"
-        }
-      ],
+      "blockedBy": [],
       "card": "FR-22",
       "children": [],
       "code": "events-before",
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "events-before",
       "frontendOnly": false,
@@ -47990,14 +47980,14 @@
       "related": [],
       "release": null,
       "rollup": {
-        "approved": 3,
-        "blocked": 39,
+        "approved": 4,
+        "blocked": 38,
         "decided": 1,
         "draft": 17,
-        "in-progress": 3,
+        "in-progress": 4,
         "missing": 20,
         "needs-decision": 1,
-        "todo": 4,
+        "todo": 3,
         "verified": 1
       },
       "scope": null,
@@ -53125,17 +53115,17 @@
         }
       ],
       "rollup": {
-        "approved": 28,
-        "blocked": 157,
+        "approved": 29,
+        "blocked": 156,
         "current": 9,
         "decided": 12,
         "done": 17,
         "draft": 94,
-        "in-progress": 42,
+        "in-progress": 43,
         "missing": 145,
         "needs-decision": 9,
         "reference": 31,
-        "todo": 55,
+        "todo": 54,
         "verified": 12
       },
       "scope": null,
@@ -56918,7 +56908,7 @@
       "depends": [
         "decision:D-07"
       ],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "events-before",
       "frontendOnly": false,
@@ -56952,11 +56942,11 @@
         "s51",
         "s52"
       ],
-      "status": "draft",
+      "status": "approved",
       "summary": "A visitor browses upcoming events, opens one, picks a ticket or package, pays or RSVPs, and ends with an Event Ring in their hub. The schema for events, packages, entitlements and mini-events…",
       "tags": [
         "story",
-        "story/draft",
+        "story/approved",
         "module/events",
         "layer/business"
       ],
