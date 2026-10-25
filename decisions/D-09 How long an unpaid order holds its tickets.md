@@ -1,26 +1,24 @@
 ---
 type: decision
 id: D-09
-status: decided
+status: open
 features: [pay-for-an-order]
 blocks: ["Pay for an order Story"]
 decider: "owner"
 screens: [s50, s51]
 affects: ["Pay for an order", "Events Before", "Payments & Orders"]
 related: ["T-034 Tickets, packages, levels, sold-out", "Payments & Orders", "Events Before", "DR-08 Stripe card checkout only"]
-decidedBy: "khaled"
-decidedAt: 2026-10-25
 owner: "khaled"
 created: 2026-10-25
 updated: 2026-10-25
-tags: [decision, decision/decided]
+tags: [decision, decision/open]
 ---
 
 # ✅ D-09 · How long an unpaid order holds its tickets
 
-**Status:** decided 2026-10-25 by khaled · **Decider:** owner · **Raised:** 2026-10-25 · **Needed by:** [[Pay for an order Story]] · **Feature:** [[Pay for an order]] · **Module:** [[Payments Gateway Module]]
+**Status:** fulfilled (its decision card was decided 2026-10-25 by khaled) · **Decider:** owner · **Raised:** 2026-10-25 · **Needed by:** [[Pay for an order Story]] · **Feature:** [[Pay for an order]] · **Module:** [[Payments Gateway Module]]
 
-> The cards in `blocks` are **Blocked · D-09** while this is `open` and return to their own status on the build after it is `decided`. Nobody edits their `status:` for this.
+> The cards in `blocks` are **Blocked · D-09** while this is `draft` or `open` and return to their own status once its decision card (DR-09) is decided: this card then shows Fulfilled. Nobody edits their `status:` for this.
 
 ## What has to be decided
 
@@ -48,4 +46,4 @@ PM's recommendation: option 2, the shortest hold that lets a failed card be retr
 
 ## Decision
 
-Decided 2026-10-25 by khaled: option 2, on its decision card, [[DR-09 30-minute hold tied to the Stripe checkout]] (what was decided, why, what it changes).
+Fulfilled by [[DR-09 30-minute hold tied to the Stripe checkout]], decided 2026-10-25 by khaled: option 2 (what was decided, why, what it changes).

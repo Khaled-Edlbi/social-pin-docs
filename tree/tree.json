@@ -42838,7 +42838,8 @@
       "status": "decided",
       "summary": "Options B (password and code) and C (password only) are ruled out.",
       "tags": [
-        "decision-record"
+        "decision-record",
+        "decision-record/decided"
       ],
       "task": null,
       "title": "DR-01 Code-only login",
@@ -42894,7 +42895,8 @@
       "status": "decided",
       "summary": "Social Pin's share of organizer payouts, and the refund window and who may refund, each on its own needs-decision card when a feature needs it. Which payment methods an organizer may offer was…",
       "tags": [
-        "decision-record"
+        "decision-record",
+        "decision-record/decided"
       ],
       "task": null,
       "title": "DR-07 Stripe for all four flows",
@@ -42958,7 +42960,8 @@
       "status": "decided",
       "summary": "Local payment methods and a second gateway, on a new needs-decision card when an organizer's market asks for them.",
       "tags": [
-        "decision-record"
+        "decision-record",
+        "decision-record/decided"
       ],
       "task": null,
       "title": "DR-08 Stripe card checkout only",
@@ -43020,7 +43023,8 @@
       "status": "decided",
       "summary": "Whether the buyer can extend a hold (a new checkout on the same order before it ends), and what the organizer sees of held items, on a new needs-decision card when a card needs it.",
       "tags": [
-        "decision-record"
+        "decision-record",
+        "decision-record/decided"
       ],
       "task": null,
       "title": "DR-09 30-minute hold tied to the Stripe checkout",
@@ -43038,7 +43042,7 @@
       "deadline": null,
       "decider": null,
       "depends": [],
-      "effectiveStatus": "approved",
+      "effectiveStatus": "verified",
       "effort": null,
       "feature": null,
       "features": [
@@ -43046,6 +43050,7 @@
         "linked-accounts"
       ],
       "frontendOnly": false,
+      "fulfilledBy": "decision-record:DR-01",
       "id": "decision:D-01",
       "inherits": {},
       "kind": "decision",
@@ -43069,11 +43074,11 @@
         "s01",
         "s02"
       ],
-      "status": "approved",
+      "status": "needs-decision",
       "summary": "s01 says \"We send a one-time code. No password to remember.\" The backend requires creating a password after the code and logs in with a password. The brief's §3.1 says \"create password\", so the…",
       "tags": [
         "decision",
-        "decision/decided"
+        "decision/open"
       ],
       "task": null,
       "title": "D-01 Passwordless login",
@@ -43358,7 +43363,7 @@
       "deadline": null,
       "decider": "owner",
       "depends": [],
-      "effectiveStatus": "approved",
+      "effectiveStatus": "verified",
       "effort": null,
       "feature": null,
       "features": [
@@ -43367,6 +43372,7 @@
         "subscription"
       ],
       "frontendOnly": false,
+      "fulfilledBy": "decision-record:DR-07",
       "id": "decision:D-07",
       "inherits": {},
       "kind": "decision",
@@ -43396,11 +43402,11 @@
         "s51",
         "s70"
       ],
-      "status": "approved",
+      "status": "needs-decision",
       "summary": "Which payment provider Social Pin moves money through, for every purchase in the product: an attendee's ticket, package or sub-event, an exhibitor's package and booth, a user's Pro account, and…",
       "tags": [
         "decision",
-        "decision/decided"
+        "decision/open"
       ],
       "task": null,
       "title": "D-07 Payment provider",
@@ -43420,13 +43426,14 @@
       "deadline": null,
       "decider": "owner",
       "depends": [],
-      "effectiveStatus": "approved",
+      "effectiveStatus": "verified",
       "effort": null,
       "feature": null,
       "features": [
         "pay-for-an-order"
       ],
       "frontendOnly": false,
+      "fulfilledBy": "decision-record:DR-08",
       "id": "decision:D-08",
       "inherits": {},
       "kind": "decision",
@@ -43452,11 +43459,11 @@
       "screens": [
         "s51"
       ],
-      "status": "approved",
+      "status": "needs-decision",
       "summary": "Which payment methods, and through which gateways, an organizer may offer a buyer on the Payment screen (s51) beyond the card checkout Stripe hosts. D-07 Payment provider made Stripe the one…",
       "tags": [
         "decision",
-        "decision/decided"
+        "decision/open"
       ],
       "task": null,
       "title": "D-08 Payment methods and gateways on s51",
@@ -43480,13 +43487,14 @@
       "deadline": null,
       "decider": "owner",
       "depends": [],
-      "effectiveStatus": "approved",
+      "effectiveStatus": "verified",
       "effort": null,
       "feature": null,
       "features": [
         "pay-for-an-order"
       ],
       "frontendOnly": false,
+      "fulfilledBy": "decision-record:DR-09",
       "id": "decision:D-09",
       "inherits": {},
       "kind": "decision",
@@ -43514,11 +43522,11 @@
         "s50",
         "s51"
       ],
-      "status": "approved",
+      "status": "needs-decision",
       "summary": "Whether an order that is not paid yet (pending on Stripe, failed, or abandoned on the card page) keeps its chosen tickets, packages and sub-events out of the count that makes them sold out, and…",
       "tags": [
         "decision",
-        "decision/decided"
+        "decision/open"
       ],
       "task": null,
       "title": "D-09 How long an unpaid order holds its tickets",
@@ -43787,13 +43795,13 @@
         "feature:e2e-tests"
       ],
       "rollup": {
-        "approved": 1,
         "blocked": 1,
         "current": 1,
         "decided": 1,
         "done": 2,
         "draft": 1,
-        "missing": 3
+        "missing": 3,
+        "verified": 1
       },
       "scope": null,
       "screens": [
@@ -44701,12 +44709,12 @@
         "story:pay-for-an-order"
       ],
       "rollup": {
-        "approved": 1,
         "blocked": 9,
         "decided": 1,
         "draft": 4,
         "missing": 4,
-        "todo": 2
+        "todo": 2,
+        "verified": 1
       },
       "scope": null,
       "screens": [
@@ -45134,12 +45142,12 @@
         "project:spec-map"
       ],
       "rollup": {
-        "approved": 1,
         "blocked": 3,
         "decided": 1,
         "draft": 2,
         "missing": 4,
-        "todo": 2
+        "todo": 2,
+        "verified": 1
       },
       "scope": null,
       "screens": [
@@ -45435,14 +45443,14 @@
         "story:events-before"
       ],
       "rollup": {
-        "approved": 4,
+        "approved": 2,
         "decided": 2,
         "delivered": 6,
         "done": 9,
         "partial": 1,
         "passing": 6,
         "todo": 2,
-        "verified": 1
+        "verified": 3
       },
       "scope": null,
       "screens": [
@@ -45513,13 +45521,13 @@
         "story:pay-for-an-order"
       ],
       "rollup": {
-        "approved": 1,
         "blocked": 2,
         "decided": 1,
         "draft": 2,
         "missing": 4,
         "needs-decision": 1,
-        "todo": 1
+        "todo": 1,
+        "verified": 1
       },
       "scope": null,
       "screens": [
@@ -46265,12 +46273,12 @@
         "story:payments"
       ],
       "rollup": {
-        "approved": 1,
         "blocked": 3,
         "decided": 1,
         "draft": 2,
         "missing": 4,
-        "todo": 2
+        "todo": 2,
+        "verified": 1
       },
       "scope": null,
       "screens": [
@@ -51058,13 +51066,13 @@
       "priority": null,
       "related": [],
       "rollup": {
-        "approved": 1,
         "blocked": 5,
         "decided": 1,
         "draft": 4,
         "missing": 8,
         "needs-decision": 1,
-        "todo": 5
+        "todo": 5,
+        "verified": 1
       },
       "scope": null,
       "screens": [],
@@ -51216,13 +51224,13 @@
       "priority": null,
       "related": [],
       "rollup": {
-        "approved": 1,
         "blocked": 42,
         "decided": 1,
         "draft": 17,
         "missing": 20,
         "needs-decision": 1,
-        "todo": 7
+        "todo": 7,
+        "verified": 1
       },
       "scope": null,
       "screens": [],
@@ -51280,7 +51288,6 @@
       "priority": null,
       "related": [],
       "rollup": {
-        "approved": 1,
         "blocked": 34,
         "current": 9,
         "decided": 1,
@@ -51289,7 +51296,8 @@
         "in-progress": 9,
         "missing": 43,
         "needs-decision": 12,
-        "todo": 12
+        "todo": 12,
+        "verified": 1
       },
       "scope": null,
       "screens": [],
@@ -51388,7 +51396,7 @@
         "decision-record:DR-07"
       ],
       "rollup": {
-        "approved": 4,
+        "approved": 2,
         "decided": 2,
         "delivered": 6,
         "done": 9,
@@ -51396,7 +51404,7 @@
         "partial": 1,
         "passing": 6,
         "todo": 2,
-        "verified": 1
+        "verified": 3
       },
       "scope": null,
       "screens": [],
@@ -51452,7 +51460,6 @@
       "priority": null,
       "related": [],
       "rollup": {
-        "approved": 1,
         "blocked": 41,
         "decided": 1,
         "done": 2,
@@ -51460,7 +51467,8 @@
         "in-progress": 3,
         "missing": 42,
         "needs-decision": 2,
-        "todo": 26
+        "todo": 26,
+        "verified": 1
       },
       "scope": null,
       "screens": [],
@@ -56701,7 +56709,7 @@
       "priority": null,
       "related": [],
       "rollup": {
-        "approved": 6,
+        "approved": 2,
         "blocked": 178,
         "current": 9,
         "decided": 4,
@@ -56715,7 +56723,7 @@
         "passing": 6,
         "reference": 31,
         "todo": 83,
-        "verified": 1
+        "verified": 5
       },
       "scope": null,
       "screens": [],
@@ -67718,10 +67726,10 @@
         "frontend-requirements:T-065-fe"
       ],
       "rollup": {
-        "approved": 1,
         "blocked": 2,
         "decided": 1,
-        "draft": 1
+        "draft": 1,
+        "verified": 1
       },
       "scope": null,
       "screens": [
@@ -69877,10 +69885,10 @@
         "backend-delivery:T-066-be"
       ],
       "rollup": {
-        "approved": 1,
         "decided": 1,
         "draft": 1,
-        "todo": 1
+        "todo": 1,
+        "verified": 1
       },
       "scope": null,
       "screens": [
@@ -70362,11 +70370,11 @@
       "priority": "high",
       "related": [],
       "rollup": {
-        "approved": 1,
         "blocked": 1,
         "decided": 1,
         "draft": 1,
-        "todo": 1
+        "todo": 1,
+        "verified": 1
       },
       "scope": null,
       "screens": [

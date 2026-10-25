@@ -2,22 +2,23 @@
 type: decision-record
 id: DR-NN
 decision: D-NN
+status: draft
 decidedBy: ""
-decidedAt: <date>
+decidedAt: ""
 features: []
 affects: []
 related: []
 owner: ""
 created: <date>
 updated: <date>
-tags: [decision-record]
+tags: [decision-record, decision-record/draft]
 ---
 
 # ⚖️ DR-NN · <Title>
 
 **Answers:** [[<decision>]] · **Decided by:** <who> · **On:** <date> · **Feature:** <feature>
 
-> This card is the answer to [[<decision>]]. The needs-decision card keeps the question, the facts and the options; this decision card says what was decided, why, and what it changes. It is written when the decision is taken, by the PM or the owner on the user's word, never before; the needs-decision card is `decided` once this card exists.
+> This card is the answer to [[<decision>]]. The needs-decision card keeps the question, the facts and the options; this decision card says what was decided, why, and what it changes. `draft` while the answer is prepared; `decided` only by the PM or the owner, on the user's word, with `decidedBy` and `decidedAt`: then [[<decision>]] shows Fulfilled by itself and the cards it blocked continue.
 
 ## What was decided
 

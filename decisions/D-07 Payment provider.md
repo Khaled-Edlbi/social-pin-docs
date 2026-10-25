@@ -1,26 +1,24 @@
 ---
 type: decision
 id: D-07
-status: decided
+status: open
 features: [payments, subscription]
 blocks: [T-047, T-035, T-049]
 decider: "owner"
 screens: [s51, s70]
 affects: []
 related: ["Payments Gateway Module", "Payments & Orders", "Subscription (Free vs Pro)"]
-decidedBy: "khaled"
-decidedAt: 2026-10-21
 owner: "khaled"
 created: 2026-10-21
 updated: 2026-10-25
-tags: [decision, decision/decided]
+tags: [decision, decision/open]
 ---
 
 # ✅ D-07 · Payment provider
 
-**Status:** decided 2026-10-21 by khaled · **Decider:** owner · **Raised:** 2026-10-21 · **Needed by:** [[T-047 Orders, payments and the provider webhook]], [[T-035 Registration transaction with order and payment]], [[T-049 Subscription endpoints and a single Pro gate]] · **Feature:** [[Payments & Orders]], [[Subscription (Free vs Pro)]] · **Module:** [[Payments Gateway Module]]
+**Status:** fulfilled (its decision card was decided 2026-10-21 by khaled) · **Decider:** owner · **Raised:** 2026-10-21 · **Needed by:** [[T-047 Orders, payments and the provider webhook]], [[T-035 Registration transaction with order and payment]], [[T-049 Subscription endpoints and a single Pro gate]] · **Feature:** [[Payments & Orders]], [[Subscription (Free vs Pro)]] · **Module:** [[Payments Gateway Module]]
 
-> The cards in `blocks` are **Blocked · D-07** while this is `open` and return to their own status on the build after it is `decided`. Nobody edits their `status:` for this.
+> The cards in `blocks` are **Blocked · D-07** while this is `draft` or `open` and return to their own status once its decision card (DR-07) is decided: this card then shows Fulfilled. Nobody edits their `status:` for this.
 
 ## What has to be decided
 
@@ -46,4 +44,4 @@ Which payment provider Social Pin moves money through, for every purchase in the
 
 ## Decision
 
-Decided 2026-10-21 by khaled (the owner): option 1, on its decision card, [[DR-07 Stripe for all four flows]] (what was decided, why, what it changes).
+Fulfilled by [[DR-07 Stripe for all four flows]], decided 2026-10-21 by khaled (the owner): option 1 (what was decided, why, what it changes).

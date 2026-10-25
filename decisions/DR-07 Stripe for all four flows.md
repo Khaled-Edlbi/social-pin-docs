@@ -2,6 +2,7 @@
 type: decision-record
 id: DR-07
 decision: D-07
+status: decided
 decidedBy: "khaled"
 decidedAt: 2026-10-21
 features: [payments, subscription]
@@ -10,7 +11,7 @@ related: ["D-07 Payment provider", "Payments Gateway Module"]
 owner: "khaled"
 created: 2026-10-22
 updated: 2026-10-25
-tags: [decision-record]
+tags: [decision-record, decision-record/decided]
 ---
 
 # ⚖️ DR-07 · Stripe for all four flows

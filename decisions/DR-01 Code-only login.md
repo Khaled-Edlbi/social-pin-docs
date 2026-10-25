@@ -2,6 +2,7 @@
 type: decision-record
 id: DR-01
 decision: D-01
+status: decided
 decidedBy: "product + backend lead"
 decidedAt: 2026-10-15
 features: [auth, linked-accounts]
@@ -10,7 +11,7 @@ related: ["D-01 Passwordless login", "Code Delivery"]
 owner: "khaled"
 created: 2026-10-22
 updated: 2026-10-25
-tags: [decision-record]
+tags: [decision-record, decision-record/decided]
 ---
 
 # ⚖️ DR-01 · Code-only login
