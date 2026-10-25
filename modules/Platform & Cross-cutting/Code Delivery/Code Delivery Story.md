@@ -4,16 +4,19 @@ code: code-delivery
 scope: feature
 feature: code-delivery
 module: platform
-status: draft
+status: approved
 screens: [s02]
+approvedBy: "khaled"
+approvedAt: 2026-10-25
+owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-18
-tags: [story, story/draft, module/platform, layer/business]
+updated: 2026-10-25
+tags: [story, story/approved, module/platform, layer/business]
 ---
 
 # Code Delivery · User Story
 
-**Feature:** [[Code Delivery]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Code Delivery Frontend Requirements]] · **API Integration:** not yet (backend not built)
+**Feature:** [[Code Delivery]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[Code Delivery Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 A new user has typed their email or phone on s01 and is now on s02 waiting for a six-digit code. Everything after the code works end to end; the code itself is only written to the server log, and on a development server also returned in the response as `devCode`. This feature is the delivery leg: the email, the SMS, the resend timer and the "code expired" state, all of which depend on a provider that is not wired.
 

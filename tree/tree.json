@@ -4819,7 +4819,7 @@
     }
   },
   "counts": {
-    "blocked": 174,
+    "blocked": 173,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -4840,7 +4840,7 @@
     },
     "concepts": 182,
     "decisions": 16,
-    "edges": 4841,
+    "edges": 4840,
     "features": 39,
     "layerNotes": 185,
     "modules": 8,
@@ -6102,11 +6102,6 @@
       "from": "story:auth",
       "kind": "blocks",
       "to": "frontend-requirements:auth"
-    },
-    {
-      "from": "story:code-delivery",
-      "kind": "blocks",
-      "to": "frontend-requirements:code-delivery"
     },
     {
       "from": "story:companies",
@@ -41433,7 +41428,7 @@
       "deadline": null,
       "depends": [],
       "dir": "modules/Platform & Cross-cutting/Code Delivery",
-      "effectiveStatus": "todo",
+      "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "code-delivery",
       "frontendOnly": false,
@@ -41463,7 +41458,8 @@
       ],
       "release": "mvp",
       "rollup": {
-        "blocked": 6,
+        "approved": 1,
+        "blocked": 5,
         "draft": 4,
         "missing": 4,
         "todo": 2
@@ -45941,20 +45937,14 @@
     },
     "frontend-requirements:code-delivery": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "story:code-delivery",
-          "title": "Code Delivery Story",
-          "why": "Code Delivery Story is draft"
-        }
-      ],
+      "blockedBy": [],
       "card": "FR-32",
       "children": [],
       "code": "code-delivery",
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "code-delivery",
       "frontendOnly": false,
@@ -48346,15 +48336,15 @@
       "related": [],
       "release": null,
       "rollup": {
-        "approved": 5,
-        "blocked": 37,
+        "approved": 6,
+        "blocked": 36,
         "decided": 2,
         "done": 2,
         "draft": 25,
-        "in-progress": 6,
+        "in-progress": 7,
         "missing": 42,
         "needs-decision": 1,
-        "todo": 23,
+        "todo": 22,
         "verified": 2
       },
       "scope": null,
@@ -53291,17 +53281,17 @@
         }
       ],
       "rollup": {
-        "approved": 11,
-        "blocked": 174,
+        "approved": 12,
+        "blocked": 173,
         "current": 9,
         "decided": 12,
         "done": 17,
         "draft": 94,
-        "in-progress": 26,
+        "in-progress": 27,
         "missing": 145,
         "needs-decision": 9,
         "reference": 31,
-        "todo": 71,
+        "todo": 70,
         "verified": 12
       },
       "scope": null,
@@ -56549,7 +56539,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "code-delivery",
       "frontendOnly": false,
@@ -56576,17 +56566,17 @@
       "screens": [
         "s02"
       ],
-      "status": "draft",
+      "status": "approved",
       "summary": "A new user has typed their email or phone on s01 and is now on s02 waiting for a six-digit code. Everything after the code works end to end; the code itself is only written to the server log, and…",
       "tags": [
         "story",
-        "story/draft",
+        "story/approved",
         "module/platform",
         "layer/business"
       ],
       "task": null,
       "title": "Code Delivery Story",
-      "updated": "2026-10-18"
+      "updated": "2026-10-25"
     },
     "story:companies": {
       "affects": [],
