@@ -2,6 +2,7 @@
 type: decision-record
 id: DR-09
 decision: D-09
+status: decided
 decidedBy: "khaled"
 decidedAt: 2026-10-25
 features: [pay-for-an-order]
@@ -10,7 +11,7 @@ related: ["D-09 How long an unpaid order holds its tickets", "DR-08 Stripe card 
 owner: "khaled"
 created: 2026-10-25
 updated: 2026-10-25
-tags: [decision-record]
+tags: [decision-record, decision-record/decided]
 ---
 
 # ⚖️ DR-09 · 30-minute hold tied to the Stripe checkout

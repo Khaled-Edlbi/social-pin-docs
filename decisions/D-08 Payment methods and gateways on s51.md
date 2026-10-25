@@ -1,26 +1,24 @@
 ---
 type: decision
 id: D-08
-status: decided
+status: open
 features: [pay-for-an-order]
 blocks: [pay-for-an-order]
 decider: "owner"
 screens: [s51]
 affects: []
 related: ["D-07 Payment provider", "Payments Gateway Module", "Payments & Orders", "Events Before"]
-decidedBy: "khaled"
-decidedAt: 2026-10-22
 owner: "khaled"
 created: 2026-10-22
 updated: 2026-10-25
-tags: [decision, decision/decided]
+tags: [decision, decision/open]
 ---
 
 # ✅ D-08 · Payment methods and gateways on s51
 
-**Status:** decided 2026-10-22 by khaled · **Decider:** owner · **Raised:** 2026-10-22 · **Needed by:** [[Pay for an order]] · **Feature:** [[Pay for an order]] · **Module:** [[Payments Gateway Module]]
+**Status:** fulfilled (its decision card was decided 2026-10-22 by khaled) · **Decider:** owner · **Raised:** 2026-10-22 · **Needed by:** [[Pay for an order]] · **Feature:** [[Pay for an order]] · **Module:** [[Payments Gateway Module]]
 
-> The cards in `blocks` are **Blocked · D-08** while this is `open` and return to their own status on the build after it is `decided`. Nobody edits their `status:` for this.
+> The cards in `blocks` are **Blocked · D-08** while this is `draft` or `open` and return to their own status once its decision card (DR-08) is decided: this card then shows Fulfilled. Nobody edits their `status:` for this.
 
 ## What has to be decided
 
@@ -47,4 +45,4 @@ Which payment methods, and through which gateways, an organizer may offer a buye
 
 ## Decision
 
-Decided 2026-10-22 by khaled: option 1, on its decision card, [[DR-08 Stripe card checkout only]] (what was decided, why, what it changes).
+Fulfilled by [[DR-08 Stripe card checkout only]], decided 2026-10-22 by khaled: option 1 (what was decided, why, what it changes).

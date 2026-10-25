@@ -2,6 +2,7 @@
 type: decision-record
 id: DR-08
 decision: D-08
+status: decided
 decidedBy: "khaled"
 decidedAt: 2026-10-22
 features: [pay-for-an-order]
@@ -10,7 +11,7 @@ related: ["D-08 Payment methods and gateways on s51", "D-07 Payment provider"]
 owner: "khaled"
 created: 2026-10-22
 updated: 2026-10-25
-tags: [decision-record]
+tags: [decision-record, decision-record/decided]
 ---
 
 # ⚖️ DR-08 · Stripe card checkout only

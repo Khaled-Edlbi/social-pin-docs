@@ -52,7 +52,7 @@ function scopeWords(a) {
   if (w.taskLabels?.length) parts.push(`task notes labelled ${w.taskLabels.join(' / ')}`);
   if (w.paths?.length) parts.push(w.paths.join(', ') + (w.except?.length ? ` (not ${w.except.join(', ')})` : ''));
   if (w.editOnly) { const e = []; if (w.editOnly.kinds?.length) e.push(...w.editOnly.kinds); if (w.editOnly.types?.length) e.push(...w.editOnly.types); if (e.length) parts.push(`edits (never rewrites) in ${e.join(', ')} notes`); }
-  if (w.types?.includes('decision') && !(a.signs || []).includes('decision')) parts.push('decision cards to raise and fill, never to decide (status / decidedBy / decidedAt and the decision record are the PM\'s or the owner\'s)');
+  if (w.types?.includes('decision') && !w.types?.includes('decision-record')) parts.push('needs-decision cards (D-NN) to raise and fill, draft or open; the answer, the decision card DR-NN, and setting it decided are the PM\'s or the owner\'s');
   if (a.signs?.length) parts.push(`sign-off lines on ${a.signs.join(', ')}`);
   if (a.fields?.length) parts.push(`${a.fields.join(' / ')} on any card`);
   parts.push('a flag line (> ⚠ Affected by …) under any note\'s H1');
@@ -106,9 +106,10 @@ const changedLines = (oldS, newS) => {
 const isFlagEdit = (edit) => { if (!edit) return false; const { added, removed } = changedLines(edit.old, edit.new); return removed.length === 0 && added.length >= 1 && added.every((l) => FLAG.test(l) || l.trim() === ''); };
 const onlyLines = (edit, re) => { if (!edit) return false; const { added, removed } = changedLines(edit.old, edit.new); return [...added, ...removed].every((l) => re.test(l)); };
 const fieldLines = (fields) => new RegExp(`^(${fields.join('|')}|updated|tags):`);
-// the lines that take a decision: only an agent whose `signs` lists `decision` may change them (Agent Rules §4)
-const DECIDE_LINES = /^(status|decidedBy|decidedAt):/;
-const touchesDecide = (edit) => { if (!edit) return false; const { added, removed } = changedLines(edit.old, edit.new); return [...added, ...removed].some((l) => DECIDE_LINES.test(l)); };
+// a needs-decision card (D-NN) is draft or open; it is never typed decided or fulfilled and carries no decidedBy / decidedAt:
+// the answer is taken on its decision card (DR-NN), which only the PM and the owner write (Agent Rules §4)
+const DECIDED_LINE = /^(status:\s*(decided|fulfilled)\b|decided(By|At):\s*(?!""|$)\S)/;
+const introducesDecided = (edit) => { if (!edit) return false; const { added } = changedLines(edit.old, edit.new); return added.some((l) => DECIDED_LINE.test(l)); };
 
 // ---------------------------------------------------------------- the decision
 export function decide(agent, rel, op, edit) {
@@ -126,11 +127,10 @@ export function decide(agent, rel, op, edit) {
   const claimedElsewhere = c.type === 'task' && c.labels.some((l) => !(w.taskLabels || []).includes(l) && AGENTS.some((o) => o.id !== agent.id && (o.writes?.taskLabels || []).includes(l)));
   const inTypes = c.type && (w.types || []).includes(c.type) && !claimedElsewhere;
   const inLabels = c.type === 'task' && (w.taskLabels || []).some((l) => c.labels.includes(l));
-  // a decision card: anyone who writes decisions raises and fills it; deciding it is for the agents that sign decisions
-  if (c.type === 'decision' && !(agent.signs || []).includes('decision')) {
-    const deciders = AGENTS.filter((a) => (a.signs || []).includes('decision')).map((a) => `/${a.id}`).join(' or ');
-    if (op === 'edit' && touchesDecide(edit)) return { allow: false, message: `${agent.id} agent: "${rel}" is a decision card; you may raise and fill it, but status, decidedBy and decidedAt are set by ${deciders} on the user's word. The rules: ${PROTOCOL}.` };
-    if (op === 'write' && edit && /^status:\s*decided\b/m.test(edit.new)) return { allow: false, message: `${agent.id} agent: "${rel}" would be written as decided; a decision is taken by ${deciders} on the user's word. Write it open, or hand it over. The rules: ${PROTOCOL}.` };
+  // a needs-decision card: anyone who writes decisions raises and fills it, draft or open; nobody types it decided or fulfilled (the build computes Fulfilled from its DR card)
+  if (c.type === 'decision' && introducesDecided(edit)) {
+    const deciders = AGENTS.filter((a) => (a.writes?.types || []).includes('decision-record')).map((a) => `/${a.id}`).join(' or ');
+    return { allow: false, message: `${agent.id} agent: "${rel}" is a needs-decision card: it is draft or open, never typed decided or fulfilled, and carries no decidedBy / decidedAt. The answer goes on its decision card (DR-NN), written and set decided by ${deciders} on the user's word; this card then shows Fulfilled by itself. The rules: ${PROTOCOL}.` };
   }
   if (inPaths || inKinds || inTypes || inLabels) return { allow: true };
   const eo = w.editOnly || {};
@@ -139,7 +139,6 @@ export function decide(agent, rel, op, edit) {
   if (editOnly) return deny('You may edit lines in it, never rewrite it or create it: use Edit with the exact lines.');
   if (op === 'edit' && isFlagEdit(edit)) return { allow: true };
   if (op === 'edit' && c.kind && (agent.signs || []).includes(c.kind) && onlyLines(edit, SIGN_LINES)) return { allow: true };
-  if (op === 'edit' && c.type === 'decision' && (agent.signs || []).includes('decision') && onlyLines(edit, SIGN_LINES)) return { allow: true };
   if (op === 'edit' && agent.fields?.length && onlyLines(edit, fieldLines(agent.fields))) return { allow: true };
   const owners = AGENTS.filter((a) => a.id !== agent.id && decideOwner(a, c)).map((a) => `/${a.id}`);
   const hint = owners.length ? `Hand the change to ${owners.join(' or ')}, or add a flag line (> ⚠ Affected by [[T-NNN …]] (YYYY-MM-DD): …) under its H1.` : 'Nobody writes it from here; add a flag line under its H1 if it is a note.';
@@ -216,10 +215,13 @@ if (cmd === 'selftest') {
   const body = E('**As a** new user', '**As a** returning user');
   const prio = E('priority: high\nupdated: 2026-10-18', 'priority: critical\ndeadline: 2026-11-01\nupdated: 2026-10-19');
   const dec = 'decisions/D-04 Ring settings.md', newDec = 'decisions/D-99 New.md';
-  const decideSign = E('status: open\ndecidedBy: ""\ndecidedAt: ""\nupdated: 2026-10-18\ntags: [decision, decision/open]', 'status: decided\ndecidedBy: "Khaled"\ndecidedAt: 2026-10-21\nupdated: 2026-10-21\ntags: [decision, decision/decided]');
+  const decideSign = E('status: open\nupdated: 2026-10-18\ntags: [decision, decision/open]', 'status: decided\ndecidedBy: "Khaled"\ndecidedAt: 2026-10-21\nupdated: 2026-10-21\ntags: [decision, decision/decided]');
+  const fulfilSign = E('status: open\nupdated: 2026-10-18', 'status: fulfilled\nupdated: 2026-10-21');
+  const openSign = E('status: draft\nupdated: 2026-10-18\ntags: [decision, decision/draft]', 'status: open\nupdated: 2026-10-21\ntags: [decision, decision/open]');
+  const recDecide = E('status: draft\ndecidedBy: ""\ndecidedAt: ""', 'status: decided\ndecidedBy: "Khaled"\ndecidedAt: 2026-10-25');
   const decBody = E('## Options\n\n1. …', '## Options\n\n1. Per-Ring copies\n2. One field library');
   const newRec = 'decisions/DR-99 New answer.md', recWrite = E('', '---\ntype: decision-record\nid: DR-99\ndecision: D-99\n---\n');
-  const openWrite = E('', '---\ntype: decision\nid: D-99\nstatus: open\n---\n'), decidedWrite = E('', '---\ntype: decision\nid: D-99\nstatus: decided\n---\n');
+  const openWrite = E('', '---\ntype: decision\nid: D-99\nstatus: draft\n---\n'), decidedWrite = E('', '---\ntype: decision\nid: D-99\nstatus: decided\n---\n');
   const M = [
     // agent, path, op, edit, expected
     ['owner', 'project/Agent Rules.md', 'write', null, true], ['owner', 'docs.config.json', 'write', null, true], ['owner', mod, 'write', null, true], ['owner', feature, 'write', null, true], ['owner', feature, 'edit', body, true], ['owner', 'decisions/D-04 Ring settings.md', 'edit', body, true],
@@ -231,14 +233,16 @@ if (cmd === 'selftest') {
     ['backend', fe, 'edit', body, false], ['backend', newQa, 'write', null, false], ['backend', 'frontend/Frontend Contract.md', 'edit', body, false], ['backend', 'design/Wireframe Brief.md', 'edit', body, false],
     ['frontend', fr, 'write', null, true], ['frontend', fe, 'edit', body, true], ['frontend', 'frontend/Frontend Contract.md', 'edit', body, true], ['frontend', 'frontend/Frontend API Guide.md', 'edit', body, false],
     ['frontend', bd, 'edit', body, false], ['frontend', bd, 'edit', flag, true], ['frontend', story, 'edit', sign, false], ['frontend', task, 'edit', body, false],
-    ['qa', newQa, 'write', null, true], ['qa', 'modules/Identity Core/Rings/Rings QA Frontend.md', 'write', null, true], ['qa', story, 'edit', sign, true], ['qa', story, 'edit', body, false], ['qa', bd, 'edit', flag, true], ['qa', bd, 'edit', body, false], ['qa', task, 'edit', body, false],
-    // decision cards: anyone raises and fills; the PM and the owner decide, and may raise one already decided (Agent Rules §4)
-    ['owner', newDec, 'write', openWrite, true], ['owner', newDec, 'write', decidedWrite, true], ['owner', dec, 'edit', decideSign, true], ['pm', newDec, 'write', decidedWrite, true], ['pm', dec, 'edit', decideSign, true], ['pm', dec, 'edit', decBody, true],
-    ['backend', newDec, 'write', openWrite, true], ['backend', dec, 'edit', decBody, true], ['backend', dec, 'edit', decideSign, false], ['backend', newDec, 'write', decidedWrite, false],
+    ['qa', newQa, 'write', null, true], ['qa', 'modules/Identity Core/Rings/Rings QA Frontend.md', 'write', null, true], ['qa', story, 'edit', sign, false], ['qa', story, 'edit', body, false], ['qa', bd, 'edit', flag, true], ['qa', bd, 'edit', body, false], ['qa', task, 'edit', body, false],
+    // needs-decision cards (D-NN): anyone raises and fills them, draft or open; nobody types them decided or fulfilled, not even the PM or the owner (Agent Rules §4)
+    ['owner', newDec, 'write', openWrite, true], ['owner', newDec, 'write', decidedWrite, false], ['owner', dec, 'edit', decideSign, false], ['owner', dec, 'edit', openSign, true],
+    ['pm', newDec, 'write', decidedWrite, false], ['pm', dec, 'edit', decideSign, false], ['pm', dec, 'edit', fulfilSign, false], ['pm', dec, 'edit', openSign, true], ['pm', dec, 'edit', decBody, true],
+    ['backend', newDec, 'write', openWrite, true], ['backend', dec, 'edit', decBody, true], ['backend', dec, 'edit', openSign, true], ['backend', dec, 'edit', decideSign, false], ['backend', newDec, 'write', decidedWrite, false],
     ['frontend', newDec, 'write', openWrite, true], ['frontend', dec, 'edit', decBody, true], ['frontend', dec, 'edit', decideSign, false],
     ['qa', newDec, 'write', openWrite, true], ['qa', dec, 'edit', decBody, true], ['qa', dec, 'edit', decideSign, false], ['qa', newDec, 'write', decidedWrite, false],
-    // the decision record takes the decision: written by the PM or the owner only; the Decisions table is theirs too
+    // decision cards (DR-NN) hold the answer: written, and set decided, by the PM or the owner only; the Decisions table is theirs too
     ['owner', newRec, 'write', recWrite, true], ['pm', newRec, 'write', recWrite, true], ['backend', newRec, 'write', recWrite, false], ['frontend', newRec, 'write', recWrite, false], ['qa', newRec, 'write', recWrite, false],
+    ['pm', 'decisions/DR-09 30-minute hold tied to the Stripe checkout.md', 'edit', recDecide, true], ['owner', 'decisions/DR-09 30-minute hold tied to the Stripe checkout.md', 'edit', recDecide, true], ['backend', 'decisions/DR-09 30-minute hold tied to the Stripe checkout.md', 'edit', recDecide, false],
     ['pm', 'decisions/Decisions.md', 'edit', body, true], ['owner', 'decisions/Decisions.md', 'edit', body, true], ['backend', 'decisions/Decisions.md', 'edit', body, false],
     // the admin (writes.all): the guard refuses it nothing, the generated files and the verbatim brief included
     ['admin', 'tree/tree.json', 'write', null, true], ['admin', 'Card Index.md', 'edit', body, true], ['admin', 'design/Wireframe Brief.md', 'edit', body, true], ['admin', 'project/Agent Rules.md', 'write', null, true],

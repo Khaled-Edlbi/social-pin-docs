@@ -12,8 +12,8 @@
  *   node scripts/build-tree.mjs --scaffold task <feature-id> "<Title>" [--backend-only | --docs-only | --parent T-NNN] [--label <label>] [--priority high] [--effort M]
  *                                                    creates the task with the next free number, its story and its frontend / backend halves
  *   node scripts/build-tree.mjs --scaffold feature <module-id> "<Name>" [--id <slug>] [--priority high] [--frontend-only]   creates the feature note
- *   node scripts/build-tree.mjs --scaffold decision "<card>" ["<title>"]   creates the decision card a task, a layer note or a feature needs (blocks it while open)
- *   node scripts/build-tree.mjs --scaffold record D-NN "<the answer>" [--by <name>]   creates the decision record DR-NN that takes decision D-NN: what was decided, why, what it changes
+ *   node scripts/build-tree.mjs --scaffold decision "<card>" ["<title>"]   creates the needs-decision card a task, a layer note or a feature needs (draft; blocks it until fulfilled)
+ *   node scripts/build-tree.mjs --scaffold record D-NN "<the answer>" [--by <name>]   creates the decision card DR-NN (draft) that answers D-NN: what was decided, why, what it changes
  *
  * No dependencies: Node 22 built-ins only. The output is key-sorted and carries
  * no timestamps, so it changes only when a note or the config changes.
@@ -47,7 +47,7 @@ const BAD_NAME = /[#?%\\]/;
 // Structural statuses (not layer-specific). Layer kinds take theirs from docs.config.json.
 const STATUS = {
   task: { todo: 'todo', 'needs-info': 'needs-decision', blocked: 'blocked', 'in-progress': 'in-progress', done: 'done' },
-  decision: { open: 'needs-decision', decided: 'approved' },
+  decision: { draft: 'draft', open: 'needs-decision' }, // fulfilled (shown ✅) is computed once its DR card is decided; nobody types it
 };
 const LEGEND = {
   done: 'Done', partial: 'Partial', todo: 'To do', 'in-progress': 'In progress', blocked: 'Blocked',
@@ -61,10 +61,9 @@ const EMOJI = {
   missing: '∅', reference: '📘',
 };
 const DONE_STATUSES = new Set(['done', 'approved', 'verified', 'delivered', 'current', 'passing', 'reference', 'decided']);
-// a decided decision is stored as `approved` but is finished: it keeps the done tick; 👍 is for a story or a requirements list that is approved, not finished
-// a needs-decision card (D-NN) reads Open or Decided in a status column: its kind already says it needs a decision
-const legendOf = (n) => (n.kind === 'decision' ? (n.effectiveStatus === 'approved' ? 'Decided' : n.effectiveStatus === 'needs-decision' ? 'Open' : LEGEND[n.effectiveStatus] ?? n.effectiveStatus) : LEGEND[n.effectiveStatus] ?? n.effectiveStatus);
-const emojiOf = (n) => (n.kind === 'decision' && n.effectiveStatus === 'approved' ? EMOJI.done : EMOJI[n.effectiveStatus] || '•');
+// a needs-decision card (D-NN) reads Draft, Open or Fulfilled in a status column: its kind already says it needs a decision
+const legendOf = (n) => (n.kind === 'decision' && n.effectiveStatus === 'needs-decision' ? 'Open' : LEGEND[n.effectiveStatus] ?? n.effectiveStatus);
+const emojiOf = (n) => EMOJI[n.effectiveStatus] || '•';
 // the structural note types (not layer kinds); a decision record is the answer to a decided decision, on its own card under it
 const STRUCTURAL = ['module', 'feature', 'task', 'decision', 'decision-record', 'project'];
 const ID_CODED = new Set(['task', 'decision', 'decision-record']); // the card code is the note's id
@@ -113,7 +112,7 @@ export function loadConfig(errors = []) {
     if (typeof a.note !== 'string' || !fs.existsSync(path.join(ROOT, a.note))) err(`agents.list: agent "${a.id}" names a note that does not exist (${a.note})`);
     if (a.layer && !layerIds.has(a.layer)) err(`agents.list: agent "${a.id}" names unknown layer "${a.layer}"`);
     const w = a.writes || {};
-    for (const k of [...(w.kinds || []), ...(w.editOnly?.kinds || []), ...(a.signs || []).filter((x) => x !== 'decision')]) if (!kinds.has(k)) err(`agents.list: agent "${a.id}" names unknown kind "${k}"`);
+    for (const k of [...(w.kinds || []), ...(w.editOnly?.kinds || []), ...(a.signs || []).filter((x) => x !== 'decision' && x !== 'decision-record')]) if (!kinds.has(k)) err(`agents.list: agent "${a.id}" names unknown kind "${k}"`);
     for (const t of [...(w.types || []), ...(w.editOnly?.types || [])]) if (!STRUCTURAL.includes(t)) err(`agents.list: agent "${a.id}" names unknown type "${t}"`);
   }
   if (cfg.agents?.protocol && !fs.existsSync(path.join(ROOT, cfg.agents.protocol))) err(`agents.protocol names a note that does not exist (${cfg.agents.protocol})`);
@@ -456,7 +455,9 @@ export function build() {
     requireKeys(n, ['id', 'status']);
     if (!list(n.data.blocks).length) requireKeys(n, ['features']); // a decision names the cards that need it (`blocks`) or the features it belongs to
     if (!isDecisionId(n.data.id)) err(n.rel, `id "${n.data.id}" is not a decision id (D-NN)`);
-    const status = normStatus(n, 'decision');
+    if (['fulfilled', 'decided'].includes(n.data.status)) err(n.rel, `status "${n.data.status}" is not typed on a needs-decision card: it is draft or open, and shows Fulfilled by itself once its decision card (DR-NN) is decided`);
+    for (const k of ['decidedBy', 'decidedAt']) if (n.data[k]) err(n.rel, `${k} lives on the decision card (DR-NN), not on the needs-decision card`);
+    const status = ['fulfilled', 'decided'].includes(n.data.status) ? 'needs-decision' : normStatus(n, 'decision');
     const d = addNode(base(n, { id: `decision:${n.data.id}`, kind: 'decision', layer: 'business', code: n.data.id, status, effectiveStatus: status, label: 'Needs decision', features: list(n.data.features), blocks: [], decider: typeof n.data.decider === 'string' && n.data.decider.trim() ? n.data.decider.trim() : null }));
     noteOf.set(d.id, n);
     if (decisionNodes.has(n.data.id)) err(n.rel, `second decision note with id "${n.data.id}"`);
@@ -465,13 +466,15 @@ export function build() {
   // decision records: the answer to a decision, on its own card (DR-NN answers D-NN); it hangs under its decision once the decisions are placed
   const recordNodes = new Map();
   for (const n of byType('decision-record')) {
-    requireKeys(n, ['id', 'decision', 'decidedBy', 'decidedAt']);
+    requireKeys(n, ['id', 'decision', 'status']);
+    const rstatus = n.data.status === 'decided' ? 'decided' : n.data.status === 'draft' ? 'draft' : null;
+    if (n.data.status !== undefined && !rstatus) err(n.rel, `unknown status "${n.data.status}" for a decision card (allowed: draft, decided)`);
+    if (rstatus === 'decided') requireKeys(n, ['decidedBy', 'decidedAt']); // only the PM or the owner set it decided, on the user's word
     const id = String(n.data.id ?? ''), dec = typeof n.data.decision === 'string' ? n.data.decision.trim() : '';
     if (!isRecordId(id)) err(n.rel, `id "${id}" is not a decision record id (DR-NN)`);
     else if (isDecisionId(dec) && id !== `DR-${dec.slice(2)}`) err(n.rel, `id "${id}" must be DR-${dec.slice(2)}: a record carries the number of the decision it takes`);
     if (n.data.decidedAt && !isDate(n.data.decidedAt)) err(n.rel, `decidedAt: ${JSON.stringify(n.data.decidedAt)} must be a date YYYY-MM-DD`);
-    if (n.data.status !== undefined) err(n.rel, 'a decision record has no "status:": it exists only once its decision is decided');
-    const r = addNode(base(n, { id: `decision-record:${id}`, kind: 'decision-record', layer: 'business', code: id, status: 'decided', effectiveStatus: 'decided', label: 'Decision', decides: dec || null, features: [], decidedBy: n.data.decidedBy ?? null, decidedAt: n.data.decidedAt ?? null }));
+    const r = addNode(base(n, { id: `decision-record:${id}`, kind: 'decision-record', layer: 'business', code: id, status: rstatus, effectiveStatus: rstatus || 'draft', label: 'Decision', decides: dec || null, features: [], decidedBy: n.data.decidedBy ?? null, decidedAt: n.data.decidedAt ?? null }));
     noteOf.set(r.id, n);
     if (recordNodes.has(id)) err(n.rel, `second decision record with id "${id}"`);
     recordNodes.set(id, r);
@@ -705,7 +708,7 @@ export function build() {
     }
     d.features.sort();
   }
-  // a decision is taken by its record: a decided decision has exactly one, a record answers a decided decision, and both name the same decider and date (Agent Rules §4)
+  // a needs-decision card is answered by one decision card (DR-NN); once that card is decided, the question shows Fulfilled and releases the cards it blocks (Agent Rules §4)
   const recordOf = new Map(); // decision id -> record node
   for (const [, r] of recordNodes) {
     const d = r.decides && isDecisionId(r.decides) ? decisionNodes.get(r.decides) : null;
@@ -714,11 +717,10 @@ export function build() {
     recordOf.set(d.id, r);
     link(d, r);
     r.features = [...d.features];
-    const dn = noteOf.get(d.id).data;
-    if (d.status !== STATUS.decision.decided) err(r.path, `${d.code} is still open: a record is written when the decision is taken; sign ${d.code} off as decided (status, decidedBy, decidedAt) on the user's word`);
-    else if (String(dn.decidedBy ?? '') !== String(r.decidedBy ?? '') || String(dn.decidedAt ?? '') !== String(r.decidedAt ?? '')) err(r.path, `decidedBy / decidedAt (${r.decidedBy || '—'}, ${r.decidedAt || '—'}) must match ${d.code}'s (${dn.decidedBy || '—'}, ${dn.decidedAt || '—'})`);
+    if (r.status !== 'decided') continue;
+    if (d.status === 'draft') err(r.path, `${d.code} is still a draft: open the needs-decision card before its answer is decided`);
+    d.effectiveStatus = 'verified'; d.fulfilledBy = r.id; // Fulfilled: computed, never typed
   }
-  for (const [, d] of decisionNodes) if (d.status === STATUS.decision.decided && !recordOf.has(d.id)) err(d.path, `${d.code} is decided but has no decision card (DR-NN): the answer lives on its own card, node scripts/build-tree.mjs --scaffold record ${d.code} "<the answer>"`);
 
   // ---------------------------------------------------------- pending: done, but a note is left for a card or a person → Partial until cleared
   const PENDING_NOTE = /^\[\[([^\]]+?)\]\]\s*:?\s*(.*)$/, PENDING_PERSON = /^@([\w.-]+)\s*:?\s*(.*)$/;
@@ -781,7 +783,7 @@ export function build() {
   }
 
   // ---------------------------------------------------------- blocking
-  const blockReason = (target) => (target.kind === 'decision' && !isDone(target) ? `needs decision ${target.code} (open)` : `${target.title} is ${String(LEGEND[target.effectiveStatus] ?? target.effectiveStatus).toLowerCase()}`);
+  const blockReason = (target) => (target.kind === 'decision' && !isDone(target) ? `needs decision ${target.code} (${target.status === 'draft' ? 'draft' : 'open'})` : `${target.title} is ${String(LEGEND[target.effectiveStatus] ?? target.effectiveStatus).toLowerCase()}`);
   for (const n of layerNodes) {
     const note = noteOf.get(n.id);
     const explicit = note && Array.isArray(note.data.blockedBy) ? list(note.data.blockedBy) : null;
@@ -1449,12 +1451,12 @@ function scaffoldDecision(result, ref, title) {
   const { data, body } = parseFrontmatter(fs.readFileSync(path.join(ROOT, 'templates', 'Decision Template.md'), 'utf8'));
   const feature = target.kind === 'feature' ? target.code : target.feature;
   const blocks = target.kind === 'task' ? target.code : target.kind === 'feature' ? target.code : target.title; // a task by id, a feature by id, a note by name
-  const out = { ...data, id, status: 'open', features: feature ? [feature] : [], blocks: [blocks], decider: '', screens: target.screens ?? [], affects: [], related: [], created: today, tags: ['decision', 'decision/open'] };
+  const out = { ...data, id, status: 'draft', features: feature ? [feature] : [], blocks: [blocks], decider: '', screens: target.screens ?? [], affects: [], related: [], created: today, tags: ['decision', 'decision/draft'] };
   const item = (v) => (/^[\w./-]+$/.test(v) ? v : JSON.stringify(v));
   const yaml = Object.entries(out).map(([k, v]) => `${k}: ${Array.isArray(v) ? `[${v.map(item).join(', ')}]` : typeof v === 'string' && (/[:#]/.test(v) || v === '') ? JSON.stringify(v) : v}`).join('\n');
   const text = body.replace(/D-NN/g, id).replace(/<Title>/g, t).replace(/<date>/g, today).replace(/<card>/g, `[[${target.title}]]`).replace(/<feature>/g, feature ? `[[${nodes[`feature:${feature}`]?.title ?? feature}]]` : '—');
   fs.writeFileSync(dest, `---\n${yaml}\n---\n${text}`);
-  console.log(`wrote ${path.relative(ROOT, dest)} (open; blocks ${target.title}); write what has to be decided and who decides (decider), then run node scripts/build-tree.mjs: ${target.title} shows Blocked · ${id} until the decision is decided`);
+  console.log(`wrote ${path.relative(ROOT, dest)} (draft; blocks ${target.title}); write what has to be decided and who decides (decider), set status: open when it is ready for the decider, then run node scripts/build-tree.mjs: ${target.title} waits on ${id} until its decision card is decided`);
 }
 
 // ---------------------------------------------------------------- scaffold · the decision record that takes a decision
@@ -1466,7 +1468,7 @@ function scaffoldRecord(result, ref, title) {
   const d = json.nodes[`decision:${q}`];
   if (!d) die(`no decision ${q} (see decisions/)`);
   const rec = d.children.map((c) => json.nodes[c]).find((c) => c.kind === 'decision-record');
-  if (rec) die(`${q} already has its record: ${rec.path}; one decision, one record`);
+  if (rec) die(`${q} already has its decision card: ${rec.path}; one question, one answer`);
   const id = `DR-${q.slice(2)}`;
   const t = title.trim().replace(/\s+/g, ' ');
   if (BAD_NAME.test(t) || /[/:]/.test(t)) die(`title "${t}" cannot contain / : # ? % \\`);
@@ -1474,16 +1476,16 @@ function scaffoldRecord(result, ref, title) {
   if (fs.existsSync(dest)) die(`${path.relative(ROOT, dest)} already exists`);
   const dnote = result.notes.find((n) => n.rel === d.path);
   const date = today();
-  const by = opt('--by', null) ?? (dnote.data.decidedBy || '');
-  const at = dnote.data.decidedAt || date;
+  const by = opt('--by', null) ?? '';
+  const at = '';
   const { body } = parseFrontmatter(fs.readFileSync(path.join(ROOT, 'templates', 'Decision Record Template.md'), 'utf8'));
   const featureTitles = (d.features || []).map((f) => json.nodes[`feature:${f}`]?.title).filter(Boolean);
-  const fm = { type: 'decision-record', id, decision: q, decidedBy: by, decidedAt: at, features: d.features || [], affects: [], related: [d.title], owner: '', created: date, updated: date, tags: ['decision-record'] };
+  const fm = { type: 'decision-record', id, decision: q, status: 'draft', decidedBy: by, decidedAt: at, features: d.features || [], affects: [], related: [d.title], owner: '', created: date, updated: date, tags: ['decision-record', 'decision-record/draft'] };
   const item = (v) => (/^[\w./-]+$/.test(v) ? v : JSON.stringify(v));
-  const yaml = Object.entries(fm).map(([k, v]) => `${k}: ${Array.isArray(v) ? `[${v.map(item).join(', ')}]` : typeof v === 'string' && (/[:#]/.test(v) || v === '' || ['decidedBy', 'owner'].includes(k)) ? JSON.stringify(v) : v}`).join('\n');
-  const text = body.replace(/DR-NN/g, id).replace(/D-NN/g, q).replace(/<Title>/g, t).replace(/<decision>/g, d.title).replace(/<who>/g, by || '—').replace(/<date>/g, at).replace(/<feature>/g, featureTitles.length ? featureTitles.map((x) => `[[${x}]]`).join(', ') : '—');
+  const yaml = Object.entries(fm).map(([k, v]) => `${k}: ${Array.isArray(v) ? `[${v.map(item).join(', ')}]` : typeof v === 'string' && (/[:#]/.test(v) || v === '' || ['decidedBy', 'decidedAt', 'owner'].includes(k)) ? JSON.stringify(v) : v}`).join('\n');
+  const text = body.replace(/DR-NN/g, id).replace(/D-NN/g, q).replace(/<Title>/g, t).replace(/<decision>/g, d.title).replace(/<who>/g, by || '—').replace(/<date>/g, at || '—').replace(/<feature>/g, featureTitles.length ? featureTitles.map((x) => `[[${x}]]`).join(', ') : '—');
   fs.writeFileSync(dest, `---\n${yaml}\n---\n${text}`);
-  console.log(`wrote ${path.relative(ROOT, dest)} (the decision card answering ${q})\nnext: fill what was decided, why and what it changes, list every feature and task it changes in affects; sign ${q} off as decided on the user's word (status: decided, decidedBy and decidedAt as on ${id}, the tag decision/decided, ✅ in the H1, its ## Decision pointing at [[${id} ${t}]]); then node scripts/build-tree.mjs, --impact ${id}, and flag what it lists that you do not own`);
+  console.log(`wrote ${path.relative(ROOT, dest)} (the decision card answering ${q}, draft)\nnext: fill what was decided, why and what it changes, list every feature and task it changes in affects; on the user's word, the PM or the owner sets it decided (status: decided, decidedBy, decidedAt, the tag decision-record/decided); ${q} then shows Fulfilled by itself (point its ## Decision at [[${id} ${t}]] and give its H1 ✅); then node scripts/build-tree.mjs, --impact ${id}, and flag what it lists that you do not own`);
 }
 
 // ---------------------------------------------------------------- scaffold · layer notes

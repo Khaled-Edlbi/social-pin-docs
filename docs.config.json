@@ -179,7 +179,7 @@
         "note": "project/Owner Agent.md",
         "layer": "shared",
         "writes": { "types": ["module", "feature", "decision", "decision-record"], "kinds": [], "paths": ["project/**", "decisions/Decisions.md", "docs.config.json", "templates/**", "scripts/**", "tree/index.html", ".claude/**", ".github/**", ".gitattributes", ".gitignore", "Home.md", "README.md", "CLAUDE.md", "business/**"] },
-        "signs": ["story", "frontend-requirements", "decision"],
+        "signs": ["story", "frontend-requirements", "decision-record"],
         "fields": ["priority", "deadline"]
       },
       {
@@ -188,7 +188,7 @@
         "note": "project/PM Agent.md",
         "layer": "business",
         "writes": { "types": ["feature", "task", "decision", "decision-record", "module"], "kinds": ["story"], "taskLabels": ["bug", "chore", "spike", "docs"], "paths": ["business/**", "decisions/Decisions.md", "design/Screen Index.md", "Home.md"] },
-        "signs": ["story", "frontend-requirements", "decision"]
+        "signs": ["story", "frontend-requirements", "decision-record"]
       },
       {
         "id": "backend",
