@@ -58,6 +58,7 @@
     "decision:D-06": "D-06",
     "decision:D-07": "D-07",
     "decision:D-10": "D-10",
+    "decision:D-11": "D-11",
     "feature:account": "F-01",
     "feature:app-shell": "F-29",
     "feature:audit-log": "F-30",
