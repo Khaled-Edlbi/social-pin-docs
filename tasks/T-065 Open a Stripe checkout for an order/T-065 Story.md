@@ -4,7 +4,7 @@ code: T-065
 scope: task
 feature: pay-for-an-order
 module: payments-gateway
-status: approved
+status: verified
 screens: [s51]
 depends: []
 affects: []
@@ -14,13 +14,13 @@ approvedBy: "khaled"
 approvedAt: 2026-10-25
 owner: "khaled"
 updated: 2026-10-25
-tags: [story, story/approved, module/payments-gateway, layer/business]
+tags: [story, story/verified, module/payments-gateway, layer/business]
 task: T-065
 ---
 
 # T-065 · Open a Stripe checkout for an order · User Story
 
-**Task:** [[T-065 Open a Stripe checkout for an order]] · **Feature:** [[Pay for an order]] · **Feature-level note:** [[Pay for an order Story]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[T-065 Frontend Requirements]] · **Backend Integration:** [[T-065 Backend Integration]] · **Verified by:** [[T-065 QA Backend]], [[T-065 QA Frontend]]
+**Task:** [[T-065 Open a Stripe checkout for an order]] · **Feature:** [[Pay for an order]] · **Feature-level note:** [[Pay for an order Story]] · **Status:** Fulfilled 2026-10-25 by khaled (QB-01, QF-01 passing) · **Frontend Requirements:** [[T-065 Frontend Requirements]] · **Backend Integration:** [[T-065 Backend Integration]] · **Verified by:** [[T-065 QA Backend]], [[T-065 QA Frontend]]
 
 What the attendee gets from this task: from the Payment screen they reach Stripe's card page for exactly their order, and when they come back they see whether the payment is waiting or failed, with the time their tickets stay held. It is S1 and S2 of [[Pay for an order Story]] up to the moment Stripe confirms; the confirmation itself, the webhook and s52 are the next task.
 
