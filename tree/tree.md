@@ -590,7 +590,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
       - ∅ _Notifications QA Frontend_ (QA Frontend, blocked by Notifications Frontend Delivery)
   - 🔵 [Payments Gateway Module](modules/Payments%20Gateway/Payments%20Gateway%20Module.md) (M-09)
     - 🔵 [Pay for an order](modules/Payments%20Gateway/Pay%20for%20an%20order/Pay%20for%20an%20order.md) (F-41, High)
-      - ⛔ [Pay for an order Story](modules/Payments%20Gateway/Pay%20for%20an%20order/Pay%20for%20an%20order%20Story.md) (S-105, User Story, High, blocked by T-047 Orders, payments and the provider webhook, D-09 How long an unpaid order holds its tickets)
+      - ⛔ [Pay for an order Story](modules/Payments%20Gateway/Pay%20for%20an%20order/Pay%20for%20an%20order%20Story.md) (S-105, User Story, High, blocked by D-09 How long an unpaid order holds its tickets)
         - ❓ [D-09 How long an unpaid order holds its tickets](decisions/D-09%20How%20long%20an%20unpaid%20order%20holds%20its%20tickets.md) (Decision)
       - ∅ _Pay for an order Frontend Requirements_ (Frontend Requirements, blocked by Pay for an order Story)
       - ∅ _Pay for an order Backend Delivery_ (Backend Delivery, blocked by Pay for an order Frontend Requirements)

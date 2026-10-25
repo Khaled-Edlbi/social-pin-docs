@@ -4694,7 +4694,7 @@
     },
     "concepts": 177,
     "decisions": 9,
-    "edges": 4381,
+    "edges": 4379,
     "features": 40,
     "layerNotes": 191,
     "modules": 9,
@@ -6815,11 +6815,6 @@
     {
       "from": "task:T-047",
       "kind": "blocks",
-      "to": "story:pay-for-an-order"
-    },
-    {
-      "from": "task:T-047",
-      "kind": "blocks",
       "to": "task:T-035"
     },
     {
@@ -7111,11 +7106,6 @@
       "from": "story:pay-for-an-order",
       "kind": "depends",
       "to": "decision:D-08"
-    },
-    {
-      "from": "story:pay-for-an-order",
-      "kind": "depends",
-      "to": "task:T-047"
     },
     {
       "from": "story:payments",
@@ -10655,6 +10645,11 @@
       "from": "story:pay-for-an-order",
       "kind": "related",
       "to": "task:T-034"
+    },
+    {
+      "from": "story:pay-for-an-order",
+      "kind": "related",
+      "to": "task:T-047"
     },
     {
       "from": "story:payments",
@@ -26543,11 +26538,6 @@
       "from": "story:pay-for-an-order",
       "kind": "wikilink",
       "to": "story:event-ring-auto"
-    },
-    {
-      "from": "story:pay-for-an-order",
-      "kind": "wikilink",
-      "to": "task:T-047"
     },
     {
       "from": "story:payments",
@@ -52766,11 +52756,6 @@
       ],
       "blockedBy": [
         {
-          "id": "task:T-047",
-          "title": "T-047 Orders, payments and the provider webhook",
-          "why": "T-047 Orders, payments and the provider webhook is needs decision"
-        },
-        {
           "id": "decision:D-09",
           "title": "D-09 How long an unpaid order holds its tickets",
           "why": "needs decision D-09 (open)"
@@ -52784,8 +52769,7 @@
       "deadline": null,
       "depends": [
         "decision:D-07",
-        "decision:D-08",
-        "task:T-047"
+        "decision:D-08"
       ],
       "effectiveStatus": "blocked",
       "effort": null,
@@ -52810,6 +52794,7 @@
       "related": [
         "story:payments",
         "feature:payments",
+        "task:T-047",
         "feature:events-before",
         "feature:event-ring-auto",
         "feature:audit-log",
@@ -61559,7 +61544,8 @@
       "pending": [],
       "priority": "high",
       "related": [
-        "story:payments"
+        "story:payments",
+        "story:pay-for-an-order"
       ],
       "rollup": {
         "approved": 1,

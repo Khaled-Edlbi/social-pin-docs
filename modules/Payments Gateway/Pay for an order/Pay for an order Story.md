@@ -6,9 +6,9 @@ feature: pay-for-an-order
 module: payments-gateway
 status: draft
 screens: [s51, s52]
-depends: ["D-07 Payment provider", "D-08 Payment methods and gateways on s51", "T-047 Orders, payments and the provider webhook"]
+depends: ["D-07 Payment provider", "D-08 Payment methods and gateways on s51"]
 affects: ["Event Ring Auto-creation", "Events Before", "T-035 Registration transaction with order and payment"]
-related: ["Payments & Orders", "Events Before", "Event Ring Auto-creation", "Audit Log", "DR-08 Stripe card checkout only", "T-034 Tickets, packages, levels, sold-out"]
+related: ["Payments & Orders", "T-047 Orders, payments and the provider webhook", "Events Before", "Event Ring Auto-creation", "Audit Log", "DR-08 Stripe card checkout only", "T-034 Tickets, packages, levels, sold-out"]
 pending: []
 approvedBy: ""
 approvedAt: ""
