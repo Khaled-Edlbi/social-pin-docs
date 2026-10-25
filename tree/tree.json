@@ -1456,7 +1456,8 @@
         "backend-delivery:pay-for-an-order",
         "backend-integration:T-066-be",
         "backend-integration:pay-for-an-order",
-        "qa-backend:T-066-be"
+        "qa-backend:T-066-be",
+        "qa-backend:pay-for-an-order"
       ],
       "owner": null
     },
@@ -4975,12 +4976,12 @@
     },
     "concepts": 185,
     "decisions": 9,
-    "edges": 5072,
+    "edges": 5074,
     "features": 40,
     "layerNotes": 209,
     "modules": 9,
     "notes": 506,
-    "partial": 4,
+    "partial": 3,
     "placeholders": 145,
     "records": 4,
     "taskLayerNotes": 76,
@@ -5040,9 +5041,7 @@
   ],
   "diagnostics": {
     "errors": [],
-    "warnings": [
-      "modules/Payments Gateway/Pay for an order/Pay for an order QA Backend.md: does not link [[T-066-be QA Backend]], a done task-level note: a feature note is the sum of its tasks"
-    ]
+    "warnings": []
   },
   "edges": [
     {
@@ -9105,6 +9104,7 @@
         "E_ORDER_02",
         "E_ORDER_03",
         "E_PAY_01",
+        "E_PAY_02",
         "GET /orders/:id",
         "POST /orders/:id/checkout"
       ]
@@ -9950,8 +9950,10 @@
         "E_ORDER_02",
         "E_ORDER_03",
         "E_PAY_01",
+        "E_PAY_02",
         "GET /orders/:id",
-        "POST /orders/:id/checkout"
+        "POST /orders/:id/checkout",
+        "POST /payments/stripe/webhook"
       ]
     },
     {
@@ -13157,7 +13159,9 @@
       "to": "backend-delivery:T-066-be",
       "via": [
         "E_ORDER_01",
-        "GET /orders/:id"
+        "E_PAY_02",
+        "GET /orders/:id",
+        "POST /payments/stripe/webhook"
       ]
     },
     {
@@ -13189,7 +13193,9 @@
       "via": [
         "E_AUTH_04",
         "E_ORDER_01",
-        "GET /orders/:id"
+        "E_PAY_02",
+        "GET /orders/:id",
+        "POST /payments/stripe/webhook"
       ]
     },
     {
@@ -13325,7 +13331,8 @@
       "via": [
         "E_AUTH_04",
         "GET /orders/:id",
-        "POST /orders/:id/checkout"
+        "POST /orders/:id/checkout",
+        "POST /payments/stripe/webhook"
       ]
     },
     {
@@ -13385,7 +13392,8 @@
       "via": [
         "E_AUTH_04",
         "E_ORDER_01",
-        "GET /orders/:id"
+        "GET /orders/:id",
+        "POST /payments/stripe/webhook"
       ]
     },
     {
@@ -13441,8 +13449,10 @@
       "to": "qa-backend:T-066-be",
       "via": [
         "E_ORDER_01",
+        "E_PAY_02",
         "GET /orders/:id",
         "POST /orders/:id/checkout",
+        "POST /payments/stripe/webhook",
         "sum-of"
       ]
     },
@@ -13497,7 +13507,8 @@
       "kind": "related",
       "to": "task:T-066-be",
       "via": [
-        "GET /orders/:id"
+        "GET /orders/:id",
+        "POST /payments/stripe/webhook"
       ]
     },
     {
@@ -31476,7 +31487,17 @@
     {
       "from": "qa-backend:pay-for-an-order",
       "kind": "wikilink",
+      "to": "task:T-035"
+    },
+    {
+      "from": "qa-backend:pay-for-an-order",
+      "kind": "wikilink",
       "to": "task:T-065"
+    },
+    {
+      "from": "qa-backend:pay-for-an-order",
+      "kind": "wikilink",
+      "to": "task:T-066"
     },
     {
       "from": "qa-backend:T-065-be",
@@ -44575,8 +44596,8 @@
         "current": 3,
         "decided": 2,
         "done": 6,
-        "partial": 4,
-        "passing": 3,
+        "partial": 3,
+        "passing": 4,
         "todo": 2,
         "verified": 1
       },
@@ -50389,8 +50410,8 @@
         "decided": 2,
         "done": 6,
         "in-progress": 1,
-        "partial": 4,
-        "passing": 3,
+        "partial": 3,
+        "passing": 4,
         "todo": 2,
         "verified": 1
       },
@@ -53113,7 +53134,7 @@
       "code": "pay-for-an-order",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "partial",
+      "effectiveStatus": "passing",
       "effort": null,
       "feature": "pay-for-an-order",
       "frontendOnly": false,
@@ -53131,19 +53152,14 @@
         "feature:pay-for-an-order"
       ],
       "path": "modules/Payments Gateway/Pay for an order/Pay for an order QA Backend.md",
-      "pending": [
-        {
-          "person": "qa",
-          "text": "run S3 (webhook settlement) and S4 (s52) rows once their task ships; no task yet, see Pay for an order Backend Delivery",
-          "to": null
-        }
-      ],
+      "pending": [],
       "priority": "high",
       "related": [
         "backend-delivery:pay-for-an-order",
         "backend-integration:pay-for-an-order",
         "frontend-delivery:pay-for-an-order",
         "qa-backend:T-065-be",
+        "qa-backend:T-066-be",
         "story:pay-for-an-order",
         "task:T-065-be",
         "task:T-066-be",
@@ -53154,7 +53170,6 @@
         "frontend-requirements:T-065-fe",
         "backend-delivery:T-066-be",
         "backend-integration:T-066-be",
-        "qa-backend:T-066-be",
         "frontend-requirements:T-066-fe",
         "qa-frontend:pay-for-an-order",
         "qa-frontend:T-065-fe",
@@ -55609,8 +55624,8 @@
         "in-progress": 16,
         "missing": 145,
         "needs-decision": 20,
-        "partial": 4,
-        "passing": 3,
+        "partial": 3,
+        "passing": 4,
         "reference": 31,
         "todo": 83,
         "verified": 1
