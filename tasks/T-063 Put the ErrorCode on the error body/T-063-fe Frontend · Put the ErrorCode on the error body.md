@@ -20,6 +20,8 @@ tags: [task, task/todo, module/platform, priority/critical, frontend]
 
 # ⬜ T-063-fe · Frontend: Put the ErrorCode on the error body
 
+> ⚠ Affected by [[T-063 Put the ErrorCode on the error body]] (2026-10-25): [[DR-19 A ticket's layer notes live on the parent task]] puts this ticket's layer notes on the parent task. The **Layer notes** line below still sends this half to `T-063-fe Frontend Requirements`, `T-063-fe Frontend Delivery` and `T-063-fe QA Frontend`, which are not the ticket's cards any more; it should point at [[T-063 Frontend Requirements]], [[T-063 Frontend Delivery]] and [[T-063 QA Frontend]], scaffolded with `--scaffold <kind> T-063`. `/frontend` owns this note and clears the flag.
+
 **Parent:** [[T-063 Put the ErrorCode on the error body]] · **Feature:** [[Error Contract]] · **Side:** Frontend · **Status:** To do · **Priority:** Critical · **Effort:** S (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-063-fe` when the team picks it up): [[T-063-fe Frontend Requirements|Frontend Requirements]] · [[T-063-fe Frontend Delivery|Frontend Delivery]] · [[T-063-fe QA Frontend|QA Frontend]]

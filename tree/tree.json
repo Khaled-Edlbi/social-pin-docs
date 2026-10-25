@@ -1044,7 +1044,8 @@
         "project:status-report-2026-10-15",
         "story:T-063",
         "story:delegated-admins",
-        "story:rings"
+        "story:rings",
+        "task:T-063"
       ],
       "owner": "feature:rings"
     },
@@ -1090,7 +1091,8 @@
         "frontend-requirements:code-delivery",
         "project:frontend-passwordless-migration",
         "story:T-063",
-        "story:auth"
+        "story:auth",
+        "task:T-063"
       ],
       "owner": null
     },
@@ -1380,7 +1382,8 @@
         "project:frontend-passwordless-migration",
         "story:T-063",
         "story:auth",
-        "story:profiles"
+        "story:profiles",
+        "task:T-063"
       ],
       "owner": null
     },
@@ -1423,7 +1426,8 @@
         "story:error-contract",
         "story:event-ring-auto",
         "story:meetings",
-        "story:rings"
+        "story:rings",
+        "task:T-063"
       ],
       "owner": null
     },
@@ -1655,7 +1659,8 @@
         "frontend-requirements:auth",
         "project:auth-model",
         "project:frontend-passwordless-migration",
-        "story:T-063"
+        "story:T-063",
+        "task:T-063"
       ],
       "owner": null
     },
@@ -4844,7 +4849,7 @@
     },
     "concepts": 182,
     "decisions": 17,
-    "edges": 4847,
+    "edges": 4867,
     "features": 39,
     "layerNotes": 185,
     "modules": 8,
@@ -5306,6 +5311,26 @@
       "from": "story:payments",
       "kind": "affects",
       "to": "feature:events-during"
+    },
+    {
+      "from": "task:T-063",
+      "kind": "affects",
+      "to": "backend-delivery:error-contract"
+    },
+    {
+      "from": "task:T-063",
+      "kind": "affects",
+      "to": "feature:error-contract"
+    },
+    {
+      "from": "task:T-063",
+      "kind": "affects",
+      "to": "project:api-conventions"
+    },
+    {
+      "from": "task:T-063",
+      "kind": "affects",
+      "to": "project:frontend-contract"
     },
     {
       "from": "task:T-064",
@@ -8853,11 +8878,6 @@
       "to": "decision:D-19"
     },
     {
-      "from": "decision-record:DR-19",
-      "kind": "related",
-      "to": "task:T-063"
-    },
-    {
       "from": "decision:D-07",
       "kind": "related",
       "to": "feature:payments"
@@ -8971,11 +8991,6 @@
       "from": "decision:D-19",
       "kind": "related",
       "to": "project:docs-tree"
-    },
-    {
-      "from": "decision:D-19",
-      "kind": "related",
-      "to": "task:T-063"
     },
     {
       "from": "feature:account",
@@ -10787,14 +10802,6 @@
       ]
     },
     {
-      "from": "story:error-contract",
-      "kind": "related",
-      "to": "story:T-063",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
       "from": "story:event-ring-auto",
       "kind": "related",
       "to": "story:T-011",
@@ -11309,6 +11316,24 @@
       "to": "feature:view-as"
     },
     {
+      "from": "story:T-063",
+      "kind": "related",
+      "to": "decision-record:DR-19"
+    },
+    {
+      "from": "story:T-063",
+      "kind": "related",
+      "to": "feature:error-contract"
+    },
+    {
+      "from": "story:T-063",
+      "kind": "related",
+      "to": "story:error-contract",
+      "via": [
+        "sum-of"
+      ]
+    },
+    {
       "from": "story:widgets",
       "kind": "related",
       "to": "decision-record:DR-03"
@@ -11393,6 +11418,21 @@
       "from": "task:T-061",
       "kind": "related",
       "to": "decision-record:DR-06"
+    },
+    {
+      "from": "task:T-063",
+      "kind": "related",
+      "to": "decision-record:DR-19"
+    },
+    {
+      "from": "task:T-063",
+      "kind": "related",
+      "to": "decision:D-19"
+    },
+    {
+      "from": "task:T-063",
+      "kind": "related",
+      "to": "story:T-063"
     },
     {
       "from": "decision-record:DR-13",
@@ -23597,11 +23637,6 @@
     {
       "from": "backend-delivery:error-contract",
       "kind": "wikilink",
-      "to": "task:T-063"
-    },
-    {
-      "from": "backend-delivery:error-contract",
-      "kind": "wikilink",
       "to": "task:T-064"
     },
     {
@@ -24648,16 +24683,6 @@
       "from": "decision-record:DR-19",
       "kind": "wikilink",
       "to": "project:agent-rules"
-    },
-    {
-      "from": "decision-record:DR-19",
-      "kind": "wikilink",
-      "to": "task:T-063-be"
-    },
-    {
-      "from": "decision-record:DR-19",
-      "kind": "wikilink",
-      "to": "task:T-063-fe"
     },
     {
       "from": "decision:D-01",
@@ -30485,11 +30510,6 @@
       "to": "task:T-012"
     },
     {
-      "from": "story:T-063",
-      "kind": "wikilink",
-      "to": "feature:error-contract"
-    },
-    {
       "from": "story:view-as",
       "kind": "wikilink",
       "to": "backend-integration:view-as"
@@ -33082,7 +33102,82 @@
     {
       "from": "task:T-063",
       "kind": "wikilink",
+      "to": "backend-delivery:error-contract"
+    },
+    {
+      "from": "task:T-063",
+      "kind": "wikilink",
+      "to": "feature:account"
+    },
+    {
+      "from": "task:T-063",
+      "kind": "wikilink",
+      "to": "feature:auth"
+    },
+    {
+      "from": "task:T-063",
+      "kind": "wikilink",
+      "to": "feature:code-delivery"
+    },
+    {
+      "from": "task:T-063",
+      "kind": "wikilink",
+      "to": "feature:delegated-admins"
+    },
+    {
+      "from": "task:T-063",
+      "kind": "wikilink",
+      "to": "feature:devices"
+    },
+    {
+      "from": "task:T-063",
+      "kind": "wikilink",
+      "to": "feature:event-ring-auto"
+    },
+    {
+      "from": "task:T-063",
+      "kind": "wikilink",
+      "to": "feature:exhibitor"
+    },
+    {
+      "from": "task:T-063",
+      "kind": "wikilink",
+      "to": "feature:meetings"
+    },
+    {
+      "from": "task:T-063",
+      "kind": "wikilink",
+      "to": "feature:onboarding-imports"
+    },
+    {
+      "from": "task:T-063",
+      "kind": "wikilink",
+      "to": "feature:profiles"
+    },
+    {
+      "from": "task:T-063",
+      "kind": "wikilink",
+      "to": "feature:ring-projection"
+    },
+    {
+      "from": "task:T-063",
+      "kind": "wikilink",
+      "to": "feature:rings"
+    },
+    {
+      "from": "task:T-063",
+      "kind": "wikilink",
+      "to": "project:agent-rules"
+    },
+    {
+      "from": "task:T-063",
+      "kind": "wikilink",
       "to": "project:api-conventions"
+    },
+    {
+      "from": "task:T-063",
+      "kind": "wikilink",
+      "to": "project:auth-model"
     },
     {
       "from": "task:T-063",
@@ -33102,7 +33197,17 @@
     {
       "from": "task:T-063-be",
       "kind": "wikilink",
+      "to": "decision-record:DR-19"
+    },
+    {
+      "from": "task:T-063-be",
+      "kind": "wikilink",
       "to": "feature:error-contract"
+    },
+    {
+      "from": "task:T-063-fe",
+      "kind": "wikilink",
+      "to": "decision-record:DR-19"
     },
     {
       "from": "task:T-063-fe",
@@ -40193,8 +40298,9 @@
       "pending": [],
       "priority": null,
       "related": [
+        "task:T-063",
         "decision:D-19",
-        "task:T-063"
+        "story:T-063"
       ],
       "release": null,
       "scope": null,
@@ -41194,9 +41300,9 @@
       "pending": [],
       "priority": null,
       "related": [
+        "task:T-063",
         "project:agent-rules",
         "project:docs-tree",
-        "task:T-063",
         "decision-record:DR-19"
       ],
       "release": null,
@@ -42298,7 +42404,8 @@
         "project:frontend-contract",
         "project:ring-access-model",
         "project:architecture",
-        "project:spec-map"
+        "project:spec-map",
+        "story:T-063"
       ],
       "release": "mvp",
       "rollup": {
@@ -56499,7 +56606,12 @@
       "path": "tasks/T-063 Put the ErrorCode on the error body/T-063 Story.md",
       "pending": [],
       "priority": "critical",
-      "related": [],
+      "related": [
+        "task:T-063",
+        "story:error-contract",
+        "feature:error-contract",
+        "decision-record:DR-19"
+      ],
       "release": "mvp",
       "scope": "task",
       "screens": [],
@@ -57289,7 +57401,9 @@
       "path": "modules/Platform & Cross-cutting/Error Contract/Error Contract Story.md",
       "pending": [],
       "priority": "critical",
-      "related": [],
+      "related": [
+        "story:T-063"
+      ],
       "release": "mvp",
       "scope": "feature",
       "screens": [],
@@ -69318,7 +69432,12 @@
       "updated": "2026-10-19"
     },
     "task:T-063": {
-      "affects": [],
+      "affects": [
+        "project:api-conventions",
+        "project:frontend-contract",
+        "feature:error-contract",
+        "backend-delivery:error-contract"
+      ],
       "blockedBy": [],
       "card": "T-063",
       "children": [
@@ -69360,6 +69479,7 @@
       "pending": [],
       "priority": "critical",
       "related": [
+        "story:T-063",
         "decision:D-19",
         "decision-record:DR-19"
       ],
@@ -69384,7 +69504,7 @@
       ],
       "task": null,
       "title": "T-063 Put the ErrorCode on the error body",
-      "updated": "2026-10-19"
+      "updated": "2026-10-25"
     },
     "task:T-063-be": {
       "affects": [],
