@@ -12,6 +12,8 @@ tags: [backend-integration, backend-integration/current, module/identity, layer/
 
 # 🔌 Rings · Backend Integration
 
+> ⚠ Affected by [[DR-18 Ring names shown when joined knowingly]] (2026-10-25): `GET /rings/shared-with-me` may return a Ring's name only for a membership created by invitation, code or work email; never for a connection accept or an owner add (an exception to DR-14).
+
 > ⚠ Affected by [[DR-04 Ring settings at launch and their defaults]] (2026-10-25): D-04 decided, six Ring settings at launch with private defaults (join with a code or invite, approve each one, members can't see each other, invite or save attachments); the owner and the Ring's admins change them; members who may see each other see full cards.
 
 > ⚠ Affected by [[DR-05 Inherit per field, copy without members]] (2026-10-25): D-05 decided, a Ring inherits the main profile field by field until it changes that field; copying a Ring copies fields, bio, photo, colour and settings, never members.
