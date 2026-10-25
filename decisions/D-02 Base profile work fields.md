@@ -5,12 +5,13 @@ status: open
 features: [profiles, ring-projection, onboarding-imports, photo-library]
 screens: [s05, s06, s11, s23, s29]
 created: 2026-10-15
+updated: 2026-10-25
 tags: [decision, decision/open]
 ---
 
-# ❓ D-02 · Base profile work fields
+# ✅ D-02 · Base profile work fields
 
-**Status:** open · **Decider:** product + backend lead · **Raised:** 2026-10-15
+**Status:** decided (2026-10-25, option A) · **Decider:** product + backend lead · **Raised:** 2026-10-15
 
 ## Where the design and the backend disagree
 
@@ -46,6 +47,6 @@ Screens: [[Screen Index#s05|s05]], [[Screen Index#s06|s06]], [[Screen Index#s11|
 - [[T-057 Decide base profile work fields]]
 - [[T-060 Decide copy or inherit]]
 
-## Outcome
+## Decision
 
-_Not decided yet. When decided: set `status: decided` above, write the choice here, move the waiting tasks out of ❓._
+Fulfilled by [[DR-02 One main profile every Ring starts from]], decided 2026-10-25 by molham: option A.
