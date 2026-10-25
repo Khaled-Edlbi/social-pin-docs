@@ -6,7 +6,7 @@ priority: critical
 module: connections
 screens: [s44, s45, s46, s47, s62]
 related: ["Rings"]
-updated: 2026-10-19
+updated: 2026-10-25
 tags: [feature, module/connections, priority/critical]
 ---
 
@@ -31,6 +31,14 @@ A connection is an **access request**, not a content subscription. Send a reques
 Wireframe brief sections: [[Wireframe Brief#Connections & networking|§5 Connections & networking]], [[Wireframe Brief#Contacts & Devices|§6.4 Contacts & Devices]]
 
 Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map in [[Navigation Map]], see [[Design Reference]].
+
+## Product rules
+
+- A request is pending, accepted, declined, cancelled or expired, and **the requester sees each of these**: a decline is shown as declined ([[DR-13 The requester sees a declined request]]). A block still reads as "This profile isn't available to you", never as a decline.
+- **A request expires after 30 days** unanswered; it **may carry an optional note** of up to 200 characters; after a decline or an expiry the requester **can ask again straight away** ([[DR-17 Requests expire after 30 days, optional note, ask again at once]]).
+- **The requester never learns which Ring they were accepted into**; Shared with me lists people, never Rings ([[DR-14 Shared with me lists people, never the Ring]]).
+- **One person can be in several of my Rings** and sees the version from the Ring they were put in first. Removing them from my last Ring offers *Remove from Rings* (still a connection, no access) or *Disconnect* (the connection ends) ([[DR-15 Several Rings per connection, remove or disconnect]]).
+- Not built yet: the connection request flow is TODO.
 
 ## Tasks
 
