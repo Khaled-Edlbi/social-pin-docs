@@ -6,6 +6,7 @@ priority: critical
 module: identity
 screens: [s06]
 updated: 2026-10-25
+owner: "omar"
 tags: [feature, module/identity, priority/critical]
 ---
 
@@ -38,17 +39,17 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 
 | Task | Status | Priority | Effort |
 |---|---|---|---|
-| [[T-057 Decide base profile work fields]] | ❓ Needs a decision / info | Critical | S |
-| [[T-061 Decide Pin name rules]] | ❓ Needs a decision / info | High | S |
+| [[T-057 Decide base profile work fields]] | ✅ Done | Critical | S |
+| [[T-061 Decide Pin name rules]] | ✅ Done | High | S |
 
 ```dataview
 TABLE status, priority, effort FROM #task WHERE feature = "profiles" SORT priority ASC
 ```
 
-## Open decisions
+## Decisions
 
-- [[D-02 Base profile work fields]]
-- [[D-06 Pin name rules]]
+- [[D-02 Base profile work fields]] — decided, one main profile every Ring starts from ([[DR-02 One main profile every Ring starts from|DR-02]])
+- [[D-06 Pin name rules]] — decided, yearly rename, old name freed, case-insensitive ([[DR-06 Yearly rename, old name freed, case-insensitive|DR-06]])
 
 ## Related
 
