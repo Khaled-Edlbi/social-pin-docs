@@ -4,18 +4,20 @@ code: ring-access
 scope: feature
 feature: ring-access
 module: identity
-status: draft
+status: approved
 screens: []
+approvedBy: "khaled"
+approvedAt: 2026-10-25
 created: 2026-10-18
 updated: 2026-10-25
 owner: "omar"
 related: ["DR-04 Ring settings at launch and their defaults", "DR-14 Shared with me lists people, never the Ring", "DR-15 Several Rings per connection, remove or disconnect", "DR-18 Ring names shown when joined knowingly"]
-tags: [story, story/draft, module/identity, layer/business]
+tags: [story, story/approved, module/identity, layer/business]
 ---
 
 # Ring Access Engine · User Story
 
-**Feature:** [[Ring Access Engine]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Ring Access Engine Frontend Requirements]] · **Backend Integration:** [[Ring Access Engine Backend Integration]]
+**Feature:** [[Ring Access Engine]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[Ring Access Engine Frontend Requirements]] · **Backend Integration:** [[Ring Access Engine Backend Integration]]
 
 The engine has no screen of its own; it is the answer to the product's one question, *what is this viewer allowed to see about this person, in this context, at this moment?* These stories are the promises the app makes because of it: access is live, expiry is real, a block is mutual, and a viewer never learns which Ring they are in. They are written from the two sides, the Ring owner and the viewer, so every screen that renders another person can be tested against them.
 
