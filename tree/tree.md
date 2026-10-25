@@ -558,6 +558,8 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
           - ∅ _T-063 QA Frontend_ (QA Frontend, blocked by T-063 Frontend Delivery)
           - ⬜ [T-063-be Backend · Put the ErrorCode on the error body](tasks/T-063%20Put%20the%20ErrorCode%20on%20the%20error%20body/T-063-be%20Backend%20%C2%B7%20Put%20the%20ErrorCode%20on%20the%20error%20body.md) (sub-task of T-063, backend, Critical)
           - ⛔ [T-063-fe Frontend · Put the ErrorCode on the error body](tasks/T-063%20Put%20the%20ErrorCode%20on%20the%20error%20body/T-063-fe%20Frontend%20%C2%B7%20Put%20the%20ErrorCode%20on%20the%20error%20body.md) (sub-task of T-063, frontend, Critical, blocked by T-063-be Backend · Put the ErrorCode on the error body)
+          - ✅ [D-19 Where a ticket's layer notes live](decisions/D-19%20Where%20a%20ticket's%20layer%20notes%20live.md) (Needs decision)
+            - ⚖️ [DR-19 A ticket's layer notes live on the parent task](decisions/DR-19%20A%20ticket's%20layer%20notes%20live%20on%20the%20parent%20task.md) (Decision)
         - ✅ [T-064 Restructure the docs vault](tasks/T-064%20Restructure%20the%20docs%20vault/T-064%20Restructure%20the%20docs%20vault.md) (High)
       - ✏️ [Error Contract Frontend Requirements](modules/Platform%20%26%20Cross-cutting/Error%20Contract/Error%20Contract%20Frontend%20Requirements.md) (FR-35, Frontend Requirements, Critical)
       - ⛔ [Error Contract Backend Delivery](modules/Platform%20%26%20Cross-cutting/Error%20Contract/Error%20Contract%20Backend%20Delivery.md) (BD-35, Backend Delivery, Critical, blocked by Error Contract Frontend Requirements)

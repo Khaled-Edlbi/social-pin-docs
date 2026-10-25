@@ -105,6 +105,7 @@
     "D-16 Viewer access to file bytes": "decision:D-16",
     "D-17 Request expiry, note and asking again": "decision:D-17",
     "D-18 Company and invited Ring names shown to members": "decision:D-18",
+    "D-19 Where a ticket's layer notes live": "decision:D-19",
     "DR-01 Code-only login": "decision-record:DR-01",
     "DR-02 One main profile every Ring starts from": "decision-record:DR-02",
     "DR-03 Links entered once, switched on or off per Ring": "decision-record:DR-03",
@@ -117,6 +118,7 @@
     "DR-15 Several Rings per connection, remove or disconnect": "decision-record:DR-15",
     "DR-17 Requests expire after 30 days, optional note, ask again at once": "decision-record:DR-17",
     "DR-18 Ring names shown when joined knowingly": "decision-record:DR-18",
+    "DR-19 A ticket's layer notes live on the parent task": "decision-record:DR-19",
     "Database & Migrations": "project:database-migrations",
     "Delegated Admins": "feature:delegated-admins",
     "Delegated Admins Backend Delivery": "backend-delivery:delegated-admins",
@@ -581,6 +583,7 @@
     "D-16": "decision:D-16",
     "D-17": "decision:D-17",
     "D-18": "decision:D-18",
+    "D-19": "decision:D-19",
     "DR-01": "decision-record:DR-01",
     "DR-02": "decision-record:DR-02",
     "DR-03": "decision-record:DR-03",
@@ -593,6 +596,7 @@
     "DR-15": "decision-record:DR-15",
     "DR-17": "decision-record:DR-17",
     "DR-18": "decision-record:DR-18",
+    "DR-19": "decision-record:DR-19",
     "F-01": "feature:account",
     "F-02": "feature:auth",
     "F-03": "feature:counts",
@@ -4823,8 +4827,8 @@
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
-      "decision": 16,
-      "decision-record": 12,
+      "decision": 17,
+      "decision-record": 13,
       "feature": 39,
       "frontend-requirements": 39,
       "module": 8,
@@ -4834,20 +4838,20 @@
     },
     "byLayer": {
       "backend": 56,
-      "business": 345,
+      "business": 347,
       "frontend": 43,
       "shared": 10
     },
     "concepts": 182,
-    "decisions": 16,
-    "edges": 4825,
+    "decisions": 17,
+    "edges": 4847,
     "features": 39,
     "layerNotes": 185,
     "modules": 8,
-    "notes": 489,
+    "notes": 491,
     "partial": 0,
     "placeholders": 151,
-    "records": 12,
+    "records": 13,
     "taskLayerNotes": 59,
     "tasks": 175
   },
@@ -5207,6 +5211,31 @@
       "from": "decision-record:DR-18",
       "kind": "affects",
       "to": "story:ring-invitations"
+    },
+    {
+      "from": "decision-record:DR-19",
+      "kind": "affects",
+      "to": "project:agent-rules"
+    },
+    {
+      "from": "decision-record:DR-19",
+      "kind": "affects",
+      "to": "project:docs-tree"
+    },
+    {
+      "from": "decision-record:DR-19",
+      "kind": "affects",
+      "to": "task:T-063"
+    },
+    {
+      "from": "decision-record:DR-19",
+      "kind": "affects",
+      "to": "task:T-063-be"
+    },
+    {
+      "from": "decision-record:DR-19",
+      "kind": "affects",
+      "to": "task:T-063-fe"
     },
     {
       "from": "decision:D-17",
@@ -7244,6 +7273,16 @@
       "to": "story:ring-invitations"
     },
     {
+      "from": "decision:D-19",
+      "kind": "decision",
+      "to": "feature:error-contract"
+    },
+    {
+      "from": "decision:D-19",
+      "kind": "decision",
+      "to": "task:T-063"
+    },
+    {
       "from": "project:admin-agent",
       "kind": "depends",
       "to": "project:agent-protocol"
@@ -8809,6 +8848,16 @@
       "to": "decision:D-18"
     },
     {
+      "from": "decision-record:DR-19",
+      "kind": "related",
+      "to": "decision:D-19"
+    },
+    {
+      "from": "decision-record:DR-19",
+      "kind": "related",
+      "to": "task:T-063"
+    },
+    {
       "from": "decision:D-07",
       "kind": "related",
       "to": "feature:payments"
@@ -8912,6 +8961,21 @@
       "from": "decision:D-18",
       "kind": "related",
       "to": "feature:rings"
+    },
+    {
+      "from": "decision:D-19",
+      "kind": "related",
+      "to": "project:agent-rules"
+    },
+    {
+      "from": "decision:D-19",
+      "kind": "related",
+      "to": "project:docs-tree"
+    },
+    {
+      "from": "decision:D-19",
+      "kind": "related",
+      "to": "task:T-063"
     },
     {
       "from": "feature:account",
@@ -20196,6 +20260,11 @@
       "to": "decision-record:DR-18"
     },
     {
+      "from": "decision:D-19",
+      "kind": "tree",
+      "to": "decision-record:DR-19"
+    },
+    {
       "from": "feature:account",
       "kind": "tree",
       "to": "backend-delivery:account"
@@ -23278,6 +23347,11 @@
     {
       "from": "task:T-063",
       "kind": "tree",
+      "to": "decision:D-19"
+    },
+    {
+      "from": "task:T-063",
+      "kind": "tree",
       "to": "frontend-delivery:T-063"
     },
     {
@@ -24566,6 +24640,26 @@
       "to": "feature:ring-access"
     },
     {
+      "from": "decision-record:DR-19",
+      "kind": "wikilink",
+      "to": "feature:error-contract"
+    },
+    {
+      "from": "decision-record:DR-19",
+      "kind": "wikilink",
+      "to": "project:agent-rules"
+    },
+    {
+      "from": "decision-record:DR-19",
+      "kind": "wikilink",
+      "to": "task:T-063-be"
+    },
+    {
+      "from": "decision-record:DR-19",
+      "kind": "wikilink",
+      "to": "task:T-063-fe"
+    },
+    {
       "from": "decision:D-01",
       "kind": "wikilink",
       "to": "feature:code-delivery"
@@ -24744,6 +24838,26 @@
       "from": "decision:D-18",
       "kind": "wikilink",
       "to": "decision-record:DR-04"
+    },
+    {
+      "from": "decision:D-19",
+      "kind": "wikilink",
+      "to": "feature:error-contract"
+    },
+    {
+      "from": "decision:D-19",
+      "kind": "wikilink",
+      "to": "story:T-063"
+    },
+    {
+      "from": "decision:D-19",
+      "kind": "wikilink",
+      "to": "task:T-063-be"
+    },
+    {
+      "from": "decision:D-19",
+      "kind": "wikilink",
+      "to": "task:T-063-fe"
     },
     {
       "from": "feature:audit-log",
@@ -33223,6 +33337,10 @@
       "name": "D-18 Company and invited Ring names shown to members",
       "type": "decision"
     },
+    "decisions/D-19 Where a ticket's layer notes live.md": {
+      "name": "D-19 Where a ticket's layer notes live",
+      "type": "decision"
+    },
     "decisions/DR-01 Code-only login.md": {
       "name": "DR-01 Code-only login",
       "type": "decision-record"
@@ -33269,6 +33387,10 @@
     },
     "decisions/DR-18 Ring names shown when joined knowingly.md": {
       "name": "DR-18 Ring names shown when joined knowingly",
+      "type": "decision-record"
+    },
+    "decisions/DR-19 A ticket's layer notes live on the parent task.md": {
+      "name": "DR-19 A ticket's layer notes live on the parent task",
       "type": "decision-record"
     },
     "decisions/Decisions.md": {
@@ -40031,6 +40153,62 @@
       "title": "DR-18 Ring names shown when joined knowingly",
       "updated": "2026-10-25"
     },
+    "decision-record:DR-19": {
+      "affects": [
+        "task:T-063",
+        "task:T-063-fe",
+        "task:T-063-be",
+        "project:agent-rules",
+        "project:docs-tree"
+      ],
+      "blockedBy": [],
+      "card": "DR-19",
+      "children": [],
+      "code": "DR-19",
+      "created": "2026-10-25",
+      "deadline": null,
+      "decidedAt": "2026-10-25",
+      "decidedBy": "khaled",
+      "decides": "D-19",
+      "depends": [],
+      "effectiveStatus": "decided",
+      "effort": null,
+      "feature": null,
+      "features": [
+        "error-contract"
+      ],
+      "frontendOnly": false,
+      "id": "decision-record:DR-19",
+      "inherits": {},
+      "kind": "decision-record",
+      "label": "Decision",
+      "labels": [],
+      "layer": "business",
+      "module": null,
+      "parentTask": null,
+      "parents": [
+        "decision:D-19"
+      ],
+      "path": "decisions/DR-19 A ticket's layer notes live on the parent task.md",
+      "pending": [],
+      "priority": null,
+      "related": [
+        "decision:D-19",
+        "task:T-063"
+      ],
+      "release": null,
+      "scope": null,
+      "screens": [],
+      "status": "decided",
+      "summary": "Option 1: a ticket's layer notes hang on the parent task. One ticket has one chain — T-NNN Story, T-NNN Frontend Requirements, T-NNN Backend Delivery, T-NNN Backend Integration, T-NNN Frontend…",
+      "tags": [
+        "decision-record",
+        "decision-record/decided"
+      ],
+      "task": null,
+      "title": "DR-19 A ticket's layer notes live on the parent task",
+      "updated": "2026-10-25"
+    },
     "decision:D-01": {
       "affects": [],
       "blockedBy": [],
@@ -40976,6 +41154,62 @@
       ],
       "task": null,
       "title": "D-18 Company and invited Ring names shown to members",
+      "updated": "2026-10-25"
+    },
+    "decision:D-19": {
+      "affects": [],
+      "blockedBy": [],
+      "blocks": [
+        "task:T-063"
+      ],
+      "card": "D-19",
+      "children": [
+        "decision-record:DR-19"
+      ],
+      "code": "D-19",
+      "created": "2026-10-25",
+      "deadline": null,
+      "decider": "owner",
+      "depends": [],
+      "effectiveStatus": "verified",
+      "effort": null,
+      "feature": null,
+      "features": [
+        "error-contract"
+      ],
+      "frontendOnly": false,
+      "fulfilledBy": "decision-record:DR-19",
+      "id": "decision:D-19",
+      "inherits": {},
+      "kind": "decision",
+      "label": "Needs decision",
+      "labels": [],
+      "layer": "business",
+      "module": null,
+      "parentTask": null,
+      "parents": [
+        "task:T-063"
+      ],
+      "path": "decisions/D-19 Where a ticket's layer notes live.md",
+      "pending": [],
+      "priority": null,
+      "related": [
+        "project:agent-rules",
+        "project:docs-tree",
+        "task:T-063",
+        "decision-record:DR-19"
+      ],
+      "release": null,
+      "scope": null,
+      "screens": [],
+      "status": "needs-decision",
+      "summary": "A build task is split into its halves, T-NNN-fe and T-NNN-be, and each half is a task of its own. The vault does not say which of the two levels carries the ticket's layer notes: the parent (T-063…",
+      "tags": [
+        "decision",
+        "decision/open"
+      ],
+      "task": null,
+      "title": "D-19 Where a ticket's layer notes live",
       "updated": "2026-10-25"
     },
     "feature:account": {
@@ -42070,10 +42304,12 @@
       "rollup": {
         "approved": 2,
         "blocked": 2,
+        "decided": 1,
         "done": 1,
         "draft": 1,
         "missing": 10,
-        "todo": 2
+        "todo": 2,
+        "verified": 1
       },
       "scope": null,
       "screens": [],
@@ -48305,14 +48541,14 @@
       "rollup": {
         "approved": 11,
         "blocked": 31,
-        "decided": 2,
+        "decided": 3,
         "done": 2,
         "draft": 25,
         "in-progress": 11,
         "missing": 48,
         "needs-decision": 1,
         "todo": 18,
-        "verified": 2
+        "verified": 3
       },
       "scope": null,
       "screens": [],
@@ -48527,6 +48763,7 @@
       "pending": [],
       "priority": null,
       "related": [
+        "decision:D-19",
         "project:frontend-agent-prompt",
         "project:admin-agent",
         "project:agent-protocol",
@@ -48955,6 +49192,7 @@
       "pending": [],
       "priority": null,
       "related": [
+        "decision:D-19",
         "project:admin-agent",
         "project:agent-protocol",
         "project:agent-rules",
@@ -53342,7 +53580,7 @@
         "approved": 38,
         "blocked": 147,
         "current": 9,
-        "decided": 12,
+        "decided": 13,
         "done": 17,
         "draft": 94,
         "in-progress": 44,
@@ -53350,7 +53588,7 @@
         "needs-decision": 9,
         "reference": 31,
         "todo": 53,
-        "verified": 12
+        "verified": 13
       },
       "scope": null,
       "screens": [],
@@ -69092,7 +69330,8 @@
         "frontend-delivery:T-063",
         "qa-frontend:T-063",
         "task:T-063-be",
-        "task:T-063-fe"
+        "task:T-063-fe",
+        "decision:D-19"
       ],
       "code": "T-063",
       "created": "2026-10-15",
@@ -69120,13 +69359,18 @@
       "path": "tasks/T-063 Put the ErrorCode on the error body/T-063 Put the ErrorCode on the error body.md",
       "pending": [],
       "priority": "critical",
-      "related": [],
+      "related": [
+        "decision:D-19",
+        "decision-record:DR-19"
+      ],
       "release": "mvp",
       "rollup": {
         "approved": 1,
         "blocked": 1,
+        "decided": 1,
         "missing": 6,
-        "todo": 1
+        "todo": 1,
+        "verified": 1
       },
       "scope": null,
       "screens": [],
