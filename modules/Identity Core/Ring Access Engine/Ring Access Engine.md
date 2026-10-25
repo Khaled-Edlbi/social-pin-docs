@@ -5,7 +5,8 @@ name: "Ring Access Engine"
 priority: critical
 module: identity
 screens: []
-updated: 2026-10-19
+updated: 2026-10-25
+owner: "omar"
 tags: [feature, module/identity, priority/critical]
 ---
 
@@ -33,9 +34,9 @@ _No open tasks._
 TABLE status, priority, effort FROM #task WHERE feature = "ring-access" SORT priority ASC
 ```
 
-## Open decisions
+## Decisions
 
-- [[D-04 Ring settings]]
+- [[D-04 Ring settings]] — decided, six settings at launch with private defaults ([[DR-04 Ring settings at launch and their defaults|DR-04]])
 
 ## Related
 
