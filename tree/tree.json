@@ -4819,7 +4819,7 @@
     }
   },
   "counts": {
-    "blocked": 153,
+    "blocked": 152,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -4840,7 +4840,7 @@
     },
     "concepts": 182,
     "decisions": 16,
-    "edges": 4820,
+    "edges": 4819,
     "features": 39,
     "layerNotes": 185,
     "modules": 8,
@@ -6117,11 +6117,6 @@
       "from": "story:gemma",
       "kind": "blocks",
       "to": "frontend-requirements:gemma"
-    },
-    {
-      "from": "story:profiles",
-      "kind": "blocks",
-      "to": "frontend-requirements:profiles"
     },
     {
       "from": "story:ring-access",
@@ -43172,7 +43167,7 @@
       ],
       "release": "mvp",
       "rollup": {
-        "blocked": 1,
+        "approved": 1,
         "current": 1,
         "decided": 2,
         "done": 3,
@@ -47062,20 +47057,14 @@
     },
     "frontend-requirements:profiles": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "story:profiles",
-          "title": "Profiles & Pin Name Story",
-          "why": "Profiles & Pin Name Story is draft"
-        }
-      ],
+      "blockedBy": [],
       "card": "FR-07",
       "children": [],
       "code": "profiles",
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "profiles",
       "frontendOnly": false,
@@ -48018,8 +48007,8 @@
       "related": [],
       "release": null,
       "rollup": {
-        "approved": 8,
-        "blocked": 27,
+        "approved": 9,
+        "blocked": 26,
         "current": 9,
         "decided": 6,
         "done": 15,
@@ -53085,8 +53074,8 @@
         }
       ],
       "rollup": {
-        "approved": 32,
-        "blocked": 153,
+        "approved": 33,
+        "blocked": 152,
         "current": 9,
         "decided": 12,
         "done": 17,
@@ -57651,7 +57640,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "profiles",
       "frontendOnly": false,
@@ -57681,11 +57670,11 @@
       "screens": [
         "s06"
       ],
-      "status": "draft",
+      "status": "approved",
       "summary": "A person claims a !handle that is theirs across the whole product, the thing printed on a badge and typed into Discover, and keeps the canonical facts about themselves (name, nickname, birthdate,…",
       "tags": [
         "story",
-        "story/draft",
+        "story/approved",
         "module/identity",
         "layer/business"
       ],
