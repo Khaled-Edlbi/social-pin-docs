@@ -29,7 +29,7 @@ Written by the **frontend** team, read by the backend: what the client needs to 
 | Task | Requirements | Screens | Status |
 |---|---|---|---|
 | [[T-065 Open a Stripe checkout for an order]] | [[T-065-fe Frontend Requirements]] | s51 | Draft |
-| Confirmation and settlement (S3, S4) | no task yet | s51, s52 | — |
+| [[T-066 Settle an order and confirm it on s52]] | [[T-066-fe Frontend Requirements]] | s51, s52 | Draft |
 
 ## Per screen
 
@@ -42,7 +42,7 @@ Written by the **frontend** team, read by the backend: what the client needs to 
 ### [[Screen Index#s52|s52]] Event Ring granted
 
 - Needs: when the order is `paid`, whether the registration is complete and the Event Ring is readable (its id), so s52 renders the Ring or "Setting up your Ring…" ([[Event Ring Auto-creation]]); a paid order read after the app was closed lands here on next open.
-- Source today: not yet; no task brings it yet (the webhook settlement and the confirmation, S3 and S4 of the story).
+- Source today: not yet ([[T-066 Settle an order and confirm it on s52]]; details in [[T-066-fe Frontend Requirements]]).
 
 ## Endpoints required
 
@@ -52,8 +52,8 @@ Endpoint names are the backend's to choose; each row is the need.
 |---|---|---|---|
 | Read one of my orders: lines, currency, total, state, hold end, failure reason | `GET /orders/:id` | ✅ (simulated) | [[T-065 Open a Stripe checkout for an order]] |
 | Open or reuse the Stripe checkout for an unpaid order of mine | `POST /orders/:id/checkout` | ✅ (simulated) | [[T-065 Open a Stripe checkout for an order]] |
-| Settle the order from Stripe's webhook (server to server, idempotent on `providerReference`) | — | ❌ | no task yet ([[T-047 Orders, payments and the provider webhook]] holds it today) |
-| On `paid`: registration complete and the Event Ring id | — | ❌ | no task yet; [[T-035 Registration transaction with order and payment]], [[T-011 Create the Event Ring on registration]] |
+| Settle the order from Stripe's webhook (server to server, idempotent on `providerReference`) | — | ❌ | [[T-066 Settle an order and confirm it on s52]] (takes it over from [[T-047 Orders, payments and the provider webhook]]) |
+| On `paid`: registration complete and the Event Ring id | — | ❌ | [[T-066 Settle an order and confirm it on s52]]; [[T-035 Registration transaction with order and payment]], [[T-011 Create the Event Ring on registration]] |
 | Audit of every payment action | — | ❌ | [[T-065 Open a Stripe checkout for an order]] (checkout opened), [[T-053 Audit log writes]] |
 
 ## Behaviour expectations
