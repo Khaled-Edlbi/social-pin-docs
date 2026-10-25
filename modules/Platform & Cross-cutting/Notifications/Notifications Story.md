@@ -4,16 +4,19 @@ code: notifications
 scope: feature
 feature: notifications
 module: platform
-status: draft
+status: approved
 screens: [s69]
+approvedBy: "khaled"
+approvedAt: 2026-10-25
+owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-18
-tags: [story, story/draft, module/platform, layer/business]
+updated: 2026-10-25
+tags: [story, story/approved, module/platform, layer/business]
 ---
 
 # Notifications · User Story
 
-**Feature:** [[Notifications]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Notifications Frontend Requirements]] · **API Integration:** not yet (backend not built)
+**Feature:** [[Notifications]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[Notifications Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 Things happen to a user while the app is closed: someone asks to connect, a PinCast ends, pins are nearby, a meeting is accepted. The user wants a bell with a count, an inbox grouped by day, and a tap that lands on the thing itself. Nothing is built; the table, its idempotency key and the preference table exist.
 

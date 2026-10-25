@@ -4819,7 +4819,7 @@
     }
   },
   "counts": {
-    "blocked": 165,
+    "blocked": 164,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -4840,7 +4840,7 @@
     },
     "concepts": 182,
     "decisions": 16,
-    "edges": 4832,
+    "edges": 4831,
     "features": 39,
     "layerNotes": 185,
     "modules": 8,
@@ -6137,11 +6137,6 @@
       "from": "story:gemma",
       "kind": "blocks",
       "to": "frontend-requirements:gemma"
-    },
-    {
-      "from": "story:notifications",
-      "kind": "blocks",
-      "to": "frontend-requirements:notifications"
     },
     {
       "from": "story:onboarding-imports",
@@ -42741,7 +42736,7 @@
       "deadline": null,
       "depends": [],
       "dir": "modules/Platform & Cross-cutting/Notifications",
-      "effectiveStatus": "todo",
+      "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "notifications",
       "frontendOnly": false,
@@ -42775,7 +42770,8 @@
       ],
       "release": "v1",
       "rollup": {
-        "blocked": 6,
+        "approved": 1,
+        "blocked": 5,
         "draft": 3,
         "missing": 4,
         "todo": 2
@@ -46839,20 +46835,14 @@
     },
     "frontend-requirements:notifications": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "story:notifications",
-          "title": "Notifications Story",
-          "why": "Notifications Story is draft"
-        }
-      ],
+      "blockedBy": [],
       "card": "FR-39",
       "children": [],
       "code": "notifications",
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "notifications",
       "frontendOnly": false,
@@ -48260,15 +48250,15 @@
       "related": [],
       "release": null,
       "rollup": {
-        "approved": 10,
-        "blocked": 32,
+        "approved": 11,
+        "blocked": 31,
         "decided": 2,
         "done": 2,
         "draft": 25,
-        "in-progress": 10,
+        "in-progress": 11,
         "missing": 42,
         "needs-decision": 1,
-        "todo": 19,
+        "todo": 18,
         "verified": 2
       },
       "scope": null,
@@ -53205,17 +53195,17 @@
         }
       ],
       "rollup": {
-        "approved": 20,
-        "blocked": 165,
+        "approved": 21,
+        "blocked": 164,
         "current": 9,
         "decided": 12,
         "done": 17,
         "draft": 94,
-        "in-progress": 36,
+        "in-progress": 37,
         "missing": 145,
         "needs-decision": 9,
         "reference": 31,
-        "todo": 61,
+        "todo": 60,
         "verified": 12
       },
       "scope": null,
@@ -57434,7 +57424,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "notifications",
       "frontendOnly": false,
@@ -57461,17 +57451,17 @@
       "screens": [
         "s69"
       ],
-      "status": "draft",
+      "status": "approved",
       "summary": "Things happen to a user while the app is closed: someone asks to connect, a PinCast ends, pins are nearby, a meeting is accepted. The user wants a bell with a count, an inbox grouped by day, and a…",
       "tags": [
         "story",
-        "story/draft",
+        "story/approved",
         "module/platform",
         "layer/business"
       ],
       "task": null,
       "title": "Notifications Story",
-      "updated": "2026-10-18"
+      "updated": "2026-10-25"
     },
     "story:onboarding-imports": {
       "affects": [],
