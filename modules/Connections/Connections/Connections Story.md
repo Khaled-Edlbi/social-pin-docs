@@ -6,7 +6,7 @@ feature: connections
 module: connections
 status: draft
 screens: [s44, s45, s46, s47, s62]
-owner: "khaled"
+owner: "omar"
 updated: 2026-10-25
 tags: [story, story/draft, module/connections, layer/business]
 ---

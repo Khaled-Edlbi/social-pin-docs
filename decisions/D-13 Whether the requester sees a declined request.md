@@ -8,7 +8,7 @@ decider: "owner"
 screens: [s44, s45]
 affects: []
 related: ["Connections"]
-owner: "khaled"
+owner: "omar"
 created: 2026-10-25
 updated: 2026-10-25
 tags: [decision, decision/open]

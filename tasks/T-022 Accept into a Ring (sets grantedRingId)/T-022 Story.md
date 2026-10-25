@@ -12,7 +12,7 @@ related: ["Rings", "Ring Members"]
 pending: []
 approvedBy: ""
 approvedAt: ""
-owner: "khaled"
+owner: "omar"
 updated: 2026-10-25
 tags: [story, story/draft, module/connections, layer/business]
 task: T-022

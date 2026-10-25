@@ -6,7 +6,8 @@ feature: files
 module: identity
 status: draft
 screens: [s14, s20, s36]
-updated: 2026-10-18
+owner: "omar"
+updated: 2026-10-25
 tags: [story, story/draft, module/identity, layer/business]
 ---
 
@@ -15,6 +16,8 @@ tags: [story, story/draft, module/identity, layer/business]
 **Feature:** [[Files Upload]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Files Upload Frontend Requirements]] · **Backend Integration:** [[Files Upload Backend Integration]]
 
 A Ring owner wants a Ring to carry a photo and a few documents (a portfolio PDF, a pitch deck) without those files becoming public. Upload is a private step: a file belongs to the uploader and is visible to nobody until a Ring projection references it, at which point whoever may see that Ring may see the file. The client's job is to make the two steps (upload, then attach) feel like one.
+
+**Task stories:** [[T-062 Story]] (T-062: showing the Ring photo and opening attachments, which S3 and S4 leave as placeholders today). Upload, attach and delete in S1 to S6 run on endpoints that exist and have no task story.
 
 ## Persona
 

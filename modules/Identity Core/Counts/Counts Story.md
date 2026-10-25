@@ -6,7 +6,7 @@ feature: counts
 module: identity
 status: draft
 screens: [s11, s12, s14, s16, s17, s68]
-owner: "khaled"
+owner: "omar"
 updated: 2026-10-25
 tags: [story, story/draft, module/identity, layer/business]
 ---

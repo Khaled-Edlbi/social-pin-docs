@@ -6,7 +6,7 @@ feature: badge-qr
 module: discovery
 status: draft
 screens: [s34, s43, s44, s56]
-owner: "khaled"
+owner: "omar"
 updated: 2026-10-25
 tags: [story, story/draft, module/discovery, layer/business]
 ---
