@@ -592,7 +592,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
     - 🔵 [Pay for an order](modules/Payments%20Gateway/Pay%20for%20an%20order/Pay%20for%20an%20order.md) (F-41, High)
       - ✅ [Pay for an order Story](modules/Payments%20Gateway/Pay%20for%20an%20order/Pay%20for%20an%20order%20Story.md) (S-105, User Story, High)
         - ⬜ [T-065 Open a Stripe checkout for an order](tasks/T-065%20Open%20a%20Stripe%20checkout%20for%20an%20order/T-065%20Open%20a%20Stripe%20checkout%20for%20an%20order.md) (High)
-          - ✅ [T-065 Story](tasks/T-065%20Open%20a%20Stripe%20checkout%20for%20an%20order/T-065%20Story.md) (S-106, User Story, High)
+          - 🏁 [T-065 Story](tasks/T-065%20Open%20a%20Stripe%20checkout%20for%20an%20order/T-065%20Story.md) (S-106, User Story, High)
           - ✅ [T-065-be Backend · Open a Stripe checkout for an order](tasks/T-065-be%20Backend%20%C2%B7%20Open%20a%20Stripe%20checkout%20for%20an%20order/T-065-be%20Backend%20%C2%B7%20Open%20a%20Stripe%20checkout%20for%20an%20order.md) (sub-task of T-065, backend, High)
             - ✅ [T-065-be Backend Delivery](tasks/T-065-be%20Backend%20%C2%B7%20Open%20a%20Stripe%20checkout%20for%20an%20order/T-065-be%20Backend%20Delivery.md) (BD-40, Backend Delivery, High)
             - ✅ [T-065-be Backend Integration](tasks/T-065-be%20Backend%20%C2%B7%20Open%20a%20Stripe%20checkout%20for%20an%20order/T-065-be%20Backend%20Integration.md) (BI-10, Backend Integration, High)
