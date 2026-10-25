@@ -4,19 +4,21 @@ code: events-before
 scope: feature
 feature: events-before
 module: events
-status: draft
+status: approved
 screens: [s48, s49, s50, s51, s52]
+approvedBy: "khaled"
+approvedAt: 2026-10-25
 depends: ["D-07 Payment provider"]
 related: ["Payments & Orders", "Event Ring Auto-creation"]
 owner: "khaled"
 created: 2026-10-18
 updated: 2026-10-25
-tags: [story, story/draft, module/events, layer/business]
+tags: [story, story/approved, module/events, layer/business]
 ---
 
 # Events Before · User Story
 
-**Feature:** [[Events Before]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Events Before Frontend Requirements]] · **API Integration:** not yet (backend not built)
+**Feature:** [[Events Before]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[Events Before Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 A visitor browses upcoming events, opens one, picks a ticket or package, pays or RSVPs, and ends with an Event Ring in their hub. The schema for events, packages, entitlements and mini-events exists; no endpoint does yet. Everything below is the visitor's path from "I heard about this event" to "I am registered".
 
