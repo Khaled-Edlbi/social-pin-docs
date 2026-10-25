@@ -8,7 +8,7 @@ decider: "owner"
 screens: [s34]
 affects: []
 related: ["Badge & QR"]
-owner: "khaled"
+owner: "omar"
 created: 2026-10-25
 updated: 2026-10-25
 tags: [decision, decision/draft]
