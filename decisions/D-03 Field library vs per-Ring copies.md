@@ -5,12 +5,13 @@ status: open
 features: [ring-projection, widgets]
 screens: [s20, s24]
 created: 2026-10-15
+updated: 2026-10-25
 tags: [decision, decision/open]
 ---
 
-# ❓ D-03 · Field library vs per-Ring copies
+# ✅ D-03 · Field library vs per-Ring copies
 
-**Status:** open · **Decider:** product + backend lead · **Raised:** 2026-10-15
+**Status:** decided (2026-10-25, option A) · **Decider:** product + backend lead · **Raised:** 2026-10-15
 
 ## Where the design and the backend disagree
 
@@ -42,6 +43,6 @@ Screens: [[Screen Index#s20|s20]], [[Screen Index#s24|s24]]
 - [[T-018 Widget CRUD on the projection]]
 - [[T-058 Decide field library vs per-Ring copies]]
 
-## Outcome
+## Decision
 
-_Not decided yet. When decided: set `status: decided` above, write the choice here, move the waiting tasks out of ❓._
+Fulfilled by [[DR-03 Links entered once, switched on or off per Ring]], decided 2026-10-25 by molham: option A.
