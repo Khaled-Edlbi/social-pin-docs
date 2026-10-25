@@ -13,6 +13,8 @@ tags: [story, story/draft, module/identity, layer/business]
 
 # Counts · User Story
 
+> ⚠ Affected by [[DR-04 Ring settings at launch and their defaults]] (2026-10-25): D-04 decided, six Ring settings at launch with private defaults (join with a code or invite, approve each one, members can't see each other, invite or save attachments); the owner and the Ring's admins change them; members who may see each other see full cards.
+
 **Feature:** [[Counts]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Counts Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 A Ring owner glances at Home or My Rings and wants a sense of scale: how many people each Ring reaches ("148 people"), how many Rings they own and how many were shared with them, and, on Me, how many connections they have ("218 connections"). The numbers are derived from data that exists today; what is missing is a way to read them.

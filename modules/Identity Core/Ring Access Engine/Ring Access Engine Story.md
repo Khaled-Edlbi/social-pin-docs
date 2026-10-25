@@ -12,6 +12,8 @@ tags: [story, story/draft, module/identity, layer/business]
 
 # Ring Access Engine · User Story
 
+> ⚠ Affected by [[DR-04 Ring settings at launch and their defaults]] (2026-10-25): D-04 decided, six Ring settings at launch with private defaults (join with a code or invite, approve each one, members can't see each other, invite or save attachments); the owner and the Ring's admins change them; members who may see each other see full cards.
+
 **Feature:** [[Ring Access Engine]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Ring Access Engine Frontend Requirements]] · **Backend Integration:** [[Ring Access Engine Backend Integration]]
 
 The engine has no screen of its own; it is the answer to the product's one question, *what is this viewer allowed to see about this person, in this context, at this moment?* These stories are the promises the app makes because of it: access is live, expiry is real, a block is mutual, and a viewer never learns which Ring they are in. They are written from the two sides, the Ring owner and the viewer, so every screen that renders another person can be tested against them.

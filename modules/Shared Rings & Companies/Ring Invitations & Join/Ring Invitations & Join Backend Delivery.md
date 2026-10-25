@@ -12,6 +12,8 @@ tags: [backend-delivery, backend-delivery/todo, module/shared-rings, layer/backe
 
 # ⬜ Ring Invitations & Join · Backend Delivery
 
+> ⚠ Affected by [[DR-04 Ring settings at launch and their defaults]] (2026-10-25): D-04 decided, six Ring settings at launch with private defaults (join with a code or invite, approve each one, members can't see each other, invite or save attachments); the owner and the Ring's admins change them; members who may see each other see full cards.
+
 **Feature:** [[Ring Invitations & Join]] · **Status:** To do · **Integration guide:** [[Ring Invitations & Join Backend Integration]] · **Requirements:** [[Ring Invitations & Join Frontend Requirements]] · **QA:** [[Ring Invitations & Join QA Backend]]
 
 What the backend shipped for this feature and how it works. The sum of this feature's task-level Backend Delivery notes (see the *Tasks* table below).

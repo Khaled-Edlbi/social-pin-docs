@@ -20,6 +20,8 @@ task: T-004
 
 # T-004 · Member count per Ring on list and detail · User Story
 
+> ⚠ Affected by [[DR-04 Ring settings at launch and their defaults]] (2026-10-25): D-04 decided, six Ring settings at launch with private defaults (join with a code or invite, approve each one, members can't see each other, invite or save attachments); the owner and the Ring's admins change them; members who may see each other see full cards.
+
 **Task:** [[T-004 Member count per Ring on list and detail]] · **Feature:** [[Counts]] · **Feature-level note:** [[Counts Story]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[T-004 Frontend Requirements]] · **Backend Integration:** [[T-004 Backend Integration]] · **Verified by:** [[T-004 QA Backend]], [[T-004 QA Frontend]]
 
 > Derived from the task [[T-004 Member count per Ring on list and detail]]; **not approved by product yet**. The feature-level story is [[Counts Story]]; this note says what the user gets from this task in particular. `approved` when product signs off (`approvedBy`, `approvedAt`); `verified` when both QA notes are `passing`.

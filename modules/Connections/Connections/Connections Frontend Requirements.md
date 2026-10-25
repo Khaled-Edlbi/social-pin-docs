@@ -12,6 +12,16 @@ tags: [frontend-requirements, frontend-requirements/draft, module/connections, l
 
 # Connections · Frontend Requirements
 
+> ⚠ Affected by [[DR-04 Ring settings at launch and their defaults]] (2026-10-25): D-04 decided, six Ring settings at launch with private defaults (join with a code or invite, approve each one, members can't see each other, invite or save attachments); the owner and the Ring's admins change them; members who may see each other see full cards.
+
+> ⚠ Affected by [[DR-13 The requester sees a declined request]] (2026-10-25): D-13 decided, option 3: the requester sees a declined request as declined.
+
+> ⚠ Affected by [[DR-14 Shared with me lists people, never the Ring]] (2026-10-25): D-14 decided, option 2: Shared with me lists the people who share with me and never shows a Ring's name, colour or type to a member.
+
+> ⚠ Affected by [[DR-15 Several Rings per connection, remove or disconnect]] (2026-10-25): D-15 decided, one person can be in several of my Rings and sees the oldest version first; removing them from my last Ring offers Remove from Rings or Disconnect.
+
+> ⚠ Affected by [[DR-17 Requests expire after 30 days, optional note, ask again at once]] (2026-10-25): a connection request expires after 30 days, may carry an optional note of up to 200 characters, and can be asked again straight away after a decline.
+
 **Feature:** [[Connections]] · **Status:** Draft · **Story:** [[Connections Story]] · **API Integration:** not yet (backend not built)
 
 What the client needs from the backend to build the screens in [[Connections Story]], and whether each need is met today. Rendering the other person is done (`/views`); moving and revoking a member is done; everything that creates, lists or closes a request is not.

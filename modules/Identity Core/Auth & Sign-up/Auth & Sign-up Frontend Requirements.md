@@ -12,6 +12,8 @@ tags: [frontend-requirements, frontend-requirements/draft, module/identity, laye
 
 # Auth & Sign-up · Frontend Requirements
 
+> ⚠ Affected by [[DR-06 Yearly rename, old name freed, case-insensitive]] (2026-10-25): D-06 decided, a Pin name can be changed once a year, the old name is free at once, names ignore capitals, suggestions come only from the person's own name.
+
 **Feature:** [[Auth & Sign-up]] · **Status:** Draft · **Story:** [[Auth & Sign-up Story]] · **Backend Integration:** [[Auth & Sign-up Backend Integration]]
 
 What the client needs from the backend for the welcome, code, Pin-name and session screens, and whether each need is met today. Everything here exists; the one thing missing is the delivery of the code itself, which the backend papers over with `devCode` for now. Passwordless since 2026-10-15 ([[D-01 Passwordless login]]); the client-side migration is in [[Frontend Passwordless Migration]].

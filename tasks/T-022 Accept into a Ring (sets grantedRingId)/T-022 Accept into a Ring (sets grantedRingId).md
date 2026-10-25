@@ -15,6 +15,12 @@ tags: [task, task/todo, module/connections, priority/critical]
 
 # ⬜ T-022 · Accept into a Ring (sets grantedRingId)
 
+> ⚠ Affected by [[DR-13 The requester sees a declined request]] (2026-10-25): D-13 decided, option 3: the requester sees a declined request as declined.
+
+> ⚠ Affected by [[DR-14 Shared with me lists people, never the Ring]] (2026-10-25): D-14 decided, option 2: Shared with me lists the people who share with me and never shows a Ring's name, colour or type to a member.
+
+> ⚠ Affected by [[DR-17 Requests expire after 30 days, optional note, ask again at once]] (2026-10-25): a connection request expires after 30 days, may carry an optional note of up to 200 characters, and can be asked again straight away after a decline.
+
 **Feature:** [[Connections]] · **Status:** To do · **Priority:** Critical · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-022-fe Frontend · Accept into a Ring (sets grantedRingId)|Frontend]] · [[T-022-be Backend · Accept into a Ring (sets grantedRingId)|Backend]] · **Story:** [[T-022 Story]]

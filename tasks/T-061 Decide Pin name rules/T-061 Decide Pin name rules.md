@@ -15,6 +15,8 @@ decision: D-06
 
 # ❓ T-061 · Decide: Pin name rules
 
+> ⚠ Affected by [[DR-06 Yearly rename, old name freed, case-insensitive]] (2026-10-25): D-06 is decided; this task's decision is taken and the PM can close it.
+
 **Feature:** [[Profiles & Pin Name]] · **Status:** Needs a decision / info · **Priority:** High · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
 
 ## What

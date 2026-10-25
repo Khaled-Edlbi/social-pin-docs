@@ -12,6 +12,8 @@ tags: [story, story/draft, module/identity, layer/business]
 
 # Onboarding Imports · User Story
 
+> ⚠ Affected by [[DR-02 One main profile every Ring starts from]] (2026-10-25): D-02 decided, one main profile (headline, role, company, location, photo, bio) every Ring starts from; a Ring may change all of them but the full name and keeps its own value when the main one changes.
+
 **Feature:** [[Onboarding Imports]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Onboarding Imports Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 A new user has just verified their code and does not want to type a profile from scratch. They start from something they already have: a LinkedIn account, a paper business card, or a portfolio URL. The import proposes fields, the user reviews each one (include / skip, edit inline), and the confirmed fields populate the **base profile**, which then feeds the first Ring ([[Wireframe Brief#LinkedIn profile import|§3.3]]). Nothing is written before the user confirms.

@@ -15,6 +15,8 @@ tags: [task, task/needs-info, module/identity, priority/medium]
 
 # ❓ T-020b · Business card scan and portfolio URL import
 
+> ⚠ Affected by [[DR-02 One main profile every Ring starts from]] (2026-10-25): D-02 decided, one main profile (headline, role, company, location, photo, bio) every Ring starts from; imports fill it. This task no longer waits on D-02.
+
 **Feature:** [[Onboarding Imports]] · **Status:** Needs a decision / info · **Priority:** Medium · **Effort:** L (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-020b-fe Frontend · Business card scan and portfolio URL import|Frontend]] · [[T-020b-be Backend · Business card scan and portfolio URL import|Backend]] · **Story:** [[T-020b Story]]

@@ -12,6 +12,12 @@ tags: [story, story/draft, module/identity, layer/business]
 
 # Ring Projection · User Story
 
+> ⚠ Affected by [[DR-02 One main profile every Ring starts from]] (2026-10-25): D-02 decided, one main profile (headline, role, company, location, photo, bio) every Ring starts from; a Ring may change all of them but the full name and keeps its own value when the main one changes.
+
+> ⚠ Affected by [[DR-03 Links entered once, switched on or off per Ring]] (2026-10-25): D-03 decided, links are entered once and only switched on or off per Ring; booking, Behance, Dribbble, GitHub and YouTube join the types, detected from the pasted link.
+
+> ⚠ Affected by [[DR-05 Inherit per field, copy without members]] (2026-10-25): D-05 decided, a Ring inherits the main profile field by field until it changes that field; copying a Ring copies fields, bio, photo, colour and settings, never members.
+
 **Feature:** [[Ring Projection]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Ring Projection Frontend Requirements]] · **Backend Integration:** [[Ring Projection Backend Integration]]
 
 A Ring owner decides what one audience sees: the name and nickname they go by there, the bio, the photo, the theme, which social and contact links, which info blocks ("Add a field"), which files, and whether this Ring may see their birthdate, gender, marital status, phone and email. The projection is the Ring's perspective of the one profile; editing it and then checking it with "View as" is the core loop of the product.

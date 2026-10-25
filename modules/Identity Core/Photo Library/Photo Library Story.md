@@ -12,6 +12,10 @@ tags: [story, story/draft, module/identity, layer/business]
 
 # Photo Library · User Story
 
+> ⚠ Affected by [[DR-02 One main profile every Ring starts from]] (2026-10-25): D-02 decided, one main profile (headline, role, company, location, photo, bio) every Ring starts from; a Ring may change all of them but the full name and keeps its own value when the main one changes.
+
+> ⚠ Affected by [[DR-05 Inherit per field, copy without members]] (2026-10-25): D-05 decided, a Ring inherits the main profile field by field until it changes that field; copying a Ring copies fields, bio, photo, colour and settings, never members.
+
 **Feature:** [[Photo Library]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Photo Library Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 A Ring owner keeps a handful of photos, a formal headshot, a casual one, a team picture, and picks a different one per Ring. The library is the owner's private pool of uploads; a photo reaches an audience only when a Ring's projection points at it. The library screen shows each photo with "N Rings inherit it", and the per-Ring screen lets the owner pick, upload, or reset to the Pin's base photo.

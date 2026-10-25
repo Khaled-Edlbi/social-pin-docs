@@ -15,6 +15,8 @@ decision: D-03
 
 # ❓ T-058 · Decide: field library vs per-Ring copies
 
+> ⚠ Affected by [[DR-03 Links entered once, switched on or off per Ring]] (2026-10-25): D-03 is decided; this task's decision is taken and the PM can close it.
+
 **Feature:** [[Ring Projection]] · **Status:** Needs a decision / info · **Priority:** Critical · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
 
 ## What

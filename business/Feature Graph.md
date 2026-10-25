@@ -1,6 +1,6 @@
 ---
 type: map
-updated: 2026-10-18
+updated: 2026-10-25
 tags: [map]
 layer: business
 ---
@@ -73,11 +73,11 @@ graph LR
   end
   subgraph decisions["Open decisions"]
     D_01["✅ D-01 Passwordless login"]:::decision
-    D_02["❓ D-02 Base profile work fields"]:::decision
-    D_03["❓ D-03 Field library vs per-Ring copies"]:::decision
-    D_04["❓ D-04 Ring settings"]:::decision
-    D_05["❓ D-05 Copy or inherit"]:::decision
-    D_06["❓ D-06 Pin name rules"]:::decision
+    D_02["✅ D-02 Base profile work fields"]:::decision
+    D_03["✅ D-03 Field library vs per-Ring copies"]:::decision
+    D_04["✅ D-04 Ring settings"]:::decision
+    D_05["✅ D-05 Copy or inherit"]:::decision
+    D_06["✅ D-06 Pin name rules"]:::decision
   end
   auth --- account
   auth --- profiles
@@ -269,11 +269,13 @@ Read an arrow as "the left one must exist (or be decided) before the right one i
 
 ## Decisions → features
 
+Decided ones no longer block; the features still have to build what was decided. The full list, with the Connections and Badge decisions, is [[Decisions]].
+
 | Decision | Blocks |
 |---|---|
-| [[D-01 Passwordless login]] | [[Auth & Sign-up]], [[Linked Accounts (OAuth)]] |
-| [[D-02 Base profile work fields]] | [[Profiles & Pin Name]], [[Ring Projection]], [[Onboarding Imports]], [[Photo Library]] |
-| [[D-03 Field library vs per-Ring copies]] | [[Ring Projection]], [[Widgets]] |
-| [[D-04 Ring settings]] | [[Rings]], [[Ring Members]], [[Ring Invitations & Join]], [[Delegated Admins]], [[Companies]] |
-| [[D-05 Copy or inherit]] | [[Rings]], [[Ring Projection]], [[Photo Library]] |
-| [[D-06 Pin name rules]] | [[Profiles & Pin Name]], [[Gemma AI]] |
+| [[D-01 Passwordless login]] (decided, [[DR-01 Code-only login\|DR-01]]) | [[Auth & Sign-up]], [[Linked Accounts (OAuth)]] |
+| [[D-02 Base profile work fields]] (decided, [[DR-02 One main profile every Ring starts from\|DR-02]]) | [[Profiles & Pin Name]], [[Ring Projection]], [[Onboarding Imports]], [[Photo Library]] |
+| [[D-03 Field library vs per-Ring copies]] (decided, [[DR-03 Links entered once, switched on or off per Ring\|DR-03]]) | [[Ring Projection]], [[Widgets]] |
+| [[D-04 Ring settings]] (decided, [[DR-04 Ring settings at launch and their defaults\|DR-04]]) | [[Rings]], [[Ring Members]], [[Ring Invitations & Join]], [[Delegated Admins]], [[Companies]] |
+| [[D-05 Copy or inherit]] (decided, [[DR-05 Inherit per field, copy without members\|DR-05]]) | [[Rings]], [[Ring Projection]], [[Photo Library]] |
+| [[D-06 Pin name rules]] (decided, [[DR-06 Yearly rename, old name freed, case-insensitive\|DR-06]]) | [[Profiles & Pin Name]], [[Gemma AI]] |

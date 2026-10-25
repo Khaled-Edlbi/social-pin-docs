@@ -20,6 +20,10 @@ task: T-021
 
 # T-021 · Connect request send, inbox, cancel · User Story
 
+> ⚠ Affected by [[DR-13 The requester sees a declined request]] (2026-10-25): D-13 decided, option 3: the requester sees a declined request as declined; the open question *Request statuses* is answered.
+
+> ⚠ Affected by [[DR-17 Requests expire after 30 days, optional note, ask again at once]] (2026-10-25): a connection request expires after 30 days, may carry an optional note of up to 200 characters, and can be asked again straight away after a decline; the open questions *Expiry* and *A note* are answered.
+
 **Task:** [[T-021 Connect request send, inbox, cancel]] · **Feature:** [[Connections]] · **Feature-level note:** [[Connections Story]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[T-021 Frontend Requirements]] · **Backend Integration:** [[T-021 Backend Integration]] · **Verified by:** [[T-021 QA Backend]], [[T-021 QA Frontend]]
 
 > Derived from the task [[T-021 Connect request send, inbox, cancel]]; **not approved by product yet**. The feature-level story is [[Connections Story]]; this note says what the user gets from this task in particular. `approved` when product signs off (`approvedBy`, `approvedAt`); `verified` when both QA notes are `passing`.

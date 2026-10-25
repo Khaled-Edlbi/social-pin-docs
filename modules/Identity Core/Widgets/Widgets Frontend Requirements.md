@@ -12,6 +12,8 @@ tags: [frontend-requirements, frontend-requirements/draft, module/identity, laye
 
 # Widgets · Frontend Requirements
 
+> ⚠ Affected by [[DR-03 Links entered once, switched on or off per Ring]] (2026-10-25): D-03 decided, links are entered once and only switched on or off per Ring; booking, Behance, Dribbble, GitHub and YouTube join the types, detected from the pasted link.
+
 **Feature:** [[Widgets]] · **Status:** Draft · **Story:** [[Widgets Story]] · **API Integration:** not yet (backend not built)
 
 What the client needs to build the widget picker and the widget rows on a Ring, and the fact that only the read side exists. The projection already returns `widgets[]` ([[Ring Projection Backend Integration]]); everything else waits on two tasks and one decision.

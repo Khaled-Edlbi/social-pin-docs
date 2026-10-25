@@ -15,6 +15,10 @@ tags: [task, task/todo, module/connections, priority/critical]
 
 # ⬜ T-023 · Connection detail and contacts list
 
+> ⚠ Affected by [[DR-14 Shared with me lists people, never the Ring]] (2026-10-25): D-14 decided, option 2: Shared with me lists the people who share with me and never shows a Ring's name, colour or type to a member.
+
+> ⚠ Affected by [[DR-15 Several Rings per connection, remove or disconnect]] (2026-10-25): D-15 decided, one person can be in several of my Rings and sees the oldest version first; removing them from my last Ring offers Remove from Rings or Disconnect.
+
 **Feature:** [[Connections]] · **Status:** To do · **Priority:** Critical · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-023-fe Frontend · Connection detail and contacts list|Frontend]] · [[T-023-be Backend · Connection detail and contacts list|Backend]] · **Story:** [[T-023 Story]]
