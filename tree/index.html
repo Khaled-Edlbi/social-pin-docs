@@ -536,6 +536,7 @@ const S = {
   collapsed: [], selected: null, focus: null, pane: null, hover: null,
   theme: store.get('theme', null) || (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'),
   offsets: store.get('offsets2', {}),
+  flowOpen: new Set(store.get('flowOpen', [])), // fulfilled stories whose flow the reader expanded (a fulfilled story folds its flow by default)
 };
 const C = { laid: new Map(), mode: null, tx: 40, ty: 40, k: 1, graph: {} };
 let inst = [], byIid = new Map(), instById = new Map(), rootInst = null, items = null, itemByKey = null, totals = null, preFocus = null, preFilter = null, relCache = null;
@@ -546,6 +547,12 @@ const stOf = (n) => ST[n.effectiveStatus] || ST.todo;
 // a card that waits on the card before it (and every card below it in the ladder) is drawn dim until the blocker is done
 const inactive = (n) => n.effectiveStatus === 'blocked' || (n.effectiveStatus === 'missing' && Array.isArray(n.blockedBy) && n.blockedBy.length > 0);
 const legend = (s) => (S.D && S.D.legend[s]) || s;
+// a story is fulfilled when the PM set it `verified` (✅); its flow then folds under it until the reader expands it
+const isFulfilled = (n) => !!n && n.kind === 'story' && n.status === 'verified';
+const flowFolded = (id) => isFulfilled(node(id)) && !S.flowOpen.has(id);
+// the flow of a story inside its container: the layer notes after it in hand-off order, and, in a task, the task's halves
+const followsStory = (container, child) => child.kind !== 'story' && (FLOW.order.indexOf(child.kind) > FLOW.order.indexOf('story') || (container.kind === 'task' && child.kind === 'task'));
+function setFlowOpen(ids) { S.flowOpen = new Set(ids); store.set('flowOpen', [...S.flowOpen]); }
 const kindOf = (k) => KIND[k] || { name: k, short: k, icon: 'ph-file-text' };
 
 function applyTheme(t) {
@@ -608,8 +615,8 @@ const CODE_TITLED = new Set(['decision', 'decision-record']);
 const shown = (n) => (CODE_TITLED.has(n.kind) && n.card && n.title.startsWith(n.card) ? n.title.slice(n.card.length).replace(/^[\s·:-]+/, '') || n.title : n.title);
 const kicker = (n) => (n.card && (CODE_TITLED.has(n.kind) || !n.title.startsWith(n.card)) ? n.card + ' · ' : '') + kindOf(n.kind).name.toUpperCase() + (n.parentTask ? ' · SUB-TASK OF ' + n.parentTask : '') + (n.frontendOnly ? ' · FRONTEND ONLY' : '');
 const flowIdx = (kind) => FLOW.order.indexOf(kind);
-// is a story fulfilled? the verdict of the QA cards the flow returns from (qa-backend, qa-frontend → story), or the story's own `verified`:
-// 'checked' when every QA card is passing (or the story is verified), 'cross' when any QA card is failing, 'pending' until then
+// is a story fulfilled? only the PM fulfils it (`verified`), once QA has finished: 'checked' when fulfilled, 'cross' when any QA card is failing,
+// 'pending' until then (with "waiting for the PM" once every QA card is passing with nothing pending); a task story's QA cards sit under its halves
 const doneSet = (kind) => { for (const l of S.D.layers || []) for (const k of l.kinds) if (k.id === kind) return k.done || []; return []; };
 const skipsFor = (n) => (n && n.frontendOnly && S.D.frontendOnly && Array.isArray(S.D.frontendOnly.skips)) ? S.D.frontendOnly.skips : [];
 function storyVerdict(n) {
@@ -617,12 +624,16 @@ function storyVerdict(n) {
   const parent = (n.parents || []).map(node).find((p) => p && CONTAINER.has(p.kind));
   const skips = skipsFor(parent);
   const backKinds = FLOW.back.filter(([, to]) => to === 'story').map(([from]) => from).filter((k) => !skips.includes(k));
-  const qa = backKinds.map((k) => (parent ? parent.children.map(node).find((c) => c && c.kind === k) : null) || { kind: k, effectiveStatus: 'missing', status: null, title: kindOf(k).name });
-  const line = (c) => `${kindOf(c.kind).name} · ${c.effectiveStatus === 'missing' ? 'not written yet' : legend(c.effectiveStatus)}`;
-  const isDone = (c) => doneSet(c.kind).includes(c.status) || c.effectiveStatus === 'done';
+  const pool = parent ? [...parent.children, ...(parent.kind === 'task' ? parent.children.map(node).filter((c) => c && c.kind === 'task').flatMap((h) => h.children) : [])].map(node).filter(Boolean) : [];
+  const halves = parent && parent.kind === 'task' ? parent.children.map(node).filter((c) => c && c.kind === 'task') : null;
+  const wanted = halves ? backKinds.filter((k) => halves.some((h) => (h.labels || []).includes(k === 'qa-backend' ? 'backend' : 'frontend'))) : backKinds;
+  const qa = wanted.map((k) => pool.find((c) => c.kind === k) || { kind: k, effectiveStatus: 'missing', status: null, title: kindOf(k).name, pending: [] });
+  const line = (c) => `${kindOf(c.kind).name} · ${c.effectiveStatus === 'missing' ? 'not written yet' : statusText(c)}`;
+  const finished = (c) => doneSet(c.kind).includes(c.status) && !(c.pending || []).length;
+  if (n.status === 'verified') return { state: 'checked', text: 'Story fulfilled · by the PM', lines: qa.map(line) };
   if (qa.some((c) => c.status === 'failing')) return { state: 'cross', text: 'Story not fulfilled · QA found wrong results', lines: qa.map(line) };
-  if (n.status === 'verified' || (qa.length && qa.every(isDone))) return { state: 'checked', text: n.status === 'verified' ? 'Story fulfilled · verified by QA' : 'Story fulfilled · QA passing', lines: qa.map(line) };
-  return { state: 'pending', text: 'Story not verified yet', lines: qa.map(line) };
+  if (qa.length && qa.every(finished)) return { state: 'pending', text: 'QA done · waiting for the PM to fulfil the story', lines: qa.map(line) };
+  return { state: 'pending', text: 'Story not fulfilled yet', lines: qa.map(line) };
 }
 const VERDICT = {
   checked: { ...GREEN, d: 'M -3.6 0.2 L -1.2 2.6 L 3.6 -2.6', name: 'Fulfilled' },
@@ -666,8 +677,11 @@ function buildTree() {
   mark(root);
   const vis = (it, shown) => {
     it.visible = shown && (!active || it.keep || (it.parent && it.parent.match));
-    it.open = !collapsed.has(it.id);
-    for (const c of it.children) vis(c, it.visible && it.open);
+    it.open = !collapsed.has(it.id) && !flowFolded(it.id);
+    // a fulfilled story folds its flow: the cards after it in its container hide with its own children, and its caret counts them
+    const folded = CONTAINER.has(it.node.kind) ? it.children.find((c) => flowFolded(c.id)) : null;
+    if (folded) folded.foldCount = countDesc(folded.node) + it.children.filter((c) => followsStory(it.node, c.node)).reduce((s, c) => s + 1 + countDesc(c.node), 0);
+    for (const c of it.children) vis(c, it.visible && it.open && !(folded && followsStory(it.node, c.node)));
   };
   vis(root, true);
   rootInst = root;
@@ -684,7 +698,7 @@ function nodeWidth(n, caret) {
 function layoutTree() {
   const vertical = S.orient === 'vertical';
   const visible = inst.filter((it) => it.visible);
-  for (const it of visible) { it.caret = it.node.children.length > 0; it.w = nodeWidth(it.node, it.caret); it.lad = -1; it.prevLad = null; it.stacked = false; it.stacks = false; }
+  for (const it of visible) { it.caret = it.node.children.length > 0 || isFulfilled(it.node); it.w = nodeWidth(it.node, it.caret); it.lad = -1; it.prevLad = null; it.stacked = false; it.stacks = false; }
   // the ladder: a container's layer notes, in hand-off order, each chained to the one before
   for (const it of visible) if (CONTAINER.has(it.node.kind)) { let prev = null, i = 0; for (const c of it.children) if (c.visible && flowIdx(c.node.kind) >= 0) { c.lad = i++; c.prevLad = prev; prev = c; } }
   let cursor = 0;
@@ -827,7 +841,13 @@ function applyOffsets(list) {
   const offs = S.offsets[modeKey()] || {};
   for (const it of list) {
     let dx = 0, dy = 0;
-    if (S.view === 'tree') { for (let a = it; a; a = a.parent) { const o = offs[a.id]; if (o) { dx += o.dx; dy += o.dy; } } }
+    if (S.view === 'tree') {
+      for (let a = it; a; a = a.parent) {
+        const o = offs[a.id]; if (o) { dx += o.dx; dy += o.dy; }
+        // a card in a story's flow moves with the story: dragging a story carries the cards after it in its container
+        if (a.parent && CONTAINER.has(a.parent.node.kind) && followsStory(a.parent.node, a.node)) { const s = a.parent.children.find((c) => c.node.kind === 'story'); const os = s && offs[s.id]; if (os) { dx += os.dx; dy += os.dy; } }
+      }
+    }
     else { const o = offs[it.id]; if (o) { dx = o.dx; dy = o.dy; } }
     it.x += dx; it.y += dy;
   }
@@ -903,7 +923,7 @@ function renderCards(list) {
     rec.g.style.transform = `translate(${it.x}px, ${it.y}px)`;
     rec.faded = active && !it.match;
     rec.inactive = inactive(n);
-    if (rec.caretT) { rec.caretT.textContent = it.open ? '−' : String(countDesc(n)); rec.caretC.setAttribute('r', it.open ? 7 : 9); }
+    if (rec.caretT) { rec.caretT.textContent = it.open ? '−' : String(flowFolded(it.id) && it.foldCount !== undefined ? it.foldCount : countDesc(n)); rec.caretC.setAttribute('r', it.open ? 7 : 9); }
   }
   for (const [key, r] of C.laid) if (!seen.has(key)) { r.g.remove(); C.laid.delete(key); }
 }
@@ -1077,9 +1097,27 @@ function updateHover() {
 
 // ------------------------------------------------------------ actions
 function setCollapsed(c) { S.collapsed = c; store.set('collapsed', c); }
-function toggle(id) { preFocus = null; preFilter = null; const c = new Set(S.collapsed); c.has(id) ? c.delete(id) : c.add(id); setCollapsed([...c]); redraw(false); }
-function expandAll(open) { setCollapsed(open ? [] : Object.values(S.D.nodes).filter((n) => n.children.length && n.kind !== 'root').map((n) => n.id)); redraw(true); }
-function expandAncestors(iid, collapsed) { const c = new Set(collapsed); const parts = iid.split('/'); for (let i = 0; i < parts.length - 1; i++) c.delete(parts[i]); return [...c]; }
+function toggle(id) {
+  preFocus = null; preFilter = null;
+  // a fulfilled story's caret folds and unfolds its whole flow; any other card's caret its children
+  if (isFulfilled(node(id))) { const f = new Set(S.flowOpen); f.has(id) ? f.delete(id) : f.add(id); setFlowOpen([...f]); const c = new Set(S.collapsed); c.delete(id); setCollapsed([...c]); redraw(false); return; }
+  const c = new Set(S.collapsed); c.has(id) ? c.delete(id) : c.add(id); setCollapsed([...c]); redraw(false);
+}
+function expandAll(open) {
+  setFlowOpen(open ? Object.values(S.D.nodes).filter(isFulfilled).map((n) => n.id) : []);
+  setCollapsed(open ? [] : Object.values(S.D.nodes).filter((n) => n.children.length && n.kind !== 'root').map((n) => n.id)); redraw(true);
+}
+// open every folded ancestor of a card, a folded fulfilled story included, so the card can be shown
+function expandAncestors(iid, collapsed) {
+  const c = new Set(collapsed); const parts = iid.split('/'); const f = new Set(S.flowOpen);
+  for (let i = 0; i < parts.length - 1; i++) {
+    c.delete(parts[i]); const a = node(parts[i]);
+    if (isFulfilled(a)) f.add(a.id);
+    if (a && CONTAINER.has(a.kind) && followsStory(a, node(parts[i + 1]))) for (const s of a.children) if (isFulfilled(node(s))) f.add(s);
+  }
+  if (f.size !== S.flowOpen.size) setFlowOpen([...f]);
+  return [...c];
+}
 function findIid(id) { if (!instById.size) buildTree(); const l = instById.get(id); return l && l[0] ? l[0].iid : null; }
 function setFocus(id) {
   S.focus = id; relCache = null;

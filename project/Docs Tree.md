@@ -59,7 +59,7 @@ The seven layer notes come from `docs.config.json`, listed in the **hand-off ord
 | Chip | Meaning |
 |---|---|
 | Done / Partial / In progress / To do | a card: a delivery note's state, a task. **Partial** is done with `pending` notes left for a card or a person (the chip counts them). A feature, module or the project shows the roll-up of its cards: Done only when every card is done, Partial when every card is done or partial, In progress while the cards are a mix |
-| Draft / Approved / Verified | a story: before product sign-off, after, and after both QA notes pass |
+| Draft ✏️ / Approved 👍 / Fulfilled ✅ | a story: before product sign-off, after it (handed off, not done), and once the PM fulfils it after both QA notes pass with nothing pending (`status: verified`); on the page a fulfilled story folds its flow until you expand it |
 | Draft / Approved / Delivered | frontend requirements: written, accepted by the backend, every row ✅ |
 | Draft / Current | a Backend Integration note: being written, or matching `main` |
 | Draft / Passing / Failing | a QA note before and after a run |

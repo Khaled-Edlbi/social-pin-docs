@@ -110,7 +110,7 @@ Story ──▶ Frontend Requirements ──▶ Backend Delivery ──▶ Backe
 | 4 | Backend | `T-NNN Backend Integration` | `current`: matches `main` |
 | 5 | Frontend | `T-NNN Frontend Delivery` | `done`: screens merged |
 | 6 | QA | `T-NNN QA Backend`, `T-NNN QA Frontend` | `passing` on a named build |
-| 7 | Business | the story | `verified` |
+| 7 | Business | the story | ✅ Fulfilled (`verified`): set by the **PM** once both QA notes pass with nothing pending; never by QA |
 
 Create each note with `node scripts/build-tree.mjs --scaffold <kind> T-NNN`; the first one moves the task into its folder. The order is the default from `docs.config.json` and **each step is blocked until the step before it is handed off** (the story and the requirements at `approved`, the others at their done status): the tree shows the card as ⛔ Blocked with the reason until then. A layer may be blocked by any other through `blockedBy` ([[Agent Rules#4 · Statuses, blocking and sign-off]]), and a new layer slots into the flow by config ([[Agent Rules#5 · Adding a layer]]).
 

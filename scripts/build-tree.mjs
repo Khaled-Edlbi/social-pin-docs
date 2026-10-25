@@ -51,16 +51,18 @@ const STATUS = {
 };
 const LEGEND = {
   done: 'Done', partial: 'Partial', todo: 'To do', 'in-progress': 'In progress', blocked: 'Blocked',
-  'needs-decision': 'Needs decision', draft: 'Draft', approved: 'Approved', verified: 'Verified', delivered: 'Delivered',
+  'needs-decision': 'Needs decision', draft: 'Draft', approved: 'Approved', verified: 'Fulfilled', delivered: 'Delivered',
   current: 'Current', passing: 'Passing', failing: 'Failing', decided: 'Decided',
   missing: 'Not written yet', reference: 'Reference',
 };
 const EMOJI = {
   done: '✅', partial: '🟡', todo: '⬜', 'in-progress': '🔵', blocked: '⛔', 'needs-decision': '❓',
-  draft: '✏️', approved: '✅', verified: '🏁', delivered: '📦', current: '✅', passing: '🟢', failing: '🔴', decided: '⚖️',
+  draft: '✏️', approved: '👍', verified: '✅', delivered: '📦', current: '✅', passing: '🟢', failing: '🔴', decided: '⚖️',
   missing: '∅', reference: '📘',
 };
 const DONE_STATUSES = new Set(['done', 'approved', 'verified', 'delivered', 'current', 'passing', 'reference', 'decided']);
+// a decided decision is stored as `approved` but is finished: it keeps the done tick; 👍 is for a story or a requirements list that is approved, not finished
+const emojiOf = (n) => (n.kind === 'decision' && n.effectiveStatus === 'approved' ? EMOJI.done : EMOJI[n.effectiveStatus] || '•');
 // the structural note types (not layer kinds); a decision record is the answer to a decided decision, on its own card under it
 const STRUCTURAL = ['module', 'feature', 'task', 'decision', 'decision-record', 'project'];
 const ID_CODED = new Set(['task', 'decision', 'decision-record']); // the card code is the note's id
@@ -637,7 +639,8 @@ export function build() {
     if (conceptIndex.has(r)) return { ids: [...conceptIndex.get(r)], via: r };
     return null;
   };
-  const isDone = (n) => n.effectiveStatus !== 'missing' && (DONE_STATUSES.has(n.effectiveStatus) || (KIND.has(n.kind) && KIND.get(n.kind).done.includes(n.status)));
+  // a story is done only when fulfilled (`verified`, set by the PM): `approved` hands it off to the next card but does not finish it
+  const isDone = (n) => n.effectiveStatus !== 'missing' && (n.kind === 'story' ? n.status === 'verified' : (DONE_STATUSES.has(n.effectiveStatus) || (KIND.has(n.kind) && KIND.get(n.kind).done.includes(n.status))));
 
   // ---------------------------------------------------------- explicit relations
   for (const [id, note] of noteOf) {
@@ -733,6 +736,26 @@ export function build() {
   }
   // a card is handed off (and stops blocking the next one) at its handoff statuses, else when done
   const handedOff = (n) => isDone(n) || (KIND.has(n.kind) && (KIND.get(n.kind).handoff || []).includes(n.status));
+
+  // a story is fulfilled (`verified`) by the PM only once QA has finished on its scope: every QA note it needs is passing with nothing pending
+  const QA_KINDS = { backend: 'qa-backend', frontend: 'qa-frontend' };
+  for (const s of Object.values(nodes)) {
+    if (s.kind !== 'story' || s.status !== 'verified' || !s.path) continue;
+    let need = [];
+    if (s.scope === 'task') {
+      for (const h of Object.values(nodes)) if (h.kind === 'task' && h.id.startsWith(`task:${s.code}-`)) for (const [label, kind] of Object.entries(QA_KINDS)) if ((h.labels || []).includes(label)) need.push({ kind, find: (q) => q.kind === kind && q.task === h.code, where: h.code });
+    } else {
+      const skips = s.frontendOnly ? (cfg.frontendOnly?.skips || []) : [];
+      for (const kind of Object.values(QA_KINDS)) if (!skips.includes(kind)) need.push({ kind, find: (q) => q.kind === kind && q.scope === 'feature' && q.feature === s.feature, where: s.feature });
+    }
+    for (const r of need) {
+      const q = Object.values(nodes).find((x) => x.path && r.find(x));
+      const label = KIND.get(r.kind)?.label || r.kind;
+      if (!q) err(s.path, `status is verified (fulfilled) but ${label} for ${r.where} is not written yet: the PM fulfils a story only when QA has finished`);
+      else if (!KIND.get(r.kind).done.includes(q.status)) err(s.path, `status is verified (fulfilled) but ${q.title} is ${q.status}: the PM fulfils a story only when every QA note of its scope is passing`);
+      else if (q.pending.length) err(s.path, `status is verified (fulfilled) but ${q.title} still has ${q.pending.length} pending note${q.pending.length === 1 ? '' : 's'}: the PM fulfils a story only when QA has finished with no notes left`);
+    }
+  }
 
   // ---------------------------------------------------------- blocking
   const blockReason = (target) => (target.kind === 'decision' && !isDone(target) ? `needs decision ${target.code} (open)` : `${target.title} is ${String(LEGEND[target.effectiveStatus] ?? target.effectiveStatus).toLowerCase()}`);
@@ -1021,7 +1044,7 @@ function treeMarkdown(json) {
   const walkNode = (id, depth) => {
     const n = nodes[id];
     const extra = [n.card && !ID_CODED.has(n.kind) ? n.card : null, n.label && !['feature', 'module', 'task'].includes(n.kind) ? n.label : null, n.parentTask ? `sub-task of ${n.parentTask}` : null, ...(n.labels || []), n.frontendOnly ? 'frontend only' : null, n.pending?.length ? `${n.pending.length} pending note${n.pending.length === 1 ? '' : 's'}` : null, priorityLabel(json, n), n.deadline ? `due ${n.deadline}` : null, n.blockedBy?.length ? `blocked by ${n.blockedBy.map((b) => b.title).join(', ')}` : null].filter(Boolean).join(', ');
-    lines.push(`${'  '.repeat(depth)}- ${EMOJI[n.effectiveStatus] || '•'} ${mdLink(n)}${extra ? ` (${extra})` : ''}`);
+    lines.push(`${'  '.repeat(depth)}- ${emojiOf(n)} ${mdLink(n)}${extra ? ` (${extra})` : ''}`);
     if (seen.has(id) && n.children.length) { lines.push(`${'  '.repeat(depth + 1)}- (see above)`); return; }
     seen.add(id);
     for (const c of n.children) walkNode(c, depth + 1);
@@ -1055,7 +1078,7 @@ function backlogMarkdown(json) {
   const featureTitle = (t) => { const f = nodes[`feature:${t.feature}`]; return f ? wiki(f) : t.feature; };
   const moduleName = (t) => json.modules.find((m) => m.id === t.module)?.name ?? t.module ?? '—';
   const dep = (t) => (t.depends.length ? t.depends.map((d) => wiki(nodes[d], nodes[d].code)).join(', ') : '—');
-  const status = (t) => `${EMOJI[t.effectiveStatus]} ${LEGEND[t.effectiveStatus]}${t.pending.length ? ` (${t.pending.length} note${t.pending.length === 1 ? '' : 's'})` : ''}`;
+  const status = (t) => `${emojiOf(t)} ${LEGEND[t.effectiveStatus]}${t.pending.length ? ` (${t.pending.length} note${t.pending.length === 1 ? '' : 's'})` : ''}`;
   const lines = ['---', 'type: map', 'layer: shared', 'tags: [map]', '---', '', '# Backlog', '',
     'Generated by `node scripts/build-tree.mjs` from the task notes; do not edit, change the task\'s frontmatter. Every open task ordered by priority (' + (json.priorities || []).map((l) => `${l.label} \`${l.id}\``).join(' · ') + ', from `docs.config.json`), then the done ones. Status key: ⬜ To do · ❓ Needs a decision / info · ⛔ Blocked · 🔵 In progress · 🟡 Partial (done, `pending` notes left for a card or a person) · ✅ Done. A task is ⛔ when something in `depends` or `blockedBy` is not done. The deadline is the task\'s own or its feature\'s; the tree page colours it by how close it is.', '',
     'Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a plain checklist).', ''];
@@ -1089,7 +1112,7 @@ function cardIndexMarkdown(json) {
     if (!relOf.has(e.to)) relOf.set(e.to, new Set());
     relOf.get(e.from).add(e.to); relOf.get(e.to).add(e.from);
   }
-  const status = (n) => `${EMOJI[n.effectiveStatus] || '•'} ${LEGEND[n.effectiveStatus] ?? n.effectiveStatus}${n.pending?.length ? ` (${n.pending.length} note${n.pending.length === 1 ? '' : 's'})` : ''}`;
+  const status = (n) => `${emojiOf(n)} ${LEGEND[n.effectiveStatus] ?? n.effectiveStatus}${n.pending?.length ? ` (${n.pending.length} note${n.pending.length === 1 ? '' : 's'})` : ''}`;
   const kindName = (kind) => (nodes && (Object.values(nodes).find((n) => n.kind === kind)?.label)) || kind;
   const groupLabel = { module: 'Modules', feature: 'Features', task: 'Tasks', decision: 'Decisions', 'decision-record': 'Decision records', project: 'Project reference notes' };
   const lines = ['---', 'type: map', 'layer: shared', 'tags: [map]', '---', '', '# Card Index', '',
@@ -1172,7 +1195,7 @@ export function impact(json, query) {
   return { start, family: [...family].map((id) => nodes[id]), first, second, dependents };
 }
 
-const nodeLine = (n) => `${EMOJI[n.effectiveStatus] || '•'} ${n.title}${n.card ? ` [${n.card}]` : ''}${n.code && n.code !== n.title && n.code !== n.card ? ` (${n.code})` : ''}${n.path ? ` — ${n.path}` : ''}`;
+const nodeLine = (n) => `${emojiOf(n)} ${n.title}${n.card ? ` [${n.card}]` : ''}${n.code && n.code !== n.title && n.code !== n.card ? ` (${n.code})` : ''}${n.path ? ` — ${n.path}` : ''}`;
 
 // ---------------------------------------------------------------- find: the cards and concepts that match some words
 export function find(json, query, limit = 12) {
@@ -1239,7 +1262,7 @@ function printImpact(json, r, query) {
   const layerOf = (n) => n.layer ?? 'business';
   const now = new Date();
   const due = (n) => { if (!n.deadline) return ''; const z = deadlineZone(n.deadline, now, json.deadlines); return ` · due ${n.deadline} (${z.missed ? `${z.icon || ''} ${z.label}, ${-z.daysLeft} day${-z.daysLeft === 1 ? '' : 's'} ago`.trim() : `${z.label}, ${z.daysLeft} day${z.daysLeft === 1 ? '' : 's'} left`})`; };
-  const line = (n) => `${EMOJI[n.effectiveStatus] || '•'} ${n.title}${n.card ? ` [${n.card}]` : ''}${n.code && n.code !== n.title && n.code !== n.card ? ` (${n.code})` : ''}${n.priority ? ` · ${priorityLabel(json, n)}` : ''}${due(n)}${n.path ? ` — ${n.path}` : ''}`;
+  const line = (n) => `${emojiOf(n)} ${n.title}${n.card ? ` [${n.card}]` : ''}${n.code && n.code !== n.title && n.code !== n.card ? ` (${n.code})` : ''}${n.priority ? ` · ${priorityLabel(json, n)}` : ''}${due(n)}${n.path ? ` — ${n.path}` : ''}`;
   if (r.concept) {
     console.log(`Concept ${r.concept} (${r.kind})${r.owner ? `, owned by ${nodes[r.owner].title}` : ''} is mentioned by ${r.notes.length} notes:`);
     for (const n of r.notes) console.log(`  ${line(n)}`);
