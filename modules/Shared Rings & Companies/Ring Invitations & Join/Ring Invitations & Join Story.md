@@ -8,17 +8,15 @@ status: draft
 screens: [s17, s74]
 updated: 2026-10-25
 owner: "omar"
-related: ["DR-04 Ring settings at launch and their defaults", "DR-14 Shared with me lists people, never the Ring"]
+related: ["DR-04 Ring settings at launch and their defaults", "DR-14 Shared with me lists people, never the Ring", "DR-18 Ring names shown when joined knowingly"]
 tags: [story, story/draft, module/shared-rings, layer/business]
 ---
 
 # Ring Invitations & Join · User Story
 
-> ⚠ Affected by [[DR-18 Ring names shown when joined knowingly]] (2026-10-25): D-18 decided, option 2: an invitation names its Ring (s17, s74), and a Ring joined by invitation, code or work email keeps showing its name to that member; never its colour or type. S1, S2 and the open question change; this story is no longer blocked.
-
 **Feature:** [[Ring Invitations & Join]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Ring Invitations & Join Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
-Being on the receiving end of someone else's Ring. A company invites its new hire into "Acme Team"; an organizer invites a speaker into "TechSummit Speakers"; a colleague hands over a join code. The person reviews what they are being offered, accepts or declines, or joins on their own with a code or a verified work address. Who may ask to join, and whether the owner approves each one, are the Ring's settings ([[DR-04 Ring settings at launch and their defaults]]). Once inside, the owner appears on Shared with me (as a person, never by the Ring's name: [[DR-14 Shared with me lists people, never the Ring]]) and the owner's projection becomes readable.
+Being on the receiving end of someone else's Ring. A company invites its new hire into "Acme Team"; an organizer invites a speaker into "TechSummit Speakers"; a colleague hands over a join code. The person reviews what they are being offered, accepts or declines, or joins on their own with a code or a verified work address. Who may ask to join, and whether the owner approves each one, are the Ring's settings ([[DR-04 Ring settings at launch and their defaults]]). Once inside, the owner appears on Shared with me with the Ring's name, because the person joined it knowingly ([[DR-18 Ring names shown when joined knowingly]], the one exception to [[DR-14 Shared with me lists people, never the Ring]]), and the owner's projection becomes readable.
 
 ## Persona
 
@@ -31,7 +29,8 @@ An **invitee**: a personal user who received an invitation into a Ring they do n
 **As an** invitee, **I want** my pending invitations shown above the Rings I am already in, **so that** I can act on them where I expect to find shared Rings.
 
 Acceptance criteria:
-- [ ] The list of people who share with me renders as in [[Rings Story]] S3 (the person, never the Ring's name, colour or type); an *Invitations* section above it lists each pending invite with the owner's display name, who invited me and when it was sent.
+- [ ] The list of people who share with me renders as in [[Rings Story]] S3: the person, with the Ring's **name** only for a Ring I joined by invitation, code or work email; never its colour or type ([[DR-18 Ring names shown when joined knowingly]]).
+- [ ] An *Invitations* section above it lists each pending invite with **the Ring's name**, the owner's display name, who invited me and when it was sent.
 - [ ] *Review invite* opens s74 for that invitation; *Join with a code* opens s74 with the code field focused.
 - [ ] A Ring whose access lapsed (window closed, removed, blocked) disappears from the list on the next focus with no message.
 - [ ] Empty state covers both: "No Rings shared with you yet" plus the join action.
@@ -42,8 +41,8 @@ Acceptance criteria:
 
 Acceptance criteria:
 - [ ] Shows the owner (name, Pin name), the access window if the invite carries one, and who invited me: the owner, an admin, or a member when the Ring's "members can invite others" is on (off by default, [[DR-04 Ring settings at launch and their defaults]]).
-- [ ] Following [[DR-14 Shared with me lists people, never the Ring]], it does not show the Ring's name, colour or type, nor its "who it's for" label; the design shows them, and whether an invitation may name the Ring is [[D-18 Company and invited Ring names shown to members]].
-- [ ] *Join Ring* accepts; on success the Ring is in Shared with me and its projection opens; the prototype's path to s16 (My Rings) is a design slip, the destination is s17.
+- [ ] Shows **the Ring's name**, and its "who it's for" label if the owner wrote one, so I know what I am joining ([[DR-18 Ring names shown when joined knowingly]]); never its colour or type.
+- [ ] *Join Ring* accepts; on success the Ring is in Shared with me, named, and its projection opens; the prototype's path to s16 (My Rings) is a design slip, the destination is s17.
 - [ ] *Decline* closes the invitation; the owner may invite again; the screen returns to where it came from (s17 or s72).
 - [ ] An invitation to a Ring that has since expired or been deleted reads "This invitation is no longer valid" and offers only *Dismiss*.
 
@@ -94,14 +93,14 @@ Acceptance criteria:
 
 - `GET /rings/shared-with-me` returns only Rings whose access is live now: Ring window and membership window both open, no block ([[Rings Backend Integration]]). An invitation must not appear there as a member row.
 - Access is resolved per request; after *Join Ring* the next `GET /views/ring/:ringId` already works, and after a revoke it already fails.
-- A member never reads their own membership row.
+- A member never reads their own membership row. Not available yet: the membership does not record how it was created (invitation, code, work email), which is what lets the app name the Ring ([[DR-18 Ring names shown when joined knowingly]]).
 - "Members can see each other" does not exist yet; it is a launch setting, off by default, and while it is off joining a Ring never shows who else is in it ([[DR-04 Ring settings at launch and their defaults]]).
 - An expired Ring returns 404 `E_RING_ACCESS_02` to a member; S2's "no longer valid" state maps to that.
 
 ## Open questions
 
 - Decided: [[DR-04 Ring settings at launch and their defaults]] (join policy and approval in S3, "members can invite" in S2; the email domain of S4 comes later). S3 and S4 stay disabled until the settings are built (not ticketed yet).
-- [[D-18 Company and invited Ring names shown to members]] — whether an invitation, and a Ring joined through it or a code, may name the Ring (DR-14's *Still open* point; the design names it on s17 and s74). Blocks this story; until it is decided, S1 and S2 follow DR-14.
+- Decided: [[DR-18 Ring names shown when joined knowingly]] (S1 and S2 name the Ring; a Ring joined by invitation, code or work email stays named). The "who it's for" label beside the name on S2 is DR-18's natural reading, not asked separately.
 - [[T-026 Ring invitations invite, review, decline]] — whether an invitation is a `RingMember` in an invited state or its own object; what the invite carries (window, purpose, inviter).
 - [[T-027 Join a Ring with a code or verified work email]] — how the work email is verified; the sign-up OTP machinery exists but is not scoped for this.
 - [[T-028 What you contribute to a shared Ring]] — the member-side projection of S6; not in the schema.
