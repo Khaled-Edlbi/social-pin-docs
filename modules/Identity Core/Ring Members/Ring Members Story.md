@@ -6,21 +6,17 @@ feature: ring-members
 module: identity
 status: draft
 screens: [s15, s47]
-updated: 2026-10-18
+updated: 2026-10-25
+owner: "omar"
+related: ["DR-04 Ring settings at launch and their defaults", "DR-14 Shared with me lists people, never the Ring", "DR-15 Several Rings per connection, remove or disconnect"]
 tags: [story, story/draft, module/identity, layer/business]
 ---
 
 # Ring Members · User Story
 
-> ⚠ Affected by [[DR-04 Ring settings at launch and their defaults]] (2026-10-25): D-04 decided, six Ring settings at launch with private defaults (join with a code or invite, approve each one, members can't see each other, invite or save attachments); the owner and the Ring's admins change them; members who may see each other see full cards.
-
-> ⚠ Affected by [[DR-14 Shared with me lists people, never the Ring]] (2026-10-25): D-14 decided, option 2: Shared with me lists the people who share with me and never shows a Ring's name, colour or type to a member.
-
-> ⚠ Affected by [[DR-15 Several Rings per connection, remove or disconnect]] (2026-10-25): D-15 decided, one person can be in several of my Rings and sees the oldest version first; removing them from my last Ring offers Remove from Rings or Disconnect.
-
 **Feature:** [[Ring Members]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Ring Members Frontend Requirements]] · **Backend Integration:** [[Ring Members Backend Integration]]
 
-A Ring owner manages who is in a Ring: sees the roster, adds someone, gives them a time-boxed window, moves them to another Ring when the relationship changes, or revokes them. Every change is live: the person's next request already reflects it. The roster is the owner's private view; the member never sees it and never learns which Ring they are in.
+A Ring owner manages who is in a Ring: sees the roster, adds someone, gives them a time-boxed window, moves them to another Ring when the relationship changes, or revokes them. Every change is live: the person's next request already reflects it. One person can be in several of the owner's Rings ([[DR-15 Several Rings per connection, remove or disconnect]]). The roster is the owner's private view: a member sees the other members only when the Ring's "members can see each other" is on ([[DR-04 Ring settings at launch and their defaults]]), and never learns which Ring they are in ([[DR-14 Shared with me lists people, never the Ring]]).
 
 ## Persona
 
@@ -47,6 +43,7 @@ Acceptance criteria:
 - [ ] `POST /rings/:ringId/members { userId, startsAt?, expiresAt? }`; on 201 the roster refetches and the new row appears first.
 - [ ] Adding yourself reads "You are the owner of this Ring" (400); an already-active member is a no-op with a refresh (409 `E_RING_MEMBER_01`); a pair with a block reads "Cannot add this user" (409 `E_RING_MEMBER_04`).
 - [ ] Re-adding someone who was removed or lapsed reactivates them with the new window.
+- [ ] Adding someone who is already in another of my Rings is allowed: they are then in several of my Rings and see the version from the Ring they were put in first ([[DR-15 Several Rings per connection, remove or disconnect]]).
 - [ ] The source of a `userId` is the connect flow or a scan, neither of which exists yet; the Add button leads to s46 only when that flow ships.
 
 ### S3 · Set or change the access window ([[Screen Index#s47|s47]])
@@ -75,6 +72,7 @@ Acceptance criteria:
 - [ ] "Revoke access" behind a confirmation; `DELETE /rings/:ringId/members/:userId` → 200; back to s15 with the row gone.
 - [ ] The row is kept server-side as `REMOVED`; with no `status` filter it still appears, so the roster always filters `ACTIVE`.
 - [ ] The person's next `/views` call already fails; the client does not need to tell them.
+- [ ] Removing someone from the **last** of my Rings asks: **Remove from Rings** (they stay a connection with no access, and I can add them to a Ring again without a new request) or **Disconnect** (the connection ends; getting back in takes a new request) ([[DR-15 Several Rings per connection, remove or disconnect]]). Removing from a Ring that is not the last asks nothing. Not available yet: there is no disconnect endpoint.
 
 ### S6 · Lapsed, not expired (journey, [[Screen Index#s15|s15]])
 
@@ -90,7 +88,16 @@ Acceptance criteria:
 
 Acceptance criteria:
 - [ ] No screen on the member's side reads a membership row; there is no route for it.
-- [ ] Shared with me shows the Ring's name and colour and the owner's projection, never the roster or the member's own row.
+- [ ] Shared with me shows the person who shares and their projection, **never the Ring's name, colour or type**, never the roster or the member's own row ([[DR-14 Shared with me lists people, never the Ring]], [[Rings Story]] S3). Not available yet: the endpoint returns the Ring's name today.
+
+### S8 · Members who may see each other (journey, [[Screen Index#s15|s15]])
+
+**As a** member of a Ring whose owner turned on "members can see each other" **I want** to see who else is in it **so that** a team or a community knows itself.
+
+Acceptance criteria:
+- [ ] Only when the Ring's "members can see each other" is on (off by default) does a member see the other members, with their **full cards** ([[DR-04 Ring settings at launch and their defaults]]).
+- [ ] The list still never names the Ring to the member, and never shows windows, lapsed rows or anything else of the owner's roster.
+- [ ] Not available yet: the setting does not exist and there is no member-facing route.
 
 ## States and motion the design asks for
 
@@ -107,4 +114,6 @@ Acceptance criteria:
 
 ## Open questions
 
-- [[D-04 Ring settings]] — "members can see each other" (s27) would change the owner-only rule; until decided, no member-facing roster.
+- Decided: [[DR-04 Ring settings at launch and their defaults]] (S8), [[DR-14 Shared with me lists people, never the Ring]] (S7), [[DR-15 Several Rings per connection, remove or disconnect]] (S2, S5). Building them is not ticketed yet.
+- **Whose card a member sees** when members can see each other: the card each member shares with that Ring is the natural reading (DR-04, *Still open*).
+- The disconnect route, and whether the other person is told anything (DR-15, *Still open*; see [[T-023 Story]]).
