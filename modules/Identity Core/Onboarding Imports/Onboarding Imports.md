@@ -6,7 +6,8 @@ priority: high
 module: identity
 screens: [s03, s03a, s03b, s04, s05]
 related: ["Files Upload"]
-updated: 2026-10-19
+updated: 2026-10-25
+owner: "omar"
 tags: [feature, module/identity, priority/high]
 ---
 
@@ -43,9 +44,9 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 TABLE status, priority, effort FROM #task WHERE feature = "onboarding-imports" SORT priority ASC
 ```
 
-## Open decisions
+## Decisions
 
-- [[D-02 Base profile work fields]]
+- [[D-02 Base profile work fields]] — decided, one main profile every Ring starts from; imports fill it ([[DR-02 One main profile every Ring starts from|DR-02]])
 
 ## Related
 
