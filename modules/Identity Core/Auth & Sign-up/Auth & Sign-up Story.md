@@ -6,13 +6,13 @@ feature: auth
 module: identity
 status: draft
 screens: [s01, s02, s06, s08, s68]
-updated: 2026-10-18
+updated: 2026-10-25
+owner: "omar"
+related: ["DR-06 Yearly rename, old name freed, case-insensitive"]
 tags: [story, story/draft, module/identity, layer/business]
 ---
 
 # Auth & Sign-up · User Story
-
-> ⚠ Affected by [[DR-06 Yearly rename, old name freed, case-insensitive]] (2026-10-25): D-06 decided, a Pin name can be changed once a year, the old name is free at once, names ignore capitals, suggestions come only from the person's own name.
 
 **Feature:** [[Auth & Sign-up]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Auth & Sign-up Frontend Requirements]] · **Backend Integration:** [[Auth & Sign-up Backend Integration]]
 
@@ -52,7 +52,8 @@ Acceptance criteria:
 
 Acceptance criteria:
 - [ ] The `!` is rendered as a prefix and never sent; the field validates 3 to 30 characters of letters, digits, `.` and `_` on the client.
-- [ ] A debounced `GET /profiles/pin-name/:pinName/availability` shows free / taken; it never reveals who holds a taken name and offers no suggestions ([[D-06 Pin name rules]]).
+- [ ] A debounced `GET /profiles/pin-name/:pinName/availability` shows free / taken; it never reveals who holds a taken name. Capitals don't matter (`Omar.Fostok` is `omar.fostok`).
+- [ ] When the handle is taken, s06 offers suggestions built **only from my own name** (what I typed and the full name on this screen), never from anyone else's ([[DR-06 Yearly rename, old name freed, case-insensitive]], [[Profiles & Pin Name Story]] S1). Not available yet: the backend returns no suggestions today.
 - [ ] An optional full name field (up to 120 characters) sits on the same screen.
 - [ ] Submit calls `POST /auth/complete-registration { onboardingToken, pinName, fullName? }`; a 409 `E_PROFILE_02` returns focus to the handle.
 
@@ -104,5 +105,5 @@ Acceptance criteria:
 
 ## Open questions
 
-- [[D-06 Pin name rules]] — whether s06 may suggest handles and whether a rename is limited to once a year.
+- Decided: [[DR-06 Yearly rename, old name freed, case-insensitive]]: s06 suggests handles from the person's own name; a later rename is limited to once a year ([[Profiles & Pin Name Story]] S5). Building the suggestions is not ticketed yet.
 - Delivery latency once [[T-001 Wire an email provider for one-time codes]] lands: the resend cool-down and the expired state should be tuned on real numbers.
