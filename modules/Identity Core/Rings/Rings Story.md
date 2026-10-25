@@ -8,17 +8,15 @@ status: draft
 screens: [s08, s09, s16, s17, s18, s19, s20, s21, s22, s26, s62]
 updated: 2026-10-25
 owner: "omar"
-related: ["DR-04 Ring settings at launch and their defaults", "DR-05 Inherit per field, copy without members", "DR-14 Shared with me lists people, never the Ring"]
+related: ["DR-04 Ring settings at launch and their defaults", "DR-05 Inherit per field, copy without members", "DR-14 Shared with me lists people, never the Ring", "DR-18 Ring names shown when joined knowingly"]
 tags: [story, story/draft, module/identity, layer/business]
 ---
 
 # Rings · User Story
 
-> ⚠ Affected by [[DR-18 Ring names shown when joined knowingly]] (2026-10-25): the one exception to DR-14: a Ring the member joined knowingly (invitation, code, work email) may show its name on Shared with me; one the owner placed them in never does. S3 changes.
-
 **Feature:** [[Rings]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Rings Frontend Requirements]] · **Backend Integration:** [[Rings Backend Integration]]
 
-A person has one profile and many audiences. A Ring is one audience bound to one perspective: Family, Clients, Company, a temporary Event Ring. The owner creates Rings, names and colours them, gives them a window, picks the default (what a scanned badge or a Pin-name lookup resolves to), and, when a temporary Ring lapses, decides whether to keep it, merge it into another, or let it go. Each Ring has a few settings (who it's for, who can join, approve each request, what members may do), all private by default ([[DR-04 Ring settings at launch and their defaults]]). Members see the people who share with them on a separate list, never a Ring's name or the owner's roster ([[DR-14 Shared with me lists people, never the Ring]]).
+A person has one profile and many audiences. A Ring is one audience bound to one perspective: Family, Clients, Company, a temporary Event Ring. The owner creates Rings, names and colours them, gives them a window, picks the default (what a scanned badge or a Pin-name lookup resolves to), and, when a temporary Ring lapses, decides whether to keep it, merge it into another, or let it go. Each Ring has a few settings (who it's for, who can join, approve each request, what members may do), all private by default ([[DR-04 Ring settings at launch and their defaults]]). Members see the people who share with them on a separate list, never the owner's roster, and never a Ring's name unless they joined that Ring themselves ([[DR-14 Shared with me lists people, never the Ring]], [[DR-18 Ring names shown when joined knowingly]]).
 
 ## Persona
 
@@ -52,7 +50,9 @@ Acceptance criteria:
 Acceptance criteria:
 - [ ] `GET /rings/shared-with-me`, newest first; only access that is live right now; refetched on screen focus because it changes without any action of mine.
 - [ ] Shared with me is **everyone who shares with me**, however I got in (accepted from a request, added by the owner, an invitation, a code, a company), one row per person ([[DR-14 Shared with me lists people, never the Ring]]).
-- [ ] A row shows **the person** ("Sam's card": their name and photo from their projection), **never the Ring's name, colour or type**, and opens the owner's projection through `GET /views/ring/:id`; it never shows a roster or my own membership row. Not available yet: the endpoint returns the Ring's name, colour and type to members today; the app must not display them until it changes.
+- [ ] A row shows **the person** ("Sam's card": their name and photo from their projection), never the Ring's colour or type, and opens the owner's projection through `GET /views/ring/:id`; it never shows a roster or my own membership row.
+- [ ] The row names the Ring **only when I joined it knowingly** (an invitation I accepted, a code, my verified work email), e.g. "Acme Studio · Acme Team"; never when the owner placed me in it (accepted my request into it, added me, or moved me into it) ([[DR-18 Ring names shown when joined knowingly]]).
+- [ ] Not available yet: the endpoint returns the Ring's name, colour and type to every member today and does not know how a membership was created; until it does, the app shows no Ring name at all.
 - [ ] Someone who shares several Rings with me is one row; it opens the version from the Ring I was put in first ([[DR-15 Several Rings per connection, remove or disconnect]]).
 - [ ] "Review invite" and "Join with a code" are shown disabled until invitations exist.
 - [ ] Empty state: "Nothing shared with you yet".
@@ -134,4 +134,4 @@ Acceptance criteria:
 - Decided: [[DR-04 Ring settings at launch and their defaults]] (S9, step 2, purpose), [[DR-05 Inherit per field, copy without members]] (Copy a Ring), [[DR-14 Shared with me lists people, never the Ring]] (S3). Building them is not ticketed yet.
 - Whose card a member sees when members can see each other; whether an admin may change every setting (DR-04, *Still open*).
 - Whether a copied Ring's fields keep inheriting where the source Ring inherited (DR-05, *Still open*).
-- Whether a Ring joined openly (a company or event Ring) may show its name to members (DR-14, *Still open*).
+- Decided: [[DR-18 Ring names shown when joined knowingly]] (S3: a Ring joined knowingly is named). Building it is not ticketed yet.
