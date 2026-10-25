@@ -5,7 +5,7 @@ name: "Delegated Admins"
 priority: high
 module: shared-rings
 screens: [s26, s27]
-updated: 2026-10-19
+updated: 2026-10-25
 tags: [feature, module/shared-rings, priority/high]
 ---
 
@@ -21,12 +21,17 @@ Company Rings delegate administration at permission levels (`RingAdmin`). The ru
 
 | Screen | Name | Note |
 |---|---|---|
-| [[Screen Index#s26|s26]] | Edit · access | Settings → D-04 |
-| [[Screen Index#s27|s27]] | Edit · permissions | All settings → D-04 |
+| [[Screen Index#s26|s26]] | Edit · access | Settings decided (DR-04), not built |
+| [[Screen Index#s27|s27]] | Edit · permissions | Settings decided (DR-04), not built |
 
 Wireframe brief sections: [[Wireframe Brief#Ring management|§4.2 Ring management]]
 
 Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map in [[Navigation Map]], see [[Design Reference]].
+
+## Product rules
+
+- A Ring's **admins can change its settings**, as the owner can ([[DR-04 Ring settings at launch and their defaults]]). Whether some settings stay the owner's only was not decided; until it is, admins can change all of them.
+- Not built yet: there is no way to add, change or remove an admin.
 
 ## Tasks
 
