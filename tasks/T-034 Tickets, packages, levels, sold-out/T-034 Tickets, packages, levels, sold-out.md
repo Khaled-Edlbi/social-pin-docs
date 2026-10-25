@@ -9,13 +9,11 @@ module: events
 screens: [s50]
 depends: [T-033]
 created: 2026-10-15
-updated: 2026-10-19
+updated: 2026-10-25
 tags: [task, task/todo, module/events, priority/critical]
 ---
 
 # ⬜ T-034 · Tickets, packages, levels, sold-out
-
-> ⚠ Affected by [[DR-09 30-minute hold tied to the Stripe checkout]] (2026-10-25): sold-out counts paid and held items as taken (an unpaid order holds its items for 30 minutes); the release when a hold ends is the Payments Gateway's, not this task's.
 
 **Feature:** [[Events Before]] · **Status:** To do · **Priority:** Critical · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
 

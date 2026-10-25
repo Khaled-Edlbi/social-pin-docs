@@ -6,8 +6,8 @@ feature: events-before
 module: events
 status: draft
 screens: [s48, s49, s50, s51, s52]
-depends: ["D-07 Payment provider", "D-08 Payment methods and gateways on s51"]
-related: ["Pay for an order", "Payments & Orders", "Event Ring Auto-creation", "DR-08 Stripe card checkout only"]
+depends: ["D-07 Payment provider"]
+related: ["Payments & Orders", "Event Ring Auto-creation"]
 owner: "khaled"
 updated: 2026-10-25
 tags: [story, story/draft, module/events, layer/business]
@@ -68,9 +68,10 @@ Acceptance criteria:
 **As a** visitor, **I want** to pay for what I chose and see a clear result, **so that** I know whether I am in.
 
 Acceptance criteria:
-- [ ] "Continue" on s50 hands the unpaid order to s51; paying for it is [[Pay for an order]]: Stripe's hosted card page, card only, no method choice ([[DR-08 Stripe card checkout only]]).
-- [ ] This flow needs three outcomes from it: pending (waiting for Stripe), failed (retry on the same order), succeeded (→ s52); leaving during pending keeps the order and reopening s51 resumes it.
-- [ ] Details are in [[Pay for an order Story]]; the order itself is [[Payments & Orders Story]] S1.
+- [ ] "Continue" on s50 hands the unpaid order to s51, where it is paid through Stripe's hosted checkout (the provider is decided on [[D-07 Payment provider]]); which methods s51 offers is still open.
+- [ ] States: pending (waiting for Stripe), failed (with retry, same order), succeeded (→ s52).
+- [ ] Leaving during pending keeps the order; reopening s51 resumes it rather than creating a new one.
+- [ ] Details are in [[Payments & Orders Story]]; this story only needs the three states.
 
 ### S6 · Event Ring granted ([[Screen Index#s52|s52]])
 
@@ -98,6 +99,6 @@ Acceptance criteria:
 ## Open questions
 
 - No decision note exists. Open points:
-- S5 and therefore S6 wait on [[Pay for an order]], which has no backend yet; the provider and the method are decided ([[D-07 Payment provider]], [[DR-08 Stripe card checkout only]]).
+- S5 and therefore S6 wait on [[T-047 Orders, payments and the provider webhook]], which has no backend yet; the provider is decided ([[D-07 Payment provider]]), the methods s51 offers are not.
 - [[T-033 Events list, detail, schedule]] — "contacts going" needs [[T-023 Connection detail and contacts list]]; until then S1 ships without that filter.
 - Whether an RSVP on a free event creates an `Order` with a zero total or no order at all affects S4's call count.

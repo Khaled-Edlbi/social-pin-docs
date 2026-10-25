@@ -64,8 +64,8 @@ All 78 screens of the prototype (`socialPin-design/.proto2.json`, ids are the pr
 | <a id="s48"></a>**s48** | Events tab | ❌ | [[Events Before]] |  |
 | <a id="s49"></a>**s49** | Event landing | ❌ | [[Events Before]] |  |
 | <a id="s50"></a>**s50** | Tickets & levels | ❌ | [[Events Before]], [[Payments & Orders]] |  |
-| <a id="s51"></a>**s51** | Payment | ❌ | [[Payments & Orders]], [[Pay for an order]] |  |
-| <a id="s52"></a>**s52** | Event Ring granted | 🟡 | [[Event Ring Auto-creation]], [[Events Before]], [[Pay for an order]] |  |
+| <a id="s51"></a>**s51** | Payment | ❌ | [[Payments & Orders]] |  |
+| <a id="s52"></a>**s52** | Event Ring granted | 🟡 | [[Event Ring Auto-creation]], [[Events Before]] |  |
 | <a id="s53"></a>**s53** | Event mode | ❌ | [[Events During]] |  |
 | <a id="s54"></a>**s54** | Exhibitors | ❌ | [[Events During]] |  |
 | <a id="s55"></a>**s55** | Exhibitor | ❌ | [[Events During]], [[Meetings]] |  |
@@ -520,7 +520,7 @@ Reached from: [[Screen Index#s49|s49]]
 
 ### s51
 
-**Payment** · ❌ TODO · Features: [[Payments & Orders]], [[Pay for an order]]
+**Payment** · ❌ TODO · Features: [[Payments & Orders]]
 
 Leads to: Pay $160 → [[Screen Index#s52|s52]]
 
@@ -528,7 +528,7 @@ Reached from: [[Screen Index#s50|s50]]
 
 ### s52
 
-**Event Ring granted** · 🟡 Partial (needs more) · Features: [[Event Ring Auto-creation]], [[Events Before]], [[Pay for an order]]
+**Event Ring granted** · 🟡 Partial (needs more) · Features: [[Event Ring Auto-creation]], [[Events Before]]
 
 Leads to: Enter event mode → [[Screen Index#s53|s53]], See it in my Ring hub → [[Screen Index#s16|s16]]
 
