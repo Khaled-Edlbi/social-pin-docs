@@ -4780,7 +4780,9 @@
   ],
   "diagnostics": {
     "errors": [],
-    "warnings": []
+    "warnings": [
+      "modules/Payments Gateway/Pay for an order/Pay for an order Story.md: does not link [[T-065 Story]], a done task-level note: a feature note is the sum of its tasks"
+    ]
   },
   "edges": [
     {
@@ -38636,10 +38638,9 @@
         "story:events-before"
       ],
       "rollup": {
-        "approved": 3,
+        "approved": 4,
         "blocked": 1,
         "decided": 2,
-        "draft": 1,
         "missing": 6,
         "todo": 2
       },
@@ -43930,10 +43931,9 @@
         "decision-record:DR-07"
       ],
       "rollup": {
-        "approved": 3,
+        "approved": 4,
         "blocked": 1,
         "decided": 2,
-        "draft": 1,
         "in-progress": 1,
         "missing": 6,
         "todo": 2
@@ -48787,12 +48787,12 @@
       "priority": null,
       "related": [],
       "rollup": {
-        "approved": 5,
+        "approved": 6,
         "blocked": 179,
         "current": 9,
         "decided": 4,
         "done": 12,
-        "draft": 104,
+        "draft": 103,
         "in-progress": 16,
         "missing": 151,
         "needs-decision": 20,
@@ -51738,7 +51738,7 @@
       "code": "T-065",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "pay-for-an-order",
       "frontendOnly": false,
@@ -51767,11 +51767,11 @@
       "screens": [
         "s51"
       ],
-      "status": "draft",
+      "status": "approved",
       "summary": "What the attendee gets from this task: from the Payment screen they reach Stripe's card page for exactly their order, and when they come back they see whether the payment is waiting or failed,…",
       "tags": [
         "story",
-        "story/draft",
+        "story/approved",
         "module/payments-gateway",
         "layer/business"
       ],
@@ -64148,8 +64148,8 @@
         "feature:audit-log"
       ],
       "rollup": {
+        "approved": 1,
         "blocked": 1,
-        "draft": 1,
         "todo": 1
       },
       "scope": null,
