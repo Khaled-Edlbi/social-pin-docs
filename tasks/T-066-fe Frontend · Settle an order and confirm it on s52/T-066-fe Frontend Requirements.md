@@ -21,7 +21,7 @@ task: T-066-fe
 
 # T-066-fe · Settle an order and confirm it on s52 · Frontend Requirements
 
-**Task:** [[T-066-fe Frontend · Settle an order and confirm it on s52]] · **Feature:** [[Pay for an order]] · **Feature-level note:** [[Pay for an order Frontend Requirements]] · **Status:** Approved 2026-10-25 · **Story:** [[T-066 Story]] (approved) · **Backend Integration:** T-066-be's, not written yet
+**Task:** [[T-066-fe Frontend · Settle an order and confirm it on s52]] · **Feature:** [[Pay for an order]] · **Feature-level note:** [[Pay for an order Frontend Requirements]] · **Status:** Approved 2026-10-25 · **Story:** [[T-066 Story]] (approved) · **Backend Integration:** [[T-066-be Backend Integration]] (current, simulated)
 
 Written by the **frontend** team, read by the backend: what the client needs to build [[T-066 Story]], and whether each need is met today. The settlement itself is server to server (the webhook): the client never calls it; it needs the order read to reflect it. `status: approved` once the backend accepts the list; `delivered` once every row is ✅.
 
@@ -48,9 +48,9 @@ Endpoint names are the backend's to choose; each row is the need.
 
 | Need | Endpoint | Available | Task / decision |
 |---|---|---|---|
-| Stripe's confirmation settles the order (server to server, signed, idempotent on `providerReference`; registration and Event Ring in the same transaction; audited) | — | ❌ | [[T-066-be Backend · Settle an order and confirm it on s52]] |
-| The order read shows `PAID` / `FAILED` after settlement | `GET /orders/:id` | ❌ (the read exists, the settlement does not) | [[T-066-be Backend · Settle an order and confirm it on s52]] |
-| On `PAID`: registration complete and the Event Ring id on the order read | — | ❌ | [[T-066-be Backend · Settle an order and confirm it on s52]] |
+| Stripe's confirmation settles the order (server to server, signed, idempotent on `providerReference`; registration and Event Ring in the same transaction; audited) | `POST /payments/stripe/webhook` | ✅ (simulated) | [[T-066-be Backend · Settle an order and confirm it on s52]] |
+| The order read shows `PAID` / `FAILED` after settlement | `GET /orders/:id` | ✅ (simulated) | [[T-066-be Backend · Settle an order and confirm it on s52]] |
+| On `PAID`: registration complete and the Event Ring id on the order read | `GET /orders/:id` → `registrationComplete`, `eventRingId` | ✅ (simulated) | [[T-066-be Backend · Settle an order and confirm it on s52]] |
 | Read the Event Ring by id for s52 | — | ❌ | [[T-011 Create the Event Ring on registration]] / [[Event Ring Auto-creation]] |
 
 ## Behaviour expectations

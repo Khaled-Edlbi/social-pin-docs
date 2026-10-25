@@ -2808,13 +2808,15 @@
     "POST /payments/stripe/webhook": {
       "containers": [
         "feature:pay-for-an-order",
-        "task:T-066-be"
+        "task:T-066-be",
+        "task:T-066-fe"
       ],
       "kind": "endpoint",
       "notes": [
         "backend-delivery:T-066-be",
         "backend-integration:T-066-be",
         "backend-integration:pay-for-an-order",
+        "frontend-requirements:T-066-fe",
         "task:T-066-be"
       ],
       "owner": null
@@ -9066,7 +9068,8 @@
       "to": "frontend-requirements:T-066-fe",
       "via": [
         "E_ORDER_01",
-        "GET /orders/:id"
+        "GET /orders/:id",
+        "POST /payments/stripe/webhook"
       ]
     },
     {
@@ -9533,7 +9536,8 @@
       "to": "frontend-requirements:T-066-fe",
       "via": [
         "E_ORDER_01",
-        "GET /orders/:id"
+        "GET /orders/:id",
+        "POST /payments/stripe/webhook"
       ]
     },
     {
@@ -9841,7 +9845,8 @@
       "via": [
         "E_AUTH_04",
         "E_ORDER_01",
-        "GET /orders/:id"
+        "GET /orders/:id",
+        "POST /payments/stripe/webhook"
       ]
     },
     {
@@ -10483,7 +10488,8 @@
       "via": [
         "E_AUTH_04",
         "E_ORDER_01",
-        "GET /orders/:id"
+        "GET /orders/:id",
+        "POST /payments/stripe/webhook"
       ]
     },
     {
@@ -20438,7 +20444,8 @@
       "via": [
         "E_AUTH_04",
         "E_ORDER_01",
-        "GET /orders/:id"
+        "GET /orders/:id",
+        "POST /payments/stripe/webhook"
       ]
     },
     {
@@ -37629,10 +37636,10 @@
         "qa-backend:T-065-be",
         "frontend-delivery:T-065-fe",
         "backend-integration:T-066-be",
+        "frontend-requirements:T-066-fe",
         "task:T-065-be",
         "frontend-requirements:pay-for-an-order",
         "frontend-requirements:T-065-fe",
-        "frontend-requirements:T-066-fe",
         "qa-frontend:pay-for-an-order",
         "qa-frontend:T-065-fe",
         "task:T-047",
