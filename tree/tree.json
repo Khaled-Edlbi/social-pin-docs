@@ -116,6 +116,7 @@
     "DR-14 Shared with me lists people, never the Ring": "decision-record:DR-14",
     "DR-15 Several Rings per connection, remove or disconnect": "decision-record:DR-15",
     "DR-17 Requests expire after 30 days, optional note, ask again at once": "decision-record:DR-17",
+    "DR-18 Ring names shown when joined knowingly": "decision-record:DR-18",
     "Database & Migrations": "project:database-migrations",
     "Delegated Admins": "feature:delegated-admins",
     "Delegated Admins Backend Delivery": "backend-delivery:delegated-admins",
@@ -591,6 +592,7 @@
     "DR-14": "decision-record:DR-14",
     "DR-15": "decision-record:DR-15",
     "DR-17": "decision-record:DR-17",
+    "DR-18": "decision-record:DR-18",
     "F-01": "feature:account",
     "F-02": "feature:auth",
     "F-03": "feature:counts",
@@ -2053,6 +2055,7 @@
     "GET /rings/shared-with-me": {
       "containers": [
         "decision-record:DR-14",
+        "decision-record:DR-18",
         "decision:D-14",
         "decision:D-18",
         "feature:companies",
@@ -2075,6 +2078,7 @@
         "backend-delivery:rings",
         "backend-integration:rings",
         "decision-record:DR-14",
+        "decision-record:DR-18",
         "decision:D-14",
         "decision:D-18",
         "feature:rings",
@@ -4815,12 +4819,12 @@
     }
   },
   "counts": {
-    "blocked": 180,
+    "blocked": 178,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
       "decision": 16,
-      "decision-record": 11,
+      "decision-record": 12,
       "feature": 39,
       "frontend-requirements": 39,
       "module": 8,
@@ -4830,20 +4834,20 @@
     },
     "byLayer": {
       "backend": 56,
-      "business": 344,
+      "business": 345,
       "frontend": 43,
       "shared": 10
     },
     "concepts": 182,
     "decisions": 16,
-    "edges": 4805,
+    "edges": 4843,
     "features": 39,
     "layerNotes": 185,
     "modules": 8,
-    "notes": 488,
+    "notes": 489,
     "partial": 0,
     "placeholders": 145,
-    "records": 11,
+    "records": 12,
     "taskLayerNotes": 59,
     "tasks": 175
   },
@@ -5168,6 +5172,41 @@
       "from": "decision-record:DR-17",
       "kind": "affects",
       "to": "task:T-022"
+    },
+    {
+      "from": "decision-record:DR-18",
+      "kind": "affects",
+      "to": "feature:companies"
+    },
+    {
+      "from": "decision-record:DR-18",
+      "kind": "affects",
+      "to": "feature:ring-access"
+    },
+    {
+      "from": "decision-record:DR-18",
+      "kind": "affects",
+      "to": "feature:ring-invitations"
+    },
+    {
+      "from": "decision-record:DR-18",
+      "kind": "affects",
+      "to": "feature:ring-members"
+    },
+    {
+      "from": "decision-record:DR-18",
+      "kind": "affects",
+      "to": "feature:rings"
+    },
+    {
+      "from": "decision-record:DR-18",
+      "kind": "affects",
+      "to": "story:companies"
+    },
+    {
+      "from": "decision-record:DR-18",
+      "kind": "affects",
+      "to": "story:ring-invitations"
     },
     {
       "from": "decision:D-17",
@@ -5718,16 +5757,6 @@
       "from": "decision:D-16",
       "kind": "blocks",
       "to": "story:T-062"
-    },
-    {
-      "from": "decision:D-18",
-      "kind": "blocks",
-      "to": "story:companies"
-    },
-    {
-      "from": "decision:D-18",
-      "kind": "blocks",
-      "to": "story:ring-invitations"
     },
     {
       "from": "frontend-delivery:account",
@@ -8895,6 +8924,21 @@
       "to": "decision:D-17"
     },
     {
+      "from": "decision-record:DR-18",
+      "kind": "related",
+      "to": "decision-record:DR-04"
+    },
+    {
+      "from": "decision-record:DR-18",
+      "kind": "related",
+      "to": "decision-record:DR-14"
+    },
+    {
+      "from": "decision-record:DR-18",
+      "kind": "related",
+      "to": "decision:D-18"
+    },
+    {
       "from": "decision:D-07",
       "kind": "related",
       "to": "feature:payments"
@@ -11405,6 +11449,14 @@
     {
       "from": "decision-record:DR-14",
       "kind": "shares",
+      "to": "decision-record:DR-18",
+      "via": [
+        "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "decision-record:DR-14",
+      "kind": "shares",
       "to": "decision:D-15",
       "via": [
         "POST /rings/:ringId/members"
@@ -11672,6 +11724,126 @@
       "to": "task:T-021",
       "via": [
         "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "decision-record:DR-18",
+      "kind": "shares",
+      "to": "decision:D-14",
+      "via": [
+        "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "decision-record:DR-18",
+      "kind": "shares",
+      "to": "feature:companies",
+      "via": [
+        "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "decision-record:DR-18",
+      "kind": "shares",
+      "to": "feature:connections",
+      "via": [
+        "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "decision-record:DR-18",
+      "kind": "shares",
+      "to": "feature:counts",
+      "via": [
+        "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "decision-record:DR-18",
+      "kind": "shares",
+      "to": "feature:delegated-admins",
+      "via": [
+        "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "decision-record:DR-18",
+      "kind": "shares",
+      "to": "feature:meetings",
+      "via": [
+        "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "decision-record:DR-18",
+      "kind": "shares",
+      "to": "feature:pincast",
+      "via": [
+        "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "decision-record:DR-18",
+      "kind": "shares",
+      "to": "feature:ring-access",
+      "via": [
+        "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "decision-record:DR-18",
+      "kind": "shares",
+      "to": "feature:ring-invitations",
+      "via": [
+        "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "decision-record:DR-18",
+      "kind": "shares",
+      "to": "feature:rings",
+      "via": [
+        "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "decision-record:DR-18",
+      "kind": "shares",
+      "to": "project:frontend-contract",
+      "via": [
+        "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "decision-record:DR-18",
+      "kind": "shares",
+      "to": "project:spec-map",
+      "via": [
+        "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "decision-record:DR-18",
+      "kind": "shares",
+      "to": "project:status-report-2026-10-15",
+      "via": [
+        "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "decision-record:DR-18",
+      "kind": "shares",
+      "to": "task:T-004",
+      "via": [
+        "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "decision-record:DR-18",
+      "kind": "shares",
+      "to": "task:T-022",
+      "via": [
+        "GET /rings/shared-with-me"
       ]
     },
     {
@@ -20119,6 +20291,11 @@
       "to": "decision-record:DR-17"
     },
     {
+      "from": "decision:D-18",
+      "kind": "tree",
+      "to": "decision-record:DR-18"
+    },
+    {
       "from": "feature:account",
       "kind": "tree",
       "to": "backend-delivery:account"
@@ -24171,6 +24348,11 @@
     {
       "from": "backend-integration:ring-members",
       "kind": "wikilink",
+      "to": "decision-record:DR-18"
+    },
+    {
+      "from": "backend-integration:ring-members",
+      "kind": "wikilink",
       "to": "decision:D-04"
     },
     {
@@ -24292,6 +24474,11 @@
       "from": "backend-integration:rings",
       "kind": "wikilink",
       "to": "decision-record:DR-14"
+    },
+    {
+      "from": "backend-integration:rings",
+      "kind": "wikilink",
+      "to": "decision-record:DR-18"
     },
     {
       "from": "backend-integration:rings",
@@ -24429,16 +24616,6 @@
       "to": "task:T-049"
     },
     {
-      "from": "decision-record:DR-14",
-      "kind": "wikilink",
-      "to": "feature:companies"
-    },
-    {
-      "from": "decision-record:DR-14",
-      "kind": "wikilink",
-      "to": "feature:ring-invitations"
-    },
-    {
       "from": "decision-record:DR-15",
       "kind": "wikilink",
       "to": "decision-record:DR-13"
@@ -24452,6 +24629,21 @@
       "from": "decision-record:DR-17",
       "kind": "wikilink",
       "to": "task:T-024"
+    },
+    {
+      "from": "decision-record:DR-18",
+      "kind": "wikilink",
+      "to": "feature:ring-access"
+    },
+    {
+      "from": "decision-record:DR-18",
+      "kind": "wikilink",
+      "to": "story:companies"
+    },
+    {
+      "from": "decision-record:DR-18",
+      "kind": "wikilink",
+      "to": "story:ring-invitations"
     },
     {
       "from": "decision:D-01",
@@ -24692,6 +24884,16 @@
       "from": "feature:companies",
       "kind": "wikilink",
       "to": "decision-record:DR-04"
+    },
+    {
+      "from": "feature:companies",
+      "kind": "wikilink",
+      "to": "decision-record:DR-14"
+    },
+    {
+      "from": "feature:companies",
+      "kind": "wikilink",
+      "to": "decision-record:DR-18"
     },
     {
       "from": "feature:companies",
@@ -25011,6 +25213,11 @@
     {
       "from": "feature:ring-invitations",
       "kind": "wikilink",
+      "to": "decision-record:DR-18"
+    },
+    {
+      "from": "feature:ring-invitations",
+      "kind": "wikilink",
       "to": "story:companies"
     },
     {
@@ -25042,6 +25249,11 @@
       "from": "feature:ring-members",
       "kind": "wikilink",
       "to": "decision-record:DR-15"
+    },
+    {
+      "from": "feature:ring-members",
+      "kind": "wikilink",
+      "to": "decision-record:DR-18"
     },
     {
       "from": "feature:ring-members",
@@ -25087,6 +25299,11 @@
       "from": "feature:rings",
       "kind": "wikilink",
       "to": "decision-record:DR-14"
+    },
+    {
+      "from": "feature:rings",
+      "kind": "wikilink",
+      "to": "decision-record:DR-18"
     },
     {
       "from": "feature:rings",
@@ -25432,6 +25649,11 @@
       "from": "frontend-requirements:companies",
       "kind": "wikilink",
       "to": "decision-record:DR-04"
+    },
+    {
+      "from": "frontend-requirements:companies",
+      "kind": "wikilink",
+      "to": "decision-record:DR-18"
     },
     {
       "from": "frontend-requirements:companies",
@@ -26617,6 +26839,11 @@
       "from": "frontend-requirements:ring-invitations",
       "kind": "wikilink",
       "to": "decision-record:DR-04"
+    },
+    {
+      "from": "frontend-requirements:ring-invitations",
+      "kind": "wikilink",
+      "to": "decision-record:DR-18"
     },
     {
       "from": "frontend-requirements:ring-invitations",
@@ -29666,6 +29893,11 @@
     {
       "from": "story:ring-access",
       "kind": "wikilink",
+      "to": "decision-record:DR-18"
+    },
+    {
+      "from": "story:ring-access",
+      "kind": "wikilink",
       "to": "story:ring-invitations"
     },
     {
@@ -29697,6 +29929,11 @@
       "from": "story:ring-members",
       "kind": "wikilink",
       "to": "backend-integration:ring-members"
+    },
+    {
+      "from": "story:ring-members",
+      "kind": "wikilink",
+      "to": "decision-record:DR-18"
     },
     {
       "from": "story:ring-members",
@@ -29737,6 +29974,11 @@
       "from": "story:rings",
       "kind": "wikilink",
       "to": "decision-record:DR-15"
+    },
+    {
+      "from": "story:rings",
+      "kind": "wikilink",
+      "to": "decision-record:DR-18"
     },
     {
       "from": "story:rings",
@@ -33087,6 +33329,10 @@
     },
     "decisions/DR-17 Requests expire after 30 days, optional note, ask again at once.md": {
       "name": "DR-17 Requests expire after 30 days, optional note, ask again at once",
+      "type": "decision-record"
+    },
+    "decisions/DR-18 Ring names shown when joined knowingly.md": {
+      "name": "DR-18 Ring names shown when joined knowingly",
       "type": "decision-record"
     },
     "decisions/Decisions.md": {
@@ -39030,6 +39276,7 @@
         "decision:D-04",
         "project:ring-access-model",
         "decision-record:DR-05",
+        "decision-record:DR-18",
         "story:connections",
         "story:counts",
         "story:ring-access",
@@ -39330,6 +39577,7 @@
         "decision:D-14",
         "feature:view-as",
         "decision-record:DR-15",
+        "decision-record:DR-18",
         "story:connections",
         "story:counts",
         "story:ring-access",
@@ -39466,6 +39714,64 @@
       ],
       "task": null,
       "title": "DR-17 Requests expire after 30 days, optional note, ask again at once",
+      "updated": "2026-10-25"
+    },
+    "decision-record:DR-18": {
+      "affects": [
+        "feature:companies",
+        "feature:ring-invitations",
+        "feature:rings",
+        "feature:ring-members",
+        "feature:ring-access",
+        "story:companies",
+        "story:ring-invitations"
+      ],
+      "blockedBy": [],
+      "card": "DR-18",
+      "children": [],
+      "code": "DR-18",
+      "deadline": null,
+      "decidedAt": "2026-10-25",
+      "decidedBy": "molham",
+      "decides": "D-18",
+      "depends": [],
+      "effectiveStatus": "decided",
+      "effort": null,
+      "feature": null,
+      "features": [
+        "companies",
+        "ring-invitations"
+      ],
+      "frontendOnly": false,
+      "id": "decision-record:DR-18",
+      "inherits": {},
+      "kind": "decision-record",
+      "label": "Decision",
+      "labels": [],
+      "layer": "business",
+      "module": null,
+      "parentTask": null,
+      "parents": [
+        "decision:D-18"
+      ],
+      "path": "decisions/DR-18 Ring names shown when joined knowingly.md",
+      "pending": [],
+      "priority": null,
+      "related": [
+        "decision:D-18",
+        "decision-record:DR-14",
+        "decision-record:DR-04"
+      ],
+      "scope": null,
+      "screens": [],
+      "status": "decided",
+      "summary": "Options 1 (never, no exception) and 3 (a per-Ring setting for the owner) are ruled out.",
+      "tags": [
+        "decision-record",
+        "decision-record/decided"
+      ],
+      "task": null,
+      "title": "DR-18 Ring names shown when joined knowingly",
       "updated": "2026-10-25"
     },
     "decision:D-01": {
@@ -40328,12 +40634,14 @@
         "story:ring-invitations"
       ],
       "card": "D-18",
-      "children": [],
+      "children": [
+        "decision-record:DR-18"
+      ],
       "code": "D-18",
       "deadline": null,
       "decider": "owner",
       "depends": [],
-      "effectiveStatus": "needs-decision",
+      "effectiveStatus": "verified",
       "effort": null,
       "feature": null,
       "features": [
@@ -40341,6 +40649,7 @@
         "ring-invitations"
       ],
       "frontendOnly": false,
+      "fulfilledBy": "decision-record:DR-18",
       "id": "decision:D-18",
       "inherits": {},
       "kind": "decision",
@@ -40360,7 +40669,8 @@
         "decision-record:DR-14",
         "feature:companies",
         "feature:ring-invitations",
-        "feature:rings"
+        "feature:rings",
+        "decision-record:DR-18"
       ],
       "scope": null,
       "screens": [
@@ -40922,13 +41232,12 @@
         "decision:D-18"
       ],
       "rollup": {
-        "blocked": 4,
-        "decided": 1,
-        "draft": 1,
+        "blocked": 3,
+        "decided": 2,
+        "draft": 2,
         "missing": 4,
-        "needs-decision": 1,
         "todo": 2,
-        "verified": 1
+        "verified": 2
       },
       "scope": null,
       "screens": [
@@ -42721,13 +43030,13 @@
         "decision:D-18"
       ],
       "rollup": {
-        "blocked": 9,
-        "decided": 1,
-        "draft": 3,
+        "blocked": 8,
+        "decided": 2,
+        "draft": 4,
         "missing": 4,
-        "needs-decision": 3,
+        "needs-decision": 2,
         "todo": 1,
-        "verified": 1
+        "verified": 2
       },
       "scope": null,
       "screens": [
@@ -47500,14 +47809,14 @@
       "priority": null,
       "related": [],
       "rollup": {
-        "blocked": 16,
-        "decided": 1,
-        "draft": 6,
+        "blocked": 14,
+        "decided": 2,
+        "draft": 8,
         "in-progress": 3,
         "missing": 12,
-        "needs-decision": 3,
+        "needs-decision": 2,
         "todo": 5,
-        "verified": 1
+        "verified": 2
       },
       "scope": null,
       "screens": [],
@@ -52153,17 +52462,17 @@
       "related": [],
       "rollup": {
         "approved": 3,
-        "blocked": 180,
+        "blocked": 178,
         "current": 9,
-        "decided": 11,
+        "decided": 12,
         "done": 17,
-        "draft": 96,
+        "draft": 98,
         "in-progress": 24,
         "missing": 145,
-        "needs-decision": 10,
+        "needs-decision": 9,
         "reference": 31,
         "todo": 73,
-        "verified": 11
+        "verified": 12
       },
       "scope": null,
       "screens": [],
@@ -55252,13 +55561,7 @@
     },
     "story:companies": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "decision:D-18",
-          "title": "D-18 Company and invited Ring names shown to members",
-          "why": "needs decision D-18 (open)"
-        }
-      ],
+      "blockedBy": [],
       "card": "S-29",
       "children": [
         "task:T-029",
@@ -55267,7 +55570,7 @@
       "code": "companies",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "companies",
       "frontendOnly": false,
@@ -56543,13 +56846,7 @@
     },
     "story:ring-invitations": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "decision:D-18",
-          "title": "D-18 Company and invited Ring names shown to members",
-          "why": "needs decision D-18 (open)"
-        }
-      ],
+      "blockedBy": [],
       "card": "S-33",
       "children": [
         "task:T-026",
@@ -56560,7 +56857,7 @@
       "code": "ring-invitations",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "ring-invitations",
       "frontendOnly": false,
