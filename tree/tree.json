@@ -4987,12 +4987,12 @@
     },
     "concepts": 185,
     "decisions": 9,
-    "edges": 5175,
+    "edges": 5177,
     "features": 40,
     "layerNotes": 211,
     "modules": 9,
     "notes": 508,
-    "partial": 2,
+    "partial": 1,
     "placeholders": 145,
     "records": 4,
     "taskLayerNotes": 78,
@@ -5052,9 +5052,7 @@
   ],
   "diagnostics": {
     "errors": [],
-    "warnings": [
-      "modules/Payments Gateway/Pay for an order/Pay for an order QA Frontend.md: does not link [[T-066-fe QA Frontend]], a done task-level note: a feature note is the sum of its tasks"
-    ]
+    "warnings": []
   },
   "edges": [
     {
@@ -14426,6 +14424,16 @@
     {
       "from": "qa-frontend:pay-for-an-order",
       "kind": "related",
+      "to": "qa-frontend:T-066-fe",
+      "via": [
+        "E_AUTH_04",
+        "E_ORDER_01",
+        "sum-of"
+      ]
+    },
+    {
+      "from": "qa-frontend:pay-for-an-order",
+      "kind": "related",
       "to": "story:pay-for-an-order"
     },
     {
@@ -14906,16 +14914,6 @@
       "to": "project:frontend-passwordless-migration",
       "via": [
         "E_AUTH_04"
-      ]
-    },
-    {
-      "from": "qa-frontend:T-066-fe",
-      "kind": "related",
-      "to": "qa-frontend:pay-for-an-order",
-      "via": [
-        "E_AUTH_04",
-        "E_ORDER_01",
-        "sum-of"
       ]
     },
     {
@@ -32335,7 +32333,17 @@
     {
       "from": "qa-frontend:pay-for-an-order",
       "kind": "wikilink",
+      "to": "task:T-035"
+    },
+    {
+      "from": "qa-frontend:pay-for-an-order",
+      "kind": "wikilink",
       "to": "task:T-065"
+    },
+    {
+      "from": "qa-frontend:pay-for-an-order",
+      "kind": "wikilink",
+      "to": "task:T-066"
     },
     {
       "from": "qa-frontend:T-065-fe",
@@ -45428,8 +45436,8 @@
         "current": 3,
         "decided": 2,
         "done": 9,
-        "partial": 2,
-        "passing": 5,
+        "partial": 1,
+        "passing": 6,
         "todo": 2,
         "verified": 1
       },
@@ -51379,8 +51387,8 @@
         "decided": 2,
         "done": 9,
         "in-progress": 1,
-        "partial": 2,
-        "passing": 5,
+        "partial": 1,
+        "passing": 6,
         "todo": 2,
         "verified": 1
       },
@@ -54846,6 +54854,7 @@
         "backend-delivery:pay-for-an-order",
         "backend-integration:pay-for-an-order",
         "qa-backend:pay-for-an-order",
+        "qa-frontend:pay-for-an-order",
         "backend-delivery:T-065-be",
         "backend-integration:T-065-be",
         "qa-backend:T-065-be",
@@ -54858,7 +54867,6 @@
         "frontend-requirements:T-066-fe",
         "story:T-066",
         "story:event-ring-auto",
-        "qa-frontend:pay-for-an-order",
         "frontend-requirements:payments",
         "frontend-requirements:subscription",
         "frontend-requirements:connections",
@@ -56031,7 +56039,7 @@
       "code": "pay-for-an-order",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "partial",
+      "effectiveStatus": "passing",
       "effort": null,
       "feature": "pay-for-an-order",
       "frontendOnly": false,
@@ -56049,19 +56057,14 @@
         "feature:pay-for-an-order"
       ],
       "path": "modules/Payments Gateway/Pay for an order/Pay for an order QA Frontend.md",
-      "pending": [
-        {
-          "person": "qa",
-          "text": "run S3 (paid while the app was closed) and S4 (s52) journeys once their task ships; no task yet, see Pay for an order Frontend Delivery",
-          "to": null
-        }
-      ],
+      "pending": [],
       "priority": "high",
       "related": [
         "backend-delivery:pay-for-an-order",
         "backend-integration:pay-for-an-order",
         "qa-backend:pay-for-an-order",
         "qa-frontend:T-065-fe",
+        "qa-frontend:T-066-fe",
         "frontend-delivery:pay-for-an-order",
         "story:pay-for-an-order",
         "frontend-requirements:pay-for-an-order",
@@ -56073,8 +56076,7 @@
         "backend-integration:T-066-be",
         "qa-backend:T-066-be",
         "frontend-delivery:T-066-fe",
-        "frontend-requirements:T-066-fe",
-        "qa-frontend:T-066-fe"
+        "frontend-requirements:T-066-fe"
       ],
       "scope": "feature",
       "screens": [
@@ -56702,8 +56704,8 @@
         "in-progress": 16,
         "missing": 145,
         "needs-decision": 20,
-        "partial": 2,
-        "passing": 5,
+        "partial": 1,
+        "passing": 6,
         "reference": 31,
         "todo": 83,
         "verified": 1

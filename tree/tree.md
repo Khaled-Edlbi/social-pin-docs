@@ -618,7 +618,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
       - ✅ [Pay for an order Backend Integration](modules/Payments%20Gateway/Pay%20for%20an%20order/Pay%20for%20an%20order%20Backend%20Integration.md) (BI-11, Backend Integration, High)
       - 🟢 [Pay for an order QA Backend](modules/Payments%20Gateway/Pay%20for%20an%20order/Pay%20for%20an%20order%20QA%20Backend.md) (QB-02, QA Backend, High)
       - ✅ [Pay for an order Frontend Delivery](modules/Payments%20Gateway/Pay%20for%20an%20order/Pay%20for%20an%20order%20Frontend%20Delivery.md) (FD-02, Frontend Delivery, High)
-      - 🟡 [Pay for an order QA Frontend](modules/Payments%20Gateway/Pay%20for%20an%20order/Pay%20for%20an%20order%20QA%20Frontend.md) (QF-02, QA Frontend, 1 pending note, High)
+      - 🟢 [Pay for an order QA Frontend](modules/Payments%20Gateway/Pay%20for%20an%20order/Pay%20for%20an%20order%20QA%20Frontend.md) (QF-02, QA Frontend, High)
       - ✅ [D-08 Payment methods and gateways on s51](decisions/D-08%20Payment%20methods%20and%20gateways%20on%20s51.md) (Decision)
         - ⚖️ [DR-08 Stripe card checkout only](decisions/DR-08%20Stripe%20card%20checkout%20only.md) (Decision record)
   - 📘 _Business docs_ (Docs)
