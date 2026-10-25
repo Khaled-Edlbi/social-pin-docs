@@ -4819,7 +4819,7 @@
     }
   },
   "counts": {
-    "blocked": 176,
+    "blocked": 175,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -4840,7 +4840,7 @@
     },
     "concepts": 182,
     "decisions": 16,
-    "edges": 4843,
+    "edges": 4842,
     "features": 39,
     "layerNotes": 185,
     "modules": 8,
@@ -6097,11 +6097,6 @@
       "from": "frontend-requirements:widgets",
       "kind": "blocks",
       "to": "backend-delivery:widgets"
-    },
-    {
-      "from": "story:audit-log",
-      "kind": "blocks",
-      "to": "frontend-requirements:audit-log"
     },
     {
       "from": "story:auth",
@@ -41138,7 +41133,7 @@
       "deadline": null,
       "depends": [],
       "dir": "modules/Platform & Cross-cutting/Audit Log",
-      "effectiveStatus": "todo",
+      "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "audit-log",
       "frontendOnly": false,
@@ -41170,7 +41165,8 @@
       ],
       "release": "mvp",
       "rollup": {
-        "blocked": 2,
+        "approved": 1,
+        "blocked": 1,
         "draft": 2,
         "missing": 4,
         "todo": 2
@@ -45748,20 +45744,14 @@
     },
     "frontend-requirements:audit-log": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "story:audit-log",
-          "title": "Audit Log Story",
-          "why": "Audit Log Story is draft"
-        }
-      ],
+      "blockedBy": [],
       "card": "FR-30",
       "children": [],
       "code": "audit-log",
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "audit-log",
       "frontendOnly": false,
@@ -48366,15 +48356,15 @@
       "related": [],
       "release": null,
       "rollup": {
-        "approved": 3,
-        "blocked": 39,
+        "approved": 4,
+        "blocked": 38,
         "decided": 2,
         "done": 2,
         "draft": 25,
-        "in-progress": 4,
+        "in-progress": 5,
         "missing": 42,
         "needs-decision": 1,
-        "todo": 25,
+        "todo": 24,
         "verified": 2
       },
       "scope": null,
@@ -53311,17 +53301,17 @@
         }
       ],
       "rollup": {
-        "approved": 9,
-        "blocked": 176,
+        "approved": 10,
+        "blocked": 175,
         "current": 9,
         "decided": 12,
         "done": 17,
         "draft": 94,
-        "in-progress": 24,
+        "in-progress": 25,
         "missing": 145,
         "needs-decision": 9,
         "reference": 31,
-        "todo": 73,
+        "todo": 72,
         "verified": 12
       },
       "scope": null,
@@ -56359,7 +56349,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "audit-log",
       "frontendOnly": false,
@@ -56384,17 +56374,17 @@
       "release": "mvp",
       "scope": "feature",
       "screens": [],
-      "status": "draft",
+      "status": "approved",
       "summary": "The product owner needs to be able to answer \"who did what to whose access, and when\" after the fact: a Ring grant that a member disputes, a sign-out-everywhere the account holder did not make, a…",
       "tags": [
         "story",
-        "story/draft",
+        "story/approved",
         "module/platform",
         "layer/business"
       ],
       "task": null,
       "title": "Audit Log Story",
-      "updated": "2026-10-18"
+      "updated": "2026-10-25"
     },
     "story:auth": {
       "affects": [],

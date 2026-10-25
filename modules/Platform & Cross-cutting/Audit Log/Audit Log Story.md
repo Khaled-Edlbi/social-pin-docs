@@ -4,16 +4,19 @@ code: audit-log
 scope: feature
 feature: audit-log
 module: platform
-status: draft
+status: approved
 screens: []
+approvedBy: "khaled"
+approvedAt: 2026-10-25
+owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-18
-tags: [story, story/draft, module/platform, layer/business]
+updated: 2026-10-25
+tags: [story, story/approved, module/platform, layer/business]
 ---
 
 # Audit Log · User Story
 
-**Feature:** [[Audit Log]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Audit Log Frontend Requirements]] · **API Integration:** not yet (backend not built)
+**Feature:** [[Audit Log]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[Audit Log Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 The product owner needs to be able to answer "who did what to whose access, and when" after the fact: a Ring grant that a member disputes, a sign-out-everywhere the account holder did not make, a payment that was refunded, a meeting request that Gemma sent on someone's behalf. The `AuditLog` table exists for this; nothing writes to it yet. There is no screen.
 
