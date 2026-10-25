@@ -4804,7 +4804,7 @@
     }
   },
   "counts": {
-    "blocked": 179,
+    "blocked": 178,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -4825,7 +4825,7 @@
     },
     "concepts": 182,
     "decisions": 15,
-    "edges": 4778,
+    "edges": 4777,
     "features": 39,
     "layerNotes": 185,
     "modules": 8,
@@ -6102,11 +6102,6 @@
       "from": "story:e2e-tests",
       "kind": "blocks",
       "to": "frontend-requirements:e2e-tests"
-    },
-    {
-      "from": "story:error-contract",
-      "kind": "blocks",
-      "to": "frontend-requirements:error-contract"
     },
     {
       "from": "story:event-ring-auto",
@@ -41121,7 +41116,8 @@
         "project:spec-map"
       ],
       "rollup": {
-        "blocked": 3,
+        "approved": 1,
+        "blocked": 2,
         "done": 1,
         "draft": 2,
         "missing": 4,
@@ -45278,19 +45274,13 @@
     },
     "frontend-requirements:error-contract": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "story:error-contract",
-          "title": "Error Contract Story",
-          "why": "Error Contract Story is draft"
-        }
-      ],
+      "blockedBy": [],
       "card": "FR-35",
       "children": [],
       "code": "error-contract",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "error-contract",
       "frontendOnly": false,
@@ -47150,7 +47140,8 @@
       "priority": null,
       "related": [],
       "rollup": {
-        "blocked": 41,
+        "approved": 1,
+        "blocked": 40,
         "decided": 2,
         "done": 2,
         "draft": 26,
@@ -51858,8 +51849,8 @@
       "priority": null,
       "related": [],
       "rollup": {
-        "approved": 2,
-        "blocked": 179,
+        "approved": 3,
+        "blocked": 178,
         "current": 9,
         "decided": 11,
         "done": 17,
@@ -55308,7 +55299,7 @@
       "code": "error-contract",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "error-contract",
       "frontendOnly": false,
@@ -55331,11 +55322,11 @@
       "related": [],
       "scope": "feature",
       "screens": [],
-      "status": "draft",
+      "status": "approved",
       "summary": "Every error state in the app, from \"invalid or expired code\" on s02 to \"this Ring was deleted\", is rendered from one error body. The frontend developer needs two things from it: a stable code to…",
       "tags": [
         "story",
-        "story/draft",
+        "story/approved",
         "module/platform",
         "layer/business"
       ],
