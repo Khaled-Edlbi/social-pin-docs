@@ -4,7 +4,9 @@ code: T-065-fe
 scope: task
 feature: pay-for-an-order
 module: payments-gateway
-status: draft
+status: approved
+approvedBy: "khaled"
+approvedAt: 2026-10-25
 screens: [s51]
 depends: []
 affects: ["T-065-be Backend · Open a Stripe checkout for an order"]
@@ -13,13 +15,13 @@ pending: []
 blockedBy: []
 owner: "khaled"
 updated: 2026-10-25
-tags: [frontend-requirements, frontend-requirements/draft, module/payments-gateway, layer/frontend]
+tags: [frontend-requirements, frontend-requirements/approved, module/payments-gateway, layer/frontend]
 task: T-065-fe
 ---
 
 # T-065-fe · Open a Stripe checkout for an order · Frontend Requirements
 
-**Task:** [[T-065-fe Frontend · Open a Stripe checkout for an order]] · **Feature:** [[Pay for an order]] · **Feature-level note:** [[Pay for an order Frontend Requirements]] · **Status:** Draft · **Story:** [[T-065 Story]] (approved) · **Backend Integration:** [[T-065-be Backend Integration]] (not written yet)
+**Task:** [[T-065-fe Frontend · Open a Stripe checkout for an order]] · **Feature:** [[Pay for an order]] · **Feature-level note:** [[Pay for an order Frontend Requirements]] · **Status:** Approved 2026-10-25 · **Story:** [[T-065 Story]] (approved) · **Backend Integration:** [[T-065-be Backend Integration]] (not written yet)
 
 Written by the **frontend** team, read by the backend: what the client needs to build [[T-065 Story]] on s51, and whether each need is met today. Nothing is met today: no payment endpoint exists ([[Frontend Contract]]: "payments" is in the not-yet-available list). `status: approved` once the backend accepts the list; `delivered` once every row is ✅.
 
@@ -73,4 +75,4 @@ Endpoint names are the backend's to choose; each row is the need.
 
 ## Sign-off
 
-- Approved by: — · on: —
+- Approved by: khaled (backend accepted the list) · on: 2026-10-25

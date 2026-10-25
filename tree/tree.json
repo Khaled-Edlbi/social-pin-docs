@@ -39167,10 +39167,10 @@
         "story:events-before"
       ],
       "rollup": {
-        "approved": 4,
+        "approved": 5,
         "blocked": 1,
         "decided": 2,
-        "draft": 2,
+        "draft": 1,
         "missing": 5,
         "todo": 2
       },
@@ -41836,7 +41836,7 @@
       "code": "T-065-fe",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "pay-for-an-order",
       "frontendOnly": false,
@@ -41872,11 +41872,11 @@
       "screens": [
         "s51"
       ],
-      "status": "draft",
+      "status": "approved",
       "summary": "Written by the frontend team, read by the backend: what the client needs to build T-065 Story on s51, and whether each need is met today. Nothing is met today: no payment endpoint exists (Frontend…",
       "tags": [
         "frontend-requirements",
-        "frontend-requirements/draft",
+        "frontend-requirements/approved",
         "module/payments-gateway",
         "layer/frontend"
       ],
@@ -44536,10 +44536,10 @@
         "decision-record:DR-07"
       ],
       "rollup": {
-        "approved": 4,
+        "approved": 5,
         "blocked": 1,
         "decided": 2,
-        "draft": 2,
+        "draft": 1,
         "in-progress": 1,
         "missing": 5,
         "todo": 2
@@ -49395,12 +49395,12 @@
       "priority": null,
       "related": [],
       "rollup": {
-        "approved": 6,
+        "approved": 7,
         "blocked": 179,
         "current": 9,
         "decided": 4,
         "done": 12,
-        "draft": 105,
+        "draft": 104,
         "in-progress": 16,
         "missing": 150,
         "needs-decision": 20,
@@ -64763,9 +64763,8 @@
         "feature:audit-log"
       ],
       "rollup": {
-        "approved": 1,
+        "approved": 2,
         "blocked": 1,
-        "draft": 1,
         "todo": 1
       },
       "scope": null,
@@ -64880,7 +64879,7 @@
         "frontend-requirements:T-065-fe"
       ],
       "rollup": {
-        "draft": 1
+        "approved": 1
       },
       "scope": null,
       "screens": [
