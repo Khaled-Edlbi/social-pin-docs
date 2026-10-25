@@ -4819,7 +4819,7 @@
     }
   },
   "counts": {
-    "blocked": 160,
+    "blocked": 159,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -4840,7 +4840,7 @@
     },
     "concepts": 182,
     "decisions": 16,
-    "edges": 4827,
+    "edges": 4826,
     "features": 39,
     "layerNotes": 185,
     "modules": 8,
@@ -6097,11 +6097,6 @@
       "from": "frontend-requirements:widgets",
       "kind": "blocks",
       "to": "backend-delivery:widgets"
-    },
-    {
-      "from": "story:auth",
-      "kind": "blocks",
-      "to": "frontend-requirements:auth"
     },
     {
       "from": "story:companies",
@@ -41166,7 +41161,7 @@
       ],
       "release": "mvp",
       "rollup": {
-        "blocked": 1,
+        "approved": 1,
         "current": 1,
         "decided": 1,
         "done": 2,
@@ -45729,20 +45724,14 @@
     },
     "frontend-requirements:auth": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "story:auth",
-          "title": "Auth & Sign-up Story",
-          "why": "Auth & Sign-up Story is draft"
-        }
-      ],
+      "blockedBy": [],
       "card": "FR-02",
       "children": [],
       "code": "auth",
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "auth",
       "frontendOnly": false,
@@ -48090,8 +48079,8 @@
       "related": [],
       "release": null,
       "rollup": {
-        "approved": 4,
-        "blocked": 31,
+        "approved": 5,
+        "blocked": 30,
         "current": 9,
         "decided": 6,
         "done": 15,
@@ -53156,8 +53145,8 @@
         }
       ],
       "rollup": {
-        "approved": 25,
-        "blocked": 160,
+        "approved": 26,
+        "blocked": 159,
         "current": 9,
         "decided": 12,
         "done": 17,
@@ -56252,7 +56241,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "auth",
       "frontendOnly": false,
@@ -56285,11 +56274,11 @@
         "s08",
         "s68"
       ],
-      "status": "draft",
+      "status": "approved",
       "summary": "A person arrives with nothing but an email address or a phone number and leaves with a working identity: an active account, a Pin name, a default Ring and its projection. Coming back later costs…",
       "tags": [
         "story",
-        "story/draft",
+        "story/approved",
         "module/identity",
         "layer/business"
       ],
