@@ -4,18 +4,20 @@ code: rings
 scope: feature
 feature: rings
 module: identity
-status: draft
+status: approved
 screens: [s08, s09, s16, s17, s18, s19, s20, s21, s22, s26, s62]
+approvedBy: "khaled"
+approvedAt: 2026-10-25
 created: 2026-10-18
 updated: 2026-10-25
 owner: "omar"
 related: ["DR-04 Ring settings at launch and their defaults", "DR-05 Inherit per field, copy without members", "DR-14 Shared with me lists people, never the Ring", "DR-18 Ring names shown when joined knowingly"]
-tags: [story, story/draft, module/identity, layer/business]
+tags: [story, story/approved, module/identity, layer/business]
 ---
 
 # Rings · User Story
 
-**Feature:** [[Rings]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Rings Frontend Requirements]] · **Backend Integration:** [[Rings Backend Integration]]
+**Feature:** [[Rings]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[Rings Frontend Requirements]] · **Backend Integration:** [[Rings Backend Integration]]
 
 A person has one profile and many audiences. A Ring is one audience bound to one perspective: Family, Clients, Company, a temporary Event Ring. The owner creates Rings, names and colours them, gives them a window, picks the default (what a scanned badge or a Pin-name lookup resolves to), and, when a temporary Ring lapses, decides whether to keep it, merge it into another, or let it go. Each Ring has a few settings (who it's for, who can join, approve each request, what members may do), all private by default ([[DR-04 Ring settings at launch and their defaults]]). Members see the people who share with them on a separate list, never the owner's roster, and never a Ring's name unless they joined that Ring themselves ([[DR-14 Shared with me lists people, never the Ring]], [[DR-18 Ring names shown when joined knowingly]]).
 
