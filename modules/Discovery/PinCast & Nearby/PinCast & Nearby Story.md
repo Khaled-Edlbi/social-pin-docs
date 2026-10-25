@@ -4,16 +4,19 @@ code: pincast
 scope: feature
 feature: pincast
 module: discovery
-status: draft
+status: approved
 screens: [s11, s39, s40, s41, s42]
+approvedBy: "khaled"
+approvedAt: 2026-10-25
+owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-18
-tags: [story, story/draft, module/discovery, layer/business]
+updated: 2026-10-25
+tags: [story, story/approved, module/discovery, layer/business]
 ---
 
 # PinCast & Nearby · User Story
 
-**Feature:** [[PinCast & Nearby]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[PinCast & Nearby Frontend Requirements]] · **API Integration:** not yet (backend not built)
+**Feature:** [[PinCast & Nearby]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[PinCast & Nearby Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 PinCast is "be findable, here, for a while": the user picks a Ring, a distance and a duration, and for that window people nearby who are also looking can find them and see that Ring's perspective. When it ends, the user gets a list of who was reached and can connect from it. Nearby is the other direction: "who around me is in a Ring I belong to". Both are bounded by distance and time, and neither ever hands anyone a coordinate.
 
