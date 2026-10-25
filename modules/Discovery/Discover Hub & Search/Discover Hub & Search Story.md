@@ -4,16 +4,19 @@ code: discover-hub
 scope: feature
 feature: discover-hub
 module: discovery
-status: draft
+status: approved
 screens: [s38]
+approvedBy: "khaled"
+approvedAt: 2026-10-25
+owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-18
-tags: [story, story/draft, module/discovery, layer/business]
+updated: 2026-10-25
+tags: [story, story/approved, module/discovery, layer/business]
 ---
 
 # Discover Hub & Search · User Story
 
-**Feature:** [[Discover Hub & Search]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Discover Hub & Search Frontend Requirements]] · **API Integration:** not yet (backend not built)
+**Feature:** [[Discover Hub & Search]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[Discover Hub & Search Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 Discover is the tab for finding something on purpose: a person whose Pin name you were given, an event, a company, an exhibitor, the people around you, or the contacts already on your phone. It is not a feed and it does not browse strangers. Search here means "resolve the exact `!pinname` I typed", and the answer is whatever that person shares with me, or one neutral "not available".
 

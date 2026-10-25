@@ -4819,7 +4819,7 @@
     }
   },
   "counts": {
-    "blocked": 172,
+    "blocked": 171,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -4840,7 +4840,7 @@
     },
     "concepts": 182,
     "decisions": 16,
-    "edges": 4839,
+    "edges": 4838,
     "features": 39,
     "layerNotes": 185,
     "modules": 8,
@@ -6122,11 +6122,6 @@
       "from": "story:delegated-admins",
       "kind": "blocks",
       "to": "frontend-requirements:delegated-admins"
-    },
-    {
-      "from": "story:discover-hub",
-      "kind": "blocks",
-      "to": "frontend-requirements:discover-hub"
     },
     {
       "from": "story:e2e-tests",
@@ -41880,7 +41875,7 @@
       "deadline": null,
       "depends": [],
       "dir": "modules/Discovery/Discover Hub & Search",
-      "effectiveStatus": "todo",
+      "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "discover-hub",
       "frontendOnly": false,
@@ -41911,7 +41906,8 @@
       ],
       "release": "v1",
       "rollup": {
-        "blocked": 4,
+        "approved": 1,
+        "blocked": 3,
         "draft": 3,
         "missing": 4,
         "needs-decision": 1,
@@ -46256,20 +46252,14 @@
     },
     "frontend-requirements:discover-hub": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "story:discover-hub",
-          "title": "Discover Hub & Search Story",
-          "why": "Discover Hub & Search Story is draft"
-        }
-      ],
+      "blockedBy": [],
       "card": "FR-19",
       "children": [],
       "code": "discover-hub",
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "discover-hub",
       "frontendOnly": false,
@@ -48083,13 +48073,13 @@
       "related": [],
       "release": null,
       "rollup": {
-        "approved": 1,
-        "blocked": 20,
+        "approved": 2,
+        "blocked": 19,
         "draft": 11,
-        "in-progress": 1,
+        "in-progress": 2,
         "missing": 12,
         "needs-decision": 1,
-        "todo": 9
+        "todo": 8
       },
       "scope": null,
       "screens": [],
@@ -53271,17 +53261,17 @@
         }
       ],
       "rollup": {
-        "approved": 13,
-        "blocked": 172,
+        "approved": 14,
+        "blocked": 171,
         "current": 9,
         "decided": 12,
         "done": 17,
         "draft": 94,
-        "in-progress": 28,
+        "in-progress": 29,
         "missing": 145,
         "needs-decision": 9,
         "reference": 31,
-        "todo": 69,
+        "todo": 68,
         "verified": 12
       },
       "scope": null,
@@ -56863,7 +56853,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "discover-hub",
       "frontendOnly": false,
@@ -56890,17 +56880,17 @@
       "screens": [
         "s38"
       ],
-      "status": "draft",
+      "status": "approved",
       "summary": "Discover is the tab for finding something on purpose: a person whose Pin name you were given, an event, a company, an exhibitor, the people around you, or the contacts already on your phone. It is…",
       "tags": [
         "story",
-        "story/draft",
+        "story/approved",
         "module/discovery",
         "layer/business"
       ],
       "task": null,
       "title": "Discover Hub & Search Story",
-      "updated": "2026-10-18"
+      "updated": "2026-10-25"
     },
     "story:e2e-tests": {
       "affects": [],
