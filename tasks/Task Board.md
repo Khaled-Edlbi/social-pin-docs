@@ -11,7 +11,6 @@ kanban-plugin: board
 - [ ] [[T-057 Decide base profile work fields]] #critical #profiles
 - [ ] [[T-058 Decide field library vs per-Ring copies]] #critical #ring-projection
 - [ ] [[T-059 Decide Ring settings]] #critical #rings
-- [ ] [[T-010 Public browser page for viewers without the app]] #high #badge-qr
 - [ ] [[T-018 Widget CRUD on the projection]] #high #widgets
 - [ ] [[T-026 Ring invitations invite, review, decline]] #high #ring-invitations
 - [ ] [[T-039 Catalogue products and talks (new table)]] #high #events-during
@@ -74,6 +73,7 @@ kanban-plugin: board
 - [ ] [[T-009 Scan counter and share link]] #high #badge-qr
 - [ ] [[T-009-be Backend · Scan counter and share link]] #high #badge-qr #backend
 - [ ] [[T-009-fe Frontend · Scan counter and share link]] #high #badge-qr #frontend
+- [ ] [[T-010 Public browser page for viewers without the app]] #high #badge-qr
 - [ ] [[T-010-be Backend · Public browser page for viewers without the app]] #high #badge-qr #backend
 - [ ] [[T-010-fe Frontend · Public browser page for viewers without the app]] #high #badge-qr #frontend
 - [ ] [[T-012-fe Frontend · List my files (photo library)]] #high #photo-library #frontend

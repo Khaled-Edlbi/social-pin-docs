@@ -93,7 +93,7 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-009 Scan counter and share link]] | [[Badge & QR]] | Discovery | ⛔ Blocked | S | — | [[T-008 Resolve a scanned QR token|T-008]] |
 | [[T-009-be Backend · Scan counter and share link]] `backend` | [[Badge & QR]] | Discovery | ⛔ Blocked | S | — | [[T-008 Resolve a scanned QR token|T-008]] |
 | [[T-009-fe Frontend · Scan counter and share link]] `frontend` | [[Badge & QR]] | Discovery | ⛔ Blocked | S | — | [[T-008 Resolve a scanned QR token|T-008]], [[T-009-be Backend · Scan counter and share link|T-009-be]] |
-| [[T-010 Public browser page for viewers without the app]] | [[Badge & QR]] | Discovery | ❓ Needs decision | M | — | [[T-008 Resolve a scanned QR token|T-008]] |
+| [[T-010 Public browser page for viewers without the app]] | [[Badge & QR]] | Discovery | ⛔ Blocked | M | — | [[T-008 Resolve a scanned QR token|T-008]], [[D-12 What the badge QR encodes|D-12]] |
 | [[T-010-be Backend · Public browser page for viewers without the app]] `backend` | [[Badge & QR]] | Discovery | ⛔ Blocked | M | — | [[T-008 Resolve a scanned QR token|T-008]] |
 | [[T-010-fe Frontend · Public browser page for viewers without the app]] `frontend` | [[Badge & QR]] | Discovery | ⛔ Blocked | M | — | [[T-008 Resolve a scanned QR token|T-008]], [[T-010-be Backend · Public browser page for viewers without the app|T-010-be]] |
 | [[T-012 List my files (photo library)]] | [[Photo Library]] | Identity Core | ⬜ To do | S | — | — |
