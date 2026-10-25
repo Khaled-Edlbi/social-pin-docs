@@ -6,7 +6,8 @@ feature: connections
 module: connections
 status: draft
 screens: [s44, s45, s46, s47, s62]
-updated: 2026-10-18
+owner: "khaled"
+updated: 2026-10-25
 tags: [story, story/draft, module/connections, layer/business]
 ---
 
@@ -15,6 +16,8 @@ tags: [story, story/draft, module/connections, layer/business]
 **Feature:** [[Connections]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Connections Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 Two people met, one scanned the other, and now one of them wants access. A connection in Social Pin is an access request: the requester asks to be let in, the owner decides which Ring to put them in, and from that moment the requester sees exactly that Ring's perspective and nothing about the Ring itself. There is no feed, no follower count on display, no "following back".
+
+**Task stories:** [[T-021 Story]] (T-021: sending, the inbox and cancel in S1 and S2) · [[T-022 Story]] (T-022: accept into a Ring and decline in S3) · [[T-023 Story]] (T-023: the connection detail and the contacts list in S4 and S6). S5 waits on [[T-024 Story]] and *Introduce* on [[T-025 Story]], both still the empty template; S7 has no task story yet.
 
 ## Persona
 
