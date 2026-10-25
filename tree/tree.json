@@ -1914,7 +1914,8 @@
       "containers": [
         "feature:companies",
         "feature:ring-members",
-        "task:T-004"
+        "task:T-004",
+        "task:T-023"
       ],
       "kind": "endpoint",
       "notes": [
@@ -1923,6 +1924,7 @@
         "frontend-requirements:companies",
         "frontend-requirements:ring-members",
         "story:T-004",
+        "story:T-023",
         "story:companies"
       ],
       "owner": "feature:ring-members"
@@ -2262,7 +2264,8 @@
         "project:frontend-api-guide",
         "project:frontend-contract",
         "project:spec-map",
-        "project:status-report-2026-10-15"
+        "project:status-report-2026-10-15",
+        "task:T-023"
       ],
       "kind": "endpoint",
       "notes": [
@@ -2277,6 +2280,7 @@
         "project:frontend-contract",
         "project:spec-map",
         "project:status-report-2026-10-15",
+        "story:T-023",
         "story:pincast",
         "story:view-as"
       ],
@@ -2753,7 +2757,8 @@
         "feature:connections",
         "feature:ring-members",
         "project:spec-map",
-        "task:T-022"
+        "task:T-022",
+        "task:T-023"
       ],
       "kind": "endpoint",
       "notes": [
@@ -2762,6 +2767,7 @@
         "frontend-requirements:ring-members",
         "project:spec-map",
         "story:T-022",
+        "story:T-023",
         "story:connections"
       ],
       "owner": "feature:ring-members"
@@ -4721,7 +4727,7 @@
     },
     "concepts": 180,
     "decisions": 7,
-    "edges": 4387,
+    "edges": 4404,
     "features": 39,
     "layerNotes": 190,
     "modules": 8,
@@ -10546,6 +10552,16 @@
       "to": "feature:rings"
     },
     {
+      "from": "story:T-023",
+      "kind": "related",
+      "to": "feature:ring-members"
+    },
+    {
+      "from": "story:T-023",
+      "kind": "related",
+      "to": "feature:view-as"
+    },
+    {
       "from": "story:widgets",
       "kind": "related",
       "to": "story:T-017",
@@ -12752,6 +12768,14 @@
       ]
     },
     {
+      "from": "feature:companies",
+      "kind": "shares",
+      "to": "task:T-023",
+      "via": [
+        "GET /rings/:ringId/members"
+      ]
+    },
+    {
       "from": "feature:connections",
       "kind": "shares",
       "to": "feature:counts",
@@ -13168,6 +13192,15 @@
         "E_RING_02",
         "GET /rings",
         "GET /rings/shared-with-me",
+        "POST /rings/:ringId/members"
+      ]
+    },
+    {
+      "from": "feature:connections",
+      "kind": "shares",
+      "to": "task:T-023",
+      "via": [
+        "GET /views/user/:userId/perspectives",
         "POST /rings/:ringId/members"
       ]
     },
@@ -16313,6 +16346,14 @@
       ]
     },
     {
+      "from": "feature:pincast",
+      "kind": "shares",
+      "to": "task:T-023",
+      "via": [
+        "GET /views/user/:userId/perspectives"
+      ]
+    },
+    {
       "from": "feature:post-event",
       "kind": "shares",
       "to": "feature:ring-access",
@@ -16768,6 +16809,14 @@
       ]
     },
     {
+      "from": "feature:ring-access",
+      "kind": "shares",
+      "to": "task:T-023",
+      "via": [
+        "GET /views/user/:userId/perspectives"
+      ]
+    },
+    {
       "from": "feature:ring-invitations",
       "kind": "shares",
       "to": "feature:ring-projection",
@@ -17025,6 +17074,16 @@
       "via": [
         "E_RING_02",
         "GET /rings",
+        "POST /rings/:ringId/members"
+      ]
+    },
+    {
+      "from": "feature:ring-members",
+      "kind": "shares",
+      "to": "task:T-023",
+      "via": [
+        "GET /rings/:ringId/members",
+        "GET /views/user/:userId/perspectives",
         "POST /rings/:ringId/members"
       ]
     },
@@ -17439,6 +17498,14 @@
       ]
     },
     {
+      "from": "feature:view-as",
+      "kind": "shares",
+      "to": "task:T-023",
+      "via": [
+        "GET /views/user/:userId/perspectives"
+      ]
+    },
+    {
       "from": "feature:widgets",
       "kind": "shares",
       "to": "project:agent-rules",
@@ -17779,6 +17846,14 @@
       ]
     },
     {
+      "from": "project:frontend-api-guide",
+      "kind": "shares",
+      "to": "task:T-023",
+      "via": [
+        "GET /views/user/:userId/perspectives"
+      ]
+    },
+    {
       "from": "project:frontend-contract",
       "kind": "shares",
       "to": "project:frontend-passwordless-migration",
@@ -17861,6 +17936,14 @@
       "via": [
         "GET /rings",
         "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "project:frontend-contract",
+      "kind": "shares",
+      "to": "task:T-023",
+      "via": [
+        "GET /views/user/:userId/perspectives"
       ]
     },
     {
@@ -17974,6 +18057,15 @@
       ]
     },
     {
+      "from": "project:spec-map",
+      "kind": "shares",
+      "to": "task:T-023",
+      "via": [
+        "GET /views/user/:userId/perspectives",
+        "POST /rings/:ringId/members"
+      ]
+    },
+    {
       "from": "project:status-report-2026-10-15",
       "kind": "shares",
       "to": "task:T-004",
@@ -18005,6 +18097,14 @@
       "via": [
         "GET /rings",
         "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "project:status-report-2026-10-15",
+      "kind": "shares",
+      "to": "task:T-023",
+      "via": [
+        "GET /views/user/:userId/perspectives"
       ]
     },
     {
@@ -27295,7 +27395,32 @@
     {
       "from": "story:T-023",
       "kind": "wikilink",
+      "to": "decision:D-04"
+    },
+    {
+      "from": "story:T-023",
+      "kind": "wikilink",
       "to": "feature:connections"
+    },
+    {
+      "from": "story:T-023",
+      "kind": "wikilink",
+      "to": "task:T-021"
+    },
+    {
+      "from": "story:T-023",
+      "kind": "wikilink",
+      "to": "task:T-022"
+    },
+    {
+      "from": "story:T-023",
+      "kind": "wikilink",
+      "to": "task:T-024"
+    },
+    {
+      "from": "story:T-023",
+      "kind": "wikilink",
+      "to": "task:T-062"
     },
     {
       "from": "story:T-024",
@@ -38925,7 +39050,8 @@
         "feature:audit-log",
         "feature:companies",
         "feature:ring-invitations",
-        "story:T-022"
+        "story:T-022",
+        "story:T-023"
       ],
       "rollup": {
         "blocked": 1,
@@ -39255,7 +39381,8 @@
         "project:spec-map",
         "feature:meetings",
         "feature:e2e-tests",
-        "feature:ring-invitations"
+        "feature:ring-invitations",
+        "story:T-023"
       ],
       "rollup": {
         "blocked": 1,
@@ -49372,7 +49499,10 @@
       "path": "tasks/T-023 Connection detail and contacts list/T-023 Story.md",
       "pending": [],
       "priority": "critical",
-      "related": [],
+      "related": [
+        "feature:ring-members",
+        "feature:view-as"
+      ],
       "scope": "task",
       "screens": [
         "s47"
@@ -49387,7 +49517,7 @@
       ],
       "task": "T-023",
       "title": "T-023 Story",
-      "updated": "2026-10-18"
+      "updated": "2026-10-25"
     },
     "story:T-024": {
       "affects": [],
