@@ -6,7 +6,8 @@ feature: badge-qr
 module: discovery
 status: draft
 screens: [s34, s43, s44, s56]
-updated: 2026-10-18
+owner: "khaled"
+updated: 2026-10-25
 tags: [story, story/draft, module/discovery, layer/business]
 ---
 
@@ -15,6 +16,8 @@ tags: [story, story/draft, module/discovery, layer/business]
 **Feature:** [[Badge & QR]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Badge & QR Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 The badge is the centre tab and the physical moment of the product: two people face to face, one shows a code, the other scans it. The code is bound to the Ring the owner has active at that moment, so showing the badge is the same act as choosing which perspective the other person gets. The scanner's side turns a square of pixels into a person, and that person's view is whatever Ring the owner put them in.
+
+**Task stories:** [[T-007 Story]] (T-007: the real, rotating code in S1) · [[T-008 Story]] (T-008: reading the code and the scanned Pin in S3 and S4). S5 waits on [[T-009 Story]] and [[T-010 Story]], still the empty template.
 
 ## Persona
 
