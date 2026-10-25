@@ -747,6 +747,16 @@ export function build() {
     if (backendDone(of('backend-delivery')) && backendDone(of('backend-integration'))) { fr.effectiveStatus = 'delivered'; fr.autoDelivered = true; }
   }
 
+  // a Backend Integration note is shown "Current · verified" once it is used and checked: it is `current` with nothing pending, and in its scope
+  // (task T-NNN-be ↔ T-NNN-be QA Backend and T-NNN-fe Frontend Delivery; feature ↔ feature) the QA Backend is passing and the Frontend Delivery done, both with nothing pending.
+  // A label only: the status stays `current`, and a note set back to `draft` loses it on the next build
+  for (const bi of Object.values(nodes)) {
+    if (bi.kind !== 'backend-integration' || !bi.path || bi.status !== 'current' || bi.pending.length) continue;
+    const fe = bi.scope === 'task' ? String(bi.code).replace(/-be$/, '-fe') : bi.code;
+    const of = (kind, code) => Object.values(nodes).find((x) => x.kind === kind && x.path && x.scope === bi.scope && x.code === code);
+    if (backendDone(of('qa-backend', bi.code)) && backendDone(of('frontend-delivery', fe))) bi.integrationVerified = true;
+  }
+
   // a story is fulfilled (`verified`) by the PM only once QA has finished on its scope: every QA note it needs is passing with nothing pending
   const QA_KINDS = { backend: 'qa-backend', frontend: 'qa-frontend' };
   for (const s of Object.values(nodes)) {
@@ -1053,7 +1063,7 @@ function treeMarkdown(json) {
   const seen = new Set();
   const walkNode = (id, depth) => {
     const n = nodes[id];
-    const extra = [n.card && !ID_CODED.has(n.kind) ? n.card : null, n.label && !['feature', 'module', 'task'].includes(n.kind) ? n.label : null, n.parentTask ? `sub-task of ${n.parentTask}` : null, ...(n.labels || []), n.frontendOnly ? 'frontend only' : null, n.pending?.length ? `${n.pending.length} pending note${n.pending.length === 1 ? '' : 's'}` : null, priorityLabel(json, n), n.deadline ? `due ${n.deadline}` : null, n.blockedBy?.length ? `blocked by ${n.blockedBy.map((b) => b.title).join(', ')}` : null].filter(Boolean).join(', ');
+    const extra = [n.card && !ID_CODED.has(n.kind) ? n.card : null, n.label && !['feature', 'module', 'task'].includes(n.kind) ? n.label : null, n.parentTask ? `sub-task of ${n.parentTask}` : null, ...(n.labels || []), n.frontendOnly ? 'frontend only' : null, n.pending?.length ? `${n.pending.length} pending note${n.pending.length === 1 ? '' : 's'}` : null, n.autoDelivered ? 'backend done' : null, n.integrationVerified ? 'verified' : null, priorityLabel(json, n), n.deadline ? `due ${n.deadline}` : null, n.blockedBy?.length ? `blocked by ${n.blockedBy.map((b) => b.title).join(', ')}` : null].filter(Boolean).join(', ');
     lines.push(`${'  '.repeat(depth)}- ${emojiOf(n)} ${mdLink(n)}${extra ? ` (${extra})` : ''}`);
     if (seen.has(id) && n.children.length) { lines.push(`${'  '.repeat(depth + 1)}- (see above)`); return; }
     seen.add(id);

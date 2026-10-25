@@ -107,7 +107,7 @@ Story ──▶ Frontend Requirements ──▶ Backend Delivery ──▶ Backe
 | 1 | Business | `T-NNN Story` (or the feature's story, updated) | `approved` by product |
 | 2 | Frontend | `T-NNN Frontend Requirements` | `approved` by the backend; ✅ `delivered` **on its own** once the backend cards of its scope (Backend Delivery `done`, Backend Integration `current`) are done with nothing pending: the build computes it, nobody types it (a `frontendOnly` feature has no backend cards and sets it by hand) |
 | 3 | Backend | `T-NNN Backend Delivery` | `done`: code merged, `pnpm typecheck && pnpm test` green |
-| 4 | Backend | `T-NNN Backend Integration` | `current`: matches `main` |
+| 4 | Backend | `T-NNN Backend Integration` | `current`: matches `main`; the build adds "· verified" once the QA Backend passes and the Frontend Delivery is done (nothing pending) |
 | 5 | Frontend | `T-NNN Frontend Delivery` | `done`: screens merged |
 | 6 | QA | `T-NNN QA Backend`, `T-NNN QA Frontend` | `passing` on a named build |
 | 7 | Business | the story | ✅ Fulfilled (`verified`): set by the **PM** once both QA notes pass with nothing pending; never by QA |
