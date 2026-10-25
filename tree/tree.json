@@ -4819,7 +4819,7 @@
     }
   },
   "counts": {
-    "blocked": 177,
+    "blocked": 176,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -4840,7 +4840,7 @@
     },
     "concepts": 182,
     "decisions": 16,
-    "edges": 4844,
+    "edges": 4843,
     "features": 39,
     "layerNotes": 185,
     "modules": 8,
@@ -6097,11 +6097,6 @@
       "from": "frontend-requirements:widgets",
       "kind": "blocks",
       "to": "backend-delivery:widgets"
-    },
-    {
-      "from": "story:app-shell",
-      "kind": "blocks",
-      "to": "frontend-requirements:app-shell"
     },
     {
       "from": "story:audit-log",
@@ -41101,7 +41096,7 @@
       ],
       "release": "later",
       "rollup": {
-        "blocked": 1,
+        "approved": 1,
         "done": 1,
         "draft": 1,
         "missing": 2
@@ -45702,20 +45697,14 @@
     },
     "frontend-requirements:app-shell": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "story:app-shell",
-          "title": "App Shell & Onboarding Narrative Story",
-          "why": "App Shell & Onboarding Narrative Story is draft"
-        }
-      ],
+      "blockedBy": [],
       "card": "FR-29",
       "children": [],
       "code": "app-shell",
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "app-shell",
       "frontendOnly": false,
@@ -48377,8 +48366,8 @@
       "related": [],
       "release": null,
       "rollup": {
-        "approved": 2,
-        "blocked": 40,
+        "approved": 3,
+        "blocked": 39,
         "decided": 2,
         "done": 2,
         "draft": 25,
@@ -53322,8 +53311,8 @@
         }
       ],
       "rollup": {
-        "approved": 8,
-        "blocked": 177,
+        "approved": 9,
+        "blocked": 176,
         "current": 9,
         "decided": 12,
         "done": 17,
@@ -56317,7 +56306,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "app-shell",
       "frontendOnly": false,
@@ -56347,17 +56336,17 @@
         "s00c",
         "s00d"
       ],
-      "status": "draft",
+      "status": "approved",
       "summary": "A person has just installed the app. In the first thirty seconds they need to understand one idea, that they have one profile and many audiences, and then reach the sign-up choice without feeling…",
       "tags": [
         "story",
-        "story/draft",
+        "story/approved",
         "module/platform",
         "layer/business"
       ],
       "task": null,
       "title": "App Shell & Onboarding Narrative Story",
-      "updated": "2026-10-18"
+      "updated": "2026-10-25"
     },
     "story:audit-log": {
       "affects": [],

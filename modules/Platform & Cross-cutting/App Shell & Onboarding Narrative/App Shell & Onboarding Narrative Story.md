@@ -4,16 +4,19 @@ code: app-shell
 scope: feature
 feature: app-shell
 module: platform
-status: draft
+status: approved
 screens: [s00a, s00b, s00c, s00d]
+approvedBy: "khaled"
+approvedAt: 2026-10-25
+owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-18
-tags: [story, story/draft, module/platform, layer/business]
+updated: 2026-10-25
+tags: [story, story/approved, module/platform, layer/business]
 ---
 
 # App Shell & Onboarding Narrative · User Story
 
-**Feature:** [[App Shell & Onboarding Narrative]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[App Shell & Onboarding Narrative Frontend Requirements]] · **API Integration:** none needed (frontend only)
+**Feature:** [[App Shell & Onboarding Narrative]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[App Shell & Onboarding Narrative Frontend Requirements]] · **API Integration:** none needed (frontend only)
 
 A person has just installed the app. In the first thirty seconds they need to understand one idea, that they have one profile and many audiences, and then reach the sign-up choice without feeling they walked through a slideshow. After sign-up the same person lives in a five-slot tab bar whose centre is the badge. This feature is the frame everything else sits in; it talks to no endpoint.
 
