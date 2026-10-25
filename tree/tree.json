@@ -505,6 +505,7 @@
     "T-066-be Backend Integration": "backend-integration:T-066-be",
     "T-066-be Backend · Settle an order and confirm it on s52": "task:T-066-be",
     "T-066-be QA Backend": "qa-backend:T-066-be",
+    "T-066-fe Frontend Delivery": "frontend-delivery:T-066-fe",
     "T-066-fe Frontend Requirements": "frontend-requirements:T-066-fe",
     "T-066-fe Frontend · Settle an order and confirm it on s52": "task:T-066-fe",
     "View As & Pin Views": "feature:view-as",
@@ -643,6 +644,7 @@
     "F-41": "feature:pay-for-an-order",
     "FD-01": "frontend-delivery:T-065-fe",
     "FD-02": "frontend-delivery:pay-for-an-order",
+    "FD-03": "frontend-delivery:T-066-fe",
     "FR-01": "frontend-requirements:account",
     "FR-02": "frontend-requirements:auth",
     "FR-03": "frontend-requirements:counts",
@@ -1909,6 +1911,7 @@
         "backend-integration:T-066-be",
         "backend-integration:pay-for-an-order",
         "frontend-delivery:T-065-fe",
+        "frontend-delivery:T-066-fe",
         "frontend-delivery:pay-for-an-order",
         "frontend-requirements:T-065-fe",
         "frontend-requirements:T-066-fe",
@@ -4303,6 +4306,7 @@
         "feature:pay-for-an-order",
         "feature:payments",
         "frontend-delivery:T-065-fe",
+        "frontend-delivery:T-066-fe",
         "frontend-delivery:pay-for-an-order",
         "frontend-requirements:T-065-fe",
         "frontend-requirements:T-066-fe",
@@ -4359,6 +4363,7 @@
         "feature:event-ring-auto",
         "feature:events-before",
         "feature:pay-for-an-order",
+        "frontend-delivery:T-066-fe",
         "frontend-delivery:pay-for-an-order",
         "frontend-requirements:T-066-fe",
         "frontend-requirements:event-ring-auto",
@@ -4958,7 +4963,7 @@
       "decision": 9,
       "decision-record": 4,
       "feature": 40,
-      "frontend-delivery": 2,
+      "frontend-delivery": 3,
       "frontend-requirements": 42,
       "module": 9,
       "project": 27,
@@ -4970,21 +4975,21 @@
     "byLayer": {
       "backend": 62,
       "business": 345,
-      "frontend": 48,
+      "frontend": 49,
       "qa": 5,
       "shared": 10
     },
     "concepts": 185,
     "decisions": 9,
-    "edges": 5073,
+    "edges": 5125,
     "features": 40,
-    "layerNotes": 209,
+    "layerNotes": 210,
     "modules": 9,
-    "notes": 506,
-    "partial": 2,
+    "notes": 507,
+    "partial": 3,
     "placeholders": 145,
     "records": 4,
-    "taskLayerNotes": 76,
+    "taskLayerNotes": 77,
     "tasks": 181
   },
   "deadlines": {
@@ -5041,7 +5046,9 @@
   ],
   "diagnostics": {
     "errors": [],
-    "warnings": []
+    "warnings": [
+      "modules/Payments Gateway/Pay for an order/Pay for an order Frontend Delivery.md: does not link [[T-066-fe Frontend Delivery]], a done task-level note: a feature note is the sum of its tasks"
+    ]
   },
   "edges": [
     {
@@ -9064,6 +9071,15 @@
     {
       "from": "backend-delivery:pay-for-an-order",
       "kind": "related",
+      "to": "frontend-delivery:T-066-fe",
+      "via": [
+        "E_ORDER_01",
+        "GET /orders/:id"
+      ]
+    },
+    {
+      "from": "backend-delivery:pay-for-an-order",
+      "kind": "related",
       "to": "frontend-requirements:pay-for-an-order",
       "via": [
         "GET /orders/:id",
@@ -9254,6 +9270,15 @@
     {
       "from": "backend-delivery:T-065-be",
       "kind": "related",
+      "to": "frontend-delivery:T-066-fe",
+      "via": [
+        "E_ORDER_01",
+        "GET /orders/:id"
+      ]
+    },
+    {
+      "from": "backend-delivery:T-065-be",
+      "kind": "related",
       "to": "frontend-requirements:account",
       "via": [
         "E_AUTH_04"
@@ -9558,6 +9583,14 @@
     {
       "from": "backend-delivery:T-066-be",
       "kind": "related",
+      "to": "frontend-delivery:T-066-fe",
+      "via": [
+        "GET /orders/:id"
+      ]
+    },
+    {
+      "from": "backend-delivery:T-066-be",
+      "kind": "related",
       "to": "frontend-requirements:pay-for-an-order",
       "via": [
         "GET /orders/:id",
@@ -9717,6 +9750,16 @@
         "E_PAY_01",
         "GET /orders/:id",
         "POST /orders/:id/checkout"
+      ]
+    },
+    {
+      "from": "backend-integration:pay-for-an-order",
+      "kind": "related",
+      "to": "frontend-delivery:T-066-fe",
+      "via": [
+        "E_AUTH_04",
+        "E_ORDER_01",
+        "GET /orders/:id"
       ]
     },
     {
@@ -10084,6 +10127,16 @@
     {
       "from": "backend-integration:T-065-be",
       "kind": "related",
+      "to": "frontend-delivery:T-066-fe",
+      "via": [
+        "E_AUTH_04",
+        "E_ORDER_01",
+        "GET /orders/:id"
+      ]
+    },
+    {
+      "from": "backend-integration:T-065-be",
+      "kind": "related",
       "to": "frontend-requirements:account",
       "via": [
         "E_AUTH_04"
@@ -10387,6 +10440,16 @@
       "to": "backend-integration:auth",
       "via": [
         "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "backend-integration:T-066-be",
+      "kind": "related",
+      "to": "frontend-delivery:T-066-fe",
+      "via": [
+        "E_AUTH_04",
+        "E_ORDER_01",
+        "GET /orders/:id"
       ]
     },
     {
@@ -12215,6 +12278,15 @@
     {
       "from": "frontend-delivery:pay-for-an-order",
       "kind": "related",
+      "to": "frontend-delivery:T-066-fe",
+      "via": [
+        "GET /orders/:id",
+        "sum-of"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pay-for-an-order",
+      "kind": "related",
       "to": "frontend-requirements:pay-for-an-order",
       "via": [
         "GET /orders/:id",
@@ -12318,6 +12390,14 @@
       "via": [
         "E_AUTH_04",
         "E_ORDER_01",
+        "GET /orders/:id"
+      ]
+    },
+    {
+      "from": "frontend-delivery:T-065-fe",
+      "kind": "related",
+      "to": "frontend-delivery:T-066-fe",
+      "via": [
         "GET /orders/:id"
       ]
     },
@@ -12593,6 +12673,286 @@
     },
     {
       "from": "frontend-delivery:T-065-fe",
+      "kind": "related",
+      "to": "task:T-066-be",
+      "via": [
+        "GET /orders/:id"
+      ]
+    },
+    {
+      "from": "frontend-delivery:T-066-fe",
+      "kind": "related",
+      "to": "backend-delivery:auth",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "frontend-delivery:T-066-fe",
+      "kind": "related",
+      "to": "backend-integration:auth",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "frontend-delivery:T-066-fe",
+      "kind": "related",
+      "to": "frontend-requirements:account",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "frontend-delivery:T-066-fe",
+      "kind": "related",
+      "to": "frontend-requirements:app-shell",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "frontend-delivery:T-066-fe",
+      "kind": "related",
+      "to": "frontend-requirements:auth",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "frontend-delivery:T-066-fe",
+      "kind": "related",
+      "to": "frontend-requirements:badge-qr",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "frontend-delivery:T-066-fe",
+      "kind": "related",
+      "to": "frontend-requirements:companies",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "frontend-delivery:T-066-fe",
+      "kind": "related",
+      "to": "frontend-requirements:connections",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "frontend-delivery:T-066-fe",
+      "kind": "related",
+      "to": "frontend-requirements:delegated-admins",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "frontend-delivery:T-066-fe",
+      "kind": "related",
+      "to": "frontend-requirements:devices",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "frontend-delivery:T-066-fe",
+      "kind": "related",
+      "to": "frontend-requirements:discover-hub",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "frontend-delivery:T-066-fe",
+      "kind": "related",
+      "to": "frontend-requirements:error-contract",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "frontend-delivery:T-066-fe",
+      "kind": "related",
+      "to": "frontend-requirements:events-before",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "frontend-delivery:T-066-fe",
+      "kind": "related",
+      "to": "frontend-requirements:interests",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "frontend-delivery:T-066-fe",
+      "kind": "related",
+      "to": "frontend-requirements:linked-accounts",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "frontend-delivery:T-066-fe",
+      "kind": "related",
+      "to": "frontend-requirements:notifications",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "frontend-delivery:T-066-fe",
+      "kind": "related",
+      "to": "frontend-requirements:pay-for-an-order",
+      "via": [
+        "E_AUTH_04",
+        "GET /orders/:id"
+      ]
+    },
+    {
+      "from": "frontend-delivery:T-066-fe",
+      "kind": "related",
+      "to": "frontend-requirements:payments",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "frontend-delivery:T-066-fe",
+      "kind": "related",
+      "to": "frontend-requirements:pincast",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "frontend-delivery:T-066-fe",
+      "kind": "related",
+      "to": "frontend-requirements:post-event",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "frontend-delivery:T-066-fe",
+      "kind": "related",
+      "to": "frontend-requirements:ring-invitations",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "frontend-delivery:T-066-fe",
+      "kind": "related",
+      "to": "frontend-requirements:subscription",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "frontend-delivery:T-066-fe",
+      "kind": "related",
+      "to": "frontend-requirements:T-065-fe",
+      "via": [
+        "E_AUTH_04",
+        "GET /orders/:id"
+      ]
+    },
+    {
+      "from": "frontend-delivery:T-066-fe",
+      "kind": "related",
+      "to": "frontend-requirements:T-066-fe",
+      "via": [
+        "E_AUTH_04",
+        "E_ORDER_01",
+        "GET /orders/:id"
+      ]
+    },
+    {
+      "from": "frontend-delivery:T-066-fe",
+      "kind": "related",
+      "to": "frontend-requirements:view-as",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "frontend-delivery:T-066-fe",
+      "kind": "related",
+      "to": "project:frontend-api-guide",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "frontend-delivery:T-066-fe",
+      "kind": "related",
+      "to": "project:frontend-contract",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "frontend-delivery:T-066-fe",
+      "kind": "related",
+      "to": "project:frontend-passwordless-migration",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "frontend-delivery:T-066-fe",
+      "kind": "related",
+      "to": "qa-frontend:pay-for-an-order",
+      "via": [
+        "E_AUTH_04",
+        "E_ORDER_01"
+      ]
+    },
+    {
+      "from": "frontend-delivery:T-066-fe",
+      "kind": "related",
+      "to": "qa-frontend:T-065-fe",
+      "via": [
+        "E_AUTH_04",
+        "E_ORDER_01"
+      ]
+    },
+    {
+      "from": "frontend-delivery:T-066-fe",
+      "kind": "related",
+      "to": "story:auth",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "frontend-delivery:T-066-fe",
+      "kind": "related",
+      "to": "story:event-ring-auto"
+    },
+    {
+      "from": "frontend-delivery:T-066-fe",
+      "kind": "related",
+      "to": "story:T-066"
+    },
+    {
+      "from": "frontend-delivery:T-066-fe",
+      "kind": "related",
+      "to": "task:T-065-be",
+      "via": [
+        "GET /orders/:id"
+      ]
+    },
+    {
+      "from": "frontend-delivery:T-066-fe",
       "kind": "related",
       "to": "task:T-066-be",
       "via": [
@@ -13210,6 +13570,16 @@
     {
       "from": "qa-backend:pay-for-an-order",
       "kind": "related",
+      "to": "frontend-delivery:T-066-fe",
+      "via": [
+        "E_AUTH_04",
+        "E_ORDER_01",
+        "GET /orders/:id"
+      ]
+    },
+    {
+      "from": "qa-backend:pay-for-an-order",
+      "kind": "related",
       "to": "frontend-requirements:account",
       "via": [
         "E_AUTH_04"
@@ -13558,6 +13928,16 @@
     {
       "from": "qa-backend:T-065-be",
       "kind": "related",
+      "to": "frontend-delivery:T-066-fe",
+      "via": [
+        "E_AUTH_04",
+        "E_ORDER_01",
+        "GET /orders/:id"
+      ]
+    },
+    {
+      "from": "qa-backend:T-065-be",
+      "kind": "related",
       "to": "frontend-requirements:account",
       "via": [
         "E_AUTH_04"
@@ -13830,6 +14210,15 @@
       "kind": "related",
       "to": "task:T-066-be",
       "via": [
+        "GET /orders/:id"
+      ]
+    },
+    {
+      "from": "qa-backend:T-066-be",
+      "kind": "related",
+      "to": "frontend-delivery:T-066-fe",
+      "via": [
+        "E_ORDER_01",
         "GET /orders/:id"
       ]
     },
@@ -14941,6 +15330,16 @@
       "via": [
         "GET /orders/:id"
       ]
+    },
+    {
+      "from": "task:T-066-fe",
+      "kind": "related",
+      "to": "backend-integration:T-066-be"
+    },
+    {
+      "from": "task:T-066-fe",
+      "kind": "related",
+      "to": "frontend-delivery:T-066-fe"
     },
     {
       "from": "task:T-066-fe",
@@ -25852,6 +26251,11 @@
     {
       "from": "task:T-066-fe",
       "kind": "tree",
+      "to": "frontend-delivery:T-066-fe"
+    },
+    {
+      "from": "task:T-066-fe",
+      "kind": "tree",
       "to": "frontend-requirements:T-066-fe"
     },
     {
@@ -27498,6 +27902,21 @@
       "from": "frontend-delivery:T-065-fe",
       "kind": "wikilink",
       "to": "task:T-063"
+    },
+    {
+      "from": "frontend-delivery:T-066-fe",
+      "kind": "wikilink",
+      "to": "feature:event-ring-auto"
+    },
+    {
+      "from": "frontend-delivery:T-066-fe",
+      "kind": "wikilink",
+      "to": "feature:pay-for-an-order"
+    },
+    {
+      "from": "frontend-delivery:T-066-fe",
+      "kind": "wikilink",
+      "to": "task:T-035"
     },
     {
       "from": "frontend-requirements:account",
@@ -37391,6 +37810,10 @@
       "name": "T-066-be QA Backend",
       "type": "qa-backend"
     },
+    "tasks/T-066-fe Frontend · Settle an order and confirm it on s52/T-066-fe Frontend Delivery.md": {
+      "name": "T-066-fe Frontend Delivery",
+      "type": "frontend-delivery"
+    },
     "tasks/T-066-fe Frontend · Settle an order and confirm it on s52/T-066-fe Frontend Requirements.md": {
       "name": "T-066-fe Frontend Requirements",
       "type": "frontend-requirements"
@@ -37783,6 +38206,7 @@
         "backend-delivery:T-066-be",
         "backend-integration:T-066-be",
         "qa-backend:T-066-be",
+        "frontend-delivery:T-066-fe",
         "frontend-requirements:T-066-fe",
         "qa-frontend:pay-for-an-order",
         "qa-frontend:T-065-fe",
@@ -37881,6 +38305,7 @@
         "frontend-requirements:T-066-fe",
         "task:T-065-be",
         "frontend-requirements:T-065-fe",
+        "frontend-delivery:T-066-fe",
         "qa-frontend:pay-for-an-order",
         "qa-frontend:T-065-fe",
         "task:T-047",
@@ -38084,6 +38509,7 @@
         "frontend-delivery:T-065-fe",
         "qa-frontend:T-065-fe",
         "backend-integration:T-066-be",
+        "frontend-delivery:T-066-fe",
         "frontend-requirements:T-066-fe"
       ],
       "scope": "feature",
@@ -39300,6 +39726,7 @@
         "frontend-requirements:T-065-fe",
         "backend-integration:T-066-be",
         "qa-backend:T-066-be",
+        "frontend-delivery:T-066-fe",
         "frontend-requirements:T-066-fe",
         "qa-frontend:pay-for-an-order",
         "qa-frontend:T-065-fe",
@@ -40026,6 +40453,7 @@
         "backend-delivery:T-066-be",
         "backend-integration:T-066-be",
         "qa-backend:T-066-be",
+        "frontend-delivery:T-066-fe",
         "frontend-requirements:T-066-fe",
         "qa-frontend:pay-for-an-order",
         "qa-frontend:T-065-fe",
@@ -40104,6 +40532,7 @@
       "pending": [],
       "priority": "high",
       "related": [
+        "task:T-066-fe",
         "backend-delivery:pay-for-an-order",
         "backend-integration:pay-for-an-order",
         "frontend-delivery:pay-for-an-order",
@@ -40120,6 +40549,7 @@
         "frontend-requirements:pay-for-an-order",
         "frontend-requirements:T-065-fe",
         "qa-backend:T-066-be",
+        "frontend-delivery:T-066-fe",
         "qa-frontend:pay-for-an-order",
         "frontend-requirements:payments",
         "frontend-requirements:subscription",
@@ -40291,6 +40721,7 @@
         "frontend-delivery:T-065-fe",
         "qa-frontend:T-065-fe",
         "backend-integration:T-066-be",
+        "frontend-delivery:T-066-fe",
         "frontend-requirements:T-066-fe"
       ],
       "scope": "feature",
@@ -41306,6 +41737,7 @@
         "frontend-requirements:T-065-fe",
         "backend-delivery:T-066-be",
         "qa-backend:T-066-be",
+        "frontend-delivery:T-066-fe",
         "frontend-requirements:T-066-fe",
         "qa-frontend:pay-for-an-order",
         "qa-frontend:T-065-fe",
@@ -44589,10 +45021,10 @@
         "approved": 7,
         "current": 3,
         "decided": 2,
-        "done": 7,
-        "partial": 2,
+        "done": 8,
+        "partial": 3,
         "passing": 4,
-        "todo": 3,
+        "todo": 2,
         "verified": 1
       },
       "scope": null,
@@ -45632,6 +46064,7 @@
         "backend-delivery:T-066-be",
         "backend-integration:T-066-be",
         "qa-backend:T-066-be",
+        "frontend-delivery:T-066-fe",
         "frontend-requirements:T-066-fe",
         "qa-frontend:pay-for-an-order",
         "qa-frontend:T-065-fe",
@@ -45676,6 +46109,100 @@
       ],
       "task": "T-065-fe",
       "title": "T-065-fe Frontend Delivery",
+      "updated": "2026-10-25"
+    },
+    "frontend-delivery:T-066-fe": {
+      "affects": [],
+      "blockedBy": [],
+      "card": "FD-03",
+      "children": [],
+      "code": "T-066-fe",
+      "deadline": null,
+      "depends": [],
+      "effectiveStatus": "done",
+      "effort": null,
+      "feature": "pay-for-an-order",
+      "frontendOnly": false,
+      "id": "frontend-delivery:T-066-fe",
+      "inherits": {
+        "priority": "task:T-066-fe"
+      },
+      "kind": "frontend-delivery",
+      "label": "Frontend Delivery",
+      "labels": [],
+      "layer": "frontend",
+      "module": "payments-gateway",
+      "parentTask": null,
+      "parents": [
+        "task:T-066-fe"
+      ],
+      "path": "tasks/T-066-fe Frontend · Settle an order and confirm it on s52/T-066-fe Frontend Delivery.md",
+      "pending": [],
+      "priority": "high",
+      "related": [
+        "task:T-066-fe",
+        "backend-delivery:pay-for-an-order",
+        "backend-integration:pay-for-an-order",
+        "frontend-delivery:pay-for-an-order",
+        "qa-backend:pay-for-an-order",
+        "backend-delivery:T-065-be",
+        "backend-integration:T-065-be",
+        "qa-backend:T-065-be",
+        "frontend-delivery:T-065-fe",
+        "backend-delivery:T-066-be",
+        "backend-integration:T-066-be",
+        "qa-backend:T-066-be",
+        "frontend-requirements:T-066-fe",
+        "story:T-066",
+        "story:event-ring-auto",
+        "task:T-065-be",
+        "task:T-066-be",
+        "frontend-requirements:pay-for-an-order",
+        "frontend-requirements:T-065-fe",
+        "qa-frontend:pay-for-an-order",
+        "qa-frontend:T-065-fe",
+        "frontend-requirements:payments",
+        "frontend-requirements:subscription",
+        "frontend-requirements:connections",
+        "frontend-requirements:badge-qr",
+        "frontend-requirements:discover-hub",
+        "frontend-requirements:pincast",
+        "frontend-requirements:events-before",
+        "frontend-requirements:post-event",
+        "frontend-requirements:account",
+        "backend-delivery:auth",
+        "backend-integration:auth",
+        "frontend-requirements:auth",
+        "story:auth",
+        "frontend-requirements:view-as",
+        "frontend-requirements:app-shell",
+        "frontend-requirements:devices",
+        "frontend-requirements:error-contract",
+        "frontend-requirements:interests",
+        "frontend-requirements:linked-accounts",
+        "frontend-requirements:notifications",
+        "frontend-requirements:companies",
+        "frontend-requirements:delegated-admins",
+        "frontend-requirements:ring-invitations",
+        "project:frontend-api-guide",
+        "project:frontend-contract",
+        "project:frontend-passwordless-migration"
+      ],
+      "scope": "task",
+      "screens": [
+        "s51",
+        "s52"
+      ],
+      "status": "done",
+      "summary": "Written by the frontend team after shipping: what the client built, so the backend, QA and product know what exists. A feature-level note is the sum of its task-level notes (table at the end).",
+      "tags": [
+        "frontend-delivery",
+        "frontend-delivery/done",
+        "module/payments-gateway",
+        "layer/frontend"
+      ],
+      "task": "T-066-fe",
+      "title": "T-066-fe Frontend Delivery",
       "updated": "2026-10-25"
     },
     "frontend-delivery:account": {
@@ -46822,6 +47349,7 @@
         "backend-delivery:T-066-be",
         "backend-integration:T-066-be",
         "qa-backend:T-066-be",
+        "frontend-delivery:T-066-fe",
         "frontend-requirements:T-066-fe",
         "qa-frontend:pay-for-an-order"
       ],
@@ -47418,6 +47946,7 @@
         "backend-delivery:T-066-be",
         "backend-integration:T-066-be",
         "qa-backend:T-066-be",
+        "frontend-delivery:T-066-fe",
         "frontend-requirements:T-066-fe"
       ],
       "scope": "task",
@@ -47481,6 +48010,7 @@
         "backend-delivery:T-066-be",
         "backend-integration:T-066-be",
         "qa-backend:T-066-be",
+        "frontend-delivery:T-066-fe",
         "story:T-066",
         "story:event-ring-auto",
         "task:T-065-be",
@@ -47575,6 +48105,7 @@
         "frontend-delivery:T-065-fe",
         "qa-frontend:T-065-fe",
         "backend-integration:T-066-be",
+        "frontend-delivery:T-066-fe",
         "frontend-requirements:T-066-fe"
       ],
       "scope": "feature",
@@ -47636,6 +48167,7 @@
         "frontend-delivery:T-065-fe",
         "qa-frontend:T-065-fe",
         "backend-integration:T-066-be",
+        "frontend-delivery:T-066-fe",
         "frontend-requirements:T-066-fe"
       ],
       "scope": "feature",
@@ -47749,6 +48281,7 @@
         "frontend-delivery:T-065-fe",
         "qa-frontend:T-065-fe",
         "backend-integration:T-066-be",
+        "frontend-delivery:T-066-fe",
         "frontend-requirements:T-066-fe"
       ],
       "scope": "feature",
@@ -47814,6 +48347,7 @@
         "frontend-delivery:T-065-fe",
         "qa-frontend:T-065-fe",
         "backend-integration:T-066-be",
+        "frontend-delivery:T-066-fe",
         "frontend-requirements:T-066-fe"
       ],
       "scope": "feature",
@@ -47978,6 +48512,7 @@
         "frontend-delivery:T-065-fe",
         "qa-frontend:T-065-fe",
         "backend-integration:T-066-be",
+        "frontend-delivery:T-066-fe",
         "frontend-requirements:T-066-fe"
       ],
       "scope": "feature",
@@ -48040,6 +48575,7 @@
         "frontend-delivery:T-065-fe",
         "qa-frontend:T-065-fe",
         "backend-integration:T-066-be",
+        "frontend-delivery:T-066-fe",
         "frontend-requirements:T-066-fe"
       ],
       "scope": "feature",
@@ -48161,6 +48697,7 @@
         "frontend-delivery:T-065-fe",
         "qa-frontend:T-065-fe",
         "backend-integration:T-066-be",
+        "frontend-delivery:T-066-fe",
         "frontend-requirements:T-066-fe"
       ],
       "scope": "feature",
@@ -48223,6 +48760,7 @@
         "frontend-delivery:T-065-fe",
         "qa-frontend:T-065-fe",
         "backend-integration:T-066-be",
+        "frontend-delivery:T-066-fe",
         "frontend-requirements:T-066-fe"
       ],
       "scope": "feature",
@@ -48284,6 +48822,7 @@
         "frontend-delivery:T-065-fe",
         "qa-frontend:T-065-fe",
         "backend-integration:T-066-be",
+        "frontend-delivery:T-066-fe",
         "frontend-requirements:T-066-fe"
       ],
       "scope": "feature",
@@ -48394,6 +48933,7 @@
         "frontend-delivery:T-065-fe",
         "qa-frontend:T-065-fe",
         "backend-integration:T-066-be",
+        "frontend-delivery:T-066-fe",
         "frontend-requirements:T-066-fe"
       ],
       "scope": "feature",
@@ -48504,6 +49044,7 @@
         "frontend-delivery:T-065-fe",
         "qa-frontend:T-065-fe",
         "backend-integration:T-066-be",
+        "frontend-delivery:T-066-fe",
         "frontend-requirements:T-066-fe"
       ],
       "scope": "feature",
@@ -48783,6 +49324,7 @@
         "frontend-delivery:T-065-fe",
         "qa-frontend:T-065-fe",
         "backend-integration:T-066-be",
+        "frontend-delivery:T-066-fe",
         "frontend-requirements:T-066-fe"
       ],
       "scope": "feature",
@@ -48845,6 +49387,7 @@
         "frontend-delivery:T-065-fe",
         "qa-frontend:T-065-fe",
         "backend-integration:T-066-be",
+        "frontend-delivery:T-066-fe",
         "frontend-requirements:T-066-fe"
       ],
       "scope": "feature",
@@ -48963,6 +49506,7 @@
         "frontend-delivery:T-065-fe",
         "qa-frontend:T-065-fe",
         "backend-integration:T-066-be",
+        "frontend-delivery:T-066-fe",
         "frontend-requirements:T-066-fe"
       ],
       "scope": "feature",
@@ -49085,6 +49629,7 @@
         "backend-delivery:T-066-be",
         "backend-integration:T-066-be",
         "qa-backend:T-066-be",
+        "frontend-delivery:T-066-fe",
         "frontend-requirements:T-066-fe"
       ],
       "scope": "feature",
@@ -49147,6 +49692,7 @@
         "frontend-delivery:T-065-fe",
         "qa-frontend:T-065-fe",
         "backend-integration:T-066-be",
+        "frontend-delivery:T-066-fe",
         "frontend-requirements:T-066-fe"
       ],
       "scope": "feature",
@@ -49261,6 +49807,7 @@
         "frontend-delivery:T-065-fe",
         "qa-frontend:T-065-fe",
         "backend-integration:T-066-be",
+        "frontend-delivery:T-066-fe",
         "frontend-requirements:T-066-fe"
       ],
       "scope": "feature",
@@ -49326,6 +49873,7 @@
         "frontend-delivery:T-065-fe",
         "qa-frontend:T-065-fe",
         "backend-integration:T-066-be",
+        "frontend-delivery:T-066-fe",
         "frontend-requirements:T-066-fe"
       ],
       "scope": "feature",
@@ -49487,6 +50035,7 @@
         "frontend-delivery:T-065-fe",
         "qa-frontend:T-065-fe",
         "backend-integration:T-066-be",
+        "frontend-delivery:T-066-fe",
         "frontend-requirements:T-066-fe"
       ],
       "scope": "feature",
@@ -49719,6 +50268,7 @@
         "frontend-delivery:T-065-fe",
         "qa-frontend:T-065-fe",
         "backend-integration:T-066-be",
+        "frontend-delivery:T-066-fe",
         "frontend-requirements:T-066-fe"
       ],
       "scope": "feature",
@@ -49781,6 +50331,7 @@
         "frontend-delivery:T-065-fe",
         "qa-frontend:T-065-fe",
         "backend-integration:T-066-be",
+        "frontend-delivery:T-066-fe",
         "frontend-requirements:T-066-fe"
       ],
       "scope": "feature",
@@ -50401,11 +50952,11 @@
         "approved": 7,
         "current": 3,
         "decided": 2,
-        "done": 7,
+        "done": 8,
         "in-progress": 1,
-        "partial": 2,
+        "partial": 3,
         "passing": 4,
-        "todo": 3,
+        "todo": 2,
         "verified": 1
       },
       "scope": null,
@@ -51314,6 +51865,7 @@
         "frontend-delivery:T-065-fe",
         "qa-frontend:T-065-fe",
         "backend-integration:T-066-be",
+        "frontend-delivery:T-066-fe",
         "frontend-requirements:T-066-fe",
         "project:frontend-agent-prompt",
         "project:backend-agent",
@@ -51368,6 +51920,7 @@
         "frontend-requirements:T-065-fe",
         "qa-frontend:T-065-fe",
         "backend-integration:T-066-be",
+        "frontend-delivery:T-066-fe",
         "frontend-requirements:T-066-fe",
         "project:frontend-agent-prompt",
         "project:frontend-agent"
@@ -51418,6 +51971,7 @@
         "frontend-delivery:T-065-fe",
         "qa-frontend:T-065-fe",
         "backend-integration:T-066-be",
+        "frontend-delivery:T-066-fe",
         "frontend-requirements:T-066-fe"
       ],
       "scope": null,
@@ -51949,6 +52503,7 @@
         "backend-delivery:T-066-be",
         "backend-integration:T-066-be",
         "qa-backend:T-066-be",
+        "frontend-delivery:T-066-fe",
         "frontend-requirements:T-066-fe",
         "qa-frontend:pay-for-an-order",
         "qa-frontend:T-065-fe",
@@ -52043,6 +52598,7 @@
         "frontend-requirements:pay-for-an-order",
         "task:T-065-be",
         "frontend-requirements:T-065-fe",
+        "frontend-delivery:T-066-fe",
         "qa-frontend:pay-for-an-order"
       ],
       "scope": "task",
@@ -53163,6 +53719,7 @@
         "frontend-requirements:T-065-fe",
         "backend-delivery:T-066-be",
         "backend-integration:T-066-be",
+        "frontend-delivery:T-066-fe",
         "frontend-requirements:T-066-fe",
         "qa-frontend:pay-for-an-order",
         "qa-frontend:T-065-fe",
@@ -53804,7 +54361,8 @@
         "project:frontend-api-guide",
         "project:frontend-contract",
         "project:frontend-passwordless-migration",
-        "backend-delivery:T-066-be"
+        "backend-delivery:T-066-be",
+        "frontend-delivery:T-066-fe"
       ],
       "scope": "task",
       "screens": [
@@ -54989,6 +55547,7 @@
         "backend-delivery:T-066-be",
         "backend-integration:T-066-be",
         "qa-backend:T-066-be",
+        "frontend-delivery:T-066-fe",
         "frontend-requirements:T-066-fe"
       ],
       "scope": "feature",
@@ -55612,15 +56171,15 @@
         "blocked": 178,
         "current": 12,
         "decided": 4,
-        "done": 19,
+        "done": 20,
         "draft": 103,
         "in-progress": 16,
         "missing": 145,
         "needs-decision": 20,
-        "partial": 2,
+        "partial": 3,
         "passing": 4,
         "reference": 31,
-        "todo": 84,
+        "todo": 83,
         "verified": 1
       },
       "scope": null,
@@ -58640,6 +59199,7 @@
         "story:event-ring-auto",
         "decision-record:DR-09",
         "qa-backend:T-066-be",
+        "frontend-delivery:T-066-fe",
         "frontend-requirements:T-066-fe"
       ],
       "scope": "task",
@@ -58836,6 +59396,7 @@
         "frontend-delivery:T-065-fe",
         "qa-frontend:T-065-fe",
         "backend-integration:T-066-be",
+        "frontend-delivery:T-066-fe",
         "frontend-requirements:T-066-fe"
       ],
       "scope": "feature",
@@ -59428,6 +59989,7 @@
       "priority": "critical",
       "related": [
         "story:T-066",
+        "frontend-delivery:T-066-fe",
         "frontend-requirements:T-066-fe"
       ],
       "scope": "feature",
@@ -71136,6 +71698,7 @@
         "backend-delivery:T-066-be",
         "backend-integration:T-066-be",
         "qa-backend:T-066-be",
+        "frontend-delivery:T-066-fe",
         "frontend-requirements:T-066-fe"
       ],
       "rollup": {
@@ -71271,9 +71834,9 @@
       "rollup": {
         "approved": 2,
         "current": 1,
-        "done": 2,
-        "passing": 1,
-        "todo": 1
+        "done": 3,
+        "partial": 1,
+        "passing": 1
       },
       "scope": null,
       "screens": [
@@ -71340,7 +71903,8 @@
         "qa-backend:T-065-be",
         "frontend-delivery:T-065-fe",
         "backend-integration:T-066-be",
-        "qa-backend:T-066-be"
+        "qa-backend:T-066-be",
+        "frontend-delivery:T-066-fe"
       ],
       "rollup": {
         "current": 1,
@@ -71370,7 +71934,8 @@
       "blockedBy": [],
       "card": "T-066-fe",
       "children": [
-        "frontend-requirements:T-066-fe"
+        "frontend-requirements:T-066-fe",
+        "frontend-delivery:T-066-fe"
       ],
       "code": "T-066-fe",
       "deadline": null,
@@ -71379,7 +71944,7 @@
         "task:T-066-be"
       ],
       "dir": "tasks/T-066-fe Frontend · Settle an order and confirm it on s52",
-      "effectiveStatus": "todo",
+      "effectiveStatus": "partial",
       "effort": "M",
       "feature": "pay-for-an-order",
       "frontendOnly": false,
@@ -71397,24 +71962,33 @@
         "task:T-066"
       ],
       "path": "tasks/T-066-fe Frontend · Settle an order and confirm it on s52/T-066-fe Frontend · Settle an order and confirm it on s52.md",
-      "pending": [],
+      "pending": [
+        {
+          "person": "qa",
+          "text": "QA Frontend run on t066-fe-sim-2026-10-25 (T-066-fe QA Frontend not written yet)",
+          "to": null
+        }
+      ],
       "priority": "high",
       "related": [
-        "frontend-requirements:T-066-fe"
+        "frontend-requirements:T-066-fe",
+        "frontend-delivery:T-066-fe",
+        "backend-integration:T-066-be"
       ],
       "rollup": {
-        "approved": 1
+        "approved": 1,
+        "done": 1
       },
       "scope": null,
       "screens": [
         "s51",
         "s52"
       ],
-      "status": "todo",
+      "status": "done",
       "summary": "The client side of T-066 Settle an order and confirm it on s52: the screens below show what its What describes, built against Pay for an order Backend Integration once the backend half (T-066-be…",
       "tags": [
         "task",
-        "task/todo",
+        "task/done",
         "module/payments-gateway",
         "priority/high",
         "frontend"
