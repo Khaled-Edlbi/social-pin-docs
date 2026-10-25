@@ -20,7 +20,7 @@ tags: [frontend-requirements, frontend-requirements/approved, module/payments-ga
 
 # Pay for an order · Frontend Requirements
 
-**Feature:** [[Pay for an order]] · **Status:** Approved 2026-10-25 · **Story:** [[Pay for an order Story]] (approved) · **Backend Integration:** [[Pay for an order Backend Integration]] (not written yet)
+**Feature:** [[Pay for an order]] · **Status:** Approved 2026-10-25 · **Story:** [[Pay for an order Story]] (approved) · **Backend Integration:** [[Pay for an order Backend Integration]] (draft, s51 usable, simulated)
 
 Written by the **frontend** team, read by the backend: what the client needs to build [[Pay for an order Story]], and whether each need is met today. This note is the sum of the task-level requirements below; nothing is met today, no payment endpoint exists. `status: approved` once the backend accepts the list; `delivered` once every row is ✅.
 
@@ -37,7 +37,7 @@ Written by the **frontend** team, read by the backend: what the client needs to 
 
 - Needs: the order from the server (lines, currency, total, state, hold end, failure reason); one call that opens or reuses the Stripe card checkout for it ([[DR-08 Stripe card checkout only]]); the state again on return. Details: [[T-065-fe Frontend Requirements]].
 - States: unpaid, pending, failed with the time left on the 30-minute hold ([[DR-09 30-minute hold tied to the Stripe checkout]]), hold ended, paid.
-- Source today: not yet ([[T-065 Open a Stripe checkout for an order]]).
+- Source today: `GET /orders/:id`, `POST /orders/:id/checkout` (simulated, [[T-065-be Backend Integration]]).
 
 ### [[Screen Index#s52|s52]] Event Ring granted
 
@@ -50,8 +50,8 @@ Endpoint names are the backend's to choose; each row is the need.
 
 | Need | Endpoint | Available | Task / decision |
 |---|---|---|---|
-| Read one of my orders: lines, currency, total, state, hold end, failure reason | — | ❌ | [[T-065 Open a Stripe checkout for an order]] |
-| Open or reuse the Stripe checkout for an unpaid order of mine | — | ❌ | [[T-065 Open a Stripe checkout for an order]] |
+| Read one of my orders: lines, currency, total, state, hold end, failure reason | `GET /orders/:id` | ✅ (simulated) | [[T-065 Open a Stripe checkout for an order]] |
+| Open or reuse the Stripe checkout for an unpaid order of mine | `POST /orders/:id/checkout` | ✅ (simulated) | [[T-065 Open a Stripe checkout for an order]] |
 | Settle the order from Stripe's webhook (server to server, idempotent on `providerReference`) | — | ❌ | no task yet ([[T-047 Orders, payments and the provider webhook]] holds it today) |
 | On `paid`: registration complete and the Event Ring id | — | ❌ | no task yet; [[T-035 Registration transaction with order and payment]], [[T-011 Create the Event Ring on registration]] |
 | Audit of every payment action | — | ❌ | [[T-065 Open a Stripe checkout for an order]] (checkout opened), [[T-053 Audit log writes]] |

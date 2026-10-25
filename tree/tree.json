@@ -1828,6 +1828,7 @@
         "backend-integration:T-065-be",
         "backend-integration:pay-for-an-order",
         "frontend-requirements:T-065-fe",
+        "frontend-requirements:pay-for-an-order",
         "task:T-065-be"
       ],
       "owner": null
@@ -2713,6 +2714,7 @@
         "backend-integration:T-065-be",
         "backend-integration:pay-for-an-order",
         "frontend-requirements:T-065-fe",
+        "frontend-requirements:pay-for-an-order",
         "task:T-065-be"
       ],
       "owner": null
@@ -8783,6 +8785,15 @@
     {
       "from": "backend-delivery:pay-for-an-order",
       "kind": "related",
+      "to": "frontend-requirements:pay-for-an-order",
+      "via": [
+        "GET /orders/:id",
+        "POST /orders/:id/checkout"
+      ]
+    },
+    {
+      "from": "backend-delivery:pay-for-an-order",
+      "kind": "related",
       "to": "frontend-requirements:T-065-fe",
       "via": [
         "GET /orders/:id",
@@ -8965,7 +8976,9 @@
       "kind": "related",
       "to": "frontend-requirements:pay-for-an-order",
       "via": [
-        "E_AUTH_04"
+        "E_AUTH_04",
+        "GET /orders/:id",
+        "POST /orders/:id/checkout"
       ]
     },
     {
@@ -9225,7 +9238,9 @@
       "kind": "related",
       "to": "frontend-requirements:pay-for-an-order",
       "via": [
-        "E_AUTH_04"
+        "E_AUTH_04",
+        "GET /orders/:id",
+        "POST /orders/:id/checkout"
       ]
     },
     {
@@ -9465,7 +9480,9 @@
       "kind": "related",
       "to": "frontend-requirements:pay-for-an-order",
       "via": [
-        "E_AUTH_04"
+        "E_AUTH_04",
+        "GET /orders/:id",
+        "POST /orders/:id/checkout"
       ]
     },
     {
@@ -22898,11 +22915,6 @@
     {
       "from": "backend-delivery:pay-for-an-order",
       "kind": "wikilink",
-      "to": "frontend-requirements:pay-for-an-order"
-    },
-    {
-      "from": "backend-delivery:pay-for-an-order",
-      "kind": "wikilink",
       "to": "task:T-035"
     },
     {
@@ -34127,6 +34139,7 @@
         "task:T-065-be",
         "backend-delivery:pay-for-an-order",
         "backend-integration:pay-for-an-order",
+        "frontend-requirements:pay-for-an-order",
         "backend-integration:T-065-be",
         "frontend-requirements:T-065-fe",
         "frontend-requirements:payments",
@@ -34143,7 +34156,6 @@
         "frontend-requirements:auth",
         "story:auth",
         "frontend-requirements:view-as",
-        "frontend-requirements:pay-for-an-order",
         "frontend-requirements:app-shell",
         "frontend-requirements:devices",
         "frontend-requirements:error-contract",
@@ -35555,6 +35567,7 @@
         "backend-delivery:T-065-be",
         "task:T-065-be",
         "backend-integration:pay-for-an-order",
+        "frontend-requirements:pay-for-an-order",
         "backend-integration:T-065-be",
         "frontend-requirements:T-065-fe",
         "decision-record:DR-08",
@@ -36270,6 +36283,7 @@
         "backend-delivery:T-065-be",
         "frontend-requirements:T-065-fe",
         "task:T-065-be",
+        "frontend-requirements:pay-for-an-order",
         "frontend-requirements:payments",
         "frontend-requirements:subscription",
         "frontend-requirements:connections",
@@ -36284,7 +36298,6 @@
         "frontend-requirements:auth",
         "story:auth",
         "frontend-requirements:view-as",
-        "frontend-requirements:pay-for-an-order",
         "frontend-requirements:app-shell",
         "frontend-requirements:devices",
         "frontend-requirements:error-contract",
@@ -44886,6 +44899,7 @@
       "pending": [],
       "priority": "high",
       "related": [
+        "backend-delivery:pay-for-an-order",
         "backend-integration:pay-for-an-order",
         "story:pay-for-an-order",
         "frontend-requirements:T-065-fe",
