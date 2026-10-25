@@ -192,6 +192,7 @@
     "qa-backend:T-066-be": "QB-03",
     "qa-backend:pay-for-an-order": "QB-02",
     "qa-frontend:T-065-fe": "QF-01",
+    "qa-frontend:T-066-fe": "QF-03",
     "qa-frontend:pay-for-an-order": "QF-02",
     "story:T-001": "S-79",
     "story:T-002": "S-80",
