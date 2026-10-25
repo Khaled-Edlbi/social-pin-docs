@@ -504,6 +504,7 @@
     "T-066-be Backend Delivery": "backend-delivery:T-066-be",
     "T-066-be Backend Integration": "backend-integration:T-066-be",
     "T-066-be Backend · Settle an order and confirm it on s52": "task:T-066-be",
+    "T-066-be QA Backend": "qa-backend:T-066-be",
     "T-066-fe Frontend Requirements": "frontend-requirements:T-066-fe",
     "T-066-fe Frontend · Settle an order and confirm it on s52": "task:T-066-fe",
     "View As & Pin Views": "feature:view-as",
@@ -722,6 +723,7 @@
     "P-27": "project:admin-agent",
     "QB-01": "qa-backend:T-065-be",
     "QB-02": "qa-backend:pay-for-an-order",
+    "QB-03": "qa-backend:T-066-be",
     "QF-01": "qa-frontend:T-065-fe",
     "QF-02": "qa-frontend:pay-for-an-order",
     "S-01": "story:account",
@@ -1379,6 +1381,7 @@
         "backend-integration:pay-for-an-order",
         "frontend-requirements:T-066-fe",
         "qa-backend:T-065-be",
+        "qa-backend:T-066-be",
         "qa-backend:pay-for-an-order",
         "qa-frontend:T-065-fe",
         "qa-frontend:pay-for-an-order"
@@ -1452,7 +1455,8 @@
         "backend-delivery:T-066-be",
         "backend-delivery:pay-for-an-order",
         "backend-integration:T-066-be",
-        "backend-integration:pay-for-an-order"
+        "backend-integration:pay-for-an-order",
+        "qa-backend:T-066-be"
       ],
       "owner": null
     },
@@ -1909,6 +1913,7 @@
         "frontend-requirements:T-066-fe",
         "frontend-requirements:pay-for-an-order",
         "qa-backend:T-065-be",
+        "qa-backend:T-066-be",
         "qa-backend:pay-for-an-order",
         "task:T-065-be",
         "task:T-066-be"
@@ -2788,7 +2793,8 @@
       "containers": [
         "feature:pay-for-an-order",
         "task:T-065-be",
-        "task:T-065-fe"
+        "task:T-065-fe",
+        "task:T-066-be"
       ],
       "kind": "endpoint",
       "notes": [
@@ -2800,6 +2806,7 @@
         "frontend-requirements:T-065-fe",
         "frontend-requirements:pay-for-an-order",
         "qa-backend:T-065-be",
+        "qa-backend:T-066-be",
         "qa-backend:pay-for-an-order",
         "task:T-065-be"
       ],
@@ -2818,6 +2825,7 @@
         "backend-integration:pay-for-an-order",
         "frontend-requirements:T-066-fe",
         "frontend-requirements:pay-for-an-order",
+        "qa-backend:T-066-be",
         "task:T-066-be"
       ],
       "owner": null
@@ -4301,6 +4309,7 @@
         "frontend-requirements:pay-for-an-order",
         "frontend-requirements:payments",
         "qa-backend:T-065-be",
+        "qa-backend:T-066-be",
         "qa-backend:pay-for-an-order",
         "qa-frontend:T-065-fe",
         "qa-frontend:pay-for-an-order",
@@ -4354,6 +4363,7 @@
         "frontend-requirements:event-ring-auto",
         "frontend-requirements:events-before",
         "frontend-requirements:pay-for-an-order",
+        "qa-backend:T-066-be",
         "qa-backend:pay-for-an-order",
         "qa-frontend:pay-for-an-order",
         "story:T-011",
@@ -4951,7 +4961,7 @@
       "frontend-requirements": 42,
       "module": 9,
       "project": 27,
-      "qa-backend": 2,
+      "qa-backend": 3,
       "qa-frontend": 2,
       "story": 106,
       "task": 181
@@ -4960,20 +4970,20 @@
       "backend": 62,
       "business": 345,
       "frontend": 48,
-      "qa": 4,
+      "qa": 5,
       "shared": 10
     },
     "concepts": 185,
     "decisions": 9,
-    "edges": 5048,
+    "edges": 5072,
     "features": 40,
-    "layerNotes": 208,
+    "layerNotes": 209,
     "modules": 9,
-    "notes": 505,
+    "notes": 506,
     "partial": 4,
     "placeholders": 145,
     "records": 4,
-    "taskLayerNotes": 75,
+    "taskLayerNotes": 76,
     "tasks": 181
   },
   "deadlines": {
@@ -5030,7 +5040,9 @@
   ],
   "diagnostics": {
     "errors": [],
-    "warnings": []
+    "warnings": [
+      "modules/Payments Gateway/Pay for an order/Pay for an order QA Backend.md: does not link [[T-066-be QA Backend]], a done task-level note: a feature note is the sum of its tasks"
+    ]
   },
   "edges": [
     {
@@ -5227,6 +5239,11 @@
       "from": "qa-backend:T-065-be",
       "kind": "affects",
       "to": "task:T-065-be"
+    },
+    {
+      "from": "qa-backend:T-066-be",
+      "kind": "affects",
+      "to": "task:T-066-be"
     },
     {
       "from": "qa-frontend:T-065-fe",
@@ -8514,6 +8531,11 @@
       "to": "backend-integration:T-066-be"
     },
     {
+      "from": "backend-delivery:T-066-be",
+      "kind": "flow",
+      "to": "qa-backend:T-066-be"
+    },
+    {
       "from": "backend-delivery:view-as",
       "kind": "flow",
       "to": "backend-integration:view-as"
@@ -9103,6 +9125,18 @@
     {
       "from": "backend-delivery:pay-for-an-order",
       "kind": "related",
+      "to": "qa-backend:T-066-be",
+      "via": [
+        "E_ORDER_01",
+        "E_PAY_02",
+        "GET /orders/:id",
+        "POST /orders/:id/checkout",
+        "POST /payments/stripe/webhook"
+      ]
+    },
+    {
+      "from": "backend-delivery:pay-for-an-order",
+      "kind": "related",
       "to": "qa-frontend:pay-for-an-order",
       "via": [
         "E_ORDER_01",
@@ -9453,6 +9487,16 @@
     {
       "from": "backend-delivery:T-065-be",
       "kind": "related",
+      "to": "qa-backend:T-066-be",
+      "via": [
+        "E_ORDER_01",
+        "GET /orders/:id",
+        "POST /orders/:id/checkout"
+      ]
+    },
+    {
+      "from": "backend-delivery:T-065-be",
+      "kind": "related",
       "to": "qa-frontend:pay-for-an-order",
       "via": [
         "E_AUTH_04",
@@ -9539,6 +9583,17 @@
       "to": "frontend-requirements:T-066-fe",
       "via": [
         "E_ORDER_01",
+        "GET /orders/:id",
+        "POST /payments/stripe/webhook"
+      ]
+    },
+    {
+      "from": "backend-delivery:T-066-be",
+      "kind": "related",
+      "to": "qa-backend:T-066-be",
+      "via": [
+        "E_ORDER_01",
+        "E_PAY_02",
         "GET /orders/:id",
         "POST /payments/stripe/webhook"
       ]
@@ -9916,6 +9971,18 @@
     {
       "from": "backend-integration:pay-for-an-order",
       "kind": "related",
+      "to": "qa-backend:T-066-be",
+      "via": [
+        "E_ORDER_01",
+        "E_PAY_02",
+        "GET /orders/:id",
+        "POST /orders/:id/checkout",
+        "POST /payments/stripe/webhook"
+      ]
+    },
+    {
+      "from": "backend-integration:pay-for-an-order",
+      "kind": "related",
       "to": "qa-frontend:pay-for-an-order",
       "via": [
         "E_AUTH_04",
@@ -10248,6 +10315,16 @@
     {
       "from": "backend-integration:T-065-be",
       "kind": "related",
+      "to": "qa-backend:T-066-be",
+      "via": [
+        "E_ORDER_01",
+        "GET /orders/:id",
+        "POST /orders/:id/checkout"
+      ]
+    },
+    {
+      "from": "backend-integration:T-065-be",
+      "kind": "related",
       "to": "qa-frontend:pay-for-an-order",
       "via": [
         "E_AUTH_04",
@@ -10527,6 +10604,17 @@
       "to": "project:frontend-passwordless-migration",
       "via": [
         "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "backend-integration:T-066-be",
+      "kind": "related",
+      "to": "qa-backend:T-066-be",
+      "via": [
+        "E_ORDER_01",
+        "E_PAY_02",
+        "GET /orders/:id",
+        "POST /payments/stripe/webhook"
       ]
     },
     {
@@ -12174,6 +12262,15 @@
     {
       "from": "frontend-delivery:pay-for-an-order",
       "kind": "related",
+      "to": "qa-backend:T-066-be",
+      "via": [
+        "GET /orders/:id",
+        "POST /orders/:id/checkout"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pay-for-an-order",
+      "kind": "related",
       "to": "story:pay-for-an-order"
     },
     {
@@ -12439,6 +12536,16 @@
       "to": "project:frontend-passwordless-migration",
       "via": [
         "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "frontend-delivery:T-065-fe",
+      "kind": "related",
+      "to": "qa-backend:T-066-be",
+      "via": [
+        "E_ORDER_01",
+        "GET /orders/:id",
+        "POST /orders/:id/checkout"
       ]
     },
     {
@@ -13331,6 +13438,17 @@
     {
       "from": "qa-backend:pay-for-an-order",
       "kind": "related",
+      "to": "qa-backend:T-066-be",
+      "via": [
+        "E_ORDER_01",
+        "GET /orders/:id",
+        "POST /orders/:id/checkout",
+        "sum-of"
+      ]
+    },
+    {
+      "from": "qa-backend:pay-for-an-order",
+      "kind": "related",
       "to": "qa-frontend:pay-for-an-order",
       "via": [
         "E_AUTH_04",
@@ -13648,6 +13766,16 @@
     {
       "from": "qa-backend:T-065-be",
       "kind": "related",
+      "to": "qa-backend:T-066-be",
+      "via": [
+        "E_ORDER_01",
+        "GET /orders/:id",
+        "POST /orders/:id/checkout"
+      ]
+    },
+    {
+      "from": "qa-backend:T-065-be",
+      "kind": "related",
       "to": "qa-frontend:pay-for-an-order",
       "via": [
         "E_AUTH_04",
@@ -13697,6 +13825,63 @@
       "to": "task:T-066-be",
       "via": [
         "GET /orders/:id"
+      ]
+    },
+    {
+      "from": "qa-backend:T-066-be",
+      "kind": "related",
+      "to": "frontend-requirements:pay-for-an-order",
+      "via": [
+        "GET /orders/:id",
+        "POST /payments/stripe/webhook"
+      ]
+    },
+    {
+      "from": "qa-backend:T-066-be",
+      "kind": "related",
+      "to": "frontend-requirements:T-065-fe",
+      "via": [
+        "GET /orders/:id"
+      ]
+    },
+    {
+      "from": "qa-backend:T-066-be",
+      "kind": "related",
+      "to": "frontend-requirements:T-066-fe",
+      "via": [
+        "E_ORDER_01",
+        "GET /orders/:id",
+        "POST /payments/stripe/webhook"
+      ]
+    },
+    {
+      "from": "qa-backend:T-066-be",
+      "kind": "related",
+      "to": "qa-frontend:pay-for-an-order",
+      "via": [
+        "E_ORDER_01"
+      ]
+    },
+    {
+      "from": "qa-backend:T-066-be",
+      "kind": "related",
+      "to": "story:T-066"
+    },
+    {
+      "from": "qa-backend:T-066-be",
+      "kind": "related",
+      "to": "task:T-065-be",
+      "via": [
+        "GET /orders/:id"
+      ]
+    },
+    {
+      "from": "qa-backend:T-066-be",
+      "kind": "related",
+      "to": "task:T-066-be",
+      "via": [
+        "GET /orders/:id",
+        "POST /payments/stripe/webhook"
       ]
     },
     {
@@ -13959,6 +14144,14 @@
       "to": "project:frontend-passwordless-migration",
       "via": [
         "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "qa-frontend:T-065-fe",
+      "kind": "related",
+      "to": "qa-backend:T-066-be",
+      "via": [
+        "E_ORDER_01"
       ]
     },
     {
@@ -20439,6 +20632,7 @@
         "E_ORDER_01",
         "E_PAY_02",
         "GET /orders/:id",
+        "POST /orders/:id/checkout",
         "POST /payments/stripe/webhook"
       ]
     },
@@ -25643,6 +25837,11 @@
       "from": "task:T-066-be",
       "kind": "tree",
       "to": "backend-integration:T-066-be"
+    },
+    {
+      "from": "task:T-066-be",
+      "kind": "tree",
+      "to": "qa-backend:T-066-be"
     },
     {
       "from": "task:T-066-fe",
@@ -31303,6 +31502,21 @@
       "from": "qa-backend:T-065-be",
       "kind": "wikilink",
       "to": "task:T-063"
+    },
+    {
+      "from": "qa-backend:T-066-be",
+      "kind": "wikilink",
+      "to": "feature:event-ring-auto"
+    },
+    {
+      "from": "qa-backend:T-066-be",
+      "kind": "wikilink",
+      "to": "feature:pay-for-an-order"
+    },
+    {
+      "from": "qa-backend:T-066-be",
+      "kind": "wikilink",
+      "to": "task:T-035"
     },
     {
       "from": "qa-frontend:pay-for-an-order",
@@ -37157,6 +37371,10 @@
       "name": "T-066-be Backend · Settle an order and confirm it on s52",
       "type": "task"
     },
+    "tasks/T-066-be Backend · Settle an order and confirm it on s52/T-066-be QA Backend.md": {
+      "name": "T-066-be QA Backend",
+      "type": "qa-backend"
+    },
     "tasks/T-066-fe Frontend · Settle an order and confirm it on s52/T-066-fe Frontend Requirements.md": {
       "name": "T-066-fe Frontend Requirements",
       "type": "frontend-requirements"
@@ -37548,6 +37766,7 @@
         "frontend-requirements:T-065-fe",
         "backend-delivery:T-066-be",
         "backend-integration:T-066-be",
+        "qa-backend:T-066-be",
         "frontend-requirements:T-066-fe",
         "qa-frontend:pay-for-an-order",
         "qa-frontend:T-065-fe",
@@ -37642,6 +37861,7 @@
         "frontend-delivery:T-065-fe",
         "frontend-requirements:pay-for-an-order",
         "backend-integration:T-066-be",
+        "qa-backend:T-066-be",
         "frontend-requirements:T-066-fe",
         "task:T-065-be",
         "frontend-requirements:T-065-fe",
@@ -39063,6 +39283,7 @@
         "frontend-delivery:T-065-fe",
         "frontend-requirements:T-065-fe",
         "backend-integration:T-066-be",
+        "qa-backend:T-066-be",
         "frontend-requirements:T-066-fe",
         "qa-frontend:pay-for-an-order",
         "qa-frontend:T-065-fe",
@@ -39788,6 +40009,7 @@
         "frontend-delivery:T-065-fe",
         "backend-delivery:T-066-be",
         "backend-integration:T-066-be",
+        "qa-backend:T-066-be",
         "frontend-requirements:T-066-fe",
         "qa-frontend:pay-for-an-order",
         "qa-frontend:T-065-fe",
@@ -39881,6 +40103,7 @@
         "task:T-066-be",
         "frontend-requirements:pay-for-an-order",
         "frontend-requirements:T-065-fe",
+        "qa-backend:T-066-be",
         "qa-frontend:pay-for-an-order",
         "frontend-requirements:payments",
         "frontend-requirements:subscription",
@@ -41066,6 +41289,7 @@
         "frontend-delivery:T-065-fe",
         "frontend-requirements:T-065-fe",
         "backend-delivery:T-066-be",
+        "qa-backend:T-066-be",
         "frontend-requirements:T-066-fe",
         "qa-frontend:pay-for-an-order",
         "qa-frontend:T-065-fe",
@@ -44352,7 +44576,7 @@
         "decided": 2,
         "done": 6,
         "partial": 4,
-        "passing": 2,
+        "passing": 3,
         "todo": 2,
         "verified": 1
       },
@@ -45392,6 +45616,7 @@
         "frontend-requirements:pay-for-an-order",
         "backend-delivery:T-066-be",
         "backend-integration:T-066-be",
+        "qa-backend:T-066-be",
         "frontend-requirements:T-066-fe",
         "qa-frontend:pay-for-an-order",
         "qa-frontend:T-065-fe",
@@ -46581,6 +46806,7 @@
         "frontend-requirements:T-065-fe",
         "backend-delivery:T-066-be",
         "backend-integration:T-066-be",
+        "qa-backend:T-066-be",
         "frontend-requirements:T-066-fe",
         "qa-frontend:pay-for-an-order"
       ],
@@ -47176,6 +47402,7 @@
         "qa-frontend:T-065-fe",
         "backend-delivery:T-066-be",
         "backend-integration:T-066-be",
+        "qa-backend:T-066-be",
         "frontend-requirements:T-066-fe"
       ],
       "scope": "task",
@@ -47238,6 +47465,7 @@
         "qa-frontend:T-065-fe",
         "backend-delivery:T-066-be",
         "backend-integration:T-066-be",
+        "qa-backend:T-066-be",
         "story:T-066",
         "story:event-ring-auto",
         "task:T-065-be",
@@ -48841,6 +49069,7 @@
         "qa-frontend:T-065-fe",
         "backend-delivery:T-066-be",
         "backend-integration:T-066-be",
+        "qa-backend:T-066-be",
         "frontend-requirements:T-066-fe"
       ],
       "scope": "feature",
@@ -50161,7 +50390,7 @@
         "done": 6,
         "in-progress": 1,
         "partial": 4,
-        "passing": 2,
+        "passing": 3,
         "todo": 2,
         "verified": 1
       },
@@ -51705,6 +51934,7 @@
         "frontend-delivery:T-065-fe",
         "backend-delivery:T-066-be",
         "backend-integration:T-066-be",
+        "qa-backend:T-066-be",
         "frontend-requirements:T-066-fe",
         "qa-frontend:pay-for-an-order",
         "qa-frontend:T-065-fe",
@@ -51749,6 +51979,73 @@
       ],
       "task": "T-065-be",
       "title": "T-065-be QA Backend",
+      "updated": "2026-10-25"
+    },
+    "qa-backend:T-066-be": {
+      "affects": [
+        "task:T-066-be"
+      ],
+      "blockedBy": [],
+      "card": "QB-03",
+      "children": [],
+      "code": "T-066-be",
+      "deadline": null,
+      "depends": [],
+      "effectiveStatus": "passing",
+      "effort": null,
+      "feature": "pay-for-an-order",
+      "frontendOnly": false,
+      "id": "qa-backend:T-066-be",
+      "inherits": {
+        "priority": "task:T-066-be"
+      },
+      "kind": "qa-backend",
+      "label": "QA Backend",
+      "labels": [],
+      "layer": "qa",
+      "module": "payments-gateway",
+      "parentTask": null,
+      "parents": [
+        "task:T-066-be"
+      ],
+      "path": "tasks/T-066-be Backend · Settle an order and confirm it on s52/T-066-be QA Backend.md",
+      "pending": [],
+      "priority": "high",
+      "related": [
+        "backend-delivery:pay-for-an-order",
+        "backend-integration:pay-for-an-order",
+        "frontend-delivery:pay-for-an-order",
+        "qa-backend:pay-for-an-order",
+        "backend-delivery:T-065-be",
+        "backend-integration:T-065-be",
+        "qa-backend:T-065-be",
+        "frontend-delivery:T-065-fe",
+        "qa-frontend:T-065-fe",
+        "backend-delivery:T-066-be",
+        "backend-integration:T-066-be",
+        "story:T-066",
+        "frontend-requirements:T-066-fe",
+        "task:T-066-be",
+        "frontend-requirements:pay-for-an-order",
+        "task:T-065-be",
+        "frontend-requirements:T-065-fe",
+        "qa-frontend:pay-for-an-order"
+      ],
+      "scope": "task",
+      "screens": [
+        "s51",
+        "s52"
+      ],
+      "status": "passing",
+      "summary": "Expected behaviour of the API, as artefacts a person can check a build against: tables and diagrams, not test code (the specs live in the backend repo). status: passing or failing after a run; the…",
+      "tags": [
+        "qa-backend",
+        "qa-backend/passing",
+        "module/payments-gateway",
+        "layer/qa"
+      ],
+      "task": "T-066-be",
+      "title": "T-066-be QA Backend",
       "updated": "2026-10-25"
     },
     "qa-backend:account": {
@@ -52857,6 +53154,7 @@
         "frontend-requirements:T-065-fe",
         "backend-delivery:T-066-be",
         "backend-integration:T-066-be",
+        "qa-backend:T-066-be",
         "frontend-requirements:T-066-fe",
         "qa-frontend:pay-for-an-order",
         "qa-frontend:T-065-fe",
@@ -53469,6 +53767,7 @@
         "story:T-065",
         "frontend-requirements:T-065-fe",
         "backend-integration:T-066-be",
+        "qa-backend:T-066-be",
         "frontend-requirements:T-066-fe",
         "frontend-requirements:payments",
         "frontend-requirements:subscription",
@@ -54681,6 +54980,7 @@
         "frontend-delivery:T-065-fe",
         "backend-delivery:T-066-be",
         "backend-integration:T-066-be",
+        "qa-backend:T-066-be",
         "frontend-requirements:T-066-fe"
       ],
       "scope": "feature",
@@ -55310,7 +55610,7 @@
         "missing": 145,
         "needs-decision": 20,
         "partial": 4,
-        "passing": 2,
+        "passing": 3,
         "reference": 31,
         "todo": 83,
         "verified": 1
@@ -58331,6 +58631,7 @@
         "story:pay-for-an-order",
         "story:event-ring-auto",
         "decision-record:DR-09",
+        "qa-backend:T-066-be",
         "frontend-requirements:T-066-fe"
       ],
       "scope": "task",
@@ -70826,6 +71127,7 @@
         "frontend-delivery:T-065-fe",
         "backend-delivery:T-066-be",
         "backend-integration:T-066-be",
+        "qa-backend:T-066-be",
         "frontend-requirements:T-066-fe"
       ],
       "rollup": {
@@ -70963,7 +71265,8 @@
         "blocked": 1,
         "current": 1,
         "done": 1,
-        "partial": 1
+        "partial": 1,
+        "passing": 1
       },
       "scope": null,
       "screens": [
@@ -70990,7 +71293,8 @@
       "card": "T-066-be",
       "children": [
         "backend-delivery:T-066-be",
-        "backend-integration:T-066-be"
+        "backend-integration:T-066-be",
+        "qa-backend:T-066-be"
       ],
       "code": "T-066-be",
       "deadline": null,
@@ -71034,11 +71338,13 @@
         "backend-integration:T-065-be",
         "qa-backend:T-065-be",
         "frontend-delivery:T-065-fe",
-        "backend-integration:T-066-be"
+        "backend-integration:T-066-be",
+        "qa-backend:T-066-be"
       ],
       "rollup": {
         "current": 1,
-        "done": 1
+        "done": 1,
+        "passing": 1
       },
       "scope": null,
       "screens": [
