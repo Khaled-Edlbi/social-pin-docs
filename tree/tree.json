@@ -4819,7 +4819,7 @@
     }
   },
   "counts": {
-    "blocked": 163,
+    "blocked": 162,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -4840,7 +4840,7 @@
     },
     "concepts": 182,
     "decisions": 16,
-    "edges": 4830,
+    "edges": 4829,
     "features": 39,
     "layerNotes": 185,
     "modules": 8,
@@ -6152,11 +6152,6 @@
       "from": "story:photo-library",
       "kind": "blocks",
       "to": "frontend-requirements:photo-library"
-    },
-    {
-      "from": "story:post-event",
-      "kind": "blocks",
-      "to": "frontend-requirements:post-event"
     },
     {
       "from": "story:profiles",
@@ -43111,7 +43106,7 @@
       "deadline": null,
       "depends": [],
       "dir": "modules/Events/Post-Event",
-      "effectiveStatus": "todo",
+      "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "post-event",
       "frontendOnly": false,
@@ -43145,7 +43140,8 @@
       ],
       "release": "v1",
       "rollup": {
-        "blocked": 5,
+        "approved": 1,
+        "blocked": 4,
         "draft": 2,
         "missing": 4
       },
@@ -47099,20 +47095,14 @@
     },
     "frontend-requirements:post-event": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "story:post-event",
-          "title": "Post-Event Story",
-          "why": "Post-Event Story is draft"
-        }
-      ],
+      "blockedBy": [],
       "card": "FR-25",
       "children": [],
       "code": "post-event",
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "post-event",
       "frontendOnly": false,
@@ -48051,14 +48041,14 @@
       "related": [],
       "release": null,
       "rollup": {
-        "approved": 2,
-        "blocked": 40,
+        "approved": 3,
+        "blocked": 39,
         "decided": 1,
         "draft": 17,
-        "in-progress": 2,
+        "in-progress": 3,
         "missing": 20,
         "needs-decision": 1,
-        "todo": 5,
+        "todo": 4,
         "verified": 1
       },
       "scope": null,
@@ -53185,17 +53175,17 @@
         }
       ],
       "rollup": {
-        "approved": 22,
-        "blocked": 163,
+        "approved": 23,
+        "blocked": 162,
         "current": 9,
         "decided": 12,
         "done": 17,
         "draft": 94,
-        "in-progress": 38,
+        "in-progress": 39,
         "missing": 145,
         "needs-decision": 9,
         "reference": 31,
-        "todo": 59,
+        "todo": 58,
         "verified": 12
       },
       "scope": null,
@@ -57700,7 +57690,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "post-event",
       "frontendOnly": false,
@@ -57727,17 +57717,17 @@
       "screens": [
         "s62"
       ],
-      "status": "draft",
+      "status": "approved",
       "summary": "The event has ended and the Event Ring has lapsed. The visitor gets one screen that tells them what the event was worth (connections, meetings, scans), proposes follow-ups, and asks the one…",
       "tags": [
         "story",
-        "story/draft",
+        "story/approved",
         "module/events",
         "layer/business"
       ],
       "task": null,
       "title": "Post-Event Story",
-      "updated": "2026-10-18"
+      "updated": "2026-10-25"
     },
     "story:profiles": {
       "affects": [],
