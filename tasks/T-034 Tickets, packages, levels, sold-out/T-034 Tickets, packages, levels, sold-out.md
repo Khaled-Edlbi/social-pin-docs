@@ -15,6 +15,8 @@ tags: [task, task/todo, module/events, priority/critical]
 
 # ⬜ T-034 · Tickets, packages, levels, sold-out
 
+> ⚠ Affected by [[DR-09 30-minute hold tied to the Stripe checkout]] (2026-10-25): sold-out counts paid and held items as taken (an unpaid order holds its items for 30 minutes); the release when a hold ends is the Payments Gateway's, not this task's.
+
 **Feature:** [[Events Before]] · **Status:** To do · **Priority:** Critical · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-034-fe Frontend · Tickets, packages, levels, sold-out|Frontend]] · [[T-034-be Backend · Tickets, packages, levels, sold-out|Backend]] · **Story:** [[T-034 Story]]

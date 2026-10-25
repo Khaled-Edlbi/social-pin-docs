@@ -12,6 +12,8 @@ tags: [feature, module/events, priority/critical]
 
 # Events Before
 
+> ⚠ Affected by [[DR-09 30-minute hold tied to the Stripe checkout]] (2026-10-25): s50's remaining capacity and "Sold out" count held items as taken; an unpaid order holds its items for 30 minutes.
+
 **Backend:** TODO · **Priority:** Critical · **Module:** [[Events Module|Events]]
 
 **Layers:** [[Events Before Story|Story]] · [[Events Before Frontend Requirements|Frontend Requirements]] · [[Events Before Backend Delivery|Backend Delivery]] · [[Events Before Backend Integration|Backend Integration]] · [[Events Before Frontend Delivery|Frontend Delivery]] · [[Events Before QA Backend|QA Backend]] · [[Events Before QA Frontend|QA Frontend]]

@@ -101,6 +101,7 @@
     "DR-01 Code-only login": "decision-record:DR-01",
     "DR-07 Stripe for all four flows": "decision-record:DR-07",
     "DR-08 Stripe card checkout only": "decision-record:DR-08",
+    "DR-09 30-minute hold tied to the Stripe checkout": "decision-record:DR-09",
     "Database & Migrations": "project:database-migrations",
     "Delegated Admins": "feature:delegated-admins",
     "Delegated Admins Backend Delivery": "backend-delivery:delegated-admins",
@@ -569,6 +570,7 @@
     "DR-01": "decision-record:DR-01",
     "DR-07": "decision-record:DR-07",
     "DR-08": "decision-record:DR-08",
+    "DR-09": "decision-record:DR-09",
     "F-01": "feature:account",
     "F-02": "feature:auth",
     "F-03": "feature:counts",
@@ -4673,12 +4675,12 @@
     }
   },
   "counts": {
-    "blocked": 179,
+    "blocked": 178,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
       "decision": 9,
-      "decision-record": 3,
+      "decision-record": 4,
       "feature": 40,
       "frontend-requirements": 39,
       "module": 9,
@@ -4688,20 +4690,20 @@
     },
     "byLayer": {
       "backend": 56,
-      "business": 336,
+      "business": 337,
       "frontend": 43,
       "shared": 10
     },
     "concepts": 177,
     "decisions": 9,
-    "edges": 4379,
+    "edges": 4390,
     "features": 40,
     "layerNotes": 191,
     "modules": 9,
-    "notes": 481,
+    "notes": 482,
     "partial": 0,
     "placeholders": 151,
-    "records": 3,
+    "records": 4,
     "taskLayerNotes": 64,
     "tasks": 175
   },
@@ -4831,6 +4833,26 @@
       "from": "decision-record:DR-08",
       "kind": "affects",
       "to": "module:payments-gateway"
+    },
+    {
+      "from": "decision-record:DR-09",
+      "kind": "affects",
+      "to": "feature:events-before"
+    },
+    {
+      "from": "decision-record:DR-09",
+      "kind": "affects",
+      "to": "feature:pay-for-an-order"
+    },
+    {
+      "from": "decision-record:DR-09",
+      "kind": "affects",
+      "to": "feature:payments"
+    },
+    {
+      "from": "decision-record:DR-09",
+      "kind": "affects",
+      "to": "task:T-034"
     },
     {
       "from": "decision:D-09",
@@ -5501,11 +5523,6 @@
       "from": "decision:D-06",
       "kind": "blocks",
       "to": "task:T-061"
-    },
-    {
-      "from": "decision:D-09",
-      "kind": "blocks",
-      "to": "story:pay-for-an-order"
     },
     {
       "from": "frontend-delivery:account",
@@ -8546,6 +8563,21 @@
       "from": "decision-record:DR-08",
       "kind": "related",
       "to": "decision:D-08"
+    },
+    {
+      "from": "decision-record:DR-09",
+      "kind": "related",
+      "to": "decision-record:DR-08"
+    },
+    {
+      "from": "decision-record:DR-09",
+      "kind": "related",
+      "to": "decision:D-09"
+    },
+    {
+      "from": "decision-record:DR-09",
+      "kind": "related",
+      "to": "story:pay-for-an-order"
     },
     {
       "from": "decision:D-07",
@@ -17580,6 +17612,11 @@
       "to": "decision-record:DR-08"
     },
     {
+      "from": "decision:D-09",
+      "kind": "tree",
+      "to": "decision-record:DR-09"
+    },
+    {
       "from": "feature:account",
       "kind": "tree",
       "to": "backend-delivery:account"
@@ -21967,6 +22004,11 @@
     {
       "from": "feature:events-before",
       "kind": "wikilink",
+      "to": "decision-record:DR-09"
+    },
+    {
+      "from": "feature:events-before",
+      "kind": "wikilink",
       "to": "task:T-033"
     },
     {
@@ -22087,6 +22129,11 @@
     {
       "from": "feature:pay-for-an-order",
       "kind": "wikilink",
+      "to": "decision-record:DR-09"
+    },
+    {
+      "from": "feature:pay-for-an-order",
+      "kind": "wikilink",
       "to": "decision:D-07"
     },
     {
@@ -22095,9 +22142,9 @@
       "to": "decision:D-09"
     },
     {
-      "from": "feature:pay-for-an-order",
+      "from": "feature:payments",
       "kind": "wikilink",
-      "to": "task:T-034"
+      "to": "decision-record:DR-09"
     },
     {
       "from": "feature:payments",
@@ -26542,6 +26589,11 @@
     {
       "from": "story:payments",
       "kind": "wikilink",
+      "to": "decision-record:DR-09"
+    },
+    {
+      "from": "story:payments",
+      "kind": "wikilink",
       "to": "story:events-before"
     },
     {
@@ -28627,6 +28679,11 @@
     {
       "from": "task:T-034",
       "kind": "wikilink",
+      "to": "decision-record:DR-09"
+    },
+    {
+      "from": "task:T-034",
+      "kind": "wikilink",
       "to": "project:architecture"
     },
     {
@@ -29958,6 +30015,10 @@
     },
     "decisions/DR-08 Stripe card checkout only.md": {
       "name": "DR-08 Stripe card checkout only",
+      "type": "decision-record"
+    },
+    "decisions/DR-09 30-minute hold tied to the Stripe checkout.md": {
+      "name": "DR-09 30-minute hold tied to the Stripe checkout",
       "type": "decision-record"
     },
     "decisions/Decisions.md": {
@@ -35945,6 +36006,7 @@
         "decision:D-09",
         "decision:D-08",
         "decision:D-07",
+        "decision-record:DR-09",
         "story:payments",
         "story:events-before",
         "story:pay-for-an-order"
@@ -35959,6 +36021,59 @@
       "task": null,
       "title": "DR-08 Stripe card checkout only",
       "updated": "2026-10-22"
+    },
+    "decision-record:DR-09": {
+      "affects": [
+        "feature:pay-for-an-order",
+        "feature:payments",
+        "feature:events-before",
+        "task:T-034"
+      ],
+      "blockedBy": [],
+      "card": "DR-09",
+      "children": [],
+      "code": "DR-09",
+      "deadline": null,
+      "decidedAt": "2026-10-25",
+      "decidedBy": "khaled",
+      "decides": "D-09",
+      "depends": [],
+      "effectiveStatus": "decided",
+      "effort": null,
+      "feature": null,
+      "features": [
+        "pay-for-an-order"
+      ],
+      "frontendOnly": false,
+      "id": "decision-record:DR-09",
+      "inherits": {},
+      "kind": "decision-record",
+      "label": "Decision record",
+      "labels": [],
+      "layer": "business",
+      "module": null,
+      "parentTask": null,
+      "parents": [
+        "decision:D-09"
+      ],
+      "path": "decisions/DR-09 30-minute hold tied to the Stripe checkout.md",
+      "pending": [],
+      "priority": null,
+      "related": [
+        "decision:D-09",
+        "decision-record:DR-08",
+        "story:pay-for-an-order"
+      ],
+      "scope": null,
+      "screens": [],
+      "status": "decided",
+      "summary": "Whether the buyer can extend a hold (a new checkout on the same order before it ends), and what the organizer sees of held items, on a new decision card when a card needs it.",
+      "tags": [
+        "decision-record"
+      ],
+      "task": null,
+      "title": "DR-09 30-minute hold tied to the Stripe checkout",
+      "updated": "2026-10-25"
     },
     "decision:D-01": {
       "affects": [],
@@ -36407,12 +36522,14 @@
         "story:pay-for-an-order"
       ],
       "card": "D-09",
-      "children": [],
+      "children": [
+        "decision-record:DR-09"
+      ],
       "code": "D-09",
       "deadline": null,
       "decider": "owner",
       "depends": [],
-      "effectiveStatus": "needs-decision",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": null,
       "features": [
@@ -36438,6 +36555,7 @@
         "feature:payments",
         "feature:events-before",
         "decision-record:DR-08",
+        "decision-record:DR-09",
         "story:payments"
       ],
       "scope": null,
@@ -36445,11 +36563,11 @@
         "s50",
         "s51"
       ],
-      "status": "needs-decision",
+      "status": "approved",
       "summary": "Whether an order that is not paid yet (pending on Stripe, failed, or abandoned on the card page) keeps its chosen tickets, packages and sub-events out of the count that makes them sold out, and…",
       "tags": [
         "decision",
-        "decision/open"
+        "decision/decided"
       ],
       "task": null,
       "title": "D-09 How long an unpaid order holds its tickets",
@@ -38360,11 +38478,10 @@
         "story:events-before"
       ],
       "rollup": {
-        "approved": 1,
-        "blocked": 1,
-        "decided": 1,
-        "missing": 6,
-        "needs-decision": 1
+        "approved": 2,
+        "decided": 2,
+        "draft": 1,
+        "missing": 6
       },
       "scope": null,
       "screens": [
@@ -42388,7 +42505,7 @@
         {
           "id": "story:pay-for-an-order",
           "title": "Pay for an order Story",
-          "why": "Pay for an order Story is blocked"
+          "why": "Pay for an order Story is draft"
         }
       ],
       "card": null,
@@ -43659,12 +43776,11 @@
         "decision-record:DR-07"
       ],
       "rollup": {
-        "approved": 1,
-        "blocked": 1,
-        "decided": 1,
+        "approved": 2,
+        "decided": 2,
+        "draft": 1,
         "in-progress": 1,
-        "missing": 6,
-        "needs-decision": 1
+        "missing": 6
       },
       "scope": null,
       "screens": [],
@@ -48515,15 +48631,15 @@
       "priority": null,
       "related": [],
       "rollup": {
-        "approved": 3,
-        "blocked": 179,
+        "approved": 4,
+        "blocked": 178,
         "current": 9,
-        "decided": 3,
+        "decided": 4,
         "done": 12,
-        "draft": 103,
+        "draft": 104,
         "in-progress": 16,
         "missing": 151,
-        "needs-decision": 21,
+        "needs-decision": 20,
         "reference": 31,
         "todo": 81
       },
@@ -52754,13 +52870,7 @@
         "feature:events-before",
         "task:T-035"
       ],
-      "blockedBy": [
-        {
-          "id": "decision:D-09",
-          "title": "D-09 How long an unpaid order holds its tickets",
-          "why": "needs decision D-09 (open)"
-        }
-      ],
+      "blockedBy": [],
       "card": "S-105",
       "children": [
         "decision:D-09"
@@ -52771,7 +52881,7 @@
         "decision:D-07",
         "decision:D-08"
       ],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "pay-for-an-order",
       "frontendOnly": false,
@@ -52792,6 +52902,7 @@
       "pending": [],
       "priority": "high",
       "related": [
+        "decision-record:DR-09",
         "story:payments",
         "feature:payments",
         "task:T-047",
