@@ -74,6 +74,8 @@ To raise and decide in one step, when the user gives both in one message: `node 
 
 `priority: critical | high | medium | low` and `deadline: YYYY-MM-DD` on the feature or task the user names (its notes and sub-tasks inherit; `inherits` in `tree/tree.json` says from where). Change the `priority/<level>` tag with it. Say what moved below it as a consequence.
 
+The same goes for the **release** of a feature (`release: mvp | v1 | later` on the feature card, with the tag `release/<id>` and the `**Release:**` line under its H1) and the **stage** of the project (`stage:` in [[Project Overview]], with the tag `stage/<id>` and its `**Stage:**` line), on the user's word only; move the stage when its `exit` test in `docs.config.json` holds, and say so in the report ([[Agent Rules#4 · Statuses, blocking and sign-off]]).
+
 ### 4G · Where do we stand
 
 From `tree/tree.json` (`counts`, each node's `effectiveStatus`, `blockedBy`, `pending`, `deadline`), [[Backlog]], [[Task Board]], the module notes. Answer in the vault's words, by card code; update the table on [[Home]] when the user asks for the report to be kept.

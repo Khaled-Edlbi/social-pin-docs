@@ -146,6 +146,34 @@
     ],
     "missed": { "id": "missed", "label": "Missed", "color": "#6b7280", "icon": "💀" }
   },
+  "stages": {
+    "description": "Where the product is in its life, typed by the owner as stage: <id> in business/Project Overview.md and drawn as a chip on the project card beside its computed status. A stage is never computed; exit is the test that moves it to the next one. requiresRelease names a release target whose features must all be Done before the stage is typed: the build warns when they are not.",
+    "levels": [
+      { "id": "concept", "label": "Concept", "color": "#a855f7", "description": "Idea and design only.", "exit": "The stories are approved." },
+      { "id": "prototype", "label": "Prototype", "color": "#6366f1", "description": "Parts are built; the main flow does not run end to end yet.", "exit": "One user can complete the main flow." },
+      { "id": "mvp", "label": "MVP", "color": "#0ea5e9", "description": "Building the smallest set of features you would release (the features with release: mvp).", "exit": "Every mvp feature is Done and its QA passes." },
+      { "id": "beta", "label": "Beta", "color": "#f59e0b", "requiresRelease": "mvp", "description": "Real users, invited or limited.", "exit": "The release decision is taken on a decision card." },
+      { "id": "live", "label": "Live", "color": "#16a34a", "requiresRelease": "mvp", "description": "Publicly released.", "exit": "The product is being phased out." },
+      { "id": "sunset", "label": "Sunset", "color": "#6b7280", "description": "Being phased out." }
+    ]
+  },
+  "releases": {
+    "description": "The release a feature is scoped to: release: <id> on the feature card, mirrored by the tag release/<id>; its layer notes and tasks inherit it. The project card counts, per target, the features Done out of the total. A feature without one shows as No release.",
+    "targets": [
+      { "id": "mvp", "label": "MVP", "color": "#0ea5e9", "description": "In the first release: nothing ships without it." },
+      { "id": "v1", "label": "v1", "color": "#8b5cf6", "description": "The release after the MVP." },
+      { "id": "later", "label": "Later", "color": "#64748b", "description": "Not scheduled for a release yet." }
+    ]
+  },
+  "environments": {
+    "description": "Where a delivery runs: deployedTo: [<id>, …] on the kinds listed, empty until the layer deploys it. Environments are not stages: the project can be at mvp and run on all three.",
+    "kinds": ["backend-delivery", "frontend-delivery"],
+    "list": [
+      { "id": "dev", "label": "Dev", "color": "#64748b" },
+      { "id": "staging", "label": "Staging", "color": "#f59e0b" },
+      { "id": "prod", "label": "Prod", "color": "#16a34a" }
+    ]
+  },
   "branches": {
     "description": "Vault branches, for every agent: <prefix>/<agent>/<M-NN>-<module-id>/<F-NN>-<feature-id>/<card>-<what-you-do>, printed by node scripts/build-tree.mjs --branch <agent> <card> [<what>]. The prefix is tickets for the cards that ask for or plan work (the kinds listed under tickets), docs for the archive of what is (every other card, the rules and the reference notes). Code repositories keep <module>/<T-NNN>/<what-you-do> (project/Workflow.md §2).",
     "tickets": ["task", "story", "frontend-requirements", "decision"],
