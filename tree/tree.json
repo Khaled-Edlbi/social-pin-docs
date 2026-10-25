@@ -24677,11 +24677,6 @@
     {
       "from": "decision-record:DR-19",
       "kind": "wikilink",
-      "to": "feature:error-contract"
-    },
-    {
-      "from": "decision-record:DR-19",
-      "kind": "wikilink",
       "to": "project:agent-rules"
     },
     {
@@ -24863,11 +24858,6 @@
       "from": "decision:D-18",
       "kind": "wikilink",
       "to": "decision-record:DR-04"
-    },
-    {
-      "from": "decision:D-19",
-      "kind": "wikilink",
-      "to": "feature:error-contract"
     },
     {
       "from": "decision:D-19",
@@ -25062,7 +25052,22 @@
     {
       "from": "feature:error-contract",
       "kind": "wikilink",
+      "to": "decision-record:DR-19"
+    },
+    {
+      "from": "feature:error-contract",
+      "kind": "wikilink",
+      "to": "decision:D-19"
+    },
+    {
+      "from": "feature:error-contract",
+      "kind": "wikilink",
       "to": "task:T-063"
+    },
+    {
+      "from": "feature:error-contract",
+      "kind": "wikilink",
+      "to": "task:T-064"
     },
     {
       "from": "feature:event-ring-auto",
@@ -33223,11 +33228,6 @@
       "from": "task:T-063-fe",
       "kind": "wikilink",
       "to": "task:T-063-be"
-    },
-    {
-      "from": "task:T-064",
-      "kind": "wikilink",
-      "to": "feature:error-contract"
     },
     {
       "from": "task:T-064",
@@ -42430,7 +42430,7 @@
       ],
       "task": null,
       "title": "Error Contract",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "feature:event-ring-auto": {
       "affects": [],

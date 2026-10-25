@@ -7,7 +7,7 @@ release: mvp
 module: platform
 screens: []
 created: 2026-10-18
-updated: 2026-10-25
+updated: 2026-10-26
 tags: [feature, module/platform, priority/critical, release/mvp]
 ---
 
@@ -28,10 +28,15 @@ _No prototype screen. Every error state in the app depends on it._
 | Task | Status | Priority | Effort |
 |---|---|---|---|
 | [[T-063 Put the ErrorCode on the error body]] | ⬜ To do | Critical | S |
+| [[T-064 Restructure the docs vault]] `docs` | ✅ Done | High | L |
 
 ```dataview
 TABLE status, priority, effort FROM #task WHERE feature = "error-contract" SORT priority ASC
 ```
+
+## Decisions
+
+- [[D-19 Where a ticket's layer notes live]] — decided, a ticket's layer notes hang on the parent task and the halves write into them ([[DR-19 A ticket's layer notes live on the parent task|DR-19]]); raised from [[T-063 Put the ErrorCode on the error body]]
 
 ## Related
 
