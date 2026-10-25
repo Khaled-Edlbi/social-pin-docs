@@ -43275,12 +43275,11 @@
         "story:events-before"
       ],
       "rollup": {
-        "approved": 6,
+        "approved": 7,
         "blocked": 1,
         "current": 2,
         "decided": 2,
         "done": 4,
-        "draft": 1,
         "partial": 4,
         "passing": 2,
         "todo": 3,
@@ -46126,7 +46125,7 @@
       "code": "T-066-fe",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "pay-for-an-order",
       "frontendOnly": false,
@@ -46197,11 +46196,11 @@
         "s51",
         "s52"
       ],
-      "status": "draft",
+      "status": "approved",
       "summary": "Written by the frontend team, read by the backend: what the client needs to build T-066 Story, and whether each need is met today. The settlement itself is server to server (the webhook): the…",
       "tags": [
         "frontend-requirements",
-        "frontend-requirements/draft",
+        "frontend-requirements/approved",
         "module/payments-gateway",
         "layer/frontend"
       ],
@@ -49052,12 +49051,11 @@
         "decision-record:DR-07"
       ],
       "rollup": {
-        "approved": 6,
+        "approved": 7,
         "blocked": 1,
         "current": 2,
         "decided": 2,
         "done": 4,
-        "draft": 1,
         "in-progress": 1,
         "partial": 4,
         "passing": 2,
@@ -54186,12 +54184,12 @@
       "priority": null,
       "related": [],
       "rollup": {
-        "approved": 8,
+        "approved": 9,
         "blocked": 179,
         "current": 11,
         "decided": 4,
         "done": 16,
-        "draft": 104,
+        "draft": 103,
         "in-progress": 16,
         "missing": 145,
         "needs-decision": 20,
@@ -69839,9 +69837,8 @@
         "feature:audit-log"
       ],
       "rollup": {
-        "approved": 1,
+        "approved": 2,
         "blocked": 1,
-        "draft": 1,
         "todo": 1
       },
       "scope": null,
@@ -69957,7 +69954,7 @@
         "frontend-requirements:T-066-fe"
       ],
       "rollup": {
-        "draft": 1
+        "approved": 1
       },
       "scope": null,
       "screens": [
