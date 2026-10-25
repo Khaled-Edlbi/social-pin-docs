@@ -28,7 +28,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
     - ⬜ [Counts](modules/Identity%20Core/Counts/Counts.md) (F-03, release v1, High)
       - ✏️ [Counts Story](modules/Identity%20Core/Counts/Counts%20Story.md) (S-03, User Story, High)
         - ⬜ [T-004 Member count per Ring on list and detail](tasks/T-004%20Member%20count%20per%20Ring%20on%20list%20and%20detail/T-004%20Member%20count%20per%20Ring%20on%20list%20and%20detail.md) (High)
-          - ✏️ [T-004 Story](tasks/T-004%20Member%20count%20per%20Ring%20on%20list%20and%20detail/T-004%20Story.md) (S-04, User Story, High)
+          - 👍 [T-004 Story](tasks/T-004%20Member%20count%20per%20Ring%20on%20list%20and%20detail/T-004%20Story.md) (S-04, User Story, High)
           - ⬜ [T-004-be Backend · Member count per Ring on list and detail](tasks/T-004%20Member%20count%20per%20Ring%20on%20list%20and%20detail/T-004-be%20Backend%20%C2%B7%20Member%20count%20per%20Ring%20on%20list%20and%20detail.md) (sub-task of T-004, backend, High)
           - ⛔ [T-004-fe Frontend · Member count per Ring on list and detail](tasks/T-004%20Member%20count%20per%20Ring%20on%20list%20and%20detail/T-004-fe%20Frontend%20%C2%B7%20Member%20count%20per%20Ring%20on%20list%20and%20detail.md) (sub-task of T-004, frontend, High, blocked by T-004-be Backend · Member count per Ring on list and detail)
         - ⛔ [T-005 Connection count on Me and Home](tasks/T-005%20Connection%20count%20on%20Me%20and%20Home/T-005%20Connection%20count%20on%20Me%20and%20Home.md) (High, blocked by T-021 Connect request send, inbox, cancel)
