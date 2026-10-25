@@ -14,6 +14,8 @@ tags: [frontend-requirements, frontend-requirements/draft, module/events, layer/
 
 > ⚠ Affected by [[DR-08 Stripe card checkout only]] (2026-10-22): s51 offers card only through Stripe's hosted checkout; the "Payment methods" row needs no method picker.
 
+> ⚠ Affected by [[Events Before Story]] (2026-10-25): S5 now hands the unpaid order to [[Pay for an order]]; the s51 needs (Stripe checkout, status, webhook completion) are that feature's, not T-047's, and the provider is no longer undecided.
+
 **Feature:** [[Events Before]] · **Status:** Draft · **Story:** [[Events Before Story]] · **API Integration:** not yet (backend not built)
 
 What the client needs to build the events tab, landing page, ticket selection, payment and confirmation, and whether each need is met today. Nothing event-specific is available; the schema is complete.
