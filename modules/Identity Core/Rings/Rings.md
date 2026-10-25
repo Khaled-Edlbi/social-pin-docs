@@ -6,6 +6,7 @@ priority: critical
 module: identity
 screens: [s08, s09, s16, s17, s18, s19, s20, s21, s22, s26, s62]
 updated: 2026-10-25
+owner: "omar"
 tags: [feature, module/identity, priority/critical]
 ---
 
@@ -50,16 +51,17 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 
 | Task | Status | Priority | Effort |
 |---|---|---|---|
-| [[T-059 Decide Ring settings]] | ❓ Needs a decision / info | Critical | S |
+| [[T-059 Decide Ring settings]] | ✅ Done | Critical | S |
 
 ```dataview
 TABLE status, priority, effort FROM #task WHERE feature = "rings" SORT priority ASC
 ```
 
-## Open decisions
+## Decisions
 
-- [[D-04 Ring settings]]
-- [[D-05 Copy or inherit]]
+- [[D-04 Ring settings]] — decided, six settings at launch with private defaults ([[DR-04 Ring settings at launch and their defaults|DR-04]])
+- [[D-05 Copy or inherit]] — decided, inherit per field, copy without members ([[DR-05 Inherit per field, copy without members|DR-05]])
+- [[D-14 Connection-granted Ring on Shared with me]] — decided, Shared with me lists people, never the Ring ([[DR-14 Shared with me lists people, never the Ring|DR-14]])
 
 ## Related
 
