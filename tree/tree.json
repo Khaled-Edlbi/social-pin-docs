@@ -102,6 +102,7 @@
     "D-13 Whether the requester sees a declined request": "decision:D-13",
     "D-14 Connection-granted Ring on Shared with me": "decision:D-14",
     "D-15 One Ring or several per connection": "decision:D-15",
+    "D-16 Viewer access to file bytes": "decision:D-16",
     "DR-01 Code-only login": "decision-record:DR-01",
     "DR-07 Stripe for all four flows": "decision-record:DR-07",
     "Database & Migrations": "project:database-migrations",
@@ -570,6 +571,7 @@
     "D-13": "decision:D-13",
     "D-14": "decision:D-14",
     "D-15": "decision:D-15",
+    "D-16": "decision:D-16",
     "DR-01": "decision-record:DR-01",
     "DR-07": "decision-record:DR-07",
     "F-01": "feature:account",
@@ -1743,6 +1745,7 @@
     },
     "GET /files/:id": {
       "containers": [
+        "decision:D-16",
         "feature:files",
         "feature:photo-library",
         "task:T-062"
@@ -1751,6 +1754,7 @@
       "notes": [
         "backend-delivery:files",
         "backend-integration:files",
+        "decision:D-16",
         "frontend-requirements:files",
         "frontend-requirements:photo-library",
         "story:T-062",
@@ -1760,10 +1764,12 @@
     },
     "GET /files/:id/content": {
       "containers": [
+        "decision:D-16",
         "task:T-062"
       ],
       "kind": "endpoint",
       "notes": [
+        "decision:D-16",
         "story:T-062",
         "task:T-062"
       ],
@@ -2314,6 +2320,16 @@
         "task:T-008"
       ],
       "owner": "feature:view-as"
+    },
+    "GET /views/ring/:ringId/attachments/:attachmentId/content": {
+      "containers": [
+        "decision:D-16"
+      ],
+      "kind": "endpoint",
+      "notes": [
+        "decision:D-16"
+      ],
+      "owner": null
     },
     "GET /views/user/:userId/perspectives": {
       "containers": [
@@ -3297,6 +3313,7 @@
     },
     "s14": {
       "containers": [
+        "decision:D-16",
         "feature:counts",
         "feature:files",
         "feature:ring-projection",
@@ -3316,6 +3333,7 @@
         "backend-delivery:ring-projection",
         "backend-integration:files",
         "backend-integration:ring-projection",
+        "decision:D-16",
         "feature:counts",
         "feature:files",
         "feature:ring-projection",
@@ -3652,6 +3670,7 @@
       "containers": [
         "decision:D-02",
         "decision:D-05",
+        "decision:D-16",
         "feature:photo-library",
         "feature:ring-projection",
         "task:T-058",
@@ -3667,6 +3686,7 @@
         "backend-integration:ring-projection",
         "decision:D-02",
         "decision:D-05",
+        "decision:D-16",
         "feature:photo-library",
         "feature:ring-projection",
         "frontend-requirements:photo-library",
@@ -3684,6 +3704,7 @@
     },
     "s30": {
       "containers": [
+        "decision:D-16",
         "feature:photo-library",
         "task:T-012",
         "task:T-012-be",
@@ -3698,6 +3719,7 @@
       "kind": "screen",
       "notes": [
         "backend-delivery:photo-library",
+        "decision:D-16",
         "feature:photo-library",
         "frontend-requirements:photo-library",
         "story:T-012",
@@ -3718,6 +3740,7 @@
     },
     "s31": {
       "containers": [
+        "decision:D-16",
         "feature:view-as",
         "task:T-062",
         "task:T-062-be",
@@ -3727,6 +3750,7 @@
       "notes": [
         "backend-delivery:view-as",
         "backend-integration:view-as",
+        "decision:D-16",
         "feature:view-as",
         "frontend-requirements:view-as",
         "story:T-062",
@@ -3978,6 +4002,7 @@
       "containers": [
         "decision:D-10",
         "decision:D-13",
+        "decision:D-16",
         "feature:badge-qr",
         "feature:connections",
         "feature:view-as",
@@ -3999,6 +4024,7 @@
         "backend-integration:view-as",
         "decision:D-10",
         "decision:D-13",
+        "decision:D-16",
         "feature:badge-qr",
         "feature:connections",
         "feature:view-as",
@@ -4803,11 +4829,11 @@
     }
   },
   "counts": {
-    "blocked": 184,
+    "blocked": 185,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
-      "decision": 13,
+      "decision": 14,
       "decision-record": 2,
       "feature": 39,
       "frontend-requirements": 39,
@@ -4818,17 +4844,17 @@
     },
     "byLayer": {
       "backend": 56,
-      "business": 337,
+      "business": 338,
       "frontend": 43,
       "shared": 10
     },
-    "concepts": 181,
-    "decisions": 13,
-    "edges": 4554,
+    "concepts": 182,
+    "decisions": 14,
+    "edges": 4569,
     "features": 39,
     "layerNotes": 190,
     "modules": 8,
-    "notes": 481,
+    "notes": 482,
     "partial": 0,
     "placeholders": 145,
     "records": 2,
@@ -5591,6 +5617,11 @@
       "from": "decision:D-15",
       "kind": "blocks",
       "to": "story:T-023"
+    },
+    {
+      "from": "decision:D-16",
+      "kind": "blocks",
+      "to": "story:T-062"
     },
     {
       "from": "frontend-delivery:account",
@@ -7183,6 +7214,16 @@
       "to": "story:T-023"
     },
     {
+      "from": "decision:D-16",
+      "kind": "decision",
+      "to": "feature:files"
+    },
+    {
+      "from": "decision:D-16",
+      "kind": "decision",
+      "to": "story:T-062"
+    },
+    {
       "from": "project:admin-agent",
       "kind": "depends",
       "to": "project:agent-protocol"
@@ -8696,6 +8737,21 @@
       "from": "decision:D-15",
       "kind": "related",
       "to": "feature:ring-members"
+    },
+    {
+      "from": "decision:D-16",
+      "kind": "related",
+      "to": "feature:files"
+    },
+    {
+      "from": "decision:D-16",
+      "kind": "related",
+      "to": "feature:ring-projection"
+    },
+    {
+      "from": "decision:D-16",
+      "kind": "related",
+      "to": "feature:view-as"
     },
     {
       "from": "feature:account",
@@ -11438,6 +11494,31 @@
       "via": [
         "GET /views/user/:userId/perspectives",
         "POST /rings/:ringId/members"
+      ]
+    },
+    {
+      "from": "decision:D-16",
+      "kind": "shares",
+      "to": "feature:files",
+      "via": [
+        "GET /files/:id"
+      ]
+    },
+    {
+      "from": "decision:D-16",
+      "kind": "shares",
+      "to": "feature:photo-library",
+      "via": [
+        "GET /files/:id"
+      ]
+    },
+    {
+      "from": "decision:D-16",
+      "kind": "shares",
+      "to": "task:T-062",
+      "via": [
+        "GET /files/:id",
+        "GET /files/:id/content"
       ]
     },
     {
@@ -21299,6 +21380,11 @@
       "to": "decision:D-15"
     },
     {
+      "from": "story:T-062",
+      "kind": "tree",
+      "to": "decision:D-16"
+    },
+    {
       "from": "story:widgets",
       "kind": "tree",
       "to": "task:T-017"
@@ -23437,6 +23523,31 @@
       "from": "decision:D-15",
       "kind": "wikilink",
       "to": "task:T-024"
+    },
+    {
+      "from": "decision:D-16",
+      "kind": "wikilink",
+      "to": "backend-delivery:files"
+    },
+    {
+      "from": "decision:D-16",
+      "kind": "wikilink",
+      "to": "backend-integration:files"
+    },
+    {
+      "from": "decision:D-16",
+      "kind": "wikilink",
+      "to": "backend-integration:ring-projection"
+    },
+    {
+      "from": "decision:D-16",
+      "kind": "wikilink",
+      "to": "backend-integration:view-as"
+    },
+    {
+      "from": "decision:D-16",
+      "kind": "wikilink",
+      "to": "task:T-062"
     },
     {
       "from": "feature:audit-log",
@@ -31613,6 +31724,10 @@
       "name": "D-15 One Ring or several per connection",
       "type": "decision"
     },
+    "decisions/D-16 Viewer access to file bytes.md": {
+      "name": "D-16 Viewer access to file bytes",
+      "type": "decision"
+    },
     "decisions/DR-01 Code-only login.md": {
       "name": "DR-01 Code-only login",
       "type": "decision-record"
@@ -38158,6 +38273,62 @@
       "title": "D-15 One Ring or several per connection",
       "updated": "2026-10-25"
     },
+    "decision:D-16": {
+      "affects": [],
+      "blockedBy": [],
+      "blocks": [
+        "story:T-062"
+      ],
+      "card": "D-16",
+      "children": [],
+      "code": "D-16",
+      "deadline": null,
+      "decider": "owner",
+      "depends": [],
+      "effectiveStatus": "draft",
+      "effort": null,
+      "feature": null,
+      "features": [
+        "files"
+      ],
+      "frontendOnly": false,
+      "id": "decision:D-16",
+      "inherits": {},
+      "kind": "decision",
+      "label": "Needs decision",
+      "labels": [],
+      "layer": "business",
+      "module": null,
+      "parentTask": null,
+      "parents": [
+        "story:T-062"
+      ],
+      "path": "decisions/D-16 Viewer access to file bytes.md",
+      "pending": [],
+      "priority": null,
+      "related": [
+        "feature:files",
+        "feature:ring-projection",
+        "feature:view-as"
+      ],
+      "scope": null,
+      "screens": [
+        "s14",
+        "s29",
+        "s30",
+        "s31",
+        "s44"
+      ],
+      "status": "draft",
+      "summary": "How a client gets the bytes of a Ring photo or attachment, and with which id: an authenticated route keyed by file id, or a signed url handed out on the entities. The owner has the file id…",
+      "tags": [
+        "decision",
+        "decision/draft"
+      ],
+      "task": null,
+      "title": "D-16 Viewer access to file bytes",
+      "updated": "2026-10-25"
+    },
     "feature:account": {
       "affects": [],
       "blockedBy": [],
@@ -39546,10 +39717,11 @@
         "project:architecture",
         "project:api-conventions",
         "project:spec-map",
-        "feature:onboarding-imports"
+        "feature:onboarding-imports",
+        "decision:D-16"
       ],
       "rollup": {
-        "blocked": 2,
+        "blocked": 3,
         "current": 1,
         "done": 1,
         "draft": 2,
@@ -40629,7 +40801,8 @@
         "project:ring-access-model",
         "project:architecture",
         "project:api-conventions",
-        "project:spec-map"
+        "project:spec-map",
+        "decision:D-16"
       ],
       "rollup": {
         "blocked": 1,
@@ -40887,6 +41060,7 @@
         "feature:ring-invitations",
         "decision:D-10",
         "decision:D-14",
+        "decision:D-16",
         "story:T-023"
       ],
       "rollup": {
@@ -45088,7 +45262,7 @@
       "priority": null,
       "related": [],
       "rollup": {
-        "blocked": 34,
+        "blocked": 35,
         "current": 9,
         "decided": 1,
         "done": 10,
@@ -49906,7 +50080,7 @@
       "priority": null,
       "related": [],
       "rollup": {
-        "blocked": 184,
+        "blocked": 185,
         "current": 9,
         "decided": 2,
         "done": 12,
@@ -52823,13 +52997,21 @@
     },
     "story:T-062": {
       "affects": [],
-      "blockedBy": [],
+      "blockedBy": [
+        {
+          "id": "decision:D-16",
+          "title": "D-16 Viewer access to file bytes",
+          "why": "needs decision D-16 (draft)"
+        }
+      ],
       "card": "S-07",
-      "children": [],
+      "children": [
+        "decision:D-16"
+      ],
       "code": "T-062",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "blocked",
       "effort": null,
       "feature": "files",
       "frontendOnly": false,
@@ -64827,7 +65009,7 @@
       "priority": "critical",
       "related": [],
       "rollup": {
-        "blocked": 1,
+        "blocked": 2,
         "draft": 1,
         "todo": 1
       },
