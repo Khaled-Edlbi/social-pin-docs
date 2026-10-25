@@ -14,7 +14,7 @@ updated: 2026-10-25
 tags: [decision, decision/open]
 ---
 
-# ❓ D-18 · Company and invited Ring names shown to members
+# ✅ D-18 · Company and invited Ring names shown to members
 
 **Status:** open · **Decider:** owner · **Raised:** 2026-10-25 · **Needed by:** [[Companies Story]], [[Ring Invitations & Join Story]] · **Feature:** [[Companies]], [[Ring Invitations & Join]]
 
@@ -46,4 +46,4 @@ Recommendation: option 2. It keeps DR-14's promise where it matters (nobody lear
 
 ## Decision
 
-— (answered on its decision card, never written here: the PM or the owner, on the user's word, runs `node scripts/build-tree.mjs --scaffold record D-18 "<the answer>"`, fills the decision card DR-NN (what was decided, why, what it changes with every feature and task in its `affects`, what stays open) and sets it `decided` with `decidedBy` and `decidedAt`; this card then shows Fulfilled by itself; the H1 gets ✅, and this line is replaced by "Fulfilled by" and a wikilink to the decision card, then "decided <date> by <who>: option <n>"; then `--impact DR-NN` and flag the notes it lists)
+Fulfilled by [[DR-18 Ring names shown when joined knowingly]], decided 2026-10-25 by molham: option 2.

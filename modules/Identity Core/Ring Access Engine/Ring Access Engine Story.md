@@ -14,6 +14,8 @@ tags: [story, story/draft, module/identity, layer/business]
 
 # Ring Access Engine · User Story
 
+> ⚠ Affected by [[DR-18 Ring names shown when joined knowingly]] (2026-10-25): the engine decides per membership whether a Ring may be named to that member: yes when joined by invitation, code or work email, never when placed by the owner. S1 changes.
+
 **Feature:** [[Ring Access Engine]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Ring Access Engine Frontend Requirements]] · **Backend Integration:** [[Ring Access Engine Backend Integration]]
 
 The engine has no screen of its own; it is the answer to the product's one question, *what is this viewer allowed to see about this person, in this context, at this moment?* These stories are the promises the app makes because of it: access is live, expiry is real, a block is mutual, and a viewer never learns which Ring they are in. They are written from the two sides, the Ring owner and the viewer, so every screen that renders another person can be tested against them.

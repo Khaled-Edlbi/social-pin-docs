@@ -14,6 +14,8 @@ tags: [story, story/draft, module/shared-rings, layer/business]
 
 # Ring Invitations & Join · User Story
 
+> ⚠ Affected by [[DR-18 Ring names shown when joined knowingly]] (2026-10-25): D-18 decided, option 2: an invitation names its Ring (s17, s74), and a Ring joined by invitation, code or work email keeps showing its name to that member; never its colour or type. S1, S2 and the open question change; this story is no longer blocked.
+
 **Feature:** [[Ring Invitations & Join]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Ring Invitations & Join Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 Being on the receiving end of someone else's Ring. A company invites its new hire into "Acme Team"; an organizer invites a speaker into "TechSummit Speakers"; a colleague hands over a join code. The person reviews what they are being offered, accepts or declines, or joins on their own with a code or a verified work address. Who may ask to join, and whether the owner approves each one, are the Ring's settings ([[DR-04 Ring settings at launch and their defaults]]). Once inside, the owner appears on Shared with me (as a person, never by the Ring's name: [[DR-14 Shared with me lists people, never the Ring]]) and the owner's projection becomes readable.

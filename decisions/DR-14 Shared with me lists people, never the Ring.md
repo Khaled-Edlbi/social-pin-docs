@@ -49,4 +49,4 @@ Answered on the product-questions page, 2026-10-22 ("dont show"; Shared with me 
 
 ## Still open
 
-- Whether a Ring joined openly (a company or event Ring the member chose by name) may show its name to members was not asked separately; this answer says never, and a needs-decision card on [[Companies]] or [[Ring Invitations & Join]] can reopen it if those screens need the name.
+- ~~Whether a Ring joined openly may show its name to members~~: answered by [[DR-18 Ring names shown when joined knowingly]] (2026-10-25): a Ring joined by invitation, code or work email is named to that member; a Ring the owner placed them in never is.

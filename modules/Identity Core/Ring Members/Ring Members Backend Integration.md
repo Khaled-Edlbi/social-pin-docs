@@ -12,6 +12,8 @@ tags: [backend-integration, backend-integration/current, module/identity, layer/
 
 # 🔌 Ring Members · Backend Integration
 
+> ⚠ Affected by [[DR-18 Ring names shown when joined knowingly]] (2026-10-25): a membership has to record how it was created (invitation, code, work email, connection accept, owner add); only the first three let the member see the Ring's name.
+
 > ⚠ Affected by [[DR-04 Ring settings at launch and their defaults]] (2026-10-25): D-04 decided, six Ring settings at launch with private defaults (join with a code or invite, approve each one, members can't see each other, invite or save attachments); the owner and the Ring's admins change them; members who may see each other see full cards.
 
 > ⚠ Affected by [[DR-14 Shared with me lists people, never the Ring]] (2026-10-25): D-14 decided, option 2: Shared with me lists the people who share with me and never shows a Ring's name, colour or type to a member.

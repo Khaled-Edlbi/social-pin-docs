@@ -25,7 +25,7 @@ Where the design and the backend disagree, and every other decision a card needs
 | [[D-15 One Ring or several per connection]] | fulfilled (1, several; remove or disconnect) | [[DR-15 Several Rings per connection, remove or disconnect]] | [[Connections]], [[Ring Members]] | s15, s47 |
 | [[D-16 Viewer access to file bytes]] | draft | — | [[Files Upload]] | s14, s29, s30, s31, s44 |
 | [[D-17 Request expiry, note and asking again]] | fulfilled (1, 30 days, note, ask again) | [[DR-17 Requests expire after 30 days, optional note, ask again at once]] | [[Connections]] | s44, s45 |
-| [[D-18 Company and invited Ring names shown to members]] | open | — | [[Companies]], [[Ring Invitations & Join]] | s17, s72, s73, s74 |
+| [[D-18 Company and invited Ring names shown to members]] | fulfilled (2, named when joined knowingly) | [[DR-18 Ring names shown when joined knowingly]] | [[Companies]], [[Ring Invitations & Join]], [[Rings]], [[Ring Members]] | s17, s72, s73, s74 |
 
 ```dataview
 TABLE status, features FROM #decision

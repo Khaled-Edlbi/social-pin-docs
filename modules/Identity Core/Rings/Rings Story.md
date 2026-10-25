@@ -14,6 +14,8 @@ tags: [story, story/draft, module/identity, layer/business]
 
 # Rings · User Story
 
+> ⚠ Affected by [[DR-18 Ring names shown when joined knowingly]] (2026-10-25): the one exception to DR-14: a Ring the member joined knowingly (invitation, code, work email) may show its name on Shared with me; one the owner placed them in never does. S3 changes.
+
 **Feature:** [[Rings]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Rings Frontend Requirements]] · **Backend Integration:** [[Rings Backend Integration]]
 
 A person has one profile and many audiences. A Ring is one audience bound to one perspective: Family, Clients, Company, a temporary Event Ring. The owner creates Rings, names and colours them, gives them a window, picks the default (what a scanned badge or a Pin-name lookup resolves to), and, when a temporary Ring lapses, decides whether to keep it, merge it into another, or let it go. Each Ring has a few settings (who it's for, who can join, approve each request, what members may do), all private by default ([[DR-04 Ring settings at launch and their defaults]]). Members see the people who share with them on a separate list, never a Ring's name or the owner's roster ([[DR-14 Shared with me lists people, never the Ring]]).

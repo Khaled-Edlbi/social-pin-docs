@@ -14,6 +14,8 @@ tags: [story, story/draft, module/shared-rings, layer/business]
 
 # Companies · User Story
 
+> ⚠ Affected by [[DR-18 Ring names shown when joined knowingly]] (2026-10-25): D-18 decided, option 2: company Rings a member joined knowingly (invitation, code, work email) are named on s72 and s73; one the owner placed them in stays unnamed. S2, S4 and the open question change; this story is no longer blocked.
+
 **Feature:** [[Companies]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Companies Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 A person belongs to one or more businesses: as an employee of Acme Studio, as a founder of Northstar, as a speaker inserted into an organizer's business account. Each business shows itself through company Rings (`CORPORATE`, nested with `parentRingId`: public, employees, c-suite), and the person is a member of some of those Rings. "My companies" is the list of those businesses and "Company detail" is one business, seen from the member's side: what it is, which of its Rings I am in, and the door out.
