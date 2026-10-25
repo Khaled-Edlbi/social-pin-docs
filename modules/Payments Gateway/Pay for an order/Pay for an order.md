@@ -15,7 +15,7 @@ tags: [feature, module/payments-gateway, priority/high]
 
 # Pay for an order
 
-**Backend:** done, s51, the webhook settlement and s52 delivered (simulated, [[Pay for an order Backend Delivery]]) · **Priority:** High · **Deadline:** — · **Module:** [[Payments Gateway Module|Payments Gateway]]
+**Backend:** not started · **Priority:** High · **Deadline:** — · **Module:** [[Payments Gateway Module|Payments Gateway]]
 
 **Layers:** [[Pay for an order Story|Story]] · [[Pay for an order Frontend Requirements|Frontend Requirements]] · [[Pay for an order Backend Delivery|Backend Delivery]] · [[Pay for an order Backend Integration|Backend Integration]] · [[Pay for an order Frontend Delivery|Frontend Delivery]] · [[Pay for an order QA Backend|QA Backend]] · [[Pay for an order QA Frontend|QA Frontend]]
 
@@ -43,8 +43,8 @@ Wireframe brief sections: [[Wireframe Brief#Tickets, access levels, RSVP, regist
 
 | Task | Status | Priority | Effort |
 |---|---|---|---|
-| [[T-065 Open a Stripe checkout for an order]] | ⬜ To do | high | M |
-| [[T-066 Settle an order and confirm it on s52]] | ⬜ To do | high | M |
+
+No task yet: the first one is the PM's, `node scripts/build-tree.mjs --scaffold task pay-for-an-order "<Title>"`.
 
 ## Decisions
 
