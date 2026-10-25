@@ -4,16 +4,19 @@ code: post-event
 scope: feature
 feature: post-event
 module: events
-status: draft
+status: approved
 screens: [s62]
+approvedBy: "khaled"
+approvedAt: 2026-10-25
+owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-18
-tags: [story, story/draft, module/events, layer/business]
+updated: 2026-10-25
+tags: [story, story/approved, module/events, layer/business]
 ---
 
 # Post-Event · User Story
 
-**Feature:** [[Post-Event]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Post-Event Frontend Requirements]] · **API Integration:** not yet (backend not built)
+**Feature:** [[Post-Event]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[Post-Event Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 The event has ended and the Event Ring has lapsed. The visitor gets one screen that tells them what the event was worth (connections, meetings, scans), proposes follow-ups, and asks the one identity question a temporary Ring leaves behind: keep it, merge it into another Ring, or let it go. The disposition endpoint exists; the summary does not.
 
