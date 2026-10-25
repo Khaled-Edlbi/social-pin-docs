@@ -4715,7 +4715,7 @@
     },
     "concepts": 177,
     "decisions": 9,
-    "edges": 4414,
+    "edges": 4413,
     "features": 40,
     "layerNotes": 192,
     "modules": 9,
@@ -6032,11 +6032,6 @@
       "from": "story:onboarding-imports",
       "kind": "blocks",
       "to": "frontend-requirements:onboarding-imports"
-    },
-    {
-      "from": "story:pay-for-an-order",
-      "kind": "blocks",
-      "to": "frontend-requirements:pay-for-an-order"
     },
     {
       "from": "story:payments",
@@ -38641,10 +38636,10 @@
         "story:events-before"
       ],
       "rollup": {
-        "approved": 2,
+        "approved": 3,
         "blocked": 1,
         "decided": 2,
-        "draft": 2,
+        "draft": 1,
         "missing": 6,
         "todo": 2
       },
@@ -42666,13 +42661,7 @@
     },
     "frontend-requirements:pay-for-an-order": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "story:pay-for-an-order",
-          "title": "Pay for an order Story",
-          "why": "Pay for an order Story is draft"
-        }
-      ],
+      "blockedBy": [],
       "card": null,
       "children": [],
       "code": "pay-for-an-order",
@@ -43941,10 +43930,10 @@
         "decision-record:DR-07"
       ],
       "rollup": {
-        "approved": 2,
+        "approved": 3,
         "blocked": 1,
         "decided": 2,
-        "draft": 2,
+        "draft": 1,
         "in-progress": 1,
         "missing": 6,
         "todo": 2
@@ -48798,12 +48787,12 @@
       "priority": null,
       "related": [],
       "rollup": {
-        "approved": 4,
+        "approved": 5,
         "blocked": 179,
         "current": 9,
         "decided": 4,
         "done": 12,
-        "draft": 105,
+        "draft": 104,
         "in-progress": 16,
         "missing": 151,
         "needs-decision": 20,
@@ -53098,7 +53087,7 @@
         "decision:D-07",
         "decision:D-08"
       ],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "pay-for-an-order",
       "frontendOnly": false,
@@ -53135,11 +53124,11 @@
         "s51",
         "s52"
       ],
-      "status": "draft",
+      "status": "approved",
       "summary": "An attendee has chosen what they want from an event on s50 and now pays for it. The app hands them to Stripe's hosted card page (DR-08 Stripe card checkout only), brings them back, tells them…",
       "tags": [
         "story",
-        "story/draft",
+        "story/approved",
         "module/payments-gateway",
         "layer/business"
       ],
