@@ -8,7 +8,7 @@ status: approved
 screens: []
 depends: []
 affects: []
-related: []
+related: ["T-063", "Error Contract Story", "Error Contract", "DR-19"]
 pending: []
 approvedBy: "khaled"
 approvedAt: 2026-10-25
@@ -23,7 +23,7 @@ task: T-063
 
 **Task:** [[T-063 Put the ErrorCode on the error body]] · **Feature:** [[Error Contract]] · **Feature-level note:** [[Error Contract Story]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[T-063 Frontend Requirements]] · **Backend Integration:** [[T-063 Backend Integration]] · **Verified by:** [[T-063 QA Backend]], [[T-063 QA Frontend]]
 
-> Derived from the task [[T-063 Put the ErrorCode on the error body]]; **not approved by product yet**. The feature-level story is [[Error Contract Story]]; this note says what the user gets from this task in particular. `approved` when product signs off (`approvedBy`, `approvedAt`); `verified` when both QA notes are `passing`.
+> Derived from the task [[T-063 Put the ErrorCode on the error body]]; **approved by khaled on 2026-10-25**, so the chain below it is unblocked and [[T-063 Frontend Requirements]] can be written. The feature-level story is [[Error Contract Story]]; this note says what the user gets from this task in particular. It is `verified` — fulfilled — only when [[T-063 QA Backend]] and [[T-063 QA Frontend]] are both `passing` with nothing left in `pending`, and only the PM sets that.
 
 Every service throws `new HttpException({ ErrorCode, message }, status)` and the Frontend guide tells clients to **branch on the code and display the message**. But `AllExceptionsFilter` (`src/common/filters/all-exceptions.filter.ts`) copies only `message` and `error` from the exception response into the body it sends. The wire body is `{ statusCode, message, error, path, timestamp }` and `error` reads `"HttpException"` for every domain error. The stable code never reaches the client.
 
