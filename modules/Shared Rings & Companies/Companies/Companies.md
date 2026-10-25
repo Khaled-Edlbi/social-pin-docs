@@ -6,7 +6,8 @@ priority: high
 module: shared-rings
 screens: [s72, s73]
 related: ["Ring Members"]
-updated: 2026-10-19
+updated: 2026-10-25
+owner: "omar"
 tags: [feature, module/shared-rings, priority/high]
 ---
 
@@ -39,9 +40,9 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 TABLE status, priority, effort FROM #task WHERE feature = "companies" SORT priority ASC
 ```
 
-## Open decisions
+## Decisions
 
-- [[D-04 Ring settings]]
+- [[D-04 Ring settings]] — decided, six settings at launch; the required work email domain comes later, with Companies ([[DR-04 Ring settings at launch and their defaults|DR-04]])
 
 ## Related
 
