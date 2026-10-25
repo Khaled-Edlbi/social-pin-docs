@@ -6,6 +6,7 @@ feature: pincast
 module: discovery
 status: draft
 screens: [s11, s39, s40, s41, s42]
+created: 2026-10-18
 updated: 2026-10-18
 tags: [story, story/draft, module/discovery, layer/business]
 ---

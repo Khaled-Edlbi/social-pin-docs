@@ -6,6 +6,7 @@ feature: photo-library
 module: identity
 status: draft
 screens: [s29, s30]
+created: 2026-10-18
 updated: 2026-10-25
 owner: "omar"
 related: ["DR-02 One main profile every Ring starts from", "DR-05 Inherit per field, copy without members"]

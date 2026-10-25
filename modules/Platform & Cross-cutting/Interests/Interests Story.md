@@ -6,6 +6,7 @@ feature: interests
 module: platform
 status: draft
 screens: [s07, s71]
+created: 2026-10-18
 updated: 2026-10-18
 tags: [story, story/draft, module/platform, layer/business]
 ---

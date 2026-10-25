@@ -6,6 +6,7 @@ feature: gemma
 module: platform
 status: draft
 screens: [s13, s60]
+created: 2026-10-18
 updated: 2026-10-25
 owner: "omar"
 related: ["DR-06 Yearly rename, old name freed, case-insensitive"]

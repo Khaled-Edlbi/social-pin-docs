@@ -7,6 +7,7 @@ release: later
 module: platform
 frontendOnly: true
 screens: [s00a, s00b, s00c, s00d]
+created: 2026-10-15
 updated: 2026-10-25
 tags: [feature, module/platform, priority/medium, release/later]
 ---

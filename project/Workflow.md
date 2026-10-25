@@ -1,6 +1,7 @@
 ---
 type: project
 layer: shared
+created: 2026-10-15
 updated: 2026-10-25
 related: ["Agent Rules", "Docs Tree"]
 tags: [project, layer/shared]

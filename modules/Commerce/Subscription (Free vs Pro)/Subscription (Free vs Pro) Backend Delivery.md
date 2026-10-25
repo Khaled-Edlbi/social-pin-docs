@@ -6,6 +6,7 @@ feature: subscription
 module: commerce
 status: todo
 screens: [s34, s70]
+created: 2026-10-18
 updated: 2026-10-18
 tags: [backend-delivery, backend-delivery/todo, module/commerce, layer/backend]
 ---

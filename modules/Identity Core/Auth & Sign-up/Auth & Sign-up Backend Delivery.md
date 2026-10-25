@@ -6,6 +6,7 @@ feature: auth
 module: identity
 status: done
 screens: [s01, s02, s06, s08, s68]
+created: 2026-10-15
 updated: 2026-10-18
 tags: [backend-delivery, backend-delivery/done, module/identity, layer/backend]
 ---

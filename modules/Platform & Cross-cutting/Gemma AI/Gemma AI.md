@@ -6,6 +6,7 @@ priority: medium
 release: later
 module: platform
 screens: [s13, s60]
+created: 2026-10-15
 updated: 2026-10-25
 owner: "omar"
 tags: [feature, module/platform, priority/medium, release/later]

@@ -10,6 +10,7 @@ depends: ["D-07 Payment provider"]
 affects: ["Events Before", "Events During", "Event Ring Auto-creation"]
 related: ["DR-07 Stripe for all four flows", "T-047 Orders, payments and the provider webhook", "Events Before", "Events During", "Event Ring Auto-creation", "Subscription (Free vs Pro)", "Audit Log", "T-034 Tickets, packages, levels, sold-out", "T-035 Registration transaction with order and payment", "T-040 Lounges and upgrades"]
 owner: "khaled"
+created: 2026-10-18
 updated: 2026-10-25
 tags: [story, story/draft, module/commerce, layer/business]
 ---

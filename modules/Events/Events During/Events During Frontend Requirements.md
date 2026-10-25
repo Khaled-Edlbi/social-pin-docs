@@ -6,6 +6,7 @@ feature: events-during
 module: events
 status: draft
 screens: [s53, s54, s55, s56, s57, s58]
+created: 2026-10-18
 updated: 2026-10-18
 tags: [frontend-requirements, frontend-requirements/draft, module/events, layer/frontend]
 ---

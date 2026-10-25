@@ -7,6 +7,7 @@ release: v1
 module: identity
 screens: [s14, s20, s36]
 related: ["Rings"]
+created: 2026-10-18
 updated: 2026-10-25
 tags: [feature, module/identity, priority/high, release/v1]
 ---

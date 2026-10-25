@@ -7,6 +7,7 @@ release: mvp
 module: events
 screens: [s48, s49, s50, s51, s52]
 related: ["Rings"]
+created: 2026-10-15
 updated: 2026-10-25
 tags: [feature, module/events, priority/critical, release/mvp]
 ---

@@ -14,6 +14,7 @@ related: []
 # pending: ["[[Note]]: what is left", "@who: what is left"]   # done, but a note is left for a card or a person → Partial until cleared
 pending: []
 blockedBy: []
+created: <date>
 updated: <date>
 tags: [frontend-requirements, frontend-requirements/draft, module/<module>, layer/frontend]
 ---

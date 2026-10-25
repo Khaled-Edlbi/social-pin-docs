@@ -7,6 +7,7 @@ release: v1
 module: discovery
 screens: [s11, s39, s40, s41, s42]
 related: ["Rings", "View As & Pin Views"]
+created: 2026-10-15
 updated: 2026-10-25
 tags: [feature, module/discovery, priority/high, release/v1]
 ---

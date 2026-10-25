@@ -6,6 +6,7 @@ priority: high
 release: v1
 module: commerce
 screens: [s34, s70]
+created: 2026-10-15
 updated: 2026-10-25
 tags: [feature, module/commerce, priority/high, release/v1]
 ---

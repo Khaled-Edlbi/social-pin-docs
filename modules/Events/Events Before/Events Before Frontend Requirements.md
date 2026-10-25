@@ -6,6 +6,7 @@ feature: events-before
 module: events
 status: draft
 screens: [s48, s49, s50, s51, s52]
+created: 2026-10-18
 updated: 2026-10-25
 tags: [frontend-requirements, frontend-requirements/draft, module/events, layer/frontend]
 ---

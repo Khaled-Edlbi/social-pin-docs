@@ -7,6 +7,7 @@ release: mvp
 module: meetings
 screens: [s59, s61, s64, s66, s67]
 related: ["View As & Pin Views"]
+created: 2026-10-15
 updated: 2026-10-25
 tags: [feature, module/meetings, priority/critical, release/mvp]
 ---

@@ -1,6 +1,7 @@
 ---
 type: project
 stage: mvp
+created: 2026-10-15
 updated: 2026-10-25
 tags: [project, stage/mvp]
 layer: business

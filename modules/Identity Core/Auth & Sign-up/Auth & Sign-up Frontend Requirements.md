@@ -6,6 +6,7 @@ feature: auth
 module: identity
 status: draft
 screens: [s01, s02, s06, s08, s68]
+created: 2026-10-18
 updated: 2026-10-18
 tags: [frontend-requirements, frontend-requirements/draft, module/identity, layer/frontend]
 ---

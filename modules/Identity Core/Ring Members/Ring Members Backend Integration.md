@@ -6,6 +6,7 @@ feature: ring-members
 module: identity
 status: current
 screens: [s15, s47]
+created: 2026-10-15
 updated: 2026-10-18
 tags: [backend-integration, backend-integration/current, module/identity, layer/backend]
 ---

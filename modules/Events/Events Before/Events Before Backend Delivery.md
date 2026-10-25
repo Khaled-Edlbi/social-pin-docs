@@ -6,6 +6,7 @@ feature: events-before
 module: events
 status: todo
 screens: [s48, s49, s50, s51, s52]
+created: 2026-10-18
 updated: 2026-10-18
 tags: [backend-delivery, backend-delivery/todo, module/events, layer/backend]
 ---

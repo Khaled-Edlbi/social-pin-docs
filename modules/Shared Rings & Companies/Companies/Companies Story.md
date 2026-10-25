@@ -6,6 +6,7 @@ feature: companies
 module: shared-rings
 status: draft
 screens: [s72, s73]
+created: 2026-10-18
 updated: 2026-10-25
 owner: "omar"
 related: ["DR-04 Ring settings at launch and their defaults", "DR-14 Shared with me lists people, never the Ring", "DR-18 Ring names shown when joined knowingly"]

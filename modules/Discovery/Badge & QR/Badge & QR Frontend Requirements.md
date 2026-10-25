@@ -6,6 +6,7 @@ feature: badge-qr
 module: discovery
 status: draft
 screens: [s34, s43, s44, s56]
+created: 2026-10-18
 updated: 2026-10-18
 tags: [frontend-requirements, frontend-requirements/draft, module/discovery, layer/frontend]
 ---

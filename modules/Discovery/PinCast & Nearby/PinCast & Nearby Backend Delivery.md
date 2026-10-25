@@ -6,6 +6,7 @@ feature: pincast
 module: discovery
 status: todo
 screens: [s11, s39, s40, s41, s42]
+created: 2026-10-18
 updated: 2026-10-18
 tags: [backend-delivery, backend-delivery/todo, module/discovery, layer/backend]
 ---

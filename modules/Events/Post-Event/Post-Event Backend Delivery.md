@@ -6,6 +6,7 @@ feature: post-event
 module: events
 status: todo
 screens: [s62]
+created: 2026-10-18
 updated: 2026-10-18
 tags: [backend-delivery, backend-delivery/todo, module/events, layer/backend]
 ---

@@ -7,6 +7,7 @@ module: identity
 status: draft
 screens: [s11, s12, s14, s16, s17, s68]
 owner: "omar"
+created: 2026-10-18
 updated: 2026-10-25
 related: ["DR-04 Ring settings at launch and their defaults", "DR-14 Shared with me lists people, never the Ring"]
 tags: [story, story/draft, module/identity, layer/business]

@@ -6,6 +6,7 @@ feature: profiles
 module: identity
 status: draft
 screens: [s06]
+created: 2026-10-18
 updated: 2026-10-25
 owner: "omar"
 related: ["DR-02 One main profile every Ring starts from", "DR-06 Yearly rename, old name freed, case-insensitive"]

@@ -7,6 +7,7 @@ module: connections
 status: draft
 screens: [s44, s45, s46, s47, s62]
 owner: "omar"
+created: 2026-10-18
 updated: 2026-10-25
 related: ["DR-04 Ring settings at launch and their defaults", "DR-13 The requester sees a declined request", "DR-14 Shared with me lists people, never the Ring", "DR-15 Several Rings per connection, remove or disconnect", "DR-17 Requests expire after 30 days, optional note, ask again at once"]
 tags: [story, story/draft, module/connections, layer/business]

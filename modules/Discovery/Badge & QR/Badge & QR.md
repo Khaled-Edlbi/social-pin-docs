@@ -7,6 +7,7 @@ release: mvp
 module: discovery
 screens: [s34, s43, s44, s56]
 related: ["Account", "Rings"]
+created: 2026-10-15
 updated: 2026-10-25
 tags: [feature, module/discovery, priority/critical, release/mvp]
 ---

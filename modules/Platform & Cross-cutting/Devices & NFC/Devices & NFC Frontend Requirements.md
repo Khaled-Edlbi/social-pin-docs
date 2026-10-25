@@ -6,6 +6,7 @@ feature: devices
 module: platform
 status: draft
 screens: [s75]
+created: 2026-10-18
 updated: 2026-10-18
 tags: [frontend-requirements, frontend-requirements/draft, module/platform, layer/frontend]
 ---

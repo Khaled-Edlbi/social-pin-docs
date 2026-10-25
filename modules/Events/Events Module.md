@@ -2,6 +2,7 @@
 type: module
 id: events
 name: "Events"
+created: 2026-10-18
 updated: 2026-10-18
 tags: [module, module/events]
 ---

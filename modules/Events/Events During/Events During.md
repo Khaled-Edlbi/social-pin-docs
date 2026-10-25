@@ -7,6 +7,7 @@ release: mvp
 module: events
 screens: [s53, s54, s55, s56, s57, s58]
 related: ["Rings", "View As & Pin Views"]
+created: 2026-10-15
 updated: 2026-10-25
 tags: [feature, module/events, priority/critical, release/mvp]
 ---

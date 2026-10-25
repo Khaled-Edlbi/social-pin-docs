@@ -9,6 +9,7 @@ screens: [s14, s20, s36]
 approvedBy: "khaled"
 approvedAt: 2026-10-25
 owner: "khaled"
+created: 2026-10-18
 updated: 2026-10-25
 tags: [story, story/approved, module/identity, layer/business]
 ---

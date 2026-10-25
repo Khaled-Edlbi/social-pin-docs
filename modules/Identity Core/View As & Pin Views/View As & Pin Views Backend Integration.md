@@ -6,6 +6,7 @@ feature: view-as
 module: identity
 status: current
 screens: [s10, s31, s44]
+created: 2026-10-15
 updated: 2026-10-18
 tags: [backend-integration, backend-integration/current, module/identity, layer/backend]
 ---

@@ -6,6 +6,7 @@ feature: e2e-tests
 module: platform
 status: draft
 screens: []
+created: 2026-10-18
 updated: 2026-10-18
 tags: [story, story/draft, module/platform, layer/business]
 ---

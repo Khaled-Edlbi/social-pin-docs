@@ -7,6 +7,7 @@ release: v1
 module: shared-rings
 screens: [s17, s74]
 related: ["View As & Pin Views"]
+created: 2026-10-15
 updated: 2026-10-25
 owner: "omar"
 tags: [feature, module/shared-rings, priority/high, release/v1]
