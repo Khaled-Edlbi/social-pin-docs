@@ -23,7 +23,7 @@ tags: [story, story/approved, module/payments-gateway, layer/business]
 
 An attendee has chosen what they want from an event on [[Screen Index#s50|s50]] and now pays for it. The app hands them to Stripe's hosted card page ([[DR-08 Stripe card checkout only]]), brings them back, tells them where the payment stands, and grants the Event Ring only once Stripe has confirmed the payment. The order, its lines and its price snapshot belong to [[Payments & Orders]]; this story is the hand-over to Stripe, the return, the settlement and the confirmation. No backend exists for it today: no checkout endpoint, no webhook, no order status to read ([[Pay for an order Backend Delivery]] is not written).
 
-**Task stories:** [[T-065 Story]] (T-065: S1 and S2 up to Stripe's confirmation). S3 and S4 have no task yet.
+**Task stories:** [[T-065 Story]] (T-065: S1 and S2 up to Stripe's confirmation) · [[T-066 Story]] (T-066: S3 and S4, the settlement and s52).
 
 ## Persona
 

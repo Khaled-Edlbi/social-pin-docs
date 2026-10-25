@@ -253,6 +253,7 @@
     "story:T-062": "S-07",
     "story:T-063": "S-88",
     "story:T-065": "S-106",
+    "story:T-066": "S-107",
     "story:account": "S-01",
     "story:app-shell": "S-73",
     "story:audit-log": "S-74",
@@ -470,7 +471,10 @@
     "task:T-064": "T-064",
     "task:T-065": "T-065",
     "task:T-065-be": "T-065-be",
-    "task:T-065-fe": "T-065-fe"
+    "task:T-065-fe": "T-065-fe",
+    "task:T-066": "T-066",
+    "task:T-066-be": "T-066-be",
+    "task:T-066-fe": "T-066-fe"
   },
   "retired": {
     "F-40": "feature:google-auth",
