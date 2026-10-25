@@ -4683,7 +4683,7 @@
     },
     "concepts": 177,
     "decisions": 7,
-    "edges": 4336,
+    "edges": 4342,
     "features": 39,
     "layerNotes": 190,
     "modules": 8,
@@ -26806,7 +26806,37 @@
     {
       "from": "story:T-008",
       "kind": "wikilink",
+      "to": "backend-integration:view-as"
+    },
+    {
+      "from": "story:T-008",
+      "kind": "wikilink",
       "to": "feature:badge-qr"
+    },
+    {
+      "from": "story:T-008",
+      "kind": "wikilink",
+      "to": "feature:error-contract"
+    },
+    {
+      "from": "story:T-008",
+      "kind": "wikilink",
+      "to": "task:T-007"
+    },
+    {
+      "from": "story:T-008",
+      "kind": "wikilink",
+      "to": "task:T-009"
+    },
+    {
+      "from": "story:T-008",
+      "kind": "wikilink",
+      "to": "task:T-010"
+    },
+    {
+      "from": "story:T-008",
+      "kind": "wikilink",
+      "to": "task:T-021"
     },
     {
       "from": "story:T-009",
@@ -48246,7 +48276,7 @@
       ],
       "task": "T-008",
       "title": "T-008 Story",
-      "updated": "2026-10-18"
+      "updated": "2026-10-25"
     },
     "story:T-009": {
       "affects": [],
