@@ -4,22 +4,22 @@ code: pay-for-an-order
 scope: feature
 feature: pay-for-an-order
 module: payments-gateway
-status: in-progress
+status: done
 screens: [s51, s52]
 depends: ["Pay for an order Frontend Requirements"]
 affects: []
 related: ["T-065-be Backend Delivery", "GET /orders/:id", "POST /orders/:id/checkout", "E_ORDER_01", "E_ORDER_02", "E_ORDER_03", "E_PAY_01", "DR-08 Stripe card checkout only", "DR-09 30-minute hold tied to the Stripe checkout", "Audit Log", "T-047 Orders, payments and the provider webhook"]
-pending: []
+pending: ["@pm: file the task for the Stripe webhook settlement (story S3; T-047 holds it today)", "@pm: file the task for s52, registration complete and the Event Ring id (story S4)"]
 owner: "khaled"
 updated: 2026-10-25
-tags: [backend-delivery, backend-delivery/in-progress, module/payments-gateway, layer/backend]
+tags: [backend-delivery, backend-delivery/done, module/payments-gateway, layer/backend]
 ---
 
-# 🟡 Pay for an order · Backend Delivery
+# ✅ Pay for an order · Backend Delivery
 
 > **Simulated** for the M-09 agent-flow test: nothing below is on `social-pin` `main` (see [[T-065-be Backend Delivery]]).
 
-**Feature:** [[Pay for an order]] · **Status:** In progress (s51 delivered, the webhook and s52 not) · **Integration guide:** [[Pay for an order Backend Integration]] · **Requirements:** [[Pay for an order Frontend Requirements]] (approved) · **QA:** [[Pay for an order QA Backend]] (not run yet)
+**Feature:** [[Pay for an order]] · **Status:** Done for what its tasks delivered (s51); the webhook and s52 have no task and are handed to the PM in `pending` (Partial) · **Integration guide:** [[Pay for an order Backend Integration]] · **Requirements:** [[Pay for an order Frontend Requirements]] (approved) · **QA:** [[Pay for an order QA Backend]] (not run yet)
 
 Written by the **backend** team: what shipped and how it works, as it **is**. The sum of this feature's task-level Backend Delivery notes (table at the end).
 
@@ -63,3 +63,4 @@ Written by the **backend** team: what shipped and how it works, as it **is**. Th
 ## Log
 
 - 2026-10-25 · rolled up T-065-be (simulated): s51's two endpoints
+- 2026-10-25 · `docs/backend/M-09-payments-gateway/F-41-pay-for-an-order/BD-41-done` · done for every task filed (T-065, simulated); the webhook settlement and s52 have no task: handed to the PM in `pending`; QA Backend can run on s51

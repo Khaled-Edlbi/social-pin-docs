@@ -4829,12 +4829,12 @@
     },
     "concepts": 183,
     "decisions": 9,
-    "edges": 4642,
+    "edges": 4641,
     "features": 40,
     "layerNotes": 198,
     "modules": 9,
     "notes": 492,
-    "partial": 1,
+    "partial": 2,
     "placeholders": 148,
     "records": 4,
     "taskLayerNotes": 68,
@@ -5351,11 +5351,6 @@
       "from": "backend-delivery:onboarding-imports",
       "kind": "blocks",
       "to": "qa-backend:onboarding-imports"
-    },
-    {
-      "from": "backend-delivery:pay-for-an-order",
-      "kind": "blocks",
-      "to": "qa-backend:pay-for-an-order"
     },
     {
       "from": "backend-delivery:payments",
@@ -35543,7 +35538,7 @@
       "depends": [
         "frontend-requirements:pay-for-an-order"
       ],
-      "effectiveStatus": "in-progress",
+      "effectiveStatus": "partial",
       "effort": null,
       "feature": "pay-for-an-order",
       "frontendOnly": false,
@@ -35561,7 +35556,18 @@
         "feature:pay-for-an-order"
       ],
       "path": "modules/Payments Gateway/Pay for an order/Pay for an order Backend Delivery.md",
-      "pending": [],
+      "pending": [
+        {
+          "person": "pm",
+          "text": "file the task for the Stripe webhook settlement (story S3; T-047 holds it today)",
+          "to": null
+        },
+        {
+          "person": "pm",
+          "text": "file the task for s52, registration complete and the Event Ring id (story S4)",
+          "to": null
+        }
+      ],
       "priority": "high",
       "related": [
         "backend-delivery:T-065-be",
@@ -35580,11 +35586,11 @@
         "s51",
         "s52"
       ],
-      "status": "in-progress",
+      "status": "done",
       "summary": "Written by the backend team: what shipped and how it works, as it is. The sum of this feature's task-level Backend Delivery notes (table at the end).",
       "tags": [
         "backend-delivery",
-        "backend-delivery/in-progress",
+        "backend-delivery/done",
         "module/payments-gateway",
         "layer/backend"
       ],
@@ -40731,9 +40737,8 @@
         "decided": 2,
         "done": 1,
         "draft": 1,
-        "in-progress": 1,
         "missing": 3,
-        "partial": 1,
+        "partial": 2,
         "todo": 1
       },
       "scope": null,
@@ -46192,9 +46197,9 @@
         "decided": 2,
         "done": 1,
         "draft": 1,
-        "in-progress": 2,
+        "in-progress": 1,
         "missing": 3,
-        "partial": 1,
+        "partial": 2,
         "todo": 1
       },
       "scope": null,
@@ -48733,13 +48738,7 @@
     },
     "qa-backend:pay-for-an-order": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "backend-delivery:pay-for-an-order",
-          "title": "Pay for an order Backend Delivery",
-          "why": "Pay for an order Backend Delivery is in progress"
-        }
-      ],
+      "blockedBy": [],
       "card": null,
       "children": [],
       "code": "pay-for-an-order",
@@ -51064,10 +51063,10 @@
         "decided": 4,
         "done": 13,
         "draft": 104,
-        "in-progress": 17,
+        "in-progress": 16,
         "missing": 148,
         "needs-decision": 20,
-        "partial": 1,
+        "partial": 2,
         "reference": 31,
         "todo": 82
       },
