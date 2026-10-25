@@ -21,6 +21,8 @@ tags: [task, task/done, module/payments-gateway, priority/high, frontend]
 
 # ✅ T-066-fe · Frontend: Settle an order and confirm it on s52
 
+> ⚠ Affected by [[T-066-fe QA Frontend]] (2026-10-25): QA Frontend passing on `t066-fe-sim-2026-10-25` (simulated), G1–G9; the `@qa` pending item can be cleared and the QA box ticked.
+
 **Parent:** [[T-066 Settle an order and confirm it on s52]] · **Feature:** [[Pay for an order]] · **Side:** Frontend · **Status:** Done (simulated) · **Priority:** high · **Effort:** M (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-066-fe` when the team picks it up): [[T-066-fe Frontend Requirements|Frontend Requirements]] · [[T-066-fe Frontend Delivery|Frontend Delivery]] · [[T-066-fe QA Frontend|QA Frontend]]

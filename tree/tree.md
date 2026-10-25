@@ -610,6 +610,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
           - 🟡 [T-066-fe Frontend · Settle an order and confirm it on s52](tasks/T-066-fe%20Frontend%20%C2%B7%20Settle%20an%20order%20and%20confirm%20it%20on%20s52/T-066-fe%20Frontend%20%C2%B7%20Settle%20an%20order%20and%20confirm%20it%20on%20s52.md) (sub-task of T-066, frontend, 1 pending note, High)
             - 👍 [T-066-fe Frontend Requirements](tasks/T-066-fe%20Frontend%20%C2%B7%20Settle%20an%20order%20and%20confirm%20it%20on%20s52/T-066-fe%20Frontend%20Requirements.md) (FR-42, Frontend Requirements, High)
             - ✅ [T-066-fe Frontend Delivery](tasks/T-066-fe%20Frontend%20%C2%B7%20Settle%20an%20order%20and%20confirm%20it%20on%20s52/T-066-fe%20Frontend%20Delivery.md) (FD-03, Frontend Delivery, High)
+            - 🟢 [T-066-fe QA Frontend](tasks/T-066-fe%20Frontend%20%C2%B7%20Settle%20an%20order%20and%20confirm%20it%20on%20s52/T-066-fe%20QA%20Frontend.md) (QF-03, QA Frontend, High)
         - ✅ [D-09 How long an unpaid order holds its tickets](decisions/D-09%20How%20long%20an%20unpaid%20order%20holds%20its%20tickets.md) (Decision)
           - ⚖️ [DR-09 30-minute hold tied to the Stripe checkout](decisions/DR-09%2030-minute%20hold%20tied%20to%20the%20Stripe%20checkout.md) (Decision record)
       - 👍 [Pay for an order Frontend Requirements](modules/Payments%20Gateway/Pay%20for%20an%20order/Pay%20for%20an%20order%20Frontend%20Requirements.md) (FR-41, Frontend Requirements, High)
