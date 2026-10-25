@@ -9,13 +9,12 @@ module: identity
 screens: [s04, s05]
 depends: [T-019, D-02]
 created: 2026-10-15
-updated: 2026-10-19
+updated: 2026-10-25
+owner: "omar"
 tags: [task, task/blocked, module/identity, priority/high]
 ---
 
 # ⛔ T-020 · LinkedIn import → review → base profile
-
-> ⚠ Affected by [[DR-02 One main profile every Ring starts from]] (2026-10-25): D-02 decided, one main profile (headline, role, company, location, photo, bio) every Ring starts from; imports fill it. This task no longer waits on D-02.
 
 **Feature:** [[Onboarding Imports]] · **Status:** Blocked · **Priority:** High · **Effort:** L (S < 1 day, M 1–3 days, L > 3 days)
 
@@ -23,7 +22,7 @@ tags: [task, task/blocked, module/identity, priority/high]
 
 ## What
 
-Import endpoint returns candidate fields; confirm endpoint writes the chosen ones to the base profile and the first Ring.
+Import endpoint returns candidate fields; confirm endpoint writes the chosen ones to the main profile (headline, role, company, location, photo, bio: [[DR-02 One main profile every Ring starts from]]), which every Ring then inherits field by field.
 
 ## Design
 
@@ -33,7 +32,7 @@ Import endpoint returns candidate fields; confirm endpoint writes the chosen one
 ## Dependencies
 
 - Waits on [[T-019 LinkedIn OAuth link, unlink, login]]
-- Waits on decision [[D-02 Base profile work fields]]
+- Waited on decision [[D-02 Base profile work fields]], decided by [[DR-02 One main profile every Ring starts from]]
 
 ## Definition of done
 
@@ -46,3 +45,4 @@ Import endpoint returns candidate fields; confirm endpoint writes the chosen one
 ## Log
 
 - 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
+- 2026-10-25 · D-02 decided ([[DR-02 One main profile every Ring starts from]]); What and Dependencies updated, flag cleared. Still waits on T-019.
