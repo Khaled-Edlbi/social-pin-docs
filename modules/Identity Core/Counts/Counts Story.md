@@ -6,7 +6,8 @@ feature: counts
 module: identity
 status: draft
 screens: [s11, s12, s14, s16, s17, s68]
-updated: 2026-10-18
+owner: "khaled"
+updated: 2026-10-25
 tags: [story, story/draft, module/identity, layer/business]
 ---
 
@@ -15,6 +16,8 @@ tags: [story, story/draft, module/identity, layer/business]
 **Feature:** [[Counts]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Counts Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 A Ring owner glances at Home or My Rings and wants a sense of scale: how many people each Ring reaches ("148 people"), how many Rings they own and how many were shared with them, and, on Me, how many connections they have ("218 connections"). The numbers are derived from data that exists today; what is missing is a way to read them.
+
+**Task stories:** [[T-004 Story]] (T-004: the member count in S1, S2, S3 and S5). S4 waits on [[T-005 Story]], still the empty template.
 
 ## Persona
 
