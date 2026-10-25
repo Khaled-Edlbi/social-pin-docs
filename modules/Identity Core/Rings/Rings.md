@@ -5,7 +5,7 @@ name: "Rings"
 priority: critical
 module: identity
 screens: [s08, s09, s16, s17, s18, s19, s20, s21, s22, s26, s62]
-updated: 2026-10-19
+updated: 2026-10-25
 tags: [feature, module/identity, priority/critical]
 ---
 
@@ -25,17 +25,26 @@ My Rings and Shared-with-me lists, create a Ring with name, colour, type, expiry
 | [[Screen Index#s09|s09]] | Create first Ring |  |
 | [[Screen Index#s16|s16]] | My Rings |  |
 | [[Screen Index#s17|s17]] | Shared with me | List done; review / decline invite todo |
-| [[Screen Index#s18|s18]] | New Ring · step 1 | Copy a Ring → D-05 |
-| [[Screen Index#s19|s19]] | New Ring · step 2 (who is in it) | Audience settings → D-04 |
-| [[Screen Index#s20|s20]] | New Ring · step 3 (what it shows) | Field library → D-03 |
+| [[Screen Index#s18|s18]] | New Ring · step 1 | Copy a Ring decided (DR-05), not built |
+| [[Screen Index#s19|s19]] | New Ring · step 2 (who is in it) | Audience settings decided (DR-04), not built |
+| [[Screen Index#s20|s20]] | New Ring · step 3 (what it shows) | Field library decided (DR-03), not built |
 | [[Screen Index#s21|s21]] | New Ring · step 4 (how you appear) |  |
-| [[Screen Index#s22|s22]] | Edit · name & purpose | Purpose → D-04 |
-| [[Screen Index#s26|s26]] | Edit · access | Settings → D-04 |
+| [[Screen Index#s22|s22]] | Edit · name & purpose | Purpose decided (DR-04), not built |
+| [[Screen Index#s26|s26]] | Edit · access | Settings decided (DR-04), not built |
 | [[Screen Index#s62|s62]] | Post-event summary | Keep / merge / expire done |
 
 Wireframe brief sections: [[Wireframe Brief#Ring management|§4.2 Ring management]], [[Wireframe Brief#Post-event|§8.5 Post-event]]
 
 Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map in [[Navigation Map]], see [[Design Reference]].
+
+## Product rules
+
+- **Six settings at launch**, each defaulting to the private choice: who it's for (empty), who can request to join (**only with a code or by invitation**), **approve each one**, members can see each other (**off**), members can invite others (**off**), members can save attachments (**off**). Required work email domain, "members can message me" and "see when I'm at an event" come later, with companies, messaging and events ([[DR-04 Ring settings at launch and their defaults]]).
+- The **owner and the Ring's admins** can change a Ring's settings.
+- When "members can see each other" is on, members see each other's **full cards**; while it is off, only the owner sees who is in the Ring.
+- **A member never learns which Ring they are in**: Shared with me lists the people who share with me, never a Ring's name, colour or type ([[DR-14 Shared with me lists people, never the Ring]]).
+- **Copying a Ring** copies its fields, bio, photo, colour and settings, **never its members**; afterwards the two are independent ([[DR-05 Inherit per field, copy without members]]).
+- Not built yet: none of the settings exist on a Ring today, and `GET /rings/shared-with-me` still returns the Ring's name to members.
 
 ## Tasks
 
