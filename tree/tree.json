@@ -4724,7 +4724,7 @@
     },
     "concepts": 177,
     "decisions": 9,
-    "edges": 4486,
+    "edges": 4485,
     "features": 40,
     "layerNotes": 194,
     "modules": 9,
@@ -5876,11 +5876,6 @@
       "from": "frontend-requirements:onboarding-imports",
       "kind": "blocks",
       "to": "backend-delivery:onboarding-imports"
-    },
-    {
-      "from": "frontend-requirements:pay-for-an-order",
-      "kind": "blocks",
-      "to": "backend-delivery:pay-for-an-order"
     },
     {
       "from": "frontend-requirements:payments",
@@ -34123,13 +34118,7 @@
     },
     "backend-delivery:pay-for-an-order": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "frontend-requirements:pay-for-an-order",
-          "title": "Pay for an order Frontend Requirements",
-          "why": "Pay for an order Frontend Requirements is draft"
-        }
-      ],
+      "blockedBy": [],
       "card": null,
       "children": [],
       "code": "pay-for-an-order",
@@ -39167,10 +39156,9 @@
         "story:events-before"
       ],
       "rollup": {
-        "approved": 5,
+        "approved": 6,
         "blocked": 1,
         "decided": 2,
-        "draft": 1,
         "missing": 5,
         "todo": 2
       },
@@ -43256,7 +43244,7 @@
       "code": "pay-for-an-order",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "pay-for-an-order",
       "frontendOnly": false,
@@ -43290,11 +43278,11 @@
         "s51",
         "s52"
       ],
-      "status": "draft",
+      "status": "approved",
       "summary": "Written by the frontend team, read by the backend: what the client needs to build Pay for an order Story, and whether each need is met today. This note is the sum of the task-level requirements…",
       "tags": [
         "frontend-requirements",
-        "frontend-requirements/draft",
+        "frontend-requirements/approved",
         "module/payments-gateway",
         "layer/frontend"
       ],
@@ -44536,10 +44524,9 @@
         "decision-record:DR-07"
       ],
       "rollup": {
-        "approved": 5,
+        "approved": 6,
         "blocked": 1,
         "decided": 2,
-        "draft": 1,
         "in-progress": 1,
         "missing": 5,
         "todo": 2
@@ -49395,12 +49382,12 @@
       "priority": null,
       "related": [],
       "rollup": {
-        "approved": 7,
+        "approved": 8,
         "blocked": 179,
         "current": 9,
         "decided": 4,
         "done": 12,
-        "draft": 104,
+        "draft": 103,
         "in-progress": 16,
         "missing": 150,
         "needs-decision": 20,
