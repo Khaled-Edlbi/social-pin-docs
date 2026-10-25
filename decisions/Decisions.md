@@ -19,6 +19,7 @@ Where the design and the backend disagree, and every other decision a card needs
 | [[D-07 Payment provider]] | fulfilled (1, Stripe for all four flows) | [[DR-07 Stripe for all four flows]] | [[Payments & Orders]], [[Subscription (Free vs Pro)]] | s51, s70 |
 | [[D-10 How Connect addresses the scanned person]] | draft | — | [[Badge & QR]], [[Connections]] | s43, s44 |
 | [[D-11 Get or rotate the badge token]] | draft | — | [[Badge & QR]] | s34 |
+| [[D-12 What the badge QR encodes]] | draft | — | [[Badge & QR]] | s34, s43 |
 
 ```dataview
 TABLE status, features FROM #decision

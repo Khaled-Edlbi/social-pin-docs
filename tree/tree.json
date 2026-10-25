@@ -98,6 +98,7 @@
     "D-07 Payment provider": "decision:D-07",
     "D-10 How Connect addresses the scanned person": "decision:D-10",
     "D-11 Get or rotate the badge token": "decision:D-11",
+    "D-12 What the badge QR encodes": "decision:D-12",
     "DR-01 Code-only login": "decision-record:DR-01",
     "DR-07 Stripe for all four flows": "decision-record:DR-07",
     "Database & Migrations": "project:database-migrations",
@@ -562,6 +563,7 @@
     "D-07": "decision:D-07",
     "D-10": "decision:D-10",
     "D-11": "decision:D-11",
+    "D-12": "decision:D-12",
     "DR-01": "decision-record:DR-01",
     "DR-07": "decision-record:DR-07",
     "F-01": "feature:account",
@@ -3714,6 +3716,7 @@
     "s34": {
       "containers": [
         "decision:D-11",
+        "decision:D-12",
         "feature:badge-qr",
         "feature:subscription",
         "task:T-007",
@@ -3731,6 +3734,7 @@
         "backend-delivery:badge-qr",
         "backend-delivery:subscription",
         "decision:D-11",
+        "decision:D-12",
         "feature:badge-qr",
         "feature:subscription",
         "frontend-requirements:badge-qr",
@@ -3925,6 +3929,7 @@
     "s43": {
       "containers": [
         "decision:D-10",
+        "decision:D-12",
         "feature:badge-qr",
         "task:T-008",
         "task:T-008-be",
@@ -3934,6 +3939,7 @@
       "notes": [
         "backend-delivery:badge-qr",
         "decision:D-10",
+        "decision:D-12",
         "feature:badge-qr",
         "frontend-requirements:badge-qr",
         "story:T-008",
@@ -4765,11 +4771,11 @@
     }
   },
   "counts": {
-    "blocked": 181,
+    "blocked": 182,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
-      "decision": 9,
+      "decision": 10,
       "decision-record": 2,
       "feature": 39,
       "frontend-requirements": 39,
@@ -4780,17 +4786,17 @@
     },
     "byLayer": {
       "backend": 56,
-      "business": 333,
+      "business": 334,
       "frontend": 43,
       "shared": 10
     },
     "concepts": 181,
-    "decisions": 9,
-    "edges": 4476,
+    "decisions": 10,
+    "edges": 4487,
     "features": 39,
     "layerNotes": 190,
     "modules": 8,
-    "notes": 477,
+    "notes": 478,
     "partial": 0,
     "placeholders": 145,
     "records": 2,
@@ -5523,6 +5529,16 @@
       "from": "decision:D-11",
       "kind": "blocks",
       "to": "story:T-007"
+    },
+    {
+      "from": "decision:D-12",
+      "kind": "blocks",
+      "to": "story:T-007"
+    },
+    {
+      "from": "decision:D-12",
+      "kind": "blocks",
+      "to": "task:T-010"
     },
     {
       "from": "frontend-delivery:account",
@@ -7065,6 +7081,21 @@
       "to": "story:T-007"
     },
     {
+      "from": "decision:D-12",
+      "kind": "decision",
+      "to": "feature:badge-qr"
+    },
+    {
+      "from": "decision:D-12",
+      "kind": "decision",
+      "to": "story:T-007"
+    },
+    {
+      "from": "decision:D-12",
+      "kind": "decision",
+      "to": "task:T-010"
+    },
+    {
       "from": "project:admin-agent",
       "kind": "depends",
       "to": "project:agent-protocol"
@@ -8541,6 +8572,11 @@
     },
     {
       "from": "decision:D-11",
+      "kind": "related",
+      "to": "feature:badge-qr"
+    },
+    {
+      "from": "decision:D-12",
       "kind": "related",
       "to": "feature:badge-qr"
     },
@@ -20829,6 +20865,11 @@
       "to": "decision:D-11"
     },
     {
+      "from": "story:T-007",
+      "kind": "tree",
+      "to": "decision:D-12"
+    },
+    {
       "from": "story:T-008",
       "kind": "tree",
       "to": "decision:D-10"
@@ -20967,6 +21008,11 @@
       "from": "task:T-009",
       "kind": "tree",
       "to": "task:T-009-fe"
+    },
+    {
+      "from": "task:T-010",
+      "kind": "tree",
+      "to": "decision:D-12"
     },
     {
       "from": "task:T-010",
@@ -22890,6 +22936,21 @@
     },
     {
       "from": "decision:D-11",
+      "kind": "wikilink",
+      "to": "task:T-049"
+    },
+    {
+      "from": "decision:D-12",
+      "kind": "wikilink",
+      "to": "story:T-008"
+    },
+    {
+      "from": "decision:D-12",
+      "kind": "wikilink",
+      "to": "task:T-007"
+    },
+    {
+      "from": "decision:D-12",
       "kind": "wikilink",
       "to": "task:T-049"
     },
@@ -31052,6 +31113,10 @@
       "name": "D-11 Get or rotate the badge token",
       "type": "decision"
     },
+    "decisions/D-12 What the badge QR encodes.md": {
+      "name": "D-12 What the badge QR encodes",
+      "type": "decision"
+    },
     "decisions/DR-01 Code-only login.md": {
       "name": "DR-01 Code-only login",
       "type": "decision-record"
@@ -37386,6 +37451,59 @@
       "title": "D-11 Get or rotate the badge token",
       "updated": "2026-10-25"
     },
+    "decision:D-12": {
+      "affects": [],
+      "blockedBy": [],
+      "blocks": [
+        "story:T-007",
+        "task:T-010"
+      ],
+      "card": "D-12",
+      "children": [],
+      "code": "D-12",
+      "deadline": null,
+      "decider": "owner",
+      "depends": [],
+      "effectiveStatus": "draft",
+      "effort": null,
+      "feature": null,
+      "features": [
+        "badge-qr"
+      ],
+      "frontendOnly": false,
+      "id": "decision:D-12",
+      "inherits": {},
+      "kind": "decision",
+      "label": "Needs decision",
+      "labels": [],
+      "layer": "business",
+      "module": null,
+      "parentTask": null,
+      "parents": [
+        "story:T-007",
+        "task:T-010"
+      ],
+      "path": "decisions/D-12 What the badge QR encodes.md",
+      "pending": [],
+      "priority": null,
+      "related": [
+        "feature:badge-qr"
+      ],
+      "scope": null,
+      "screens": [
+        "s34",
+        "s43"
+      ],
+      "status": "draft",
+      "summary": "What the QR on the badge (s34) carries: the bare token, or a URL with the token in it. A bare token works only when the Social Pin app scans it (s43); a phone's own camera shows it as text, and…",
+      "tags": [
+        "decision",
+        "decision/draft"
+      ],
+      "task": null,
+      "title": "D-12 What the badge QR encodes",
+      "updated": "2026-10-25"
+    },
     "feature:account": {
       "affects": [],
       "blockedBy": [],
@@ -37720,13 +37838,13 @@
         "project:spec-map",
         "feature:exhibitor",
         "feature:post-event",
-        "decision:D-11"
+        "decision:D-11",
+        "decision:D-12"
       ],
       "rollup": {
-        "blocked": 13,
-        "draft": 5,
+        "blocked": 14,
+        "draft": 6,
         "missing": 4,
-        "needs-decision": 1,
         "todo": 2
       },
       "scope": null,
@@ -44192,10 +44310,10 @@
       "priority": null,
       "related": [],
       "rollup": {
-        "blocked": 20,
-        "draft": 10,
+        "blocked": 21,
+        "draft": 11,
         "missing": 12,
-        "needs-decision": 2,
+        "needs-decision": 1,
         "todo": 10
       },
       "scope": null,
@@ -49128,14 +49246,14 @@
       "priority": null,
       "related": [],
       "rollup": {
-        "blocked": 181,
+        "blocked": 182,
         "current": 9,
         "decided": 2,
         "done": 12,
-        "draft": 102,
+        "draft": 103,
         "in-progress": 14,
         "missing": 145,
-        "needs-decision": 20,
+        "needs-decision": 19,
         "reference": 31,
         "todo": 81,
         "verified": 2
@@ -49429,11 +49547,17 @@
           "id": "decision:D-11",
           "title": "D-11 Get or rotate the badge token",
           "why": "needs decision D-11 (draft)"
+        },
+        {
+          "id": "decision:D-12",
+          "title": "D-12 What the badge QR encodes",
+          "why": "needs decision D-12 (draft)"
         }
       ],
       "card": "S-38",
       "children": [
-        "decision:D-11"
+        "decision:D-11",
+        "decision:D-12"
       ],
       "code": "T-007",
       "deadline": null,
@@ -54936,7 +55060,7 @@
       "related": [],
       "rollup": {
         "blocked": 2,
-        "draft": 1,
+        "draft": 2,
         "todo": 1
       },
       "scope": null,
@@ -55433,13 +55557,19 @@
           "id": "task:T-008",
           "title": "T-008 Resolve a scanned QR token",
           "why": "T-008 Resolve a scanned QR token is blocked"
+        },
+        {
+          "id": "decision:D-12",
+          "title": "D-12 What the badge QR encodes",
+          "why": "needs decision D-12 (draft)"
         }
       ],
       "card": "T-010",
       "children": [
         "story:T-010",
         "task:T-010-be",
-        "task:T-010-fe"
+        "task:T-010-fe",
+        "decision:D-12"
       ],
       "code": "T-010",
       "deadline": null,
@@ -55448,7 +55578,7 @@
         "task:T-008"
       ],
       "dir": "tasks/T-010 Public browser page for viewers without the app",
-      "effectiveStatus": "needs-decision",
+      "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "badge-qr",
       "frontendOnly": false,
@@ -55469,7 +55599,7 @@
       "related": [],
       "rollup": {
         "blocked": 2,
-        "draft": 1
+        "draft": 2
       },
       "scope": null,
       "screens": [
