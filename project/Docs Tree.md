@@ -60,7 +60,7 @@ The seven layer notes come from `docs.config.json`, listed in the **hand-off ord
 |---|---|
 | Done / Partial / In progress / To do | a card: a delivery note's state, a task. **Partial** is done with `pending` notes left for a card or a person (the chip counts them). A feature, module or the project shows the roll-up of its cards: Done only when every card is done, Partial when every card is done or partial, In progress while the cards are a mix |
 | Draft ✏️ / Approved 👍 / Fulfilled ✅ | a story: before product sign-off, after it (handed off, not done), and once the PM fulfils it after both QA notes pass with nothing pending (`status: verified`); on the page a fulfilled story folds its flow until you expand it |
-| Draft / Approved / Delivered | frontend requirements: written, accepted by the backend, every row ✅ |
+| Draft ✏️ / Approved 👍 / Delivered ✅ | frontend requirements: written, accepted by the backend, and delivered on its own once the backend cards of its scope are done with nothing pending (the chip reads "Delivered · backend done"; set by hand only on a `frontendOnly` feature) |
 | Draft / Current | a Backend Integration note: being written, or matching `main` |
 | Draft / Passing / Failing | a QA note before and after a run |
 | Blocked | the card before it in the hand-off flow is not handed off yet (the default), or something in `depends` or `blockedBy` is not done; the pane names it. A blocked card, and every card below it in the ladder that waits in turn, is drawn dim until the blocker is done |

@@ -57,7 +57,7 @@ const LEGEND = {
 };
 const EMOJI = {
   done: '✅', partial: '🟡', todo: '⬜', 'in-progress': '🔵', blocked: '⛔', 'needs-decision': '❓',
-  draft: '✏️', approved: '👍', verified: '✅', delivered: '📦', current: '✅', passing: '🟢', failing: '🔴', decided: '⚖️',
+  draft: '✏️', approved: '👍', verified: '✅', delivered: '✅', current: '✅', passing: '🟢', failing: '🔴', decided: '⚖️',
   missing: '∅', reference: '📘',
 };
 const DONE_STATUSES = new Set(['done', 'approved', 'verified', 'delivered', 'current', 'passing', 'reference', 'decided']);
@@ -736,6 +736,16 @@ export function build() {
   }
   // a card is handed off (and stops blocking the next one) at its handoff statuses, else when done
   const handedOff = (n) => isDone(n) || (KIND.has(n.kind) && (KIND.get(n.kind).handoff || []).includes(n.status));
+
+  // a requirements list is delivered on its own: once it is approved and the backend cards of its scope (Backend Delivery and Backend Integration,
+  // task T-NNN-fe ↔ T-NNN-be, feature ↔ feature) are done with nothing pending, it counts as `delivered`; nobody types it (a frontendOnly feature has no backend cards: it stays by hand)
+  const backendDone = (n) => !!n && !!n.path && KIND.has(n.kind) && KIND.get(n.kind).done.includes(n.status) && !n.pending.length;
+  for (const fr of Object.values(nodes)) {
+    if (fr.kind !== 'frontend-requirements' || !fr.path || fr.status !== 'approved' || fr.frontendOnly || fr.pending.length) continue;
+    const code = fr.scope === 'task' ? String(fr.code).replace(/-fe$/, '-be') : fr.code;
+    const of = (kind) => Object.values(nodes).find((x) => x.kind === kind && x.path && x.scope === fr.scope && x.code === code);
+    if (backendDone(of('backend-delivery')) && backendDone(of('backend-integration'))) { fr.effectiveStatus = 'delivered'; fr.autoDelivered = true; }
+  }
 
   // a story is fulfilled (`verified`) by the PM only once QA has finished on its scope: every QA note it needs is passing with nothing pending
   const QA_KINDS = { backend: 'qa-backend', frontend: 'qa-frontend' };
