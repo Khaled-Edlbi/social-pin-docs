@@ -41640,10 +41640,10 @@
       ],
       "release": "mvp",
       "rollup": {
-        "approved": 1,
+        "approved": 2,
         "blocked": 13,
         "decided": 4,
-        "draft": 5,
+        "draft": 4,
         "missing": 4,
         "needs-decision": 1,
         "todo": 4,
@@ -48088,10 +48088,10 @@
       "related": [],
       "release": null,
       "rollup": {
-        "approved": 1,
+        "approved": 2,
         "blocked": 13,
         "decided": 4,
-        "draft": 5,
+        "draft": 4,
         "missing": 4,
         "needs-decision": 1,
         "todo": 5,
@@ -53333,12 +53333,12 @@
         }
       ],
       "rollup": {
-        "approved": 5,
+        "approved": 6,
         "blocked": 178,
         "current": 9,
         "decided": 12,
         "done": 17,
-        "draft": 96,
+        "draft": 95,
         "in-progress": 24,
         "missing": 145,
         "needs-decision": 9,
@@ -54529,7 +54529,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "connections",
       "frontendOnly": false,
@@ -54562,11 +54562,11 @@
       "screens": [
         "s47"
       ],
-      "status": "draft",
+      "status": "approved",
       "summary": "Owner-side detail shows which Rings (owner only), events in common, mutual connections. GET /connections searchable. A connection can sit in several of my Rings and outlives access unless I…",
       "tags": [
         "story",
-        "story/draft",
+        "story/approved",
         "module/connections",
         "layer/business"
       ],
@@ -62448,9 +62448,9 @@
       ],
       "release": "mvp",
       "rollup": {
+        "approved": 1,
         "blocked": 2,
         "decided": 1,
-        "draft": 1,
         "verified": 1
       },
       "scope": null,

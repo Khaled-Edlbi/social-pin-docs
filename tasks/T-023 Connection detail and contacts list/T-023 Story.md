@@ -4,24 +4,24 @@ code: T-023
 scope: task
 feature: connections
 module: connections
-status: draft
+status: approved
 screens: [s47]
 depends: []
 affects: []
 related: ["Ring Members", "View As & Pin Views", "DR-04 Ring settings at launch and their defaults", "DR-14 Shared with me lists people, never the Ring", "DR-15 Several Rings per connection, remove or disconnect"]
 pending: []
-approvedBy: ""
-approvedAt: ""
+approvedBy: "khaled"
+approvedAt: 2026-10-25
 owner: "omar"
 created: 2026-10-18
 updated: 2026-10-25
-tags: [story, story/draft, module/connections, layer/business]
+tags: [story, story/approved, module/connections, layer/business]
 task: T-023
 ---
 
 # T-023 · Connection detail and contacts list · User Story
 
-**Task:** [[T-023 Connection detail and contacts list]] · **Feature:** [[Connections]] · **Feature-level note:** [[Connections Story]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[T-023 Frontend Requirements]] · **Backend Integration:** [[T-023 Backend Integration]] · **Verified by:** [[T-023 QA Backend]], [[T-023 QA Frontend]]
+**Task:** [[T-023 Connection detail and contacts list]] · **Feature:** [[Connections]] · **Feature-level note:** [[Connections Story]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[T-023 Frontend Requirements]] · **Backend Integration:** [[T-023 Backend Integration]] · **Verified by:** [[T-023 QA Backend]], [[T-023 QA Frontend]]
 
 > Derived from the task [[T-023 Connection detail and contacts list]]; **not approved by product yet**. The feature-level story is [[Connections Story]]; this note says what the user gets from this task in particular. `approved` when product signs off (`approvedBy`, `approvedAt`); `verified` when both QA notes are `passing`.
 
