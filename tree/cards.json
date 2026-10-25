@@ -183,6 +183,7 @@
     "project:status-report-2026-10-15": "P-05",
     "project:workflow": "P-20",
     "qa-backend:T-065-be": "QB-01",
+    "qa-backend:pay-for-an-order": "QB-02",
     "story:T-001": "S-79",
     "story:T-002": "S-80",
     "story:T-003": "S-81",
