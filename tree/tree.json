@@ -483,6 +483,10 @@
     "T-063-be Backend · Put the ErrorCode on the error body": "task:T-063-be",
     "T-063-fe Frontend · Put the ErrorCode on the error body": "task:T-063-fe",
     "T-064 Restructure the docs vault": "task:T-064",
+    "T-065 Open a Stripe checkout for an order": "task:T-065",
+    "T-065 Story": "story:T-065",
+    "T-065-be Backend · Open a Stripe checkout for an order": "task:T-065-be",
+    "T-065-fe Frontend · Open a Stripe checkout for an order": "task:T-065-fe",
     "View As & Pin Views": "feature:view-as",
     "View As & Pin Views Backend Delivery": "backend-delivery:view-as",
     "View As & Pin Views Backend Integration": "backend-integration:view-as",
@@ -702,6 +706,7 @@
     "S-103": "story:T-060",
     "S-104": "story:T-059",
     "S-105": "story:pay-for-an-order",
+    "S-106": "story:T-065",
     "S-11": "story:photo-library",
     "S-12": "story:T-012",
     "S-13": "story:T-013",
@@ -964,7 +969,10 @@
     "T-063": "task:T-063",
     "T-063-be": "task:T-063-be",
     "T-063-fe": "task:T-063-fe",
-    "T-064": "task:T-064"
+    "T-064": "task:T-064",
+    "T-065": "task:T-065",
+    "T-065-be": "task:T-065-be",
+    "T-065-fe": "task:T-065-fe"
   },
   "concepts": {
     "DELETE /files/:id": {
@@ -4049,7 +4057,10 @@
         "task:T-035-be",
         "task:T-035-fe",
         "task:T-047",
-        "task:T-047-be"
+        "task:T-047-be",
+        "task:T-065",
+        "task:T-065-be",
+        "task:T-065-fe"
       ],
       "kind": "screen",
       "notes": [
@@ -4065,13 +4076,17 @@
         "frontend-requirements:payments",
         "story:T-035",
         "story:T-047",
+        "story:T-065",
         "story:events-before",
         "story:pay-for-an-order",
         "task:T-035",
         "task:T-035-be",
         "task:T-035-fe",
         "task:T-047",
-        "task:T-047-be"
+        "task:T-047-be",
+        "task:T-065",
+        "task:T-065-be",
+        "task:T-065-fe"
       ],
       "owner": null
     },
@@ -4084,7 +4099,9 @@
         "task:T-011-be",
         "task:T-035",
         "task:T-035-be",
-        "task:T-035-fe"
+        "task:T-035-fe",
+        "task:T-065-be",
+        "task:T-065-fe"
       ],
       "kind": "screen",
       "notes": [
@@ -4104,7 +4121,9 @@
         "task:T-011-be",
         "task:T-035",
         "task:T-035-be",
-        "task:T-035-fe"
+        "task:T-035-fe",
+        "task:T-065-be",
+        "task:T-065-fe"
       ],
       "owner": null
     },
@@ -4675,7 +4694,7 @@
     }
   },
   "counts": {
-    "blocked": 178,
+    "blocked": 179,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -4685,27 +4704,27 @@
       "frontend-requirements": 39,
       "module": 9,
       "project": 27,
-      "story": 104,
-      "task": 175
+      "story": 105,
+      "task": 178
     },
     "byLayer": {
       "backend": 56,
-      "business": 337,
+      "business": 341,
       "frontend": 43,
       "shared": 10
     },
     "concepts": 177,
     "decisions": 9,
-    "edges": 4390,
+    "edges": 4414,
     "features": 40,
-    "layerNotes": 191,
+    "layerNotes": 192,
     "modules": 9,
-    "notes": 482,
+    "notes": 486,
     "partial": 0,
     "placeholders": 151,
     "records": 4,
-    "taskLayerNotes": 64,
-    "tasks": 175
+    "taskLayerNotes": 65,
+    "tasks": 178
   },
   "deadlines": {
     "missed": {
@@ -4968,6 +4987,16 @@
       "from": "task:T-064",
       "kind": "affects",
       "to": "project:workflow"
+    },
+    {
+      "from": "task:T-065",
+      "kind": "affects",
+      "to": "feature:pay-for-an-order"
+    },
+    {
+      "from": "task:T-065",
+      "kind": "affects",
+      "to": "feature:payments"
     },
     {
       "from": "backend-delivery:audit-log",
@@ -6930,6 +6959,11 @@
       "to": "task:T-063-fe"
     },
     {
+      "from": "task:T-065-be",
+      "kind": "blocks",
+      "to": "task:T-065-fe"
+    },
+    {
       "from": "decision:D-01",
       "kind": "decision",
       "to": "feature:auth"
@@ -8098,6 +8132,11 @@
       "from": "task:T-063-fe",
       "kind": "depends",
       "to": "task:T-063-be"
+    },
+    {
+      "from": "task:T-065-fe",
+      "kind": "depends",
+      "to": "task:T-065-be"
     },
     {
       "from": "backend-delivery:account",
@@ -10856,6 +10895,24 @@
       ]
     },
     {
+      "from": "story:T-065",
+      "kind": "related",
+      "to": "decision-record:DR-08"
+    },
+    {
+      "from": "story:T-065",
+      "kind": "related",
+      "to": "decision-record:DR-09"
+    },
+    {
+      "from": "story:T-065",
+      "kind": "related",
+      "to": "story:pay-for-an-order",
+      "via": [
+        "sum-of"
+      ]
+    },
+    {
       "from": "story:widgets",
       "kind": "related",
       "to": "story:T-017",
@@ -10870,6 +10927,31 @@
       "via": [
         "sum-of"
       ]
+    },
+    {
+      "from": "task:T-065",
+      "kind": "related",
+      "to": "decision-record:DR-08"
+    },
+    {
+      "from": "task:T-065",
+      "kind": "related",
+      "to": "decision-record:DR-09"
+    },
+    {
+      "from": "task:T-065",
+      "kind": "related",
+      "to": "feature:audit-log"
+    },
+    {
+      "from": "task:T-065",
+      "kind": "related",
+      "to": "task:T-035"
+    },
+    {
+      "from": "task:T-065",
+      "kind": "related",
+      "to": "task:T-047"
     },
     {
       "from": "decision:D-05",
@@ -19757,6 +19839,11 @@
       "to": "decision:D-09"
     },
     {
+      "from": "story:pay-for-an-order",
+      "kind": "tree",
+      "to": "task:T-065"
+    },
+    {
       "from": "story:payments",
       "kind": "tree",
       "to": "task:T-047"
@@ -20715,6 +20802,21 @@
       "from": "task:T-063",
       "kind": "tree",
       "to": "task:T-063-fe"
+    },
+    {
+      "from": "task:T-065",
+      "kind": "tree",
+      "to": "story:T-065"
+    },
+    {
+      "from": "task:T-065",
+      "kind": "tree",
+      "to": "task:T-065-be"
+    },
+    {
+      "from": "task:T-065",
+      "kind": "tree",
+      "to": "task:T-065-fe"
     },
     {
       "from": "backend-delivery:account",
@@ -22140,6 +22242,11 @@
       "from": "feature:pay-for-an-order",
       "kind": "wikilink",
       "to": "decision:D-09"
+    },
+    {
+      "from": "feature:pay-for-an-order",
+      "kind": "wikilink",
+      "to": "task:T-065"
     },
     {
       "from": "feature:payments",
@@ -27182,6 +27289,21 @@
       "to": "feature:error-contract"
     },
     {
+      "from": "story:T-065",
+      "kind": "wikilink",
+      "to": "backend-delivery:payments"
+    },
+    {
+      "from": "story:T-065",
+      "kind": "wikilink",
+      "to": "feature:audit-log"
+    },
+    {
+      "from": "story:T-065",
+      "kind": "wikilink",
+      "to": "feature:pay-for-an-order"
+    },
+    {
       "from": "story:view-as",
       "kind": "wikilink",
       "to": "backend-integration:view-as"
@@ -29880,6 +30002,26 @@
       "from": "task:T-064",
       "kind": "wikilink",
       "to": "project:workflow"
+    },
+    {
+      "from": "task:T-065-be",
+      "kind": "wikilink",
+      "to": "feature:pay-for-an-order"
+    },
+    {
+      "from": "task:T-065-fe",
+      "kind": "wikilink",
+      "to": "feature:pay-for-an-order"
+    },
+    {
+      "from": "task:T-065-fe",
+      "kind": "wikilink",
+      "to": "story:T-065"
+    },
+    {
+      "from": "task:T-065-fe",
+      "kind": "wikilink",
+      "to": "task:T-065-be"
     }
   ],
   "emoji": {
@@ -31763,6 +31905,22 @@
     },
     "tasks/T-064 Restructure the docs vault/T-064 Restructure the docs vault.md": {
       "name": "T-064 Restructure the docs vault",
+      "type": "task"
+    },
+    "tasks/T-065 Open a Stripe checkout for an order/T-065 Open a Stripe checkout for an order.md": {
+      "name": "T-065 Open a Stripe checkout for an order",
+      "type": "task"
+    },
+    "tasks/T-065 Open a Stripe checkout for an order/T-065 Story.md": {
+      "name": "T-065 Story",
+      "type": "story"
+    },
+    "tasks/T-065 Open a Stripe checkout for an order/T-065-be Backend · Open a Stripe checkout for an order.md": {
+      "name": "T-065-be Backend · Open a Stripe checkout for an order",
+      "type": "task"
+    },
+    "tasks/T-065 Open a Stripe checkout for an order/T-065-fe Frontend · Open a Stripe checkout for an order.md": {
+      "name": "T-065-fe Frontend · Open a Stripe checkout for an order",
       "type": "task"
     },
     "tasks/Task Board.md": {
@@ -36003,13 +36161,15 @@
       "pending": [],
       "priority": null,
       "related": [
+        "task:T-065",
         "decision:D-09",
         "decision:D-08",
         "decision:D-07",
         "decision-record:DR-09",
         "story:payments",
         "story:events-before",
-        "story:pay-for-an-order"
+        "story:pay-for-an-order",
+        "story:T-065"
       ],
       "scope": null,
       "screens": [],
@@ -36060,9 +36220,11 @@
       "pending": [],
       "priority": null,
       "related": [
+        "task:T-065",
         "decision:D-09",
         "decision-record:DR-08",
-        "story:pay-for-an-order"
+        "story:pay-for-an-order",
+        "story:T-065"
       ],
       "scope": null,
       "screens": [],
@@ -36755,6 +36917,7 @@
         "project:architecture",
         "project:api-conventions",
         "project:spec-map",
+        "task:T-065",
         "story:payments",
         "story:pay-for-an-order"
       ],
@@ -38479,9 +38642,11 @@
       ],
       "rollup": {
         "approved": 2,
+        "blocked": 1,
         "decided": 2,
-        "draft": 1,
-        "missing": 6
+        "draft": 2,
+        "missing": 6,
+        "todo": 2
       },
       "scope": null,
       "screens": [
@@ -43777,10 +43942,12 @@
       ],
       "rollup": {
         "approved": 2,
+        "blocked": 1,
         "decided": 2,
-        "draft": 1,
+        "draft": 2,
         "in-progress": 1,
-        "missing": 6
+        "missing": 6,
+        "todo": 2
       },
       "scope": null,
       "screens": [],
@@ -48632,16 +48799,16 @@
       "related": [],
       "rollup": {
         "approved": 4,
-        "blocked": 178,
+        "blocked": 179,
         "current": 9,
         "decided": 4,
         "done": 12,
-        "draft": 104,
+        "draft": 105,
         "in-progress": 16,
         "missing": 151,
         "needs-decision": 20,
         "reference": 31,
-        "todo": 81
+        "todo": 83
       },
       "scope": null,
       "screens": [],
@@ -51574,6 +51741,55 @@
       "title": "T-063 Story",
       "updated": "2026-10-18"
     },
+    "story:T-065": {
+      "affects": [],
+      "blockedBy": [],
+      "card": "S-106",
+      "children": [],
+      "code": "T-065",
+      "deadline": null,
+      "depends": [],
+      "effectiveStatus": "draft",
+      "effort": null,
+      "feature": "pay-for-an-order",
+      "frontendOnly": false,
+      "id": "story:T-065",
+      "inherits": {
+        "priority": "task:T-065"
+      },
+      "kind": "story",
+      "label": "User Story",
+      "labels": [],
+      "layer": "business",
+      "module": "payments-gateway",
+      "parentTask": null,
+      "parents": [
+        "task:T-065"
+      ],
+      "path": "tasks/T-065 Open a Stripe checkout for an order/T-065 Story.md",
+      "pending": [],
+      "priority": "high",
+      "related": [
+        "story:pay-for-an-order",
+        "decision-record:DR-08",
+        "decision-record:DR-09"
+      ],
+      "scope": "task",
+      "screens": [
+        "s51"
+      ],
+      "status": "draft",
+      "summary": "What the attendee gets from this task: from the Payment screen they reach Stripe's card page for exactly their order, and when they come back they see whether the payment is waiting or failed,…",
+      "tags": [
+        "story",
+        "story/draft",
+        "module/payments-gateway",
+        "layer/business"
+      ],
+      "task": "T-065",
+      "title": "T-065 Story",
+      "updated": "2026-10-25"
+    },
     "story:account": {
       "affects": [],
       "blockedBy": [],
@@ -52873,6 +53089,7 @@
       "blockedBy": [],
       "card": "S-105",
       "children": [
+        "task:T-065",
         "decision:D-09"
       ],
       "code": "pay-for-an-order",
@@ -52910,7 +53127,8 @@
         "feature:event-ring-auto",
         "feature:audit-log",
         "decision-record:DR-08",
-        "task:T-034"
+        "task:T-034",
+        "story:T-065"
       ],
       "scope": "feature",
       "screens": [
@@ -59502,6 +59720,7 @@
       "priority": "critical",
       "related": [
         "feature:pay-for-an-order",
+        "task:T-065",
         "story:payments"
       ],
       "rollup": {
@@ -61655,6 +61874,7 @@
       "pending": [],
       "priority": "high",
       "related": [
+        "task:T-065",
         "story:payments",
         "story:pay-for-an-order"
       ],
@@ -63895,6 +64115,177 @@
       "task": null,
       "title": "T-064 Restructure the docs vault",
       "updated": "2026-10-18"
+    },
+    "task:T-065": {
+      "affects": [
+        "feature:pay-for-an-order",
+        "feature:payments"
+      ],
+      "blockedBy": [],
+      "card": "T-065",
+      "children": [
+        "story:T-065",
+        "task:T-065-be",
+        "task:T-065-fe"
+      ],
+      "code": "T-065",
+      "deadline": null,
+      "decision": null,
+      "depends": [],
+      "dir": "tasks/T-065 Open a Stripe checkout for an order",
+      "effectiveStatus": "todo",
+      "effort": "M",
+      "feature": "pay-for-an-order",
+      "frontendOnly": false,
+      "id": "task:T-065",
+      "inherits": {},
+      "kind": "task",
+      "label": "Task",
+      "labels": [],
+      "layer": "business",
+      "module": "payments-gateway",
+      "parentTask": null,
+      "parents": [
+        "story:pay-for-an-order"
+      ],
+      "path": "tasks/T-065 Open a Stripe checkout for an order/T-065 Open a Stripe checkout for an order.md",
+      "pending": [],
+      "priority": "high",
+      "related": [
+        "task:T-047",
+        "task:T-035",
+        "decision-record:DR-08",
+        "decision-record:DR-09",
+        "feature:audit-log"
+      ],
+      "rollup": {
+        "blocked": 1,
+        "draft": 1,
+        "todo": 1
+      },
+      "scope": null,
+      "screens": [
+        "s51"
+      ],
+      "status": "todo",
+      "summary": "The buyer on the Payment screen taps \"Pay\" and lands on Stripe's hosted card page for exactly their order, and when they come back the app can read where the order stands. Backend: an endpoint…",
+      "tags": [
+        "task",
+        "task/todo",
+        "module/payments-gateway",
+        "priority/high"
+      ],
+      "task": null,
+      "title": "T-065 Open a Stripe checkout for an order",
+      "updated": "2026-10-25"
+    },
+    "task:T-065-be": {
+      "affects": [],
+      "blockedBy": [],
+      "card": "T-065-be",
+      "children": [],
+      "code": "T-065-be",
+      "deadline": null,
+      "decision": null,
+      "depends": [],
+      "dir": null,
+      "effectiveStatus": "todo",
+      "effort": "M",
+      "feature": "pay-for-an-order",
+      "frontendOnly": false,
+      "id": "task:T-065-be",
+      "inherits": {},
+      "kind": "task",
+      "label": "Task",
+      "labels": [
+        "backend"
+      ],
+      "layer": "business",
+      "module": "payments-gateway",
+      "parentTask": "T-065",
+      "parents": [
+        "task:T-065"
+      ],
+      "path": "tasks/T-065 Open a Stripe checkout for an order/T-065-be Backend · Open a Stripe checkout for an order.md",
+      "pending": [],
+      "priority": "high",
+      "related": [],
+      "rollup": {},
+      "scope": null,
+      "screens": [
+        "s51",
+        "s52"
+      ],
+      "status": "todo",
+      "summary": "The API side of T-065 Open a Stripe checkout for an order: the endpoints, data and rules its What describes. Record what shipped in T-065-be Backend Delivery and how to call it in T-065-be Backend…",
+      "tags": [
+        "task",
+        "task/todo",
+        "module/payments-gateway",
+        "priority/high",
+        "backend"
+      ],
+      "task": null,
+      "title": "T-065-be Backend · Open a Stripe checkout for an order",
+      "updated": "2026-10-25"
+    },
+    "task:T-065-fe": {
+      "affects": [],
+      "blockedBy": [
+        {
+          "id": "task:T-065-be",
+          "title": "T-065-be Backend · Open a Stripe checkout for an order",
+          "why": "T-065-be Backend · Open a Stripe checkout for an order is to do"
+        }
+      ],
+      "card": "T-065-fe",
+      "children": [],
+      "code": "T-065-fe",
+      "deadline": null,
+      "decision": null,
+      "depends": [
+        "task:T-065-be"
+      ],
+      "dir": null,
+      "effectiveStatus": "blocked",
+      "effort": "M",
+      "feature": "pay-for-an-order",
+      "frontendOnly": false,
+      "id": "task:T-065-fe",
+      "inherits": {},
+      "kind": "task",
+      "label": "Task",
+      "labels": [
+        "frontend"
+      ],
+      "layer": "business",
+      "module": "payments-gateway",
+      "parentTask": "T-065",
+      "parents": [
+        "task:T-065"
+      ],
+      "path": "tasks/T-065 Open a Stripe checkout for an order/T-065-fe Frontend · Open a Stripe checkout for an order.md",
+      "pending": [],
+      "priority": "high",
+      "related": [],
+      "rollup": {},
+      "scope": null,
+      "screens": [
+        "s51",
+        "s52"
+      ],
+      "status": "todo",
+      "summary": "The client side of T-065 Open a Stripe checkout for an order: the screens below show what its What describes, built against Pay for an order Backend Integration once the backend half (T-065-be…",
+      "tags": [
+        "task",
+        "task/todo",
+        "module/payments-gateway",
+        "priority/high",
+        "frontend"
+      ],
+      "task": null,
+      "title": "T-065-fe Frontend · Open a Stripe checkout for an order",
+      "updated": "2026-10-25"
     }
   },
   "priorities": [

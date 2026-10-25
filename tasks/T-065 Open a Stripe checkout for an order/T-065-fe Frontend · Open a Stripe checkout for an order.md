@@ -1,0 +1,51 @@
+---
+type: task
+id: T-065-fe
+status: todo
+priority: high
+effort: M
+feature: pay-for-an-order
+module: payments-gateway
+parent: T-065
+labels: [frontend]
+screens: [s51, s52]
+depends: [T-065-be]
+affects: []
+related: []
+pending: []
+created: 2026-10-25
+updated: 2026-10-25
+tags: [task, task/todo, module/payments-gateway, priority/high, frontend]
+---
+
+# ⬜ T-065-fe · Frontend: Open a Stripe checkout for an order
+
+> ⚠ Affected by [[T-065 Open a Stripe checkout for an order]] (2026-10-25): the task covers s51 only (pay, pending, failed with the hold's time left); s52 is the next task, so `screens:` and *Design* can drop s52.
+
+**Parent:** [[T-065 Open a Stripe checkout for an order]] · **Feature:** [[Pay for an order]] · **Side:** Frontend · **Status:** To do · **Priority:** high · **Effort:** M (same as the parent until the team sizes it)
+
+**Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-065-fe` when the team picks it up): [[T-065-fe Frontend Requirements|Frontend Requirements]] · [[T-065-fe Frontend Delivery|Frontend Delivery]] · [[T-065-fe QA Frontend|QA Frontend]]
+
+## What
+
+The client side of [[T-065 Open a Stripe checkout for an order]]: the screens below show what its *What* describes, built against [[Pay for an order Backend Integration]] once the backend half ([[T-065-be Backend · Open a Stripe checkout for an order]]) is current. Write the asks in [[T-065-fe Frontend Requirements]] first; it is blocked by default until [[T-065 Story]] is approved.
+
+## Design
+
+- [[Screen Index#s51|s51]], [[Screen Index#s52|s52]]
+
+## Impact
+
+Same as the parent's: [[T-065 Open a Stripe checkout for an order#Impact]].
+
+## Definition of done
+
+- [ ] Frontend Requirements written before asking for backend work; every row ✅ against the Backend Integration note
+- [ ] Screens merged; Frontend Delivery note written and rolled up into [[Pay for an order Frontend Delivery]]
+- [ ] QA Frontend run on a named build; `pending` cleared or handed over
+- [ ] `depends` / `affects` / `related` declared; notes listed by `--impact` updated or flagged
+- [ ] `node scripts/build-tree.mjs` run; tree, board and backlog committed
+
+## Log
+
+- 2026-10-25 · created as the frontend half of T-065
