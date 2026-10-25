@@ -43,8 +43,7 @@ Wireframe brief sections: [[Wireframe Brief#Tickets, access levels, RSVP, regist
 
 | Task | Status | Priority | Effort |
 |---|---|---|---|
-
-No task yet: the first one is the PM's, `node scripts/build-tree.mjs --scaffold task pay-for-an-order "<Title>"`, after the story.
+| [[T-065 Open a Stripe checkout for an order]] | ⬜ To do | high | M |
 
 ## Decisions
 
