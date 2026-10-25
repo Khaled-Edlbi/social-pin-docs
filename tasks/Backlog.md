@@ -170,8 +170,7 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-061 Decide Pin name rules]] | [[Profiles & Pin Name]] | Identity Core | ❓ Needs decision | S | — | [[D-06 Pin name rules|D-06]] |
 | [[T-065 Open a Stripe checkout for an order]] | [[Pay for an order]] | Payments Gateway | ⬜ To do | M | — | — |
 | [[T-066 Settle an order and confirm it on s52]] | [[Pay for an order]] | Payments Gateway | ⬜ To do | M | — | — |
-| [[T-066-be Backend · Settle an order and confirm it on s52]] `backend` | [[Pay for an order]] | Payments Gateway | 🟡 Partial (1 note) | M | — | — |
-| [[T-066-fe Frontend · Settle an order and confirm it on s52]] `frontend` | [[Pay for an order]] | Payments Gateway | ⛔ Blocked | M | — | [[T-066-be Backend · Settle an order and confirm it on s52|T-066-be]] |
+| [[T-066-fe Frontend · Settle an order and confirm it on s52]] `frontend` | [[Pay for an order]] | Payments Gateway | ⬜ To do | M | — | [[T-066-be Backend · Settle an order and confirm it on s52|T-066-be]] |
 
 ## Medium
 
@@ -210,3 +209,4 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-064 Restructure the docs vault]] | [[Error Contract]] | Platform & Cross-cutting | L |
 | [[T-065-be Backend · Open a Stripe checkout for an order]] `backend` | [[Pay for an order]] | Payments Gateway | M |
 | [[T-065-fe Frontend · Open a Stripe checkout for an order]] `frontend` | [[Pay for an order]] | Payments Gateway | M |
+| [[T-066-be Backend · Settle an order and confirm it on s52]] `backend` | [[Pay for an order]] | Payments Gateway | M |

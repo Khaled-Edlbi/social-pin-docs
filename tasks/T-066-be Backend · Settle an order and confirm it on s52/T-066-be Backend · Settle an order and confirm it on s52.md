@@ -12,7 +12,7 @@ screens: [s51, s52]
 depends: []
 affects: ["T-066-fe Frontend · Settle an order and confirm it on s52"]
 related: ["T-066-be Backend Delivery", "T-066-fe Frontend Requirements"]
-pending: ["@qa: QA Backend run on the T-066 build (T-066-be QA Backend not written yet)"]
+pending: []
 owner: "khaled"
 created: 2026-10-25
 updated: 2026-10-25
@@ -20,8 +20,6 @@ tags: [task, task/done, module/payments-gateway, priority/high, backend]
 ---
 
 # ✅ T-066-be · Backend: Settle an order and confirm it on s52
-
-> ⚠ Affected by [[T-066-be QA Backend]] (2026-10-25): QA Backend passing on `t066-sim-2026-10-25` (simulated), W1–W10; the `@qa` pending item can be cleared and the QA box ticked.
 
 **Parent:** [[T-066 Settle an order and confirm it on s52]] · **Feature:** [[Pay for an order]] · **Side:** Backend · **Status:** Done (simulated) · **Priority:** high · **Effort:** M (same as the parent until the team sizes it)
 
@@ -44,7 +42,7 @@ Same as the parent's: [[T-066 Settle an order and confirm it on s52#Impact]].
 - [x] Code per the backend's `CLAUDE.md` (every visibility decision through `RingAccessService`) (simulated)
 - [x] `pnpm typecheck && pnpm test` green (simulated)
 - [x] Backend Delivery and Backend Integration notes written and rolled up into the feature-level notes
-- [ ] QA Backend run; `pending` cleared or handed over (handed to QA in `pending`)
+- [x] QA Backend run ([[T-066-be QA Backend]], passing on `t066-sim-2026-10-25`); `pending` cleared
 - [x] `depends` / `affects` / `related` declared; notes listed by `--impact` updated or flagged
 - [x] `node scripts/build-tree.mjs` run; tree, board and backlog committed
 
@@ -52,3 +50,4 @@ Same as the parent's: [[T-066 Settle an order and confirm it on s52#Impact]].
 
 - 2026-10-25 · created as the backend half of T-066
 - 2026-10-25 · `payments-gateway/T-066/stripe-webhook` (simulated, no code: M-09 agent-flow test) · `POST /payments/stripe/webhook`, `registrationComplete` and `eventRingId` on `GET /orders/:id` ([[T-066-be Backend Delivery]]); FR-42 accepted; rolled up into BD-41 and BI-11, BD-41's pending cleared; QA Backend handed over in `pending`
+- 2026-10-25 · `tickets/backend/M-09-payments-gateway/F-41-pay-for-an-order/T-066-be-qa-cleared` · QB-03 passing on `t066-sim-2026-10-25` (simulated, W1–W10): the `@qa` pending item cleared, QA's flag removed
