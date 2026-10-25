@@ -8,19 +8,18 @@ feature: pay-for-an-order
 module: payments-gateway
 parent: T-065
 labels: [frontend]
-screens: [s51, s52]
+screens: [s51]
 depends: [T-065-be]
 affects: []
-related: []
+related: ["T-065-fe Frontend Requirements"]
 pending: []
+owner: "khaled"
 created: 2026-10-25
 updated: 2026-10-25
 tags: [task, task/todo, module/payments-gateway, priority/high, frontend]
 ---
 
 # ⬜ T-065-fe · Frontend: Open a Stripe checkout for an order
-
-> ⚠ Affected by [[T-065 Open a Stripe checkout for an order]] (2026-10-25): the task covers s51 only (pay, pending, failed with the hold's time left); s52 is the next task, so `screens:` and *Design* can drop s52.
 
 **Parent:** [[T-065 Open a Stripe checkout for an order]] · **Feature:** [[Pay for an order]] · **Side:** Frontend · **Status:** To do · **Priority:** high · **Effort:** M (same as the parent until the team sizes it)
 
@@ -32,7 +31,7 @@ The client side of [[T-065 Open a Stripe checkout for an order]]: the screens be
 
 ## Design
 
-- [[Screen Index#s51|s51]], [[Screen Index#s52|s52]]
+- [[Screen Index#s51|s51]] Payment: pay, pending, failed with the time left on the hold, hold ended, paid. s52 is the next task.
 
 ## Impact
 
@@ -40,7 +39,8 @@ Same as the parent's: [[T-065 Open a Stripe checkout for an order#Impact]].
 
 ## Definition of done
 
-- [ ] Frontend Requirements written before asking for backend work; every row ✅ against the Backend Integration note
+- [x] Frontend Requirements written before asking for backend work ([[T-065-fe Frontend Requirements]], 2026-10-25)
+- [ ] Every row ✅ against the Backend Integration note
 - [ ] Screens merged; Frontend Delivery note written and rolled up into [[Pay for an order Frontend Delivery]]
 - [ ] QA Frontend run on a named build; `pending` cleared or handed over
 - [ ] `depends` / `affects` / `related` declared; notes listed by `--impact` updated or flagged
@@ -49,3 +49,4 @@ Same as the parent's: [[T-065 Open a Stripe checkout for an order#Impact]].
 ## Log
 
 - 2026-10-25 · created as the frontend half of T-065
+- 2026-10-25 · tickets/frontend/M-09-payments-gateway/F-41-pay-for-an-order/FR-40-draft · requirements written (FR-40), draft until the backend accepts them; screens narrowed to s51, the PM's flag cleared
