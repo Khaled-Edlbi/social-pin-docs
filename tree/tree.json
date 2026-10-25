@@ -499,6 +499,10 @@
     "T-065-fe Frontend Requirements": "frontend-requirements:T-065-fe",
     "T-065-fe Frontend · Open a Stripe checkout for an order": "task:T-065-fe",
     "T-065-fe QA Frontend": "qa-frontend:T-065-fe",
+    "T-066 Settle an order and confirm it on s52": "task:T-066",
+    "T-066 Story": "story:T-066",
+    "T-066-be Backend · Settle an order and confirm it on s52": "task:T-066-be",
+    "T-066-fe Frontend · Settle an order and confirm it on s52": "task:T-066-fe",
     "View As & Pin Views": "feature:view-as",
     "View As & Pin Views Backend Delivery": "backend-delivery:view-as",
     "View As & Pin Views Backend Integration": "backend-integration:view-as",
@@ -731,6 +735,7 @@
     "S-104": "story:T-059",
     "S-105": "story:pay-for-an-order",
     "S-106": "story:T-065",
+    "S-107": "story:T-066",
     "S-11": "story:photo-library",
     "S-12": "story:T-012",
     "S-13": "story:T-013",
@@ -996,7 +1001,10 @@
     "T-064": "task:T-064",
     "T-065": "task:T-065",
     "T-065-be": "task:T-065-be",
-    "T-065-fe": "task:T-065-fe"
+    "T-065-fe": "task:T-065-fe",
+    "T-066": "task:T-066",
+    "T-066-be": "task:T-066-be",
+    "T-066-fe": "task:T-066-fe"
   },
   "concepts": {
     "DELETE /files/:id": {
@@ -4213,7 +4221,10 @@
         "task:T-047-be",
         "task:T-065",
         "task:T-065-be",
-        "task:T-065-fe"
+        "task:T-065-fe",
+        "task:T-066",
+        "task:T-066-be",
+        "task:T-066-fe"
       ],
       "kind": "screen",
       "notes": [
@@ -4242,6 +4253,7 @@
         "story:T-035",
         "story:T-047",
         "story:T-065",
+        "story:T-066",
         "story:events-before",
         "story:pay-for-an-order",
         "task:T-035",
@@ -4251,7 +4263,10 @@
         "task:T-047-be",
         "task:T-065",
         "task:T-065-be",
-        "task:T-065-fe"
+        "task:T-065-fe",
+        "task:T-066",
+        "task:T-066-be",
+        "task:T-066-fe"
       ],
       "owner": null
     },
@@ -4264,7 +4279,10 @@
         "task:T-011-be",
         "task:T-035",
         "task:T-035-be",
-        "task:T-035-fe"
+        "task:T-035-fe",
+        "task:T-066",
+        "task:T-066-be",
+        "task:T-066-fe"
       ],
       "kind": "screen",
       "notes": [
@@ -4283,6 +4301,7 @@
         "qa-frontend:pay-for-an-order",
         "story:T-011",
         "story:T-035",
+        "story:T-066",
         "story:event-ring-auto",
         "story:events-before",
         "story:pay-for-an-order",
@@ -4290,7 +4309,10 @@
         "task:T-011-be",
         "task:T-035",
         "task:T-035-be",
-        "task:T-035-fe"
+        "task:T-035-fe",
+        "task:T-066",
+        "task:T-066-be",
+        "task:T-066-fe"
       ],
       "owner": null
     },
@@ -4861,7 +4883,7 @@
     }
   },
   "counts": {
-    "blocked": 178,
+    "blocked": 179,
     "byKind": {
       "backend-delivery": 41,
       "backend-integration": 11,
@@ -4874,28 +4896,28 @@
       "project": 27,
       "qa-backend": 2,
       "qa-frontend": 2,
-      "story": 105,
-      "task": 178
+      "story": 106,
+      "task": 181
     },
     "byLayer": {
       "backend": 60,
-      "business": 341,
+      "business": 345,
       "frontend": 47,
       "qa": 4,
       "shared": 10
     },
     "concepts": 183,
     "decisions": 9,
-    "edges": 4835,
+    "edges": 4869,
     "features": 40,
-    "layerNotes": 204,
+    "layerNotes": 205,
     "modules": 9,
-    "notes": 498,
+    "notes": 502,
     "partial": 5,
     "placeholders": 145,
     "records": 4,
-    "taskLayerNotes": 71,
-    "tasks": 178
+    "taskLayerNotes": 72,
+    "tasks": 181
   },
   "deadlines": {
     "missed": {
@@ -5198,6 +5220,21 @@
       "from": "task:T-065-be",
       "kind": "affects",
       "to": "task:T-065-fe"
+    },
+    {
+      "from": "task:T-066",
+      "kind": "affects",
+      "to": "feature:event-ring-auto"
+    },
+    {
+      "from": "task:T-066",
+      "kind": "affects",
+      "to": "feature:pay-for-an-order"
+    },
+    {
+      "from": "task:T-066",
+      "kind": "affects",
+      "to": "feature:payments"
     },
     {
       "from": "backend-delivery:audit-log",
@@ -7130,6 +7167,11 @@
       "to": "task:T-063-fe"
     },
     {
+      "from": "task:T-066-be",
+      "kind": "blocks",
+      "to": "task:T-066-fe"
+    },
+    {
       "from": "decision:D-01",
       "kind": "decision",
       "to": "feature:auth"
@@ -8318,6 +8360,11 @@
       "from": "task:T-065-fe",
       "kind": "depends",
       "to": "task:T-065-be"
+    },
+    {
+      "from": "task:T-066-fe",
+      "kind": "depends",
+      "to": "task:T-066-be"
     },
     {
       "from": "backend-delivery:account",
@@ -13536,6 +13583,24 @@
       ]
     },
     {
+      "from": "story:T-066",
+      "kind": "related",
+      "to": "decision-record:DR-09"
+    },
+    {
+      "from": "story:T-066",
+      "kind": "related",
+      "to": "story:event-ring-auto"
+    },
+    {
+      "from": "story:T-066",
+      "kind": "related",
+      "to": "story:pay-for-an-order",
+      "via": [
+        "sum-of"
+      ]
+    },
+    {
       "from": "story:widgets",
       "kind": "related",
       "to": "story:T-017",
@@ -13604,6 +13669,41 @@
       "from": "task:T-065-fe",
       "kind": "related",
       "to": "frontend-requirements:T-065-fe"
+    },
+    {
+      "from": "task:T-066",
+      "kind": "related",
+      "to": "decision-record:DR-08"
+    },
+    {
+      "from": "task:T-066",
+      "kind": "related",
+      "to": "decision-record:DR-09"
+    },
+    {
+      "from": "task:T-066",
+      "kind": "related",
+      "to": "feature:audit-log"
+    },
+    {
+      "from": "task:T-066",
+      "kind": "related",
+      "to": "task:T-011"
+    },
+    {
+      "from": "task:T-066",
+      "kind": "related",
+      "to": "task:T-035"
+    },
+    {
+      "from": "task:T-066",
+      "kind": "related",
+      "to": "task:T-047"
+    },
+    {
+      "from": "task:T-066",
+      "kind": "related",
+      "to": "task:T-065"
     },
     {
       "from": "decision:D-05",
@@ -23076,6 +23176,11 @@
       "to": "task:T-065"
     },
     {
+      "from": "story:pay-for-an-order",
+      "kind": "tree",
+      "to": "task:T-066"
+    },
+    {
       "from": "story:payments",
       "kind": "tree",
       "to": "task:T-047"
@@ -24079,6 +24184,21 @@
       "from": "task:T-065-fe",
       "kind": "tree",
       "to": "qa-frontend:T-065-fe"
+    },
+    {
+      "from": "task:T-066",
+      "kind": "tree",
+      "to": "story:T-066"
+    },
+    {
+      "from": "task:T-066",
+      "kind": "tree",
+      "to": "task:T-066-be"
+    },
+    {
+      "from": "task:T-066",
+      "kind": "tree",
+      "to": "task:T-066-fe"
     },
     {
       "from": "backend-delivery:account",
@@ -25569,6 +25689,11 @@
       "from": "feature:pay-for-an-order",
       "kind": "wikilink",
       "to": "task:T-065"
+    },
+    {
+      "from": "feature:pay-for-an-order",
+      "kind": "wikilink",
+      "to": "task:T-066"
     },
     {
       "from": "feature:payments",
@@ -30776,6 +30901,16 @@
       "to": "feature:pay-for-an-order"
     },
     {
+      "from": "story:T-066",
+      "kind": "wikilink",
+      "to": "feature:pay-for-an-order"
+    },
+    {
+      "from": "story:T-066",
+      "kind": "wikilink",
+      "to": "story:T-065"
+    },
+    {
       "from": "story:view-as",
       "kind": "wikilink",
       "to": "backend-integration:view-as"
@@ -33504,6 +33639,66 @@
       "from": "task:T-065-fe",
       "kind": "wikilink",
       "to": "task:T-065-be"
+    },
+    {
+      "from": "task:T-066",
+      "kind": "wikilink",
+      "to": "backend-delivery:pay-for-an-order"
+    },
+    {
+      "from": "task:T-066",
+      "kind": "wikilink",
+      "to": "backend-integration:pay-for-an-order"
+    },
+    {
+      "from": "task:T-066",
+      "kind": "wikilink",
+      "to": "frontend-delivery:pay-for-an-order"
+    },
+    {
+      "from": "task:T-066",
+      "kind": "wikilink",
+      "to": "story:event-ring-auto"
+    },
+    {
+      "from": "task:T-066-be",
+      "kind": "wikilink",
+      "to": "backend-delivery:pay-for-an-order"
+    },
+    {
+      "from": "task:T-066-be",
+      "kind": "wikilink",
+      "to": "backend-integration:pay-for-an-order"
+    },
+    {
+      "from": "task:T-066-be",
+      "kind": "wikilink",
+      "to": "feature:pay-for-an-order"
+    },
+    {
+      "from": "task:T-066-fe",
+      "kind": "wikilink",
+      "to": "backend-integration:pay-for-an-order"
+    },
+    {
+      "from": "task:T-066-fe",
+      "kind": "wikilink",
+      "to": "feature:pay-for-an-order"
+    },
+    {
+      "from": "task:T-066-fe",
+      "kind": "wikilink",
+      "to": "frontend-delivery:pay-for-an-order"
+    },
+    {
+      "from": "task:T-066-fe",
+      "kind": "wikilink",
+      "to": "story:T-066"
+    },
+    {
+      "from": "task:T-066-fe",
+      "kind": "wikilink",
+      "to": "task:T-066-be"
     }
   ],
   "emoji": {
@@ -35452,6 +35647,22 @@
     "tasks/T-065-fe Frontend · Open a Stripe checkout for an order/T-065-fe QA Frontend.md": {
       "name": "T-065-fe QA Frontend",
       "type": "qa-frontend"
+    },
+    "tasks/T-066 Settle an order and confirm it on s52/T-066 Settle an order and confirm it on s52.md": {
+      "name": "T-066 Settle an order and confirm it on s52",
+      "type": "task"
+    },
+    "tasks/T-066 Settle an order and confirm it on s52/T-066 Story.md": {
+      "name": "T-066 Story",
+      "type": "story"
+    },
+    "tasks/T-066 Settle an order and confirm it on s52/T-066-be Backend · Settle an order and confirm it on s52.md": {
+      "name": "T-066-be Backend · Settle an order and confirm it on s52",
+      "type": "task"
+    },
+    "tasks/T-066 Settle an order and confirm it on s52/T-066-fe Frontend · Settle an order and confirm it on s52.md": {
+      "name": "T-066-fe Frontend · Settle an order and confirm it on s52",
+      "type": "task"
     },
     "tasks/Task Board.md": {
       "name": "Task Board",
@@ -39966,6 +40177,7 @@
       "priority": null,
       "related": [
         "task:T-065",
+        "task:T-066",
         "decision:D-09",
         "decision:D-08",
         "decision:D-07",
@@ -40029,6 +40241,7 @@
       "priority": null,
       "related": [
         "task:T-065",
+        "task:T-066",
         "decision:D-09",
         "decision-record:DR-08",
         "story:pay-for-an-order",
@@ -40036,7 +40249,8 @@
         "frontend-requirements:pay-for-an-order",
         "story:T-065",
         "backend-delivery:T-065-be",
-        "frontend-requirements:T-065-fe"
+        "frontend-requirements:T-065-fe",
+        "story:T-066"
       ],
       "scope": null,
       "screens": [],
@@ -40730,6 +40944,7 @@
         "project:api-conventions",
         "project:spec-map",
         "task:T-065",
+        "task:T-066",
         "story:payments",
         "backend-delivery:pay-for-an-order",
         "story:pay-for-an-order",
@@ -42456,13 +42671,14 @@
         "story:events-before"
       ],
       "rollup": {
-        "approved": 5,
+        "approved": 6,
+        "blocked": 1,
         "current": 2,
         "decided": 2,
         "done": 3,
         "partial": 5,
         "passing": 2,
-        "todo": 1,
+        "todo": 3,
         "verified": 1
       },
       "scope": null,
@@ -48114,14 +48330,15 @@
         "decision-record:DR-07"
       ],
       "rollup": {
-        "approved": 5,
+        "approved": 6,
+        "blocked": 1,
         "current": 2,
         "decided": 2,
         "done": 3,
         "in-progress": 1,
         "partial": 5,
         "passing": 2,
-        "todo": 1,
+        "todo": 3,
         "verified": 1
       },
       "scope": null,
@@ -53239,8 +53456,8 @@
       "priority": null,
       "related": [],
       "rollup": {
-        "approved": 7,
-        "blocked": 178,
+        "approved": 8,
+        "blocked": 179,
         "current": 11,
         "decided": 4,
         "done": 15,
@@ -53251,7 +53468,7 @@
         "partial": 5,
         "passing": 2,
         "reference": 31,
-        "todo": 82,
+        "todo": 84,
         "verified": 1
       },
       "scope": null,
@@ -56238,6 +56455,56 @@
       "title": "T-065 Story",
       "updated": "2026-10-25"
     },
+    "story:T-066": {
+      "affects": [],
+      "blockedBy": [],
+      "card": "S-107",
+      "children": [],
+      "code": "T-066",
+      "deadline": null,
+      "depends": [],
+      "effectiveStatus": "approved",
+      "effort": null,
+      "feature": "pay-for-an-order",
+      "frontendOnly": false,
+      "id": "story:T-066",
+      "inherits": {
+        "priority": "task:T-066"
+      },
+      "kind": "story",
+      "label": "User Story",
+      "labels": [],
+      "layer": "business",
+      "module": "payments-gateway",
+      "parentTask": null,
+      "parents": [
+        "task:T-066"
+      ],
+      "path": "tasks/T-066 Settle an order and confirm it on s52/T-066 Story.md",
+      "pending": [],
+      "priority": "high",
+      "related": [
+        "story:pay-for-an-order",
+        "story:event-ring-auto",
+        "decision-record:DR-09"
+      ],
+      "scope": "task",
+      "screens": [
+        "s51",
+        "s52"
+      ],
+      "status": "approved",
+      "summary": "What the attendee gets from this task: a payment that counts the moment Stripe confirms it, even with the app closed, and the confirmation that they are in, with the Event Ring in their hub. It is…",
+      "tags": [
+        "story",
+        "story/approved",
+        "module/payments-gateway",
+        "layer/business"
+      ],
+      "task": "T-066",
+      "title": "T-066 Story",
+      "updated": "2026-10-25"
+    },
     "story:account": {
       "affects": [],
       "blockedBy": [],
@@ -57003,7 +57270,9 @@
       "path": "modules/Events/Event Ring Auto-creation/Event Ring Auto-creation Story.md",
       "pending": [],
       "priority": "critical",
-      "related": [],
+      "related": [
+        "story:T-066"
+      ],
       "scope": "feature",
       "screens": [
         "s52"
@@ -57546,6 +57815,7 @@
       "card": "S-105",
       "children": [
         "task:T-065",
+        "task:T-066",
         "decision:D-09"
       ],
       "code": "pay-for-an-order",
@@ -57589,7 +57859,8 @@
         "decision-record:DR-08",
         "task:T-034",
         "story:T-065",
-        "frontend-requirements:T-065-fe"
+        "frontend-requirements:T-065-fe",
+        "story:T-066"
       ],
       "scope": "feature",
       "screens": [
@@ -59868,7 +60139,9 @@
       "path": "tasks/T-011 Create the Event Ring on registration/T-011 Create the Event Ring on registration.md",
       "pending": [],
       "priority": "critical",
-      "related": [],
+      "related": [
+        "task:T-066"
+      ],
       "rollup": {
         "blocked": 1,
         "draft": 1
@@ -64182,6 +64455,7 @@
       "related": [
         "feature:pay-for-an-order",
         "task:T-065",
+        "task:T-066",
         "story:payments",
         "frontend-requirements:T-065-fe"
       ],
@@ -66337,6 +66611,7 @@
       "priority": "high",
       "related": [
         "task:T-065",
+        "task:T-066",
         "story:payments",
         "backend-delivery:pay-for-an-order",
         "story:pay-for-an-order",
@@ -68625,7 +68900,8 @@
         "task:T-035",
         "decision-record:DR-08",
         "decision-record:DR-09",
-        "feature:audit-log"
+        "feature:audit-log",
+        "task:T-066"
       ],
       "rollup": {
         "approved": 1,
@@ -68787,6 +69063,181 @@
       ],
       "task": null,
       "title": "T-065-fe Frontend · Open a Stripe checkout for an order",
+      "updated": "2026-10-25"
+    },
+    "task:T-066": {
+      "affects": [
+        "feature:pay-for-an-order",
+        "feature:payments",
+        "feature:event-ring-auto"
+      ],
+      "blockedBy": [],
+      "card": "T-066",
+      "children": [
+        "story:T-066",
+        "task:T-066-be",
+        "task:T-066-fe"
+      ],
+      "code": "T-066",
+      "deadline": null,
+      "decision": null,
+      "depends": [],
+      "dir": "tasks/T-066 Settle an order and confirm it on s52",
+      "effectiveStatus": "todo",
+      "effort": "M",
+      "feature": "pay-for-an-order",
+      "frontendOnly": false,
+      "id": "task:T-066",
+      "inherits": {},
+      "kind": "task",
+      "label": "Task",
+      "labels": [],
+      "layer": "business",
+      "module": "payments-gateway",
+      "parentTask": null,
+      "parents": [
+        "story:pay-for-an-order"
+      ],
+      "path": "tasks/T-066 Settle an order and confirm it on s52/T-066 Settle an order and confirm it on s52.md",
+      "pending": [],
+      "priority": "high",
+      "related": [
+        "task:T-065",
+        "task:T-047",
+        "task:T-035",
+        "task:T-011",
+        "decision-record:DR-08",
+        "decision-record:DR-09",
+        "feature:audit-log"
+      ],
+      "rollup": {
+        "approved": 1,
+        "blocked": 1,
+        "todo": 1
+      },
+      "scope": null,
+      "screens": [
+        "s51",
+        "s52"
+      ],
+      "status": "todo",
+      "summary": "The second and last task of Pay for an order: stories S3 and S4 of Pay for an order Story, what T-065 Open a Stripe checkout for an order left out. Backend: the endpoint Stripe calls back to…",
+      "tags": [
+        "task",
+        "task/todo",
+        "module/payments-gateway",
+        "priority/high"
+      ],
+      "task": null,
+      "title": "T-066 Settle an order and confirm it on s52",
+      "updated": "2026-10-25"
+    },
+    "task:T-066-be": {
+      "affects": [],
+      "blockedBy": [],
+      "card": "T-066-be",
+      "children": [],
+      "code": "T-066-be",
+      "deadline": null,
+      "decision": null,
+      "depends": [],
+      "dir": null,
+      "effectiveStatus": "todo",
+      "effort": "M",
+      "feature": "pay-for-an-order",
+      "frontendOnly": false,
+      "id": "task:T-066-be",
+      "inherits": {},
+      "kind": "task",
+      "label": "Task",
+      "labels": [
+        "backend"
+      ],
+      "layer": "business",
+      "module": "payments-gateway",
+      "parentTask": "T-066",
+      "parents": [
+        "task:T-066"
+      ],
+      "path": "tasks/T-066 Settle an order and confirm it on s52/T-066-be Backend · Settle an order and confirm it on s52.md",
+      "pending": [],
+      "priority": "high",
+      "related": [],
+      "rollup": {},
+      "scope": null,
+      "screens": [
+        "s51",
+        "s52"
+      ],
+      "status": "todo",
+      "summary": "The API side of T-066 Settle an order and confirm it on s52: the endpoints, data and rules its What describes. Record what shipped in T-066-be Backend Delivery and how to call it in T-066-be…",
+      "tags": [
+        "task",
+        "task/todo",
+        "module/payments-gateway",
+        "priority/high",
+        "backend"
+      ],
+      "task": null,
+      "title": "T-066-be Backend · Settle an order and confirm it on s52",
+      "updated": "2026-10-25"
+    },
+    "task:T-066-fe": {
+      "affects": [],
+      "blockedBy": [
+        {
+          "id": "task:T-066-be",
+          "title": "T-066-be Backend · Settle an order and confirm it on s52",
+          "why": "T-066-be Backend · Settle an order and confirm it on s52 is to do"
+        }
+      ],
+      "card": "T-066-fe",
+      "children": [],
+      "code": "T-066-fe",
+      "deadline": null,
+      "decision": null,
+      "depends": [
+        "task:T-066-be"
+      ],
+      "dir": null,
+      "effectiveStatus": "blocked",
+      "effort": "M",
+      "feature": "pay-for-an-order",
+      "frontendOnly": false,
+      "id": "task:T-066-fe",
+      "inherits": {},
+      "kind": "task",
+      "label": "Task",
+      "labels": [
+        "frontend"
+      ],
+      "layer": "business",
+      "module": "payments-gateway",
+      "parentTask": "T-066",
+      "parents": [
+        "task:T-066"
+      ],
+      "path": "tasks/T-066 Settle an order and confirm it on s52/T-066-fe Frontend · Settle an order and confirm it on s52.md",
+      "pending": [],
+      "priority": "high",
+      "related": [],
+      "rollup": {},
+      "scope": null,
+      "screens": [
+        "s51",
+        "s52"
+      ],
+      "status": "todo",
+      "summary": "The client side of T-066 Settle an order and confirm it on s52: the screens below show what its What describes, built against Pay for an order Backend Integration once the backend half (T-066-be…",
+      "tags": [
+        "task",
+        "task/todo",
+        "module/payments-gateway",
+        "priority/high",
+        "frontend"
+      ],
+      "task": null,
+      "title": "T-066-fe Frontend · Settle an order and confirm it on s52",
       "updated": "2026-10-25"
     }
   },

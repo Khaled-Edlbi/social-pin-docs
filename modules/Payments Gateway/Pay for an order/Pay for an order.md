@@ -44,6 +44,7 @@ Wireframe brief sections: [[Wireframe Brief#Tickets, access levels, RSVP, regist
 | Task | Status | Priority | Effort |
 |---|---|---|---|
 | [[T-065 Open a Stripe checkout for an order]] | ⬜ To do | high | M |
+| [[T-066 Settle an order and confirm it on s52]] | ⬜ To do | high | M |
 
 ## Decisions
 
