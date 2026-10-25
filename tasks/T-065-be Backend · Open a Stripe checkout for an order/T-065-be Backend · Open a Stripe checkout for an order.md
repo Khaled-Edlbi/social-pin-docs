@@ -12,7 +12,7 @@ screens: [s51]
 depends: []
 affects: ["T-065-fe Frontend · Open a Stripe checkout for an order"]
 related: ["T-065-be Backend Delivery", "T-065-fe Frontend Requirements"]
-pending: ["@qa: QA Backend run on the T-065 build (T-065-be QA Backend not written yet)"]
+pending: []
 owner: "khaled"
 created: 2026-10-25
 updated: 2026-10-25
@@ -20,8 +20,6 @@ tags: [task, task/done, module/payments-gateway, priority/high, backend]
 ---
 
 # ✅ T-065-be · Backend: Open a Stripe checkout for an order
-
-> ⚠ Affected by [[T-065-be QA Backend]] (2026-10-25): QA Backend passing on `t065-sim-2026-10-25` (simulated), B1–B12; the `@qa` pending item can be cleared and the QA box ticked.
 
 **Parent:** [[T-065 Open a Stripe checkout for an order]] · **Feature:** [[Pay for an order]] · **Side:** Backend · **Status:** Done (simulated) · **Priority:** high · **Effort:** M (same as the parent until the team sizes it)
 
@@ -44,7 +42,7 @@ Same as the parent's: [[T-065 Open a Stripe checkout for an order#Impact]].
 - [x] Code per the backend's `CLAUDE.md` (every visibility decision through `RingAccessService`) (simulated)
 - [x] `pnpm typecheck && pnpm test` green (simulated)
 - [x] Backend Delivery and Backend Integration notes written and rolled up into the feature-level notes
-- [ ] QA Backend run; `pending` cleared or handed over (handed to QA in `pending`)
+- [x] QA Backend run ([[T-065-be QA Backend]], passing on `t065-sim-2026-10-25`); `pending` cleared
 - [x] `depends` / `affects` / `related` declared; notes listed by `--impact` updated or flagged
 - [x] `node scripts/build-tree.mjs` run; tree, board and backlog committed
 
@@ -52,3 +50,4 @@ Same as the parent's: [[T-065 Open a Stripe checkout for an order#Impact]].
 
 - 2026-10-25 · created as the backend half of T-065
 - 2026-10-25 · `payments-gateway/T-065/stripe-checkout` (simulated, no code: M-09 agent-flow test) · `GET /orders/:id`, `POST /orders/:id/checkout` shipped for s51 ([[T-065-be Backend Delivery]]); FR-40 and FR-41 accepted; the PM's s52 flag cleared (screens narrowed to s51); QA Backend handed over in `pending`
+- 2026-10-25 · `tickets/backend/M-09-payments-gateway/F-41-pay-for-an-order/T-065-be-qa-cleared` · QB-01 passing on `t065-sim-2026-10-25` (simulated, B1–B12): the `@qa` pending item cleared, QA's flag removed

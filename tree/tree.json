@@ -4829,7 +4829,7 @@
     }
   },
   "counts": {
-    "blocked": 179,
+    "blocked": 178,
     "byKind": {
       "backend-delivery": 41,
       "backend-integration": 11,
@@ -4852,12 +4852,12 @@
     },
     "concepts": 183,
     "decisions": 9,
-    "edges": 4721,
+    "edges": 4720,
     "features": 40,
     "layerNotes": 200,
     "modules": 9,
     "notes": 494,
-    "partial": 3,
+    "partial": 2,
     "placeholders": 147,
     "records": 4,
     "taskLayerNotes": 69,
@@ -7094,11 +7094,6 @@
       "from": "task:T-063-be",
       "kind": "blocks",
       "to": "task:T-063-fe"
-    },
-    {
-      "from": "task:T-065-be",
-      "kind": "blocks",
-      "to": "task:T-065-fe"
     },
     {
       "from": "decision:D-01",
@@ -41439,14 +41434,13 @@
       ],
       "rollup": {
         "approved": 6,
-        "blocked": 1,
         "current": 2,
         "decided": 2,
-        "done": 1,
+        "done": 2,
         "missing": 2,
-        "partial": 3,
+        "partial": 2,
         "passing": 1,
-        "todo": 1
+        "todo": 2
       },
       "scope": null,
       "screens": [
@@ -46937,15 +46931,14 @@
       ],
       "rollup": {
         "approved": 6,
-        "blocked": 1,
         "current": 2,
         "decided": 2,
-        "done": 1,
+        "done": 2,
         "in-progress": 1,
         "missing": 2,
-        "partial": 3,
+        "partial": 2,
         "passing": 1,
-        "todo": 1
+        "todo": 2
       },
       "scope": null,
       "screens": [],
@@ -51943,18 +51936,18 @@
       "related": [],
       "rollup": {
         "approved": 8,
-        "blocked": 179,
+        "blocked": 178,
         "current": 11,
         "decided": 4,
-        "done": 13,
+        "done": 14,
         "draft": 103,
         "in-progress": 16,
         "missing": 147,
         "needs-decision": 20,
-        "partial": 3,
+        "partial": 2,
         "passing": 1,
         "reference": 31,
-        "todo": 82
+        "todo": 83
       },
       "scope": null,
       "screens": [],
@@ -67325,11 +67318,10 @@
       ],
       "rollup": {
         "approved": 2,
-        "blocked": 1,
         "current": 1,
-        "done": 1,
-        "partial": 1,
-        "passing": 1
+        "done": 2,
+        "passing": 1,
+        "todo": 1
       },
       "scope": null,
       "screens": [
@@ -67363,7 +67355,7 @@
       "decision": null,
       "depends": [],
       "dir": "tasks/T-065-be Backend · Open a Stripe checkout for an order",
-      "effectiveStatus": "partial",
+      "effectiveStatus": "done",
       "effort": "M",
       "feature": "pay-for-an-order",
       "frontendOnly": false,
@@ -67381,13 +67373,7 @@
         "task:T-065"
       ],
       "path": "tasks/T-065-be Backend · Open a Stripe checkout for an order/T-065-be Backend · Open a Stripe checkout for an order.md",
-      "pending": [
-        {
-          "person": "qa",
-          "text": "QA Backend run on the T-065 build (T-065-be QA Backend not written yet)",
-          "to": null
-        }
-      ],
+      "pending": [],
       "priority": "high",
       "related": [
         "backend-delivery:T-065-be",
@@ -67422,13 +67408,7 @@
     },
     "task:T-065-fe": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-065-be",
-          "title": "T-065-be Backend · Open a Stripe checkout for an order",
-          "why": "T-065-be Backend · Open a Stripe checkout for an order is partial"
-        }
-      ],
+      "blockedBy": [],
       "card": "T-065-fe",
       "children": [
         "frontend-requirements:T-065-fe"
@@ -67440,7 +67420,7 @@
         "task:T-065-be"
       ],
       "dir": "tasks/T-065-fe Frontend · Open a Stripe checkout for an order",
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "todo",
       "effort": "M",
       "feature": "pay-for-an-order",
       "frontendOnly": false,
