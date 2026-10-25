@@ -487,6 +487,7 @@
     "T-065 Open a Stripe checkout for an order": "task:T-065",
     "T-065 Story": "story:T-065",
     "T-065-be Backend Delivery": "backend-delivery:T-065-be",
+    "T-065-be Backend Integration": "backend-integration:T-065-be",
     "T-065-be Backend · Open a Stripe checkout for an order": "task:T-065-be",
     "T-065-fe Frontend Requirements": "frontend-requirements:T-065-fe",
     "T-065-fe Frontend · Open a Stripe checkout for an order": "task:T-065-fe",
@@ -566,6 +567,7 @@
     "BI-07": "backend-integration:ring-projection",
     "BI-08": "backend-integration:rings",
     "BI-09": "backend-integration:view-as",
+    "BI-10": "backend-integration:T-065-be",
     "D-01": "decision:D-01",
     "D-02": "decision:D-02",
     "D-03": "decision:D-03",
@@ -1145,11 +1147,13 @@
         "project:frontend-api-guide",
         "project:frontend-contract",
         "project:frontend-passwordless-migration",
+        "task:T-065-be",
         "task:T-065-fe"
       ],
       "kind": "error",
       "notes": [
         "backend-delivery:auth",
+        "backend-integration:T-065-be",
         "backend-integration:auth",
         "frontend-requirements:T-065-fe",
         "frontend-requirements:account",
@@ -1325,7 +1329,8 @@
       ],
       "kind": "error",
       "notes": [
-        "backend-delivery:T-065-be"
+        "backend-delivery:T-065-be",
+        "backend-integration:T-065-be"
       ],
       "owner": null
     },
@@ -1335,7 +1340,8 @@
       ],
       "kind": "error",
       "notes": [
-        "backend-delivery:T-065-be"
+        "backend-delivery:T-065-be",
+        "backend-integration:T-065-be"
       ],
       "owner": null
     },
@@ -1345,7 +1351,8 @@
       ],
       "kind": "error",
       "notes": [
-        "backend-delivery:T-065-be"
+        "backend-delivery:T-065-be",
+        "backend-integration:T-065-be"
       ],
       "owner": null
     },
@@ -1355,7 +1362,8 @@
       ],
       "kind": "error",
       "notes": [
-        "backend-delivery:T-065-be"
+        "backend-delivery:T-065-be",
+        "backend-integration:T-065-be"
       ],
       "owner": null
     },
@@ -1798,6 +1806,7 @@
       "kind": "endpoint",
       "notes": [
         "backend-delivery:T-065-be",
+        "backend-integration:T-065-be",
         "task:T-065-be"
       ],
       "owner": null
@@ -2678,6 +2687,7 @@
       "kind": "endpoint",
       "notes": [
         "backend-delivery:T-065-be",
+        "backend-integration:T-065-be",
         "task:T-065-be"
       ],
       "owner": null
@@ -4139,6 +4149,7 @@
         "backend-delivery:T-065-be",
         "backend-delivery:events-before",
         "backend-delivery:payments",
+        "backend-integration:T-065-be",
         "decision:D-07",
         "decision:D-08",
         "decision:D-09",
@@ -4769,7 +4780,7 @@
     "blocked": 179,
     "byKind": {
       "backend-delivery": 40,
-      "backend-integration": 9,
+      "backend-integration": 10,
       "decision": 9,
       "decision-record": 4,
       "feature": 40,
@@ -4780,22 +4791,22 @@
       "task": 178
     },
     "byLayer": {
-      "backend": 57,
+      "backend": 58,
       "business": 341,
       "frontend": 45,
       "shared": 10
     },
     "concepts": 183,
     "decisions": 9,
-    "edges": 4525,
+    "edges": 4590,
     "features": 40,
-    "layerNotes": 195,
+    "layerNotes": 196,
     "modules": 9,
-    "notes": 489,
+    "notes": 490,
     "partial": 1,
     "placeholders": 150,
     "records": 4,
-    "taskLayerNotes": 67,
+    "taskLayerNotes": 68,
     "tasks": 178
   },
   "deadlines": {
@@ -4857,6 +4868,11 @@
   "edges": [
     {
       "from": "backend-delivery:T-065-be",
+      "kind": "affects",
+      "to": "task:T-065-fe"
+    },
+    {
+      "from": "backend-integration:T-065-be",
       "kind": "affects",
       "to": "task:T-065-fe"
     },
@@ -7181,6 +7197,11 @@
       "to": "frontend-requirements:T-065-fe"
     },
     {
+      "from": "backend-integration:T-065-be",
+      "kind": "depends",
+      "to": "backend-delivery:T-065-be"
+    },
+    {
       "from": "feature:pay-for-an-order",
       "kind": "depends",
       "to": "decision:D-07"
@@ -8261,6 +8282,11 @@
       "to": "backend-integration:rings"
     },
     {
+      "from": "backend-delivery:T-065-be",
+      "kind": "flow",
+      "to": "backend-integration:T-065-be"
+    },
+    {
       "from": "backend-delivery:view-as",
       "kind": "flow",
       "to": "backend-integration:view-as"
@@ -8687,6 +8713,20 @@
     {
       "from": "backend-delivery:T-065-be",
       "kind": "related",
+      "to": "backend-integration:T-065-be",
+      "via": [
+        "E_AUTH_04",
+        "E_ORDER_01",
+        "E_ORDER_02",
+        "E_ORDER_03",
+        "E_PAY_01",
+        "GET /orders/:id",
+        "POST /orders/:id/checkout"
+      ]
+    },
+    {
+      "from": "backend-delivery:T-065-be",
+      "kind": "related",
       "to": "decision-record:DR-08"
     },
     {
@@ -8911,6 +8951,252 @@
       "from": "backend-delivery:T-065-be",
       "kind": "related",
       "to": "task:T-047"
+    },
+    {
+      "from": "backend-integration:pay-for-an-order",
+      "kind": "related",
+      "to": "backend-integration:T-065-be",
+      "via": [
+        "sum-of"
+      ]
+    },
+    {
+      "from": "backend-integration:T-065-be",
+      "kind": "related",
+      "to": "backend-delivery:auth",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "backend-integration:T-065-be",
+      "kind": "related",
+      "to": "backend-integration:auth",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "backend-integration:T-065-be",
+      "kind": "related",
+      "to": "frontend-requirements:account",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "backend-integration:T-065-be",
+      "kind": "related",
+      "to": "frontend-requirements:app-shell",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "backend-integration:T-065-be",
+      "kind": "related",
+      "to": "frontend-requirements:auth",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "backend-integration:T-065-be",
+      "kind": "related",
+      "to": "frontend-requirements:badge-qr",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "backend-integration:T-065-be",
+      "kind": "related",
+      "to": "frontend-requirements:companies",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "backend-integration:T-065-be",
+      "kind": "related",
+      "to": "frontend-requirements:connections",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "backend-integration:T-065-be",
+      "kind": "related",
+      "to": "frontend-requirements:delegated-admins",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "backend-integration:T-065-be",
+      "kind": "related",
+      "to": "frontend-requirements:devices",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "backend-integration:T-065-be",
+      "kind": "related",
+      "to": "frontend-requirements:discover-hub",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "backend-integration:T-065-be",
+      "kind": "related",
+      "to": "frontend-requirements:error-contract",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "backend-integration:T-065-be",
+      "kind": "related",
+      "to": "frontend-requirements:events-before",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "backend-integration:T-065-be",
+      "kind": "related",
+      "to": "frontend-requirements:interests",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "backend-integration:T-065-be",
+      "kind": "related",
+      "to": "frontend-requirements:linked-accounts",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "backend-integration:T-065-be",
+      "kind": "related",
+      "to": "frontend-requirements:notifications",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "backend-integration:T-065-be",
+      "kind": "related",
+      "to": "frontend-requirements:pay-for-an-order",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "backend-integration:T-065-be",
+      "kind": "related",
+      "to": "frontend-requirements:payments",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "backend-integration:T-065-be",
+      "kind": "related",
+      "to": "frontend-requirements:pincast",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "backend-integration:T-065-be",
+      "kind": "related",
+      "to": "frontend-requirements:post-event",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "backend-integration:T-065-be",
+      "kind": "related",
+      "to": "frontend-requirements:ring-invitations",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "backend-integration:T-065-be",
+      "kind": "related",
+      "to": "frontend-requirements:subscription",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "backend-integration:T-065-be",
+      "kind": "related",
+      "to": "frontend-requirements:T-065-fe",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "backend-integration:T-065-be",
+      "kind": "related",
+      "to": "frontend-requirements:view-as",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "backend-integration:T-065-be",
+      "kind": "related",
+      "to": "project:frontend-api-guide",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "backend-integration:T-065-be",
+      "kind": "related",
+      "to": "project:frontend-contract",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "backend-integration:T-065-be",
+      "kind": "related",
+      "to": "project:frontend-passwordless-migration",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "backend-integration:T-065-be",
+      "kind": "related",
+      "to": "story:auth",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "backend-integration:T-065-be",
+      "kind": "related",
+      "to": "task:T-063"
+    },
+    {
+      "from": "backend-integration:T-065-be",
+      "kind": "related",
+      "to": "task:T-065-be",
+      "via": [
+        "GET /orders/:id",
+        "POST /orders/:id/checkout"
+      ]
     },
     {
       "from": "decision-record:DR-01",
@@ -11761,6 +12047,14 @@
     {
       "from": "feature:account",
       "kind": "shares",
+      "to": "task:T-065-be",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "feature:account",
+      "kind": "shares",
       "to": "task:T-065-fe",
       "via": [
         "E_AUTH_04"
@@ -12016,6 +12310,14 @@
       "to": "project:status-report-2026-10-15",
       "via": [
         "GET /rings"
+      ]
+    },
+    {
+      "from": "feature:app-shell",
+      "kind": "shares",
+      "to": "task:T-065-be",
+      "via": [
+        "E_AUTH_04"
       ]
     },
     {
@@ -12451,6 +12753,14 @@
     {
       "from": "feature:auth",
       "kind": "shares",
+      "to": "task:T-065-be",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "feature:auth",
+      "kind": "shares",
       "to": "task:T-065-fe",
       "via": [
         "E_AUTH_04"
@@ -12828,6 +13138,14 @@
       "to": "task:T-008",
       "via": [
         "GET /views/ring/:ringId"
+      ]
+    },
+    {
+      "from": "feature:badge-qr",
+      "kind": "shares",
+      "to": "task:T-065-be",
+      "via": [
+        "E_AUTH_04"
       ]
     },
     {
@@ -13522,6 +13840,14 @@
     {
       "from": "feature:companies",
       "kind": "shares",
+      "to": "task:T-065-be",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "feature:companies",
+      "kind": "shares",
       "to": "task:T-065-fe",
       "via": [
         "E_AUTH_04"
@@ -13924,6 +14250,14 @@
       "to": "task:T-008",
       "via": [
         "GET /views/ring/:ringId"
+      ]
+    },
+    {
+      "from": "feature:connections",
+      "kind": "shares",
+      "to": "task:T-065-be",
+      "via": [
+        "E_AUTH_04"
       ]
     },
     {
@@ -14459,6 +14793,14 @@
     {
       "from": "feature:delegated-admins",
       "kind": "shares",
+      "to": "task:T-065-be",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "feature:delegated-admins",
+      "kind": "shares",
       "to": "task:T-065-fe",
       "via": [
         "E_AUTH_04"
@@ -14613,6 +14955,14 @@
         "E_AUTH_04",
         "POST /auth/logout-everywhere",
         "POST /auth/refresh"
+      ]
+    },
+    {
+      "from": "feature:devices",
+      "kind": "shares",
+      "to": "task:T-065-be",
+      "via": [
+        "E_AUTH_04"
       ]
     },
     {
@@ -14805,6 +15155,14 @@
       "via": [
         "GET /profiles/pin-name/:pinName/availability",
         "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "feature:discover-hub",
+      "kind": "shares",
+      "to": "task:T-065-be",
+      "via": [
+        "E_AUTH_04"
       ]
     },
     {
@@ -15108,6 +15466,14 @@
         "E_AUTH_04",
         "E_AUTH_05",
         "E_USER_04"
+      ]
+    },
+    {
+      "from": "feature:error-contract",
+      "kind": "shares",
+      "to": "task:T-065-be",
+      "via": [
+        "E_AUTH_04"
       ]
     },
     {
@@ -15492,6 +15858,14 @@
       "to": "project:status-report-2026-10-15",
       "via": [
         "GET /rings"
+      ]
+    },
+    {
+      "from": "feature:events-before",
+      "kind": "shares",
+      "to": "task:T-065-be",
+      "via": [
+        "E_AUTH_04"
       ]
     },
     {
@@ -16092,6 +16466,14 @@
     {
       "from": "feature:interests",
       "kind": "shares",
+      "to": "task:T-065-be",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "feature:interests",
+      "kind": "shares",
       "to": "task:T-065-fe",
       "via": [
         "E_AUTH_04"
@@ -16235,6 +16617,14 @@
       "to": "task:T-019",
       "via": [
         "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "feature:linked-accounts",
+      "kind": "shares",
+      "to": "task:T-065-be",
+      "via": [
+        "E_AUTH_04"
       ]
     },
     {
@@ -16525,6 +16915,14 @@
     {
       "from": "feature:notifications",
       "kind": "shares",
+      "to": "task:T-065-be",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "feature:notifications",
+      "kind": "shares",
       "to": "task:T-065-fe",
       "via": [
         "E_AUTH_04"
@@ -16705,6 +17103,14 @@
     {
       "from": "feature:pay-for-an-order",
       "kind": "shares",
+      "to": "task:T-065-be",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "feature:pay-for-an-order",
+      "kind": "shares",
       "to": "task:T-065-fe",
       "via": [
         "E_AUTH_04"
@@ -16770,6 +17176,14 @@
       "from": "feature:payments",
       "kind": "shares",
       "to": "project:frontend-passwordless-migration",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "feature:payments",
+      "kind": "shares",
+      "to": "task:T-065-be",
       "via": [
         "E_AUTH_04"
       ]
@@ -17079,6 +17493,14 @@
     {
       "from": "feature:pincast",
       "kind": "shares",
+      "to": "task:T-065-be",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "feature:pincast",
+      "kind": "shares",
       "to": "task:T-065-fe",
       "via": [
         "E_AUTH_04"
@@ -17256,6 +17678,14 @@
       "to": "task:T-008",
       "via": [
         "GET /views/ring/:ringId"
+      ]
+    },
+    {
+      "from": "feature:post-event",
+      "kind": "shares",
+      "to": "task:T-065-be",
+      "via": [
+        "E_AUTH_04"
       ]
     },
     {
@@ -17595,6 +18025,14 @@
       "to": "task:T-008",
       "via": [
         "GET /views/ring/:ringId"
+      ]
+    },
+    {
+      "from": "feature:ring-invitations",
+      "kind": "shares",
+      "to": "task:T-065-be",
+      "via": [
+        "E_AUTH_04"
       ]
     },
     {
@@ -17979,6 +18417,14 @@
     {
       "from": "feature:subscription",
       "kind": "shares",
+      "to": "task:T-065-be",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "feature:subscription",
+      "kind": "shares",
       "to": "task:T-065-fe",
       "via": [
         "E_AUTH_04"
@@ -18058,6 +18504,14 @@
       "to": "task:T-008",
       "via": [
         "GET /views/ring/:ringId"
+      ]
+    },
+    {
+      "from": "feature:view-as",
+      "kind": "shares",
+      "to": "task:T-065-be",
+      "via": [
+        "E_AUTH_04"
       ]
     },
     {
@@ -18322,6 +18776,14 @@
     {
       "from": "project:frontend-api-guide",
       "kind": "shares",
+      "to": "task:T-065-be",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "project:frontend-api-guide",
+      "kind": "shares",
       "to": "task:T-065-fe",
       "via": [
         "E_AUTH_04"
@@ -18389,6 +18851,14 @@
     {
       "from": "project:frontend-contract",
       "kind": "shares",
+      "to": "task:T-065-be",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "project:frontend-contract",
+      "kind": "shares",
       "to": "task:T-065-fe",
       "via": [
         "E_AUTH_04"
@@ -18419,6 +18889,14 @@
       "to": "task:T-019",
       "via": [
         "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "project:frontend-passwordless-migration",
+      "kind": "shares",
+      "to": "task:T-065-be",
+      "via": [
+        "E_AUTH_04"
       ]
     },
     {
@@ -21631,6 +22109,11 @@
       "to": "backend-delivery:T-065-be"
     },
     {
+      "from": "task:T-065-be",
+      "kind": "tree",
+      "to": "backend-integration:T-065-be"
+    },
+    {
       "from": "task:T-065-fe",
       "kind": "tree",
       "to": "frontend-requirements:T-065-fe"
@@ -22669,6 +23152,31 @@
       "from": "backend-integration:rings",
       "kind": "wikilink",
       "to": "task:T-054"
+    },
+    {
+      "from": "backend-integration:T-065-be",
+      "kind": "wikilink",
+      "to": "decision-record:DR-08"
+    },
+    {
+      "from": "backend-integration:T-065-be",
+      "kind": "wikilink",
+      "to": "decision-record:DR-09"
+    },
+    {
+      "from": "backend-integration:T-065-be",
+      "kind": "wikilink",
+      "to": "feature:pay-for-an-order"
+    },
+    {
+      "from": "backend-integration:T-065-be",
+      "kind": "wikilink",
+      "to": "task:T-035"
+    },
+    {
+      "from": "backend-integration:T-065-be",
+      "kind": "wikilink",
+      "to": "task:T-047"
     },
     {
       "from": "backend-integration:view-as",
@@ -32785,6 +33293,10 @@
       "name": "T-065-be Backend Delivery",
       "type": "backend-delivery"
     },
+    "tasks/T-065-be Backend · Open a Stripe checkout for an order/T-065-be Backend Integration.md": {
+      "name": "T-065-be Backend Integration",
+      "type": "backend-integration"
+    },
     "tasks/T-065-be Backend · Open a Stripe checkout for an order/T-065-be Backend · Open a Stripe checkout for an order.md": {
       "name": "T-065-be Backend · Open a Stripe checkout for an order",
       "type": "task"
@@ -33168,6 +33680,7 @@
       "priority": "high",
       "related": [
         "task:T-065-be",
+        "backend-integration:T-065-be",
         "frontend-requirements:payments",
         "frontend-requirements:subscription",
         "frontend-requirements:connections",
@@ -33388,7 +33901,8 @@
       "pending": [],
       "priority": "critical",
       "related": [
-        "backend-delivery:T-065-be"
+        "backend-delivery:T-065-be",
+        "backend-integration:T-065-be"
       ],
       "scope": "feature",
       "screens": [
@@ -35249,6 +35763,87 @@
       "title": "Widgets Backend Delivery",
       "updated": "2026-10-18"
     },
+    "backend-integration:T-065-be": {
+      "affects": [
+        "task:T-065-fe"
+      ],
+      "blockedBy": [],
+      "card": "BI-10",
+      "children": [],
+      "code": "T-065-be",
+      "deadline": null,
+      "depends": [
+        "backend-delivery:T-065-be"
+      ],
+      "effectiveStatus": "current",
+      "effort": null,
+      "feature": "pay-for-an-order",
+      "frontendOnly": false,
+      "id": "backend-integration:T-065-be",
+      "inherits": {
+        "priority": "task:T-065-be"
+      },
+      "kind": "backend-integration",
+      "label": "Backend Integration",
+      "labels": [],
+      "layer": "backend",
+      "module": "payments-gateway",
+      "parentTask": null,
+      "parents": [
+        "task:T-065-be"
+      ],
+      "path": "tasks/T-065-be Backend · Open a Stripe checkout for an order/T-065-be Backend Integration.md",
+      "pending": [],
+      "priority": "high",
+      "related": [
+        "backend-delivery:T-065-be",
+        "frontend-requirements:T-065-fe",
+        "task:T-065-be",
+        "frontend-requirements:payments",
+        "frontend-requirements:subscription",
+        "frontend-requirements:connections",
+        "frontend-requirements:badge-qr",
+        "frontend-requirements:discover-hub",
+        "frontend-requirements:pincast",
+        "frontend-requirements:events-before",
+        "frontend-requirements:post-event",
+        "frontend-requirements:account",
+        "backend-delivery:auth",
+        "backend-integration:auth",
+        "frontend-requirements:auth",
+        "story:auth",
+        "frontend-requirements:view-as",
+        "frontend-requirements:pay-for-an-order",
+        "frontend-requirements:app-shell",
+        "frontend-requirements:devices",
+        "frontend-requirements:error-contract",
+        "frontend-requirements:interests",
+        "frontend-requirements:linked-accounts",
+        "frontend-requirements:notifications",
+        "frontend-requirements:companies",
+        "frontend-requirements:delegated-admins",
+        "frontend-requirements:ring-invitations",
+        "project:frontend-api-guide",
+        "project:frontend-contract",
+        "project:frontend-passwordless-migration",
+        "task:T-063"
+      ],
+      "scope": "task",
+      "screens": [
+        "s51"
+      ],
+      "status": "current",
+      "summary": "Written by the backend team for the frontend and QA: how to call what T-065-be delivered for the Payment screen. Base URL /api/v1, access token on every call.",
+      "tags": [
+        "backend-integration",
+        "backend-integration/current",
+        "module/payments-gateway",
+        "layer/backend"
+      ],
+      "task": "T-065-be",
+      "title": "T-065-be Backend Integration",
+      "updated": "2026-10-25"
+    },
     "backend-integration:account": {
       "affects": [],
       "blockedBy": [],
@@ -35366,7 +35961,8 @@
       "pending": [],
       "priority": "critical",
       "related": [
-        "backend-delivery:T-065-be"
+        "backend-delivery:T-065-be",
+        "backend-integration:T-065-be"
       ],
       "scope": "feature",
       "screens": [
@@ -39606,6 +40202,7 @@
       "rollup": {
         "approved": 6,
         "blocked": 1,
+        "current": 1,
         "decided": 2,
         "done": 1,
         "missing": 5,
@@ -42299,6 +42896,7 @@
         "task:T-065-fe",
         "frontend-requirements:pay-for-an-order",
         "backend-delivery:T-065-be",
+        "backend-integration:T-065-be",
         "story:T-065",
         "story:pay-for-an-order",
         "decision-record:DR-08",
@@ -42358,7 +42956,8 @@
       "pending": [],
       "priority": "critical",
       "related": [
-        "backend-delivery:T-065-be"
+        "backend-delivery:T-065-be",
+        "backend-integration:T-065-be"
       ],
       "scope": "feature",
       "screens": [
@@ -42411,7 +43010,8 @@
       "pending": [],
       "priority": "medium",
       "related": [
-        "backend-delivery:T-065-be"
+        "backend-delivery:T-065-be",
+        "backend-integration:T-065-be"
       ],
       "scope": "feature",
       "screens": [
@@ -42516,7 +43116,8 @@
       "pending": [],
       "priority": "critical",
       "related": [
-        "backend-delivery:T-065-be"
+        "backend-delivery:T-065-be",
+        "backend-integration:T-065-be"
       ],
       "scope": "feature",
       "screens": [
@@ -42573,7 +43174,8 @@
       "pending": [],
       "priority": "critical",
       "related": [
-        "backend-delivery:T-065-be"
+        "backend-delivery:T-065-be",
+        "backend-integration:T-065-be"
       ],
       "scope": "feature",
       "screens": [
@@ -42729,7 +43331,8 @@
       "pending": [],
       "priority": "high",
       "related": [
-        "backend-delivery:T-065-be"
+        "backend-delivery:T-065-be",
+        "backend-integration:T-065-be"
       ],
       "scope": "feature",
       "screens": [
@@ -42783,7 +43386,8 @@
       "pending": [],
       "priority": "critical",
       "related": [
-        "backend-delivery:T-065-be"
+        "backend-delivery:T-065-be",
+        "backend-integration:T-065-be"
       ],
       "scope": "feature",
       "screens": [
@@ -42896,7 +43500,8 @@
       "pending": [],
       "priority": "high",
       "related": [
-        "backend-delivery:T-065-be"
+        "backend-delivery:T-065-be",
+        "backend-integration:T-065-be"
       ],
       "scope": "feature",
       "screens": [
@@ -42950,7 +43555,8 @@
       "pending": [],
       "priority": "high",
       "related": [
-        "backend-delivery:T-065-be"
+        "backend-delivery:T-065-be",
+        "backend-integration:T-065-be"
       ],
       "scope": "feature",
       "screens": [
@@ -43003,7 +43609,8 @@
       "pending": [],
       "priority": "high",
       "related": [
-        "backend-delivery:T-065-be"
+        "backend-delivery:T-065-be",
+        "backend-integration:T-065-be"
       ],
       "scope": "feature",
       "screens": [
@@ -43105,7 +43712,8 @@
       "pending": [],
       "priority": "critical",
       "related": [
-        "backend-delivery:T-065-be"
+        "backend-delivery:T-065-be",
+        "backend-integration:T-065-be"
       ],
       "scope": "feature",
       "screens": [],
@@ -43207,7 +43815,8 @@
       "pending": [],
       "priority": "critical",
       "related": [
-        "backend-delivery:T-065-be"
+        "backend-delivery:T-065-be",
+        "backend-integration:T-065-be"
       ],
       "scope": "feature",
       "screens": [
@@ -43478,7 +44087,8 @@
       "pending": [],
       "priority": "high",
       "related": [
-        "backend-delivery:T-065-be"
+        "backend-delivery:T-065-be",
+        "backend-integration:T-065-be"
       ],
       "scope": "feature",
       "screens": [
@@ -43532,7 +44142,8 @@
       "pending": [],
       "priority": "high",
       "related": [
-        "backend-delivery:T-065-be"
+        "backend-delivery:T-065-be",
+        "backend-integration:T-065-be"
       ],
       "scope": "feature",
       "screens": [
@@ -43642,7 +44253,8 @@
       "pending": [],
       "priority": "high",
       "related": [
-        "backend-delivery:T-065-be"
+        "backend-delivery:T-065-be",
+        "backend-integration:T-065-be"
       ],
       "scope": "feature",
       "screens": [
@@ -43751,7 +44363,8 @@
         "task:T-063",
         "feature:event-ring-auto",
         "project:frontend-contract",
-        "backend-delivery:T-065-be"
+        "backend-delivery:T-065-be",
+        "backend-integration:T-065-be"
       ],
       "scope": "feature",
       "screens": [
@@ -43805,7 +44418,8 @@
       "pending": [],
       "priority": "high",
       "related": [
-        "backend-delivery:T-065-be"
+        "backend-delivery:T-065-be",
+        "backend-integration:T-065-be"
       ],
       "scope": "feature",
       "screens": [
@@ -43911,7 +44525,8 @@
       "pending": [],
       "priority": "high",
       "related": [
-        "backend-delivery:T-065-be"
+        "backend-delivery:T-065-be",
+        "backend-integration:T-065-be"
       ],
       "scope": "feature",
       "screens": [
@@ -43968,7 +44583,8 @@
       "pending": [],
       "priority": "high",
       "related": [
-        "backend-delivery:T-065-be"
+        "backend-delivery:T-065-be",
+        "backend-integration:T-065-be"
       ],
       "scope": "feature",
       "screens": [
@@ -44121,7 +44737,8 @@
       "pending": [],
       "priority": "high",
       "related": [
-        "backend-delivery:T-065-be"
+        "backend-delivery:T-065-be",
+        "backend-integration:T-065-be"
       ],
       "scope": "feature",
       "screens": [
@@ -44345,7 +44962,8 @@
       "pending": [],
       "priority": "high",
       "related": [
-        "backend-delivery:T-065-be"
+        "backend-delivery:T-065-be",
+        "backend-integration:T-065-be"
       ],
       "scope": "feature",
       "screens": [
@@ -44399,7 +45017,8 @@
       "pending": [],
       "priority": "critical",
       "related": [
-        "backend-delivery:T-065-be"
+        "backend-delivery:T-065-be",
+        "backend-integration:T-065-be"
       ],
       "scope": "feature",
       "screens": [
@@ -45018,6 +45637,7 @@
       "rollup": {
         "approved": 6,
         "blocked": 1,
+        "current": 1,
         "decided": 2,
         "done": 1,
         "in-progress": 1,
@@ -45924,6 +46544,7 @@
       "priority": null,
       "related": [
         "backend-delivery:T-065-be",
+        "backend-integration:T-065-be",
         "project:frontend-agent-prompt",
         "project:backend-agent",
         "project:frontend-agent"
@@ -45969,6 +46590,7 @@
         "feature:error-contract",
         "frontend-requirements:pay-for-an-order",
         "backend-delivery:T-065-be",
+        "backend-integration:T-065-be",
         "frontend-requirements:T-065-fe",
         "project:frontend-agent-prompt",
         "project:frontend-agent"
@@ -46011,7 +46633,8 @@
       "pending": [],
       "priority": null,
       "related": [
-        "backend-delivery:T-065-be"
+        "backend-delivery:T-065-be",
+        "backend-integration:T-065-be"
       ],
       "scope": null,
       "screens": [],
@@ -49882,7 +50505,7 @@
       "rollup": {
         "approved": 8,
         "blocked": 179,
-        "current": 9,
+        "current": 10,
         "decided": 4,
         "done": 13,
         "draft": 103,
@@ -53043,7 +53666,8 @@
       "pending": [],
       "priority": "critical",
       "related": [
-        "backend-delivery:T-065-be"
+        "backend-delivery:T-065-be",
+        "backend-integration:T-065-be"
       ],
       "scope": "feature",
       "screens": [
@@ -65038,6 +65662,7 @@
       "priority": "critical",
       "related": [
         "frontend-requirements:pay-for-an-order",
+        "backend-integration:T-065-be",
         "frontend-requirements:T-065-fe"
       ],
       "rollup": {
@@ -65254,6 +65879,7 @@
       "rollup": {
         "approved": 2,
         "blocked": 1,
+        "current": 1,
         "done": 1,
         "partial": 1
       },
@@ -65280,7 +65906,8 @@
       "blockedBy": [],
       "card": "T-065-be",
       "children": [
-        "backend-delivery:T-065-be"
+        "backend-delivery:T-065-be",
+        "backend-integration:T-065-be"
       ],
       "code": "T-065-be",
       "deadline": null,
@@ -65315,9 +65942,11 @@
       "priority": "high",
       "related": [
         "backend-delivery:T-065-be",
-        "frontend-requirements:T-065-fe"
+        "frontend-requirements:T-065-fe",
+        "backend-integration:T-065-be"
       ],
       "rollup": {
+        "current": 1,
         "done": 1
       },
       "scope": null,
