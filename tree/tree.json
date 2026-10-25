@@ -99,6 +99,7 @@
     "D-10 How Connect addresses the scanned person": "decision:D-10",
     "D-11 Get or rotate the badge token": "decision:D-11",
     "D-12 What the badge QR encodes": "decision:D-12",
+    "D-13 Whether the requester sees a declined request": "decision:D-13",
     "DR-01 Code-only login": "decision-record:DR-01",
     "DR-07 Stripe for all four flows": "decision-record:DR-07",
     "Database & Migrations": "project:database-migrations",
@@ -564,6 +565,7 @@
     "D-10": "decision:D-10",
     "D-11": "decision:D-11",
     "D-12": "decision:D-12",
+    "D-13": "decision:D-13",
     "DR-01": "decision-record:DR-01",
     "DR-07": "decision-record:DR-07",
     "F-01": "feature:account",
@@ -1689,10 +1691,12 @@
     },
     "GET /connections/requests?direction=sent": {
       "containers": [
+        "decision:D-13",
         "task:T-021"
       ],
       "kind": "endpoint",
       "notes": [
+        "decision:D-13",
         "story:T-021"
       ],
       "owner": null
@@ -3953,6 +3957,7 @@
     "s44": {
       "containers": [
         "decision:D-10",
+        "decision:D-13",
         "feature:badge-qr",
         "feature:connections",
         "feature:view-as",
@@ -3973,6 +3978,7 @@
         "backend-delivery:view-as",
         "backend-integration:view-as",
         "decision:D-10",
+        "decision:D-13",
         "feature:badge-qr",
         "feature:connections",
         "feature:view-as",
@@ -3999,6 +4005,7 @@
     },
     "s45": {
       "containers": [
+        "decision:D-13",
         "feature:connections",
         "task:T-021",
         "task:T-021-be",
@@ -4007,6 +4014,7 @@
       "kind": "screen",
       "notes": [
         "backend-delivery:connections",
+        "decision:D-13",
         "feature:connections",
         "frontend-requirements:connections",
         "story:T-021",
@@ -4771,11 +4779,11 @@
     }
   },
   "counts": {
-    "blocked": 182,
+    "blocked": 183,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
-      "decision": 10,
+      "decision": 11,
       "decision-record": 2,
       "feature": 39,
       "frontend-requirements": 39,
@@ -4786,17 +4794,17 @@
     },
     "byLayer": {
       "backend": 56,
-      "business": 334,
+      "business": 335,
       "frontend": 43,
       "shared": 10
     },
     "concepts": 181,
-    "decisions": 10,
-    "edges": 4487,
+    "decisions": 11,
+    "edges": 4498,
     "features": 39,
     "layerNotes": 190,
     "modules": 8,
-    "notes": 478,
+    "notes": 479,
     "partial": 0,
     "placeholders": 145,
     "records": 2,
@@ -5539,6 +5547,16 @@
       "from": "decision:D-12",
       "kind": "blocks",
       "to": "task:T-010"
+    },
+    {
+      "from": "decision:D-13",
+      "kind": "blocks",
+      "to": "story:T-021"
+    },
+    {
+      "from": "decision:D-13",
+      "kind": "blocks",
+      "to": "story:T-022"
     },
     {
       "from": "frontend-delivery:account",
@@ -7096,6 +7114,21 @@
       "to": "task:T-010"
     },
     {
+      "from": "decision:D-13",
+      "kind": "decision",
+      "to": "feature:connections"
+    },
+    {
+      "from": "decision:D-13",
+      "kind": "decision",
+      "to": "story:T-021"
+    },
+    {
+      "from": "decision:D-13",
+      "kind": "decision",
+      "to": "story:T-022"
+    },
+    {
       "from": "project:admin-agent",
       "kind": "depends",
       "to": "project:agent-protocol"
@@ -8579,6 +8612,11 @@
       "from": "decision:D-12",
       "kind": "related",
       "to": "feature:badge-qr"
+    },
+    {
+      "from": "decision:D-13",
+      "kind": "related",
+      "to": "feature:connections"
     },
     {
       "from": "feature:account",
@@ -11039,6 +11077,14 @@
       "to": "task:T-007",
       "via": [
         "POST /rings/:ringId/qr"
+      ]
+    },
+    {
+      "from": "decision:D-13",
+      "kind": "shares",
+      "to": "task:T-021",
+      "via": [
+        "GET /connections/requests?direction=sent"
       ]
     },
     {
@@ -20880,6 +20926,16 @@
       "to": "decision:D-10"
     },
     {
+      "from": "story:T-021",
+      "kind": "tree",
+      "to": "decision:D-13"
+    },
+    {
+      "from": "story:T-022",
+      "kind": "tree",
+      "to": "decision:D-13"
+    },
+    {
       "from": "story:widgets",
       "kind": "tree",
       "to": "task:T-017"
@@ -22953,6 +23009,16 @@
       "from": "decision:D-12",
       "kind": "wikilink",
       "to": "task:T-049"
+    },
+    {
+      "from": "decision:D-13",
+      "kind": "wikilink",
+      "to": "task:T-021"
+    },
+    {
+      "from": "decision:D-13",
+      "kind": "wikilink",
+      "to": "task:T-022"
     },
     {
       "from": "feature:audit-log",
@@ -31117,6 +31183,10 @@
       "name": "D-12 What the badge QR encodes",
       "type": "decision"
     },
+    "decisions/D-13 Whether the requester sees a declined request.md": {
+      "name": "D-13 Whether the requester sees a declined request",
+      "type": "decision"
+    },
     "decisions/DR-01 Code-only login.md": {
       "name": "DR-01 Code-only login",
       "type": "decision-record"
@@ -37504,6 +37574,59 @@
       "title": "D-12 What the badge QR encodes",
       "updated": "2026-10-25"
     },
+    "decision:D-13": {
+      "affects": [],
+      "blockedBy": [],
+      "blocks": [
+        "story:T-021",
+        "story:T-022"
+      ],
+      "card": "D-13",
+      "children": [],
+      "code": "D-13",
+      "deadline": null,
+      "decider": "owner",
+      "depends": [],
+      "effectiveStatus": "draft",
+      "effort": null,
+      "feature": null,
+      "features": [
+        "connections"
+      ],
+      "frontendOnly": false,
+      "id": "decision:D-13",
+      "inherits": {},
+      "kind": "decision",
+      "label": "Needs decision",
+      "labels": [],
+      "layer": "business",
+      "module": null,
+      "parentTask": null,
+      "parents": [
+        "story:T-021",
+        "story:T-022"
+      ],
+      "path": "decisions/D-13 Whether the requester sees a declined request.md",
+      "pending": [],
+      "priority": null,
+      "related": [
+        "feature:connections"
+      ],
+      "scope": null,
+      "screens": [
+        "s44",
+        "s45"
+      ],
+      "status": "draft",
+      "summary": "What the requester sees after the receiver declines: on their Sent list (s45) and on the Connect button of that person's card (s44). A request is pending, accepted, declined or cancelled; the…",
+      "tags": [
+        "decision",
+        "decision/draft"
+      ],
+      "task": null,
+      "title": "D-13 Whether the requester sees a declined request",
+      "updated": "2026-10-25"
+    },
     "feature:account": {
       "affects": [],
       "blockedBy": [],
@@ -38119,10 +38242,11 @@
         "feature:pincast",
         "feature:events-before",
         "feature:post-event",
-        "decision:D-10"
+        "decision:D-10",
+        "decision:D-13"
       ],
       "rollup": {
-        "blocked": 13,
+        "blocked": 14,
         "draft": 6,
         "missing": 4,
         "needs-decision": 1,
@@ -44258,7 +44382,7 @@
       "priority": null,
       "related": [],
       "rollup": {
-        "blocked": 13,
+        "blocked": 14,
         "draft": 6,
         "missing": 4,
         "needs-decision": 1,
@@ -49246,7 +49370,7 @@
       "priority": null,
       "related": [],
       "rollup": {
-        "blocked": 182,
+        "blocked": 183,
         "current": 9,
         "decided": 2,
         "done": 12,
@@ -50251,11 +50375,17 @@
           "id": "decision:D-10",
           "title": "D-10 How Connect addresses the scanned person",
           "why": "needs decision D-10 (draft)"
+        },
+        {
+          "id": "decision:D-13",
+          "title": "D-13 Whether the requester sees a declined request",
+          "why": "needs decision D-13 (draft)"
         }
       ],
       "card": "S-24",
       "children": [
-        "decision:D-10"
+        "decision:D-10",
+        "decision:D-13"
       ],
       "code": "T-021",
       "deadline": null,
@@ -50300,13 +50430,21 @@
     },
     "story:T-022": {
       "affects": [],
-      "blockedBy": [],
+      "blockedBy": [
+        {
+          "id": "decision:D-13",
+          "title": "D-13 Whether the requester sees a declined request",
+          "why": "needs decision D-13 (draft)"
+        }
+      ],
       "card": "S-25",
-      "children": [],
+      "children": [
+        "decision:D-13"
+      ],
       "code": "T-022",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "blocked",
       "effort": null,
       "feature": "connections",
       "frontendOnly": false,
@@ -57648,7 +57786,7 @@
       "related": [],
       "rollup": {
         "blocked": 2,
-        "draft": 1,
+        "draft": 2,
         "todo": 1
       },
       "scope": null,
@@ -57818,7 +57956,7 @@
       "priority": "critical",
       "related": [],
       "rollup": {
-        "blocked": 2,
+        "blocked": 3,
         "draft": 1
       },
       "scope": null,
