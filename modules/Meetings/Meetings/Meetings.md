@@ -3,16 +3,17 @@ type: feature
 id: meetings
 name: "Meetings"
 priority: critical
+release: mvp
 module: meetings
 screens: [s59, s61, s64, s66, s67]
 related: ["View As & Pin Views"]
-updated: 2026-10-19
-tags: [feature, module/meetings, priority/critical]
+updated: 2026-10-25
+tags: [feature, module/meetings, priority/critical, release/mvp]
 ---
 
 # Meetings
 
-**Backend:** TODO · **Priority:** Critical · **Module:** [[Meetings Module|Meetings]]
+**Backend:** TODO · **Priority:** Critical · **Release:** MVP · **Module:** [[Meetings Module|Meetings]]
 
 **Layers:** [[Meetings Story|Story]] · [[Meetings Frontend Requirements|Frontend Requirements]] · [[Meetings Backend Delivery|Backend Delivery]] · [[Meetings Backend Integration|Backend Integration]] · [[Meetings Frontend Delivery|Frontend Delivery]] · [[Meetings QA Backend|QA Backend]] · [[Meetings QA Frontend|QA Frontend]]
 

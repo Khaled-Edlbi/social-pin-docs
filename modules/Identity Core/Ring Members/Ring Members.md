@@ -3,17 +3,18 @@ type: feature
 id: ring-members
 name: "Ring Members"
 priority: critical
+release: mvp
 module: identity
 screens: [s15, s47]
 related: ["View As & Pin Views"]
 updated: 2026-10-25
 owner: "omar"
-tags: [feature, module/identity, priority/critical]
+tags: [feature, module/identity, priority/critical, release/mvp]
 ---
 
 # Ring Members
 
-**Backend:** Done · **Priority:** Critical · **Module:** [[Identity Core Module|Identity Core]]
+**Backend:** Done · **Priority:** Critical · **Release:** MVP · **Module:** [[Identity Core Module|Identity Core]]
 
 **Layers:** [[Ring Members Story|Story]] · [[Ring Members Frontend Requirements|Frontend Requirements]] · [[Ring Members Backend Delivery|Backend Delivery]] · [[Ring Members Backend Integration|Backend Integration]] · [[Ring Members Frontend Delivery|Frontend Delivery]] · [[Ring Members QA Backend|QA Backend]] · [[Ring Members QA Frontend|QA Frontend]]
 

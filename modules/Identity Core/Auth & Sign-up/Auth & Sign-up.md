@@ -3,15 +3,16 @@ type: feature
 id: auth
 name: "Auth & Sign-up"
 priority: critical
+release: mvp
 module: identity
 screens: [s01, s02, s06, s08, s68]
-updated: 2026-10-19
-tags: [feature, module/identity, priority/critical]
+updated: 2026-10-25
+tags: [feature, module/identity, priority/critical, release/mvp]
 ---
 
 # Auth & Sign-up
 
-**Backend:** Done · **Priority:** Critical · **Module:** [[Identity Core Module|Identity Core]]
+**Backend:** Done · **Priority:** Critical · **Release:** MVP · **Module:** [[Identity Core Module|Identity Core]]
 
 **Layers:** [[Auth & Sign-up Story|Story]] · [[Auth & Sign-up Frontend Requirements|Frontend Requirements]] · [[Auth & Sign-up Backend Delivery|Backend Delivery]] · [[Auth & Sign-up Backend Integration|Backend Integration]] · [[Auth & Sign-up Frontend Delivery|Frontend Delivery]] · [[Auth & Sign-up QA Backend|QA Backend]] · [[Auth & Sign-up QA Frontend|QA Frontend]]
 

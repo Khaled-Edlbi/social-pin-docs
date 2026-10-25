@@ -3,18 +3,19 @@ type: feature
 id: event-ring-auto
 name: "Event Ring Auto-creation"
 priority: critical
+release: mvp
 module: events
 screens: [s52]
 related: ["View As & Pin Views"]
 updated: 2026-10-25
-tags: [feature, module/events, priority/critical]
+tags: [feature, module/events, priority/critical, release/mvp]
 ---
 
 # Event Ring Auto-creation
 
 > ⚠ Affected by [[Payments & Orders Story]] (2026-10-25): when the registration carries a payment, the Ring on s52 is granted only after the payment is succeeded, never on pending or failed (S3, S4).
 
-**Backend:** Partial (needs more) · **Priority:** Critical · **Module:** [[Events Module|Events]]
+**Backend:** Partial (needs more) · **Priority:** Critical · **Release:** MVP · **Module:** [[Events Module|Events]]
 
 **Layers:** [[Event Ring Auto-creation Story|Story]] · [[Event Ring Auto-creation Frontend Requirements|Frontend Requirements]] · [[Event Ring Auto-creation Backend Delivery|Backend Delivery]] · [[Event Ring Auto-creation Backend Integration|Backend Integration]] · [[Event Ring Auto-creation Frontend Delivery|Frontend Delivery]] · [[Event Ring Auto-creation QA Backend|QA Backend]] · [[Event Ring Auto-creation QA Frontend|QA Frontend]]
 

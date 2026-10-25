@@ -3,16 +3,17 @@ type: feature
 id: profiles
 name: "Profiles & Pin Name"
 priority: critical
+release: mvp
 module: identity
 screens: [s06]
 updated: 2026-10-25
 owner: "omar"
-tags: [feature, module/identity, priority/critical]
+tags: [feature, module/identity, priority/critical, release/mvp]
 ---
 
 # Profiles & Pin Name
 
-**Backend:** Done · **Priority:** Critical · **Module:** [[Identity Core Module|Identity Core]]
+**Backend:** Done · **Priority:** Critical · **Release:** MVP · **Module:** [[Identity Core Module|Identity Core]]
 
 **Layers:** [[Profiles & Pin Name Story|Story]] · [[Profiles & Pin Name Frontend Requirements|Frontend Requirements]] · [[Profiles & Pin Name Backend Delivery|Backend Delivery]] · [[Profiles & Pin Name Backend Integration|Backend Integration]] · [[Profiles & Pin Name Frontend Delivery|Frontend Delivery]] · [[Profiles & Pin Name QA Backend|QA Backend]] · [[Profiles & Pin Name QA Frontend|QA Frontend]]
 

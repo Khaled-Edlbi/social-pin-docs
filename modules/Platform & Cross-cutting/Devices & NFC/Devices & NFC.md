@@ -3,15 +3,16 @@ type: feature
 id: devices
 name: "Devices & NFC"
 priority: high
+release: v1
 module: platform
 screens: [s75]
-updated: 2026-10-19
-tags: [feature, module/platform, priority/high]
+updated: 2026-10-25
+tags: [feature, module/platform, priority/high, release/v1]
 ---
 
 # Devices & NFC
 
-**Backend:** Partial (needs more) · **Priority:** High · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
+**Backend:** Partial (needs more) · **Priority:** High · **Release:** v1 · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
 
 **Layers:** [[Devices & NFC Story|Story]] · [[Devices & NFC Frontend Requirements|Frontend Requirements]] · [[Devices & NFC Backend Delivery|Backend Delivery]] · [[Devices & NFC Backend Integration|Backend Integration]] · [[Devices & NFC Frontend Delivery|Frontend Delivery]] · [[Devices & NFC QA Backend|QA Backend]] · [[Devices & NFC QA Frontend|QA Frontend]]
 
