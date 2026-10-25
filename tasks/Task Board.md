@@ -189,7 +189,6 @@ kanban-plugin: board
 - [ ] [[T-054 Cleanup jobs]] #high #cleanup-jobs
 - [ ] [[T-054-be Backend · Cleanup jobs]] #high #cleanup-jobs #backend
 - [ ] [[T-065 Open a Stripe checkout for an order]] #high #pay-for-an-order
-- [ ] [[T-065-fe Frontend · Open a Stripe checkout for an order]] #high #pay-for-an-order #frontend
 - [ ] [[T-031-be Backend · Import contacts]] #medium #discover-hub #backend
 
 
@@ -199,6 +198,7 @@ kanban-plugin: board
 
 ## 🟡 Partial (done, notes pending)
 
+- [ ] [[T-065-fe Frontend · Open a Stripe checkout for an order]] #high #pay-for-an-order #frontend — @qa: QA Frontend run on t065-fe-sim-2026-10-25 (T-065-fe QA Frontend not written yet)
 
 
 ## ✅ Done

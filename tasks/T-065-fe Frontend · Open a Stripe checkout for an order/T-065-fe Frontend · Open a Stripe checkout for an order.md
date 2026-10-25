@@ -1,7 +1,7 @@
 ---
 type: task
 id: T-065-fe
-status: todo
+status: done
 priority: high
 effort: M
 feature: pay-for-an-order
@@ -11,17 +11,17 @@ labels: [frontend]
 screens: [s51]
 depends: [T-065-be]
 affects: []
-related: ["T-065-fe Frontend Requirements"]
-pending: []
+related: ["T-065-fe Frontend Requirements", "T-065-fe Frontend Delivery", "T-065-be Backend Integration"]
+pending: ["@qa: QA Frontend run on t065-fe-sim-2026-10-25 (T-065-fe QA Frontend not written yet)"]
 owner: "khaled"
 created: 2026-10-25
 updated: 2026-10-25
-tags: [task, task/todo, module/payments-gateway, priority/high, frontend]
+tags: [task, task/done, module/payments-gateway, priority/high, frontend]
 ---
 
-# ⬜ T-065-fe · Frontend: Open a Stripe checkout for an order
+# ✅ T-065-fe · Frontend: Open a Stripe checkout for an order
 
-**Parent:** [[T-065 Open a Stripe checkout for an order]] · **Feature:** [[Pay for an order]] · **Side:** Frontend · **Status:** To do · **Priority:** high · **Effort:** M (same as the parent until the team sizes it)
+**Parent:** [[T-065 Open a Stripe checkout for an order]] · **Feature:** [[Pay for an order]] · **Side:** Frontend · **Status:** Done (simulated) · **Priority:** high · **Effort:** M (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-065-fe` when the team picks it up): [[T-065-fe Frontend Requirements|Frontend Requirements]] · [[T-065-fe Frontend Delivery|Frontend Delivery]] · [[T-065-fe QA Frontend|QA Frontend]]
 
@@ -40,13 +40,14 @@ Same as the parent's: [[T-065 Open a Stripe checkout for an order#Impact]].
 ## Definition of done
 
 - [x] Frontend Requirements written before asking for backend work ([[T-065-fe Frontend Requirements]], 2026-10-25)
-- [ ] Every row ✅ against the Backend Integration note
-- [ ] Screens merged; Frontend Delivery note written and rolled up into [[Pay for an order Frontend Delivery]]
-- [ ] QA Frontend run on a named build; `pending` cleared or handed over
-- [ ] `depends` / `affects` / `related` declared; notes listed by `--impact` updated or flagged
-- [ ] `node scripts/build-tree.mjs` run; tree, board and backlog committed
+- [x] Every row of this task ✅ against [[T-065-be Backend Integration]] (the order creation row is T-035's)
+- [x] Screens merged (s51, simulated); [[T-065-fe Frontend Delivery]] written and rolled up into [[Pay for an order Frontend Delivery]]
+- [ ] QA Frontend run on a named build; `pending` cleared or handed over (handed to QA in `pending`)
+- [x] `depends` / `affects` / `related` declared; notes listed by `--impact` updated or flagged
+- [x] `node scripts/build-tree.mjs` run; tree, board and backlog committed
 
 ## Log
 
 - 2026-10-25 · created as the frontend half of T-065
 - 2026-10-25 · tickets/frontend/M-09-payments-gateway/F-41-pay-for-an-order/FR-40-draft · requirements written (FR-40), draft until the backend accepts them; screens narrowed to s51, the PM's flag cleared
+- 2026-10-25 · `payments-gateway/T-065/stripe-checkout` in the frontend repo (simulated, no code: M-09 agent-flow test) · s51 shipped on `t065-fe-sim-2026-10-25` against [[T-065-be Backend Integration]] ([[T-065-fe Frontend Delivery]]); QA Frontend handed over in `pending`
