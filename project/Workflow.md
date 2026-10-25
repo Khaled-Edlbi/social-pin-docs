@@ -75,6 +75,24 @@ docs/<agent>/<M-NN>-<module-id>/<F-NN>-<feature-id>/<last>
 - a rule or any other vault change outside the cards: `rules(project): <what changed>`;
 - a reference note in `business/`: `reference(business): <note name> · <what changed>`.
 
+Per agent, branch and commit together (a decision record commits as `decision`, a task's half as `task`, a bug as `bug`):
+
+| Agent | Branch | Commit subject |
+|---|---|---|
+| owner | `docs/owner/M-09-payments-gateway/F-41-pay-for-an-order/create` | `feature(payments-gateway): F-41 Pay for an order · created, business side written` |
+| owner | `tickets/owner/M-07-commerce/F-27-payments/D-07-payment-provider` | `decision(commerce): D-07 Payment provider · raised from T-047` |
+| owner | `docs/owner/project/<what>` | `rules(project): <what changed>` |
+| pm | `tickets/pm/M-09-payments-gateway/F-41-pay-for-an-order/S-105-draft` | `story(payments-gateway): S-105 Pay for an order Story · draft written` |
+| pm | `tickets/pm/M-09-payments-gateway/F-41-pay-for-an-order/T-065-filed` | `task(payments-gateway): T-065 Open a Stripe checkout for an order · filed under F-41, both halves` |
+| pm | `docs/pm/M-09-payments-gateway/F-41-pay-for-an-order/DR-09-decided` | `decision(payments-gateway): DR-09 30-minute hold tied to the Stripe checkout · D-09 decided, option 2` |
+| frontend | `tickets/frontend/M-09-payments-gateway/F-41-pay-for-an-order/FR-41-draft` | `frontend-requirements(payments-gateway): FR-41 Pay for an order Frontend Requirements · draft written` |
+| frontend | `docs/frontend/M-09-payments-gateway/F-41-pay-for-an-order/FD-NN-shipped` | `frontend-delivery(payments-gateway): FD-NN Pay for an order Frontend Delivery · s51 shipped` |
+| backend | `tickets/backend/M-09-payments-gateway/F-41-pay-for-an-order/FR-41-accepted` | `frontend-requirements(payments-gateway): FR-41 Pay for an order Frontend Requirements · accepted by the backend` |
+| backend | `docs/backend/M-07-commerce/F-27-payments/BD-27-shipped` | `backend-delivery(commerce): BD-27 Payments & Orders Backend Delivery · checkout endpoint shipped` |
+| qa | `docs/qa/M-09-payments-gateway/F-41-pay-for-an-order/QB-NN-passing` | `qa-backend(payments-gateway): QB-NN Pay for an order QA Backend · passing on <build>` |
+| qa | `tickets/qa/M-09-payments-gateway/F-41-pay-for-an-order/T-065-bug-1-filed` | `bug(payments-gateway): T-065-bug-1 <title> · filed against T-065` |
+| admin | `docs/admin/project/<what>` | `rules(project): <what changed>` |
+
 The body: two or three lines on what changed and why, the other files touched, the trailers `Story: S-NN`, `Ticket: T-NNN`, `Decision: D-NN` when one is involved, then the attribution line. Rebuild before each commit and include the generated files, so every commit passes `--check` on its own. The bash guard reads the attribution line's angle brackets as a redirect: commit with `git commit -F <file outside the vault>`, or with a `git commit -F -` heredoc whose command starts with `git` and contains no `&&` or `;`.
 
 ## 3 · The layers, in flow order
