@@ -11,8 +11,9 @@ labels: [frontend]
 screens: [s51, s52]
 depends: [T-066-be]
 affects: []
-related: []
+related: ["T-066-fe Frontend Requirements"]
 pending: []
+owner: "khaled"
 created: 2026-10-25
 updated: 2026-10-25
 tags: [task, task/todo, module/payments-gateway, priority/high, frontend]
@@ -38,7 +39,8 @@ Same as the parent's: [[T-066 Settle an order and confirm it on s52#Impact]].
 
 ## Definition of done
 
-- [ ] Frontend Requirements written before asking for backend work; every row ✅ against the Backend Integration note
+- [x] Frontend Requirements written before asking for backend work ([[T-066-fe Frontend Requirements]], 2026-10-25)
+- [ ] Every row ✅ against the Backend Integration note
 - [ ] Screens merged; Frontend Delivery note written and rolled up into [[Pay for an order Frontend Delivery]]
 - [ ] QA Frontend run on a named build; `pending` cleared or handed over
 - [ ] `depends` / `affects` / `related` declared; notes listed by `--impact` updated or flagged
@@ -47,3 +49,4 @@ Same as the parent's: [[T-066 Settle an order and confirm it on s52#Impact]].
 ## Log
 
 - 2026-10-25 · created as the frontend half of T-066
+- 2026-10-25 · `tickets/frontend/M-09-payments-gateway/F-41-pay-for-an-order/FR-42-draft` · requirements written (FR-42), draft until the backend accepts them
