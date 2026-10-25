@@ -428,7 +428,8 @@ const DARK = {
 };
 // status → colours (labels come from tree.json's legend)
 const ST = {
-  done: GREEN, approved: GREEN, verified: GREEN, delivered: GREEN, current: GREEN, passing: GREEN, decided: GREEN,
+  done: GREEN, approved: GREEN, verified: GREEN, delivered: GREEN, passing: GREEN, decided: GREEN,
+  current: { c: 'var(--color-accent)', bg: 'var(--color-accent-100)', ink: 'var(--color-accent-800)' }, // a Backend Integration note in use, not done: done is Delivered
   partial: OCHRE,
   'in-progress': { c: 'var(--color-accent)', bg: 'var(--color-accent-100)', ink: 'var(--color-accent-800)' },
   draft: { c: 'var(--color-accent-500)', bg: 'var(--color-accent-100)', ink: 'var(--color-accent-800)' },
@@ -470,7 +471,7 @@ const EDGE = {
 };
 const EDGE_KINDS = Object.keys(EDGE);
 const PRESETS = [
-  { id: 'build', name: 'Buildable today', hint: 'Backend Integration · Current', kinds: ['backend-integration'], statuses: ['current'] },
+  { id: 'build', name: 'Buildable today', hint: 'Backend Integration · Current or Delivered', kinds: ['backend-integration'], statuses: ['current', 'delivered'] },
   { id: 'product', name: 'Waiting on product', hint: 'Needs decision', kinds: [], statuses: ['needs-decision'] },
   { id: 'flight', name: 'In flight', hint: 'In progress', kinds: [], statuses: ['in-progress'] },
   { id: 'blocked', name: 'Blocked', hint: 'Waiting on the card before it', kinds: [], statuses: ['blocked'] },
@@ -606,8 +607,6 @@ function computeTotals() {
 function statusText(n) {
   const l = legend(n.effectiveStatus);
   if (n.effectiveStatus === 'partial' && Array.isArray(n.pending) && n.pending.length) return `Partial · ${n.pending.length} note${n.pending.length === 1 ? '' : 's'}`;
-  if (n.autoDelivered) return `${l} · backend done`; // a requirements list delivered by the build once its backend cards are done
-  if (n.integrationVerified) return `${l} · verified`; // a Backend Integration note the frontend shipped against and QA Backend passed
   const b = Array.isArray(n.blockedBy) ? n.blockedBy : [];
   if (b.length && (n.effectiveStatus === 'blocked' || n.effectiveStatus === 'missing')) { const t = node(b[0].id); return `${n.effectiveStatus === 'blocked' ? 'Blocked' : l} · ${(t.kind === 'task' || t.kind === 'decision') && t.code ? t.code : (kindOf(t.kind).name)}${b.length > 1 ? ` +${b.length - 1}` : ''}`; }
   return l;

@@ -36244,7 +36244,7 @@
   "emoji": {
     "approved": "👍",
     "blocked": "⛔",
-    "current": "✅",
+    "current": "🔵",
     "decided": "⚖️",
     "delivered": "✅",
     "done": "✅",
@@ -38444,7 +38444,7 @@
           "template": "templates/Backend Delivery Template.md"
         },
         {
-          "description": "How the client calls what was shipped: screens to calls, flows, shapes, errors, rules.",
+          "description": "How the client calls what was shipped: screens to calls, flows, shapes, errors, rules. `current` hands it off (the frontend and QA use it); it is done, Delivered, only when the build computes it: QA Backend passing and the Frontend Delivery done in its scope, nothing pending.",
           "done": [
             "current"
           ],
@@ -40819,6 +40819,7 @@
       "affects": [
         "task:T-065-fe"
       ],
+      "autoDelivered": true,
       "blockedBy": [],
       "card": "BI-10",
       "children": [],
@@ -40827,7 +40828,7 @@
       "depends": [
         "backend-delivery:T-065-be"
       ],
-      "effectiveStatus": "current",
+      "effectiveStatus": "delivered",
       "effort": null,
       "feature": "pay-for-an-order",
       "frontendOnly": false,
@@ -40835,7 +40836,6 @@
       "inherits": {
         "priority": "task:T-065-be"
       },
-      "integrationVerified": true,
       "kind": "backend-integration",
       "label": "Backend Integration",
       "labels": [],
@@ -40917,13 +40917,14 @@
       "affects": [
         "task:T-066-fe"
       ],
+      "autoDelivered": true,
       "blockedBy": [],
       "card": "BI-12",
       "children": [],
       "code": "T-066-be",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "current",
+      "effectiveStatus": "delivered",
       "effort": null,
       "feature": "pay-for-an-order",
       "frontendOnly": false,
@@ -40931,7 +40932,6 @@
       "inherits": {
         "priority": "task:T-066-be"
       },
-      "integrationVerified": true,
       "kind": "backend-integration",
       "label": "Backend Integration",
       "labels": [],
@@ -42111,13 +42111,14 @@
     },
     "backend-integration:pay-for-an-order": {
       "affects": [],
+      "autoDelivered": true,
       "blockedBy": [],
       "card": "BI-11",
       "children": [],
       "code": "pay-for-an-order",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "current",
+      "effectiveStatus": "delivered",
       "effort": null,
       "feature": "pay-for-an-order",
       "frontendOnly": false,
@@ -42125,7 +42126,6 @@
       "inherits": {
         "priority": "feature:pay-for-an-order"
       },
-      "integrationVerified": true,
       "kind": "backend-integration",
       "label": "Backend Integration",
       "labels": [],
@@ -45436,9 +45436,8 @@
       ],
       "rollup": {
         "approved": 4,
-        "current": 3,
         "decided": 2,
-        "delivered": 3,
+        "delivered": 6,
         "done": 9,
         "partial": 1,
         "passing": 6,
@@ -51390,9 +51389,8 @@
       ],
       "rollup": {
         "approved": 4,
-        "current": 3,
         "decided": 2,
-        "delivered": 3,
+        "delivered": 6,
         "done": 9,
         "in-progress": 1,
         "partial": 1,
@@ -56705,9 +56703,9 @@
       "rollup": {
         "approved": 6,
         "blocked": 178,
-        "current": 12,
+        "current": 9,
         "decided": 4,
-        "delivered": 3,
+        "delivered": 6,
         "done": 21,
         "draft": 103,
         "in-progress": 16,
@@ -72167,8 +72165,7 @@
         "task:T-066"
       ],
       "rollup": {
-        "current": 1,
-        "delivered": 1,
+        "delivered": 2,
         "done": 4,
         "passing": 2,
         "verified": 1
@@ -72242,7 +72239,7 @@
         "frontend-requirements:T-066-fe"
       ],
       "rollup": {
-        "current": 1,
+        "delivered": 1,
         "done": 1,
         "passing": 1
       },
@@ -72373,8 +72370,7 @@
       ],
       "rollup": {
         "approved": 1,
-        "current": 1,
-        "delivered": 1,
+        "delivered": 2,
         "done": 3,
         "partial": 1,
         "passing": 2
@@ -72448,7 +72444,7 @@
         "frontend-delivery:T-066-fe"
       ],
       "rollup": {
-        "current": 1,
+        "delivered": 1,
         "done": 1,
         "passing": 1
       },
