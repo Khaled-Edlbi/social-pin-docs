@@ -4,24 +4,24 @@ code: T-004
 scope: task
 feature: counts
 module: identity
-status: draft
+status: approved
 screens: [s14, s16]
 depends: []
 affects: []
 related: ["DR-04 Ring settings at launch and their defaults"]
 pending: []
-approvedBy: ""
-approvedAt: ""
+approvedBy: "khaled"
+approvedAt: 2026-10-25
 owner: "omar"
 created: 2026-10-18
 updated: 2026-10-25
-tags: [story, story/draft, module/identity, layer/business]
+tags: [story, story/approved, module/identity, layer/business]
 task: T-004
 ---
 
 # T-004 · Member count per Ring on list and detail · User Story
 
-**Task:** [[T-004 Member count per Ring on list and detail]] · **Feature:** [[Counts]] · **Feature-level note:** [[Counts Story]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[T-004 Frontend Requirements]] · **Backend Integration:** [[T-004 Backend Integration]] · **Verified by:** [[T-004 QA Backend]], [[T-004 QA Frontend]]
+**Task:** [[T-004 Member count per Ring on list and detail]] · **Feature:** [[Counts]] · **Feature-level note:** [[Counts Story]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[T-004 Frontend Requirements]] · **Backend Integration:** [[T-004 Backend Integration]] · **Verified by:** [[T-004 QA Backend]], [[T-004 QA Frontend]]
 
 > Derived from the task [[T-004 Member count per Ring on list and detail]]; **not approved by product yet**. The feature-level story is [[Counts Story]]; this note says what the user gets from this task in particular. `approved` when product signs off (`approvedBy`, `approvedAt`); `verified` when both QA notes are `passing`.
 

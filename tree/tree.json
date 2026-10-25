@@ -41716,8 +41716,9 @@
       ],
       "release": "v1",
       "rollup": {
+        "approved": 1,
         "blocked": 6,
-        "draft": 3,
+        "draft": 2,
         "missing": 4,
         "todo": 2
       },
@@ -48266,12 +48267,12 @@
       "related": [],
       "release": null,
       "rollup": {
-        "approved": 1,
+        "approved": 2,
         "blocked": 33,
         "current": 9,
         "decided": 6,
         "done": 15,
-        "draft": 22,
+        "draft": 21,
         "in-progress": 12,
         "missing": 43,
         "needs-decision": 2,
@@ -53330,12 +53331,12 @@
         }
       ],
       "rollup": {
-        "approved": 3,
+        "approved": 4,
         "blocked": 178,
         "current": 9,
         "decided": 12,
         "done": 17,
-        "draft": 98,
+        "draft": 97,
         "in-progress": 24,
         "missing": 145,
         "needs-decision": 9,
@@ -53506,7 +53507,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "counts",
       "frontendOnly": false,
@@ -53536,11 +53537,11 @@
         "s14",
         "s16"
       ],
-      "status": "draft",
+      "status": "approved",
       "summary": "Add memberCount (live members only) to RingEntity via a count select filtered by the same window logic, or a stats sub-endpoint. Owner-only.",
       "tags": [
         "story",
-        "story/draft",
+        "story/approved",
         "module/identity",
         "layer/business"
       ],
@@ -58791,8 +58792,8 @@
       "related": [],
       "release": "v1",
       "rollup": {
+        "approved": 1,
         "blocked": 1,
-        "draft": 1,
         "todo": 1
       },
       "scope": null,
