@@ -1,7 +1,7 @@
 ---
 type: project
 layer: shared
-updated: 2026-10-21
+updated: 2026-10-25
 depends: ["Agent Protocol"]
 affects: []
 related: ["Agent Protocol", "Agent Rules", "Workflow", "Frontend Contract", "Frontend API Guide", "Frontend Agent Prompt"]
@@ -48,7 +48,7 @@ You read the story, the Backend Integration note (how to call what exists), the 
 
 ### 4A · Requirements, before any backend work
 
-`node scripts/build-tree.mjs --scaffold frontend-requirements T-NNN-fe`; per screen, what the client needs; the endpoints table with ✅ (exists, from the Backend Integration note) or ❌ with the backend task that brings it; the error codes you will branch on (`ErrorCode`, never `message`: [[Frontend Contract]]); `related:` the screens, endpoints and error codes; `depends:` the backend half. `status: draft`; the backend sets `approved` when it accepts the list, and the backend half is blocked until then.
+`node scripts/build-tree.mjs --scaffold frontend-requirements T-NNN-fe`; per screen, what the client needs; the endpoints table with ✅ (exists, from the Backend Integration note) or ❌ with the backend task that brings it; the error codes you will branch on (`ErrorCode`, never `message`: [[Frontend Contract]]); `related:` the screens, endpoints and error codes, and the backend half; `affects:` the backend half. Never `depends:` the backend half: the build reads `depends` as a blocker, and the backend half itself waits on these requirements being `approved`, so the two would block each other. `status: draft`; the backend sets `approved` when it accepts the list, and the backend half is blocked until then.
 
 ### 4B · Delivery, after shipping
 
@@ -64,7 +64,7 @@ DoD boxes, `## Log` line (date · branch · screens shipped · what was flagged)
 
 ## 5 · Finish
 
-[[Agent Protocol#5 · Finish]]. Report the screens by id, the notes by card code, and what QA can check now.
+[[Agent Protocol#5 · Finish]], on the card's vault branch, one card per branch ([[Workflow#2 · Branch from the ticket]]): requirements are a ticket, `tickets/frontend/<M-NN>-<module-id>/<F-NN>-<feature-id>/<FR-NN>-<what-you-do>`; a delivery note is the archive, `docs/frontend/…/<FD-NN>-<what-you-do>`; the frontend half `T-NNN-fe` rides on the branch of the requirements or delivery note it moves with. `node scripts/build-tree.mjs --branch frontend <card> <what>` prints it: `--branch frontend FR-41 draft` → `tickets/frontend/M-09-payments-gateway/F-41-pay-for-an-order/FR-41-draft`. The client code goes on `<module>/<T-NNN>/<what-you-do>` in the frontend repository. Report the screens by id, the notes by card code, and what QA can check now.
 
 ## 6 · What you never do
 

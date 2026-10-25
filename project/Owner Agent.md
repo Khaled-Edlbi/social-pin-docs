@@ -1,7 +1,7 @@
 ---
 type: project
 layer: shared
-updated: 2026-10-22
+updated: 2026-10-25
 depends: ["Agent Protocol"]
 affects: []
 related: ["Agent Protocol", "Agent Rules", "Workflow", "Docs Tree", "PM Agent", "Admin Agent"]
@@ -94,7 +94,7 @@ The feature card is the business note of the feature and its main node; you writ
 
 ## 5 · Finish
 
-[[Agent Protocol#5 · Finish]], on the **card's own branch**: you write no code, so your branch lives in the vault only and is named after the card the change is about, as deep as it sits, `docs/owner/<M-NN>-<module-id>/<F-NN>-<feature-id>/<last>`, with `docs/owner/project/<last>` for the rules, the config, the templates, the scripts, the agents and a decision on any of them, and `docs/owner/business/<last>` for the reference notes ([[Workflow#2 · Branch from the ticket]], which also holds the commit shapes). `node scripts/build-tree.mjs --branch owner <card> [<what-you-do>]` prints the name: `--branch owner M-09 business-side`, `--branch owner F-41 create`, `--branch owner D-07`, `--branch owner S-70 approved`, `--branch owner "Agent Rules" flag-window`. One card per branch: a module note, a feature card, a decision, a sign-off, a priority each get their own, merged in order. A rule change is reported as "rule, where it lived, where it lives now, who it affects".
+[[Agent Protocol#5 · Finish]], on the **card's own branch**: you write no code, so your branch lives in the vault only and is named after the card the change is about, as deep as it sits, `<tickets|docs>/owner/<M-NN>-<module-id>/<F-NN>-<feature-id>/<last>`: `tickets/` for a decision card, a story sign-off or a task's priority, `docs/` for a module note, a feature card, a decision record, `docs/owner/project/<last>` for the rules, the config, the templates, the scripts and the agents (`tickets/owner/project/…` for a decision card on one of them), and `docs/owner/business/<last>` for the reference notes ([[Workflow#2 · Branch from the ticket]], which also holds the commit shapes). `node scripts/build-tree.mjs --branch owner <card> [<what-you-do>]` prints the name: `--branch owner M-09 business-side` → `docs/…`, `--branch owner F-41 create` → `docs/…`, `--branch owner D-07` → `tickets/…`, `--branch owner S-70 approved` → `tickets/…`, `--branch owner "Agent Rules" flag-window` → `docs/owner/project/flag-window`. One card per branch: a module note, a feature card, a decision, a sign-off, a priority each get their own, merged in order. A rule change is reported as "rule, where it lived, where it lives now, who it affects".
 
 ## 6 · What you never do
 

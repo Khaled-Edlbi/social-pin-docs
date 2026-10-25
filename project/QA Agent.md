@@ -1,7 +1,7 @@
 ---
 type: project
 layer: shared
-updated: 2026-10-21
+updated: 2026-10-25
 depends: ["Agent Protocol"]
 affects: []
 related: ["Agent Protocol", "Agent Rules", "Workflow"]
@@ -67,7 +67,7 @@ When both QA notes of the scope are `passing` (only QA Frontend for a `frontendO
 
 ## 5 · Finish
 
-[[Agent Protocol#5 · Finish]]. Report the verdict per note by card code, the bugs filed, and which stories are verified or waiting.
+[[Agent Protocol#5 · Finish]], on the card's vault branch, one card per branch ([[Workflow#2 · Branch from the ticket]]): a QA Backend or QA Frontend note is the archive, `docs/qa/<M-NN>-<module-id>/<F-NN>-<feature-id>/<QB-NN | QF-NN>-<verdict>`; a bug is a ticket, `tickets/qa/…/<T-NNN-bug-N>-filed`. `node scripts/build-tree.mjs --branch qa <card> <what>` prints it. Report the verdict per note by card code, the bugs filed, and which stories are verified or waiting.
 
 ## 6 · What you never do
 

@@ -1,7 +1,7 @@
 ---
 type: project
 layer: shared
-updated: 2026-10-22
+updated: 2026-10-25
 affects: ["Workflow", "Docs Tree"]
 related: ["Frontend Agent Prompt", "Agent Protocol", "Owner Agent", "PM Agent", "Backend Agent", "Frontend Agent", "QA Agent", "Admin Agent"]
 tags: [project, layer/shared, rules]
@@ -77,7 +77,7 @@ A target is a note name (`"Ring Access Engine"`), a task or decision id (`T-022`
 
 ## 6 · After a task — the checklist, by layer
 
-**Everyone**: `--impact` before and after; relations declared; flags placed; your `pending` entries cleared or handed over (a Partial card is not done); no card started while the card before it in the flow is not handed off, unless its `blockedBy` says otherwise; every touched note gets today's `updated:`; `node scripts/build-tree.mjs` run and `tree/`, `tasks/Task Board.md`, `tasks/Backlog.md` committed with the notes (they are generated; `--check` fails on drift). The branch in every repo is `<module>/<ticket-no>/<what-you-do>`; pull requests link each other and the ticket. The business layer's vault-only branches are `docs/<agent>/…`, named after the card ([[Workflow#2 · Branch from the ticket]]).
+**Everyone**: `--impact` before and after; relations declared; flags placed; your `pending` entries cleared or handed over (a Partial card is not done); no card started while the card before it in the flow is not handed off, unless its `blockedBy` says otherwise; every touched note gets today's `updated:`; `node scripts/build-tree.mjs` run and `tree/`, `tasks/Task Board.md`, `tasks/Backlog.md` committed with the notes (they are generated; `--check` fails on drift). The branch in every code repository is `<module>/<ticket-no>/<what-you-do>`; pull requests link each other and the ticket. In the vault every agent's branch is named after the card, `tickets/<agent>/…` for the cards that ask for or plan work (task, story, Frontend Requirements, decision) and `docs/<agent>/…` for the archive of what is (delivery, integration and QA notes, decision records, module and feature cards, the rules), as `node scripts/build-tree.mjs --branch` prints it ([[Workflow#2 · Branch from the ticket]]).
 
 **Business**: task note `status`, DoD boxes, `## Log` line; a decision card (`--scaffold decision`) for every card that needs one, with what has to be decided and who decides, and, when taken, its decision record (`--scaffold record D-NN`, with `affects` listing what it changes) and the decision's `decided` sign-off; the feature note's *Tasks* table; the module note when a feature is added.
 

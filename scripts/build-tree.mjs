@@ -1198,10 +1198,10 @@ function printFind(json, query) {
   if (r.concepts.length) { console.log('Concepts:'); for (const { name, c } of r.concepts) console.log(`  ${name} (${c.kind}${c.owner ? `, owned by ${json.nodes[c.owner]?.title}` : ''}) · mentioned by ${c.notes.length} notes`); }
 }
 
-// ---------------------------------------------------------------- branch: the business layer's vault-only branch for a card (Workflow §2)
-export function branchName(json, agent, query, what) {
+// ---------------------------------------------------------------- branch: every agent's vault branch for a card, tickets/ or docs/ by the card's kind (Workflow §2)
+export function branchName(json, agent, query, what, branches = {}) {
   const { nodes } = json;
-  if (!/^[a-z][a-z0-9-]*$/.test(agent || '')) return { error: `give the agent first: --branch <owner|pm> <card> [<what-you-do>]` };
+  if (!/^[a-z][a-z0-9-]*$/.test(agent || '')) return { error: `give the agent first: --branch <owner|pm|frontend|backend|qa|admin> <card> [<what-you-do>]` };
   const q = (query || '').trim();
   if (!q) return { error: 'give the card: a code (F-41, D-07, S-70, T-047, M-09), a feature id, or a note name' };
   let n = null;
@@ -1218,7 +1218,8 @@ export function branchName(json, agent, query, what) {
   let moduleId = n.kind === 'module' ? n.id.replace(/^module:/, '') : n.module || feature?.module || null;
   if (!moduleId && d.kind === 'decision') moduleId = (d.blocks || []).map((id) => nodes[id]?.module).find(Boolean) || null;
   const mod = moduleId ? nodes[`module:${moduleId}`] : null;
-  const parts = [`docs/${agent}`];
+  const tickets = Array.isArray(branches.tickets) ? branches.tickets : ['task', 'story', 'frontend-requirements', 'decision'];
+  const parts = [`${tickets.includes(n.kind) ? 'tickets' : branches.default || 'docs'}/${agent}`];
   if (mod) {
     parts.push(`${mod.card}-${moduleId}`);
     if (feature && n.kind !== 'module') parts.push(`${feature.card}-${feature.code}`);
@@ -1501,7 +1502,7 @@ if (has('--branch')) {
   if (result.errors.length) for (const e of result.errors) console.error(`error    ${e}`);
   if (!result.json) process.exit(1);
   const i = args.indexOf('--branch');
-  const r = branchName(result.json, args[i + 1], args[i + 2], args[i + 3]);
+  const r = branchName(result.json, args[i + 1], args[i + 2], args[i + 3], loadConfig([])?.branches || {});
   if (r.error) { console.error(r.error); process.exit(1); }
   console.log(r.branch);
   process.exit(0);

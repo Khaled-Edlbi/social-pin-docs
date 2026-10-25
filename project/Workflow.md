@@ -1,7 +1,7 @@
 ---
 type: project
 layer: shared
-updated: 2026-10-22
+updated: 2026-10-25
 related: ["Agent Rules", "Docs Tree"]
 tags: [project, layer/shared]
 ---
@@ -16,9 +16,9 @@ How a piece of work moves through the repositories and the layers. The rules beh
 |---|---|---|
 | `social-pin` (backend) | the NestJS API; `docs/README.md` points here | `<module>/<ticket-no>/<what-you-do>` |
 | the frontend repo | the client; its agent rules are in [[Frontend Agent Prompt]] | **the same name** |
-| `social-pin-docs` (this vault) | tickets, modules, features, every layer's notes, decisions, design index, project docs | **the same name** |
+| `social-pin-docs` (this vault) | tickets, modules, features, every layer's notes, decisions, design index, project docs | the card's branch, `tickets/<agent>/…` or `docs/<agent>/…` |
 
-Branches with one name pair the code and its documentation; pull requests link each other and the ticket. The one exception is the business layer, which writes no code: its branches live in the vault only and take the `docs/<agent>/…` shape in [[#2 · Branch from the ticket]].
+The code repositories share one name per ticket, so the backend and the client pull requests link each other and the ticket. The vault does not take that name: every agent's notes go on a branch named after the **card** they change, `tickets/…` for the cards that ask for or plan work and `docs/…` for the archive of what shipped ([[#Vault branches · every agent]]); the pull request links the code branch and the ticket.
 
 ## 1 · Ticket first (business)
 
@@ -30,17 +30,19 @@ Run `node scripts/build-tree.mjs --impact T-NNN` and paste what it lists into th
 
 ## 2 · Branch from the ticket
 
-`ring/T-004/member-count` in every repo touched: the module (a backend `src/modules/<feature>` folder name or a cross-cutting area such as `prisma`, `common`, `docs`, `ci`), the ticket id exactly as the note spells it, a short kebab-case summary. Never invent a ticket id. One ticket per branch. Commits are `<type>(<module>): <message>` with the ticket in the body. Set the ticket to `status: in-progress`.
+`ring/T-004/member-count` in every code repository touched (the backend and the client; the vault's branches are below): the module (a backend `src/modules/<feature>` folder name or a cross-cutting area such as `prisma`, `common`, `docs`, `ci`), the ticket id exactly as the note spells it, a short kebab-case summary. Never invent a ticket id. One ticket per branch. Commits are `<type>(<module>): <message>` with the ticket in the body. Set the ticket to `status: in-progress`.
 
-### Vault-only branches · the business layer
+### Vault branches · every agent
 
-The owner and the PM write no code, so their branches pair with no code branch and never take the `<module>/<T-NNN>/…` shape. They are named after the **card** the change is about, as deep as it sits and no deeper:
+Every agent's notes in the vault go on a branch named after the **card** the change is about, as deep as it sits and no deeper; the vault never takes the code repositories' `<module>/<T-NNN>/…` shape:
 
 ```
+tickets/<agent>/<M-NN>-<module-id>/<F-NN>-<feature-id>/<last>
 docs/<agent>/<M-NN>-<module-id>/<F-NN>-<feature-id>/<last>
 ```
 
-- `<agent>` is `owner` or `pm`; `admin` for a repair or a migration by [[Admin Agent]].
+- The prefix comes from the card's kind (`branches` in `docs.config.json`): **`tickets/`** for the cards that ask for or plan work, a task with its halves and bugs, a story, a Frontend Requirements note, a decision card; **`docs/`** for the archive of what is, a Backend Delivery, a Backend Integration, a Frontend Delivery, a QA Backend or QA Frontend note, a decision record, a module or feature card, and everything outside the modules (the rules, the reference notes).
+- `<agent>` is the agent that writes it: `owner`, `pm`, `frontend`, `backend`, `qa`; `admin` for a repair or a migration by [[Admin Agent]].
 - Then the card's path: `<M-NN>-<module-id>` when the card sits in a module, `/<F-NN>-<feature-id>` when it sits in a feature; the codes as [[Card Index]] lists them, the ids as `docs.config.json` spells them, never a backend folder.
 - `<last>` is a short kebab-case `<what-you-do>` when the branch's card **is** the module or the feature, and `<card code>-<what-you-do>` for a card under them: a decision, a story sign-off, a task's priority.
 - Outside a module: `docs/<agent>/project/<last>` for the rules, the config, the templates, the scripts, the agents, CI, [[Home]], the README, `CLAUDE.md`, and for a decision raised on any of them; `docs/<agent>/business/<last>` for the reference notes in `business/` ([[Project Overview]], [[Glossary]], [[Feature Tree]], the status reports).
@@ -52,18 +54,24 @@ docs/<agent>/<M-NN>-<module-id>/<F-NN>-<feature-id>/<last>
 |---|---|
 | the owner rewrites the module note M-09 | `docs/owner/M-09-payments-gateway/business-side` |
 | the owner creates the feature F-41 | `docs/owner/M-09-payments-gateway/F-41-pay-for-an-order/create` |
-| the owner raises and decides D-07 under T-047 (feature `payments`, module `commerce`) | `docs/owner/M-07-commerce/F-27-payments/D-07-payment-provider` |
-| the owner decides a vault rule on a decision card | `docs/owner/project/D-08-flag-window` |
-| the owner approves the story S-70 | `docs/owner/M-07-commerce/F-27-payments/S-70-approved` |
-| the owner sets T-047 to critical | `docs/owner/M-07-commerce/F-27-payments/T-047-priority-critical` |
+| the owner raises D-07 under T-047 (feature `payments`, module `commerce`) | `tickets/owner/M-07-commerce/F-27-payments/D-07-payment-provider` |
+| the PM records the answer on DR-09 | `docs/pm/M-09-payments-gateway/F-41-pay-for-an-order/DR-09-decided` |
+| the owner raises a vault rule's decision card | `tickets/owner/project/D-08-flag-window` |
+| the owner approves the story S-70 | `tickets/owner/M-07-commerce/F-27-payments/S-70-approved` |
+| the owner sets T-047 to critical | `tickets/owner/M-07-commerce/F-27-payments/T-047-priority-critical` |
 | the owner changes a rule | `docs/owner/project/owner-creates-features` |
 | the owner adds a Glossary entry | `docs/owner/business/glossary-payment-terms` |
-| the PM writes the feature story S-69 | `docs/pm/M-07-commerce/F-27-payments/S-69-draft` |
+| the PM writes the feature story S-69 | `tickets/pm/M-07-commerce/F-27-payments/S-69-draft` |
+| the PM files T-065 with its story and halves | `tickets/pm/M-09-payments-gateway/F-41-pay-for-an-order/T-065-filed` |
+| the frontend writes Pay for an order Frontend Requirements (FR-41) | `tickets/frontend/M-09-payments-gateway/F-41-pay-for-an-order/FR-41-draft` |
+| the frontend records Pay for an order Frontend Delivery | `docs/frontend/M-09-payments-gateway/F-41-pay-for-an-order/FD-NN-shipped` |
+| the backend records Payments & Orders Backend Delivery (BD-27) | `docs/backend/M-07-commerce/F-27-payments/BD-27-shipped` |
+| QA records a run on a QA Backend note | `docs/qa/M-NN-<module>/F-NN-<feature>/QB-NN-passing` |
 | the admin repairs a stale tree after a merge | `docs/admin/project/repair-tree` |
 
 **Commits on these branches**, one card per commit:
 
-- a card: `<kind>(<module-id>): <card code> <card name> · <what changed>`, the kind being the card's (`module`, `feature`, `story`, `task`, `bug`, `decision`), never `docs`: `decision(commerce): D-07 Payment provider · decided, Stripe for all four flows` · `story(commerce): S-70 T-047 Story · approved by khaled` · `feature(identity): F-40 Google Auth · T-071 added to the Tasks table`;
+- a card: `<kind>(<module-id>): <card code> <card name> · <what changed>`, the kind being the card's (`module`, `feature`, `story`, `task`, `bug`, `decision`, or a layer note's kind: `frontend-requirements`, `backend-delivery`, `backend-integration`, `frontend-delivery`, `qa-backend`, `qa-frontend`), never `docs`: `decision(commerce): D-07 Payment provider · decided, Stripe for all four flows` · `story(commerce): S-70 T-047 Story · approved by khaled` · `feature(identity): F-40 Google Auth · T-071 added to the Tasks table`;
 - a rule or any other vault change outside the cards: `rules(project): <what changed>`;
 - a reference note in `business/`: `reference(business): <note name> · <what changed>`.
 

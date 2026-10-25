@@ -1,7 +1,7 @@
 ---
 type: project
 layer: shared
-updated: 2026-10-22
+updated: 2026-10-25
 affects: []
 depends: ["Agent Protocol"]
 related: ["Agent Protocol", "Agent Rules", "Workflow", "Docs Tree", "Owner Agent"]
@@ -117,9 +117,9 @@ Four things move together on every status change: `status:`, the `<kind>/<status
 
 ## 6 · Finish
 
-[[Agent Protocol#5 · Finish]], on **your own branch**. The business layer never touches code, so its vault branch pairs with no code branch and does not take the `<module>/<T-NNN>/…` shape of the other layers. The shape, the examples and the commit messages are in [[Workflow#2 · Branch from the ticket]] (*Vault-only branches*); what is yours in it:
+[[Agent Protocol#5 · Finish]], on **your own branch**. The vault never takes the code repositories' `<module>/<T-NNN>/…` shape. The shape, the examples and the commit messages are in [[Workflow#2 · Branch from the ticket]] (*Vault branches*); what is yours in it:
 
-- **The branch is the story's:** `docs/pm/<M-NN>-<module-id>/<F-NN>-<feature-id>/<S-NN>-<what-you-do>`, printed by `node scripts/build-tree.mjs --branch pm <story> <what>`: `--branch pm S-69 draft` → `docs/pm/M-07-commerce/F-27-payments/S-69-draft`; a task-level story names the task's story card the same way (`--branch pm S-70 draft`).
+- **The branch is the card's:** a story, a task or a decision card is a ticket, `tickets/pm/<M-NN>-<module-id>/<F-NN>-<feature-id>/<card>-<what-you-do>`; a decision record, the module note or the feature card's *Tasks* and *Decisions* sections on their own are the archive, `docs/pm/…`. `node scripts/build-tree.mjs --branch pm <card> <what>` prints it: `--branch pm S-69 draft` → `tickets/pm/M-07-commerce/F-27-payments/S-69-draft`, `--branch pm DR-09 decided` → `docs/pm/M-09-payments-gateway/F-41-pay-for-an-order/DR-09-decided`; a task-level story names the task's story card the same way (`--branch pm S-70 draft`).
 - **Everything around that story rides on its branch:** for a feature story, the [[Screen Index]] rows and the card's *Tasks* and *Decisions* sections (the card itself came on the owner's branch); for a task story, the task note, its halves, a decision card raised from it, a bug sub-task filed against it, the task's status and `## Log`, the feature's *Tasks* row. A second story gets its own branch, even when the same request brought both.
 - **Codes come from the build:** a new task has no `T-NNN` story code until `node scripts/build-tree.mjs` has run once. Scaffold, fill, build, then `--branch`, then cut the branch; the working tree carries over.
 - **One commit per change, one card per commit**, in the card shape from Workflow §2: `story(identity): S-99 Google Auth Story · draft written` · `task(identity): T-071 Google callback · filed under F-40, both halves` · `bug(identity): T-071-bug-1 Callback loses the code · filed against T-071` · `decision(identity): D-08 Match by email · raised from S-99` · `decision(identity): DR-08 Match by email only · D-08 decided, option 1`. A change that touches a few files around one card names the main card and lists the other files in the body.
@@ -137,7 +137,7 @@ The list in [[Agent Rules#7 · What never happens]], plus:
 - put feature or task behaviour into a project reference note, or stack and migration detail into a feature note;
 - edit `design/Wireframe Brief.md`, a generated file, or a card code;
 - describe something as done that the tree shows as open;
-- put two stories on one branch, or a business change on a code-paired `<module>/<T-NNN>/…` branch ([[#6 · Finish]]);
+- put two stories on one branch, or a vault change on a code repository's `<module>/<T-NNN>/…` branch ([[#6 · Finish]]);
 - leave a card you created or edited without `owner:` ([[#4 · Playbooks]]).
 
 Related: [[Agent Protocol]] · [[Agent Rules]] · [[Workflow]] · [[Docs Tree]] · [[Owner Agent]] · [[Backend Agent]] · [[Frontend Agent]] · [[QA Agent]]

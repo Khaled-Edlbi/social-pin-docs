@@ -145,6 +145,11 @@
     ],
     "missed": { "id": "missed", "label": "Missed", "color": "#6b7280", "icon": "💀" }
   },
+  "branches": {
+    "description": "Vault branches, for every agent: <prefix>/<agent>/<M-NN>-<module-id>/<F-NN>-<feature-id>/<card>-<what-you-do>, printed by node scripts/build-tree.mjs --branch <agent> <card> [<what>]. The prefix is tickets for the cards that ask for or plan work (the kinds listed under tickets), docs for the archive of what is (every other card, the rules and the reference notes). Code repositories keep <module>/<T-NNN>/<what-you-do> (project/Workflow.md §2).",
+    "tickets": ["task", "story", "frontend-requirements", "decision"],
+    "default": "docs"
+  },
   "modules": [
     { "id": "identity", "name": "Identity Core", "description": "Account, profile, Rings, what each Ring shows, and the access engine." },
     { "id": "connections", "name": "Connections", "description": "Connect requests after a scan, accept into a Ring, blocks, contacts." },
