@@ -4,18 +4,20 @@ code: ring-members
 scope: feature
 feature: ring-members
 module: identity
-status: draft
+status: approved
 screens: [s15, s47]
+approvedBy: "khaled"
+approvedAt: 2026-10-25
 created: 2026-10-18
 updated: 2026-10-25
 owner: "omar"
 related: ["DR-04 Ring settings at launch and their defaults", "DR-14 Shared with me lists people, never the Ring", "DR-15 Several Rings per connection, remove or disconnect", "DR-18 Ring names shown when joined knowingly"]
-tags: [story, story/draft, module/identity, layer/business]
+tags: [story, story/approved, module/identity, layer/business]
 ---
 
 # Ring Members · User Story
 
-**Feature:** [[Ring Members]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Ring Members Frontend Requirements]] · **Backend Integration:** [[Ring Members Backend Integration]]
+**Feature:** [[Ring Members]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[Ring Members Frontend Requirements]] · **Backend Integration:** [[Ring Members Backend Integration]]
 
 A Ring owner manages who is in a Ring: sees the roster, adds someone, gives them a time-boxed window, moves them to another Ring when the relationship changes, or revokes them. Every change is live: the person's next request already reflects it. One person can be in several of the owner's Rings ([[DR-15 Several Rings per connection, remove or disconnect]]). The roster is the owner's private view: a member sees the other members only when the Ring's "members can see each other" is on ([[DR-04 Ring settings at launch and their defaults]]), and never learns which Ring they are in ([[DR-14 Shared with me lists people, never the Ring]]) unless they joined it themselves; every membership records how it was created ([[DR-18 Ring names shown when joined knowingly]]).
 
