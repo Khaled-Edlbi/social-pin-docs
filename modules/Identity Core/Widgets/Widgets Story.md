@@ -6,17 +6,17 @@ feature: widgets
 module: identity
 status: draft
 screens: [s36, s37]
-updated: 2026-10-18
+updated: 2026-10-25
+owner: "omar"
+related: ["DR-03 Links entered once, switched on or off per Ring"]
 tags: [story, story/draft, module/identity, layer/business]
 ---
 
 # Widgets · User Story
 
-> ⚠ Affected by [[DR-03 Links entered once, switched on or off per Ring]] (2026-10-25): D-03 decided, links are entered once and only switched on or off per Ring; booking, Behance, Dribbble, GitHub and YouTube join the types, detected from the pasted link.
-
 **Feature:** [[Widgets]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Widgets Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
-A Ring owner wants a Ring to do more than list facts: show availability for a meeting, a way to pay, what they are playing, a testimonial, a map, a gallery. Widgets are blocks on a Ring's projection, ordered and switchable per Ring, and rendered to viewers through the same perspective as everything else. The table exists; the endpoints and the design's full type list do not.
+A Ring owner wants a Ring to do more than list facts: show availability for a meeting, a way to pay, what they are playing, a testimonial, a map, a gallery. Widgets are blocks on a Ring's projection, ordered and switchable per Ring, and rendered to viewers through the same perspective as everything else. They are built on the library model D-03 chose for links ([[DR-03 Links entered once, switched on or off per Ring]]): a widget is set up once and each Ring switches it on or off. The table exists; the endpoints and the design's full type list do not.
 
 ## Persona
 
@@ -44,11 +44,12 @@ Acceptance criteria:
 
 ### S3 · Order and visibility on Ring data ([[Screen Index#s14|s14]])
 
-**As a** Ring owner **I want** to reorder and hide widgets like links **so that** the Ring reads the way I want.
+**As a** Ring owner **I want** to switch widgets on or off for this Ring, and reorder them, like links **so that** the Ring reads the way I want.
 
 Acceptance criteria:
 - [ ] Widgets render from `widgets[]` of `GET /rings/:ringId/projection` by `sortOrder`; hidden ones greyed.
-- [ ] Reorder and hide / show are disabled until CRUD exists; today the list is read-only.
+- [ ] Editing a widget's content changes it in every Ring that has it on; this Ring only switches it on or off ([[DR-03 Links entered once, switched on or off per Ring]]).
+- [ ] Reorder and on / off are disabled until CRUD exists; today the list is read-only.
 
 ### S4 · A viewer sees the widgets ([[Screen Index#s44|s44]], [[Screen Index#s31|s31]])
 
@@ -80,5 +81,6 @@ Acceptance criteria:
 
 ## Open questions
 
-- [[D-03 Field library vs per-Ring copies]] — widget CRUD waits so widgets are not built on the copy model twice; blocks S2 and S3.
+- Decided: [[DR-03 Links entered once, switched on or off per Ring]]; widgets are built on the library from the start ([[T-018 Widget CRUD on the projection]], which still waits on [[T-017 Extend WIDGET_TYPE to the design's list]]).
+- Whether the order of widgets is shared or per Ring, as for links (DR-03, *Still open*).
 - Per-type `config` schemas (what an Availability or Payment widget carries) are not defined; [[T-018 Widget CRUD on the projection]] must specify them before the picker can validate.
