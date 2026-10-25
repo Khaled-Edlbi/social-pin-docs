@@ -4819,7 +4819,7 @@
     }
   },
   "counts": {
-    "blocked": 162,
+    "blocked": 161,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -4840,7 +4840,7 @@
     },
     "concepts": 182,
     "decisions": 16,
-    "edges": 4829,
+    "edges": 4828,
     "features": 39,
     "layerNotes": 185,
     "modules": 8,
@@ -6182,11 +6182,6 @@
       "from": "story:rings",
       "kind": "blocks",
       "to": "frontend-requirements:rings"
-    },
-    {
-      "from": "story:subscription",
-      "kind": "blocks",
-      "to": "frontend-requirements:subscription"
     },
     {
       "from": "story:view-as",
@@ -43676,7 +43671,7 @@
       "deadline": null,
       "depends": [],
       "dir": "modules/Commerce/Subscription (Free vs Pro)",
-      "effectiveStatus": "todo",
+      "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "subscription",
       "frontendOnly": false,
@@ -43710,7 +43705,8 @@
       ],
       "release": "v1",
       "rollup": {
-        "blocked": 3,
+        "approved": 1,
+        "blocked": 2,
         "decided": 1,
         "draft": 2,
         "missing": 4,
@@ -47483,20 +47479,14 @@
     },
     "frontend-requirements:subscription": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "story:subscription",
-          "title": "Subscription (Free vs Pro) Story",
-          "why": "Subscription (Free vs Pro) Story is draft"
-        }
-      ],
+      "blockedBy": [],
       "card": "FR-28",
       "children": [],
       "code": "subscription",
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "subscription",
       "frontendOnly": false,
@@ -47850,7 +47840,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "todo",
+      "effectiveStatus": "in-progress",
       "effort": null,
       "feature": null,
       "frontendOnly": false,
@@ -47872,12 +47862,14 @@
       "related": [],
       "release": null,
       "rollup": {
-        "blocked": 5,
+        "approved": 1,
+        "blocked": 4,
         "decided": 1,
         "draft": 4,
+        "in-progress": 1,
         "missing": 8,
         "needs-decision": 1,
-        "todo": 5,
+        "todo": 4,
         "verified": 1
       },
       "scope": null,
@@ -53175,17 +53167,17 @@
         }
       ],
       "rollup": {
-        "approved": 23,
-        "blocked": 162,
+        "approved": 24,
+        "blocked": 161,
         "current": 9,
         "decided": 12,
         "done": 17,
         "draft": 94,
-        "in-progress": 39,
+        "in-progress": 41,
         "missing": 145,
         "needs-decision": 9,
         "reference": 31,
-        "todo": 58,
+        "todo": 56,
         "verified": 12
       },
       "scope": null,
@@ -58083,7 +58075,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "subscription",
       "frontendOnly": false,
@@ -58111,17 +58103,17 @@
         "s34",
         "s70"
       ],
-      "status": "draft",
+      "status": "approved",
       "summary": "A user meets a Pro lock somewhere in the app (a permanent QR on the badge, Smart Match, any-lounge access, Gemma automation) and lands on one subscription screen that explains the two plans and…",
       "tags": [
         "story",
-        "story/draft",
+        "story/approved",
         "module/commerce",
         "layer/business"
       ],
       "task": null,
       "title": "Subscription (Free vs Pro) Story",
-      "updated": "2026-10-18"
+      "updated": "2026-10-25"
     },
     "story:view-as": {
       "affects": [],
