@@ -486,6 +486,7 @@
     "T-065 Open a Stripe checkout for an order": "task:T-065",
     "T-065 Story": "story:T-065",
     "T-065-be Backend · Open a Stripe checkout for an order": "task:T-065-be",
+    "T-065-fe Frontend Requirements": "frontend-requirements:T-065-fe",
     "T-065-fe Frontend · Open a Stripe checkout for an order": "task:T-065-fe",
     "View As & Pin Views": "feature:view-as",
     "View As & Pin Views Backend Delivery": "backend-delivery:view-as",
@@ -654,6 +655,7 @@
     "FR-37": "frontend-requirements:interests",
     "FR-38": "frontend-requirements:linked-accounts",
     "FR-39": "frontend-requirements:notifications",
+    "FR-40": "frontend-requirements:T-065-fe",
     "M-01": "module:identity",
     "M-02": "module:connections",
     "M-03": "module:shared-rings",
@@ -1137,12 +1139,14 @@
         "feature:view-as",
         "project:frontend-api-guide",
         "project:frontend-contract",
-        "project:frontend-passwordless-migration"
+        "project:frontend-passwordless-migration",
+        "task:T-065-fe"
       ],
       "kind": "error",
       "notes": [
         "backend-delivery:auth",
         "backend-integration:auth",
+        "frontend-requirements:T-065-fe",
         "frontend-requirements:account",
         "frontend-requirements:app-shell",
         "frontend-requirements:auth",
@@ -4072,6 +4076,7 @@
         "feature:events-before",
         "feature:pay-for-an-order",
         "feature:payments",
+        "frontend-requirements:T-065-fe",
         "frontend-requirements:events-before",
         "frontend-requirements:payments",
         "story:T-035",
@@ -4100,8 +4105,7 @@
         "task:T-035",
         "task:T-035-be",
         "task:T-035-fe",
-        "task:T-065-be",
-        "task:T-065-fe"
+        "task:T-065-be"
       ],
       "kind": "screen",
       "notes": [
@@ -4122,8 +4126,7 @@
         "task:T-035",
         "task:T-035-be",
         "task:T-035-fe",
-        "task:T-065-be",
-        "task:T-065-fe"
+        "task:T-065-be"
       ],
       "owner": null
     },
@@ -4701,7 +4704,7 @@
       "decision": 9,
       "decision-record": 4,
       "feature": 40,
-      "frontend-requirements": 39,
+      "frontend-requirements": 40,
       "module": 9,
       "project": 27,
       "story": 105,
@@ -4710,20 +4713,20 @@
     "byLayer": {
       "backend": 56,
       "business": 341,
-      "frontend": 43,
+      "frontend": 44,
       "shared": 10
     },
     "concepts": 177,
     "decisions": 9,
-    "edges": 4413,
+    "edges": 4449,
     "features": 40,
-    "layerNotes": 192,
+    "layerNotes": 193,
     "modules": 9,
-    "notes": 486,
+    "notes": 487,
     "partial": 0,
     "placeholders": 151,
     "records": 4,
-    "taskLayerNotes": 65,
+    "taskLayerNotes": 66,
     "tasks": 178
   },
   "deadlines": {
@@ -4902,6 +4905,11 @@
       "from": "feature:pay-for-an-order",
       "kind": "affects",
       "to": "feature:payments"
+    },
+    {
+      "from": "frontend-requirements:T-065-fe",
+      "kind": "affects",
+      "to": "task:T-065-be"
     },
     {
       "from": "project:agent-protocol",
@@ -10084,6 +10092,54 @@
       "to": "project:spec-map"
     },
     {
+      "from": "frontend-requirements:pay-for-an-order",
+      "kind": "related",
+      "to": "frontend-requirements:T-065-fe",
+      "via": [
+        "sum-of"
+      ]
+    },
+    {
+      "from": "frontend-requirements:T-065-fe",
+      "kind": "related",
+      "to": "decision-record:DR-08"
+    },
+    {
+      "from": "frontend-requirements:T-065-fe",
+      "kind": "related",
+      "to": "decision-record:DR-09"
+    },
+    {
+      "from": "frontend-requirements:T-065-fe",
+      "kind": "related",
+      "to": "project:frontend-contract"
+    },
+    {
+      "from": "frontend-requirements:T-065-fe",
+      "kind": "related",
+      "to": "story:pay-for-an-order"
+    },
+    {
+      "from": "frontend-requirements:T-065-fe",
+      "kind": "related",
+      "to": "story:T-065"
+    },
+    {
+      "from": "frontend-requirements:T-065-fe",
+      "kind": "related",
+      "to": "task:T-035"
+    },
+    {
+      "from": "frontend-requirements:T-065-fe",
+      "kind": "related",
+      "to": "task:T-063"
+    },
+    {
+      "from": "frontend-requirements:T-065-fe",
+      "kind": "related",
+      "to": "task:T-065-be"
+    },
+    {
       "from": "project:admin-agent",
       "kind": "related",
       "to": "project:agent-protocol"
@@ -10949,6 +11005,11 @@
       "to": "task:T-047"
     },
     {
+      "from": "task:T-065-fe",
+      "kind": "related",
+      "to": "frontend-requirements:T-065-fe"
+    },
+    {
       "from": "decision:D-05",
       "kind": "shares",
       "to": "feature:companies",
@@ -11315,6 +11376,14 @@
       ]
     },
     {
+      "from": "feature:account",
+      "kind": "shares",
+      "to": "task:T-065-fe",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
       "from": "feature:app-shell",
       "kind": "shares",
       "to": "feature:auth",
@@ -11556,6 +11625,14 @@
       "to": "project:status-report-2026-10-15",
       "via": [
         "GET /rings"
+      ]
+    },
+    {
+      "from": "feature:app-shell",
+      "kind": "shares",
+      "to": "task:T-065-fe",
+      "via": [
+        "E_AUTH_04"
       ]
     },
     {
@@ -11973,6 +12050,14 @@
       ]
     },
     {
+      "from": "feature:auth",
+      "kind": "shares",
+      "to": "task:T-065-fe",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
       "from": "feature:badge-qr",
       "kind": "shares",
       "to": "feature:cleanup-jobs",
@@ -12336,6 +12421,14 @@
       "to": "task:T-008",
       "via": [
         "GET /views/ring/:ringId"
+      ]
+    },
+    {
+      "from": "feature:badge-qr",
+      "kind": "shares",
+      "to": "task:T-065-fe",
+      "via": [
+        "E_AUTH_04"
       ]
     },
     {
@@ -13012,6 +13105,14 @@
       ]
     },
     {
+      "from": "feature:companies",
+      "kind": "shares",
+      "to": "task:T-065-fe",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
       "from": "feature:connections",
       "kind": "shares",
       "to": "feature:counts",
@@ -13400,6 +13501,14 @@
       "to": "task:T-008",
       "via": [
         "GET /views/ring/:ringId"
+      ]
+    },
+    {
+      "from": "feature:connections",
+      "kind": "shares",
+      "to": "task:T-065-fe",
+      "via": [
+        "E_AUTH_04"
       ]
     },
     {
@@ -13917,6 +14026,14 @@
       ]
     },
     {
+      "from": "feature:delegated-admins",
+      "kind": "shares",
+      "to": "task:T-065-fe",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
       "from": "feature:devices",
       "kind": "shares",
       "to": "feature:discover-hub",
@@ -14057,6 +14174,14 @@
         "E_AUTH_04",
         "POST /auth/logout-everywhere",
         "POST /auth/refresh"
+      ]
+    },
+    {
+      "from": "feature:devices",
+      "kind": "shares",
+      "to": "task:T-065-fe",
+      "via": [
+        "E_AUTH_04"
       ]
     },
     {
@@ -14233,6 +14358,14 @@
       "via": [
         "GET /profiles/pin-name/:pinName/availability",
         "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "feature:discover-hub",
+      "kind": "shares",
+      "to": "task:T-065-fe",
+      "via": [
+        "E_AUTH_04"
       ]
     },
     {
@@ -14520,6 +14653,14 @@
         "E_AUTH_04",
         "E_AUTH_05",
         "E_USER_04"
+      ]
+    },
+    {
+      "from": "feature:error-contract",
+      "kind": "shares",
+      "to": "task:T-065-fe",
+      "via": [
+        "E_AUTH_04"
       ]
     },
     {
@@ -14888,6 +15029,14 @@
       "to": "project:status-report-2026-10-15",
       "via": [
         "GET /rings"
+      ]
+    },
+    {
+      "from": "feature:events-before",
+      "kind": "shares",
+      "to": "task:T-065-fe",
+      "via": [
+        "E_AUTH_04"
       ]
     },
     {
@@ -15470,6 +15619,14 @@
       ]
     },
     {
+      "from": "feature:interests",
+      "kind": "shares",
+      "to": "task:T-065-fe",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
       "from": "feature:linked-accounts",
       "kind": "shares",
       "to": "feature:notifications",
@@ -15599,6 +15756,14 @@
       "to": "task:T-019",
       "via": [
         "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "feature:linked-accounts",
+      "kind": "shares",
+      "to": "task:T-065-fe",
+      "via": [
+        "E_AUTH_04"
       ]
     },
     {
@@ -15871,6 +16036,14 @@
       ]
     },
     {
+      "from": "feature:notifications",
+      "kind": "shares",
+      "to": "task:T-065-fe",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
       "from": "feature:onboarding-imports",
       "kind": "shares",
       "to": "feature:photo-library",
@@ -16030,6 +16203,14 @@
       "from": "feature:payments",
       "kind": "shares",
       "to": "project:frontend-passwordless-migration",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "feature:payments",
+      "kind": "shares",
+      "to": "task:T-065-fe",
       "via": [
         "E_AUTH_04"
       ]
@@ -16329,6 +16510,14 @@
       ]
     },
     {
+      "from": "feature:pincast",
+      "kind": "shares",
+      "to": "task:T-065-fe",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
       "from": "feature:post-event",
       "kind": "shares",
       "to": "feature:ring-access",
@@ -16500,6 +16689,14 @@
       "to": "task:T-008",
       "via": [
         "GET /views/ring/:ringId"
+      ]
+    },
+    {
+      "from": "feature:post-event",
+      "kind": "shares",
+      "to": "task:T-065-fe",
+      "via": [
+        "E_AUTH_04"
       ]
     },
     {
@@ -16831,6 +17028,14 @@
       "to": "task:T-008",
       "via": [
         "GET /views/ring/:ringId"
+      ]
+    },
+    {
+      "from": "feature:ring-invitations",
+      "kind": "shares",
+      "to": "task:T-065-fe",
+      "via": [
+        "E_AUTH_04"
       ]
     },
     {
@@ -17205,6 +17410,14 @@
       ]
     },
     {
+      "from": "feature:subscription",
+      "kind": "shares",
+      "to": "task:T-065-fe",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
       "from": "feature:view-as",
       "kind": "shares",
       "to": "feature:widgets",
@@ -17278,6 +17491,14 @@
       "to": "task:T-008",
       "via": [
         "GET /views/ring/:ringId"
+      ]
+    },
+    {
+      "from": "feature:view-as",
+      "kind": "shares",
+      "to": "task:T-065-fe",
+      "via": [
+        "E_AUTH_04"
       ]
     },
     {
@@ -17532,6 +17753,14 @@
       ]
     },
     {
+      "from": "project:frontend-api-guide",
+      "kind": "shares",
+      "to": "task:T-065-fe",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
       "from": "project:frontend-contract",
       "kind": "shares",
       "to": "project:frontend-passwordless-migration",
@@ -17591,6 +17820,14 @@
       ]
     },
     {
+      "from": "project:frontend-contract",
+      "kind": "shares",
+      "to": "task:T-065-fe",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
       "from": "project:frontend-passwordless-migration",
       "kind": "shares",
       "to": "project:spec-map",
@@ -17615,6 +17852,14 @@
       "to": "task:T-019",
       "via": [
         "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "project:frontend-passwordless-migration",
+      "kind": "shares",
+      "to": "task:T-065-fe",
+      "via": [
+        "E_AUTH_04"
       ]
     },
     {
@@ -20814,6 +21059,11 @@
       "to": "task:T-065-fe"
     },
     {
+      "from": "task:T-065-fe",
+      "kind": "tree",
+      "to": "frontend-requirements:T-065-fe"
+    },
+    {
       "from": "backend-delivery:account",
       "kind": "wikilink",
       "to": "backend-integration:account"
@@ -24022,6 +24272,11 @@
       "from": "frontend-requirements:subscription",
       "kind": "wikilink",
       "to": "task:T-063"
+    },
+    {
+      "from": "frontend-requirements:T-065-fe",
+      "kind": "wikilink",
+      "to": "feature:pay-for-an-order"
     },
     {
       "from": "frontend-requirements:view-as",
@@ -31914,7 +32169,11 @@
       "name": "T-065-be Backend · Open a Stripe checkout for an order",
       "type": "task"
     },
-    "tasks/T-065 Open a Stripe checkout for an order/T-065-fe Frontend · Open a Stripe checkout for an order.md": {
+    "tasks/T-065-fe Frontend · Open a Stripe checkout for an order/T-065-fe Frontend Requirements.md": {
+      "name": "T-065-fe Frontend Requirements",
+      "type": "frontend-requirements"
+    },
+    "tasks/T-065-fe Frontend · Open a Stripe checkout for an order/T-065-fe Frontend · Open a Stripe checkout for an order.md": {
       "name": "T-065-fe Frontend · Open a Stripe checkout for an order",
       "type": "task"
     },
@@ -36164,7 +36423,8 @@
         "story:payments",
         "story:events-before",
         "story:pay-for-an-order",
-        "story:T-065"
+        "story:T-065",
+        "frontend-requirements:T-065-fe"
       ],
       "scope": null,
       "screens": [],
@@ -36219,7 +36479,8 @@
         "decision:D-09",
         "decision-record:DR-08",
         "story:pay-for-an-order",
-        "story:T-065"
+        "story:T-065",
+        "frontend-requirements:T-065-fe"
       ],
       "scope": null,
       "screens": [],
@@ -38639,6 +38900,7 @@
         "approved": 4,
         "blocked": 1,
         "decided": 2,
+        "draft": 1,
         "missing": 6,
         "todo": 2
       },
@@ -41294,6 +41556,63 @@
       "title": "Widgets Frontend Delivery",
       "updated": null
     },
+    "frontend-requirements:T-065-fe": {
+      "affects": [
+        "task:T-065-be"
+      ],
+      "blockedBy": [],
+      "card": "FR-40",
+      "children": [],
+      "code": "T-065-fe",
+      "deadline": null,
+      "depends": [],
+      "effectiveStatus": "draft",
+      "effort": null,
+      "feature": "pay-for-an-order",
+      "frontendOnly": false,
+      "id": "frontend-requirements:T-065-fe",
+      "inherits": {
+        "priority": "task:T-065-fe"
+      },
+      "kind": "frontend-requirements",
+      "label": "Frontend Requirements",
+      "labels": [],
+      "layer": "frontend",
+      "module": "payments-gateway",
+      "parentTask": null,
+      "parents": [
+        "task:T-065-fe"
+      ],
+      "path": "tasks/T-065-fe Frontend · Open a Stripe checkout for an order/T-065-fe Frontend Requirements.md",
+      "pending": [],
+      "priority": "high",
+      "related": [
+        "task:T-065-fe",
+        "task:T-065-be",
+        "story:T-065",
+        "story:pay-for-an-order",
+        "decision-record:DR-08",
+        "decision-record:DR-09",
+        "task:T-063",
+        "task:T-035",
+        "project:frontend-contract"
+      ],
+      "scope": "task",
+      "screens": [
+        "s51"
+      ],
+      "status": "draft",
+      "summary": "Written by the frontend team, read by the backend: what the client needs to build T-065 Story on s51, and whether each need is met today. Nothing is met today: no payment endpoint exists (Frontend…",
+      "tags": [
+        "frontend-requirements",
+        "frontend-requirements/draft",
+        "module/payments-gateway",
+        "layer/frontend"
+      ],
+      "task": "T-065-fe",
+      "title": "T-065-fe Frontend Requirements",
+      "updated": "2026-10-25"
+    },
     "frontend-requirements:account": {
       "affects": [],
       "blockedBy": [
@@ -43932,6 +44251,7 @@
         "approved": 4,
         "blocked": 1,
         "decided": 2,
+        "draft": 1,
         "in-progress": 1,
         "missing": 6,
         "todo": 2
@@ -44877,6 +45197,7 @@
       "priority": null,
       "related": [
         "feature:error-contract",
+        "frontend-requirements:T-065-fe",
         "project:frontend-agent-prompt",
         "project:frontend-agent"
       ],
@@ -48790,7 +49111,7 @@
         "current": 9,
         "decided": 4,
         "done": 12,
-        "draft": 103,
+        "draft": 104,
         "in-progress": 16,
         "missing": 151,
         "needs-decision": 20,
@@ -51759,7 +52080,8 @@
       "related": [
         "story:pay-for-an-order",
         "decision-record:DR-08",
-        "decision-record:DR-09"
+        "decision-record:DR-09",
+        "frontend-requirements:T-065-fe"
       ],
       "scope": "task",
       "screens": [
@@ -53115,7 +53437,8 @@
         "feature:audit-log",
         "decision-record:DR-08",
         "task:T-034",
-        "story:T-065"
+        "story:T-065",
+        "frontend-requirements:T-065-fe"
       ],
       "scope": "feature",
       "screens": [
@@ -59708,7 +60031,8 @@
       "related": [
         "feature:pay-for-an-order",
         "task:T-065",
-        "story:payments"
+        "story:payments",
+        "frontend-requirements:T-065-fe"
       ],
       "rollup": {
         "approved": 1,
@@ -63933,7 +64257,9 @@
       "path": "tasks/T-063 Put the ErrorCode on the error body/T-063 Put the ErrorCode on the error body.md",
       "pending": [],
       "priority": "critical",
-      "related": [],
+      "related": [
+        "frontend-requirements:T-065-fe"
+      ],
       "rollup": {
         "blocked": 1,
         "draft": 1,
@@ -64148,6 +64474,7 @@
       "rollup": {
         "approved": 1,
         "blocked": 1,
+        "draft": 1,
         "todo": 1
       },
       "scope": null,
@@ -64196,7 +64523,9 @@
       "path": "tasks/T-065 Open a Stripe checkout for an order/T-065-be Backend · Open a Stripe checkout for an order.md",
       "pending": [],
       "priority": "high",
-      "related": [],
+      "related": [
+        "frontend-requirements:T-065-fe"
+      ],
       "rollup": {},
       "scope": null,
       "screens": [
@@ -64226,14 +64555,16 @@
         }
       ],
       "card": "T-065-fe",
-      "children": [],
+      "children": [
+        "frontend-requirements:T-065-fe"
+      ],
       "code": "T-065-fe",
       "deadline": null,
       "decision": null,
       "depends": [
         "task:T-065-be"
       ],
-      "dir": null,
+      "dir": "tasks/T-065-fe Frontend · Open a Stripe checkout for an order",
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "pay-for-an-order",
@@ -64251,15 +64582,18 @@
       "parents": [
         "task:T-065"
       ],
-      "path": "tasks/T-065 Open a Stripe checkout for an order/T-065-fe Frontend · Open a Stripe checkout for an order.md",
+      "path": "tasks/T-065-fe Frontend · Open a Stripe checkout for an order/T-065-fe Frontend · Open a Stripe checkout for an order.md",
       "pending": [],
       "priority": "high",
-      "related": [],
-      "rollup": {},
+      "related": [
+        "frontend-requirements:T-065-fe"
+      ],
+      "rollup": {
+        "draft": 1
+      },
       "scope": null,
       "screens": [
-        "s51",
-        "s52"
+        "s51"
       ],
       "status": "todo",
       "summary": "The client side of T-065 Open a Stripe checkout for an order: the screens below show what its What describes, built against Pay for an order Backend Integration once the backend half (T-065-be…",
