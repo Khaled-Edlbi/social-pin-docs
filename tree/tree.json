@@ -2089,7 +2089,6 @@
         "story:T-004",
         "story:T-022",
         "story:companies",
-        "story:connections",
         "story:counts",
         "story:ring-invitations",
         "story:rings"
@@ -4825,7 +4824,7 @@
     },
     "concepts": 182,
     "decisions": 15,
-    "edges": 4780,
+    "edges": 4777,
     "features": 39,
     "layerNotes": 185,
     "modules": 8,
@@ -10512,6 +10511,11 @@
       ]
     },
     {
+      "from": "story:auth",
+      "kind": "related",
+      "to": "decision-record:DR-06"
+    },
+    {
       "from": "story:badge-qr",
       "kind": "related",
       "to": "story:T-007",
@@ -10578,10 +10582,45 @@
     {
       "from": "story:companies",
       "kind": "related",
+      "to": "decision-record:DR-04"
+    },
+    {
+      "from": "story:companies",
+      "kind": "related",
+      "to": "decision-record:DR-14"
+    },
+    {
+      "from": "story:companies",
+      "kind": "related",
       "to": "story:T-029",
       "via": [
         "sum-of"
       ]
+    },
+    {
+      "from": "story:connections",
+      "kind": "related",
+      "to": "decision-record:DR-04"
+    },
+    {
+      "from": "story:connections",
+      "kind": "related",
+      "to": "decision-record:DR-13"
+    },
+    {
+      "from": "story:connections",
+      "kind": "related",
+      "to": "decision-record:DR-14"
+    },
+    {
+      "from": "story:connections",
+      "kind": "related",
+      "to": "decision-record:DR-15"
+    },
+    {
+      "from": "story:connections",
+      "kind": "related",
+      "to": "decision-record:DR-17"
     },
     {
       "from": "story:connections",
@@ -10626,6 +10665,16 @@
     {
       "from": "story:counts",
       "kind": "related",
+      "to": "decision-record:DR-04"
+    },
+    {
+      "from": "story:counts",
+      "kind": "related",
+      "to": "decision-record:DR-14"
+    },
+    {
+      "from": "story:counts",
+      "kind": "related",
       "to": "story:T-004",
       "via": [
         "sum-of"
@@ -10638,6 +10687,11 @@
       "via": [
         "sum-of"
       ]
+    },
+    {
+      "from": "story:delegated-admins",
+      "kind": "related",
+      "to": "decision-record:DR-04"
     },
     {
       "from": "story:delegated-admins",
@@ -10804,6 +10858,11 @@
     {
       "from": "story:gemma",
       "kind": "related",
+      "to": "decision-record:DR-06"
+    },
+    {
+      "from": "story:gemma",
+      "kind": "related",
       "to": "story:T-051",
       "via": [
         "sum-of"
@@ -10884,6 +10943,11 @@
     {
       "from": "story:onboarding-imports",
       "kind": "related",
+      "to": "decision-record:DR-02"
+    },
+    {
+      "from": "story:onboarding-imports",
+      "kind": "related",
       "to": "story:T-020",
       "via": [
         "sum-of"
@@ -10958,6 +11022,16 @@
     {
       "from": "story:photo-library",
       "kind": "related",
+      "to": "decision-record:DR-02"
+    },
+    {
+      "from": "story:photo-library",
+      "kind": "related",
+      "to": "decision-record:DR-05"
+    },
+    {
+      "from": "story:photo-library",
+      "kind": "related",
       "to": "story:T-012",
       "via": [
         "sum-of"
@@ -10988,6 +11062,41 @@
       ]
     },
     {
+      "from": "story:profiles",
+      "kind": "related",
+      "to": "decision-record:DR-02"
+    },
+    {
+      "from": "story:profiles",
+      "kind": "related",
+      "to": "decision-record:DR-06"
+    },
+    {
+      "from": "story:ring-access",
+      "kind": "related",
+      "to": "decision-record:DR-04"
+    },
+    {
+      "from": "story:ring-access",
+      "kind": "related",
+      "to": "decision-record:DR-14"
+    },
+    {
+      "from": "story:ring-access",
+      "kind": "related",
+      "to": "decision-record:DR-15"
+    },
+    {
+      "from": "story:ring-invitations",
+      "kind": "related",
+      "to": "decision-record:DR-04"
+    },
+    {
+      "from": "story:ring-invitations",
+      "kind": "related",
+      "to": "decision-record:DR-14"
+    },
+    {
       "from": "story:ring-invitations",
       "kind": "related",
       "to": "story:T-026",
@@ -11012,12 +11121,62 @@
       ]
     },
     {
+      "from": "story:ring-members",
+      "kind": "related",
+      "to": "decision-record:DR-04"
+    },
+    {
+      "from": "story:ring-members",
+      "kind": "related",
+      "to": "decision-record:DR-14"
+    },
+    {
+      "from": "story:ring-members",
+      "kind": "related",
+      "to": "decision-record:DR-15"
+    },
+    {
+      "from": "story:ring-projection",
+      "kind": "related",
+      "to": "decision-record:DR-02"
+    },
+    {
+      "from": "story:ring-projection",
+      "kind": "related",
+      "to": "decision-record:DR-03"
+    },
+    {
+      "from": "story:ring-projection",
+      "kind": "related",
+      "to": "decision-record:DR-05"
+    },
+    {
+      "from": "story:rings",
+      "kind": "related",
+      "to": "decision-record:DR-04"
+    },
+    {
+      "from": "story:rings",
+      "kind": "related",
+      "to": "decision-record:DR-05"
+    },
+    {
+      "from": "story:rings",
+      "kind": "related",
+      "to": "decision-record:DR-14"
+    },
+    {
       "from": "story:subscription",
       "kind": "related",
       "to": "story:T-049",
       "via": [
         "sum-of"
       ]
+    },
+    {
+      "from": "story:T-004",
+      "kind": "related",
+      "to": "decision-record:DR-04"
     },
     {
       "from": "story:T-021",
@@ -11083,6 +11242,11 @@
       "from": "story:T-023",
       "kind": "related",
       "to": "feature:view-as"
+    },
+    {
+      "from": "story:widgets",
+      "kind": "related",
+      "to": "decision-record:DR-03"
     },
     {
       "from": "story:widgets",
@@ -28782,22 +28946,17 @@
     {
       "from": "story:auth",
       "kind": "wikilink",
-      "to": "decision-record:DR-06"
-    },
-    {
-      "from": "story:auth",
-      "kind": "wikilink",
       "to": "decision:D-01"
     },
     {
       "from": "story:auth",
       "kind": "wikilink",
-      "to": "decision:D-06"
+      "to": "feature:code-delivery"
     },
     {
       "from": "story:auth",
       "kind": "wikilink",
-      "to": "feature:code-delivery"
+      "to": "story:profiles"
     },
     {
       "from": "story:auth",
@@ -28857,16 +29016,6 @@
     {
       "from": "story:companies",
       "kind": "wikilink",
-      "to": "decision-record:DR-04"
-    },
-    {
-      "from": "story:companies",
-      "kind": "wikilink",
-      "to": "decision:D-04"
-    },
-    {
-      "from": "story:companies",
-      "kind": "wikilink",
       "to": "feature:delegated-admins"
     },
     {
@@ -28892,32 +29041,7 @@
     {
       "from": "story:connections",
       "kind": "wikilink",
-      "to": "decision-record:DR-04"
-    },
-    {
-      "from": "story:connections",
-      "kind": "wikilink",
-      "to": "decision-record:DR-13"
-    },
-    {
-      "from": "story:connections",
-      "kind": "wikilink",
-      "to": "decision-record:DR-14"
-    },
-    {
-      "from": "story:connections",
-      "kind": "wikilink",
-      "to": "decision-record:DR-15"
-    },
-    {
-      "from": "story:connections",
-      "kind": "wikilink",
-      "to": "decision-record:DR-17"
-    },
-    {
-      "from": "story:connections",
-      "kind": "wikilink",
-      "to": "decision:D-04"
+      "to": "decision:D-10"
     },
     {
       "from": "story:connections",
@@ -28930,16 +29054,6 @@
       "to": "task:T-051"
     },
     {
-      "from": "story:counts",
-      "kind": "wikilink",
-      "to": "decision-record:DR-04"
-    },
-    {
-      "from": "story:counts",
-      "kind": "wikilink",
-      "to": "decision:D-04"
-    },
-    {
       "from": "story:delegated-admins",
       "kind": "wikilink",
       "to": "backend-integration:rings"
@@ -28947,12 +29061,7 @@
     {
       "from": "story:delegated-admins",
       "kind": "wikilink",
-      "to": "decision-record:DR-04"
-    },
-    {
-      "from": "story:delegated-admins",
-      "kind": "wikilink",
-      "to": "decision:D-04"
+      "to": "feature:companies"
     },
     {
       "from": "story:delegated-admins",
@@ -29137,16 +29246,6 @@
     {
       "from": "story:gemma",
       "kind": "wikilink",
-      "to": "decision-record:DR-06"
-    },
-    {
-      "from": "story:gemma",
-      "kind": "wikilink",
-      "to": "decision:D-06"
-    },
-    {
-      "from": "story:gemma",
-      "kind": "wikilink",
       "to": "feature:audit-log"
     },
     {
@@ -29168,6 +29267,11 @@
       "from": "story:gemma",
       "kind": "wikilink",
       "to": "feature:ring-access"
+    },
+    {
+      "from": "story:gemma",
+      "kind": "wikilink",
+      "to": "story:profiles"
     },
     {
       "from": "story:interests",
@@ -29217,17 +29321,7 @@
     {
       "from": "story:onboarding-imports",
       "kind": "wikilink",
-      "to": "decision-record:DR-02"
-    },
-    {
-      "from": "story:onboarding-imports",
-      "kind": "wikilink",
       "to": "decision:D-01"
-    },
-    {
-      "from": "story:onboarding-imports",
-      "kind": "wikilink",
-      "to": "decision:D-02"
     },
     {
       "from": "story:onboarding-imports",
@@ -29268,26 +29362,6 @@
       "from": "story:payments",
       "kind": "wikilink",
       "to": "task:T-011"
-    },
-    {
-      "from": "story:photo-library",
-      "kind": "wikilink",
-      "to": "decision-record:DR-02"
-    },
-    {
-      "from": "story:photo-library",
-      "kind": "wikilink",
-      "to": "decision-record:DR-05"
-    },
-    {
-      "from": "story:photo-library",
-      "kind": "wikilink",
-      "to": "decision:D-02"
-    },
-    {
-      "from": "story:photo-library",
-      "kind": "wikilink",
-      "to": "decision:D-05"
     },
     {
       "from": "story:pincast",
@@ -29367,22 +29441,7 @@
     {
       "from": "story:profiles",
       "kind": "wikilink",
-      "to": "decision-record:DR-02"
-    },
-    {
-      "from": "story:profiles",
-      "kind": "wikilink",
-      "to": "decision-record:DR-06"
-    },
-    {
-      "from": "story:profiles",
-      "kind": "wikilink",
-      "to": "decision:D-02"
-    },
-    {
-      "from": "story:profiles",
-      "kind": "wikilink",
-      "to": "decision:D-06"
+      "to": "story:onboarding-imports"
     },
     {
       "from": "story:profiles",
@@ -29402,12 +29461,7 @@
     {
       "from": "story:ring-access",
       "kind": "wikilink",
-      "to": "decision-record:DR-04"
-    },
-    {
-      "from": "story:ring-access",
-      "kind": "wikilink",
-      "to": "decision:D-04"
+      "to": "story:ring-invitations"
     },
     {
       "from": "story:ring-access",
@@ -29427,12 +29481,12 @@
     {
       "from": "story:ring-invitations",
       "kind": "wikilink",
-      "to": "decision-record:DR-04"
+      "to": "feature:companies"
     },
     {
       "from": "story:ring-invitations",
       "kind": "wikilink",
-      "to": "decision:D-04"
+      "to": "story:rings"
     },
     {
       "from": "story:ring-invitations",
@@ -29447,22 +29501,12 @@
     {
       "from": "story:ring-members",
       "kind": "wikilink",
-      "to": "decision-record:DR-04"
+      "to": "story:rings"
     },
     {
       "from": "story:ring-members",
       "kind": "wikilink",
-      "to": "decision-record:DR-14"
-    },
-    {
-      "from": "story:ring-members",
-      "kind": "wikilink",
-      "to": "decision-record:DR-15"
-    },
-    {
-      "from": "story:ring-members",
-      "kind": "wikilink",
-      "to": "decision:D-04"
+      "to": "story:T-023"
     },
     {
       "from": "story:ring-members",
@@ -29473,36 +29517,6 @@
       "from": "story:ring-projection",
       "kind": "wikilink",
       "to": "backend-integration:ring-projection"
-    },
-    {
-      "from": "story:ring-projection",
-      "kind": "wikilink",
-      "to": "decision-record:DR-02"
-    },
-    {
-      "from": "story:ring-projection",
-      "kind": "wikilink",
-      "to": "decision-record:DR-03"
-    },
-    {
-      "from": "story:ring-projection",
-      "kind": "wikilink",
-      "to": "decision-record:DR-05"
-    },
-    {
-      "from": "story:ring-projection",
-      "kind": "wikilink",
-      "to": "decision:D-02"
-    },
-    {
-      "from": "story:ring-projection",
-      "kind": "wikilink",
-      "to": "decision:D-03"
-    },
-    {
-      "from": "story:ring-projection",
-      "kind": "wikilink",
-      "to": "decision:D-05"
     },
     {
       "from": "story:ring-projection",
@@ -29522,27 +29536,17 @@
     {
       "from": "story:rings",
       "kind": "wikilink",
-      "to": "decision-record:DR-04"
+      "to": "decision-record:DR-15"
     },
     {
       "from": "story:rings",
       "kind": "wikilink",
-      "to": "decision-record:DR-05"
+      "to": "feature:companies"
     },
     {
       "from": "story:rings",
       "kind": "wikilink",
-      "to": "decision-record:DR-14"
-    },
-    {
-      "from": "story:rings",
-      "kind": "wikilink",
-      "to": "decision:D-04"
-    },
-    {
-      "from": "story:rings",
-      "kind": "wikilink",
-      "to": "decision:D-05"
+      "to": "story:delegated-admins"
     },
     {
       "from": "story:rings",
@@ -29603,16 +29607,6 @@
       "from": "story:T-003",
       "kind": "wikilink",
       "to": "feature:code-delivery"
-    },
-    {
-      "from": "story:T-004",
-      "kind": "wikilink",
-      "to": "decision-record:DR-04"
-    },
-    {
-      "from": "story:T-004",
-      "kind": "wikilink",
-      "to": "decision:D-04"
     },
     {
       "from": "story:T-004",
@@ -30048,16 +30042,6 @@
       "from": "story:view-as",
       "kind": "wikilink",
       "to": "task:T-021"
-    },
-    {
-      "from": "story:widgets",
-      "kind": "wikilink",
-      "to": "decision-record:DR-03"
-    },
-    {
-      "from": "story:widgets",
-      "kind": "wikilink",
-      "to": "decision:D-03"
     },
     {
       "from": "story:widgets",
@@ -38716,7 +38700,11 @@
         "task:T-060",
         "decision:D-02",
         "decision-record:DR-05",
-        "decision-record:DR-03"
+        "decision-record:DR-03",
+        "story:onboarding-imports",
+        "story:photo-library",
+        "story:profiles",
+        "story:ring-projection"
       ],
       "scope": null,
       "screens": [],
@@ -38771,7 +38759,9 @@
       "related": [
         "task:T-058",
         "decision-record:DR-02",
-        "decision:D-03"
+        "decision:D-03",
+        "story:ring-projection",
+        "story:widgets"
       ],
       "scope": null,
       "screens": [],
@@ -38836,6 +38826,15 @@
         "decision:D-04",
         "project:ring-access-model",
         "decision-record:DR-05",
+        "story:connections",
+        "story:counts",
+        "story:ring-access",
+        "story:ring-members",
+        "story:rings",
+        "story:companies",
+        "story:delegated-admins",
+        "story:ring-invitations",
+        "story:T-004",
         "story:T-023"
       ],
       "scope": null,
@@ -38893,7 +38892,10 @@
         "task:T-060",
         "decision-record:DR-02",
         "decision:D-05",
-        "decision-record:DR-04"
+        "decision-record:DR-04",
+        "story:photo-library",
+        "story:ring-projection",
+        "story:rings"
       ],
       "scope": null,
       "screens": [],
@@ -38948,7 +38950,10 @@
       "related": [
         "task:T-061",
         "decision:D-06",
-        "feature:badge-qr"
+        "feature:badge-qr",
+        "story:auth",
+        "story:profiles",
+        "story:gemma"
       ],
       "scope": null,
       "screens": [],
@@ -39060,6 +39065,7 @@
         "decision:D-13",
         "decision:D-17",
         "decision-record:DR-17",
+        "story:connections",
         "story:T-021",
         "story:T-022"
       ],
@@ -39119,6 +39125,13 @@
         "decision:D-14",
         "feature:view-as",
         "decision-record:DR-15",
+        "story:connections",
+        "story:counts",
+        "story:ring-access",
+        "story:ring-members",
+        "story:rings",
+        "story:companies",
+        "story:ring-invitations",
         "story:T-022",
         "story:T-023"
       ],
@@ -39176,6 +39189,9 @@
         "decision-record:DR-14",
         "decision:D-15",
         "feature:view-as",
+        "story:connections",
+        "story:ring-access",
+        "story:ring-members",
         "story:T-023"
       ],
       "scope": null,
@@ -39231,6 +39247,7 @@
         "task:T-022",
         "decision:D-17",
         "decision-record:DR-13",
+        "story:connections",
         "story:T-021",
         "story:T-022"
       ],
@@ -52059,7 +52076,9 @@
       "path": "tasks/T-004 Member count per Ring on list and detail/T-004 Story.md",
       "pending": [],
       "priority": "high",
-      "related": [],
+      "related": [
+        "decision-record:DR-04"
+      ],
       "scope": "task",
       "screens": [
         "s14",
@@ -54800,7 +54819,9 @@
       "path": "modules/Identity Core/Auth & Sign-up/Auth & Sign-up Story.md",
       "pending": [],
       "priority": "critical",
-      "related": [],
+      "related": [
+        "decision-record:DR-06"
+      ],
       "scope": "feature",
       "screens": [
         "s01",
@@ -54819,7 +54840,7 @@
       ],
       "task": null,
       "title": "Auth & Sign-up Story",
-      "updated": "2026-10-18"
+      "updated": "2026-10-25"
     },
     "story:badge-qr": {
       "affects": [],
@@ -54998,7 +55019,10 @@
       "path": "modules/Shared Rings & Companies/Companies/Companies Story.md",
       "pending": [],
       "priority": "high",
-      "related": [],
+      "related": [
+        "decision-record:DR-04",
+        "decision-record:DR-14"
+      ],
       "scope": "feature",
       "screens": [
         "s72",
@@ -55014,7 +55038,7 @@
       ],
       "task": null,
       "title": "Companies Story",
-      "updated": "2026-10-18"
+      "updated": "2026-10-25"
     },
     "story:connections": {
       "affects": [],
@@ -55050,7 +55074,13 @@
       "path": "modules/Connections/Connections/Connections Story.md",
       "pending": [],
       "priority": "critical",
-      "related": [],
+      "related": [
+        "decision-record:DR-04",
+        "decision-record:DR-13",
+        "decision-record:DR-14",
+        "decision-record:DR-15",
+        "decision-record:DR-17"
+      ],
       "scope": "feature",
       "screens": [
         "s44",
@@ -55102,7 +55132,10 @@
       "path": "modules/Identity Core/Counts/Counts Story.md",
       "pending": [],
       "priority": "high",
-      "related": [],
+      "related": [
+        "decision-record:DR-04",
+        "decision-record:DR-14"
+      ],
       "scope": "feature",
       "screens": [
         "s11",
@@ -55154,7 +55187,9 @@
       "path": "modules/Shared Rings & Companies/Delegated Admins/Delegated Admins Story.md",
       "pending": [],
       "priority": "high",
-      "related": [],
+      "related": [
+        "decision-record:DR-04"
+      ],
       "scope": "feature",
       "screens": [
         "s26",
@@ -55170,7 +55205,7 @@
       ],
       "task": null,
       "title": "Delegated Admins Story",
-      "updated": "2026-10-18"
+      "updated": "2026-10-25"
     },
     "story:devices": {
       "affects": [],
@@ -55650,7 +55685,9 @@
       "path": "modules/Platform & Cross-cutting/Gemma AI/Gemma AI Story.md",
       "pending": [],
       "priority": "medium",
-      "related": [],
+      "related": [
+        "decision-record:DR-06"
+      ],
       "scope": "feature",
       "screens": [
         "s13",
@@ -55666,7 +55703,7 @@
       ],
       "task": null,
       "title": "Gemma AI Story",
-      "updated": "2026-10-18"
+      "updated": "2026-10-25"
     },
     "story:interests": {
       "affects": [],
@@ -55898,7 +55935,9 @@
       "path": "modules/Identity Core/Onboarding Imports/Onboarding Imports Story.md",
       "pending": [],
       "priority": "high",
-      "related": [],
+      "related": [
+        "decision-record:DR-02"
+      ],
       "scope": "feature",
       "screens": [
         "s03",
@@ -55917,7 +55956,7 @@
       ],
       "task": null,
       "title": "Onboarding Imports Story",
-      "updated": "2026-10-18"
+      "updated": "2026-10-25"
     },
     "story:payments": {
       "affects": [
@@ -56017,7 +56056,10 @@
       "path": "modules/Identity Core/Photo Library/Photo Library Story.md",
       "pending": [],
       "priority": "high",
-      "related": [],
+      "related": [
+        "decision-record:DR-02",
+        "decision-record:DR-05"
+      ],
       "scope": "feature",
       "screens": [
         "s29",
@@ -56033,7 +56075,7 @@
       ],
       "task": null,
       "title": "Photo Library Story",
-      "updated": "2026-10-18"
+      "updated": "2026-10-25"
     },
     "story:pincast": {
       "affects": [],
@@ -56164,7 +56206,10 @@
       "path": "modules/Identity Core/Profiles & Pin Name/Profiles & Pin Name Story.md",
       "pending": [],
       "priority": "critical",
-      "related": [],
+      "related": [
+        "decision-record:DR-02",
+        "decision-record:DR-06"
+      ],
       "scope": "feature",
       "screens": [
         "s06"
@@ -56179,7 +56224,7 @@
       ],
       "task": null,
       "title": "Profiles & Pin Name Story",
-      "updated": "2026-10-18"
+      "updated": "2026-10-25"
     },
     "story:ring-access": {
       "affects": [],
@@ -56209,7 +56254,11 @@
       "path": "modules/Identity Core/Ring Access Engine/Ring Access Engine Story.md",
       "pending": [],
       "priority": "critical",
-      "related": [],
+      "related": [
+        "decision-record:DR-04",
+        "decision-record:DR-14",
+        "decision-record:DR-15"
+      ],
       "scope": "feature",
       "screens": [],
       "status": "draft",
@@ -56222,7 +56271,7 @@
       ],
       "task": null,
       "title": "Ring Access Engine Story",
-      "updated": "2026-10-18"
+      "updated": "2026-10-25"
     },
     "story:ring-invitations": {
       "affects": [],
@@ -56256,7 +56305,10 @@
       "path": "modules/Shared Rings & Companies/Ring Invitations & Join/Ring Invitations & Join Story.md",
       "pending": [],
       "priority": "high",
-      "related": [],
+      "related": [
+        "decision-record:DR-04",
+        "decision-record:DR-14"
+      ],
       "scope": "feature",
       "screens": [
         "s17",
@@ -56272,7 +56324,7 @@
       ],
       "task": null,
       "title": "Ring Invitations & Join Story",
-      "updated": "2026-10-18"
+      "updated": "2026-10-25"
     },
     "story:ring-members": {
       "affects": [],
@@ -56302,7 +56354,11 @@
       "path": "modules/Identity Core/Ring Members/Ring Members Story.md",
       "pending": [],
       "priority": "critical",
-      "related": [],
+      "related": [
+        "decision-record:DR-04",
+        "decision-record:DR-14",
+        "decision-record:DR-15"
+      ],
       "scope": "feature",
       "screens": [
         "s15",
@@ -56318,7 +56374,7 @@
       ],
       "task": null,
       "title": "Ring Members Story",
-      "updated": "2026-10-18"
+      "updated": "2026-10-25"
     },
     "story:ring-projection": {
       "affects": [],
@@ -56351,7 +56407,11 @@
       "path": "modules/Identity Core/Ring Projection/Ring Projection Story.md",
       "pending": [],
       "priority": "critical",
-      "related": [],
+      "related": [
+        "decision-record:DR-02",
+        "decision-record:DR-03",
+        "decision-record:DR-05"
+      ],
       "scope": "feature",
       "screens": [
         "s14",
@@ -56372,7 +56432,7 @@
       ],
       "task": null,
       "title": "Ring Projection Story",
-      "updated": "2026-10-18"
+      "updated": "2026-10-25"
     },
     "story:rings": {
       "affects": [],
@@ -56404,7 +56464,11 @@
       "path": "modules/Identity Core/Rings/Rings Story.md",
       "pending": [],
       "priority": "critical",
-      "related": [],
+      "related": [
+        "decision-record:DR-04",
+        "decision-record:DR-05",
+        "decision-record:DR-14"
+      ],
       "scope": "feature",
       "screens": [
         "s08",
@@ -56429,7 +56493,7 @@
       ],
       "task": null,
       "title": "Rings Story",
-      "updated": "2026-10-18"
+      "updated": "2026-10-25"
     },
     "story:subscription": {
       "affects": [],
@@ -56557,7 +56621,9 @@
       "path": "modules/Identity Core/Widgets/Widgets Story.md",
       "pending": [],
       "priority": "high",
-      "related": [],
+      "related": [
+        "decision-record:DR-03"
+      ],
       "scope": "feature",
       "screens": [
         "s36",
@@ -56573,7 +56639,7 @@
       ],
       "task": null,
       "title": "Widgets Story",
-      "updated": "2026-10-18"
+      "updated": "2026-10-25"
     },
     "task:T-001": {
       "affects": [],
