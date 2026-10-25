@@ -43,7 +43,7 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 - **Six settings at launch**, each defaulting to the private choice: who it's for (empty), who can request to join (**only with a code or by invitation**), **approve each one**, members can see each other (**off**), members can invite others (**off**), members can save attachments (**off**). Required work email domain, "members can message me" and "see when I'm at an event" come later, with companies, messaging and events ([[DR-04 Ring settings at launch and their defaults]]).
 - The **owner and the Ring's admins** can change a Ring's settings.
 - When "members can see each other" is on, members see each other's **full cards**; while it is off, only the owner sees who is in the Ring.
-- **A member never learns which Ring they are in**: Shared with me lists the people who share with me, never a Ring's name, colour or type ([[DR-14 Shared with me lists people, never the Ring]]).
+- **A member never learns which Ring they are in**: Shared with me lists the people who share with me, never a Ring's name, colour or type ([[DR-14 Shared with me lists people, never the Ring]]). The one exception: a Ring the member **joined knowingly** (an accepted invitation, a code, a verified work email) shows its name; one the owner placed them in never does ([[DR-18 Ring names shown when joined knowingly]]).
 - **Copying a Ring** copies its fields, bio, photo, colour and settings, **never its members**; afterwards the two are independent ([[DR-05 Inherit per field, copy without members]]).
 - Not built yet: none of the settings exist on a Ring today, and `GET /rings/shared-with-me` still returns the Ring's name to members.
 
