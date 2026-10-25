@@ -4,7 +4,9 @@ code: pay-for-an-order
 scope: feature
 feature: pay-for-an-order
 module: payments-gateway
-status: draft
+status: approved
+approvedBy: "khaled"
+approvedAt: 2026-10-25
 screens: [s51, s52]
 depends: []
 affects: []
@@ -13,12 +15,12 @@ pending: []
 blockedBy: []
 owner: "khaled"
 updated: 2026-10-25
-tags: [frontend-requirements, frontend-requirements/draft, module/payments-gateway, layer/frontend]
+tags: [frontend-requirements, frontend-requirements/approved, module/payments-gateway, layer/frontend]
 ---
 
 # Pay for an order · Frontend Requirements
 
-**Feature:** [[Pay for an order]] · **Status:** Draft · **Story:** [[Pay for an order Story]] (approved) · **Backend Integration:** [[Pay for an order Backend Integration]] (not written yet)
+**Feature:** [[Pay for an order]] · **Status:** Approved 2026-10-25 · **Story:** [[Pay for an order Story]] (approved) · **Backend Integration:** [[Pay for an order Backend Integration]] (not written yet)
 
 Written by the **frontend** team, read by the backend: what the client needs to build [[Pay for an order Story]], and whether each need is met today. This note is the sum of the task-level requirements below; nothing is met today, no payment endpoint exists. `status: approved` once the backend accepts the list; `delivered` once every row is ✅.
 
@@ -80,4 +82,4 @@ Branch on status and endpoint until `ErrorCode` is on the wire ([[T-063 Put the 
 
 ## Sign-off
 
-- Approved by: — · on: —
+- Approved by: khaled (backend accepted the list) · on: 2026-10-25
