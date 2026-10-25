@@ -41640,9 +41640,10 @@
       ],
       "release": "mvp",
       "rollup": {
+        "approved": 1,
         "blocked": 13,
         "decided": 4,
-        "draft": 6,
+        "draft": 5,
         "missing": 4,
         "needs-decision": 1,
         "todo": 4,
@@ -48087,9 +48088,10 @@
       "related": [],
       "release": null,
       "rollup": {
+        "approved": 1,
         "blocked": 13,
         "decided": 4,
-        "draft": 6,
+        "draft": 5,
         "missing": 4,
         "needs-decision": 1,
         "todo": 5,
@@ -53331,12 +53333,12 @@
         }
       ],
       "rollup": {
-        "approved": 4,
+        "approved": 5,
         "blocked": 178,
         "current": 9,
         "decided": 12,
         "done": 17,
-        "draft": 97,
+        "draft": 96,
         "in-progress": 24,
         "missing": 145,
         "needs-decision": 9,
@@ -54471,7 +54473,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "connections",
       "frontendOnly": false,
@@ -54504,11 +54506,11 @@
       "screens": [
         "s46"
       ],
-      "status": "draft",
+      "status": "approved",
       "summary": "One @Transactional: create Connection, add RingMember, set grantedRingId. Never expose grantedRingId to the requester. Decline path too.",
       "tags": [
         "story",
-        "story/draft",
+        "story/approved",
         "module/connections",
         "layer/business"
       ],
@@ -62248,9 +62250,9 @@
       ],
       "release": "mvp",
       "rollup": {
+        "approved": 1,
         "blocked": 2,
         "decided": 2,
-        "draft": 1,
         "verified": 2
       },
       "scope": null,

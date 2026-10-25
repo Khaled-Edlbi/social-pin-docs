@@ -4,24 +4,24 @@ code: T-022
 scope: task
 feature: connections
 module: connections
-status: draft
+status: approved
 screens: [s46]
 depends: []
 affects: []
 related: ["Rings", "Ring Members", "DR-13 The requester sees a declined request", "DR-14 Shared with me lists people, never the Ring", "DR-17 Requests expire after 30 days, optional note, ask again at once"]
 pending: []
-approvedBy: ""
-approvedAt: ""
+approvedBy: "khaled"
+approvedAt: 2026-10-25
 owner: "omar"
 created: 2026-10-18
 updated: 2026-10-25
-tags: [story, story/draft, module/connections, layer/business]
+tags: [story, story/approved, module/connections, layer/business]
 task: T-022
 ---
 
 # T-022 · Accept into a Ring (sets grantedRingId) · User Story
 
-**Task:** [[T-022 Accept into a Ring (sets grantedRingId)]] · **Feature:** [[Connections]] · **Feature-level note:** [[Connections Story]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[T-022 Frontend Requirements]] · **Backend Integration:** [[T-022 Backend Integration]] · **Verified by:** [[T-022 QA Backend]], [[T-022 QA Frontend]]
+**Task:** [[T-022 Accept into a Ring (sets grantedRingId)]] · **Feature:** [[Connections]] · **Feature-level note:** [[Connections Story]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[T-022 Frontend Requirements]] · **Backend Integration:** [[T-022 Backend Integration]] · **Verified by:** [[T-022 QA Backend]], [[T-022 QA Frontend]]
 
 > Derived from the task [[T-022 Accept into a Ring (sets grantedRingId)]]; **not approved by product yet**. The feature-level story is [[Connections Story]]; this note says what the user gets from this task in particular. `approved` when product signs off (`approvedBy`, `approvedAt`); `verified` when both QA notes are `passing`.
 

@@ -192,7 +192,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
           - ⬜ [T-021-be Backend · Connect request send, inbox, cancel](tasks/T-021%20Connect%20request%20send%2C%20inbox%2C%20cancel/T-021-be%20Backend%20%C2%B7%20Connect%20request%20send%2C%20inbox%2C%20cancel.md) (sub-task of T-021, backend, Critical)
           - ⛔ [T-021-fe Frontend · Connect request send, inbox, cancel](tasks/T-021%20Connect%20request%20send%2C%20inbox%2C%20cancel/T-021-fe%20Frontend%20%C2%B7%20Connect%20request%20send%2C%20inbox%2C%20cancel.md) (sub-task of T-021, frontend, Critical, blocked by T-021-be Backend · Connect request send, inbox, cancel)
         - ⛔ [T-022 Accept into a Ring (sets grantedRingId)](tasks/T-022%20Accept%20into%20a%20Ring%20(sets%20grantedRingId)/T-022%20Accept%20into%20a%20Ring%20(sets%20grantedRingId).md) (Critical, blocked by T-021 Connect request send, inbox, cancel)
-          - ✏️ [T-022 Story](tasks/T-022%20Accept%20into%20a%20Ring%20(sets%20grantedRingId)/T-022%20Story.md) (S-25, User Story, Critical)
+          - 👍 [T-022 Story](tasks/T-022%20Accept%20into%20a%20Ring%20(sets%20grantedRingId)/T-022%20Story.md) (S-25, User Story, Critical)
             - ✅ [D-13 Whether the requester sees a declined request](decisions/D-13%20Whether%20the%20requester%20sees%20a%20declined%20request.md) (Needs decision)
               - (see above)
             - ✅ [D-14 Connection-granted Ring on Shared with me](decisions/D-14%20Connection-granted%20Ring%20on%20Shared%20with%20me.md) (Needs decision)
