@@ -4,16 +4,19 @@ code: cleanup-jobs
 scope: feature
 feature: cleanup-jobs
 module: platform
-status: draft
+status: approved
 screens: []
+approvedBy: "khaled"
+approvedAt: 2026-10-25
+owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-18
-tags: [story, story/draft, module/platform, layer/business]
+updated: 2026-10-25
+tags: [story, story/approved, module/platform, layer/business]
 ---
 
 # Cleanup Jobs · User Story
 
-**Feature:** [[Cleanup Jobs]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Cleanup Jobs Frontend Requirements]] · **API Integration:** not yet (backend not built)
+**Feature:** [[Cleanup Jobs]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[Cleanup Jobs Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 The operator needs the database to forget what the product promised to forget: a temporary Ring whose owner chose "delete", the list of who a PinCast reached, one-time codes that expired ten minutes ago, refresh tokens nobody can use. None of this changes what a viewer can see today, because access is decided live; it changes what is stored. There is no screen.
 

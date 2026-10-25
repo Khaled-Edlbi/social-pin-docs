@@ -4819,7 +4819,7 @@
     }
   },
   "counts": {
-    "blocked": 175,
+    "blocked": 174,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -4840,7 +4840,7 @@
     },
     "concepts": 182,
     "decisions": 16,
-    "edges": 4842,
+    "edges": 4841,
     "features": 39,
     "layerNotes": 185,
     "modules": 8,
@@ -6102,11 +6102,6 @@
       "from": "story:auth",
       "kind": "blocks",
       "to": "frontend-requirements:auth"
-    },
-    {
-      "from": "story:cleanup-jobs",
-      "kind": "blocks",
-      "to": "frontend-requirements:cleanup-jobs"
     },
     {
       "from": "story:code-delivery",
@@ -41370,7 +41365,7 @@
       "deadline": null,
       "depends": [],
       "dir": "modules/Platform & Cross-cutting/Cleanup Jobs",
-      "effectiveStatus": "todo",
+      "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "cleanup-jobs",
       "frontendOnly": false,
@@ -41400,7 +41395,8 @@
       ],
       "release": "v1",
       "rollup": {
-        "blocked": 2,
+        "approved": 1,
+        "blocked": 1,
         "draft": 2,
         "missing": 4,
         "todo": 2
@@ -45899,20 +45895,14 @@
     },
     "frontend-requirements:cleanup-jobs": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "story:cleanup-jobs",
-          "title": "Cleanup Jobs Story",
-          "why": "Cleanup Jobs Story is draft"
-        }
-      ],
+      "blockedBy": [],
       "card": "FR-31",
       "children": [],
       "code": "cleanup-jobs",
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "cleanup-jobs",
       "frontendOnly": false,
@@ -48356,15 +48346,15 @@
       "related": [],
       "release": null,
       "rollup": {
-        "approved": 4,
-        "blocked": 38,
+        "approved": 5,
+        "blocked": 37,
         "decided": 2,
         "done": 2,
         "draft": 25,
-        "in-progress": 5,
+        "in-progress": 6,
         "missing": 42,
         "needs-decision": 1,
-        "todo": 24,
+        "todo": 23,
         "verified": 2
       },
       "scope": null,
@@ -53301,17 +53291,17 @@
         }
       ],
       "rollup": {
-        "approved": 10,
-        "blocked": 175,
+        "approved": 11,
+        "blocked": 174,
         "current": 9,
         "decided": 12,
         "done": 17,
         "draft": 94,
-        "in-progress": 25,
+        "in-progress": 26,
         "missing": 145,
         "needs-decision": 9,
         "reference": 31,
-        "todo": 72,
+        "todo": 71,
         "verified": 12
       },
       "scope": null,
@@ -56509,7 +56499,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "cleanup-jobs",
       "frontendOnly": false,
@@ -56534,17 +56524,17 @@
       "release": "v1",
       "scope": "feature",
       "screens": [],
-      "status": "draft",
+      "status": "approved",
       "summary": "The operator needs the database to forget what the product promised to forget: a temporary Ring whose owner chose \"delete\", the list of who a PinCast reached, one-time codes that expired ten…",
       "tags": [
         "story",
-        "story/draft",
+        "story/approved",
         "module/platform",
         "layer/business"
       ],
       "task": null,
       "title": "Cleanup Jobs Story",
-      "updated": "2026-10-18"
+      "updated": "2026-10-25"
     },
     "story:code-delivery": {
       "affects": [],
