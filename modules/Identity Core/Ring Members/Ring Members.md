@@ -6,7 +6,7 @@ priority: critical
 module: identity
 screens: [s15, s47]
 related: ["View As & Pin Views"]
-updated: 2026-10-19
+updated: 2026-10-25
 tags: [feature, module/identity, priority/critical]
 ---
 
@@ -28,6 +28,14 @@ The owner's roster of a Ring: list, add, edit the access window, move someone to
 Wireframe brief sections: [[Wireframe Brief#Ring management|§4.2 Ring management]], [[Wireframe Brief#Connection screens|§5.1 Connection screens]], [[Wireframe Brief#Connection motion & states|§5.2 Connection motion & states]]
 
 Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map in [[Navigation Map]], see [[Design Reference]].
+
+## Product rules
+
+- **One person can be in several of my Rings**; they see the version from the Ring they were put in first ([[DR-15 Several Rings per connection, remove or disconnect]]).
+- **Removing someone from the last of my Rings asks**: *Remove from Rings* keeps them a connection with no access, *Disconnect* ends the connection.
+- **The roster is the owner's**: members see each other only when the Ring's "members can see each other" is on, and then with full cards ([[DR-04 Ring settings at launch and their defaults]]).
+- **A member never learns which Ring they are in** ([[DR-14 Shared with me lists people, never the Ring]]).
+- Not built yet: the choice at the last removal and the members-see-each-other setting.
 
 ## Tasks
 
