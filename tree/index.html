@@ -605,6 +605,8 @@ function computeTotals() {
   return t;
 }
 function statusText(n) {
+  // a needs-decision card's kind already says it needs a decision: its chip says Open or Decided
+  if (n.kind === 'decision') return n.effectiveStatus === 'approved' ? 'Decided' : n.effectiveStatus === 'needs-decision' ? 'Open' : legend(n.effectiveStatus);
   const l = legend(n.effectiveStatus);
   if (n.effectiveStatus === 'partial' && Array.isArray(n.pending) && n.pending.length) return `Partial · ${n.pending.length} note${n.pending.length === 1 ? '' : 's'}`;
   const b = Array.isArray(n.blockedBy) ? n.blockedBy : [];
@@ -614,9 +616,8 @@ function statusText(n) {
 // a decision's and a decision record's title starts with its code (`D-08 Payment methods…`, `DR-08 Stripe card checkout only`): the card shows the code in the kicker, like `F-41 · FEATURE`, and the title without it
 const CODE_TITLED = new Set(['decision', 'decision-record']);
 const shown = (n) => (CODE_TITLED.has(n.kind) && n.card && n.title.startsWith(n.card) ? n.title.slice(n.card.length).replace(/^[\s·:-]+/, '') || n.title : n.title);
-// a decision card (D-NN) holds the question: NEEDS DECISION while open, DECIDED once decided; its record (DR-NN) holds the answer: DECISION
-const kindLabel = (n) => (n.kind === 'decision' ? (n.status === 'approved' || n.effectiveStatus === 'approved' ? 'Decided' : 'Needs decision') : kindOf(n.kind).name);
-const kicker = (n) => (n.card && (CODE_TITLED.has(n.kind) || !n.title.startsWith(n.card)) ? n.card + ' · ' : '') + kindLabel(n).toUpperCase() + (n.parentTask ? ' · SUB-TASK OF ' + n.parentTask : '') + (n.frontendOnly ? ' · FRONTEND ONLY' : '');
+// the kicker names the kind and never changes: a needs-decision card (D-NN) always reads NEEDS DECISION, its decision card (DR-NN) DECISION; the chip says Open or Decided
+const kicker = (n) => (n.card && (CODE_TITLED.has(n.kind) || !n.title.startsWith(n.card)) ? n.card + ' · ' : '') + kindOf(n.kind).name.toUpperCase() + (n.parentTask ? ' · SUB-TASK OF ' + n.parentTask : '') + (n.frontendOnly ? ' · FRONTEND ONLY' : '');
 const flowIdx = (kind) => FLOW.order.indexOf(kind);
 // is a story fulfilled? only the PM fulfils it (`verified`), once QA has finished: 'checked' when fulfilled, 'cross' when any QA card is failing,
 // 'pending' until then (with "waiting for the PM" once every QA card is passing with nothing pending); a task story's QA cards sit under its halves

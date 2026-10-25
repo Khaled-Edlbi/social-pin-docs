@@ -62,6 +62,8 @@ const EMOJI = {
 };
 const DONE_STATUSES = new Set(['done', 'approved', 'verified', 'delivered', 'current', 'passing', 'reference', 'decided']);
 // a decided decision is stored as `approved` but is finished: it keeps the done tick; 👍 is for a story or a requirements list that is approved, not finished
+// a needs-decision card (D-NN) reads Open or Decided in a status column: its kind already says it needs a decision
+const legendOf = (n) => (n.kind === 'decision' ? (n.effectiveStatus === 'approved' ? 'Decided' : n.effectiveStatus === 'needs-decision' ? 'Open' : LEGEND[n.effectiveStatus] ?? n.effectiveStatus) : LEGEND[n.effectiveStatus] ?? n.effectiveStatus);
 const emojiOf = (n) => (n.kind === 'decision' && n.effectiveStatus === 'approved' ? EMOJI.done : EMOJI[n.effectiveStatus] || '•');
 // the structural note types (not layer kinds); a decision record is the answer to a decided decision, on its own card under it
 const STRUCTURAL = ['module', 'feature', 'task', 'decision', 'decision-record', 'project'];
@@ -455,7 +457,7 @@ export function build() {
     if (!list(n.data.blocks).length) requireKeys(n, ['features']); // a decision names the cards that need it (`blocks`) or the features it belongs to
     if (!isDecisionId(n.data.id)) err(n.rel, `id "${n.data.id}" is not a decision id (D-NN)`);
     const status = normStatus(n, 'decision');
-    const d = addNode(base(n, { id: `decision:${n.data.id}`, kind: 'decision', layer: 'business', code: n.data.id, status, effectiveStatus: status, label: status === 'approved' ? 'Decided' : 'Needs decision', features: list(n.data.features), blocks: [], decider: typeof n.data.decider === 'string' && n.data.decider.trim() ? n.data.decider.trim() : null }));
+    const d = addNode(base(n, { id: `decision:${n.data.id}`, kind: 'decision', layer: 'business', code: n.data.id, status, effectiveStatus: status, label: 'Needs decision', features: list(n.data.features), blocks: [], decider: typeof n.data.decider === 'string' && n.data.decider.trim() ? n.data.decider.trim() : null }));
     noteOf.set(d.id, n);
     if (decisionNodes.has(n.data.id)) err(n.rel, `second decision note with id "${n.data.id}"`);
     decisionNodes.set(n.data.id, d);
@@ -1134,7 +1136,7 @@ function cardIndexMarkdown(json) {
     if (!relOf.has(e.to)) relOf.set(e.to, new Set());
     relOf.get(e.from).add(e.to); relOf.get(e.to).add(e.from);
   }
-  const status = (n) => `${emojiOf(n)} ${LEGEND[n.effectiveStatus] ?? n.effectiveStatus}${n.pending?.length ? ` (${n.pending.length} note${n.pending.length === 1 ? '' : 's'})` : ''}`;
+  const status = (n) => `${emojiOf(n)} ${legendOf(n)}${n.pending?.length ? ` (${n.pending.length} note${n.pending.length === 1 ? '' : 's'})` : ''}`;
   const kindName = (kind) => (nodes && (Object.values(nodes).find((n) => n.kind === kind)?.label)) || kind;
   const groupLabel = { module: 'Modules', feature: 'Features', task: 'Tasks', decision: 'Decisions needed', 'decision-record': 'Decisions', project: 'Project reference notes' };
   const lines = ['---', 'type: map', 'layer: shared', 'tags: [map]', '---', '', '# Card Index', '',
