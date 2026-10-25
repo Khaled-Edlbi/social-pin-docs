@@ -42456,13 +42456,14 @@
         "story:events-before"
       ],
       "rollup": {
-        "approved": 6,
+        "approved": 5,
         "current": 2,
         "decided": 2,
         "done": 3,
         "partial": 5,
         "passing": 2,
-        "todo": 1
+        "todo": 1,
+        "verified": 1
       },
       "scope": null,
       "screens": [
@@ -48113,14 +48114,15 @@
         "decision-record:DR-07"
       ],
       "rollup": {
-        "approved": 6,
+        "approved": 5,
         "current": 2,
         "decided": 2,
         "done": 3,
         "in-progress": 1,
         "partial": 5,
         "passing": 2,
-        "todo": 1
+        "todo": 1,
+        "verified": 1
       },
       "scope": null,
       "screens": [],
@@ -53237,7 +53239,7 @@
       "priority": null,
       "related": [],
       "rollup": {
-        "approved": 8,
+        "approved": 7,
         "blocked": 178,
         "current": 11,
         "decided": 4,
@@ -53249,7 +53251,8 @@
         "partial": 5,
         "passing": 2,
         "reference": 31,
-        "todo": 82
+        "todo": 82,
+        "verified": 1
       },
       "scope": null,
       "screens": [],
@@ -56190,7 +56193,7 @@
       "code": "T-065",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "approved",
+      "effectiveStatus": "verified",
       "effort": null,
       "feature": "pay-for-an-order",
       "frontendOnly": false,
@@ -56223,11 +56226,11 @@
       "screens": [
         "s51"
       ],
-      "status": "approved",
+      "status": "verified",
       "summary": "What the attendee gets from this task: from the Payment screen they reach Stripe's card page for exactly their order, and when they come back they see whether the payment is waiting or failed,…",
       "tags": [
         "story",
-        "story/approved",
+        "story/verified",
         "module/payments-gateway",
         "layer/business"
       ],
@@ -68625,11 +68628,12 @@
         "feature:audit-log"
       ],
       "rollup": {
-        "approved": 2,
+        "approved": 1,
         "current": 1,
         "done": 3,
         "partial": 1,
-        "passing": 2
+        "passing": 2,
+        "verified": 1
       },
       "scope": null,
       "screens": [
