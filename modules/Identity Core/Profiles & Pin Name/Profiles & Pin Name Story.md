@@ -4,18 +4,20 @@ code: profiles
 scope: feature
 feature: profiles
 module: identity
-status: draft
+status: approved
 screens: [s06]
+approvedBy: "khaled"
+approvedAt: 2026-10-25
 created: 2026-10-18
 updated: 2026-10-25
 owner: "omar"
 related: ["DR-02 One main profile every Ring starts from", "DR-06 Yearly rename, old name freed, case-insensitive"]
-tags: [story, story/draft, module/identity, layer/business]
+tags: [story, story/approved, module/identity, layer/business]
 ---
 
 # Profiles & Pin Name · User Story
 
-**Feature:** [[Profiles & Pin Name]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Profiles & Pin Name Frontend Requirements]] · **Backend Integration:** [[Profiles & Pin Name Backend Integration]]
+**Feature:** [[Profiles & Pin Name]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[Profiles & Pin Name Frontend Requirements]] · **Backend Integration:** [[Profiles & Pin Name Backend Integration]]
 
 A person claims a `!handle` that is theirs across the whole product, the thing printed on a badge and typed into Discover, and keeps the canonical facts about themselves (name, nickname, birthdate, gender, marital status, and the work details of the main profile: headline, role, company, location, photo, bio) in one place. Rings then decide what each audience gets. The Pin name is public by nature; the sensitive fields are private by default and opt-in per Ring.
 
