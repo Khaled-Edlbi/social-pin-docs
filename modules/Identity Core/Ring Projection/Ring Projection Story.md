@@ -6,21 +6,17 @@ feature: ring-projection
 module: identity
 status: draft
 screens: [s14, s20, s23, s24, s25, s29, s36]
-updated: 2026-10-18
+updated: 2026-10-25
+owner: "omar"
+related: ["DR-02 One main profile every Ring starts from", "DR-03 Links entered once, switched on or off per Ring", "DR-05 Inherit per field, copy without members"]
 tags: [story, story/draft, module/identity, layer/business]
 ---
 
 # Ring Projection · User Story
 
-> ⚠ Affected by [[DR-02 One main profile every Ring starts from]] (2026-10-25): D-02 decided, one main profile (headline, role, company, location, photo, bio) every Ring starts from; a Ring may change all of them but the full name and keeps its own value when the main one changes.
-
-> ⚠ Affected by [[DR-03 Links entered once, switched on or off per Ring]] (2026-10-25): D-03 decided, links are entered once and only switched on or off per Ring; booking, Behance, Dribbble, GitHub and YouTube join the types, detected from the pasted link.
-
-> ⚠ Affected by [[DR-05 Inherit per field, copy without members]] (2026-10-25): D-05 decided, a Ring inherits the main profile field by field until it changes that field; copying a Ring copies fields, bio, photo, colour and settings, never members.
-
 **Feature:** [[Ring Projection]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Ring Projection Frontend Requirements]] · **Backend Integration:** [[Ring Projection Backend Integration]]
 
-A Ring owner decides what one audience sees: the name and nickname they go by there, the bio, the photo, the theme, which social and contact links, which info blocks ("Add a field"), which files, and whether this Ring may see their birthdate, gender, marital status, phone and email. The projection is the Ring's perspective of the one profile; editing it and then checking it with "View as" is the core loop of the product.
+A Ring owner decides what one audience sees: the name and nickname they go by there, the bio, the photo, the theme, which social and contact links, which info blocks ("Add a field"), which files, and whether this Ring may see their birthdate, gender, marital status, phone and email. The projection is the Ring's perspective of the one profile; editing it and then checking it with "View as" is the core loop of the product. Decided, not built yet: a Ring follows the main profile field by field until it changes a field ([[DR-02 One main profile every Ring starts from]], [[DR-05 Inherit per field, copy without members]]), and links are one library each Ring switches on or off ([[DR-03 Links entered once, switched on or off per Ring]]).
 
 ## Persona
 
@@ -44,16 +40,17 @@ Acceptance criteria:
 
 Acceptance criteria:
 - [ ] Step 3 writes to the new Ring's projection as the user adds items (`POST …/links`, `…/info-blocks`, `…/attachments`), so Back and Next keep state server-side.
-- [ ] The design's "N of 7 on" library toggle is shown as a plain add-list until [[D-03 Field library vs per-Ring copies]] is decided; each Ring holds its own copies today.
+- [ ] Step 3 is the library the design draws ("N of 7 on"): every link, info block and file I have is listed once and I switch each on or off for the new Ring; nothing is retyped ([[DR-03 Links entered once, switched on or off per Ring]]). Not available yet: each Ring holds its own copies today, so until the library ships the step stays a plain add-list.
 
 ### S3 · How you appear ([[Screen Index#s23|s23]])
 
-**As a** Ring owner **I want** to set the name, nickname, bio, photo and theme for this Ring **so that** my clients meet a different me than my family.
+**As a** Ring owner **I want** to set the headline, company, location, bio, photo, nickname and theme for this Ring **so that** my clients meet a different me than my family.
 
 Acceptance criteria:
-- [ ] `PATCH /rings/:ringId/projection` with any of `displayName` (≤ 120), `nickname` (≤ 60), `bio` (≤ 2000), `avatarFileId`, `themeConfig`.
-- [ ] A "Use my Pin's name" action sends `null` for `displayName`, which falls back to the profile's full name; same for `nickname`.
-- [ ] "Inherit, stays in sync with your Pin" and "Copy a Ring" (s28) are shown disabled with "coming soon" until [[D-05 Copy or inherit]] / [[D-02 Base profile work fields]].
+- [ ] `PATCH /rings/:ringId/projection` with any of `nickname` (≤ 60), `bio` (≤ 2000), `avatarFileId`, `themeConfig`; headline, company and location per Ring are not available yet (no main profile fields exist).
+- [ ] **The full name is the same in every Ring** ([[DR-02 One main profile every Ring starts from]]): the screen shows it, read-only, and offers no name for this Ring. The API still accepts `displayName` today; the editor does not send it.
+- [ ] **Each field follows the main profile until I change it here** ("Inherit, stays in sync with your Pin"): changing one field in this Ring stops that field only from following; the others keep following ([[DR-05 Inherit per field, copy without members]]). "Reset to Pin" on a field returns it to following. A field I changed here keeps its value when I change the main one. Not available yet: there is no main profile to follow, so the inherit state and "Reset to Pin" are shown disabled with "coming soon".
+- [ ] "Copy another Ring's bio" (s28) copies the bio once; afterwards the two are independent. Not available yet.
 - [ ] Save returns to s14; the Ring re-composes with the new header.
 
 ### S4 · What it shows: sensitive fields ([[Screen Index#s24|s24]])
@@ -68,11 +65,13 @@ Acceptance criteria:
 
 ### S5 · Social profiles ([[Screen Index#s25|s25]])
 
-**As a** Ring owner **I want** to add my LinkedIn, WhatsApp and website to this Ring **so that** this audience can reach me where I want.
+**As a** Ring owner **I want** my LinkedIn, WhatsApp and website entered once and switched on for this Ring **so that** this audience can reach me where I want, and editing a link fixes it everywhere.
 
 Acceptance criteria:
-- [ ] Add: pick a `type` from the 15 `LINK_TYPE` values, enter `value` and optional `label`; the client validates `value` per type before sending (`http(s)` URL, E.164, email, `lat,lng`).
-- [ ] Edit, hide, reorder (`sortOrder`) and remove through `PATCH` / `DELETE …/links/:linkId`.
+- [ ] **A link is entered once** and each Ring only switches it **on or off**; editing it changes it in every Ring that shows it; a link never has a different value in different Rings ([[DR-03 Links entered once, switched on or off per Ring]]). Two different values (a work and a personal email) are two links, each switched on where it belongs.
+- [ ] Types: the 15 `LINK_TYPE` values of today plus booking, Behance, Dribbble, GitHub and YouTube. **The type is detected from what is pasted**; a link not recognised is a website or custom link. Not available yet: today the type is picked by hand from the 15 values.
+- [ ] The client validates `value` per type before sending (`http(s)` URL, E.164, email, `lat,lng`) and keeps an optional `label`.
+- [ ] Today (copies per Ring): edit, hide, reorder (`sortOrder`) and remove through `PATCH` / `DELETE …/links/:linkId`; until the library ships, a change made here applies to this Ring only and the screen says so.
 - [ ] Several links of one type are allowed; the label distinguishes "Work LinkedIn" from "Personal".
 - [ ] A server 400 `E_RING_PROFILE_03` shows the server message inline.
 
@@ -83,6 +82,7 @@ Acceptance criteria:
 Acceptance criteria:
 - [ ] Upload ([[Files Upload Story]]) then `PATCH { avatarFileId }`; 400 `E_FILE_04` returns to the picker.
 - [ ] The photo cannot be fetched back yet; the local image is kept for the session and a placeholder shown later.
+- [ ] Without a photo of its own, the Ring shows the main profile's photo; "Reset to Pin" returns to it ([[DR-02 One main profile every Ring starts from]], [[DR-05 Inherit per field, copy without members]]). Not available yet: there is no main photo today.
 
 ### S7 · Add to this Ring ([[Screen Index#s36|s36]])
 
@@ -102,7 +102,7 @@ Acceptance criteria:
 
 ## States and motion the design asks for
 
-- State: empty projection, hidden row (greyed), toggle on / off with the value preview, saving, read-only (403), invalid link value, "coming soon" for inherit / copy / widgets.
+- State: empty projection, hidden row (greyed), toggle on / off with the value preview, saving, read-only (403), invalid link value, a field following the main profile or changed for this Ring, "coming soon" for inherit / copy / widgets until they ship.
 - Motion: saving any part re-composes the Ring on return to s14 (the signature motion); View as is a flip. Reduced motion: cross-fade.
 
 ## Rules the backend already enforces
@@ -116,6 +116,6 @@ Acceptance criteria:
 
 ## Open questions
 
-- [[D-03 Field library vs per-Ring copies]] — "4 of 7 on" (s20, s24) assumes one library; the backend stores a copy per Ring. Blocks S2's and S4's toggle UI.
-- [[D-05 Copy or inherit]] — "Inherit, stays in sync" (s23) and "Copy a Ring" (s28). Blocks S3's inherit and copy actions.
-- [[D-02 Base profile work fields]] — the base bio and photo that inherit needs.
+- Decided: [[DR-02 One main profile every Ring starts from]], [[DR-03 Links entered once, switched on or off per Ring]], [[DR-05 Inherit per field, copy without members]]. Building them (main profile fields, the link library, per-field inheritance) is not ticketed yet.
+- Whether info blocks and files follow exactly the same on/off rule as links (DR-03 treats them as one library unless product says otherwise).
+- The order of links within a Ring: shared, or per Ring (DR-03, *Still open*).
