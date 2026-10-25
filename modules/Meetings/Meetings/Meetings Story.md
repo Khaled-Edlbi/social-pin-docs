@@ -4,16 +4,19 @@ code: meetings
 scope: feature
 feature: meetings
 module: meetings
-status: draft
+status: approved
 screens: [s59, s61, s64, s66, s67]
+approvedBy: "khaled"
+approvedAt: 2026-10-25
+owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-18
-tags: [story, story/draft, module/meetings, layer/business]
+updated: 2026-10-25
+tags: [story, story/approved, module/meetings, layer/business]
 ---
 
 # Meetings · User Story
 
-**Feature:** [[Meetings]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Meetings Frontend Requirements]] · **API Integration:** not yet (backend not built)
+**Feature:** [[Meetings]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[Meetings Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 A visitor wants to meet an exhibitor (or an exhibitor another exhibitor). They pick a slot from the other party's availability, the request spawns a temporary meeting Ring that holds the meeting's details, the other party accepts by offering slots or declines with a reason, and confirmed meetings land on a calendar. The meeting Ring makes both parties visible to each other for the meeting window only. The schema exists, with the exclusion constraint that stops two bookings of one slot; no endpoint does.
 
