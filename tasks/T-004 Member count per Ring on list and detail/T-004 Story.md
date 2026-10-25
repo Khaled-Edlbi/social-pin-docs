@@ -12,7 +12,7 @@ related: []
 pending: []
 approvedBy: ""
 approvedAt: ""
-owner: "khaled"
+owner: "omar"
 updated: 2026-10-25
 tags: [story, story/draft, module/identity, layer/business]
 task: T-004
