@@ -169,7 +169,7 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-060 Decide copy or inherit]] | [[Ring Projection]] | Identity Core | ❓ Needs decision | S | — | [[D-02 Base profile work fields|D-02]], [[D-05 Copy or inherit|D-05]] |
 | [[T-061 Decide Pin name rules]] | [[Profiles & Pin Name]] | Identity Core | ❓ Needs decision | S | — | [[D-06 Pin name rules|D-06]] |
 | [[T-065 Open a Stripe checkout for an order]] | [[Pay for an order]] | Payments Gateway | ⬜ To do | M | — | — |
-| [[T-065-be Backend · Open a Stripe checkout for an order]] `backend` | [[Pay for an order]] | Payments Gateway | ⬜ To do | M | — | — |
+| [[T-065-be Backend · Open a Stripe checkout for an order]] `backend` | [[Pay for an order]] | Payments Gateway | 🟡 Partial (1 note) | M | — | — |
 | [[T-065-fe Frontend · Open a Stripe checkout for an order]] `frontend` | [[Pay for an order]] | Payments Gateway | ⛔ Blocked | M | — | [[T-065-be Backend · Open a Stripe checkout for an order|T-065-be]] |
 
 ## Medium

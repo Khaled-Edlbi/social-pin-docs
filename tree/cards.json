@@ -1,5 +1,6 @@
 {
   "cards": {
+    "backend-delivery:T-065-be": "BD-40",
     "backend-delivery:account": "BD-01",
     "backend-delivery:app-shell": "BD-29",
     "backend-delivery:audit-log": "BD-30",
