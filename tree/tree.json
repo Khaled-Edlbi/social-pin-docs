@@ -4986,7 +4986,7 @@
     "layerNotes": 210,
     "modules": 9,
     "notes": 507,
-    "partial": 3,
+    "partial": 2,
     "placeholders": 145,
     "records": 4,
     "taskLayerNotes": 77,
@@ -5046,9 +5046,7 @@
   ],
   "diagnostics": {
     "errors": [],
-    "warnings": [
-      "modules/Payments Gateway/Pay for an order/Pay for an order Frontend Delivery.md: does not link [[T-066-fe Frontend Delivery]], a done task-level note: a feature note is the sum of its tasks"
-    ]
+    "warnings": []
   },
   "edges": [
     {
@@ -45021,8 +45019,8 @@
         "approved": 7,
         "current": 3,
         "decided": 2,
-        "done": 8,
-        "partial": 3,
+        "done": 9,
+        "partial": 2,
         "passing": 4,
         "todo": 2,
         "verified": 1
@@ -47307,7 +47305,7 @@
       "code": "pay-for-an-order",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "partial",
+      "effectiveStatus": "done",
       "effort": null,
       "feature": "pay-for-an-order",
       "frontendOnly": false,
@@ -47325,18 +47323,13 @@
         "feature:pay-for-an-order"
       ],
       "path": "modules/Payments Gateway/Pay for an order/Pay for an order Frontend Delivery.md",
-      "pending": [
-        {
-          "person": "pm",
-          "text": "s52 (story S4) needs a task; the client cannot carry a paid order on to it until the backend delivers it (see Pay for an order Backend Delivery)",
-          "to": null
-        }
-      ],
+      "pending": [],
       "priority": "high",
       "related": [
         "backend-delivery:pay-for-an-order",
         "backend-integration:pay-for-an-order",
         "frontend-delivery:T-065-fe",
+        "frontend-delivery:T-066-fe",
         "frontend-requirements:pay-for-an-order",
         "story:pay-for-an-order",
         "task:T-065-be",
@@ -47349,7 +47342,6 @@
         "backend-delivery:T-066-be",
         "backend-integration:T-066-be",
         "qa-backend:T-066-be",
-        "frontend-delivery:T-066-fe",
         "frontend-requirements:T-066-fe",
         "qa-frontend:pay-for-an-order"
       ],
@@ -50952,9 +50944,9 @@
         "approved": 7,
         "current": 3,
         "decided": 2,
-        "done": 8,
+        "done": 9,
         "in-progress": 1,
-        "partial": 3,
+        "partial": 2,
         "passing": 4,
         "todo": 2,
         "verified": 1
@@ -56171,12 +56163,12 @@
         "blocked": 178,
         "current": 12,
         "decided": 4,
-        "done": 20,
+        "done": 21,
         "draft": 103,
         "in-progress": 16,
         "missing": 145,
         "needs-decision": 20,
-        "partial": 3,
+        "partial": 2,
         "passing": 4,
         "reference": 31,
         "todo": 83,
