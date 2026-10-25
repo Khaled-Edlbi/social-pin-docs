@@ -6,19 +6,17 @@ feature: profiles
 module: identity
 status: draft
 screens: [s06]
-updated: 2026-10-18
+updated: 2026-10-25
+owner: "omar"
+related: ["DR-02 One main profile every Ring starts from", "DR-06 Yearly rename, old name freed, case-insensitive"]
 tags: [story, story/draft, module/identity, layer/business]
 ---
 
 # Profiles & Pin Name · User Story
 
-> ⚠ Affected by [[DR-02 One main profile every Ring starts from]] (2026-10-25): D-02 decided, one main profile (headline, role, company, location, photo, bio) every Ring starts from; a Ring may change all of them but the full name and keeps its own value when the main one changes.
-
-> ⚠ Affected by [[DR-06 Yearly rename, old name freed, case-insensitive]] (2026-10-25): D-06 decided, a Pin name can be changed once a year, the old name is free at once, names ignore capitals, suggestions come only from the person's own name.
-
 **Feature:** [[Profiles & Pin Name]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Profiles & Pin Name Frontend Requirements]] · **Backend Integration:** [[Profiles & Pin Name Backend Integration]]
 
-A person claims a `!handle` that is theirs across the whole product, the thing printed on a badge and typed into Discover, and keeps the canonical facts about themselves (name, nickname, birthdate, gender, marital status) in one place. Rings then decide what each audience gets. The Pin name is public by nature; the sensitive fields are private by default and opt-in per Ring.
+A person claims a `!handle` that is theirs across the whole product, the thing printed on a badge and typed into Discover, and keeps the canonical facts about themselves (name, nickname, birthdate, gender, marital status, and the work details of the main profile: headline, role, company, location, photo, bio) in one place. Rings then decide what each audience gets. The Pin name is public by nature; the sensitive fields are private by default and opt-in per Ring.
 
 ## Persona
 
@@ -36,6 +34,7 @@ Acceptance criteria:
 - [ ] A debounced (300 ms) `GET /profiles/pin-name/:pinName/availability` returns `{ pinName, available }`; the field shows a check or "Taken" without naming anyone.
 - [ ] Case does not matter for availability (`SaraAz` = `saraaz`); the casing typed is what is displayed later.
 - [ ] Continue is enabled only on `available: true`; the ring progress indicator fills a segment on success.
+- [ ] When the handle is taken, the field offers a few suggestions built **only from my own name** (what I typed and my full name), each already checked as free; a suggestion never reveals or derives from who holds the taken name ([[DR-06 Yearly rename, old name freed, case-insensitive]]). Not available yet: the backend returns no suggestions today.
 
 ### S2 · Taken at the last moment ([[Screen Index#s06|s06]])
 
@@ -69,8 +68,21 @@ Acceptance criteria:
 
 Acceptance criteria:
 - [ ] The same live availability check as S1; `PATCH /profiles/:id { pinName }`; 409 `E_PROFILE_02` inline.
-- [ ] The copy says the old handle stops resolving at once (`GET /views/pin/:old` becomes a 404 for everyone).
-- [ ] The design's "change it once a year" and suggested names are not shown until [[D-06 Pin name rules]] is decided; today a rename is unlimited.
+- [ ] The copy says the old handle stops resolving at once (`GET /views/pin/:old` becomes a 404 for everyone) and **becomes free for anyone to claim**: nothing redirects to the new name, and a badge or link printed with the old name may later lead to someone else ([[DR-06 Yearly rename, old name freed, case-insensitive]]).
+- [ ] A handle can be changed **once a year**; the screen says when the next change is allowed, and a rename inside the year is refused with a domain error shown inline. Not available yet: today a rename is unlimited.
+- [ ] A change of capitals only (`SaraAz` → `saraaz`) is the same name and is not a rename.
+- [ ] Taken names offer suggestions as in S1.
+
+### S8 · My work details, once (profile editor, reached from [[Screen Index#s68|s68]])
+
+**As an** owner **I want** to write my headline, role, company, location, photo and bio once **so that** every Ring shows them without my retyping them ([[DR-02 One main profile every Ring starts from]]).
+
+Acceptance criteria:
+- [ ] The editor has a "work" section with headline, role, company, location, photo and bio; these six are the whole main profile, nothing else is added.
+- [ ] Every Ring shows these values unless the Ring changed a field for itself ([[Ring Projection Story]] S3); a Ring that changed a field keeps its own value when I change the main one.
+- [ ] My full name is the same in every Ring; no Ring changes it.
+- [ ] Imports fill this section, not one Ring ([[Onboarding Imports Story]]).
+- [ ] Not available yet: `Profile` has none of these six fields today.
 
 ### S6 · Several profiles and the default (profile editor, no prototype screen)
 
@@ -106,5 +118,6 @@ Acceptance criteria:
 
 ## Open questions
 
-- [[D-02 Base profile work fields]] — headline, role, company, location, base photo and bio are on every design screen but not on `Profile`; blocks the "work" section of the editor.
-- [[D-06 Pin name rules]] — yearly rename limit and suggested handles on s06; blocks the copy and the suggestion chips.
+- Decided: [[DR-02 One main profile every Ring starts from]] (the work section, S8) and [[DR-06 Yearly rename, old name freed, case-insensitive]] (S1 suggestions, S5 limit). Building them is not ticketed yet.
+- Whether a Ring may change **role** was not asked; until product says otherwise it follows headline (DR-02, *Still open*).
+- Whether the first year counts from sign-up or from the first rename; the natural reading is that the first rename is free (DR-06, *Still open*).
