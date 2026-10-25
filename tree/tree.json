@@ -4065,7 +4065,6 @@
         "story:T-047",
         "story:events-before",
         "story:pay-for-an-order",
-        "story:payments",
         "task:T-035",
         "task:T-035-be",
         "task:T-035-fe",
@@ -4110,6 +4109,7 @@
     "s53": {
       "containers": [
         "feature:events-during",
+        "feature:payments",
         "task:T-036",
         "task:T-036-be",
         "task:T-036-fe",
@@ -4125,6 +4125,7 @@
         "story:T-036",
         "story:T-040",
         "story:events-during",
+        "story:payments",
         "task:T-036",
         "task:T-036-be",
         "task:T-036-fe",
@@ -4467,6 +4468,7 @@
         "feature:auth",
         "feature:counts",
         "feature:linked-accounts",
+        "feature:payments",
         "task:T-005",
         "task:T-005-be",
         "task:T-005-fe",
@@ -4496,6 +4498,7 @@
         "story:auth",
         "story:counts",
         "story:linked-accounts",
+        "story:payments",
         "task:T-005",
         "task:T-005-be",
         "task:T-005-fe",
@@ -4670,7 +4673,7 @@
     }
   },
   "counts": {
-    "blocked": 179,
+    "blocked": 180,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -4691,7 +4694,7 @@
     },
     "concepts": 177,
     "decisions": 9,
-    "edges": 4359,
+    "edges": 4374,
     "features": 40,
     "layerNotes": 191,
     "modules": 9,
@@ -4913,6 +4916,21 @@
       "from": "story:pay-for-an-order",
       "kind": "affects",
       "to": "task:T-035"
+    },
+    {
+      "from": "story:payments",
+      "kind": "affects",
+      "to": "feature:events-before"
+    },
+    {
+      "from": "story:payments",
+      "kind": "affects",
+      "to": "feature:events-during"
+    },
+    {
+      "from": "story:payments",
+      "kind": "affects",
+      "to": "feature:pay-for-an-order"
     },
     {
       "from": "task:T-064",
@@ -6802,6 +6820,11 @@
     {
       "from": "task:T-047",
       "kind": "blocks",
+      "to": "story:payments"
+    },
+    {
+      "from": "task:T-047",
+      "kind": "blocks",
       "to": "task:T-035"
     },
     {
@@ -7086,6 +7109,21 @@
     },
     {
       "from": "story:pay-for-an-order",
+      "kind": "depends",
+      "to": "task:T-047"
+    },
+    {
+      "from": "story:payments",
+      "kind": "depends",
+      "to": "decision:D-07"
+    },
+    {
+      "from": "story:payments",
+      "kind": "depends",
+      "to": "decision:D-08"
+    },
+    {
+      "from": "story:payments",
       "kind": "depends",
       "to": "task:T-047"
     },
@@ -10601,10 +10639,55 @@
     {
       "from": "story:payments",
       "kind": "related",
+      "to": "decision-record:DR-08"
+    },
+    {
+      "from": "story:payments",
+      "kind": "related",
+      "to": "feature:audit-log"
+    },
+    {
+      "from": "story:payments",
+      "kind": "related",
+      "to": "feature:events-before"
+    },
+    {
+      "from": "story:payments",
+      "kind": "related",
+      "to": "feature:events-during"
+    },
+    {
+      "from": "story:payments",
+      "kind": "related",
+      "to": "feature:pay-for-an-order"
+    },
+    {
+      "from": "story:payments",
+      "kind": "related",
+      "to": "feature:subscription"
+    },
+    {
+      "from": "story:payments",
+      "kind": "related",
       "to": "story:T-047",
       "via": [
         "sum-of"
       ]
+    },
+    {
+      "from": "story:payments",
+      "kind": "related",
+      "to": "task:T-034"
+    },
+    {
+      "from": "story:payments",
+      "kind": "related",
+      "to": "task:T-035"
+    },
+    {
+      "from": "story:payments",
+      "kind": "related",
+      "to": "task:T-040"
     },
     {
       "from": "story:photo-library",
@@ -20969,7 +21052,17 @@
     {
       "from": "backend-delivery:payments",
       "kind": "wikilink",
+      "to": "feature:pay-for-an-order"
+    },
+    {
+      "from": "backend-delivery:payments",
+      "kind": "wikilink",
       "to": "frontend-requirements:payments"
+    },
+    {
+      "from": "backend-delivery:payments",
+      "kind": "wikilink",
+      "to": "story:payments"
     },
     {
       "from": "backend-delivery:payments",
@@ -23190,6 +23283,11 @@
       "from": "frontend-requirements:payments",
       "kind": "wikilink",
       "to": "decision-record:DR-08"
+    },
+    {
+      "from": "frontend-requirements:payments",
+      "kind": "wikilink",
+      "to": "feature:pay-for-an-order"
     },
     {
       "from": "frontend-requirements:payments",
@@ -26214,11 +26312,6 @@
     {
       "from": "story:events-before",
       "kind": "wikilink",
-      "to": "story:payments"
-    },
-    {
-      "from": "story:events-before",
-      "kind": "wikilink",
       "to": "task:T-023"
     },
     {
@@ -26419,22 +26512,7 @@
     {
       "from": "story:payments",
       "kind": "wikilink",
-      "to": "decision-record:DR-08"
-    },
-    {
-      "from": "story:payments",
-      "kind": "wikilink",
-      "to": "feature:audit-log"
-    },
-    {
-      "from": "story:payments",
-      "kind": "wikilink",
-      "to": "feature:notifications"
-    },
-    {
-      "from": "story:payments",
-      "kind": "wikilink",
-      "to": "story:event-ring-auto"
+      "to": "story:events-before"
     },
     {
       "from": "story:payments",
@@ -26449,17 +26527,17 @@
     {
       "from": "story:payments",
       "kind": "wikilink",
+      "to": "story:pay-for-an-order"
+    },
+    {
+      "from": "story:payments",
+      "kind": "wikilink",
       "to": "story:subscription"
     },
     {
       "from": "story:payments",
       "kind": "wikilink",
       "to": "task:T-011"
-    },
-    {
-      "from": "story:payments",
-      "kind": "wikilink",
-      "to": "task:T-035"
     },
     {
       "from": "story:photo-library",
@@ -35842,6 +35920,7 @@
         "decision:D-09",
         "decision:D-08",
         "decision:D-07",
+        "story:payments",
         "story:pay-for-an-order"
       ],
       "scope": null,
@@ -36531,6 +36610,7 @@
         "project:architecture",
         "project:api-conventions",
         "project:spec-map",
+        "story:payments",
         "story:pay-for-an-order"
       ],
       "rollup": {
@@ -37514,6 +37594,7 @@
         "feature:pay-for-an-order",
         "decision:D-08",
         "decision:D-09",
+        "story:payments",
         "story:pay-for-an-order"
       ],
       "rollup": {
@@ -37593,7 +37674,8 @@
         "project:architecture",
         "project:api-conventions",
         "project:spec-map",
-        "feature:post-event"
+        "feature:post-event",
+        "story:payments"
       ],
       "rollup": {
         "blocked": 16,
@@ -38245,7 +38327,8 @@
         "project:ring-access-model",
         "project:architecture",
         "project:api-conventions",
-        "project:spec-map"
+        "project:spec-map",
+        "story:payments"
       ],
       "rollup": {
         "approved": 1,
@@ -38323,9 +38406,9 @@
       ],
       "rollup": {
         "approved": 1,
-        "blocked": 2,
+        "blocked": 3,
         "decided": 1,
-        "draft": 2,
+        "draft": 1,
         "missing": 4,
         "needs-decision": 1,
         "todo": 1
@@ -39070,7 +39153,8 @@
         "project:spec-map",
         "feature:account",
         "feature:pay-for-an-order",
-        "decision:D-07"
+        "decision:D-07",
+        "story:payments"
       ],
       "rollup": {
         "approved": 1,
@@ -43216,9 +43300,9 @@
       "related": [],
       "rollup": {
         "approved": 1,
-        "blocked": 5,
+        "blocked": 6,
         "decided": 1,
-        "draft": 4,
+        "draft": 3,
         "missing": 8,
         "needs-decision": 1,
         "todo": 5
@@ -48402,11 +48486,11 @@
       "related": [],
       "rollup": {
         "approved": 3,
-        "blocked": 179,
+        "blocked": 180,
         "current": 9,
         "decided": 3,
         "done": 12,
-        "draft": 103,
+        "draft": 102,
         "in-progress": 16,
         "missing": 151,
         "needs-decision": 21,
@@ -52701,16 +52785,30 @@
       "updated": "2026-10-25"
     },
     "story:payments": {
-      "affects": [],
-      "blockedBy": [],
+      "affects": [
+        "feature:pay-for-an-order",
+        "feature:events-before",
+        "feature:events-during"
+      ],
+      "blockedBy": [
+        {
+          "id": "task:T-047",
+          "title": "T-047 Orders, payments and the provider webhook",
+          "why": "T-047 Orders, payments and the provider webhook is needs decision"
+        }
+      ],
       "card": "S-69",
       "children": [
         "task:T-047"
       ],
       "code": "payments",
       "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
+      "depends": [
+        "decision:D-07",
+        "decision:D-08",
+        "task:T-047"
+      ],
+      "effectiveStatus": "blocked",
       "effort": null,
       "feature": "payments",
       "frontendOnly": false,
@@ -52730,14 +52828,25 @@
       "path": "modules/Commerce/Payments & Orders/Payments & Orders Story.md",
       "pending": [],
       "priority": "high",
-      "related": [],
+      "related": [
+        "feature:pay-for-an-order",
+        "decision-record:DR-08",
+        "feature:events-before",
+        "feature:events-during",
+        "feature:subscription",
+        "feature:audit-log",
+        "task:T-034",
+        "task:T-035",
+        "task:T-040"
+      ],
       "scope": "feature",
       "screens": [
         "s50",
-        "s51"
+        "s53",
+        "s68"
       ],
       "status": "draft",
-      "summary": "A visitor has picked a package, a sub-event or an in-event upgrade and now pays for it. An order freezes what they saw and at what price; a payment records how it was settled and by whom; the…",
+      "summary": "A visitor has picked a package, a sub-event or an in-event upgrade. This feature is the order: it freezes what they chose and at what price, keeps one order per attempt, and lets them read their…",
       "tags": [
         "story",
         "story/draft",
@@ -52746,7 +52855,7 @@
       ],
       "task": null,
       "title": "Payments & Orders Story",
-      "updated": "2026-10-18"
+      "updated": "2026-10-25"
     },
     "story:photo-library": {
       "affects": [],
@@ -59060,6 +59169,7 @@
       "priority": "critical",
       "related": [
         "decision:D-09",
+        "story:payments",
         "story:pay-for-an-order"
       ],
       "rollup": {
@@ -59250,7 +59360,8 @@
       "pending": [],
       "priority": "critical",
       "related": [
-        "feature:pay-for-an-order"
+        "feature:pay-for-an-order",
+        "story:payments"
       ],
       "rollup": {
         "approved": 1,
@@ -60203,7 +60314,9 @@
       "path": "tasks/T-040 Lounges and upgrades/T-040 Lounges and upgrades.md",
       "pending": [],
       "priority": "high",
-      "related": [],
+      "related": [
+        "story:payments"
+      ],
       "rollup": {
         "blocked": 2,
         "draft": 1

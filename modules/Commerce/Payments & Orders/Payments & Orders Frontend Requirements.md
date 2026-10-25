@@ -12,6 +12,8 @@ tags: [frontend-requirements, frontend-requirements/draft, module/commerce, laye
 
 # Payments & Orders · Frontend Requirements
 
+> ⚠ Affected by [[Payments & Orders Story]] (2026-10-25): the story is redrawn to the order only (s50, s53, s68); s51's hand-off to Stripe, the pending / failed / succeeded states, the webhook and s52 now belong to [[Pay for an order]], so the s51 section and its endpoint rows move to that feature's requirements.
+
 > ⚠ Affected by [[DR-08 Stripe card checkout only]] (2026-10-22): payment is Stripe card checkout only (provider decided on D-07); "card / e-payment per organizer" no longer applies, and there is no method picker.
 
 **Feature:** [[Payments & Orders]] · **Status:** Draft · **Story:** [[Payments & Orders Story]] · **API Integration:** not yet (backend not built)

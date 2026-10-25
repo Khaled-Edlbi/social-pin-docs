@@ -417,7 +417,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
       - ∅ _Meetings QA Frontend_ (QA Frontend, blocked by Meetings Frontend Delivery)
   - ⬜ [Commerce Module](modules/Commerce/Commerce%20Module.md) (M-07)
     - ⬜ [Payments & Orders](modules/Commerce/Payments%20%26%20Orders/Payments%20%26%20Orders.md) (F-27, High)
-      - ✏️ [Payments & Orders Story](modules/Commerce/Payments%20%26%20Orders/Payments%20%26%20Orders%20Story.md) (S-69, User Story, High)
+      - ⛔ [Payments & Orders Story](modules/Commerce/Payments%20%26%20Orders/Payments%20%26%20Orders%20Story.md) (S-69, User Story, High, blocked by T-047 Orders, payments and the provider webhook)
         - ❓ [T-047 Orders, payments and the provider webhook](tasks/T-047%20Orders%2C%20payments%20and%20the%20provider%20webhook/T-047%20Orders%2C%20payments%20and%20the%20provider%20webhook.md) (High)
           - ✏️ [T-047 Story](tasks/T-047%20Orders%2C%20payments%20and%20the%20provider%20webhook/T-047%20Story.md) (S-70, User Story, High)
           - ⬜ [T-047-be Backend · Orders, payments and the provider webhook](tasks/T-047%20Orders%2C%20payments%20and%20the%20provider%20webhook/T-047-be%20Backend%20%C2%B7%20Orders%2C%20payments%20and%20the%20provider%20webhook.md) (sub-task of T-047, backend, High)
