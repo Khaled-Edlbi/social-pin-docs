@@ -8,7 +8,7 @@ status: draft
 screens: [s14, s16]
 depends: []
 affects: []
-related: []
+related: ["DR-04 Ring settings at launch and their defaults"]
 pending: []
 approvedBy: ""
 approvedAt: ""
@@ -19,8 +19,6 @@ task: T-004
 ---
 
 # T-004 · Member count per Ring on list and detail · User Story
-
-> ⚠ Affected by [[DR-04 Ring settings at launch and their defaults]] (2026-10-25): D-04 decided, six Ring settings at launch with private defaults (join with a code or invite, approve each one, members can't see each other, invite or save attachments); the owner and the Ring's admins change them; members who may see each other see full cards.
 
 **Task:** [[T-004 Member count per Ring on list and detail]] · **Feature:** [[Counts]] · **Feature-level note:** [[Counts Story]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[T-004 Frontend Requirements]] · **Backend Integration:** [[T-004 Backend Integration]] · **Verified by:** [[T-004 QA Backend]], [[T-004 QA Frontend]]
 
@@ -71,7 +69,7 @@ Acceptance criteria:
 **As a** Ring member **I want** the size of someone else's Ring kept private **so that** membership isn't revealed.
 
 Acceptance criteria:
-- [ ] `memberCount` is on the owner's Rings only; `GET /rings/shared-with-me` doesn't carry it ([[D-04 Ring settings]] decides whether members see each other).
+- [ ] `memberCount` is on the owner's Rings only; `GET /rings/shared-with-me` doesn't carry it. "Members can see each other" is a Ring setting, off by default ([[DR-04 Ring settings at launch and their defaults]]); a member-side count, if any, belongs to that setting's work, not to this task.
 
 ## States and motion the design asks for
 
