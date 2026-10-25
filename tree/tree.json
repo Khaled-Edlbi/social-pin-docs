@@ -4819,7 +4819,7 @@
     }
   },
   "counts": {
-    "blocked": 171,
+    "blocked": 170,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -4840,7 +4840,7 @@
     },
     "concepts": 182,
     "decisions": 16,
-    "edges": 4838,
+    "edges": 4837,
     "features": 39,
     "layerNotes": 185,
     "modules": 8,
@@ -6122,11 +6122,6 @@
       "from": "story:delegated-admins",
       "kind": "blocks",
       "to": "frontend-requirements:delegated-admins"
-    },
-    {
-      "from": "story:e2e-tests",
-      "kind": "blocks",
-      "to": "frontend-requirements:e2e-tests"
     },
     {
       "from": "story:event-ring-auto",
@@ -41947,7 +41942,7 @@
       "deadline": null,
       "depends": [],
       "dir": "modules/Platform & Cross-cutting/E2E Test Run",
-      "effectiveStatus": "todo",
+      "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "e2e-tests",
       "frontendOnly": false,
@@ -41976,7 +41971,8 @@
       ],
       "release": "mvp",
       "rollup": {
-        "blocked": 2,
+        "approved": 1,
+        "blocked": 1,
         "draft": 2,
         "missing": 4,
         "todo": 2
@@ -46300,20 +46296,14 @@
     },
     "frontend-requirements:e2e-tests": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "story:e2e-tests",
-          "title": "E2E Test Run Story",
-          "why": "E2E Test Run Story is draft"
-        }
-      ],
+      "blockedBy": [],
       "card": "FR-34",
       "children": [],
       "code": "e2e-tests",
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "e2e-tests",
       "frontendOnly": false,
@@ -48316,15 +48306,15 @@
       "related": [],
       "release": null,
       "rollup": {
-        "approved": 7,
-        "blocked": 35,
+        "approved": 8,
+        "blocked": 34,
         "decided": 2,
         "done": 2,
         "draft": 25,
-        "in-progress": 8,
+        "in-progress": 9,
         "missing": 42,
         "needs-decision": 1,
-        "todo": 21,
+        "todo": 20,
         "verified": 2
       },
       "scope": null,
@@ -53261,17 +53251,17 @@
         }
       ],
       "rollup": {
-        "approved": 14,
-        "blocked": 171,
+        "approved": 15,
+        "blocked": 170,
         "current": 9,
         "decided": 12,
         "done": 17,
         "draft": 94,
-        "in-progress": 29,
+        "in-progress": 30,
         "missing": 145,
         "needs-decision": 9,
         "reference": 31,
-        "todo": 68,
+        "todo": 67,
         "verified": 12
       },
       "scope": null,
@@ -56903,7 +56893,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "e2e-tests",
       "frontendOnly": false,
@@ -56928,17 +56918,17 @@
       "release": "mvp",
       "scope": "feature",
       "screens": [],
-      "status": "draft",
+      "status": "approved",
       "summary": "The e2e specs boot the whole app through the same configureApp(app) as main.ts and assert the behaviour the Frontend Contract promises: the three-call sign-up, the identical 404 for missing / not…",
       "tags": [
         "story",
-        "story/draft",
+        "story/approved",
         "module/platform",
         "layer/business"
       ],
       "task": null,
       "title": "E2E Test Run Story",
-      "updated": "2026-10-18"
+      "updated": "2026-10-25"
     },
     "story:error-contract": {
       "affects": [],
