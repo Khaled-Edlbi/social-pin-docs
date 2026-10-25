@@ -96,6 +96,7 @@
     "D-05 Copy or inherit": "decision:D-05",
     "D-06 Pin name rules": "decision:D-06",
     "D-07 Payment provider": "decision:D-07",
+    "D-10 How Connect addresses the scanned person": "decision:D-10",
     "DR-01 Code-only login": "decision-record:DR-01",
     "DR-07 Stripe for all four flows": "decision-record:DR-07",
     "Database & Migrations": "project:database-migrations",
@@ -558,6 +559,7 @@
     "D-05": "decision:D-05",
     "D-06": "decision:D-06",
     "D-07": "decision:D-07",
+    "D-10": "decision:D-10",
     "DR-01": "decision-record:DR-01",
     "DR-07": "decision-record:DR-07",
     "F-01": "feature:account",
@@ -2157,6 +2159,7 @@
     },
     "GET /views/pin/:pinName": {
       "containers": [
+        "decision:D-10",
         "feature:connections",
         "feature:discover-hub",
         "feature:e2e-tests",
@@ -2172,6 +2175,7 @@
         "backend-delivery:view-as",
         "backend-integration:profiles",
         "backend-integration:view-as",
+        "decision:D-10",
         "frontend-requirements:connections",
         "frontend-requirements:discover-hub",
         "frontend-requirements:e2e-tests",
@@ -2222,6 +2226,7 @@
     },
     "GET /views/ring/:ringId": {
       "containers": [
+        "decision:D-10",
         "feature:badge-qr",
         "feature:companies",
         "feature:connections",
@@ -2250,6 +2255,7 @@
         "backend-delivery:view-as",
         "backend-integration:ring-projection",
         "backend-integration:view-as",
+        "decision:D-10",
         "frontend-requirements:badge-qr",
         "frontend-requirements:companies",
         "frontend-requirements:connections",
@@ -2285,6 +2291,7 @@
     },
     "GET /views/user/:userId/perspectives": {
       "containers": [
+        "decision:D-10",
         "feature:connections",
         "feature:pincast",
         "feature:ring-access",
@@ -2301,6 +2308,7 @@
         "backend-delivery:view-as",
         "backend-integration:ring-members",
         "backend-integration:view-as",
+        "decision:D-10",
         "frontend-requirements:connections",
         "frontend-requirements:pincast",
         "frontend-requirements:ring-access",
@@ -2635,10 +2643,12 @@
     },
     "POST /connections/requests": {
       "containers": [
+        "decision:D-10",
         "task:T-021"
       ],
       "kind": "endpoint",
       "notes": [
+        "decision:D-10",
         "story:T-021",
         "task:T-021"
       ],
@@ -3898,6 +3908,7 @@
     },
     "s43": {
       "containers": [
+        "decision:D-10",
         "feature:badge-qr",
         "task:T-008",
         "task:T-008-be",
@@ -3906,6 +3917,7 @@
       "kind": "screen",
       "notes": [
         "backend-delivery:badge-qr",
+        "decision:D-10",
         "feature:badge-qr",
         "frontend-requirements:badge-qr",
         "story:T-008",
@@ -3918,6 +3930,7 @@
     },
     "s44": {
       "containers": [
+        "decision:D-10",
         "feature:badge-qr",
         "feature:connections",
         "feature:view-as",
@@ -3937,6 +3950,7 @@
         "backend-delivery:connections",
         "backend-delivery:view-as",
         "backend-integration:view-as",
+        "decision:D-10",
         "feature:badge-qr",
         "feature:connections",
         "feature:view-as",
@@ -4735,11 +4749,11 @@
     }
   },
   "counts": {
-    "blocked": 178,
+    "blocked": 180,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
-      "decision": 7,
+      "decision": 8,
       "decision-record": 2,
       "feature": 39,
       "frontend-requirements": 39,
@@ -4750,17 +4764,17 @@
     },
     "byLayer": {
       "backend": 56,
-      "business": 331,
+      "business": 332,
       "frontend": 43,
       "shared": 10
     },
     "concepts": 180,
-    "decisions": 7,
-    "edges": 4424,
+    "decisions": 8,
+    "edges": 4467,
     "features": 39,
     "layerNotes": 190,
     "modules": 8,
-    "notes": 475,
+    "notes": 476,
     "partial": 0,
     "placeholders": 145,
     "records": 2,
@@ -5478,6 +5492,16 @@
       "from": "decision:D-06",
       "kind": "blocks",
       "to": "task:T-061"
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "blocks",
+      "to": "story:T-008"
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "blocks",
+      "to": "story:T-021"
     },
     {
       "from": "frontend-delivery:account",
@@ -6990,6 +7014,26 @@
       "to": "task:T-049"
     },
     {
+      "from": "decision:D-10",
+      "kind": "decision",
+      "to": "feature:badge-qr"
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "decision",
+      "to": "feature:connections"
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "decision",
+      "to": "story:T-008"
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "decision",
+      "to": "story:T-021"
+    },
+    {
       "from": "project:admin-agent",
       "kind": "depends",
       "to": "project:agent-protocol"
@@ -8453,6 +8497,16 @@
       "from": "decision:D-07",
       "kind": "related",
       "to": "feature:subscription"
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "related",
+      "to": "feature:connections"
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "related",
+      "to": "feature:view-as"
     },
     {
       "from": "feature:account",
@@ -10668,6 +10722,243 @@
       "to": "project:status-report-2026-10-15",
       "via": [
         "POST /rings"
+      ]
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "shares",
+      "to": "feature:badge-qr",
+      "via": [
+        "GET /views/ring/:ringId"
+      ]
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "shares",
+      "to": "feature:companies",
+      "via": [
+        "GET /views/ring/:ringId"
+      ]
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "shares",
+      "to": "feature:connections",
+      "via": [
+        "GET /views/pin/:pinName",
+        "GET /views/ring/:ringId",
+        "GET /views/user/:userId/perspectives"
+      ]
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "shares",
+      "to": "feature:discover-hub",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "shares",
+      "to": "feature:e2e-tests",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "shares",
+      "to": "feature:event-ring-auto",
+      "via": [
+        "GET /views/ring/:ringId"
+      ]
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "shares",
+      "to": "feature:events-during",
+      "via": [
+        "GET /views/ring/:ringId"
+      ]
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "shares",
+      "to": "feature:exhibitor",
+      "via": [
+        "GET /views/ring/:ringId"
+      ]
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "shares",
+      "to": "feature:meetings",
+      "via": [
+        "GET /views/ring/:ringId"
+      ]
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "shares",
+      "to": "feature:pincast",
+      "via": [
+        "GET /views/user/:userId/perspectives"
+      ]
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "shares",
+      "to": "feature:post-event",
+      "via": [
+        "GET /views/ring/:ringId"
+      ]
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "shares",
+      "to": "feature:profiles",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "shares",
+      "to": "feature:ring-access",
+      "via": [
+        "GET /views/pin/:pinName",
+        "GET /views/ring/:ringId",
+        "GET /views/user/:userId/perspectives"
+      ]
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "shares",
+      "to": "feature:ring-invitations",
+      "via": [
+        "GET /views/ring/:ringId"
+      ]
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "shares",
+      "to": "feature:ring-members",
+      "via": [
+        "GET /views/user/:userId/perspectives"
+      ]
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "shares",
+      "to": "feature:ring-projection",
+      "via": [
+        "GET /views/ring/:ringId"
+      ]
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "shares",
+      "to": "feature:rings",
+      "via": [
+        "GET /views/ring/:ringId"
+      ]
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "shares",
+      "to": "feature:view-as",
+      "via": [
+        "GET /views/pin/:pinName",
+        "GET /views/ring/:ringId",
+        "GET /views/user/:userId/perspectives"
+      ]
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "shares",
+      "to": "feature:widgets",
+      "via": [
+        "GET /views/ring/:ringId"
+      ]
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "shares",
+      "to": "project:frontend-api-guide",
+      "via": [
+        "GET /views/pin/:pinName",
+        "GET /views/ring/:ringId",
+        "GET /views/user/:userId/perspectives"
+      ]
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "shares",
+      "to": "project:frontend-contract",
+      "via": [
+        "GET /views/pin/:pinName",
+        "GET /views/ring/:ringId",
+        "GET /views/user/:userId/perspectives"
+      ]
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "shares",
+      "to": "project:ring-access-model",
+      "via": [
+        "GET /views/ring/:ringId"
+      ]
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "shares",
+      "to": "project:spec-map",
+      "via": [
+        "GET /views/ring/:ringId",
+        "GET /views/user/:userId/perspectives"
+      ]
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "shares",
+      "to": "project:status-report-2026-10-15",
+      "via": [
+        "GET /views/pin/:pinName",
+        "GET /views/ring/:ringId",
+        "GET /views/user/:userId/perspectives"
+      ]
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "shares",
+      "to": "task:T-007",
+      "via": [
+        "GET /views/ring/:ringId"
+      ]
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "shares",
+      "to": "task:T-008",
+      "via": [
+        "GET /views/ring/:ringId"
+      ]
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "shares",
+      "to": "task:T-021",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "shares",
+      "to": "task:T-023",
+      "via": [
+        "GET /views/user/:userId/perspectives"
       ]
     },
     {
@@ -20489,6 +20780,16 @@
       "to": "task:T-049"
     },
     {
+      "from": "story:T-008",
+      "kind": "tree",
+      "to": "decision:D-10"
+    },
+    {
+      "from": "story:T-021",
+      "kind": "tree",
+      "to": "decision:D-10"
+    },
+    {
       "from": "story:widgets",
       "kind": "tree",
       "to": "task:T-017"
@@ -22502,6 +22803,31 @@
       "from": "decision:D-07",
       "kind": "wikilink",
       "to": "story:payments"
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "wikilink",
+      "to": "backend-integration:view-as"
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "wikilink",
+      "to": "feature:badge-qr"
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "wikilink",
+      "to": "story:T-007"
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "wikilink",
+      "to": "task:T-008"
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "wikilink",
+      "to": "task:T-021"
     },
     {
       "from": "feature:audit-log",
@@ -30654,6 +30980,10 @@
       "name": "D-07 Payment provider",
       "type": "decision"
     },
+    "decisions/D-10 How Connect addresses the scanned person.md": {
+      "name": "D-10 How Connect addresses the scanned person",
+      "type": "decision"
+    },
     "decisions/DR-01 Code-only login.md": {
       "name": "DR-01 Code-only login",
       "type": "decision-record"
@@ -36883,6 +37213,61 @@
       "title": "D-07 Payment provider",
       "updated": "2026-10-25"
     },
+    "decision:D-10": {
+      "affects": [],
+      "blockedBy": [],
+      "blocks": [
+        "story:T-008",
+        "story:T-021"
+      ],
+      "card": "D-10",
+      "children": [],
+      "code": "D-10",
+      "deadline": null,
+      "decider": "owner",
+      "depends": [],
+      "effectiveStatus": "draft",
+      "effort": null,
+      "feature": null,
+      "features": [
+        "badge-qr",
+        "connections"
+      ],
+      "frontendOnly": false,
+      "id": "decision:D-10",
+      "inherits": {},
+      "kind": "decision",
+      "label": "Needs decision",
+      "labels": [],
+      "layer": "business",
+      "module": null,
+      "parentTask": null,
+      "parents": [
+        "story:T-008",
+        "story:T-021"
+      ],
+      "path": "decisions/D-10 How Connect addresses the scanned person.md",
+      "pending": [],
+      "priority": null,
+      "related": [
+        "feature:view-as",
+        "feature:connections"
+      ],
+      "scope": null,
+      "screens": [
+        "s43",
+        "s44"
+      ],
+      "status": "draft",
+      "summary": "What Connect on a scanned or looked-up card (s44) sends so that the request reaches the right person. The view body the scanner gets has no user id, so today the app has nothing to address the…",
+      "tags": [
+        "decision",
+        "decision/draft"
+      ],
+      "task": null,
+      "title": "D-10 How Connect addresses the scanned person",
+      "updated": "2026-10-25"
+    },
     "feature:account": {
       "affects": [],
       "blockedBy": [],
@@ -37219,7 +37604,7 @@
         "feature:post-event"
       ],
       "rollup": {
-        "blocked": 11,
+        "blocked": 12,
         "draft": 5,
         "missing": 4,
         "needs-decision": 1,
@@ -37496,10 +37881,11 @@
         "feature:discover-hub",
         "feature:pincast",
         "feature:events-before",
-        "feature:post-event"
+        "feature:post-event",
+        "decision:D-10"
       ],
       "rollup": {
-        "blocked": 12,
+        "blocked": 13,
         "draft": 6,
         "missing": 4,
         "needs-decision": 1,
@@ -39603,6 +39989,7 @@
         "feature:meetings",
         "feature:e2e-tests",
         "feature:ring-invitations",
+        "decision:D-10",
         "story:T-023"
       ],
       "rollup": {
@@ -43634,7 +44021,7 @@
       "priority": null,
       "related": [],
       "rollup": {
-        "blocked": 12,
+        "blocked": 13,
         "draft": 6,
         "missing": 4,
         "needs-decision": 1,
@@ -43686,7 +44073,7 @@
       "priority": null,
       "related": [],
       "rollup": {
-        "blocked": 18,
+        "blocked": 19,
         "draft": 10,
         "missing": 12,
         "needs-decision": 2,
@@ -48622,11 +49009,11 @@
       "priority": null,
       "related": [],
       "rollup": {
-        "blocked": 178,
+        "blocked": 180,
         "current": 9,
         "decided": 2,
         "done": 12,
-        "draft": 103,
+        "draft": 102,
         "in-progress": 14,
         "missing": 145,
         "needs-decision": 20,
@@ -48963,13 +49350,21 @@
     },
     "story:T-008": {
       "affects": [],
-      "blockedBy": [],
+      "blockedBy": [
+        {
+          "id": "decision:D-10",
+          "title": "D-10 How Connect addresses the scanned person",
+          "why": "needs decision D-10 (draft)"
+        }
+      ],
       "card": "S-39",
-      "children": [],
+      "children": [
+        "decision:D-10"
+      ],
       "code": "T-008",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "blocked",
       "effort": null,
       "feature": "badge-qr",
       "frontendOnly": false,
@@ -49600,13 +49995,21 @@
     },
     "story:T-021": {
       "affects": [],
-      "blockedBy": [],
+      "blockedBy": [
+        {
+          "id": "decision:D-10",
+          "title": "D-10 How Connect addresses the scanned person",
+          "why": "needs decision D-10 (draft)"
+        }
+      ],
       "card": "S-24",
-      "children": [],
+      "children": [
+        "decision:D-10"
+      ],
       "code": "T-021",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "blocked",
       "effort": null,
       "feature": "connections",
       "frontendOnly": false,
@@ -54573,7 +54976,7 @@
       "priority": "critical",
       "related": [],
       "rollup": {
-        "blocked": 2,
+        "blocked": 3,
         "draft": 1
       },
       "scope": null,
@@ -56987,7 +57390,7 @@
       "priority": "critical",
       "related": [],
       "rollup": {
-        "blocked": 1,
+        "blocked": 2,
         "draft": 1,
         "todo": 1
       },
