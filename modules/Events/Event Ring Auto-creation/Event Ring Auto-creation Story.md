@@ -4,16 +4,19 @@ code: event-ring-auto
 scope: feature
 feature: event-ring-auto
 module: events
-status: draft
+status: approved
 screens: [s52]
+approvedBy: "khaled"
+approvedAt: 2026-10-25
+owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-18
-tags: [story, story/draft, module/events, layer/business]
+updated: 2026-10-25
+tags: [story, story/approved, module/events, layer/business]
 ---
 
 # Event Ring Auto-creation · User Story
 
-**Feature:** [[Event Ring Auto-creation]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Event Ring Auto-creation Frontend Requirements]] · **API Integration:** not yet (backend not built)
+**Feature:** [[Event Ring Auto-creation]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[Event Ring Auto-creation Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 A visitor has just paid for, or RSVP'd to, an event. The product promise is that registration does not end in a receipt but in an identity change: an Event Ring appears in their hub, and "entering" the event means switching to it. This story covers the moment the Ring is granted and the places it has to show up afterwards. The backend has the `EVENT` Ring type and the temporary-Ring lifecycle, but nothing creates the Ring yet ([[T-011 Create the Event Ring on registration]]).
 

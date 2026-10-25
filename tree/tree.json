@@ -4819,7 +4819,7 @@
     }
   },
   "counts": {
-    "blocked": 170,
+    "blocked": 169,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -4840,7 +4840,7 @@
     },
     "concepts": 182,
     "decisions": 16,
-    "edges": 4837,
+    "edges": 4836,
     "features": 39,
     "layerNotes": 185,
     "modules": 8,
@@ -6122,11 +6122,6 @@
       "from": "story:delegated-admins",
       "kind": "blocks",
       "to": "frontend-requirements:delegated-admins"
-    },
-    {
-      "from": "story:event-ring-auto",
-      "kind": "blocks",
-      "to": "frontend-requirements:event-ring-auto"
     },
     {
       "from": "story:events-before",
@@ -42076,7 +42071,7 @@
       "deadline": null,
       "depends": [],
       "dir": "modules/Events/Event Ring Auto-creation",
-      "effectiveStatus": "todo",
+      "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "event-ring-auto",
       "frontendOnly": false,
@@ -42112,7 +42107,8 @@
       ],
       "release": "mvp",
       "rollup": {
-        "blocked": 4,
+        "approved": 1,
+        "blocked": 3,
         "draft": 2,
         "missing": 4
       },
@@ -46388,20 +46384,14 @@
     },
     "frontend-requirements:event-ring-auto": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "story:event-ring-auto",
-          "title": "Event Ring Auto-creation Story",
-          "why": "Event Ring Auto-creation Story is draft"
-        }
-      ],
+      "blockedBy": [],
       "card": "FR-21",
       "children": [],
       "code": "event-ring-auto",
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "event-ring-auto",
       "frontendOnly": false,
@@ -48099,7 +48089,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "todo",
+      "effectiveStatus": "in-progress",
       "effort": null,
       "feature": null,
       "frontendOnly": false,
@@ -48121,12 +48111,14 @@
       "related": [],
       "release": null,
       "rollup": {
-        "blocked": 42,
+        "approved": 1,
+        "blocked": 41,
         "decided": 1,
         "draft": 17,
+        "in-progress": 1,
         "missing": 20,
         "needs-decision": 1,
-        "todo": 7,
+        "todo": 6,
         "verified": 1
       },
       "scope": null,
@@ -53251,17 +53243,17 @@
         }
       ],
       "rollup": {
-        "approved": 15,
-        "blocked": 170,
+        "approved": 16,
+        "blocked": 169,
         "current": 9,
         "decided": 12,
         "done": 17,
         "draft": 94,
-        "in-progress": 30,
+        "in-progress": 32,
         "missing": 145,
         "needs-decision": 9,
         "reference": 31,
-        "todo": 67,
+        "todo": 65,
         "verified": 12
       },
       "scope": null,
@@ -56990,7 +56982,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "event-ring-auto",
       "frontendOnly": false,
@@ -57017,17 +57009,17 @@
       "screens": [
         "s52"
       ],
-      "status": "draft",
+      "status": "approved",
       "summary": "A visitor has just paid for, or RSVP'd to, an event. The product promise is that registration does not end in a receipt but in an identity change: an Event Ring appears in their hub, and…",
       "tags": [
         "story",
-        "story/draft",
+        "story/approved",
         "module/events",
         "layer/business"
       ],
       "task": null,
       "title": "Event Ring Auto-creation Story",
-      "updated": "2026-10-18"
+      "updated": "2026-10-25"
     },
     "story:events-before": {
       "affects": [],
