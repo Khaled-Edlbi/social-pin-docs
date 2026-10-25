@@ -4819,7 +4819,7 @@
     }
   },
   "counts": {
-    "blocked": 151,
+    "blocked": 150,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -4840,7 +4840,7 @@
     },
     "concepts": 182,
     "decisions": 16,
-    "edges": 4818,
+    "edges": 4817,
     "features": 39,
     "layerNotes": 185,
     "modules": 8,
@@ -6122,11 +6122,6 @@
       "from": "story:ring-invitations",
       "kind": "blocks",
       "to": "frontend-requirements:ring-invitations"
-    },
-    {
-      "from": "story:ring-members",
-      "kind": "blocks",
-      "to": "frontend-requirements:ring-members"
     },
     {
       "from": "story:ring-projection",
@@ -43395,7 +43390,7 @@
       ],
       "release": "mvp",
       "rollup": {
-        "blocked": 1,
+        "approved": 1,
         "current": 1,
         "decided": 1,
         "done": 1,
@@ -47201,20 +47196,14 @@
     },
     "frontend-requirements:ring-members": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "story:ring-members",
-          "title": "Ring Members Story",
-          "why": "Ring Members Story is draft"
-        }
-      ],
+      "blockedBy": [],
       "card": "FR-09",
       "children": [],
       "code": "ring-members",
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "ring-members",
       "frontendOnly": false,
@@ -47996,8 +47985,8 @@
       "related": [],
       "release": null,
       "rollup": {
-        "approved": 10,
-        "blocked": 25,
+        "approved": 11,
+        "blocked": 24,
         "current": 9,
         "decided": 6,
         "done": 15,
@@ -53063,8 +53052,8 @@
         }
       ],
       "rollup": {
-        "approved": 34,
-        "blocked": 151,
+        "approved": 35,
+        "blocked": 150,
         "current": 9,
         "decided": 12,
         "done": 17,
@@ -57789,7 +57778,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "ring-members",
       "frontendOnly": false,
@@ -57822,11 +57811,11 @@
         "s15",
         "s47"
       ],
-      "status": "draft",
+      "status": "approved",
       "summary": "A Ring owner manages who is in a Ring: sees the roster, adds someone, gives them a time-boxed window, moves them to another Ring when the relationship changes, or revokes them. Every change is…",
       "tags": [
         "story",
-        "story/draft",
+        "story/approved",
         "module/identity",
         "layer/business"
       ],
