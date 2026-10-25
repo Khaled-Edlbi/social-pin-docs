@@ -4819,7 +4819,7 @@
     }
   },
   "counts": {
-    "blocked": 156,
+    "blocked": 155,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -4840,7 +4840,7 @@
     },
     "concepts": 182,
     "decisions": 16,
-    "edges": 4823,
+    "edges": 4822,
     "features": 39,
     "layerNotes": 185,
     "modules": 8,
@@ -6117,11 +6117,6 @@
       "from": "story:gemma",
       "kind": "blocks",
       "to": "frontend-requirements:gemma"
-    },
-    {
-      "from": "story:onboarding-imports",
-      "kind": "blocks",
-      "to": "frontend-requirements:onboarding-imports"
     },
     {
       "from": "story:payments",
@@ -42804,7 +42799,8 @@
       ],
       "release": "v1",
       "rollup": {
-        "blocked": 6,
+        "approved": 1,
+        "blocked": 5,
         "decided": 1,
         "draft": 3,
         "missing": 4,
@@ -46824,20 +46820,14 @@
     },
     "frontend-requirements:onboarding-imports": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "story:onboarding-imports",
-          "title": "Onboarding Imports Story",
-          "why": "Onboarding Imports Story is draft"
-        }
-      ],
+      "blockedBy": [],
       "card": "FR-05",
       "children": [],
       "code": "onboarding-imports",
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "onboarding-imports",
       "frontendOnly": false,
@@ -48048,8 +48038,8 @@
       "related": [],
       "release": null,
       "rollup": {
-        "approved": 6,
-        "blocked": 29,
+        "approved": 7,
+        "blocked": 28,
         "current": 9,
         "decided": 6,
         "done": 15,
@@ -53115,8 +53105,8 @@
         }
       ],
       "rollup": {
-        "approved": 29,
-        "blocked": 156,
+        "approved": 30,
+        "blocked": 155,
         "current": 9,
         "decided": 12,
         "done": 17,
@@ -57395,7 +57385,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "onboarding-imports",
       "frontendOnly": false,
@@ -57428,11 +57418,11 @@
         "s04",
         "s05"
       ],
-      "status": "draft",
+      "status": "approved",
       "summary": "A new user has just verified their code and does not want to type a profile from scratch. They start from something they already have: a LinkedIn account, a paper business card, or a portfolio…",
       "tags": [
         "story",
-        "story/draft",
+        "story/approved",
         "module/identity",
         "layer/business"
       ],
