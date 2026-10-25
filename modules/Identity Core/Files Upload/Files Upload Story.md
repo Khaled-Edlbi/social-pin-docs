@@ -4,16 +4,18 @@ code: files
 scope: feature
 feature: files
 module: identity
-status: draft
+status: approved
 screens: [s14, s20, s36]
-owner: "omar"
+approvedBy: "khaled"
+approvedAt: 2026-10-25
+owner: "khaled"
 updated: 2026-10-25
-tags: [story, story/draft, module/identity, layer/business]
+tags: [story, story/approved, module/identity, layer/business]
 ---
 
 # Files Upload · User Story
 
-**Feature:** [[Files Upload]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Files Upload Frontend Requirements]] · **Backend Integration:** [[Files Upload Backend Integration]]
+**Feature:** [[Files Upload]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[Files Upload Frontend Requirements]] · **Backend Integration:** [[Files Upload Backend Integration]]
 
 A Ring owner wants a Ring to carry a photo and a few documents (a portfolio PDF, a pitch deck) without those files becoming public. Upload is a private step: a file belongs to the uploader and is visible to nobody until a Ring projection references it, at which point whoever may see that Ring may see the file. The client's job is to make the two steps (upload, then attach) feel like one.
 
