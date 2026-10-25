@@ -8,15 +8,10 @@ kanban-plugin: board
 
 ## ❓ Needs a decision / info
 
-- [ ] [[T-057 Decide base profile work fields]] #critical #profiles
-- [ ] [[T-058 Decide field library vs per-Ring copies]] #critical #ring-projection
-- [ ] [[T-059 Decide Ring settings]] #critical #rings
 - [ ] [[T-018 Widget CRUD on the projection]] #high #widgets
 - [ ] [[T-026 Ring invitations invite, review, decline]] #high #ring-invitations
 - [ ] [[T-039 Catalogue products and talks (new table)]] #high #events-during
 - [ ] [[T-047 Orders, payments and the provider webhook]] #high #payments
-- [ ] [[T-060 Decide copy or inherit]] #high #ring-projection
-- [ ] [[T-061 Decide Pin name rules]] #high #profiles
 - [ ] [[T-020b Business card scan and portfolio URL import]] #medium #onboarding-imports
 - [ ] [[T-025 Introduce a connection to another]] #medium #connections
 - [ ] [[T-028 What you contribute to a shared Ring]] #medium #ring-invitations
@@ -202,6 +197,11 @@ kanban-plugin: board
 ## ✅ Done
 
 - [x] [[T-056 Decide passwordless login]] #critical #auth
+- [x] [[T-057 Decide base profile work fields]] #critical #profiles
+- [x] [[T-058 Decide field library vs per-Ring copies]] #critical #ring-projection
+- [x] [[T-059 Decide Ring settings]] #critical #rings
+- [x] [[T-060 Decide copy or inherit]] #high #ring-projection
+- [x] [[T-061 Decide Pin name rules]] #high #profiles
 - [x] [[T-064 Restructure the docs vault]] #high #error-contract
 
 
