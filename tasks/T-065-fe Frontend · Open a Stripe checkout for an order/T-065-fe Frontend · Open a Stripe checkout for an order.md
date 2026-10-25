@@ -21,6 +21,8 @@ tags: [task, task/done, module/payments-gateway, priority/high, frontend]
 
 # ✅ T-065-fe · Frontend: Open a Stripe checkout for an order
 
+> ⚠ Affected by [[T-065-fe QA Frontend]] (2026-10-25): QA Frontend passing on `t065-fe-sim-2026-10-25` (simulated), F1–F10; the `@qa` pending item can be cleared and the QA box ticked.
+
 **Parent:** [[T-065 Open a Stripe checkout for an order]] · **Feature:** [[Pay for an order]] · **Side:** Frontend · **Status:** Done (simulated) · **Priority:** high · **Effort:** M (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-065-fe` when the team picks it up): [[T-065-fe Frontend Requirements|Frontend Requirements]] · [[T-065-fe Frontend Delivery|Frontend Delivery]] · [[T-065-fe QA Frontend|QA Frontend]]
