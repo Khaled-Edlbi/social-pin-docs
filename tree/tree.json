@@ -4673,7 +4673,7 @@
     }
   },
   "counts": {
-    "blocked": 180,
+    "blocked": 179,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -4694,7 +4694,7 @@
     },
     "concepts": 177,
     "decisions": 9,
-    "edges": 4382,
+    "edges": 4381,
     "features": 40,
     "layerNotes": 191,
     "modules": 9,
@@ -6820,11 +6820,6 @@
     {
       "from": "task:T-047",
       "kind": "blocks",
-      "to": "story:payments"
-    },
-    {
-      "from": "task:T-047",
-      "kind": "blocks",
       "to": "task:T-035"
     },
     {
@@ -7131,11 +7126,6 @@
       "from": "story:payments",
       "kind": "depends",
       "to": "decision:D-08"
-    },
-    {
-      "from": "story:payments",
-      "kind": "depends",
-      "to": "task:T-047"
     },
     {
       "from": "task:T-002",
@@ -10674,6 +10664,11 @@
     {
       "from": "story:payments",
       "kind": "related",
+      "to": "decision:D-09"
+    },
+    {
+      "from": "story:payments",
+      "kind": "related",
       "to": "feature:audit-log"
     },
     {
@@ -10699,6 +10694,11 @@
     {
       "from": "story:payments",
       "kind": "related",
+      "to": "story:pay-for-an-order"
+    },
+    {
+      "from": "story:payments",
+      "kind": "related",
       "to": "story:T-047",
       "via": [
         "sum-of"
@@ -10718,6 +10718,11 @@
       "from": "story:payments",
       "kind": "related",
       "to": "task:T-040"
+    },
+    {
+      "from": "story:payments",
+      "kind": "related",
+      "to": "task:T-047"
     },
     {
       "from": "story:photo-library",
@@ -21830,11 +21835,6 @@
       "to": "module:payments-gateway"
     },
     {
-      "from": "decision:D-09",
-      "kind": "wikilink",
-      "to": "story:payments"
-    },
-    {
       "from": "feature:audit-log",
       "kind": "wikilink",
       "to": "task:T-053"
@@ -26563,11 +26563,6 @@
       "from": "story:payments",
       "kind": "wikilink",
       "to": "story:exhibitor"
-    },
-    {
-      "from": "story:payments",
-      "kind": "wikilink",
-      "to": "story:pay-for-an-order"
     },
     {
       "from": "story:payments",
@@ -36452,7 +36447,8 @@
         "task:T-034",
         "feature:payments",
         "feature:events-before",
-        "decision-record:DR-08"
+        "decision-record:DR-08",
+        "story:payments"
       ],
       "scope": null,
       "screens": [
@@ -38450,9 +38446,9 @@
       ],
       "rollup": {
         "approved": 1,
-        "blocked": 3,
+        "blocked": 2,
         "decided": 1,
-        "draft": 1,
+        "draft": 2,
         "missing": 4,
         "needs-decision": 1,
         "todo": 1
@@ -43344,9 +43340,9 @@
       "related": [],
       "rollup": {
         "approved": 1,
-        "blocked": 6,
+        "blocked": 5,
         "decided": 1,
-        "draft": 3,
+        "draft": 4,
         "missing": 8,
         "needs-decision": 1,
         "todo": 5
@@ -48530,11 +48526,11 @@
       "related": [],
       "rollup": {
         "approved": 3,
-        "blocked": 180,
+        "blocked": 179,
         "current": 9,
         "decided": 3,
         "done": 12,
-        "draft": 102,
+        "draft": 103,
         "in-progress": 16,
         "missing": 151,
         "needs-decision": 21,
@@ -52812,6 +52808,7 @@
       "pending": [],
       "priority": "high",
       "related": [
+        "story:payments",
         "feature:payments",
         "feature:events-before",
         "feature:event-ring-auto",
@@ -52842,13 +52839,7 @@
         "feature:events-before",
         "feature:events-during"
       ],
-      "blockedBy": [
-        {
-          "id": "task:T-047",
-          "title": "T-047 Orders, payments and the provider webhook",
-          "why": "T-047 Orders, payments and the provider webhook is needs decision"
-        }
-      ],
+      "blockedBy": [],
       "card": "S-69",
       "children": [
         "task:T-047"
@@ -52857,10 +52848,9 @@
       "deadline": null,
       "depends": [
         "decision:D-07",
-        "decision:D-08",
-        "task:T-047"
+        "decision:D-08"
       ],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "payments",
       "frontendOnly": false,
@@ -52882,7 +52872,10 @@
       "priority": "high",
       "related": [
         "feature:pay-for-an-order",
+        "story:pay-for-an-order",
+        "decision:D-09",
         "decision-record:DR-08",
+        "task:T-047",
         "feature:events-before",
         "feature:events-during",
         "feature:subscription",
@@ -61565,7 +61558,9 @@
       "path": "tasks/T-047 Orders, payments and the provider webhook/T-047 Orders, payments and the provider webhook.md",
       "pending": [],
       "priority": "high",
-      "related": [],
+      "related": [
+        "story:payments"
+      ],
       "rollup": {
         "approved": 1,
         "decided": 1,
