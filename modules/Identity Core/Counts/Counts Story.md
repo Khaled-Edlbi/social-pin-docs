@@ -8,12 +8,11 @@ status: draft
 screens: [s11, s12, s14, s16, s17, s68]
 owner: "omar"
 updated: 2026-10-25
+related: ["DR-04 Ring settings at launch and their defaults", "DR-14 Shared with me lists people, never the Ring"]
 tags: [story, story/draft, module/identity, layer/business]
 ---
 
 # Counts · User Story
-
-> ⚠ Affected by [[DR-04 Ring settings at launch and their defaults]] (2026-10-25): D-04 decided, six Ring settings at launch with private defaults (join with a code or invite, approve each one, members can't see each other, invite or save attachments); the owner and the Ring's admins change them; members who may see each other see full cards.
 
 **Feature:** [[Counts]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Counts Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
@@ -42,8 +41,8 @@ Acceptance criteria:
 **As a** Ring owner **I want** the tab chips to read "My Rings · 5" and "Shared with me · 2" **so that** I can see both sides of my network at a glance.
 
 Acceptance criteria:
-- [ ] "My Rings · N" is `meta.total` of `GET /rings`; "Shared with me · N" is `meta.total` of `GET /rings/shared-with-me`, which counts only Rings whose access is live right now.
-- [ ] Each owned Ring row shows "N people" when the member count exists; a shared Ring row never shows a member count (membership is private to the owner).
+- [ ] "My Rings · N" is `meta.total` of `GET /rings`; "Shared with me · N" counts the **people** who share with me right now, one per person, since Shared with me lists people, not Rings ([[DR-14 Shared with me lists people, never the Ring]]). Not available yet: `meta.total` of `GET /rings/shared-with-me` counts live Rings today, so someone sharing two Rings counts twice.
+- [ ] Each owned Ring row shows "N people" when the member count exists; a row on Shared with me is a person and never shows a member count.
 - [ ] The shared count can change without any action of the viewer; it refetches on screen focus.
 
 ### S3 · Ring data header ([[Screen Index#s14|s14]])
@@ -80,11 +79,11 @@ Acceptance criteria:
 ## Rules the backend already enforces
 
 - Access is resolved per request against `now`; a member count must apply the same `membershipLiveFilter` / `ringLiveFilter` logic or it will disagree with what viewers can actually see.
-- Membership is private to the owner. A count on a Ring shared with the viewer would reveal membership information; it waits on [[D-04 Ring settings]] ("members can see each other").
+- Membership is private to the owner. "Members can see each other" is a Ring setting, off by default ([[DR-04 Ring settings at launch and their defaults]], not available yet); while it is off, nothing on the member's side counts the Ring's members.
 - `GET /rings/shared-with-me` already returns only live-accessible Rings, so its `meta.total` is a truthful "Shared with me · N".
 - Connections do not exist yet; nothing can be counted.
 
 ## Open questions
 
 - Whether the member count rides on `RingEntity` (`memberCount`) or on a separate stats endpoint is left open in [[T-004 Member count per Ring on list and detail]]; the client prefers it on the entity so the list needs one call.
-- [[D-04 Ring settings]] — whether a shared Ring may ever show a member count to its members.
+- Whether members of a Ring with "members can see each other" on see a member count: DR-04 says they see each other's full cards, and the count follows from that list; not asked separately ([[DR-04 Ring settings at launch and their defaults]], *Still open*). It never shows on Shared with me, which names no Ring.
