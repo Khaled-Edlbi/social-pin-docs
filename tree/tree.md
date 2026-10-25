@@ -604,7 +604,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
       - ✅ [Pay for an order Frontend Requirements](modules/Payments%20Gateway/Pay%20for%20an%20order/Pay%20for%20an%20order%20Frontend%20Requirements.md) (FR-41, Frontend Requirements, High)
       - 🟡 [Pay for an order Backend Delivery](modules/Payments%20Gateway/Pay%20for%20an%20order/Pay%20for%20an%20order%20Backend%20Delivery.md) (BD-41, Backend Delivery, 2 pending notes, High)
       - ✅ [Pay for an order Backend Integration](modules/Payments%20Gateway/Pay%20for%20an%20order/Pay%20for%20an%20order%20Backend%20Integration.md) (BI-11, Backend Integration, High)
-      - ∅ _Pay for an order QA Backend_ (QA Backend)
+      - 🟡 [Pay for an order QA Backend](modules/Payments%20Gateway/Pay%20for%20an%20order/Pay%20for%20an%20order%20QA%20Backend.md) (QB-02, QA Backend, 1 pending note, High)
       - ∅ _Pay for an order Frontend Delivery_ (Frontend Delivery)
       - ∅ _Pay for an order QA Frontend_ (QA Frontend, blocked by Pay for an order Frontend Delivery)
       - ✅ [D-08 Payment methods and gateways on s51](decisions/D-08%20Payment%20methods%20and%20gateways%20on%20s51.md) (Decision)
