@@ -6,9 +6,9 @@ tags: [map]
 
 # Decisions
 
-Where the design and the backend disagree, and every other decision a card needs before it can continue. A decision card is created from the card that needs it (`node scripts/build-tree.mjs --scaffold decision "<card>" "<title>"`); its `blocks:` names that card, which shows **Blocked · D-NN** until the decision is `decided` ([[Agent Rules#4 · Statuses, blocking and sign-off]]). Each needs a decision before the related tasks can be built without rework. Two cards per decision: the decision card `D-NN` holds the question (problem, facts, options, recommendation) and stays open until the decision is taken; the **decision record** `DR-NN` holds the answer (what was decided, why, what it changes, what stays open), is written when it is taken (`node scripts/build-tree.mjs --scaffold record D-NN "<the answer>"`) and hangs under the decision in the tree.
+Where the design and the backend disagree, and every other decision a card needs before it can continue. A **needs-decision card** is created from the card that needs it (`node scripts/build-tree.mjs --scaffold decision "<card>" "<title>"`); its `blocks:` names that card, which shows **Blocked · D-NN** until it is `decided` ([[Agent Rules#4 · Statuses, blocking and sign-off]]). Each needs a decision before the related tasks can be built without rework. Two cards per decision: the needs-decision card `D-NN` (on the page `D-NN · NEEDS DECISION`, then `D-NN · DECIDED`) holds the question (problem, facts, options, recommendation) and stays open until the decision is taken; the **decision card** `DR-NN` (`DR-NN · DECISION`) holds the answer (what was decided, why, what it changes, what stays open), is written when it is taken (`node scripts/build-tree.mjs --scaffold record D-NN "<the answer>"`) and hangs under its needs-decision card in the tree.
 
-| Decision | Status | Record | Affects | Screens |
+| Needs decision (D-NN) | Status | Decision (DR-NN) | Affects | Screens |
 |---|---|---|---|---|
 | [[D-01 Passwordless login]] | decided (A, code-only) | [[DR-01 Code-only login]] | [[Auth & Sign-up]], [[Linked Accounts (OAuth)]] | s01, s02 |
 | [[D-02 Base profile work fields]] | open | — | [[Profiles & Pin Name]], [[Ring Projection]], [[Onboarding Imports]], [[Photo Library]] | s05, s06, s11, s23, s29 |

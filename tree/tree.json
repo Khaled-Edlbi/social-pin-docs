@@ -42842,7 +42842,7 @@
       ],
       "task": null,
       "title": "DR-01 Code-only login",
-      "updated": "2026-10-22"
+      "updated": "2026-10-25"
     },
     "decision-record:DR-07": {
       "affects": [
@@ -42892,13 +42892,13 @@
       "scope": null,
       "screens": [],
       "status": "decided",
-      "summary": "Social Pin's share of organizer payouts, and the refund window and who may refund, each on its own decision card when a feature needs it. Which payment methods an organizer may offer was raised as…",
+      "summary": "Social Pin's share of organizer payouts, and the refund window and who may refund, each on its own needs-decision card when a feature needs it. Which payment methods an organizer may offer was…",
       "tags": [
         "decision-record"
       ],
       "task": null,
       "title": "DR-07 Stripe for all four flows",
-      "updated": "2026-10-22"
+      "updated": "2026-10-25"
     },
     "decision-record:DR-08": {
       "affects": [
@@ -42956,13 +42956,13 @@
       "scope": null,
       "screens": [],
       "status": "decided",
-      "summary": "Local payment methods and a second gateway, on a new decision card when an organizer's market asks for them.",
+      "summary": "Local payment methods and a second gateway, on a new needs-decision card when an organizer's market asks for them.",
       "tags": [
         "decision-record"
       ],
       "task": null,
       "title": "DR-08 Stripe card checkout only",
-      "updated": "2026-10-22"
+      "updated": "2026-10-25"
     },
     "decision-record:DR-09": {
       "affects": [
@@ -43018,7 +43018,7 @@
       "scope": null,
       "screens": [],
       "status": "decided",
-      "summary": "Whether the buyer can extend a hold (a new checkout on the same order before it ends), and what the organizer sees of held items, on a new decision card when a card needs it.",
+      "summary": "Whether the buyer can extend a hold (a new checkout on the same order before it ends), and what the organizer sees of held items, on a new needs-decision card when a card needs it.",
       "tags": [
         "decision-record"
       ],
@@ -43077,7 +43077,7 @@
       ],
       "task": null,
       "title": "D-01 Passwordless login",
-      "updated": "2026-10-22"
+      "updated": "2026-10-25"
     },
     "decision:D-02": {
       "affects": [],
@@ -43404,7 +43404,7 @@
       ],
       "task": null,
       "title": "D-07 Payment provider",
-      "updated": "2026-10-22"
+      "updated": "2026-10-25"
     },
     "decision:D-08": {
       "affects": [],
@@ -43460,7 +43460,7 @@
       ],
       "task": null,
       "title": "D-08 Payment methods and gateways on s51",
-      "updated": "2026-10-22"
+      "updated": "2026-10-25"
     },
     "decision:D-09": {
       "affects": [

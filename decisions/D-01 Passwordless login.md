@@ -7,7 +7,7 @@ screens: [s01, s02]
 decidedBy: "product + backend lead"
 decidedAt: 2026-10-15
 created: 2026-10-15
-updated: 2026-10-22
+updated: 2026-10-25
 tags: [decision, decision/decided]
 ---
 
@@ -48,4 +48,4 @@ Screens: [[Screen Index#s01|s01]], [[Screen Index#s02|s02]]
 
 ## Decision
 
-Decided 2026-10-15 by product + backend lead: option A, on its own card, [[DR-01 Code-only login]] (what was decided, why, what it changes).
+Decided 2026-10-15 by product + backend lead: option A, on its decision card, [[DR-01 Code-only login]] (what was decided, why, what it changes).

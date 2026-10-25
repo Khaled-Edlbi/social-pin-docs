@@ -15,9 +15,9 @@ tags: [decision-record]
 
 # ⚖️ DR-09 · 30-minute hold tied to the Stripe checkout
 
-**Decides:** [[D-09 How long an unpaid order holds its tickets]] · **Decided by:** khaled · **On:** 2026-10-25 · **Feature:** [[Pay for an order]]
+**Answers:** [[D-09 How long an unpaid order holds its tickets]] · **Decided by:** khaled · **On:** 2026-10-25 · **Feature:** [[Pay for an order]]
 
-> This card is the answer to [[D-09 How long an unpaid order holds its tickets]]. The decision card keeps the question, the facts and the options; this one says what was decided, why, and what it changes. It is written when the decision is taken, by the PM or the owner on the user's word, never before; the decision is `decided` once this card exists.
+> This card is the answer to [[D-09 How long an unpaid order holds its tickets]]. The needs-decision card keeps the question, the facts and the options; this decision card says what was decided, why, and what it changes. It is written when the decision is taken, by the PM or the owner on the user's word, never before; the needs-decision card is `decided` once this card exists.
 
 ## What was decided
 
@@ -39,4 +39,4 @@ tags: [decision-record]
 
 ## Still open
 
-Whether the buyer can extend a hold (a new checkout on the same order before it ends), and what the organizer sees of held items, on a new decision card when a card needs it.
+Whether the buyer can extend a hold (a new checkout on the same order before it ends), and what the organizer sees of held items, on a new needs-decision card when a card needs it.

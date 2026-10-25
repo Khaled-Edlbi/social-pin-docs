@@ -48,4 +48,4 @@ PM's recommendation: option 2, the shortest hold that lets a failed card be retr
 
 ## Decision
 
-Decided 2026-10-25 by khaled: option 2, on its own card, [[DR-09 30-minute hold tied to the Stripe checkout]] (what was decided, why, what it changes).
+Decided 2026-10-25 by khaled: option 2, on its decision card, [[DR-09 30-minute hold tied to the Stripe checkout]] (what was decided, why, what it changes).

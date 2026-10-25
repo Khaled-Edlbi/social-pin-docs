@@ -12,7 +12,7 @@ decidedBy: "khaled"
 decidedAt: 2026-10-22
 owner: "khaled"
 created: 2026-10-22
-updated: 2026-10-22
+updated: 2026-10-25
 tags: [decision, decision/decided]
 ---
 
@@ -29,7 +29,7 @@ Which payment methods, and through which gateways, an organizer may offer a buye
 ## Notes
 
 - The design asks for payment methods per organizer: card, e-payment and others ([[Wireframe Brief#Tickets, access levels, RSVP, registration, payment|§7.3]]); the prototype's s51 has one action, pay, and no method picker ([[Pay for an order]]).
-- D-07 chose Stripe for all four flows and said a market Stripe does not serve is a new decision card then, not a second provider now ([[D-07 Payment provider]]).
+- D-07 chose Stripe for all four flows and said a market Stripe does not serve is a new needs-decision card then, not a second provider now ([[D-07 Payment provider]]).
 - Stripe's hosted checkout can present local methods on its own page (wallets, bank transfers, regional e-payment) without the method passing through Social Pin; a second gateway would be the first integration outside the [[Payments Gateway Module]] and would break the one-callback, one-audit-trail rule the module note keeps.
 - The product has not written down the organizers' market, which decides which local methods matter.
 - [[Payments & Orders]] keeps the order idempotent on one `providerReference`; a second gateway needs a second reference shape.
@@ -47,4 +47,4 @@ Which payment methods, and through which gateways, an organizer may offer a buye
 
 ## Decision
 
-Decided 2026-10-22 by khaled: option 1, on its own card, [[DR-08 Stripe card checkout only]] (what was decided, why, what it changes).
+Decided 2026-10-22 by khaled: option 1, on its decision card, [[DR-08 Stripe card checkout only]] (what was decided, why, what it changes).
