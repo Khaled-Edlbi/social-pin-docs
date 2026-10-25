@@ -4681,7 +4681,7 @@
     },
     "concepts": 177,
     "decisions": 8,
-    "edges": 4328,
+    "edges": 4335,
     "features": 40,
     "layerNotes": 190,
     "modules": 9,
@@ -7013,6 +7013,16 @@
       "from": "project:qa-agent",
       "kind": "depends",
       "to": "project:agent-protocol"
+    },
+    {
+      "from": "story:events-before",
+      "kind": "depends",
+      "to": "decision:D-07"
+    },
+    {
+      "from": "story:events-before",
+      "kind": "depends",
+      "to": "decision:D-08"
     },
     {
       "from": "task:T-002",
@@ -10288,6 +10298,26 @@
       "via": [
         "sum-of"
       ]
+    },
+    {
+      "from": "story:events-before",
+      "kind": "related",
+      "to": "decision-record:DR-08"
+    },
+    {
+      "from": "story:events-before",
+      "kind": "related",
+      "to": "feature:event-ring-auto"
+    },
+    {
+      "from": "story:events-before",
+      "kind": "related",
+      "to": "feature:pay-for-an-order"
+    },
+    {
+      "from": "story:events-before",
+      "kind": "related",
+      "to": "feature:payments"
     },
     {
       "from": "story:events-before",
@@ -22584,6 +22614,11 @@
     {
       "from": "frontend-requirements:events-before",
       "kind": "wikilink",
+      "to": "feature:pay-for-an-order"
+    },
+    {
+      "from": "frontend-requirements:events-before",
+      "kind": "wikilink",
       "to": "frontend-requirements:event-ring-auto"
     },
     {
@@ -26049,6 +26084,11 @@
     {
       "from": "story:events-before",
       "kind": "wikilink",
+      "to": "decision:D-07"
+    },
+    {
+      "from": "story:events-before",
+      "kind": "wikilink",
       "to": "story:event-ring-auto"
     },
     {
@@ -26070,11 +26110,6 @@
       "from": "story:events-before",
       "kind": "wikilink",
       "to": "task:T-023"
-    },
-    {
-      "from": "story:events-before",
-      "kind": "wikilink",
-      "to": "task:T-047"
     },
     {
       "from": "story:events-during",
@@ -35667,7 +35702,8 @@
       "priority": null,
       "related": [
         "decision:D-08",
-        "decision:D-07"
+        "decision:D-07",
+        "story:events-before"
       ],
       "scope": null,
       "screens": [],
@@ -37207,7 +37243,8 @@
         "project:api-conventions",
         "project:spec-map",
         "feature:meetings",
-        "feature:pay-for-an-order"
+        "feature:pay-for-an-order",
+        "story:events-before"
       ],
       "rollup": {
         "blocked": 4,
@@ -38008,7 +38045,8 @@
         "project:ring-access-model",
         "project:architecture",
         "project:api-conventions",
-        "project:spec-map"
+        "project:spec-map",
+        "story:events-before"
       ],
       "rollup": {
         "approved": 1,
@@ -38078,7 +38116,8 @@
         "project:spec-map",
         "feature:pay-for-an-order",
         "decision:D-07",
-        "decision:D-08"
+        "decision:D-08",
+        "story:events-before"
       ],
       "rollup": {
         "approved": 1,
@@ -51886,7 +51925,10 @@
       ],
       "code": "events-before",
       "deadline": null,
-      "depends": [],
+      "depends": [
+        "decision:D-07",
+        "decision:D-08"
+      ],
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "events-before",
@@ -51907,7 +51949,12 @@
       "path": "modules/Events/Events Before/Events Before Story.md",
       "pending": [],
       "priority": "critical",
-      "related": [],
+      "related": [
+        "feature:pay-for-an-order",
+        "feature:payments",
+        "feature:event-ring-auto",
+        "decision-record:DR-08"
+      ],
       "scope": "feature",
       "screens": [
         "s48",
@@ -51926,7 +51973,7 @@
       ],
       "task": null,
       "title": "Events Before Story",
-      "updated": "2026-10-18"
+      "updated": "2026-10-25"
     },
     "story:events-during": {
       "affects": [],
