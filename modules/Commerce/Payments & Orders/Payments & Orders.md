@@ -5,15 +5,13 @@ name: "Payments & Orders"
 priority: high
 module: commerce
 screens: [s50, s51]
-updated: 2026-10-19
+updated: 2026-10-25
 tags: [feature, module/commerce, priority/high]
 ---
 
 # Payments & Orders
 
-> ⚠ Affected by [[DR-09 30-minute hold tied to the Stripe checkout]] (2026-10-25): an order holds its items against sold-out for 30 minutes from creation and is abandoned when the hold ends unpaid.
-
-> ⚠ Affected by [[D-07 Payment provider]] (2026-10-21): the provider is Stripe; the order and its state stay here, the Stripe integration and the settlement webhook move to the Payments Gateway module's first feature, described once.
+> ⚠ Affected by [[D-07 Payment provider]] (2026-10-21): the provider is Stripe; the order, its payment on s51 through Stripe's hosted checkout and the settlement webhook are this feature's.
 
 **Backend:** TODO · **Priority:** High · **Module:** [[Commerce Module|Commerce]]
 

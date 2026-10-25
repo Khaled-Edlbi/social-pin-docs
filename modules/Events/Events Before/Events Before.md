@@ -6,13 +6,11 @@ priority: critical
 module: events
 screens: [s48, s49, s50, s51, s52]
 related: ["Rings"]
-updated: 2026-10-19
+updated: 2026-10-25
 tags: [feature, module/events, priority/critical]
 ---
 
 # Events Before
-
-> ⚠ Affected by [[DR-09 30-minute hold tied to the Stripe checkout]] (2026-10-25): s50's remaining capacity and "Sold out" count held items as taken; an unpaid order holds its items for 30 minutes.
 
 **Backend:** TODO · **Priority:** Critical · **Module:** [[Events Module|Events]]
 

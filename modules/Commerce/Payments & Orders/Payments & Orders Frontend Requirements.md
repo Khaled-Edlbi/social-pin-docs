@@ -6,15 +6,13 @@ feature: payments
 module: commerce
 status: draft
 screens: [s50, s51]
-updated: 2026-10-18
+updated: 2026-10-25
 tags: [frontend-requirements, frontend-requirements/draft, module/commerce, layer/frontend]
 ---
 
 # Payments & Orders · Frontend Requirements
 
-> ⚠ Affected by [[Payments & Orders Story]] (2026-10-25): the story is redrawn to the order only (s50, s53, s68); s51's hand-off to Stripe, the pending / failed / succeeded states, the webhook and s52 now belong to [[Pay for an order]], so the s51 section and its endpoint rows move to that feature's requirements.
-
-> ⚠ Affected by [[DR-08 Stripe card checkout only]] (2026-10-22): payment is Stripe card checkout only (provider decided on D-07); "card / e-payment per organizer" no longer applies, and there is no method picker.
+> ⚠ Affected by [[DR-07 Stripe for all four flows]] (2026-10-21): the provider is Stripe, paid through its hosted checkout on s51; "the provider is undecided" is no longer true. Which methods s51 offers is still open ([[Payments & Orders Story]] S2).
 
 **Feature:** [[Payments & Orders]] · **Status:** Draft · **Story:** [[Payments & Orders Story]] · **API Integration:** not yet (backend not built)
 

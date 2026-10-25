@@ -6,15 +6,13 @@ feature: events-before
 module: events
 status: draft
 screens: [s48, s49, s50, s51, s52]
-updated: 2026-10-18
+updated: 2026-10-25
 tags: [frontend-requirements, frontend-requirements/draft, module/events, layer/frontend]
 ---
 
 # Events Before · Frontend Requirements
 
-> ⚠ Affected by [[DR-08 Stripe card checkout only]] (2026-10-22): s51 offers card only through Stripe's hosted checkout; the "Payment methods" row needs no method picker.
-
-> ⚠ Affected by [[Events Before Story]] (2026-10-25): S5 now hands the unpaid order to [[Pay for an order]]; the s51 needs (Stripe checkout, status, webhook completion) are that feature's, not T-047's, and the provider is no longer undecided.
+> ⚠ Affected by [[DR-07 Stripe for all four flows]] (2026-10-21): the payment provider is Stripe; s51 is its hosted checkout. Which methods it offers is still open ([[Payments & Orders Story]] S2).
 
 **Feature:** [[Events Before]] · **Status:** Draft · **Story:** [[Events Before Story]] · **API Integration:** not yet (backend not built)
 

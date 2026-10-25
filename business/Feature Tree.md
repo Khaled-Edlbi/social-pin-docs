@@ -1,6 +1,6 @@
 ---
 type: map
-updated: 2026-10-21
+updated: 2026-10-25
 tags: [map]
 layer: business
 ---
@@ -107,34 +107,33 @@ Social Pin backend
 │   │   └── ❓ T-047 Orders, payments and the provider webhook
 │   └── ❌ Subscription (Free vs Pro)  [High]
 │       └── ⬜ T-049 Subscription endpoints and a single Pro gate
-├── Platform & Cross-cutting  (🟡5 ❌5 ⬜1)
-│   ├── 🟡 Error Contract  [Critical]
-│   │   └── ⬜ T-063 Put the ErrorCode on the error body
-│   ├── 🟡 Code Delivery  [Critical]
-│   │   ├── ⬜ T-001 Wire an email provider for one-time codes
-│   │   ├── ⬜ T-002 Wire an SMS provider for one-time codes
-│   │   └── ⛔ T-003 Remove devCode once delivery works
-│   ├── 🟡 Devices & NFC  [High]
-│   │   ├── ⬜ T-014 Register devices on login; list and remove
-│   │   └── ⬜ T-015 Pair and revoke an NFC card
-│   ├── 🟡 Interests  [High]
-│   │   └── ⬜ T-016 Interests vocabulary and my interests
-│   ├── 🟡 Linked Accounts (OAuth)  [High]
-│   │   └── ⬜ T-019 LinkedIn OAuth: link, unlink, login
-│   ├── ❌ Notifications  [High]
-│   │   ├── ⬜ T-045 NotificationService.emit and the inbox
-│   │   └── ⛔ T-046 Push delivery and preferences
-│   ├── ❌ Gemma AI  [Medium]
-│   │   ├── ❓ T-051 Gemma assistant sheet and suggestions
-│   │   └── ⛔ T-052 Smart Match
-│   ├── ❌ Audit Log  [Critical]
-│   │   └── ⬜ T-053 Audit log writes
-│   ├── ❌ Cleanup Jobs  [High]
-│   │   └── ⬜ T-054 Cleanup jobs
-│   ├── ❌ E2E Test Run  [Critical]
-│   │   └── ⬜ T-055 Run the e2e suite in CI against PostGIS
-│   └── ⬜ App Shell & Onboarding Narrative  [Medium]
-└── Payments Gateway  (no features yet)
+└── Platform & Cross-cutting  (🟡5 ❌5 ⬜1)
+    ├── 🟡 Error Contract  [Critical]
+    │   └── ⬜ T-063 Put the ErrorCode on the error body
+    ├── 🟡 Code Delivery  [Critical]
+    │   ├── ⬜ T-001 Wire an email provider for one-time codes
+    │   ├── ⬜ T-002 Wire an SMS provider for one-time codes
+    │   └── ⛔ T-003 Remove devCode once delivery works
+    ├── 🟡 Devices & NFC  [High]
+    │   ├── ⬜ T-014 Register devices on login; list and remove
+    │   └── ⬜ T-015 Pair and revoke an NFC card
+    ├── 🟡 Interests  [High]
+    │   └── ⬜ T-016 Interests vocabulary and my interests
+    ├── 🟡 Linked Accounts (OAuth)  [High]
+    │   └── ⬜ T-019 LinkedIn OAuth: link, unlink, login
+    ├── ❌ Notifications  [High]
+    │   ├── ⬜ T-045 NotificationService.emit and the inbox
+    │   └── ⛔ T-046 Push delivery and preferences
+    ├── ❌ Gemma AI  [Medium]
+    │   ├── ❓ T-051 Gemma assistant sheet and suggestions
+    │   └── ⛔ T-052 Smart Match
+    ├── ❌ Audit Log  [Critical]
+    │   └── ⬜ T-053 Audit log writes
+    ├── ❌ Cleanup Jobs  [High]
+    │   └── ⬜ T-054 Cleanup jobs
+    ├── ❌ E2E Test Run  [Critical]
+    │   └── ⬜ T-055 Run the e2e suite in CI against PostGIS
+    └── ⬜ App Shell & Onboarding Narrative  [Medium]
 ```
 
 ## Identity Core
@@ -231,14 +230,6 @@ The error contract, notifications, Gemma AI, devices, interests, widgets, linked
 | [[Cleanup Jobs]] | ❌ TODO | High | — | 1 |
 | [[E2E Test Run]] | ❌ TODO | Critical | — | 1 |
 | [[App Shell & Onboarding Narrative]] | ⬜ Frontend only | Medium | s00a, s00b, s00c, s00d | 0 |
-
-## Payments Gateway
-
-How money moves between attendees, exhibitors, organizers and Social Pin through a payment provider: paying for an order, refunds, paying the organizer, paying for Pro ([[Payments Gateway Module]]). The provider is Stripe ([[D-07 Payment provider]]).
-
-| Feature | Status | Priority | Screens | Open tasks |
-|---|---|---|---|---|
-| [[Pay for an order]] | ❌ TODO | High | s51, s52 | 0 |
 
 ## Live view (Dataview plugin)
 
