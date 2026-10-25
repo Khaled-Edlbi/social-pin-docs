@@ -4,16 +4,19 @@ code: view-as
 scope: feature
 feature: view-as
 module: identity
-status: draft
+status: approved
 screens: [s10, s31, s44]
+approvedBy: "khaled"
+approvedAt: 2026-10-25
+owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-18
-tags: [story, story/draft, module/identity, layer/business]
+updated: 2026-10-25
+tags: [story, story/approved, module/identity, layer/business]
 ---
 
 # View As & Pin Views · User Story
 
-**Feature:** [[View As & Pin Views]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[View As & Pin Views Frontend Requirements]] · **Backend Integration:** [[View As & Pin Views Backend Integration]]
+**Feature:** [[View As & Pin Views]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[View As & Pin Views Frontend Requirements]] · **Backend Integration:** [[View As & Pin Views Backend Integration]]
 
 Two people, one screen component. The owner flips to "View as" to see a Ring exactly as its members do: the "aha" that teaches the whole model. A viewer scans a badge or types a `!pinname` and gets the one perspective they are allowed, with no hint of which Ring that is or whether other Rings exist. Both render the same shape from the same route, which is what makes the preview trustworthy.
 
