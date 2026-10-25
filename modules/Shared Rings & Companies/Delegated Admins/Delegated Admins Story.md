@@ -6,13 +6,13 @@ feature: delegated-admins
 module: shared-rings
 status: draft
 screens: [s26, s27]
-updated: 2026-10-18
+updated: 2026-10-25
+owner: "omar"
+related: ["DR-04 Ring settings at launch and their defaults"]
 tags: [story, story/draft, module/shared-rings, layer/business]
 ---
 
 # Delegated Admins · User Story
-
-> ⚠ Affected by [[DR-04 Ring settings at launch and their defaults]] (2026-10-25): D-04 decided, six Ring settings at launch with private defaults (join with a code or invite, approve each one, members can't see each other, invite or save attachments); the owner and the Ring's admins change them; members who may see each other see full cards.
 
 **Feature:** [[Delegated Admins]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Delegated Admins Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
@@ -60,15 +60,18 @@ Acceptance criteria:
 Acceptance criteria:
 - [ ] A Ring I administer is reachable from the shared-Rings list with an *Edit* affordance; the edit screens are the same ones the owner uses, with owner-only parts hidden.
 - [ ] At the content level I can change name, colour, expiry and the projection; at the members level I can also open the people screen and add, move or revoke members.
+- [ ] I can change the Ring's settings (S5), as the owner can ([[DR-04 Ring settings at launch and their defaults]]); which level is needed is [[T-006 Delegated admin endpoints]]'s to define.
 - [ ] I cannot delete the Ring, make it the default, or appoint other admins; those controls are absent, not disabled.
 
-### S5 · Settings that are not available yet ([[Screen Index#s26|s26]], [[Screen Index#s27|s27]])
+### S5 · The Ring's settings ([[Screen Index#s26|s26]], [[Screen Index#s27|s27]])
 
-**As a** Ring owner, **I want** the audience settings the design shows (who can request to join, members can see each other, members can invite, required email domain) to be visibly "not available yet", **so that** I do not expect a switch to do something it cannot.
+**As a** Ring owner or one of its admins, **I want** the Ring's settings on these screens with their defaults, **so that** I control who gets in and what members may do ([[DR-04 Ring settings at launch and their defaults]], [[Rings Story]] S9).
 
 Acceptance criteria:
-- [ ] The settings are rendered disabled with a single "coming soon" note; nothing is sent for them on *Save*.
-- [ ] *Save* on s26 still sends the Ring fields that exist today (name, colour, expiry).
+- [ ] At launch: who it's for, who can request to join (default: with a code or by invitation), approve each one (on), members can see each other (off), members can invite others (off), members can save attachments (off).
+- [ ] Not shown at launch: required work email domain (with [[Companies]]), members can message me (with messaging), see when I'm at an event (with events).
+- [ ] The owner and the Ring's admins can change them; a plain member never sees this screen.
+- [ ] Not available yet: until the settings exist, they are rendered disabled with a single "coming soon" note and nothing is sent for them on *Save*; *Save* on s26 still sends the Ring fields that exist today (name, colour, expiry).
 
 ## States and motion the design asks for
 
@@ -86,6 +89,7 @@ Acceptance criteria:
 
 ## Open questions
 
-- [[D-04 Ring settings]] — every audience setting on s26 / s27 (join policy, members visible, members can invite, email domain); S5 stands until decided.
+- Decided: [[DR-04 Ring settings at launch and their defaults]] (S5, and admins may change the settings). Building the settings is not ticketed yet.
+- Whether an admin may change every setting or only some, for example not "who it's for" (DR-04, *Still open*; until it is answered, all of them).
 - [[T-006 Delegated admin endpoints]] — the full list of permission levels and whether an admin needs to be a connection or a member first; S1's picker assumes a connection.
 - [[T-023 Connection detail and contacts list]] — the picker for S1 and the names on the admin rows.
