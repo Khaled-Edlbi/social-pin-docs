@@ -9,15 +9,15 @@ affects: ["Auth & Sign-up", "Linked Accounts (OAuth)", "T-019 LinkedIn OAuth lin
 related: ["D-01 Passwordless login", "Code Delivery"]
 owner: "khaled"
 created: 2026-10-22
-updated: 2026-10-22
+updated: 2026-10-25
 tags: [decision-record]
 ---
 
 # ⚖️ DR-01 · Code-only login
 
-**Decides:** [[D-01 Passwordless login]] · **Decided by:** product + backend lead · **On:** 2026-10-15 · **Feature:** [[Auth & Sign-up]], [[Linked Accounts (OAuth)]]
+**Answers:** [[D-01 Passwordless login]] · **Decided by:** product + backend lead · **On:** 2026-10-15 · **Feature:** [[Auth & Sign-up]], [[Linked Accounts (OAuth)]]
 
-> This card is the answer to [[D-01 Passwordless login]]. The decision card keeps the question, the facts and the options; this one says what was decided, why, and what it changes. It is written when the decision is taken, by the PM or the owner on the user's word, never before; the decision is `decided` once this card exists.
+> This card is the answer to [[D-01 Passwordless login]]. The needs-decision card keeps the question, the facts and the options; this decision card says what was decided, why, and what it changes. It is written when the decision is taken, by the PM or the owner on the user's word, never before; the needs-decision card is `decided` once this card exists.
 
 ## What was decided
 
@@ -33,7 +33,7 @@ Options B (password and code) and C (password only) are ruled out.
 
 - The prototype (s01) promises "no password to remember"; option A keeps that promise and is the simplest for users.
 - The backend already had a `LOGIN` value in `VERIFICATION_PURPOSE` and a `verify-code` that returns a token, so a LOGIN purpose returning a session was a small change.
-- Traded away: every login costs a code delivery, and the brief's §3.1 "create password" no longer describes the product. The decision card had recommended B; product and the backend lead chose A.
+- Traded away: every login costs a code delivery, and the brief's §3.1 "create password" no longer describes the product. The needs-decision card had recommended B; product and the backend lead chose A.
 
 ## What it changes
 

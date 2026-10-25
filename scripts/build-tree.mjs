@@ -716,7 +716,7 @@ export function build() {
     if (d.status !== STATUS.decision.decided) err(r.path, `${d.code} is still open: a record is written when the decision is taken; sign ${d.code} off as decided (status, decidedBy, decidedAt) on the user's word`);
     else if (String(dn.decidedBy ?? '') !== String(r.decidedBy ?? '') || String(dn.decidedAt ?? '') !== String(r.decidedAt ?? '')) err(r.path, `decidedBy / decidedAt (${r.decidedBy || '—'}, ${r.decidedAt || '—'}) must match ${d.code}'s (${dn.decidedBy || '—'}, ${dn.decidedAt || '—'})`);
   }
-  for (const [, d] of decisionNodes) if (d.status === STATUS.decision.decided && !recordOf.has(d.id)) err(d.path, `${d.code} is decided but has no record: the answer lives on its own card, node scripts/build-tree.mjs --scaffold record ${d.code} "<the answer>"`);
+  for (const [, d] of decisionNodes) if (d.status === STATUS.decision.decided && !recordOf.has(d.id)) err(d.path, `${d.code} is decided but has no decision card (DR-NN): the answer lives on its own card, node scripts/build-tree.mjs --scaffold record ${d.code} "<the answer>"`);
 
   // ---------------------------------------------------------- pending: done, but a note is left for a card or a person → Partial until cleared
   const PENDING_NOTE = /^\[\[([^\]]+?)\]\]\s*:?\s*(.*)$/, PENDING_PERSON = /^@([\w.-]+)\s*:?\s*(.*)$/;
@@ -1481,7 +1481,7 @@ function scaffoldRecord(result, ref, title) {
   const yaml = Object.entries(fm).map(([k, v]) => `${k}: ${Array.isArray(v) ? `[${v.map(item).join(', ')}]` : typeof v === 'string' && (/[:#]/.test(v) || v === '' || ['decidedBy', 'owner'].includes(k)) ? JSON.stringify(v) : v}`).join('\n');
   const text = body.replace(/DR-NN/g, id).replace(/D-NN/g, q).replace(/<Title>/g, t).replace(/<decision>/g, d.title).replace(/<who>/g, by || '—').replace(/<date>/g, at).replace(/<feature>/g, featureTitles.length ? featureTitles.map((x) => `[[${x}]]`).join(', ') : '—');
   fs.writeFileSync(dest, `---\n${yaml}\n---\n${text}`);
-  console.log(`wrote ${path.relative(ROOT, dest)} (the record of ${q})\nnext: fill what was decided, why and what it changes, list every feature and task it changes in affects; sign ${q} off as decided on the user's word (status: decided, decidedBy and decidedAt as on ${id}, the tag decision/decided, ✅ in the H1, its ## Decision pointing at [[${id} ${t}]]); then node scripts/build-tree.mjs, --impact ${id}, and flag what it lists that you do not own`);
+  console.log(`wrote ${path.relative(ROOT, dest)} (the decision card answering ${q})\nnext: fill what was decided, why and what it changes, list every feature and task it changes in affects; sign ${q} off as decided on the user's word (status: decided, decidedBy and decidedAt as on ${id}, the tag decision/decided, ✅ in the H1, its ## Decision pointing at [[${id} ${t}]]); then node scripts/build-tree.mjs, --impact ${id}, and flag what it lists that you do not own`);
 }
 
 // ---------------------------------------------------------------- scaffold · layer notes

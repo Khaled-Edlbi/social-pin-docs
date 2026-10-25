@@ -12,7 +12,7 @@ decidedBy: "khaled"
 decidedAt: 2026-10-21
 owner: "khaled"
 created: 2026-10-21
-updated: 2026-10-22
+updated: 2026-10-25
 tags: [decision, decision/decided]
 ---
 
@@ -46,4 +46,4 @@ Which payment provider Social Pin moves money through, for every purchase in the
 
 ## Decision
 
-Decided 2026-10-21 by khaled (the owner): option 1, on its own card, [[DR-07 Stripe for all four flows]] (what was decided, why, what it changes).
+Decided 2026-10-21 by khaled (the owner): option 1, on its decision card, [[DR-07 Stripe for all four flows]] (what was decided, why, what it changes).

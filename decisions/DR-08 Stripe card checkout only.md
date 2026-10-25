@@ -9,15 +9,15 @@ affects: ["Pay for an order", "Payments & Orders", "Events Before", "Payments Ga
 related: ["D-08 Payment methods and gateways on s51", "D-07 Payment provider"]
 owner: "khaled"
 created: 2026-10-22
-updated: 2026-10-22
+updated: 2026-10-25
 tags: [decision-record]
 ---
 
 # ⚖️ DR-08 · Stripe card checkout only
 
-**Decides:** [[D-08 Payment methods and gateways on s51]] · **Decided by:** khaled · **On:** 2026-10-22 · **Feature:** [[Pay for an order]]
+**Answers:** [[D-08 Payment methods and gateways on s51]] · **Decided by:** khaled · **On:** 2026-10-22 · **Feature:** [[Pay for an order]]
 
-> This card is the answer to [[D-08 Payment methods and gateways on s51]]. The decision card keeps the question, the facts and the options; this one says what was decided, why, and what it changes. It is written when the decision is taken, by the PM or the owner on the user's word, never before; the decision is `decided` once this card exists.
+> This card is the answer to [[D-08 Payment methods and gateways on s51]]. The needs-decision card keeps the question, the facts and the options; this decision card says what was decided, why, and what it changes. It is written when the decision is taken, by the PM or the owner on the user's word, never before; the needs-decision card is `decided` once this card exists.
 
 ## What was decided
 
@@ -39,4 +39,4 @@ tags: [decision-record]
 
 ## Still open
 
-Local payment methods and a second gateway, on a new decision card when an organizer's market asks for them.
+Local payment methods and a second gateway, on a new needs-decision card when an organizer's market asks for them.
