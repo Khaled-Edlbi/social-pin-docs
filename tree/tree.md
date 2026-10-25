@@ -549,7 +549,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
     - 🔵 [Error Contract](modules/Platform%20%26%20Cross-cutting/Error%20Contract/Error%20Contract.md) (F-35, release MVP, Critical)
       - 👍 [Error Contract Story](modules/Platform%20%26%20Cross-cutting/Error%20Contract/Error%20Contract%20Story.md) (S-87, User Story, Critical)
         - ⬜ [T-063 Put the ErrorCode on the error body](tasks/T-063%20Put%20the%20ErrorCode%20on%20the%20error%20body/T-063%20Put%20the%20ErrorCode%20on%20the%20error%20body.md) (Critical)
-          - ✏️ [T-063 Story](tasks/T-063%20Put%20the%20ErrorCode%20on%20the%20error%20body/T-063%20Story.md) (S-88, User Story, Critical)
+          - 👍 [T-063 Story](tasks/T-063%20Put%20the%20ErrorCode%20on%20the%20error%20body/T-063%20Story.md) (S-88, User Story, Critical)
           - ⬜ [T-063-be Backend · Put the ErrorCode on the error body](tasks/T-063%20Put%20the%20ErrorCode%20on%20the%20error%20body/T-063-be%20Backend%20%C2%B7%20Put%20the%20ErrorCode%20on%20the%20error%20body.md) (sub-task of T-063, backend, Critical)
           - ⛔ [T-063-fe Frontend · Put the ErrorCode on the error body](tasks/T-063%20Put%20the%20ErrorCode%20on%20the%20error%20body/T-063-fe%20Frontend%20%C2%B7%20Put%20the%20ErrorCode%20on%20the%20error%20body.md) (sub-task of T-063, frontend, Critical, blocked by T-063-be Backend · Put the ErrorCode on the error body)
         - ✅ [T-064 Restructure the docs vault](tasks/T-064%20Restructure%20the%20docs%20vault/T-064%20Restructure%20the%20docs%20vault.md) (High)

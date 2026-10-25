@@ -4,24 +4,24 @@ code: T-063
 scope: task
 feature: error-contract
 module: platform
-status: draft
+status: approved
 screens: []
 depends: []
 affects: []
 related: []
 pending: []
-approvedBy: ""
-approvedAt: ""
+approvedBy: "khaled"
+approvedAt: 2026-10-25
 owner: "omar"
 created: 2026-10-18
 updated: 2026-10-25
-tags: [story, story/draft, module/platform, layer/business]
+tags: [story, story/approved, module/platform, layer/business]
 task: T-063
 ---
 
 # T-063 · Put the ErrorCode on the error body · User Story
 
-**Task:** [[T-063 Put the ErrorCode on the error body]] · **Feature:** [[Error Contract]] · **Feature-level note:** [[Error Contract Story]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[T-063 Frontend Requirements]] · **Backend Integration:** [[T-063 Backend Integration]] · **Verified by:** [[T-063 QA Backend]], [[T-063 QA Frontend]]
+**Task:** [[T-063 Put the ErrorCode on the error body]] · **Feature:** [[Error Contract]] · **Feature-level note:** [[Error Contract Story]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[T-063 Frontend Requirements]] · **Backend Integration:** [[T-063 Backend Integration]] · **Verified by:** [[T-063 QA Backend]], [[T-063 QA Frontend]]
 
 > Derived from the task [[T-063 Put the ErrorCode on the error body]]; **not approved by product yet**. The feature-level story is [[Error Contract Story]]; this note says what the user gets from this task in particular. `approved` when product signs off (`approvedBy`, `approvedAt`); `verified` when both QA notes are `passing`.
 
