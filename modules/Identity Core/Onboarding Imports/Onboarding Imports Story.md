@@ -4,18 +4,20 @@ code: onboarding-imports
 scope: feature
 feature: onboarding-imports
 module: identity
-status: draft
+status: approved
 screens: [s03, s03a, s03b, s04, s05]
+approvedBy: "khaled"
+approvedAt: 2026-10-25
 created: 2026-10-18
 updated: 2026-10-25
 owner: "omar"
 related: ["DR-02 One main profile every Ring starts from"]
-tags: [story, story/draft, module/identity, layer/business]
+tags: [story, story/approved, module/identity, layer/business]
 ---
 
 # Onboarding Imports · User Story
 
-**Feature:** [[Onboarding Imports]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Onboarding Imports Frontend Requirements]] · **API Integration:** not yet (backend not built)
+**Feature:** [[Onboarding Imports]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[Onboarding Imports Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 A new user has just verified their code and does not want to type a profile from scratch. They start from something they already have: a LinkedIn account, a paper business card, or a portfolio URL. The import proposes fields, the user reviews each one (include / skip, edit inline), and the confirmed fields populate the **main profile** (headline, role, company, location, photo, bio, and the full name), which every Ring then follows field by field, the first Ring included ([[Wireframe Brief#LinkedIn profile import|§3.3]], [[DR-02 One main profile every Ring starts from]]). Nothing is written before the user confirms.
 
