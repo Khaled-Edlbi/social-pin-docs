@@ -4,16 +4,19 @@ code: exhibitor
 scope: feature
 feature: exhibitor
 module: events
-status: draft
+status: approved
 screens: [s63, s64, s65]
+approvedBy: "khaled"
+approvedAt: 2026-10-25
+owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-18
-tags: [story, story/draft, module/events, layer/business]
+updated: 2026-10-25
+tags: [story, story/approved, module/events, layer/business]
 ---
 
 # Exhibitor · User Story
 
-**Feature:** [[Exhibitor]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Exhibitor Frontend Requirements]] · **API Integration:** not yet (backend not built)
+**Feature:** [[Exhibitor]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[Exhibitor Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 An exhibitor starts as a visitor and, at ticket selection or from Me, creates a business account. The business is showcased through a business Ring that sits beside their personal Rings. In event mode they handle incoming meeting requests, choose whether Gemma may surface them, and read who looked at their stand. The schema (`Business`, `BusinessMember`, `Exhibitor`, `ExhibitorDocument`, `Booth`, `AnalyticsEvent`) exists; no endpoint does.
 
