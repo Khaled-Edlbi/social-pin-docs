@@ -1451,7 +1451,8 @@
       "notes": [
         "backend-delivery:T-066-be",
         "backend-delivery:pay-for-an-order",
-        "backend-integration:T-066-be"
+        "backend-integration:T-066-be",
+        "backend-integration:pay-for-an-order"
       ],
       "owner": null
     },
@@ -2806,12 +2807,14 @@
     },
     "POST /payments/stripe/webhook": {
       "containers": [
+        "feature:pay-for-an-order",
         "task:T-066-be"
       ],
       "kind": "endpoint",
       "notes": [
         "backend-delivery:T-066-be",
         "backend-integration:T-066-be",
+        "backend-integration:pay-for-an-order",
         "task:T-066-be"
       ],
       "owner": null
@@ -4959,7 +4962,7 @@
     },
     "concepts": 185,
     "decisions": 9,
-    "edges": 5049,
+    "edges": 5048,
     "features": 40,
     "layerNotes": 208,
     "modules": 9,
@@ -5024,9 +5027,7 @@
   ],
   "diagnostics": {
     "errors": [],
-    "warnings": [
-      "modules/Payments Gateway/Pay for an order/Pay for an order Backend Integration.md: does not link [[T-066-be Backend Integration]], a done task-level note: a feature note is the sum of its tasks"
-    ]
+    "warnings": []
   },
   "edges": [
     {
@@ -8974,8 +8975,10 @@
         "E_ORDER_02",
         "E_ORDER_03",
         "E_PAY_01",
+        "E_PAY_02",
         "GET /orders/:id",
-        "POST /orders/:id/checkout"
+        "POST /orders/:id/checkout",
+        "POST /payments/stripe/webhook"
       ]
     },
     {
@@ -9595,7 +9598,9 @@
       "to": "backend-delivery:T-066-be",
       "via": [
         "E_ORDER_01",
-        "GET /orders/:id"
+        "E_PAY_02",
+        "GET /orders/:id",
+        "POST /payments/stripe/webhook"
       ]
     },
     {
@@ -9628,7 +9633,9 @@
       "via": [
         "E_AUTH_04",
         "E_ORDER_01",
+        "E_PAY_02",
         "GET /orders/:id",
+        "POST /payments/stripe/webhook",
         "sum-of"
       ]
     },
@@ -9948,7 +9955,8 @@
       "kind": "related",
       "to": "task:T-066-be",
       "via": [
-        "GET /orders/:id"
+        "GET /orders/:id",
+        "POST /payments/stripe/webhook"
       ]
     },
     {
@@ -20419,7 +20427,8 @@
         "E_AUTH_04",
         "E_ORDER_01",
         "E_PAY_02",
-        "GET /orders/:id"
+        "GET /orders/:id",
+        "POST /payments/stripe/webhook"
       ]
     },
     {
@@ -26502,11 +26511,6 @@
       "from": "backend-integration:pay-for-an-order",
       "kind": "wikilink",
       "to": "task:T-035"
-    },
-    {
-      "from": "backend-integration:pay-for-an-order",
-      "kind": "wikilink",
-      "to": "task:T-047"
     },
     {
       "from": "backend-integration:pay-for-an-order",
@@ -41039,6 +41043,7 @@
       "related": [
         "backend-delivery:pay-for-an-order",
         "backend-integration:T-065-be",
+        "backend-integration:T-066-be",
         "frontend-requirements:pay-for-an-order",
         "task:T-065-be",
         "task:T-066-be",
@@ -41049,7 +41054,6 @@
         "frontend-delivery:T-065-fe",
         "frontend-requirements:T-065-fe",
         "backend-delivery:T-066-be",
-        "backend-integration:T-066-be",
         "frontend-requirements:T-066-fe",
         "qa-frontend:pay-for-an-order",
         "qa-frontend:T-065-fe",
@@ -41087,7 +41091,7 @@
         "s52"
       ],
       "status": "current",
-      "summary": "What the client builds: the Payment screen (s51) reading an order and handing the buyer to Stripe's card page, and the confirmation (s52) once that part ships. The sum of the task-level…",
+      "summary": "What the client builds: the Payment screen (s51) reading an order and handing the buyer to Stripe's card page, and the confirmation (s52) once Stripe has settled the order. The sum of the…",
       "tags": [
         "backend-integration",
         "backend-integration/current",
