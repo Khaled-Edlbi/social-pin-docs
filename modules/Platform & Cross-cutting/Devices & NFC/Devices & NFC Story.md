@@ -4,16 +4,19 @@ code: devices
 scope: feature
 feature: devices
 module: platform
-status: draft
+status: approved
 screens: [s75]
+approvedBy: "khaled"
+approvedAt: 2026-10-25
+owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-18
-tags: [story, story/draft, module/platform, layer/business]
+updated: 2026-10-25
+tags: [story, story/approved, module/platform, layer/business]
 ---
 
 # Devices & NFC · User Story
 
-**Feature:** [[Devices & NFC]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Devices & NFC Frontend Requirements]] · **API Integration:** not yet (backend not built)
+**Feature:** [[Devices & NFC]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[Devices & NFC Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 A user opens Me → My devices to see where they are signed in, throw out a phone they no longer own, and pair the NFC card they hand out at events so a tap resolves to the active Ring the same way a QR scan does. Today only "sign out everywhere" exists; devices are not registered and NFC cards cannot be paired.
 

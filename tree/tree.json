@@ -4819,7 +4819,7 @@
     }
   },
   "counts": {
-    "blocked": 173,
+    "blocked": 172,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -4840,7 +4840,7 @@
     },
     "concepts": 182,
     "decisions": 16,
-    "edges": 4840,
+    "edges": 4839,
     "features": 39,
     "layerNotes": 185,
     "modules": 8,
@@ -6122,11 +6122,6 @@
       "from": "story:delegated-admins",
       "kind": "blocks",
       "to": "frontend-requirements:delegated-admins"
-    },
-    {
-      "from": "story:devices",
-      "kind": "blocks",
-      "to": "frontend-requirements:devices"
     },
     {
       "from": "story:discover-hub",
@@ -41814,7 +41809,7 @@
       "deadline": null,
       "depends": [],
       "dir": "modules/Platform & Cross-cutting/Devices & NFC",
-      "effectiveStatus": "todo",
+      "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "devices",
       "frontendOnly": false,
@@ -41845,7 +41840,8 @@
       ],
       "release": "v1",
       "rollup": {
-        "blocked": 6,
+        "approved": 1,
+        "blocked": 5,
         "draft": 3,
         "missing": 4,
         "todo": 2
@@ -46212,20 +46208,14 @@
     },
     "frontend-requirements:devices": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "story:devices",
-          "title": "Devices & NFC Story",
-          "why": "Devices & NFC Story is draft"
-        }
-      ],
+      "blockedBy": [],
       "card": "FR-33",
       "children": [],
       "code": "devices",
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "devices",
       "frontendOnly": false,
@@ -48336,15 +48326,15 @@
       "related": [],
       "release": null,
       "rollup": {
-        "approved": 6,
-        "blocked": 36,
+        "approved": 7,
+        "blocked": 35,
         "decided": 2,
         "done": 2,
         "draft": 25,
-        "in-progress": 7,
+        "in-progress": 8,
         "missing": 42,
         "needs-decision": 1,
-        "todo": 22,
+        "todo": 21,
         "verified": 2
       },
       "scope": null,
@@ -53281,17 +53271,17 @@
         }
       ],
       "rollup": {
-        "approved": 12,
-        "blocked": 173,
+        "approved": 13,
+        "blocked": 172,
         "current": 9,
         "decided": 12,
         "done": 17,
         "draft": 94,
-        "in-progress": 27,
+        "in-progress": 28,
         "missing": 145,
         "needs-decision": 9,
         "reference": 31,
-        "todo": 70,
+        "todo": 69,
         "verified": 12
       },
       "scope": null,
@@ -56822,7 +56812,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "devices",
       "frontendOnly": false,
@@ -56849,17 +56839,17 @@
       "screens": [
         "s75"
       ],
-      "status": "draft",
+      "status": "approved",
       "summary": "A user opens Me → My devices to see where they are signed in, throw out a phone they no longer own, and pair the NFC card they hand out at events so a tap resolves to the active Ring the same way…",
       "tags": [
         "story",
-        "story/draft",
+        "story/approved",
         "module/platform",
         "layer/business"
       ],
       "task": null,
       "title": "Devices & NFC Story",
-      "updated": "2026-10-18"
+      "updated": "2026-10-25"
     },
     "story:discover-hub": {
       "affects": [],
