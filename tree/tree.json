@@ -1438,11 +1438,13 @@
     },
     "E_PAY_02": {
       "containers": [
+        "feature:pay-for-an-order",
         "task:T-066-be"
       ],
       "kind": "error",
       "notes": [
-        "backend-delivery:T-066-be"
+        "backend-delivery:T-066-be",
+        "backend-delivery:pay-for-an-order"
       ],
       "owner": null
     },
@@ -4951,7 +4953,7 @@
     "layerNotes": 207,
     "modules": 9,
     "notes": 504,
-    "partial": 5,
+    "partial": 4,
     "placeholders": 145,
     "records": 4,
     "taskLayerNotes": 74,
@@ -5011,9 +5013,7 @@
   ],
   "diagnostics": {
     "errors": [],
-    "warnings": [
-      "modules/Payments Gateway/Pay for an order/Pay for an order Backend Delivery.md: does not link [[T-066-be Backend Delivery]], a done task-level note: a feature note is the sum of its tasks"
-    ]
+    "warnings": []
   },
   "edges": [
     {
@@ -8936,7 +8936,9 @@
       "to": "backend-delivery:T-066-be",
       "via": [
         "E_ORDER_01",
+        "E_PAY_02",
         "GET /orders/:id",
+        "POST /payments/stripe/webhook",
         "sum-of"
       ]
     },
@@ -9097,7 +9099,8 @@
       "kind": "related",
       "to": "task:T-066-be",
       "via": [
-        "GET /orders/:id"
+        "GET /orders/:id",
+        "POST /payments/stripe/webhook"
       ]
     },
     {
@@ -19911,6 +19914,7 @@
       "kind": "shares",
       "to": "task:T-066-be",
       "via": [
+        "E_PAY_02",
         "GET /orders/:id"
       ]
     },
@@ -25437,6 +25441,11 @@
       "from": "backend-delivery:onboarding-imports",
       "kind": "wikilink",
       "to": "task:T-064"
+    },
+    {
+      "from": "backend-delivery:pay-for-an-order",
+      "kind": "wikilink",
+      "to": "story:pay-for-an-order"
     },
     {
       "from": "backend-delivery:pay-for-an-order",
@@ -31162,11 +31171,6 @@
       "from": "story:onboarding-imports",
       "kind": "wikilink",
       "to": "task:T-019"
-    },
-    {
-      "from": "story:pay-for-an-order",
-      "kind": "wikilink",
-      "to": "backend-delivery:pay-for-an-order"
     },
     {
       "from": "story:pay-for-an-order",
@@ -38416,7 +38420,7 @@
       "depends": [
         "frontend-requirements:pay-for-an-order"
       ],
-      "effectiveStatus": "partial",
+      "effectiveStatus": "done",
       "effort": null,
       "feature": "pay-for-an-order",
       "frontendOnly": false,
@@ -38434,21 +38438,11 @@
         "feature:pay-for-an-order"
       ],
       "path": "modules/Payments Gateway/Pay for an order/Pay for an order Backend Delivery.md",
-      "pending": [
-        {
-          "person": "pm",
-          "text": "file the task for the Stripe webhook settlement (story S3; T-047 holds it today)",
-          "to": null
-        },
-        {
-          "person": "pm",
-          "text": "file the task for s52, registration complete and the Event Ring id (story S4)",
-          "to": null
-        }
-      ],
+      "pending": [],
       "priority": "high",
       "related": [
         "backend-delivery:T-065-be",
+        "backend-delivery:T-066-be",
         "task:T-065-be",
         "task:T-066-be",
         "backend-integration:pay-for-an-order",
@@ -38459,7 +38453,6 @@
         "qa-backend:T-065-be",
         "frontend-delivery:T-065-fe",
         "frontend-requirements:T-065-fe",
-        "backend-delivery:T-066-be",
         "frontend-requirements:T-066-fe",
         "qa-frontend:pay-for-an-order",
         "qa-frontend:T-065-fe",
@@ -43652,8 +43645,8 @@
         "blocked": 1,
         "current": 2,
         "decided": 2,
-        "done": 5,
-        "partial": 5,
+        "done": 6,
+        "partial": 4,
         "passing": 2,
         "todo": 2,
         "verified": 1
@@ -49435,9 +49428,9 @@
         "blocked": 1,
         "current": 2,
         "decided": 2,
-        "done": 5,
+        "done": 6,
         "in-progress": 1,
-        "partial": 5,
+        "partial": 4,
         "passing": 2,
         "todo": 2,
         "verified": 1
@@ -54574,12 +54567,12 @@
         "blocked": 179,
         "current": 11,
         "decided": 4,
-        "done": 17,
+        "done": 18,
         "draft": 103,
         "in-progress": 16,
         "missing": 145,
         "needs-decision": 20,
-        "partial": 5,
+        "partial": 4,
         "passing": 2,
         "reference": 31,
         "todo": 83,
