@@ -4819,7 +4819,7 @@
     }
   },
   "counts": {
-    "blocked": 168,
+    "blocked": 167,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -4840,7 +4840,7 @@
     },
     "concepts": 182,
     "decisions": 16,
-    "edges": 4835,
+    "edges": 4834,
     "features": 39,
     "layerNotes": 185,
     "modules": 8,
@@ -6137,11 +6137,6 @@
       "from": "story:gemma",
       "kind": "blocks",
       "to": "frontend-requirements:gemma"
-    },
-    {
-      "from": "story:interests",
-      "kind": "blocks",
-      "to": "frontend-requirements:interests"
     },
     {
       "from": "story:linked-accounts",
@@ -42531,7 +42526,7 @@
       "deadline": null,
       "depends": [],
       "dir": "modules/Platform & Cross-cutting/Interests",
-      "effectiveStatus": "todo",
+      "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "interests",
       "frontendOnly": false,
@@ -42560,7 +42555,8 @@
       ],
       "release": "v1",
       "rollup": {
-        "blocked": 3,
+        "approved": 1,
+        "blocked": 2,
         "draft": 2,
         "missing": 4,
         "todo": 2
@@ -46700,20 +46696,14 @@
     },
     "frontend-requirements:interests": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "story:interests",
-          "title": "Interests Story",
-          "why": "Interests Story is draft"
-        }
-      ],
+      "blockedBy": [],
       "card": "FR-37",
       "children": [],
       "code": "interests",
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "interests",
       "frontendOnly": false,
@@ -48288,15 +48278,15 @@
       "related": [],
       "release": null,
       "rollup": {
-        "approved": 8,
-        "blocked": 34,
+        "approved": 9,
+        "blocked": 33,
         "decided": 2,
         "done": 2,
         "draft": 25,
-        "in-progress": 9,
+        "in-progress": 10,
         "missing": 42,
         "needs-decision": 1,
-        "todo": 20,
+        "todo": 19,
         "verified": 2
       },
       "scope": null,
@@ -53233,17 +53223,17 @@
         }
       ],
       "rollup": {
-        "approved": 17,
-        "blocked": 168,
+        "approved": 18,
+        "blocked": 167,
         "current": 9,
         "decided": 12,
         "done": 17,
         "draft": 94,
-        "in-progress": 33,
+        "in-progress": 34,
         "missing": 145,
         "needs-decision": 9,
         "reference": 31,
-        "todo": 64,
+        "todo": 63,
         "verified": 12
       },
       "scope": null,
@@ -57301,7 +57291,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "interests",
       "frontendOnly": false,
@@ -57329,17 +57319,17 @@
         "s07",
         "s71"
       ],
-      "status": "draft",
+      "status": "approved",
       "summary": "During onboarding, and later from Me, the user picks a few interests from a fixed vocabulary. Nobody else ever sees them; they exist so search and Smart Match can find the right people. The…",
       "tags": [
         "story",
-        "story/draft",
+        "story/approved",
         "module/platform",
         "layer/business"
       ],
       "task": null,
       "title": "Interests Story",
-      "updated": "2026-10-18"
+      "updated": "2026-10-25"
     },
     "story:linked-accounts": {
       "affects": [],
