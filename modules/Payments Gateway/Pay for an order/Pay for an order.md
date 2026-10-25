@@ -15,7 +15,7 @@ tags: [feature, module/payments-gateway, priority/high]
 
 # Pay for an order
 
-**Backend:** in progress, s51 delivered (simulated, [[Pay for an order Backend Delivery]]); the webhook and s52 not available yet · **Priority:** High · **Deadline:** — · **Module:** [[Payments Gateway Module|Payments Gateway]]
+**Backend:** done, s51, the webhook settlement and s52 delivered (simulated, [[Pay for an order Backend Delivery]]) · **Priority:** High · **Deadline:** — · **Module:** [[Payments Gateway Module|Payments Gateway]]
 
 **Layers:** [[Pay for an order Story|Story]] · [[Pay for an order Frontend Requirements|Frontend Requirements]] · [[Pay for an order Backend Delivery|Backend Delivery]] · [[Pay for an order Backend Integration|Backend Integration]] · [[Pay for an order Frontend Delivery|Frontend Delivery]] · [[Pay for an order QA Backend|QA Backend]] · [[Pay for an order QA Frontend|QA Frontend]]
 
