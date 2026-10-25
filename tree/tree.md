@@ -602,7 +602,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
           - ⚖️ [DR-09 30-minute hold tied to the Stripe checkout](decisions/DR-09%2030-minute%20hold%20tied%20to%20the%20Stripe%20checkout.md) (Decision record)
       - ✅ [Pay for an order Frontend Requirements](modules/Payments%20Gateway/Pay%20for%20an%20order/Pay%20for%20an%20order%20Frontend%20Requirements.md) (FR-41, Frontend Requirements, High)
       - 🔵 [Pay for an order Backend Delivery](modules/Payments%20Gateway/Pay%20for%20an%20order/Pay%20for%20an%20order%20Backend%20Delivery.md) (BD-41, Backend Delivery, High)
-      - ∅ _Pay for an order Backend Integration_ (Backend Integration, blocked by Pay for an order Backend Delivery)
+      - ✏️ [Pay for an order Backend Integration](modules/Payments%20Gateway/Pay%20for%20an%20order/Pay%20for%20an%20order%20Backend%20Integration.md) (BI-11, Backend Integration, High)
       - ∅ _Pay for an order QA Backend_ (QA Backend, blocked by Pay for an order Backend Delivery)
       - ∅ _Pay for an order Frontend Delivery_ (Frontend Delivery, blocked by Pay for an order Backend Integration)
       - ∅ _Pay for an order QA Frontend_ (QA Frontend, blocked by Pay for an order Frontend Delivery)

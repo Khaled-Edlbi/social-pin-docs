@@ -45,6 +45,7 @@
     "backend-integration:account": "BI-01",
     "backend-integration:auth": "BI-02",
     "backend-integration:files": "BI-03",
+    "backend-integration:pay-for-an-order": "BI-11",
     "backend-integration:profiles": "BI-04",
     "backend-integration:ring-access": "BI-05",
     "backend-integration:ring-members": "BI-06",
