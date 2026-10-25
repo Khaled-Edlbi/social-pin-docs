@@ -4,18 +4,20 @@ code: delegated-admins
 scope: feature
 feature: delegated-admins
 module: shared-rings
-status: draft
+status: approved
 screens: [s26, s27]
+approvedBy: "khaled"
+approvedAt: 2026-10-25
 created: 2026-10-18
 updated: 2026-10-25
 owner: "omar"
 related: ["DR-04 Ring settings at launch and their defaults"]
-tags: [story, story/draft, module/shared-rings, layer/business]
+tags: [story, story/approved, module/shared-rings, layer/business]
 ---
 
 # Delegated Admins · User Story
 
-**Feature:** [[Delegated Admins]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Delegated Admins Frontend Requirements]] · **API Integration:** not yet (backend not built)
+**Feature:** [[Delegated Admins]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[Delegated Admins Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 A company Ring is too big for one person to run. The owner hands parts of the job to colleagues at a permission level: one may edit what the Ring shows, another may manage who is in it. The owner stays the owner; admins act on the owner's Ring and the engine already honours them on every write. What is missing is any way to appoint, change or remove them.
 
