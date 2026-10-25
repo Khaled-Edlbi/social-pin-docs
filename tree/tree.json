@@ -191,6 +191,7 @@
     "Pay for an order Frontend Delivery": "frontend-delivery:pay-for-an-order",
     "Pay for an order Frontend Requirements": "frontend-requirements:pay-for-an-order",
     "Pay for an order QA Backend": "qa-backend:pay-for-an-order",
+    "Pay for an order QA Frontend": "qa-frontend:pay-for-an-order",
     "Pay for an order Story": "story:pay-for-an-order",
     "Payments & Orders": "feature:payments",
     "Payments & Orders Backend Delivery": "backend-delivery:payments",
@@ -712,6 +713,7 @@
     "QB-01": "qa-backend:T-065-be",
     "QB-02": "qa-backend:pay-for-an-order",
     "QF-01": "qa-frontend:T-065-fe",
+    "QF-02": "qa-frontend:pay-for-an-order",
     "S-01": "story:account",
     "S-02": "story:auth",
     "S-03": "story:counts",
@@ -1198,6 +1200,7 @@
         "qa-backend:T-065-be",
         "qa-backend:pay-for-an-order",
         "qa-frontend:T-065-fe",
+        "qa-frontend:pay-for-an-order",
         "story:auth"
       ],
       "owner": null
@@ -1355,7 +1358,8 @@
         "backend-integration:pay-for-an-order",
         "qa-backend:T-065-be",
         "qa-backend:pay-for-an-order",
-        "qa-frontend:T-065-fe"
+        "qa-frontend:T-065-fe",
+        "qa-frontend:pay-for-an-order"
       ],
       "owner": null
     },
@@ -1373,7 +1377,8 @@
         "backend-integration:pay-for-an-order",
         "qa-backend:T-065-be",
         "qa-backend:pay-for-an-order",
-        "qa-frontend:T-065-fe"
+        "qa-frontend:T-065-fe",
+        "qa-frontend:pay-for-an-order"
       ],
       "owner": null
     },
@@ -1391,7 +1396,8 @@
         "backend-integration:pay-for-an-order",
         "qa-backend:T-065-be",
         "qa-backend:pay-for-an-order",
-        "qa-frontend:T-065-fe"
+        "qa-frontend:T-065-fe",
+        "qa-frontend:pay-for-an-order"
       ],
       "owner": null
     },
@@ -1409,7 +1415,8 @@
         "backend-integration:pay-for-an-order",
         "qa-backend:T-065-be",
         "qa-backend:pay-for-an-order",
-        "qa-frontend:T-065-fe"
+        "qa-frontend:T-065-fe",
+        "qa-frontend:pay-for-an-order"
       ],
       "owner": null
     },
@@ -4231,6 +4238,7 @@
         "qa-backend:T-065-be",
         "qa-backend:pay-for-an-order",
         "qa-frontend:T-065-fe",
+        "qa-frontend:pay-for-an-order",
         "story:T-035",
         "story:T-047",
         "story:T-065",
@@ -4272,6 +4280,7 @@
         "frontend-requirements:events-before",
         "frontend-requirements:pay-for-an-order",
         "qa-backend:pay-for-an-order",
+        "qa-frontend:pay-for-an-order",
         "story:T-011",
         "story:T-035",
         "story:event-ring-auto",
@@ -4864,7 +4873,7 @@
       "module": 9,
       "project": 27,
       "qa-backend": 2,
-      "qa-frontend": 1,
+      "qa-frontend": 2,
       "story": 105,
       "task": 178
     },
@@ -4872,18 +4881,18 @@
       "backend": 60,
       "business": 341,
       "frontend": 47,
-      "qa": 3,
+      "qa": 4,
       "shared": 10
     },
     "concepts": 183,
     "decisions": 9,
-    "edges": 4821,
+    "edges": 4835,
     "features": 40,
-    "layerNotes": 203,
+    "layerNotes": 204,
     "modules": 9,
-    "notes": 497,
-    "partial": 4,
-    "placeholders": 146,
+    "notes": 498,
+    "partial": 5,
+    "placeholders": 145,
     "records": 4,
     "taskLayerNotes": 71,
     "tasks": 178
@@ -8381,6 +8390,11 @@
       "to": "frontend-delivery:pay-for-an-order"
     },
     {
+      "from": "frontend-delivery:pay-for-an-order",
+      "kind": "flow",
+      "to": "qa-frontend:pay-for-an-order"
+    },
+    {
       "from": "frontend-delivery:T-065-fe",
       "kind": "flow",
       "to": "qa-frontend:T-065-fe"
@@ -8587,6 +8601,11 @@
     },
     {
       "from": "qa-backend:pay-for-an-order",
+      "kind": "flow",
+      "to": "story:pay-for-an-order"
+    },
+    {
+      "from": "qa-frontend:pay-for-an-order",
       "kind": "flow",
       "to": "story:pay-for-an-order"
     },
@@ -8914,6 +8933,17 @@
     {
       "from": "backend-delivery:pay-for-an-order",
       "kind": "related",
+      "to": "qa-frontend:pay-for-an-order",
+      "via": [
+        "E_ORDER_01",
+        "E_ORDER_02",
+        "E_ORDER_03",
+        "E_PAY_01"
+      ]
+    },
+    {
+      "from": "backend-delivery:pay-for-an-order",
+      "kind": "related",
       "to": "qa-frontend:T-065-fe",
       "via": [
         "E_ORDER_01",
@@ -9210,6 +9240,18 @@
         "E_PAY_01",
         "GET /orders/:id",
         "POST /orders/:id/checkout"
+      ]
+    },
+    {
+      "from": "backend-delivery:T-065-be",
+      "kind": "related",
+      "to": "qa-frontend:pay-for-an-order",
+      "via": [
+        "E_AUTH_04",
+        "E_ORDER_01",
+        "E_ORDER_02",
+        "E_ORDER_03",
+        "E_PAY_01"
       ]
     },
     {
@@ -9540,6 +9582,18 @@
     {
       "from": "backend-integration:pay-for-an-order",
       "kind": "related",
+      "to": "qa-frontend:pay-for-an-order",
+      "via": [
+        "E_AUTH_04",
+        "E_ORDER_01",
+        "E_ORDER_02",
+        "E_ORDER_03",
+        "E_PAY_01"
+      ]
+    },
+    {
+      "from": "backend-integration:pay-for-an-order",
+      "kind": "related",
       "to": "qa-frontend:T-065-fe",
       "via": [
         "E_AUTH_04",
@@ -9817,6 +9871,18 @@
         "E_PAY_01",
         "GET /orders/:id",
         "POST /orders/:id/checkout"
+      ]
+    },
+    {
+      "from": "backend-integration:T-065-be",
+      "kind": "related",
+      "to": "qa-frontend:pay-for-an-order",
+      "via": [
+        "E_AUTH_04",
+        "E_ORDER_01",
+        "E_ORDER_02",
+        "E_ORDER_03",
+        "E_PAY_01"
       ]
     },
     {
@@ -11669,6 +11735,18 @@
     {
       "from": "frontend-delivery:T-065-fe",
       "kind": "related",
+      "to": "qa-frontend:pay-for-an-order",
+      "via": [
+        "E_AUTH_04",
+        "E_ORDER_01",
+        "E_ORDER_02",
+        "E_ORDER_03",
+        "E_PAY_01"
+      ]
+    },
+    {
+      "from": "frontend-delivery:T-065-fe",
+      "kind": "related",
       "to": "qa-frontend:T-065-fe",
       "via": [
         "E_AUTH_04",
@@ -12248,6 +12326,18 @@
     {
       "from": "qa-backend:pay-for-an-order",
       "kind": "related",
+      "to": "qa-frontend:pay-for-an-order",
+      "via": [
+        "E_AUTH_04",
+        "E_ORDER_01",
+        "E_ORDER_02",
+        "E_ORDER_03",
+        "E_PAY_01"
+      ]
+    },
+    {
+      "from": "qa-backend:pay-for-an-order",
+      "kind": "related",
       "to": "qa-frontend:T-065-fe",
       "via": [
         "E_AUTH_04",
@@ -12516,6 +12606,18 @@
     {
       "from": "qa-backend:T-065-be",
       "kind": "related",
+      "to": "qa-frontend:pay-for-an-order",
+      "via": [
+        "E_AUTH_04",
+        "E_ORDER_01",
+        "E_ORDER_02",
+        "E_ORDER_03",
+        "E_PAY_01"
+      ]
+    },
+    {
+      "from": "qa-backend:T-065-be",
+      "kind": "related",
       "to": "qa-frontend:T-065-fe",
       "via": [
         "E_AUTH_04",
@@ -12550,10 +12652,30 @@
     {
       "from": "qa-frontend:pay-for-an-order",
       "kind": "related",
+      "to": "frontend-delivery:pay-for-an-order"
+    },
+    {
+      "from": "qa-frontend:pay-for-an-order",
+      "kind": "related",
+      "to": "frontend-requirements:pay-for-an-order"
+    },
+    {
+      "from": "qa-frontend:pay-for-an-order",
+      "kind": "related",
       "to": "qa-frontend:T-065-fe",
       "via": [
+        "E_AUTH_04",
+        "E_ORDER_01",
+        "E_ORDER_02",
+        "E_ORDER_03",
+        "E_PAY_01",
         "sum-of"
       ]
+    },
+    {
+      "from": "qa-frontend:pay-for-an-order",
+      "kind": "related",
+      "to": "story:pay-for-an-order"
     },
     {
       "from": "qa-frontend:T-065-fe",
@@ -28071,6 +28193,11 @@
     {
       "from": "module:payments-gateway",
       "kind": "wikilink",
+      "to": "qa-frontend:pay-for-an-order"
+    },
+    {
+      "from": "module:payments-gateway",
+      "kind": "wikilink",
       "to": "story:pay-for-an-order"
     },
     {
@@ -29547,6 +29674,11 @@
       "from": "qa-backend:T-065-be",
       "kind": "wikilink",
       "to": "task:T-063"
+    },
+    {
+      "from": "qa-frontend:pay-for-an-order",
+      "kind": "wikilink",
+      "to": "task:T-065"
     },
     {
       "from": "qa-frontend:T-065-fe",
@@ -34033,6 +34165,10 @@
       "name": "Pay for an order QA Backend",
       "type": "qa-backend"
     },
+    "modules/Payments Gateway/Pay for an order/Pay for an order QA Frontend.md": {
+      "name": "Pay for an order QA Frontend",
+      "type": "qa-frontend"
+    },
     "modules/Payments Gateway/Pay for an order/Pay for an order Story.md": {
       "name": "Pay for an order Story",
       "type": "story"
@@ -35697,6 +35833,7 @@
         "qa-backend:T-065-be",
         "frontend-delivery:T-065-fe",
         "frontend-requirements:T-065-fe",
+        "qa-frontend:pay-for-an-order",
         "qa-frontend:T-065-fe",
         "frontend-requirements:payments",
         "frontend-requirements:subscription",
@@ -37145,6 +37282,7 @@
         "qa-backend:T-065-be",
         "frontend-delivery:T-065-fe",
         "frontend-requirements:T-065-fe",
+        "qa-frontend:pay-for-an-order",
         "qa-frontend:T-065-fe",
         "decision-record:DR-08",
         "decision-record:DR-09",
@@ -37865,6 +38003,7 @@
         "frontend-requirements:pay-for-an-order",
         "qa-backend:T-065-be",
         "frontend-delivery:T-065-fe",
+        "qa-frontend:pay-for-an-order",
         "qa-frontend:T-065-fe",
         "frontend-requirements:payments",
         "frontend-requirements:subscription",
@@ -39044,6 +39183,7 @@
         "qa-backend:T-065-be",
         "frontend-delivery:T-065-fe",
         "frontend-requirements:T-065-fe",
+        "qa-frontend:pay-for-an-order",
         "qa-frontend:T-065-fe",
         "frontend-requirements:payments",
         "frontend-requirements:subscription",
@@ -42320,8 +42460,7 @@
         "current": 2,
         "decided": 2,
         "done": 3,
-        "missing": 1,
-        "partial": 4,
+        "partial": 5,
         "passing": 2,
         "todo": 1
       },
@@ -43358,6 +43497,7 @@
         "story:T-065",
         "task:T-065-be",
         "frontend-requirements:pay-for-an-order",
+        "qa-frontend:pay-for-an-order",
         "qa-frontend:T-065-fe",
         "frontend-requirements:payments",
         "frontend-requirements:subscription",
@@ -44541,7 +44681,8 @@
         "backend-delivery:T-065-be",
         "backend-integration:T-065-be",
         "qa-backend:T-065-be",
-        "frontend-requirements:T-065-fe"
+        "frontend-requirements:T-065-fe",
+        "qa-frontend:pay-for-an-order"
       ],
       "scope": "feature",
       "screens": [
@@ -46666,6 +46807,7 @@
         "feature:event-ring-auto",
         "project:frontend-contract",
         "qa-backend:pay-for-an-order",
+        "qa-frontend:pay-for-an-order",
         "backend-delivery:T-065-be",
         "backend-integration:T-065-be",
         "qa-backend:T-065-be",
@@ -47976,8 +48118,7 @@
         "decided": 2,
         "done": 3,
         "in-progress": 1,
-        "missing": 1,
-        "partial": 4,
+        "partial": 5,
         "passing": 2,
         "todo": 1
       },
@@ -49512,6 +49653,7 @@
         "task:T-065-be",
         "frontend-requirements:pay-for-an-order",
         "frontend-delivery:T-065-fe",
+        "qa-frontend:pay-for-an-order",
         "qa-frontend:T-065-fe",
         "frontend-requirements:payments",
         "frontend-requirements:subscription",
@@ -50659,6 +50801,7 @@
         "backend-integration:T-065-be",
         "frontend-delivery:T-065-fe",
         "frontend-requirements:T-065-fe",
+        "qa-frontend:pay-for-an-order",
         "qa-frontend:T-065-fe",
         "frontend-requirements:payments",
         "frontend-requirements:subscription",
@@ -51261,6 +51404,7 @@
         "backend-delivery:pay-for-an-order",
         "backend-integration:pay-for-an-order",
         "qa-backend:pay-for-an-order",
+        "qa-frontend:pay-for-an-order",
         "backend-delivery:T-065-be",
         "backend-integration:T-065-be",
         "qa-backend:T-065-be",
@@ -52432,17 +52576,19 @@
     "qa-frontend:pay-for-an-order": {
       "affects": [],
       "blockedBy": [],
-      "card": null,
+      "card": "QF-02",
       "children": [],
       "code": "pay-for-an-order",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "missing",
+      "effectiveStatus": "partial",
       "effort": null,
       "feature": "pay-for-an-order",
       "frontendOnly": false,
       "id": "qa-frontend:pay-for-an-order",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:pay-for-an-order"
+      },
       "kind": "qa-frontend",
       "label": "QA Frontend",
       "labels": [],
@@ -52452,19 +52598,44 @@
       "parents": [
         "feature:pay-for-an-order"
       ],
-      "path": null,
-      "pending": [],
-      "priority": null,
-      "related": [],
+      "path": "modules/Payments Gateway/Pay for an order/Pay for an order QA Frontend.md",
+      "pending": [
+        {
+          "person": "qa",
+          "text": "run S3 (paid while the app was closed) and S4 (s52) journeys once their task ships; no task yet, see Pay for an order Frontend Delivery",
+          "to": null
+        }
+      ],
+      "priority": "high",
+      "related": [
+        "backend-delivery:pay-for-an-order",
+        "backend-integration:pay-for-an-order",
+        "qa-backend:pay-for-an-order",
+        "qa-frontend:T-065-fe",
+        "frontend-delivery:pay-for-an-order",
+        "story:pay-for-an-order",
+        "frontend-requirements:pay-for-an-order",
+        "backend-delivery:T-065-be",
+        "backend-integration:T-065-be",
+        "qa-backend:T-065-be",
+        "frontend-delivery:T-065-fe"
+      ],
       "scope": "feature",
-      "screens": [],
-      "status": null,
-      "summary": "Not written yet. Create it with: node scripts/build-tree.mjs --scaffold qa-frontend pay-for-an-order",
-      "tags": [],
+      "screens": [
+        "s51",
+        "s52"
+      ],
+      "status": "passing",
+      "summary": "Expected behaviour of the screens, as artefacts: journeys, states and copy to check a build against, not test code. The sum of the task-level QA Frontend notes.",
+      "tags": [
+        "qa-frontend",
+        "qa-frontend/passing",
+        "module/payments-gateway",
+        "layer/qa"
+      ],
       "task": null,
-      "template": "templates/QA Frontend Template.md",
       "title": "Pay for an order QA Frontend",
-      "updated": null
+      "updated": "2026-10-25"
     },
     "qa-frontend:payments": {
       "affects": [],
@@ -53073,9 +53244,9 @@
         "done": 15,
         "draft": 103,
         "in-progress": 16,
-        "missing": 146,
+        "missing": 145,
         "needs-decision": 20,
-        "partial": 4,
+        "partial": 5,
         "passing": 2,
         "reference": 31,
         "todo": 82
@@ -57406,6 +57577,7 @@
         "frontend-delivery:pay-for-an-order",
         "frontend-requirements:pay-for-an-order",
         "qa-backend:pay-for-an-order",
+        "qa-frontend:pay-for-an-order",
         "feature:payments",
         "task:T-047",
         "feature:events-before",
