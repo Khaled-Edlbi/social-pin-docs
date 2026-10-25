@@ -3,16 +3,17 @@ type: feature
 id: gemma
 name: "Gemma AI"
 priority: medium
+release: later
 module: platform
 screens: [s13, s60]
 updated: 2026-10-25
 owner: "omar"
-tags: [feature, module/platform, priority/medium]
+tags: [feature, module/platform, priority/medium, release/later]
 ---
 
 # Gemma AI
 
-**Backend:** TODO · **Priority:** Medium · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
+**Backend:** TODO · **Priority:** Medium · **Release:** Later · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
 
 **Layers:** [[Gemma AI Story|Story]] · [[Gemma AI Frontend Requirements|Frontend Requirements]] · [[Gemma AI Backend Delivery|Backend Delivery]] · [[Gemma AI Backend Integration|Backend Integration]] · [[Gemma AI Frontend Delivery|Frontend Delivery]] · [[Gemma AI QA Backend|QA Backend]] · [[Gemma AI QA Frontend|QA Frontend]]
 

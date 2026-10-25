@@ -3,16 +3,17 @@ type: feature
 id: photo-library
 name: "Photo Library"
 priority: high
+release: v1
 module: identity
 screens: [s29, s30]
 updated: 2026-10-25
 owner: "omar"
-tags: [feature, module/identity, priority/high]
+tags: [feature, module/identity, priority/high, release/v1]
 ---
 
 # Photo Library
 
-**Backend:** Partial (needs more) · **Priority:** High · **Module:** [[Identity Core Module|Identity Core]]
+**Backend:** Partial (needs more) · **Priority:** High · **Release:** v1 · **Module:** [[Identity Core Module|Identity Core]]
 
 **Layers:** [[Photo Library Story|Story]] · [[Photo Library Frontend Requirements|Frontend Requirements]] · [[Photo Library Backend Delivery|Backend Delivery]] · [[Photo Library Backend Integration|Backend Integration]] · [[Photo Library Frontend Delivery|Frontend Delivery]] · [[Photo Library QA Backend|QA Backend]] · [[Photo Library QA Frontend|QA Frontend]]
 

@@ -3,16 +3,17 @@ type: feature
 id: delegated-admins
 name: "Delegated Admins"
 priority: high
+release: v1
 module: shared-rings
 screens: [s26, s27]
 updated: 2026-10-25
 owner: "omar"
-tags: [feature, module/shared-rings, priority/high]
+tags: [feature, module/shared-rings, priority/high, release/v1]
 ---
 
 # Delegated Admins
 
-**Backend:** Partial (needs more) · **Priority:** High · **Module:** [[Shared Rings & Companies Module|Shared Rings & Companies]]
+**Backend:** Partial (needs more) · **Priority:** High · **Release:** v1 · **Module:** [[Shared Rings & Companies Module|Shared Rings & Companies]]
 
 **Layers:** [[Delegated Admins Story|Story]] · [[Delegated Admins Frontend Requirements|Frontend Requirements]] · [[Delegated Admins Backend Delivery|Backend Delivery]] · [[Delegated Admins Backend Integration|Backend Integration]] · [[Delegated Admins Frontend Delivery|Frontend Delivery]] · [[Delegated Admins QA Backend|QA Backend]] · [[Delegated Admins QA Frontend|QA Frontend]]
 

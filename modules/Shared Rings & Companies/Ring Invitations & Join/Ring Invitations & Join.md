@@ -3,17 +3,18 @@ type: feature
 id: ring-invitations
 name: "Ring Invitations & Join"
 priority: high
+release: v1
 module: shared-rings
 screens: [s17, s74]
 related: ["View As & Pin Views"]
 updated: 2026-10-25
 owner: "omar"
-tags: [feature, module/shared-rings, priority/high]
+tags: [feature, module/shared-rings, priority/high, release/v1]
 ---
 
 # Ring Invitations & Join
 
-**Backend:** TODO · **Priority:** High · **Module:** [[Shared Rings & Companies Module|Shared Rings & Companies]]
+**Backend:** TODO · **Priority:** High · **Release:** v1 · **Module:** [[Shared Rings & Companies Module|Shared Rings & Companies]]
 
 **Layers:** [[Ring Invitations & Join Story|Story]] · [[Ring Invitations & Join Frontend Requirements|Frontend Requirements]] · [[Ring Invitations & Join Backend Delivery|Backend Delivery]] · [[Ring Invitations & Join Backend Integration|Backend Integration]] · [[Ring Invitations & Join Frontend Delivery|Frontend Delivery]] · [[Ring Invitations & Join QA Backend|QA Backend]] · [[Ring Invitations & Join QA Frontend|QA Frontend]]
 

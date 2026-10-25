@@ -3,15 +3,16 @@ type: feature
 id: code-delivery
 name: "Code Delivery"
 priority: critical
+release: mvp
 module: platform
 screens: [s02]
-updated: 2026-10-19
-tags: [feature, module/platform, priority/critical]
+updated: 2026-10-25
+tags: [feature, module/platform, priority/critical, release/mvp]
 ---
 
 # Code Delivery
 
-**Backend:** Partial (needs more) · **Priority:** Critical · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
+**Backend:** Partial (needs more) · **Priority:** Critical · **Release:** MVP · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
 
 **Layers:** [[Code Delivery Story|Story]] · [[Code Delivery Frontend Requirements|Frontend Requirements]] · [[Code Delivery Backend Delivery|Backend Delivery]] · [[Code Delivery Backend Integration|Backend Integration]] · [[Code Delivery Frontend Delivery|Frontend Delivery]] · [[Code Delivery QA Backend|QA Backend]] · [[Code Delivery QA Frontend|QA Frontend]]
 

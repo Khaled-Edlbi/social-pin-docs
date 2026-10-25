@@ -3,17 +3,18 @@ type: feature
 id: connections
 name: "Connections"
 priority: critical
+release: mvp
 module: connections
 screens: [s44, s45, s46, s47, s62]
 related: ["Rings"]
 updated: 2026-10-25
 owner: "omar"
-tags: [feature, module/connections, priority/critical]
+tags: [feature, module/connections, priority/critical, release/mvp]
 ---
 
 # Connections
 
-**Backend:** TODO · **Priority:** Critical · **Module:** [[Connections Module|Connections]]
+**Backend:** TODO · **Priority:** Critical · **Release:** MVP · **Module:** [[Connections Module|Connections]]
 
 **Layers:** [[Connections Story|Story]] · [[Connections Frontend Requirements|Frontend Requirements]] · [[Connections Backend Delivery|Backend Delivery]] · [[Connections Backend Integration|Backend Integration]] · [[Connections Frontend Delivery|Frontend Delivery]] · [[Connections QA Backend|QA Backend]] · [[Connections QA Frontend|QA Frontend]]
 

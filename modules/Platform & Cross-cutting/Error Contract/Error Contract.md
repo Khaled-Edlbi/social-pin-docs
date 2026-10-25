@@ -3,15 +3,16 @@ type: feature
 id: error-contract
 name: "Error Contract"
 priority: critical
+release: mvp
 module: platform
 screens: []
-updated: 2026-10-19
-tags: [feature, module/platform, priority/critical]
+updated: 2026-10-25
+tags: [feature, module/platform, priority/critical, release/mvp]
 ---
 
 # Error Contract
 
-**Backend:** Partial (needs more) · **Priority:** Critical · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
+**Backend:** Partial (needs more) · **Priority:** Critical · **Release:** MVP · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
 
 **Layers:** [[Error Contract Story|Story]] · [[Error Contract Frontend Requirements|Frontend Requirements]] · [[Error Contract Backend Delivery|Backend Delivery]] · [[Error Contract Backend Integration|Backend Integration]] · [[Error Contract Frontend Delivery|Frontend Delivery]] · [[Error Contract QA Backend|QA Backend]] · [[Error Contract QA Frontend|QA Frontend]]
 

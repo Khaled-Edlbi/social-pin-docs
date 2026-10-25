@@ -3,15 +3,16 @@ type: feature
 id: audit-log
 name: "Audit Log"
 priority: critical
+release: mvp
 module: platform
 screens: []
-updated: 2026-10-19
-tags: [feature, module/platform, priority/critical]
+updated: 2026-10-25
+tags: [feature, module/platform, priority/critical, release/mvp]
 ---
 
 # Audit Log
 
-**Backend:** TODO · **Priority:** Critical · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
+**Backend:** TODO · **Priority:** Critical · **Release:** MVP · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
 
 **Layers:** [[Audit Log Story|Story]] · [[Audit Log Frontend Requirements|Frontend Requirements]] · [[Audit Log Backend Delivery|Backend Delivery]] · [[Audit Log Backend Integration|Backend Integration]] · [[Audit Log Frontend Delivery|Frontend Delivery]] · [[Audit Log QA Backend|QA Backend]] · [[Audit Log QA Frontend|QA Frontend]]
 

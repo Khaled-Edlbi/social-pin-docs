@@ -3,16 +3,17 @@ type: feature
 id: badge-qr
 name: "Badge & QR"
 priority: critical
+release: mvp
 module: discovery
 screens: [s34, s43, s44, s56]
 related: ["Account", "Rings"]
-updated: 2026-10-19
-tags: [feature, module/discovery, priority/critical]
+updated: 2026-10-25
+tags: [feature, module/discovery, priority/critical, release/mvp]
 ---
 
 # Badge & QR
 
-**Backend:** Partial (needs more) · **Priority:** Critical · **Module:** [[Discovery Module|Discovery]]
+**Backend:** Partial (needs more) · **Priority:** Critical · **Release:** MVP · **Module:** [[Discovery Module|Discovery]]
 
 **Layers:** [[Badge & QR Story|Story]] · [[Badge & QR Frontend Requirements|Frontend Requirements]] · [[Badge & QR Backend Delivery|Backend Delivery]] · [[Badge & QR Backend Integration|Backend Integration]] · [[Badge & QR Frontend Delivery|Frontend Delivery]] · [[Badge & QR QA Backend|QA Backend]] · [[Badge & QR QA Frontend|QA Frontend]]
 
