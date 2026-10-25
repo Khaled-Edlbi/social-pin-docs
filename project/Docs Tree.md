@@ -65,6 +65,7 @@ The seven layer notes come from `docs.config.json`, listed in the **hand-off ord
 | Draft / Passing / Failing | a QA note before and after a run |
 | Blocked | the card before it in the hand-off flow is not handed off yet (the default), or something in `depends` or `blockedBy` is not done; the pane names it. A blocked card, and every card below it in the ladder that waits in turn, is drawn dim until the blocker is done |
 | Needs decision | a decision that is still open, or a task that asks for one |
+| `D-NN · NEEDS DECISION` / `D-NN · DECIDED` / `DR-NN · DECISION` | how the two decision cards are named on the page and in the index: the D-NN card holds the question (NEEDS DECISION while open, DECIDED once decided), its DR-NN card holds the answer (DECISION); the types (`decision`, `decision-record`) and the codes do not change |
 | Blocked · D-NN | the card needs a decision: the open decision card hangs under it (`blocks:` on the decision) and everything after it waits; the card returns to its own status on the build after the decision is `decided` ([[Agent Rules#4 · Statuses, blocking and sign-off]]) |
 | Not written yet | a placeholder for a missing layer note (feature level only) |
 | *Frontend only* (kicker) | a feature with `frontendOnly: true`: no backend part, so the backend and QA-backend cards are neither required nor counted |
