@@ -106,6 +106,7 @@
     "feature:view-as": "F-12",
     "feature:widgets": "F-13",
     "frontend-delivery:T-065-fe": "FD-01",
+    "frontend-delivery:pay-for-an-order": "FD-02",
     "frontend-requirements:T-065-fe": "FR-40",
     "frontend-requirements:account": "FR-01",
     "frontend-requirements:app-shell": "FR-29",
