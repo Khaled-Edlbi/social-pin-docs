@@ -5,7 +5,7 @@ name: "Profiles & Pin Name"
 priority: critical
 module: identity
 screens: [s06]
-updated: 2026-10-19
+updated: 2026-10-25
 tags: [feature, module/identity, priority/critical]
 ---
 
@@ -21,11 +21,18 @@ Multiple profiles per account, the `!`-prefixed unique Pin name with a public li
 
 | Screen | Name | Note |
 |---|---|---|
-| [[Screen Index#s06|s06]] | Claim your Pin | Availability check done; yearly rename + suggestions → D-06 |
+| [[Screen Index#s06|s06]] | Claim your Pin | Availability check done; yearly rename + suggestions decided ([[DR-06 Yearly rename, old name freed, case-insensitive|DR-06]]), not built |
 
 Wireframe brief sections: [[Wireframe Brief#Onboarding flow|§3.1 Onboarding flow]], [[Wireframe Brief#Account, subscription & settings|§12 Account, subscription & settings]]
 
 Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map in [[Navigation Map]], see [[Design Reference]].
+
+## Product rules
+
+- **One main profile every Ring starts from**: headline, role, company, location, photo and bio, and nothing more. Full name is the same in every Ring; the other fields a Ring may change for itself ([[DR-02 One main profile every Ring starts from]]). Not built yet: `Profile` has none of these fields today.
+- A Pin name can be **changed once a year**; the old name is **free for anyone** at the rename, with no redirect ([[DR-06 Yearly rename, old name freed, case-insensitive]]). Not built yet: renames are unlimited today.
+- Pin names **ignore capitals**: `Omar.Fostok` and `omar.fostok` are one name.
+- When a name is taken, **suggestions come only from the person's own name**; the availability check never reveals who holds a name.
 
 ## Tasks
 
