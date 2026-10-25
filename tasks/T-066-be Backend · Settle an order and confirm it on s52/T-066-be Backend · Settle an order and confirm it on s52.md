@@ -21,6 +21,8 @@ tags: [task, task/done, module/payments-gateway, priority/high, backend]
 
 # ✅ T-066-be · Backend: Settle an order and confirm it on s52
 
+> ⚠ Affected by [[T-066-be QA Backend]] (2026-10-25): QA Backend passing on `t066-sim-2026-10-25` (simulated), W1–W10; the `@qa` pending item can be cleared and the QA box ticked.
+
 **Parent:** [[T-066 Settle an order and confirm it on s52]] · **Feature:** [[Pay for an order]] · **Side:** Backend · **Status:** Done (simulated) · **Priority:** high · **Effort:** M (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-066-be` when the team picks it up): [[T-066-be Backend Delivery|Backend Delivery]] · [[T-066-be Backend Integration|Backend Integration]] · [[T-066-be QA Backend|QA Backend]]
