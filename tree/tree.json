@@ -4913,7 +4913,7 @@
     "layerNotes": 205,
     "modules": 9,
     "notes": 502,
-    "partial": 5,
+    "partial": 4,
     "placeholders": 145,
     "records": 4,
     "taskLayerNotes": 72,
@@ -42675,8 +42675,8 @@
         "blocked": 1,
         "current": 2,
         "decided": 2,
-        "done": 3,
-        "partial": 5,
+        "done": 4,
+        "partial": 4,
         "passing": 2,
         "todo": 3,
         "verified": 1
@@ -48334,9 +48334,9 @@
         "blocked": 1,
         "current": 2,
         "decided": 2,
-        "done": 3,
+        "done": 4,
         "in-progress": 1,
-        "partial": 5,
+        "partial": 4,
         "passing": 2,
         "todo": 3,
         "verified": 1
@@ -53460,12 +53460,12 @@
         "blocked": 179,
         "current": 11,
         "decided": 4,
-        "done": 15,
+        "done": 16,
         "draft": 103,
         "in-progress": 16,
         "missing": 145,
         "needs-decision": 20,
-        "partial": 5,
+        "partial": 4,
         "passing": 2,
         "reference": 31,
         "todo": 84,
@@ -68906,8 +68906,7 @@
       "rollup": {
         "approved": 1,
         "current": 1,
-        "done": 3,
-        "partial": 1,
+        "done": 4,
         "passing": 2,
         "verified": 1
       },
@@ -69012,7 +69011,7 @@
         "task:T-065-be"
       ],
       "dir": "tasks/T-065-fe Frontend · Open a Stripe checkout for an order",
-      "effectiveStatus": "partial",
+      "effectiveStatus": "done",
       "effort": "M",
       "feature": "pay-for-an-order",
       "frontendOnly": false,
@@ -69030,13 +69029,7 @@
         "task:T-065"
       ],
       "path": "tasks/T-065-fe Frontend · Open a Stripe checkout for an order/T-065-fe Frontend · Open a Stripe checkout for an order.md",
-      "pending": [
-        {
-          "person": "qa",
-          "text": "QA Frontend run on t065-fe-sim-2026-10-25 (T-065-fe QA Frontend not written yet)",
-          "to": null
-        }
-      ],
+      "pending": [],
       "priority": "high",
       "related": [
         "frontend-requirements:T-065-fe",
