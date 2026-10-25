@@ -1,6 +1,7 @@
 ---
 type: project
 layer: frontend
+created: 2026-10-18
 updated: 2026-10-18
 related: ["Agent Rules", "Frontend Contract", "Frontend API Guide"]
 tags: [project, layer/frontend, rules]

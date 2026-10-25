@@ -15,6 +15,7 @@ related: []
 pending: []
 # deployedTo: where this build runs, dev | staging | prod (docs.config.json environments); empty until deployed
 deployedTo: []
+created: <date>
 updated: <date>
 tags: [frontend-delivery, frontend-delivery/todo, module/<module>, layer/frontend]
 ---

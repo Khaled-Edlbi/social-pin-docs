@@ -6,6 +6,7 @@ feature: payments
 module: commerce
 status: draft
 screens: [s50, s51]
+created: 2026-10-18
 updated: 2026-10-25
 tags: [frontend-requirements, frontend-requirements/draft, module/commerce, layer/frontend]
 ---

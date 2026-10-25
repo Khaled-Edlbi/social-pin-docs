@@ -6,6 +6,7 @@ feature: rings
 module: identity
 status: current
 screens: [s08, s09, s16, s17, s18, s19, s20, s21, s22, s26, s62]
+created: 2026-10-15
 updated: 2026-10-18
 tags: [backend-integration, backend-integration/current, module/identity, layer/backend]
 ---

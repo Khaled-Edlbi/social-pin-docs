@@ -6,6 +6,7 @@ feature: onboarding-imports
 module: identity
 status: draft
 screens: [s03, s03a, s03b, s04, s05]
+created: 2026-10-18
 updated: 2026-10-18
 tags: [frontend-requirements, frontend-requirements/draft, module/identity, layer/frontend]
 ---

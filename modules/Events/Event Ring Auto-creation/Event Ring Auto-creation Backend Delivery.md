@@ -6,6 +6,7 @@ feature: event-ring-auto
 module: events
 status: in-progress
 screens: [s52]
+created: 2026-10-18
 updated: 2026-10-18
 tags: [backend-delivery, backend-delivery/in-progress, module/events, layer/backend]
 ---

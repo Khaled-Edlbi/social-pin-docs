@@ -1,6 +1,7 @@
 ---
 type: project
 layer: shared
+created: 2026-10-19
 updated: 2026-10-25
 depends: ["Agent Protocol"]
 affects: []

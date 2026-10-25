@@ -6,6 +6,7 @@ feature: discover-hub
 module: discovery
 status: todo
 screens: [s38]
+created: 2026-10-18
 updated: 2026-10-18
 tags: [backend-delivery, backend-delivery/todo, module/discovery, layer/backend]
 ---

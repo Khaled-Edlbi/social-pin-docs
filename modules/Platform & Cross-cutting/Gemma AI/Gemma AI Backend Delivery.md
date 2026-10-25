@@ -6,6 +6,7 @@ feature: gemma
 module: platform
 status: todo
 screens: [s13, s60]
+created: 2026-10-18
 updated: 2026-10-18
 tags: [backend-delivery, backend-delivery/todo, module/platform, layer/backend]
 ---

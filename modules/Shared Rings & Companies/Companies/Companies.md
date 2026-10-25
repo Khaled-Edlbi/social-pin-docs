@@ -7,6 +7,7 @@ release: v1
 module: shared-rings
 screens: [s72, s73]
 related: ["Ring Members"]
+created: 2026-10-15
 updated: 2026-10-25
 owner: "omar"
 tags: [feature, module/shared-rings, priority/high, release/v1]

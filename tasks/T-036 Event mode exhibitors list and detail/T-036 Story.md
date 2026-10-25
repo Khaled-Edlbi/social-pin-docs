@@ -12,6 +12,7 @@ related: []
 pending: []
 approvedBy: ""
 approvedAt: ""
+created: 2026-10-18
 updated: 2026-10-18
 tags: [story, story/draft, module/events, layer/business]
 task: T-036

@@ -6,6 +6,7 @@ feature: ring-projection
 module: identity
 status: draft
 screens: [s14, s20, s23, s24, s25, s29, s36]
+created: 2026-10-18
 updated: 2026-10-25
 owner: "omar"
 related: ["DR-02 One main profile every Ring starts from", "DR-03 Links entered once, switched on or off per Ring", "DR-05 Inherit per field, copy without members"]

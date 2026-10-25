@@ -6,6 +6,7 @@ feature: rings
 module: identity
 status: draft
 screens: [s08, s09, s16, s17, s18, s19, s20, s21, s22, s26, s62]
+created: 2026-10-18
 updated: 2026-10-25
 owner: "omar"
 related: ["DR-04 Ring settings at launch and their defaults", "DR-05 Inherit per field, copy without members", "DR-14 Shared with me lists people, never the Ring", "DR-18 Ring names shown when joined knowingly"]

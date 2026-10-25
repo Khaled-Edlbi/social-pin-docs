@@ -6,6 +6,7 @@ feature: interests
 module: platform
 status: in-progress
 screens: [s07, s71]
+created: 2026-10-18
 updated: 2026-10-18
 tags: [backend-delivery, backend-delivery/in-progress, module/platform, layer/backend]
 ---

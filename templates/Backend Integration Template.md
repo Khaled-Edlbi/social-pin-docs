@@ -13,6 +13,7 @@ related: []
 # deadline: YYYY-MM-DD      # optional: inherits the task's or the feature's when absent
 # pending: ["[[Note]]: what is left", "@who: what is left"]   # done, but a note is left for a card or a person → Partial until cleared
 pending: []
+created: <date>
 updated: <date>
 tags: [backend-integration, backend-integration/draft, module/<module>, layer/backend]
 ---

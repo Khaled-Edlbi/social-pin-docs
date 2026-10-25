@@ -6,6 +6,7 @@ feature: delegated-admins
 module: shared-rings
 status: draft
 screens: [s26, s27]
+created: 2026-10-18
 updated: 2026-10-18
 tags: [frontend-requirements, frontend-requirements/draft, module/shared-rings, layer/frontend]
 ---

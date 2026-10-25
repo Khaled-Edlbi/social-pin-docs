@@ -6,6 +6,7 @@ feature: widgets
 module: identity
 status: draft
 screens: [s36, s37]
+created: 2026-10-18
 updated: 2026-10-25
 owner: "omar"
 related: ["DR-03 Links entered once, switched on or off per Ring"]

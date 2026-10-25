@@ -6,6 +6,7 @@ feature: connections
 module: connections
 status: todo
 screens: [s44, s45, s46, s47, s62]
+created: 2026-10-18
 updated: 2026-10-18
 tags: [backend-delivery, backend-delivery/todo, module/connections, layer/backend]
 ---

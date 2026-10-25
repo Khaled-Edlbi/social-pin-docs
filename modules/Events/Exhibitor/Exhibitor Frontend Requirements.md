@@ -6,6 +6,7 @@ feature: exhibitor
 module: events
 status: draft
 screens: [s63, s64, s65]
+created: 2026-10-18
 updated: 2026-10-18
 tags: [frontend-requirements, frontend-requirements/draft, module/events, layer/frontend]
 ---

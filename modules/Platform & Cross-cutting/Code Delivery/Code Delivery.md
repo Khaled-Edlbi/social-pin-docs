@@ -6,6 +6,7 @@ priority: critical
 release: mvp
 module: platform
 screens: [s02]
+created: 2026-10-18
 updated: 2026-10-25
 tags: [feature, module/platform, priority/critical, release/mvp]
 ---

@@ -6,6 +6,7 @@ feature: auth
 module: identity
 status: current
 screens: [s01, s02, s06, s08, s68]
+created: 2026-10-15
 updated: 2026-10-18
 tags: [backend-integration, backend-integration/current, module/identity, layer/backend]
 ---

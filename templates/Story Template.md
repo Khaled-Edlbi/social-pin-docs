@@ -15,6 +15,7 @@ related: []
 pending: []
 approvedBy: ""
 approvedAt: ""
+created: <date>
 updated: <date>
 tags: [story, story/draft, module/<module>, layer/business]
 ---

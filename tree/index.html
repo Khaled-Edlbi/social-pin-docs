@@ -329,6 +329,7 @@ article .obsidian-only { border: 1px dashed var(--color-neutral-400); color: var
     <section class="sec">
       <div class="sec-head" data-sec="dates" role="button" tabindex="0" aria-expanded="true"><span class="sec-title"><i class="ph-duotone ph-caret-down fold"></i>Dates</span><span class="sec-hint">when</span></div>
       <div id="dates" style="display:flex;flex-direction:column;gap:12px">
+        <div class="group"><div class="group-title">Created<span class="gh">the card's created: date</span></div><div class="chips" id="cr-chips"></div><div class="range"><input class="input" type="date" id="cr-from" aria-label="Created from" title="Created on or after"><span class="sep">to</span><input class="input" type="date" id="cr-to" aria-label="Created to" title="Created on or before"></div></div>
         <div class="group"><div class="group-title">Updated<span class="gh">the note's updated: date</span></div><div class="chips" id="upd-chips"></div><div class="range"><input class="input" type="date" id="upd-from" aria-label="Updated from" title="Updated on or after"><span class="sep">to</span><input class="input" type="date" id="upd-to" aria-label="Updated to" title="Updated on or before"></div></div>
         <div class="group"><div class="group-title">Deadline<span class="gh">due between two dates</span></div><div class="chips" id="dl-chips"></div><div class="range"><input class="input" type="date" id="dl-from" aria-label="Deadline from" title="Due on or after"><span class="sep">to</span><input class="input" type="date" id="dl-to" aria-label="Deadline to" title="Due on or before"></div></div>
       </div>
@@ -497,16 +498,17 @@ function dueOf(n, now = new Date()) {
   return { ...zones[idx], daysLeft, missed: false, date: n.deadline, text: `${zones[idx].label} · ${daysLeft === 0 ? 'today' : daysLeft === 1 ? 'tomorrow' : `in ${daysLeft} days`}` };
 }
 const inheritedFrom = (n, k) => (n.inherits && n.inherits[k] && node(n.inherits[k]) ? ` · from ${node(n.inherits[k]).title}` : '');
-// the date filters: a range on `updated:` and one on `deadline:` (both YYYY-MM-DD, so they compare as strings); the quick chips only fill the range
+// the date filters: a range on `created:`, one on `updated:` and one on `deadline:` (both YYYY-MM-DD, so they compare as strings); the quick chips only fill the range
 const isoDay = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 const dayPlus = (k) => { const d = new Date(); d.setDate(d.getDate() + k); return isoDay(d); };
 const DATE_QUICK = {
+  cr: [{ id: 'today', label: 'Today', from: () => dayPlus(0), to: () => dayPlus(0) }, { id: '7d', label: 'Last 7 days', from: () => dayPlus(-6), to: () => dayPlus(0) }, { id: '30d', label: 'Last 30 days', from: () => dayPlus(-29), to: () => dayPlus(0) }],
   upd: [{ id: 'today', label: 'Today', from: () => dayPlus(0), to: () => dayPlus(0) }, { id: '7d', label: 'Last 7 days', from: () => dayPlus(-6), to: () => dayPlus(0) }, { id: '30d', label: 'Last 30 days', from: () => dayPlus(-29), to: () => dayPlus(0) }],
   dl: [{ id: 'today', label: 'Today', from: () => dayPlus(0), to: () => dayPlus(0) }, { id: '7d', label: 'Next 7 days', from: () => dayPlus(0), to: () => dayPlus(6) }, { id: '30d', label: 'Next 30 days', from: () => dayPlus(0), to: () => dayPlus(29) }],
 };
-const DATE_FIELDS = { upd: 'updated', dl: 'deadline' };
+const DATE_FIELDS = { cr: 'created', upd: 'updated', dl: 'deadline' };
 const inRange = (v, from, to) => !!v && (!from || v >= from) && (!to || v <= to);
-const dateFiltersActive = () => !!(S.updFrom || S.updTo || S.dlFrom || S.dlTo);
+const dateFiltersActive = () => !!(S.crFrom || S.crTo || S.updFrom || S.updTo || S.dlFrom || S.dlTo);
 const FLAG_D = 'M -3.5 -5.5 V 5.5 M -3.5 -5.5 H 4 L 2.2 -2.6 L 4 0.3 H -3.5';
 const CLOCK_D = 'M 0 -2.6 V 0.3 L 2.2 1.7 M 0 -5 A 5 5 0 1 1 -0.01 -5';
 const markSvg = (d) => `<svg viewBox="-7 -7 14 14" aria-hidden="true"><path d="${d}" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>`;
@@ -546,7 +548,7 @@ function sel(tag, attrs, parent, style) { const e = document.createElementNS(SVG
 
 // ------------------------------------------------------------ state
 const S = {
-  D: null, view: store.get('view', null), q: '', modules: [], kinds: [], statuses: [], label: null, priorities: [], due: [], updFrom: '', updTo: '', dlFrom: '', dlTo: '',
+  D: null, view: store.get('view', null), q: '', modules: [], kinds: [], statuses: [], label: null, priorities: [], due: [], crFrom: '', crTo: '', updFrom: '', updTo: '', dlFrom: '', dlTo: '',
   edgeKinds: store.get('edgeKinds', EDGE_KINDS.slice()), orient: store.get('orient', 'vertical'), scope: store.get('scope', 'features'),
   collapsed: [], selected: null, focus: null, pane: null, hover: null,
   theme: store.get('theme', null) || (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'),
@@ -672,6 +674,7 @@ function matches(n) {
   if (S.statuses.length && !S.statuses.includes(n.effectiveStatus)) return false;
   if (S.priorities.length && !expandPrio(S.priorities).includes(n.priority || '_none')) return false;
   if (S.due.length) { const z = dueOf(n); if (!expandDue(S.due).includes(z ? z.id : '_none')) return false; }
+  if ((S.crFrom || S.crTo) && !inRange(n.created, S.crFrom, S.crTo)) return false;
   if ((S.updFrom || S.updTo) && !inRange(n.updated, S.updFrom, S.updTo)) return false;
   if ((S.dlFrom || S.dlTo) && !inRange(n.deadline, S.dlFrom, S.dlTo)) return false;
   if (S.modules.length && n.kind !== 'root' && !S.modules.includes(n.module)) return false;
@@ -1233,7 +1236,7 @@ function renderSidebar() {
 const arrToggle = (key, v) => { const a = S[key]; return a.includes(v) ? a.filter((x) => x !== v) : [...a, v]; };
 $('#filters').addEventListener('click', (e) => {
   const b = e.target.closest('button'); if (!b) return;
-  if (b.dataset.preset) { const p = PRESETS.find((x) => x.id === b.dataset.preset); const on = b.getAttribute('aria-pressed') === 'true'; setFilters(on ? { kinds: [], statuses: [], label: null, due: [], priorities: [] } : { kinds: p.kinds.slice(), statuses: p.statuses.slice(), label: p.label || null, due: (p.due || []).slice(), priorities: (p.priorities || []).slice(), modules: [], q: '', updFrom: '', updTo: '', dlFrom: '', dlTo: '' }); if (!on) $('#search').value = ''; }
+  if (b.dataset.preset) { const p = PRESETS.find((x) => x.id === b.dataset.preset); const on = b.getAttribute('aria-pressed') === 'true'; setFilters(on ? { kinds: [], statuses: [], label: null, due: [], priorities: [] } : { kinds: p.kinds.slice(), statuses: p.statuses.slice(), label: p.label || null, due: (p.due || []).slice(), priorities: (p.priorities || []).slice(), modules: [], q: '', crFrom: '', crTo: '', updFrom: '', updTo: '', dlFrom: '', dlTo: '' }); if (!on) $('#search').value = ''; }
   else if (b.dataset.priority) setFilters({ priorities: arrToggle('priorities', b.dataset.priority) });
   else if (b.dataset.due) setFilters({ due: arrToggle('due', b.dataset.due) });
   else if (b.dataset.quick) { const [key, id] = b.dataset.quick.split(':'); const q = DATE_QUICK[key].find((x) => x.id === id); const on = b.getAttribute('aria-pressed') === 'true'; setFilters({ [key + 'From']: on ? '' : q.from(), [key + 'To']: on ? '' : q.to() }); }

@@ -6,6 +6,7 @@ priority: high
 release: v1
 module: platform
 screens: [s07, s71]
+created: 2026-10-15
 updated: 2026-10-25
 tags: [feature, module/platform, priority/high, release/v1]
 ---

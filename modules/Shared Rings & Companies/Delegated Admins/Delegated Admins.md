@@ -6,6 +6,7 @@ priority: high
 release: v1
 module: shared-rings
 screens: [s26, s27]
+created: 2026-10-15
 updated: 2026-10-25
 owner: "omar"
 tags: [feature, module/shared-rings, priority/high, release/v1]

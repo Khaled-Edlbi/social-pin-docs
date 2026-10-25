@@ -6,6 +6,7 @@ feature: meetings
 module: meetings
 status: draft
 screens: [s59, s61, s64, s66, s67]
+created: 2026-10-18
 updated: 2026-10-18
 tags: [story, story/draft, module/meetings, layer/business]
 ---

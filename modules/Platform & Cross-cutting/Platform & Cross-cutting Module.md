@@ -2,6 +2,7 @@
 type: module
 id: platform
 name: "Platform & Cross-cutting"
+created: 2026-10-18
 updated: 2026-10-18
 tags: [module, module/platform]
 ---

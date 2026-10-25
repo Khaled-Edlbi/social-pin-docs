@@ -6,6 +6,7 @@ feature: notifications
 module: platform
 status: todo
 screens: [s69]
+created: 2026-10-18
 updated: 2026-10-18
 tags: [backend-delivery, backend-delivery/todo, module/platform, layer/backend]
 ---

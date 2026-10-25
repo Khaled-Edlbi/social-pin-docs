@@ -2,6 +2,7 @@
 type: module
 id: commerce
 name: "Commerce"
+created: 2026-10-18
 updated: 2026-10-18
 tags: [module, module/commerce]
 ---

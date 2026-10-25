@@ -7,6 +7,7 @@ release: mvp
 module: connections
 screens: [s44, s45, s46, s47, s62]
 related: ["Rings"]
+created: 2026-10-15
 updated: 2026-10-25
 owner: "omar"
 tags: [feature, module/connections, priority/critical, release/mvp]

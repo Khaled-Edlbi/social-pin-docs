@@ -6,6 +6,7 @@ feature: delegated-admins
 module: shared-rings
 status: in-progress
 screens: [s26, s27]
+created: 2026-10-18
 updated: 2026-10-18
 tags: [backend-delivery, backend-delivery/in-progress, module/shared-rings, layer/backend]
 ---

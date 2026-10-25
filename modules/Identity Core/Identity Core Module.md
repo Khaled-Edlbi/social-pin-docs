@@ -2,6 +2,7 @@
 type: module
 id: identity
 name: "Identity Core"
+created: 2026-10-18
 updated: 2026-10-21
 tags: [module, module/identity]
 ---

@@ -6,6 +6,7 @@ feature: discover-hub
 module: discovery
 status: draft
 screens: [s38]
+created: 2026-10-18
 updated: 2026-10-18
 tags: [frontend-requirements, frontend-requirements/draft, module/discovery, layer/frontend]
 ---

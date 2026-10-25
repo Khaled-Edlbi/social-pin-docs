@@ -3,6 +3,7 @@ type: project
 layer: <business|frontend|backend|shared>
 # priority: high           # optional (critical | high | medium | low)
 # deadline: YYYY-MM-DD      # optional
+created: <date>
 updated: <date>
 affects: []
 related: []

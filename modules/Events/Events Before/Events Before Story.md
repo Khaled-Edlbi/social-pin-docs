@@ -9,6 +9,7 @@ screens: [s48, s49, s50, s51, s52]
 depends: ["D-07 Payment provider"]
 related: ["Payments & Orders", "Event Ring Auto-creation"]
 owner: "khaled"
+created: 2026-10-18
 updated: 2026-10-25
 tags: [story, story/draft, module/events, layer/business]
 ---

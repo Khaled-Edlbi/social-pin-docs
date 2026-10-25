@@ -7,6 +7,7 @@ release: v1
 module: events
 screens: [s63, s64, s65]
 related: ["View As & Pin Views"]
+created: 2026-10-15
 updated: 2026-10-25
 tags: [feature, module/events, priority/high, release/v1]
 ---

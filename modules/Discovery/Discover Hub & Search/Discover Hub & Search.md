@@ -6,6 +6,7 @@ priority: high
 release: v1
 module: discovery
 screens: [s38]
+created: 2026-10-15
 updated: 2026-10-25
 tags: [feature, module/discovery, priority/high, release/v1]
 ---

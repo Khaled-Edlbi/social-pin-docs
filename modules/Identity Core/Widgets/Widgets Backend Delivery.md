@@ -6,6 +6,7 @@ feature: widgets
 module: identity
 status: in-progress
 screens: [s36, s37]
+created: 2026-10-18
 updated: 2026-10-18
 tags: [backend-delivery, backend-delivery/in-progress, module/identity, layer/backend]
 ---

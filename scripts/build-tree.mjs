@@ -393,7 +393,7 @@ export function build() {
   const base = (n, extra) => ({
     id: null, kind: null, layer: null, title: n ? n.stem : null, path: n ? n.rel : null, status: null, effectiveStatus: null, blockedBy: [],
     priority: n?.data?.priority ?? null, effort: n?.data?.effort ?? null, module: n?.data?.module ?? null, feature: null, task: null, code: null, scope: null,
-    screens: list(n?.data?.screens), updated: n?.data?.updated ?? n?.data?.created ?? null, tags: list(n?.data?.tags),
+    screens: list(n?.data?.screens), created: n?.data?.created ?? null, updated: n?.data?.updated ?? n?.data?.created ?? null, tags: list(n?.data?.tags),
     deadline: n?.data?.deadline ?? null, release: null, inherits: {},
     depends: [], affects: [], related: [], children: [], parents: [], summary: n?.summary ?? null, label: null, parentTask: null, pending: [], frontendOnly: false, labels: [], card: null, ...extra,
   });
@@ -410,7 +410,7 @@ export function build() {
 
   // root
   const overview = byStem.get('Project Overview') || null;
-  const root = addNode(base(null, { id: 'root', kind: 'root', title: cfg.project || 'Project', path: null, file: overview?.rel ?? null, effectiveStatus: 'reference', label: 'Project', summary: overview?.summary ?? null, stage: null, releases: [] }));
+  const root = addNode(base(null, { id: 'root', kind: 'root', title: cfg.project || 'Project', path: null, file: overview?.rel ?? null, effectiveStatus: 'reference', label: 'Project', summary: overview?.summary ?? null, stage: null, releases: [], created: overview?.data?.created ?? null, updated: overview?.data?.updated ?? null }));
   // the stage is typed by the owner on the overview note, never computed
   const rawStage = overview?.data?.stage;
   if (rawStage === undefined || rawStage === null || rawStage === '') { if (overview) warn(overview.rel, `stage: missing; type one of ${cfg.stages.list.map((s) => s.id).join(', ')} (docs.config.json stages)`); }
@@ -471,7 +471,6 @@ export function build() {
     const expectedUnderParent = parentNote ? `tasks/${parentNote.stem}/${n.stem}.md` : null; // a sub-task may live in its parent's folder
     if (n.rel !== expectedFlat && n.rel !== expectedDir && n.rel !== expectedUnderParent) warn(n.rel, `expected at ${expectedFlat} or ${expectedDir}${expectedUnderParent ? ` or ${expectedUnderParent}` : ''}`);
     if (n.rel === expectedDir) t.dir = `tasks/${n.stem}`;
-    if (!n.data.updated && !n.data.created) warn(n.rel, 'missing "created:"');
   }
   const decisionNodes = new Map();
   for (const n of byType('decision')) {
@@ -992,6 +991,12 @@ export function build() {
   // ---------------------------------------------------------- card codes: one unique code per card, kept in tree/cards.json, never reused
   const registry = loadCards(errors);
   const cards = assignCards({ nodes, rootId: root.id, cfg, registry, err: (m) => errors.push(`tree/cards.json: ${m}`) });
+  // every card says when it was made: created: YYYY-MM-DD, set once by the scaffold or the template and never changed
+  for (const n of Object.values(nodes)) {
+    if (!n.card || !n.path) continue;
+    if (!n.created) warn(n.path, 'missing "created:" (YYYY-MM-DD, the day the card was made)');
+    else if (!/^\d{4}-\d{2}-\d{2}$/.test(String(n.created))) err(n.path, `created: ${JSON.stringify(n.created)} is not a YYYY-MM-DD date`);
+  }
 
   const byKind = {}, byLayer = {};
   for (const n of Object.values(nodes)) { if (!n.path) continue; byKind[n.kind] = (byKind[n.kind] || 0) + 1; if (n.layer) byLayer[n.layer] = (byLayer[n.layer] || 0) + 1; }
@@ -1473,7 +1478,7 @@ function scaffoldFeature(result, moduleId, name) {
   const { body } = parseFrontmatter(fs.readFileSync(path.join(ROOT, 'templates/Feature Template.md'), 'utf8'));
   const fm = { type: 'feature', id, name, priority, release, module: moduleId };
   if (has('--frontend-only')) fm.frontendOnly = true;
-  Object.assign(fm, { screens: [], depends: [], affects: [], related: [], updated: date, tags: ['feature', `module/${moduleId}`, `priority/${priority}`, `release/${release}`] });
+  Object.assign(fm, { screens: [], depends: [], affects: [], related: [], created: date, updated: date, tags: ['feature', `module/${moduleId}`, `priority/${priority}`, `release/${release}`] });
   const text = fill(body, { '<Feature name>': name, '<Module name>': m.name, '<date>': date })
     .replace('**Priority:** High', `**Priority:** ${cfg.priorities.byId.get(priority).label}`).replace('**Release:** Later', `**Release:** ${cfg.releases.byId.get(release).label}`);
   const rel = writeNote(dest, fm, text, ['name']);
@@ -1575,7 +1580,7 @@ function scaffold(result, kindId, code) {
   if (fs.existsSync(dest)) { console.error(`${path.relative(ROOT, dest)} already exists`); process.exit(1); }
   const status = kind.statuses[0];
   const { data, body } = parseFrontmatter(template);
-  const out = { ...data, ...fm, status, screens: featureNode?.screens ?? [], updated: today, tags: [kind.id, `${kind.id}/${status}`, `module/${fm.module}`, `layer/${kind.layer}`] };
+  const out = { ...data, ...fm, status, screens: featureNode?.screens ?? [], created: today, updated: today, tags: [kind.id, `${kind.id}/${status}`, `module/${fm.module}`, `layer/${kind.layer}`] };
   for (const k of ['depends', 'affects', 'related', 'blockedBy']) if (k in out) out[k] = [];
   const yaml = yamlOf(out);
   let text = body.replace(/<Feature name>/g, name).replace(/<date>/g, today).replace(/<feature id>/g, fm.feature).replace(/<module id>/g, fm.module).replace(/<module>/g, fm.module);

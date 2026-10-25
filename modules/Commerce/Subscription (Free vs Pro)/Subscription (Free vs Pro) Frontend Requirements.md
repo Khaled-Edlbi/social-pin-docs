@@ -6,6 +6,7 @@ feature: subscription
 module: commerce
 status: draft
 screens: [s34, s70]
+created: 2026-10-18
 updated: 2026-10-18
 tags: [frontend-requirements, frontend-requirements/draft, module/commerce, layer/frontend]
 ---

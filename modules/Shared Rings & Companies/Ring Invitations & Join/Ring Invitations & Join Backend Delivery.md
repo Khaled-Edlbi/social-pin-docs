@@ -6,6 +6,7 @@ feature: ring-invitations
 module: shared-rings
 status: todo
 screens: [s17, s74]
+created: 2026-10-18
 updated: 2026-10-18
 tags: [backend-delivery, backend-delivery/todo, module/shared-rings, layer/backend]
 ---

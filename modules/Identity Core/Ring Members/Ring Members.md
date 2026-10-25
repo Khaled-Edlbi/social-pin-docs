@@ -7,6 +7,7 @@ release: mvp
 module: identity
 screens: [s15, s47]
 related: ["View As & Pin Views"]
+created: 2026-10-18
 updated: 2026-10-25
 owner: "omar"
 tags: [feature, module/identity, priority/critical, release/mvp]

@@ -2,6 +2,7 @@
 type: module
 id: connections
 name: "Connections"
+created: 2026-10-18
 updated: 2026-10-18
 tags: [module, module/connections]
 ---

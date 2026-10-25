@@ -2,6 +2,7 @@
 type: module
 id: shared-rings
 name: "Shared Rings & Companies"
+created: 2026-10-18
 updated: 2026-10-18
 tags: [module, module/shared-rings]
 ---

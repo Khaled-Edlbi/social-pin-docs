@@ -6,6 +6,7 @@ feature: app-shell
 module: platform
 status: draft
 screens: [s00a, s00b, s00c, s00d]
+created: 2026-10-18
 updated: 2026-10-18
 tags: [story, story/draft, module/platform, layer/business]
 ---
