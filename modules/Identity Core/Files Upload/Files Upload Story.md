@@ -6,7 +6,7 @@ feature: files
 module: identity
 status: draft
 screens: [s14, s20, s36]
-owner: "khaled"
+owner: "omar"
 updated: 2026-10-25
 tags: [story, story/draft, module/identity, layer/business]
 ---
