@@ -4,18 +4,20 @@ code: ring-projection
 scope: feature
 feature: ring-projection
 module: identity
-status: draft
+status: approved
 screens: [s14, s20, s23, s24, s25, s29, s36]
+approvedBy: "khaled"
+approvedAt: 2026-10-25
 created: 2026-10-18
 updated: 2026-10-25
 owner: "omar"
 related: ["DR-02 One main profile every Ring starts from", "DR-03 Links entered once, switched on or off per Ring", "DR-05 Inherit per field, copy without members"]
-tags: [story, story/draft, module/identity, layer/business]
+tags: [story, story/approved, module/identity, layer/business]
 ---
 
 # Ring Projection · User Story
 
-**Feature:** [[Ring Projection]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Ring Projection Frontend Requirements]] · **Backend Integration:** [[Ring Projection Backend Integration]]
+**Feature:** [[Ring Projection]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[Ring Projection Frontend Requirements]] · **Backend Integration:** [[Ring Projection Backend Integration]]
 
 A Ring owner decides what one audience sees: the name and nickname they go by there, the bio, the photo, the theme, which social and contact links, which info blocks ("Add a field"), which files, and whether this Ring may see their birthdate, gender, marital status, phone and email. The projection is the Ring's perspective of the one profile; editing it and then checking it with "View as" is the core loop of the product. Decided, not built yet: a Ring follows the main profile field by field until it changes a field ([[DR-02 One main profile every Ring starts from]], [[DR-05 Inherit per field, copy without members]]), and links are one library each Ring switches on or off ([[DR-03 Links entered once, switched on or off per Ring]]).
 
