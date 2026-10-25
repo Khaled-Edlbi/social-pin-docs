@@ -8,7 +8,7 @@ status: draft
 screens: [s46]
 depends: []
 affects: []
-related: ["Rings", "Ring Members"]
+related: ["Rings", "Ring Members", "DR-13 The requester sees a declined request", "DR-14 Shared with me lists people, never the Ring", "DR-17 Requests expire after 30 days, optional note, ask again at once"]
 pending: []
 approvedBy: ""
 approvedAt: ""
@@ -19,12 +19,6 @@ task: T-022
 ---
 
 # T-022 · Accept into a Ring (sets grantedRingId) · User Story
-
-> ⚠ Affected by [[DR-13 The requester sees a declined request]] (2026-10-25): D-13 decided, option 3: the requester sees a declined request as declined; S4's "The requester isn't told it was declined" is reversed.
-
-> ⚠ Affected by [[DR-14 Shared with me lists people, never the Ring]] (2026-10-25): D-14 decided, option 2: Shared with me lists the people who share with me and never shows a Ring's name, colour or type to a member; S3 holds and the open question *Shared with me by name* is answered.
-
-> ⚠ Affected by [[DR-17 Requests expire after 30 days, optional note, ask again at once]] (2026-10-25): a connection request expires after 30 days, may carry an optional note of up to 200 characters, and can be asked again straight away after a decline (S4's "later" becomes "straight away").
 
 **Task:** [[T-022 Accept into a Ring (sets grantedRingId)]] · **Feature:** [[Connections]] · **Feature-level note:** [[Connections Story]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[T-022 Frontend Requirements]] · **Backend Integration:** [[T-022 Backend Integration]] · **Verified by:** [[T-022 QA Backend]], [[T-022 QA Frontend]]
 
@@ -43,7 +37,7 @@ The **receiver** of a connection request, on Requests (s45), deciding whether to
 **As a** receiver **I want** to accept a request and choose the Ring this person goes into **so that** they see the version of me I meant.
 
 Acceptance criteria:
-- [ ] s46 lists my live Rings from `GET /rings` (not `EVENT` or `MEETING` Rings unless the request came from that event).
+- [ ] s46 lists my live Rings from `GET /rings` (not `EVENT` or `MEETING` Rings unless the request came from that event), and shows the request's note if it has one.
 - [ ] Accept sends the request id and the chosen `ringId`, and in **one transaction** the server creates the connection, adds the requester as a member of that Ring and records `grantedRingId`. All three happen or none do.
 - [ ] The app shows the result only after the server answers (no optimistic accept); the request leaves the inbox.
 
@@ -60,16 +54,16 @@ Acceptance criteria:
 
 Acceptance criteria:
 - [ ] `grantedRingId` is never returned to the requester, in any response.
-- [ ] On the requester's side the connection appears, and the Ring's view becomes readable; whether that Ring is listed by name on Shared with me is the open question below.
+- [ ] On the requester's side the connection appears, and the Ring's view becomes readable. On their Shared with me ([[Screen Index#s17|s17]]) I appear as a person ("Sam's card"), never with the Ring's name, colour or type ([[DR-14 Shared with me lists people, never the Ring]]).
 
 ### S4 · Decline ([[Screen Index#s45|s45]])
 
 **As a** receiver **I want** to decline **so that** the request goes away without a connection.
 
 Acceptance criteria:
-- [ ] Decline closes the request; no connection, no membership.
-- [ ] The requester isn't told it was declined (see the open question in [[T-021 Story]]).
-- [ ] The requester may ask again later.
+- [ ] Decline closes the request as **declined**; no connection, no membership.
+- [ ] The requester **sees the decline**: the request shows as declined on their Sent list and on my card's button ([[DR-13 The requester sees a declined request]], [[T-021 Story]] S4).
+- [ ] The requester can **ask again straight away**; a new request arrives in my inbox like any other ([[DR-17 Requests expire after 30 days, optional note, ask again at once]]). If I don't want that, I block them ([[T-024 Block and unblock]]), which never reads as a decline.
 
 ### S5 · It shows up everywhere at once
 
@@ -87,11 +81,11 @@ Acceptance criteria:
 Acceptance criteria:
 - [ ] A Ring that's been deleted since the picker loaded, or isn't mine: 404 `E_RING_02`; the app refetches the picker.
 - [ ] A user who can't be added because a block exists in either direction: 409 `E_RING_MEMBER_04`, "Cannot add this user", without saying why.
-- [ ] A request already cancelled by the requester: the row leaves the inbox.
+- [ ] A request already cancelled by the requester, or expired: the row leaves the inbox.
 
 ## States and motion the design asks for
 
-- s46: the Ring picker with one Ring selected (the design opens with a suggestion picked: [[T-051 Gemma assistant sheet and suggestions]]); optional access window; *Accept into <Ring>* → saving → done.
+- s46: the Ring picker with one Ring selected (the design opens with a suggestion picked: [[T-051 Gemma assistant sheet and suggestions]]); the request's note; optional access window; *Accept into <Ring>* → saving → done.
 - s45: a row leaves the list after accept or decline.
 - Motion: none beyond the row exit.
 
@@ -100,9 +94,9 @@ Acceptance criteria:
 - `POST /rings/:ringId/members` already grants a Ring's view to a user, and re-adding someone whose access lapsed reactivates their row; accept should reuse it inside the transaction.
 - Reassign (`POST …/members/:userId/reassign`) moves a member in one transaction, so they never see two perspectives at once; revoke marks the row `REMOVED`.
 - Only the owner or a delegated admin manages a Ring's members ([[T-006 Delegated admin endpoints]]).
+- Not available yet: `GET /rings/shared-with-me` still returns the Ring's name to members; hiding it is the change [[DR-14 Shared with me lists people, never the Ring]] asks of [[Rings]].
 
 ## Open questions
 
-- **Shared with me by name.** A connection-granted Ring would show on the requester's Shared with me (`GET /rings/shared-with-me` lists every live membership) with its name, which reveals the Ring the receiver chose. Either it's listed without a name ("Sam's card"), or not listed, with the person reached through contacts ([[T-023 Connection detail and contacts list]]).
 - **Accept route.** `POST /connections/requests/:id/accept { ringId, startsAt?, expiresAt? }` and `…/decline`, or a status `PATCH`.
 - **The suggested Ring.** Whether the server suggests a Ring now (by last used, by event), or s46 opens with none picked until [[T-051 Gemma assistant sheet and suggestions]].

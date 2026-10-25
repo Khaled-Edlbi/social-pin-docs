@@ -9,17 +9,13 @@ module: connections
 screens: [s46]
 depends: [T-021]
 created: 2026-10-15
-updated: 2026-10-19
+updated: 2026-10-25
+owner: "omar"
+related: ["DR-13 The requester sees a declined request", "DR-14 Shared with me lists people, never the Ring", "DR-17 Requests expire after 30 days, optional note, ask again at once"]
 tags: [task, task/todo, module/connections, priority/critical]
 ---
 
 # ⬜ T-022 · Accept into a Ring (sets grantedRingId)
-
-> ⚠ Affected by [[DR-13 The requester sees a declined request]] (2026-10-25): D-13 decided, option 3: the requester sees a declined request as declined.
-
-> ⚠ Affected by [[DR-14 Shared with me lists people, never the Ring]] (2026-10-25): D-14 decided, option 2: Shared with me lists the people who share with me and never shows a Ring's name, colour or type to a member.
-
-> ⚠ Affected by [[DR-17 Requests expire after 30 days, optional note, ask again at once]] (2026-10-25): a connection request expires after 30 days, may carry an optional note of up to 200 characters, and can be asked again straight away after a decline.
 
 **Feature:** [[Connections]] · **Status:** To do · **Priority:** Critical · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
 
@@ -27,7 +23,7 @@ tags: [task, task/todo, module/connections, priority/critical]
 
 ## What
 
-One `@Transactional`: create `Connection`, add `RingMember`, set `grantedRingId`. Never expose `grantedRingId` to the requester. Decline path too.
+One `@Transactional`: create `Connection`, add `RingMember`, set `grantedRingId`. Never expose `grantedRingId` to the requester, nor the Ring's name on their Shared with me ([[DR-14 Shared with me lists people, never the Ring]]). Decline path too: the request closes as declined, the requester sees it and may ask again straight away ([[DR-13 The requester sees a declined request]], [[DR-17 Requests expire after 30 days, optional note, ask again at once]]).
 
 ## Design
 
@@ -49,3 +45,4 @@ One `@Transactional`: create `Connection`, add `RingMember`, set `grantedRingId`
 ## Log
 
 - 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
+- 2026-10-25 · `tickets/pm/M-02-connections/F-14-connections/S-25-decisions` · story S3, S4 and What updated for DR-13, DR-14 and DR-17; flags cleared.
