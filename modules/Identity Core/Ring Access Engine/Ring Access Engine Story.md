@@ -8,13 +8,11 @@ status: draft
 screens: []
 updated: 2026-10-25
 owner: "omar"
-related: ["DR-04 Ring settings at launch and their defaults", "DR-14 Shared with me lists people, never the Ring", "DR-15 Several Rings per connection, remove or disconnect"]
+related: ["DR-04 Ring settings at launch and their defaults", "DR-14 Shared with me lists people, never the Ring", "DR-15 Several Rings per connection, remove or disconnect", "DR-18 Ring names shown when joined knowingly"]
 tags: [story, story/draft, module/identity, layer/business]
 ---
 
 # Ring Access Engine · User Story
-
-> ⚠ Affected by [[DR-18 Ring names shown when joined knowingly]] (2026-10-25): the engine decides per membership whether a Ring may be named to that member: yes when joined by invitation, code or work email, never when placed by the owner. S1 changes.
 
 **Feature:** [[Ring Access Engine]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Ring Access Engine Frontend Requirements]] · **Backend Integration:** [[Ring Access Engine Backend Integration]]
 
@@ -31,7 +29,9 @@ Two people: a Ring owner who moves, revokes and lets access expire, and a viewer
 **As a** viewer **I want** to open a person and get the Ring I am in **so that** I see what they chose for me and nothing else.
 
 Acceptance criteria:
-- [ ] Shared with me lists only access that is live right now, one row per person, never a Ring's name, colour or type ([[DR-14 Shared with me lists people, never the Ring]]); tapping one renders `GET /views/ring/:ringId`. Not available yet: the list returns the Ring's name today.
+- [ ] Shared with me lists only access that is live right now, one row per person, never a Ring's colour or type ([[DR-14 Shared with me lists people, never the Ring]]); tapping one renders `GET /views/ring/:ringId`.
+- [ ] The engine decides, per membership, whether the Ring's **name** may be shown to that member: yes when the membership was created by an invitation they accepted, a code or a verified work email; never when the owner placed them (connection accept, owner or admin add, reassign) ([[DR-18 Ring names shown when joined knowingly]]). No other service makes that call.
+- [ ] Not available yet: the list returns the Ring's name to every member today, and a membership does not record how it was created.
 - [ ] When the owner has me in several of their Rings, I get the version from the Ring I was put in first ([[DR-15 Several Rings per connection, remove or disconnect]]). Not available yet: the engine renders the owner's default first, then the oldest.
 - [ ] The rendered view carries no `ringId`, no owner user id and no membership row; the UI never labels it "you are in her Clients Ring".
 - [ ] A `null` field reads "Not shared", never "none".
@@ -112,5 +112,5 @@ Acceptance criteria:
 
 ## Open questions
 
-- Decided: [[DR-04 Ring settings at launch and their defaults]] (S8), [[DR-14 Shared with me lists people, never the Ring]] and [[DR-15 Several Rings per connection, remove or disconnect]] (S1). Until the settings are built, no screen may imply members see one another. Building them is not ticketed yet.
+- Decided: [[DR-04 Ring settings at launch and their defaults]] (S8), [[DR-14 Shared with me lists people, never the Ring]], [[DR-15 Several Rings per connection, remove or disconnect]] and [[DR-18 Ring names shown when joined knowingly]] (S1). Until the settings are built, no screen may imply members see one another. Building them is not ticketed yet.
 - Whether an admin may change every setting or only some (DR-04, *Still open*).

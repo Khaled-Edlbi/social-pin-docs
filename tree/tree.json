@@ -10698,6 +10698,11 @@
     {
       "from": "story:companies",
       "kind": "related",
+      "to": "decision-record:DR-18"
+    },
+    {
+      "from": "story:companies",
+      "kind": "related",
       "to": "story:T-029",
       "via": [
         "sum-of"
@@ -11193,6 +11198,11 @@
       "to": "decision-record:DR-15"
     },
     {
+      "from": "story:ring-access",
+      "kind": "related",
+      "to": "decision-record:DR-18"
+    },
+    {
       "from": "story:ring-invitations",
       "kind": "related",
       "to": "decision-record:DR-04"
@@ -11201,6 +11211,11 @@
       "from": "story:ring-invitations",
       "kind": "related",
       "to": "decision-record:DR-14"
+    },
+    {
+      "from": "story:ring-invitations",
+      "kind": "related",
+      "to": "decision-record:DR-18"
     },
     {
       "from": "story:ring-invitations",
@@ -11242,6 +11257,11 @@
       "to": "decision-record:DR-15"
     },
     {
+      "from": "story:ring-members",
+      "kind": "related",
+      "to": "decision-record:DR-18"
+    },
+    {
       "from": "story:ring-projection",
       "kind": "related",
       "to": "decision-record:DR-02"
@@ -11270,6 +11290,11 @@
       "from": "story:rings",
       "kind": "related",
       "to": "decision-record:DR-14"
+    },
+    {
+      "from": "story:rings",
+      "kind": "related",
+      "to": "decision-record:DR-18"
     },
     {
       "from": "story:subscription",
@@ -24641,16 +24666,6 @@
       "to": "feature:ring-access"
     },
     {
-      "from": "decision-record:DR-18",
-      "kind": "wikilink",
-      "to": "story:companies"
-    },
-    {
-      "from": "decision-record:DR-18",
-      "kind": "wikilink",
-      "to": "story:ring-invitations"
-    },
-    {
       "from": "decision:D-01",
       "kind": "wikilink",
       "to": "feature:code-delivery"
@@ -24899,11 +24914,6 @@
       "from": "feature:companies",
       "kind": "wikilink",
       "to": "decision-record:DR-18"
-    },
-    {
-      "from": "feature:companies",
-      "kind": "wikilink",
-      "to": "story:ring-invitations"
     },
     {
       "from": "feature:companies",
@@ -25219,11 +25229,6 @@
       "from": "feature:ring-invitations",
       "kind": "wikilink",
       "to": "decision-record:DR-18"
-    },
-    {
-      "from": "feature:ring-invitations",
-      "kind": "wikilink",
-      "to": "story:companies"
     },
     {
       "from": "feature:ring-invitations",
@@ -29473,6 +29478,11 @@
     {
       "from": "story:companies",
       "kind": "wikilink",
+      "to": "feature:ring-invitations"
+    },
+    {
+      "from": "story:companies",
+      "kind": "wikilink",
       "to": "task:T-048"
     },
     {
@@ -29903,11 +29913,6 @@
     {
       "from": "story:ring-access",
       "kind": "wikilink",
-      "to": "decision-record:DR-18"
-    },
-    {
-      "from": "story:ring-access",
-      "kind": "wikilink",
       "to": "story:ring-invitations"
     },
     {
@@ -29928,6 +29933,11 @@
     {
       "from": "story:ring-invitations",
       "kind": "wikilink",
+      "to": "feature:companies"
+    },
+    {
+      "from": "story:ring-invitations",
+      "kind": "wikilink",
       "to": "story:rings"
     },
     {
@@ -29939,11 +29949,6 @@
       "from": "story:ring-members",
       "kind": "wikilink",
       "to": "backend-integration:ring-members"
-    },
-    {
-      "from": "story:ring-members",
-      "kind": "wikilink",
-      "to": "decision-record:DR-18"
     },
     {
       "from": "story:ring-members",
@@ -29984,11 +29989,6 @@
       "from": "story:rings",
       "kind": "wikilink",
       "to": "decision-record:DR-15"
-    },
-    {
-      "from": "story:rings",
-      "kind": "wikilink",
-      "to": "decision-record:DR-18"
     },
     {
       "from": "story:rings",
@@ -39932,7 +39932,12 @@
       "related": [
         "decision:D-18",
         "decision-record:DR-14",
-        "decision-record:DR-04"
+        "decision-record:DR-04",
+        "story:ring-access",
+        "story:ring-members",
+        "story:rings",
+        "story:companies",
+        "story:ring-invitations"
       ],
       "release": null,
       "scope": null,
@@ -56251,7 +56256,8 @@
       "priority": "high",
       "related": [
         "decision-record:DR-04",
-        "decision-record:DR-14"
+        "decision-record:DR-14",
+        "decision-record:DR-18"
       ],
       "release": "v1",
       "scope": "feature",
@@ -57535,7 +57541,8 @@
       "related": [
         "decision-record:DR-04",
         "decision-record:DR-14",
-        "decision-record:DR-15"
+        "decision-record:DR-15",
+        "decision-record:DR-18"
       ],
       "release": "mvp",
       "scope": "feature",
@@ -57588,7 +57595,8 @@
       "priority": "high",
       "related": [
         "decision-record:DR-04",
-        "decision-record:DR-14"
+        "decision-record:DR-14",
+        "decision-record:DR-18"
       ],
       "release": "v1",
       "scope": "feature",
@@ -57640,7 +57648,8 @@
       "related": [
         "decision-record:DR-04",
         "decision-record:DR-14",
-        "decision-record:DR-15"
+        "decision-record:DR-15",
+        "decision-record:DR-18"
       ],
       "release": "mvp",
       "scope": "feature",
@@ -57754,7 +57763,8 @@
       "related": [
         "decision-record:DR-04",
         "decision-record:DR-05",
-        "decision-record:DR-14"
+        "decision-record:DR-14",
+        "decision-record:DR-18"
       ],
       "release": "mvp",
       "scope": "feature",
