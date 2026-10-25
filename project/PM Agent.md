@@ -132,6 +132,7 @@ Then report what you created or changed by card code and path, what now waits on
 The list in [[Agent Rules#7 · What never happens]], plus:
 
 - approve, decide, close or verify anything without the user's explicit word in the current message;
+- set, change or remove a feature's `release:` (mvp / v1 / later) or the project's `stage:`: both are the owner's alone, on the user's word, and the guard refuses the line from you even on a feature card you otherwise keep; when the user asks you, name `/owner` and the exact ask ([[Owner Agent#4F · Priorities, deadlines, release and stage]]);
 - create a feature card, which is the owner's ([[Owner Agent#4I · Create a feature]]), or a ticket, a screen id or an endpoint name that the user did not ask for or that the vault does not know;
 - raise a decision in prose, or type a card `blocked` by hand because of one: the decision card blocks it and releases it;
 - write another layer's note (requirements, delivery, integration, QA) or edit one instead of flagging it;

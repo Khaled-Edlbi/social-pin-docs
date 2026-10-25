@@ -55,6 +55,8 @@ function scopeWords(a) {
   if (w.types?.includes('decision') && !w.types?.includes('decision-record')) parts.push('needs-decision cards (D-NN) to raise and fill, draft or open; the answer, the decision card DR-NN, and setting it decided are the PM\'s or the owner\'s');
   if (a.signs?.length) parts.push(`sign-off lines on ${a.signs.join(', ')}`);
   if (a.fields?.length) parts.push(`${a.fields.join(' / ')} on any card`);
+  const mine = Object.keys(RESERVED).filter((k) => RESERVED[k].includes(a.id));
+  if (mine.length) parts.push(`${mine.map((k) => `${k}:`).join(' / ')} (reserved: nobody else may set ${mine.length === 1 ? 'it' : 'them'})`);
   parts.push('a flag line (> ⚠ Affected by …) under any note\'s H1');
   return parts.join('; ');
 }
@@ -110,6 +112,19 @@ const fieldLines = (fields) => new RegExp(`^(${fields.join('|')}|updated|tags):`
 // the answer is taken on its decision card (DR-NN), which only the PM and the owner write (Agent Rules §4)
 const DECIDED_LINE = /^(status:\s*(decided|fulfilled)\b|decided(By|At):\s*(?!""|$)\S)/;
 const introducesDecided = (edit) => { if (!edit) return false; const { added } = changedLines(edit.old, edit.new); return added.some((l) => DECIDED_LINE.test(l)); };
+// reserved frontmatter keys (agents.reservedFields): a feature's release and the project's stage, set by the owner only (Agent Rules §4).
+// A Write is compared with the file on disk, so rewriting a note that keeps the same release is not a change of it.
+const RESERVED = Object.fromEntries(Object.entries(agentsCfg.reservedFields || {}).filter(([k, v]) => k !== 'description' && Array.isArray(v)));
+const reservedTouched = (rel, op, edit) => {
+  const keys = Object.keys(RESERVED);
+  if (!keys.length || !edit) return [];
+  let old = edit.old;
+  if (op === 'write') { try { old = fs.readFileSync(path.join(ROOT, rel), 'utf8'); } catch { old = ''; } }
+  const lf = (s) => s.replace(/\r\n/g, '\n').split('\n').map((l) => l.trimEnd()).join('\n'); // a CRLF file on disk against an LF rewrite is the same line
+  const { added, removed } = changedLines(lf(old), lf(edit.new));
+  const re = new RegExp(`^(${keys.join('|')}):`);
+  return [...new Set([...added, ...removed].map((l) => re.exec(l)?.[1]).filter(Boolean))];
+};
 
 // ---------------------------------------------------------------- the decision
 export function decide(agent, rel, op, edit) {
@@ -131,6 +146,11 @@ export function decide(agent, rel, op, edit) {
   if (c.type === 'decision' && introducesDecided(edit)) {
     const deciders = AGENTS.filter((a) => (a.writes?.types || []).includes('decision-record')).map((a) => `/${a.id}`).join(' or ');
     return { allow: false, message: `${agent.id} agent: "${rel}" is a needs-decision card: it is draft or open, never typed decided or fulfilled, and carries no decidedBy / decidedAt. The answer goes on its decision card (DR-NN), written and set decided by ${deciders} on the user's word; this card then shows Fulfilled by itself. The rules: ${PROTOCOL}.` };
+  }
+  const reserved = reservedTouched(rel, op, edit).filter((k) => !RESERVED[k].includes(agent.id));
+  if (reserved.length) {
+    const by = [...new Set(reserved.flatMap((k) => RESERVED[k]))].map((id) => `/${id}`).join(' or ');
+    return { allow: false, message: `${agent.id} agent: ${reserved.map((k) => `"${k}:"`).join(' and ')} in "${rel}" ${reserved.length === 1 ? 'is' : 'are'} set by ${by} only, on the user's word (a feature's release, the project's stage). Hand that change to ${by}; the rest of your edit can go without that line. The rules: ${PROTOCOL}.` };
   }
   if (inPaths || inKinds || inTypes || inLabels) return { allow: true };
   const eo = w.editOnly || {};
@@ -222,6 +242,10 @@ if (cmd === 'selftest') {
   const decBody = E('## Options\n\n1. …', '## Options\n\n1. Per-Ring copies\n2. One field library');
   const newRec = 'decisions/DR-99 New answer.md', recWrite = E('', '---\ntype: decision-record\nid: DR-99\ndecision: D-99\n---\n');
   const openWrite = E('', '---\ntype: decision\nid: D-99\nstatus: draft\n---\n'), decidedWrite = E('', '---\ntype: decision\nid: D-99\nstatus: decided\n---\n');
+  const overview = 'business/Project Overview.md', stageSet = E('stage: mvp\nupdated: 2026-10-25', 'stage: beta\nupdated: 2026-10-26');
+  const relSet = E('priority: critical\nrelease: mvp\nmodule: identity', 'priority: critical\nrelease: v1\nmodule: identity'), relKeep = E('priority: critical\nrelease: mvp\nupdated: 2026-10-25', 'priority: high\nrelease: mvp\nupdated: 2026-10-26');
+  // a Write is compared with the file on disk: keeping the line is allowed, changing it is not (Rings is release: mvp)
+  const relWriteSame = E('', '---\ntype: feature\nid: rings\nrelease: mvp\n---\n'), relWriteNew = E('', '---\ntype: feature\nid: rings\nrelease: later\n---\n');
   const M = [
     // agent, path, op, edit, expected
     ['owner', 'project/Agent Rules.md', 'write', null, true], ['owner', 'docs.config.json', 'write', null, true], ['owner', mod, 'write', null, true], ['owner', feature, 'write', null, true], ['owner', feature, 'edit', body, true], ['owner', 'decisions/D-04 Ring settings.md', 'edit', body, true],
@@ -244,6 +268,10 @@ if (cmd === 'selftest') {
     ['owner', newRec, 'write', recWrite, true], ['pm', newRec, 'write', recWrite, true], ['backend', newRec, 'write', recWrite, false], ['frontend', newRec, 'write', recWrite, false], ['qa', newRec, 'write', recWrite, false],
     ['pm', 'decisions/DR-09 30-minute hold tied to the Stripe checkout.md', 'edit', recDecide, true], ['owner', 'decisions/DR-09 30-minute hold tied to the Stripe checkout.md', 'edit', recDecide, true], ['backend', 'decisions/DR-09 30-minute hold tied to the Stripe checkout.md', 'edit', recDecide, false],
     ['pm', 'decisions/Decisions.md', 'edit', body, true], ['owner', 'decisions/Decisions.md', 'edit', body, true], ['backend', 'decisions/Decisions.md', 'edit', body, false],
+    // reserved fields: a feature's release and the project's stage are the owner's; everyone else's edit or rewrite that changes the line is refused
+    ['owner', feature, 'edit', relSet, true], ['pm', feature, 'edit', relSet, false], ['backend', feature, 'edit', relSet, false], ['pm', feature, 'edit', relKeep, true],
+    ['pm', feature, 'write', relWriteSame, true], ['pm', feature, 'write', relWriteNew, false], ['owner', feature, 'write', relWriteNew, true],
+    ['owner', overview, 'edit', stageSet, true], ['pm', overview, 'edit', stageSet, false], ['pm', overview, 'edit', body, true], ['admin', overview, 'edit', stageSet, true], ['admin', feature, 'edit', relSet, true],
     // the admin (writes.all): the guard refuses it nothing, the generated files and the verbatim brief included
     ['admin', 'tree/tree.json', 'write', null, true], ['admin', 'Card Index.md', 'edit', body, true], ['admin', 'design/Wireframe Brief.md', 'edit', body, true], ['admin', 'project/Agent Rules.md', 'write', null, true],
     ['admin', bd, 'write', null, true], ['admin', fe, 'edit', body, true], ['admin', story, 'edit', sign, true], ['admin', story, 'edit', body, true], ['admin', dec, 'edit', decideSign, true], ['admin', newDec, 'write', decidedWrite, true],

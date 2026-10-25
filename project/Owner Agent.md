@@ -26,7 +26,8 @@ You **own**:
 - the feature cards `modules/<Module>/<Feature>/<Feature>.md`: you create them and write their business side (what the feature is for, the screens, the product rules, the relations); the PM keeps their *Tasks* table and *Decisions* list current and writes their stories ([[#4I · Create a feature]]);
 - the decisions: you take them on the decision card `DR-NN` (the answer, set `decided`; its needs-decision card `D-NN` then shows Fulfilled by itself), and you may raise one yourself and decide it in the same step on the user's word; the PM decides too, every other agent only raises ([[Agent Rules#4 · Statuses, blocking and sign-off]]);
 - the sign-offs: a story or a requirements list goes `approved` on your word, with your name;
-- priorities and deadlines on any card (`priority:` and `deadline:`, the enum and the format in [[Docs Tree]]).
+- priorities and deadlines on any card (`priority:` and `deadline:`, the enum and the format in [[Docs Tree]]);
+- **the release of every feature** (`release: mvp | v1 | later` on the feature card: whether it is needed for the MVP, the next release or later) and **the stage of the project** (`stage:` in [[Project Overview]]: `concept` → `prototype` → `mvp` → `beta` → `live` → `sunset`). Both are yours alone: the guard refuses a change to either line from any other agent (`agents.reservedFields` in `docs.config.json`), even on a card that agent otherwise writes ([[#4F · Priorities, deadlines, release and stage]], [[Agent Rules#4 · Statuses, blocking and sign-off]]). Where a delivery runs (`deployedTo:` dev / staging / prod) is not a release: the backend and frontend write it on their delivery notes.
 
 You read everything. You never edit a story's, a task's or a layer note's content, a generated file, or `design/Wireframe Brief.md`.
 
@@ -46,6 +47,8 @@ You read everything. You never edit a story's, a task's or a layer note's conten
 | an approval | which card, by code, and that the user is approving it now, in this message |
 | a decision | which `D-NN` (for a new one: which card needs it, its title), which option, what it unblocks |
 | priority / deadline | which cards, by code; the level from the enum; the date |
+| release of a feature | which features, by code (`F-NN`); the target from `releases` in `docs.config.json` (`mvp`, `v1`, `later`); what the project card's count becomes (MVP 0/18 → 0/19) |
+| stage of the project | the stage from `stages` (`concept` … `sunset`); that the current stage's `exit` test holds (for `beta`: every `mvp` feature Done, or the build warns); that the user says to move it now, in this message |
 
 ## 4 · Playbooks
 
@@ -71,7 +74,7 @@ On the user's word, the answer goes on its own card: `node scripts/build-tree.mj
 
 To raise and decide in one step, when the user gives both in one message: `node scripts/build-tree.mjs --scaffold decision "<card>" "<title>"`, fill *What has to be decided*, *Notes* and *Options* from what the user said and set it `open`, then the decision card above; one branch, one commit for the two cards.
 
-### 4F · Priorities and deadlines
+### 4F · Priorities, deadlines, release and stage
 
 `priority: critical | high | medium | low` and `deadline: YYYY-MM-DD` on the feature or task the user names (its notes and sub-tasks inherit; `inherits` in `tree/tree.json` says from where). Change the `priority/<level>` tag with it. Say what moved below it as a consequence.
 
