@@ -5,7 +5,8 @@ name: "Photo Library"
 priority: high
 module: identity
 screens: [s29, s30]
-updated: 2026-10-19
+updated: 2026-10-25
+owner: "omar"
 tags: [feature, module/identity, priority/high]
 ---
 
@@ -39,10 +40,10 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 TABLE status, priority, effort FROM #task WHERE feature = "photo-library" SORT priority ASC
 ```
 
-## Open decisions
+## Decisions
 
-- [[D-02 Base profile work fields]]
-- [[D-05 Copy or inherit]]
+- [[D-02 Base profile work fields]] — decided, one main profile every Ring starts from; a Ring may pick its own photo ([[DR-02 One main profile every Ring starts from|DR-02]])
+- [[D-05 Copy or inherit]] — decided, inherit per field, copy without members ([[DR-05 Inherit per field, copy without members|DR-05]])
 
 ## Related
 
