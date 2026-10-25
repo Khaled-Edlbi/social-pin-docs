@@ -21,6 +21,8 @@ tags: [task, task/done, module/payments-gateway, priority/high, backend]
 
 # ✅ T-065-be · Backend: Open a Stripe checkout for an order
 
+> ⚠ Affected by [[T-065-be QA Backend]] (2026-10-25): QA Backend passing on `t065-sim-2026-10-25` (simulated), B1–B12; the `@qa` pending item can be cleared and the QA box ticked.
+
 **Parent:** [[T-065 Open a Stripe checkout for an order]] · **Feature:** [[Pay for an order]] · **Side:** Backend · **Status:** Done (simulated) · **Priority:** high · **Effort:** M (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-065-be` when the team picks it up): [[T-065-be Backend Delivery|Backend Delivery]] · [[T-065-be Backend Integration|Backend Integration]] · [[T-065-be QA Backend|QA Backend]]
