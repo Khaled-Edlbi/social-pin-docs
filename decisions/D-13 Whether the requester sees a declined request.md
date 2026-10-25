@@ -1,7 +1,7 @@
 ---
 type: decision
 id: D-13
-status: draft
+status: open
 features: [connections]
 blocks: ["T-021 Story", "T-022 Story"]
 decider: "owner"
@@ -11,12 +11,12 @@ related: ["Connections"]
 owner: "khaled"
 created: 2026-10-25
 updated: 2026-10-25
-tags: [decision, decision/draft]
+tags: [decision, decision/open]
 ---
 
-# ❓ D-13 · Whether the requester sees a declined request
+# ✅ D-13 · Whether the requester sees a declined request
 
-**Status:** draft · **Decider:** owner · **Raised:** 2026-10-25 · **Needed by:** [[T-021 Story]], [[T-022 Story]] · **Feature:** [[Connections]]
+**Status:** open · **Decider:** owner · **Raised:** 2026-10-25 · **Needed by:** [[T-021 Story]], [[T-022 Story]] · **Feature:** [[Connections]]
 
 > The needs-decision card: `draft` while the question is written, `open` once it is ready for the decider; it shows **Fulfilled** by itself once its decision card (DR-NN) is `decided`. The cards in `blocks` are **Blocked · D-13** while this is `draft` or `open` and return to their own status once it is fulfilled. Nobody edits their `status:` for this, and nobody types `fulfilled` or `decided` here.
 
@@ -45,4 +45,4 @@ Recommendation: option 1, with an expiry on every unanswered request, so a decli
 
 ## Decision
 
-— (answered on its decision card, never written here: the PM or the owner, on the user's word, runs `node scripts/build-tree.mjs --scaffold record D-13 "<the answer>"`, fills the decision card DR-NN (what was decided, why, what it changes with every feature and task in its `affects`, what stays open) and sets it `decided` with `decidedBy` and `decidedAt`; this card then shows Fulfilled by itself; the H1 gets ✅, and this line is replaced by "Fulfilled by" and a wikilink to the decision card, then "decided <date> by <who>: option <n>"; then `--impact DR-NN` and flag the notes it lists)
+Fulfilled by [[DR-13 The requester sees a declined request]], decided 2026-10-25 by molham: option 3.
