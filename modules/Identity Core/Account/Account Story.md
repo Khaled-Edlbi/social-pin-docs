@@ -4,16 +4,19 @@ code: account
 scope: feature
 feature: account
 module: identity
-status: draft
+status: approved
 screens: [s68]
+approvedBy: "khaled"
+approvedAt: 2026-10-25
+owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-18
-tags: [story, story/draft, module/identity, layer/business]
+updated: 2026-10-25
+tags: [story, story/approved, module/identity, layer/business]
 ---
 
 # Account · User Story
 
-**Feature:** [[Account]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Account Frontend Requirements]] · **Backend Integration:** [[Account Backend Integration]]
+**Feature:** [[Account]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[Account Frontend Requirements]] · **Backend Integration:** [[Account Backend Integration]]
 
 A signed-in person opens Me to check which email and phone their account is on, to change one of them, and, rarely, to leave. The account is the thin layer under the profile: it holds the sign-in identity, the verified state of each destination and the Free / Pro type. Everything that describes the person (name, photo, bio) lives on the profile and on Ring projections, so the Me header is composed from three sources, never fetched from one.
 
