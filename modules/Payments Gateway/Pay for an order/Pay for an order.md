@@ -9,7 +9,7 @@ depends: ["T-047 Orders, payments and the provider webhook", "D-07 Payment provi
 affects: ["Payments & Orders", "Events Before", "Event Ring Auto-creation"]
 related: ["Payments & Orders", "Events Before", "Event Ring Auto-creation", "Audit Log", "Subscription (Free vs Pro)", "T-035 Registration transaction with order and payment"]
 owner: "khaled"
-updated: 2026-10-22
+updated: 2026-10-25
 tags: [feature, module/payments-gateway, priority/high]
 ---
 
@@ -50,7 +50,7 @@ No task yet: the first one is the PM's, `node scripts/build-tree.mjs --scaffold 
 
 - [[D-07 Payment provider]] — decided 2026-10-21, Stripe: this feature is its first consequence.
 - [[D-08 Payment methods and gateways on s51]] — decided 2026-10-22, [[DR-08 Stripe card checkout only]]: s51 is Stripe's hosted card page, no method picker, no organizer setting, no second gateway.
-- To raise from this card when the story needs it: how long an unpaid order holds its chosen tickets against sold-out ([[T-034 Tickets, packages, levels, sold-out]]).
+- [[D-09 How long an unpaid order holds its tickets]] — open, raised 2026-10-25 from [[Pay for an order Story]]: whether a pending, failed or abandoned order holds its tickets against sold-out ([[T-034 Tickets, packages, levels, sold-out]]); the owner decides.
 
 ## Related
 

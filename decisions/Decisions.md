@@ -1,6 +1,6 @@
 ---
 type: map
-updated: 2026-10-22
+updated: 2026-10-25
 tags: [map]
 ---
 
@@ -18,6 +18,7 @@ Where the design and the backend disagree, and every other decision a card needs
 | [[D-06 Pin name rules]] | open | — | [[Profiles & Pin Name]], [[Gemma AI]] | s06 |
 | [[D-07 Payment provider]] | decided (1, Stripe for all four flows) | [[DR-07 Stripe for all four flows]] | [[Payments Gateway Module]], [[Payments & Orders]], [[Subscription (Free vs Pro)]] | s51, s70 |
 | [[D-08 Payment methods and gateways on s51]] | decided (1, Stripe card checkout only) | [[DR-08 Stripe card checkout only]] | [[Pay for an order]], [[Payments & Orders]], [[Events Before]], [[Payments Gateway Module]] | s51 |
+| [[D-09 How long an unpaid order holds its tickets]] | open | — | [[Pay for an order]], [[Events Before]], [[Payments & Orders]] | s50, s51 |
 
 ```dataview
 TABLE status, features FROM #decision
