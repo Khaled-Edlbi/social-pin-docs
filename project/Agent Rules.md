@@ -74,7 +74,7 @@ A target is a note name (`"Ring Access Engine"`), a task or decision id (`T-022`
 1. In `docs.config.json`, add a `layers[]` entry: `id`, `label`, `color`, and its `kinds[]`, each with `id`, `label`, `file` (the note-name suffix, e.g. `DevOps Delivery`), `statuses`, `done`, `template`, `description`.
 2. Add the template under `templates/` (copy the closest existing one; the frontmatter keys are the same for every kind).
 3. Insert the kind into `flow` where it hands off (for example `["backend-integration","devops-delivery"]`, `["devops-delivery","frontend-delivery"]`) and add `defaultBlocks` if other kinds should wait for it by default.
-4. Add it to `requiredAtFeatureLevel` only if every feature must have one; otherwise it appears where it is scaffolded.
+4. Add it to `requiredAtFeatureLevel` only if every feature must have one, and to `taskFlow.kinds` only if a task's own chain should show it; otherwise it appears where it is scaffolded ([[Docs Tree#The shape]]).
 5. `node scripts/build-tree.mjs --scaffold <kind> <feature-id | T-NNN>` creates the notes; `node scripts/build-tree.mjs` rebuilds. The page's filter, legend, colours and flow arrows follow the config with no code change.
 
 ## 6 · After a task — the checklist, by layer

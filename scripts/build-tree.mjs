@@ -149,6 +149,18 @@ export function loadConfig(errors = []) {
   const prefixOf = (kind) => structural[kind] ?? kinds.get(kind)?.prefix ?? null;
   const frontendOnlySkips = Array.isArray(cfg.frontendOnly?.skips) ? cfg.frontendOnly.skips : [];
   for (const k of frontendOnlySkips) if (!kinds.has(k)) err(`frontendOnly.skips names unknown kind "${k}"`);
+  // taskFlow: the chain a task draws under itself, the feature's chain at task scope; `tasks` is "all" or the task ids that draw it for now
+  const tf = cfg.taskFlow || {};
+  const taskFlowKinds = Array.isArray(tf.kinds) ? tf.kinds.filter((k) => typeof k === 'string') : [];
+  for (const k of taskFlowKinds) if (!kinds.has(k)) err(`taskFlow.kinds names unknown kind "${k}"`);
+  let taskFlowTasks = null; // null = every task; a Set = those ids only
+  if (tf.tasks === undefined || tf.tasks === null) taskFlowTasks = new Set();
+  else if (tf.tasks === 'all') taskFlowTasks = null;
+  else if (Array.isArray(tf.tasks)) {
+    taskFlowTasks = new Set();
+    for (const t of tf.tasks) { if (typeof t !== 'string' || !isTaskId(t)) err(`taskFlow.tasks: ${JSON.stringify(t)} is not a task id (T-NNN, T-NNN-fe, T-NNN-be)`); else taskFlowTasks.add(t); }
+  } else err('taskFlow.tasks must be "all" or a list of task ids');
+  const taskFlow = { kinds: taskFlowKinds, tasks: taskFlowTasks };
   // priorities: the enum every card may carry, highest first; `aliases` are old codes (P0 …) the build still reads, with a warning
   const ID = /^[a-z][a-z0-9-]*$/;
   const levels = Array.isArray(cfg.priorities?.levels) && cfg.priorities.levels.length ? cfg.priorities.levels : DEFAULT_PRIORITIES;
@@ -182,7 +194,7 @@ export function loadConfig(errors = []) {
   for (const s of stages.list) if (s.requiresRelease !== null && !releases.byId.has(s.requiresRelease)) err(`stages.levels: "${s.id}" requiresRelease "${s.requiresRelease}" is not a release target`);
   const environments = { ...enumOf('environments.list', cfg.environments?.list ?? DEFAULT_ENVIRONMENTS), kinds: Array.isArray(cfg.environments?.kinds) ? cfg.environments.kinds : ['backend-delivery', 'frontend-delivery'] };
   for (const k of environments.kinds) if (!kinds.has(k)) err(`environments.kinds names unknown kind "${k}"`);
-  return { ...cfg, kinds, kindOrder, flowOrder, flowBack, flowBlocks, frontendOnlySkips, taskLabels, priorities, deadlines, stages, releases, environments, cardCodes: { pad, structural, prefixes, prefixOf } };
+  return { ...cfg, kinds, kindOrder, flowOrder, flowBack, flowBlocks, frontendOnlySkips, taskFlow, taskLabels, priorities, deadlines, stages, releases, environments, cardCodes: { pad, structural, prefixes, prefixOf } };
 }
 const DEFAULT_PRIORITIES = [
   { id: 'critical', label: 'Critical', color: '#dc2626', aliases: ['P0'] }, { id: 'high', label: 'High', color: '#f97316', aliases: ['P1'] },
@@ -558,6 +570,25 @@ export function build() {
       s.set(kid, c);
       layerNodes.push(c);
       link(f, c);
+    }
+  }
+  // placeholders at task level: the same chain, under the task, for the tasks taskFlow names (all of them when `tasks` is "all")
+  for (const [tid, t] of taskNodes) {
+    if (cfg.taskFlow.tasks && !cfg.taskFlow.tasks.has(tid)) continue;
+    const f = featureNodes.get(t.feature);
+    const s = sib(t);
+    for (const kid of cfg.taskFlow.kinds) {
+      if (s.has(kid)) continue;
+      if (f?.frontendOnly && cfg.frontendOnlySkips.includes(kid)) continue;
+      const kind = KIND.get(kid);
+      const c = addNode(base(null, {
+        id: `${kid}:${tid}`, kind: kid, layer: kind.layer, feature: t.feature, task: tid, code: tid, scope: 'task', title: `${tid} ${kind.file}`, path: null, template: kind.template,
+        status: null, effectiveStatus: 'missing', module: t.module ?? f?.module ?? null, label: kind.label,
+        summary: `Not written yet. Create it with: node scripts/build-tree.mjs --scaffold ${kid} ${tid}`,
+      }));
+      s.set(kid, c);
+      layerNodes.push(c);
+      link(t, c);
     }
   }
 

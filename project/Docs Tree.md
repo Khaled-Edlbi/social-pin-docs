@@ -51,6 +51,8 @@ Social Pin (project)
 
 The seven layer notes come from `docs.config.json`, listed in the **hand-off order** the config's `flow` gives (story → frontend requirements → backend delivery → backend integration → frontend delivery, QA after each delivery, QA back to the story); a slot with no note yet is drawn as a dashed placeholder whose summary gives the `--scaffold` command that creates it. Adding a layer to the config adds its slots everywhere.
 
+A **task draws the same chain under itself**, at task scope and tied to its own story (`T-NNN Story` → `T-NNN Frontend Requirements` → … → `T-NNN QA Frontend`), blocked card by card by the same `flow`. `taskFlow` in `docs.config.json` says which slots (`kinds`) and which tasks (`tasks`): a list of task ids draws it for those only, which is how a change to the chain is tried on one ticket before the vault takes it, and `"all"` draws it for every task. A task whose feature is `frontendOnly` skips the same kinds a feature does. The sub-tasks (`T-NNN-fe`, `T-NNN-be`) hang under the task after its chain, and each may have layer notes of its own.
+
 ## For humans
 
 **Reading.** Start at the root, open a module, open a feature. The feature note says what the thing is for; the **Story** what the user should be able to do; **Frontend Requirements** what the client asks of the backend and whether it exists; **Backend Delivery** what shipped and how it works; **Backend Integration** how to call it; **Frontend Delivery** what the client built; the two **QA** notes the expected behaviour and the last verdict. The tasks hang under the Story, as what is left to do to fulfil it, and the decisions under the feature; a task opens to its own layer notes.
@@ -68,7 +70,7 @@ The seven layer notes come from `docs.config.json`, listed in the **hand-off ord
 | Needs decision | a task that asks for a decision (a needs-decision card itself reads **Draft**, **Open**, then **Fulfilled**) |
 | `D-NN · NEEDS DECISION` / `DR-NN · DECISION` | how the two decision cards are named on the page and in the index: the D-NN card (the needs-decision card) holds the question and always reads NEEDS DECISION, its kind, with a chip saying **Draft**, **Open** or **Fulfilled** (computed once its answer is decided); its DR-NN card (the decision card) holds the answer (DECISION), with a chip saying **Draft** or **Decided**; the types (`decision`, `decision-record`) and the codes do not change |
 | Blocked · D-NN | the card needs a decision: the needs-decision card (`draft` or `open`) hangs under it (`blocks:` on the D card) and everything after it waits; the card returns to its own status on the build after its decision card is `decided` (the D card then shows Fulfilled) ([[Agent Rules#4 · Statuses, blocking and sign-off]]) |
-| Not written yet | a placeholder for a missing layer note (feature level only) |
+| Not written yet | a placeholder for a missing layer note: under every feature, and under the tasks `taskFlow` names in `docs.config.json` |
 | *Frontend only* (kicker) | a feature with `frontendOnly: true`: no backend part, so the backend and QA-backend cards are neither required nor counted |
 | Reference | project docs and module notes |
 
