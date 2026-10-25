@@ -42071,10 +42071,10 @@
       ],
       "release": "mvp",
       "rollup": {
-        "approved": 1,
+        "approved": 2,
         "blocked": 2,
         "done": 1,
-        "draft": 2,
+        "draft": 1,
         "missing": 4,
         "todo": 2
       },
@@ -48388,11 +48388,11 @@
       "related": [],
       "release": null,
       "rollup": {
-        "approved": 1,
+        "approved": 2,
         "blocked": 40,
         "decided": 2,
         "done": 2,
-        "draft": 26,
+        "draft": 25,
         "in-progress": 4,
         "missing": 42,
         "needs-decision": 1,
@@ -53333,12 +53333,12 @@
         }
       ],
       "rollup": {
-        "approved": 6,
+        "approved": 7,
         "blocked": 178,
         "current": 9,
         "decided": 12,
         "done": 17,
-        "draft": 95,
+        "draft": 94,
         "in-progress": 24,
         "missing": 145,
         "needs-decision": 9,
@@ -56234,7 +56234,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "error-contract",
       "frontendOnly": false,
@@ -56259,11 +56259,11 @@
       "release": "mvp",
       "scope": "task",
       "screens": [],
-      "status": "draft",
+      "status": "approved",
       "summary": "Every service throws new HttpException({ ErrorCode, message }, status) and the Frontend guide tells clients to branch on the code and display the message. But AllExceptionsFilter…",
       "tags": [
         "story",
-        "story/draft",
+        "story/approved",
         "module/platform",
         "layer/business"
       ],
@@ -69111,8 +69111,8 @@
       "related": [],
       "release": "mvp",
       "rollup": {
+        "approved": 1,
         "blocked": 1,
-        "draft": 1,
         "todo": 1
       },
       "scope": null,
