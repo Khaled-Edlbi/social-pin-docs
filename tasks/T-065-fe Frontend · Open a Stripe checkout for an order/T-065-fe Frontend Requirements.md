@@ -21,7 +21,7 @@ task: T-065-fe
 
 # T-065-fe · Open a Stripe checkout for an order · Frontend Requirements
 
-**Task:** [[T-065-fe Frontend · Open a Stripe checkout for an order]] · **Feature:** [[Pay for an order]] · **Feature-level note:** [[Pay for an order Frontend Requirements]] · **Status:** Approved 2026-10-25 · **Story:** [[T-065 Story]] (approved) · **Backend Integration:** [[T-065-be Backend Integration]] (not written yet)
+**Task:** [[T-065-fe Frontend · Open a Stripe checkout for an order]] · **Feature:** [[Pay for an order]] · **Feature-level note:** [[Pay for an order Frontend Requirements]] · **Status:** Approved 2026-10-25 · **Story:** [[T-065 Story]] (approved) · **Backend Integration:** [[T-065-be Backend Integration]] (current, simulated)
 
 Written by the **frontend** team, read by the backend: what the client needs to build [[T-065 Story]] on s51, and whether each need is met today. Nothing is met today: no payment endpoint exists ([[Frontend Contract]]: "payments" is in the not-yet-available list). `status: approved` once the backend accepts the list; `delivered` once every row is ✅.
 
@@ -34,7 +34,7 @@ Written by the **frontend** team, read by the backend: what the client needs to 
   - for "Pay $160": one call that opens, or reuses while it is still valid, the Stripe hosted checkout for this order, card only ([[DR-08 Stripe card checkout only]]), and returns the URL to open and the return URLs the app is registered for; the same call twice for one unpaid order returns the same checkout;
   - on return from the card page (success or cancel URL, or the app coming back to the foreground): the order's state again, never what the card page said.
 - States to render: unpaid (Pay enabled), pending ("Waiting for confirmation"), failed (reason, "Your tickets are held for N minutes", "Try again" on the same order), hold ended ("Your tickets were released", back to s50), paid ("Payment received"; carrying on to s52 is the next task).
-- Source today: not yet ([[T-065-be Backend · Open a Stripe checkout for an order]]).
+- Source today: `GET /orders/:id`, `POST /orders/:id/checkout` (simulated, [[T-065-be Backend Integration]]); creating the order on s50 not yet.
 
 ## Endpoints required
 
@@ -42,9 +42,9 @@ Endpoint names are the backend's to choose; each row is the need.
 
 | Need | Endpoint | Available | Task / decision |
 |---|---|---|---|
-| Read one of my orders: lines, currency, total, state, hold end, failure reason | — | ❌ | [[T-065-be Backend · Open a Stripe checkout for an order]] |
-| Open or reuse the Stripe checkout for an unpaid order of mine; returns the checkout URL | — | ❌ | [[T-065-be Backend · Open a Stripe checkout for an order]] |
-| Audit entry "checkout opened" (server side, no client call) | — | ❌ | [[T-065-be Backend · Open a Stripe checkout for an order]] |
+| Read one of my orders: lines, currency, total, state, hold end, failure reason | `GET /orders/:id` | ✅ (simulated) | [[T-065-be Backend · Open a Stripe checkout for an order]] |
+| Open or reuse the Stripe checkout for an unpaid order of mine; returns the checkout URL | `POST /orders/:id/checkout` | ✅ (simulated) | [[T-065-be Backend · Open a Stripe checkout for an order]] |
+| Audit entry "checkout opened" (server side, no client call) | server side (`PAYMENT_CHECKOUT_OPENED`) | ✅ (simulated) | [[T-065-be Backend · Open a Stripe checkout for an order]] |
 | Create the order on s50 (the id s51 starts from) | — | ❌ | [[T-035 Registration transaction with order and payment]] |
 
 ## Behaviour expectations
