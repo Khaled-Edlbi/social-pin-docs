@@ -4,16 +4,19 @@ code: e2e-tests
 scope: feature
 feature: e2e-tests
 module: platform
-status: draft
+status: approved
 screens: []
+approvedBy: "khaled"
+approvedAt: 2026-10-25
+owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-18
-tags: [story, story/draft, module/platform, layer/business]
+updated: 2026-10-25
+tags: [story, story/approved, module/platform, layer/business]
 ---
 
 # E2E Test Run · User Story
 
-**Feature:** [[E2E Test Run]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[E2E Test Run Frontend Requirements]] · **API Integration:** not yet (backend not built)
+**Feature:** [[E2E Test Run]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[E2E Test Run Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 The e2e specs boot the whole app through the same `configureApp(app)` as `main.ts` and assert the behaviour the [[Frontend Contract]] promises: the three-call sign-up, the identical 404 for missing / not shared / blocked, the error body shape. They typecheck and have never run, because they need a disposable, migrated and seeded PostGIS database. Until they run in CI, the contract is a claim rather than a check. There is no screen.
 
