@@ -20,6 +20,7 @@ Where the design and the backend disagree, and every other decision a card needs
 | [[D-10 How Connect addresses the scanned person]] | draft | — | [[Badge & QR]], [[Connections]] | s43, s44 |
 | [[D-11 Get or rotate the badge token]] | draft | — | [[Badge & QR]] | s34 |
 | [[D-12 What the badge QR encodes]] | draft | — | [[Badge & QR]] | s34, s43 |
+| [[D-13 Whether the requester sees a declined request]] | draft | — | [[Connections]] | s44, s45 |
 
 ```dataview
 TABLE status, features FROM #decision
