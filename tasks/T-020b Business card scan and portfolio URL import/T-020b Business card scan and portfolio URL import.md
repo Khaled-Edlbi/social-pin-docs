@@ -9,13 +9,12 @@ module: identity
 screens: [s03a, s03b]
 depends: [D-02]
 created: 2026-10-15
-updated: 2026-10-19
+updated: 2026-10-25
+owner: "omar"
 tags: [task, task/needs-info, module/identity, priority/medium]
 ---
 
 # ❓ T-020b · Business card scan and portfolio URL import
-
-> ⚠ Affected by [[DR-02 One main profile every Ring starts from]] (2026-10-25): D-02 decided, one main profile (headline, role, company, location, photo, bio) every Ring starts from; imports fill it. This task no longer waits on D-02.
 
 **Feature:** [[Onboarding Imports]] · **Status:** Needs a decision / info · **Priority:** Medium · **Effort:** L (S < 1 day, M 1–3 days, L > 3 days)
 
@@ -23,7 +22,7 @@ tags: [task, task/needs-info, module/identity, priority/medium]
 
 ## What
 
-Provider decision (OCR, scraping). Same review step as T-020.
+Provider decision (OCR, scraping). Same review step as T-020, writing to the main profile ([[DR-02 One main profile every Ring starts from]]).
 
 ## Design
 
@@ -32,7 +31,7 @@ Provider decision (OCR, scraping). Same review step as T-020.
 
 ## Dependencies
 
-- Waits on decision [[D-02 Base profile work fields]]
+- Waited on decision [[D-02 Base profile work fields]], decided by [[DR-02 One main profile every Ring starts from]]
 
 ## Definition of done
 
@@ -45,3 +44,4 @@ Provider decision (OCR, scraping). Same review step as T-020.
 ## Log
 
 - 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
+- 2026-10-25 · D-02 decided ([[DR-02 One main profile every Ring starts from]]); What and Dependencies updated, flag cleared. The provider choice (OCR, scraping) is still open.
