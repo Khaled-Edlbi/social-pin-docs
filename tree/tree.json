@@ -1801,7 +1801,8 @@
         "feature:view-as",
         "project:frontend-contract",
         "project:spec-map",
-        "project:status-report-2026-10-15"
+        "project:status-report-2026-10-15",
+        "task:T-004"
       ],
       "kind": "endpoint",
       "notes": [
@@ -1824,6 +1825,7 @@
         "project:frontend-contract",
         "project:spec-map",
         "project:status-report-2026-10-15",
+        "story:T-004",
         "story:auth",
         "story:counts",
         "story:event-ring-auto",
@@ -1840,7 +1842,8 @@
         "feature:events-during",
         "feature:meetings",
         "feature:post-event",
-        "feature:rings"
+        "feature:rings",
+        "task:T-004"
       ],
       "kind": "endpoint",
       "notes": [
@@ -1852,6 +1855,7 @@
         "frontend-requirements:meetings",
         "frontend-requirements:post-event",
         "frontend-requirements:rings",
+        "story:T-004",
         "story:delegated-admins",
         "story:post-event"
       ],
@@ -1873,7 +1877,8 @@
     "GET /rings/:ringId/members": {
       "containers": [
         "feature:companies",
-        "feature:ring-members"
+        "feature:ring-members",
+        "task:T-004"
       ],
       "kind": "endpoint",
       "notes": [
@@ -1881,6 +1886,7 @@
         "backend-integration:ring-members",
         "frontend-requirements:companies",
         "frontend-requirements:ring-members",
+        "story:T-004",
         "story:companies"
       ],
       "owner": "feature:ring-members"
@@ -1946,7 +1952,8 @@
         "feature:rings",
         "project:frontend-contract",
         "project:spec-map",
-        "project:status-report-2026-10-15"
+        "project:status-report-2026-10-15",
+        "task:T-004"
       ],
       "kind": "endpoint",
       "notes": [
@@ -1964,6 +1971,7 @@
         "project:frontend-contract",
         "project:spec-map",
         "project:status-report-2026-10-15",
+        "story:T-004",
         "story:companies",
         "story:connections",
         "story:counts",
@@ -4671,7 +4679,7 @@
     },
     "concepts": 177,
     "decisions": 7,
-    "edges": 4277,
+    "edges": 4301,
     "features": 39,
     "layerNotes": 190,
     "modules": 8,
@@ -10868,6 +10876,14 @@
       ]
     },
     {
+      "from": "feature:account",
+      "kind": "shares",
+      "to": "task:T-004",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
       "from": "feature:app-shell",
       "kind": "shares",
       "to": "feature:auth",
@@ -11107,6 +11123,14 @@
       "from": "feature:app-shell",
       "kind": "shares",
       "to": "project:status-report-2026-10-15",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "feature:app-shell",
+      "kind": "shares",
+      "to": "task:T-004",
       "via": [
         "GET /rings"
       ]
@@ -11520,6 +11544,14 @@
     {
       "from": "feature:auth",
       "kind": "shares",
+      "to": "task:T-004",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "feature:auth",
+      "kind": "shares",
       "to": "task:T-019",
       "via": [
         "POST /auth/login/verify"
@@ -11886,6 +11918,14 @@
     {
       "from": "feature:badge-qr",
       "kind": "shares",
+      "to": "task:T-004",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "feature:badge-qr",
+      "kind": "shares",
       "to": "task:T-008",
       "via": [
         "GET /views/ring/:ringId"
@@ -12118,6 +12158,15 @@
       "via": [
         "GET /rings",
         "POST /rings/:id/disposition"
+      ]
+    },
+    {
+      "from": "feature:cleanup-jobs",
+      "kind": "shares",
+      "to": "task:T-004",
+      "via": [
+        "GET /rings",
+        "GET /rings/:id"
       ]
     },
     {
@@ -12559,6 +12608,15 @@
     {
       "from": "feature:companies",
       "kind": "shares",
+      "to": "task:T-004",
+      "via": [
+        "GET /rings/:ringId/members",
+        "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "feature:companies",
+      "kind": "shares",
       "to": "task:T-008",
       "via": [
         "GET /views/ring/:ringId"
@@ -12950,6 +13008,15 @@
     {
       "from": "feature:connections",
       "kind": "shares",
+      "to": "task:T-004",
+      "via": [
+        "GET /rings",
+        "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "feature:connections",
+      "kind": "shares",
       "to": "task:T-008",
       "via": [
         "GET /views/ring/:ringId"
@@ -13164,6 +13231,15 @@
       "from": "feature:counts",
       "kind": "shares",
       "to": "project:status-report-2026-10-15",
+      "via": [
+        "GET /rings",
+        "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "feature:counts",
+      "kind": "shares",
+      "to": "task:T-004",
       "via": [
         "GET /rings",
         "GET /rings/shared-with-me"
@@ -13466,6 +13542,15 @@
       "to": "project:status-report-2026-10-15",
       "via": [
         "DELETE /rings/:id",
+        "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "feature:delegated-admins",
+      "kind": "shares",
+      "to": "task:T-004",
+      "via": [
+        "GET /rings/:id",
         "GET /rings/shared-with-me"
       ]
     },
@@ -14306,6 +14391,15 @@
     {
       "from": "feature:event-ring-auto",
       "kind": "shares",
+      "to": "task:T-004",
+      "via": [
+        "GET /rings",
+        "GET /rings/:id"
+      ]
+    },
+    {
+      "from": "feature:event-ring-auto",
+      "kind": "shares",
       "to": "task:T-008",
       "via": [
         "GET /views/ring/:ringId"
@@ -14444,6 +14538,14 @@
       ]
     },
     {
+      "from": "feature:events-before",
+      "kind": "shares",
+      "to": "task:T-004",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
       "from": "feature:events-during",
       "kind": "shares",
       "to": "feature:exhibitor",
@@ -14556,6 +14658,14 @@
       "to": "project:status-report-2026-10-15",
       "via": [
         "GET /views/ring/:ringId"
+      ]
+    },
+    {
+      "from": "feature:events-during",
+      "kind": "shares",
+      "to": "task:T-004",
+      "via": [
+        "GET /rings/:id"
       ]
     },
     {
@@ -15338,6 +15448,15 @@
     {
       "from": "feature:meetings",
       "kind": "shares",
+      "to": "task:T-004",
+      "via": [
+        "GET /rings/:id",
+        "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "feature:meetings",
+      "kind": "shares",
       "to": "task:T-008",
       "via": [
         "GET /views/ring/:ringId"
@@ -15882,6 +16001,15 @@
       ]
     },
     {
+      "from": "feature:pincast",
+      "kind": "shares",
+      "to": "task:T-004",
+      "via": [
+        "GET /rings",
+        "GET /rings/shared-with-me"
+      ]
+    },
+    {
       "from": "feature:post-event",
       "kind": "shares",
       "to": "feature:ring-access",
@@ -16045,6 +16173,15 @@
         "GET /rings",
         "GET /views/ring/:ringId",
         "POST /rings/:id/disposition"
+      ]
+    },
+    {
+      "from": "feature:post-event",
+      "kind": "shares",
+      "to": "task:T-004",
+      "via": [
+        "GET /rings",
+        "GET /rings/:id"
       ]
     },
     {
@@ -16278,6 +16415,14 @@
     {
       "from": "feature:ring-access",
       "kind": "shares",
+      "to": "task:T-004",
+      "via": [
+        "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "feature:ring-access",
+      "kind": "shares",
       "to": "task:T-008",
       "via": [
         "GET /views/ring/:ringId"
@@ -16376,6 +16521,14 @@
       "via": [
         "GET /rings/shared-with-me",
         "GET /views/ring/:ringId"
+      ]
+    },
+    {
+      "from": "feature:ring-invitations",
+      "kind": "shares",
+      "to": "task:T-004",
+      "via": [
+        "GET /rings/shared-with-me"
       ]
     },
     {
@@ -16491,6 +16644,15 @@
       "via": [
         "GET /rings",
         "GET /views/user/:userId/perspectives"
+      ]
+    },
+    {
+      "from": "feature:ring-members",
+      "kind": "shares",
+      "to": "task:T-004",
+      "via": [
+        "GET /rings",
+        "GET /rings/:ringId/members"
       ]
     },
     {
@@ -16720,6 +16882,16 @@
     {
       "from": "feature:rings",
       "kind": "shares",
+      "to": "task:T-004",
+      "via": [
+        "GET /rings",
+        "GET /rings/:id",
+        "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "feature:rings",
+      "kind": "shares",
       "to": "task:T-008",
       "via": [
         "GET /views/ring/:ringId"
@@ -16823,6 +16995,14 @@
         "GET /views/pin/:pinName",
         "GET /views/ring/:ringId",
         "GET /views/user/:userId/perspectives"
+      ]
+    },
+    {
+      "from": "feature:view-as",
+      "kind": "shares",
+      "to": "task:T-004",
+      "via": [
+        "GET /rings"
       ]
     },
     {
@@ -17138,6 +17318,15 @@
     {
       "from": "project:frontend-contract",
       "kind": "shares",
+      "to": "task:T-004",
+      "via": [
+        "GET /rings",
+        "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "project:frontend-contract",
+      "kind": "shares",
       "to": "task:T-008",
       "via": [
         "GET /views/ring/:ringId"
@@ -17213,9 +17402,27 @@
     {
       "from": "project:spec-map",
       "kind": "shares",
+      "to": "task:T-004",
+      "via": [
+        "GET /rings",
+        "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "project:spec-map",
+      "kind": "shares",
       "to": "task:T-008",
       "via": [
         "GET /views/ring/:ringId"
+      ]
+    },
+    {
+      "from": "project:status-report-2026-10-15",
+      "kind": "shares",
+      "to": "task:T-004",
+      "via": [
+        "GET /rings",
+        "GET /rings/shared-with-me"
       ]
     },
     {
@@ -26290,6 +26497,11 @@
       "from": "story:T-003",
       "kind": "wikilink",
       "to": "feature:code-delivery"
+    },
+    {
+      "from": "story:T-004",
+      "kind": "wikilink",
+      "to": "decision:D-04"
     },
     {
       "from": "story:T-004",
@@ -47571,7 +47783,7 @@
       ],
       "task": "T-004",
       "title": "T-004 Story",
-      "updated": "2026-10-18"
+      "updated": "2026-10-25"
     },
     "story:T-005": {
       "affects": [],
