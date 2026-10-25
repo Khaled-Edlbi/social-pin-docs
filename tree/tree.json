@@ -953,6 +953,16 @@
     "T-064": "task:T-064"
   },
   "concepts": {
+    "DELETE /connections/requests/:id": {
+      "containers": [
+        "task:T-021"
+      ],
+      "kind": "endpoint",
+      "notes": [
+        "story:T-021"
+      ],
+      "owner": null
+    },
     "DELETE /files/:id": {
       "containers": [
         "feature:files",
@@ -1622,6 +1632,16 @@
       ],
       "owner": null
     },
+    "GET /connections/requests?direction=incoming": {
+      "containers": [
+        "task:T-021"
+      ],
+      "kind": "endpoint",
+      "notes": [
+        "story:T-021"
+      ],
+      "owner": null
+    },
     "GET /connections/requests?direction=incoming|sent": {
       "containers": [
         "task:T-021"
@@ -1630,6 +1650,16 @@
       "notes": [
         "story:T-021",
         "task:T-021"
+      ],
+      "owner": null
+    },
+    "GET /connections/requests?direction=sent": {
+      "containers": [
+        "task:T-021"
+      ],
+      "kind": "endpoint",
+      "notes": [
+        "story:T-021"
       ],
       "owner": null
     },
@@ -4681,9 +4711,9 @@
       "frontend": 43,
       "shared": 10
     },
-    "concepts": 177,
+    "concepts": 180,
     "decisions": 7,
-    "edges": 4342,
+    "edges": 4347,
     "features": 39,
     "layerNotes": 190,
     "modules": 8,
@@ -26909,6 +26939,31 @@
       "to": "feature:connections"
     },
     {
+      "from": "story:T-021",
+      "kind": "wikilink",
+      "to": "story:T-008"
+    },
+    {
+      "from": "story:T-021",
+      "kind": "wikilink",
+      "to": "task:T-008"
+    },
+    {
+      "from": "story:T-021",
+      "kind": "wikilink",
+      "to": "task:T-022"
+    },
+    {
+      "from": "story:T-021",
+      "kind": "wikilink",
+      "to": "task:T-045"
+    },
+    {
+      "from": "story:T-021",
+      "kind": "wikilink",
+      "to": "task:T-062"
+    },
+    {
       "from": "story:T-022",
       "kind": "wikilink",
       "to": "feature:connections"
@@ -48913,7 +48968,7 @@
       ],
       "task": "T-021",
       "title": "T-021 Story",
-      "updated": "2026-10-18"
+      "updated": "2026-10-25"
     },
     "story:T-022": {
       "affects": [],
