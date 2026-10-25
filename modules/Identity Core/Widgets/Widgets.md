@@ -5,7 +5,8 @@ name: "Widgets"
 priority: high
 module: identity
 screens: [s36, s37]
-updated: 2026-10-19
+updated: 2026-10-25
+owner: "omar"
 tags: [feature, module/identity, priority/high]
 ---
 
@@ -39,9 +40,9 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 TABLE status, priority, effort FROM #task WHERE feature = "widgets" SORT priority ASC
 ```
 
-## Open decisions
+## Decisions
 
-- [[D-03 Field library vs per-Ring copies]]
+- [[D-03 Field library vs per-Ring copies]] — decided, links entered once, on or off per Ring ([[DR-03 Links entered once, switched on or off per Ring|DR-03]])
 
 ## Related
 
