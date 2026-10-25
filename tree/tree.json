@@ -97,6 +97,7 @@
     "D-06 Pin name rules": "decision:D-06",
     "D-07 Payment provider": "decision:D-07",
     "D-08 Payment methods and gateways on s51": "decision:D-08",
+    "D-09 How long an unpaid order holds its tickets": "decision:D-09",
     "DR-01 Code-only login": "decision-record:DR-01",
     "DR-07 Stripe for all four flows": "decision-record:DR-07",
     "DR-08 Stripe card checkout only": "decision-record:DR-08",
@@ -184,6 +185,7 @@
     "Owner Agent": "project:owner-agent",
     "PM Agent": "project:pm-agent",
     "Pay for an order": "feature:pay-for-an-order",
+    "Pay for an order Story": "story:pay-for-an-order",
     "Payments & Orders": "feature:payments",
     "Payments & Orders Backend Delivery": "backend-delivery:payments",
     "Payments & Orders Frontend Requirements": "frontend-requirements:payments",
@@ -563,6 +565,7 @@
     "D-06": "decision:D-06",
     "D-07": "decision:D-07",
     "D-08": "decision:D-08",
+    "D-09": "decision:D-09",
     "DR-01": "decision-record:DR-01",
     "DR-07": "decision-record:DR-07",
     "DR-08": "decision-record:DR-08",
@@ -696,6 +699,7 @@
     "S-102": "story:T-058",
     "S-103": "story:T-060",
     "S-104": "story:T-059",
+    "S-105": "story:pay-for-an-order",
     "S-11": "story:photo-library",
     "S-12": "story:T-012",
     "S-13": "story:T-013",
@@ -4006,6 +4010,7 @@
     },
     "s50": {
       "containers": [
+        "decision:D-09",
         "feature:events-before",
         "feature:payments",
         "task:T-034",
@@ -4016,6 +4021,7 @@
       "notes": [
         "backend-delivery:events-before",
         "backend-delivery:payments",
+        "decision:D-09",
         "feature:events-before",
         "feature:payments",
         "frontend-requirements:events-before",
@@ -4033,6 +4039,7 @@
       "containers": [
         "decision:D-07",
         "decision:D-08",
+        "decision:D-09",
         "feature:events-before",
         "feature:pay-for-an-order",
         "feature:payments",
@@ -4048,6 +4055,7 @@
         "backend-delivery:payments",
         "decision:D-07",
         "decision:D-08",
+        "decision:D-09",
         "feature:events-before",
         "feature:pay-for-an-order",
         "feature:payments",
@@ -4056,6 +4064,7 @@
         "story:T-035",
         "story:T-047",
         "story:events-before",
+        "story:pay-for-an-order",
         "story:payments",
         "task:T-035",
         "task:T-035-be",
@@ -4089,6 +4098,7 @@
         "story:T-035",
         "story:event-ring-auto",
         "story:events-before",
+        "story:pay-for-an-order",
         "task:T-011",
         "task:T-011-be",
         "task:T-035",
@@ -4660,34 +4670,34 @@
     }
   },
   "counts": {
-    "blocked": 178,
+    "blocked": 179,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
-      "decision": 8,
+      "decision": 9,
       "decision-record": 3,
       "feature": 40,
       "frontend-requirements": 39,
       "module": 9,
       "project": 27,
-      "story": 103,
+      "story": 104,
       "task": 175
     },
     "byLayer": {
       "backend": 56,
-      "business": 334,
+      "business": 336,
       "frontend": 43,
       "shared": 10
     },
     "concepts": 177,
-    "decisions": 8,
-    "edges": 4328,
+    "decisions": 9,
+    "edges": 4359,
     "features": 40,
-    "layerNotes": 190,
+    "layerNotes": 191,
     "modules": 9,
-    "notes": 479,
+    "notes": 481,
     "partial": 0,
-    "placeholders": 152,
+    "placeholders": 151,
     "records": 3,
     "taskLayerNotes": 64,
     "tasks": 175
@@ -4820,6 +4830,21 @@
       "to": "module:payments-gateway"
     },
     {
+      "from": "decision:D-09",
+      "kind": "affects",
+      "to": "feature:events-before"
+    },
+    {
+      "from": "decision:D-09",
+      "kind": "affects",
+      "to": "feature:pay-for-an-order"
+    },
+    {
+      "from": "decision:D-09",
+      "kind": "affects",
+      "to": "feature:payments"
+    },
+    {
       "from": "feature:pay-for-an-order",
       "kind": "affects",
       "to": "feature:event-ring-auto"
@@ -4873,6 +4898,21 @@
       "from": "project:agent-rules",
       "kind": "affects",
       "to": "project:workflow"
+    },
+    {
+      "from": "story:pay-for-an-order",
+      "kind": "affects",
+      "to": "feature:event-ring-auto"
+    },
+    {
+      "from": "story:pay-for-an-order",
+      "kind": "affects",
+      "to": "feature:events-before"
+    },
+    {
+      "from": "story:pay-for-an-order",
+      "kind": "affects",
+      "to": "task:T-035"
     },
     {
       "from": "task:T-064",
@@ -5443,6 +5483,11 @@
       "from": "decision:D-06",
       "kind": "blocks",
       "to": "task:T-061"
+    },
+    {
+      "from": "decision:D-09",
+      "kind": "blocks",
+      "to": "story:pay-for-an-order"
     },
     {
       "from": "frontend-delivery:account",
@@ -6752,6 +6797,11 @@
     {
       "from": "task:T-047",
       "kind": "blocks",
+      "to": "story:pay-for-an-order"
+    },
+    {
+      "from": "task:T-047",
+      "kind": "blocks",
       "to": "task:T-035"
     },
     {
@@ -6975,6 +7025,16 @@
       "to": "feature:pay-for-an-order"
     },
     {
+      "from": "decision:D-09",
+      "kind": "decision",
+      "to": "feature:pay-for-an-order"
+    },
+    {
+      "from": "decision:D-09",
+      "kind": "decision",
+      "to": "story:pay-for-an-order"
+    },
+    {
       "from": "feature:pay-for-an-order",
       "kind": "depends",
       "to": "decision:D-07"
@@ -7013,6 +7073,21 @@
       "from": "project:qa-agent",
       "kind": "depends",
       "to": "project:agent-protocol"
+    },
+    {
+      "from": "story:pay-for-an-order",
+      "kind": "depends",
+      "to": "decision:D-07"
+    },
+    {
+      "from": "story:pay-for-an-order",
+      "kind": "depends",
+      "to": "decision:D-08"
+    },
+    {
+      "from": "story:pay-for-an-order",
+      "kind": "depends",
+      "to": "task:T-047"
     },
     {
       "from": "task:T-002",
@@ -8478,6 +8553,26 @@
       "from": "decision:D-08",
       "kind": "related",
       "to": "module:payments-gateway"
+    },
+    {
+      "from": "decision:D-09",
+      "kind": "related",
+      "to": "decision-record:DR-08"
+    },
+    {
+      "from": "decision:D-09",
+      "kind": "related",
+      "to": "feature:events-before"
+    },
+    {
+      "from": "decision:D-09",
+      "kind": "related",
+      "to": "feature:payments"
+    },
+    {
+      "from": "decision:D-09",
+      "kind": "related",
+      "to": "task:T-034"
     },
     {
       "from": "feature:account",
@@ -10472,6 +10567,36 @@
       "via": [
         "sum-of"
       ]
+    },
+    {
+      "from": "story:pay-for-an-order",
+      "kind": "related",
+      "to": "decision-record:DR-08"
+    },
+    {
+      "from": "story:pay-for-an-order",
+      "kind": "related",
+      "to": "feature:audit-log"
+    },
+    {
+      "from": "story:pay-for-an-order",
+      "kind": "related",
+      "to": "feature:event-ring-auto"
+    },
+    {
+      "from": "story:pay-for-an-order",
+      "kind": "related",
+      "to": "feature:events-before"
+    },
+    {
+      "from": "story:pay-for-an-order",
+      "kind": "related",
+      "to": "feature:payments"
+    },
+    {
+      "from": "story:pay-for-an-order",
+      "kind": "related",
+      "to": "task:T-034"
     },
     {
       "from": "story:payments",
@@ -19477,6 +19602,11 @@
       "to": "task:T-020b"
     },
     {
+      "from": "story:pay-for-an-order",
+      "kind": "tree",
+      "to": "decision:D-09"
+    },
+    {
       "from": "story:payments",
       "kind": "tree",
       "to": "task:T-047"
@@ -21572,6 +21702,16 @@
       "to": "feature:audit-log"
     },
     {
+      "from": "decision:D-09",
+      "kind": "wikilink",
+      "to": "module:payments-gateway"
+    },
+    {
+      "from": "decision:D-09",
+      "kind": "wikilink",
+      "to": "story:payments"
+    },
+    {
       "from": "feature:audit-log",
       "kind": "wikilink",
       "to": "task:T-053"
@@ -21830,6 +21970,11 @@
       "from": "feature:pay-for-an-order",
       "kind": "wikilink",
       "to": "decision:D-07"
+    },
+    {
+      "from": "feature:pay-for-an-order",
+      "kind": "wikilink",
+      "to": "decision:D-09"
     },
     {
       "from": "feature:pay-for-an-order",
@@ -24359,6 +24504,11 @@
     {
       "from": "module:payments-gateway",
       "kind": "wikilink",
+      "to": "story:pay-for-an-order"
+    },
+    {
+      "from": "module:payments-gateway",
+      "kind": "wikilink",
       "to": "task:T-047"
     },
     {
@@ -26250,6 +26400,21 @@
       "from": "story:onboarding-imports",
       "kind": "wikilink",
       "to": "task:T-019"
+    },
+    {
+      "from": "story:pay-for-an-order",
+      "kind": "wikilink",
+      "to": "backend-delivery:payments"
+    },
+    {
+      "from": "story:pay-for-an-order",
+      "kind": "wikilink",
+      "to": "story:event-ring-auto"
+    },
+    {
+      "from": "story:pay-for-an-order",
+      "kind": "wikilink",
+      "to": "task:T-047"
     },
     {
       "from": "story:payments",
@@ -29676,6 +29841,10 @@
       "name": "D-08 Payment methods and gateways on s51",
       "type": "decision"
     },
+    "decisions/D-09 How long an unpaid order holds its tickets.md": {
+      "name": "D-09 How long an unpaid order holds its tickets",
+      "type": "decision"
+    },
     "decisions/DR-01 Code-only login.md": {
       "name": "DR-01 Code-only login",
       "type": "decision-record"
@@ -30187,6 +30356,10 @@
     "modules/Meetings/Meetings/Meetings.md": {
       "name": "Meetings",
       "type": "feature"
+    },
+    "modules/Payments Gateway/Pay for an order/Pay for an order Story.md": {
+      "name": "Pay for an order Story",
+      "type": "story"
     },
     "modules/Payments Gateway/Pay for an order/Pay for an order.md": {
       "name": "Pay for an order",
@@ -35666,8 +35839,10 @@
       "pending": [],
       "priority": null,
       "related": [
+        "decision:D-09",
         "decision:D-08",
-        "decision:D-07"
+        "decision:D-07",
+        "story:pay-for-an-order"
       ],
       "scope": null,
       "screens": [],
@@ -36116,6 +36291,64 @@
       "title": "D-08 Payment methods and gateways on s51",
       "updated": "2026-10-22"
     },
+    "decision:D-09": {
+      "affects": [
+        "feature:pay-for-an-order",
+        "feature:events-before",
+        "feature:payments"
+      ],
+      "blockedBy": [],
+      "blocks": [
+        "story:pay-for-an-order"
+      ],
+      "card": "D-09",
+      "children": [],
+      "code": "D-09",
+      "deadline": null,
+      "decider": "owner",
+      "depends": [],
+      "effectiveStatus": "needs-decision",
+      "effort": null,
+      "feature": null,
+      "features": [
+        "pay-for-an-order"
+      ],
+      "frontendOnly": false,
+      "id": "decision:D-09",
+      "inherits": {},
+      "kind": "decision",
+      "label": "Decision",
+      "labels": [],
+      "layer": "business",
+      "module": null,
+      "parentTask": null,
+      "parents": [
+        "story:pay-for-an-order"
+      ],
+      "path": "decisions/D-09 How long an unpaid order holds its tickets.md",
+      "pending": [],
+      "priority": null,
+      "related": [
+        "task:T-034",
+        "feature:payments",
+        "feature:events-before",
+        "decision-record:DR-08"
+      ],
+      "scope": null,
+      "screens": [
+        "s50",
+        "s51"
+      ],
+      "status": "needs-decision",
+      "summary": "Whether an order that is not paid yet (pending on Stripe, failed, or abandoned on the card page) keeps its chosen tickets, packages and sub-events out of the count that makes them sold out, and…",
+      "tags": [
+        "decision",
+        "decision/open"
+      ],
+      "task": null,
+      "title": "D-09 How long an unpaid order holds its tickets",
+      "updated": "2026-10-25"
+    },
     "feature:account": {
       "affects": [],
       "blockedBy": [],
@@ -36297,7 +36530,8 @@
         "project:ring-access-model",
         "project:architecture",
         "project:api-conventions",
-        "project:spec-map"
+        "project:spec-map",
+        "story:pay-for-an-order"
       ],
       "rollup": {
         "blocked": 2,
@@ -37207,7 +37441,8 @@
         "project:api-conventions",
         "project:spec-map",
         "feature:meetings",
-        "feature:pay-for-an-order"
+        "feature:pay-for-an-order",
+        "story:pay-for-an-order"
       ],
       "rollup": {
         "blocked": 4,
@@ -37277,7 +37512,9 @@
         "project:api-conventions",
         "project:spec-map",
         "feature:pay-for-an-order",
-        "decision:D-08"
+        "decision:D-08",
+        "decision:D-09",
+        "story:pay-for-an-order"
       ],
       "rollup": {
         "approved": 1,
@@ -38012,8 +38249,10 @@
       ],
       "rollup": {
         "approved": 1,
+        "blocked": 1,
         "decided": 1,
-        "missing": 7
+        "missing": 6,
+        "needs-decision": 1
       },
       "scope": null,
       "screens": [
@@ -38029,7 +38268,7 @@
       ],
       "task": null,
       "title": "Pay for an order",
-      "updated": "2026-10-22"
+      "updated": "2026-10-25"
     },
     "feature:payments": {
       "affects": [],
@@ -38078,7 +38317,9 @@
         "project:spec-map",
         "feature:pay-for-an-order",
         "decision:D-07",
-        "decision:D-08"
+        "decision:D-08",
+        "decision:D-09",
+        "story:pay-for-an-order"
       ],
       "rollup": {
         "approved": 1,
@@ -42033,7 +42274,7 @@
         {
           "id": "story:pay-for-an-order",
           "title": "Pay for an order Story",
-          "why": "Pay for an order Story is not written yet"
+          "why": "Pay for an order Story is blocked"
         }
       ],
       "card": null,
@@ -43305,9 +43546,11 @@
       ],
       "rollup": {
         "approved": 1,
+        "blocked": 1,
         "decided": 1,
         "in-progress": 1,
-        "missing": 7
+        "missing": 6,
+        "needs-decision": 1
       },
       "scope": null,
       "screens": [],
@@ -48159,14 +48402,14 @@
       "related": [],
       "rollup": {
         "approved": 3,
-        "blocked": 178,
+        "blocked": 179,
         "current": 9,
         "decided": 3,
         "done": 12,
         "draft": 103,
         "in-progress": 16,
-        "missing": 152,
-        "needs-decision": 20,
+        "missing": 151,
+        "needs-decision": 21,
         "reference": 31,
         "todo": 81
       },
@@ -52384,19 +52627,42 @@
       "updated": "2026-10-18"
     },
     "story:pay-for-an-order": {
-      "affects": [],
-      "blockedBy": [],
-      "card": null,
-      "children": [],
+      "affects": [
+        "feature:event-ring-auto",
+        "feature:events-before",
+        "task:T-035"
+      ],
+      "blockedBy": [
+        {
+          "id": "task:T-047",
+          "title": "T-047 Orders, payments and the provider webhook",
+          "why": "T-047 Orders, payments and the provider webhook is needs decision"
+        },
+        {
+          "id": "decision:D-09",
+          "title": "D-09 How long an unpaid order holds its tickets",
+          "why": "needs decision D-09 (open)"
+        }
+      ],
+      "card": "S-105",
+      "children": [
+        "decision:D-09"
+      ],
       "code": "pay-for-an-order",
       "deadline": null,
-      "depends": [],
-      "effectiveStatus": "missing",
+      "depends": [
+        "decision:D-07",
+        "decision:D-08",
+        "task:T-047"
+      ],
+      "effectiveStatus": "blocked",
       "effort": null,
       "feature": "pay-for-an-order",
       "frontendOnly": false,
       "id": "story:pay-for-an-order",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:pay-for-an-order"
+      },
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -52406,19 +52672,33 @@
       "parents": [
         "feature:pay-for-an-order"
       ],
-      "path": null,
+      "path": "modules/Payments Gateway/Pay for an order/Pay for an order Story.md",
       "pending": [],
-      "priority": null,
-      "related": [],
+      "priority": "high",
+      "related": [
+        "feature:payments",
+        "feature:events-before",
+        "feature:event-ring-auto",
+        "feature:audit-log",
+        "decision-record:DR-08",
+        "task:T-034"
+      ],
       "scope": "feature",
-      "screens": [],
-      "status": null,
-      "summary": "Not written yet. Create it with: node scripts/build-tree.mjs --scaffold story pay-for-an-order",
-      "tags": [],
+      "screens": [
+        "s51",
+        "s52"
+      ],
+      "status": "draft",
+      "summary": "An attendee has chosen what they want from an event on s50 and now pays for it. The app hands them to Stripe's hosted card page (DR-08 Stripe card checkout only), brings them back, tells them…",
+      "tags": [
+        "story",
+        "story/draft",
+        "module/payments-gateway",
+        "layer/business"
+      ],
       "task": null,
-      "template": "templates/Story Template.md",
       "title": "Pay for an order Story",
-      "updated": null
+      "updated": "2026-10-25"
     },
     "story:payments": {
       "affects": [],
@@ -58778,7 +59058,10 @@
       "path": "tasks/T-034 Tickets, packages, levels, sold-out/T-034 Tickets, packages, levels, sold-out.md",
       "pending": [],
       "priority": "critical",
-      "related": [],
+      "related": [
+        "decision:D-09",
+        "story:pay-for-an-order"
+      ],
       "rollup": {
         "blocked": 2,
         "draft": 1
