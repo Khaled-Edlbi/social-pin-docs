@@ -4,16 +4,19 @@ code: interests
 scope: feature
 feature: interests
 module: platform
-status: draft
+status: approved
 screens: [s07, s71]
+approvedBy: "khaled"
+approvedAt: 2026-10-25
+owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-18
-tags: [story, story/draft, module/platform, layer/business]
+updated: 2026-10-25
+tags: [story, story/approved, module/platform, layer/business]
 ---
 
 # Interests · User Story
 
-**Feature:** [[Interests]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Interests Frontend Requirements]] · **API Integration:** not yet (backend not built)
+**Feature:** [[Interests]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[Interests Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 During onboarding, and later from Me, the user picks a few interests from a fixed vocabulary. Nobody else ever sees them; they exist so search and Smart Match can find the right people. The vocabulary is seeded and the tables exist; there is no endpoint to read or save a selection.
 
