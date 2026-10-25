@@ -966,7 +966,8 @@
     "DELETE /files/:id": {
       "containers": [
         "feature:files",
-        "feature:photo-library"
+        "feature:photo-library",
+        "task:T-062"
       ],
       "kind": "endpoint",
       "notes": [
@@ -974,6 +975,7 @@
         "backend-integration:files",
         "frontend-requirements:files",
         "frontend-requirements:photo-library",
+        "story:T-062",
         "story:files",
         "story:photo-library"
       ],
@@ -1235,7 +1237,8 @@
     "E_FILE_01": {
       "containers": [
         "feature:files",
-        "feature:photo-library"
+        "feature:photo-library",
+        "task:T-062"
       ],
       "kind": "error",
       "notes": [
@@ -1243,6 +1246,7 @@
         "backend-integration:files",
         "frontend-requirements:files",
         "frontend-requirements:photo-library",
+        "story:T-062",
         "story:files"
       ],
       "owner": null
@@ -1704,7 +1708,8 @@
     "GET /files/:id": {
       "containers": [
         "feature:files",
-        "feature:photo-library"
+        "feature:photo-library",
+        "task:T-062"
       ],
       "kind": "endpoint",
       "notes": [
@@ -1712,6 +1717,7 @@
         "backend-integration:files",
         "frontend-requirements:files",
         "frontend-requirements:photo-library",
+        "story:T-062",
         "story:files"
       ],
       "owner": "feature:files"
@@ -1722,6 +1728,7 @@
       ],
       "kind": "endpoint",
       "notes": [
+        "story:T-062",
         "task:T-062"
       ],
       "owner": null
@@ -4727,7 +4734,7 @@
     },
     "concepts": 180,
     "decisions": 7,
-    "edges": 4404,
+    "edges": 4407,
     "features": 39,
     "layerNotes": 190,
     "modules": 8,
@@ -15265,6 +15272,16 @@
       ]
     },
     {
+      "from": "feature:files",
+      "kind": "shares",
+      "to": "task:T-062",
+      "via": [
+        "DELETE /files/:id",
+        "E_FILE_01",
+        "GET /files/:id"
+      ]
+    },
+    {
       "from": "feature:gemma",
       "kind": "shares",
       "to": "feature:onboarding-imports",
@@ -16153,6 +16170,16 @@
       "to": "task:T-022",
       "via": [
         "E_RING_02"
+      ]
+    },
+    {
+      "from": "feature:photo-library",
+      "kind": "shares",
+      "to": "task:T-062",
+      "via": [
+        "DELETE /files/:id",
+        "E_FILE_01",
+        "GET /files/:id"
       ]
     },
     {
@@ -27616,6 +27643,11 @@
       "from": "story:T-062",
       "kind": "wikilink",
       "to": "feature:files"
+    },
+    {
+      "from": "story:T-062",
+      "kind": "wikilink",
+      "to": "task:T-012"
     },
     {
       "from": "story:T-063",
@@ -51305,7 +51337,7 @@
       ],
       "task": "T-062",
       "title": "T-062 Story",
-      "updated": "2026-10-18"
+      "updated": "2026-10-25"
     },
     "story:T-063": {
       "affects": [],
