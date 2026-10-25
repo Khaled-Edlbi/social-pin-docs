@@ -4,18 +4,20 @@ code: photo-library
 scope: feature
 feature: photo-library
 module: identity
-status: draft
+status: approved
 screens: [s29, s30]
+approvedBy: "khaled"
+approvedAt: 2026-10-25
 created: 2026-10-18
 updated: 2026-10-25
 owner: "omar"
 related: ["DR-02 One main profile every Ring starts from", "DR-05 Inherit per field, copy without members"]
-tags: [story, story/draft, module/identity, layer/business]
+tags: [story, story/approved, module/identity, layer/business]
 ---
 
 # Photo Library · User Story
 
-**Feature:** [[Photo Library]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Photo Library Frontend Requirements]] · **API Integration:** not yet (backend not built)
+**Feature:** [[Photo Library]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[Photo Library Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 A Ring owner keeps a handful of photos, a formal headshot, a casual one, a team picture, and picks a different one per Ring. The library is the owner's private pool of uploads; a photo reaches an audience only when a Ring's projection points at it. One of them is the **main photo** of the main profile, which every Ring shows until the Ring picks its own ([[DR-02 One main profile every Ring starts from]], [[DR-05 Inherit per field, copy without members]]). The library screen shows each photo with "N Rings inherit it", and the per-Ring screen lets the owner pick, upload, or reset to the main photo.
 
