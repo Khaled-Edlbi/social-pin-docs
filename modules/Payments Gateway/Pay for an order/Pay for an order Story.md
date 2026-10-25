@@ -4,24 +4,22 @@ code: pay-for-an-order
 scope: feature
 feature: pay-for-an-order
 module: payments-gateway
-status: draft
+status: approved
 screens: [s51, s52]
 depends: ["D-07 Payment provider", "D-08 Payment methods and gateways on s51"]
 affects: ["Event Ring Auto-creation", "Events Before", "T-035 Registration transaction with order and payment"]
 related: ["Payments & Orders", "T-047 Orders, payments and the provider webhook", "Events Before", "Event Ring Auto-creation", "Audit Log", "DR-08 Stripe card checkout only", "T-034 Tickets, packages, levels, sold-out"]
 pending: []
-approvedBy: ""
-approvedAt: ""
+approvedBy: "khaled"
+approvedAt: 2026-10-25
 owner: "khaled"
 updated: 2026-10-25
-tags: [story, story/draft, module/payments-gateway, layer/business]
+tags: [story, story/approved, module/payments-gateway, layer/business]
 ---
 
 # Pay for an order · User Story
 
-> ⚠ Affected by [[DR-09 30-minute hold tied to the Stripe checkout]] (2026-10-25): D-09 decided, option 2; an order holds its items for 30 minutes and the Stripe checkout expires with it, so S2's failed state can say how long the tickets are held and "Try again" reuses the order until the hold ends.
-
-**Feature:** [[Pay for an order]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Pay for an order Frontend Requirements]] · **Backend Integration:** [[Pay for an order Backend Integration]] · **Verified by:** [[Pay for an order QA Backend]], [[Pay for an order QA Frontend]]
+**Feature:** [[Pay for an order]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[Pay for an order Frontend Requirements]] · **Backend Integration:** [[Pay for an order Backend Integration]] · **Verified by:** [[Pay for an order QA Backend]], [[Pay for an order QA Frontend]]
 
 An attendee has chosen what they want from an event on [[Screen Index#s50|s50]] and now pays for it. The app hands them to Stripe's hosted card page ([[DR-08 Stripe card checkout only]]), brings them back, tells them where the payment stands, and grants the Event Ring only once Stripe has confirmed the payment. The order, its lines and its price snapshot belong to [[Payments & Orders]]; this story is the hand-over to Stripe, the return, the settlement and the confirmation. No backend exists for it today: no checkout endpoint, no webhook, no order status to read ([[Pay for an order Backend Delivery]] is not written).
 
@@ -50,7 +48,7 @@ Acceptance criteria:
 - [ ] The app always shows one of three states, read from the order on the server, never from what the card page returned: **pending**, **failed**, **succeeded**.
 - [ ] Pending: "Waiting for confirmation" with progress; the app reads the order's status again until it changes; leaving s51 and coming back resumes the same order.
 - [ ] Failed or abandoned (the buyer closed the card page): the order stays unpaid, the reason Stripe gives the buyer is shown, and "Try again" reopens the checkout for the same order; "Change tickets" returns to s50.
-- [ ] Whether a failed or abandoned order still holds its chosen tickets against sold-out, and for how long, is [[D-09 How long an unpaid order holds its tickets]]: the copy of this state waits on it.
+- [ ] The order holds its tickets against sold-out for 30 minutes from its creation and the Stripe checkout expires with it ([[DR-09 30-minute hold tied to the Stripe checkout]]): the failed state says "Your tickets are held for N minutes" with the time left; once the hold has ended, "Your tickets were released" and a way back to s50.
 - [ ] Succeeded: the app moves on to s52 (S4). Nothing is granted on pending or failed: not the Event Ring, not the sub-event, not the package.
 - [ ] Reading an order's payment status is not available yet.
 
@@ -77,7 +75,7 @@ Acceptance criteria:
 ## States and motion the design asks for
 
 - State: payment pending / failed / succeeded ([[Wireframe Brief#Tickets, access levels, RSVP, registration, payment|§7.3]]); sold out and tier unavailable belong to s50 ([[Events Before]]).
-- State: the hold on chosen tickets while unpaid, once [[D-09 How long an unpaid order holds its tickets]] is decided.
+- State: tickets held (time left on the 30-minute hold) and hold ended ([[DR-09 30-minute hold tied to the Stripe checkout]]).
 - Motion: on success the Event Ring joins the user's Ring carousel, the bridge from "event" to "identity" (§7.3). Reduced motion: a fade.
 
 ## Rules the backend already enforces
@@ -86,5 +84,5 @@ None for this feature: no endpoint, job or webhook exists. What the schema alrea
 
 ## Open questions
 
-- [[D-09 How long an unpaid order holds its tickets]] — whether a pending, failed or abandoned order holds its tickets against sold-out ([[T-034 Tickets, packages, levels, sold-out]]), and for how long. Blocks this story: S2's failed state and the copy around "Try again".
+- [[D-09 How long an unpaid order holds its tickets]] — decided 2026-10-25, [[DR-09 30-minute hold tied to the Stripe checkout]]; nothing open on this story. Whether a buyer can extend a hold is left for a new decision card when a card needs it.
 - Out of this story: refunds, paying the organizer, Pro billing (the module's next features, [[Payments Gateway Module]]); the in-event upgrade sheet on s53 ([[Payments & Orders]]).
