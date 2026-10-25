@@ -23,6 +23,7 @@ Where the design and the backend disagree, and every other decision a card needs
 | [[D-13 Whether the requester sees a declined request]] | draft | — | [[Connections]] | s44, s45 |
 | [[D-14 Connection-granted Ring on Shared with me]] | draft | — | [[Connections]] | s17, s46 |
 | [[D-15 One Ring or several per connection]] | draft | — | [[Connections]] | s15, s47 |
+| [[D-16 Viewer access to file bytes]] | draft | — | [[Files Upload]] | s14, s29, s30, s31, s44 |
 
 ```dataview
 TABLE status, features FROM #decision
