@@ -36246,7 +36246,7 @@
     "blocked": "⛔",
     "current": "✅",
     "decided": "⚖️",
-    "delivered": "📦",
+    "delivered": "✅",
     "done": "✅",
     "draft": "✏️",
     "failing": "🔴",
@@ -45432,9 +45432,10 @@
         "story:events-before"
       ],
       "rollup": {
-        "approved": 7,
+        "approved": 4,
         "current": 3,
         "decided": 2,
+        "delivered": 3,
         "done": 9,
         "partial": 1,
         "passing": 6,
@@ -48307,13 +48308,14 @@
       "affects": [
         "task:T-065-be"
       ],
+      "autoDelivered": true,
       "blockedBy": [],
       "card": "FR-40",
       "children": [],
       "code": "T-065-fe",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "approved",
+      "effectiveStatus": "delivered",
       "effort": null,
       "feature": "pay-for-an-order",
       "frontendOnly": false,
@@ -48380,13 +48382,14 @@
       "affects": [
         "task:T-066-be"
       ],
+      "autoDelivered": true,
       "blockedBy": [],
       "card": "FR-42",
       "children": [],
       "code": "T-066-fe",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "approved",
+      "effectiveStatus": "delivered",
       "effort": null,
       "feature": "pay-for-an-order",
       "frontendOnly": false,
@@ -50008,13 +50011,14 @@
     },
     "frontend-requirements:pay-for-an-order": {
       "affects": [],
+      "autoDelivered": true,
       "blockedBy": [],
       "card": "FR-41",
       "children": [],
       "code": "pay-for-an-order",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "approved",
+      "effectiveStatus": "delivered",
       "effort": null,
       "feature": "pay-for-an-order",
       "frontendOnly": false,
@@ -51382,9 +51386,10 @@
         "decision-record:DR-07"
       ],
       "rollup": {
-        "approved": 7,
+        "approved": 4,
         "current": 3,
         "decided": 2,
+        "delivered": 3,
         "done": 9,
         "in-progress": 1,
         "partial": 1,
@@ -56695,10 +56700,11 @@
       "priority": null,
       "related": [],
       "rollup": {
-        "approved": 9,
+        "approved": 6,
         "blocked": 178,
         "current": 12,
         "decided": 4,
+        "delivered": 3,
         "done": 21,
         "draft": 103,
         "in-progress": 16,
@@ -72158,8 +72164,8 @@
         "task:T-066"
       ],
       "rollup": {
-        "approved": 1,
         "current": 1,
+        "delivered": 1,
         "done": 4,
         "passing": 2,
         "verified": 1
@@ -72296,7 +72302,7 @@
         "backend-integration:T-065-be"
       ],
       "rollup": {
-        "approved": 1,
+        "delivered": 1,
         "done": 1,
         "passing": 1
       },
@@ -72363,8 +72369,9 @@
         "feature:audit-log"
       ],
       "rollup": {
-        "approved": 2,
+        "approved": 1,
         "current": 1,
+        "delivered": 1,
         "done": 3,
         "partial": 1,
         "passing": 2
@@ -72508,7 +72515,7 @@
         "backend-integration:T-066-be"
       ],
       "rollup": {
-        "approved": 1,
+        "delivered": 1,
         "done": 1,
         "passing": 1
       },

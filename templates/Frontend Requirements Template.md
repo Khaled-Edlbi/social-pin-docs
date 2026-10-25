@@ -24,7 +24,7 @@ tags: [frontend-requirements, frontend-requirements/draft, module/<module>, laye
 
 **Feature:** [[<Feature name>]] · **Status:** Draft · **Story:** [[<Feature name> Story]] · **Backend Integration:** [[<Feature name> Backend Integration]]
 
-Written by the **frontend** team, read by the backend: what the client needs to build the story, and whether each need is met today. `status: approved` once the backend accepts the list; `delivered` once every row is ✅.
+Written by the **frontend** team, read by the backend: what the client needs to build the story, and whether each need is met today. `status: approved` once the backend accepts the list; ✅ delivered on its own (the build computes it) once the backend cards of its scope are done with nothing pending.
 
 ## Per screen
 

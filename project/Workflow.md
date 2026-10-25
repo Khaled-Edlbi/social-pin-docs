@@ -105,7 +105,7 @@ Story ──▶ Frontend Requirements ──▶ Backend Delivery ──▶ Backe
 | Step | Layer | Note (task level; the feature level is its sum) | Done when |
 |---|---|---|---|
 | 1 | Business | `T-NNN Story` (or the feature's story, updated) | `approved` by product |
-| 2 | Frontend | `T-NNN Frontend Requirements` | `approved` by the backend, `delivered` when every row is ✅ |
+| 2 | Frontend | `T-NNN Frontend Requirements` | `approved` by the backend; ✅ `delivered` **on its own** once the backend cards of its scope (Backend Delivery `done`, Backend Integration `current`) are done with nothing pending: the build computes it, nobody types it (a `frontendOnly` feature has no backend cards and sets it by hand) |
 | 3 | Backend | `T-NNN Backend Delivery` | `done`: code merged, `pnpm typecheck && pnpm test` green |
 | 4 | Backend | `T-NNN Backend Integration` | `current`: matches `main` |
 | 5 | Frontend | `T-NNN Frontend Delivery` | `done`: screens merged |
