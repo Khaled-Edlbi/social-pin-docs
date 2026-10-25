@@ -4,7 +4,7 @@ code: T-065
 scope: task
 feature: pay-for-an-order
 module: payments-gateway
-status: verified
+status: approved
 screens: [s51]
 depends: []
 affects: []
@@ -14,7 +14,7 @@ approvedBy: "khaled"
 approvedAt: 2026-10-25
 owner: "khaled"
 updated: 2026-10-25
-tags: [story, story/verified, module/payments-gateway, layer/business]
+tags: [story, story/approved, module/payments-gateway, layer/business]
 task: T-065
 ---
 
