@@ -57,7 +57,7 @@ const LEGEND = {
 };
 const EMOJI = {
   done: '✅', partial: '🟡', todo: '⬜', 'in-progress': '🔵', blocked: '⛔', 'needs-decision': '❓',
-  draft: '✏️', approved: '👍', verified: '✅', delivered: '✅', current: '✅', passing: '🟢', failing: '🔴', decided: '⚖️',
+  draft: '✏️', approved: '👍', verified: '✅', delivered: '✅', current: '🔵', passing: '🟢', failing: '🔴', decided: '⚖️',
   missing: '∅', reference: '📘',
 };
 const DONE_STATUSES = new Set(['done', 'approved', 'verified', 'delivered', 'current', 'passing', 'reference', 'decided']);
@@ -640,7 +640,8 @@ export function build() {
     return null;
   };
   // a story is done only when fulfilled (`verified`, set by the PM): `approved` hands it off to the next card but does not finish it
-  const isDone = (n) => n.effectiveStatus !== 'missing' && (n.kind === 'story' ? n.status === 'verified' : (DONE_STATUSES.has(n.effectiveStatus) || (KIND.has(n.kind) && KIND.get(n.kind).done.includes(n.status))));
+  // a Backend Integration note is done only when the build delivers it (QA Backend passing, Frontend Delivery done): `current` hands it off, in use, not done
+  const isDone = (n) => n.effectiveStatus !== 'missing' && (n.kind === 'story' ? n.status === 'verified' : n.kind === 'backend-integration' ? n.effectiveStatus === 'delivered' : (DONE_STATUSES.has(n.effectiveStatus) || (KIND.has(n.kind) && KIND.get(n.kind).done.includes(n.status))));
 
   // ---------------------------------------------------------- explicit relations
   for (const [id, note] of noteOf) {
@@ -747,14 +748,14 @@ export function build() {
     if (backendDone(of('backend-delivery')) && backendDone(of('backend-integration'))) { fr.effectiveStatus = 'delivered'; fr.autoDelivered = true; }
   }
 
-  // a Backend Integration note is shown "Current · verified" once it is used and checked: it is `current` with nothing pending, and in its scope
+  // a Backend Integration note is delivered on its own: `current` (in use, handed off) with nothing pending, and in its scope
   // (task T-NNN-be ↔ T-NNN-be QA Backend and T-NNN-fe Frontend Delivery; feature ↔ feature) the QA Backend is passing and the Frontend Delivery done, both with nothing pending.
-  // A label only: the status stays `current`, and a note set back to `draft` loses it on the next build
+  // Nobody types `delivered`: the file stays `current`, and a note set back to `draft` loses it on the next build
   for (const bi of Object.values(nodes)) {
     if (bi.kind !== 'backend-integration' || !bi.path || bi.status !== 'current' || bi.pending.length) continue;
     const fe = bi.scope === 'task' ? String(bi.code).replace(/-be$/, '-fe') : bi.code;
     const of = (kind, code) => Object.values(nodes).find((x) => x.kind === kind && x.path && x.scope === bi.scope && x.code === code);
-    if (backendDone(of('qa-backend', bi.code)) && backendDone(of('frontend-delivery', fe))) bi.integrationVerified = true;
+    if (backendDone(of('qa-backend', bi.code)) && backendDone(of('frontend-delivery', fe))) { bi.effectiveStatus = 'delivered'; bi.autoDelivered = true; }
   }
 
   // a story is fulfilled (`verified`) by the PM only once QA has finished on its scope: every QA note it needs is passing with nothing pending
@@ -900,7 +901,8 @@ export function build() {
   // a container (task with cards, feature, module, project) is Done only when every card is; Partial when every card is done or partial;
   // In progress when any card is active or the cards are a mix; To do otherwise (Blocked when every card waits on something,
   // or, for a feature, when an open decision was raised on the feature itself: Blocked · D-NN, whatever its cards short of done)
-  const classify = (c) => (c.effectiveStatus === 'partial' ? 'partial' : isDone(c) ? 'done' : c.effectiveStatus === 'in-progress' ? 'active' : c.effectiveStatus === 'blocked' ? 'blocked' : 'todo');
+  // a handed-off card that is not done yet (an approved story or requirements list, a current integration note) is work in flight: active
+  const classify = (c) => (c.effectiveStatus === 'partial' ? 'partial' : isDone(c) ? 'done' : c.effectiveStatus === 'in-progress' || handedOff(c) ? 'active' : c.effectiveStatus === 'blocked' ? 'blocked' : 'todo');
   const summarize = (ids) => {
     if (!ids.length) return 'todo';
     const k = ids.map((id) => classify(nodes[id]));
@@ -1063,7 +1065,7 @@ function treeMarkdown(json) {
   const seen = new Set();
   const walkNode = (id, depth) => {
     const n = nodes[id];
-    const extra = [n.card && !ID_CODED.has(n.kind) ? n.card : null, n.label && !['feature', 'module', 'task'].includes(n.kind) ? n.label : null, n.parentTask ? `sub-task of ${n.parentTask}` : null, ...(n.labels || []), n.frontendOnly ? 'frontend only' : null, n.pending?.length ? `${n.pending.length} pending note${n.pending.length === 1 ? '' : 's'}` : null, n.autoDelivered ? 'backend done' : null, n.integrationVerified ? 'verified' : null, priorityLabel(json, n), n.deadline ? `due ${n.deadline}` : null, n.blockedBy?.length ? `blocked by ${n.blockedBy.map((b) => b.title).join(', ')}` : null].filter(Boolean).join(', ');
+    const extra = [n.card && !ID_CODED.has(n.kind) ? n.card : null, n.label && !['feature', 'module', 'task'].includes(n.kind) ? n.label : null, n.parentTask ? `sub-task of ${n.parentTask}` : null, ...(n.labels || []), n.frontendOnly ? 'frontend only' : null, n.pending?.length ? `${n.pending.length} pending note${n.pending.length === 1 ? '' : 's'}` : null, priorityLabel(json, n), n.deadline ? `due ${n.deadline}` : null, n.blockedBy?.length ? `blocked by ${n.blockedBy.map((b) => b.title).join(', ')}` : null].filter(Boolean).join(', ');
     lines.push(`${'  '.repeat(depth)}- ${emojiOf(n)} ${mdLink(n)}${extra ? ` (${extra})` : ''}`);
     if (seen.has(id) && n.children.length) { lines.push(`${'  '.repeat(depth + 1)}- (see above)`); return; }
     seen.add(id);

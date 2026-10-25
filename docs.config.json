@@ -73,8 +73,9 @@
           "prefix": "BI",
           "statuses": ["draft", "current"],
           "done": ["current"],
+          "handoff": ["current"],
           "template": "templates/Backend Integration Template.md",
-          "description": "How the client calls what was shipped: screens to calls, flows, shapes, errors, rules."
+          "description": "How the client calls what was shipped: screens to calls, flows, shapes, errors, rules. `current` hands it off (the frontend and QA use it); it is done, Delivered, only when the build computes it: QA Backend passing and the Frontend Delivery done in its scope, nothing pending."
         }
       ]
     },
