@@ -6,17 +6,17 @@ feature: onboarding-imports
 module: identity
 status: draft
 screens: [s03, s03a, s03b, s04, s05]
-updated: 2026-10-18
+updated: 2026-10-25
+owner: "omar"
+related: ["DR-02 One main profile every Ring starts from"]
 tags: [story, story/draft, module/identity, layer/business]
 ---
 
 # Onboarding Imports · User Story
 
-> ⚠ Affected by [[DR-02 One main profile every Ring starts from]] (2026-10-25): D-02 decided, one main profile (headline, role, company, location, photo, bio) every Ring starts from; a Ring may change all of them but the full name and keeps its own value when the main one changes.
-
 **Feature:** [[Onboarding Imports]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Onboarding Imports Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
-A new user has just verified their code and does not want to type a profile from scratch. They start from something they already have: a LinkedIn account, a paper business card, or a portfolio URL. The import proposes fields, the user reviews each one (include / skip, edit inline), and the confirmed fields populate the **base profile**, which then feeds the first Ring ([[Wireframe Brief#LinkedIn profile import|§3.3]]). Nothing is written before the user confirms.
+A new user has just verified their code and does not want to type a profile from scratch. They start from something they already have: a LinkedIn account, a paper business card, or a portfolio URL. The import proposes fields, the user reviews each one (include / skip, edit inline), and the confirmed fields populate the **main profile** (headline, role, company, location, photo, bio, and the full name), which every Ring then follows field by field, the first Ring included ([[Wireframe Brief#LinkedIn profile import|§3.3]], [[DR-02 One main profile every Ring starts from]]). Nothing is written before the user confirms.
 
 ## Persona
 
@@ -65,8 +65,8 @@ Acceptance criteria:
 **As a** new user **I want** to see every imported field with an include / skip toggle and edit it inline **so that** nothing lands on my profile without my say.
 
 Acceptance criteria:
-- [ ] Elements per §3.3: imported avatar, full name, headline / role, company, location, and a list of importable fields, each with a toggle and an editable value.
-- [ ] The relationship imported data → base profile → first Ring is shown structurally (a short "this feeds your first Ring" strip).
+- [ ] Elements per §3.3: imported avatar, full name, headline / role, company, location, and a list of importable fields, each with a toggle and an editable value. Only the main profile's fields (headline, role, company, location, photo, bio) and the full name are imported; nothing else is added to the profile.
+- [ ] The relationship imported data → main profile → every Ring is shown structurally (a short "your Rings start from this" strip); the first Ring shows these values because it follows the main profile, not because the import wrote to it.
 - [ ] "Confirm & continue" writes only the included fields and proceeds to s06; "Skip" proceeds to s06 with nothing written.
 - [ ] Partial import (some fields unavailable) shows the missing ones as empty and editable; nothing returned falls back to the manual path.
 - [ ] Imported fields animate into their slots as a continuous "assembling your profile" sequence.
@@ -88,11 +88,12 @@ Acceptance criteria:
 ## Rules the backend already enforces
 
 - Only `SocialIdentity` has a table; there is no import, review or confirm endpoint, no OCR and no scraping. Nothing in this feature can be called yet.
-- Registration accepts `fullName` only; headline, company, location, base photo and base bio do not exist on `Profile` ([[D-02 Base profile work fields]]). Until that lands, imported values could only go to a Ring projection, which is not what the design shows.
+- Registration accepts `fullName` only; headline, role, company, location, the main photo and the main bio do not exist on `Profile` yet. [[DR-02 One main profile every Ring starts from]] puts them there; until that is built, imported values have nowhere to go, and writing them to a Ring projection instead is not what was decided.
 - Whatever the import writes must go through `ProfileService` (Pin-name uniqueness, default profile) and `RingProfileService` (the first Ring's projection); the import must never bypass them.
 
 ## Open questions
 
-- [[D-02 Base profile work fields]] — the whole review step writes to fields that do not exist; blocks S5 and the "feeds your first Ring" relationship.
+- Decided: [[DR-02 One main profile every Ring starts from]]. S5 still waits for the main profile fields to be built (not ticketed yet).
+- Which main-profile fields an import may overwrite without asking, when the profile already has values (DR-02, *Still open*).
 - Provider choice for card OCR and URL scraping ([[T-020b Business card scan and portfolio URL import]]) — blocks S3 and S4.
 - Whether a LinkedIn login (not only import) is offered on s01 depends on [[D-01 Passwordless login]] and [[T-019 LinkedIn OAuth link, unlink, login]].
