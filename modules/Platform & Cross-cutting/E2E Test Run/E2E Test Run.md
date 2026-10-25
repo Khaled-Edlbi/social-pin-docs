@@ -3,15 +3,16 @@ type: feature
 id: e2e-tests
 name: "E2E Test Run"
 priority: critical
+release: mvp
 module: platform
 screens: []
-updated: 2026-10-19
-tags: [feature, module/platform, priority/critical]
+updated: 2026-10-25
+tags: [feature, module/platform, priority/critical, release/mvp]
 ---
 
 # E2E Test Run
 
-**Backend:** TODO · **Priority:** Critical · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
+**Backend:** TODO · **Priority:** Critical · **Release:** MVP · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
 
 **Layers:** [[E2E Test Run Story|Story]] · [[E2E Test Run Frontend Requirements|Frontend Requirements]] · [[E2E Test Run Backend Delivery|Backend Delivery]] · [[E2E Test Run Backend Integration|Backend Integration]] · [[E2E Test Run Frontend Delivery|Frontend Delivery]] · [[E2E Test Run QA Backend|QA Backend]] · [[E2E Test Run QA Frontend|QA Frontend]]
 

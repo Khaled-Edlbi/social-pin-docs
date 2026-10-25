@@ -3,16 +3,17 @@ type: feature
 id: events-during
 name: "Events During"
 priority: critical
+release: mvp
 module: events
 screens: [s53, s54, s55, s56, s57, s58]
 related: ["Rings", "View As & Pin Views"]
-updated: 2026-10-19
-tags: [feature, module/events, priority/critical]
+updated: 2026-10-25
+tags: [feature, module/events, priority/critical, release/mvp]
 ---
 
 # Events During
 
-**Backend:** TODO · **Priority:** Critical · **Module:** [[Events Module|Events]]
+**Backend:** TODO · **Priority:** Critical · **Release:** MVP · **Module:** [[Events Module|Events]]
 
 **Layers:** [[Events During Story|Story]] · [[Events During Frontend Requirements|Frontend Requirements]] · [[Events During Backend Delivery|Backend Delivery]] · [[Events During Backend Integration|Backend Integration]] · [[Events During Frontend Delivery|Frontend Delivery]] · [[Events During QA Backend|QA Backend]] · [[Events During QA Frontend|QA Frontend]]
 

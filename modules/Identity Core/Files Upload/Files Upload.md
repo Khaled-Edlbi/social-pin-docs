@@ -3,16 +3,17 @@ type: feature
 id: files
 name: "Files Upload"
 priority: high
+release: v1
 module: identity
 screens: [s14, s20, s36]
 related: ["Rings"]
-updated: 2026-10-19
-tags: [feature, module/identity, priority/high]
+updated: 2026-10-25
+tags: [feature, module/identity, priority/high, release/v1]
 ---
 
 # Files Upload
 
-**Backend:** Done · **Priority:** High · **Module:** [[Identity Core Module|Identity Core]]
+**Backend:** Done · **Priority:** High · **Release:** v1 · **Module:** [[Identity Core Module|Identity Core]]
 
 **Layers:** [[Files Upload Story|Story]] · [[Files Upload Frontend Requirements|Frontend Requirements]] · [[Files Upload Backend Delivery|Backend Delivery]] · [[Files Upload Backend Integration|Backend Integration]] · [[Files Upload Frontend Delivery|Frontend Delivery]] · [[Files Upload QA Backend|QA Backend]] · [[Files Upload QA Frontend|QA Frontend]]
 

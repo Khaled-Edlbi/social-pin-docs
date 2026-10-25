@@ -3,15 +3,16 @@ type: feature
 id: discover-hub
 name: "Discover Hub & Search"
 priority: high
+release: v1
 module: discovery
 screens: [s38]
-updated: 2026-10-19
-tags: [feature, module/discovery, priority/high]
+updated: 2026-10-25
+tags: [feature, module/discovery, priority/high, release/v1]
 ---
 
 # Discover Hub & Search
 
-**Backend:** TODO · **Priority:** High · **Module:** [[Discovery Module|Discovery]]
+**Backend:** TODO · **Priority:** High · **Release:** v1 · **Module:** [[Discovery Module|Discovery]]
 
 **Layers:** [[Discover Hub & Search Story|Story]] · [[Discover Hub & Search Frontend Requirements|Frontend Requirements]] · [[Discover Hub & Search Backend Delivery|Backend Delivery]] · [[Discover Hub & Search Backend Integration|Backend Integration]] · [[Discover Hub & Search Frontend Delivery|Frontend Delivery]] · [[Discover Hub & Search QA Backend|QA Backend]] · [[Discover Hub & Search QA Frontend|QA Frontend]]
 

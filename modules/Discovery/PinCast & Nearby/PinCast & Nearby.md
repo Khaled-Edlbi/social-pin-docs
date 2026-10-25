@@ -3,16 +3,17 @@ type: feature
 id: pincast
 name: "PinCast & Nearby"
 priority: high
+release: v1
 module: discovery
 screens: [s11, s39, s40, s41, s42]
 related: ["Rings", "View As & Pin Views"]
-updated: 2026-10-19
-tags: [feature, module/discovery, priority/high]
+updated: 2026-10-25
+tags: [feature, module/discovery, priority/high, release/v1]
 ---
 
 # PinCast & Nearby
 
-**Backend:** TODO · **Priority:** High · **Module:** [[Discovery Module|Discovery]]
+**Backend:** TODO · **Priority:** High · **Release:** v1 · **Module:** [[Discovery Module|Discovery]]
 
 **Layers:** [[PinCast & Nearby Story|Story]] · [[PinCast & Nearby Frontend Requirements|Frontend Requirements]] · [[PinCast & Nearby Backend Delivery|Backend Delivery]] · [[PinCast & Nearby Backend Integration|Backend Integration]] · [[PinCast & Nearby Frontend Delivery|Frontend Delivery]] · [[PinCast & Nearby QA Backend|QA Backend]] · [[PinCast & Nearby QA Frontend|QA Frontend]]
 

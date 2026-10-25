@@ -3,16 +3,17 @@ type: feature
 id: widgets
 name: "Widgets"
 priority: high
+release: v1
 module: identity
 screens: [s36, s37]
 updated: 2026-10-25
 owner: "omar"
-tags: [feature, module/identity, priority/high]
+tags: [feature, module/identity, priority/high, release/v1]
 ---
 
 # Widgets
 
-**Backend:** Partial (needs more) · **Priority:** High · **Module:** [[Identity Core Module|Identity Core]]
+**Backend:** Partial (needs more) · **Priority:** High · **Release:** v1 · **Module:** [[Identity Core Module|Identity Core]]
 
 **Layers:** [[Widgets Story|Story]] · [[Widgets Frontend Requirements|Frontend Requirements]] · [[Widgets Backend Delivery|Backend Delivery]] · [[Widgets Backend Integration|Backend Integration]] · [[Widgets Frontend Delivery|Frontend Delivery]] · [[Widgets QA Backend|QA Backend]] · [[Widgets QA Frontend|QA Frontend]]
 

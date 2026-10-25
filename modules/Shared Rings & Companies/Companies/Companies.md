@@ -3,17 +3,18 @@ type: feature
 id: companies
 name: "Companies"
 priority: high
+release: v1
 module: shared-rings
 screens: [s72, s73]
 related: ["Ring Members"]
 updated: 2026-10-25
 owner: "omar"
-tags: [feature, module/shared-rings, priority/high]
+tags: [feature, module/shared-rings, priority/high, release/v1]
 ---
 
 # Companies
 
-**Backend:** TODO · **Priority:** High · **Module:** [[Shared Rings & Companies Module|Shared Rings & Companies]]
+**Backend:** TODO · **Priority:** High · **Release:** v1 · **Module:** [[Shared Rings & Companies Module|Shared Rings & Companies]]
 
 **Layers:** [[Companies Story|Story]] · [[Companies Frontend Requirements|Frontend Requirements]] · [[Companies Backend Delivery|Backend Delivery]] · [[Companies Backend Integration|Backend Integration]] · [[Companies Frontend Delivery|Frontend Delivery]] · [[Companies QA Backend|QA Backend]] · [[Companies QA Frontend|QA Frontend]]
 

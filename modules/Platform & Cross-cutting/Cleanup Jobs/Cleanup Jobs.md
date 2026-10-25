@@ -3,15 +3,16 @@ type: feature
 id: cleanup-jobs
 name: "Cleanup Jobs"
 priority: high
+release: v1
 module: platform
 screens: []
-updated: 2026-10-19
-tags: [feature, module/platform, priority/high]
+updated: 2026-10-25
+tags: [feature, module/platform, priority/high, release/v1]
 ---
 
 # Cleanup Jobs
 
-**Backend:** TODO · **Priority:** High · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
+**Backend:** TODO · **Priority:** High · **Release:** v1 · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
 
 **Layers:** [[Cleanup Jobs Story|Story]] · [[Cleanup Jobs Frontend Requirements|Frontend Requirements]] · [[Cleanup Jobs Backend Delivery|Backend Delivery]] · [[Cleanup Jobs Backend Integration|Backend Integration]] · [[Cleanup Jobs Frontend Delivery|Frontend Delivery]] · [[Cleanup Jobs QA Backend|QA Backend]] · [[Cleanup Jobs QA Frontend|QA Frontend]]
 

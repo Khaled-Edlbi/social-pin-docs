@@ -3,16 +3,17 @@ type: feature
 id: ring-access
 name: "Ring Access Engine"
 priority: critical
+release: mvp
 module: identity
 screens: []
 updated: 2026-10-25
 owner: "omar"
-tags: [feature, module/identity, priority/critical]
+tags: [feature, module/identity, priority/critical, release/mvp]
 ---
 
 # Ring Access Engine
 
-**Backend:** Done · **Priority:** Critical · **Module:** [[Identity Core Module|Identity Core]]
+**Backend:** Done · **Priority:** Critical · **Release:** MVP · **Module:** [[Identity Core Module|Identity Core]]
 
 **Layers:** [[Ring Access Engine Story|Story]] · [[Ring Access Engine Frontend Requirements|Frontend Requirements]] · [[Ring Access Engine Backend Delivery|Backend Delivery]] · [[Ring Access Engine Backend Integration|Backend Integration]] · [[Ring Access Engine Frontend Delivery|Frontend Delivery]] · [[Ring Access Engine QA Backend|QA Backend]] · [[Ring Access Engine QA Frontend|QA Frontend]]
 

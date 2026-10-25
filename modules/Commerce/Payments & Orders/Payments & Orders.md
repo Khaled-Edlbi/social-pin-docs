@@ -3,17 +3,18 @@ type: feature
 id: payments
 name: "Payments & Orders"
 priority: high
+release: v1
 module: commerce
 screens: [s50, s51]
 updated: 2026-10-25
-tags: [feature, module/commerce, priority/high]
+tags: [feature, module/commerce, priority/high, release/v1]
 ---
 
 # Payments & Orders
 
 > ⚠ Affected by [[D-07 Payment provider]] (2026-10-21): the provider is Stripe; the order, its payment on s51 through Stripe's hosted checkout and the settlement webhook are this feature's.
 
-**Backend:** TODO · **Priority:** High · **Module:** [[Commerce Module|Commerce]]
+**Backend:** TODO · **Priority:** High · **Release:** v1 · **Module:** [[Commerce Module|Commerce]]
 
 **Layers:** [[Payments & Orders Story|Story]] · [[Payments & Orders Frontend Requirements|Frontend Requirements]] · [[Payments & Orders Backend Delivery|Backend Delivery]] · [[Payments & Orders Backend Integration|Backend Integration]] · [[Payments & Orders Frontend Delivery|Frontend Delivery]] · [[Payments & Orders QA Backend|QA Backend]] · [[Payments & Orders QA Frontend|QA Frontend]]
 

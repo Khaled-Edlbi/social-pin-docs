@@ -3,15 +3,16 @@ type: feature
 id: linked-accounts
 name: "Linked Accounts (OAuth)"
 priority: high
+release: v1
 module: platform
 screens: [s01, s04, s68]
-updated: 2026-10-19
-tags: [feature, module/platform, priority/high]
+updated: 2026-10-25
+tags: [feature, module/platform, priority/high, release/v1]
 ---
 
 # Linked Accounts (OAuth)
 
-**Backend:** Partial (needs more) · **Priority:** High · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
+**Backend:** Partial (needs more) · **Priority:** High · **Release:** v1 · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
 
 **Layers:** [[Linked Accounts (OAuth) Story|Story]] · [[Linked Accounts (OAuth) Frontend Requirements|Frontend Requirements]] · [[Linked Accounts (OAuth) Backend Delivery|Backend Delivery]] · [[Linked Accounts (OAuth) Backend Integration|Backend Integration]] · [[Linked Accounts (OAuth) Frontend Delivery|Frontend Delivery]] · [[Linked Accounts (OAuth) QA Backend|QA Backend]] · [[Linked Accounts (OAuth) QA Frontend|QA Frontend]]
 

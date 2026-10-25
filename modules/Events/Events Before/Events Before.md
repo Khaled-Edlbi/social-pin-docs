@@ -3,16 +3,17 @@ type: feature
 id: events-before
 name: "Events Before"
 priority: critical
+release: mvp
 module: events
 screens: [s48, s49, s50, s51, s52]
 related: ["Rings"]
 updated: 2026-10-25
-tags: [feature, module/events, priority/critical]
+tags: [feature, module/events, priority/critical, release/mvp]
 ---
 
 # Events Before
 
-**Backend:** TODO · **Priority:** Critical · **Module:** [[Events Module|Events]]
+**Backend:** TODO · **Priority:** Critical · **Release:** MVP · **Module:** [[Events Module|Events]]
 
 **Layers:** [[Events Before Story|Story]] · [[Events Before Frontend Requirements|Frontend Requirements]] · [[Events Before Backend Delivery|Backend Delivery]] · [[Events Before Backend Integration|Backend Integration]] · [[Events Before Frontend Delivery|Frontend Delivery]] · [[Events Before QA Backend|QA Backend]] · [[Events Before QA Frontend|QA Frontend]]
 
