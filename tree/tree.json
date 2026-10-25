@@ -999,7 +999,8 @@
         "feature:delegated-admins",
         "feature:ring-projection",
         "feature:rings",
-        "project:status-report-2026-10-15"
+        "project:status-report-2026-10-15",
+        "task:T-063"
       ],
       "kind": "endpoint",
       "notes": [
@@ -1009,6 +1010,7 @@
         "frontend-requirements:ring-projection",
         "frontend-requirements:rings",
         "project:status-report-2026-10-15",
+        "story:T-063",
         "story:delegated-admins",
         "story:rings"
       ],
@@ -1046,7 +1048,8 @@
       "containers": [
         "feature:auth",
         "feature:code-delivery",
-        "project:frontend-passwordless-migration"
+        "project:frontend-passwordless-migration",
+        "task:T-063"
       ],
       "kind": "error",
       "notes": [
@@ -1054,6 +1057,7 @@
         "frontend-requirements:auth",
         "frontend-requirements:code-delivery",
         "project:frontend-passwordless-migration",
+        "story:T-063",
         "story:auth"
       ],
       "owner": null
@@ -1063,7 +1067,8 @@
         "feature:auth",
         "feature:error-contract",
         "project:auth-model",
-        "project:frontend-passwordless-migration"
+        "project:frontend-passwordless-migration",
+        "task:T-063"
       ],
       "kind": "error",
       "notes": [
@@ -1072,7 +1077,8 @@
         "backend-integration:auth",
         "frontend-requirements:auth",
         "project:auth-model",
-        "project:frontend-passwordless-migration"
+        "project:frontend-passwordless-migration",
+        "story:T-063"
       ],
       "owner": null
     },
@@ -1084,7 +1090,8 @@
         "feature:error-contract",
         "project:auth-model",
         "project:frontend-api-guide",
-        "project:frontend-passwordless-migration"
+        "project:frontend-passwordless-migration",
+        "task:T-063"
       ],
       "kind": "error",
       "notes": [
@@ -1098,6 +1105,7 @@
         "project:auth-model",
         "project:frontend-api-guide",
         "project:frontend-passwordless-migration",
+        "story:T-063",
         "story:account",
         "story:auth"
       ],
@@ -1167,7 +1175,8 @@
         "feature:error-contract",
         "feature:onboarding-imports",
         "project:frontend-api-guide",
-        "project:frontend-passwordless-migration"
+        "project:frontend-passwordless-migration",
+        "task:T-063"
       ],
       "kind": "error",
       "notes": [
@@ -1177,6 +1186,7 @@
         "frontend-requirements:onboarding-imports",
         "project:frontend-api-guide",
         "project:frontend-passwordless-migration",
+        "story:T-063",
         "story:auth",
         "story:code-delivery",
         "story:error-contract"
@@ -1189,7 +1199,8 @@
         "feature:code-delivery",
         "project:auth-model",
         "project:frontend-api-guide",
-        "project:frontend-passwordless-migration"
+        "project:frontend-passwordless-migration",
+        "task:T-063"
       ],
       "kind": "error",
       "notes": [
@@ -1200,6 +1211,7 @@
         "project:auth-model",
         "project:frontend-api-guide",
         "project:frontend-passwordless-migration",
+        "story:T-063",
         "story:auth",
         "story:code-delivery"
       ],
@@ -1223,14 +1235,16 @@
     "E_AUTH_08": {
       "containers": [
         "feature:auth",
-        "project:frontend-passwordless-migration"
+        "project:frontend-passwordless-migration",
+        "task:T-063"
       ],
       "kind": "error",
       "notes": [
         "backend-delivery:auth",
         "backend-integration:auth",
         "frontend-requirements:auth",
-        "project:frontend-passwordless-migration"
+        "project:frontend-passwordless-migration",
+        "story:T-063"
       ],
       "owner": null
     },
@@ -1320,7 +1334,8 @@
         "feature:auth",
         "feature:onboarding-imports",
         "feature:profiles",
-        "project:frontend-passwordless-migration"
+        "project:frontend-passwordless-migration",
+        "task:T-063"
       ],
       "kind": "error",
       "notes": [
@@ -1331,6 +1346,7 @@
         "frontend-requirements:onboarding-imports",
         "frontend-requirements:profiles",
         "project:frontend-passwordless-migration",
+        "story:T-063",
         "story:auth",
         "story:profiles"
       ],
@@ -1357,7 +1373,8 @@
         "feature:exhibitor",
         "feature:meetings",
         "feature:rings",
-        "project:frontend-api-guide"
+        "project:frontend-api-guide",
+        "task:T-063"
       ],
       "kind": "error",
       "notes": [
@@ -1370,6 +1387,7 @@
         "frontend-requirements:exhibitor",
         "frontend-requirements:rings",
         "project:frontend-api-guide",
+        "story:T-063",
         "story:error-contract",
         "story:event-ring-auto",
         "story:meetings",
@@ -1440,7 +1458,8 @@
     "E_RING_04": {
       "containers": [
         "feature:delegated-admins",
-        "feature:rings"
+        "feature:rings",
+        "task:T-063"
       ],
       "kind": "error",
       "notes": [
@@ -1448,6 +1467,7 @@
         "backend-integration:rings",
         "frontend-requirements:delegated-admins",
         "frontend-requirements:rings",
+        "story:T-063",
         "story:rings"
       ],
       "owner": null
@@ -1592,7 +1612,8 @@
         "feature:auth",
         "feature:error-contract",
         "project:auth-model",
-        "project:frontend-passwordless-migration"
+        "project:frontend-passwordless-migration",
+        "task:T-063"
       ],
       "kind": "error",
       "notes": [
@@ -1601,7 +1622,8 @@
         "backend-integration:auth",
         "frontend-requirements:auth",
         "project:auth-model",
-        "project:frontend-passwordless-migration"
+        "project:frontend-passwordless-migration",
+        "story:T-063"
       ],
       "owner": null
     },
@@ -4734,7 +4756,7 @@
     },
     "concepts": 180,
     "decisions": 7,
-    "edges": 4407,
+    "edges": 4424,
     "features": 39,
     "layerNotes": 190,
     "modules": 8,
@@ -10967,6 +10989,14 @@
       ]
     },
     {
+      "from": "feature:account",
+      "kind": "shares",
+      "to": "task:T-063",
+      "via": [
+        "E_AUTH_03"
+      ]
+    },
+    {
       "from": "feature:app-shell",
       "kind": "shares",
       "to": "feature:auth",
@@ -11654,6 +11684,21 @@
       "to": "task:T-022",
       "via": [
         "GET /rings"
+      ]
+    },
+    {
+      "from": "feature:auth",
+      "kind": "shares",
+      "to": "task:T-063",
+      "via": [
+        "E_AUTH_01",
+        "E_AUTH_02",
+        "E_AUTH_03",
+        "E_AUTH_05",
+        "E_AUTH_06",
+        "E_AUTH_08",
+        "E_PROFILE_02",
+        "E_USER_04"
       ]
     },
     {
@@ -12390,6 +12435,16 @@
       "to": "project:status-report-2026-10-15",
       "via": [
         "POST /auth/sign-up"
+      ]
+    },
+    {
+      "from": "feature:code-delivery",
+      "kind": "shares",
+      "to": "task:T-063",
+      "via": [
+        "E_AUTH_01",
+        "E_AUTH_05",
+        "E_AUTH_06"
       ]
     },
     {
@@ -13779,6 +13834,16 @@
       ]
     },
     {
+      "from": "feature:delegated-admins",
+      "kind": "shares",
+      "to": "task:T-063",
+      "via": [
+        "DELETE /rings/:id",
+        "E_RING_01",
+        "E_RING_04"
+      ]
+    },
+    {
       "from": "feature:devices",
       "kind": "shares",
       "to": "feature:discover-hub",
@@ -13919,6 +13984,14 @@
         "E_AUTH_04",
         "POST /auth/logout-everywhere",
         "POST /auth/refresh"
+      ]
+    },
+    {
+      "from": "feature:devices",
+      "kind": "shares",
+      "to": "task:T-063",
+      "via": [
+        "E_AUTH_03"
       ]
     },
     {
@@ -14401,6 +14474,18 @@
       ]
     },
     {
+      "from": "feature:error-contract",
+      "kind": "shares",
+      "to": "task:T-063",
+      "via": [
+        "E_AUTH_02",
+        "E_AUTH_03",
+        "E_AUTH_05",
+        "E_RING_01",
+        "E_USER_04"
+      ]
+    },
+    {
       "from": "feature:event-ring-auto",
       "kind": "shares",
       "to": "feature:events-before",
@@ -14661,6 +14746,14 @@
       "via": [
         "E_RING_02",
         "GET /rings"
+      ]
+    },
+    {
+      "from": "feature:event-ring-auto",
+      "kind": "shares",
+      "to": "task:T-063",
+      "via": [
+        "E_RING_01"
       ]
     },
     {
@@ -15162,6 +15255,14 @@
       "to": "task:T-022",
       "via": [
         "E_RING_02"
+      ]
+    },
+    {
+      "from": "feature:exhibitor",
+      "kind": "shares",
+      "to": "task:T-063",
+      "via": [
+        "E_RING_01"
       ]
     },
     {
@@ -15782,6 +15883,14 @@
       ]
     },
     {
+      "from": "feature:meetings",
+      "kind": "shares",
+      "to": "task:T-063",
+      "via": [
+        "E_RING_01"
+      ]
+    },
+    {
       "from": "feature:notifications",
       "kind": "shares",
       "to": "feature:payments",
@@ -15959,6 +16068,15 @@
       "via": [
         "s03a",
         "s03b"
+      ]
+    },
+    {
+      "from": "feature:onboarding-imports",
+      "kind": "shares",
+      "to": "task:T-063",
+      "via": [
+        "E_AUTH_05",
+        "E_PROFILE_02"
       ]
     },
     {
@@ -16655,6 +16773,14 @@
       ]
     },
     {
+      "from": "feature:profiles",
+      "kind": "shares",
+      "to": "task:T-063",
+      "via": [
+        "E_PROFILE_02"
+      ]
+    },
+    {
       "from": "feature:ring-access",
       "kind": "shares",
       "to": "feature:ring-invitations",
@@ -17248,6 +17374,14 @@
       ]
     },
     {
+      "from": "feature:ring-projection",
+      "kind": "shares",
+      "to": "task:T-063",
+      "via": [
+        "DELETE /rings/:id"
+      ]
+    },
+    {
       "from": "feature:rings",
       "kind": "shares",
       "to": "feature:view-as",
@@ -17390,6 +17524,16 @@
         "E_RING_02",
         "GET /rings",
         "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "feature:rings",
+      "kind": "shares",
+      "to": "task:T-063",
+      "via": [
+        "DELETE /rings/:id",
+        "E_RING_01",
+        "E_RING_04"
       ]
     },
     {
@@ -17722,6 +17866,17 @@
       ]
     },
     {
+      "from": "project:auth-model",
+      "kind": "shares",
+      "to": "task:T-063",
+      "via": [
+        "E_AUTH_02",
+        "E_AUTH_03",
+        "E_AUTH_06",
+        "E_USER_04"
+      ]
+    },
+    {
       "from": "project:developer-guide",
       "kind": "shares",
       "to": "project:frontend-passwordless-migration",
@@ -17881,6 +18036,17 @@
       ]
     },
     {
+      "from": "project:frontend-api-guide",
+      "kind": "shares",
+      "to": "task:T-063",
+      "via": [
+        "E_AUTH_03",
+        "E_AUTH_05",
+        "E_AUTH_06",
+        "E_RING_01"
+      ]
+    },
+    {
       "from": "project:frontend-contract",
       "kind": "shares",
       "to": "project:frontend-passwordless-migration",
@@ -17998,6 +18164,21 @@
       "to": "task:T-019",
       "via": [
         "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "project:frontend-passwordless-migration",
+      "kind": "shares",
+      "to": "task:T-063",
+      "via": [
+        "E_AUTH_01",
+        "E_AUTH_02",
+        "E_AUTH_03",
+        "E_AUTH_05",
+        "E_AUTH_06",
+        "E_AUTH_08",
+        "E_PROFILE_02",
+        "E_USER_04"
       ]
     },
     {
@@ -18132,6 +18313,14 @@
       "to": "task:T-023",
       "via": [
         "GET /views/user/:userId/perspectives"
+      ]
+    },
+    {
+      "from": "project:status-report-2026-10-15",
+      "kind": "shares",
+      "to": "task:T-063",
+      "via": [
+        "DELETE /rings/:id"
       ]
     },
     {
@@ -51380,7 +51569,7 @@
       ],
       "task": "T-063",
       "title": "T-063 Story",
-      "updated": "2026-10-18"
+      "updated": "2026-10-25"
     },
     "story:account": {
       "affects": [],
