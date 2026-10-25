@@ -201,7 +201,6 @@ kanban-plugin: board
 
 ## 🟡 Partial (done, notes pending)
 
-- [ ] [[T-065-fe Frontend · Open a Stripe checkout for an order]] #high #pay-for-an-order #frontend — @qa: QA Frontend run on t065-fe-sim-2026-10-25 (T-065-fe QA Frontend not written yet)
 
 
 ## ✅ Done
@@ -209,6 +208,7 @@ kanban-plugin: board
 - [x] [[T-056 Decide passwordless login]] #critical #auth
 - [x] [[T-064 Restructure the docs vault]] #high #error-contract
 - [x] [[T-065-be Backend · Open a Stripe checkout for an order]] #high #pay-for-an-order #backend
+- [x] [[T-065-fe Frontend · Open a Stripe checkout for an order]] #high #pay-for-an-order #frontend
 
 
 %% kanban:settings

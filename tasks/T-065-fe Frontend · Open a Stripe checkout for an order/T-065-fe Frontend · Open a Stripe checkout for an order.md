@@ -12,7 +12,7 @@ screens: [s51]
 depends: [T-065-be]
 affects: []
 related: ["T-065-fe Frontend Requirements", "T-065-fe Frontend Delivery", "T-065-be Backend Integration"]
-pending: ["@qa: QA Frontend run on t065-fe-sim-2026-10-25 (T-065-fe QA Frontend not written yet)"]
+pending: []
 owner: "khaled"
 created: 2026-10-25
 updated: 2026-10-25
@@ -20,8 +20,6 @@ tags: [task, task/done, module/payments-gateway, priority/high, frontend]
 ---
 
 # ✅ T-065-fe · Frontend: Open a Stripe checkout for an order
-
-> ⚠ Affected by [[T-065-fe QA Frontend]] (2026-10-25): QA Frontend passing on `t065-fe-sim-2026-10-25` (simulated), F1–F10; the `@qa` pending item can be cleared and the QA box ticked.
 
 **Parent:** [[T-065 Open a Stripe checkout for an order]] · **Feature:** [[Pay for an order]] · **Side:** Frontend · **Status:** Done (simulated) · **Priority:** high · **Effort:** M (same as the parent until the team sizes it)
 
@@ -44,7 +42,7 @@ Same as the parent's: [[T-065 Open a Stripe checkout for an order#Impact]].
 - [x] Frontend Requirements written before asking for backend work ([[T-065-fe Frontend Requirements]], 2026-10-25)
 - [x] Every row of this task ✅ against [[T-065-be Backend Integration]] (the order creation row is T-035's)
 - [x] Screens merged (s51, simulated); [[T-065-fe Frontend Delivery]] written and rolled up into [[Pay for an order Frontend Delivery]]
-- [ ] QA Frontend run on a named build; `pending` cleared or handed over (handed to QA in `pending`)
+- [x] QA Frontend run on a named build ([[T-065-fe QA Frontend]], passing on `t065-fe-sim-2026-10-25`); `pending` cleared
 - [x] `depends` / `affects` / `related` declared; notes listed by `--impact` updated or flagged
 - [x] `node scripts/build-tree.mjs` run; tree, board and backlog committed
 
@@ -53,3 +51,4 @@ Same as the parent's: [[T-065 Open a Stripe checkout for an order#Impact]].
 - 2026-10-25 · created as the frontend half of T-065
 - 2026-10-25 · tickets/frontend/M-09-payments-gateway/F-41-pay-for-an-order/FR-40-draft · requirements written (FR-40), draft until the backend accepts them; screens narrowed to s51, the PM's flag cleared
 - 2026-10-25 · `payments-gateway/T-065/stripe-checkout` in the frontend repo (simulated, no code: M-09 agent-flow test) · s51 shipped on `t065-fe-sim-2026-10-25` against [[T-065-be Backend Integration]] ([[T-065-fe Frontend Delivery]]); QA Frontend handed over in `pending`
+- 2026-10-25 · `tickets/frontend/M-09-payments-gateway/F-41-pay-for-an-order/T-065-fe-qa-cleared` · QF-01 passing on `t065-fe-sim-2026-10-25` (simulated, F1–F10): the `@qa` pending item cleared, QA's flag removed
