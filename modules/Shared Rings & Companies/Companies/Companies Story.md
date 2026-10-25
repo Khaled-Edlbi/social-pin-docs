@@ -41,7 +41,7 @@ Acceptance criteria:
 
 Acceptance criteria:
 - [ ] Header: name, logo placeholder, industry and activity, tags, address, website, phone, email, social links, about text, and the company's files (listed by name, no download until file bytes can be served).
-- [ ] A *Rings* section lists only the company Rings I am a live member of, each opening the Ring's projection (s14); Rings I am not in are not listed and their number is not shown. Per [[DR-14 Shared with me lists people, never the Ring]] a member never sees a Ring's name, colour or type, so the rows do not show the design's Ring names ("Acme Team", "Company") unless product reopens this for company Rings (see *Open questions*).
+- [ ] A *Rings* section lists only the company Rings I am a live member of, each opening the Ring's projection (s14); Rings I am not in are not listed and their number is not shown. Per [[DR-14 Shared with me lists people, never the Ring]] a member never sees a Ring's name, colour or type, so the rows do not show the design's Ring names ("Acme Team", "Company") until [[D-18 Company and invited Ring names shown to members]] is decided.
 - [ ] "22 colleagues" opens the Ring people screen (s15) when I am owner or admin of that Ring, or, for a plain member, when the Ring's "members can see each other" is on, in which case I see my colleagues' full cards ([[DR-04 Ring settings at launch and their defaults]]); otherwise the count is hidden, because membership is private to the owner. Not available yet: the setting does not exist.
 - [ ] *Leave company* is at the bottom, destructive style, with a confirmation.
 
@@ -87,6 +87,6 @@ Acceptance criteria:
 ## Open questions
 
 - Decided: [[DR-04 Ring settings at launch and their defaults]]: a plain member sees colleagues only where the Ring's "members can see each other" is on (S2). The **required work email domain** setting comes with this feature, not at launch.
-- **Company Ring names.** [[DR-14 Shared with me lists people, never the Ring]] says a member never sees a Ring's name, and leaves open (*Still open*) whether a Ring joined openly, such as a company Ring, may show its name. The design of s73 shows the names. Until product answers, S2 and S4 follow DR-14; the answer belongs on a needs-decision card raised from this story.
+- [[D-18 Company and invited Ring names shown to members]] — whether a company Ring joined knowingly may show its name to its members (DR-14's *Still open* point; the design of s73 shows the names). Blocks this story; until it is decided, S2 and S4 follow DR-14.
 - [[T-029 My companies and company detail]] — how a business and its Rings are linked for the member's list (the `Business` tables have no Ring reference in the feature note); the list needs that link to show "which of its Rings I am in".
 - [[T-048 Business account setup → business Ring]] — whether team members on the stand become members of the employees Ring automatically, which is what makes S1 populate for an employee.

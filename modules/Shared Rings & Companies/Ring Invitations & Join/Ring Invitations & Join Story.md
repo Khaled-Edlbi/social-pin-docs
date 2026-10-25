@@ -40,7 +40,7 @@ Acceptance criteria:
 
 Acceptance criteria:
 - [ ] Shows the owner (name, Pin name), the access window if the invite carries one, and who invited me: the owner, an admin, or a member when the Ring's "members can invite others" is on (off by default, [[DR-04 Ring settings at launch and their defaults]]).
-- [ ] Following [[DR-14 Shared with me lists people, never the Ring]], it does not show the Ring's name, colour or type, nor its "who it's for" label; the design shows them, and whether an invitation may name the Ring is open (see *Open questions*).
+- [ ] Following [[DR-14 Shared with me lists people, never the Ring]], it does not show the Ring's name, colour or type, nor its "who it's for" label; the design shows them, and whether an invitation may name the Ring is [[D-18 Company and invited Ring names shown to members]].
 - [ ] *Join Ring* accepts; on success the Ring is in Shared with me and its projection opens; the prototype's path to s16 (My Rings) is a design slip, the destination is s17.
 - [ ] *Decline* closes the invitation; the owner may invite again; the screen returns to where it came from (s17 or s72).
 - [ ] An invitation to a Ring that has since expired or been deleted reads "This invitation is no longer valid" and offers only *Dismiss*.
@@ -99,7 +99,7 @@ Acceptance criteria:
 ## Open questions
 
 - Decided: [[DR-04 Ring settings at launch and their defaults]] (join policy and approval in S3, "members can invite" in S2; the email domain of S4 comes later). S3 and S4 stay disabled until the settings are built (not ticketed yet).
-- **Naming the Ring on an invitation.** [[DR-14 Shared with me lists people, never the Ring]] says a member never learns a Ring's name and leaves open (*Still open*) whether a Ring joined openly may show it. The design names the Ring on s17 and s74. Until product answers, S1 and S2 follow DR-14; the answer belongs on a needs-decision card raised from this story.
+- [[D-18 Company and invited Ring names shown to members]] — whether an invitation, and a Ring joined through it or a code, may name the Ring (DR-14's *Still open* point; the design names it on s17 and s74). Blocks this story; until it is decided, S1 and S2 follow DR-14.
 - [[T-026 Ring invitations invite, review, decline]] — whether an invitation is a `RingMember` in an invited state or its own object; what the invite carries (window, purpose, inviter).
 - [[T-027 Join a Ring with a code or verified work email]] — how the work email is verified; the sign-up OTP machinery exists but is not scoped for this.
 - [[T-028 What you contribute to a shared Ring]] — the member-side projection of S6; not in the schema.
