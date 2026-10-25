@@ -65,9 +65,6 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-053-be Backend · Audit log writes]] `backend` | [[Audit Log]] | Platform & Cross-cutting | ⬜ To do | S | — | — |
 | [[T-055 Run the e2e suite in CI against PostGIS]] | [[E2E Test Run]] | Platform & Cross-cutting | ⬜ To do | S | — | — |
 | [[T-055-be Backend · Run the e2e suite in CI against PostGIS]] `backend` | [[E2E Test Run]] | Platform & Cross-cutting | ⬜ To do | S | — | — |
-| [[T-057 Decide base profile work fields]] | [[Profiles & Pin Name]] | Identity Core | ❓ Needs decision | S | — | [[D-02 Base profile work fields|D-02]] |
-| [[T-058 Decide field library vs per-Ring copies]] | [[Ring Projection]] | Identity Core | ❓ Needs decision | S | — | [[D-03 Field library vs per-Ring copies|D-03]] |
-| [[T-059 Decide Ring settings]] | [[Rings]] | Identity Core | ❓ Needs decision | S | — | [[D-04 Ring settings|D-04]] |
 | [[T-062 Serve uploaded file bytes by id]] | [[Files Upload]] | Identity Core | ⬜ To do | S | — | — |
 | [[T-062-be Backend · Serve uploaded file bytes by id]] `backend` | [[Files Upload]] | Identity Core | ⬜ To do | S | — | — |
 | [[T-062-fe Frontend · Serve uploaded file bytes by id]] `frontend` | [[Files Upload]] | Identity Core | ⛔ Blocked | S | — | [[T-062-be Backend · Serve uploaded file bytes by id|T-062-be]] |
@@ -166,8 +163,6 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-050-fe Frontend · Post-event summary and follow-ups]] `frontend` | [[Post-Event]] | Events | ⛔ Blocked | M | — | [[T-009 Scan counter and share link|T-009]], [[T-023 Connection detail and contacts list|T-023]], [[T-044 My meetings, calendar, detail, reschedule, cancel|T-044]], [[T-050-be Backend · Post-event summary and follow-ups|T-050-be]] |
 | [[T-054 Cleanup jobs]] | [[Cleanup Jobs]] | Platform & Cross-cutting | ⬜ To do | M | — | — |
 | [[T-054-be Backend · Cleanup jobs]] `backend` | [[Cleanup Jobs]] | Platform & Cross-cutting | ⬜ To do | M | — | — |
-| [[T-060 Decide copy or inherit]] | [[Ring Projection]] | Identity Core | ❓ Needs decision | S | — | [[D-02 Base profile work fields|D-02]], [[D-05 Copy or inherit|D-05]] |
-| [[T-061 Decide Pin name rules]] | [[Profiles & Pin Name]] | Identity Core | ❓ Needs decision | S | — | [[D-06 Pin name rules|D-06]] |
 
 ## Medium
 
@@ -203,4 +198,9 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | Task | Feature | Module | Effort |
 |---|---|---|---|
 | [[T-056 Decide passwordless login]] | [[Auth & Sign-up]] | Identity Core | S |
+| [[T-057 Decide base profile work fields]] | [[Profiles & Pin Name]] | Identity Core | S |
+| [[T-058 Decide field library vs per-Ring copies]] | [[Ring Projection]] | Identity Core | S |
+| [[T-059 Decide Ring settings]] | [[Rings]] | Identity Core | S |
+| [[T-060 Decide copy or inherit]] | [[Ring Projection]] | Identity Core | S |
+| [[T-061 Decide Pin name rules]] | [[Profiles & Pin Name]] | Identity Core | S |
 | [[T-064 Restructure the docs vault]] | [[Error Contract]] | Platform & Cross-cutting | L |
