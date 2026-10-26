@@ -1027,6 +1027,16 @@
     "T-073": "task:T-073"
   },
   "concepts": {
+    "DELETE /admin/users/:userId/roles/:assignmentId": {
+      "containers": [
+        "project:spec-map"
+      ],
+      "kind": "endpoint",
+      "notes": [
+        "project:spec-map"
+      ],
+      "owner": null
+    },
     "DELETE /connections/requests/:id": {
       "containers": [
         "task:T-021"
@@ -1151,10 +1161,12 @@
     },
     "E_ADMIN_07": {
       "containers": [
+        "project:spec-map",
         "task:T-069"
       ],
       "kind": "error",
       "notes": [
+        "project:spec-map",
         "task:T-069"
       ],
       "owner": null
@@ -1766,71 +1778,95 @@
     },
     "GET /admin/audit-logs": {
       "containers": [
+        "project:spec-map",
         "task:T-071"
       ],
       "kind": "endpoint",
       "notes": [
+        "project:spec-map",
         "task:T-071"
       ],
       "owner": null
     },
     "GET /admin/audit-logs/:id": {
       "containers": [
+        "project:spec-map",
         "task:T-071"
       ],
       "kind": "endpoint",
       "notes": [
+        "project:spec-map",
         "task:T-071"
       ],
       "owner": null
     },
     "GET /admin/roles": {
       "containers": [
+        "project:spec-map",
         "task:T-070"
       ],
       "kind": "endpoint",
       "notes": [
+        "project:spec-map",
         "task:T-070"
       ],
       "owner": null
     },
     "GET /admin/roles/permissions": {
       "containers": [
+        "project:spec-map",
         "task:T-070"
       ],
       "kind": "endpoint",
       "notes": [
+        "project:spec-map",
         "task:T-070"
       ],
       "owner": null
     },
     "GET /admin/stats": {
       "containers": [
+        "project:spec-map",
         "task:T-072"
       ],
       "kind": "endpoint",
       "notes": [
+        "project:spec-map",
         "task:T-072"
       ],
       "owner": null
     },
     "GET /admin/users": {
       "containers": [
+        "project:spec-map",
         "task:T-068"
       ],
       "kind": "endpoint",
       "notes": [
+        "project:spec-map",
         "task:T-068"
       ],
       "owner": null
     },
     "GET /admin/users/:id": {
       "containers": [
+        "project:spec-map",
         "task:T-068"
       ],
       "kind": "endpoint",
       "notes": [
+        "project:spec-map",
         "task:T-068"
+      ],
+      "owner": null
+    },
+    "GET /admin/users/:userId/roles": {
+      "containers": [
+        "project:spec-map"
+      ],
+      "kind": "endpoint",
+      "notes": [
+        "project:spec-map"
       ],
       "owner": null
     },
@@ -2572,6 +2608,26 @@
       ],
       "owner": "feature:view-as"
     },
+    "PATCH /admin/users/:id/role": {
+      "containers": [
+        "project:spec-map"
+      ],
+      "kind": "endpoint",
+      "notes": [
+        "project:spec-map"
+      ],
+      "owner": null
+    },
+    "PATCH /admin/users/:id/status": {
+      "containers": [
+        "project:spec-map"
+      ],
+      "kind": "endpoint",
+      "notes": [
+        "project:spec-map"
+      ],
+      "owner": null
+    },
     "PATCH /profiles/:id": {
       "containers": [
         "feature:profiles"
@@ -2673,6 +2729,16 @@
       "kind": "endpoint",
       "notes": [
         "project:status-report-2026-10-15"
+      ],
+      "owner": null
+    },
+    "POST /admin/users/:userId/roles": {
+      "containers": [
+        "project:spec-map"
+      ],
+      "kind": "endpoint",
+      "notes": [
+        "project:spec-map"
       ],
       "owner": null
     },
@@ -5019,9 +5085,9 @@
       "frontend": 43,
       "shared": 10
     },
-    "concepts": 194,
+    "concepts": 199,
     "decisions": 17,
-    "edges": 5015,
+    "edges": 5020,
     "features": 41,
     "layerNotes": 191,
     "modules": 8,
@@ -21085,6 +21151,49 @@
       "via": [
         "GET /views/user/:userId/perspectives",
         "POST /rings/:ringId/members"
+      ]
+    },
+    {
+      "from": "project:spec-map",
+      "kind": "shares",
+      "to": "task:T-068",
+      "via": [
+        "GET /admin/users",
+        "GET /admin/users/:id"
+      ]
+    },
+    {
+      "from": "project:spec-map",
+      "kind": "shares",
+      "to": "task:T-069",
+      "via": [
+        "E_ADMIN_07"
+      ]
+    },
+    {
+      "from": "project:spec-map",
+      "kind": "shares",
+      "to": "task:T-070",
+      "via": [
+        "GET /admin/roles",
+        "GET /admin/roles/permissions"
+      ]
+    },
+    {
+      "from": "project:spec-map",
+      "kind": "shares",
+      "to": "task:T-071",
+      "via": [
+        "GET /admin/audit-logs",
+        "GET /admin/audit-logs/:id"
+      ]
+    },
+    {
+      "from": "project:spec-map",
+      "kind": "shares",
+      "to": "task:T-072",
+      "via": [
+        "GET /admin/stats"
       ]
     },
     {
@@ -51616,7 +51725,7 @@
       ],
       "task": null,
       "title": "Spec Map",
-      "updated": "2026-10-19"
+      "updated": "2026-10-26"
     },
     "project:status-report-2026-10-15": {
       "affects": [],
