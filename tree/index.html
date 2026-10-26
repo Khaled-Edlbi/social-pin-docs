@@ -526,13 +526,14 @@ function marksHtml(n, wide) {
 const LABEL = { bug: { bg: 'var(--color-accent-2-100)', ink: 'var(--color-accent-2-800)', c: 'var(--color-accent-2-600)' }, chore: { bg: 'var(--color-neutral-200)', ink: 'var(--color-neutral-800)', c: 'var(--color-neutral-500)' }, spike: { bg: 'var(--st-violet-bg)', ink: 'var(--st-violet-ink)', c: 'var(--st-violet-c)' }, docs: { bg: 'var(--color-accent-100)', ink: 'var(--color-accent-800)', c: 'var(--color-accent-500)' } };
 const labelStyle = (l) => LABEL[l] || LABEL.chore;
 // the project's stage (typed on the overview note) and a feature's release target, from tree.json (docs.config.json stages / releases / environments)
-let STAGE = {}, RELEASE = {}, ENV = {};
+let STAGE = {}, RELEASE = {}, ENV = {}, RESOLUTION = {};
 const tint = (c) => ({ bg: `color-mix(in srgb, ${c} 16%, var(--color-neutral-100))`, ink: `color-mix(in srgb, ${c} 70%, var(--color-text))`, c });
 // the release a stage is measured by: the target of the same id (mvp), else the one it requires (beta, live: mvp), else the first target
 const trackedRelease = (n) => { const s = n.stage && STAGE[n.stage], rs = n.releases || []; const id = s ? (RELEASE[s.id] ? s.id : s.requiresRelease) : null; return rs.find((r) => r.id === id) || rs.find((r) => r.id) || null; };
-// the coloured tags a card carries besides its status: on the project card the stage and its release progress (in place of a status chip), on a feature card its release
+// the coloured tags a card carries besides its status: on the project card the stage and its release progress (in place of a status chip), on a feature card its release, on a bug how it ended
 function tagsOf(n) {
   const out = [];
+  if (n.resolution && RESOLUTION[n.resolution]) { const r = RESOLUTION[n.resolution]; out.push({ text: r.label, ...tint(r.color || 'var(--color-neutral-500)'), title: `Resolution: ${r.label}${r.description ? ` · ${r.description}` : ''}` }); }
   if (n.kind === 'root' && n.stage && STAGE[n.stage]) out.push({ text: `Stage · ${STAGE[n.stage].label}`, ...tint(STAGE[n.stage].color || 'var(--color-neutral-500)'), title: `${STAGE[n.stage].description}${STAGE[n.stage].exit ? ` Next when: ${STAGE[n.stage].exit}` : ''}` });
   if (n.kind === 'root') { const r = trackedRelease(n), t = r && RELEASE[r.id]; if (t) { const full = r.total > 0 && r.done === r.total; out.push({ text: `${t.label} ${r.done}/${r.total}`, ...tint(full ? '#16a34a' : (t.color || 'var(--color-neutral-500)')), title: `${t.label}: ${r.done} of ${r.total} features done${r.partial ? `, ${r.partial} partial` : ''}${full ? ' · every feature Done' : ''}` }); } }
   if (n.kind === 'feature') { const r = n.release && RELEASE[n.release]; out.push(r ? { text: r.label, ...tint(r.color || 'var(--color-neutral-500)'), title: `Release: ${r.label} · ${r.description}` } : { text: 'No release', ...LABEL.chore, title: 'No release: type release: in the feature card' }); }
@@ -596,7 +597,7 @@ async function load() {
   if (!FLOW.order.length) { const q = FLOW.pairs.length ? [FLOW.pairs[0][0]] : []; while (q.length) { const k = q.shift(); if (FLOW.order.includes(k)) continue; FLOW.order.push(k); for (const [a, b] of FLOW.pairs) if (a === k) q.push(b); } FLOW.back = FLOW.pairs.filter(([a, b]) => FLOW.order.indexOf(a) >= FLOW.order.indexOf(b)); }
   if (Array.isArray(d.priorities) && d.priorities.length) PRIO = { levels: d.priorities, byId: Object.fromEntries(d.priorities.map((l) => [l.id, l])) };
   const byIdOf = (l) => (Array.isArray(l) ? Object.fromEntries(l.map((x) => [x.id, x])) : {});
-  STAGE = byIdOf(d.stages); RELEASE = byIdOf(d.releases); ENV = byIdOf(d.environments && d.environments.list);
+  STAGE = byIdOf(d.stages); RELEASE = byIdOf(d.releases); ENV = byIdOf(d.environments && d.environments.list); RESOLUTION = byIdOf(d.resolutions);
   if (d.deadlines && Array.isArray(d.deadlines.zones) && d.deadlines.zones.length) DL = { windowDays: d.deadlines.windowDays > 0 ? d.deadlines.windowDays : 3, zones: d.deadlines.zones, missed: { ...DL.missed, ...(d.deadlines.missed || {}) } };
   KIND_GROUPS = [{ title: 'Structure', keys: ['feature'] }, ...(d.layers || []).map((l) => ({ title: l.label, color: l.color, keys: l.kinds.map((k) => k.id) })), { title: 'Work', keys: ['task', 'decision', 'decision-record'] }, { title: 'Reference', keys: ['project'] }];
   if (d.repo && d.repo.owner) $('#repo-link').href = `https://github.com/${d.repo.owner}/${d.repo.name}`;
@@ -1327,6 +1328,7 @@ function stateHtml(n) {
     if ((n.releases || []).length) out.push(relGroup('Release progress', '', n.releases.map((r) => { const t = r.id ? RELEASE[r.id] : null, c = (t && t.color) || 'var(--color-neutral-500)', pct = r.total ? Math.round(100 * r.done / r.total) : 0; return `<span class="rel" style="cursor:default;flex-wrap:wrap"><span class="lt">${esc(t ? t.label : 'No release')}</span><span class="why">${r.done} of ${r.total} features done${r.partial ? ` · ${r.partial} partial` : ''}</span><span style="flex-basis:100%;height:4px;border-radius:2px;background:color-mix(in srgb, ${c} 18%, var(--color-neutral-200))"><span style="display:block;height:100%;width:${pct}%;border-radius:2px;background:${c}"></span></span></span>`; }).join(''), 'Features by their release: target, Done out of the total'));
   }
   if (n.kind === 'feature' || (n.release && n.inherits && n.inherits.release)) { const r = n.release && RELEASE[n.release]; if (r || n.kind === 'feature') out.push(relGroup('Release', '', `<span class="rel" style="cursor:default"><span class="lt">${esc(r ? r.label : 'No release')}</span>${r ? `<span class="why">${esc(r.description)}</span>` : ''}</span>`, n.inherits && n.inherits.release && node(n.inherits.release) ? `Inherited from ${esc(node(n.inherits.release).title)}` : 'The feature\'s own release target')); }
+  if (n.resolution && RESOLUTION[n.resolution]) { const r = RESOLUTION[n.resolution]; out.push(relGroup('Resolution', '', `<span class="rel" style="cursor:default"><span class="lt">${esc(r.label)}</span>${r.description ? `<span class="why">${esc(r.description)}</span>` : ''}</span>`, 'How the bug ended; it never replaces the card\'s status')); }
   if (Array.isArray(n.deployedTo)) out.push(relGroup('Deployed to', n.deployedTo.length ? String(n.deployedTo.length) : '', n.deployedTo.length ? n.deployedTo.map((e) => { const x = ENV[e] || { label: e }; return `<span class="stchip" style="--bg:${tint(x.color || 'var(--color-neutral-500)').bg};--ink:${tint(x.color || 'var(--color-neutral-500)').ink};--bd:${x.color || 'transparent'}">${esc(x.label)}</span>`; }).join('') : '<span class="rel" style="cursor:default"><span class="why">Not deployed yet</span></span>'));
   const z = dueOf(n);
   if (z) out.push(relGroup(z.missed ? 'Deadline missed' : 'Deadline', '', `<span class="rel" style="cursor:default">${marksHtml({ deadline: n.deadline })}<span class="lt">${esc(z.date)}</span><span class="why">${esc(z.text)}</span></span>`, n.inherits && n.inherits.deadline && node(n.inherits.deadline) ? `Inherited from ${esc(node(n.inherits.deadline).title)}` : `The card's own deadline · the clock turns ${DL.zones.map((x) => x.label.toLowerCase()).join(' → ')} over the last ${DL.windowDays} days, ${DL.missed.icon || '💀'} once missed`));
@@ -1437,7 +1439,7 @@ function splitList(s) {
   out.push(cur); return out;
 }
 // a frontmatter value as the properties table shows it: wikilinks, card codes and ids become card links, lists read "a, b, c"
-const PLAIN_KEYS = new Set(["type", "id", "name", "code", "status", "priority", "effort", "deadline", "created", "updated", "owner", "decider", "tags", "labels", "screens", "scope", "layer", "frontendOnly", "pending", "stage", "release", "deployedTo"]);
+const PLAIN_KEYS = new Set(["type", "id", "name", "code", "status", "priority", "effort", "deadline", "created", "updated", "owner", "decider", "tags", "labels", "screens", "scope", "layer", "frontendOnly", "pending", "stage", "release", "resolution", "deployedTo"]);
 function fmLink(key, t) {
   if (PLAIN_KEYS.has(key)) return null;
   const d = S.D;
