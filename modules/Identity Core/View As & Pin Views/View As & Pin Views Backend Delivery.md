@@ -7,7 +7,7 @@ module: identity
 status: done
 screens: [s10, s31, s44]
 created: 2026-10-15
-updated: 2026-10-18
+updated: 2026-10-26
 tags: [backend-delivery, backend-delivery/done, module/identity, layer/backend]
 ---
 
@@ -55,4 +55,4 @@ Three routes on `ProfileViewController`, all returning `RingProfileViewEntity`, 
 
 ## Log
 
-- 2026-10-18 · split out of [[View As & Pin Views]] when the vault moved to layers ([[T-064 Restructure the docs vault]])
+- 2026-10-18 · split out of [[View As & Pin Views]] when the vault moved to layers

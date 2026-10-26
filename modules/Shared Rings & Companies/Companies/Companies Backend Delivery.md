@@ -7,7 +7,7 @@ module: shared-rings
 status: todo
 screens: [s72, s73]
 created: 2026-10-18
-updated: 2026-10-18
+updated: 2026-10-26
 tags: [backend-delivery, backend-delivery/todo, module/shared-rings, layer/backend]
 ---
 
@@ -41,4 +41,4 @@ What the backend shipped for this feature and how it works. The sum of this feat
 
 ## Log
 
-- 2026-10-18 · split out of [[Companies]] when the vault moved to layers ([[T-064 Restructure the docs vault]])
+- 2026-10-18 · split out of [[Companies]] when the vault moved to layers

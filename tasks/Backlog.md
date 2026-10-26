@@ -206,4 +206,3 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-059 Decide Ring settings]] | [[Rings]] | Identity Core | S |
 | [[T-060 Decide copy or inherit]] | [[Ring Projection]] | Identity Core | S |
 | [[T-061 Decide Pin name rules]] | [[Profiles & Pin Name]] | Identity Core | S |
-| [[T-064 Restructure the docs vault]] | [[Error Contract]] | Platform & Cross-cutting | L |

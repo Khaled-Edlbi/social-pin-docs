@@ -491,7 +491,6 @@
     "T-063 Story": "story:T-063",
     "T-063-be Backend · Put the ErrorCode on the error body": "task:T-063-be",
     "T-063-fe Frontend · Put the ErrorCode on the error body": "task:T-063-fe",
-    "T-064 Restructure the docs vault": "task:T-064",
     "T-067 Split E_RING_01 and E_RING_PROFILE_03": "task:T-067",
     "T-067 Story": "story:T-067",
     "T-067-be Backend · Split E_RING_01 and E_RING_PROFILE_03": "task:T-067-be",
@@ -987,7 +986,6 @@
     "T-063": "task:T-063",
     "T-063-be": "task:T-063-be",
     "T-063-fe": "task:T-063-fe",
-    "T-064": "task:T-064",
     "T-067": "task:T-067",
     "T-067-be": "task:T-067-be",
     "T-067-fe": "task:T-067-fe"
@@ -4857,26 +4855,26 @@
       "module": 8,
       "project": 27,
       "story": 99,
-      "task": 178
+      "task": 177
     },
     "byLayer": {
       "backend": 56,
-      "business": 351,
+      "business": 350,
       "frontend": 43,
       "shared": 10
     },
     "concepts": 182,
     "decisions": 17,
-    "edges": 4933,
+    "edges": 4874,
     "features": 39,
     "layerNotes": 186,
     "modules": 8,
-    "notes": 495,
+    "notes": 494,
     "partial": 0,
     "placeholders": 151,
     "records": 13,
     "taskLayerNotes": 60,
-    "tasks": 178
+    "tasks": 177
   },
   "deadlines": {
     "missed": {
@@ -5349,21 +5347,6 @@
       "from": "task:T-063",
       "kind": "affects",
       "to": "project:frontend-contract"
-    },
-    {
-      "from": "task:T-064",
-      "kind": "affects",
-      "to": "project:agent-rules"
-    },
-    {
-      "from": "task:T-064",
-      "kind": "affects",
-      "to": "project:docs-tree"
-    },
-    {
-      "from": "task:T-064",
-      "kind": "affects",
-      "to": "project:workflow"
     },
     {
       "from": "task:T-067",
@@ -22551,11 +22534,6 @@
     {
       "from": "story:error-contract",
       "kind": "tree",
-      "to": "task:T-064"
-    },
-    {
-      "from": "story:error-contract",
-      "kind": "tree",
       "to": "task:T-067"
     },
     {
@@ -23744,29 +23722,14 @@
       "to": "frontend-requirements:account"
     },
     {
-      "from": "backend-delivery:account",
-      "kind": "wikilink",
-      "to": "task:T-064"
-    },
-    {
       "from": "backend-delivery:app-shell",
       "kind": "wikilink",
       "to": "frontend-requirements:app-shell"
     },
     {
-      "from": "backend-delivery:app-shell",
-      "kind": "wikilink",
-      "to": "task:T-064"
-    },
-    {
       "from": "backend-delivery:audit-log",
       "kind": "wikilink",
       "to": "frontend-requirements:audit-log"
-    },
-    {
-      "from": "backend-delivery:audit-log",
-      "kind": "wikilink",
-      "to": "task:T-064"
     },
     {
       "from": "backend-delivery:auth",
@@ -23787,11 +23750,6 @@
       "from": "backend-delivery:auth",
       "kind": "wikilink",
       "to": "frontend-requirements:auth"
-    },
-    {
-      "from": "backend-delivery:auth",
-      "kind": "wikilink",
-      "to": "task:T-064"
     },
     {
       "from": "backend-delivery:badge-qr",
@@ -23819,19 +23777,9 @@
       "to": "frontend-requirements:badge-qr"
     },
     {
-      "from": "backend-delivery:badge-qr",
-      "kind": "wikilink",
-      "to": "task:T-064"
-    },
-    {
       "from": "backend-delivery:cleanup-jobs",
       "kind": "wikilink",
       "to": "frontend-requirements:cleanup-jobs"
-    },
-    {
-      "from": "backend-delivery:cleanup-jobs",
-      "kind": "wikilink",
-      "to": "task:T-064"
     },
     {
       "from": "backend-delivery:code-delivery",
@@ -23844,11 +23792,6 @@
       "to": "project:frontend-passwordless-migration"
     },
     {
-      "from": "backend-delivery:code-delivery",
-      "kind": "wikilink",
-      "to": "task:T-064"
-    },
-    {
       "from": "backend-delivery:companies",
       "kind": "wikilink",
       "to": "feature:exhibitor"
@@ -23857,11 +23800,6 @@
       "from": "backend-delivery:companies",
       "kind": "wikilink",
       "to": "frontend-requirements:companies"
-    },
-    {
-      "from": "backend-delivery:companies",
-      "kind": "wikilink",
-      "to": "task:T-064"
     },
     {
       "from": "backend-delivery:connections",
@@ -23874,19 +23812,9 @@
       "to": "frontend-requirements:connections"
     },
     {
-      "from": "backend-delivery:connections",
-      "kind": "wikilink",
-      "to": "task:T-064"
-    },
-    {
       "from": "backend-delivery:counts",
       "kind": "wikilink",
       "to": "frontend-requirements:counts"
-    },
-    {
-      "from": "backend-delivery:counts",
-      "kind": "wikilink",
-      "to": "task:T-064"
     },
     {
       "from": "backend-delivery:delegated-admins",
@@ -23894,19 +23822,9 @@
       "to": "frontend-requirements:delegated-admins"
     },
     {
-      "from": "backend-delivery:delegated-admins",
-      "kind": "wikilink",
-      "to": "task:T-064"
-    },
-    {
       "from": "backend-delivery:devices",
       "kind": "wikilink",
       "to": "frontend-requirements:devices"
-    },
-    {
-      "from": "backend-delivery:devices",
-      "kind": "wikilink",
-      "to": "task:T-064"
     },
     {
       "from": "backend-delivery:discover-hub",
@@ -23914,19 +23832,9 @@
       "to": "frontend-requirements:discover-hub"
     },
     {
-      "from": "backend-delivery:discover-hub",
-      "kind": "wikilink",
-      "to": "task:T-064"
-    },
-    {
       "from": "backend-delivery:e2e-tests",
       "kind": "wikilink",
       "to": "frontend-requirements:e2e-tests"
-    },
-    {
-      "from": "backend-delivery:e2e-tests",
-      "kind": "wikilink",
-      "to": "task:T-064"
     },
     {
       "from": "backend-delivery:error-contract",
@@ -23934,19 +23842,9 @@
       "to": "frontend-requirements:error-contract"
     },
     {
-      "from": "backend-delivery:error-contract",
-      "kind": "wikilink",
-      "to": "task:T-064"
-    },
-    {
       "from": "backend-delivery:event-ring-auto",
       "kind": "wikilink",
       "to": "frontend-requirements:event-ring-auto"
-    },
-    {
-      "from": "backend-delivery:event-ring-auto",
-      "kind": "wikilink",
-      "to": "task:T-064"
     },
     {
       "from": "backend-delivery:events-before",
@@ -23964,11 +23862,6 @@
       "to": "frontend-requirements:events-before"
     },
     {
-      "from": "backend-delivery:events-before",
-      "kind": "wikilink",
-      "to": "task:T-064"
-    },
-    {
       "from": "backend-delivery:events-during",
       "kind": "wikilink",
       "to": "feature:badge-qr"
@@ -23984,11 +23877,6 @@
       "to": "frontend-requirements:events-during"
     },
     {
-      "from": "backend-delivery:events-during",
-      "kind": "wikilink",
-      "to": "task:T-064"
-    },
-    {
       "from": "backend-delivery:exhibitor",
       "kind": "wikilink",
       "to": "feature:gemma"
@@ -23997,11 +23885,6 @@
       "from": "backend-delivery:exhibitor",
       "kind": "wikilink",
       "to": "frontend-requirements:exhibitor"
-    },
-    {
-      "from": "backend-delivery:exhibitor",
-      "kind": "wikilink",
-      "to": "task:T-064"
     },
     {
       "from": "backend-delivery:files",
@@ -24024,11 +23907,6 @@
       "to": "task:T-062"
     },
     {
-      "from": "backend-delivery:files",
-      "kind": "wikilink",
-      "to": "task:T-064"
-    },
-    {
       "from": "backend-delivery:gemma",
       "kind": "wikilink",
       "to": "feature:ring-access"
@@ -24037,11 +23915,6 @@
       "from": "backend-delivery:gemma",
       "kind": "wikilink",
       "to": "frontend-requirements:gemma"
-    },
-    {
-      "from": "backend-delivery:gemma",
-      "kind": "wikilink",
-      "to": "task:T-064"
     },
     {
       "from": "backend-delivery:interests",
@@ -24054,11 +23927,6 @@
       "to": "frontend-requirements:interests"
     },
     {
-      "from": "backend-delivery:interests",
-      "kind": "wikilink",
-      "to": "task:T-064"
-    },
-    {
       "from": "backend-delivery:linked-accounts",
       "kind": "wikilink",
       "to": "decision:D-01"
@@ -24069,19 +23937,9 @@
       "to": "frontend-requirements:linked-accounts"
     },
     {
-      "from": "backend-delivery:linked-accounts",
-      "kind": "wikilink",
-      "to": "task:T-064"
-    },
-    {
       "from": "backend-delivery:meetings",
       "kind": "wikilink",
       "to": "frontend-requirements:meetings"
-    },
-    {
-      "from": "backend-delivery:meetings",
-      "kind": "wikilink",
-      "to": "task:T-064"
     },
     {
       "from": "backend-delivery:notifications",
@@ -24092,11 +23950,6 @@
       "from": "backend-delivery:notifications",
       "kind": "wikilink",
       "to": "frontend-requirements:notifications"
-    },
-    {
-      "from": "backend-delivery:notifications",
-      "kind": "wikilink",
-      "to": "task:T-064"
     },
     {
       "from": "backend-delivery:onboarding-imports",
@@ -24114,11 +23967,6 @@
       "to": "frontend-requirements:onboarding-imports"
     },
     {
-      "from": "backend-delivery:onboarding-imports",
-      "kind": "wikilink",
-      "to": "task:T-064"
-    },
-    {
       "from": "backend-delivery:payments",
       "kind": "wikilink",
       "to": "decision-record:DR-07"
@@ -24132,11 +23980,6 @@
       "from": "backend-delivery:payments",
       "kind": "wikilink",
       "to": "story:payments"
-    },
-    {
-      "from": "backend-delivery:payments",
-      "kind": "wikilink",
-      "to": "task:T-064"
     },
     {
       "from": "backend-delivery:photo-library",
@@ -24154,11 +23997,6 @@
       "to": "frontend-requirements:photo-library"
     },
     {
-      "from": "backend-delivery:photo-library",
-      "kind": "wikilink",
-      "to": "task:T-064"
-    },
-    {
       "from": "backend-delivery:pincast",
       "kind": "wikilink",
       "to": "feature:cleanup-jobs"
@@ -24174,11 +24012,6 @@
       "to": "frontend-requirements:pincast"
     },
     {
-      "from": "backend-delivery:pincast",
-      "kind": "wikilink",
-      "to": "task:T-064"
-    },
-    {
       "from": "backend-delivery:post-event",
       "kind": "wikilink",
       "to": "feature:badge-qr"
@@ -24192,11 +24025,6 @@
       "from": "backend-delivery:post-event",
       "kind": "wikilink",
       "to": "frontend-requirements:post-event"
-    },
-    {
-      "from": "backend-delivery:post-event",
-      "kind": "wikilink",
-      "to": "task:T-064"
     },
     {
       "from": "backend-delivery:profiles",
@@ -24229,11 +24057,6 @@
       "to": "frontend-requirements:profiles"
     },
     {
-      "from": "backend-delivery:profiles",
-      "kind": "wikilink",
-      "to": "task:T-064"
-    },
-    {
       "from": "backend-delivery:ring-access",
       "kind": "wikilink",
       "to": "backend-integration:ring-access"
@@ -24249,11 +24072,6 @@
       "to": "frontend-requirements:ring-access"
     },
     {
-      "from": "backend-delivery:ring-access",
-      "kind": "wikilink",
-      "to": "task:T-064"
-    },
-    {
       "from": "backend-delivery:ring-invitations",
       "kind": "wikilink",
       "to": "decision-record:DR-04"
@@ -24267,11 +24085,6 @@
       "from": "backend-delivery:ring-invitations",
       "kind": "wikilink",
       "to": "frontend-requirements:ring-invitations"
-    },
-    {
-      "from": "backend-delivery:ring-invitations",
-      "kind": "wikilink",
-      "to": "task:T-064"
     },
     {
       "from": "backend-delivery:ring-members",
@@ -24302,11 +24115,6 @@
       "from": "backend-delivery:ring-members",
       "kind": "wikilink",
       "to": "task:T-023"
-    },
-    {
-      "from": "backend-delivery:ring-members",
-      "kind": "wikilink",
-      "to": "task:T-064"
     },
     {
       "from": "backend-delivery:ring-projection",
@@ -24359,11 +24167,6 @@
       "to": "task:T-062"
     },
     {
-      "from": "backend-delivery:ring-projection",
-      "kind": "wikilink",
-      "to": "task:T-064"
-    },
-    {
       "from": "backend-delivery:rings",
       "kind": "wikilink",
       "to": "backend-integration:rings"
@@ -24404,19 +24207,9 @@
       "to": "frontend-requirements:rings"
     },
     {
-      "from": "backend-delivery:rings",
-      "kind": "wikilink",
-      "to": "task:T-064"
-    },
-    {
       "from": "backend-delivery:subscription",
       "kind": "wikilink",
       "to": "frontend-requirements:subscription"
-    },
-    {
-      "from": "backend-delivery:subscription",
-      "kind": "wikilink",
-      "to": "task:T-064"
     },
     {
       "from": "backend-delivery:view-as",
@@ -24444,19 +24237,9 @@
       "to": "task:T-062"
     },
     {
-      "from": "backend-delivery:view-as",
-      "kind": "wikilink",
-      "to": "task:T-064"
-    },
-    {
       "from": "backend-delivery:widgets",
       "kind": "wikilink",
       "to": "frontend-requirements:widgets"
-    },
-    {
-      "from": "backend-delivery:widgets",
-      "kind": "wikilink",
-      "to": "task:T-064"
     },
     {
       "from": "backend-integration:account",
@@ -27669,11 +27452,6 @@
       "to": "story:subscription"
     },
     {
-      "from": "module:commerce",
-      "kind": "wikilink",
-      "to": "task:T-064"
-    },
-    {
       "from": "module:connections",
       "kind": "wikilink",
       "to": "backend-delivery:connections"
@@ -27712,11 +27490,6 @@
       "from": "module:connections",
       "kind": "wikilink",
       "to": "story:connections"
-    },
-    {
-      "from": "module:connections",
-      "kind": "wikilink",
-      "to": "task:T-064"
     },
     {
       "from": "module:discovery",
@@ -27787,11 +27560,6 @@
       "from": "module:discovery",
       "kind": "wikilink",
       "to": "story:pincast"
-    },
-    {
-      "from": "module:discovery",
-      "kind": "wikilink",
-      "to": "task:T-064"
     },
     {
       "from": "module:events",
@@ -27892,11 +27660,6 @@
       "from": "module:events",
       "kind": "wikilink",
       "to": "story:post-event"
-    },
-    {
-      "from": "module:events",
-      "kind": "wikilink",
-      "to": "task:T-064"
     },
     {
       "from": "module:identity",
@@ -28164,11 +27927,6 @@
       "to": "story:widgets"
     },
     {
-      "from": "module:identity",
-      "kind": "wikilink",
-      "to": "task:T-064"
-    },
-    {
       "from": "module:meetings",
       "kind": "wikilink",
       "to": "backend-delivery:meetings"
@@ -28207,11 +27965,6 @@
       "from": "module:meetings",
       "kind": "wikilink",
       "to": "story:meetings"
-    },
-    {
-      "from": "module:meetings",
-      "kind": "wikilink",
-      "to": "task:T-064"
     },
     {
       "from": "module:platform",
@@ -28404,11 +28157,6 @@
       "to": "story:notifications"
     },
     {
-      "from": "module:platform",
-      "kind": "wikilink",
-      "to": "task:T-064"
-    },
-    {
       "from": "module:shared-rings",
       "kind": "wikilink",
       "to": "backend-delivery:companies"
@@ -28477,11 +28225,6 @@
       "from": "module:shared-rings",
       "kind": "wikilink",
       "to": "story:ring-invitations"
-    },
-    {
-      "from": "module:shared-rings",
-      "kind": "wikilink",
-      "to": "task:T-064"
     },
     {
       "from": "project:admin-agent",
@@ -33544,46 +33287,6 @@
       "to": "task:T-063-be"
     },
     {
-      "from": "task:T-064",
-      "kind": "wikilink",
-      "to": "feature:error-contract"
-    },
-    {
-      "from": "task:T-064",
-      "kind": "wikilink",
-      "to": "project:agent-rules"
-    },
-    {
-      "from": "task:T-064",
-      "kind": "wikilink",
-      "to": "project:developer-guide"
-    },
-    {
-      "from": "task:T-064",
-      "kind": "wikilink",
-      "to": "project:docs-tree"
-    },
-    {
-      "from": "task:T-064",
-      "kind": "wikilink",
-      "to": "project:frontend-agent-prompt"
-    },
-    {
-      "from": "task:T-064",
-      "kind": "wikilink",
-      "to": "project:frontend-api-guide"
-    },
-    {
-      "from": "task:T-064",
-      "kind": "wikilink",
-      "to": "project:spec-map"
-    },
-    {
-      "from": "task:T-064",
-      "kind": "wikilink",
-      "to": "project:workflow"
-    },
-    {
       "from": "task:T-067",
       "kind": "wikilink",
       "to": "backend-delivery:error-contract"
@@ -35620,10 +35323,6 @@
       "name": "T-063-fe Frontend · Put the ErrorCode on the error body",
       "type": "task"
     },
-    "tasks/T-064 Restructure the docs vault/T-064 Restructure the docs vault.md": {
-      "name": "T-064 Restructure the docs vault",
-      "type": "task"
-    },
     "tasks/T-067 Split E_RING_01 and E_RING_PROFILE_03/T-067 Split E_RING_01 and E_RING_PROFILE_03.md": {
       "name": "T-067 Split E_RING_01 and E_RING_PROFILE_03",
       "type": "task"
@@ -36063,7 +35762,7 @@
       ],
       "task": null,
       "title": "Account Backend Delivery",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "backend-delivery:app-shell": {
       "affects": [],
@@ -36114,7 +35813,7 @@
       ],
       "task": null,
       "title": "App Shell & Onboarding Narrative Backend Delivery",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "backend-delivery:audit-log": {
       "affects": [],
@@ -36166,7 +35865,7 @@
       ],
       "task": null,
       "title": "Audit Log Backend Delivery",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "backend-delivery:auth": {
       "affects": [],
@@ -36218,7 +35917,7 @@
       ],
       "task": null,
       "title": "Auth & Sign-up Backend Delivery",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "backend-delivery:badge-qr": {
       "affects": [],
@@ -36275,7 +35974,7 @@
       ],
       "task": null,
       "title": "Badge & QR Backend Delivery",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "backend-delivery:cleanup-jobs": {
       "affects": [],
@@ -36327,7 +36026,7 @@
       ],
       "task": null,
       "title": "Cleanup Jobs Backend Delivery",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "backend-delivery:code-delivery": {
       "affects": [],
@@ -36381,7 +36080,7 @@
       ],
       "task": null,
       "title": "Code Delivery Backend Delivery",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "backend-delivery:companies": {
       "affects": [],
@@ -36436,7 +36135,7 @@
       ],
       "task": null,
       "title": "Companies Backend Delivery",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "backend-delivery:connections": {
       "affects": [],
@@ -36494,7 +36193,7 @@
       ],
       "task": null,
       "title": "Connections Backend Delivery",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "backend-delivery:counts": {
       "affects": [],
@@ -36553,7 +36252,7 @@
       ],
       "task": null,
       "title": "Counts Backend Delivery",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "backend-delivery:delegated-admins": {
       "affects": [],
@@ -36608,7 +36307,7 @@
       ],
       "task": null,
       "title": "Delegated Admins Backend Delivery",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "backend-delivery:devices": {
       "affects": [],
@@ -36662,7 +36361,7 @@
       ],
       "task": null,
       "title": "Devices & NFC Backend Delivery",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "backend-delivery:discover-hub": {
       "affects": [],
@@ -36716,7 +36415,7 @@
       ],
       "task": null,
       "title": "Discover Hub & Search Backend Delivery",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "backend-delivery:e2e-tests": {
       "affects": [],
@@ -36768,7 +36467,7 @@
       ],
       "task": null,
       "title": "E2E Test Run Backend Delivery",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "backend-delivery:error-contract": {
       "affects": [],
@@ -36820,7 +36519,7 @@
       ],
       "task": null,
       "title": "Error Contract Backend Delivery",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "backend-delivery:event-ring-auto": {
       "affects": [],
@@ -36874,7 +36573,7 @@
       ],
       "task": null,
       "title": "Event Ring Auto-creation Backend Delivery",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "backend-delivery:events-before": {
       "affects": [],
@@ -36932,7 +36631,7 @@
       ],
       "task": null,
       "title": "Events Before Backend Delivery",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "backend-delivery:events-during": {
       "affects": [],
@@ -36991,7 +36690,7 @@
       ],
       "task": null,
       "title": "Events During Backend Delivery",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "backend-delivery:exhibitor": {
       "affects": [],
@@ -37047,7 +36746,7 @@
       ],
       "task": null,
       "title": "Exhibitor Backend Delivery",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "backend-delivery:files": {
       "affects": [],
@@ -37097,7 +36796,7 @@
       ],
       "task": null,
       "title": "Files Upload Backend Delivery",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "backend-delivery:gemma": {
       "affects": [],
@@ -37152,7 +36851,7 @@
       ],
       "task": null,
       "title": "Gemma AI Backend Delivery",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "backend-delivery:interests": {
       "affects": [],
@@ -37207,7 +36906,7 @@
       ],
       "task": null,
       "title": "Interests Backend Delivery",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "backend-delivery:linked-accounts": {
       "affects": [],
@@ -37263,7 +36962,7 @@
       ],
       "task": null,
       "title": "Linked Accounts (OAuth) Backend Delivery",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "backend-delivery:meetings": {
       "affects": [],
@@ -37321,7 +37020,7 @@
       ],
       "task": null,
       "title": "Meetings Backend Delivery",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "backend-delivery:notifications": {
       "affects": [],
@@ -37375,7 +37074,7 @@
       ],
       "task": null,
       "title": "Notifications Backend Delivery",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "backend-delivery:onboarding-imports": {
       "affects": [],
@@ -37433,7 +37132,7 @@
       ],
       "task": null,
       "title": "Onboarding Imports Backend Delivery",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "backend-delivery:payments": {
       "affects": [],
@@ -37488,7 +37187,7 @@
       ],
       "task": null,
       "title": "Payments & Orders Backend Delivery",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "backend-delivery:photo-library": {
       "affects": [],
@@ -37543,7 +37242,7 @@
       ],
       "task": null,
       "title": "Photo Library Backend Delivery",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "backend-delivery:pincast": {
       "affects": [],
@@ -37601,7 +37300,7 @@
       ],
       "task": null,
       "title": "PinCast & Nearby Backend Delivery",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "backend-delivery:post-event": {
       "affects": [],
@@ -37655,7 +37354,7 @@
       ],
       "task": null,
       "title": "Post-Event Backend Delivery",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "backend-delivery:profiles": {
       "affects": [],
@@ -37703,7 +37402,7 @@
       ],
       "task": null,
       "title": "Profiles & Pin Name Backend Delivery",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "backend-delivery:ring-access": {
       "affects": [],
@@ -37749,7 +37448,7 @@
       ],
       "task": null,
       "title": "Ring Access Engine Backend Delivery",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "backend-delivery:ring-invitations": {
       "affects": [],
@@ -37804,7 +37503,7 @@
       ],
       "task": null,
       "title": "Ring Invitations & Join Backend Delivery",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "backend-delivery:ring-members": {
       "affects": [],
@@ -37853,7 +37552,7 @@
       ],
       "task": null,
       "title": "Ring Members Backend Delivery",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "backend-delivery:ring-projection": {
       "affects": [],
@@ -37907,7 +37606,7 @@
       ],
       "task": null,
       "title": "Ring Projection Backend Delivery",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "backend-delivery:rings": {
       "affects": [],
@@ -37965,7 +37664,7 @@
       ],
       "task": null,
       "title": "Rings Backend Delivery",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "backend-delivery:subscription": {
       "affects": [],
@@ -38020,7 +37719,7 @@
       ],
       "task": null,
       "title": "Subscription (Free vs Pro) Backend Delivery",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "backend-delivery:view-as": {
       "affects": [],
@@ -38070,7 +37769,7 @@
       ],
       "task": null,
       "title": "View As & Pin Views Backend Delivery",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "backend-delivery:widgets": {
       "affects": [],
@@ -38125,7 +37824,7 @@
       ],
       "task": null,
       "title": "Widgets Backend Delivery",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "backend-integration:T-063": {
       "affects": [],
@@ -42843,7 +42542,6 @@
         "approved": 2,
         "blocked": 5,
         "decided": 1,
-        "done": 1,
         "draft": 1,
         "missing": 10,
         "todo": 3,
@@ -48738,7 +48436,7 @@
       "task": null,
       "template": null,
       "title": "Commerce Module",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "module:connections": {
       "affects": [],
@@ -48793,7 +48491,7 @@
       "task": null,
       "template": null,
       "title": "Connections Module",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "module:discovery": {
       "affects": [],
@@ -48849,7 +48547,7 @@
       "task": null,
       "template": null,
       "title": "Discovery Module",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "module:events": {
       "affects": [],
@@ -48909,7 +48607,7 @@
       "task": null,
       "template": null,
       "title": "Events Module",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "module:identity": {
       "affects": [],
@@ -48979,7 +48677,7 @@
       "task": null,
       "template": null,
       "title": "Identity Core Module",
-      "updated": "2026-10-21"
+      "updated": "2026-10-26"
     },
     "module:meetings": {
       "affects": [],
@@ -49032,7 +48730,7 @@
       "task": null,
       "template": null,
       "title": "Meetings Module",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "module:platform": {
       "affects": [],
@@ -49080,7 +48778,7 @@
         "approved": 11,
         "blocked": 34,
         "decided": 3,
-        "done": 2,
+        "done": 1,
         "draft": 25,
         "in-progress": 11,
         "missing": 48,
@@ -49099,7 +48797,7 @@
       "task": null,
       "template": null,
       "title": "Platform & Cross-cutting Module",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "module:shared-rings": {
       "affects": [],
@@ -49157,7 +48855,7 @@
       "task": null,
       "template": null,
       "title": "Shared Rings & Companies Module",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "project:admin-agent": {
       "affects": [],
@@ -50550,7 +50248,7 @@
       ],
       "task": null,
       "title": "Workflow",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "qa-backend:T-063": {
       "affects": [],
@@ -54119,7 +53817,7 @@
         "blocked": 150,
         "current": 9,
         "decided": 13,
-        "done": 17,
+        "done": 16,
         "draft": 94,
         "in-progress": 44,
         "missing": 151,
@@ -57866,7 +57564,6 @@
       "card": "S-87",
       "children": [
         "task:T-063",
-        "task:T-064",
         "task:T-067"
       ],
       "code": "error-contract",
@@ -70112,58 +69809,6 @@
       "task": null,
       "title": "T-063-fe Frontend · Put the ErrorCode on the error body",
       "updated": "2026-10-19"
-    },
-    "task:T-064": {
-      "affects": [
-        "project:docs-tree",
-        "project:workflow",
-        "project:agent-rules"
-      ],
-      "blockedBy": [],
-      "card": "T-064",
-      "children": [],
-      "code": "T-064",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": "tasks/T-064 Restructure the docs vault",
-      "effectiveStatus": "done",
-      "effort": "L",
-      "feature": "error-contract",
-      "frontendOnly": false,
-      "id": "task:T-064",
-      "inherits": {
-        "release": "feature:error-contract"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": null,
-      "parents": [
-        "story:error-contract"
-      ],
-      "path": "tasks/T-064 Restructure the docs vault/T-064 Restructure the docs vault.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "mvp",
-      "rollup": {},
-      "scope": null,
-      "screens": [],
-      "status": "done",
-      "summary": "Move the vault from folders-by-layer (features/, stories/, requirements/, frontend/, project/) to layers-by-feature: one folder per module, one per feature, one note per layer (story, frontend…",
-      "tags": [
-        "task",
-        "task/done",
-        "module/platform",
-        "priority/high"
-      ],
-      "task": null,
-      "title": "T-064 Restructure the docs vault",
-      "updated": "2026-10-18"
     },
     "task:T-067": {
       "affects": [
