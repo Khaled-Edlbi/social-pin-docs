@@ -2,7 +2,7 @@
 type: project
 layer: shared
 created: 2026-10-19
-updated: 2026-10-25
+updated: 2026-10-26
 depends: ["Agent Protocol"]
 affects: []
 related: ["Agent Protocol", "Agent Rules", "Workflow", "Architecture", "API Conventions", "Ring Access Model", "Frontend API Guide"]
@@ -25,7 +25,7 @@ You **write**:
 - the backend half of a task, `T-NNN-be Backend · …` (status, DoD, log, pending);
 - the reference in `backend/` ([[Spec Map]], [[Developer Guide]], [[API Conventions]], [[Database & Migrations]], [[Architecture]], [[Developer Setup]]) when the stack, a migration or a convention changed, and [[Frontend API Guide]] when the contract moved;
 - the decision card a card of yours cannot continue without (`--scaffold decision "<card>" "<title>"`): you raise and fill it; the PM or the owner decide it ([[Agent Rules#4 · Statuses, blocking and sign-off]]);
-- **lines, never rewrites**, in three notes that are not yours: the ✅ / ❌ rows of a Frontend Requirements note (✅ with the endpoint once it exists), the *Backend* column of a module note and the `**Backend:**` line of a feature note ([[Agent Rules#6 · After a task — the checklist, by layer]]). A requirements list goes `approved` on your word when the backend accepts it ([[Workflow#3 · The layers, in flow order]]).
+- **lines, never rewrites**, in three notes that are not yours: the ✅ / ❌ rows of a Frontend Requirements note (✅ with the endpoint once it exists), the *Backend* column of a module note and the `**Backend:**` line of a feature note ([[Agent Rules#6 · After a task — the checklist, by layer]]). A requirements list the frontend has set `ready` (📨) is yours to review: it goes `approved` on your word when the backend accepts it, or back to `draft` with a line in the note saying what is missing ([[Workflow#3 · The layers, in flow order]]); a list still in `draft` is not finished, wait for `ready`.
 
 You read the story, the Frontend Requirements, the feature note and the screens. You never write a story, a frontend delivery, a QA note, a task's `What`, or a project note outside `backend/`: you flag it ([[Agent Protocol#4 · Act, inside your scope]]).
 
@@ -41,7 +41,7 @@ You read the story, the Frontend Requirements, the feature note and the screens.
 |---|---|
 | which ticket and half (`T-NNN-be`) or which feature-level note | from `--find`; a feature-level note only when the change is not a ticket's |
 | the endpoints, by method and path, and the error codes, exactly as the code spells them | none invented: what the user or the code says |
-| is the Frontend Requirements note `approved`? the half is ⛔ Blocked until then | if not, stop: the flow blocks it ([[Agent Rules#4 · Statuses, blocking and sign-off]]) |
+| is the Frontend Requirements note `approved`? the half is ⛔ Blocked until then (`ready` does not unblock it) | if `ready`: review it, approve or send it back; if `draft`: stop, the frontend has not finished it ([[Agent Rules#4 · Statuses, blocking and sign-off]]) |
 | the branch and the commit that shipped it (for the log) | ask |
 | does the change move the contract (shapes, errors, auth, pagination)? | if yes: [[Frontend API Guide]] and the requirements rows, and a flag on the Frontend Delivery notes that use it |
 

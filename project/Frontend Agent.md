@@ -2,7 +2,7 @@
 type: project
 layer: shared
 created: 2026-10-19
-updated: 2026-10-25
+updated: 2026-10-26
 depends: ["Agent Protocol"]
 affects: []
 related: ["Agent Protocol", "Agent Rules", "Workflow", "Frontend Contract", "Frontend API Guide", "Frontend Agent Prompt"]
@@ -49,7 +49,7 @@ You read the story, the Backend Integration note (how to call what exists), the 
 
 ### 4A · Requirements, before any backend work
 
-`node scripts/build-tree.mjs --scaffold frontend-requirements T-NNN-fe`; per screen, what the client needs; the endpoints table with ✅ (exists, from the Backend Integration note) or ❌ with the backend task that brings it; the error codes you will branch on (`ErrorCode`, never `message`: [[Frontend Contract]]); `related:` the screens, endpoints and error codes, and the backend half; `affects:` the backend half. Never `depends:` the backend half: the build reads `depends` as a blocker, and the backend half itself waits on these requirements being `approved`, so the two would block each other. `status: draft`; the backend sets `approved` when it accepts the list, and the backend half is blocked until then. You never set `delivered`: the build shows the list ✅ Delivered on its own once the Backend Delivery and Backend Integration of its scope are done with nothing pending (only on a `frontendOnly` feature, which has no backend cards, do you set it by hand).
+`node scripts/build-tree.mjs --scaffold frontend-requirements T-NNN-fe`; per screen, what the client needs; the endpoints table with ✅ (exists, from the Backend Integration note) or ❌ with the backend task that brings it; the error codes you will branch on (`ErrorCode`, never `message`: [[Frontend Contract]]); `related:` the screens, endpoints and error codes, and the backend half; `affects:` the backend half. Never `depends:` the backend half: the build reads `depends` as a blocker, and the backend half itself waits on these requirements being `approved`, so the two would block each other. `status: draft` while you write it; `ready` (📨, the tag `frontend-requirements/ready`, `updated:`) once every screen, endpoint row and error state is in: that is the hand-over to the backend. The backend sets `approved` when it accepts the list, or sends it back to `draft` with what is missing; the backend half is blocked until `approved` (`ready` unblocks nothing). A list sent back is fixed and set `ready` again. You never set `delivered`: the build shows the list ✅ Delivered on its own once the Backend Delivery and Backend Integration of its scope are done with nothing pending (only on a `frontendOnly` feature, which has no backend cards, do you set it by hand).
 
 ### 4B · Delivery, after shipping
 

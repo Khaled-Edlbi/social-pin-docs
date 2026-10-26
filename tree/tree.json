@@ -36020,6 +36020,7 @@
     "needs-decision": "❓",
     "partial": "🟡",
     "passing": "🟢",
+    "ready": "📨",
     "reference": "📘",
     "todo": "⬜",
     "verified": "✅"
@@ -38263,6 +38264,7 @@
           "label": "Frontend Requirements",
           "statuses": [
             "draft",
+            "ready",
             "approved",
             "delivered"
           ],
@@ -38376,6 +38378,7 @@
     "needs-decision": "Needs decision",
     "partial": "Partial",
     "passing": "Passing",
+    "ready": "Ready",
     "reference": "Reference",
     "todo": "To do",
     "verified": "Fulfilled"
@@ -52725,7 +52728,7 @@
       ],
       "task": null,
       "title": "Backend Agent",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "project:database-migrations": {
       "affects": [],
@@ -53030,7 +53033,7 @@
       ],
       "task": null,
       "title": "Frontend Agent",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "project:frontend-agent-prompt": {
       "affects": [],
