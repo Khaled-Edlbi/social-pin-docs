@@ -452,7 +452,8 @@ const STATUS_GROUPS = [
 const KIND = {
   root: { name: 'Project', short: 'Project', icon: 'ph-circles-three' }, module: { name: 'Module', short: 'Modules', icon: 'ph-folders' },
   group: { name: 'Docs', short: 'Docs', icon: 'ph-books' }, feature: { name: 'Feature', short: 'Features', icon: 'ph-diamond' },
-  task: { name: 'Task', short: 'Tasks', icon: 'ph-check-square' }, decision: { name: 'Needs decision', short: 'Needs decision', icon: 'ph-scales' }, 'decision-record': { name: 'Decision', short: 'Decisions', icon: 'ph-seal-check' },
+  // a task is a business-layer card like a story, so it carries the layer the same way the layer kinds do (the mark on the node, `· Business layer` in the pane); the layer kinds get theirs from `d.layers` below
+  task: { name: 'Task', short: 'Tasks', icon: 'ph-check-square', layer: 'business' }, decision: { name: 'Needs decision', short: 'Needs decision', icon: 'ph-scales' }, 'decision-record': { name: 'Decision', short: 'Decisions', icon: 'ph-seal-check' },
   project: { name: 'Project note', short: 'Project notes', icon: 'ph-book-open' },
 };
 const KIND_ICON = { story: 'ph-chat-text', 'frontend-requirements': 'ph-clipboard-text', 'backend-delivery': 'ph-wrench', 'backend-integration': 'ph-plugs-connected', 'frontend-delivery': 'ph-device-mobile', 'qa-backend': 'ph-flask', 'qa-frontend': 'ph-test-tube' };
@@ -632,8 +633,10 @@ function statusText(n) {
   if (b.length && (n.effectiveStatus === 'blocked' || n.effectiveStatus === 'missing')) { const t = node(b[0].id); return `${n.effectiveStatus === 'blocked' ? 'Blocked' : l} · ${(t.kind === 'task' || t.kind === 'decision') && t.code ? t.code : (kindOf(t.kind).name)}${b.length > 1 ? ` +${b.length - 1}` : ''}`; }
   return l;
 }
-// a decision's and a decision record's title starts with its code (`D-08 Payment methods…`, `DR-08 Stripe card checkout only`): the card shows the code in the kicker, like `F-41 · FEATURE`, and the title without it
-const CODE_TITLED = new Set(['decision', 'decision-record']);
+// the cards whose file name starts with their code (`D-08 Payment methods…`, `DR-08 Stripe card checkout only`, `T-074 An unverified changed email…`): the card shows the code in the kicker, like `F-41 · FEATURE`, and the title without it
+const CODE_TITLED = new Set(['decision', 'decision-record', 'task']);
+// the two decision cards, which cluster together in the graph and are the only non-feature nodes the features scope keeps; not the same set as CODE_TITLED since tasks are titled by code but belong to their own module
+const DECISION_CARDS = new Set(['decision', 'decision-record']);
 const shown = (n) => (CODE_TITLED.has(n.kind) && n.card && n.title.startsWith(n.card) ? n.title.slice(n.card.length).replace(/^[\s·:-]+/, '') || n.title : n.title);
 // the kicker names the kind and never changes: a needs-decision card (D-NN) always reads NEEDS DECISION, its decision card (DR-NN) DECISION; the chip says Draft, Open or Fulfilled (DR: Draft or Decided)
 const kicker = (n) => (n.card && (CODE_TITLED.has(n.kind) || !n.title.startsWith(n.card)) ? n.card + ' · ' : '') + kindOf(n.kind).name.toUpperCase() + (n.parentTask ? ' · SUB-TASK OF ' + n.parentTask : '') + (n.frontendOnly ? ' · FRONTEND ONLY' : '');
@@ -780,8 +783,8 @@ function layoutTree() {
 }
 
 // ------------------------------------------------------------ graph (force layout, clustered by module)
-const graphNodes = (scope) => Object.values(S.D.nodes).filter((n) => scope === 'features' ? (n.kind === 'feature' || CODE_TITLED.has(n.kind)) : !['root', 'module', 'group'].includes(n.kind));
-const clusterOf = (n) => CODE_TITLED.has(n.kind) ? '_decisions' : n.kind === 'project' ? '_project' : (n.module || '_other');
+const graphNodes = (scope) => Object.values(S.D.nodes).filter((n) => scope === 'features' ? (n.kind === 'feature' || DECISION_CARDS.has(n.kind)) : !['root', 'module', 'group'].includes(n.kind));
+const clusterOf = (n) => DECISION_CARDS.has(n.kind) ? '_decisions' : n.kind === 'project' ? '_project' : (n.module || '_other');
 function simulate(scope) {
   const d = S.D, N = graphNodes(scope);
   const idx = new Map(N.map((n, i) => [n.id, i]));
