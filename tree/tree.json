@@ -39289,7 +39289,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
-      "release": "v1",
+      "release": "mvp",
       "scope": "feature",
       "screens": [
         "s07",
@@ -45701,7 +45701,7 @@
         "project:api-conventions",
         "project:spec-map"
       ],
-      "release": "v1",
+      "release": "mvp",
       "rollup": {
         "approved": 1,
         "blocked": 2,
@@ -45720,11 +45720,11 @@
         "feature",
         "module/platform",
         "priority/high",
-        "release/v1"
+        "release/mvp"
       ],
       "task": null,
       "title": "Interests",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "feature:linked-accounts": {
       "affects": [],
@@ -50183,7 +50183,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
-      "release": "v1",
+      "release": "mvp",
       "scope": "feature",
       "screens": [
         "s07",
@@ -56975,13 +56975,13 @@
           "done": 0,
           "id": "mvp",
           "partial": 0,
-          "total": 19
+          "total": 20
         },
         {
           "done": 0,
           "id": "v1",
           "partial": 0,
-          "total": 18
+          "total": 17
         },
         {
           "done": 0,
@@ -57796,7 +57796,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
-      "release": "v1",
+      "release": "mvp",
       "scope": "task",
       "screens": [
         "s07",
@@ -61489,7 +61489,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
-      "release": "v1",
+      "release": "mvp",
       "scope": "feature",
       "screens": [
         "s07",
@@ -65075,7 +65075,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
-      "release": "v1",
+      "release": "mvp",
       "rollup": {
         "blocked": 1,
         "draft": 1,
@@ -65132,7 +65132,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
-      "release": "v1",
+      "release": "mvp",
       "rollup": {},
       "scope": null,
       "screens": [
@@ -65194,7 +65194,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
-      "release": "v1",
+      "release": "mvp",
       "rollup": {},
       "scope": null,
       "screens": [
