@@ -8327,7 +8327,7 @@
     {
       "from": "task:T-020",
       "kind": "depends",
-      "to": "decision:D-02"
+      "to": "decision-record:DR-02"
     },
     {
       "from": "task:T-020",
@@ -65786,7 +65786,7 @@
       "decision": null,
       "depends": [
         "task:T-019",
-        "decision:D-02"
+        "decision-record:DR-02"
       ],
       "dir": "tasks/T-020 LinkedIn import → review → base profile",
       "effectiveStatus": "blocked",
@@ -65825,17 +65825,17 @@
         "s04",
         "s05"
       ],
-      "status": "blocked",
+      "status": "todo",
       "summary": "Import endpoint returns candidate fields; confirm endpoint writes the chosen ones to the main profile (headline, role, company, location, photo, bio: DR-02 One main profile every Ring starts…",
       "tags": [
         "task",
-        "task/blocked",
+        "task/todo",
         "module/identity",
         "priority/high"
       ],
       "task": null,
       "title": "T-020 LinkedIn import → review → base profile",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "task:T-020-be": {
       "affects": [],
