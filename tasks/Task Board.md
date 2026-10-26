@@ -195,6 +195,8 @@ kanban-plugin: board
 - [ ] [[T-068-be Backend · Account moderation and platform role]] #high #operator-panel #backend
 - [ ] [[T-069 Scoped role grants]] #high #operator-panel
 - [ ] [[T-069-be Backend · Scoped role grants]] #high #operator-panel #backend
+- [ ] [[T-071 Audit-log read endpoints]] #high #operator-panel
+- [ ] [[T-071-be Backend · Audit-log read endpoints]] #high #operator-panel #backend
 - [ ] [[T-070 Roles and permissions catalogue]] #medium #operator-panel
 - [ ] [[T-070-be Backend · Roles and permissions catalogue]] #medium #operator-panel #backend
 
