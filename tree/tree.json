@@ -39053,7 +39053,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
-      "release": "v1",
+      "release": "mvp",
       "scope": "feature",
       "screens": [
         "s03",
@@ -45532,7 +45532,7 @@
         "project:api-conventions",
         "project:spec-map"
       ],
-      "release": "v1",
+      "release": "mvp",
       "rollup": {
         "approved": 1,
         "blocked": 5,
@@ -45557,11 +45557,11 @@
         "feature",
         "module/identity",
         "priority/high",
-        "release/v1"
+        "release/mvp"
       ],
       "task": null,
       "title": "Onboarding Imports",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "feature:operator-panel": {
       "affects": [],
@@ -49901,7 +49901,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
-      "release": "v1",
+      "release": "mvp",
       "scope": "feature",
       "screens": [
         "s03",
@@ -56494,13 +56494,13 @@
           "done": 0,
           "id": "mvp",
           "partial": 0,
-          "total": 18
+          "total": 19
         },
         {
           "done": 0,
           "id": "v1",
           "partial": 0,
-          "total": 19
+          "total": 18
         },
         {
           "done": 0,
@@ -57511,7 +57511,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
-      "release": "v1",
+      "release": "mvp",
       "scope": "task",
       "screens": [
         "s04",
@@ -57560,7 +57560,7 @@
       "pending": [],
       "priority": "medium",
       "related": [],
-      "release": "v1",
+      "release": "mvp",
       "scope": "task",
       "screens": [
         "s03a",
@@ -61161,7 +61161,7 @@
       "related": [
         "decision-record:DR-02"
       ],
-      "release": "v1",
+      "release": "mvp",
       "scope": "feature",
       "screens": [
         "s03",
@@ -65267,7 +65267,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
-      "release": "v1",
+      "release": "mvp",
       "rollup": {
         "blocked": 2,
         "draft": 1
@@ -65332,7 +65332,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
-      "release": "v1",
+      "release": "mvp",
       "rollup": {},
       "scope": null,
       "screens": [
@@ -65401,7 +65401,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
-      "release": "v1",
+      "release": "mvp",
       "rollup": {},
       "scope": null,
       "screens": [
@@ -65459,7 +65459,7 @@
       "pending": [],
       "priority": "medium",
       "related": [],
-      "release": "v1",
+      "release": "mvp",
       "rollup": {
         "blocked": 1,
         "draft": 1,
@@ -65518,7 +65518,7 @@
       "pending": [],
       "priority": "medium",
       "related": [],
-      "release": "v1",
+      "release": "mvp",
       "rollup": {},
       "scope": null,
       "screens": [
@@ -65581,7 +65581,7 @@
       "pending": [],
       "priority": "medium",
       "related": [],
-      "release": "v1",
+      "release": "mvp",
       "rollup": {},
       "scope": null,
       "screens": [
