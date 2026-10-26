@@ -206,7 +206,7 @@ kanban-plugin: board
 
 ## 🟡 Partial (done, notes pending)
 
-- [ ] [[B-01 An unverified changed email still signs in]] #high #account #bug — [[Account Backend Delivery]]: correct the "proven again before it can sign in" sentence and clear the QA flag (/backend); [[Account Backend Integration]]: say that a changed destination is unverified and still signs in (/backend); [[Account QA Backend]]: re-run row B9 against the corrected notes (/qa); [[Account QA Frontend]]: re-run row F10 against the corrected notes (/qa); @khaled: re-approve [[Account Story]] after the S2 and S3 copy change (/owner)
+- [ ] [[B-01 An unverified changed email still signs in]] #high #account #bug #resolution/by-design — [[Account Backend Delivery]]: correct the "proven again before it can sign in" sentence and clear the QA flag (/backend); [[Account Backend Integration]]: say that a changed destination is unverified and still signs in (/backend); [[Account QA Backend]]: re-run row B9 against the corrected notes (/qa); [[Account QA Frontend]]: re-run row F10 against the corrected notes (/qa); @khaled: re-approve [[Account Story]] after the S2 and S3 copy change (/owner)
 - [ ] [[T-073 GitLab pipeline and Docker setup]] #medium #build-deploy #chore — @backend: the pipeline's runs are not verified from here; @backend: no production job — only development and stage; @backend: docs-only task, so no layer notes (Workflow §3)
 
 

@@ -141,6 +141,16 @@
       { "id": "low", "label": "Low", "color": "#64748b", "aliases": ["P3"], "description": "Nice to have; whenever there is room." }
     ]
   },
+  "resolutions": {
+    "description": "How a bug ended, typed as resolution: <id> on a bug card only (a task with labels: [bug]) and mirrored by the tag resolution/<id>. It never replaces status:, which says where the card stands (todo … done) and nothing about the outcome; a bug closed with status: done and a pending list is still Partial, whatever its resolution says. The build errors on the key anywhere but a bug and warns when a bug is done without one. Set by the agents in agents.reservedFields.resolution (the PM, who closes bugs, and QA, who files them); the rule is project/Agent Rules.md §4.",
+    "levels": [
+      { "id": "fixed", "label": "Fixed", "color": "#16a34a", "description": "The behaviour changed: code shipped and the bug is gone." },
+      { "id": "by-design", "label": "By design", "color": "#0ea5e9", "description": "The build was right and the expectation was wrong; the words moved instead. The decision card it rests on is named in the card's related." },
+      { "id": "duplicate", "label": "Duplicate", "color": "#64748b", "description": "Another card covers it, named in related." },
+      { "id": "cannot-reproduce", "label": "Cannot reproduce", "color": "#6b7280", "description": "Not seen again on a named build." },
+      { "id": "wont-fix", "label": "Won't fix", "color": "#f59e0b", "description": "Real, accepted and not scheduled; the gap stays written down, with the decision card it rests on in related." }
+    ]
+  },
   "deadlines": {
     "description": "deadline: YYYY-MM-DD on any card (a layer note inherits its task's or feature's). The tree colours a clock by how much of the last windowDays is left, split evenly over zones from farthest to nearest: with windowDays 3, more than two days left is on track (green), the day before is due soon (yellow), the deadline day is the last day (red); after it the card is missed (skull). The colour is computed when the page is viewed, never written into the generated files.",
     "windowDays": 3,
@@ -205,9 +215,10 @@
     "marker": ".claude/.active-agent",
     "protocol": "project/Agent Protocol.md",
     "reservedFields": {
-      "description": "Frontmatter keys only the agents listed may add, change or remove, on any note, whoever owns the note otherwise (the admin excepted): a feature's release and the project's stage are the owner's (project/Agent Rules.md §4).",
+      "description": "Frontmatter keys only the agents listed may add, change or remove, on any note, whoever owns the note otherwise (the admin excepted): a feature's release and the project's stage are the owner's, a bug's resolution is the PM's and QA's (project/Agent Rules.md §4).",
       "release": ["owner"],
-      "stage": ["owner"]
+      "stage": ["owner"],
+      "resolution": ["pm", "qa"]
     },
     "list": [
       {

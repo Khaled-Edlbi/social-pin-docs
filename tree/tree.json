@@ -38200,6 +38200,7 @@
         "task:B-02"
       ],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s68"
@@ -38249,6 +38250,7 @@
       "priority": "medium",
       "related": [],
       "release": "later",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s00a",
@@ -38307,6 +38309,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [],
       "status": "todo",
@@ -38354,6 +38357,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s01",
@@ -38413,6 +38417,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s34",
@@ -38517,6 +38522,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [],
       "status": "todo",
@@ -38570,6 +38576,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s02"
@@ -38625,6 +38632,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s72",
@@ -38681,6 +38689,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s44",
@@ -38740,6 +38749,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s11",
@@ -38800,6 +38810,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s26",
@@ -38856,6 +38867,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s75"
@@ -38911,6 +38923,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s38"
@@ -38966,6 +38979,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [],
       "status": "todo",
@@ -39022,6 +39036,7 @@
         "qa-backend:account"
       ],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [],
       "status": "in-progress",
@@ -39075,6 +39090,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s52"
@@ -39130,6 +39146,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s48",
@@ -39189,6 +39206,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s53",
@@ -39249,6 +39267,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s63",
@@ -39300,6 +39319,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s14",
@@ -39357,6 +39377,7 @@
       "priority": "medium",
       "related": [],
       "release": "later",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s13",
@@ -39413,6 +39434,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s07",
@@ -39469,6 +39491,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s01",
@@ -39526,6 +39549,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s59",
@@ -39585,6 +39609,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s69"
@@ -39640,6 +39665,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s03",
@@ -39745,6 +39771,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s50",
@@ -39801,6 +39828,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s29",
@@ -39857,6 +39885,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s11",
@@ -39916,6 +39945,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s62"
@@ -39965,6 +39995,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s06"
@@ -40014,6 +40045,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [],
       "status": "done",
@@ -40067,6 +40099,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s17",
@@ -40117,6 +40150,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s15",
@@ -40167,6 +40201,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s14",
@@ -40222,6 +40257,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s08",
@@ -40287,6 +40323,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s34",
@@ -40337,6 +40374,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s10",
@@ -40394,6 +40432,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s36",
@@ -40497,6 +40536,7 @@
         "qa-frontend:account"
       ],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s68"
@@ -40597,6 +40637,7 @@
         "qa-backend:account"
       ],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s01",
@@ -41386,6 +41427,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s14",
@@ -41945,6 +41987,7 @@
         "qa-backend:account"
       ],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s06"
@@ -41994,6 +42037,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [],
       "status": "current",
@@ -42087,6 +42131,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s15",
@@ -42139,6 +42184,7 @@
         "qa-backend:account"
       ],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s14",
@@ -42194,6 +42240,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s08",
@@ -42299,6 +42346,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s10",
@@ -42408,6 +42456,7 @@
         "feature:code-delivery"
       ],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [],
       "status": "decided",
@@ -42478,6 +42527,7 @@
         "story:ring-projection"
       ],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [],
       "status": "decided",
@@ -42538,6 +42588,7 @@
         "story:widgets"
       ],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [],
       "status": "decided",
@@ -42616,6 +42667,7 @@
         "story:T-023"
       ],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [],
       "status": "decided",
@@ -42679,6 +42731,7 @@
         "story:rings"
       ],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [],
       "status": "decided",
@@ -42740,6 +42793,7 @@
         "story:gemma"
       ],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [],
       "status": "decided",
@@ -42799,6 +42853,7 @@
         "story:payments"
       ],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [],
       "status": "decided",
@@ -42860,6 +42915,7 @@
         "story:T-022"
       ],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [],
       "status": "decided",
@@ -42931,6 +42987,7 @@
         "story:T-023"
       ],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [],
       "status": "decided",
@@ -42993,6 +43050,7 @@
         "story:T-023"
       ],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [],
       "status": "decided",
@@ -43053,6 +43111,7 @@
         "story:T-022"
       ],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [],
       "status": "decided",
@@ -43119,6 +43178,7 @@
         "story:ring-invitations"
       ],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [],
       "status": "decided",
@@ -43177,6 +43237,7 @@
         "story:T-063"
       ],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [],
       "status": "decided",
@@ -43239,6 +43300,7 @@
         "story:account"
       ],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [],
       "status": "decided",
@@ -43294,6 +43356,7 @@
         "decision-record:DR-01"
       ],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [
         "s01",
@@ -43355,6 +43418,7 @@
         "decision-record:DR-02"
       ],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [
         "s05",
@@ -43415,6 +43479,7 @@
         "decision-record:DR-03"
       ],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [
         "s20",
@@ -43478,6 +43543,7 @@
         "decision-record:DR-04"
       ],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [
         "s19",
@@ -43539,6 +43605,7 @@
         "decision-record:DR-05"
       ],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [
         "s18",
@@ -43598,6 +43665,7 @@
         "decision-record:DR-06"
       ],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [
         "s06"
@@ -43662,6 +43730,7 @@
         "decision-record:DR-07"
       ],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [
         "s51",
@@ -43721,6 +43790,7 @@
         "story:T-021"
       ],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [
         "s43",
@@ -43775,6 +43845,7 @@
         "feature:badge-qr"
       ],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [
         "s34"
@@ -43830,6 +43901,7 @@
         "feature:badge-qr"
       ],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [
         "s34",
@@ -43891,6 +43963,7 @@
         "decision-record:DR-13"
       ],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [
         "s44",
@@ -43951,6 +44024,7 @@
         "decision-record:DR-14"
       ],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [
         "s17",
@@ -44010,6 +44084,7 @@
         "decision-record:DR-15"
       ],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [
         "s15",
@@ -44066,6 +44141,7 @@
         "feature:view-as"
       ],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [
         "s14",
@@ -44131,6 +44207,7 @@
         "decision-record:DR-17"
       ],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [
         "s44",
@@ -44198,6 +44275,7 @@
         "decision-record:DR-18"
       ],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [
         "s17",
@@ -44260,6 +44338,7 @@
         "decision-record:DR-19"
       ],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [],
       "status": "needs-decision",
@@ -44326,6 +44405,7 @@
         "story:account"
       ],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [
         "s68"
@@ -44394,6 +44474,7 @@
         "feature:operator-panel"
       ],
       "release": "mvp",
+      "resolution": null,
       "rollup": {
         "approved": 1,
         "current": 1,
@@ -44466,6 +44547,7 @@
         "project:spec-map"
       ],
       "release": "later",
+      "resolution": null,
       "rollup": {
         "approved": 1,
         "done": 1,
@@ -44542,6 +44624,7 @@
         "story:payments"
       ],
       "release": "mvp",
+      "resolution": null,
       "rollup": {
         "approved": 1,
         "blocked": 1,
@@ -44620,6 +44703,7 @@
         "feature:operator-panel"
       ],
       "release": "mvp",
+      "resolution": null,
       "rollup": {
         "approved": 1,
         "current": 1,
@@ -44707,6 +44791,7 @@
         "decision-record:DR-06"
       ],
       "release": "mvp",
+      "resolution": null,
       "rollup": {
         "approved": 1,
         "blocked": 13,
@@ -44781,6 +44866,7 @@
         "project:spec-map"
       ],
       "release": "later",
+      "resolution": null,
       "rollup": {
         "missing": 7,
         "partial": 1
@@ -44847,6 +44933,7 @@
         "project:spec-map"
       ],
       "release": "v1",
+      "resolution": null,
       "rollup": {
         "approved": 1,
         "blocked": 1,
@@ -44916,6 +45003,7 @@
         "decision-record:DR-01"
       ],
       "release": "mvp",
+      "resolution": null,
       "rollup": {
         "approved": 1,
         "blocked": 5,
@@ -44991,6 +45079,7 @@
         "decision:D-18"
       ],
       "release": "v1",
+      "resolution": null,
       "rollup": {
         "blocked": 3,
         "decided": 2,
@@ -45078,6 +45167,7 @@
         "decision:D-17"
       ],
       "release": "mvp",
+      "resolution": null,
       "rollup": {
         "approved": 2,
         "blocked": 13,
@@ -45156,6 +45246,7 @@
         "project:spec-map"
       ],
       "release": "v1",
+      "resolution": null,
       "rollup": {
         "approved": 2,
         "blocked": 5,
@@ -45235,6 +45326,7 @@
         "project:spec-map"
       ],
       "release": "v1",
+      "resolution": null,
       "rollup": {
         "approved": 1,
         "blocked": 2,
@@ -45310,6 +45402,7 @@
         "project:spec-map"
       ],
       "release": "v1",
+      "resolution": null,
       "rollup": {
         "approved": 1,
         "blocked": 5,
@@ -45382,6 +45475,7 @@
         "project:spec-map"
       ],
       "release": "v1",
+      "resolution": null,
       "rollup": {
         "approved": 1,
         "blocked": 3,
@@ -45454,6 +45548,7 @@
         "project:spec-map"
       ],
       "release": "mvp",
+      "resolution": null,
       "rollup": {
         "approved": 1,
         "blocked": 1,
@@ -45523,6 +45618,7 @@
         "story:T-067"
       ],
       "release": "mvp",
+      "resolution": null,
       "rollup": {
         "approved": 2,
         "blocked": 5,
@@ -45600,6 +45696,7 @@
         "story:events-before"
       ],
       "release": "mvp",
+      "resolution": null,
       "rollup": {
         "approved": 1,
         "blocked": 3,
@@ -45674,6 +45771,7 @@
         "story:payments"
       ],
       "release": "mvp",
+      "resolution": null,
       "rollup": {
         "approved": 1,
         "blocked": 8,
@@ -45759,6 +45857,7 @@
         "story:payments"
       ],
       "release": "mvp",
+      "resolution": null,
       "rollup": {
         "blocked": 16,
         "draft": 6,
@@ -45837,6 +45936,7 @@
         "project:spec-map"
       ],
       "release": "v1",
+      "resolution": null,
       "rollup": {
         "approved": 1,
         "blocked": 7,
@@ -45911,6 +46011,7 @@
         "decision:D-16"
       ],
       "release": "v1",
+      "resolution": null,
       "rollup": {
         "approved": 1,
         "blocked": 2,
@@ -45993,6 +46094,7 @@
         "project:spec-map"
       ],
       "release": "later",
+      "resolution": null,
       "rollup": {
         "blocked": 7,
         "decided": 1,
@@ -46065,6 +46167,7 @@
         "project:spec-map"
       ],
       "release": "v1",
+      "resolution": null,
       "rollup": {
         "approved": 1,
         "blocked": 2,
@@ -46138,6 +46241,7 @@
         "project:spec-map"
       ],
       "release": "v1",
+      "resolution": null,
       "rollup": {
         "approved": 1,
         "blocked": 2,
@@ -46219,6 +46323,7 @@
         "project:spec-map"
       ],
       "release": "mvp",
+      "resolution": null,
       "rollup": {
         "approved": 1,
         "blocked": 10,
@@ -46298,6 +46403,7 @@
         "feature:ring-invitations"
       ],
       "release": "v1",
+      "resolution": null,
       "rollup": {
         "approved": 1,
         "blocked": 5,
@@ -46371,6 +46477,7 @@
         "project:spec-map"
       ],
       "release": "v1",
+      "resolution": null,
       "rollup": {
         "approved": 1,
         "blocked": 5,
@@ -46452,6 +46559,7 @@
         "project:spec-map"
       ],
       "release": "later",
+      "resolution": null,
       "rollup": {
         "draft": 5,
         "in-progress": 10,
@@ -46522,6 +46630,7 @@
         "story:events-before"
       ],
       "release": "v1",
+      "resolution": null,
       "rollup": {
         "approved": 1,
         "blocked": 1,
@@ -46599,6 +46708,7 @@
         "project:spec-map"
       ],
       "release": "v1",
+      "resolution": null,
       "rollup": {
         "approved": 1,
         "blocked": 5,
@@ -46677,6 +46787,7 @@
         "project:spec-map"
       ],
       "release": "v1",
+      "resolution": null,
       "rollup": {
         "approved": 1,
         "blocked": 2,
@@ -46756,6 +46867,7 @@
         "project:spec-map"
       ],
       "release": "v1",
+      "resolution": null,
       "rollup": {
         "approved": 1,
         "blocked": 4,
@@ -46832,6 +46944,7 @@
         "qa-frontend:account"
       ],
       "release": "mvp",
+      "resolution": null,
       "rollup": {
         "approved": 1,
         "current": 1,
@@ -46912,6 +47025,7 @@
         "feature:delegated-admins"
       ],
       "release": "mvp",
+      "resolution": null,
       "rollup": {
         "approved": 1,
         "current": 1,
@@ -46985,6 +47099,7 @@
         "decision:D-18"
       ],
       "release": "v1",
+      "resolution": null,
       "rollup": {
         "blocked": 8,
         "decided": 2,
@@ -47068,6 +47183,7 @@
         "story:T-023"
       ],
       "release": "mvp",
+      "resolution": null,
       "rollup": {
         "approved": 1,
         "current": 1,
@@ -47150,6 +47266,7 @@
         "decision:D-16"
       ],
       "release": "mvp",
+      "resolution": null,
       "rollup": {
         "approved": 1,
         "current": 1,
@@ -47251,6 +47368,7 @@
         "story:T-022"
       ],
       "release": "mvp",
+      "resolution": null,
       "rollup": {
         "approved": 1,
         "current": 1,
@@ -47338,6 +47456,7 @@
         "story:payments"
       ],
       "release": "v1",
+      "resolution": null,
       "rollup": {
         "approved": 1,
         "blocked": 2,
@@ -47429,6 +47548,7 @@
         "story:T-023"
       ],
       "release": "mvp",
+      "resolution": null,
       "rollup": {
         "approved": 1,
         "current": 1,
@@ -47502,6 +47622,7 @@
         "project:spec-map"
       ],
       "release": "v1",
+      "resolution": null,
       "rollup": {
         "approved": 1,
         "blocked": 4,
@@ -47620,6 +47741,7 @@
         "task:T-063"
       ],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s68"
@@ -49499,6 +49621,7 @@
         "qa-frontend:account"
       ],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s68"
@@ -49548,6 +49671,7 @@
       "priority": "medium",
       "related": [],
       "release": "later",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s00a",
@@ -49600,6 +49724,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [],
       "status": "draft",
@@ -49647,6 +49772,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s01",
@@ -49700,6 +49826,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s34",
@@ -49798,6 +49925,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [],
       "status": "draft",
@@ -49845,6 +49973,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s02"
@@ -49900,6 +50029,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s72",
@@ -49956,6 +50086,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s44",
@@ -50009,6 +50140,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s11",
@@ -50063,6 +50195,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s26",
@@ -50113,6 +50246,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s75"
@@ -50162,6 +50296,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s38"
@@ -50211,6 +50346,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [],
       "status": "draft",
@@ -50258,6 +50394,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [],
       "status": "draft",
@@ -50305,6 +50442,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s52"
@@ -50354,6 +50492,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s48",
@@ -50413,6 +50552,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s53",
@@ -50467,6 +50607,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s63",
@@ -50518,6 +50659,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s14",
@@ -50575,6 +50717,7 @@
       "priority": "medium",
       "related": [],
       "release": "later",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s13",
@@ -50625,6 +50768,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s07",
@@ -50675,6 +50819,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s01",
@@ -50726,6 +50871,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s59",
@@ -50779,6 +50925,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s69"
@@ -50828,6 +50975,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s03",
@@ -50927,6 +51075,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s50",
@@ -50977,6 +51126,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s29",
@@ -51027,6 +51177,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s11",
@@ -51080,6 +51231,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s62"
@@ -51129,6 +51281,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s06"
@@ -51178,6 +51331,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [],
       "status": "draft",
@@ -51231,6 +51385,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s17",
@@ -51281,6 +51436,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s15",
@@ -51331,6 +51487,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s14",
@@ -51386,6 +51543,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s08",
@@ -51445,6 +51603,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s34",
@@ -51495,6 +51654,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s10",
@@ -51546,6 +51706,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s36",
@@ -51792,6 +51953,7 @@
       "priority": null,
       "related": [],
       "release": null,
+      "resolution": null,
       "rollup": {
         "approved": 2,
         "blocked": 3,
@@ -51849,6 +52011,7 @@
       "priority": null,
       "related": [],
       "release": null,
+      "resolution": null,
       "rollup": {
         "approved": 2,
         "blocked": 13,
@@ -51907,6 +52070,7 @@
       "priority": null,
       "related": [],
       "release": null,
+      "resolution": null,
       "rollup": {
         "approved": 3,
         "blocked": 18,
@@ -51966,6 +52130,7 @@
       "priority": null,
       "related": [],
       "release": null,
+      "resolution": null,
       "rollup": {
         "approved": 4,
         "blocked": 38,
@@ -52035,6 +52200,7 @@
       "priority": null,
       "related": [],
       "release": null,
+      "resolution": null,
       "rollup": {
         "approved": 14,
         "blocked": 21,
@@ -52097,6 +52263,7 @@
       "priority": null,
       "related": [],
       "release": null,
+      "resolution": null,
       "rollup": {
         "approved": 1,
         "blocked": 10,
@@ -52163,6 +52330,7 @@
       "priority": null,
       "related": [],
       "release": null,
+      "resolution": null,
       "rollup": {
         "approved": 11,
         "blocked": 34,
@@ -52224,6 +52392,7 @@
       "priority": null,
       "related": [],
       "release": null,
+      "resolution": null,
       "rollup": {
         "approved": 1,
         "blocked": 13,
@@ -52286,6 +52455,7 @@
         "project:owner-agent"
       ],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -52347,6 +52517,7 @@
         "project:qa-agent"
       ],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -52406,6 +52577,7 @@
         "project:workflow"
       ],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -52492,6 +52664,7 @@
         "project:backend-agent"
       ],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -52576,6 +52749,7 @@
         "project:backend-agent"
       ],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -52620,6 +52794,7 @@
         "decision:D-20"
       ],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -52671,6 +52846,7 @@
         "project:frontend-api-guide"
       ],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -52715,6 +52891,7 @@
       "priority": null,
       "related": [],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -52756,6 +52933,7 @@
       "priority": null,
       "related": [],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -52799,6 +52977,7 @@
         "feature:build-deploy"
       ],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -52849,6 +53028,7 @@
         "project:pm-agent"
       ],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -52892,6 +53072,7 @@
       "priority": null,
       "related": [],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -52933,6 +53114,7 @@
       "priority": null,
       "related": [],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -52983,6 +53165,7 @@
         "project:frontend-agent-prompt"
       ],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -53032,6 +53215,7 @@
         "project:frontend-agent"
       ],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -53079,6 +53263,7 @@
         "project:frontend-agent"
       ],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -53124,6 +53309,7 @@
         "project:frontend-agent"
       ],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -53165,6 +53351,7 @@
       "priority": null,
       "related": [],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -53208,6 +53395,7 @@
       "priority": null,
       "related": [],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -53258,6 +53446,7 @@
         "project:pm-agent"
       ],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -53310,6 +53499,7 @@
         "project:docs-tree"
       ],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -53356,6 +53546,7 @@
         "project:docs-tree"
       ],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -53404,6 +53595,7 @@
         "project:workflow"
       ],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -53492,6 +53684,7 @@
         "project:backend-agent"
       ],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -53576,6 +53769,7 @@
         "feature:ring-invitations"
       ],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -53617,6 +53811,7 @@
       "priority": null,
       "related": [],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -53669,6 +53864,7 @@
         "project:agent-rules"
       ],
       "release": null,
+      "resolution": null,
       "scope": null,
       "screens": [],
       "status": null,
@@ -53788,6 +53984,7 @@
         "qa-frontend:account"
       ],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s68"
@@ -55646,6 +55843,7 @@
         "task:T-049"
       ],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s68"
@@ -57625,6 +57823,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s02"
@@ -57674,6 +57873,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s02"
@@ -57723,6 +57923,7 @@
       "priority": "high",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s02"
@@ -57774,6 +57975,7 @@
         "decision-record:DR-04"
       ],
       "release": "v1",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s14",
@@ -57824,6 +58026,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s11",
@@ -57874,6 +58077,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s26",
@@ -57938,6 +58142,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s34"
@@ -57995,6 +58200,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s43",
@@ -58045,6 +58251,7 @@
       "priority": "high",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s34"
@@ -58094,6 +58301,7 @@
       "priority": "high",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s34"
@@ -58143,6 +58351,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s52"
@@ -58192,6 +58401,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s30"
@@ -58241,6 +58451,7 @@
       "priority": "medium",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s30"
@@ -58290,6 +58501,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s75"
@@ -58339,6 +58551,7 @@
       "priority": "medium",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s75"
@@ -58388,6 +58601,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s07",
@@ -58438,6 +58652,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s37"
@@ -58487,6 +58702,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s36",
@@ -58537,6 +58753,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s01",
@@ -58588,6 +58805,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s04",
@@ -58638,6 +58856,7 @@
       "priority": "medium",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s03a",
@@ -58702,6 +58921,7 @@
         "decision:D-10"
       ],
       "release": "mvp",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s44",
@@ -58761,6 +58981,7 @@
         "decision-record:DR-17"
       ],
       "release": "mvp",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s46"
@@ -58818,6 +59039,7 @@
         "decision-record:DR-15"
       ],
       "release": "mvp",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s47"
@@ -58867,6 +59089,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s47"
@@ -58916,6 +59139,7 @@
       "priority": "medium",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s47"
@@ -58965,6 +59189,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s17"
@@ -59014,6 +59239,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s74"
@@ -59063,6 +59289,7 @@
       "priority": "medium",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s74"
@@ -59112,6 +59339,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s72",
@@ -59162,6 +59390,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s38"
@@ -59211,6 +59440,7 @@
       "priority": "medium",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s38"
@@ -59260,6 +59490,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s39",
@@ -59312,6 +59543,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s48",
@@ -59362,6 +59594,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s50"
@@ -59411,6 +59644,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s51",
@@ -59461,6 +59695,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s53",
@@ -59512,6 +59747,7 @@
       "priority": "high",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s56"
@@ -59561,6 +59797,7 @@
       "priority": "high",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s57"
@@ -59610,6 +59847,7 @@
       "priority": "high",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s58"
@@ -59659,6 +59897,7 @@
       "priority": "high",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s53"
@@ -59708,6 +59947,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s59",
@@ -59758,6 +59998,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s59",
@@ -59808,6 +60049,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s59",
@@ -59858,6 +60100,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s61",
@@ -59909,6 +60152,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s69"
@@ -59958,6 +60202,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s69"
@@ -60007,6 +60252,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s51"
@@ -60056,6 +60302,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s63"
@@ -60105,6 +60352,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s65"
@@ -60154,6 +60402,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s70"
@@ -60203,6 +60452,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s62"
@@ -60252,6 +60502,7 @@
       "priority": "medium",
       "related": [],
       "release": "later",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s13"
@@ -60301,6 +60552,7 @@
       "priority": "medium",
       "related": [],
       "release": "later",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s60"
@@ -60350,6 +60602,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "task",
       "screens": [],
       "status": "draft",
@@ -60397,6 +60650,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "task",
       "screens": [],
       "status": "draft",
@@ -60444,6 +60698,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "task",
       "screens": [],
       "status": "draft",
@@ -60499,6 +60754,7 @@
       "priority": "critical",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s14",
@@ -60557,6 +60813,7 @@
         "decision-record:DR-19"
       ],
       "release": "mvp",
+      "resolution": null,
       "scope": "task",
       "screens": [],
       "status": "approved",
@@ -60617,6 +60874,7 @@
         "task:T-063"
       ],
       "release": "mvp",
+      "resolution": null,
       "scope": "task",
       "screens": [
         "s18"
@@ -60666,6 +60924,7 @@
       "priority": "high",
       "related": [],
       "release": "later",
+      "resolution": null,
       "scope": "task",
       "screens": [],
       "status": "draft",
@@ -60713,6 +60972,7 @@
       "priority": "high",
       "related": [],
       "release": "later",
+      "resolution": null,
       "scope": "task",
       "screens": [],
       "status": "draft",
@@ -60760,6 +61020,7 @@
       "priority": "medium",
       "related": [],
       "release": "later",
+      "resolution": null,
       "scope": "task",
       "screens": [],
       "status": "draft",
@@ -60807,6 +61068,7 @@
       "priority": "high",
       "related": [],
       "release": "later",
+      "resolution": null,
       "scope": "task",
       "screens": [],
       "status": "draft",
@@ -60854,6 +61116,7 @@
       "priority": "medium",
       "related": [],
       "release": "later",
+      "resolution": null,
       "scope": "task",
       "screens": [],
       "status": "draft",
@@ -60905,6 +61168,7 @@
         "task:B-01"
       ],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s68"
@@ -60954,6 +61218,7 @@
       "priority": "medium",
       "related": [],
       "release": "later",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s00a",
@@ -61008,6 +61273,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [],
       "status": "approved",
@@ -61059,6 +61325,7 @@
         "decision-record:DR-06"
       ],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s01",
@@ -61117,6 +61384,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s34",
@@ -61213,6 +61481,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [],
       "status": "approved",
@@ -61264,6 +61533,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s02"
@@ -61320,6 +61590,7 @@
         "decision-record:DR-18"
       ],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s72",
@@ -61382,6 +61653,7 @@
         "decision-record:DR-17"
       ],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s44",
@@ -61441,6 +61713,7 @@
         "decision-record:DR-14"
       ],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s11",
@@ -61499,6 +61772,7 @@
         "decision-record:DR-04"
       ],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s26",
@@ -61552,6 +61826,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s75"
@@ -61604,6 +61879,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s38"
@@ -61655,6 +61931,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [],
       "status": "approved",
@@ -61709,6 +61986,7 @@
         "story:T-067"
       ],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [],
       "status": "approved",
@@ -61758,6 +62036,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s52"
@@ -61816,6 +62095,7 @@
         "feature:event-ring-auto"
       ],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s48",
@@ -61875,6 +62155,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s53",
@@ -61932,6 +62213,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s63",
@@ -61985,6 +62267,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s14",
@@ -62041,6 +62324,7 @@
         "decision-record:DR-06"
       ],
       "release": "later",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s13",
@@ -62093,6 +62377,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s07",
@@ -62145,6 +62430,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s01",
@@ -62201,6 +62487,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s59",
@@ -62257,6 +62544,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s69"
@@ -62311,6 +62599,7 @@
         "decision-record:DR-02"
       ],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s03",
@@ -62429,6 +62718,7 @@
         "task:T-040"
       ],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s50",
@@ -62487,6 +62777,7 @@
         "decision-record:DR-05"
       ],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s29",
@@ -62539,6 +62830,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s11",
@@ -62594,6 +62886,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s62"
@@ -62649,6 +62942,7 @@
         "decision-record:DR-06"
       ],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s06"
@@ -62703,6 +62997,7 @@
         "decision-record:DR-18"
       ],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [],
       "status": "approved",
@@ -62759,6 +63054,7 @@
         "decision-record:DR-18"
       ],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s17",
@@ -62814,6 +63110,7 @@
         "decision-record:DR-18"
       ],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s15",
@@ -62871,6 +63168,7 @@
         "decision-record:DR-05"
       ],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s14",
@@ -62933,6 +63231,7 @@
         "decision-record:DR-18"
       ],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s08",
@@ -62994,6 +63293,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s34",
@@ -63044,6 +63344,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s10",
@@ -63100,6 +63401,7 @@
         "decision-record:DR-03"
       ],
       "release": "v1",
+      "resolution": null,
       "scope": "feature",
       "screens": [
         "s36",
@@ -63195,6 +63497,7 @@
         "story:account"
       ],
       "release": "mvp",
+      "resolution": "by-design",
       "rollup": {
         "decided": 1,
         "verified": 1
@@ -63210,7 +63513,8 @@
         "task/done",
         "module/identity",
         "priority/high",
-        "bug"
+        "bug",
+        "resolution/by-design"
       ],
       "task": null,
       "title": "B-01 An unverified changed email still signs in",
@@ -63265,6 +63569,7 @@
         "feature:profiles"
       ],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -63320,6 +63625,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {
         "draft": 1,
         "todo": 1
@@ -63376,6 +63682,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -63439,6 +63746,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {
         "blocked": 1,
         "draft": 1
@@ -63503,6 +63811,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -63576,6 +63885,7 @@
         "decision-record:DR-20"
       ],
       "release": "mvp",
+      "resolution": null,
       "rollup": {
         "blocked": 1,
         "draft": 1
@@ -63646,6 +63956,7 @@
       "priority": "high",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -63702,6 +64013,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {
         "approved": 1,
         "blocked": 1,
@@ -63760,6 +64072,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -63823,6 +64136,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -63891,6 +64205,7 @@
         "qa-frontend:account"
       ],
       "release": "v1",
+      "resolution": null,
       "rollup": {
         "blocked": 2,
         "draft": 1
@@ -63956,6 +64271,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -64025,6 +64341,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -64086,6 +64403,7 @@
         "task:T-069"
       ],
       "release": "v1",
+      "resolution": null,
       "rollup": {
         "blocked": 1,
         "draft": 1,
@@ -64144,6 +64462,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -64207,6 +64526,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -64264,6 +64584,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {
         "blocked": 2,
         "draft": 2,
@@ -64321,6 +64642,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -64383,6 +64705,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -64447,6 +64770,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {
         "blocked": 3,
         "draft": 1
@@ -64512,6 +64836,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -64581,6 +64906,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -64646,6 +64972,7 @@
       "priority": "high",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {
         "blocked": 2,
         "draft": 1
@@ -64710,6 +65037,7 @@
       "priority": "high",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -64778,6 +65106,7 @@
       "priority": "high",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -64848,6 +65177,7 @@
       "priority": "high",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {
         "blocked": 2,
         "draft": 2
@@ -64912,6 +65242,7 @@
       "priority": "high",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -64980,6 +65311,7 @@
       "priority": "high",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -65043,6 +65375,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {
         "blocked": 1,
         "draft": 1
@@ -65107,6 +65440,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -65163,6 +65497,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {
         "blocked": 1,
         "draft": 1,
@@ -65220,6 +65555,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -65282,6 +65618,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -65346,6 +65683,7 @@
       "priority": "medium",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {
         "blocked": 2,
         "draft": 1
@@ -65410,6 +65748,7 @@
       "priority": "medium",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -65478,6 +65817,7 @@
       "priority": "medium",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -65537,6 +65877,7 @@
         "qa-frontend:account"
       ],
       "release": "v1",
+      "resolution": null,
       "rollup": {
         "blocked": 1,
         "draft": 1,
@@ -65594,6 +65935,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -65656,6 +65998,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -65720,6 +66063,7 @@
       "priority": "medium",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {
         "blocked": 2,
         "draft": 1
@@ -65784,6 +66128,7 @@
       "priority": "medium",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -65852,6 +66197,7 @@
       "priority": "medium",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -65908,6 +66254,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {
         "blocked": 1,
         "draft": 1,
@@ -65966,6 +66313,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -66029,6 +66377,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -66086,6 +66435,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {
         "blocked": 1,
         "draft": 1,
@@ -66143,6 +66493,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -66205,6 +66556,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -66270,6 +66622,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {
         "blocked": 2,
         "draft": 1
@@ -66336,6 +66689,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -66406,6 +66760,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -66466,6 +66821,7 @@
         "qa-frontend:account"
       ],
       "release": "v1",
+      "resolution": null,
       "rollup": {
         "blocked": 1,
         "draft": 1,
@@ -66525,6 +66881,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -66589,6 +66946,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -66656,6 +67014,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {
         "blocked": 2,
         "draft": 1
@@ -66722,6 +67081,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -66792,6 +67152,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -66851,6 +67212,7 @@
       "priority": "medium",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {
         "blocked": 1,
         "draft": 1,
@@ -66911,6 +67273,7 @@
       "priority": "medium",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -66975,6 +67338,7 @@
       "priority": "medium",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -67035,6 +67399,7 @@
         "decision-record:DR-17"
       ],
       "release": "mvp",
+      "resolution": null,
       "rollup": {
         "blocked": 2,
         "decided": 2,
@@ -67095,6 +67460,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -67158,6 +67524,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -67227,6 +67594,7 @@
         "decision-record:DR-17"
       ],
       "release": "mvp",
+      "resolution": null,
       "rollup": {
         "approved": 1,
         "blocked": 2,
@@ -67293,6 +67661,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -67361,6 +67730,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -67428,6 +67798,7 @@
         "decision-record:DR-15"
       ],
       "release": "mvp",
+      "resolution": null,
       "rollup": {
         "approved": 1,
         "blocked": 2,
@@ -67494,6 +67865,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -67562,6 +67934,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -67618,6 +67991,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {
         "blocked": 1,
         "draft": 1,
@@ -67675,6 +68049,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -67737,6 +68112,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -67801,6 +68177,7 @@
       "priority": "medium",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {
         "blocked": 2,
         "draft": 1
@@ -67865,6 +68242,7 @@
       "priority": "medium",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -67933,6 +68311,7 @@
       "priority": "medium",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -67991,6 +68370,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {
         "blocked": 1,
         "draft": 1,
@@ -68050,6 +68430,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -68113,6 +68494,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -68178,6 +68560,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {
         "blocked": 2,
         "draft": 1
@@ -68243,6 +68626,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -68312,6 +68696,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -68376,6 +68761,7 @@
       "priority": "medium",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {
         "blocked": 2,
         "draft": 1
@@ -68440,6 +68826,7 @@
       "priority": "medium",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -68508,6 +68895,7 @@
       "priority": "medium",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -68564,6 +68952,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {
         "blocked": 1,
         "draft": 1,
@@ -68622,6 +69011,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -68685,6 +69075,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -68742,6 +69133,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {
         "blocked": 1,
         "draft": 1,
@@ -68799,6 +69191,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -68861,6 +69254,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -68917,6 +69311,7 @@
       "priority": "medium",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {
         "blocked": 1,
         "draft": 1,
@@ -68974,6 +69369,7 @@
       "priority": "medium",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -69036,6 +69432,7 @@
       "priority": "medium",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -69092,6 +69489,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {
         "blocked": 1,
         "draft": 1,
@@ -69152,6 +69550,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -69217,6 +69616,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -69276,6 +69676,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {
         "blocked": 1,
         "draft": 1,
@@ -69334,6 +69735,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -69397,6 +69799,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -69464,6 +69867,7 @@
         "story:payments"
       ],
       "release": "mvp",
+      "resolution": null,
       "rollup": {
         "blocked": 2,
         "draft": 1
@@ -69528,6 +69932,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -69596,6 +70001,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -69669,6 +70075,7 @@
         "story:payments"
       ],
       "release": "mvp",
+      "resolution": null,
       "rollup": {
         "blocked": 2,
         "decided": 1,
@@ -69742,6 +70149,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -69817,6 +70225,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -69882,6 +70291,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {
         "blocked": 2,
         "draft": 1
@@ -69948,6 +70358,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -70018,6 +70429,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -70090,6 +70502,7 @@
       "priority": "high",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {
         "blocked": 2,
         "draft": 1
@@ -70160,6 +70573,7 @@
       "priority": "high",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -70234,6 +70648,7 @@
       "priority": "high",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -70298,6 +70713,7 @@
       "priority": "high",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {
         "blocked": 2,
         "draft": 1
@@ -70362,6 +70778,7 @@
       "priority": "high",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -70430,6 +70847,7 @@
       "priority": "high",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -70494,6 +70912,7 @@
       "priority": "high",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {
         "blocked": 2,
         "draft": 1
@@ -70558,6 +70977,7 @@
       "priority": "high",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -70626,6 +71046,7 @@
       "priority": "high",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -70698,6 +71119,7 @@
         "story:payments"
       ],
       "release": "mvp",
+      "resolution": null,
       "rollup": {
         "blocked": 2,
         "draft": 1
@@ -70768,6 +71190,7 @@
       "priority": "high",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -70842,6 +71265,7 @@
       "priority": "high",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -70898,6 +71322,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {
         "blocked": 1,
         "draft": 1,
@@ -70956,6 +71381,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -71019,6 +71445,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -71084,6 +71511,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {
         "blocked": 2,
         "draft": 1
@@ -71149,6 +71577,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -71218,6 +71647,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -71282,6 +71712,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {
         "blocked": 1,
         "draft": 1
@@ -71347,6 +71778,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -71412,6 +71844,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {
         "blocked": 2,
         "draft": 1
@@ -71478,6 +71911,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -71548,6 +71982,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -71606,6 +72041,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {
         "blocked": 1,
         "draft": 1,
@@ -71663,6 +72099,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -71725,6 +72162,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -71795,6 +72233,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {
         "blocked": 2,
         "draft": 1
@@ -71865,6 +72304,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -71939,6 +72379,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -71997,6 +72438,7 @@
         "story:payments"
       ],
       "release": "v1",
+      "resolution": null,
       "rollup": {
         "decided": 1,
         "draft": 1,
@@ -72055,6 +72497,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -72119,6 +72562,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {
         "blocked": 2,
         "draft": 1
@@ -72183,6 +72627,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -72251,6 +72696,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -72321,6 +72767,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {
         "blocked": 2,
         "draft": 1
@@ -72391,6 +72838,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -72465,6 +72913,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -72525,6 +72974,7 @@
         "qa-frontend:account"
       ],
       "release": "v1",
+      "resolution": null,
       "rollup": {
         "blocked": 1,
         "decided": 1,
@@ -72584,6 +73034,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -72646,6 +73097,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -72722,6 +73174,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {
         "blocked": 2,
         "draft": 1
@@ -72798,6 +73251,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -72878,6 +73332,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -72948,6 +73403,7 @@
       "priority": "medium",
       "related": [],
       "release": "later",
+      "resolution": null,
       "rollup": {
         "blocked": 2,
         "draft": 1
@@ -73018,6 +73474,7 @@
       "priority": "medium",
       "related": [],
       "release": "later",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -73092,6 +73549,7 @@
       "priority": "medium",
       "related": [],
       "release": "later",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -73162,6 +73620,7 @@
       "priority": "medium",
       "related": [],
       "release": "later",
+      "resolution": null,
       "rollup": {
         "blocked": 2,
         "draft": 1
@@ -73232,6 +73691,7 @@
       "priority": "medium",
       "related": [],
       "release": "later",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -73306,6 +73766,7 @@
       "priority": "medium",
       "related": [],
       "release": "later",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -73376,6 +73837,7 @@
         "task:T-071"
       ],
       "release": "mvp",
+      "resolution": null,
       "rollup": {
         "draft": 1,
         "in-progress": 1
@@ -73441,6 +73903,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [],
@@ -73494,6 +73957,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {
         "draft": 1,
         "todo": 1
@@ -73548,6 +74012,7 @@
       "priority": "high",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [],
@@ -73604,6 +74069,7 @@
         "task:T-073"
       ],
       "release": "mvp",
+      "resolution": null,
       "rollup": {
         "draft": 1,
         "todo": 1
@@ -73658,6 +74124,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [],
@@ -73710,6 +74177,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -73765,6 +74233,7 @@
         "decision-record:DR-02"
       ],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -73820,6 +74289,7 @@
         "decision-record:DR-03"
       ],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -73875,6 +74345,7 @@
         "decision-record:DR-04"
       ],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -73932,6 +74403,7 @@
         "decision-record:DR-02"
       ],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -73987,6 +74459,7 @@
         "decision-record:DR-06"
       ],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -74045,6 +74518,7 @@
         "qa-frontend:account"
       ],
       "release": "v1",
+      "resolution": null,
       "rollup": {
         "blocked": 2,
         "draft": 1,
@@ -74106,6 +74580,7 @@
       "priority": "critical",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -74172,6 +74647,7 @@
       "priority": "critical",
       "related": [],
       "release": "v1",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [
@@ -74254,6 +74730,7 @@
         "story:T-067"
       ],
       "release": "mvp",
+      "resolution": null,
       "rollup": {
         "approved": 1,
         "blocked": 1,
@@ -74312,6 +74789,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [],
@@ -74372,6 +74850,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [],
@@ -74445,6 +74924,7 @@
         "task:T-063"
       ],
       "release": "mvp",
+      "resolution": null,
       "rollup": {
         "blocked": 2,
         "todo": 1
@@ -74499,6 +74979,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [],
@@ -74559,6 +75040,7 @@
       "priority": "critical",
       "related": [],
       "release": "mvp",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [],
@@ -74628,6 +75110,7 @@
         "task:T-006"
       ],
       "release": "later",
+      "resolution": null,
       "rollup": {
         "draft": 1,
         "in-progress": 1
@@ -74695,6 +75178,7 @@
       "priority": "high",
       "related": [],
       "release": "later",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [],
@@ -74762,6 +75246,7 @@
         "task:T-006"
       ],
       "release": "later",
+      "resolution": null,
       "rollup": {
         "draft": 1,
         "in-progress": 1
@@ -74828,6 +75313,7 @@
       "priority": "high",
       "related": [],
       "release": "later",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [],
@@ -74892,6 +75378,7 @@
       "priority": "medium",
       "related": [],
       "release": "later",
+      "resolution": null,
       "rollup": {
         "draft": 1,
         "in-progress": 1
@@ -74957,6 +75444,7 @@
       "priority": "medium",
       "related": [],
       "release": "later",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [],
@@ -75030,6 +75518,7 @@
         "task:T-053"
       ],
       "release": "later",
+      "resolution": null,
       "rollup": {
         "draft": 1,
         "in-progress": 1
@@ -75102,6 +75591,7 @@
       "priority": "high",
       "related": [],
       "release": "later",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [],
@@ -75166,6 +75656,7 @@
       "priority": "medium",
       "related": [],
       "release": "later",
+      "resolution": null,
       "rollup": {
         "draft": 1,
         "in-progress": 1
@@ -75231,6 +75722,7 @@
       "priority": "medium",
       "related": [],
       "release": "later",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [],
@@ -75304,6 +75796,7 @@
         "task:T-055"
       ],
       "release": "later",
+      "resolution": null,
       "rollup": {},
       "scope": null,
       "screens": [],
@@ -75385,6 +75878,38 @@
     "name": "social-pin-docs",
     "owner": "Khaled-Edlbi"
   },
+  "resolutions": [
+    {
+      "color": "#16a34a",
+      "description": "The behaviour changed: code shipped and the bug is gone.",
+      "id": "fixed",
+      "label": "Fixed"
+    },
+    {
+      "color": "#0ea5e9",
+      "description": "The build was right and the expectation was wrong; the words moved instead. The decision card it rests on is named in the card's related.",
+      "id": "by-design",
+      "label": "By design"
+    },
+    {
+      "color": "#64748b",
+      "description": "Another card covers it, named in related.",
+      "id": "duplicate",
+      "label": "Duplicate"
+    },
+    {
+      "color": "#6b7280",
+      "description": "Not seen again on a named build.",
+      "id": "cannot-reproduce",
+      "label": "Cannot reproduce"
+    },
+    {
+      "color": "#f59e0b",
+      "description": "Real, accepted and not scheduled; the gap stays written down, with the decision card it rests on in related.",
+      "id": "wont-fix",
+      "label": "Won't fix"
+    }
+  ],
   "rootId": "root",
   "schema": 2,
   "stages": [

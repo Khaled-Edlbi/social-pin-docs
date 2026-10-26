@@ -2,6 +2,7 @@
 type: task
 id: B-01
 status: done
+resolution: by-design
 priority: high
 effort: S
 feature: account
@@ -16,12 +17,12 @@ pending: ["[[Account Backend Delivery]]: correct the \"proven again before it ca
 owner: "khaled"
 created: 2026-10-26
 updated: 2026-10-26
-tags: [task, task/done, module/identity, priority/high, bug]
+tags: [task, task/done, module/identity, priority/high, bug, resolution/by-design]
 ---
 
 # ✅ B-01 · An unverified changed email still signs in
 
-**Found against:** [[Account Backend Integration]] · **Feature:** [[Account]] · **Status:** Done · **Priority:** High · **Deadline:** — · **Effort:** S
+**Found against:** [[Account Backend Integration]] · **Feature:** [[Account]] · **Status:** Done · **Resolution:** By design ([[DR-20 The changed address still signs in, the words are corrected]]) · **Priority:** High · **Deadline:** — · **Effort:** S
 
 **Found by:** [[Account QA Backend]] row B9, on build `dev 2026-10-26 · localhost:3000`, and seen from the client in [[Account QA Frontend]] row F10.
 

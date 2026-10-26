@@ -14,6 +14,7 @@ screens: []
 depends: []
 affects: []
 related: []
+# resolution: by-design   # bug cards only, set by the PM or QA when it closes: fixed | by-design | duplicate | cannot-reproduce | wont-fix (docs.config.json resolutions, tag resolution/<id>); how it ended, never instead of status; by-design and wont-fix name their decision card in related
 # pending: ["[[Note]]: what is left", "@who: what is left"]   # done, but a note is left for a card or a person → Partial until cleared
 pending: []
 created: <date>
