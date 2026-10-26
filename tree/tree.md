@@ -103,6 +103,8 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
           - 👍 [T-078 Story](tasks/T-078%20Main%20profile%20fields%20from%20DR-02/T-078%20Story.md) (S-114, User Story, High)
           - ⬜ [T-078-be Backend · Main profile fields from DR-02](tasks/T-078%20Main%20profile%20fields%20from%20DR-02/T-078-be%20Backend%20%C2%B7%20Main%20profile%20fields%20from%20DR-02.md) (sub-task of T-078, backend, High)
           - ⛔ [T-078-fe Frontend · Main profile fields from DR-02](tasks/T-078%20Main%20profile%20fields%20from%20DR-02/T-078-fe%20Frontend%20%C2%B7%20Main%20profile%20fields%20from%20DR-02.md) (sub-task of T-078, frontend, High, blocked by T-078-be Backend · Main profile fields from DR-02)
+        - ⬜ [T-079 Enforce the once-a-year Pin name rename](tasks/T-079%20Enforce%20the%20once-a-year%20Pin%20name%20rename/T-079%20Enforce%20the%20once-a-year%20Pin%20name%20rename.md) (Medium)
+          - ✏️ [T-079 Story](tasks/T-079%20Enforce%20the%20once-a-year%20Pin%20name%20rename/T-079%20Story.md) (S-115, User Story, Medium)
       - ✏️ [Profiles & Pin Name Frontend Requirements](modules/Identity%20Core/Profiles%20%26%20Pin%20Name/Profiles%20%26%20Pin%20Name%20Frontend%20Requirements.md) (FR-07, Frontend Requirements, Critical)
       - ✅ [Profiles & Pin Name Backend Delivery](modules/Identity%20Core/Profiles%20%26%20Pin%20Name/Profiles%20%26%20Pin%20Name%20Backend%20Delivery.md) (BD-07, Backend Delivery, Critical)
       - 🔵 [Profiles & Pin Name Backend Integration](modules/Identity%20Core/Profiles%20%26%20Pin%20Name/Profiles%20%26%20Pin%20Name%20Backend%20Integration.md) (BI-04, Backend Integration, Critical)
