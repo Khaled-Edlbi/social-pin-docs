@@ -3,17 +3,17 @@ type: feature
 id: interests
 name: "Interests"
 priority: high
-release: v1
+release: mvp
 module: platform
 screens: [s07, s71]
 created: 2026-10-15
-updated: 2026-10-25
-tags: [feature, module/platform, priority/high, release/v1]
+updated: 2026-10-26
+tags: [feature, module/platform, priority/high, release/mvp]
 ---
 
 # Interests
 
-**Backend:** Partial (needs more) · **Priority:** High · **Release:** v1 · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
+**Backend:** Partial (needs more) · **Priority:** High · **Release:** MVP · **Module:** [[Platform & Cross-cutting Module|Platform & Cross-cutting]]
 
 **Layers:** [[Interests Story|Story]] · [[Interests Frontend Requirements|Frontend Requirements]] · [[Interests Backend Delivery|Backend Delivery]] · [[Interests Backend Integration|Backend Integration]] · [[Interests Frontend Delivery|Frontend Delivery]] · [[Interests QA Backend|QA Backend]] · [[Interests QA Frontend|QA Frontend]]
 

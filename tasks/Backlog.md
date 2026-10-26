@@ -173,6 +173,9 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-069-be Backend · Scoped role grants]] `backend` | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | M | — | [[T-068 Account moderation and platform role|T-068]] |
 | [[T-071 Audit-log read endpoints]] | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | S | — | [[T-053 Audit log writes|T-053]], [[T-068 Account moderation and platform role|T-068]] |
 | [[T-071-be Backend · Audit-log read endpoints]] `backend` | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | S | — | [[T-053 Audit log writes|T-053]], [[T-068 Account moderation and platform role|T-068]] |
+| [[T-078 Main profile fields from DR-02]] | [[Profiles & Pin Name]] | Identity Core | ⬜ To do | L | — | [[DR-02 One main profile every Ring starts from|DR-02]] |
+| [[T-078-be Backend · Main profile fields from DR-02]] `backend` | [[Profiles & Pin Name]] | Identity Core | ⬜ To do | L | — | [[DR-02 One main profile every Ring starts from|DR-02]] |
+| [[T-078-fe Frontend · Main profile fields from DR-02]] `frontend` | [[Profiles & Pin Name]] | Identity Core | ⛔ Blocked | L | — | [[T-078-be Backend · Main profile fields from DR-02|T-078-be]] |
 
 ## Medium
 
@@ -185,7 +188,7 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-015 Pair and revoke an NFC card]] | [[Devices & NFC]] | Platform & Cross-cutting | ⛔ Blocked | M | — | [[T-007 Issue and rotate the QR token for a Ring|T-007]] |
 | [[T-015-be Backend · Pair and revoke an NFC card]] `backend` | [[Devices & NFC]] | Platform & Cross-cutting | ⛔ Blocked | M | — | [[T-007 Issue and rotate the QR token for a Ring|T-007]] |
 | [[T-015-fe Frontend · Pair and revoke an NFC card]] `frontend` | [[Devices & NFC]] | Platform & Cross-cutting | ⛔ Blocked | M | — | [[T-007 Issue and rotate the QR token for a Ring|T-007]], [[T-015-be Backend · Pair and revoke an NFC card|T-015-be]] |
-| [[T-020b Business card scan and portfolio URL import]] | [[Onboarding Imports]] | Identity Core | ❓ Needs decision | L | — | [[Base profile work fields|D-02]] |
+| [[T-020b Business card scan and portfolio URL import]] | [[Onboarding Imports]] | Identity Core | ⛔ Blocked | L | — | [[How a business card and a portfolio page are read|D-21]] |
 | [[T-020b-be Backend · Business card scan and portfolio URL import]] `backend` | [[Onboarding Imports]] | Identity Core | ⬜ To do | L | — | [[Base profile work fields|D-02]] |
 | [[T-020b-fe Frontend · Business card scan and portfolio URL import]] `frontend` | [[Onboarding Imports]] | Identity Core | ⛔ Blocked | L | — | [[T-020b-be Backend · Business card scan and portfolio URL import|T-020b-be]] |
 | [[T-025 Introduce a connection to another]] | [[Connections]] | Connections | ❓ Needs decision | M | — | [[T-023 Connection detail and contacts list|T-023]] |
@@ -208,6 +211,7 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-072 Platform stats]] | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | S | — | [[T-068 Account moderation and platform role|T-068]] |
 | [[T-072-be Backend · Platform stats]] `backend` | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | S | — | [[T-068 Account moderation and platform role|T-068]] |
 | [[T-073 GitLab pipeline and Docker setup]] `chore` | [[Build & Deploy]] | Platform & Cross-cutting | 🟡 Partial (3 notes) | S | — | — |
+| [[T-079 Enforce the once-a-year Pin name rename]] | [[Profiles & Pin Name]] | Identity Core | ⬜ To do | M | — | [[DR-06 Yearly rename, old name freed, case-insensitive|DR-06]] |
 
 ## Done
 

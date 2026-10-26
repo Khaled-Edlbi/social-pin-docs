@@ -55,13 +55,13 @@ const STATUS = {
 };
 const LEGEND = {
   done: 'Done', partial: 'Partial', todo: 'To do', 'in-progress': 'In progress', blocked: 'Blocked',
-  'needs-decision': 'Needs decision', draft: 'Draft', approved: 'Approved', verified: 'Fulfilled', delivered: 'Delivered',
+  'needs-decision': 'Needs decision', draft: 'Draft', ready: 'Ready', approved: 'Approved', verified: 'Fulfilled', delivered: 'Delivered',
   current: 'Current', passing: 'Passing', failing: 'Failing', decided: 'Decided',
   missing: 'Not written yet', reference: 'Reference',
 };
 const EMOJI = {
   done: '✅', partial: '🟡', todo: '⬜', 'in-progress': '🔵', blocked: '⛔', 'needs-decision': '❓',
-  draft: '✏️', approved: '👍', verified: '✅', delivered: '✅', current: '🔵', passing: '🟢', failing: '🔴', decided: '⚖️',
+  draft: '✏️', ready: '📨', approved: '👍', verified: '✅', delivered: '✅', current: '🔵', passing: '🟢', failing: '🔴', decided: '⚖️',
   missing: '∅', reference: '📘',
 };
 const DONE_STATUSES = new Set(['done', 'approved', 'verified', 'delivered', 'current', 'passing', 'reference', 'decided']);

@@ -43,6 +43,8 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 |---|---|---|---|
 | [[T-057 Decide base profile work fields]] | ✅ Done | Critical | S |
 | [[T-061 Decide Pin name rules]] | ✅ Done | High | S |
+| [[T-078 Main profile fields from DR-02]] | ⬜ To do | High | L |
+| [[T-079 Enforce the once-a-year Pin name rename]] | ⬜ To do | Medium | M |
 
 ```dataview
 TABLE status, priority, effort FROM #task WHERE feature = "profiles" SORT priority ASC
