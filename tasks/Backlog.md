@@ -166,6 +166,8 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-050-fe Frontend · Post-event summary and follow-ups]] `frontend` | [[Post-Event]] | Events | ⛔ Blocked | M | — | [[T-009 Scan counter and share link|T-009]], [[T-023 Connection detail and contacts list|T-023]], [[T-044 My meetings, calendar, detail, reschedule, cancel|T-044]], [[T-050-be Backend · Post-event summary and follow-ups|T-050-be]] |
 | [[T-054 Cleanup jobs]] | [[Cleanup Jobs]] | Platform & Cross-cutting | ⬜ To do | M | — | — |
 | [[T-054-be Backend · Cleanup jobs]] `backend` | [[Cleanup Jobs]] | Platform & Cross-cutting | ⬜ To do | M | — | — |
+| [[T-068 Account moderation and platform role]] | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | M | — | [[T-053 Audit log writes|T-053]] |
+| [[T-068-be Backend · Account moderation and platform role]] `backend` | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | M | — | [[T-053 Audit log writes|T-053]] |
 
 ## Medium
 
