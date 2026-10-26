@@ -1,7 +1,7 @@
 ---
 type: needs-decision
 id: ND-NN
-aliases: [ND-NN]            # the file is decisions/<Title>.md (title only); the code again, so Obsidian's quick switcher finds it by ND-NN
+aliases: [ND-NN]            # the file is needs-decisions/<Title>.md (title only); the code again, so Obsidian's quick switcher finds it by ND-NN
 status: draft
 # priority: high           # optional: how urgent the decision is (critical | high | medium | low)
 # deadline: YYYY-MM-DD      # optional: when it must be taken

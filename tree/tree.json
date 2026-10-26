@@ -36742,22 +36742,6 @@
       "name": "Status Report 2026-10-15",
       "type": "report"
     },
-    "decisions/Base profile work fields.md": {
-      "name": "Base profile work fields",
-      "type": "needs-decision"
-    },
-    "decisions/Company and invited Ring names shown to members.md": {
-      "name": "Company and invited Ring names shown to members",
-      "type": "needs-decision"
-    },
-    "decisions/Connection-granted Ring on Shared with me.md": {
-      "name": "Connection-granted Ring on Shared with me",
-      "type": "needs-decision"
-    },
-    "decisions/Copy or inherit.md": {
-      "name": "Copy or inherit",
-      "type": "needs-decision"
-    },
     "decisions/D-01 Code-only login.md": {
       "name": "D-01 Code-only login",
       "type": "decision"
@@ -36817,66 +36801,6 @@
     "decisions/Decisions.md": {
       "name": "Decisions",
       "type": "map"
-    },
-    "decisions/Field library vs per-Ring copies.md": {
-      "name": "Field library vs per-Ring copies",
-      "type": "needs-decision"
-    },
-    "decisions/Get or rotate the badge token.md": {
-      "name": "Get or rotate the badge token",
-      "type": "needs-decision"
-    },
-    "decisions/How Connect addresses the scanned person.md": {
-      "name": "How Connect addresses the scanned person",
-      "type": "needs-decision"
-    },
-    "decisions/How a business card and a portfolio page are read.md": {
-      "name": "How a business card and a portfolio page are read",
-      "type": "needs-decision"
-    },
-    "decisions/One Ring or several per connection.md": {
-      "name": "One Ring or several per connection",
-      "type": "needs-decision"
-    },
-    "decisions/Passwordless login.md": {
-      "name": "Passwordless login",
-      "type": "needs-decision"
-    },
-    "decisions/Payment provider.md": {
-      "name": "Payment provider",
-      "type": "needs-decision"
-    },
-    "decisions/Pin name rules.md": {
-      "name": "Pin name rules",
-      "type": "needs-decision"
-    },
-    "decisions/Request expiry, note and asking again.md": {
-      "name": "Request expiry, note and asking again",
-      "type": "needs-decision"
-    },
-    "decisions/Ring settings.md": {
-      "name": "Ring settings",
-      "type": "needs-decision"
-    },
-    "decisions/Viewer access to file bytes.md": {
-      "name": "Viewer access to file bytes",
-      "type": "needs-decision"
-    },
-    "decisions/What the badge QR encodes.md": {
-      "name": "What the badge QR encodes",
-      "type": "needs-decision"
-    },
-    "decisions/Where a ticket's layer notes live.md": {
-      "name": "Where a ticket's layer notes live",
-      "type": "needs-decision"
-    },
-    "decisions/Whether an unverified new address may sign in.md": {
-      "name": "Whether an unverified new address may sign in",
-      "type": "needs-decision"
-    },
-    "decisions/Whether the requester sees a declined request.md": {
-      "name": "Whether the requester sees a declined request",
-      "type": "needs-decision"
     },
     "design/Brief Section Map.md": {
       "name": "Brief Section Map",
@@ -37625,6 +37549,82 @@
     "modules/Shared Rings & Companies/Shared Rings & Companies Module.md": {
       "name": "Shared Rings & Companies Module",
       "type": "module"
+    },
+    "needs-decisions/Base profile work fields.md": {
+      "name": "Base profile work fields",
+      "type": "needs-decision"
+    },
+    "needs-decisions/Company and invited Ring names shown to members.md": {
+      "name": "Company and invited Ring names shown to members",
+      "type": "needs-decision"
+    },
+    "needs-decisions/Connection-granted Ring on Shared with me.md": {
+      "name": "Connection-granted Ring on Shared with me",
+      "type": "needs-decision"
+    },
+    "needs-decisions/Copy or inherit.md": {
+      "name": "Copy or inherit",
+      "type": "needs-decision"
+    },
+    "needs-decisions/Field library vs per-Ring copies.md": {
+      "name": "Field library vs per-Ring copies",
+      "type": "needs-decision"
+    },
+    "needs-decisions/Get or rotate the badge token.md": {
+      "name": "Get or rotate the badge token",
+      "type": "needs-decision"
+    },
+    "needs-decisions/How Connect addresses the scanned person.md": {
+      "name": "How Connect addresses the scanned person",
+      "type": "needs-decision"
+    },
+    "needs-decisions/How a business card and a portfolio page are read.md": {
+      "name": "How a business card and a portfolio page are read",
+      "type": "needs-decision"
+    },
+    "needs-decisions/One Ring or several per connection.md": {
+      "name": "One Ring or several per connection",
+      "type": "needs-decision"
+    },
+    "needs-decisions/Passwordless login.md": {
+      "name": "Passwordless login",
+      "type": "needs-decision"
+    },
+    "needs-decisions/Payment provider.md": {
+      "name": "Payment provider",
+      "type": "needs-decision"
+    },
+    "needs-decisions/Pin name rules.md": {
+      "name": "Pin name rules",
+      "type": "needs-decision"
+    },
+    "needs-decisions/Request expiry, note and asking again.md": {
+      "name": "Request expiry, note and asking again",
+      "type": "needs-decision"
+    },
+    "needs-decisions/Ring settings.md": {
+      "name": "Ring settings",
+      "type": "needs-decision"
+    },
+    "needs-decisions/Viewer access to file bytes.md": {
+      "name": "Viewer access to file bytes",
+      "type": "needs-decision"
+    },
+    "needs-decisions/What the badge QR encodes.md": {
+      "name": "What the badge QR encodes",
+      "type": "needs-decision"
+    },
+    "needs-decisions/Where a ticket's layer notes live.md": {
+      "name": "Where a ticket's layer notes live",
+      "type": "needs-decision"
+    },
+    "needs-decisions/Whether an unverified new address may sign in.md": {
+      "name": "Whether an unverified new address may sign in",
+      "type": "needs-decision"
+    },
+    "needs-decisions/Whether the requester sees a declined request.md": {
+      "name": "Whether the requester sees a declined request",
+      "type": "needs-decision"
     },
     "project/Admin Agent.md": {
       "name": "Admin Agent",
@@ -52369,7 +52369,7 @@
         "feature:auth",
         "feature:linked-accounts"
       ],
-      "path": "decisions/Passwordless login.md",
+      "path": "needs-decisions/Passwordless login.md",
       "pending": [],
       "priority": null,
       "related": [
@@ -52433,7 +52433,7 @@
         "feature:ring-projection",
         "feature:photo-library"
       ],
-      "path": "decisions/Base profile work fields.md",
+      "path": "needs-decisions/Base profile work fields.md",
       "pending": [],
       "priority": null,
       "related": [
@@ -52494,7 +52494,7 @@
         "feature:widgets",
         "feature:ring-projection"
       ],
-      "path": "decisions/Field library vs per-Ring copies.md",
+      "path": "needs-decisions/Field library vs per-Ring copies.md",
       "pending": [],
       "priority": null,
       "related": [
@@ -52558,7 +52558,7 @@
         "feature:delegated-admins",
         "feature:companies"
       ],
-      "path": "decisions/Ring settings.md",
+      "path": "needs-decisions/Ring settings.md",
       "pending": [],
       "priority": null,
       "related": [
@@ -52620,7 +52620,7 @@
         "feature:rings",
         "feature:photo-library"
       ],
-      "path": "decisions/Copy or inherit.md",
+      "path": "needs-decisions/Copy or inherit.md",
       "pending": [],
       "priority": null,
       "related": [
@@ -52680,7 +52680,7 @@
         "feature:profiles",
         "feature:gemma"
       ],
-      "path": "decisions/Pin name rules.md",
+      "path": "needs-decisions/Pin name rules.md",
       "pending": [],
       "priority": null,
       "related": [
@@ -52743,7 +52743,7 @@
         "task:T-035",
         "task:T-049"
       ],
-      "path": "decisions/Payment provider.md",
+      "path": "needs-decisions/Payment provider.md",
       "pending": [],
       "priority": null,
       "related": [
@@ -52803,7 +52803,7 @@
         "story:T-008",
         "story:T-021"
       ],
-      "path": "decisions/How Connect addresses the scanned person.md",
+      "path": "needs-decisions/How Connect addresses the scanned person.md",
       "pending": [],
       "priority": null,
       "related": [
@@ -52860,7 +52860,7 @@
       "parents": [
         "story:T-007"
       ],
-      "path": "decisions/Get or rotate the badge token.md",
+      "path": "needs-decisions/Get or rotate the badge token.md",
       "pending": [],
       "priority": null,
       "related": [
@@ -52916,7 +52916,7 @@
         "story:T-007",
         "task:T-010"
       ],
-      "path": "decisions/What the badge QR encodes.md",
+      "path": "needs-decisions/What the badge QR encodes.md",
       "pending": [],
       "priority": null,
       "related": [
@@ -52978,7 +52978,7 @@
         "story:T-021",
         "story:T-022"
       ],
-      "path": "decisions/Whether the requester sees a declined request.md",
+      "path": "needs-decisions/Whether the requester sees a declined request.md",
       "pending": [],
       "priority": null,
       "related": [
@@ -53038,7 +53038,7 @@
       "parents": [
         "story:T-022"
       ],
-      "path": "decisions/Connection-granted Ring on Shared with me.md",
+      "path": "needs-decisions/Connection-granted Ring on Shared with me.md",
       "pending": [],
       "priority": null,
       "related": [
@@ -53099,7 +53099,7 @@
       "parents": [
         "story:T-023"
       ],
-      "path": "decisions/One Ring or several per connection.md",
+      "path": "needs-decisions/One Ring or several per connection.md",
       "pending": [],
       "priority": null,
       "related": [
@@ -53156,7 +53156,7 @@
       "parents": [
         "story:T-062"
       ],
-      "path": "decisions/Viewer access to file bytes.md",
+      "path": "needs-decisions/Viewer access to file bytes.md",
       "pending": [],
       "priority": null,
       "related": [
@@ -53221,7 +53221,7 @@
       "parents": [
         "story:T-021"
       ],
-      "path": "decisions/Request expiry, note and asking again.md",
+      "path": "needs-decisions/Request expiry, note and asking again.md",
       "pending": [],
       "priority": null,
       "related": [
@@ -53288,7 +53288,7 @@
         "story:companies",
         "story:ring-invitations"
       ],
-      "path": "decisions/Company and invited Ring names shown to members.md",
+      "path": "needs-decisions/Company and invited Ring names shown to members.md",
       "pending": [],
       "priority": null,
       "related": [
@@ -53352,7 +53352,7 @@
       "parents": [
         "task:T-063"
       ],
-      "path": "decisions/Where a ticket's layer notes live.md",
+      "path": "needs-decisions/Where a ticket's layer notes live.md",
       "pending": [],
       "priority": null,
       "related": [
@@ -53416,7 +53416,7 @@
       "parents": [
         "task:B-01"
       ],
-      "path": "decisions/Whether an unverified new address may sign in.md",
+      "path": "needs-decisions/Whether an unverified new address may sign in.md",
       "pending": [],
       "priority": "high",
       "related": [
@@ -53480,7 +53480,7 @@
       "parents": [
         "task:T-020b"
       ],
-      "path": "decisions/How a business card and a portfolio page are read.md",
+      "path": "needs-decisions/How a business card and a portfolio page are read.md",
       "pending": [],
       "priority": null,
       "related": [

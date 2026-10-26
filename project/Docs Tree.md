@@ -40,7 +40,7 @@ Social Pin (project)
 │   │   ├── ND-04 Ring settings                   ← decisions/… that name rings in `features:`
 │   │   │   └── T-059 Decide Ring settings …     ← a task that depends on it
 │   │   └── (a card that needs a decision)
-│   │       └── <Title> (ND-NN)                   ← decisions/<Title>.md whose `blocks:` names that card: hangs under it, blocks it while open
+│   │       └── <Title> (ND-NN)                   ← needs-decisions/<Title>.md whose `blocks:` names that card: hangs under it, blocks it while open
 │   └── …
 ├── … seven more modules
 ├── Business docs   ← business/   overview, glossary, feature tree and graph, status reports

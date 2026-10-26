@@ -16,7 +16,7 @@
  *                                                    the file is bugs/<Title>.md, the code lives in id: and aliases:
  *   node scripts/build-tree.mjs --scaffold feature <module-id> "<Name>" [--id <slug>] [--priority high] [--release later] [--frontend-only]   creates the feature note
  *   node scripts/build-tree.mjs --scaffold needs-decision "<card>" ["<title>"]   creates the needs-decision card a task, a layer note or a feature needs (draft; blocks it until fulfilled),
- *                                                    as decisions/<Title>.md with the code in id: and aliases:
+ *                                                    as needs-decisions/<Title>.md with the code in id: and aliases:
  *   node scripts/build-tree.mjs --scaffold decision ND-NN "<the answer>" [--by <name>]   creates the decision card D-NN (draft) that answers ND-NN: what was decided, why, what it changes
  *
  * No dependencies: Node 22 built-ins only. The output is key-sorted and carries
@@ -493,7 +493,7 @@ export function build() {
   const taskNodes = new Map();
   // a bug note (type: bug) is built with the tasks: the same statuses, parents and boards
   const byNoteId = (a, b) => String(a.data.id ?? a.stem).localeCompare(String(b.data.id ?? b.stem), 'en', { numeric: true });
-  // a bug and a needs-decision card are named by their title (bugs/<Title>.md, decisions/<Title>.md): the code lives in id: and in aliases:, so Obsidian's quick switcher finds it
+  // a bug and a needs-decision card are named by their title (bugs/<Title>.md, needs-decisions/<Title>.md): the code lives in id: and in aliases:, so Obsidian's quick switcher finds it
   const titleNamed = (n, what) => {
     const id = String(n.data.id ?? '');
     if (/^[A-Z]+-\d+\s/.test(n.stem)) warn(n.rel, `${what} is named by its title only: rename to ${n.rel.split('/')[0]}/${n.stem.replace(/^[A-Z]+-\d+\s+/, '')}.md and update the links; ${id} stays in id: and aliases:`);
@@ -531,6 +531,7 @@ export function build() {
   for (const n of byType('needs-decision').sort(byNoteId)) {
     requireKeys(n, ['id', 'status']);
     titleNamed(n, 'a needs-decision card');
+    if (!n.rel.startsWith('needs-decisions/') || n.rel.includes('/', 'needs-decisions/'.length)) warn(n.rel, `expected at needs-decisions/${n.stem}.md: a needs-decision card lives in its own folder, its answer (D-NN) in decisions/`);
     if (!list(n.data.blocks).length) requireKeys(n, ['features']); // a decision names the cards that need it (`blocks`) or the features it belongs to
     if (!isDecisionId(n.data.id)) err(n.rel, `id "${n.data.id}" is not a decision id (ND-NN)`);
     if (['fulfilled', 'decided'].includes(n.data.status)) err(n.rel, `status "${n.data.status}" is not typed on a needs-decision card: it is draft or open, and shows Fulfilled by itself once its decision card (D-NN) is decided`);
@@ -1626,7 +1627,8 @@ function scaffoldDecision(result, ref, title) {
   if (BAD_NAME.test(t) || /[/:]/.test(t)) { console.error(`title "${t}" cannot contain / : # ? % \\`); process.exit(1); }
   if (/^[A-Z]+-\d+\s/.test(t)) { console.error(`a needs-decision card is named by its title only: drop the code from "${t}" (it gets ${id} in id: and aliases:)`); process.exit(1); }
   if (json.byName?.[t]) { console.error(`a note named "${t}" already exists (${nodes[json.byName[t]].path}); a needs-decision card's title names its file, so it is unique`); process.exit(1); }
-  const dest = path.join(ROOT, 'decisions', `${t}.md`); // decisions/<Title>.md: the code lives in id: and aliases:
+  const dest = path.join(ROOT, 'needs-decisions', `${t}.md`); // needs-decisions/<Title>.md: the code lives in id: and aliases:
+  fs.mkdirSync(path.dirname(dest), { recursive: true });
   if (fs.existsSync(dest)) { console.error(`${path.relative(ROOT, dest)} already exists`); process.exit(1); }
   const today = new Date().toISOString().slice(0, 10);
   const { data, body } = parseFrontmatter(fs.readFileSync(path.join(ROOT, 'templates', 'Needs Decision Template.md'), 'utf8'));
