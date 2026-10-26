@@ -55,8 +55,8 @@ What the backend shipped for this feature and how it works. The sum of this feat
 
 ### Gaps
 
-- The design assumes **one library of fields** that each Ring turns on or off ("4 of 7 on", s20 / s24). The backend stores a separate copy per Ring. See [[D-03 Field library vs per-Ring copies]].
-- "Inherit, stays in sync with your Pin" (s23) and "Copy another Ring's bio" (s28) need the base profile bio and photo. See [[D-05 Copy or inherit]] and [[D-02 Base profile work fields]].
+- The design assumes **one library of fields** that each Ring turns on or off ("4 of 7 on", s20 / s24). The backend stores a separate copy per Ring. See [[Field library vs per-Ring copies]].
+- "Inherit, stays in sync with your Pin" (s23) and "Copy another Ring's bio" (s28) need the base profile bio and photo. See [[Copy or inherit]] and [[Base profile work fields]].
 - Widgets (s37) have a table but no endpoints. See [[Widgets]].
 - **`avatarFileId` and attachment ids cannot be fetched**: no route serves file bytes by id. See [[T-062 Serve uploaded file bytes by id]].
 

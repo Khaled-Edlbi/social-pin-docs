@@ -7,7 +7,7 @@ module: connections
 status: draft
 screens: [s44, s45, s46, s47, s62]
 created: 2026-10-18
-updated: 2026-10-18
+updated: 2026-10-26
 tags: [frontend-requirements, frontend-requirements/draft, module/connections, layer/frontend]
 ---
 
@@ -106,6 +106,6 @@ What the client needs from the backend to build the screens in [[Connections Sto
 ## Blocked by
 
 - [[T-025 Introduce a connection to another]] — the *Introduce* row on s47 (needs product input).
-- [[D-04 Ring settings]] — mutual connections on s47 if "members can see each other" is ever on.
+- [[Ring settings]] — mutual connections on s47 if "members can see each other" is ever on.
 - [[T-022 Accept into a Ring (sets grantedRingId)]] — whether a connection-granted Ring is listed by name on `GET /rings/shared-with-me` (the open question in the story); the s17 list depends on the answer.
 - [[T-063 Put the ErrorCode on the error body]] — the error table above is by status until then.

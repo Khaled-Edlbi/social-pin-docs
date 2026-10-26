@@ -7,7 +7,7 @@ release: mvp
 module: identity
 screens: []
 created: 2026-10-18
-updated: 2026-10-25
+updated: 2026-10-26
 owner: "omar"
 tags: [feature, module/identity, priority/critical, release/mvp]
 ---
@@ -38,7 +38,7 @@ TABLE status, priority, effort FROM #task WHERE feature = "ring-access" SORT pri
 
 ## Decisions
 
-- [[D-04 Ring settings]] — decided, six settings at launch with private defaults ([[DR-04 Ring settings at launch and their defaults|DR-04]])
+- [[Ring settings]] — decided, six settings at launch with private defaults ([[DR-04 Ring settings at launch and their defaults|DR-04]])
 
 ## Related
 

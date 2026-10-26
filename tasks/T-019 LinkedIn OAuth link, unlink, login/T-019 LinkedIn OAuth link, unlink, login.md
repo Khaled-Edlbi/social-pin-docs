@@ -9,7 +9,7 @@ module: platform
 screens: [s01, s04, s68]
 depends: []
 created: 2026-10-15
-updated: 2026-10-19
+updated: 2026-10-26
 tags: [task, task/todo, module/platform, priority/high]
 ---
 
@@ -31,7 +31,7 @@ Callback writes `SocialIdentity`. Login via provider returns a session the same 
 
 ## Dependencies
 
-- [[D-01 Passwordless login]] — decided 2026-10-15, no longer blocking
+- [[Passwordless login]] — decided 2026-10-15, no longer blocking
 - Unblocks [[T-020 LinkedIn import → review → base profile]]
 
 ## Definition of done

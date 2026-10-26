@@ -9,13 +9,13 @@ module: commerce
 screens: [s70]
 depends: []
 created: 2026-10-15
-updated: 2026-10-19
+updated: 2026-10-26
 tags: [task, task/todo, module/commerce, priority/high]
 ---
 
 # ⬜ T-049 · Subscription endpoints and a single Pro gate
 
-> ⚠ Affected by [[D-07 Payment provider]] (2026-10-21): Pro is billed as a Stripe subscription; the Pro gate reads the subscription state the gateway keeps.
+> ⚠ Affected by [[Payment provider]] (2026-10-21): Pro is billed as a Stripe subscription; the Pro gate reads the subscription state the gateway keeps.
 
 **Feature:** [[Subscription (Free vs Pro)]] · **Status:** To do · **Priority:** High · **Effort:** M (S < 1 day, M 1–3 days, L > 3 days)
 

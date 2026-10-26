@@ -1,6 +1,7 @@
 ---
 type: decision
 id: D-16
+aliases: [D-16]
 status: draft
 features: [files]
 blocks: ["T-062 Story"]
@@ -10,7 +11,7 @@ affects: []
 related: ["Files Upload", "Ring Projection", "View As & Pin Views"]
 owner: "omar"
 created: 2026-10-25
-updated: 2026-10-25
+updated: 2026-10-26
 tags: [decision, decision/draft]
 ---
 

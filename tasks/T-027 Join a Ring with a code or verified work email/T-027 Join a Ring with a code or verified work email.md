@@ -9,7 +9,7 @@ module: shared-rings
 screens: [s74]
 depends: [D-04, T-026]
 created: 2026-10-15
-updated: 2026-10-25
+updated: 2026-10-26
 owner: "omar"
 tags: [task, task/blocked, module/shared-rings, priority/high]
 ---
@@ -30,7 +30,7 @@ Needs `joinPolicy`, join code and `requiredEmailDomain` on the Ring. Joining wit
 
 ## Dependencies
 
-- Waited on decision [[D-04 Ring settings]], decided by [[DR-04 Ring settings at launch and their defaults]]
+- Waited on decision [[Ring settings]], decided by [[DR-04 Ring settings at launch and their defaults]]
 - Waits on [[T-026 Ring invitations invite, review, decline]]
 - Unblocks [[T-028 What you contribute to a shared Ring]]
 

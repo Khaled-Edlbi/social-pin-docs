@@ -7,7 +7,7 @@ module: identity
 status: draft
 screens: [s11, s12, s14, s16, s17, s68]
 created: 2026-10-18
-updated: 2026-10-18
+updated: 2026-10-26
 tags: [frontend-requirements, frontend-requirements/draft, module/identity, layer/frontend]
 ---
 
@@ -54,7 +54,7 @@ What the client needs to show the numbers the design puts on Home, My Rings, Sha
 | Number of Rings shared with me, live now | `GET /rings/shared-with-me` → `meta.total` | ✅ | — (listed under [[Rings]]) |
 | Live member count per owned Ring (list and detail) | — | ❌ | [[T-004 Member count per Ring on list and detail]] |
 | Connection count on Me and Home | — | ❌ | [[T-005 Connection count on Me and Home]] (blocked by [[T-021 Connect request send, inbox, cancel]]) |
-| Member count on a Ring shared with me | — | ❌ | [[D-04 Ring settings]] |
+| Member count on a Ring shared with me | — | ❌ | [[Ring settings]] |
 
 ## Behaviour expectations
 
@@ -78,4 +78,4 @@ No code of its own exists yet; the rows above are the codes of the list endpoint
 
 - [[T-004 Member count per Ring on list and detail]] — every "N people" on s11, s12, s14 and s16.
 - [[T-005 Connection count on Me and Home]] — "N connections" on s68 and s11; itself blocked by connections.
-- [[D-04 Ring settings]] — any count shown on a shared Ring.
+- [[Ring settings]] — any count shown on a shared Ring.

@@ -7,18 +7,18 @@ decidedBy: "molham"
 decidedAt: 2026-10-25
 features: [gemma, profiles]
 affects: ["Profiles & Pin Name", "Gemma AI", "Auth & Sign-up", "T-061 Decide Pin name rules"]
-related: ["D-06 Pin name rules", "Badge & QR"]
+related: ["Pin name rules", "Badge & QR"]
 owner: "khaled"
 created: 2026-10-25
-updated: 2026-10-25
+updated: 2026-10-26
 tags: [decision-record, decision-record/decided]
 ---
 
 # ⚖️ DR-06 · Yearly rename, old name freed, case-insensitive
 
-**Answers:** [[D-06 Pin name rules]] · **Decided by:** molham · **On:** 2026-10-25 · **Feature:** [[Gemma AI]], [[Profiles & Pin Name]]
+**Answers:** [[Pin name rules]] · **Decided by:** molham · **On:** 2026-10-25 · **Feature:** [[Gemma AI]], [[Profiles & Pin Name]]
 
-> This card is the answer to [[D-06 Pin name rules]]. The needs-decision card keeps the question, the facts and the options; this decision card says what was decided, why, and what it changes. `draft` while the answer is prepared; `decided` only by the PM or the owner, on the user's word, with `decidedBy` and `decidedAt`: then [[D-06 Pin name rules]] shows Fulfilled by itself and the cards it blocked continue.
+> This card is the answer to [[Pin name rules]]. The needs-decision card keeps the question, the facts and the options; this decision card says what was decided, why, and what it changes. `draft` while the answer is prepared; `decided` only by the PM or the owner, on the user's word, with `decidedBy` and `decidedAt`: then [[Pin name rules]] shows Fulfilled by itself and the cards it blocked continue.
 
 ## What was decided
 
@@ -50,4 +50,4 @@ Answered on the product-questions page, 2026-10-22, recorded on molham's word on
 ## Still open
 
 - Whether the first year starts at sign-up or at the first rename was not asked; the natural reading is that the first rename is free and the year counts from it.
-- How a printed badge with a released name should behave is [[Badge & QR]]'s; if the badge QR encodes the name rather than a token, a released name sends the scan to someone else, which [[D-12 What the badge QR encodes]] should weigh.
+- How a printed badge with a released name should behave is [[Badge & QR]]'s; if the badge QR encodes the name rather than a token, a released name sends the scan to someone else, which [[What the badge QR encodes]] should weigh.

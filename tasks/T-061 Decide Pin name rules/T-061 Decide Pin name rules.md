@@ -10,7 +10,7 @@ screens: [s06]
 depends: []
 related: ["DR-06 Yearly rename, old name freed, case-insensitive"]
 created: 2026-10-15
-updated: 2026-10-25
+updated: 2026-10-26
 owner: "omar"
 tags: [task, task/done, module/identity, priority/high]
 decision: D-06
@@ -22,7 +22,7 @@ decision: D-06
 
 ## What
 
-Take [[D-06 Pin name rules]]. Decided by [[DR-06 Yearly rename, old name freed, case-insensitive]]: rename once a year, the old name freed at once, names ignore capitals, suggestions only from the person's own name. Building it is not ticketed yet.
+Take [[Pin name rules]]. Decided by [[DR-06 Yearly rename, old name freed, case-insensitive]]: rename once a year, the old name freed at once, names ignore capitals, suggestions only from the person's own name. Building it is not ticketed yet.
 
 ## Design
 

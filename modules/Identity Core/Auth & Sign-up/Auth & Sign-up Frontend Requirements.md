@@ -7,7 +7,7 @@ module: identity
 status: draft
 screens: [s01, s02, s06, s08, s68]
 created: 2026-10-18
-updated: 2026-10-18
+updated: 2026-10-26
 tags: [frontend-requirements, frontend-requirements/draft, module/identity, layer/frontend]
 ---
 
@@ -17,7 +17,7 @@ tags: [frontend-requirements, frontend-requirements/draft, module/identity, laye
 
 **Feature:** [[Auth & Sign-up]] · **Status:** Draft · **Story:** [[Auth & Sign-up Story]] · **Backend Integration:** [[Auth & Sign-up Backend Integration]]
 
-What the client needs from the backend for the welcome, code, Pin-name and session screens, and whether each need is met today. Everything here exists; the one thing missing is the delivery of the code itself, which the backend papers over with `devCode` for now. Passwordless since 2026-10-15 ([[D-01 Passwordless login]]); the client-side migration is in [[Frontend Passwordless Migration]].
+What the client needs from the backend for the welcome, code, Pin-name and session screens, and whether each need is met today. Everything here exists; the one thing missing is the delivery of the code itself, which the backend papers over with `devCode` for now. Passwordless since 2026-10-15 ([[Passwordless login]]); the client-side migration is in [[Frontend Passwordless Migration]].
 
 ## Per screen
 
@@ -95,4 +95,4 @@ Removed on 2026-10-15 and not coming back: `POST /auth/reset-password`, `POST /a
 ## Blocked by
 
 - Nothing for the flows above. [[T-001 Wire an email provider for one-time codes]] / [[T-002 Wire an SMS provider for one-time codes]] decide when `devCode` can go ([[T-003 Remove devCode once delivery works]]).
-- [[D-06 Pin name rules]] — suggestions and the rename limit on s06 wait on it.
+- [[Pin name rules]] — suggestions and the rename limit on s06 wait on it.

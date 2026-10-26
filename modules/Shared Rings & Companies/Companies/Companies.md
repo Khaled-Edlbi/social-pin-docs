@@ -8,7 +8,7 @@ module: shared-rings
 screens: [s72, s73]
 related: ["Ring Members"]
 created: 2026-10-15
-updated: 2026-10-25
+updated: 2026-10-26
 owner: "omar"
 tags: [feature, module/shared-rings, priority/high, release/v1]
 ---
@@ -51,8 +51,8 @@ TABLE status, priority, effort FROM #task WHERE feature = "companies" SORT prior
 
 ## Decisions
 
-- [[D-04 Ring settings]] — decided, six settings at launch; the required work email domain comes later, with Companies ([[DR-04 Ring settings at launch and their defaults|DR-04]])
-- [[D-18 Company and invited Ring names shown to members]] — decided, company Rings joined knowingly are named ([[DR-18 Ring names shown when joined knowingly|DR-18]])
+- [[Ring settings]] — decided, six settings at launch; the required work email domain comes later, with Companies ([[DR-04 Ring settings at launch and their defaults|DR-04]])
+- [[Company and invited Ring names shown to members]] — decided, company Rings joined knowingly are named ([[DR-18 Ring names shown when joined knowingly|DR-18]])
 
 ## Related
 

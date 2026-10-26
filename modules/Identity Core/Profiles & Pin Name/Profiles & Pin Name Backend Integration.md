@@ -7,7 +7,7 @@ module: identity
 status: current
 screens: [s06]
 created: 2026-10-15
-updated: 2026-10-18
+updated: 2026-10-26
 tags: [backend-integration, backend-integration/current, module/identity, layer/backend]
 ---
 
@@ -58,13 +58,13 @@ Cache the owner's profiles; refetch after any write. The default profile's `pinN
 
 ## Rules the UI must respect
 
-- The availability check returns only a boolean. Do not build "did you mean" from it; suggestions are an open decision ([[D-06 Pin name rules]]).
+- The availability check returns only a boolean. Do not build "did you mean" from it; suggestions are an open decision ([[Pin name rules]]).
 - These endpoints return the caller's **own** profiles only. For anyone else's identity use `/views/…`.
 
 ## Not available yet
 
-- Work fields on the base profile (headline, role, company, location, base photo, base bio) that every design screen shows: [[D-02 Base profile work fields]]. Until decided, those live only per Ring on the projection.
-- The once-a-year rename limit and suggested handles on s06: [[D-06 Pin name rules]]. Today a rename is unlimited.
+- Work fields on the base profile (headline, role, company, location, base photo, base bio) that every design screen shows: [[Base profile work fields]]. Until decided, those live only per Ring on the projection.
+- The once-a-year rename limit and suggested handles on s06: [[Pin name rules]]. Today a rename is unlimited.
 - LinkedIn / card / portfolio import into the profile: [[Onboarding Imports]].
 
 ## Checklist

@@ -7,7 +7,7 @@ module: identity
 status: draft
 screens: [s14, s20, s23, s24, s25, s29, s36]
 created: 2026-10-18
-updated: 2026-10-18
+updated: 2026-10-26
 tags: [frontend-requirements, frontend-requirements/draft, module/identity, layer/frontend]
 ---
 
@@ -77,8 +77,8 @@ What the client needs from the backend to build the "what this Ring shows" edito
 | Detach a file | `DELETE …/attachments/:attachmentId` | ✅ | — |
 | Preview as the audience | `GET /views/ring/:ringId` | ✅ | — (listed under [[View As & Pin Views]]) |
 | Display the photo and attachments | — | ❌ | [[T-062 Serve uploaded file bytes by id]] |
-| One field library switched on / off per Ring | — | ❌ | [[D-03 Field library vs per-Ring copies]] |
-| Inherit from the Pin / copy another Ring's bio | — | ❌ | [[D-05 Copy or inherit]], [[D-02 Base profile work fields]] |
+| One field library switched on / off per Ring | — | ❌ | [[Field library vs per-Ring copies]] |
+| Inherit from the Pin / copy another Ring's bio | — | ❌ | [[Copy or inherit]], [[Base profile work fields]] |
 | Widgets add / edit / remove | — | ❌ | [[T-017 Extend WIDGET_TYPE to the design's list]], [[T-018 Widget CRUD on the projection]] |
 | Member count on s14 | — | ❌ | [[T-004 Member count per Ring on list and detail]] |
 
@@ -111,6 +111,6 @@ Until [[T-063 Put the ErrorCode on the error body]] ships, branch on status and 
 
 ## Blocked by
 
-- [[D-03 Field library vs per-Ring copies]] — the "N of 7 on" toggle list on s20 / s24; build an add-list until decided.
-- [[D-05 Copy or inherit]] and [[D-02 Base profile work fields]] — "Inherit" and "Copy a Ring" on s23 / s28, "Reset to Pin" on s29.
+- [[Field library vs per-Ring copies]] — the "N of 7 on" toggle list on s20 / s24; build an add-list until decided.
+- [[Copy or inherit]] and [[Base profile work fields]] — "Inherit" and "Copy a Ring" on s23 / s28, "Reset to Pin" on s29.
 - [[T-062 Serve uploaded file bytes by id]] — every photo and attachment preview.

@@ -1,11 +1,12 @@
 ---
 type: decision
 id: D-02
+aliases: [D-02]
 status: open
 features: [profiles, ring-projection, onboarding-imports, photo-library]
 screens: [s05, s06, s11, s23, s29]
 created: 2026-10-15
-updated: 2026-10-25
+updated: 2026-10-26
 tags: [decision, decision/open]
 ---
 

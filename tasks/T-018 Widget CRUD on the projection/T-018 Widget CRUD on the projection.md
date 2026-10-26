@@ -9,7 +9,7 @@ module: identity
 screens: [s36, s37]
 depends: [T-017, D-03]
 created: 2026-10-15
-updated: 2026-10-25
+updated: 2026-10-26
 owner: "omar"
 tags: [task, task/needs-info, module/identity, priority/high]
 ---
@@ -32,7 +32,7 @@ tags: [task, task/needs-info, module/identity, priority/high]
 ## Dependencies
 
 - Waits on [[T-017 Extend WIDGET_TYPE to the design's list]]
-- Waited on decision [[D-03 Field library vs per-Ring copies]], decided by [[DR-03 Links entered once, switched on or off per Ring]]
+- Waited on decision [[Field library vs per-Ring copies]], decided by [[DR-03 Links entered once, switched on or off per Ring]]
 
 ## Definition of done
 

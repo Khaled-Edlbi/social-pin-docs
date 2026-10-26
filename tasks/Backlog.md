@@ -79,7 +79,7 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 
 | Task | Feature | Module | Status | Effort | Deadline | Depends on / blocked by |
 |---|---|---|---|---|---|---|
-| [[B-01 An unverified changed email still signs in]] `bug` | [[Account]] | Identity Core | 🟡 Partial (5 notes) · By design | S | — | — |
+| B-01 [[An unverified changed email still signs in]] `bug` | [[Account]] | Identity Core | 🟡 Partial (5 notes) · By design | S | — | — |
 | [[T-003 Remove devCode once delivery works]] | [[Code Delivery]] | Platform & Cross-cutting | ⛔ Blocked | S | — | [[T-001 Wire an email provider for one-time codes|T-001]], [[T-002 Wire an SMS provider for one-time codes|T-002]] |
 | [[T-003-be Backend · Remove devCode once delivery works]] `backend` | [[Code Delivery]] | Platform & Cross-cutting | ⛔ Blocked | S | — | [[T-001 Wire an email provider for one-time codes|T-001]], [[T-002 Wire an SMS provider for one-time codes|T-002]] |
 | [[T-004 Member count per Ring on list and detail]] | [[Counts]] | Identity Core | ⬜ To do | S | — | — |
@@ -94,7 +94,7 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-009 Scan counter and share link]] | [[Badge & QR]] | Discovery | ⛔ Blocked | S | — | [[T-008 Resolve a scanned QR token|T-008]] |
 | [[T-009-be Backend · Scan counter and share link]] `backend` | [[Badge & QR]] | Discovery | ⛔ Blocked | S | — | [[T-008 Resolve a scanned QR token|T-008]] |
 | [[T-009-fe Frontend · Scan counter and share link]] `frontend` | [[Badge & QR]] | Discovery | ⛔ Blocked | S | — | [[T-008 Resolve a scanned QR token|T-008]], [[T-009-be Backend · Scan counter and share link|T-009-be]] |
-| [[T-010 Public browser page for viewers without the app]] | [[Badge & QR]] | Discovery | ⛔ Blocked | M | — | [[T-008 Resolve a scanned QR token|T-008]], [[D-12 What the badge QR encodes|D-12]] |
+| [[T-010 Public browser page for viewers without the app]] | [[Badge & QR]] | Discovery | ⛔ Blocked | M | — | [[T-008 Resolve a scanned QR token|T-008]], [[What the badge QR encodes|D-12]] |
 | [[T-010-be Backend · Public browser page for viewers without the app]] `backend` | [[Badge & QR]] | Discovery | ⛔ Blocked | M | — | [[T-008 Resolve a scanned QR token|T-008]] |
 | [[T-010-fe Frontend · Public browser page for viewers without the app]] `frontend` | [[Badge & QR]] | Discovery | ⛔ Blocked | M | — | [[T-008 Resolve a scanned QR token|T-008]], [[T-010-be Backend · Public browser page for viewers without the app|T-010-be]] |
 | [[T-012 List my files (photo library)]] | [[Photo Library]] | Identity Core | ⬜ To do | S | — | — |
@@ -118,8 +118,8 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-020 LinkedIn import → review → base profile]] | [[Onboarding Imports]] | Identity Core | ⛔ Blocked | L | — | [[T-019 LinkedIn OAuth link, unlink, login|T-019]] |
 | [[T-020-be Backend · LinkedIn import → review → base profile]] `backend` | [[Onboarding Imports]] | Identity Core | ⛔ Blocked | L | — | [[T-019 LinkedIn OAuth link, unlink, login|T-019]] |
 | [[T-020-fe Frontend · LinkedIn import → review → base profile]] `frontend` | [[Onboarding Imports]] | Identity Core | ⛔ Blocked | L | — | [[T-019 LinkedIn OAuth link, unlink, login|T-019]], [[T-020-be Backend · LinkedIn import → review → base profile|T-020-be]] |
-| [[T-026 Ring invitations invite, review, decline]] | [[Ring Invitations & Join]] | Shared Rings & Companies | ❓ Needs decision | M | — | [[D-04 Ring settings|D-04]] |
-| [[T-026-be Backend · Ring invitations invite, review, decline]] `backend` | [[Ring Invitations & Join]] | Shared Rings & Companies | ⬜ To do | M | — | [[D-04 Ring settings|D-04]] |
+| [[T-026 Ring invitations invite, review, decline]] | [[Ring Invitations & Join]] | Shared Rings & Companies | ❓ Needs decision | M | — | [[Ring settings|D-04]] |
+| [[T-026-be Backend · Ring invitations invite, review, decline]] `backend` | [[Ring Invitations & Join]] | Shared Rings & Companies | ⬜ To do | M | — | [[Ring settings|D-04]] |
 | [[T-026-fe Frontend · Ring invitations invite, review, decline]] `frontend` | [[Ring Invitations & Join]] | Shared Rings & Companies | ⛔ Blocked | M | — | [[T-026-be Backend · Ring invitations invite, review, decline|T-026-be]] |
 | [[T-027 Join a Ring with a code or verified work email]] | [[Ring Invitations & Join]] | Shared Rings & Companies | ⛔ Blocked | M | — | [[T-026 Ring invitations invite, review, decline|T-026]] |
 | [[T-027-be Backend · Join a Ring with a code or verified work email]] `backend` | [[Ring Invitations & Join]] | Shared Rings & Companies | ⛔ Blocked | M | — | [[T-026 Ring invitations invite, review, decline|T-026]] |
@@ -178,15 +178,15 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 
 | Task | Feature | Module | Status | Effort | Deadline | Depends on / blocked by |
 |---|---|---|---|---|---|---|
-| [[B-02 Deleted account answers 401, not the documented 404 E_USER_01]] `bug` | [[Account]] | Identity Core | ⬜ To do | S | — | — |
+| B-02 [[Deleted account answers 401, not the documented 404 E_USER_01]] `bug` | [[Account]] | Identity Core | ⬜ To do | S | — | — |
 | [[T-013 Usage count per file across Rings]] | [[Photo Library]] | Identity Core | ⛔ Blocked | S | — | [[T-012 List my files (photo library)|T-012]] |
 | [[T-013-be Backend · Usage count per file across Rings]] `backend` | [[Photo Library]] | Identity Core | ⛔ Blocked | S | — | [[T-012 List my files (photo library)|T-012]] |
 | [[T-013-fe Frontend · Usage count per file across Rings]] `frontend` | [[Photo Library]] | Identity Core | ⛔ Blocked | S | — | [[T-012 List my files (photo library)|T-012]], [[T-013-be Backend · Usage count per file across Rings|T-013-be]] |
 | [[T-015 Pair and revoke an NFC card]] | [[Devices & NFC]] | Platform & Cross-cutting | ⛔ Blocked | M | — | [[T-007 Issue and rotate the QR token for a Ring|T-007]] |
 | [[T-015-be Backend · Pair and revoke an NFC card]] `backend` | [[Devices & NFC]] | Platform & Cross-cutting | ⛔ Blocked | M | — | [[T-007 Issue and rotate the QR token for a Ring|T-007]] |
 | [[T-015-fe Frontend · Pair and revoke an NFC card]] `frontend` | [[Devices & NFC]] | Platform & Cross-cutting | ⛔ Blocked | M | — | [[T-007 Issue and rotate the QR token for a Ring|T-007]], [[T-015-be Backend · Pair and revoke an NFC card|T-015-be]] |
-| [[T-020b Business card scan and portfolio URL import]] | [[Onboarding Imports]] | Identity Core | ❓ Needs decision | L | — | [[D-02 Base profile work fields|D-02]] |
-| [[T-020b-be Backend · Business card scan and portfolio URL import]] `backend` | [[Onboarding Imports]] | Identity Core | ⬜ To do | L | — | [[D-02 Base profile work fields|D-02]] |
+| [[T-020b Business card scan and portfolio URL import]] | [[Onboarding Imports]] | Identity Core | ❓ Needs decision | L | — | [[Base profile work fields|D-02]] |
+| [[T-020b-be Backend · Business card scan and portfolio URL import]] `backend` | [[Onboarding Imports]] | Identity Core | ⬜ To do | L | — | [[Base profile work fields|D-02]] |
 | [[T-020b-fe Frontend · Business card scan and portfolio URL import]] `frontend` | [[Onboarding Imports]] | Identity Core | ⛔ Blocked | L | — | [[T-020b-be Backend · Business card scan and portfolio URL import|T-020b-be]] |
 | [[T-025 Introduce a connection to another]] | [[Connections]] | Connections | ❓ Needs decision | M | — | [[T-023 Connection detail and contacts list|T-023]] |
 | [[T-025-be Backend · Introduce a connection to another]] `backend` | [[Connections]] | Connections | ⛔ Blocked | M | — | [[T-023 Connection detail and contacts list|T-023]] |

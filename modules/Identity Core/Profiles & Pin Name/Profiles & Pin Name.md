@@ -7,7 +7,7 @@ release: mvp
 module: identity
 screens: [s06]
 created: 2026-10-18
-updated: 2026-10-25
+updated: 2026-10-26
 owner: "omar"
 tags: [feature, module/identity, priority/critical, release/mvp]
 ---
@@ -50,8 +50,8 @@ TABLE status, priority, effort FROM #task WHERE feature = "profiles" SORT priori
 
 ## Decisions
 
-- [[D-02 Base profile work fields]] — decided, one main profile every Ring starts from ([[DR-02 One main profile every Ring starts from|DR-02]])
-- [[D-06 Pin name rules]] — decided, yearly rename, old name freed, case-insensitive ([[DR-06 Yearly rename, old name freed, case-insensitive|DR-06]])
+- [[Base profile work fields]] — decided, one main profile every Ring starts from ([[DR-02 One main profile every Ring starts from|DR-02]])
+- [[Pin name rules]] — decided, yearly rename, old name freed, case-insensitive ([[DR-06 Yearly rename, old name freed, case-insensitive|DR-06]])
 
 ## Related
 

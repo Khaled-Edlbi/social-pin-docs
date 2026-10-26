@@ -9,7 +9,7 @@ screens: [s01, s02, s06, s08, s68]
 approvedBy: "khaled"
 approvedAt: 2026-10-25
 created: 2026-10-18
-updated: 2026-10-25
+updated: 2026-10-26
 owner: "omar"
 related: ["DR-06 Yearly rename, old name freed, case-insensitive"]
 tags: [story, story/approved, module/identity, layer/business]
@@ -19,7 +19,7 @@ tags: [story, story/approved, module/identity, layer/business]
 
 **Feature:** [[Auth & Sign-up]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[Auth & Sign-up Frontend Requirements]] · **Backend Integration:** [[Auth & Sign-up Backend Integration]]
 
-A person arrives with nothing but an email address or a phone number and leaves with a working identity: an active account, a Pin name, a default Ring and its projection. Coming back later costs them one code, never a password. The welcome screen's promise, *"We send a one-time code. No password to remember"*, is the whole contract ([[D-01 Passwordless login]], decided 2026-10-15).
+A person arrives with nothing but an email address or a phone number and leaves with a working identity: an active account, a Pin name, a default Ring and its projection. Coming back later costs them one code, never a password. The welcome screen's promise, *"We send a one-time code. No password to remember"*, is the whole contract ([[Passwordless login]], decided 2026-10-15).
 
 ## Persona
 

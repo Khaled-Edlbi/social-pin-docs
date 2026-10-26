@@ -7,18 +7,18 @@ decidedBy: "khaled"
 decidedAt: 2026-10-21
 features: [payments, subscription]
 affects: ["Payments & Orders", "Subscription (Free vs Pro)", "T-047 Orders, payments and the provider webhook", "T-035 Registration transaction with order and payment", "T-049 Subscription endpoints and a single Pro gate"]
-related: ["D-07 Payment provider"]
+related: ["Payment provider"]
 owner: "khaled"
 created: 2026-10-22
-updated: 2026-10-25
+updated: 2026-10-26
 tags: [decision-record, decision-record/decided]
 ---
 
 # ⚖️ DR-07 · Stripe for all four flows
 
-**Answers:** [[D-07 Payment provider]] · **Decided by:** khaled · **On:** 2026-10-21 · **Feature:** [[Payments & Orders]], [[Subscription (Free vs Pro)]]
+**Answers:** [[Payment provider]] · **Decided by:** khaled · **On:** 2026-10-21 · **Feature:** [[Payments & Orders]], [[Subscription (Free vs Pro)]]
 
-> This card is the answer to [[D-07 Payment provider]]. The needs-decision card keeps the question, the facts and the options; this decision card says what was decided, why, and what it changes. It is written when the decision is taken, by the PM or the owner on the user's word, never before; the needs-decision card is `decided` once this card exists.
+> This card is the answer to [[Payment provider]]. The needs-decision card keeps the question, the facts and the options; this decision card says what was decided, why, and what it changes. It is written when the decision is taken, by the PM or the owner on the user's word, never before; the needs-decision card is `decided` once this card exists.
 
 ## What was decided
 

@@ -8,7 +8,7 @@ status: draft
 screens: [s44, s45, s46, s47, s62]
 owner: "omar"
 created: 2026-10-18
-updated: 2026-10-25
+updated: 2026-10-26
 related: ["DR-04 Ring settings at launch and their defaults", "DR-13 The requester sees a declined request", "DR-14 Shared with me lists people, never the Ring", "DR-15 Several Rings per connection, remove or disconnect", "DR-17 Requests expire after 30 days, optional note, ask again at once"]
 tags: [story, story/draft, module/connections, layer/business]
 ---
@@ -32,7 +32,7 @@ Two roles on the same journey. The **requester** is a personal user who just sca
 **As a** requester looking at a resolved profile, **I want** to tap *Connect* and send one request, **so that** the owner can decide to keep me in a Ring of theirs.
 
 Acceptance criteria:
-- [ ] *Connect* is shown under the resolved `RingProfileViewEntity`; tapping it sends a request addressed by the person's user id, never by a Ring id (the view carries none). How the app gets that id is [[D-10 How Connect addresses the scanned person]], still open.
+- [ ] *Connect* is shown under the resolved `RingProfileViewEntity`; tapping it sends a request addressed by the person's user id, never by a Ring id (the view carries none). How the app gets that id is [[How Connect addresses the scanned person]], still open.
 - [ ] The request may carry an optional note ("We met at TechSummit") of up to 200 characters ([[DR-17 Requests expire after 30 days, optional note, ask again at once]]).
 - [ ] After sending, the button becomes a *Requested* state and stays so on return to the screen; tapping again cancels (confirm first). After a decline or an expiry it shows that, and *Connect* sends a new request straight away.
 - [ ] If the pair is blocked in either direction, or the person does not exist, the request fails with the same 404 body the view gives; the UI shows one neutral message and never says "blocked".
@@ -113,7 +113,7 @@ Acceptance criteria:
 ## Open questions
 
 - [[T-025 Introduce a connection to another]] — semantics of *Introduce* on s47 (a request on someone's behalf, or a suggestion to Gemma); the button stays disabled until decided.
-- [[D-10 How Connect addresses the scanned person]] — open; blocks S1's addressing ([[T-021 Story]]).
+- [[How Connect addresses the scanned person]] — open; blocks S1's addressing ([[T-021 Story]]).
 - Decided: [[DR-13 The requester sees a declined request]], [[DR-14 Shared with me lists people, never the Ring]] (a connection-granted membership lists as the person, never the Ring's name; not available yet), [[DR-15 Several Rings per connection, remove or disconnect]], [[DR-17 Requests expire after 30 days, optional note, ask again at once]].
 - Mutual connections on s47 count only where a Ring's "members can see each other" is on (off by default, [[DR-04 Ring settings at launch and their defaults]]); otherwise they are computed over the viewer's own connections only.
 - The disconnect route, and whether the other person is told anything (DR-15, *Still open*).

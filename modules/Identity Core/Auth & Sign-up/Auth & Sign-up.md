@@ -7,7 +7,7 @@ release: mvp
 module: identity
 screens: [s01, s02, s06, s08, s68]
 created: 2026-10-18
-updated: 2026-10-25
+updated: 2026-10-26
 tags: [feature, module/identity, priority/critical, release/mvp]
 ---
 
@@ -17,7 +17,7 @@ tags: [feature, module/identity, priority/critical, release/mvp]
 
 **Layers:** [[Auth & Sign-up Story|Story]] · [[Auth & Sign-up Frontend Requirements|Frontend Requirements]] · [[Auth & Sign-up Backend Delivery|Backend Delivery]] · [[Auth & Sign-up Backend Integration|Backend Integration]] · [[Auth & Sign-up Frontend Delivery|Frontend Delivery]] · [[Auth & Sign-up QA Backend|QA Backend]] · [[Auth & Sign-up QA Frontend|QA Frontend]]
 
-Sign up with email or phone, verify the one-time code, finish registration with a Pin name, sign in with a one-time code, refresh, log out, log out everywhere. **Passwordless** since 2026-10-15 ([[D-01 Passwordless login]]); client changes in [[Frontend Passwordless Migration]].
+Sign up with email or phone, verify the one-time code, finish registration with a Pin name, sign in with a one-time code, refresh, log out, log out everywhere. **Passwordless** since 2026-10-15 ([[Passwordless login]]); client changes in [[Frontend Passwordless Migration]].
 
 ## Design reference
 
@@ -45,7 +45,7 @@ TABLE status, priority, effort FROM #task WHERE feature = "auth" SORT priority A
 
 ## Decisions
 
-- [[D-01 Passwordless login]] — decided, code-only login
+- [[Passwordless login]] — decided, code-only login
 
 ## Related
 

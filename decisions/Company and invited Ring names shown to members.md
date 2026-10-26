@@ -1,6 +1,7 @@
 ---
 type: decision
 id: D-18
+aliases: [D-18]
 status: open
 features: [companies, ring-invitations]
 blocks: ["Companies Story", "Ring Invitations & Join Story"]
@@ -10,7 +11,7 @@ affects: ["Companies", "Ring Invitations & Join"]
 related: ["DR-14 Shared with me lists people, never the Ring", "Companies", "Ring Invitations & Join", "Rings"]
 owner: "omar"
 created: 2026-10-25
-updated: 2026-10-25
+updated: 2026-10-26
 tags: [decision, decision/open]
 ---
 

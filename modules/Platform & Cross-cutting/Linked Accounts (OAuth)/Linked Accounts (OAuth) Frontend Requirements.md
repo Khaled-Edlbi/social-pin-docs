@@ -7,7 +7,7 @@ module: platform
 status: draft
 screens: [s01, s04, s68]
 created: 2026-10-18
-updated: 2026-10-18
+updated: 2026-10-26
 tags: [frontend-requirements, frontend-requirements/draft, module/platform, layer/frontend]
 ---
 
@@ -68,4 +68,4 @@ No OAuth codes exist yet; T-019 adds them. `ErrorCode` is not on the wire until 
 
 ## Blocked by
 
-- [[D-01 Passwordless login]] is decided (code-only, 2026-10-15); nothing here waits on it. The login row waits on [[T-019 LinkedIn OAuth link, unlink, login]] is ❓ because of it.
+- [[Passwordless login]] is decided (code-only, 2026-10-15); nothing here waits on it. The login row waits on [[T-019 LinkedIn OAuth link, unlink, login]] is ❓ because of it.

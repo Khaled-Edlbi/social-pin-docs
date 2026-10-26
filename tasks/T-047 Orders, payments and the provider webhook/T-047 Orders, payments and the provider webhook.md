@@ -9,13 +9,13 @@ module: commerce
 screens: [s51]
 depends: []
 created: 2026-10-15
-updated: 2026-10-25
+updated: 2026-10-26
 tags: [task, task/needs-info, module/commerce, priority/high]
 ---
 
 # ❓ T-047 · Orders, payments and the provider webhook
 
-> ⚠ Affected by [[D-07 Payment provider]] (2026-10-21): the provider is Stripe and the decision card now carries the block, so the hand-typed `needs-info` goes back to `todo`; the settlement callback is a Stripe webhook, idempotent on `providerReference`.
+> ⚠ Affected by [[Payment provider]] (2026-10-21): the provider is Stripe and the decision card now carries the block, so the hand-typed `needs-info` goes back to `todo`; the settlement callback is a Stripe webhook, idempotent on `providerReference`.
 
 **Feature:** [[Payments & Orders]] · **Status:** Needs a decision / info · **Priority:** High · **Effort:** L (S < 1 day, M 1–3 days, L > 3 days)
 

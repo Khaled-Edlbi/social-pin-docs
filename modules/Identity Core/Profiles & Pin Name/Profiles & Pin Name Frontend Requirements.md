@@ -7,7 +7,7 @@ module: identity
 status: draft
 screens: [s06]
 created: 2026-10-18
-updated: 2026-10-18
+updated: 2026-10-26
 tags: [frontend-requirements, frontend-requirements/draft, module/identity, layer/frontend]
 ---
 
@@ -63,9 +63,9 @@ What the client needs from the backend for the Pin-name claim and the owner's pr
 | Make a profile the default | `POST /profiles/:id/default` | ✅ | — |
 | Delete a non-default profile | `DELETE /profiles/:id` | ✅ | — |
 | Claim the handle at registration | `POST /auth/complete-registration` | ✅ | — (listed under [[Auth & Sign-up]]) |
-| Work fields (headline, role, company, location, photo, bio) | — | ❌ | [[D-02 Base profile work fields]] |
-| Once-a-year rename limit | — | ❌ | [[D-06 Pin name rules]] |
-| Suggested handles on s06 | — | ❌ | [[D-06 Pin name rules]] |
+| Work fields (headline, role, company, location, photo, bio) | — | ❌ | [[Base profile work fields]] |
+| Once-a-year rename limit | — | ❌ | [[Pin name rules]] |
+| Suggested handles on s06 | — | ❌ | [[Pin name rules]] |
 | Import into the profile | — | ❌ | [[T-020 LinkedIn import → review → base profile]] |
 
 ## Behaviour expectations
@@ -92,5 +92,5 @@ Until [[T-063 Put the ErrorCode on the error body]] ships, branch on status and 
 
 ## Blocked by
 
-- [[D-02 Base profile work fields]] — the work section of the editor and the headline shown on every design screen.
-- [[D-06 Pin name rules]] — the "once a year" copy and suggestion chips on s06.
+- [[Base profile work fields]] — the work section of the editor and the headline shown on every design screen.
+- [[Pin name rules]] — the "once a year" copy and suggestion chips on s06.

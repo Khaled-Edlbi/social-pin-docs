@@ -1,6 +1,7 @@
 ---
 type: decision
 id: D-12
+aliases: [D-12]
 status: draft
 features: [badge-qr]
 blocks: ["T-007 Story", "T-010"]
@@ -10,7 +11,7 @@ affects: []
 related: ["Badge & QR"]
 owner: "omar"
 created: 2026-10-25
-updated: 2026-10-25
+updated: 2026-10-26
 tags: [decision, decision/draft]
 ---
 

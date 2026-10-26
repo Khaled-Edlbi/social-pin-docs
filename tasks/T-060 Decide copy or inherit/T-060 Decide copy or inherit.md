@@ -10,7 +10,7 @@ screens: [s28]
 depends: [D-02]
 related: ["DR-05 Inherit per field, copy without members", "DR-02 One main profile every Ring starts from"]
 created: 2026-10-15
-updated: 2026-10-25
+updated: 2026-10-26
 owner: "omar"
 tags: [task, task/done, module/identity, priority/high]
 decision: D-05
@@ -22,7 +22,7 @@ decision: D-05
 
 ## What
 
-Take [[D-05 Copy or inherit]]. Decided by [[DR-05 Inherit per field, copy without members]]: Rings inherit the main profile field by field, and copying a Ring never copies its members. Building it is not ticketed yet.
+Take [[Copy or inherit]]. Decided by [[DR-05 Inherit per field, copy without members]]: Rings inherit the main profile field by field, and copying a Ring never copies its members. Building it is not ticketed yet.
 
 ## Design
 
@@ -30,7 +30,7 @@ Take [[D-05 Copy or inherit]]. Decided by [[DR-05 Inherit per field, copy withou
 
 ## Dependencies
 
-- Waited on decision [[D-02 Base profile work fields]], decided by [[DR-02 One main profile every Ring starts from]]
+- Waited on decision [[Base profile work fields]], decided by [[DR-02 One main profile every Ring starts from]]
 
 ## Definition of done
 

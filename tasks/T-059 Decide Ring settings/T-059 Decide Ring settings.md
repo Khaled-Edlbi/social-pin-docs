@@ -10,7 +10,7 @@ screens: [s27]
 depends: []
 related: ["DR-04 Ring settings at launch and their defaults"]
 created: 2026-10-15
-updated: 2026-10-25
+updated: 2026-10-26
 owner: "omar"
 tags: [task, task/done, module/identity, priority/critical]
 decision: D-04
@@ -22,7 +22,7 @@ decision: D-04
 
 ## What
 
-Take [[D-04 Ring settings]]. Decided by [[DR-04 Ring settings at launch and their defaults]]: six settings at launch with private defaults, three later; the owner and the Ring's admins change them. Building them is not ticketed yet.
+Take [[Ring settings]]. Decided by [[DR-04 Ring settings at launch and their defaults]]: six settings at launch with private defaults, three later; the owner and the Ring's admins change them. Building them is not ticketed yet.
 
 ## Design
 

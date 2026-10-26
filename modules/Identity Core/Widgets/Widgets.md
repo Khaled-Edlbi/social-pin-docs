@@ -7,7 +7,7 @@ release: v1
 module: identity
 screens: [s36, s37]
 created: 2026-10-15
-updated: 2026-10-25
+updated: 2026-10-26
 owner: "omar"
 tags: [feature, module/identity, priority/high, release/v1]
 ---
@@ -44,7 +44,7 @@ TABLE status, priority, effort FROM #task WHERE feature = "widgets" SORT priorit
 
 ## Decisions
 
-- [[D-03 Field library vs per-Ring copies]] — decided, links entered once, on or off per Ring ([[DR-03 Links entered once, switched on or off per Ring|DR-03]])
+- [[Field library vs per-Ring copies]] — decided, links entered once, on or off per Ring ([[DR-03 Links entered once, switched on or off per Ring|DR-03]])
 
 ## Related
 

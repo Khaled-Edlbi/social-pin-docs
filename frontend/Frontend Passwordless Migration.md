@@ -1,7 +1,7 @@
 ---
 type: project
 created: 2026-10-18
-updated: 2026-10-18
+updated: 2026-10-26
 tags: [project, frontend, auth]
 layer: frontend
 ---
@@ -10,7 +10,7 @@ layer: frontend
 
 **Audience:** the app / web client team.
 **Backend change:** `feat(auth): passwordless sign-in with OTP codes`, merged into `main` of `social-pin` on 2026-10-15 (PR #1, branch `auth/no-ticket/passwordless-otp-login`).
-**Decision:** [[D-01 Passwordless login]] — option A, code-only login, as the welcome screen (s01) promises: *"We send a one-time code. No password to remember."*
+**Decision:** [[Passwordless login]] — option A, code-only login, as the welcome screen (s01) promises: *"We send a one-time code. No password to remember."*
 
 Full reference: [[Frontend API Guide]] · model notes: [[Auth Model]] · feature: [[Auth & Sign-up]].
 

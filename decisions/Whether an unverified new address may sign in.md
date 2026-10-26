@@ -1,6 +1,7 @@
 ---
 type: decision
 id: D-20
+aliases: [D-20]
 status: open
 priority: high
 features: [account]
@@ -8,7 +9,7 @@ blocks: [B-01]
 decider: "pm"
 screens: [s68]
 affects: ["Account Story", "Account Backend Delivery", "Account Backend Integration", "Account QA Backend", "Account QA Frontend"]
-related: ["B-01 An unverified changed email still signs in", "Auth & Sign-up Backend Integration", "Account Frontend Delivery", "Auth Model", "T-003 Remove devCode once delivery works", "DR-20 The changed address still signs in, the words are corrected"]
+related: ["An unverified changed email still signs in", "Auth & Sign-up Backend Integration", "Account Frontend Delivery", "Auth Model", "T-003 Remove devCode once delivery works", "DR-20 The changed address still signs in, the words are corrected"]
 owner: "khaled"
 created: 2026-10-26
 updated: 2026-10-26
@@ -17,13 +18,13 @@ tags: [decision, decision/open, priority/high]
 
 # ✅ D-20 · Whether an unverified new address may sign in
 
-**Status:** open · **Decider:** pm · **Raised:** 2026-10-26 · **Needed by:** [[B-01 An unverified changed email still signs in]] · **Feature:** [[Account]]
+**Status:** open · **Decider:** pm · **Raised:** 2026-10-26 · **Needed by:** [[An unverified changed email still signs in]] · **Feature:** [[Account]]
 
 > The needs-decision card: `draft` while the question is written, `open` once it is ready for the decider; it shows **Fulfilled** by itself once its decision card (DR-NN) is `decided`. The cards in `blocks` are **Blocked · D-20** while this is `draft` or `open` and return to their own status once it is fulfilled. Nobody edits their `status:` for this, and nobody types `fulfilled` or `decided` here.
 
 ## What has to be decided
 
-An address changed through `PATCH /users/me` comes back with `emailVerifiedAt: null`, and signs in at once all the same: `POST /auth/login` issues a code for it and `POST /auth/login/verify` returns a session ([[B-01 An unverified changed email still signs in]]). Two notes say otherwise — [[Account Story]] S2 promises the user "the new address must be verified before it can be used to sign in", and [[Account Backend Delivery]] says the cleared flag is what enforces it. The build does not enforce it, so one of the two sides has to move, and the backend cannot pick: either `login` and `login/verify` grow a gate on the `…VerifiedAt` flags (403 `E_AUTH_03`), which changes what the API does to every client, or the story drops the promise and the two backend notes are corrected to describe the behaviour as it is. Decided the first way, B-01 becomes backend work on `src/modules/auth/` plus a re-approval of S2's copy; decided the second way, B-01 is a documentation correction on three notes and no code ships.
+An address changed through `PATCH /users/me` comes back with `emailVerifiedAt: null`, and signs in at once all the same: `POST /auth/login` issues a code for it and `POST /auth/login/verify` returns a session ([[An unverified changed email still signs in]]). Two notes say otherwise — [[Account Story]] S2 promises the user "the new address must be verified before it can be used to sign in", and [[Account Backend Delivery]] says the cleared flag is what enforces it. The build does not enforce it, so one of the two sides has to move, and the backend cannot pick: either `login` and `login/verify` grow a gate on the `…VerifiedAt` flags (403 `E_AUTH_03`), which changes what the API does to every client, or the story drops the promise and the two backend notes are corrected to describe the behaviour as it is. Decided the first way, B-01 becomes backend work on `src/modules/auth/` plus a re-approval of S2's copy; decided the second way, B-01 is a documentation correction on three notes and no code ships.
 
 ## Notes
 

@@ -637,7 +637,7 @@ function statusText(n) {
   if (b.length && (n.effectiveStatus === 'blocked' || n.effectiveStatus === 'missing')) { const t = node(b[0].id); return `${n.effectiveStatus === 'blocked' ? 'Blocked' : l} · ${(t.kind === 'task' || t.kind === 'decision') && t.code ? t.code : (kindOf(t.kind).name)}${b.length > 1 ? ` +${b.length - 1}` : ''}`; }
   return l;
 }
-// the cards whose file name starts with their code (`D-08 Payment methods…`, `DR-08 Stripe card checkout only`, `T-074 An unverified changed email…`): the card shows the code in the kicker, like `F-41 · FEATURE`, and the title without it
+// the cards whose code is their id (`D-08`, `DR-08 Stripe card checkout only`, `T-074 …`): the card shows the code in the kicker, like `F-41 · FEATURE`, and the title without it; a bug and a needs-decision card are named by their title only, so there is nothing to strip
 const CODE_TITLED = new Set(['decision', 'decision-record', 'task']);
 // the two decision cards, which cluster together in the graph and are the only non-feature nodes the features scope keeps; not the same set as CODE_TITLED since tasks are titled by code but belong to their own module
 const DECISION_CARDS = new Set(['decision', 'decision-record']);

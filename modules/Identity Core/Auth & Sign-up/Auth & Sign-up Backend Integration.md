@@ -7,13 +7,13 @@ module: identity
 status: current
 screens: [s01, s02, s06, s08, s68]
 created: 2026-10-15
-updated: 2026-10-18
+updated: 2026-10-26
 tags: [backend-integration, backend-integration/current, module/identity, layer/backend]
 ---
 
 # 🔌 Auth & Sign-up · Backend Integration
 
-**Feature:** [[Auth & Sign-up]] · **Backend:** ✅ Done (passwordless since 2026-10-15, [[D-01 Passwordless login]]) · **Read first:** [[Frontend Contract]], [[Auth Model]], [[Frontend Passwordless Migration]]
+**Feature:** [[Auth & Sign-up]] · **Backend:** ✅ Done (passwordless since 2026-10-15, [[Passwordless login]]) · **Read first:** [[Frontend Contract]], [[Auth Model]], [[Frontend Passwordless Migration]]
 
 What the client builds: the welcome screen, one code-entry screen used by both sign-up and sign-in, the claim-your-Pin step, a token store that handles rotation, and sign-out. **There is no password anywhere**: not at sign-up, not at sign-in, not in account settings.
 
