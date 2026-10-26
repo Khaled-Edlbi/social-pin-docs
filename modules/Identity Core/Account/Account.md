@@ -13,6 +13,8 @@ tags: [feature, module/identity, priority/critical, release/mvp]
 
 # Account
 
+> ⚠ Affected by [[T-074 An unverified changed email still signs in]] (2026-10-26): "_No open tasks._" under ## Tasks is out of date. [[Account QA Backend]] filed two bugs against this feature, T-074 and [[T-075 Deleted account answers 401, not the documented 404 E_USER_01]], both open.
+
 **Backend:** Done · **Priority:** Critical · **Release:** MVP · **Module:** [[Identity Core Module|Identity Core]]
 
 **Layers:** [[Account Story|Story]] · [[Account Frontend Requirements|Frontend Requirements]] · [[Account Backend Delivery|Backend Delivery]] · [[Account Backend Integration|Backend Integration]] · [[Account Frontend Delivery|Frontend Delivery]] · [[Account QA Backend|QA Backend]] · [[Account QA Frontend|QA Frontend]]

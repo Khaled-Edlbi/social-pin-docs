@@ -13,7 +13,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
       - ✏️ [Account Frontend Requirements](modules/Identity%20Core/Account/Account%20Frontend%20Requirements.md) (FR-01, Frontend Requirements, Critical)
       - ✅ [Account Backend Delivery](modules/Identity%20Core/Account/Account%20Backend%20Delivery.md) (BD-01, Backend Delivery, Critical)
       - 🔵 [Account Backend Integration](modules/Identity%20Core/Account/Account%20Backend%20Integration.md) (BI-01, Backend Integration, Critical)
-      - 🔴 [Account QA Backend](modules/Identity%20Core/Account/Account%20QA%20Backend.md) (QB-04, QA Backend, 4 pending notes, Critical)
+      - 🔴 [Account QA Backend](modules/Identity%20Core/Account/Account%20QA%20Backend.md) (QB-04, QA Backend, 3 pending notes, Critical)
       - ∅ _Account Frontend Delivery_ (Frontend Delivery)
       - ∅ _Account QA Frontend_ (QA Frontend, blocked by Account Frontend Delivery)
     - 🔵 [Auth & Sign-up](modules/Identity%20Core/Auth%20%26%20Sign-up/Auth%20%26%20Sign-up.md) (F-02, release MVP, Critical)

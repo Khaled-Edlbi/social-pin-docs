@@ -1745,6 +1745,7 @@
       "kind": "error",
       "notes": [
         "backend-integration:account",
+        "feature:account",
         "frontend-requirements:account",
         "qa-backend:account",
         "task:T-075"
@@ -9470,12 +9471,12 @@
     {
       "from": "qa-backend:account",
       "kind": "pending",
-      "to": "backend-delivery:account"
+      "to": "task:T-074"
     },
     {
       "from": "qa-backend:account",
       "kind": "pending",
-      "to": "backend-integration:account"
+      "to": "task:T-075"
     },
     {
       "from": "decision-record:DR-01",
@@ -26451,6 +26452,16 @@
       "to": "task:T-063-fe"
     },
     {
+      "from": "feature:account",
+      "kind": "wikilink",
+      "to": "task:T-074"
+    },
+    {
+      "from": "feature:account",
+      "kind": "wikilink",
+      "to": "task:T-075"
+    },
+    {
       "from": "feature:audit-log",
       "kind": "wikilink",
       "to": "task:T-053"
@@ -34991,19 +35002,9 @@
       "to": "backend-delivery:account"
     },
     {
-      "from": "task:T-074",
-      "kind": "wikilink",
-      "to": "feature:account"
-    },
-    {
       "from": "task:T-075",
       "kind": "wikilink",
       "to": "backend-integration:account"
-    },
-    {
-      "from": "task:T-075",
-      "kind": "wikilink",
-      "to": "feature:account"
     }
   ],
   "emoji": {
@@ -52571,22 +52572,17 @@
       "pending": [
         {
           "person": null,
-          "text": "row B14 says 404 E_USER_01 after a delete; the server answers 401 \"Account is not active\" and the 404 row is unreachable",
-          "to": "backend-integration:account"
+          "text": "row B9, filed 2026-10-26, re-run when it ships",
+          "to": "task:T-074"
         },
         {
           "person": null,
-          "text": "\"a changed address must be proven again before it can be used to sign in\" is not what the server does (B9)",
-          "to": "backend-delivery:account"
-        },
-        {
-          "person": "backend",
-          "text": "B9 and B14 are the backend's to fix or to re-document",
-          "to": null
+          "text": "row B14, filed 2026-10-26, re-run when it ships",
+          "to": "task:T-075"
         },
         {
           "person": null,
-          "text": "B16 (suspended account) not run: no route suspends an account until T-068 ships",
+          "text": "B21 (suspended account) not run: no route suspends an account until T-068 ships",
           "to": null
         }
       ],
