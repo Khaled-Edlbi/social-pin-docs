@@ -17,6 +17,8 @@ tags: [story, story/approved, module/identity, layer/business]
 
 # Auth & Sign-up · User Story
 
+> ⚠ Affected by [[Auth & Sign-up Frontend Requirements]] (2026-10-26): the client's sign-up differs from this story: the full name is asked on *Profile basics* before s06 and is required (S3 says optional, on s06); s06 suggestions are built on the client from the person's own name (S3 says not available); an existing address is switched to sign-in by the client with no "Sign in instead" (S1); a wrong sign-in code offers no "Sign up" (S5); one input with an Email / Phone switch (S1); "Sign out everywhere" is on s75, not s68 (S6); the flow runs s01 → s02 → s03 → Profile basics → s06 → s07 → s08 → s09 → s10 (S4 says s06 → s08).
+
 **Feature:** [[Auth & Sign-up]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[Auth & Sign-up Frontend Requirements]] · **Backend Integration:** [[Auth & Sign-up Backend Integration]]
 
 A person arrives with nothing but an email address or a phone number and leaves with a working identity: an active account, a Pin name, a default Ring and its projection. Coming back later costs them one code, never a password. The welcome screen's promise, *"We send a one-time code. No password to remember"*, is the whole contract ([[D-01 Passwordless login]], decided 2026-10-15).
