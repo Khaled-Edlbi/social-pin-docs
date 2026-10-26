@@ -253,6 +253,7 @@
     "story:T-063": "S-88",
     "story:T-067": "S-108",
     "story:T-068": "S-109",
+    "story:T-069": "S-110",
     "story:account": "S-01",
     "story:app-shell": "S-73",
     "story:audit-log": "S-74",
@@ -470,7 +471,9 @@
     "task:T-067-be": "T-067-be",
     "task:T-067-fe": "T-067-fe",
     "task:T-068": "T-068",
-    "task:T-068-be": "T-068-be"
+    "task:T-068-be": "T-068-be",
+    "task:T-069": "T-069",
+    "task:T-069-be": "T-069-be"
   },
   "retired": {
     "BD-40": "backend-delivery:T-065-be",

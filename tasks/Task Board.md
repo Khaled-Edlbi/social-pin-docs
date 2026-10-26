@@ -193,6 +193,8 @@ kanban-plugin: board
 
 - [ ] [[T-068 Account moderation and platform role]] #high #operator-panel
 - [ ] [[T-068-be Backend · Account moderation and platform role]] #high #operator-panel #backend
+- [ ] [[T-069 Scoped role grants]] #high #operator-panel
+- [ ] [[T-069-be Backend · Scoped role grants]] #high #operator-panel #backend
 
 
 ## 🟡 Partial (done, notes pending)

@@ -499,6 +499,9 @@
     "T-068 Account moderation and platform role": "task:T-068",
     "T-068 Story": "story:T-068",
     "T-068-be Backend · Account moderation and platform role": "task:T-068-be",
+    "T-069 Scoped role grants": "task:T-069",
+    "T-069 Story": "story:T-069",
+    "T-069-be Backend · Scoped role grants": "task:T-069-be",
     "View As & Pin Views": "feature:view-as",
     "View As & Pin Views Backend Delivery": "backend-delivery:view-as",
     "View As & Pin Views Backend Integration": "backend-integration:view-as",
@@ -731,6 +734,7 @@
     "S-108": "story:T-067",
     "S-109": "story:T-068",
     "S-11": "story:photo-library",
+    "S-110": "story:T-069",
     "S-12": "story:T-012",
     "S-13": "story:T-013",
     "S-14": "story:profiles",
@@ -996,7 +1000,9 @@
     "T-067-be": "task:T-067-be",
     "T-067-fe": "task:T-067-fe",
     "T-068": "task:T-068",
-    "T-068-be": "task:T-068-be"
+    "T-068-be": "task:T-068-be",
+    "T-069": "task:T-069",
+    "T-069-be": "task:T-069-be"
   },
   "concepts": {
     "DELETE /connections/requests/:id": {
@@ -1108,6 +1114,26 @@
       "kind": "error",
       "notes": [
         "task:T-068"
+      ],
+      "owner": null
+    },
+    "E_ADMIN_03": {
+      "containers": [
+        "task:T-069"
+      ],
+      "kind": "error",
+      "notes": [
+        "task:T-069"
+      ],
+      "owner": null
+    },
+    "E_ADMIN_07": {
+      "containers": [
+        "task:T-069"
+      ],
+      "kind": "error",
+      "notes": [
+        "task:T-069"
       ],
       "owner": null
     },
@@ -4902,27 +4928,27 @@
       "frontend-requirements": 39,
       "module": 8,
       "project": 27,
-      "story": 100,
-      "task": 179
+      "story": 101,
+      "task": 181
     },
     "byLayer": {
       "backend": 56,
-      "business": 354,
+      "business": 357,
       "frontend": 43,
       "shared": 10
     },
-    "concepts": 186,
+    "concepts": 188,
     "decisions": 17,
-    "edges": 4918,
+    "edges": 4936,
     "features": 40,
-    "layerNotes": 187,
+    "layerNotes": 188,
     "modules": 8,
-    "notes": 498,
+    "notes": 501,
     "partial": 0,
     "placeholders": 158,
     "records": 13,
-    "taskLayerNotes": 61,
-    "tasks": 179
+    "taskLayerNotes": 62,
+    "tasks": 181
   },
   "deadlines": {
     "missed": {
@@ -4979,7 +5005,6 @@
   "diagnostics": {
     "errors": [],
     "warnings": [
-      "modules/Platform & Cross-cutting/Operator Panel/Operator Panel.md: wikilink [[T-069 Scoped role grants]] resolves to no note",
       "modules/Platform & Cross-cutting/Operator Panel/Operator Panel.md: wikilink [[T-070 Roles and permissions catalogue]] resolves to no note",
       "modules/Platform & Cross-cutting/Operator Panel/Operator Panel.md: wikilink [[T-071 Audit-log read endpoints]] resolves to no note",
       "modules/Platform & Cross-cutting/Operator Panel/Operator Panel.md: wikilink [[T-072 Platform stats]] resolves to no note"
@@ -5468,6 +5493,36 @@
     },
     {
       "from": "task:T-068-be",
+      "kind": "affects",
+      "to": "project:spec-map"
+    },
+    {
+      "from": "task:T-069",
+      "kind": "affects",
+      "to": "feature:auth"
+    },
+    {
+      "from": "task:T-069",
+      "kind": "affects",
+      "to": "project:frontend-api-guide"
+    },
+    {
+      "from": "task:T-069",
+      "kind": "affects",
+      "to": "project:spec-map"
+    },
+    {
+      "from": "task:T-069-be",
+      "kind": "affects",
+      "to": "feature:auth"
+    },
+    {
+      "from": "task:T-069-be",
+      "kind": "affects",
+      "to": "project:frontend-api-guide"
+    },
+    {
+      "from": "task:T-069-be",
       "kind": "affects",
       "to": "project:spec-map"
     },
@@ -7237,6 +7292,16 @@
       "to": "task:T-067-fe"
     },
     {
+      "from": "task:T-068",
+      "kind": "blocks",
+      "to": "task:T-069"
+    },
+    {
+      "from": "task:T-068",
+      "kind": "blocks",
+      "to": "task:T-069-be"
+    },
+    {
       "from": "decision:D-01",
       "kind": "decision",
       "to": "feature:auth"
@@ -8515,6 +8580,16 @@
       "from": "task:T-068-be",
       "kind": "depends",
       "to": "task:T-053"
+    },
+    {
+      "from": "task:T-069",
+      "kind": "depends",
+      "to": "task:T-068"
+    },
+    {
+      "from": "task:T-069-be",
+      "kind": "depends",
+      "to": "task:T-068"
     },
     {
       "from": "backend-delivery:account",
@@ -11276,6 +11351,14 @@
       ]
     },
     {
+      "from": "story:operator-panel",
+      "kind": "related",
+      "to": "story:T-069",
+      "via": [
+        "sum-of"
+      ]
+    },
+    {
       "from": "story:payments",
       "kind": "related",
       "to": "decision-record:DR-07"
@@ -11731,6 +11814,11 @@
     },
     {
       "from": "task:T-068",
+      "kind": "related",
+      "to": "task:T-006"
+    },
+    {
+      "from": "task:T-069",
       "kind": "related",
       "to": "task:T-006"
     },
@@ -22908,6 +22996,11 @@
       "to": "task:T-068"
     },
     {
+      "from": "story:operator-panel",
+      "kind": "tree",
+      "to": "task:T-069"
+    },
+    {
       "from": "story:payments",
       "kind": "tree",
       "to": "task:T-047"
@@ -23961,6 +24054,16 @@
       "from": "task:T-068",
       "kind": "tree",
       "to": "task:T-068-be"
+    },
+    {
+      "from": "task:T-069",
+      "kind": "tree",
+      "to": "story:T-069"
+    },
+    {
+      "from": "task:T-069",
+      "kind": "tree",
+      "to": "task:T-069-be"
     },
     {
       "from": "backend-delivery:account",
@@ -25546,6 +25649,11 @@
       "from": "feature:operator-panel",
       "kind": "wikilink",
       "to": "task:T-068"
+    },
+    {
+      "from": "feature:operator-panel",
+      "kind": "wikilink",
+      "to": "task:T-069"
     },
     {
       "from": "feature:payments",
@@ -30843,6 +30951,11 @@
       "to": "feature:operator-panel"
     },
     {
+      "from": "story:T-069",
+      "kind": "wikilink",
+      "to": "feature:operator-panel"
+    },
+    {
       "from": "story:view-as",
       "kind": "wikilink",
       "to": "backend-integration:view-as"
@@ -33656,6 +33769,11 @@
       "from": "task:T-068-be",
       "kind": "wikilink",
       "to": "feature:operator-panel"
+    },
+    {
+      "from": "task:T-069-be",
+      "kind": "wikilink",
+      "to": "feature:operator-panel"
     }
   ],
   "emoji": {
@@ -35629,6 +35747,18 @@
     },
     "tasks/T-068 Account moderation and platform role/T-068-be Backend · Account moderation and platform role.md": {
       "name": "T-068-be Backend · Account moderation and platform role",
+      "type": "task"
+    },
+    "tasks/T-069 Scoped role grants/T-069 Scoped role grants.md": {
+      "name": "T-069 Scoped role grants",
+      "type": "task"
+    },
+    "tasks/T-069 Scoped role grants/T-069 Story.md": {
+      "name": "T-069 Story",
+      "type": "story"
+    },
+    "tasks/T-069 Scoped role grants/T-069-be Backend · Scoped role grants.md": {
+      "name": "T-069-be Backend · Scoped role grants",
       "type": "task"
     },
     "tasks/Task Board.md": {
@@ -43842,8 +43972,8 @@
       ],
       "release": "later",
       "rollup": {
-        "draft": 1,
-        "in-progress": 2,
+        "draft": 2,
+        "in-progress": 4,
         "missing": 7
       },
       "scope": null,
@@ -49325,8 +49455,8 @@
         "blocked": 34,
         "decided": 3,
         "done": 1,
-        "draft": 26,
-        "in-progress": 14,
+        "draft": 27,
+        "in-progress": 16,
         "missing": 55,
         "needs-decision": 1,
         "todo": 19,
@@ -54458,8 +54588,8 @@
         "current": 9,
         "decided": 13,
         "done": 16,
-        "draft": 95,
-        "in-progress": 47,
+        "draft": 96,
+        "in-progress": 49,
         "missing": 158,
         "needs-decision": 9,
         "reference": 31,
@@ -57503,6 +57633,52 @@
       "title": "T-068 Story",
       "updated": "2026-10-26"
     },
+    "story:T-069": {
+      "affects": [],
+      "blockedBy": [],
+      "card": "S-110",
+      "children": [],
+      "code": "T-069",
+      "created": "2026-10-26",
+      "deadline": null,
+      "depends": [],
+      "effectiveStatus": "draft",
+      "effort": null,
+      "feature": "operator-panel",
+      "frontendOnly": false,
+      "id": "story:T-069",
+      "inherits": {
+        "priority": "task:T-069",
+        "release": "feature:operator-panel"
+      },
+      "kind": "story",
+      "label": "User Story",
+      "labels": [],
+      "layer": "business",
+      "module": "platform",
+      "parentTask": null,
+      "parents": [
+        "task:T-069"
+      ],
+      "path": "tasks/T-069 Scoped role grants/T-069 Story.md",
+      "pending": [],
+      "priority": "high",
+      "related": [],
+      "release": "later",
+      "scope": "task",
+      "screens": [],
+      "status": "draft",
+      "summary": "One paragraph: who the user is here and what they are trying to get done, in product terms. approved (👍) when product signs off (approvedBy, approvedAt); verified (✅ Fulfilled) set by the PM once…",
+      "tags": [
+        "story",
+        "story/draft",
+        "module/platform",
+        "layer/business"
+      ],
+      "task": "T-069",
+      "title": "T-069 Story",
+      "updated": "2026-10-26"
+    },
     "story:account": {
       "affects": [],
       "blockedBy": [],
@@ -58899,7 +59075,8 @@
       "blockedBy": [],
       "card": null,
       "children": [
-        "task:T-068"
+        "task:T-068",
+        "task:T-069"
       ],
       "code": "operator-panel",
       "created": null,
@@ -60441,7 +60618,8 @@
       "priority": "high",
       "related": [
         "feature:operator-panel",
-        "task:T-068"
+        "task:T-068",
+        "task:T-069"
       ],
       "release": "v1",
       "rollup": {
@@ -70857,6 +71035,137 @@
       ],
       "task": null,
       "title": "T-068-be Backend · Account moderation and platform role",
+      "updated": "2026-10-26"
+    },
+    "task:T-069": {
+      "affects": [
+        "project:spec-map",
+        "project:frontend-api-guide",
+        "feature:auth"
+      ],
+      "blockedBy": [
+        {
+          "id": "task:T-068",
+          "title": "T-068 Account moderation and platform role",
+          "why": "T-068 Account moderation and platform role is in progress"
+        }
+      ],
+      "card": "T-069",
+      "children": [
+        "story:T-069",
+        "task:T-069-be"
+      ],
+      "code": "T-069",
+      "created": "2026-10-26",
+      "deadline": null,
+      "decision": null,
+      "depends": [
+        "task:T-068"
+      ],
+      "dir": "tasks/T-069 Scoped role grants",
+      "effectiveStatus": "in-progress",
+      "effort": "M",
+      "feature": "operator-panel",
+      "frontendOnly": false,
+      "id": "task:T-069",
+      "inherits": {
+        "release": "feature:operator-panel"
+      },
+      "kind": "task",
+      "label": "Task",
+      "labels": [],
+      "layer": "business",
+      "module": "platform",
+      "parentTask": null,
+      "parents": [
+        "story:operator-panel"
+      ],
+      "path": "tasks/T-069 Scoped role grants/T-069 Scoped role grants.md",
+      "pending": [],
+      "priority": "high",
+      "related": [
+        "task:T-006"
+      ],
+      "release": "later",
+      "rollup": {
+        "draft": 1,
+        "in-progress": 1
+      },
+      "scope": null,
+      "screens": [],
+      "status": "in-progress",
+      "summary": "List, grant and revoke the scoped grants in userroles: GET/POST /admin/users/:userId/roles and DELETE .../roles/:assignmentId. The scope type comes from the role rather than the request; a GLOBAL…",
+      "tags": [
+        "task",
+        "task/in-progress",
+        "module/platform",
+        "priority/high"
+      ],
+      "task": null,
+      "title": "T-069 Scoped role grants",
+      "updated": "2026-10-26"
+    },
+    "task:T-069-be": {
+      "affects": [
+        "project:spec-map",
+        "project:frontend-api-guide",
+        "feature:auth"
+      ],
+      "blockedBy": [
+        {
+          "id": "task:T-068",
+          "title": "T-068 Account moderation and platform role",
+          "why": "T-068 Account moderation and platform role is in progress"
+        }
+      ],
+      "card": "T-069-be",
+      "children": [],
+      "code": "T-069-be",
+      "created": "2026-10-26",
+      "deadline": null,
+      "decision": null,
+      "depends": [
+        "task:T-068"
+      ],
+      "dir": null,
+      "effectiveStatus": "in-progress",
+      "effort": "M",
+      "feature": "operator-panel",
+      "frontendOnly": false,
+      "id": "task:T-069-be",
+      "inherits": {
+        "release": "feature:operator-panel"
+      },
+      "kind": "task",
+      "label": "Task",
+      "labels": [
+        "backend"
+      ],
+      "layer": "business",
+      "module": "platform",
+      "parentTask": "T-069",
+      "parents": [
+        "task:T-069"
+      ],
+      "path": "tasks/T-069 Scoped role grants/T-069-be Backend · Scoped role grants.md",
+      "pending": [],
+      "priority": "high",
+      "related": [],
+      "release": "later",
+      "rollup": {},
+      "scope": null,
+      "screens": [],
+      "status": "in-progress",
+      "summary": "The API side of T-069 Scoped role grants: the endpoints, data and rules its What describes. Record what shipped in T-069-be Backend Delivery and how to call it in T-069-be Backend Integration, and…",
+      "tags": [
+        "task",
+        "task/in-progress",
+        "module/platform",
+        "priority/high",
+        "backend"
+      ],
+      "task": null,
+      "title": "T-069-be Backend · Scoped role grants",
       "updated": "2026-10-26"
     }
   },
