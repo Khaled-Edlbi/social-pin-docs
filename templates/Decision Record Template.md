@@ -1,7 +1,7 @@
 ---
 type: decision-record
-id: DR-NN
-decision: D-NN
+id: D-NN
+decision: ND-NN
 status: draft
 decidedBy: ""
 decidedAt: ""
@@ -14,7 +14,7 @@ updated: <date>
 tags: [decision-record, decision-record/draft]
 ---
 
-# ⚖️ DR-NN · <Title>
+# ⚖️ D-NN · <Title>
 
 **Answers:** [[<decision>]] · **Decided by:** <who> · **On:** <date> · **Feature:** <feature>
 

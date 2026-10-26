@@ -37,10 +37,10 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 
 ## Product rules
 
-- A request is pending, accepted, declined, cancelled or expired, and **the requester sees each of these**: a decline is shown as declined ([[DR-13 The requester sees a declined request]]). A block still reads as "This profile isn't available to you", never as a decline.
-- **A request expires after 30 days** unanswered; it **may carry an optional note** of up to 200 characters; after a decline or an expiry the requester **can ask again straight away** ([[DR-17 Requests expire after 30 days, optional note, ask again at once]]).
-- **The requester never learns which Ring they were accepted into**; Shared with me lists people, never Rings ([[DR-14 Shared with me lists people, never the Ring]]).
-- **One person can be in several of my Rings** and sees the version from the Ring they were put in first. Removing them from my last Ring offers *Remove from Rings* (still a connection, no access) or *Disconnect* (the connection ends) ([[DR-15 Several Rings per connection, remove or disconnect]]).
+- A request is pending, accepted, declined, cancelled or expired, and **the requester sees each of these**: a decline is shown as declined ([[D-13 The requester sees a declined request]]). A block still reads as "This profile isn't available to you", never as a decline.
+- **A request expires after 30 days** unanswered; it **may carry an optional note** of up to 200 characters; after a decline or an expiry the requester **can ask again straight away** ([[D-17 Requests expire after 30 days, optional note, ask again at once]]).
+- **The requester never learns which Ring they were accepted into**; Shared with me lists people, never Rings ([[D-14 Shared with me lists people, never the Ring]]).
+- **One person can be in several of my Rings** and sees the version from the Ring they were put in first. Removing them from my last Ring offers *Remove from Rings* (still a connection, no access) or *Disconnect* (the connection ends) ([[D-15 Several Rings per connection, remove or disconnect]]).
 - Not built yet: the connection request flow is TODO.
 
 ## Tasks
@@ -60,10 +60,10 @@ TABLE status, priority, effort FROM #task WHERE feature = "connections" SORT pri
 ## Decisions
 
 - [[How Connect addresses the scanned person]] — open (draft); blocks [[T-021 Story]] and [[T-008 Story]]
-- [[Whether the requester sees a declined request]] — decided, the requester sees a decline ([[DR-13 The requester sees a declined request|DR-13]])
-- [[Connection-granted Ring on Shared with me]] — decided, Shared with me lists people, never the Ring ([[DR-14 Shared with me lists people, never the Ring|DR-14]])
-- [[One Ring or several per connection]] — decided, several Rings per connection, remove or disconnect ([[DR-15 Several Rings per connection, remove or disconnect|DR-15]])
-- [[Request expiry, note and asking again]] — decided, 30-day expiry, optional note, ask again at once ([[DR-17 Requests expire after 30 days, optional note, ask again at once|DR-17]])
+- [[Whether the requester sees a declined request]] — decided, the requester sees a decline ([[D-13 The requester sees a declined request|D-13]])
+- [[Connection-granted Ring on Shared with me]] — decided, Shared with me lists people, never the Ring ([[D-14 Shared with me lists people, never the Ring|D-14]])
+- [[One Ring or several per connection]] — decided, several Rings per connection, remove or disconnect ([[D-15 Several Rings per connection, remove or disconnect|D-15]])
+- [[Request expiry, note and asking again]] — decided, 30-day expiry, optional note, ask again at once ([[D-17 Requests expire after 30 days, optional note, ask again at once|D-17]])
 
 ## Related
 

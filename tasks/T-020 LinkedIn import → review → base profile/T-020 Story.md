@@ -13,7 +13,7 @@ pending: []
 approvedBy: ""
 approvedAt: ""
 created: 2026-10-18
-updated: 2026-10-18
+updated: 2026-10-26
 tags: [story, story/draft, module/identity, layer/business]
 task: T-020
 ---
@@ -51,4 +51,4 @@ Edge cases a story must respect because the backend decides them (from the featu
 
 ## Open questions
 
-- [[D-NN …]] — what it blocks here.
+- [[ND-NN …]] — what it blocks here.

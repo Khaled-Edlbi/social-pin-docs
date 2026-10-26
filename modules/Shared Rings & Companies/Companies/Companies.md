@@ -34,8 +34,8 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 
 ## Product rules
 
-- **Company Rings a member joined knowingly are named** on My companies and Company detail ("Acme Team", "Company"); one the owner placed them in is listed unnamed ([[DR-18 Ring names shown when joined knowingly]], the exception to [[DR-14 Shared with me lists people, never the Ring]]). The name only: never the Ring's colour, type or place in the company's hierarchy.
-- A plain member sees colleagues only where the Ring's "members can see each other" is on ([[DR-04 Ring settings at launch and their defaults]]).
+- **Company Rings a member joined knowingly are named** on My companies and Company detail ("Acme Team", "Company"); one the owner placed them in is listed unnamed ([[D-18 Ring names shown when joined knowingly]], the exception to [[D-14 Shared with me lists people, never the Ring]]). The name only: never the Ring's colour, type or place in the company's hierarchy.
+- A plain member sees colleagues only where the Ring's "members can see each other" is on ([[D-04 Ring settings at launch and their defaults]]).
 - The required work email domain belongs to this feature, not to the launch set of Ring settings.
 - Not built yet: memberships do not record how they were created, and the company screens do not exist.
 
@@ -51,8 +51,8 @@ TABLE status, priority, effort FROM #task WHERE feature = "companies" SORT prior
 
 ## Decisions
 
-- [[Ring settings]] — decided, six settings at launch; the required work email domain comes later, with Companies ([[DR-04 Ring settings at launch and their defaults|DR-04]])
-- [[Company and invited Ring names shown to members]] — decided, company Rings joined knowingly are named ([[DR-18 Ring names shown when joined knowingly|DR-18]])
+- [[Ring settings]] — decided, six settings at launch; the required work email domain comes later, with Companies ([[D-04 Ring settings at launch and their defaults|D-04]])
+- [[Company and invited Ring names shown to members]] — decided, company Rings joined knowingly are named ([[D-18 Ring names shown when joined knowingly|D-18]])
 
 ## Related
 

@@ -34,8 +34,8 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 
 ## Product rules
 
-- **An invitation names the Ring** it is for, so the invitee knows what they join; a Ring joined by an accepted invitation, a code or a verified work email keeps showing its name to that member ([[DR-18 Ring names shown when joined knowingly]]). Its colour and type are never shown.
-- Who may ask to join and whether the owner approves each one are Ring settings, by default **with a code or by invitation** and **approve each one** ([[DR-04 Ring settings at launch and their defaults]]); members may invite others only when the owner turns that on.
+- **An invitation names the Ring** it is for, so the invitee knows what they join; a Ring joined by an accepted invitation, a code or a verified work email keeps showing its name to that member ([[D-18 Ring names shown when joined knowingly]]). Its colour and type are never shown.
+- Who may ask to join and whether the owner approves each one are Ring settings, by default **with a code or by invitation** and **approve each one** ([[D-04 Ring settings at launch and their defaults]]); members may invite others only when the owner turns that on.
 - Not built yet: invitations, codes and work-email joining do not exist.
 
 ## Tasks
@@ -52,8 +52,8 @@ TABLE status, priority, effort FROM #task WHERE feature = "ring-invitations" SOR
 
 ## Decisions
 
-- [[Ring settings]] — decided, join with a code or by invitation and approve each one by default ([[DR-04 Ring settings at launch and their defaults|DR-04]])
-- [[Company and invited Ring names shown to members]] — decided, an invitation names its Ring and a Ring joined knowingly stays named ([[DR-18 Ring names shown when joined knowingly|DR-18]])
+- [[Ring settings]] — decided, join with a code or by invitation and approve each one by default ([[D-04 Ring settings at launch and their defaults|D-04]])
+- [[Company and invited Ring names shown to members]] — decided, an invitation names its Ring and a Ring joined knowingly stays named ([[D-18 Ring names shown when joined knowingly|D-18]])
 
 ## Related
 

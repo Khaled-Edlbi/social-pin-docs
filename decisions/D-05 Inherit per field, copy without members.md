@@ -1,20 +1,20 @@
 ---
 type: decision-record
-id: DR-05
-decision: D-05
+id: D-05
+decision: ND-05
 status: decided
 decidedBy: "molham"
 decidedAt: 2026-10-25
 features: [photo-library, ring-projection, rings]
 affects: ["Rings", "Ring Projection", "Photo Library", "T-060 Decide copy or inherit"]
-related: ["Copy or inherit", "DR-02 One main profile every Ring starts from", "DR-04 Ring settings at launch and their defaults"]
+related: ["Copy or inherit", "D-02 One main profile every Ring starts from", "D-04 Ring settings at launch and their defaults"]
 owner: "khaled"
 created: 2026-10-25
 updated: 2026-10-26
 tags: [decision-record, decision-record/decided]
 ---
 
-# ⚖️ DR-05 · Inherit per field, copy without members
+# ⚖️ D-05 · Inherit per field, copy without members
 
 **Answers:** [[Copy or inherit]] · **Decided by:** molham · **On:** 2026-10-25 · **Feature:** [[Photo Library]], [[Ring Projection]], [[Rings]]
 
@@ -22,11 +22,11 @@ tags: [decision-record, decision-record/decided]
 
 ## What was decided
 
-**Option A on D-05: both. Inherit by default, field by field; copy as a one-off.**
+**Option A on ND-05: both. Inherit by default, field by field; copy as a one-off.**
 
-- **Inherit.** A Ring follows the main profile ([[DR-02 One main profile every Ring starts from]]): updating the main photo or bio updates every Ring that has not changed that field.
+- **Inherit.** A Ring follows the main profile ([[D-02 One main profile every Ring starts from]]): updating the main photo or bio updates every Ring that has not changed that field.
 - **Per field.** Editing one field in a Ring stops **that field only** from inheriting; the Ring's other fields keep following the main profile.
-- **Copy.** Copying a Ring (when creating one, s18) copies its fields, its bio and photo, its colour and its settings ([[DR-04 Ring settings at launch and their defaults]]); **members are never copied**. Copying another Ring's bio (s28) copies the bio only. After a copy the two Rings are independent.
+- **Copy.** Copying a Ring (when creating one, s18) copies its fields, its bio and photo, its colour and its settings ([[D-04 Ring settings at launch and their defaults]]); **members are never copied**. Copying another Ring's bio (s28) copies the bio only. After a copy the two Rings are independent.
 
 Option B (copy only) is ruled out.
 
@@ -34,7 +34,7 @@ Answered on the product-questions page, 2026-10-22, recorded on molham's word on
 
 ## Why
 
-- "Inherit, stays in sync with your Pin" (s23) is in the design, and it only means something with a main profile, which DR-02 now gives.
+- "Inherit, stays in sync with your Pin" (s23) is in the design, and it only means something with a main profile, which D-02 now gives.
 - Per-field inheritance matches what a person expects: changing the Family bio should not freeze the Family photo.
 - Members are people who were let into one Ring; copying them would give them access they were never granted.
 - Traded away: the projection reads two sources (the Ring's own value or the main one) for every field.

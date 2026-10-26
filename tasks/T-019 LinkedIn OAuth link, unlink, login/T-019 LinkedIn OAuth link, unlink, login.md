@@ -21,7 +21,7 @@ tags: [task, task/todo, module/platform, priority/high]
 
 ## What
 
-Callback writes `SocialIdentity`. Login via provider returns a session the same way `POST /auth/login/verify` does (D-01 decided: passwordless, code-only; a linked provider is the second way to prove the identity).
+Callback writes `SocialIdentity`. Login via provider returns a session the same way `POST /auth/login/verify` does (ND-01 decided: passwordless, code-only; a linked provider is the second way to prove the identity).
 
 ## Design
 

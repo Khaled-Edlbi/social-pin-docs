@@ -17,7 +17,7 @@
  *   node scripts/build-tree.mjs --scaffold feature <module-id> "<Name>" [--id <slug>] [--priority high] [--release later] [--frontend-only]   creates the feature note
  *   node scripts/build-tree.mjs --scaffold decision "<card>" ["<title>"]   creates the needs-decision card a task, a layer note or a feature needs (draft; blocks it until fulfilled),
  *                                                    as decisions/<Title>.md with the code in id: and aliases:
- *   node scripts/build-tree.mjs --scaffold record D-NN "<the answer>" [--by <name>]   creates the decision card DR-NN (draft) that answers D-NN: what was decided, why, what it changes
+ *   node scripts/build-tree.mjs --scaffold record ND-NN "<the answer>" [--by <name>]   creates the decision card D-NN (draft) that answers ND-NN: what was decided, why, what it changes
  *
  * No dependencies: Node 22 built-ins only. The output is key-sorted and carries
  * no timestamps, so it changes only when a note or the config changes.
@@ -51,7 +51,7 @@ const BAD_NAME = /[#?%\\]/;
 // Structural statuses (not layer-specific). Layer kinds take theirs from docs.config.json.
 const STATUS = {
   task: { todo: 'todo', 'needs-info': 'needs-decision', blocked: 'blocked', 'in-progress': 'in-progress', done: 'done' },
-  decision: { draft: 'draft', open: 'needs-decision' }, // fulfilled (shown ✅) is computed once its DR card is decided; nobody types it
+  decision: { draft: 'draft', open: 'needs-decision' }, // fulfilled (shown ✅) is computed once its decision card (D-NN) is decided; nobody types it
 };
 const LEGEND = {
   done: 'Done', partial: 'Partial', todo: 'To do', 'in-progress': 'In progress', blocked: 'Blocked',
@@ -65,7 +65,7 @@ const EMOJI = {
   missing: '∅', reference: '📘',
 };
 const DONE_STATUSES = new Set(['done', 'approved', 'verified', 'delivered', 'current', 'passing', 'reference', 'decided']);
-// a needs-decision card (D-NN) reads Draft, Open or Fulfilled in a status column: its kind already says it needs a decision
+// a needs-decision card (ND-NN) reads Draft, Open or Fulfilled in a status column: its kind already says it needs a decision
 const legendOf = (n) => (n.kind === 'decision' && n.effectiveStatus === 'needs-decision' ? 'Open' : LEGEND[n.effectiveStatus] ?? n.effectiveStatus);
 const emojiOf = (n) => EMOJI[n.effectiveStatus] || '•';
 // the structural note types (not layer kinds); a decision record is the answer to a decided decision, on its own card under it
@@ -138,7 +138,7 @@ export function loadConfig(errors = []) {
   const taskLabels = Array.isArray(cfg.taskLabels) ? cfg.taskLabels.filter((l) => typeof l === 'string') : [];
   // card codes: one prefix per kind (config) and per structural kind (cardCodes.structural); every prefix unique, a task's, a decision's and a decision record's code is its id
   const cardCodes = cfg.cardCodes || {};
-  const structural = { module: 'M', feature: 'F', project: 'P', task: 'T', decision: 'D', 'decision-record': 'DR', ...(cardCodes.structural || {}) };
+  const structural = { module: 'M', feature: 'F', project: 'P', task: 'T', decision: 'ND', 'decision-record': 'D', ...(cardCodes.structural || {}) };
   const prefixes = new Map(); // prefix -> kind id
   const PREFIX = /^[A-Z]{1,4}$/;
   const addPrefix = (kind, prefix) => {
@@ -153,8 +153,8 @@ export function loadConfig(errors = []) {
   for (const kind of Object.keys(structural)) if (!STRUCTURAL.includes(kind)) err(`cardCodes.structural: unknown kind "${kind}" (${STRUCTURAL.join(', ')})`);
   if (structural.task !== 'T') err('cardCodes.structural.task must be "T": a task\'s card code is its id');
   if (structural.bug !== 'B') err('cardCodes.structural.bug must be "B": a bug\'s card code is its id');
-  if (structural.decision !== 'D') err('cardCodes.structural.decision must be "D": a decision\'s card code is its id');
-  if (structural['decision-record'] !== 'DR') err('cardCodes.structural.decision-record must be "DR": a decision record\'s card code is its id');
+  if (structural.decision !== 'ND') err('cardCodes.structural.decision must be "ND": a needs-decision card\'s code is its id');
+  if (structural['decision-record'] !== 'D') err('cardCodes.structural.decision-record must be "D": a decision card\'s code is its id');
   const pad = Number.isInteger(cardCodes.pad) && cardCodes.pad >= 1 ? cardCodes.pad : 2;
   const prefixOf = (kind) => structural[kind] ?? kinds.get(kind)?.prefix ?? null;
   const frontendOnlySkips = Array.isArray(cfg.frontendOnly?.skips) ? cfg.frontendOnly.skips : [];
@@ -379,8 +379,8 @@ function readCanvas(fileByPath, rel) {
 
 const list = (v) => (Array.isArray(v) ? v.filter((x) => typeof x === 'string' && x.trim()) : []);
 const isTaskId = (s) => /^[TB]-\d+[a-z]?(-[a-z]{2})?$/.test(s); // T-017, T-020b, the halves T-017-fe / T-017-be, and a bug B-01
-const isDecisionId = (s) => /^D-\d+$/.test(s);
-const isRecordId = (s) => /^DR-\d+$/.test(s);
+const isDecisionId = (s) => /^ND-\d+$/.test(s); // a needs-decision card: the question
+const isRecordId = (s) => /^D-\d+$/.test(s); // a decision card: the answer, numbered like its question
 const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 
 // ---------------------------------------------------------------- build
@@ -532,16 +532,16 @@ export function build() {
     requireKeys(n, ['id', 'status']);
     titleNamed(n, 'a needs-decision card');
     if (!list(n.data.blocks).length) requireKeys(n, ['features']); // a decision names the cards that need it (`blocks`) or the features it belongs to
-    if (!isDecisionId(n.data.id)) err(n.rel, `id "${n.data.id}" is not a decision id (D-NN)`);
-    if (['fulfilled', 'decided'].includes(n.data.status)) err(n.rel, `status "${n.data.status}" is not typed on a needs-decision card: it is draft or open, and shows Fulfilled by itself once its decision card (DR-NN) is decided`);
-    for (const k of ['decidedBy', 'decidedAt']) if (n.data[k]) err(n.rel, `${k} lives on the decision card (DR-NN), not on the needs-decision card`);
+    if (!isDecisionId(n.data.id)) err(n.rel, `id "${n.data.id}" is not a decision id (ND-NN)`);
+    if (['fulfilled', 'decided'].includes(n.data.status)) err(n.rel, `status "${n.data.status}" is not typed on a needs-decision card: it is draft or open, and shows Fulfilled by itself once its decision card (D-NN) is decided`);
+    for (const k of ['decidedBy', 'decidedAt']) if (n.data[k]) err(n.rel, `${k} lives on the decision card (D-NN), not on the needs-decision card`);
     const status = ['fulfilled', 'decided'].includes(n.data.status) ? 'needs-decision' : normStatus(n, 'decision');
     const d = addNode(base(n, { id: `decision:${n.data.id}`, kind: 'decision', layer: 'business', code: n.data.id, status, effectiveStatus: status, label: 'Needs decision', features: list(n.data.features), blocks: [], decider: typeof n.data.decider === 'string' && n.data.decider.trim() ? n.data.decider.trim() : null }));
     noteOf.set(d.id, n);
     if (decisionNodes.has(n.data.id)) err(n.rel, `second decision note with id "${n.data.id}"`);
     decisionNodes.set(n.data.id, d);
   }
-  // decision records: the answer to a decision, on its own card (DR-NN answers D-NN); it hangs under its decision once the decisions are placed
+  // decision records: the answer to a decision, on its own card (D-NN answers ND-NN); it hangs under its decision once the decisions are placed
   const recordNodes = new Map();
   for (const n of byType('decision-record')) {
     requireKeys(n, ['id', 'decision', 'status']);
@@ -549,8 +549,8 @@ export function build() {
     if (n.data.status !== undefined && !rstatus) err(n.rel, `unknown status "${n.data.status}" for a decision card (allowed: draft, decided)`);
     if (rstatus === 'decided') requireKeys(n, ['decidedBy', 'decidedAt']); // only the PM or the owner set it decided, on the user's word
     const id = String(n.data.id ?? ''), dec = typeof n.data.decision === 'string' ? n.data.decision.trim() : '';
-    if (!isRecordId(id)) err(n.rel, `id "${id}" is not a decision record id (DR-NN)`);
-    else if (isDecisionId(dec) && id !== `DR-${dec.slice(2)}`) err(n.rel, `id "${id}" must be DR-${dec.slice(2)}: a record carries the number of the decision it takes`);
+    if (!isRecordId(id)) err(n.rel, `id "${id}" is not a decision record id (D-NN)`);
+    else if (isDecisionId(dec) && id !== `D-${dec.slice(3)}`) err(n.rel, `id "${id}" must be D-${dec.slice(3)}: a record carries the number of the decision it takes`);
     if (n.data.decidedAt && !isDate(n.data.decidedAt)) err(n.rel, `decidedAt: ${JSON.stringify(n.data.decidedAt)} must be a date YYYY-MM-DD`);
     const r = addNode(base(n, { id: `decision-record:${id}`, kind: 'decision-record', layer: 'business', code: id, status: rstatus, effectiveStatus: rstatus || 'draft', label: 'Decision', decides: dec || null, features: [], decidedBy: n.data.decidedBy ?? null, decidedAt: n.data.decidedAt ?? null }));
     noteOf.set(r.id, n);
@@ -839,11 +839,11 @@ export function build() {
     }
     d.features.sort();
   }
-  // a needs-decision card is answered by one decision card (DR-NN); once that card is decided, the question shows Fulfilled and releases the cards it blocks (Agent Rules §4)
+  // a needs-decision card is answered by one decision card (D-NN); once that card is decided, the question shows Fulfilled and releases the cards it blocks (Agent Rules §4)
   const recordOf = new Map(); // decision id -> record node
   for (const [, r] of recordNodes) {
     const d = r.decides && isDecisionId(r.decides) ? decisionNodes.get(r.decides) : null;
-    if (!d) { err(r.path, `decision: "${r.decides ?? ''}" is not a decision id (D-NN)`); continue; }
+    if (!d) { err(r.path, `decision: "${r.decides ?? ''}" is not a decision id (ND-NN)`); continue; }
     if (recordOf.has(d.id)) { err(r.path, `${d.code} already has a record (${recordOf.get(d.id).path}); one decision, one record`); continue; }
     recordOf.set(d.id, r);
     link(d, r);
@@ -974,7 +974,7 @@ export function build() {
     for (const l of note.links) {
       const target = noteNamed(l.target);
       if (!l.target) continue; // [[#heading]] links to itself
-      if (!target) { if (!placeholderTitles.has(l.target) && !/^(https?:)|\.(canvas|png|jpg|svg)$|^(T-NNN|D-NN|<)/.test(l.target)) warn(note.rel, `wikilink [[${l.target}]] resolves to no note`); continue; }
+      if (!target) { if (!placeholderTitles.has(l.target) && !/^(https?:)|\.(canvas|png|jpg|svg)$|^(T-NNN|ND-NN|<)/.test(l.target)) warn(note.rel, `wikilink [[${l.target}]] resolves to no note`); continue; }
       const to = ownerOfPath.get(target.rel);
       if (!to || to === id) continue;
       if (treePairs.has([id, to].sort().join('|'))) continue;
@@ -1035,7 +1035,7 @@ export function build() {
   };
   // a container (task with cards, feature, module, project) is Done only when every card is; Partial when every card is done or partial;
   // In progress when any card is active or the cards are a mix; To do otherwise (Blocked when every card waits on something,
-  // or, for a feature, when an open decision was raised on the feature itself: Blocked · D-NN, whatever its cards short of done)
+  // or, for a feature, when an open decision was raised on the feature itself: Blocked · ND-NN, whatever its cards short of done)
   // a handed-off card that is not done yet (an approved story or requirements list, a current integration note) is work in flight: active
   const classify = (c) => (c.effectiveStatus === 'partial' ? 'partial' : isDone(c) ? 'done' : c.effectiveStatus === 'in-progress' || handedOff(c) ? 'active' : c.effectiveStatus === 'blocked' ? 'blocked' : 'todo');
   const summarize = (ids) => {
@@ -1123,7 +1123,7 @@ export function build() {
 
 // ---------------------------------------------------------------- card codes
 // A card is a node with a file: a module, a feature, a layer note, a task, a decision, a project note. Its code is `<prefix>-<number>`:
-// a task's and a decision's is its id (T-004, D-04); every other card gets the next free number for its kind's prefix the first time
+// a task's and a decision's is its id (T-004, ND-04); every other card gets the next free number for its kind's prefix the first time
 // the build sees it, in tree order, and keeps it for good in tree/cards.json. A code is handed out once: when a card disappears its
 // code moves to `retired` and is never reused. The registry is generated, but it is memory: never renumber it by hand.
 function loadCards(errors) {
@@ -1301,7 +1301,7 @@ function cardIndexMarkdown(json) {
   const kindName = (kind) => (nodes && (Object.values(nodes).find((n) => n.kind === kind)?.label)) || kind;
   const groupLabel = { module: 'Modules', feature: 'Features', task: 'Tasks', decision: 'Decisions needed', 'decision-record': 'Decisions', project: 'Project reference notes' };
   const lines = ['---', 'type: map', 'layer: shared', 'tags: [map]', '---', '', '# Card Index', '',
-    'Generated by `node scripts/build-tree.mjs` from the notes and `tree/cards.json`; do not edit, run the build. **One row per card, one code per card, every code unique and never reused.** A card is one Markdown file in the [[Docs Tree]]: a module, a feature, a layer note (story, requirements, deliveries, integration, QA), a task, a decision, a decision record or a project reference note. The code is `<prefix>-<number>`: a task\'s, a decision\'s and a decision record\'s code is its id (`T-004`, `D-04`, `DR-04`); every other card got the next free number for its kind the first time the build saw it and keeps it for good. A card that is deleted takes its code with it (`retired` in `tree/cards.json`): the number is never handed out again, and renumbering by hand is a build error. Codes list the cards a row is connected to as `T-004 | S-01`: *Under* is the card it hangs from in the tree, *Related* the cards it declares `related` / `affects` / `depends` / `pending` to (and a decision\'s features), *Blocked by* what stops it now. Look a code up with `node scripts/build-tree.mjs --impact S-01`.', '',
+    'Generated by `node scripts/build-tree.mjs` from the notes and `tree/cards.json`; do not edit, run the build. **One row per card, one code per card, every code unique and never reused.** A card is one Markdown file in the [[Docs Tree]]: a module, a feature, a layer note (story, requirements, deliveries, integration, QA), a task, a decision, a decision record or a project reference note. The code is `<prefix>-<number>`: a task\'s, a decision\'s and a decision record\'s code is its id (`T-004`, `ND-04`, `D-04`); every other card got the next free number for its kind the first time the build saw it and keeps it for good. A card that is deleted takes its code with it (`retired` in `tree/cards.json`): the number is never handed out again, and renumbering by hand is a build error. Codes list the cards a row is connected to as `T-004 | S-01`: *Under* is the card it hangs from in the tree, *Related* the cards it declares `related` / `affects` / `depends` / `pending` to (and a decision\'s features), *Blocked by* what stops it now. Look a code up with `node scripts/build-tree.mjs --impact S-01`.', '',
     '| Prefix | Cards | Count |', '|---|---|---|'];
   const all = Object.values(nodes).filter((n) => n.card).sort((a, b) => byCode(a.card, b.card));
   const byPrefix = new Map(prefixOrder.map((p) => [p, []]));
@@ -1411,7 +1411,7 @@ export function branchName(json, agent, query, what, branches = {}) {
   const { nodes } = json;
   if (!/^[a-z][a-z0-9-]*$/.test(agent || '')) return { error: `give the agent first: --branch <owner|pm|frontend|backend|qa|admin> <card> [<what-you-do>]` };
   const q = (query || '').trim();
-  if (!q) return { error: 'give the card: a code (F-41, D-07, S-70, T-047, M-09), a feature id, or a note name' };
+  if (!q) return { error: 'give the card: a code (F-41, ND-07, S-70, T-047, M-09), a feature id, or a note name' };
   let n = null;
   for (const x of Object.values(nodes)) if (x.title === q || x.code === q || x.card === q || x.path === q || x.id === q) { n = x; break; }
   if (!n) for (const x of Object.values(nodes)) if (x.title?.toLowerCase() === q.toLowerCase()) { n = x; break; }
@@ -1617,11 +1617,11 @@ function scaffoldDecision(result, ref, title) {
   for (const n of Object.values(nodes)) if (isTarget(n) && (n.title === q || n.code === q || n.card === q || n.id === q)) { target = n; break; }
   if (!target) for (const n of Object.values(nodes)) if (isTarget(n) && n.title.toLowerCase() === q.toLowerCase()) { target = n; break; }
   if (!target) { console.error(`no task, layer note or feature named "${ref}" (use the note name, T-NNN, a feature id or a card code)`); process.exit(1); }
-  const taken = new Set(Object.keys(result.cards.retired)); // a retired D-NN is never handed out again
+  const taken = new Set(Object.keys(result.cards.retired)); // a retired ND-NN is never handed out again
   for (const n of Object.values(nodes)) if (n.kind === 'decision') taken.add(n.code);
   let num = 1;
-  while (taken.has(`D-${String(num).padStart(2, '0')}`)) num++;
-  const id = `D-${String(num).padStart(2, '0')}`;
+  while (taken.has(`ND-${String(num).padStart(2, '0')}`)) num++;
+  const id = `ND-${String(num).padStart(2, '0')}`;
   const t = (title || `Decide for ${target.title}`).trim().replace(/\s+/g, ' ');
   if (BAD_NAME.test(t) || /[/:]/.test(t)) { console.error(`title "${t}" cannot contain / : # ? % \\`); process.exit(1); }
   if (/^[A-Z]+-\d+\s/.test(t)) { console.error(`a needs-decision card is named by its title only: drop the code from "${t}" (it gets ${id} in id: and aliases:)`); process.exit(1); }
@@ -1635,7 +1635,7 @@ function scaffoldDecision(result, ref, title) {
   const out = { ...data, id, aliases: [id], status: 'draft', features: feature ? [feature] : [], blocks: [blocks], decider: '', screens: target.screens ?? [], affects: [], related: [], created: today, tags: ['decision', 'decision/draft'] };
   const item = (v) => (/^[\w./-]+$/.test(v) ? v : JSON.stringify(v));
   const yaml = Object.entries(out).map(([k, v]) => `${k}: ${Array.isArray(v) ? `[${v.map(item).join(', ')}]` : typeof v === 'string' && (/[:#]/.test(v) || v === '') ? JSON.stringify(v) : v}`).join('\n');
-  const text = body.replace(/D-NN/g, id).replace(/<Title>/g, t).replace(/<date>/g, today).replace(/<card>/g, `[[${target.title}]]`).replace(/<feature>/g, feature ? `[[${nodes[`feature:${feature}`]?.title ?? feature}]]` : '—');
+  const text = body.replace(/ND-NN/g, id).replace(/<Title>/g, t).replace(/<date>/g, today).replace(/<card>/g, `[[${target.title}]]`).replace(/<feature>/g, feature ? `[[${nodes[`feature:${feature}`]?.title ?? feature}]]` : '—');
   fs.writeFileSync(dest, `---\n${yaml}\n---\n${text}`);
   console.log(`wrote ${path.relative(ROOT, dest)} (draft; blocks ${target.title}); write what has to be decided and who decides (decider), set status: open when it is ready for the decider, then run node scripts/build-tree.mjs: ${target.title} waits on ${id} until its decision card is decided`);
 }
@@ -1644,13 +1644,13 @@ function scaffoldDecision(result, ref, title) {
 function scaffoldRecord(result, ref, title) {
   const { json } = result;
   const q = (ref || '').trim();
-  const usage = 'usage: node scripts/build-tree.mjs --scaffold record D-NN "<the answer>" [--by <name>]';
+  const usage = 'usage: node scripts/build-tree.mjs --scaffold record ND-NN "<the answer>" [--by <name>]';
   if (!isDecisionId(q) || !title || title.startsWith('--')) die(usage);
   const d = json.nodes[`decision:${q}`];
   if (!d) die(`no decision ${q} (see decisions/)`);
   const rec = d.children.map((c) => json.nodes[c]).find((c) => c.kind === 'decision-record');
   if (rec) die(`${q} already has its decision card: ${rec.path}; one question, one answer`);
-  const id = `DR-${q.slice(2)}`;
+  const id = `D-${q.slice(3)}`;
   const t = title.trim().replace(/\s+/g, ' ');
   if (BAD_NAME.test(t) || /[/:]/.test(t)) die(`title "${t}" cannot contain / : # ? % \\`);
   const dest = path.join(ROOT, 'decisions', `${id} ${t}.md`);
@@ -1664,7 +1664,7 @@ function scaffoldRecord(result, ref, title) {
   const fm = { type: 'decision-record', id, decision: q, status: 'draft', decidedBy: by, decidedAt: at, features: d.features || [], affects: [], related: [d.title], owner: '', created: date, updated: date, tags: ['decision-record', 'decision-record/draft'] };
   const item = (v) => (/^[\w./-]+$/.test(v) ? v : JSON.stringify(v));
   const yaml = Object.entries(fm).map(([k, v]) => `${k}: ${Array.isArray(v) ? `[${v.map(item).join(', ')}]` : typeof v === 'string' && (/[:#]/.test(v) || v === '' || ['decidedBy', 'decidedAt', 'owner'].includes(k)) ? JSON.stringify(v) : v}`).join('\n');
-  const text = body.replace(/DR-NN/g, id).replace(/D-NN/g, q).replace(/<Title>/g, t).replace(/<decision>/g, d.title).replace(/<who>/g, by || '—').replace(/<date>/g, at || '—').replace(/<feature>/g, featureTitles.length ? featureTitles.map((x) => `[[${x}]]`).join(', ') : '—');
+  const text = body.replace(/ND-NN/g, q).replace(/\bD-NN/g, id).replace(/<Title>/g, t).replace(/<decision>/g, d.title).replace(/<who>/g, by || '—').replace(/<date>/g, at || '—').replace(/<feature>/g, featureTitles.length ? featureTitles.map((x) => `[[${x}]]`).join(', ') : '—');
   fs.writeFileSync(dest, `---\n${yaml}\n---\n${text}`);
   console.log(`wrote ${path.relative(ROOT, dest)} (the decision card answering ${q}, draft)\nnext: fill what was decided, why and what it changes, list every feature and task it changes in affects; on the user's word, the PM or the owner sets it decided (status: decided, decidedBy, decidedAt, the tag decision-record/decided); ${q} then shows Fulfilled by itself (point its ## Decision at [[${id} ${t}]] and give its H1 ✅); then node scripts/build-tree.mjs, --impact ${id}, and flag what it lists that you do not own`);
 }

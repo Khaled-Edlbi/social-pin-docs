@@ -9,9 +9,9 @@ screens: [s06]
 approvedBy: "khaled"
 approvedAt: 2026-10-25
 created: 2026-10-18
-updated: 2026-10-25
+updated: 2026-10-26
 owner: "omar"
-related: ["DR-02 One main profile every Ring starts from", "DR-06 Yearly rename, old name freed, case-insensitive"]
+related: ["D-02 One main profile every Ring starts from", "D-06 Yearly rename, old name freed, case-insensitive"]
 tags: [story, story/approved, module/identity, layer/business]
 ---
 
@@ -37,7 +37,7 @@ Acceptance criteria:
 - [ ] A debounced (300 ms) `GET /profiles/pin-name/:pinName/availability` returns `{ pinName, available }`; the field shows a check or "Taken" without naming anyone.
 - [ ] Case does not matter for availability (`SaraAz` = `saraaz`); the casing typed is what is displayed later.
 - [ ] Continue is enabled only on `available: true`; the ring progress indicator fills a segment on success.
-- [ ] When the handle is taken, the field offers a few suggestions built **only from my own name** (what I typed and my full name), each already checked as free; a suggestion never reveals or derives from who holds the taken name ([[DR-06 Yearly rename, old name freed, case-insensitive]]). Not available yet: the backend returns no suggestions today.
+- [ ] When the handle is taken, the field offers a few suggestions built **only from my own name** (what I typed and my full name), each already checked as free; a suggestion never reveals or derives from who holds the taken name ([[D-06 Yearly rename, old name freed, case-insensitive]]). Not available yet: the backend returns no suggestions today.
 
 ### S2 · Taken at the last moment ([[Screen Index#s06|s06]])
 
@@ -71,14 +71,14 @@ Acceptance criteria:
 
 Acceptance criteria:
 - [ ] The same live availability check as S1; `PATCH /profiles/:id { pinName }`; 409 `E_PROFILE_02` inline.
-- [ ] The copy says the old handle stops resolving at once (`GET /views/pin/:old` becomes a 404 for everyone) and **becomes free for anyone to claim**: nothing redirects to the new name, and a badge or link printed with the old name may later lead to someone else ([[DR-06 Yearly rename, old name freed, case-insensitive]]).
+- [ ] The copy says the old handle stops resolving at once (`GET /views/pin/:old` becomes a 404 for everyone) and **becomes free for anyone to claim**: nothing redirects to the new name, and a badge or link printed with the old name may later lead to someone else ([[D-06 Yearly rename, old name freed, case-insensitive]]).
 - [ ] A handle can be changed **once a year**; the screen says when the next change is allowed, and a rename inside the year is refused with a domain error shown inline. Not available yet: today a rename is unlimited.
 - [ ] A change of capitals only (`SaraAz` → `saraaz`) is the same name and is not a rename.
 - [ ] Taken names offer suggestions as in S1.
 
 ### S8 · My work details, once (profile editor, reached from [[Screen Index#s68|s68]])
 
-**As an** owner **I want** to write my headline, role, company, location, photo and bio once **so that** every Ring shows them without my retyping them ([[DR-02 One main profile every Ring starts from]]).
+**As an** owner **I want** to write my headline, role, company, location, photo and bio once **so that** every Ring shows them without my retyping them ([[D-02 One main profile every Ring starts from]]).
 
 Acceptance criteria:
 - [ ] The editor has a "work" section with headline, role, company, location, photo and bio; these six are the whole main profile, nothing else is added.
@@ -121,6 +121,6 @@ Acceptance criteria:
 
 ## Open questions
 
-- Decided: [[DR-02 One main profile every Ring starts from]] (the work section, S8) and [[DR-06 Yearly rename, old name freed, case-insensitive]] (S1 suggestions, S5 limit). Building them is not ticketed yet.
-- Whether a Ring may change **role** was not asked; until product says otherwise it follows headline (DR-02, *Still open*).
-- Whether the first year counts from sign-up or from the first rename; the natural reading is that the first rename is free (DR-06, *Still open*).
+- Decided: [[D-02 One main profile every Ring starts from]] (the work section, S8) and [[D-06 Yearly rename, old name freed, case-insensitive]] (S1 suggestions, S5 limit). Building them is not ticketed yet.
+- Whether a Ring may change **role** was not asked; until product says otherwise it follows headline (D-02, *Still open*).
+- Whether the first year counts from sign-up or from the first rename; the natural reading is that the first rename is free (D-06, *Still open*).

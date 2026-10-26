@@ -7,13 +7,13 @@ module: events
 status: draft
 screens: [s48, s49, s50, s51, s52]
 created: 2026-10-18
-updated: 2026-10-25
+updated: 2026-10-26
 tags: [frontend-requirements, frontend-requirements/draft, module/events, layer/frontend]
 ---
 
 # Events Before · Frontend Requirements
 
-> ⚠ Affected by [[DR-07 Stripe for all four flows]] (2026-10-21): the payment provider is Stripe; s51 is its hosted checkout. Which methods it offers is still open ([[Payments & Orders Story]] S2).
+> ⚠ Affected by [[D-07 Stripe for all four flows]] (2026-10-21): the payment provider is Stripe; s51 is its hosted checkout. Which methods it offers is still open ([[Payments & Orders Story]] S2).
 
 **Feature:** [[Events Before]] · **Status:** Draft · **Story:** [[Events Before Story]] · **API Integration:** not yet (backend not built)
 

@@ -29,7 +29,7 @@ Start from an import: LinkedIn OAuth → importing → review fields (s04, s05),
 | [[Screen Index#s03a|s03a]] | Scan a card |  |
 | [[Screen Index#s03b|s03b]] | Portfolio URL |  |
 | [[Screen Index#s04|s04]] | Importing |  |
-| [[Screen Index#s05|s05]] | Review import | Needs base profile → D-02 |
+| [[Screen Index#s05|s05]] | Review import | Needs base profile → ND-02 |
 
 Wireframe brief sections: [[Wireframe Brief#LinkedIn profile import|§3.3 LinkedIn profile import]]
 
@@ -40,7 +40,7 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 | Task | Status | Priority | Effort |
 |---|---|---|---|
 | [[T-020 LinkedIn import → review → base profile]] | ⛔ Blocked | High | L |
-| [[T-020b Business card scan and portfolio URL import]] | ⛔ Blocked · D-21 | Medium | L |
+| [[T-020b Business card scan and portfolio URL import]] | ⛔ Blocked · ND-21 | Medium | L |
 
 ```dataview
 TABLE status, priority, effort FROM #task WHERE feature = "onboarding-imports" SORT priority ASC
@@ -48,7 +48,7 @@ TABLE status, priority, effort FROM #task WHERE feature = "onboarding-imports" S
 
 ## Decisions
 
-- [[Base profile work fields]] — decided, one main profile every Ring starts from; imports fill it ([[DR-02 One main profile every Ring starts from|DR-02]])
+- [[Base profile work fields]] — decided, one main profile every Ring starts from; imports fill it ([[D-02 One main profile every Ring starts from|D-02]])
 - [[How a business card and a portfolio page are read]] — open: on the phone or on the server, and what each import reads; blocks [[T-020b Business card scan and portfolio URL import|T-020b]]
 
 ## Related

@@ -1,7 +1,7 @@
 ---
 type: decision
-id: D-06
-aliases: [D-06]
+id: ND-06
+aliases: [ND-06]
 status: open
 features: [profiles, gemma]
 screens: [s06]
@@ -10,7 +10,7 @@ updated: 2026-10-26
 tags: [decision, decision/open]
 ---
 
-# ✅ D-06 · Pin name rules
+# ✅ ND-06 · Pin name rules
 
 **Status:** decided (2026-10-25, option A) · **Decider:** product + backend lead · **Raised:** 2026-10-15
 
@@ -45,4 +45,4 @@ Screens: [[Screen Index#s06|s06]]
 
 ## Decision
 
-Fulfilled by [[DR-06 Yearly rename, old name freed, case-insensitive]], decided 2026-10-25 by molham: option A.
+Fulfilled by [[D-06 Yearly rename, old name freed, case-insensitive]], decided 2026-10-25 by molham: option A.

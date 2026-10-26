@@ -13,7 +13,7 @@ pending: []
 approvedBy: ""
 approvedAt: ""
 created: 2026-10-18
-updated: 2026-10-18
+updated: 2026-10-26
 tags: [story, story/draft, module/identity, layer/business]
 task: T-018
 ---
@@ -24,7 +24,7 @@ task: T-018
 
 > Derived from the task [[T-018 Widget CRUD on the projection]]; **not approved by product yet**. The feature-level story is [[Widgets Story]]; this note says what the user gets from this task in particular. `approved` when product signs off (`approvedBy`, `approvedAt`); `verified` when both QA notes are `passing`.
 
-`…/projection/widgets` with `type`, `config` (validated per type), `sortOrder`, `isVisible`. Viewer rendering in `toView`. Wait for D-03 so widgets are not built on the copy model twice.
+`…/projection/widgets` with `type`, `config` (validated per type), `sortOrder`, `isVisible`. Viewer rendering in `toView`. Wait for ND-03 so widgets are not built on the copy model twice.
 
 ## Persona
 
@@ -51,4 +51,4 @@ Edge cases a story must respect because the backend decides them (from the featu
 
 ## Open questions
 
-- [[D-NN …]] — what it blocks here.
+- [[ND-NN …]] — what it blocks here.

@@ -2,7 +2,7 @@
 type: project
 layer: shared
 created: 2026-10-19
-updated: 2026-10-25
+updated: 2026-10-26
 depends: []
 affects: ["Owner Agent", "PM Agent", "Backend Agent", "Frontend Agent", "QA Agent", "Admin Agent"]
 related: ["Agent Rules", "Workflow", "Docs Tree"]
@@ -44,7 +44,7 @@ Wait for the answer. When two readings of the request would lead to materially d
 
 ## 4 · Act, inside your scope
 
-- New notes: `node scripts/build-tree.mjs --scaffold <kind> <feature-id | T-NNN>`, `--scaffold task …`, `--scaffold feature …`, `--scaffold decision "<card>" "<title>"`, `--scaffold record D-NN "<the answer>"` ([[Docs Tree#For agents]]). Fill the template; do not reshape it.
+- New notes: `node scripts/build-tree.mjs --scaffold <kind> <feature-id | T-NNN>`, `--scaffold task …`, `--scaffold feature …`, `--scaffold decision "<card>" "<title>"`, `--scaffold record ND-NN "<the answer>"` ([[Docs Tree#For agents]]). Fill the template; do not reshape it.
 - Existing notes: Edit, the exact lines. Keep the frontmatter flat; declare `depends` / `affects` / `related`; every touched note gets today's `updated:`.
 - A note you do not own that your change makes wrong: a flag line under its H1, and the note named in your task's `## Log`. The owning agent clears the flag when it has updated the note.
 - A status change is four things together: `status:`, the `<kind>/<status>` tag, the H1 emoji, `updated:` ([[Agent Rules#4 · Statuses, blocking and sign-off]]). A feature's, a module's and the project's status is never typed.
@@ -59,6 +59,6 @@ Wait for the answer. When two readings of the request would lead to materially d
 
 ## 6 · Hand-offs between agents
 
-An agent never does another agent's work, even when asked nicely: it names the agent and the exact ask. The owner writes the rules and the config, shapes the modules and the feature cards, and signs; the PM shapes stories and tasks; any agent raises the needs-decision card its own card needs (draft, then open), and the PM or the owner decides it on its decision card (DR-NN, set decided), after which the needs-decision card shows Fulfilled by itself ([[Agent Rules#4 · Statuses, blocking and sign-off]]); the backend and the frontend write their delivery and integration notes and their halves of a task; QA writes the QA notes and files bugs. The flow in `docs.config.json` says who waits on whom; a card that is ⛔ Blocked is not worked on, whoever asks.
+An agent never does another agent's work, even when asked nicely: it names the agent and the exact ask. The owner writes the rules and the config, shapes the modules and the feature cards, and signs; the PM shapes stories and tasks; any agent raises the needs-decision card its own card needs (draft, then open), and the PM or the owner decides it on its decision card (D-NN, set decided), after which the needs-decision card shows Fulfilled by itself ([[Agent Rules#4 · Statuses, blocking and sign-off]]); the backend and the frontend write their delivery and integration notes and their halves of a task; QA writes the QA notes and files bugs. The flow in `docs.config.json` says who waits on whom; a card that is ⛔ Blocked is not worked on, whoever asks.
 
 Related: [[Agent Rules]] · [[Workflow]] · [[Docs Tree]] · [[Owner Agent]] · [[PM Agent]] · [[Backend Agent]] · [[Frontend Agent]] · [[QA Agent]] · [[Admin Agent]]

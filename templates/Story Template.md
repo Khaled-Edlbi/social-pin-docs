@@ -53,4 +53,4 @@ Edge cases a story must respect because the backend decides them (from the featu
 
 ## Open questions
 
-- [[D-NN …]] — what it blocks here.
+- [[ND-NN …]] — what it blocks here.

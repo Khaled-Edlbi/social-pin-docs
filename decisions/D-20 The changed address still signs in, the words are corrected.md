@@ -1,7 +1,7 @@
 ---
 type: decision-record
-id: DR-20
-decision: D-20
+id: D-20
+decision: ND-20
 status: decided
 decidedBy: "khaled"
 decidedAt: 2026-10-26
@@ -14,7 +14,7 @@ updated: 2026-10-26
 tags: [decision-record, decision-record/decided]
 ---
 
-# ✅ DR-20 · The changed address still signs in, the words are corrected
+# ✅ D-20 · The changed address still signs in, the words are corrected
 
 **Answers:** [[Whether an unverified new address may sign in]] · **Decided by:** khaled · **On:** 2026-10-26 · **Feature:** [[Account]]
 

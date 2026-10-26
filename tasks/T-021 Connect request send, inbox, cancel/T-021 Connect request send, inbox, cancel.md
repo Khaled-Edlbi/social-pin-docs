@@ -9,9 +9,9 @@ module: connections
 screens: [s44, s45]
 depends: []
 created: 2026-10-15
-updated: 2026-10-25
+updated: 2026-10-26
 owner: "omar"
-related: ["DR-13 The requester sees a declined request", "DR-17 Requests expire after 30 days, optional note, ask again at once"]
+related: ["D-13 The requester sees a declined request", "D-17 Requests expire after 30 days, optional note, ask again at once"]
 tags: [task, task/todo, module/connections, priority/critical]
 ---
 
@@ -23,7 +23,7 @@ tags: [task, task/todo, module/connections, priority/critical]
 
 ## What
 
-`POST /connections/requests` (target by user id from a resolved view, an optional note of up to 200 characters), `GET /connections/requests?direction=incoming|sent`, `DELETE …/:id`. Blocked pairs rejected with the same 404 as views. A request is pending, accepted, declined, cancelled or expired (30 days unanswered); the requester sees declined and expired requests and can ask again straight away ([[DR-13 The requester sees a declined request]], [[DR-17 Requests expire after 30 days, optional note, ask again at once]]).
+`POST /connections/requests` (target by user id from a resolved view, an optional note of up to 200 characters), `GET /connections/requests?direction=incoming|sent`, `DELETE …/:id`. Blocked pairs rejected with the same 404 as views. A request is pending, accepted, declined, cancelled or expired (30 days unanswered); the requester sees declined and expired requests and can ask again straight away ([[D-13 The requester sees a declined request]], [[D-17 Requests expire after 30 days, optional note, ask again at once]]).
 
 ## Design
 
@@ -46,4 +46,4 @@ tags: [task, task/todo, module/connections, priority/critical]
 ## Log
 
 - 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
-- 2026-10-25 · `tickets/pm/M-02-connections/F-14-connections/S-24-decisions` · story and What updated for DR-13 (decline visible) and DR-17 (30-day expiry, optional note, ask again at once); flags cleared. Still Blocked · D-10.
+- 2026-10-25 · `tickets/pm/M-02-connections/F-14-connections/S-24-decisions` · story and What updated for D-13 (decline visible) and D-17 (30-day expiry, optional note, ask again at once); flags cleared. Still Blocked · ND-10.

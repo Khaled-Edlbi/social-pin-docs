@@ -14,13 +14,13 @@ affects: []
 related: []
 pending: []
 created: 2026-10-18
-updated: 2026-10-19
+updated: 2026-10-26
 tags: [task, task/todo, module/platform, priority/critical, backend]
 ---
 
 # ⬜ T-063-be · Backend: Put the ErrorCode on the error body
 
-> ⚠ Affected by [[T-063 Put the ErrorCode on the error body]] (2026-10-25): [[DR-19 A ticket's layer notes live on the parent task]] puts this ticket's layer notes on the parent task. The **Layer notes** line below still sends this half to `T-063-be Backend Delivery`, `T-063-be Backend Integration` and `T-063-be QA Backend`, which are not the ticket's cards any more; it should point at [[T-063 Backend Delivery]], [[T-063 Backend Integration]] and [[T-063 QA Backend]], scaffolded with `--scaffold <kind> T-063`, and roll up into [[Error Contract Backend Delivery]] and [[Error Contract Backend Integration]] as it says. `/backend` owns this note and clears the flag.
+> ⚠ Affected by [[T-063 Put the ErrorCode on the error body]] (2026-10-25): [[D-19 A ticket's layer notes live on the parent task]] puts this ticket's layer notes on the parent task. The **Layer notes** line below still sends this half to `T-063-be Backend Delivery`, `T-063-be Backend Integration` and `T-063-be QA Backend`, which are not the ticket's cards any more; it should point at [[T-063 Backend Delivery]], [[T-063 Backend Integration]] and [[T-063 QA Backend]], scaffolded with `--scaffold <kind> T-063`, and roll up into [[Error Contract Backend Delivery]] and [[Error Contract Backend Integration]] as it says. `/backend` owns this note and clears the flag.
 
 **Parent:** [[T-063 Put the ErrorCode on the error body]] · **Feature:** [[Error Contract]] · **Side:** Backend · **Status:** To do · **Priority:** Critical · **Effort:** S (same as the parent until the team sizes it)
 

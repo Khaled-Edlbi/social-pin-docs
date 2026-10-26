@@ -13,7 +13,7 @@ tags: [backend-integration, backend-integration/current, module/identity, layer/
 
 # 🔌 Account · Backend Integration
 
-> ⚠ Affected by [[An unverified changed email still signs in]] (2026-10-26): [[DR-20 The changed address still signs in, the words are corrected]] decided option 2, so the behaviour stays as it is and the client must be told it plainly: a destination changed through `PATCH /users/me` comes back unverified and still signs in through `POST /auth/login` and `POST /auth/login/verify`; no 403 is coming, and re-verifying is not available. `/backend`.
+> ⚠ Affected by [[An unverified changed email still signs in]] (2026-10-26): [[D-20 The changed address still signs in, the words are corrected]] decided option 2, so the behaviour stays as it is and the client must be told it plainly: a destination changed through `PATCH /users/me` comes back unverified and still signs in through `POST /auth/login` and `POST /auth/login/verify`; no 403 is coming, and re-verifying is not available. `/backend`.
 
 > ⚠ Affected by [[Account QA Backend]] (2026-10-26): the error matrix row `404 E_USER_01` is unreachable. After `DELETE /users/me` every call answers `401 "Account is not active"`, the same body a suspended account gets; the guard rejects a DELETED account before any handler runs. The sign-out outcome is right, the documented status is not.
 

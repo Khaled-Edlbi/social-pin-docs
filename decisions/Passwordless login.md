@@ -1,7 +1,7 @@
 ---
 type: decision
-id: D-01
-aliases: [D-01]
+id: ND-01
+aliases: [ND-01]
 status: open
 features: [auth, linked-accounts]
 screens: [s01, s02]
@@ -10,7 +10,7 @@ updated: 2026-10-26
 tags: [decision, decision/open]
 ---
 
-# ✅ D-01 · Passwordless login
+# ✅ ND-01 · Passwordless login
 
 **Status:** decided (2026-10-15, option A) · **Decider:** product + backend lead · **Raised:** 2026-10-15
 
@@ -47,4 +47,4 @@ Screens: [[Screen Index#s01|s01]], [[Screen Index#s02|s02]]
 
 ## Decision
 
-Fulfilled by [[DR-01 Code-only login]], decided 2026-10-15 by product + backend lead: option A (what was decided, why, what it changes).
+Fulfilled by [[D-01 Code-only login]], decided 2026-10-15 by product + backend lead: option A (what was decided, why, what it changes).

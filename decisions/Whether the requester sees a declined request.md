@@ -1,7 +1,7 @@
 ---
 type: decision
-id: D-13
-aliases: [D-13]
+id: ND-13
+aliases: [ND-13]
 status: open
 features: [connections]
 blocks: ["T-021 Story", "T-022 Story"]
@@ -15,11 +15,11 @@ updated: 2026-10-26
 tags: [decision, decision/open]
 ---
 
-# ✅ D-13 · Whether the requester sees a declined request
+# ✅ ND-13 · Whether the requester sees a declined request
 
 **Status:** open · **Decider:** owner · **Raised:** 2026-10-25 · **Needed by:** [[T-021 Story]], [[T-022 Story]] · **Feature:** [[Connections]]
 
-> The needs-decision card: `draft` while the question is written, `open` once it is ready for the decider; it shows **Fulfilled** by itself once its decision card (DR-NN) is `decided`. The cards in `blocks` are **Blocked · D-13** while this is `draft` or `open` and return to their own status once it is fulfilled. Nobody edits their `status:` for this, and nobody types `fulfilled` or `decided` here.
+> The needs-decision card: `draft` while the question is written, `open` once it is ready for the decider; it shows **Fulfilled** by itself once its decision card (D-NN) is `decided`. The cards in `blocks` are **Blocked · ND-13** while this is `draft` or `open` and return to their own status once it is fulfilled. Nobody edits their `status:` for this, and nobody types `fulfilled` or `decided` here.
 
 ## What has to be decided
 
@@ -46,4 +46,4 @@ Recommendation: option 1, with an expiry on every unanswered request, so a decli
 
 ## Decision
 
-Fulfilled by [[DR-13 The requester sees a declined request]], decided 2026-10-25 by molham: option 3.
+Fulfilled by [[D-13 The requester sees a declined request]], decided 2026-10-25 by molham: option 3.

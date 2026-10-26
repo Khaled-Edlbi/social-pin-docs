@@ -11,7 +11,7 @@ approvedAt: 2026-10-25
 created: 2026-10-18
 updated: 2026-10-26
 owner: "omar"
-related: ["DR-02 One main profile every Ring starts from"]
+related: ["D-02 One main profile every Ring starts from"]
 tags: [story, story/approved, module/identity, layer/business]
 ---
 
@@ -19,7 +19,7 @@ tags: [story, story/approved, module/identity, layer/business]
 
 **Feature:** [[Onboarding Imports]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[Onboarding Imports Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
-A new user has just verified their code and does not want to type a profile from scratch. They start from something they already have: a LinkedIn account, a paper business card, or a portfolio URL. The import proposes fields, the user reviews each one (include / skip, edit inline), and the confirmed fields populate the **main profile** (headline, role, company, location, photo, bio, and the full name), which every Ring then follows field by field, the first Ring included ([[Wireframe Brief#LinkedIn profile import|§3.3]], [[DR-02 One main profile every Ring starts from]]). Nothing is written before the user confirms.
+A new user has just verified their code and does not want to type a profile from scratch. They start from something they already have: a LinkedIn account, a paper business card, or a portfolio URL. The import proposes fields, the user reviews each one (include / skip, edit inline), and the confirmed fields populate the **main profile** (headline, role, company, location, photo, bio, and the full name), which every Ring then follows field by field, the first Ring included ([[Wireframe Brief#LinkedIn profile import|§3.3]], [[D-02 One main profile every Ring starts from]]). Nothing is written before the user confirms.
 
 ## Persona
 
@@ -91,12 +91,12 @@ Acceptance criteria:
 ## Rules the backend already enforces
 
 - Only `SocialIdentity` has a table; there is no import, review or confirm endpoint, no OCR and no scraping. Nothing in this feature can be called yet.
-- Registration accepts `fullName` only; headline, role, company, location, the main photo and the main bio do not exist on `Profile` yet. [[DR-02 One main profile every Ring starts from]] puts them there; until that is built, imported values have nowhere to go, and writing them to a Ring projection instead is not what was decided.
+- Registration accepts `fullName` only; headline, role, company, location, the main photo and the main bio do not exist on `Profile` yet. [[D-02 One main profile every Ring starts from]] puts them there; until that is built, imported values have nowhere to go, and writing them to a Ring projection instead is not what was decided.
 - Whatever the import writes must go through `ProfileService` (Pin-name uniqueness, default profile) and `RingProfileService` (the first Ring's projection); the import must never bypass them.
 
 ## Open questions
 
-- Decided: [[DR-02 One main profile every Ring starts from]]. S5 still waits for the main profile fields to be built (not ticketed yet).
-- Which main-profile fields an import may overwrite without asking, when the profile already has values (DR-02, *Still open*).
+- Decided: [[D-02 One main profile every Ring starts from]]. S5 still waits for the main profile fields to be built (not ticketed yet).
+- Which main-profile fields an import may overwrite without asking, when the profile already has values (D-02, *Still open*).
 - Provider choice for card OCR and URL scraping ([[T-020b Business card scan and portfolio URL import]]) — blocks S3 and S4.
 - Whether a LinkedIn login (not only import) is offered on s01 depends on [[Passwordless login]] and [[T-019 LinkedIn OAuth link, unlink, login]].

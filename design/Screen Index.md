@@ -1,6 +1,6 @@
 ---
 type: map
-updated: 2026-10-25
+updated: 2026-10-26
 tags: [map, design]
 ---
 
@@ -14,14 +14,14 @@ All 78 screens of the prototype (`socialPin-design/.proto2.json`, ids are the pr
 | <a id="s00b"></a>**s00b** | Value · Rings | ⬜ | [[App Shell & Onboarding Narrative]] |  |
 | <a id="s00c"></a>**s00c** | Value · PinCast | ⬜ | [[App Shell & Onboarding Narrative]] |  |
 | <a id="s00d"></a>**s00d** | Value · Events | ⬜ | [[App Shell & Onboarding Narrative]] |  |
-| <a id="s01"></a>**s01** | Welcome | 🟡 | [[Auth & Sign-up]], [[Linked Accounts (OAuth)]] | Promises no password → D-01 |
+| <a id="s01"></a>**s01** | Welcome | 🟡 | [[Auth & Sign-up]], [[Linked Accounts (OAuth)]] | Promises no password → ND-01 |
 | <a id="s02"></a>**s02** | Verify | 🟡 | [[Auth & Sign-up]], [[Code Delivery]] | Resend timer, expired code |
 | <a id="s03"></a>**s03** | Start from | ❌ | [[Onboarding Imports]] |  |
 | <a id="s03a"></a>**s03a** | Scan a card | ❌ | [[Onboarding Imports]] |  |
 | <a id="s03b"></a>**s03b** | Portfolio URL | ❌ | [[Onboarding Imports]] |  |
 | <a id="s04"></a>**s04** | Importing | 🟡 | [[Onboarding Imports]], [[Linked Accounts (OAuth)]] |  |
-| <a id="s05"></a>**s05** | Review import | ❌ | [[Onboarding Imports]] | Needs base profile → D-02 |
-| <a id="s06"></a>**s06** | Claim your Pin | ✅ | [[Profiles & Pin Name]] | Availability check done; yearly rename + suggestions → D-06 |
+| <a id="s05"></a>**s05** | Review import | ❌ | [[Onboarding Imports]] | Needs base profile → ND-02 |
+| <a id="s06"></a>**s06** | Claim your Pin | ✅ | [[Profiles & Pin Name]] | Availability check done; yearly rename + suggestions → ND-06 |
 | <a id="s07"></a>**s07** | Interests | 🟡 | [[Interests]] |  |
 | <a id="s08"></a>**s08** | First Ring | ✅ | [[Rings]], [[Auth & Sign-up]] | Default Ring is created by complete-registration |
 | <a id="s09"></a>**s09** | Create first Ring | ✅ | [[Rings]], [[Ring Projection]] |  |
@@ -33,18 +33,18 @@ All 78 screens of the prototype (`socialPin-design/.proto2.json`, ids are the pr
 | <a id="s15"></a>**s15** | Ring people | 🟡 | [[Ring Members]], [[Connections]] |  |
 | <a id="s16"></a>**s16** | My Rings | 🟡 | [[Rings]], [[Counts]] |  |
 | <a id="s17"></a>**s17** | Shared with me | 🟡 | [[Rings]], [[Ring Invitations & Join]] | List done; review / decline invite todo |
-| <a id="s18"></a>**s18** | New Ring · step 1 | ✅ | [[Rings]] | Copy a Ring → D-05 |
-| <a id="s19"></a>**s19** | New Ring · step 2 (who is in it) | ✅ | [[Rings]], [[Ring Members]] | Audience settings → D-04 |
-| <a id="s20"></a>**s20** | New Ring · step 3 (what it shows) | ✅ | [[Ring Projection]] | Field library → D-03 |
+| <a id="s18"></a>**s18** | New Ring · step 1 | ✅ | [[Rings]] | Copy a Ring → ND-05 |
+| <a id="s19"></a>**s19** | New Ring · step 2 (who is in it) | ✅ | [[Rings]], [[Ring Members]] | Audience settings → ND-04 |
+| <a id="s20"></a>**s20** | New Ring · step 3 (what it shows) | ✅ | [[Ring Projection]] | Field library → ND-03 |
 | <a id="s21"></a>**s21** | New Ring · step 4 (how you appear) | ✅ | [[Rings]], [[Ring Projection]] |  |
-| <a id="s22"></a>**s22** | Edit · name & purpose | ✅ | [[Rings]] | Purpose → D-04 |
-| <a id="s23"></a>**s23** | Edit · how you appear | ✅ | [[Ring Projection]] | Inherit → D-05 / D-02 |
-| <a id="s24"></a>**s24** | Edit · what it shows | ✅ | [[Ring Projection]] | "4 of 7 on" → D-03 |
+| <a id="s22"></a>**s22** | Edit · name & purpose | ✅ | [[Rings]] | Purpose → ND-04 |
+| <a id="s23"></a>**s23** | Edit · how you appear | ✅ | [[Ring Projection]] | Inherit → ND-05 / ND-02 |
+| <a id="s24"></a>**s24** | Edit · what it shows | ✅ | [[Ring Projection]] | "4 of 7 on" → ND-03 |
 | <a id="s25"></a>**s25** | Edit · social profiles | ✅ | [[Ring Projection]] |  |
-| <a id="s26"></a>**s26** | Edit · access | 🟡 | [[Rings]], [[Delegated Admins]] | Settings → D-04 |
-| <a id="s27"></a>**s27** | Edit · permissions | 🟡 | [[Rings]], [[Delegated Admins]] | All settings → D-04 |
-| <a id="s28"></a>**s28** | Copy from a Ring | ✅ | [[Ring Projection]] | → D-05 |
-| <a id="s29"></a>**s29** | Photo for this Ring | 🟡 | [[Ring Projection]], [[Photo Library]] | "Reset to Pin" → D-02 |
+| <a id="s26"></a>**s26** | Edit · access | 🟡 | [[Rings]], [[Delegated Admins]] | Settings → ND-04 |
+| <a id="s27"></a>**s27** | Edit · permissions | 🟡 | [[Rings]], [[Delegated Admins]] | All settings → ND-04 |
+| <a id="s28"></a>**s28** | Copy from a Ring | ✅ | [[Ring Projection]] | → ND-05 |
+| <a id="s29"></a>**s29** | Photo for this Ring | 🟡 | [[Ring Projection]], [[Photo Library]] | "Reset to Pin" → ND-02 |
 | <a id="s30"></a>**s30** | Photo library | 🟡 | [[Photo Library]] |  |
 | <a id="s31"></a>**s31** | View as (flip) | ✅ | [[View As & Pin Views]] |  |
 | <a id="s34"></a>**s34** | Badge (flip) | 🟡 | [[Badge & QR]], [[Subscription (Free vs Pro)]] |  |
@@ -126,7 +126,7 @@ Reached from: [[Screen Index#s00c|s00c]]
 
 ### s01
 
-**Welcome** · 🟡 Partial (needs more) · Features: [[Auth & Sign-up]], [[Linked Accounts (OAuth)]] · Promises no password → D-01
+**Welcome** · 🟡 Partial (needs more) · Features: [[Auth & Sign-up]], [[Linked Accounts (OAuth)]] · Promises no password → ND-01
 
 Leads to: Send me a code → [[Screen Index#s02|s02]], Continue with LinkedIn → [[Screen Index#s04|s04]]
 
@@ -174,7 +174,7 @@ Reached from: [[Screen Index#s01|s01]], [[Screen Index#s03|s03]]
 
 ### s05
 
-**Review import** · ❌ TODO · Features: [[Onboarding Imports]] · Needs base profile → D-02
+**Review import** · ❌ TODO · Features: [[Onboarding Imports]] · Needs base profile → ND-02
 
 Leads to: Confirm & continue → [[Screen Index#s06|s06]], Skip → [[Screen Index#s06|s06]]
 
@@ -182,7 +182,7 @@ Reached from: [[Screen Index#s03a|s03a]], [[Screen Index#s03b|s03b]]
 
 ### s06
 
-**Claim your Pin** · ✅ Done · Features: [[Profiles & Pin Name]] · Availability check done; yearly rename + suggestions → D-06
+**Claim your Pin** · ✅ Done · Features: [[Profiles & Pin Name]] · Availability check done; yearly rename + suggestions → ND-06
 
 Leads to: Continue → [[Screen Index#s07|s07]]
 
@@ -278,7 +278,7 @@ Reached from: [[Screen Index#s16|s16]]
 
 ### s18
 
-**New Ring · step 1** · ✅ Done · Features: [[Rings]] · Copy a Ring → D-05
+**New Ring · step 1** · ✅ Done · Features: [[Rings]] · Copy a Ring → ND-05
 
 Leads to: Next · who is in it → [[Screen Index#s19|s19]], Cancel → [[Screen Index#s16|s16]]
 
@@ -286,7 +286,7 @@ Reached from: [[Screen Index#s16|s16]], [[Screen Index#s17|s17]], [[Screen Index
 
 ### s19
 
-**New Ring · step 2 (who is in it)** · ✅ Done · Features: [[Rings]], [[Ring Members]] · Audience settings → D-04
+**New Ring · step 2 (who is in it)** · ✅ Done · Features: [[Rings]], [[Ring Members]] · Audience settings → ND-04
 
 Leads to: Next · what it shows → [[Screen Index#s20|s20]], Cancel → [[Screen Index#s16|s16]], Back → [[Screen Index#s18|s18]]
 
@@ -294,7 +294,7 @@ Reached from: [[Screen Index#s18|s18]], [[Screen Index#s20|s20]]
 
 ### s20
 
-**New Ring · step 3 (what it shows)** · ✅ Done · Features: [[Ring Projection]] · Field library → D-03
+**New Ring · step 3 (what it shows)** · ✅ Done · Features: [[Ring Projection]] · Field library → ND-03
 
 Leads to: Next · how you appear → [[Screen Index#s21|s21]], Cancel → [[Screen Index#s16|s16]], Back → [[Screen Index#s19|s19]]
 
@@ -310,7 +310,7 @@ Reached from: [[Screen Index#s20|s20]]
 
 ### s22
 
-**Edit · name & purpose** · ✅ Done · Features: [[Rings]] · Purpose → D-04
+**Edit · name & purpose** · ✅ Done · Features: [[Rings]] · Purpose → ND-04
 
 Leads to: Save → [[Screen Index#s14|s14]], Cancel → [[Screen Index#s14|s14]]
 
@@ -318,7 +318,7 @@ Reached from: [[Screen Index#s14|s14]], [[Screen Index#s15|s15]]
 
 ### s23
 
-**Edit · how you appear** · ✅ Done · Features: [[Ring Projection]] · Inherit → D-05 / D-02
+**Edit · how you appear** · ✅ Done · Features: [[Ring Projection]] · Inherit → ND-05 / ND-02
 
 Leads to: Save → [[Screen Index#s14|s14]], Cancel → [[Screen Index#s14|s14]], Change → [[Screen Index#s29|s29]], Copy a Ring → [[Screen Index#s28|s28]], Upload → [[Screen Index#s30|s30]]
 
@@ -326,7 +326,7 @@ Reached from: [[Screen Index#s28|s28]], [[Screen Index#s29|s29]]
 
 ### s24
 
-**Edit · what it shows** · ✅ Done · Features: [[Ring Projection]] · "4 of 7 on" → D-03
+**Edit · what it shows** · ✅ Done · Features: [[Ring Projection]] · "4 of 7 on" → ND-03
 
 Leads to: Save → [[Screen Index#s14|s14]], Cancel → [[Screen Index#s14|s14]], + Add a field, link or file → [[Screen Index#s36|s36]]
 
@@ -342,7 +342,7 @@ Reached from: [[Screen Index#s36|s36]]
 
 ### s26
 
-**Edit · access** · 🟡 Partial (needs more) · Features: [[Rings]], [[Delegated Admins]] · Settings → D-04
+**Edit · access** · 🟡 Partial (needs more) · Features: [[Rings]], [[Delegated Admins]] · Settings → ND-04
 
 Leads to: Save → [[Screen Index#s14|s14]], Cancel → [[Screen Index#s14|s14]], Permissions → [[Screen Index#s27|s27]], Delete Ring → [[Screen Index#s16|s16]]
 
@@ -350,7 +350,7 @@ Reached from: [[Screen Index#s27|s27]]
 
 ### s27
 
-**Edit · permissions** · 🟡 Partial (needs more) · Features: [[Rings]], [[Delegated Admins]] · All settings → D-04
+**Edit · permissions** · 🟡 Partial (needs more) · Features: [[Rings]], [[Delegated Admins]] · All settings → ND-04
 
 Leads to: Save → [[Screen Index#s26|s26]], Cancel → [[Screen Index#s26|s26]]
 
@@ -358,7 +358,7 @@ Reached from: [[Screen Index#s26|s26]]
 
 ### s28
 
-**Copy from a Ring** · ✅ Done · Features: [[Ring Projection]] · → D-05
+**Copy from a Ring** · ✅ Done · Features: [[Ring Projection]] · → ND-05
 
 Leads to: Use this bio → [[Screen Index#s23|s23]], Cancel → [[Screen Index#s23|s23]]
 
@@ -366,7 +366,7 @@ Reached from: [[Screen Index#s23|s23]]
 
 ### s29
 
-**Photo for this Ring** · 🟡 Partial (needs more) · Features: [[Ring Projection]], [[Photo Library]] · "Reset to Pin" → D-02
+**Photo for this Ring** · 🟡 Partial (needs more) · Features: [[Ring Projection]], [[Photo Library]] · "Reset to Pin" → ND-02
 
 Leads to: Use for Clients → [[Screen Index#s23|s23]], Reset to Pin → [[Screen Index#s23|s23]], Upload → [[Screen Index#s30|s30]]
 

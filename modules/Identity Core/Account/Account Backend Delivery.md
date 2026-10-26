@@ -13,7 +13,7 @@ tags: [backend-delivery, backend-delivery/done, module/identity, layer/backend]
 
 # ✅ Account · Backend Delivery
 
-> ⚠ Affected by [[An unverified changed email still signs in]] (2026-10-26): answered by [[DR-20 The changed address still signs in, the words are corrected]], option 2 — the build is right and this note is wrong. No gate ships. Correct "a changed address must be proven again before it can be used to sign in or receive a reset code" to say that the cleared flag only marks the destination unverified and does **not** stop it signing in, then clear the QA flag below. `/backend`.
+> ⚠ Affected by [[An unverified changed email still signs in]] (2026-10-26): answered by [[D-20 The changed address still signs in, the words are corrected]], option 2 — the build is right and this note is wrong. No gate ships. Correct "a changed address must be proven again before it can be used to sign in or receive a reset code" to say that the cleared flag only marks the destination unverified and does **not** stop it signing in, then clear the QA flag below. `/backend`.
 
 > ⚠ Affected by [[Account QA Backend]] (2026-10-26): "a changed address must be proven again before it can be used to sign in" is not what the build does. An email changed by `PATCH /users/me` comes back with `emailVerifiedAt: null` and still signs in immediately — `POST /auth/login` issues a code for it and `login/verify` returns a session. Gate the sign-in on the verified flags, or correct this note and [[Account Story]] S2.
 

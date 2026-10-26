@@ -1,7 +1,7 @@
 ---
 type: decision
-id: D-07
-aliases: [D-07]
+id: ND-07
+aliases: [ND-07]
 status: open
 features: [payments, subscription]
 blocks: [T-047, T-035, T-049]
@@ -15,11 +15,11 @@ updated: 2026-10-26
 tags: [decision, decision/open]
 ---
 
-# ✅ D-07 · Payment provider
+# ✅ ND-07 · Payment provider
 
 **Status:** fulfilled (its decision card was decided 2026-10-21 by khaled) · **Decider:** owner · **Raised:** 2026-10-21 · **Needed by:** [[T-047 Orders, payments and the provider webhook]], [[T-035 Registration transaction with order and payment]], [[T-049 Subscription endpoints and a single Pro gate]] · **Feature:** [[Payments & Orders]], [[Subscription (Free vs Pro)]] · **Module:** [[Commerce Module]]
 
-> The cards in `blocks` are **Blocked · D-07** while this is `draft` or `open` and return to their own status once its decision card (DR-07) is decided: this card then shows Fulfilled. Nobody edits their `status:` for this.
+> The cards in `blocks` are **Blocked · ND-07** while this is `draft` or `open` and return to their own status once its decision card (D-07) is decided: this card then shows Fulfilled. Nobody edits their `status:` for this.
 
 ## What has to be decided
 
@@ -45,4 +45,4 @@ Which payment provider Social Pin moves money through, for every purchase in the
 
 ## Decision
 
-Fulfilled by [[DR-07 Stripe for all four flows]], decided 2026-10-21 by khaled (the owner): option 1 (what was decided, why, what it changes).
+Fulfilled by [[D-07 Stripe for all four flows]], decided 2026-10-21 by khaled (the owner): option 1 (what was decided, why, what it changes).

@@ -6,9 +6,9 @@ feature: profiles
 module: identity
 status: draft
 screens: [s06, s68]
-depends: ["DR-06 Yearly rename, old name freed, case-insensitive"]
+depends: ["D-06 Yearly rename, old name freed, case-insensitive"]
 affects: []
-related: ["DR-06 Yearly rename, old name freed, case-insensitive", "Profiles & Pin Name Backend Integration", "Badge & QR", "What the badge QR encodes", "T-063 Put the ErrorCode on the error body"]
+related: ["D-06 Yearly rename, old name freed, case-insensitive", "Profiles & Pin Name Backend Integration", "Badge & QR", "What the badge QR encodes", "T-063 Put the ErrorCode on the error body"]
 pending: []
 approvedBy: ""
 approvedAt: ""
@@ -23,7 +23,7 @@ task: T-079
 
 **Task:** [[T-079 Enforce the once-a-year Pin name rename]] · **Feature:** [[Profiles & Pin Name]] · **Feature-level note:** [[Profiles & Pin Name Story]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[T-079 Frontend Requirements]] · **Backend Integration:** [[T-079 Backend Integration]] · **Verified by:** [[T-079 QA Backend]], [[T-079 QA Frontend]]
 
-A person who claimed a Pin name can change it, but not on a whim: once a year, so the name others scan and type stays stable, as [[DR-06 Yearly rename, old name freed, case-insensitive]] decided. `approved` (👍) when product signs off (`approvedBy`, `approvedAt`); `verified` (✅ Fulfilled) set by the PM once every QA note of its scope is `passing` with nothing pending.
+A person who claimed a Pin name can change it, but not on a whim: once a year, so the name others scan and type stays stable, as [[D-06 Yearly rename, old name freed, case-insensitive]] decided. `approved` (👍) when product signs off (`approvedBy`, `approvedAt`); `verified` (✅ Fulfilled) set by the PM once every QA note of its scope is `passing` with nothing pending.
 
 ## Persona
 
@@ -61,5 +61,5 @@ Acceptance criteria:
 
 ## Open questions
 
-- DR-06 left open whether the year starts at sign-up or at the first rename; this task takes the natural reading (first rename free). Product can say otherwise before the task starts.
+- D-06 left open whether the year starts at sign-up or at the first rename; this task takes the natural reading (first rename free). Product can say otherwise before the task starts.
 - What a printed badge or saved link does after its name is released: [[Badge & QR]], [[What the badge QR encodes]].

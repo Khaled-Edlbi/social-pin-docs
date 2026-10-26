@@ -13,7 +13,7 @@ tags: [backend-delivery, backend-delivery/todo, module/commerce, layer/backend]
 
 # ⬜ Payments & Orders · Backend Delivery
 
-> ⚠ Affected by [[DR-07 Stripe for all four flows]] (2026-10-21): the provider is Stripe; "provider choice (card / e-payment per organizer) is undecided" is no longer true. Which methods s51 offers is still open ([[Payments & Orders Story]]).
+> ⚠ Affected by [[D-07 Stripe for all four flows]] (2026-10-21): the provider is Stripe; "provider choice (card / e-payment per organizer) is undecided" is no longer true. Which methods s51 offers is still open ([[Payments & Orders Story]]).
 
 **Feature:** [[Payments & Orders]] · **Status:** To do · **Integration guide:** [[Payments & Orders Backend Integration]] · **Requirements:** [[Payments & Orders Frontend Requirements]] · **QA:** [[Payments & Orders QA Backend]]
 

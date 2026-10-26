@@ -7,7 +7,7 @@ effort: M
 feature: ring-invitations
 module: shared-rings
 screens: [s17]
-depends: [D-04]
+depends: [ND-04]
 created: 2026-10-15
 updated: 2026-10-26
 owner: "omar"
@@ -22,7 +22,7 @@ tags: [task, task/needs-info, module/shared-rings, priority/high]
 
 ## What
 
-Likely a `RingMember` in an INVITED state with accept / decline endpoints. Notification on invite. Joining by invitation is one of the launch values of "who can request to join" (default: with a code or by invitation), and "members can invite others" is a launch setting, off by default ([[DR-04 Ring settings at launch and their defaults]]).
+Likely a `RingMember` in an INVITED state with accept / decline endpoints. Notification on invite. Joining by invitation is one of the launch values of "who can request to join" (default: with a code or by invitation), and "members can invite others" is a launch setting, off by default ([[D-04 Ring settings at launch and their defaults]]).
 
 ## Design
 
@@ -30,7 +30,7 @@ Likely a `RingMember` in an INVITED state with accept / decline endpoints. Notif
 
 ## Dependencies
 
-- Waited on decision [[Ring settings]], decided by [[DR-04 Ring settings at launch and their defaults]]
+- Waited on decision [[Ring settings]], decided by [[D-04 Ring settings at launch and their defaults]]
 - Unblocks [[T-027 Join a Ring with a code or verified work email]]
 
 ## Definition of done
@@ -44,4 +44,4 @@ Likely a `RingMember` in an INVITED state with accept / decline endpoints. Notif
 ## Log
 
 - 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
-- 2026-10-25 · D-04 decided ([[DR-04 Ring settings at launch and their defaults]]); What and Dependencies updated, flag cleared. Status left as typed (needs-info) until product says it can move to todo.
+- 2026-10-25 · ND-04 decided ([[D-04 Ring settings at launch and their defaults]]); What and Dependencies updated, flag cleared. Status left as typed (needs-info) until product says it can move to todo.

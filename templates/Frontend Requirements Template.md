@@ -54,7 +54,7 @@ Written by the **frontend** team, read by the backend: what the client needs to 
 
 ## Blocked by
 
-- [[D-NN …]] — which rows above wait on it.
+- [[ND-NN …]] — which rows above wait on it.
 
 ## Sign-off
 

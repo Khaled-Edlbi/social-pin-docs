@@ -1,7 +1,7 @@
 ---
 type: decision-record
-id: DR-19
-decision: D-19
+id: D-19
+decision: ND-19
 status: decided
 decidedBy: "khaled"
 decidedAt: 2026-10-25
@@ -14,7 +14,7 @@ updated: 2026-10-26
 tags: [decision-record, decision-record/decided]
 ---
 
-# ✅ DR-19 · A ticket's layer notes live on the parent task
+# ✅ D-19 · A ticket's layer notes live on the parent task
 
 **Answers:** [[Where a ticket's layer notes live]] · **Decided by:** khaled · **On:** 2026-10-25 · **Feature:** [[Error Contract]]
 

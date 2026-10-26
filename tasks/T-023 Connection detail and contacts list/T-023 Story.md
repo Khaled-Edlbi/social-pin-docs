@@ -8,13 +8,13 @@ status: approved
 screens: [s47]
 depends: []
 affects: []
-related: ["Ring Members", "View As & Pin Views", "DR-04 Ring settings at launch and their defaults", "DR-14 Shared with me lists people, never the Ring", "DR-15 Several Rings per connection, remove or disconnect"]
+related: ["Ring Members", "View As & Pin Views", "D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect"]
 pending: []
 approvedBy: "khaled"
 approvedAt: 2026-10-25
 owner: "omar"
 created: 2026-10-18
-updated: 2026-10-25
+updated: 2026-10-26
 tags: [story, story/approved, module/connections, layer/business]
 task: T-023
 ---
@@ -25,7 +25,7 @@ task: T-023
 
 > Derived from the task [[T-023 Connection detail and contacts list]]; **not approved by product yet**. The feature-level story is [[Connections Story]]; this note says what the user gets from this task in particular. `approved` when product signs off (`approvedBy`, `approvedAt`); `verified` when both QA notes are `passing`.
 
-Owner-side detail shows which Rings (owner only), events in common, mutual connections. `GET /connections` searchable. A connection can sit in several of my Rings and outlives access unless I disconnect ([[DR-15 Several Rings per connection, remove or disconnect]]).
+Owner-side detail shows which Rings (owner only), events in common, mutual connections. `GET /connections` searchable. A connection can sit in several of my Rings and outlives access unless I disconnect ([[D-15 Several Rings per connection, remove or disconnect]]).
 
 ## Persona
 
@@ -50,7 +50,7 @@ Acceptance criteria:
 
 Acceptance criteria:
 - [ ] The detail returns the person, the date we connected, and **the list of my Rings they're in** (one or several) with each membership's `startsAt` / `expiresAt`; an empty list when they have no access.
-- [ ] Only I see which of my Rings they're in; nothing of it reaches them ([[DR-14 Shared with me lists people, never the Ring]]).
+- [ ] Only I see which of my Rings they're in; nothing of it reaches them ([[D-14 Shared with me lists people, never the Ring]]).
 - [ ] From here, the actions that exist already: add to another of my Rings (`POST /rings/:ringId/members`), move to another Ring (`POST …/members/:userId/reassign`), change the window (`PATCH …/members/:userId`), remove (`DELETE …/members/:userId`). After each, the screen refetches.
 - [ ] Removing them from the **last** of my Rings asks: *Remove from Rings* (they stay a connection with no access) or *Disconnect* (the connection ends and they leave my contacts; getting back in takes a new request). Not available yet: there is no disconnect endpoint.
 - [ ] When they are in several of my Rings, they see the version from the Ring they were put in first.
@@ -84,7 +84,7 @@ Acceptance criteria:
 
 Acceptance criteria:
 - [ ] Events in common: may ship after the events features; until then the section is hidden, not empty.
-- [ ] Mutual connections: only people who are connections of both of us, and only where a Ring's "members can see each other" is on (off by default, [[DR-04 Ring settings at launch and their defaults]]); hidden otherwise. Not available yet: the setting does not exist.
+- [ ] Mutual connections: only people who are connections of both of us, and only where a Ring's "members can see each other" is on (off by default, [[D-04 Ring settings at launch and their defaults]]); hidden otherwise. Not available yet: the setting does not exist.
 
 ## States and motion the design asks for
 
@@ -96,11 +96,11 @@ Acceptance criteria:
 ## Rules the backend already enforces
 
 - Reassign moves a member in one transaction, so they never see two perspectives at once; revoke marks the row `REMOVED`, never deleted.
-- The roster is owner or delegated-admin only; a member never sees who else is in a Ring unless the Ring's "members can see each other" is on ([[DR-04 Ring settings at launch and their defaults]], not available yet).
+- The roster is owner or delegated-admin only; a member never sees who else is in a Ring unless the Ring's "members can see each other" is on ([[D-04 Ring settings at launch and their defaults]], not available yet).
 - `GET /views/user/:userId/perspectives` returns only what is live and shared with the caller.
 - Blocks hide in both directions with the same 404 as views ([[T-024 Block and unblock]]).
 
 ## Open questions
 
 - **Member identity: on the roster or from contacts.** Add `displayName`, `pinName`, `avatarFileId` to `RingMemberEntity`, or have the app join the roster with `GET /connections`. On the roster is one request and works for members added without a connection.
-- **Disconnect.** Its route, and whether the other person is told anything (left open by [[DR-15 Several Rings per connection, remove or disconnect]]).
+- **Disconnect.** Its route, and whether the other person is told anything (left open by [[D-15 Several Rings per connection, remove or disconnect]]).

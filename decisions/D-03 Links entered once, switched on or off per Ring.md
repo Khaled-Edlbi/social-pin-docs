@@ -1,20 +1,20 @@
 ---
 type: decision-record
-id: DR-03
-decision: D-03
+id: D-03
+decision: ND-03
 status: decided
 decidedBy: "molham"
 decidedAt: 2026-10-25
 features: [ring-projection, widgets]
 affects: ["Ring Projection", "Widgets", "T-018 Widget CRUD on the projection", "T-058 Decide field library vs per-Ring copies"]
-related: ["Field library vs per-Ring copies", "DR-02 One main profile every Ring starts from"]
+related: ["Field library vs per-Ring copies", "D-02 One main profile every Ring starts from"]
 owner: "khaled"
 created: 2026-10-25
 updated: 2026-10-26
 tags: [decision-record, decision-record/decided]
 ---
 
-# ⚖️ DR-03 · Links entered once, switched on or off per Ring
+# ⚖️ D-03 · Links entered once, switched on or off per Ring
 
 **Answers:** [[Field library vs per-Ring copies]] · **Decided by:** molham · **On:** 2026-10-25 · **Feature:** [[Ring Projection]], [[Widgets]]
 
@@ -22,7 +22,7 @@ tags: [decision-record, decision-record/decided]
 
 ## What was decided
 
-**Option A on D-03: one library of links, switched on or off per Ring.**
+**Option A on ND-03: one library of links, switched on or off per Ring.**
 
 - A link (LinkedIn, a booking page, a phone number…) is **entered once**; editing it changes it in every Ring that shows it.
 - A Ring can only switch a link **on or off**; a link never has a different value in different Rings. Someone who wants a work email for Clients and a personal one for Family enters two links and switches each on where it belongs.

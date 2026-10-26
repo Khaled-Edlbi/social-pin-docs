@@ -1,20 +1,20 @@
 ---
 type: decision-record
-id: DR-02
-decision: D-02
+id: D-02
+decision: ND-02
 status: decided
 decidedBy: "molham"
 decidedAt: 2026-10-25
 features: [onboarding-imports, photo-library, profiles, ring-projection]
 affects: ["Profiles & Pin Name", "Ring Projection", "Onboarding Imports", "Photo Library", "T-020 LinkedIn import → review → base profile", "T-020b Business card scan and portfolio URL import", "T-057 Decide base profile work fields", "T-060 Decide copy or inherit"]
-related: ["Base profile work fields", "DR-05 Inherit per field, copy without members", "DR-03 Links entered once, switched on or off per Ring"]
+related: ["Base profile work fields", "D-05 Inherit per field, copy without members", "D-03 Links entered once, switched on or off per Ring"]
 owner: "khaled"
 created: 2026-10-25
 updated: 2026-10-26
 tags: [decision-record, decision-record/decided]
 ---
 
-# ⚖️ DR-02 · One main profile every Ring starts from
+# ⚖️ D-02 · One main profile every Ring starts from
 
 **Answers:** [[Base profile work fields]] · **Decided by:** molham · **On:** 2026-10-25 · **Feature:** [[Onboarding Imports]], [[Photo Library]], [[Profiles & Pin Name]], [[Ring Projection]]
 
@@ -22,7 +22,7 @@ tags: [decision-record, decision-record/decided]
 
 ## What was decided
 
-**Option A on D-02: a main profile that every Ring starts from.** A person writes their work details once, on the main profile, and every Ring shows them by default; each Ring may change them for itself.
+**Option A on ND-02: a main profile that every Ring starts from.** A person writes their work details once, on the main profile, and every Ring shows them by default; each Ring may change them for itself.
 
 | Main-profile field | A Ring may change it |
 |---|---|
@@ -35,7 +35,7 @@ tags: [decision-record, decision-record/decided]
 | Full name | **no**: the same in every Ring |
 
 - These six fields are the whole main profile ("that's all"); nothing else is added to it.
-- A Ring that changed a field **keeps its own value** when the main value changes later; Rings that did not change it follow the main value (how a Ring follows it, field by field: [[DR-05 Inherit per field, copy without members]]).
+- A Ring that changed a field **keeps its own value** when the main value changes later; Rings that did not change it follow the main value (how a Ring follows it, field by field: [[D-05 Inherit per field, copy without members]]).
 - Option B (everything per Ring, the client copying values when a Ring is created) is ruled out.
 
 Answered on the product-questions page, 2026-10-22, recorded on molham's word on 2026-10-25.
@@ -54,7 +54,7 @@ Answered on the product-questions page, 2026-10-22, recorded on molham's word on
 - [[Onboarding Imports]]: imports (LinkedIn, business card, portfolio URL) fill the main profile, not one Ring; [[T-020 LinkedIn import → review → base profile]] and [[T-020b Business card scan and portfolio URL import]] are no longer waiting on this decision.
 - [[Photo Library]]: a Ring's photo is the main photo unless the Ring picks another.
 - [[T-057 Decide base profile work fields]]: its decision is taken; the PM closes it.
-- [[T-060 Decide copy or inherit]]: the main profile it needed now exists; its own answer is [[DR-05 Inherit per field, copy without members]].
+- [[T-060 Decide copy or inherit]]: the main profile it needed now exists; its own answer is [[D-05 Inherit per field, copy without members]].
 
 ## Still open
 

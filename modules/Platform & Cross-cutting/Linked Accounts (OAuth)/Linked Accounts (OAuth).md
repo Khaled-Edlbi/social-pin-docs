@@ -23,7 +23,7 @@ Social providers for login and import (s68 linked accounts, s01 "Continue with L
 
 | Screen | Name | Note |
 |---|---|---|
-| [[Screen Index#s01|s01]] | Welcome | Passwordless (D-01 decided); provider login is the second sign-in method |
+| [[Screen Index#s01|s01]] | Welcome | Passwordless (ND-01 decided); provider login is the second sign-in method |
 | [[Screen Index#s04|s04]] | Importing |  |
 | [[Screen Index#s68|s68]] | Me / Account |  |
 

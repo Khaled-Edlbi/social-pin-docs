@@ -23,9 +23,9 @@ Sign up with email or phone, verify the one-time code, finish registration with 
 
 | Screen | Name | Note |
 |---|---|---|
-| [[Screen Index#s01|s01]] | Welcome | "No password to remember" — implemented (D-01) |
+| [[Screen Index#s01|s01]] | Welcome | "No password to remember" — implemented (ND-01) |
 | [[Screen Index#s02|s02]] | Verify | Resend timer, expired code |
-| [[Screen Index#s06|s06]] | Claim your Pin | Availability check done; yearly rename + suggestions → D-06 |
+| [[Screen Index#s06|s06]] | Claim your Pin | Availability check done; yearly rename + suggestions → ND-06 |
 | [[Screen Index#s08|s08]] | First Ring | Default Ring is created by complete-registration |
 | [[Screen Index#s68|s68]] | Me / Account |  |
 

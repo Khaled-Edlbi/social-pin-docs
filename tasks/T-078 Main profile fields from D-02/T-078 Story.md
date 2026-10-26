@@ -6,9 +6,9 @@ feature: profiles
 module: identity
 status: approved
 screens: [s05, s23, s68]
-depends: ["DR-02 One main profile every Ring starts from"]
+depends: ["D-02 One main profile every Ring starts from"]
 affects: []
-related: ["DR-05 Inherit per field, copy without members", "T-062 Serve uploaded file bytes by id", "T-020 LinkedIn import → review → base profile", "T-020b Business card scan and portfolio URL import", "Onboarding Imports", "Ring Projection", "Files Upload", "Auth & Sign-up"]
+related: ["D-05 Inherit per field, copy without members", "T-062 Serve uploaded file bytes by id", "T-020 LinkedIn import → review → base profile", "T-020b Business card scan and portfolio URL import", "Onboarding Imports", "Ring Projection", "Files Upload", "Auth & Sign-up"]
 pending: []
 approvedBy: "omar"
 approvedAt: 2026-10-26
@@ -19,11 +19,11 @@ tags: [story, story/approved, module/identity, layer/business]
 task: T-078
 ---
 
-# T-078 · Main profile fields from DR-02 · User Story
+# T-078 · Main profile fields from D-02 · User Story
 
-**Task:** [[T-078 Main profile fields from DR-02]] · **Feature:** [[Profiles & Pin Name]] · **Feature-level note:** [[Profiles & Pin Name Story]] · **Status:** Approved 2026-10-26 by omar · **Frontend Requirements:** [[T-078 Frontend Requirements]] · **Backend Integration:** [[T-078 Backend Integration]] · **Verified by:** [[T-078 QA Backend]], [[T-078 QA Frontend]]
+**Task:** [[T-078 Main profile fields from D-02]] · **Feature:** [[Profiles & Pin Name]] · **Feature-level note:** [[Profiles & Pin Name Story]] · **Status:** Approved 2026-10-26 by omar · **Frontend Requirements:** [[T-078 Frontend Requirements]] · **Backend Integration:** [[T-078 Backend Integration]] · **Verified by:** [[T-078 QA Backend]], [[T-078 QA Frontend]]
 
-A person writes their work details once, during sign-up or later on Me, and finds them on every Ring that has not been given its own: headline, role, company, location, photo and bio, as [[DR-02 One main profile every Ring starts from]] decided. Today none of these can be saved: sign-up asks for them and drops them. `approved` (👍) when product signs off (`approvedBy`, `approvedAt`); `verified` (✅ Fulfilled) set by the PM once every QA note of its scope is `passing` with nothing pending.
+A person writes their work details once, during sign-up or later on Me, and finds them on every Ring that has not been given its own: headline, role, company, location, photo and bio, as [[D-02 One main profile every Ring starts from]] decided. Today none of these can be saved: sign-up asks for them and drops them. `approved` (👍) when product signs off (`approvedBy`, `approvedAt`); `verified` (✅ Fulfilled) set by the PM once every QA note of its scope is `passing` with nothing pending.
 
 ## Persona
 
@@ -57,7 +57,7 @@ Acceptance criteria:
 
 Acceptance criteria:
 - [ ] The main values are what "Inherit from your Pin" on s23 refers to.
-- [ ] How each Ring follows or overrides each field is [[DR-05 Inherit per field, copy without members]], built on [[Ring Projection]]: not in this task.
+- [ ] How each Ring follows or overrides each field is [[D-05 Inherit per field, copy without members]], built on [[Ring Projection]]: not in this task.
 - [ ] The main profile itself is never shown to another person: a viewer only ever sees a Ring's projection.
 
 ## States and motion the design asks for
@@ -73,6 +73,6 @@ Acceptance criteria:
 
 ## Open questions
 
-- **Role** was left out of DR-02's per-Ring table; until product says otherwise it behaves like headline (DR-02 *Still open*).
+- **Role** was left out of D-02's per-Ring table; until product says otherwise it behaves like headline (D-02 *Still open*).
 - Which main-profile fields an import may overwrite without asking is [[Onboarding Imports]]' story to say.
 - Sign-up's *Profile basics* step has no screen id in [[Screen Index]]; the design team should give it one.

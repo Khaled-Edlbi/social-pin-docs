@@ -1,20 +1,20 @@
 ---
 type: decision-record
-id: DR-15
-decision: D-15
+id: D-15
+decision: ND-15
 status: decided
 decidedBy: "molham"
 decidedAt: 2026-10-25
 features: [connections]
 affects: ["Connections", "Ring Members", "T-022 Accept into a Ring (sets grantedRingId)", "T-023 Connection detail and contacts list"]
-related: ["One Ring or several per connection", "DR-14 Shared with me lists people, never the Ring", "View As & Pin Views"]
+related: ["One Ring or several per connection", "D-14 Shared with me lists people, never the Ring", "View As & Pin Views"]
 owner: "khaled"
 created: 2026-10-25
 updated: 2026-10-26
 tags: [decision-record, decision-record/decided]
 ---
 
-# ⚖️ DR-15 · Several Rings per connection, remove or disconnect
+# ⚖️ D-15 · Several Rings per connection, remove or disconnect
 
 **Answers:** [[One Ring or several per connection]] · **Decided by:** molham · **On:** 2026-10-25 · **Feature:** [[Connections]]
 
@@ -22,7 +22,7 @@ tags: [decision-record, decision-record/decided]
 
 ## What was decided
 
-**Option 1 on D-15, with the owner choosing at the last removal.**
+**Option 1 on ND-15, with the owner choosing at the last removal.**
 
 - **Several Rings.** One person can be in more than one of my Rings (Clients and Friends). Connection detail ([[Screen Index#s47|s47]]) lists every Ring of mine they are in and offers adding them to another. `grantedRingId` stays the Ring of the accept only.
 - **Which version they see first:** the Ring they were **put in first** (the oldest membership). The other versions stay reachable.
@@ -49,4 +49,4 @@ Answered on the product-questions page, 2026-10-22 (Q2 "yes, the oldest"; Q4 "sh
 ## Still open
 
 - "The version they see first": where a person meets several versions of me (my card on Shared with me, a scan, the perspectives list) and how they switch between them is [[View As & Pin Views]]' and the T-023 story's to say.
-- Whether a disconnect tells the other person anything follows [[DR-13 The requester sees a declined request]] in spirit but was not asked; the T-023 story says it.
+- Whether a disconnect tells the other person anything follows [[D-13 The requester sees a declined request]] in spirit but was not asked; the T-023 story says it.

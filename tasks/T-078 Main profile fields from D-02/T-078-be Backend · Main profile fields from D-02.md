@@ -9,9 +9,9 @@ module: identity
 parent: T-078
 labels: [backend]
 screens: [s05, s23, s68]
-depends: ["DR-02 One main profile every Ring starts from"]
+depends: ["D-02 One main profile every Ring starts from"]
 affects: []
-related: ["DR-05 Inherit per field, copy without members", "T-062 Serve uploaded file bytes by id", "T-020 LinkedIn import → review → base profile", "T-020b Business card scan and portfolio URL import", "Onboarding Imports", "Ring Projection", "Files Upload", "Auth & Sign-up"]
+related: ["D-05 Inherit per field, copy without members", "T-062 Serve uploaded file bytes by id", "T-020 LinkedIn import → review → base profile", "T-020b Business card scan and portfolio URL import", "Onboarding Imports", "Ring Projection", "Files Upload", "Auth & Sign-up"]
 pending: []
 created: 2026-10-26
 updated: 2026-10-26
@@ -19,15 +19,15 @@ owner: "Omar Fostok"
 tags: [task, task/todo, module/identity, priority/high, backend]
 ---
 
-# ⬜ T-078-be · Backend: Main profile fields from DR-02
+# ⬜ T-078-be · Backend: Main profile fields from D-02
 
-**Parent:** [[T-078 Main profile fields from DR-02]] · **Feature:** [[Profiles & Pin Name]] · **Side:** Backend · **Status:** To do · **Priority:** high · **Effort:** L (same as the parent until the team sizes it)
+**Parent:** [[T-078 Main profile fields from D-02]] · **Feature:** [[Profiles & Pin Name]] · **Side:** Backend · **Status:** To do · **Priority:** high · **Effort:** L (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-078-be` when the team picks it up): [[T-078-be Backend Delivery|Backend Delivery]] · [[T-078-be Backend Integration|Backend Integration]] · [[T-078-be QA Backend|QA Backend]]
 
 ## What
 
-The API side of [[T-078 Main profile fields from DR-02]]: the endpoints, data and rules its *What* describes. Record what shipped in [[T-078-be Backend Delivery]] and how to call it in [[T-078-be Backend Integration]], and roll both up into [[Profiles & Pin Name Backend Delivery]] and [[Profiles & Pin Name Backend Integration]].
+The API side of [[T-078 Main profile fields from D-02]]: the endpoints, data and rules its *What* describes. Record what shipped in [[T-078-be Backend Delivery]] and how to call it in [[T-078-be Backend Integration]], and roll both up into [[Profiles & Pin Name Backend Delivery]] and [[Profiles & Pin Name Backend Integration]].
 
 ## Design
 
@@ -38,7 +38,7 @@ The API side of [[T-078 Main profile fields from DR-02]]: the endpoints, data an
 
 ## Impact
 
-Same as the parent's: [[T-078 Main profile fields from DR-02#Impact]].
+Same as the parent's: [[T-078 Main profile fields from D-02#Impact]].
 
 ## Definition of done
 

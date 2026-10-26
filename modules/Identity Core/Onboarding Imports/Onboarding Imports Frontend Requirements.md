@@ -8,7 +8,7 @@ status: draft
 screens: [s01, s03, s03a, s03b, s04, s05]
 depends: []
 affects: ["T-019 LinkedIn OAuth link, unlink, login", "T-020 LinkedIn import → review → base profile", "T-020b Business card scan and portfolio URL import"]
-related: ["DR-02 One main profile every Ring starts from", "DR-03 Links entered once, switched on or off per Ring", "How a business card and a portfolio page are read", "T-078 Main profile fields from DR-02", "T-062 Serve uploaded file bytes by id", "T-063 Put the ErrorCode on the error body", "Auth & Sign-up", "Files Upload", "Ring Projection"]
+related: ["D-02 One main profile every Ring starts from", "D-03 Links entered once, switched on or off per Ring", "How a business card and a portfolio page are read", "T-078 Main profile fields from D-02", "T-062 Serve uploaded file bytes by id", "T-063 Put the ErrorCode on the error body", "Auth & Sign-up", "Files Upload", "Ring Projection"]
 created: 2026-10-18
 updated: 2026-10-26
 owner: "Omar Fostok"
@@ -29,7 +29,7 @@ The imports therefore run **before the account exists**: the client holds only t
 
 1. **Before registration** the backend only **reads**: it returns candidate fields for an import, authorised by the onboarding token. Nothing is written to a profile.
 2. The client holds the confirmed fields in memory, through *Profile basics* and s06.
-3. **Right after `complete-registration`** the client writes them to the new main profile with `PATCH /profiles/:id` ([[T-078 Main profile fields from DR-02]]), and a link to the first Ring as [[DR-03 Links entered once, switched on or off per Ring]] says.
+3. **Right after `complete-registration`** the client writes them to the new main profile with `PATCH /profiles/:id` ([[T-078 Main profile fields from D-02]]), and a link to the first Ring as [[D-03 Links entered once, switched on or off per Ring]] says.
 
 If the backend prefers to write at registration instead (candidates confirmed into `complete-registration`), say so in the integration note and the client follows; the screens don't change.
 
@@ -53,7 +53,7 @@ If the backend prefers to write at registration instead (candidates confirmed in
 ### [[Screen Index#s03a|s03a]] Scan a card
 
 - Needs: a photo of the person's own card turned into candidate fields (name, title, company, phone, email, website).
-- **Where it is read is open:** [[How a business card and a portfolio page are read]]. If the card is read **on the phone** (D-21 option 1), the client needs no endpoint here. If it is read **on the server**, the client sends the photo with `POST /files` and asks for candidates by the file's id; the photo is deleted after the import.
+- **Where it is read is open:** [[How a business card and a portfolio page are read]]. If the card is read **on the phone** (ND-21 option 1), the client needs no endpoint here. If it is read **on the server**, the client sends the photo with `POST /files` and asks for candidates by the file's id; the photo is deleted after the import.
 
 ### [[Screen Index#s03b|s03b]] Portfolio URL
 
@@ -71,12 +71,12 @@ If the backend prefers to write at registration instead (candidates confirmed in
 | Candidate field | Comes from | Written to, after registration | With |
 |---|---|---|---|
 | Full name | LinkedIn, card | the profile's `fullName` (same on every Ring) | `complete-registration` (`fullName`) |
-| Photo | LinkedIn, portfolio | main profile photo (a file id) | `PATCH /profiles/:id` ([[T-078 Main profile fields from DR-02]]) |
+| Photo | LinkedIn, portfolio | main profile photo (a file id) | `PATCH /profiles/:id` ([[T-078 Main profile fields from D-02]]) |
 | Headline / role | card, portfolio; typed for LinkedIn | main profile `headline` / `role` | T-078 |
 | Company | card; typed for LinkedIn | main profile `company` | T-078 |
 | Location | typed | main profile `location` | T-078 |
 | Bio | portfolio | main profile `bio` | T-078 |
-| LinkedIn account link, website | LinkedIn, card, portfolio | a link on the first Ring | the Ring's links ([[Ring Projection]]) per DR-03 |
+| LinkedIn account link, website | LinkedIn, card, portfolio | a link on the first Ring | the Ring's links ([[Ring Projection]]) per D-03 |
 | Email, phone | LinkedIn, card | **not written**: the account keeps the email or phone it signed up with | — |
 | Language & country | LinkedIn | the app's language on this phone only | — |
 
@@ -86,12 +86,12 @@ If the backend prefers to write at registration instead (candidates confirmed in
 |---|---|---|---|
 | Continue without an import (full name at registration) | `POST /auth/complete-registration` | ✅ | — (listed under [[Auth & Sign-up]]) |
 | Pin-name step after the import | `GET /profiles/pin-name/:pinName/availability` | ✅ | — (listed under [[Profiles & Pin Name]]) |
-| Carry a card photo to the server, if D-21 says so | `POST /files` | ✅ | — ([[Files Upload]]) |
+| Carry a card photo to the server, if ND-21 says so | `POST /files` | ✅ | — ([[Files Upload]]) |
 | LinkedIn OAuth start and callback back into the app, with the onboarding token | — | ❌ | [[T-019 LinkedIn OAuth link, unlink, login]] |
 | Candidate fields from LinkedIn (photo already stored as a file id, not a LinkedIn URL) | — | ❌ | [[T-020 LinkedIn import → review → base profile]] |
-| Candidate fields from a card photo | — or ❌ | depends on D-21 | [[T-020b Business card scan and portfolio URL import]] · [[How a business card and a portfolio page are read]] |
+| Candidate fields from a card photo | — or ❌ | depends on ND-21 | [[T-020b Business card scan and portfolio URL import]] · [[How a business card and a portfolio page are read]] |
 | Candidate fields from a portfolio address | — | ❌ | [[T-020b Business card scan and portfolio URL import]] · [[How a business card and a portfolio page are read]] |
-| Main profile fields to write the confirmed values into | `PATCH /profiles/:id` (new fields) | ❌ | [[T-078 Main profile fields from DR-02]] |
+| Main profile fields to write the confirmed values into | `PATCH /profiles/:id` (new fields) | ❌ | [[T-078 Main profile fields from D-02]] |
 | Show the imported photo back | — | ❌ | [[T-062 Serve uploaded file bytes by id]] |
 
 ## Behaviour expectations
@@ -117,5 +117,5 @@ Until [[T-063 Put the ErrorCode on the error body]] ships, branch on status and 
 
 - [[T-019 LinkedIn OAuth link, unlink, login]] — s01's LinkedIn button and s04 can't start.
 - [[T-020 LinkedIn import → review → base profile]] — s04's candidates and s05's LinkedIn rows.
-- [[T-078 Main profile fields from DR-02]] — nowhere to save headline, company, location, photo or bio after review.
+- [[T-078 Main profile fields from D-02]] — nowhere to save headline, company, location, photo or bio after review.
 - [[How a business card and a portfolio page are read]] → [[T-020b Business card scan and portfolio URL import]] — s03a and s03b.

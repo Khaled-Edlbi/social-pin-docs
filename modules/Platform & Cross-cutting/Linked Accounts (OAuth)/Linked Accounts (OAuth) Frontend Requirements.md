@@ -52,7 +52,7 @@ What the client needs for the LinkedIn button, the return into Importing, and th
 - Refetch / realtime: refetch the identity list after link and unlink; nothing else changes it.
 - Caching keys: `linkedAccounts:{userId}`; clear on logout.
 - Pagination / ordering: none; a user holds a handful of identities, ordered by `createdAt`.
-- Sign-up path today: after a successful hand-off the user still goes through the Pin name step (no password since 2026-10-15), because `complete-registration` requires both; the client must not promise "no password" on s01 until D-01 is decided.
+- Sign-up path today: after a successful hand-off the user still goes through the Pin name step (no password since 2026-10-15), because `complete-registration` requires both; the client must not promise "no password" on s01 until ND-01 is decided.
 - Multiple identities per provider type are allowed by the schema (unique per provider user id, not per user); render them as separate rows.
 
 ## Error states the UI must handle

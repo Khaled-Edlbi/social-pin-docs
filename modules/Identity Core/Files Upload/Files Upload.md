@@ -8,7 +8,7 @@ module: identity
 screens: [s14, s20, s36]
 related: ["Rings"]
 created: 2026-10-18
-updated: 2026-10-25
+updated: 2026-10-26
 tags: [feature, module/identity, priority/high, release/v1]
 ---
 
@@ -25,7 +25,7 @@ Multipart upload with type and size checks, metadata read, delete. A file become
 | Screen | Name | Note |
 |---|---|---|
 | [[Screen Index#s14|s14]] | Ring data |  |
-| [[Screen Index#s20|s20]] | New Ring · step 3 (what it shows) | Field library → D-03 |
+| [[Screen Index#s20|s20]] | New Ring · step 3 (what it shows) | Field library → ND-03 |
 | [[Screen Index#s36|s36]] | Add to this Ring |  |
 
 Wireframe brief sections: [[Wireframe Brief#Home — Rings hub + active profile|§4.1 Home — Rings hub + active profile]]

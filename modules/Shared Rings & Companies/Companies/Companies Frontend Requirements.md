@@ -13,9 +13,9 @@ tags: [frontend-requirements, frontend-requirements/draft, module/shared-rings, 
 
 # Companies · Frontend Requirements
 
-> ⚠ Affected by [[DR-18 Ring names shown when joined knowingly]] (2026-10-25): company Rings a member joined knowingly are named on s72 and s73; one the owner placed them in stays unnamed; colour, type and hierarchy are never shown.
+> ⚠ Affected by [[D-18 Ring names shown when joined knowingly]] (2026-10-25): company Rings a member joined knowingly are named on s72 and s73; one the owner placed them in stays unnamed; colour, type and hierarchy are never shown.
 
-> ⚠ Affected by [[DR-04 Ring settings at launch and their defaults]] (2026-10-25): D-04 decided, six Ring settings at launch with private defaults (join with a code or invite, approve each one, members can't see each other, invite or save attachments); the owner and the Ring's admins change them; members who may see each other see full cards.
+> ⚠ Affected by [[D-04 Ring settings at launch and their defaults]] (2026-10-25): ND-04 decided, six Ring settings at launch with private defaults (join with a code or invite, approve each one, members can't see each other, invite or save attachments); the owner and the Ring's admins change them; members who may see each other see full cards.
 
 **Feature:** [[Companies]] · **Status:** Draft · **Story:** [[Companies Story]] · **API Integration:** not yet (backend not built)
 

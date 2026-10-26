@@ -1,7 +1,7 @@
 ---
 type: decision-record
-id: DR-04
-decision: D-04
+id: D-04
+decision: ND-04
 status: decided
 decidedBy: "molham"
 decidedAt: 2026-10-25
@@ -14,7 +14,7 @@ updated: 2026-10-26
 tags: [decision-record, decision-record/decided]
 ---
 
-# ⚖️ DR-04 · Ring settings at launch and their defaults
+# ⚖️ D-04 · Ring settings at launch and their defaults
 
 **Answers:** [[Ring settings]] · **Decided by:** molham · **On:** 2026-10-25 · **Feature:** [[Companies]], [[Delegated Admins]], [[Ring Invitations & Join]], [[Ring Members]], [[Rings]]
 
@@ -64,4 +64,4 @@ Answered on the product-questions page, 2026-10-22 (defaults, what members see, 
 
 - **Whose card a member sees** when members can see each other: the card each member shares with that Ring is the natural reading; the Ring Members story says it, a needs-decision card if it is contested.
 - Whether an admin may change *every* setting or only some (for example not "who it's for") was not asked; until it is, all of them.
-- The storage choice (A or B on D-04) is the backend's, recorded in its delivery note when built.
+- The storage choice (A or B on ND-04) is the backend's, recorded in its delivery note when built.

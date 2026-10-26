@@ -1,7 +1,7 @@
 ---
 type: decision-record
-id: DR-13
-decision: D-13
+id: D-13
+decision: ND-13
 status: decided
 decidedBy: "molham"
 decidedAt: 2026-10-25
@@ -14,7 +14,7 @@ updated: 2026-10-26
 tags: [decision-record, decision-record/decided]
 ---
 
-# ⚖️ DR-13 · The requester sees a declined request
+# ⚖️ D-13 · The requester sees a declined request
 
 **Answers:** [[Whether the requester sees a declined request]] · **Decided by:** molham · **On:** 2026-10-25 · **Feature:** [[Connections]]
 
@@ -22,7 +22,7 @@ tags: [decision-record, decision-record/decided]
 
 ## What was decided
 
-**Option 3 on D-13: a declined request is shown as declined** to the person who sent it, on their Sent list ([[Screen Index#s45|s45]]) and on the *Connect* button of that person's card ([[Screen Index#s44|s44]]). A request can be asked again straight away after a decline ([[Request expiry, note and asking again]]).
+**Option 3 on ND-13: a declined request is shown as declined** to the person who sent it, on their Sent list ([[Screen Index#s45|s45]]) and on the *Connect* button of that person's card ([[Screen Index#s44|s44]]). A request can be asked again straight away after a decline ([[Request expiry, note and asking again]]).
 
 Options 1 (a decline looks pending until it lapses) and 2 (a declined request silently disappears) are ruled out. The needs-decision card had recommended option 1.
 

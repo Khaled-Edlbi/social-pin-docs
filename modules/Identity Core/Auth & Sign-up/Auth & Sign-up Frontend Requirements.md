@@ -8,7 +8,7 @@ status: ready
 screens: [s01, s02, s06, s08, s68, s75]
 depends: []
 affects: []
-related: ["Passwordless login", "DR-06 Yearly rename, old name freed, case-insensitive", "Onboarding Imports Frontend Requirements", "Profiles & Pin Name Frontend Requirements", "Interests Frontend Requirements", "Rings", "T-079 Enforce the once-a-year Pin name rename", "T-063 Put the ErrorCode on the error body"]
+related: ["Passwordless login", "D-06 Yearly rename, old name freed, case-insensitive", "Onboarding Imports Frontend Requirements", "Profiles & Pin Name Frontend Requirements", "Interests Frontend Requirements", "Rings", "T-079 Enforce the once-a-year Pin name rename", "T-063 Put the ErrorCode on the error body"]
 created: 2026-10-18
 updated: 2026-10-26
 owner: "Omar Fostok"
@@ -62,7 +62,7 @@ Sign-in is steps 1 and 2 only, then Home.
 
 - The handle only: the full name is collected **before**, on *Profile basics*, and is required there; it reaches the backend as `fullName` in `complete-registration`.
 - The `!` is a prefix, never sent; 3–30 letters, digits, `.`, `_`, checked on the client first; availability is asked 400 ms after typing stops.
-- **Suggestions are built on the client** from the person's own name and shown as chips, as [[DR-06 Yearly rename, old name freed, case-insensitive]] decided; no endpoint needed. Capitals don't matter: the backend already compares names lower-cased.
+- **Suggestions are built on the client** from the person's own name and shown as chips, as [[D-06 Yearly rename, old name freed, case-insensitive]] decided; no endpoint needed. Capitals don't matter: the backend already compares names lower-cased.
 - The copy "You can change it once a year." is enforced by [[T-079 Enforce the once-a-year Pin name rename]], not yet.
 - This is where the account is created: the onboarding token is dropped once `complete-registration` returns and the steps before can't be gone back to.
 - An expired onboarding token sends a new code and goes back to Verify, keeping what was typed; 409 `E_AUTH_08` (already registered) asks for a sign-in code instead.
@@ -94,7 +94,7 @@ Sign-in is steps 1 and 2 only, then Home.
 | Rotate the session | `POST /auth/refresh` | ✅ | — |
 | Sign out this device / everywhere | `POST /auth/logout`, `POST /auth/logout-everywhere` | ✅ | — |
 | The default Ring after registration | `GET /rings` | ✅ | — (listed under [[Rings]]) |
-| Suggested handles on s06 | — (client, from the person's own name) | ✅ | — ([[DR-06 Yearly rename, old name freed, case-insensitive]]) |
+| Suggested handles on s06 | — (client, from the person's own name) | ✅ | — ([[D-06 Yearly rename, old name freed, case-insensitive]]) |
 | The once-a-year rename limit | — | ❌ | [[T-079 Enforce the once-a-year Pin name rename]] |
 | The code actually delivered by email | — | ❌ | [[T-001 Wire an email provider for one-time codes]] |
 | The code actually delivered by SMS | — | ❌ | [[T-002 Wire an SMS provider for one-time codes]] |

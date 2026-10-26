@@ -1,20 +1,20 @@
 ---
 type: decision-record
-id: DR-17
-decision: D-17
+id: D-17
+decision: ND-17
 status: decided
 decidedBy: "molham"
 decidedAt: 2026-10-25
 features: [connections]
 affects: ["Connections", "T-021 Connect request send, inbox, cancel", "T-022 Accept into a Ring (sets grantedRingId)"]
-related: ["Request expiry, note and asking again", "DR-13 The requester sees a declined request"]
+related: ["Request expiry, note and asking again", "D-13 The requester sees a declined request"]
 owner: "khaled"
 created: 2026-10-25
 updated: 2026-10-26
 tags: [decision-record, decision-record/decided]
 ---
 
-# ⚖️ DR-17 · Requests expire after 30 days, optional note, ask again at once
+# ⚖️ D-17 · Requests expire after 30 days, optional note, ask again at once
 
 **Answers:** [[Request expiry, note and asking again]] · **Decided by:** molham · **On:** 2026-10-25 · **Feature:** [[Connections]]
 
@@ -22,11 +22,11 @@ tags: [decision-record, decision-record/decided]
 
 ## What was decided
 
-**Option 1 on D-17.**
+**Option 1 on ND-17.**
 
 - **Expiry.** A connection request left unanswered **expires after 30 days**. An expired request is closed with no connection; the requester sees it as expired and can ask again.
 - **A note.** A request **may carry a short note** ("We met at TechSummit"), **optional**, at most **200 characters**.
-- **Asking again.** After a decline ([[DR-13 The requester sees a declined request]]) or an expiry, the requester **can ask again straight away**; there is no waiting period. A request still pending is not duplicated ([[T-021 Story]] S1).
+- **Asking again.** After a decline ([[D-13 The requester sees a declined request]]) or an expiry, the requester **can ask again straight away**; there is no waiting period. A request still pending is not duplicated ([[T-021 Story]] S1).
 
 Options 2 (no expiry, no note, a wait after a decline) and 3 (a waiting period after a decline) are ruled out.
 

@@ -6,7 +6,7 @@ tags: [map, design]
 
 # Navigation Map
 
-> ⚠ Affected by [[DR-04 Ring settings at launch and their defaults]] (2026-10-25): D-04 decided, six Ring settings at launch with private defaults (join with a code or invite, approve each one, members can't see each other, invite or save attachments); the owner and the Ring's admins change them; members who may see each other see full cards.
+> ⚠ Affected by [[D-04 Ring settings at launch and their defaults]] (2026-10-25): ND-04 decided, six Ring settings at launch with private defaults (join with a code or invite, approve each one, members can't see each other, invite or save attachments); the owner and the Ring's admins change them; members who may see each other see full cards.
 
 The prototype's click-through map (`socialPin-design/.wire.json`), rendered. The first diagram keeps only the product spine (tab-bar jumps to Home / Events / Discover / Me / Badge are removed so the flows stay readable); the table below has every edge.
 
