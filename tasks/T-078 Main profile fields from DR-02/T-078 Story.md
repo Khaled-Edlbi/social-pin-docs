@@ -4,24 +4,24 @@ code: T-078
 scope: task
 feature: profiles
 module: identity
-status: draft
+status: approved
 screens: [s05, s23, s68]
 depends: ["DR-02 One main profile every Ring starts from"]
 affects: []
 related: ["DR-05 Inherit per field, copy without members", "T-062 Serve uploaded file bytes by id", "T-020 LinkedIn import → review → base profile", "T-020b Business card scan and portfolio URL import", "Onboarding Imports", "Ring Projection", "Files Upload", "Auth & Sign-up"]
 pending: []
-approvedBy: ""
-approvedAt: ""
+approvedBy: "omar"
+approvedAt: 2026-10-26
 created: 2026-10-26
 updated: 2026-10-26
 owner: "Omar Fostok"
-tags: [story, story/draft, module/identity, layer/business]
+tags: [story, story/approved, module/identity, layer/business]
 task: T-078
 ---
 
 # T-078 · Main profile fields from DR-02 · User Story
 
-**Task:** [[T-078 Main profile fields from DR-02]] · **Feature:** [[Profiles & Pin Name]] · **Feature-level note:** [[Profiles & Pin Name Story]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[T-078 Frontend Requirements]] · **Backend Integration:** [[T-078 Backend Integration]] · **Verified by:** [[T-078 QA Backend]], [[T-078 QA Frontend]]
+**Task:** [[T-078 Main profile fields from DR-02]] · **Feature:** [[Profiles & Pin Name]] · **Feature-level note:** [[Profiles & Pin Name Story]] · **Status:** Approved 2026-10-26 by omar · **Frontend Requirements:** [[T-078 Frontend Requirements]] · **Backend Integration:** [[T-078 Backend Integration]] · **Verified by:** [[T-078 QA Backend]], [[T-078 QA Frontend]]
 
 A person writes their work details once, during sign-up or later on Me, and finds them on every Ring that has not been given its own: headline, role, company, location, photo and bio, as [[DR-02 One main profile every Ring starts from]] decided. Today none of these can be saved: sign-up asks for them and drops them. `approved` (👍) when product signs off (`approvedBy`, `approvedAt`); `verified` (✅ Fulfilled) set by the PM once every QA note of its scope is `passing` with nothing pending.
 

@@ -99,7 +99,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
         - ✅ [T-057 Decide base profile work fields](tasks/T-057%20Decide%20base%20profile%20work%20fields/T-057%20Decide%20base%20profile%20work%20fields.md) (Critical)
         - ✅ [T-061 Decide Pin name rules](tasks/T-061%20Decide%20Pin%20name%20rules/T-061%20Decide%20Pin%20name%20rules.md) (High)
         - ⬜ [T-078 Main profile fields from DR-02](tasks/T-078%20Main%20profile%20fields%20from%20DR-02/T-078%20Main%20profile%20fields%20from%20DR-02.md) (High)
-          - ✏️ [T-078 Story](tasks/T-078%20Main%20profile%20fields%20from%20DR-02/T-078%20Story.md) (S-114, User Story, High)
+          - 👍 [T-078 Story](tasks/T-078%20Main%20profile%20fields%20from%20DR-02/T-078%20Story.md) (S-114, User Story, High)
           - ⬜ [T-078-be Backend · Main profile fields from DR-02](tasks/T-078%20Main%20profile%20fields%20from%20DR-02/T-078-be%20Backend%20%C2%B7%20Main%20profile%20fields%20from%20DR-02.md) (sub-task of T-078, backend, High)
           - ⛔ [T-078-fe Frontend · Main profile fields from DR-02](tasks/T-078%20Main%20profile%20fields%20from%20DR-02/T-078-fe%20Frontend%20%C2%B7%20Main%20profile%20fields%20from%20DR-02.md) (sub-task of T-078, frontend, High, blocked by T-078-be Backend · Main profile fields from DR-02)
       - ✏️ [Profiles & Pin Name Frontend Requirements](modules/Identity%20Core/Profiles%20%26%20Pin%20Name/Profiles%20%26%20Pin%20Name%20Frontend%20Requirements.md) (FR-07, Frontend Requirements, Critical)
