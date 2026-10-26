@@ -10,7 +10,7 @@ tags: [module, module/platform]
 # Platform & Cross-cutting · Module
 
 Notifications, Gemma, devices, interests, code delivery, errors, jobs, tests,
-the operator panel.
+the operator panel, the build and deploy pipeline.
 
 A module is the sum of its features; a feature is the sum of its tasks. Each feature below is a business note with one child note per layer (story, frontend requirements, backend delivery and integration, frontend delivery, QA backend and frontend). Statuses roll up in [[Docs Tree|the docs tree]].
 
@@ -20,6 +20,7 @@ A module is the sum of its features; a feature is the sum of its tasks. Each fea
 |---|---|---|---|---|---|---|
 | [[App Shell & Onboarding Narrative]] | 🖼️ Frontend only | [[App Shell & Onboarding Narrative Story\|Story]] | [[App Shell & Onboarding Narrative Frontend Requirements\|Req.]] | [[App Shell & Onboarding Narrative Backend Delivery\|Delivery]] · [[App Shell & Onboarding Narrative Backend Integration\|Integration]] | [[App Shell & Onboarding Narrative Frontend Delivery\|Delivery]] | [[App Shell & Onboarding Narrative QA Backend\|Backend]] · [[App Shell & Onboarding Narrative QA Frontend\|Frontend]] |
 | [[Audit Log]] | ⬜ To do | [[Audit Log Story\|Story]] | [[Audit Log Frontend Requirements\|Req.]] | [[Audit Log Backend Delivery\|Delivery]] · [[Audit Log Backend Integration\|Integration]] | [[Audit Log Frontend Delivery\|Delivery]] | [[Audit Log QA Backend\|Backend]] · [[Audit Log QA Frontend\|Frontend]] |
+| [[Build & Deploy]] | 🟡 Partial | [[Build & Deploy Story\|Story]] | [[Build & Deploy Frontend Requirements\|Req.]] | [[Build & Deploy Backend Delivery\|Delivery]] · [[Build & Deploy Backend Integration\|Integration]] | [[Build & Deploy Frontend Delivery\|Delivery]] | [[Build & Deploy QA Backend\|Backend]] · [[Build & Deploy QA Frontend\|Frontend]] |
 | [[Cleanup Jobs]] | ⬜ To do | [[Cleanup Jobs Story\|Story]] | [[Cleanup Jobs Frontend Requirements\|Req.]] | [[Cleanup Jobs Backend Delivery\|Delivery]] · [[Cleanup Jobs Backend Integration\|Integration]] | [[Cleanup Jobs Frontend Delivery\|Delivery]] | [[Cleanup Jobs QA Backend\|Backend]] · [[Cleanup Jobs QA Frontend\|Frontend]] |
 | [[Code Delivery]] | 🟡 Partial | [[Code Delivery Story\|Story]] | [[Code Delivery Frontend Requirements\|Req.]] | [[Code Delivery Backend Delivery\|Delivery]] · [[Code Delivery Backend Integration\|Integration]] | [[Code Delivery Frontend Delivery\|Delivery]] | [[Code Delivery QA Backend\|Backend]] · [[Code Delivery QA Frontend\|Frontend]] |
 | [[Devices & NFC]] | 🟡 Partial | [[Devices & NFC Story\|Story]] | [[Devices & NFC Frontend Requirements\|Req.]] | [[Devices & NFC Backend Delivery\|Delivery]] · [[Devices & NFC Backend Integration\|Integration]] | [[Devices & NFC Frontend Delivery\|Delivery]] | [[Devices & NFC QA Backend\|Backend]] · [[Devices & NFC QA Frontend\|Frontend]] |
@@ -40,3 +41,4 @@ A module is the sum of its features; a feature is the sum of its tasks. Each fea
 
 - 2026-10-18 · created when the vault moved to layers
 - 2026-10-26 · [[Operator Panel]] added, with T-068 to T-072 under it
+- 2026-10-26 · [[Build & Deploy]] added for the pipeline that already shipped (T-073)

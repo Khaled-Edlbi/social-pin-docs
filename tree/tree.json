@@ -50239,7 +50239,7 @@
       "scope": null,
       "screens": [],
       "status": null,
-      "summary": "Notifications, Gemma, devices, interests, code delivery, errors, jobs, tests, the operator panel.",
+      "summary": "Notifications, Gemma, devices, interests, code delivery, errors, jobs, tests, the operator panel, the build and deploy pipeline.",
       "tags": [
         "module",
         "module/platform"
