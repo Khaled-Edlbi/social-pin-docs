@@ -60,7 +60,6 @@ kanban-plugin: board
 - [ ] [[T-063-fe Frontend · Put the ErrorCode on the error body]] #critical #error-contract #frontend
 - [ ] [[T-067 Split E_RING_01 and E_RING_PROFILE_03]] #critical #error-contract
 - [ ] [[T-067-fe Frontend · Split E_RING_01 and E_RING_PROFILE_03]] #critical #error-contract #frontend
-- [ ] [[B-01 An unverified changed email still signs in]] #high #account #bug
 - [ ] [[T-003 Remove devCode once delivery works]] #high #code-delivery
 - [ ] [[T-003-be Backend · Remove devCode once delivery works]] #high #code-delivery #backend
 - [ ] [[T-004-fe Frontend · Member count per Ring on list and detail]] #high #counts #frontend
@@ -156,6 +155,7 @@ kanban-plugin: board
 - [ ] [[T-063 Put the ErrorCode on the error body]] #critical #error-contract
 - [ ] [[T-063-be Backend · Put the ErrorCode on the error body]] #critical #error-contract #backend
 - [ ] [[T-067-be Backend · Split E_RING_01 and E_RING_PROFILE_03]] #critical #error-contract #backend
+- [ ] [[B-01 An unverified changed email still signs in]] #high #account #bug — [[Account Backend Delivery]]: correct the "proven again before it can sign in" sentence and clear the QA flag (/backend); [[Account Backend Integration]]: say that a changed destination is unverified and still signs in (/backend); [[Account QA Backend]]: re-run row B9 against the corrected notes (/qa); [[Account QA Frontend]]: re-run row F10 against the corrected notes (/qa); @khaled: re-approve [[Account Story]] after the S2 and S3 copy change (/owner)
 - [ ] [[T-004 Member count per Ring on list and detail]] #high #counts
 - [ ] [[T-004-be Backend · Member count per Ring on list and detail]] #high #counts #backend
 - [ ] [[T-006 Delegated admin endpoints]] #high #delegated-admins
