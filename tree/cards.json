@@ -83,6 +83,7 @@
     "feature:audit-log": "F-30",
     "feature:auth": "F-02",
     "feature:badge-qr": "F-18",
+    "feature:build-deploy": "F-43",
     "feature:cleanup-jobs": "F-31",
     "feature:code-delivery": "F-32",
     "feature:companies": "F-15",
