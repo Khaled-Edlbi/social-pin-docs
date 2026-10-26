@@ -42,6 +42,7 @@
     "Account": "feature:account",
     "Account Backend Delivery": "backend-delivery:account",
     "Account Backend Integration": "backend-integration:account",
+    "Account Frontend Delivery": "frontend-delivery:account",
     "Account Frontend Requirements": "frontend-requirements:account",
     "Account QA Backend": "qa-backend:account",
     "Account Story": "story:account",
@@ -662,6 +663,7 @@
     "F-39": "feature:notifications",
     "F-42": "feature:operator-panel",
     "F-43": "feature:build-deploy",
+    "FD-04": "frontend-delivery:account",
     "FR-01": "frontend-requirements:account",
     "FR-02": "frontend-requirements:auth",
     "FR-03": "frontend-requirements:counts",
@@ -1131,6 +1133,7 @@
       "notes": [
         "backend-delivery:account",
         "backend-integration:account",
+        "frontend-delivery:account",
         "frontend-requirements:account",
         "qa-backend:account",
         "story:account",
@@ -1252,6 +1255,7 @@
         "backend-delivery:auth",
         "backend-integration:account",
         "backend-integration:auth",
+        "frontend-delivery:account",
         "frontend-requirements:account",
         "frontend-requirements:auth",
         "frontend-requirements:devices",
@@ -1746,6 +1750,7 @@
       "notes": [
         "backend-integration:account",
         "feature:account",
+        "frontend-delivery:account",
         "frontend-requirements:account",
         "qa-backend:account",
         "task:T-077"
@@ -1760,6 +1765,7 @@
       "notes": [
         "backend-delivery:account",
         "backend-integration:account",
+        "frontend-delivery:account",
         "frontend-requirements:account",
         "qa-backend:account",
         "story:account"
@@ -1774,6 +1780,7 @@
       "notes": [
         "backend-delivery:account",
         "backend-integration:account",
+        "frontend-delivery:account",
         "frontend-requirements:account",
         "qa-backend:account",
         "story:account"
@@ -2070,6 +2077,7 @@
         "backend-delivery:profiles",
         "backend-integration:account",
         "backend-integration:profiles",
+        "frontend-delivery:account",
         "frontend-requirements:account",
         "frontend-requirements:profiles",
         "frontend-requirements:ring-projection",
@@ -2407,6 +2415,7 @@
       "notes": [
         "backend-delivery:account",
         "backend-integration:account",
+        "frontend-delivery:account",
         "frontend-requirements:account",
         "frontend-requirements:badge-qr",
         "frontend-requirements:linked-accounts",
@@ -2752,6 +2761,7 @@
       "notes": [
         "backend-delivery:account",
         "backend-integration:account",
+        "frontend-delivery:account",
         "frontend-requirements:account",
         "project:spec-map",
         "qa-backend:account",
@@ -2877,6 +2887,7 @@
       "notes": [
         "backend-delivery:auth",
         "backend-integration:auth",
+        "frontend-delivery:account",
         "frontend-requirements:account",
         "frontend-requirements:auth",
         "project:frontend-passwordless-migration",
@@ -4928,6 +4939,7 @@
         "feature:auth",
         "feature:counts",
         "feature:linked-accounts",
+        "frontend-delivery:account",
         "frontend-requirements:account",
         "frontend-requirements:auth",
         "frontend-requirements:counts",
@@ -5129,6 +5141,7 @@
       "decision": 17,
       "decision-record": 13,
       "feature": 41,
+      "frontend-delivery": 1,
       "frontend-requirements": 39,
       "module": 8,
       "project": 27,
@@ -5139,19 +5152,19 @@
     "byLayer": {
       "backend": 56,
       "business": 370,
-      "frontend": 43,
+      "frontend": 44,
       "qa": 1,
       "shared": 10
     },
     "concepts": 199,
     "decisions": 17,
-    "edges": 5109,
+    "edges": 5120,
     "features": 41,
-    "layerNotes": 192,
+    "layerNotes": 193,
     "modules": 8,
-    "notes": 515,
+    "notes": 516,
     "partial": 1,
-    "placeholders": 164,
+    "placeholders": 163,
     "records": 13,
     "taskLayerNotes": 65,
     "tasks": 190
@@ -6350,11 +6363,6 @@
       "from": "decision:D-16",
       "kind": "blocks",
       "to": "story:T-062"
-    },
-    {
-      "from": "frontend-delivery:account",
-      "kind": "blocks",
-      "to": "qa-frontend:account"
     },
     {
       "from": "frontend-delivery:app-shell",
@@ -9077,6 +9085,11 @@
       "to": "backend-integration:view-as"
     },
     {
+      "from": "backend-integration:account",
+      "kind": "flow",
+      "to": "frontend-delivery:account"
+    },
+    {
       "from": "frontend-requirements:account",
       "kind": "flow",
       "to": "backend-delivery:account"
@@ -11175,6 +11188,46 @@
       "from": "feature:widgets",
       "kind": "related",
       "to": "project:spec-map"
+    },
+    {
+      "from": "frontend-delivery:account",
+      "kind": "related",
+      "to": "feature:profiles"
+    },
+    {
+      "from": "frontend-delivery:account",
+      "kind": "related",
+      "to": "frontend-requirements:account"
+    },
+    {
+      "from": "frontend-delivery:account",
+      "kind": "related",
+      "to": "task:T-005"
+    },
+    {
+      "from": "frontend-delivery:account",
+      "kind": "related",
+      "to": "task:T-014"
+    },
+    {
+      "from": "frontend-delivery:account",
+      "kind": "related",
+      "to": "task:T-019"
+    },
+    {
+      "from": "frontend-delivery:account",
+      "kind": "related",
+      "to": "task:T-049"
+    },
+    {
+      "from": "frontend-delivery:account",
+      "kind": "related",
+      "to": "task:T-062"
+    },
+    {
+      "from": "frontend-delivery:account",
+      "kind": "related",
+      "to": "task:T-063"
     },
     {
       "from": "project:admin-agent",
@@ -27005,6 +27058,16 @@
       "to": "task:T-018"
     },
     {
+      "from": "frontend-delivery:account",
+      "kind": "wikilink",
+      "to": "backend-integration:account"
+    },
+    {
+      "from": "frontend-delivery:account",
+      "kind": "wikilink",
+      "to": "story:account"
+    },
+    {
       "from": "frontend-requirements:account",
       "kind": "wikilink",
       "to": "backend-integration:account"
@@ -29308,6 +29371,11 @@
       "from": "module:identity",
       "kind": "wikilink",
       "to": "backend-integration:view-as"
+    },
+    {
+      "from": "module:identity",
+      "kind": "wikilink",
+      "to": "frontend-delivery:account"
     },
     {
       "from": "module:identity",
@@ -35502,6 +35570,10 @@
     "modules/Identity Core/Account/Account Backend Integration.md": {
       "name": "Account Backend Integration",
       "type": "backend-integration"
+    },
+    "modules/Identity Core/Account/Account Frontend Delivery.md": {
+      "name": "Account Frontend Delivery",
+      "type": "frontend-delivery"
     },
     "modules/Identity Core/Account/Account Frontend Requirements.md": {
       "name": "Account Frontend Requirements",
@@ -43430,10 +43502,10 @@
       "rollup": {
         "approved": 1,
         "current": 1,
-        "done": 1,
-        "draft": 1,
+        "delivered": 1,
+        "done": 2,
         "failing": 1,
-        "missing": 2,
+        "missing": 1,
         "todo": 2
       },
       "scope": null,
@@ -45825,7 +45897,8 @@
         "project:architecture",
         "project:api-conventions",
         "project:spec-map",
-        "task:T-077"
+        "task:T-077",
+        "frontend-delivery:account"
       ],
       "release": "mvp",
       "rollup": {
@@ -46564,18 +46637,22 @@
     "frontend-delivery:account": {
       "affects": [],
       "blockedBy": [],
-      "card": null,
+      "card": "FD-04",
       "children": [],
       "code": "account",
-      "created": null,
+      "created": "2026-10-26",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "missing",
+      "deployedTo": [],
+      "effectiveStatus": "done",
       "effort": null,
       "feature": "account",
       "frontendOnly": false,
       "id": "frontend-delivery:account",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:account",
+        "release": "feature:account"
+      },
       "kind": "frontend-delivery",
       "label": "Frontend Delivery",
       "labels": [],
@@ -46585,20 +46662,35 @@
       "parents": [
         "feature:account"
       ],
-      "path": null,
+      "path": "modules/Identity Core/Account/Account Frontend Delivery.md",
       "pending": [],
-      "priority": null,
-      "related": [],
-      "release": null,
+      "priority": "critical",
+      "related": [
+        "frontend-requirements:account",
+        "feature:profiles",
+        "task:T-062",
+        "task:T-005",
+        "task:T-019",
+        "task:T-014",
+        "task:T-049",
+        "task:T-063"
+      ],
+      "release": "mvp",
       "scope": "feature",
-      "screens": [],
-      "status": null,
-      "summary": "Not written yet. Create it with: node scripts/build-tree.mjs --scaffold frontend-delivery account",
-      "tags": [],
+      "screens": [
+        "s68"
+      ],
+      "status": "done",
+      "summary": "What the client shipped for the account section of Me, on socialpin main @ e032a48 (s68 in 99b97e7, the account kept current and the sign-out states in e032a48; delete in 461958f, the header in…",
+      "tags": [
+        "frontend-delivery",
+        "frontend-delivery/done",
+        "module/identity",
+        "layer/frontend"
+      ],
       "task": null,
-      "template": "templates/Frontend Delivery Template.md",
       "title": "Account Frontend Delivery",
-      "updated": null
+      "updated": "2026-10-26"
     },
     "frontend-delivery:app-shell": {
       "affects": [],
@@ -48387,6 +48479,7 @@
     },
     "frontend-requirements:account": {
       "affects": [],
+      "autoDelivered": true,
       "blockedBy": [],
       "card": "FR-01",
       "children": [],
@@ -48394,7 +48487,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "delivered",
       "effort": null,
       "feature": "account",
       "frontendOnly": false,
@@ -48415,23 +48508,25 @@
       "path": "modules/Identity Core/Account/Account Frontend Requirements.md",
       "pending": [],
       "priority": "critical",
-      "related": [],
+      "related": [
+        "frontend-delivery:account"
+      ],
       "release": "mvp",
       "scope": "feature",
       "screens": [
         "s68"
       ],
-      "status": "draft",
+      "status": "approved",
       "summary": "What the client needs from the backend to build the account section of Me, and whether each need is met today. Call shapes, the token store and the error body are in Account Backend Integration;…",
       "tags": [
         "frontend-requirements",
-        "frontend-requirements/draft",
+        "frontend-requirements/approved",
         "module/identity",
         "layer/frontend"
       ],
       "task": null,
       "title": "Account Frontend Requirements",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "frontend-requirements:app-shell": {
       "affects": [],
@@ -50909,11 +51004,12 @@
         "blocked": 21,
         "current": 9,
         "decided": 6,
-        "done": 15,
-        "draft": 21,
+        "delivered": 1,
+        "done": 16,
+        "draft": 20,
         "failing": 1,
         "in-progress": 13,
-        "missing": 42,
+        "missing": 41,
         "needs-decision": 2,
         "todo": 11,
         "verified": 6
@@ -54392,13 +54488,7 @@
     },
     "qa-frontend:account": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "frontend-delivery:account",
-          "title": "Account Frontend Delivery",
-          "why": "Account Frontend Delivery is not written yet"
-        }
-      ],
+      "blockedBy": [],
       "card": null,
       "children": [],
       "code": "account",
@@ -56301,11 +56391,12 @@
         "blocked": 150,
         "current": 9,
         "decided": 13,
-        "done": 16,
-        "draft": 99,
+        "delivered": 1,
+        "done": 17,
+        "draft": 98,
         "failing": 1,
         "in-progress": 58,
-        "missing": 164,
+        "missing": 163,
         "needs-decision": 9,
         "partial": 1,
         "reference": 31,
@@ -62331,7 +62422,9 @@
       "path": "tasks/T-005 Connection count on Me and Home/T-005 Connection count on Me and Home.md",
       "pending": [],
       "priority": "high",
-      "related": [],
+      "related": [
+        "frontend-delivery:account"
+      ],
       "release": "v1",
       "rollup": {
         "blocked": 2,
@@ -63948,7 +64041,9 @@
       "path": "tasks/T-014 Register devices on login; list and remove/T-014 Register devices on login; list and remove.md",
       "pending": [],
       "priority": "high",
-      "related": [],
+      "related": [
+        "frontend-delivery:account"
+      ],
       "release": "v1",
       "rollup": {
         "blocked": 1,
@@ -64859,7 +64954,9 @@
       "path": "tasks/T-019 LinkedIn OAuth link, unlink, login/T-019 LinkedIn OAuth link, unlink, login.md",
       "pending": [],
       "priority": "high",
-      "related": [],
+      "related": [
+        "frontend-delivery:account"
+      ],
       "release": "v1",
       "rollup": {
         "blocked": 1,
@@ -70821,7 +70918,9 @@
       "path": "tasks/T-049 Subscription endpoints and a single Pro gate/T-049 Subscription endpoints and a single Pro gate.md",
       "pending": [],
       "priority": "high",
-      "related": [],
+      "related": [
+        "frontend-delivery:account"
+      ],
       "release": "v1",
       "rollup": {
         "blocked": 1,
@@ -72314,7 +72413,9 @@
       "path": "tasks/T-062 Serve uploaded file bytes by id/T-062 Serve uploaded file bytes by id.md",
       "pending": [],
       "priority": "critical",
-      "related": [],
+      "related": [
+        "frontend-delivery:account"
+      ],
       "release": "v1",
       "rollup": {
         "blocked": 2,
@@ -72516,6 +72617,7 @@
         "decision-record:DR-19",
         "task:T-067",
         "task:T-077",
+        "frontend-delivery:account",
         "qa-backend:account",
         "story:T-067"
       ],

@@ -4,11 +4,13 @@ code: account
 scope: feature
 feature: account
 module: identity
-status: draft
+status: approved
+approvedBy: "omar"
+approvedAt: 2026-10-26
 screens: [s68]
 created: 2026-10-18
-updated: 2026-10-18
-tags: [frontend-requirements, frontend-requirements/draft, module/identity, layer/frontend]
+updated: 2026-10-26
+tags: [frontend-requirements, frontend-requirements/approved, module/identity, layer/frontend]
 ---
 
 # Account · Frontend Requirements
