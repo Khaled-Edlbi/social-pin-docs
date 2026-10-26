@@ -79,7 +79,7 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 
 | Task | Feature | Module | Status | Effort | Deadline | Depends on / blocked by |
 |---|---|---|---|---|---|---|
-| [[B-01 An unverified changed email still signs in]] `bug` | [[Account]] | Identity Core | ⬜ To do (5 notes) | S | — | — |
+| [[B-01 An unverified changed email still signs in]] `bug` | [[Account]] | Identity Core | 🟡 Partial (5 notes) | S | — | — |
 | [[T-003 Remove devCode once delivery works]] | [[Code Delivery]] | Platform & Cross-cutting | ⛔ Blocked | S | — | [[T-001 Wire an email provider for one-time codes|T-001]], [[T-002 Wire an SMS provider for one-time codes|T-002]] |
 | [[T-003-be Backend · Remove devCode once delivery works]] `backend` | [[Code Delivery]] | Platform & Cross-cutting | ⛔ Blocked | S | — | [[T-001 Wire an email provider for one-time codes|T-001]], [[T-002 Wire an SMS provider for one-time codes|T-002]] |
 | [[T-004 Member count per Ring on list and detail]] | [[Counts]] | Identity Core | ⬜ To do | S | — | — |

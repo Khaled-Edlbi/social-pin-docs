@@ -11,7 +11,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
       - ✅ [Account Frontend Requirements](modules/Identity%20Core/Account/Account%20Frontend%20Requirements.md) (FR-01, Frontend Requirements, Critical)
       - ✅ [Account Backend Delivery](modules/Identity%20Core/Account/Account%20Backend%20Delivery.md) (BD-01, Backend Delivery, Critical)
       - 🔵 [Account Backend Integration](modules/Identity%20Core/Account/Account%20Backend%20Integration.md) (BI-01, Backend Integration, Critical)
-        - ⬜ [B-01 An unverified changed email still signs in](tasks/B-01%20An%20unverified%20changed%20email%20still%20signs%20in.md) (bug, 5 pending notes, High)
+        - 🟡 [B-01 An unverified changed email still signs in](tasks/B-01%20An%20unverified%20changed%20email%20still%20signs%20in.md) (bug, 5 pending notes, High)
           - ✅ [D-20 Whether an unverified new address may sign in](decisions/D-20%20Whether%20an%20unverified%20new%20address%20may%20sign%20in.md) (Needs decision, High)
             - ⚖️ [DR-20 The changed address still signs in, the words are corrected](decisions/DR-20%20The%20changed%20address%20still%20signs%20in%2C%20the%20words%20are%20corrected.md) (Decision)
         - ⬜ [B-02 Deleted account answers 401, not the documented 404 E_USER_01](tasks/B-02%20Deleted%20account%20answers%20401%2C%20not%20the%20documented%20404%20E_USER_01.md) (bug, Medium)
