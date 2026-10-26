@@ -2645,12 +2645,14 @@
     },
     "PATCH /profiles/:id": {
       "containers": [
+        "feature:account",
         "feature:profiles"
       ],
       "kind": "endpoint",
       "notes": [
         "backend-delivery:profiles",
         "backend-integration:profiles",
+        "frontend-delivery:account",
         "frontend-requirements:profiles",
         "story:profiles"
       ],
@@ -13627,7 +13629,8 @@
       "kind": "shares",
       "to": "feature:profiles",
       "via": [
-        "GET /profiles"
+        "GET /profiles",
+        "PATCH /profiles/:id"
       ]
     },
     {
@@ -46010,7 +46013,7 @@
         "s68"
       ],
       "status": "done",
-      "summary": "What the client shipped for the account section of Me, on socialpin main @ e032a48 (s68 in 99b97e7, the account kept current and the sign-out states in e032a48; delete in 461958f, the header in…",
+      "summary": "What the client shipped for the account section of Me, on socialpin main @ 47ce960 (s68 in 99b97e7, the account kept current and the sign-out states in e032a48, the Privacy rows in 47ce960; delete…",
       "tags": [
         "frontend-delivery",
         "frontend-delivery/done",
