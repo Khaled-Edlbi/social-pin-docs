@@ -10,7 +10,7 @@ approvedBy: "khaled"
 approvedAt: 2026-10-25
 owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-25
+updated: 2026-10-26
 tags: [story, story/approved, module/platform, layer/business]
 ---
 
@@ -20,7 +20,7 @@ tags: [story, story/approved, module/platform, layer/business]
 
 Every error state in the app, from "invalid or expired code" on s02 to "this Ring was deleted", is rendered from one error body. The frontend developer needs two things from it: a stable code to branch on and a message to display. Today the body has the message but drops the code, so the client branches on status and endpoint instead. There is no screen; every screen depends on this.
 
-**Task stories:** [[T-063 Story]] (T-063: the stable code on the wire in S2). S3, splitting the codes that carry two meanings, has no task yet.
+**Task stories:** [[T-063 Story]] (T-063: the stable code on the wire in S2) · [[T-067 Story]] (T-067: splitting the codes that carry two meanings, S3; it waits on T-063). S1 is already true.
 
 ## Persona
 
@@ -51,7 +51,7 @@ Acceptance criteria:
 **As the** product owner **I want** each code to mean one thing **so that** the UI copy keyed on it is never wrong.
 
 Acceptance criteria:
-- [ ] `E_RING_01` (name clash *and* disallowed type) and `E_RING_PROFILE_03` (bad link, missing link *and* missing info block) are split before the client switches on them.
+- [ ] `E_RING_01` (name clash *and* disallowed type) and `E_RING_PROFILE_03` (bad link, missing link *and* missing info block) are split before the client switches on them — [[T-067 Split E_RING_01 and E_RING_PROFILE_03]].
 
 ## States and motion the design asks for
 
