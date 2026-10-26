@@ -5201,7 +5201,7 @@
     "layerNotes": 194,
     "modules": 8,
     "notes": 519,
-    "partial": 1,
+    "partial": 2,
     "placeholders": 162,
     "records": 14,
     "taskLayerNotes": 65,
@@ -44402,7 +44402,8 @@
         "done": 2,
         "draft": 1,
         "failing": 1,
-        "todo": 2,
+        "partial": 1,
+        "todo": 1,
         "verified": 1
       },
       "scope": null,
@@ -52046,7 +52047,8 @@
         "in-progress": 13,
         "missing": 40,
         "needs-decision": 2,
-        "todo": 11,
+        "partial": 1,
+        "todo": 10,
         "verified": 7
       },
       "scope": null,
@@ -57575,9 +57577,9 @@
         "in-progress": 58,
         "missing": 162,
         "needs-decision": 9,
-        "partial": 1,
+        "partial": 2,
         "reference": 31,
-        "todo": 54,
+        "todo": 53,
         "verified": 14
       },
       "scope": null,
@@ -63132,7 +63134,7 @@
       "decision": null,
       "depends": [],
       "dir": null,
-      "effectiveStatus": "todo",
+      "effectiveStatus": "partial",
       "effort": "S",
       "feature": "account",
       "foundOn": "Account Backend Integration",
@@ -63201,11 +63203,11 @@
       "screens": [
         "s68"
       ],
-      "status": "todo",
+      "status": "done",
       "summary": "Output of node scripts/build-tree.mjs --impact B-01 when the bug was filed: the notes this change touches and that must be updated or flagged when it ships.",
       "tags": [
         "task",
-        "task/todo",
+        "task/done",
         "module/identity",
         "priority/high",
         "bug"
