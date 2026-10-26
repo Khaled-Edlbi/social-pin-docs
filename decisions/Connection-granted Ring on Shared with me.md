@@ -1,5 +1,5 @@
 ---
-type: decision
+type: needs-decision
 id: ND-14
 aliases: [ND-14]
 status: open
@@ -12,7 +12,7 @@ related: ["Connections", "Rings", "View As & Pin Views"]
 owner: "omar"
 created: 2026-10-25
 updated: 2026-10-26
-tags: [decision, decision/open]
+tags: [needs-decision, needs-decision/open]
 ---
 
 # ✅ ND-14 · Connection-granted Ring on Shared with me

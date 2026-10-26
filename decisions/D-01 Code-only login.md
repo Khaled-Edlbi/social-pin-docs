@@ -1,5 +1,5 @@
 ---
-type: decision-record
+type: decision
 id: D-01
 decision: ND-01
 status: decided
@@ -11,7 +11,7 @@ related: ["Passwordless login", "Code Delivery"]
 owner: "khaled"
 created: 2026-10-22
 updated: 2026-10-26
-tags: [decision-record, decision-record/decided]
+tags: [decision, decision/decided]
 ---
 
 # ⚖️ D-01 · Code-only login

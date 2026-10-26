@@ -1,5 +1,5 @@
 ---
-type: decision-record
+type: decision
 id: D-06
 decision: ND-06
 status: decided
@@ -11,7 +11,7 @@ related: ["Pin name rules", "Badge & QR"]
 owner: "khaled"
 created: 2026-10-25
 updated: 2026-10-26
-tags: [decision-record, decision-record/decided]
+tags: [decision, decision/decided]
 ---
 
 # ⚖️ D-06 · Yearly rename, old name freed, case-insensitive

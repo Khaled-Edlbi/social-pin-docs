@@ -1,5 +1,5 @@
 ---
-type: decision
+type: needs-decision
 id: ND-18
 aliases: [ND-18]
 status: open
@@ -12,7 +12,7 @@ related: ["D-14 Shared with me lists people, never the Ring", "Companies", "Ring
 owner: "omar"
 created: 2026-10-25
 updated: 2026-10-26
-tags: [decision, decision/open]
+tags: [needs-decision, needs-decision/open]
 ---
 
 # ✅ ND-18 · Company and invited Ring names shown to members

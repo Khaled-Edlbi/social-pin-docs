@@ -8,7 +8,7 @@ layer: business
 
 # Feature Graph
 
-How the features depend on and relate to each other. Green = done, yellow = partial, red = TODO, purple = open decision. Obsidian's own graph view (filter `tag:#feature OR tag:#decision`) shows the same relationships from the wikilinks; this one is fixed and readable without plugins.
+How the features depend on and relate to each other. Green = done, yellow = partial, red = TODO, purple = open decision. Obsidian's own graph view (filter `tag:#feature OR tag:#needs-decision`) shows the same relationships from the wikilinks; this one is fixed and readable without plugins.
 
 ```mermaid
 graph LR

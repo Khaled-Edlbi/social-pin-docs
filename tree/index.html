@@ -457,7 +457,7 @@ const KIND = {
   task: { name: 'Task', short: 'Tasks', icon: 'ph-check-square', layer: 'business' },
   // a bug is its own note type (type: bug), built as a task node with `bug` in its labels, numbered B-NN and hanging under the card it was found against: its own name and icon, the same business layer
   bug: { name: 'Bug', short: 'Bugs', icon: 'ph-bug', layer: 'business' },
-  decision: { name: 'Needs decision', short: 'Needs decision', icon: 'ph-scales' }, 'decision-record': { name: 'Decision', short: 'Decisions', icon: 'ph-seal-check' },
+  'needs-decision': { name: 'Needs decision', short: 'Needs decision', icon: 'ph-scales' }, decision: { name: 'Decision', short: 'Decisions', icon: 'ph-seal-check' },
   project: { name: 'Project note', short: 'Project notes', icon: 'ph-book-open' },
 };
 const KIND_ICON = { story: 'ph-chat-text', 'frontend-requirements': 'ph-clipboard-text', 'backend-delivery': 'ph-wrench', 'backend-integration': 'ph-plugs-connected', 'frontend-delivery': 'ph-device-mobile', 'qa-backend': 'ph-flask', 'qa-frontend': 'ph-test-tube' };
@@ -600,7 +600,7 @@ async function load() {
   const byIdOf = (l) => (Array.isArray(l) ? Object.fromEntries(l.map((x) => [x.id, x])) : {});
   STAGE = byIdOf(d.stages); RELEASE = byIdOf(d.releases); ENV = byIdOf(d.environments && d.environments.list); RESOLUTION = byIdOf(d.resolutions);
   if (d.deadlines && Array.isArray(d.deadlines.zones) && d.deadlines.zones.length) DL = { windowDays: d.deadlines.windowDays > 0 ? d.deadlines.windowDays : 3, zones: d.deadlines.zones, missed: { ...DL.missed, ...(d.deadlines.missed || {}) } };
-  KIND_GROUPS = [{ title: 'Structure', keys: ['feature'] }, ...(d.layers || []).map((l) => ({ title: l.label, color: l.color, keys: l.kinds.map((k) => k.id) })), { title: 'Work', keys: ['task', 'decision', 'decision-record'] }, { title: 'Reference', keys: ['project'] }];
+  KIND_GROUPS = [{ title: 'Structure', keys: ['feature'] }, ...(d.layers || []).map((l) => ({ title: l.label, color: l.color, keys: l.kinds.map((k) => k.id) })), { title: 'Work', keys: ['task', 'needs-decision', 'decision'] }, { title: 'Reference', keys: ['project'] }];
   if (d.repo && d.repo.owner) $('#repo-link').href = `https://github.com/${d.repo.owner}/${d.repo.name}`;
   if (!S.view) S.view = window.innerWidth < 720 ? 'outline' : 'tree';
   let collapsed = store.get('collapsed', null);
@@ -631,17 +631,17 @@ function computeTotals() {
 function statusText(n) {
   // a needs-decision card's kind already says it needs a decision: its chip says Draft, Open or Fulfilled (computed once its decision card, D-NN, is decided);
   // its decision card (D-NN) says Draft or Decided
-  if (n.kind === 'decision') return n.effectiveStatus === 'needs-decision' ? 'Open' : legend(n.effectiveStatus);
+  if (n.kind === 'needs-decision') return n.effectiveStatus === 'needs-decision' ? 'Open' : legend(n.effectiveStatus);
   const l = legend(n.effectiveStatus);
   if (n.effectiveStatus === 'partial' && Array.isArray(n.pending) && n.pending.length) return `Partial · ${n.pending.length} note${n.pending.length === 1 ? '' : 's'}`;
   const b = Array.isArray(n.blockedBy) ? n.blockedBy : [];
-  if (b.length && (n.effectiveStatus === 'blocked' || n.effectiveStatus === 'missing')) { const t = node(b[0].id); return `${n.effectiveStatus === 'blocked' ? 'Blocked' : l} · ${(t.kind === 'task' || t.kind === 'decision') && t.code ? t.code : (kindOf(t.kind).name)}${b.length > 1 ? ` +${b.length - 1}` : ''}`; }
+  if (b.length && (n.effectiveStatus === 'blocked' || n.effectiveStatus === 'missing')) { const t = node(b[0].id); return `${n.effectiveStatus === 'blocked' ? 'Blocked' : l} · ${(t.kind === 'task' || t.kind === 'needs-decision') && t.code ? t.code : (kindOf(t.kind).name)}${b.length > 1 ? ` +${b.length - 1}` : ''}`; }
   return l;
 }
 // the cards whose code is their id (`ND-08`, `D-08 Stripe card checkout only`, `T-074 …`): the card shows the code in the kicker, like `F-41 · FEATURE`, and the title without it; a bug and a needs-decision card are named by their title only, so there is nothing to strip
-const CODE_TITLED = new Set(['decision', 'decision-record', 'task']);
+const CODE_TITLED = new Set(['needs-decision', 'decision', 'task']);
 // the two decision cards, which cluster together in the graph and are the only non-feature nodes the features scope keeps; not the same set as CODE_TITLED since tasks are titled by code but belong to their own module
-const DECISION_CARDS = new Set(['decision', 'decision-record']);
+const DECISION_CARDS = new Set(['needs-decision', 'decision']);
 const shown = (n) => (CODE_TITLED.has(n.kind) && n.card && n.title.startsWith(n.card) ? n.title.slice(n.card.length).replace(/^[\s·:-]+/, '') || n.title : n.title);
 // the kicker names the kind and never changes: a needs-decision card (ND-NN) always reads NEEDS DECISION, its decision card (D-NN) DECISION; the chip says Draft, Open or Fulfilled (D: Draft or Decided)
 // what a node is called on the page: a bug note (type: bug; a task node with `bug` in its labels) is a BUG, numbered B-NN and hanging under the card it was found against; everything else is its own kind

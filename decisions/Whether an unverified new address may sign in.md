@@ -1,5 +1,5 @@
 ---
-type: decision
+type: needs-decision
 id: ND-20
 aliases: [ND-20]
 status: open
@@ -13,7 +13,7 @@ related: ["An unverified changed email still signs in", "Auth & Sign-up Backend 
 owner: "khaled"
 created: 2026-10-26
 updated: 2026-10-26
-tags: [decision, decision/open, priority/high]
+tags: [needs-decision, needs-decision/open, priority/high]
 ---
 
 # ✅ ND-20 · Whether an unverified new address may sign in

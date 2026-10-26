@@ -1,5 +1,5 @@
 ---
-type: decision
+type: needs-decision
 id: ND-05
 aliases: [ND-05]
 status: open
@@ -7,7 +7,7 @@ features: [rings, ring-projection, photo-library]
 screens: [s18, s23, s28, s29]
 created: 2026-10-15
 updated: 2026-10-26
-tags: [decision, decision/open]
+tags: [needs-decision, needs-decision/open]
 ---
 
 # ✅ ND-05 · Copy or inherit

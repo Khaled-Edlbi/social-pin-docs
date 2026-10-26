@@ -29,7 +29,7 @@
       }
     },
     {
-      "query": "tag:#decision",
+      "query": "tag:#needs-decision",
       "color": {
         "a": 1,
         "rgb": 7882430

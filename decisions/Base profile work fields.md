@@ -1,5 +1,5 @@
 ---
-type: decision
+type: needs-decision
 id: ND-02
 aliases: [ND-02]
 status: open
@@ -7,7 +7,7 @@ features: [profiles, ring-projection, onboarding-imports, photo-library]
 screens: [s05, s06, s11, s23, s29]
 created: 2026-10-15
 updated: 2026-10-26
-tags: [decision, decision/open]
+tags: [needs-decision, needs-decision/open]
 ---
 
 # ✅ ND-02 · Base profile work fields

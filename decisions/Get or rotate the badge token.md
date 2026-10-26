@@ -1,5 +1,5 @@
 ---
-type: decision
+type: needs-decision
 id: ND-11
 aliases: [ND-11]
 status: draft
@@ -12,7 +12,7 @@ related: ["Badge & QR"]
 owner: "omar"
 created: 2026-10-25
 updated: 2026-10-26
-tags: [decision, decision/draft]
+tags: [needs-decision, needs-decision/draft]
 ---
 
 # ❓ ND-11 · Get or rotate the badge token
@@ -46,4 +46,4 @@ Recommendation: option 2. It is what the story's acceptance criteria already des
 
 ## Decision
 
-— (answered on its decision card, never written here: the PM or the owner, on the user's word, runs `node scripts/build-tree.mjs --scaffold record ND-11 "<the answer>"`, fills the decision card D-NN (what was decided, why, what it changes with every feature and task in its `affects`, what stays open) and sets it `decided` with `decidedBy` and `decidedAt`; this card then shows Fulfilled by itself; the H1 gets ✅, and this line is replaced by "Fulfilled by" and a wikilink to the decision card, then "decided <date> by <who>: option <n>"; then `--impact D-NN` and flag the notes it lists)
+— (answered on its decision card, never written here: the PM or the owner, on the user's word, runs `node scripts/build-tree.mjs --scaffold decision ND-11 "<the answer>"`, fills the decision card D-NN (what was decided, why, what it changes with every feature and task in its `affects`, what stays open) and sets it `decided` with `decidedBy` and `decidedAt`; this card then shows Fulfilled by itself; the H1 gets ✅, and this line is replaced by "Fulfilled by" and a wikilink to the decision card, then "decided <date> by <who>: option <n>"; then `--impact D-NN` and flag the notes it lists)

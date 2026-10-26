@@ -1,5 +1,5 @@
 ---
-type: decision
+type: needs-decision
 id: ND-03
 aliases: [ND-03]
 status: open
@@ -7,7 +7,7 @@ features: [ring-projection, widgets]
 screens: [s20, s24]
 created: 2026-10-15
 updated: 2026-10-26
-tags: [decision, decision/open]
+tags: [needs-decision, needs-decision/open]
 ---
 
 # ✅ ND-03 · Field library vs per-Ring copies

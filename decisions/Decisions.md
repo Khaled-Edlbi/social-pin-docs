@@ -6,7 +6,7 @@ tags: [map]
 
 # Decisions
 
-Where the design and the backend disagree, and every other decision a card needs before it can continue. A **needs-decision card** is created from the card that needs it (`node scripts/build-tree.mjs --scaffold decision "<card>" "<title>"`); its `blocks:` names that card, which shows **Blocked · ND-NN** until it is `decided` ([[Agent Rules#4 · Statuses, blocking and sign-off]]). Each needs a decision before the related tasks can be built without rework. Two cards per decision: the needs-decision card `ND-NN` (on the page `ND-NN · NEEDS DECISION`) holds the question (problem, facts, options, recommendation), is `draft` while it is written and `open` once it is ready for the decider, and shows **Fulfilled** by itself once its answer is decided; the **decision card** `D-NN` (`D-NN · DECISION`) holds the answer (what was decided, why, what it changes, what stays open), is written with `node scripts/build-tree.mjs --scaffold record ND-NN "<the answer>"` (`draft`) and set `decided` by the PM or the owner on the user's word, and hangs under its needs-decision card in the tree.
+Where the design and the backend disagree, and every other decision a card needs before it can continue. A **needs-decision card** is created from the card that needs it (`node scripts/build-tree.mjs --scaffold needs-decision "<card>" "<title>"`); its `blocks:` names that card, which shows **Blocked · ND-NN** until it is `decided` ([[Agent Rules#4 · Statuses, blocking and sign-off]]). Each needs a decision before the related tasks can be built without rework. Two cards per decision: the needs-decision card `ND-NN` (on the page `ND-NN · NEEDS DECISION`) holds the question (problem, facts, options, recommendation), is `draft` while it is written and `open` once it is ready for the decider, and shows **Fulfilled** by itself once its answer is decided; the **decision card** `D-NN` (`D-NN · DECISION`) holds the answer (what was decided, why, what it changes, what stays open), is written with `node scripts/build-tree.mjs --scaffold decision ND-NN "<the answer>"` (`draft`) and set `decided` by the PM or the owner on the user's word, and hangs under its needs-decision card in the tree.
 
 | Needs decision (ND-NN) | Status | Decision (D-NN) | Affects | Screens |
 |---|---|---|---|---|
@@ -31,5 +31,5 @@ Where the design and the backend disagree, and every other decision a card needs
 | ND-21 [[How a business card and a portfolio page are read]] | open | — | [[Onboarding Imports]] | s03a, s03b |
 
 ```dataview
-TABLE status, features FROM #decision
+TABLE status, features FROM #needs-decision
 ```
