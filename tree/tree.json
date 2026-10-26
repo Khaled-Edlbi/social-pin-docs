@@ -42376,7 +42376,7 @@
       ],
       "task": null,
       "title": "Files Upload Backend Integration",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "backend-integration:gemma": {
       "affects": [],
@@ -42984,7 +42984,7 @@
       ],
       "task": null,
       "title": "Ring Access Engine Backend Integration",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "backend-integration:ring-invitations": {
       "affects": [],
@@ -43297,7 +43297,7 @@
       ],
       "task": null,
       "title": "View As & Pin Views Backend Integration",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "backend-integration:widgets": {
       "affects": [],
@@ -44409,7 +44409,7 @@
       ],
       "task": null,
       "title": "App Shell & Onboarding Narrative",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "feature:audit-log": {
       "affects": [],
@@ -44482,7 +44482,7 @@
       ],
       "task": null,
       "title": "Audit Log",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "feature:auth": {
       "affects": [],
@@ -44663,7 +44663,7 @@
       ],
       "task": null,
       "title": "Badge & QR",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "feature:build-deploy": {
       "affects": [],
@@ -44800,7 +44800,7 @@
       ],
       "task": null,
       "title": "Cleanup Jobs",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "feature:code-delivery": {
       "affects": [],
@@ -44872,7 +44872,7 @@
       ],
       "task": null,
       "title": "Code Delivery",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "feature:companies": {
       "affects": [],
@@ -45120,7 +45120,7 @@
       ],
       "task": null,
       "title": "Counts",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "feature:delegated-admins": {
       "affects": [],
@@ -45271,7 +45271,7 @@
       ],
       "task": null,
       "title": "Devices & NFC",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "feature:discover-hub": {
       "affects": [],
@@ -45345,7 +45345,7 @@
       ],
       "task": null,
       "title": "Discover Hub & Search",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "feature:e2e-tests": {
       "affects": [],
@@ -45415,7 +45415,7 @@
       ],
       "task": null,
       "title": "E2E Test Run",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "feature:error-contract": {
       "affects": [],
@@ -45564,7 +45564,7 @@
       ],
       "task": null,
       "title": "Event Ring Auto-creation",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "feature:events-before": {
       "affects": [],
@@ -45646,7 +45646,7 @@
       ],
       "task": null,
       "title": "Events Before",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "feature:events-during": {
       "affects": [],
@@ -45730,7 +45730,7 @@
       ],
       "task": null,
       "title": "Events During",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "feature:exhibitor": {
       "affects": [],
@@ -45806,7 +45806,7 @@
       ],
       "task": null,
       "title": "Exhibitor",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "feature:files": {
       "affects": [],
@@ -46205,7 +46205,7 @@
       ],
       "task": null,
       "title": "Meetings",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "feature:notifications": {
       "affects": [],
@@ -46281,7 +46281,7 @@
       ],
       "task": null,
       "title": "Notifications",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "feature:onboarding-imports": {
       "affects": [],
@@ -46675,7 +46675,7 @@
       ],
       "task": null,
       "title": "PinCast & Nearby",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "feature:post-event": {
       "affects": [],
@@ -46750,7 +46750,7 @@
       ],
       "task": null,
       "title": "Post-Event",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "feature:profiles": {
       "affects": [],
@@ -47440,7 +47440,7 @@
       ],
       "task": null,
       "title": "View As & Pin Views",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "feature:widgets": {
       "affects": [],
@@ -49557,7 +49557,7 @@
       ],
       "task": null,
       "title": "App Shell & Onboarding Narrative Frontend Requirements",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "frontend-requirements:audit-log": {
       "affects": [],
@@ -49605,7 +49605,7 @@
       ],
       "task": null,
       "title": "Audit Log Frontend Requirements",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "frontend-requirements:auth": {
       "affects": [],
@@ -49723,7 +49723,7 @@
       ],
       "task": null,
       "title": "Badge & QR Frontend Requirements",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "frontend-requirements:build-deploy": {
       "affects": [],
@@ -49817,7 +49817,7 @@
       ],
       "task": null,
       "title": "Cleanup Jobs Frontend Requirements",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "frontend-requirements:code-delivery": {
       "affects": [],
@@ -50140,7 +50140,7 @@
       ],
       "task": null,
       "title": "Devices & NFC Frontend Requirements",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "frontend-requirements:discover-hub": {
       "affects": [],
@@ -50190,7 +50190,7 @@
       ],
       "task": null,
       "title": "Discover Hub & Search Frontend Requirements",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "frontend-requirements:e2e-tests": {
       "affects": [],
@@ -50238,7 +50238,7 @@
       ],
       "task": null,
       "title": "E2E Test Run Frontend Requirements",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "frontend-requirements:error-contract": {
       "affects": [],
@@ -50286,7 +50286,7 @@
       ],
       "task": null,
       "title": "Error Contract Frontend Requirements",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "frontend-requirements:event-ring-auto": {
       "affects": [],
@@ -50336,7 +50336,7 @@
       ],
       "task": null,
       "title": "Event Ring Auto-creation Frontend Requirements",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "frontend-requirements:events-before": {
       "affects": [],
@@ -50451,7 +50451,7 @@
       ],
       "task": null,
       "title": "Events During Frontend Requirements",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "frontend-requirements:exhibitor": {
       "affects": [],
@@ -50503,7 +50503,7 @@
       ],
       "task": null,
       "title": "Exhibitor Frontend Requirements",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "frontend-requirements:files": {
       "affects": [],
@@ -50555,7 +50555,7 @@
       ],
       "task": null,
       "title": "Files Upload Frontend Requirements",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "frontend-requirements:gemma": {
       "affects": [],
@@ -50777,7 +50777,7 @@
       ],
       "task": null,
       "title": "Meetings Frontend Requirements",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "frontend-requirements:notifications": {
       "affects": [],
@@ -50827,7 +50827,7 @@
       ],
       "task": null,
       "title": "Notifications Frontend Requirements",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "frontend-requirements:onboarding-imports": {
       "affects": [
@@ -51099,7 +51099,7 @@
       ],
       "task": null,
       "title": "PinCast & Nearby Frontend Requirements",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "frontend-requirements:post-event": {
       "affects": [],
@@ -51149,7 +51149,7 @@
       ],
       "task": null,
       "title": "Post-Event Frontend Requirements",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "frontend-requirements:profiles": {
       "affects": [
@@ -51535,7 +51535,7 @@
       ],
       "task": null,
       "title": "Subscription (Free vs Pro) Frontend Requirements",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "frontend-requirements:view-as": {
       "affects": [],
@@ -51587,7 +51587,7 @@
       ],
       "task": null,
       "title": "View As & Pin Views Frontend Requirements",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "frontend-requirements:widgets": {
       "affects": [],
@@ -62459,7 +62459,7 @@
       ],
       "task": null,
       "title": "App Shell & Onboarding Narrative Story",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "story:audit-log": {
       "affects": [],
@@ -62509,7 +62509,7 @@
       ],
       "task": null,
       "title": "Audit Log Story",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "story:auth": {
       "affects": [],
@@ -62631,7 +62631,7 @@
       ],
       "task": null,
       "title": "Badge & QR Story",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "story:build-deploy": {
       "affects": [],
@@ -62723,7 +62723,7 @@
       ],
       "task": null,
       "title": "Cleanup Jobs Story",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "story:code-delivery": {
       "affects": [],
@@ -63070,7 +63070,7 @@
       ],
       "task": null,
       "title": "Devices & NFC Story",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "story:discover-hub": {
       "affects": [],
@@ -63123,7 +63123,7 @@
       ],
       "task": null,
       "title": "Discover Hub & Search Story",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "story:e2e-tests": {
       "affects": [],
@@ -63173,7 +63173,7 @@
       ],
       "task": null,
       "title": "E2E Test Run Story",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "story:error-contract": {
       "affects": [],
@@ -63280,7 +63280,7 @@
       ],
       "task": null,
       "title": "Event Ring Auto-creation Story",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "story:events-before": {
       "affects": [],
@@ -63404,7 +63404,7 @@
       ],
       "task": null,
       "title": "Events During Story",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "story:exhibitor": {
       "affects": [],
@@ -63459,7 +63459,7 @@
       ],
       "task": null,
       "title": "Exhibitor Story",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "story:files": {
       "affects": [],
@@ -63513,7 +63513,7 @@
       ],
       "task": null,
       "title": "Files Upload Story",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "story:gemma": {
       "affects": [],
@@ -63622,7 +63622,7 @@
       ],
       "task": null,
       "title": "Interests Story",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "story:linked-accounts": {
       "affects": [],
@@ -63735,7 +63735,7 @@
       ],
       "task": null,
       "title": "Meetings Story",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "story:notifications": {
       "affects": [],
@@ -63788,7 +63788,7 @@
       ],
       "task": null,
       "title": "Notifications Story",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "story:onboarding-imports": {
       "affects": [],
@@ -64078,7 +64078,7 @@
       ],
       "task": null,
       "title": "PinCast & Nearby Story",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "story:post-event": {
       "affects": [],
@@ -64130,7 +64130,7 @@
       ],
       "task": null,
       "title": "Post-Event Story",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "story:profiles": {
       "affects": [],
@@ -64540,7 +64540,7 @@
       ],
       "task": null,
       "title": "Subscription (Free vs Pro) Story",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "story:view-as": {
       "affects": [],
@@ -64592,7 +64592,7 @@
       ],
       "task": null,
       "title": "View As & Pin Views Story",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "story:widgets": {
       "affects": [],
