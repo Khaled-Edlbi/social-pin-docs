@@ -155,6 +155,7 @@ kanban-plugin: board
 - [ ] [[T-063 Put the ErrorCode on the error body]] #critical #error-contract
 - [ ] [[T-063-be Backend · Put the ErrorCode on the error body]] #critical #error-contract #backend
 - [ ] [[T-067-be Backend · Split E_RING_01 and E_RING_PROFILE_03]] #critical #error-contract #backend
+- [ ] [[B-01 An unverified changed email still signs in]] #high #account #bug
 - [ ] [[T-004 Member count per Ring on list and detail]] #high #counts
 - [ ] [[T-004-be Backend · Member count per Ring on list and detail]] #high #counts #backend
 - [ ] [[T-006 Delegated admin endpoints]] #high #delegated-admins
@@ -183,10 +184,9 @@ kanban-plugin: board
 - [ ] [[T-049-be Backend · Subscription endpoints and a single Pro gate]] #high #subscription #backend
 - [ ] [[T-054 Cleanup jobs]] #high #cleanup-jobs
 - [ ] [[T-054-be Backend · Cleanup jobs]] #high #cleanup-jobs #backend
-- [ ] [[T-076 An unverified changed email still signs in]] #high #account #bug
+- [ ] [[B-02 Deleted account answers 401, not the documented 404 E_USER_01]] #medium #account #bug
 - [ ] [[T-020b-be Backend · Business card scan and portfolio URL import]] #medium #onboarding-imports #backend
 - [ ] [[T-031-be Backend · Import contacts]] #medium #discover-hub #backend
-- [ ] [[T-077 Deleted account answers 401, not the documented 404 E_USER_01]] #medium #account #bug
 
 
 ## 🔵 In progress

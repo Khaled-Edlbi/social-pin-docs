@@ -110,8 +110,8 @@
   ],
   "cardCodes": {
     "pad": 2,
-    "structural": { "module": "M", "feature": "F", "project": "P", "task": "T", "decision": "D", "decision-record": "DR" },
-    "description": "Every card (one Markdown file in the tree) carries one unique code: <prefix>-<number>. A task's and a decision's code is its id (T-004, D-04); every other card gets the next free number for its kind's prefix, kept in tree/cards.json and listed in Card Index.md; a code is never reused."
+    "structural": { "module": "M", "feature": "F", "project": "P", "task": "T", "bug": "B", "decision": "D", "decision-record": "DR" },
+    "description": "Every card (one Markdown file in the tree) carries one unique code: <prefix>-<number>. A task's, a bug's and a decision's code is its id (T-004, B-01, D-04); every other card gets the next free number for its kind's prefix, kept in tree/cards.json and listed in Card Index.md; a code is never reused. A bug is a task note with labels: [bug]: same type, its own B prefix and its own number sequence, and it hangs under the card named in foundOn rather than under the feature's story."
   },
   "flow": [
     ["story", "frontend-requirements"],
