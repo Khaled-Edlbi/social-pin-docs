@@ -46463,12 +46463,12 @@
       ],
       "release": "mvp",
       "rollup": {
-        "approved": 1,
+        "approved": 2,
         "blocked": 1,
         "current": 1,
         "decided": 2,
         "done": 3,
-        "draft": 2,
+        "draft": 1,
         "missing": 3,
         "todo": 2,
         "verified": 2
@@ -51568,13 +51568,13 @@
       "related": [],
       "release": null,
       "rollup": {
-        "approved": 14,
+        "approved": 15,
         "blocked": 22,
         "current": 9,
         "decided": 6,
         "delivered": 1,
         "done": 16,
-        "draft": 21,
+        "draft": 20,
         "failing": 1,
         "in-progress": 13,
         "missing": 40,
@@ -56991,13 +56991,13 @@
         }
       ],
       "rollup": {
-        "approved": 38,
+        "approved": 39,
         "blocked": 151,
         "current": 9,
         "decided": 13,
         "delivered": 1,
         "done": 17,
-        "draft": 99,
+        "draft": 98,
         "failing": 1,
         "in-progress": 58,
         "missing": 162,
@@ -60239,7 +60239,7 @@
       "depends": [
         "decision-record:DR-02"
       ],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "profiles",
       "frontendOnly": false,
@@ -60277,11 +60277,11 @@
         "s23",
         "s68"
       ],
-      "status": "draft",
+      "status": "approved",
       "summary": "A person writes their work details once, during sign-up or later on Me, and finds them on every Ring that has not been given its own: headline, role, company, location, photo and bio, as DR-02 One…",
       "tags": [
         "story",
-        "story/draft",
+        "story/approved",
         "module/identity",
         "layer/business"
       ],
@@ -74538,8 +74538,8 @@
       ],
       "release": "mvp",
       "rollup": {
+        "approved": 1,
         "blocked": 1,
-        "draft": 1,
         "todo": 1
       },
       "scope": null,
