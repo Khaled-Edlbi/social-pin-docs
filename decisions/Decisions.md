@@ -1,6 +1,6 @@
 ---
 type: map
-updated: 2026-10-25
+updated: 2026-10-26
 tags: [map]
 ---
 
@@ -27,6 +27,7 @@ Where the design and the backend disagree, and every other decision a card needs
 | [[D-17 Request expiry, note and asking again]] | fulfilled (1, 30 days, note, ask again) | [[DR-17 Requests expire after 30 days, optional note, ask again at once]] | [[Connections]] | s44, s45 |
 | [[D-18 Company and invited Ring names shown to members]] | fulfilled (2, named when joined knowingly) | [[DR-18 Ring names shown when joined knowingly]] | [[Companies]], [[Ring Invitations & Join]], [[Rings]], [[Ring Members]] | s17, s72, s73, s74 |
 | [[D-19 Where a ticket's layer notes live]] | fulfilled (1, the parent task) | [[DR-19 A ticket's layer notes live on the parent task]] | [[Error Contract]] | — |
+| [[D-20 Whether an unverified new address may sign in]] | fulfilled (2, it signs in, the words are corrected) | [[DR-20 The changed address still signs in, the words are corrected]] | [[Account]] | s68 |
 
 ```dataview
 TABLE status, features FROM #decision

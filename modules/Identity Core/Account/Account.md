@@ -7,13 +7,11 @@ release: mvp
 module: identity
 screens: [s68]
 created: 2026-10-18
-updated: 2026-10-25
+updated: 2026-10-26
 tags: [feature, module/identity, priority/critical, release/mvp]
 ---
 
 # Account
-
-> ⚠ Affected by [[B-01 An unverified changed email still signs in]] (2026-10-26): "_No open tasks._" under ## Tasks is out of date. [[Account QA Backend]] filed two bugs against this feature, B-01 and [[B-02 Deleted account answers 401, not the documented 404 E_USER_01]], both open. They hang under [[Account Backend Integration]], the card they were found against, not under the story.
 
 **Backend:** Done · **Priority:** Critical · **Release:** MVP · **Module:** [[Identity Core Module|Identity Core]]
 
@@ -33,7 +31,10 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 
 ## Tasks
 
-_No open tasks._
+| Task | Status | Priority | Effort |
+|---|---|---|---|
+| [[B-01 An unverified changed email still signs in]] | ⬜ To do | high | S |
+| [[B-02 Deleted account answers 401, not the documented 404 E_USER_01]] | ⬜ To do | medium | S |
 
 ```dataview
 TABLE status, priority, effort FROM #task WHERE feature = "account" SORT priority ASC

@@ -18,6 +18,8 @@ tags: [qa-frontend, qa-frontend/draft, module/identity, layer/qa, priority/criti
 
 # 🧪 Account · QA Frontend
 
+> ⚠ Affected by [[B-01 An unverified changed email still signs in]] (2026-10-26): row F10's expectation is withdrawn. [[DR-20 The changed address still signs in, the words are corrected]] decided option 2, and [[Account Story]] S2 and S3 no longer promise that a new address must be verified before it can sign in — the copy the app ships ("Confirming a new email or number isn't in the app yet") is now the copy the story asks for. Re-run F10 against the corrected story and clear it from `pending`. `/qa`.
+
 **Feature:** [[Account]] · **Verifies:** [[Account Frontend Delivery]] against [[Account Story]] · **Verdict:** ✏️ Draft · not run
 
 Expected behaviour of the screens, as artefacts: journeys, states and copy to check a build against, **not test code**. `status: passing` or `failing` after a run; the verdict tells the PM whether the story can be fulfilled (passing with nothing pending).

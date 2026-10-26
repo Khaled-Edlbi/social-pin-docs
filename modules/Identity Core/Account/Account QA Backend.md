@@ -18,6 +18,8 @@ tags: [qa-backend, qa-backend/failing, module/identity, layer/qa, priority/criti
 
 # 🧪 Account · QA Backend
 
+> ⚠ Affected by [[B-01 An unverified changed email still signs in]] (2026-10-26): row B9's expectation is withdrawn. [[DR-20 The changed address still signs in, the words are corrected]] decided option 2 — an unverified changed address signs in, by design for now, so the build was never wrong on this row; the two backend notes are being corrected instead. Re-run B9 against the corrected [[Account Backend Delivery]] and [[Account Backend Integration]] and clear it from `pending`. `/qa`.
+
 **Feature:** [[Account]] · **Verifies:** [[Account Backend Delivery]] against [[Account Story]] and [[Account Frontend Requirements]] · **Verdict:** 🔴 Failing · 2026-10-26 · `dev 2026-10-26 · localhost:3000`
 
 Expected behaviour of the API, as artefacts a person can check a build against: tables and diagrams, **not test code** (the specs live in the backend repo). `status: passing` or `failing` after a run; the verdict tells the PM whether the story can be fulfilled (passing with nothing pending).

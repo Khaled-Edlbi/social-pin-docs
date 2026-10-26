@@ -8,13 +8,14 @@ blocks: [B-01]
 decider: "pm"
 screens: [s68]
 affects: ["Account Story", "Account Backend Delivery", "Account Backend Integration", "Account QA Backend", "Account QA Frontend"]
-related: ["B-01 An unverified changed email still signs in", "Auth & Sign-up Backend Integration", "Account Frontend Delivery", "Auth Model", "T-003 Remove devCode once delivery works"]
+related: ["B-01 An unverified changed email still signs in", "Auth & Sign-up Backend Integration", "Account Frontend Delivery", "Auth Model", "T-003 Remove devCode once delivery works", "DR-20 The changed address still signs in, the words are corrected"]
+owner: "khaled"
 created: 2026-10-26
 updated: 2026-10-26
 tags: [decision, decision/open, priority/high]
 ---
 
-# ❓ D-20 · Whether an unverified new address may sign in
+# ✅ D-20 · Whether an unverified new address may sign in
 
 **Status:** open · **Decider:** pm · **Raised:** 2026-10-26 · **Needed by:** [[B-01 An unverified changed email still signs in]] · **Feature:** [[Account]]
 
@@ -44,4 +45,4 @@ An address changed through `PATCH /users/me` comes back with `emailVerifiedAt: n
 
 ## Decision
 
-— (answered on its decision card, never written here: the PM or the owner, on the user's word, runs `node scripts/build-tree.mjs --scaffold record D-20 "<the answer>"`, fills the decision card DR-NN (what was decided, why, what it changes with every feature and task in its `affects`, what stays open) and sets it `decided` with `decidedBy` and `decidedAt`; this card then shows Fulfilled by itself; the H1 gets ✅, and this line is replaced by "Fulfilled by" and a wikilink to the decision card, then "decided 2026-10-26 by <who>: option <n>"; then `--impact DR-NN` and flag the notes it lists)
+Fulfilled by [[DR-20 The changed address still signs in, the words are corrected]] — decided 2026-10-26 by khaled: option 2.
