@@ -2884,6 +2884,7 @@
         "project:developer-guide",
         "project:frontend-passwordless-migration",
         "qa-backend:account",
+        "story:auth",
         "task:T-076"
       ],
       "owner": "feature:auth"
@@ -5212,6 +5213,7 @@
         "frontend-requirements:devices",
         "story:T-014",
         "story:T-015",
+        "story:auth",
         "story:devices",
         "task:T-014",
         "task:T-014-be",
@@ -5249,7 +5251,7 @@
     },
     "concepts": 199,
     "decisions": 18,
-    "edges": 5272,
+    "edges": 5278,
     "features": 41,
     "layerNotes": 196,
     "modules": 8,
@@ -11897,6 +11899,31 @@
       "from": "story:auth",
       "kind": "related",
       "to": "decision-record:DR-06"
+    },
+    {
+      "from": "story:auth",
+      "kind": "related",
+      "to": "feature:interests"
+    },
+    {
+      "from": "story:auth",
+      "kind": "related",
+      "to": "feature:onboarding-imports"
+    },
+    {
+      "from": "story:auth",
+      "kind": "related",
+      "to": "frontend-requirements:auth"
+    },
+    {
+      "from": "story:auth",
+      "kind": "related",
+      "to": "task:T-078"
+    },
+    {
+      "from": "story:auth",
+      "kind": "related",
+      "to": "task:T-079"
     },
     {
       "from": "story:badge-qr",
@@ -28189,11 +28216,6 @@
     {
       "from": "frontend-requirements:auth",
       "kind": "wikilink",
-      "to": "story:auth"
-    },
-    {
-      "from": "frontend-requirements:auth",
-      "kind": "wikilink",
       "to": "task:T-001"
     },
     {
@@ -32035,6 +32057,16 @@
       "from": "story:auth",
       "kind": "wikilink",
       "to": "feature:code-delivery"
+    },
+    {
+      "from": "story:auth",
+      "kind": "wikilink",
+      "to": "feature:profiles"
+    },
+    {
+      "from": "story:auth",
+      "kind": "wikilink",
+      "to": "feature:rings"
     },
     {
       "from": "story:auth",
@@ -46255,7 +46287,8 @@
         "project:ring-access-model",
         "project:architecture",
         "project:api-conventions",
-        "project:spec-map"
+        "project:spec-map",
+        "story:auth"
       ],
       "release": "mvp",
       "rollup": {
@@ -46561,6 +46594,7 @@
         "task:T-078",
         "task:T-078-be",
         "task:T-078-fe",
+        "story:auth",
         "frontend-requirements:profiles",
         "story:T-078"
       ],
@@ -49790,7 +49824,8 @@
         "frontend-requirements:interests",
         "feature:rings",
         "task:T-079",
-        "task:T-063"
+        "task:T-063",
+        "story:auth"
       ],
       "release": "mvp",
       "scope": "feature",
@@ -61137,7 +61172,12 @@
       "pending": [],
       "priority": "critical",
       "related": [
-        "decision-record:DR-06"
+        "decision-record:DR-06",
+        "frontend-requirements:auth",
+        "feature:onboarding-imports",
+        "feature:interests",
+        "task:T-078",
+        "task:T-079"
       ],
       "release": "mvp",
       "scope": "feature",
@@ -61146,7 +61186,8 @@
         "s02",
         "s06",
         "s08",
-        "s68"
+        "s68",
+        "s75"
       ],
       "status": "approved",
       "summary": "A person arrives with nothing but an email address or a phone number and leaves with a working identity: an active account, a Pin name, a default Ring and its projection. Coming back later costs…",
@@ -61158,7 +61199,7 @@
       ],
       "task": null,
       "title": "Auth & Sign-up Story",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "story:badge-qr": {
       "affects": [],
@@ -75222,6 +75263,7 @@
         "feature:files",
         "feature:auth",
         "decision:D-20",
+        "story:auth",
         "frontend-requirements:onboarding-imports"
       ],
       "release": "mvp",
@@ -75430,7 +75472,8 @@
         "feature:badge-qr",
         "decision:D-12",
         "task:T-063",
-        "frontend-requirements:auth"
+        "frontend-requirements:auth",
+        "story:auth"
       ],
       "release": "mvp",
       "rollup": {
