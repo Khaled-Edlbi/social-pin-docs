@@ -5288,12 +5288,12 @@
     },
     "concepts": 199,
     "decisions": 19,
-    "edges": 5420,
+    "edges": 5421,
     "features": 41,
     "layerNotes": 196,
     "modules": 8,
     "notes": 529,
-    "partial": 3,
+    "partial": 4,
     "placeholders": 162,
     "records": 14,
     "taskLayerNotes": 67,
@@ -9827,11 +9827,6 @@
       "to": "task:B-01"
     },
     {
-      "from": "qa-backend:account",
-      "kind": "pending",
-      "to": "task:B-02"
-    },
-    {
       "from": "qa-frontend:account",
       "kind": "pending",
       "to": "task:T-063"
@@ -9858,6 +9853,16 @@
     },
     {
       "from": "task:B-01",
+      "kind": "pending",
+      "to": "qa-frontend:account"
+    },
+    {
+      "from": "task:B-02",
+      "kind": "pending",
+      "to": "frontend-delivery:account"
+    },
+    {
+      "from": "task:B-02",
       "kind": "pending",
       "to": "qa-frontend:account"
     },
@@ -45036,8 +45041,7 @@
         "delivered": 1,
         "done": 2,
         "failing": 1,
-        "partial": 2,
-        "todo": 1,
+        "partial": 3,
         "verified": 1
       },
       "scope": null,
@@ -52871,9 +52875,9 @@
         "in-progress": 13,
         "missing": 40,
         "needs-decision": 2,
-        "partial": 2,
+        "partial": 3,
         "ready": 1,
-        "todo": 13,
+        "todo": 12,
         "verified": 7
       },
       "scope": null,
@@ -55820,16 +55824,6 @@
           "person": null,
           "text": "row B9, filed 2026-10-26, re-run when it ships",
           "to": "task:B-01"
-        },
-        {
-          "person": null,
-          "text": "row B14, filed 2026-10-26, re-run when it ships",
-          "to": "task:B-02"
-        },
-        {
-          "person": null,
-          "text": "B21 (suspended account) not run: no route suspends an account until T-068 ships",
-          "to": null
         }
       ],
       "priority": "critical",
@@ -59653,10 +59647,10 @@
         "in-progress": 58,
         "missing": 162,
         "needs-decision": 9,
-        "partial": 3,
+        "partial": 4,
         "ready": 1,
         "reference": 31,
-        "todo": 56,
+        "todo": 55,
         "verified": 14
       },
       "scope": null,
@@ -65554,7 +65548,7 @@
       "decision": null,
       "depends": [],
       "dir": null,
-      "effectiveStatus": "todo",
+      "effectiveStatus": "partial",
       "effort": "S",
       "feature": "account",
       "foundOn": "Account Backend Integration",
@@ -65575,7 +65569,18 @@
         "backend-integration:account"
       ],
       "path": "social-pin/bugs/B-02 Deleted account answers 401, not the documented 404 E_USER_01.md",
-      "pending": [],
+      "pending": [
+        {
+          "person": null,
+          "text": "keep the 404 branch on GET /users/me deliberately, and decide whether a 404 from any other authenticated route also ends the session (/frontend)",
+          "to": "frontend-delivery:account"
+        },
+        {
+          "person": null,
+          "text": "run F15 on a build with main @ b4984d6; needs a second phone (/qa)",
+          "to": "qa-frontend:account"
+        }
+      ],
       "priority": "medium",
       "related": [
         "qa-backend:account",
@@ -65591,19 +65596,20 @@
         "backend-integration:auth"
       ],
       "release": "mvp",
-      "resolution": null,
+      "resolution": "fixed",
       "rollup": {},
       "scope": null,
       "screens": [
         "s68"
       ],
-      "status": "todo",
+      "status": "done",
       "summary": "Output of node scripts/build-tree.mjs --impact B-02 when the bug was filed: the notes this change touches and that must be updated or flagged when it ships.",
       "tags": [
         "bug",
-        "bug/todo",
+        "bug/done",
         "module/identity",
-        "priority/medium"
+        "priority/medium",
+        "resolution/fixed"
       ],
       "task": null,
       "title": "B-02 Deleted account answers 401, not the documented 404 E_USER_01",

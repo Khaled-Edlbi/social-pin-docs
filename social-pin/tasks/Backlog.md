@@ -181,7 +181,7 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 
 | Task | Feature | Module | Status | Effort | Deadline | Depends on / blocked by |
 |---|---|---|---|---|---|---|
-| [[B-02 Deleted account answers 401, not the documented 404 E_USER_01]] `bug` | [[Account]] | Identity Core | ⬜ To do | S | — | — |
+| [[B-02 Deleted account answers 401, not the documented 404 E_USER_01]] `bug` | [[Account]] | Identity Core | 🟡 Partial (2 notes) · Fixed | S | — | — |
 | [[T-013 Usage count per file across Rings]] | [[Photo Library]] | Identity Core | ⛔ Blocked | S | — | [[T-012 List my files (photo library)|T-012]] |
 | [[T-013-be Backend · Usage count per file across Rings]] `backend` | [[Photo Library]] | Identity Core | ⛔ Blocked | S | — | [[T-012 List my files (photo library)|T-012]] |
 | [[T-013-fe Frontend · Usage count per file across Rings]] `frontend` | [[Photo Library]] | Identity Core | ⛔ Blocked | S | — | [[T-012 List my files (photo library)|T-012]], [[T-013-be Backend · Usage count per file across Rings|T-013-be]] |
