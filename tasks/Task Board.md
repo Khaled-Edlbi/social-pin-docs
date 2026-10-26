@@ -205,6 +205,7 @@ kanban-plugin: board
 
 ## 🟡 Partial (done, notes pending)
 
+- [ ] [[T-073 GitLab pipeline and Docker setup]] #medium #build-deploy #chore — @backend: the pipeline's runs are not verified from here; @backend: no production job — only development and stage; @backend: docs-only task, so no layer notes (Workflow §3)
 
 
 ## ✅ Done
