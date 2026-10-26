@@ -9,7 +9,8 @@ tags: [module, module/platform]
 
 # Platform & Cross-cutting · Module
 
-Notifications, Gemma, devices, interests, code delivery, errors, jobs, tests.
+Notifications, Gemma, devices, interests, code delivery, errors, jobs, tests,
+the operator panel.
 
 A module is the sum of its features; a feature is the sum of its tasks. Each feature below is a business note with one child note per layer (story, frontend requirements, backend delivery and integration, frontend delivery, QA backend and frontend). Statuses roll up in [[Docs Tree|the docs tree]].
 
@@ -28,6 +29,7 @@ A module is the sum of its features; a feature is the sum of its tasks. Each fea
 | [[Interests]] | 🟡 Partial | [[Interests Story\|Story]] | [[Interests Frontend Requirements\|Req.]] | [[Interests Backend Delivery\|Delivery]] · [[Interests Backend Integration\|Integration]] | [[Interests Frontend Delivery\|Delivery]] | [[Interests QA Backend\|Backend]] · [[Interests QA Frontend\|Frontend]] |
 | [[Linked Accounts (OAuth)]] | 🟡 Partial | [[Linked Accounts (OAuth) Story\|Story]] | [[Linked Accounts (OAuth) Frontend Requirements\|Req.]] | [[Linked Accounts (OAuth) Backend Delivery\|Delivery]] · [[Linked Accounts (OAuth) Backend Integration\|Integration]] | [[Linked Accounts (OAuth) Frontend Delivery\|Delivery]] | [[Linked Accounts (OAuth) QA Backend\|Backend]] · [[Linked Accounts (OAuth) QA Frontend\|Frontend]] |
 | [[Notifications]] | ⬜ To do | [[Notifications Story\|Story]] | [[Notifications Frontend Requirements\|Req.]] | [[Notifications Backend Delivery\|Delivery]] · [[Notifications Backend Integration\|Integration]] | [[Notifications Frontend Delivery\|Delivery]] | [[Notifications QA Backend\|Backend]] · [[Notifications QA Frontend\|Frontend]] |
+| [[Operator Panel]] | 🟡 In progress | [[Operator Panel Story\|Story]] | [[Operator Panel Frontend Requirements\|Req.]] | [[Operator Panel Backend Delivery\|Delivery]] · [[Operator Panel Backend Integration\|Integration]] | [[Operator Panel Frontend Delivery\|Delivery]] | [[Operator Panel QA Backend\|Backend]] · [[Operator Panel QA Frontend\|Frontend]] |
 
 ## Cross-cutting rules
 
@@ -37,3 +39,4 @@ A module is the sum of its features; a feature is the sum of its tasks. Each fea
 ## Log
 
 - 2026-10-18 · created when the vault moved to layers
+- 2026-10-26 · [[Operator Panel]] added, with T-068 to T-072 under it
