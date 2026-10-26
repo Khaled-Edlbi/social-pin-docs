@@ -67,6 +67,7 @@
     "Badge & QR Backend Delivery": "backend-delivery:badge-qr",
     "Badge & QR Frontend Requirements": "frontend-requirements:badge-qr",
     "Badge & QR Story": "story:badge-qr",
+    "Build & Deploy": "feature:build-deploy",
     "Cleanup Jobs": "feature:cleanup-jobs",
     "Cleanup Jobs Backend Delivery": "backend-delivery:cleanup-jobs",
     "Cleanup Jobs Frontend Requirements": "frontend-requirements:cleanup-jobs",
@@ -656,6 +657,7 @@
     "F-38": "feature:linked-accounts",
     "F-39": "feature:notifications",
     "F-42": "feature:operator-panel",
+    "F-43": "feature:build-deploy",
     "FR-01": "frontend-requirements:account",
     "FR-02": "frontend-requirements:auth",
     "FR-03": "frontend-requirements:counts",
@@ -5002,7 +5004,7 @@
       "backend-integration": 9,
       "decision": 17,
       "decision-record": 13,
-      "feature": 40,
+      "feature": 41,
       "frontend-requirements": 39,
       "module": 8,
       "project": 27,
@@ -5011,19 +5013,19 @@
     },
     "byLayer": {
       "backend": 56,
-      "business": 366,
+      "business": 367,
       "frontend": 43,
       "shared": 10
     },
     "concepts": 194,
     "decisions": 17,
-    "edges": 4989,
-    "features": 40,
+    "edges": 5010,
+    "features": 41,
     "layerNotes": 191,
     "modules": 8,
-    "notes": 510,
+    "notes": 511,
     "partial": 0,
-    "placeholders": 158,
+    "placeholders": 165,
     "records": 13,
     "taskLayerNotes": 65,
     "tasks": 187
@@ -5082,7 +5084,9 @@
   ],
   "diagnostics": {
     "errors": [],
-    "warnings": []
+    "warnings": [
+      "modules/Platform & Cross-cutting/Build & Deploy/Build & Deploy.md: wikilink [[T-073 GitLab pipeline and Docker setup]] resolves to no note"
+    ]
   },
   "edges": [
     {
@@ -5691,6 +5695,16 @@
       "to": "qa-backend:badge-qr"
     },
     {
+      "from": "backend-delivery:build-deploy",
+      "kind": "blocks",
+      "to": "backend-integration:build-deploy"
+    },
+    {
+      "from": "backend-delivery:build-deploy",
+      "kind": "blocks",
+      "to": "qa-backend:build-deploy"
+    },
+    {
       "from": "backend-delivery:cleanup-jobs",
       "kind": "blocks",
       "to": "backend-integration:cleanup-jobs"
@@ -5991,6 +6005,11 @@
       "to": "frontend-delivery:badge-qr"
     },
     {
+      "from": "backend-integration:build-deploy",
+      "kind": "blocks",
+      "to": "frontend-delivery:build-deploy"
+    },
+    {
       "from": "backend-integration:cleanup-jobs",
       "kind": "blocks",
       "to": "frontend-delivery:cleanup-jobs"
@@ -6191,6 +6210,11 @@
       "to": "qa-frontend:badge-qr"
     },
     {
+      "from": "frontend-delivery:build-deploy",
+      "kind": "blocks",
+      "to": "qa-frontend:build-deploy"
+    },
+    {
       "from": "frontend-delivery:cleanup-jobs",
       "kind": "blocks",
       "to": "qa-frontend:cleanup-jobs"
@@ -6381,6 +6405,11 @@
       "to": "backend-delivery:badge-qr"
     },
     {
+      "from": "frontend-requirements:build-deploy",
+      "kind": "blocks",
+      "to": "backend-delivery:build-deploy"
+    },
+    {
       "from": "frontend-requirements:cleanup-jobs",
       "kind": "blocks",
       "to": "backend-delivery:cleanup-jobs"
@@ -6524,6 +6553,11 @@
       "from": "frontend-requirements:widgets",
       "kind": "blocks",
       "to": "backend-delivery:widgets"
+    },
+    {
+      "from": "story:build-deploy",
+      "kind": "blocks",
+      "to": "frontend-requirements:build-deploy"
     },
     {
       "from": "story:companies",
@@ -9689,6 +9723,41 @@
       "from": "feature:badge-qr",
       "kind": "related",
       "to": "project:spec-map"
+    },
+    {
+      "from": "feature:build-deploy",
+      "kind": "related",
+      "to": "feature:e2e-tests"
+    },
+    {
+      "from": "feature:build-deploy",
+      "kind": "related",
+      "to": "project:api-conventions"
+    },
+    {
+      "from": "feature:build-deploy",
+      "kind": "related",
+      "to": "project:architecture"
+    },
+    {
+      "from": "feature:build-deploy",
+      "kind": "related",
+      "to": "project:developer-setup"
+    },
+    {
+      "from": "feature:build-deploy",
+      "kind": "related",
+      "to": "project:ring-access-model"
+    },
+    {
+      "from": "feature:build-deploy",
+      "kind": "related",
+      "to": "project:spec-map"
+    },
+    {
+      "from": "feature:build-deploy",
+      "kind": "related",
+      "to": "task:T-055"
     },
     {
       "from": "feature:cleanup-jobs",
@@ -21289,6 +21358,41 @@
       "to": "story:badge-qr"
     },
     {
+      "from": "feature:build-deploy",
+      "kind": "tree",
+      "to": "backend-delivery:build-deploy"
+    },
+    {
+      "from": "feature:build-deploy",
+      "kind": "tree",
+      "to": "backend-integration:build-deploy"
+    },
+    {
+      "from": "feature:build-deploy",
+      "kind": "tree",
+      "to": "frontend-delivery:build-deploy"
+    },
+    {
+      "from": "feature:build-deploy",
+      "kind": "tree",
+      "to": "frontend-requirements:build-deploy"
+    },
+    {
+      "from": "feature:build-deploy",
+      "kind": "tree",
+      "to": "qa-backend:build-deploy"
+    },
+    {
+      "from": "feature:build-deploy",
+      "kind": "tree",
+      "to": "qa-frontend:build-deploy"
+    },
+    {
+      "from": "feature:build-deploy",
+      "kind": "tree",
+      "to": "story:build-deploy"
+    },
+    {
       "from": "feature:cleanup-jobs",
       "kind": "tree",
       "to": "backend-delivery:cleanup-jobs"
@@ -22867,6 +22971,11 @@
       "from": "module:platform",
       "kind": "tree",
       "to": "feature:audit-log"
+    },
+    {
+      "from": "module:platform",
+      "kind": "tree",
+      "to": "feature:build-deploy"
     },
     {
       "from": "module:platform",
@@ -34889,6 +34998,10 @@
       "name": "Audit Log",
       "type": "feature"
     },
+    "modules/Platform & Cross-cutting/Build & Deploy/Build & Deploy.md": {
+      "name": "Build & Deploy",
+      "type": "feature"
+    },
     "modules/Platform & Cross-cutting/Cleanup Jobs/Cleanup Jobs Backend Delivery.md": {
       "name": "Cleanup Jobs Backend Delivery",
       "type": "backend-delivery"
@@ -36781,6 +36894,51 @@
       "task": null,
       "title": "Badge & QR Backend Delivery",
       "updated": "2026-10-26"
+    },
+    "backend-delivery:build-deploy": {
+      "affects": [],
+      "blockedBy": [
+        {
+          "id": "frontend-requirements:build-deploy",
+          "title": "Build & Deploy Frontend Requirements",
+          "why": "Build & Deploy Frontend Requirements is not written yet"
+        }
+      ],
+      "card": null,
+      "children": [],
+      "code": "build-deploy",
+      "created": null,
+      "deadline": null,
+      "depends": [],
+      "effectiveStatus": "missing",
+      "effort": null,
+      "feature": "build-deploy",
+      "frontendOnly": false,
+      "id": "backend-delivery:build-deploy",
+      "inherits": {},
+      "kind": "backend-delivery",
+      "label": "Backend Delivery",
+      "labels": [],
+      "layer": "backend",
+      "module": "platform",
+      "parentTask": null,
+      "parents": [
+        "feature:build-deploy"
+      ],
+      "path": null,
+      "pending": [],
+      "priority": null,
+      "related": [],
+      "release": null,
+      "scope": "feature",
+      "screens": [],
+      "status": null,
+      "summary": "Not written yet. Create it with: node scripts/build-tree.mjs --scaffold backend-delivery build-deploy",
+      "tags": [],
+      "task": null,
+      "template": "templates/Backend Delivery Template.md",
+      "title": "Build & Deploy Backend Delivery",
+      "updated": null
     },
     "backend-delivery:cleanup-jobs": {
       "affects": [],
@@ -38910,6 +39068,51 @@
       "task": null,
       "template": "templates/Backend Integration Template.md",
       "title": "Badge & QR Backend Integration",
+      "updated": null
+    },
+    "backend-integration:build-deploy": {
+      "affects": [],
+      "blockedBy": [
+        {
+          "id": "backend-delivery:build-deploy",
+          "title": "Build & Deploy Backend Delivery",
+          "why": "Build & Deploy Backend Delivery is not written yet"
+        }
+      ],
+      "card": null,
+      "children": [],
+      "code": "build-deploy",
+      "created": null,
+      "deadline": null,
+      "depends": [],
+      "effectiveStatus": "missing",
+      "effort": null,
+      "feature": "build-deploy",
+      "frontendOnly": false,
+      "id": "backend-integration:build-deploy",
+      "inherits": {},
+      "kind": "backend-integration",
+      "label": "Backend Integration",
+      "labels": [],
+      "layer": "backend",
+      "module": "platform",
+      "parentTask": null,
+      "parents": [
+        "feature:build-deploy"
+      ],
+      "path": null,
+      "pending": [],
+      "priority": null,
+      "related": [],
+      "release": null,
+      "scope": "feature",
+      "screens": [],
+      "status": null,
+      "summary": "Not written yet. Create it with: node scripts/build-tree.mjs --scaffold backend-integration build-deploy",
+      "tags": [],
+      "task": null,
+      "template": "templates/Backend Integration Template.md",
+      "title": "Build & Deploy Backend Integration",
       "updated": null
     },
     "backend-integration:cleanup-jobs": {
@@ -42725,6 +42928,70 @@
       "title": "Badge & QR",
       "updated": "2026-10-25"
     },
+    "feature:build-deploy": {
+      "affects": [],
+      "blockedBy": [],
+      "card": "F-43",
+      "children": [
+        "story:build-deploy",
+        "frontend-requirements:build-deploy",
+        "backend-delivery:build-deploy",
+        "backend-integration:build-deploy",
+        "qa-backend:build-deploy",
+        "frontend-delivery:build-deploy",
+        "qa-frontend:build-deploy"
+      ],
+      "code": "build-deploy",
+      "created": "2026-10-26",
+      "deadline": null,
+      "depends": [],
+      "dir": "modules/Platform & Cross-cutting/Build & Deploy",
+      "effectiveStatus": "todo",
+      "effort": null,
+      "feature": "build-deploy",
+      "frontendOnly": false,
+      "id": "feature:build-deploy",
+      "inherits": {},
+      "kind": "feature",
+      "label": "Feature",
+      "labels": [],
+      "layer": "business",
+      "module": "platform",
+      "name": "Build & Deploy",
+      "parentTask": null,
+      "parents": [
+        "module:platform"
+      ],
+      "path": "modules/Platform & Cross-cutting/Build & Deploy/Build & Deploy.md",
+      "pending": [],
+      "priority": "medium",
+      "related": [
+        "feature:e2e-tests",
+        "project:developer-setup",
+        "task:T-055",
+        "project:ring-access-model",
+        "project:architecture",
+        "project:api-conventions",
+        "project:spec-map"
+      ],
+      "release": "later",
+      "rollup": {
+        "missing": 7
+      },
+      "scope": null,
+      "screens": [],
+      "status": null,
+      "summary": "How the backend gets built and shipped: the GitLab pipeline, the Docker image and the compose files, and which branch deploys where. Not a product feature — nobody using Social Pin ever sees it —…",
+      "tags": [
+        "feature",
+        "module/platform",
+        "priority/medium",
+        "release/later"
+      ],
+      "task": null,
+      "title": "Build & Deploy",
+      "updated": "2026-10-26"
+    },
     "feature:cleanup-jobs": {
       "affects": [],
       "blockedBy": [],
@@ -43362,6 +43629,7 @@
       "pending": [],
       "priority": "critical",
       "related": [
+        "feature:build-deploy",
         "feature:auth",
         "feature:view-as",
         "project:ring-access-model",
@@ -45666,6 +45934,51 @@
       "title": "Badge & QR Frontend Delivery",
       "updated": null
     },
+    "frontend-delivery:build-deploy": {
+      "affects": [],
+      "blockedBy": [
+        {
+          "id": "backend-integration:build-deploy",
+          "title": "Build & Deploy Backend Integration",
+          "why": "Build & Deploy Backend Integration is not written yet"
+        }
+      ],
+      "card": null,
+      "children": [],
+      "code": "build-deploy",
+      "created": null,
+      "deadline": null,
+      "depends": [],
+      "effectiveStatus": "missing",
+      "effort": null,
+      "feature": "build-deploy",
+      "frontendOnly": false,
+      "id": "frontend-delivery:build-deploy",
+      "inherits": {},
+      "kind": "frontend-delivery",
+      "label": "Frontend Delivery",
+      "labels": [],
+      "layer": "frontend",
+      "module": "platform",
+      "parentTask": null,
+      "parents": [
+        "feature:build-deploy"
+      ],
+      "path": null,
+      "pending": [],
+      "priority": null,
+      "related": [],
+      "release": null,
+      "scope": "feature",
+      "screens": [],
+      "status": null,
+      "summary": "Not written yet. Create it with: node scripts/build-tree.mjs --scaffold frontend-delivery build-deploy",
+      "tags": [],
+      "task": null,
+      "template": "templates/Frontend Delivery Template.md",
+      "title": "Build & Deploy Frontend Delivery",
+      "updated": null
+    },
     "frontend-delivery:cleanup-jobs": {
       "affects": [],
       "blockedBy": [
@@ -47485,6 +47798,51 @@
       "task": null,
       "title": "Badge & QR Frontend Requirements",
       "updated": "2026-10-18"
+    },
+    "frontend-requirements:build-deploy": {
+      "affects": [],
+      "blockedBy": [
+        {
+          "id": "story:build-deploy",
+          "title": "Build & Deploy Story",
+          "why": "Build & Deploy Story is not written yet"
+        }
+      ],
+      "card": null,
+      "children": [],
+      "code": "build-deploy",
+      "created": null,
+      "deadline": null,
+      "depends": [],
+      "effectiveStatus": "missing",
+      "effort": null,
+      "feature": "build-deploy",
+      "frontendOnly": false,
+      "id": "frontend-requirements:build-deploy",
+      "inherits": {},
+      "kind": "frontend-requirements",
+      "label": "Frontend Requirements",
+      "labels": [],
+      "layer": "frontend",
+      "module": "platform",
+      "parentTask": null,
+      "parents": [
+        "feature:build-deploy"
+      ],
+      "path": null,
+      "pending": [],
+      "priority": null,
+      "related": [],
+      "release": null,
+      "scope": "feature",
+      "screens": [],
+      "status": null,
+      "summary": "Not written yet. Create it with: node scripts/build-tree.mjs --scaffold frontend-requirements build-deploy",
+      "tags": [],
+      "task": null,
+      "template": "templates/Frontend Requirements Template.md",
+      "title": "Build & Deploy Frontend Requirements",
+      "updated": null
     },
     "frontend-requirements:cleanup-jobs": {
       "affects": [],
@@ -49798,6 +50156,7 @@
       "children": [
         "feature:app-shell",
         "feature:audit-log",
+        "feature:build-deploy",
         "feature:cleanup-jobs",
         "feature:code-delivery",
         "feature:devices",
@@ -49841,9 +50200,9 @@
         "done": 1,
         "draft": 30,
         "in-progress": 24,
-        "missing": 55,
+        "missing": 62,
         "needs-decision": 1,
-        "todo": 17,
+        "todo": 18,
         "verified": 3
       },
       "scope": null,
@@ -50140,6 +50499,7 @@
         "feature:meetings",
         "feature:app-shell",
         "feature:audit-log",
+        "feature:build-deploy",
         "feature:cleanup-jobs",
         "feature:code-delivery",
         "feature:devices",
@@ -50222,6 +50582,7 @@
         "feature:meetings",
         "feature:app-shell",
         "feature:audit-log",
+        "feature:build-deploy",
         "feature:cleanup-jobs",
         "feature:code-delivery",
         "feature:devices",
@@ -50449,7 +50810,9 @@
       "path": "backend/Developer Setup.md",
       "pending": [],
       "priority": null,
-      "related": [],
+      "related": [
+        "feature:build-deploy"
+      ],
       "release": null,
       "scope": null,
       "screens": [],
@@ -51112,6 +51475,7 @@
         "feature:meetings",
         "feature:app-shell",
         "feature:audit-log",
+        "feature:build-deploy",
         "feature:cleanup-jobs",
         "feature:code-delivery",
         "feature:devices",
@@ -51196,6 +51560,7 @@
         "feature:meetings",
         "feature:app-shell",
         "feature:audit-log",
+        "feature:build-deploy",
         "feature:cleanup-jobs",
         "feature:code-delivery",
         "feature:devices",
@@ -51525,6 +51890,51 @@
       "task": null,
       "template": "templates/QA Backend Template.md",
       "title": "Badge & QR QA Backend",
+      "updated": null
+    },
+    "qa-backend:build-deploy": {
+      "affects": [],
+      "blockedBy": [
+        {
+          "id": "backend-delivery:build-deploy",
+          "title": "Build & Deploy Backend Delivery",
+          "why": "Build & Deploy Backend Delivery is not written yet"
+        }
+      ],
+      "card": null,
+      "children": [],
+      "code": "build-deploy",
+      "created": null,
+      "deadline": null,
+      "depends": [],
+      "effectiveStatus": "missing",
+      "effort": null,
+      "feature": "build-deploy",
+      "frontendOnly": false,
+      "id": "qa-backend:build-deploy",
+      "inherits": {},
+      "kind": "qa-backend",
+      "label": "QA Backend",
+      "labels": [],
+      "layer": "qa",
+      "module": "platform",
+      "parentTask": null,
+      "parents": [
+        "feature:build-deploy"
+      ],
+      "path": null,
+      "pending": [],
+      "priority": null,
+      "related": [],
+      "release": null,
+      "scope": "feature",
+      "screens": [],
+      "status": null,
+      "summary": "Not written yet. Create it with: node scripts/build-tree.mjs --scaffold qa-backend build-deploy",
+      "tags": [],
+      "task": null,
+      "template": "templates/QA Backend Template.md",
+      "title": "Build & Deploy QA Backend",
       "updated": null
     },
     "qa-backend:cleanup-jobs": {
@@ -53330,6 +53740,51 @@
       "title": "Badge & QR QA Frontend",
       "updated": null
     },
+    "qa-frontend:build-deploy": {
+      "affects": [],
+      "blockedBy": [
+        {
+          "id": "frontend-delivery:build-deploy",
+          "title": "Build & Deploy Frontend Delivery",
+          "why": "Build & Deploy Frontend Delivery is not written yet"
+        }
+      ],
+      "card": null,
+      "children": [],
+      "code": "build-deploy",
+      "created": null,
+      "deadline": null,
+      "depends": [],
+      "effectiveStatus": "missing",
+      "effort": null,
+      "feature": "build-deploy",
+      "frontendOnly": false,
+      "id": "qa-frontend:build-deploy",
+      "inherits": {},
+      "kind": "qa-frontend",
+      "label": "QA Frontend",
+      "labels": [],
+      "layer": "qa",
+      "module": "platform",
+      "parentTask": null,
+      "parents": [
+        "feature:build-deploy"
+      ],
+      "path": null,
+      "pending": [],
+      "priority": null,
+      "related": [],
+      "release": null,
+      "scope": "feature",
+      "screens": [],
+      "status": null,
+      "summary": "Not written yet. Create it with: node scripts/build-tree.mjs --scaffold qa-frontend build-deploy",
+      "tags": [],
+      "task": null,
+      "template": "templates/QA Frontend Template.md",
+      "title": "Build & Deploy QA Frontend",
+      "updated": null
+    },
     "qa-frontend:cleanup-jobs": {
       "affects": [],
       "blockedBy": [
@@ -54963,7 +55418,7 @@
           "done": 0,
           "id": "later",
           "partial": 0,
-          "total": 3
+          "total": 4
         }
       ],
       "rollup": {
@@ -54974,10 +55429,10 @@
         "done": 16,
         "draft": 99,
         "in-progress": 57,
-        "missing": 158,
+        "missing": 165,
         "needs-decision": 9,
         "reference": 31,
-        "todo": 52,
+        "todo": 53,
         "verified": 13
       },
       "scope": null,
@@ -58459,6 +58914,45 @@
       "task": null,
       "title": "Badge & QR Story",
       "updated": "2026-10-25"
+    },
+    "story:build-deploy": {
+      "affects": [],
+      "blockedBy": [],
+      "card": null,
+      "children": [],
+      "code": "build-deploy",
+      "created": null,
+      "deadline": null,
+      "depends": [],
+      "effectiveStatus": "missing",
+      "effort": null,
+      "feature": "build-deploy",
+      "frontendOnly": false,
+      "id": "story:build-deploy",
+      "inherits": {},
+      "kind": "story",
+      "label": "User Story",
+      "labels": [],
+      "layer": "business",
+      "module": "platform",
+      "parentTask": null,
+      "parents": [
+        "feature:build-deploy"
+      ],
+      "path": null,
+      "pending": [],
+      "priority": null,
+      "related": [],
+      "release": null,
+      "scope": "feature",
+      "screens": [],
+      "status": null,
+      "summary": "Not written yet. Create it with: node scripts/build-tree.mjs --scaffold story build-deploy",
+      "tags": [],
+      "task": null,
+      "template": "templates/Story Template.md",
+      "title": "Build & Deploy Story",
+      "updated": null
     },
     "story:cleanup-jobs": {
       "affects": [],
@@ -70503,7 +70997,9 @@
       "path": "tasks/T-055 Run the e2e suite in CI against PostGIS/T-055 Run the e2e suite in CI against PostGIS.md",
       "pending": [],
       "priority": "critical",
-      "related": [],
+      "related": [
+        "feature:build-deploy"
+      ],
       "release": "mvp",
       "rollup": {
         "draft": 1,
