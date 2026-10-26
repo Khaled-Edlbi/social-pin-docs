@@ -1,7 +1,7 @@
 ---
 type: decision
-id: D-14
-aliases: [D-14]
+id: ND-14
+aliases: [ND-14]
 status: open
 features: [connections]
 blocks: ["T-022 Story"]
@@ -15,11 +15,11 @@ updated: 2026-10-26
 tags: [decision, decision/open]
 ---
 
-# ✅ D-14 · Connection-granted Ring on Shared with me
+# ✅ ND-14 · Connection-granted Ring on Shared with me
 
 **Status:** open · **Decider:** owner · **Raised:** 2026-10-25 · **Needed by:** [[T-022 Story]] · **Feature:** [[Connections]]
 
-> The needs-decision card: `draft` while the question is written, `open` once it is ready for the decider; it shows **Fulfilled** by itself once its decision card (DR-NN) is `decided`. The cards in `blocks` are **Blocked · D-14** while this is `draft` or `open` and return to their own status once it is fulfilled. Nobody edits their `status:` for this, and nobody types `fulfilled` or `decided` here.
+> The needs-decision card: `draft` while the question is written, `open` once it is ready for the decider; it shows **Fulfilled** by itself once its decision card (D-NN) is `decided`. The cards in `blocks` are **Blocked · ND-14** while this is `draft` or `open` and return to their own status once it is fulfilled. Nobody edits their `status:` for this, and nobody types `fulfilled` or `decided` here.
 
 ## What has to be decided
 
@@ -47,4 +47,4 @@ Recommendation: option 2, for every member, so the rule "the view never names th
 
 ## Decision
 
-Fulfilled by [[DR-14 Shared with me lists people, never the Ring]], decided 2026-10-25 by molham: option 2, for every member.
+Fulfilled by [[D-14 Shared with me lists people, never the Ring]], decided 2026-10-25 by molham: option 2, for every member.

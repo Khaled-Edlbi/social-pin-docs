@@ -1,7 +1,7 @@
 ---
 type: decision-record
-id: DR-07
-decision: D-07
+id: D-07
+decision: ND-07
 status: decided
 decidedBy: "khaled"
 decidedAt: 2026-10-21
@@ -14,7 +14,7 @@ updated: 2026-10-26
 tags: [decision-record, decision-record/decided]
 ---
 
-# ⚖️ DR-07 · Stripe for all four flows
+# ⚖️ D-07 · Stripe for all four flows
 
 **Answers:** [[Payment provider]] · **Decided by:** khaled · **On:** 2026-10-21 · **Feature:** [[Payments & Orders]], [[Subscription (Free vs Pro)]]
 
@@ -22,7 +22,7 @@ tags: [decision-record, decision-record/decided]
 
 ## What was decided
 
-**Option 1 on D-07: Stripe for all four flows.** Stripe is the one payment provider of Social Pin: hosted checkout when an attendee or an exhibitor pays for an order, webhooks to settle it, connected accounts to pay the organizer, subscriptions to bill Pro. One provider, one audit trail, one callback endpoint, behind [[Payments & Orders]] and [[Subscription (Free vs Pro)]]. Options 2 (a regional provider plus the app stores) and 3 (each organizer's own merchant account) are ruled out.
+**Option 1 on ND-07: Stripe for all four flows.** Stripe is the one payment provider of Social Pin: hosted checkout when an attendee or an exhibitor pays for an order, webhooks to settle it, connected accounts to pay the organizer, subscriptions to bill Pro. One provider, one audit trail, one callback endpoint, behind [[Payments & Orders]] and [[Subscription (Free vs Pro)]]. Options 2 (a regional provider plus the app stores) and 3 (each organizer's own merchant account) are ruled out.
 
 ## Why
 

@@ -13,7 +13,7 @@ tags: [frontend-requirements, frontend-requirements/draft, module/identity, laye
 
 # Counts · Frontend Requirements
 
-> ⚠ Affected by [[DR-04 Ring settings at launch and their defaults]] (2026-10-25): D-04 decided, six Ring settings at launch with private defaults (join with a code or invite, approve each one, members can't see each other, invite or save attachments); the owner and the Ring's admins change them; members who may see each other see full cards.
+> ⚠ Affected by [[D-04 Ring settings at launch and their defaults]] (2026-10-25): ND-04 decided, six Ring settings at launch with private defaults (join with a code or invite, approve each one, members can't see each other, invite or save attachments); the owner and the Ring's admins change them; members who may see each other see full cards.
 
 **Feature:** [[Counts]] · **Status:** Draft · **Story:** [[Counts Story]] · **API Integration:** not yet (backend not built)
 

@@ -1,7 +1,7 @@
 ---
 type: decision
-id: D-03
-aliases: [D-03]
+id: ND-03
+aliases: [ND-03]
 status: open
 features: [ring-projection, widgets]
 screens: [s20, s24]
@@ -10,7 +10,7 @@ updated: 2026-10-26
 tags: [decision, decision/open]
 ---
 
-# ✅ D-03 · Field library vs per-Ring copies
+# ✅ ND-03 · Field library vs per-Ring copies
 
 **Status:** decided (2026-10-25, option A) · **Decider:** product + backend lead · **Raised:** 2026-10-15
 
@@ -46,4 +46,4 @@ Screens: [[Screen Index#s20|s20]], [[Screen Index#s24|s24]]
 
 ## Decision
 
-Fulfilled by [[DR-03 Links entered once, switched on or off per Ring]], decided 2026-10-25 by molham: option A.
+Fulfilled by [[D-03 Links entered once, switched on or off per Ring]], decided 2026-10-25 by molham: option A.

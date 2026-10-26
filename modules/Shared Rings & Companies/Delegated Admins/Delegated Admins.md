@@ -24,8 +24,8 @@ Company Rings delegate administration at permission levels (`RingAdmin`). The ru
 
 | Screen | Name | Note |
 |---|---|---|
-| [[Screen Index#s26|s26]] | Edit · access | Settings decided (DR-04), not built |
-| [[Screen Index#s27|s27]] | Edit · permissions | Settings decided (DR-04), not built |
+| [[Screen Index#s26|s26]] | Edit · access | Settings decided (D-04), not built |
+| [[Screen Index#s27|s27]] | Edit · permissions | Settings decided (D-04), not built |
 
 Wireframe brief sections: [[Wireframe Brief#Ring management|§4.2 Ring management]]
 
@@ -33,7 +33,7 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 
 ## Product rules
 
-- A Ring's **admins can change its settings**, as the owner can ([[DR-04 Ring settings at launch and their defaults]]). Whether some settings stay the owner's only was not decided; until it is, admins can change all of them.
+- A Ring's **admins can change its settings**, as the owner can ([[D-04 Ring settings at launch and their defaults]]). Whether some settings stay the owner's only was not decided; until it is, admins can change all of them.
 - Not built yet: there is no way to add, change or remove an admin.
 
 ## Tasks
@@ -48,7 +48,7 @@ TABLE status, priority, effort FROM #task WHERE feature = "delegated-admins" SOR
 
 ## Decisions
 
-- [[Ring settings]] — decided, six settings at launch; the owner and the Ring's admins change them ([[DR-04 Ring settings at launch and their defaults|DR-04]])
+- [[Ring settings]] — decided, six settings at launch; the owner and the Ring's admins change them ([[D-04 Ring settings at launch and their defaults|D-04]])
 
 ## Related
 

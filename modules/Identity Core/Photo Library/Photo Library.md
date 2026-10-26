@@ -24,7 +24,7 @@ The user's uploaded photos, reusable across Rings, with a "N Rings inherit it" c
 
 | Screen | Name | Note |
 |---|---|---|
-| [[Screen Index#s29|s29]] | Photo for this Ring | "Reset to Pin" → D-02 |
+| [[Screen Index#s29|s29]] | Photo for this Ring | "Reset to Pin" → ND-02 |
 | [[Screen Index#s30|s30]] | Photo library |  |
 
 Wireframe brief sections: [[Wireframe Brief#Home — Rings hub + active profile|§4.1 Home — Rings hub + active profile]]
@@ -44,8 +44,8 @@ TABLE status, priority, effort FROM #task WHERE feature = "photo-library" SORT p
 
 ## Decisions
 
-- [[Base profile work fields]] — decided, one main profile every Ring starts from; a Ring may pick its own photo ([[DR-02 One main profile every Ring starts from|DR-02]])
-- [[Copy or inherit]] — decided, inherit per field, copy without members ([[DR-05 Inherit per field, copy without members|DR-05]])
+- [[Base profile work fields]] — decided, one main profile every Ring starts from; a Ring may pick its own photo ([[D-02 One main profile every Ring starts from|D-02]])
+- [[Copy or inherit]] — decided, inherit per field, copy without members ([[D-05 Inherit per field, copy without members|D-05]])
 
 ## Related
 

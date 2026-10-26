@@ -1,7 +1,7 @@
 ---
 type: decision-record
-id: DR-06
-decision: D-06
+id: D-06
+decision: ND-06
 status: decided
 decidedBy: "molham"
 decidedAt: 2026-10-25
@@ -14,7 +14,7 @@ updated: 2026-10-26
 tags: [decision-record, decision-record/decided]
 ---
 
-# ⚖️ DR-06 · Yearly rename, old name freed, case-insensitive
+# ⚖️ D-06 · Yearly rename, old name freed, case-insensitive
 
 **Answers:** [[Pin name rules]] · **Decided by:** molham · **On:** 2026-10-25 · **Feature:** [[Gemma AI]], [[Profiles & Pin Name]]
 
@@ -22,7 +22,7 @@ tags: [decision-record, decision-record/decided]
 
 ## What was decided
 
-**Option A on D-06: a yearly limit and private suggestions**, with two further rules.
+**Option A on ND-06: a yearly limit and private suggestions**, with two further rules.
 
 - **Renaming is limited to once a year**, as s06 already says.
 - **After a rename the old name is free** for anyone at once: it does not redirect to the new name and is not held back.

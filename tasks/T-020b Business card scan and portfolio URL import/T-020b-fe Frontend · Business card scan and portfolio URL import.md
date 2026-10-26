@@ -9,12 +9,12 @@ module: identity
 parent: T-020b
 labels: [frontend]
 screens: [s03a, s03b]
-depends: [D-02, T-020b-be]
+depends: [ND-02, T-020b-be]
 affects: []
 related: []
 pending: []
 created: 2026-10-18
-updated: 2026-10-19
+updated: 2026-10-26
 tags: [task, task/todo, module/identity, priority/medium, frontend]
 ---
 

@@ -11,7 +11,7 @@ labels: [frontend]
 screens: [s05, s23, s68]
 depends: [T-078-be]
 affects: []
-related: ["DR-05 Inherit per field, copy without members", "T-062 Serve uploaded file bytes by id", "T-020 LinkedIn import → review → base profile", "T-020b Business card scan and portfolio URL import", "Onboarding Imports", "Ring Projection", "Files Upload", "Auth & Sign-up"]
+related: ["D-05 Inherit per field, copy without members", "T-062 Serve uploaded file bytes by id", "T-020 LinkedIn import → review → base profile", "T-020b Business card scan and portfolio URL import", "Onboarding Imports", "Ring Projection", "Files Upload", "Auth & Sign-up"]
 pending: []
 created: 2026-10-26
 updated: 2026-10-26
@@ -19,15 +19,15 @@ owner: "Omar Fostok"
 tags: [task, task/todo, module/identity, priority/high, frontend]
 ---
 
-# ⬜ T-078-fe · Frontend: Main profile fields from DR-02
+# ⬜ T-078-fe · Frontend: Main profile fields from D-02
 
-**Parent:** [[T-078 Main profile fields from DR-02]] · **Feature:** [[Profiles & Pin Name]] · **Side:** Frontend · **Status:** To do · **Priority:** high · **Effort:** L (same as the parent until the team sizes it)
+**Parent:** [[T-078 Main profile fields from D-02]] · **Feature:** [[Profiles & Pin Name]] · **Side:** Frontend · **Status:** To do · **Priority:** high · **Effort:** L (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-078-fe` when the team picks it up): [[T-078-fe Frontend Requirements|Frontend Requirements]] · [[T-078-fe Frontend Delivery|Frontend Delivery]] · [[T-078-fe QA Frontend|QA Frontend]]
 
 ## What
 
-The client side of [[T-078 Main profile fields from DR-02]]: the screens below show what its *What* describes, built against [[Profiles & Pin Name Backend Integration]] once the backend half ([[T-078-be Backend · Main profile fields from DR-02]]) is current. Write the asks in [[T-078-fe Frontend Requirements]] first; it is blocked by default until [[T-078 Story]] is approved.
+The client side of [[T-078 Main profile fields from D-02]]: the screens below show what its *What* describes, built against [[Profiles & Pin Name Backend Integration]] once the backend half ([[T-078-be Backend · Main profile fields from D-02]]) is current. Write the asks in [[T-078-fe Frontend Requirements]] first; it is blocked by default until [[T-078 Story]] is approved.
 
 ## Design
 
@@ -38,7 +38,7 @@ The client side of [[T-078 Main profile fields from DR-02]]: the screens below s
 
 ## Impact
 
-Same as the parent's: [[T-078 Main profile fields from DR-02#Impact]].
+Same as the parent's: [[T-078 Main profile fields from D-02#Impact]].
 
 ## Definition of done
 

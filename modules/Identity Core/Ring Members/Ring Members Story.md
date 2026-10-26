@@ -9,9 +9,9 @@ screens: [s15, s47]
 approvedBy: "khaled"
 approvedAt: 2026-10-25
 created: 2026-10-18
-updated: 2026-10-25
+updated: 2026-10-26
 owner: "omar"
-related: ["DR-04 Ring settings at launch and their defaults", "DR-14 Shared with me lists people, never the Ring", "DR-15 Several Rings per connection, remove or disconnect", "DR-18 Ring names shown when joined knowingly"]
+related: ["D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-18 Ring names shown when joined knowingly"]
 tags: [story, story/approved, module/identity, layer/business]
 ---
 
@@ -19,7 +19,7 @@ tags: [story, story/approved, module/identity, layer/business]
 
 **Feature:** [[Ring Members]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[Ring Members Frontend Requirements]] · **Backend Integration:** [[Ring Members Backend Integration]]
 
-A Ring owner manages who is in a Ring: sees the roster, adds someone, gives them a time-boxed window, moves them to another Ring when the relationship changes, or revokes them. Every change is live: the person's next request already reflects it. One person can be in several of the owner's Rings ([[DR-15 Several Rings per connection, remove or disconnect]]). The roster is the owner's private view: a member sees the other members only when the Ring's "members can see each other" is on ([[DR-04 Ring settings at launch and their defaults]]), and never learns which Ring they are in ([[DR-14 Shared with me lists people, never the Ring]]) unless they joined it themselves; every membership records how it was created ([[DR-18 Ring names shown when joined knowingly]]).
+A Ring owner manages who is in a Ring: sees the roster, adds someone, gives them a time-boxed window, moves them to another Ring when the relationship changes, or revokes them. Every change is live: the person's next request already reflects it. One person can be in several of the owner's Rings ([[D-15 Several Rings per connection, remove or disconnect]]). The roster is the owner's private view: a member sees the other members only when the Ring's "members can see each other" is on ([[D-04 Ring settings at launch and their defaults]]), and never learns which Ring they are in ([[D-14 Shared with me lists people, never the Ring]]) unless they joined it themselves; every membership records how it was created ([[D-18 Ring names shown when joined knowingly]]).
 
 ## Persona
 
@@ -46,7 +46,7 @@ Acceptance criteria:
 - [ ] `POST /rings/:ringId/members { userId, startsAt?, expiresAt? }`; on 201 the roster refetches and the new row appears first.
 - [ ] Adding yourself reads "You are the owner of this Ring" (400); an already-active member is a no-op with a refresh (409 `E_RING_MEMBER_01`); a pair with a block reads "Cannot add this user" (409 `E_RING_MEMBER_04`).
 - [ ] Re-adding someone who was removed or lapsed reactivates them with the new window.
-- [ ] Adding someone who is already in another of my Rings is allowed: they are then in several of my Rings and see the version from the Ring they were put in first ([[DR-15 Several Rings per connection, remove or disconnect]]).
+- [ ] Adding someone who is already in another of my Rings is allowed: they are then in several of my Rings and see the version from the Ring they were put in first ([[D-15 Several Rings per connection, remove or disconnect]]).
 - [ ] The source of a `userId` is the connect flow or a scan, neither of which exists yet; the Add button leads to s46 only when that flow ships.
 
 ### S3 · Set or change the access window ([[Screen Index#s47|s47]])
@@ -75,7 +75,7 @@ Acceptance criteria:
 - [ ] "Revoke access" behind a confirmation; `DELETE /rings/:ringId/members/:userId` → 200; back to s15 with the row gone.
 - [ ] The row is kept server-side as `REMOVED`; with no `status` filter it still appears, so the roster always filters `ACTIVE`.
 - [ ] The person's next `/views` call already fails; the client does not need to tell them.
-- [ ] Removing someone from the **last** of my Rings asks: **Remove from Rings** (they stay a connection with no access, and I can add them to a Ring again without a new request) or **Disconnect** (the connection ends; getting back in takes a new request) ([[DR-15 Several Rings per connection, remove or disconnect]]). Removing from a Ring that is not the last asks nothing. Not available yet: there is no disconnect endpoint.
+- [ ] Removing someone from the **last** of my Rings asks: **Remove from Rings** (they stay a connection with no access, and I can add them to a Ring again without a new request) or **Disconnect** (the connection ends; getting back in takes a new request) ([[D-15 Several Rings per connection, remove or disconnect]]). Removing from a Ring that is not the last asks nothing. Not available yet: there is no disconnect endpoint.
 
 ### S6 · Lapsed, not expired (journey, [[Screen Index#s15|s15]])
 
@@ -91,8 +91,8 @@ Acceptance criteria:
 
 Acceptance criteria:
 - [ ] No screen on the member's side reads a membership row; there is no route for it.
-- [ ] Shared with me shows the person who shares and their projection, never the Ring's colour or type, never the roster or the member's own row ([[DR-14 Shared with me lists people, never the Ring]], [[Rings Story]] S3).
-- [ ] The Ring's **name** is shown only to a member who joined it by invitation, code or work email; a member the owner added, accepted from a request, or reassigned into the Ring is never told its name ([[DR-18 Ring names shown when joined knowingly]]). Adding (S2) and moving (S4) record the membership as placed by the owner.
+- [ ] Shared with me shows the person who shares and their projection, never the Ring's colour or type, never the roster or the member's own row ([[D-14 Shared with me lists people, never the Ring]], [[Rings Story]] S3).
+- [ ] The Ring's **name** is shown only to a member who joined it by invitation, code or work email; a member the owner added, accepted from a request, or reassigned into the Ring is never told its name ([[D-18 Ring names shown when joined knowingly]]). Adding (S2) and moving (S4) record the membership as placed by the owner.
 - [ ] Not available yet: the endpoint returns the Ring's name to every member today, and a membership does not record how it was created.
 
 ### S8 · Members who may see each other (journey, [[Screen Index#s15|s15]])
@@ -100,7 +100,7 @@ Acceptance criteria:
 **As a** member of a Ring whose owner turned on "members can see each other" **I want** to see who else is in it **so that** a team or a community knows itself.
 
 Acceptance criteria:
-- [ ] Only when the Ring's "members can see each other" is on (off by default) does a member see the other members, with their **full cards** ([[DR-04 Ring settings at launch and their defaults]]).
+- [ ] Only when the Ring's "members can see each other" is on (off by default) does a member see the other members, with their **full cards** ([[D-04 Ring settings at launch and their defaults]]).
 - [ ] The list still never names the Ring to the member, and never shows windows, lapsed rows or anything else of the owner's roster.
 - [ ] Not available yet: the setting does not exist and there is no member-facing route.
 
@@ -119,7 +119,7 @@ Acceptance criteria:
 
 ## Open questions
 
-- Decided: [[DR-04 Ring settings at launch and their defaults]] (S8), [[DR-14 Shared with me lists people, never the Ring]] and [[DR-18 Ring names shown when joined knowingly]] (S7), [[DR-15 Several Rings per connection, remove or disconnect]] (S2, S5). Building them is not ticketed yet.
-- A member reassigned from a Ring they joined knowingly: DR-18 reads the move as the owner placing them, so the new Ring is not named (DR-18, *Still open*).
-- **Whose card a member sees** when members can see each other: the card each member shares with that Ring is the natural reading (DR-04, *Still open*).
-- The disconnect route, and whether the other person is told anything (DR-15, *Still open*; see [[T-023 Story]]).
+- Decided: [[D-04 Ring settings at launch and their defaults]] (S8), [[D-14 Shared with me lists people, never the Ring]] and [[D-18 Ring names shown when joined knowingly]] (S7), [[D-15 Several Rings per connection, remove or disconnect]] (S2, S5). Building them is not ticketed yet.
+- A member reassigned from a Ring they joined knowingly: D-18 reads the move as the owner placing them, so the new Ring is not named (D-18, *Still open*).
+- **Whose card a member sees** when members can see each other: the card each member shares with that Ring is the natural reading (D-04, *Still open*).
+- The disconnect route, and whether the other person is told anything (D-15, *Still open*; see [[T-023 Story]]).

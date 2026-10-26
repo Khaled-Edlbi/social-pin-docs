@@ -9,9 +9,9 @@ screens: [s29, s30]
 approvedBy: "khaled"
 approvedAt: 2026-10-25
 created: 2026-10-18
-updated: 2026-10-25
+updated: 2026-10-26
 owner: "omar"
-related: ["DR-02 One main profile every Ring starts from", "DR-05 Inherit per field, copy without members"]
+related: ["D-02 One main profile every Ring starts from", "D-05 Inherit per field, copy without members"]
 tags: [story, story/approved, module/identity, layer/business]
 ---
 
@@ -19,7 +19,7 @@ tags: [story, story/approved, module/identity, layer/business]
 
 **Feature:** [[Photo Library]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[Photo Library Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
-A Ring owner keeps a handful of photos, a formal headshot, a casual one, a team picture, and picks a different one per Ring. The library is the owner's private pool of uploads; a photo reaches an audience only when a Ring's projection points at it. One of them is the **main photo** of the main profile, which every Ring shows until the Ring picks its own ([[DR-02 One main profile every Ring starts from]], [[DR-05 Inherit per field, copy without members]]). The library screen shows each photo with "N Rings inherit it", and the per-Ring screen lets the owner pick, upload, or reset to the main photo.
+A Ring owner keeps a handful of photos, a formal headshot, a casual one, a team picture, and picks a different one per Ring. The library is the owner's private pool of uploads; a photo reaches an audience only when a Ring's projection points at it. One of them is the **main photo** of the main profile, which every Ring shows until the Ring picks its own ([[D-02 One main profile every Ring starts from]], [[D-05 Inherit per field, copy without members]]). The library screen shows each photo with "N Rings inherit it", and the per-Ring screen lets the owner pick, upload, or reset to the main photo.
 
 ## Persona
 
@@ -42,7 +42,7 @@ Acceptance criteria:
 **As a** Ring owner **I want** a grid of my uploaded photos with how many Rings use each **so that** I can reuse one instead of uploading again.
 
 Acceptance criteria:
-- [ ] A grid of the owner's image files, newest first, each with "N Rings inherit it" (0 shown as "Not used"). The main photo is marked as such; its count is the Rings that follow it plus the Rings that picked it explicitly (the natural reading of [[DR-05 Inherit per field, copy without members]]; not asked separately).
+- [ ] A grid of the owner's image files, newest first, each with "N Rings inherit it" (0 shown as "Not used"). The main photo is marked as such; its count is the Rings that follow it plus the Rings that picked it explicitly (the natural reading of [[D-05 Inherit per field, copy without members]]; not asked separately).
 - [ ] "Make this my main photo" sets it on the main profile; every Ring that follows the main photo changes with it, and Rings that picked their own keep theirs. Not available yet: the main profile has no photo field.
 - [ ] Selecting one and tapping "Done" returns it to s29 as the candidate; "Cancel" returns with no change.
 - [ ] Until the list endpoint exists, the grid holds only the photos uploaded in this session, and says "Your earlier uploads will appear here soon".
@@ -78,8 +78,8 @@ Acceptance criteria:
 **As a** Ring owner **I want** a Ring to follow my main photo again **so that** I do not have to pick one per Ring.
 
 Acceptance criteria:
-- [ ] Sends `PATCH … { avatarFileId: null }`; the Ring then follows the main photo, and changes with it from then on; only the photo stops being the Ring's own, the Ring's other fields are untouched ([[DR-05 Inherit per field, copy without members]]).
-- [ ] Until the main photo exists on the profile ([[DR-02 One main profile every Ring starts from]], not built yet), the action is disabled with "coming soon"; clearing today would show no photo at all.
+- [ ] Sends `PATCH … { avatarFileId: null }`; the Ring then follows the main photo, and changes with it from then on; only the photo stops being the Ring's own, the Ring's other fields are untouched ([[D-05 Inherit per field, copy without members]]).
+- [ ] Until the main photo exists on the profile ([[D-02 One main profile every Ring starts from]], not built yet), the action is disabled with "coming soon"; clearing today would show no photo at all.
 
 ## States and motion the design asks for
 
@@ -95,5 +95,5 @@ Acceptance criteria:
 
 ## Open questions
 
-- Decided: [[DR-02 One main profile every Ring starts from]] (the main photo) and [[DR-05 Inherit per field, copy without members]] (a Ring follows it until it picks its own). S6 and "Make this my main photo" wait for the main photo field (not ticketed yet).
+- Decided: [[D-02 One main profile every Ring starts from]] (the main photo) and [[D-05 Inherit per field, copy without members]] (a Ring follows it until it picks its own). S6 and "Make this my main photo" wait for the main photo field (not ticketed yet).
 - "N Rings inherit it" counting both following and explicit picks is the natural reading, not an explicit answer; confirm with product when the screen is approved.

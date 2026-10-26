@@ -28,12 +28,12 @@ My Rings and Shared-with-me lists, create a Ring with name, colour, type, expiry
 | [[Screen Index#s09|s09]] | Create first Ring |  |
 | [[Screen Index#s16|s16]] | My Rings |  |
 | [[Screen Index#s17|s17]] | Shared with me | List done; review / decline invite todo |
-| [[Screen Index#s18|s18]] | New Ring · step 1 | Copy a Ring decided (DR-05), not built |
-| [[Screen Index#s19|s19]] | New Ring · step 2 (who is in it) | Audience settings decided (DR-04), not built |
-| [[Screen Index#s20|s20]] | New Ring · step 3 (what it shows) | Field library decided (DR-03), not built |
+| [[Screen Index#s18|s18]] | New Ring · step 1 | Copy a Ring decided (D-05), not built |
+| [[Screen Index#s19|s19]] | New Ring · step 2 (who is in it) | Audience settings decided (D-04), not built |
+| [[Screen Index#s20|s20]] | New Ring · step 3 (what it shows) | Field library decided (D-03), not built |
 | [[Screen Index#s21|s21]] | New Ring · step 4 (how you appear) |  |
-| [[Screen Index#s22|s22]] | Edit · name & purpose | Purpose decided (DR-04), not built |
-| [[Screen Index#s26|s26]] | Edit · access | Settings decided (DR-04), not built |
+| [[Screen Index#s22|s22]] | Edit · name & purpose | Purpose decided (D-04), not built |
+| [[Screen Index#s26|s26]] | Edit · access | Settings decided (D-04), not built |
 | [[Screen Index#s62|s62]] | Post-event summary | Keep / merge / expire done |
 
 Wireframe brief sections: [[Wireframe Brief#Ring management|§4.2 Ring management]], [[Wireframe Brief#Post-event|§8.5 Post-event]]
@@ -42,11 +42,11 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 
 ## Product rules
 
-- **Six settings at launch**, each defaulting to the private choice: who it's for (empty), who can request to join (**only with a code or by invitation**), **approve each one**, members can see each other (**off**), members can invite others (**off**), members can save attachments (**off**). Required work email domain, "members can message me" and "see when I'm at an event" come later, with companies, messaging and events ([[DR-04 Ring settings at launch and their defaults]]).
+- **Six settings at launch**, each defaulting to the private choice: who it's for (empty), who can request to join (**only with a code or by invitation**), **approve each one**, members can see each other (**off**), members can invite others (**off**), members can save attachments (**off**). Required work email domain, "members can message me" and "see when I'm at an event" come later, with companies, messaging and events ([[D-04 Ring settings at launch and their defaults]]).
 - The **owner and the Ring's admins** can change a Ring's settings.
 - When "members can see each other" is on, members see each other's **full cards**; while it is off, only the owner sees who is in the Ring.
-- **A member never learns which Ring they are in**: Shared with me lists the people who share with me, never a Ring's name, colour or type ([[DR-14 Shared with me lists people, never the Ring]]). The one exception: a Ring the member **joined knowingly** (an accepted invitation, a code, a verified work email) shows its name; one the owner placed them in never does ([[DR-18 Ring names shown when joined knowingly]]).
-- **Copying a Ring** copies its fields, bio, photo, colour and settings, **never its members**; afterwards the two are independent ([[DR-05 Inherit per field, copy without members]]).
+- **A member never learns which Ring they are in**: Shared with me lists the people who share with me, never a Ring's name, colour or type ([[D-14 Shared with me lists people, never the Ring]]). The one exception: a Ring the member **joined knowingly** (an accepted invitation, a code, a verified work email) shows its name; one the owner placed them in never does ([[D-18 Ring names shown when joined knowingly]]).
+- **Copying a Ring** copies its fields, bio, photo, colour and settings, **never its members**; afterwards the two are independent ([[D-05 Inherit per field, copy without members]]).
 - Not built yet: none of the settings exist on a Ring today, and `GET /rings/shared-with-me` still returns the Ring's name to members.
 
 ## Tasks
@@ -61,9 +61,9 @@ TABLE status, priority, effort FROM #task WHERE feature = "rings" SORT priority 
 
 ## Decisions
 
-- [[Ring settings]] — decided, six settings at launch with private defaults ([[DR-04 Ring settings at launch and their defaults|DR-04]])
-- [[Copy or inherit]] — decided, inherit per field, copy without members ([[DR-05 Inherit per field, copy without members|DR-05]])
-- [[Connection-granted Ring on Shared with me]] — decided, Shared with me lists people, never the Ring ([[DR-14 Shared with me lists people, never the Ring|DR-14]])
+- [[Ring settings]] — decided, six settings at launch with private defaults ([[D-04 Ring settings at launch and their defaults|D-04]])
+- [[Copy or inherit]] — decided, inherit per field, copy without members ([[D-05 Inherit per field, copy without members|D-05]])
+- [[Connection-granted Ring on Shared with me]] — decided, Shared with me lists people, never the Ring ([[D-14 Shared with me lists people, never the Ring|D-14]])
 
 ## Related
 

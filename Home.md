@@ -32,7 +32,7 @@ Full description: [[Project Overview]]. Vocabulary: [[Glossary]].
 | Error contract (`ErrorCode` on the wire), file bytes by id | 🟡 [[T-063 Put the ErrorCode on the error body]], [[T-062 Serve uploaded file bytes by id]] |
 | Code delivery, counts, delegated admins, badge / QR, Event Ring, photo library, devices, interests, widgets, linked accounts | 🟡 Partial: tables exist, endpoints missing |
 | Connections, shared Rings, companies, Discover, PinCast, events, meetings, exhibitor, post-event, payments, subscription, notifications, Gemma, audit log, cleanup jobs, e2e run | ❌ To do: schema only (about 30 tables with no service) |
-| Design vs backend disagreements | ❓ 5 open [[Decisions]] (D-01 passwordless: decided and shipped) |
+| Design vs backend disagreements | ❓ 5 open [[Decisions]] (ND-01 passwordless: decided and shipped) |
 
 Numbers per module: the eight module notes under `modules/`; the full list: [[Feature Tree]]. The source comparison: [[Status Report 2026-10-15]].
 
@@ -41,7 +41,7 @@ Numbers per module: the eight module notes under `modules/`; the full list: [[Fe
 ```
 social-pin-docs/
 ├── Home.md                        ← you are here
-├── Card Index.md                  GENERATED: every card with its unique code (M-01, F-05, S-01, FR-05, BD-05, T-004, D-04, P-10) and the cards it links to as T-004 | S-01
+├── Card Index.md                  GENERATED: every card with its unique code (M-01, F-05, S-01, FR-05, BD-05, T-004, ND-04, P-10) and the cards it links to as T-004 | S-01
 ├── docs.config.json               the layers, their note kinds and statuses, the hand-off flow, default blocks, card-code prefixes, modules
 ├── business/                      BUSINESS docs: Project Overview · Glossary · Feature Tree · Feature Graph · Feature Map.canvas · Status Report
 ├── frontend/                      FRONTEND docs: Frontend Contract · Frontend API Guide · Frontend Passwordless Migration · Frontend Agent Prompt
@@ -62,7 +62,7 @@ social-pin-docs/
 │   ├── T-NNN <Title>.md           a task; becomes tasks/T-NNN <Title>/ with the same seven kinds of notes (code T-NNN) as teams pick it up
 │   ├── Task Board.md              GENERATED Kanban
 │   └── Backlog.md                 GENERATED priority table with blockers
-├── decisions/                     needs-decision cards <Title>.md (D-NN in id:) and decision records DR-NN <Title>.md
+├── decisions/                     needs-decision cards <Title>.md (ND-NN in id:) and decision records D-NN <Title>.md
 ├── design/                        Design Reference · Screen Index · Navigation Map · Wireframe Brief · Brief Section Map
 ├── templates/                     one per note kind (the scaffold command uses them)
 ├── tree/                          the docs tree page (index.html), its generated index (tree.json, tree.md) and the card-code registry (cards.json)
@@ -80,7 +80,7 @@ social-pin-docs/
 ## How this vault is organised
 
 - **Layers are configuration.** `docs.config.json` declares the layers (business, frontend, backend, QA), each kind's statuses and *done* set, the hand-off flow and the default blocks. A new layer (DevOps, AI, Security) is a config entry and a template; the tree, its filter and its arrows follow ([[Agent Rules#5 · Adding a layer]]).
-- **Codes.** A task's `T-NNN` is carried by every note written for it; a feature's id by its feature-level notes. The feature note of a kind is the sum of the task notes of that kind; the module note is the sum of its features. On top of that, every card has one unique **card code** (`S-01`, `BD-05`, `T-004`, `D-04`…) that never changes and is never reused: the [[Card Index]] lists them all with their related cards as `T-004 | S-01` ([[Agent Rules#2 · Codes, scopes and the "sum of" rule]]).
+- **Codes.** A task's `T-NNN` is carried by every note written for it; a feature's id by its feature-level notes. The feature note of a kind is the sum of the task notes of that kind; the module note is the sum of its features. On top of that, every card has one unique **card code** (`S-01`, `BD-05`, `T-004`, `ND-04`…) that never changes and is never reused: the [[Card Index]] lists them all with their related cards as `T-004 | S-01` ([[Agent Rules#2 · Codes, scopes and the "sum of" rule]]).
 - **Relations are the context.** Every note declares `depends`, `affects`, `related` (and `blockedBy` when something blocks it) in frontmatter; `--impact` lists what a change touches so nobody reads the whole vault ([[Agent Rules#3 · Relations]]).
 - **Statuses and sign-off** are frontmatter on the cards (`status`, `approvedBy`, `approvedAt`, `pending`); the tree computes a feature's, a module's and the project's chip from the cards, *Blocked* from the hand-off flow and `depends` / `blockedBy`, and *Partial* from `pending`; the board and backlog are generated from the task notes.
 - **Design ids are the prototype's.** `s44` means screen 44 in `socialPin-design/.proto2.json`. `[[Screen Index#s44]]` lands on it.

@@ -114,7 +114,7 @@ kanban-plugin: board
 - [ ] [[T-050 Post-event summary and follow-ups]] #high #post-event
 - [ ] [[T-050-be Backend · Post-event summary and follow-ups]] #high #post-event #backend
 - [ ] [[T-050-fe Frontend · Post-event summary and follow-ups]] #high #post-event #frontend
-- [ ] [[T-078-fe Frontend · Main profile fields from DR-02]] #high #profiles #frontend
+- [ ] [[T-078-fe Frontend · Main profile fields from D-02]] #high #profiles #frontend
 - [ ] [[T-013 Usage count per file across Rings]] #medium #photo-library
 - [ ] [[T-013-be Backend · Usage count per file across Rings]] #medium #photo-library #backend
 - [ ] [[T-013-fe Frontend · Usage count per file across Rings]] #medium #photo-library #frontend
@@ -184,8 +184,8 @@ kanban-plugin: board
 - [ ] [[T-049-be Backend · Subscription endpoints and a single Pro gate]] #high #subscription #backend
 - [ ] [[T-054 Cleanup jobs]] #high #cleanup-jobs
 - [ ] [[T-054-be Backend · Cleanup jobs]] #high #cleanup-jobs #backend
-- [ ] [[T-078 Main profile fields from DR-02]] #high #profiles
-- [ ] [[T-078-be Backend · Main profile fields from DR-02]] #high #profiles #backend
+- [ ] [[T-078 Main profile fields from D-02]] #high #profiles
+- [ ] [[T-078-be Backend · Main profile fields from D-02]] #high #profiles #backend
 - [ ] B-02 [[Deleted account answers 401, not the documented 404 E_USER_01]] #medium #account #bug
 - [ ] [[T-020b-be Backend · Business card scan and portfolio URL import]] #medium #onboarding-imports #backend
 - [ ] [[T-031-be Backend · Import contacts]] #medium #discover-hub #backend

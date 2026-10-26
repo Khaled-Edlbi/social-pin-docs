@@ -36,7 +36,7 @@ TABLE status, priority, effort FROM #task WHERE feature = "error-contract" SORT 
 
 ## Decisions
 
-- [[Where a ticket's layer notes live]] — decided, a ticket's layer notes hang on the parent task and the halves write into them ([[DR-19 A ticket's layer notes live on the parent task|DR-19]]); raised from [[T-063 Put the ErrorCode on the error body]]
+- [[Where a ticket's layer notes live]] — decided, a ticket's layer notes hang on the parent task and the halves write into them ([[D-19 A ticket's layer notes live on the parent task|D-19]]); raised from [[T-063 Put the ErrorCode on the error body]]
 
 ## Related
 

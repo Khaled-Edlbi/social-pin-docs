@@ -1,7 +1,7 @@
 ---
 type: decision
-id: D-04
-aliases: [D-04]
+id: ND-04
+aliases: [ND-04]
 status: open
 features: [rings, ring-members, ring-invitations, delegated-admins, companies]
 screens: [s19, s22, s26, s27]
@@ -10,7 +10,7 @@ updated: 2026-10-26
 tags: [decision, decision/open]
 ---
 
-# ✅ D-04 · Ring settings
+# ✅ ND-04 · Ring settings
 
 **Status:** decided (2026-10-25, the launch set and defaults; storage left to the backend) · **Decider:** product + backend lead · **Raised:** 2026-10-15
 
@@ -50,4 +50,4 @@ Screens: [[Screen Index#s19|s19]], [[Screen Index#s22|s22]], [[Screen Index#s26|
 
 ## Decision
 
-Fulfilled by [[DR-04 Ring settings at launch and their defaults]], decided 2026-10-25 by molham: six settings at launch with private defaults; the storage option (A or B) is the backend's.
+Fulfilled by [[D-04 Ring settings at launch and their defaults]], decided 2026-10-25 by molham: six settings at launch with private defaults; the storage option (A or B) is the backend's.

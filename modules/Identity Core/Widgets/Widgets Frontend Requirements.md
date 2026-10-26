@@ -13,7 +13,7 @@ tags: [frontend-requirements, frontend-requirements/draft, module/identity, laye
 
 # Widgets · Frontend Requirements
 
-> ⚠ Affected by [[DR-03 Links entered once, switched on or off per Ring]] (2026-10-25): D-03 decided, links are entered once and only switched on or off per Ring; booking, Behance, Dribbble, GitHub and YouTube join the types, detected from the pasted link.
+> ⚠ Affected by [[D-03 Links entered once, switched on or off per Ring]] (2026-10-25): ND-03 decided, links are entered once and only switched on or off per Ring; booking, Behance, Dribbble, GitHub and YouTube join the types, detected from the pasted link.
 
 **Feature:** [[Widgets]] · **Status:** Draft · **Story:** [[Widgets Story]] · **API Integration:** not yet (backend not built)
 

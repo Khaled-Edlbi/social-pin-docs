@@ -9,9 +9,9 @@ screens: [s08, s09, s16, s17, s18, s19, s20, s21, s22, s26, s62]
 approvedBy: "khaled"
 approvedAt: 2026-10-25
 created: 2026-10-18
-updated: 2026-10-25
+updated: 2026-10-26
 owner: "omar"
-related: ["DR-04 Ring settings at launch and their defaults", "DR-05 Inherit per field, copy without members", "DR-14 Shared with me lists people, never the Ring", "DR-18 Ring names shown when joined knowingly"]
+related: ["D-04 Ring settings at launch and their defaults", "D-05 Inherit per field, copy without members", "D-14 Shared with me lists people, never the Ring", "D-18 Ring names shown when joined knowingly"]
 tags: [story, story/approved, module/identity, layer/business]
 ---
 
@@ -19,7 +19,7 @@ tags: [story, story/approved, module/identity, layer/business]
 
 **Feature:** [[Rings]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[Rings Frontend Requirements]] · **Backend Integration:** [[Rings Backend Integration]]
 
-A person has one profile and many audiences. A Ring is one audience bound to one perspective: Family, Clients, Company, a temporary Event Ring. The owner creates Rings, names and colours them, gives them a window, picks the default (what a scanned badge or a Pin-name lookup resolves to), and, when a temporary Ring lapses, decides whether to keep it, merge it into another, or let it go. Each Ring has a few settings (who it's for, who can join, approve each request, what members may do), all private by default ([[DR-04 Ring settings at launch and their defaults]]). Members see the people who share with them on a separate list, never the owner's roster, and never a Ring's name unless they joined that Ring themselves ([[DR-14 Shared with me lists people, never the Ring]], [[DR-18 Ring names shown when joined knowingly]]).
+A person has one profile and many audiences. A Ring is one audience bound to one perspective: Family, Clients, Company, a temporary Event Ring. The owner creates Rings, names and colours them, gives them a window, picks the default (what a scanned badge or a Pin-name lookup resolves to), and, when a temporary Ring lapses, decides whether to keep it, merge it into another, or let it go. Each Ring has a few settings (who it's for, who can join, approve each request, what members may do), all private by default ([[D-04 Ring settings at launch and their defaults]]). Members see the people who share with them on a separate list, never the owner's roster, and never a Ring's name unless they joined that Ring themselves ([[D-14 Shared with me lists people, never the Ring]], [[D-18 Ring names shown when joined knowingly]]).
 
 ## Persona
 
@@ -52,11 +52,11 @@ Acceptance criteria:
 
 Acceptance criteria:
 - [ ] `GET /rings/shared-with-me`, newest first; only access that is live right now; refetched on screen focus because it changes without any action of mine.
-- [ ] Shared with me is **everyone who shares with me**, however I got in (accepted from a request, added by the owner, an invitation, a code, a company), one row per person ([[DR-14 Shared with me lists people, never the Ring]]).
+- [ ] Shared with me is **everyone who shares with me**, however I got in (accepted from a request, added by the owner, an invitation, a code, a company), one row per person ([[D-14 Shared with me lists people, never the Ring]]).
 - [ ] A row shows **the person** ("Sam's card": their name and photo from their projection), never the Ring's colour or type, and opens the owner's projection through `GET /views/ring/:id`; it never shows a roster or my own membership row.
-- [ ] The row names the Ring **only when I joined it knowingly** (an invitation I accepted, a code, my verified work email), e.g. "Acme Studio · Acme Team"; never when the owner placed me in it (accepted my request into it, added me, or moved me into it) ([[DR-18 Ring names shown when joined knowingly]]).
+- [ ] The row names the Ring **only when I joined it knowingly** (an invitation I accepted, a code, my verified work email), e.g. "Acme Studio · Acme Team"; never when the owner placed me in it (accepted my request into it, added me, or moved me into it) ([[D-18 Ring names shown when joined knowingly]]).
 - [ ] Not available yet: the endpoint returns the Ring's name, colour and type to every member today and does not know how a membership was created; until it does, the app shows no Ring name at all.
-- [ ] Someone who shares several Rings with me is one row; it opens the version from the Ring I was put in first ([[DR-15 Several Rings per connection, remove or disconnect]]).
+- [ ] Someone who shares several Rings with me is one row; it opens the version from the Ring I was put in first ([[D-15 Several Rings per connection, remove or disconnect]]).
 - [ ] "Review invite" and "Join with a code" are shown disabled until invitations exist.
 - [ ] Empty state: "Nothing shared with you yet".
 
@@ -66,7 +66,7 @@ Acceptance criteria:
 
 Acceptance criteria:
 - [ ] Step 1 (s18): name (1–80, unique per owner), colour, type picker limited to `PERSONAL` / `CORPORATE`, temporary switch with `startsAt` / `expiresAt`. Next calls `POST /rings` so later steps have a Ring to write to.
-- [ ] "Copy a Ring" on step 1 copies another of my Rings' fields, bio, photo, colour and settings, **never its members**; afterwards the two Rings are independent ([[DR-05 Inherit per field, copy without members]]). Not available yet: no copy endpoint; the action is shown disabled.
+- [ ] "Copy a Ring" on step 1 copies another of my Rings' fields, bio, photo, colour and settings, **never its members**; afterwards the two Rings are independent ([[D-05 Inherit per field, copy without members]]). Not available yet: no copy endpoint; the action is shown disabled.
 - [ ] Step 2 (s19): the launch settings with their defaults, as in S9; adding people goes through the roster once a `userId` source exists. Not available yet: the settings do not exist on a Ring.
 - [ ] Step 3 (s20) and step 4 (s21) edit the projection ([[Ring Projection Story]]); "Create Ring" lands on s14.
 - [ ] A 409 `E_RING_01` on the name is inline on step 1; Cancel deletes the Ring created in step 1.
@@ -77,7 +77,7 @@ Acceptance criteria:
 
 Acceptance criteria:
 - [ ] `PATCH /rings/:id { name?, colorHex?, style? }`; Save returns to s14 and the Ring re-composes with the new header.
-- [ ] "Purpose" is the **who it's for** label ("Clients", "Investors"), empty by default ([[DR-04 Ring settings at launch and their defaults]]). Not available yet: shown as a placeholder until the setting exists.
+- [ ] "Purpose" is the **who it's for** label ("Clients", "Investors"), empty by default ([[D-04 Ring settings at launch and their defaults]]). Not available yet: shown as a placeholder until the setting exists.
 
 ### S6 · Edit access and expiry ([[Screen Index#s26|s26]])
 
@@ -109,7 +109,7 @@ Acceptance criteria:
 
 ### S9 · Ring settings ([[Screen Index#s19|s19]], [[Screen Index#s26|s26]], [[Screen Index#s27|s27]])
 
-**As a** Ring owner **I want** a short list of settings with safe defaults **so that** a Ring is private until I open it up ([[DR-04 Ring settings at launch and their defaults]]).
+**As a** Ring owner **I want** a short list of settings with safe defaults **so that** a Ring is private until I open it up ([[D-04 Ring settings at launch and their defaults]]).
 
 Acceptance criteria:
 - [ ] Six settings at launch, with these defaults on a new Ring: **who it's for** (a label, empty), **who can request to join** (anyone who scans, only with a code, or only invited; default **only with a code or by invitation**), **approve each one** (on; off means auto-accept), **members can see each other** (off), **members can invite others** (off), **members can save attachments** (off).
@@ -134,7 +134,7 @@ Acceptance criteria:
 
 ## Open questions
 
-- Decided: [[DR-04 Ring settings at launch and their defaults]] (S9, step 2, purpose), [[DR-05 Inherit per field, copy without members]] (Copy a Ring), [[DR-14 Shared with me lists people, never the Ring]] (S3). Building them is not ticketed yet.
-- Whose card a member sees when members can see each other; whether an admin may change every setting (DR-04, *Still open*).
-- Whether a copied Ring's fields keep inheriting where the source Ring inherited (DR-05, *Still open*).
-- Decided: [[DR-18 Ring names shown when joined knowingly]] (S3: a Ring joined knowingly is named). Building it is not ticketed yet.
+- Decided: [[D-04 Ring settings at launch and their defaults]] (S9, step 2, purpose), [[D-05 Inherit per field, copy without members]] (Copy a Ring), [[D-14 Shared with me lists people, never the Ring]] (S3). Building them is not ticketed yet.
+- Whose card a member sees when members can see each other; whether an admin may change every setting (D-04, *Still open*).
+- Whether a copied Ring's fields keep inheriting where the source Ring inherited (D-05, *Still open*).
+- Decided: [[D-18 Ring names shown when joined knowingly]] (S3: a Ring joined knowingly is named). Building it is not ticketed yet.

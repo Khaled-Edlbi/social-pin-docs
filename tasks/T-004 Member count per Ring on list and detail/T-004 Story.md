@@ -8,13 +8,13 @@ status: approved
 screens: [s14, s16]
 depends: []
 affects: []
-related: ["DR-04 Ring settings at launch and their defaults"]
+related: ["D-04 Ring settings at launch and their defaults"]
 pending: []
 approvedBy: "khaled"
 approvedAt: 2026-10-25
 owner: "omar"
 created: 2026-10-18
-updated: 2026-10-25
+updated: 2026-10-26
 tags: [story, story/approved, module/identity, layer/business]
 task: T-004
 ---
@@ -70,7 +70,7 @@ Acceptance criteria:
 **As a** Ring member **I want** the size of someone else's Ring kept private **so that** membership isn't revealed.
 
 Acceptance criteria:
-- [ ] `memberCount` is on the owner's Rings only; `GET /rings/shared-with-me` doesn't carry it. "Members can see each other" is a Ring setting, off by default ([[DR-04 Ring settings at launch and their defaults]]); a member-side count, if any, belongs to that setting's work, not to this task.
+- [ ] `memberCount` is on the owner's Rings only; `GET /rings/shared-with-me` doesn't carry it. "Members can see each other" is a Ring setting, off by default ([[D-04 Ring settings at launch and their defaults]]); a member-side count, if any, belongs to that setting's work, not to this task.
 
 ## States and motion the design asks for
 

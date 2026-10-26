@@ -1,7 +1,7 @@
 ---
 type: decision
-id: D-12
-aliases: [D-12]
+id: ND-12
+aliases: [ND-12]
 status: draft
 features: [badge-qr]
 blocks: ["T-007 Story", "T-010"]
@@ -15,11 +15,11 @@ updated: 2026-10-26
 tags: [decision, decision/draft]
 ---
 
-# ❓ D-12 · What the badge QR encodes
+# ❓ ND-12 · What the badge QR encodes
 
 **Status:** draft · **Decider:** owner · **Raised:** 2026-10-25 · **Needed by:** [[T-007 Story]], [[T-010 Public browser page for viewers without the app]] · **Feature:** [[Badge & QR]]
 
-> The needs-decision card: `draft` while the question is written, `open` once it is ready for the decider; it shows **Fulfilled** by itself once its decision card (DR-NN) is `decided`. The cards in `blocks` are **Blocked · D-12** while this is `draft` or `open` and return to their own status once it is fulfilled. Nobody edits their `status:` for this, and nobody types `fulfilled` or `decided` here.
+> The needs-decision card: `draft` while the question is written, `open` once it is ready for the decider; it shows **Fulfilled** by itself once its decision card (D-NN) is `decided`. The cards in `blocks` are **Blocked · ND-12** while this is `draft` or `open` and return to their own status once it is fulfilled. Nobody edits their `status:` for this, and nobody types `fulfilled` or `decided` here.
 
 ## What has to be decided
 
@@ -46,4 +46,4 @@ Recommendation: option 1, decided now, so codes printed on Pro cards and event b
 
 ## Decision
 
-— (answered on its decision card, never written here: the PM or the owner, on the user's word, runs `node scripts/build-tree.mjs --scaffold record D-12 "<the answer>"`, fills the decision card DR-NN (what was decided, why, what it changes with every feature and task in its `affects`, what stays open) and sets it `decided` with `decidedBy` and `decidedAt`; this card then shows Fulfilled by itself; the H1 gets ✅, and this line is replaced by "Fulfilled by" and a wikilink to the decision card, then "decided <date> by <who>: option <n>"; then `--impact DR-NN` and flag the notes it lists)
+— (answered on its decision card, never written here: the PM or the owner, on the user's word, runs `node scripts/build-tree.mjs --scaffold record ND-12 "<the answer>"`, fills the decision card D-NN (what was decided, why, what it changes with every feature and task in its `affects`, what stays open) and sets it `decided` with `decidedBy` and `decidedAt`; this card then shows Fulfilled by itself; the H1 gets ✅, and this line is replaced by "Fulfilled by" and a wikilink to the decision card, then "decided <date> by <who>: option <n>"; then `--impact D-NN` and flag the notes it lists)

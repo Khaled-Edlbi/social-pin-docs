@@ -10,7 +10,7 @@ screens: [s01]
 depends: []
 created: 2026-10-15
 tags: [task, task/done, module/identity, priority/critical]
-decision: D-01
+decision: ND-01
 ---
 
 # ✅ T-056 · Decide: passwordless login

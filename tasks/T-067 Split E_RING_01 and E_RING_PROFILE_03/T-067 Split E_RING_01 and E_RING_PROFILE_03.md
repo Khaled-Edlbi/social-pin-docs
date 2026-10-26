@@ -24,7 +24,7 @@ tags: [task, task/todo, module/platform, priority/critical]
 
 **Sub-tasks:** [[T-067-fe Frontend · Split E_RING_01 and E_RING_PROFILE_03|Frontend]] · [[T-067-be Backend · Split E_RING_01 and E_RING_PROFILE_03|Backend]] · **Story:** [[T-067 Story]]
 
-**Layer notes** (this ticket's chain, on the parent task per [[DR-19 A ticket's layer notes live on the parent task]]; each layer scaffolds its own with `node scripts/build-tree.mjs --scaffold <kind> T-067`): Frontend Requirements → Backend Delivery → Backend Integration → Frontend Delivery, with QA Backend after the delivery and QA Frontend after the client. None written yet.
+**Layer notes** (this ticket's chain, on the parent task per [[D-19 A ticket's layer notes live on the parent task]]; each layer scaffolds its own with `node scripts/build-tree.mjs --scaffold <kind> T-067`): Frontend Requirements → Backend Delivery → Backend Integration → Frontend Delivery, with QA Backend after the delivery and QA Frontend after the client. None written yet.
 
 ## What
 

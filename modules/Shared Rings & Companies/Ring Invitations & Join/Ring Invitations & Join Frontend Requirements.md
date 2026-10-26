@@ -13,9 +13,9 @@ tags: [frontend-requirements, frontend-requirements/draft, module/shared-rings, 
 
 # Ring Invitations & Join · Frontend Requirements
 
-> ⚠ Affected by [[DR-18 Ring names shown when joined knowingly]] (2026-10-25): an invitation names its Ring on s17 and s74, and a Ring joined by invitation, code or work email keeps showing its name; never its colour or type.
+> ⚠ Affected by [[D-18 Ring names shown when joined knowingly]] (2026-10-25): an invitation names its Ring on s17 and s74, and a Ring joined by invitation, code or work email keeps showing its name; never its colour or type.
 
-> ⚠ Affected by [[DR-04 Ring settings at launch and their defaults]] (2026-10-25): D-04 decided, six Ring settings at launch with private defaults (join with a code or invite, approve each one, members can't see each other, invite or save attachments); the owner and the Ring's admins change them; members who may see each other see full cards.
+> ⚠ Affected by [[D-04 Ring settings at launch and their defaults]] (2026-10-25): ND-04 decided, six Ring settings at launch with private defaults (join with a code or invite, approve each one, members can't see each other, invite or save attachments); the owner and the Ring's admins change them; members who may see each other see full cards.
 
 **Feature:** [[Ring Invitations & Join]] · **Status:** Draft · **Story:** [[Ring Invitations & Join Story]] · **API Integration:** not yet (backend not built)
 

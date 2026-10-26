@@ -8,7 +8,7 @@ status: approved
 screens: [s68]
 approvedBy: "khaled"
 approvedAt: 2026-10-25
-related: ["Whether an unverified new address may sign in", "DR-20 The changed address still signs in, the words are corrected", "An unverified changed email still signs in"]
+related: ["Whether an unverified new address may sign in", "D-20 The changed address still signs in, the words are corrected", "An unverified changed email still signs in"]
 owner: "khaled"
 created: 2026-10-18
 updated: 2026-10-26
@@ -44,7 +44,7 @@ Acceptance criteria:
 
 Acceptance criteria:
 - [ ] Inline edit with client-side email validation; the value is sent lower-cased and trimmed to `PATCH /users/me { email }`.
-- [ ] On 200 the row re-renders from the response with the email marked **unverified**. The copy says only that confirming a new address is not in the app yet; it does **not** promise a verification email, and it does **not** say the address must be verified before it can be used to sign in — the new address signs in straight away, unverified, and that is the behaviour the product accepts for now ([[DR-20 The changed address still signs in, the words are corrected]]).
+- [ ] On 200 the row re-renders from the response with the email marked **unverified**. The copy says only that confirming a new address is not in the app yet; it does **not** promise a verification email, and it does **not** say the address must be verified before it can be used to sign in — the new address signs in straight away, unverified, and that is the behaviour the product accepts for now ([[D-20 The changed address still signs in, the words are corrected]]).
 - [ ] 409 reads "This email is already on another account", inline, field kept focused.
 - [ ] Cancel restores the previous value without a request.
 
@@ -92,12 +92,12 @@ Acceptance criteria:
 ## Rules the backend already enforces
 
 - `GET /users/me` reads through a narrow select of the `users` row; there is no password column since 2026-10-15 ([[Passwordless login]]).
-- `PATCH /users/me` normalises (email lower-cased and trimmed, phone to E.164), checks uniqueness (409 `E_USER_02` / `E_USER_03`) and clears the matching `…VerifiedAt`, so the destination reads as unverified. The cleared flag is **not** a gate: `POST /auth/login` and `POST /auth/login/verify` accept the changed address at once ([[An unverified changed email still signs in]], accepted by [[DR-20 The changed address still signs in, the words are corrected]]).
+- `PATCH /users/me` normalises (email lower-cased and trimmed, phone to E.164), checks uniqueness (409 `E_USER_02` / `E_USER_03`) and clears the matching `…VerifiedAt`, so the destination reads as unverified. The cleared flag is **not** a gate: `POST /auth/login` and `POST /auth/login/verify` accept the changed address at once ([[An unverified changed email still signs in]], accepted by [[D-20 The changed address still signs in, the words are corrected]]).
 - `DELETE /users/me` is a soft delete: the row stays (meetings, orders and audit logs reference it), the unique email and phone are released, every refresh token is revoked.
 - There is no `GET /users/:id` and no user search. Another person is reachable only through a Ring projection.
 
 ## Open questions
 
 - No decision blocks this feature. Re-verifying a changed email or phone has no dedicated route; it is recorded in [[Account#Gaps]] and needs a task when the Me screen is built.
-- Whether an unverified new address may sign in was answered **for now**, not for good: [[DR-20 The changed address still signs in, the words are corrected]] leaves the gate out while `POST /auth/login` still returns `devCode`, and asks for the question again when [[T-003 Remove devCode once delivery works]] lands. S2's and S3's copy changes back with it.
+- Whether an unverified new address may sign in was answered **for now**, not for good: [[D-20 The changed address still signs in, the words are corrected]] leaves the gate out while `POST /auth/login` still returns `devCode`, and asks for the question again when [[T-003 Remove devCode once delivery works]] lands. S2's and S3's copy changes back with it.
 - The connection count and linked accounts on s68 belong to [[Counts]] and [[Linked Accounts (OAuth)]].

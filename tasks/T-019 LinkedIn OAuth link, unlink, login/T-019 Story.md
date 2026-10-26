@@ -13,7 +13,7 @@ pending: []
 approvedBy: ""
 approvedAt: ""
 created: 2026-10-18
-updated: 2026-10-18
+updated: 2026-10-26
 tags: [story, story/draft, module/platform, layer/business]
 task: T-019
 ---
@@ -24,7 +24,7 @@ task: T-019
 
 > Derived from the task [[T-019 LinkedIn OAuth link, unlink, login]]; **not approved by product yet**. The feature-level story is [[Linked Accounts (OAuth) Story]]; this note says what the user gets from this task in particular. `approved` when product signs off (`approvedBy`, `approvedAt`); `verified` when both QA notes are `passing`.
 
-Callback writes `SocialIdentity`. Login via provider returns a session the same way `POST /auth/login/verify` does (D-01 decided: passwordless, code-only; a linked provider is the second way to prove the identity).
+Callback writes `SocialIdentity`. Login via provider returns a session the same way `POST /auth/login/verify` does (ND-01 decided: passwordless, code-only; a linked provider is the second way to prove the identity).
 
 ## Persona
 
@@ -51,4 +51,4 @@ Edge cases a story must respect because the backend decides them (from the featu
 
 ## Open questions
 
-- [[D-NN …]] — what it blocks here.
+- [[ND-NN …]] — what it blocks here.

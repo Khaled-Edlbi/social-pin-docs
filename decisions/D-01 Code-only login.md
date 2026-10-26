@@ -1,7 +1,7 @@
 ---
 type: decision-record
-id: DR-01
-decision: D-01
+id: D-01
+decision: ND-01
 status: decided
 decidedBy: "product + backend lead"
 decidedAt: 2026-10-15
@@ -14,7 +14,7 @@ updated: 2026-10-26
 tags: [decision-record, decision-record/decided]
 ---
 
-# ⚖️ DR-01 · Code-only login
+# ⚖️ D-01 · Code-only login
 
 **Answers:** [[Passwordless login]] · **Decided by:** product + backend lead · **On:** 2026-10-15 · **Feature:** [[Auth & Sign-up]], [[Linked Accounts (OAuth)]]
 
@@ -22,7 +22,7 @@ tags: [decision-record, decision-record/decided]
 
 ## What was decided
 
-**Option A on D-01: code-only login.** A user signs in with a one-time code and never sets a password, as s01 says. Shipped in `social-pin` PR #1 (`feat(auth): passwordless sign-in with OTP codes`):
+**Option A on ND-01: code-only login.** A user signs in with a one-time code and never sets a password, as s01 says. Shipped in `social-pin` PR #1 (`feat(auth): passwordless sign-in with OTP codes`):
 
 - `POST /auth/login { identifier }` issues a LOGIN code; `POST /auth/login/verify { identifier, code }` returns the session.
 - `complete-registration` takes only `pinName` / `fullName`; `reset-password` and `change-password` are removed; `users.password_hash` is dropped.

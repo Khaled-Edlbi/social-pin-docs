@@ -1,7 +1,7 @@
 ---
 type: decision
-id: D-19
-aliases: [D-19]
+id: ND-19
+aliases: [ND-19]
 status: open
 features: [error-contract]
 blocks: [T-063]
@@ -15,11 +15,11 @@ updated: 2026-10-26
 tags: [decision, decision/open]
 ---
 
-# ✅ D-19 · Where a ticket's layer notes live
+# ✅ ND-19 · Where a ticket's layer notes live
 
 **Status:** open · **Decider:** owner · **Raised:** 2026-10-25 · **Needed by:** [[T-063 Put the ErrorCode on the error body]] · **Feature:** [[Error Contract]]
 
-> The needs-decision card: `draft` while the question is written, `open` once it is ready for the decider; it shows **Fulfilled** by itself once its decision card (DR-NN) is `decided`. The cards in `blocks` are **Blocked · D-19** while this is `draft` or `open` and return to their own status once it is fulfilled. Nobody edits their `status:` for this, and nobody types `fulfilled` or `decided` here.
+> The needs-decision card: `draft` while the question is written, `open` once it is ready for the decider; it shows **Fulfilled** by itself once its decision card (D-NN) is `decided`. The cards in `blocks` are **Blocked · ND-19** while this is `draft` or `open` and return to their own status once it is fulfilled. Nobody edits their `status:` for this, and nobody types `fulfilled` or `decided` here.
 
 ## What has to be decided
 
@@ -44,4 +44,4 @@ A build task is split into its halves, `T-NNN-fe` and `T-NNN-be`, and each half 
 
 ## Decision
 
-Fulfilled by [[DR-19 A ticket's layer notes live on the parent task]] — decided 2026-10-25 by khaled: option 1.
+Fulfilled by [[D-19 A ticket's layer notes live on the parent task]] — decided 2026-10-25 by khaled: option 1.

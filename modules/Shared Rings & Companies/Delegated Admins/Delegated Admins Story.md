@@ -9,9 +9,9 @@ screens: [s26, s27]
 approvedBy: "khaled"
 approvedAt: 2026-10-25
 created: 2026-10-18
-updated: 2026-10-25
+updated: 2026-10-26
 owner: "omar"
-related: ["DR-04 Ring settings at launch and their defaults"]
+related: ["D-04 Ring settings at launch and their defaults"]
 tags: [story, story/approved, module/shared-rings, layer/business]
 ---
 
@@ -63,12 +63,12 @@ Acceptance criteria:
 Acceptance criteria:
 - [ ] A Ring I administer is reachable from the shared-Rings list with an *Edit* affordance; the edit screens are the same ones the owner uses, with owner-only parts hidden.
 - [ ] At the content level I can change name, colour, expiry and the projection; at the members level I can also open the people screen and add, move or revoke members.
-- [ ] I can change the Ring's settings (S5), as the owner can ([[DR-04 Ring settings at launch and their defaults]]); which level is needed is [[T-006 Delegated admin endpoints]]'s to define.
+- [ ] I can change the Ring's settings (S5), as the owner can ([[D-04 Ring settings at launch and their defaults]]); which level is needed is [[T-006 Delegated admin endpoints]]'s to define.
 - [ ] I cannot delete the Ring, make it the default, or appoint other admins; those controls are absent, not disabled.
 
 ### S5 · The Ring's settings ([[Screen Index#s26|s26]], [[Screen Index#s27|s27]])
 
-**As a** Ring owner or one of its admins, **I want** the Ring's settings on these screens with their defaults, **so that** I control who gets in and what members may do ([[DR-04 Ring settings at launch and their defaults]], [[Rings Story]] S9).
+**As a** Ring owner or one of its admins, **I want** the Ring's settings on these screens with their defaults, **so that** I control who gets in and what members may do ([[D-04 Ring settings at launch and their defaults]], [[Rings Story]] S9).
 
 Acceptance criteria:
 - [ ] At launch: who it's for, who can request to join (default: with a code or by invitation), approve each one (on), members can see each other (off), members can invite others (off), members can save attachments (off).
@@ -92,7 +92,7 @@ Acceptance criteria:
 
 ## Open questions
 
-- Decided: [[DR-04 Ring settings at launch and their defaults]] (S5, and admins may change the settings). Building the settings is not ticketed yet.
-- Whether an admin may change every setting or only some, for example not "who it's for" (DR-04, *Still open*; until it is answered, all of them).
+- Decided: [[D-04 Ring settings at launch and their defaults]] (S5, and admins may change the settings). Building the settings is not ticketed yet.
+- Whether an admin may change every setting or only some, for example not "who it's for" (D-04, *Still open*; until it is answered, all of them).
 - [[T-006 Delegated admin endpoints]] — the full list of permission levels and whether an admin needs to be a connection or a member first; S1's picker assumes a connection.
 - [[T-023 Connection detail and contacts list]] — the picker for S1 and the names on the admin rows.

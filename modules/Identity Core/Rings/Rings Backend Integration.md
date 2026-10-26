@@ -13,13 +13,13 @@ tags: [backend-integration, backend-integration/current, module/identity, layer/
 
 # 🔌 Rings · Backend Integration
 
-> ⚠ Affected by [[DR-18 Ring names shown when joined knowingly]] (2026-10-25): `GET /rings/shared-with-me` may return a Ring's name only for a membership created by invitation, code or work email; never for a connection accept or an owner add (an exception to DR-14).
+> ⚠ Affected by [[D-18 Ring names shown when joined knowingly]] (2026-10-25): `GET /rings/shared-with-me` may return a Ring's name only for a membership created by invitation, code or work email; never for a connection accept or an owner add (an exception to D-14).
 
-> ⚠ Affected by [[DR-04 Ring settings at launch and their defaults]] (2026-10-25): D-04 decided, six Ring settings at launch with private defaults (join with a code or invite, approve each one, members can't see each other, invite or save attachments); the owner and the Ring's admins change them; members who may see each other see full cards.
+> ⚠ Affected by [[D-04 Ring settings at launch and their defaults]] (2026-10-25): ND-04 decided, six Ring settings at launch with private defaults (join with a code or invite, approve each one, members can't see each other, invite or save attachments); the owner and the Ring's admins change them; members who may see each other see full cards.
 
-> ⚠ Affected by [[DR-05 Inherit per field, copy without members]] (2026-10-25): D-05 decided, a Ring inherits the main profile field by field until it changes that field; copying a Ring copies fields, bio, photo, colour and settings, never members.
+> ⚠ Affected by [[D-05 Inherit per field, copy without members]] (2026-10-25): ND-05 decided, a Ring inherits the main profile field by field until it changes that field; copying a Ring copies fields, bio, photo, colour and settings, never members.
 
-> ⚠ Affected by [[DR-14 Shared with me lists people, never the Ring]] (2026-10-25): D-14 decided, option 2: Shared with me lists the people who share with me and never shows a Ring's name, colour or type to a member.
+> ⚠ Affected by [[D-14 Shared with me lists people, never the Ring]] (2026-10-25): ND-14 decided, option 2: Shared with me lists the people who share with me and never shows a Ring's name, colour or type to a member.
 
 **Feature:** [[Rings]] · **Backend:** ✅ Done · **Read first:** [[Frontend Contract]], [[Ring Access Model]]
 

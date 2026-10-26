@@ -1,7 +1,7 @@
 ---
 type: decision
-id: D-02
-aliases: [D-02]
+id: ND-02
+aliases: [ND-02]
 status: open
 features: [profiles, ring-projection, onboarding-imports, photo-library]
 screens: [s05, s06, s11, s23, s29]
@@ -10,7 +10,7 @@ updated: 2026-10-26
 tags: [decision, decision/open]
 ---
 
-# ✅ D-02 · Base profile work fields
+# ✅ ND-02 · Base profile work fields
 
 **Status:** decided (2026-10-25, option A) · **Decider:** product + backend lead · **Raised:** 2026-10-15
 
@@ -50,4 +50,4 @@ Screens: [[Screen Index#s05|s05]], [[Screen Index#s06|s06]], [[Screen Index#s11|
 
 ## Decision
 
-Fulfilled by [[DR-02 One main profile every Ring starts from]], decided 2026-10-25 by molham: option A.
+Fulfilled by [[D-02 One main profile every Ring starts from]], decided 2026-10-25 by molham: option A.

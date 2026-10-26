@@ -1,20 +1,20 @@
 ---
 type: decision-record
-id: DR-14
-decision: D-14
+id: D-14
+decision: ND-14
 status: decided
 decidedBy: "molham"
 decidedAt: 2026-10-25
 features: [connections]
 affects: ["Connections", "Rings", "Ring Members", "T-022 Accept into a Ring (sets grantedRingId)", "T-023 Connection detail and contacts list"]
-related: ["Connection-granted Ring on Shared with me", "View As & Pin Views", "DR-15 Several Rings per connection, remove or disconnect"]
+related: ["Connection-granted Ring on Shared with me", "View As & Pin Views", "D-15 Several Rings per connection, remove or disconnect"]
 owner: "khaled"
 created: 2026-10-25
 updated: 2026-10-26
 tags: [decision-record, decision-record/decided]
 ---
 
-# ⚖️ DR-14 · Shared with me lists people, never the Ring
+# ⚖️ D-14 · Shared with me lists people, never the Ring
 
 **Answers:** [[Connection-granted Ring on Shared with me]] · **Decided by:** molham · **On:** 2026-10-25 · **Feature:** [[Connections]]
 
@@ -22,7 +22,7 @@ tags: [decision-record, decision-record/decided]
 
 ## What was decided
 
-**Option 2 on D-14, for every member: Shared with me lists people, never the Ring.**
+**Option 2 on ND-14, for every member: Shared with me lists people, never the Ring.**
 
 - A person **never learns which of someone's Rings they are in**: not its name, colour or type.
 - Shared with me ([[Screen Index#s17|s17]]) is **"everyone who shares with me"**, not only Rings joined by invitation or code: one row per person who shares with me ("Sam's card", from that person's projection), whatever way I got in.
@@ -37,7 +37,7 @@ Answered on the product-questions page, 2026-10-22 ("dont show"; Shared with me 
 - [[T-022 Story]] S3 promises that the requester never learns the Ring they were put in; a Ring name on s17 would break that promise for every member, not only connections.
 - Owners name Rings for themselves ("Acquaintances", "Maybe later"); those names were never meant to be read by the people in them.
 - Listing everyone who shares with me makes s17 one place to find every card shared with me, instead of splitting people by how they got in.
-- Traded away: the `shared-with-me` row changes for every member, and a person in two of someone's Rings sees one person, not two Rings ([[DR-15 Several Rings per connection, remove or disconnect]] says which version they see).
+- Traded away: the `shared-with-me` row changes for every member, and a person in two of someone's Rings sees one person, not two Rings ([[D-15 Several Rings per connection, remove or disconnect]] says which version they see).
 
 ## What it changes
 
@@ -49,4 +49,4 @@ Answered on the product-questions page, 2026-10-22 ("dont show"; Shared with me 
 
 ## Still open
 
-- ~~Whether a Ring joined openly may show its name to members~~: answered by [[DR-18 Ring names shown when joined knowingly]] (2026-10-25): a Ring joined by invitation, code or work email is named to that member; a Ring the owner placed them in never is.
+- ~~Whether a Ring joined openly may show its name to members~~: answered by [[D-18 Ring names shown when joined knowingly]] (2026-10-25): a Ring joined by invitation, code or work email is named to that member; a Ring the owner placed them in never is.

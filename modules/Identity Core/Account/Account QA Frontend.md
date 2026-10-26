@@ -17,7 +17,7 @@ tags: [qa-frontend, qa-frontend/passing, module/identity, layer/qa]
 
 # 🧪 Account · QA Frontend
 
-> ⚠ Affected by [[An unverified changed email still signs in]] (2026-10-26): this note was written twice in parallel; the merge kept the run on `47ce960` and dropped the unrun draft. B-01's `pending` asks for "row F10" of the draft (the copy under the ACCOUNT group while anything is unverified, now the copy [[DR-20 The changed address still signs in, the words are corrected]] accepts): find the row of this run that covers it and clear B-01's item. `/qa`.
+> ⚠ Affected by [[An unverified changed email still signs in]] (2026-10-26): this note was written twice in parallel; the merge kept the run on `47ce960` and dropped the unrun draft. B-01's `pending` asks for "row F10" of the draft (the copy under the ACCOUNT group while anything is unverified, now the copy [[D-20 The changed address still signs in, the words are corrected]] accepts): find the row of this run that covers it and clear B-01's item. `/qa`.
 
 **Feature:** [[Account]] · **Verifies:** [[Account Frontend Delivery]] against [[Account Story]] · **Verdict:** ✅ Passing on every row run · 2026-10-26 · `social_pin` `main` @ `47ce960` · 8 rows not run (see `pending`)
 

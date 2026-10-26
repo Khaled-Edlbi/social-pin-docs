@@ -1,7 +1,7 @@
 ---
 type: decision
-id: D-17
-aliases: [D-17]
+id: ND-17
+aliases: [ND-17]
 status: open
 features: [connections]
 blocks: ["T-021 Story"]
@@ -15,11 +15,11 @@ updated: 2026-10-26
 tags: [decision, decision/open]
 ---
 
-# ✅ D-17 · Request expiry, note and asking again
+# ✅ ND-17 · Request expiry, note and asking again
 
 **Status:** open · **Decider:** owner · **Raised:** 2026-10-25 · **Needed by:** [[T-021 Story]] · **Feature:** [[Connections]]
 
-> The needs-decision card: `draft` while the question is written, `open` once it is ready for the decider; it shows **Fulfilled** by itself once its decision card (DR-NN) is `decided`. The cards in `blocks` are **Blocked · D-17** while this is `draft` or `open` and return to their own status once it is fulfilled. Nobody edits their `status:` for this, and nobody types `fulfilled` or `decided` here.
+> The needs-decision card: `draft` while the question is written, `open` once it is ready for the decider; it shows **Fulfilled** by itself once its decision card (D-NN) is `decided`. The cards in `blocks` are **Blocked · ND-17** while this is `draft` or `open` and return to their own status once it is fulfilled. Nobody edits their `status:` for this, and nobody types `fulfilled` or `decided` here.
 
 ## What has to be decided
 
@@ -43,4 +43,4 @@ Three rules of a connection request that [[T-021 Connect request send, inbox, ca
 
 ## Decision
 
-Fulfilled by [[DR-17 Requests expire after 30 days, optional note, ask again at once]], decided 2026-10-25 by molham: option 1.
+Fulfilled by [[D-17 Requests expire after 30 days, optional note, ask again at once]], decided 2026-10-25 by molham: option 1.

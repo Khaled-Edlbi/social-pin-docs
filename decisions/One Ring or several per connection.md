@@ -1,7 +1,7 @@
 ---
 type: decision
-id: D-15
-aliases: [D-15]
+id: ND-15
+aliases: [ND-15]
 status: open
 features: [connections]
 blocks: ["T-023 Story"]
@@ -15,11 +15,11 @@ updated: 2026-10-26
 tags: [decision, decision/open]
 ---
 
-# ✅ D-15 · One Ring or several per connection
+# ✅ ND-15 · One Ring or several per connection
 
 **Status:** open · **Decider:** owner · **Raised:** 2026-10-25 · **Needed by:** [[T-023 Story]] · **Feature:** [[Connections]]
 
-> The needs-decision card: `draft` while the question is written, `open` once it is ready for the decider; it shows **Fulfilled** by itself once its decision card (DR-NN) is `decided`. The cards in `blocks` are **Blocked · D-15** while this is `draft` or `open` and return to their own status once it is fulfilled. Nobody edits their `status:` for this, and nobody types `fulfilled` or `decided` here.
+> The needs-decision card: `draft` while the question is written, `open` once it is ready for the decider; it shows **Fulfilled** by itself once its decision card (D-NN) is `decided`. The cards in `blocks` are **Blocked · ND-15** while this is `draft` or `open` and return to their own status once it is fulfilled. Nobody edits their `status:` for this, and nobody types `fulfilled` or `decided` here.
 
 ## What has to be decided
 
@@ -47,4 +47,4 @@ Recommendation: option 1. It matches the design and the API, and revoking access
 
 ## Decision
 
-Fulfilled by [[DR-15 Several Rings per connection, remove or disconnect]], decided 2026-10-25 by molham: option 1, with *Remove from Rings* or *Disconnect* offered at the last removal.
+Fulfilled by [[D-15 Several Rings per connection, remove or disconnect]], decided 2026-10-25 by molham: option 1, with *Remove from Rings* or *Disconnect* offered at the last removal.

@@ -7,7 +7,7 @@ effort: M
 feature: widgets
 module: identity
 screens: [s36, s37]
-depends: [T-017, D-03]
+depends: [T-017, ND-03]
 created: 2026-10-15
 updated: 2026-10-26
 owner: "omar"
@@ -22,7 +22,7 @@ tags: [task, task/needs-info, module/identity, priority/high]
 
 ## What
 
-`…/projection/widgets` with `type`, `config` (validated per type), `sortOrder`, `isVisible`. Viewer rendering in `toView`. Built on the library model D-03 chose (one library, on/off per Ring: [[DR-03 Links entered once, switched on or off per Ring]]), not on the per-Ring copies.
+`…/projection/widgets` with `type`, `config` (validated per type), `sortOrder`, `isVisible`. Viewer rendering in `toView`. Built on the library model ND-03 chose (one library, on/off per Ring: [[D-03 Links entered once, switched on or off per Ring]]), not on the per-Ring copies.
 
 ## Design
 
@@ -32,7 +32,7 @@ tags: [task, task/needs-info, module/identity, priority/high]
 ## Dependencies
 
 - Waits on [[T-017 Extend WIDGET_TYPE to the design's list]]
-- Waited on decision [[Field library vs per-Ring copies]], decided by [[DR-03 Links entered once, switched on or off per Ring]]
+- Waited on decision [[Field library vs per-Ring copies]], decided by [[D-03 Links entered once, switched on or off per Ring]]
 
 ## Definition of done
 
@@ -45,4 +45,4 @@ tags: [task, task/needs-info, module/identity, priority/high]
 ## Log
 
 - 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
-- 2026-10-25 · D-03 decided ([[DR-03 Links entered once, switched on or off per Ring]]); What and Dependencies updated, flag cleared. Status left as typed; still waits on T-017.
+- 2026-10-25 · ND-03 decided ([[D-03 Links entered once, switched on or off per Ring]]); What and Dependencies updated, flag cleared. Status left as typed; still waits on T-017.

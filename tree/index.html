@@ -629,8 +629,8 @@ function computeTotals() {
   return t;
 }
 function statusText(n) {
-  // a needs-decision card's kind already says it needs a decision: its chip says Draft, Open or Fulfilled (computed once its DR card is decided);
-  // its decision card (DR-NN) says Draft or Decided
+  // a needs-decision card's kind already says it needs a decision: its chip says Draft, Open or Fulfilled (computed once its decision card, D-NN, is decided);
+  // its decision card (D-NN) says Draft or Decided
   if (n.kind === 'decision') return n.effectiveStatus === 'needs-decision' ? 'Open' : legend(n.effectiveStatus);
   const l = legend(n.effectiveStatus);
   if (n.effectiveStatus === 'partial' && Array.isArray(n.pending) && n.pending.length) return `Partial · ${n.pending.length} note${n.pending.length === 1 ? '' : 's'}`;
@@ -638,12 +638,12 @@ function statusText(n) {
   if (b.length && (n.effectiveStatus === 'blocked' || n.effectiveStatus === 'missing')) { const t = node(b[0].id); return `${n.effectiveStatus === 'blocked' ? 'Blocked' : l} · ${(t.kind === 'task' || t.kind === 'decision') && t.code ? t.code : (kindOf(t.kind).name)}${b.length > 1 ? ` +${b.length - 1}` : ''}`; }
   return l;
 }
-// the cards whose code is their id (`D-08`, `DR-08 Stripe card checkout only`, `T-074 …`): the card shows the code in the kicker, like `F-41 · FEATURE`, and the title without it; a bug and a needs-decision card are named by their title only, so there is nothing to strip
+// the cards whose code is their id (`ND-08`, `D-08 Stripe card checkout only`, `T-074 …`): the card shows the code in the kicker, like `F-41 · FEATURE`, and the title without it; a bug and a needs-decision card are named by their title only, so there is nothing to strip
 const CODE_TITLED = new Set(['decision', 'decision-record', 'task']);
 // the two decision cards, which cluster together in the graph and are the only non-feature nodes the features scope keeps; not the same set as CODE_TITLED since tasks are titled by code but belong to their own module
 const DECISION_CARDS = new Set(['decision', 'decision-record']);
 const shown = (n) => (CODE_TITLED.has(n.kind) && n.card && n.title.startsWith(n.card) ? n.title.slice(n.card.length).replace(/^[\s·:-]+/, '') || n.title : n.title);
-// the kicker names the kind and never changes: a needs-decision card (D-NN) always reads NEEDS DECISION, its decision card (DR-NN) DECISION; the chip says Draft, Open or Fulfilled (DR: Draft or Decided)
+// the kicker names the kind and never changes: a needs-decision card (ND-NN) always reads NEEDS DECISION, its decision card (D-NN) DECISION; the chip says Draft, Open or Fulfilled (D: Draft or Decided)
 // what a node is called on the page: a bug note (type: bug; a task node with `bug` in its labels) is a BUG, numbered B-NN and hanging under the card it was found against; everything else is its own kind
 const displayKind = (n) => (n.kind === 'task' && (n.labels || []).includes('bug') ? 'bug' : n.kind);
 const kicker = (n) => (n.card && (CODE_TITLED.has(n.kind) || !n.title.startsWith(n.card)) ? n.card + ' · ' : '') + kindOf(displayKind(n)).name.toUpperCase() + (n.parentTask ? ' · SUB-TASK OF ' + n.parentTask : '') + (n.frontendOnly ? ' · FRONTEND ONLY' : '');

@@ -9,7 +9,7 @@ screens: [s44, s45, s46, s47, s62]
 owner: "omar"
 created: 2026-10-18
 updated: 2026-10-26
-related: ["DR-04 Ring settings at launch and their defaults", "DR-13 The requester sees a declined request", "DR-14 Shared with me lists people, never the Ring", "DR-15 Several Rings per connection, remove or disconnect", "DR-17 Requests expire after 30 days, optional note, ask again at once"]
+related: ["D-04 Ring settings at launch and their defaults", "D-13 The requester sees a declined request", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-17 Requests expire after 30 days, optional note, ask again at once"]
 tags: [story, story/draft, module/connections, layer/business]
 ---
 
@@ -17,7 +17,7 @@ tags: [story, story/draft, module/connections, layer/business]
 
 **Feature:** [[Connections]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Connections Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
-Two people met, one scanned the other, and now one of them wants access. A connection in Social Pin is an access request: the requester asks to be let in, the owner decides which Ring to put them in, and from that moment the requester sees exactly that Ring's perspective and nothing about the Ring itself ([[DR-14 Shared with me lists people, never the Ring]]). A request is pending, accepted, declined, cancelled or expired after 30 days, and the requester sees which ([[DR-13 The requester sees a declined request]], [[DR-17 Requests expire after 30 days, optional note, ask again at once]]). A person can sit in several of the owner's Rings, and a connection outlives access unless the owner disconnects ([[DR-15 Several Rings per connection, remove or disconnect]]). There is no feed, no follower count on display, no "following back".
+Two people met, one scanned the other, and now one of them wants access. A connection in Social Pin is an access request: the requester asks to be let in, the owner decides which Ring to put them in, and from that moment the requester sees exactly that Ring's perspective and nothing about the Ring itself ([[D-14 Shared with me lists people, never the Ring]]). A request is pending, accepted, declined, cancelled or expired after 30 days, and the requester sees which ([[D-13 The requester sees a declined request]], [[D-17 Requests expire after 30 days, optional note, ask again at once]]). A person can sit in several of the owner's Rings, and a connection outlives access unless the owner disconnects ([[D-15 Several Rings per connection, remove or disconnect]]). There is no feed, no follower count on display, no "following back".
 
 **Task stories:** [[T-021 Story]] (T-021: sending, the inbox and cancel in S1 and S2) · [[T-022 Story]] (T-022: accept into a Ring and decline in S3) · [[T-023 Story]] (T-023: the connection detail and the contacts list in S4 and S6). S5 waits on [[T-024 Story]] and *Introduce* on [[T-025 Story]], both still the empty template; S7 has no task story yet.
 
@@ -33,7 +33,7 @@ Two roles on the same journey. The **requester** is a personal user who just sca
 
 Acceptance criteria:
 - [ ] *Connect* is shown under the resolved `RingProfileViewEntity`; tapping it sends a request addressed by the person's user id, never by a Ring id (the view carries none). How the app gets that id is [[How Connect addresses the scanned person]], still open.
-- [ ] The request may carry an optional note ("We met at TechSummit") of up to 200 characters ([[DR-17 Requests expire after 30 days, optional note, ask again at once]]).
+- [ ] The request may carry an optional note ("We met at TechSummit") of up to 200 characters ([[D-17 Requests expire after 30 days, optional note, ask again at once]]).
 - [ ] After sending, the button becomes a *Requested* state and stays so on return to the screen; tapping again cancels (confirm first). After a decline or an expiry it shows that, and *Connect* sends a new request straight away.
 - [ ] If the pair is blocked in either direction, or the person does not exist, the request fails with the same 404 body the view gives; the UI shows one neutral message and never says "blocked".
 - [ ] *Save for later* returns Home without sending anything.
@@ -45,7 +45,7 @@ Acceptance criteria:
 Acceptance criteria:
 - [ ] Two segments: *Incoming* (needs action) and *Sent · N*; each row shows the person's display name, Pin name, avatar placeholder, when it was sent and the note if there is one.
 - [ ] Incoming row: *Accept* opens s46; tapping the row opens the person's view (what they share with me, if anything). A request unanswered for 30 days expires and leaves the list.
-- [ ] Sent row: *Cancel* removes a pending request; a declined request is shown as *Declined* and an expired one as *Expired*, each with *Connect* again; an accepted one disappears from Sent ([[DR-13 The requester sees a declined request]], [[DR-17 Requests expire after 30 days, optional note, ask again at once]]).
+- [ ] Sent row: *Cancel* removes a pending request; a declined request is shown as *Declined* and an expired one as *Expired*, each with *Connect* again; an accepted one disappears from Sent ([[D-13 The requester sees a declined request]], [[D-17 Requests expire after 30 days, optional note, ask again at once]]).
 - [ ] Empty state per segment ("No requests") with a hint pointing to the badge.
 - [ ] The list refetches on screen focus and after every accept, decline or cancel.
 
@@ -65,7 +65,7 @@ Acceptance criteria:
 **As a** Ring owner, **I want** one screen per connection showing which of my Rings they are in, events we have in common and mutual connections, **so that** I can move or revoke their access without leaving the person.
 
 Acceptance criteria:
-- [ ] Shows the person (name, Pin name, avatar placeholder), **the Rings they are in** (one or several; owner-only information), each with its access window, and when they connected ([[DR-15 Several Rings per connection, remove or disconnect]]).
+- [ ] Shows the person (name, Pin name, avatar placeholder), **the Rings they are in** (one or several; owner-only information), each with its access window, and when they connected ([[D-15 Several Rings per connection, remove or disconnect]]).
 - [ ] *Add to another Ring* and *Move to another Ring* list my other Rings; a move reassigns live; the copy states "what they see just changed". With several Rings, they see the version from the Ring they were put in first.
 - [ ] *Revoke access* removes them from one Ring; confirm first. From the **last** Ring it asks: *Remove from Rings* (still a connection, no access, listed in my contacts) or *Disconnect* (the connection ends; a new request is needed). Not available yet: there is no disconnect endpoint.
 - [ ] *Request meeting* goes to s59; *Introduce* is shown disabled with "not available yet" until its semantics are decided.
@@ -114,7 +114,7 @@ Acceptance criteria:
 
 - [[T-025 Introduce a connection to another]] — semantics of *Introduce* on s47 (a request on someone's behalf, or a suggestion to Gemma); the button stays disabled until decided.
 - [[How Connect addresses the scanned person]] — open; blocks S1's addressing ([[T-021 Story]]).
-- Decided: [[DR-13 The requester sees a declined request]], [[DR-14 Shared with me lists people, never the Ring]] (a connection-granted membership lists as the person, never the Ring's name; not available yet), [[DR-15 Several Rings per connection, remove or disconnect]], [[DR-17 Requests expire after 30 days, optional note, ask again at once]].
-- Mutual connections on s47 count only where a Ring's "members can see each other" is on (off by default, [[DR-04 Ring settings at launch and their defaults]]); otherwise they are computed over the viewer's own connections only.
-- The disconnect route, and whether the other person is told anything (DR-15, *Still open*).
+- Decided: [[D-13 The requester sees a declined request]], [[D-14 Shared with me lists people, never the Ring]] (a connection-granted membership lists as the person, never the Ring's name; not available yet), [[D-15 Several Rings per connection, remove or disconnect]], [[D-17 Requests expire after 30 days, optional note, ask again at once]].
+- Mutual connections on s47 count only where a Ring's "members can see each other" is on (off by default, [[D-04 Ring settings at launch and their defaults]]); otherwise they are computed over the viewer's own connections only.
+- The disconnect route, and whether the other person is told anything (D-15, *Still open*).
 - [[T-051 Gemma assistant sheet and suggestions]] — the suggested Ring on s46; the default Ring is the fallback.

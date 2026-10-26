@@ -10,7 +10,7 @@ approvedBy: "khaled"
 approvedAt: 2026-10-25
 depends: ["Payment provider"]
 affects: ["Events Before", "Events During", "Event Ring Auto-creation"]
-related: ["DR-07 Stripe for all four flows", "T-047 Orders, payments and the provider webhook", "Events Before", "Events During", "Event Ring Auto-creation", "Subscription (Free vs Pro)", "Audit Log", "T-034 Tickets, packages, levels, sold-out", "T-035 Registration transaction with order and payment", "T-040 Lounges and upgrades"]
+related: ["D-07 Stripe for all four flows", "T-047 Orders, payments and the provider webhook", "Events Before", "Events During", "Event Ring Auto-creation", "Subscription (Free vs Pro)", "Audit Log", "T-034 Tickets, packages, levels, sold-out", "T-035 Registration transaction with order and payment", "T-040 Lounges and upgrades"]
 owner: "khaled"
 created: 2026-10-18
 updated: 2026-10-26
@@ -21,7 +21,7 @@ tags: [story, story/approved, module/commerce, layer/business]
 
 **Feature:** [[Payments & Orders]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[Payments & Orders Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
-A visitor has picked a package, a sub-event or an in-event upgrade and now pays for it. An order freezes what they saw and at what price; a payment records how it was settled and by whom; Stripe's webhook completes the registration and, in the same transaction, grants the Event Ring. The provider is Stripe ([[DR-07 Stripe for all four flows]]); the schema is complete and no endpoint exists.
+A visitor has picked a package, a sub-event or an in-event upgrade and now pays for it. An order freezes what they saw and at what price; a payment records how it was settled and by whom; Stripe's webhook completes the registration and, in the same transaction, grants the Event Ring. The provider is Stripe ([[D-07 Stripe for all four flows]]); the schema is complete and no endpoint exists.
 
 ## Persona
 

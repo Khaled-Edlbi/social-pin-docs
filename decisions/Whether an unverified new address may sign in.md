@@ -1,7 +1,7 @@
 ---
 type: decision
-id: D-20
-aliases: [D-20]
+id: ND-20
+aliases: [ND-20]
 status: open
 priority: high
 features: [account]
@@ -9,18 +9,18 @@ blocks: [B-01]
 decider: "pm"
 screens: [s68]
 affects: ["Account Story", "Account Backend Delivery", "Account Backend Integration", "Account QA Backend", "Account QA Frontend"]
-related: ["An unverified changed email still signs in", "Auth & Sign-up Backend Integration", "Account Frontend Delivery", "Auth Model", "T-003 Remove devCode once delivery works", "DR-20 The changed address still signs in, the words are corrected"]
+related: ["An unverified changed email still signs in", "Auth & Sign-up Backend Integration", "Account Frontend Delivery", "Auth Model", "T-003 Remove devCode once delivery works", "D-20 The changed address still signs in, the words are corrected"]
 owner: "khaled"
 created: 2026-10-26
 updated: 2026-10-26
 tags: [decision, decision/open, priority/high]
 ---
 
-# ✅ D-20 · Whether an unverified new address may sign in
+# ✅ ND-20 · Whether an unverified new address may sign in
 
 **Status:** open · **Decider:** pm · **Raised:** 2026-10-26 · **Needed by:** [[An unverified changed email still signs in]] · **Feature:** [[Account]]
 
-> The needs-decision card: `draft` while the question is written, `open` once it is ready for the decider; it shows **Fulfilled** by itself once its decision card (DR-NN) is `decided`. The cards in `blocks` are **Blocked · D-20** while this is `draft` or `open` and return to their own status once it is fulfilled. Nobody edits their `status:` for this, and nobody types `fulfilled` or `decided` here.
+> The needs-decision card: `draft` while the question is written, `open` once it is ready for the decider; it shows **Fulfilled** by itself once its decision card (D-NN) is `decided`. The cards in `blocks` are **Blocked · ND-20** while this is `draft` or `open` and return to their own status once it is fulfilled. Nobody edits their `status:` for this, and nobody types `fulfilled` or `decided` here.
 
 ## What has to be decided
 
@@ -46,4 +46,4 @@ An address changed through `PATCH /users/me` comes back with `emailVerifiedAt: n
 
 ## Decision
 
-Fulfilled by [[DR-20 The changed address still signs in, the words are corrected]] — decided 2026-10-26 by khaled: option 2.
+Fulfilled by [[D-20 The changed address still signs in, the words are corrected]] — decided 2026-10-26 by khaled: option 2.

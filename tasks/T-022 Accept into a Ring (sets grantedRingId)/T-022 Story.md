@@ -8,13 +8,13 @@ status: approved
 screens: [s46]
 depends: []
 affects: []
-related: ["Rings", "Ring Members", "DR-13 The requester sees a declined request", "DR-14 Shared with me lists people, never the Ring", "DR-17 Requests expire after 30 days, optional note, ask again at once"]
+related: ["Rings", "Ring Members", "D-13 The requester sees a declined request", "D-14 Shared with me lists people, never the Ring", "D-17 Requests expire after 30 days, optional note, ask again at once"]
 pending: []
 approvedBy: "khaled"
 approvedAt: 2026-10-25
 owner: "omar"
 created: 2026-10-18
-updated: 2026-10-25
+updated: 2026-10-26
 tags: [story, story/approved, module/connections, layer/business]
 task: T-022
 ---
@@ -55,7 +55,7 @@ Acceptance criteria:
 
 Acceptance criteria:
 - [ ] `grantedRingId` is never returned to the requester, in any response.
-- [ ] On the requester's side the connection appears, and the Ring's view becomes readable. On their Shared with me ([[Screen Index#s17|s17]]) I appear as a person ("Sam's card"), never with the Ring's name, colour or type ([[DR-14 Shared with me lists people, never the Ring]]).
+- [ ] On the requester's side the connection appears, and the Ring's view becomes readable. On their Shared with me ([[Screen Index#s17|s17]]) I appear as a person ("Sam's card"), never with the Ring's name, colour or type ([[D-14 Shared with me lists people, never the Ring]]).
 
 ### S4 · Decline ([[Screen Index#s45|s45]])
 
@@ -63,8 +63,8 @@ Acceptance criteria:
 
 Acceptance criteria:
 - [ ] Decline closes the request as **declined**; no connection, no membership.
-- [ ] The requester **sees the decline**: the request shows as declined on their Sent list and on my card's button ([[DR-13 The requester sees a declined request]], [[T-021 Story]] S4).
-- [ ] The requester can **ask again straight away**; a new request arrives in my inbox like any other ([[DR-17 Requests expire after 30 days, optional note, ask again at once]]). If I don't want that, I block them ([[T-024 Block and unblock]]), which never reads as a decline.
+- [ ] The requester **sees the decline**: the request shows as declined on their Sent list and on my card's button ([[D-13 The requester sees a declined request]], [[T-021 Story]] S4).
+- [ ] The requester can **ask again straight away**; a new request arrives in my inbox like any other ([[D-17 Requests expire after 30 days, optional note, ask again at once]]). If I don't want that, I block them ([[T-024 Block and unblock]]), which never reads as a decline.
 
 ### S5 · It shows up everywhere at once
 
@@ -95,7 +95,7 @@ Acceptance criteria:
 - `POST /rings/:ringId/members` already grants a Ring's view to a user, and re-adding someone whose access lapsed reactivates their row; accept should reuse it inside the transaction.
 - Reassign (`POST …/members/:userId/reassign`) moves a member in one transaction, so they never see two perspectives at once; revoke marks the row `REMOVED`.
 - Only the owner or a delegated admin manages a Ring's members ([[T-006 Delegated admin endpoints]]).
-- Not available yet: `GET /rings/shared-with-me` still returns the Ring's name to members; hiding it is the change [[DR-14 Shared with me lists people, never the Ring]] asks of [[Rings]].
+- Not available yet: `GET /rings/shared-with-me` still returns the Ring's name to members; hiding it is the change [[D-14 Shared with me lists people, never the Ring]] asks of [[Rings]].
 
 ## Open questions
 

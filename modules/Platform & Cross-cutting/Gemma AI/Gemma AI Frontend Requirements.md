@@ -13,7 +13,7 @@ tags: [frontend-requirements, frontend-requirements/draft, module/platform, laye
 
 # Gemma AI · Frontend Requirements
 
-> ⚠ Affected by [[DR-06 Yearly rename, old name freed, case-insensitive]] (2026-10-25): D-06 decided, a Pin name can be changed once a year, the old name is free at once, names ignore capitals, suggestions come only from the person's own name.
+> ⚠ Affected by [[D-06 Yearly rename, old name freed, case-insensitive]] (2026-10-25): ND-06 decided, a Pin name can be changed once a year, the old name is free at once, names ignore capitals, suggestions come only from the person's own name.
 
 **Feature:** [[Gemma AI]] · **Status:** Draft · **Story:** [[Gemma AI Story]] · **API Integration:** not yet (backend not built)
 

@@ -45,7 +45,7 @@ Wireframe brief sections: [[Wireframe Brief#…|§…]]
 
 ## Decisions
 
-- [[D-NN …]] — what it blocks here.
+- [[ND-NN …]] — what it blocks here.
 
 ## Related
 

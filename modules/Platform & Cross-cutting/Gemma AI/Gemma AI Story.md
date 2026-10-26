@@ -7,9 +7,9 @@ module: platform
 status: draft
 screens: [s13, s60]
 created: 2026-10-18
-updated: 2026-10-25
+updated: 2026-10-26
 owner: "omar"
-related: ["DR-06 Yearly rename, old name freed, case-insensitive"]
+related: ["D-06 Yearly rename, old name freed, case-insensitive"]
 tags: [story, story/draft, module/platform, layer/business]
 ---
 
@@ -72,7 +72,7 @@ Acceptance criteria:
 **As a** user choosing a Pin name, naming a Ring or writing a bio **I want** Gemma to offer options **so that** blank fields are easier.
 
 Acceptance criteria:
-- [ ] Pin-name suggestions are derived **only from the user's own name** (what they typed and their full name), the only input Gemma gets for them, and checked for availability one at a time; none is derived from other users' names ([[DR-06 Yearly rename, old name freed, case-insensitive]]). Suggestions that differ from a taken name by capitals only are never offered: names ignore capitals.
+- [ ] Pin-name suggestions are derived **only from the user's own name** (what they typed and their full name), the only input Gemma gets for them, and checked for availability one at a time; none is derived from other users' names ([[D-06 Yearly rename, old name freed, case-insensitive]]). Suggestions that differ from a taken name by capitals only are never offered: names ignore capitals.
 - [ ] On a rename, suggestions are offered only when a rename is allowed (once a year, [[Profiles & Pin Name Story]] S5).
 - [ ] Bio rewrite and Ring-name suggestions are offered inline and never applied without a tap.
 
@@ -89,5 +89,5 @@ Acceptance criteria:
 
 ## Open questions
 
-- Decided: [[DR-06 Yearly rename, old name freed, case-insensitive]] (S6). Whether the suggestions come from Gemma or from a plain server rule is not decided; either way the input is the person's own name only.
+- Decided: [[D-06 Yearly rename, old name freed, case-insensitive]] (S6). Whether the suggestions come from Gemma or from a plain server rule is not decided; either way the input is the person's own name only.
 - [[T-051 Gemma assistant sheet and suggestions]] needs a model and provider decision; no decision note exists for it yet.

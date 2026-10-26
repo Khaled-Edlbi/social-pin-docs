@@ -9,9 +9,9 @@ screens: []
 approvedBy: "khaled"
 approvedAt: 2026-10-25
 created: 2026-10-18
-updated: 2026-10-25
+updated: 2026-10-26
 owner: "omar"
-related: ["DR-04 Ring settings at launch and their defaults", "DR-14 Shared with me lists people, never the Ring", "DR-15 Several Rings per connection, remove or disconnect", "DR-18 Ring names shown when joined knowingly"]
+related: ["D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-18 Ring names shown when joined knowingly"]
 tags: [story, story/approved, module/identity, layer/business]
 ---
 
@@ -32,10 +32,10 @@ Two people: a Ring owner who moves, revokes and lets access expire, and a viewer
 **As a** viewer **I want** to open a person and get the Ring I am in **so that** I see what they chose for me and nothing else.
 
 Acceptance criteria:
-- [ ] Shared with me lists only access that is live right now, one row per person, never a Ring's colour or type ([[DR-14 Shared with me lists people, never the Ring]]); tapping one renders `GET /views/ring/:ringId`.
-- [ ] The engine decides, per membership, whether the Ring's **name** may be shown to that member: yes when the membership was created by an invitation they accepted, a code or a verified work email; never when the owner placed them (connection accept, owner or admin add, reassign) ([[DR-18 Ring names shown when joined knowingly]]). No other service makes that call.
+- [ ] Shared with me lists only access that is live right now, one row per person, never a Ring's colour or type ([[D-14 Shared with me lists people, never the Ring]]); tapping one renders `GET /views/ring/:ringId`.
+- [ ] The engine decides, per membership, whether the Ring's **name** may be shown to that member: yes when the membership was created by an invitation they accepted, a code or a verified work email; never when the owner placed them (connection accept, owner or admin add, reassign) ([[D-18 Ring names shown when joined knowingly]]). No other service makes that call.
 - [ ] Not available yet: the list returns the Ring's name to every member today, and a membership does not record how it was created.
-- [ ] When the owner has me in several of their Rings, I get the version from the Ring I was put in first ([[DR-15 Several Rings per connection, remove or disconnect]]). Not available yet: the engine renders the owner's default first, then the oldest.
+- [ ] When the owner has me in several of their Rings, I get the version from the Ring I was put in first ([[D-15 Several Rings per connection, remove or disconnect]]). Not available yet: the engine renders the owner's default first, then the oldest.
 - [ ] The rendered view carries no `ringId`, no owner user id and no membership row; the UI never labels it "you are in her Clients Ring".
 - [ ] A `null` field reads "Not shared", never "none".
 
@@ -91,7 +91,7 @@ Acceptance criteria:
 
 ### S8 · The Ring's settings are access rules (journey, [[Screen Index#s27|s27]])
 
-**As a** Ring owner **I want** the settings I choose to be enforced wherever a member could act **so that** a switch on the settings screen is a promise, not decoration ([[DR-04 Ring settings at launch and their defaults]]).
+**As a** Ring owner **I want** the settings I choose to be enforced wherever a member could act **so that** a switch on the settings screen is a promise, not decoration ([[D-04 Ring settings at launch and their defaults]]).
 
 Acceptance criteria:
 - [ ] "Members can see each other" (off by default): only when on can a member read the other members, with full cards; while off, every member-facing route behaves as if the roster did not exist.
@@ -115,5 +115,5 @@ Acceptance criteria:
 
 ## Open questions
 
-- Decided: [[DR-04 Ring settings at launch and their defaults]] (S8), [[DR-14 Shared with me lists people, never the Ring]], [[DR-15 Several Rings per connection, remove or disconnect]] and [[DR-18 Ring names shown when joined knowingly]] (S1). Until the settings are built, no screen may imply members see one another. Building them is not ticketed yet.
-- Whether an admin may change every setting or only some (DR-04, *Still open*).
+- Decided: [[D-04 Ring settings at launch and their defaults]] (S8), [[D-14 Shared with me lists people, never the Ring]], [[D-15 Several Rings per connection, remove or disconnect]] and [[D-18 Ring names shown when joined knowingly]] (S1). Until the settings are built, no screen may imply members see one another. Building them is not ticketed yet.
+- Whether an admin may change every setting or only some (D-04, *Still open*).

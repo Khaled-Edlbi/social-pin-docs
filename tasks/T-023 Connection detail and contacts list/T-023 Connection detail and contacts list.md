@@ -9,9 +9,9 @@ module: connections
 screens: [s47]
 depends: [T-022]
 created: 2026-10-15
-updated: 2026-10-25
+updated: 2026-10-26
 owner: "omar"
-related: ["DR-14 Shared with me lists people, never the Ring", "DR-15 Several Rings per connection, remove or disconnect"]
+related: ["D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect"]
 tags: [task, task/todo, module/connections, priority/critical]
 ---
 
@@ -23,7 +23,7 @@ tags: [task, task/todo, module/connections, priority/critical]
 
 ## What
 
-Owner-side detail shows which Rings (owner only; a connection may sit in several), events in common, mutual connections. `GET /connections` searchable, including connections with no access. Removing someone from my last Ring offers *Remove from Rings* or *Disconnect*; only a disconnect ends the connection ([[DR-15 Several Rings per connection, remove or disconnect]]).
+Owner-side detail shows which Rings (owner only; a connection may sit in several), events in common, mutual connections. `GET /connections` searchable, including connections with no access. Removing someone from my last Ring offers *Remove from Rings* or *Disconnect*; only a disconnect ends the connection ([[D-15 Several Rings per connection, remove or disconnect]]).
 
 ## Design
 
@@ -46,4 +46,4 @@ Owner-side detail shows which Rings (owner only; a connection may sit in several
 ## Log
 
 - 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
-- 2026-10-25 · `tickets/pm/M-02-connections/F-14-connections/S-26-decisions` · story S1, S2, S6 and What updated for DR-04, DR-14 and DR-15; flags cleared.
+- 2026-10-25 · `tickets/pm/M-02-connections/F-14-connections/S-26-decisions` · story S1, S2, S6 and What updated for D-04, D-14 and D-15; flags cleared.

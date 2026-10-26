@@ -9,12 +9,12 @@ module: shared-rings
 parent: T-027
 labels: [frontend]
 screens: [s74]
-depends: [D-04, T-026, T-027-be]
+depends: [ND-04, T-026, T-027-be]
 affects: []
 related: []
 pending: []
 created: 2026-10-18
-updated: 2026-10-19
+updated: 2026-10-26
 tags: [task, task/todo, module/shared-rings, priority/high, frontend]
 ---
 

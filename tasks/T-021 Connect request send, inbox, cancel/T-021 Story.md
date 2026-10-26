@@ -8,7 +8,7 @@ status: draft
 screens: [s44, s45]
 depends: []
 affects: []
-related: ["DR-13 The requester sees a declined request", "DR-17 Requests expire after 30 days, optional note, ask again at once", "How Connect addresses the scanned person"]
+related: ["D-13 The requester sees a declined request", "D-17 Requests expire after 30 days, optional note, ask again at once", "How Connect addresses the scanned person"]
 pending: []
 approvedBy: ""
 approvedAt: ""
@@ -25,7 +25,7 @@ task: T-021
 
 > Derived from the task [[T-021 Connect request send, inbox, cancel]]; **not approved by product yet**. The feature-level story is [[Connections Story]]; this note says what the user gets from this task in particular. `approved` when product signs off (`approvedBy`, `approvedAt`); `verified` when both QA notes are `passing`.
 
-`POST /connections/requests` (target by user id from a resolved view, an optional note), `GET /connections/requests?direction=incoming|sent`, `DELETE …/:id`. Blocked pairs rejected with the same 404 as views. A request is pending, accepted, declined, cancelled or expired ([[DR-13 The requester sees a declined request]], [[DR-17 Requests expire after 30 days, optional note, ask again at once]]).
+`POST /connections/requests` (target by user id from a resolved view, an optional note), `GET /connections/requests?direction=incoming|sent`, `DELETE …/:id`. Blocked pairs rejected with the same 404 as views. A request is pending, accepted, declined, cancelled or expired ([[D-13 The requester sees a declined request]], [[D-17 Requests expire after 30 days, optional note, ask again at once]]).
 
 ## Persona
 
@@ -42,7 +42,7 @@ Acceptance criteria:
 - [ ] The request may carry a **note** ("We met at TechSummit"): optional, at most **200 characters**; a longer one is refused with a validation error and the app counts characters as they are typed. The receiver sees the note on the request (S3).
 - [ ] The button becomes *Requested* and stays so after leaving and coming back.
 - [ ] Asking again while a request is pending doesn't create a second one: the same request comes back.
-- [ ] After a decline or an expiry the button offers *Connect* again, and asking sends a **new** request straight away; there is no waiting period ([[DR-17 Requests expire after 30 days, optional note, ask again at once]]).
+- [ ] After a decline or an expiry the button offers *Connect* again, and asking sends a **new** request straight away; there is no waiting period ([[D-17 Requests expire after 30 days, optional note, ask again at once]]).
 - [ ] Asking someone I'm already connected with says so, instead of sending.
 
 ### S2 · A blocked pair learns nothing ([[Screen Index#s44|s44]])
@@ -69,7 +69,7 @@ Acceptance criteria:
 **As a** requester **I want** my sent requests listed with what happened to them **so that** I know where I stand and can take one back.
 
 Acceptance criteria:
-- [ ] `GET /connections/requests?direction=sent` lists my requests the same way, each with its **status**: pending, declined or expired ([[DR-13 The requester sees a declined request]]). Accepted and cancelled requests leave the list.
+- [ ] `GET /connections/requests?direction=sent` lists my requests the same way, each with its **status**: pending, declined or expired ([[D-13 The requester sees a declined request]]). Accepted and cancelled requests leave the list.
 - [ ] A **declined** request reads as declined, and an **expired** one as expired (no answer in 30 days); both offer *Connect* again (S1).
 - [ ] *Cancel* (`DELETE /connections/requests/:id`) on a pending request removes it at once (optimistic) and from the receiver's inbox.
 - [ ] Cancelling a request that was just accepted, declined or expired refreshes the list instead of failing loudly.
@@ -95,5 +95,5 @@ Acceptance criteria:
 
 ## Open questions
 
-- **The receiver's id** ([[How Connect addresses the scanned person]]). The view body has no user id. The app needs it from the scan ([[T-008 Story#Open questions]]) or from a `pinName` lookup; or the request accepts the scanned token or the `pinName` and resolves the person itself. This story stays Blocked · D-10 until it is decided.
-- How long a declined or expired request stays on the Sent list, and whether the receiver is reminded before a request expires (left open by [[DR-17 Requests expire after 30 days, optional note, ask again at once]]).
+- **The receiver's id** ([[How Connect addresses the scanned person]]). The view body has no user id. The app needs it from the scan ([[T-008 Story#Open questions]]) or from a `pinName` lookup; or the request accepts the scanned token or the `pinName` and resolves the person itself. This story stays Blocked · ND-10 until it is decided.
+- How long a declined or expired request stays on the Sent list, and whether the receiver is reminded before a request expires (left open by [[D-17 Requests expire after 30 days, optional note, ask again at once]]).

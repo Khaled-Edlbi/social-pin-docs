@@ -1,7 +1,7 @@
 ---
 type: map
 created: 2026-10-15
-updated: 2026-10-25
+updated: 2026-10-26
 tags: [map]
 layer: business
 ---
@@ -17,7 +17,7 @@ Every feature of Social Pin, grouped by domain, with its backend status. Status 
 | ❌ | TODO | 18 |
 | ⬜ | Frontend only | 1 |
 
-Open tasks: **64** (35 to do, 15 need a decision, 14 blocked). Open decisions: **5** (D-01 decided 2026-10-15). See [[Task Board]] and [[Backlog]]. Frontend notes for every ✅ feature: [[Frontend Contract]]. The same tree, clickable, with every feature's Docs / Story / Requirements / Frontend notes, tasks and decisions: the [[Docs Tree]] page.
+Open tasks: **64** (35 to do, 15 need a decision, 14 blocked). Open decisions: **5** (ND-01 decided 2026-10-15). See [[Task Board]] and [[Backlog]]. Frontend notes for every ✅ feature: [[Frontend Contract]]. The same tree, clickable, with every feature's Docs / Story / Requirements / Frontend notes, tasks and decisions: the [[Docs Tree]] page.
 
 ## The tree
 

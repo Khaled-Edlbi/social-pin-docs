@@ -25,7 +25,7 @@ The code repositories share one name per ticket, so the backend and the client p
 
 Every piece of work starts from `tasks/T-NNN <Title>.md`: the feature, the screens, `depends`, the definition of done. Create it from `templates/Task Template.md` with the next free number; the generated [[Task Board]] and [[Backlog]] pick it up on the next build. Add it to the feature note's *Tasks* table. Then split it: `node scripts/build-tree.mjs --scaffold story T-NNN` for its user story, and a `T-NNN-fe Frontend · <title>` and a `T-NNN-be Backend · <title>` sub-task in its folder for the sides that have work ([[Agent Rules#2 · Codes, scopes and the "sum of" rule]]). `node scripts/build-tree.mjs --scaffold task <feature-id> "<Title>"` does all of that in one go (the next free number, the folder, the story, the halves, the impact list); the business layer's agent, [[PM Agent]], runs it on request (every agent's steps: [[Agent Protocol]]). A ticket in ❓ *Needs a decision* or ⛔ *Blocked* is not workable: the decision or the blocker comes first.
 
-**When a card needs a decision**, at any step below: create the needs-decision card from the card that needs it, `node scripts/build-tree.mjs --scaffold decision "<card>" "<title>"` (`decisions/<Title>.md`, its code in `id: D-NN` and `aliases: [D-NN]`, `status: draft`, `blocks: ["<card>"]`), write what has to be decided, the notes and who decides (`decider:`), set it `open` when it is ready for the decider, then rebuild: it hangs under the card, the card shows **Blocked · D-NN** (from `draft` on) and everything after it waits. Do not touch the card's `status:`. The answer goes on its own card, the decision card (`node scripts/build-tree.mjs --scaffold record D-NN "<the answer>"`, `draft`: what was decided, why, what it changes in `affects`, what stays open); when the user decides, the PM or the owner sets it `decided` (`decidedBy`, `decidedAt`). The needs-decision card then shows ✅ **Fulfilled** by itself (nobody types it; its *Decision* section becomes one line pointing at the decision card), the next build returns the card to its own status and work continues, with the needs-decision card under the card and the decision card under it. The rule: [[Agent Rules#4 · Statuses, blocking and sign-off]].
+**When a card needs a decision**, at any step below: create the needs-decision card from the card that needs it, `node scripts/build-tree.mjs --scaffold decision "<card>" "<title>"` (`decisions/<Title>.md`, its code in `id: ND-NN` and `aliases: [ND-NN]`, `status: draft`, `blocks: ["<card>"]`), write what has to be decided, the notes and who decides (`decider:`), set it `open` when it is ready for the decider, then rebuild: it hangs under the card, the card shows **Blocked · ND-NN** (from `draft` on) and everything after it waits. Do not touch the card's `status:`. The answer goes on its own card, the decision card (`node scripts/build-tree.mjs --scaffold record ND-NN "<the answer>"`, `draft`: what was decided, why, what it changes in `affects`, what stays open); when the user decides, the PM or the owner sets it `decided` (`decidedBy`, `decidedAt`). The needs-decision card then shows ✅ **Fulfilled** by itself (nobody types it; its *Decision* section becomes one line pointing at the decision card), the next build returns the card to its own status and work continues, with the needs-decision card under the card and the decision card under it. The rule: [[Agent Rules#4 · Statuses, blocking and sign-off]].
 
 Run `node scripts/build-tree.mjs --impact T-NNN` and paste what it lists into the ticket's `## Impact`: that is the reading list for everyone who picks it up.
 
@@ -55,9 +55,9 @@ docs/<agent>/<M-NN>-<module-id>/<F-NN>-<feature-id>/<last>
 |---|---|
 | the owner rewrites the module note M-09 | `docs/owner/M-09-payments-gateway/business-side` |
 | the owner creates the feature F-41 | `docs/owner/M-09-payments-gateway/F-41-pay-for-an-order/create` |
-| the owner raises D-07 under T-047 (feature `payments`, module `commerce`) | `tickets/owner/M-07-commerce/F-27-payments/D-07-payment-provider` |
-| the PM records the answer on DR-09 | `docs/pm/M-09-payments-gateway/F-41-pay-for-an-order/DR-09-decided` |
-| the owner raises a vault rule's decision card | `tickets/owner/project/D-08-flag-window` |
+| the owner raises ND-07 under T-047 (feature `payments`, module `commerce`) | `tickets/owner/M-07-commerce/F-27-payments/ND-07-payment-provider` |
+| the PM records the answer on D-09 | `docs/pm/M-09-payments-gateway/F-41-pay-for-an-order/D-09-decided` |
+| the owner raises a vault rule's decision card | `tickets/owner/project/ND-08-flag-window` |
 | the owner approves the story S-70 | `tickets/owner/M-07-commerce/F-27-payments/S-70-approved` |
 | the owner sets T-047 to critical | `tickets/owner/M-07-commerce/F-27-payments/T-047-priority-critical` |
 | the owner changes a rule | `docs/owner/project/owner-creates-features` |
@@ -72,7 +72,7 @@ docs/<agent>/<M-NN>-<module-id>/<F-NN>-<feature-id>/<last>
 
 **Commits on these branches**, one card per commit:
 
-- a card: `<kind>(<module-id>): <card code> <card name> · <what changed>`, the kind being the card's (`module`, `feature`, `story`, `task`, `bug`, `decision`, or a layer note's kind: `frontend-requirements`, `backend-delivery`, `backend-integration`, `frontend-delivery`, `qa-backend`, `qa-frontend`), never `docs`: `decision(commerce): D-07 Payment provider · decided, Stripe for all four flows` · `story(commerce): S-70 T-047 Story · approved by khaled` · `feature(identity): F-40 Google Auth · T-071 added to the Tasks table`;
+- a card: `<kind>(<module-id>): <card code> <card name> · <what changed>`, the kind being the card's (`module`, `feature`, `story`, `task`, `bug`, `decision`, or a layer note's kind: `frontend-requirements`, `backend-delivery`, `backend-integration`, `frontend-delivery`, `qa-backend`, `qa-frontend`), never `docs`: `decision(commerce): ND-07 Payment provider · decided, Stripe for all four flows` · `story(commerce): S-70 T-047 Story · approved by khaled` · `feature(identity): F-40 Google Auth · T-071 added to the Tasks table`;
 - a rule or any other vault change outside the cards: `rules(project): <what changed>`;
 - a reference note in `business/`: `reference(business): <note name> · <what changed>`.
 
@@ -81,11 +81,11 @@ Per agent, branch and commit together (a decision record commits as `decision`, 
 | Agent | Branch | Commit subject |
 |---|---|---|
 | owner | `docs/owner/M-09-payments-gateway/F-41-pay-for-an-order/create` | `feature(payments-gateway): F-41 Pay for an order · created, business side written` |
-| owner | `tickets/owner/M-07-commerce/F-27-payments/D-07-payment-provider` | `decision(commerce): D-07 Payment provider · raised from T-047` |
+| owner | `tickets/owner/M-07-commerce/F-27-payments/ND-07-payment-provider` | `decision(commerce): ND-07 Payment provider · raised from T-047` |
 | owner | `docs/owner/project/<what>` | `rules(project): <what changed>` |
 | pm | `tickets/pm/M-09-payments-gateway/F-41-pay-for-an-order/S-105-draft` | `story(payments-gateway): S-105 Pay for an order Story · draft written` |
 | pm | `tickets/pm/M-09-payments-gateway/F-41-pay-for-an-order/T-065-filed` | `task(payments-gateway): T-065 Open a Stripe checkout for an order · filed under F-41, both halves` |
-| pm | `docs/pm/M-09-payments-gateway/F-41-pay-for-an-order/DR-09-decided` | `decision(payments-gateway): DR-09 30-minute hold tied to the Stripe checkout · D-09 decided, option 2` |
+| pm | `docs/pm/M-09-payments-gateway/F-41-pay-for-an-order/D-09-decided` | `decision(payments-gateway): D-09 30-minute hold tied to the Stripe checkout · ND-09 decided, option 2` |
 | frontend | `tickets/frontend/M-09-payments-gateway/F-41-pay-for-an-order/FR-41-draft` | `frontend-requirements(payments-gateway): FR-41 Pay for an order Frontend Requirements · draft written` |
 | frontend | `docs/frontend/M-09-payments-gateway/F-41-pay-for-an-order/FD-NN-shipped` | `frontend-delivery(payments-gateway): FD-NN Pay for an order Frontend Delivery · s51 shipped` |
 | backend | `tickets/backend/M-09-payments-gateway/F-41-pay-for-an-order/FR-41-accepted` | `frontend-requirements(payments-gateway): FR-41 Pay for an order Frontend Requirements · accepted by the backend` |
@@ -94,7 +94,7 @@ Per agent, branch and commit together (a decision record commits as `decision`, 
 | qa | `tickets/qa/M-09-payments-gateway/F-41-pay-for-an-order/B-07-filed` | `bug(payments-gateway): B-07 <title> · filed against T-065` (a bug has its own `B` number and hangs where it was found: `--parent T-NNN`, or `--found-on "<note name>"` for any other card) |
 | admin | `docs/admin/project/<what>` | `rules(project): <what changed>` |
 
-The body: two or three lines on what changed and why, the other files touched, the trailers `Story: S-NN`, `Ticket: T-NNN`, `Decision: D-NN` when one is involved, then the attribution line. Rebuild before each commit and include the generated files, so every commit passes `--check` on its own. The bash guard reads the attribution line's angle brackets as a redirect: commit with `git commit -F <file outside the vault>`, or with a `git commit -F -` heredoc whose command starts with `git` and contains no `&&` or `;`.
+The body: two or three lines on what changed and why, the other files touched, the trailers `Story: S-NN`, `Ticket: T-NNN`, `Decision: ND-NN` when one is involved, then the attribution line. Rebuild before each commit and include the generated files, so every commit passes `--check` on its own. The bash guard reads the attribution line's angle brackets as a redirect: commit with `git commit -F <file outside the vault>`, or with a `git commit -F -` heredoc whose command starts with `git` and contains no `&&` or `;`.
 
 ## 3 · The layers, in flow order
 

@@ -7,9 +7,9 @@ module: shared-rings
 status: draft
 screens: [s72, s73]
 created: 2026-10-18
-updated: 2026-10-25
+updated: 2026-10-26
 owner: "omar"
-related: ["DR-04 Ring settings at launch and their defaults", "DR-14 Shared with me lists people, never the Ring", "DR-18 Ring names shown when joined knowingly"]
+related: ["D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "D-18 Ring names shown when joined knowingly"]
 tags: [story, story/draft, module/shared-rings, layer/business]
 ---
 
@@ -43,8 +43,8 @@ Acceptance criteria:
 Acceptance criteria:
 - [ ] Header: name, logo placeholder, industry and activity, tags, address, website, phone, email, social links, about text, and the company's files (listed by name, no download until file bytes can be served).
 - [ ] A *Rings* section lists only the company Rings I am a live member of, each opening the Ring's projection (s14); Rings I am not in are not listed and their number is not shown. 
-- [ ] A company Ring I **joined knowingly** (an invitation I accepted, a code, my verified work email) is shown **by its name** ("Acme Team", "Company"); one the owner placed me in (added me, or accepted my request into it) is listed unnamed, as the company's card ([[DR-18 Ring names shown when joined knowingly]], the exception to [[DR-14 Shared with me lists people, never the Ring]]). The name only: never the Ring's colour or type. Not available yet: a membership does not record how it was created.
-- [ ] "22 colleagues" opens the Ring people screen (s15) when I am owner or admin of that Ring, or, for a plain member, when the Ring's "members can see each other" is on, in which case I see my colleagues' full cards ([[DR-04 Ring settings at launch and their defaults]]); otherwise the count is hidden, because membership is private to the owner. Not available yet: the setting does not exist.
+- [ ] A company Ring I **joined knowingly** (an invitation I accepted, a code, my verified work email) is shown **by its name** ("Acme Team", "Company"); one the owner placed me in (added me, or accepted my request into it) is listed unnamed, as the company's card ([[D-18 Ring names shown when joined knowingly]], the exception to [[D-14 Shared with me lists people, never the Ring]]). The name only: never the Ring's colour or type. Not available yet: a membership does not record how it was created.
+- [ ] "22 colleagues" opens the Ring people screen (s15) when I am owner or admin of that Ring, or, for a plain member, when the Ring's "members can see each other" is on, in which case I see my colleagues' full cards ([[D-04 Ring settings at launch and their defaults]]); otherwise the count is hidden, because membership is private to the owner. Not available yet: the setting does not exist.
 - [ ] *Leave company* is at the bottom, destructive style, with a confirmation.
 
 ### S3 · Leave a company ([[Screen Index#s73|s73]] → [[Screen Index#s72|s72]])
@@ -61,7 +61,7 @@ Acceptance criteria:
 **As a** member of several Rings of the same company, **I want** each Ring to open as the perspective it is, **so that** "Company" (public) and "Acme Team" (employees) read as two views of one business.
 
 Acceptance criteria:
-- [ ] Opening a Ring from s73 renders that Ring's projection through the same view path as a scan; nothing on the screen says which level of the hierarchy it is ([[DR-14 Shared with me lists people, never the Ring]]).
+- [ ] Opening a Ring from s73 renders that Ring's projection through the same view path as a scan; nothing on the screen says which level of the hierarchy it is ([[D-14 Shared with me lists people, never the Ring]]).
 - [ ] The parent / child structure is used by the client only for ordering (parent first), never shown as a tree to a member.
 
 ### S5 · A business Ring forms after setup (journey, lands on [[Screen Index#s72|s72]])
@@ -88,8 +88,8 @@ Acceptance criteria:
 
 ## Open questions
 
-- Decided: [[DR-04 Ring settings at launch and their defaults]]: a plain member sees colleagues only where the Ring's "members can see each other" is on (S2). The **required work email domain** setting comes with this feature, not at launch.
-- Decided: [[DR-18 Ring names shown when joined knowingly]] (S2: company Rings joined knowingly are named; S4: the hierarchy is never shown). Building how a membership records its origin is not ticketed yet.
-- Someone the owner reassigns from a Ring they joined knowingly into another company Ring: DR-18 reads it as placed, so the new Ring stays unnamed (DR-18, *Still open*).
+- Decided: [[D-04 Ring settings at launch and their defaults]]: a plain member sees colleagues only where the Ring's "members can see each other" is on (S2). The **required work email domain** setting comes with this feature, not at launch.
+- Decided: [[D-18 Ring names shown when joined knowingly]] (S2: company Rings joined knowingly are named; S4: the hierarchy is never shown). Building how a membership records its origin is not ticketed yet.
+- Someone the owner reassigns from a Ring they joined knowingly into another company Ring: D-18 reads it as placed, so the new Ring stays unnamed (D-18, *Still open*).
 - [[T-029 My companies and company detail]] — how a business and its Rings are linked for the member's list (the `Business` tables have no Ring reference in the feature note); the list needs that link to show "which of its Rings I am in".
 - [[T-048 Business account setup → business Ring]] — whether team members on the stand become members of the employees Ring automatically, which is what makes S1 populate for an employee.

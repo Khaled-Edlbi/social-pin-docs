@@ -8,13 +8,13 @@ status: approved
 screens: []
 depends: []
 affects: []
-related: ["T-063", "Error Contract Story", "Error Contract", "DR-19"]
+related: ["T-063", "Error Contract Story", "Error Contract", "D-19"]
 pending: []
 approvedBy: "khaled"
 approvedAt: 2026-10-25
 owner: "omar"
 created: 2026-10-18
-updated: 2026-10-25
+updated: 2026-10-26
 tags: [story, story/approved, module/platform, layer/business]
 task: T-063
 ---
