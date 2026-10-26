@@ -1,7 +1,7 @@
 ---
 type: project
 created: 2026-10-15
-updated: 2026-10-18
+updated: 2026-10-26
 tags: [project]
 layer: frontend
 ---
@@ -313,6 +313,49 @@ Uploading does **not** make a file visible to anyone. It becomes readable when a
 context the viewer can reach references it — attach it to a ring projection. The
 response deliberately omits the storage path.
 
+### Admin panel — `/admin`
+
+Operator-only, and the only part of the API gated on the platform `USER_ROLE`.
+Everything else in this guide is `role: []` — any authenticated user, scoped to
+their own data.
+
+| Method | Path | Role | |
+|---|---|---|---|
+| GET | `/admin/stats` | SUPER_ADMIN, ADMIN | Dashboard tiles: account lifecycle breakdown, live ring/profile/role counts, `generatedAt` |
+| GET | `/admin/users` | SUPER_ADMIN, ADMIN | `search` matches email or phone; `status`, `accountType`, `role`, `createdFrom`/`createdTo`, `includeDeleted` |
+| GET | `/admin/users/:id` | SUPER_ADMIN, ADMIN | Account, scoped grants, and `counts` of profiles/rings |
+| PATCH | `/admin/users/:id/status` | SUPER_ADMIN, ADMIN | `ACTIVE` or `SUSPENDED` only, plus an optional `reason` |
+| PATCH | `/admin/users/:id/role` | **SUPER_ADMIN** | The platform role on the JWT |
+| GET | `/admin/users/:userId/roles` | SUPER_ADMIN, ADMIN | Scoped grants, unpaged |
+| POST | `/admin/users/:userId/roles` | SUPER_ADMIN, ADMIN | `{ roleId, scopeId? }` — scope type comes from the role |
+| DELETE | `/admin/users/:userId/roles/:assignmentId` | SUPER_ADMIN, ADMIN | |
+| GET | `/admin/roles` | SUPER_ADMIN, ADMIN | Roles with permission keys and holder counts |
+| GET | `/admin/roles/permissions` | SUPER_ADMIN, ADMIN | The whole catalogue, unpaged |
+| GET | `/admin/audit-logs` | SUPER_ADMIN, ADMIN | `actorId`, `action`, `resourceType`+`resourceId`, `from`/`to` |
+| GET | `/admin/audit-logs/:id` | **SUPER_ADMIN** | Full `metadata` |
+
+Four things a client should expect:
+
+- **A 403 here is `RolesUnauthorizedException`**, not the usual domain-error
+  body: `{ statusCode, message, error, requiredRoles }`. It comes from the guard,
+  before any handler runs.
+- **SUPER_ADMIN does not inherit ADMIN.** The guard matches role names with no
+  hierarchy, so each route lists every role that may call it. A SUPER_ADMIN can
+  use the ADMIN routes because they are listed, not because of rank.
+- **Some refusals come from the service, not the guard.** `E_ADMIN_01` (never
+  your own account), `E_ADMIN_02` (an ADMIN may not act on another
+  administrator) and `E_ADMIN_07` (a GLOBAL-scope grant is SUPER_ADMIN-only)
+  are 403s with the normal error body. Expect them on a route your role can
+  otherwise reach.
+- **Suspending ends the session immediately.** The live refresh tokens are
+  revoked in the same transaction, so the account cannot mint a new access
+  token; the next `/auth/login/verify` is a 403 `E_AUTH_03`.
+
+The panel reads account state only. It cannot read anybody's profile contents,
+ring projections or memberships — those stay behind `RingAccessService`, so the
+detail screen returns counts rather than rows. There is no delete route for an
+audit entry at any role.
+
 **There is no way to fetch the bytes back yet.** The response has no URL and
 no route serves a file by id, so `avatarFileId` and attachment ids cannot be
 rendered; show placeholders until T-062 ships.
@@ -333,6 +376,10 @@ Worth knowing up front:
 - `LINK_TYPE`: 15 values, including `FACEBOOK_PAGE` and `WHATSAPP_BUSINESS` as
   distinct from `FACEBOOK` and `WHATSAPP`
 - `ACCOUNT_TYPE`: `FREE`, `PRO`
+- `USER_STATUS`: `PENDING`, `ACTIVE`, `SUSPENDED`, `DELETED`
+- `USER_ROLE`: `SUPER_ADMIN`, `ADMIN`, `ORGANIZER`, `EXHIBITOR`, `USER` — the
+  platform role on the JWT, distinct from the scoped `roles` table
+- `ROLE_SCOPE`: `GLOBAL`, `EVENT`, `BUSINESS`, `RING`
 
 ## Not yet available
 
