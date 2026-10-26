@@ -5228,7 +5228,7 @@
     },
     "concepts": 199,
     "decisions": 18,
-    "edges": 5230,
+    "edges": 5232,
     "features": 41,
     "layerNotes": 195,
     "modules": 8,
@@ -5648,6 +5648,11 @@
       "from": "decision:D-20",
       "kind": "affects",
       "to": "task:T-020b"
+    },
+    {
+      "from": "frontend-requirements:interests",
+      "kind": "affects",
+      "to": "task:T-016"
     },
     {
       "from": "frontend-requirements:onboarding-imports",
@@ -11426,6 +11431,26 @@
     },
     {
       "from": "frontend-delivery:account",
+      "kind": "related",
+      "to": "task:T-063"
+    },
+    {
+      "from": "frontend-requirements:interests",
+      "kind": "related",
+      "to": "feature:auth"
+    },
+    {
+      "from": "frontend-requirements:interests",
+      "kind": "related",
+      "to": "feature:gemma"
+    },
+    {
+      "from": "frontend-requirements:interests",
+      "kind": "related",
+      "to": "task:T-051"
+    },
+    {
+      "from": "frontend-requirements:interests",
       "kind": "related",
       "to": "task:T-063"
     },
@@ -28706,27 +28731,12 @@
     {
       "from": "frontend-requirements:interests",
       "kind": "wikilink",
-      "to": "feature:gemma"
-    },
-    {
-      "from": "frontend-requirements:interests",
-      "kind": "wikilink",
       "to": "story:interests"
     },
     {
       "from": "frontend-requirements:interests",
       "kind": "wikilink",
       "to": "task:T-016"
-    },
-    {
-      "from": "frontend-requirements:interests",
-      "kind": "wikilink",
-      "to": "task:T-051"
-    },
-    {
-      "from": "frontend-requirements:interests",
-      "kind": "wikilink",
-      "to": "task:T-063"
     },
     {
       "from": "frontend-requirements:linked-accounts",
@@ -44505,6 +44515,7 @@
         "task:T-078-be",
         "task:T-078-fe",
         "frontend-requirements:onboarding-imports",
+        "frontend-requirements:interests",
         "story:T-078"
       ],
       "release": "mvp",
@@ -45866,7 +45877,8 @@
         "project:ring-access-model",
         "project:architecture",
         "project:api-conventions",
-        "project:spec-map"
+        "project:spec-map",
+        "frontend-requirements:interests"
       ],
       "release": "later",
       "rollup": {
@@ -50392,7 +50404,9 @@
       "updated": "2026-10-18"
     },
     "frontend-requirements:interests": {
-      "affects": [],
+      "affects": [
+        "task:T-016"
+      ],
       "blockedBy": [],
       "card": "FR-37",
       "children": [],
@@ -50421,7 +50435,12 @@
       "path": "modules/Platform & Cross-cutting/Interests/Interests Frontend Requirements.md",
       "pending": [],
       "priority": "high",
-      "related": [],
+      "related": [
+        "feature:auth",
+        "feature:gemma",
+        "task:T-051",
+        "task:T-063"
+      ],
       "release": "mvp",
       "scope": "feature",
       "screens": [
@@ -50429,7 +50448,7 @@
         "s71"
       ],
       "status": "draft",
-      "summary": "What the client needs for the two interest pickers: the vocabulary, the user's own selection, and a way to replace it. The tables and the seed exist; the three endpoints do not.",
+      "summary": "What the client needs for the two interest pickers: the vocabulary, the person's own selection, a way to replace it, and the two preferences s71 shows. The client already shows both screens with a…",
       "tags": [
         "frontend-requirements",
         "frontend-requirements/draft",
@@ -50438,7 +50457,7 @@
       ],
       "task": null,
       "title": "Interests Frontend Requirements",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "frontend-requirements:linked-accounts": {
       "affects": [],
@@ -72276,7 +72295,9 @@
       "path": "tasks/T-051 Gemma assistant sheet and suggestions/T-051 Gemma assistant sheet and suggestions.md",
       "pending": [],
       "priority": "medium",
-      "related": [],
+      "related": [
+        "frontend-requirements:interests"
+      ],
       "release": "later",
       "rollup": {
         "blocked": 2,
@@ -73566,6 +73587,7 @@
         "qa-backend:account",
         "qa-frontend:account",
         "frontend-requirements:onboarding-imports",
+        "frontend-requirements:interests",
         "story:T-067"
       ],
       "release": "mvp",
