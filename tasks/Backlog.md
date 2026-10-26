@@ -168,6 +168,8 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-054-be Backend · Cleanup jobs]] `backend` | [[Cleanup Jobs]] | Platform & Cross-cutting | ⬜ To do | M | — | — |
 | [[T-068 Account moderation and platform role]] | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | M | — | [[T-053 Audit log writes|T-053]] |
 | [[T-068-be Backend · Account moderation and platform role]] `backend` | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | M | — | [[T-053 Audit log writes|T-053]] |
+| [[T-069 Scoped role grants]] | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | M | — | [[T-068 Account moderation and platform role|T-068]] |
+| [[T-069-be Backend · Scoped role grants]] `backend` | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | M | — | [[T-068 Account moderation and platform role|T-068]] |
 
 ## Medium
 
