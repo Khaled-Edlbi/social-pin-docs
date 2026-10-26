@@ -2250,7 +2250,6 @@
       "kind": "endpoint",
       "notes": [
         "backend-integration:rings",
-        "frontend-requirements:auth",
         "story:auth"
       ],
       "owner": null
@@ -3138,6 +3137,7 @@
     "POST /rings": {
       "containers": [
         "decision:D-05",
+        "feature:auth",
         "feature:companies",
         "feature:event-ring-auto",
         "feature:exhibitor",
@@ -3153,6 +3153,7 @@
         "backend-delivery:rings",
         "backend-integration:rings",
         "decision:D-05",
+        "frontend-requirements:auth",
         "frontend-requirements:event-ring-auto",
         "frontend-requirements:rings",
         "project:frontend-contract",
@@ -5194,6 +5195,7 @@
     },
     "s75": {
       "containers": [
+        "feature:auth",
         "feature:devices",
         "task:T-014",
         "task:T-014-be",
@@ -5206,6 +5208,7 @@
       "notes": [
         "backend-delivery:devices",
         "feature:devices",
+        "frontend-requirements:auth",
         "frontend-requirements:devices",
         "story:T-014",
         "story:T-015",
@@ -5246,7 +5249,7 @@
     },
     "concepts": 199,
     "decisions": 18,
-    "edges": 5263,
+    "edges": 5272,
     "features": 41,
     "layerNotes": 196,
     "modules": 8,
@@ -11478,6 +11481,46 @@
       "to": "task:T-063"
     },
     {
+      "from": "frontend-requirements:auth",
+      "kind": "related",
+      "to": "decision-record:DR-06"
+    },
+    {
+      "from": "frontend-requirements:auth",
+      "kind": "related",
+      "to": "decision:D-01"
+    },
+    {
+      "from": "frontend-requirements:auth",
+      "kind": "related",
+      "to": "feature:rings"
+    },
+    {
+      "from": "frontend-requirements:auth",
+      "kind": "related",
+      "to": "frontend-requirements:interests"
+    },
+    {
+      "from": "frontend-requirements:auth",
+      "kind": "related",
+      "to": "frontend-requirements:onboarding-imports"
+    },
+    {
+      "from": "frontend-requirements:auth",
+      "kind": "related",
+      "to": "frontend-requirements:profiles"
+    },
+    {
+      "from": "frontend-requirements:auth",
+      "kind": "related",
+      "to": "task:T-063"
+    },
+    {
+      "from": "frontend-requirements:auth",
+      "kind": "related",
+      "to": "task:T-079"
+    },
+    {
       "from": "frontend-requirements:interests",
       "kind": "related",
       "to": "feature:auth"
@@ -13522,6 +13565,14 @@
     {
       "from": "decision:D-05",
       "kind": "shares",
+      "to": "feature:auth",
+      "via": [
+        "POST /rings"
+      ]
+    },
+    {
+      "from": "decision:D-05",
+      "kind": "shares",
       "to": "feature:companies",
       "via": [
         "POST /rings"
@@ -15152,7 +15203,8 @@
       "kind": "shares",
       "to": "feature:companies",
       "via": [
-        "E_AUTH_04"
+        "E_AUTH_04",
+        "POST /rings"
       ]
     },
     {
@@ -15217,7 +15269,8 @@
       "kind": "shares",
       "to": "feature:event-ring-auto",
       "via": [
-        "GET /rings"
+        "GET /rings",
+        "POST /rings"
       ]
     },
     {
@@ -15227,6 +15280,22 @@
       "via": [
         "E_AUTH_04",
         "GET /rings"
+      ]
+    },
+    {
+      "from": "feature:auth",
+      "kind": "shares",
+      "to": "feature:exhibitor",
+      "via": [
+        "POST /rings"
+      ]
+    },
+    {
+      "from": "feature:auth",
+      "kind": "shares",
+      "to": "feature:files",
+      "via": [
+        "POST /rings"
       ]
     },
     {
@@ -15254,6 +15323,14 @@
         "POST /auth/login",
         "POST /auth/login/verify",
         "POST /auth/sign-up"
+      ]
+    },
+    {
+      "from": "feature:auth",
+      "kind": "shares",
+      "to": "feature:meetings",
+      "via": [
+        "POST /rings"
       ]
     },
     {
@@ -15332,7 +15409,8 @@
       "to": "feature:rings",
       "via": [
         "GET /rings",
-        "GET /rings/:id/projection"
+        "GET /rings/:id/projection",
+        "POST /rings"
       ]
     },
     {
@@ -15409,7 +15487,8 @@
         "E_AUTH_04",
         "GET /profiles/pin-name/:pinName/availability",
         "GET /rings",
-        "POST /auth/sign-up"
+        "POST /auth/sign-up",
+        "POST /rings"
       ]
     },
     {
@@ -15448,7 +15527,8 @@
       "via": [
         "GET /profiles/pin-name/:pinName/availability",
         "GET /rings",
-        "POST /auth/sign-up"
+        "POST /auth/sign-up",
+        "POST /rings"
       ]
     },
     {
@@ -15459,7 +15539,8 @@
         "GET /profiles/pin-name/:pinName/availability",
         "GET /rings",
         "POST /auth/complete-registration",
-        "POST /auth/sign-up"
+        "POST /auth/sign-up",
+        "POST /rings"
       ]
     },
     {
@@ -28088,27 +28169,17 @@
     {
       "from": "frontend-requirements:auth",
       "kind": "wikilink",
-      "to": "backend-integration:ring-projection"
-    },
-    {
-      "from": "frontend-requirements:auth",
-      "kind": "wikilink",
       "to": "backend-integration:rings"
     },
     {
       "from": "frontend-requirements:auth",
       "kind": "wikilink",
-      "to": "decision-record:DR-06"
+      "to": "feature:ring-projection"
     },
     {
       "from": "frontend-requirements:auth",
       "kind": "wikilink",
-      "to": "decision:D-01"
-    },
-    {
-      "from": "frontend-requirements:auth",
-      "kind": "wikilink",
-      "to": "decision:D-06"
+      "to": "feature:view-as"
     },
     {
       "from": "frontend-requirements:auth",
@@ -28144,11 +28215,6 @@
       "from": "frontend-requirements:auth",
       "kind": "wikilink",
       "to": "task:T-019"
-    },
-    {
-      "from": "frontend-requirements:auth",
-      "kind": "wikilink",
-      "to": "task:T-063"
     },
     {
       "from": "frontend-requirements:badge-qr",
@@ -42959,6 +43025,7 @@
         "task:T-079",
         "decision:D-06",
         "feature:badge-qr",
+        "frontend-requirements:auth",
         "story:auth",
         "frontend-requirements:profiles",
         "story:profiles",
@@ -43447,7 +43514,8 @@
       "priority": null,
       "related": [
         "task:T-076",
-        "decision-record:DR-01"
+        "decision-record:DR-01",
+        "frontend-requirements:auth"
       ],
       "release": null,
       "scope": null,
@@ -44759,8 +44827,8 @@
         "current": 1,
         "decided": 1,
         "done": 2,
-        "draft": 1,
         "missing": 3,
+        "ready": 1,
         "verified": 1
       },
       "scope": null,
@@ -47368,6 +47436,7 @@
         "task:T-077",
         "decision:D-14",
         "decision:D-18",
+        "frontend-requirements:auth",
         "story:T-022"
       ],
       "release": "mvp",
@@ -49692,7 +49761,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "ready",
       "effort": null,
       "feature": "auth",
       "frontendOnly": false,
@@ -49713,7 +49782,16 @@
       "path": "modules/Identity Core/Auth & Sign-up/Auth & Sign-up Frontend Requirements.md",
       "pending": [],
       "priority": "critical",
-      "related": [],
+      "related": [
+        "decision:D-01",
+        "decision-record:DR-06",
+        "frontend-requirements:onboarding-imports",
+        "frontend-requirements:profiles",
+        "frontend-requirements:interests",
+        "feature:rings",
+        "task:T-079",
+        "task:T-063"
+      ],
       "release": "mvp",
       "scope": "feature",
       "screens": [
@@ -49721,19 +49799,20 @@
         "s02",
         "s06",
         "s08",
-        "s68"
+        "s68",
+        "s75"
       ],
-      "status": "draft",
-      "summary": "What the client needs from the backend for the welcome, code, Pin-name and session screens, and whether each need is met today. Everything here exists; the one thing missing is the delivery of the…",
+      "status": "ready",
+      "summary": "What the client needs from the backend for the welcome, code, Pin-name and session screens, and whether each need is met today, checked against the client's sign-up as built (2026-10-26).…",
       "tags": [
         "frontend-requirements",
-        "frontend-requirements/draft",
+        "frontend-requirements/ready",
         "module/identity",
         "layer/frontend"
       ],
       "task": null,
       "title": "Auth & Sign-up Frontend Requirements",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "frontend-requirements:badge-qr": {
       "affects": [],
@@ -50675,6 +50754,7 @@
       "pending": [],
       "priority": "high",
       "related": [
+        "frontend-requirements:auth",
         "feature:auth",
         "feature:gemma",
         "task:T-051",
@@ -50883,6 +50963,7 @@
       "pending": [],
       "priority": "high",
       "related": [
+        "frontend-requirements:auth",
         "decision-record:DR-02",
         "decision-record:DR-03",
         "decision:D-20",
@@ -51191,6 +51272,7 @@
       "pending": [],
       "priority": "critical",
       "related": [
+        "frontend-requirements:auth",
         "decision-record:DR-02",
         "decision-record:DR-06",
         "feature:onboarding-imports",
@@ -52098,12 +52180,13 @@
         "decided": 6,
         "delivered": 1,
         "done": 16,
-        "draft": 21,
+        "draft": 20,
         "failing": 1,
         "in-progress": 13,
         "missing": 40,
         "needs-decision": 2,
         "partial": 1,
+        "ready": 1,
         "todo": 14,
         "verified": 6
       },
@@ -57521,12 +57604,13 @@
         "decided": 13,
         "delivered": 1,
         "done": 17,
-        "draft": 99,
+        "draft": 98,
         "failing": 1,
         "in-progress": 58,
         "missing": 162,
         "needs-decision": 9,
         "partial": 2,
+        "ready": 1,
         "reference": 31,
         "todo": 57,
         "verified": 13
@@ -73898,6 +73982,7 @@
         "frontend-delivery:account",
         "qa-backend:account",
         "qa-frontend:account",
+        "frontend-requirements:auth",
         "frontend-requirements:onboarding-imports",
         "frontend-requirements:profiles",
         "frontend-requirements:interests",
@@ -75344,7 +75429,8 @@
         "backend-integration:profiles",
         "feature:badge-qr",
         "decision:D-12",
-        "task:T-063"
+        "task:T-063",
+        "frontend-requirements:auth"
       ],
       "release": "mvp",
       "rollup": {
