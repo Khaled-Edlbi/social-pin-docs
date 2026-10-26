@@ -432,6 +432,7 @@ const ST = {
   done: GREEN, approved: GREEN, verified: GREEN, delivered: GREEN, passing: GREEN, decided: GREEN,
   current: { c: 'var(--color-accent)', bg: 'var(--color-accent-100)', ink: 'var(--color-accent-800)' }, // a Backend Integration note in use, not done: done is Delivered
   partial: OCHRE,
+  ready: OCHRE, // a requirements list the frontend finished, waiting on the backend's approval
   'in-progress': { c: 'var(--color-accent)', bg: 'var(--color-accent-100)', ink: 'var(--color-accent-800)' },
   draft: { c: 'var(--color-accent-500)', bg: 'var(--color-accent-100)', ink: 'var(--color-accent-800)' },
   todo: { c: 'var(--color-neutral-600)', bg: 'var(--color-neutral-200)', ink: 'var(--color-neutral-800)' },
@@ -443,7 +444,7 @@ const ST = {
 };
 const STATUS_GROUPS = [
   { title: 'Build', hint: 'cards and their roll-up', keys: ['done', 'partial', 'in-progress', 'todo'] },
-  { title: 'Review', hint: 'stories & requirements', keys: ['draft', 'approved', 'verified', 'delivered', 'decided'] },
+  { title: 'Review', hint: 'stories & requirements', keys: ['draft', 'ready', 'approved', 'verified', 'delivered', 'decided'] },
   { title: 'Integration & QA', hint: 'against main, last run', keys: ['current', 'passing', 'failing'] },
   { title: 'Waiting on', hint: 'can’t start yet', keys: ['blocked', 'needs-decision'] },
   { title: 'Other', hint: '', keys: ['missing', 'reference'] },
