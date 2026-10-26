@@ -36842,35 +36842,35 @@
       "name": "Commerce Module",
       "type": "module"
     },
-    "modules/Commerce/Payments & Orders/Payments & Orders Backend Delivery.md": {
+    "modules/Commerce/features/Payments & Orders/Payments & Orders Backend Delivery.md": {
       "name": "Payments & Orders Backend Delivery",
       "type": "backend-delivery"
     },
-    "modules/Commerce/Payments & Orders/Payments & Orders Frontend Requirements.md": {
+    "modules/Commerce/features/Payments & Orders/Payments & Orders Frontend Requirements.md": {
       "name": "Payments & Orders Frontend Requirements",
       "type": "frontend-requirements"
     },
-    "modules/Commerce/Payments & Orders/Payments & Orders Story.md": {
+    "modules/Commerce/features/Payments & Orders/Payments & Orders Story.md": {
       "name": "Payments & Orders Story",
       "type": "story"
     },
-    "modules/Commerce/Payments & Orders/Payments & Orders.md": {
+    "modules/Commerce/features/Payments & Orders/Payments & Orders.md": {
       "name": "Payments & Orders",
       "type": "feature"
     },
-    "modules/Commerce/Subscription (Free vs Pro)/Subscription (Free vs Pro) Backend Delivery.md": {
+    "modules/Commerce/features/Subscription (Free vs Pro)/Subscription (Free vs Pro) Backend Delivery.md": {
       "name": "Subscription (Free vs Pro) Backend Delivery",
       "type": "backend-delivery"
     },
-    "modules/Commerce/Subscription (Free vs Pro)/Subscription (Free vs Pro) Frontend Requirements.md": {
+    "modules/Commerce/features/Subscription (Free vs Pro)/Subscription (Free vs Pro) Frontend Requirements.md": {
       "name": "Subscription (Free vs Pro) Frontend Requirements",
       "type": "frontend-requirements"
     },
-    "modules/Commerce/Subscription (Free vs Pro)/Subscription (Free vs Pro) Story.md": {
+    "modules/Commerce/features/Subscription (Free vs Pro)/Subscription (Free vs Pro) Story.md": {
       "name": "Subscription (Free vs Pro) Story",
       "type": "story"
     },
-    "modules/Commerce/Subscription (Free vs Pro)/Subscription (Free vs Pro).md": {
+    "modules/Commerce/features/Subscription (Free vs Pro)/Subscription (Free vs Pro).md": {
       "name": "Subscription (Free vs Pro)",
       "type": "feature"
     },
@@ -36878,415 +36878,415 @@
       "name": "Connections Module",
       "type": "module"
     },
-    "modules/Connections/Connections/Connections Backend Delivery.md": {
+    "modules/Connections/features/Connections/Connections Backend Delivery.md": {
       "name": "Connections Backend Delivery",
       "type": "backend-delivery"
     },
-    "modules/Connections/Connections/Connections Frontend Requirements.md": {
+    "modules/Connections/features/Connections/Connections Frontend Requirements.md": {
       "name": "Connections Frontend Requirements",
       "type": "frontend-requirements"
     },
-    "modules/Connections/Connections/Connections Story.md": {
+    "modules/Connections/features/Connections/Connections Story.md": {
       "name": "Connections Story",
       "type": "story"
     },
-    "modules/Connections/Connections/Connections.md": {
+    "modules/Connections/features/Connections/Connections.md": {
       "name": "Connections",
-      "type": "feature"
-    },
-    "modules/Discovery/Badge & QR/Badge & QR Backend Delivery.md": {
-      "name": "Badge & QR Backend Delivery",
-      "type": "backend-delivery"
-    },
-    "modules/Discovery/Badge & QR/Badge & QR Frontend Requirements.md": {
-      "name": "Badge & QR Frontend Requirements",
-      "type": "frontend-requirements"
-    },
-    "modules/Discovery/Badge & QR/Badge & QR Story.md": {
-      "name": "Badge & QR Story",
-      "type": "story"
-    },
-    "modules/Discovery/Badge & QR/Badge & QR.md": {
-      "name": "Badge & QR",
-      "type": "feature"
-    },
-    "modules/Discovery/Discover Hub & Search/Discover Hub & Search Backend Delivery.md": {
-      "name": "Discover Hub & Search Backend Delivery",
-      "type": "backend-delivery"
-    },
-    "modules/Discovery/Discover Hub & Search/Discover Hub & Search Frontend Requirements.md": {
-      "name": "Discover Hub & Search Frontend Requirements",
-      "type": "frontend-requirements"
-    },
-    "modules/Discovery/Discover Hub & Search/Discover Hub & Search Story.md": {
-      "name": "Discover Hub & Search Story",
-      "type": "story"
-    },
-    "modules/Discovery/Discover Hub & Search/Discover Hub & Search.md": {
-      "name": "Discover Hub & Search",
       "type": "feature"
     },
     "modules/Discovery/Discovery Module.md": {
       "name": "Discovery Module",
       "type": "module"
     },
-    "modules/Discovery/PinCast & Nearby/PinCast & Nearby Backend Delivery.md": {
+    "modules/Discovery/features/Badge & QR/Badge & QR Backend Delivery.md": {
+      "name": "Badge & QR Backend Delivery",
+      "type": "backend-delivery"
+    },
+    "modules/Discovery/features/Badge & QR/Badge & QR Frontend Requirements.md": {
+      "name": "Badge & QR Frontend Requirements",
+      "type": "frontend-requirements"
+    },
+    "modules/Discovery/features/Badge & QR/Badge & QR Story.md": {
+      "name": "Badge & QR Story",
+      "type": "story"
+    },
+    "modules/Discovery/features/Badge & QR/Badge & QR.md": {
+      "name": "Badge & QR",
+      "type": "feature"
+    },
+    "modules/Discovery/features/Discover Hub & Search/Discover Hub & Search Backend Delivery.md": {
+      "name": "Discover Hub & Search Backend Delivery",
+      "type": "backend-delivery"
+    },
+    "modules/Discovery/features/Discover Hub & Search/Discover Hub & Search Frontend Requirements.md": {
+      "name": "Discover Hub & Search Frontend Requirements",
+      "type": "frontend-requirements"
+    },
+    "modules/Discovery/features/Discover Hub & Search/Discover Hub & Search Story.md": {
+      "name": "Discover Hub & Search Story",
+      "type": "story"
+    },
+    "modules/Discovery/features/Discover Hub & Search/Discover Hub & Search.md": {
+      "name": "Discover Hub & Search",
+      "type": "feature"
+    },
+    "modules/Discovery/features/PinCast & Nearby/PinCast & Nearby Backend Delivery.md": {
       "name": "PinCast & Nearby Backend Delivery",
       "type": "backend-delivery"
     },
-    "modules/Discovery/PinCast & Nearby/PinCast & Nearby Frontend Requirements.md": {
+    "modules/Discovery/features/PinCast & Nearby/PinCast & Nearby Frontend Requirements.md": {
       "name": "PinCast & Nearby Frontend Requirements",
       "type": "frontend-requirements"
     },
-    "modules/Discovery/PinCast & Nearby/PinCast & Nearby Story.md": {
+    "modules/Discovery/features/PinCast & Nearby/PinCast & Nearby Story.md": {
       "name": "PinCast & Nearby Story",
       "type": "story"
     },
-    "modules/Discovery/PinCast & Nearby/PinCast & Nearby.md": {
+    "modules/Discovery/features/PinCast & Nearby/PinCast & Nearby.md": {
       "name": "PinCast & Nearby",
-      "type": "feature"
-    },
-    "modules/Events/Event Ring Auto-creation/Event Ring Auto-creation Backend Delivery.md": {
-      "name": "Event Ring Auto-creation Backend Delivery",
-      "type": "backend-delivery"
-    },
-    "modules/Events/Event Ring Auto-creation/Event Ring Auto-creation Frontend Requirements.md": {
-      "name": "Event Ring Auto-creation Frontend Requirements",
-      "type": "frontend-requirements"
-    },
-    "modules/Events/Event Ring Auto-creation/Event Ring Auto-creation Story.md": {
-      "name": "Event Ring Auto-creation Story",
-      "type": "story"
-    },
-    "modules/Events/Event Ring Auto-creation/Event Ring Auto-creation.md": {
-      "name": "Event Ring Auto-creation",
-      "type": "feature"
-    },
-    "modules/Events/Events Before/Events Before Backend Delivery.md": {
-      "name": "Events Before Backend Delivery",
-      "type": "backend-delivery"
-    },
-    "modules/Events/Events Before/Events Before Frontend Requirements.md": {
-      "name": "Events Before Frontend Requirements",
-      "type": "frontend-requirements"
-    },
-    "modules/Events/Events Before/Events Before Story.md": {
-      "name": "Events Before Story",
-      "type": "story"
-    },
-    "modules/Events/Events Before/Events Before.md": {
-      "name": "Events Before",
-      "type": "feature"
-    },
-    "modules/Events/Events During/Events During Backend Delivery.md": {
-      "name": "Events During Backend Delivery",
-      "type": "backend-delivery"
-    },
-    "modules/Events/Events During/Events During Frontend Requirements.md": {
-      "name": "Events During Frontend Requirements",
-      "type": "frontend-requirements"
-    },
-    "modules/Events/Events During/Events During Story.md": {
-      "name": "Events During Story",
-      "type": "story"
-    },
-    "modules/Events/Events During/Events During.md": {
-      "name": "Events During",
       "type": "feature"
     },
     "modules/Events/Events Module.md": {
       "name": "Events Module",
       "type": "module"
     },
-    "modules/Events/Exhibitor/Exhibitor Backend Delivery.md": {
+    "modules/Events/features/Event Ring Auto-creation/Event Ring Auto-creation Backend Delivery.md": {
+      "name": "Event Ring Auto-creation Backend Delivery",
+      "type": "backend-delivery"
+    },
+    "modules/Events/features/Event Ring Auto-creation/Event Ring Auto-creation Frontend Requirements.md": {
+      "name": "Event Ring Auto-creation Frontend Requirements",
+      "type": "frontend-requirements"
+    },
+    "modules/Events/features/Event Ring Auto-creation/Event Ring Auto-creation Story.md": {
+      "name": "Event Ring Auto-creation Story",
+      "type": "story"
+    },
+    "modules/Events/features/Event Ring Auto-creation/Event Ring Auto-creation.md": {
+      "name": "Event Ring Auto-creation",
+      "type": "feature"
+    },
+    "modules/Events/features/Events Before/Events Before Backend Delivery.md": {
+      "name": "Events Before Backend Delivery",
+      "type": "backend-delivery"
+    },
+    "modules/Events/features/Events Before/Events Before Frontend Requirements.md": {
+      "name": "Events Before Frontend Requirements",
+      "type": "frontend-requirements"
+    },
+    "modules/Events/features/Events Before/Events Before Story.md": {
+      "name": "Events Before Story",
+      "type": "story"
+    },
+    "modules/Events/features/Events Before/Events Before.md": {
+      "name": "Events Before",
+      "type": "feature"
+    },
+    "modules/Events/features/Events During/Events During Backend Delivery.md": {
+      "name": "Events During Backend Delivery",
+      "type": "backend-delivery"
+    },
+    "modules/Events/features/Events During/Events During Frontend Requirements.md": {
+      "name": "Events During Frontend Requirements",
+      "type": "frontend-requirements"
+    },
+    "modules/Events/features/Events During/Events During Story.md": {
+      "name": "Events During Story",
+      "type": "story"
+    },
+    "modules/Events/features/Events During/Events During.md": {
+      "name": "Events During",
+      "type": "feature"
+    },
+    "modules/Events/features/Exhibitor/Exhibitor Backend Delivery.md": {
       "name": "Exhibitor Backend Delivery",
       "type": "backend-delivery"
     },
-    "modules/Events/Exhibitor/Exhibitor Frontend Requirements.md": {
+    "modules/Events/features/Exhibitor/Exhibitor Frontend Requirements.md": {
       "name": "Exhibitor Frontend Requirements",
       "type": "frontend-requirements"
     },
-    "modules/Events/Exhibitor/Exhibitor Story.md": {
+    "modules/Events/features/Exhibitor/Exhibitor Story.md": {
       "name": "Exhibitor Story",
       "type": "story"
     },
-    "modules/Events/Exhibitor/Exhibitor.md": {
+    "modules/Events/features/Exhibitor/Exhibitor.md": {
       "name": "Exhibitor",
       "type": "feature"
     },
-    "modules/Events/Post-Event/Post-Event Backend Delivery.md": {
+    "modules/Events/features/Post-Event/Post-Event Backend Delivery.md": {
       "name": "Post-Event Backend Delivery",
       "type": "backend-delivery"
     },
-    "modules/Events/Post-Event/Post-Event Frontend Requirements.md": {
+    "modules/Events/features/Post-Event/Post-Event Frontend Requirements.md": {
       "name": "Post-Event Frontend Requirements",
       "type": "frontend-requirements"
     },
-    "modules/Events/Post-Event/Post-Event Story.md": {
+    "modules/Events/features/Post-Event/Post-Event Story.md": {
       "name": "Post-Event Story",
       "type": "story"
     },
-    "modules/Events/Post-Event/Post-Event.md": {
+    "modules/Events/features/Post-Event/Post-Event.md": {
       "name": "Post-Event",
-      "type": "feature"
-    },
-    "modules/Identity Core/Account/Account Backend Delivery.md": {
-      "name": "Account Backend Delivery",
-      "type": "backend-delivery"
-    },
-    "modules/Identity Core/Account/Account Backend Integration.md": {
-      "name": "Account Backend Integration",
-      "type": "backend-integration"
-    },
-    "modules/Identity Core/Account/Account Frontend Delivery.md": {
-      "name": "Account Frontend Delivery",
-      "type": "frontend-delivery"
-    },
-    "modules/Identity Core/Account/Account Frontend Requirements.md": {
-      "name": "Account Frontend Requirements",
-      "type": "frontend-requirements"
-    },
-    "modules/Identity Core/Account/Account QA Backend.md": {
-      "name": "Account QA Backend",
-      "type": "qa-backend"
-    },
-    "modules/Identity Core/Account/Account QA Frontend.md": {
-      "name": "Account QA Frontend",
-      "type": "qa-frontend"
-    },
-    "modules/Identity Core/Account/Account Story.md": {
-      "name": "Account Story",
-      "type": "story"
-    },
-    "modules/Identity Core/Account/Account.md": {
-      "name": "Account",
-      "type": "feature"
-    },
-    "modules/Identity Core/Auth & Sign-up/Auth & Sign-up Backend Delivery.md": {
-      "name": "Auth & Sign-up Backend Delivery",
-      "type": "backend-delivery"
-    },
-    "modules/Identity Core/Auth & Sign-up/Auth & Sign-up Backend Integration.md": {
-      "name": "Auth & Sign-up Backend Integration",
-      "type": "backend-integration"
-    },
-    "modules/Identity Core/Auth & Sign-up/Auth & Sign-up Frontend Requirements.md": {
-      "name": "Auth & Sign-up Frontend Requirements",
-      "type": "frontend-requirements"
-    },
-    "modules/Identity Core/Auth & Sign-up/Auth & Sign-up Story.md": {
-      "name": "Auth & Sign-up Story",
-      "type": "story"
-    },
-    "modules/Identity Core/Auth & Sign-up/Auth & Sign-up.md": {
-      "name": "Auth & Sign-up",
-      "type": "feature"
-    },
-    "modules/Identity Core/Counts/Counts Backend Delivery.md": {
-      "name": "Counts Backend Delivery",
-      "type": "backend-delivery"
-    },
-    "modules/Identity Core/Counts/Counts Frontend Requirements.md": {
-      "name": "Counts Frontend Requirements",
-      "type": "frontend-requirements"
-    },
-    "modules/Identity Core/Counts/Counts Story.md": {
-      "name": "Counts Story",
-      "type": "story"
-    },
-    "modules/Identity Core/Counts/Counts.md": {
-      "name": "Counts",
-      "type": "feature"
-    },
-    "modules/Identity Core/Files Upload/Files Upload Backend Delivery.md": {
-      "name": "Files Upload Backend Delivery",
-      "type": "backend-delivery"
-    },
-    "modules/Identity Core/Files Upload/Files Upload Backend Integration.md": {
-      "name": "Files Upload Backend Integration",
-      "type": "backend-integration"
-    },
-    "modules/Identity Core/Files Upload/Files Upload Frontend Requirements.md": {
-      "name": "Files Upload Frontend Requirements",
-      "type": "frontend-requirements"
-    },
-    "modules/Identity Core/Files Upload/Files Upload Story.md": {
-      "name": "Files Upload Story",
-      "type": "story"
-    },
-    "modules/Identity Core/Files Upload/Files Upload.md": {
-      "name": "Files Upload",
       "type": "feature"
     },
     "modules/Identity Core/Identity Core Module.md": {
       "name": "Identity Core Module",
       "type": "module"
     },
-    "modules/Identity Core/Onboarding Imports/Onboarding Imports Backend Delivery.md": {
+    "modules/Identity Core/features/Account/Account Backend Delivery.md": {
+      "name": "Account Backend Delivery",
+      "type": "backend-delivery"
+    },
+    "modules/Identity Core/features/Account/Account Backend Integration.md": {
+      "name": "Account Backend Integration",
+      "type": "backend-integration"
+    },
+    "modules/Identity Core/features/Account/Account Frontend Delivery.md": {
+      "name": "Account Frontend Delivery",
+      "type": "frontend-delivery"
+    },
+    "modules/Identity Core/features/Account/Account Frontend Requirements.md": {
+      "name": "Account Frontend Requirements",
+      "type": "frontend-requirements"
+    },
+    "modules/Identity Core/features/Account/Account QA Backend.md": {
+      "name": "Account QA Backend",
+      "type": "qa-backend"
+    },
+    "modules/Identity Core/features/Account/Account QA Frontend.md": {
+      "name": "Account QA Frontend",
+      "type": "qa-frontend"
+    },
+    "modules/Identity Core/features/Account/Account Story.md": {
+      "name": "Account Story",
+      "type": "story"
+    },
+    "modules/Identity Core/features/Account/Account.md": {
+      "name": "Account",
+      "type": "feature"
+    },
+    "modules/Identity Core/features/Auth & Sign-up/Auth & Sign-up Backend Delivery.md": {
+      "name": "Auth & Sign-up Backend Delivery",
+      "type": "backend-delivery"
+    },
+    "modules/Identity Core/features/Auth & Sign-up/Auth & Sign-up Backend Integration.md": {
+      "name": "Auth & Sign-up Backend Integration",
+      "type": "backend-integration"
+    },
+    "modules/Identity Core/features/Auth & Sign-up/Auth & Sign-up Frontend Requirements.md": {
+      "name": "Auth & Sign-up Frontend Requirements",
+      "type": "frontend-requirements"
+    },
+    "modules/Identity Core/features/Auth & Sign-up/Auth & Sign-up Story.md": {
+      "name": "Auth & Sign-up Story",
+      "type": "story"
+    },
+    "modules/Identity Core/features/Auth & Sign-up/Auth & Sign-up.md": {
+      "name": "Auth & Sign-up",
+      "type": "feature"
+    },
+    "modules/Identity Core/features/Counts/Counts Backend Delivery.md": {
+      "name": "Counts Backend Delivery",
+      "type": "backend-delivery"
+    },
+    "modules/Identity Core/features/Counts/Counts Frontend Requirements.md": {
+      "name": "Counts Frontend Requirements",
+      "type": "frontend-requirements"
+    },
+    "modules/Identity Core/features/Counts/Counts Story.md": {
+      "name": "Counts Story",
+      "type": "story"
+    },
+    "modules/Identity Core/features/Counts/Counts.md": {
+      "name": "Counts",
+      "type": "feature"
+    },
+    "modules/Identity Core/features/Files Upload/Files Upload Backend Delivery.md": {
+      "name": "Files Upload Backend Delivery",
+      "type": "backend-delivery"
+    },
+    "modules/Identity Core/features/Files Upload/Files Upload Backend Integration.md": {
+      "name": "Files Upload Backend Integration",
+      "type": "backend-integration"
+    },
+    "modules/Identity Core/features/Files Upload/Files Upload Frontend Requirements.md": {
+      "name": "Files Upload Frontend Requirements",
+      "type": "frontend-requirements"
+    },
+    "modules/Identity Core/features/Files Upload/Files Upload Story.md": {
+      "name": "Files Upload Story",
+      "type": "story"
+    },
+    "modules/Identity Core/features/Files Upload/Files Upload.md": {
+      "name": "Files Upload",
+      "type": "feature"
+    },
+    "modules/Identity Core/features/Onboarding Imports/Onboarding Imports Backend Delivery.md": {
       "name": "Onboarding Imports Backend Delivery",
       "type": "backend-delivery"
     },
-    "modules/Identity Core/Onboarding Imports/Onboarding Imports Frontend Requirements.md": {
+    "modules/Identity Core/features/Onboarding Imports/Onboarding Imports Frontend Requirements.md": {
       "name": "Onboarding Imports Frontend Requirements",
       "type": "frontend-requirements"
     },
-    "modules/Identity Core/Onboarding Imports/Onboarding Imports Story.md": {
+    "modules/Identity Core/features/Onboarding Imports/Onboarding Imports Story.md": {
       "name": "Onboarding Imports Story",
       "type": "story"
     },
-    "modules/Identity Core/Onboarding Imports/Onboarding Imports.md": {
+    "modules/Identity Core/features/Onboarding Imports/Onboarding Imports.md": {
       "name": "Onboarding Imports",
       "type": "feature"
     },
-    "modules/Identity Core/Photo Library/Photo Library Backend Delivery.md": {
+    "modules/Identity Core/features/Photo Library/Photo Library Backend Delivery.md": {
       "name": "Photo Library Backend Delivery",
       "type": "backend-delivery"
     },
-    "modules/Identity Core/Photo Library/Photo Library Frontend Requirements.md": {
+    "modules/Identity Core/features/Photo Library/Photo Library Frontend Requirements.md": {
       "name": "Photo Library Frontend Requirements",
       "type": "frontend-requirements"
     },
-    "modules/Identity Core/Photo Library/Photo Library Story.md": {
+    "modules/Identity Core/features/Photo Library/Photo Library Story.md": {
       "name": "Photo Library Story",
       "type": "story"
     },
-    "modules/Identity Core/Photo Library/Photo Library.md": {
+    "modules/Identity Core/features/Photo Library/Photo Library.md": {
       "name": "Photo Library",
       "type": "feature"
     },
-    "modules/Identity Core/Profiles & Pin Name/Profiles & Pin Name Backend Delivery.md": {
+    "modules/Identity Core/features/Profiles & Pin Name/Profiles & Pin Name Backend Delivery.md": {
       "name": "Profiles & Pin Name Backend Delivery",
       "type": "backend-delivery"
     },
-    "modules/Identity Core/Profiles & Pin Name/Profiles & Pin Name Backend Integration.md": {
+    "modules/Identity Core/features/Profiles & Pin Name/Profiles & Pin Name Backend Integration.md": {
       "name": "Profiles & Pin Name Backend Integration",
       "type": "backend-integration"
     },
-    "modules/Identity Core/Profiles & Pin Name/Profiles & Pin Name Frontend Requirements.md": {
+    "modules/Identity Core/features/Profiles & Pin Name/Profiles & Pin Name Frontend Requirements.md": {
       "name": "Profiles & Pin Name Frontend Requirements",
       "type": "frontend-requirements"
     },
-    "modules/Identity Core/Profiles & Pin Name/Profiles & Pin Name Story.md": {
+    "modules/Identity Core/features/Profiles & Pin Name/Profiles & Pin Name Story.md": {
       "name": "Profiles & Pin Name Story",
       "type": "story"
     },
-    "modules/Identity Core/Profiles & Pin Name/Profiles & Pin Name.md": {
+    "modules/Identity Core/features/Profiles & Pin Name/Profiles & Pin Name.md": {
       "name": "Profiles & Pin Name",
       "type": "feature"
     },
-    "modules/Identity Core/Ring Access Engine/Ring Access Engine Backend Delivery.md": {
+    "modules/Identity Core/features/Ring Access Engine/Ring Access Engine Backend Delivery.md": {
       "name": "Ring Access Engine Backend Delivery",
       "type": "backend-delivery"
     },
-    "modules/Identity Core/Ring Access Engine/Ring Access Engine Backend Integration.md": {
+    "modules/Identity Core/features/Ring Access Engine/Ring Access Engine Backend Integration.md": {
       "name": "Ring Access Engine Backend Integration",
       "type": "backend-integration"
     },
-    "modules/Identity Core/Ring Access Engine/Ring Access Engine Frontend Requirements.md": {
+    "modules/Identity Core/features/Ring Access Engine/Ring Access Engine Frontend Requirements.md": {
       "name": "Ring Access Engine Frontend Requirements",
       "type": "frontend-requirements"
     },
-    "modules/Identity Core/Ring Access Engine/Ring Access Engine Story.md": {
+    "modules/Identity Core/features/Ring Access Engine/Ring Access Engine Story.md": {
       "name": "Ring Access Engine Story",
       "type": "story"
     },
-    "modules/Identity Core/Ring Access Engine/Ring Access Engine.md": {
+    "modules/Identity Core/features/Ring Access Engine/Ring Access Engine.md": {
       "name": "Ring Access Engine",
       "type": "feature"
     },
-    "modules/Identity Core/Ring Members/Ring Members Backend Delivery.md": {
+    "modules/Identity Core/features/Ring Members/Ring Members Backend Delivery.md": {
       "name": "Ring Members Backend Delivery",
       "type": "backend-delivery"
     },
-    "modules/Identity Core/Ring Members/Ring Members Backend Integration.md": {
+    "modules/Identity Core/features/Ring Members/Ring Members Backend Integration.md": {
       "name": "Ring Members Backend Integration",
       "type": "backend-integration"
     },
-    "modules/Identity Core/Ring Members/Ring Members Frontend Requirements.md": {
+    "modules/Identity Core/features/Ring Members/Ring Members Frontend Requirements.md": {
       "name": "Ring Members Frontend Requirements",
       "type": "frontend-requirements"
     },
-    "modules/Identity Core/Ring Members/Ring Members Story.md": {
+    "modules/Identity Core/features/Ring Members/Ring Members Story.md": {
       "name": "Ring Members Story",
       "type": "story"
     },
-    "modules/Identity Core/Ring Members/Ring Members.md": {
+    "modules/Identity Core/features/Ring Members/Ring Members.md": {
       "name": "Ring Members",
       "type": "feature"
     },
-    "modules/Identity Core/Ring Projection/Ring Projection Backend Delivery.md": {
+    "modules/Identity Core/features/Ring Projection/Ring Projection Backend Delivery.md": {
       "name": "Ring Projection Backend Delivery",
       "type": "backend-delivery"
     },
-    "modules/Identity Core/Ring Projection/Ring Projection Backend Integration.md": {
+    "modules/Identity Core/features/Ring Projection/Ring Projection Backend Integration.md": {
       "name": "Ring Projection Backend Integration",
       "type": "backend-integration"
     },
-    "modules/Identity Core/Ring Projection/Ring Projection Frontend Requirements.md": {
+    "modules/Identity Core/features/Ring Projection/Ring Projection Frontend Requirements.md": {
       "name": "Ring Projection Frontend Requirements",
       "type": "frontend-requirements"
     },
-    "modules/Identity Core/Ring Projection/Ring Projection Story.md": {
+    "modules/Identity Core/features/Ring Projection/Ring Projection Story.md": {
       "name": "Ring Projection Story",
       "type": "story"
     },
-    "modules/Identity Core/Ring Projection/Ring Projection.md": {
+    "modules/Identity Core/features/Ring Projection/Ring Projection.md": {
       "name": "Ring Projection",
       "type": "feature"
     },
-    "modules/Identity Core/Rings/Rings Backend Delivery.md": {
+    "modules/Identity Core/features/Rings/Rings Backend Delivery.md": {
       "name": "Rings Backend Delivery",
       "type": "backend-delivery"
     },
-    "modules/Identity Core/Rings/Rings Backend Integration.md": {
+    "modules/Identity Core/features/Rings/Rings Backend Integration.md": {
       "name": "Rings Backend Integration",
       "type": "backend-integration"
     },
-    "modules/Identity Core/Rings/Rings Frontend Requirements.md": {
+    "modules/Identity Core/features/Rings/Rings Frontend Requirements.md": {
       "name": "Rings Frontend Requirements",
       "type": "frontend-requirements"
     },
-    "modules/Identity Core/Rings/Rings Story.md": {
+    "modules/Identity Core/features/Rings/Rings Story.md": {
       "name": "Rings Story",
       "type": "story"
     },
-    "modules/Identity Core/Rings/Rings.md": {
+    "modules/Identity Core/features/Rings/Rings.md": {
       "name": "Rings",
       "type": "feature"
     },
-    "modules/Identity Core/View As & Pin Views/View As & Pin Views Backend Delivery.md": {
+    "modules/Identity Core/features/View As & Pin Views/View As & Pin Views Backend Delivery.md": {
       "name": "View As & Pin Views Backend Delivery",
       "type": "backend-delivery"
     },
-    "modules/Identity Core/View As & Pin Views/View As & Pin Views Backend Integration.md": {
+    "modules/Identity Core/features/View As & Pin Views/View As & Pin Views Backend Integration.md": {
       "name": "View As & Pin Views Backend Integration",
       "type": "backend-integration"
     },
-    "modules/Identity Core/View As & Pin Views/View As & Pin Views Frontend Requirements.md": {
+    "modules/Identity Core/features/View As & Pin Views/View As & Pin Views Frontend Requirements.md": {
       "name": "View As & Pin Views Frontend Requirements",
       "type": "frontend-requirements"
     },
-    "modules/Identity Core/View As & Pin Views/View As & Pin Views Story.md": {
+    "modules/Identity Core/features/View As & Pin Views/View As & Pin Views Story.md": {
       "name": "View As & Pin Views Story",
       "type": "story"
     },
-    "modules/Identity Core/View As & Pin Views/View As & Pin Views.md": {
+    "modules/Identity Core/features/View As & Pin Views/View As & Pin Views.md": {
       "name": "View As & Pin Views",
       "type": "feature"
     },
-    "modules/Identity Core/Widgets/Widgets Backend Delivery.md": {
+    "modules/Identity Core/features/Widgets/Widgets Backend Delivery.md": {
       "name": "Widgets Backend Delivery",
       "type": "backend-delivery"
     },
-    "modules/Identity Core/Widgets/Widgets Frontend Requirements.md": {
+    "modules/Identity Core/features/Widgets/Widgets Frontend Requirements.md": {
       "name": "Widgets Frontend Requirements",
       "type": "frontend-requirements"
     },
-    "modules/Identity Core/Widgets/Widgets Story.md": {
+    "modules/Identity Core/features/Widgets/Widgets Story.md": {
       "name": "Widgets Story",
       "type": "story"
     },
-    "modules/Identity Core/Widgets/Widgets.md": {
+    "modules/Identity Core/features/Widgets/Widgets.md": {
       "name": "Widgets",
       "type": "feature"
     },
@@ -37294,261 +37294,261 @@
       "name": "Meetings Module",
       "type": "module"
     },
-    "modules/Meetings/Meetings/Meetings Backend Delivery.md": {
+    "modules/Meetings/features/Meetings/Meetings Backend Delivery.md": {
       "name": "Meetings Backend Delivery",
       "type": "backend-delivery"
     },
-    "modules/Meetings/Meetings/Meetings Frontend Requirements.md": {
+    "modules/Meetings/features/Meetings/Meetings Frontend Requirements.md": {
       "name": "Meetings Frontend Requirements",
       "type": "frontend-requirements"
     },
-    "modules/Meetings/Meetings/Meetings Story.md": {
+    "modules/Meetings/features/Meetings/Meetings Story.md": {
       "name": "Meetings Story",
       "type": "story"
     },
-    "modules/Meetings/Meetings/Meetings.md": {
+    "modules/Meetings/features/Meetings/Meetings.md": {
       "name": "Meetings",
-      "type": "feature"
-    },
-    "modules/Platform & Cross-cutting/App Shell & Onboarding Narrative/App Shell & Onboarding Narrative Backend Delivery.md": {
-      "name": "App Shell & Onboarding Narrative Backend Delivery",
-      "type": "backend-delivery"
-    },
-    "modules/Platform & Cross-cutting/App Shell & Onboarding Narrative/App Shell & Onboarding Narrative Frontend Requirements.md": {
-      "name": "App Shell & Onboarding Narrative Frontend Requirements",
-      "type": "frontend-requirements"
-    },
-    "modules/Platform & Cross-cutting/App Shell & Onboarding Narrative/App Shell & Onboarding Narrative Story.md": {
-      "name": "App Shell & Onboarding Narrative Story",
-      "type": "story"
-    },
-    "modules/Platform & Cross-cutting/App Shell & Onboarding Narrative/App Shell & Onboarding Narrative.md": {
-      "name": "App Shell & Onboarding Narrative",
-      "type": "feature"
-    },
-    "modules/Platform & Cross-cutting/Audit Log/Audit Log Backend Delivery.md": {
-      "name": "Audit Log Backend Delivery",
-      "type": "backend-delivery"
-    },
-    "modules/Platform & Cross-cutting/Audit Log/Audit Log Frontend Requirements.md": {
-      "name": "Audit Log Frontend Requirements",
-      "type": "frontend-requirements"
-    },
-    "modules/Platform & Cross-cutting/Audit Log/Audit Log Story.md": {
-      "name": "Audit Log Story",
-      "type": "story"
-    },
-    "modules/Platform & Cross-cutting/Audit Log/Audit Log.md": {
-      "name": "Audit Log",
-      "type": "feature"
-    },
-    "modules/Platform & Cross-cutting/Build & Deploy/Build & Deploy.md": {
-      "name": "Build & Deploy",
-      "type": "feature"
-    },
-    "modules/Platform & Cross-cutting/Cleanup Jobs/Cleanup Jobs Backend Delivery.md": {
-      "name": "Cleanup Jobs Backend Delivery",
-      "type": "backend-delivery"
-    },
-    "modules/Platform & Cross-cutting/Cleanup Jobs/Cleanup Jobs Frontend Requirements.md": {
-      "name": "Cleanup Jobs Frontend Requirements",
-      "type": "frontend-requirements"
-    },
-    "modules/Platform & Cross-cutting/Cleanup Jobs/Cleanup Jobs Story.md": {
-      "name": "Cleanup Jobs Story",
-      "type": "story"
-    },
-    "modules/Platform & Cross-cutting/Cleanup Jobs/Cleanup Jobs.md": {
-      "name": "Cleanup Jobs",
-      "type": "feature"
-    },
-    "modules/Platform & Cross-cutting/Code Delivery/Code Delivery Backend Delivery.md": {
-      "name": "Code Delivery Backend Delivery",
-      "type": "backend-delivery"
-    },
-    "modules/Platform & Cross-cutting/Code Delivery/Code Delivery Frontend Requirements.md": {
-      "name": "Code Delivery Frontend Requirements",
-      "type": "frontend-requirements"
-    },
-    "modules/Platform & Cross-cutting/Code Delivery/Code Delivery Story.md": {
-      "name": "Code Delivery Story",
-      "type": "story"
-    },
-    "modules/Platform & Cross-cutting/Code Delivery/Code Delivery.md": {
-      "name": "Code Delivery",
-      "type": "feature"
-    },
-    "modules/Platform & Cross-cutting/Devices & NFC/Devices & NFC Backend Delivery.md": {
-      "name": "Devices & NFC Backend Delivery",
-      "type": "backend-delivery"
-    },
-    "modules/Platform & Cross-cutting/Devices & NFC/Devices & NFC Frontend Requirements.md": {
-      "name": "Devices & NFC Frontend Requirements",
-      "type": "frontend-requirements"
-    },
-    "modules/Platform & Cross-cutting/Devices & NFC/Devices & NFC Story.md": {
-      "name": "Devices & NFC Story",
-      "type": "story"
-    },
-    "modules/Platform & Cross-cutting/Devices & NFC/Devices & NFC.md": {
-      "name": "Devices & NFC",
-      "type": "feature"
-    },
-    "modules/Platform & Cross-cutting/E2E Test Run/E2E Test Run Backend Delivery.md": {
-      "name": "E2E Test Run Backend Delivery",
-      "type": "backend-delivery"
-    },
-    "modules/Platform & Cross-cutting/E2E Test Run/E2E Test Run Frontend Requirements.md": {
-      "name": "E2E Test Run Frontend Requirements",
-      "type": "frontend-requirements"
-    },
-    "modules/Platform & Cross-cutting/E2E Test Run/E2E Test Run Story.md": {
-      "name": "E2E Test Run Story",
-      "type": "story"
-    },
-    "modules/Platform & Cross-cutting/E2E Test Run/E2E Test Run.md": {
-      "name": "E2E Test Run",
-      "type": "feature"
-    },
-    "modules/Platform & Cross-cutting/Error Contract/Error Contract Backend Delivery.md": {
-      "name": "Error Contract Backend Delivery",
-      "type": "backend-delivery"
-    },
-    "modules/Platform & Cross-cutting/Error Contract/Error Contract Frontend Requirements.md": {
-      "name": "Error Contract Frontend Requirements",
-      "type": "frontend-requirements"
-    },
-    "modules/Platform & Cross-cutting/Error Contract/Error Contract Story.md": {
-      "name": "Error Contract Story",
-      "type": "story"
-    },
-    "modules/Platform & Cross-cutting/Error Contract/Error Contract.md": {
-      "name": "Error Contract",
-      "type": "feature"
-    },
-    "modules/Platform & Cross-cutting/Gemma AI/Gemma AI Backend Delivery.md": {
-      "name": "Gemma AI Backend Delivery",
-      "type": "backend-delivery"
-    },
-    "modules/Platform & Cross-cutting/Gemma AI/Gemma AI Frontend Requirements.md": {
-      "name": "Gemma AI Frontend Requirements",
-      "type": "frontend-requirements"
-    },
-    "modules/Platform & Cross-cutting/Gemma AI/Gemma AI Story.md": {
-      "name": "Gemma AI Story",
-      "type": "story"
-    },
-    "modules/Platform & Cross-cutting/Gemma AI/Gemma AI.md": {
-      "name": "Gemma AI",
-      "type": "feature"
-    },
-    "modules/Platform & Cross-cutting/Interests/Interests Backend Delivery.md": {
-      "name": "Interests Backend Delivery",
-      "type": "backend-delivery"
-    },
-    "modules/Platform & Cross-cutting/Interests/Interests Frontend Requirements.md": {
-      "name": "Interests Frontend Requirements",
-      "type": "frontend-requirements"
-    },
-    "modules/Platform & Cross-cutting/Interests/Interests Story.md": {
-      "name": "Interests Story",
-      "type": "story"
-    },
-    "modules/Platform & Cross-cutting/Interests/Interests.md": {
-      "name": "Interests",
-      "type": "feature"
-    },
-    "modules/Platform & Cross-cutting/Linked Accounts (OAuth)/Linked Accounts (OAuth) Backend Delivery.md": {
-      "name": "Linked Accounts (OAuth) Backend Delivery",
-      "type": "backend-delivery"
-    },
-    "modules/Platform & Cross-cutting/Linked Accounts (OAuth)/Linked Accounts (OAuth) Frontend Requirements.md": {
-      "name": "Linked Accounts (OAuth) Frontend Requirements",
-      "type": "frontend-requirements"
-    },
-    "modules/Platform & Cross-cutting/Linked Accounts (OAuth)/Linked Accounts (OAuth) Story.md": {
-      "name": "Linked Accounts (OAuth) Story",
-      "type": "story"
-    },
-    "modules/Platform & Cross-cutting/Linked Accounts (OAuth)/Linked Accounts (OAuth).md": {
-      "name": "Linked Accounts (OAuth)",
-      "type": "feature"
-    },
-    "modules/Platform & Cross-cutting/Notifications/Notifications Backend Delivery.md": {
-      "name": "Notifications Backend Delivery",
-      "type": "backend-delivery"
-    },
-    "modules/Platform & Cross-cutting/Notifications/Notifications Frontend Requirements.md": {
-      "name": "Notifications Frontend Requirements",
-      "type": "frontend-requirements"
-    },
-    "modules/Platform & Cross-cutting/Notifications/Notifications Story.md": {
-      "name": "Notifications Story",
-      "type": "story"
-    },
-    "modules/Platform & Cross-cutting/Notifications/Notifications.md": {
-      "name": "Notifications",
-      "type": "feature"
-    },
-    "modules/Platform & Cross-cutting/Operator Panel/Operator Panel.md": {
-      "name": "Operator Panel",
       "type": "feature"
     },
     "modules/Platform & Cross-cutting/Platform & Cross-cutting Module.md": {
       "name": "Platform & Cross-cutting Module",
       "type": "module"
     },
-    "modules/Shared Rings & Companies/Companies/Companies Backend Delivery.md": {
-      "name": "Companies Backend Delivery",
+    "modules/Platform & Cross-cutting/features/App Shell & Onboarding Narrative/App Shell & Onboarding Narrative Backend Delivery.md": {
+      "name": "App Shell & Onboarding Narrative Backend Delivery",
       "type": "backend-delivery"
     },
-    "modules/Shared Rings & Companies/Companies/Companies Frontend Requirements.md": {
-      "name": "Companies Frontend Requirements",
+    "modules/Platform & Cross-cutting/features/App Shell & Onboarding Narrative/App Shell & Onboarding Narrative Frontend Requirements.md": {
+      "name": "App Shell & Onboarding Narrative Frontend Requirements",
       "type": "frontend-requirements"
     },
-    "modules/Shared Rings & Companies/Companies/Companies Story.md": {
-      "name": "Companies Story",
+    "modules/Platform & Cross-cutting/features/App Shell & Onboarding Narrative/App Shell & Onboarding Narrative Story.md": {
+      "name": "App Shell & Onboarding Narrative Story",
       "type": "story"
     },
-    "modules/Shared Rings & Companies/Companies/Companies.md": {
-      "name": "Companies",
+    "modules/Platform & Cross-cutting/features/App Shell & Onboarding Narrative/App Shell & Onboarding Narrative.md": {
+      "name": "App Shell & Onboarding Narrative",
       "type": "feature"
     },
-    "modules/Shared Rings & Companies/Delegated Admins/Delegated Admins Backend Delivery.md": {
-      "name": "Delegated Admins Backend Delivery",
+    "modules/Platform & Cross-cutting/features/Audit Log/Audit Log Backend Delivery.md": {
+      "name": "Audit Log Backend Delivery",
       "type": "backend-delivery"
     },
-    "modules/Shared Rings & Companies/Delegated Admins/Delegated Admins Frontend Requirements.md": {
-      "name": "Delegated Admins Frontend Requirements",
+    "modules/Platform & Cross-cutting/features/Audit Log/Audit Log Frontend Requirements.md": {
+      "name": "Audit Log Frontend Requirements",
       "type": "frontend-requirements"
     },
-    "modules/Shared Rings & Companies/Delegated Admins/Delegated Admins Story.md": {
-      "name": "Delegated Admins Story",
+    "modules/Platform & Cross-cutting/features/Audit Log/Audit Log Story.md": {
+      "name": "Audit Log Story",
       "type": "story"
     },
-    "modules/Shared Rings & Companies/Delegated Admins/Delegated Admins.md": {
-      "name": "Delegated Admins",
+    "modules/Platform & Cross-cutting/features/Audit Log/Audit Log.md": {
+      "name": "Audit Log",
       "type": "feature"
     },
-    "modules/Shared Rings & Companies/Ring Invitations & Join/Ring Invitations & Join Backend Delivery.md": {
-      "name": "Ring Invitations & Join Backend Delivery",
+    "modules/Platform & Cross-cutting/features/Build & Deploy/Build & Deploy.md": {
+      "name": "Build & Deploy",
+      "type": "feature"
+    },
+    "modules/Platform & Cross-cutting/features/Cleanup Jobs/Cleanup Jobs Backend Delivery.md": {
+      "name": "Cleanup Jobs Backend Delivery",
       "type": "backend-delivery"
     },
-    "modules/Shared Rings & Companies/Ring Invitations & Join/Ring Invitations & Join Frontend Requirements.md": {
-      "name": "Ring Invitations & Join Frontend Requirements",
+    "modules/Platform & Cross-cutting/features/Cleanup Jobs/Cleanup Jobs Frontend Requirements.md": {
+      "name": "Cleanup Jobs Frontend Requirements",
       "type": "frontend-requirements"
     },
-    "modules/Shared Rings & Companies/Ring Invitations & Join/Ring Invitations & Join Story.md": {
-      "name": "Ring Invitations & Join Story",
+    "modules/Platform & Cross-cutting/features/Cleanup Jobs/Cleanup Jobs Story.md": {
+      "name": "Cleanup Jobs Story",
       "type": "story"
     },
-    "modules/Shared Rings & Companies/Ring Invitations & Join/Ring Invitations & Join.md": {
-      "name": "Ring Invitations & Join",
+    "modules/Platform & Cross-cutting/features/Cleanup Jobs/Cleanup Jobs.md": {
+      "name": "Cleanup Jobs",
+      "type": "feature"
+    },
+    "modules/Platform & Cross-cutting/features/Code Delivery/Code Delivery Backend Delivery.md": {
+      "name": "Code Delivery Backend Delivery",
+      "type": "backend-delivery"
+    },
+    "modules/Platform & Cross-cutting/features/Code Delivery/Code Delivery Frontend Requirements.md": {
+      "name": "Code Delivery Frontend Requirements",
+      "type": "frontend-requirements"
+    },
+    "modules/Platform & Cross-cutting/features/Code Delivery/Code Delivery Story.md": {
+      "name": "Code Delivery Story",
+      "type": "story"
+    },
+    "modules/Platform & Cross-cutting/features/Code Delivery/Code Delivery.md": {
+      "name": "Code Delivery",
+      "type": "feature"
+    },
+    "modules/Platform & Cross-cutting/features/Devices & NFC/Devices & NFC Backend Delivery.md": {
+      "name": "Devices & NFC Backend Delivery",
+      "type": "backend-delivery"
+    },
+    "modules/Platform & Cross-cutting/features/Devices & NFC/Devices & NFC Frontend Requirements.md": {
+      "name": "Devices & NFC Frontend Requirements",
+      "type": "frontend-requirements"
+    },
+    "modules/Platform & Cross-cutting/features/Devices & NFC/Devices & NFC Story.md": {
+      "name": "Devices & NFC Story",
+      "type": "story"
+    },
+    "modules/Platform & Cross-cutting/features/Devices & NFC/Devices & NFC.md": {
+      "name": "Devices & NFC",
+      "type": "feature"
+    },
+    "modules/Platform & Cross-cutting/features/E2E Test Run/E2E Test Run Backend Delivery.md": {
+      "name": "E2E Test Run Backend Delivery",
+      "type": "backend-delivery"
+    },
+    "modules/Platform & Cross-cutting/features/E2E Test Run/E2E Test Run Frontend Requirements.md": {
+      "name": "E2E Test Run Frontend Requirements",
+      "type": "frontend-requirements"
+    },
+    "modules/Platform & Cross-cutting/features/E2E Test Run/E2E Test Run Story.md": {
+      "name": "E2E Test Run Story",
+      "type": "story"
+    },
+    "modules/Platform & Cross-cutting/features/E2E Test Run/E2E Test Run.md": {
+      "name": "E2E Test Run",
+      "type": "feature"
+    },
+    "modules/Platform & Cross-cutting/features/Error Contract/Error Contract Backend Delivery.md": {
+      "name": "Error Contract Backend Delivery",
+      "type": "backend-delivery"
+    },
+    "modules/Platform & Cross-cutting/features/Error Contract/Error Contract Frontend Requirements.md": {
+      "name": "Error Contract Frontend Requirements",
+      "type": "frontend-requirements"
+    },
+    "modules/Platform & Cross-cutting/features/Error Contract/Error Contract Story.md": {
+      "name": "Error Contract Story",
+      "type": "story"
+    },
+    "modules/Platform & Cross-cutting/features/Error Contract/Error Contract.md": {
+      "name": "Error Contract",
+      "type": "feature"
+    },
+    "modules/Platform & Cross-cutting/features/Gemma AI/Gemma AI Backend Delivery.md": {
+      "name": "Gemma AI Backend Delivery",
+      "type": "backend-delivery"
+    },
+    "modules/Platform & Cross-cutting/features/Gemma AI/Gemma AI Frontend Requirements.md": {
+      "name": "Gemma AI Frontend Requirements",
+      "type": "frontend-requirements"
+    },
+    "modules/Platform & Cross-cutting/features/Gemma AI/Gemma AI Story.md": {
+      "name": "Gemma AI Story",
+      "type": "story"
+    },
+    "modules/Platform & Cross-cutting/features/Gemma AI/Gemma AI.md": {
+      "name": "Gemma AI",
+      "type": "feature"
+    },
+    "modules/Platform & Cross-cutting/features/Interests/Interests Backend Delivery.md": {
+      "name": "Interests Backend Delivery",
+      "type": "backend-delivery"
+    },
+    "modules/Platform & Cross-cutting/features/Interests/Interests Frontend Requirements.md": {
+      "name": "Interests Frontend Requirements",
+      "type": "frontend-requirements"
+    },
+    "modules/Platform & Cross-cutting/features/Interests/Interests Story.md": {
+      "name": "Interests Story",
+      "type": "story"
+    },
+    "modules/Platform & Cross-cutting/features/Interests/Interests.md": {
+      "name": "Interests",
+      "type": "feature"
+    },
+    "modules/Platform & Cross-cutting/features/Linked Accounts (OAuth)/Linked Accounts (OAuth) Backend Delivery.md": {
+      "name": "Linked Accounts (OAuth) Backend Delivery",
+      "type": "backend-delivery"
+    },
+    "modules/Platform & Cross-cutting/features/Linked Accounts (OAuth)/Linked Accounts (OAuth) Frontend Requirements.md": {
+      "name": "Linked Accounts (OAuth) Frontend Requirements",
+      "type": "frontend-requirements"
+    },
+    "modules/Platform & Cross-cutting/features/Linked Accounts (OAuth)/Linked Accounts (OAuth) Story.md": {
+      "name": "Linked Accounts (OAuth) Story",
+      "type": "story"
+    },
+    "modules/Platform & Cross-cutting/features/Linked Accounts (OAuth)/Linked Accounts (OAuth).md": {
+      "name": "Linked Accounts (OAuth)",
+      "type": "feature"
+    },
+    "modules/Platform & Cross-cutting/features/Notifications/Notifications Backend Delivery.md": {
+      "name": "Notifications Backend Delivery",
+      "type": "backend-delivery"
+    },
+    "modules/Platform & Cross-cutting/features/Notifications/Notifications Frontend Requirements.md": {
+      "name": "Notifications Frontend Requirements",
+      "type": "frontend-requirements"
+    },
+    "modules/Platform & Cross-cutting/features/Notifications/Notifications Story.md": {
+      "name": "Notifications Story",
+      "type": "story"
+    },
+    "modules/Platform & Cross-cutting/features/Notifications/Notifications.md": {
+      "name": "Notifications",
+      "type": "feature"
+    },
+    "modules/Platform & Cross-cutting/features/Operator Panel/Operator Panel.md": {
+      "name": "Operator Panel",
       "type": "feature"
     },
     "modules/Shared Rings & Companies/Shared Rings & Companies Module.md": {
       "name": "Shared Rings & Companies Module",
       "type": "module"
+    },
+    "modules/Shared Rings & Companies/features/Companies/Companies Backend Delivery.md": {
+      "name": "Companies Backend Delivery",
+      "type": "backend-delivery"
+    },
+    "modules/Shared Rings & Companies/features/Companies/Companies Frontend Requirements.md": {
+      "name": "Companies Frontend Requirements",
+      "type": "frontend-requirements"
+    },
+    "modules/Shared Rings & Companies/features/Companies/Companies Story.md": {
+      "name": "Companies Story",
+      "type": "story"
+    },
+    "modules/Shared Rings & Companies/features/Companies/Companies.md": {
+      "name": "Companies",
+      "type": "feature"
+    },
+    "modules/Shared Rings & Companies/features/Delegated Admins/Delegated Admins Backend Delivery.md": {
+      "name": "Delegated Admins Backend Delivery",
+      "type": "backend-delivery"
+    },
+    "modules/Shared Rings & Companies/features/Delegated Admins/Delegated Admins Frontend Requirements.md": {
+      "name": "Delegated Admins Frontend Requirements",
+      "type": "frontend-requirements"
+    },
+    "modules/Shared Rings & Companies/features/Delegated Admins/Delegated Admins Story.md": {
+      "name": "Delegated Admins Story",
+      "type": "story"
+    },
+    "modules/Shared Rings & Companies/features/Delegated Admins/Delegated Admins.md": {
+      "name": "Delegated Admins",
+      "type": "feature"
+    },
+    "modules/Shared Rings & Companies/features/Ring Invitations & Join/Ring Invitations & Join Backend Delivery.md": {
+      "name": "Ring Invitations & Join Backend Delivery",
+      "type": "backend-delivery"
+    },
+    "modules/Shared Rings & Companies/features/Ring Invitations & Join/Ring Invitations & Join Frontend Requirements.md": {
+      "name": "Ring Invitations & Join Frontend Requirements",
+      "type": "frontend-requirements"
+    },
+    "modules/Shared Rings & Companies/features/Ring Invitations & Join/Ring Invitations & Join Story.md": {
+      "name": "Ring Invitations & Join Story",
+      "type": "story"
+    },
+    "modules/Shared Rings & Companies/features/Ring Invitations & Join/Ring Invitations & Join.md": {
+      "name": "Ring Invitations & Join",
+      "type": "feature"
     },
     "needs-decisions/ND-01 Passwordless login.md": {
       "name": "ND-01 Passwordless login",
@@ -39126,7 +39126,7 @@
       "parents": [
         "feature:account"
       ],
-      "path": "modules/Identity Core/Account/Account Backend Delivery.md",
+      "path": "modules/Identity Core/features/Account/Account Backend Delivery.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -39178,7 +39178,7 @@
       "parents": [
         "feature:app-shell"
       ],
-      "path": "modules/Platform & Cross-cutting/App Shell & Onboarding Narrative/App Shell & Onboarding Narrative Backend Delivery.md",
+      "path": "modules/Platform & Cross-cutting/features/App Shell & Onboarding Narrative/App Shell & Onboarding Narrative Backend Delivery.md",
       "pending": [],
       "priority": "medium",
       "related": [],
@@ -39237,7 +39237,7 @@
       "parents": [
         "feature:audit-log"
       ],
-      "path": "modules/Platform & Cross-cutting/Audit Log/Audit Log Backend Delivery.md",
+      "path": "modules/Platform & Cross-cutting/features/Audit Log/Audit Log Backend Delivery.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -39285,7 +39285,7 @@
       "parents": [
         "feature:auth"
       ],
-      "path": "modules/Identity Core/Auth & Sign-up/Auth & Sign-up Backend Delivery.md",
+      "path": "modules/Identity Core/features/Auth & Sign-up/Auth & Sign-up Backend Delivery.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -39345,7 +39345,7 @@
       "parents": [
         "feature:badge-qr"
       ],
-      "path": "modules/Discovery/Badge & QR/Badge & QR Backend Delivery.md",
+      "path": "modules/Discovery/features/Badge & QR/Badge & QR Backend Delivery.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -39450,7 +39450,7 @@
       "parents": [
         "feature:cleanup-jobs"
       ],
-      "path": "modules/Platform & Cross-cutting/Cleanup Jobs/Cleanup Jobs Backend Delivery.md",
+      "path": "modules/Platform & Cross-cutting/features/Cleanup Jobs/Cleanup Jobs Backend Delivery.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -39504,7 +39504,7 @@
       "parents": [
         "feature:code-delivery"
       ],
-      "path": "modules/Platform & Cross-cutting/Code Delivery/Code Delivery Backend Delivery.md",
+      "path": "modules/Platform & Cross-cutting/features/Code Delivery/Code Delivery Backend Delivery.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -39560,7 +39560,7 @@
       "parents": [
         "feature:companies"
       ],
-      "path": "modules/Shared Rings & Companies/Companies/Companies Backend Delivery.md",
+      "path": "modules/Shared Rings & Companies/features/Companies/Companies Backend Delivery.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -39617,7 +39617,7 @@
       "parents": [
         "feature:connections"
       ],
-      "path": "modules/Connections/Connections/Connections Backend Delivery.md",
+      "path": "modules/Connections/features/Connections/Connections Backend Delivery.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -39677,7 +39677,7 @@
       "parents": [
         "feature:counts"
       ],
-      "path": "modules/Identity Core/Counts/Counts Backend Delivery.md",
+      "path": "modules/Identity Core/features/Counts/Counts Backend Delivery.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -39738,7 +39738,7 @@
       "parents": [
         "feature:delegated-admins"
       ],
-      "path": "modules/Shared Rings & Companies/Delegated Admins/Delegated Admins Backend Delivery.md",
+      "path": "modules/Shared Rings & Companies/features/Delegated Admins/Delegated Admins Backend Delivery.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -39795,7 +39795,7 @@
       "parents": [
         "feature:devices"
       ],
-      "path": "modules/Platform & Cross-cutting/Devices & NFC/Devices & NFC Backend Delivery.md",
+      "path": "modules/Platform & Cross-cutting/features/Devices & NFC/Devices & NFC Backend Delivery.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -39851,7 +39851,7 @@
       "parents": [
         "feature:discover-hub"
       ],
-      "path": "modules/Discovery/Discover Hub & Search/Discover Hub & Search Backend Delivery.md",
+      "path": "modules/Discovery/features/Discover Hub & Search/Discover Hub & Search Backend Delivery.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -39907,7 +39907,7 @@
       "parents": [
         "feature:e2e-tests"
       ],
-      "path": "modules/Platform & Cross-cutting/E2E Test Run/E2E Test Run Backend Delivery.md",
+      "path": "modules/Platform & Cross-cutting/features/E2E Test Run/E2E Test Run Backend Delivery.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -39961,7 +39961,7 @@
       "parents": [
         "feature:error-contract"
       ],
-      "path": "modules/Platform & Cross-cutting/Error Contract/Error Contract Backend Delivery.md",
+      "path": "modules/Platform & Cross-cutting/features/Error Contract/Error Contract Backend Delivery.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -40018,7 +40018,7 @@
       "parents": [
         "feature:event-ring-auto"
       ],
-      "path": "modules/Events/Event Ring Auto-creation/Event Ring Auto-creation Backend Delivery.md",
+      "path": "modules/Events/features/Event Ring Auto-creation/Event Ring Auto-creation Backend Delivery.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -40074,7 +40074,7 @@
       "parents": [
         "feature:events-before"
       ],
-      "path": "modules/Events/Events Before/Events Before Backend Delivery.md",
+      "path": "modules/Events/features/Events Before/Events Before Backend Delivery.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -40134,7 +40134,7 @@
       "parents": [
         "feature:events-during"
       ],
-      "path": "modules/Events/Events During/Events During Backend Delivery.md",
+      "path": "modules/Events/features/Events During/Events During Backend Delivery.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -40195,7 +40195,7 @@
       "parents": [
         "feature:exhibitor"
       ],
-      "path": "modules/Events/Exhibitor/Exhibitor Backend Delivery.md",
+      "path": "modules/Events/features/Exhibitor/Exhibitor Backend Delivery.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -40247,7 +40247,7 @@
       "parents": [
         "feature:files"
       ],
-      "path": "modules/Identity Core/Files Upload/Files Upload Backend Delivery.md",
+      "path": "modules/Identity Core/features/Files Upload/Files Upload Backend Delivery.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -40305,7 +40305,7 @@
       "parents": [
         "feature:gemma"
       ],
-      "path": "modules/Platform & Cross-cutting/Gemma AI/Gemma AI Backend Delivery.md",
+      "path": "modules/Platform & Cross-cutting/features/Gemma AI/Gemma AI Backend Delivery.md",
       "pending": [],
       "priority": "medium",
       "related": [],
@@ -40362,7 +40362,7 @@
       "parents": [
         "feature:interests"
       ],
-      "path": "modules/Platform & Cross-cutting/Interests/Interests Backend Delivery.md",
+      "path": "modules/Platform & Cross-cutting/features/Interests/Interests Backend Delivery.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -40419,7 +40419,7 @@
       "parents": [
         "feature:linked-accounts"
       ],
-      "path": "modules/Platform & Cross-cutting/Linked Accounts (OAuth)/Linked Accounts (OAuth) Backend Delivery.md",
+      "path": "modules/Platform & Cross-cutting/features/Linked Accounts (OAuth)/Linked Accounts (OAuth) Backend Delivery.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -40477,7 +40477,7 @@
       "parents": [
         "feature:meetings"
       ],
-      "path": "modules/Meetings/Meetings/Meetings Backend Delivery.md",
+      "path": "modules/Meetings/features/Meetings/Meetings Backend Delivery.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -40537,7 +40537,7 @@
       "parents": [
         "feature:notifications"
       ],
-      "path": "modules/Platform & Cross-cutting/Notifications/Notifications Backend Delivery.md",
+      "path": "modules/Platform & Cross-cutting/features/Notifications/Notifications Backend Delivery.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -40593,7 +40593,7 @@
       "parents": [
         "feature:onboarding-imports"
       ],
-      "path": "modules/Identity Core/Onboarding Imports/Onboarding Imports Backend Delivery.md",
+      "path": "modules/Identity Core/features/Onboarding Imports/Onboarding Imports Backend Delivery.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -40699,7 +40699,7 @@
       "parents": [
         "feature:payments"
       ],
-      "path": "modules/Commerce/Payments & Orders/Payments & Orders Backend Delivery.md",
+      "path": "modules/Commerce/features/Payments & Orders/Payments & Orders Backend Delivery.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -40756,7 +40756,7 @@
       "parents": [
         "feature:photo-library"
       ],
-      "path": "modules/Identity Core/Photo Library/Photo Library Backend Delivery.md",
+      "path": "modules/Identity Core/features/Photo Library/Photo Library Backend Delivery.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -40813,7 +40813,7 @@
       "parents": [
         "feature:pincast"
       ],
-      "path": "modules/Discovery/PinCast & Nearby/PinCast & Nearby Backend Delivery.md",
+      "path": "modules/Discovery/features/PinCast & Nearby/PinCast & Nearby Backend Delivery.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -40873,7 +40873,7 @@
       "parents": [
         "feature:post-event"
       ],
-      "path": "modules/Events/Post-Event/Post-Event Backend Delivery.md",
+      "path": "modules/Events/features/Post-Event/Post-Event Backend Delivery.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -40923,7 +40923,7 @@
       "parents": [
         "feature:profiles"
       ],
-      "path": "modules/Identity Core/Profiles & Pin Name/Profiles & Pin Name Backend Delivery.md",
+      "path": "modules/Identity Core/features/Profiles & Pin Name/Profiles & Pin Name Backend Delivery.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -40973,7 +40973,7 @@
       "parents": [
         "feature:ring-access"
       ],
-      "path": "modules/Identity Core/Ring Access Engine/Ring Access Engine Backend Delivery.md",
+      "path": "modules/Identity Core/features/Ring Access Engine/Ring Access Engine Backend Delivery.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -41027,7 +41027,7 @@
       "parents": [
         "feature:ring-invitations"
       ],
-      "path": "modules/Shared Rings & Companies/Ring Invitations & Join/Ring Invitations & Join Backend Delivery.md",
+      "path": "modules/Shared Rings & Companies/features/Ring Invitations & Join/Ring Invitations & Join Backend Delivery.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -41078,7 +41078,7 @@
       "parents": [
         "feature:ring-members"
       ],
-      "path": "modules/Identity Core/Ring Members/Ring Members Backend Delivery.md",
+      "path": "modules/Identity Core/features/Ring Members/Ring Members Backend Delivery.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -41129,7 +41129,7 @@
       "parents": [
         "feature:ring-projection"
       ],
-      "path": "modules/Identity Core/Ring Projection/Ring Projection Backend Delivery.md",
+      "path": "modules/Identity Core/features/Ring Projection/Ring Projection Backend Delivery.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -41185,7 +41185,7 @@
       "parents": [
         "feature:rings"
       ],
-      "path": "modules/Identity Core/Rings/Rings Backend Delivery.md",
+      "path": "modules/Identity Core/features/Rings/Rings Backend Delivery.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -41251,7 +41251,7 @@
       "parents": [
         "feature:subscription"
       ],
-      "path": "modules/Commerce/Subscription (Free vs Pro)/Subscription (Free vs Pro) Backend Delivery.md",
+      "path": "modules/Commerce/features/Subscription (Free vs Pro)/Subscription (Free vs Pro) Backend Delivery.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -41302,7 +41302,7 @@
       "parents": [
         "feature:view-as"
       ],
-      "path": "modules/Identity Core/View As & Pin Views/View As & Pin Views Backend Delivery.md",
+      "path": "modules/Identity Core/features/View As & Pin Views/View As & Pin Views Backend Delivery.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -41360,7 +41360,7 @@
       "parents": [
         "feature:widgets"
       ],
-      "path": "modules/Identity Core/Widgets/Widgets Backend Delivery.md",
+      "path": "modules/Identity Core/features/Widgets/Widgets Backend Delivery.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -41460,7 +41460,7 @@
       "parents": [
         "feature:account"
       ],
-      "path": "modules/Identity Core/Account/Account Backend Integration.md",
+      "path": "modules/Identity Core/features/Account/Account Backend Integration.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -41559,7 +41559,7 @@
       "parents": [
         "feature:auth"
       ],
-      "path": "modules/Identity Core/Auth & Sign-up/Auth & Sign-up Backend Integration.md",
+      "path": "modules/Identity Core/features/Auth & Sign-up/Auth & Sign-up Backend Integration.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -42354,7 +42354,7 @@
       "parents": [
         "feature:files"
       ],
-      "path": "modules/Identity Core/Files Upload/Files Upload Backend Integration.md",
+      "path": "modules/Identity Core/features/Files Upload/Files Upload Backend Integration.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -42376,7 +42376,7 @@
       ],
       "task": null,
       "title": "Files Upload Backend Integration",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "backend-integration:gemma": {
       "affects": [],
@@ -42912,7 +42912,7 @@
       "parents": [
         "feature:profiles"
       ],
-      "path": "modules/Identity Core/Profiles & Pin Name/Profiles & Pin Name Backend Integration.md",
+      "path": "modules/Identity Core/features/Profiles & Pin Name/Profiles & Pin Name Backend Integration.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -42966,7 +42966,7 @@
       "parents": [
         "feature:ring-access"
       ],
-      "path": "modules/Identity Core/Ring Access Engine/Ring Access Engine Backend Integration.md",
+      "path": "modules/Identity Core/features/Ring Access Engine/Ring Access Engine Backend Integration.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -42984,7 +42984,7 @@
       ],
       "task": null,
       "title": "Ring Access Engine Backend Integration",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "backend-integration:ring-invitations": {
       "affects": [],
@@ -43060,7 +43060,7 @@
       "parents": [
         "feature:ring-members"
       ],
-      "path": "modules/Identity Core/Ring Members/Ring Members Backend Integration.md",
+      "path": "modules/Identity Core/features/Ring Members/Ring Members Backend Integration.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -43111,7 +43111,7 @@
       "parents": [
         "feature:ring-projection"
       ],
-      "path": "modules/Identity Core/Ring Projection/Ring Projection Backend Integration.md",
+      "path": "modules/Identity Core/features/Ring Projection/Ring Projection Backend Integration.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -43169,7 +43169,7 @@
       "parents": [
         "feature:rings"
       ],
-      "path": "modules/Identity Core/Rings/Rings Backend Integration.md",
+      "path": "modules/Identity Core/features/Rings/Rings Backend Integration.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -43275,7 +43275,7 @@
       "parents": [
         "feature:view-as"
       ],
-      "path": "modules/Identity Core/View As & Pin Views/View As & Pin Views Backend Integration.md",
+      "path": "modules/Identity Core/features/View As & Pin Views/View As & Pin Views Backend Integration.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -43297,7 +43297,7 @@
       ],
       "task": null,
       "title": "View As & Pin Views Backend Integration",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "backend-integration:widgets": {
       "affects": [],
@@ -44277,7 +44277,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "dir": "modules/Identity Core/Account",
+      "dir": "modules/Identity Core/features/Account",
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "account",
@@ -44295,7 +44295,7 @@
       "parents": [
         "module:identity"
       ],
-      "path": "modules/Identity Core/Account/Account.md",
+      "path": "modules/Identity Core/features/Account/Account.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -44356,7 +44356,7 @@
       "created": "2026-10-15",
       "deadline": null,
       "depends": [],
-      "dir": "modules/Platform & Cross-cutting/App Shell & Onboarding Narrative",
+      "dir": "modules/Platform & Cross-cutting/features/App Shell & Onboarding Narrative",
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "app-shell",
@@ -44374,7 +44374,7 @@
       "parents": [
         "module:platform"
       ],
-      "path": "modules/Platform & Cross-cutting/App Shell & Onboarding Narrative/App Shell & Onboarding Narrative.md",
+      "path": "modules/Platform & Cross-cutting/features/App Shell & Onboarding Narrative/App Shell & Onboarding Narrative.md",
       "pending": [],
       "priority": "medium",
       "related": [
@@ -44409,7 +44409,7 @@
       ],
       "task": null,
       "title": "App Shell & Onboarding Narrative",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "feature:audit-log": {
       "affects": [],
@@ -44428,7 +44428,7 @@
       "created": "2026-10-15",
       "deadline": null,
       "depends": [],
-      "dir": "modules/Platform & Cross-cutting/Audit Log",
+      "dir": "modules/Platform & Cross-cutting/features/Audit Log",
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "audit-log",
@@ -44446,7 +44446,7 @@
       "parents": [
         "module:platform"
       ],
-      "path": "modules/Platform & Cross-cutting/Audit Log/Audit Log.md",
+      "path": "modules/Platform & Cross-cutting/features/Audit Log/Audit Log.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -44482,7 +44482,7 @@
       ],
       "task": null,
       "title": "Audit Log",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "feature:auth": {
       "affects": [],
@@ -44502,7 +44502,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "dir": "modules/Identity Core/Auth & Sign-up",
+      "dir": "modules/Identity Core/features/Auth & Sign-up",
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "auth",
@@ -44520,7 +44520,7 @@
       "parents": [
         "module:identity"
       ],
-      "path": "modules/Identity Core/Auth & Sign-up/Auth & Sign-up.md",
+      "path": "modules/Identity Core/features/Auth & Sign-up/Auth & Sign-up.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -44595,7 +44595,7 @@
       "created": "2026-10-15",
       "deadline": null,
       "depends": [],
-      "dir": "modules/Discovery/Badge & QR",
+      "dir": "modules/Discovery/features/Badge & QR",
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "badge-qr",
@@ -44613,7 +44613,7 @@
       "parents": [
         "module:discovery"
       ],
-      "path": "modules/Discovery/Badge & QR/Badge & QR.md",
+      "path": "modules/Discovery/features/Badge & QR/Badge & QR.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -44663,7 +44663,7 @@
       ],
       "task": null,
       "title": "Badge & QR",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "feature:build-deploy": {
       "affects": [],
@@ -44682,7 +44682,7 @@
       "created": "2026-10-26",
       "deadline": null,
       "depends": [],
-      "dir": "modules/Platform & Cross-cutting/Build & Deploy",
+      "dir": "modules/Platform & Cross-cutting/features/Build & Deploy",
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "build-deploy",
@@ -44700,7 +44700,7 @@
       "parents": [
         "module:platform"
       ],
-      "path": "modules/Platform & Cross-cutting/Build & Deploy/Build & Deploy.md",
+      "path": "modules/Platform & Cross-cutting/features/Build & Deploy/Build & Deploy.md",
       "pending": [],
       "priority": "medium",
       "related": [
@@ -44749,7 +44749,7 @@
       "created": "2026-10-15",
       "deadline": null,
       "depends": [],
-      "dir": "modules/Platform & Cross-cutting/Cleanup Jobs",
+      "dir": "modules/Platform & Cross-cutting/features/Cleanup Jobs",
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "cleanup-jobs",
@@ -44767,7 +44767,7 @@
       "parents": [
         "module:platform"
       ],
-      "path": "modules/Platform & Cross-cutting/Cleanup Jobs/Cleanup Jobs.md",
+      "path": "modules/Platform & Cross-cutting/features/Cleanup Jobs/Cleanup Jobs.md",
       "pending": [],
       "priority": "high",
       "related": [
@@ -44800,7 +44800,7 @@
       ],
       "task": null,
       "title": "Cleanup Jobs",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "feature:code-delivery": {
       "affects": [],
@@ -44819,7 +44819,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "dir": "modules/Platform & Cross-cutting/Code Delivery",
+      "dir": "modules/Platform & Cross-cutting/features/Code Delivery",
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "code-delivery",
@@ -44837,7 +44837,7 @@
       "parents": [
         "module:platform"
       ],
-      "path": "modules/Platform & Cross-cutting/Code Delivery/Code Delivery.md",
+      "path": "modules/Platform & Cross-cutting/features/Code Delivery/Code Delivery.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -44872,7 +44872,7 @@
       ],
       "task": null,
       "title": "Code Delivery",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "feature:companies": {
       "affects": [],
@@ -44892,7 +44892,7 @@
       "created": "2026-10-15",
       "deadline": null,
       "depends": [],
-      "dir": "modules/Shared Rings & Companies/Companies",
+      "dir": "modules/Shared Rings & Companies/features/Companies",
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "companies",
@@ -44910,7 +44910,7 @@
       "parents": [
         "module:shared-rings"
       ],
-      "path": "modules/Shared Rings & Companies/Companies/Companies.md",
+      "path": "modules/Shared Rings & Companies/features/Companies/Companies.md",
       "pending": [],
       "priority": "high",
       "related": [
@@ -44969,7 +44969,7 @@
       "created": "2026-10-15",
       "deadline": null,
       "depends": [],
-      "dir": "modules/Connections/Connections",
+      "dir": "modules/Connections/features/Connections",
       "effectiveStatus": "todo",
       "effort": null,
       "feature": "connections",
@@ -44987,7 +44987,7 @@
       "parents": [
         "module:connections"
       ],
-      "path": "modules/Connections/Connections/Connections.md",
+      "path": "modules/Connections/features/Connections/Connections.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -45062,7 +45062,7 @@
       "created": "2026-10-15",
       "deadline": null,
       "depends": [],
-      "dir": "modules/Identity Core/Counts",
+      "dir": "modules/Identity Core/features/Counts",
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "counts",
@@ -45080,7 +45080,7 @@
       "parents": [
         "module:identity"
       ],
-      "path": "modules/Identity Core/Counts/Counts.md",
+      "path": "modules/Identity Core/features/Counts/Counts.md",
       "pending": [],
       "priority": "high",
       "related": [
@@ -45120,7 +45120,7 @@
       ],
       "task": null,
       "title": "Counts",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "feature:delegated-admins": {
       "affects": [],
@@ -45140,7 +45140,7 @@
       "created": "2026-10-15",
       "deadline": null,
       "depends": [],
-      "dir": "modules/Shared Rings & Companies/Delegated Admins",
+      "dir": "modules/Shared Rings & Companies/features/Delegated Admins",
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "delegated-admins",
@@ -45158,7 +45158,7 @@
       "parents": [
         "module:shared-rings"
       ],
-      "path": "modules/Shared Rings & Companies/Delegated Admins/Delegated Admins.md",
+      "path": "modules/Shared Rings & Companies/features/Delegated Admins/Delegated Admins.md",
       "pending": [],
       "priority": "high",
       "related": [
@@ -45217,7 +45217,7 @@
       "created": "2026-10-15",
       "deadline": null,
       "depends": [],
-      "dir": "modules/Platform & Cross-cutting/Devices & NFC",
+      "dir": "modules/Platform & Cross-cutting/features/Devices & NFC",
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "devices",
@@ -45235,7 +45235,7 @@
       "parents": [
         "module:platform"
       ],
-      "path": "modules/Platform & Cross-cutting/Devices & NFC/Devices & NFC.md",
+      "path": "modules/Platform & Cross-cutting/features/Devices & NFC/Devices & NFC.md",
       "pending": [],
       "priority": "high",
       "related": [
@@ -45271,7 +45271,7 @@
       ],
       "task": null,
       "title": "Devices & NFC",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "feature:discover-hub": {
       "affects": [],
@@ -45290,7 +45290,7 @@
       "created": "2026-10-15",
       "deadline": null,
       "depends": [],
-      "dir": "modules/Discovery/Discover Hub & Search",
+      "dir": "modules/Discovery/features/Discover Hub & Search",
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "discover-hub",
@@ -45308,7 +45308,7 @@
       "parents": [
         "module:discovery"
       ],
-      "path": "modules/Discovery/Discover Hub & Search/Discover Hub & Search.md",
+      "path": "modules/Discovery/features/Discover Hub & Search/Discover Hub & Search.md",
       "pending": [],
       "priority": "high",
       "related": [
@@ -45345,7 +45345,7 @@
       ],
       "task": null,
       "title": "Discover Hub & Search",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "feature:e2e-tests": {
       "affects": [],
@@ -45364,7 +45364,7 @@
       "created": "2026-10-15",
       "deadline": null,
       "depends": [],
-      "dir": "modules/Platform & Cross-cutting/E2E Test Run",
+      "dir": "modules/Platform & Cross-cutting/features/E2E Test Run",
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "e2e-tests",
@@ -45382,7 +45382,7 @@
       "parents": [
         "module:platform"
       ],
-      "path": "modules/Platform & Cross-cutting/E2E Test Run/E2E Test Run.md",
+      "path": "modules/Platform & Cross-cutting/features/E2E Test Run/E2E Test Run.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -45415,7 +45415,7 @@
       ],
       "task": null,
       "title": "E2E Test Run",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "feature:error-contract": {
       "affects": [],
@@ -45434,7 +45434,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "dir": "modules/Platform & Cross-cutting/Error Contract",
+      "dir": "modules/Platform & Cross-cutting/features/Error Contract",
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "error-contract",
@@ -45452,7 +45452,7 @@
       "parents": [
         "module:platform"
       ],
-      "path": "modules/Platform & Cross-cutting/Error Contract/Error Contract.md",
+      "path": "modules/Platform & Cross-cutting/features/Error Contract/Error Contract.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -45506,7 +45506,7 @@
       "created": "2026-10-15",
       "deadline": null,
       "depends": [],
-      "dir": "modules/Events/Event Ring Auto-creation",
+      "dir": "modules/Events/features/Event Ring Auto-creation",
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "event-ring-auto",
@@ -45524,7 +45524,7 @@
       "parents": [
         "module:events"
       ],
-      "path": "modules/Events/Event Ring Auto-creation/Event Ring Auto-creation.md",
+      "path": "modules/Events/features/Event Ring Auto-creation/Event Ring Auto-creation.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -45564,7 +45564,7 @@
       ],
       "task": null,
       "title": "Event Ring Auto-creation",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "feature:events-before": {
       "affects": [],
@@ -45583,7 +45583,7 @@
       "created": "2026-10-15",
       "deadline": null,
       "depends": [],
-      "dir": "modules/Events/Events Before",
+      "dir": "modules/Events/features/Events Before",
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "events-before",
@@ -45601,7 +45601,7 @@
       "parents": [
         "module:events"
       ],
-      "path": "modules/Events/Events Before/Events Before.md",
+      "path": "modules/Events/features/Events Before/Events Before.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -45646,7 +45646,7 @@
       ],
       "task": null,
       "title": "Events Before",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "feature:events-during": {
       "affects": [],
@@ -45665,7 +45665,7 @@
       "created": "2026-10-15",
       "deadline": null,
       "depends": [],
-      "dir": "modules/Events/Events During",
+      "dir": "modules/Events/features/Events During",
       "effectiveStatus": "todo",
       "effort": null,
       "feature": "events-during",
@@ -45683,7 +45683,7 @@
       "parents": [
         "module:events"
       ],
-      "path": "modules/Events/Events During/Events During.md",
+      "path": "modules/Events/features/Events During/Events During.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -45730,7 +45730,7 @@
       ],
       "task": null,
       "title": "Events During",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "feature:exhibitor": {
       "affects": [],
@@ -45749,7 +45749,7 @@
       "created": "2026-10-15",
       "deadline": null,
       "depends": [],
-      "dir": "modules/Events/Exhibitor",
+      "dir": "modules/Events/features/Exhibitor",
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "exhibitor",
@@ -45767,7 +45767,7 @@
       "parents": [
         "module:events"
       ],
-      "path": "modules/Events/Exhibitor/Exhibitor.md",
+      "path": "modules/Events/features/Exhibitor/Exhibitor.md",
       "pending": [],
       "priority": "high",
       "related": [
@@ -45806,7 +45806,7 @@
       ],
       "task": null,
       "title": "Exhibitor",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "feature:files": {
       "affects": [],
@@ -45825,7 +45825,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "dir": "modules/Identity Core/Files Upload",
+      "dir": "modules/Identity Core/features/Files Upload",
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "files",
@@ -45843,7 +45843,7 @@
       "parents": [
         "module:identity"
       ],
-      "path": "modules/Identity Core/Files Upload/Files Upload.md",
+      "path": "modules/Identity Core/features/Files Upload/Files Upload.md",
       "pending": [],
       "priority": "high",
       "related": [
@@ -45911,7 +45911,7 @@
       "created": "2026-10-15",
       "deadline": null,
       "depends": [],
-      "dir": "modules/Platform & Cross-cutting/Gemma AI",
+      "dir": "modules/Platform & Cross-cutting/features/Gemma AI",
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "gemma",
@@ -45929,7 +45929,7 @@
       "parents": [
         "module:platform"
       ],
-      "path": "modules/Platform & Cross-cutting/Gemma AI/Gemma AI.md",
+      "path": "modules/Platform & Cross-cutting/features/Gemma AI/Gemma AI.md",
       "pending": [],
       "priority": "medium",
       "related": [
@@ -45992,7 +45992,7 @@
       "created": "2026-10-15",
       "deadline": null,
       "depends": [],
-      "dir": "modules/Platform & Cross-cutting/Interests",
+      "dir": "modules/Platform & Cross-cutting/features/Interests",
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "interests",
@@ -46010,7 +46010,7 @@
       "parents": [
         "module:platform"
       ],
-      "path": "modules/Platform & Cross-cutting/Interests/Interests.md",
+      "path": "modules/Platform & Cross-cutting/features/Interests/Interests.md",
       "pending": [],
       "priority": "high",
       "related": [
@@ -46066,7 +46066,7 @@
       "created": "2026-10-15",
       "deadline": null,
       "depends": [],
-      "dir": "modules/Platform & Cross-cutting/Linked Accounts (OAuth)",
+      "dir": "modules/Platform & Cross-cutting/features/Linked Accounts (OAuth)",
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "linked-accounts",
@@ -46084,7 +46084,7 @@
       "parents": [
         "module:platform"
       ],
-      "path": "modules/Platform & Cross-cutting/Linked Accounts (OAuth)/Linked Accounts (OAuth).md",
+      "path": "modules/Platform & Cross-cutting/features/Linked Accounts (OAuth)/Linked Accounts (OAuth).md",
       "pending": [],
       "priority": "high",
       "related": [
@@ -46142,7 +46142,7 @@
       "created": "2026-10-15",
       "deadline": null,
       "depends": [],
-      "dir": "modules/Meetings/Meetings",
+      "dir": "modules/Meetings/features/Meetings",
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "meetings",
@@ -46160,7 +46160,7 @@
       "parents": [
         "module:meetings"
       ],
-      "path": "modules/Meetings/Meetings/Meetings.md",
+      "path": "modules/Meetings/features/Meetings/Meetings.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -46205,7 +46205,7 @@
       ],
       "task": null,
       "title": "Meetings",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "feature:notifications": {
       "affects": [],
@@ -46224,7 +46224,7 @@
       "created": "2026-10-15",
       "deadline": null,
       "depends": [],
-      "dir": "modules/Platform & Cross-cutting/Notifications",
+      "dir": "modules/Platform & Cross-cutting/features/Notifications",
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "notifications",
@@ -46242,7 +46242,7 @@
       "parents": [
         "module:platform"
       ],
-      "path": "modules/Platform & Cross-cutting/Notifications/Notifications.md",
+      "path": "modules/Platform & Cross-cutting/features/Notifications/Notifications.md",
       "pending": [],
       "priority": "high",
       "related": [
@@ -46281,7 +46281,7 @@
       ],
       "task": null,
       "title": "Notifications",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "feature:onboarding-imports": {
       "affects": [],
@@ -46301,7 +46301,7 @@
       "created": "2026-10-15",
       "deadline": null,
       "depends": [],
-      "dir": "modules/Identity Core/Onboarding Imports",
+      "dir": "modules/Identity Core/features/Onboarding Imports",
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "onboarding-imports",
@@ -46319,7 +46319,7 @@
       "parents": [
         "module:identity"
       ],
-      "path": "modules/Identity Core/Onboarding Imports/Onboarding Imports.md",
+      "path": "modules/Identity Core/features/Onboarding Imports/Onboarding Imports.md",
       "pending": [],
       "priority": "high",
       "related": [
@@ -46387,7 +46387,7 @@
       "created": "2026-10-26",
       "deadline": null,
       "depends": [],
-      "dir": "modules/Platform & Cross-cutting/Operator Panel",
+      "dir": "modules/Platform & Cross-cutting/features/Operator Panel",
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "operator-panel",
@@ -46405,7 +46405,7 @@
       "parents": [
         "module:platform"
       ],
-      "path": "modules/Platform & Cross-cutting/Operator Panel/Operator Panel.md",
+      "path": "modules/Platform & Cross-cutting/features/Operator Panel/Operator Panel.md",
       "pending": [],
       "priority": "high",
       "related": [
@@ -46458,7 +46458,7 @@
       "created": "2026-10-15",
       "deadline": null,
       "depends": [],
-      "dir": "modules/Commerce/Payments & Orders",
+      "dir": "modules/Commerce/features/Payments & Orders",
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "payments",
@@ -46476,7 +46476,7 @@
       "parents": [
         "module:commerce"
       ],
-      "path": "modules/Commerce/Payments & Orders/Payments & Orders.md",
+      "path": "modules/Commerce/features/Payments & Orders/Payments & Orders.md",
       "pending": [],
       "priority": "high",
       "related": [
@@ -46539,7 +46539,7 @@
       "created": "2026-10-15",
       "deadline": null,
       "depends": [],
-      "dir": "modules/Identity Core/Photo Library",
+      "dir": "modules/Identity Core/features/Photo Library",
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "photo-library",
@@ -46557,7 +46557,7 @@
       "parents": [
         "module:identity"
       ],
-      "path": "modules/Identity Core/Photo Library/Photo Library.md",
+      "path": "modules/Identity Core/features/Photo Library/Photo Library.md",
       "pending": [],
       "priority": "high",
       "related": [
@@ -46614,7 +46614,7 @@
       "created": "2026-10-15",
       "deadline": null,
       "depends": [],
-      "dir": "modules/Discovery/PinCast & Nearby",
+      "dir": "modules/Discovery/features/PinCast & Nearby",
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "pincast",
@@ -46632,7 +46632,7 @@
       "parents": [
         "module:discovery"
       ],
-      "path": "modules/Discovery/PinCast & Nearby/PinCast & Nearby.md",
+      "path": "modules/Discovery/features/PinCast & Nearby/PinCast & Nearby.md",
       "pending": [],
       "priority": "high",
       "related": [
@@ -46675,7 +46675,7 @@
       ],
       "task": null,
       "title": "PinCast & Nearby",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "feature:post-event": {
       "affects": [],
@@ -46694,7 +46694,7 @@
       "created": "2026-10-15",
       "deadline": null,
       "depends": [],
-      "dir": "modules/Events/Post-Event",
+      "dir": "modules/Events/features/Post-Event",
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "post-event",
@@ -46712,7 +46712,7 @@
       "parents": [
         "module:events"
       ],
-      "path": "modules/Events/Post-Event/Post-Event.md",
+      "path": "modules/Events/features/Post-Event/Post-Event.md",
       "pending": [],
       "priority": "high",
       "related": [
@@ -46750,7 +46750,7 @@
       ],
       "task": null,
       "title": "Post-Event",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "feature:profiles": {
       "affects": [],
@@ -46771,7 +46771,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "dir": "modules/Identity Core/Profiles & Pin Name",
+      "dir": "modules/Identity Core/features/Profiles & Pin Name",
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "profiles",
@@ -46789,7 +46789,7 @@
       "parents": [
         "module:identity"
       ],
-      "path": "modules/Identity Core/Profiles & Pin Name/Profiles & Pin Name.md",
+      "path": "modules/Identity Core/features/Profiles & Pin Name/Profiles & Pin Name.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -46850,7 +46850,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "dir": "modules/Identity Core/Ring Access Engine",
+      "dir": "modules/Identity Core/features/Ring Access Engine",
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "ring-access",
@@ -46868,7 +46868,7 @@
       "parents": [
         "module:identity"
       ],
-      "path": "modules/Identity Core/Ring Access Engine/Ring Access Engine.md",
+      "path": "modules/Identity Core/features/Ring Access Engine/Ring Access Engine.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -46928,7 +46928,7 @@
       "created": "2026-10-15",
       "deadline": null,
       "depends": [],
-      "dir": "modules/Shared Rings & Companies/Ring Invitations & Join",
+      "dir": "modules/Shared Rings & Companies/features/Ring Invitations & Join",
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "ring-invitations",
@@ -46946,7 +46946,7 @@
       "parents": [
         "module:shared-rings"
       ],
-      "path": "modules/Shared Rings & Companies/Ring Invitations & Join/Ring Invitations & Join.md",
+      "path": "modules/Shared Rings & Companies/features/Ring Invitations & Join/Ring Invitations & Join.md",
       "pending": [],
       "priority": "high",
       "related": [
@@ -47007,7 +47007,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "dir": "modules/Identity Core/Ring Members",
+      "dir": "modules/Identity Core/features/Ring Members",
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "ring-members",
@@ -47025,7 +47025,7 @@
       "parents": [
         "module:identity"
       ],
-      "path": "modules/Identity Core/Ring Members/Ring Members.md",
+      "path": "modules/Identity Core/features/Ring Members/Ring Members.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -47093,7 +47093,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "dir": "modules/Identity Core/Ring Projection",
+      "dir": "modules/Identity Core/features/Ring Projection",
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "ring-projection",
@@ -47111,7 +47111,7 @@
       "parents": [
         "module:identity"
       ],
-      "path": "modules/Identity Core/Ring Projection/Ring Projection.md",
+      "path": "modules/Identity Core/features/Ring Projection/Ring Projection.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -47185,7 +47185,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "dir": "modules/Identity Core/Rings",
+      "dir": "modules/Identity Core/features/Rings",
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "rings",
@@ -47203,7 +47203,7 @@
       "parents": [
         "module:identity"
       ],
-      "path": "modules/Identity Core/Rings/Rings.md",
+      "path": "modules/Identity Core/features/Rings/Rings.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -47289,7 +47289,7 @@
       "created": "2026-10-15",
       "deadline": null,
       "depends": [],
-      "dir": "modules/Commerce/Subscription (Free vs Pro)",
+      "dir": "modules/Commerce/features/Subscription (Free vs Pro)",
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "subscription",
@@ -47307,7 +47307,7 @@
       "parents": [
         "module:commerce"
       ],
-      "path": "modules/Commerce/Subscription (Free vs Pro)/Subscription (Free vs Pro).md",
+      "path": "modules/Commerce/features/Subscription (Free vs Pro)/Subscription (Free vs Pro).md",
       "pending": [],
       "priority": "high",
       "related": [
@@ -47368,7 +47368,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "dir": "modules/Identity Core/View As & Pin Views",
+      "dir": "modules/Identity Core/features/View As & Pin Views",
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "view-as",
@@ -47386,7 +47386,7 @@
       "parents": [
         "module:identity"
       ],
-      "path": "modules/Identity Core/View As & Pin Views/View As & Pin Views.md",
+      "path": "modules/Identity Core/features/View As & Pin Views/View As & Pin Views.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -47440,7 +47440,7 @@
       ],
       "task": null,
       "title": "View As & Pin Views",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "feature:widgets": {
       "affects": [],
@@ -47460,7 +47460,7 @@
       "created": "2026-10-15",
       "deadline": null,
       "depends": [],
-      "dir": "modules/Identity Core/Widgets",
+      "dir": "modules/Identity Core/features/Widgets",
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "widgets",
@@ -47478,7 +47478,7 @@
       "parents": [
         "module:identity"
       ],
-      "path": "modules/Identity Core/Widgets/Widgets.md",
+      "path": "modules/Identity Core/features/Widgets/Widgets.md",
       "pending": [],
       "priority": "high",
       "related": [
@@ -47593,7 +47593,7 @@
       "parents": [
         "feature:account"
       ],
-      "path": "modules/Identity Core/Account/Account Frontend Delivery.md",
+      "path": "modules/Identity Core/features/Account/Account Frontend Delivery.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -49481,7 +49481,7 @@
       "parents": [
         "feature:account"
       ],
-      "path": "modules/Identity Core/Account/Account Frontend Requirements.md",
+      "path": "modules/Identity Core/features/Account/Account Frontend Requirements.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -49534,7 +49534,7 @@
       "parents": [
         "feature:app-shell"
       ],
-      "path": "modules/Platform & Cross-cutting/App Shell & Onboarding Narrative/App Shell & Onboarding Narrative Frontend Requirements.md",
+      "path": "modules/Platform & Cross-cutting/features/App Shell & Onboarding Narrative/App Shell & Onboarding Narrative Frontend Requirements.md",
       "pending": [],
       "priority": "medium",
       "related": [],
@@ -49557,7 +49557,7 @@
       ],
       "task": null,
       "title": "App Shell & Onboarding Narrative Frontend Requirements",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "frontend-requirements:audit-log": {
       "affects": [],
@@ -49587,7 +49587,7 @@
       "parents": [
         "feature:audit-log"
       ],
-      "path": "modules/Platform & Cross-cutting/Audit Log/Audit Log Frontend Requirements.md",
+      "path": "modules/Platform & Cross-cutting/features/Audit Log/Audit Log Frontend Requirements.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -49605,7 +49605,7 @@
       ],
       "task": null,
       "title": "Audit Log Frontend Requirements",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "frontend-requirements:auth": {
       "affects": [],
@@ -49635,7 +49635,7 @@
       "parents": [
         "feature:auth"
       ],
-      "path": "modules/Identity Core/Auth & Sign-up/Auth & Sign-up Frontend Requirements.md",
+      "path": "modules/Identity Core/features/Auth & Sign-up/Auth & Sign-up Frontend Requirements.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -49700,7 +49700,7 @@
       "parents": [
         "feature:badge-qr"
       ],
-      "path": "modules/Discovery/Badge & QR/Badge & QR Frontend Requirements.md",
+      "path": "modules/Discovery/features/Badge & QR/Badge & QR Frontend Requirements.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -49723,7 +49723,7 @@
       ],
       "task": null,
       "title": "Badge & QR Frontend Requirements",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "frontend-requirements:build-deploy": {
       "affects": [],
@@ -49799,7 +49799,7 @@
       "parents": [
         "feature:cleanup-jobs"
       ],
-      "path": "modules/Platform & Cross-cutting/Cleanup Jobs/Cleanup Jobs Frontend Requirements.md",
+      "path": "modules/Platform & Cross-cutting/features/Cleanup Jobs/Cleanup Jobs Frontend Requirements.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -49817,7 +49817,7 @@
       ],
       "task": null,
       "title": "Cleanup Jobs Frontend Requirements",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "frontend-requirements:code-delivery": {
       "affects": [],
@@ -49847,7 +49847,7 @@
       "parents": [
         "feature:code-delivery"
       ],
-      "path": "modules/Platform & Cross-cutting/Code Delivery/Code Delivery Frontend Requirements.md",
+      "path": "modules/Platform & Cross-cutting/features/Code Delivery/Code Delivery Frontend Requirements.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -49903,7 +49903,7 @@
       "parents": [
         "feature:companies"
       ],
-      "path": "modules/Shared Rings & Companies/Companies/Companies Frontend Requirements.md",
+      "path": "modules/Shared Rings & Companies/features/Companies/Companies Frontend Requirements.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -49960,7 +49960,7 @@
       "parents": [
         "feature:connections"
       ],
-      "path": "modules/Connections/Connections/Connections Frontend Requirements.md",
+      "path": "modules/Connections/features/Connections/Connections Frontend Requirements.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -50014,7 +50014,7 @@
       "parents": [
         "feature:counts"
       ],
-      "path": "modules/Identity Core/Counts/Counts Frontend Requirements.md",
+      "path": "modules/Identity Core/features/Counts/Counts Frontend Requirements.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -50069,7 +50069,7 @@
       "parents": [
         "feature:delegated-admins"
       ],
-      "path": "modules/Shared Rings & Companies/Delegated Admins/Delegated Admins Frontend Requirements.md",
+      "path": "modules/Shared Rings & Companies/features/Delegated Admins/Delegated Admins Frontend Requirements.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -50120,7 +50120,7 @@
       "parents": [
         "feature:devices"
       ],
-      "path": "modules/Platform & Cross-cutting/Devices & NFC/Devices & NFC Frontend Requirements.md",
+      "path": "modules/Platform & Cross-cutting/features/Devices & NFC/Devices & NFC Frontend Requirements.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -50140,7 +50140,7 @@
       ],
       "task": null,
       "title": "Devices & NFC Frontend Requirements",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "frontend-requirements:discover-hub": {
       "affects": [],
@@ -50170,7 +50170,7 @@
       "parents": [
         "feature:discover-hub"
       ],
-      "path": "modules/Discovery/Discover Hub & Search/Discover Hub & Search Frontend Requirements.md",
+      "path": "modules/Discovery/features/Discover Hub & Search/Discover Hub & Search Frontend Requirements.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -50190,7 +50190,7 @@
       ],
       "task": null,
       "title": "Discover Hub & Search Frontend Requirements",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "frontend-requirements:e2e-tests": {
       "affects": [],
@@ -50220,7 +50220,7 @@
       "parents": [
         "feature:e2e-tests"
       ],
-      "path": "modules/Platform & Cross-cutting/E2E Test Run/E2E Test Run Frontend Requirements.md",
+      "path": "modules/Platform & Cross-cutting/features/E2E Test Run/E2E Test Run Frontend Requirements.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -50238,7 +50238,7 @@
       ],
       "task": null,
       "title": "E2E Test Run Frontend Requirements",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "frontend-requirements:error-contract": {
       "affects": [],
@@ -50268,7 +50268,7 @@
       "parents": [
         "feature:error-contract"
       ],
-      "path": "modules/Platform & Cross-cutting/Error Contract/Error Contract Frontend Requirements.md",
+      "path": "modules/Platform & Cross-cutting/features/Error Contract/Error Contract Frontend Requirements.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -50286,7 +50286,7 @@
       ],
       "task": null,
       "title": "Error Contract Frontend Requirements",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "frontend-requirements:event-ring-auto": {
       "affects": [],
@@ -50316,7 +50316,7 @@
       "parents": [
         "feature:event-ring-auto"
       ],
-      "path": "modules/Events/Event Ring Auto-creation/Event Ring Auto-creation Frontend Requirements.md",
+      "path": "modules/Events/features/Event Ring Auto-creation/Event Ring Auto-creation Frontend Requirements.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -50336,7 +50336,7 @@
       ],
       "task": null,
       "title": "Event Ring Auto-creation Frontend Requirements",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "frontend-requirements:events-before": {
       "affects": [],
@@ -50366,7 +50366,7 @@
       "parents": [
         "feature:events-before"
       ],
-      "path": "modules/Events/Events Before/Events Before Frontend Requirements.md",
+      "path": "modules/Events/features/Events Before/Events Before Frontend Requirements.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -50426,7 +50426,7 @@
       "parents": [
         "feature:events-during"
       ],
-      "path": "modules/Events/Events During/Events During Frontend Requirements.md",
+      "path": "modules/Events/features/Events During/Events During Frontend Requirements.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -50451,7 +50451,7 @@
       ],
       "task": null,
       "title": "Events During Frontend Requirements",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "frontend-requirements:exhibitor": {
       "affects": [],
@@ -50481,7 +50481,7 @@
       "parents": [
         "feature:exhibitor"
       ],
-      "path": "modules/Events/Exhibitor/Exhibitor Frontend Requirements.md",
+      "path": "modules/Events/features/Exhibitor/Exhibitor Frontend Requirements.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -50503,7 +50503,7 @@
       ],
       "task": null,
       "title": "Exhibitor Frontend Requirements",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "frontend-requirements:files": {
       "affects": [],
@@ -50533,7 +50533,7 @@
       "parents": [
         "feature:files"
       ],
-      "path": "modules/Identity Core/Files Upload/Files Upload Frontend Requirements.md",
+      "path": "modules/Identity Core/features/Files Upload/Files Upload Frontend Requirements.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -50555,7 +50555,7 @@
       ],
       "task": null,
       "title": "Files Upload Frontend Requirements",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "frontend-requirements:gemma": {
       "affects": [],
@@ -50591,7 +50591,7 @@
       "parents": [
         "feature:gemma"
       ],
-      "path": "modules/Platform & Cross-cutting/Gemma AI/Gemma AI Frontend Requirements.md",
+      "path": "modules/Platform & Cross-cutting/features/Gemma AI/Gemma AI Frontend Requirements.md",
       "pending": [],
       "priority": "medium",
       "related": [],
@@ -50644,7 +50644,7 @@
       "parents": [
         "feature:interests"
       ],
-      "path": "modules/Platform & Cross-cutting/Interests/Interests Frontend Requirements.md",
+      "path": "modules/Platform & Cross-cutting/features/Interests/Interests Frontend Requirements.md",
       "pending": [],
       "priority": "high",
       "related": [
@@ -50701,7 +50701,7 @@
       "parents": [
         "feature:linked-accounts"
       ],
-      "path": "modules/Platform & Cross-cutting/Linked Accounts (OAuth)/Linked Accounts (OAuth) Frontend Requirements.md",
+      "path": "modules/Platform & Cross-cutting/features/Linked Accounts (OAuth)/Linked Accounts (OAuth) Frontend Requirements.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -50753,7 +50753,7 @@
       "parents": [
         "feature:meetings"
       ],
-      "path": "modules/Meetings/Meetings/Meetings Frontend Requirements.md",
+      "path": "modules/Meetings/features/Meetings/Meetings Frontend Requirements.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -50777,7 +50777,7 @@
       ],
       "task": null,
       "title": "Meetings Frontend Requirements",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "frontend-requirements:notifications": {
       "affects": [],
@@ -50807,7 +50807,7 @@
       "parents": [
         "feature:notifications"
       ],
-      "path": "modules/Platform & Cross-cutting/Notifications/Notifications Frontend Requirements.md",
+      "path": "modules/Platform & Cross-cutting/features/Notifications/Notifications Frontend Requirements.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -50827,7 +50827,7 @@
       ],
       "task": null,
       "title": "Notifications Frontend Requirements",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "frontend-requirements:onboarding-imports": {
       "affects": [
@@ -50861,7 +50861,7 @@
       "parents": [
         "feature:onboarding-imports"
       ],
-      "path": "modules/Identity Core/Onboarding Imports/Onboarding Imports Frontend Requirements.md",
+      "path": "modules/Identity Core/features/Onboarding Imports/Onboarding Imports Frontend Requirements.md",
       "pending": [],
       "priority": "high",
       "related": [
@@ -50973,7 +50973,7 @@
       "parents": [
         "feature:payments"
       ],
-      "path": "modules/Commerce/Payments & Orders/Payments & Orders Frontend Requirements.md",
+      "path": "modules/Commerce/features/Payments & Orders/Payments & Orders Frontend Requirements.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -51024,7 +51024,7 @@
       "parents": [
         "feature:photo-library"
       ],
-      "path": "modules/Identity Core/Photo Library/Photo Library Frontend Requirements.md",
+      "path": "modules/Identity Core/features/Photo Library/Photo Library Frontend Requirements.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -51075,7 +51075,7 @@
       "parents": [
         "feature:pincast"
       ],
-      "path": "modules/Discovery/PinCast & Nearby/PinCast & Nearby Frontend Requirements.md",
+      "path": "modules/Discovery/features/PinCast & Nearby/PinCast & Nearby Frontend Requirements.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -51099,7 +51099,7 @@
       ],
       "task": null,
       "title": "PinCast & Nearby Frontend Requirements",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "frontend-requirements:post-event": {
       "affects": [],
@@ -51129,7 +51129,7 @@
       "parents": [
         "feature:post-event"
       ],
-      "path": "modules/Events/Post-Event/Post-Event Frontend Requirements.md",
+      "path": "modules/Events/features/Post-Event/Post-Event Frontend Requirements.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -51149,7 +51149,7 @@
       ],
       "task": null,
       "title": "Post-Event Frontend Requirements",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "frontend-requirements:profiles": {
       "affects": [
@@ -51181,7 +51181,7 @@
       "parents": [
         "feature:profiles"
       ],
-      "path": "modules/Identity Core/Profiles & Pin Name/Profiles & Pin Name Frontend Requirements.md",
+      "path": "modules/Identity Core/features/Profiles & Pin Name/Profiles & Pin Name Frontend Requirements.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -51242,7 +51242,7 @@
       "parents": [
         "feature:ring-access"
       ],
-      "path": "modules/Identity Core/Ring Access Engine/Ring Access Engine Frontend Requirements.md",
+      "path": "modules/Identity Core/features/Ring Access Engine/Ring Access Engine Frontend Requirements.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -51296,7 +51296,7 @@
       "parents": [
         "feature:ring-invitations"
       ],
-      "path": "modules/Shared Rings & Companies/Ring Invitations & Join/Ring Invitations & Join Frontend Requirements.md",
+      "path": "modules/Shared Rings & Companies/features/Ring Invitations & Join/Ring Invitations & Join Frontend Requirements.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -51347,7 +51347,7 @@
       "parents": [
         "feature:ring-members"
       ],
-      "path": "modules/Identity Core/Ring Members/Ring Members Frontend Requirements.md",
+      "path": "modules/Identity Core/features/Ring Members/Ring Members Frontend Requirements.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -51398,7 +51398,7 @@
       "parents": [
         "feature:ring-projection"
       ],
-      "path": "modules/Identity Core/Ring Projection/Ring Projection Frontend Requirements.md",
+      "path": "modules/Identity Core/features/Ring Projection/Ring Projection Frontend Requirements.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -51454,7 +51454,7 @@
       "parents": [
         "feature:rings"
       ],
-      "path": "modules/Identity Core/Rings/Rings Frontend Requirements.md",
+      "path": "modules/Identity Core/features/Rings/Rings Frontend Requirements.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -51514,7 +51514,7 @@
       "parents": [
         "feature:subscription"
       ],
-      "path": "modules/Commerce/Subscription (Free vs Pro)/Subscription (Free vs Pro) Frontend Requirements.md",
+      "path": "modules/Commerce/features/Subscription (Free vs Pro)/Subscription (Free vs Pro) Frontend Requirements.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -51535,7 +51535,7 @@
       ],
       "task": null,
       "title": "Subscription (Free vs Pro) Frontend Requirements",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "frontend-requirements:view-as": {
       "affects": [],
@@ -51565,7 +51565,7 @@
       "parents": [
         "feature:view-as"
       ],
-      "path": "modules/Identity Core/View As & Pin Views/View As & Pin Views Frontend Requirements.md",
+      "path": "modules/Identity Core/features/View As & Pin Views/View As & Pin Views Frontend Requirements.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -51587,7 +51587,7 @@
       ],
       "task": null,
       "title": "View As & Pin Views Frontend Requirements",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "frontend-requirements:widgets": {
       "affects": [],
@@ -51617,7 +51617,7 @@
       "parents": [
         "feature:widgets"
       ],
-      "path": "modules/Identity Core/Widgets/Widgets Frontend Requirements.md",
+      "path": "modules/Identity Core/features/Widgets/Widgets Frontend Requirements.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -54318,7 +54318,7 @@
       ],
       "task": null,
       "title": "Frontend Agent Prompt",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "project:frontend-api-guide": {
       "affects": [],
@@ -54410,7 +54410,7 @@
       ],
       "task": null,
       "title": "Frontend Contract",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "project:frontend-passwordless-migration": {
       "affects": [],
@@ -55044,7 +55044,7 @@
       "parents": [
         "feature:account"
       ],
-      "path": "modules/Identity Core/Account/Account QA Backend.md",
+      "path": "modules/Identity Core/features/Account/Account QA Backend.md",
       "pending": [
         {
           "person": null,
@@ -56913,7 +56913,7 @@
       "parents": [
         "feature:account"
       ],
-      "path": "modules/Identity Core/Account/Account QA Frontend.md",
+      "path": "modules/Identity Core/features/Account/Account QA Frontend.md",
       "pending": [
         {
           "person": null,
@@ -62382,7 +62382,7 @@
       "parents": [
         "feature:account"
       ],
-      "path": "modules/Identity Core/Account/Account Story.md",
+      "path": "modules/Identity Core/features/Account/Account Story.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -62436,7 +62436,7 @@
       "parents": [
         "feature:app-shell"
       ],
-      "path": "modules/Platform & Cross-cutting/App Shell & Onboarding Narrative/App Shell & Onboarding Narrative Story.md",
+      "path": "modules/Platform & Cross-cutting/features/App Shell & Onboarding Narrative/App Shell & Onboarding Narrative Story.md",
       "pending": [],
       "priority": "medium",
       "related": [],
@@ -62459,7 +62459,7 @@
       ],
       "task": null,
       "title": "App Shell & Onboarding Narrative Story",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "story:audit-log": {
       "affects": [],
@@ -62491,7 +62491,7 @@
       "parents": [
         "feature:audit-log"
       ],
-      "path": "modules/Platform & Cross-cutting/Audit Log/Audit Log Story.md",
+      "path": "modules/Platform & Cross-cutting/features/Audit Log/Audit Log Story.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -62509,7 +62509,7 @@
       ],
       "task": null,
       "title": "Audit Log Story",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "story:auth": {
       "affects": [],
@@ -62541,7 +62541,7 @@
       "parents": [
         "feature:auth"
       ],
-      "path": "modules/Identity Core/Auth & Sign-up/Auth & Sign-up Story.md",
+      "path": "modules/Identity Core/features/Auth & Sign-up/Auth & Sign-up Story.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -62608,7 +62608,7 @@
       "parents": [
         "feature:badge-qr"
       ],
-      "path": "modules/Discovery/Badge & QR/Badge & QR Story.md",
+      "path": "modules/Discovery/features/Badge & QR/Badge & QR Story.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -62631,7 +62631,7 @@
       ],
       "task": null,
       "title": "Badge & QR Story",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "story:build-deploy": {
       "affects": [],
@@ -62705,7 +62705,7 @@
       "parents": [
         "feature:cleanup-jobs"
       ],
-      "path": "modules/Platform & Cross-cutting/Cleanup Jobs/Cleanup Jobs Story.md",
+      "path": "modules/Platform & Cross-cutting/features/Cleanup Jobs/Cleanup Jobs Story.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -62723,7 +62723,7 @@
       ],
       "task": null,
       "title": "Cleanup Jobs Story",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "story:code-delivery": {
       "affects": [],
@@ -62757,7 +62757,7 @@
       "parents": [
         "feature:code-delivery"
       ],
-      "path": "modules/Platform & Cross-cutting/Code Delivery/Code Delivery Story.md",
+      "path": "modules/Platform & Cross-cutting/features/Code Delivery/Code Delivery Story.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -62810,7 +62810,7 @@
       "parents": [
         "feature:companies"
       ],
-      "path": "modules/Shared Rings & Companies/Companies/Companies Story.md",
+      "path": "modules/Shared Rings & Companies/features/Companies/Companies Story.md",
       "pending": [],
       "priority": "high",
       "related": [
@@ -62871,7 +62871,7 @@
       "parents": [
         "feature:connections"
       ],
-      "path": "modules/Connections/Connections/Connections Story.md",
+      "path": "modules/Connections/features/Connections/Connections Story.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -62934,7 +62934,7 @@
       "parents": [
         "feature:counts"
       ],
-      "path": "modules/Identity Core/Counts/Counts Story.md",
+      "path": "modules/Identity Core/features/Counts/Counts Story.md",
       "pending": [],
       "priority": "high",
       "related": [
@@ -62994,7 +62994,7 @@
       "parents": [
         "feature:delegated-admins"
       ],
-      "path": "modules/Shared Rings & Companies/Delegated Admins/Delegated Admins Story.md",
+      "path": "modules/Shared Rings & Companies/features/Delegated Admins/Delegated Admins Story.md",
       "pending": [],
       "priority": "high",
       "related": [
@@ -63050,7 +63050,7 @@
       "parents": [
         "feature:devices"
       ],
-      "path": "modules/Platform & Cross-cutting/Devices & NFC/Devices & NFC Story.md",
+      "path": "modules/Platform & Cross-cutting/features/Devices & NFC/Devices & NFC Story.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -63070,7 +63070,7 @@
       ],
       "task": null,
       "title": "Devices & NFC Story",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "story:discover-hub": {
       "affects": [],
@@ -63103,7 +63103,7 @@
       "parents": [
         "feature:discover-hub"
       ],
-      "path": "modules/Discovery/Discover Hub & Search/Discover Hub & Search Story.md",
+      "path": "modules/Discovery/features/Discover Hub & Search/Discover Hub & Search Story.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -63123,7 +63123,7 @@
       ],
       "task": null,
       "title": "Discover Hub & Search Story",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "story:e2e-tests": {
       "affects": [],
@@ -63155,7 +63155,7 @@
       "parents": [
         "feature:e2e-tests"
       ],
-      "path": "modules/Platform & Cross-cutting/E2E Test Run/E2E Test Run Story.md",
+      "path": "modules/Platform & Cross-cutting/features/E2E Test Run/E2E Test Run Story.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -63173,7 +63173,7 @@
       ],
       "task": null,
       "title": "E2E Test Run Story",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "story:error-contract": {
       "affects": [],
@@ -63206,7 +63206,7 @@
       "parents": [
         "feature:error-contract"
       ],
-      "path": "modules/Platform & Cross-cutting/Error Contract/Error Contract Story.md",
+      "path": "modules/Platform & Cross-cutting/features/Error Contract/Error Contract Story.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -63260,7 +63260,7 @@
       "parents": [
         "feature:event-ring-auto"
       ],
-      "path": "modules/Events/Event Ring Auto-creation/Event Ring Auto-creation Story.md",
+      "path": "modules/Events/features/Event Ring Auto-creation/Event Ring Auto-creation Story.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -63280,7 +63280,7 @@
       ],
       "task": null,
       "title": "Event Ring Auto-creation Story",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "story:events-before": {
       "affects": [],
@@ -63316,7 +63316,7 @@
       "parents": [
         "feature:events-before"
       ],
-      "path": "modules/Events/Events Before/Events Before Story.md",
+      "path": "modules/Events/features/Events Before/Events Before Story.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -63379,7 +63379,7 @@
       "parents": [
         "feature:events-during"
       ],
-      "path": "modules/Events/Events During/Events During Story.md",
+      "path": "modules/Events/features/Events During/Events During Story.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -63404,7 +63404,7 @@
       ],
       "task": null,
       "title": "Events During Story",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "story:exhibitor": {
       "affects": [],
@@ -63437,7 +63437,7 @@
       "parents": [
         "feature:exhibitor"
       ],
-      "path": "modules/Events/Exhibitor/Exhibitor Story.md",
+      "path": "modules/Events/features/Exhibitor/Exhibitor Story.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -63459,7 +63459,7 @@
       ],
       "task": null,
       "title": "Exhibitor Story",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "story:files": {
       "affects": [],
@@ -63491,7 +63491,7 @@
       "parents": [
         "feature:files"
       ],
-      "path": "modules/Identity Core/Files Upload/Files Upload Story.md",
+      "path": "modules/Identity Core/features/Files Upload/Files Upload Story.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -63513,7 +63513,7 @@
       ],
       "task": null,
       "title": "Files Upload Story",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "story:gemma": {
       "affects": [],
@@ -63546,7 +63546,7 @@
       "parents": [
         "feature:gemma"
       ],
-      "path": "modules/Platform & Cross-cutting/Gemma AI/Gemma AI Story.md",
+      "path": "modules/Platform & Cross-cutting/features/Gemma AI/Gemma AI Story.md",
       "pending": [],
       "priority": "medium",
       "related": [
@@ -63601,7 +63601,7 @@
       "parents": [
         "feature:interests"
       ],
-      "path": "modules/Platform & Cross-cutting/Interests/Interests Story.md",
+      "path": "modules/Platform & Cross-cutting/features/Interests/Interests Story.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -63622,7 +63622,7 @@
       ],
       "task": null,
       "title": "Interests Story",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "story:linked-accounts": {
       "affects": [],
@@ -63654,7 +63654,7 @@
       "parents": [
         "feature:linked-accounts"
       ],
-      "path": "modules/Platform & Cross-cutting/Linked Accounts (OAuth)/Linked Accounts (OAuth) Story.md",
+      "path": "modules/Platform & Cross-cutting/features/Linked Accounts (OAuth)/Linked Accounts (OAuth) Story.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -63711,7 +63711,7 @@
       "parents": [
         "feature:meetings"
       ],
-      "path": "modules/Meetings/Meetings/Meetings Story.md",
+      "path": "modules/Meetings/features/Meetings/Meetings Story.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -63735,7 +63735,7 @@
       ],
       "task": null,
       "title": "Meetings Story",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "story:notifications": {
       "affects": [],
@@ -63768,7 +63768,7 @@
       "parents": [
         "feature:notifications"
       ],
-      "path": "modules/Platform & Cross-cutting/Notifications/Notifications Story.md",
+      "path": "modules/Platform & Cross-cutting/features/Notifications/Notifications Story.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -63788,7 +63788,7 @@
       ],
       "task": null,
       "title": "Notifications Story",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "story:onboarding-imports": {
       "affects": [],
@@ -63821,7 +63821,7 @@
       "parents": [
         "feature:onboarding-imports"
       ],
-      "path": "modules/Identity Core/Onboarding Imports/Onboarding Imports Story.md",
+      "path": "modules/Identity Core/features/Onboarding Imports/Onboarding Imports Story.md",
       "pending": [],
       "priority": "high",
       "related": [
@@ -63931,7 +63931,7 @@
       "parents": [
         "feature:payments"
       ],
-      "path": "modules/Commerce/Payments & Orders/Payments & Orders Story.md",
+      "path": "modules/Commerce/features/Payments & Orders/Payments & Orders Story.md",
       "pending": [],
       "priority": "high",
       "related": [
@@ -63998,7 +63998,7 @@
       "parents": [
         "feature:photo-library"
       ],
-      "path": "modules/Identity Core/Photo Library/Photo Library Story.md",
+      "path": "modules/Identity Core/features/Photo Library/Photo Library Story.md",
       "pending": [],
       "priority": "high",
       "related": [
@@ -64054,7 +64054,7 @@
       "parents": [
         "feature:pincast"
       ],
-      "path": "modules/Discovery/PinCast & Nearby/PinCast & Nearby Story.md",
+      "path": "modules/Discovery/features/PinCast & Nearby/PinCast & Nearby Story.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -64078,7 +64078,7 @@
       ],
       "task": null,
       "title": "PinCast & Nearby Story",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "story:post-event": {
       "affects": [],
@@ -64110,7 +64110,7 @@
       "parents": [
         "feature:post-event"
       ],
-      "path": "modules/Events/Post-Event/Post-Event Story.md",
+      "path": "modules/Events/features/Post-Event/Post-Event Story.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -64130,7 +64130,7 @@
       ],
       "task": null,
       "title": "Post-Event Story",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "story:profiles": {
       "affects": [],
@@ -64165,7 +64165,7 @@
       "parents": [
         "feature:profiles"
       ],
-      "path": "modules/Identity Core/Profiles & Pin Name/Profiles & Pin Name Story.md",
+      "path": "modules/Identity Core/features/Profiles & Pin Name/Profiles & Pin Name Story.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -64218,7 +64218,7 @@
       "parents": [
         "feature:ring-access"
       ],
-      "path": "modules/Identity Core/Ring Access Engine/Ring Access Engine Story.md",
+      "path": "modules/Identity Core/features/Ring Access Engine/Ring Access Engine Story.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -64276,7 +64276,7 @@
       "parents": [
         "feature:ring-invitations"
       ],
-      "path": "modules/Shared Rings & Companies/Ring Invitations & Join/Ring Invitations & Join Story.md",
+      "path": "modules/Shared Rings & Companies/features/Ring Invitations & Join/Ring Invitations & Join Story.md",
       "pending": [],
       "priority": "high",
       "related": [
@@ -64331,7 +64331,7 @@
       "parents": [
         "feature:ring-members"
       ],
-      "path": "modules/Identity Core/Ring Members/Ring Members Story.md",
+      "path": "modules/Identity Core/features/Ring Members/Ring Members Story.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -64390,7 +64390,7 @@
       "parents": [
         "feature:ring-projection"
       ],
-      "path": "modules/Identity Core/Ring Projection/Ring Projection Story.md",
+      "path": "modules/Identity Core/features/Ring Projection/Ring Projection Story.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -64452,7 +64452,7 @@
       "parents": [
         "feature:rings"
       ],
-      "path": "modules/Identity Core/Rings/Rings Story.md",
+      "path": "modules/Identity Core/features/Rings/Rings Story.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -64519,7 +64519,7 @@
       "parents": [
         "feature:subscription"
       ],
-      "path": "modules/Commerce/Subscription (Free vs Pro)/Subscription (Free vs Pro) Story.md",
+      "path": "modules/Commerce/features/Subscription (Free vs Pro)/Subscription (Free vs Pro) Story.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -64540,7 +64540,7 @@
       ],
       "task": null,
       "title": "Subscription (Free vs Pro) Story",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "story:view-as": {
       "affects": [],
@@ -64570,7 +64570,7 @@
       "parents": [
         "feature:view-as"
       ],
-      "path": "modules/Identity Core/View As & Pin Views/View As & Pin Views Story.md",
+      "path": "modules/Identity Core/features/View As & Pin Views/View As & Pin Views Story.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -64592,7 +64592,7 @@
       ],
       "task": null,
       "title": "View As & Pin Views Story",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "story:widgets": {
       "affects": [],
@@ -64625,7 +64625,7 @@
       "parents": [
         "feature:widgets"
       ],
-      "path": "modules/Identity Core/Widgets/Widgets Story.md",
+      "path": "modules/Identity Core/features/Widgets/Widgets Story.md",
       "pending": [],
       "priority": "high",
       "related": [

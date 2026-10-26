@@ -15,7 +15,7 @@ node scripts/build-tree.mjs --scaffold task counts "<Title>"     # a task with t
 
 - `docs.config.json` — the layers (business, frontend, backend, QA), their note kinds and statuses, the hand-off flow, the default blocks, the modules. A new layer is a config entry.
 - `business/`, `frontend/`, `backend/` — the project reference for each side; `project/` — the workflow, the agent rules, the docs tree guide
-- `modules/<Module>/<Feature>/` — the feature's business note and one note per layer (story, frontend requirements, backend delivery, backend integration, frontend delivery, QA backend, QA frontend)
+- `modules/<Module>/features/<Feature>/` — the feature's business note and one note per layer (story, frontend requirements, backend delivery, backend integration, frontend delivery, QA backend, QA frontend)
 - `tasks/` — one note per task (`T-NNN`), with the same kinds of notes under the task's folder once teams pick it up; the generated Task Board and Backlog
 - `bugs/` — one note per bug (`B-NN`, `type: bug`); in the tree it hangs under the task or the card it was found against
 - `needs-decisions/` — the open and answered questions (ND-NN), where the design and the backend disagree

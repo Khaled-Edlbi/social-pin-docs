@@ -2,7 +2,7 @@
 type: project
 layer: frontend
 created: 2026-10-18
-updated: 2026-10-18
+updated: 2026-10-26
 related: ["Agent Rules", "Frontend Contract", "Frontend API Guide"]
 tags: [project, layer/frontend, rules]
 ---
@@ -25,7 +25,7 @@ Obsidian vault shared with the backend. Clone it next to this repo. The vault's 
    `node scripts/build-tree.mjs --impact T-NNN` (or the feature id, or an endpoint such as
    `"GET /rings/:id"`). Read what it lists, in this order: the same feature's notes, the directly linked
    notes, the two-hop notes only if the change crosses a feature boundary. Do not read the rest.
-3. Then read, in this order: the feature note (`modules/<Module>/<Feature>/<Feature>.md`), the story
+3. Then read, in this order: the feature note (`modules/<Module>/features/<Feature>/<Feature>.md`), the story
    (`<Feature> Story.md`), the **Backend Integration** note (`<Feature> Backend Integration.md`, how to
    call the API), `frontend/Frontend Contract.md` (the cross-cutting client rules) and
    `frontend/Frontend API Guide.md` (the long form). The screens are in `design/Screen Index.md`.

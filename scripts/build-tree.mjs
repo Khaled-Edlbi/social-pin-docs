@@ -475,8 +475,8 @@ export function build() {
     else if (list(n.data.tags).some((t) => t.startsWith('status/'))) err(n.rel, 'a feature\'s status is computed from its cards: remove the status/* tag');
     const parts = n.rel.split('/');
     const folderModule = MODULE_BY_NAME.get(parts[1]);
-    if (parts[0] !== 'modules' || !folderModule) err(n.rel, `feature notes live in modules/<Module>/<Feature>/<Feature>.md`);
-    else if (parts[2] !== n.stem || parts[3] !== n.name) warn(n.rel, `expected at modules/${parts[1]}/${n.stem}/${n.name}`);
+    if (parts[0] !== 'modules' || !folderModule) err(n.rel, `feature notes live in modules/<Module>/features/<Feature>/<Feature>.md`);
+    else if (parts[2] !== 'features' || parts[3] !== n.stem || parts[4] !== n.name || parts.length !== 5) warn(n.rel, `expected at modules/${parts[1]}/features/${n.stem}/${n.name}: a module keeps its features in features/, beside its module note`);
     const mod = n.data.module;
     if (!MODULE_BY_ID.has(mod)) err(n.rel, `module "${mod}" is not in docs.config.json modules`);
     else if (folderModule && folderModule.id !== mod) err(n.rel, `module "${mod}" does not match folder "${parts[1]}" (${folderModule.id})`);
@@ -1501,7 +1501,7 @@ function scaffoldTask(result, featureId, title, bug = false) {
     : 'usage: node scripts/build-tree.mjs --scaffold task <feature-id> "<Title>" [--backend-only | --docs-only | --parent T-NNN] [--label <label>] [--priority critical|high|medium|low] [--effort S|M|L]';
   if (!featureId || !title) die(usage);
   const f = json.nodes[`feature:${featureId}`];
-  if (!f) die(`no feature with id "${featureId}" (feature ids are the \`id:\` of modules/<Module>/<Feature>/<Feature>.md; see tree/tree.json)`);
+  if (!f) die(`no feature with id "${featureId}" (feature ids are the \`id:\` of modules/<Module>/features/<Feature>/<Feature>.md; see tree/tree.json)`);
   if (BAD_NAME.test(title)) die('the title cannot contain # ? % or \\');
   const parentCode = opt('--parent', null);
   const parent = parentCode ? json.nodes[`task:${parentCode}`] : null;
@@ -1593,7 +1593,7 @@ function scaffoldFeature(result, moduleId, name) {
   const release = opt('--release', 'later');
   if (!cfg.releases.byId.has(release)) die(`release "${release}": ${cfg.releases.list.map((r) => r.id).join(', ')}`);
   const date = today();
-  const dest = path.join(ROOT, 'modules', m.name, name, `${name}.md`);
+  const dest = path.join(ROOT, 'modules', m.name, 'features', name, `${name}.md`);
   if (fs.existsSync(dest)) die(`${path.relative(ROOT, dest)} already exists`);
   const { body } = parseFrontmatter(fs.readFileSync(path.join(ROOT, 'templates/Feature Template.md'), 'utf8'));
   const fm = { type: 'feature', id, name, priority, release, module: moduleId };
