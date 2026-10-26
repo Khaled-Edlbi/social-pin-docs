@@ -15,7 +15,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
       - 🔵 [Account Backend Integration](modules/Identity%20Core/Account/Account%20Backend%20Integration.md) (BI-01, Backend Integration, Critical)
       - 🔴 [Account QA Backend](modules/Identity%20Core/Account/Account%20QA%20Backend.md) (QB-04, QA Backend, 3 pending notes, Critical)
       - ✅ [Account Frontend Delivery](modules/Identity%20Core/Account/Account%20Frontend%20Delivery.md) (FD-04, Frontend Delivery, Critical)
-      - ✏️ [Account QA Frontend](modules/Identity%20Core/Account/Account%20QA%20Frontend.md) (QF-04, QA Frontend, 2 pending notes, Critical)
+      - 🟡 [Account QA Frontend](modules/Identity%20Core/Account/Account%20QA%20Frontend.md) (QF-04, QA Frontend, 3 pending notes, Critical)
     - 🔵 [Auth & Sign-up](modules/Identity%20Core/Auth%20%26%20Sign-up/Auth%20%26%20Sign-up.md) (F-02, release MVP, Critical)
       - 👍 [Auth & Sign-up Story](modules/Identity%20Core/Auth%20%26%20Sign-up/Auth%20%26%20Sign-up%20Story.md) (S-02, User Story, Critical)
         - ✅ [T-056 Decide passwordless login](tasks/T-056%20Decide%20passwordless%20login/T-056%20Decide%20passwordless%20login.md) (Critical)
