@@ -9,6 +9,8 @@ tags: [project, layer/shared, map]
 
 # Docs Tree · how to read it, how to keep it true
 
+> ⚠ Affected by [[T-076 An unverified changed email still signs in]] (2026-10-26): the task-card row in the chips table uses `T-074` as its worked example, a card withdrawn the same day with its code retired. The convention it describes is unchanged; only the example needs a live code, T-076.
+
 The docs tree is the readable map of this vault: **project → module → feature → one note per layer, the feature's tasks under its story, then its decisions**. Every card is one Markdown file; it shows the note's card code (`S-01`, `BD-05`; a task's and a decision's is in its title) and kind, its layer colour, the file's name, a **priority flag** and a **deadline clock** ([[#Priority and deadline marks]]) and a status chip; double-clicking it opens the full note. Behind the cards, the relations between notes (related, affects, depends, blocks, the hand-off flow, shared endpoints, mentions) are drawn as faint lines that light up when you hover or focus a card. The page has three views of the same data: **Tree** (the hierarchy), **Graph** (features and decisions, or every note, clustered by module and pulled together by their relations) and **Outline** (the tree as a keyboard-friendly list); the filters on the left apply to all three.
 
 | | |
