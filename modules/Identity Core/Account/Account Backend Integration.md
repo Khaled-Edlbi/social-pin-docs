@@ -13,6 +13,8 @@ tags: [backend-integration, backend-integration/current, module/identity, layer/
 
 # 🔌 Account · Backend Integration
 
+> ⚠ Affected by [[Account QA Backend]] (2026-10-26): the error matrix row `404 E_USER_01` is unreachable. After `DELETE /users/me` every call answers `401 "Account is not active"`, the same body a suspended account gets; the guard rejects a DELETED account before any handler runs. The sign-out outcome is right, the documented status is not.
+
 **Feature:** [[Account]] · **Backend:** ✅ Done · **Read first:** [[Frontend Contract]]
 
 What the client builds: the Me / Account screen's account section: who is signed in, email and phone with their verified state, Free vs Pro, delete the account.
