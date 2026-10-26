@@ -1348,7 +1348,6 @@
         "feature:auth",
         "feature:code-delivery",
         "feature:error-contract",
-        "feature:onboarding-imports",
         "project:frontend-api-guide",
         "project:frontend-passwordless-migration",
         "task:T-063"
@@ -1358,7 +1357,6 @@
         "backend-integration:auth",
         "frontend-requirements:auth",
         "frontend-requirements:code-delivery",
-        "frontend-requirements:onboarding-imports",
         "project:frontend-api-guide",
         "project:frontend-passwordless-migration",
         "story:T-063",
@@ -2700,6 +2698,7 @@
     "PATCH /profiles/:id": {
       "containers": [
         "feature:account",
+        "feature:onboarding-imports",
         "feature:profiles",
         "task:T-078"
       ],
@@ -2708,6 +2707,7 @@
         "backend-delivery:profiles",
         "backend-integration:profiles",
         "frontend-delivery:account",
+        "frontend-requirements:onboarding-imports",
         "frontend-requirements:profiles",
         "story:T-078",
         "story:profiles",
@@ -3355,6 +3355,7 @@
         "feature:account",
         "feature:auth",
         "feature:linked-accounts",
+        "feature:onboarding-imports",
         "task:T-019",
         "task:T-019-be",
         "task:T-019-fe",
@@ -3370,6 +3371,7 @@
         "feature:linked-accounts",
         "frontend-requirements:auth",
         "frontend-requirements:linked-accounts",
+        "frontend-requirements:onboarding-imports",
         "qa-frontend:account",
         "story:T-019",
         "story:auth",
@@ -5226,7 +5228,7 @@
     },
     "concepts": 199,
     "decisions": 18,
-    "edges": 5226,
+    "edges": 5230,
     "features": 41,
     "layerNotes": 195,
     "modules": 8,
@@ -5644,6 +5646,21 @@
     },
     {
       "from": "decision:D-20",
+      "kind": "affects",
+      "to": "task:T-020b"
+    },
+    {
+      "from": "frontend-requirements:onboarding-imports",
+      "kind": "affects",
+      "to": "task:T-019"
+    },
+    {
+      "from": "frontend-requirements:onboarding-imports",
+      "kind": "affects",
+      "to": "task:T-020"
+    },
+    {
+      "from": "frontend-requirements:onboarding-imports",
       "kind": "affects",
       "to": "task:T-020b"
     },
@@ -11413,6 +11430,51 @@
       "to": "task:T-063"
     },
     {
+      "from": "frontend-requirements:onboarding-imports",
+      "kind": "related",
+      "to": "decision-record:DR-02"
+    },
+    {
+      "from": "frontend-requirements:onboarding-imports",
+      "kind": "related",
+      "to": "decision-record:DR-03"
+    },
+    {
+      "from": "frontend-requirements:onboarding-imports",
+      "kind": "related",
+      "to": "decision:D-20"
+    },
+    {
+      "from": "frontend-requirements:onboarding-imports",
+      "kind": "related",
+      "to": "feature:auth"
+    },
+    {
+      "from": "frontend-requirements:onboarding-imports",
+      "kind": "related",
+      "to": "feature:files"
+    },
+    {
+      "from": "frontend-requirements:onboarding-imports",
+      "kind": "related",
+      "to": "feature:ring-projection"
+    },
+    {
+      "from": "frontend-requirements:onboarding-imports",
+      "kind": "related",
+      "to": "task:T-062"
+    },
+    {
+      "from": "frontend-requirements:onboarding-imports",
+      "kind": "related",
+      "to": "task:T-063"
+    },
+    {
+      "from": "frontend-requirements:onboarding-imports",
+      "kind": "related",
+      "to": "task:T-078"
+    },
+    {
       "from": "project:admin-agent",
       "kind": "related",
       "to": "project:agent-protocol"
@@ -14279,6 +14341,14 @@
     {
       "from": "feature:account",
       "kind": "shares",
+      "to": "feature:onboarding-imports",
+      "via": [
+        "PATCH /profiles/:id"
+      ]
+    },
+    {
+      "from": "feature:account",
+      "kind": "shares",
       "to": "feature:payments",
       "via": [
         "E_AUTH_04"
@@ -15017,7 +15087,6 @@
       "kind": "shares",
       "to": "feature:onboarding-imports",
       "via": [
-        "E_AUTH_05",
         "E_PROFILE_02",
         "GET /profiles/pin-name/:pinName/availability",
         "POST /auth/complete-registration"
@@ -15955,14 +16024,6 @@
       "via": [
         "POST /auth/login",
         "POST /auth/sign-up"
-      ]
-    },
-    {
-      "from": "feature:code-delivery",
-      "kind": "shares",
-      "to": "feature:onboarding-imports",
-      "via": [
-        "E_AUTH_05"
       ]
     },
     {
@@ -17928,14 +17989,6 @@
     {
       "from": "feature:error-contract",
       "kind": "shares",
-      "to": "feature:onboarding-imports",
-      "via": [
-        "E_AUTH_05"
-      ]
-    },
-    {
-      "from": "feature:error-contract",
-      "kind": "shares",
       "to": "feature:payments",
       "via": [
         "E_AUTH_04"
@@ -19778,6 +19831,7 @@
       "via": [
         "E_PROFILE_02",
         "GET /profiles/pin-name/:pinName/availability",
+        "PATCH /profiles/:id",
         "POST /auth/complete-registration"
       ]
     },
@@ -19794,7 +19848,6 @@
       "kind": "shares",
       "to": "project:frontend-api-guide",
       "via": [
-        "E_AUTH_05",
         "GET /profiles/pin-name/:pinName/availability"
       ]
     },
@@ -19812,7 +19865,6 @@
       "kind": "shares",
       "to": "project:frontend-passwordless-migration",
       "via": [
-        "E_AUTH_05",
         "E_PROFILE_02",
         "GET /profiles/pin-name/:pinName/availability",
         "POST /auth/complete-registration"
@@ -19868,7 +19920,6 @@
       "kind": "shares",
       "to": "task:T-063",
       "via": [
-        "E_AUTH_05",
         "E_PROFILE_02"
       ]
     },
@@ -19877,6 +19928,7 @@
       "kind": "shares",
       "to": "task:T-078",
       "via": [
+        "PATCH /profiles/:id",
         "POST /auth/complete-registration",
         "POST /files"
       ]
@@ -27087,11 +27139,6 @@
       "to": "task:T-063-fe"
     },
     {
-      "from": "decision:D-20",
-      "kind": "wikilink",
-      "to": "frontend-requirements:onboarding-imports"
-    },
-    {
       "from": "feature:account",
       "kind": "wikilink",
       "to": "task:T-076"
@@ -28799,31 +28846,6 @@
     {
       "from": "frontend-requirements:onboarding-imports",
       "kind": "wikilink",
-      "to": "backend-integration:auth"
-    },
-    {
-      "from": "frontend-requirements:onboarding-imports",
-      "kind": "wikilink",
-      "to": "backend-integration:profiles"
-    },
-    {
-      "from": "frontend-requirements:onboarding-imports",
-      "kind": "wikilink",
-      "to": "decision-record:DR-02"
-    },
-    {
-      "from": "frontend-requirements:onboarding-imports",
-      "kind": "wikilink",
-      "to": "decision:D-02"
-    },
-    {
-      "from": "frontend-requirements:onboarding-imports",
-      "kind": "wikilink",
-      "to": "feature:auth"
-    },
-    {
-      "from": "frontend-requirements:onboarding-imports",
-      "kind": "wikilink",
       "to": "feature:profiles"
     },
     {
@@ -28845,11 +28867,6 @@
       "from": "frontend-requirements:onboarding-imports",
       "kind": "wikilink",
       "to": "task:T-020b"
-    },
-    {
-      "from": "frontend-requirements:onboarding-imports",
-      "kind": "wikilink",
-      "to": "task:T-063"
     },
     {
       "from": "frontend-requirements:payments",
@@ -42436,6 +42453,7 @@
         "decision:D-02",
         "decision-record:DR-05",
         "decision-record:DR-03",
+        "frontend-requirements:onboarding-imports",
         "story:onboarding-imports",
         "story:photo-library",
         "story:profiles",
@@ -42498,6 +42516,7 @@
         "decision:D-20",
         "decision-record:DR-02",
         "decision:D-03",
+        "frontend-requirements:onboarding-imports",
         "story:ring-projection",
         "story:widgets"
       ],
@@ -44193,7 +44212,8 @@
         "decision-record:DR-03",
         "task:T-078",
         "task:T-020",
-        "feature:files"
+        "feature:files",
+        "frontend-requirements:onboarding-imports"
       ],
       "release": null,
       "scope": null,
@@ -44484,6 +44504,7 @@
         "task:T-078",
         "task:T-078-be",
         "task:T-078-fe",
+        "frontend-requirements:onboarding-imports",
         "story:T-078"
       ],
       "release": "mvp",
@@ -45763,6 +45784,7 @@
         "task:T-078-fe",
         "decision:D-16",
         "decision:D-20",
+        "frontend-requirements:onboarding-imports",
         "story:T-078"
       ],
       "release": "v1",
@@ -46995,6 +47017,7 @@
         "task:T-078-be",
         "task:T-078-fe",
         "decision:D-16",
+        "frontend-requirements:onboarding-imports",
         "story:T-078"
       ],
       "release": "mvp",
@@ -50568,7 +50591,11 @@
       "updated": "2026-10-18"
     },
     "frontend-requirements:onboarding-imports": {
-      "affects": [],
+      "affects": [
+        "task:T-019",
+        "task:T-020",
+        "task:T-020b"
+      ],
       "blockedBy": [],
       "card": "FR-05",
       "children": [],
@@ -50597,10 +50624,21 @@
       "path": "modules/Identity Core/Onboarding Imports/Onboarding Imports Frontend Requirements.md",
       "pending": [],
       "priority": "high",
-      "related": [],
+      "related": [
+        "decision-record:DR-02",
+        "decision-record:DR-03",
+        "decision:D-20",
+        "task:T-078",
+        "task:T-062",
+        "task:T-063",
+        "feature:auth",
+        "feature:files",
+        "feature:ring-projection"
+      ],
       "release": "mvp",
       "scope": "feature",
       "screens": [
+        "s01",
         "s03",
         "s03a",
         "s03b",
@@ -50608,7 +50646,7 @@
         "s05"
       ],
       "status": "draft",
-      "summary": "What the client needs to build the import screens of onboarding, and the fact that none of it is served today. The only calls these screens can make now are the fallbacks into Auth & Sign-up…",
+      "summary": "What the client needs from the backend so the import steps of sign-up work as the design draws them. The client already shows every one of these screens, with sample data; nothing is imported and…",
       "tags": [
         "frontend-requirements",
         "frontend-requirements/draft",
@@ -50617,7 +50655,7 @@
       ],
       "task": null,
       "title": "Onboarding Imports Frontend Requirements",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "frontend-requirements:operator-panel": {
       "affects": [],
@@ -73320,6 +73358,7 @@
         "task:T-078-fe",
         "frontend-delivery:account",
         "qa-frontend:account",
+        "frontend-requirements:onboarding-imports",
         "story:T-078"
       ],
       "release": "v1",
@@ -73526,6 +73565,7 @@
         "frontend-delivery:account",
         "qa-backend:account",
         "qa-frontend:account",
+        "frontend-requirements:onboarding-imports",
         "story:T-067"
       ],
       "release": "mvp",
@@ -74760,7 +74800,8 @@
         "feature:ring-projection",
         "feature:files",
         "feature:auth",
-        "decision:D-20"
+        "decision:D-20",
+        "frontend-requirements:onboarding-imports"
       ],
       "release": "mvp",
       "rollup": {
