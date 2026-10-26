@@ -172,6 +172,7 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-069-be Backend · Scoped role grants]] `backend` | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | M | — | [[T-068 Account moderation and platform role|T-068]] |
 | [[T-071 Audit-log read endpoints]] | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | S | — | [[T-053 Audit log writes|T-053]], [[T-068 Account moderation and platform role|T-068]] |
 | [[T-071-be Backend · Audit-log read endpoints]] `backend` | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | S | — | [[T-053 Audit log writes|T-053]], [[T-068 Account moderation and platform role|T-068]] |
+| [[T-074 An unverified changed email still signs in]] `bug` | [[Account]] | Identity Core | ⬜ To do | S | — | — |
 
 ## Medium
 

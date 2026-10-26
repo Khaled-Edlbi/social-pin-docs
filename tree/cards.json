@@ -485,7 +485,8 @@
     "task:T-071-be": "T-071-be",
     "task:T-072": "T-072",
     "task:T-072-be": "T-072-be",
-    "task:T-073": "T-073"
+    "task:T-073": "T-073",
+    "task:T-074": "T-074"
   },
   "retired": {
     "BD-40": "backend-delivery:T-065-be",
@@ -528,7 +529,8 @@
     "T-065-fe": "task:T-065-fe",
     "T-066": "task:T-066",
     "T-066-be": "task:T-066-be",
-    "T-066-fe": "task:T-066-fe"
+    "T-066-fe": "task:T-066-fe",
+    "T-075": "task:T-075"
   },
   "schema": 1
 }

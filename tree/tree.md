@@ -8,6 +8,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
   - 🔵 [Identity Core Module](modules/Identity%20Core/Identity%20Core%20Module.md) (M-01)
     - 🔵 [Account](modules/Identity%20Core/Account/Account.md) (F-01, release MVP, Critical)
       - 👍 [Account Story](modules/Identity%20Core/Account/Account%20Story.md) (S-01, User Story, Critical)
+        - ⬜ [T-074 An unverified changed email still signs in](tasks/T-074%20An%20unverified%20changed%20email%20still%20signs%20in.md) (bug, High)
       - ✏️ [Account Frontend Requirements](modules/Identity%20Core/Account/Account%20Frontend%20Requirements.md) (FR-01, Frontend Requirements, Critical)
       - ✅ [Account Backend Delivery](modules/Identity%20Core/Account/Account%20Backend%20Delivery.md) (BD-01, Backend Delivery, Critical)
       - 🔵 [Account Backend Integration](modules/Identity%20Core/Account/Account%20Backend%20Integration.md) (BI-01, Backend Integration, Critical)
