@@ -13,6 +13,8 @@ tags: [backend-delivery, backend-delivery/done, module/identity, layer/backend]
 
 # ✅ Account · Backend Delivery
 
+> ⚠ Affected by [[Account QA Backend]] (2026-10-26): "a changed address must be proven again before it can be used to sign in" is not what the build does. An email changed by `PATCH /users/me` comes back with `emailVerifiedAt: null` and still signs in immediately — `POST /auth/login` issues a code for it and `login/verify` returns a session. Gate the sign-in on the verified flags, or correct this note and [[Account Story]] S2.
+
 **Feature:** [[Account]] · **Status:** Done · **Integration guide:** [[Account Backend Integration]] · **Requirements:** [[Account Frontend Requirements]] · **QA:** [[Account QA Backend]]
 
 What the backend shipped for this feature and how it works. The sum of this feature's task-level Backend Delivery notes (see the *Tasks* table below).
