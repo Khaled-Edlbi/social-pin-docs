@@ -3,7 +3,7 @@ type: module
 id: commerce
 name: "Commerce"
 created: 2026-10-18
-updated: 2026-10-18
+updated: 2026-10-26
 tags: [module, module/commerce]
 ---
 
@@ -27,4 +27,4 @@ A module is the sum of its features; a feature is the sum of its tasks. Each fea
 
 ## Log
 
-- 2026-10-18 · created when the vault moved to layers ([[T-064 Restructure the docs vault]])
+- 2026-10-18 · created when the vault moved to layers

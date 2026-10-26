@@ -7,7 +7,7 @@ module: discovery
 status: todo
 screens: [s11, s39, s40, s41, s42]
 created: 2026-10-18
-updated: 2026-10-18
+updated: 2026-10-26
 tags: [backend-delivery, backend-delivery/todo, module/discovery, layer/backend]
 ---
 
@@ -45,4 +45,4 @@ What the backend shipped for this feature and how it works. The sum of this feat
 
 ## Log
 
-- 2026-10-18 · split out of [[PinCast & Nearby]] when the vault moved to layers ([[T-064 Restructure the docs vault]])
+- 2026-10-18 · split out of [[PinCast & Nearby]] when the vault moved to layers

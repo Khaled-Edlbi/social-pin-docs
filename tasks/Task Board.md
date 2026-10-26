@@ -205,7 +205,6 @@ kanban-plugin: board
 - [x] [[T-059 Decide Ring settings]] #critical #rings
 - [x] [[T-060 Decide copy or inherit]] #high #ring-projection
 - [x] [[T-061 Decide Pin name rules]] #high #profiles
-- [x] [[T-064 Restructure the docs vault]] #high #error-contract
 
 
 %% kanban:settings

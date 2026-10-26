@@ -7,7 +7,7 @@ module: discovery
 status: in-progress
 screens: [s34, s43, s44, s56]
 created: 2026-10-18
-updated: 2026-10-18
+updated: 2026-10-26
 tags: [backend-delivery, backend-delivery/in-progress, module/discovery, layer/backend]
 ---
 
@@ -48,4 +48,4 @@ What the backend shipped for this feature and how it works. The sum of this feat
 
 ## Log
 
-- 2026-10-18 · split out of [[Badge & QR]] when the vault moved to layers ([[T-064 Restructure the docs vault]])
+- 2026-10-18 · split out of [[Badge & QR]] when the vault moved to layers

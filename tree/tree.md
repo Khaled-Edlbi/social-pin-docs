@@ -560,7 +560,6 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
           - ⛔ [T-063-fe Frontend · Put the ErrorCode on the error body](tasks/T-063%20Put%20the%20ErrorCode%20on%20the%20error%20body/T-063-fe%20Frontend%20%C2%B7%20Put%20the%20ErrorCode%20on%20the%20error%20body.md) (sub-task of T-063, frontend, Critical, blocked by T-063-be Backend · Put the ErrorCode on the error body)
           - ✅ [D-19 Where a ticket's layer notes live](decisions/D-19%20Where%20a%20ticket's%20layer%20notes%20live.md) (Needs decision)
             - ⚖️ [DR-19 A ticket's layer notes live on the parent task](decisions/DR-19%20A%20ticket's%20layer%20notes%20live%20on%20the%20parent%20task.md) (Decision)
-        - ✅ [T-064 Restructure the docs vault](tasks/T-064%20Restructure%20the%20docs%20vault/T-064%20Restructure%20the%20docs%20vault.md) (High)
         - ⛔ [T-067 Split E_RING_01 and E_RING_PROFILE_03](tasks/T-067%20Split%20E_RING_01%20and%20E_RING_PROFILE_03/T-067%20Split%20E_RING_01%20and%20E_RING_PROFILE_03.md) (Critical, blocked by T-063 Put the ErrorCode on the error body)
           - ⛔ [T-067 Story](tasks/T-067%20Split%20E_RING_01%20and%20E_RING_PROFILE_03/T-067%20Story.md) (S-108, User Story, Critical, blocked by T-063 Put the ErrorCode on the error body)
           - ⬜ [T-067-be Backend · Split E_RING_01 and E_RING_PROFILE_03](tasks/T-067%20Split%20E_RING_01%20and%20E_RING_PROFILE_03/T-067-be%20Backend%20%C2%B7%20Split%20E_RING_01%20and%20E_RING_PROFILE_03.md) (sub-task of T-067, backend, Critical)

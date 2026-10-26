@@ -2,7 +2,7 @@
 type: project
 layer: shared
 created: 2026-10-15
-updated: 2026-10-25
+updated: 2026-10-26
 related: ["Agent Rules", "Docs Tree"]
 tags: [project, layer/shared]
 ---
@@ -115,7 +115,7 @@ Story ──▶ Frontend Requirements ──▶ Backend Delivery ──▶ Backe
 
 Create each note with `node scripts/build-tree.mjs --scaffold <kind> T-NNN`; the first one moves the task into its folder. The order is the default from `docs.config.json` and **each step is blocked until the step before it is handed off** (the story and the requirements at `approved`, the others at their done status): the tree shows the card as ⛔ Blocked with the reason until then. A layer may be blocked by any other through `blockedBy` ([[Agent Rules#4 · Statuses, blocking and sign-off]]), and a new layer slots into the flow by config ([[Agent Rules#5 · Adding a layer]]).
 
-A docs-only or infrastructure task (like [[T-064 Restructure the docs vault]]) has a task note and no layer notes.
+A docs-only or infrastructure task has a task note and no layer notes.
 
 ## 4 · Roll up — the feature is the sum of its tasks
 

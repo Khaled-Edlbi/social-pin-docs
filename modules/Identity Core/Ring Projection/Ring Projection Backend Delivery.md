@@ -7,7 +7,7 @@ module: identity
 status: done
 screens: [s14, s20, s23, s24, s25, s29, s36]
 created: 2026-10-15
-updated: 2026-10-18
+updated: 2026-10-26
 tags: [backend-delivery, backend-delivery/done, module/identity, layer/backend]
 ---
 
@@ -68,4 +68,4 @@ What the backend shipped for this feature and how it works. The sum of this feat
 
 ## Log
 
-- 2026-10-18 · split out of [[Ring Projection]] when the vault moved to layers ([[T-064 Restructure the docs vault]])
+- 2026-10-18 · split out of [[Ring Projection]] when the vault moved to layers

@@ -7,7 +7,7 @@ module: connections
 status: todo
 screens: [s44, s45, s46, s47, s62]
 created: 2026-10-18
-updated: 2026-10-18
+updated: 2026-10-26
 tags: [backend-delivery, backend-delivery/todo, module/connections, layer/backend]
 ---
 
@@ -45,4 +45,4 @@ What the backend shipped for this feature and how it works. The sum of this feat
 
 ## Log
 
-- 2026-10-18 · split out of [[Connections]] when the vault moved to layers ([[T-064 Restructure the docs vault]])
+- 2026-10-18 · split out of [[Connections]] when the vault moved to layers
