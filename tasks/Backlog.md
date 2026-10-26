@@ -173,6 +173,9 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-071 Audit-log read endpoints]] | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | S | — | [[T-053 Audit log writes|T-053]], [[T-068 Account moderation and platform role|T-068]] |
 | [[T-071-be Backend · Audit-log read endpoints]] `backend` | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | S | — | [[T-053 Audit log writes|T-053]], [[T-068 Account moderation and platform role|T-068]] |
 | [[T-076 An unverified changed email still signs in]] `bug` | [[Account]] | Identity Core | ⬜ To do | S | — | — |
+| [[T-078 Main profile fields from DR-02]] | [[Profiles & Pin Name]] | Identity Core | ⬜ To do | L | — | [[DR-02 One main profile every Ring starts from|DR-02]] |
+| [[T-078-be Backend · Main profile fields from DR-02]] `backend` | [[Profiles & Pin Name]] | Identity Core | ⬜ To do | L | — | [[DR-02 One main profile every Ring starts from|DR-02]] |
+| [[T-078-fe Frontend · Main profile fields from DR-02]] `frontend` | [[Profiles & Pin Name]] | Identity Core | ⛔ Blocked | L | — | [[T-078-be Backend · Main profile fields from DR-02|T-078-be]] |
 
 ## Medium
 
