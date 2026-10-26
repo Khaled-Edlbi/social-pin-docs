@@ -2,6 +2,6 @@
 # `--check`. Keep them LF in every checkout, so a merge on Windows (core.autocrlf=true) does not
 # rewrite them with CRLF and raise a false "stale" alarm. The notes themselves are not pinned.
 tree/** text eol=lf
-"Card Index.md" text eol=lf
-"tasks/Task Board.md" text eol=lf
-tasks/Backlog.md text eol=lf
+"social-pin/Card Index.md" text eol=lf
+"social-pin/tasks/Task Board.md" text eol=lf
+social-pin/tasks/Backlog.md text eol=lf

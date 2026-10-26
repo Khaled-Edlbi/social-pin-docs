@@ -10,10 +10,10 @@
  *   node scripts/agent-guard.mjs status     prints the active agent and what it may write
  *   node scripts/agent-guard.mjs selftest   runs the allow / deny matrix; exit 1 on a mismatch (CI runs it)
  *
- * The agents and their scopes are `agents.list` in docs.config.json; the rules in words are project/Agent Protocol.md.
+ * The agents and their scopes are `agents.list` in docs.config.json; the rules in words are rules/Agent Protocol.md.
  * No active agent → every Edit / Write and every writing shell command is refused with one instruction: ask the user which agent
  * they will use for the change and wait for them to type it (/owner …, /pm …, /admin …); nobody picks an agent for the user.
- * An agent whose `writes.all` is true (/admin, project/Admin Agent.md) may write anything, generated files and the verbatim brief included,
+ * An agent whose `writes.all` is true (/admin, rules/Admin Agent.md) may write anything, generated files and the verbatim brief included,
  * from the shell too. Node 22 built-ins only.
  */
 import fs from 'node:fs';
@@ -28,10 +28,13 @@ const cfg = readJson(path.join(ROOT, 'docs.config.json'), {});
 const agentsCfg = cfg.agents || {};
 const AGENTS = agentsCfg.list || [];
 const MARKER = path.join(ROOT, agentsCfg.marker || '.claude/.active-agent');
-const PROTOCOL = agentsCfg.protocol || 'project/Agent Protocol.md';
-const GENERATED = ['tree/**', 'Card Index.md', 'tasks/Task Board.md', 'tasks/Backlog.md'];
+const PROTOCOL = agentsCfg.protocol || 'rules/Agent Protocol.md';
+// the product's cards live in `projectDir`; the docs system (rules/, templates/, scripts/, tree/) at the root
+const PROJECT_DIR = String(cfg.projectDir || '').replace(/^\/+|\/+$/g, '');
+const prj = (rel) => (PROJECT_DIR ? `${PROJECT_DIR}/${rel}` : rel);
+const GENERATED = ['tree/**', prj('Card Index.md'), prj('tasks/Task Board.md'), prj('tasks/Backlog.md')];
 const HAND_WRITTEN = ['tree/index.html']; // the tree page is source, the owner's (`paths` in its agents.list entry); the build only copies it to site/
-const VERBATIM = ['design/Wireframe Brief.md'];
+const VERBATIM = [prj('design/Wireframe Brief.md')];
 const KINDS = []; // { id, file, layer }
 for (const layer of cfg.layers || []) for (const k of layer.kinds || []) KINDS.push({ id: k.id, file: k.file, layer: layer.id });
 const STRUCTURAL_LAYER = { module: 'business', feature: 'business', task: 'business', bug: 'business', 'needs-decision': 'business', 'decision': 'business', project: 'shared' };
@@ -85,6 +88,10 @@ function classify(rel) {
   }
   // a file the tree does not know yet (being created): the same path rules the build uses
   const base = path.posix.basename(rel, '.md');
+  const area = (cfg.projectAreas || []).find((a) => a.folder === path.posix.dirname(rel));
+  if (area && rel.endsWith('.md')) { out.type = 'project'; out.layer = area.id; return out; }
+  // inside the project folder the card folders sit as they always did
+  rel = PROJECT_DIR ? (rel.startsWith(`${PROJECT_DIR}/`) ? rel.slice(PROJECT_DIR.length + 1) : `\u0000${rel}`) : rel;
   if (rel.endsWith('.md')) {
     for (const k of KINDS) if (base.endsWith(` ${k.file}`)) { out.kind = k.id; out.layer = k.layer; return out; }
     if (rel.startsWith('bugs/')) { out.type = 'bug'; out.layer = 'business'; return out; } // bugs/B-NN <Title>.md
@@ -93,7 +100,6 @@ function classify(rel) {
     if (rel.startsWith('decisions/')) { out.type = 'decision'; out.layer = 'business'; return out; } // the answer: decisions/D-NN <Title>.md
     if (/^modules\/[^/]+\/[^/]+ Module\.md$/.test(rel)) { out.type = 'module'; out.layer = 'business'; return out; }
     if (/^modules\/[^/]+\/features\/([^/]+)\/\1\.md$/.test(rel)) { out.type = 'feature'; out.layer = 'business'; return out; }
-    if (/^(project|business|frontend|backend)\//.test(rel)) { out.type = 'project'; out.layer = rel.split('/')[0] === 'project' ? 'shared' : rel.split('/')[0]; return out; }
   }
   return out;
 }
@@ -229,39 +235,39 @@ if (cmd === 'bash') {
 }
 if (cmd === 'selftest') {
   const E = (o, n) => ({ old: o, new: n });
-  const story = 'modules/Identity Core/features/Rings/Rings Story.md', fr = 'modules/Identity Core/features/Rings/Rings Frontend Requirements.md', bd = 'modules/Identity Core/features/Rings/Rings Backend Delivery.md';
-  const feature = 'modules/Identity Core/features/Rings/Rings.md', mod = 'modules/Identity Core/Identity Core Module.md', task = 'tasks/T-004 Member count per Ring on list and detail/T-004 Member count per Ring on list and detail.md';
-  const be = 'tasks/T-004 Member count per Ring on list and detail/T-004-be Backend · Member count per Ring on list and detail.md', fe = 'tasks/T-004 Member count per Ring on list and detail/T-004-fe Frontend · Member count per Ring on list and detail.md';
-  const newQa = 'tasks/T-004 Member count per Ring on list and detail/T-004-be QA Backend.md', newBd = 'tasks/T-004 Member count per Ring on list and detail/T-004-be Backend Delivery.md', newTask = 'tasks/T-099 Something new/T-099 Something new.md';
+  const story = 'social-pin/modules/Identity Core/features/Rings/Rings Story.md', fr = 'social-pin/modules/Identity Core/features/Rings/Rings Frontend Requirements.md', bd = 'social-pin/modules/Identity Core/features/Rings/Rings Backend Delivery.md';
+  const feature = 'social-pin/modules/Identity Core/features/Rings/Rings.md', mod = 'social-pin/modules/Identity Core/Identity Core Module.md', task = 'social-pin/tasks/T-004 Member count per Ring on list and detail/T-004 Member count per Ring on list and detail.md';
+  const be = 'social-pin/tasks/T-004 Member count per Ring on list and detail/T-004-be Backend · Member count per Ring on list and detail.md', fe = 'social-pin/tasks/T-004 Member count per Ring on list and detail/T-004-fe Frontend · Member count per Ring on list and detail.md';
+  const newQa = 'social-pin/tasks/T-004 Member count per Ring on list and detail/T-004-be QA Backend.md', newBd = 'social-pin/tasks/T-004 Member count per Ring on list and detail/T-004-be Backend Delivery.md', newTask = 'social-pin/tasks/T-099 Something new/T-099 Something new.md';
   const flag = E('# Rings · User Story\n', '# Rings · User Story\n\n> ⚠ Affected by [[T-004 Member count per Ring on list and detail]] (2026-10-19): memberCount added\n');
   const sign = E('status: draft\napprovedBy: ""\napprovedAt: ""\nupdated: 2026-10-18\ntags: [story, story/draft, module/identity, layer/business]', 'status: approved\napprovedBy: "Khaled"\napprovedAt: 2026-10-19\nupdated: 2026-10-19\ntags: [story, story/approved, module/identity, layer/business]');
   const body = E('**As a** new user', '**As a** returning user');
   const prio = E('priority: high\nupdated: 2026-10-18', 'priority: critical\ndeadline: 2026-11-01\nupdated: 2026-10-19');
-  const dec = 'needs-decisions/ND-04 Ring settings.md', newDec = 'needs-decisions/ND-99 A new question.md';
+  const dec = 'social-pin/needs-decisions/ND-04 Ring settings.md', newDec = 'social-pin/needs-decisions/ND-99 A new question.md';
   const decideSign = E('status: open\nupdated: 2026-10-18\ntags: [decision, decision/open]', 'status: decided\ndecidedBy: "Khaled"\ndecidedAt: 2026-10-21\nupdated: 2026-10-21\ntags: [decision, decision/decided]');
   const fulfilSign = E('status: open\nupdated: 2026-10-18', 'status: fulfilled\nupdated: 2026-10-21');
   const openSign = E('status: draft\nupdated: 2026-10-18\ntags: [decision, decision/draft]', 'status: open\nupdated: 2026-10-21\ntags: [decision, decision/open]');
   const recDecide = E('status: draft\ndecidedBy: ""\ndecidedAt: ""', 'status: decided\ndecidedBy: "Khaled"\ndecidedAt: 2026-10-25');
   const decBody = E('## Options\n\n1. …', '## Options\n\n1. Per-Ring copies\n2. One field library');
-  const newRec = 'decisions/D-99 New answer.md', recWrite = E('', '---\ntype: decision\nid: D-99\ndecision: ND-99\n---\n');
+  const newRec = 'social-pin/decisions/D-99 New answer.md', recWrite = E('', '---\ntype: decision\nid: D-99\ndecision: ND-99\n---\n');
   const openWrite = E('', '---\ntype: needs-decision\nid: ND-99\nstatus: draft\n---\n'), decidedWrite = E('', '---\ntype: needs-decision\nid: ND-99\nstatus: decided\n---\n');
-  const overview = 'business/Project Overview.md', stageSet = E('stage: mvp\nupdated: 2026-10-25', 'stage: beta\nupdated: 2026-10-26');
+  const overview = 'social-pin/business/Project Overview.md', stageSet = E('stage: mvp\nupdated: 2026-10-25', 'stage: beta\nupdated: 2026-10-26');
   const relSet = E('priority: critical\nrelease: mvp\nmodule: identity', 'priority: critical\nrelease: v1\nmodule: identity'), relKeep = E('priority: critical\nrelease: mvp\nupdated: 2026-10-25', 'priority: high\nrelease: mvp\nupdated: 2026-10-26');
   // a Write is compared with the file on disk: keeping the line is allowed, changing it is not (Rings is release: mvp)
-  const bug = 'bugs/Deleted account answers 401, not the documented 404 E_USER_01.md', newBug = 'bugs/B-99 Something found.md';
+  const bug = 'social-pin/bugs/Deleted account answers 401, not the documented 404 E_USER_01.md', newBug = 'social-pin/bugs/B-99 Something found.md';
   const relWriteSame = E('', '---\ntype: feature\nid: rings\nrelease: mvp\n---\n'), relWriteNew = E('', '---\ntype: feature\nid: rings\nrelease: later\n---\n');
   const M = [
     // agent, path, op, edit, expected
-    ['owner', 'project/Agent Rules.md', 'write', null, true], ['owner', 'docs.config.json', 'write', null, true], ['owner', mod, 'write', null, true], ['owner', feature, 'write', null, true], ['owner', feature, 'edit', body, true], ['owner', 'decisions/Ring settings.md', 'edit', body, true],
+    ['owner', 'rules/Agent Rules.md', 'write', null, true], ['owner', 'docs.config.json', 'write', null, true], ['owner', mod, 'write', null, true], ['owner', feature, 'write', null, true], ['owner', feature, 'edit', body, true], ['owner', 'social-pin/decisions/Ring settings.md', 'edit', body, true],
     ['owner', story, 'edit', sign, true], ['owner', story, 'edit', body, false], ['owner', task, 'edit', prio, true], ['owner', bd, 'write', null, false], ['owner', 'tree/tree.json', 'write', null, false], ['owner', 'tree/index.html', 'edit', body, true], ['pm', 'tree/index.html', 'edit', body, false], ['backend', 'tree/index.html', 'edit', body, false],
-    ['pm', feature, 'write', null, true], ['pm', story, 'edit', body, true], ['pm', task, 'edit', body, true], ['pm', newTask, 'write', null, true], ['pm', 'needs-decisions/ND-99 A new question.md', 'write', null, true], ['pm', 'design/Screen Index.md', 'edit', body, true],
-    ['pm', bd, 'edit', body, false], ['pm', bd, 'edit', flag, true], ['pm', fr, 'edit', sign, true], ['pm', 'project/Agent Rules.md', 'edit', body, false], ['pm', be, 'edit', body, false], ['pm', 'Card Index.md', 'edit', body, false],
-    ['backend', bd, 'write', null, true], ['backend', newBd, 'write', null, true], ['backend', be, 'edit', body, true], ['backend', 'backend/Architecture.md', 'edit', body, true], ['backend', 'frontend/Frontend API Guide.md', 'edit', body, true],
+    ['pm', feature, 'write', null, true], ['pm', story, 'edit', body, true], ['pm', task, 'edit', body, true], ['pm', newTask, 'write', null, true], ['pm', 'social-pin/needs-decisions/ND-99 A new question.md', 'write', null, true], ['pm', 'social-pin/design/Screen Index.md', 'edit', body, true],
+    ['pm', bd, 'edit', body, false], ['pm', bd, 'edit', flag, true], ['pm', fr, 'edit', sign, true], ['pm', 'rules/Agent Rules.md', 'edit', body, false], ['pm', be, 'edit', body, false], ['pm', 'social-pin/Card Index.md', 'edit', body, false],
+    ['backend', bd, 'write', null, true], ['backend', newBd, 'write', null, true], ['backend', be, 'edit', body, true], ['backend', 'social-pin/backend/Architecture.md', 'edit', body, true], ['backend', 'social-pin/frontend/Frontend API Guide.md', 'edit', body, true],
     ['backend', fr, 'edit', body, true], ['backend', fr, 'write', null, false], ['backend', feature, 'edit', body, true], ['backend', feature, 'write', null, false], ['backend', story, 'edit', body, false], ['backend', story, 'edit', flag, true],
-    ['backend', fe, 'edit', body, false], ['backend', newQa, 'write', null, false], ['backend', 'frontend/Frontend Contract.md', 'edit', body, false], ['backend', 'design/Wireframe Brief.md', 'edit', body, false],
-    ['frontend', fr, 'write', null, true], ['frontend', fe, 'edit', body, true], ['frontend', 'frontend/Frontend Contract.md', 'edit', body, true], ['frontend', 'frontend/Frontend API Guide.md', 'edit', body, false],
+    ['backend', fe, 'edit', body, false], ['backend', newQa, 'write', null, false], ['backend', 'social-pin/frontend/Frontend Contract.md', 'edit', body, false], ['backend', 'social-pin/design/Wireframe Brief.md', 'edit', body, false],
+    ['frontend', fr, 'write', null, true], ['frontend', fe, 'edit', body, true], ['frontend', 'social-pin/frontend/Frontend Contract.md', 'edit', body, true], ['frontend', 'social-pin/frontend/Frontend API Guide.md', 'edit', body, false],
     ['frontend', bd, 'edit', body, false], ['frontend', bd, 'edit', flag, true], ['frontend', story, 'edit', sign, false], ['frontend', task, 'edit', body, false],
-    ['qa', newQa, 'write', null, true], ['qa', 'modules/Identity Core/features/Rings/Rings QA Frontend.md', 'write', null, true], ['qa', story, 'edit', sign, false], ['qa', story, 'edit', body, false], ['qa', bd, 'edit', flag, true], ['qa', bd, 'edit', body, false], ['qa', task, 'edit', body, false],
+    ['qa', newQa, 'write', null, true], ['qa', 'social-pin/modules/Identity Core/features/Rings/Rings QA Frontend.md', 'write', null, true], ['qa', story, 'edit', sign, false], ['qa', story, 'edit', body, false], ['qa', bd, 'edit', flag, true], ['qa', bd, 'edit', body, false], ['qa', task, 'edit', body, false],
     // needs-decision cards (ND-NN): anyone raises and fills them, draft or open; nobody types them decided or fulfilled, not even the PM or the owner (Agent Rules §4)
     ['owner', newDec, 'write', openWrite, true], ['owner', newDec, 'write', decidedWrite, false], ['owner', dec, 'edit', decideSign, false], ['owner', dec, 'edit', openSign, true],
     ['pm', newDec, 'write', decidedWrite, false], ['pm', dec, 'edit', decideSign, false], ['pm', dec, 'edit', fulfilSign, false], ['pm', dec, 'edit', openSign, true], ['pm', dec, 'edit', decBody, true],
@@ -270,8 +276,8 @@ if (cmd === 'selftest') {
     ['qa', newDec, 'write', openWrite, true], ['qa', dec, 'edit', decBody, true], ['qa', dec, 'edit', decideSign, false], ['qa', newDec, 'write', decidedWrite, false],
     // decision cards (D-NN) hold the answer: written, and set decided, by the PM or the owner only; the Decisions table is theirs too
     ['owner', newRec, 'write', recWrite, true], ['pm', newRec, 'write', recWrite, true], ['backend', newRec, 'write', recWrite, false], ['frontend', newRec, 'write', recWrite, false], ['qa', newRec, 'write', recWrite, false],
-    ['pm', 'decisions/D-09 30-minute hold tied to the Stripe checkout.md', 'edit', recDecide, true], ['owner', 'decisions/D-09 30-minute hold tied to the Stripe checkout.md', 'edit', recDecide, true], ['backend', 'decisions/D-09 30-minute hold tied to the Stripe checkout.md', 'edit', recDecide, false],
-    ['pm', 'decisions/Decisions.md', 'edit', body, true], ['owner', 'decisions/Decisions.md', 'edit', body, true], ['backend', 'decisions/Decisions.md', 'edit', body, false],
+    ['pm', 'social-pin/decisions/D-09 30-minute hold tied to the Stripe checkout.md', 'edit', recDecide, true], ['owner', 'social-pin/decisions/D-09 30-minute hold tied to the Stripe checkout.md', 'edit', recDecide, true], ['backend', 'social-pin/decisions/D-09 30-minute hold tied to the Stripe checkout.md', 'edit', recDecide, false],
+    ['pm', 'social-pin/decisions/Decisions.md', 'edit', body, true], ['owner', 'social-pin/decisions/Decisions.md', 'edit', body, true], ['backend', 'social-pin/decisions/Decisions.md', 'edit', body, false],
     // reserved fields: a feature's release and the project's stage are the owner's; everyone else's edit or rewrite that changes the line is refused
     ['owner', feature, 'edit', relSet, true], ['pm', feature, 'edit', relSet, false], ['backend', feature, 'edit', relSet, false], ['pm', feature, 'edit', relKeep, true],
     ['pm', feature, 'write', relWriteSame, true], ['pm', feature, 'write', relWriteNew, false], ['owner', feature, 'write', relWriteNew, true],
@@ -280,7 +286,7 @@ if (cmd === 'selftest') {
     ['qa', bug, 'edit', body, true], ['qa', newBug, 'write', null, true], ['pm', bug, 'edit', body, true], ['pm', newBug, 'write', null, true],
     ['backend', bug, 'edit', body, false], ['backend', bug, 'edit', flag, true], ['frontend', bug, 'edit', body, false], ['owner', bug, 'edit', body, false], ['backend', newBug, 'write', null, false],
     // the admin (writes.all): the guard refuses it nothing, the generated files and the verbatim brief included
-    ['admin', 'tree/tree.json', 'write', null, true], ['admin', 'Card Index.md', 'edit', body, true], ['admin', 'design/Wireframe Brief.md', 'edit', body, true], ['admin', 'project/Agent Rules.md', 'write', null, true],
+    ['admin', 'tree/tree.json', 'write', null, true], ['admin', 'social-pin/Card Index.md', 'edit', body, true], ['admin', 'social-pin/design/Wireframe Brief.md', 'edit', body, true], ['admin', 'rules/Agent Rules.md', 'write', null, true],
     ['admin', bd, 'write', null, true], ['admin', fe, 'edit', body, true], ['admin', story, 'edit', sign, true], ['admin', story, 'edit', body, true], ['admin', dec, 'edit', decideSign, true], ['admin', newDec, 'write', decidedWrite, true],
   ];
   let bad = 0;

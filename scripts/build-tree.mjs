@@ -37,11 +37,16 @@ const TREE_DIR = path.join(ROOT, 'tree');
 const JSON_PATH = path.join(TREE_DIR, 'tree.json');
 const MD_PATH = path.join(TREE_DIR, 'tree.md');
 const CONFIG_PATH = path.join(ROOT, 'docs.config.json');
-const BOARD_PATH = path.join(ROOT, 'tasks', 'Task Board.md');
-const BACKLOG_PATH = path.join(ROOT, 'tasks', 'Backlog.md');
+// the product's cards live in `projectDir` (docs.config.json); the docs system (rules/, templates/, scripts/, tree/) stays at the root
+const PROJECT_DIR = (() => { try { return String(JSON.parse(fs.readFileSync(CONFIG_PATH, 'utf8')).projectDir || '').replace(/^\/+|\/+$/g, ''); } catch { return ''; } })();
+const prj = (rel) => (PROJECT_DIR ? `${PROJECT_DIR}/${rel}` : rel); // a project-relative path, repo-relative
+const PROJ = (...p) => path.join(ROOT, PROJECT_DIR, ...p); // the same, absolute
+const inProject = (rel) => (!PROJECT_DIR ? rel : rel.startsWith(`${PROJECT_DIR}/`) ? rel.slice(PROJECT_DIR.length + 1) : null);
+const BOARD_PATH = PROJ('tasks', 'Task Board.md');
+const BACKLOG_PATH = PROJ('tasks', 'Backlog.md');
 const CARDS_PATH = path.join(TREE_DIR, 'cards.json');
-const INDEX_PATH = path.join(ROOT, 'Card Index.md');
-const GENERATED = ['tree/tree.json', 'tree/tree.md', 'tree/cards.json', 'Card Index.md', 'tasks/Task Board.md', 'tasks/Backlog.md'];
+const INDEX_PATH = PROJ('Card Index.md');
+const GENERATED = ['tree/tree.json', 'tree/tree.md', 'tree/cards.json', prj('Card Index.md'), prj('tasks/Task Board.md'), prj('tasks/Backlog.md')];
 const REPO = { owner: 'Khaled-Edlbi', name: 'social-pin-docs', branch: process.env.TREE_BRANCH || 'main' };
 REPO.blobBase = `https://github.com/${REPO.owner}/${REPO.name}/blob/${REPO.branch}/`;
 
@@ -353,7 +358,7 @@ function loadNote(file) {
   const { data, body, error } = parseFrontmatter(text);
   const stem = file.name.replace(/\.md$/, '');
   const links = [...body.matchAll(WIKI)].filter((x) => !x[1]).map((x) => parseWikilink(x[2]));
-  return { ...file, stem, data, body, error, links, summary: firstParagraph(body), relatedSection: sectionLinks(body, 'Related'), concepts: data ? concepts(body, data) : [] };
+  return { ...file, prel: inProject(file.rel), stem, data, body, error, links, summary: firstParagraph(body), relatedSection: sectionLinks(body, 'Related'), concepts: data ? concepts(body, data) : [] };
 }
 
 function readCanvas(fileByPath, rel) {
@@ -458,8 +463,8 @@ export function build() {
   const moduleNotes = new Map(byType('module').map((n) => [n.data.id, n]));
   for (const m of cfg.modules) {
     const note = moduleNotes.get(m.id);
-    if (!note) warn(`modules/${m.name}`, `no module note yet (create modules/${m.name}/${m.name} Module.md from templates/Module Template.md)`);
-    else if (note.rel !== `modules/${m.name}/${m.name} Module.md`) warn(note.rel, `module note expected at modules/${m.name}/${m.name} Module.md`);
+    if (!note) warn(prj(`modules/${m.name}`), `no module note yet (create ${prj(`modules/${m.name}/${m.name} Module.md`)} from templates/Module Template.md)`);
+    else if (note.rel !== prj(`modules/${m.name}/${m.name} Module.md`)) warn(note.rel, `module note expected at ${prj(`modules/${m.name}/${m.name} Module.md`)}`);
     const d = addNode(base(note, { id: `module:${m.id}`, kind: 'module', title: note?.stem ?? `${m.name} Module`, name: m.name, module: m.id, summary: note?.summary ?? m.description, label: 'Module', path: note?.rel ?? null, template: note ? null : 'templates/Module Template.md' }));
     if (note) noteOf.set(d.id, note);
     moduleNodes.set(m.id, d);
@@ -473,10 +478,10 @@ export function build() {
     requireKeys(n, ['id', 'module']);
     if (n.data.status !== undefined) err(n.rel, 'a feature\'s status is computed from its cards: remove "status:" (and the status/* tag); use "frontendOnly: true" for a feature with no backend part');
     else if (list(n.data.tags).some((t) => t.startsWith('status/'))) err(n.rel, 'a feature\'s status is computed from its cards: remove the status/* tag');
-    const parts = n.rel.split('/');
+    const parts = (n.prel ?? '').split('/');
     const folderModule = MODULE_BY_NAME.get(parts[1]);
-    if (parts[0] !== 'modules' || !folderModule) err(n.rel, `feature notes live in modules/<Module>/features/<Feature>/<Feature>.md`);
-    else if (parts[2] !== 'features' || parts[3] !== n.stem || parts[4] !== n.name || parts.length !== 5) warn(n.rel, `expected at modules/${parts[1]}/features/${n.stem}/${n.name}: a module keeps its features in features/, beside its module note`);
+    if (parts[0] !== 'modules' || !folderModule) err(n.rel, `feature notes live in ${prj('modules/<Module>/features/<Feature>/<Feature>.md')}`);
+    else if (parts[2] !== 'features' || parts[3] !== n.stem || parts[4] !== n.name || parts.length !== 5) warn(n.rel, `expected at ${prj(`modules/${parts[1]}/features/${n.stem}/${n.name}`)}: a module keeps its features in features/, beside its module note`);
     const mod = n.data.module;
     if (!MODULE_BY_ID.has(mod)) err(n.rel, `module "${mod}" is not in docs.config.json modules`);
     else if (folderModule && folderModule.id !== mod) err(n.rel, `module "${mod}" does not match folder "${parts[1]}" (${folderModule.id})`);
@@ -520,17 +525,17 @@ export function build() {
     taskNodes.set(n.data.id, t);
     // a bug lives in bugs/, whatever it hangs under; a task in tasks/
     const root = taskRoot(n);
-    const expectedFlat = `${root}/${n.stem}.md`, expectedDir = `${root}/${n.stem}/${n.stem}.md`;
+    const expectedFlat = prj(`${root}/${n.stem}.md`), expectedDir = prj(`${root}/${n.stem}/${n.stem}.md`);
     const parentNote = parent && !bug ? taskNotes.find((x) => x.data.id === parent) : null;
-    const expectedUnderParent = parentNote ? `tasks/${parentNote.stem}/${n.stem}.md` : null; // a sub-task may live in its parent's folder
+    const expectedUnderParent = parentNote ? prj(`tasks/${parentNote.stem}/${n.stem}.md`) : null; // a sub-task may live in its parent's folder
     if (n.rel !== expectedFlat && n.rel !== expectedDir && n.rel !== expectedUnderParent) warn(n.rel, `expected at ${expectedFlat} or ${expectedDir}${expectedUnderParent ? ` or ${expectedUnderParent}` : ''}`);
-    if (n.rel === expectedDir) t.dir = `${root}/${n.stem}`;
+    if (n.rel === expectedDir) t.dir = prj(`${root}/${n.stem}`);
   }
   const decisionNodes = new Map();
   for (const n of byType('needs-decision').sort(byNoteId)) {
     requireKeys(n, ['id', 'status']);
     codeNamed(n, 'a needs-decision card');
-    if (!n.rel.startsWith('needs-decisions/') || n.rel.includes('/', 'needs-decisions/'.length)) warn(n.rel, `expected at needs-decisions/${n.stem}.md: a needs-decision card lives in its own folder, its answer (D-NN) in decisions/`);
+    if (n.rel !== prj(`needs-decisions/${n.name}`)) warn(n.rel, `expected at ${prj(`needs-decisions/${n.name}`)}: a needs-decision card lives in its own folder, its answer (D-NN) in decisions/`);
     if (!list(n.data.blocks).length) requireKeys(n, ['features']); // a decision names the cards that need it (`blocks`) or the features it belongs to
     if (!isDecisionId(n.data.id)) err(n.rel, `id "${n.data.id}" is not a decision id (ND-NN)`);
     if (['fulfilled', 'decided'].includes(n.data.status)) err(n.rel, `status "${n.data.status}" is not typed on a needs-decision card: it is draft or open, and shows Fulfilled by itself once its decision card (D-NN) is decided`);
@@ -556,7 +561,7 @@ export function build() {
     noteOf.set(r.id, n);
     if (recordNodes.has(id)) err(n.rel, `second decision record with id "${id}"`);
     recordNodes.set(id, r);
-    if (!n.rel.startsWith('decisions/') || n.rel.includes('/', 'decisions/'.length)) warn(n.rel, `expected at decisions/${n.stem}.md`);
+    if (n.rel !== prj(`decisions/${n.name}`)) warn(n.rel, `expected at ${prj(`decisions/${n.name}`)}`);
   }
 
   // layer notes (feature-level and task-level), joined by frontmatter
@@ -582,7 +587,7 @@ export function build() {
       if (!container) { err(n.rel, `task "${n.data.task}" is not a task id`); continue; }
       if (container.feature !== n.data.feature) err(n.rel, `feature "${n.data.feature}" does not match the task's feature "${container.feature}"`);
       const tnote = noteOf.get(container.id);
-      const expected = `${taskRoot(tnote)}/${tnote.stem}/${container.code} ${kind.file}.md`;
+      const expected = prj(`${taskRoot(tnote)}/${tnote.stem}/${container.code} ${kind.file}.md`);
       if (n.rel !== expected) warn(n.rel, `expected at ${expected}`);
     } else { err(n.rel, `scope must be "feature" or "task" (got "${scope}")`); continue; }
     const f = featureNodes.get(n.data.feature);
@@ -680,9 +685,9 @@ export function build() {
   const areaByFolder = new Map(cfg.projectAreas.map((a) => [a.folder, a]));
   for (const n of notes) {
     if (!n.data || n.rel.startsWith('templates/')) continue;
-    const folder = n.rel.split('/')[0];
+    const folder = path.posix.dirname(n.rel);
     const area = areaByFolder.get(folder);
-    if (!area || n.rel.includes('/', folder.length + 1)) continue;
+    if (!area) continue;
     if (STRUCTURAL.includes(n.data.type) && n.data.type !== 'project' || KIND.has(n.data.type)) continue;
     if (n.data.layer && n.data.layer !== area.id) err(n.rel, `layer "${n.data.layer}" does not match the folder "${folder}" (${area.id})`);
     const p = addNode(base(n, { id: `project:${slugify(n.stem)}`, kind: 'project', layer: area.id, effectiveStatus: 'reference', label: n.data.type === 'map' ? 'Map' : n.data.type === 'report' ? 'Report' : 'Reference' }));
@@ -981,7 +986,7 @@ export function build() {
       addEdge(id, to, 'wikilink');
     }
   }
-  const canvas = readCanvas(fileByPath, 'business/Feature Map.canvas');
+  const canvas = readCanvas(fileByPath, prj('business/Feature Map.canvas'));
   warnings.push(...canvas.warnings);
   for (const [a, b] of canvas.pairs) {
     const from = ownerOfPath.get(a.rel), to = ownerOfPath.get(b.rel);
@@ -1214,7 +1219,7 @@ function stableStringify(value, indent = 2) {
   return JSON.stringify(sortKeys(value), null, indent) + '\n';
 }
 
-const mdLink = (n) => { const target = n.path || n.file; return target ? `[${n.title}](${target.split('/').map(encodeURIComponent).join('/')})` : `_${n.title}_`; };
+const mdLink = (n, from = '') => { const target = ((t) => (t && from && t.startsWith(`${from}/`) ? t.slice(from.length + 1) : t))(n.path || n.file); return target ? `[${n.title}](${target.split('/').map(encodeURIComponent).join('/')})` : `_${n.title}_`; };
 
 function treeMarkdown(json) {
   const { nodes } = json;
@@ -1314,7 +1319,7 @@ function cardIndexMarkdown(json) {
     lines.push(`## ${prefix} · ${groupLabel[kind] ?? kindName(kind)}`, '', '| Code | Card | Status | Under | Related | Blocked by |', '|---|---|---|---|---|---|');
     for (const n of rows) {
       const extra = [n.scope === 'task' ? `task ${n.task}` : n.scope === 'feature' ? 'feature level' : null, n.parentTask ? `sub-task of ${n.parentTask}` : null, ...(n.labels || []).map((l) => `\`${l}\``), priorityLabel(json, n), n.kind === 'feature' ? `release ${releaseLabel(json, n.release)}` : null, n.deadline ? `due ${n.deadline}` : null, n.frontendOnly ? 'frontend only' : null].filter(Boolean).join(', ');
-      lines.push(`| ${n.card} | ${mdLink(n)}${extra ? ` (${extra})` : ''} | ${status(n)} | ${codes(n.parents)} | ${codes([...(relOf.get(n.id) || [])])} | ${codes((n.blockedBy || []).map((b) => b.id))} |`);
+      lines.push(`| ${n.card} | ${mdLink(n, PROJECT_DIR)}${extra ? ` (${extra})` : ''} | ${status(n)} | ${codes(n.parents)} | ${codes([...(relOf.get(n.id) || [])])} | ${codes((n.blockedBy || []).map((b) => b.id))} |`);
     }
     lines.push('');
   }
@@ -1332,8 +1337,8 @@ function copySite(outDir, notes) {
     fs.mkdirSync(path.dirname(dest), { recursive: true });
     fs.copyFileSync(n.abs, dest);
   }
-  const assets = path.join(ROOT, 'design', 'assets');
-  if (fs.existsSync(assets)) fs.cpSync(assets, path.join(outDir, 'notes', 'design', 'assets'), { recursive: true });
+  const assets = PROJ('design', 'assets');
+  if (fs.existsSync(assets)) fs.cpSync(assets, path.join(outDir, 'notes', prj('design/assets')), { recursive: true });
 }
 
 function serve(outDir, port) {
@@ -1434,7 +1439,7 @@ export function branchName(json, agent, query, what, branches = {}) {
     if (n.kind === 'module' || n.kind === 'feature') { if (!what) return { error: `${n.card} is the ${n.kind} itself: add what you do, e.g. --branch ${agent} ${n.card} ${n.kind === 'module' ? 'business-side' : 'create'}` }; parts.push(kebab(what)); }
     else parts.push(`${n.card}-${kebab(what || titleWords)}`);
   } else {
-    parts.push((n.path || '').startsWith('business/') ? 'business' : 'project');
+    parts.push(n.kind === 'project' && n.layer === 'business' ? 'business' : 'project');
     if (n.kind === 'needs-decision' || n.kind === 'decision') parts.push(`${n.card}-${kebab(what || titleWords)}`);
     else { if (!what) return { error: `${n.card} sits outside the modules: add what you do, e.g. --branch ${agent} "${n.title}" flag-window` }; parts.push(kebab(what)); }
   }
@@ -1528,11 +1533,11 @@ function scaffoldTask(result, featureId, title, bug = false) {
   const screens = f.screens ?? [];
   let dir, pnote = null;
   if (parent) pnote = result.notes.find((n) => n.rel === parent.path);
-  if (bug) dir = path.join(ROOT, 'bugs'); // a bug lives in bugs/, also when it is a task's sub-task: the tree hangs it under the parent
+  if (bug) dir = PROJ('bugs'); // a bug lives in bugs/, also when it is a task's sub-task: the tree hangs it under the parent
   else if (parent) {
-    dir = path.join(ROOT, 'tasks', pnote.stem);
-    if (!parent.dir) { fs.mkdirSync(dir, { recursive: true }); fs.renameSync(pnote.abs, path.join(dir, pnote.name)); console.log(`moved ${pnote.rel} → tasks/${pnote.stem}/${pnote.name}`); }
-  } else dir = split ? path.join(ROOT, 'tasks', stem) : path.join(ROOT, 'tasks');
+    dir = PROJ('tasks', pnote.stem);
+    if (!parent.dir) { fs.mkdirSync(dir, { recursive: true }); fs.renameSync(pnote.abs, path.join(dir, pnote.name)); console.log(`moved ${pnote.rel} → ${prj(`tasks/${pnote.stem}/${pnote.name}`)}`); }
+  } else dir = split ? PROJ('tasks', stem) : PROJ('tasks');
   fs.mkdirSync(dir, { recursive: true });
   const dest = path.join(dir, `${stem}.md`);
   if (fs.existsSync(dest)) die(`${path.relative(ROOT, dest)} already exists`);
@@ -1593,7 +1598,7 @@ function scaffoldFeature(result, moduleId, name) {
   const release = opt('--release', 'later');
   if (!cfg.releases.byId.has(release)) die(`release "${release}": ${cfg.releases.list.map((r) => r.id).join(', ')}`);
   const date = today();
-  const dest = path.join(ROOT, 'modules', m.name, 'features', name, `${name}.md`);
+  const dest = PROJ('modules', m.name, 'features', name, `${name}.md`);
   if (fs.existsSync(dest)) die(`${path.relative(ROOT, dest)} already exists`);
   const { body } = parseFrontmatter(fs.readFileSync(path.join(ROOT, 'templates/Feature Template.md'), 'utf8'));
   const fm = { type: 'feature', id, name, priority, release, module: moduleId };
@@ -1624,7 +1629,7 @@ function scaffoldDecision(result, ref, title) {
   const t = (title || `Decide for ${target.title}`).trim().replace(/\s+/g, ' ');
   if (BAD_NAME.test(t) || /[/:]/.test(t)) { console.error(`title "${t}" cannot contain / : # ? % \\`); process.exit(1); }
   if (/^[A-Z]+-\d+\s/.test(t)) { console.error(`give the title without a code: the scaffold puts ${id} in front of "${t}"`); process.exit(1); }
-  const dest = path.join(ROOT, 'needs-decisions', `${id} ${t}.md`); // needs-decisions/ND-NN <Title>.md
+  const dest = PROJ('needs-decisions', `${id} ${t}.md`); // needs-decisions/ND-NN <Title>.md
   fs.mkdirSync(path.dirname(dest), { recursive: true });
   if (fs.existsSync(dest)) { console.error(`${path.relative(ROOT, dest)} already exists`); process.exit(1); }
   const today = new Date().toISOString().slice(0, 10);
@@ -1652,7 +1657,7 @@ function scaffoldRecord(result, ref, title) {
   const id = `D-${q.slice(3)}`;
   const t = title.trim().replace(/\s+/g, ' ');
   if (BAD_NAME.test(t) || /[/:]/.test(t)) die(`title "${t}" cannot contain / : # ? % \\`);
-  const dest = path.join(ROOT, 'decisions', `${id} ${t}.md`);
+  const dest = PROJ('decisions', `${id} ${t}.md`);
   if (fs.existsSync(dest)) die(`${path.relative(ROOT, dest)} already exists`);
   const dnote = result.notes.find((n) => n.rel === d.path);
   const date = today();
@@ -1688,8 +1693,8 @@ function scaffold(result, kindId, code) {
     featureNode = nodes[`feature:${taskNode.feature}`];
     const note = result.notes.find((n) => n.rel === taskNode.path);
     const root = taskRoot(note);
-    const dir = path.join(ROOT, root, note.stem);
-    if (!taskNode.dir) { fs.mkdirSync(dir, { recursive: true }); fs.renameSync(note.abs, path.join(dir, note.name)); console.log(`moved ${note.rel} → ${root}/${note.stem}/${note.name}`); }
+    const dir = PROJ(root, note.stem);
+    if (!taskNode.dir) { fs.mkdirSync(dir, { recursive: true }); fs.renameSync(note.abs, path.join(dir, note.name)); console.log(`moved ${note.rel} → ${prj(`${root}/${note.stem}/${note.name}`)}`); }
     dest = path.join(dir, `${code} ${kind.file}.md`);
     name = `${code} · ${note.stem.replace(/^[TB]-\d+[a-z]?\s+/, '')}`;
     fm = { type: kind.id, code, scope: 'task', task: code, feature: taskNode.feature, module: featureNode?.module ?? taskNode.module };
