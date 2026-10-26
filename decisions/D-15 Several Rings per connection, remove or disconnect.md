@@ -1,5 +1,5 @@
 ---
-type: decision-record
+type: decision
 id: D-15
 decision: ND-15
 status: decided
@@ -11,7 +11,7 @@ related: ["One Ring or several per connection", "D-14 Shared with me lists peopl
 owner: "khaled"
 created: 2026-10-25
 updated: 2026-10-26
-tags: [decision-record, decision-record/decided]
+tags: [decision, decision/decided]
 ---
 
 # ⚖️ D-15 · Several Rings per connection, remove or disconnect

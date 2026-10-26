@@ -1,5 +1,5 @@
 ---
-type: decision-record
+type: decision
 id: D-05
 decision: ND-05
 status: decided
@@ -11,7 +11,7 @@ related: ["Copy or inherit", "D-02 One main profile every Ring starts from", "D-
 owner: "khaled"
 created: 2026-10-25
 updated: 2026-10-26
-tags: [decision-record, decision-record/decided]
+tags: [decision, decision/decided]
 ---
 
 # ⚖️ D-05 · Inherit per field, copy without members

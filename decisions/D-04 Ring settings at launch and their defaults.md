@@ -1,5 +1,5 @@
 ---
-type: decision-record
+type: decision
 id: D-04
 decision: ND-04
 status: decided
@@ -11,7 +11,7 @@ related: ["Ring settings", "Ring Access Model"]
 owner: "khaled"
 created: 2026-10-25
 updated: 2026-10-26
-tags: [decision-record, decision-record/decided]
+tags: [decision, decision/decided]
 ---
 
 # ⚖️ D-04 · Ring settings at launch and their defaults

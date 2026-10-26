@@ -44,7 +44,7 @@ Wait for the answer. When two readings of the request would lead to materially d
 
 ## 4 · Act, inside your scope
 
-- New notes: `node scripts/build-tree.mjs --scaffold <kind> <feature-id | T-NNN>`, `--scaffold task …`, `--scaffold feature …`, `--scaffold decision "<card>" "<title>"`, `--scaffold record ND-NN "<the answer>"` ([[Docs Tree#For agents]]). Fill the template; do not reshape it.
+- New notes: `node scripts/build-tree.mjs --scaffold <kind> <feature-id | T-NNN>`, `--scaffold task …`, `--scaffold feature …`, `--scaffold needs-decision "<card>" "<title>"`, `--scaffold decision ND-NN "<the answer>"` ([[Docs Tree#For agents]]). Fill the template; do not reshape it.
 - Existing notes: Edit, the exact lines. Keep the frontmatter flat; declare `depends` / `affects` / `related`; every touched note gets today's `updated:`.
 - A note you do not own that your change makes wrong: a flag line under its H1, and the note named in your task's `## Log`. The owning agent clears the flag when it has updated the note.
 - A status change is four things together: `status:`, the `<kind>/<status>` tag, the H1 emoji, `updated:` ([[Agent Rules#4 · Statuses, blocking and sign-off]]). A feature's, a module's and the project's status is never typed.
@@ -54,7 +54,7 @@ Wait for the answer. When two readings of the request would lead to materially d
 
 1. `--impact` again on what you changed; update what you own, flag what you do not.
 2. `node scripts/build-tree.mjs`, then `node scripts/build-tree.mjs --check`: 0 errors, 0 warnings, nothing stale. Fix; never silence.
-3. Commit the notes **with** the generated files (`tree/`, [[Card Index]], [[Task Board]], [[Backlog]]) on the card's vault branch that `node scripts/build-tree.mjs --branch <agent> <card> [<what-you-do>]` prints, for every agent: `tickets/<agent>/…` for a task, a story, a Frontend Requirements note or a decision card, `docs/<agent>/…` for a delivery, integration or QA note, a decision record, a module or feature card and the rules. Code goes on `<module>/<T-NNN>/<what-you-do>` in the code repositories, never in the vault. The shapes and the commit messages are in [[Workflow#2 · Branch from the ticket]].
+3. Commit the notes **with** the generated files (`tree/`, [[Card Index]], [[Task Board]], [[Backlog]]) on the card's vault branch that `node scripts/build-tree.mjs --branch <agent> <card> [<what-you-do>]` prints, for every agent: `tickets/<agent>/…` for a task, a story, a Frontend Requirements note or a decision card, `docs/<agent>/…` for a delivery, integration or QA note, a decision card, a module or feature card and the rules. Code goes on `<module>/<T-NNN>/<what-you-do>` in the code repositories, never in the vault. The shapes and the commit messages are in [[Workflow#2 · Branch from the ticket]].
 4. Report, in the vault's words: what you created or changed, by card code and path; what now waits on whom (an approval, a decision, another agent); what you flagged for another layer; what the user still has to answer.
 
 ## 6 · Hand-offs between agents

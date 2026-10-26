@@ -1,5 +1,5 @@
 ---
-type: decision-record
+type: decision
 id: D-20
 decision: ND-20
 status: decided
@@ -11,7 +11,7 @@ related: ["Whether an unverified new address may sign in", "Auth & Sign-up Backe
 owner: "khaled"
 created: 2026-10-26
 updated: 2026-10-26
-tags: [decision-record, decision-record/decided]
+tags: [decision, decision/decided]
 ---
 
 # ✅ D-20 · The changed address still signs in, the words are corrected

@@ -1,5 +1,5 @@
 ---
-type: decision-record
+type: decision
 id: D-07
 decision: ND-07
 status: decided
@@ -11,7 +11,7 @@ related: ["Payment provider"]
 owner: "khaled"
 created: 2026-10-22
 updated: 2026-10-26
-tags: [decision-record, decision-record/decided]
+tags: [decision, decision/decided]
 ---
 
 # ⚖️ D-07 · Stripe for all four flows

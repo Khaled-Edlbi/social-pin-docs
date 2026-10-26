@@ -1,5 +1,5 @@
 ---
-type: decision-record
+type: decision
 id: D-13
 decision: ND-13
 status: decided
@@ -11,7 +11,7 @@ related: ["Whether the requester sees a declined request", "Request expiry, note
 owner: "khaled"
 created: 2026-10-25
 updated: 2026-10-26
-tags: [decision-record, decision-record/decided]
+tags: [decision, decision/decided]
 ---
 
 # ⚖️ D-13 · The requester sees a declined request

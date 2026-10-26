@@ -1,5 +1,5 @@
 ---
-type: decision
+type: needs-decision
 id: ND-21
 aliases: [ND-21]
 status: open
@@ -11,7 +11,7 @@ affects: ["T-020b Business card scan and portfolio URL import", "Onboarding Impo
 related: ["D-02 One main profile every Ring starts from", "D-03 Links entered once, switched on or off per Ring", "T-078 Main profile fields from D-02", "T-020 LinkedIn import → review → base profile", "Files Upload"]
 created: 2026-10-26
 owner: "Omar Fostok"
-tags: [decision, decision/open]
+tags: [needs-decision, needs-decision/open]
 ---
 
 # ❓ ND-21 · How a business card and a portfolio page are read
@@ -54,4 +54,4 @@ The **owner** decides, before T-020b is sized; needs to hear from the backend (p
 
 ## Decision
 
-— (answered on its decision card, never written here: the PM or the owner, on the user's word, runs `node scripts/build-tree.mjs --scaffold record ND-21 "<the answer>"`, fills the decision card D-NN (what was decided, why, what it changes with every feature and task in its `affects`, what stays open) and sets it `decided` with `decidedBy` and `decidedAt`; this card then shows Fulfilled by itself; the H1 gets ✅, and this line is replaced by "Fulfilled by" and a wikilink to the decision card, then "decided 2026-10-26 by <who>: option <n>"; then `--impact D-NN` and flag the notes it lists)
+— (answered on its decision card, never written here: the PM or the owner, on the user's word, runs `node scripts/build-tree.mjs --scaffold decision ND-21 "<the answer>"`, fills the decision card D-NN (what was decided, why, what it changes with every feature and task in its `affects`, what stays open) and sets it `decided` with `decidedBy` and `decidedAt`; this card then shows Fulfilled by itself; the H1 gets ✅, and this line is replaced by "Fulfilled by" and a wikilink to the decision card, then "decided 2026-10-26 by <who>: option <n>"; then `--impact D-NN` and flag the notes it lists)

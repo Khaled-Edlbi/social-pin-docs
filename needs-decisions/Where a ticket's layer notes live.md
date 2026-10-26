@@ -1,5 +1,5 @@
 ---
-type: decision
+type: needs-decision
 id: ND-19
 aliases: [ND-19]
 status: open
@@ -12,7 +12,7 @@ related: ["Agent Rules", "Docs Tree", "T-063"]
 owner: "khaled"
 created: 2026-10-25
 updated: 2026-10-26
-tags: [decision, decision/open]
+tags: [needs-decision, needs-decision/open]
 ---
 
 # ✅ ND-19 · Where a ticket's layer notes live

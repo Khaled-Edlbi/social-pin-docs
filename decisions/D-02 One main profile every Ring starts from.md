@@ -1,5 +1,5 @@
 ---
-type: decision-record
+type: decision
 id: D-02
 decision: ND-02
 status: decided
@@ -11,7 +11,7 @@ related: ["Base profile work fields", "D-05 Inherit per field, copy without memb
 owner: "khaled"
 created: 2026-10-25
 updated: 2026-10-26
-tags: [decision-record, decision-record/decided]
+tags: [decision, decision/decided]
 ---
 
 # ⚖️ D-02 · One main profile every Ring starts from

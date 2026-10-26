@@ -23,7 +23,7 @@ You **write**:
 
 - `<Feature> QA Backend` and `T-NNN QA Backend` (given / when / then per endpoint, the state diagram, the error matrix, the verdict) and `<Feature> QA Frontend` / `T-NNN QA Frontend` (journeys, screen states, error copy, the verdict), feature- and task-level;
 - bugs: `bugs/<Title>.md`, `type: bug`, the code `B-NN` in `id:` and `aliases:` (from `templates/Bug Template.md`), hung under the task or the card the bug was found against, with what happens, what should happen, the screen or endpoint, the build;
-- the decision card a QA note of yours cannot continue without (`--scaffold decision "<card>" "<title>"`): you raise and fill it; the PM or the owner decide it ([[Agent Rules#4 · Statuses, blocking and sign-off]]).
+- the decision card a QA note of yours cannot continue without (`--scaffold needs-decision "<card>" "<title>"`): you raise and fill it; the PM or the owner decide it ([[Agent Rules#4 · Statuses, blocking and sign-off]]).
 
 You read the story, both delivery notes and the integration note. You never write a story's body, a delivery note or a requirements note: when the behaviour differs from what a delivery note says, you flag it ([[Agent Protocol#4 · Act, inside your scope]]).
 

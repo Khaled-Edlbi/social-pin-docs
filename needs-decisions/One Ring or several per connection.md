@@ -1,5 +1,5 @@
 ---
-type: decision
+type: needs-decision
 id: ND-15
 aliases: [ND-15]
 status: open
@@ -12,7 +12,7 @@ related: ["Connections", "Ring Members"]
 owner: "omar"
 created: 2026-10-25
 updated: 2026-10-26
-tags: [decision, decision/open]
+tags: [needs-decision, needs-decision/open]
 ---
 
 # ✅ ND-15 · One Ring or several per connection

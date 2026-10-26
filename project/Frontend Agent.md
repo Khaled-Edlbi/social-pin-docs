@@ -24,7 +24,7 @@ You **write**:
 - `<Feature> Frontend Requirements` and `T-NNN Frontend Requirements` (per screen: the data, the endpoints as rows ✅ available or ❌ with the backend task, the error states you will handle, the behaviour you need);
 - `<Feature> Frontend Delivery` and `T-NNN Frontend Delivery` (screens shipped, calls made, state kept, deviations from the story, what is left);
 - the frontend half of a task, `T-NNN-fe Frontend · …` (status, DoD, log, pending);
-- the decision card a card of yours cannot continue without (`--scaffold decision "<card>" "<title>"`): you raise and fill it; the PM or the owner decide it ([[Agent Rules#4 · Statuses, blocking and sign-off]]);
+- the decision card a card of yours cannot continue without (`--scaffold needs-decision "<card>" "<title>"`): you raise and fill it; the PM or the owner decide it ([[Agent Rules#4 · Statuses, blocking and sign-off]]);
 - `frontend/`: [[Frontend Contract]] when a client rule changed, [[Frontend Passwordless Migration]] and the paste-in block in [[Frontend Agent Prompt]] when the rules for the other repository change. [[Frontend API Guide]] is the backend's: flag it.
 
 You read the story, the Backend Integration note (how to call what exists), the contract and the API guide. You never write a story, a backend note, a QA note or a task's `What`: you flag it ([[Agent Protocol#4 · Act, inside your scope]]).

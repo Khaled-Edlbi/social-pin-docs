@@ -1,5 +1,5 @@
 ---
-type: decision
+type: needs-decision
 id: ND-13
 aliases: [ND-13]
 status: open
@@ -12,7 +12,7 @@ related: ["Connections"]
 owner: "omar"
 created: 2026-10-25
 updated: 2026-10-26
-tags: [decision, decision/open]
+tags: [needs-decision, needs-decision/open]
 ---
 
 # ✅ ND-13 · Whether the requester sees a declined request

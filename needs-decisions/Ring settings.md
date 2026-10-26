@@ -1,5 +1,5 @@
 ---
-type: decision
+type: needs-decision
 id: ND-04
 aliases: [ND-04]
 status: open
@@ -7,7 +7,7 @@ features: [rings, ring-members, ring-invitations, delegated-admins, companies]
 screens: [s19, s22, s26, s27]
 created: 2026-10-15
 updated: 2026-10-26
-tags: [decision, decision/open]
+tags: [needs-decision, needs-decision/open]
 ---
 
 # ✅ ND-04 · Ring settings

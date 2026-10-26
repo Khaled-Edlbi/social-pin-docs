@@ -46,4 +46,4 @@ Import endpoint returns candidate fields; confirm endpoint writes the chosen one
 
 - 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
 - 2026-10-25 · ND-02 decided ([[D-02 One main profile every Ring starts from]]); What and Dependencies updated, flag cleared. Still waits on T-019.
-- 2026-10-26 · `tickets/pm/…/S-09-depends-dr-02` · `depends` points at the decision record D-02 instead of ND-02; the hand-typed `blocked` removed: the build shows it blocked by T-019, the one real blocker.
+- 2026-10-26 · `tickets/pm/…/S-09-depends-dr-02` · `depends` points at the decision card D-02 instead of ND-02; the hand-typed `blocked` removed: the build shows it blocked by T-019, the one real blocker.

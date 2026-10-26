@@ -1,5 +1,5 @@
 ---
-type: decision-record
+type: decision
 id: D-03
 decision: ND-03
 status: decided
@@ -11,7 +11,7 @@ related: ["Field library vs per-Ring copies", "D-02 One main profile every Ring 
 owner: "khaled"
 created: 2026-10-25
 updated: 2026-10-26
-tags: [decision-record, decision-record/decided]
+tags: [decision, decision/decided]
 ---
 
 # ⚖️ D-03 · Links entered once, switched on or off per Ring

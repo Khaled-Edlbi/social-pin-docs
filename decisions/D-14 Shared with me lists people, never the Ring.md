@@ -1,5 +1,5 @@
 ---
-type: decision-record
+type: decision
 id: D-14
 decision: ND-14
 status: decided
@@ -11,7 +11,7 @@ related: ["Connection-granted Ring on Shared with me", "View As & Pin Views", "D
 owner: "khaled"
 created: 2026-10-25
 updated: 2026-10-26
-tags: [decision-record, decision-record/decided]
+tags: [decision, decision/decided]
 ---
 
 # ⚖️ D-14 · Shared with me lists people, never the Ring

@@ -1,5 +1,5 @@
 ---
-type: decision
+type: needs-decision
 id: ND-17
 aliases: [ND-17]
 status: open
@@ -12,7 +12,7 @@ related: ["Connections", "Whether the requester sees a declined request"]
 owner: "khaled"
 created: 2026-10-25
 updated: 2026-10-26
-tags: [decision, decision/open]
+tags: [needs-decision, needs-decision/open]
 ---
 
 # ✅ ND-17 · Request expiry, note and asking again

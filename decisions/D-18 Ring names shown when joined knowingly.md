@@ -1,5 +1,5 @@
 ---
-type: decision-record
+type: decision
 id: D-18
 decision: ND-18
 status: decided
@@ -11,7 +11,7 @@ related: ["Company and invited Ring names shown to members", "D-14 Shared with m
 owner: "khaled"
 created: 2026-10-25
 updated: 2026-10-26
-tags: [decision-record, decision-record/decided]
+tags: [decision, decision/decided]
 ---
 
 # ⚖️ D-18 · Ring names shown when joined knowingly
