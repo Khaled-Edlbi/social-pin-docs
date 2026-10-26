@@ -45,6 +45,7 @@
     "Account Frontend Delivery": "frontend-delivery:account",
     "Account Frontend Requirements": "frontend-requirements:account",
     "Account QA Backend": "qa-backend:account",
+    "Account QA Frontend": "qa-frontend:account",
     "Account Story": "story:account",
     "Admin Agent": "project:admin-agent",
     "Agent Protocol": "project:agent-protocol",
@@ -739,6 +740,7 @@
     "P-26": "project:qa-agent",
     "P-27": "project:admin-agent",
     "QB-04": "qa-backend:account",
+    "QF-04": "qa-frontend:account",
     "S-01": "story:account",
     "S-02": "story:auth",
     "S-03": "story:counts",
@@ -1264,6 +1266,7 @@
         "project:frontend-api-guide",
         "project:frontend-passwordless-migration",
         "qa-backend:account",
+        "qa-frontend:account",
         "story:T-063",
         "story:account",
         "story:auth",
@@ -1325,6 +1328,7 @@
         "project:frontend-contract",
         "project:frontend-passwordless-migration",
         "qa-backend:account",
+        "qa-frontend:account",
         "story:auth"
       ],
       "owner": null
@@ -1753,6 +1757,7 @@
         "frontend-delivery:account",
         "frontend-requirements:account",
         "qa-backend:account",
+        "qa-frontend:account",
         "task:T-077"
       ],
       "owner": null
@@ -1768,6 +1773,7 @@
         "frontend-delivery:account",
         "frontend-requirements:account",
         "qa-backend:account",
+        "qa-frontend:account",
         "story:account"
       ],
       "owner": null
@@ -1783,6 +1789,7 @@
         "frontend-delivery:account",
         "frontend-requirements:account",
         "qa-backend:account",
+        "qa-frontend:account",
         "story:account"
       ],
       "owner": null
@@ -2421,6 +2428,7 @@
         "frontend-requirements:linked-accounts",
         "frontend-requirements:ring-projection",
         "qa-backend:account",
+        "qa-frontend:account",
         "story:account",
         "task:T-077"
       ],
@@ -3317,6 +3325,7 @@
     "s01": {
       "containers": [
         "decision:D-01",
+        "feature:account",
         "feature:auth",
         "feature:linked-accounts",
         "task:T-019",
@@ -3334,6 +3343,7 @@
         "feature:linked-accounts",
         "frontend-requirements:auth",
         "frontend-requirements:linked-accounts",
+        "qa-frontend:account",
         "story:T-019",
         "story:auth",
         "story:linked-accounts",
@@ -4947,6 +4957,7 @@
         "frontend-requirements:counts",
         "frontend-requirements:linked-accounts",
         "qa-backend:account",
+        "qa-frontend:account",
         "story:T-005",
         "story:T-019",
         "story:account",
@@ -4995,6 +5006,7 @@
     "s70": {
       "containers": [
         "decision:D-07",
+        "feature:account",
         "feature:subscription",
         "task:T-049",
         "task:T-049-be",
@@ -5006,6 +5018,7 @@
         "decision:D-07",
         "feature:subscription",
         "frontend-requirements:subscription",
+        "qa-frontend:account",
         "story:T-049",
         "story:subscription",
         "task:T-049",
@@ -5148,6 +5161,7 @@
       "module": 8,
       "project": 27,
       "qa-backend": 1,
+      "qa-frontend": 1,
       "story": 104,
       "task": 190
     },
@@ -5155,18 +5169,18 @@
       "backend": 56,
       "business": 370,
       "frontend": 44,
-      "qa": 1,
+      "qa": 2,
       "shared": 10
     },
     "concepts": 199,
     "decisions": 17,
-    "edges": 5120,
+    "edges": 5133,
     "features": 41,
-    "layerNotes": 193,
+    "layerNotes": 194,
     "modules": 8,
-    "notes": 516,
+    "notes": 517,
     "partial": 1,
-    "placeholders": 163,
+    "placeholders": 162,
     "records": 13,
     "taskLayerNotes": 65,
     "tasks": 190
@@ -9092,6 +9106,11 @@
       "to": "frontend-delivery:account"
     },
     {
+      "from": "frontend-delivery:account",
+      "kind": "flow",
+      "to": "qa-frontend:account"
+    },
+    {
       "from": "frontend-requirements:account",
       "kind": "flow",
       "to": "backend-delivery:account"
@@ -9288,6 +9307,11 @@
     },
     {
       "from": "qa-backend:account",
+      "kind": "flow",
+      "to": "story:account"
+    },
+    {
+      "from": "qa-frontend:account",
       "kind": "flow",
       "to": "story:account"
     },
@@ -9495,6 +9519,16 @@
       "from": "qa-backend:account",
       "kind": "pending",
       "to": "task:T-077"
+    },
+    {
+      "from": "qa-frontend:account",
+      "kind": "pending",
+      "to": "task:T-063"
+    },
+    {
+      "from": "qa-frontend:account",
+      "kind": "pending",
+      "to": "task:T-068"
     },
     {
       "from": "decision-record:DR-01",
@@ -11460,6 +11494,36 @@
       "from": "qa-backend:account",
       "kind": "related",
       "to": "task:T-063"
+    },
+    {
+      "from": "qa-frontend:account",
+      "kind": "related",
+      "to": "frontend-requirements:account"
+    },
+    {
+      "from": "qa-frontend:account",
+      "kind": "related",
+      "to": "qa-backend:account"
+    },
+    {
+      "from": "qa-frontend:account",
+      "kind": "related",
+      "to": "task:T-062"
+    },
+    {
+      "from": "qa-frontend:account",
+      "kind": "related",
+      "to": "task:T-063"
+    },
+    {
+      "from": "qa-frontend:account",
+      "kind": "related",
+      "to": "task:T-068"
+    },
+    {
+      "from": "qa-frontend:account",
+      "kind": "related",
+      "to": "task:T-077"
     },
     {
       "from": "story:audit-log",
@@ -27068,6 +27132,11 @@
     {
       "from": "frontend-delivery:account",
       "kind": "wikilink",
+      "to": "qa-frontend:account"
+    },
+    {
+      "from": "frontend-delivery:account",
+      "kind": "wikilink",
       "to": "story:account"
     },
     {
@@ -29478,6 +29547,11 @@
     {
       "from": "module:identity",
       "kind": "wikilink",
+      "to": "qa-frontend:account"
+    },
+    {
+      "from": "module:identity",
+      "kind": "wikilink",
       "to": "story:account"
     },
     {
@@ -31079,6 +31153,11 @@
       "from": "qa-backend:account",
       "kind": "wikilink",
       "to": "task:T-068"
+    },
+    {
+      "from": "qa-frontend:account",
+      "kind": "wikilink",
+      "to": "story:account"
     },
     {
       "from": "story:account",
@@ -35585,6 +35664,10 @@
     "modules/Identity Core/Account/Account QA Backend.md": {
       "name": "Account QA Backend",
       "type": "qa-backend"
+    },
+    "modules/Identity Core/Account/Account QA Frontend.md": {
+      "name": "Account QA Frontend",
+      "type": "qa-frontend"
     },
     "modules/Identity Core/Account/Account Story.md": {
       "name": "Account Story",
@@ -43507,8 +43590,8 @@
         "current": 1,
         "delivered": 1,
         "done": 2,
+        "draft": 1,
         "failing": 1,
-        "missing": 1,
         "todo": 2
       },
       "scope": null,
@@ -48512,7 +48595,8 @@
       "pending": [],
       "priority": "critical",
       "related": [
-        "frontend-delivery:account"
+        "frontend-delivery:account",
+        "qa-frontend:account"
       ],
       "release": "mvp",
       "scope": "feature",
@@ -51009,10 +51093,10 @@
         "decided": 6,
         "delivered": 1,
         "done": 16,
-        "draft": 20,
+        "draft": 21,
         "failing": 1,
         "in-progress": 13,
-        "missing": 41,
+        "missing": 40,
         "needs-decision": 2,
         "todo": 11,
         "verified": 6
@@ -52717,7 +52801,8 @@
         "backend-delivery:error-contract",
         "backend-integration:profiles",
         "backend-integration:ring-projection",
-        "task:T-063"
+        "task:T-063",
+        "qa-frontend:account"
       ],
       "release": "mvp",
       "scope": "feature",
@@ -54492,18 +54577,21 @@
     "qa-frontend:account": {
       "affects": [],
       "blockedBy": [],
-      "card": null,
+      "card": "QF-04",
       "children": [],
       "code": "account",
-      "created": null,
+      "created": "2026-10-26",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "missing",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "account",
       "frontendOnly": false,
       "id": "qa-frontend:account",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:account",
+        "release": "feature:account"
+      },
       "kind": "qa-frontend",
       "label": "QA Frontend",
       "labels": [],
@@ -54513,20 +54601,46 @@
       "parents": [
         "feature:account"
       ],
-      "path": null,
-      "pending": [],
-      "priority": null,
-      "related": [],
-      "release": null,
+      "path": "modules/Identity Core/Account/Account QA Frontend.md",
+      "pending": [
+        {
+          "person": null,
+          "text": "F19 (suspended mid-session, AC-15) can only show the not-active copy once E_AUTH_03 is on the wire",
+          "to": "task:T-063"
+        },
+        {
+          "person": null,
+          "text": "F19 cannot be run until a route suspends an account",
+          "to": "task:T-068"
+        }
+      ],
+      "priority": "critical",
+      "related": [
+        "frontend-requirements:account",
+        "qa-backend:account",
+        "task:T-063",
+        "task:T-068",
+        "task:T-077",
+        "task:T-062"
+      ],
+      "release": "mvp",
       "scope": "feature",
-      "screens": [],
-      "status": null,
-      "summary": "Not written yet. Create it with: node scripts/build-tree.mjs --scaffold qa-frontend account",
-      "tags": [],
+      "screens": [
+        "s68",
+        "s01",
+        "s70"
+      ],
+      "status": "draft",
+      "summary": "Expected behaviour of the screens, as artefacts: journeys, states and copy to check a build against, not test code. status: passing or failing after a run; the verdict tells the PM whether the…",
+      "tags": [
+        "qa-frontend",
+        "qa-frontend/draft",
+        "module/identity",
+        "layer/qa"
+      ],
       "task": null,
-      "template": "templates/QA Frontend Template.md",
       "title": "Account QA Frontend",
-      "updated": null
+      "updated": "2026-10-26"
     },
     "qa-frontend:app-shell": {
       "affects": [],
@@ -56396,10 +56510,10 @@
         "decided": 13,
         "delivered": 1,
         "done": 17,
-        "draft": 98,
+        "draft": 99,
         "failing": 1,
         "in-progress": 58,
-        "missing": 163,
+        "missing": 162,
         "needs-decision": 9,
         "partial": 1,
         "reference": 31,
@@ -72417,7 +72531,8 @@
       "pending": [],
       "priority": "critical",
       "related": [
-        "frontend-delivery:account"
+        "frontend-delivery:account",
+        "qa-frontend:account"
       ],
       "release": "v1",
       "rollup": {
@@ -72622,6 +72737,7 @@
         "task:T-077",
         "frontend-delivery:account",
         "qa-backend:account",
+        "qa-frontend:account",
         "story:T-067"
       ],
       "release": "mvp",
@@ -72990,7 +73106,8 @@
       "priority": "high",
       "related": [
         "task:T-053",
-        "task:T-006"
+        "task:T-006",
+        "qa-frontend:account"
       ],
       "release": "later",
       "rollup": {
@@ -73782,7 +73899,8 @@
         "project:auth-model",
         "task:T-063",
         "feature:rings",
-        "feature:profiles"
+        "feature:profiles",
+        "qa-frontend:account"
       ],
       "release": "mvp",
       "rollup": {},
