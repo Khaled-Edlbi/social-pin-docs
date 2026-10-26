@@ -34,7 +34,7 @@ const HAND_WRITTEN = ['tree/index.html']; // the tree page is source, the owner'
 const VERBATIM = ['design/Wireframe Brief.md'];
 const KINDS = []; // { id, file, layer }
 for (const layer of cfg.layers || []) for (const k of layer.kinds || []) KINDS.push({ id: k.id, file: k.file, layer: layer.id });
-const STRUCTURAL_LAYER = { module: 'business', feature: 'business', task: 'business', decision: 'business', 'decision-record': 'business', project: 'shared' };
+const STRUCTURAL_LAYER = { module: 'business', feature: 'business', task: 'business', bug: 'business', decision: 'business', 'decision-record': 'business', project: 'shared' };
 
 const readStdin = () => { try { return JSON.parse(fs.readFileSync(0, 'utf8') || '{}'); } catch { return {}; } };
 const active = () => { try { return fs.readFileSync(MARKER, 'utf8').trim() || null; } catch { return null; } };
@@ -73,7 +73,8 @@ function classify(rel) {
   if (node) {
     out.labels = node.labels || [];
     if (KINDS.some((k) => k.id === node.kind)) { out.kind = node.kind; out.layer = node.layer; }
-    else { out.type = node.kind; out.layer = node.layer || STRUCTURAL_LAYER[node.kind] || null; }
+    // a bug (type: bug) is built as a task node with `bug` in its labels: to the guard it is the bug type, written by the agents with `bug` in their types
+    else { out.type = node.kind === 'task' && out.labels.includes('bug') ? 'bug' : node.kind; out.layer = node.layer || STRUCTURAL_LAYER[out.type] || null; }
     return out;
   }
   const f = tree?.files?.[rel];
@@ -86,7 +87,8 @@ function classify(rel) {
   const base = path.posix.basename(rel, '.md');
   if (rel.endsWith('.md')) {
     for (const k of KINDS) if (base.endsWith(` ${k.file}`)) { out.kind = k.id; out.layer = k.layer; return out; }
-    if (rel.startsWith('tasks/')) { out.type = 'task'; out.layer = 'business'; const m = /^T-\d+[a-z]?-(fe|be)\b/.exec(base); if (m) out.labels = [m[1] === 'fe' ? 'frontend' : 'backend']; return out; }
+    if (rel.startsWith('tasks/') && /^B-\d+ /.test(base)) { out.type = 'bug'; out.layer = 'business'; return out; }
+    if (rel.startsWith('tasks/')) { out.type = 'task';out.layer = 'business'; const m = /^T-\d+[a-z]?-(fe|be)\b/.exec(base); if (m) out.labels = [m[1] === 'fe' ? 'frontend' : 'backend']; return out; }
     if (rel.startsWith('decisions/')) { out.type = /^decisions\/DR-\d+ /.test(rel) ? 'decision-record' : 'decision'; out.layer = 'business'; return out; }
     if (/^modules\/[^/]+\/[^/]+ Module\.md$/.test(rel)) { out.type = 'module'; out.layer = 'business'; return out; }
     if (/^modules\/[^/]+\/([^/]+)\/\1\.md$/.test(rel)) { out.type = 'feature'; out.layer = 'business'; return out; }
@@ -245,6 +247,7 @@ if (cmd === 'selftest') {
   const overview = 'business/Project Overview.md', stageSet = E('stage: mvp\nupdated: 2026-10-25', 'stage: beta\nupdated: 2026-10-26');
   const relSet = E('priority: critical\nrelease: mvp\nmodule: identity', 'priority: critical\nrelease: v1\nmodule: identity'), relKeep = E('priority: critical\nrelease: mvp\nupdated: 2026-10-25', 'priority: high\nrelease: mvp\nupdated: 2026-10-26');
   // a Write is compared with the file on disk: keeping the line is allowed, changing it is not (Rings is release: mvp)
+  const bug = 'tasks/B-02 Deleted account answers 401, not the documented 404 E_USER_01.md', newBug = 'tasks/B-99 Something found.md';
   const relWriteSame = E('', '---\ntype: feature\nid: rings\nrelease: mvp\n---\n'), relWriteNew = E('', '---\ntype: feature\nid: rings\nrelease: later\n---\n');
   const M = [
     // agent, path, op, edit, expected
@@ -272,6 +275,9 @@ if (cmd === 'selftest') {
     ['owner', feature, 'edit', relSet, true], ['pm', feature, 'edit', relSet, false], ['backend', feature, 'edit', relSet, false], ['pm', feature, 'edit', relKeep, true],
     ['pm', feature, 'write', relWriteSame, true], ['pm', feature, 'write', relWriteNew, false], ['owner', feature, 'write', relWriteNew, true],
     ['owner', overview, 'edit', stageSet, true], ['pm', overview, 'edit', stageSet, false], ['pm', overview, 'edit', body, true], ['admin', overview, 'edit', stageSet, true], ['admin', feature, 'edit', relSet, true],
+    // bug cards (type: bug, B-NN): QA files them, the PM closes them; no other role writes one
+    ['qa', bug, 'edit', body, true], ['qa', newBug, 'write', null, true], ['pm', bug, 'edit', body, true], ['pm', newBug, 'write', null, true],
+    ['backend', bug, 'edit', body, false], ['backend', bug, 'edit', flag, true], ['frontend', bug, 'edit', body, false], ['owner', bug, 'edit', body, false], ['backend', newBug, 'write', null, false],
     // the admin (writes.all): the guard refuses it nothing, the generated files and the verbatim brief included
     ['admin', 'tree/tree.json', 'write', null, true], ['admin', 'Card Index.md', 'edit', body, true], ['admin', 'design/Wireframe Brief.md', 'edit', body, true], ['admin', 'project/Agent Rules.md', 'write', null, true],
     ['admin', bd, 'write', null, true], ['admin', fe, 'edit', body, true], ['admin', story, 'edit', sign, true], ['admin', story, 'edit', body, true], ['admin', dec, 'edit', decideSign, true], ['admin', newDec, 'write', decidedWrite, true],

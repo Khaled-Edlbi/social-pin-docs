@@ -454,7 +454,7 @@ const KIND = {
   group: { name: 'Docs', short: 'Docs', icon: 'ph-books' }, feature: { name: 'Feature', short: 'Features', icon: 'ph-diamond' },
   // a task is a business-layer card like a story, so it carries the layer the same way the layer kinds do (the mark on the node, `· Business layer` in the pane); the layer kinds get theirs from `d.layers` below
   task: { name: 'Task', short: 'Tasks', icon: 'ph-check-square', layer: 'business' },
-  // a bug is a task note with `labels: [bug]`, numbered B-NN and hanging under the card it was found against: its own name and icon, the same business layer
+  // a bug is its own note type (type: bug), built as a task node with `bug` in its labels, numbered B-NN and hanging under the card it was found against: its own name and icon, the same business layer
   bug: { name: 'Bug', short: 'Bugs', icon: 'ph-bug', layer: 'business' },
   decision: { name: 'Needs decision', short: 'Needs decision', icon: 'ph-scales' }, 'decision-record': { name: 'Decision', short: 'Decisions', icon: 'ph-seal-check' },
   project: { name: 'Project note', short: 'Project notes', icon: 'ph-book-open' },
@@ -480,7 +480,7 @@ const PRESETS = [
   { id: 'product', name: 'Waiting on product', hint: 'Needs decision', kinds: [], statuses: ['needs-decision'] },
   { id: 'flight', name: 'In flight', hint: 'In progress', kinds: [], statuses: ['in-progress'] },
   { id: 'blocked', name: 'Blocked', hint: 'Waiting on the card before it', kinds: [], statuses: ['blocked'] },
-  { id: 'bugs', name: 'Bugs', hint: 'Tasks labelled bug', kinds: [], statuses: [], label: 'bug' },
+  { id: 'bugs', name: 'Bugs', hint: 'Bug cards (type: bug)', kinds: [], statuses: [], label: 'bug' },
   { id: 'notes', name: 'Done with notes', hint: 'Partial · pending items to clear', kinds: [], statuses: ['partial'] },
   { id: 'unapproved', name: 'Unapproved stories', hint: 'User stories · Draft', kinds: ['story'], statuses: ['draft'] },
   { id: 'missing', name: 'Not written yet', hint: 'Placeholders to scaffold', kinds: [], statuses: ['missing'] },
@@ -642,7 +642,7 @@ const CODE_TITLED = new Set(['decision', 'decision-record', 'task']);
 const DECISION_CARDS = new Set(['decision', 'decision-record']);
 const shown = (n) => (CODE_TITLED.has(n.kind) && n.card && n.title.startsWith(n.card) ? n.title.slice(n.card.length).replace(/^[\s·:-]+/, '') || n.title : n.title);
 // the kicker names the kind and never changes: a needs-decision card (D-NN) always reads NEEDS DECISION, its decision card (DR-NN) DECISION; the chip says Draft, Open or Fulfilled (DR: Draft or Decided)
-// what a node is called on the page: a task note with `labels: [bug]` is a BUG, numbered B-NN and hanging under the card it was found against; everything else is its own kind
+// what a node is called on the page: a bug note (type: bug; a task node with `bug` in its labels) is a BUG, numbered B-NN and hanging under the card it was found against; everything else is its own kind
 const displayKind = (n) => (n.kind === 'task' && (n.labels || []).includes('bug') ? 'bug' : n.kind);
 const kicker = (n) => (n.card && (CODE_TITLED.has(n.kind) || !n.title.startsWith(n.card)) ? n.card + ' · ' : '') + kindOf(displayKind(n)).name.toUpperCase() + (n.parentTask ? ' · SUB-TASK OF ' + n.parentTask : '') + (n.frontendOnly ? ' · FRONTEND ONLY' : '');
 const flowIdx = (kind) => FLOW.order.indexOf(kind);

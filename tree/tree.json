@@ -5200,7 +5200,7 @@
     "features": 41,
     "layerNotes": 194,
     "modules": 8,
-    "notes": 519,
+    "notes": 520,
     "partial": 2,
     "placeholders": 162,
     "records": 14,
@@ -36765,11 +36765,11 @@
     },
     "tasks/B-01 An unverified changed email still signs in.md": {
       "name": "B-01 An unverified changed email still signs in",
-      "type": "task"
+      "type": "bug"
     },
     "tasks/B-02 Deleted account answers 401, not the documented 404 E_USER_01.md": {
       "name": "B-02 Deleted account answers 401, not the documented 404 E_USER_01",
-      "type": "task"
+      "type": "bug"
     },
     "tasks/Backlog.md": {
       "name": "Backlog",
@@ -37798,6 +37798,10 @@
     "templates/Backend Integration Template.md": {
       "name": "Backend Integration Template",
       "type": "backend-integration"
+    },
+    "templates/Bug Template.md": {
+      "name": "Bug Template",
+      "type": "bug"
     },
     "templates/Decision Record Template.md": {
       "name": "Decision Record Template",
@@ -63509,11 +63513,10 @@
       "status": "done",
       "summary": "Output of node scripts/build-tree.mjs --impact B-01 when the bug was filed: the notes this change touches and that must be updated or flagged when it ships.",
       "tags": [
-        "task",
-        "task/done",
+        "bug",
+        "bug/done",
         "module/identity",
         "priority/high",
-        "bug",
         "resolution/by-design"
       ],
       "task": null,
@@ -63578,11 +63581,10 @@
       "status": "todo",
       "summary": "Output of node scripts/build-tree.mjs --impact B-02 when the bug was filed: the notes this change touches and that must be updated or flagged when it ships.",
       "tags": [
-        "task",
-        "task/todo",
+        "bug",
+        "bug/todo",
         "module/identity",
-        "priority/medium",
-        "bug"
+        "priority/medium"
       ],
       "task": null,
       "title": "B-02 Deleted account answers 401, not the documented 404 E_USER_01",
@@ -75963,7 +75965,6 @@
     }
   ],
   "taskLabels": [
-    "bug",
     "chore",
     "spike",
     "docs",
