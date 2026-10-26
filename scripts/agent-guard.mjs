@@ -87,7 +87,7 @@ function classify(rel) {
   const base = path.posix.basename(rel, '.md');
   if (rel.endsWith('.md')) {
     for (const k of KINDS) if (base.endsWith(` ${k.file}`)) { out.kind = k.id; out.layer = k.layer; return out; }
-    if (rel.startsWith('tasks/') && /^B-\d+ /.test(base)) { out.type = 'bug'; out.layer = 'business'; return out; }
+    if (rel.startsWith('bugs/') && /^B-\d+ /.test(base)) { out.type = 'bug'; out.layer = 'business'; return out; }
     if (rel.startsWith('tasks/')) { out.type = 'task';out.layer = 'business'; const m = /^T-\d+[a-z]?-(fe|be)\b/.exec(base); if (m) out.labels = [m[1] === 'fe' ? 'frontend' : 'backend']; return out; }
     if (rel.startsWith('decisions/')) { out.type = /^decisions\/DR-\d+ /.test(rel) ? 'decision-record' : 'decision'; out.layer = 'business'; return out; }
     if (/^modules\/[^/]+\/[^/]+ Module\.md$/.test(rel)) { out.type = 'module'; out.layer = 'business'; return out; }
@@ -247,7 +247,7 @@ if (cmd === 'selftest') {
   const overview = 'business/Project Overview.md', stageSet = E('stage: mvp\nupdated: 2026-10-25', 'stage: beta\nupdated: 2026-10-26');
   const relSet = E('priority: critical\nrelease: mvp\nmodule: identity', 'priority: critical\nrelease: v1\nmodule: identity'), relKeep = E('priority: critical\nrelease: mvp\nupdated: 2026-10-25', 'priority: high\nrelease: mvp\nupdated: 2026-10-26');
   // a Write is compared with the file on disk: keeping the line is allowed, changing it is not (Rings is release: mvp)
-  const bug = 'tasks/B-02 Deleted account answers 401, not the documented 404 E_USER_01.md', newBug = 'tasks/B-99 Something found.md';
+  const bug = 'bugs/B-02 Deleted account answers 401, not the documented 404 E_USER_01.md', newBug = 'bugs/B-99 Something found.md';
   const relWriteSame = E('', '---\ntype: feature\nid: rings\nrelease: mvp\n---\n'), relWriteNew = E('', '---\ntype: feature\nid: rings\nrelease: later\n---\n');
   const M = [
     // agent, path, op, edit, expected

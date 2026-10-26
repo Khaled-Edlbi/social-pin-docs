@@ -17,6 +17,7 @@ node scripts/build-tree.mjs --scaffold task counts "<Title>"     # a task with t
 - `business/`, `frontend/`, `backend/` — the project reference for each side; `project/` — the workflow, the agent rules, the docs tree guide
 - `modules/<Module>/<Feature>/` — the feature's business note and one note per layer (story, frontend requirements, backend delivery, backend integration, frontend delivery, QA backend, QA frontend)
 - `tasks/` — one note per task (`T-NNN`), with the same kinds of notes under the task's folder once teams pick it up; the generated Task Board and Backlog
+- `bugs/` — one note per bug (`B-NN`, `type: bug`); in the tree it hangs under the task or the card it was found against
 - `decisions/` — where the design and the backend disagree
 - `design/` — the design as reference: screen index, navigation map, wireframe brief
 - `Card Index.md` — generated: every card with its unique, never-reused code (`M-01`, `F-05`, `S-01`, `FR-05`, `BD-05`, `T-004`, `D-04`, `P-10`) and the cards it links to as `T-004 | S-01`; the registry is `tree/cards.json`

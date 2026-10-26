@@ -1,6 +1,6 @@
 ---
 type: bug
-id: B-NN
+id: B-NN                   # the file is bugs/B-NN <Title>.md, whatever card it hangs under
 status: todo
 priority: high
 # deadline: YYYY-MM-DD      # optional: when it must be fixed; the tree colours it green → yellow → red as the day comes, 💀 once missed (docs.config.json deadlines)

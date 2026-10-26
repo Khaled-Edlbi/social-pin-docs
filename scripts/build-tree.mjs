@@ -71,6 +71,8 @@ const STRUCTURAL = ['module', 'feature', 'task', 'bug', 'decision', 'decision-re
 // a bug is its own note type (type: bug), built as a task node with the label Bug and `bug` first in its labels: its own card prefix (B) and its own number sequence
 const isBug = (n) => n.kind === 'task' && (n.labels || []).includes('bug');
 const codeKind = (n) => (isBug(n) ? 'bug' : n.kind);
+// the folder a task-like note lives in: bugs/ for a bug (type: bug), tasks/ for a task
+const taskRoot = (note) => (note.data?.type === 'bug' ? 'bugs' : 'tasks');
 const ID_CODED = new Set(['task', 'decision', 'decision-record']); // the card code is the note's id
 
 // ---------------------------------------------------------------- config
@@ -500,11 +502,13 @@ export function build() {
     noteOf.set(t.id, n);
     if (taskNodes.has(n.data.id)) err(n.rel, `second task note with id "${n.data.id}"`);
     taskNodes.set(n.data.id, t);
-    const expectedFlat = `tasks/${n.stem}.md`, expectedDir = `tasks/${n.stem}/${n.stem}.md`;
-    const parentNote = parent ? taskNotes.find((x) => x.data.id === parent) : null;
+    // a bug lives in bugs/, whatever it hangs under; a task in tasks/
+    const root = taskRoot(n);
+    const expectedFlat = `${root}/${n.stem}.md`, expectedDir = `${root}/${n.stem}/${n.stem}.md`;
+    const parentNote = parent && !bug ? taskNotes.find((x) => x.data.id === parent) : null;
     const expectedUnderParent = parentNote ? `tasks/${parentNote.stem}/${n.stem}.md` : null; // a sub-task may live in its parent's folder
     if (n.rel !== expectedFlat && n.rel !== expectedDir && n.rel !== expectedUnderParent) warn(n.rel, `expected at ${expectedFlat} or ${expectedDir}${expectedUnderParent ? ` or ${expectedUnderParent}` : ''}`);
-    if (n.rel === expectedDir) t.dir = `tasks/${n.stem}`;
+    if (n.rel === expectedDir) t.dir = `${root}/${n.stem}`;
   }
   const decisionNodes = new Map();
   for (const n of byType('decision')) {
@@ -560,7 +564,7 @@ export function build() {
       if (!container) { err(n.rel, `task "${n.data.task}" is not a task id`); continue; }
       if (container.feature !== n.data.feature) err(n.rel, `feature "${n.data.feature}" does not match the task's feature "${container.feature}"`);
       const tnote = noteOf.get(container.id);
-      const expected = `tasks/${tnote.stem}/${container.code} ${kind.file}.md`;
+      const expected = `${taskRoot(tnote)}/${tnote.stem}/${container.code} ${kind.file}.md`;
       if (n.rel !== expected) warn(n.rel, `expected at ${expected}`);
     } else { err(n.rel, `scope must be "feature" or "task" (got "${scope}")`); continue; }
     const f = featureNodes.get(n.data.feature);
@@ -1503,11 +1507,13 @@ function scaffoldTask(result, featureId, title, bug = false) {
   const date = today();
   const screens = f.screens ?? [];
   let dir, pnote = null;
-  if (parent) {
-    pnote = result.notes.find((n) => n.rel === parent.path);
+  if (parent) pnote = result.notes.find((n) => n.rel === parent.path);
+  if (bug) dir = path.join(ROOT, 'bugs'); // a bug lives in bugs/, also when it is a task's sub-task: the tree hangs it under the parent
+  else if (parent) {
     dir = path.join(ROOT, 'tasks', pnote.stem);
     if (!parent.dir) { fs.mkdirSync(dir, { recursive: true }); fs.renameSync(pnote.abs, path.join(dir, pnote.name)); console.log(`moved ${pnote.rel} → tasks/${pnote.stem}/${pnote.name}`); }
   } else dir = split ? path.join(ROOT, 'tasks', stem) : path.join(ROOT, 'tasks');
+  fs.mkdirSync(dir, { recursive: true });
   const dest = path.join(dir, `${stem}.md`);
   if (fs.existsSync(dest)) die(`${path.relative(ROOT, dest)} already exists`);
   const type = bug ? 'bug' : 'task';
@@ -1659,10 +1665,11 @@ function scaffold(result, kindId, code) {
     if (!taskNode) { console.error(`no task ${code}`); process.exit(1); }
     featureNode = nodes[`feature:${taskNode.feature}`];
     const note = result.notes.find((n) => n.rel === taskNode.path);
-    const dir = path.join(ROOT, 'tasks', note.stem);
-    if (!taskNode.dir) { fs.mkdirSync(dir, { recursive: true }); fs.renameSync(note.abs, path.join(dir, note.name)); console.log(`moved ${note.rel} → tasks/${note.stem}/${note.name}`); }
+    const root = taskRoot(note);
+    const dir = path.join(ROOT, root, note.stem);
+    if (!taskNode.dir) { fs.mkdirSync(dir, { recursive: true }); fs.renameSync(note.abs, path.join(dir, note.name)); console.log(`moved ${note.rel} → ${root}/${note.stem}/${note.name}`); }
     dest = path.join(dir, `${code} ${kind.file}.md`);
-    name = `${code} · ${note.stem.replace(/^T-\d+[a-z]?\s+/, '')}`;
+    name = `${code} · ${note.stem.replace(/^[TB]-\d+[a-z]?\s+/, '')}`;
     fm = { type: kind.id, code, scope: 'task', task: code, feature: taskNode.feature, module: featureNode?.module ?? taskNode.module };
   } else {
     featureNode = nodes[`feature:${code}`];
