@@ -22,7 +22,7 @@ decision: ND-03
 
 ## What
 
-Take [[Field library vs per-Ring copies]]. Decided by [[D-03 Links entered once, switched on or off per Ring]]: one library of links, each Ring only switches them on or off. Building it is not ticketed yet.
+Take [[ND-03 Field library vs per-Ring copies]]. Decided by [[D-03 Links entered once, switched on or off per Ring]]: one library of links, each Ring only switches them on or off. Building it is not ticketed yet.
 
 ## Design
 

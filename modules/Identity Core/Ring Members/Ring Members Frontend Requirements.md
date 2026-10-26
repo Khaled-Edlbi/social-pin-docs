@@ -68,7 +68,7 @@ What the client needs from the backend to build the owner's roster and the per-p
 | A `userId` to add (connect request accepted) | — | ❌ | [[T-021 Connect request send, inbox, cancel]], [[T-022 Accept into a Ring (sets grantedRingId)]] |
 | Scan someone in | — | ❌ | [[T-008 Resolve a scanned QR token]] |
 | Delegated admins managing the roster | — | ❌ | [[T-006 Delegated admin endpoints]] |
-| Members can see each other | — | ❌ | [[Ring settings]] |
+| Members can see each other | — | ❌ | [[ND-04 Ring settings]] |
 
 ## Behaviour expectations
 
@@ -100,4 +100,4 @@ Until [[T-063 Put the ErrorCode on the error body]] ships, branch on status and 
 
 - [[T-023 Connection detail and contacts list]] — names and photos on every row; without it the roster is a list of windows.
 - [[T-021 Connect request send, inbox, cancel]] and [[T-022 Accept into a Ring (sets grantedRingId)]] — the only in-app sources of a `userId` to add.
-- [[Ring settings]] — "members can see each other" on s27.
+- [[ND-04 Ring settings]] — "members can see each other" on s27.

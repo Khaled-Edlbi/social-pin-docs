@@ -33,8 +33,8 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 
 | Task | Status | Priority | Effort |
 |---|---|---|---|
-| [[An unverified changed email still signs in]] | 🟡 Partial · 5 notes | high | S |
-| [[Deleted account answers 401, not the documented 404 E_USER_01]] | ⬜ To do | medium | S |
+| [[B-01 An unverified changed email still signs in]] | 🟡 Partial · 5 notes | high | S |
+| [[B-02 Deleted account answers 401, not the documented 404 E_USER_01]] | ⬜ To do | medium | S |
 
 ```dataview
 TABLE status, priority, effort FROM #task WHERE feature = "account" SORT priority ASC

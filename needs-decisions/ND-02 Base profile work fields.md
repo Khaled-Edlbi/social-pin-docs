@@ -1,7 +1,6 @@
 ---
 type: needs-decision
 id: ND-02
-aliases: [ND-02]
 status: open
 features: [profiles, ring-projection, onboarding-imports, photo-library]
 screens: [s05, s06, s11, s23, s29]

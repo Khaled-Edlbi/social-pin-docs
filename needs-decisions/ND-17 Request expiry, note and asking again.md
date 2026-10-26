@@ -1,14 +1,13 @@
 ---
 type: needs-decision
 id: ND-17
-aliases: [ND-17]
 status: open
 features: [connections]
 blocks: ["T-021 Story"]
 decider: "owner"
 screens: [s44, s45]
 affects: ["T-021 Connect request send, inbox, cancel"]
-related: ["Connections", "Whether the requester sees a declined request"]
+related: ["Connections", "ND-13 Whether the requester sees a declined request"]
 owner: "khaled"
 created: 2026-10-25
 updated: 2026-10-26
@@ -27,7 +26,7 @@ Three rules of a connection request that [[T-021 Connect request send, inbox, ca
 
 ## Notes
 
-- [[Whether the requester sees a declined request]] decides what the requester sees after a decline; asking again only matters once they can see it.
+- [[ND-13 Whether the requester sees a declined request]] decides what the requester sees after a decline; asking again only matters once they can see it.
 - [[T-021 Story]] S1: asking again while a request is pending returns the same request instead of a second one.
 - Raised and decided in one step by the owner, on the user's answers to the product-questions page (Q3, 2026-10-22).
 

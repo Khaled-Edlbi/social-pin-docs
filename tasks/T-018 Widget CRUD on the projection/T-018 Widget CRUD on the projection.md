@@ -32,7 +32,7 @@ tags: [task, task/needs-info, module/identity, priority/high]
 ## Dependencies
 
 - Waits on [[T-017 Extend WIDGET_TYPE to the design's list]]
-- Waited on decision [[Field library vs per-Ring copies]], decided by [[D-03 Links entered once, switched on or off per Ring]]
+- Waited on decision [[ND-03 Field library vs per-Ring copies]], decided by [[D-03 Links entered once, switched on or off per Ring]]
 
 ## Definition of done
 

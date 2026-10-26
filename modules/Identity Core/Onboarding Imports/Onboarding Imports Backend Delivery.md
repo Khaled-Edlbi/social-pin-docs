@@ -27,7 +27,7 @@ What the backend shipped for this feature and how it works. The sum of this feat
 
 ### Gaps
 
-- Imported fields populate the **base profile**, which feeds the first Ring: blocked on [[Base profile work fields]].
+- Imported fields populate the **base profile**, which feeds the first Ring: blocked on [[ND-02 Base profile work fields]].
 - Card OCR and URL scraping need a provider decision.
 - A review step with include / skip per field before anything is written.
 

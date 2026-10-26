@@ -85,4 +85,4 @@ Acceptance criteria:
 
 ## Open questions
 
-- [[Passwordless login]] — if login becomes code-based, every login costs a delivery and the resend timer appears on the login path too; the decision needs delivery first either way.
+- [[ND-01 Passwordless login]] — if login becomes code-based, every login costs a delivery and the resend timer appears on the login path too; the decision needs delivery first either way.

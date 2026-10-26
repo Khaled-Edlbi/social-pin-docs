@@ -8,7 +8,7 @@ status: passing
 screens: [s68, s01, s70]
 depends: []
 affects: []
-related: ["Account Frontend Requirements", "Account QA Backend", "T-063 Put the ErrorCode on the error body", "T-068 Account moderation and platform role", "Deleted account answers 401, not the documented 404 E_USER_01", "T-062 Serve uploaded file bytes by id"]
+related: ["Account Frontend Requirements", "Account QA Backend", "T-063 Put the ErrorCode on the error body", "T-068 Account moderation and platform role", "B-02 Deleted account answers 401, not the documented 404 E_USER_01", "T-062 Serve uploaded file bytes by id"]
 pending: ["[[T-063 Put the ErrorCode on the error body]]: F19 (suspended mid-session, AC-15) can only show the not-active copy once E_AUTH_03 is on the wire", "[[T-068 Account moderation and platform role]]: F19 cannot be run until a route suspends an account", "@omar: F3 Pro side, F4, F5, F14 (Back, DA-05), F15, F16 and F20 (saving in Arabic) not run by the Maestro pass; run by hand"]
 created: 2026-10-26
 updated: 2026-10-26
@@ -17,7 +17,7 @@ tags: [qa-frontend, qa-frontend/passing, module/identity, layer/qa]
 
 # 🧪 Account · QA Frontend
 
-> ⚠ Affected by [[An unverified changed email still signs in]] (2026-10-26): this note was written twice in parallel; the merge kept the run on `47ce960` and dropped the unrun draft. B-01's `pending` asks for "row F10" of the draft (the copy under the ACCOUNT group while anything is unverified, now the copy [[D-20 The changed address still signs in, the words are corrected]] accepts): find the row of this run that covers it and clear B-01's item. `/qa`.
+> ⚠ Affected by [[B-01 An unverified changed email still signs in]] (2026-10-26): this note was written twice in parallel; the merge kept the run on `47ce960` and dropped the unrun draft. B-01's `pending` asks for "row F10" of the draft (the copy under the ACCOUNT group while anything is unverified, now the copy [[D-20 The changed address still signs in, the words are corrected]] accepts): find the row of this run that covers it and clear B-01's item. `/qa`.
 
 **Feature:** [[Account]] · **Verifies:** [[Account Frontend Delivery]] against [[Account Story]] · **Verdict:** ✅ Passing on every row run · 2026-10-26 · `social_pin` `main` @ `47ce960` · 8 rows not run (see `pending`)
 
@@ -45,7 +45,7 @@ Expected behaviour of the screens, as artefacts: journeys, states and copy to ch
 | F12 | S3 | Phone → clear the field → Save | "Enter your phone number." under the field; nothing sent: a destination cannot be cleared. | ✅ |
 | F13 | S4 | Me → Delete account (DA-01, DA-02, DA-03) | "Delete account" in red under Sign out; a sheet names what happens; Cancel or swipe keeps you signed in on Me. | ✅ |
 | F14 | S4 | Delete account → Delete my account (DA-04, DA-05) | Loader, then Welcome with "Your account has been deleted."; Back cannot return; the same email then signs up as new. | ⬜ Welcome and "Your account has been deleted." ✅ (every flow's cleanup); Back and DA-05 not run |
-| F15 | S4 | Delete from phone B; phone A comes back to the foreground, or opens cold (AC-13, AC-14, DA-06) | Phone A lands on Welcome, not on the saved account. Copy: "Your account has been deleted." only if the API answers 404; today it answers 401 ([[Deleted account answers 401, not the documented 404 E_USER_01]]), so expect "Your session has expired. Please sign in again." | ⬜ not run: needs a second phone |
+| F15 | S4 | Delete from phone B; phone A comes back to the foreground, or opens cold (AC-13, AC-14, DA-06) | Phone A lands on Welcome, not on the saved account. Copy: "Your account has been deleted." only if the API answers 404; today it answers 401 ([[B-02 Deleted account answers 401, not the documented 404 E_USER_01]]), so expect "Your session has expired. Please sign in again." | ⬜ not run: needs a second phone |
 | F16 | S4 | Airplane mode → Delete account → Delete my account (DA-07) | The connection error toast; still signed in, still on Me. | ⬜ not run: needs airplane mode |
 | F17 | S5 | Me → Privacy (AC-16, RP-13, RP-12) | Each row: on the right what's set on the profile or "Not set"; under the title which of your Rings show it, or "Hidden from all Rings"; never "public". The note says setting a value shows it on no Ring. | ✅ |
 | F18 | S5 | Tap Gender → Female; Marital status → the value already set; Birthdate → a date → OK (AC-16, AC-17, AC-18) | Gender shows **Female**; the line under the title is unchanged (no Ring starts showing it). The same value sends nothing. Birthdate shows the picked date. A picker opens, not a profile editor (recorded deviation). | ✅ |
@@ -89,7 +89,7 @@ flowchart LR
 | `E_USER_03` (409) | change phone sheet | "This number is already on another account." |
 | — (client check) | change email sheet | "Enter your email." / "Enter an email like name@example.com." |
 | — (client check) | change phone sheet | "Enter your phone number." / "That number doesn't look right. Check it and the country code." |
-| `E_USER_01` (404) | any return of `GET /users/me` | Welcome: "Your account has been deleted." (unreachable today: [[Deleted account answers 401, not the documented 404 E_USER_01]]) |
+| `E_USER_01` (404) | any return of `GET /users/me` | Welcome: "Your account has been deleted." (unreachable today: [[B-02 Deleted account answers 401, not the documented 404 E_USER_01]]) |
 | `E_AUTH_03` (401) | any call | Welcome: "This account can't sign in right now. Contact support if this keeps happening." (once [[T-063 Put the ErrorCode on the error body]] ships) |
 | `E_AUTH_04` (401) | the refresh | Welcome: "Your session has expired. Please sign in again." |
 | — (no connection) | Delete account | The connection error toast; the session is kept. |

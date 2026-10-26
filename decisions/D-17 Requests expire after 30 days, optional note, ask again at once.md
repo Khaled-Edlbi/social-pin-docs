@@ -7,7 +7,7 @@ decidedBy: "molham"
 decidedAt: 2026-10-25
 features: [connections]
 affects: ["Connections", "T-021 Connect request send, inbox, cancel", "T-022 Accept into a Ring (sets grantedRingId)"]
-related: ["Request expiry, note and asking again", "D-13 The requester sees a declined request"]
+related: ["ND-17 Request expiry, note and asking again", "D-13 The requester sees a declined request"]
 owner: "khaled"
 created: 2026-10-25
 updated: 2026-10-26
@@ -16,9 +16,9 @@ tags: [decision, decision/decided]
 
 # ⚖️ D-17 · Requests expire after 30 days, optional note, ask again at once
 
-**Answers:** [[Request expiry, note and asking again]] · **Decided by:** molham · **On:** 2026-10-25 · **Feature:** [[Connections]]
+**Answers:** [[ND-17 Request expiry, note and asking again]] · **Decided by:** molham · **On:** 2026-10-25 · **Feature:** [[Connections]]
 
-> This card is the answer to [[Request expiry, note and asking again]]. The needs-decision card keeps the question, the facts and the options; this decision card says what was decided, why, and what it changes. `draft` while the answer is prepared; `decided` only by the PM or the owner, on the user's word, with `decidedBy` and `decidedAt`: then [[Request expiry, note and asking again]] shows Fulfilled by itself and the cards it blocked continue.
+> This card is the answer to [[ND-17 Request expiry, note and asking again]]. The needs-decision card keeps the question, the facts and the options; this decision card says what was decided, why, and what it changes. `draft` while the answer is prepared; `decided` only by the PM or the owner, on the user's word, with `decidedBy` and `decidedAt`: then [[ND-17 Request expiry, note and asking again]] shows Fulfilled by itself and the cards it blocked continue.
 
 ## What was decided
 

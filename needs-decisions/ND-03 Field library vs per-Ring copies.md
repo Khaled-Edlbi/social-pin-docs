@@ -1,7 +1,6 @@
 ---
 type: needs-decision
 id: ND-03
-aliases: [ND-03]
 status: open
 features: [ring-projection, widgets]
 screens: [s20, s24]

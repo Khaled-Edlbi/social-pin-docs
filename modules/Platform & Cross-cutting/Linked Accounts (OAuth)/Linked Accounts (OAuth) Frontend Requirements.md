@@ -68,4 +68,4 @@ No OAuth codes exist yet; T-019 adds them. `ErrorCode` is not on the wire until 
 
 ## Blocked by
 
-- [[Passwordless login]] is decided (code-only, 2026-10-15); nothing here waits on it. The login row waits on [[T-019 LinkedIn OAuth link, unlink, login]] is ❓ because of it.
+- [[ND-01 Passwordless login]] is decided (code-only, 2026-10-15); nothing here waits on it. The login row waits on [[T-019 LinkedIn OAuth link, unlink, login]] is ❓ because of it.

@@ -22,7 +22,7 @@ decision: ND-05
 
 ## What
 
-Take [[Copy or inherit]]. Decided by [[D-05 Inherit per field, copy without members]]: Rings inherit the main profile field by field, and copying a Ring never copies its members. Building it is not ticketed yet.
+Take [[ND-05 Copy or inherit]]. Decided by [[D-05 Inherit per field, copy without members]]: Rings inherit the main profile field by field, and copying a Ring never copies its members. Building it is not ticketed yet.
 
 ## Design
 
@@ -30,7 +30,7 @@ Take [[Copy or inherit]]. Decided by [[D-05 Inherit per field, copy without memb
 
 ## Dependencies
 
-- Waited on decision [[Base profile work fields]], decided by [[D-02 One main profile every Ring starts from]]
+- Waited on decision [[ND-02 Base profile work fields]], decided by [[D-02 One main profile every Ring starts from]]
 
 ## Definition of done
 

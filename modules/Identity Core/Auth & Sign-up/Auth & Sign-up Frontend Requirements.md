@@ -8,7 +8,7 @@ status: ready
 screens: [s01, s02, s06, s08, s68, s75]
 depends: []
 affects: []
-related: ["Passwordless login", "D-06 Yearly rename, old name freed, case-insensitive", "Onboarding Imports Frontend Requirements", "Profiles & Pin Name Frontend Requirements", "Interests Frontend Requirements", "Rings", "T-079 Enforce the once-a-year Pin name rename", "T-063 Put the ErrorCode on the error body"]
+related: ["ND-01 Passwordless login", "D-06 Yearly rename, old name freed, case-insensitive", "Onboarding Imports Frontend Requirements", "Profiles & Pin Name Frontend Requirements", "Interests Frontend Requirements", "Rings", "T-079 Enforce the once-a-year Pin name rename", "T-063 Put the ErrorCode on the error body"]
 created: 2026-10-18
 updated: 2026-10-26
 owner: "Omar Fostok"
@@ -19,7 +19,7 @@ tags: [frontend-requirements, frontend-requirements/ready, module/identity, laye
 
 **Feature:** [[Auth & Sign-up]] · **Status:** Ready (waiting for the backend) · **Story:** [[Auth & Sign-up Story]] · **Backend Integration:** [[Auth & Sign-up Backend Integration]]
 
-What the client needs from the backend for the welcome, code, Pin-name and session screens, and whether each need is met today, checked against the client's sign-up as built (2026-10-26). Everything this feature asks for exists; the one thing missing is the delivery of the code itself, which the backend papers over with `devCode` for now. Passwordless since 2026-10-15 ([[Passwordless login]]); the client-side migration is in [[Frontend Passwordless Migration]].
+What the client needs from the backend for the welcome, code, Pin-name and session screens, and whether each need is met today, checked against the client's sign-up as built (2026-10-26). Everything this feature asks for exists; the one thing missing is the delivery of the code itself, which the backend papers over with `devCode` for now. Passwordless since 2026-10-15 ([[ND-01 Passwordless login]]); the client-side migration is in [[Frontend Passwordless Migration]].
 
 ## The sign-up flow in the client
 

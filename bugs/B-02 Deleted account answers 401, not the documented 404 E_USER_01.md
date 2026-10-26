@@ -1,7 +1,6 @@
 ---
 type: bug
 id: B-02
-aliases: [B-02]
 status: todo
 priority: medium
 effort: S

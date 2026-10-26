@@ -52,8 +52,8 @@ TABLE status, priority, effort FROM #task WHERE feature = "ring-invitations" SOR
 
 ## Decisions
 
-- [[Ring settings]] — decided, join with a code or by invitation and approve each one by default ([[D-04 Ring settings at launch and their defaults|D-04]])
-- [[Company and invited Ring names shown to members]] — decided, an invitation names its Ring and a Ring joined knowingly stays named ([[D-18 Ring names shown when joined knowingly|D-18]])
+- [[ND-04 Ring settings]] — decided, join with a code or by invitation and approve each one by default ([[D-04 Ring settings at launch and their defaults|D-04]])
+- [[ND-18 Company and invited Ring names shown to members]] — decided, an invitation names its Ring and a Ring joined knowingly stays named ([[D-18 Ring names shown when joined knowingly|D-18]])
 
 ## Related
 

@@ -53,7 +53,7 @@ What the client needs to build the widget picker and the widget rows on a Ring, 
 | Edit `config`, `sortOrder`, `isVisible` | — | ❌ | [[T-018 Widget CRUD on the projection]] |
 | Remove a widget | — | ❌ | [[T-018 Widget CRUD on the projection]] |
 | Per-type `config` validation rules | — | ❌ | [[T-018 Widget CRUD on the projection]] |
-| Decide the storage model first | — | ❌ | [[Field library vs per-Ring copies]] |
+| Decide the storage model first | — | ❌ | [[ND-03 Field library vs per-Ring copies]] |
 
 ## Behaviour expectations
 
@@ -76,6 +76,6 @@ Until [[T-063 Put the ErrorCode on the error body]] ships, branch on status and 
 
 ## Blocked by
 
-- [[Field library vs per-Ring copies]] — the storage model widgets are built on; T-018 waits on it.
+- [[ND-03 Field library vs per-Ring copies]] — the storage model widgets are built on; T-018 waits on it.
 - [[T-017 Extend WIDGET_TYPE to the design's list]] — the four design types on s37.
 - [[T-018 Widget CRUD on the projection]] — every write on s37 and s14, and viewer rendering.

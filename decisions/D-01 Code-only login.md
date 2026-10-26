@@ -7,7 +7,7 @@ decidedBy: "product + backend lead"
 decidedAt: 2026-10-15
 features: [auth, linked-accounts]
 affects: ["Auth & Sign-up", "Linked Accounts (OAuth)", "T-019 LinkedIn OAuth link, unlink, login", "T-056 Decide passwordless login"]
-related: ["Passwordless login", "Code Delivery"]
+related: ["ND-01 Passwordless login", "Code Delivery"]
 owner: "khaled"
 created: 2026-10-22
 updated: 2026-10-26
@@ -16,9 +16,9 @@ tags: [decision, decision/decided]
 
 # ⚖️ D-01 · Code-only login
 
-**Answers:** [[Passwordless login]] · **Decided by:** product + backend lead · **On:** 2026-10-15 · **Feature:** [[Auth & Sign-up]], [[Linked Accounts (OAuth)]]
+**Answers:** [[ND-01 Passwordless login]] · **Decided by:** product + backend lead · **On:** 2026-10-15 · **Feature:** [[Auth & Sign-up]], [[Linked Accounts (OAuth)]]
 
-> This card is the answer to [[Passwordless login]]. The needs-decision card keeps the question, the facts and the options; this decision card says what was decided, why, and what it changes. It is written when the decision is taken, by the PM or the owner on the user's word, never before; the needs-decision card is `decided` once this card exists.
+> This card is the answer to [[ND-01 Passwordless login]]. The needs-decision card keeps the question, the facts and the options; this decision card says what was decided, why, and what it changes. It is written when the decision is taken, by the PM or the owner on the user's word, never before; the needs-decision card is `decided` once this card exists.
 
 ## What was decided
 

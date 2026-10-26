@@ -32,7 +32,7 @@ Import endpoint returns candidate fields; confirm endpoint writes the chosen one
 ## Dependencies
 
 - Waits on [[T-019 LinkedIn OAuth link, unlink, login]]
-- Waited on decision [[Base profile work fields]], decided by [[D-02 One main profile every Ring starts from]]
+- Waited on decision [[ND-02 Base profile work fields]], decided by [[D-02 One main profile every Ring starts from]]
 
 ## Definition of done
 

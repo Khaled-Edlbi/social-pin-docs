@@ -1,7 +1,6 @@
 ---
 type: needs-decision
 id: ND-01
-aliases: [ND-01]
 status: open
 features: [auth, linked-accounts]
 screens: [s01, s02]

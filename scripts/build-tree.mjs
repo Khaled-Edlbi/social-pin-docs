@@ -13,10 +13,10 @@
  *                                                    creates the task with the next free number, its story and its frontend / backend halves
  *   node scripts/build-tree.mjs --scaffold bug <feature-id> "<Title>" (--parent T-NNN | --found-on "<note name>") [--label <label>] [--priority high] [--effort S]
  *                                                    creates the bug (type: bug) with the next free B-NN, under the task or the card it was found against;
- *                                                    the file is bugs/<Title>.md, the code lives in id: and aliases:
+ *                                                    as bugs/B-NN <Title>.md
  *   node scripts/build-tree.mjs --scaffold feature <module-id> "<Name>" [--id <slug>] [--priority high] [--release later] [--frontend-only]   creates the feature note
  *   node scripts/build-tree.mjs --scaffold needs-decision "<card>" ["<title>"]   creates the needs-decision card a task, a layer note or a feature needs (draft; blocks it until fulfilled),
- *                                                    as needs-decisions/<Title>.md with the code in id: and aliases:
+ *                                                    as needs-decisions/ND-NN <Title>.md
  *   node scripts/build-tree.mjs --scaffold decision ND-NN "<the answer>" [--by <name>]   creates the decision card D-NN (draft) that answers ND-NN: what was decided, why, what it changes
  *
  * No dependencies: Node 22 built-ins only. The output is key-sorted and carries
@@ -493,11 +493,10 @@ export function build() {
   const taskNodes = new Map();
   // a bug note (type: bug) is built with the tasks: the same statuses, parents and boards
   const byNoteId = (a, b) => String(a.data.id ?? a.stem).localeCompare(String(b.data.id ?? b.stem), 'en', { numeric: true });
-  // a bug and a needs-decision card are named by their title (bugs/<Title>.md, needs-decisions/<Title>.md): the code lives in id: and in aliases:, so Obsidian's quick switcher finds it
-  const titleNamed = (n, what) => {
+  // every card coded by its id starts its file name with that code, in every folder: tasks/T-NNN …, bugs/B-NN …, needs-decisions/ND-NN …, decisions/D-NN …
+  const codeNamed = (n, what) => {
     const id = String(n.data.id ?? '');
-    if (/^[A-Z]+-\d+\s/.test(n.stem)) warn(n.rel, `${what} is named by its title only: rename to ${n.rel.split('/')[0]}/${n.stem.replace(/^[A-Z]+-\d+\s+/, '')}.md and update the links; ${id} stays in id: and aliases:`);
-    if (id && !list(n.data.aliases).includes(id)) warn(n.rel, `aliases: add ${id} (aliases: [${id}]) so the card is found by its code in Obsidian's quick switcher`);
+    if (id && !n.stem.startsWith(`${id} `) && n.stem !== id) warn(n.rel, `${what}'s file name starts with its code: rename to ${n.rel.split('/').slice(0, -1).join('/')}/${id} ${n.stem}.md and update the links`);
   };
   const taskNotes = [...byType('task'), ...byType('bug')].sort(byNoteId);
   for (const n of taskNotes) {
@@ -505,7 +504,7 @@ export function build() {
     const status = normStatus(n, 'task');
     const parent = typeof n.data.parent === 'string' && n.data.parent.trim() ? n.data.parent.trim() : null;
     const bug = n.data.type === 'bug';
-    if (bug) titleNamed(n, 'a bug');
+    if (bug) codeNamed(n, 'a bug');
     const own = [...new Set(list(n.data.labels).map((l) => l.trim().toLowerCase()))];
     for (const l of own) {
       if (l === 'bug') err(n.rel, bug ? 'labels: "bug" — type: bug already says it; remove the label' : 'labels: [bug] — a bug is its own type now: write type: bug (tags bug, bug/<status>) and remove the label');
@@ -530,7 +529,7 @@ export function build() {
   const decisionNodes = new Map();
   for (const n of byType('needs-decision').sort(byNoteId)) {
     requireKeys(n, ['id', 'status']);
-    titleNamed(n, 'a needs-decision card');
+    codeNamed(n, 'a needs-decision card');
     if (!n.rel.startsWith('needs-decisions/') || n.rel.includes('/', 'needs-decisions/'.length)) warn(n.rel, `expected at needs-decisions/${n.stem}.md: a needs-decision card lives in its own folder, its answer (D-NN) in decisions/`);
     if (!list(n.data.blocks).length) requireKeys(n, ['features']); // a decision names the cards that need it (`blocks`) or the features it belongs to
     if (!isDecisionId(n.data.id)) err(n.rel, `id "${n.data.id}" is not a decision id (ND-NN)`);
@@ -1243,7 +1242,7 @@ const stageText = (json, n) => [n.stage ? `stage ${(json.stages || []).find((s) 
 const priorityLabel = (json, n) => { const l = n.priority ? (json.priorities || []).find((x) => x.id === n.priority) : null; return l ? l.label : n.priority; };
 const resolutionLabel = (json, id) => (id ? (json.resolutions || []).find((r) => r.id === id)?.label ?? id : null);
 const wiki = (n, alias) => `[[${n.title}${alias ? `|${alias}` : ''}]]`;
-const codedWiki = (n) => `${n.code && !n.title.startsWith(n.code) ? `${n.code} ` : ''}${wiki(n)}`; // a bug is named by its title: its code goes in front of the link
+const codedWiki = (n) => `${n.code && !n.title.startsWith(n.code) ? `${n.code} ` : ''}${wiki(n)}`; // the code in front of a link whose title does not carry it
 
 function boardMarkdown(json) {
   const { nodes } = json;
@@ -1523,9 +1522,8 @@ function scaffoldTask(result, featureId, title, bug = false) {
   if (bug && !foundOn && !parentCode) die('a bug names where it was found: --parent T-NNN for one found against a task, or --found-on "<note name>" for the card it was found against');
   const split = !parent && !docsOnly && !bug; // a build task gets its story and its halves; a sub-task, a docs-only task or a bug does not
   const code = bug ? nextNumber(result, 'B', 2) : nextNumber(result, 'T', 3);
-  const stem = bug ? title : `${code} ${title}`; // a bug is bugs/<Title>.md, its code in id: and aliases:
-  if (bug && /^[A-Z]+-\d+\s/.test(title)) die(`a bug is named by its title only: drop the code from "${title}" (it gets ${code} in id: and aliases:)`);
-  if (bug && json.byName?.[title]) die(`a note named "${title}" already exists (${json.nodes[json.byName[title]].path}); a bug's title names its file, so it is unique`);
+  const stem = `${code} ${title}`; // tasks/T-NNN <Title>.md, bugs/B-NN <Title>.md
+  if (/^[A-Z]+-\d+\s/.test(title)) die(`give the title without a code: the scaffold puts ${code} in front of "${title}"`);
   const date = today();
   const screens = f.screens ?? [];
   let dir, pnote = null;
@@ -1540,7 +1538,7 @@ function scaffoldTask(result, featureId, title, bug = false) {
   if (fs.existsSync(dest)) die(`${path.relative(ROOT, dest)} already exists`);
   const type = bug ? 'bug' : 'task';
   const { body } = parseFrontmatter(fs.readFileSync(path.join(ROOT, `templates/${bug ? 'Bug' : 'Task'} Template.md`), 'utf8'));
-  const fm = { type, id: code, ...(bug ? { aliases: [code] } : {}), status: 'todo', priority, effort, feature: featureId, module: f.module };
+  const fm = { type, id: code, status: 'todo', priority, effort, feature: featureId, module: f.module };
   if (parent) fm.parent = parentCode;
   if (foundOn) fm.foundOn = foundOn;
   Object.assign(fm, { labels: label ? [label] : [], screens, depends: [], affects: [], related: foundOn ? [foundOn] : [], pending: [], created: date, updated: date, tags: [type, `${type}/todo`, `module/${f.module}`, `priority/${priority}`, ...(label ? [label] : [])] });
@@ -1625,16 +1623,15 @@ function scaffoldDecision(result, ref, title) {
   const id = `ND-${String(num).padStart(2, '0')}`;
   const t = (title || `Decide for ${target.title}`).trim().replace(/\s+/g, ' ');
   if (BAD_NAME.test(t) || /[/:]/.test(t)) { console.error(`title "${t}" cannot contain / : # ? % \\`); process.exit(1); }
-  if (/^[A-Z]+-\d+\s/.test(t)) { console.error(`a needs-decision card is named by its title only: drop the code from "${t}" (it gets ${id} in id: and aliases:)`); process.exit(1); }
-  if (json.byName?.[t]) { console.error(`a note named "${t}" already exists (${nodes[json.byName[t]].path}); a needs-decision card's title names its file, so it is unique`); process.exit(1); }
-  const dest = path.join(ROOT, 'needs-decisions', `${t}.md`); // needs-decisions/<Title>.md: the code lives in id: and aliases:
+  if (/^[A-Z]+-\d+\s/.test(t)) { console.error(`give the title without a code: the scaffold puts ${id} in front of "${t}"`); process.exit(1); }
+  const dest = path.join(ROOT, 'needs-decisions', `${id} ${t}.md`); // needs-decisions/ND-NN <Title>.md
   fs.mkdirSync(path.dirname(dest), { recursive: true });
   if (fs.existsSync(dest)) { console.error(`${path.relative(ROOT, dest)} already exists`); process.exit(1); }
   const today = new Date().toISOString().slice(0, 10);
   const { data, body } = parseFrontmatter(fs.readFileSync(path.join(ROOT, 'templates', 'Needs Decision Template.md'), 'utf8'));
   const feature = target.kind === 'feature' ? target.code : target.feature;
   const blocks = target.kind === 'task' ? target.code : target.kind === 'feature' ? target.code : target.title; // a task by id, a feature by id, a note by name
-  const out = { ...data, id, aliases: [id], status: 'draft', features: feature ? [feature] : [], blocks: [blocks], decider: '', screens: target.screens ?? [], affects: [], related: [], created: today, tags: ['needs-decision', 'needs-decision/draft'] };
+  const out = { ...data, id, status: 'draft', features: feature ? [feature] : [], blocks: [blocks], decider: '', screens: target.screens ?? [], affects: [], related: [], created: today, tags: ['needs-decision', 'needs-decision/draft'] };
   const item = (v) => (/^[\w./-]+$/.test(v) ? v : JSON.stringify(v));
   const yaml = Object.entries(out).map(([k, v]) => `${k}: ${Array.isArray(v) ? `[${v.map(item).join(', ')}]` : typeof v === 'string' && (/[:#]/.test(v) || v === '') ? JSON.stringify(v) : v}`).join('\n');
   const text = body.replace(/ND-NN/g, id).replace(/<Title>/g, t).replace(/<date>/g, today).replace(/<card>/g, `[[${target.title}]]`).replace(/<feature>/g, feature ? `[[${nodes[`feature:${feature}`]?.title ?? feature}]]` : '—');

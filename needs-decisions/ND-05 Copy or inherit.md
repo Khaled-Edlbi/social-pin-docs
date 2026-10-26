@@ -1,7 +1,6 @@
 ---
 type: needs-decision
 id: ND-05
-aliases: [ND-05]
 status: open
 features: [rings, ring-projection, photo-library]
 screens: [s18, s23, s28, s29]

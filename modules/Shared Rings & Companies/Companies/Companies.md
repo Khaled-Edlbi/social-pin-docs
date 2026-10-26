@@ -51,8 +51,8 @@ TABLE status, priority, effort FROM #task WHERE feature = "companies" SORT prior
 
 ## Decisions
 
-- [[Ring settings]] — decided, six settings at launch; the required work email domain comes later, with Companies ([[D-04 Ring settings at launch and their defaults|D-04]])
-- [[Company and invited Ring names shown to members]] — decided, company Rings joined knowingly are named ([[D-18 Ring names shown when joined knowingly|D-18]])
+- [[ND-04 Ring settings]] — decided, six settings at launch; the required work email domain comes later, with Companies ([[D-04 Ring settings at launch and their defaults|D-04]])
+- [[ND-18 Company and invited Ring names shown to members]] — decided, company Rings joined knowingly are named ([[D-18 Ring names shown when joined knowingly|D-18]])
 
 ## Related
 

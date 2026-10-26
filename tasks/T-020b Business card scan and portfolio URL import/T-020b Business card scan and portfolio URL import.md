@@ -22,7 +22,7 @@ tags: [task, task/todo, module/identity, priority/medium]
 
 ## What
 
-How the card and the page are read is [[How a business card and a portfolio page are read]]. Same review step as T-020, writing to the main profile ([[D-02 One main profile every Ring starts from]]).
+How the card and the page are read is [[ND-21 How a business card and a portfolio page are read]]. Same review step as T-020, writing to the main profile ([[D-02 One main profile every Ring starts from]]).
 
 ## Design
 
@@ -31,8 +31,8 @@ How the card and the page are read is [[How a business card and a portfolio page
 
 ## Dependencies
 
-- Waited on decision [[Base profile work fields]], decided by [[D-02 One main profile every Ring starts from]]
-- Waits on [[How a business card and a portfolio page are read]] (raised 2026-10-26)
+- Waited on decision [[ND-02 Base profile work fields]], decided by [[D-02 One main profile every Ring starts from]]
+- Waits on [[ND-21 How a business card and a portfolio page are read]] (raised 2026-10-26)
 
 ## Definition of done
 

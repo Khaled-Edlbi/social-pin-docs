@@ -44,8 +44,8 @@ TABLE status, priority, effort FROM #task WHERE feature = "photo-library" SORT p
 
 ## Decisions
 
-- [[Base profile work fields]] — decided, one main profile every Ring starts from; a Ring may pick its own photo ([[D-02 One main profile every Ring starts from|D-02]])
-- [[Copy or inherit]] — decided, inherit per field, copy without members ([[D-05 Inherit per field, copy without members|D-05]])
+- [[ND-02 Base profile work fields]] — decided, one main profile every Ring starts from; a Ring may pick its own photo ([[D-02 One main profile every Ring starts from|D-02]])
+- [[ND-05 Copy or inherit]] — decided, inherit per field, copy without members ([[D-05 Inherit per field, copy without members|D-05]])
 
 ## Related
 

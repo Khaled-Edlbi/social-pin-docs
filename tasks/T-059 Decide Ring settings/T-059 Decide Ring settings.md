@@ -22,7 +22,7 @@ decision: ND-04
 
 ## What
 
-Take [[Ring settings]]. Decided by [[D-04 Ring settings at launch and their defaults]]: six settings at launch with private defaults, three later; the owner and the Ring's admins change them. Building them is not ticketed yet.
+Take [[ND-04 Ring settings]]. Decided by [[D-04 Ring settings at launch and their defaults]]: six settings at launch with private defaults, three later; the owner and the Ring's admins change them. Building them is not ticketed yet.
 
 ## Design
 

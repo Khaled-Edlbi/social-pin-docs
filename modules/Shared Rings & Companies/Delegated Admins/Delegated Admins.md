@@ -48,7 +48,7 @@ TABLE status, priority, effort FROM #task WHERE feature = "delegated-admins" SOR
 
 ## Decisions
 
-- [[Ring settings]] — decided, six settings at launch; the owner and the Ring's admins change them ([[D-04 Ring settings at launch and their defaults|D-04]])
+- [[ND-04 Ring settings]] — decided, six settings at launch; the owner and the Ring's admins change them ([[D-04 Ring settings at launch and their defaults|D-04]])
 
 ## Related
 

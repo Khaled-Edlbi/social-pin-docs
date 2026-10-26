@@ -50,7 +50,7 @@ What the client needs from the backend to build the screens in [[Ring Invitation
 | Owner sends an invitation (from s15) | — | ❌ | [[T-026 Ring invitations invite, review, decline]] |
 | Resolve a join code to a reviewable Ring, then join | — | ❌ | [[T-027 Join a Ring with a code or verified work email]] |
 | Verify a work email against the Ring's domain, then join | — | ❌ | [[T-027 Join a Ring with a code or verified work email]] |
-| Join policy, join code, required domain on the Ring | — | ❌ | [[Ring settings]] |
+| Join policy, join code, required domain on the Ring | — | ❌ | [[ND-04 Ring settings]] |
 | Owner's display name on an invitation row | — | ❌ | [[T-023 Connection detail and contacts list]] |
 | What I contribute to a shared Ring | — | ❌ | [[T-028 What you contribute to a shared Ring]] |
 | Notification on invite | — | ❌ | [[T-045 NotificationService.emit and the inbox]] |
@@ -76,7 +76,7 @@ What the client needs from the backend to build the screens in [[Ring Invitation
 
 ## Blocked by
 
-- [[Ring settings]] — join policy, code and domain: the code and email rows, and the review step's "approval required" variant.
+- [[ND-04 Ring settings]] — join policy, code and domain: the code and email rows, and the review step's "approval required" variant.
 - [[T-026 Ring invitations invite, review, decline]] — the invitation object; every invitation row above.
 - [[T-027 Join a Ring with a code or verified work email]] — both self-service join rows.
 - [[T-028 What you contribute to a shared Ring]] — the optional step after joining.

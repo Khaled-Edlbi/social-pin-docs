@@ -74,7 +74,7 @@ Acceptance criteria:
 **As a** returning user **I want** "Continue with LinkedIn" to sign me in when the identity is already linked **so that** I skip even the code step.
 
 Acceptance criteria:
-- [ ] [[Passwordless login]] is decided (code-only): provider login must return the same session pair as `POST /auth/login/verify`; the client treats LinkedIn as sign-up plus import only.
+- [ ] [[ND-01 Passwordless login]] is decided (code-only): provider login must return the same session pair as `POST /auth/login/verify`; the client treats LinkedIn as sign-up plus import only.
 - [ ] When decided, a successful provider login issues the normal session pair and records `lastLoginAt`.
 
 ## States and motion the design asks for
@@ -85,9 +85,9 @@ Acceptance criteria:
 ## Rules the backend already enforces
 
 - `SocialIdentity` is unique on (`provider`, `providerUserId`) and indexed by user; providers are GOOGLE, APPLE, FACEBOOK, LINKEDIN, MICROSOFT; `email` is optional and informational.
-- Registration today ends with the Pin name in one transaction (no password, [[Passwordless login]] decided); a provider sign-up still has to pass through `complete-registration` ([[Auth Model]]).
+- Registration today ends with the Pin name in one transaction (no password, [[ND-01 Passwordless login]] decided); a provider sign-up still has to pass through `complete-registration` ([[Auth Model]]).
 - Nothing OAuth exists; [[T-019 LinkedIn OAuth link, unlink, login]] is ❓.
 
 ## Open questions
 
-- None open: [[Passwordless login]] is decided (code-only). What remains is [[T-019 LinkedIn OAuth link, unlink, login]].
+- None open: [[ND-01 Passwordless login]] is decided (code-only). What remains is [[T-019 LinkedIn OAuth link, unlink, login]].

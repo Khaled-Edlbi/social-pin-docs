@@ -7,7 +7,7 @@ decidedBy: "molham"
 decidedAt: 2026-10-25
 features: [photo-library, ring-projection, rings]
 affects: ["Rings", "Ring Projection", "Photo Library", "T-060 Decide copy or inherit"]
-related: ["Copy or inherit", "D-02 One main profile every Ring starts from", "D-04 Ring settings at launch and their defaults"]
+related: ["ND-05 Copy or inherit", "D-02 One main profile every Ring starts from", "D-04 Ring settings at launch and their defaults"]
 owner: "khaled"
 created: 2026-10-25
 updated: 2026-10-26
@@ -16,9 +16,9 @@ tags: [decision, decision/decided]
 
 # ⚖️ D-05 · Inherit per field, copy without members
 
-**Answers:** [[Copy or inherit]] · **Decided by:** molham · **On:** 2026-10-25 · **Feature:** [[Photo Library]], [[Ring Projection]], [[Rings]]
+**Answers:** [[ND-05 Copy or inherit]] · **Decided by:** molham · **On:** 2026-10-25 · **Feature:** [[Photo Library]], [[Ring Projection]], [[Rings]]
 
-> This card is the answer to [[Copy or inherit]]. The needs-decision card keeps the question, the facts and the options; this decision card says what was decided, why, and what it changes. `draft` while the answer is prepared; `decided` only by the PM or the owner, on the user's word, with `decidedBy` and `decidedAt`: then [[Copy or inherit]] shows Fulfilled by itself and the cards it blocked continue.
+> This card is the answer to [[ND-05 Copy or inherit]]. The needs-decision card keeps the question, the facts and the options; this decision card says what was decided, why, and what it changes. `draft` while the answer is prepared; `decided` only by the PM or the owner, on the user's word, with `decidedBy` and `decidedAt`: then [[ND-05 Copy or inherit]] shows Fulfilled by itself and the cards it blocked continue.
 
 ## What was decided
 

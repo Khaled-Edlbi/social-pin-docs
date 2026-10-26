@@ -52,8 +52,8 @@ TABLE status, priority, effort FROM #task WHERE feature = "profiles" SORT priori
 
 ## Decisions
 
-- [[Base profile work fields]] — decided, one main profile every Ring starts from ([[D-02 One main profile every Ring starts from|D-02]])
-- [[Pin name rules]] — decided, yearly rename, old name freed, case-insensitive ([[D-06 Yearly rename, old name freed, case-insensitive|D-06]])
+- [[ND-02 Base profile work fields]] — decided, one main profile every Ring starts from ([[D-02 One main profile every Ring starts from|D-02]])
+- [[ND-06 Pin name rules]] — decided, yearly rename, old name freed, case-insensitive ([[D-06 Yearly rename, old name freed, case-insensitive|D-06]])
 
 ## Related
 

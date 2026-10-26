@@ -1,7 +1,6 @@
 ---
 type: needs-decision
 id: ND-13
-aliases: [ND-13]
 status: open
 features: [connections]
 blocks: ["T-021 Story", "T-022 Story"]

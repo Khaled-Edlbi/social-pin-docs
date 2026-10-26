@@ -1,7 +1,6 @@
 ---
 type: bug
-id: B-NN                   # the file is bugs/<Title>.md (title only), whatever card it hangs under
-aliases: [B-NN]            # the code again, so Obsidian's quick switcher finds the bug by B-NN
+id: B-NN                   # the file is bugs/B-NN <Title>.md, whatever card it hangs under
 status: todo
 priority: high
 # deadline: YYYY-MM-DD      # optional: when it must be fixed; the tree colours it green → yellow → red as the day comes, 💀 once missed (docs.config.json deadlines)

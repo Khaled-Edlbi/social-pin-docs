@@ -13,7 +13,7 @@ tags: [feature, module/commerce, priority/high, release/v1]
 
 # Payments & Orders
 
-> ⚠ Affected by [[Payment provider]] (2026-10-21): the provider is Stripe; the order, its payment on s51 through Stripe's hosted checkout and the settlement webhook are this feature's.
+> ⚠ Affected by [[ND-07 Payment provider]] (2026-10-21): the provider is Stripe; the order, its payment on s51 through Stripe's hosted checkout and the settlement webhook are this feature's.
 
 **Backend:** TODO · **Priority:** High · **Release:** v1 · **Module:** [[Commerce Module|Commerce]]
 

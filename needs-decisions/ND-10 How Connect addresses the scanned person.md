@@ -1,7 +1,6 @@
 ---
 type: needs-decision
 id: ND-10
-aliases: [ND-10]
 status: draft
 features: [badge-qr, connections]
 blocks: ["T-008 Story", "T-021 Story"]

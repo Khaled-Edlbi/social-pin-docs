@@ -46,7 +46,7 @@ What the client needs to build the Gemma sheet, Smart Match and the inline sugge
 | Auto-send meeting requests from matches (Pro) | — | ❌ | [[T-052 Smart Match]] via [[T-042 Meeting request, accept with slots, decline with reason]] |
 | Pro gate on Smart Match and automation | — | ❌ | [[T-049 Subscription endpoints and a single Pro gate]] |
 | Interests feeding matchmaking | — | ❌ | [[T-016 Interests vocabulary and my interests]] |
-| Pin-name suggestions | — | ❌ | [[Pin name rules]] |
+| Pin-name suggestions | — | ❌ | [[ND-06 Pin name rules]] |
 
 ## Behaviour expectations
 
@@ -69,5 +69,5 @@ No Gemma codes exist yet. `ErrorCode` is not on the wire until [[T-063 Put the E
 
 ## Blocked by
 
-- [[Pin name rules]] — the Pin-name suggestion row waits on it.
+- [[ND-06 Pin name rules]] — the Pin-name suggestion row waits on it.
 - [[T-051 Gemma assistant sheet and suggestions]] is ❓ (model and provider undecided); [[T-052 Smart Match]] is ⛔ behind it and T-036.

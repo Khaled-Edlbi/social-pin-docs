@@ -1,7 +1,6 @@
 ---
 type: needs-decision
 id: ND-04
-aliases: [ND-04]
 status: open
 features: [rings, ring-members, ring-invitations, delegated-admins, companies]
 screens: [s19, s22, s26, s27]

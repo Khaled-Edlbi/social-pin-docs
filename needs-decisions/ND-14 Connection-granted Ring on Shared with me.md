@@ -1,7 +1,6 @@
 ---
 type: needs-decision
 id: ND-14
-aliases: [ND-14]
 status: open
 features: [connections]
 blocks: ["T-022 Story"]
@@ -31,7 +30,7 @@ How the Ring a receiver accepts someone into ([[Screen Index#s46|s46]]) appears 
 - The same is true today for anyone the owner adds with `POST /rings/:ringId/members`: every member can read the name of the Ring they are in. The answer here may apply to all members, not only connection-granted ones.
 - `grantedRingId` is never returned to the requester ([[T-022 Story]] S3), but the Ring row on s17 gives the same information away.
 - [[T-023 Connection detail and contacts list]] adds a contacts list from which a person's perspectives open (`GET /views/user/:userId/perspectives`); that is another way to reach someone without s17.
-- [[Ring settings]] is open on what members may see of a Ring; this card is about the Ring's name and identity only.
+- [[ND-04 Ring settings]] is open on what members may see of a Ring; this card is about the Ring's name and identity only.
 
 ## Options
 
