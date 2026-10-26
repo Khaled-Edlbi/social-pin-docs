@@ -22,7 +22,7 @@ decision: ND-02
 
 ## What
 
-Take [[Base profile work fields]]. Decided by [[D-02 One main profile every Ring starts from]]: one main profile (headline, role, company, location, photo, bio) every Ring starts from. Building it is not ticketed yet.
+Take [[ND-02 Base profile work fields]]. Decided by [[D-02 One main profile every Ring starts from]]: one main profile (headline, role, company, location, photo, bio) every Ring starts from. Building it is not ticketed yet.
 
 ## Design
 

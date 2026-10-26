@@ -19,7 +19,7 @@ decision: ND-01
 
 ## What
 
-See [[Passwordless login]]. Decided: option A, code-only login. Shipped in `social-pin` PR #1. Frontend write-up: [[Frontend Passwordless Migration]].
+See [[ND-01 Passwordless login]]. Decided: option A, code-only login. Shipped in `social-pin` PR #1. Frontend write-up: [[Frontend Passwordless Migration]].
 
 ## Design
 

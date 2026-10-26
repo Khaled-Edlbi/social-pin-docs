@@ -8,7 +8,7 @@ layer: backend
 
 # Auth Model
 
-As implemented. Feature note: [[Auth & Sign-up]]. Decided: [[Passwordless login]] (code-only, 2026-10-15). Client-facing changes: [[Frontend Passwordless Migration]].
+As implemented. Feature note: [[Auth & Sign-up]]. Decided: [[ND-01 Passwordless login]] (code-only, 2026-10-15). Client-facing changes: [[Frontend Passwordless Migration]].
 
 **There is no password anywhere.** Every sign-in is a 6-digit OTP. `users.password_hash` was dropped (`20261015120000_drop_password_hash`); `VERIFICATION_PURPOSE.PASSWORD_RESET`, `E_AUTH_02` and `E_USER_04` are retired and must not be reused.
 

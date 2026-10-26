@@ -1,7 +1,6 @@
 ---
 type: needs-decision
 id: ND-19
-aliases: [ND-19]
 status: open
 features: [error-contract]
 blocks: [T-063]

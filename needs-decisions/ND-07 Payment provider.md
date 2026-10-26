@@ -1,7 +1,6 @@
 ---
 type: needs-decision
 id: ND-07
-aliases: [ND-07]
 status: open
 features: [payments, subscription]
 blocks: [T-047, T-035, T-049]

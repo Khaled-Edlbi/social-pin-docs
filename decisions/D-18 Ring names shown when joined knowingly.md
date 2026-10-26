@@ -7,7 +7,7 @@ decidedBy: "molham"
 decidedAt: 2026-10-25
 features: [companies, ring-invitations]
 affects: ["Companies", "Ring Invitations & Join", "Rings", "Ring Members", "Ring Access Engine", "Companies Story", "Ring Invitations & Join Story"]
-related: ["Company and invited Ring names shown to members", "D-14 Shared with me lists people, never the Ring", "D-04 Ring settings at launch and their defaults"]
+related: ["ND-18 Company and invited Ring names shown to members", "D-14 Shared with me lists people, never the Ring", "D-04 Ring settings at launch and their defaults"]
 owner: "khaled"
 created: 2026-10-25
 updated: 2026-10-26
@@ -16,9 +16,9 @@ tags: [decision, decision/decided]
 
 # ⚖️ D-18 · Ring names shown when joined knowingly
 
-**Answers:** [[Company and invited Ring names shown to members]] · **Decided by:** molham · **On:** 2026-10-25 · **Feature:** [[Companies]], [[Ring Invitations & Join]]
+**Answers:** [[ND-18 Company and invited Ring names shown to members]] · **Decided by:** molham · **On:** 2026-10-25 · **Feature:** [[Companies]], [[Ring Invitations & Join]]
 
-> This card is the answer to [[Company and invited Ring names shown to members]]. The needs-decision card keeps the question, the facts and the options; this decision card says what was decided, why, and what it changes. `draft` while the answer is prepared; `decided` only by the PM or the owner, on the user's word, with `decidedBy` and `decidedAt`: then [[Company and invited Ring names shown to members]] shows Fulfilled by itself and the cards it blocked continue.
+> This card is the answer to [[ND-18 Company and invited Ring names shown to members]]. The needs-decision card keeps the question, the facts and the options; this decision card says what was decided, why, and what it changes. `draft` while the answer is prepared; `decided` only by the PM or the owner, on the user's word, with `decidedBy` and `decidedAt`: then [[ND-18 Company and invited Ring names shown to members]] shows Fulfilled by itself and the cards it blocked continue.
 
 ## What was decided
 

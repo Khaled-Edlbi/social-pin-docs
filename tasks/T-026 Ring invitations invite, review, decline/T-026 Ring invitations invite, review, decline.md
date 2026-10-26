@@ -30,7 +30,7 @@ Likely a `RingMember` in an INVITED state with accept / decline endpoints. Notif
 
 ## Dependencies
 
-- Waited on decision [[Ring settings]], decided by [[D-04 Ring settings at launch and their defaults]]
+- Waited on decision [[ND-04 Ring settings]], decided by [[D-04 Ring settings at launch and their defaults]]
 - Unblocks [[T-027 Join a Ring with a code or verified work email]]
 
 ## Definition of done

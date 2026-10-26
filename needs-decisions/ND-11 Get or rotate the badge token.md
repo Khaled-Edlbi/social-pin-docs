@@ -1,7 +1,6 @@
 ---
 type: needs-decision
 id: ND-11
-aliases: [ND-11]
 status: draft
 features: [badge-qr]
 blocks: ["T-007 Story"]

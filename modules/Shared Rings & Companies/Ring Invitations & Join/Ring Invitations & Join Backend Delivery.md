@@ -34,7 +34,7 @@ What the backend shipped for this feature and how it works. The sum of this feat
 ### Gaps
 
 - Invitation object (or a `RingMember` in an INVITED state) with accept / decline.
-- Join code and required verified email domain: both need Ring settings, see [[Ring settings]].
+- Join code and required verified email domain: both need Ring settings, see [[ND-04 Ring settings]].
 - "What you contribute" is a member-side projection into a shared Ring: new concept, not in the schema.
 
 ## Tasks delivered

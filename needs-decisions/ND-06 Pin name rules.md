@@ -1,7 +1,6 @@
 ---
 type: needs-decision
 id: ND-06
-aliases: [ND-06]
 status: open
 features: [profiles, gemma]
 screens: [s06]

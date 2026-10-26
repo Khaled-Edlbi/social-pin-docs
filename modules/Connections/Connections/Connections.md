@@ -59,11 +59,11 @@ TABLE status, priority, effort FROM #task WHERE feature = "connections" SORT pri
 
 ## Decisions
 
-- [[How Connect addresses the scanned person]] — open (draft); blocks [[T-021 Story]] and [[T-008 Story]]
-- [[Whether the requester sees a declined request]] — decided, the requester sees a decline ([[D-13 The requester sees a declined request|D-13]])
-- [[Connection-granted Ring on Shared with me]] — decided, Shared with me lists people, never the Ring ([[D-14 Shared with me lists people, never the Ring|D-14]])
-- [[One Ring or several per connection]] — decided, several Rings per connection, remove or disconnect ([[D-15 Several Rings per connection, remove or disconnect|D-15]])
-- [[Request expiry, note and asking again]] — decided, 30-day expiry, optional note, ask again at once ([[D-17 Requests expire after 30 days, optional note, ask again at once|D-17]])
+- [[ND-10 How Connect addresses the scanned person]] — open (draft); blocks [[T-021 Story]] and [[T-008 Story]]
+- [[ND-13 Whether the requester sees a declined request]] — decided, the requester sees a decline ([[D-13 The requester sees a declined request|D-13]])
+- [[ND-14 Connection-granted Ring on Shared with me]] — decided, Shared with me lists people, never the Ring ([[D-14 Shared with me lists people, never the Ring|D-14]])
+- [[ND-15 One Ring or several per connection]] — decided, several Rings per connection, remove or disconnect ([[D-15 Several Rings per connection, remove or disconnect|D-15]])
+- [[ND-17 Request expiry, note and asking again]] — decided, 30-day expiry, optional note, ask again at once ([[D-17 Requests expire after 30 days, optional note, ask again at once|D-17]])
 
 ## Related
 

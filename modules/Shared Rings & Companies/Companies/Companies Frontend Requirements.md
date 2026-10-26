@@ -76,7 +76,7 @@ What the client needs from the backend to build the screens in [[Companies Story
 
 ## Blocked by
 
-- [[Ring settings]] — the colleague count and list for plain members ("members can see each other").
+- [[ND-04 Ring settings]] — the colleague count and list for plain members ("members can see each other").
 - [[T-029 My companies and company detail]] — the business ↔ Ring link that lets s72 group Rings under a company; every ❌ row above except invitations and setup.
 - [[T-048 Business account setup → business Ring]] — the owner's path into s72; how team members are seeded into the employees Ring.
 - [[T-063 Put the ErrorCode on the error body]] — the error table is by status until then.

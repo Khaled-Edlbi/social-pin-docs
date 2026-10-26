@@ -38,7 +38,7 @@ TABLE status, priority, effort FROM #task WHERE feature = "ring-access" SORT pri
 
 ## Decisions
 
-- [[Ring settings]] — decided, six settings at launch with private defaults ([[D-04 Ring settings at launch and their defaults|D-04]])
+- [[ND-04 Ring settings]] — decided, six settings at launch with private defaults ([[D-04 Ring settings at launch and their defaults|D-04]])
 
 ## Related
 

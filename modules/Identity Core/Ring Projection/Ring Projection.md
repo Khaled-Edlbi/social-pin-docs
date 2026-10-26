@@ -56,9 +56,9 @@ TABLE status, priority, effort FROM #task WHERE feature = "ring-projection" SORT
 
 ## Decisions
 
-- [[Base profile work fields]] — decided, one main profile every Ring starts from ([[D-02 One main profile every Ring starts from|D-02]])
-- [[Field library vs per-Ring copies]] — decided, links entered once, on or off per Ring ([[D-03 Links entered once, switched on or off per Ring|D-03]])
-- [[Copy or inherit]] — decided, inherit per field, copy without members ([[D-05 Inherit per field, copy without members|D-05]])
+- [[ND-02 Base profile work fields]] — decided, one main profile every Ring starts from ([[D-02 One main profile every Ring starts from|D-02]])
+- [[ND-03 Field library vs per-Ring copies]] — decided, links entered once, on or off per Ring ([[D-03 Links entered once, switched on or off per Ring|D-03]])
+- [[ND-05 Copy or inherit]] — decided, inherit per field, copy without members ([[D-05 Inherit per field, copy without members|D-05]])
 
 ## Related
 

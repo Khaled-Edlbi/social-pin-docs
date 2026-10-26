@@ -40,10 +40,10 @@ The part of the codebase most likely to be broken by a well-meaning change. Read
 | [[Events During]] | Exhibitor lists, the floor map and the catalogue are scoped by Event Ring membership. |
 | [[Meetings]] | The meeting Ring makes both parties visible to each other for the meeting window only. |
 | [[Gemma AI]] | Every suggestion is computed over what the asking user may see, nothing more. |
-| [[Ring Invitations & Join]], [[Ring settings]] | "Members can see each other" is a new, default-off setting that must be enforced **inside** the engine, not in a members endpoint. |
+| [[Ring Invitations & Join]], [[ND-04 Ring settings]] | "Members can see each other" is a new, default-off setting that must be enforced **inside** the engine, not in a members endpoint. |
 
 ## Open decision that touches the engine
 
-[[Ring settings]]: join policy, members visible to each other, members can invite. All of them are access rules and belong where the engine can read them.
+[[ND-04 Ring settings]]: join policy, members visible to each other, members can invite. All of them are access rules and belong where the engine can read them.
 
 Code: `src/modules/ring-access/`. Related: [[Ring Access Engine]] (feature note) · [[Architecture]]

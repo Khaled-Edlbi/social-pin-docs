@@ -60,4 +60,4 @@ What the client needs to make s02 real: the challenge response it already gets, 
 ## Blocked by
 
 - No decision blocks delivery itself; [[T-001 Wire an email provider for one-time codes]] and [[T-002 Wire an SMS provider for one-time codes]] are To do.
-- [[Passwordless login]] — decides whether the same code also logs a returning user in; it needs delivery first either way.
+- [[ND-01 Passwordless login]] — decides whether the same code also logs a returning user in; it needs delivery first either way.

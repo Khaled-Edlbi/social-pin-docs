@@ -1,7 +1,6 @@
 ---
 type: needs-decision
 id: ND-16
-aliases: [ND-16]
 status: draft
 features: [files]
 blocks: ["T-062 Story"]

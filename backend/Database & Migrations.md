@@ -57,10 +57,10 @@ Read the SQL before committing.
 
 | Change | Driven by |
 |---|---|
-| Base profile work fields (headline, company, location, avatar, bio) | [[Base profile work fields]] |
-| Field library (profile-owned links / info blocks, per-Ring visibility rows) | [[Field library vs per-Ring copies]] |
-| Ring settings columns (audience, join policy, members visible, …) | [[Ring settings]] |
-| `pinNameChangedAt` | [[Pin name rules]] |
+| Base profile work fields (headline, company, location, avatar, bio) | [[ND-02 Base profile work fields]] |
+| Field library (profile-owned links / info blocks, per-Ring visibility rows) | [[ND-03 Field library vs per-Ring copies]] |
+| Ring settings columns (audience, join policy, members visible, …) | [[ND-04 Ring settings]] |
+| `pinNameChangedAt` | [[ND-06 Pin name rules]] |
 | `WIDGET_TYPE` + AVAILABILITY, PAYMENT, NOW_PLAYING, TESTIMONIAL | [[Widgets]] |
 | Products / catalogue table | [[Events During]] |
 | Ring invitation state | [[Ring Invitations & Join]] |

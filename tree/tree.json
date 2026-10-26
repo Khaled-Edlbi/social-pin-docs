@@ -50,7 +50,6 @@
     "Admin Agent": "project:admin-agent",
     "Agent Protocol": "project:agent-protocol",
     "Agent Rules": "project:agent-rules",
-    "An unverified changed email still signs in": "task:B-01",
     "App Shell & Onboarding Narrative": "feature:app-shell",
     "App Shell & Onboarding Narrative Backend Delivery": "backend-delivery:app-shell",
     "App Shell & Onboarding Narrative Frontend Requirements": "frontend-requirements:app-shell",
@@ -66,12 +65,13 @@
     "Auth & Sign-up Frontend Requirements": "frontend-requirements:auth",
     "Auth & Sign-up Story": "story:auth",
     "Auth Model": "project:auth-model",
+    "B-01 An unverified changed email still signs in": "task:B-01",
+    "B-02 Deleted account answers 401, not the documented 404 E_USER_01": "task:B-02",
     "Backend Agent": "project:backend-agent",
     "Badge & QR": "feature:badge-qr",
     "Badge & QR Backend Delivery": "backend-delivery:badge-qr",
     "Badge & QR Frontend Requirements": "frontend-requirements:badge-qr",
     "Badge & QR Story": "story:badge-qr",
-    "Base profile work fields": "needs-decision:ND-02",
     "Build & Deploy": "feature:build-deploy",
     "Cleanup Jobs": "feature:cleanup-jobs",
     "Cleanup Jobs Backend Delivery": "backend-delivery:cleanup-jobs",
@@ -86,14 +86,11 @@
     "Companies Backend Delivery": "backend-delivery:companies",
     "Companies Frontend Requirements": "frontend-requirements:companies",
     "Companies Story": "story:companies",
-    "Company and invited Ring names shown to members": "needs-decision:ND-18",
-    "Connection-granted Ring on Shared with me": "needs-decision:ND-14",
     "Connections": "feature:connections",
     "Connections Backend Delivery": "backend-delivery:connections",
     "Connections Frontend Requirements": "frontend-requirements:connections",
     "Connections Module": "module:connections",
     "Connections Story": "story:connections",
-    "Copy or inherit": "needs-decision:ND-05",
     "Counts": "feature:counts",
     "Counts Backend Delivery": "backend-delivery:counts",
     "Counts Frontend Requirements": "frontend-requirements:counts",
@@ -117,7 +114,6 @@
     "Delegated Admins Backend Delivery": "backend-delivery:delegated-admins",
     "Delegated Admins Frontend Requirements": "frontend-requirements:delegated-admins",
     "Delegated Admins Story": "story:delegated-admins",
-    "Deleted account answers 401, not the documented 404 E_USER_01": "task:B-02",
     "Developer Guide": "project:developer-guide",
     "Developer Setup": "project:developer-setup",
     "Devices & NFC": "feature:devices",
@@ -157,7 +153,6 @@
     "Exhibitor Story": "story:exhibitor",
     "Feature Graph": "project:feature-graph",
     "Feature Tree": "project:feature-tree",
-    "Field library vs per-Ring copies": "needs-decision:ND-03",
     "Files Upload": "feature:files",
     "Files Upload Backend Delivery": "backend-delivery:files",
     "Files Upload Backend Integration": "backend-integration:files",
@@ -172,10 +167,7 @@
     "Gemma AI Backend Delivery": "backend-delivery:gemma",
     "Gemma AI Frontend Requirements": "frontend-requirements:gemma",
     "Gemma AI Story": "story:gemma",
-    "Get or rotate the badge token": "needs-decision:ND-11",
     "Glossary": "project:glossary",
-    "How Connect addresses the scanned person": "needs-decision:ND-10",
-    "How a business card and a portfolio page are read": "needs-decision:ND-21",
     "Identity Core Module": "module:identity",
     "Interests": "feature:interests",
     "Interests Backend Delivery": "backend-delivery:interests",
@@ -190,6 +182,25 @@
     "Meetings Frontend Requirements": "frontend-requirements:meetings",
     "Meetings Module": "module:meetings",
     "Meetings Story": "story:meetings",
+    "ND-01 Passwordless login": "needs-decision:ND-01",
+    "ND-02 Base profile work fields": "needs-decision:ND-02",
+    "ND-03 Field library vs per-Ring copies": "needs-decision:ND-03",
+    "ND-04 Ring settings": "needs-decision:ND-04",
+    "ND-05 Copy or inherit": "needs-decision:ND-05",
+    "ND-06 Pin name rules": "needs-decision:ND-06",
+    "ND-07 Payment provider": "needs-decision:ND-07",
+    "ND-10 How Connect addresses the scanned person": "needs-decision:ND-10",
+    "ND-11 Get or rotate the badge token": "needs-decision:ND-11",
+    "ND-12 What the badge QR encodes": "needs-decision:ND-12",
+    "ND-13 Whether the requester sees a declined request": "needs-decision:ND-13",
+    "ND-14 Connection-granted Ring on Shared with me": "needs-decision:ND-14",
+    "ND-15 One Ring or several per connection": "needs-decision:ND-15",
+    "ND-16 Viewer access to file bytes": "needs-decision:ND-16",
+    "ND-17 Request expiry, note and asking again": "needs-decision:ND-17",
+    "ND-18 Company and invited Ring names shown to members": "needs-decision:ND-18",
+    "ND-19 Where a ticket's layer notes live": "needs-decision:ND-19",
+    "ND-20 Whether an unverified new address may sign in": "needs-decision:ND-20",
+    "ND-21 How a business card and a portfolio page are read": "needs-decision:ND-21",
     "Notifications": "feature:notifications",
     "Notifications Backend Delivery": "backend-delivery:notifications",
     "Notifications Frontend Requirements": "frontend-requirements:notifications",
@@ -198,12 +209,9 @@
     "Onboarding Imports Backend Delivery": "backend-delivery:onboarding-imports",
     "Onboarding Imports Frontend Requirements": "frontend-requirements:onboarding-imports",
     "Onboarding Imports Story": "story:onboarding-imports",
-    "One Ring or several per connection": "needs-decision:ND-15",
     "Operator Panel": "feature:operator-panel",
     "Owner Agent": "project:owner-agent",
     "PM Agent": "project:pm-agent",
-    "Passwordless login": "needs-decision:ND-01",
-    "Payment provider": "needs-decision:ND-07",
     "Payments & Orders": "feature:payments",
     "Payments & Orders Backend Delivery": "backend-delivery:payments",
     "Payments & Orders Frontend Requirements": "frontend-requirements:payments",
@@ -212,7 +220,6 @@
     "Photo Library Backend Delivery": "backend-delivery:photo-library",
     "Photo Library Frontend Requirements": "frontend-requirements:photo-library",
     "Photo Library Story": "story:photo-library",
-    "Pin name rules": "needs-decision:ND-06",
     "PinCast & Nearby": "feature:pincast",
     "PinCast & Nearby Backend Delivery": "backend-delivery:pincast",
     "PinCast & Nearby Frontend Requirements": "frontend-requirements:pincast",
@@ -229,7 +236,6 @@
     "Profiles & Pin Name Story": "story:profiles",
     "Project Overview": "project:project-overview",
     "QA Agent": "project:qa-agent",
-    "Request expiry, note and asking again": "needs-decision:ND-17",
     "Ring Access Engine": "feature:ring-access",
     "Ring Access Engine Backend Delivery": "backend-delivery:ring-access",
     "Ring Access Engine Backend Integration": "backend-integration:ring-access",
@@ -250,7 +256,6 @@
     "Ring Projection Backend Integration": "backend-integration:ring-projection",
     "Ring Projection Frontend Requirements": "frontend-requirements:ring-projection",
     "Ring Projection Story": "story:ring-projection",
-    "Ring settings": "needs-decision:ND-04",
     "Rings": "feature:rings",
     "Rings Backend Delivery": "backend-delivery:rings",
     "Rings Backend Integration": "backend-integration:rings",
@@ -527,11 +532,6 @@
     "View As & Pin Views Backend Integration": "backend-integration:view-as",
     "View As & Pin Views Frontend Requirements": "frontend-requirements:view-as",
     "View As & Pin Views Story": "story:view-as",
-    "Viewer access to file bytes": "needs-decision:ND-16",
-    "What the badge QR encodes": "needs-decision:ND-12",
-    "Where a ticket's layer notes live": "needs-decision:ND-19",
-    "Whether an unverified new address may sign in": "needs-decision:ND-20",
-    "Whether the requester sees a declined request": "needs-decision:ND-13",
     "Widgets": "feature:widgets",
     "Widgets Backend Delivery": "backend-delivery:widgets",
     "Widgets Frontend Requirements": "frontend-requirements:widgets",
@@ -36714,12 +36714,12 @@
       "name": "Spec Map",
       "type": "project"
     },
-    "bugs/An unverified changed email still signs in.md": {
-      "name": "An unverified changed email still signs in",
+    "bugs/B-01 An unverified changed email still signs in.md": {
+      "name": "B-01 An unverified changed email still signs in",
       "type": "bug"
     },
-    "bugs/Deleted account answers 401, not the documented 404 E_USER_01.md": {
-      "name": "Deleted account answers 401, not the documented 404 E_USER_01",
+    "bugs/B-02 Deleted account answers 401, not the documented 404 E_USER_01.md": {
+      "name": "B-02 Deleted account answers 401, not the documented 404 E_USER_01",
       "type": "bug"
     },
     "business/Feature Graph.md": {
@@ -37550,80 +37550,80 @@
       "name": "Shared Rings & Companies Module",
       "type": "module"
     },
-    "needs-decisions/Base profile work fields.md": {
-      "name": "Base profile work fields",
+    "needs-decisions/ND-01 Passwordless login.md": {
+      "name": "ND-01 Passwordless login",
       "type": "needs-decision"
     },
-    "needs-decisions/Company and invited Ring names shown to members.md": {
-      "name": "Company and invited Ring names shown to members",
+    "needs-decisions/ND-02 Base profile work fields.md": {
+      "name": "ND-02 Base profile work fields",
       "type": "needs-decision"
     },
-    "needs-decisions/Connection-granted Ring on Shared with me.md": {
-      "name": "Connection-granted Ring on Shared with me",
+    "needs-decisions/ND-03 Field library vs per-Ring copies.md": {
+      "name": "ND-03 Field library vs per-Ring copies",
       "type": "needs-decision"
     },
-    "needs-decisions/Copy or inherit.md": {
-      "name": "Copy or inherit",
+    "needs-decisions/ND-04 Ring settings.md": {
+      "name": "ND-04 Ring settings",
       "type": "needs-decision"
     },
-    "needs-decisions/Field library vs per-Ring copies.md": {
-      "name": "Field library vs per-Ring copies",
+    "needs-decisions/ND-05 Copy or inherit.md": {
+      "name": "ND-05 Copy or inherit",
       "type": "needs-decision"
     },
-    "needs-decisions/Get or rotate the badge token.md": {
-      "name": "Get or rotate the badge token",
+    "needs-decisions/ND-06 Pin name rules.md": {
+      "name": "ND-06 Pin name rules",
       "type": "needs-decision"
     },
-    "needs-decisions/How Connect addresses the scanned person.md": {
-      "name": "How Connect addresses the scanned person",
+    "needs-decisions/ND-07 Payment provider.md": {
+      "name": "ND-07 Payment provider",
       "type": "needs-decision"
     },
-    "needs-decisions/How a business card and a portfolio page are read.md": {
-      "name": "How a business card and a portfolio page are read",
+    "needs-decisions/ND-10 How Connect addresses the scanned person.md": {
+      "name": "ND-10 How Connect addresses the scanned person",
       "type": "needs-decision"
     },
-    "needs-decisions/One Ring or several per connection.md": {
-      "name": "One Ring or several per connection",
+    "needs-decisions/ND-11 Get or rotate the badge token.md": {
+      "name": "ND-11 Get or rotate the badge token",
       "type": "needs-decision"
     },
-    "needs-decisions/Passwordless login.md": {
-      "name": "Passwordless login",
+    "needs-decisions/ND-12 What the badge QR encodes.md": {
+      "name": "ND-12 What the badge QR encodes",
       "type": "needs-decision"
     },
-    "needs-decisions/Payment provider.md": {
-      "name": "Payment provider",
+    "needs-decisions/ND-13 Whether the requester sees a declined request.md": {
+      "name": "ND-13 Whether the requester sees a declined request",
       "type": "needs-decision"
     },
-    "needs-decisions/Pin name rules.md": {
-      "name": "Pin name rules",
+    "needs-decisions/ND-14 Connection-granted Ring on Shared with me.md": {
+      "name": "ND-14 Connection-granted Ring on Shared with me",
       "type": "needs-decision"
     },
-    "needs-decisions/Request expiry, note and asking again.md": {
-      "name": "Request expiry, note and asking again",
+    "needs-decisions/ND-15 One Ring or several per connection.md": {
+      "name": "ND-15 One Ring or several per connection",
       "type": "needs-decision"
     },
-    "needs-decisions/Ring settings.md": {
-      "name": "Ring settings",
+    "needs-decisions/ND-16 Viewer access to file bytes.md": {
+      "name": "ND-16 Viewer access to file bytes",
       "type": "needs-decision"
     },
-    "needs-decisions/Viewer access to file bytes.md": {
-      "name": "Viewer access to file bytes",
+    "needs-decisions/ND-17 Request expiry, note and asking again.md": {
+      "name": "ND-17 Request expiry, note and asking again",
       "type": "needs-decision"
     },
-    "needs-decisions/What the badge QR encodes.md": {
-      "name": "What the badge QR encodes",
+    "needs-decisions/ND-18 Company and invited Ring names shown to members.md": {
+      "name": "ND-18 Company and invited Ring names shown to members",
       "type": "needs-decision"
     },
-    "needs-decisions/Where a ticket's layer notes live.md": {
-      "name": "Where a ticket's layer notes live",
+    "needs-decisions/ND-19 Where a ticket's layer notes live.md": {
+      "name": "ND-19 Where a ticket's layer notes live",
       "type": "needs-decision"
     },
-    "needs-decisions/Whether an unverified new address may sign in.md": {
-      "name": "Whether an unverified new address may sign in",
+    "needs-decisions/ND-20 Whether an unverified new address may sign in.md": {
+      "name": "ND-20 Whether an unverified new address may sign in",
       "type": "needs-decision"
     },
-    "needs-decisions/Whether the requester sees a declined request.md": {
-      "name": "Whether the requester sees a declined request",
+    "needs-decisions/ND-21 How a business card and a portfolio page are read.md": {
+      "name": "ND-21 How a business card and a portfolio page are read",
       "type": "needs-decision"
     },
     "project/Admin Agent.md": {
@@ -44567,7 +44567,7 @@
         "s68"
       ],
       "status": null,
-      "summary": "Sign up with email or phone, verify the one-time code, finish registration with a Pin name, sign in with a one-time code, refresh, log out, log out everywhere. Passwordless since 2026-10-15…",
+      "summary": "Sign up with email or phone, verify the one-time code, finish registration with a Pin name, sign in with a one-time code, refresh, log out, log out everywhere. Passwordless since 2026-10-15 (ND-01…",
       "tags": [
         "feature",
         "module/identity",
@@ -47086,8 +47086,8 @@
         "frontend-delivery:ring-projection",
         "qa-frontend:ring-projection",
         "needs-decision:ND-02",
-        "needs-decision:ND-05",
-        "needs-decision:ND-03"
+        "needs-decision:ND-03",
+        "needs-decision:ND-05"
       ],
       "code": "ring-projection",
       "created": "2026-10-18",
@@ -47178,8 +47178,8 @@
         "qa-backend:rings",
         "frontend-delivery:rings",
         "qa-frontend:rings",
-        "needs-decision:ND-05",
-        "needs-decision:ND-04"
+        "needs-decision:ND-04",
+        "needs-decision:ND-05"
       ],
       "code": "rings",
       "created": "2026-10-18",
@@ -52369,7 +52369,7 @@
         "feature:auth",
         "feature:linked-accounts"
       ],
-      "path": "needs-decisions/Passwordless login.md",
+      "path": "needs-decisions/ND-01 Passwordless login.md",
       "pending": [],
       "priority": null,
       "related": [
@@ -52391,7 +52391,7 @@
         "needs-decision/open"
       ],
       "task": null,
-      "title": "Passwordless login",
+      "title": "ND-01 Passwordless login",
       "updated": "2026-10-26"
     },
     "needs-decision:ND-02": {
@@ -52433,7 +52433,7 @@
         "feature:ring-projection",
         "feature:photo-library"
       ],
-      "path": "needs-decisions/Base profile work fields.md",
+      "path": "needs-decisions/ND-02 Base profile work fields.md",
       "pending": [],
       "priority": null,
       "related": [
@@ -52456,7 +52456,7 @@
         "needs-decision/open"
       ],
       "task": null,
-      "title": "Base profile work fields",
+      "title": "ND-02 Base profile work fields",
       "updated": "2026-10-26"
     },
     "needs-decision:ND-03": {
@@ -52494,7 +52494,7 @@
         "feature:widgets",
         "feature:ring-projection"
       ],
-      "path": "needs-decisions/Field library vs per-Ring copies.md",
+      "path": "needs-decisions/ND-03 Field library vs per-Ring copies.md",
       "pending": [],
       "priority": null,
       "related": [
@@ -52514,7 +52514,7 @@
         "needs-decision/open"
       ],
       "task": null,
-      "title": "Field library vs per-Ring copies",
+      "title": "ND-03 Field library vs per-Ring copies",
       "updated": "2026-10-26"
     },
     "needs-decision:ND-04": {
@@ -52558,7 +52558,7 @@
         "feature:delegated-admins",
         "feature:companies"
       ],
-      "path": "needs-decisions/Ring settings.md",
+      "path": "needs-decisions/ND-04 Ring settings.md",
       "pending": [],
       "priority": null,
       "related": [
@@ -52580,7 +52580,7 @@
         "needs-decision/open"
       ],
       "task": null,
-      "title": "Ring settings",
+      "title": "ND-04 Ring settings",
       "updated": "2026-10-26"
     },
     "needs-decision:ND-05": {
@@ -52620,7 +52620,7 @@
         "feature:rings",
         "feature:photo-library"
       ],
-      "path": "needs-decisions/Copy or inherit.md",
+      "path": "needs-decisions/ND-05 Copy or inherit.md",
       "pending": [],
       "priority": null,
       "related": [
@@ -52642,7 +52642,7 @@
         "needs-decision/open"
       ],
       "task": null,
-      "title": "Copy or inherit",
+      "title": "ND-05 Copy or inherit",
       "updated": "2026-10-26"
     },
     "needs-decision:ND-06": {
@@ -52680,7 +52680,7 @@
         "feature:profiles",
         "feature:gemma"
       ],
-      "path": "needs-decisions/Pin name rules.md",
+      "path": "needs-decisions/ND-06 Pin name rules.md",
       "pending": [],
       "priority": null,
       "related": [
@@ -52699,7 +52699,7 @@
         "needs-decision/open"
       ],
       "task": null,
-      "title": "Pin name rules",
+      "title": "ND-06 Pin name rules",
       "updated": "2026-10-26"
     },
     "needs-decision:ND-07": {
@@ -52743,7 +52743,7 @@
         "task:T-035",
         "task:T-049"
       ],
-      "path": "needs-decisions/Payment provider.md",
+      "path": "needs-decisions/ND-07 Payment provider.md",
       "pending": [],
       "priority": null,
       "related": [
@@ -52765,7 +52765,7 @@
         "needs-decision/open"
       ],
       "task": null,
-      "title": "Payment provider",
+      "title": "ND-07 Payment provider",
       "updated": "2026-10-26"
     },
     "needs-decision:ND-10": {
@@ -52803,7 +52803,7 @@
         "story:T-008",
         "story:T-021"
       ],
-      "path": "needs-decisions/How Connect addresses the scanned person.md",
+      "path": "needs-decisions/ND-10 How Connect addresses the scanned person.md",
       "pending": [],
       "priority": null,
       "related": [
@@ -52825,7 +52825,7 @@
         "needs-decision/draft"
       ],
       "task": null,
-      "title": "How Connect addresses the scanned person",
+      "title": "ND-10 How Connect addresses the scanned person",
       "updated": "2026-10-26"
     },
     "needs-decision:ND-11": {
@@ -52860,7 +52860,7 @@
       "parents": [
         "story:T-007"
       ],
-      "path": "needs-decisions/Get or rotate the badge token.md",
+      "path": "needs-decisions/ND-11 Get or rotate the badge token.md",
       "pending": [],
       "priority": null,
       "related": [
@@ -52879,7 +52879,7 @@
         "needs-decision/draft"
       ],
       "task": null,
-      "title": "Get or rotate the badge token",
+      "title": "ND-11 Get or rotate the badge token",
       "updated": "2026-10-26"
     },
     "needs-decision:ND-12": {
@@ -52916,7 +52916,7 @@
         "story:T-007",
         "task:T-010"
       ],
-      "path": "needs-decisions/What the badge QR encodes.md",
+      "path": "needs-decisions/ND-12 What the badge QR encodes.md",
       "pending": [],
       "priority": null,
       "related": [
@@ -52938,7 +52938,7 @@
         "needs-decision/draft"
       ],
       "task": null,
-      "title": "What the badge QR encodes",
+      "title": "ND-12 What the badge QR encodes",
       "updated": "2026-10-26"
     },
     "needs-decision:ND-13": {
@@ -52978,7 +52978,7 @@
         "story:T-021",
         "story:T-022"
       ],
-      "path": "needs-decisions/Whether the requester sees a declined request.md",
+      "path": "needs-decisions/ND-13 Whether the requester sees a declined request.md",
       "pending": [],
       "priority": null,
       "related": [
@@ -53000,7 +53000,7 @@
         "needs-decision/open"
       ],
       "task": null,
-      "title": "Whether the requester sees a declined request",
+      "title": "ND-13 Whether the requester sees a declined request",
       "updated": "2026-10-26"
     },
     "needs-decision:ND-14": {
@@ -53038,7 +53038,7 @@
       "parents": [
         "story:T-022"
       ],
-      "path": "needs-decisions/Connection-granted Ring on Shared with me.md",
+      "path": "needs-decisions/ND-14 Connection-granted Ring on Shared with me.md",
       "pending": [],
       "priority": null,
       "related": [
@@ -53061,7 +53061,7 @@
         "needs-decision/open"
       ],
       "task": null,
-      "title": "Connection-granted Ring on Shared with me",
+      "title": "ND-14 Connection-granted Ring on Shared with me",
       "updated": "2026-10-26"
     },
     "needs-decision:ND-15": {
@@ -53099,7 +53099,7 @@
       "parents": [
         "story:T-023"
       ],
-      "path": "needs-decisions/One Ring or several per connection.md",
+      "path": "needs-decisions/ND-15 One Ring or several per connection.md",
       "pending": [],
       "priority": null,
       "related": [
@@ -53121,7 +53121,7 @@
         "needs-decision/open"
       ],
       "task": null,
-      "title": "One Ring or several per connection",
+      "title": "ND-15 One Ring or several per connection",
       "updated": "2026-10-26"
     },
     "needs-decision:ND-16": {
@@ -53156,7 +53156,7 @@
       "parents": [
         "story:T-062"
       ],
-      "path": "needs-decisions/Viewer access to file bytes.md",
+      "path": "needs-decisions/ND-16 Viewer access to file bytes.md",
       "pending": [],
       "priority": null,
       "related": [
@@ -53181,7 +53181,7 @@
         "needs-decision/draft"
       ],
       "task": null,
-      "title": "Viewer access to file bytes",
+      "title": "ND-16 Viewer access to file bytes",
       "updated": "2026-10-26"
     },
     "needs-decision:ND-17": {
@@ -53221,7 +53221,7 @@
       "parents": [
         "story:T-021"
       ],
-      "path": "needs-decisions/Request expiry, note and asking again.md",
+      "path": "needs-decisions/ND-17 Request expiry, note and asking again.md",
       "pending": [],
       "priority": null,
       "related": [
@@ -53244,7 +53244,7 @@
         "needs-decision/open"
       ],
       "task": null,
-      "title": "Request expiry, note and asking again",
+      "title": "ND-17 Request expiry, note and asking again",
       "updated": "2026-10-26"
     },
     "needs-decision:ND-18": {
@@ -53288,7 +53288,7 @@
         "story:companies",
         "story:ring-invitations"
       ],
-      "path": "needs-decisions/Company and invited Ring names shown to members.md",
+      "path": "needs-decisions/ND-18 Company and invited Ring names shown to members.md",
       "pending": [],
       "priority": null,
       "related": [
@@ -53314,7 +53314,7 @@
         "needs-decision/open"
       ],
       "task": null,
-      "title": "Company and invited Ring names shown to members",
+      "title": "ND-18 Company and invited Ring names shown to members",
       "updated": "2026-10-26"
     },
     "needs-decision:ND-19": {
@@ -53352,7 +53352,7 @@
       "parents": [
         "task:T-063"
       ],
-      "path": "needs-decisions/Where a ticket's layer notes live.md",
+      "path": "needs-decisions/ND-19 Where a ticket's layer notes live.md",
       "pending": [],
       "priority": null,
       "related": [
@@ -53372,7 +53372,7 @@
         "needs-decision/open"
       ],
       "task": null,
-      "title": "Where a ticket's layer notes live",
+      "title": "ND-19 Where a ticket's layer notes live",
       "updated": "2026-10-26"
     },
     "needs-decision:ND-20": {
@@ -53416,7 +53416,7 @@
       "parents": [
         "task:B-01"
       ],
-      "path": "needs-decisions/Whether an unverified new address may sign in.md",
+      "path": "needs-decisions/ND-20 Whether an unverified new address may sign in.md",
       "pending": [],
       "priority": "high",
       "related": [
@@ -53442,7 +53442,7 @@
         "priority/high"
       ],
       "task": null,
-      "title": "Whether an unverified new address may sign in",
+      "title": "ND-20 Whether an unverified new address may sign in",
       "updated": "2026-10-26"
     },
     "needs-decision:ND-21": {
@@ -53480,7 +53480,7 @@
       "parents": [
         "task:T-020b"
       ],
-      "path": "needs-decisions/How a business card and a portfolio page are read.md",
+      "path": "needs-decisions/ND-21 How a business card and a portfolio page are read.md",
       "pending": [],
       "priority": null,
       "related": [
@@ -53505,7 +53505,7 @@
         "needs-decision/open"
       ],
       "task": null,
-      "title": "How a business card and a portfolio page are read",
+      "title": "ND-21 How a business card and a portfolio page are read",
       "updated": "2026-10-26"
     },
     "project:admin-agent": {
@@ -53889,7 +53889,7 @@
       "scope": null,
       "screens": [],
       "status": null,
-      "summary": "As implemented. Feature note: Auth & Sign-up. Decided: Passwordless login (code-only, 2026-10-15). Client-facing changes: Frontend Passwordless Migration.",
+      "summary": "As implemented. Feature note: Auth & Sign-up. Decided: ND-01 Passwordless login (code-only, 2026-10-15). Client-facing changes: Frontend Passwordless Migration.",
       "tags": [
         "project"
       ],
@@ -59201,12 +59201,12 @@
       "blockedBy": [
         {
           "id": "needs-decision:ND-11",
-          "title": "Get or rotate the badge token",
+          "title": "ND-11 Get or rotate the badge token",
           "why": "needs decision ND-11 (draft)"
         },
         {
           "id": "needs-decision:ND-12",
-          "title": "What the badge QR encodes",
+          "title": "ND-12 What the badge QR encodes",
           "why": "needs decision ND-12 (draft)"
         }
       ],
@@ -59265,7 +59265,7 @@
       "blockedBy": [
         {
           "id": "needs-decision:ND-10",
-          "title": "How Connect addresses the scanned person",
+          "title": "ND-10 How Connect addresses the scanned person",
           "why": "needs decision ND-10 (draft)"
         }
       ],
@@ -59980,15 +59980,15 @@
       "blockedBy": [
         {
           "id": "needs-decision:ND-10",
-          "title": "How Connect addresses the scanned person",
+          "title": "ND-10 How Connect addresses the scanned person",
           "why": "needs decision ND-10 (draft)"
         }
       ],
       "card": "S-24",
       "children": [
         "needs-decision:ND-10",
-        "needs-decision:ND-17",
-        "needs-decision:ND-13"
+        "needs-decision:ND-13",
+        "needs-decision:ND-17"
       ],
       "code": "T-021",
       "created": "2026-10-18",
@@ -60045,8 +60045,8 @@
       "blockedBy": [],
       "card": "S-25",
       "children": [
-        "needs-decision:ND-14",
-        "needs-decision:ND-13"
+        "needs-decision:ND-13",
+        "needs-decision:ND-14"
       ],
       "code": "T-022",
       "created": "2026-10-18",
@@ -61819,7 +61819,7 @@
       "blockedBy": [
         {
           "id": "needs-decision:ND-16",
-          "title": "Viewer access to file bytes",
+          "title": "ND-16 Viewer access to file bytes",
           "why": "needs decision ND-16 (draft)"
         }
       ],
@@ -64687,7 +64687,7 @@
       "parents": [
         "backend-integration:account"
       ],
-      "path": "bugs/An unverified changed email still signs in.md",
+      "path": "bugs/B-01 An unverified changed email still signs in.md",
       "pending": [
         {
           "person": null,
@@ -64747,7 +64747,7 @@
         "resolution/by-design"
       ],
       "task": null,
-      "title": "An unverified changed email still signs in",
+      "title": "B-01 An unverified changed email still signs in",
       "updated": "2026-10-26"
     },
     "task:B-02": {
@@ -64785,7 +64785,7 @@
       "parents": [
         "backend-integration:account"
       ],
-      "path": "bugs/Deleted account answers 401, not the documented 404 E_USER_01.md",
+      "path": "bugs/B-02 Deleted account answers 401, not the documented 404 E_USER_01.md",
       "pending": [],
       "priority": "medium",
       "related": [
@@ -64814,7 +64814,7 @@
         "priority/medium"
       ],
       "task": null,
-      "title": "Deleted account answers 401, not the documented 404 E_USER_01",
+      "title": "B-02 Deleted account answers 401, not the documented 404 E_USER_01",
       "updated": "2026-10-26"
     },
     "task:T-001": {
@@ -66363,7 +66363,7 @@
         },
         {
           "id": "needs-decision:ND-12",
-          "title": "What the badge QR encodes",
+          "title": "ND-12 What the badge QR encodes",
           "why": "needs decision ND-12 (draft)"
         }
       ],
@@ -68410,7 +68410,7 @@
       "blockedBy": [
         {
           "id": "needs-decision:ND-21",
-          "title": "How a business card and a portfolio page are read",
+          "title": "ND-21 How a business card and a portfolio page are read",
           "why": "needs decision ND-21 (open)"
         }
       ],
@@ -68470,7 +68470,7 @@
         "s03b"
       ],
       "status": "todo",
-      "summary": "How the card and the page are read is How a business card and a portfolio page are read. Same review step as T-020, writing to the main profile (D-02 One main profile every Ring starts from).",
+      "summary": "How the card and the page are read is ND-21 How a business card and a portfolio page are read. Same review step as T-020, writing to the main profile (D-02 One main profile every Ring starts from).",
       "tags": [
         "task",
         "task/todo",
@@ -75431,7 +75431,7 @@
         "s01"
       ],
       "status": "done",
-      "summary": "See Passwordless login. Decided: option A, code-only login. Shipped in social-pin PR #1. Frontend write-up: Frontend Passwordless Migration.",
+      "summary": "See ND-01 Passwordless login. Decided: option A, code-only login. Shipped in social-pin PR #1. Frontend write-up: Frontend Passwordless Migration.",
       "tags": [
         "task",
         "task/done",
@@ -75487,7 +75487,7 @@
         "s05"
       ],
       "status": "done",
-      "summary": "Take Base profile work fields. Decided by D-02 One main profile every Ring starts from: one main profile (headline, role, company, location, photo, bio) every Ring starts from. Building it is not…",
+      "summary": "Take ND-02 Base profile work fields. Decided by D-02 One main profile every Ring starts from: one main profile (headline, role, company, location, photo, bio) every Ring starts from. Building it…",
       "tags": [
         "task",
         "task/done",
@@ -75543,7 +75543,7 @@
         "s24"
       ],
       "status": "done",
-      "summary": "Take Field library vs per-Ring copies. Decided by D-03 Links entered once, switched on or off per Ring: one library of links, each Ring only switches them on or off. Building it is not ticketed yet.",
+      "summary": "Take ND-03 Field library vs per-Ring copies. Decided by D-03 Links entered once, switched on or off per Ring: one library of links, each Ring only switches them on or off. Building it is not…",
       "tags": [
         "task",
         "task/done",
@@ -75599,7 +75599,7 @@
         "s27"
       ],
       "status": "done",
-      "summary": "Take Ring settings. Decided by D-04 Ring settings at launch and their defaults: six settings at launch with private defaults, three later; the owner and the Ring's admins change them. Building…",
+      "summary": "Take ND-04 Ring settings. Decided by D-04 Ring settings at launch and their defaults: six settings at launch with private defaults, three later; the owner and the Ring's admins change them.…",
       "tags": [
         "task",
         "task/done",
@@ -75657,7 +75657,7 @@
         "s28"
       ],
       "status": "done",
-      "summary": "Take Copy or inherit. Decided by D-05 Inherit per field, copy without members: Rings inherit the main profile field by field, and copying a Ring never copies its members. Building it is not…",
+      "summary": "Take ND-05 Copy or inherit. Decided by D-05 Inherit per field, copy without members: Rings inherit the main profile field by field, and copying a Ring never copies its members. Building it is not…",
       "tags": [
         "task",
         "task/done",
@@ -75713,7 +75713,7 @@
         "s06"
       ],
       "status": "done",
-      "summary": "Take Pin name rules. Decided by D-06 Yearly rename, old name freed, case-insensitive: rename once a year, the old name freed at once, names ignore capitals, suggestions only from the person's own…",
+      "summary": "Take ND-06 Pin name rules. Decided by D-06 Yearly rename, old name freed, case-insensitive: rename once a year, the old name freed at once, names ignore capitals, suggestions only from the…",
       "tags": [
         "task",
         "task/done",

@@ -1,7 +1,6 @@
 ---
 type: bug
 id: B-01
-aliases: [B-01]
 status: done
 resolution: by-design
 priority: high
@@ -13,7 +12,7 @@ labels: []
 screens: [s68]
 depends: []
 affects: ["Account Backend Delivery", "Account Story", "Account QA Backend"]
-related: ["Account Backend Integration", "Account QA Backend", "Account QA Frontend", "Auth & Sign-up Backend Integration", "Passwordless login", "T-003 Remove devCode once delivery works", "Whether an unverified new address may sign in", "D-20 The changed address still signs in, the words are corrected"]
+related: ["Account Backend Integration", "Account QA Backend", "Account QA Frontend", "Auth & Sign-up Backend Integration", "ND-01 Passwordless login", "T-003 Remove devCode once delivery works", "ND-20 Whether an unverified new address may sign in", "D-20 The changed address still signs in, the words are corrected"]
 pending: ["[[Account Backend Delivery]]: correct the \"proven again before it can sign in\" sentence and clear the QA flag (/backend)", "[[Account Backend Integration]]: say that a changed destination is unverified and still signs in (/backend)", "[[Account QA Backend]]: re-run row B9 against the corrected notes (/qa)", "[[Account QA Frontend]]: re-run row F10 against the corrected notes (/qa)", "@khaled: re-approve [[Account Story]] after the S2 and S3 copy change (/owner)"]
 owner: "khaled"
 created: 2026-10-26
@@ -41,7 +40,7 @@ tags: [bug, bug/done, module/identity, priority/high, resolution/by-design]
 
 **Worth knowing before fixing.** While `devCode` is returned in every environment ([[T-003 Remove devCode once delivery works]]), knowing an address is already enough to sign in as it, so this gate buys little security today. It becomes real the moment T-003 lands. Which way it goes is a product call as much as a backend one — if the answer is not obvious, raise a decision card rather than guessing.
 
-**Answered 2026-10-26.** [[Whether an unverified new address may sign in]] was raised from this bug and decided on [[D-20 The changed address still signs in, the words are corrected]]: **option 2**, the words are wrong, not the build. No gate is added and no code ships; the story has dropped the promise, and this bug closes once [[Account Backend Delivery]] and [[Account Backend Integration]] say what the API actually does and rows B9 and F10 have been re-run. The gate itself is deferred, not refused: it comes back with [[T-003 Remove devCode once delivery works]].
+**Answered 2026-10-26.** [[ND-20 Whether an unverified new address may sign in]] was raised from this bug and decided on [[D-20 The changed address still signs in, the words are corrected]]: **option 2**, the words are wrong, not the build. No gate is added and no code ships; the story has dropped the promise, and this bug closes once [[Account Backend Delivery]] and [[Account Backend Integration]] say what the API actually does and rows B9 and F10 have been re-run. The gate itself is deferred, not refused: it comes back with [[T-003 Remove devCode once delivery works]].
 
 ## Design
 
@@ -75,5 +74,5 @@ Output of `node scripts/build-tree.mjs --impact B-01` when the bug was filed: th
 
 - 2026-10-26 · branch `docs/admin/project/bug-type` · retyped by `/admin`: `type: bug` (tags `bug`, `bug/<status>`) instead of a task with `labels: [bug]`, as every bug card now is. Nothing else changed: same code, same place in the tree, same status.
 - 2026-10-26 · branch `tickets/pm/M-01-identity/F-01-account/B-01-done` · closed on khaled's word. Nothing is left for this bug itself: the product answer is on [[D-20 The changed address still signs in, the words are corrected]] and the story carries it. What remains belongs to other agents and is listed in `pending`, so the card reads **Partial** until the backend notes are corrected (`/backend`), rows B9 and F10 are re-run (`/qa`) and the story is re-approved (`/owner`). No code shipped and none is owed.
-- 2026-10-26 · branch `docs/pm/M-01-identity/F-01-account/D-20-decided` · [[Whether an unverified new address may sign in]] decided by khaled on [[D-20 The changed address still signs in, the words are corrected]], option 2: the behaviour stays, the words are corrected. [[Account Story]] S2 and S3 copy corrected plus the *Rules the backend already enforces* line and an open question; the story stays `approved` against the 2026-10-25 wording and is in `pending` for the owner. Flagged [[Account Backend Delivery]], [[Account Backend Integration]], [[Account QA Backend]] and [[Account QA Frontend]]; the backend and QA entries are in `pending`. No code ships.
+- 2026-10-26 · branch `docs/pm/M-01-identity/F-01-account/D-20-decided` · [[ND-20 Whether an unverified new address may sign in]] decided by khaled on [[D-20 The changed address still signs in, the words are corrected]], option 2: the behaviour stays, the words are corrected. [[Account Story]] S2 and S3 copy corrected plus the *Rules the backend already enforces* line and an open question; the story stays `approved` against the 2026-10-25 wording and is in `pending` for the owner. Flagged [[Account Backend Delivery]], [[Account Backend Integration]], [[Account QA Backend]] and [[Account QA Frontend]]; the backend and QA entries are in `pending`. No code ships.
 - 2026-10-26 · created with --scaffold task --label bug --found-on "Account Backend Integration", filed by QA from [[Account QA Backend]] row B9. Replaces T-074 and T-076, both withdrawn the same day with their codes retired, as the bug rule moved twice: first to hang a parentless bug under the feature's story, then to hang it under the card it was found against and number it `B-NN`.

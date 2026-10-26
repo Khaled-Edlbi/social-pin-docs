@@ -6,8 +6,8 @@ status: decided
 decidedBy: "khaled"
 decidedAt: 2026-10-26
 features: [account]
-affects: ["Account Story", "Account Backend Delivery", "Account Backend Integration", "Account QA Backend", "Account QA Frontend", "An unverified changed email still signs in"]
-related: ["Whether an unverified new address may sign in", "Auth & Sign-up Backend Integration", "Account Frontend Delivery", "T-003 Remove devCode once delivery works"]
+affects: ["Account Story", "Account Backend Delivery", "Account Backend Integration", "Account QA Backend", "Account QA Frontend", "B-01 An unverified changed email still signs in"]
+related: ["ND-20 Whether an unverified new address may sign in", "Auth & Sign-up Backend Integration", "Account Frontend Delivery", "T-003 Remove devCode once delivery works"]
 owner: "khaled"
 created: 2026-10-26
 updated: 2026-10-26
@@ -16,13 +16,13 @@ tags: [decision, decision/decided]
 
 # ✅ D-20 · The changed address still signs in, the words are corrected
 
-**Answers:** [[Whether an unverified new address may sign in]] · **Decided by:** khaled · **On:** 2026-10-26 · **Feature:** [[Account]]
+**Answers:** [[ND-20 Whether an unverified new address may sign in]] · **Decided by:** khaled · **On:** 2026-10-26 · **Feature:** [[Account]]
 
-> This card is the answer to [[Whether an unverified new address may sign in]]. The needs-decision card keeps the question, the facts and the options; this decision card says what was decided, why, and what it changes. `draft` while the answer is prepared; `decided` only by the PM or the owner, on the user's word, with `decidedBy` and `decidedAt`: then [[Whether an unverified new address may sign in]] shows Fulfilled by itself and the cards it blocked continue.
+> This card is the answer to [[ND-20 Whether an unverified new address may sign in]]. The needs-decision card keeps the question, the facts and the options; this decision card says what was decided, why, and what it changes. `draft` while the answer is prepared; `decided` only by the PM or the owner, on the user's word, with `decidedBy` and `decidedAt`: then [[ND-20 Whether an unverified new address may sign in]] shows Fulfilled by itself and the cards it blocked continue.
 
 ## What was decided
 
-**Option 2 — it is ok for now.** An address changed through `PATCH /users/me` keeps signing in straight away, unverified, exactly as the build does today: `POST /auth/login` issues a code for it and `POST /auth/login/verify` returns a session. No gate is added to either endpoint, so no code ships for [[An unverified changed email still signs in]]. What moves is the wording: [[Account Story]] S2 and S3 drop the promise that a new address must be verified before it can be used to sign in, and the two backend notes that assert the gate are corrected to describe the behaviour as it is. This rules out option 1 (403 `E_AUTH_03` on an unverified destination) **for now**, not forever: the question comes back the day [[T-003 Remove devCode once delivery works]] lands, and a gate still needs a re-verify route before it can be built at all.
+**Option 2 — it is ok for now.** An address changed through `PATCH /users/me` keeps signing in straight away, unverified, exactly as the build does today: `POST /auth/login` issues a code for it and `POST /auth/login/verify` returns a session. No gate is added to either endpoint, so no code ships for [[B-01 An unverified changed email still signs in]]. What moves is the wording: [[Account Story]] S2 and S3 drop the promise that a new address must be verified before it can be used to sign in, and the two backend notes that assert the gate are corrected to describe the behaviour as it is. This rules out option 1 (403 `E_AUTH_03` on an unverified destination) **for now**, not forever: the question comes back the day [[T-003 Remove devCode once delivery works]] lands, and a gate still needs a re-verify route before it can be built at all.
 
 ## Why
 
@@ -35,7 +35,7 @@ What was traded away is a real protection: an address nobody has proven can sign
 - [[Account Story]]: S2's and S3's acceptance criteria no longer promise that a new address must be verified before it can sign in; they state that it is marked unverified, signs in all the same, and that re-verifying is not available yet. The copy the criteria ask for is the copy [[Account Frontend Delivery]] already ships. Approved 2026-10-25 against the old wording, so the owner re-approves it (`/owner`).
 - [[Account Backend Delivery]]: "a changed address must be proven again before it can be used to sign in or receive a reset code" is wrong on the sign-in half and has to say what the build does; its QA flag line is cleared with that correction (`/backend`).
 - [[Account Backend Integration]]: says plainly that a changed destination comes back unverified and still signs in, so no client expects a 403 (`/backend`).
-- [[An unverified changed email still signs in]]: no longer blocked and no longer code work. It closes on the two note corrections and the QA re-runs; its gate criteria are struck.
+- [[B-01 An unverified changed email still signs in]]: no longer blocked and no longer code work. It closes on the two note corrections and the QA re-runs; its gate criteria are struck.
 - [[Account QA Backend]] row B9 and [[Account QA Frontend]] row F10: the expectation they tested against is withdrawn. Re-run them against the corrected notes and clear them from `pending` (`/qa`).
 - [[Auth & Sign-up Backend Integration]]: unchanged, and that is the point — `login` and `login/verify` keep their contract, and nothing moves for any other client.
 

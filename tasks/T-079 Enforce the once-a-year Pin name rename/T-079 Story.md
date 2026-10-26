@@ -8,7 +8,7 @@ status: draft
 screens: [s06, s68]
 depends: ["D-06 Yearly rename, old name freed, case-insensitive"]
 affects: []
-related: ["D-06 Yearly rename, old name freed, case-insensitive", "Profiles & Pin Name Backend Integration", "Badge & QR", "What the badge QR encodes", "T-063 Put the ErrorCode on the error body"]
+related: ["D-06 Yearly rename, old name freed, case-insensitive", "Profiles & Pin Name Backend Integration", "Badge & QR", "ND-12 What the badge QR encodes", "T-063 Put the ErrorCode on the error body"]
 pending: []
 approvedBy: ""
 approvedAt: ""
@@ -62,4 +62,4 @@ Acceptance criteria:
 ## Open questions
 
 - D-06 left open whether the year starts at sign-up or at the first rename; this task takes the natural reading (first rename free). Product can say otherwise before the task starts.
-- What a printed badge or saved link does after its name is released: [[Badge & QR]], [[What the badge QR encodes]].
+- What a printed badge or saved link does after its name is released: [[Badge & QR]], [[ND-12 What the badge QR encodes]].

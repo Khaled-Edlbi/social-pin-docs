@@ -1,7 +1,6 @@
 ---
 type: needs-decision
 id: ND-21
-aliases: [ND-21]
 status: open
 features: [onboarding-imports]
 blocks: [T-020b]

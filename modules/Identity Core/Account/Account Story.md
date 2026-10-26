@@ -8,7 +8,7 @@ status: approved
 screens: [s68]
 approvedBy: "khaled"
 approvedAt: 2026-10-25
-related: ["Whether an unverified new address may sign in", "D-20 The changed address still signs in, the words are corrected", "An unverified changed email still signs in"]
+related: ["ND-20 Whether an unverified new address may sign in", "D-20 The changed address still signs in, the words are corrected", "B-01 An unverified changed email still signs in"]
 owner: "khaled"
 created: 2026-10-18
 updated: 2026-10-26
@@ -91,8 +91,8 @@ Acceptance criteria:
 
 ## Rules the backend already enforces
 
-- `GET /users/me` reads through a narrow select of the `users` row; there is no password column since 2026-10-15 ([[Passwordless login]]).
-- `PATCH /users/me` normalises (email lower-cased and trimmed, phone to E.164), checks uniqueness (409 `E_USER_02` / `E_USER_03`) and clears the matching `…VerifiedAt`, so the destination reads as unverified. The cleared flag is **not** a gate: `POST /auth/login` and `POST /auth/login/verify` accept the changed address at once ([[An unverified changed email still signs in]], accepted by [[D-20 The changed address still signs in, the words are corrected]]).
+- `GET /users/me` reads through a narrow select of the `users` row; there is no password column since 2026-10-15 ([[ND-01 Passwordless login]]).
+- `PATCH /users/me` normalises (email lower-cased and trimmed, phone to E.164), checks uniqueness (409 `E_USER_02` / `E_USER_03`) and clears the matching `…VerifiedAt`, so the destination reads as unverified. The cleared flag is **not** a gate: `POST /auth/login` and `POST /auth/login/verify` accept the changed address at once ([[B-01 An unverified changed email still signs in]], accepted by [[D-20 The changed address still signs in, the words are corrected]]).
 - `DELETE /users/me` is a soft delete: the row stays (meetings, orders and audit logs reference it), the unique email and phone are released, every refresh token is revoked.
 - There is no `GET /users/:id` and no user search. Another person is reachable only through a Ring projection.
 

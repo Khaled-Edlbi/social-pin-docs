@@ -31,7 +31,7 @@ Callback writes `SocialIdentity`. Login via provider returns a session the same 
 
 ## Dependencies
 
-- [[Passwordless login]] — decided 2026-10-15, no longer blocking
+- [[ND-01 Passwordless login]] — decided 2026-10-15, no longer blocking
 - Unblocks [[T-020 LinkedIn import → review → base profile]]
 
 ## Definition of done

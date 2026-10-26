@@ -51,7 +51,7 @@ What the client needs from the backend to build the screens in [[Delegated Admin
 | Rings I administer, with my level | — | ❌ | [[T-006 Delegated admin endpoints]] |
 | Names and avatars for admin rows, picker over my connections | — | ❌ | [[T-023 Connection detail and contacts list]] |
 | Notify the person made admin | — | ❌ | [[T-045 NotificationService.emit and the inbox]] |
-| Audience settings on s26 / s27 | — | ❌ | [[Ring settings]] |
+| Audience settings on s26 / s27 | — | ❌ | [[ND-04 Ring settings]] |
 | Avatar bytes | — | ❌ | [[T-062 Serve uploaded file bytes by id]] |
 
 ## Behaviour expectations
@@ -76,7 +76,7 @@ What the client needs from the backend to build the screens in [[Delegated Admin
 
 ## Blocked by
 
-- [[Ring settings]] — the audience settings rows on s26 / s27.
+- [[ND-04 Ring settings]] — the audience settings rows on s26 / s27.
 - [[T-006 Delegated admin endpoints]] — all five admin rows above, including the level enum the s27 labels depend on.
 - [[T-023 Connection detail and contacts list]] — the picker and the names on the rows.
 - [[T-063 Put the ErrorCode on the error body]] — the error table is by status until then.

@@ -48,8 +48,8 @@ What the client needs to build the per-Ring photo picker and the library grid, a
 | List my files, filter by kind (images) | — | ❌ | [[T-012 List my files (photo library)]] |
 | "N Rings inherit it" per file | — | ❌ | [[T-013 Usage count per file across Rings]] |
 | Thumbnails and the full photo | — | ❌ | [[T-062 Serve uploaded file bytes by id]] |
-| Base profile photo for "Reset to Pin" | — | ❌ | [[Base profile work fields]] |
-| Inherit-by-default semantics | — | ❌ | [[Copy or inherit]] |
+| Base profile photo for "Reset to Pin" | — | ❌ | [[ND-02 Base profile work fields]] |
+| Inherit-by-default semantics | — | ❌ | [[ND-05 Copy or inherit]] |
 
 ## Behaviour expectations
 
@@ -79,4 +79,4 @@ Until [[T-063 Put the ErrorCode on the error body]] ships, branch on status and 
 - [[T-012 List my files (photo library)]] — the grid on s30 beyond this session's uploads.
 - [[T-013 Usage count per file across Rings]] — "N Rings inherit it".
 - [[T-062 Serve uploaded file bytes by id]] — every thumbnail and the large preview on s29.
-- [[Base profile work fields]] — "Reset to Pin".
+- [[ND-02 Base profile work fields]] — "Reset to Pin".

@@ -68,12 +68,12 @@ The comparison this vault was built from. The backend was checked against the de
 
 ## ⚠️ Where the design and the backend disagree (needs a decision)
 
-1. **Login without a password.** s01 promises a one-time code; the backend requires a password after the code. A `LOGIN` code type exists with no route. → [[Passwordless login]]
-2. **The profile has no work fields.** Every screen shows headline, role, company, location, photo, base bio; `Profile` has only name, nickname, birthdate, gender, marital status. → [[Base profile work fields]]
-3. **How fields are shared.** The design assumes one library of fields each Ring turns on or off; the backend stores a copy per Ring. → [[Field library vs per-Ring copies]]
-4. **Missing Ring settings** (s22, s26, s27): who the Ring is for, who can request to join, members see each other, members can invite / save attachments / message me, event presence, auto-accept, required email domain. "Members see each other" changes the owner-only rule. → [[Ring settings]]
-5. **Copy or inherit** (s18, s23, s28). → [[Copy or inherit]]
-6. **Pin name rules** (s06): once-a-year rename and suggested names vs no limit and deliberately no suggestions. → [[Pin name rules]]
+1. **Login without a password.** s01 promises a one-time code; the backend requires a password after the code. A `LOGIN` code type exists with no route. → [[ND-01 Passwordless login]]
+2. **The profile has no work fields.** Every screen shows headline, role, company, location, photo, base bio; `Profile` has only name, nickname, birthdate, gender, marital status. → [[ND-02 Base profile work fields]]
+3. **How fields are shared.** The design assumes one library of fields each Ring turns on or off; the backend stores a copy per Ring. → [[ND-03 Field library vs per-Ring copies]]
+4. **Missing Ring settings** (s22, s26, s27): who the Ring is for, who can request to join, members see each other, members can invite / save attachments / message me, event presence, auto-accept, required email domain. "Members see each other" changes the owner-only rule. → [[ND-04 Ring settings]]
+5. **Copy or inherit** (s18, s23, s28). → [[ND-05 Copy or inherit]]
+6. **Pin name rules** (s06): once-a-year rename and suggested names vs no limit and deliberately no suggestions. → [[ND-06 Pin name rules]]
 
 All six are tracked in [[Decisions]]; the tasks they block are on the [[Task Board]].
 

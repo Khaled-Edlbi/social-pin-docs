@@ -43,7 +43,7 @@ TABLE status, priority, effort FROM #task WHERE feature = "linked-accounts" SORT
 
 ## Open decisions
 
-- [[Passwordless login]]
+- [[ND-01 Passwordless login]]
 
 ## Related
 

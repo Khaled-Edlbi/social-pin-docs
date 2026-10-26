@@ -62,7 +62,7 @@ social-pin-docs/
 │   ├── T-NNN <Title>.md           a task; becomes tasks/T-NNN <Title>/ with the same seven kinds of notes (code T-NNN) as teams pick it up
 │   ├── Task Board.md              GENERATED Kanban
 │   └── Backlog.md                 GENERATED priority table with blockers
-├── needs-decisions/               the needs-decision cards, <Title>.md (ND-NN in id:): the questions
+├── needs-decisions/               the needs-decision cards, ND-NN <Title>.md: the questions
 ├── decisions/                     the decision cards, D-NN <Title>.md: the answers; and the Decisions table
 ├── design/                        Design Reference · Screen Index · Navigation Map · Wireframe Brief · Brief Section Map
 ├── templates/                     one per note kind (the scaffold command uses them)

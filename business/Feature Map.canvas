@@ -463,7 +463,7 @@
 		{
 			"id": "d_D-01",
 			"type": "file",
-			"file": "needs-decisions/Passwordless login.md",
+			"file": "needs-decisions/ND-01 Passwordless login.md",
 			"x": 3040,
 			"y": 0,
 			"width": 300,
@@ -473,7 +473,7 @@
 		{
 			"id": "d_D-02",
 			"type": "file",
-			"file": "needs-decisions/Base profile work fields.md",
+			"file": "needs-decisions/ND-02 Base profile work fields.md",
 			"x": 3040,
 			"y": 86,
 			"width": 300,
@@ -483,7 +483,7 @@
 		{
 			"id": "d_D-03",
 			"type": "file",
-			"file": "needs-decisions/Field library vs per-Ring copies.md",
+			"file": "needs-decisions/ND-03 Field library vs per-Ring copies.md",
 			"x": 3040,
 			"y": 172,
 			"width": 300,
@@ -493,7 +493,7 @@
 		{
 			"id": "d_D-04",
 			"type": "file",
-			"file": "needs-decisions/Ring settings.md",
+			"file": "needs-decisions/ND-04 Ring settings.md",
 			"x": 3040,
 			"y": 258,
 			"width": 300,
@@ -503,7 +503,7 @@
 		{
 			"id": "d_D-05",
 			"type": "file",
-			"file": "needs-decisions/Copy or inherit.md",
+			"file": "needs-decisions/ND-05 Copy or inherit.md",
 			"x": 3040,
 			"y": 344,
 			"width": 300,
@@ -513,7 +513,7 @@
 		{
 			"id": "d_D-06",
 			"type": "file",
-			"file": "needs-decisions/Pin name rules.md",
+			"file": "needs-decisions/ND-06 Pin name rules.md",
 			"x": 3040,
 			"y": 430,
 			"width": 300,

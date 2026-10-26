@@ -44,7 +44,7 @@ TABLE status, priority, effort FROM #task WHERE feature = "gemma" SORT priority 
 
 ## Decisions
 
-- [[Pin name rules]] — decided, yearly rename, old name freed, case-insensitive; suggestions only from the person's own name ([[D-06 Yearly rename, old name freed, case-insensitive|D-06]])
+- [[ND-06 Pin name rules]] — decided, yearly rename, old name freed, case-insensitive; suggestions only from the person's own name ([[D-06 Yearly rename, old name freed, case-insensitive|D-06]])
 
 ## Related
 

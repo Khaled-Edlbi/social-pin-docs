@@ -1,7 +1,6 @@
 ---
 type: needs-decision
 id: ND-18
-aliases: [ND-18]
 status: open
 features: [companies, ring-invitations]
 blocks: ["Companies Story", "Ring Invitations & Join Story"]

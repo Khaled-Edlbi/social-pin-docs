@@ -43,4 +43,4 @@ Open `socialPin-design/SocialPin Prototype Aurora Sky (offline).html` in a brows
 
 - `s35` (scanner) is referenced by the click-through map but has no screen in `.proto2.json`.
 - `s32`, `s33`, `s35` are skipped in the numbering.
-- The brief's §3.1 says "create password"; the prototype's s01 says "no password to remember". See [[Passwordless login]].
+- The brief's §3.1 says "create password"; the prototype's s01 says "no password to remember". See [[ND-01 Passwordless login]].

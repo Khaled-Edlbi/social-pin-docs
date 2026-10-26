@@ -22,7 +22,7 @@ decision: ND-06
 
 ## What
 
-Take [[Pin name rules]]. Decided by [[D-06 Yearly rename, old name freed, case-insensitive]]: rename once a year, the old name freed at once, names ignore capitals, suggestions only from the person's own name. Building it is not ticketed yet.
+Take [[ND-06 Pin name rules]]. Decided by [[D-06 Yearly rename, old name freed, case-insensitive]]: rename once a year, the old name freed at once, names ignore capitals, suggestions only from the person's own name. Building it is not ticketed yet.
 
 ## Design
 

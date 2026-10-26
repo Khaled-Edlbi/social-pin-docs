@@ -36,11 +36,11 @@ Social Pin (project)
 │   │   │   ├── T-004 Story                      ← the task's own story (draft until product approves it)
 │   │   │   ├── T-004 Backend Delivery …         ← the task's own layer notes, same kinds, code T-004
 │   │   │   ├── T-004-fe Frontend · Member count ← the frontend half: a sub-task (`parent: T-004`, `labels: [frontend]`) with its own layer notes
-│   │   │   └── T-004-be Backend · Member count  ← the backend half (`labels: [backend]`); a bug found later is another sub-task, `bugs/<Title>.md` with `type: bug` (code in `id:` and `aliases:`)
+│   │   │   └── T-004-be Backend · Member count  ← the backend half (`labels: [backend]`); a bug found later is another sub-task, `bugs/B-NN …` with `type: bug`
 │   │   ├── ND-04 Ring settings                   ← decisions/… that name rings in `features:`
 │   │   │   └── T-059 Decide Ring settings …     ← a task that depends on it
 │   │   └── (a card that needs a decision)
-│   │       └── <Title> (ND-NN)                   ← needs-decisions/<Title>.md whose `blocks:` names that card: hangs under it, blocks it while open
+│   │       └── ND-NN <Title>                     ← needs-decisions/… whose `blocks:` names that card: hangs under it, blocks it while open
 │   └── …
 ├── … seven more modules
 ├── Business docs   ← business/   overview, glossary, feature tree and graph, status reports

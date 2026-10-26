@@ -7,7 +7,7 @@ decidedBy: "molham"
 decidedAt: 2026-10-25
 features: [companies, delegated-admins, ring-invitations, ring-members, rings]
 affects: ["Rings", "Ring Members", "Ring Invitations & Join", "Delegated Admins", "Companies", "Ring Access Engine", "T-026 Ring invitations invite, review, decline", "T-027 Join a Ring with a code or verified work email", "T-059 Decide Ring settings"]
-related: ["Ring settings", "Ring Access Model"]
+related: ["ND-04 Ring settings", "Ring Access Model"]
 owner: "khaled"
 created: 2026-10-25
 updated: 2026-10-26
@@ -16,9 +16,9 @@ tags: [decision, decision/decided]
 
 # ⚖️ D-04 · Ring settings at launch and their defaults
 
-**Answers:** [[Ring settings]] · **Decided by:** molham · **On:** 2026-10-25 · **Feature:** [[Companies]], [[Delegated Admins]], [[Ring Invitations & Join]], [[Ring Members]], [[Rings]]
+**Answers:** [[ND-04 Ring settings]] · **Decided by:** molham · **On:** 2026-10-25 · **Feature:** [[Companies]], [[Delegated Admins]], [[Ring Invitations & Join]], [[Ring Members]], [[Rings]]
 
-> This card is the answer to [[Ring settings]]. The needs-decision card keeps the question, the facts and the options; this decision card says what was decided, why, and what it changes. `draft` while the answer is prepared; `decided` only by the PM or the owner, on the user's word, with `decidedBy` and `decidedAt`: then [[Ring settings]] shows Fulfilled by itself and the cards it blocked continue.
+> This card is the answer to [[ND-04 Ring settings]]. The needs-decision card keeps the question, the facts and the options; this decision card says what was decided, why, and what it changes. `draft` while the answer is prepared; `decided` only by the PM or the owner, on the user's word, with `decidedBy` and `decidedAt`: then [[ND-04 Ring settings]] shows Fulfilled by itself and the cards it blocked continue.
 
 ## What was decided
 

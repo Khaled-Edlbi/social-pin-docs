@@ -48,8 +48,8 @@ TABLE status, priority, effort FROM #task WHERE feature = "onboarding-imports" S
 
 ## Decisions
 
-- [[Base profile work fields]] — decided, one main profile every Ring starts from; imports fill it ([[D-02 One main profile every Ring starts from|D-02]])
-- [[How a business card and a portfolio page are read]] — open: on the phone or on the server, and what each import reads; blocks [[T-020b Business card scan and portfolio URL import|T-020b]]
+- [[ND-02 Base profile work fields]] — decided, one main profile every Ring starts from; imports fill it ([[D-02 One main profile every Ring starts from|D-02]])
+- [[ND-21 How a business card and a portfolio page are read]] — open: on the phone or on the server, and what each import reads; blocks [[T-020b Business card scan and portfolio URL import|T-020b]]
 
 ## Related
 

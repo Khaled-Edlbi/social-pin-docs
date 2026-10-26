@@ -7,7 +7,7 @@ decidedBy: "molham"
 decidedAt: 2026-10-25
 features: [connections]
 affects: ["Connections", "Rings", "Ring Members", "T-022 Accept into a Ring (sets grantedRingId)", "T-023 Connection detail and contacts list"]
-related: ["Connection-granted Ring on Shared with me", "View As & Pin Views", "D-15 Several Rings per connection, remove or disconnect"]
+related: ["ND-14 Connection-granted Ring on Shared with me", "View As & Pin Views", "D-15 Several Rings per connection, remove or disconnect"]
 owner: "khaled"
 created: 2026-10-25
 updated: 2026-10-26
@@ -16,9 +16,9 @@ tags: [decision, decision/decided]
 
 # ⚖️ D-14 · Shared with me lists people, never the Ring
 
-**Answers:** [[Connection-granted Ring on Shared with me]] · **Decided by:** molham · **On:** 2026-10-25 · **Feature:** [[Connections]]
+**Answers:** [[ND-14 Connection-granted Ring on Shared with me]] · **Decided by:** molham · **On:** 2026-10-25 · **Feature:** [[Connections]]
 
-> This card is the answer to [[Connection-granted Ring on Shared with me]]. The needs-decision card keeps the question, the facts and the options; this decision card says what was decided, why, and what it changes. `draft` while the answer is prepared; `decided` only by the PM or the owner, on the user's word, with `decidedBy` and `decidedAt`: then [[Connection-granted Ring on Shared with me]] shows Fulfilled by itself and the cards it blocked continue.
+> This card is the answer to [[ND-14 Connection-granted Ring on Shared with me]]. The needs-decision card keeps the question, the facts and the options; this decision card says what was decided, why, and what it changes. `draft` while the answer is prepared; `decided` only by the PM or the owner, on the user's word, with `decidedBy` and `decidedAt`: then [[ND-14 Connection-granted Ring on Shared with me]] shows Fulfilled by itself and the cards it blocked continue.
 
 ## What was decided
 

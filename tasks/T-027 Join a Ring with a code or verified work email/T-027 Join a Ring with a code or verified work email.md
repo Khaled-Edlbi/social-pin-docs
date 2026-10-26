@@ -30,7 +30,7 @@ Needs `joinPolicy`, join code and `requiredEmailDomain` on the Ring. Joining wit
 
 ## Dependencies
 
-- Waited on decision [[Ring settings]], decided by [[D-04 Ring settings at launch and their defaults]]
+- Waited on decision [[ND-04 Ring settings]], decided by [[D-04 Ring settings at launch and their defaults]]
 - Waits on [[T-026 Ring invitations invite, review, decline]]
 - Unblocks [[T-028 What you contribute to a shared Ring]]
 
