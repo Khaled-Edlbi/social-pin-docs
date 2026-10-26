@@ -112,6 +112,7 @@
     "D-17 Request expiry, note and asking again": "decision:D-17",
     "D-18 Company and invited Ring names shown to members": "decision:D-18",
     "D-19 Where a ticket's layer notes live": "decision:D-19",
+    "D-20 Whether an unverified new address may sign in": "decision:D-20",
     "DR-01 Code-only login": "decision-record:DR-01",
     "DR-02 One main profile every Ring starts from": "decision-record:DR-02",
     "DR-03 Links entered once, switched on or off per Ring": "decision-record:DR-03",
@@ -613,6 +614,7 @@
     "D-17": "decision:D-17",
     "D-18": "decision:D-18",
     "D-19": "decision:D-19",
+    "D-20": "decision:D-20",
     "DR-01": "decision-record:DR-01",
     "DR-02": "decision-record:DR-02",
     "DR-03": "decision-record:DR-03",
@@ -1243,6 +1245,7 @@
     },
     "E_AUTH_03": {
       "containers": [
+        "decision:D-20",
         "feature:account",
         "feature:auth",
         "feature:devices",
@@ -1258,6 +1261,7 @@
         "backend-delivery:auth",
         "backend-integration:account",
         "backend-integration:auth",
+        "decision:D-20",
         "frontend-delivery:account",
         "frontend-requirements:account",
         "frontend-requirements:auth",
@@ -2762,6 +2766,7 @@
     },
     "PATCH /users/me": {
       "containers": [
+        "decision:D-20",
         "feature:account",
         "project:spec-map",
         "task:B-01"
@@ -2770,6 +2775,7 @@
       "notes": [
         "backend-delivery:account",
         "backend-integration:account",
+        "decision:D-20",
         "frontend-delivery:account",
         "frontend-requirements:account",
         "project:spec-map",
@@ -2835,6 +2841,7 @@
     },
     "POST /auth/login": {
       "containers": [
+        "decision:D-20",
         "feature:account",
         "feature:auth",
         "feature:code-delivery",
@@ -2848,6 +2855,7 @@
         "backend-delivery:account",
         "backend-delivery:auth",
         "backend-integration:auth",
+        "decision:D-20",
         "frontend-requirements:auth",
         "frontend-requirements:code-delivery",
         "frontend-requirements:linked-accounts",
@@ -2860,6 +2868,7 @@
     },
     "POST /auth/login/verify": {
       "containers": [
+        "decision:D-20",
         "feature:account",
         "feature:audit-log",
         "feature:auth",
@@ -2874,6 +2883,7 @@
         "backend-delivery:auth",
         "backend-delivery:linked-accounts",
         "backend-integration:auth",
+        "decision:D-20",
         "frontend-requirements:audit-log",
         "frontend-requirements:auth",
         "project:developer-setup",
@@ -4923,6 +4933,7 @@
     },
     "s68": {
       "containers": [
+        "decision:D-20",
         "feature:account",
         "feature:auth",
         "feature:counts",
@@ -4945,6 +4956,7 @@
         "backend-delivery:linked-accounts",
         "backend-integration:account",
         "backend-integration:auth",
+        "decision:D-20",
         "feature:account",
         "feature:auth",
         "feature:counts",
@@ -5145,11 +5157,11 @@
     }
   },
   "counts": {
-    "blocked": 150,
+    "blocked": 151,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
-      "decision": 17,
+      "decision": 18,
       "decision-record": 13,
       "feature": 41,
       "frontend-delivery": 1,
@@ -5163,18 +5175,18 @@
     },
     "byLayer": {
       "backend": 56,
-      "business": 370,
+      "business": 371,
       "frontend": 44,
       "qa": 2,
       "shared": 10
     },
     "concepts": 199,
-    "decisions": 17,
-    "edges": 5142,
+    "decisions": 18,
+    "edges": 5179,
     "features": 41,
     "layerNotes": 194,
     "modules": 8,
-    "notes": 517,
+    "notes": 518,
     "partial": 1,
     "placeholders": 162,
     "records": 13,
@@ -5577,6 +5589,31 @@
       "from": "decision:D-18",
       "kind": "affects",
       "to": "feature:ring-invitations"
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "affects",
+      "to": "backend-delivery:account"
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "affects",
+      "to": "backend-integration:account"
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "affects",
+      "to": "qa-backend:account"
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "affects",
+      "to": "qa-frontend:account"
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "affects",
+      "to": "story:account"
     },
     {
       "from": "project:agent-protocol",
@@ -6372,6 +6409,11 @@
       "from": "decision:D-16",
       "kind": "blocks",
       "to": "story:T-062"
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "blocks",
+      "to": "task:B-01"
     },
     {
       "from": "frontend-delivery:app-shell",
@@ -7952,6 +7994,16 @@
       "from": "decision:D-19",
       "kind": "decision",
       "to": "task:T-063"
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "decision",
+      "to": "feature:account"
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "decision",
+      "to": "task:B-01"
     },
     {
       "from": "project:admin-agent",
@@ -9767,6 +9819,31 @@
       "from": "decision:D-19",
       "kind": "related",
       "to": "project:docs-tree"
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "related",
+      "to": "backend-integration:auth"
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "related",
+      "to": "frontend-delivery:account"
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "related",
+      "to": "project:auth-model"
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "related",
+      "to": "task:B-01"
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "related",
+      "to": "task:T-003"
     },
     {
       "from": "feature:account",
@@ -13738,6 +13815,134 @@
       "to": "task:T-022",
       "via": [
         "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "shares",
+      "to": "feature:account",
+      "via": [
+        "E_AUTH_03",
+        "PATCH /users/me",
+        "POST /auth/login",
+        "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "shares",
+      "to": "feature:audit-log",
+      "via": [
+        "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "shares",
+      "to": "feature:auth",
+      "via": [
+        "E_AUTH_03",
+        "POST /auth/login",
+        "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "shares",
+      "to": "feature:code-delivery",
+      "via": [
+        "POST /auth/login"
+      ]
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "shares",
+      "to": "feature:devices",
+      "via": [
+        "E_AUTH_03"
+      ]
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "shares",
+      "to": "feature:error-contract",
+      "via": [
+        "E_AUTH_03"
+      ]
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "shares",
+      "to": "feature:linked-accounts",
+      "via": [
+        "POST /auth/login",
+        "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "shares",
+      "to": "project:auth-model",
+      "via": [
+        "E_AUTH_03"
+      ]
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "shares",
+      "to": "project:developer-guide",
+      "via": [
+        "POST /auth/login"
+      ]
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "shares",
+      "to": "project:developer-setup",
+      "via": [
+        "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "shares",
+      "to": "project:frontend-api-guide",
+      "via": [
+        "E_AUTH_03"
+      ]
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "shares",
+      "to": "project:frontend-passwordless-migration",
+      "via": [
+        "E_AUTH_03",
+        "POST /auth/login",
+        "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "shares",
+      "to": "project:spec-map",
+      "via": [
+        "PATCH /users/me"
+      ]
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "shares",
+      "to": "task:T-019",
+      "via": [
+        "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "shares",
+      "to": "task:T-063",
+      "via": [
+        "E_AUTH_03"
       ]
     },
     {
@@ -24377,6 +24582,11 @@
       "to": "task:T-018"
     },
     {
+      "from": "task:B-01",
+      "kind": "tree",
+      "to": "decision:D-20"
+    },
+    {
       "from": "task:T-001",
       "kind": "tree",
       "to": "story:T-001"
@@ -26600,6 +26810,46 @@
       "from": "decision:D-19",
       "kind": "wikilink",
       "to": "task:T-063-fe"
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "wikilink",
+      "to": "backend-delivery:account"
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "wikilink",
+      "to": "backend-integration:account"
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "wikilink",
+      "to": "feature:account"
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "wikilink",
+      "to": "project:agent-rules"
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "wikilink",
+      "to": "project:frontend-api-guide"
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "wikilink",
+      "to": "qa-backend:account"
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "wikilink",
+      "to": "qa-frontend:account"
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "wikilink",
+      "to": "story:account"
     },
     {
       "from": "feature:account",
@@ -35398,6 +35648,10 @@
       "name": "D-19 Where a ticket's layer notes live",
       "type": "decision"
     },
+    "decisions/D-20 Whether an unverified new address may sign in.md": {
+      "name": "D-20 Whether an unverified new address may sign in",
+      "type": "decision"
+    },
     "decisions/DR-01 Code-only login.md": {
       "name": "DR-01 Code-only login",
       "type": "decision-record"
@@ -40071,6 +40325,7 @@
       "priority": "critical",
       "related": [
         "task:B-01",
+        "decision:D-20",
         "qa-backend:account"
       ],
       "release": "mvp",
@@ -43687,6 +43942,70 @@
       "title": "D-19 Where a ticket's layer notes live",
       "updated": "2026-10-25"
     },
+    "decision:D-20": {
+      "affects": [
+        "story:account",
+        "backend-delivery:account",
+        "backend-integration:account",
+        "qa-backend:account",
+        "qa-frontend:account"
+      ],
+      "blockedBy": [],
+      "blocks": [
+        "task:B-01"
+      ],
+      "card": "D-20",
+      "children": [],
+      "code": "D-20",
+      "created": "2026-10-26",
+      "deadline": null,
+      "decider": "pm",
+      "depends": [],
+      "effectiveStatus": "needs-decision",
+      "effort": null,
+      "feature": null,
+      "features": [
+        "account"
+      ],
+      "foundOn": null,
+      "frontendOnly": false,
+      "id": "decision:D-20",
+      "inherits": {},
+      "kind": "decision",
+      "label": "Needs decision",
+      "labels": [],
+      "layer": "business",
+      "module": null,
+      "parentTask": null,
+      "parents": [
+        "task:B-01"
+      ],
+      "path": "decisions/D-20 Whether an unverified new address may sign in.md",
+      "pending": [],
+      "priority": "high",
+      "related": [
+        "task:B-01",
+        "backend-integration:auth",
+        "frontend-delivery:account",
+        "project:auth-model",
+        "task:T-003"
+      ],
+      "release": null,
+      "scope": null,
+      "screens": [
+        "s68"
+      ],
+      "status": "needs-decision",
+      "summary": "An address changed through PATCH /users/me comes back with emailVerifiedAt: null, and signs in at once all the same: POST /auth/login issues a code for it and POST /auth/login/verify returns a…",
+      "tags": [
+        "decision",
+        "decision/open",
+        "priority/high"
+      ],
+      "task": null,
+      "title": "D-20 Whether an unverified new address may sign in",
+      "updated": "2026-10-26"
+    },
     "feature:account": {
       "affects": [],
       "blockedBy": [],
@@ -43742,12 +44061,14 @@
       "release": "mvp",
       "rollup": {
         "approved": 1,
+        "blocked": 1,
         "current": 1,
         "delivered": 1,
         "done": 2,
         "draft": 1,
         "failing": 1,
-        "todo": 2
+        "needs-decision": 1,
+        "todo": 1
       },
       "scope": null,
       "screens": [
@@ -46951,6 +47272,7 @@
       "pending": [],
       "priority": "critical",
       "related": [
+        "decision:D-20",
         "frontend-requirements:account",
         "feature:profiles",
         "task:T-062",
@@ -51378,7 +51700,7 @@
       "release": null,
       "rollup": {
         "approved": 14,
-        "blocked": 21,
+        "blocked": 22,
         "current": 9,
         "decided": 6,
         "delivered": 1,
@@ -51387,8 +51709,8 @@
         "failing": 1,
         "in-progress": 13,
         "missing": 40,
-        "needs-decision": 2,
-        "todo": 11,
+        "needs-decision": 3,
+        "todo": 10,
         "verified": 6
       },
       "scope": null,
@@ -51956,7 +52278,8 @@
       "pending": [],
       "priority": null,
       "related": [
-        "task:B-02"
+        "task:B-02",
+        "decision:D-20"
       ],
       "release": null,
       "scope": null,
@@ -56906,7 +57229,7 @@
       ],
       "rollup": {
         "approved": 38,
-        "blocked": 150,
+        "blocked": 151,
         "current": 9,
         "decided": 13,
         "delivered": 1,
@@ -56915,10 +57238,10 @@
         "failing": 1,
         "in-progress": 58,
         "missing": 162,
-        "needs-decision": 9,
+        "needs-decision": 10,
         "partial": 1,
         "reference": 31,
-        "todo": 54,
+        "todo": 53,
         "verified": 13
       },
       "scope": null,
@@ -62458,16 +62781,24 @@
         "story:account",
         "qa-backend:account"
       ],
-      "blockedBy": [],
+      "blockedBy": [
+        {
+          "id": "decision:D-20",
+          "title": "D-20 Whether an unverified new address may sign in",
+          "why": "needs decision D-20 (open)"
+        }
+      ],
       "card": "B-01",
-      "children": [],
+      "children": [
+        "decision:D-20"
+      ],
       "code": "B-01",
       "created": "2026-10-26",
       "deadline": null,
       "decision": null,
       "depends": [],
       "dir": null,
-      "effectiveStatus": "todo",
+      "effectiveStatus": "blocked",
       "effort": "S",
       "feature": "account",
       "foundOn": "Account Backend Integration",
@@ -62496,10 +62827,13 @@
         "qa-frontend:account",
         "backend-integration:auth",
         "decision:D-01",
-        "task:T-003"
+        "task:T-003",
+        "decision:D-20"
       ],
       "release": "mvp",
-      "rollup": {},
+      "rollup": {
+        "needs-decision": 1
+      },
       "scope": null,
       "screens": [
         "s68"
@@ -62872,7 +63206,8 @@
       "pending": [],
       "priority": "high",
       "related": [
-        "task:B-01"
+        "task:B-01",
+        "decision:D-20"
       ],
       "release": "mvp",
       "rollup": {
