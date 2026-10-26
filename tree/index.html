@@ -453,7 +453,10 @@ const KIND = {
   root: { name: 'Project', short: 'Project', icon: 'ph-circles-three' }, module: { name: 'Module', short: 'Modules', icon: 'ph-folders' },
   group: { name: 'Docs', short: 'Docs', icon: 'ph-books' }, feature: { name: 'Feature', short: 'Features', icon: 'ph-diamond' },
   // a task is a business-layer card like a story, so it carries the layer the same way the layer kinds do (the mark on the node, `· Business layer` in the pane); the layer kinds get theirs from `d.layers` below
-  task: { name: 'Task', short: 'Tasks', icon: 'ph-check-square', layer: 'business' }, decision: { name: 'Needs decision', short: 'Needs decision', icon: 'ph-scales' }, 'decision-record': { name: 'Decision', short: 'Decisions', icon: 'ph-seal-check' },
+  task: { name: 'Task', short: 'Tasks', icon: 'ph-check-square', layer: 'business' },
+  // a bug is a task note with `labels: [bug]`, numbered B-NN and hanging under the card it was found against: its own name and icon, the same business layer
+  bug: { name: 'Bug', short: 'Bugs', icon: 'ph-bug', layer: 'business' },
+  decision: { name: 'Needs decision', short: 'Needs decision', icon: 'ph-scales' }, 'decision-record': { name: 'Decision', short: 'Decisions', icon: 'ph-seal-check' },
   project: { name: 'Project note', short: 'Project notes', icon: 'ph-book-open' },
 };
 const KIND_ICON = { story: 'ph-chat-text', 'frontend-requirements': 'ph-clipboard-text', 'backend-delivery': 'ph-wrench', 'backend-integration': 'ph-plugs-connected', 'frontend-delivery': 'ph-device-mobile', 'qa-backend': 'ph-flask', 'qa-frontend': 'ph-test-tube' };
@@ -639,7 +642,9 @@ const CODE_TITLED = new Set(['decision', 'decision-record', 'task']);
 const DECISION_CARDS = new Set(['decision', 'decision-record']);
 const shown = (n) => (CODE_TITLED.has(n.kind) && n.card && n.title.startsWith(n.card) ? n.title.slice(n.card.length).replace(/^[\s·:-]+/, '') || n.title : n.title);
 // the kicker names the kind and never changes: a needs-decision card (D-NN) always reads NEEDS DECISION, its decision card (DR-NN) DECISION; the chip says Draft, Open or Fulfilled (DR: Draft or Decided)
-const kicker = (n) => (n.card && (CODE_TITLED.has(n.kind) || !n.title.startsWith(n.card)) ? n.card + ' · ' : '') + kindOf(n.kind).name.toUpperCase() + (n.parentTask ? ' · SUB-TASK OF ' + n.parentTask : '') + (n.frontendOnly ? ' · FRONTEND ONLY' : '');
+// what a node is called on the page: a task note with `labels: [bug]` is a BUG, numbered B-NN and hanging under the card it was found against; everything else is its own kind
+const displayKind = (n) => (n.kind === 'task' && (n.labels || []).includes('bug') ? 'bug' : n.kind);
+const kicker = (n) => (n.card && (CODE_TITLED.has(n.kind) || !n.title.startsWith(n.card)) ? n.card + ' · ' : '') + kindOf(displayKind(n)).name.toUpperCase() + (n.parentTask ? ' · SUB-TASK OF ' + n.parentTask : '') + (n.frontendOnly ? ' · FRONTEND ONLY' : '');
 const flowIdx = (kind) => FLOW.order.indexOf(kind);
 // is a story fulfilled? only the PM fulfils it (`verified`), once QA has finished: 'checked' when fulfilled, 'cross' when any QA card is failing,
 // 'pending' until then (with "waiting for the PM" once every QA card is passing with nothing pending); a task story's QA cards sit under its halves
@@ -714,7 +719,7 @@ function buildTree() {
   rootInst = root;
   return root;
 }
-const hasLayerMark = (n) => !!(n.layer && LAYER[n.layer] && LAYER[n.layer].color && KIND[n.kind] && KIND[n.kind].layer);
+const hasLayerMark = (n) => !!(n.layer && LAYER[n.layer] && LAYER[n.layer].color && KIND[displayKind(n)] && KIND[displayKind(n)].layer);
 function nodeWidth(n, caret) {
   const k = kicker(n);
   const t = tw(shown(n), `600 13px ${FONT}`), kw = tw(k, `600 9px ${FONT}`) + k.length * 0.9 + (hasLayerMark(n) ? 11 : 0);
@@ -1264,7 +1269,7 @@ function renderOutline() {
     const row = document.createElement('div'); row.className = `orow k-${n.kind}${big ? ' big' : ''}${S.selected === it.id ? ' sel' : ''}${active && !it.match ? ' faded' : ''}${inactive(n) ? ' inactive' : ''}`;
     row.setAttribute('role', 'treeitem'); row.tabIndex = 0; row.dataset.row = it.iid; if (has) row.setAttribute('aria-expanded', String(!!it.open));
     row.style.paddingLeft = (10 + it.depth * 24) + 'px';
-    row.innerHTML = `<button class="car" aria-label="Toggle" style="visibility:${has ? 'visible' : 'hidden'}"><i class="ph-duotone ${it.open ? 'ph-caret-down' : 'ph-caret-right'}"></i></button><i class="ki ph-duotone ${kindOf(n.kind).icon}"></i><span class="t" title="${esc(n.path || n.title)}">${esc(shown(n))}</span><span class="kick">${n.kind === 'root' ? '' : esc(kicker(n))}</span>${marksHtml(n)}${tagsHtml(n)}${(n.labels || []).map((l) => `<span class="stchip" style="--bg:${labelStyle(l).bg};--ink:${labelStyle(l).ink};--bd:${labelStyle(l).c};text-transform:uppercase;letter-spacing:.06em;font-weight:700;font-size:10px">${esc(l)}</span>`).join('')}${n.kind === 'root' ? '' : chipHtml(n)}`;
+    row.innerHTML = `<button class="car" aria-label="Toggle" style="visibility:${has ? 'visible' : 'hidden'}"><i class="ph-duotone ${it.open ? 'ph-caret-down' : 'ph-caret-right'}"></i></button><i class="ki ph-duotone ${kindOf(displayKind(n)).icon}"></i><span class="t" title="${esc(n.path || n.title)}">${esc(shown(n))}</span><span class="kick">${n.kind === 'root' ? '' : esc(kicker(n))}</span>${marksHtml(n)}${tagsHtml(n)}${(n.labels || []).map((l) => `<span class="stchip" style="--bg:${labelStyle(l).bg};--ink:${labelStyle(l).ink};--bd:${labelStyle(l).c};text-transform:uppercase;letter-spacing:.06em;font-weight:700;font-size:10px">${esc(l)}</span>`).join('')}${n.kind === 'root' ? '' : chipHtml(n)}`;
     row.querySelector('.car').addEventListener('click', (e) => { e.stopPropagation(); if (has) toggle(it.id); });
     row.addEventListener('click', () => select(it.id, it.iid));
     row.addEventListener('keydown', (e) => {
@@ -1362,10 +1367,10 @@ function impactHtml(n) {
   return `<div class="relg"><div class="rt">Impact <span>what a change here touches, as --impact prints it</span></div>${render(first)}</div>` + (second.size ? `<div class="relg"><div class="rt">Two hops away <span>${second.size}</span></div>${render(second)}</div>` : '');
 }
 async function openNode(id) {
-  const n = node(id), k = kindOf(n.kind);
+  const n = node(id), k = kindOf(displayKind(n));
   const path = n.path || n.file || null;
   const st = stOf(n);
-  openPane({ id, node: true, icon: k.icon, kicker: kicker(n) + (n.layer && LAYER[n.layer] && KIND[n.kind] && KIND[n.kind].layer ? ' · ' + LAYER[n.layer].label + ' layer' : '') , title: shown(n), path: path || '', gh: path ? ghUrl(path) : (n.template ? ghUrl(n.template) : (S.D.repo.blobBase || '')), ghText: path ? 'Edit on GitHub' : 'Open the template', summary: n.summary || '', state: stateHtml(n), contains: containsHtml(n), rels: relationsHtml(n), chip: chipStyle(n), dashed: st.dashed, status: statusText(n), labels: n.labels || [], marks: marksHtml(n, true) + tagsHtml(n), noStatus: n.kind === 'root' });
+  openPane({ id, node: true, icon: k.icon, kicker: kicker(n) + (n.layer && LAYER[n.layer] && KIND[displayKind(n)] && KIND[displayKind(n)].layer ? ' · ' + LAYER[n.layer].label + ' layer' : '') , title: shown(n), path: path || '', gh: path ? ghUrl(path) : (n.template ? ghUrl(n.template) : (S.D.repo.blobBase || '')), ghText: path ? 'Edit on GitHub' : 'Open the template', summary: n.summary || '', state: stateHtml(n), contains: containsHtml(n), rels: relationsHtml(n), chip: chipStyle(n), dashed: st.dashed, status: statusText(n), labels: n.labels || [], marks: marksHtml(n, true) + tagsHtml(n), noStatus: n.kind === 'root' });
   if (!path) { $('#p-article').innerHTML = `<p class="empty">Not written yet.${n.template ? ` Create it from <a href="#f/${encodeURIComponent(n.template)}">${esc(n.template)}</a>.` : ''}</p>`; return; }
   await renderFile(path, n.heading, id);
 }

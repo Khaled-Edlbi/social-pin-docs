@@ -65,6 +65,8 @@
     "Auth & Sign-up Frontend Requirements": "frontend-requirements:auth",
     "Auth & Sign-up Story": "story:auth",
     "Auth Model": "project:auth-model",
+    "B-01 An unverified changed email still signs in": "task:B-01",
+    "B-02 Deleted account answers 401, not the documented 404 E_USER_01": "task:B-02",
     "Backend Agent": "project:backend-agent",
     "Badge & QR": "feature:badge-qr",
     "Badge & QR Backend Delivery": "backend-delivery:badge-qr",
@@ -516,8 +518,6 @@
     "T-072 Story": "story:T-072",
     "T-072-be Backend · Platform stats": "task:T-072-be",
     "T-073 GitLab pipeline and Docker setup": "task:T-073",
-    "T-076 An unverified changed email still signs in": "task:T-076",
-    "T-077 Deleted account answers 401, not the documented 404 E_USER_01": "task:T-077",
     "View As & Pin Views": "feature:view-as",
     "View As & Pin Views Backend Delivery": "backend-delivery:view-as",
     "View As & Pin Views Backend Integration": "backend-integration:view-as",
@@ -530,6 +530,7 @@
     "Workflow": "project:workflow"
   },
   "cardPrefixes": {
+    "B": "bug",
     "BD": "backend-delivery",
     "BI": "backend-integration",
     "D": "decision",
@@ -545,6 +546,8 @@
     "T": "task"
   },
   "cards": {
+    "B-01": "task:B-01",
+    "B-02": "task:B-02",
     "BD-01": "backend-delivery:account",
     "BD-02": "backend-delivery:auth",
     "BD-03": "backend-delivery:counts",
@@ -1032,9 +1035,7 @@
     "T-071-be": "task:T-071-be",
     "T-072": "task:T-072",
     "T-072-be": "task:T-072-be",
-    "T-073": "task:T-073",
-    "T-076": "task:T-076",
-    "T-077": "task:T-077"
+    "T-073": "task:T-073"
   },
   "concepts": {
     "DELETE /admin/users/:userId/roles/:assignmentId": {
@@ -1129,7 +1130,7 @@
     "DELETE /users/me": {
       "containers": [
         "feature:account",
-        "task:T-077"
+        "task:B-02"
       ],
       "kind": "endpoint",
       "notes": [
@@ -1139,7 +1140,7 @@
         "frontend-requirements:account",
         "qa-backend:account",
         "story:account",
-        "task:T-077"
+        "task:B-02"
       ],
       "owner": "feature:account"
     },
@@ -1249,8 +1250,8 @@
         "project:auth-model",
         "project:frontend-api-guide",
         "project:frontend-passwordless-migration",
-        "task:T-063",
-        "task:T-076"
+        "task:B-01",
+        "task:T-063"
       ],
       "kind": "error",
       "notes": [
@@ -1270,7 +1271,7 @@
         "story:T-063",
         "story:account",
         "story:auth",
-        "task:T-076"
+        "task:B-01"
       ],
       "owner": null
     },
@@ -1747,7 +1748,7 @@
     "E_USER_01": {
       "containers": [
         "feature:account",
-        "task:T-077"
+        "task:B-02"
       ],
       "kind": "error",
       "notes": [
@@ -1757,7 +1758,7 @@
         "frontend-requirements:account",
         "qa-backend:account",
         "qa-frontend:account",
-        "task:T-077"
+        "task:B-02"
       ],
       "owner": null
     },
@@ -2076,7 +2077,7 @@
         "feature:account",
         "feature:profiles",
         "feature:ring-projection",
-        "task:T-077"
+        "task:B-02"
       ],
       "kind": "endpoint",
       "notes": [
@@ -2091,7 +2092,7 @@
         "qa-frontend:account",
         "story:account",
         "story:profiles",
-        "task:T-077"
+        "task:B-02"
       ],
       "owner": "feature:profiles"
     },
@@ -2159,9 +2160,9 @@
         "project:frontend-contract",
         "project:spec-map",
         "project:status-report-2026-10-15",
+        "task:B-02",
         "task:T-004",
-        "task:T-022",
-        "task:T-077"
+        "task:T-022"
       ],
       "kind": "endpoint",
       "notes": [
@@ -2192,7 +2193,7 @@
         "story:event-ring-auto",
         "story:post-event",
         "story:rings",
-        "task:T-077"
+        "task:B-02"
       ],
       "owner": "feature:rings"
     },
@@ -2416,7 +2417,7 @@
         "feature:badge-qr",
         "feature:linked-accounts",
         "feature:ring-projection",
-        "task:T-077"
+        "task:B-02"
       ],
       "kind": "endpoint",
       "notes": [
@@ -2430,7 +2431,7 @@
         "qa-backend:account",
         "qa-frontend:account",
         "story:account",
-        "task:T-077"
+        "task:B-02"
       ],
       "owner": "feature:account"
     },
@@ -2763,7 +2764,7 @@
       "containers": [
         "feature:account",
         "project:spec-map",
-        "task:T-076"
+        "task:B-01"
       ],
       "kind": "endpoint",
       "notes": [
@@ -2774,7 +2775,7 @@
         "project:spec-map",
         "qa-backend:account",
         "story:account",
-        "task:T-076"
+        "task:B-01"
       ],
       "owner": "feature:account"
     },
@@ -2840,7 +2841,7 @@
         "feature:linked-accounts",
         "project:developer-guide",
         "project:frontend-passwordless-migration",
-        "task:T-076"
+        "task:B-01"
       ],
       "kind": "endpoint",
       "notes": [
@@ -2853,7 +2854,7 @@
         "project:developer-guide",
         "project:frontend-passwordless-migration",
         "qa-backend:account",
-        "task:T-076"
+        "task:B-01"
       ],
       "owner": "feature:auth"
     },
@@ -2865,8 +2866,8 @@
         "feature:linked-accounts",
         "project:developer-setup",
         "project:frontend-passwordless-migration",
-        "task:T-019",
-        "task:T-076"
+        "task:B-01",
+        "task:T-019"
       ],
       "kind": "endpoint",
       "notes": [
@@ -2880,8 +2881,8 @@
         "qa-backend:account",
         "story:T-019",
         "story:linked-accounts",
-        "task:T-019",
-        "task:T-076"
+        "task:B-01",
+        "task:T-019"
       ],
       "owner": "feature:auth"
     },
@@ -4927,14 +4928,14 @@
         "feature:counts",
         "feature:linked-accounts",
         "feature:payments",
+        "task:B-01",
+        "task:B-02",
         "task:T-005",
         "task:T-005-be",
         "task:T-005-fe",
         "task:T-019",
         "task:T-019-be",
-        "task:T-019-fe",
-        "task:T-076",
-        "task:T-077"
+        "task:T-019-fe"
       ],
       "kind": "screen",
       "notes": [
@@ -4962,14 +4963,14 @@
         "story:counts",
         "story:linked-accounts",
         "story:payments",
+        "task:B-01",
+        "task:B-02",
         "task:T-005",
         "task:T-005-be",
         "task:T-005-fe",
         "task:T-019",
         "task:T-019-be",
-        "task:T-019-fe",
-        "task:T-076",
-        "task:T-077"
+        "task:T-019-fe"
       ],
       "owner": null
     },
@@ -5234,10 +5235,7 @@
   ],
   "diagnostics": {
     "errors": [],
-    "warnings": [
-      "modules/Identity Core/Account/Account.md: wikilink [[T-074 An unverified changed email still signs in]] resolves to no note",
-      "modules/Identity Core/Account/Account.md: wikilink [[T-075 Deleted account answers 401, not the documented 404 E_USER_01]] resolves to no note"
-    ]
+    "warnings": []
   },
   "edges": [
     {
@@ -5636,6 +5634,36 @@
       "to": "feature:events-during"
     },
     {
+      "from": "task:B-01",
+      "kind": "affects",
+      "to": "backend-delivery:account"
+    },
+    {
+      "from": "task:B-01",
+      "kind": "affects",
+      "to": "qa-backend:account"
+    },
+    {
+      "from": "task:B-01",
+      "kind": "affects",
+      "to": "story:account"
+    },
+    {
+      "from": "task:B-02",
+      "kind": "affects",
+      "to": "backend-integration:account"
+    },
+    {
+      "from": "task:B-02",
+      "kind": "affects",
+      "to": "qa-backend:account"
+    },
+    {
+      "from": "task:B-02",
+      "kind": "affects",
+      "to": "story:account"
+    },
+    {
       "from": "task:T-063",
       "kind": "affects",
       "to": "backend-delivery:error-contract"
@@ -5834,36 +5862,6 @@
       "from": "task:T-073",
       "kind": "affects",
       "to": "project:developer-setup"
-    },
-    {
-      "from": "task:T-076",
-      "kind": "affects",
-      "to": "backend-delivery:account"
-    },
-    {
-      "from": "task:T-076",
-      "kind": "affects",
-      "to": "qa-backend:account"
-    },
-    {
-      "from": "task:T-076",
-      "kind": "affects",
-      "to": "story:account"
-    },
-    {
-      "from": "task:T-077",
-      "kind": "affects",
-      "to": "backend-integration:account"
-    },
-    {
-      "from": "task:T-077",
-      "kind": "affects",
-      "to": "qa-backend:account"
-    },
-    {
-      "from": "task:T-077",
-      "kind": "affects",
-      "to": "story:account"
     },
     {
       "from": "backend-delivery:audit-log",
@@ -9518,12 +9516,12 @@
     {
       "from": "qa-backend:account",
       "kind": "pending",
-      "to": "task:T-076"
+      "to": "task:B-01"
     },
     {
       "from": "qa-backend:account",
       "kind": "pending",
-      "to": "task:T-077"
+      "to": "task:B-02"
     },
     {
       "from": "decision-record:DR-01",
@@ -11546,16 +11544,6 @@
       "to": "task:T-063"
     },
     {
-      "from": "qa-frontend:account",
-      "kind": "related",
-      "to": "task:T-076"
-    },
-    {
-      "from": "qa-frontend:account",
-      "kind": "related",
-      "to": "task:T-077"
-    },
-    {
       "from": "story:audit-log",
       "kind": "related",
       "to": "story:T-053",
@@ -12411,6 +12399,76 @@
       ]
     },
     {
+      "from": "task:B-01",
+      "kind": "related",
+      "to": "backend-integration:account"
+    },
+    {
+      "from": "task:B-01",
+      "kind": "related",
+      "to": "backend-integration:auth"
+    },
+    {
+      "from": "task:B-01",
+      "kind": "related",
+      "to": "decision:D-01"
+    },
+    {
+      "from": "task:B-01",
+      "kind": "related",
+      "to": "qa-backend:account"
+    },
+    {
+      "from": "task:B-01",
+      "kind": "related",
+      "to": "qa-frontend:account"
+    },
+    {
+      "from": "task:B-01",
+      "kind": "related",
+      "to": "task:T-003"
+    },
+    {
+      "from": "task:B-02",
+      "kind": "related",
+      "to": "backend-delivery:account"
+    },
+    {
+      "from": "task:B-02",
+      "kind": "related",
+      "to": "backend-delivery:error-contract"
+    },
+    {
+      "from": "task:B-02",
+      "kind": "related",
+      "to": "feature:profiles"
+    },
+    {
+      "from": "task:B-02",
+      "kind": "related",
+      "to": "feature:rings"
+    },
+    {
+      "from": "task:B-02",
+      "kind": "related",
+      "to": "project:auth-model"
+    },
+    {
+      "from": "task:B-02",
+      "kind": "related",
+      "to": "qa-backend:account"
+    },
+    {
+      "from": "task:B-02",
+      "kind": "related",
+      "to": "qa-frontend:account"
+    },
+    {
+      "from": "task:B-02",
+      "kind": "related",
+      "to": "task:T-063"
+    },
+    {
       "from": "task:T-021",
       "kind": "related",
       "to": "decision-record:DR-13"
@@ -12529,66 +12587,6 @@
       "from": "task:T-073",
       "kind": "related",
       "to": "task:T-055"
-    },
-    {
-      "from": "task:T-076",
-      "kind": "related",
-      "to": "backend-integration:account"
-    },
-    {
-      "from": "task:T-076",
-      "kind": "related",
-      "to": "backend-integration:auth"
-    },
-    {
-      "from": "task:T-076",
-      "kind": "related",
-      "to": "decision:D-01"
-    },
-    {
-      "from": "task:T-076",
-      "kind": "related",
-      "to": "qa-backend:account"
-    },
-    {
-      "from": "task:T-076",
-      "kind": "related",
-      "to": "task:T-003"
-    },
-    {
-      "from": "task:T-077",
-      "kind": "related",
-      "to": "backend-delivery:account"
-    },
-    {
-      "from": "task:T-077",
-      "kind": "related",
-      "to": "backend-delivery:error-contract"
-    },
-    {
-      "from": "task:T-077",
-      "kind": "related",
-      "to": "feature:profiles"
-    },
-    {
-      "from": "task:T-077",
-      "kind": "related",
-      "to": "feature:rings"
-    },
-    {
-      "from": "task:T-077",
-      "kind": "related",
-      "to": "project:auth-model"
-    },
-    {
-      "from": "task:T-077",
-      "kind": "related",
-      "to": "qa-backend:account"
-    },
-    {
-      "from": "task:T-077",
-      "kind": "related",
-      "to": "task:T-063"
     },
     {
       "from": "decision-record:DR-13",
@@ -14105,6 +14103,29 @@
     {
       "from": "feature:account",
       "kind": "shares",
+      "to": "task:B-01",
+      "via": [
+        "E_AUTH_03",
+        "PATCH /users/me",
+        "POST /auth/login",
+        "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "feature:account",
+      "kind": "shares",
+      "to": "task:B-02",
+      "via": [
+        "DELETE /users/me",
+        "E_USER_01",
+        "GET /profiles",
+        "GET /rings",
+        "GET /users/me"
+      ]
+    },
+    {
+      "from": "feature:account",
+      "kind": "shares",
       "to": "task:T-004",
       "via": [
         "GET /rings"
@@ -14132,29 +14153,6 @@
       "to": "task:T-063",
       "via": [
         "E_AUTH_03"
-      ]
-    },
-    {
-      "from": "feature:account",
-      "kind": "shares",
-      "to": "task:T-076",
-      "via": [
-        "E_AUTH_03",
-        "PATCH /users/me",
-        "POST /auth/login",
-        "POST /auth/login/verify"
-      ]
-    },
-    {
-      "from": "feature:account",
-      "kind": "shares",
-      "to": "task:T-077",
-      "via": [
-        "DELETE /users/me",
-        "E_USER_01",
-        "GET /profiles",
-        "GET /rings",
-        "GET /users/me"
       ]
     },
     {
@@ -14404,6 +14402,14 @@
     {
       "from": "feature:app-shell",
       "kind": "shares",
+      "to": "task:B-02",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "feature:app-shell",
+      "kind": "shares",
       "to": "task:T-004",
       "via": [
         "GET /rings"
@@ -14413,14 +14419,6 @@
       "from": "feature:app-shell",
       "kind": "shares",
       "to": "task:T-022",
-      "via": [
-        "GET /rings"
-      ]
-    },
-    {
-      "from": "feature:app-shell",
-      "kind": "shares",
-      "to": "task:T-077",
       "via": [
         "GET /rings"
       ]
@@ -14478,7 +14476,7 @@
     {
       "from": "feature:audit-log",
       "kind": "shares",
-      "to": "task:T-019",
+      "to": "task:B-01",
       "via": [
         "POST /auth/login/verify"
       ]
@@ -14486,7 +14484,7 @@
     {
       "from": "feature:audit-log",
       "kind": "shares",
-      "to": "task:T-076",
+      "to": "task:T-019",
       "via": [
         "POST /auth/login/verify"
       ]
@@ -14842,6 +14840,24 @@
     {
       "from": "feature:auth",
       "kind": "shares",
+      "to": "task:B-01",
+      "via": [
+        "E_AUTH_03",
+        "POST /auth/login",
+        "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "feature:auth",
+      "kind": "shares",
+      "to": "task:B-02",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "feature:auth",
+      "kind": "shares",
       "to": "task:T-004",
       "via": [
         "GET /rings"
@@ -14876,24 +14892,6 @@
         "E_AUTH_08",
         "E_PROFILE_02",
         "E_USER_04"
-      ]
-    },
-    {
-      "from": "feature:auth",
-      "kind": "shares",
-      "to": "task:T-076",
-      "via": [
-        "E_AUTH_03",
-        "POST /auth/login",
-        "POST /auth/login/verify"
-      ]
-    },
-    {
-      "from": "feature:auth",
-      "kind": "shares",
-      "to": "task:T-077",
-      "via": [
-        "GET /rings"
       ]
     },
     {
@@ -15257,6 +15255,15 @@
     {
       "from": "feature:badge-qr",
       "kind": "shares",
+      "to": "task:B-02",
+      "via": [
+        "GET /rings",
+        "GET /users/me"
+      ]
+    },
+    {
+      "from": "feature:badge-qr",
+      "kind": "shares",
       "to": "task:T-004",
       "via": [
         "GET /rings"
@@ -15286,15 +15293,6 @@
       "via": [
         "E_RING_02",
         "GET /rings"
-      ]
-    },
-    {
-      "from": "feature:badge-qr",
-      "kind": "shares",
-      "to": "task:T-077",
-      "via": [
-        "GET /rings",
-        "GET /users/me"
       ]
     },
     {
@@ -15529,6 +15527,14 @@
     {
       "from": "feature:cleanup-jobs",
       "kind": "shares",
+      "to": "task:B-02",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "feature:cleanup-jobs",
+      "kind": "shares",
       "to": "task:T-004",
       "via": [
         "GET /rings",
@@ -15549,14 +15555,6 @@
       "to": "task:T-022",
       "via": [
         "E_RING_02",
-        "GET /rings"
-      ]
-    },
-    {
-      "from": "feature:cleanup-jobs",
-      "kind": "shares",
-      "to": "task:T-077",
-      "via": [
         "GET /rings"
       ]
     },
@@ -15652,19 +15650,19 @@
     {
       "from": "feature:code-delivery",
       "kind": "shares",
-      "to": "task:T-063",
+      "to": "task:B-01",
       "via": [
-        "E_AUTH_01",
-        "E_AUTH_05",
-        "E_AUTH_06"
+        "POST /auth/login"
       ]
     },
     {
       "from": "feature:code-delivery",
       "kind": "shares",
-      "to": "task:T-076",
+      "to": "task:T-063",
       "via": [
-        "POST /auth/login"
+        "E_AUTH_01",
+        "E_AUTH_05",
+        "E_AUTH_06"
       ]
     },
     {
@@ -16443,6 +16441,14 @@
     {
       "from": "feature:connections",
       "kind": "shares",
+      "to": "task:B-02",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "feature:connections",
+      "kind": "shares",
       "to": "task:T-004",
       "via": [
         "GET /rings",
@@ -16484,14 +16490,6 @@
       "via": [
         "GET /views/user/:userId/perspectives",
         "POST /rings/:ringId/members"
-      ]
-    },
-    {
-      "from": "feature:connections",
-      "kind": "shares",
-      "to": "task:T-077",
-      "via": [
-        "GET /rings"
       ]
     },
     {
@@ -16711,6 +16709,14 @@
     {
       "from": "feature:counts",
       "kind": "shares",
+      "to": "task:B-02",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "feature:counts",
+      "kind": "shares",
       "to": "task:T-004",
       "via": [
         "GET /rings",
@@ -16733,14 +16739,6 @@
         "E_RING_02",
         "GET /rings",
         "GET /rings/shared-with-me"
-      ]
-    },
-    {
-      "from": "feature:counts",
-      "kind": "shares",
-      "to": "task:T-077",
-      "via": [
-        "GET /rings"
       ]
     },
     {
@@ -17249,7 +17247,7 @@
     {
       "from": "feature:devices",
       "kind": "shares",
-      "to": "task:T-063",
+      "to": "task:B-01",
       "via": [
         "E_AUTH_03"
       ]
@@ -17257,7 +17255,7 @@
     {
       "from": "feature:devices",
       "kind": "shares",
-      "to": "task:T-076",
+      "to": "task:T-063",
       "via": [
         "E_AUTH_03"
       ]
@@ -17728,6 +17726,14 @@
     {
       "from": "feature:error-contract",
       "kind": "shares",
+      "to": "task:B-01",
+      "via": [
+        "E_AUTH_03"
+      ]
+    },
+    {
+      "from": "feature:error-contract",
+      "kind": "shares",
       "to": "task:T-007",
       "via": [
         "E_RING_02"
@@ -17775,14 +17781,6 @@
       "to": "task:T-067-fe",
       "via": [
         "E_RING_01"
-      ]
-    },
-    {
-      "from": "feature:error-contract",
-      "kind": "shares",
-      "to": "task:T-076",
-      "via": [
-        "E_AUTH_03"
       ]
     },
     {
@@ -18016,6 +18014,14 @@
     {
       "from": "feature:event-ring-auto",
       "kind": "shares",
+      "to": "task:B-02",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "feature:event-ring-auto",
+      "kind": "shares",
       "to": "task:T-004",
       "via": [
         "GET /rings",
@@ -18078,14 +18084,6 @@
       "to": "task:T-067-fe",
       "via": [
         "E_RING_01"
-      ]
-    },
-    {
-      "from": "feature:event-ring-auto",
-      "kind": "shares",
-      "to": "task:T-077",
-      "via": [
-        "GET /rings"
       ]
     },
     {
@@ -18223,6 +18221,14 @@
     {
       "from": "feature:events-before",
       "kind": "shares",
+      "to": "task:B-02",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "feature:events-before",
+      "kind": "shares",
       "to": "task:T-004",
       "via": [
         "GET /rings"
@@ -18232,14 +18238,6 @@
       "from": "feature:events-before",
       "kind": "shares",
       "to": "task:T-022",
-      "via": [
-        "GET /rings"
-      ]
-    },
-    {
-      "from": "feature:events-before",
-      "kind": "shares",
-      "to": "task:T-077",
       "via": [
         "GET /rings"
       ]
@@ -19025,15 +19023,7 @@
     {
       "from": "feature:linked-accounts",
       "kind": "shares",
-      "to": "task:T-019",
-      "via": [
-        "POST /auth/login/verify"
-      ]
-    },
-    {
-      "from": "feature:linked-accounts",
-      "kind": "shares",
-      "to": "task:T-076",
+      "to": "task:B-01",
       "via": [
         "POST /auth/login",
         "POST /auth/login/verify"
@@ -19042,9 +19032,17 @@
     {
       "from": "feature:linked-accounts",
       "kind": "shares",
-      "to": "task:T-077",
+      "to": "task:B-02",
       "via": [
         "GET /users/me"
+      ]
+    },
+    {
+      "from": "feature:linked-accounts",
+      "kind": "shares",
+      "to": "task:T-019",
+      "via": [
+        "POST /auth/login/verify"
       ]
     },
     {
@@ -19871,6 +19869,14 @@
     {
       "from": "feature:pincast",
       "kind": "shares",
+      "to": "task:B-02",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "feature:pincast",
+      "kind": "shares",
       "to": "task:T-004",
       "via": [
         "GET /rings",
@@ -19901,14 +19907,6 @@
       "to": "task:T-023",
       "via": [
         "GET /views/user/:userId/perspectives"
-      ]
-    },
-    {
-      "from": "feature:pincast",
-      "kind": "shares",
-      "to": "task:T-077",
-      "via": [
-        "GET /rings"
       ]
     },
     {
@@ -20080,6 +20078,14 @@
     {
       "from": "feature:post-event",
       "kind": "shares",
+      "to": "task:B-02",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "feature:post-event",
+      "kind": "shares",
       "to": "task:T-004",
       "via": [
         "GET /rings",
@@ -20109,14 +20115,6 @@
       "to": "task:T-022",
       "via": [
         "E_RING_02",
-        "GET /rings"
-      ]
-    },
-    {
-      "from": "feature:post-event",
-      "kind": "shares",
-      "to": "task:T-077",
-      "via": [
         "GET /rings"
       ]
     },
@@ -20196,17 +20194,17 @@
     {
       "from": "feature:profiles",
       "kind": "shares",
-      "to": "task:T-063",
+      "to": "task:B-02",
       "via": [
-        "E_PROFILE_02"
+        "GET /profiles"
       ]
     },
     {
       "from": "feature:profiles",
       "kind": "shares",
-      "to": "task:T-077",
+      "to": "task:T-063",
       "via": [
-        "GET /profiles"
+        "E_PROFILE_02"
       ]
     },
     {
@@ -20635,6 +20633,14 @@
     {
       "from": "feature:ring-members",
       "kind": "shares",
+      "to": "task:B-02",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "feature:ring-members",
+      "kind": "shares",
       "to": "task:T-004",
       "via": [
         "GET /rings",
@@ -20667,14 +20673,6 @@
         "GET /rings/:ringId/members",
         "GET /views/user/:userId/perspectives",
         "POST /rings/:ringId/members"
-      ]
-    },
-    {
-      "from": "feature:ring-members",
-      "kind": "shares",
-      "to": "task:T-077",
-      "via": [
-        "GET /rings"
       ]
     },
     {
@@ -20788,6 +20786,15 @@
     {
       "from": "feature:ring-projection",
       "kind": "shares",
+      "to": "task:B-02",
+      "via": [
+        "GET /profiles",
+        "GET /users/me"
+      ]
+    },
+    {
+      "from": "feature:ring-projection",
+      "kind": "shares",
       "to": "task:T-007",
       "via": [
         "E_RING_02",
@@ -20816,15 +20823,6 @@
       "to": "task:T-063",
       "via": [
         "DELETE /rings/:id"
-      ]
-    },
-    {
-      "from": "feature:ring-projection",
-      "kind": "shares",
-      "to": "task:T-077",
-      "via": [
-        "GET /profiles",
-        "GET /users/me"
       ]
     },
     {
@@ -20938,6 +20936,14 @@
     {
       "from": "feature:rings",
       "kind": "shares",
+      "to": "task:B-02",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "feature:rings",
+      "kind": "shares",
       "to": "task:T-004",
       "via": [
         "GET /rings",
@@ -21004,14 +21010,6 @@
       "to": "task:T-067-fe",
       "via": [
         "E_RING_01"
-      ]
-    },
-    {
-      "from": "feature:rings",
-      "kind": "shares",
-      "to": "task:T-077",
-      "via": [
-        "GET /rings"
       ]
     },
     {
@@ -21117,6 +21115,14 @@
     {
       "from": "feature:view-as",
       "kind": "shares",
+      "to": "task:B-02",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "feature:view-as",
+      "kind": "shares",
       "to": "task:T-004",
       "via": [
         "GET /rings"
@@ -21152,14 +21158,6 @@
       "to": "task:T-023",
       "via": [
         "GET /views/user/:userId/perspectives"
-      ]
-    },
-    {
-      "from": "feature:view-as",
-      "kind": "shares",
-      "to": "task:T-077",
-      "via": [
-        "GET /rings"
       ]
     },
     {
@@ -21354,6 +21352,14 @@
     {
       "from": "project:auth-model",
       "kind": "shares",
+      "to": "task:B-01",
+      "via": [
+        "E_AUTH_03"
+      ]
+    },
+    {
+      "from": "project:auth-model",
+      "kind": "shares",
       "to": "task:T-063",
       "via": [
         "E_AUTH_02",
@@ -21363,14 +21369,6 @@
       ]
     },
     {
-      "from": "project:auth-model",
-      "kind": "shares",
-      "to": "task:T-076",
-      "via": [
-        "E_AUTH_03"
-      ]
-    },
-    {
       "from": "project:developer-guide",
       "kind": "shares",
       "to": "project:frontend-passwordless-migration",
@@ -21381,7 +21379,7 @@
     {
       "from": "project:developer-guide",
       "kind": "shares",
-      "to": "task:T-076",
+      "to": "task:B-01",
       "via": [
         "POST /auth/login"
       ]
@@ -21390,6 +21388,14 @@
       "from": "project:developer-setup",
       "kind": "shares",
       "to": "project:frontend-passwordless-migration",
+      "via": [
+        "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "project:developer-setup",
+      "kind": "shares",
+      "to": "task:B-01",
       "via": [
         "POST /auth/login/verify"
       ]
@@ -21398,14 +21404,6 @@
       "from": "project:developer-setup",
       "kind": "shares",
       "to": "task:T-019",
-      "via": [
-        "POST /auth/login/verify"
-      ]
-    },
-    {
-      "from": "project:developer-setup",
-      "kind": "shares",
-      "to": "task:T-076",
       "via": [
         "POST /auth/login/verify"
       ]
@@ -21525,6 +21523,14 @@
     {
       "from": "project:frontend-api-guide",
       "kind": "shares",
+      "to": "task:B-01",
+      "via": [
+        "E_AUTH_03"
+      ]
+    },
+    {
+      "from": "project:frontend-api-guide",
+      "kind": "shares",
       "to": "task:T-007",
       "via": [
         "GET /views/ring/:ringId"
@@ -21599,14 +21605,6 @@
       ]
     },
     {
-      "from": "project:frontend-api-guide",
-      "kind": "shares",
-      "to": "task:T-076",
-      "via": [
-        "E_AUTH_03"
-      ]
-    },
-    {
       "from": "project:frontend-contract",
       "kind": "shares",
       "to": "project:frontend-passwordless-migration",
@@ -21660,6 +21658,14 @@
     {
       "from": "project:frontend-contract",
       "kind": "shares",
+      "to": "task:B-02",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "project:frontend-contract",
+      "kind": "shares",
       "to": "task:T-004",
       "via": [
         "GET /rings",
@@ -21700,14 +21706,6 @@
       ]
     },
     {
-      "from": "project:frontend-contract",
-      "kind": "shares",
-      "to": "task:T-077",
-      "via": [
-        "GET /rings"
-      ]
-    },
-    {
       "from": "project:frontend-passwordless-migration",
       "kind": "shares",
       "to": "project:spec-map",
@@ -21724,6 +21722,16 @@
         "GET /profiles/pin-name/:pinName/availability",
         "POST /auth/complete-registration",
         "POST /auth/sign-up"
+      ]
+    },
+    {
+      "from": "project:frontend-passwordless-migration",
+      "kind": "shares",
+      "to": "task:B-01",
+      "via": [
+        "E_AUTH_03",
+        "POST /auth/login",
+        "POST /auth/login/verify"
       ]
     },
     {
@@ -21747,16 +21755,6 @@
         "E_AUTH_08",
         "E_PROFILE_02",
         "E_USER_04"
-      ]
-    },
-    {
-      "from": "project:frontend-passwordless-migration",
-      "kind": "shares",
-      "to": "task:T-076",
-      "via": [
-        "E_AUTH_03",
-        "POST /auth/login",
-        "POST /auth/login/verify"
       ]
     },
     {
@@ -21805,6 +21803,22 @@
         "POST /auth/sign-up",
         "POST /rings",
         "POST /rings/:id/disposition"
+      ]
+    },
+    {
+      "from": "project:spec-map",
+      "kind": "shares",
+      "to": "task:B-01",
+      "via": [
+        "PATCH /users/me"
+      ]
+    },
+    {
+      "from": "project:spec-map",
+      "kind": "shares",
+      "to": "task:B-02",
+      "via": [
+        "GET /rings"
       ]
     },
     {
@@ -21895,17 +21909,9 @@
       ]
     },
     {
-      "from": "project:spec-map",
+      "from": "project:status-report-2026-10-15",
       "kind": "shares",
-      "to": "task:T-076",
-      "via": [
-        "PATCH /users/me"
-      ]
-    },
-    {
-      "from": "project:spec-map",
-      "kind": "shares",
-      "to": "task:T-077",
+      "to": "task:B-02",
       "via": [
         "GET /rings"
       ]
@@ -21961,12 +21967,14 @@
       ]
     },
     {
-      "from": "project:status-report-2026-10-15",
-      "kind": "shares",
-      "to": "task:T-077",
-      "via": [
-        "GET /rings"
-      ]
+      "from": "backend-integration:account",
+      "kind": "tree",
+      "to": "task:B-01"
+    },
+    {
+      "from": "backend-integration:account",
+      "kind": "tree",
+      "to": "task:B-02"
     },
     {
       "from": "decision:D-01",
@@ -23947,16 +23955,6 @@
       "from": "root",
       "kind": "tree",
       "to": "module:shared-rings"
-    },
-    {
-      "from": "story:account",
-      "kind": "tree",
-      "to": "task:T-076"
-    },
-    {
-      "from": "story:account",
-      "kind": "tree",
-      "to": "task:T-077"
     },
     {
       "from": "story:audit-log",
@@ -26606,12 +26604,12 @@
     {
       "from": "feature:account",
       "kind": "wikilink",
-      "to": "task:T-076"
+      "to": "task:B-01"
     },
     {
       "from": "feature:account",
       "kind": "wikilink",
-      "to": "task:T-077"
+      "to": "task:B-02"
     },
     {
       "from": "feature:audit-log",
@@ -30214,11 +30212,6 @@
       "to": "project:qa-agent"
     },
     {
-      "from": "project:docs-tree",
-      "kind": "wikilink",
-      "to": "task:T-076"
-    },
-    {
       "from": "project:feature-graph",
       "kind": "wikilink",
       "to": "decision-record:DR-01"
@@ -32387,6 +32380,31 @@
       "from": "story:widgets",
       "kind": "wikilink",
       "to": "feature:meetings"
+    },
+    {
+      "from": "task:B-01",
+      "kind": "wikilink",
+      "to": "backend-delivery:account"
+    },
+    {
+      "from": "task:B-01",
+      "kind": "wikilink",
+      "to": "frontend-delivery:account"
+    },
+    {
+      "from": "task:B-01",
+      "kind": "wikilink",
+      "to": "story:account"
+    },
+    {
+      "from": "task:B-02",
+      "kind": "wikilink",
+      "to": "frontend-delivery:account"
+    },
+    {
+      "from": "task:B-02",
+      "kind": "wikilink",
+      "to": "story:account"
     },
     {
       "from": "task:T-001",
@@ -35197,26 +35215,6 @@
       "from": "task:T-072-be",
       "kind": "wikilink",
       "to": "feature:operator-panel"
-    },
-    {
-      "from": "task:T-076",
-      "kind": "wikilink",
-      "to": "backend-delivery:account"
-    },
-    {
-      "from": "task:T-076",
-      "kind": "wikilink",
-      "to": "project:agent-rules"
-    },
-    {
-      "from": "task:T-077",
-      "kind": "wikilink",
-      "to": "backend-integration:account"
-    },
-    {
-      "from": "task:T-077",
-      "kind": "wikilink",
-      "to": "project:agent-rules"
     }
   ],
   "emoji": {
@@ -36244,6 +36242,14 @@
       "name": "Workflow",
       "type": "project"
     },
+    "tasks/B-01 An unverified changed email still signs in.md": {
+      "name": "B-01 An unverified changed email still signs in",
+      "type": "task"
+    },
+    "tasks/B-02 Deleted account answers 401, not the documented 404 E_USER_01.md": {
+      "name": "B-02 Deleted account answers 401, not the documented 404 E_USER_01",
+      "type": "task"
+    },
     "tasks/Backlog.md": {
       "name": "Backlog",
       "type": "map"
@@ -37260,14 +37266,6 @@
       "name": "T-073 GitLab pipeline and Docker setup",
       "type": "task"
     },
-    "tasks/T-076 An unverified changed email still signs in.md": {
-      "name": "T-076 An unverified changed email still signs in",
-      "type": "task"
-    },
-    "tasks/T-077 Deleted account answers 401, not the documented 404 E_USER_01.md": {
-      "name": "T-077 Deleted account answers 401, not the documented 404 E_USER_01",
-      "type": "task"
-    },
     "tasks/Task Board.md": {
       "name": "Task Board",
       "type": null
@@ -37618,6 +37616,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "error-contract",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:T-063",
       "inherits": {},
@@ -37657,6 +37656,7 @@
       "effectiveStatus": "done",
       "effort": null,
       "feature": "account",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:account",
       "inherits": {
@@ -37676,7 +37676,7 @@
       "pending": [],
       "priority": "critical",
       "related": [
-        "task:T-077"
+        "task:B-02"
       ],
       "release": "mvp",
       "scope": "feature",
@@ -37707,6 +37707,7 @@
       "effectiveStatus": "done",
       "effort": null,
       "feature": "app-shell",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:app-shell",
       "inherits": {
@@ -37764,6 +37765,7 @@
       "effectiveStatus": "blocked",
       "effort": null,
       "feature": "audit-log",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:audit-log",
       "inherits": {
@@ -37810,6 +37812,7 @@
       "effectiveStatus": "done",
       "effort": null,
       "feature": "auth",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:auth",
       "inherits": {
@@ -37868,6 +37871,7 @@
       "effectiveStatus": "blocked",
       "effort": null,
       "feature": "badge-qr",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:badge-qr",
       "inherits": {
@@ -37925,6 +37929,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "build-deploy",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:build-deploy",
       "inherits": {},
@@ -37970,6 +37975,7 @@
       "effectiveStatus": "blocked",
       "effort": null,
       "feature": "cleanup-jobs",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:cleanup-jobs",
       "inherits": {
@@ -38022,6 +38028,7 @@
       "effectiveStatus": "blocked",
       "effort": null,
       "feature": "code-delivery",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:code-delivery",
       "inherits": {
@@ -38076,6 +38083,7 @@
       "effectiveStatus": "blocked",
       "effort": null,
       "feature": "companies",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:companies",
       "inherits": {
@@ -38131,6 +38139,7 @@
       "effectiveStatus": "blocked",
       "effort": null,
       "feature": "connections",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:connections",
       "inherits": {
@@ -38189,6 +38198,7 @@
       "effectiveStatus": "blocked",
       "effort": null,
       "feature": "counts",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:counts",
       "inherits": {
@@ -38248,6 +38258,7 @@
       "effectiveStatus": "blocked",
       "effort": null,
       "feature": "delegated-admins",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:delegated-admins",
       "inherits": {
@@ -38303,6 +38314,7 @@
       "effectiveStatus": "blocked",
       "effort": null,
       "feature": "devices",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:devices",
       "inherits": {
@@ -38357,6 +38369,7 @@
       "effectiveStatus": "blocked",
       "effort": null,
       "feature": "discover-hub",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:discover-hub",
       "inherits": {
@@ -38411,6 +38424,7 @@
       "effectiveStatus": "blocked",
       "effort": null,
       "feature": "e2e-tests",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:e2e-tests",
       "inherits": {
@@ -38463,6 +38477,7 @@
       "effectiveStatus": "blocked",
       "effort": null,
       "feature": "error-contract",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:error-contract",
       "inherits": {
@@ -38482,7 +38497,7 @@
       "pending": [],
       "priority": "critical",
       "related": [
-        "task:T-077",
+        "task:B-02",
         "qa-backend:account"
       ],
       "release": "mvp",
@@ -38518,6 +38533,7 @@
       "effectiveStatus": "blocked",
       "effort": null,
       "feature": "event-ring-auto",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:event-ring-auto",
       "inherits": {
@@ -38572,6 +38588,7 @@
       "effectiveStatus": "blocked",
       "effort": null,
       "feature": "events-before",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:events-before",
       "inherits": {
@@ -38630,6 +38647,7 @@
       "effectiveStatus": "blocked",
       "effort": null,
       "feature": "events-during",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:events-during",
       "inherits": {
@@ -38689,6 +38707,7 @@
       "effectiveStatus": "blocked",
       "effort": null,
       "feature": "exhibitor",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:exhibitor",
       "inherits": {
@@ -38739,6 +38758,7 @@
       "effectiveStatus": "done",
       "effort": null,
       "feature": "files",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:files",
       "inherits": {
@@ -38795,6 +38815,7 @@
       "effectiveStatus": "blocked",
       "effort": null,
       "feature": "gemma",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:gemma",
       "inherits": {
@@ -38850,6 +38871,7 @@
       "effectiveStatus": "blocked",
       "effort": null,
       "feature": "interests",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:interests",
       "inherits": {
@@ -38905,6 +38927,7 @@
       "effectiveStatus": "blocked",
       "effort": null,
       "feature": "linked-accounts",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:linked-accounts",
       "inherits": {
@@ -38961,6 +38984,7 @@
       "effectiveStatus": "blocked",
       "effort": null,
       "feature": "meetings",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:meetings",
       "inherits": {
@@ -39019,6 +39043,7 @@
       "effectiveStatus": "blocked",
       "effort": null,
       "feature": "notifications",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:notifications",
       "inherits": {
@@ -39073,6 +39098,7 @@
       "effectiveStatus": "blocked",
       "effort": null,
       "feature": "onboarding-imports",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:onboarding-imports",
       "inherits": {
@@ -39131,6 +39157,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "operator-panel",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:operator-panel",
       "inherits": {},
@@ -39176,6 +39203,7 @@
       "effectiveStatus": "blocked",
       "effort": null,
       "feature": "payments",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:payments",
       "inherits": {
@@ -39231,6 +39259,7 @@
       "effectiveStatus": "blocked",
       "effort": null,
       "feature": "photo-library",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:photo-library",
       "inherits": {
@@ -39286,6 +39315,7 @@
       "effectiveStatus": "blocked",
       "effort": null,
       "feature": "pincast",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:pincast",
       "inherits": {
@@ -39344,6 +39374,7 @@
       "effectiveStatus": "blocked",
       "effort": null,
       "feature": "post-event",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:post-event",
       "inherits": {
@@ -39392,6 +39423,7 @@
       "effectiveStatus": "done",
       "effort": null,
       "feature": "profiles",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:profiles",
       "inherits": {
@@ -39440,6 +39472,7 @@
       "effectiveStatus": "done",
       "effort": null,
       "feature": "ring-access",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:ring-access",
       "inherits": {
@@ -39492,6 +39525,7 @@
       "effectiveStatus": "blocked",
       "effort": null,
       "feature": "ring-invitations",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:ring-invitations",
       "inherits": {
@@ -39541,6 +39575,7 @@
       "effectiveStatus": "done",
       "effort": null,
       "feature": "ring-members",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:ring-members",
       "inherits": {
@@ -39590,6 +39625,7 @@
       "effectiveStatus": "done",
       "effort": null,
       "feature": "ring-projection",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:ring-projection",
       "inherits": {
@@ -39644,6 +39680,7 @@
       "effectiveStatus": "done",
       "effort": null,
       "feature": "rings",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:rings",
       "inherits": {
@@ -39708,6 +39745,7 @@
       "effectiveStatus": "blocked",
       "effort": null,
       "feature": "subscription",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:subscription",
       "inherits": {
@@ -39757,6 +39795,7 @@
       "effectiveStatus": "done",
       "effort": null,
       "feature": "view-as",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:view-as",
       "inherits": {
@@ -39813,6 +39852,7 @@
       "effectiveStatus": "blocked",
       "effort": null,
       "feature": "widgets",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:widgets",
       "inherits": {
@@ -39868,6 +39908,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "error-contract",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:T-063",
       "inherits": {},
@@ -39899,7 +39940,10 @@
       "affects": [],
       "blockedBy": [],
       "card": "BI-01",
-      "children": [],
+      "children": [
+        "task:B-01",
+        "task:B-02"
+      ],
       "code": "account",
       "created": "2026-10-15",
       "deadline": null,
@@ -39907,6 +39951,7 @@
       "effectiveStatus": "current",
       "effort": null,
       "feature": "account",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:account",
       "inherits": {
@@ -39926,7 +39971,7 @@
       "pending": [],
       "priority": "critical",
       "related": [
-        "task:T-076",
+        "task:B-01",
         "qa-backend:account",
         "qa-frontend:account"
       ],
@@ -39965,6 +40010,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "audit-log",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:audit-log",
       "inherits": {},
@@ -40004,6 +40050,7 @@
       "effectiveStatus": "current",
       "effort": null,
       "feature": "auth",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:auth",
       "inherits": {
@@ -40023,7 +40070,7 @@
       "pending": [],
       "priority": "critical",
       "related": [
-        "task:T-076",
+        "task:B-01",
         "qa-backend:account"
       ],
       "release": "mvp",
@@ -40065,6 +40112,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "badge-qr",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:badge-qr",
       "inherits": {},
@@ -40110,6 +40158,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "build-deploy",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:build-deploy",
       "inherits": {},
@@ -40155,6 +40204,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "cleanup-jobs",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:cleanup-jobs",
       "inherits": {},
@@ -40200,6 +40250,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "code-delivery",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:code-delivery",
       "inherits": {},
@@ -40245,6 +40296,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "companies",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:companies",
       "inherits": {},
@@ -40290,6 +40342,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "connections",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:connections",
       "inherits": {},
@@ -40335,6 +40388,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "counts",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:counts",
       "inherits": {},
@@ -40380,6 +40434,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "delegated-admins",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:delegated-admins",
       "inherits": {},
@@ -40425,6 +40480,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "devices",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:devices",
       "inherits": {},
@@ -40470,6 +40526,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "discover-hub",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:discover-hub",
       "inherits": {},
@@ -40515,6 +40572,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "e2e-tests",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:e2e-tests",
       "inherits": {},
@@ -40560,6 +40618,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "error-contract",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:error-contract",
       "inherits": {},
@@ -40605,6 +40664,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "event-ring-auto",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:event-ring-auto",
       "inherits": {},
@@ -40650,6 +40710,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "events-before",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:events-before",
       "inherits": {},
@@ -40695,6 +40756,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "events-during",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:events-during",
       "inherits": {},
@@ -40740,6 +40802,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "exhibitor",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:exhibitor",
       "inherits": {},
@@ -40779,6 +40842,7 @@
       "effectiveStatus": "current",
       "effort": null,
       "feature": "files",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:files",
       "inherits": {
@@ -40835,6 +40899,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "gemma",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:gemma",
       "inherits": {},
@@ -40880,6 +40945,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "interests",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:interests",
       "inherits": {},
@@ -40925,6 +40991,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "linked-accounts",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:linked-accounts",
       "inherits": {},
@@ -40970,6 +41037,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "meetings",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:meetings",
       "inherits": {},
@@ -41015,6 +41083,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "notifications",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:notifications",
       "inherits": {},
@@ -41060,6 +41129,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "onboarding-imports",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:onboarding-imports",
       "inherits": {},
@@ -41105,6 +41175,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "operator-panel",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:operator-panel",
       "inherits": {},
@@ -41150,6 +41221,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "payments",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:payments",
       "inherits": {},
@@ -41195,6 +41267,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "photo-library",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:photo-library",
       "inherits": {},
@@ -41240,6 +41313,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "pincast",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:pincast",
       "inherits": {},
@@ -41285,6 +41359,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "post-event",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:post-event",
       "inherits": {},
@@ -41324,6 +41399,7 @@
       "effectiveStatus": "current",
       "effort": null,
       "feature": "profiles",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:profiles",
       "inherits": {
@@ -41374,6 +41450,7 @@
       "effectiveStatus": "current",
       "effort": null,
       "feature": "ring-access",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:ring-access",
       "inherits": {
@@ -41426,6 +41503,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "ring-invitations",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:ring-invitations",
       "inherits": {},
@@ -41465,6 +41543,7 @@
       "effectiveStatus": "current",
       "effort": null,
       "feature": "ring-members",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:ring-members",
       "inherits": {
@@ -41514,6 +41593,7 @@
       "effectiveStatus": "current",
       "effort": null,
       "feature": "ring-projection",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:ring-projection",
       "inherits": {
@@ -41570,6 +41650,7 @@
       "effectiveStatus": "current",
       "effort": null,
       "feature": "rings",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:rings",
       "inherits": {
@@ -41634,6 +41715,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "subscription",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:subscription",
       "inherits": {},
@@ -41673,6 +41755,7 @@
       "effectiveStatus": "current",
       "effort": null,
       "feature": "view-as",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:view-as",
       "inherits": {
@@ -41729,6 +41812,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "widgets",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:widgets",
       "inherits": {},
@@ -41780,6 +41864,7 @@
         "auth",
         "linked-accounts"
       ],
+      "foundOn": null,
       "frontendOnly": false,
       "id": "decision-record:DR-01",
       "inherits": {},
@@ -41842,6 +41927,7 @@
         "profiles",
         "ring-projection"
       ],
+      "foundOn": null,
       "frontendOnly": false,
       "id": "decision-record:DR-02",
       "inherits": {},
@@ -41905,6 +41991,7 @@
         "ring-projection",
         "widgets"
       ],
+      "foundOn": null,
       "frontendOnly": false,
       "id": "decision-record:DR-03",
       "inherits": {},
@@ -41972,6 +42059,7 @@
         "ring-members",
         "rings"
       ],
+      "foundOn": null,
       "frontendOnly": false,
       "id": "decision-record:DR-04",
       "inherits": {},
@@ -42042,6 +42130,7 @@
         "ring-projection",
         "rings"
       ],
+      "foundOn": null,
       "frontendOnly": false,
       "id": "decision-record:DR-05",
       "inherits": {},
@@ -42103,6 +42192,7 @@
         "gemma",
         "profiles"
       ],
+      "foundOn": null,
       "frontendOnly": false,
       "id": "decision-record:DR-06",
       "inherits": {},
@@ -42165,6 +42255,7 @@
         "payments",
         "subscription"
       ],
+      "foundOn": null,
       "frontendOnly": false,
       "id": "decision-record:DR-07",
       "inherits": {},
@@ -42219,6 +42310,7 @@
       "features": [
         "connections"
       ],
+      "foundOn": null,
       "frontendOnly": false,
       "id": "decision-record:DR-13",
       "inherits": {},
@@ -42281,6 +42373,7 @@
       "features": [
         "connections"
       ],
+      "foundOn": null,
       "frontendOnly": false,
       "id": "decision-record:DR-14",
       "inherits": {},
@@ -42350,6 +42443,7 @@
       "features": [
         "connections"
       ],
+      "foundOn": null,
       "frontendOnly": false,
       "id": "decision-record:DR-15",
       "inherits": {},
@@ -42410,6 +42504,7 @@
       "features": [
         "connections"
       ],
+      "foundOn": null,
       "frontendOnly": false,
       "id": "decision-record:DR-17",
       "inherits": {},
@@ -42474,6 +42569,7 @@
         "companies",
         "ring-invitations"
       ],
+      "foundOn": null,
       "frontendOnly": false,
       "id": "decision-record:DR-18",
       "inherits": {},
@@ -42536,6 +42632,7 @@
       "features": [
         "error-contract"
       ],
+      "foundOn": null,
       "frontendOnly": false,
       "id": "decision-record:DR-19",
       "inherits": {},
@@ -42589,6 +42686,7 @@
         "auth",
         "linked-accounts"
       ],
+      "foundOn": null,
       "frontendOnly": false,
       "fulfilledBy": "decision-record:DR-01",
       "id": "decision:D-01",
@@ -42607,7 +42705,7 @@
       "pending": [],
       "priority": null,
       "related": [
-        "task:T-076",
+        "task:B-01",
         "decision-record:DR-01"
       ],
       "release": null,
@@ -42648,6 +42746,7 @@
         "profiles",
         "ring-projection"
       ],
+      "foundOn": null,
       "frontendOnly": false,
       "fulfilledBy": "decision-record:DR-02",
       "id": "decision:D-02",
@@ -42709,6 +42808,7 @@
         "ring-projection",
         "widgets"
       ],
+      "foundOn": null,
       "frontendOnly": false,
       "fulfilledBy": "decision-record:DR-03",
       "id": "decision:D-03",
@@ -42768,6 +42868,7 @@
         "ring-members",
         "rings"
       ],
+      "foundOn": null,
       "frontendOnly": false,
       "fulfilledBy": "decision-record:DR-04",
       "id": "decision:D-04",
@@ -42830,6 +42931,7 @@
         "ring-projection",
         "rings"
       ],
+      "foundOn": null,
       "frontendOnly": false,
       "fulfilledBy": "decision-record:DR-05",
       "id": "decision:D-05",
@@ -42889,6 +42991,7 @@
         "gemma",
         "profiles"
       ],
+      "foundOn": null,
       "frontendOnly": false,
       "fulfilledBy": "decision-record:DR-06",
       "id": "decision:D-06",
@@ -42949,6 +43052,7 @@
         "payments",
         "subscription"
       ],
+      "foundOn": null,
       "frontendOnly": false,
       "fulfilledBy": "decision-record:DR-07",
       "id": "decision:D-07",
@@ -43009,6 +43113,7 @@
         "badge-qr",
         "connections"
       ],
+      "foundOn": null,
       "frontendOnly": false,
       "id": "decision:D-10",
       "inherits": {},
@@ -43065,6 +43170,7 @@
       "features": [
         "badge-qr"
       ],
+      "foundOn": null,
       "frontendOnly": false,
       "id": "decision:D-11",
       "inherits": {},
@@ -43118,6 +43224,7 @@
       "features": [
         "badge-qr"
       ],
+      "foundOn": null,
       "frontendOnly": false,
       "id": "decision:D-12",
       "inherits": {},
@@ -43175,6 +43282,7 @@
       "features": [
         "connections"
       ],
+      "foundOn": null,
       "frontendOnly": false,
       "fulfilledBy": "decision-record:DR-13",
       "id": "decision:D-13",
@@ -43234,6 +43342,7 @@
       "features": [
         "connections"
       ],
+      "foundOn": null,
       "frontendOnly": false,
       "fulfilledBy": "decision-record:DR-14",
       "id": "decision:D-14",
@@ -43293,6 +43402,7 @@
       "features": [
         "connections"
       ],
+      "foundOn": null,
       "frontendOnly": false,
       "fulfilledBy": "decision-record:DR-15",
       "id": "decision:D-15",
@@ -43349,6 +43459,7 @@
       "features": [
         "files"
       ],
+      "foundOn": null,
       "frontendOnly": false,
       "id": "decision:D-16",
       "inherits": {},
@@ -43411,6 +43522,7 @@
       "features": [
         "connections"
       ],
+      "foundOn": null,
       "frontendOnly": false,
       "fulfilledBy": "decision-record:DR-17",
       "id": "decision:D-17",
@@ -43475,6 +43587,7 @@
         "companies",
         "ring-invitations"
       ],
+      "foundOn": null,
       "frontendOnly": false,
       "fulfilledBy": "decision-record:DR-18",
       "id": "decision:D-18",
@@ -43538,6 +43651,7 @@
       "features": [
         "error-contract"
       ],
+      "foundOn": null,
       "frontendOnly": false,
       "fulfilledBy": "decision-record:DR-19",
       "id": "decision:D-19",
@@ -43594,6 +43708,7 @@
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "account",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "feature:account",
       "inherits": {},
@@ -43669,6 +43784,7 @@
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "app-shell",
+      "foundOn": null,
       "frontendOnly": true,
       "id": "feature:app-shell",
       "inherits": {},
@@ -43739,6 +43855,7 @@
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "audit-log",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "feature:audit-log",
       "inherits": {},
@@ -43811,6 +43928,7 @@
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "auth",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "feature:auth",
       "inherits": {},
@@ -43895,6 +44013,7 @@
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "badge-qr",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "feature:badge-qr",
       "inherits": {},
@@ -43978,6 +44097,7 @@
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "build-deploy",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "feature:build-deploy",
       "inherits": {},
@@ -44043,6 +44163,7 @@
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "cleanup-jobs",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "feature:cleanup-jobs",
       "inherits": {},
@@ -44111,6 +44232,7 @@
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "code-delivery",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "feature:code-delivery",
       "inherits": {},
@@ -44182,6 +44304,7 @@
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "companies",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "feature:companies",
       "inherits": {},
@@ -44257,6 +44380,7 @@
       "effectiveStatus": "todo",
       "effort": null,
       "feature": "connections",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "feature:connections",
       "inherits": {},
@@ -44348,6 +44472,7 @@
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "counts",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "feature:counts",
       "inherits": {},
@@ -44424,6 +44549,7 @@
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "delegated-admins",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "feature:delegated-admins",
       "inherits": {},
@@ -44499,6 +44625,7 @@
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "devices",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "feature:devices",
       "inherits": {},
@@ -44570,6 +44697,7 @@
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "discover-hub",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "feature:discover-hub",
       "inherits": {},
@@ -44642,6 +44770,7 @@
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "e2e-tests",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "feature:e2e-tests",
       "inherits": {},
@@ -44710,6 +44839,7 @@
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "error-contract",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "feature:error-contract",
       "inherits": {},
@@ -44780,6 +44910,7 @@
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "event-ring-auto",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "feature:event-ring-auto",
       "inherits": {},
@@ -44855,6 +44986,7 @@
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "events-before",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "feature:events-before",
       "inherits": {},
@@ -44935,6 +45067,7 @@
       "effectiveStatus": "todo",
       "effort": null,
       "feature": "events-during",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "feature:events-during",
       "inherits": {},
@@ -45017,6 +45150,7 @@
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "exhibitor",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "feature:exhibitor",
       "inherits": {},
@@ -45091,6 +45225,7 @@
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "files",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "feature:files",
       "inherits": {},
@@ -45168,6 +45303,7 @@
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "gemma",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "feature:gemma",
       "inherits": {},
@@ -45246,6 +45382,7 @@
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "interests",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "feature:interests",
       "inherits": {},
@@ -45317,6 +45454,7 @@
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "linked-accounts",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "feature:linked-accounts",
       "inherits": {},
@@ -45391,6 +45529,7 @@
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "meetings",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "feature:meetings",
       "inherits": {},
@@ -45471,6 +45610,7 @@
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "notifications",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "feature:notifications",
       "inherits": {},
@@ -45546,6 +45686,7 @@
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "onboarding-imports",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "feature:onboarding-imports",
       "inherits": {},
@@ -45624,6 +45765,7 @@
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "operator-panel",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "feature:operator-panel",
       "inherits": {},
@@ -45693,6 +45835,7 @@
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "payments",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "feature:payments",
       "inherits": {},
@@ -45772,6 +45915,7 @@
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "photo-library",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "feature:photo-library",
       "inherits": {},
@@ -45845,6 +45989,7 @@
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "pincast",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "feature:pincast",
       "inherits": {},
@@ -45923,6 +46068,7 @@
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "post-event",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "feature:post-event",
       "inherits": {},
@@ -45998,6 +46144,7 @@
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "profiles",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "feature:profiles",
       "inherits": {},
@@ -46023,7 +46170,7 @@
         "project:architecture",
         "project:api-conventions",
         "project:spec-map",
-        "task:T-077",
+        "task:B-02",
         "frontend-delivery:account",
         "qa-frontend:account"
       ],
@@ -46074,6 +46221,7 @@
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "ring-access",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "feature:ring-access",
       "inherits": {},
@@ -46150,6 +46298,7 @@
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "ring-invitations",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "feature:ring-invitations",
       "inherits": {},
@@ -46227,6 +46376,7 @@
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "ring-members",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "feature:ring-members",
       "inherits": {},
@@ -46311,6 +46461,7 @@
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "ring-projection",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "feature:ring-projection",
       "inherits": {},
@@ -46396,6 +46547,7 @@
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "rings",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "feature:rings",
       "inherits": {},
@@ -46435,7 +46587,7 @@
         "project:spec-map",
         "feature:meetings",
         "feature:companies",
-        "task:T-077",
+        "task:B-02",
         "decision:D-14",
         "decision:D-18",
         "qa-frontend:account",
@@ -46498,6 +46650,7 @@
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "subscription",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "feature:subscription",
       "inherits": {},
@@ -46575,6 +46728,7 @@
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "view-as",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "feature:view-as",
       "inherits": {},
@@ -46665,6 +46819,7 @@
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "widgets",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "feature:widgets",
       "inherits": {},
@@ -46735,6 +46890,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "error-contract",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-delivery:T-063",
       "inherits": {},
@@ -46775,6 +46931,7 @@
       "effectiveStatus": "done",
       "effort": null,
       "feature": "account",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-delivery:account",
       "inherits": {
@@ -46832,6 +46989,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "app-shell",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-delivery:app-shell",
       "inherits": {},
@@ -46877,6 +47035,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "audit-log",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-delivery:audit-log",
       "inherits": {},
@@ -46916,6 +47075,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "auth",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-delivery:auth",
       "inherits": {},
@@ -46961,6 +47121,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "badge-qr",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-delivery:badge-qr",
       "inherits": {},
@@ -47006,6 +47167,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "build-deploy",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-delivery:build-deploy",
       "inherits": {},
@@ -47051,6 +47213,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "cleanup-jobs",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-delivery:cleanup-jobs",
       "inherits": {},
@@ -47096,6 +47259,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "code-delivery",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-delivery:code-delivery",
       "inherits": {},
@@ -47141,6 +47305,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "companies",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-delivery:companies",
       "inherits": {},
@@ -47186,6 +47351,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "connections",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-delivery:connections",
       "inherits": {},
@@ -47231,6 +47397,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "counts",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-delivery:counts",
       "inherits": {},
@@ -47276,6 +47443,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "delegated-admins",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-delivery:delegated-admins",
       "inherits": {},
@@ -47321,6 +47489,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "devices",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-delivery:devices",
       "inherits": {},
@@ -47366,6 +47535,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "discover-hub",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-delivery:discover-hub",
       "inherits": {},
@@ -47411,6 +47581,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "e2e-tests",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-delivery:e2e-tests",
       "inherits": {},
@@ -47456,6 +47627,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "error-contract",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-delivery:error-contract",
       "inherits": {},
@@ -47501,6 +47673,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "event-ring-auto",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-delivery:event-ring-auto",
       "inherits": {},
@@ -47546,6 +47719,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "events-before",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-delivery:events-before",
       "inherits": {},
@@ -47591,6 +47765,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "events-during",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-delivery:events-during",
       "inherits": {},
@@ -47636,6 +47811,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "exhibitor",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-delivery:exhibitor",
       "inherits": {},
@@ -47675,6 +47851,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "files",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-delivery:files",
       "inherits": {},
@@ -47720,6 +47897,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "gemma",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-delivery:gemma",
       "inherits": {},
@@ -47765,6 +47943,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "interests",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-delivery:interests",
       "inherits": {},
@@ -47810,6 +47989,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "linked-accounts",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-delivery:linked-accounts",
       "inherits": {},
@@ -47855,6 +48035,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "meetings",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-delivery:meetings",
       "inherits": {},
@@ -47900,6 +48081,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "notifications",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-delivery:notifications",
       "inherits": {},
@@ -47945,6 +48127,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "onboarding-imports",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-delivery:onboarding-imports",
       "inherits": {},
@@ -47990,6 +48173,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "operator-panel",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-delivery:operator-panel",
       "inherits": {},
@@ -48035,6 +48219,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "payments",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-delivery:payments",
       "inherits": {},
@@ -48080,6 +48265,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "photo-library",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-delivery:photo-library",
       "inherits": {},
@@ -48125,6 +48311,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "pincast",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-delivery:pincast",
       "inherits": {},
@@ -48170,6 +48357,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "post-event",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-delivery:post-event",
       "inherits": {},
@@ -48209,6 +48397,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "profiles",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-delivery:profiles",
       "inherits": {},
@@ -48248,6 +48437,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "ring-access",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-delivery:ring-access",
       "inherits": {},
@@ -48293,6 +48483,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "ring-invitations",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-delivery:ring-invitations",
       "inherits": {},
@@ -48332,6 +48523,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "ring-members",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-delivery:ring-members",
       "inherits": {},
@@ -48371,6 +48563,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "ring-projection",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-delivery:ring-projection",
       "inherits": {},
@@ -48410,6 +48603,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "rings",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-delivery:rings",
       "inherits": {},
@@ -48455,6 +48649,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "subscription",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-delivery:subscription",
       "inherits": {},
@@ -48494,6 +48689,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "view-as",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-delivery:view-as",
       "inherits": {},
@@ -48539,6 +48735,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "widgets",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-delivery:widgets",
       "inherits": {},
@@ -48578,6 +48775,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "error-contract",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:T-063",
       "inherits": {},
@@ -48618,6 +48816,7 @@
       "effectiveStatus": "delivered",
       "effort": null,
       "feature": "account",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:account",
       "inherits": {
@@ -48669,6 +48868,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "app-shell",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:app-shell",
       "inherits": {
@@ -48720,6 +48920,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "audit-log",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:audit-log",
       "inherits": {
@@ -48766,6 +48967,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "auth",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:auth",
       "inherits": {
@@ -48818,6 +49020,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "badge-qr",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:badge-qr",
       "inherits": {
@@ -48875,6 +49078,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "build-deploy",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:build-deploy",
       "inherits": {},
@@ -48914,6 +49118,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "cleanup-jobs",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:cleanup-jobs",
       "inherits": {
@@ -48960,6 +49165,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "code-delivery",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:code-delivery",
       "inherits": {
@@ -49014,6 +49220,7 @@
       "effectiveStatus": "blocked",
       "effort": null,
       "feature": "companies",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:companies",
       "inherits": {
@@ -49069,6 +49276,7 @@
       "effectiveStatus": "blocked",
       "effort": null,
       "feature": "connections",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:connections",
       "inherits": {
@@ -49121,6 +49329,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "counts",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:counts",
       "inherits": {
@@ -49174,6 +49383,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "delegated-admins",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:delegated-admins",
       "inherits": {
@@ -49223,6 +49433,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "devices",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:devices",
       "inherits": {
@@ -49271,6 +49482,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "discover-hub",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:discover-hub",
       "inherits": {
@@ -49319,6 +49531,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "e2e-tests",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:e2e-tests",
       "inherits": {
@@ -49365,6 +49578,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "error-contract",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:error-contract",
       "inherits": {
@@ -49411,6 +49625,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "event-ring-auto",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:event-ring-auto",
       "inherits": {
@@ -49459,6 +49674,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "events-before",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:events-before",
       "inherits": {
@@ -49517,6 +49733,7 @@
       "effectiveStatus": "blocked",
       "effort": null,
       "feature": "events-during",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:events-during",
       "inherits": {
@@ -49570,6 +49787,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "exhibitor",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:exhibitor",
       "inherits": {
@@ -49620,6 +49838,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "files",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:files",
       "inherits": {
@@ -49676,6 +49895,7 @@
       "effectiveStatus": "blocked",
       "effort": null,
       "feature": "gemma",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:gemma",
       "inherits": {
@@ -49725,6 +49945,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "interests",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:interests",
       "inherits": {
@@ -49774,6 +49995,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "linked-accounts",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:linked-accounts",
       "inherits": {
@@ -49824,6 +50046,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "meetings",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:meetings",
       "inherits": {
@@ -49876,6 +50099,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "notifications",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:notifications",
       "inherits": {
@@ -49924,6 +50148,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "onboarding-imports",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:onboarding-imports",
       "inherits": {
@@ -49982,6 +50207,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "operator-panel",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:operator-panel",
       "inherits": {},
@@ -50021,6 +50247,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "payments",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:payments",
       "inherits": {
@@ -50070,6 +50297,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "photo-library",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:photo-library",
       "inherits": {
@@ -50119,6 +50347,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "pincast",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:pincast",
       "inherits": {
@@ -50171,6 +50400,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "post-event",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:post-event",
       "inherits": {
@@ -50219,6 +50449,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "profiles",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:profiles",
       "inherits": {
@@ -50267,6 +50498,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "ring-access",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:ring-access",
       "inherits": {
@@ -50319,6 +50551,7 @@
       "effectiveStatus": "blocked",
       "effort": null,
       "feature": "ring-invitations",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:ring-invitations",
       "inherits": {
@@ -50368,6 +50601,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "ring-members",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:ring-members",
       "inherits": {
@@ -50417,6 +50651,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "ring-projection",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:ring-projection",
       "inherits": {
@@ -50471,6 +50706,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "rings",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:rings",
       "inherits": {
@@ -50529,6 +50765,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "subscription",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:subscription",
       "inherits": {
@@ -50578,6 +50815,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "view-as",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:view-as",
       "inherits": {
@@ -50628,6 +50866,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "widgets",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:widgets",
       "inherits": {
@@ -50688,6 +50927,7 @@
       "feature": null,
       "file": null,
       "folder": "backend",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "group:backend",
       "inherits": {},
@@ -50734,6 +50974,7 @@
       "feature": null,
       "file": null,
       "folder": "business",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "group:business",
       "inherits": {},
@@ -50779,6 +51020,7 @@
       "feature": null,
       "file": null,
       "folder": "frontend",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "group:frontend",
       "inherits": {},
@@ -50830,6 +51072,7 @@
       "feature": null,
       "file": null,
       "folder": "project",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "group:shared",
       "inherits": {},
@@ -50871,6 +51114,7 @@
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": null,
+      "foundOn": null,
       "frontendOnly": false,
       "id": "module:commerce",
       "inherits": {},
@@ -50927,6 +51171,7 @@
       "effectiveStatus": "todo",
       "effort": null,
       "feature": null,
+      "foundOn": null,
       "frontendOnly": false,
       "id": "module:connections",
       "inherits": {},
@@ -50984,6 +51229,7 @@
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": null,
+      "foundOn": null,
       "frontendOnly": false,
       "id": "module:discovery",
       "inherits": {},
@@ -51042,6 +51288,7 @@
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": null,
+      "foundOn": null,
       "frontendOnly": false,
       "id": "module:events",
       "inherits": {},
@@ -51110,6 +51357,7 @@
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": null,
+      "foundOn": null,
       "frontendOnly": false,
       "id": "module:identity",
       "inherits": {},
@@ -51170,6 +51418,7 @@
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": null,
+      "foundOn": null,
       "frontendOnly": false,
       "id": "module:meetings",
       "inherits": {},
@@ -51235,6 +51484,7 @@
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": null,
+      "foundOn": null,
       "frontendOnly": false,
       "id": "module:platform",
       "inherits": {},
@@ -51295,6 +51545,7 @@
       "effectiveStatus": "in-progress",
       "effort": null,
       "feature": null,
+      "foundOn": null,
       "frontendOnly": false,
       "id": "module:shared-rings",
       "inherits": {},
@@ -51351,6 +51602,7 @@
       "effectiveStatus": "reference",
       "effort": null,
       "feature": null,
+      "foundOn": null,
       "frontendOnly": false,
       "id": "project:admin-agent",
       "inherits": {},
@@ -51407,6 +51659,7 @@
       "effectiveStatus": "reference",
       "effort": null,
       "feature": null,
+      "foundOn": null,
       "frontendOnly": false,
       "id": "project:agent-protocol",
       "inherits": {},
@@ -51463,6 +51716,7 @@
       "effectiveStatus": "reference",
       "effort": null,
       "feature": null,
+      "foundOn": null,
       "frontendOnly": false,
       "id": "project:agent-rules",
       "inherits": {},
@@ -51517,6 +51771,7 @@
       "effectiveStatus": "reference",
       "effort": null,
       "feature": null,
+      "foundOn": null,
       "frontendOnly": false,
       "id": "project:api-conventions",
       "inherits": {},
@@ -51600,6 +51855,7 @@
       "effectiveStatus": "reference",
       "effort": null,
       "feature": null,
+      "foundOn": null,
       "frontendOnly": false,
       "id": "project:architecture",
       "inherits": {},
@@ -51683,6 +51939,7 @@
       "effectiveStatus": "reference",
       "effort": null,
       "feature": null,
+      "foundOn": null,
       "frontendOnly": false,
       "id": "project:auth-model",
       "inherits": {},
@@ -51699,7 +51956,7 @@
       "pending": [],
       "priority": null,
       "related": [
-        "task:T-077"
+        "task:B-02"
       ],
       "release": null,
       "scope": null,
@@ -51727,6 +51984,7 @@
       "effectiveStatus": "reference",
       "effort": null,
       "feature": null,
+      "foundOn": null,
       "frontendOnly": false,
       "id": "project:backend-agent",
       "inherits": {},
@@ -51778,6 +52036,7 @@
       "effectiveStatus": "reference",
       "effort": null,
       "feature": null,
+      "foundOn": null,
       "frontendOnly": false,
       "id": "project:database-migrations",
       "inherits": {},
@@ -51818,6 +52077,7 @@
       "effectiveStatus": "reference",
       "effort": null,
       "feature": null,
+      "foundOn": null,
       "frontendOnly": false,
       "id": "project:developer-guide",
       "inherits": {},
@@ -51858,6 +52118,7 @@
       "effectiveStatus": "reference",
       "effort": null,
       "feature": null,
+      "foundOn": null,
       "frontendOnly": false,
       "id": "project:developer-setup",
       "inherits": {},
@@ -51900,6 +52161,7 @@
       "effectiveStatus": "reference",
       "effort": null,
       "feature": null,
+      "foundOn": null,
       "frontendOnly": false,
       "id": "project:docs-tree",
       "inherits": {},
@@ -51951,6 +52213,7 @@
       "effectiveStatus": "reference",
       "effort": null,
       "feature": null,
+      "foundOn": null,
       "frontendOnly": false,
       "id": "project:feature-graph",
       "inherits": {},
@@ -51991,6 +52254,7 @@
       "effectiveStatus": "reference",
       "effort": null,
       "feature": null,
+      "foundOn": null,
       "frontendOnly": false,
       "id": "project:feature-tree",
       "inherits": {},
@@ -52033,6 +52297,7 @@
       "effectiveStatus": "reference",
       "effort": null,
       "feature": null,
+      "foundOn": null,
       "frontendOnly": false,
       "id": "project:frontend-agent",
       "inherits": {},
@@ -52083,6 +52348,7 @@
       "effectiveStatus": "reference",
       "effort": null,
       "feature": null,
+      "foundOn": null,
       "frontendOnly": false,
       "id": "project:frontend-agent-prompt",
       "inherits": {},
@@ -52130,6 +52396,7 @@
       "effectiveStatus": "reference",
       "effort": null,
       "feature": null,
+      "foundOn": null,
       "frontendOnly": false,
       "id": "project:frontend-api-guide",
       "inherits": {},
@@ -52174,6 +52441,7 @@
       "effectiveStatus": "reference",
       "effort": null,
       "feature": null,
+      "foundOn": null,
       "frontendOnly": false,
       "id": "project:frontend-contract",
       "inherits": {},
@@ -52218,6 +52486,7 @@
       "effectiveStatus": "reference",
       "effort": null,
       "feature": null,
+      "foundOn": null,
       "frontendOnly": false,
       "id": "project:frontend-passwordless-migration",
       "inherits": {},
@@ -52260,6 +52529,7 @@
       "effectiveStatus": "reference",
       "effort": null,
       "feature": null,
+      "foundOn": null,
       "frontendOnly": false,
       "id": "project:glossary",
       "inherits": {},
@@ -52302,6 +52572,7 @@
       "effectiveStatus": "reference",
       "effort": null,
       "feature": null,
+      "foundOn": null,
       "frontendOnly": false,
       "id": "project:owner-agent",
       "inherits": {},
@@ -52354,6 +52625,7 @@
       "effectiveStatus": "reference",
       "effort": null,
       "feature": null,
+      "foundOn": null,
       "frontendOnly": false,
       "id": "project:pm-agent",
       "inherits": {},
@@ -52403,6 +52675,7 @@
       "effectiveStatus": "reference",
       "effort": null,
       "feature": null,
+      "foundOn": null,
       "frontendOnly": false,
       "id": "project:project-overview",
       "inherits": {},
@@ -52448,6 +52721,7 @@
       "effectiveStatus": "reference",
       "effort": null,
       "feature": null,
+      "foundOn": null,
       "frontendOnly": false,
       "id": "project:qa-agent",
       "inherits": {},
@@ -52495,6 +52769,7 @@
       "effectiveStatus": "reference",
       "effort": null,
       "feature": null,
+      "foundOn": null,
       "frontendOnly": false,
       "id": "project:ring-access-model",
       "inherits": {},
@@ -52580,6 +52855,7 @@
       "effectiveStatus": "reference",
       "effort": null,
       "feature": null,
+      "foundOn": null,
       "frontendOnly": false,
       "id": "project:spec-map",
       "inherits": {},
@@ -52662,6 +52938,7 @@
       "effectiveStatus": "reference",
       "effort": null,
       "feature": null,
+      "foundOn": null,
       "frontendOnly": false,
       "id": "project:status-report-2026-10-15",
       "inherits": {},
@@ -52703,6 +52980,7 @@
       "effectiveStatus": "reference",
       "effort": null,
       "feature": null,
+      "foundOn": null,
       "frontendOnly": false,
       "id": "project:workflow",
       "inherits": {},
@@ -52760,6 +53038,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "error-contract",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-backend:T-063",
       "inherits": {},
@@ -52802,6 +53081,7 @@
       "effectiveStatus": "failing",
       "effort": null,
       "feature": "account",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-backend:account",
       "inherits": {
@@ -52821,12 +53101,12 @@
         {
           "person": null,
           "text": "row B9, filed 2026-10-26, re-run when it ships",
-          "to": "task:T-076"
+          "to": "task:B-01"
         },
         {
           "person": null,
           "text": "row B14, filed 2026-10-26, re-run when it ships",
-          "to": "task:T-077"
+          "to": "task:B-02"
         },
         {
           "person": null,
@@ -52836,8 +53116,8 @@
       ],
       "priority": "critical",
       "related": [
-        "task:T-076",
-        "task:T-077",
+        "task:B-01",
+        "task:B-02",
         "backend-integration:account",
         "backend-integration:auth",
         "backend-delivery:error-contract",
@@ -52882,6 +53162,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "audit-log",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-backend:audit-log",
       "inherits": {},
@@ -52921,6 +53202,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "auth",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-backend:auth",
       "inherits": {},
@@ -52966,6 +53248,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "badge-qr",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-backend:badge-qr",
       "inherits": {},
@@ -53011,6 +53294,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "build-deploy",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-backend:build-deploy",
       "inherits": {},
@@ -53056,6 +53340,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "cleanup-jobs",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-backend:cleanup-jobs",
       "inherits": {},
@@ -53101,6 +53386,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "code-delivery",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-backend:code-delivery",
       "inherits": {},
@@ -53146,6 +53432,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "companies",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-backend:companies",
       "inherits": {},
@@ -53191,6 +53478,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "connections",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-backend:connections",
       "inherits": {},
@@ -53236,6 +53524,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "counts",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-backend:counts",
       "inherits": {},
@@ -53281,6 +53570,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "delegated-admins",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-backend:delegated-admins",
       "inherits": {},
@@ -53326,6 +53616,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "devices",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-backend:devices",
       "inherits": {},
@@ -53371,6 +53662,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "discover-hub",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-backend:discover-hub",
       "inherits": {},
@@ -53416,6 +53708,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "e2e-tests",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-backend:e2e-tests",
       "inherits": {},
@@ -53461,6 +53754,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "error-contract",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-backend:error-contract",
       "inherits": {},
@@ -53506,6 +53800,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "event-ring-auto",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-backend:event-ring-auto",
       "inherits": {},
@@ -53551,6 +53846,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "events-before",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-backend:events-before",
       "inherits": {},
@@ -53596,6 +53892,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "events-during",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-backend:events-during",
       "inherits": {},
@@ -53641,6 +53938,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "exhibitor",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-backend:exhibitor",
       "inherits": {},
@@ -53680,6 +53978,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "files",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-backend:files",
       "inherits": {},
@@ -53725,6 +54024,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "gemma",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-backend:gemma",
       "inherits": {},
@@ -53770,6 +54070,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "interests",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-backend:interests",
       "inherits": {},
@@ -53815,6 +54116,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "linked-accounts",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-backend:linked-accounts",
       "inherits": {},
@@ -53860,6 +54162,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "meetings",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-backend:meetings",
       "inherits": {},
@@ -53905,6 +54208,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "notifications",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-backend:notifications",
       "inherits": {},
@@ -53950,6 +54254,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "onboarding-imports",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-backend:onboarding-imports",
       "inherits": {},
@@ -53995,6 +54300,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "operator-panel",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-backend:operator-panel",
       "inherits": {},
@@ -54040,6 +54346,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "payments",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-backend:payments",
       "inherits": {},
@@ -54085,6 +54392,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "photo-library",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-backend:photo-library",
       "inherits": {},
@@ -54130,6 +54438,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "pincast",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-backend:pincast",
       "inherits": {},
@@ -54175,6 +54484,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "post-event",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-backend:post-event",
       "inherits": {},
@@ -54214,6 +54524,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "profiles",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-backend:profiles",
       "inherits": {},
@@ -54253,6 +54564,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "ring-access",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-backend:ring-access",
       "inherits": {},
@@ -54298,6 +54610,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "ring-invitations",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-backend:ring-invitations",
       "inherits": {},
@@ -54337,6 +54650,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "ring-members",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-backend:ring-members",
       "inherits": {},
@@ -54376,6 +54690,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "ring-projection",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-backend:ring-projection",
       "inherits": {},
@@ -54415,6 +54730,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "rings",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-backend:rings",
       "inherits": {},
@@ -54460,6 +54776,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "subscription",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-backend:subscription",
       "inherits": {},
@@ -54499,6 +54816,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "view-as",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-backend:view-as",
       "inherits": {},
@@ -54544,6 +54862,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "widgets",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-backend:widgets",
       "inherits": {},
@@ -54589,6 +54908,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "error-contract",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-frontend:T-063",
       "inherits": {},
@@ -54631,6 +54951,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "account",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-frontend:account",
       "inherits": {
@@ -54649,13 +54970,13 @@
       "pending": [],
       "priority": "critical",
       "related": [
+        "task:B-01",
+        "task:B-02",
         "frontend-requirements:account",
         "backend-integration:account",
         "qa-backend:account",
         "feature:profiles",
         "feature:rings",
-        "task:T-076",
-        "task:T-077",
         "task:T-063",
         "task:T-062",
         "task:T-005",
@@ -54699,6 +55020,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "app-shell",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-frontend:app-shell",
       "inherits": {},
@@ -54744,6 +55066,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "audit-log",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-frontend:audit-log",
       "inherits": {},
@@ -54789,6 +55112,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "auth",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-frontend:auth",
       "inherits": {},
@@ -54834,6 +55158,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "badge-qr",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-frontend:badge-qr",
       "inherits": {},
@@ -54879,6 +55204,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "build-deploy",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-frontend:build-deploy",
       "inherits": {},
@@ -54924,6 +55250,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "cleanup-jobs",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-frontend:cleanup-jobs",
       "inherits": {},
@@ -54969,6 +55296,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "code-delivery",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-frontend:code-delivery",
       "inherits": {},
@@ -55014,6 +55342,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "companies",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-frontend:companies",
       "inherits": {},
@@ -55059,6 +55388,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "connections",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-frontend:connections",
       "inherits": {},
@@ -55104,6 +55434,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "counts",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-frontend:counts",
       "inherits": {},
@@ -55149,6 +55480,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "delegated-admins",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-frontend:delegated-admins",
       "inherits": {},
@@ -55194,6 +55526,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "devices",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-frontend:devices",
       "inherits": {},
@@ -55239,6 +55572,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "discover-hub",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-frontend:discover-hub",
       "inherits": {},
@@ -55284,6 +55618,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "e2e-tests",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-frontend:e2e-tests",
       "inherits": {},
@@ -55329,6 +55664,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "error-contract",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-frontend:error-contract",
       "inherits": {},
@@ -55374,6 +55710,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "event-ring-auto",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-frontend:event-ring-auto",
       "inherits": {},
@@ -55419,6 +55756,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "events-before",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-frontend:events-before",
       "inherits": {},
@@ -55464,6 +55802,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "events-during",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-frontend:events-during",
       "inherits": {},
@@ -55509,6 +55848,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "exhibitor",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-frontend:exhibitor",
       "inherits": {},
@@ -55554,6 +55894,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "files",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-frontend:files",
       "inherits": {},
@@ -55599,6 +55940,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "gemma",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-frontend:gemma",
       "inherits": {},
@@ -55644,6 +55986,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "interests",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-frontend:interests",
       "inherits": {},
@@ -55689,6 +56032,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "linked-accounts",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-frontend:linked-accounts",
       "inherits": {},
@@ -55734,6 +56078,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "meetings",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-frontend:meetings",
       "inherits": {},
@@ -55779,6 +56124,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "notifications",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-frontend:notifications",
       "inherits": {},
@@ -55824,6 +56170,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "onboarding-imports",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-frontend:onboarding-imports",
       "inherits": {},
@@ -55869,6 +56216,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "operator-panel",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-frontend:operator-panel",
       "inherits": {},
@@ -55914,6 +56262,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "payments",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-frontend:payments",
       "inherits": {},
@@ -55959,6 +56308,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "photo-library",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-frontend:photo-library",
       "inherits": {},
@@ -56004,6 +56354,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "pincast",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-frontend:pincast",
       "inherits": {},
@@ -56049,6 +56400,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "post-event",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-frontend:post-event",
       "inherits": {},
@@ -56094,6 +56446,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "profiles",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-frontend:profiles",
       "inherits": {},
@@ -56139,6 +56492,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "ring-access",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-frontend:ring-access",
       "inherits": {},
@@ -56184,6 +56538,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "ring-invitations",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-frontend:ring-invitations",
       "inherits": {},
@@ -56229,6 +56584,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "ring-members",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-frontend:ring-members",
       "inherits": {},
@@ -56274,6 +56630,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "ring-projection",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-frontend:ring-projection",
       "inherits": {},
@@ -56319,6 +56676,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "rings",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-frontend:rings",
       "inherits": {},
@@ -56364,6 +56722,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "subscription",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-frontend:subscription",
       "inherits": {},
@@ -56409,6 +56768,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "view-as",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-frontend:view-as",
       "inherits": {},
@@ -56454,6 +56814,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "widgets",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "qa-frontend:widgets",
       "inherits": {},
@@ -56507,6 +56868,7 @@
       "effort": null,
       "feature": null,
       "file": "business/Project Overview.md",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "root",
       "inherits": {},
@@ -56581,6 +56943,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "code-delivery",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-001",
       "inherits": {
@@ -56629,6 +56992,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "code-delivery",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-002",
       "inherits": {
@@ -56677,6 +57041,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "code-delivery",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-003",
       "inherits": {
@@ -56725,6 +57090,7 @@
       "effectiveStatus": "approved",
       "effort": null,
       "feature": "counts",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-004",
       "inherits": {
@@ -56776,6 +57142,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "counts",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-005",
       "inherits": {
@@ -56825,6 +57192,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "delegated-admins",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-006",
       "inherits": {
@@ -56888,6 +57256,7 @@
       "effectiveStatus": "blocked",
       "effort": null,
       "feature": "badge-qr",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-007",
       "inherits": {
@@ -56944,6 +57313,7 @@
       "effectiveStatus": "blocked",
       "effort": null,
       "feature": "badge-qr",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-008",
       "inherits": {
@@ -56993,6 +57363,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "badge-qr",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-009",
       "inherits": {
@@ -57041,6 +57412,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "badge-qr",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-010",
       "inherits": {
@@ -57089,6 +57461,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "event-ring-auto",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-011",
       "inherits": {
@@ -57137,6 +57510,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "photo-library",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-012",
       "inherits": {
@@ -57185,6 +57559,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "photo-library",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-013",
       "inherits": {
@@ -57233,6 +57608,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "devices",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-014",
       "inherits": {
@@ -57281,6 +57657,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "devices",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-015",
       "inherits": {
@@ -57329,6 +57706,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "interests",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-016",
       "inherits": {
@@ -57378,6 +57756,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "widgets",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-017",
       "inherits": {
@@ -57426,6 +57805,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "widgets",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-018",
       "inherits": {
@@ -57475,6 +57855,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "linked-accounts",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-019",
       "inherits": {
@@ -57525,6 +57906,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "onboarding-imports",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-020",
       "inherits": {
@@ -57574,6 +57956,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "onboarding-imports",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-020b",
       "inherits": {
@@ -57633,6 +58016,7 @@
       "effectiveStatus": "blocked",
       "effort": null,
       "feature": "connections",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-021",
       "inherits": {
@@ -57689,6 +58073,7 @@
       "effectiveStatus": "approved",
       "effort": null,
       "feature": "connections",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-022",
       "inherits": {
@@ -57745,6 +58130,7 @@
       "effectiveStatus": "approved",
       "effort": null,
       "feature": "connections",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-023",
       "inherits": {
@@ -57799,6 +58185,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "connections",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-024",
       "inherits": {
@@ -57847,6 +58234,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "connections",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-025",
       "inherits": {
@@ -57895,6 +58283,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "ring-invitations",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-026",
       "inherits": {
@@ -57943,6 +58332,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "ring-invitations",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-027",
       "inherits": {
@@ -57991,6 +58381,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "ring-invitations",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-028",
       "inherits": {
@@ -58039,6 +58430,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "companies",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-029",
       "inherits": {
@@ -58088,6 +58480,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "discover-hub",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-030",
       "inherits": {
@@ -58136,6 +58529,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "discover-hub",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-031",
       "inherits": {
@@ -58184,6 +58578,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "pincast",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-032",
       "inherits": {
@@ -58235,6 +58630,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "events-before",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-033",
       "inherits": {
@@ -58284,6 +58680,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "events-before",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-034",
       "inherits": {
@@ -58332,6 +58729,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "events-before",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-035",
       "inherits": {
@@ -58381,6 +58779,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "events-during",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-036",
       "inherits": {
@@ -58431,6 +58830,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "events-during",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-037",
       "inherits": {
@@ -58479,6 +58879,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "events-during",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-038",
       "inherits": {
@@ -58527,6 +58928,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "events-during",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-039",
       "inherits": {
@@ -58575,6 +58977,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "events-during",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-040",
       "inherits": {
@@ -58623,6 +59026,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "meetings",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-041",
       "inherits": {
@@ -58672,6 +59076,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "meetings",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-042",
       "inherits": {
@@ -58721,6 +59126,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "meetings",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-043",
       "inherits": {
@@ -58770,6 +59176,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "meetings",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-044",
       "inherits": {
@@ -58820,6 +59227,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "notifications",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-045",
       "inherits": {
@@ -58868,6 +59276,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "notifications",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-046",
       "inherits": {
@@ -58916,6 +59325,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "payments",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-047",
       "inherits": {
@@ -58964,6 +59374,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "exhibitor",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-048",
       "inherits": {
@@ -59012,6 +59423,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "exhibitor",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-048b",
       "inherits": {
@@ -59060,6 +59472,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "subscription",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-049",
       "inherits": {
@@ -59108,6 +59521,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "post-event",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-050",
       "inherits": {
@@ -59156,6 +59570,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "gemma",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-051",
       "inherits": {
@@ -59204,6 +59619,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "gemma",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-052",
       "inherits": {
@@ -59252,6 +59668,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "audit-log",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-053",
       "inherits": {
@@ -59298,6 +59715,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "cleanup-jobs",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-054",
       "inherits": {
@@ -59344,6 +59762,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "e2e-tests",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-055",
       "inherits": {
@@ -59398,6 +59817,7 @@
       "effectiveStatus": "blocked",
       "effort": null,
       "feature": "files",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-062",
       "inherits": {
@@ -59450,6 +59870,7 @@
       "effectiveStatus": "approved",
       "effort": null,
       "feature": "error-contract",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-063",
       "inherits": {
@@ -59509,6 +59930,7 @@
       "effectiveStatus": "blocked",
       "effort": null,
       "feature": "error-contract",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-067",
       "inherits": {
@@ -59562,6 +59984,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "operator-panel",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-068",
       "inherits": {
@@ -59608,6 +60031,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "operator-panel",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-069",
       "inherits": {
@@ -59654,6 +60078,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "operator-panel",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-070",
       "inherits": {
@@ -59700,6 +60125,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "operator-panel",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-071",
       "inherits": {
@@ -59746,6 +60172,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "operator-panel",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:T-072",
       "inherits": {
@@ -59784,10 +60211,7 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-01",
-      "children": [
-        "task:T-076",
-        "task:T-077"
-      ],
+      "children": [],
       "code": "account",
       "created": "2026-10-18",
       "deadline": null,
@@ -59795,6 +60219,7 @@
       "effectiveStatus": "approved",
       "effort": null,
       "feature": "account",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:account",
       "inherits": {
@@ -59843,6 +60268,7 @@
       "effectiveStatus": "approved",
       "effort": null,
       "feature": "app-shell",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:app-shell",
       "inherits": {
@@ -59896,6 +60322,7 @@
       "effectiveStatus": "approved",
       "effort": null,
       "feature": "audit-log",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:audit-log",
       "inherits": {
@@ -59944,6 +60371,7 @@
       "effectiveStatus": "approved",
       "effort": null,
       "feature": "auth",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:auth",
       "inherits": {
@@ -60003,6 +60431,7 @@
       "effectiveStatus": "approved",
       "effort": null,
       "feature": "badge-qr",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:badge-qr",
       "inherits": {
@@ -60056,6 +60485,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "build-deploy",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:build-deploy",
       "inherits": {},
@@ -60097,6 +60527,7 @@
       "effectiveStatus": "approved",
       "effort": null,
       "feature": "cleanup-jobs",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:cleanup-jobs",
       "inherits": {
@@ -60147,6 +60578,7 @@
       "effectiveStatus": "approved",
       "effort": null,
       "feature": "code-delivery",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:code-delivery",
       "inherits": {
@@ -60198,6 +60630,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "companies",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:companies",
       "inherits": {
@@ -60257,6 +60690,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "connections",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:connections",
       "inherits": {
@@ -60318,6 +60752,7 @@
       "effectiveStatus": "approved",
       "effort": null,
       "feature": "counts",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:counts",
       "inherits": {
@@ -60376,6 +60811,7 @@
       "effectiveStatus": "approved",
       "effort": null,
       "feature": "delegated-admins",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:delegated-admins",
       "inherits": {
@@ -60430,6 +60866,7 @@
       "effectiveStatus": "approved",
       "effort": null,
       "feature": "devices",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:devices",
       "inherits": {
@@ -60481,6 +60918,7 @@
       "effectiveStatus": "approved",
       "effort": null,
       "feature": "discover-hub",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:discover-hub",
       "inherits": {
@@ -60531,6 +60969,7 @@
       "effectiveStatus": "approved",
       "effort": null,
       "feature": "e2e-tests",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:e2e-tests",
       "inherits": {
@@ -60580,6 +61019,7 @@
       "effectiveStatus": "approved",
       "effort": null,
       "feature": "error-contract",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:error-contract",
       "inherits": {
@@ -60632,6 +61072,7 @@
       "effectiveStatus": "approved",
       "effort": null,
       "feature": "event-ring-auto",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:event-ring-auto",
       "inherits": {
@@ -60686,6 +61127,7 @@
       "effectiveStatus": "approved",
       "effort": null,
       "feature": "events-before",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:events-before",
       "inherits": {
@@ -60747,6 +61189,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "events-during",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:events-during",
       "inherits": {
@@ -60803,6 +61246,7 @@
       "effectiveStatus": "approved",
       "effort": null,
       "feature": "exhibitor",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:exhibitor",
       "inherits": {
@@ -60855,6 +61299,7 @@
       "effectiveStatus": "approved",
       "effort": null,
       "feature": "files",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:files",
       "inherits": {
@@ -60908,6 +61353,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "gemma",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:gemma",
       "inherits": {
@@ -60961,6 +61407,7 @@
       "effectiveStatus": "approved",
       "effort": null,
       "feature": "interests",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:interests",
       "inherits": {
@@ -61012,6 +61459,7 @@
       "effectiveStatus": "approved",
       "effort": null,
       "feature": "linked-accounts",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:linked-accounts",
       "inherits": {
@@ -61067,6 +61515,7 @@
       "effectiveStatus": "approved",
       "effort": null,
       "feature": "meetings",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:meetings",
       "inherits": {
@@ -61122,6 +61571,7 @@
       "effectiveStatus": "approved",
       "effort": null,
       "feature": "notifications",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:notifications",
       "inherits": {
@@ -61173,6 +61623,7 @@
       "effectiveStatus": "approved",
       "effort": null,
       "feature": "onboarding-imports",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:onboarding-imports",
       "inherits": {
@@ -61233,6 +61684,7 @@
       "effectiveStatus": "missing",
       "effort": null,
       "feature": "operator-panel",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:operator-panel",
       "inherits": {},
@@ -61280,6 +61732,7 @@
       "effectiveStatus": "approved",
       "effort": null,
       "feature": "payments",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:payments",
       "inherits": {
@@ -61345,6 +61798,7 @@
       "effectiveStatus": "approved",
       "effort": null,
       "feature": "photo-library",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:photo-library",
       "inherits": {
@@ -61399,6 +61853,7 @@
       "effectiveStatus": "approved",
       "effort": null,
       "feature": "pincast",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:pincast",
       "inherits": {
@@ -61453,6 +61908,7 @@
       "effectiveStatus": "approved",
       "effort": null,
       "feature": "post-event",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:post-event",
       "inherits": {
@@ -61504,6 +61960,7 @@
       "effectiveStatus": "approved",
       "effort": null,
       "feature": "profiles",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:profiles",
       "inherits": {
@@ -61555,6 +62012,7 @@
       "effectiveStatus": "approved",
       "effort": null,
       "feature": "ring-access",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:ring-access",
       "inherits": {
@@ -61611,6 +62069,7 @@
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "ring-invitations",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:ring-invitations",
       "inherits": {
@@ -61664,6 +62123,7 @@
       "effectiveStatus": "approved",
       "effort": null,
       "feature": "ring-members",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:ring-members",
       "inherits": {
@@ -61721,6 +62181,7 @@
       "effectiveStatus": "approved",
       "effort": null,
       "feature": "ring-projection",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:ring-projection",
       "inherits": {
@@ -61781,6 +62242,7 @@
       "effectiveStatus": "approved",
       "effort": null,
       "feature": "rings",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:rings",
       "inherits": {
@@ -61846,6 +62308,7 @@
       "effectiveStatus": "approved",
       "effort": null,
       "feature": "subscription",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:subscription",
       "inherits": {
@@ -61895,6 +62358,7 @@
       "effectiveStatus": "approved",
       "effort": null,
       "feature": "view-as",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:view-as",
       "inherits": {
@@ -61948,6 +62412,7 @@
       "effectiveStatus": "approved",
       "effort": null,
       "feature": "widgets",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "story:widgets",
       "inherits": {
@@ -61987,6 +62452,138 @@
       "title": "Widgets Story",
       "updated": "2026-10-25"
     },
+    "task:B-01": {
+      "affects": [
+        "backend-delivery:account",
+        "story:account",
+        "qa-backend:account"
+      ],
+      "blockedBy": [],
+      "card": "B-01",
+      "children": [],
+      "code": "B-01",
+      "created": "2026-10-26",
+      "deadline": null,
+      "decision": null,
+      "depends": [],
+      "dir": null,
+      "effectiveStatus": "todo",
+      "effort": "S",
+      "feature": "account",
+      "foundOn": "Account Backend Integration",
+      "frontendOnly": false,
+      "id": "task:B-01",
+      "inherits": {
+        "release": "feature:account"
+      },
+      "kind": "task",
+      "label": "Bug",
+      "labels": [
+        "bug"
+      ],
+      "layer": "business",
+      "module": "identity",
+      "parentTask": null,
+      "parents": [
+        "backend-integration:account"
+      ],
+      "path": "tasks/B-01 An unverified changed email still signs in.md",
+      "pending": [],
+      "priority": "high",
+      "related": [
+        "backend-integration:account",
+        "qa-backend:account",
+        "qa-frontend:account",
+        "backend-integration:auth",
+        "decision:D-01",
+        "task:T-003"
+      ],
+      "release": "mvp",
+      "rollup": {},
+      "scope": null,
+      "screens": [
+        "s68"
+      ],
+      "status": "todo",
+      "summary": "Output of node scripts/build-tree.mjs --impact B-01 when the bug was filed: the notes this change touches and that must be updated or flagged when it ships.",
+      "tags": [
+        "task",
+        "task/todo",
+        "module/identity",
+        "priority/high",
+        "bug"
+      ],
+      "task": null,
+      "title": "B-01 An unverified changed email still signs in",
+      "updated": "2026-10-26"
+    },
+    "task:B-02": {
+      "affects": [
+        "backend-integration:account",
+        "story:account",
+        "qa-backend:account"
+      ],
+      "blockedBy": [],
+      "card": "B-02",
+      "children": [],
+      "code": "B-02",
+      "created": "2026-10-26",
+      "deadline": null,
+      "decision": null,
+      "depends": [],
+      "dir": null,
+      "effectiveStatus": "todo",
+      "effort": "S",
+      "feature": "account",
+      "foundOn": "Account Backend Integration",
+      "frontendOnly": false,
+      "id": "task:B-02",
+      "inherits": {
+        "release": "feature:account"
+      },
+      "kind": "task",
+      "label": "Bug",
+      "labels": [
+        "bug"
+      ],
+      "layer": "business",
+      "module": "identity",
+      "parentTask": null,
+      "parents": [
+        "backend-integration:account"
+      ],
+      "path": "tasks/B-02 Deleted account answers 401, not the documented 404 E_USER_01.md",
+      "pending": [],
+      "priority": "medium",
+      "related": [
+        "qa-backend:account",
+        "qa-frontend:account",
+        "backend-delivery:account",
+        "backend-delivery:error-contract",
+        "project:auth-model",
+        "task:T-063",
+        "feature:rings",
+        "feature:profiles"
+      ],
+      "release": "mvp",
+      "rollup": {},
+      "scope": null,
+      "screens": [
+        "s68"
+      ],
+      "status": "todo",
+      "summary": "Output of node scripts/build-tree.mjs --impact B-02 when the bug was filed: the notes this change touches and that must be updated or flagged when it ships.",
+      "tags": [
+        "task",
+        "task/todo",
+        "module/identity",
+        "priority/medium",
+        "bug"
+      ],
+      "task": null,
+      "title": "B-02 Deleted account answers 401, not the documented 404 E_USER_01",
+      "updated": "2026-10-26"
+    },
     "task:T-001": {
       "affects": [],
       "blockedBy": [],
@@ -62004,6 +62601,7 @@
       "effectiveStatus": "todo",
       "effort": "S",
       "feature": "code-delivery",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-001",
       "inherits": {
@@ -62057,6 +62655,7 @@
       "effectiveStatus": "todo",
       "effort": "S",
       "feature": "code-delivery",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-001-be",
       "inherits": {
@@ -62121,6 +62720,7 @@
       "effectiveStatus": "blocked",
       "effort": "S",
       "feature": "code-delivery",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-002",
       "inherits": {
@@ -62182,6 +62782,7 @@
       "effectiveStatus": "blocked",
       "effort": "S",
       "feature": "code-delivery",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-002-be",
       "inherits": {
@@ -62252,6 +62853,7 @@
       "effectiveStatus": "blocked",
       "effort": "S",
       "feature": "code-delivery",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-003",
       "inherits": {
@@ -62270,7 +62872,7 @@
       "pending": [],
       "priority": "high",
       "related": [
-        "task:T-076"
+        "task:B-01"
       ],
       "release": "mvp",
       "rollup": {
@@ -62321,6 +62923,7 @@
       "effectiveStatus": "blocked",
       "effort": "S",
       "feature": "code-delivery",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-003-be",
       "inherits": {
@@ -62378,6 +62981,7 @@
       "effectiveStatus": "todo",
       "effort": "S",
       "feature": "counts",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-004",
       "inherits": {
@@ -62433,6 +63037,7 @@
       "effectiveStatus": "todo",
       "effort": "S",
       "feature": "counts",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-004-be",
       "inherits": {
@@ -62495,6 +63100,7 @@
       "effectiveStatus": "blocked",
       "effort": "S",
       "feature": "counts",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-004-fe",
       "inherits": {
@@ -62561,6 +63167,7 @@
       "effectiveStatus": "blocked",
       "effort": "S",
       "feature": "counts",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-005",
       "inherits": {
@@ -62626,6 +63233,7 @@
       "effectiveStatus": "blocked",
       "effort": "S",
       "feature": "counts",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-005-be",
       "inherits": {
@@ -62694,6 +63302,7 @@
       "effectiveStatus": "blocked",
       "effort": "S",
       "feature": "counts",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-005-fe",
       "inherits": {
@@ -62752,6 +63361,7 @@
       "effectiveStatus": "todo",
       "effort": "M",
       "feature": "delegated-admins",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-006",
       "inherits": {
@@ -62811,6 +63421,7 @@
       "effectiveStatus": "todo",
       "effort": "M",
       "feature": "delegated-admins",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-006-be",
       "inherits": {
@@ -62873,6 +63484,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "delegated-admins",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-006-fe",
       "inherits": {
@@ -62931,6 +63543,7 @@
       "effectiveStatus": "todo",
       "effort": "M",
       "feature": "badge-qr",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-007",
       "inherits": {
@@ -62985,6 +63598,7 @@
       "effectiveStatus": "todo",
       "effort": "M",
       "feature": "badge-qr",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-007-be",
       "inherits": {
@@ -63046,6 +63660,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "badge-qr",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-007-fe",
       "inherits": {
@@ -63111,6 +63726,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "badge-qr",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-008",
       "inherits": {
@@ -63173,6 +63789,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "badge-qr",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-008-be",
       "inherits": {
@@ -63241,6 +63858,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "badge-qr",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-008-fe",
       "inherits": {
@@ -63307,6 +63925,7 @@
       "effectiveStatus": "blocked",
       "effort": "S",
       "feature": "badge-qr",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-009",
       "inherits": {
@@ -63368,6 +63987,7 @@
       "effectiveStatus": "blocked",
       "effort": "S",
       "feature": "badge-qr",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-009-be",
       "inherits": {
@@ -63435,6 +64055,7 @@
       "effectiveStatus": "blocked",
       "effort": "S",
       "feature": "badge-qr",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-009-fe",
       "inherits": {
@@ -63506,6 +64127,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "badge-qr",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-010",
       "inherits": {
@@ -63567,6 +64189,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "badge-qr",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-010-be",
       "inherits": {
@@ -63634,6 +64257,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "badge-qr",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-010-fe",
       "inherits": {
@@ -63698,6 +64322,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "event-ring-auto",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-011",
       "inherits": {
@@ -63759,6 +64384,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "event-ring-auto",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-011-be",
       "inherits": {
@@ -63816,6 +64442,7 @@
       "effectiveStatus": "todo",
       "effort": "S",
       "feature": "photo-library",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-012",
       "inherits": {
@@ -63870,6 +64497,7 @@
       "effectiveStatus": "todo",
       "effort": "S",
       "feature": "photo-library",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-012-be",
       "inherits": {
@@ -63931,6 +64559,7 @@
       "effectiveStatus": "blocked",
       "effort": "S",
       "feature": "photo-library",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-012-fe",
       "inherits": {
@@ -63996,6 +64625,7 @@
       "effectiveStatus": "blocked",
       "effort": "S",
       "feature": "photo-library",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-013",
       "inherits": {
@@ -64057,6 +64687,7 @@
       "effectiveStatus": "blocked",
       "effort": "S",
       "feature": "photo-library",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-013-be",
       "inherits": {
@@ -64124,6 +64755,7 @@
       "effectiveStatus": "blocked",
       "effort": "S",
       "feature": "photo-library",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-013-fe",
       "inherits": {
@@ -64181,6 +64813,7 @@
       "effectiveStatus": "todo",
       "effort": "M",
       "feature": "devices",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-014",
       "inherits": {
@@ -64238,6 +64871,7 @@
       "effectiveStatus": "todo",
       "effort": "M",
       "feature": "devices",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-014-be",
       "inherits": {
@@ -64299,6 +64933,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "devices",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-014-fe",
       "inherits": {
@@ -64364,6 +64999,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "devices",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-015",
       "inherits": {
@@ -64425,6 +65061,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "devices",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-015-be",
       "inherits": {
@@ -64492,6 +65129,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "devices",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-015-fe",
       "inherits": {
@@ -64549,6 +65187,7 @@
       "effectiveStatus": "todo",
       "effort": "S",
       "feature": "interests",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-016",
       "inherits": {
@@ -64604,6 +65243,7 @@
       "effectiveStatus": "todo",
       "effort": "S",
       "feature": "interests",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-016-be",
       "inherits": {
@@ -64666,6 +65306,7 @@
       "effectiveStatus": "blocked",
       "effort": "S",
       "feature": "interests",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-016-fe",
       "inherits": {
@@ -64724,6 +65365,7 @@
       "effectiveStatus": "todo",
       "effort": "S",
       "feature": "widgets",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-017",
       "inherits": {
@@ -64778,6 +65420,7 @@
       "effectiveStatus": "todo",
       "effort": "S",
       "feature": "widgets",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-017-be",
       "inherits": {
@@ -64839,6 +65482,7 @@
       "effectiveStatus": "blocked",
       "effort": "S",
       "feature": "widgets",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-017-fe",
       "inherits": {
@@ -64905,6 +65549,7 @@
       "effectiveStatus": "needs-decision",
       "effort": "M",
       "feature": "widgets",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-018",
       "inherits": {
@@ -64968,6 +65613,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "widgets",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-018-be",
       "inherits": {
@@ -65037,6 +65683,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "widgets",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-018-fe",
       "inherits": {
@@ -65095,6 +65742,7 @@
       "effectiveStatus": "todo",
       "effort": "L",
       "feature": "linked-accounts",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-019",
       "inherits": {
@@ -65154,6 +65802,7 @@
       "effectiveStatus": "todo",
       "effort": "L",
       "feature": "linked-accounts",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-019-be",
       "inherits": {
@@ -65217,6 +65866,7 @@
       "effectiveStatus": "blocked",
       "effort": "L",
       "feature": "linked-accounts",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-019-fe",
       "inherits": {
@@ -65285,6 +65935,7 @@
       "effectiveStatus": "blocked",
       "effort": "L",
       "feature": "onboarding-imports",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-020",
       "inherits": {
@@ -65348,6 +65999,7 @@
       "effectiveStatus": "blocked",
       "effort": "L",
       "feature": "onboarding-imports",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-020-be",
       "inherits": {
@@ -65417,6 +66069,7 @@
       "effectiveStatus": "blocked",
       "effort": "L",
       "feature": "onboarding-imports",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-020-fe",
       "inherits": {
@@ -65477,6 +66130,7 @@
       "effectiveStatus": "needs-decision",
       "effort": "L",
       "feature": "onboarding-imports",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-020b",
       "inherits": {
@@ -65534,6 +66188,7 @@
       "effectiveStatus": "todo",
       "effort": "L",
       "feature": "onboarding-imports",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-020b-be",
       "inherits": {
@@ -65597,6 +66252,7 @@
       "effectiveStatus": "blocked",
       "effort": "L",
       "feature": "onboarding-imports",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-020b-fe",
       "inherits": {
@@ -65655,6 +66311,7 @@
       "effectiveStatus": "todo",
       "effort": "M",
       "feature": "connections",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-021",
       "inherits": {
@@ -65715,6 +66372,7 @@
       "effectiveStatus": "todo",
       "effort": "M",
       "feature": "connections",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-021-be",
       "inherits": {
@@ -65777,6 +66435,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "connections",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-021-fe",
       "inherits": {
@@ -65843,6 +66502,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "connections",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-022",
       "inherits": {
@@ -65910,6 +66570,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "connections",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-022-be",
       "inherits": {
@@ -65977,6 +66638,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "connections",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-022-fe",
       "inherits": {
@@ -66042,6 +66704,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "connections",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-023",
       "inherits": {
@@ -66108,6 +66771,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "connections",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-023-be",
       "inherits": {
@@ -66175,6 +66839,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "connections",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-023-fe",
       "inherits": {
@@ -66232,6 +66897,7 @@
       "effectiveStatus": "todo",
       "effort": "S",
       "feature": "connections",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-024",
       "inherits": {
@@ -66286,6 +66952,7 @@
       "effectiveStatus": "todo",
       "effort": "S",
       "feature": "connections",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-024-be",
       "inherits": {
@@ -66347,6 +67014,7 @@
       "effectiveStatus": "blocked",
       "effort": "S",
       "feature": "connections",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-024-fe",
       "inherits": {
@@ -66412,6 +67080,7 @@
       "effectiveStatus": "needs-decision",
       "effort": "M",
       "feature": "connections",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-025",
       "inherits": {
@@ -66473,6 +67142,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "connections",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-025-be",
       "inherits": {
@@ -66540,6 +67210,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "connections",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-025-fe",
       "inherits": {
@@ -66599,6 +67270,7 @@
       "effectiveStatus": "needs-decision",
       "effort": "M",
       "feature": "ring-invitations",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-026",
       "inherits": {
@@ -66655,6 +67327,7 @@
       "effectiveStatus": "todo",
       "effort": "M",
       "feature": "ring-invitations",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-026-be",
       "inherits": {
@@ -66717,6 +67390,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "ring-invitations",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-026-fe",
       "inherits": {
@@ -66783,6 +67457,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "ring-invitations",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-027",
       "inherits": {
@@ -66845,6 +67520,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "ring-invitations",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-027-be",
       "inherits": {
@@ -66913,6 +67589,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "ring-invitations",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-027-fe",
       "inherits": {
@@ -66978,6 +67655,7 @@
       "effectiveStatus": "needs-decision",
       "effort": "L",
       "feature": "ring-invitations",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-028",
       "inherits": {
@@ -67039,6 +67717,7 @@
       "effectiveStatus": "blocked",
       "effort": "L",
       "feature": "ring-invitations",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-028-be",
       "inherits": {
@@ -67106,6 +67785,7 @@
       "effectiveStatus": "blocked",
       "effort": "L",
       "feature": "ring-invitations",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-028-fe",
       "inherits": {
@@ -67163,6 +67843,7 @@
       "effectiveStatus": "todo",
       "effort": "M",
       "feature": "companies",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-029",
       "inherits": {
@@ -67218,6 +67899,7 @@
       "effectiveStatus": "todo",
       "effort": "M",
       "feature": "companies",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-029-be",
       "inherits": {
@@ -67280,6 +67962,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "companies",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-029-fe",
       "inherits": {
@@ -67338,6 +68021,7 @@
       "effectiveStatus": "todo",
       "effort": "S",
       "feature": "discover-hub",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-030",
       "inherits": {
@@ -67392,6 +68076,7 @@
       "effectiveStatus": "todo",
       "effort": "S",
       "feature": "discover-hub",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-030-be",
       "inherits": {
@@ -67453,6 +68138,7 @@
       "effectiveStatus": "blocked",
       "effort": "S",
       "feature": "discover-hub",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-030-fe",
       "inherits": {
@@ -67510,6 +68196,7 @@
       "effectiveStatus": "needs-decision",
       "effort": "M",
       "feature": "discover-hub",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-031",
       "inherits": {
@@ -67564,6 +68251,7 @@
       "effectiveStatus": "todo",
       "effort": "M",
       "feature": "discover-hub",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-031-be",
       "inherits": {
@@ -67625,6 +68313,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "discover-hub",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-031-fe",
       "inherits": {
@@ -67682,6 +68371,7 @@
       "effectiveStatus": "todo",
       "effort": "L",
       "feature": "pincast",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-032",
       "inherits": {
@@ -67739,6 +68429,7 @@
       "effectiveStatus": "todo",
       "effort": "L",
       "feature": "pincast",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-032-be",
       "inherits": {
@@ -67803,6 +68494,7 @@
       "effectiveStatus": "blocked",
       "effort": "L",
       "feature": "pincast",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-032-fe",
       "inherits": {
@@ -67863,6 +68555,7 @@
       "effectiveStatus": "todo",
       "effort": "L",
       "feature": "events-before",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-033",
       "inherits": {
@@ -67918,6 +68611,7 @@
       "effectiveStatus": "todo",
       "effort": "L",
       "feature": "events-before",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-033-be",
       "inherits": {
@@ -67980,6 +68674,7 @@
       "effectiveStatus": "blocked",
       "effort": "L",
       "feature": "events-before",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-033-fe",
       "inherits": {
@@ -68046,6 +68741,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "events-before",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-034",
       "inherits": {
@@ -68109,6 +68805,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "events-before",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-034-be",
       "inherits": {
@@ -68176,6 +68873,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "events-before",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-034-fe",
       "inherits": {
@@ -68248,6 +68946,7 @@
       "effectiveStatus": "blocked",
       "effort": "L",
       "feature": "events-before",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-035",
       "inherits": {
@@ -68320,6 +69019,7 @@
       "effectiveStatus": "blocked",
       "effort": "L",
       "feature": "events-before",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-035-be",
       "inherits": {
@@ -68394,6 +69094,7 @@
       "effectiveStatus": "blocked",
       "effort": "L",
       "feature": "events-before",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-035-fe",
       "inherits": {
@@ -68460,6 +69161,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "events-during",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-036",
       "inherits": {
@@ -68523,6 +69225,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "events-during",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-036-be",
       "inherits": {
@@ -68592,6 +69295,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "events-during",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-036-fe",
       "inherits": {
@@ -68665,6 +69369,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "events-during",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-037",
       "inherits": {
@@ -68732,6 +69437,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "events-during",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-037-be",
       "inherits": {
@@ -68805,6 +69511,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "events-during",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-037-fe",
       "inherits": {
@@ -68870,6 +69577,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "events-during",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-038",
       "inherits": {
@@ -68931,6 +69639,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "events-during",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-038-be",
       "inherits": {
@@ -68998,6 +69707,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "events-during",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-038-fe",
       "inherits": {
@@ -69063,6 +69773,7 @@
       "effectiveStatus": "needs-decision",
       "effort": "L",
       "feature": "events-during",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-039",
       "inherits": {
@@ -69124,6 +69835,7 @@
       "effectiveStatus": "blocked",
       "effort": "L",
       "feature": "events-during",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-039-be",
       "inherits": {
@@ -69191,6 +69903,7 @@
       "effectiveStatus": "blocked",
       "effort": "L",
       "feature": "events-during",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-039-fe",
       "inherits": {
@@ -69262,6 +69975,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "events-during",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-040",
       "inherits": {
@@ -69331,6 +70045,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "events-during",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-040-be",
       "inherits": {
@@ -69404,6 +70119,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "events-during",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-040-fe",
       "inherits": {
@@ -69461,6 +70177,7 @@
       "effectiveStatus": "todo",
       "effort": "M",
       "feature": "meetings",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-041",
       "inherits": {
@@ -69516,6 +70233,7 @@
       "effectiveStatus": "todo",
       "effort": "M",
       "feature": "meetings",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-041-be",
       "inherits": {
@@ -69578,6 +70296,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "meetings",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-041-fe",
       "inherits": {
@@ -69644,6 +70363,7 @@
       "effectiveStatus": "blocked",
       "effort": "L",
       "feature": "meetings",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-042",
       "inherits": {
@@ -69706,6 +70426,7 @@
       "effectiveStatus": "blocked",
       "effort": "L",
       "feature": "meetings",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-042-be",
       "inherits": {
@@ -69774,6 +70495,7 @@
       "effectiveStatus": "blocked",
       "effort": "L",
       "feature": "meetings",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-042-fe",
       "inherits": {
@@ -69839,6 +70561,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "meetings",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-043",
       "inherits": {
@@ -69901,6 +70624,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "meetings",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-043-be",
       "inherits": {
@@ -69967,6 +70691,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "meetings",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-044",
       "inherits": {
@@ -70030,6 +70755,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "meetings",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-044-be",
       "inherits": {
@@ -70099,6 +70825,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "meetings",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-044-fe",
       "inherits": {
@@ -70158,6 +70885,7 @@
       "effectiveStatus": "todo",
       "effort": "M",
       "feature": "notifications",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-045",
       "inherits": {
@@ -70212,6 +70940,7 @@
       "effectiveStatus": "todo",
       "effort": "M",
       "feature": "notifications",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-045-be",
       "inherits": {
@@ -70273,6 +71002,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "notifications",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-045-fe",
       "inherits": {
@@ -70344,6 +71074,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "notifications",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-046",
       "inherits": {
@@ -70411,6 +71142,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "notifications",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-046-be",
       "inherits": {
@@ -70484,6 +71216,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "notifications",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-046-fe",
       "inherits": {
@@ -70541,6 +71274,7 @@
       "effectiveStatus": "needs-decision",
       "effort": "L",
       "feature": "payments",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-047",
       "inherits": {
@@ -70598,6 +71332,7 @@
       "effectiveStatus": "todo",
       "effort": "L",
       "feature": "payments",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-047-be",
       "inherits": {
@@ -70663,6 +71398,7 @@
       "effectiveStatus": "blocked",
       "effort": "L",
       "feature": "exhibitor",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-048",
       "inherits": {
@@ -70724,6 +71460,7 @@
       "effectiveStatus": "blocked",
       "effort": "L",
       "feature": "exhibitor",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-048-be",
       "inherits": {
@@ -70791,6 +71528,7 @@
       "effectiveStatus": "blocked",
       "effort": "L",
       "feature": "exhibitor",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-048-fe",
       "inherits": {
@@ -70862,6 +71600,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "exhibitor",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-048b",
       "inherits": {
@@ -70929,6 +71668,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "exhibitor",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-048b-be",
       "inherits": {
@@ -71002,6 +71742,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "exhibitor",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-048b-fe",
       "inherits": {
@@ -71060,6 +71801,7 @@
       "effectiveStatus": "todo",
       "effort": "M",
       "feature": "subscription",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-049",
       "inherits": {
@@ -71119,6 +71861,7 @@
       "effectiveStatus": "todo",
       "effort": "M",
       "feature": "subscription",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-049-be",
       "inherits": {
@@ -71180,6 +71923,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "subscription",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-049-fe",
       "inherits": {
@@ -71257,6 +72001,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "post-event",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-050",
       "inherits": {
@@ -71330,6 +72075,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "post-event",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-050-be",
       "inherits": {
@@ -71409,6 +72155,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "post-event",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-050-fe",
       "inherits": {
@@ -71480,6 +72227,7 @@
       "effectiveStatus": "needs-decision",
       "effort": "L",
       "feature": "gemma",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-051",
       "inherits": {
@@ -71547,6 +72295,7 @@
       "effectiveStatus": "blocked",
       "effort": "L",
       "feature": "gemma",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-051-be",
       "inherits": {
@@ -71620,6 +72369,7 @@
       "effectiveStatus": "blocked",
       "effort": "L",
       "feature": "gemma",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-051-fe",
       "inherits": {
@@ -71691,6 +72441,7 @@
       "effectiveStatus": "blocked",
       "effort": "L",
       "feature": "gemma",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-052",
       "inherits": {
@@ -71758,6 +72509,7 @@
       "effectiveStatus": "blocked",
       "effort": "L",
       "feature": "gemma",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-052-be",
       "inherits": {
@@ -71831,6 +72583,7 @@
       "effectiveStatus": "blocked",
       "effort": "L",
       "feature": "gemma",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-052-fe",
       "inherits": {
@@ -71887,6 +72640,7 @@
       "effectiveStatus": "in-progress",
       "effort": "S",
       "feature": "audit-log",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-053",
       "inherits": {
@@ -71953,6 +72707,7 @@
       "effectiveStatus": "in-progress",
       "effort": "S",
       "feature": "audit-log",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-053-be",
       "inherits": {
@@ -72018,6 +72773,7 @@
       "effectiveStatus": "todo",
       "effort": "M",
       "feature": "cleanup-jobs",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-054",
       "inherits": {
@@ -72069,6 +72825,7 @@
       "effectiveStatus": "todo",
       "effort": "M",
       "feature": "cleanup-jobs",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-054-be",
       "inherits": {
@@ -72123,6 +72880,7 @@
       "effectiveStatus": "todo",
       "effort": "S",
       "feature": "e2e-tests",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-055",
       "inherits": {
@@ -72177,6 +72935,7 @@
       "effectiveStatus": "todo",
       "effort": "S",
       "feature": "e2e-tests",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-055-be",
       "inherits": {
@@ -72230,6 +72989,7 @@
       "effectiveStatus": "done",
       "effort": "S",
       "feature": "auth",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-056",
       "inherits": {
@@ -72282,6 +73042,7 @@
       "effectiveStatus": "done",
       "effort": "S",
       "feature": "profiles",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-057",
       "inherits": {
@@ -72336,6 +73097,7 @@
       "effectiveStatus": "done",
       "effort": "S",
       "feature": "ring-projection",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-058",
       "inherits": {
@@ -72390,6 +73152,7 @@
       "effectiveStatus": "done",
       "effort": "S",
       "feature": "rings",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-059",
       "inherits": {
@@ -72445,6 +73208,7 @@
       "effectiveStatus": "done",
       "effort": "S",
       "feature": "ring-projection",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-060",
       "inherits": {
@@ -72500,6 +73264,7 @@
       "effectiveStatus": "done",
       "effort": "S",
       "feature": "profiles",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-061",
       "inherits": {
@@ -72556,6 +73321,7 @@
       "effectiveStatus": "todo",
       "effort": "S",
       "feature": "files",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-062",
       "inherits": {
@@ -72617,6 +73383,7 @@
       "effectiveStatus": "todo",
       "effort": "S",
       "feature": "files",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-062-be",
       "inherits": {
@@ -72682,6 +73449,7 @@
       "effectiveStatus": "blocked",
       "effort": "S",
       "feature": "files",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-062-fe",
       "inherits": {
@@ -72755,6 +73523,7 @@
       "effectiveStatus": "todo",
       "effort": "S",
       "feature": "error-contract",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-063",
       "inherits": {
@@ -72773,11 +73542,11 @@
       "pending": [],
       "priority": "critical",
       "related": [
+        "task:B-02",
         "story:T-063",
         "decision:D-19",
         "decision-record:DR-19",
         "task:T-067",
-        "task:T-077",
         "frontend-delivery:account",
         "qa-backend:account",
         "qa-frontend:account",
@@ -72820,6 +73589,7 @@
       "effectiveStatus": "todo",
       "effort": "S",
       "feature": "error-contract",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-063-be",
       "inherits": {
@@ -72879,6 +73649,7 @@
       "effectiveStatus": "blocked",
       "effort": "S",
       "feature": "error-contract",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-063-fe",
       "inherits": {
@@ -72949,6 +73720,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "error-contract",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-067",
       "inherits": {
@@ -73004,6 +73776,7 @@
       "effectiveStatus": "todo",
       "effort": "M",
       "feature": "error-contract",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-067-be",
       "inherits": {
@@ -73063,6 +73836,7 @@
       "effectiveStatus": "blocked",
       "effort": "M",
       "feature": "error-contract",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-067-fe",
       "inherits": {
@@ -73130,6 +73904,7 @@
       "effectiveStatus": "in-progress",
       "effort": "M",
       "feature": "operator-panel",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-068",
       "inherits": {
@@ -73197,6 +73972,7 @@
       "effectiveStatus": "in-progress",
       "effort": "M",
       "feature": "operator-panel",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-068-be",
       "inherits": {
@@ -73263,6 +74039,7 @@
       "effectiveStatus": "in-progress",
       "effort": "M",
       "feature": "operator-panel",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-069",
       "inherits": {
@@ -73328,6 +74105,7 @@
       "effectiveStatus": "in-progress",
       "effort": "M",
       "feature": "operator-panel",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-069-be",
       "inherits": {
@@ -73393,6 +74171,7 @@
       "effectiveStatus": "in-progress",
       "effort": "S",
       "feature": "operator-panel",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-070",
       "inherits": {
@@ -73455,6 +74234,7 @@
       "effectiveStatus": "in-progress",
       "effort": "S",
       "feature": "operator-panel",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-070-be",
       "inherits": {
@@ -73527,6 +74307,7 @@
       "effectiveStatus": "in-progress",
       "effort": "S",
       "feature": "operator-panel",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-071",
       "inherits": {
@@ -73598,6 +74379,7 @@
       "effectiveStatus": "in-progress",
       "effort": "S",
       "feature": "operator-panel",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-071-be",
       "inherits": {
@@ -73663,6 +74445,7 @@
       "effectiveStatus": "in-progress",
       "effort": "S",
       "feature": "operator-panel",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-072",
       "inherits": {
@@ -73725,6 +74508,7 @@
       "effectiveStatus": "in-progress",
       "effort": "S",
       "feature": "operator-panel",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-072-be",
       "inherits": {
@@ -73779,6 +74563,7 @@
       "effectiveStatus": "partial",
       "effort": "S",
       "feature": "build-deploy",
+      "foundOn": null,
       "frontendOnly": false,
       "id": "task:T-073",
       "inherits": {
@@ -73832,136 +74617,6 @@
       ],
       "task": null,
       "title": "T-073 GitLab pipeline and Docker setup",
-      "updated": "2026-10-26"
-    },
-    "task:T-076": {
-      "affects": [
-        "backend-delivery:account",
-        "story:account",
-        "qa-backend:account"
-      ],
-      "blockedBy": [],
-      "card": "T-076",
-      "children": [],
-      "code": "T-076",
-      "created": "2026-10-26",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": null,
-      "effectiveStatus": "todo",
-      "effort": "S",
-      "feature": "account",
-      "frontendOnly": false,
-      "id": "task:T-076",
-      "inherits": {
-        "release": "feature:account"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "bug"
-      ],
-      "layer": "business",
-      "module": "identity",
-      "parentTask": null,
-      "parents": [
-        "story:account"
-      ],
-      "path": "tasks/T-076 An unverified changed email still signs in.md",
-      "pending": [],
-      "priority": "high",
-      "related": [
-        "qa-backend:account",
-        "backend-integration:account",
-        "backend-integration:auth",
-        "decision:D-01",
-        "task:T-003",
-        "qa-frontend:account"
-      ],
-      "release": "mvp",
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s68"
-      ],
-      "status": "todo",
-      "summary": "Output of node scripts/build-tree.mjs --impact T-076 when the task was written: the notes this change touches and that must be updated or flagged when it ships.",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/identity",
-        "priority/high",
-        "bug"
-      ],
-      "task": null,
-      "title": "T-076 An unverified changed email still signs in",
-      "updated": "2026-10-26"
-    },
-    "task:T-077": {
-      "affects": [
-        "backend-integration:account",
-        "story:account",
-        "qa-backend:account"
-      ],
-      "blockedBy": [],
-      "card": "T-077",
-      "children": [],
-      "code": "T-077",
-      "created": "2026-10-26",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": null,
-      "effectiveStatus": "todo",
-      "effort": "S",
-      "feature": "account",
-      "frontendOnly": false,
-      "id": "task:T-077",
-      "inherits": {
-        "release": "feature:account"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "bug"
-      ],
-      "layer": "business",
-      "module": "identity",
-      "parentTask": null,
-      "parents": [
-        "story:account"
-      ],
-      "path": "tasks/T-077 Deleted account answers 401, not the documented 404 E_USER_01.md",
-      "pending": [],
-      "priority": "medium",
-      "related": [
-        "qa-backend:account",
-        "backend-delivery:account",
-        "backend-delivery:error-contract",
-        "project:auth-model",
-        "task:T-063",
-        "feature:rings",
-        "feature:profiles",
-        "qa-frontend:account"
-      ],
-      "release": "mvp",
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s68"
-      ],
-      "status": "todo",
-      "summary": "Output of node scripts/build-tree.mjs --impact T-077 when the task was written: the notes this change touches and that must be updated or flagged when it ships.",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/identity",
-        "priority/medium",
-        "bug"
-      ],
-      "task": null,
-      "title": "T-077 Deleted account answers 401, not the documented 404 E_USER_01",
       "updated": "2026-10-26"
     }
   },

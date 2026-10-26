@@ -65,7 +65,10 @@ const DONE_STATUSES = new Set(['done', 'approved', 'verified', 'delivered', 'cur
 const legendOf = (n) => (n.kind === 'decision' && n.effectiveStatus === 'needs-decision' ? 'Open' : LEGEND[n.effectiveStatus] ?? n.effectiveStatus);
 const emojiOf = (n) => EMOJI[n.effectiveStatus] || '•';
 // the structural note types (not layer kinds); a decision record is the answer to a decided decision, on its own card under it
-const STRUCTURAL = ['module', 'feature', 'task', 'decision', 'decision-record', 'project'];
+const STRUCTURAL = ['module', 'feature', 'task', 'bug', 'decision', 'decision-record', 'project'];
+// a bug is a task note with `labels: [bug]`: same type, same node kind, its own card prefix (B) and its own number sequence
+const isBug = (n) => n.kind === 'task' && (n.labels || []).includes('bug');
+const codeKind = (n) => (isBug(n) ? 'bug' : n.kind);
 const ID_CODED = new Set(['task', 'decision', 'decision-record']); // the card code is the note's id
 
 // ---------------------------------------------------------------- config
@@ -140,9 +143,10 @@ export function loadConfig(errors = []) {
   // listed in the index's order: module, feature, the kinds in hand-off order, then task, decision, decision record, project
   addPrefix('module', structural.module); addPrefix('feature', structural.feature);
   for (const id of flowOrder) { const k = kinds.get(id); if (k.prefix === undefined) err(`kind "${id}": prefix (its card-code prefix) is missing`); else addPrefix(id, k.prefix); }
-  for (const kind of ['task', 'decision', 'decision-record', 'project']) addPrefix(kind, structural[kind]);
+  for (const kind of ['task', 'bug', 'decision', 'decision-record', 'project']) addPrefix(kind, structural[kind]);
   for (const kind of Object.keys(structural)) if (!STRUCTURAL.includes(kind)) err(`cardCodes.structural: unknown kind "${kind}" (${STRUCTURAL.join(', ')})`);
   if (structural.task !== 'T') err('cardCodes.structural.task must be "T": a task\'s card code is its id');
+  if (structural.bug !== 'B') err('cardCodes.structural.bug must be "B": a bug\'s card code is its id');
   if (structural.decision !== 'D') err('cardCodes.structural.decision must be "D": a decision\'s card code is its id');
   if (structural['decision-record'] !== 'DR') err('cardCodes.structural.decision-record must be "DR": a decision record\'s card code is its id');
   const pad = Number.isInteger(cardCodes.pad) && cardCodes.pad >= 1 ? cardCodes.pad : 2;
@@ -361,7 +365,7 @@ function readCanvas(fileByPath, rel) {
 }
 
 const list = (v) => (Array.isArray(v) ? v.filter((x) => typeof x === 'string' && x.trim()) : []);
-const isTaskId = (s) => /^T-\d+[a-z]?(-[a-z]{2})?$/.test(s); // T-017, T-020b, and the frontend / backend halves T-017-fe, T-017-be
+const isTaskId = (s) => /^[TB]-\d+[a-z]?(-[a-z]{2})?$/.test(s); // T-017, T-020b, the halves T-017-fe / T-017-be, and a bug B-01
 const isDecisionId = (s) => /^D-\d+$/.test(s);
 const isRecordId = (s) => /^DR-\d+$/.test(s);
 const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
@@ -407,7 +411,7 @@ export function build() {
     priority: n?.data?.priority ?? null, effort: n?.data?.effort ?? null, module: n?.data?.module ?? null, feature: null, task: null, code: null, scope: null,
     screens: list(n?.data?.screens), created: n?.data?.created ?? null, updated: n?.data?.updated ?? n?.data?.created ?? null, tags: list(n?.data?.tags),
     deadline: n?.data?.deadline ?? null, release: null, inherits: {},
-    depends: [], affects: [], related: [], children: [], parents: [], summary: n?.summary ?? null, label: null, parentTask: null, pending: [], frontendOnly: false, labels: [], card: null, ...extra,
+    depends: [], affects: [], related: [], children: [], parents: [], summary: n?.summary ?? null, label: null, parentTask: null, foundOn: null, pending: [], frontendOnly: false, labels: [], card: null, ...extra,
   });
   const byType = (t) => notes.filter((n) => n.data && n.data.type === t && !n.rel.startsWith('templates/'));
   const requireKeys = (n, keys) => { for (const k of keys) if (n.data[k] === undefined || n.data[k] === null || n.data[k] === '') err(n.rel, `missing frontmatter key "${k}"`); };
@@ -474,7 +478,9 @@ export function build() {
     const parent = typeof n.data.parent === 'string' && n.data.parent.trim() ? n.data.parent.trim() : null;
     const labels = [...new Set(list(n.data.labels).map((l) => l.trim().toLowerCase()))];
     for (const l of labels) if (!cfg.taskLabels.includes(l)) err(n.rel, `labels: "${l}" is not in docs.config.json taskLabels (${cfg.taskLabels.join(', ')})`);
-    const t = addNode(base(n, { id: `task:${n.data.id}`, kind: 'task', layer: 'business', feature: n.data.feature, code: n.data.id, status, effectiveStatus: status, label: 'Task', decision: n.data.decision ?? null, dir: null, parentTask: parent, labels }));
+    const foundOn = typeof n.data.foundOn === 'string' && n.data.foundOn.trim() ? n.data.foundOn.trim() : null;
+    if (foundOn && !labels.includes('bug')) err(n.rel, 'foundOn: only a bug (labels: [bug]) names the card it was found against');
+    const t = addNode(base(n, { id: `task:${n.data.id}`, kind: 'task', layer: 'business', feature: n.data.feature, code: n.data.id, status, effectiveStatus: status, label: labels.includes('bug') ? 'Bug' : 'Task', decision: n.data.decision ?? null, dir: null, parentTask: parent, foundOn, labels }));
     noteOf.set(t.id, n);
     if (taskNodes.has(n.data.id)) err(n.rel, `second task note with id "${n.data.id}"`);
     taskNodes.set(n.data.id, t);
@@ -593,10 +599,22 @@ export function build() {
   }
 
   // tasks under features (a sub-task under its parent task); decisions under features
+  // note name -> node, for `foundOn`: the cards a bug can hang under all exist by now (byName below is built too late for this loop)
+  const nodeByStem = new Map();
+  for (const n of Object.values(nodes)) if (n.path) nodeByStem.set(path.basename(n.path).replace(/\.md$/, '').toLowerCase(), n);
   for (const [, t] of taskNodes) {
     const f = featureNodes.get(t.feature);
     if (!f) { err(t.path, `feature "${t.feature}" is not a feature id`); continue; }
     let container = siblings.get(f.id)?.get('story') ?? f; // a task hangs under its feature's story (the placeholder while the story is not written yet); a sub-task under its parent
+    // a bug hangs under the card it was found against, named by note name in `foundOn` (codes are handed out after the tree is built, so they cannot be resolved here)
+    if (t.foundOn) {
+      const fn = nodeByStem.get(t.foundOn.toLowerCase()) ?? null;
+      if (!fn) err(t.path, `foundOn: "${t.foundOn}" is not a note name in this vault`);
+      else if (fn.id === t.id) err(t.path, 'foundOn: a bug cannot be found against itself');
+      else if (fn.kind === 'task') err(t.path, `foundOn: "${t.foundOn}" is a task; a bug found against a task is its sub-task (parent: ${fn.code}), not foundOn`);
+      else if (fn.feature && fn.feature !== t.feature) err(t.path, `foundOn: "${t.foundOn}" belongs to feature "${fn.feature}", not "${t.feature}"; a bug stays in the feature of the card it was found against`);
+      else container = fn;
+    }
     if (t.parentTask) {
       const p = taskNodes.get(t.parentTask);
       if (!p) { err(t.path, `parent: "${t.parentTask}" is not a task id`); t.parentTask = null; }
@@ -990,7 +1008,8 @@ export function build() {
     if (t.effectiveStatus === 'done' && s !== 'done') { warn(t.path, `status is done but its cards are not (${s}): a task is done when every card under it is`); t.effectiveStatus = s === 'partial' ? 'partial' : 'in-progress'; }
   }
   // a feature's cards: its layer notes and decisions, plus the tasks that hang under its story
-  const featureCards = (f) => [...f.children, ...f.children.flatMap((c) => (nodes[c].kind === 'story' ? nodes[c].children.filter((g) => nodes[g].kind === 'task') : []))];
+  // a feature's cards: its own children, plus the tasks hanging under any of them — under the story as a rule, under the card a bug was found against (`foundOn`)
+  const featureCards = (f) => [...f.children, ...f.children.flatMap((c) => nodes[c].children.filter((g) => nodes[g].kind === 'task'))];
   for (const [, f] of featureNodes) {
     f.effectiveStatus = summarize(featureCards(f));
     // a decision raised on the feature (`blocks: [<feature id>]`) blocks the feature while it is open (Agent Rules §4), like a task or a layer note
@@ -1089,6 +1108,12 @@ function assignCards({ nodes, rootId, cfg, registry, err }) {
     if (!isCard(n) || !ID_CODED.has(n.kind)) continue;
     const kept = registry.cards[n.id];
     if (kept !== undefined && kept !== n.code) err(`${n.id} is listed as ${kept}, but a ${n.kind}'s card code is its id ${n.code}`);
+    // the id carries the prefix of what the card is: a bug (labels: [bug]) is B-NN, any other task T-NNN
+    const wantPrefix = prefixOf(codeKind(n)), gotPrefix = CODE.exec(n.code)?.[1];
+    if (gotPrefix && wantPrefix && gotPrefix !== wantPrefix) {
+      err(`${n.id}: the id carries prefix ${gotPrefix}, but ${isBug(n) ? 'a bug (labels: [bug]) is numbered B-NN' : `a ${n.kind} is numbered ${wantPrefix}-NNN`}`);
+      continue;
+    }
     claim(n.code, n.id);
   }
   // 2 · every other card keeps the code the registry gives it
@@ -1298,7 +1323,7 @@ export function impact(json, query) {
     return out;
   };
   const family = new Set([start.id, ...start.children, ...(start.kind === 'feature' || start.kind === 'task' ? [] : start.parents)]);
-  if (start.kind === 'feature') for (const c of start.children) if (nodes[c].kind === 'story') for (const g of nodes[c].children) if (nodes[g].kind === 'task') family.add(g); // the tasks under the feature's story
+  if (start.kind === 'feature') for (const c of start.children) for (const g of nodes[c].children) if (nodes[g].kind === 'task') family.add(g); // the tasks under the feature's cards: under its story, and the bugs under the card they were found against
   const first = hop([...family]);
   for (const id of family) first.delete(id);
   const second = hop([...first.keys()]);
@@ -1422,7 +1447,7 @@ const screenLinks = (screens) => (screens.length ? screens.map((s) => `[[Screen 
 
 function scaffoldTask(result, featureId, title) {
   const { cfg, json } = result;
-  const usage = 'usage: node scripts/build-tree.mjs --scaffold task <feature-id> "<Title>" [--backend-only | --docs-only | --parent T-NNN] [--label <label>] [--priority critical|high|medium|low] [--effort S|M|L]';
+  const usage = 'usage: node scripts/build-tree.mjs --scaffold task <feature-id> "<Title>" [--backend-only | --docs-only | --parent T-NNN] [--label <label>] [--found-on "<note name>"] [--priority critical|high|medium|low] [--effort S|M|L]';
   if (!featureId || !title) die(usage);
   const f = json.nodes[`feature:${featureId}`];
   if (!f) die(`no feature with id "${featureId}" (feature ids are the \`id:\` of modules/<Module>/<Feature>/<Feature>.md; see tree/tree.json)`);
@@ -1437,8 +1462,15 @@ function scaffoldTask(result, featureId, title) {
   if (!cfg.priorities.levels.some((l) => l.id === priority)) die(`priority "${priority}": ${cfg.priorities.levels.map((l) => l.id).join(', ')}`);
   if (!/^[SML]$/.test(effort)) die(`effort "${effort}": S, M or L`);
   const backendOnly = has('--backend-only'), docsOnly = has('--docs-only');
-  const split = !parent && !docsOnly; // a build task gets its story and its halves; a sub-task or a docs-only task does not
-  const code = nextNumber(result, 'T', 3);
+  const bug = label === 'bug';
+  // a bug found against a card that is not a task names it with --found-on "<note name>" and hangs under it; one found against a task stays its sub-task
+  const foundOn = opt('--found-on', null);
+  if (foundOn && !bug) die('--found-on is for a bug: pass --label bug');
+  if (foundOn && parentCode) die('--found-on and --parent are the two ways a bug hangs somewhere: pass one');
+  if (foundOn && !json.byName[foundOn]) die(`--found-on "${foundOn}" is not a note name in this vault`);
+  if (bug && !foundOn && !parentCode) die('a bug names where it was found: --parent T-NNN for one found against a task, or --found-on "<note name>" for the card it was found against');
+  const split = !parent && !docsOnly && !bug; // a build task gets its story and its halves; a sub-task, a docs-only task or a bug does not
+  const code = bug ? nextNumber(result, 'B', 2) : nextNumber(result, 'T', 3);
   const stem = `${code} ${title}`;
   const date = today();
   const screens = f.screens ?? [];
@@ -1453,11 +1485,13 @@ function scaffoldTask(result, featureId, title) {
   const { body } = parseFrontmatter(fs.readFileSync(path.join(ROOT, 'templates/Task Template.md'), 'utf8'));
   const fm = { type: 'task', id: code, status: 'todo', priority, effort, feature: featureId, module: f.module };
   if (parent) fm.parent = parentCode;
-  Object.assign(fm, { labels: label ? [label] : [], screens, depends: [], affects: [], related: [], pending: [], created: date, updated: date, tags: ['task', 'task/todo', `module/${f.module}`, `priority/${priority}`, ...(label ? [label] : [])] });
+  if (foundOn) fm.foundOn = foundOn;
+  Object.assign(fm, { labels: label ? [label] : [], screens, depends: [], affects: [], related: foundOn ? [foundOn] : [], pending: [], created: date, updated: date, tags: ['task', 'task/todo', `module/${f.module}`, `priority/${priority}`, ...(label ? [label] : [])] });
   let text = fill(body, { 'T-NNN': code, '<Title>': title, '<Feature name>': f.title, '<date>': date, '- [[Screen Index#sNN|sNN]] …': `- ${screenLinks(screens)}` })
     .replace('**Status:** To do · **Priority:** P1 · **Effort:** M', `**Status:** To do · **Priority:** ${priority} · **Effort:** ${effort}`)
-    .replace('created from …', `created with --scaffold task${parent ? ` as a sub-task of ${parentCode}` : ''}`);
+    .replace('created from …', `created with --scaffold task${parent ? ` as a sub-task of ${parentCode}` : ''}${foundOn ? `, found against ${foundOn}` : ''}`);
   if (parent) text = text.replace('**Feature:**', `**Parent:** [[${pnote.stem}]] · **Feature:**`);
+  if (foundOn) text = text.replace('**Feature:**', `**Found against:** [[${foundOn}]] · **Feature:**`);
   if (split) {
     const halves = [...(backendOnly ? [] : [`[[${code}-fe Frontend · ${title}|Frontend]]`]), `[[${code}-be Backend · ${title}|Backend]]`].join(' · ');
     text = text.replace(/\*\*Layer notes\*\*[^\n]*\n/, `**Sub-tasks:** ${halves} · **Story:** [[${code} Story]]\n`);

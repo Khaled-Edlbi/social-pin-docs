@@ -55,14 +55,16 @@ Rows checked, `status: passing | failing`, the run date and the build in the ver
 
 ### 4C · File a bug
 
-Where the bug hangs follows the card it was found against ([[Agent Rules#2 · Codes, scopes and the "sum of" rule]]):
+A bug is numbered `B-NN`, not `T-NNN`, and it hangs **where you found it** ([[Agent Rules#2 · Codes, scopes and the "sum of" rule]]):
 
 | The failing row is in | File it with | It hangs under |
 |---|---|---|
-| a task-level QA note (`T-NNN QA Backend`) | `--scaffold task <feature-id> "<Title>" --parent T-NNN --label bug` | the task, which cannot be done while the bug is open |
-| a feature-level QA note (`<Feature> QA Backend`) | `--scaffold task <feature-id> "<Title>" --docs-only --label bug` | the feature's story, like any other task: there is no parent task to hang it on, and a card never hangs under the card that found it |
+| a task-level QA note (`T-NNN QA Backend`) | `--scaffold task <feature-id> "<Title>" --label bug --parent T-NNN` | the task, which cannot be done while the bug is open |
+| a feature-level QA note (`<Feature> QA Backend`) | `--scaffold task <feature-id> "<Title>" --label bug --found-on "<note name>"` | the card you were testing: the Backend Integration note for a backend row, the Frontend Delivery note for a frontend one |
 
-In `## What`: what happens, what should happen (the story's criterion), where (screen id or endpoint), on which build. Whichever shape it takes, the finding is recorded three times so nothing is lost by not parenting it: `**Found by:** [[<your QA note>]] row BNN` under the bug's H1, your QA note in the bug's `related:`, and the bug in your QA note's `pending:` — the QA note then stays Partial until the bug is closed, and `--impact` on either card lists the other. The fix is the layer's work: say which agent (`/backend` or `/frontend`).
+**Name the card you were checking against, not your own QA note.** A backend row fails against the contract in `<Feature> Backend Integration`, so that is the `--found-on`; a frontend row fails against `<Feature> Frontend Delivery`. The scaffold writes `**Found against:** [[<that card>]]` under the H1 and puts it in `related:`. Your QA note is named right under it with the row — `**Found by:** [[<your QA note>]] row BNN, on build <build>` — and the bug goes in your QA note's `pending:`, so the note stays Partial until the bug is closed and `--impact` on either card lists the other.
+
+In `## What`: what happens, what should happen (the story's criterion), where (screen id or endpoint), on which build. The fix is the layer's work: say which agent (`/backend` or `/frontend`).
 
 ### 4D · Behaviour differs from the delivery note
 
