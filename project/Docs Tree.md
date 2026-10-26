@@ -2,7 +2,7 @@
 type: project
 layer: shared
 created: 2026-10-18
-updated: 2026-10-25
+updated: 2026-10-26
 related: ["Agent Rules", "Workflow", "Project Overview"]
 tags: [project, layer/shared, map]
 ---
@@ -68,6 +68,7 @@ A **task draws the same chain under itself**, at task scope and tied to its own 
 | Draft / Passing / Failing | a QA note before and after a run |
 | Blocked | the card before it in the hand-off flow is not handed off yet (the default), or something in `depends` or `blockedBy` is not done; the pane names it. A blocked card, and every card below it in the ladder that waits in turn, is drawn dim until the blocker is done |
 | Needs decision | a task that asks for a decision (a needs-decision card itself reads **Draft**, **Open**, then **Fulfilled**) |
+| `T-NNN · TASK · Business layer` | how a card whose file name starts with its code is named on the page: the code and the kind in the kicker, the title without the code (`T-074 An unverified changed email still signs in.md` reads **An unverified changed email still signs in** under `T-074 · TASK`), and the layer after it in the pane. A task is a business-layer card like a story, so it carries the layer mark too; a sub-task adds `· SUB-TASK OF T-NNN`. The file name keeps the code: only the card's title drops it |
 | `D-NN · NEEDS DECISION` / `DR-NN · DECISION` | how the two decision cards are named on the page and in the index: the D-NN card (the needs-decision card) holds the question and always reads NEEDS DECISION, its kind, with a chip saying **Draft**, **Open** or **Fulfilled** (computed once its answer is decided); its DR-NN card (the decision card) holds the answer (DECISION), with a chip saying **Draft** or **Decided**; the types (`decision`, `decision-record`) and the codes do not change |
 | Blocked · D-NN | the card needs a decision: the needs-decision card (`draft` or `open`) hangs under it (`blocks:` on the D card) and everything after it waits; the card returns to its own status on the build after its decision card is `decided` (the D card then shows Fulfilled) ([[Agent Rules#4 · Statuses, blocking and sign-off]]) |
 | Not written yet | a placeholder for a missing layer note: under every feature, and under the tasks `taskFlow` names in `docs.config.json` |
