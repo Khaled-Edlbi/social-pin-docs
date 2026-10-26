@@ -18,6 +18,8 @@ tags: [frontend-delivery, frontend-delivery/done, module/identity, layer/fronten
 
 # ✅ Account · Frontend Delivery
 
+> ⚠ Affected by [[B-02 Deleted account answers 401, not the documented 404 E_USER_01]] (2026-10-26): the 404 branch on `GET /users/me` is live now (backend branch `B-02/auth/deleted-account-404`): keep it. The 404 comes from the auth guard, so **any** authenticated route can answer it for a deleted account, not only `GET /users/me`; decide whether the network layer ends the session on such a 404 elsewhere too, or relies on the next `GET /users/me`. `/frontend`.
+
 **Feature:** [[Account]] · **Status:** Done · **Built from:** [[Account Backend Integration]] · **Against:** [[Account Story]] · **Requirements:** [[Account Frontend Requirements]] · **QA:** [[Account QA Frontend]]
 
 What the client shipped for the account section of Me, on `social_pin` `main` @ `47ce960` (s68 in `99b97e7`, the account kept current and the sign-out states in `e032a48`, the Privacy rows in `47ce960`; delete in `461958f`, the header in `a58e6b8`). The QA checklist is AC-01…AC-19, DA-01…DA-08 and RP-12 / RP-13 in the client's `docs/TEST_CASES_2026-10-18.md`.

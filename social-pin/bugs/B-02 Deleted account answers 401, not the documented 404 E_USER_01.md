@@ -20,6 +20,8 @@ tags: [bug, bug/todo, module/identity, priority/medium]
 
 # ⬜ B-02 · Deleted account answers 401, not the documented 404 E_USER_01
 
+> ⚠ Affected by [[Account Backend Delivery]] (2026-10-26): fixed in code on backend branch `B-02/auth/deleted-account-404` (not merged yet). The guard took the first way: `JwtStrategy` answers a DELETED account 404 `E_USER_01` on every route, SUSPENDED and PENDING keep 401 `E_AUTH_03`. The `404 E_USER_01` row in [[Account Backend Integration]] now describes the build, and its flag is cleared. [[Account Story]] S4 needs no change. `/qa`: re-run B14 and F15/F19 on a build with the branch; `/pm`: close with a resolution.
+
 **Found against:** [[Account Backend Integration]] · **Feature:** [[Account]] · **Status:** To do · **Priority:** Medium · **Deadline:** — · **Effort:** S
 
 **Found by:** [[Account QA Backend]] row B14, on build `dev 2026-10-26 · localhost:3000`, and seen from the client in [[Account QA Frontend]] row F19.

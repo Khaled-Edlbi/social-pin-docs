@@ -8,6 +8,9 @@ status: done
 screens: [s68]
 created: 2026-10-15
 updated: 2026-10-26
+depends: []
+affects: ["Account Backend Integration", "Account QA Backend"]
+related: ["B-02 Deleted account answers 401, not the documented 404 E_USER_01", "DELETE /users/me", E_USER_01, E_AUTH_03]
 tags: [backend-delivery, backend-delivery/done, module/identity, layer/backend]
 ---
 
@@ -35,12 +38,12 @@ What the backend shipped for this feature and how it works. The sum of this feat
 
 ## How it works
 
-`UserService` owns the `users` row; `AuthService` only orchestrates flows over it. `GET /users/me` reads through `selectUserAccount`, a narrow select rather than the full `users` row (there is no password column any more; sign-in is passwordless). `PATCH /users/me` normalises the value (email lower-cased and trimmed, phone stripped to E.164), checks uniqueness (409 `E_USER_02` / `E_USER_03`) and **clears the matching `…VerifiedAt`**, so a changed address must be proven again before it can be used to sign in or receive a reset code. `DELETE /users/me` is a soft delete that keeps the row (meetings, orders and audit logs reference it) but releases the unique email and phone so the person can sign up again, and revokes every refresh token. There is deliberately no `GET /users/:id` and no search: another person is reachable only through a Ring projection.
+`UserService` owns the `users` row; `AuthService` only orchestrates flows over it. `GET /users/me` reads through `selectUserAccount`, a narrow select rather than the full `users` row (there is no password column any more; sign-in is passwordless). `PATCH /users/me` normalises the value (email lower-cased and trimmed, phone stripped to E.164), checks uniqueness (409 `E_USER_02` / `E_USER_03`) and **clears the matching `…VerifiedAt`**, so a changed address must be proven again before it can be used to sign in or receive a reset code. `DELETE /users/me` is a soft delete that keeps the row (meetings, orders and audit logs reference it) but releases the unique email and phone so the person can sign up again, and revokes every refresh token. An access token issued before the delete is refused by `JwtStrategy` (it re-reads the user on every request) with **404 `E_USER_01`** on every route, kept apart from the 401 `E_AUTH_03` a suspended account gets ([[B-02 Deleted account answers 401, not the documented 404 E_USER_01]]). There is deliberately no `GET /users/:id` and no search: another person is reachable only through a Ring projection.
 
 ### What exists
 
 - `PATCH /users/me` changes email or phone and clears the matching verified flag.
-- `DELETE /users/me` soft-deletes and revokes every session.
+- `DELETE /users/me` soft-deletes and revokes every session; the account's live access tokens then answer 404 `E_USER_01` (code: `src/modules/auth/strategies/jwt.strategy.ts`).
 - There is deliberately no `GET /users/:id` and no user search: another person is reachable only through a Ring projection.
 
 ### Gaps
@@ -57,3 +60,4 @@ What the backend shipped for this feature and how it works. The sum of this feat
 ## Log
 
 - 2026-10-18 · split out of [[Account]] when the vault moved to layers
+- 2026-10-26 · backend `B-02/auth/deleted-account-404` · [[B-02 Deleted account answers 401, not the documented 404 E_USER_01]]: `JwtStrategy` answers a DELETED account (or a missing row) 404 `E_USER_01` instead of 401 `E_AUTH_03`; SUSPENDED and PENDING keep the 401. The contract row was right, the build moved to it. Flagged: the bug card, [[Account QA Backend]], [[Account QA Frontend]], [[Account Frontend Delivery]].

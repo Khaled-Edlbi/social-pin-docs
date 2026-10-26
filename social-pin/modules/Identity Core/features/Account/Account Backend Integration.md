@@ -8,14 +8,15 @@ status: current
 screens: [s68]
 created: 2026-10-15
 updated: 2026-10-26
+depends: []
+affects: ["Account Frontend Delivery", "Account QA Frontend"]
+related: ["B-02 Deleted account answers 401, not the documented 404 E_USER_01", "GET /users/me", "DELETE /users/me", E_USER_01, E_AUTH_03, "T-063 Put the ErrorCode on the error body"]
 tags: [backend-integration, backend-integration/current, module/identity, layer/backend]
 ---
 
 # 🔌 Account · Backend Integration
 
 > ⚠ Affected by [[B-01 An unverified changed email still signs in]] (2026-10-26): [[D-20 The changed address still signs in, the words are corrected]] decided option 2, so the behaviour stays as it is and the client must be told it plainly: a destination changed through `PATCH /users/me` comes back unverified and still signs in through `POST /auth/login` and `POST /auth/login/verify`; no 403 is coming, and re-verifying is not available. `/backend`.
-
-> ⚠ Affected by [[Account QA Backend]] (2026-10-26): the error matrix row `404 E_USER_01` is unreachable. After `DELETE /users/me` every call answers `401 "Account is not active"`, the same body a suspended account gets; the guard rejects a DELETED account before any handler runs. The sign-out outcome is right, the documented status is not.
 
 **Feature:** [[Account]] · **Backend:** ✅ Done · **Read first:** [[Frontend Contract]]
 
@@ -34,7 +35,7 @@ What the client builds: the Me / Account screen's account section: who is signed
 1. **`GET /users/me`** → `AccountEntity`:
    `id`, `email`, `phone`, `status` (`PENDING` / `ACTIVE` / `SUSPENDED` / `DELETED`), `accountType` (`FREE` / `PRO`), `role` (platform role), `emailVerifiedAt`, `phoneVerifiedAt`, `lastLoginAt`, `createdAt`, `updatedAt`. There is no password on the account at all: sign-in is passwordless ([[Auth & Sign-up Backend Integration]]).
 2. **`PATCH /users/me`** with `{ email? }` and / or `{ phone? }`. Changing a value clears its `…VerifiedAt`, so render the new address as *unverified* straight away. 409 `E_USER_02` (email in use) or `E_USER_03` (phone in use).
-3. **`DELETE /users/me`** → 200, no body. The account is soft-deleted, its email and phone released, and every session revoked. Clear the token store and return to Welcome.
+3. **`DELETE /users/me`** → 200, no body. The account is soft-deleted, its email and phone released, and every session revoked. Clear the token store and return to Welcome. Any access token the account still holds elsewhere now answers **404 `E_USER_01`** on every route until it expires, and its refresh token 401 `E_AUTH_04`.
 
 ## Shapes that matter
 
@@ -44,7 +45,7 @@ What the client builds: the Me / Account screen's account section: who is signed
 
 ## State to keep on the client
 
-Cache the account per signed-in user; refetch after a `PATCH`, on app resume, and after any 401 recovery. `status` can change server-side (suspension): a 401 `E_AUTH_03` on any call is the signal, see [[Auth & Sign-up Backend Integration]].
+Cache the account per signed-in user; refetch after a `PATCH`, on app resume, and after any 401 recovery. `status` can change server-side: a 401 `E_AUTH_03` on any call means suspended, a 404 `E_USER_01` on any call means deleted (on another device); see [[Auth & Sign-up Backend Integration]]. Both are a sign-out, neither is refreshed.
 
 ## Errors to handle
 
@@ -52,7 +53,10 @@ Cache the account per signed-in user; refetch after a `PATCH`, on app resume, an
 |---|---|---|---|
 | 409 | `E_USER_02` | email already on another account | inline error |
 | 409 | `E_USER_03` | phone already on another account | inline error |
-| 404 | `E_USER_01` | the account no longer exists (deleted elsewhere) | sign-out state |
+| 404 | `E_USER_01` | the account no longer exists (deleted elsewhere); any authenticated route, from the auth guard | sign-out state, "Your account has been deleted." |
+| 401 | `E_AUTH_03` | the account is suspended; any authenticated route | sign-out state, no refresh |
+
+Until [[T-063 Put the ErrorCode on the error body]] puts the code on the wire, branch on the status: a 404 on `GET /users/me` is the deleted account.
 
 ## Rules the UI must respect
 

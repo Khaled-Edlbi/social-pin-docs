@@ -8,6 +8,7 @@ status: done
 screens: [s01, s02, s06, s08, s68]
 created: 2026-10-15
 updated: 2026-10-26
+related: ["B-02 Deleted account answers 401, not the documented 404 E_USER_01", E_USER_01]
 tags: [backend-delivery, backend-delivery/done, module/identity, layer/backend]
 ---
 
@@ -54,7 +55,7 @@ What the backend shipped for this feature and how it works. The sum of this feat
 - No password anywhere: `users.password_hash` dropped, `reset-password` and `change-password` removed, `PASSWORD_RESET` / `E_AUTH_02` / `E_USER_04` retired.
 - Three token scopes (`access`, `refresh`, `onboarding`); the `scope` claim is checked, so an onboarding token is never a session.
 - Refresh tokens rotate, are stored bcrypt-hashed (the `jti`, not the JWT), and are revoked in the same transaction that issues the replacement.
-- `JwtStrategy` re-reads the user on every request, so a SUSPENDED account loses access at once.
+- `JwtStrategy` re-reads the user on every request, so a SUSPENDED account loses access at once (401 `E_AUTH_03`), and a DELETED one answers 404 `E_USER_01` ([[B-02 Deleted account answers 401, not the documented 404 E_USER_01]]).
 - Account enumeration is resisted: `login` and `request-code` answer an unknown destination with the same challenge shape (no `devCode`, no code stored).
 - The 5-wrong-attempts limit commits in its own transaction, so it actually triggers (it was rolled back with the error before).
 

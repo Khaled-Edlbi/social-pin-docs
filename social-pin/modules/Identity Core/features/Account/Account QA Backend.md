@@ -18,6 +18,8 @@ tags: [qa-backend, qa-backend/failing, module/identity, layer/qa, priority/criti
 
 # 🧪 Account · QA Backend
 
+> ⚠ Affected by [[B-02 Deleted account answers 401, not the documented 404 E_USER_01]] (2026-10-26): a DELETED account's access token now answers 404 `E_USER_01` on any route (backend branch `B-02/auth/deleted-account-404`); a suspended one keeps 401 `E_AUTH_03`, so the two bodies are no longer identical. Re-run B14 and the deleted-account error-matrix row. `/qa`.
+
 > ⚠ Affected by [[B-01 An unverified changed email still signs in]] (2026-10-26): row B9's expectation is withdrawn. [[D-20 The changed address still signs in, the words are corrected]] decided option 2 — an unverified changed address signs in, by design for now, so the build was never wrong on this row; the two backend notes are being corrected instead. Re-run B9 against the corrected [[Account Backend Delivery]] and [[Account Backend Integration]] and clear it from `pending`. `/qa`.
 
 **Feature:** [[Account]] · **Verifies:** [[Account Backend Delivery]] against [[Account Story]] and [[Account Frontend Requirements]] · **Verdict:** 🔴 Failing · 2026-10-26 · `dev 2026-10-26 · localhost:3000`

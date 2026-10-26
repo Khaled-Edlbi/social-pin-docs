@@ -17,6 +17,8 @@ tags: [qa-frontend, qa-frontend/passing, module/identity, layer/qa]
 
 # 🧪 Account · QA Frontend
 
+> ⚠ Affected by [[B-02 Deleted account answers 401, not the documented 404 E_USER_01]] (2026-10-26): the API now answers a deleted account 404 `E_USER_01` (backend branch `B-02/auth/deleted-account-404`), so F15 should expect "Your account has been deleted.", and the `E_USER_01` matrix row is reachable. `/qa`.
+
 > ⚠ Affected by [[B-01 An unverified changed email still signs in]] (2026-10-26): this note was written twice in parallel; the merge kept the run on `47ce960` and dropped the unrun draft. B-01's `pending` asks for "row F10" of the draft (the copy under the ACCOUNT group while anything is unverified, now the copy [[D-20 The changed address still signs in, the words are corrected]] accepts): find the row of this run that covers it and clear B-01's item. `/qa`.
 
 **Feature:** [[Account]] · **Verifies:** [[Account Frontend Delivery]] against [[Account Story]] · **Verdict:** ✅ Passing on every row run · 2026-10-26 · `social_pin` `main` @ `47ce960` · 8 rows not run (see `pending`)
