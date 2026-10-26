@@ -1,7 +1,7 @@
 ---
 type: project
 created: 2026-10-15
-updated: 2026-10-19
+updated: 2026-10-26
 tags: [project]
 layer: backend
 ---
@@ -63,10 +63,10 @@ database/business concept."*
 | `ai_actions` | Medium | `AiAction` | `ai.prisma` | schema | — |
 | `match_results` | Medium | `MatchResult` | `discovery.prisma` | schema | — |
 | `analytics_events` | High | `AnalyticsEvent` | `analytics.prisma` | schema | — |
-| `roles` | Critical | `Role` | `auth.prisma` | schema + seeded | `prisma/seed/role.seed.ts` |
-| `permissions` | Critical | `Permission` | `auth.prisma` | schema + seeded | `prisma/seed/permission.seed.ts` |
-| `user_roles` | Critical | `UserRole` | `auth.prisma` | **schema + API** | read by `modules/auth/strategies/jwt.strategy.ts` |
-| `audit_logs` | Critical | `AuditLog` | `analytics.prisma` | schema | — |
+| `roles` | Critical | `Role` | `auth.prisma` | **schema + API** | seeded by `prisma/seed/role.seed.ts`; read by `GET /admin/roles` |
+| `permissions` | Critical | `Permission` | `auth.prisma` | **schema + API** | seeded by `prisma/seed/permission.seed.ts`; read by `GET /admin/roles/permissions` |
+| `user_roles` | Critical | `UserRole` | `auth.prisma` | **schema + API** | read by `modules/auth/strategies/jwt.strategy.ts`; granted/revoked via `/admin/users/:userId/roles` |
+| `audit_logs` | Critical | `AuditLog` | `analytics.prisma` | **schema + API** | written by `modules/audit/audit-log.service.ts`; read by `GET /admin/audit-logs` |
 
 ### Tables added beyond the document
 
@@ -135,7 +135,7 @@ model instead of turning Social Pin into a generic social network."*
 | Transactions for meeting booking and other atomic changes | `@Transactional<PrismaTxAdapter>()`; `availability_slots` additionally has an exclusion constraint, because a service check cannot stop two concurrent inserts. |
 | Idempotency for payment webhooks, notifications and automations | `Payment.providerReference`, `Notification.dedupeKey` and `FollowUpAutomation.dedupeKey` are each unique. |
 | Retention for temporary rings, PinCast recipients, chat, analytics, events | Modelled: `Ring.disposition` + `RING_DISPOSITION`, `PincastRecipient.detectedAt` indexed for purging, `AnalyticsEvent.createdAt` indexed. The jobs are not written. |
-| Audit logs for sensitive admin, access, payment and AI actions | `AuditLog` table and indexes exist; no service writes to it yet. |
+| Audit logs for sensitive admin, access, payment and AI actions | `AuditLogService` owns the table. Every admin-panel mutation records one, inside the same transaction as the change, so the log cannot claim something the database rolled back. Access, payment and AI writers are not wired yet. |
 
 ## 4. Features list coverage
 
@@ -176,6 +176,41 @@ model instead of turning Social Pin into a generic social network."*
 | 13 | Gemma AI | schema | `ai.prisma` |
 | 14 | Analytics | schema | `analytics.prisma` |
 
+## 4b. Platform operator panel (`/admin`)
+
+Not a numbered spec feature — it is what §1's `roles`, `permissions`,
+`user_roles` and `audit_logs` are for. 12 routes in `src/modules/admin/`, every
+one gated on the `USER_ROLE` enum.
+
+| Route | Role | Notes |
+|---|---|---|
+| `GET /admin/stats` | SUPER_ADMIN, ADMIN | Aggregate counts only. |
+| `GET /admin/users` | SUPER_ADMIN, ADMIN | Soft-deleted hidden unless `includeDeleted=true`. |
+| `GET /admin/users/:id` | SUPER_ADMIN, ADMIN | Counts of profiles/rings, never the rows. |
+| `PATCH /admin/users/:id/status` | SUPER_ADMIN, ADMIN | ACTIVE/SUSPENDED; suspending revokes live refresh tokens. |
+| `PATCH /admin/users/:id/role` | **SUPER_ADMIN** | `users.role` is a string `RolesGuard` matches. |
+| `GET /admin/users/:userId/roles` | SUPER_ADMIN, ADMIN | Scoped grants. |
+| `POST /admin/users/:userId/roles` | SUPER_ADMIN, ADMIN | A **GLOBAL**-scope grant is SUPER_ADMIN-only (`E_ADMIN_07`). |
+| `DELETE /admin/users/:userId/roles/:assignmentId` | SUPER_ADMIN, ADMIN | Same GLOBAL restriction. |
+| `GET /admin/roles` | SUPER_ADMIN, ADMIN | Read-only; roles are seeded. |
+| `GET /admin/roles/permissions` | SUPER_ADMIN, ADMIN | Unpaged catalogue. |
+| `GET /admin/audit-logs` | SUPER_ADMIN, ADMIN | Append-only; no delete route exists. |
+| `GET /admin/audit-logs/:id` | **SUPER_ADMIN** | Full `metadata`. |
+
+Two constraints worth keeping:
+
+- **The panel does not answer the viewer question.** It reads account and
+  moderation state, never a profile's contents, a ring projection or a
+  membership row — `RingAccessService` stays the only place that decides what a
+  viewer may see (golden rule 8). An operator who must look at a reported
+  profile is added to a ring and uses the normal view endpoints, where the
+  access is attributable.
+- **`RolesGuard` has no hierarchy.** It matches by name, so SUPER_ADMIN does
+  *not* imply ADMIN; a route both may use lists both. `PANEL_OPERATOR` and
+  `PANEL_SUPER_ADMIN` in `src/modules/admin/admin.roles.ts` keep that
+  consistent. The guard also matches GLOBAL-scoped `user_roles` names, which is
+  why a global grant is gated as tightly as `users.role`.
+
 ## 5. Open questions (spec §16) — how each is handled
 
 | Question | Resolution in this build |
@@ -198,8 +233,11 @@ Stated plainly, because a gap described as done is worse than a gap.
    otherwise complete. Until it is wired, `sign-up`, `login` and
    `request-code` return the code as `devCode` **in every environment**, so
    anyone who knows an account's email or phone can sign in as it.
-2. **No module writes to `audit_logs`.** The table, indexes and the list of
-   actions to log are in place; the writes are not.
+2. **`audit_logs` covers the panel's mutations only.** A status change, the
+   platform role and a role grant or revoke each record one. The spec's other
+   three categories — access, payment and AI — have no writers yet. An
+   operator can read the trail; no route deletes an entry at any role, and
+   there is no retention job.
 3. **Retention and expiry jobs are not written.** Nothing sweeps `AUTO_DELETE`
    rings, expired `PincastRecipient` rows, or stale `verification_codes`. The
    schema carries everything such a job needs.
