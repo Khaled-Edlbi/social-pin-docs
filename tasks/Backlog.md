@@ -61,8 +61,8 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-044 My meetings, calendar, detail, reschedule, cancel]] | [[Meetings]] | Meetings | ⛔ Blocked | M | — | [[T-042 Meeting request, accept with slots, decline with reason|T-042]] |
 | [[T-044-be Backend · My meetings, calendar, detail, reschedule, cancel]] `backend` | [[Meetings]] | Meetings | ⛔ Blocked | M | — | [[T-042 Meeting request, accept with slots, decline with reason|T-042]] |
 | [[T-044-fe Frontend · My meetings, calendar, detail, reschedule, cancel]] `frontend` | [[Meetings]] | Meetings | ⛔ Blocked | M | — | [[T-042 Meeting request, accept with slots, decline with reason|T-042]], [[T-044-be Backend · My meetings, calendar, detail, reschedule, cancel|T-044-be]] |
-| [[T-053 Audit log writes]] | [[Audit Log]] | Platform & Cross-cutting | ⬜ To do | S | — | — |
-| [[T-053-be Backend · Audit log writes]] `backend` | [[Audit Log]] | Platform & Cross-cutting | ⬜ To do | S | — | — |
+| [[T-053 Audit log writes]] | [[Audit Log]] | Platform & Cross-cutting | 🔵 In progress (2 notes) | S | — | — |
+| [[T-053-be Backend · Audit log writes]] `backend` | [[Audit Log]] | Platform & Cross-cutting | 🔵 In progress (2 notes) | S | — | — |
 | [[T-055 Run the e2e suite in CI against PostGIS]] | [[E2E Test Run]] | Platform & Cross-cutting | ⬜ To do | S | — | — |
 | [[T-055-be Backend · Run the e2e suite in CI against PostGIS]] `backend` | [[E2E Test Run]] | Platform & Cross-cutting | ⬜ To do | S | — | — |
 | [[T-062 Serve uploaded file bytes by id]] | [[Files Upload]] | Identity Core | ⬜ To do | S | — | — |

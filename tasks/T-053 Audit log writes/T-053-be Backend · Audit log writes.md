@@ -1,7 +1,7 @@
 ---
 type: task
 id: T-053-be
-status: todo
+status: in-progress
 priority: critical
 effort: S
 feature: audit-log
@@ -12,15 +12,15 @@ screens: []
 depends: []
 affects: []
 related: []
-pending: []
+pending: ["@backend: the access, payment and AI writers", "@backend: the retention job for audit_logs"]
 created: 2026-10-18
-updated: 2026-10-19
-tags: [task, task/todo, module/platform, priority/critical, backend]
+updated: 2026-10-26
+tags: [task, task/in-progress, module/platform, priority/critical, backend]
 ---
 
-# ⬜ T-053-be · Backend: Audit log writes
+# 🟡 T-053-be · Backend: Audit log writes
 
-**Parent:** [[T-053 Audit log writes]] · **Feature:** [[Audit Log]] · **Side:** Backend · **Status:** To do · **Priority:** Critical · **Effort:** S (same as the parent until the team sizes it)
+**Parent:** [[T-053 Audit log writes]] · **Feature:** [[Audit Log]] · **Side:** Backend · **Status:** In progress · **Priority:** Critical · **Effort:** S (same as the parent until the team sizes it)
 
 **Layer notes** (created with `node scripts/build-tree.mjs --scaffold <kind> T-053-be` when the team picks it up): [[T-053-be Backend Delivery|Backend Delivery]] · [[T-053-be Backend Integration|Backend Integration]] · [[T-053-be QA Backend|QA Backend]]
 
@@ -47,3 +47,5 @@ Same as the parent's: [[T-053 Audit log writes#Impact]].
 ## Log
 
 - 2026-10-18 · created as the backend half of T-053
+- 2026-10-26 · the service and the panel's writes sit on
+  `T-053-be/audit/audit-log-writes`, typecheck and tests green, not merged.
