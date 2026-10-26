@@ -51255,7 +51255,7 @@
       ],
       "task": null,
       "title": "Agent Rules",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "project:api-conventions": {
       "affects": [],
@@ -52141,7 +52141,7 @@
       ],
       "task": null,
       "title": "PM Agent",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "project:project-overview": {
       "affects": [],
@@ -52233,7 +52233,7 @@
       ],
       "task": null,
       "title": "QA Agent",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "project:ring-access-model": {
       "affects": [],

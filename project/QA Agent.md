@@ -2,7 +2,7 @@
 type: project
 layer: shared
 created: 2026-10-19
-updated: 2026-10-25
+updated: 2026-10-26
 depends: ["Agent Protocol"]
 affects: []
 related: ["Agent Protocol", "Agent Rules", "Workflow"]
@@ -55,7 +55,14 @@ Rows checked, `status: passing | failing`, the run date and the build in the ver
 
 ### 4C · File a bug
 
-`node scripts/build-tree.mjs --scaffold task <feature-id> "<Title>" --parent T-NNN --label bug`; in `## What`: what happens, what should happen (the story's criterion), where (screen id or endpoint), on which build; `related:` the QA note and the screen or endpoint. The parent cannot be done while the bug is open. The fix is the layer's work: say which agent (`/backend` or `/frontend`).
+Where the bug hangs follows the card it was found against ([[Agent Rules#2 · Codes, scopes and the "sum of" rule]]):
+
+| The failing row is in | File it with | It hangs under |
+|---|---|---|
+| a task-level QA note (`T-NNN QA Backend`) | `--scaffold task <feature-id> "<Title>" --parent T-NNN --label bug` | the task, which cannot be done while the bug is open |
+| a feature-level QA note (`<Feature> QA Backend`) | `--scaffold task <feature-id> "<Title>" --docs-only --label bug` | the feature's story, like any other task: there is no parent task to hang it on, and a card never hangs under the card that found it |
+
+In `## What`: what happens, what should happen (the story's criterion), where (screen id or endpoint), on which build. Whichever shape it takes, the finding is recorded three times so nothing is lost by not parenting it: `**Found by:** [[<your QA note>]] row BNN` under the bug's H1, your QA note in the bug's `related:`, and the bug in your QA note's `pending:` — the QA note then stays Partial until the bug is closed, and `--impact` on either card lists the other. The fix is the layer's work: say which agent (`/backend` or `/frontend`).
 
 ### 4D · Behaviour differs from the delivery note
 
