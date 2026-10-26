@@ -199,6 +199,8 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-052 Smart Match]] | [[Gemma AI]] | Platform & Cross-cutting | ⛔ Blocked | L | — | [[T-051 Gemma assistant sheet and suggestions|T-051]], [[T-036 Event mode exhibitors list and detail|T-036]] |
 | [[T-052-be Backend · Smart Match]] `backend` | [[Gemma AI]] | Platform & Cross-cutting | ⛔ Blocked | L | — | [[T-051 Gemma assistant sheet and suggestions|T-051]], [[T-036 Event mode exhibitors list and detail|T-036]] |
 | [[T-052-fe Frontend · Smart Match]] `frontend` | [[Gemma AI]] | Platform & Cross-cutting | ⛔ Blocked | L | — | [[T-051 Gemma assistant sheet and suggestions|T-051]], [[T-036 Event mode exhibitors list and detail|T-036]], [[T-052-be Backend · Smart Match|T-052-be]] |
+| [[T-070 Roles and permissions catalogue]] | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | S | — | [[T-069 Scoped role grants|T-069]] |
+| [[T-070-be Backend · Roles and permissions catalogue]] `backend` | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | S | — | [[T-069 Scoped role grants|T-069]] |
 
 ## Done
 
