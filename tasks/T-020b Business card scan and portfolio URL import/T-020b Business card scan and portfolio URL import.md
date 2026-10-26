@@ -1,28 +1,28 @@
 ---
 type: task
 id: T-020b
-status: needs-info
+status: todo
 priority: medium
 effort: L
 feature: onboarding-imports
 module: identity
 screens: [s03a, s03b]
-depends: [D-02]
+depends: ["DR-02 One main profile every Ring starts from"]
 created: 2026-10-15
-updated: 2026-10-25
-owner: "omar"
-tags: [task, task/needs-info, module/identity, priority/medium]
+updated: 2026-10-26
+owner: "Omar Fostok"
+tags: [task, task/todo, module/identity, priority/medium]
 ---
 
-# ❓ T-020b · Business card scan and portfolio URL import
+# ⬜ T-020b · Business card scan and portfolio URL import
 
-**Feature:** [[Onboarding Imports]] · **Status:** Needs a decision / info · **Priority:** Medium · **Effort:** L (S < 1 day, M 1–3 days, L > 3 days)
+**Feature:** [[Onboarding Imports]] · **Status:** To do · **Priority:** Medium · **Effort:** L (S < 1 day, M 1–3 days, L > 3 days)
 
 **Sub-tasks:** [[T-020b-fe Frontend · Business card scan and portfolio URL import|Frontend]] · [[T-020b-be Backend · Business card scan and portfolio URL import|Backend]] · **Story:** [[T-020b Story]]
 
 ## What
 
-Provider decision (OCR, scraping). Same review step as T-020, writing to the main profile ([[DR-02 One main profile every Ring starts from]]).
+How the card and the page are read is [[D-20 How a business card and a portfolio page are read]]. Same review step as T-020, writing to the main profile ([[DR-02 One main profile every Ring starts from]]).
 
 ## Design
 
@@ -32,6 +32,7 @@ Provider decision (OCR, scraping). Same review step as T-020, writing to the mai
 ## Dependencies
 
 - Waited on decision [[D-02 Base profile work fields]], decided by [[DR-02 One main profile every Ring starts from]]
+- Waits on [[D-20 How a business card and a portfolio page are read]] (raised 2026-10-26)
 
 ## Definition of done
 
@@ -45,3 +46,4 @@ Provider decision (OCR, scraping). Same review step as T-020, writing to the mai
 
 - 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
 - 2026-10-25 · D-02 decided ([[DR-02 One main profile every Ring starts from]]); What and Dependencies updated, flag cleared. The provider choice (OCR, scraping) is still open.
+- 2026-10-26 · `tickets/pm/…` · D-20 raised for the open provider question (where the card and the page are read, and what is read); `depends` points at DR-02; the hand-typed `needs-info` removed: the build shows it Blocked · D-20.

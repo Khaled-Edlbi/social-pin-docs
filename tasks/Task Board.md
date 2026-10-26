@@ -12,7 +12,6 @@ kanban-plugin: board
 - [ ] [[T-026 Ring invitations invite, review, decline]] #high #ring-invitations
 - [ ] [[T-039 Catalogue products and talks (new table)]] #high #events-during
 - [ ] [[T-047 Orders, payments and the provider webhook]] #high #payments
-- [ ] [[T-020b Business card scan and portfolio URL import]] #medium #onboarding-imports
 - [ ] [[T-025 Introduce a connection to another]] #medium #connections
 - [ ] [[T-028 What you contribute to a shared Ring]] #medium #ring-invitations
 - [ ] [[T-031 Import contacts]] #medium #discover-hub
@@ -122,6 +121,7 @@ kanban-plugin: board
 - [ ] [[T-015 Pair and revoke an NFC card]] #medium #devices
 - [ ] [[T-015-be Backend · Pair and revoke an NFC card]] #medium #devices #backend
 - [ ] [[T-015-fe Frontend · Pair and revoke an NFC card]] #medium #devices #frontend
+- [ ] [[T-020b Business card scan and portfolio URL import]] #medium #onboarding-imports
 - [ ] [[T-020b-fe Frontend · Business card scan and portfolio URL import]] #medium #onboarding-imports #frontend
 - [ ] [[T-025-be Backend · Introduce a connection to another]] #medium #connections #backend
 - [ ] [[T-025-fe Frontend · Introduce a connection to another]] #medium #connections #frontend

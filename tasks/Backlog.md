@@ -187,7 +187,7 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-015 Pair and revoke an NFC card]] | [[Devices & NFC]] | Platform & Cross-cutting | ⛔ Blocked | M | — | [[T-007 Issue and rotate the QR token for a Ring|T-007]] |
 | [[T-015-be Backend · Pair and revoke an NFC card]] `backend` | [[Devices & NFC]] | Platform & Cross-cutting | ⛔ Blocked | M | — | [[T-007 Issue and rotate the QR token for a Ring|T-007]] |
 | [[T-015-fe Frontend · Pair and revoke an NFC card]] `frontend` | [[Devices & NFC]] | Platform & Cross-cutting | ⛔ Blocked | M | — | [[T-007 Issue and rotate the QR token for a Ring|T-007]], [[T-015-be Backend · Pair and revoke an NFC card|T-015-be]] |
-| [[T-020b Business card scan and portfolio URL import]] | [[Onboarding Imports]] | Identity Core | ❓ Needs decision | L | — | [[D-02 Base profile work fields|D-02]] |
+| [[T-020b Business card scan and portfolio URL import]] | [[Onboarding Imports]] | Identity Core | ⛔ Blocked | L | — | [[D-20 How a business card and a portfolio page are read|D-20]] |
 | [[T-020b-be Backend · Business card scan and portfolio URL import]] `backend` | [[Onboarding Imports]] | Identity Core | ⬜ To do | L | — | [[D-02 Base profile work fields|D-02]] |
 | [[T-020b-fe Frontend · Business card scan and portfolio URL import]] `frontend` | [[Onboarding Imports]] | Identity Core | ⛔ Blocked | L | — | [[T-020b-be Backend · Business card scan and portfolio URL import|T-020b-be]] |
 | [[T-025 Introduce a connection to another]] | [[Connections]] | Connections | ❓ Needs decision | M | — | [[T-023 Connection detail and contacts list|T-023]] |
