@@ -148,8 +148,6 @@ kanban-plugin: board
 - [ ] [[T-033-be Backend · Events list, detail, schedule]] #critical #events-before #backend
 - [ ] [[T-041 Availability slots CRUD]] #critical #meetings
 - [ ] [[T-041-be Backend · Availability slots CRUD]] #critical #meetings #backend
-- [ ] [[T-053 Audit log writes]] #critical #audit-log
-- [ ] [[T-053-be Backend · Audit log writes]] #critical #audit-log #backend
 - [ ] [[T-055 Run the e2e suite in CI against PostGIS]] #critical #e2e-tests
 - [ ] [[T-055-be Backend · Run the e2e suite in CI against PostGIS]] #critical #e2e-tests #backend
 - [ ] [[T-062 Serve uploaded file bytes by id]] #critical #files
@@ -191,6 +189,8 @@ kanban-plugin: board
 
 ## 🔵 In progress
 
+- [ ] [[T-053 Audit log writes]] #critical #audit-log — @backend: the access, payment and AI writers; @backend: the retention job for audit_logs
+- [ ] [[T-053-be Backend · Audit log writes]] #critical #audit-log #backend — @backend: the access, payment and AI writers; @backend: the retention job for audit_logs
 - [ ] [[T-068 Account moderation and platform role]] #high #operator-panel
 - [ ] [[T-068-be Backend · Account moderation and platform role]] #high #operator-panel #backend
 - [ ] [[T-069 Scoped role grants]] #high #operator-panel

@@ -5017,7 +5017,7 @@
     },
     "concepts": 194,
     "decisions": 17,
-    "edges": 4988,
+    "edges": 4989,
     "features": 40,
     "layerNotes": 191,
     "modules": 8,
@@ -11999,6 +11999,16 @@
       "from": "task:T-023",
       "kind": "related",
       "to": "decision-record:DR-15"
+    },
+    {
+      "from": "task:T-053",
+      "kind": "related",
+      "to": "task:T-068"
+    },
+    {
+      "from": "task:T-053",
+      "kind": "related",
+      "to": "task:T-071"
     },
     {
       "from": "task:T-057",
@@ -34104,11 +34114,6 @@
       "to": "feature:operator-panel"
     },
     {
-      "from": "task:T-071",
-      "kind": "wikilink",
-      "to": "task:T-053"
-    },
-    {
       "from": "task:T-071-be",
       "kind": "wikilink",
       "to": "feature:operator-panel"
@@ -42535,8 +42540,8 @@
         "approved": 1,
         "blocked": 1,
         "draft": 2,
-        "missing": 4,
-        "todo": 2
+        "in-progress": 2,
+        "missing": 4
       },
       "scope": null,
       "screens": [],
@@ -49835,10 +49840,10 @@
         "decided": 3,
         "done": 1,
         "draft": 30,
-        "in-progress": 22,
+        "in-progress": 24,
         "missing": 55,
         "needs-decision": 1,
-        "todo": 19,
+        "todo": 17,
         "verified": 3
       },
       "scope": null,
@@ -54968,11 +54973,11 @@
         "decided": 13,
         "done": 16,
         "draft": 99,
-        "in-progress": 55,
+        "in-progress": 57,
         "missing": 158,
         "needs-decision": 9,
         "reference": 31,
-        "todo": 54,
+        "todo": 52,
         "verified": 13
       },
       "scope": null,
@@ -70242,7 +70247,7 @@
       "decision": null,
       "depends": [],
       "dir": "tasks/T-053 Audit log writes",
-      "effectiveStatus": "todo",
+      "effectiveStatus": "in-progress",
       "effort": "S",
       "feature": "audit-log",
       "frontendOnly": false,
@@ -70260,29 +70265,42 @@
         "story:audit-log"
       ],
       "path": "tasks/T-053 Audit log writes/T-053 Audit log writes.md",
-      "pending": [],
+      "pending": [
+        {
+          "person": "backend",
+          "text": "the access, payment and AI writers",
+          "to": null
+        },
+        {
+          "person": "backend",
+          "text": "the retention job for audit_logs",
+          "to": null
+        }
+      ],
       "priority": "critical",
       "related": [
-        "feature:operator-panel"
+        "feature:operator-panel",
+        "task:T-068",
+        "task:T-071"
       ],
       "release": "mvp",
       "rollup": {
         "draft": 1,
-        "todo": 1
+        "in-progress": 1
       },
       "scope": null,
       "screens": [],
-      "status": "todo",
-      "summary": "AuditService.record() from auth, ring members, payments, AI actions.",
+      "status": "in-progress",
+      "summary": "AuditLogService.record() from auth, ring members, payments and AI actions. The service is AuditLogService, not AuditService: it owns the auditlogs table, and record() deliberately carries no…",
       "tags": [
         "task",
-        "task/todo",
+        "task/in-progress",
         "module/platform",
         "priority/critical"
       ],
       "task": null,
       "title": "T-053 Audit log writes",
-      "updated": "2026-10-19"
+      "updated": "2026-10-26"
     },
     "task:T-053-be": {
       "affects": [],
@@ -70295,7 +70313,7 @@
       "decision": null,
       "depends": [],
       "dir": null,
-      "effectiveStatus": "todo",
+      "effectiveStatus": "in-progress",
       "effort": "S",
       "feature": "audit-log",
       "frontendOnly": false,
@@ -70315,25 +70333,36 @@
         "task:T-053"
       ],
       "path": "tasks/T-053 Audit log writes/T-053-be Backend · Audit log writes.md",
-      "pending": [],
+      "pending": [
+        {
+          "person": "backend",
+          "text": "the access, payment and AI writers",
+          "to": null
+        },
+        {
+          "person": "backend",
+          "text": "the retention job for audit_logs",
+          "to": null
+        }
+      ],
       "priority": "critical",
       "related": [],
       "release": "mvp",
       "rollup": {},
       "scope": null,
       "screens": [],
-      "status": "todo",
+      "status": "in-progress",
       "summary": "The API side of T-053 Audit log writes: the endpoints, data and rules its What describes. Record what shipped in T-053-be Backend Delivery and how to call it in T-053-be Backend Integration, and…",
       "tags": [
         "task",
-        "task/todo",
+        "task/in-progress",
         "module/platform",
         "priority/critical",
         "backend"
       ],
       "task": null,
       "title": "T-053-be Backend · Audit log writes",
-      "updated": "2026-10-19"
+      "updated": "2026-10-26"
     },
     "task:T-054": {
       "affects": [],
@@ -71435,7 +71464,7 @@
         {
           "id": "task:T-053",
           "title": "T-053 Audit log writes",
-          "why": "T-053 Audit log writes is to do"
+          "why": "T-053 Audit log writes is in progress"
         }
       ],
       "card": "T-068",
@@ -71472,6 +71501,7 @@
       "pending": [],
       "priority": "high",
       "related": [
+        "task:T-053",
         "task:T-006"
       ],
       "release": "later",
@@ -71504,7 +71534,7 @@
         {
           "id": "task:T-053",
           "title": "T-053 Audit log writes",
-          "why": "T-053 Audit log writes is to do"
+          "why": "T-053 Audit log writes is in progress"
         }
       ],
       "card": "T-068-be",
@@ -71825,7 +71855,7 @@
         {
           "id": "task:T-053",
           "title": "T-053 Audit log writes",
-          "why": "T-053 Audit log writes is to do"
+          "why": "T-053 Audit log writes is in progress"
         },
         {
           "id": "task:T-068",
@@ -71867,7 +71897,9 @@
       "path": "tasks/T-071 Audit-log read endpoints/T-071 Audit-log read endpoints.md",
       "pending": [],
       "priority": "high",
-      "related": [],
+      "related": [
+        "task:T-053"
+      ],
       "release": "later",
       "rollup": {
         "draft": 1,
@@ -71897,7 +71929,7 @@
         {
           "id": "task:T-053",
           "title": "T-053 Audit log writes",
-          "why": "T-053 Audit log writes is to do"
+          "why": "T-053 Audit log writes is in progress"
         },
         {
           "id": "task:T-068",
