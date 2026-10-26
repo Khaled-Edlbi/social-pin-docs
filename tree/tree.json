@@ -35823,6 +35823,14 @@
       "name": "Spec Map",
       "type": "project"
     },
+    "bugs/B-01 An unverified changed email still signs in.md": {
+      "name": "B-01 An unverified changed email still signs in",
+      "type": "bug"
+    },
+    "bugs/B-02 Deleted account answers 401, not the documented 404 E_USER_01.md": {
+      "name": "B-02 Deleted account answers 401, not the documented 404 E_USER_01",
+      "type": "bug"
+    },
     "business/Feature Graph.md": {
       "name": "Feature Graph",
       "type": "map"
@@ -36762,14 +36770,6 @@
     "project/Workflow.md": {
       "name": "Workflow",
       "type": "project"
-    },
-    "tasks/B-01 An unverified changed email still signs in.md": {
-      "name": "B-01 An unverified changed email still signs in",
-      "type": "bug"
-    },
-    "tasks/B-02 Deleted account answers 401, not the documented 404 E_USER_01.md": {
-      "name": "B-02 Deleted account answers 401, not the documented 404 E_USER_01",
-      "type": "bug"
     },
     "tasks/Backlog.md": {
       "name": "Backlog",
@@ -63460,7 +63460,7 @@
       "parents": [
         "backend-integration:account"
       ],
-      "path": "tasks/B-01 An unverified changed email still signs in.md",
+      "path": "bugs/B-01 An unverified changed email still signs in.md",
       "pending": [
         {
           "person": null,
@@ -63558,7 +63558,7 @@
       "parents": [
         "backend-integration:account"
       ],
-      "path": "tasks/B-02 Deleted account answers 401, not the documented 404 E_USER_01.md",
+      "path": "bugs/B-02 Deleted account answers 401, not the documented 404 E_USER_01.md",
       "pending": [],
       "priority": "medium",
       "related": [

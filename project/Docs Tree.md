@@ -36,7 +36,7 @@ Social Pin (project)
 │   │   │   ├── T-004 Story                      ← the task's own story (draft until product approves it)
 │   │   │   ├── T-004 Backend Delivery …         ← the task's own layer notes, same kinds, code T-004
 │   │   │   ├── T-004-fe Frontend · Member count ← the frontend half: a sub-task (`parent: T-004`, `labels: [frontend]`) with its own layer notes
-│   │   │   └── T-004-be Backend · Member count  ← the backend half (`labels: [backend]`); a bug found later is another sub-task, `B-NN …` with `type: bug`
+│   │   │   └── T-004-be Backend · Member count  ← the backend half (`labels: [backend]`); a bug found later is another sub-task, `bugs/B-NN …` with `type: bug`
 │   │   ├── D-04 Ring settings                   ← decisions/… that name rings in `features:`
 │   │   │   └── T-059 Decide Ring settings …     ← a task that depends on it
 │   │   └── (a card that needs a decision)
@@ -146,7 +146,7 @@ node scripts/agent-guard.mjs status                  # which agent is active and
 node scripts/build-tree.mjs --scaffold backend-delivery T-004   # create a layer note from its template (moves the task into its folder)
 node scripts/build-tree.mjs --scaffold qa-frontend rings        # … at feature level
 node scripts/build-tree.mjs --scaffold task counts "Member count on the Ring card"   # a task with the next free number, its story and its fe / be halves (--backend-only, --docs-only, --parent T-NNN)
-node scripts/build-tree.mjs --scaffold bug counts "Count shows 0 on the default Ring" --parent T-004   # a bug (type: bug) with the next free B-NN, under the task it was found against (--found-on "<note name>" for any other card)
+node scripts/build-tree.mjs --scaffold bug counts "Count shows 0 on the default Ring" --parent T-004   # a bug (type: bug) with the next free B-NN, written to bugs/, hung under the task it was found against (--found-on "<note name>" for any other card)
 node scripts/build-tree.mjs --scaffold feature discovery "Nearby by interest"        # a feature note in its module folder (--id <slug>, --frontend-only)
 node scripts/build-tree.mjs --scaffold decision "Counts Frontend Requirements" "Where the count comes from"   # the decision card a card needs: D-NN, blocks that card while open
 node scripts/build-tree.mjs --scaffold record D-04 "Hidden by default"   # the decision record that takes D-04: DR-04, the answer, why and what it changes (the PM or the owner, on the user's word)
