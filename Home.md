@@ -41,33 +41,36 @@ Numbers per module: the eight module notes under `modules/`; the full list: [[Fe
 ```
 social-pin-docs/
 ├── Home.md                        ← you are here
-├── Card Index.md                  GENERATED: every card with its unique code (M-01, F-05, S-01, FR-05, BD-05, T-004, ND-04, P-10) and the cards it links to as T-004 | S-01
-├── docs.config.json               the layers, their note kinds and statuses, the hand-off flow, default blocks, card-code prefixes, modules
-├── business/                      BUSINESS docs: Project Overview · Glossary · Feature Tree · Feature Graph · Feature Map.canvas · Status Report
-├── frontend/                      FRONTEND docs: Frontend Contract · Frontend API Guide · Frontend Passwordless Migration · Frontend Agent Prompt
-├── backend/                       BACKEND docs: Architecture · API Conventions · Auth Model · Ring Access Model · Database & Migrations · Developer Setup · Spec Map · Developer Guide
-├── project/                       RULES for every layer: Workflow · Agent Rules · Docs Tree · the agents (Agent Protocol · Owner · PM · Backend · Frontend · QA · Admin Agent): `/owner` `/pm` `/backend` `/frontend` `/qa`, `/admin` for repairs
-├── modules/<Module>/
-│   ├── <Module> Module.md         the module = the sum of its features
-│   └── features/<Feature>/        one folder per feature; anything else the module holds gets its own folder beside features/
-│       ├── <Feature>.md                       business: the main node (what it is for, screens, tasks, decisions)
-│       ├── <Feature> Story.md                 business · draft → approved → verified
-│       ├── <Feature> Frontend Requirements.md frontend · what the client asks of the backend
-│       ├── <Feature> Backend Delivery.md      backend  · what shipped, how it works, gaps
-│       ├── <Feature> Backend Integration.md   backend  · how the client calls it
-│       ├── <Feature> Frontend Delivery.md     frontend · what the client shipped
-│       ├── <Feature> QA Backend.md            qa       · expected API behaviour, verdict
-│       └── <Feature> QA Frontend.md           qa       · expected screen behaviour, verdict
-├── tasks/
-│   ├── T-NNN <Title>.md           a task; becomes tasks/T-NNN <Title>/ with the same seven kinds of notes (code T-NNN) as teams pick it up
-│   ├── Task Board.md              GENERATED Kanban
-│   └── Backlog.md                 GENERATED priority table with blockers
-├── needs-decisions/               the needs-decision cards, ND-NN <Title>.md: the questions
-├── decisions/                     the decision cards, D-NN <Title>.md: the answers; and the Decisions table
-├── design/                        Design Reference · Screen Index · Navigation Map · Wireframe Brief · Brief Section Map
+├── docs.config.json               the layers, their note kinds and statuses, the hand-off flow, default blocks, card-code prefixes, modules; projectDir: social-pin
+├── rules/                         RULES for every layer: Workflow · Agent Rules · Docs Tree · the agents (Agent Protocol · Owner · PM · Backend · Frontend · QA · Admin Agent): `/owner` `/pm` `/backend` `/frontend` `/qa`, `/admin` for repairs
 ├── templates/                     one per note kind (the scaffold command uses them)
 ├── tree/                          the docs tree page (index.html), its generated index (tree.json, tree.md) and the card-code registry (cards.json)
-└── scripts/build-tree.mjs         build · --check · --serve · --impact · --scaffold (layer notes, task, feature, decision)
+├── scripts/build-tree.mjs         build · --check · --serve · --impact · --scaffold (layer notes, task, bug, feature, needs-decision, decision)
+│
+└── social-pin/                    THE PRODUCT'S DOCS: every card lives here
+    ├── Card Index.md              GENERATED: every card with its unique code (M-01, F-05, S-01, FR-05, BD-05, T-004, B-01, ND-04, D-04, P-10) and the cards it links to as T-004 | S-01
+    ├── business/                  BUSINESS docs: Project Overview · Glossary · Feature Tree · Feature Graph · Feature Map.canvas · Status Report
+    ├── frontend/                  FRONTEND docs: Frontend Contract · Frontend API Guide · Frontend Passwordless Migration · Frontend Agent Prompt
+    ├── backend/                   BACKEND docs: Architecture · API Conventions · Auth Model · Ring Access Model · Database & Migrations · Developer Setup · Spec Map · Developer Guide
+    ├── modules/<Module>/
+    │   ├── <Module> Module.md     the module = the sum of its features
+    │   └── features/<Feature>/    one folder per feature; anything else the module holds gets its own folder beside features/
+    │       ├── <Feature>.md                       business: the main node (what it is for, screens, tasks, decisions)
+    │       ├── <Feature> Story.md                 business · draft → approved → verified
+    │       ├── <Feature> Frontend Requirements.md frontend · what the client asks of the backend
+    │       ├── <Feature> Backend Delivery.md      backend  · what shipped, how it works, gaps
+    │       ├── <Feature> Backend Integration.md   backend  · how the client calls it
+    │       ├── <Feature> Frontend Delivery.md     frontend · what the client shipped
+    │       ├── <Feature> QA Backend.md            qa       · expected API behaviour, verdict
+    │       └── <Feature> QA Frontend.md           qa       · expected screen behaviour, verdict
+    ├── tasks/
+    │   ├── T-NNN <Title>.md       a task; becomes tasks/T-NNN <Title>/ with the same seven kinds of notes (code T-NNN) as teams pick it up
+    │   ├── Task Board.md          GENERATED Kanban
+    │   └── Backlog.md             GENERATED priority table with blockers
+    ├── bugs/                      the bugs, B-NN <Title>.md
+    ├── needs-decisions/           the needs-decision cards, ND-NN <Title>.md: the questions
+    ├── decisions/                 the decision cards, D-NN <Title>.md: the answers; and the Decisions table
+    └── design/                    Design Reference · Screen Index · Navigation Map · Wireframe Brief · Brief Section Map
 ```
 
 ## Start here, by role

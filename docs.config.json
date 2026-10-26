@@ -1,6 +1,7 @@
 {
   "$schema": "./scripts/docs.config.schema.json",
   "project": "Social Pin",
+  "projectDir": "social-pin",
   "layers": [
     {
       "id": "business",
@@ -142,7 +143,7 @@
     ]
   },
   "resolutions": {
-    "description": "How a bug ended, typed as resolution: <id> on a bug card only (type: bug) and mirrored by the tag resolution/<id>. It never replaces status:, which says where the card stands (todo … done) and nothing about the outcome; a bug closed with status: done and a pending list is still Partial, whatever its resolution says. The build errors on the key anywhere but a bug and warns when a bug is done without one. Set by the agents in agents.reservedFields.resolution (the PM, who closes bugs, and QA, who files them); the rule is project/Agent Rules.md §4.",
+    "description": "How a bug ended, typed as resolution: <id> on a bug card only (type: bug) and mirrored by the tag resolution/<id>. It never replaces status:, which says where the card stands (todo … done) and nothing about the outcome; a bug closed with status: done and a pending list is still Partial, whatever its resolution says. The build errors on the key anywhere but a bug and warns when a bug is done without one. Set by the agents in agents.reservedFields.resolution (the PM, who closes bugs, and QA, who files them); the rule is rules/Agent Rules.md §4.",
     "levels": [
       { "id": "fixed", "label": "Fixed", "color": "#16a34a", "description": "The behaviour changed: code shipped and the bug is gone." },
       { "id": "by-design", "label": "By design", "color": "#0ea5e9", "description": "The build was right and the expectation was wrong; the words moved instead. The decision card it rests on is named in the card's related." },
@@ -190,7 +191,7 @@
     ]
   },
   "branches": {
-    "description": "Vault branches, for every agent: <prefix>/<agent>/<M-NN>-<module-id>/<F-NN>-<feature-id>/<card>-<what-you-do>, printed by node scripts/build-tree.mjs --branch <agent> <card> [<what>]. The prefix is tickets for the cards that ask for or plan work (the kinds listed under tickets), docs for the archive of what is (every other card, the rules and the reference notes). Code repositories keep <module>/<T-NNN>/<what-you-do> (project/Workflow.md §2).",
+    "description": "Vault branches, for every agent: <prefix>/<agent>/<M-NN>-<module-id>/<F-NN>-<feature-id>/<card>-<what-you-do>, printed by node scripts/build-tree.mjs --branch <agent> <card> [<what>]. The prefix is tickets for the cards that ask for or plan work (the kinds listed under tickets), docs for the archive of what is (every other card, the rules and the reference notes). Code repositories keep <module>/<T-NNN>/<what-you-do> (rules/Workflow.md §2).",
     "tickets": ["task", "bug", "story", "frontend-requirements", "needs-decision"],
     "default": "docs"
   },
@@ -205,17 +206,17 @@
     { "id": "platform", "name": "Platform & Cross-cutting", "description": "Notifications, Gemma, devices, interests, code delivery, errors, jobs, tests." }
   ],
   "projectAreas": [
-    { "id": "business", "folder": "business", "label": "Business docs", "description": "The product, glossary, feature map, status reports." },
-    { "id": "frontend", "folder": "frontend", "label": "Frontend docs", "description": "The client contract, API guide, migrations the client must make, the frontend agent prompt." },
-    { "id": "backend", "folder": "backend", "label": "Backend docs", "description": "Architecture, stack, conventions, auth and Ring access models, database and migrations, setup." },
-    { "id": "shared", "folder": "project", "label": "Project rules", "description": "The workflow, the agent rules and the docs tree: rules every layer follows." }
+    { "id": "business", "folder": "social-pin/business", "label": "Business docs", "description": "The product, glossary, feature map, status reports." },
+    { "id": "frontend", "folder": "social-pin/frontend", "label": "Frontend docs", "description": "The client contract, API guide, migrations the client must make, the frontend agent prompt." },
+    { "id": "backend", "folder": "social-pin/backend", "label": "Backend docs", "description": "Architecture, stack, conventions, auth and Ring access models, database and migrations, setup." },
+    { "id": "shared", "folder": "rules", "label": "Project rules", "description": "The workflow, the agent rules and the docs tree: rules every layer follows." }
   ],
   "agents": {
-    "description": "The agents that edit this vault, one per role, invoked as /<id> in Claude Code (.claude/skills/<id>/SKILL.md loads the note). Each one writes only what its `writes` block names: `types` (structural note types; `bug` is a bug card, type: bug),`kinds` (layer-note kinds, feature- and task-level), `taskLabels` (task notes carrying one of these labels), `paths` (globs; `except` removes); `editOnly` is the same but Edit only, never a rewrite or a new file. `signs` are the kinds where the agent may change only the sign-off lines (status, approvedBy / approvedAt, decidedBy / decidedAt, updated, tags, the H1); `fields` the frontmatter keys it may set on any card. Every agent raises the needs-decision card its own card needs (`needs-decision` in its `types`), but only an agent with `decision` in `signs` may set a decision card's status, decidedBy or decidedAt, and only such an agent writes the decision card that takes it (`decision` in its `types`): the answer lives on that card, D-NN for ND-NN, never in the decision card (project/Agent Rules.md §4). Every agent may add a flag line (> ⚠ Affected by …) under any note's H1; nobody edits a generated file or design/Wireframe Brief.md. One entry may set `writes.all: true` instead (the admin, /admin): the guard then refuses it nothing, generated files and the brief included; it is the user's own hand for repairs, not a role. While no agent is active every write is refused and the agent asks which one to use. The hook in .claude/settings.json runs scripts/agent-guard.mjs to enforce this; the shared protocol is project/Agent Protocol.md.",
+    "description": "The agents that edit this vault, one per role, invoked as /<id> in Claude Code (.claude/skills/<id>/SKILL.md loads the note). Each one writes only what its `writes` block names: `types` (structural note types; `bug` is a bug card, type: bug),`kinds` (layer-note kinds, feature- and task-level), `taskLabels` (task notes carrying one of these labels), `paths` (globs; `except` removes); `editOnly` is the same but Edit only, never a rewrite or a new file. `signs` are the kinds where the agent may change only the sign-off lines (status, approvedBy / approvedAt, decidedBy / decidedAt, updated, tags, the H1); `fields` the frontmatter keys it may set on any card. Every agent raises the needs-decision card its own card needs (`needs-decision` in its `types`), but only an agent with `decision` in `signs` may set a decision card's status, decidedBy or decidedAt, and only such an agent writes the decision card that takes it (`decision` in its `types`): the answer lives on that card, D-NN for ND-NN, never in the decision card (rules/Agent Rules.md §4). Every agent may add a flag line (> ⚠ Affected by …) under any note's H1; nobody edits a generated file or design/Wireframe Brief.md. One entry may set `writes.all: true` instead (the admin, /admin): the guard then refuses it nothing, generated files and the brief included; it is the user's own hand for repairs, not a role. While no agent is active every write is refused and the agent asks which one to use. The hook in .claude/settings.json runs scripts/agent-guard.mjs to enforce this; the shared protocol is rules/Agent Protocol.md.",
     "marker": ".claude/.active-agent",
-    "protocol": "project/Agent Protocol.md",
+    "protocol": "rules/Agent Protocol.md",
     "reservedFields": {
-      "description": "Frontmatter keys only the agents listed may add, change or remove, on any note, whoever owns the note otherwise (the admin excepted): a feature's release and the project's stage are the owner's, a bug's resolution is the PM's and QA's (project/Agent Rules.md §4).",
+      "description": "Frontmatter keys only the agents listed may add, change or remove, on any note, whoever owns the note otherwise (the admin excepted): a feature's release and the project's stage are the owner's, a bug's resolution is the PM's and QA's (rules/Agent Rules.md §4).",
       "release": ["owner"],
       "stage": ["owner"],
       "resolution": ["pm", "qa"]
@@ -224,46 +225,46 @@
       {
         "id": "owner",
         "label": "Owner (CEO / CTO)",
-        "note": "project/Owner Agent.md",
+        "note": "rules/Owner Agent.md",
         "layer": "shared",
-        "writes": { "types": ["module", "feature", "needs-decision", "decision"], "kinds": [], "paths": ["project/**", "decisions/Decisions.md", "docs.config.json", "templates/**", "scripts/**", "tree/index.html", ".claude/**", ".github/**", ".gitattributes", ".gitignore", "Home.md", "README.md", "CLAUDE.md", "business/**"] },
+        "writes": { "types": ["module", "feature", "needs-decision", "decision"], "kinds": [], "paths": ["rules/**", "social-pin/decisions/Decisions.md", "docs.config.json", "templates/**", "scripts/**", "tree/index.html", ".claude/**", ".github/**", ".gitattributes", ".gitignore", "Home.md", "README.md", "CLAUDE.md", "social-pin/business/**"] },
         "signs": ["story", "frontend-requirements", "decision"],
         "fields": ["priority", "deadline"]
       },
       {
         "id": "pm",
         "label": "Product manager",
-        "note": "project/PM Agent.md",
+        "note": "rules/PM Agent.md",
         "layer": "business",
-        "writes": { "types": ["feature", "task", "bug", "needs-decision", "decision", "module"], "kinds": ["story"], "taskLabels": ["chore", "spike", "docs"], "paths": ["business/**", "decisions/Decisions.md", "design/Screen Index.md", "Home.md"] },
+        "writes": { "types": ["feature", "task", "bug", "needs-decision", "decision", "module"], "kinds": ["story"], "taskLabels": ["chore", "spike", "docs"], "paths": ["social-pin/business/**", "social-pin/decisions/Decisions.md", "social-pin/design/Screen Index.md", "Home.md"] },
         "signs": ["story", "frontend-requirements", "decision"]
       },
       {
         "id": "backend",
         "label": "Backend",
-        "note": "project/Backend Agent.md",
+        "note": "rules/Backend Agent.md",
         "layer": "backend",
-        "writes": { "types": ["needs-decision"], "kinds": ["backend-delivery", "backend-integration"], "taskLabels": ["backend"], "paths": ["backend/**", "frontend/Frontend API Guide.md"], "editOnly": { "kinds": ["frontend-requirements"], "types": ["feature", "module"] } },
+        "writes": { "types": ["needs-decision"], "kinds": ["backend-delivery", "backend-integration"], "taskLabels": ["backend"], "paths": ["social-pin/backend/**", "social-pin/frontend/Frontend API Guide.md"], "editOnly": { "kinds": ["frontend-requirements"], "types": ["feature", "module"] } },
         "signs": ["frontend-requirements"]
       },
       {
         "id": "frontend",
         "label": "Frontend",
-        "note": "project/Frontend Agent.md",
+        "note": "rules/Frontend Agent.md",
         "layer": "frontend",
-        "writes": { "types": ["needs-decision"], "kinds": ["frontend-requirements", "frontend-delivery"], "taskLabels": ["frontend"], "paths": ["frontend/**"], "except": ["frontend/Frontend API Guide.md"] }
+        "writes": { "types": ["needs-decision"], "kinds": ["frontend-requirements", "frontend-delivery"], "taskLabels": ["frontend"], "paths": ["social-pin/frontend/**"], "except": ["social-pin/frontend/Frontend API Guide.md"] }
       },
       {
         "id": "qa",
         "label": "QA",
-        "note": "project/QA Agent.md",
+        "note": "rules/QA Agent.md",
         "layer": "qa",
         "writes": { "types": ["needs-decision", "bug"], "kinds": ["qa-backend", "qa-frontend"] }
       },
       {
         "id": "admin",
         "label": "Admin (the guard off)",
-        "note": "project/Admin Agent.md",
+        "note": "rules/Admin Agent.md",
         "layer": "shared",
         "writes": { "all": true }
       }

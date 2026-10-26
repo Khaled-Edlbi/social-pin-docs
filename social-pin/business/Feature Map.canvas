@@ -1,0 +1,1132 @@
+{
+	"nodes": [
+		{
+			"id": "grp_identity",
+			"type": "group",
+			"label": "Identity Core",
+			"x": -20,
+			"y": -60,
+			"width": 340,
+			"height": 1208
+		},
+		{
+			"id": "f_auth",
+			"type": "file",
+			"file": "social-pin/modules/Identity Core/features/Auth & Sign-up/Auth & Sign-up.md",
+			"x": 0,
+			"y": 0,
+			"width": 300,
+			"height": 70,
+			"color": "4"
+		},
+		{
+			"id": "f_account",
+			"type": "file",
+			"file": "social-pin/modules/Identity Core/features/Account/Account.md",
+			"x": 0,
+			"y": 86,
+			"width": 300,
+			"height": 70,
+			"color": "4"
+		},
+		{
+			"id": "f_profiles",
+			"type": "file",
+			"file": "social-pin/modules/Identity Core/features/Profiles & Pin Name/Profiles & Pin Name.md",
+			"x": 0,
+			"y": 172,
+			"width": 300,
+			"height": 70,
+			"color": "4"
+		},
+		{
+			"id": "f_rings",
+			"type": "file",
+			"file": "social-pin/modules/Identity Core/features/Rings/Rings.md",
+			"x": 0,
+			"y": 258,
+			"width": 300,
+			"height": 70,
+			"color": "4"
+		},
+		{
+			"id": "f_ring-members",
+			"type": "file",
+			"file": "social-pin/modules/Identity Core/features/Ring Members/Ring Members.md",
+			"x": 0,
+			"y": 344,
+			"width": 300,
+			"height": 70,
+			"color": "4"
+		},
+		{
+			"id": "f_ring-projection",
+			"type": "file",
+			"file": "social-pin/modules/Identity Core/features/Ring Projection/Ring Projection.md",
+			"x": 0,
+			"y": 430,
+			"width": 300,
+			"height": 70,
+			"color": "4"
+		},
+		{
+			"id": "f_view-as",
+			"type": "file",
+			"file": "social-pin/modules/Identity Core/features/View As & Pin Views/View As & Pin Views.md",
+			"x": 0,
+			"y": 516,
+			"width": 300,
+			"height": 70,
+			"color": "4"
+		},
+		{
+			"id": "f_files",
+			"type": "file",
+			"file": "social-pin/modules/Identity Core/features/Files Upload/Files Upload.md",
+			"x": 0,
+			"y": 602,
+			"width": 300,
+			"height": 70,
+			"color": "4"
+		},
+		{
+			"id": "f_ring-access",
+			"type": "file",
+			"file": "social-pin/modules/Identity Core/features/Ring Access Engine/Ring Access Engine.md",
+			"x": 0,
+			"y": 688,
+			"width": 300,
+			"height": 70,
+			"color": "4"
+		},
+		{
+			"id": "f_counts",
+			"type": "file",
+			"file": "social-pin/modules/Identity Core/features/Counts/Counts.md",
+			"x": 0,
+			"y": 774,
+			"width": 300,
+			"height": 70,
+			"color": "3"
+		},
+		{
+			"id": "f_photo-library",
+			"type": "file",
+			"file": "social-pin/modules/Identity Core/features/Photo Library/Photo Library.md",
+			"x": 0,
+			"y": 860,
+			"width": 300,
+			"height": 70,
+			"color": "3"
+		},
+		{
+			"id": "f_widgets",
+			"type": "file",
+			"file": "social-pin/modules/Identity Core/features/Widgets/Widgets.md",
+			"x": 0,
+			"y": 946,
+			"width": 300,
+			"height": 70,
+			"color": "3"
+		},
+		{
+			"id": "f_onboarding-imports",
+			"type": "file",
+			"file": "social-pin/modules/Identity Core/features/Onboarding Imports/Onboarding Imports.md",
+			"x": 0,
+			"y": 1032,
+			"width": 300,
+			"height": 70,
+			"color": "1"
+		},
+		{
+			"id": "grp_connections",
+			"type": "group",
+			"label": "Connections",
+			"x": 360,
+			"y": -60,
+			"width": 340,
+			"height": 176
+		},
+		{
+			"id": "f_connections",
+			"type": "file",
+			"file": "social-pin/modules/Connections/features/Connections/Connections.md",
+			"x": 380,
+			"y": 0,
+			"width": 300,
+			"height": 70,
+			"color": "1"
+		},
+		{
+			"id": "grp_shared-rings",
+			"type": "group",
+			"label": "Shared Rings & Companies",
+			"x": 740,
+			"y": -60,
+			"width": 340,
+			"height": 348
+		},
+		{
+			"id": "f_delegated-admins",
+			"type": "file",
+			"file": "social-pin/modules/Shared Rings & Companies/features/Delegated Admins/Delegated Admins.md",
+			"x": 760,
+			"y": 0,
+			"width": 300,
+			"height": 70,
+			"color": "3"
+		},
+		{
+			"id": "f_ring-invitations",
+			"type": "file",
+			"file": "social-pin/modules/Shared Rings & Companies/features/Ring Invitations & Join/Ring Invitations & Join.md",
+			"x": 760,
+			"y": 86,
+			"width": 300,
+			"height": 70,
+			"color": "1"
+		},
+		{
+			"id": "f_companies",
+			"type": "file",
+			"file": "social-pin/modules/Shared Rings & Companies/features/Companies/Companies.md",
+			"x": 760,
+			"y": 172,
+			"width": 300,
+			"height": 70,
+			"color": "1"
+		},
+		{
+			"id": "grp_discovery",
+			"type": "group",
+			"label": "Discovery",
+			"x": 1120,
+			"y": -60,
+			"width": 340,
+			"height": 348
+		},
+		{
+			"id": "f_badge-qr",
+			"type": "file",
+			"file": "social-pin/modules/Discovery/features/Badge & QR/Badge & QR.md",
+			"x": 1140,
+			"y": 0,
+			"width": 300,
+			"height": 70,
+			"color": "3"
+		},
+		{
+			"id": "f_discover-hub",
+			"type": "file",
+			"file": "social-pin/modules/Discovery/features/Discover Hub & Search/Discover Hub & Search.md",
+			"x": 1140,
+			"y": 86,
+			"width": 300,
+			"height": 70,
+			"color": "1"
+		},
+		{
+			"id": "f_pincast",
+			"type": "file",
+			"file": "social-pin/modules/Discovery/features/PinCast & Nearby/PinCast & Nearby.md",
+			"x": 1140,
+			"y": 172,
+			"width": 300,
+			"height": 70,
+			"color": "1"
+		},
+		{
+			"id": "grp_events",
+			"type": "group",
+			"label": "Events",
+			"x": 1500,
+			"y": -60,
+			"width": 340,
+			"height": 520
+		},
+		{
+			"id": "f_event-ring-auto",
+			"type": "file",
+			"file": "social-pin/modules/Events/features/Event Ring Auto-creation/Event Ring Auto-creation.md",
+			"x": 1520,
+			"y": 0,
+			"width": 300,
+			"height": 70,
+			"color": "3"
+		},
+		{
+			"id": "f_events-before",
+			"type": "file",
+			"file": "social-pin/modules/Events/features/Events Before/Events Before.md",
+			"x": 1520,
+			"y": 86,
+			"width": 300,
+			"height": 70,
+			"color": "1"
+		},
+		{
+			"id": "f_events-during",
+			"type": "file",
+			"file": "social-pin/modules/Events/features/Events During/Events During.md",
+			"x": 1520,
+			"y": 172,
+			"width": 300,
+			"height": 70,
+			"color": "1"
+		},
+		{
+			"id": "f_exhibitor",
+			"type": "file",
+			"file": "social-pin/modules/Events/features/Exhibitor/Exhibitor.md",
+			"x": 1520,
+			"y": 258,
+			"width": 300,
+			"height": 70,
+			"color": "1"
+		},
+		{
+			"id": "f_post-event",
+			"type": "file",
+			"file": "social-pin/modules/Events/features/Post-Event/Post-Event.md",
+			"x": 1520,
+			"y": 344,
+			"width": 300,
+			"height": 70,
+			"color": "1"
+		},
+		{
+			"id": "grp_meetings",
+			"type": "group",
+			"label": "Meetings",
+			"x": 1880,
+			"y": -60,
+			"width": 340,
+			"height": 176
+		},
+		{
+			"id": "f_meetings",
+			"type": "file",
+			"file": "social-pin/modules/Meetings/features/Meetings/Meetings.md",
+			"x": 1900,
+			"y": 0,
+			"width": 300,
+			"height": 70,
+			"color": "1"
+		},
+		{
+			"id": "grp_commerce",
+			"type": "group",
+			"label": "Commerce",
+			"x": 2260,
+			"y": -60,
+			"width": 340,
+			"height": 262
+		},
+		{
+			"id": "f_payments",
+			"type": "file",
+			"file": "social-pin/modules/Commerce/features/Payments & Orders/Payments & Orders.md",
+			"x": 2280,
+			"y": 0,
+			"width": 300,
+			"height": 70,
+			"color": "1"
+		},
+		{
+			"id": "f_subscription",
+			"type": "file",
+			"file": "social-pin/modules/Commerce/features/Subscription (Free vs Pro)/Subscription (Free vs Pro).md",
+			"x": 2280,
+			"y": 86,
+			"width": 300,
+			"height": 70,
+			"color": "1"
+		},
+		{
+			"id": "grp_platform",
+			"type": "group",
+			"label": "Platform & Cross-cutting",
+			"x": 2640,
+			"y": -60,
+			"width": 340,
+			"height": 950
+		},
+		{
+			"id": "f_code-delivery",
+			"type": "file",
+			"file": "social-pin/modules/Platform & Cross-cutting/features/Code Delivery/Code Delivery.md",
+			"x": 2660,
+			"y": 0,
+			"width": 300,
+			"height": 70,
+			"color": "3"
+		},
+		{
+			"id": "f_devices",
+			"type": "file",
+			"file": "social-pin/modules/Platform & Cross-cutting/features/Devices & NFC/Devices & NFC.md",
+			"x": 2660,
+			"y": 86,
+			"width": 300,
+			"height": 70,
+			"color": "3"
+		},
+		{
+			"id": "f_interests",
+			"type": "file",
+			"file": "social-pin/modules/Platform & Cross-cutting/features/Interests/Interests.md",
+			"x": 2660,
+			"y": 172,
+			"width": 300,
+			"height": 70,
+			"color": "3"
+		},
+		{
+			"id": "f_linked-accounts",
+			"type": "file",
+			"file": "social-pin/modules/Platform & Cross-cutting/features/Linked Accounts (OAuth)/Linked Accounts (OAuth).md",
+			"x": 2660,
+			"y": 258,
+			"width": 300,
+			"height": 70,
+			"color": "3"
+		},
+		{
+			"id": "f_notifications",
+			"type": "file",
+			"file": "social-pin/modules/Platform & Cross-cutting/features/Notifications/Notifications.md",
+			"x": 2660,
+			"y": 344,
+			"width": 300,
+			"height": 70,
+			"color": "1"
+		},
+		{
+			"id": "f_gemma",
+			"type": "file",
+			"file": "social-pin/modules/Platform & Cross-cutting/features/Gemma AI/Gemma AI.md",
+			"x": 2660,
+			"y": 430,
+			"width": 300,
+			"height": 70,
+			"color": "1"
+		},
+		{
+			"id": "f_audit-log",
+			"type": "file",
+			"file": "social-pin/modules/Platform & Cross-cutting/features/Audit Log/Audit Log.md",
+			"x": 2660,
+			"y": 516,
+			"width": 300,
+			"height": 70,
+			"color": "1"
+		},
+		{
+			"id": "f_cleanup-jobs",
+			"type": "file",
+			"file": "social-pin/modules/Platform & Cross-cutting/features/Cleanup Jobs/Cleanup Jobs.md",
+			"x": 2660,
+			"y": 602,
+			"width": 300,
+			"height": 70,
+			"color": "1"
+		},
+		{
+			"id": "f_e2e-tests",
+			"type": "file",
+			"file": "social-pin/modules/Platform & Cross-cutting/features/E2E Test Run/E2E Test Run.md",
+			"x": 2660,
+			"y": 688,
+			"width": 300,
+			"height": 70,
+			"color": "1"
+		},
+		{
+			"id": "f_app-shell",
+			"type": "file",
+			"file": "social-pin/modules/Platform & Cross-cutting/features/App Shell & Onboarding Narrative/App Shell & Onboarding Narrative.md",
+			"x": 2660,
+			"y": 774,
+			"width": 300,
+			"height": 70
+		},
+		{
+			"id": "grp_dec",
+			"type": "group",
+			"label": "Open decisions",
+			"x": 3020,
+			"y": -60,
+			"width": 340,
+			"height": 606
+		},
+		{
+			"id": "d_D-01",
+			"type": "file",
+			"file": "social-pin/needs-decisions/ND-01 Passwordless login.md",
+			"x": 3040,
+			"y": 0,
+			"width": 300,
+			"height": 70,
+			"color": "6"
+		},
+		{
+			"id": "d_D-02",
+			"type": "file",
+			"file": "social-pin/needs-decisions/ND-02 Base profile work fields.md",
+			"x": 3040,
+			"y": 86,
+			"width": 300,
+			"height": 70,
+			"color": "6"
+		},
+		{
+			"id": "d_D-03",
+			"type": "file",
+			"file": "social-pin/needs-decisions/ND-03 Field library vs per-Ring copies.md",
+			"x": 3040,
+			"y": 172,
+			"width": 300,
+			"height": 70,
+			"color": "6"
+		},
+		{
+			"id": "d_D-04",
+			"type": "file",
+			"file": "social-pin/needs-decisions/ND-04 Ring settings.md",
+			"x": 3040,
+			"y": 258,
+			"width": 300,
+			"height": 70,
+			"color": "6"
+		},
+		{
+			"id": "d_D-05",
+			"type": "file",
+			"file": "social-pin/needs-decisions/ND-05 Copy or inherit.md",
+			"x": 3040,
+			"y": 344,
+			"width": 300,
+			"height": 70,
+			"color": "6"
+		},
+		{
+			"id": "d_D-06",
+			"type": "file",
+			"file": "social-pin/needs-decisions/ND-06 Pin name rules.md",
+			"x": 3040,
+			"y": 430,
+			"width": 300,
+			"height": 70,
+			"color": "6"
+		}
+	],
+	"edges": [
+		{
+			"id": "e_auth_code-delivery",
+			"fromNode": "f_auth",
+			"toNode": "f_code-delivery",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_auth_linked-accounts",
+			"fromNode": "f_auth",
+			"toNode": "f_linked-accounts",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_account_linked-accounts",
+			"fromNode": "f_account",
+			"toNode": "f_linked-accounts",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_account_devices",
+			"fromNode": "f_account",
+			"toNode": "f_devices",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_account_subscription",
+			"fromNode": "f_account",
+			"toNode": "f_subscription",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_delegated-admins_rings",
+			"fromNode": "f_delegated-admins",
+			"toNode": "f_rings",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_ring-invitations_rings",
+			"fromNode": "f_ring-invitations",
+			"toNode": "f_rings",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_event-ring-auto_rings",
+			"fromNode": "f_event-ring-auto",
+			"toNode": "f_rings",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_cleanup-jobs_rings",
+			"fromNode": "f_cleanup-jobs",
+			"toNode": "f_rings",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_connections_ring-members",
+			"fromNode": "f_connections",
+			"toNode": "f_ring-members",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_delegated-admins_ring-members",
+			"fromNode": "f_delegated-admins",
+			"toNode": "f_ring-members",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_badge-qr_view-as",
+			"fromNode": "f_badge-qr",
+			"toNode": "f_view-as",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_connections_view-as",
+			"fromNode": "f_connections",
+			"toNode": "f_view-as",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_connections_ring-access",
+			"fromNode": "f_connections",
+			"toNode": "f_ring-access",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_events-during_ring-access",
+			"fromNode": "f_events-during",
+			"toNode": "f_ring-access",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_meetings_ring-access",
+			"fromNode": "f_meetings",
+			"toNode": "f_ring-access",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_pincast_ring-access",
+			"fromNode": "f_pincast",
+			"toNode": "f_ring-access",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_connections_counts",
+			"fromNode": "f_connections",
+			"toNode": "f_counts",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_delegated-admins_ring-access",
+			"fromNode": "f_delegated-admins",
+			"toNode": "f_ring-access",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_badge-qr_connections",
+			"fromNode": "f_badge-qr",
+			"toNode": "f_connections",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_badge-qr_events-during",
+			"fromNode": "f_badge-qr",
+			"toNode": "f_events-during",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_badge-qr_devices",
+			"fromNode": "f_badge-qr",
+			"toNode": "f_devices",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_badge-qr_subscription",
+			"fromNode": "f_badge-qr",
+			"toNode": "f_subscription",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_badge-qr_ring-access",
+			"fromNode": "f_badge-qr",
+			"toNode": "f_ring-access",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_auth_devices",
+			"fromNode": "f_auth",
+			"toNode": "f_devices",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_account_interests",
+			"fromNode": "f_account",
+			"toNode": "f_interests",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_meetings_widgets",
+			"fromNode": "f_meetings",
+			"toNode": "f_widgets",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_linked-accounts_onboarding-imports",
+			"fromNode": "f_linked-accounts",
+			"toNode": "f_onboarding-imports",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_connections_notifications",
+			"fromNode": "f_connections",
+			"toNode": "f_notifications",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_connections_gemma",
+			"fromNode": "f_connections",
+			"toNode": "f_gemma",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_ring-invitations_ring-members",
+			"fromNode": "f_ring-invitations",
+			"toNode": "f_ring-members",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_notifications_ring-invitations",
+			"fromNode": "f_notifications",
+			"toNode": "f_ring-invitations",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_companies_exhibitor",
+			"fromNode": "f_companies",
+			"toNode": "f_exhibitor",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_companies_rings",
+			"fromNode": "f_companies",
+			"toNode": "f_rings",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_discover-hub_view-as",
+			"fromNode": "f_discover-hub",
+			"toNode": "f_view-as",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_connections_discover-hub",
+			"fromNode": "f_connections",
+			"toNode": "f_discover-hub",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_discover-hub_gemma",
+			"fromNode": "f_discover-hub",
+			"toNode": "f_gemma",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_notifications_pincast",
+			"fromNode": "f_notifications",
+			"toNode": "f_pincast",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_cleanup-jobs_pincast",
+			"fromNode": "f_cleanup-jobs",
+			"toNode": "f_pincast",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_connections_pincast",
+			"fromNode": "f_connections",
+			"toNode": "f_pincast",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_events-before_payments",
+			"fromNode": "f_events-before",
+			"toNode": "f_payments",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_connections_events-before",
+			"fromNode": "f_connections",
+			"toNode": "f_events-before",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_events-before_notifications",
+			"fromNode": "f_events-before",
+			"toNode": "f_notifications",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_events-during_meetings",
+			"fromNode": "f_events-during",
+			"toNode": "f_meetings",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_events-during_subscription",
+			"fromNode": "f_events-during",
+			"toNode": "f_subscription",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_meetings_rings",
+			"fromNode": "f_meetings",
+			"toNode": "f_rings",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_event-ring-auto_meetings",
+			"fromNode": "f_event-ring-auto",
+			"toNode": "f_meetings",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_exhibitor_meetings",
+			"fromNode": "f_exhibitor",
+			"toNode": "f_meetings",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_meetings_notifications",
+			"fromNode": "f_meetings",
+			"toNode": "f_notifications",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_gemma_meetings",
+			"fromNode": "f_gemma",
+			"toNode": "f_meetings",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_badge-qr_exhibitor",
+			"fromNode": "f_badge-qr",
+			"toNode": "f_exhibitor",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_exhibitor_gemma",
+			"fromNode": "f_exhibitor",
+			"toNode": "f_gemma",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_post-event_rings",
+			"fromNode": "f_post-event",
+			"toNode": "f_rings",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_connections_post-event",
+			"fromNode": "f_connections",
+			"toNode": "f_post-event",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_badge-qr_post-event",
+			"fromNode": "f_badge-qr",
+			"toNode": "f_post-event",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_gemma_post-event",
+			"fromNode": "f_gemma",
+			"toNode": "f_post-event",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_audit-log_payments",
+			"fromNode": "f_audit-log",
+			"toNode": "f_payments",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_event-ring-auto_payments",
+			"fromNode": "f_event-ring-auto",
+			"toNode": "f_payments",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_gemma_subscription",
+			"fromNode": "f_gemma",
+			"toNode": "f_subscription",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_gemma_ring-access",
+			"fromNode": "f_gemma",
+			"toNode": "f_ring-access",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_audit-log_auth",
+			"fromNode": "f_audit-log",
+			"toNode": "f_auth",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_audit-log_ring-members",
+			"fromNode": "f_audit-log",
+			"toNode": "f_ring-members",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_auth_cleanup-jobs",
+			"fromNode": "f_auth",
+			"toNode": "f_cleanup-jobs",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_auth_e2e-tests",
+			"fromNode": "f_auth",
+			"toNode": "f_e2e-tests",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_e2e-tests_view-as",
+			"fromNode": "f_e2e-tests",
+			"toNode": "f_view-as",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_app-shell_auth",
+			"fromNode": "f_app-shell",
+			"toNode": "f_auth",
+			"fromSide": "right",
+			"toSide": "left"
+		},
+		{
+			"id": "e_D-01_auth",
+			"fromNode": "d_D-01",
+			"toNode": "f_auth",
+			"fromSide": "left",
+			"toSide": "right",
+			"color": "6"
+		},
+		{
+			"id": "e_D-01_linked-accounts",
+			"fromNode": "d_D-01",
+			"toNode": "f_linked-accounts",
+			"fromSide": "left",
+			"toSide": "right",
+			"color": "6"
+		},
+		{
+			"id": "e_D-02_profiles",
+			"fromNode": "d_D-02",
+			"toNode": "f_profiles",
+			"fromSide": "left",
+			"toSide": "right",
+			"color": "6"
+		},
+		{
+			"id": "e_D-02_ring-projection",
+			"fromNode": "d_D-02",
+			"toNode": "f_ring-projection",
+			"fromSide": "left",
+			"toSide": "right",
+			"color": "6"
+		},
+		{
+			"id": "e_D-02_onboarding-imports",
+			"fromNode": "d_D-02",
+			"toNode": "f_onboarding-imports",
+			"fromSide": "left",
+			"toSide": "right",
+			"color": "6"
+		},
+		{
+			"id": "e_D-02_photo-library",
+			"fromNode": "d_D-02",
+			"toNode": "f_photo-library",
+			"fromSide": "left",
+			"toSide": "right",
+			"color": "6"
+		},
+		{
+			"id": "e_D-03_ring-projection",
+			"fromNode": "d_D-03",
+			"toNode": "f_ring-projection",
+			"fromSide": "left",
+			"toSide": "right",
+			"color": "6"
+		},
+		{
+			"id": "e_D-03_widgets",
+			"fromNode": "d_D-03",
+			"toNode": "f_widgets",
+			"fromSide": "left",
+			"toSide": "right",
+			"color": "6"
+		},
+		{
+			"id": "e_D-04_rings",
+			"fromNode": "d_D-04",
+			"toNode": "f_rings",
+			"fromSide": "left",
+			"toSide": "right",
+			"color": "6"
+		},
+		{
+			"id": "e_D-04_ring-members",
+			"fromNode": "d_D-04",
+			"toNode": "f_ring-members",
+			"fromSide": "left",
+			"toSide": "right",
+			"color": "6"
+		},
+		{
+			"id": "e_D-04_ring-invitations",
+			"fromNode": "d_D-04",
+			"toNode": "f_ring-invitations",
+			"fromSide": "left",
+			"toSide": "right",
+			"color": "6"
+		},
+		{
+			"id": "e_D-04_delegated-admins",
+			"fromNode": "d_D-04",
+			"toNode": "f_delegated-admins",
+			"fromSide": "left",
+			"toSide": "right",
+			"color": "6"
+		},
+		{
+			"id": "e_D-04_companies",
+			"fromNode": "d_D-04",
+			"toNode": "f_companies",
+			"fromSide": "left",
+			"toSide": "right",
+			"color": "6"
+		},
+		{
+			"id": "e_D-05_rings",
+			"fromNode": "d_D-05",
+			"toNode": "f_rings",
+			"fromSide": "left",
+			"toSide": "right",
+			"color": "6"
+		},
+		{
+			"id": "e_D-05_ring-projection",
+			"fromNode": "d_D-05",
+			"toNode": "f_ring-projection",
+			"fromSide": "left",
+			"toSide": "right",
+			"color": "6"
+		},
+		{
+			"id": "e_D-05_photo-library",
+			"fromNode": "d_D-05",
+			"toNode": "f_photo-library",
+			"fromSide": "left",
+			"toSide": "right",
+			"color": "6"
+		},
+		{
+			"id": "e_D-06_profiles",
+			"fromNode": "d_D-06",
+			"toNode": "f_profiles",
+			"fromSide": "left",
+			"toSide": "right",
+			"color": "6"
+		},
+		{
+			"id": "e_D-06_gemma",
+			"fromNode": "d_D-06",
+			"toNode": "f_gemma",
+			"fromSide": "left",
+			"toSide": "right",
+			"color": "6"
+		}
+	]
+}

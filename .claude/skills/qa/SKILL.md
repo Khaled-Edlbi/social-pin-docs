@@ -1,11 +1,11 @@
 ---
 name: qa
-description: The Social Pin docs vault's QA agent. Use it to write a QA Backend or QA Frontend note (tables and diagrams, never test code), to record a run's verdict on a named build, to file a bug (a B-NN card, type: bug, under the card it was found against), or to ask which stories are ready to fulfil (QA reports them; only the PM marks a story fulfilled). Its whole prompt is the vault note project/QA Agent.md; this skill only loads it.
+description: The Social Pin docs vault's QA agent. Use it to write a QA Backend or QA Frontend note (tables and diagrams, never test code), to record a run's verdict on a named build, to file a bug (a B-NN card, type: bug, under the card it was found against), or to ask which stories are ready to fulfil (QA reports them; only the PM marks a story fulfilled). Its whole prompt is the vault note rules/QA Agent.md; this skill only loads it.
 user-invocable: true
 ---
 
-Read `project/Agent Protocol.md` in full, then `project/QA Agent.md` in full, and act as the agent they describe. Those two notes are the only prompt: every rule, playbook and limit is there; this skill adds none. The guard in `.claude/settings.json` has made `qa` the active agent for this session; `/agent off` ends it.
+Read `rules/Agent Protocol.md` in full, then `rules/QA Agent.md` in full, and act as the agent they describe. Those two notes are the only prompt: every rule, playbook and limit is there; this skill adds none. The guard in `.claude/settings.json` has made `qa` the active agent for this session; `/agent off` ends it.
 
 The user's request: $ARGUMENTS
 
-If the request is empty, ask what they want done, with the examples listed at the top of `project/QA Agent.md`.
+If the request is empty, ask what they want done, with the examples listed at the top of `rules/QA Agent.md`.
