@@ -515,6 +515,7 @@
     "T-072-be Backend · Platform stats": "task:T-072-be",
     "T-073 GitLab pipeline and Docker setup": "task:T-073",
     "T-074 An unverified changed email still signs in": "task:T-074",
+    "T-075 Deleted account answers 401, not the documented 404 E_USER_01": "task:T-075",
     "View As & Pin Views": "feature:view-as",
     "View As & Pin Views Backend Delivery": "backend-delivery:view-as",
     "View As & Pin Views Backend Integration": "backend-integration:view-as",
@@ -1028,7 +1029,8 @@
     "T-072": "task:T-072",
     "T-072-be": "task:T-072-be",
     "T-073": "task:T-073",
-    "T-074": "task:T-074"
+    "T-074": "task:T-074",
+    "T-075": "task:T-075"
   },
   "concepts": {
     "DELETE /admin/users/:userId/roles/:assignmentId": {
@@ -1122,7 +1124,8 @@
     },
     "DELETE /users/me": {
       "containers": [
-        "feature:account"
+        "feature:account",
+        "task:T-075"
       ],
       "kind": "endpoint",
       "notes": [
@@ -1130,7 +1133,8 @@
         "backend-integration:account",
         "frontend-requirements:account",
         "qa-backend:account",
-        "story:account"
+        "story:account",
+        "task:T-075"
       ],
       "owner": "feature:account"
     },
@@ -1735,13 +1739,15 @@
     },
     "E_USER_01": {
       "containers": [
-        "feature:account"
+        "feature:account",
+        "task:T-075"
       ],
       "kind": "error",
       "notes": [
         "backend-integration:account",
         "frontend-requirements:account",
-        "qa-backend:account"
+        "qa-backend:account",
+        "task:T-075"
       ],
       "owner": null
     },
@@ -2055,7 +2061,8 @@
       "containers": [
         "feature:account",
         "feature:profiles",
-        "feature:ring-projection"
+        "feature:ring-projection",
+        "task:T-075"
       ],
       "kind": "endpoint",
       "notes": [
@@ -2067,7 +2074,8 @@
         "frontend-requirements:ring-projection",
         "qa-backend:account",
         "story:account",
-        "story:profiles"
+        "story:profiles",
+        "task:T-075"
       ],
       "owner": "feature:profiles"
     },
@@ -2136,7 +2144,8 @@
         "project:spec-map",
         "project:status-report-2026-10-15",
         "task:T-004",
-        "task:T-022"
+        "task:T-022",
+        "task:T-075"
       ],
       "kind": "endpoint",
       "notes": [
@@ -2166,7 +2175,8 @@
         "story:counts",
         "story:event-ring-auto",
         "story:post-event",
-        "story:rings"
+        "story:rings",
+        "task:T-075"
       ],
       "owner": "feature:rings"
     },
@@ -2389,7 +2399,8 @@
         "feature:account",
         "feature:badge-qr",
         "feature:linked-accounts",
-        "feature:ring-projection"
+        "feature:ring-projection",
+        "task:T-075"
       ],
       "kind": "endpoint",
       "notes": [
@@ -2400,7 +2411,8 @@
         "frontend-requirements:linked-accounts",
         "frontend-requirements:ring-projection",
         "qa-backend:account",
-        "story:account"
+        "story:account",
+        "task:T-075"
       ],
       "owner": "feature:account"
     },
@@ -4900,7 +4912,8 @@
         "task:T-019",
         "task:T-019-be",
         "task:T-019-fe",
-        "task:T-074"
+        "task:T-074",
+        "task:T-075"
       ],
       "kind": "screen",
       "notes": [
@@ -4932,7 +4945,8 @@
         "task:T-019",
         "task:T-019-be",
         "task:T-019-fe",
-        "task:T-074"
+        "task:T-074",
+        "task:T-075"
       ],
       "owner": null
     },
@@ -5119,27 +5133,27 @@
       "project": 27,
       "qa-backend": 1,
       "story": 104,
-      "task": 189
+      "task": 190
     },
     "byLayer": {
       "backend": 56,
-      "business": 369,
+      "business": 370,
       "frontend": 43,
       "qa": 1,
       "shared": 10
     },
     "concepts": 199,
     "decisions": 17,
-    "edges": 5072,
+    "edges": 5105,
     "features": 41,
     "layerNotes": 192,
     "modules": 8,
-    "notes": 514,
+    "notes": 515,
     "partial": 1,
     "placeholders": 164,
     "records": 13,
     "taskLayerNotes": 65,
-    "tasks": 189
+    "tasks": 190
   },
   "deadlines": {
     "missed": {
@@ -5805,6 +5819,21 @@
     },
     {
       "from": "task:T-074",
+      "kind": "affects",
+      "to": "story:account"
+    },
+    {
+      "from": "task:T-075",
+      "kind": "affects",
+      "to": "backend-integration:account"
+    },
+    {
+      "from": "task:T-075",
+      "kind": "affects",
+      "to": "qa-backend:account"
+    },
+    {
+      "from": "task:T-075",
       "kind": "affects",
       "to": "story:account"
     },
@@ -12374,6 +12403,41 @@
       "to": "task:T-003"
     },
     {
+      "from": "task:T-075",
+      "kind": "related",
+      "to": "backend-delivery:account"
+    },
+    {
+      "from": "task:T-075",
+      "kind": "related",
+      "to": "backend-delivery:error-contract"
+    },
+    {
+      "from": "task:T-075",
+      "kind": "related",
+      "to": "feature:profiles"
+    },
+    {
+      "from": "task:T-075",
+      "kind": "related",
+      "to": "feature:rings"
+    },
+    {
+      "from": "task:T-075",
+      "kind": "related",
+      "to": "project:auth-model"
+    },
+    {
+      "from": "task:T-075",
+      "kind": "related",
+      "to": "qa-backend:account"
+    },
+    {
+      "from": "task:T-075",
+      "kind": "related",
+      "to": "task:T-063"
+    },
+    {
       "from": "decision-record:DR-13",
       "kind": "shares",
       "to": "task:T-021",
@@ -13929,6 +13993,18 @@
       ]
     },
     {
+      "from": "feature:account",
+      "kind": "shares",
+      "to": "task:T-075",
+      "via": [
+        "DELETE /users/me",
+        "E_USER_01",
+        "GET /profiles",
+        "GET /rings",
+        "GET /users/me"
+      ]
+    },
+    {
       "from": "feature:app-shell",
       "kind": "shares",
       "to": "feature:auth",
@@ -14184,6 +14260,14 @@
       "from": "feature:app-shell",
       "kind": "shares",
       "to": "task:T-022",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "feature:app-shell",
+      "kind": "shares",
+      "to": "task:T-075",
       "via": [
         "GET /rings"
       ]
@@ -14652,6 +14736,14 @@
       ]
     },
     {
+      "from": "feature:auth",
+      "kind": "shares",
+      "to": "task:T-075",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
       "from": "feature:badge-qr",
       "kind": "shares",
       "to": "feature:cleanup-jobs",
@@ -15044,6 +15136,15 @@
       ]
     },
     {
+      "from": "feature:badge-qr",
+      "kind": "shares",
+      "to": "task:T-075",
+      "via": [
+        "GET /rings",
+        "GET /users/me"
+      ]
+    },
+    {
       "from": "feature:cleanup-jobs",
       "kind": "shares",
       "to": "feature:companies",
@@ -15295,6 +15396,14 @@
       "to": "task:T-022",
       "via": [
         "E_RING_02",
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "feature:cleanup-jobs",
+      "kind": "shares",
+      "to": "task:T-075",
+      "via": [
         "GET /rings"
       ]
     },
@@ -16225,6 +16334,14 @@
       ]
     },
     {
+      "from": "feature:connections",
+      "kind": "shares",
+      "to": "task:T-075",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
       "from": "feature:counts",
       "kind": "shares",
       "to": "feature:delegated-admins",
@@ -16463,6 +16580,14 @@
         "E_RING_02",
         "GET /rings",
         "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "feature:counts",
+      "kind": "shares",
+      "to": "task:T-075",
+      "via": [
+        "GET /rings"
       ]
     },
     {
@@ -17803,6 +17928,14 @@
       ]
     },
     {
+      "from": "feature:event-ring-auto",
+      "kind": "shares",
+      "to": "task:T-075",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
       "from": "feature:events-before",
       "kind": "shares",
       "to": "feature:interests",
@@ -17946,6 +18079,14 @@
       "from": "feature:events-before",
       "kind": "shares",
       "to": "task:T-022",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "feature:events-before",
+      "kind": "shares",
+      "to": "task:T-075",
       "via": [
         "GET /rings"
       ]
@@ -18743,6 +18884,14 @@
       "via": [
         "POST /auth/login",
         "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "feature:linked-accounts",
+      "kind": "shares",
+      "to": "task:T-075",
+      "via": [
+        "GET /users/me"
       ]
     },
     {
@@ -19602,6 +19751,14 @@
       ]
     },
     {
+      "from": "feature:pincast",
+      "kind": "shares",
+      "to": "task:T-075",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
       "from": "feature:post-event",
       "kind": "shares",
       "to": "feature:ring-access",
@@ -19803,6 +19960,14 @@
       ]
     },
     {
+      "from": "feature:post-event",
+      "kind": "shares",
+      "to": "task:T-075",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
       "from": "feature:profiles",
       "kind": "shares",
       "to": "feature:ring-access",
@@ -19881,6 +20046,14 @@
       "to": "task:T-063",
       "via": [
         "E_PROFILE_02"
+      ]
+    },
+    {
+      "from": "feature:profiles",
+      "kind": "shares",
+      "to": "task:T-075",
+      "via": [
+        "GET /profiles"
       ]
     },
     {
@@ -20344,6 +20517,14 @@
       ]
     },
     {
+      "from": "feature:ring-members",
+      "kind": "shares",
+      "to": "task:T-075",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
       "from": "feature:ring-projection",
       "kind": "shares",
       "to": "feature:rings",
@@ -20482,6 +20663,15 @@
       "to": "task:T-063",
       "via": [
         "DELETE /rings/:id"
+      ]
+    },
+    {
+      "from": "feature:ring-projection",
+      "kind": "shares",
+      "to": "task:T-075",
+      "via": [
+        "GET /profiles",
+        "GET /users/me"
       ]
     },
     {
@@ -20664,6 +20854,14 @@
       ]
     },
     {
+      "from": "feature:rings",
+      "kind": "shares",
+      "to": "task:T-075",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
       "from": "feature:subscription",
       "kind": "shares",
       "to": "feature:view-as",
@@ -20801,6 +20999,14 @@
       "to": "task:T-023",
       "via": [
         "GET /views/user/:userId/perspectives"
+      ]
+    },
+    {
+      "from": "feature:view-as",
+      "kind": "shares",
+      "to": "task:T-075",
+      "via": [
+        "GET /rings"
       ]
     },
     {
@@ -21341,6 +21547,14 @@
       ]
     },
     {
+      "from": "project:frontend-contract",
+      "kind": "shares",
+      "to": "task:T-075",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
       "from": "project:frontend-passwordless-migration",
       "kind": "shares",
       "to": "project:spec-map",
@@ -21536,6 +21750,14 @@
       ]
     },
     {
+      "from": "project:spec-map",
+      "kind": "shares",
+      "to": "task:T-075",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
       "from": "project:status-report-2026-10-15",
       "kind": "shares",
       "to": "task:T-004",
@@ -21583,6 +21805,14 @@
       "to": "task:T-063",
       "via": [
         "DELETE /rings/:id"
+      ]
+    },
+    {
+      "from": "project:status-report-2026-10-15",
+      "kind": "shares",
+      "to": "task:T-075",
+      "via": [
+        "GET /rings"
       ]
     },
     {
@@ -23569,6 +23799,11 @@
       "from": "story:account",
       "kind": "tree",
       "to": "task:T-074"
+    },
+    {
+      "from": "story:account",
+      "kind": "tree",
+      "to": "task:T-075"
     },
     {
       "from": "story:audit-log",
@@ -34759,6 +34994,16 @@
       "from": "task:T-074",
       "kind": "wikilink",
       "to": "feature:account"
+    },
+    {
+      "from": "task:T-075",
+      "kind": "wikilink",
+      "to": "backend-integration:account"
+    },
+    {
+      "from": "task:T-075",
+      "kind": "wikilink",
+      "to": "feature:account"
     }
   ],
   "emoji": {
@@ -36798,6 +37043,10 @@
       "name": "T-074 An unverified changed email still signs in",
       "type": "task"
     },
+    "tasks/T-075 Deleted account answers 401, not the documented 404 E_USER_01.md": {
+      "name": "T-075 Deleted account answers 401, not the documented 404 E_USER_01",
+      "type": "task"
+    },
     "tasks/Task Board.md": {
       "name": "Task Board",
       "type": null
@@ -37205,7 +37454,9 @@
       "path": "modules/Identity Core/Account/Account Backend Delivery.md",
       "pending": [],
       "priority": "critical",
-      "related": [],
+      "related": [
+        "task:T-075"
+      ],
       "release": "mvp",
       "scope": "feature",
       "screens": [
@@ -38010,6 +38261,7 @@
       "pending": [],
       "priority": "critical",
       "related": [
+        "task:T-075",
         "qa-backend:account"
       ],
       "release": "mvp",
@@ -43158,7 +43410,7 @@
         "draft": 1,
         "failing": 1,
         "missing": 2,
-        "todo": 1
+        "todo": 2
       },
       "scope": null,
       "screens": [
@@ -45548,7 +45800,8 @@
         "project:ring-access-model",
         "project:architecture",
         "project:api-conventions",
-        "project:spec-map"
+        "project:spec-map",
+        "task:T-075"
       ],
       "release": "mvp",
       "rollup": {
@@ -45958,6 +46211,7 @@
         "project:spec-map",
         "feature:meetings",
         "feature:companies",
+        "task:T-075",
         "decision:D-14",
         "decision:D-18",
         "story:T-022"
@@ -50637,7 +50891,7 @@
         "in-progress": 13,
         "missing": 42,
         "needs-decision": 2,
-        "todo": 10,
+        "todo": 11,
         "verified": 6
       },
       "scope": null,
@@ -51195,7 +51449,9 @@
       "path": "backend/Auth Model.md",
       "pending": [],
       "priority": null,
-      "related": [],
+      "related": [
+        "task:T-075"
+      ],
       "release": null,
       "scope": null,
       "screens": [],
@@ -52337,6 +52593,7 @@
       "priority": "critical",
       "related": [
         "task:T-074",
+        "task:T-075",
         "backend-integration:account",
         "backend-integration:auth",
         "backend-delivery:error-contract",
@@ -56033,7 +56290,7 @@
         "needs-decision": 9,
         "partial": 1,
         "reference": 31,
-        "todo": 53,
+        "todo": 54,
         "verified": 13
       },
       "scope": null,
@@ -59262,7 +59519,8 @@
       "blockedBy": [],
       "card": "S-01",
       "children": [
-        "task:T-074"
+        "task:T-074",
+        "task:T-075"
       ],
       "code": "account",
       "created": "2026-10-18",
@@ -72238,6 +72496,7 @@
         "decision:D-19",
         "decision-record:DR-19",
         "task:T-067",
+        "task:T-075",
         "qa-backend:account",
         "story:T-067"
       ],
@@ -73353,6 +73612,71 @@
       ],
       "task": null,
       "title": "T-074 An unverified changed email still signs in",
+      "updated": "2026-10-26"
+    },
+    "task:T-075": {
+      "affects": [
+        "backend-integration:account",
+        "story:account",
+        "qa-backend:account"
+      ],
+      "blockedBy": [],
+      "card": "T-075",
+      "children": [],
+      "code": "T-075",
+      "created": "2026-10-26",
+      "deadline": null,
+      "decision": null,
+      "depends": [],
+      "dir": null,
+      "effectiveStatus": "todo",
+      "effort": "S",
+      "feature": "account",
+      "frontendOnly": false,
+      "id": "task:T-075",
+      "inherits": {
+        "release": "feature:account"
+      },
+      "kind": "task",
+      "label": "Task",
+      "labels": [
+        "bug"
+      ],
+      "layer": "business",
+      "module": "identity",
+      "parentTask": null,
+      "parents": [
+        "story:account"
+      ],
+      "path": "tasks/T-075 Deleted account answers 401, not the documented 404 E_USER_01.md",
+      "pending": [],
+      "priority": "medium",
+      "related": [
+        "backend-delivery:account",
+        "backend-delivery:error-contract",
+        "project:auth-model",
+        "qa-backend:account",
+        "task:T-063",
+        "feature:rings",
+        "feature:profiles"
+      ],
+      "release": "mvp",
+      "rollup": {},
+      "scope": null,
+      "screens": [
+        "s68"
+      ],
+      "status": "todo",
+      "summary": "Output of node scripts/build-tree.mjs --impact T-075 when the task was written: the notes this change touches and that must be updated or flagged when it ships.",
+      "tags": [
+        "task",
+        "task/todo",
+        "module/identity",
+        "priority/medium",
+        "bug"
+      ],
+      "task": null,
+      "title": "T-075 Deleted account answers 401, not the documented 404 E_USER_01",
       "updated": "2026-10-26"
     }
   },
