@@ -25366,11 +25366,6 @@
     {
       "from": "feature:error-contract",
       "kind": "wikilink",
-      "to": "task:T-064"
-    },
-    {
-      "from": "feature:error-contract",
-      "kind": "wikilink",
       "to": "task:T-067"
     },
     {
@@ -33547,6 +33542,11 @@
       "from": "task:T-063-fe",
       "kind": "wikilink",
       "to": "task:T-063-be"
+    },
+    {
+      "from": "task:T-064",
+      "kind": "wikilink",
+      "to": "feature:error-contract"
     },
     {
       "from": "task:T-064",
