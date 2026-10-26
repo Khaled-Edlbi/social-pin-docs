@@ -211,6 +211,7 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-072-be Backend · Platform stats]] `backend` | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | S | — | [[T-068 Account moderation and platform role|T-068]] |
 | [[T-073 GitLab pipeline and Docker setup]] `chore` | [[Build & Deploy]] | Platform & Cross-cutting | 🟡 Partial (3 notes) | S | — | — |
 | [[T-077 Deleted account answers 401, not the documented 404 E_USER_01]] `bug` | [[Account]] | Identity Core | ⬜ To do | S | — | — |
+| [[T-079 Enforce the once-a-year Pin name rename]] | [[Profiles & Pin Name]] | Identity Core | ⬜ To do | M | — | [[DR-06 Yearly rename, old name freed, case-insensitive|DR-06]] |
 
 ## Done
 
