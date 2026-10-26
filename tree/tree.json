@@ -1131,20 +1131,24 @@
     },
     "E_ADMIN_01": {
       "containers": [
+        "project:frontend-api-guide",
         "task:T-068"
       ],
       "kind": "error",
       "notes": [
+        "project:frontend-api-guide",
         "task:T-068"
       ],
       "owner": null
     },
     "E_ADMIN_02": {
       "containers": [
+        "project:frontend-api-guide",
         "task:T-068"
       ],
       "kind": "error",
       "notes": [
+        "project:frontend-api-guide",
         "task:T-068"
       ],
       "owner": null
@@ -1161,11 +1165,13 @@
     },
     "E_ADMIN_07": {
       "containers": [
+        "project:frontend-api-guide",
         "project:spec-map",
         "task:T-069"
       ],
       "kind": "error",
       "notes": [
+        "project:frontend-api-guide",
         "project:spec-map",
         "task:T-069"
       ],
@@ -5087,7 +5093,7 @@
     },
     "concepts": 199,
     "decisions": 17,
-    "edges": 5020,
+    "edges": 5022,
     "features": 41,
     "layerNotes": 191,
     "modules": 8,
@@ -20851,6 +20857,7 @@
       "kind": "shares",
       "to": "project:spec-map",
       "via": [
+        "E_ADMIN_07",
         "GET /profiles/pin-name/:pinName/availability",
         "GET /views/ring/:ringId",
         "GET /views/user/:userId/perspectives"
@@ -20924,6 +20931,23 @@
       "to": "task:T-067-fe",
       "via": [
         "E_RING_01"
+      ]
+    },
+    {
+      "from": "project:frontend-api-guide",
+      "kind": "shares",
+      "to": "task:T-068",
+      "via": [
+        "E_ADMIN_01",
+        "E_ADMIN_02"
+      ]
+    },
+    {
+      "from": "project:frontend-api-guide",
+      "kind": "shares",
+      "to": "task:T-069",
+      "via": [
+        "E_ADMIN_07"
       ]
     },
     {
@@ -51237,7 +51261,7 @@
       ],
       "task": null,
       "title": "Frontend API Guide",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "project:frontend-contract": {
       "affects": [],
