@@ -24,7 +24,7 @@ The docs tree is the readable map of this vault: **project → module → featur
 ```
 Social Pin (project)
 ├── Identity Core Module                         ← modules/Identity Core/Identity Core Module.md (sum of its features)
-│   ├── Rings (feature, business)                ← modules/Identity Core/Rings/Rings.md — the main node
+│   ├── Rings (feature, business)                ← modules/Identity Core/features/Rings/Rings.md — the main node
 │   │   ├── Rings Story                          ← business   · type: story
 │   │   ├── Rings Frontend Requirements          ← frontend   · type: frontend-requirements
 │   │   ├── Rings Backend Delivery               ← backend    · type: backend-delivery
@@ -37,7 +37,7 @@ Social Pin (project)
 │   │   │   ├── T-004 Backend Delivery …         ← the task's own layer notes, same kinds, code T-004
 │   │   │   ├── T-004-fe Frontend · Member count ← the frontend half: a sub-task (`parent: T-004`, `labels: [frontend]`) with its own layer notes
 │   │   │   └── T-004-be Backend · Member count  ← the backend half (`labels: [backend]`); a bug found later is another sub-task, `bugs/B-NN …` with `type: bug`
-│   │   ├── ND-04 Ring settings                   ← decisions/… that name rings in `features:`
+│   │   ├── ND-04 Ring settings                   ← needs-decisions/… that name rings in `features:`
 │   │   │   └── T-059 Decide Ring settings …     ← a task that depends on it
 │   │   └── (a card that needs a decision)
 │   │       └── ND-NN <Title>                     ← needs-decisions/… whose `blocks:` names that card: hangs under it, blocks it while open
@@ -162,7 +162,7 @@ The checklist, by layer, is [[Agent Rules#6 · After a task — the checklist, b
 
 ## Creating a new feature or module
 
-Feature: `node scripts/build-tree.mjs --scaffold feature <module-id> "<Name>"` creates `modules/<Module>/<Feature>/<Feature>.md` from `templates/Feature Template.md`, then `--scaffold story <id>` and the other kinds as each layer gets to them; add the feature to the module note's table and the screens it serves in [[Screen Index]]. Module: add it to `modules` in `docs.config.json`, create `modules/<Module>/<Module> Module.md` from `templates/Module Template.md`. Rebuild; the tree picks everything up from the frontmatter. The Feature Map canvas in `business/` is optional and only adds *related* lines.
+Feature: `node scripts/build-tree.mjs --scaffold feature <module-id> "<Name>"` creates `modules/<Module>/features/<Feature>/<Feature>.md` from `templates/Feature Template.md`, then `--scaffold story <id>` and the other kinds as each layer gets to them; add the feature to the module note's table and the screens it serves in [[Screen Index]]. Module: add it to `modules` in `docs.config.json`, create `modules/<Module>/<Module> Module.md` from `templates/Module Template.md`. Rebuild; the tree picks everything up from the frontmatter. The Feature Map canvas in `business/` is optional and only adds *related* lines.
 
 The agents run these on request, each inside its own files: [[Owner Agent]] (`/owner`), [[PM Agent]] (`/pm`), [[Backend Agent]] (`/backend`), [[Frontend Agent]] (`/frontend`), [[QA Agent]] (`/qa`), and [[Admin Agent]] (`/admin`) inside every file, for repairs only; with no agent active nothing is written and the first answer is which agent to use. The shared steps and the guard are in [[Agent Protocol]].
 

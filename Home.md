@@ -49,7 +49,7 @@ social-pin-docs/
 ├── project/                       RULES for every layer: Workflow · Agent Rules · Docs Tree · the agents (Agent Protocol · Owner · PM · Backend · Frontend · QA · Admin Agent): `/owner` `/pm` `/backend` `/frontend` `/qa`, `/admin` for repairs
 ├── modules/<Module>/
 │   ├── <Module> Module.md         the module = the sum of its features
-│   └── <Feature>/
+│   └── features/<Feature>/        one folder per feature; anything else the module holds gets its own folder beside features/
 │       ├── <Feature>.md                       business: the main node (what it is for, screens, tasks, decisions)
 │       ├── <Feature> Story.md                 business · draft → approved → verified
 │       ├── <Feature> Frontend Requirements.md frontend · what the client asks of the backend

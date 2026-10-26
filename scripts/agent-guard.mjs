@@ -92,7 +92,7 @@ function classify(rel) {
     if (rel.startsWith('needs-decisions/')) { out.type = 'needs-decision'; out.layer = 'business'; return out; } // the question: needs-decisions/ND-NN <Title>.md
     if (rel.startsWith('decisions/')) { out.type = 'decision'; out.layer = 'business'; return out; } // the answer: decisions/D-NN <Title>.md
     if (/^modules\/[^/]+\/[^/]+ Module\.md$/.test(rel)) { out.type = 'module'; out.layer = 'business'; return out; }
-    if (/^modules\/[^/]+\/([^/]+)\/\1\.md$/.test(rel)) { out.type = 'feature'; out.layer = 'business'; return out; }
+    if (/^modules\/[^/]+\/features\/([^/]+)\/\1\.md$/.test(rel)) { out.type = 'feature'; out.layer = 'business'; return out; }
     if (/^(project|business|frontend|backend)\//.test(rel)) { out.type = 'project'; out.layer = rel.split('/')[0] === 'project' ? 'shared' : rel.split('/')[0]; return out; }
   }
   return out;
@@ -229,8 +229,8 @@ if (cmd === 'bash') {
 }
 if (cmd === 'selftest') {
   const E = (o, n) => ({ old: o, new: n });
-  const story = 'modules/Identity Core/Rings/Rings Story.md', fr = 'modules/Identity Core/Rings/Rings Frontend Requirements.md', bd = 'modules/Identity Core/Rings/Rings Backend Delivery.md';
-  const feature = 'modules/Identity Core/Rings/Rings.md', mod = 'modules/Identity Core/Identity Core Module.md', task = 'tasks/T-004 Member count per Ring on list and detail/T-004 Member count per Ring on list and detail.md';
+  const story = 'modules/Identity Core/features/Rings/Rings Story.md', fr = 'modules/Identity Core/features/Rings/Rings Frontend Requirements.md', bd = 'modules/Identity Core/features/Rings/Rings Backend Delivery.md';
+  const feature = 'modules/Identity Core/features/Rings/Rings.md', mod = 'modules/Identity Core/Identity Core Module.md', task = 'tasks/T-004 Member count per Ring on list and detail/T-004 Member count per Ring on list and detail.md';
   const be = 'tasks/T-004 Member count per Ring on list and detail/T-004-be Backend · Member count per Ring on list and detail.md', fe = 'tasks/T-004 Member count per Ring on list and detail/T-004-fe Frontend · Member count per Ring on list and detail.md';
   const newQa = 'tasks/T-004 Member count per Ring on list and detail/T-004-be QA Backend.md', newBd = 'tasks/T-004 Member count per Ring on list and detail/T-004-be Backend Delivery.md', newTask = 'tasks/T-099 Something new/T-099 Something new.md';
   const flag = E('# Rings · User Story\n', '# Rings · User Story\n\n> ⚠ Affected by [[T-004 Member count per Ring on list and detail]] (2026-10-19): memberCount added\n');
@@ -261,7 +261,7 @@ if (cmd === 'selftest') {
     ['backend', fe, 'edit', body, false], ['backend', newQa, 'write', null, false], ['backend', 'frontend/Frontend Contract.md', 'edit', body, false], ['backend', 'design/Wireframe Brief.md', 'edit', body, false],
     ['frontend', fr, 'write', null, true], ['frontend', fe, 'edit', body, true], ['frontend', 'frontend/Frontend Contract.md', 'edit', body, true], ['frontend', 'frontend/Frontend API Guide.md', 'edit', body, false],
     ['frontend', bd, 'edit', body, false], ['frontend', bd, 'edit', flag, true], ['frontend', story, 'edit', sign, false], ['frontend', task, 'edit', body, false],
-    ['qa', newQa, 'write', null, true], ['qa', 'modules/Identity Core/Rings/Rings QA Frontend.md', 'write', null, true], ['qa', story, 'edit', sign, false], ['qa', story, 'edit', body, false], ['qa', bd, 'edit', flag, true], ['qa', bd, 'edit', body, false], ['qa', task, 'edit', body, false],
+    ['qa', newQa, 'write', null, true], ['qa', 'modules/Identity Core/features/Rings/Rings QA Frontend.md', 'write', null, true], ['qa', story, 'edit', sign, false], ['qa', story, 'edit', body, false], ['qa', bd, 'edit', flag, true], ['qa', bd, 'edit', body, false], ['qa', task, 'edit', body, false],
     // needs-decision cards (ND-NN): anyone raises and fills them, draft or open; nobody types them decided or fulfilled, not even the PM or the owner (Agent Rules §4)
     ['owner', newDec, 'write', openWrite, true], ['owner', newDec, 'write', decidedWrite, false], ['owner', dec, 'edit', decideSign, false], ['owner', dec, 'edit', openSign, true],
     ['pm', newDec, 'write', decidedWrite, false], ['pm', dec, 'edit', decideSign, false], ['pm', dec, 'edit', fulfilSign, false], ['pm', dec, 'edit', openSign, true], ['pm', dec, 'edit', decBody, true],

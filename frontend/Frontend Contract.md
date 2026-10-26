@@ -1,14 +1,14 @@
 ---
 type: project
 created: 2026-10-15
-updated: 2026-10-18
+updated: 2026-10-26
 tags: [project]
 layer: frontend
 ---
 
 # Frontend Contract
 
-What a client must get right. The OpenAPI document at `/docs` is the signature; [[Frontend API Guide]] is the full explanation; **each feature's Backend Integration note** (`modules/<Module>/<Feature>/<Feature> Backend Integration.md`, listed below) has the screens, the calls, the flow and the errors. Base URL `/api/v1`.
+What a client must get right. The OpenAPI document at `/docs` is the signature; [[Frontend API Guide]] is the full explanation; **each feature's Backend Integration note** (`modules/<Module>/features/<Feature>/<Feature> Backend Integration.md`, listed below) has the screens, the calls, the flow and the errors. Base URL `/api/v1`.
 
 > **2026-10-15 — auth is passwordless.** Every sign-up and sign-in is a 6-digit one-time code; `reset-password` and `change-password` are gone. What changed and what the client must do: [[Frontend Passwordless Migration]].
 
