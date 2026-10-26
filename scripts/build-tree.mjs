@@ -193,12 +193,14 @@ export function loadConfig(errors = []) {
     }
     return { list: [...byId.values()], byId, rank: (id) => [...byId.keys()].indexOf(id) };
   };
+  // resolutions: how a bug ended, on a bug card only; never a substitute for its status
+  const resolutions = enumOf('resolutions.levels', cfg.resolutions?.levels ?? DEFAULT_RESOLUTIONS);
   const releases = enumOf('releases.targets', cfg.releases?.targets ?? DEFAULT_RELEASES);
   const stages = enumOf('stages.levels', cfg.stages?.levels ?? DEFAULT_STAGES, (l) => ({ exit: l.exit || '', requiresRelease: l.requiresRelease ?? null }));
   for (const s of stages.list) if (s.requiresRelease !== null && !releases.byId.has(s.requiresRelease)) err(`stages.levels: "${s.id}" requiresRelease "${s.requiresRelease}" is not a release target`);
   const environments = { ...enumOf('environments.list', cfg.environments?.list ?? DEFAULT_ENVIRONMENTS), kinds: Array.isArray(cfg.environments?.kinds) ? cfg.environments.kinds : ['backend-delivery', 'frontend-delivery'] };
   for (const k of environments.kinds) if (!kinds.has(k)) err(`environments.kinds names unknown kind "${k}"`);
-  return { ...cfg, kinds, kindOrder, flowOrder, flowBack, flowBlocks, frontendOnlySkips, taskFlow, taskLabels, priorities, deadlines, stages, releases, environments, cardCodes: { pad, structural, prefixes, prefixOf } };
+  return { ...cfg, kinds, kindOrder, flowOrder, flowBack, flowBlocks, frontendOnlySkips, taskFlow, taskLabels, priorities, deadlines, stages, releases, environments, resolutions, cardCodes: { pad, structural, prefixes, prefixOf } };
 }
 const DEFAULT_PRIORITIES = [
   { id: 'critical', label: 'Critical', color: '#dc2626', aliases: ['P0'] }, { id: 'high', label: 'High', color: '#f97316', aliases: ['P1'] },
@@ -206,6 +208,11 @@ const DEFAULT_PRIORITIES = [
 ];
 const DEFAULT_STAGES = ['concept', 'prototype', 'mvp', 'beta', 'live', 'sunset'].map((id) => ({ id, label: id === 'mvp' ? 'MVP' : id.replace(/^./, (c) => c.toUpperCase()), ...(id === 'beta' || id === 'live' ? { requiresRelease: 'mvp' } : {}) }));
 const DEFAULT_RELEASES = [{ id: 'mvp', label: 'MVP' }, { id: 'v1', label: 'v1' }, { id: 'later', label: 'Later' }];
+const DEFAULT_RESOLUTIONS = [
+  { id: 'fixed', label: 'Fixed', color: '#16a34a' }, { id: 'by-design', label: 'By design', color: '#0ea5e9' },
+  { id: 'duplicate', label: 'Duplicate', color: '#64748b' }, { id: 'cannot-reproduce', label: 'Cannot reproduce', color: '#6b7280' },
+  { id: 'wont-fix', label: "Won't fix", color: '#f59e0b' },
+];
 const DEFAULT_ENVIRONMENTS = [{ id: 'dev', label: 'Dev' }, { id: 'staging', label: 'Staging' }, { id: 'prod', label: 'Prod' }];
 const DEFAULT_DEADLINES = { windowDays: 3, zones: [{ id: 'on-track', label: 'On track', color: '#16a34a' }, { id: 'due-soon', label: 'Due soon', color: '#eab308' }, { id: 'last-day', label: 'Last day', color: '#dc2626' }], missed: { id: 'missed', label: 'Missed', color: '#6b7280', icon: '💀' } };
 const DATE = /^(\d{4})-(\d{2})-(\d{2})$/;
@@ -686,6 +693,14 @@ export function build() {
         for (const e of list(dep)) { if (cfg.environments.byId.has(e)) { if (!n.deployedTo.includes(e)) n.deployedTo.push(e); } else err(note.rel, `deployedTo: "${e}" is not one of ${cfg.environments.list.map((x) => x.id).join(', ')} (docs.config.json environments)`); }
       }
     }
+    // resolution: how a bug ended. A bug card only, and never instead of its status: a done bug with a pending list is still Partial.
+    const res = note.data.resolution;
+    const resIds = () => cfg.resolutions.list.map((r) => r.id).join(', ');
+    if (res === undefined || res === null || res === '') n.resolution = null;
+    else if (!isBug(n)) { err(note.rel, `resolution: belongs on a bug card only (a task with labels: [bug]); this ${n.kind} carries none`); n.resolution = null; }
+    else if (typeof res === 'string' && cfg.resolutions.byId.has(res)) n.resolution = res;
+    else { err(note.rel, `resolution: ${JSON.stringify(res)} is not one of ${resIds()} (docs.config.json resolutions)`); n.resolution = null; }
+    if (isBug(n) && n.status === 'done' && !n.resolution) warn(note.rel, `a bug closed with status: done says how it ended in resolution: ${resIds()} (docs.config.json resolutions)`);
   }
   const inherit = (n, from) => { if (!from) return; for (const k of ['priority', 'deadline', 'release']) if (n[k] === null && from[k] !== null) { n[k] = from[k]; n.inherits[k] = from.inherits[k] || from.id; } };
   for (const t of [...taskNodes.values()].sort((a, b) => { const depth = (x) => { let d = 0, a = x; while (a && a.parentTask && d < 60) { a = taskNodes.get(a.parentTask); d++; } return d; }; return depth(a) - depth(b); })) inherit(t, t.parentTask ? taskNodes.get(t.parentTask) : featureNodes.get(t.feature));
@@ -1069,7 +1084,7 @@ export function build() {
   return {
     json: {
       schema: 2, repo: REPO, rootId: 'root', counts, legend: LEGEND, emoji: EMOJI, layers: layersOut, flow: cfg.flow, flowOrder: cfg.flowOrder, flowBack: cfg.flowBack, taskLabels: cfg.taskLabels, defaultBlocks: [...cfg.flowBlocks, ...(cfg.defaultBlocks || [])], frontendOnly: { skips: cfg.frontendOnlySkips },
-      modules: cfg.modules, priorities: cfg.priorities.levels, deadlines: cfg.deadlines, stages: cfg.stages.list, releases: cfg.releases.list, environments: { kinds: cfg.environments.kinds, list: cfg.environments.list }, agents: (cfg.agents?.list || []).map((a) => ({ id: a.id, label: a.label, note: a.note, layer: a.layer ?? null })), generated: GENERATED, nodes, edges, concepts: conceptsOut, byName, files: filesIndex, cards: cards.byCode, cardPrefixes: cards.prefixes, diagnostics: { errors, warnings },
+      modules: cfg.modules, priorities: cfg.priorities.levels, deadlines: cfg.deadlines, stages: cfg.stages.list, releases: cfg.releases.list, resolutions: cfg.resolutions.list, environments: { kinds: cfg.environments.kinds, list: cfg.environments.list }, agents: (cfg.agents?.list || []).map((a) => ({ id: a.id, label: a.label, note: a.note, layer: a.layer ?? null })), generated: GENERATED, nodes, edges, concepts: conceptsOut, byName, files: filesIndex, cards: cards.byCode, cardPrefixes: cards.prefixes, diagnostics: { errors, warnings },
     },
     errors, warnings, notes, cfg, cards: cards.registry,
   };
@@ -1178,7 +1193,7 @@ function treeMarkdown(json) {
   const seen = new Set();
   const walkNode = (id, depth) => {
     const n = nodes[id];
-    const extra = [n.card && !ID_CODED.has(n.kind) ? n.card : null, n.label && !['feature', 'module', 'task'].includes(n.kind) ? n.label : null, n.kind === 'root' ? stageText(json, n) : null, n.kind === 'feature' ? `release ${releaseLabel(json, n.release)}` : null, n.deployedTo?.length ? `on ${n.deployedTo.join(', ')}` : null, n.parentTask ? `sub-task of ${n.parentTask}` : null, ...(n.labels || []), n.frontendOnly ? 'frontend only' : null, n.pending?.length ? `${n.pending.length} pending note${n.pending.length === 1 ? '' : 's'}` : null, priorityLabel(json, n), n.deadline ? `due ${n.deadline}` : null, n.blockedBy?.length ? `blocked by ${n.blockedBy.map((b) => b.title).join(', ')}` : null].filter(Boolean).join(', ');
+    const extra = [n.card && !ID_CODED.has(n.kind) ? n.card : null, n.label && !['feature', 'module', 'task'].includes(n.kind) ? n.label : null, n.kind === 'root' ? stageText(json, n) : null, n.kind === 'feature' ? `release ${releaseLabel(json, n.release)}` : null, n.deployedTo?.length ? `on ${n.deployedTo.join(', ')}` : null, n.parentTask ? `sub-task of ${n.parentTask}` : null, ...(n.labels || []), n.resolution ? resolutionLabel(json, n.resolution) : null, n.frontendOnly ? 'frontend only' : null, n.pending?.length ? `${n.pending.length} pending note${n.pending.length === 1 ? '' : 's'}` : null, priorityLabel(json, n), n.deadline ? `due ${n.deadline}` : null, n.blockedBy?.length ? `blocked by ${n.blockedBy.map((b) => b.title).join(', ')}` : null].filter(Boolean).join(', ');
     lines.push(`${'  '.repeat(depth)}- ${emojiOf(n)} ${mdLink(n)}${extra ? ` (${extra})` : ''}`);
     if (seen.has(id) && n.children.length) { lines.push(`${'  '.repeat(depth + 1)}- (see above)`); return; }
     seen.add(id);
@@ -1194,6 +1209,7 @@ const prioRank = (json, p) => { const i = (json.priorities || []).findIndex((l) 
 const releaseLabel = (json, id) => (id ? (json.releases || []).find((r) => r.id === id)?.label ?? id : 'No release');
 const stageText = (json, n) => [n.stage ? `stage ${(json.stages || []).find((s) => s.id === n.stage)?.label ?? n.stage}` : 'no stage', ...(n.releases || []).map((r) => `${releaseLabel(json, r.id)} ${r.done}/${r.total} done${r.partial ? ` (${r.partial} partial)` : ''}`)].join(', ');
 const priorityLabel = (json, n) => { const l = n.priority ? (json.priorities || []).find((x) => x.id === n.priority) : null; return l ? l.label : n.priority; };
+const resolutionLabel = (json, id) => (id ? (json.resolutions || []).find((r) => r.id === id)?.label ?? id : null);
 const wiki = (n, alias) => `[[${n.title}${alias ? `|${alias}` : ''}]]`;
 
 function boardMarkdown(json) {
@@ -1203,7 +1219,7 @@ function boardMarkdown(json) {
   for (const [status, title] of cols) {
     lines.push(`## ${title}`, '');
     const rows = taskRows(json).filter((t) => t.effectiveStatus === status).sort((a, b) => prioRank(json, a.priority) - prioRank(json, b.priority) || a.code.localeCompare(b.code, 'en', { numeric: true }));
-    for (const t of rows) lines.push(`- [${status === 'done' ? 'x' : ' '}] ${wiki(t)} #${t.priority ?? 'no-priority'} #${t.feature}${t.labels.map((l) => ` #${l}`).join('')}${t.deadline ? ` 📅 ${t.deadline}` : ''}${t.pending.length ? ` — ${t.pending.map((p) => (p.to ? `[[${nodes[p.to].title}]]` : p.person ? `@${p.person}` : '') + (p.text ? `: ${p.text}` : '')).join('; ')}` : ''}`);
+    for (const t of rows) lines.push(`- [${status === 'done' ? 'x' : ' '}] ${wiki(t)} #${t.priority ?? 'no-priority'} #${t.feature}${t.labels.map((l) => ` #${l}`).join('')}${t.resolution ? ` #resolution/${t.resolution}` : ''}${t.deadline ? ` 📅 ${t.deadline}` : ''}${t.pending.length ? ` — ${t.pending.map((p) => (p.to ? `[[${nodes[p.to].title}]]` : p.person ? `@${p.person}` : '') + (p.text ? `: ${p.text}` : '')).join('; ')}` : ''}`);
     lines.push('', '');
   }
   lines.push('%% kanban:settings', '```', '{"kanban-plugin":"board"}', '```', '%%', '');
@@ -1215,9 +1231,9 @@ function backlogMarkdown(json) {
   const featureTitle = (t) => { const f = nodes[`feature:${t.feature}`]; return f ? wiki(f) : t.feature; };
   const moduleName = (t) => json.modules.find((m) => m.id === t.module)?.name ?? t.module ?? '—';
   const dep = (t) => (t.depends.length ? t.depends.map((d) => wiki(nodes[d], nodes[d].code)).join(', ') : '—');
-  const status = (t) => `${emojiOf(t)} ${LEGEND[t.effectiveStatus]}${t.pending.length ? ` (${t.pending.length} note${t.pending.length === 1 ? '' : 's'})` : ''}`;
+  const status = (t) => `${emojiOf(t)} ${LEGEND[t.effectiveStatus]}${t.pending.length ? ` (${t.pending.length} note${t.pending.length === 1 ? '' : 's'})` : ''}${t.resolution ? ` · ${resolutionLabel(json, t.resolution)}` : ''}`;
   const lines = ['---', 'type: map', 'layer: shared', 'tags: [map]', '---', '', '# Backlog', '',
-    'Generated by `node scripts/build-tree.mjs` from the task notes; do not edit, change the task\'s frontmatter. Every open task ordered by priority (' + (json.priorities || []).map((l) => `${l.label} \`${l.id}\``).join(' · ') + ', from `docs.config.json`), then the done ones. Status key: ⬜ To do · ❓ Needs a decision / info · ⛔ Blocked · 🔵 In progress · 🟡 Partial (done, `pending` notes left for a card or a person) · ✅ Done. A task is ⛔ when something in `depends` or `blockedBy` is not done. The deadline is the task\'s own or its feature\'s; the tree page colours it by how close it is.', '',
+    'Generated by `node scripts/build-tree.mjs` from the task notes; do not edit, change the task\'s frontmatter. Every open task ordered by priority (' + (json.priorities || []).map((l) => `${l.label} \`${l.id}\``).join(' · ') + ', from `docs.config.json`), then the done ones. Status key: ⬜ To do · ❓ Needs a decision / info · ⛔ Blocked · 🔵 In progress · 🟡 Partial (done, `pending` notes left for a card or a person) · ✅ Done. A task is ⛔ when something in `depends` or `blockedBy` is not done. The deadline is the task\'s own or its feature\'s; the tree page colours it by how close it is. A bug also says how it ended in `resolution:` (' + (json.resolutions || []).map((r) => `${r.label} \`${r.id}\``).join(' · ') + '), which never replaces its status.', '',
     'Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a plain checklist).', ''];
   const open = taskRows(json).filter((t) => t.effectiveStatus !== 'done');
   const groups = [...(json.priorities || []).map((l) => [l.id, l.label]), [null, 'No priority']];
@@ -1229,8 +1245,8 @@ function backlogMarkdown(json) {
     lines.push('');
   }
   const done = taskRows(json).filter((t) => t.effectiveStatus === 'done');
-  lines.push('## Done', '', '| Task | Feature | Module | Effort |', '|---|---|---|---|');
-  for (const t of done) lines.push(`| ${wiki(t)}${t.labels.length ? ' ' + t.labels.map((l) => `\`${l}\``).join(' ') : ''} | ${featureTitle(t)} | ${moduleName(t)} | ${t.effort ?? '—'} |`);
+  lines.push('## Done', '', '| Task | Feature | Module | Effort | Resolution |', '|---|---|---|---|---|');
+  for (const t of done) lines.push(`| ${wiki(t)}${t.labels.length ? ' ' + t.labels.map((l) => `\`${l}\``).join(' ') : ''} | ${featureTitle(t)} | ${moduleName(t)} | ${t.effort ?? '—'} | ${resolutionLabel(json, t.resolution) ?? '—'} |`);
   lines.push('');
   return lines.join('\n');
 }

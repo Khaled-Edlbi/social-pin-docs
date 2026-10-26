@@ -66,6 +66,8 @@ A bug is numbered `B-NN`, not `T-NNN`, and it hangs **where you found it** ([[Ag
 
 In `## What`: what happens, what should happen (the story's criterion), where (screen id or endpoint), on which build. The fix is the layer's work: say which agent (`/backend` or `/frontend`).
 
+An open bug carries no `resolution:`. When a re-run shows the bug is gone, or your own row turns out to have tested the wrong expectation, say how it ended — `resolution: fixed | by-design | duplicate | cannot-reproduce | wont-fix`, the tag `resolution/<id>` with it — on the user's word, as with any status ([[Agent Rules#4 · Statuses, blocking and sign-off]]); `cannot-reproduce` is the one that is usually yours, on a named build. The field is reserved for you and the PM, and the build warns about a bug closed without it.
+
 ### 4D · Behaviour differs from the delivery note
 
 Flag the delivery note (`> ⚠ Affected by [[T-NNN …]] (date): <what differs>`), name it in the QA note's verdict; the owning layer updates it.
