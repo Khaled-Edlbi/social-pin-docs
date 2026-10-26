@@ -191,6 +191,8 @@ kanban-plugin: board
 
 ## 🔵 In progress
 
+- [ ] [[T-068 Account moderation and platform role]] #high #operator-panel
+- [ ] [[T-068-be Backend · Account moderation and platform role]] #high #operator-panel #backend
 
 
 ## 🟡 Partial (done, notes pending)
