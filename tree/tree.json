@@ -508,6 +508,9 @@
     "T-071 Audit-log read endpoints": "task:T-071",
     "T-071 Story": "story:T-071",
     "T-071-be Backend · Audit-log read endpoints": "task:T-071-be",
+    "T-072 Platform stats": "task:T-072",
+    "T-072 Story": "story:T-072",
+    "T-072-be Backend · Platform stats": "task:T-072-be",
     "View As & Pin Views": "feature:view-as",
     "View As & Pin Views Backend Delivery": "backend-delivery:view-as",
     "View As & Pin Views Backend Integration": "backend-integration:view-as",
@@ -743,6 +746,7 @@
     "S-110": "story:T-069",
     "S-111": "story:T-070",
     "S-112": "story:T-071",
+    "S-113": "story:T-072",
     "S-12": "story:T-012",
     "S-13": "story:T-013",
     "S-14": "story:profiles",
@@ -1014,7 +1018,9 @@
     "T-070": "task:T-070",
     "T-070-be": "task:T-070-be",
     "T-071": "task:T-071",
-    "T-071-be": "task:T-071-be"
+    "T-071-be": "task:T-071-be",
+    "T-072": "task:T-072",
+    "T-072-be": "task:T-072-be"
   },
   "concepts": {
     "DELETE /connections/requests/:id": {
@@ -1791,6 +1797,16 @@
       "kind": "endpoint",
       "notes": [
         "task:T-070"
+      ],
+      "owner": null
+    },
+    "GET /admin/stats": {
+      "containers": [
+        "task:T-072"
+      ],
+      "kind": "endpoint",
+      "notes": [
+        "task:T-072"
       ],
       "owner": null
     },
@@ -4990,27 +5006,27 @@
       "frontend-requirements": 39,
       "module": 8,
       "project": 27,
-      "story": 103,
-      "task": 185
+      "story": 104,
+      "task": 187
     },
     "byLayer": {
       "backend": 56,
-      "business": 363,
+      "business": 366,
       "frontend": 43,
       "shared": 10
     },
-    "concepts": 193,
+    "concepts": 194,
     "decisions": 17,
-    "edges": 4973,
+    "edges": 4988,
     "features": 40,
-    "layerNotes": 190,
+    "layerNotes": 191,
     "modules": 8,
-    "notes": 507,
+    "notes": 510,
     "partial": 0,
     "placeholders": 158,
     "records": 13,
-    "taskLayerNotes": 64,
-    "tasks": 185
+    "taskLayerNotes": 65,
+    "tasks": 187
   },
   "deadlines": {
     "missed": {
@@ -5066,9 +5082,7 @@
   ],
   "diagnostics": {
     "errors": [],
-    "warnings": [
-      "modules/Platform & Cross-cutting/Operator Panel/Operator Panel.md: wikilink [[T-072 Platform stats]] resolves to no note"
-    ]
+    "warnings": []
   },
   "edges": [
     {
@@ -5633,6 +5647,26 @@
     },
     {
       "from": "task:T-071-be",
+      "kind": "affects",
+      "to": "project:spec-map"
+    },
+    {
+      "from": "task:T-072",
+      "kind": "affects",
+      "to": "project:frontend-api-guide"
+    },
+    {
+      "from": "task:T-072",
+      "kind": "affects",
+      "to": "project:spec-map"
+    },
+    {
+      "from": "task:T-072-be",
+      "kind": "affects",
+      "to": "project:frontend-api-guide"
+    },
+    {
+      "from": "task:T-072-be",
       "kind": "affects",
       "to": "project:spec-map"
     },
@@ -7432,6 +7466,16 @@
       "to": "task:T-071-be"
     },
     {
+      "from": "task:T-068",
+      "kind": "blocks",
+      "to": "task:T-072"
+    },
+    {
+      "from": "task:T-068",
+      "kind": "blocks",
+      "to": "task:T-072-be"
+    },
+    {
       "from": "task:T-069",
       "kind": "blocks",
       "to": "task:T-070"
@@ -8758,6 +8802,16 @@
     },
     {
       "from": "task:T-071-be",
+      "kind": "depends",
+      "to": "task:T-068"
+    },
+    {
+      "from": "task:T-072",
+      "kind": "depends",
+      "to": "task:T-068"
+    },
+    {
+      "from": "task:T-072-be",
       "kind": "depends",
       "to": "task:T-068"
     },
@@ -11540,6 +11594,14 @@
       "from": "story:operator-panel",
       "kind": "related",
       "to": "story:T-071",
+      "via": [
+        "sum-of"
+      ]
+    },
+    {
+      "from": "story:operator-panel",
+      "kind": "related",
+      "to": "story:T-072",
       "via": [
         "sum-of"
       ]
@@ -23197,6 +23259,11 @@
       "to": "task:T-071"
     },
     {
+      "from": "story:operator-panel",
+      "kind": "tree",
+      "to": "task:T-072"
+    },
+    {
       "from": "story:payments",
       "kind": "tree",
       "to": "task:T-047"
@@ -24280,6 +24347,16 @@
       "from": "task:T-071",
       "kind": "tree",
       "to": "task:T-071-be"
+    },
+    {
+      "from": "task:T-072",
+      "kind": "tree",
+      "to": "story:T-072"
+    },
+    {
+      "from": "task:T-072",
+      "kind": "tree",
+      "to": "task:T-072-be"
     },
     {
       "from": "backend-delivery:account",
@@ -25880,6 +25957,11 @@
       "from": "feature:operator-panel",
       "kind": "wikilink",
       "to": "task:T-071"
+    },
+    {
+      "from": "feature:operator-panel",
+      "kind": "wikilink",
+      "to": "task:T-072"
     },
     {
       "from": "feature:payments",
@@ -31192,6 +31274,11 @@
       "to": "feature:operator-panel"
     },
     {
+      "from": "story:T-072",
+      "kind": "wikilink",
+      "to": "feature:operator-panel"
+    },
+    {
       "from": "story:view-as",
       "kind": "wikilink",
       "to": "backend-integration:view-as"
@@ -34025,6 +34112,11 @@
       "from": "task:T-071-be",
       "kind": "wikilink",
       "to": "feature:operator-panel"
+    },
+    {
+      "from": "task:T-072-be",
+      "kind": "wikilink",
+      "to": "feature:operator-panel"
     }
   ],
   "emoji": {
@@ -36034,6 +36126,18 @@
     },
     "tasks/T-071 Audit-log read endpoints/T-071-be Backend · Audit-log read endpoints.md": {
       "name": "T-071-be Backend · Audit-log read endpoints",
+      "type": "task"
+    },
+    "tasks/T-072 Platform stats/T-072 Platform stats.md": {
+      "name": "T-072 Platform stats",
+      "type": "task"
+    },
+    "tasks/T-072 Platform stats/T-072 Story.md": {
+      "name": "T-072 Story",
+      "type": "story"
+    },
+    "tasks/T-072 Platform stats/T-072-be Backend · Platform stats.md": {
+      "name": "T-072-be Backend · Platform stats",
       "type": "task"
     },
     "tasks/Task Board.md": {
@@ -44247,8 +44351,8 @@
       ],
       "release": "later",
       "rollup": {
-        "draft": 4,
-        "in-progress": 8,
+        "draft": 5,
+        "in-progress": 10,
         "missing": 7
       },
       "scope": null,
@@ -49730,8 +49834,8 @@
         "blocked": 34,
         "decided": 3,
         "done": 1,
-        "draft": 29,
-        "in-progress": 20,
+        "draft": 30,
+        "in-progress": 22,
         "missing": 55,
         "needs-decision": 1,
         "todo": 19,
@@ -54863,8 +54967,8 @@
         "current": 9,
         "decided": 13,
         "done": 16,
-        "draft": 98,
-        "in-progress": 53,
+        "draft": 99,
+        "in-progress": 55,
         "missing": 158,
         "needs-decision": 9,
         "reference": 31,
@@ -58046,6 +58150,52 @@
       "title": "T-071 Story",
       "updated": "2026-10-26"
     },
+    "story:T-072": {
+      "affects": [],
+      "blockedBy": [],
+      "card": "S-113",
+      "children": [],
+      "code": "T-072",
+      "created": "2026-10-26",
+      "deadline": null,
+      "depends": [],
+      "effectiveStatus": "draft",
+      "effort": null,
+      "feature": "operator-panel",
+      "frontendOnly": false,
+      "id": "story:T-072",
+      "inherits": {
+        "priority": "task:T-072",
+        "release": "feature:operator-panel"
+      },
+      "kind": "story",
+      "label": "User Story",
+      "labels": [],
+      "layer": "business",
+      "module": "platform",
+      "parentTask": null,
+      "parents": [
+        "task:T-072"
+      ],
+      "path": "tasks/T-072 Platform stats/T-072 Story.md",
+      "pending": [],
+      "priority": "medium",
+      "related": [],
+      "release": "later",
+      "scope": "task",
+      "screens": [],
+      "status": "draft",
+      "summary": "One paragraph: who the user is here and what they are trying to get done, in product terms. approved (👍) when product signs off (approvedBy, approvedAt); verified (✅ Fulfilled) set by the PM once…",
+      "tags": [
+        "story",
+        "story/draft",
+        "module/platform",
+        "layer/business"
+      ],
+      "task": "T-072",
+      "title": "T-072 Story",
+      "updated": "2026-10-26"
+    },
     "story:account": {
       "affects": [],
       "blockedBy": [],
@@ -59445,7 +59595,8 @@
         "task:T-068",
         "task:T-069",
         "task:T-070",
-        "task:T-071"
+        "task:T-071",
+        "task:T-072"
       ],
       "code": "operator-panel",
       "created": null,
@@ -71803,6 +71954,133 @@
       ],
       "task": null,
       "title": "T-071-be Backend · Audit-log read endpoints",
+      "updated": "2026-10-26"
+    },
+    "task:T-072": {
+      "affects": [
+        "project:spec-map",
+        "project:frontend-api-guide"
+      ],
+      "blockedBy": [
+        {
+          "id": "task:T-068",
+          "title": "T-068 Account moderation and platform role",
+          "why": "T-068 Account moderation and platform role is in progress"
+        }
+      ],
+      "card": "T-072",
+      "children": [
+        "story:T-072",
+        "task:T-072-be"
+      ],
+      "code": "T-072",
+      "created": "2026-10-26",
+      "deadline": null,
+      "decision": null,
+      "depends": [
+        "task:T-068"
+      ],
+      "dir": "tasks/T-072 Platform stats",
+      "effectiveStatus": "in-progress",
+      "effort": "S",
+      "feature": "operator-panel",
+      "frontendOnly": false,
+      "id": "task:T-072",
+      "inherits": {
+        "release": "feature:operator-panel"
+      },
+      "kind": "task",
+      "label": "Task",
+      "labels": [],
+      "layer": "business",
+      "module": "platform",
+      "parentTask": null,
+      "parents": [
+        "story:operator-panel"
+      ],
+      "path": "tasks/T-072 Platform stats/T-072 Platform stats.md",
+      "pending": [],
+      "priority": "medium",
+      "related": [],
+      "release": "later",
+      "rollup": {
+        "draft": 1,
+        "in-progress": 1
+      },
+      "scope": null,
+      "screens": [],
+      "status": "in-progress",
+      "summary": "GET /admin/stats: the dashboard's landing figures — the account lifecycle broken down by status, live ring, profile and role counts, and the audit events of the last 24 hours.",
+      "tags": [
+        "task",
+        "task/in-progress",
+        "module/platform",
+        "priority/medium"
+      ],
+      "task": null,
+      "title": "T-072 Platform stats",
+      "updated": "2026-10-26"
+    },
+    "task:T-072-be": {
+      "affects": [
+        "project:spec-map",
+        "project:frontend-api-guide"
+      ],
+      "blockedBy": [
+        {
+          "id": "task:T-068",
+          "title": "T-068 Account moderation and platform role",
+          "why": "T-068 Account moderation and platform role is in progress"
+        }
+      ],
+      "card": "T-072-be",
+      "children": [],
+      "code": "T-072-be",
+      "created": "2026-10-26",
+      "deadline": null,
+      "decision": null,
+      "depends": [
+        "task:T-068"
+      ],
+      "dir": null,
+      "effectiveStatus": "in-progress",
+      "effort": "S",
+      "feature": "operator-panel",
+      "frontendOnly": false,
+      "id": "task:T-072-be",
+      "inherits": {
+        "release": "feature:operator-panel"
+      },
+      "kind": "task",
+      "label": "Task",
+      "labels": [
+        "backend"
+      ],
+      "layer": "business",
+      "module": "platform",
+      "parentTask": "T-072",
+      "parents": [
+        "task:T-072"
+      ],
+      "path": "tasks/T-072 Platform stats/T-072-be Backend · Platform stats.md",
+      "pending": [],
+      "priority": "medium",
+      "related": [],
+      "release": "later",
+      "rollup": {},
+      "scope": null,
+      "screens": [],
+      "status": "in-progress",
+      "summary": "The API side of T-072 Platform stats: the endpoints, data and rules its What describes. Record what shipped in T-072-be Backend Delivery and how to call it in T-072-be Backend Integration, and…",
+      "tags": [
+        "task",
+        "task/in-progress",
+        "module/platform",
+        "priority/medium",
+        "backend"
+      ],
+      "task": null,
+      "title": "T-072-be Backend · Platform stats",
       "updated": "2026-10-26"
     }
   },

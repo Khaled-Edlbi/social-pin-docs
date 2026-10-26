@@ -199,6 +199,8 @@ kanban-plugin: board
 - [ ] [[T-071-be Backend · Audit-log read endpoints]] #high #operator-panel #backend
 - [ ] [[T-070 Roles and permissions catalogue]] #medium #operator-panel
 - [ ] [[T-070-be Backend · Roles and permissions catalogue]] #medium #operator-panel #backend
+- [ ] [[T-072 Platform stats]] #medium #operator-panel
+- [ ] [[T-072-be Backend · Platform stats]] #medium #operator-panel #backend
 
 
 ## 🟡 Partial (done, notes pending)
