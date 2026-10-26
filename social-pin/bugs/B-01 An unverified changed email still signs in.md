@@ -13,7 +13,7 @@ screens: [s68]
 depends: []
 affects: ["Account Backend Delivery", "Account Story", "Account QA Backend"]
 related: ["Account Backend Integration", "Account QA Backend", "Account QA Frontend", "Auth & Sign-up Backend Integration", "ND-01 Passwordless login", "T-003 Remove devCode once delivery works", "ND-20 Whether an unverified new address may sign in", "D-20 The changed address still signs in, the words are corrected"]
-pending: ["[[Account Backend Delivery]]: correct the \"proven again before it can sign in\" sentence and clear the QA flag (/backend)", "[[Account Backend Integration]]: say that a changed destination is unverified and still signs in (/backend)", "[[Account QA Backend]]: re-run row B9 against the corrected notes (/qa)", "[[Account QA Frontend]]: re-run row F10 against the corrected notes (/qa)", "@khaled: re-approve [[Account Story]] after the S2 and S3 copy change (/owner)"]
+pending: ["[[Account QA Frontend]]: re-run row F10 against the corrected notes (/qa)", "@khaled: re-approve [[Account Story]] after the S2 and S3 copy change (/owner)"]
 owner: "khaled"
 created: 2026-10-26
 updated: 2026-10-26
@@ -65,12 +65,14 @@ Output of `node scripts/build-tree.mjs --impact B-01` when the bug was filed: th
 - [x] ~~Code per the backend's `CLAUDE.md` (every visibility decision through `RingAccessService`)~~ — not applicable: no code ships
 - [x] ~~`pnpm typecheck && pnpm test` green~~ — not applicable: no code ships
 - [x] [[Account Story]] S2 and S3 corrected: the copy no longer promises verification before sign-in (2026-10-26, `/pm`) — the owner re-approves the story, it is `approved` against the 2026-10-25 wording
-- [ ] [[Account Backend Delivery]] and [[Account Backend Integration]] corrected and the flag line cleared (`/backend`)
+- [x] [[Account Backend Delivery]] and [[Account Backend Integration]] corrected and the flag line cleared (`/backend`, 2026-10-26)
 - [x] `depends` / `affects` / `related` declared; notes listed by `--impact` updated or flagged
-- [ ] [[Account QA Backend]] row B9 and [[Account QA Frontend]] row F10 re-run on a named build and cleared from their `pending` (`/qa`)
+- [ ] [[Account QA Backend]] row B9 ✅ on `main @ b4984d6` and cleared; [[Account QA Frontend]] row F10 still to re-run (`/qa`, in `pending`)
 - [x] `node scripts/build-tree.mjs` run; tree, board and backlog committed
 
 ## Log
+
+- 2026-10-26 · branch `tickets/qa/M-01-identity/F-01-account/B-02-fixed` · `/backend` corrected [[Account Backend Delivery]] and [[Account Backend Integration]] (a changed destination is unverified and still signs in) and cleared their B-01 flags; `/qa` re-ran B9 on `main @ b4984d6` (localhost:3001, Node 22.22.2): ✅, the new email and the new phone both sign in at once. Three `pending` items cleared; F10 (`/qa`) and the owner's re-approval of [[Account Story]] remain.
 
 - 2026-10-26 · branch `docs/admin/project/bug-type` · retyped by `/admin`: `type: bug` (tags `bug`, `bug/<status>`) instead of a task with `labels: [bug]`, as every bug card now is. Nothing else changed: same code, same place in the tree, same status.
 - 2026-10-26 · branch `tickets/pm/M-01-identity/F-01-account/B-01-done` · closed on khaled's word. Nothing is left for this bug itself: the product answer is on [[D-20 The changed address still signs in, the words are corrected]] and the story carries it. What remains belongs to other agents and is listed in `pending`, so the card reads **Partial** until the backend notes are corrected (`/backend`), rows B9 and F10 are re-run (`/qa`) and the story is re-approved (`/owner`). No code shipped and none is owed.
