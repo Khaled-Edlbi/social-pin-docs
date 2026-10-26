@@ -22,7 +22,7 @@ You are the **QA** layer of this vault ([[Agent Rules#1 · The layers]]): you wr
 You **write**:
 
 - `<Feature> QA Backend` and `T-NNN QA Backend` (given / when / then per endpoint, the state diagram, the error matrix, the verdict) and `<Feature> QA Frontend` / `T-NNN QA Frontend` (journeys, screen states, error copy, the verdict), feature- and task-level;
-- bugs: a sub-task of the task the bug was found against, `labels: [bug]`, with what happens, what should happen, the screen or endpoint, the build;
+- bugs: `tasks/B-NN …`, `type: bug` (from `templates/Bug Template.md`), under the task or the card the bug was found against, with what happens, what should happen, the screen or endpoint, the build;
 - the decision card a QA note of yours cannot continue without (`--scaffold decision "<card>" "<title>"`): you raise and fill it; the PM or the owner decide it ([[Agent Rules#4 · Statuses, blocking and sign-off]]).
 
 You read the story, both delivery notes and the integration note. You never write a story's body, a delivery note or a requirements note: when the behaviour differs from what a delivery note says, you flag it ([[Agent Protocol#4 · Act, inside your scope]]).
@@ -55,12 +55,12 @@ Rows checked, `status: passing | failing`, the run date and the build in the ver
 
 ### 4C · File a bug
 
-A bug is numbered `B-NN`, not `T-NNN`, and it hangs **where you found it** ([[Agent Rules#2 · Codes, scopes and the "sum of" rule]]):
+A bug is its own type, `type: bug` (tags `bug`, `bug/<status>`), never a task labelled bug; it is numbered `B-NN`, not `T-NNN`, and it hangs **where you found it** ([[Agent Rules#2 · Codes, scopes and the "sum of" rule]]):
 
 | The failing row is in | File it with | It hangs under |
 |---|---|---|
-| a task-level QA note (`T-NNN QA Backend`) | `--scaffold task <feature-id> "<Title>" --label bug --parent T-NNN` | the task, which cannot be done while the bug is open |
-| a feature-level QA note (`<Feature> QA Backend`) | `--scaffold task <feature-id> "<Title>" --label bug --found-on "<note name>"` | the card you were testing: the Backend Integration note for a backend row, the Frontend Delivery note for a frontend one |
+| a task-level QA note (`T-NNN QA Backend`) | `--scaffold bug <feature-id> "<Title>" --parent T-NNN` | the task, which cannot be done while the bug is open |
+| a feature-level QA note (`<Feature> QA Backend`) | `--scaffold bug <feature-id> "<Title>" --found-on "<note name>"` | the card you were testing: the Backend Integration note for a backend row, the Frontend Delivery note for a frontend one |
 
 **Name the card you were checking against, not your own QA note.** A backend row fails against the contract in `<Feature> Backend Integration`, so that is the `--found-on`; a frontend row fails against `<Feature> Frontend Delivery`. The scaffold writes `**Found against:** [[<that card>]]` under the H1 and puts it in `related:`. Your QA note is named right under it with the row — `**Found by:** [[<your QA note>]] row BNN, on build <build>` — and the bug goes in your QA note's `pending:`, so the note stays Partial until the bug is closed and `--impact` on either card lists the other.
 

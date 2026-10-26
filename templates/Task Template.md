@@ -8,13 +8,12 @@ effort: M
 feature: <feature slug>
 module: <module id>
 # parent: T-NNN            # optional: makes this a sub-task of T-NNN (same feature); it then hangs under that task in the tree
-# labels: [bug]            # optional: bug | chore | spike | docs | frontend | backend (docs.config.json taskLabels); a bug found against a task is a sub-task with labels: [bug]; the frontend / backend halves of a task are sub-tasks T-NNN-fe / T-NNN-be with the matching label
+# labels: [chore]          # optional: chore | spike | docs | frontend | backend (docs.config.json taskLabels); a bug is not a label but its own type, type: bug (templates/Bug Template.md, --scaffold bug); the frontend / backend halves of a task are sub-tasks T-NNN-fe / T-NNN-be with the matching label
 labels: []
 screens: []
 depends: []
 affects: []
 related: []
-# resolution: by-design   # bug cards only, set by the PM or QA when it closes: fixed | by-design | duplicate | cannot-reproduce | wont-fix (docs.config.json resolutions, tag resolution/<id>); how it ended, never instead of status; by-design and wont-fix name their decision card in related
 # pending: ["[[Note]]: what is left", "@who: what is left"]   # done, but a note is left for a card or a person → Partial until cleared
 pending: []
 created: <date>

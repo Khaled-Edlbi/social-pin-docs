@@ -1,5 +1,5 @@
 ---
-type: task
+type: bug
 id: B-02
 status: todo
 priority: medium
@@ -7,7 +7,7 @@ effort: S
 feature: account
 module: identity
 foundOn: Account Backend Integration
-labels: [bug]
+labels: []
 screens: [s68]
 depends: []
 affects: ["Account Backend Integration", "Account Story", "Account QA Backend"]
@@ -15,7 +15,7 @@ related: ["Account QA Backend", "Account QA Frontend", "Account Backend Delivery
 pending: []
 created: 2026-10-26
 updated: 2026-10-26
-tags: [task, task/todo, module/identity, priority/medium, bug]
+tags: [bug, bug/todo, module/identity, priority/medium]
 ---
 
 # ⬜ B-02 · Deleted account answers 401, not the documented 404 E_USER_01
@@ -68,4 +68,5 @@ Output of `node scripts/build-tree.mjs --impact B-02` when the bug was filed: th
 
 ## Log
 
+- 2026-10-26 · branch `docs/admin/project/bug-type` · retyped by `/admin`: `type: bug` (tags `bug`, `bug/<status>`) instead of a task with `labels: [bug]`, as every bug card now is. Nothing else changed: same code, same place in the tree, same status.
 - 2026-10-26 · created with --scaffold task --label bug --found-on "Account Backend Integration", filed by QA from [[Account QA Backend]] row B14. Replaces T-075 and T-077, both withdrawn the same day with their codes retired, as the bug rule moved twice: first to hang a parentless bug under the feature's story, then to hang it under the card it was found against and number it `B-NN`.
