@@ -49844,7 +49844,7 @@
       "scope": null,
       "screens": [],
       "status": null,
-      "summary": "Notifications, Gemma, devices, interests, code delivery, errors, jobs, tests.",
+      "summary": "Notifications, Gemma, devices, interests, code delivery, errors, jobs, tests, the operator panel.",
       "tags": [
         "module",
         "module/platform"
