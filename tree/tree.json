@@ -3071,6 +3071,7 @@
         "feature:files",
         "feature:onboarding-imports",
         "feature:photo-library",
+        "feature:profiles",
         "feature:ring-projection",
         "project:frontend-contract",
         "project:status-report-2026-10-15",
@@ -3085,6 +3086,7 @@
         "frontend-requirements:files",
         "frontend-requirements:onboarding-imports",
         "frontend-requirements:photo-library",
+        "frontend-requirements:profiles",
         "frontend-requirements:ring-projection",
         "project:frontend-contract",
         "project:status-report-2026-10-15",
@@ -4977,6 +4979,7 @@
         "feature:counts",
         "feature:linked-accounts",
         "feature:payments",
+        "feature:profiles",
         "task:T-005",
         "task:T-005-be",
         "task:T-005-fe",
@@ -5006,6 +5009,7 @@
         "frontend-requirements:auth",
         "frontend-requirements:counts",
         "frontend-requirements:linked-accounts",
+        "frontend-requirements:profiles",
         "qa-backend:account",
         "qa-frontend:account",
         "story:T-005",
@@ -5228,7 +5232,7 @@
     },
     "concepts": 199,
     "decisions": 18,
-    "edges": 5232,
+    "edges": 5238,
     "features": 41,
     "layerNotes": 195,
     "modules": 8,
@@ -5668,6 +5672,11 @@
       "from": "frontend-requirements:onboarding-imports",
       "kind": "affects",
       "to": "task:T-020b"
+    },
+    {
+      "from": "frontend-requirements:profiles",
+      "kind": "affects",
+      "to": "task:T-078"
     },
     {
       "from": "project:agent-protocol",
@@ -11500,6 +11509,46 @@
       "to": "task:T-078"
     },
     {
+      "from": "frontend-requirements:profiles",
+      "kind": "related",
+      "to": "decision-record:DR-02"
+    },
+    {
+      "from": "frontend-requirements:profiles",
+      "kind": "related",
+      "to": "decision-record:DR-06"
+    },
+    {
+      "from": "frontend-requirements:profiles",
+      "kind": "related",
+      "to": "feature:auth"
+    },
+    {
+      "from": "frontend-requirements:profiles",
+      "kind": "related",
+      "to": "feature:files"
+    },
+    {
+      "from": "frontend-requirements:profiles",
+      "kind": "related",
+      "to": "feature:onboarding-imports"
+    },
+    {
+      "from": "frontend-requirements:profiles",
+      "kind": "related",
+      "to": "task:T-020"
+    },
+    {
+      "from": "frontend-requirements:profiles",
+      "kind": "related",
+      "to": "task:T-062"
+    },
+    {
+      "from": "frontend-requirements:profiles",
+      "kind": "related",
+      "to": "task:T-063"
+    },
+    {
       "from": "project:admin-agent",
       "kind": "related",
       "to": "project:agent-protocol"
@@ -14136,6 +14185,14 @@
       "from": "decision:D-20",
       "kind": "shares",
       "to": "feature:photo-library",
+      "via": [
+        "POST /files"
+      ]
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "shares",
+      "to": "feature:profiles",
       "via": [
         "POST /files"
       ]
@@ -19123,6 +19180,14 @@
     {
       "from": "feature:files",
       "kind": "shares",
+      "to": "feature:profiles",
+      "via": [
+        "POST /files"
+      ]
+    },
+    {
+      "from": "feature:files",
+      "kind": "shares",
       "to": "feature:ring-access",
       "via": [
         "E_RING_05"
@@ -19857,7 +19922,8 @@
         "E_PROFILE_02",
         "GET /profiles/pin-name/:pinName/availability",
         "PATCH /profiles/:id",
-        "POST /auth/complete-registration"
+        "POST /auth/complete-registration",
+        "POST /files"
       ]
     },
     {
@@ -20036,6 +20102,14 @@
       "to": "feature:post-event",
       "via": [
         "E_RING_02"
+      ]
+    },
+    {
+      "from": "feature:photo-library",
+      "kind": "shares",
+      "to": "feature:profiles",
+      "via": [
+        "POST /files"
       ]
     },
     {
@@ -20616,7 +20690,8 @@
       "to": "feature:ring-projection",
       "via": [
         "E_PROFILE_01",
-        "GET /profiles"
+        "GET /profiles",
+        "POST /files"
       ]
     },
     {
@@ -20643,6 +20718,7 @@
       "via": [
         "GET /profiles/pin-name/:pinName/availability",
         "GET /views/pin/:pinName",
+        "POST /files",
         "POST /profiles/:id/default"
       ]
     },
@@ -20672,7 +20748,8 @@
       "via": [
         "GET /profiles/pin-name/:pinName/availability",
         "GET /views/pin/:pinName",
-        "POST /auth/complete-registration"
+        "POST /auth/complete-registration",
+        "POST /files"
       ]
     },
     {
@@ -20699,7 +20776,8 @@
         "GET /profiles",
         "GET /profiles/:id",
         "PATCH /profiles/:id",
-        "POST /auth/complete-registration"
+        "POST /auth/complete-registration",
+        "POST /files"
       ]
     },
     {
@@ -29106,42 +29184,12 @@
     {
       "from": "frontend-requirements:profiles",
       "kind": "wikilink",
-      "to": "decision-record:DR-02"
-    },
-    {
-      "from": "frontend-requirements:profiles",
-      "kind": "wikilink",
-      "to": "decision-record:DR-06"
-    },
-    {
-      "from": "frontend-requirements:profiles",
-      "kind": "wikilink",
-      "to": "decision:D-02"
-    },
-    {
-      "from": "frontend-requirements:profiles",
-      "kind": "wikilink",
-      "to": "decision:D-06"
-    },
-    {
-      "from": "frontend-requirements:profiles",
-      "kind": "wikilink",
-      "to": "feature:auth"
-    },
-    {
-      "from": "frontend-requirements:profiles",
-      "kind": "wikilink",
       "to": "story:profiles"
     },
     {
       "from": "frontend-requirements:profiles",
       "kind": "wikilink",
-      "to": "task:T-020"
-    },
-    {
-      "from": "frontend-requirements:profiles",
-      "kind": "wikilink",
-      "to": "task:T-063"
+      "to": "task:T-078"
     },
     {
       "from": "frontend-requirements:ring-access",
@@ -42466,6 +42514,7 @@
         "frontend-requirements:onboarding-imports",
         "story:onboarding-imports",
         "story:photo-library",
+        "frontend-requirements:profiles",
         "story:profiles",
         "story:ring-projection"
       ],
@@ -42730,6 +42779,7 @@
         "decision:D-06",
         "feature:badge-qr",
         "story:auth",
+        "frontend-requirements:profiles",
         "story:profiles",
         "story:gemma"
       ],
@@ -44515,6 +44565,7 @@
         "task:T-078-be",
         "task:T-078-fe",
         "frontend-requirements:onboarding-imports",
+        "frontend-requirements:profiles",
         "frontend-requirements:interests",
         "story:T-078"
       ],
@@ -45796,6 +45847,7 @@
         "decision:D-16",
         "decision:D-20",
         "frontend-requirements:onboarding-imports",
+        "frontend-requirements:profiles",
         "story:T-078"
       ],
       "release": "v1",
@@ -46255,6 +46307,7 @@
         "task:T-078",
         "task:T-078-be",
         "task:T-078-fe",
+        "frontend-requirements:profiles",
         "story:T-078"
       ],
       "release": "mvp",
@@ -50920,7 +50973,9 @@
       "updated": "2026-10-18"
     },
     "frontend-requirements:profiles": {
-      "affects": [],
+      "affects": [
+        "task:T-078"
+      ],
       "blockedBy": [],
       "card": "FR-07",
       "children": [],
@@ -50949,14 +51004,24 @@
       "path": "modules/Identity Core/Profiles & Pin Name/Profiles & Pin Name Frontend Requirements.md",
       "pending": [],
       "priority": "critical",
-      "related": [],
+      "related": [
+        "decision-record:DR-02",
+        "decision-record:DR-06",
+        "feature:onboarding-imports",
+        "feature:auth",
+        "feature:files",
+        "task:T-062",
+        "task:T-020",
+        "task:T-063"
+      ],
       "release": "mvp",
       "scope": "feature",
       "screens": [
-        "s06"
+        "s06",
+        "s68"
       ],
       "status": "draft",
-      "summary": "What the client needs from the backend for the Pin-name claim and the owner's profile editor, and whether each need is met today. Shapes, field limits and the enum values are in Profiles & Pin…",
+      "summary": "What the client needs from the backend for the Pin-name claim, sign-up's Profile basics step and the owner's profile editor, and whether each need is met today. The main profile of DR-02 One main…",
       "tags": [
         "frontend-requirements",
         "frontend-requirements/draft",
@@ -50965,7 +51030,7 @@
       ],
       "task": null,
       "title": "Profiles & Pin Name Frontend Requirements",
-      "updated": "2026-10-18"
+      "updated": "2026-10-26"
     },
     "frontend-requirements:ring-access": {
       "affects": [],
@@ -66087,6 +66152,7 @@
         "task:T-078-be",
         "task:T-078-fe",
         "decision:D-20",
+        "frontend-requirements:profiles",
         "story:T-078"
       ],
       "release": "mvp",
@@ -73380,6 +73446,7 @@
         "frontend-delivery:account",
         "qa-frontend:account",
         "frontend-requirements:onboarding-imports",
+        "frontend-requirements:profiles",
         "story:T-078"
       ],
       "release": "v1",
@@ -73587,6 +73654,7 @@
         "qa-backend:account",
         "qa-frontend:account",
         "frontend-requirements:onboarding-imports",
+        "frontend-requirements:profiles",
         "frontend-requirements:interests",
         "story:T-067"
       ],
