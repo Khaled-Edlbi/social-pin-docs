@@ -172,6 +172,7 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-069-be Backend · Scoped role grants]] `backend` | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | M | — | [[T-068 Account moderation and platform role|T-068]] |
 | [[T-071 Audit-log read endpoints]] | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | S | — | [[T-053 Audit log writes|T-053]], [[T-068 Account moderation and platform role|T-068]] |
 | [[T-071-be Backend · Audit-log read endpoints]] `backend` | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | S | — | [[T-053 Audit log writes|T-053]], [[T-068 Account moderation and platform role|T-068]] |
+| [[T-076 An unverified changed email still signs in]] `bug` | [[Account]] | Identity Core | ⬜ To do | S | — | — |
 
 ## Medium
 
@@ -206,6 +207,7 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-072 Platform stats]] | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | S | — | [[T-068 Account moderation and platform role|T-068]] |
 | [[T-072-be Backend · Platform stats]] `backend` | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | S | — | [[T-068 Account moderation and platform role|T-068]] |
 | [[T-073 GitLab pipeline and Docker setup]] `chore` | [[Build & Deploy]] | Platform & Cross-cutting | 🟡 Partial (3 notes) | S | — | — |
+| [[T-077 Deleted account answers 401, not the documented 404 E_USER_01]] `bug` | [[Account]] | Identity Core | ⬜ To do | S | — | — |
 
 ## Done
 

@@ -183,8 +183,10 @@ kanban-plugin: board
 - [ ] [[T-049-be Backend · Subscription endpoints and a single Pro gate]] #high #subscription #backend
 - [ ] [[T-054 Cleanup jobs]] #high #cleanup-jobs
 - [ ] [[T-054-be Backend · Cleanup jobs]] #high #cleanup-jobs #backend
+- [ ] [[T-076 An unverified changed email still signs in]] #high #account #bug
 - [ ] [[T-020b-be Backend · Business card scan and portfolio URL import]] #medium #onboarding-imports #backend
 - [ ] [[T-031-be Backend · Import contacts]] #medium #discover-hub #backend
+- [ ] [[T-077 Deleted account answers 401, not the documented 404 E_USER_01]] #medium #account #bug
 
 
 ## 🔵 In progress

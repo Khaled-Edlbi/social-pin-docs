@@ -2,7 +2,7 @@
 type: project
 layer: shared
 created: 2026-10-19
-updated: 2026-10-25
+updated: 2026-10-26
 affects: []
 depends: ["Agent Protocol"]
 related: ["Agent Protocol", "Agent Rules", "Workflow", "Docs Tree", "Owner Agent"]
@@ -79,7 +79,7 @@ The owner creates the feature card and writes its business side, then hands you 
 
 ### 4C · A bug
 
-A bug found against a task is a sub-task of it: `node scripts/build-tree.mjs --scaffold task <feature-id> "<Title>" --parent T-NNN --label bug`. It lands in the parent's folder, hangs under it in the tree, and the parent cannot be done while it is open. `## What` says what happens, what should happen, on which screen or endpoint, on which build.
+A bug found against a task is a sub-task of it: `node scripts/build-tree.mjs --scaffold task <feature-id> "<Title>" --parent T-NNN --label bug`. It lands in the parent's folder, hangs under it in the tree, and the parent cannot be done while it is open. A bug found against a card that is not a task — a feature-level QA note, an integration or delivery note — has no parent to take it: `--docs-only --label bug` instead, and it hangs under the feature's story like any other task, with the found-on card named in `**Found by:**` and `related:` rather than parented ([[Agent Rules#2 · Codes, scopes and the "sum of" rule]]). `## What` says what happens, what should happen, on which screen or endpoint, on which build.
 
 ### 4D · A user story
 
