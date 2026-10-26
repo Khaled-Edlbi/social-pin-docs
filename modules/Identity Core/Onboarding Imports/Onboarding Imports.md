@@ -40,7 +40,7 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 | Task | Status | Priority | Effort |
 |---|---|---|---|
 | [[T-020 LinkedIn import → review → base profile]] | ⛔ Blocked | High | L |
-| [[T-020b Business card scan and portfolio URL import]] | ❓ Needs a decision / info | Medium | L |
+| [[T-020b Business card scan and portfolio URL import]] | ⛔ Blocked · D-20 | Medium | L |
 
 ```dataview
 TABLE status, priority, effort FROM #task WHERE feature = "onboarding-imports" SORT priority ASC
@@ -49,6 +49,7 @@ TABLE status, priority, effort FROM #task WHERE feature = "onboarding-imports" S
 ## Decisions
 
 - [[D-02 Base profile work fields]] — decided, one main profile every Ring starts from; imports fill it ([[DR-02 One main profile every Ring starts from|DR-02]])
+- [[D-20 How a business card and a portfolio page are read]] — open: on the phone or on the server, and what each import reads; blocks [[T-020b Business card scan and portfolio URL import|T-020b]]
 
 ## Related
 

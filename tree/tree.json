@@ -110,6 +110,7 @@
     "D-17 Request expiry, note and asking again": "decision:D-17",
     "D-18 Company and invited Ring names shown to members": "decision:D-18",
     "D-19 Where a ticket's layer notes live": "decision:D-19",
+    "D-20 How a business card and a portfolio page are read": "decision:D-20",
     "DR-01 Code-only login": "decision-record:DR-01",
     "DR-02 One main profile every Ring starts from": "decision-record:DR-02",
     "DR-03 Links entered once, switched on or off per Ring": "decision-record:DR-03",
@@ -614,6 +615,7 @@
     "D-17": "decision:D-17",
     "D-18": "decision:D-18",
     "D-19": "decision:D-19",
+    "D-20": "decision:D-20",
     "DR-01": "decision-record:DR-01",
     "DR-02": "decision-record:DR-02",
     "DR-03": "decision-record:DR-03",
@@ -3065,6 +3067,7 @@
     },
     "POST /files": {
       "containers": [
+        "decision:D-20",
         "feature:files",
         "feature:onboarding-imports",
         "feature:photo-library",
@@ -3078,6 +3081,7 @@
         "backend-delivery:files",
         "backend-integration:files",
         "backend-integration:ring-projection",
+        "decision:D-20",
         "frontend-requirements:files",
         "frontend-requirements:onboarding-imports",
         "frontend-requirements:photo-library",
@@ -3428,6 +3432,7 @@
     },
     "s03a": {
       "containers": [
+        "decision:D-20",
         "feature:onboarding-imports",
         "task:T-020b",
         "task:T-020b-be",
@@ -3436,6 +3441,7 @@
       "kind": "other",
       "notes": [
         "backend-delivery:onboarding-imports",
+        "decision:D-20",
         "feature:onboarding-imports",
         "frontend-requirements:onboarding-imports",
         "story:T-020b",
@@ -3448,6 +3454,7 @@
     },
     "s03b": {
       "containers": [
+        "decision:D-20",
         "feature:onboarding-imports",
         "task:T-020b",
         "task:T-020b-be",
@@ -3456,6 +3463,7 @@
       "kind": "other",
       "notes": [
         "backend-delivery:onboarding-imports",
+        "decision:D-20",
         "feature:onboarding-imports",
         "frontend-requirements:onboarding-imports",
         "story:T-020b",
@@ -5193,11 +5201,11 @@
     }
   },
   "counts": {
-    "blocked": 151,
+    "blocked": 152,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
-      "decision": 17,
+      "decision": 18,
       "decision-record": 13,
       "feature": 41,
       "frontend-delivery": 1,
@@ -5211,18 +5219,18 @@
     },
     "byLayer": {
       "backend": 56,
-      "business": 374,
+      "business": 375,
       "frontend": 44,
       "qa": 2,
       "shared": 10
     },
     "concepts": 199,
-    "decisions": 17,
-    "edges": 5204,
+    "decisions": 18,
+    "edges": 5226,
     "features": 41,
     "layerNotes": 195,
     "modules": 8,
-    "notes": 521,
+    "notes": 522,
     "partial": 2,
     "placeholders": 162,
     "records": 13,
@@ -5628,6 +5636,16 @@
       "from": "decision:D-18",
       "kind": "affects",
       "to": "feature:ring-invitations"
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "affects",
+      "to": "feature:onboarding-imports"
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "affects",
+      "to": "task:T-020b"
     },
     {
       "from": "project:agent-protocol",
@@ -6443,6 +6461,11 @@
       "from": "decision:D-16",
       "kind": "blocks",
       "to": "story:T-062"
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "blocks",
+      "to": "task:T-020b"
     },
     {
       "from": "frontend-delivery:app-shell",
@@ -8030,6 +8053,16 @@
       "to": "task:T-063"
     },
     {
+      "from": "decision:D-20",
+      "kind": "decision",
+      "to": "feature:onboarding-imports"
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "decision",
+      "to": "task:T-020b"
+    },
+    {
       "from": "project:admin-agent",
       "kind": "depends",
       "to": "project:agent-protocol"
@@ -8362,7 +8395,7 @@
     {
       "from": "task:T-020b",
       "kind": "depends",
-      "to": "decision:D-02"
+      "to": "decision-record:DR-02"
     },
     {
       "from": "task:T-020b-be",
@@ -9863,6 +9896,31 @@
       "from": "decision:D-19",
       "kind": "related",
       "to": "project:docs-tree"
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "related",
+      "to": "decision-record:DR-02"
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "related",
+      "to": "decision-record:DR-03"
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "related",
+      "to": "feature:files"
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "related",
+      "to": "task:T-020"
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "related",
+      "to": "task:T-078"
     },
     {
       "from": "feature:account",
@@ -13967,6 +14025,82 @@
       "to": "task:T-022",
       "via": [
         "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "shares",
+      "to": "feature:files",
+      "via": [
+        "POST /files"
+      ]
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "shares",
+      "to": "feature:onboarding-imports",
+      "via": [
+        "POST /files",
+        "s03a",
+        "s03b"
+      ]
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "shares",
+      "to": "feature:photo-library",
+      "via": [
+        "POST /files"
+      ]
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "shares",
+      "to": "feature:ring-projection",
+      "via": [
+        "POST /files"
+      ]
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "shares",
+      "to": "project:frontend-contract",
+      "via": [
+        "POST /files"
+      ]
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "shares",
+      "to": "project:status-report-2026-10-15",
+      "via": [
+        "POST /files"
+      ]
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "shares",
+      "to": "task:T-020b-be",
+      "via": [
+        "s03a",
+        "s03b"
+      ]
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "shares",
+      "to": "task:T-020b-fe",
+      "via": [
+        "s03a",
+        "s03b"
+      ]
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "shares",
+      "to": "task:T-078",
+      "via": [
+        "POST /files"
       ]
     },
     {
@@ -24995,6 +25129,11 @@
     {
       "from": "task:T-020b",
       "kind": "tree",
+      "to": "decision:D-20"
+    },
+    {
+      "from": "task:T-020b",
+      "kind": "tree",
       "to": "story:T-020b"
     },
     {
@@ -26948,6 +27087,11 @@
       "to": "task:T-063-fe"
     },
     {
+      "from": "decision:D-20",
+      "kind": "wikilink",
+      "to": "frontend-requirements:onboarding-imports"
+    },
+    {
       "from": "feature:account",
       "kind": "wikilink",
       "to": "task:T-076"
@@ -27276,6 +27420,11 @@
       "from": "feature:onboarding-imports",
       "kind": "wikilink",
       "to": "decision-record:DR-02"
+    },
+    {
+      "from": "feature:onboarding-imports",
+      "kind": "wikilink",
+      "to": "decision:D-20"
     },
     {
       "from": "feature:onboarding-imports",
@@ -35804,6 +35953,10 @@
       "name": "D-19 Where a ticket's layer notes live",
       "type": "decision"
     },
+    "decisions/D-20 How a business card and a portfolio page are read.md": {
+      "name": "D-20 How a business card and a portfolio page are read",
+      "type": "decision"
+    },
     "decisions/DR-01 Code-only login.md": {
       "name": "DR-01 Code-only login",
       "type": "decision-record"
@@ -42279,6 +42432,7 @@
       "related": [
         "task:T-057",
         "task:T-060",
+        "decision:D-20",
         "decision:D-02",
         "decision-record:DR-05",
         "decision-record:DR-03",
@@ -42341,6 +42495,7 @@
       "priority": null,
       "related": [
         "task:T-058",
+        "decision:D-20",
         "decision-record:DR-02",
         "decision:D-03",
         "story:ring-projection",
@@ -43996,6 +44151,66 @@
       "title": "D-19 Where a ticket's layer notes live",
       "updated": "2026-10-25"
     },
+    "decision:D-20": {
+      "affects": [
+        "task:T-020b",
+        "feature:onboarding-imports"
+      ],
+      "blockedBy": [],
+      "blocks": [
+        "task:T-020b"
+      ],
+      "card": "D-20",
+      "children": [],
+      "code": "D-20",
+      "created": "2026-10-26",
+      "deadline": null,
+      "decider": "owner",
+      "depends": [],
+      "effectiveStatus": "needs-decision",
+      "effort": null,
+      "feature": null,
+      "features": [
+        "onboarding-imports"
+      ],
+      "frontendOnly": false,
+      "id": "decision:D-20",
+      "inherits": {},
+      "kind": "decision",
+      "label": "Needs decision",
+      "labels": [],
+      "layer": "business",
+      "module": null,
+      "parentTask": null,
+      "parents": [
+        "task:T-020b"
+      ],
+      "path": "decisions/D-20 How a business card and a portfolio page are read.md",
+      "pending": [],
+      "priority": null,
+      "related": [
+        "decision-record:DR-02",
+        "decision-record:DR-03",
+        "task:T-078",
+        "task:T-020",
+        "feature:files"
+      ],
+      "release": null,
+      "scope": null,
+      "screens": [
+        "s03a",
+        "s03b"
+      ],
+      "status": "needs-decision",
+      "summary": "Two sign-up options on Start from (s03) need a way to turn something the person has into profile fields: Scan a card (s03a) takes a photo of their own business card, and Portfolio URL (s03b) takes…",
+      "tags": [
+        "decision",
+        "decision/open"
+      ],
+      "task": null,
+      "title": "D-20 How a business card and a portfolio page are read",
+      "updated": "2026-10-26"
+    },
     "feature:account": {
       "affects": [],
       "blockedBy": [],
@@ -45547,6 +45762,7 @@
         "task:T-078-be",
         "task:T-078-fe",
         "decision:D-16",
+        "decision:D-20",
         "story:T-078"
       ],
       "release": "v1",
@@ -46010,7 +46226,7 @@
       "release": "mvp",
       "rollup": {
         "approved": 1,
-        "blocked": 5,
+        "blocked": 6,
         "decided": 1,
         "draft": 3,
         "missing": 4,
@@ -51569,7 +51785,7 @@
       "release": null,
       "rollup": {
         "approved": 15,
-        "blocked": 22,
+        "blocked": 23,
         "current": 9,
         "decided": 6,
         "delivered": 1,
@@ -56992,7 +57208,7 @@
       ],
       "rollup": {
         "approved": 39,
-        "blocked": 151,
+        "blocked": 152,
         "current": 9,
         "decided": 13,
         "delivered": 1,
@@ -65813,6 +66029,7 @@
         "task:T-078",
         "task:T-078-be",
         "task:T-078-fe",
+        "decision:D-20",
         "story:T-078"
       ],
       "release": "mvp",
@@ -65971,22 +66188,29 @@
     },
     "task:T-020b": {
       "affects": [],
-      "blockedBy": [],
+      "blockedBy": [
+        {
+          "id": "decision:D-20",
+          "title": "D-20 How a business card and a portfolio page are read",
+          "why": "needs decision D-20 (open)"
+        }
+      ],
       "card": "T-020b",
       "children": [
         "story:T-020b",
         "task:T-020b-be",
-        "task:T-020b-fe"
+        "task:T-020b-fe",
+        "decision:D-20"
       ],
       "code": "T-020b",
       "created": "2026-10-15",
       "deadline": null,
       "decision": null,
       "depends": [
-        "decision:D-02"
+        "decision-record:DR-02"
       ],
       "dir": "tasks/T-020b Business card scan and portfolio URL import",
-      "effectiveStatus": "needs-decision",
+      "effectiveStatus": "blocked",
       "effort": "L",
       "feature": "onboarding-imports",
       "frontendOnly": false,
@@ -66016,6 +66240,7 @@
       "rollup": {
         "blocked": 1,
         "draft": 1,
+        "needs-decision": 1,
         "todo": 1
       },
       "scope": null,
@@ -66023,17 +66248,17 @@
         "s03a",
         "s03b"
       ],
-      "status": "needs-decision",
-      "summary": "Provider decision (OCR, scraping). Same review step as T-020, writing to the main profile (DR-02 One main profile every Ring starts from).",
+      "status": "todo",
+      "summary": "How the card and the page are read is D-20 How a business card and a portfolio page are read. Same review step as T-020, writing to the main profile (DR-02 One main profile every Ring starts from).",
       "tags": [
         "task",
-        "task/needs-info",
+        "task/todo",
         "module/identity",
         "priority/medium"
       ],
       "task": null,
       "title": "T-020b Business card scan and portfolio URL import",
-      "updated": "2026-10-25"
+      "updated": "2026-10-26"
     },
     "task:T-020b-be": {
       "affects": [],
@@ -74534,7 +74759,8 @@
         "feature:onboarding-imports",
         "feature:ring-projection",
         "feature:files",
-        "feature:auth"
+        "feature:auth",
+        "decision:D-20"
       ],
       "release": "mvp",
       "rollup": {
