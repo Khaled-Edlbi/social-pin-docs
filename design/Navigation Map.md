@@ -1,6 +1,6 @@
 ---
 type: map
-updated: 2026-10-15
+updated: 2026-10-26
 tags: [map, design]
 ---
 
@@ -518,4 +518,4 @@ graph LR
 - **s50 Tickets → s51 Payment → s52 Event Ring granted → s53 Event mode**: all [[Events Before]], [[Payments & Orders]], [[Event Ring Auto-creation]].
 - **s55 Exhibitor → s59 Request a meeting → s61 / s67**: [[Meetings]].
 - **s39 → s40 → s42 PinCast**: [[PinCast & Nearby]].
-- **s17 → s74 Join a company Ring**: [[Ring Invitations & Join]], waiting on [[D-04 Ring settings]].
+- **s17 → s74 Join a company Ring**: [[Ring Invitations & Join]], waiting on [[Ring settings]].

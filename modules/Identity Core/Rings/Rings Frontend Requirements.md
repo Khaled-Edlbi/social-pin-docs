@@ -7,7 +7,7 @@ module: identity
 status: draft
 screens: [s08, s09, s16, s17, s18, s19, s20, s21, s22, s26, s62]
 created: 2026-10-18
-updated: 2026-10-18
+updated: 2026-10-26
 tags: [frontend-requirements, frontend-requirements/draft, module/identity, layer/frontend]
 ---
 
@@ -70,8 +70,8 @@ What the client needs from the backend to build the Ring lists, the create wizar
 | Delete | `DELETE /rings/:id` | ✅ | — |
 | Open a shared Ring's projection | `GET /views/ring/:ringId` | ✅ | — (listed under [[View As & Pin Views]]) |
 | "N people" on list and detail | — | ❌ | [[T-004 Member count per Ring on list and detail]] |
-| Purpose, join policy, members visible, email domain (s19, s22, s26, s27) | — | ❌ | [[D-04 Ring settings]] |
-| Copy a Ring when creating (s18) | — | ❌ | [[D-05 Copy or inherit]] |
+| Purpose, join policy, members visible, email domain (s19, s22, s26, s27) | — | ❌ | [[Ring settings]] |
+| Copy a Ring when creating (s18) | — | ❌ | [[Copy or inherit]] |
 | Review / decline an invite, join with a code (s17) | — | ❌ | [[T-026 Ring invitations invite, review, decline]], [[T-027 Join a Ring with a code or verified work email]] |
 | Delegated admins (s26, s27) | — | ❌ | [[T-006 Delegated admin endpoints]] |
 | Purge of AUTO_DELETE Rings | — | ❌ | [[T-054 Cleanup jobs]] |
@@ -105,6 +105,6 @@ Until [[T-063 Put the ErrorCode on the error body]] ships, branch on status and 
 
 ## Blocked by
 
-- [[D-04 Ring settings]] — step 2 of the wizard (s19), Purpose on s22, Access on s26, Permissions on s27.
-- [[D-05 Copy or inherit]] — "Copy a Ring" on s18.
+- [[Ring settings]] — step 2 of the wizard (s19), Purpose on s22, Access on s26, Permissions on s27.
+- [[Copy or inherit]] — "Copy a Ring" on s18.
 - [[T-004 Member count per Ring on list and detail]] — "N people" on every row.

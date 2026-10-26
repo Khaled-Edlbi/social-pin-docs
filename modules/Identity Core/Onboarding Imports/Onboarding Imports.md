@@ -8,7 +8,7 @@ module: identity
 screens: [s03, s03a, s03b, s04, s05]
 related: ["Files Upload"]
 created: 2026-10-15
-updated: 2026-10-25
+updated: 2026-10-26
 owner: "omar"
 tags: [feature, module/identity, priority/high, release/v1]
 ---
@@ -48,7 +48,7 @@ TABLE status, priority, effort FROM #task WHERE feature = "onboarding-imports" S
 
 ## Decisions
 
-- [[D-02 Base profile work fields]] — decided, one main profile every Ring starts from; imports fill it ([[DR-02 One main profile every Ring starts from|DR-02]])
+- [[Base profile work fields]] — decided, one main profile every Ring starts from; imports fill it ([[DR-02 One main profile every Ring starts from|DR-02]])
 
 ## Related
 

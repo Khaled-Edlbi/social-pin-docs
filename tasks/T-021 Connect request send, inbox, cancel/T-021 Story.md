@@ -8,13 +8,13 @@ status: draft
 screens: [s44, s45]
 depends: []
 affects: []
-related: ["DR-13 The requester sees a declined request", "DR-17 Requests expire after 30 days, optional note, ask again at once", "D-10 How Connect addresses the scanned person"]
+related: ["DR-13 The requester sees a declined request", "DR-17 Requests expire after 30 days, optional note, ask again at once", "How Connect addresses the scanned person"]
 pending: []
 approvedBy: ""
 approvedAt: ""
 owner: "omar"
 created: 2026-10-18
-updated: 2026-10-25
+updated: 2026-10-26
 tags: [story, story/draft, module/connections, layer/business]
 task: T-021
 ---
@@ -95,5 +95,5 @@ Acceptance criteria:
 
 ## Open questions
 
-- **The receiver's id** ([[D-10 How Connect addresses the scanned person]]). The view body has no user id. The app needs it from the scan ([[T-008 Story#Open questions]]) or from a `pinName` lookup; or the request accepts the scanned token or the `pinName` and resolves the person itself. This story stays Blocked · D-10 until it is decided.
+- **The receiver's id** ([[How Connect addresses the scanned person]]). The view body has no user id. The app needs it from the scan ([[T-008 Story#Open questions]]) or from a `pinName` lookup; or the request accepts the scanned token or the `pinName` and resolves the person itself. This story stays Blocked · D-10 until it is decided.
 - How long a declined or expired request stays on the Sent list, and whether the receiver is reminded before a request expires (left open by [[DR-17 Requests expire after 30 days, optional note, ask again at once]]).

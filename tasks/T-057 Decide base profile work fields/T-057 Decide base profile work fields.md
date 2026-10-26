@@ -10,7 +10,7 @@ screens: [s05]
 depends: []
 related: ["DR-02 One main profile every Ring starts from"]
 created: 2026-10-15
-updated: 2026-10-25
+updated: 2026-10-26
 owner: "omar"
 tags: [task, task/done, module/identity, priority/critical]
 decision: D-02
@@ -22,7 +22,7 @@ decision: D-02
 
 ## What
 
-Take [[D-02 Base profile work fields]]. Decided by [[DR-02 One main profile every Ring starts from]]: one main profile (headline, role, company, location, photo, bio) every Ring starts from. Building it is not ticketed yet.
+Take [[Base profile work fields]]. Decided by [[DR-02 One main profile every Ring starts from]]: one main profile (headline, role, company, location, photo, bio) every Ring starts from. Building it is not ticketed yet.
 
 ## Design
 

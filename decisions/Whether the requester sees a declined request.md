@@ -1,6 +1,7 @@
 ---
 type: decision
 id: D-13
+aliases: [D-13]
 status: open
 features: [connections]
 blocks: ["T-021 Story", "T-022 Story"]
@@ -10,7 +11,7 @@ affects: []
 related: ["Connections"]
 owner: "omar"
 created: 2026-10-25
-updated: 2026-10-25
+updated: 2026-10-26
 tags: [decision, decision/open]
 ---
 

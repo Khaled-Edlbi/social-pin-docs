@@ -12,9 +12,11 @@
  *   node scripts/build-tree.mjs --scaffold task <feature-id> "<Title>" [--backend-only | --docs-only | --parent T-NNN] [--label <label>] [--priority high] [--effort M]
  *                                                    creates the task with the next free number, its story and its frontend / backend halves
  *   node scripts/build-tree.mjs --scaffold bug <feature-id> "<Title>" (--parent T-NNN | --found-on "<note name>") [--label <label>] [--priority high] [--effort S]
- *                                                    creates the bug (type: bug) with the next free B-NN, under the task or the card it was found against
+ *                                                    creates the bug (type: bug) with the next free B-NN, under the task or the card it was found against;
+ *                                                    the file is bugs/<Title>.md, the code lives in id: and aliases:
  *   node scripts/build-tree.mjs --scaffold feature <module-id> "<Name>" [--id <slug>] [--priority high] [--release later] [--frontend-only]   creates the feature note
- *   node scripts/build-tree.mjs --scaffold decision "<card>" ["<title>"]   creates the needs-decision card a task, a layer note or a feature needs (draft; blocks it until fulfilled)
+ *   node scripts/build-tree.mjs --scaffold decision "<card>" ["<title>"]   creates the needs-decision card a task, a layer note or a feature needs (draft; blocks it until fulfilled),
+ *                                                    as decisions/<Title>.md with the code in id: and aliases:
  *   node scripts/build-tree.mjs --scaffold record D-NN "<the answer>" [--by <name>]   creates the decision card DR-NN (draft) that answers D-NN: what was decided, why, what it changes
  *
  * No dependencies: Node 22 built-ins only. The output is key-sorted and carries
@@ -403,6 +405,13 @@ export function build() {
     if (byStem.has(n.stem)) warn(n.rel, `duplicate note name "${n.stem}" (also ${byStem.get(n.stem).rel}); wikilinks are ambiguous`);
     else byStem.set(n.stem, n);
   }
+  const byAlias = new Map(); // an alias (aliases: [B-01]) -> its note, so [[B-01]] resolves as it does in Obsidian
+  for (const n of notes) for (const a of list(n.data?.aliases)) {
+    if (byStem.has(a) && byStem.get(a) !== n) warn(n.rel, `aliases: "${a}" is also the name of ${byStem.get(a).rel}`);
+    else if (byAlias.has(a) && byAlias.get(a) !== n) warn(n.rel, `aliases: "${a}" is also an alias of ${byAlias.get(a).rel}`);
+    else byAlias.set(a, n);
+  }
+  const noteNamed = (name) => byStem.get(name) ?? byAlias.get(name);
 
   const nodes = {};
   const edges = [];
@@ -483,12 +492,20 @@ export function build() {
   // tasks and decisions (nodes first; edges after the layer notes exist)
   const taskNodes = new Map();
   // a bug note (type: bug) is built with the tasks: the same statuses, parents and boards
-  const taskNotes = [...byType('task'), ...byType('bug')].sort((a, b) => a.stem.localeCompare(b.stem, 'en', { numeric: true }));
+  const byNoteId = (a, b) => String(a.data.id ?? a.stem).localeCompare(String(b.data.id ?? b.stem), 'en', { numeric: true });
+  // a bug and a needs-decision card are named by their title (bugs/<Title>.md, decisions/<Title>.md): the code lives in id: and in aliases:, so Obsidian's quick switcher finds it
+  const titleNamed = (n, what) => {
+    const id = String(n.data.id ?? '');
+    if (/^[A-Z]+-\d+\s/.test(n.stem)) warn(n.rel, `${what} is named by its title only: rename to ${n.rel.split('/')[0]}/${n.stem.replace(/^[A-Z]+-\d+\s+/, '')}.md and update the links; ${id} stays in id: and aliases:`);
+    if (id && !list(n.data.aliases).includes(id)) warn(n.rel, `aliases: add ${id} (aliases: [${id}]) so the card is found by its code in Obsidian's quick switcher`);
+  };
+  const taskNotes = [...byType('task'), ...byType('bug')].sort(byNoteId);
   for (const n of taskNotes) {
     requireKeys(n, ['id', 'status', 'feature']);
     const status = normStatus(n, 'task');
     const parent = typeof n.data.parent === 'string' && n.data.parent.trim() ? n.data.parent.trim() : null;
     const bug = n.data.type === 'bug';
+    if (bug) titleNamed(n, 'a bug');
     const own = [...new Set(list(n.data.labels).map((l) => l.trim().toLowerCase()))];
     for (const l of own) {
       if (l === 'bug') err(n.rel, bug ? 'labels: "bug" — type: bug already says it; remove the label' : 'labels: [bug] — a bug is its own type now: write type: bug (tags bug, bug/<status>) and remove the label');
@@ -511,8 +528,9 @@ export function build() {
     if (n.rel === expectedDir) t.dir = `${root}/${n.stem}`;
   }
   const decisionNodes = new Map();
-  for (const n of byType('decision')) {
+  for (const n of byType('decision').sort(byNoteId)) {
     requireKeys(n, ['id', 'status']);
+    titleNamed(n, 'a needs-decision card');
     if (!list(n.data.blocks).length) requireKeys(n, ['features']); // a decision names the cards that need it (`blocks`) or the features it belongs to
     if (!isDecisionId(n.data.id)) err(n.rel, `id "${n.data.id}" is not a decision id (D-NN)`);
     if (['fulfilled', 'decided'].includes(n.data.status)) err(n.rel, `status "${n.data.status}" is not typed on a needs-decision card: it is draft or open, and shows Fulfilled by itself once its decision card (DR-NN) is decided`);
@@ -752,7 +770,7 @@ export function build() {
     if (featureNodes.has(r)) return { ids: [featureNodes.get(r).id], via: null };
     if (moduleNodes.has(r)) return { ids: [moduleNodes.get(r).id], via: null };
     if (byName[r]) return { ids: [byName[r]], via: null };
-    const target = byStem.get(r.replace(/\.md$/, ''));
+    const target = noteNamed(r.replace(/\.md$/, ''));
     if (target && ownerOfPath.get(target.rel)) return { ids: [ownerOfPath.get(target.rel)], via: null };
     if (conceptIndex.has(r)) return { ids: [...conceptIndex.get(r)], via: r };
     return null;
@@ -782,7 +800,7 @@ export function build() {
     }
     // "## Related" section links count as related
     for (const target of note.relatedSection) {
-      const t = byStem.get(target);
+      const t = noteNamed(target);
       const to = t ? ownerOfPath.get(t.rel) : null;
       if (!to || to === id) continue;
       if (!n.related.includes(to)) n.related.push(to);
@@ -954,7 +972,7 @@ export function build() {
   for (const [, f] of featureNodes) for (const k of KIND.values()) placeholderTitles.add(`${f.title} ${k.file}`);
   for (const [id, note] of noteOf) {
     for (const l of note.links) {
-      const target = byStem.get(l.target);
+      const target = noteNamed(l.target);
       if (!l.target) continue; // [[#heading]] links to itself
       if (!target) { if (!placeholderTitles.has(l.target) && !/^(https?:)|\.(canvas|png|jpg|svg)$|^(T-NNN|D-NN|<)/.test(l.target)) warn(note.rel, `wikilink [[${l.target}]] resolves to no note`); continue; }
       const to = ownerOfPath.get(target.rel);
@@ -1206,7 +1224,7 @@ function treeMarkdown(json) {
   const seen = new Set();
   const walkNode = (id, depth) => {
     const n = nodes[id];
-    const extra = [n.card && !ID_CODED.has(n.kind) ? n.card : null, n.label && !['feature', 'module', 'task'].includes(n.kind) ? n.label : null, n.kind === 'root' ? stageText(json, n) : null, n.kind === 'feature' ? `release ${releaseLabel(json, n.release)}` : null, n.deployedTo?.length ? `on ${n.deployedTo.join(', ')}` : null, n.parentTask ? `sub-task of ${n.parentTask}` : null, ...(n.labels || []), n.resolution ? resolutionLabel(json, n.resolution) : null, n.frontendOnly ? 'frontend only' : null, n.pending?.length ? `${n.pending.length} pending note${n.pending.length === 1 ? '' : 's'}` : null, priorityLabel(json, n), n.deadline ? `due ${n.deadline}` : null, n.blockedBy?.length ? `blocked by ${n.blockedBy.map((b) => b.title).join(', ')}` : null].filter(Boolean).join(', ');
+    const extra = [n.card && !n.title.startsWith(n.card) ? n.card : null, n.label && !['feature', 'module', 'task'].includes(n.kind) ? n.label : null, n.kind === 'root' ? stageText(json, n) : null, n.kind === 'feature' ? `release ${releaseLabel(json, n.release)}` : null, n.deployedTo?.length ? `on ${n.deployedTo.join(', ')}` : null, n.parentTask ? `sub-task of ${n.parentTask}` : null, ...(n.labels || []), n.resolution ? resolutionLabel(json, n.resolution) : null, n.frontendOnly ? 'frontend only' : null, n.pending?.length ? `${n.pending.length} pending note${n.pending.length === 1 ? '' : 's'}` : null, priorityLabel(json, n), n.deadline ? `due ${n.deadline}` : null, n.blockedBy?.length ? `blocked by ${n.blockedBy.map((b) => b.title).join(', ')}` : null].filter(Boolean).join(', ');
     lines.push(`${'  '.repeat(depth)}- ${emojiOf(n)} ${mdLink(n)}${extra ? ` (${extra})` : ''}`);
     if (seen.has(id) && n.children.length) { lines.push(`${'  '.repeat(depth + 1)}- (see above)`); return; }
     seen.add(id);
@@ -1224,6 +1242,7 @@ const stageText = (json, n) => [n.stage ? `stage ${(json.stages || []).find((s) 
 const priorityLabel = (json, n) => { const l = n.priority ? (json.priorities || []).find((x) => x.id === n.priority) : null; return l ? l.label : n.priority; };
 const resolutionLabel = (json, id) => (id ? (json.resolutions || []).find((r) => r.id === id)?.label ?? id : null);
 const wiki = (n, alias) => `[[${n.title}${alias ? `|${alias}` : ''}]]`;
+const codedWiki = (n) => `${n.code && !n.title.startsWith(n.code) ? `${n.code} ` : ''}${wiki(n)}`; // a bug is named by its title: its code goes in front of the link
 
 function boardMarkdown(json) {
   const { nodes } = json;
@@ -1232,7 +1251,7 @@ function boardMarkdown(json) {
   for (const [status, title] of cols) {
     lines.push(`## ${title}`, '');
     const rows = taskRows(json).filter((t) => t.effectiveStatus === status).sort((a, b) => prioRank(json, a.priority) - prioRank(json, b.priority) || a.code.localeCompare(b.code, 'en', { numeric: true }));
-    for (const t of rows) lines.push(`- [${status === 'done' ? 'x' : ' '}] ${wiki(t)} #${t.priority ?? 'no-priority'} #${t.feature}${t.labels.map((l) => ` #${l}`).join('')}${t.resolution ? ` #resolution/${t.resolution}` : ''}${t.deadline ? ` 📅 ${t.deadline}` : ''}${t.pending.length ? ` — ${t.pending.map((p) => (p.to ? `[[${nodes[p.to].title}]]` : p.person ? `@${p.person}` : '') + (p.text ? `: ${p.text}` : '')).join('; ')}` : ''}`);
+    for (const t of rows) lines.push(`- [${status === 'done' ? 'x' : ' '}] ${codedWiki(t)} #${t.priority ?? 'no-priority'} #${t.feature}${t.labels.map((l) => ` #${l}`).join('')}${t.resolution ? ` #resolution/${t.resolution}` : ''}${t.deadline ? ` 📅 ${t.deadline}` : ''}${t.pending.length ? ` — ${t.pending.map((p) => (p.to ? `[[${nodes[p.to].title}]]` : p.person ? `@${p.person}` : '') + (p.text ? `: ${p.text}` : '')).join('; ')}` : ''}`);
     lines.push('', '');
   }
   lines.push('%% kanban:settings', '```', '{"kanban-plugin":"board"}', '```', '%%', '');
@@ -1254,12 +1273,12 @@ function backlogMarkdown(json) {
     const rows = open.filter((t) => (t.priority ?? null) === p);
     if (!rows.length) continue;
     lines.push(`## ${label}`, '', '| Task | Feature | Module | Status | Effort | Deadline | Depends on / blocked by |', '|---|---|---|---|---|---|---|');
-    for (const t of rows) lines.push(`| ${wiki(t)}${t.labels.length ? ' ' + t.labels.map((l) => `\`${l}\``).join(' ') : ''} | ${featureTitle(t)} | ${moduleName(t)} | ${status(t)} | ${t.effort ?? '—'} | ${t.deadline ?? '—'} | ${t.blockedBy.length ? t.blockedBy.map((b) => wiki(nodes[b.id], nodes[b.id].code ?? nodes[b.id].title)).join(', ') : dep(t)} |`);
+    for (const t of rows) lines.push(`| ${codedWiki(t)}${t.labels.length ? ' ' + t.labels.map((l) => `\`${l}\``).join(' ') : ''} | ${featureTitle(t)} | ${moduleName(t)} | ${status(t)} | ${t.effort ?? '—'} | ${t.deadline ?? '—'} | ${t.blockedBy.length ? t.blockedBy.map((b) => wiki(nodes[b.id], nodes[b.id].code ?? nodes[b.id].title)).join(', ') : dep(t)} |`);
     lines.push('');
   }
   const done = taskRows(json).filter((t) => t.effectiveStatus === 'done');
   lines.push('## Done', '', '| Task | Feature | Module | Effort | Resolution |', '|---|---|---|---|---|');
-  for (const t of done) lines.push(`| ${wiki(t)}${t.labels.length ? ' ' + t.labels.map((l) => `\`${l}\``).join(' ') : ''} | ${featureTitle(t)} | ${moduleName(t)} | ${t.effort ?? '—'} | ${resolutionLabel(json, t.resolution) ?? '—'} |`);
+  for (const t of done) lines.push(`| ${codedWiki(t)}${t.labels.length ? ' ' + t.labels.map((l) => `\`${l}\``).join(' ') : ''} | ${featureTitle(t)} | ${moduleName(t)} | ${t.effort ?? '—'} | ${resolutionLabel(json, t.resolution) ?? '—'} |`);
   lines.push('');
   return lines.join('\n');
 }
@@ -1503,7 +1522,9 @@ function scaffoldTask(result, featureId, title, bug = false) {
   if (bug && !foundOn && !parentCode) die('a bug names where it was found: --parent T-NNN for one found against a task, or --found-on "<note name>" for the card it was found against');
   const split = !parent && !docsOnly && !bug; // a build task gets its story and its halves; a sub-task, a docs-only task or a bug does not
   const code = bug ? nextNumber(result, 'B', 2) : nextNumber(result, 'T', 3);
-  const stem = `${code} ${title}`;
+  const stem = bug ? title : `${code} ${title}`; // a bug is bugs/<Title>.md, its code in id: and aliases:
+  if (bug && /^[A-Z]+-\d+\s/.test(title)) die(`a bug is named by its title only: drop the code from "${title}" (it gets ${code} in id: and aliases:)`);
+  if (bug && json.byName?.[title]) die(`a note named "${title}" already exists (${json.nodes[json.byName[title]].path}); a bug's title names its file, so it is unique`);
   const date = today();
   const screens = f.screens ?? [];
   let dir, pnote = null;
@@ -1518,7 +1539,7 @@ function scaffoldTask(result, featureId, title, bug = false) {
   if (fs.existsSync(dest)) die(`${path.relative(ROOT, dest)} already exists`);
   const type = bug ? 'bug' : 'task';
   const { body } = parseFrontmatter(fs.readFileSync(path.join(ROOT, `templates/${bug ? 'Bug' : 'Task'} Template.md`), 'utf8'));
-  const fm = { type, id: code, status: 'todo', priority, effort, feature: featureId, module: f.module };
+  const fm = { type, id: code, ...(bug ? { aliases: [code] } : {}), status: 'todo', priority, effort, feature: featureId, module: f.module };
   if (parent) fm.parent = parentCode;
   if (foundOn) fm.foundOn = foundOn;
   Object.assign(fm, { labels: label ? [label] : [], screens, depends: [], affects: [], related: foundOn ? [foundOn] : [], pending: [], created: date, updated: date, tags: [type, `${type}/todo`, `module/${f.module}`, `priority/${priority}`, ...(label ? [label] : [])] });
@@ -1603,13 +1624,15 @@ function scaffoldDecision(result, ref, title) {
   const id = `D-${String(num).padStart(2, '0')}`;
   const t = (title || `Decide for ${target.title}`).trim().replace(/\s+/g, ' ');
   if (BAD_NAME.test(t) || /[/:]/.test(t)) { console.error(`title "${t}" cannot contain / : # ? % \\`); process.exit(1); }
-  const dest = path.join(ROOT, 'decisions', `${id} ${t}.md`);
+  if (/^[A-Z]+-\d+\s/.test(t)) { console.error(`a needs-decision card is named by its title only: drop the code from "${t}" (it gets ${id} in id: and aliases:)`); process.exit(1); }
+  if (json.byName?.[t]) { console.error(`a note named "${t}" already exists (${nodes[json.byName[t]].path}); a needs-decision card's title names its file, so it is unique`); process.exit(1); }
+  const dest = path.join(ROOT, 'decisions', `${t}.md`); // decisions/<Title>.md: the code lives in id: and aliases:
   if (fs.existsSync(dest)) { console.error(`${path.relative(ROOT, dest)} already exists`); process.exit(1); }
   const today = new Date().toISOString().slice(0, 10);
   const { data, body } = parseFrontmatter(fs.readFileSync(path.join(ROOT, 'templates', 'Decision Template.md'), 'utf8'));
   const feature = target.kind === 'feature' ? target.code : target.feature;
   const blocks = target.kind === 'task' ? target.code : target.kind === 'feature' ? target.code : target.title; // a task by id, a feature by id, a note by name
-  const out = { ...data, id, status: 'draft', features: feature ? [feature] : [], blocks: [blocks], decider: '', screens: target.screens ?? [], affects: [], related: [], created: today, tags: ['decision', 'decision/draft'] };
+  const out = { ...data, id, aliases: [id], status: 'draft', features: feature ? [feature] : [], blocks: [blocks], decider: '', screens: target.screens ?? [], affects: [], related: [], created: today, tags: ['decision', 'decision/draft'] };
   const item = (v) => (/^[\w./-]+$/.test(v) ? v : JSON.stringify(v));
   const yaml = Object.entries(out).map(([k, v]) => `${k}: ${Array.isArray(v) ? `[${v.map(item).join(', ')}]` : typeof v === 'string' && (/[:#]/.test(v) || v === '') ? JSON.stringify(v) : v}`).join('\n');
   const text = body.replace(/D-NN/g, id).replace(/<Title>/g, t).replace(/<date>/g, today).replace(/<card>/g, `[[${target.title}]]`).replace(/<feature>/g, feature ? `[[${nodes[`feature:${feature}`]?.title ?? feature}]]` : '—');

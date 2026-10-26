@@ -7,18 +7,18 @@ decidedBy: "khaled"
 decidedAt: 2026-10-25
 features: [error-contract]
 affects: ["T-063", "T-063-fe", "T-063-be", "Agent Rules", "Docs Tree"]
-related: ["D-19 Where a ticket's layer notes live", "T-063"]
+related: ["Where a ticket's layer notes live", "T-063"]
 owner: "khaled"
 created: 2026-10-25
-updated: 2026-10-25
+updated: 2026-10-26
 tags: [decision-record, decision-record/decided]
 ---
 
 # ✅ DR-19 · A ticket's layer notes live on the parent task
 
-**Answers:** [[D-19 Where a ticket's layer notes live]] · **Decided by:** khaled · **On:** 2026-10-25 · **Feature:** [[Error Contract]]
+**Answers:** [[Where a ticket's layer notes live]] · **Decided by:** khaled · **On:** 2026-10-25 · **Feature:** [[Error Contract]]
 
-> This card is the answer to [[D-19 Where a ticket's layer notes live]]. The needs-decision card keeps the question, the facts and the options; this decision card says what was decided, why, and what it changes. `draft` while the answer is prepared; `decided` only by the PM or the owner, on the user's word, with `decidedBy` and `decidedAt`: then [[D-19 Where a ticket's layer notes live]] shows Fulfilled by itself and the cards it blocked continue.
+> This card is the answer to [[Where a ticket's layer notes live]]. The needs-decision card keeps the question, the facts and the options; this decision card says what was decided, why, and what it changes. `draft` while the answer is prepared; `decided` only by the PM or the owner, on the user's word, with `decidedBy` and `decidedAt`: then [[Where a ticket's layer notes live]] shows Fulfilled by itself and the cards it blocked continue.
 
 ## What was decided
 

@@ -7,7 +7,7 @@ release: mvp
 module: identity
 screens: [s14, s20, s23, s24, s25, s29, s36]
 created: 2026-10-18
-updated: 2026-10-25
+updated: 2026-10-26
 owner: "omar"
 tags: [feature, module/identity, priority/critical, release/mvp]
 ---
@@ -56,9 +56,9 @@ TABLE status, priority, effort FROM #task WHERE feature = "ring-projection" SORT
 
 ## Decisions
 
-- [[D-02 Base profile work fields]] — decided, one main profile every Ring starts from ([[DR-02 One main profile every Ring starts from|DR-02]])
-- [[D-03 Field library vs per-Ring copies]] — decided, links entered once, on or off per Ring ([[DR-03 Links entered once, switched on or off per Ring|DR-03]])
-- [[D-05 Copy or inherit]] — decided, inherit per field, copy without members ([[DR-05 Inherit per field, copy without members|DR-05]])
+- [[Base profile work fields]] — decided, one main profile every Ring starts from ([[DR-02 One main profile every Ring starts from|DR-02]])
+- [[Field library vs per-Ring copies]] — decided, links entered once, on or off per Ring ([[DR-03 Links entered once, switched on or off per Ring|DR-03]])
+- [[Copy or inherit]] — decided, inherit per field, copy without members ([[DR-05 Inherit per field, copy without members|DR-05]])
 
 ## Related
 

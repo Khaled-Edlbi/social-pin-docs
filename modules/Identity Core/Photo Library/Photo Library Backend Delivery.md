@@ -37,7 +37,7 @@ What the backend shipped for this feature and how it works. The sum of this feat
 
 - `GET /files` list of my files (paginated, filter by kind).
 - Usage count per file across Ring projections.
-- "Reset to Pin" (s29) needs a base profile photo. See [[D-02 Base profile work fields]].
+- "Reset to Pin" (s29) needs a base profile photo. See [[Base profile work fields]].
 
 ## Tasks delivered
 

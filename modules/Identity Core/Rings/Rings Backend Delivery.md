@@ -52,8 +52,8 @@ What the backend shipped for this feature and how it works. The sum of this feat
 ### Gaps
 
 - Lists carry no member counts ("148 people"). See [[Counts]].
-- The create wizard's step 2 (who is in it, s19) and the Access / Permissions screens (s26, s27) need Ring settings the schema does not have. See [[D-04 Ring settings]].
-- "Copy a Ring" when creating (s18) has no endpoint. See [[D-05 Copy or inherit]].
+- The create wizard's step 2 (who is in it, s19) and the Access / Permissions screens (s26, s27) need Ring settings the schema does not have. See [[Ring settings]].
+- "Copy a Ring" when creating (s18) has no endpoint. See [[Copy or inherit]].
 - The sweeper that materialises `RING_STATUS.EXPIRED` and purges `AUTO_DELETE` Rings is not written. See [[Cleanup Jobs]].
 
 ## Tasks delivered

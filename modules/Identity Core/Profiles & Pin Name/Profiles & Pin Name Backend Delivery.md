@@ -49,8 +49,8 @@ What the backend shipped for this feature and how it works. The sum of this feat
 
 ### Gaps
 
-- No work fields (headline, role, company, location, base photo, base bio) even though every screen shows them. See [[D-02 Base profile work fields]].
-- No rename limit and no suggested names, while s06 says "change it once a year" and shows suggestions. See [[D-06 Pin name rules]].
+- No work fields (headline, role, company, location, base photo, base bio) even though every screen shows them. See [[Base profile work fields]].
+- No rename limit and no suggested names, while s06 says "change it once a year" and shows suggestions. See [[Pin name rules]].
 
 ## Tasks delivered
 

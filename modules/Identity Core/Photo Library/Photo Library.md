@@ -7,7 +7,7 @@ release: v1
 module: identity
 screens: [s29, s30]
 created: 2026-10-15
-updated: 2026-10-25
+updated: 2026-10-26
 owner: "omar"
 tags: [feature, module/identity, priority/high, release/v1]
 ---
@@ -44,8 +44,8 @@ TABLE status, priority, effort FROM #task WHERE feature = "photo-library" SORT p
 
 ## Decisions
 
-- [[D-02 Base profile work fields]] — decided, one main profile every Ring starts from; a Ring may pick its own photo ([[DR-02 One main profile every Ring starts from|DR-02]])
-- [[D-05 Copy or inherit]] — decided, inherit per field, copy without members ([[DR-05 Inherit per field, copy without members|DR-05]])
+- [[Base profile work fields]] — decided, one main profile every Ring starts from; a Ring may pick its own photo ([[DR-02 One main profile every Ring starts from|DR-02]])
+- [[Copy or inherit]] — decided, inherit per field, copy without members ([[DR-05 Inherit per field, copy without members|DR-05]])
 
 ## Related
 

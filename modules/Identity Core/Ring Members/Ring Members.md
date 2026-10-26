@@ -8,7 +8,7 @@ module: identity
 screens: [s15, s47]
 related: ["View As & Pin Views"]
 created: 2026-10-18
-updated: 2026-10-25
+updated: 2026-10-26
 owner: "omar"
 tags: [feature, module/identity, priority/critical, release/mvp]
 ---
@@ -50,9 +50,9 @@ TABLE status, priority, effort FROM #task WHERE feature = "ring-members" SORT pr
 
 ## Decisions
 
-- [[D-04 Ring settings]] — decided, six settings at launch with private defaults ([[DR-04 Ring settings at launch and their defaults|DR-04]])
-- [[D-14 Connection-granted Ring on Shared with me]] — decided, Shared with me lists people, never the Ring ([[DR-14 Shared with me lists people, never the Ring|DR-14]])
-- [[D-15 One Ring or several per connection]] — decided, several Rings per connection, remove or disconnect ([[DR-15 Several Rings per connection, remove or disconnect|DR-15]])
+- [[Ring settings]] — decided, six settings at launch with private defaults ([[DR-04 Ring settings at launch and their defaults|DR-04]])
+- [[Connection-granted Ring on Shared with me]] — decided, Shared with me lists people, never the Ring ([[DR-14 Shared with me lists people, never the Ring|DR-14]])
+- [[One Ring or several per connection]] — decided, several Rings per connection, remove or disconnect ([[DR-15 Several Rings per connection, remove or disconnect|DR-15]])
 
 ## Related
 

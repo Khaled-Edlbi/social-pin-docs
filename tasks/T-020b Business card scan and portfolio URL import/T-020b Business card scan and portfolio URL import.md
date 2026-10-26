@@ -9,7 +9,7 @@ module: identity
 screens: [s03a, s03b]
 depends: [D-02]
 created: 2026-10-15
-updated: 2026-10-25
+updated: 2026-10-26
 owner: "omar"
 tags: [task, task/needs-info, module/identity, priority/medium]
 ---
@@ -31,7 +31,7 @@ Provider decision (OCR, scraping). Same review step as T-020, writing to the mai
 
 ## Dependencies
 
-- Waited on decision [[D-02 Base profile work fields]], decided by [[DR-02 One main profile every Ring starts from]]
+- Waited on decision [[Base profile work fields]], decided by [[DR-02 One main profile every Ring starts from]]
 
 ## Definition of done
 

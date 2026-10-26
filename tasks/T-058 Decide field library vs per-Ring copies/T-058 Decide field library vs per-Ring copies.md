@@ -10,7 +10,7 @@ screens: [s24]
 depends: []
 related: ["DR-03 Links entered once, switched on or off per Ring"]
 created: 2026-10-15
-updated: 2026-10-25
+updated: 2026-10-26
 owner: "omar"
 tags: [task, task/done, module/identity, priority/critical]
 decision: D-03
@@ -22,7 +22,7 @@ decision: D-03
 
 ## What
 
-Take [[D-03 Field library vs per-Ring copies]]. Decided by [[DR-03 Links entered once, switched on or off per Ring]]: one library of links, each Ring only switches them on or off. Building it is not ticketed yet.
+Take [[Field library vs per-Ring copies]]. Decided by [[DR-03 Links entered once, switched on or off per Ring]]: one library of links, each Ring only switches them on or off. Building it is not ticketed yet.
 
 ## Design
 

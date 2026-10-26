@@ -9,7 +9,7 @@ priority: critical
 screens: [s68]
 depends: ["Account Frontend Delivery", "Account Story"]
 affects: []
-related: ["Account Frontend Requirements", "Account Backend Integration", "Account QA Backend", "Profiles & Pin Name", "Rings", "B-01 An unverified changed email still signs in", "B-02 Deleted account answers 401, not the documented 404 E_USER_01", "T-063 Put the ErrorCode on the error body", "T-062 Serve uploaded file bytes by id", "T-005 Connection count on Me and Home", "T-019 LinkedIn OAuth link, unlink, login", "T-014 Register devices on login; list and remove", "T-049 Subscription endpoints and a single Pro gate"]
+related: ["Account Frontend Requirements", "Account Backend Integration", "Account QA Backend", "Profiles & Pin Name", "Rings", "An unverified changed email still signs in", "Deleted account answers 401, not the documented 404 E_USER_01", "T-063 Put the ErrorCode on the error body", "T-062 Serve uploaded file bytes by id", "T-005 Connection count on Me and Home", "T-019 LinkedIn OAuth link, unlink, login", "T-014 Register devices on login; list and remove", "T-049 Subscription endpoints and a single Pro gate"]
 pending: []
 created: 2026-10-26
 updated: 2026-10-26
@@ -18,7 +18,7 @@ tags: [qa-frontend, qa-frontend/draft, module/identity, layer/qa, priority/criti
 
 # 🧪 Account · QA Frontend
 
-> ⚠ Affected by [[B-01 An unverified changed email still signs in]] (2026-10-26): row F10's expectation is withdrawn. [[DR-20 The changed address still signs in, the words are corrected]] decided option 2, and [[Account Story]] S2 and S3 no longer promise that a new address must be verified before it can sign in — the copy the app ships ("Confirming a new email or number isn't in the app yet") is now the copy the story asks for. Re-run F10 against the corrected story and clear it from `pending`. `/qa`.
+> ⚠ Affected by [[An unverified changed email still signs in]] (2026-10-26): row F10's expectation is withdrawn. [[DR-20 The changed address still signs in, the words are corrected]] decided option 2, and [[Account Story]] S2 and S3 no longer promise that a new address must be verified before it can sign in — the copy the app ships ("Confirming a new email or number isn't in the app yet") is now the copy the story asks for. Re-run F10 against the corrected story and clear it from `pending`. `/qa`.
 
 **Feature:** [[Account]] · **Verifies:** [[Account Frontend Delivery]] against [[Account Story]] · **Verdict:** ✏️ Draft · not run
 
@@ -49,7 +49,7 @@ Expected behaviour of the screens, as artefacts: journeys, states and copy to ch
 | F7 | S2 | Tap the email row | A bottom sheet opens with one field. **The story asks for inline edit**; the delivery uses a sheet with the same input and checks as Welcome. | ⬜ ▲ |
 | F8 | S2 | Type ` New.Address@Example.COM `, save | Sent trimmed and lower-cased to `PATCH /users/me { email }`; only the changed key is sent, and an unchanged value sends nothing. | ⬜ |
 | F9 | S2 | Save a valid new email | On 200 the row re-renders from the response with the email **Unverified**. There is no "saved" message — the row is the confirmation ([[Account Frontend Delivery]] says a snack bar has no scaffold to show on inside a tab). | ⬜ ▲ |
-| F10 | S2 | Read the copy under the ACCOUNT group while anything is unverified | It reads "Confirming a new email or number isn't in the app yet". **The story asks it to say the address must be verified before it can be used to sign in** — which would be untrue: the backend signs in on an unverified address ([[Account QA Backend]] B9, [[B-01 An unverified changed email still signs in]]). The copy is right and the story is wrong until B-01 settles it. | ⬜ ▲ |
+| F10 | S2 | Read the copy under the ACCOUNT group while anything is unverified | It reads "Confirming a new email or number isn't in the app yet". **The story asks it to say the address must be verified before it can be used to sign in** — which would be untrue: the backend signs in on an unverified address ([[Account QA Backend]] B9, [[An unverified changed email still signs in]]). The copy is right and the story is wrong until B-01 settles it. | ⬜ ▲ |
 | F11 | S2 | Save an email that is on another account | "This email is already on another account" under the field, the sheet stays open, the value is kept. Branches on `E_USER_02`, falling back to a bare 409 until [[T-063 Put the ErrorCode on the error body]]; the server `message` is never shown. | ⬜ |
 | F12 | S2 | Open the sheet, type, Cancel | No request is sent and the previous value stands. | ⬜ |
 | F13 | S3 | Change the phone | Country picker plus number, sent E.164. On 200 the row shows Unverified with the same copy as F10. | ⬜ |
@@ -58,7 +58,7 @@ Expected behaviour of the screens, as artefacts: journeys, states and copy to ch
 | F16 | S4 | Tap Delete account | A confirmation sheet names the consequence: every Ring, projection and session goes, and the email and phone are released. | ⬜ |
 | F17 | S4 | Confirm the delete | On 200 the token store and every cache are cleared and Welcome **replaces the whole stack** — no back navigation into the signed-in shell. `POST /auth/logout` is not called. | ⬜ |
 | F18 | S4 | A delete that fails | The session is kept and the user stays on s68. | ⬜ |
-| F19 | S4 | Return to the app after the account was deleted elsewhere | The session ends quietly with "Your account has been deleted." on Welcome — a sign-out, not an error toast. **The client branches on a 404 from `GET /users/me`, which the server never sends**: it answers `401 "Account is not active"` ([[Account QA Backend]] B14, [[B-02 Deleted account answers 401, not the documented 404 E_USER_01]]). Check which message actually appears. | ⬜ |
+| F19 | S4 | Return to the app after the account was deleted elsewhere | The session ends quietly with "Your account has been deleted." on Welcome — a sign-out, not an error toast. **The client branches on a 404 from `GET /users/me`, which the server never sends**: it answers `401 "Account is not active"` ([[Account QA Backend]] B14, [[Deleted account answers 401, not the documented 404 E_USER_01]]). Check which message actually appears. | ⬜ |
 | F20 | S6 | A suspension lands mid-session | The session ends with no refresh attempted. The message should read "This account can't sign in right now. Contact support…"; until [[T-063 Put the ErrorCode on the error body]] puts `E_AUTH_03` on the wire it reads "Your session has expired" instead. The branch is in and needs no change then. | ⬜ ▲ |
 | F21 | S6 | Look for the not-active screen | **The story asks for a sign-out screen of its own**; the delivery uses Welcome with a message, support line included. | ⬜ ▲ |
 | F22 | S5 | Open the privacy row | **The story asks it to show whether each sensitive value is set on the profile, and to open the profile editor**; the delivery shows which Rings expose each field and opens nothing. Two departures in one row. | ⬜ ▲ |
@@ -113,7 +113,7 @@ flowchart TD
 | `E_USER_02` | edit sheet, email | "This email is already on another account", under the field |
 | `E_USER_03` | edit sheet, phone | "This number is already on another account", under the field |
 | `E_AUTH_03` | any authenticated call | Welcome · "This account can't sign in right now. Contact support…" — reads as expired until [[T-063 Put the ErrorCode on the error body]] |
-| `E_USER_01` | `GET /users/me` | Welcome · "Your account has been deleted." — the client expects a 404, the server sends 401 ([[B-02 Deleted account answers 401, not the documented 404 E_USER_01]]) |
+| `E_USER_01` | `GET /users/me` | Welcome · "Your account has been deleted." — the client expects a 404, the server sends 401 ([[Deleted account answers 401, not the documented 404 E_USER_01]]) |
 | any 401 after a failed refresh | any call | Welcome · "Your session has expired…" |
 | — | any of the above | the server's `message` is never shown for these: the copy is the client's |
 
@@ -123,7 +123,7 @@ No body on this build carries `ErrorCode` at all ([[Account QA Backend]], [[T-06
 
 - **Run on:** — · **build:** `social_pin` `main` @ `e032a48`, the build these artefacts describe · **result:** ✏️ draft, not run · **rows:** 25, all ⬜.
 - Seven rows are already known to differ from [[Account Story]] by a deviation [[Account Frontend Delivery]] declares: F3, F7, F9, F10, F20, F21, F22. None is a frontend defect; each needs the story or the delivery note to move before `S-01` can be fulfilled, which is the PM's call with the frontend.
-- F10 and F19 are the frontend's view of the two bugs QB-04 already filed, [[B-01 An unverified changed email still signs in]] and [[B-02 Deleted account answers 401, not the documented 404 E_USER_01]]. F10 is worth noting the other way round: the delivery's copy is honest and the **story** is the thing that is wrong, which B-01 should settle.
+- F10 and F19 are the frontend's view of the two bugs QB-04 already filed, [[An unverified changed email still signs in]] and [[Deleted account answers 401, not the documented 404 E_USER_01]]. F10 is worth noting the other way round: the delivery's copy is honest and the **story** is the thing that is wrong, which B-01 should settle.
 - F24 is the one row that may be a new bug rather than a deviation — a sample connection count rendered as if it were the user's.
 - **[[Account Story]] (S-01) is not ready to fulfil:** [[Account QA Backend]] is failing on B9 and B14, and this note has not been run.
 

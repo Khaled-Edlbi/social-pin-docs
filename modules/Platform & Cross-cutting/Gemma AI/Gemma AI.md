@@ -7,7 +7,7 @@ release: later
 module: platform
 screens: [s13, s60]
 created: 2026-10-15
-updated: 2026-10-25
+updated: 2026-10-26
 owner: "omar"
 tags: [feature, module/platform, priority/medium, release/later]
 ---
@@ -44,7 +44,7 @@ TABLE status, priority, effort FROM #task WHERE feature = "gemma" SORT priority 
 
 ## Decisions
 
-- [[D-06 Pin name rules]] — decided, yearly rename, old name freed, case-insensitive; suggestions only from the person's own name ([[DR-06 Yearly rename, old name freed, case-insensitive|DR-06]])
+- [[Pin name rules]] — decided, yearly rename, old name freed, case-insensitive; suggestions only from the person's own name ([[DR-06 Yearly rename, old name freed, case-insensitive|DR-06]])
 
 ## Related
 

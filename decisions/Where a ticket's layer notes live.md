@@ -1,6 +1,7 @@
 ---
 type: decision
 id: D-19
+aliases: [D-19]
 status: open
 features: [error-contract]
 blocks: [T-063]
@@ -10,7 +11,7 @@ affects: []
 related: ["Agent Rules", "Docs Tree", "T-063"]
 owner: "khaled"
 created: 2026-10-25
-updated: 2026-10-25
+updated: 2026-10-26
 tags: [decision, decision/open]
 ---
 

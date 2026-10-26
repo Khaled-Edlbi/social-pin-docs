@@ -8,11 +8,11 @@ status: approved
 screens: [s48, s49, s50, s51, s52]
 approvedBy: "khaled"
 approvedAt: 2026-10-25
-depends: ["D-07 Payment provider"]
+depends: ["Payment provider"]
 related: ["Payments & Orders", "Event Ring Auto-creation"]
 owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-25
+updated: 2026-10-26
 tags: [story, story/approved, module/events, layer/business]
 ---
 
@@ -71,7 +71,7 @@ Acceptance criteria:
 **As a** visitor, **I want** to pay for what I chose and see a clear result, **so that** I know whether I am in.
 
 Acceptance criteria:
-- [ ] "Continue" on s50 hands the unpaid order to s51, where it is paid through Stripe's hosted checkout (the provider is decided on [[D-07 Payment provider]]); which methods s51 offers is still open.
+- [ ] "Continue" on s50 hands the unpaid order to s51, where it is paid through Stripe's hosted checkout (the provider is decided on [[Payment provider]]); which methods s51 offers is still open.
 - [ ] States: pending (waiting for Stripe), failed (with retry, same order), succeeded (→ s52).
 - [ ] Leaving during pending keeps the order; reopening s51 resumes it rather than creating a new one.
 - [ ] Details are in [[Payments & Orders Story]]; this story only needs the three states.
@@ -102,6 +102,6 @@ Acceptance criteria:
 ## Open questions
 
 - No decision note exists. Open points:
-- S5 and therefore S6 wait on [[T-047 Orders, payments and the provider webhook]], which has no backend yet; the provider is decided ([[D-07 Payment provider]]), the methods s51 offers are not.
+- S5 and therefore S6 wait on [[T-047 Orders, payments and the provider webhook]], which has no backend yet; the provider is decided ([[Payment provider]]), the methods s51 offers are not.
 - [[T-033 Events list, detail, schedule]] — "contacts going" needs [[T-023 Connection detail and contacts list]]; until then S1 ships without that filter.
 - Whether an RSVP on a free event creates an `Order` with a zero total or no order at all affects S4's call count.

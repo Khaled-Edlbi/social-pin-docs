@@ -7,7 +7,7 @@ module: identity
 status: current
 screens: [s08, s09, s16, s17, s18, s19, s20, s21, s22, s26, s62]
 created: 2026-10-15
-updated: 2026-10-18
+updated: 2026-10-26
 tags: [backend-integration, backend-integration/current, module/identity, layer/backend]
 ---
 
@@ -87,8 +87,8 @@ Cache the owned list and the shared list separately, keyed by the signed-in user
 ## Not available yet
 
 - Member counts on the list ("148 people"): [[T-004 Member count per Ring on list and detail]].
-- Who the Ring is for, join policy, "members can see each other", required email domain (s19, s22, s26, s27): [[D-04 Ring settings]].
-- "Copy a Ring" when creating (s18): [[D-05 Copy or inherit]].
+- Who the Ring is for, join policy, "members can see each other", required email domain (s19, s22, s26, s27): [[Ring settings]].
+- "Copy a Ring" when creating (s18): [[Copy or inherit]].
 - Review / decline an invitation on Shared with me (s17): [[T-026 Ring invitations invite, review, decline]].
 - The sweeper that purges `AUTO_DELETE` Rings: [[T-054 Cleanup jobs]].
 

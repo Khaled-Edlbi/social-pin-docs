@@ -1,11 +1,12 @@
 ---
 type: decision
 id: D-04
+aliases: [D-04]
 status: open
 features: [rings, ring-members, ring-invitations, delegated-admins, companies]
 screens: [s19, s22, s26, s27]
 created: 2026-10-15
-updated: 2026-10-25
+updated: 2026-10-26
 tags: [decision, decision/open]
 ---
 

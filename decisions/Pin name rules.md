@@ -1,11 +1,12 @@
 ---
 type: decision
 id: D-06
+aliases: [D-06]
 status: open
 features: [profiles, gemma]
 screens: [s06]
 created: 2026-10-15
-updated: 2026-10-25
+updated: 2026-10-26
 tags: [decision, decision/open]
 ---
 

@@ -1,11 +1,12 @@
 ---
 type: decision
 id: D-05
+aliases: [D-05]
 status: open
 features: [rings, ring-projection, photo-library]
 screens: [s18, s23, s28, s29]
 created: 2026-10-15
-updated: 2026-10-25
+updated: 2026-10-26
 tags: [decision, decision/open]
 ---
 

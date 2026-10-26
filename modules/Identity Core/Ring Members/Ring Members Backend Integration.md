@@ -7,7 +7,7 @@ module: identity
 status: current
 screens: [s15, s47]
 created: 2026-10-15
-updated: 2026-10-18
+updated: 2026-10-26
 tags: [backend-integration, backend-integration/current, module/identity, layer/backend]
 ---
 
@@ -76,7 +76,7 @@ The roster per Ring, refetched after every write. Do not keep a member's "what t
 - Where a `userId` comes from: today the only in-app sources would be a scan or a connect request, and neither exists yet. The roster works once [[Connections]] delivers [[T-021 Connect request send, inbox, cancel]] and [[T-022 Accept into a Ring (sets grantedRingId)]].
 - Names and photos on the roster: [[T-023 Connection detail and contacts list]].
 - "Scan someone in" (s15): [[T-008 Resolve a scanned QR token]].
-- "Members can see each other" (s27): [[D-04 Ring settings]].
+- "Members can see each other" (s27): [[Ring settings]].
 - Adding or removing delegated admins: [[T-006 Delegated admin endpoints]].
 
 ## Checklist

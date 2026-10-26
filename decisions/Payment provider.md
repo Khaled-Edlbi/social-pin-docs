@@ -1,6 +1,7 @@
 ---
 type: decision
 id: D-07
+aliases: [D-07]
 status: open
 features: [payments, subscription]
 blocks: [T-047, T-035, T-049]
@@ -10,7 +11,7 @@ affects: []
 related: ["Payments & Orders", "Subscription (Free vs Pro)"]
 owner: "khaled"
 created: 2026-10-21
-updated: 2026-10-25
+updated: 2026-10-26
 tags: [decision, decision/open]
 ---
 

@@ -87,7 +87,7 @@ function classify(rel) {
   const base = path.posix.basename(rel, '.md');
   if (rel.endsWith('.md')) {
     for (const k of KINDS) if (base.endsWith(` ${k.file}`)) { out.kind = k.id; out.layer = k.layer; return out; }
-    if (rel.startsWith('bugs/') && /^B-\d+ /.test(base)) { out.type = 'bug'; out.layer = 'business'; return out; }
+    if (rel.startsWith('bugs/')) { out.type = 'bug'; out.layer = 'business'; return out; } // bugs/<Title>.md: named by its title, the code in id: and aliases:
     if (rel.startsWith('tasks/')) { out.type = 'task';out.layer = 'business'; const m = /^T-\d+[a-z]?-(fe|be)\b/.exec(base); if (m) out.labels = [m[1] === 'fe' ? 'frontend' : 'backend']; return out; }
     if (rel.startsWith('decisions/')) { out.type = /^decisions\/DR-\d+ /.test(rel) ? 'decision-record' : 'decision'; out.layer = 'business'; return out; }
     if (/^modules\/[^/]+\/[^/]+ Module\.md$/.test(rel)) { out.type = 'module'; out.layer = 'business'; return out; }
@@ -236,7 +236,7 @@ if (cmd === 'selftest') {
   const sign = E('status: draft\napprovedBy: ""\napprovedAt: ""\nupdated: 2026-10-18\ntags: [story, story/draft, module/identity, layer/business]', 'status: approved\napprovedBy: "Khaled"\napprovedAt: 2026-10-19\nupdated: 2026-10-19\ntags: [story, story/approved, module/identity, layer/business]');
   const body = E('**As a** new user', '**As a** returning user');
   const prio = E('priority: high\nupdated: 2026-10-18', 'priority: critical\ndeadline: 2026-11-01\nupdated: 2026-10-19');
-  const dec = 'decisions/D-04 Ring settings.md', newDec = 'decisions/D-99 New.md';
+  const dec = 'decisions/Ring settings.md', newDec = 'decisions/A new question.md';
   const decideSign = E('status: open\nupdated: 2026-10-18\ntags: [decision, decision/open]', 'status: decided\ndecidedBy: "Khaled"\ndecidedAt: 2026-10-21\nupdated: 2026-10-21\ntags: [decision, decision/decided]');
   const fulfilSign = E('status: open\nupdated: 2026-10-18', 'status: fulfilled\nupdated: 2026-10-21');
   const openSign = E('status: draft\nupdated: 2026-10-18\ntags: [decision, decision/draft]', 'status: open\nupdated: 2026-10-21\ntags: [decision, decision/open]');
@@ -247,13 +247,13 @@ if (cmd === 'selftest') {
   const overview = 'business/Project Overview.md', stageSet = E('stage: mvp\nupdated: 2026-10-25', 'stage: beta\nupdated: 2026-10-26');
   const relSet = E('priority: critical\nrelease: mvp\nmodule: identity', 'priority: critical\nrelease: v1\nmodule: identity'), relKeep = E('priority: critical\nrelease: mvp\nupdated: 2026-10-25', 'priority: high\nrelease: mvp\nupdated: 2026-10-26');
   // a Write is compared with the file on disk: keeping the line is allowed, changing it is not (Rings is release: mvp)
-  const bug = 'bugs/B-02 Deleted account answers 401, not the documented 404 E_USER_01.md', newBug = 'bugs/B-99 Something found.md';
+  const bug = 'bugs/Deleted account answers 401, not the documented 404 E_USER_01.md', newBug = 'bugs/Something found.md';
   const relWriteSame = E('', '---\ntype: feature\nid: rings\nrelease: mvp\n---\n'), relWriteNew = E('', '---\ntype: feature\nid: rings\nrelease: later\n---\n');
   const M = [
     // agent, path, op, edit, expected
-    ['owner', 'project/Agent Rules.md', 'write', null, true], ['owner', 'docs.config.json', 'write', null, true], ['owner', mod, 'write', null, true], ['owner', feature, 'write', null, true], ['owner', feature, 'edit', body, true], ['owner', 'decisions/D-04 Ring settings.md', 'edit', body, true],
+    ['owner', 'project/Agent Rules.md', 'write', null, true], ['owner', 'docs.config.json', 'write', null, true], ['owner', mod, 'write', null, true], ['owner', feature, 'write', null, true], ['owner', feature, 'edit', body, true], ['owner', 'decisions/Ring settings.md', 'edit', body, true],
     ['owner', story, 'edit', sign, true], ['owner', story, 'edit', body, false], ['owner', task, 'edit', prio, true], ['owner', bd, 'write', null, false], ['owner', 'tree/tree.json', 'write', null, false], ['owner', 'tree/index.html', 'edit', body, true], ['pm', 'tree/index.html', 'edit', body, false], ['backend', 'tree/index.html', 'edit', body, false],
-    ['pm', feature, 'write', null, true], ['pm', story, 'edit', body, true], ['pm', task, 'edit', body, true], ['pm', newTask, 'write', null, true], ['pm', 'decisions/D-99 New.md', 'write', null, true], ['pm', 'design/Screen Index.md', 'edit', body, true],
+    ['pm', feature, 'write', null, true], ['pm', story, 'edit', body, true], ['pm', task, 'edit', body, true], ['pm', newTask, 'write', null, true], ['pm', 'decisions/A new question.md', 'write', null, true], ['pm', 'design/Screen Index.md', 'edit', body, true],
     ['pm', bd, 'edit', body, false], ['pm', bd, 'edit', flag, true], ['pm', fr, 'edit', sign, true], ['pm', 'project/Agent Rules.md', 'edit', body, false], ['pm', be, 'edit', body, false], ['pm', 'Card Index.md', 'edit', body, false],
     ['backend', bd, 'write', null, true], ['backend', newBd, 'write', null, true], ['backend', be, 'edit', body, true], ['backend', 'backend/Architecture.md', 'edit', body, true], ['backend', 'frontend/Frontend API Guide.md', 'edit', body, true],
     ['backend', fr, 'edit', body, true], ['backend', fr, 'write', null, false], ['backend', feature, 'edit', body, true], ['backend', feature, 'write', null, false], ['backend', story, 'edit', body, false], ['backend', story, 'edit', flag, true],

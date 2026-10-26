@@ -7,7 +7,7 @@ module: identity
 status: draft
 screens: []
 created: 2026-10-18
-updated: 2026-10-18
+updated: 2026-10-26
 tags: [frontend-requirements, frontend-requirements/draft, module/identity, layer/frontend]
 ---
 
@@ -64,7 +64,7 @@ The engine exposes no endpoint. What the client needs from it is a set of guaran
 | 403 when below the admin level | all `/rings/:id` editing routes | ✅ | — |
 | Create or remove a block | — | ❌ | [[T-024 Block and unblock]] |
 | Grant or revoke a delegated admin level | — | ❌ | [[T-006 Delegated admin endpoints]] |
-| "Members can see each other" and join rules | — | ❌ | [[D-04 Ring settings]] |
+| "Members can see each other" and join rules | — | ❌ | [[Ring settings]] |
 | Resolve a scanned QR token through the engine | — | ❌ | [[T-008 Resolve a scanned QR token]] |
 
 ## Behaviour expectations
@@ -92,6 +92,6 @@ Until [[T-063 Put the ErrorCode on the error body]] ships, the body carries no `
 
 ## Blocked by
 
-- [[D-04 Ring settings]] — any UI that lets members see each other, or that shows join policy; all of it must wait for the engine to enforce it.
+- [[Ring settings]] — any UI that lets members see each other, or that shows join policy; all of it must wait for the engine to enforce it.
 - [[T-024 Block and unblock]] — a block screen; the engine already honours blocks but none can be created.
 - [[T-006 Delegated admin endpoints]] — admin management on s26 / s27; today only owners pass the level check.

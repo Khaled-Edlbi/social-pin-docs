@@ -7,7 +7,7 @@ release: v1
 module: shared-rings
 screens: [s26, s27]
 created: 2026-10-15
-updated: 2026-10-25
+updated: 2026-10-26
 owner: "omar"
 tags: [feature, module/shared-rings, priority/high, release/v1]
 ---
@@ -48,7 +48,7 @@ TABLE status, priority, effort FROM #task WHERE feature = "delegated-admins" SOR
 
 ## Decisions
 
-- [[D-04 Ring settings]] — decided, six settings at launch; the owner and the Ring's admins change them ([[DR-04 Ring settings at launch and their defaults|DR-04]])
+- [[Ring settings]] — decided, six settings at launch; the owner and the Ring's admins change them ([[DR-04 Ring settings at launch and their defaults|DR-04]])
 
 ## Related
 

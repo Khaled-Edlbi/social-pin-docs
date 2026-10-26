@@ -33,7 +33,7 @@ What the backend shipped for this feature and how it works. The sum of this feat
 
 - LinkedIn OAuth hand-off and callback.
 - Link / unlink a provider from Me.
-- Login with a linked provider (must return a session like `POST /auth/login/verify`; [[D-01 Passwordless login]] is decided).
+- Login with a linked provider (must return a session like `POST /auth/login/verify`; [[Passwordless login]] is decided).
 
 ## Tasks delivered
 

@@ -1,7 +1,7 @@
 ---
 type: project
 created: 2026-10-15
-updated: 2026-10-18
+updated: 2026-10-26
 tags: [project]
 layer: backend
 ---
@@ -57,10 +57,10 @@ Read the SQL before committing.
 
 | Change | Driven by |
 |---|---|
-| Base profile work fields (headline, company, location, avatar, bio) | [[D-02 Base profile work fields]] |
-| Field library (profile-owned links / info blocks, per-Ring visibility rows) | [[D-03 Field library vs per-Ring copies]] |
-| Ring settings columns (audience, join policy, members visible, …) | [[D-04 Ring settings]] |
-| `pinNameChangedAt` | [[D-06 Pin name rules]] |
+| Base profile work fields (headline, company, location, avatar, bio) | [[Base profile work fields]] |
+| Field library (profile-owned links / info blocks, per-Ring visibility rows) | [[Field library vs per-Ring copies]] |
+| Ring settings columns (audience, join policy, members visible, …) | [[Ring settings]] |
+| `pinNameChangedAt` | [[Pin name rules]] |
 | `WIDGET_TYPE` + AVAILABILITY, PAYMENT, NOW_PLAYING, TESTIMONIAL | [[Widgets]] |
 | Products / catalogue table | [[Events During]] |
 | Ring invitation state | [[Ring Invitations & Join]] |

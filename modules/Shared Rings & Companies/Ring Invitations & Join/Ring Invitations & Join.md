@@ -8,7 +8,7 @@ module: shared-rings
 screens: [s17, s74]
 related: ["View As & Pin Views"]
 created: 2026-10-15
-updated: 2026-10-25
+updated: 2026-10-26
 owner: "omar"
 tags: [feature, module/shared-rings, priority/high, release/v1]
 ---
@@ -52,8 +52,8 @@ TABLE status, priority, effort FROM #task WHERE feature = "ring-invitations" SOR
 
 ## Decisions
 
-- [[D-04 Ring settings]] — decided, join with a code or by invitation and approve each one by default ([[DR-04 Ring settings at launch and their defaults|DR-04]])
-- [[D-18 Company and invited Ring names shown to members]] — decided, an invitation names its Ring and a Ring joined knowingly stays named ([[DR-18 Ring names shown when joined knowingly|DR-18]])
+- [[Ring settings]] — decided, join with a code or by invitation and approve each one by default ([[DR-04 Ring settings at launch and their defaults|DR-04]])
+- [[Company and invited Ring names shown to members]] — decided, an invitation names its Ring and a Ring joined knowingly stays named ([[DR-18 Ring names shown when joined knowingly|DR-18]])
 
 ## Related
 

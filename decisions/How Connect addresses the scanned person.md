@@ -1,6 +1,7 @@
 ---
 type: decision
 id: D-10
+aliases: [D-10]
 status: draft
 features: [badge-qr, connections]
 blocks: ["T-008 Story", "T-021 Story"]
@@ -10,7 +11,7 @@ affects: []
 related: ["View As & Pin Views", "Connections"]
 owner: "omar"
 created: 2026-10-25
-updated: 2026-10-25
+updated: 2026-10-26
 tags: [decision, decision/draft]
 ---
 

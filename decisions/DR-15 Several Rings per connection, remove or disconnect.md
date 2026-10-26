@@ -7,18 +7,18 @@ decidedBy: "molham"
 decidedAt: 2026-10-25
 features: [connections]
 affects: ["Connections", "Ring Members", "T-022 Accept into a Ring (sets grantedRingId)", "T-023 Connection detail and contacts list"]
-related: ["D-15 One Ring or several per connection", "DR-14 Shared with me lists people, never the Ring", "View As & Pin Views"]
+related: ["One Ring or several per connection", "DR-14 Shared with me lists people, never the Ring", "View As & Pin Views"]
 owner: "khaled"
 created: 2026-10-25
-updated: 2026-10-25
+updated: 2026-10-26
 tags: [decision-record, decision-record/decided]
 ---
 
 # ⚖️ DR-15 · Several Rings per connection, remove or disconnect
 
-**Answers:** [[D-15 One Ring or several per connection]] · **Decided by:** molham · **On:** 2026-10-25 · **Feature:** [[Connections]]
+**Answers:** [[One Ring or several per connection]] · **Decided by:** molham · **On:** 2026-10-25 · **Feature:** [[Connections]]
 
-> This card is the answer to [[D-15 One Ring or several per connection]]. The needs-decision card keeps the question, the facts and the options; this decision card says what was decided, why, and what it changes. `draft` while the answer is prepared; `decided` only by the PM or the owner, on the user's word, with `decidedBy` and `decidedAt`: then [[D-15 One Ring or several per connection]] shows Fulfilled by itself and the cards it blocked continue.
+> This card is the answer to [[One Ring or several per connection]]. The needs-decision card keeps the question, the facts and the options; this decision card says what was decided, why, and what it changes. `draft` while the answer is prepared; `decided` only by the PM or the owner, on the user's word, with `decidedBy` and `decidedAt`: then [[One Ring or several per connection]] shows Fulfilled by itself and the cards it blocked continue.
 
 ## What was decided
 

@@ -1,11 +1,12 @@
 ---
 type: decision
 id: D-03
+aliases: [D-03]
 status: open
 features: [ring-projection, widgets]
 screens: [s20, s24]
 created: 2026-10-15
-updated: 2026-10-25
+updated: 2026-10-26
 tags: [decision, decision/open]
 ---
 

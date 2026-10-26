@@ -7,18 +7,18 @@ decidedBy: "molham"
 decidedAt: 2026-10-25
 features: [ring-projection, widgets]
 affects: ["Ring Projection", "Widgets", "T-018 Widget CRUD on the projection", "T-058 Decide field library vs per-Ring copies"]
-related: ["D-03 Field library vs per-Ring copies", "DR-02 One main profile every Ring starts from"]
+related: ["Field library vs per-Ring copies", "DR-02 One main profile every Ring starts from"]
 owner: "khaled"
 created: 2026-10-25
-updated: 2026-10-25
+updated: 2026-10-26
 tags: [decision-record, decision-record/decided]
 ---
 
 # ⚖️ DR-03 · Links entered once, switched on or off per Ring
 
-**Answers:** [[D-03 Field library vs per-Ring copies]] · **Decided by:** molham · **On:** 2026-10-25 · **Feature:** [[Ring Projection]], [[Widgets]]
+**Answers:** [[Field library vs per-Ring copies]] · **Decided by:** molham · **On:** 2026-10-25 · **Feature:** [[Ring Projection]], [[Widgets]]
 
-> This card is the answer to [[D-03 Field library vs per-Ring copies]]. The needs-decision card keeps the question, the facts and the options; this decision card says what was decided, why, and what it changes. `draft` while the answer is prepared; `decided` only by the PM or the owner, on the user's word, with `decidedBy` and `decidedAt`: then [[D-03 Field library vs per-Ring copies]] shows Fulfilled by itself and the cards it blocked continue.
+> This card is the answer to [[Field library vs per-Ring copies]]. The needs-decision card keeps the question, the facts and the options; this decision card says what was decided, why, and what it changes. `draft` while the answer is prepared; `decided` only by the PM or the owner, on the user's word, with `decidedBy` and `decidedAt`: then [[Field library vs per-Ring copies]] shows Fulfilled by itself and the cards it blocked continue.
 
 ## What was decided
 

@@ -7,7 +7,7 @@ module: identity
 status: current
 screens: [s14, s20, s23, s24, s25, s29, s36]
 created: 2026-10-15
-updated: 2026-10-18
+updated: 2026-10-26
 tags: [backend-integration, backend-integration/current, module/identity, layer/backend]
 ---
 
@@ -87,8 +87,8 @@ One editor state per Ring, refetched after every write (the server returns the f
 ## Not available yet
 
 - **No URL to display the photo or download an attachment.** `avatarFileId` and `attachments[].id` cannot be turned into bytes today: [[T-062 Serve uploaded file bytes by id]].
-- One library of fields each Ring switches on or off ("4 of 7 on", s20 / s24): the backend stores a copy per Ring: [[D-03 Field library vs per-Ring copies]].
-- "Inherit from your Pin" / "Reset to Pin" / "Copy another Ring" (s23, s28, s29): [[D-05 Copy or inherit]], [[D-02 Base profile work fields]].
+- One library of fields each Ring switches on or off ("4 of 7 on", s20 / s24): the backend stores a copy per Ring: [[Field library vs per-Ring copies]].
+- "Inherit from your Pin" / "Reset to Pin" / "Copy another Ring" (s23, s28, s29): [[Copy or inherit]], [[Base profile work fields]].
 - Widgets (s37): [[T-017 Extend WIDGET_TYPE to the design's list]], [[T-018 Widget CRUD on the projection]].
 
 ## Checklist

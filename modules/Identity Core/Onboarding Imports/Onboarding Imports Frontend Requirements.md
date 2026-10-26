@@ -7,7 +7,7 @@ module: identity
 status: draft
 screens: [s03, s03a, s03b, s04, s05]
 created: 2026-10-18
-updated: 2026-10-18
+updated: 2026-10-26
 tags: [frontend-requirements, frontend-requirements/draft, module/identity, layer/frontend]
 ---
 
@@ -56,7 +56,7 @@ What the client needs to build the import screens of onboarding, and the fact th
 | LinkedIn OAuth start / callback | — | ❌ | [[T-019 LinkedIn OAuth link, unlink, login]] |
 | Candidate fields from LinkedIn | — | ❌ | [[T-020 LinkedIn import → review → base profile]] |
 | Confirm the reviewed fields into the base profile and first Ring | — | ❌ | [[T-020 LinkedIn import → review → base profile]] |
-| Base profile fields to write into (headline, company, location, photo, bio) | — | ❌ | [[D-02 Base profile work fields]] |
+| Base profile fields to write into (headline, company, location, photo, bio) | — | ❌ | [[Base profile work fields]] |
 | Card image recognition | — | ❌ | [[T-020b Business card scan and portfolio URL import]] |
 | Portfolio URL extraction | — | ❌ | [[T-020b Business card scan and portfolio URL import]] |
 
@@ -82,7 +82,7 @@ Until [[T-063 Put the ErrorCode on the error body]] ships, branch on status and 
 
 ## Blocked by
 
-- [[D-02 Base profile work fields]] — s05 has nowhere to write headline, company, location, photo or bio.
+- [[Base profile work fields]] — s05 has nowhere to write headline, company, location, photo or bio.
 - [[T-019 LinkedIn OAuth link, unlink, login]] — s04 cannot start.
 - [[T-020 LinkedIn import → review → base profile]] — s04 and s05.
 - [[T-020b Business card scan and portfolio URL import]] — s03a and s03b, waiting on a provider decision.

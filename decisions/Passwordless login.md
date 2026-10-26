@@ -1,11 +1,12 @@
 ---
 type: decision
 id: D-01
+aliases: [D-01]
 status: open
 features: [auth, linked-accounts]
 screens: [s01, s02]
 created: 2026-10-15
-updated: 2026-10-25
+updated: 2026-10-26
 tags: [decision, decision/open]
 ---
 

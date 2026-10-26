@@ -1,6 +1,7 @@
 ---
 type: decision
 id: D-15
+aliases: [D-15]
 status: open
 features: [connections]
 blocks: ["T-023 Story"]
@@ -10,7 +11,7 @@ affects: []
 related: ["Connections", "Ring Members"]
 owner: "omar"
 created: 2026-10-25
-updated: 2026-10-25
+updated: 2026-10-26
 tags: [decision, decision/open]
 ---
 

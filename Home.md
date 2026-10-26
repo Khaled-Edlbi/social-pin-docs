@@ -1,6 +1,6 @@
 ---
 type: home
-updated: 2026-10-22
+updated: 2026-10-26
 tags: [map]
 ---
 
@@ -62,7 +62,7 @@ social-pin-docs/
 │   ├── T-NNN <Title>.md           a task; becomes tasks/T-NNN <Title>/ with the same seven kinds of notes (code T-NNN) as teams pick it up
 │   ├── Task Board.md              GENERATED Kanban
 │   └── Backlog.md                 GENERATED priority table with blockers
-├── decisions/                     D-01 … D-06, where design and backend disagree
+├── decisions/                     needs-decision cards <Title>.md (D-NN in id:) and decision records DR-NN <Title>.md
 ├── design/                        Design Reference · Screen Index · Navigation Map · Wireframe Brief · Brief Section Map
 ├── templates/                     one per note kind (the scaffold command uses them)
 ├── tree/                          the docs tree page (index.html), its generated index (tree.json, tree.md) and the card-code registry (cards.json)

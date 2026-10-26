@@ -8,7 +8,7 @@ module: connections
 screens: [s44, s45, s46, s47, s62]
 related: ["Rings"]
 created: 2026-10-15
-updated: 2026-10-25
+updated: 2026-10-26
 owner: "omar"
 tags: [feature, module/connections, priority/critical, release/mvp]
 ---
@@ -59,11 +59,11 @@ TABLE status, priority, effort FROM #task WHERE feature = "connections" SORT pri
 
 ## Decisions
 
-- [[D-10 How Connect addresses the scanned person]] — open (draft); blocks [[T-021 Story]] and [[T-008 Story]]
-- [[D-13 Whether the requester sees a declined request]] — decided, the requester sees a decline ([[DR-13 The requester sees a declined request|DR-13]])
-- [[D-14 Connection-granted Ring on Shared with me]] — decided, Shared with me lists people, never the Ring ([[DR-14 Shared with me lists people, never the Ring|DR-14]])
-- [[D-15 One Ring or several per connection]] — decided, several Rings per connection, remove or disconnect ([[DR-15 Several Rings per connection, remove or disconnect|DR-15]])
-- [[D-17 Request expiry, note and asking again]] — decided, 30-day expiry, optional note, ask again at once ([[DR-17 Requests expire after 30 days, optional note, ask again at once|DR-17]])
+- [[How Connect addresses the scanned person]] — open (draft); blocks [[T-021 Story]] and [[T-008 Story]]
+- [[Whether the requester sees a declined request]] — decided, the requester sees a decline ([[DR-13 The requester sees a declined request|DR-13]])
+- [[Connection-granted Ring on Shared with me]] — decided, Shared with me lists people, never the Ring ([[DR-14 Shared with me lists people, never the Ring|DR-14]])
+- [[One Ring or several per connection]] — decided, several Rings per connection, remove or disconnect ([[DR-15 Several Rings per connection, remove or disconnect|DR-15]])
+- [[Request expiry, note and asking again]] — decided, 30-day expiry, optional note, ask again at once ([[DR-17 Requests expire after 30 days, optional note, ask again at once|DR-17]])
 
 ## Related
 

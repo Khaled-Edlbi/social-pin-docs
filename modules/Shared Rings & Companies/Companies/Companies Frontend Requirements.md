@@ -7,7 +7,7 @@ module: shared-rings
 status: draft
 screens: [s72, s73]
 created: 2026-10-18
-updated: 2026-10-18
+updated: 2026-10-26
 tags: [frontend-requirements, frontend-requirements/draft, module/shared-rings, layer/frontend]
 ---
 
@@ -76,7 +76,7 @@ What the client needs from the backend to build the screens in [[Companies Story
 
 ## Blocked by
 
-- [[D-04 Ring settings]] — the colleague count and list for plain members ("members can see each other").
+- [[Ring settings]] — the colleague count and list for plain members ("members can see each other").
 - [[T-029 My companies and company detail]] — the business ↔ Ring link that lets s72 group Rings under a company; every ❌ row above except invitations and setup.
 - [[T-048 Business account setup → business Ring]] — the owner's path into s72; how team members are seeded into the employees Ring.
 - [[T-063 Put the ErrorCode on the error body]] — the error table is by status until then.

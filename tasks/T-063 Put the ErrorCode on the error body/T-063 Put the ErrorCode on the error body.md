@@ -13,7 +13,7 @@ related: ["T-063 Story", "D-19", "DR-19"]
 pending: []
 owner: "khaled"
 created: 2026-10-15
-updated: 2026-10-25
+updated: 2026-10-26
 tags: [task, task/todo, module/platform, priority/critical]
 ---
 
@@ -44,7 +44,7 @@ No screen. Every error state in the app depends on it.
 
 `node scripts/build-tree.mjs --impact T-063`, 2026-10-25. Read in this order:
 
-- **This ticket.** [[T-063 Story]] (S-88, approved), the halves [[T-063-be Backend · Put the ErrorCode on the error body]] (to do) and [[T-063-fe Frontend · Put the ErrorCode on the error body]] (blocked by the backend half), and the chain above, all seven cards not written yet. [[D-19 Where a ticket's layer notes live]] is fulfilled by [[DR-19 A ticket's layer notes live on the parent task]].
+- **This ticket.** [[T-063 Story]] (S-88, approved), the halves [[T-063-be Backend · Put the ErrorCode on the error body]] (to do) and [[T-063-fe Frontend · Put the ErrorCode on the error body]] (blocked by the backend half), and the chain above, all seven cards not written yet. [[Where a ticket's layer notes live]] is fulfilled by [[DR-19 A ticket's layer notes live on the parent task]].
 - **The feature.** [[Error Contract]] (F-35) and [[Error Contract Story]] (S-87), which this story rolls up into; [[Error Contract Backend Delivery]] (BD-35) is where the backend half rolls its delivery up.
 - **The reference the change rewrites.** [[API Conventions]] (P-10), [[Frontend Contract]], [[Auth Model]] (P-12) and `Frontend API Guide.md` in both repositories: each carries an error-shape example that gains `errorCode`.
 - **Everything that branches on a code.** The error codes travel: `E_AUTH_01/02/03/05/06/08`, `E_PROFILE_02`, `E_RING_01/04`, `E_USER_04` and `DELETE /rings/:id` are shared with [[Auth & Sign-up]] (F-02), [[Account]] (F-01), [[Rings]] (F-11), [[Profiles & Pin Name]] (F-07), [[Code Delivery]] (F-32), [[Delegated Admins]] (F-16), [[Devices & NFC]] (F-33), [[Ring Projection]] (F-10), [[Onboarding Imports]] (F-05), [[Event Ring Auto-creation]] (F-21), [[Exhibitor]] (F-24) and [[Meetings]] (F-26). Nothing in them changes: they gain a field they can read.
@@ -62,4 +62,4 @@ No screen. Every error state in the app depends on it.
 ## Log
 
 - 2026-10-15 · created from the frontend documentation pass
-- 2026-10-25 · `tickets/pm/M-08-platform/F-35-error-contract/S-88-task-flow` · the ticket's card flow set up: the chain named above, `## Impact` written, relations declared. [[D-19 Where a ticket's layer notes live]] raised from this ticket and fulfilled by [[DR-19 A ticket's layer notes live on the parent task]] (option 1, the parent task). **Flagged:** both halves, whose *Layer notes* lines still point at their own cards — [[T-063-fe Frontend · Put the ErrorCode on the error body]] for `/frontend`, [[T-063-be Backend · Put the ErrorCode on the error body]] for `/backend`; each clears its own flag. **For `/owner`:** [[Agent Rules]] §2 still says "each half writes its own layer notes (`--scaffold <kind> T-063-fe`)" and the *Layer notes* line in `templates/Task Template.md` points a half at its own cards; both now read against DR-19 and are flagged. **Next on this ticket:** `/frontend` writes [[T-063 Frontend Requirements]], the only card not waiting on another.
+- 2026-10-25 · `tickets/pm/M-08-platform/F-35-error-contract/S-88-task-flow` · the ticket's card flow set up: the chain named above, `## Impact` written, relations declared. [[Where a ticket's layer notes live]] raised from this ticket and fulfilled by [[DR-19 A ticket's layer notes live on the parent task]] (option 1, the parent task). **Flagged:** both halves, whose *Layer notes* lines still point at their own cards — [[T-063-fe Frontend · Put the ErrorCode on the error body]] for `/frontend`, [[T-063-be Backend · Put the ErrorCode on the error body]] for `/backend`; each clears its own flag. **For `/owner`:** [[Agent Rules]] §2 still says "each half writes its own layer notes (`--scaffold <kind> T-063-fe`)" and the *Layer notes* line in `templates/Task Template.md` points a half at its own cards; both now read against DR-19 and are flagged. **Next on this ticket:** `/frontend` writes [[T-063 Frontend Requirements]], the only card not waiting on another.

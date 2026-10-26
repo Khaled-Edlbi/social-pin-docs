@@ -10,7 +10,7 @@ approvedBy: "khaled"
 approvedAt: 2026-10-25
 owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-25
+updated: 2026-10-26
 tags: [story, story/approved, module/platform, layer/business]
 ---
 
@@ -85,4 +85,4 @@ Acceptance criteria:
 
 ## Open questions
 
-- [[D-01 Passwordless login]] — if login becomes code-based, every login costs a delivery and the resend timer appears on the login path too; the decision needs delivery first either way.
+- [[Passwordless login]] — if login becomes code-based, every login costs a delivery and the resend timer appears on the login path too; the decision needs delivery first either way.

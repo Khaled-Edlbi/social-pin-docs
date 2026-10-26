@@ -7,13 +7,13 @@ release: v1
 module: commerce
 screens: [s34, s70]
 created: 2026-10-15
-updated: 2026-10-25
+updated: 2026-10-26
 tags: [feature, module/commerce, priority/high, release/v1]
 ---
 
 # Subscription (Free vs Pro)
 
-> ⚠ Affected by [[D-07 Payment provider]] (2026-10-21): Pro is billed as a Stripe subscription; the story and the requirements can name it where the design says "subscription".
+> ⚠ Affected by [[Payment provider]] (2026-10-21): Pro is billed as a Stripe subscription; the story and the requirements can name it where the design says "subscription".
 
 **Backend:** TODO · **Priority:** High · **Release:** v1 · **Module:** [[Commerce Module|Commerce]]
 
