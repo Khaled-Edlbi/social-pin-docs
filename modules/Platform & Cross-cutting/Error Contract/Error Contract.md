@@ -29,6 +29,7 @@ _No prototype screen. Every error state in the app depends on it._
 |---|---|---|---|
 | [[T-063 Put the ErrorCode on the error body]] | ⬜ To do | Critical | S |
 | [[T-064 Restructure the docs vault]] `docs` | ✅ Done | High | L |
+| [[T-067 Split E_RING_01 and E_RING_PROFILE_03]] | ⬜ To do | Critical | M |
 
 ```dataview
 TABLE status, priority, effort FROM #task WHERE feature = "error-contract" SORT priority ASC
