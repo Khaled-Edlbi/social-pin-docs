@@ -42,6 +42,5 @@ TABLE status, priority, effort FROM #task WHERE feature = "error-contract" SORT 
 
 - [[API Conventions]]
 - [[Frontend Contract]]
-- [[Frontend Contract]]
 
 Project context: [[Ring Access Model]] · [[Architecture]] · [[API Conventions]] · [[Spec Map]]
