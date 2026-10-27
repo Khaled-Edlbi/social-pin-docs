@@ -310,10 +310,6 @@
     "T-015 Story": "story:T-015",
     "T-015-be Backend · Pair and revoke an NFC card": "task:T-015-be",
     "T-015-fe Frontend · Pair and revoke an NFC card": "task:T-015-fe",
-    "T-016 Interests vocabulary and my interests": "task:T-016",
-    "T-016 Story": "story:T-016",
-    "T-016-be Backend · Interests vocabulary and my interests": "task:T-016-be",
-    "T-016-fe Frontend · Interests vocabulary and my interests": "task:T-016-fe",
     "T-017 Extend WIDGET_TYPE to the design's list": "task:T-017",
     "T-017 Story": "story:T-017",
     "T-017-be Backend · Extend WIDGET_TYPE to the design's list": "task:T-017-be",
@@ -798,7 +794,6 @@
     "S-90": "story:T-051",
     "S-91": "story:T-052",
     "S-92": "story:interests",
-    "S-93": "story:T-016",
     "S-94": "story:linked-accounts",
     "S-95": "story:T-019",
     "S-96": "story:notifications",
@@ -834,9 +829,6 @@
     "T-015": "task:T-015",
     "T-015-be": "task:T-015-be",
     "T-015-fe": "task:T-015-fe",
-    "T-016": "task:T-016",
-    "T-016-be": "task:T-016-be",
-    "T-016-fe": "task:T-016-fe",
     "T-017": "task:T-017",
     "T-017-be": "task:T-017-be",
     "T-017-fe": "task:T-017-fe",
@@ -1973,15 +1965,13 @@
     },
     "GET /interests": {
       "containers": [
-        "feature:interests",
-        "task:T-016"
+        "feature:interests"
       ],
       "kind": "endpoint",
       "notes": [
         "backend-delivery:interests",
         "frontend-requirements:interests",
-        "story:T-016",
-        "task:T-016"
+        "story:interests"
       ],
       "owner": "feature:interests"
     },
@@ -3480,21 +3470,14 @@
     },
     "s07": {
       "containers": [
-        "feature:interests",
-        "task:T-016",
-        "task:T-016-be",
-        "task:T-016-fe"
+        "feature:interests"
       ],
       "kind": "screen",
       "notes": [
         "backend-delivery:interests",
         "feature:interests",
         "frontend-requirements:interests",
-        "story:T-016",
-        "story:interests",
-        "task:T-016",
-        "task:T-016-be",
-        "task:T-016-fe"
+        "story:interests"
       ],
       "owner": null
     },
@@ -4899,21 +4882,14 @@
     },
     "s71": {
       "containers": [
-        "feature:interests",
-        "task:T-016",
-        "task:T-016-be",
-        "task:T-016-fe"
+        "feature:interests"
       ],
       "kind": "screen",
       "notes": [
         "backend-delivery:interests",
         "feature:interests",
         "frontend-requirements:interests",
-        "story:T-016",
-        "story:interests",
-        "task:T-016",
-        "task:T-016-be",
-        "task:T-016-fe"
+        "story:interests"
       ],
       "owner": null
     },
@@ -5008,7 +4984,7 @@
     }
   },
   "counts": {
-    "blocked": 140,
+    "blocked": 139,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -5021,28 +4997,28 @@
       "project": 27,
       "qa-backend": 1,
       "qa-frontend": 1,
-      "story": 95,
-      "task": 158
+      "story": 94,
+      "task": 155
     },
     "byLayer": {
       "backend": 56,
-      "business": 332,
+      "business": 328,
       "frontend": 44,
       "qa": 2,
       "shared": 10
     },
     "concepts": 199,
     "decisions": 19,
-    "edges": 5089,
+    "edges": 5066,
     "features": 41,
-    "layerNotes": 185,
+    "layerNotes": 184,
     "modules": 8,
-    "notes": 480,
+    "notes": 476,
     "partial": 4,
     "placeholders": 161,
     "records": 14,
-    "taskLayerNotes": 55,
-    "tasks": 158
+    "taskLayerNotes": 54,
+    "tasks": 155
   },
   "deadlines": {
     "missed": {
@@ -5484,7 +5460,7 @@
     {
       "from": "frontend-requirements:interests",
       "kind": "affects",
-      "to": "task:T-016"
+      "to": "story:interests"
     },
     {
       "from": "frontend-requirements:onboarding-imports",
@@ -6952,26 +6928,6 @@
       "to": "task:T-015-fe"
     },
     {
-      "from": "task:T-016",
-      "kind": "blocks",
-      "to": "task:T-051"
-    },
-    {
-      "from": "task:T-016",
-      "kind": "blocks",
-      "to": "task:T-051-be"
-    },
-    {
-      "from": "task:T-016",
-      "kind": "blocks",
-      "to": "task:T-051-fe"
-    },
-    {
-      "from": "task:T-016-be",
-      "kind": "blocks",
-      "to": "task:T-016-fe"
-    },
-    {
       "from": "task:T-017",
       "kind": "blocks",
       "to": "task:T-018"
@@ -8032,11 +7988,6 @@
       "to": "task:T-015-be"
     },
     {
-      "from": "task:T-016-fe",
-      "kind": "depends",
-      "to": "task:T-016-be"
-    },
-    {
       "from": "task:T-017-fe",
       "kind": "depends",
       "to": "task:T-017-be"
@@ -8649,27 +8600,12 @@
     {
       "from": "task:T-051",
       "kind": "depends",
-      "to": "task:T-016"
-    },
-    {
-      "from": "task:T-051",
-      "kind": "depends",
       "to": "task:T-049"
     },
     {
       "from": "task:T-051-be",
       "kind": "depends",
-      "to": "task:T-016"
-    },
-    {
-      "from": "task:T-051-be",
-      "kind": "depends",
       "to": "task:T-049"
-    },
-    {
-      "from": "task:T-051-fe",
-      "kind": "depends",
-      "to": "task:T-016"
     },
     {
       "from": "task:T-051-fe",
@@ -12657,14 +12593,6 @@
       ]
     },
     {
-      "from": "story:interests",
-      "kind": "related",
-      "to": "story:T-016",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
       "from": "story:linked-accounts",
       "kind": "related",
       "to": "story:T-019",
@@ -13291,6 +13219,21 @@
       "from": "task:T-048-fe",
       "kind": "related",
       "to": "story:companies"
+    },
+    {
+      "from": "task:T-051",
+      "kind": "related",
+      "to": "story:interests"
+    },
+    {
+      "from": "task:T-051-be",
+      "kind": "related",
+      "to": "story:interests"
+    },
+    {
+      "from": "task:T-051-fe",
+      "kind": "related",
+      "to": "story:interests"
     },
     {
       "from": "task:T-063",
@@ -19275,14 +19218,6 @@
       ]
     },
     {
-      "from": "feature:interests",
-      "kind": "shares",
-      "to": "task:T-016",
-      "via": [
-        "GET /interests"
-      ]
-    },
-    {
       "from": "feature:linked-accounts",
       "kind": "shares",
       "to": "feature:notifications",
@@ -25118,11 +25053,6 @@
       "to": "task:T-052"
     },
     {
-      "from": "story:interests",
-      "kind": "tree",
-      "to": "task:T-016"
-    },
-    {
       "from": "story:linked-accounts",
       "kind": "tree",
       "to": "task:T-019"
@@ -25456,21 +25386,6 @@
       "from": "task:T-015",
       "kind": "tree",
       "to": "task:T-015-fe"
-    },
-    {
-      "from": "task:T-016",
-      "kind": "tree",
-      "to": "story:T-016"
-    },
-    {
-      "from": "task:T-016",
-      "kind": "tree",
-      "to": "task:T-016-be"
-    },
-    {
-      "from": "task:T-016",
-      "kind": "tree",
-      "to": "task:T-016-fe"
     },
     {
       "from": "task:T-017",
@@ -27460,7 +27375,7 @@
     {
       "from": "feature:interests",
       "kind": "wikilink",
-      "to": "task:T-016"
+      "to": "project:status-report-2026-10-15"
     },
     {
       "from": "feature:linked-accounts",
@@ -28585,7 +28500,7 @@
     {
       "from": "frontend-requirements:gemma",
       "kind": "wikilink",
-      "to": "task:T-016"
+      "to": "story:interests"
     },
     {
       "from": "frontend-requirements:gemma",
@@ -28621,11 +28536,6 @@
       "from": "frontend-requirements:interests",
       "kind": "wikilink",
       "to": "story:interests"
-    },
-    {
-      "from": "frontend-requirements:interests",
-      "kind": "wikilink",
-      "to": "task:T-016"
     },
     {
       "from": "frontend-requirements:linked-accounts",
@@ -31560,11 +31470,6 @@
     {
       "from": "project:status-report-2026-10-15",
       "kind": "wikilink",
-      "to": "feature:interests"
-    },
-    {
-      "from": "project:status-report-2026-10-15",
-      "kind": "wikilink",
       "to": "feature:linked-accounts"
     },
     {
@@ -32583,11 +32488,6 @@
       "to": "feature:devices"
     },
     {
-      "from": "story:T-016",
-      "kind": "wikilink",
-      "to": "feature:interests"
-    },
-    {
       "from": "story:T-017",
       "kind": "wikilink",
       "to": "feature:widgets"
@@ -33371,51 +33271,6 @@
       "from": "task:T-015-fe",
       "kind": "wikilink",
       "to": "task:T-015-be"
-    },
-    {
-      "from": "task:T-016",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-016",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-016",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-016",
-      "kind": "wikilink",
-      "to": "task:T-051"
-    },
-    {
-      "from": "task:T-016-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:interests"
-    },
-    {
-      "from": "task:T-016-be",
-      "kind": "wikilink",
-      "to": "feature:interests"
-    },
-    {
-      "from": "task:T-016-fe",
-      "kind": "wikilink",
-      "to": "feature:interests"
-    },
-    {
-      "from": "task:T-016-fe",
-      "kind": "wikilink",
-      "to": "story:T-016"
-    },
-    {
-      "from": "task:T-016-fe",
-      "kind": "wikilink",
-      "to": "task:T-016-be"
     },
     {
       "from": "task:T-017",
@@ -36494,22 +36349,6 @@
     },
     "social-pin/tasks/T-015 Pair and revoke an NFC card/T-015-fe Frontend · Pair and revoke an NFC card.md": {
       "name": "T-015-fe Frontend · Pair and revoke an NFC card",
-      "type": "task"
-    },
-    "social-pin/tasks/T-016 Interests vocabulary and my interests/T-016 Interests vocabulary and my interests.md": {
-      "name": "T-016 Interests vocabulary and my interests",
-      "type": "task"
-    },
-    "social-pin/tasks/T-016 Interests vocabulary and my interests/T-016 Story.md": {
-      "name": "T-016 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-016 Interests vocabulary and my interests/T-016-be Backend · Interests vocabulary and my interests.md": {
-      "name": "T-016-be Backend · Interests vocabulary and my interests",
-      "type": "task"
-    },
-    "social-pin/tasks/T-016 Interests vocabulary and my interests/T-016-fe Frontend · Interests vocabulary and my interests.md": {
-      "name": "T-016-fe Frontend · Interests vocabulary and my interests",
       "type": "task"
     },
     "social-pin/tasks/T-017 Extend WIDGET_TYPE to the design's list/T-017 Extend WIDGET_TYPE to the design's list.md": {
@@ -44570,10 +44409,9 @@
       "resolution": null,
       "rollup": {
         "approved": 1,
-        "blocked": 2,
-        "draft": 2,
-        "missing": 4,
-        "todo": 2
+        "blocked": 1,
+        "draft": 1,
+        "missing": 4
       },
       "scope": null,
       "screens": [
@@ -44590,7 +44428,7 @@
       ],
       "task": null,
       "title": "Interests",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "feature:linked-accounts": {
       "affects": [],
@@ -49183,11 +49021,11 @@
       ],
       "task": null,
       "title": "Gemma AI Frontend Requirements",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "frontend-requirements:interests": {
       "affects": [
-        "task:T-016"
+        "story:interests"
       ],
       "blockedBy": [],
       "card": "FR-37",
@@ -49242,7 +49080,7 @@
       ],
       "task": null,
       "title": "Interests Frontend Requirements",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "frontend-requirements:linked-accounts": {
       "affects": [],
@@ -50825,14 +50663,14 @@
       "resolution": null,
       "rollup": {
         "approved": 11,
-        "blocked": 34,
+        "blocked": 33,
         "decided": 3,
         "done": 1,
-        "draft": 28,
+        "draft": 27,
         "in-progress": 22,
         "missing": 61,
         "needs-decision": 1,
-        "todo": 14,
+        "todo": 12,
         "verified": 3
       },
       "scope": null,
@@ -57464,12 +57302,12 @@
       ],
       "rollup": {
         "approved": 36,
-        "blocked": 140,
+        "blocked": 139,
         "current": 8,
         "decided": 14,
         "delivered": 2,
         "done": 10,
-        "draft": 89,
+        "draft": 88,
         "in-progress": 55,
         "missing": 161,
         "needs-decision": 8,
@@ -57477,7 +57315,7 @@
         "passing": 1,
         "ready": 2,
         "reference": 31,
-        "todo": 42,
+        "todo": 40,
         "verified": 14
       },
       "scope": null,
@@ -58061,57 +57899,6 @@
       ],
       "task": "T-015",
       "title": "T-015 Story",
-      "updated": "2026-10-26"
-    },
-    "story:T-016": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-93",
-      "children": [],
-      "code": "T-016",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
-      "effort": null,
-      "feature": "interests",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-016",
-      "inherits": {
-        "priority": "task:T-016",
-        "release": "feature:interests"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": null,
-      "parents": [
-        "task:T-016"
-      ],
-      "path": "social-pin/tasks/T-016 Interests vocabulary and my interests/T-016 Story.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "scope": "task",
-      "screens": [
-        "s07",
-        "s71"
-      ],
-      "status": "draft",
-      "summary": "GET /interests (public reference data), GET/PUT /users/me/interests. No outward entity.",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/platform",
-        "layer/business"
-      ],
-      "task": "T-016",
-      "title": "T-016 Story",
       "updated": "2026-10-26"
     },
     "story:T-017": {
@@ -61575,9 +61362,7 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-92",
-      "children": [
-        "task:T-016"
-      ],
+      "children": [],
       "code": "interests",
       "created": "2026-10-18",
       "deadline": null,
@@ -61604,7 +61389,11 @@
       "path": "social-pin/modules/Platform & Cross-cutting/features/Interests/Interests Story.md",
       "pending": [],
       "priority": "high",
-      "related": [],
+      "related": [
+        "task:T-051",
+        "task:T-051-be",
+        "task:T-051-fe"
+      ],
       "release": "mvp",
       "resolution": null,
       "scope": "feature",
@@ -61622,7 +61411,7 @@
       ],
       "task": null,
       "title": "Interests Story",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "story:linked-accounts": {
       "affects": [],
@@ -64743,187 +64532,6 @@
       ],
       "task": null,
       "title": "T-015-fe Frontend · Pair and revoke an NFC card",
-      "updated": "2026-10-26"
-    },
-    "task:T-016": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-016",
-      "children": [
-        "story:T-016",
-        "task:T-016-be",
-        "task:T-016-fe"
-      ],
-      "code": "T-016",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": "social-pin/tasks/T-016 Interests vocabulary and my interests",
-      "effectiveStatus": "todo",
-      "effort": "S",
-      "feature": "interests",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-016",
-      "inherits": {
-        "release": "feature:interests"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": null,
-      "parents": [
-        "story:interests"
-      ],
-      "path": "social-pin/tasks/T-016 Interests vocabulary and my interests/T-016 Interests vocabulary and my interests.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {
-        "blocked": 1,
-        "draft": 1,
-        "todo": 1
-      },
-      "scope": null,
-      "screens": [
-        "s07",
-        "s71"
-      ],
-      "status": "todo",
-      "summary": "GET /interests (public reference data), GET/PUT /users/me/interests. No outward entity.",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/platform",
-        "priority/high"
-      ],
-      "task": null,
-      "title": "T-016 Interests vocabulary and my interests",
-      "updated": "2026-10-26"
-    },
-    "task:T-016-be": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-016-be",
-      "children": [],
-      "code": "T-016-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": null,
-      "effectiveStatus": "todo",
-      "effort": "S",
-      "feature": "interests",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-016-be",
-      "inherits": {
-        "release": "feature:interests"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": "T-016",
-      "parents": [
-        "task:T-016"
-      ],
-      "path": "social-pin/tasks/T-016 Interests vocabulary and my interests/T-016-be Backend · Interests vocabulary and my interests.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s07",
-        "s71"
-      ],
-      "status": "todo",
-      "summary": "The API side of T-016 Interests vocabulary and my interests: the endpoints, data and rules its What describes. Record what shipped in T-016-be Backend Delivery and how to call it in T-016-be…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/platform",
-        "priority/high",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-016-be Backend · Interests vocabulary and my interests",
-      "updated": "2026-10-26"
-    },
-    "task:T-016-fe": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-016-be",
-          "title": "T-016-be Backend · Interests vocabulary and my interests",
-          "why": "T-016-be Backend · Interests vocabulary and my interests is to do"
-        }
-      ],
-      "card": "T-016-fe",
-      "children": [],
-      "code": "T-016-fe",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-016-be"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "S",
-      "feature": "interests",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-016-fe",
-      "inherits": {
-        "release": "feature:interests"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "frontend"
-      ],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": "T-016",
-      "parents": [
-        "task:T-016"
-      ],
-      "path": "social-pin/tasks/T-016 Interests vocabulary and my interests/T-016-fe Frontend · Interests vocabulary and my interests.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s07",
-        "s71"
-      ],
-      "status": "todo",
-      "summary": "The client side of T-016 Interests vocabulary and my interests: the screens below show what its What describes, built against Interests Backend Integration once the backend half (T-016-be Backend…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/platform",
-        "priority/high",
-        "frontend"
-      ],
-      "task": null,
-      "title": "T-016-fe Frontend · Interests vocabulary and my interests",
       "updated": "2026-10-26"
     },
     "task:T-017": {
@@ -71556,11 +71164,6 @@
       "affects": [],
       "blockedBy": [
         {
-          "id": "task:T-016",
-          "title": "T-016 Interests vocabulary and my interests",
-          "why": "T-016 Interests vocabulary and my interests is to do"
-        },
-        {
           "id": "task:T-049",
           "title": "T-049 Subscription endpoints and a single Pro gate",
           "why": "T-049 Subscription endpoints and a single Pro gate is to do"
@@ -71577,7 +71180,6 @@
       "deadline": null,
       "decision": null,
       "depends": [
-        "task:T-016",
         "task:T-049"
       ],
       "dir": "social-pin/tasks/T-051 Gemma assistant sheet and suggestions",
@@ -71603,6 +71205,7 @@
       "pending": [],
       "priority": "medium",
       "related": [
+        "story:interests",
         "frontend-requirements:interests"
       ],
       "release": "later",
@@ -71625,16 +71228,11 @@
       ],
       "task": null,
       "title": "T-051 Gemma assistant sheet and suggestions",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "task:T-051-be": {
       "affects": [],
       "blockedBy": [
-        {
-          "id": "task:T-016",
-          "title": "T-016 Interests vocabulary and my interests",
-          "why": "T-016 Interests vocabulary and my interests is to do"
-        },
         {
           "id": "task:T-049",
           "title": "T-049 Subscription endpoints and a single Pro gate",
@@ -71648,7 +71246,6 @@
       "deadline": null,
       "decision": null,
       "depends": [
-        "task:T-016",
         "task:T-049"
       ],
       "dir": null,
@@ -71675,7 +71272,9 @@
       "path": "social-pin/tasks/T-051 Gemma assistant sheet and suggestions/T-051-be Backend · Gemma assistant sheet and suggestions.md",
       "pending": [],
       "priority": "medium",
-      "related": [],
+      "related": [
+        "story:interests"
+      ],
       "release": "later",
       "resolution": null,
       "rollup": {},
@@ -71694,16 +71293,11 @@
       ],
       "task": null,
       "title": "T-051-be Backend · Gemma assistant sheet and suggestions",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "task:T-051-fe": {
       "affects": [],
       "blockedBy": [
-        {
-          "id": "task:T-016",
-          "title": "T-016 Interests vocabulary and my interests",
-          "why": "T-016 Interests vocabulary and my interests is to do"
-        },
         {
           "id": "task:T-049",
           "title": "T-049 Subscription endpoints and a single Pro gate",
@@ -71722,7 +71316,6 @@
       "deadline": null,
       "decision": null,
       "depends": [
-        "task:T-016",
         "task:T-049",
         "task:T-051-be"
       ],
@@ -71750,7 +71343,9 @@
       "path": "social-pin/tasks/T-051 Gemma assistant sheet and suggestions/T-051-fe Frontend · Gemma assistant sheet and suggestions.md",
       "pending": [],
       "priority": "medium",
-      "related": [],
+      "related": [
+        "story:interests"
+      ],
       "release": "later",
       "resolution": null,
       "rollup": {},
@@ -71769,7 +71364,7 @@
       ],
       "task": null,
       "title": "T-051-fe Frontend · Gemma assistant sheet and suggestions",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "task:T-052": {
       "affects": [],

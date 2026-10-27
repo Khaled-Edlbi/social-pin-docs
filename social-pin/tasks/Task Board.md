@@ -65,7 +65,6 @@ kanban-plugin: board
 - [ ] [[T-010-fe Frontend · Public browser page for viewers without the app]] #high #badge-qr #frontend
 - [ ] [[T-012-fe Frontend · List my files (photo library)]] #high #photo-library #frontend
 - [ ] [[T-014-fe Frontend · Register devices on login; list and remove]] #high #devices #frontend
-- [ ] [[T-016-fe Frontend · Interests vocabulary and my interests]] #high #interests #frontend
 - [ ] [[T-017-fe Frontend · Extend WIDGET_TYPE to the design's list]] #high #widgets #frontend
 - [ ] [[T-018-be Backend · Widget CRUD on the projection]] #high #widgets #backend
 - [ ] [[T-018-fe Frontend · Widget CRUD on the projection]] #high #widgets #frontend
@@ -143,8 +142,6 @@ kanban-plugin: board
 - [ ] [[T-012-be Backend · List my files (photo library)]] #high #photo-library #backend
 - [ ] [[T-014 Register devices on login; list and remove]] #high #devices
 - [ ] [[T-014-be Backend · Register devices on login; list and remove]] #high #devices #backend
-- [ ] [[T-016 Interests vocabulary and my interests]] #high #interests
-- [ ] [[T-016-be Backend · Interests vocabulary and my interests]] #high #interests #backend
 - [ ] [[T-017 Extend WIDGET_TYPE to the design's list]] #high #widgets
 - [ ] [[T-017-be Backend · Extend WIDGET_TYPE to the design's list]] #high #widgets #backend
 - [ ] [[T-019 LinkedIn OAuth link, unlink, login]] #high #linked-accounts

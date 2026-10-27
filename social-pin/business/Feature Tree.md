@@ -106,7 +106,6 @@ Social Pin backend
     │   ├── ⬜ T-014 Register devices on login; list and remove
     │   └── ⬜ T-015 Pair and revoke an NFC card
     ├── 🟡 Interests  [High]
-    │   └── ⬜ T-016 Interests vocabulary and my interests
     ├── 🟡 Linked Accounts (OAuth)  [High]
     │   └── ⬜ T-019 LinkedIn OAuth: link, unlink, login
     ├── ❌ Notifications  [High]
@@ -207,7 +206,7 @@ The error contract, notifications, Gemma AI, devices, interests, widgets, linked
 | [[Error Contract]] | 🟡 Partial (needs more) | Critical | — | 1 |
 | [[Code Delivery]] | 🟡 Partial (needs more) | Critical | s02 | 3 |
 | [[Devices & NFC]] | 🟡 Partial (needs more) | High | s75 | 2 |
-| [[Interests]] | 🟡 Partial (needs more) | High | s07, s71 | 1 |
+| [[Interests]] | 🟡 Partial (needs more) | High | s07, s71 | 0 |
 | [[Linked Accounts (OAuth)]] | 🟡 Partial (needs more) | High | s01, s04, s68 | 1 |
 | [[Notifications]] | ❌ TODO | High | s69 | 2 |
 | [[Gemma AI]] | ❌ TODO | Medium | s13, s60 | 2 |

@@ -7,7 +7,7 @@ module: platform
 status: draft
 screens: [s13, s60]
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [frontend-requirements, frontend-requirements/draft, module/platform, layer/frontend]
 ---
 
@@ -45,7 +45,7 @@ What the client needs to build the Gemma sheet, Smart Match and the inline sugge
 | Smart Match list for an event; mark viewed / dismissed | — | ❌ | [[T-052 Smart Match]] (blocked on T-051 and [[T-036 Event mode exhibitors list and detail]]) |
 | Auto-send meeting requests from matches (Pro) | — | ❌ | [[T-052 Smart Match]] via [[T-042 Meeting request, accept with slots, decline with reason]] |
 | Pro gate on Smart Match and automation | — | ❌ | [[T-049 Subscription endpoints and a single Pro gate]] |
-| Interests feeding matchmaking | — | ❌ | [[T-016 Interests vocabulary and my interests]] |
+| Interests feeding matchmaking | — | ❌ | [[Interests Story|Interests · S5]] |
 | Pin-name suggestions | — | ❌ | [[ND-06 Pin name rules]] |
 
 ## Behaviour expectations

@@ -85,9 +85,6 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-014 Register devices on login; list and remove]] | [[Devices & NFC]] | Platform & Cross-cutting | ⬜ To do | M | — | — |
 | [[T-014-be Backend · Register devices on login; list and remove]] `backend` | [[Devices & NFC]] | Platform & Cross-cutting | ⬜ To do | M | — | — |
 | [[T-014-fe Frontend · Register devices on login; list and remove]] `frontend` | [[Devices & NFC]] | Platform & Cross-cutting | ⛔ Blocked | M | — | [[T-014-be Backend · Register devices on login; list and remove|T-014-be]] |
-| [[T-016 Interests vocabulary and my interests]] | [[Interests]] | Platform & Cross-cutting | ⬜ To do | S | — | — |
-| [[T-016-be Backend · Interests vocabulary and my interests]] `backend` | [[Interests]] | Platform & Cross-cutting | ⬜ To do | S | — | — |
-| [[T-016-fe Frontend · Interests vocabulary and my interests]] `frontend` | [[Interests]] | Platform & Cross-cutting | ⛔ Blocked | S | — | [[T-016-be Backend · Interests vocabulary and my interests|T-016-be]] |
 | [[T-017 Extend WIDGET_TYPE to the design's list]] | [[Widgets]] | Identity Core | ⬜ To do | S | — | — |
 | [[T-017-be Backend · Extend WIDGET_TYPE to the design's list]] `backend` | [[Widgets]] | Identity Core | ⬜ To do | S | — | — |
 | [[T-017-fe Frontend · Extend WIDGET_TYPE to the design's list]] `frontend` | [[Widgets]] | Identity Core | ⛔ Blocked | S | — | [[T-017-be Backend · Extend WIDGET_TYPE to the design's list|T-017-be]] |
@@ -172,9 +169,9 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-031 Import contacts]] | [[Discover Hub & Search]] | Discovery | ❓ Needs decision | M | — | — |
 | [[T-031-be Backend · Import contacts]] `backend` | [[Discover Hub & Search]] | Discovery | ⬜ To do | M | — | — |
 | [[T-031-fe Frontend · Import contacts]] `frontend` | [[Discover Hub & Search]] | Discovery | ⛔ Blocked | M | — | [[T-031-be Backend · Import contacts|T-031-be]] |
-| [[T-051 Gemma assistant sheet and suggestions]] | [[Gemma AI]] | Platform & Cross-cutting | ❓ Needs decision | L | — | [[T-016 Interests vocabulary and my interests|T-016]], [[T-049 Subscription endpoints and a single Pro gate|T-049]] |
-| [[T-051-be Backend · Gemma assistant sheet and suggestions]] `backend` | [[Gemma AI]] | Platform & Cross-cutting | ⛔ Blocked | L | — | [[T-016 Interests vocabulary and my interests|T-016]], [[T-049 Subscription endpoints and a single Pro gate|T-049]] |
-| [[T-051-fe Frontend · Gemma assistant sheet and suggestions]] `frontend` | [[Gemma AI]] | Platform & Cross-cutting | ⛔ Blocked | L | — | [[T-016 Interests vocabulary and my interests|T-016]], [[T-049 Subscription endpoints and a single Pro gate|T-049]], [[T-051-be Backend · Gemma assistant sheet and suggestions|T-051-be]] |
+| [[T-051 Gemma assistant sheet and suggestions]] | [[Gemma AI]] | Platform & Cross-cutting | ❓ Needs decision | L | — | [[T-049 Subscription endpoints and a single Pro gate|T-049]] |
+| [[T-051-be Backend · Gemma assistant sheet and suggestions]] `backend` | [[Gemma AI]] | Platform & Cross-cutting | ⛔ Blocked | L | — | [[T-049 Subscription endpoints and a single Pro gate|T-049]] |
+| [[T-051-fe Frontend · Gemma assistant sheet and suggestions]] `frontend` | [[Gemma AI]] | Platform & Cross-cutting | ⛔ Blocked | L | — | [[T-049 Subscription endpoints and a single Pro gate|T-049]], [[T-051-be Backend · Gemma assistant sheet and suggestions|T-051-be]] |
 | [[T-052 Smart Match]] | [[Gemma AI]] | Platform & Cross-cutting | ⛔ Blocked | L | — | [[T-051 Gemma assistant sheet and suggestions|T-051]], [[T-036 Event mode exhibitors list and detail|T-036]] |
 | [[T-052-be Backend · Smart Match]] `backend` | [[Gemma AI]] | Platform & Cross-cutting | ⛔ Blocked | L | — | [[T-051 Gemma assistant sheet and suggestions|T-051]], [[T-036 Event mode exhibitors list and detail|T-036]] |
 | [[T-052-fe Frontend · Smart Match]] `frontend` | [[Gemma AI]] | Platform & Cross-cutting | ⛔ Blocked | L | — | [[T-051 Gemma assistant sheet and suggestions|T-051]], [[T-036 Event mode exhibitors list and detail|T-036]], [[T-052-be Backend · Smart Match|T-052-be]] |

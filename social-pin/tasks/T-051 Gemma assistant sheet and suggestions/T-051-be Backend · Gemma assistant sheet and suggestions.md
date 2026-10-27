@@ -9,12 +9,12 @@ module: platform
 parent: T-051
 labels: [backend]
 screens: [s13]
-depends: [T-016, T-049]
+depends: ["T-049"]
 affects: []
-related: []
+related: ["Interests Story"]
 pending: []
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [task, task/todo, module/platform, priority/medium, backend]
 ---
 

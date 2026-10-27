@@ -7,10 +7,11 @@ effort: L
 feature: gemma
 module: platform
 screens: [s13]
-depends: [T-016, T-049]
+depends: ["T-049"]
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [task, task/needs-info, module/platform, priority/medium]
+related: ["Interests Story"]
 ---
 
 # ❓ T-051 · Gemma assistant sheet and suggestions
@@ -29,7 +30,7 @@ Model and provider undecided. Every suggestion scoped by what the asking user ca
 
 ## Dependencies
 
-- Waits on [[T-016 Interests vocabulary and my interests]]
+- Waits on [[Interests Story|Interests · S5]]
 - Waits on [[T-049 Subscription endpoints and a single Pro gate]]
 - Unblocks [[T-052 Smart Match]]
 
