@@ -156,6 +156,8 @@ kanban-plugin: board
 - [ ] [[T-063 Put the ErrorCode on the error body]] #critical #error-contract
 - [ ] [[T-063-be Backend · Put the ErrorCode on the error body]] #critical #error-contract #backend
 - [ ] [[T-067-be Backend · Split E_RING_01 and E_RING_PROFILE_03]] #critical #error-contract #backend
+- [ ] [[B-03 Two refreshes at once both succeed and fork the session]] #high #auth #bug
+- [ ] [[B-06 Timestamps the app writes are stored shifted by the server time zone]] #high #auth #bug
 - [ ] [[T-004 Member count per Ring on list and detail]] #high #counts
 - [ ] [[T-004-be Backend · Member count per Ring on list and detail]] #high #counts #backend
 - [ ] [[T-006 Delegated admin endpoints]] #high #delegated-admins
@@ -186,9 +188,11 @@ kanban-plugin: board
 - [ ] [[T-054-be Backend · Cleanup jobs]] #high #cleanup-jobs #backend
 - [ ] [[T-078 Main profile fields from D-02]] #high #profiles
 - [ ] [[T-078-be Backend · Main profile fields from D-02]] #high #profiles #backend
+- [ ] [[B-04 Sign-up accepts an email and a phone together]] #medium #auth #bug
 - [ ] [[T-020b-be Backend · Business card scan and portfolio URL import]] #medium #onboarding-imports #backend
 - [ ] [[T-031-be Backend · Import contacts]] #medium #discover-hub #backend
 - [ ] [[T-079 Enforce the once-a-year Pin name rename]] #medium #profiles
+- [ ] [[B-05 Expired onboarding token answers 401, not the documented 400]] #low #auth #bug
 
 
 ## 🔵 In progress

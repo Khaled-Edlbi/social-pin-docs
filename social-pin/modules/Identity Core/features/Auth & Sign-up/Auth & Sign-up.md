@@ -38,6 +38,10 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 | Task | Status | Priority | Effort |
 |---|---|---|---|
 | [[T-056 Decide passwordless login]] | ✅ Done | Critical | S |
+| [[B-03 Two refreshes at once both succeed and fork the session]] | ⬜ To do | high | S |
+| [[B-04 Sign-up accepts an email and a phone together]] | ⬜ To do | medium | S |
+| [[B-05 Expired onboarding token answers 401, not the documented 400]] | ⬜ To do | low | S |
+| [[B-06 Timestamps the app writes are stored shifted by the server time zone]] | ⬜ To do | high | M |
 
 ```dataview
 TABLE status, priority, effort FROM #task WHERE feature = "auth" SORT priority ASC

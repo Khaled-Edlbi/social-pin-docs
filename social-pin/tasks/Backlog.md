@@ -80,6 +80,8 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | Task | Feature | Module | Status | Effort | Deadline | Depends on / blocked by |
 |---|---|---|---|---|---|---|
 | [[B-01 An unverified changed email still signs in]] `bug` | [[Account]] | Identity Core | 🟡 Partial (2 notes) · By design | S | — | — |
+| [[B-03 Two refreshes at once both succeed and fork the session]] `bug` | [[Auth & Sign-up]] | Identity Core | ⬜ To do | S | — | — |
+| [[B-06 Timestamps the app writes are stored shifted by the server time zone]] `bug` | [[Auth & Sign-up]] | Identity Core | ⬜ To do | M | — | — |
 | [[T-003 Remove devCode once delivery works]] | [[Code Delivery]] | Platform & Cross-cutting | ⛔ Blocked | S | — | [[T-001 Wire an email provider for one-time codes|T-001]], [[T-002 Wire an SMS provider for one-time codes|T-002]] |
 | [[T-003-be Backend · Remove devCode once delivery works]] `backend` | [[Code Delivery]] | Platform & Cross-cutting | ⛔ Blocked | S | — | [[T-001 Wire an email provider for one-time codes|T-001]], [[T-002 Wire an SMS provider for one-time codes|T-002]] |
 | [[T-004 Member count per Ring on list and detail]] | [[Counts]] | Identity Core | ⬜ To do | S | — | — |
@@ -182,6 +184,7 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | Task | Feature | Module | Status | Effort | Deadline | Depends on / blocked by |
 |---|---|---|---|---|---|---|
 | [[B-02 Deleted account answers 401, not the documented 404 E_USER_01]] `bug` | [[Account]] | Identity Core | 🟡 Partial (2 notes) · Fixed | S | — | — |
+| [[B-04 Sign-up accepts an email and a phone together]] `bug` | [[Auth & Sign-up]] | Identity Core | ⬜ To do | S | — | — |
 | [[T-013 Usage count per file across Rings]] | [[Photo Library]] | Identity Core | ⛔ Blocked | S | — | [[T-012 List my files (photo library)|T-012]] |
 | [[T-013-be Backend · Usage count per file across Rings]] `backend` | [[Photo Library]] | Identity Core | ⛔ Blocked | S | — | [[T-012 List my files (photo library)|T-012]] |
 | [[T-013-fe Frontend · Usage count per file across Rings]] `frontend` | [[Photo Library]] | Identity Core | ⛔ Blocked | S | — | [[T-012 List my files (photo library)|T-012]], [[T-013-be Backend · Usage count per file across Rings|T-013-be]] |
@@ -212,6 +215,12 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-072-be Backend · Platform stats]] `backend` | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | S | — | [[T-068 Account moderation and platform role|T-068]] |
 | [[T-073 GitLab pipeline and Docker setup]] `chore` | [[Build & Deploy]] | Platform & Cross-cutting | 🟡 Partial (3 notes) | S | — | — |
 | [[T-079 Enforce the once-a-year Pin name rename]] | [[Profiles & Pin Name]] | Identity Core | ⬜ To do | M | — | [[D-06 Yearly rename, old name freed, case-insensitive|D-06]] |
+
+## Low
+
+| Task | Feature | Module | Status | Effort | Deadline | Depends on / blocked by |
+|---|---|---|---|---|---|---|
+| [[B-05 Expired onboarding token answers 401, not the documented 400]] `bug` | [[Auth & Sign-up]] | Identity Core | ⬜ To do | S | — | — |
 
 ## Done
 

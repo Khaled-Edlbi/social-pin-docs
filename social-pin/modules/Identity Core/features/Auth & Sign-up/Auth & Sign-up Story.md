@@ -17,6 +17,8 @@ tags: [story, story/approved, module/identity, layer/business]
 
 # Auth & Sign-up · User Story
 
+> ⚠ Affected by [[Auth & Sign-up QA Backend]] (2026-10-27): S2 says the 429 comes "after five wrong tries", and *Rules* says "five wrong tries burn the code". The build answers five wrong guesses with 400 and the **sixth** submission with 429 `E_AUTH_06`, even when that sixth code is right; [[Auth & Sign-up Backend Integration]] says "sixth wrong guess". The client sees the lock on the sixth submit. `/pm`: confirm which the story means.
+
 
 **Feature:** [[Auth & Sign-up]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[Auth & Sign-up Frontend Requirements]] · **Backend Integration:** [[Auth & Sign-up Backend Integration]]
 
