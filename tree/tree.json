@@ -1035,6 +1035,7 @@
         "backend-integration:auth",
         "backend-integration:profiles",
         "frontend-requirements:auth",
+        "frontend-requirements:error-contract",
         "frontend-requirements:onboarding-imports",
         "frontend-requirements:profiles",
         "project:frontend-passwordless-migration",
@@ -2313,6 +2314,7 @@
     "POST /auth/complete-registration": {
       "containers": [
         "feature:auth",
+        "feature:error-contract",
         "feature:onboarding-imports",
         "feature:profiles",
         "project:frontend-passwordless-migration",
@@ -2324,6 +2326,7 @@
         "backend-delivery:auth",
         "backend-integration:auth",
         "frontend-requirements:auth",
+        "frontend-requirements:error-contract",
         "frontend-requirements:onboarding-imports",
         "frontend-requirements:profiles",
         "project:frontend-passwordless-migration",
@@ -2374,6 +2377,7 @@
         "feature:account",
         "feature:audit-log",
         "feature:auth",
+        "feature:error-contract",
         "feature:linked-accounts",
         "needs-decision:ND-20",
         "project:developer-setup",
@@ -2390,6 +2394,7 @@
         "decision:D-20",
         "frontend-requirements:audit-log",
         "frontend-requirements:auth",
+        "frontend-requirements:error-contract",
         "needs-decision:ND-20",
         "project:developer-setup",
         "project:frontend-passwordless-migration",
@@ -2450,6 +2455,7 @@
         "feature:app-shell",
         "feature:auth",
         "feature:devices",
+        "feature:error-contract",
         "project:frontend-agent-prompt",
         "project:frontend-api-guide",
         "project:frontend-passwordless-migration",
@@ -2462,6 +2468,7 @@
         "frontend-requirements:app-shell",
         "frontend-requirements:auth",
         "frontend-requirements:devices",
+        "frontend-requirements:error-contract",
         "project:frontend-agent-prompt",
         "project:frontend-api-guide",
         "project:frontend-passwordless-migration",
@@ -2851,6 +2858,7 @@
       "containers": [
         "feature:account",
         "feature:auth",
+        "feature:error-contract",
         "feature:linked-accounts",
         "feature:onboarding-imports",
         "needs-decision:ND-01",
@@ -2864,6 +2872,7 @@
         "feature:auth",
         "feature:linked-accounts",
         "frontend-requirements:auth",
+        "frontend-requirements:error-contract",
         "frontend-requirements:linked-accounts",
         "frontend-requirements:onboarding-imports",
         "needs-decision:ND-01",
@@ -2879,6 +2888,7 @@
       "containers": [
         "feature:auth",
         "feature:code-delivery",
+        "feature:error-contract",
         "needs-decision:ND-01"
       ],
       "kind": "screen",
@@ -2890,6 +2900,7 @@
         "feature:code-delivery",
         "frontend-requirements:auth",
         "frontend-requirements:code-delivery",
+        "frontend-requirements:error-contract",
         "needs-decision:ND-01",
         "qa-backend:auth",
         "story:auth",
@@ -2976,6 +2987,7 @@
     "s06": {
       "containers": [
         "feature:auth",
+        "feature:error-contract",
         "feature:profiles",
         "needs-decision:ND-02",
         "needs-decision:ND-06",
@@ -2990,6 +3002,7 @@
         "feature:auth",
         "feature:profiles",
         "frontend-requirements:auth",
+        "frontend-requirements:error-contract",
         "frontend-requirements:profiles",
         "needs-decision:ND-02",
         "needs-decision:ND-06",
@@ -3200,6 +3213,7 @@
     },
     "s18": {
       "containers": [
+        "feature:error-contract",
         "feature:rings",
         "needs-decision:ND-05"
       ],
@@ -3208,6 +3222,7 @@
         "backend-delivery:rings",
         "backend-integration:rings",
         "feature:rings",
+        "frontend-requirements:error-contract",
         "frontend-requirements:rings",
         "needs-decision:ND-05",
         "story:rings"
@@ -3976,6 +3991,7 @@
         "feature:account",
         "feature:auth",
         "feature:counts",
+        "feature:error-contract",
         "feature:linked-accounts",
         "feature:payments",
         "feature:profiles",
@@ -4000,6 +4016,7 @@
         "frontend-requirements:account",
         "frontend-requirements:auth",
         "frontend-requirements:counts",
+        "frontend-requirements:error-contract",
         "frontend-requirements:linked-accounts",
         "frontend-requirements:profiles",
         "needs-decision:ND-20",
@@ -4149,7 +4166,7 @@
     },
     "concepts": 198,
     "decisions": 19,
-    "edges": 3707,
+    "edges": 3744,
     "features": 41,
     "layerNotes": 132,
     "modules": 8,
@@ -4556,6 +4573,11 @@
       "from": "frontend-requirements:counts",
       "kind": "affects",
       "to": "story:counts"
+    },
+    {
+      "from": "frontend-requirements:error-contract",
+      "kind": "affects",
+      "to": "story:error-contract"
     },
     {
       "from": "frontend-requirements:interests",
@@ -6617,7 +6639,8 @@
       "to": "frontend-requirements:error-contract",
       "via": [
         "E_AUTH_03",
-        "E_USER_01"
+        "E_USER_01",
+        "POST /auth/login/verify"
       ]
     },
     {
@@ -6813,6 +6836,9 @@
       "kind": "related",
       "to": "frontend-requirements:error-contract",
       "via": [
+        "E_AUTH_03",
+        "E_AUTH_04",
+        "E_AUTH_06",
         "E_USER_01"
       ]
     },
@@ -6991,7 +7017,9 @@
       "to": "frontend-requirements:error-contract",
       "via": [
         "E_AUTH_03",
-        "E_USER_01"
+        "E_AUTH_04",
+        "E_USER_01",
+        "POST /auth/login/verify"
       ]
     },
     {
@@ -7196,6 +7224,10 @@
       "kind": "related",
       "to": "frontend-requirements:error-contract",
       "via": [
+        "E_AUTH_03",
+        "E_AUTH_04",
+        "E_AUTH_05",
+        "E_AUTH_06",
         "E_USER_01"
       ]
     },
@@ -8961,6 +8993,331 @@
       "to": "story:error-contract"
     },
     {
+      "from": "frontend-requirements:error-contract",
+      "kind": "related",
+      "to": "backend-delivery:error-contract"
+    },
+    {
+      "from": "frontend-requirements:error-contract",
+      "kind": "related",
+      "to": "decision:D-20",
+      "via": [
+        "E_AUTH_03"
+      ]
+    },
+    {
+      "from": "frontend-requirements:error-contract",
+      "kind": "related",
+      "to": "feature:account",
+      "via": [
+        "E_USER_01"
+      ]
+    },
+    {
+      "from": "frontend-requirements:error-contract",
+      "kind": "related",
+      "to": "frontend-delivery:account",
+      "via": [
+        "E_AUTH_03",
+        "E_USER_01"
+      ]
+    },
+    {
+      "from": "frontend-requirements:error-contract",
+      "kind": "related",
+      "to": "frontend-requirements:account",
+      "via": [
+        "E_AUTH_03",
+        "E_AUTH_04",
+        "E_USER_01"
+      ]
+    },
+    {
+      "from": "frontend-requirements:error-contract",
+      "kind": "related",
+      "to": "frontend-requirements:app-shell",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "frontend-requirements:error-contract",
+      "kind": "related",
+      "to": "frontend-requirements:auth",
+      "via": [
+        "E_AUTH_03",
+        "E_AUTH_04",
+        "E_AUTH_05",
+        "E_AUTH_06"
+      ]
+    },
+    {
+      "from": "frontend-requirements:error-contract",
+      "kind": "related",
+      "to": "frontend-requirements:badge-qr",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "frontend-requirements:error-contract",
+      "kind": "related",
+      "to": "frontend-requirements:code-delivery",
+      "via": [
+        "E_AUTH_05",
+        "E_AUTH_06"
+      ]
+    },
+    {
+      "from": "frontend-requirements:error-contract",
+      "kind": "related",
+      "to": "frontend-requirements:companies",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "frontend-requirements:error-contract",
+      "kind": "related",
+      "to": "frontend-requirements:connections",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "frontend-requirements:error-contract",
+      "kind": "related",
+      "to": "frontend-requirements:delegated-admins",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "frontend-requirements:error-contract",
+      "kind": "related",
+      "to": "frontend-requirements:devices",
+      "via": [
+        "E_AUTH_03",
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "frontend-requirements:error-contract",
+      "kind": "related",
+      "to": "frontend-requirements:discover-hub",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "frontend-requirements:error-contract",
+      "kind": "related",
+      "to": "frontend-requirements:events-before",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "frontend-requirements:error-contract",
+      "kind": "related",
+      "to": "frontend-requirements:interests",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "frontend-requirements:error-contract",
+      "kind": "related",
+      "to": "frontend-requirements:linked-accounts",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "frontend-requirements:error-contract",
+      "kind": "related",
+      "to": "frontend-requirements:notifications",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "frontend-requirements:error-contract",
+      "kind": "related",
+      "to": "frontend-requirements:payments",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "frontend-requirements:error-contract",
+      "kind": "related",
+      "to": "frontend-requirements:pincast",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "frontend-requirements:error-contract",
+      "kind": "related",
+      "to": "frontend-requirements:post-event",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "frontend-requirements:error-contract",
+      "kind": "related",
+      "to": "frontend-requirements:ring-invitations",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "frontend-requirements:error-contract",
+      "kind": "related",
+      "to": "frontend-requirements:subscription",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "frontend-requirements:error-contract",
+      "kind": "related",
+      "to": "frontend-requirements:view-as",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "frontend-requirements:error-contract",
+      "kind": "related",
+      "to": "needs-decision:ND-20",
+      "via": [
+        "E_AUTH_03"
+      ]
+    },
+    {
+      "from": "frontend-requirements:error-contract",
+      "kind": "related",
+      "to": "project:api-conventions"
+    },
+    {
+      "from": "frontend-requirements:error-contract",
+      "kind": "related",
+      "to": "project:auth-model",
+      "via": [
+        "E_AUTH_03",
+        "E_AUTH_06",
+        "E_USER_01"
+      ]
+    },
+    {
+      "from": "frontend-requirements:error-contract",
+      "kind": "related",
+      "to": "project:frontend-api-guide",
+      "via": [
+        "E_AUTH_03",
+        "E_AUTH_04",
+        "E_AUTH_05",
+        "E_AUTH_06"
+      ]
+    },
+    {
+      "from": "frontend-requirements:error-contract",
+      "kind": "related",
+      "to": "project:frontend-contract",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "frontend-requirements:error-contract",
+      "kind": "related",
+      "to": "project:frontend-passwordless-migration",
+      "via": [
+        "E_AUTH_03",
+        "E_AUTH_04",
+        "E_AUTH_05",
+        "E_AUTH_06"
+      ]
+    },
+    {
+      "from": "frontend-requirements:error-contract",
+      "kind": "related",
+      "to": "qa-backend:account",
+      "via": [
+        "E_AUTH_03",
+        "E_AUTH_04",
+        "E_USER_01"
+      ]
+    },
+    {
+      "from": "frontend-requirements:error-contract",
+      "kind": "related",
+      "to": "qa-frontend:account",
+      "via": [
+        "E_AUTH_03",
+        "E_AUTH_04",
+        "E_USER_01"
+      ]
+    },
+    {
+      "from": "frontend-requirements:error-contract",
+      "kind": "related",
+      "to": "story:account",
+      "via": [
+        "E_AUTH_03"
+      ]
+    },
+    {
+      "from": "frontend-requirements:error-contract",
+      "kind": "related",
+      "to": "story:auth",
+      "via": [
+        "E_AUTH_03",
+        "E_AUTH_04",
+        "E_AUTH_05",
+        "E_AUTH_06"
+      ]
+    },
+    {
+      "from": "frontend-requirements:error-contract",
+      "kind": "related",
+      "to": "story:code-delivery",
+      "via": [
+        "E_AUTH_05",
+        "E_AUTH_06"
+      ]
+    },
+    {
+      "from": "frontend-requirements:error-contract",
+      "kind": "related",
+      "to": "story:error-contract",
+      "via": [
+        "E_AUTH_03",
+        "E_AUTH_05",
+        "E_AUTH_06"
+      ]
+    },
+    {
+      "from": "frontend-requirements:error-contract",
+      "kind": "related",
+      "to": "task:B-01",
+      "via": [
+        "E_AUTH_03"
+      ]
+    },
+    {
+      "from": "frontend-requirements:error-contract",
+      "kind": "related",
+      "to": "task:B-02",
+      "via": [
+        "E_AUTH_03",
+        "E_USER_01"
+      ]
+    },
+    {
       "from": "frontend-requirements:interests",
       "kind": "related",
       "to": "feature:auth"
@@ -9356,15 +9713,6 @@
       "to": "frontend-requirements:devices",
       "via": [
         "E_AUTH_03"
-      ]
-    },
-    {
-      "from": "project:auth-model",
-      "kind": "related",
-      "to": "frontend-requirements:error-contract",
-      "via": [
-        "E_AUTH_03",
-        "E_USER_01"
       ]
     },
     {
@@ -9787,7 +10135,11 @@
         "E_AUTH_04",
         "E_AUTH_05",
         "E_AUTH_06",
-        "E_USER_01"
+        "E_PROFILE_02",
+        "E_USER_01",
+        "POST /auth/complete-registration",
+        "POST /auth/login/verify",
+        "POST /auth/refresh"
       ]
     },
     {
@@ -10668,7 +11020,8 @@
       "kind": "related",
       "to": "frontend-requirements:error-contract",
       "via": [
-        "E_AUTH_04"
+        "E_AUTH_04",
+        "POST /auth/refresh"
       ]
     },
     {
@@ -10973,7 +11326,8 @@
       "kind": "related",
       "to": "frontend-requirements:error-contract",
       "via": [
-        "E_AUTH_05"
+        "E_AUTH_05",
+        "POST /auth/complete-registration"
       ]
     },
     {
@@ -11494,7 +11848,8 @@
       "kind": "shares",
       "to": "feature:error-contract",
       "via": [
-        "E_AUTH_03"
+        "E_AUTH_03",
+        "POST /auth/login/verify"
       ]
     },
     {
@@ -11697,7 +12052,9 @@
       "via": [
         "E_AUTH_03",
         "E_AUTH_04",
-        "E_USER_01"
+        "E_USER_01",
+        "POST /auth/login/verify",
+        "POST /auth/refresh"
       ]
     },
     {
@@ -12085,7 +12442,8 @@
       "kind": "shares",
       "to": "feature:error-contract",
       "via": [
-        "E_AUTH_04"
+        "E_AUTH_04",
+        "POST /auth/refresh"
       ]
     },
     {
@@ -12284,6 +12642,14 @@
     {
       "from": "feature:audit-log",
       "kind": "shares",
+      "to": "feature:error-contract",
+      "via": [
+        "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "feature:audit-log",
+      "kind": "shares",
       "to": "feature:linked-accounts",
       "via": [
         "POST /auth/login/verify"
@@ -12432,7 +12798,10 @@
         "E_AUTH_08",
         "E_PROFILE_02",
         "E_USER_01",
-        "E_USER_04"
+        "E_USER_04",
+        "POST /auth/complete-registration",
+        "POST /auth/login/verify",
+        "POST /auth/refresh"
       ]
     },
     {
@@ -14977,7 +15346,8 @@
       "to": "feature:error-contract",
       "via": [
         "E_AUTH_03",
-        "E_AUTH_04"
+        "E_AUTH_04",
+        "POST /auth/refresh"
       ]
     },
     {
@@ -15426,7 +15796,8 @@
       "kind": "shares",
       "to": "feature:linked-accounts",
       "via": [
-        "E_AUTH_04"
+        "E_AUTH_04",
+        "POST /auth/login/verify"
       ]
     },
     {
@@ -15451,7 +15822,8 @@
       "kind": "shares",
       "to": "feature:onboarding-imports",
       "via": [
-        "E_PROFILE_02"
+        "E_PROFILE_02",
+        "POST /auth/complete-registration"
       ]
     },
     {
@@ -15493,7 +15865,8 @@
       "kind": "shares",
       "to": "feature:profiles",
       "via": [
-        "E_PROFILE_02"
+        "E_PROFILE_02",
+        "POST /auth/complete-registration"
       ]
     },
     {
@@ -15569,7 +15942,8 @@
       "kind": "shares",
       "to": "needs-decision:ND-20",
       "via": [
-        "E_AUTH_03"
+        "E_AUTH_03",
+        "POST /auth/login/verify"
       ]
     },
     {
@@ -15603,6 +15977,14 @@
     {
       "from": "feature:error-contract",
       "kind": "shares",
+      "to": "project:developer-setup",
+      "via": [
+        "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "feature:error-contract",
+      "kind": "shares",
       "to": "project:docs-tree",
       "via": [
         "E_RING_02"
@@ -15613,7 +15995,8 @@
       "kind": "shares",
       "to": "project:frontend-agent-prompt",
       "via": [
-        "E_RING_02"
+        "E_RING_02",
+        "POST /auth/refresh"
       ]
     },
     {
@@ -15625,7 +16008,8 @@
         "E_AUTH_04",
         "E_AUTH_05",
         "E_AUTH_06",
-        "E_RING_01"
+        "E_RING_01",
+        "POST /auth/refresh"
       ]
     },
     {
@@ -15649,7 +16033,10 @@
         "E_AUTH_06",
         "E_AUTH_08",
         "E_PROFILE_02",
-        "E_USER_04"
+        "E_USER_04",
+        "POST /auth/complete-registration",
+        "POST /auth/login/verify",
+        "POST /auth/refresh"
       ]
     },
     {
@@ -15657,7 +16044,8 @@
       "kind": "shares",
       "to": "project:status-report-2026-10-15",
       "via": [
-        "DELETE /rings/:id"
+        "DELETE /rings/:id",
+        "POST /auth/complete-registration"
       ]
     },
     {
@@ -15665,7 +16053,8 @@
       "kind": "shares",
       "to": "task:B-01",
       "via": [
-        "E_AUTH_03"
+        "E_AUTH_03",
+        "POST /auth/login/verify"
       ]
     },
     {
@@ -15682,7 +16071,8 @@
       "kind": "shares",
       "to": "task:B-03",
       "via": [
-        "E_AUTH_04"
+        "E_AUTH_04",
+        "POST /auth/refresh"
       ]
     },
     {
@@ -15690,7 +16080,8 @@
       "kind": "shares",
       "to": "task:B-05",
       "via": [
-        "E_AUTH_05"
+        "E_AUTH_05",
+        "POST /auth/complete-registration"
       ]
     },
     {
@@ -21915,11 +22306,6 @@
     {
       "from": "backend-delivery:error-contract",
       "kind": "wikilink",
-      "to": "frontend-requirements:error-contract"
-    },
-    {
-      "from": "backend-delivery:error-contract",
-      "kind": "wikilink",
       "to": "story:error-contract"
     },
     {
@@ -23621,16 +24007,6 @@
       "from": "frontend-requirements:e2e-tests",
       "kind": "wikilink",
       "to": "story:e2e-tests"
-    },
-    {
-      "from": "frontend-requirements:error-contract",
-      "kind": "wikilink",
-      "to": "story:error-contract"
-    },
-    {
-      "from": "frontend-requirements:error-contract",
-      "kind": "wikilink",
-      "to": "task:B-02"
     },
     {
       "from": "frontend-requirements:event-ring-auto",
@@ -28915,12 +29291,12 @@
         "project:developer-guide",
         "project:frontend-passwordless-migration",
         "frontend-requirements:audit-log",
+        "frontend-requirements:error-contract",
         "backend-delivery:linked-accounts",
         "story:linked-accounts",
         "project:developer-setup",
         "feature:account",
         "qa-frontend:account",
-        "frontend-requirements:error-contract",
         "project:auth-model",
         "frontend-requirements:devices",
         "story:error-contract",
@@ -29748,7 +30124,7 @@
         {
           "id": "frontend-requirements:error-contract",
           "title": "Error Contract Frontend Requirements",
-          "why": "Error Contract Frontend Requirements is draft"
+          "why": "Error Contract Frontend Requirements is ready"
         }
       ],
       "card": "BD-35",
@@ -29782,7 +30158,8 @@
       "related": [
         "task:B-02",
         "qa-backend:account",
-        "qa-backend:auth"
+        "qa-backend:auth",
+        "frontend-requirements:error-contract"
       ],
       "release": "mvp",
       "resolution": null,
@@ -31276,6 +31653,7 @@
         "project:developer-guide",
         "project:frontend-passwordless-migration",
         "frontend-requirements:audit-log",
+        "frontend-requirements:error-contract",
         "backend-delivery:linked-accounts",
         "story:linked-accounts",
         "project:developer-setup",
@@ -31284,7 +31662,6 @@
         "story:counts",
         "frontend-requirements:ring-projection",
         "feature:account",
-        "frontend-requirements:error-contract",
         "project:auth-model",
         "frontend-requirements:devices",
         "story:error-contract",
@@ -34053,6 +34430,7 @@
         "backend-integration:account",
         "story:account",
         "qa-backend:auth",
+        "frontend-requirements:error-contract",
         "project:auth-model"
       ],
       "release": null,
@@ -34125,6 +34503,7 @@
         "backend-delivery:auth",
         "backend-integration:auth",
         "qa-backend:auth",
+        "frontend-requirements:error-contract",
         "project:auth-model"
       ],
       "release": "mvp",
@@ -35264,8 +35643,8 @@
         "approved": 1,
         "blocked": 1,
         "decided": 1,
-        "draft": 1,
         "missing": 4,
+        "ready": 1,
         "verified": 1
       },
       "scope": null,
@@ -37321,6 +37700,7 @@
         "backend-delivery:auth",
         "backend-integration:auth",
         "qa-backend:auth",
+        "frontend-requirements:error-contract",
         "project:auth-model"
       ],
       "release": "mvp",
@@ -39168,6 +39548,7 @@
         "backend-delivery:auth",
         "backend-integration:auth",
         "qa-backend:auth",
+        "frontend-requirements:error-contract",
         "project:auth-model"
       ],
       "release": "mvp",
@@ -39221,7 +39602,8 @@
       "priority": "medium",
       "related": [
         "task:B-03",
-        "qa-backend:auth"
+        "qa-backend:auth",
+        "frontend-requirements:error-contract"
       ],
       "release": "later",
       "resolution": null,
@@ -39343,6 +39725,7 @@
         "story:error-contract",
         "qa-backend:auth",
         "story:auth",
+        "frontend-requirements:error-contract",
         "project:auth-model"
       ],
       "release": "mvp",
@@ -39402,7 +39785,8 @@
       "related": [
         "task:B-03",
         "backend-integration:account",
-        "qa-backend:auth"
+        "qa-backend:auth",
+        "frontend-requirements:error-contract"
       ],
       "release": "mvp",
       "resolution": null,
@@ -39555,7 +39939,8 @@
         "task:B-05",
         "backend-delivery:account",
         "backend-integration:account",
-        "qa-backend:auth"
+        "qa-backend:auth",
+        "frontend-requirements:error-contract"
       ],
       "release": "mvp",
       "resolution": null,
@@ -39614,7 +39999,8 @@
       "priority": "high",
       "related": [
         "task:B-03",
-        "qa-backend:auth"
+        "qa-backend:auth",
+        "frontend-requirements:error-contract"
       ],
       "release": "v1",
       "resolution": null,
@@ -39674,7 +40060,8 @@
       "priority": "critical",
       "related": [
         "task:B-03",
-        "qa-backend:auth"
+        "qa-backend:auth",
+        "frontend-requirements:error-contract"
       ],
       "release": "mvp",
       "resolution": null,
@@ -39795,7 +40182,8 @@
       "priority": "high",
       "related": [
         "task:B-03",
-        "qa-backend:auth"
+        "qa-backend:auth",
+        "frontend-requirements:error-contract"
       ],
       "release": "v1",
       "resolution": null,
@@ -39852,6 +40240,7 @@
         "backend-delivery:account",
         "backend-integration:account",
         "qa-backend:auth",
+        "frontend-requirements:error-contract",
         "project:auth-model"
       ],
       "release": "v1",
@@ -39905,7 +40294,8 @@
       "priority": "high",
       "related": [
         "task:B-03",
-        "qa-backend:auth"
+        "qa-backend:auth",
+        "frontend-requirements:error-contract"
       ],
       "release": "v1",
       "resolution": null,
@@ -39974,7 +40364,9 @@
       "updated": "2026-10-27"
     },
     "frontend-requirements:error-contract": {
-      "affects": [],
+      "affects": [
+        "story:error-contract"
+      ],
       "blockedBy": [],
       "card": "FR-35",
       "children": [],
@@ -39982,7 +40374,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "ready",
       "effort": null,
       "feature": "error-contract",
       "foundOn": null,
@@ -40012,17 +40404,60 @@
         "backend-delivery:auth",
         "backend-integration:auth",
         "qa-backend:auth",
-        "project:auth-model"
+        "story:error-contract",
+        "backend-delivery:error-contract",
+        "project:frontend-api-guide",
+        "project:frontend-contract",
+        "project:api-conventions",
+        "task:B-01",
+        "task:B-02",
+        "needs-decision:ND-20",
+        "decision:D-20",
+        "frontend-delivery:account",
+        "frontend-requirements:account",
+        "qa-backend:account",
+        "qa-frontend:account",
+        "story:account",
+        "frontend-requirements:auth",
+        "story:auth",
+        "frontend-requirements:devices",
+        "project:auth-model",
+        "project:frontend-passwordless-migration",
+        "frontend-requirements:payments",
+        "frontend-requirements:subscription",
+        "frontend-requirements:connections",
+        "frontend-requirements:badge-qr",
+        "frontend-requirements:discover-hub",
+        "frontend-requirements:pincast",
+        "frontend-requirements:events-before",
+        "frontend-requirements:post-event",
+        "frontend-requirements:view-as",
+        "frontend-requirements:app-shell",
+        "frontend-requirements:interests",
+        "frontend-requirements:linked-accounts",
+        "frontend-requirements:notifications",
+        "frontend-requirements:companies",
+        "frontend-requirements:delegated-admins",
+        "frontend-requirements:ring-invitations",
+        "frontend-requirements:code-delivery",
+        "story:code-delivery",
+        "feature:account"
       ],
       "release": "mvp",
       "resolution": null,
       "scope": "feature",
-      "screens": [],
-      "status": "draft",
-      "summary": "What the client's error layer depends on. There is no screen; the per-feature requirements notes list the codes each endpoint will carry, and this note states the shape they all share and what is…",
+      "screens": [
+        "s01",
+        "s02",
+        "s06",
+        "s18",
+        "s68"
+      ],
+      "status": "ready",
+      "summary": "What the client's error layer needs from every error the API sends. There is no screen of its own: every screen renders its errors through one parser, and the per-feature requirements notes list…",
       "tags": [
         "frontend-requirements",
-        "frontend-requirements/draft",
+        "frontend-requirements/ready",
         "module/platform",
         "layer/frontend"
       ],
@@ -40113,7 +40548,8 @@
       "priority": "critical",
       "related": [
         "task:B-03",
-        "qa-backend:auth"
+        "qa-backend:auth",
+        "frontend-requirements:error-contract"
       ],
       "release": "mvp",
       "resolution": null,
@@ -40398,6 +40834,7 @@
         "task:B-03",
         "frontend-requirements:auth",
         "qa-backend:auth",
+        "frontend-requirements:error-contract",
         "feature:auth",
         "feature:gemma",
         "story:gemma",
@@ -40458,7 +40895,8 @@
         "task:B-04",
         "backend-delivery:account",
         "backend-integration:account",
-        "qa-backend:auth"
+        "qa-backend:auth",
+        "frontend-requirements:error-contract"
       ],
       "release": "v1",
       "resolution": null,
@@ -40567,7 +41005,8 @@
       "priority": "high",
       "related": [
         "task:B-03",
-        "qa-backend:auth"
+        "qa-backend:auth",
+        "frontend-requirements:error-contract"
       ],
       "release": "v1",
       "resolution": null,
@@ -40737,7 +41176,8 @@
       "priority": "high",
       "related": [
         "task:B-03",
-        "qa-backend:auth"
+        "qa-backend:auth",
+        "frontend-requirements:error-contract"
       ],
       "release": "v1",
       "resolution": null,
@@ -40842,7 +41282,8 @@
       "priority": "high",
       "related": [
         "task:B-03",
-        "qa-backend:auth"
+        "qa-backend:auth",
+        "frontend-requirements:error-contract"
       ],
       "release": "v1",
       "resolution": null,
@@ -40899,7 +41340,8 @@
       "priority": "high",
       "related": [
         "task:B-03",
-        "qa-backend:auth"
+        "qa-backend:auth",
+        "frontend-requirements:error-contract"
       ],
       "release": "v1",
       "resolution": null,
@@ -41071,7 +41513,8 @@
       "priority": "high",
       "related": [
         "task:B-03",
-        "qa-backend:auth"
+        "qa-backend:auth",
+        "frontend-requirements:error-contract"
       ],
       "release": "v1",
       "resolution": null,
@@ -41294,7 +41737,8 @@
       "priority": "high",
       "related": [
         "task:B-03",
-        "qa-backend:auth"
+        "qa-backend:auth",
+        "frontend-requirements:error-contract"
       ],
       "release": "v1",
       "resolution": null,
@@ -41348,7 +41792,8 @@
       "priority": "critical",
       "related": [
         "task:B-03",
-        "qa-backend:auth"
+        "qa-backend:auth",
+        "frontend-requirements:error-contract"
       ],
       "release": "mvp",
       "resolution": null,
@@ -42027,9 +42472,10 @@
         "blocked": 11,
         "decided": 3,
         "done": 1,
-        "draft": 13,
+        "draft": 12,
         "in-progress": 11,
         "missing": 54,
+        "ready": 1,
         "todo": 2,
         "verified": 3
       },
@@ -43193,7 +43639,8 @@
         "backend-delivery:account",
         "backend-integration:account",
         "story:account",
-        "qa-backend:auth"
+        "qa-backend:auth",
+        "frontend-requirements:error-contract"
       ],
       "release": null,
       "resolution": null,
@@ -43519,6 +43966,7 @@
         "feature:companies",
         "feature:delegated-admins",
         "feature:ring-invitations",
+        "frontend-requirements:error-contract",
         "project:backend-agent"
       ],
       "release": null,
@@ -43657,12 +44105,12 @@
         "backend-delivery:auth",
         "backend-integration:auth",
         "qa-backend:auth",
+        "frontend-requirements:error-contract",
         "feature:account",
         "frontend-delivery:account",
         "frontend-requirements:account",
         "qa-backend:account",
         "qa-frontend:account",
-        "frontend-requirements:error-contract",
         "task:B-01",
         "decision:D-20",
         "story:account",
@@ -44155,6 +44603,7 @@
         "backend-delivery:account",
         "backend-integration:account",
         "qa-backend:auth",
+        "frontend-requirements:error-contract",
         "project:backend-agent",
         "project:frontend-agent",
         "project:auth-model",
@@ -44206,6 +44655,7 @@
         "task:B-03",
         "task:B-04",
         "qa-backend:auth",
+        "frontend-requirements:error-contract",
         "project:frontend-agent",
         "project:frontend-agent-prompt"
       ],
@@ -44257,6 +44707,7 @@
         "backend-delivery:account",
         "backend-integration:account",
         "qa-backend:auth",
+        "frontend-requirements:error-contract",
         "project:auth-model"
       ],
       "release": null,
@@ -44843,6 +45294,7 @@
         "qa-frontend:account",
         "backend-delivery:auth",
         "qa-backend:auth",
+        "frontend-requirements:error-contract",
         "project:auth-model"
       ],
       "release": "mvp",
@@ -44998,6 +45450,7 @@
         "story:onboarding-imports",
         "frontend-requirements:profiles",
         "story:profiles",
+        "frontend-requirements:error-contract",
         "task:B-01",
         "needs-decision:ND-20",
         "decision:D-20",
@@ -45020,7 +45473,6 @@
         "frontend-requirements:gemma",
         "task:B-02",
         "qa-frontend:account",
-        "frontend-requirements:error-contract",
         "frontend-requirements:payments",
         "frontend-requirements:subscription",
         "frontend-requirements:connections",
@@ -46781,6 +47233,7 @@
         "backend-delivery:auth",
         "backend-integration:auth",
         "qa-backend:auth",
+        "frontend-requirements:error-contract",
         "project:auth-model"
       ],
       "release": "mvp",
@@ -48712,14 +49165,14 @@
         "decided": 14,
         "delivered": 2,
         "done": 10,
-        "draft": 41,
+        "draft": 40,
         "failing": 1,
         "in-progress": 44,
         "missing": 153,
         "needs-decision": 1,
         "partial": 4,
         "passing": 1,
-        "ready": 2,
+        "ready": 3,
         "reference": 31,
         "todo": 9,
         "verified": 14
@@ -48772,6 +49225,7 @@
         "decision:D-20",
         "task:B-01",
         "qa-backend:auth",
+        "frontend-requirements:error-contract",
         "project:auth-model"
       ],
       "release": "mvp",
@@ -48938,6 +49392,7 @@
         "feature:onboarding-imports",
         "feature:interests",
         "story:profiles",
+        "frontend-requirements:error-contract",
         "project:auth-model"
       ],
       "release": "mvp",
@@ -49174,7 +49629,8 @@
         "needs-decision:ND-20",
         "decision:D-20",
         "backend-delivery:account",
-        "qa-backend:auth"
+        "qa-backend:auth",
+        "frontend-requirements:error-contract"
       ],
       "release": "mvp",
       "resolution": null,
@@ -49641,6 +50097,7 @@
         "frontend-requirements:counts",
         "frontend-requirements:onboarding-imports",
         "frontend-requirements:profiles",
+        "frontend-requirements:error-contract",
         "frontend-requirements:interests",
         "project:auth-model"
       ],
@@ -51134,6 +51591,7 @@
         "backend-delivery:account",
         "story:account",
         "qa-backend:auth",
+        "frontend-requirements:error-contract",
         "project:auth-model"
       ],
       "release": "mvp",
@@ -51220,7 +51678,8 @@
         "backend-integration:account",
         "backend-delivery:auth",
         "backend-integration:auth",
-        "qa-backend:auth"
+        "qa-backend:auth",
+        "frontend-requirements:error-contract"
       ],
       "release": "mvp",
       "resolution": "fixed",
@@ -51290,6 +51749,7 @@
         "story:auth",
         "frontend-requirements:app-shell",
         "frontend-requirements:devices",
+        "frontend-requirements:error-contract",
         "project:frontend-agent-prompt",
         "project:frontend-api-guide",
         "project:frontend-passwordless-migration",
@@ -51305,7 +51765,6 @@
         "frontend-requirements:account",
         "qa-frontend:account",
         "frontend-requirements:view-as",
-        "frontend-requirements:error-contract",
         "frontend-requirements:interests",
         "frontend-requirements:linked-accounts",
         "frontend-requirements:notifications",
@@ -51450,12 +51909,12 @@
         "story:onboarding-imports",
         "frontend-requirements:profiles",
         "story:profiles",
+        "frontend-requirements:error-contract",
         "project:status-report-2026-10-15",
         "project:frontend-passwordless-migration",
         "story:auth",
         "frontend-requirements:code-delivery",
         "story:code-delivery",
-        "frontend-requirements:error-contract",
         "story:error-contract",
         "project:frontend-api-guide"
       ],

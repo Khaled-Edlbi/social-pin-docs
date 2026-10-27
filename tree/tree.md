@@ -359,7 +359,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
       - 👍 [Error Contract Story](social-pin/modules/Platform%20%26%20Cross-cutting/features/Error%20Contract/Error%20Contract%20Story.md) (S-87, User Story, Critical)
         - ✅ [ND-19 Where a ticket's layer notes live](social-pin/needs-decisions/ND-19%20Where%20a%20ticket's%20layer%20notes%20live.md) (Needs decision)
           - ⚖️ [D-19 A ticket's layer notes live on the parent task](social-pin/decisions/D-19%20A%20ticket's%20layer%20notes%20live%20on%20the%20parent%20task.md) (Decision)
-      - ✏️ [Error Contract Frontend Requirements](social-pin/modules/Platform%20%26%20Cross-cutting/features/Error%20Contract/Error%20Contract%20Frontend%20Requirements.md) (FR-35, Frontend Requirements, Critical)
+      - 📨 [Error Contract Frontend Requirements](social-pin/modules/Platform%20%26%20Cross-cutting/features/Error%20Contract/Error%20Contract%20Frontend%20Requirements.md) (FR-35, Frontend Requirements, Critical)
       - ⛔ [Error Contract Backend Delivery](social-pin/modules/Platform%20%26%20Cross-cutting/features/Error%20Contract/Error%20Contract%20Backend%20Delivery.md) (BD-35, Backend Delivery, Critical, blocked by Error Contract Frontend Requirements)
       - ∅ _Error Contract Backend Integration_ (Backend Integration, blocked by Error Contract Backend Delivery)
       - ∅ _Error Contract QA Backend_ (QA Backend, blocked by Error Contract Backend Delivery)
