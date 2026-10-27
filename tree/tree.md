@@ -37,7 +37,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
           - ✏️ [T-005 Story](tasks/T-005%20Connection%20count%20on%20Me%20and%20Home/T-005%20Story.md) (S-05, User Story, High)
           - ⛔ [T-005-be Backend · Connection count on Me and Home](tasks/T-005%20Connection%20count%20on%20Me%20and%20Home/T-005-be%20Backend%20%C2%B7%20Connection%20count%20on%20Me%20and%20Home.md) (sub-task of T-005, backend, High, blocked by T-021 Connect request send, inbox, cancel)
           - ⛔ [T-005-fe Frontend · Connection count on Me and Home](tasks/T-005%20Connection%20count%20on%20Me%20and%20Home/T-005-fe%20Frontend%20%C2%B7%20Connection%20count%20on%20Me%20and%20Home.md) (sub-task of T-005, frontend, High, blocked by T-021 Connect request send, inbox, cancel, T-005-be Backend · Connection count on Me and Home)
-      - ✏️ [Counts Frontend Requirements](modules/Identity%20Core/Counts/Counts%20Frontend%20Requirements.md) (FR-03, Frontend Requirements, High)
+      - 📨 [Counts Frontend Requirements](modules/Identity%20Core/Counts/Counts%20Frontend%20Requirements.md) (FR-03, Frontend Requirements, High)
       - ⛔ [Counts Backend Delivery](modules/Identity%20Core/Counts/Counts%20Backend%20Delivery.md) (BD-03, Backend Delivery, High, blocked by Counts Frontend Requirements)
       - ∅ _Counts Backend Integration_ (Backend Integration, blocked by Counts Backend Delivery)
       - ∅ _Counts QA Backend_ (QA Backend, blocked by Counts Backend Delivery)
