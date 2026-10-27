@@ -8,7 +8,7 @@ module: discovery
 screens: [s34, s43, s44, s56]
 related: ["Account", "Rings"]
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [feature, module/discovery, priority/critical, release/mvp]
 ---
 
@@ -33,18 +33,31 @@ Wireframe brief sections: [[Wireframe Brief#Badge / QR|§4.4 Badge / QR]], [[Wir
 
 Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map in [[Navigation Map]], see [[Design Reference]].
 
-## Tasks
+## Work
 
-| Task | Status | Priority | Effort |
-|---|---|---|---|
-| [[T-007 Issue and rotate the QR token for a Ring]] | ⬜ To do | Critical | M |
-| [[T-008 Resolve a scanned QR token]] | ⬜ To do | Critical | M |
-| [[T-009 Scan counter and share link]] | ⬜ To do | High | S |
-| [[T-010 Public browser page for viewers without the app]] | ❓ Needs a decision / info | High | M |
+One story per feature (since 2026-10-27): all of this feature's work is in [[Badge & QR Story]]. The tasks merged into it on 2026-10-27:
 
-```dataview
-TABLE status, priority, effort FROM #task WHERE feature = "badge-qr" SORT priority ASC
-```
+| Was | Title | Status then | Priority | Now in the story |
+|---|---|---|---|---|
+| T-007 | Issue and rotate the QR token for a Ring | To do | critical | S7–S12 |
+| T-008 | Resolve a scanned QR token | To do | critical | S13–S18 |
+| T-009 | Scan counter and share link | To do | high | S19 |
+| T-010 | Public browser page for viewers without the app | Needs a decision | high | S20 |
+
+### Log of the merged tasks
+
+- T-007 · 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
+- T-007 · 2026-10-18 · created as the backend half of T-007
+- T-007 · 2026-10-18 · created as the frontend half of T-007
+- T-008 · 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
+- T-008 · 2026-10-18 · created as the backend half of T-008
+- T-008 · 2026-10-18 · created as the frontend half of T-008
+- T-009 · 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
+- T-009 · 2026-10-18 · created as the backend half of T-009
+- T-009 · 2026-10-18 · created as the frontend half of T-009
+- T-010 · 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
+- T-010 · 2026-10-18 · created as the backend half of T-010
+- T-010 · 2026-10-18 · created as the frontend half of T-010
 
 ## Related
 

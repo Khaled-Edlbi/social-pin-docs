@@ -8,7 +8,7 @@ module: connections
 screens: [s44, s45, s46, s47, s62]
 related: ["Rings"]
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-27
 owner: "omar"
 tags: [feature, module/connections, priority/critical, release/mvp]
 ---
@@ -59,7 +59,7 @@ TABLE status, priority, effort FROM #task WHERE feature = "connections" SORT pri
 
 ## Decisions
 
-- [[ND-10 How Connect addresses the scanned person]] — open (draft); blocks [[T-021 Story]] and [[T-008 Story]]
+- [[ND-10 How Connect addresses the scanned person]] — open (draft); blocks [[T-021 Story]] and [[Badge & QR Story|Badge & QR · S13–S18]]
 - [[ND-13 Whether the requester sees a declined request]] — decided, the requester sees a decline ([[D-13 The requester sees a declined request|D-13]])
 - [[ND-14 Connection-granted Ring on Shared with me]] — decided, Shared with me lists people, never the Ring ([[D-14 Shared with me lists people, never the Ring|D-14]])
 - [[ND-15 One Ring or several per connection]] — decided, several Rings per connection, remove or disconnect ([[D-15 Several Rings per connection, remove or disconnect|D-15]])

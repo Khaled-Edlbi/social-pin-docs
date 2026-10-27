@@ -50,10 +50,6 @@ Social Pin backend
 │   └── ❌ Companies  [High]
 ├── Discovery  (🟡1 ❌2)
 │   ├── 🟡 Badge & QR  [Critical]
-│   │   ├── ⬜ T-007 Issue and rotate the QR token for a Ring
-│   │   ├── ⬜ T-008 Resolve a scanned QR token
-│   │   ├── ⬜ T-009 Scan counter and share link
-│   │   └── ❓ T-010 Public browser page for viewers without the app
 │   ├── ❌ Discover Hub & Search  [High]
 │   └── ❌ PinCast & Nearby  [High]
 ├── Events  (🟡1 ❌4)
@@ -130,7 +126,7 @@ Badge / QR, Discover hub, PinCast proximity broadcast, nearby by Ring, contact i
 
 | Feature | Status | Priority | Screens | Open tasks |
 |---|---|---|---|---|
-| [[Badge & QR]] | 🟡 Partial (needs more) | Critical | s34, s43, s44, s56 | 4 |
+| [[Badge & QR]] | 🟡 Partial (needs more) | Critical | s34, s43, s44, s56 | 0 |
 | [[Discover Hub & Search]] | ❌ TODO | High | s38 | 0 |
 | [[PinCast & Nearby]] | ❌ TODO | High | s11, s39, s40, s41, s42 | 0 |
 

@@ -89,7 +89,7 @@ Screens: [[Screen Index#s70|s70]] Subscription
 - `User.accountType` is `FREE` or `PRO`; `Subscription` keeps one live row per owner and plan (partial unique index).
 - Nothing reads `accountType` to gate a feature yet; the plan is to have one `ProGate` helper every gated feature calls ([[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]]), so a gate is a server 403, never a client check.
 - Gates named in the glossary and the brief: Smart Match, any-lounge access, Gemma automation, permanent QR ([[Glossary]]).
-- The badge's 24 h rotation is the Free behaviour; permanent QR is the Pro behaviour of the same token ([[Badge & QR]], [[T-007 Issue and rotate the QR token for a Ring]]).
+- The badge's 24 h rotation is the Free behaviour; permanent QR is the Pro behaviour of the same token ([[Badge & QR]], [[Badge & QR Story|Badge & QR · S7–S12]]).
 - Every visibility decision still goes through `RingAccessService`; Pro changes what features a user may use, never what a viewer may see of a profile ([[Ring Access Model]]).
 
 ## Open questions

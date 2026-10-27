@@ -38,7 +38,7 @@ Two people who just met. The **requester** has scanned or looked up someone (s44
 **As a** requester **I want** *Connect* on the card I just scanned **so that** this person can let me into one of their Rings.
 
 Acceptance criteria:
-- [ ] *Connect* sends `POST /connections/requests` addressed to the person on the card. The id comes from the scan ([[T-008 Resolve a scanned QR token]]) or the lookup, never derived from the view.
+- [ ] *Connect* sends `POST /connections/requests` addressed to the person on the card. The id comes from the scan ([[Badge & QR Story|Badge & QR · S13–S18]]) or the lookup, never derived from the view.
 - [ ] The request may carry a **note** ("We met at TechSummit"): optional, at most **200 characters**; a longer one is refused with a validation error and the app counts characters as they are typed. The receiver sees the note on the request (S3).
 - [ ] The button becomes *Requested* and stays so after leaving and coming back.
 - [ ] Asking again while a request is pending doesn't create a second one: the same request comes back.
@@ -95,5 +95,5 @@ Acceptance criteria:
 
 ## Open questions
 
-- **The receiver's id** ([[ND-10 How Connect addresses the scanned person]]). The view body has no user id. The app needs it from the scan ([[T-008 Story#Open questions]]) or from a `pinName` lookup; or the request accepts the scanned token or the `pinName` and resolves the person itself. This story stays Blocked · ND-10 until it is decided.
+- **The receiver's id** ([[ND-10 How Connect addresses the scanned person]]). The view body has no user id. The app needs it from the scan ([[Badge & QR Story|Badge & QR · S13–S18]]) or from a `pinName` lookup; or the request accepts the scanned token or the `pinName` and resolves the person itself. This story stays Blocked · ND-10 until it is decided.
 - How long a declined or expired request stays on the Sent list, and whether the receiver is reminded before a request expires (left open by [[D-17 Requests expire after 30 days, optional note, ask again at once]]).

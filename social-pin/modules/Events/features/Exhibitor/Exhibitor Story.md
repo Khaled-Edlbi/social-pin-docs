@@ -109,7 +109,7 @@ Screens: [[Screen Index#s65|s65]] Booth analytics
 - Membership is private: a team member never reads their own membership row; viewers see the business Ring view, not the member list ([[Ring Access Model]]).
 - Delegated administration of the business Ring goes through `assertCanAdminister` with a permission level ([[Rings]]).
 - `EventParticipant.role` distinguishes exhibitor from visitor inside one registration flow.
-- No service writes `AnalyticsEvent` or `AuditLog` yet; S4 counts are zero until [[T-009 Scan counter and share link]] and Exhibitor · S8.
+- No service writes `AnalyticsEvent` or `AuditLog` yet; S4 counts are zero until [[Badge & QR Story|Badge & QR · S19]] and Exhibitor · S8.
 
 ## Open questions
 

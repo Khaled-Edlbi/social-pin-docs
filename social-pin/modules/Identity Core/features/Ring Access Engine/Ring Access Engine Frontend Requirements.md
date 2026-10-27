@@ -65,7 +65,7 @@ The engine exposes no endpoint. What the client needs from it is a set of guaran
 | Create or remove a block | — | ❌ | [[T-024 Block and unblock]] |
 | Grant or revoke a delegated admin level | — | ❌ | [[Delegated Admins Story|Delegated Admins · S6]] |
 | "Members can see each other" and join rules | — | ❌ | [[ND-04 Ring settings]] |
-| Resolve a scanned QR token through the engine | — | ❌ | [[T-008 Resolve a scanned QR token]] |
+| Resolve a scanned QR token through the engine | — | ❌ | [[Badge & QR Story|Badge & QR · S13–S18]] |
 
 ## Behaviour expectations
 

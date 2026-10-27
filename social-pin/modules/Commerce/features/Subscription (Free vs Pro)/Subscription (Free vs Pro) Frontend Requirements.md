@@ -22,7 +22,7 @@ What the client needs to show the plan, sell Pro and render every Pro lock truth
 ### [[Screen Index#s34|s34]] Badge (flip)
 
 - Needs: my plan (`FREE` / `PRO`) to decide whether "make permanent" is locked; the permanent QR itself on Pro.
-- Source today: not yet ([[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]] for the plan, [[T-007 Issue and rotate the QR token for a Ring]] for the token). The badge's Ring data is available ([[Badge & QR]]).
+- Source today: not yet ([[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]] for the plan, [[Badge & QR Story|Badge & QR · S7–S12]] for the token). The badge's Ring data is available ([[Badge & QR]]).
 
 ### [[Screen Index#s70|s70]] Subscription
 
@@ -47,7 +47,7 @@ What the client needs to show the plan, sell Pro and render every Pro lock truth
 | Subscribe (start, store receipt) | — | ❌ | [[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]] |
 | Cancel at period end | — | ❌ | [[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]] |
 | One `ProGate` returning 403 on every gated call | — | ❌ | [[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]] |
-| Permanent QR on Pro | — | ❌ | [[T-007 Issue and rotate the QR token for a Ring]] |
+| Permanent QR on Pro | — | ❌ | [[Badge & QR Story|Badge & QR · S7–S12]] |
 | Any-lounge access on Pro | — | ❌ | [[T-040 Lounges and upgrades]] |
 | Smart Match on Pro | — | ❌ | [[Gemma AI Story|Gemma AI · S8]] |
 | Gemma automation on Pro | — | ❌ | [[Gemma AI Story|Gemma AI · S7]] |
@@ -78,5 +78,5 @@ What the client needs to show the plan, sell Pro and render every Pro lock truth
 
 - No decision note. Upstream tasks:
 - [[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]] — every row above; the billing channel is undecided within it.
-- [[T-007 Issue and rotate the QR token for a Ring]] — the permanent QR on s34.
+- [[Badge & QR Story|Badge & QR · S7–S12]] — the permanent QR on s34.
 - [[T-040 Lounges and upgrades]], [[Gemma AI Story|Gemma AI · S8]], [[Gemma AI Story|Gemma AI · S7]] — the gated features the locks sit on; each waits on Subscription (Free vs Pro) · S6.

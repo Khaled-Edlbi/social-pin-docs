@@ -54,7 +54,7 @@ What the client needs from the backend to build the screens in [[Ring Invitation
 | Owner's display name on an invitation row | — | ❌ | [[T-023 Connection detail and contacts list]] |
 | What I contribute to a shared Ring | — | ❌ | [[Ring Invitations & Join Story|Ring Invitations & Join · S9]] |
 | Notification on invite | — | ❌ | [[Notifications Story|Notifications · S7]] |
-| Join offer carried by a scanned token | — | ❌ | [[T-008 Resolve a scanned QR token]] |
+| Join offer carried by a scanned token | — | ❌ | [[Badge & QR Story|Badge & QR · S13–S18]] |
 
 ## Behaviour expectations
 

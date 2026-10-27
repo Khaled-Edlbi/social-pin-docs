@@ -62,11 +62,11 @@ What the client needs from the backend for every screen that renders another per
 | All perspectives of one person | `GET /views/user/:userId/perspectives` | ✅ | — |
 | My live Rings for the View as selector | `GET /rings` | ✅ | — (listed under [[Rings]]) |
 | Photo and attachment bytes | — | ❌ | [[Files Upload Story|Files Upload · showing files]] |
-| Issue a rotating QR token for a Ring | — | ❌ | [[T-007 Issue and rotate the QR token for a Ring]] |
-| Resolve a scanned token to a view | — | ❌ | [[T-008 Resolve a scanned QR token]] |
+| Issue a rotating QR token for a Ring | — | ❌ | [[Badge & QR Story|Badge & QR · S7–S12]] |
+| Resolve a scanned token to a view | — | ❌ | [[Badge & QR Story|Badge & QR · S13–S18]] |
 | Connect after a scan | — | ❌ | [[T-021 Connect request send, inbox, cancel]] |
 | A `userId` to call `/perspectives` with | — | ❌ | [[T-023 Connection detail and contacts list]] |
-| Browser page for viewers without the app | — | ❌ | [[T-010 Public browser page for viewers without the app]] |
+| Browser page for viewers without the app | — | ❌ | [[Badge & QR Story|Badge & QR · S20]] |
 | Widgets rendered in the view | — | ❌ | [[Widgets Story|Widgets · S7]] |
 
 ## Behaviour expectations
@@ -96,5 +96,5 @@ Until [[Error Contract Story|Error Contract · S4–S8]] ships, the body carries
 ## Blocked by
 
 - [[Files Upload Story|Files Upload · showing files]] — the photo and attachment downloads on s31 and s44.
-- [[T-007 Issue and rotate the QR token for a Ring]] and [[T-008 Resolve a scanned QR token]] — the real QR payload on s44; a Ring id in the QR is a stopgap.
+- [[Badge & QR Story|Badge & QR · S7–S12]] and [[Badge & QR Story|Badge & QR · S13–S18]] — the real QR payload on s44; a Ring id in the QR is a stopgap.
 - [[T-021 Connect request send, inbox, cancel]] — the Connect action on s44.

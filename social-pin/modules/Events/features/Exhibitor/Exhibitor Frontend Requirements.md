@@ -46,7 +46,7 @@ What the client needs for business setup, incoming meetings and booth analytics,
 | Availability slots to offer | — | ❌ | [[Meetings Story|Meetings · S8]] |
 | Discoverable-via-Gemma toggle | — | ❌ | [[Exhibitor Story|Exhibitor · S7]] (feeds [[Gemma AI Story|Gemma AI · S8]]) |
 | Scans, video clicks, Rings opened; leads CSV | — | ❌ | [[Exhibitor Story|Exhibitor · S8]] |
-| Scan counting itself | — | ❌ | [[T-009 Scan counter and share link]] |
+| Scan counting itself | — | ❌ | [[Badge & QR Story|Badge & QR · S19]] |
 | Organizer invitation, requested files, booth and payment status | — | ❌ | no task yet; design-only |
 
 ## Behaviour expectations
@@ -75,5 +75,5 @@ What the client needs for business setup, incoming meetings and booth analytics,
 - No decision note. Upstream tasks:
 - [[Exhibitor Story|Exhibitor · S7]] — waits on [[Companies Story|Companies · S6]]; s63 entirely.
 - [[Meetings Story|Meetings · S9]] and [[Meetings Story|Meetings · S8]] — s64.
-- [[Exhibitor Story|Exhibitor · S8]] — waits on [[T-009 Scan counter and share link]] and [[T-036 Event mode exhibitors list and detail]]; s65.
+- [[Exhibitor Story|Exhibitor · S8]] — waits on [[Badge & QR Story|Badge & QR · S19]] and [[T-036 Event mode exhibitors list and detail]]; s65.
 - Organizer touchpoints (invitation, requested files, booth and payment status) — no task yet.

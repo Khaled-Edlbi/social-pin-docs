@@ -66,7 +66,7 @@ What the client needs from the backend to build the owner's roster and the per-p
 | Picker of my other Rings for reassign | `GET /rings` | ✅ | — (listed under [[Rings]]) |
 | Name, Pin name and photo per row | — | ❌ | [[T-023 Connection detail and contacts list]] |
 | A `userId` to add (connect request accepted) | — | ❌ | [[T-021 Connect request send, inbox, cancel]], [[T-022 Accept into a Ring (sets grantedRingId)]] |
-| Scan someone in | — | ❌ | [[T-008 Resolve a scanned QR token]] |
+| Scan someone in | — | ❌ | [[Badge & QR Story|Badge & QR · S13–S18]] |
 | Delegated admins managing the roster | — | ❌ | [[Delegated Admins Story|Delegated Admins · S6]] |
 | Members can see each other | — | ❌ | [[ND-04 Ring settings]] |
 

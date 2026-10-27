@@ -80,7 +80,7 @@ Screens: [[Screen Index#s75|s75]] My devices
 
 *From T-015 (status then: To do), merged 2026-10-27.*
 
-`NfcToken` mirrors `RingQrToken`; resolve path shared with T-008.
+`NfcToken` mirrors `RingQrToken`; resolve path shared with Badge & QR · S13–S18.
 
 Screens: [[Screen Index#s75|s75]] My devices
 
@@ -97,4 +97,4 @@ Screens: [[Screen Index#s75|s75]] My devices
 
 ## Open questions
 
-- No decision note names this feature. [[Devices & NFC Story|Devices & NFC · S7]] waits on [[T-007 Issue and rotate the QR token for a Ring]] so the two tokens share one resolve path.
+- No decision note names this feature. [[Devices & NFC Story|Devices & NFC · S7]] waits on [[Badge & QR Story|Badge & QR · S7–S12]] so the two tokens share one resolve path.

@@ -131,4 +131,4 @@ Screens: [[Screen Index#s74|s74]] Join a company Ring
 - [[Ring Invitations & Join Story|Ring Invitations & Join · S7]] — whether an invitation is a `RingMember` in an invited state or its own object; what the invite carries (window, purpose, inviter).
 - [[Ring Invitations & Join Story|Ring Invitations & Join · S8]] — how the work email is verified; the sign-up OTP machinery exists but is not scoped for this.
 - [[Ring Invitations & Join Story|Ring Invitations & Join · S9]] — the member-side projection of S6; not in the schema.
-- [[T-008 Resolve a scanned QR token]] — whether a token can carry a join offer (S5), which must not depend on the colleague's membership.
+- [[Badge & QR Story|Badge & QR · S13–S18]] — whether a token can carry a join offer (S5), which must not depend on the colleague's membership.

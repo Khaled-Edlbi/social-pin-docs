@@ -270,22 +270,6 @@
     "Subscription (Free vs Pro) Backend Delivery": "backend-delivery:subscription",
     "Subscription (Free vs Pro) Frontend Requirements": "frontend-requirements:subscription",
     "Subscription (Free vs Pro) Story": "story:subscription",
-    "T-007 Issue and rotate the QR token for a Ring": "task:T-007",
-    "T-007 Story": "story:T-007",
-    "T-007-be Backend · Issue and rotate the QR token for a Ring": "task:T-007-be",
-    "T-007-fe Frontend · Issue and rotate the QR token for a Ring": "task:T-007-fe",
-    "T-008 Resolve a scanned QR token": "task:T-008",
-    "T-008 Story": "story:T-008",
-    "T-008-be Backend · Resolve a scanned QR token": "task:T-008-be",
-    "T-008-fe Frontend · Resolve a scanned QR token": "task:T-008-fe",
-    "T-009 Scan counter and share link": "task:T-009",
-    "T-009 Story": "story:T-009",
-    "T-009-be Backend · Scan counter and share link": "task:T-009-be",
-    "T-009-fe Frontend · Scan counter and share link": "task:T-009-fe",
-    "T-010 Public browser page for viewers without the app": "task:T-010",
-    "T-010 Story": "story:T-010",
-    "T-010-be Backend · Public browser page for viewers without the app": "task:T-010-be",
-    "T-010-fe Frontend · Public browser page for viewers without the app": "task:T-010-fe",
     "T-021 Connect request send, inbox, cancel": "task:T-021",
     "T-021 Story": "story:T-021",
     "T-021-be Backend · Connect request send, inbox, cancel": "task:T-021-be",
@@ -580,10 +564,6 @@
     "S-31": "story:delegated-admins",
     "S-33": "story:ring-invitations",
     "S-37": "story:badge-qr",
-    "S-38": "story:T-007",
-    "S-39": "story:T-008",
-    "S-40": "story:T-009",
-    "S-41": "story:T-010",
     "S-42": "story:discover-hub",
     "S-45": "story:pincast",
     "S-47": "story:event-ring-auto",
@@ -610,18 +590,6 @@
     "S-92": "story:interests",
     "S-94": "story:linked-accounts",
     "S-96": "story:notifications",
-    "T-007": "task:T-007",
-    "T-007-be": "task:T-007-be",
-    "T-007-fe": "task:T-007-fe",
-    "T-008": "task:T-008",
-    "T-008-be": "task:T-008-be",
-    "T-008-fe": "task:T-008-fe",
-    "T-009": "task:T-009",
-    "T-009-be": "task:T-009-be",
-    "T-009-fe": "task:T-009-fe",
-    "T-010": "task:T-010",
-    "T-010-be": "task:T-010-be",
-    "T-010-fe": "task:T-010-fe",
     "T-021": "task:T-021",
     "T-021-be": "task:T-021-be",
     "T-021-fe": "task:T-021-fe",
@@ -1196,7 +1164,6 @@
         "project:api-conventions",
         "project:docs-tree",
         "project:frontend-agent-prompt",
-        "task:T-007",
         "task:T-022"
       ],
       "kind": "error",
@@ -1226,8 +1193,8 @@
         "project:api-conventions",
         "project:docs-tree",
         "project:frontend-agent-prompt",
-        "story:T-007",
         "story:T-022",
+        "story:badge-qr",
         "story:delegated-admins"
       ],
       "owner": null
@@ -2109,12 +2076,11 @@
     },
     "GET /views/qr/:token": {
       "containers": [
-        "task:T-008"
+        "feature:badge-qr"
       ],
       "kind": "endpoint",
       "notes": [
-        "story:T-008",
-        "task:T-008"
+        "story:badge-qr"
       ],
       "owner": null
     },
@@ -2155,9 +2121,7 @@
         "project:frontend-contract",
         "project:ring-access-model",
         "project:spec-map",
-        "project:status-report-2026-10-15",
-        "task:T-007",
-        "task:T-008"
+        "project:status-report-2026-10-15"
       ],
       "kind": "endpoint",
       "notes": [
@@ -2185,8 +2149,6 @@
         "project:ring-access-model",
         "project:spec-map",
         "project:status-report-2026-10-15",
-        "story:T-007",
-        "story:T-008",
         "story:badge-qr",
         "story:companies",
         "story:event-ring-auto",
@@ -2194,8 +2156,7 @@
         "story:ring-access",
         "story:ring-invitations",
         "story:ring-projection",
-        "story:view-as",
-        "task:T-008"
+        "story:view-as"
       ],
       "owner": "feature:view-as"
     },
@@ -2862,14 +2823,13 @@
     },
     "POST /rings/:ringId/qr": {
       "containers": [
-        "needs-decision:ND-11",
-        "task:T-007"
+        "feature:badge-qr",
+        "needs-decision:ND-11"
       ],
       "kind": "endpoint",
       "notes": [
         "needs-decision:ND-11",
-        "story:T-007",
-        "task:T-007"
+        "story:badge-qr"
       ],
       "owner": null
     },
@@ -3527,16 +3487,7 @@
         "feature:badge-qr",
         "feature:subscription",
         "needs-decision:ND-11",
-        "needs-decision:ND-12",
-        "task:T-007",
-        "task:T-007-be",
-        "task:T-007-fe",
-        "task:T-009",
-        "task:T-009-be",
-        "task:T-009-fe",
-        "task:T-010",
-        "task:T-010-be",
-        "task:T-010-fe"
+        "needs-decision:ND-12"
       ],
       "kind": "screen",
       "notes": [
@@ -3548,20 +3499,8 @@
         "frontend-requirements:subscription",
         "needs-decision:ND-11",
         "needs-decision:ND-12",
-        "story:T-007",
-        "story:T-009",
-        "story:T-010",
         "story:badge-qr",
-        "story:subscription",
-        "task:T-007",
-        "task:T-007-be",
-        "task:T-007-fe",
-        "task:T-009",
-        "task:T-009-be",
-        "task:T-009-fe",
-        "task:T-010",
-        "task:T-010-be",
-        "task:T-010-fe"
+        "story:subscription"
       ],
       "owner": null
     },
@@ -3672,10 +3611,7 @@
       "containers": [
         "feature:badge-qr",
         "needs-decision:ND-10",
-        "needs-decision:ND-12",
-        "task:T-008",
-        "task:T-008-be",
-        "task:T-008-fe"
+        "needs-decision:ND-12"
       ],
       "kind": "screen",
       "notes": [
@@ -3684,11 +3620,7 @@
         "frontend-requirements:badge-qr",
         "needs-decision:ND-10",
         "needs-decision:ND-12",
-        "story:T-008",
-        "story:badge-qr",
-        "task:T-008",
-        "task:T-008-be",
-        "task:T-008-fe"
+        "story:badge-qr"
       ],
       "owner": null
     },
@@ -3702,9 +3634,6 @@
         "needs-decision:ND-13",
         "needs-decision:ND-16",
         "needs-decision:ND-17",
-        "task:T-008",
-        "task:T-008-be",
-        "task:T-008-fe",
         "task:T-021",
         "task:T-021-be",
         "task:T-021-fe"
@@ -3725,15 +3654,11 @@
         "needs-decision:ND-13",
         "needs-decision:ND-16",
         "needs-decision:ND-17",
-        "story:T-008",
         "story:T-021",
         "story:badge-qr",
         "story:connections",
         "story:files",
         "story:view-as",
-        "task:T-008",
-        "task:T-008-be",
-        "task:T-008-fe",
         "task:T-021",
         "task:T-021-be",
         "task:T-021-fe"
@@ -4326,7 +4251,7 @@
     }
   },
   "counts": {
-    "blocked": 71,
+    "blocked": 59,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -4339,28 +4264,28 @@
       "project": 27,
       "qa-backend": 1,
       "qa-frontend": 1,
-      "story": 55,
-      "task": 44
+      "story": 51,
+      "task": 32
     },
     "byLayer": {
       "backend": 56,
-      "business": 178,
+      "business": 162,
       "frontend": 44,
       "qa": 2,
       "shared": 10
     },
     "concepts": 199,
     "decisions": 19,
-    "edges": 4019,
+    "edges": 3846,
     "features": 41,
-    "layerNotes": 145,
+    "layerNotes": 141,
     "modules": 8,
-    "notes": 326,
+    "notes": 310,
     "partial": 4,
     "placeholders": 154,
     "records": 14,
-    "taskLayerNotes": 14,
-    "tasks": 44
+    "taskLayerNotes": 10,
+    "tasks": 32
   },
   "deadlines": {
     "missed": {
@@ -5763,7 +5688,7 @@
     {
       "from": "needs-decision:ND-10",
       "kind": "blocks",
-      "to": "story:T-008"
+      "to": "story:badge-qr"
     },
     {
       "from": "needs-decision:ND-10",
@@ -5773,17 +5698,12 @@
     {
       "from": "needs-decision:ND-11",
       "kind": "blocks",
-      "to": "story:T-007"
+      "to": "story:badge-qr"
     },
     {
       "from": "needs-decision:ND-12",
       "kind": "blocks",
-      "to": "story:T-007"
-    },
-    {
-      "from": "needs-decision:ND-12",
-      "kind": "blocks",
-      "to": "task:T-010"
+      "to": "story:badge-qr"
     },
     {
       "from": "needs-decision:ND-16",
@@ -5829,86 +5749,6 @@
       "from": "story:ring-invitations",
       "kind": "blocks",
       "to": "frontend-requirements:ring-invitations"
-    },
-    {
-      "from": "task:T-007",
-      "kind": "blocks",
-      "to": "task:T-008"
-    },
-    {
-      "from": "task:T-007",
-      "kind": "blocks",
-      "to": "task:T-008-be"
-    },
-    {
-      "from": "task:T-007",
-      "kind": "blocks",
-      "to": "task:T-008-fe"
-    },
-    {
-      "from": "task:T-007",
-      "kind": "blocks",
-      "to": "task:T-037"
-    },
-    {
-      "from": "task:T-007",
-      "kind": "blocks",
-      "to": "task:T-037-be"
-    },
-    {
-      "from": "task:T-007",
-      "kind": "blocks",
-      "to": "task:T-037-fe"
-    },
-    {
-      "from": "task:T-007-be",
-      "kind": "blocks",
-      "to": "task:T-007-fe"
-    },
-    {
-      "from": "task:T-008",
-      "kind": "blocks",
-      "to": "task:T-009"
-    },
-    {
-      "from": "task:T-008",
-      "kind": "blocks",
-      "to": "task:T-009-be"
-    },
-    {
-      "from": "task:T-008",
-      "kind": "blocks",
-      "to": "task:T-009-fe"
-    },
-    {
-      "from": "task:T-008",
-      "kind": "blocks",
-      "to": "task:T-010"
-    },
-    {
-      "from": "task:T-008",
-      "kind": "blocks",
-      "to": "task:T-010-be"
-    },
-    {
-      "from": "task:T-008",
-      "kind": "blocks",
-      "to": "task:T-010-fe"
-    },
-    {
-      "from": "task:T-008-be",
-      "kind": "blocks",
-      "to": "task:T-008-fe"
-    },
-    {
-      "from": "task:T-009-be",
-      "kind": "blocks",
-      "to": "task:T-009-fe"
-    },
-    {
-      "from": "task:T-010-be",
-      "kind": "blocks",
-      "to": "task:T-010-fe"
     },
     {
       "from": "task:T-021",
@@ -6168,7 +6008,7 @@
     {
       "from": "needs-decision:ND-10",
       "kind": "decision",
-      "to": "story:T-008"
+      "to": "story:badge-qr"
     },
     {
       "from": "needs-decision:ND-10",
@@ -6183,7 +6023,7 @@
     {
       "from": "needs-decision:ND-11",
       "kind": "decision",
-      "to": "story:T-007"
+      "to": "story:badge-qr"
     },
     {
       "from": "needs-decision:ND-12",
@@ -6193,12 +6033,7 @@
     {
       "from": "needs-decision:ND-12",
       "kind": "decision",
-      "to": "story:T-007"
-    },
-    {
-      "from": "needs-decision:ND-12",
-      "kind": "decision",
-      "to": "task:T-010"
+      "to": "story:badge-qr"
     },
     {
       "from": "needs-decision:ND-13",
@@ -6356,71 +6191,6 @@
       "to": "needs-decision:ND-07"
     },
     {
-      "from": "task:T-007-fe",
-      "kind": "depends",
-      "to": "task:T-007-be"
-    },
-    {
-      "from": "task:T-008",
-      "kind": "depends",
-      "to": "task:T-007"
-    },
-    {
-      "from": "task:T-008-be",
-      "kind": "depends",
-      "to": "task:T-007"
-    },
-    {
-      "from": "task:T-008-fe",
-      "kind": "depends",
-      "to": "task:T-007"
-    },
-    {
-      "from": "task:T-008-fe",
-      "kind": "depends",
-      "to": "task:T-008-be"
-    },
-    {
-      "from": "task:T-009",
-      "kind": "depends",
-      "to": "task:T-008"
-    },
-    {
-      "from": "task:T-009-be",
-      "kind": "depends",
-      "to": "task:T-008"
-    },
-    {
-      "from": "task:T-009-fe",
-      "kind": "depends",
-      "to": "task:T-008"
-    },
-    {
-      "from": "task:T-009-fe",
-      "kind": "depends",
-      "to": "task:T-009-be"
-    },
-    {
-      "from": "task:T-010",
-      "kind": "depends",
-      "to": "task:T-008"
-    },
-    {
-      "from": "task:T-010-be",
-      "kind": "depends",
-      "to": "task:T-008"
-    },
-    {
-      "from": "task:T-010-fe",
-      "kind": "depends",
-      "to": "task:T-008"
-    },
-    {
-      "from": "task:T-010-fe",
-      "kind": "depends",
-      "to": "task:T-010-be"
-    },
-    {
       "from": "task:T-021-fe",
       "kind": "depends",
       "to": "task:T-021-be"
@@ -6494,21 +6264,6 @@
       "from": "task:T-036-fe",
       "kind": "depends",
       "to": "task:T-036-be"
-    },
-    {
-      "from": "task:T-037",
-      "kind": "depends",
-      "to": "task:T-007"
-    },
-    {
-      "from": "task:T-037-be",
-      "kind": "depends",
-      "to": "task:T-007"
-    },
-    {
-      "from": "task:T-037-fe",
-      "kind": "depends",
-      "to": "task:T-007"
     },
     {
       "from": "task:T-037-fe",
@@ -10125,38 +9880,6 @@
       "to": "story:profiles"
     },
     {
-      "from": "story:badge-qr",
-      "kind": "related",
-      "to": "story:T-007",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
-      "from": "story:badge-qr",
-      "kind": "related",
-      "to": "story:T-008",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
-      "from": "story:badge-qr",
-      "kind": "related",
-      "to": "story:T-009",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
-      "from": "story:badge-qr",
-      "kind": "related",
-      "to": "story:T-010",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
       "from": "story:companies",
       "kind": "related",
       "to": "decision:D-04"
@@ -10679,12 +10402,27 @@
     {
       "from": "task:T-037",
       "kind": "related",
+      "to": "story:badge-qr"
+    },
+    {
+      "from": "task:T-037",
+      "kind": "related",
       "to": "story:event-ring-auto"
     },
     {
       "from": "task:T-037-be",
       "kind": "related",
+      "to": "story:badge-qr"
+    },
+    {
+      "from": "task:T-037-be",
+      "kind": "related",
       "to": "story:event-ring-auto"
+    },
+    {
+      "from": "task:T-037-fe",
+      "kind": "related",
+      "to": "story:badge-qr"
     },
     {
       "from": "task:T-037-fe",
@@ -12707,6 +12445,14 @@
     {
       "from": "feature:badge-qr",
       "kind": "shares",
+      "to": "needs-decision:ND-11",
+      "via": [
+        "POST /rings/:ringId/qr"
+      ]
+    },
+    {
+      "from": "feature:badge-qr",
+      "kind": "shares",
       "to": "project:agent-rules",
       "via": [
         "E_RING_02"
@@ -12796,23 +12542,6 @@
       "via": [
         "GET /rings",
         "GET /users/me"
-      ]
-    },
-    {
-      "from": "feature:badge-qr",
-      "kind": "shares",
-      "to": "task:T-007",
-      "via": [
-        "E_RING_02",
-        "GET /views/ring/:ringId"
-      ]
-    },
-    {
-      "from": "feature:badge-qr",
-      "kind": "shares",
-      "to": "task:T-008",
-      "via": [
-        "GET /views/ring/:ringId"
       ]
     },
     {
@@ -13060,14 +12789,6 @@
       "to": "task:B-02",
       "via": [
         "GET /rings"
-      ]
-    },
-    {
-      "from": "feature:cleanup-jobs",
-      "kind": "shares",
-      "to": "task:T-007",
-      "via": [
-        "E_RING_02"
       ]
     },
     {
@@ -13561,23 +13282,6 @@
     {
       "from": "feature:companies",
       "kind": "shares",
-      "to": "task:T-007",
-      "via": [
-        "E_RING_02",
-        "GET /views/ring/:ringId"
-      ]
-    },
-    {
-      "from": "feature:companies",
-      "kind": "shares",
-      "to": "task:T-008",
-      "via": [
-        "GET /views/ring/:ringId"
-      ]
-    },
-    {
-      "from": "feature:companies",
-      "kind": "shares",
       "to": "task:T-022",
       "via": [
         "E_RING_02",
@@ -14023,23 +13727,6 @@
     {
       "from": "feature:connections",
       "kind": "shares",
-      "to": "task:T-007",
-      "via": [
-        "E_RING_02",
-        "GET /views/ring/:ringId"
-      ]
-    },
-    {
-      "from": "feature:connections",
-      "kind": "shares",
-      "to": "task:T-008",
-      "via": [
-        "GET /views/ring/:ringId"
-      ]
-    },
-    {
-      "from": "feature:connections",
-      "kind": "shares",
       "to": "task:T-022",
       "via": [
         "E_RING_02",
@@ -14317,14 +14004,6 @@
       "via": [
         "GET /rings",
         "GET /users/me"
-      ]
-    },
-    {
-      "from": "feature:counts",
-      "kind": "shares",
-      "to": "task:T-007",
-      "via": [
-        "E_RING_02"
       ]
     },
     {
@@ -14661,14 +14340,6 @@
       "via": [
         "DELETE /rings/:id",
         "GET /rings/shared-with-me"
-      ]
-    },
-    {
-      "from": "feature:delegated-admins",
-      "kind": "shares",
-      "to": "task:T-007",
-      "via": [
-        "E_RING_02"
       ]
     },
     {
@@ -15378,14 +15049,6 @@
     {
       "from": "feature:error-contract",
       "kind": "shares",
-      "to": "task:T-007",
-      "via": [
-        "E_RING_02"
-      ]
-    },
-    {
-      "from": "feature:error-contract",
-      "kind": "shares",
       "to": "task:T-022",
       "via": [
         "E_RING_02"
@@ -15641,23 +15304,6 @@
       "to": "task:B-02",
       "via": [
         "GET /rings"
-      ]
-    },
-    {
-      "from": "feature:event-ring-auto",
-      "kind": "shares",
-      "to": "task:T-007",
-      "via": [
-        "E_RING_02",
-        "GET /views/ring/:ringId"
-      ]
-    },
-    {
-      "from": "feature:event-ring-auto",
-      "kind": "shares",
-      "to": "task:T-008",
-      "via": [
-        "GET /views/ring/:ringId"
       ]
     },
     {
@@ -15941,22 +15587,6 @@
       ]
     },
     {
-      "from": "feature:events-during",
-      "kind": "shares",
-      "to": "task:T-007",
-      "via": [
-        "GET /views/ring/:ringId"
-      ]
-    },
-    {
-      "from": "feature:events-during",
-      "kind": "shares",
-      "to": "task:T-008",
-      "via": [
-        "GET /views/ring/:ringId"
-      ]
-    },
-    {
       "from": "feature:exhibitor",
       "kind": "shares",
       "to": "feature:files",
@@ -16159,23 +15789,6 @@
       "via": [
         "GET /views/ring/:ringId",
         "POST /rings"
-      ]
-    },
-    {
-      "from": "feature:exhibitor",
-      "kind": "shares",
-      "to": "task:T-007",
-      "via": [
-        "E_RING_02",
-        "GET /views/ring/:ringId"
-      ]
-    },
-    {
-      "from": "feature:exhibitor",
-      "kind": "shares",
-      "to": "task:T-008",
-      "via": [
-        "GET /views/ring/:ringId"
       ]
     },
     {
@@ -16835,23 +16448,6 @@
     {
       "from": "feature:meetings",
       "kind": "shares",
-      "to": "task:T-007",
-      "via": [
-        "E_RING_02",
-        "GET /views/ring/:ringId"
-      ]
-    },
-    {
-      "from": "feature:meetings",
-      "kind": "shares",
-      "to": "task:T-008",
-      "via": [
-        "GET /views/ring/:ringId"
-      ]
-    },
-    {
-      "from": "feature:meetings",
-      "kind": "shares",
       "to": "task:T-022",
       "via": [
         "E_RING_02",
@@ -17252,14 +16848,6 @@
     {
       "from": "feature:photo-library",
       "kind": "shares",
-      "to": "task:T-007",
-      "via": [
-        "E_RING_02"
-      ]
-    },
-    {
-      "from": "feature:photo-library",
-      "kind": "shares",
       "to": "task:T-022",
       "via": [
         "E_RING_02"
@@ -17472,14 +17060,6 @@
     {
       "from": "feature:pincast",
       "kind": "shares",
-      "to": "task:T-007",
-      "via": [
-        "E_RING_02"
-      ]
-    },
-    {
-      "from": "feature:pincast",
-      "kind": "shares",
       "to": "task:T-022",
       "via": [
         "E_RING_02",
@@ -17675,23 +17255,6 @@
       "to": "task:B-02",
       "via": [
         "GET /rings"
-      ]
-    },
-    {
-      "from": "feature:post-event",
-      "kind": "shares",
-      "to": "task:T-007",
-      "via": [
-        "E_RING_02",
-        "GET /views/ring/:ringId"
-      ]
-    },
-    {
-      "from": "feature:post-event",
-      "kind": "shares",
-      "to": "task:T-008",
-      "via": [
-        "GET /views/ring/:ringId"
       ]
     },
     {
@@ -17989,23 +17552,6 @@
     {
       "from": "feature:ring-access",
       "kind": "shares",
-      "to": "task:T-007",
-      "via": [
-        "E_RING_02",
-        "GET /views/ring/:ringId"
-      ]
-    },
-    {
-      "from": "feature:ring-access",
-      "kind": "shares",
-      "to": "task:T-008",
-      "via": [
-        "GET /views/ring/:ringId"
-      ]
-    },
-    {
-      "from": "feature:ring-access",
-      "kind": "shares",
       "to": "task:T-022",
       "via": [
         "E_RING_02",
@@ -18136,22 +17682,6 @@
       "to": "project:status-report-2026-10-15",
       "via": [
         "GET /rings/shared-with-me",
-        "GET /views/ring/:ringId"
-      ]
-    },
-    {
-      "from": "feature:ring-invitations",
-      "kind": "shares",
-      "to": "task:T-007",
-      "via": [
-        "GET /views/ring/:ringId"
-      ]
-    },
-    {
-      "from": "feature:ring-invitations",
-      "kind": "shares",
-      "to": "task:T-008",
-      "via": [
         "GET /views/ring/:ringId"
       ]
     },
@@ -18302,14 +17832,6 @@
       "to": "task:B-02",
       "via": [
         "GET /rings"
-      ]
-    },
-    {
-      "from": "feature:ring-members",
-      "kind": "shares",
-      "to": "task:T-007",
-      "via": [
-        "E_RING_02"
       ]
     },
     {
@@ -18468,23 +17990,6 @@
     {
       "from": "feature:ring-projection",
       "kind": "shares",
-      "to": "task:T-007",
-      "via": [
-        "E_RING_02",
-        "GET /views/ring/:ringId"
-      ]
-    },
-    {
-      "from": "feature:ring-projection",
-      "kind": "shares",
-      "to": "task:T-008",
-      "via": [
-        "GET /views/ring/:ringId"
-      ]
-    },
-    {
-      "from": "feature:ring-projection",
-      "kind": "shares",
       "to": "task:T-022",
       "via": [
         "E_RING_02"
@@ -18634,23 +18139,6 @@
     {
       "from": "feature:rings",
       "kind": "shares",
-      "to": "task:T-007",
-      "via": [
-        "E_RING_02",
-        "GET /views/ring/:ringId"
-      ]
-    },
-    {
-      "from": "feature:rings",
-      "kind": "shares",
-      "to": "task:T-008",
-      "via": [
-        "GET /views/ring/:ringId"
-      ]
-    },
-    {
-      "from": "feature:rings",
-      "kind": "shares",
       "to": "task:T-022",
       "via": [
         "E_RING_02",
@@ -18796,22 +18284,6 @@
     {
       "from": "feature:view-as",
       "kind": "shares",
-      "to": "task:T-007",
-      "via": [
-        "GET /views/ring/:ringId"
-      ]
-    },
-    {
-      "from": "feature:view-as",
-      "kind": "shares",
-      "to": "task:T-008",
-      "via": [
-        "GET /views/ring/:ringId"
-      ]
-    },
-    {
-      "from": "feature:view-as",
-      "kind": "shares",
       "to": "task:T-022",
       "via": [
         "GET /rings"
@@ -18901,23 +18373,6 @@
       "from": "feature:widgets",
       "kind": "shares",
       "to": "project:status-report-2026-10-15",
-      "via": [
-        "GET /views/ring/:ringId"
-      ]
-    },
-    {
-      "from": "feature:widgets",
-      "kind": "shares",
-      "to": "task:T-007",
-      "via": [
-        "E_RING_02",
-        "GET /views/ring/:ringId"
-      ]
-    },
-    {
-      "from": "feature:widgets",
-      "kind": "shares",
-      "to": "task:T-008",
       "via": [
         "GET /views/ring/:ringId"
       ]
@@ -19020,22 +18475,6 @@
     {
       "from": "needs-decision:ND-10",
       "kind": "shares",
-      "to": "task:T-007",
-      "via": [
-        "GET /views/ring/:ringId"
-      ]
-    },
-    {
-      "from": "needs-decision:ND-10",
-      "kind": "shares",
-      "to": "task:T-008",
-      "via": [
-        "GET /views/ring/:ringId"
-      ]
-    },
-    {
-      "from": "needs-decision:ND-10",
-      "kind": "shares",
       "to": "task:T-021",
       "via": [
         "POST /connections/requests"
@@ -19047,14 +18486,6 @@
       "to": "task:T-023",
       "via": [
         "GET /views/user/:userId/perspectives"
-      ]
-    },
-    {
-      "from": "needs-decision:ND-11",
-      "kind": "shares",
-      "to": "task:T-007",
-      "via": [
-        "POST /rings/:ringId/qr"
       ]
     },
     {
@@ -19319,14 +18750,6 @@
     {
       "from": "project:agent-rules",
       "kind": "shares",
-      "to": "task:T-007",
-      "via": [
-        "E_RING_02"
-      ]
-    },
-    {
-      "from": "project:agent-rules",
-      "kind": "shares",
       "to": "task:T-022",
       "via": [
         "E_RING_02"
@@ -19344,14 +18767,6 @@
       "from": "project:api-conventions",
       "kind": "shares",
       "to": "project:frontend-agent-prompt",
-      "via": [
-        "E_RING_02"
-      ]
-    },
-    {
-      "from": "project:api-conventions",
-      "kind": "shares",
-      "to": "task:T-007",
       "via": [
         "E_RING_02"
       ]
@@ -19444,14 +18859,6 @@
     {
       "from": "project:docs-tree",
       "kind": "shares",
-      "to": "task:T-007",
-      "via": [
-        "E_RING_02"
-      ]
-    },
-    {
-      "from": "project:docs-tree",
-      "kind": "shares",
       "to": "task:T-022",
       "via": [
         "E_RING_02"
@@ -19471,14 +18878,6 @@
       "to": "project:frontend-passwordless-migration",
       "via": [
         "POST /auth/refresh"
-      ]
-    },
-    {
-      "from": "project:frontend-agent-prompt",
-      "kind": "shares",
-      "to": "task:T-007",
-      "via": [
-        "E_RING_02"
       ]
     },
     {
@@ -19564,22 +18963,6 @@
     {
       "from": "project:frontend-api-guide",
       "kind": "shares",
-      "to": "task:T-007",
-      "via": [
-        "GET /views/ring/:ringId"
-      ]
-    },
-    {
-      "from": "project:frontend-api-guide",
-      "kind": "shares",
-      "to": "task:T-008",
-      "via": [
-        "GET /views/ring/:ringId"
-      ]
-    },
-    {
-      "from": "project:frontend-api-guide",
-      "kind": "shares",
       "to": "task:T-023",
       "via": [
         "GET /views/user/:userId/perspectives"
@@ -19642,22 +19025,6 @@
       "to": "task:B-02",
       "via": [
         "GET /rings"
-      ]
-    },
-    {
-      "from": "project:frontend-contract",
-      "kind": "shares",
-      "to": "task:T-007",
-      "via": [
-        "GET /views/ring/:ringId"
-      ]
-    },
-    {
-      "from": "project:frontend-contract",
-      "kind": "shares",
-      "to": "task:T-008",
-      "via": [
-        "GET /views/ring/:ringId"
       ]
     },
     {
@@ -19731,22 +19098,6 @@
       ]
     },
     {
-      "from": "project:ring-access-model",
-      "kind": "shares",
-      "to": "task:T-007",
-      "via": [
-        "GET /views/ring/:ringId"
-      ]
-    },
-    {
-      "from": "project:ring-access-model",
-      "kind": "shares",
-      "to": "task:T-008",
-      "via": [
-        "GET /views/ring/:ringId"
-      ]
-    },
-    {
       "from": "project:spec-map",
       "kind": "shares",
       "to": "project:status-report-2026-10-15",
@@ -19781,22 +19132,6 @@
     {
       "from": "project:spec-map",
       "kind": "shares",
-      "to": "task:T-007",
-      "via": [
-        "GET /views/ring/:ringId"
-      ]
-    },
-    {
-      "from": "project:spec-map",
-      "kind": "shares",
-      "to": "task:T-008",
-      "via": [
-        "GET /views/ring/:ringId"
-      ]
-    },
-    {
-      "from": "project:spec-map",
-      "kind": "shares",
       "to": "task:T-022",
       "via": [
         "GET /rings",
@@ -19819,22 +19154,6 @@
       "to": "task:B-02",
       "via": [
         "GET /rings"
-      ]
-    },
-    {
-      "from": "project:status-report-2026-10-15",
-      "kind": "shares",
-      "to": "task:T-007",
-      "via": [
-        "GET /views/ring/:ringId"
-      ]
-    },
-    {
-      "from": "project:status-report-2026-10-15",
-      "kind": "shares",
-      "to": "task:T-008",
-      "via": [
-        "GET /views/ring/:ringId"
       ]
     },
     {
@@ -21852,22 +21171,17 @@
     {
       "from": "story:badge-qr",
       "kind": "tree",
-      "to": "task:T-007"
+      "to": "needs-decision:ND-10"
     },
     {
       "from": "story:badge-qr",
       "kind": "tree",
-      "to": "task:T-008"
+      "to": "needs-decision:ND-11"
     },
     {
       "from": "story:badge-qr",
       "kind": "tree",
-      "to": "task:T-009"
-    },
-    {
-      "from": "story:badge-qr",
-      "kind": "tree",
-      "to": "task:T-010"
+      "to": "needs-decision:ND-12"
     },
     {
       "from": "story:companies",
@@ -21960,21 +21274,6 @@
       "to": "needs-decision:ND-07"
     },
     {
-      "from": "story:T-007",
-      "kind": "tree",
-      "to": "needs-decision:ND-11"
-    },
-    {
-      "from": "story:T-007",
-      "kind": "tree",
-      "to": "needs-decision:ND-12"
-    },
-    {
-      "from": "story:T-008",
-      "kind": "tree",
-      "to": "needs-decision:ND-10"
-    },
-    {
       "from": "story:T-021",
       "kind": "tree",
       "to": "needs-decision:ND-10"
@@ -22008,71 +21307,6 @@
       "from": "task:B-01",
       "kind": "tree",
       "to": "needs-decision:ND-20"
-    },
-    {
-      "from": "task:T-007",
-      "kind": "tree",
-      "to": "story:T-007"
-    },
-    {
-      "from": "task:T-007",
-      "kind": "tree",
-      "to": "task:T-007-be"
-    },
-    {
-      "from": "task:T-007",
-      "kind": "tree",
-      "to": "task:T-007-fe"
-    },
-    {
-      "from": "task:T-008",
-      "kind": "tree",
-      "to": "story:T-008"
-    },
-    {
-      "from": "task:T-008",
-      "kind": "tree",
-      "to": "task:T-008-be"
-    },
-    {
-      "from": "task:T-008",
-      "kind": "tree",
-      "to": "task:T-008-fe"
-    },
-    {
-      "from": "task:T-009",
-      "kind": "tree",
-      "to": "story:T-009"
-    },
-    {
-      "from": "task:T-009",
-      "kind": "tree",
-      "to": "task:T-009-be"
-    },
-    {
-      "from": "task:T-009",
-      "kind": "tree",
-      "to": "task:T-009-fe"
-    },
-    {
-      "from": "task:T-010",
-      "kind": "tree",
-      "to": "needs-decision:ND-12"
-    },
-    {
-      "from": "task:T-010",
-      "kind": "tree",
-      "to": "story:T-010"
-    },
-    {
-      "from": "task:T-010",
-      "kind": "tree",
-      "to": "task:T-010-be"
-    },
-    {
-      "from": "task:T-010",
-      "kind": "tree",
-      "to": "task:T-010-fe"
     },
     {
       "from": "task:T-021",
@@ -22972,12 +22206,12 @@
     {
       "from": "backend-integration:ring-members",
       "kind": "wikilink",
-      "to": "story:delegated-admins"
+      "to": "story:badge-qr"
     },
     {
       "from": "backend-integration:ring-members",
       "kind": "wikilink",
-      "to": "task:T-008"
+      "to": "story:delegated-admins"
     },
     {
       "from": "backend-integration:ring-members",
@@ -23137,21 +22371,6 @@
     {
       "from": "backend-integration:view-as",
       "kind": "wikilink",
-      "to": "task:T-007"
-    },
-    {
-      "from": "backend-integration:view-as",
-      "kind": "wikilink",
-      "to": "task:T-008"
-    },
-    {
-      "from": "backend-integration:view-as",
-      "kind": "wikilink",
-      "to": "task:T-010"
-    },
-    {
-      "from": "backend-integration:view-as",
-      "kind": "wikilink",
       "to": "task:T-021"
     },
     {
@@ -23282,22 +22501,7 @@
     {
       "from": "feature:badge-qr",
       "kind": "wikilink",
-      "to": "task:T-007"
-    },
-    {
-      "from": "feature:badge-qr",
-      "kind": "wikilink",
-      "to": "task:T-008"
-    },
-    {
-      "from": "feature:badge-qr",
-      "kind": "wikilink",
-      "to": "task:T-009"
-    },
-    {
-      "from": "feature:badge-qr",
-      "kind": "wikilink",
-      "to": "task:T-010"
+      "to": "project:status-report-2026-10-15"
     },
     {
       "from": "feature:cleanup-jobs",
@@ -23352,7 +22556,7 @@
     {
       "from": "feature:connections",
       "kind": "wikilink",
-      "to": "story:T-008"
+      "to": "story:badge-qr"
     },
     {
       "from": "feature:connections",
@@ -23847,26 +23051,6 @@
     {
       "from": "frontend-requirements:badge-qr",
       "kind": "wikilink",
-      "to": "task:T-007"
-    },
-    {
-      "from": "frontend-requirements:badge-qr",
-      "kind": "wikilink",
-      "to": "task:T-008"
-    },
-    {
-      "from": "frontend-requirements:badge-qr",
-      "kind": "wikilink",
-      "to": "task:T-009"
-    },
-    {
-      "from": "frontend-requirements:badge-qr",
-      "kind": "wikilink",
-      "to": "task:T-010"
-    },
-    {
-      "from": "frontend-requirements:badge-qr",
-      "kind": "wikilink",
       "to": "task:T-021"
     },
     {
@@ -24112,6 +23296,11 @@
     {
       "from": "frontend-requirements:devices",
       "kind": "wikilink",
+      "to": "story:badge-qr"
+    },
+    {
+      "from": "frontend-requirements:devices",
+      "kind": "wikilink",
       "to": "story:devices"
     },
     {
@@ -24123,16 +23312,6 @@
       "from": "frontend-requirements:devices",
       "kind": "wikilink",
       "to": "story:notifications"
-    },
-    {
-      "from": "frontend-requirements:devices",
-      "kind": "wikilink",
-      "to": "task:T-007"
-    },
-    {
-      "from": "frontend-requirements:devices",
-      "kind": "wikilink",
-      "to": "task:T-008"
     },
     {
       "from": "frontend-requirements:discover-hub",
@@ -24197,6 +23376,11 @@
     {
       "from": "frontend-requirements:event-ring-auto",
       "kind": "wikilink",
+      "to": "story:badge-qr"
+    },
+    {
+      "from": "frontend-requirements:event-ring-auto",
+      "kind": "wikilink",
       "to": "story:error-contract"
     },
     {
@@ -24213,11 +23397,6 @@
       "from": "frontend-requirements:event-ring-auto",
       "kind": "wikilink",
       "to": "story:payments"
-    },
-    {
-      "from": "frontend-requirements:event-ring-auto",
-      "kind": "wikilink",
-      "to": "task:T-007"
     },
     {
       "from": "frontend-requirements:event-ring-auto",
@@ -24267,6 +23446,11 @@
     {
       "from": "frontend-requirements:events-during",
       "kind": "wikilink",
+      "to": "story:badge-qr"
+    },
+    {
+      "from": "frontend-requirements:events-during",
+      "kind": "wikilink",
       "to": "story:error-contract"
     },
     {
@@ -24298,11 +23482,6 @@
       "from": "frontend-requirements:events-during",
       "kind": "wikilink",
       "to": "story:subscription"
-    },
-    {
-      "from": "frontend-requirements:events-during",
-      "kind": "wikilink",
-      "to": "task:T-007"
     },
     {
       "from": "frontend-requirements:events-during",
@@ -24347,6 +23526,11 @@
     {
       "from": "frontend-requirements:exhibitor",
       "kind": "wikilink",
+      "to": "story:badge-qr"
+    },
+    {
+      "from": "frontend-requirements:exhibitor",
+      "kind": "wikilink",
       "to": "story:companies"
     },
     {
@@ -24368,11 +23552,6 @@
       "from": "frontend-requirements:exhibitor",
       "kind": "wikilink",
       "to": "story:meetings"
-    },
-    {
-      "from": "frontend-requirements:exhibitor",
-      "kind": "wikilink",
-      "to": "task:T-009"
     },
     {
       "from": "frontend-requirements:exhibitor",
@@ -24687,6 +23866,11 @@
     {
       "from": "frontend-requirements:post-event",
       "kind": "wikilink",
+      "to": "story:badge-qr"
+    },
+    {
+      "from": "frontend-requirements:post-event",
+      "kind": "wikilink",
       "to": "story:cleanup-jobs"
     },
     {
@@ -24718,11 +23902,6 @@
       "from": "frontend-requirements:post-event",
       "kind": "wikilink",
       "to": "story:post-event"
-    },
-    {
-      "from": "frontend-requirements:post-event",
-      "kind": "wikilink",
-      "to": "task:T-009"
     },
     {
       "from": "frontend-requirements:post-event",
@@ -24777,6 +23956,11 @@
     {
       "from": "frontend-requirements:ring-access",
       "kind": "wikilink",
+      "to": "story:badge-qr"
+    },
+    {
+      "from": "frontend-requirements:ring-access",
+      "kind": "wikilink",
       "to": "story:delegated-admins"
     },
     {
@@ -24788,11 +23972,6 @@
       "from": "frontend-requirements:ring-access",
       "kind": "wikilink",
       "to": "story:ring-access"
-    },
-    {
-      "from": "frontend-requirements:ring-access",
-      "kind": "wikilink",
-      "to": "task:T-008"
     },
     {
       "from": "frontend-requirements:ring-access",
@@ -24817,6 +23996,11 @@
     {
       "from": "frontend-requirements:ring-invitations",
       "kind": "wikilink",
+      "to": "story:badge-qr"
+    },
+    {
+      "from": "frontend-requirements:ring-invitations",
+      "kind": "wikilink",
       "to": "story:error-contract"
     },
     {
@@ -24828,11 +24012,6 @@
       "from": "frontend-requirements:ring-invitations",
       "kind": "wikilink",
       "to": "story:ring-invitations"
-    },
-    {
-      "from": "frontend-requirements:ring-invitations",
-      "kind": "wikilink",
-      "to": "task:T-008"
     },
     {
       "from": "frontend-requirements:ring-invitations",
@@ -24872,6 +24051,11 @@
     {
       "from": "frontend-requirements:ring-members",
       "kind": "wikilink",
+      "to": "story:badge-qr"
+    },
+    {
+      "from": "frontend-requirements:ring-members",
+      "kind": "wikilink",
       "to": "story:counts"
     },
     {
@@ -24888,11 +24072,6 @@
       "from": "frontend-requirements:ring-members",
       "kind": "wikilink",
       "to": "story:ring-members"
-    },
-    {
-      "from": "frontend-requirements:ring-members",
-      "kind": "wikilink",
-      "to": "task:T-008"
     },
     {
       "from": "frontend-requirements:ring-members",
@@ -25057,6 +24236,11 @@
     {
       "from": "frontend-requirements:subscription",
       "kind": "wikilink",
+      "to": "story:badge-qr"
+    },
+    {
+      "from": "frontend-requirements:subscription",
+      "kind": "wikilink",
       "to": "story:error-contract"
     },
     {
@@ -25073,11 +24257,6 @@
       "from": "frontend-requirements:subscription",
       "kind": "wikilink",
       "to": "story:subscription"
-    },
-    {
-      "from": "frontend-requirements:subscription",
-      "kind": "wikilink",
-      "to": "task:T-007"
     },
     {
       "from": "frontend-requirements:subscription",
@@ -25102,6 +24281,11 @@
     {
       "from": "frontend-requirements:view-as",
       "kind": "wikilink",
+      "to": "story:badge-qr"
+    },
+    {
+      "from": "frontend-requirements:view-as",
+      "kind": "wikilink",
       "to": "story:error-contract"
     },
     {
@@ -25118,21 +24302,6 @@
       "from": "frontend-requirements:view-as",
       "kind": "wikilink",
       "to": "story:widgets"
-    },
-    {
-      "from": "frontend-requirements:view-as",
-      "kind": "wikilink",
-      "to": "task:T-007"
-    },
-    {
-      "from": "frontend-requirements:view-as",
-      "kind": "wikilink",
-      "to": "task:T-008"
-    },
-    {
-      "from": "frontend-requirements:view-as",
-      "kind": "wikilink",
-      "to": "task:T-010"
     },
     {
       "from": "frontend-requirements:view-as",
@@ -26117,16 +25286,6 @@
     {
       "from": "needs-decision:ND-10",
       "kind": "wikilink",
-      "to": "story:T-007"
-    },
-    {
-      "from": "needs-decision:ND-10",
-      "kind": "wikilink",
-      "to": "task:T-008"
-    },
-    {
-      "from": "needs-decision:ND-10",
-      "kind": "wikilink",
       "to": "task:T-021"
     },
     {
@@ -26137,27 +25296,12 @@
     {
       "from": "needs-decision:ND-11",
       "kind": "wikilink",
-      "to": "task:T-007"
-    },
-    {
-      "from": "needs-decision:ND-11",
-      "kind": "wikilink",
       "to": "task:T-037"
     },
     {
       "from": "needs-decision:ND-12",
       "kind": "wikilink",
       "to": "story:subscription"
-    },
-    {
-      "from": "needs-decision:ND-12",
-      "kind": "wikilink",
-      "to": "story:T-008"
-    },
-    {
-      "from": "needs-decision:ND-12",
-      "kind": "wikilink",
-      "to": "task:T-007"
     },
     {
       "from": "needs-decision:ND-13",
@@ -27227,11 +26371,6 @@
     {
       "from": "project:status-report-2026-10-15",
       "kind": "wikilink",
-      "to": "feature:badge-qr"
-    },
-    {
-      "from": "project:status-report-2026-10-15",
-      "kind": "wikilink",
       "to": "feature:connections"
     },
     {
@@ -27467,6 +26606,11 @@
     {
       "from": "story:badge-qr",
       "kind": "wikilink",
+      "to": "feature:error-contract"
+    },
+    {
+      "from": "story:badge-qr",
+      "kind": "wikilink",
       "to": "feature:subscription"
     },
     {
@@ -27477,12 +26621,17 @@
     {
       "from": "story:badge-qr",
       "kind": "wikilink",
+      "to": "project:ring-access-model"
+    },
+    {
+      "from": "story:badge-qr",
+      "kind": "wikilink",
       "to": "story:connections"
     },
     {
       "from": "story:badge-qr",
       "kind": "wikilink",
-      "to": "task:T-037"
+      "to": "task:T-021"
     },
     {
       "from": "story:cleanup-jobs",
@@ -27583,6 +26732,11 @@
       "from": "story:devices",
       "kind": "wikilink",
       "to": "project:auth-model"
+    },
+    {
+      "from": "story:devices",
+      "kind": "wikilink",
+      "to": "story:badge-qr"
     },
     {
       "from": "story:discover-hub",
@@ -27698,6 +26852,11 @@
       "from": "story:exhibitor",
       "kind": "wikilink",
       "to": "project:ring-access-model"
+    },
+    {
+      "from": "story:exhibitor",
+      "kind": "wikilink",
+      "to": "story:badge-qr"
     },
     {
       "from": "story:exhibitor",
@@ -27872,6 +27031,11 @@
     {
       "from": "story:post-event",
       "kind": "wikilink",
+      "to": "story:badge-qr"
+    },
+    {
+      "from": "story:post-event",
+      "kind": "wikilink",
       "to": "story:exhibitor"
     },
     {
@@ -27957,12 +27121,12 @@
     {
       "from": "story:ring-invitations",
       "kind": "wikilink",
-      "to": "story:rings"
+      "to": "story:badge-qr"
     },
     {
       "from": "story:ring-invitations",
       "kind": "wikilink",
-      "to": "task:T-008"
+      "to": "story:rings"
     },
     {
       "from": "story:ring-members",
@@ -28047,87 +27211,17 @@
     {
       "from": "story:subscription",
       "kind": "wikilink",
-      "to": "story:events-during"
+      "to": "story:badge-qr"
     },
     {
       "from": "story:subscription",
       "kind": "wikilink",
-      "to": "task:T-007"
+      "to": "story:events-during"
     },
     {
-      "from": "story:T-007",
+      "from": "story:T-021",
       "kind": "wikilink",
-      "to": "feature:badge-qr"
-    },
-    {
-      "from": "story:T-007",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "story:T-007",
-      "kind": "wikilink",
-      "to": "story:subscription"
-    },
-    {
-      "from": "story:T-007",
-      "kind": "wikilink",
-      "to": "task:T-008"
-    },
-    {
-      "from": "story:T-007",
-      "kind": "wikilink",
-      "to": "task:T-009"
-    },
-    {
-      "from": "story:T-007",
-      "kind": "wikilink",
-      "to": "task:T-010"
-    },
-    {
-      "from": "story:T-008",
-      "kind": "wikilink",
-      "to": "backend-integration:view-as"
-    },
-    {
-      "from": "story:T-008",
-      "kind": "wikilink",
-      "to": "feature:badge-qr"
-    },
-    {
-      "from": "story:T-008",
-      "kind": "wikilink",
-      "to": "feature:error-contract"
-    },
-    {
-      "from": "story:T-008",
-      "kind": "wikilink",
-      "to": "task:T-007"
-    },
-    {
-      "from": "story:T-008",
-      "kind": "wikilink",
-      "to": "task:T-009"
-    },
-    {
-      "from": "story:T-008",
-      "kind": "wikilink",
-      "to": "task:T-010"
-    },
-    {
-      "from": "story:T-008",
-      "kind": "wikilink",
-      "to": "task:T-021"
-    },
-    {
-      "from": "story:T-009",
-      "kind": "wikilink",
-      "to": "feature:badge-qr"
-    },
-    {
-      "from": "story:T-010",
-      "kind": "wikilink",
-      "to": "feature:badge-qr"
+      "to": "story:badge-qr"
     },
     {
       "from": "story:T-021",
@@ -28138,16 +27232,6 @@
       "from": "story:T-021",
       "kind": "wikilink",
       "to": "story:notifications"
-    },
-    {
-      "from": "story:T-021",
-      "kind": "wikilink",
-      "to": "story:T-008"
-    },
-    {
-      "from": "story:T-021",
-      "kind": "wikilink",
-      "to": "task:T-008"
     },
     {
       "from": "story:T-021",
@@ -28257,12 +27341,7 @@
     {
       "from": "story:view-as",
       "kind": "wikilink",
-      "to": "task:T-007"
-    },
-    {
-      "from": "story:view-as",
-      "kind": "wikilink",
-      "to": "task:T-008"
+      "to": "story:badge-qr"
     },
     {
       "from": "story:view-as",
@@ -28288,201 +27367,6 @@
       "from": "task:B-02",
       "kind": "wikilink",
       "to": "story:account"
-    },
-    {
-      "from": "task:T-007",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-007",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-007",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-007",
-      "kind": "wikilink",
-      "to": "story:devices"
-    },
-    {
-      "from": "task:T-007",
-      "kind": "wikilink",
-      "to": "task:T-008"
-    },
-    {
-      "from": "task:T-007",
-      "kind": "wikilink",
-      "to": "task:T-037"
-    },
-    {
-      "from": "task:T-007-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:badge-qr"
-    },
-    {
-      "from": "task:T-007-be",
-      "kind": "wikilink",
-      "to": "feature:badge-qr"
-    },
-    {
-      "from": "task:T-007-fe",
-      "kind": "wikilink",
-      "to": "feature:badge-qr"
-    },
-    {
-      "from": "task:T-007-fe",
-      "kind": "wikilink",
-      "to": "story:T-007"
-    },
-    {
-      "from": "task:T-007-fe",
-      "kind": "wikilink",
-      "to": "task:T-007-be"
-    },
-    {
-      "from": "task:T-008",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-008",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-008",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-008",
-      "kind": "wikilink",
-      "to": "task:T-009"
-    },
-    {
-      "from": "task:T-008",
-      "kind": "wikilink",
-      "to": "task:T-010"
-    },
-    {
-      "from": "task:T-008-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:badge-qr"
-    },
-    {
-      "from": "task:T-008-be",
-      "kind": "wikilink",
-      "to": "feature:badge-qr"
-    },
-    {
-      "from": "task:T-008-fe",
-      "kind": "wikilink",
-      "to": "feature:badge-qr"
-    },
-    {
-      "from": "task:T-008-fe",
-      "kind": "wikilink",
-      "to": "story:T-008"
-    },
-    {
-      "from": "task:T-008-fe",
-      "kind": "wikilink",
-      "to": "task:T-008-be"
-    },
-    {
-      "from": "task:T-009",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-009",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-009",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-009",
-      "kind": "wikilink",
-      "to": "story:exhibitor"
-    },
-    {
-      "from": "task:T-009",
-      "kind": "wikilink",
-      "to": "story:post-event"
-    },
-    {
-      "from": "task:T-009-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:badge-qr"
-    },
-    {
-      "from": "task:T-009-be",
-      "kind": "wikilink",
-      "to": "feature:badge-qr"
-    },
-    {
-      "from": "task:T-009-fe",
-      "kind": "wikilink",
-      "to": "feature:badge-qr"
-    },
-    {
-      "from": "task:T-009-fe",
-      "kind": "wikilink",
-      "to": "story:T-009"
-    },
-    {
-      "from": "task:T-009-fe",
-      "kind": "wikilink",
-      "to": "task:T-009-be"
-    },
-    {
-      "from": "task:T-010",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-010",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-010",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-010-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:badge-qr"
-    },
-    {
-      "from": "task:T-010-be",
-      "kind": "wikilink",
-      "to": "feature:badge-qr"
-    },
-    {
-      "from": "task:T-010-fe",
-      "kind": "wikilink",
-      "to": "feature:badge-qr"
-    },
-    {
-      "from": "task:T-010-fe",
-      "kind": "wikilink",
-      "to": "story:T-010"
-    },
-    {
-      "from": "task:T-010-fe",
-      "kind": "wikilink",
-      "to": "task:T-010-be"
     },
     {
       "from": "task:T-021",
@@ -29987,70 +28871,6 @@
     "social-pin/tasks/Backlog.md": {
       "name": "Backlog",
       "type": "map"
-    },
-    "social-pin/tasks/T-007 Issue and rotate the QR token for a Ring/T-007 Issue and rotate the QR token for a Ring.md": {
-      "name": "T-007 Issue and rotate the QR token for a Ring",
-      "type": "task"
-    },
-    "social-pin/tasks/T-007 Issue and rotate the QR token for a Ring/T-007 Story.md": {
-      "name": "T-007 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-007 Issue and rotate the QR token for a Ring/T-007-be Backend · Issue and rotate the QR token for a Ring.md": {
-      "name": "T-007-be Backend · Issue and rotate the QR token for a Ring",
-      "type": "task"
-    },
-    "social-pin/tasks/T-007 Issue and rotate the QR token for a Ring/T-007-fe Frontend · Issue and rotate the QR token for a Ring.md": {
-      "name": "T-007-fe Frontend · Issue and rotate the QR token for a Ring",
-      "type": "task"
-    },
-    "social-pin/tasks/T-008 Resolve a scanned QR token/T-008 Resolve a scanned QR token.md": {
-      "name": "T-008 Resolve a scanned QR token",
-      "type": "task"
-    },
-    "social-pin/tasks/T-008 Resolve a scanned QR token/T-008 Story.md": {
-      "name": "T-008 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-008 Resolve a scanned QR token/T-008-be Backend · Resolve a scanned QR token.md": {
-      "name": "T-008-be Backend · Resolve a scanned QR token",
-      "type": "task"
-    },
-    "social-pin/tasks/T-008 Resolve a scanned QR token/T-008-fe Frontend · Resolve a scanned QR token.md": {
-      "name": "T-008-fe Frontend · Resolve a scanned QR token",
-      "type": "task"
-    },
-    "social-pin/tasks/T-009 Scan counter and share link/T-009 Scan counter and share link.md": {
-      "name": "T-009 Scan counter and share link",
-      "type": "task"
-    },
-    "social-pin/tasks/T-009 Scan counter and share link/T-009 Story.md": {
-      "name": "T-009 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-009 Scan counter and share link/T-009-be Backend · Scan counter and share link.md": {
-      "name": "T-009-be Backend · Scan counter and share link",
-      "type": "task"
-    },
-    "social-pin/tasks/T-009 Scan counter and share link/T-009-fe Frontend · Scan counter and share link.md": {
-      "name": "T-009-fe Frontend · Scan counter and share link",
-      "type": "task"
-    },
-    "social-pin/tasks/T-010 Public browser page for viewers without the app/T-010 Public browser page for viewers without the app.md": {
-      "name": "T-010 Public browser page for viewers without the app",
-      "type": "task"
-    },
-    "social-pin/tasks/T-010 Public browser page for viewers without the app/T-010 Story.md": {
-      "name": "T-010 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-010 Public browser page for viewers without the app/T-010-be Backend · Public browser page for viewers without the app.md": {
-      "name": "T-010-be Backend · Public browser page for viewers without the app",
-      "type": "task"
-    },
-    "social-pin/tasks/T-010 Public browser page for viewers without the app/T-010-fe Frontend · Public browser page for viewers without the app.md": {
-      "name": "T-010-fe Frontend · Public browser page for viewers without the app",
-      "type": "task"
     },
     "social-pin/tasks/T-021 Connect request send, inbox, cancel/T-021 Connect request send, inbox, cancel.md": {
       "name": "T-021 Connect request send, inbox, cancel",
@@ -36127,11 +34947,9 @@
       "release": "mvp",
       "resolution": null,
       "rollup": {
-        "approved": 1,
-        "blocked": 13,
-        "draft": 6,
-        "missing": 4,
-        "todo": 2
+        "blocked": 2,
+        "draft": 4,
+        "missing": 4
       },
       "scope": null,
       "screens": [
@@ -36150,7 +34968,7 @@
       ],
       "task": null,
       "title": "Badge & QR",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "feature:build-deploy": {
       "affects": [],
@@ -36528,7 +35346,7 @@
       ],
       "task": null,
       "title": "Connections",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "feature:counts": {
       "affects": [],
@@ -37181,11 +35999,11 @@
       "release": "mvp",
       "resolution": null,
       "rollup": {
-        "blocked": 14,
+        "blocked": 13,
         "draft": 6,
         "missing": 4,
         "needs-decision": 1,
-        "todo": 2
+        "todo": 3
       },
       "scope": null,
       "screens": [
@@ -43386,12 +42204,11 @@
       "release": null,
       "resolution": null,
       "rollup": {
-        "approved": 3,
-        "blocked": 15,
-        "draft": 8,
+        "approved": 2,
+        "blocked": 4,
+        "draft": 6,
         "in-progress": 3,
-        "missing": 12,
-        "todo": 2
+        "missing": 12
       },
       "scope": null,
       "screens": [],
@@ -43446,13 +42263,13 @@
       "resolution": null,
       "rollup": {
         "approved": 4,
-        "blocked": 18,
+        "blocked": 17,
         "decided": 1,
         "draft": 10,
         "in-progress": 4,
         "missing": 20,
         "needs-decision": 1,
-        "todo": 3,
+        "todo": 4,
         "verified": 1
       },
       "scope": null,
@@ -44163,7 +42980,7 @@
       "affects": [],
       "blockedBy": [],
       "blocks": [
-        "story:T-008",
+        "story:badge-qr",
         "story:T-021"
       ],
       "card": "ND-10",
@@ -44191,7 +43008,7 @@
       "module": null,
       "parentTask": null,
       "parents": [
-        "story:T-008",
+        "story:badge-qr",
         "story:T-021"
       ],
       "path": "social-pin/needs-decisions/ND-10 How Connect addresses the scanned person.md",
@@ -44217,13 +43034,13 @@
       ],
       "task": null,
       "title": "ND-10 How Connect addresses the scanned person",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "needs-decision:ND-11": {
       "affects": [],
       "blockedBy": [],
       "blocks": [
-        "story:T-007"
+        "story:badge-qr"
       ],
       "card": "ND-11",
       "children": [],
@@ -44249,7 +43066,7 @@
       "module": null,
       "parentTask": null,
       "parents": [
-        "story:T-007"
+        "story:badge-qr"
       ],
       "path": "social-pin/needs-decisions/ND-11 Get or rotate the badge token.md",
       "pending": [],
@@ -44264,7 +43081,7 @@
         "s34"
       ],
       "status": "draft",
-      "summary": "Whether opening the badge (s34) always issues a new token, or returns the one that is still valid. T-007 Issue and rotate the QR token for a Ring says POST /rings/:ringId/qr returns a token and…",
+      "summary": "Whether opening the badge (s34) always issues a new token, or returns the one that is still valid. Badge & QR · S7–S12 says POST /rings/:ringId/qr returns a token and revokes the previous one. If…",
       "tags": [
         "needs-decision",
         "needs-decision/draft"
@@ -44277,8 +43094,7 @@
       "affects": [],
       "blockedBy": [],
       "blocks": [
-        "story:T-007",
-        "task:T-010"
+        "story:badge-qr"
       ],
       "card": "ND-12",
       "children": [],
@@ -44304,8 +43120,7 @@
       "module": null,
       "parentTask": null,
       "parents": [
-        "story:T-007",
-        "task:T-010"
+        "story:badge-qr"
       ],
       "path": "social-pin/needs-decisions/ND-12 What the badge QR encodes.md",
       "pending": [],
@@ -50188,13 +49003,13 @@
         }
       ],
       "rollup": {
-        "approved": 34,
-        "blocked": 71,
+        "approved": 33,
+        "blocked": 59,
         "current": 8,
         "decided": 14,
         "delivered": 2,
         "done": 10,
-        "draft": 51,
+        "draft": 49,
         "in-progress": 44,
         "missing": 154,
         "needs-decision": 3,
@@ -50202,7 +49017,7 @@
         "passing": 1,
         "ready": 2,
         "reference": 31,
-        "todo": 13,
+        "todo": 12,
         "verified": 14
       },
       "scope": null,
@@ -50213,229 +49028,6 @@
       "tags": [],
       "task": null,
       "title": "Social Pin",
-      "updated": "2026-10-26"
-    },
-    "story:T-007": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "needs-decision:ND-11",
-          "title": "ND-11 Get or rotate the badge token",
-          "why": "needs decision ND-11 (draft)"
-        },
-        {
-          "id": "needs-decision:ND-12",
-          "title": "ND-12 What the badge QR encodes",
-          "why": "needs decision ND-12 (draft)"
-        }
-      ],
-      "card": "S-38",
-      "children": [
-        "needs-decision:ND-11",
-        "needs-decision:ND-12"
-      ],
-      "code": "T-007",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "blocked",
-      "effort": null,
-      "feature": "badge-qr",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-007",
-      "inherits": {
-        "priority": "task:T-007",
-        "release": "feature:badge-qr"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "discovery",
-      "parentTask": null,
-      "parents": [
-        "task:T-007"
-      ],
-      "path": "social-pin/tasks/T-007 Issue and rotate the QR token for a Ring/T-007 Story.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "scope": "task",
-      "screens": [
-        "s34"
-      ],
-      "status": "draft",
-      "summary": "POST /rings/:ringId/qr returns an opaque token; previous token revoked; 24 h rotation. Permanent token behind the Pro gate (Subscription (Free vs Pro) · S6).",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/discovery",
-        "layer/business"
-      ],
-      "task": "T-007",
-      "title": "T-007 Story",
-      "updated": "2026-10-27"
-    },
-    "story:T-008": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "needs-decision:ND-10",
-          "title": "ND-10 How Connect addresses the scanned person",
-          "why": "needs decision ND-10 (draft)"
-        }
-      ],
-      "card": "S-39",
-      "children": [
-        "needs-decision:ND-10"
-      ],
-      "code": "T-008",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "blocked",
-      "effort": null,
-      "feature": "badge-qr",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-008",
-      "inherits": {
-        "priority": "task:T-008",
-        "release": "feature:badge-qr"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "discovery",
-      "parentTask": null,
-      "parents": [
-        "task:T-008"
-      ],
-      "path": "social-pin/tasks/T-008 Resolve a scanned QR token/T-008 Story.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "scope": "task",
-      "screens": [
-        "s43",
-        "s44"
-      ],
-      "status": "draft",
-      "summary": "GET /views/qr/:token → same body as GET /views/ring/:ringId, same single 404. Increments the scan counter. Never returns the ring id.",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/discovery",
-        "layer/business"
-      ],
-      "task": "T-008",
-      "title": "T-008 Story",
-      "updated": "2026-10-26"
-    },
-    "story:T-009": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-40",
-      "children": [],
-      "code": "T-009",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
-      "effort": null,
-      "feature": "badge-qr",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-009",
-      "inherits": {
-        "priority": "task:T-009",
-        "release": "feature:badge-qr"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "discovery",
-      "parentTask": null,
-      "parents": [
-        "task:T-009"
-      ],
-      "path": "social-pin/tasks/T-009 Scan counter and share link/T-009 Story.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "scope": "task",
-      "screens": [
-        "s34"
-      ],
-      "status": "draft",
-      "summary": "Count per token and per Ring; share link is the public URL of T-010.",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/discovery",
-        "layer/business"
-      ],
-      "task": "T-009",
-      "title": "T-009 Story",
-      "updated": "2026-10-26"
-    },
-    "story:T-010": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-41",
-      "children": [],
-      "code": "T-010",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
-      "effort": null,
-      "feature": "badge-qr",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-010",
-      "inherits": {
-        "priority": "task:T-010",
-        "release": "feature:badge-qr"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "discovery",
-      "parentTask": null,
-      "parents": [
-        "task:T-010"
-      ],
-      "path": "social-pin/tasks/T-010 Public browser page for viewers without the app/T-010 Story.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "scope": "task",
-      "screens": [
-        "s34"
-      ],
-      "status": "draft",
-      "summary": "Needs a decision: which Ring content is shown to an anonymous browser viewer, and whether that is a 'PUBLIC' Ring type or the default Ring.",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/discovery",
-        "layer/business"
-      ],
-      "task": "T-010",
-      "title": "T-010 Story",
       "updated": "2026-10-26"
     },
     "story:T-021": {
@@ -51198,19 +49790,34 @@
     },
     "story:badge-qr": {
       "affects": [],
-      "blockedBy": [],
+      "blockedBy": [
+        {
+          "id": "needs-decision:ND-10",
+          "title": "ND-10 How Connect addresses the scanned person",
+          "why": "needs decision ND-10 (draft)"
+        },
+        {
+          "id": "needs-decision:ND-11",
+          "title": "ND-11 Get or rotate the badge token",
+          "why": "needs decision ND-11 (draft)"
+        },
+        {
+          "id": "needs-decision:ND-12",
+          "title": "ND-12 What the badge QR encodes",
+          "why": "needs decision ND-12 (draft)"
+        }
+      ],
       "card": "S-37",
       "children": [
-        "task:T-007",
-        "task:T-008",
-        "task:T-009",
-        "task:T-010"
+        "needs-decision:ND-10",
+        "needs-decision:ND-11",
+        "needs-decision:ND-12"
       ],
       "code": "badge-qr",
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "approved",
+      "effectiveStatus": "blocked",
       "effort": null,
       "feature": "badge-qr",
       "foundOn": null,
@@ -51232,7 +49839,11 @@
       "path": "social-pin/modules/Discovery/features/Badge & QR/Badge & QR Story.md",
       "pending": [],
       "priority": "critical",
-      "related": [],
+      "related": [
+        "task:T-037",
+        "task:T-037-be",
+        "task:T-037-fe"
+      ],
       "release": "mvp",
       "resolution": null,
       "scope": "feature",
@@ -51252,7 +49863,7 @@
       ],
       "task": null,
       "title": "Badge & QR Story",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "story:build-deploy": {
       "affects": [],
@@ -53227,7 +51838,7 @@
       ],
       "task": null,
       "title": "View As & Pin Views Story",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "story:widgets": {
       "affects": [],
@@ -53450,790 +52061,6 @@
       "task": null,
       "title": "B-02 Deleted account answers 401, not the documented 404 E_USER_01",
       "updated": "2026-10-27"
-    },
-    "task:T-007": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-007",
-      "children": [
-        "story:T-007",
-        "task:T-007-be",
-        "task:T-007-fe"
-      ],
-      "code": "T-007",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": "social-pin/tasks/T-007 Issue and rotate the QR token for a Ring",
-      "effectiveStatus": "todo",
-      "effort": "M",
-      "feature": "badge-qr",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-007",
-      "inherits": {
-        "release": "feature:badge-qr"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "discovery",
-      "parentTask": null,
-      "parents": [
-        "story:badge-qr"
-      ],
-      "path": "social-pin/tasks/T-007 Issue and rotate the QR token for a Ring/T-007 Issue and rotate the QR token for a Ring.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {
-        "blocked": 2,
-        "draft": 2,
-        "todo": 1
-      },
-      "scope": null,
-      "screens": [
-        "s34"
-      ],
-      "status": "todo",
-      "summary": "POST /rings/:ringId/qr returns an opaque token; previous token revoked; 24 h rotation. Permanent token behind the Pro gate (Subscription (Free vs Pro) · S6).",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/discovery",
-        "priority/critical"
-      ],
-      "task": null,
-      "title": "T-007 Issue and rotate the QR token for a Ring",
-      "updated": "2026-10-27"
-    },
-    "task:T-007-be": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-007-be",
-      "children": [],
-      "code": "T-007-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": null,
-      "effectiveStatus": "todo",
-      "effort": "M",
-      "feature": "badge-qr",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-007-be",
-      "inherits": {
-        "release": "feature:badge-qr"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "discovery",
-      "parentTask": "T-007",
-      "parents": [
-        "task:T-007"
-      ],
-      "path": "social-pin/tasks/T-007 Issue and rotate the QR token for a Ring/T-007-be Backend · Issue and rotate the QR token for a Ring.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s34"
-      ],
-      "status": "todo",
-      "summary": "The API side of T-007 Issue and rotate the QR token for a Ring: the endpoints, data and rules its What describes. Record what shipped in T-007-be Backend Delivery and how to call it in T-007-be…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/discovery",
-        "priority/critical",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-007-be Backend · Issue and rotate the QR token for a Ring",
-      "updated": "2026-10-26"
-    },
-    "task:T-007-fe": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-007-be",
-          "title": "T-007-be Backend · Issue and rotate the QR token for a Ring",
-          "why": "T-007-be Backend · Issue and rotate the QR token for a Ring is to do"
-        }
-      ],
-      "card": "T-007-fe",
-      "children": [],
-      "code": "T-007-fe",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-007-be"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "badge-qr",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-007-fe",
-      "inherits": {
-        "release": "feature:badge-qr"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "frontend"
-      ],
-      "layer": "business",
-      "module": "discovery",
-      "parentTask": "T-007",
-      "parents": [
-        "task:T-007"
-      ],
-      "path": "social-pin/tasks/T-007 Issue and rotate the QR token for a Ring/T-007-fe Frontend · Issue and rotate the QR token for a Ring.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s34"
-      ],
-      "status": "todo",
-      "summary": "The client side of T-007 Issue and rotate the QR token for a Ring: the screens below show what its What describes, built against Badge & QR Backend Integration once the backend half (T-007-be…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/discovery",
-        "priority/critical",
-        "frontend"
-      ],
-      "task": null,
-      "title": "T-007-fe Frontend · Issue and rotate the QR token for a Ring",
-      "updated": "2026-10-26"
-    },
-    "task:T-008": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-007",
-          "title": "T-007 Issue and rotate the QR token for a Ring",
-          "why": "T-007 Issue and rotate the QR token for a Ring is to do"
-        }
-      ],
-      "card": "T-008",
-      "children": [
-        "story:T-008",
-        "task:T-008-be",
-        "task:T-008-fe"
-      ],
-      "code": "T-008",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-007"
-      ],
-      "dir": "social-pin/tasks/T-008 Resolve a scanned QR token",
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "badge-qr",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-008",
-      "inherits": {
-        "release": "feature:badge-qr"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "discovery",
-      "parentTask": null,
-      "parents": [
-        "story:badge-qr"
-      ],
-      "path": "social-pin/tasks/T-008 Resolve a scanned QR token/T-008 Resolve a scanned QR token.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {
-        "blocked": 3,
-        "draft": 1
-      },
-      "scope": null,
-      "screens": [
-        "s43",
-        "s44"
-      ],
-      "status": "todo",
-      "summary": "GET /views/qr/:token → same body as GET /views/ring/:ringId, same single 404. Increments the scan counter. Never returns the ring id.",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/discovery",
-        "priority/critical"
-      ],
-      "task": null,
-      "title": "T-008 Resolve a scanned QR token",
-      "updated": "2026-10-26"
-    },
-    "task:T-008-be": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-007",
-          "title": "T-007 Issue and rotate the QR token for a Ring",
-          "why": "T-007 Issue and rotate the QR token for a Ring is to do"
-        }
-      ],
-      "card": "T-008-be",
-      "children": [],
-      "code": "T-008-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-007"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "badge-qr",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-008-be",
-      "inherits": {
-        "release": "feature:badge-qr"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "discovery",
-      "parentTask": "T-008",
-      "parents": [
-        "task:T-008"
-      ],
-      "path": "social-pin/tasks/T-008 Resolve a scanned QR token/T-008-be Backend · Resolve a scanned QR token.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s43",
-        "s44"
-      ],
-      "status": "todo",
-      "summary": "The API side of T-008 Resolve a scanned QR token: the endpoints, data and rules its What describes. Record what shipped in T-008-be Backend Delivery and how to call it in T-008-be Backend…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/discovery",
-        "priority/critical",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-008-be Backend · Resolve a scanned QR token",
-      "updated": "2026-10-26"
-    },
-    "task:T-008-fe": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-007",
-          "title": "T-007 Issue and rotate the QR token for a Ring",
-          "why": "T-007 Issue and rotate the QR token for a Ring is to do"
-        },
-        {
-          "id": "task:T-008-be",
-          "title": "T-008-be Backend · Resolve a scanned QR token",
-          "why": "T-008-be Backend · Resolve a scanned QR token is blocked"
-        }
-      ],
-      "card": "T-008-fe",
-      "children": [],
-      "code": "T-008-fe",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-007",
-        "task:T-008-be"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "badge-qr",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-008-fe",
-      "inherits": {
-        "release": "feature:badge-qr"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "frontend"
-      ],
-      "layer": "business",
-      "module": "discovery",
-      "parentTask": "T-008",
-      "parents": [
-        "task:T-008"
-      ],
-      "path": "social-pin/tasks/T-008 Resolve a scanned QR token/T-008-fe Frontend · Resolve a scanned QR token.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s43",
-        "s44"
-      ],
-      "status": "todo",
-      "summary": "The client side of T-008 Resolve a scanned QR token: the screens below show what its What describes, built against Badge & QR Backend Integration once the backend half (T-008-be Backend · Resolve…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/discovery",
-        "priority/critical",
-        "frontend"
-      ],
-      "task": null,
-      "title": "T-008-fe Frontend · Resolve a scanned QR token",
-      "updated": "2026-10-26"
-    },
-    "task:T-009": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-008",
-          "title": "T-008 Resolve a scanned QR token",
-          "why": "T-008 Resolve a scanned QR token is blocked"
-        }
-      ],
-      "card": "T-009",
-      "children": [
-        "story:T-009",
-        "task:T-009-be",
-        "task:T-009-fe"
-      ],
-      "code": "T-009",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-008"
-      ],
-      "dir": "social-pin/tasks/T-009 Scan counter and share link",
-      "effectiveStatus": "blocked",
-      "effort": "S",
-      "feature": "badge-qr",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-009",
-      "inherits": {
-        "release": "feature:badge-qr"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "discovery",
-      "parentTask": null,
-      "parents": [
-        "story:badge-qr"
-      ],
-      "path": "social-pin/tasks/T-009 Scan counter and share link/T-009 Scan counter and share link.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {
-        "blocked": 2,
-        "draft": 1
-      },
-      "scope": null,
-      "screens": [
-        "s34"
-      ],
-      "status": "todo",
-      "summary": "Count per token and per Ring; share link is the public URL of T-010.",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/discovery",
-        "priority/high"
-      ],
-      "task": null,
-      "title": "T-009 Scan counter and share link",
-      "updated": "2026-10-27"
-    },
-    "task:T-009-be": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-008",
-          "title": "T-008 Resolve a scanned QR token",
-          "why": "T-008 Resolve a scanned QR token is blocked"
-        }
-      ],
-      "card": "T-009-be",
-      "children": [],
-      "code": "T-009-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-008"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "S",
-      "feature": "badge-qr",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-009-be",
-      "inherits": {
-        "release": "feature:badge-qr"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "discovery",
-      "parentTask": "T-009",
-      "parents": [
-        "task:T-009"
-      ],
-      "path": "social-pin/tasks/T-009 Scan counter and share link/T-009-be Backend · Scan counter and share link.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s34"
-      ],
-      "status": "todo",
-      "summary": "The API side of T-009 Scan counter and share link: the endpoints, data and rules its What describes. Record what shipped in T-009-be Backend Delivery and how to call it in T-009-be Backend…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/discovery",
-        "priority/high",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-009-be Backend · Scan counter and share link",
-      "updated": "2026-10-26"
-    },
-    "task:T-009-fe": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-008",
-          "title": "T-008 Resolve a scanned QR token",
-          "why": "T-008 Resolve a scanned QR token is blocked"
-        },
-        {
-          "id": "task:T-009-be",
-          "title": "T-009-be Backend · Scan counter and share link",
-          "why": "T-009-be Backend · Scan counter and share link is blocked"
-        }
-      ],
-      "card": "T-009-fe",
-      "children": [],
-      "code": "T-009-fe",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-008",
-        "task:T-009-be"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "S",
-      "feature": "badge-qr",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-009-fe",
-      "inherits": {
-        "release": "feature:badge-qr"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "frontend"
-      ],
-      "layer": "business",
-      "module": "discovery",
-      "parentTask": "T-009",
-      "parents": [
-        "task:T-009"
-      ],
-      "path": "social-pin/tasks/T-009 Scan counter and share link/T-009-fe Frontend · Scan counter and share link.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s34"
-      ],
-      "status": "todo",
-      "summary": "The client side of T-009 Scan counter and share link: the screens below show what its What describes, built against Badge & QR Backend Integration once the backend half (T-009-be Backend · Scan…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/discovery",
-        "priority/high",
-        "frontend"
-      ],
-      "task": null,
-      "title": "T-009-fe Frontend · Scan counter and share link",
-      "updated": "2026-10-26"
-    },
-    "task:T-010": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-008",
-          "title": "T-008 Resolve a scanned QR token",
-          "why": "T-008 Resolve a scanned QR token is blocked"
-        },
-        {
-          "id": "needs-decision:ND-12",
-          "title": "ND-12 What the badge QR encodes",
-          "why": "needs decision ND-12 (draft)"
-        }
-      ],
-      "card": "T-010",
-      "children": [
-        "story:T-010",
-        "task:T-010-be",
-        "task:T-010-fe",
-        "needs-decision:ND-12"
-      ],
-      "code": "T-010",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-008"
-      ],
-      "dir": "social-pin/tasks/T-010 Public browser page for viewers without the app",
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "badge-qr",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-010",
-      "inherits": {
-        "release": "feature:badge-qr"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "discovery",
-      "parentTask": null,
-      "parents": [
-        "story:badge-qr"
-      ],
-      "path": "social-pin/tasks/T-010 Public browser page for viewers without the app/T-010 Public browser page for viewers without the app.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {
-        "blocked": 2,
-        "draft": 2
-      },
-      "scope": null,
-      "screens": [
-        "s34"
-      ],
-      "status": "needs-decision",
-      "summary": "Needs a decision: which Ring content is shown to an anonymous browser viewer, and whether that is a 'PUBLIC' Ring type or the default Ring.",
-      "tags": [
-        "task",
-        "task/needs-info",
-        "module/discovery",
-        "priority/high"
-      ],
-      "task": null,
-      "title": "T-010 Public browser page for viewers without the app",
-      "updated": "2026-10-26"
-    },
-    "task:T-010-be": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-008",
-          "title": "T-008 Resolve a scanned QR token",
-          "why": "T-008 Resolve a scanned QR token is blocked"
-        }
-      ],
-      "card": "T-010-be",
-      "children": [],
-      "code": "T-010-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-008"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "badge-qr",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-010-be",
-      "inherits": {
-        "release": "feature:badge-qr"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "discovery",
-      "parentTask": "T-010",
-      "parents": [
-        "task:T-010"
-      ],
-      "path": "social-pin/tasks/T-010 Public browser page for viewers without the app/T-010-be Backend · Public browser page for viewers without the app.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s34"
-      ],
-      "status": "todo",
-      "summary": "The API side of T-010 Public browser page for viewers without the app: the endpoints, data and rules its What describes. Record what shipped in T-010-be Backend Delivery and how to call it in…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/discovery",
-        "priority/high",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-010-be Backend · Public browser page for viewers without the app",
-      "updated": "2026-10-26"
-    },
-    "task:T-010-fe": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-008",
-          "title": "T-008 Resolve a scanned QR token",
-          "why": "T-008 Resolve a scanned QR token is blocked"
-        },
-        {
-          "id": "task:T-010-be",
-          "title": "T-010-be Backend · Public browser page for viewers without the app",
-          "why": "T-010-be Backend · Public browser page for viewers without the app is blocked"
-        }
-      ],
-      "card": "T-010-fe",
-      "children": [],
-      "code": "T-010-fe",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-008",
-        "task:T-010-be"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "badge-qr",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-010-fe",
-      "inherits": {
-        "release": "feature:badge-qr"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "frontend"
-      ],
-      "layer": "business",
-      "module": "discovery",
-      "parentTask": "T-010",
-      "parents": [
-        "task:T-010"
-      ],
-      "path": "social-pin/tasks/T-010 Public browser page for viewers without the app/T-010-fe Frontend · Public browser page for viewers without the app.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s34"
-      ],
-      "status": "todo",
-      "summary": "The client side of T-010 Public browser page for viewers without the app: the screens below show what its What describes, built against Badge & QR Backend Integration once the backend half…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/discovery",
-        "priority/high",
-        "frontend"
-      ],
-      "task": null,
-      "title": "T-010-fe Frontend · Public browser page for viewers without the app",
-      "updated": "2026-10-26"
     },
     "task:T-021": {
       "affects": [],
@@ -55400,13 +53227,7 @@
     },
     "task:T-037": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-007",
-          "title": "T-007 Issue and rotate the QR token for a Ring",
-          "why": "T-007 Issue and rotate the QR token for a Ring is to do"
-        }
-      ],
+      "blockedBy": [],
       "card": "T-037",
       "children": [
         "story:T-037",
@@ -55417,9 +53238,7 @@
       "created": "2026-10-15",
       "deadline": null,
       "decision": null,
-      "depends": [
-        "task:T-007"
-      ],
+      "depends": [],
       "dir": "social-pin/tasks/T-037 Event pass with a 60 s rotating code",
       "effectiveStatus": "blocked",
       "effort": "M",
@@ -55443,13 +53262,15 @@
       "pending": [],
       "priority": "high",
       "related": [
-        "story:event-ring-auto"
+        "story:event-ring-auto",
+        "story:badge-qr"
       ],
       "release": "mvp",
       "resolution": null,
       "rollup": {
-        "blocked": 2,
-        "draft": 1
+        "blocked": 1,
+        "draft": 1,
+        "todo": 1
       },
       "scope": null,
       "screens": [
@@ -55469,24 +53290,16 @@
     },
     "task:T-037-be": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-007",
-          "title": "T-007 Issue and rotate the QR token for a Ring",
-          "why": "T-007 Issue and rotate the QR token for a Ring is to do"
-        }
-      ],
+      "blockedBy": [],
       "card": "T-037-be",
       "children": [],
       "code": "T-037-be",
       "created": "2026-10-18",
       "deadline": null,
       "decision": null,
-      "depends": [
-        "task:T-007"
-      ],
+      "depends": [],
       "dir": null,
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "todo",
       "effort": "M",
       "feature": "events-during",
       "foundOn": null,
@@ -55510,7 +53323,8 @@
       "pending": [],
       "priority": "high",
       "related": [
-        "story:event-ring-auto"
+        "story:event-ring-auto",
+        "story:badge-qr"
       ],
       "release": "mvp",
       "resolution": null,
@@ -55536,14 +53350,9 @@
       "affects": [],
       "blockedBy": [
         {
-          "id": "task:T-007",
-          "title": "T-007 Issue and rotate the QR token for a Ring",
-          "why": "T-007 Issue and rotate the QR token for a Ring is to do"
-        },
-        {
           "id": "task:T-037-be",
           "title": "T-037-be Backend · Event pass with a 60 s rotating code",
-          "why": "T-037-be Backend · Event pass with a 60 s rotating code is blocked"
+          "why": "T-037-be Backend · Event pass with a 60 s rotating code is to do"
         }
       ],
       "card": "T-037-fe",
@@ -55553,7 +53362,6 @@
       "deadline": null,
       "decision": null,
       "depends": [
-        "task:T-007",
         "task:T-037-be"
       ],
       "dir": null,
@@ -55581,7 +53389,8 @@
       "pending": [],
       "priority": "high",
       "related": [
-        "story:event-ring-auto"
+        "story:event-ring-auto",
+        "story:badge-qr"
       ],
       "release": "mvp",
       "resolution": null,

@@ -14,12 +14,6 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 
 | Task | Feature | Module | Status | Effort | Deadline | Depends on / blocked by |
 |---|---|---|---|---|---|---|
-| [[T-007 Issue and rotate the QR token for a Ring]] | [[Badge & QR]] | Discovery | ⬜ To do | M | — | — |
-| [[T-007-be Backend · Issue and rotate the QR token for a Ring]] `backend` | [[Badge & QR]] | Discovery | ⬜ To do | M | — | — |
-| [[T-007-fe Frontend · Issue and rotate the QR token for a Ring]] `frontend` | [[Badge & QR]] | Discovery | ⛔ Blocked | M | — | [[T-007-be Backend · Issue and rotate the QR token for a Ring|T-007-be]] |
-| [[T-008 Resolve a scanned QR token]] | [[Badge & QR]] | Discovery | ⛔ Blocked | M | — | [[T-007 Issue and rotate the QR token for a Ring|T-007]] |
-| [[T-008-be Backend · Resolve a scanned QR token]] `backend` | [[Badge & QR]] | Discovery | ⛔ Blocked | M | — | [[T-007 Issue and rotate the QR token for a Ring|T-007]] |
-| [[T-008-fe Frontend · Resolve a scanned QR token]] `frontend` | [[Badge & QR]] | Discovery | ⛔ Blocked | M | — | [[T-007 Issue and rotate the QR token for a Ring|T-007]], [[T-008-be Backend · Resolve a scanned QR token|T-008-be]] |
 | [[T-021 Connect request send, inbox, cancel]] | [[Connections]] | Connections | ⬜ To do | M | — | — |
 | [[T-021-be Backend · Connect request send, inbox, cancel]] `backend` | [[Connections]] | Connections | ⬜ To do | M | — | — |
 | [[T-021-fe Frontend · Connect request send, inbox, cancel]] `frontend` | [[Connections]] | Connections | ⛔ Blocked | M | — | [[T-021-be Backend · Connect request send, inbox, cancel|T-021-be]] |
@@ -41,15 +35,9 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | Task | Feature | Module | Status | Effort | Deadline | Depends on / blocked by |
 |---|---|---|---|---|---|---|
 | [[B-01 An unverified changed email still signs in]] `bug` | [[Account]] | Identity Core | 🟡 Partial (2 notes) · By design | S | — | — |
-| [[T-009 Scan counter and share link]] | [[Badge & QR]] | Discovery | ⛔ Blocked | S | — | [[T-008 Resolve a scanned QR token|T-008]] |
-| [[T-009-be Backend · Scan counter and share link]] `backend` | [[Badge & QR]] | Discovery | ⛔ Blocked | S | — | [[T-008 Resolve a scanned QR token|T-008]] |
-| [[T-009-fe Frontend · Scan counter and share link]] `frontend` | [[Badge & QR]] | Discovery | ⛔ Blocked | S | — | [[T-008 Resolve a scanned QR token|T-008]], [[T-009-be Backend · Scan counter and share link|T-009-be]] |
-| [[T-010 Public browser page for viewers without the app]] | [[Badge & QR]] | Discovery | ⛔ Blocked | M | — | [[T-008 Resolve a scanned QR token|T-008]], [[ND-12 What the badge QR encodes|ND-12]] |
-| [[T-010-be Backend · Public browser page for viewers without the app]] `backend` | [[Badge & QR]] | Discovery | ⛔ Blocked | M | — | [[T-008 Resolve a scanned QR token|T-008]] |
-| [[T-010-fe Frontend · Public browser page for viewers without the app]] `frontend` | [[Badge & QR]] | Discovery | ⛔ Blocked | M | — | [[T-008 Resolve a scanned QR token|T-008]], [[T-010-be Backend · Public browser page for viewers without the app|T-010-be]] |
-| [[T-037 Event pass with a 60 s rotating code]] | [[Events During]] | Events | ⛔ Blocked | M | — | [[T-007 Issue and rotate the QR token for a Ring|T-007]] |
-| [[T-037-be Backend · Event pass with a 60 s rotating code]] `backend` | [[Events During]] | Events | ⛔ Blocked | M | — | [[T-007 Issue and rotate the QR token for a Ring|T-007]] |
-| [[T-037-fe Frontend · Event pass with a 60 s rotating code]] `frontend` | [[Events During]] | Events | ⛔ Blocked | M | — | [[T-007 Issue and rotate the QR token for a Ring|T-007]], [[T-037-be Backend · Event pass with a 60 s rotating code|T-037-be]] |
+| [[T-037 Event pass with a 60 s rotating code]] | [[Events During]] | Events | ⛔ Blocked | M | — | — |
+| [[T-037-be Backend · Event pass with a 60 s rotating code]] `backend` | [[Events During]] | Events | ⬜ To do | M | — | — |
+| [[T-037-fe Frontend · Event pass with a 60 s rotating code]] `frontend` | [[Events During]] | Events | ⛔ Blocked | M | — | [[T-037-be Backend · Event pass with a 60 s rotating code|T-037-be]] |
 | [[T-038 Floor map and booths]] | [[Events During]] | Events | ⛔ Blocked | M | — | [[T-036 Event mode exhibitors list and detail|T-036]] |
 | [[T-038-be Backend · Floor map and booths]] `backend` | [[Events During]] | Events | ⛔ Blocked | M | — | [[T-036 Event mode exhibitors list and detail|T-036]] |
 | [[T-038-fe Frontend · Floor map and booths]] `frontend` | [[Events During]] | Events | ⛔ Blocked | M | — | [[T-036 Event mode exhibitors list and detail|T-036]], [[T-038-be Backend · Floor map and booths|T-038-be]] |

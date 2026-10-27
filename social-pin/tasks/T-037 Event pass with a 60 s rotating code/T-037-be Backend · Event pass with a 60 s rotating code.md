@@ -9,9 +9,9 @@ module: events
 parent: T-037
 labels: [backend]
 screens: [s56]
-depends: ["T-007"]
+depends: []
 affects: []
-related: ["Event Ring Auto-creation Story"]
+related: ["Event Ring Auto-creation Story", "Badge & QR Story"]
 pending: []
 created: 2026-10-18
 updated: 2026-10-27

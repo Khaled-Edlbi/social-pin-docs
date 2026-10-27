@@ -73,4 +73,4 @@ What the client needs from the backend to build s52 and the two screens the gran
 - No decision note. Upstream tasks:
 - [[Event Ring Auto-creation Story|Event Ring Auto-creation · S6]] — waits on [[Events Before Story|Events Before · S7]]; every ❌ row above.
 - [[Events Before Story|Events Before · S9]] — waits on [[Events Before Story|Events Before · S8]] and [[Payments & Orders Story|Payments & Orders · S7]] (payment provider undecided); the registration response and the pending-state polling.
-- [[T-037 Event pass with a 60 s rotating code]] — waits on Event Ring Auto-creation · S6 and [[T-007 Issue and rotate the QR token for a Ring]].
+- [[T-037 Event pass with a 60 s rotating code]] — waits on Event Ring Auto-creation · S6 and [[Badge & QR Story|Badge & QR · S7–S12]].

@@ -27,7 +27,7 @@ What the client needs from the backend to build the screens in [[Badge & QR Stor
 ### [[Screen Index#s43|s43]] Reading the code
 
 - Needs: resolve a token to a Ring view with one neutral failure.
-- Source today: not yet. Until T-008, the only encoding the API can resolve is a Ring id through `GET /views/ring/:ringId`; treat any such QR as temporary and never ship it as the real format.
+- Source today: not yet. Until Badge & QR · S13–S18, the only encoding the API can resolve is a Ring id through `GET /views/ring/:ringId`; treat any such QR as temporary and never ship it as the real format.
 
 ### [[Screen Index#s44|s44]] Scanned Pin
 
@@ -46,11 +46,11 @@ What the client needs from the backend to build the screens in [[Badge & QR Stor
 | Render a resolved Ring | `GET /views/ring/:ringId` | ✅ | — |
 | My Rings for the active-Ring label | `GET /rings` | ✅ | — |
 | Pro state for the permanent-code hint | `GET /users/me` | ✅ | — |
-| Issue / rotate the token for a Ring | — | ❌ | [[T-007 Issue and rotate the QR token for a Ring]] |
-| Resolve a scanned token, same body and same 404 as the view | — | ❌ | [[T-008 Resolve a scanned QR token]] |
-| Scan count per Ring | — | ❌ | [[T-009 Scan counter and share link]] |
-| Share link URL | — | ❌ | [[T-009 Scan counter and share link]] |
-| Browser page behind the share link | — | ❌ | [[T-010 Public browser page for viewers without the app]] |
+| Issue / rotate the token for a Ring | — | ❌ | [[Badge & QR Story|Badge & QR · S7–S12]] |
+| Resolve a scanned token, same body and same 404 as the view | — | ❌ | [[Badge & QR Story|Badge & QR · S13–S18]] |
+| Scan count per Ring | — | ❌ | [[Badge & QR Story|Badge & QR · S19]] |
+| Share link URL | — | ❌ | [[Badge & QR Story|Badge & QR · S19]] |
+| Browser page behind the share link | — | ❌ | [[Badge & QR Story|Badge & QR · S20]] |
 | Permanent token (Pro) | — | ❌ | [[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]] |
 | Event pass token, 60 s window | — | ❌ | [[T-037 Event pass with a 60 s rotating code]] |
 | NFC card bound to the same token | — | ❌ | [[Devices & NFC Story|Devices & NFC · S7]] |
@@ -75,13 +75,13 @@ What the client needs from the backend to build the screens in [[Badge & QR Stor
 | 404 | `E_RING_02` | issuing a token for a Ring that is not mine: refetch `GET /rings` and reset the active Ring |
 | 403 | `E_RING_05` | an admin below the needed level asked for a token: hide the badge for that Ring |
 | 401 | `E_AUTH_04` | sign in again |
-| — | token-specific codes | to be defined by T-007 / T-008 (invalid, rotated, revoked must share the neutral 404); branch on `statusCode` until [[Error Contract Story|Error Contract · S4–S8]] |
+| — | token-specific codes | to be defined by Badge & QR · S7–S12 / Badge & QR · S13–S18 (invalid, rotated, revoked must share the neutral 404); branch on `statusCode` until [[Error Contract Story|Error Contract · S4–S8]] |
 | client | camera permission denied | inline state with *Open settings* |
 | client | not a Social Pin code | "Not a Social Pin code", keep scanning |
 
 ## Blocked by
 
-- [[T-010 Public browser page for viewers without the app]] — the share link row and the anonymous-visitor persona (needs a decision on which Ring is public).
-- [[T-007 Issue and rotate the QR token for a Ring]] and [[T-008 Resolve a scanned QR token]] — the token rows; nothing on s34 or s43 is real without them.
+- [[Badge & QR Story|Badge & QR · S20]] — the share link row and the anonymous-visitor persona (needs a decision on which Ring is public).
+- [[Badge & QR Story|Badge & QR · S7–S12]] and [[Badge & QR Story|Badge & QR · S13–S18]] — the token rows; nothing on s34 or s43 is real without them.
 - [[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]] — the permanent-code row.
 - [[Error Contract Story|Error Contract · S4–S8]] — the error table is by status until then.

@@ -95,6 +95,6 @@ Screens: [[Screen Index#s62|s62]] Post-event summary
 ## Open questions
 
 - No decision note exists. Open points:
-- [[Post-Event Story|Post-Event · S6]] — waits on [[T-009 Scan counter and share link]], [[T-023 Connection detail and contacts list]] and [[Meetings Story|Meetings · S11]]; S1 and S2.
+- [[Post-Event Story|Post-Event · S6]] — waits on [[Badge & QR Story|Badge & QR · S19]], [[T-023 Connection detail and contacts list]] and [[Meetings Story|Meetings · S11]]; S1 and S2.
 - Who triggers the summary (a job at `expiresAt`, or the first open of s62) decides how long S1's placeholder lasts.
 - Whether "delete" on s62 should read "expire" (the Screen Index note says keep / merge / expire) is copy, not behaviour: the call is `AUTO_DELETE` either way.

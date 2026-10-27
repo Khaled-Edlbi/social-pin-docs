@@ -33,8 +33,8 @@ What the client needs for My devices: a device list keyed by a client-generated 
 | List my devices | — | ❌ | [[Devices & NFC Story|Devices & NFC · S6]] |
 | Remove one device, revoking its refresh tokens | — | ❌ | [[Devices & NFC Story|Devices & NFC · S6]] |
 | Sign out all *other* devices, keeping this one | — | ❌ | [[Devices & NFC Story|Devices & NFC · S6]] (not yet specified; today's route signs out all) |
-| Pair an NFC card to a Ring; revoke it | — | ❌ | [[Devices & NFC Story|Devices & NFC · S7]] (waits on [[T-007 Issue and rotate the QR token for a Ring]]) |
-| Resolve a tapped card to a perspective | — | ❌ | [[T-008 Resolve a scanned QR token]] (shared resolve path) |
+| Pair an NFC card to a Ring; revoke it | — | ❌ | [[Devices & NFC Story|Devices & NFC · S7]] (waits on [[Badge & QR Story|Badge & QR · S7–S12]]) |
+| Resolve a tapped card to a perspective | — | ❌ | [[Badge & QR Story|Badge & QR · S13–S18]] (shared resolve path) |
 
 ## Behaviour expectations
 
@@ -58,4 +58,4 @@ No device or NFC codes exist yet; Devices & NFC · S6 and Devices & NFC · S7 wi
 
 ## Blocked by
 
-- No decision. [[Devices & NFC Story|Devices & NFC · S6]] is To do; [[Devices & NFC Story|Devices & NFC · S7]] waits on [[T-007 Issue and rotate the QR token for a Ring]].
+- No decision. [[Devices & NFC Story|Devices & NFC · S6]] is To do; [[Devices & NFC Story|Devices & NFC · S7]] waits on [[Badge & QR Story|Badge & QR · S7–S12]].

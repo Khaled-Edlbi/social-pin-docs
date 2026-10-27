@@ -14,10 +14,6 @@ kanban-plugin: board
 
 ## ⛔ Blocked
 
-- [ ] [[T-007-fe Frontend · Issue and rotate the QR token for a Ring]] #critical #badge-qr #frontend
-- [ ] [[T-008 Resolve a scanned QR token]] #critical #badge-qr
-- [ ] [[T-008-be Backend · Resolve a scanned QR token]] #critical #badge-qr #backend
-- [ ] [[T-008-fe Frontend · Resolve a scanned QR token]] #critical #badge-qr #frontend
 - [ ] [[T-021-fe Frontend · Connect request send, inbox, cancel]] #critical #connections #frontend
 - [ ] [[T-022 Accept into a Ring (sets grantedRingId)]] #critical #connections
 - [ ] [[T-022-be Backend · Accept into a Ring (sets grantedRingId)]] #critical #connections #backend
@@ -28,14 +24,7 @@ kanban-plugin: board
 - [ ] [[T-024-fe Frontend · Block and unblock]] #critical #connections #frontend
 - [ ] [[T-036 Event mode exhibitors list and detail]] #critical #events-during
 - [ ] [[T-036-fe Frontend · Event mode exhibitors list and detail]] #critical #events-during #frontend
-- [ ] [[T-009 Scan counter and share link]] #high #badge-qr
-- [ ] [[T-009-be Backend · Scan counter and share link]] #high #badge-qr #backend
-- [ ] [[T-009-fe Frontend · Scan counter and share link]] #high #badge-qr #frontend
-- [ ] [[T-010 Public browser page for viewers without the app]] #high #badge-qr
-- [ ] [[T-010-be Backend · Public browser page for viewers without the app]] #high #badge-qr #backend
-- [ ] [[T-010-fe Frontend · Public browser page for viewers without the app]] #high #badge-qr #frontend
 - [ ] [[T-037 Event pass with a 60 s rotating code]] #high #events-during
-- [ ] [[T-037-be Backend · Event pass with a 60 s rotating code]] #high #events-during #backend
 - [ ] [[T-037-fe Frontend · Event pass with a 60 s rotating code]] #high #events-during #frontend
 - [ ] [[T-038 Floor map and booths]] #high #events-during
 - [ ] [[T-038-be Backend · Floor map and booths]] #high #events-during #backend
@@ -50,13 +39,12 @@ kanban-plugin: board
 
 ## ⬜ To do
 
-- [ ] [[T-007 Issue and rotate the QR token for a Ring]] #critical #badge-qr
-- [ ] [[T-007-be Backend · Issue and rotate the QR token for a Ring]] #critical #badge-qr #backend
 - [ ] [[T-021 Connect request send, inbox, cancel]] #critical #connections
 - [ ] [[T-021-be Backend · Connect request send, inbox, cancel]] #critical #connections #backend
 - [ ] [[T-024 Block and unblock]] #critical #connections
 - [ ] [[T-024-be Backend · Block and unblock]] #critical #connections #backend
 - [ ] [[T-036-be Backend · Event mode exhibitors list and detail]] #critical #events-during #backend
+- [ ] [[T-037-be Backend · Event pass with a 60 s rotating code]] #high #events-during #backend
 - [ ] [[T-040-be Backend · Lounges and upgrades]] #high #events-during #backend
 
 

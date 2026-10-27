@@ -33,7 +33,7 @@ What the client needs for the post-event summary and the Ring disposition sheet,
 | My Rings as merge targets | `GET /rings` (`type`, `isTemporary` filters) | ✅ | — |
 | Keep / merge / auto-delete | `POST /rings/:id/disposition` (`disposition`, `mergedIntoRingId` for MERGE) | ✅ | — |
 | Connections, meetings, scans counters (`EventSummary`) | — | ❌ | [[Post-Event Story|Post-Event · S6]] |
-| Scan counts feeding the summary | — | ❌ | [[T-009 Scan counter and share link]] |
+| Scan counts feeding the summary | — | ❌ | [[Badge & QR Story|Badge & QR · S19]] |
 | Connections made during the event | — | ❌ | [[T-023 Connection detail and contacts list]] |
 | Meetings held during the event | — | ❌ | [[Meetings Story|Meetings · S11]] |
 | Follow-up suggestions (Gemma) | — | ❌ | [[Post-Event Story|Post-Event · S6]], [[Gemma AI Story|Gemma AI · S7]] |
@@ -63,6 +63,6 @@ What the client needs for the post-event summary and the Ring disposition sheet,
 ## Blocked by
 
 - No decision note. Upstream tasks:
-- [[Post-Event Story|Post-Event · S6]] — the counters and suggestions; waits on [[T-009 Scan counter and share link]], [[T-023 Connection detail and contacts list]], [[Meetings Story|Meetings · S11]].
+- [[Post-Event Story|Post-Event · S6]] — the counters and suggestions; waits on [[Badge & QR Story|Badge & QR · S19]], [[T-023 Connection detail and contacts list]], [[Meetings Story|Meetings · S11]].
 - [[Event Ring Auto-creation Story|Event Ring Auto-creation · S6]] — without an Event Ring there is nothing to dispose of on s62; the disposition endpoint can be exercised today only on a manually created temporary Ring.
 - [[Cleanup Jobs Story|Cleanup Jobs · S4]] — the purge of `AUTO_DELETE` Rings; the client sees an archived Ring until it runs.
