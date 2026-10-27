@@ -4084,11 +4084,11 @@
     },
     "concepts": 198,
     "decisions": 19,
-    "edges": 3505,
+    "edges": 3506,
     "features": 41,
     "layerNotes": 131,
     "modules": 8,
-    "notes": 270,
+    "notes": 268,
     "partial": 4,
     "placeholders": 154,
     "records": 14,
@@ -24858,6 +24858,11 @@
     {
       "from": "project:status-report-2026-10-15",
       "kind": "wikilink",
+      "to": "project:docs-tree"
+    },
+    {
+      "from": "project:status-report-2026-10-15",
+      "kind": "wikilink",
       "to": "project:frontend-contract"
     },
     {
@@ -26745,14 +26750,6 @@
       "name": "ND-21 How a business card and a portfolio page are read",
       "type": "needs-decision"
     },
-    "social-pin/tasks/Backlog.md": {
-      "name": "Backlog",
-      "type": "map"
-    },
-    "social-pin/tasks/Task Board.md": {
-      "name": "Task Board",
-      "type": null
-    },
     "templates/Backend Delivery Template.md": {
       "name": "Backend Delivery Template",
       "type": "backend-delivery"
@@ -26882,9 +26879,7 @@
     "tree/tree.json",
     "tree/tree.md",
     "tree/cards.json",
-    "social-pin/Card Index.md",
-    "social-pin/tasks/Task Board.md",
-    "social-pin/tasks/Backlog.md"
+    "social-pin/Card Index.md"
   ],
   "layers": [
     {
@@ -42234,7 +42229,7 @@
       ],
       "task": null,
       "title": "Frontend Agent Prompt",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "project:frontend-api-guide": {
       "affects": [],

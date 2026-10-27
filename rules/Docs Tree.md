@@ -17,11 +17,11 @@ The docs tree is the readable map of this vault: **project → module → featur
 | Local | `node scripts/build-tree.mjs --serve` then open `http://127.0.0.1:8787/` |
 | Card codes | [[Card Index]] (generated: one row per card with its unique code, status, and the cards it is connected to as `T-004 \| S-01`) and `tree/cards.json` (the registry: every code ever given, current and retired). The rule: [[Agent Rules#2 · Codes, scopes and the "sum of" rule]] |
 | Machine-readable index | `tree/tree.json` (every node, edge, concept and file) and `tree/tree.md` (the same tree as a Markdown list) |
-| Source of truth | the notes' **frontmatter** and `docs.config.json` (the layers). The tree, the [[Task Board]] and the [[Backlog]] are generated; nothing in them is typed by hand. |
+| Source of truth | the notes' **frontmatter** and `docs.config.json` (the layers). The tree and the [[Card Index]] are generated; nothing in them is typed by hand. |
 
 ## The shape
 
-> **Since 2026-10-27, one story per feature, one flow** ([[Agent Rules#2 · Codes, scopes and the "sum of" rule]]): new work is a part of the feature's story, never a task. The tasks, task stories and `-fe` / `-be` halves drawn below are **legacy cards**, shown until the admin migrates their feature; [[Task Board]] and [[Backlog]] list only them.
+> **Since 2026-10-27, one story per feature, one flow** ([[Agent Rules#2 · Codes, scopes and the "sum of" rule]]): new work is a part of the feature's story, never a task. The tasks, task stories and `-fe` / `-be` halves drawn below are **legacy cards**: every feature was migrated on 2026-10-27, so none is left; the Task Board and the Backlog, which listed tasks, were removed the same day.
 
 ```
 Social Pin (project)
@@ -136,7 +136,7 @@ Read `tree/tree.json` **first**: it is the whole vault as one object, and cheape
 **Commands**
 
 ```bash
-node scripts/build-tree.mjs                          # rebuild tree/, Card Index.md, tasks/Task Board.md, tasks/Backlog.md and site/
+node scripts/build-tree.mjs                          # rebuild tree/, Card Index.md and site/
 node scripts/build-tree.mjs --check                  # validate; exit 1 on errors, 2 when a generated file is stale (CI runs this)
 node scripts/build-tree.mjs --serve                  # build and serve http://127.0.0.1:8787/
 node scripts/build-tree.mjs --impact S-01                  # the same, by card code (see Card Index.md)

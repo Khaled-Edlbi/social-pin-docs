@@ -5,7 +5,7 @@ The documentation vault for Social Pin: business, frontend, backend and QA notes
 ```bash
 node scripts/build-tree.mjs --serve                     # the same page locally, http://127.0.0.1:8787/
 node scripts/build-tree.mjs --check                     # validate the notes and the generated files; what CI runs on every pull request
-node scripts/build-tree.mjs                             # regenerate tree/, social-pin/Card Index.md, social-pin/tasks/Task Board.md and Backlog.md after editing notes
+node scripts/build-tree.mjs                             # regenerate tree/ and social-pin/Card Index.md after editing notes
 node scripts/build-tree.mjs --impact "Ring Access Engine"   # what a change to a note, task, feature or endpoint touches
 node scripts/build-tree.mjs --find "speed search"           # the cards and concepts that match some words: how an agent resolves what you named
 node scripts/agent-guard.mjs selftest                       # the agents' allow / deny matrix (what each of /owner /pm /backend /frontend /qa may write; /admin may write anything)
@@ -18,7 +18,7 @@ node scripts/build-tree.mjs --scaffold task counts "<Title>"     # a task with t
 - `social-pin/` — the product's docs, every card; the folders below are inside it (`projectDir` in `docs.config.json`):
 - `business/`, `frontend/`, `backend/` — the project reference for each side
 - `modules/<Module>/features/<Feature>/` — the feature's business note and one note per layer (story, frontend requirements, backend delivery, backend integration, frontend delivery, QA backend, QA frontend)
-- `tasks/` — one note per task (`T-NNN`), with the same kinds of notes under the task's folder once teams pick it up; the generated Task Board and Backlog
+- `tasks/` — retired 2026-10-27: one story per feature holds all of its work, and the Task Board and Backlog were removed
 - `bugs/` — one note per bug (`B-NN`, `type: bug`); in the tree it hangs under the task or the card it was found against
 - `needs-decisions/` — the open and answered questions (ND-NN), where the design and the backend disagree
 - `decisions/` — the answers (D-NN) and the Decisions table
