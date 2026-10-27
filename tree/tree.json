@@ -853,6 +853,7 @@
         "backend-integration:auth",
         "frontend-requirements:auth",
         "frontend-requirements:code-delivery",
+        "frontend-requirements:error-contract",
         "project:frontend-api-guide",
         "project:frontend-passwordless-migration",
         "story:auth",
@@ -876,6 +877,7 @@
         "backend-integration:auth",
         "frontend-requirements:auth",
         "frontend-requirements:code-delivery",
+        "frontend-requirements:error-contract",
         "project:auth-model",
         "project:frontend-api-guide",
         "project:frontend-passwordless-migration",
@@ -1237,6 +1239,7 @@
       "containers": [
         "feature:account",
         "feature:auth",
+        "feature:error-contract",
         "project:auth-model",
         "task:B-02"
       ],
@@ -1249,6 +1252,7 @@
         "feature:account",
         "frontend-delivery:account",
         "frontend-requirements:account",
+        "frontend-requirements:error-contract",
         "project:auth-model",
         "qa-backend:account",
         "qa-frontend:account",
@@ -4084,7 +4088,7 @@
     },
     "concepts": 198,
     "decisions": 19,
-    "edges": 3506,
+    "edges": 3509,
     "features": 41,
     "layerNotes": 131,
     "modules": 8,
@@ -4149,7 +4153,9 @@
   ],
   "diagnostics": {
     "errors": [],
-    "warnings": []
+    "warnings": [
+      "social-pin/modules/Platform & Cross-cutting/features/Error Contract/Error Contract Frontend Requirements.md: wikilink [[B-05 Expired onboarding token answers 401, not the documented 400]] resolves to no note"
+    ]
   },
   "edges": [
     {
@@ -6456,7 +6462,8 @@
       "kind": "related",
       "to": "frontend-requirements:error-contract",
       "via": [
-        "E_AUTH_03"
+        "E_AUTH_03",
+        "E_USER_01"
       ]
     },
     {
@@ -6639,6 +6646,14 @@
     {
       "from": "backend-delivery:auth",
       "kind": "related",
+      "to": "frontend-requirements:error-contract",
+      "via": [
+        "E_USER_01"
+      ]
+    },
+    {
+      "from": "backend-delivery:auth",
+      "kind": "related",
       "to": "project:auth-model",
       "via": [
         "E_AUTH_03",
@@ -6789,7 +6804,8 @@
       "kind": "related",
       "to": "frontend-requirements:error-contract",
       "via": [
-        "E_AUTH_03"
+        "E_AUTH_03",
+        "E_USER_01"
       ]
     },
     {
@@ -6972,6 +6988,14 @@
       "from": "backend-integration:auth",
       "kind": "related",
       "to": "frontend-requirements:account",
+      "via": [
+        "E_USER_01"
+      ]
+    },
+    {
+      "from": "backend-integration:auth",
+      "kind": "related",
+      "to": "frontend-requirements:error-contract",
       "via": [
         "E_USER_01"
       ]
@@ -9114,7 +9138,8 @@
       "kind": "related",
       "to": "frontend-requirements:error-contract",
       "via": [
-        "E_AUTH_03"
+        "E_AUTH_03",
+        "E_USER_01"
       ]
     },
     {
@@ -10354,7 +10379,8 @@
       "to": "feature:error-contract",
       "via": [
         "E_AUTH_03",
-        "E_AUTH_04"
+        "E_AUTH_04",
+        "E_USER_01"
       ]
     },
     {
@@ -11060,6 +11086,7 @@
         "E_AUTH_06",
         "E_AUTH_08",
         "E_PROFILE_02",
+        "E_USER_01",
         "E_USER_04"
       ]
     },
@@ -14118,6 +14145,7 @@
         "E_AUTH_02",
         "E_AUTH_03",
         "E_AUTH_06",
+        "E_USER_01",
         "E_USER_04"
       ]
     },
@@ -14194,7 +14222,8 @@
       "kind": "shares",
       "to": "task:B-02",
       "via": [
-        "E_AUTH_03"
+        "E_AUTH_03",
+        "E_USER_01"
       ]
     },
     {
@@ -21896,6 +21925,11 @@
       "to": "story:error-contract"
     },
     {
+      "from": "frontend-requirements:error-contract",
+      "kind": "wikilink",
+      "to": "task:B-02"
+    },
+    {
       "from": "frontend-requirements:event-ring-auto",
       "kind": "wikilink",
       "to": "frontend-requirements:events-during"
@@ -27142,9 +27176,9 @@
         "project:developer-setup",
         "feature:account",
         "qa-frontend:account",
+        "frontend-requirements:error-contract",
         "project:auth-model",
         "frontend-requirements:devices",
-        "frontend-requirements:error-contract",
         "story:error-contract",
         "project:frontend-api-guide"
       ],
@@ -27314,6 +27348,7 @@
         "qa-backend:account",
         "qa-frontend:account",
         "backend-integration:auth",
+        "frontend-requirements:error-contract",
         "project:auth-model"
       ],
       "release": "mvp",
@@ -29490,9 +29525,9 @@
         "story:counts",
         "frontend-requirements:ring-projection",
         "feature:account",
+        "frontend-requirements:error-contract",
         "project:auth-model",
         "frontend-requirements:devices",
-        "frontend-requirements:error-contract",
         "story:error-contract",
         "project:frontend-api-guide"
       ],
@@ -29604,6 +29639,7 @@
         "frontend-delivery:account",
         "frontend-requirements:account",
         "qa-frontend:account",
+        "frontend-requirements:error-contract",
         "project:auth-model"
       ],
       "release": "mvp",
@@ -38169,6 +38205,8 @@
       "related": [
         "backend-delivery:account",
         "backend-integration:account",
+        "backend-delivery:auth",
+        "backend-integration:auth",
         "project:auth-model"
       ],
       "release": "mvp",
@@ -41778,13 +41816,13 @@
         "frontend-requirements:account",
         "qa-backend:account",
         "qa-frontend:account",
+        "frontend-requirements:error-contract",
         "task:B-01",
         "decision:D-20",
         "story:account",
         "frontend-requirements:auth",
         "story:auth",
         "frontend-requirements:devices",
-        "frontend-requirements:error-contract",
         "story:error-contract",
         "project:frontend-api-guide",
         "project:frontend-passwordless-migration"

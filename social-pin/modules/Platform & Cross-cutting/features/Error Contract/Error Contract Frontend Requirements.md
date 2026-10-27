@@ -13,6 +13,18 @@ tags: [frontend-requirements, frontend-requirements/draft, module/platform, laye
 
 # Error Contract · Frontend Requirements
 
+> ⚠ Affected by [[Error Contract Backend Delivery]] (2026-10-27): reviewed by `/backend` while still `draft`, at the owner's request. Not approvable as written; for the frontend to fix before setting it `ready`. Checked against the code on `main @ b4984d6` and [[Auth & Sign-up QA Backend]]'s run.
+> 1. **Name the field.** The list says "the stable code" and an `ErrorCode` column but never the key. [[Error Contract Story]] S2 proposes **`errorCode`** (camelCase, optional, absent on validation errors per S8). Say that, so both sides build the same parser.
+> 2. **The 401 rows are incomplete.** A 401 today is one of: no, malformed or expired access token (`message: "Unauthorized"`, no code, the most common one: refresh once); `E_AUTH_04` (refresh token dead or wrong scope: sign in again); `E_AUTH_03` (suspended: sign out, no refresh); and `E_AUTH_05` on `complete-registration` (onboarding token expired: back to s02, never a refresh; [[B-05 Expired onboarding token answers 401, not the documented 400]]). "401 = `E_AUTH_04` or `E_AUTH_03`" sends the last case to a refresh the user does not have.
+> 3. **The 403 row is not only "not allowed".** 403 `E_AUTH_03` from `login/verify` and `refresh` means the **account** is not active (suspended or sign-up unfinished): a sign-out with its own copy, not a role refusal.
+> 4. **A deleted account is a 404 on any route.** Since [[B-02 Deleted account answers 401, not the documented 404 E_USER_01]], 404 `E_USER_01` from the auth guard means "your account was deleted": a sign-out, not "not found". The 404 row and the behaviour list must carve it out.
+> 5. **429 is not "retry later".** The only 429 is `E_AUTH_06`: the code is burned; the way on is "send a new code", and retrying the same request never succeeds.
+> 6. **"Inline per field" needs a decision.** Validation errors come from the stock `ValidationPipe`: `message` is an array of English sentences that **start with the property name** (`"email must be an email"`), with no field key. Either accept matching the leading property name (fragile, English-only), or ask for a structured shape (`{ field, constraints }`) and raise it as a need; S8 as written keeps the plain array.
+> 7. **Stale row.** "Single-meaning codes … no task yet": that work is now [[Error Contract Story|Error Contract · S9–S11]].
+> 8. **Say what `error` will be.** S2 says it stops reading `"HttpException"`; the list should tell the client not to branch on `error` at all.
+>
+> Fine as written: one parser for every body; `message` string or array; 500 never shows the body; one 404 copy for the privacy-sensitive routes; reading the code as optional so it activates when it appears. `/frontend`: fix 1–8, then set `ready`; `/backend` approves or sends it back.
+
 **Feature:** [[Error Contract]] · **Status:** Draft · **Story:** [[Error Contract Story]] · **API Integration:** not yet (backend not built)
 
 What the client's error layer depends on. There is no screen; the per-feature requirements notes list the codes each endpoint will carry, and this note states the shape they all share and what is missing from it today.
