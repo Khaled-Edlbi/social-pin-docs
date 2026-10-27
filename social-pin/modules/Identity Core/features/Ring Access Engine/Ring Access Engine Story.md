@@ -63,7 +63,7 @@ Acceptance criteria:
 Acceptance criteria:
 - [ ] A blocked pair gets the not-shared 404 on every `/views` route and an empty `/perspectives` list, in both directions.
 - [ ] Adding a blocked user to a Ring is refused (409 `E_RING_MEMBER_04`) with "Cannot add this user", never "blocked".
-- [ ] Nothing can create a block yet; the rule is enforced but unreachable until [[T-024 Block and unblock]].
+- [ ] Nothing can create a block yet; the rule is enforced but unreachable until [[Connections Story|Connections · S25]].
 
 ### S5 · An expired Ring stays editable by its owner ([[Screen Index#s62|s62]])
 

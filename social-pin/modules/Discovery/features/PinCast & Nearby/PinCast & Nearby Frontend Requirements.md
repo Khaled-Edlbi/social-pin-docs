@@ -62,7 +62,7 @@ What the client needs from the backend to build the screens in [[PinCast & Nearb
 | Stop | — | ❌ | [[PinCast & Nearby Story|PinCast & Nearby · S7]] |
 | Recipients so far and final results, no coordinates | — | ❌ | [[PinCast & Nearby Story|PinCast & Nearby · S7]] |
 | Nearby by Ring through the access engine | — | ❌ | [[PinCast & Nearby Story|PinCast & Nearby · S7]] |
-| Connect / accept from a result row | — | ❌ | [[T-021 Connect request send, inbox, cancel]] |
+| Connect / accept from a result row | — | ❌ | [[Connections Story|Connections · S8–S12]] |
 | "PinCast ended" and "pins nearby" notifications | — | ❌ | [[Notifications Story|Notifications · S7]] |
 | Push instead of polling on s40 | — | ❌ | [[Notifications Story|Notifications · S8]] |
 | Recipient purge that bounds how long s42 stays complete | — | ❌ | [[Cleanup Jobs Story|Cleanup Jobs · S4]] |

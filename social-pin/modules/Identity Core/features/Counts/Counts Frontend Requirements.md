@@ -8,7 +8,7 @@ status: ready
 screens: [s11, s12, s14, s16, s17, s68]
 depends: []
 affects: ["Counts Story"]
-related: ["D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "Rings", "Connections", "T-021 Connect request send, inbox, cancel", "Error Contract Story"]
+related: ["D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "Rings", "Connections", "Connections Story", "Error Contract Story"]
 created: 2026-10-18
 updated: 2026-10-27
 owner: "Omar Fostok"
@@ -54,7 +54,7 @@ Every count here is **owner-facing**: a person only ever sees how many people ar
 ### [[Screen Index#s68|s68]] Me / Account
 
 - Needs: "N Rings · N connections" under the name on the profile card. The Rings part from `meta.total` of `GET /rings` ✅; the connections part **hidden, not zero,** until connections exist.
-- Source today: connections: not yet ([[Counts Story|Counts · S11]], which waits on connections themselves, [[T-021 Connect request send, inbox, cancel]]).
+- Source today: connections: not yet ([[Counts Story|Counts · S11]], which waits on connections themselves, [[Connections Story|Connections · S8–S12]]).
 
 ## Endpoints required
 
@@ -63,7 +63,7 @@ Every count here is **owner-facing**: a person only ever sees how many people ar
 | Number of Rings I own (Home "All N", My Rings tab, Me) | `GET /rings` → `meta.total` | ✅ | — (listed under [[Rings]]) |
 | Live member count per owned Ring, on the list and the detail | — | ❌ | [[Counts Story|Counts · S6–S10]] |
 | Number of **people** sharing a Ring with me, live now | — | ❌ | no task yet: asked here. `GET /rings/shared-with-me` → `meta.total` counts Rings today |
-| Connection count on Me (and Home, if the story keeps it) | — | ❌ | [[Counts Story|Counts · S11]] (waits on [[T-021 Connect request send, inbox, cancel]]) |
+| Connection count on Me (and Home, if the story keeps it) | — | ❌ | [[Counts Story|Counts · S11]] (waits on [[Connections Story|Connections · S8–S12]]) |
 
 Not asked, by decision: a member count on a Ring shared with me ([[D-14 Shared with me lists people, never the Ring]]).
 
@@ -89,5 +89,5 @@ No code of its own exists yet; the rows above are the codes of the list endpoint
 ## Blocked by
 
 - [[Counts Story|Counts · S6–S10]] — every "N people" on Home, the Ring picker, Ring data and My Rings.
-- [[Counts Story|Counts · S11]] — "N connections" on Me; itself waiting on [[T-021 Connect request send, inbox, cancel]].
+- [[Counts Story|Counts · S11]] — "N connections" on Me; itself waiting on [[Connections Story|Connections · S8–S12]].
 - The people count on Shared with me has no task yet.

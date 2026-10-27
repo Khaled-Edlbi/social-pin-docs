@@ -39,11 +39,6 @@ Social Pin backend
 │   └── ❌ Onboarding Imports  [High]
 ├── Connections  (❌1)
 │   └── ❌ Connections  [Critical]
-│       ├── ⬜ T-021 Connect request: send, inbox, cancel
-│       ├── ⬜ T-022 Accept into a Ring (sets grantedRingId)
-│       ├── ⬜ T-023 Connection detail and contacts list
-│       ├── ⬜ T-024 Block and unblock
-│       └── ❓ T-025 Introduce a connection to another
 ├── Shared Rings & Companies  (🟡1 ❌2)
 │   ├── 🟡 Delegated Admins  [High]
 │   ├── ❌ Ring Invitations & Join  [High]
@@ -108,7 +103,7 @@ Connect requests after a scan, accept into a Ring, blocks, contacts. The next mo
 
 | Feature | Status | Priority | Screens | Open tasks |
 |---|---|---|---|---|
-| [[Connections]] | ❌ TODO | Critical | s44, s45, s46, s47, s62 | 5 |
+| [[Connections]] | ❌ TODO | Critical | s44, s45, s46, s47, s62 | 0 |
 
 ## Shared Rings & Companies
 

@@ -48,7 +48,7 @@ What the client needs from the backend to build the owner's roster and the per-p
 
 | Shown | Source | Notes |
 |---|---|---|
-| Identity | — | placeholder until [[T-023 Connection detail and contacts list]] |
+| Identity | — | placeholder until [[Connections Story|Connections · S19–S24]] |
 | Window | `startsAt`, `expiresAt` | `null` = open-ended |
 | Lapsed | `expiresAt < now` on an `ACTIVE` row | `EXPIRED` is never set server-side |
 | Added | `createdAt`, `addedById` | relative time |
@@ -64,8 +64,8 @@ What the client needs from the backend to build the owner's roster and the per-p
 | Move to another Ring of mine | `POST /rings/:ringId/members/:userId/reassign` | ✅ | — |
 | Revoke | `DELETE /rings/:ringId/members/:userId` | ✅ | — |
 | Picker of my other Rings for reassign | `GET /rings` | ✅ | — (listed under [[Rings]]) |
-| Name, Pin name and photo per row | — | ❌ | [[T-023 Connection detail and contacts list]] |
-| A `userId` to add (connect request accepted) | — | ❌ | [[T-021 Connect request send, inbox, cancel]], [[T-022 Accept into a Ring (sets grantedRingId)]] |
+| Name, Pin name and photo per row | — | ❌ | [[Connections Story|Connections · S19–S24]] |
+| A `userId` to add (connect request accepted) | — | ❌ | [[Connections Story|Connections · S8–S12]], [[Connections Story|Connections · S13–S18]] |
 | Scan someone in | — | ❌ | [[Badge & QR Story|Badge & QR · S13–S18]] |
 | Delegated admins managing the roster | — | ❌ | [[Delegated Admins Story|Delegated Admins · S6]] |
 | Members can see each other | — | ❌ | [[ND-04 Ring settings]] |
@@ -98,6 +98,6 @@ Until [[Error Contract Story|Error Contract · S4–S8]] ships, branch on status
 
 ## Blocked by
 
-- [[T-023 Connection detail and contacts list]] — names and photos on every row; without it the roster is a list of windows.
-- [[T-021 Connect request send, inbox, cancel]] and [[T-022 Accept into a Ring (sets grantedRingId)]] — the only in-app sources of a `userId` to add.
+- [[Connections Story|Connections · S19–S24]] — names and photos on every row; without it the roster is a list of windows.
+- [[Connections Story|Connections · S8–S12]] and [[Connections Story|Connections · S13–S18]] — the only in-app sources of a `userId` to add.
 - [[ND-04 Ring settings]] — "members can see each other" on s27.

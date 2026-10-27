@@ -3,7 +3,7 @@ type: needs-decision
 id: ND-10
 status: draft
 features: [badge-qr, connections]
-blocks: ["Badge & QR Story", "T-021 Story"]
+blocks: ["Badge & QR Story", "Connections Story"]
 decider: "owner"
 screens: [s43, s44]
 affects: []
@@ -16,21 +16,21 @@ tags: [needs-decision, needs-decision/draft]
 
 # ❓ ND-10 · How Connect addresses the scanned person
 
-**Status:** draft · **Decider:** owner · **Raised:** 2026-10-25 · **Needed by:** [[Badge & QR Story|Badge & QR · S13–S18]], [[T-021 Story]] · **Feature:** [[Badge & QR]], [[Connections]]
+**Status:** draft · **Decider:** owner · **Raised:** 2026-10-25 · **Needed by:** [[Badge & QR Story|Badge & QR · S13–S18]], [[Connections Story|Connections · S8–S12]] · **Feature:** [[Badge & QR]], [[Connections]]
 
 > The needs-decision card: `draft` while the question is written, `open` once it is ready for the decider; it shows **Fulfilled** by itself once its decision card (D-NN) is `decided`. The cards in `blocks` are **Blocked · ND-10** while this is `draft` or `open` and return to their own status once it is fulfilled. Nobody edits their `status:` for this, and nobody types `fulfilled` or `decided` here.
 
 ## What has to be decided
 
-What *Connect* on a scanned or looked-up card ([[Screen Index#s44|s44]]) sends so that the request reaches the right person. The view body the scanner gets has no user id, so today the app has nothing to address the request with. Until this is chosen, [[Badge & QR Story|Badge & QR · S13–S18]] cannot fix its response shape and [[T-021 Connect request send, inbox, cancel]] cannot fix the body of `POST /connections/requests`. Giving the scanner a user id is the simplest call but hands a stable id to anyone who scans; keeping the id on the server means the request carries what the scanner already has, and lives only as long as that does.
+What *Connect* on a scanned or looked-up card ([[Screen Index#s44|s44]]) sends so that the request reaches the right person. The view body the scanner gets has no user id, so today the app has nothing to address the request with. Until this is chosen, [[Badge & QR Story|Badge & QR · S13–S18]] cannot fix its response shape and [[Connections Story|Connections · S8–S12]] cannot fix the body of `POST /connections/requests`. Giving the scanner a user id is the simplest call but hands a stable id to anyone who scans; keeping the id on the server means the request carries what the scanner already has, and lives only as long as that does.
 
 ## Notes
 
 - `RingProfileViewEntity` (`GET /views/ring/:ringId`, `GET /views/pin/:pinName`) has no user id, on purpose ([[View As & Pin Views Backend Integration]]). The Ring id is not shown to viewers either.
 - `GET /views/user/:userId/perspectives` already takes a user id; today a client only gets one from its own data, never from a stranger's view.
-- The task's *What* says "target by user id from a resolved view", which the view cannot supply; the T-021 Story's acceptance criteria say the id comes from the scan or the lookup, never from the view ([[T-021 Story]], [[Badge & QR Story|Badge & QR · S13–S18]] open questions).
+- The task's *What* says "target by user id from a resolved view", which the view cannot supply; the Connections · S8–S12 Story's acceptance criteria say the id comes from the scan or the lookup, never from the view ([[Connections Story|Connections · S8–S12]], [[Badge & QR Story|Badge & QR · S13–S18]] open questions).
 - There are two ways in: a scan (a token, [[Badge & QR Story|Badge & QR · S13–S18]]) and a Pin-name lookup (`/views/pin/:pinName`). The answer has to cover both.
-- A blocked pair must fail with the same 404 as the views ([[T-021 Story]] S2), whatever is sent.
+- A blocked pair must fail with the same 404 as the views ([[Connections Story|Connections · S8–S12]] S2), whatever is sent.
 
 ## Options
 
@@ -42,7 +42,7 @@ Recommendation: option 3. It adds no identifier to the view contract and reuses 
 
 ## Responsible
 
-`decider` above: the owner, before [[Badge & QR Story|Badge & QR · S13–S18]] and [[T-021 Story]] are approved, after hearing from the backend what the resolve can return and from the frontend how *Requested* is kept across navigation.
+`decider` above: the owner, before [[Badge & QR Story|Badge & QR · S13–S18]] and [[Connections Story|Connections · S8–S12]] are approved, after hearing from the backend what the resolve can return and from the frontend how *Requested* is kept across navigation.
 
 ## Decision
 

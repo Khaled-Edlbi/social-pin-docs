@@ -54,7 +54,7 @@ What the client needs from the backend to build the screens in [[Badge & QR Stor
 | Permanent token (Pro) | — | ❌ | [[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]] |
 | Event pass token, 60 s window | — | ❌ | [[T-037 Event pass with a 60 s rotating code]] |
 | NFC card bound to the same token | — | ❌ | [[Devices & NFC Story|Devices & NFC · S7]] |
-| Connect from s44 | — | ❌ | [[T-021 Connect request send, inbox, cancel]] |
+| Connect from s44 | — | ❌ | [[Connections Story|Connections · S8–S12]] |
 | Avatar bytes on the badge and the resolved card | — | ❌ | [[Files Upload Story|Files Upload · showing files]] |
 
 ## Behaviour expectations

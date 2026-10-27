@@ -43,7 +43,7 @@ What the client needs from the backend to build the screen in [[Discover Hub & S
 | Business Pin name resolving to a company / exhibitor screen | — | ❌ | [[Companies Story|Companies · S6]] |
 | Gemma prompt from the same field | — | ❌ | [[Gemma AI Story|Gemma AI · S7]] |
 | Contacts match by hashed email / phone | — | ❌ | [[Discover Hub & Search Story|Discover Hub & Search · S7]] |
-| People tile (requests and contacts) | — | ❌ | [[T-021 Connect request send, inbox, cancel]] |
+| People tile (requests and contacts) | — | ❌ | [[Connections Story|Connections · S8–S12]] |
 | Events tile | — | ❌ | [[Events Before Story|Events Before · S7]] |
 | Companies tile | — | ❌ | [[Companies Story|Companies · S6]] |
 | Exhibitors tile | — | ❌ | [[T-036 Event mode exhibitors list and detail]] |

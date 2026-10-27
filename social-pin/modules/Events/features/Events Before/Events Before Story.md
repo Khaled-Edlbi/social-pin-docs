@@ -87,7 +87,7 @@ Acceptance criteria:
 
 *From T-033 (status then: To do), merged 2026-10-27.*
 
-`GET /events` with filters and 'contacts going' (needs T-023), `GET /events/:id`, schedule and mini-events.
+`GET /events` with filters and 'contacts going' (needs Connections · S19–S24), `GET /events/:id`, schedule and mini-events.
 
 Screens: [[Screen Index#s48|s48]] Events tab · [[Screen Index#s49|s49]] Event landing
 
@@ -129,5 +129,5 @@ Screens: [[Screen Index#s51|s51]] Payment · [[Screen Index#s52|s52]] Event Ring
 
 - No decision note exists. Open points:
 - S5 and therefore S6 wait on [[Payments & Orders Story|Payments & Orders · S7]], which has no backend yet; the provider is decided ([[ND-07 Payment provider]]), the methods s51 offers are not.
-- [[Events Before Story|Events Before · S7]] — "contacts going" needs [[T-023 Connection detail and contacts list]]; until then S1 ships without that filter.
+- [[Events Before Story|Events Before · S7]] — "contacts going" needs [[Connections Story|Connections · S19–S24]]; until then S1 ships without that filter.
 - Whether an RSVP on a free event creates an `Order` with a zero total or no order at all affects S4's call count.

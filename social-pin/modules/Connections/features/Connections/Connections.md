@@ -43,23 +43,42 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 - **One person can be in several of my Rings** and sees the version from the Ring they were put in first. Removing them from my last Ring offers *Remove from Rings* (still a connection, no access) or *Disconnect* (the connection ends) ([[D-15 Several Rings per connection, remove or disconnect]]).
 - Not built yet: the connection request flow is TODO.
 
-## Tasks
+## Work
 
-| Task | Status | Priority | Effort |
-|---|---|---|---|
-| [[T-021 Connect request send, inbox, cancel]] | ⬜ To do | Critical | M |
-| [[T-022 Accept into a Ring (sets grantedRingId)]] | ⬜ To do | Critical | M |
-| [[T-023 Connection detail and contacts list]] | ⬜ To do | Critical | M |
-| [[T-024 Block and unblock]] | ⬜ To do | Critical | S |
-| [[T-025 Introduce a connection to another]] | ❓ Needs a decision / info | Medium | M |
+One story per feature (since 2026-10-27): all of this feature's work is in [[Connections Story]]. The tasks merged into it on 2026-10-27:
 
-```dataview
-TABLE status, priority, effort FROM #task WHERE feature = "connections" SORT priority ASC
-```
+| Was | Title | Status then | Priority | Now in the story |
+|---|---|---|---|---|
+| T-021 | Connect request send, inbox, cancel | To do | critical | S8–S12 |
+| T-022 | Accept into a Ring (sets grantedRingId) | To do | critical | S13–S18 |
+| T-023 | Connection detail and contacts list | To do | critical | S19–S24 |
+| T-024 | Block and unblock | To do | critical | S25 |
+| T-025 | Introduce a connection to another | Needs a decision | medium | S26 |
+
+### Log of the merged tasks
+
+- T-021 · 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
+- T-021 · 2026-10-25 · `tickets/pm/M-02-connections/F-14-connections/S-24-decisions` · story and What updated for D-13 (decline visible) and D-17 (30-day expiry, optional note, ask again at once); flags cleared. Still Blocked · ND-10.
+- T-021 · 2026-10-18 · created as the backend half of T-021
+- T-021 · 2026-10-18 · created as the frontend half of T-021
+- T-022 · 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
+- T-022 · 2026-10-25 · `tickets/pm/M-02-connections/F-14-connections/S-25-decisions` · story S3, S4 and What updated for D-13, D-14 and D-17; flags cleared.
+- T-022 · 2026-10-18 · created as the backend half of T-022
+- T-022 · 2026-10-18 · created as the frontend half of T-022
+- T-023 · 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
+- T-023 · 2026-10-25 · `tickets/pm/M-02-connections/F-14-connections/S-26-decisions` · story S1, S2, S6 and What updated for D-04, D-14 and D-15; flags cleared.
+- T-023 · 2026-10-18 · created as the backend half of T-023
+- T-023 · 2026-10-18 · created as the frontend half of T-023
+- T-024 · 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
+- T-024 · 2026-10-18 · created as the backend half of T-024
+- T-024 · 2026-10-18 · created as the frontend half of T-024
+- T-025 · 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
+- T-025 · 2026-10-18 · created as the backend half of T-025
+- T-025 · 2026-10-18 · created as the frontend half of T-025
 
 ## Decisions
 
-- [[ND-10 How Connect addresses the scanned person]] — open (draft); blocks [[T-021 Story]] and [[Badge & QR Story|Badge & QR · S13–S18]]
+- [[ND-10 How Connect addresses the scanned person]] — open (draft); blocks [[Connections Story|Connections · S8–S12]] and [[Badge & QR Story|Badge & QR · S13–S18]]
 - [[ND-13 Whether the requester sees a declined request]] — decided, the requester sees a decline ([[D-13 The requester sees a declined request|D-13]])
 - [[ND-14 Connection-granted Ring on Shared with me]] — decided, Shared with me lists people, never the Ring ([[D-14 Shared with me lists people, never the Ring|D-14]])
 - [[ND-15 One Ring or several per connection]] — decided, several Rings per connection, remove or disconnect ([[D-15 Several Rings per connection, remove or disconnect|D-15]])

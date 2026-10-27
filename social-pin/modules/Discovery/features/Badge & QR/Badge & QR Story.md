@@ -185,7 +185,7 @@ Acceptance criteria:
 **As a** scanner **I want** *Connect* on the card **so that** the presenter can add me to their Ring.
 
 Acceptance criteria:
-- [ ] The resolve returns what *Connect* needs to address the presenter (a user id or an opaque handle), since the view body has none today. The request itself is [[T-021 Connect request send, inbox, cancel]].
+- [ ] The resolve returns what *Connect* needs to address the presenter (a user id or an opaque handle), since the view body has none today. The request itself is [[Connections Story|Connections · S8–S12]].
 
 ### S19 · Scan counter and share link
 

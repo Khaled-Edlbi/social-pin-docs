@@ -51,7 +51,7 @@ What the client needs from the backend to build the screens in [[Ring Invitation
 | Resolve a join code to a reviewable Ring, then join | — | ❌ | [[Ring Invitations & Join Story|Ring Invitations & Join · S8]] |
 | Verify a work email against the Ring's domain, then join | — | ❌ | [[Ring Invitations & Join Story|Ring Invitations & Join · S8]] |
 | Join policy, join code, required domain on the Ring | — | ❌ | [[ND-04 Ring settings]] |
-| Owner's display name on an invitation row | — | ❌ | [[T-023 Connection detail and contacts list]] |
+| Owner's display name on an invitation row | — | ❌ | [[Connections Story|Connections · S19–S24]] |
 | What I contribute to a shared Ring | — | ❌ | [[Ring Invitations & Join Story|Ring Invitations & Join · S9]] |
 | Notification on invite | — | ❌ | [[Notifications Story|Notifications · S7]] |
 | Join offer carried by a scanned token | — | ❌ | [[Badge & QR Story|Badge & QR · S13–S18]] |

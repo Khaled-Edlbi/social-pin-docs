@@ -14,18 +14,6 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 
 | Task | Feature | Module | Status | Effort | Deadline | Depends on / blocked by |
 |---|---|---|---|---|---|---|
-| [[T-021 Connect request send, inbox, cancel]] | [[Connections]] | Connections | ⬜ To do | M | — | — |
-| [[T-021-be Backend · Connect request send, inbox, cancel]] `backend` | [[Connections]] | Connections | ⬜ To do | M | — | — |
-| [[T-021-fe Frontend · Connect request send, inbox, cancel]] `frontend` | [[Connections]] | Connections | ⛔ Blocked | M | — | [[T-021-be Backend · Connect request send, inbox, cancel|T-021-be]] |
-| [[T-022 Accept into a Ring (sets grantedRingId)]] | [[Connections]] | Connections | ⛔ Blocked | M | — | [[T-021 Connect request send, inbox, cancel|T-021]] |
-| [[T-022-be Backend · Accept into a Ring (sets grantedRingId)]] `backend` | [[Connections]] | Connections | ⛔ Blocked | M | — | [[T-021 Connect request send, inbox, cancel|T-021]] |
-| [[T-022-fe Frontend · Accept into a Ring (sets grantedRingId)]] `frontend` | [[Connections]] | Connections | ⛔ Blocked | M | — | [[T-021 Connect request send, inbox, cancel|T-021]], [[T-022-be Backend · Accept into a Ring (sets grantedRingId)|T-022-be]] |
-| [[T-023 Connection detail and contacts list]] | [[Connections]] | Connections | ⛔ Blocked | M | — | [[T-022 Accept into a Ring (sets grantedRingId)|T-022]] |
-| [[T-023-be Backend · Connection detail and contacts list]] `backend` | [[Connections]] | Connections | ⛔ Blocked | M | — | [[T-022 Accept into a Ring (sets grantedRingId)|T-022]] |
-| [[T-023-fe Frontend · Connection detail and contacts list]] `frontend` | [[Connections]] | Connections | ⛔ Blocked | M | — | [[T-022 Accept into a Ring (sets grantedRingId)|T-022]], [[T-023-be Backend · Connection detail and contacts list|T-023-be]] |
-| [[T-024 Block and unblock]] | [[Connections]] | Connections | ⬜ To do | S | — | — |
-| [[T-024-be Backend · Block and unblock]] `backend` | [[Connections]] | Connections | ⬜ To do | S | — | — |
-| [[T-024-fe Frontend · Block and unblock]] `frontend` | [[Connections]] | Connections | ⛔ Blocked | S | — | [[T-024-be Backend · Block and unblock|T-024-be]] |
 | [[T-036 Event mode exhibitors list and detail]] | [[Events During]] | Events | ⛔ Blocked | M | — | — |
 | [[T-036-be Backend · Event mode exhibitors list and detail]] `backend` | [[Events During]] | Events | ⬜ To do | M | — | — |
 | [[T-036-fe Frontend · Event mode exhibitors list and detail]] `frontend` | [[Events During]] | Events | ⛔ Blocked | M | — | [[T-036-be Backend · Event mode exhibitors list and detail|T-036-be]] |
@@ -53,9 +41,6 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | Task | Feature | Module | Status | Effort | Deadline | Depends on / blocked by |
 |---|---|---|---|---|---|---|
 | [[B-02 Deleted account answers 401, not the documented 404 E_USER_01]] `bug` | [[Account]] | Identity Core | 🟡 Partial (2 notes) · Fixed | S | — | — |
-| [[T-025 Introduce a connection to another]] | [[Connections]] | Connections | ❓ Needs decision | M | — | [[T-023 Connection detail and contacts list|T-023]] |
-| [[T-025-be Backend · Introduce a connection to another]] `backend` | [[Connections]] | Connections | ⛔ Blocked | M | — | [[T-023 Connection detail and contacts list|T-023]] |
-| [[T-025-fe Frontend · Introduce a connection to another]] `frontend` | [[Connections]] | Connections | ⛔ Blocked | M | — | [[T-023 Connection detail and contacts list|T-023]], [[T-025-be Backend · Introduce a connection to another|T-025-be]] |
 
 ## Done
 

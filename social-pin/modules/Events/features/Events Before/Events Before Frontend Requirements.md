@@ -49,7 +49,7 @@ What the client needs to build the events tab, landing page, ticket selection, p
 
 | Need | Endpoint | Available | Task / decision |
 |---|---|---|---|
-| Events list with filters and "contacts going" | — | ❌ | [[Events Before Story|Events Before · S7]] (contacts going also needs [[T-023 Connection detail and contacts list]]) |
+| Events list with filters and "contacts going" | — | ❌ | [[Events Before Story|Events Before · S7]] (contacts going also needs [[Connections Story|Connections · S19–S24]]) |
 | Event detail, schedule, mini-events | — | ❌ | [[Events Before Story|Events Before · S7]] |
 | Packages, levels, entitlements, capacity / sold out | — | ❌ | [[Events Before Story|Events Before · S8]] |
 | Register (participant + order + payment intent) | — | ❌ | [[Events Before Story|Events Before · S9]] |
@@ -84,4 +84,4 @@ What the client needs to build the events tab, landing page, ticket selection, p
 - [[Events Before Story|Events Before · S8]] — s50; waits on Events Before · S7.
 - [[Events Before Story|Events Before · S9]] — s51, s52; waits on Events Before · S8 and Payments & Orders · S7.
 - [[Payments & Orders Story|Payments & Orders · S7]] — payment provider undecided; s51.
-- [[T-023 Connection detail and contacts list]] — the "contacts going" filter on s48.
+- [[Connections Story|Connections · S19–S24]] — the "contacts going" filter on s48.

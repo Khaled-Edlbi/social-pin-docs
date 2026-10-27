@@ -9,7 +9,7 @@ screens: [s15, s47]
 approvedBy: "khaled"
 approvedAt: 2026-10-25
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 owner: "omar"
 related: ["D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-18 Ring names shown when joined knowingly"]
 tags: [story, story/approved, module/identity, layer/business]
@@ -34,7 +34,7 @@ A Ring owner (or, later, a delegated admin at `MEMBER_MANAGER` level) on Ring pe
 Acceptance criteria:
 - [ ] The list comes from `GET /rings/:ringId/members?status=ACTIVE`, newest first, paginated (`limit` ≤ 50) with `meta.total` as the header count.
 - [ ] A row shows the person, their window ("until 12 Nov", "until removed") and a "lapsed" chip computed from `expiresAt` in the past.
-- [ ] Today a row carries `userId` only; the UI shows a placeholder identity ("Member") until names exist ([[T-023 Connection detail and contacts list]]).
+- [ ] Today a row carries `userId` only; the UI shows a placeholder identity ("Member") until names exist ([[Connections Story|Connections · S19–S24]]).
 - [ ] A 403 hides the screen quietly: the current user is a member looking at someone else's Ring.
 - [ ] Empty state: "Nobody in this Ring yet", with Add and Scan someone in.
 
@@ -122,4 +122,4 @@ Acceptance criteria:
 - Decided: [[D-04 Ring settings at launch and their defaults]] (S8), [[D-14 Shared with me lists people, never the Ring]] and [[D-18 Ring names shown when joined knowingly]] (S7), [[D-15 Several Rings per connection, remove or disconnect]] (S2, S5). Building them is not ticketed yet.
 - A member reassigned from a Ring they joined knowingly: D-18 reads the move as the owner placing them, so the new Ring is not named (D-18, *Still open*).
 - **Whose card a member sees** when members can see each other: the card each member shares with that Ring is the natural reading (D-04, *Still open*).
-- The disconnect route, and whether the other person is told anything (D-15, *Still open*; see [[T-023 Story]]).
+- The disconnect route, and whether the other person is told anything (D-15, *Still open*; see [[Connections Story|Connections · S19–S24]]).

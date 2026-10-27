@@ -65,7 +65,7 @@ Do **not** try to tell the `E_RING_ACCESS_01` cases apart, from timing or from a
 
 - **The photo and the attachments cannot be fetched**: `avatarFileId` and `attachments[].id` have no download URL yet: [[Files Upload Story|Files Upload · showing files]]. Render a placeholder avatar and list attachments without a download action.
 - **QR payload.** Scanning is meant to resolve a rotating **token**, not a Ring id ([[Badge & QR Story|Badge & QR · S7–S12]], [[Badge & QR Story|Badge & QR · S13–S18]]). Until then the only thing a QR can carry that the API resolves is the Ring id; treat any such encoding as temporary.
-- Connect after a scan (s44 bottom): [[T-021 Connect request send, inbox, cancel]].
+- Connect after a scan (s44 bottom): [[Connections Story|Connections · S8–S12]].
 - A browser page for viewers without the app: [[Badge & QR Story|Badge & QR · S20]].
 
 ## Checklist

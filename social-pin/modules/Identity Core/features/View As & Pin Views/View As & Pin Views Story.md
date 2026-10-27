@@ -86,7 +86,7 @@ Acceptance criteria:
 **As a** viewer **I want** to ask for access or keep the card **so that** the encounter is not lost.
 
 Acceptance criteria:
-- [ ] "Save for later" keeps the handle locally and returns to Home; "Connect" waits on [[T-021 Connect request send, inbox, cancel]].
+- [ ] "Save for later" keeps the handle locally and returns to Home; "Connect" waits on [[Connections Story|Connections · S8–S12]].
 - [ ] Nothing in the saved card identifies the Ring or the owner's user id.
 
 ## States and motion the design asks for

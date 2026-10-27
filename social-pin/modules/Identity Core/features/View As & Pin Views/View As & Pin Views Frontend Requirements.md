@@ -64,8 +64,8 @@ What the client needs from the backend for every screen that renders another per
 | Photo and attachment bytes | — | ❌ | [[Files Upload Story|Files Upload · showing files]] |
 | Issue a rotating QR token for a Ring | — | ❌ | [[Badge & QR Story|Badge & QR · S7–S12]] |
 | Resolve a scanned token to a view | — | ❌ | [[Badge & QR Story|Badge & QR · S13–S18]] |
-| Connect after a scan | — | ❌ | [[T-021 Connect request send, inbox, cancel]] |
-| A `userId` to call `/perspectives` with | — | ❌ | [[T-023 Connection detail and contacts list]] |
+| Connect after a scan | — | ❌ | [[Connections Story|Connections · S8–S12]] |
+| A `userId` to call `/perspectives` with | — | ❌ | [[Connections Story|Connections · S19–S24]] |
 | Browser page for viewers without the app | — | ❌ | [[Badge & QR Story|Badge & QR · S20]] |
 | Widgets rendered in the view | — | ❌ | [[Widgets Story|Widgets · S7]] |
 
@@ -97,4 +97,4 @@ Until [[Error Contract Story|Error Contract · S4–S8]] ships, the body carries
 
 - [[Files Upload Story|Files Upload · showing files]] — the photo and attachment downloads on s31 and s44.
 - [[Badge & QR Story|Badge & QR · S7–S12]] and [[Badge & QR Story|Badge & QR · S13–S18]] — the real QR payload on s44; a Ring id in the QR is a stopgap.
-- [[T-021 Connect request send, inbox, cancel]] — the Connect action on s44.
+- [[Connections Story|Connections · S8–S12]] — the Connect action on s44.

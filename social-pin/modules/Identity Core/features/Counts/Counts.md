@@ -49,7 +49,7 @@ One story per feature (since 2026-10-27): all of this feature's work is in [[Cou
 - T-004 · 2026-10-18 · created as the backend half of T-004
 - T-004 · 2026-10-18 · created as the frontend half of T-004
 - T-005 · 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
-- T-005 · 2026-10-27 · `tickets/pm/…/S-05-written` · story written; What filled in; Me only (Home dropped by decision); the hand-typed `blocked` removed: the build shows it blocked by T-021.
+- T-005 · 2026-10-27 · `tickets/pm/…/S-05-written` · story written; What filled in; Me only (Home dropped by decision); the hand-typed `blocked` removed: the build shows it blocked by Connections · S8–S12.
 - T-005 · 2026-10-18 · created as the backend half of T-005
 - T-005 · 2026-10-18 · created as the frontend half of T-005
 

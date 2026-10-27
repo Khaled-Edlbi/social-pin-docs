@@ -103,4 +103,4 @@ Screens: [[Screen Index#s26|s26]] Edit · access · [[Screen Index#s27|s27]] Edi
 - Decided: [[D-04 Ring settings at launch and their defaults]] (S5, and admins may change the settings). Building the settings is not ticketed yet.
 - Whether an admin may change every setting or only some, for example not "who it's for" (D-04, *Still open*; until it is answered, all of them).
 - [[Delegated Admins Story|Delegated Admins · S6]] — the full list of permission levels and whether an admin needs to be a connection or a member first; S1's picker assumes a connection.
-- [[T-023 Connection detail and contacts list]] — the picker for S1 and the names on the admin rows.
+- [[Connections Story|Connections · S19–S24]] — the picker for S1 and the names on the admin rows.

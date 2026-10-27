@@ -270,26 +270,6 @@
     "Subscription (Free vs Pro) Backend Delivery": "backend-delivery:subscription",
     "Subscription (Free vs Pro) Frontend Requirements": "frontend-requirements:subscription",
     "Subscription (Free vs Pro) Story": "story:subscription",
-    "T-021 Connect request send, inbox, cancel": "task:T-021",
-    "T-021 Story": "story:T-021",
-    "T-021-be Backend · Connect request send, inbox, cancel": "task:T-021-be",
-    "T-021-fe Frontend · Connect request send, inbox, cancel": "task:T-021-fe",
-    "T-022 Accept into a Ring (sets grantedRingId)": "task:T-022",
-    "T-022 Story": "story:T-022",
-    "T-022-be Backend · Accept into a Ring (sets grantedRingId)": "task:T-022-be",
-    "T-022-fe Frontend · Accept into a Ring (sets grantedRingId)": "task:T-022-fe",
-    "T-023 Connection detail and contacts list": "task:T-023",
-    "T-023 Story": "story:T-023",
-    "T-023-be Backend · Connection detail and contacts list": "task:T-023-be",
-    "T-023-fe Frontend · Connection detail and contacts list": "task:T-023-fe",
-    "T-024 Block and unblock": "task:T-024",
-    "T-024 Story": "story:T-024",
-    "T-024-be Backend · Block and unblock": "task:T-024-be",
-    "T-024-fe Frontend · Block and unblock": "task:T-024-fe",
-    "T-025 Introduce a connection to another": "task:T-025",
-    "T-025 Story": "story:T-025",
-    "T-025-be Backend · Introduce a connection to another": "task:T-025-be",
-    "T-025-fe Frontend · Introduce a connection to another": "task:T-025-fe",
     "T-036 Event mode exhibitors list and detail": "task:T-036",
     "T-036 Story": "story:T-036",
     "T-036-be Backend · Event mode exhibitors list and detail": "task:T-036-be",
@@ -555,11 +535,6 @@
     "S-19": "story:view-as",
     "S-20": "story:widgets",
     "S-23": "story:connections",
-    "S-24": "story:T-021",
-    "S-25": "story:T-022",
-    "S-26": "story:T-023",
-    "S-27": "story:T-024",
-    "S-28": "story:T-025",
     "S-29": "story:companies",
     "S-31": "story:delegated-admins",
     "S-33": "story:ring-invitations",
@@ -590,21 +565,6 @@
     "S-92": "story:interests",
     "S-94": "story:linked-accounts",
     "S-96": "story:notifications",
-    "T-021": "task:T-021",
-    "T-021-be": "task:T-021-be",
-    "T-021-fe": "task:T-021-fe",
-    "T-022": "task:T-022",
-    "T-022-be": "task:T-022-be",
-    "T-022-fe": "task:T-022-fe",
-    "T-023": "task:T-023",
-    "T-023-be": "task:T-023-be",
-    "T-023-fe": "task:T-023-fe",
-    "T-024": "task:T-024",
-    "T-024-be": "task:T-024-be",
-    "T-024-fe": "task:T-024-fe",
-    "T-025": "task:T-025",
-    "T-025-be": "task:T-025-be",
-    "T-025-fe": "task:T-025-fe",
     "T-036": "task:T-036",
     "T-036-be": "task:T-036-be",
     "T-036-fe": "task:T-036-fe",
@@ -634,11 +594,11 @@
     },
     "DELETE /connections/requests/:id": {
       "containers": [
-        "task:T-021"
+        "feature:connections"
       ],
       "kind": "endpoint",
       "notes": [
-        "story:T-021"
+        "story:connections"
       ],
       "owner": null
     },
@@ -1163,8 +1123,7 @@
         "project:agent-rules",
         "project:api-conventions",
         "project:docs-tree",
-        "project:frontend-agent-prompt",
-        "task:T-022"
+        "project:frontend-agent-prompt"
       ],
       "kind": "error",
       "notes": [
@@ -1193,8 +1152,8 @@
         "project:api-conventions",
         "project:docs-tree",
         "project:frontend-agent-prompt",
-        "story:T-022",
         "story:badge-qr",
+        "story:connections",
         "story:delegated-admins"
       ],
       "owner": null
@@ -1504,47 +1463,35 @@
     },
     "GET /connections": {
       "containers": [
-        "task:T-023"
+        "feature:connections"
       ],
       "kind": "endpoint",
       "notes": [
-        "story:T-023",
-        "task:T-023"
+        "story:connections"
       ],
       "owner": null
     },
     "GET /connections/requests?direction=incoming": {
       "containers": [
-        "task:T-021"
+        "feature:connections"
       ],
       "kind": "endpoint",
       "notes": [
-        "story:T-021"
-      ],
-      "owner": null
-    },
-    "GET /connections/requests?direction=incoming|sent": {
-      "containers": [
-        "task:T-021"
-      ],
-      "kind": "endpoint",
-      "notes": [
-        "story:T-021",
-        "task:T-021"
+        "story:connections"
       ],
       "owner": null
     },
     "GET /connections/requests?direction=sent": {
       "containers": [
         "decision:D-13",
-        "needs-decision:ND-13",
-        "task:T-021"
+        "feature:connections",
+        "needs-decision:ND-13"
       ],
       "kind": "endpoint",
       "notes": [
         "decision:D-13",
         "needs-decision:ND-13",
-        "story:T-021"
+        "story:connections"
       ],
       "owner": null
     },
@@ -1717,8 +1664,7 @@
         "project:frontend-contract",
         "project:spec-map",
         "project:status-report-2026-10-15",
-        "task:B-02",
-        "task:T-022"
+        "task:B-02"
       ],
       "kind": "endpoint",
       "notes": [
@@ -1742,8 +1688,8 @@
         "project:spec-map",
         "project:status-report-2026-10-15",
         "qa-backend:account",
-        "story:T-022",
         "story:auth",
+        "story:connections",
         "story:counts",
         "story:event-ring-auto",
         "story:post-event",
@@ -1795,9 +1741,9 @@
     "GET /rings/:ringId/members": {
       "containers": [
         "feature:companies",
+        "feature:connections",
         "feature:counts",
-        "feature:ring-members",
-        "task:T-023"
+        "feature:ring-members"
       ],
       "kind": "endpoint",
       "notes": [
@@ -1805,8 +1751,8 @@
         "backend-integration:ring-members",
         "frontend-requirements:companies",
         "frontend-requirements:ring-members",
-        "story:T-023",
         "story:companies",
+        "story:connections",
         "story:counts"
       ],
       "owner": "feature:ring-members"
@@ -1886,8 +1832,7 @@
         "needs-decision:ND-18",
         "project:frontend-contract",
         "project:spec-map",
-        "project:status-report-2026-10-15",
-        "task:T-022"
+        "project:status-report-2026-10-15"
       ],
       "kind": "endpoint",
       "notes": [
@@ -1910,8 +1855,8 @@
         "project:frontend-contract",
         "project:spec-map",
         "project:status-report-2026-10-15",
-        "story:T-022",
         "story:companies",
+        "story:connections",
         "story:counts",
         "story:ring-invitations",
         "story:rings"
@@ -2184,8 +2129,7 @@
         "project:frontend-api-guide",
         "project:frontend-contract",
         "project:spec-map",
-        "project:status-report-2026-10-15",
-        "task:T-023"
+        "project:status-report-2026-10-15"
       ],
       "kind": "endpoint",
       "notes": [
@@ -2204,7 +2148,7 @@
         "project:frontend-contract",
         "project:spec-map",
         "project:status-report-2026-10-15",
-        "story:T-023",
+        "story:connections",
         "story:pincast",
         "story:view-as"
       ],
@@ -2598,15 +2542,14 @@
     "POST /connections/requests": {
       "containers": [
         "decision:D-17",
-        "needs-decision:ND-10",
-        "task:T-021"
+        "feature:connections",
+        "needs-decision:ND-10"
       ],
       "kind": "endpoint",
       "notes": [
         "decision:D-17",
         "needs-decision:ND-10",
-        "story:T-021",
-        "task:T-021"
+        "story:connections"
       ],
       "owner": null
     },
@@ -2762,9 +2705,7 @@
         "feature:ring-members",
         "needs-decision:ND-14",
         "needs-decision:ND-15",
-        "project:spec-map",
-        "task:T-022",
-        "task:T-023"
+        "project:spec-map"
       ],
       "kind": "endpoint",
       "notes": [
@@ -2776,8 +2717,6 @@
         "needs-decision:ND-14",
         "needs-decision:ND-15",
         "project:spec-map",
-        "story:T-022",
-        "story:T-023",
         "story:connections"
       ],
       "owner": "feature:ring-members"
@@ -3633,10 +3572,7 @@
         "needs-decision:ND-10",
         "needs-decision:ND-13",
         "needs-decision:ND-16",
-        "needs-decision:ND-17",
-        "task:T-021",
-        "task:T-021-be",
-        "task:T-021-fe"
+        "needs-decision:ND-17"
       ],
       "kind": "screen",
       "notes": [
@@ -3654,14 +3590,10 @@
         "needs-decision:ND-13",
         "needs-decision:ND-16",
         "needs-decision:ND-17",
-        "story:T-021",
         "story:badge-qr",
         "story:connections",
         "story:files",
-        "story:view-as",
-        "task:T-021",
-        "task:T-021-be",
-        "task:T-021-fe"
+        "story:view-as"
       ],
       "owner": null
     },
@@ -3669,10 +3601,7 @@
       "containers": [
         "feature:connections",
         "needs-decision:ND-13",
-        "needs-decision:ND-17",
-        "task:T-021",
-        "task:T-021-be",
-        "task:T-021-fe"
+        "needs-decision:ND-17"
       ],
       "kind": "screen",
       "notes": [
@@ -3681,21 +3610,14 @@
         "frontend-requirements:connections",
         "needs-decision:ND-13",
         "needs-decision:ND-17",
-        "story:T-021",
-        "story:connections",
-        "task:T-021",
-        "task:T-021-be",
-        "task:T-021-fe"
+        "story:connections"
       ],
       "owner": null
     },
     "s46": {
       "containers": [
         "feature:connections",
-        "needs-decision:ND-14",
-        "task:T-022",
-        "task:T-022-be",
-        "task:T-022-fe"
+        "needs-decision:ND-14"
       ],
       "kind": "screen",
       "notes": [
@@ -3703,11 +3625,7 @@
         "feature:connections",
         "frontend-requirements:connections",
         "needs-decision:ND-14",
-        "story:T-022",
-        "story:connections",
-        "task:T-022",
-        "task:T-022-be",
-        "task:T-022-fe"
+        "story:connections"
       ],
       "owner": null
     },
@@ -3715,16 +3633,7 @@
       "containers": [
         "feature:connections",
         "feature:ring-members",
-        "needs-decision:ND-15",
-        "task:T-023",
-        "task:T-023-be",
-        "task:T-023-fe",
-        "task:T-024",
-        "task:T-024-be",
-        "task:T-024-fe",
-        "task:T-025",
-        "task:T-025-be",
-        "task:T-025-fe"
+        "needs-decision:ND-15"
       ],
       "kind": "screen",
       "notes": [
@@ -3736,20 +3645,8 @@
         "frontend-requirements:connections",
         "frontend-requirements:ring-members",
         "needs-decision:ND-15",
-        "story:T-023",
-        "story:T-024",
-        "story:T-025",
         "story:connections",
-        "story:ring-members",
-        "task:T-023",
-        "task:T-023-be",
-        "task:T-023-fe",
-        "task:T-024",
-        "task:T-024-be",
-        "task:T-024-fe",
-        "task:T-025",
-        "task:T-025-be",
-        "task:T-025-fe"
+        "story:ring-members"
       ],
       "owner": null
     },
@@ -4251,7 +4148,7 @@
     }
   },
   "counts": {
-    "blocked": 59,
+    "blocked": 49,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -4264,28 +4161,28 @@
       "project": 27,
       "qa-backend": 1,
       "qa-frontend": 1,
-      "story": 51,
-      "task": 32
+      "story": 46,
+      "task": 17
     },
     "byLayer": {
       "backend": 56,
-      "business": 162,
+      "business": 142,
       "frontend": 44,
       "qa": 2,
       "shared": 10
     },
-    "concepts": 199,
+    "concepts": 198,
     "decisions": 19,
-    "edges": 3846,
+    "edges": 3622,
     "features": 41,
-    "layerNotes": 141,
+    "layerNotes": 136,
     "modules": 8,
-    "notes": 310,
+    "notes": 290,
     "partial": 4,
     "placeholders": 154,
     "records": 14,
-    "taskLayerNotes": 10,
-    "tasks": 32
+    "taskLayerNotes": 5,
+    "tasks": 17
   },
   "deadlines": {
     "missed": {
@@ -4558,12 +4455,7 @@
     {
       "from": "decision:D-13",
       "kind": "affects",
-      "to": "task:T-021"
-    },
-    {
-      "from": "decision:D-13",
-      "kind": "affects",
-      "to": "task:T-022"
+      "to": "story:connections"
     },
     {
       "from": "decision:D-14",
@@ -4583,12 +4475,7 @@
     {
       "from": "decision:D-14",
       "kind": "affects",
-      "to": "task:T-022"
-    },
-    {
-      "from": "decision:D-14",
-      "kind": "affects",
-      "to": "task:T-023"
+      "to": "story:connections"
     },
     {
       "from": "decision:D-15",
@@ -4603,12 +4490,7 @@
     {
       "from": "decision:D-15",
       "kind": "affects",
-      "to": "task:T-022"
-    },
-    {
-      "from": "decision:D-15",
-      "kind": "affects",
-      "to": "task:T-023"
+      "to": "story:connections"
     },
     {
       "from": "decision:D-17",
@@ -4618,12 +4500,7 @@
     {
       "from": "decision:D-17",
       "kind": "affects",
-      "to": "task:T-021"
-    },
-    {
-      "from": "decision:D-17",
-      "kind": "affects",
-      "to": "task:T-022"
+      "to": "story:connections"
     },
     {
       "from": "decision:D-18",
@@ -4733,7 +4610,7 @@
     {
       "from": "needs-decision:ND-17",
       "kind": "affects",
-      "to": "task:T-021"
+      "to": "story:connections"
     },
     {
       "from": "needs-decision:ND-18",
@@ -5693,7 +5570,7 @@
     {
       "from": "needs-decision:ND-10",
       "kind": "blocks",
-      "to": "story:T-021"
+      "to": "story:connections"
     },
     {
       "from": "needs-decision:ND-11",
@@ -5749,76 +5626,6 @@
       "from": "story:ring-invitations",
       "kind": "blocks",
       "to": "frontend-requirements:ring-invitations"
-    },
-    {
-      "from": "task:T-021",
-      "kind": "blocks",
-      "to": "task:T-022"
-    },
-    {
-      "from": "task:T-021",
-      "kind": "blocks",
-      "to": "task:T-022-be"
-    },
-    {
-      "from": "task:T-021",
-      "kind": "blocks",
-      "to": "task:T-022-fe"
-    },
-    {
-      "from": "task:T-021-be",
-      "kind": "blocks",
-      "to": "task:T-021-fe"
-    },
-    {
-      "from": "task:T-022",
-      "kind": "blocks",
-      "to": "task:T-023"
-    },
-    {
-      "from": "task:T-022",
-      "kind": "blocks",
-      "to": "task:T-023-be"
-    },
-    {
-      "from": "task:T-022",
-      "kind": "blocks",
-      "to": "task:T-023-fe"
-    },
-    {
-      "from": "task:T-022-be",
-      "kind": "blocks",
-      "to": "task:T-022-fe"
-    },
-    {
-      "from": "task:T-023",
-      "kind": "blocks",
-      "to": "task:T-025"
-    },
-    {
-      "from": "task:T-023",
-      "kind": "blocks",
-      "to": "task:T-025-be"
-    },
-    {
-      "from": "task:T-023",
-      "kind": "blocks",
-      "to": "task:T-025-fe"
-    },
-    {
-      "from": "task:T-023-be",
-      "kind": "blocks",
-      "to": "task:T-023-fe"
-    },
-    {
-      "from": "task:T-024-be",
-      "kind": "blocks",
-      "to": "task:T-024-fe"
-    },
-    {
-      "from": "task:T-025-be",
-      "kind": "blocks",
-      "to": "task:T-025-fe"
     },
     {
       "from": "task:T-036",
@@ -6013,7 +5820,7 @@
     {
       "from": "needs-decision:ND-10",
       "kind": "decision",
-      "to": "story:T-021"
+      "to": "story:connections"
     },
     {
       "from": "needs-decision:ND-11",
@@ -6043,12 +5850,7 @@
     {
       "from": "needs-decision:ND-13",
       "kind": "decision",
-      "to": "story:T-021"
-    },
-    {
-      "from": "needs-decision:ND-13",
-      "kind": "decision",
-      "to": "story:T-022"
+      "to": "story:connections"
     },
     {
       "from": "needs-decision:ND-14",
@@ -6058,7 +5860,7 @@
     {
       "from": "needs-decision:ND-14",
       "kind": "decision",
-      "to": "story:T-022"
+      "to": "story:connections"
     },
     {
       "from": "needs-decision:ND-15",
@@ -6068,7 +5870,7 @@
     {
       "from": "needs-decision:ND-15",
       "kind": "decision",
-      "to": "story:T-023"
+      "to": "story:connections"
     },
     {
       "from": "needs-decision:ND-16",
@@ -6088,7 +5890,7 @@
     {
       "from": "needs-decision:ND-17",
       "kind": "decision",
-      "to": "story:T-021"
+      "to": "story:connections"
     },
     {
       "from": "needs-decision:ND-18",
@@ -6189,76 +5991,6 @@
       "from": "story:payments",
       "kind": "depends",
       "to": "needs-decision:ND-07"
-    },
-    {
-      "from": "task:T-021-fe",
-      "kind": "depends",
-      "to": "task:T-021-be"
-    },
-    {
-      "from": "task:T-022",
-      "kind": "depends",
-      "to": "task:T-021"
-    },
-    {
-      "from": "task:T-022-be",
-      "kind": "depends",
-      "to": "task:T-021"
-    },
-    {
-      "from": "task:T-022-fe",
-      "kind": "depends",
-      "to": "task:T-021"
-    },
-    {
-      "from": "task:T-022-fe",
-      "kind": "depends",
-      "to": "task:T-022-be"
-    },
-    {
-      "from": "task:T-023",
-      "kind": "depends",
-      "to": "task:T-022"
-    },
-    {
-      "from": "task:T-023-be",
-      "kind": "depends",
-      "to": "task:T-022"
-    },
-    {
-      "from": "task:T-023-fe",
-      "kind": "depends",
-      "to": "task:T-022"
-    },
-    {
-      "from": "task:T-023-fe",
-      "kind": "depends",
-      "to": "task:T-023-be"
-    },
-    {
-      "from": "task:T-024-fe",
-      "kind": "depends",
-      "to": "task:T-024-be"
-    },
-    {
-      "from": "task:T-025",
-      "kind": "depends",
-      "to": "task:T-023"
-    },
-    {
-      "from": "task:T-025-be",
-      "kind": "depends",
-      "to": "task:T-023"
-    },
-    {
-      "from": "task:T-025-fe",
-      "kind": "depends",
-      "to": "task:T-023"
-    },
-    {
-      "from": "task:T-025-fe",
-      "kind": "depends",
-      "to": "task:T-025-be"
     },
     {
       "from": "task:T-036-fe",
@@ -9177,12 +8909,12 @@
     {
       "from": "frontend-requirements:counts",
       "kind": "related",
-      "to": "story:error-contract"
+      "to": "story:connections"
     },
     {
       "from": "frontend-requirements:counts",
       "kind": "related",
-      "to": "task:T-021"
+      "to": "story:error-contract"
     },
     {
       "from": "frontend-requirements:interests",
@@ -9920,46 +9652,6 @@
       "to": "decision:D-17"
     },
     {
-      "from": "story:connections",
-      "kind": "related",
-      "to": "story:T-021",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
-      "from": "story:connections",
-      "kind": "related",
-      "to": "story:T-022",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
-      "from": "story:connections",
-      "kind": "related",
-      "to": "story:T-023",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
-      "from": "story:connections",
-      "kind": "related",
-      "to": "story:T-024",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
-      "from": "story:connections",
-      "kind": "related",
-      "to": "story:T-025",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
       "from": "story:counts",
       "kind": "related",
       "to": "decision:D-04"
@@ -10185,71 +9877,6 @@
       "to": "decision:D-18"
     },
     {
-      "from": "story:T-021",
-      "kind": "related",
-      "to": "decision:D-13"
-    },
-    {
-      "from": "story:T-021",
-      "kind": "related",
-      "to": "decision:D-17"
-    },
-    {
-      "from": "story:T-021",
-      "kind": "related",
-      "to": "needs-decision:ND-10"
-    },
-    {
-      "from": "story:T-022",
-      "kind": "related",
-      "to": "decision:D-13"
-    },
-    {
-      "from": "story:T-022",
-      "kind": "related",
-      "to": "decision:D-14"
-    },
-    {
-      "from": "story:T-022",
-      "kind": "related",
-      "to": "decision:D-17"
-    },
-    {
-      "from": "story:T-022",
-      "kind": "related",
-      "to": "feature:ring-members"
-    },
-    {
-      "from": "story:T-022",
-      "kind": "related",
-      "to": "feature:rings"
-    },
-    {
-      "from": "story:T-023",
-      "kind": "related",
-      "to": "decision:D-04"
-    },
-    {
-      "from": "story:T-023",
-      "kind": "related",
-      "to": "decision:D-14"
-    },
-    {
-      "from": "story:T-023",
-      "kind": "related",
-      "to": "decision:D-15"
-    },
-    {
-      "from": "story:T-023",
-      "kind": "related",
-      "to": "feature:ring-members"
-    },
-    {
-      "from": "story:T-023",
-      "kind": "related",
-      "to": "feature:view-as"
-    },
-    {
       "from": "story:widgets",
       "kind": "related",
       "to": "decision:D-03"
@@ -10350,41 +9977,6 @@
       "to": "story:error-contract"
     },
     {
-      "from": "task:T-021",
-      "kind": "related",
-      "to": "decision:D-13"
-    },
-    {
-      "from": "task:T-021",
-      "kind": "related",
-      "to": "decision:D-17"
-    },
-    {
-      "from": "task:T-022",
-      "kind": "related",
-      "to": "decision:D-13"
-    },
-    {
-      "from": "task:T-022",
-      "kind": "related",
-      "to": "decision:D-14"
-    },
-    {
-      "from": "task:T-022",
-      "kind": "related",
-      "to": "decision:D-17"
-    },
-    {
-      "from": "task:T-023",
-      "kind": "related",
-      "to": "decision:D-14"
-    },
-    {
-      "from": "task:T-023",
-      "kind": "related",
-      "to": "decision:D-15"
-    },
-    {
       "from": "task:T-036",
       "kind": "related",
       "to": "story:events-before"
@@ -10462,7 +10054,7 @@
     {
       "from": "decision:D-13",
       "kind": "shares",
-      "to": "task:T-021",
+      "to": "feature:connections",
       "via": [
         "GET /connections/requests?direction=sent"
       ]
@@ -10606,23 +10198,6 @@
       ]
     },
     {
-      "from": "decision:D-14",
-      "kind": "shares",
-      "to": "task:T-022",
-      "via": [
-        "GET /rings/shared-with-me",
-        "POST /rings/:ringId/members"
-      ]
-    },
-    {
-      "from": "decision:D-14",
-      "kind": "shares",
-      "to": "task:T-023",
-      "via": [
-        "POST /rings/:ringId/members"
-      ]
-    },
-    {
       "from": "decision:D-15",
       "kind": "shares",
       "to": "feature:connections",
@@ -10715,26 +10290,9 @@
       ]
     },
     {
-      "from": "decision:D-15",
-      "kind": "shares",
-      "to": "task:T-022",
-      "via": [
-        "POST /rings/:ringId/members"
-      ]
-    },
-    {
-      "from": "decision:D-15",
-      "kind": "shares",
-      "to": "task:T-023",
-      "via": [
-        "GET /views/user/:userId/perspectives",
-        "POST /rings/:ringId/members"
-      ]
-    },
-    {
       "from": "decision:D-17",
       "kind": "shares",
-      "to": "needs-decision:ND-10",
+      "to": "feature:connections",
       "via": [
         "POST /connections/requests"
       ]
@@ -10742,7 +10300,7 @@
     {
       "from": "decision:D-17",
       "kind": "shares",
-      "to": "task:T-021",
+      "to": "needs-decision:ND-10",
       "via": [
         "POST /connections/requests"
       ]
@@ -10847,14 +10405,6 @@
       "from": "decision:D-18",
       "kind": "shares",
       "to": "project:status-report-2026-10-15",
-      "via": [
-        "GET /rings/shared-with-me"
-      ]
-    },
-    {
-      "from": "decision:D-18",
-      "kind": "shares",
-      "to": "task:T-022",
       "via": [
         "GET /rings/shared-with-me"
       ]
@@ -11399,14 +10949,6 @@
       ]
     },
     {
-      "from": "feature:account",
-      "kind": "shares",
-      "to": "task:T-022",
-      "via": [
-        "GET /rings"
-      ]
-    },
-    {
       "from": "feature:app-shell",
       "kind": "shares",
       "to": "feature:auth",
@@ -11654,14 +11196,6 @@
       "from": "feature:app-shell",
       "kind": "shares",
       "to": "task:B-02",
-      "via": [
-        "GET /rings"
-      ]
-    },
-    {
-      "from": "feature:app-shell",
-      "kind": "shares",
-      "to": "task:T-022",
       "via": [
         "GET /rings"
       ]
@@ -12153,14 +11687,6 @@
       ]
     },
     {
-      "from": "feature:auth",
-      "kind": "shares",
-      "to": "task:T-022",
-      "via": [
-        "GET /rings"
-      ]
-    },
-    {
       "from": "feature:badge-qr",
       "kind": "shares",
       "to": "feature:cleanup-jobs",
@@ -12545,15 +12071,6 @@
       ]
     },
     {
-      "from": "feature:badge-qr",
-      "kind": "shares",
-      "to": "task:T-022",
-      "via": [
-        "E_RING_02",
-        "GET /rings"
-      ]
-    },
-    {
       "from": "feature:cleanup-jobs",
       "kind": "shares",
       "to": "feature:companies",
@@ -12792,15 +12309,6 @@
       ]
     },
     {
-      "from": "feature:cleanup-jobs",
-      "kind": "shares",
-      "to": "task:T-022",
-      "via": [
-        "E_RING_02",
-        "GET /rings"
-      ]
-    },
-    {
       "from": "feature:code-delivery",
       "kind": "shares",
       "to": "feature:error-contract",
@@ -12907,6 +12415,7 @@
         "E_AUTH_04",
         "E_RING_02",
         "E_RING_05",
+        "GET /rings/:ringId/members",
         "GET /rings/shared-with-me",
         "GET /views/ring/:ringId"
       ]
@@ -13280,23 +12789,6 @@
       ]
     },
     {
-      "from": "feature:companies",
-      "kind": "shares",
-      "to": "task:T-022",
-      "via": [
-        "E_RING_02",
-        "GET /rings/shared-with-me"
-      ]
-    },
-    {
-      "from": "feature:companies",
-      "kind": "shares",
-      "to": "task:T-023",
-      "via": [
-        "GET /rings/:ringId/members"
-      ]
-    },
-    {
       "from": "feature:connections",
       "kind": "shares",
       "to": "feature:counts",
@@ -13304,6 +12796,7 @@
         "E_RING_02",
         "E_RING_05",
         "GET /rings",
+        "GET /rings/:ringId/members",
         "GET /rings/shared-with-me"
       ]
     },
@@ -13519,6 +13012,7 @@
         "E_RING_05",
         "E_RING_07",
         "GET /rings",
+        "GET /rings/:ringId/members",
         "GET /views/user/:userId/perspectives",
         "PATCH /rings/:ringId/members/:userId",
         "POST /rings/:ringId/members",
@@ -13586,7 +13080,16 @@
       "via": [
         "GET /views/pin/:pinName",
         "GET /views/ring/:ringId",
-        "GET /views/user/:userId/perspectives"
+        "GET /views/user/:userId/perspectives",
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "feature:connections",
+      "kind": "shares",
+      "to": "needs-decision:ND-13",
+      "via": [
+        "GET /connections/requests?direction=sent"
       ]
     },
     {
@@ -13722,26 +13225,6 @@
       "to": "task:B-02",
       "via": [
         "GET /rings"
-      ]
-    },
-    {
-      "from": "feature:connections",
-      "kind": "shares",
-      "to": "task:T-022",
-      "via": [
-        "E_RING_02",
-        "GET /rings",
-        "GET /rings/shared-with-me",
-        "POST /rings/:ringId/members"
-      ]
-    },
-    {
-      "from": "feature:connections",
-      "kind": "shares",
-      "to": "task:T-023",
-      "via": [
-        "GET /views/user/:userId/perspectives",
-        "POST /rings/:ringId/members"
       ]
     },
     {
@@ -14004,24 +13487,6 @@
       "via": [
         "GET /rings",
         "GET /users/me"
-      ]
-    },
-    {
-      "from": "feature:counts",
-      "kind": "shares",
-      "to": "task:T-022",
-      "via": [
-        "E_RING_02",
-        "GET /rings",
-        "GET /rings/shared-with-me"
-      ]
-    },
-    {
-      "from": "feature:counts",
-      "kind": "shares",
-      "to": "task:T-023",
-      "via": [
-        "GET /rings/:ringId/members"
       ]
     },
     {
@@ -14339,15 +13804,6 @@
       "to": "project:status-report-2026-10-15",
       "via": [
         "DELETE /rings/:id",
-        "GET /rings/shared-with-me"
-      ]
-    },
-    {
-      "from": "feature:delegated-admins",
-      "kind": "shares",
-      "to": "task:T-022",
-      "via": [
-        "E_RING_02",
         "GET /rings/shared-with-me"
       ]
     },
@@ -15047,14 +14503,6 @@
       ]
     },
     {
-      "from": "feature:error-contract",
-      "kind": "shares",
-      "to": "task:T-022",
-      "via": [
-        "E_RING_02"
-      ]
-    },
-    {
       "from": "feature:event-ring-auto",
       "kind": "shares",
       "to": "feature:events-before",
@@ -15307,15 +14755,6 @@
       ]
     },
     {
-      "from": "feature:event-ring-auto",
-      "kind": "shares",
-      "to": "task:T-022",
-      "via": [
-        "E_RING_02",
-        "GET /rings"
-      ]
-    },
-    {
       "from": "feature:events-before",
       "kind": "shares",
       "to": "feature:interests",
@@ -15451,14 +14890,6 @@
       "from": "feature:events-before",
       "kind": "shares",
       "to": "task:B-02",
-      "via": [
-        "GET /rings"
-      ]
-    },
-    {
-      "from": "feature:events-before",
-      "kind": "shares",
-      "to": "task:T-022",
       "via": [
         "GET /rings"
       ]
@@ -15789,14 +15220,6 @@
       "via": [
         "GET /views/ring/:ringId",
         "POST /rings"
-      ]
-    },
-    {
-      "from": "feature:exhibitor",
-      "kind": "shares",
-      "to": "task:T-022",
-      "via": [
-        "E_RING_02"
       ]
     },
     {
@@ -16446,15 +15869,6 @@
       ]
     },
     {
-      "from": "feature:meetings",
-      "kind": "shares",
-      "to": "task:T-022",
-      "via": [
-        "E_RING_02",
-        "GET /rings/shared-with-me"
-      ]
-    },
-    {
       "from": "feature:notifications",
       "kind": "shares",
       "to": "feature:payments",
@@ -16846,14 +16260,6 @@
       ]
     },
     {
-      "from": "feature:photo-library",
-      "kind": "shares",
-      "to": "task:T-022",
-      "via": [
-        "E_RING_02"
-      ]
-    },
-    {
       "from": "feature:pincast",
       "kind": "shares",
       "to": "feature:post-event",
@@ -17058,24 +16464,6 @@
       ]
     },
     {
-      "from": "feature:pincast",
-      "kind": "shares",
-      "to": "task:T-022",
-      "via": [
-        "E_RING_02",
-        "GET /rings",
-        "GET /rings/shared-with-me"
-      ]
-    },
-    {
-      "from": "feature:pincast",
-      "kind": "shares",
-      "to": "task:T-023",
-      "via": [
-        "GET /views/user/:userId/perspectives"
-      ]
-    },
-    {
       "from": "feature:post-event",
       "kind": "shares",
       "to": "feature:ring-access",
@@ -17254,15 +16642,6 @@
       "kind": "shares",
       "to": "task:B-02",
       "via": [
-        "GET /rings"
-      ]
-    },
-    {
-      "from": "feature:post-event",
-      "kind": "shares",
-      "to": "task:T-022",
-      "via": [
-        "E_RING_02",
         "GET /rings"
       ]
     },
@@ -17550,23 +16929,6 @@
       ]
     },
     {
-      "from": "feature:ring-access",
-      "kind": "shares",
-      "to": "task:T-022",
-      "via": [
-        "E_RING_02",
-        "GET /rings/shared-with-me"
-      ]
-    },
-    {
-      "from": "feature:ring-access",
-      "kind": "shares",
-      "to": "task:T-023",
-      "via": [
-        "GET /views/user/:userId/perspectives"
-      ]
-    },
-    {
       "from": "feature:ring-invitations",
       "kind": "shares",
       "to": "feature:ring-projection",
@@ -17683,14 +17045,6 @@
       "via": [
         "GET /rings/shared-with-me",
         "GET /views/ring/:ringId"
-      ]
-    },
-    {
-      "from": "feature:ring-invitations",
-      "kind": "shares",
-      "to": "task:T-022",
-      "via": [
-        "GET /rings/shared-with-me"
       ]
     },
     {
@@ -17835,26 +17189,6 @@
       ]
     },
     {
-      "from": "feature:ring-members",
-      "kind": "shares",
-      "to": "task:T-022",
-      "via": [
-        "E_RING_02",
-        "GET /rings",
-        "POST /rings/:ringId/members"
-      ]
-    },
-    {
-      "from": "feature:ring-members",
-      "kind": "shares",
-      "to": "task:T-023",
-      "via": [
-        "GET /rings/:ringId/members",
-        "GET /views/user/:userId/perspectives",
-        "POST /rings/:ringId/members"
-      ]
-    },
-    {
       "from": "feature:ring-projection",
       "kind": "shares",
       "to": "feature:rings",
@@ -17985,14 +17319,6 @@
       "via": [
         "GET /profiles",
         "GET /users/me"
-      ]
-    },
-    {
-      "from": "feature:ring-projection",
-      "kind": "shares",
-      "to": "task:T-022",
-      "via": [
-        "E_RING_02"
       ]
     },
     {
@@ -18137,16 +17463,6 @@
       ]
     },
     {
-      "from": "feature:rings",
-      "kind": "shares",
-      "to": "task:T-022",
-      "via": [
-        "E_RING_02",
-        "GET /rings",
-        "GET /rings/shared-with-me"
-      ]
-    },
-    {
       "from": "feature:subscription",
       "kind": "shares",
       "to": "feature:view-as",
@@ -18282,22 +17598,6 @@
       ]
     },
     {
-      "from": "feature:view-as",
-      "kind": "shares",
-      "to": "task:T-022",
-      "via": [
-        "GET /rings"
-      ]
-    },
-    {
-      "from": "feature:view-as",
-      "kind": "shares",
-      "to": "task:T-023",
-      "via": [
-        "GET /views/user/:userId/perspectives"
-      ]
-    },
-    {
       "from": "feature:widgets",
       "kind": "shares",
       "to": "needs-decision:ND-10",
@@ -18375,14 +17675,6 @@
       "to": "project:status-report-2026-10-15",
       "via": [
         "GET /views/ring/:ringId"
-      ]
-    },
-    {
-      "from": "feature:widgets",
-      "kind": "shares",
-      "to": "task:T-022",
-      "via": [
-        "E_RING_02"
       ]
     },
     {
@@ -18473,30 +17765,6 @@
       ]
     },
     {
-      "from": "needs-decision:ND-10",
-      "kind": "shares",
-      "to": "task:T-021",
-      "via": [
-        "POST /connections/requests"
-      ]
-    },
-    {
-      "from": "needs-decision:ND-10",
-      "kind": "shares",
-      "to": "task:T-023",
-      "via": [
-        "GET /views/user/:userId/perspectives"
-      ]
-    },
-    {
-      "from": "needs-decision:ND-13",
-      "kind": "shares",
-      "to": "task:T-021",
-      "via": [
-        "GET /connections/requests?direction=sent"
-      ]
-    },
-    {
       "from": "needs-decision:ND-14",
       "kind": "shares",
       "to": "needs-decision:ND-15",
@@ -18550,24 +17818,6 @@
       ]
     },
     {
-      "from": "needs-decision:ND-14",
-      "kind": "shares",
-      "to": "task:T-022",
-      "via": [
-        "GET /rings/shared-with-me",
-        "POST /rings/:ringId/members"
-      ]
-    },
-    {
-      "from": "needs-decision:ND-14",
-      "kind": "shares",
-      "to": "task:T-023",
-      "via": [
-        "GET /views/user/:userId/perspectives",
-        "POST /rings/:ringId/members"
-      ]
-    },
-    {
       "from": "needs-decision:ND-15",
       "kind": "shares",
       "to": "project:frontend-api-guide",
@@ -18601,23 +17851,6 @@
       ]
     },
     {
-      "from": "needs-decision:ND-15",
-      "kind": "shares",
-      "to": "task:T-022",
-      "via": [
-        "POST /rings/:ringId/members"
-      ]
-    },
-    {
-      "from": "needs-decision:ND-15",
-      "kind": "shares",
-      "to": "task:T-023",
-      "via": [
-        "GET /views/user/:userId/perspectives",
-        "POST /rings/:ringId/members"
-      ]
-    },
-    {
       "from": "needs-decision:ND-18",
       "kind": "shares",
       "to": "project:frontend-contract",
@@ -18637,14 +17870,6 @@
       "from": "needs-decision:ND-18",
       "kind": "shares",
       "to": "project:status-report-2026-10-15",
-      "via": [
-        "GET /rings/shared-with-me"
-      ]
-    },
-    {
-      "from": "needs-decision:ND-18",
-      "kind": "shares",
-      "to": "task:T-022",
       "via": [
         "GET /rings/shared-with-me"
       ]
@@ -18748,14 +17973,6 @@
       ]
     },
     {
-      "from": "project:agent-rules",
-      "kind": "shares",
-      "to": "task:T-022",
-      "via": [
-        "E_RING_02"
-      ]
-    },
-    {
       "from": "project:api-conventions",
       "kind": "shares",
       "to": "project:docs-tree",
@@ -18767,14 +17984,6 @@
       "from": "project:api-conventions",
       "kind": "shares",
       "to": "project:frontend-agent-prompt",
-      "via": [
-        "E_RING_02"
-      ]
-    },
-    {
-      "from": "project:api-conventions",
-      "kind": "shares",
-      "to": "task:T-022",
       "via": [
         "E_RING_02"
       ]
@@ -18857,14 +18066,6 @@
       ]
     },
     {
-      "from": "project:docs-tree",
-      "kind": "shares",
-      "to": "task:T-022",
-      "via": [
-        "E_RING_02"
-      ]
-    },
-    {
       "from": "project:frontend-agent-prompt",
       "kind": "shares",
       "to": "project:frontend-api-guide",
@@ -18878,14 +18079,6 @@
       "to": "project:frontend-passwordless-migration",
       "via": [
         "POST /auth/refresh"
-      ]
-    },
-    {
-      "from": "project:frontend-agent-prompt",
-      "kind": "shares",
-      "to": "task:T-022",
-      "via": [
-        "E_RING_02"
       ]
     },
     {
@@ -18961,14 +18154,6 @@
       ]
     },
     {
-      "from": "project:frontend-api-guide",
-      "kind": "shares",
-      "to": "task:T-023",
-      "via": [
-        "GET /views/user/:userId/perspectives"
-      ]
-    },
-    {
       "from": "project:frontend-contract",
       "kind": "shares",
       "to": "project:frontend-passwordless-migration",
@@ -19025,23 +18210,6 @@
       "to": "task:B-02",
       "via": [
         "GET /rings"
-      ]
-    },
-    {
-      "from": "project:frontend-contract",
-      "kind": "shares",
-      "to": "task:T-022",
-      "via": [
-        "GET /rings",
-        "GET /rings/shared-with-me"
-      ]
-    },
-    {
-      "from": "project:frontend-contract",
-      "kind": "shares",
-      "to": "task:T-023",
-      "via": [
-        "GET /views/user/:userId/perspectives"
       ]
     },
     {
@@ -19130,47 +18298,11 @@
       ]
     },
     {
-      "from": "project:spec-map",
-      "kind": "shares",
-      "to": "task:T-022",
-      "via": [
-        "GET /rings",
-        "GET /rings/shared-with-me",
-        "POST /rings/:ringId/members"
-      ]
-    },
-    {
-      "from": "project:spec-map",
-      "kind": "shares",
-      "to": "task:T-023",
-      "via": [
-        "GET /views/user/:userId/perspectives",
-        "POST /rings/:ringId/members"
-      ]
-    },
-    {
       "from": "project:status-report-2026-10-15",
       "kind": "shares",
       "to": "task:B-02",
       "via": [
         "GET /rings"
-      ]
-    },
-    {
-      "from": "project:status-report-2026-10-15",
-      "kind": "shares",
-      "to": "task:T-022",
-      "via": [
-        "GET /rings",
-        "GET /rings/shared-with-me"
-      ]
-    },
-    {
-      "from": "project:status-report-2026-10-15",
-      "kind": "shares",
-      "to": "task:T-023",
-      "via": [
-        "GET /views/user/:userId/perspectives"
       ]
     },
     {
@@ -21191,27 +20323,27 @@
     {
       "from": "story:connections",
       "kind": "tree",
-      "to": "task:T-021"
+      "to": "needs-decision:ND-10"
     },
     {
       "from": "story:connections",
       "kind": "tree",
-      "to": "task:T-022"
+      "to": "needs-decision:ND-13"
     },
     {
       "from": "story:connections",
       "kind": "tree",
-      "to": "task:T-023"
+      "to": "needs-decision:ND-14"
     },
     {
       "from": "story:connections",
       "kind": "tree",
-      "to": "task:T-024"
+      "to": "needs-decision:ND-15"
     },
     {
       "from": "story:connections",
       "kind": "tree",
-      "to": "task:T-025"
+      "to": "needs-decision:ND-17"
     },
     {
       "from": "story:error-contract",
@@ -21274,114 +20406,9 @@
       "to": "needs-decision:ND-07"
     },
     {
-      "from": "story:T-021",
-      "kind": "tree",
-      "to": "needs-decision:ND-10"
-    },
-    {
-      "from": "story:T-021",
-      "kind": "tree",
-      "to": "needs-decision:ND-13"
-    },
-    {
-      "from": "story:T-021",
-      "kind": "tree",
-      "to": "needs-decision:ND-17"
-    },
-    {
-      "from": "story:T-022",
-      "kind": "tree",
-      "to": "needs-decision:ND-13"
-    },
-    {
-      "from": "story:T-022",
-      "kind": "tree",
-      "to": "needs-decision:ND-14"
-    },
-    {
-      "from": "story:T-023",
-      "kind": "tree",
-      "to": "needs-decision:ND-15"
-    },
-    {
       "from": "task:B-01",
       "kind": "tree",
       "to": "needs-decision:ND-20"
-    },
-    {
-      "from": "task:T-021",
-      "kind": "tree",
-      "to": "story:T-021"
-    },
-    {
-      "from": "task:T-021",
-      "kind": "tree",
-      "to": "task:T-021-be"
-    },
-    {
-      "from": "task:T-021",
-      "kind": "tree",
-      "to": "task:T-021-fe"
-    },
-    {
-      "from": "task:T-022",
-      "kind": "tree",
-      "to": "story:T-022"
-    },
-    {
-      "from": "task:T-022",
-      "kind": "tree",
-      "to": "task:T-022-be"
-    },
-    {
-      "from": "task:T-022",
-      "kind": "tree",
-      "to": "task:T-022-fe"
-    },
-    {
-      "from": "task:T-023",
-      "kind": "tree",
-      "to": "story:T-023"
-    },
-    {
-      "from": "task:T-023",
-      "kind": "tree",
-      "to": "task:T-023-be"
-    },
-    {
-      "from": "task:T-023",
-      "kind": "tree",
-      "to": "task:T-023-fe"
-    },
-    {
-      "from": "task:T-024",
-      "kind": "tree",
-      "to": "story:T-024"
-    },
-    {
-      "from": "task:T-024",
-      "kind": "tree",
-      "to": "task:T-024-be"
-    },
-    {
-      "from": "task:T-024",
-      "kind": "tree",
-      "to": "task:T-024-fe"
-    },
-    {
-      "from": "task:T-025",
-      "kind": "tree",
-      "to": "story:T-025"
-    },
-    {
-      "from": "task:T-025",
-      "kind": "tree",
-      "to": "task:T-025-be"
-    },
-    {
-      "from": "task:T-025",
-      "kind": "tree",
-      "to": "task:T-025-fe"
     },
     {
       "from": "task:T-036",
@@ -21861,7 +20888,7 @@
     {
       "from": "backend-delivery:ring-members",
       "kind": "wikilink",
-      "to": "task:T-023"
+      "to": "story:connections"
     },
     {
       "from": "backend-delivery:ring-projection",
@@ -22156,12 +21183,12 @@
     {
       "from": "backend-integration:ring-access",
       "kind": "wikilink",
-      "to": "story:delegated-admins"
+      "to": "story:connections"
     },
     {
       "from": "backend-integration:ring-access",
       "kind": "wikilink",
-      "to": "task:T-024"
+      "to": "story:delegated-admins"
     },
     {
       "from": "backend-integration:ring-members",
@@ -22212,21 +21239,6 @@
       "from": "backend-integration:ring-members",
       "kind": "wikilink",
       "to": "story:delegated-admins"
-    },
-    {
-      "from": "backend-integration:ring-members",
-      "kind": "wikilink",
-      "to": "task:T-021"
-    },
-    {
-      "from": "backend-integration:ring-members",
-      "kind": "wikilink",
-      "to": "task:T-022"
-    },
-    {
-      "from": "backend-integration:ring-members",
-      "kind": "wikilink",
-      "to": "task:T-023"
     },
     {
       "from": "backend-integration:ring-projection",
@@ -22366,12 +21378,12 @@
     {
       "from": "backend-integration:view-as",
       "kind": "wikilink",
-      "to": "story:files"
+      "to": "story:connections"
     },
     {
       "from": "backend-integration:view-as",
       "kind": "wikilink",
-      "to": "task:T-021"
+      "to": "story:files"
     },
     {
       "from": "decision:D-01",
@@ -22437,16 +21449,6 @@
       "from": "decision:D-15",
       "kind": "wikilink",
       "to": "decision:D-13"
-    },
-    {
-      "from": "decision:D-15",
-      "kind": "wikilink",
-      "to": "task:T-022"
-    },
-    {
-      "from": "decision:D-17",
-      "kind": "wikilink",
-      "to": "task:T-024"
     },
     {
       "from": "decision:D-18",
@@ -22556,37 +21558,12 @@
     {
       "from": "feature:connections",
       "kind": "wikilink",
+      "to": "project:status-report-2026-10-15"
+    },
+    {
+      "from": "feature:connections",
+      "kind": "wikilink",
       "to": "story:badge-qr"
-    },
-    {
-      "from": "feature:connections",
-      "kind": "wikilink",
-      "to": "story:T-021"
-    },
-    {
-      "from": "feature:connections",
-      "kind": "wikilink",
-      "to": "task:T-021"
-    },
-    {
-      "from": "feature:connections",
-      "kind": "wikilink",
-      "to": "task:T-022"
-    },
-    {
-      "from": "feature:connections",
-      "kind": "wikilink",
-      "to": "task:T-023"
-    },
-    {
-      "from": "feature:connections",
-      "kind": "wikilink",
-      "to": "task:T-024"
-    },
-    {
-      "from": "feature:connections",
-      "kind": "wikilink",
-      "to": "task:T-025"
     },
     {
       "from": "feature:counts",
@@ -23031,6 +22008,11 @@
     {
       "from": "frontend-requirements:badge-qr",
       "kind": "wikilink",
+      "to": "story:connections"
+    },
+    {
+      "from": "frontend-requirements:badge-qr",
+      "kind": "wikilink",
       "to": "story:devices"
     },
     {
@@ -23047,11 +22029,6 @@
       "from": "frontend-requirements:badge-qr",
       "kind": "wikilink",
       "to": "story:subscription"
-    },
-    {
-      "from": "frontend-requirements:badge-qr",
-      "kind": "wikilink",
-      "to": "task:T-021"
     },
     {
       "from": "frontend-requirements:badge-qr",
@@ -23229,31 +22206,6 @@
       "to": "story:notifications"
     },
     {
-      "from": "frontend-requirements:connections",
-      "kind": "wikilink",
-      "to": "task:T-021"
-    },
-    {
-      "from": "frontend-requirements:connections",
-      "kind": "wikilink",
-      "to": "task:T-022"
-    },
-    {
-      "from": "frontend-requirements:connections",
-      "kind": "wikilink",
-      "to": "task:T-023"
-    },
-    {
-      "from": "frontend-requirements:connections",
-      "kind": "wikilink",
-      "to": "task:T-024"
-    },
-    {
-      "from": "frontend-requirements:connections",
-      "kind": "wikilink",
-      "to": "task:T-025"
-    },
-    {
       "from": "frontend-requirements:counts",
       "kind": "wikilink",
       "to": "story:counts"
@@ -23267,6 +22219,11 @@
       "from": "frontend-requirements:delegated-admins",
       "kind": "wikilink",
       "to": "needs-decision:ND-04"
+    },
+    {
+      "from": "frontend-requirements:delegated-admins",
+      "kind": "wikilink",
+      "to": "story:connections"
     },
     {
       "from": "frontend-requirements:delegated-admins",
@@ -23287,11 +22244,6 @@
       "from": "frontend-requirements:delegated-admins",
       "kind": "wikilink",
       "to": "story:notifications"
-    },
-    {
-      "from": "frontend-requirements:delegated-admins",
-      "kind": "wikilink",
-      "to": "task:T-023"
     },
     {
       "from": "frontend-requirements:devices",
@@ -23317,6 +22269,11 @@
       "from": "frontend-requirements:discover-hub",
       "kind": "wikilink",
       "to": "story:companies"
+    },
+    {
+      "from": "frontend-requirements:discover-hub",
+      "kind": "wikilink",
+      "to": "story:connections"
     },
     {
       "from": "frontend-requirements:discover-hub",
@@ -23347,11 +22304,6 @@
       "from": "frontend-requirements:discover-hub",
       "kind": "wikilink",
       "to": "story:pincast"
-    },
-    {
-      "from": "frontend-requirements:discover-hub",
-      "kind": "wikilink",
-      "to": "task:T-021"
     },
     {
       "from": "frontend-requirements:discover-hub",
@@ -23421,6 +22373,11 @@
     {
       "from": "frontend-requirements:events-before",
       "kind": "wikilink",
+      "to": "story:connections"
+    },
+    {
+      "from": "frontend-requirements:events-before",
+      "kind": "wikilink",
       "to": "story:error-contract"
     },
     {
@@ -23437,11 +22394,6 @@
       "from": "frontend-requirements:events-before",
       "kind": "wikilink",
       "to": "story:payments"
-    },
-    {
-      "from": "frontend-requirements:events-before",
-      "kind": "wikilink",
-      "to": "task:T-023"
     },
     {
       "from": "frontend-requirements:events-during",
@@ -23836,6 +22788,11 @@
     {
       "from": "frontend-requirements:pincast",
       "kind": "wikilink",
+      "to": "story:connections"
+    },
+    {
+      "from": "frontend-requirements:pincast",
+      "kind": "wikilink",
       "to": "story:error-contract"
     },
     {
@@ -23854,11 +22811,6 @@
       "to": "story:pincast"
     },
     {
-      "from": "frontend-requirements:pincast",
-      "kind": "wikilink",
-      "to": "task:T-021"
-    },
-    {
       "from": "frontend-requirements:post-event",
       "kind": "wikilink",
       "to": "feature:notifications"
@@ -23872,6 +22824,11 @@
       "from": "frontend-requirements:post-event",
       "kind": "wikilink",
       "to": "story:cleanup-jobs"
+    },
+    {
+      "from": "frontend-requirements:post-event",
+      "kind": "wikilink",
+      "to": "story:connections"
     },
     {
       "from": "frontend-requirements:post-event",
@@ -23902,16 +22859,6 @@
       "from": "frontend-requirements:post-event",
       "kind": "wikilink",
       "to": "story:post-event"
-    },
-    {
-      "from": "frontend-requirements:post-event",
-      "kind": "wikilink",
-      "to": "task:T-021"
-    },
-    {
-      "from": "frontend-requirements:post-event",
-      "kind": "wikilink",
-      "to": "task:T-023"
     },
     {
       "from": "frontend-requirements:profiles",
@@ -23961,6 +22908,11 @@
     {
       "from": "frontend-requirements:ring-access",
       "kind": "wikilink",
+      "to": "story:connections"
+    },
+    {
+      "from": "frontend-requirements:ring-access",
+      "kind": "wikilink",
       "to": "story:delegated-admins"
     },
     {
@@ -23972,11 +22924,6 @@
       "from": "frontend-requirements:ring-access",
       "kind": "wikilink",
       "to": "story:ring-access"
-    },
-    {
-      "from": "frontend-requirements:ring-access",
-      "kind": "wikilink",
-      "to": "task:T-024"
     },
     {
       "from": "frontend-requirements:ring-invitations",
@@ -24001,6 +22948,11 @@
     {
       "from": "frontend-requirements:ring-invitations",
       "kind": "wikilink",
+      "to": "story:connections"
+    },
+    {
+      "from": "frontend-requirements:ring-invitations",
+      "kind": "wikilink",
       "to": "story:error-contract"
     },
     {
@@ -24012,11 +22964,6 @@
       "from": "frontend-requirements:ring-invitations",
       "kind": "wikilink",
       "to": "story:ring-invitations"
-    },
-    {
-      "from": "frontend-requirements:ring-invitations",
-      "kind": "wikilink",
-      "to": "task:T-023"
     },
     {
       "from": "frontend-requirements:ring-members",
@@ -24056,6 +23003,11 @@
     {
       "from": "frontend-requirements:ring-members",
       "kind": "wikilink",
+      "to": "story:connections"
+    },
+    {
+      "from": "frontend-requirements:ring-members",
+      "kind": "wikilink",
       "to": "story:counts"
     },
     {
@@ -24072,21 +23024,6 @@
       "from": "frontend-requirements:ring-members",
       "kind": "wikilink",
       "to": "story:ring-members"
-    },
-    {
-      "from": "frontend-requirements:ring-members",
-      "kind": "wikilink",
-      "to": "task:T-021"
-    },
-    {
-      "from": "frontend-requirements:ring-members",
-      "kind": "wikilink",
-      "to": "task:T-022"
-    },
-    {
-      "from": "frontend-requirements:ring-members",
-      "kind": "wikilink",
-      "to": "task:T-023"
     },
     {
       "from": "frontend-requirements:ring-projection",
@@ -24286,6 +23223,11 @@
     {
       "from": "frontend-requirements:view-as",
       "kind": "wikilink",
+      "to": "story:connections"
+    },
+    {
+      "from": "frontend-requirements:view-as",
+      "kind": "wikilink",
       "to": "story:error-contract"
     },
     {
@@ -24302,16 +23244,6 @@
       "from": "frontend-requirements:view-as",
       "kind": "wikilink",
       "to": "story:widgets"
-    },
-    {
-      "from": "frontend-requirements:view-as",
-      "kind": "wikilink",
-      "to": "task:T-021"
-    },
-    {
-      "from": "frontend-requirements:view-as",
-      "kind": "wikilink",
-      "to": "task:T-023"
     },
     {
       "from": "frontend-requirements:widgets",
@@ -25284,11 +24216,6 @@
       "to": "feature:badge-qr"
     },
     {
-      "from": "needs-decision:ND-10",
-      "kind": "wikilink",
-      "to": "task:T-021"
-    },
-    {
       "from": "needs-decision:ND-11",
       "kind": "wikilink",
       "to": "story:subscription"
@@ -25302,16 +24229,6 @@
       "from": "needs-decision:ND-12",
       "kind": "wikilink",
       "to": "story:subscription"
-    },
-    {
-      "from": "needs-decision:ND-13",
-      "kind": "wikilink",
-      "to": "task:T-021"
-    },
-    {
-      "from": "needs-decision:ND-13",
-      "kind": "wikilink",
-      "to": "task:T-022"
     },
     {
       "from": "needs-decision:ND-14",
@@ -25329,16 +24246,6 @@
       "to": "needs-decision:ND-04"
     },
     {
-      "from": "needs-decision:ND-14",
-      "kind": "wikilink",
-      "to": "task:T-022"
-    },
-    {
-      "from": "needs-decision:ND-14",
-      "kind": "wikilink",
-      "to": "task:T-023"
-    },
-    {
       "from": "needs-decision:ND-15",
       "kind": "wikilink",
       "to": "backend-integration:ring-members"
@@ -25347,26 +24254,6 @@
       "from": "needs-decision:ND-15",
       "kind": "wikilink",
       "to": "backend-integration:view-as"
-    },
-    {
-      "from": "needs-decision:ND-15",
-      "kind": "wikilink",
-      "to": "story:T-022"
-    },
-    {
-      "from": "needs-decision:ND-15",
-      "kind": "wikilink",
-      "to": "task:T-022"
-    },
-    {
-      "from": "needs-decision:ND-15",
-      "kind": "wikilink",
-      "to": "task:T-023"
-    },
-    {
-      "from": "needs-decision:ND-15",
-      "kind": "wikilink",
-      "to": "task:T-024"
     },
     {
       "from": "needs-decision:ND-16",
@@ -25387,16 +24274,6 @@
       "from": "needs-decision:ND-16",
       "kind": "wikilink",
       "to": "backend-integration:view-as"
-    },
-    {
-      "from": "needs-decision:ND-17",
-      "kind": "wikilink",
-      "to": "story:T-022"
-    },
-    {
-      "from": "needs-decision:ND-17",
-      "kind": "wikilink",
-      "to": "task:T-021"
     },
     {
       "from": "needs-decision:ND-18",
@@ -26371,11 +25248,6 @@
     {
       "from": "project:status-report-2026-10-15",
       "kind": "wikilink",
-      "to": "feature:connections"
-    },
-    {
-      "from": "project:status-report-2026-10-15",
-      "kind": "wikilink",
       "to": "feature:error-contract"
     },
     {
@@ -26442,6 +25314,11 @@
       "from": "project:status-report-2026-10-15",
       "kind": "wikilink",
       "to": "project:frontend-contract"
+    },
+    {
+      "from": "project:status-report-2026-10-15",
+      "kind": "wikilink",
+      "to": "story:connections"
     },
     {
       "from": "project:status-report-2026-10-15",
@@ -26624,16 +25501,6 @@
       "to": "project:ring-access-model"
     },
     {
-      "from": "story:badge-qr",
-      "kind": "wikilink",
-      "to": "story:connections"
-    },
-    {
-      "from": "story:badge-qr",
-      "kind": "wikilink",
-      "to": "task:T-021"
-    },
-    {
       "from": "story:cleanup-jobs",
       "kind": "wikilink",
       "to": "feature:ring-access"
@@ -26681,7 +25548,7 @@
     {
       "from": "story:connections",
       "kind": "wikilink",
-      "to": "needs-decision:ND-10"
+      "to": "feature:rings"
     },
     {
       "from": "story:connections",
@@ -26691,7 +25558,32 @@
     {
       "from": "story:connections",
       "kind": "wikilink",
+      "to": "story:badge-qr"
+    },
+    {
+      "from": "story:connections",
+      "kind": "wikilink",
+      "to": "story:counts"
+    },
+    {
+      "from": "story:connections",
+      "kind": "wikilink",
+      "to": "story:delegated-admins"
+    },
+    {
+      "from": "story:connections",
+      "kind": "wikilink",
+      "to": "story:files"
+    },
+    {
+      "from": "story:connections",
+      "kind": "wikilink",
       "to": "story:gemma"
+    },
+    {
+      "from": "story:connections",
+      "kind": "wikilink",
+      "to": "story:notifications"
     },
     {
       "from": "story:counts",
@@ -26717,11 +25609,6 @@
       "from": "story:delegated-admins",
       "kind": "wikilink",
       "to": "feature:companies"
-    },
-    {
-      "from": "story:delegated-admins",
-      "kind": "wikilink",
-      "to": "task:T-023"
     },
     {
       "from": "story:devices",
@@ -26786,17 +25673,17 @@
     {
       "from": "story:events-before",
       "kind": "wikilink",
+      "to": "story:connections"
+    },
+    {
+      "from": "story:events-before",
+      "kind": "wikilink",
       "to": "story:events-during"
     },
     {
       "from": "story:events-before",
       "kind": "wikilink",
       "to": "story:exhibitor"
-    },
-    {
-      "from": "story:events-before",
-      "kind": "wikilink",
-      "to": "task:T-023"
     },
     {
       "from": "story:events-during",
@@ -27036,6 +25923,11 @@
     {
       "from": "story:post-event",
       "kind": "wikilink",
+      "to": "story:connections"
+    },
+    {
+      "from": "story:post-event",
+      "kind": "wikilink",
       "to": "story:exhibitor"
     },
     {
@@ -27101,17 +25993,17 @@
     {
       "from": "story:ring-access",
       "kind": "wikilink",
+      "to": "story:connections"
+    },
+    {
+      "from": "story:ring-access",
+      "kind": "wikilink",
       "to": "story:delegated-admins"
     },
     {
       "from": "story:ring-access",
       "kind": "wikilink",
       "to": "story:ring-invitations"
-    },
-    {
-      "from": "story:ring-access",
-      "kind": "wikilink",
-      "to": "task:T-024"
     },
     {
       "from": "story:ring-invitations",
@@ -27136,17 +26028,12 @@
     {
       "from": "story:ring-members",
       "kind": "wikilink",
+      "to": "story:connections"
+    },
+    {
+      "from": "story:ring-members",
+      "kind": "wikilink",
       "to": "story:rings"
-    },
-    {
-      "from": "story:ring-members",
-      "kind": "wikilink",
-      "to": "story:T-023"
-    },
-    {
-      "from": "story:ring-members",
-      "kind": "wikilink",
-      "to": "task:T-023"
     },
     {
       "from": "story:ring-projection",
@@ -27219,96 +26106,6 @@
       "to": "story:events-during"
     },
     {
-      "from": "story:T-021",
-      "kind": "wikilink",
-      "to": "story:badge-qr"
-    },
-    {
-      "from": "story:T-021",
-      "kind": "wikilink",
-      "to": "story:files"
-    },
-    {
-      "from": "story:T-021",
-      "kind": "wikilink",
-      "to": "story:notifications"
-    },
-    {
-      "from": "story:T-021",
-      "kind": "wikilink",
-      "to": "task:T-022"
-    },
-    {
-      "from": "story:T-022",
-      "kind": "wikilink",
-      "to": "feature:connections"
-    },
-    {
-      "from": "story:T-022",
-      "kind": "wikilink",
-      "to": "story:counts"
-    },
-    {
-      "from": "story:T-022",
-      "kind": "wikilink",
-      "to": "story:delegated-admins"
-    },
-    {
-      "from": "story:T-022",
-      "kind": "wikilink",
-      "to": "story:gemma"
-    },
-    {
-      "from": "story:T-022",
-      "kind": "wikilink",
-      "to": "story:T-021"
-    },
-    {
-      "from": "story:T-022",
-      "kind": "wikilink",
-      "to": "task:T-021"
-    },
-    {
-      "from": "story:T-022",
-      "kind": "wikilink",
-      "to": "task:T-024"
-    },
-    {
-      "from": "story:T-023",
-      "kind": "wikilink",
-      "to": "feature:connections"
-    },
-    {
-      "from": "story:T-023",
-      "kind": "wikilink",
-      "to": "story:files"
-    },
-    {
-      "from": "story:T-023",
-      "kind": "wikilink",
-      "to": "task:T-021"
-    },
-    {
-      "from": "story:T-023",
-      "kind": "wikilink",
-      "to": "task:T-022"
-    },
-    {
-      "from": "story:T-023",
-      "kind": "wikilink",
-      "to": "task:T-024"
-    },
-    {
-      "from": "story:T-024",
-      "kind": "wikilink",
-      "to": "feature:connections"
-    },
-    {
-      "from": "story:T-025",
-      "kind": "wikilink",
-      "to": "feature:connections"
-    },
-    {
       "from": "story:T-036",
       "kind": "wikilink",
       "to": "feature:events-during"
@@ -27346,7 +26143,7 @@
     {
       "from": "story:view-as",
       "kind": "wikilink",
-      "to": "task:T-021"
+      "to": "story:connections"
     },
     {
       "from": "story:widgets",
@@ -27367,231 +26164,6 @@
       "from": "task:B-02",
       "kind": "wikilink",
       "to": "story:account"
-    },
-    {
-      "from": "task:T-021",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-021",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-021",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-021",
-      "kind": "wikilink",
-      "to": "story:counts"
-    },
-    {
-      "from": "task:T-021",
-      "kind": "wikilink",
-      "to": "task:T-022"
-    },
-    {
-      "from": "task:T-021-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:connections"
-    },
-    {
-      "from": "task:T-021-be",
-      "kind": "wikilink",
-      "to": "feature:connections"
-    },
-    {
-      "from": "task:T-021-fe",
-      "kind": "wikilink",
-      "to": "feature:connections"
-    },
-    {
-      "from": "task:T-021-fe",
-      "kind": "wikilink",
-      "to": "story:T-021"
-    },
-    {
-      "from": "task:T-021-fe",
-      "kind": "wikilink",
-      "to": "task:T-021-be"
-    },
-    {
-      "from": "task:T-022",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-022",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-022",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-022",
-      "kind": "wikilink",
-      "to": "task:T-023"
-    },
-    {
-      "from": "task:T-022-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:connections"
-    },
-    {
-      "from": "task:T-022-be",
-      "kind": "wikilink",
-      "to": "feature:connections"
-    },
-    {
-      "from": "task:T-022-fe",
-      "kind": "wikilink",
-      "to": "feature:connections"
-    },
-    {
-      "from": "task:T-022-fe",
-      "kind": "wikilink",
-      "to": "story:T-022"
-    },
-    {
-      "from": "task:T-022-fe",
-      "kind": "wikilink",
-      "to": "task:T-022-be"
-    },
-    {
-      "from": "task:T-023",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-023",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-023",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-023",
-      "kind": "wikilink",
-      "to": "story:post-event"
-    },
-    {
-      "from": "task:T-023",
-      "kind": "wikilink",
-      "to": "task:T-025"
-    },
-    {
-      "from": "task:T-023-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:connections"
-    },
-    {
-      "from": "task:T-023-be",
-      "kind": "wikilink",
-      "to": "feature:connections"
-    },
-    {
-      "from": "task:T-023-fe",
-      "kind": "wikilink",
-      "to": "feature:connections"
-    },
-    {
-      "from": "task:T-023-fe",
-      "kind": "wikilink",
-      "to": "story:T-023"
-    },
-    {
-      "from": "task:T-023-fe",
-      "kind": "wikilink",
-      "to": "task:T-023-be"
-    },
-    {
-      "from": "task:T-024",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-024",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-024",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-024-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:connections"
-    },
-    {
-      "from": "task:T-024-be",
-      "kind": "wikilink",
-      "to": "feature:connections"
-    },
-    {
-      "from": "task:T-024-fe",
-      "kind": "wikilink",
-      "to": "feature:connections"
-    },
-    {
-      "from": "task:T-024-fe",
-      "kind": "wikilink",
-      "to": "story:T-024"
-    },
-    {
-      "from": "task:T-024-fe",
-      "kind": "wikilink",
-      "to": "task:T-024-be"
-    },
-    {
-      "from": "task:T-025",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-025",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-025",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-025-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:connections"
-    },
-    {
-      "from": "task:T-025-be",
-      "kind": "wikilink",
-      "to": "feature:connections"
-    },
-    {
-      "from": "task:T-025-fe",
-      "kind": "wikilink",
-      "to": "feature:connections"
-    },
-    {
-      "from": "task:T-025-fe",
-      "kind": "wikilink",
-      "to": "story:T-025"
-    },
-    {
-      "from": "task:T-025-fe",
-      "kind": "wikilink",
-      "to": "task:T-025-be"
     },
     {
       "from": "task:T-036",
@@ -28871,86 +27443,6 @@
     "social-pin/tasks/Backlog.md": {
       "name": "Backlog",
       "type": "map"
-    },
-    "social-pin/tasks/T-021 Connect request send, inbox, cancel/T-021 Connect request send, inbox, cancel.md": {
-      "name": "T-021 Connect request send, inbox, cancel",
-      "type": "task"
-    },
-    "social-pin/tasks/T-021 Connect request send, inbox, cancel/T-021 Story.md": {
-      "name": "T-021 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-021 Connect request send, inbox, cancel/T-021-be Backend · Connect request send, inbox, cancel.md": {
-      "name": "T-021-be Backend · Connect request send, inbox, cancel",
-      "type": "task"
-    },
-    "social-pin/tasks/T-021 Connect request send, inbox, cancel/T-021-fe Frontend · Connect request send, inbox, cancel.md": {
-      "name": "T-021-fe Frontend · Connect request send, inbox, cancel",
-      "type": "task"
-    },
-    "social-pin/tasks/T-022 Accept into a Ring (sets grantedRingId)/T-022 Accept into a Ring (sets grantedRingId).md": {
-      "name": "T-022 Accept into a Ring (sets grantedRingId)",
-      "type": "task"
-    },
-    "social-pin/tasks/T-022 Accept into a Ring (sets grantedRingId)/T-022 Story.md": {
-      "name": "T-022 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-022 Accept into a Ring (sets grantedRingId)/T-022-be Backend · Accept into a Ring (sets grantedRingId).md": {
-      "name": "T-022-be Backend · Accept into a Ring (sets grantedRingId)",
-      "type": "task"
-    },
-    "social-pin/tasks/T-022 Accept into a Ring (sets grantedRingId)/T-022-fe Frontend · Accept into a Ring (sets grantedRingId).md": {
-      "name": "T-022-fe Frontend · Accept into a Ring (sets grantedRingId)",
-      "type": "task"
-    },
-    "social-pin/tasks/T-023 Connection detail and contacts list/T-023 Connection detail and contacts list.md": {
-      "name": "T-023 Connection detail and contacts list",
-      "type": "task"
-    },
-    "social-pin/tasks/T-023 Connection detail and contacts list/T-023 Story.md": {
-      "name": "T-023 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-023 Connection detail and contacts list/T-023-be Backend · Connection detail and contacts list.md": {
-      "name": "T-023-be Backend · Connection detail and contacts list",
-      "type": "task"
-    },
-    "social-pin/tasks/T-023 Connection detail and contacts list/T-023-fe Frontend · Connection detail and contacts list.md": {
-      "name": "T-023-fe Frontend · Connection detail and contacts list",
-      "type": "task"
-    },
-    "social-pin/tasks/T-024 Block and unblock/T-024 Block and unblock.md": {
-      "name": "T-024 Block and unblock",
-      "type": "task"
-    },
-    "social-pin/tasks/T-024 Block and unblock/T-024 Story.md": {
-      "name": "T-024 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-024 Block and unblock/T-024-be Backend · Block and unblock.md": {
-      "name": "T-024-be Backend · Block and unblock",
-      "type": "task"
-    },
-    "social-pin/tasks/T-024 Block and unblock/T-024-fe Frontend · Block and unblock.md": {
-      "name": "T-024-fe Frontend · Block and unblock",
-      "type": "task"
-    },
-    "social-pin/tasks/T-025 Introduce a connection to another/T-025 Introduce a connection to another.md": {
-      "name": "T-025 Introduce a connection to another",
-      "type": "task"
-    },
-    "social-pin/tasks/T-025 Introduce a connection to another/T-025 Story.md": {
-      "name": "T-025 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-025 Introduce a connection to another/T-025-be Backend · Introduce a connection to another.md": {
-      "name": "T-025-be Backend · Introduce a connection to another",
-      "type": "task"
-    },
-    "social-pin/tasks/T-025 Introduce a connection to another/T-025-fe Frontend · Introduce a connection to another.md": {
-      "name": "T-025-fe Frontend · Introduce a connection to another",
-      "type": "task"
     },
     "social-pin/tasks/T-036 Event mode exhibitors list and detail/T-036 Event mode exhibitors list and detail.md": {
       "name": "T-036 Event mode exhibitors list and detail",
@@ -31428,7 +29920,7 @@
       ],
       "task": null,
       "title": "Ring Members Backend Delivery",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "backend-delivery:ring-projection": {
       "affects": [],
@@ -33920,8 +32412,7 @@
         "story:rings",
         "story:companies",
         "story:delegated-admins",
-        "story:ring-invitations",
-        "story:T-023"
+        "story:ring-invitations"
       ],
       "release": null,
       "resolution": null,
@@ -34126,8 +32617,7 @@
     "decision:D-13": {
       "affects": [
         "feature:connections",
-        "task:T-021",
-        "task:T-022"
+        "story:connections"
       ],
       "blockedBy": [],
       "card": "D-13",
@@ -34162,14 +32652,10 @@
       "pending": [],
       "priority": null,
       "related": [
-        "task:T-021",
-        "task:T-022",
         "needs-decision:ND-13",
         "needs-decision:ND-17",
         "decision:D-17",
-        "story:connections",
-        "story:T-021",
-        "story:T-022"
+        "story:connections"
       ],
       "release": null,
       "resolution": null,
@@ -34183,15 +32669,14 @@
       ],
       "task": null,
       "title": "D-13 The requester sees a declined request",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "decision:D-14": {
       "affects": [
         "feature:connections",
         "feature:rings",
         "feature:ring-members",
-        "task:T-022",
-        "task:T-023"
+        "story:connections"
       ],
       "blockedBy": [],
       "card": "D-14",
@@ -34226,8 +32711,6 @@
       "pending": [],
       "priority": null,
       "related": [
-        "task:T-022",
-        "task:T-023",
         "needs-decision:ND-18",
         "needs-decision:ND-14",
         "feature:view-as",
@@ -34240,9 +32723,7 @@
         "story:ring-members",
         "story:rings",
         "story:companies",
-        "story:ring-invitations",
-        "story:T-022",
-        "story:T-023"
+        "story:ring-invitations"
       ],
       "release": null,
       "resolution": null,
@@ -34256,14 +32737,13 @@
       ],
       "task": null,
       "title": "D-14 Shared with me lists people, never the Ring",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "decision:D-15": {
       "affects": [
         "feature:connections",
         "feature:ring-members",
-        "task:T-022",
-        "task:T-023"
+        "story:connections"
       ],
       "blockedBy": [],
       "card": "D-15",
@@ -34298,14 +32778,12 @@
       "pending": [],
       "priority": null,
       "related": [
-        "task:T-023",
         "decision:D-14",
         "needs-decision:ND-15",
         "feature:view-as",
         "story:connections",
         "story:ring-access",
-        "story:ring-members",
-        "story:T-023"
+        "story:ring-members"
       ],
       "release": null,
       "resolution": null,
@@ -34319,13 +32797,12 @@
       ],
       "task": null,
       "title": "D-15 Several Rings per connection, remove or disconnect",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "decision:D-17": {
       "affects": [
         "feature:connections",
-        "task:T-021",
-        "task:T-022"
+        "story:connections"
       ],
       "blockedBy": [],
       "card": "D-17",
@@ -34360,13 +32837,9 @@
       "pending": [],
       "priority": null,
       "related": [
-        "task:T-021",
-        "task:T-022",
         "needs-decision:ND-17",
         "decision:D-13",
-        "story:connections",
-        "story:T-021",
-        "story:T-022"
+        "story:connections"
       ],
       "release": null,
       "resolution": null,
@@ -34380,7 +32853,7 @@
       ],
       "task": null,
       "title": "D-17 Requests expire after 30 days, optional note, ask again at once",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "decision:D-18": {
       "affects": [
@@ -35319,13 +33792,10 @@
       "release": "mvp",
       "resolution": null,
       "rollup": {
-        "approved": 2,
-        "blocked": 13,
+        "blocked": 3,
         "decided": 4,
-        "draft": 4,
+        "draft": 1,
         "missing": 4,
-        "needs-decision": 1,
-        "todo": 4,
         "verified": 4
       },
       "scope": null,
@@ -37309,9 +35779,7 @@
         "feature:audit-log",
         "feature:companies",
         "feature:ring-invitations",
-        "needs-decision:ND-15",
-        "story:T-022",
-        "story:T-023"
+        "needs-decision:ND-15"
       ],
       "release": "mvp",
       "resolution": null,
@@ -37497,8 +35965,7 @@
         "needs-decision:ND-14",
         "needs-decision:ND-18",
         "frontend-requirements:auth",
-        "frontend-requirements:counts",
-        "story:T-022"
+        "frontend-requirements:counts"
       ],
       "release": "mvp",
       "resolution": null,
@@ -37676,8 +36143,7 @@
         "needs-decision:ND-14",
         "needs-decision:ND-16",
         "decision:D-14",
-        "decision:D-15",
-        "story:T-023"
+        "decision:D-15"
       ],
       "release": "mvp",
       "resolution": null,
@@ -40221,7 +38687,7 @@
         "decision:D-14",
         "feature:rings",
         "feature:connections",
-        "task:T-021",
+        "story:connections",
         "story:error-contract"
       ],
       "release": "mvp",
@@ -42145,13 +40611,11 @@
       "release": null,
       "resolution": null,
       "rollup": {
-        "approved": 2,
-        "blocked": 13,
+        "blocked": 3,
         "decided": 4,
-        "draft": 4,
+        "draft": 1,
         "missing": 4,
-        "needs-decision": 1,
-        "todo": 5,
+        "todo": 1,
         "verified": 4
       },
       "scope": null,
@@ -42981,7 +41445,7 @@
       "blockedBy": [],
       "blocks": [
         "story:badge-qr",
-        "story:T-021"
+        "story:connections"
       ],
       "card": "ND-10",
       "children": [],
@@ -43009,15 +41473,14 @@
       "parentTask": null,
       "parents": [
         "story:badge-qr",
-        "story:T-021"
+        "story:connections"
       ],
       "path": "social-pin/needs-decisions/ND-10 How Connect addresses the scanned person.md",
       "pending": [],
       "priority": null,
       "related": [
         "feature:view-as",
-        "feature:connections",
-        "story:T-021"
+        "feature:connections"
       ],
       "release": null,
       "resolution": null,
@@ -43149,8 +41612,7 @@
       "affects": [],
       "blockedBy": [],
       "blocks": [
-        "story:T-021",
-        "story:T-022"
+        "story:connections"
       ],
       "card": "ND-13",
       "children": [
@@ -43179,8 +41641,7 @@
       "module": null,
       "parentTask": null,
       "parents": [
-        "story:T-021",
-        "story:T-022"
+        "story:connections"
       ],
       "path": "social-pin/needs-decisions/ND-13 Whether the requester sees a declined request.md",
       "pending": [],
@@ -43205,13 +41666,13 @@
       ],
       "task": null,
       "title": "ND-13 Whether the requester sees a declined request",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "needs-decision:ND-14": {
       "affects": [],
       "blockedBy": [],
       "blocks": [
-        "story:T-022"
+        "story:connections"
       ],
       "card": "ND-14",
       "children": [
@@ -43240,7 +41701,7 @@
       "module": null,
       "parentTask": null,
       "parents": [
-        "story:T-022"
+        "story:connections"
       ],
       "path": "social-pin/needs-decisions/ND-14 Connection-granted Ring on Shared with me.md",
       "pending": [],
@@ -43259,20 +41720,20 @@
         "s46"
       ],
       "status": "needs-decision",
-      "summary": "How the Ring a receiver accepts someone into (s46) appears on that person's Shared with me (s17). T-022 Story S3 says the requester must never learn which Ring they were put in, but GET…",
+      "summary": "How the Ring a receiver accepts someone into (s46) appears on that person's Shared with me (s17). Connections · S13–S18 S3 says the requester must never learn which Ring they were put in, but GET…",
       "tags": [
         "needs-decision",
         "needs-decision/open"
       ],
       "task": null,
       "title": "ND-14 Connection-granted Ring on Shared with me",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "needs-decision:ND-15": {
       "affects": [],
       "blockedBy": [],
       "blocks": [
-        "story:T-023"
+        "story:connections"
       ],
       "card": "ND-15",
       "children": [
@@ -43301,7 +41762,7 @@
       "module": null,
       "parentTask": null,
       "parents": [
-        "story:T-023"
+        "story:connections"
       ],
       "path": "social-pin/needs-decisions/ND-15 One Ring or several per connection.md",
       "pending": [],
@@ -43319,14 +41780,14 @@
         "s47"
       ],
       "status": "needs-decision",
-      "summary": "Two linked questions about what a connection is. First, whether a connection sits in one of the owner's Rings or may sit in several: T-022 Accept into a Ring (sets grantedRingId) accepts someone…",
+      "summary": "Two linked questions about what a connection is. First, whether a connection sits in one of the owner's Rings or may sit in several: Connections · S13–S18 accepts someone into one Ring, while the…",
       "tags": [
         "needs-decision",
         "needs-decision/open"
       ],
       "task": null,
       "title": "ND-15 One Ring or several per connection",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "needs-decision:ND-16": {
       "affects": [],
@@ -43390,11 +41851,11 @@
     },
     "needs-decision:ND-17": {
       "affects": [
-        "task:T-021"
+        "story:connections"
       ],
       "blockedBy": [],
       "blocks": [
-        "story:T-021"
+        "story:connections"
       ],
       "card": "ND-17",
       "children": [
@@ -43423,7 +41884,7 @@
       "module": null,
       "parentTask": null,
       "parents": [
-        "story:T-021"
+        "story:connections"
       ],
       "path": "social-pin/needs-decisions/ND-17 Request expiry, note and asking again.md",
       "pending": [],
@@ -43442,14 +41903,14 @@
         "s45"
       ],
       "status": "needs-decision",
-      "summary": "Three rules of a connection request that T-021 Connect request send, inbox, cancel cannot build without: whether a request left unanswered expires, and after how long; whether a request can carry…",
+      "summary": "Three rules of a connection request that Connections · S8–S12 cannot build without: whether a request left unanswered expires, and after how long; whether a request can carry a short note (\"We met…",
       "tags": [
         "needs-decision",
         "needs-decision/open"
       ],
       "task": null,
       "title": "ND-17 Request expiry, note and asking again",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "needs-decision:ND-18": {
       "affects": [
@@ -49003,21 +47464,21 @@
         }
       ],
       "rollup": {
-        "approved": 33,
-        "blocked": 59,
+        "approved": 31,
+        "blocked": 49,
         "current": 8,
         "decided": 14,
         "delivered": 2,
         "done": 10,
-        "draft": 49,
+        "draft": 46,
         "in-progress": 44,
         "missing": 154,
-        "needs-decision": 3,
+        "needs-decision": 2,
         "partial": 4,
         "passing": 1,
         "ready": 2,
         "reference": 31,
-        "todo": 12,
+        "todo": 8,
         "verified": 14
       },
       "scope": null,
@@ -49028,288 +47489,6 @@
       "tags": [],
       "task": null,
       "title": "Social Pin",
-      "updated": "2026-10-26"
-    },
-    "story:T-021": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "needs-decision:ND-10",
-          "title": "ND-10 How Connect addresses the scanned person",
-          "why": "needs decision ND-10 (draft)"
-        }
-      ],
-      "card": "S-24",
-      "children": [
-        "needs-decision:ND-10",
-        "needs-decision:ND-13",
-        "needs-decision:ND-17"
-      ],
-      "code": "T-021",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "blocked",
-      "effort": null,
-      "feature": "connections",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-021",
-      "inherits": {
-        "priority": "task:T-021",
-        "release": "feature:connections"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "connections",
-      "parentTask": null,
-      "parents": [
-        "task:T-021"
-      ],
-      "path": "social-pin/tasks/T-021 Connect request send, inbox, cancel/T-021 Story.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [
-        "decision:D-13",
-        "decision:D-17",
-        "needs-decision:ND-10"
-      ],
-      "release": "mvp",
-      "resolution": null,
-      "scope": "task",
-      "screens": [
-        "s44",
-        "s45"
-      ],
-      "status": "draft",
-      "summary": "POST /connections/requests (target by user id from a resolved view, an optional note), GET /connections/requests?direction=incoming|sent, DELETE …/:id. Blocked pairs rejected with the same 404 as…",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/connections",
-        "layer/business"
-      ],
-      "task": "T-021",
-      "title": "T-021 Story",
-      "updated": "2026-10-27"
-    },
-    "story:T-022": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-25",
-      "children": [
-        "needs-decision:ND-13",
-        "needs-decision:ND-14"
-      ],
-      "code": "T-022",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "approved",
-      "effort": null,
-      "feature": "connections",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-022",
-      "inherits": {
-        "priority": "task:T-022",
-        "release": "feature:connections"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "connections",
-      "parentTask": null,
-      "parents": [
-        "task:T-022"
-      ],
-      "path": "social-pin/tasks/T-022 Accept into a Ring (sets grantedRingId)/T-022 Story.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [
-        "feature:rings",
-        "feature:ring-members",
-        "decision:D-13",
-        "decision:D-14",
-        "decision:D-17"
-      ],
-      "release": "mvp",
-      "resolution": null,
-      "scope": "task",
-      "screens": [
-        "s46"
-      ],
-      "status": "approved",
-      "summary": "One @Transactional: create Connection, add RingMember, set grantedRingId. Never expose grantedRingId to the requester. Decline path too.",
-      "tags": [
-        "story",
-        "story/approved",
-        "module/connections",
-        "layer/business"
-      ],
-      "task": "T-022",
-      "title": "T-022 Story",
-      "updated": "2026-10-27"
-    },
-    "story:T-023": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-26",
-      "children": [
-        "needs-decision:ND-15"
-      ],
-      "code": "T-023",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "approved",
-      "effort": null,
-      "feature": "connections",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-023",
-      "inherits": {
-        "priority": "task:T-023",
-        "release": "feature:connections"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "connections",
-      "parentTask": null,
-      "parents": [
-        "task:T-023"
-      ],
-      "path": "social-pin/tasks/T-023 Connection detail and contacts list/T-023 Story.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [
-        "feature:ring-members",
-        "feature:view-as",
-        "decision:D-04",
-        "decision:D-14",
-        "decision:D-15"
-      ],
-      "release": "mvp",
-      "resolution": null,
-      "scope": "task",
-      "screens": [
-        "s47"
-      ],
-      "status": "approved",
-      "summary": "Owner-side detail shows which Rings (owner only), events in common, mutual connections. GET /connections searchable. A connection can sit in several of my Rings and outlives access unless I…",
-      "tags": [
-        "story",
-        "story/approved",
-        "module/connections",
-        "layer/business"
-      ],
-      "task": "T-023",
-      "title": "T-023 Story",
-      "updated": "2026-10-27"
-    },
-    "story:T-024": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-27",
-      "children": [],
-      "code": "T-024",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
-      "effort": null,
-      "feature": "connections",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-024",
-      "inherits": {
-        "priority": "task:T-024",
-        "release": "feature:connections"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "connections",
-      "parentTask": null,
-      "parents": [
-        "task:T-024"
-      ],
-      "path": "social-pin/tasks/T-024 Block and unblock/T-024 Story.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "scope": "task",
-      "screens": [
-        "s47"
-      ],
-      "status": "draft",
-      "summary": "POST/DELETE /blocks/:userId. UserBlock is already enforced by RingAccessService. Blocking removes both directions of membership.",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/connections",
-        "layer/business"
-      ],
-      "task": "T-024",
-      "title": "T-024 Story",
-      "updated": "2026-10-26"
-    },
-    "story:T-025": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-28",
-      "children": [],
-      "code": "T-025",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
-      "effort": null,
-      "feature": "connections",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-025",
-      "inherits": {
-        "priority": "task:T-025",
-        "release": "feature:connections"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "connections",
-      "parentTask": null,
-      "parents": [
-        "task:T-025"
-      ],
-      "path": "social-pin/tasks/T-025 Introduce a connection to another/T-025 Story.md",
-      "pending": [],
-      "priority": "medium",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "scope": "task",
-      "screens": [
-        "s47"
-      ],
-      "status": "draft",
-      "summary": "Semantics unclear: does an introduction create a request on behalf of someone? Needs product input.",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/connections",
-        "layer/business"
-      ],
-      "task": "T-025",
-      "title": "T-025 Story",
       "updated": "2026-10-26"
     },
     "story:T-036": {
@@ -50075,20 +48254,26 @@
     },
     "story:connections": {
       "affects": [],
-      "blockedBy": [],
+      "blockedBy": [
+        {
+          "id": "needs-decision:ND-10",
+          "title": "ND-10 How Connect addresses the scanned person",
+          "why": "needs decision ND-10 (draft)"
+        }
+      ],
       "card": "S-23",
       "children": [
-        "task:T-021",
-        "task:T-022",
-        "task:T-023",
-        "task:T-024",
-        "task:T-025"
+        "needs-decision:ND-10",
+        "needs-decision:ND-13",
+        "needs-decision:ND-14",
+        "needs-decision:ND-15",
+        "needs-decision:ND-17"
       ],
       "code": "connections",
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "blocked",
       "effort": null,
       "feature": "connections",
       "foundOn": null,
@@ -50115,7 +48300,8 @@
         "decision:D-13",
         "decision:D-14",
         "decision:D-15",
-        "decision:D-17"
+        "decision:D-17",
+        "frontend-requirements:counts"
       ],
       "release": "mvp",
       "resolution": null,
@@ -51603,7 +49789,7 @@
       ],
       "task": null,
       "title": "Ring Members Story",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "story:ring-projection": {
       "affects": [],
@@ -52061,979 +50247,6 @@
       "task": null,
       "title": "B-02 Deleted account answers 401, not the documented 404 E_USER_01",
       "updated": "2026-10-27"
-    },
-    "task:T-021": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-021",
-      "children": [
-        "story:T-021",
-        "task:T-021-be",
-        "task:T-021-fe"
-      ],
-      "code": "T-021",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": "social-pin/tasks/T-021 Connect request send, inbox, cancel",
-      "effectiveStatus": "todo",
-      "effort": "M",
-      "feature": "connections",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-021",
-      "inherits": {
-        "release": "feature:connections"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "connections",
-      "parentTask": null,
-      "parents": [
-        "story:connections"
-      ],
-      "path": "social-pin/tasks/T-021 Connect request send, inbox, cancel/T-021 Connect request send, inbox, cancel.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [
-        "decision:D-13",
-        "decision:D-17",
-        "frontend-requirements:counts"
-      ],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {
-        "blocked": 2,
-        "decided": 2,
-        "draft": 1,
-        "todo": 1,
-        "verified": 2
-      },
-      "scope": null,
-      "screens": [
-        "s44",
-        "s45"
-      ],
-      "status": "todo",
-      "summary": "POST /connections/requests (target by user id from a resolved view, an optional note of up to 200 characters), GET /connections/requests?direction=incoming|sent, DELETE …/:id. Blocked pairs…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/connections",
-        "priority/critical"
-      ],
-      "task": null,
-      "title": "T-021 Connect request send, inbox, cancel",
-      "updated": "2026-10-27"
-    },
-    "task:T-021-be": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-021-be",
-      "children": [],
-      "code": "T-021-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": null,
-      "effectiveStatus": "todo",
-      "effort": "M",
-      "feature": "connections",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-021-be",
-      "inherits": {
-        "release": "feature:connections"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "connections",
-      "parentTask": "T-021",
-      "parents": [
-        "task:T-021"
-      ],
-      "path": "social-pin/tasks/T-021 Connect request send, inbox, cancel/T-021-be Backend · Connect request send, inbox, cancel.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s44",
-        "s45"
-      ],
-      "status": "todo",
-      "summary": "The API side of T-021 Connect request send, inbox, cancel: the endpoints, data and rules its What describes. Record what shipped in T-021-be Backend Delivery and how to call it in T-021-be Backend…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/connections",
-        "priority/critical",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-021-be Backend · Connect request send, inbox, cancel",
-      "updated": "2026-10-26"
-    },
-    "task:T-021-fe": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-021-be",
-          "title": "T-021-be Backend · Connect request send, inbox, cancel",
-          "why": "T-021-be Backend · Connect request send, inbox, cancel is to do"
-        }
-      ],
-      "card": "T-021-fe",
-      "children": [],
-      "code": "T-021-fe",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-021-be"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "connections",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-021-fe",
-      "inherits": {
-        "release": "feature:connections"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "frontend"
-      ],
-      "layer": "business",
-      "module": "connections",
-      "parentTask": "T-021",
-      "parents": [
-        "task:T-021"
-      ],
-      "path": "social-pin/tasks/T-021 Connect request send, inbox, cancel/T-021-fe Frontend · Connect request send, inbox, cancel.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s44",
-        "s45"
-      ],
-      "status": "todo",
-      "summary": "The client side of T-021 Connect request send, inbox, cancel: the screens below show what its What describes, built against Connections Backend Integration once the backend half (T-021-be Backend…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/connections",
-        "priority/critical",
-        "frontend"
-      ],
-      "task": null,
-      "title": "T-021-fe Frontend · Connect request send, inbox, cancel",
-      "updated": "2026-10-26"
-    },
-    "task:T-022": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-021",
-          "title": "T-021 Connect request send, inbox, cancel",
-          "why": "T-021 Connect request send, inbox, cancel is to do"
-        }
-      ],
-      "card": "T-022",
-      "children": [
-        "story:T-022",
-        "task:T-022-be",
-        "task:T-022-fe"
-      ],
-      "code": "T-022",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-021"
-      ],
-      "dir": "social-pin/tasks/T-022 Accept into a Ring (sets grantedRingId)",
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "connections",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-022",
-      "inherits": {
-        "release": "feature:connections"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "connections",
-      "parentTask": null,
-      "parents": [
-        "story:connections"
-      ],
-      "path": "social-pin/tasks/T-022 Accept into a Ring (sets grantedRingId)/T-022 Accept into a Ring (sets grantedRingId).md",
-      "pending": [],
-      "priority": "critical",
-      "related": [
-        "decision:D-13",
-        "decision:D-14",
-        "decision:D-17"
-      ],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {
-        "approved": 1,
-        "blocked": 2,
-        "decided": 2,
-        "verified": 2
-      },
-      "scope": null,
-      "screens": [
-        "s46"
-      ],
-      "status": "todo",
-      "summary": "One @Transactional: create Connection, add RingMember, set grantedRingId. Never expose grantedRingId to the requester, nor the Ring's name on their Shared with me (D-14 Shared with me lists…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/connections",
-        "priority/critical"
-      ],
-      "task": null,
-      "title": "T-022 Accept into a Ring (sets grantedRingId)",
-      "updated": "2026-10-26"
-    },
-    "task:T-022-be": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-021",
-          "title": "T-021 Connect request send, inbox, cancel",
-          "why": "T-021 Connect request send, inbox, cancel is to do"
-        }
-      ],
-      "card": "T-022-be",
-      "children": [],
-      "code": "T-022-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-021"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "connections",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-022-be",
-      "inherits": {
-        "release": "feature:connections"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "connections",
-      "parentTask": "T-022",
-      "parents": [
-        "task:T-022"
-      ],
-      "path": "social-pin/tasks/T-022 Accept into a Ring (sets grantedRingId)/T-022-be Backend · Accept into a Ring (sets grantedRingId).md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s46"
-      ],
-      "status": "todo",
-      "summary": "The API side of T-022 Accept into a Ring (sets grantedRingId): the endpoints, data and rules its What describes. Record what shipped in T-022-be Backend Delivery and how to call it in T-022-be…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/connections",
-        "priority/critical",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-022-be Backend · Accept into a Ring (sets grantedRingId)",
-      "updated": "2026-10-26"
-    },
-    "task:T-022-fe": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-021",
-          "title": "T-021 Connect request send, inbox, cancel",
-          "why": "T-021 Connect request send, inbox, cancel is to do"
-        },
-        {
-          "id": "task:T-022-be",
-          "title": "T-022-be Backend · Accept into a Ring (sets grantedRingId)",
-          "why": "T-022-be Backend · Accept into a Ring (sets grantedRingId) is blocked"
-        }
-      ],
-      "card": "T-022-fe",
-      "children": [],
-      "code": "T-022-fe",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-021",
-        "task:T-022-be"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "connections",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-022-fe",
-      "inherits": {
-        "release": "feature:connections"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "frontend"
-      ],
-      "layer": "business",
-      "module": "connections",
-      "parentTask": "T-022",
-      "parents": [
-        "task:T-022"
-      ],
-      "path": "social-pin/tasks/T-022 Accept into a Ring (sets grantedRingId)/T-022-fe Frontend · Accept into a Ring (sets grantedRingId).md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s46"
-      ],
-      "status": "todo",
-      "summary": "The client side of T-022 Accept into a Ring (sets grantedRingId): the screens below show what its What describes, built against Connections Backend Integration once the backend half (T-022-be…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/connections",
-        "priority/critical",
-        "frontend"
-      ],
-      "task": null,
-      "title": "T-022-fe Frontend · Accept into a Ring (sets grantedRingId)",
-      "updated": "2026-10-26"
-    },
-    "task:T-023": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-022",
-          "title": "T-022 Accept into a Ring (sets grantedRingId)",
-          "why": "T-022 Accept into a Ring (sets grantedRingId) is blocked"
-        }
-      ],
-      "card": "T-023",
-      "children": [
-        "story:T-023",
-        "task:T-023-be",
-        "task:T-023-fe"
-      ],
-      "code": "T-023",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-022"
-      ],
-      "dir": "social-pin/tasks/T-023 Connection detail and contacts list",
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "connections",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-023",
-      "inherits": {
-        "release": "feature:connections"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "connections",
-      "parentTask": null,
-      "parents": [
-        "story:connections"
-      ],
-      "path": "social-pin/tasks/T-023 Connection detail and contacts list/T-023 Connection detail and contacts list.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [
-        "decision:D-14",
-        "decision:D-15"
-      ],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {
-        "approved": 1,
-        "blocked": 2,
-        "decided": 1,
-        "verified": 1
-      },
-      "scope": null,
-      "screens": [
-        "s47"
-      ],
-      "status": "todo",
-      "summary": "Owner-side detail shows which Rings (owner only; a connection may sit in several), events in common, mutual connections. GET /connections searchable, including connections with no access. Removing…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/connections",
-        "priority/critical"
-      ],
-      "task": null,
-      "title": "T-023 Connection detail and contacts list",
-      "updated": "2026-10-27"
-    },
-    "task:T-023-be": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-022",
-          "title": "T-022 Accept into a Ring (sets grantedRingId)",
-          "why": "T-022 Accept into a Ring (sets grantedRingId) is blocked"
-        }
-      ],
-      "card": "T-023-be",
-      "children": [],
-      "code": "T-023-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-022"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "connections",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-023-be",
-      "inherits": {
-        "release": "feature:connections"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "connections",
-      "parentTask": "T-023",
-      "parents": [
-        "task:T-023"
-      ],
-      "path": "social-pin/tasks/T-023 Connection detail and contacts list/T-023-be Backend · Connection detail and contacts list.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s47"
-      ],
-      "status": "todo",
-      "summary": "The API side of T-023 Connection detail and contacts list: the endpoints, data and rules its What describes. Record what shipped in T-023-be Backend Delivery and how to call it in T-023-be Backend…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/connections",
-        "priority/critical",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-023-be Backend · Connection detail and contacts list",
-      "updated": "2026-10-26"
-    },
-    "task:T-023-fe": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-022",
-          "title": "T-022 Accept into a Ring (sets grantedRingId)",
-          "why": "T-022 Accept into a Ring (sets grantedRingId) is blocked"
-        },
-        {
-          "id": "task:T-023-be",
-          "title": "T-023-be Backend · Connection detail and contacts list",
-          "why": "T-023-be Backend · Connection detail and contacts list is blocked"
-        }
-      ],
-      "card": "T-023-fe",
-      "children": [],
-      "code": "T-023-fe",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-022",
-        "task:T-023-be"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "connections",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-023-fe",
-      "inherits": {
-        "release": "feature:connections"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "frontend"
-      ],
-      "layer": "business",
-      "module": "connections",
-      "parentTask": "T-023",
-      "parents": [
-        "task:T-023"
-      ],
-      "path": "social-pin/tasks/T-023 Connection detail and contacts list/T-023-fe Frontend · Connection detail and contacts list.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s47"
-      ],
-      "status": "todo",
-      "summary": "The client side of T-023 Connection detail and contacts list: the screens below show what its What describes, built against Connections Backend Integration once the backend half (T-023-be Backend…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/connections",
-        "priority/critical",
-        "frontend"
-      ],
-      "task": null,
-      "title": "T-023-fe Frontend · Connection detail and contacts list",
-      "updated": "2026-10-26"
-    },
-    "task:T-024": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-024",
-      "children": [
-        "story:T-024",
-        "task:T-024-be",
-        "task:T-024-fe"
-      ],
-      "code": "T-024",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": "social-pin/tasks/T-024 Block and unblock",
-      "effectiveStatus": "todo",
-      "effort": "S",
-      "feature": "connections",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-024",
-      "inherits": {
-        "release": "feature:connections"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "connections",
-      "parentTask": null,
-      "parents": [
-        "story:connections"
-      ],
-      "path": "social-pin/tasks/T-024 Block and unblock/T-024 Block and unblock.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {
-        "blocked": 1,
-        "draft": 1,
-        "todo": 1
-      },
-      "scope": null,
-      "screens": [
-        "s47"
-      ],
-      "status": "todo",
-      "summary": "POST/DELETE /blocks/:userId. UserBlock is already enforced by RingAccessService. Blocking removes both directions of membership.",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/connections",
-        "priority/critical"
-      ],
-      "task": null,
-      "title": "T-024 Block and unblock",
-      "updated": "2026-10-26"
-    },
-    "task:T-024-be": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-024-be",
-      "children": [],
-      "code": "T-024-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": null,
-      "effectiveStatus": "todo",
-      "effort": "S",
-      "feature": "connections",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-024-be",
-      "inherits": {
-        "release": "feature:connections"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "connections",
-      "parentTask": "T-024",
-      "parents": [
-        "task:T-024"
-      ],
-      "path": "social-pin/tasks/T-024 Block and unblock/T-024-be Backend · Block and unblock.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s47"
-      ],
-      "status": "todo",
-      "summary": "The API side of T-024 Block and unblock: the endpoints, data and rules its What describes. Record what shipped in T-024-be Backend Delivery and how to call it in T-024-be Backend Integration, and…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/connections",
-        "priority/critical",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-024-be Backend · Block and unblock",
-      "updated": "2026-10-26"
-    },
-    "task:T-024-fe": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-024-be",
-          "title": "T-024-be Backend · Block and unblock",
-          "why": "T-024-be Backend · Block and unblock is to do"
-        }
-      ],
-      "card": "T-024-fe",
-      "children": [],
-      "code": "T-024-fe",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-024-be"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "S",
-      "feature": "connections",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-024-fe",
-      "inherits": {
-        "release": "feature:connections"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "frontend"
-      ],
-      "layer": "business",
-      "module": "connections",
-      "parentTask": "T-024",
-      "parents": [
-        "task:T-024"
-      ],
-      "path": "social-pin/tasks/T-024 Block and unblock/T-024-fe Frontend · Block and unblock.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s47"
-      ],
-      "status": "todo",
-      "summary": "The client side of T-024 Block and unblock: the screens below show what its What describes, built against Connections Backend Integration once the backend half (T-024-be Backend · Block and…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/connections",
-        "priority/critical",
-        "frontend"
-      ],
-      "task": null,
-      "title": "T-024-fe Frontend · Block and unblock",
-      "updated": "2026-10-26"
-    },
-    "task:T-025": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-023",
-          "title": "T-023 Connection detail and contacts list",
-          "why": "T-023 Connection detail and contacts list is blocked"
-        }
-      ],
-      "card": "T-025",
-      "children": [
-        "story:T-025",
-        "task:T-025-be",
-        "task:T-025-fe"
-      ],
-      "code": "T-025",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-023"
-      ],
-      "dir": "social-pin/tasks/T-025 Introduce a connection to another",
-      "effectiveStatus": "needs-decision",
-      "effort": "M",
-      "feature": "connections",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-025",
-      "inherits": {
-        "release": "feature:connections"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "connections",
-      "parentTask": null,
-      "parents": [
-        "story:connections"
-      ],
-      "path": "social-pin/tasks/T-025 Introduce a connection to another/T-025 Introduce a connection to another.md",
-      "pending": [],
-      "priority": "medium",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {
-        "blocked": 2,
-        "draft": 1
-      },
-      "scope": null,
-      "screens": [
-        "s47"
-      ],
-      "status": "needs-decision",
-      "summary": "Semantics unclear: does an introduction create a request on behalf of someone? Needs product input.",
-      "tags": [
-        "task",
-        "task/needs-info",
-        "module/connections",
-        "priority/medium"
-      ],
-      "task": null,
-      "title": "T-025 Introduce a connection to another",
-      "updated": "2026-10-26"
-    },
-    "task:T-025-be": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-023",
-          "title": "T-023 Connection detail and contacts list",
-          "why": "T-023 Connection detail and contacts list is blocked"
-        }
-      ],
-      "card": "T-025-be",
-      "children": [],
-      "code": "T-025-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-023"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "connections",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-025-be",
-      "inherits": {
-        "release": "feature:connections"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "connections",
-      "parentTask": "T-025",
-      "parents": [
-        "task:T-025"
-      ],
-      "path": "social-pin/tasks/T-025 Introduce a connection to another/T-025-be Backend · Introduce a connection to another.md",
-      "pending": [],
-      "priority": "medium",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s47"
-      ],
-      "status": "todo",
-      "summary": "The API side of T-025 Introduce a connection to another: the endpoints, data and rules its What describes. Record what shipped in T-025-be Backend Delivery and how to call it in T-025-be Backend…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/connections",
-        "priority/medium",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-025-be Backend · Introduce a connection to another",
-      "updated": "2026-10-26"
-    },
-    "task:T-025-fe": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-023",
-          "title": "T-023 Connection detail and contacts list",
-          "why": "T-023 Connection detail and contacts list is blocked"
-        },
-        {
-          "id": "task:T-025-be",
-          "title": "T-025-be Backend · Introduce a connection to another",
-          "why": "T-025-be Backend · Introduce a connection to another is blocked"
-        }
-      ],
-      "card": "T-025-fe",
-      "children": [],
-      "code": "T-025-fe",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-023",
-        "task:T-025-be"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "connections",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-025-fe",
-      "inherits": {
-        "release": "feature:connections"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "frontend"
-      ],
-      "layer": "business",
-      "module": "connections",
-      "parentTask": "T-025",
-      "parents": [
-        "task:T-025"
-      ],
-      "path": "social-pin/tasks/T-025 Introduce a connection to another/T-025-fe Frontend · Introduce a connection to another.md",
-      "pending": [],
-      "priority": "medium",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s47"
-      ],
-      "status": "todo",
-      "summary": "The client side of T-025 Introduce a connection to another: the screens below show what its What describes, built against Connections Backend Integration once the backend half (T-025-be Backend ·…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/connections",
-        "priority/medium",
-        "frontend"
-      ],
-      "task": null,
-      "title": "T-025-fe Frontend · Introduce a connection to another",
-      "updated": "2026-10-26"
     },
     "task:T-036": {
       "affects": [],

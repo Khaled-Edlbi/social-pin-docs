@@ -9,19 +9,10 @@ kanban-plugin: board
 ## ❓ Needs a decision / info
 
 - [ ] [[T-039 Catalogue products and talks (new table)]] #high #events-during
-- [ ] [[T-025 Introduce a connection to another]] #medium #connections
 
 
 ## ⛔ Blocked
 
-- [ ] [[T-021-fe Frontend · Connect request send, inbox, cancel]] #critical #connections #frontend
-- [ ] [[T-022 Accept into a Ring (sets grantedRingId)]] #critical #connections
-- [ ] [[T-022-be Backend · Accept into a Ring (sets grantedRingId)]] #critical #connections #backend
-- [ ] [[T-022-fe Frontend · Accept into a Ring (sets grantedRingId)]] #critical #connections #frontend
-- [ ] [[T-023 Connection detail and contacts list]] #critical #connections
-- [ ] [[T-023-be Backend · Connection detail and contacts list]] #critical #connections #backend
-- [ ] [[T-023-fe Frontend · Connection detail and contacts list]] #critical #connections #frontend
-- [ ] [[T-024-fe Frontend · Block and unblock]] #critical #connections #frontend
 - [ ] [[T-036 Event mode exhibitors list and detail]] #critical #events-during
 - [ ] [[T-036-fe Frontend · Event mode exhibitors list and detail]] #critical #events-during #frontend
 - [ ] [[T-037 Event pass with a 60 s rotating code]] #high #events-during
@@ -33,16 +24,10 @@ kanban-plugin: board
 - [ ] [[T-039-fe Frontend · Catalogue products and talks (new table)]] #high #events-during #frontend
 - [ ] [[T-040 Lounges and upgrades]] #high #events-during
 - [ ] [[T-040-fe Frontend · Lounges and upgrades]] #high #events-during #frontend
-- [ ] [[T-025-be Backend · Introduce a connection to another]] #medium #connections #backend
-- [ ] [[T-025-fe Frontend · Introduce a connection to another]] #medium #connections #frontend
 
 
 ## ⬜ To do
 
-- [ ] [[T-021 Connect request send, inbox, cancel]] #critical #connections
-- [ ] [[T-021-be Backend · Connect request send, inbox, cancel]] #critical #connections #backend
-- [ ] [[T-024 Block and unblock]] #critical #connections
-- [ ] [[T-024-be Backend · Block and unblock]] #critical #connections #backend
 - [ ] [[T-036-be Backend · Event mode exhibitors list and detail]] #critical #events-during #backend
 - [ ] [[T-037-be Backend · Event pass with a 60 s rotating code]] #high #events-during #backend
 - [ ] [[T-040-be Backend · Lounges and upgrades]] #high #events-during #backend

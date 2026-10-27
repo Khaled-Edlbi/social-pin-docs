@@ -34,10 +34,10 @@ What the client needs for the post-event summary and the Ring disposition sheet,
 | Keep / merge / auto-delete | `POST /rings/:id/disposition` (`disposition`, `mergedIntoRingId` for MERGE) | ✅ | — |
 | Connections, meetings, scans counters (`EventSummary`) | — | ❌ | [[Post-Event Story|Post-Event · S6]] |
 | Scan counts feeding the summary | — | ❌ | [[Badge & QR Story|Badge & QR · S19]] |
-| Connections made during the event | — | ❌ | [[T-023 Connection detail and contacts list]] |
+| Connections made during the event | — | ❌ | [[Connections Story|Connections · S19–S24]] |
 | Meetings held during the event | — | ❌ | [[Meetings Story|Meetings · S11]] |
 | Follow-up suggestions (Gemma) | — | ❌ | [[Post-Event Story|Post-Event · S6]], [[Gemma AI Story|Gemma AI · S7]] |
-| Pending requests for "Review N" | — | ❌ | [[T-021 Connect request send, inbox, cancel]] |
+| Pending requests for "Review N" | — | ❌ | [[Connections Story|Connections · S8–S12]] |
 | Leads export (exhibitor) | — | ❌ | [[Exhibitor Story|Exhibitor · S8]] |
 
 ## Behaviour expectations
@@ -63,6 +63,6 @@ What the client needs for the post-event summary and the Ring disposition sheet,
 ## Blocked by
 
 - No decision note. Upstream tasks:
-- [[Post-Event Story|Post-Event · S6]] — the counters and suggestions; waits on [[Badge & QR Story|Badge & QR · S19]], [[T-023 Connection detail and contacts list]], [[Meetings Story|Meetings · S11]].
+- [[Post-Event Story|Post-Event · S6]] — the counters and suggestions; waits on [[Badge & QR Story|Badge & QR · S19]], [[Connections Story|Connections · S19–S24]], [[Meetings Story|Meetings · S11]].
 - [[Event Ring Auto-creation Story|Event Ring Auto-creation · S6]] — without an Event Ring there is nothing to dispose of on s62; the disposition endpoint can be exercised today only on a manually created temporary Ring.
 - [[Cleanup Jobs Story|Cleanup Jobs · S4]] — the purge of `AUTO_DELETE` Rings; the client sees an archived Ring until it runs.

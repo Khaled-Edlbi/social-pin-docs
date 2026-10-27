@@ -62,7 +62,7 @@ The engine exposes no endpoint. What the client needs from it is a set of guaran
 | Render one Ring, if readable | `GET /views/ring/:ringId` | ✅ | — (listed under [[View As & Pin Views]]) |
 | Every perspective I hold of one person | `GET /views/user/:userId/perspectives` | ✅ | — (listed under [[View As & Pin Views]]) |
 | 403 when below the admin level | all `/rings/:id` editing routes | ✅ | — |
-| Create or remove a block | — | ❌ | [[T-024 Block and unblock]] |
+| Create or remove a block | — | ❌ | [[Connections Story|Connections · S25]] |
 | Grant or revoke a delegated admin level | — | ❌ | [[Delegated Admins Story|Delegated Admins · S6]] |
 | "Members can see each other" and join rules | — | ❌ | [[ND-04 Ring settings]] |
 | Resolve a scanned QR token through the engine | — | ❌ | [[Badge & QR Story|Badge & QR · S13–S18]] |
@@ -93,5 +93,5 @@ Until [[Error Contract Story|Error Contract · S4–S8]] ships, the body carries
 ## Blocked by
 
 - [[ND-04 Ring settings]] — any UI that lets members see each other, or that shows join policy; all of it must wait for the engine to enforce it.
-- [[T-024 Block and unblock]] — a block screen; the engine already honours blocks but none can be created.
+- [[Connections Story|Connections · S25]] — a block screen; the engine already honours blocks but none can be created.
 - [[Delegated Admins Story|Delegated Admins · S6]] — admin management on s26 / s27; today only owners pass the level check.
