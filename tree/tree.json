@@ -4084,7 +4084,7 @@
     },
     "concepts": 198,
     "decisions": 19,
-    "edges": 3502,
+    "edges": 3505,
     "features": 41,
     "layerNotes": 131,
     "modules": 8,
@@ -9405,6 +9405,21 @@
       "from": "story:auth",
       "kind": "related",
       "to": "story:profiles"
+    },
+    {
+      "from": "story:build-deploy",
+      "kind": "related",
+      "to": "feature:build-deploy"
+    },
+    {
+      "from": "story:build-deploy",
+      "kind": "related",
+      "to": "project:architecture"
+    },
+    {
+      "from": "story:build-deploy",
+      "kind": "related",
+      "to": "project:developer-setup"
     },
     {
       "from": "story:companies",
@@ -32698,7 +32713,8 @@
         "project:ring-access-model",
         "project:architecture",
         "project:api-conventions",
-        "project:spec-map"
+        "project:spec-map",
+        "story:build-deploy"
       ],
       "release": "later",
       "resolution": null,
@@ -41711,6 +41727,7 @@
         "feature:companies",
         "feature:delegated-admins",
         "feature:ring-invitations",
+        "story:build-deploy",
         "project:backend-agent"
       ],
       "release": null,
@@ -41963,7 +41980,8 @@
       "related": [
         "feature:build-deploy",
         "backend-delivery:account",
-        "backend-integration:account"
+        "backend-integration:account",
+        "story:build-deploy"
       ],
       "release": null,
       "resolution": null,
@@ -47026,13 +47044,17 @@
       "path": "social-pin/modules/Platform & Cross-cutting/features/Build & Deploy/Build & Deploy Story.md",
       "pending": [],
       "priority": "medium",
-      "related": [],
+      "related": [
+        "feature:build-deploy",
+        "project:architecture",
+        "project:developer-setup"
+      ],
       "release": "later",
       "resolution": null,
       "scope": "feature",
       "screens": [],
       "status": "draft",
-      "summary": "One paragraph: who the user is here and what they are trying to get done, in product terms. approved (👍) when product signs off (approvedBy, approvedAt); verified (✅ Fulfilled) set by the PM once…",
+      "summary": "The people who build Social Pin want every change that is merged to reach a server on its own, the same way every time, without anyone copying files by hand or keeping a password in the code.…",
       "tags": [
         "story",
         "story/draft",
