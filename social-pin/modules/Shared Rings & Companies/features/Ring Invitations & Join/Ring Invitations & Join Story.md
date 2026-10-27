@@ -7,7 +7,7 @@ module: shared-rings
 status: draft
 screens: [s17, s74]
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 owner: "omar"
 related: ["D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "D-18 Ring names shown when joined knowingly"]
 tags: [story, story/draft, module/shared-rings, layer/business]
@@ -84,6 +84,32 @@ Acceptance criteria:
 - [ ] After *Join Ring*, an optional step lists fields and links I can contribute; default is nothing.
 - [ ] Not built; the step is skipped until the concept exists in the schema.
 
+### S7 · Ring invitations invite, review, decline
+
+*From T-026 (status then: Needs a decision), merged 2026-10-27.*
+
+Likely a `RingMember` in an INVITED state with accept / decline endpoints. Notification on invite. Joining by invitation is one of the launch values of "who can request to join" (default: with a code or by invitation), and "members can invite others" is a launch setting, off by default ([[D-04 Ring settings at launch and their defaults]]).
+
+Screens: [[Screen Index#s17|s17]] Shared with me
+
+
+### S8 · Join a Ring with a code or verified work email
+
+*From T-027 (status then: Blocked), merged 2026-10-27.*
+
+Needs `joinPolicy`, join code and `requiredEmailDomain` on the Ring. Joining with a code is in the launch set ("who can request to join", default: with a code or by invitation; "approve each one" on by default); the required work email domain comes later, with [[Companies]], so the verified-work-email part waits for it ([[D-04 Ring settings at launch and their defaults]]).
+
+Screens: [[Screen Index#s74|s74]] Join a company Ring
+
+
+### S9 · What you contribute to a shared Ring
+
+*From T-028 (status then: Needs a decision), merged 2026-10-27.*
+
+A member-side projection inside someone else's Ring. Not in the schema; needs a product definition.
+
+Screens: [[Screen Index#s74|s74]] Join a company Ring
+
 ## States and motion the design asks for
 
 - State: invitation pending, accepted, declined, no longer valid; code entry idle, checking, rejected, approval pending.
@@ -102,7 +128,7 @@ Acceptance criteria:
 
 - Decided: [[D-04 Ring settings at launch and their defaults]] (join policy and approval in S3, "members can invite" in S2; the email domain of S4 comes later). S3 and S4 stay disabled until the settings are built (not ticketed yet).
 - Decided: [[D-18 Ring names shown when joined knowingly]] (S1 and S2 name the Ring; a Ring joined by invitation, code or work email stays named). The "who it's for" label beside the name on S2 is D-18's natural reading, not asked separately.
-- [[T-026 Ring invitations invite, review, decline]] — whether an invitation is a `RingMember` in an invited state or its own object; what the invite carries (window, purpose, inviter).
-- [[T-027 Join a Ring with a code or verified work email]] — how the work email is verified; the sign-up OTP machinery exists but is not scoped for this.
-- [[T-028 What you contribute to a shared Ring]] — the member-side projection of S6; not in the schema.
+- [[Ring Invitations & Join Story|Ring Invitations & Join · S7]] — whether an invitation is a `RingMember` in an invited state or its own object; what the invite carries (window, purpose, inviter).
+- [[Ring Invitations & Join Story|Ring Invitations & Join · S8]] — how the work email is verified; the sign-up OTP machinery exists but is not scoped for this.
+- [[Ring Invitations & Join Story|Ring Invitations & Join · S9]] — the member-side projection of S6; not in the schema.
 - [[T-008 Resolve a scanned QR token]] — whether a token can carry a join offer (S5), which must not depend on the colleague's membership.

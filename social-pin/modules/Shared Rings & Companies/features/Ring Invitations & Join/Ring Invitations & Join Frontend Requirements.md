@@ -44,15 +44,15 @@ What the client needs from the backend to build the screens in [[Ring Invitation
 |---|---|---|---|
 | Rings I am a live member of | `GET /rings/shared-with-me` | ✅ | — |
 | The owner's projection of a Ring I am in | `GET /views/ring/:ringId` | ✅ | — |
-| Pending invitations for me | — | ❌ | [[T-026 Ring invitations invite, review, decline]] |
-| Accept an invitation | — | ❌ | [[T-026 Ring invitations invite, review, decline]] |
-| Decline an invitation | — | ❌ | [[T-026 Ring invitations invite, review, decline]] |
-| Owner sends an invitation (from s15) | — | ❌ | [[T-026 Ring invitations invite, review, decline]] |
-| Resolve a join code to a reviewable Ring, then join | — | ❌ | [[T-027 Join a Ring with a code or verified work email]] |
-| Verify a work email against the Ring's domain, then join | — | ❌ | [[T-027 Join a Ring with a code or verified work email]] |
+| Pending invitations for me | — | ❌ | [[Ring Invitations & Join Story|Ring Invitations & Join · S7]] |
+| Accept an invitation | — | ❌ | [[Ring Invitations & Join Story|Ring Invitations & Join · S7]] |
+| Decline an invitation | — | ❌ | [[Ring Invitations & Join Story|Ring Invitations & Join · S7]] |
+| Owner sends an invitation (from s15) | — | ❌ | [[Ring Invitations & Join Story|Ring Invitations & Join · S7]] |
+| Resolve a join code to a reviewable Ring, then join | — | ❌ | [[Ring Invitations & Join Story|Ring Invitations & Join · S8]] |
+| Verify a work email against the Ring's domain, then join | — | ❌ | [[Ring Invitations & Join Story|Ring Invitations & Join · S8]] |
 | Join policy, join code, required domain on the Ring | — | ❌ | [[ND-04 Ring settings]] |
 | Owner's display name on an invitation row | — | ❌ | [[T-023 Connection detail and contacts list]] |
-| What I contribute to a shared Ring | — | ❌ | [[T-028 What you contribute to a shared Ring]] |
+| What I contribute to a shared Ring | — | ❌ | [[Ring Invitations & Join Story|Ring Invitations & Join · S9]] |
 | Notification on invite | — | ❌ | [[Notifications Story|Notifications · S7]] |
 | Join offer carried by a scanned token | — | ❌ | [[T-008 Resolve a scanned QR token]] |
 
@@ -61,7 +61,7 @@ What the client needs from the backend to build the screens in [[Ring Invitation
 - Refetch / realtime: s17 refetches both the live list and the invitations on screen focus; the live list changes without any action of the viewer (owner reassigns, Ring expires). After accept or decline, refetch both. Until notifications exist, no polling.
 - Caching keys: shared Rings by (signed-in user); invitations by (signed-in user); a Ring's projection by (viewer, ring id). Invalidate the shared-Rings cache on accept.
 - Pagination / ordering: `{ data, meta: { total } }`; shared Rings newest first (server); invitations newest first; `limit` ≤ 50.
-- Code entry: trim and uppercase client-side only if T-027 defines the format; do not validate the shape locally beyond non-empty, so the UI never leaks the expected pattern.
+- Code entry: trim and uppercase client-side only if Ring Invitations & Join · S8 defines the format; do not validate the shape locally beyond non-empty, so the UI never leaks the expected pattern.
 - One neutral message for every join failure (wrong code, wrong domain, revoked, Ring gone); never branch the copy on cause.
 
 ## Error states the UI must handle
@@ -72,12 +72,12 @@ What the client needs from the backend to build the screens in [[Ring Invitation
 | 404 | `E_RING_ACCESS_01` | not a member any more or blocked: the same neutral message as any view |
 | 401 | `E_AUTH_04` | sign in again |
 | 400 | — | validation on the code or email field: inline, generic |
-| — | invitation / join codes | to be defined by T-026 / T-027; the UI maps all join failures to one message; branch on `statusCode` until [[Error Contract Story|Error Contract · S4–S8]] |
+| — | invitation / join codes | to be defined by Ring Invitations & Join · S7 / Ring Invitations & Join · S8; the UI maps all join failures to one message; branch on `statusCode` until [[Error Contract Story|Error Contract · S4–S8]] |
 
 ## Blocked by
 
 - [[ND-04 Ring settings]] — join policy, code and domain: the code and email rows, and the review step's "approval required" variant.
-- [[T-026 Ring invitations invite, review, decline]] — the invitation object; every invitation row above.
-- [[T-027 Join a Ring with a code or verified work email]] — both self-service join rows.
-- [[T-028 What you contribute to a shared Ring]] — the optional step after joining.
+- [[Ring Invitations & Join Story|Ring Invitations & Join · S7]] — the invitation object; every invitation row above.
+- [[Ring Invitations & Join Story|Ring Invitations & Join · S8]] — both self-service join rows.
+- [[Ring Invitations & Join Story|Ring Invitations & Join · S9]] — the optional step after joining.
 - [[Error Contract Story|Error Contract · S4–S8]] — the error table is by status until then.

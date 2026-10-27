@@ -89,7 +89,7 @@ Cache the owned list and the shared list separately, keyed by the signed-in user
 - Member counts on the list ("148 people"): [[Counts Story|Counts · S6–S10]].
 - Who the Ring is for, join policy, "members can see each other", required email domain (s19, s22, s26, s27): [[ND-04 Ring settings]].
 - "Copy a Ring" when creating (s18): [[ND-05 Copy or inherit]].
-- Review / decline an invitation on Shared with me (s17): [[T-026 Ring invitations invite, review, decline]].
+- Review / decline an invitation on Shared with me (s17): [[Ring Invitations & Join Story|Ring Invitations & Join · S7]].
 - The sweeper that purges `AUTO_DELETE` Rings: [[Cleanup Jobs Story|Cleanup Jobs · S4]].
 
 ## Checklist

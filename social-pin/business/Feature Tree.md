@@ -47,9 +47,6 @@ Social Pin backend
 ├── Shared Rings & Companies  (🟡1 ❌2)
 │   ├── 🟡 Delegated Admins  [High]
 │   ├── ❌ Ring Invitations & Join  [High]
-│   │   ├── ❓ T-026 Ring invitations: invite, review, decline
-│   │   ├── ⛔ T-027 Join a Ring with a code or verified work email
-│   │   └── ❓ T-028 "What you contribute" to a shared Ring
 │   └── ❌ Companies  [High]
 ├── Discovery  (🟡1 ❌2)
 │   ├── 🟡 Badge & QR  [Critical]
@@ -128,7 +125,7 @@ Rings owned by someone else that you belong to: invitations, joining by code or 
 | Feature | Status | Priority | Screens | Open tasks |
 |---|---|---|---|---|
 | [[Delegated Admins]] | 🟡 Partial (needs more) | High | s26, s27 | 0 |
-| [[Ring Invitations & Join]] | ❌ TODO | High | s17, s74 | 3 |
+| [[Ring Invitations & Join]] | ❌ TODO | High | s17, s74 | 0 |
 | [[Companies]] | ❌ TODO | High | s72, s73 | 0 |
 
 ## Discovery

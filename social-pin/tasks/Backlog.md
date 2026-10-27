@@ -58,12 +58,6 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-010 Public browser page for viewers without the app]] | [[Badge & QR]] | Discovery | ⛔ Blocked | M | — | [[T-008 Resolve a scanned QR token|T-008]], [[ND-12 What the badge QR encodes|ND-12]] |
 | [[T-010-be Backend · Public browser page for viewers without the app]] `backend` | [[Badge & QR]] | Discovery | ⛔ Blocked | M | — | [[T-008 Resolve a scanned QR token|T-008]] |
 | [[T-010-fe Frontend · Public browser page for viewers without the app]] `frontend` | [[Badge & QR]] | Discovery | ⛔ Blocked | M | — | [[T-008 Resolve a scanned QR token|T-008]], [[T-010-be Backend · Public browser page for viewers without the app|T-010-be]] |
-| [[T-026 Ring invitations invite, review, decline]] | [[Ring Invitations & Join]] | Shared Rings & Companies | ❓ Needs decision | M | — | [[ND-04 Ring settings|ND-04]] |
-| [[T-026-be Backend · Ring invitations invite, review, decline]] `backend` | [[Ring Invitations & Join]] | Shared Rings & Companies | ⬜ To do | M | — | [[ND-04 Ring settings|ND-04]] |
-| [[T-026-fe Frontend · Ring invitations invite, review, decline]] `frontend` | [[Ring Invitations & Join]] | Shared Rings & Companies | ⛔ Blocked | M | — | [[T-026-be Backend · Ring invitations invite, review, decline|T-026-be]] |
-| [[T-027 Join a Ring with a code or verified work email]] | [[Ring Invitations & Join]] | Shared Rings & Companies | ⛔ Blocked | M | — | [[T-026 Ring invitations invite, review, decline|T-026]] |
-| [[T-027-be Backend · Join a Ring with a code or verified work email]] `backend` | [[Ring Invitations & Join]] | Shared Rings & Companies | ⛔ Blocked | M | — | [[T-026 Ring invitations invite, review, decline|T-026]] |
-| [[T-027-fe Frontend · Join a Ring with a code or verified work email]] `frontend` | [[Ring Invitations & Join]] | Shared Rings & Companies | ⛔ Blocked | M | — | [[T-026 Ring invitations invite, review, decline|T-026]], [[T-027-be Backend · Join a Ring with a code or verified work email|T-027-be]] |
 | [[T-037 Event pass with a 60 s rotating code]] | [[Events During]] | Events | ⛔ Blocked | M | — | [[T-007 Issue and rotate the QR token for a Ring|T-007]] |
 | [[T-037-be Backend · Event pass with a 60 s rotating code]] `backend` | [[Events During]] | Events | ⛔ Blocked | M | — | [[T-007 Issue and rotate the QR token for a Ring|T-007]] |
 | [[T-037-fe Frontend · Event pass with a 60 s rotating code]] `frontend` | [[Events During]] | Events | ⛔ Blocked | M | — | [[T-007 Issue and rotate the QR token for a Ring|T-007]], [[T-037-be Backend · Event pass with a 60 s rotating code|T-037-be]] |
@@ -91,9 +85,6 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-025 Introduce a connection to another]] | [[Connections]] | Connections | ❓ Needs decision | M | — | [[T-023 Connection detail and contacts list|T-023]] |
 | [[T-025-be Backend · Introduce a connection to another]] `backend` | [[Connections]] | Connections | ⛔ Blocked | M | — | [[T-023 Connection detail and contacts list|T-023]] |
 | [[T-025-fe Frontend · Introduce a connection to another]] `frontend` | [[Connections]] | Connections | ⛔ Blocked | M | — | [[T-023 Connection detail and contacts list|T-023]], [[T-025-be Backend · Introduce a connection to another|T-025-be]] |
-| [[T-028 What you contribute to a shared Ring]] | [[Ring Invitations & Join]] | Shared Rings & Companies | ❓ Needs decision | L | — | [[T-027 Join a Ring with a code or verified work email|T-027]] |
-| [[T-028-be Backend · What you contribute to a shared Ring]] `backend` | [[Ring Invitations & Join]] | Shared Rings & Companies | ⛔ Blocked | L | — | [[T-027 Join a Ring with a code or verified work email|T-027]] |
-| [[T-028-fe Frontend · What you contribute to a shared Ring]] `frontend` | [[Ring Invitations & Join]] | Shared Rings & Companies | ⛔ Blocked | L | — | [[T-027 Join a Ring with a code or verified work email|T-027]], [[T-028-be Backend · What you contribute to a shared Ring|T-028-be]] |
 | [[T-070 Roles and permissions catalogue]] | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | S | — | [[T-069 Scoped role grants|T-069]] |
 | [[T-070-be Backend · Roles and permissions catalogue]] `backend` | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | S | — | [[T-069 Scoped role grants|T-069]] |
 | [[T-072 Platform stats]] | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | S | — | [[T-068 Account moderation and platform role|T-068]] |

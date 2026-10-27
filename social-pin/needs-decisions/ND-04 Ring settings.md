@@ -43,8 +43,8 @@ Screens: [[Screen Index#s19|s19]], [[Screen Index#s22|s22]], [[Screen Index#s26|
 
 ## Tasks waiting on this
 
-- [[T-026 Ring invitations invite, review, decline]]
-- [[T-027 Join a Ring with a code or verified work email]]
+- [[Ring Invitations & Join Story|Ring Invitations & Join · S7]]
+- [[Ring Invitations & Join Story|Ring Invitations & Join · S8]]
 - [[Rings Story|Rings · Decide Ring settings]]
 
 ## Decision

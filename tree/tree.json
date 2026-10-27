@@ -305,18 +305,6 @@
     "T-025 Story": "story:T-025",
     "T-025-be Backend · Introduce a connection to another": "task:T-025-be",
     "T-025-fe Frontend · Introduce a connection to another": "task:T-025-fe",
-    "T-026 Ring invitations invite, review, decline": "task:T-026",
-    "T-026 Story": "story:T-026",
-    "T-026-be Backend · Ring invitations invite, review, decline": "task:T-026-be",
-    "T-026-fe Frontend · Ring invitations invite, review, decline": "task:T-026-fe",
-    "T-027 Join a Ring with a code or verified work email": "task:T-027",
-    "T-027 Story": "story:T-027",
-    "T-027-be Backend · Join a Ring with a code or verified work email": "task:T-027-be",
-    "T-027-fe Frontend · Join a Ring with a code or verified work email": "task:T-027-fe",
-    "T-028 Story": "story:T-028",
-    "T-028 What you contribute to a shared Ring": "task:T-028",
-    "T-028-be Backend · What you contribute to a shared Ring": "task:T-028-be",
-    "T-028-fe Frontend · What you contribute to a shared Ring": "task:T-028-fe",
     "T-036 Event mode exhibitors list and detail": "task:T-036",
     "T-036 Story": "story:T-036",
     "T-036-be Backend · Event mode exhibitors list and detail": "task:T-036-be",
@@ -624,9 +612,6 @@
     "S-29": "story:companies",
     "S-31": "story:delegated-admins",
     "S-33": "story:ring-invitations",
-    "S-34": "story:T-026",
-    "S-35": "story:T-027",
-    "S-36": "story:T-028",
     "S-37": "story:badge-qr",
     "S-38": "story:T-007",
     "S-39": "story:T-008",
@@ -689,15 +674,6 @@
     "T-025": "task:T-025",
     "T-025-be": "task:T-025-be",
     "T-025-fe": "task:T-025-fe",
-    "T-026": "task:T-026",
-    "T-026-be": "task:T-026-be",
-    "T-026-fe": "task:T-026-fe",
-    "T-027": "task:T-027",
-    "T-027-be": "task:T-027-be",
-    "T-027-fe": "task:T-027-fe",
-    "T-028": "task:T-028",
-    "T-028-be": "task:T-028-be",
-    "T-028-fe": "task:T-028-fe",
     "T-036": "task:T-036",
     "T-036-be": "task:T-036-be",
     "T-036-fe": "task:T-036-fe",
@@ -3338,10 +3314,7 @@
         "feature:ring-invitations",
         "feature:rings",
         "needs-decision:ND-14",
-        "needs-decision:ND-18",
-        "task:T-026",
-        "task:T-026-be",
-        "task:T-026-fe"
+        "needs-decision:ND-18"
       ],
       "kind": "screen",
       "notes": [
@@ -3357,13 +3330,9 @@
         "frontend-requirements:rings",
         "needs-decision:ND-14",
         "needs-decision:ND-18",
-        "story:T-026",
         "story:counts",
         "story:ring-invitations",
-        "story:rings",
-        "task:T-026",
-        "task:T-026-be",
-        "task:T-026-fe"
+        "story:rings"
       ],
       "owner": null
     },
@@ -4444,13 +4413,7 @@
     "s74": {
       "containers": [
         "feature:ring-invitations",
-        "needs-decision:ND-18",
-        "task:T-027",
-        "task:T-027-be",
-        "task:T-027-fe",
-        "task:T-028",
-        "task:T-028-be",
-        "task:T-028-fe"
+        "needs-decision:ND-18"
       ],
       "kind": "screen",
       "notes": [
@@ -4458,15 +4421,7 @@
         "feature:ring-invitations",
         "frontend-requirements:ring-invitations",
         "needs-decision:ND-18",
-        "story:T-027",
-        "story:T-028",
-        "story:ring-invitations",
-        "task:T-027",
-        "task:T-027-be",
-        "task:T-027-fe",
-        "task:T-028",
-        "task:T-028-be",
-        "task:T-028-fe"
+        "story:ring-invitations"
       ],
       "owner": null
     },
@@ -4488,7 +4443,7 @@
     }
   },
   "counts": {
-    "blocked": 86,
+    "blocked": 80,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -4501,28 +4456,28 @@
       "project": 27,
       "qa-backend": 1,
       "qa-frontend": 1,
-      "story": 66,
-      "task": 74
+      "story": 63,
+      "task": 65
     },
     "byLayer": {
       "backend": 56,
-      "business": 219,
+      "business": 207,
       "frontend": 44,
       "qa": 2,
       "shared": 10
     },
     "concepts": 199,
     "decisions": 19,
-    "edges": 4275,
+    "edges": 4193,
     "features": 41,
-    "layerNotes": 156,
+    "layerNotes": 153,
     "modules": 8,
-    "notes": 367,
+    "notes": 355,
     "partial": 4,
     "placeholders": 155,
     "records": 14,
-    "taskLayerNotes": 26,
-    "tasks": 74
+    "taskLayerNotes": 23,
+    "tasks": 65
   },
   "deadlines": {
     "missed": {
@@ -4715,17 +4670,12 @@
     {
       "from": "decision:D-04",
       "kind": "affects",
+      "to": "story:ring-invitations"
+    },
+    {
+      "from": "decision:D-04",
+      "kind": "affects",
       "to": "story:rings"
-    },
-    {
-      "from": "decision:D-04",
-      "kind": "affects",
-      "to": "task:T-026"
-    },
-    {
-      "from": "decision:D-04",
-      "kind": "affects",
-      "to": "task:T-027"
     },
     {
       "from": "decision:D-05",
@@ -6288,51 +6238,6 @@
       "to": "task:T-025-fe"
     },
     {
-      "from": "task:T-026",
-      "kind": "blocks",
-      "to": "task:T-027"
-    },
-    {
-      "from": "task:T-026",
-      "kind": "blocks",
-      "to": "task:T-027-be"
-    },
-    {
-      "from": "task:T-026",
-      "kind": "blocks",
-      "to": "task:T-027-fe"
-    },
-    {
-      "from": "task:T-026-be",
-      "kind": "blocks",
-      "to": "task:T-026-fe"
-    },
-    {
-      "from": "task:T-027",
-      "kind": "blocks",
-      "to": "task:T-028"
-    },
-    {
-      "from": "task:T-027",
-      "kind": "blocks",
-      "to": "task:T-028-be"
-    },
-    {
-      "from": "task:T-027",
-      "kind": "blocks",
-      "to": "task:T-028-fe"
-    },
-    {
-      "from": "task:T-027-be",
-      "kind": "blocks",
-      "to": "task:T-027-fe"
-    },
-    {
-      "from": "task:T-028-be",
-      "kind": "blocks",
-      "to": "task:T-028-fe"
-    },
-    {
       "from": "task:T-036",
       "kind": "blocks",
       "to": "task:T-038"
@@ -6936,81 +6841,6 @@
       "from": "task:T-025-fe",
       "kind": "depends",
       "to": "task:T-025-be"
-    },
-    {
-      "from": "task:T-026",
-      "kind": "depends",
-      "to": "needs-decision:ND-04"
-    },
-    {
-      "from": "task:T-026-be",
-      "kind": "depends",
-      "to": "needs-decision:ND-04"
-    },
-    {
-      "from": "task:T-026-fe",
-      "kind": "depends",
-      "to": "needs-decision:ND-04"
-    },
-    {
-      "from": "task:T-026-fe",
-      "kind": "depends",
-      "to": "task:T-026-be"
-    },
-    {
-      "from": "task:T-027",
-      "kind": "depends",
-      "to": "needs-decision:ND-04"
-    },
-    {
-      "from": "task:T-027",
-      "kind": "depends",
-      "to": "task:T-026"
-    },
-    {
-      "from": "task:T-027-be",
-      "kind": "depends",
-      "to": "needs-decision:ND-04"
-    },
-    {
-      "from": "task:T-027-be",
-      "kind": "depends",
-      "to": "task:T-026"
-    },
-    {
-      "from": "task:T-027-fe",
-      "kind": "depends",
-      "to": "needs-decision:ND-04"
-    },
-    {
-      "from": "task:T-027-fe",
-      "kind": "depends",
-      "to": "task:T-026"
-    },
-    {
-      "from": "task:T-027-fe",
-      "kind": "depends",
-      "to": "task:T-027-be"
-    },
-    {
-      "from": "task:T-028",
-      "kind": "depends",
-      "to": "task:T-027"
-    },
-    {
-      "from": "task:T-028-be",
-      "kind": "depends",
-      "to": "task:T-027"
-    },
-    {
-      "from": "task:T-028-fe",
-      "kind": "depends",
-      "to": "task:T-027"
-    },
-    {
-      "from": "task:T-028-fe",
-      "kind": "depends",
-      "to": "task:T-028-be"
     },
     {
       "from": "task:T-036-fe",
@@ -11094,30 +10924,6 @@
       "from": "story:ring-invitations",
       "kind": "related",
       "to": "decision:D-18"
-    },
-    {
-      "from": "story:ring-invitations",
-      "kind": "related",
-      "to": "story:T-026",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
-      "from": "story:ring-invitations",
-      "kind": "related",
-      "to": "story:T-027",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
-      "from": "story:ring-invitations",
-      "kind": "related",
-      "to": "story:T-028",
-      "via": [
-        "sum-of"
-      ]
     },
     {
       "from": "story:ring-members",
@@ -22778,21 +22584,6 @@
       "to": "needs-decision:ND-18"
     },
     {
-      "from": "story:ring-invitations",
-      "kind": "tree",
-      "to": "task:T-026"
-    },
-    {
-      "from": "story:ring-invitations",
-      "kind": "tree",
-      "to": "task:T-027"
-    },
-    {
-      "from": "story:ring-invitations",
-      "kind": "tree",
-      "to": "task:T-028"
-    },
-    {
       "from": "story:subscription",
       "kind": "tree",
       "to": "needs-decision:ND-07"
@@ -22986,51 +22777,6 @@
       "from": "task:T-025",
       "kind": "tree",
       "to": "task:T-025-fe"
-    },
-    {
-      "from": "task:T-026",
-      "kind": "tree",
-      "to": "story:T-026"
-    },
-    {
-      "from": "task:T-026",
-      "kind": "tree",
-      "to": "task:T-026-be"
-    },
-    {
-      "from": "task:T-026",
-      "kind": "tree",
-      "to": "task:T-026-fe"
-    },
-    {
-      "from": "task:T-027",
-      "kind": "tree",
-      "to": "story:T-027"
-    },
-    {
-      "from": "task:T-027",
-      "kind": "tree",
-      "to": "task:T-027-be"
-    },
-    {
-      "from": "task:T-027",
-      "kind": "tree",
-      "to": "task:T-027-fe"
-    },
-    {
-      "from": "task:T-028",
-      "kind": "tree",
-      "to": "story:T-028"
-    },
-    {
-      "from": "task:T-028",
-      "kind": "tree",
-      "to": "task:T-028-be"
-    },
-    {
-      "from": "task:T-028",
-      "kind": "tree",
-      "to": "task:T-028-fe"
     },
     {
       "from": "task:T-036",
@@ -24105,7 +23851,7 @@
     {
       "from": "backend-integration:rings",
       "kind": "wikilink",
-      "to": "task:T-026"
+      "to": "story:ring-invitations"
     },
     {
       "from": "backend-integration:view-as",
@@ -24610,17 +24356,7 @@
     {
       "from": "feature:ring-invitations",
       "kind": "wikilink",
-      "to": "task:T-026"
-    },
-    {
-      "from": "feature:ring-invitations",
-      "kind": "wikilink",
-      "to": "task:T-027"
-    },
-    {
-      "from": "feature:ring-invitations",
-      "kind": "wikilink",
-      "to": "task:T-028"
+      "to": "project:status-report-2026-10-15"
     },
     {
       "from": "feature:ring-members",
@@ -25015,12 +24751,7 @@
     {
       "from": "frontend-requirements:companies",
       "kind": "wikilink",
-      "to": "task:T-026"
-    },
-    {
-      "from": "frontend-requirements:companies",
-      "kind": "wikilink",
-      "to": "task:T-027"
+      "to": "story:ring-invitations"
     },
     {
       "from": "frontend-requirements:connections",
@@ -25908,21 +25639,6 @@
       "to": "task:T-023"
     },
     {
-      "from": "frontend-requirements:ring-invitations",
-      "kind": "wikilink",
-      "to": "task:T-026"
-    },
-    {
-      "from": "frontend-requirements:ring-invitations",
-      "kind": "wikilink",
-      "to": "task:T-027"
-    },
-    {
-      "from": "frontend-requirements:ring-invitations",
-      "kind": "wikilink",
-      "to": "task:T-028"
-    },
-    {
       "from": "frontend-requirements:ring-members",
       "kind": "wikilink",
       "to": "backend-integration:ring-members"
@@ -26120,17 +25836,12 @@
     {
       "from": "frontend-requirements:rings",
       "kind": "wikilink",
+      "to": "story:ring-invitations"
+    },
+    {
+      "from": "frontend-requirements:rings",
+      "kind": "wikilink",
       "to": "story:rings"
-    },
-    {
-      "from": "frontend-requirements:rings",
-      "kind": "wikilink",
-      "to": "task:T-026"
-    },
-    {
-      "from": "frontend-requirements:rings",
-      "kind": "wikilink",
-      "to": "task:T-027"
     },
     {
       "from": "frontend-requirements:subscription",
@@ -27156,6 +26867,11 @@
       "from": "needs-decision:ND-03",
       "kind": "wikilink",
       "to": "story:widgets"
+    },
+    {
+      "from": "needs-decision:ND-04",
+      "kind": "wikilink",
+      "to": "story:ring-invitations"
     },
     {
       "from": "needs-decision:ND-04",
@@ -28340,11 +28056,6 @@
     {
       "from": "project:status-report-2026-10-15",
       "kind": "wikilink",
-      "to": "feature:ring-invitations"
-    },
-    {
-      "from": "project:status-report-2026-10-15",
-      "kind": "wikilink",
       "to": "feature:ring-members"
     },
     {
@@ -29030,11 +28741,6 @@
     {
       "from": "story:ring-invitations",
       "kind": "wikilink",
-      "to": "backend-integration:rings"
-    },
-    {
-      "from": "story:ring-invitations",
-      "kind": "wikilink",
       "to": "feature:companies"
     },
     {
@@ -29306,21 +29012,6 @@
       "from": "story:T-025",
       "kind": "wikilink",
       "to": "feature:connections"
-    },
-    {
-      "from": "story:T-026",
-      "kind": "wikilink",
-      "to": "feature:ring-invitations"
-    },
-    {
-      "from": "story:T-027",
-      "kind": "wikilink",
-      "to": "feature:ring-invitations"
-    },
-    {
-      "from": "story:T-028",
-      "kind": "wikilink",
-      "to": "feature:ring-invitations"
     },
     {
       "from": "story:T-036",
@@ -29851,161 +29542,6 @@
       "from": "task:T-025-fe",
       "kind": "wikilink",
       "to": "task:T-025-be"
-    },
-    {
-      "from": "task:T-026",
-      "kind": "wikilink",
-      "to": "decision:D-04"
-    },
-    {
-      "from": "task:T-026",
-      "kind": "wikilink",
-      "to": "needs-decision:ND-04"
-    },
-    {
-      "from": "task:T-026",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-026",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-026",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-026",
-      "kind": "wikilink",
-      "to": "task:T-027"
-    },
-    {
-      "from": "task:T-026-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:ring-invitations"
-    },
-    {
-      "from": "task:T-026-be",
-      "kind": "wikilink",
-      "to": "feature:ring-invitations"
-    },
-    {
-      "from": "task:T-026-fe",
-      "kind": "wikilink",
-      "to": "feature:ring-invitations"
-    },
-    {
-      "from": "task:T-026-fe",
-      "kind": "wikilink",
-      "to": "story:T-026"
-    },
-    {
-      "from": "task:T-026-fe",
-      "kind": "wikilink",
-      "to": "task:T-026-be"
-    },
-    {
-      "from": "task:T-027",
-      "kind": "wikilink",
-      "to": "decision:D-04"
-    },
-    {
-      "from": "task:T-027",
-      "kind": "wikilink",
-      "to": "feature:companies"
-    },
-    {
-      "from": "task:T-027",
-      "kind": "wikilink",
-      "to": "needs-decision:ND-04"
-    },
-    {
-      "from": "task:T-027",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-027",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-027",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-027",
-      "kind": "wikilink",
-      "to": "task:T-028"
-    },
-    {
-      "from": "task:T-027-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:ring-invitations"
-    },
-    {
-      "from": "task:T-027-be",
-      "kind": "wikilink",
-      "to": "feature:ring-invitations"
-    },
-    {
-      "from": "task:T-027-fe",
-      "kind": "wikilink",
-      "to": "feature:ring-invitations"
-    },
-    {
-      "from": "task:T-027-fe",
-      "kind": "wikilink",
-      "to": "story:T-027"
-    },
-    {
-      "from": "task:T-027-fe",
-      "kind": "wikilink",
-      "to": "task:T-027-be"
-    },
-    {
-      "from": "task:T-028",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-028",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-028",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-028-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:ring-invitations"
-    },
-    {
-      "from": "task:T-028-be",
-      "kind": "wikilink",
-      "to": "feature:ring-invitations"
-    },
-    {
-      "from": "task:T-028-fe",
-      "kind": "wikilink",
-      "to": "feature:ring-invitations"
-    },
-    {
-      "from": "task:T-028-fe",
-      "kind": "wikilink",
-      "to": "story:T-028"
-    },
-    {
-      "from": "task:T-028-fe",
-      "kind": "wikilink",
-      "to": "task:T-028-be"
     },
     {
       "from": "task:T-036",
@@ -31614,54 +31150,6 @@
     },
     "social-pin/tasks/T-025 Introduce a connection to another/T-025-fe Frontend · Introduce a connection to another.md": {
       "name": "T-025-fe Frontend · Introduce a connection to another",
-      "type": "task"
-    },
-    "social-pin/tasks/T-026 Ring invitations invite, review, decline/T-026 Ring invitations invite, review, decline.md": {
-      "name": "T-026 Ring invitations invite, review, decline",
-      "type": "task"
-    },
-    "social-pin/tasks/T-026 Ring invitations invite, review, decline/T-026 Story.md": {
-      "name": "T-026 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-026 Ring invitations invite, review, decline/T-026-be Backend · Ring invitations invite, review, decline.md": {
-      "name": "T-026-be Backend · Ring invitations invite, review, decline",
-      "type": "task"
-    },
-    "social-pin/tasks/T-026 Ring invitations invite, review, decline/T-026-fe Frontend · Ring invitations invite, review, decline.md": {
-      "name": "T-026-fe Frontend · Ring invitations invite, review, decline",
-      "type": "task"
-    },
-    "social-pin/tasks/T-027 Join a Ring with a code or verified work email/T-027 Join a Ring with a code or verified work email.md": {
-      "name": "T-027 Join a Ring with a code or verified work email",
-      "type": "task"
-    },
-    "social-pin/tasks/T-027 Join a Ring with a code or verified work email/T-027 Story.md": {
-      "name": "T-027 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-027 Join a Ring with a code or verified work email/T-027-be Backend · Join a Ring with a code or verified work email.md": {
-      "name": "T-027-be Backend · Join a Ring with a code or verified work email",
-      "type": "task"
-    },
-    "social-pin/tasks/T-027 Join a Ring with a code or verified work email/T-027-fe Frontend · Join a Ring with a code or verified work email.md": {
-      "name": "T-027-fe Frontend · Join a Ring with a code or verified work email",
-      "type": "task"
-    },
-    "social-pin/tasks/T-028 What you contribute to a shared Ring/T-028 Story.md": {
-      "name": "T-028 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-028 What you contribute to a shared Ring/T-028 What you contribute to a shared Ring.md": {
-      "name": "T-028 What you contribute to a shared Ring",
-      "type": "task"
-    },
-    "social-pin/tasks/T-028 What you contribute to a shared Ring/T-028-be Backend · What you contribute to a shared Ring.md": {
-      "name": "T-028-be Backend · What you contribute to a shared Ring",
-      "type": "task"
-    },
-    "social-pin/tasks/T-028 What you contribute to a shared Ring/T-028-fe Frontend · What you contribute to a shared Ring.md": {
-      "name": "T-028-fe Frontend · What you contribute to a shared Ring",
       "type": "task"
     },
     "social-pin/tasks/T-036 Event mode exhibitors list and detail/T-036 Event mode exhibitors list and detail.md": {
@@ -36700,8 +36188,7 @@
         "feature:delegated-admins",
         "feature:companies",
         "feature:ring-access",
-        "task:T-026",
-        "task:T-027",
+        "story:ring-invitations",
         "story:rings"
       ],
       "blockedBy": [],
@@ -40071,12 +39558,10 @@
       "release": "v1",
       "resolution": null,
       "rollup": {
-        "blocked": 8,
+        "blocked": 2,
         "decided": 2,
-        "draft": 4,
+        "draft": 1,
         "missing": 4,
-        "needs-decision": 2,
-        "todo": 1,
         "verified": 2
       },
       "scope": null,
@@ -40094,7 +39579,7 @@
       ],
       "task": null,
       "title": "Ring Invitations & Join",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "feature:ring-members": {
       "affects": [],
@@ -45363,13 +44848,11 @@
       "resolution": null,
       "rollup": {
         "approved": 1,
-        "blocked": 11,
+        "blocked": 5,
         "decided": 2,
-        "draft": 6,
+        "draft": 3,
         "in-progress": 3,
         "missing": 12,
-        "needs-decision": 2,
-        "todo": 1,
         "verified": 2
       },
       "scope": null,
@@ -45603,9 +45086,9 @@
       "module": null,
       "parentTask": null,
       "parents": [
-        "feature:ring-invitations",
         "feature:rings",
         "feature:ring-members",
+        "feature:ring-invitations",
         "feature:delegated-admins",
         "feature:companies"
       ],
@@ -51849,20 +51332,20 @@
       ],
       "rollup": {
         "approved": 34,
-        "blocked": 86,
+        "blocked": 80,
         "current": 8,
         "decided": 14,
         "delivered": 2,
         "done": 10,
-        "draft": 62,
+        "draft": 59,
         "in-progress": 55,
         "missing": 155,
-        "needs-decision": 5,
+        "needs-decision": 3,
         "partial": 4,
         "passing": 1,
         "ready": 2,
         "reference": 31,
-        "todo": 15,
+        "todo": 14,
         "verified": 14
       },
       "scope": null,
@@ -52378,156 +51861,6 @@
       ],
       "task": "T-025",
       "title": "T-025 Story",
-      "updated": "2026-10-26"
-    },
-    "story:T-026": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-34",
-      "children": [],
-      "code": "T-026",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
-      "effort": null,
-      "feature": "ring-invitations",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-026",
-      "inherits": {
-        "priority": "task:T-026",
-        "release": "feature:ring-invitations"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "shared-rings",
-      "parentTask": null,
-      "parents": [
-        "task:T-026"
-      ],
-      "path": "social-pin/tasks/T-026 Ring invitations invite, review, decline/T-026 Story.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "scope": "task",
-      "screens": [
-        "s17"
-      ],
-      "status": "draft",
-      "summary": "Likely a RingMember in an INVITED state with accept / decline endpoints. Notification on invite.",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/shared-rings",
-        "layer/business"
-      ],
-      "task": "T-026",
-      "title": "T-026 Story",
-      "updated": "2026-10-26"
-    },
-    "story:T-027": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-35",
-      "children": [],
-      "code": "T-027",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
-      "effort": null,
-      "feature": "ring-invitations",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-027",
-      "inherits": {
-        "priority": "task:T-027",
-        "release": "feature:ring-invitations"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "shared-rings",
-      "parentTask": null,
-      "parents": [
-        "task:T-027"
-      ],
-      "path": "social-pin/tasks/T-027 Join a Ring with a code or verified work email/T-027 Story.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "scope": "task",
-      "screens": [
-        "s74"
-      ],
-      "status": "draft",
-      "summary": "Needs joinPolicy, join code and requiredEmailDomain on the Ring.",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/shared-rings",
-        "layer/business"
-      ],
-      "task": "T-027",
-      "title": "T-027 Story",
-      "updated": "2026-10-26"
-    },
-    "story:T-028": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-36",
-      "children": [],
-      "code": "T-028",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
-      "effort": null,
-      "feature": "ring-invitations",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-028",
-      "inherits": {
-        "priority": "task:T-028",
-        "release": "feature:ring-invitations"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "shared-rings",
-      "parentTask": null,
-      "parents": [
-        "task:T-028"
-      ],
-      "path": "social-pin/tasks/T-028 What you contribute to a shared Ring/T-028 Story.md",
-      "pending": [],
-      "priority": "medium",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "scope": "task",
-      "screens": [
-        "s74"
-      ],
-      "status": "draft",
-      "summary": "A member-side projection inside someone else's Ring. Not in the schema; needs a product definition.",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/shared-rings",
-        "layer/business"
-      ],
-      "task": "T-028",
-      "title": "T-028 Story",
       "updated": "2026-10-26"
     },
     "story:T-036": {
@@ -55148,9 +54481,6 @@
       "blockedBy": [],
       "card": "S-33",
       "children": [
-        "task:T-026",
-        "task:T-027",
-        "task:T-028",
         "needs-decision:ND-18"
       ],
       "code": "ring-invitations",
@@ -55201,7 +54531,7 @@
       ],
       "task": null,
       "title": "Ring Invitations & Join Story",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "story:ring-members": {
       "affects": [],
@@ -57471,590 +56801,6 @@
       ],
       "task": null,
       "title": "T-025-fe Frontend · Introduce a connection to another",
-      "updated": "2026-10-26"
-    },
-    "task:T-026": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-026",
-      "children": [
-        "story:T-026",
-        "task:T-026-be",
-        "task:T-026-fe"
-      ],
-      "code": "T-026",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "needs-decision:ND-04"
-      ],
-      "dir": "social-pin/tasks/T-026 Ring invitations invite, review, decline",
-      "effectiveStatus": "needs-decision",
-      "effort": "M",
-      "feature": "ring-invitations",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-026",
-      "inherits": {
-        "release": "feature:ring-invitations"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "shared-rings",
-      "parentTask": null,
-      "parents": [
-        "story:ring-invitations"
-      ],
-      "path": "social-pin/tasks/T-026 Ring invitations invite, review, decline/T-026 Ring invitations invite, review, decline.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {
-        "blocked": 1,
-        "draft": 1,
-        "todo": 1
-      },
-      "scope": null,
-      "screens": [
-        "s17"
-      ],
-      "status": "needs-decision",
-      "summary": "Likely a RingMember in an INVITED state with accept / decline endpoints. Notification on invite. Joining by invitation is one of the launch values of \"who can request to join\" (default: with a…",
-      "tags": [
-        "task",
-        "task/needs-info",
-        "module/shared-rings",
-        "priority/high"
-      ],
-      "task": null,
-      "title": "T-026 Ring invitations invite, review, decline",
-      "updated": "2026-10-26"
-    },
-    "task:T-026-be": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-026-be",
-      "children": [],
-      "code": "T-026-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "needs-decision:ND-04"
-      ],
-      "dir": null,
-      "effectiveStatus": "todo",
-      "effort": "M",
-      "feature": "ring-invitations",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-026-be",
-      "inherits": {
-        "release": "feature:ring-invitations"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "shared-rings",
-      "parentTask": "T-026",
-      "parents": [
-        "task:T-026"
-      ],
-      "path": "social-pin/tasks/T-026 Ring invitations invite, review, decline/T-026-be Backend · Ring invitations invite, review, decline.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s17"
-      ],
-      "status": "todo",
-      "summary": "The API side of T-026 Ring invitations invite, review, decline: the endpoints, data and rules its What describes. Record what shipped in T-026-be Backend Delivery and how to call it in T-026-be…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/shared-rings",
-        "priority/high",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-026-be Backend · Ring invitations invite, review, decline",
-      "updated": "2026-10-26"
-    },
-    "task:T-026-fe": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-026-be",
-          "title": "T-026-be Backend · Ring invitations invite, review, decline",
-          "why": "T-026-be Backend · Ring invitations invite, review, decline is to do"
-        }
-      ],
-      "card": "T-026-fe",
-      "children": [],
-      "code": "T-026-fe",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "needs-decision:ND-04",
-        "task:T-026-be"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "ring-invitations",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-026-fe",
-      "inherits": {
-        "release": "feature:ring-invitations"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "frontend"
-      ],
-      "layer": "business",
-      "module": "shared-rings",
-      "parentTask": "T-026",
-      "parents": [
-        "task:T-026"
-      ],
-      "path": "social-pin/tasks/T-026 Ring invitations invite, review, decline/T-026-fe Frontend · Ring invitations invite, review, decline.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s17"
-      ],
-      "status": "todo",
-      "summary": "The client side of T-026 Ring invitations invite, review, decline: the screens below show what its What describes, built against Ring Invitations & Join Backend Integration once the backend half…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/shared-rings",
-        "priority/high",
-        "frontend"
-      ],
-      "task": null,
-      "title": "T-026-fe Frontend · Ring invitations invite, review, decline",
-      "updated": "2026-10-26"
-    },
-    "task:T-027": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-026",
-          "title": "T-026 Ring invitations invite, review, decline",
-          "why": "T-026 Ring invitations invite, review, decline is needs decision"
-        }
-      ],
-      "card": "T-027",
-      "children": [
-        "story:T-027",
-        "task:T-027-be",
-        "task:T-027-fe"
-      ],
-      "code": "T-027",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "needs-decision:ND-04",
-        "task:T-026"
-      ],
-      "dir": "social-pin/tasks/T-027 Join a Ring with a code or verified work email",
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "ring-invitations",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-027",
-      "inherits": {
-        "release": "feature:ring-invitations"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "shared-rings",
-      "parentTask": null,
-      "parents": [
-        "story:ring-invitations"
-      ],
-      "path": "social-pin/tasks/T-027 Join a Ring with a code or verified work email/T-027 Join a Ring with a code or verified work email.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {
-        "blocked": 2,
-        "draft": 1
-      },
-      "scope": null,
-      "screens": [
-        "s74"
-      ],
-      "status": "blocked",
-      "summary": "Needs joinPolicy, join code and requiredEmailDomain on the Ring. Joining with a code is in the launch set (\"who can request to join\", default: with a code or by invitation; \"approve each one\" on…",
-      "tags": [
-        "task",
-        "task/blocked",
-        "module/shared-rings",
-        "priority/high"
-      ],
-      "task": null,
-      "title": "T-027 Join a Ring with a code or verified work email",
-      "updated": "2026-10-26"
-    },
-    "task:T-027-be": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-026",
-          "title": "T-026 Ring invitations invite, review, decline",
-          "why": "T-026 Ring invitations invite, review, decline is needs decision"
-        }
-      ],
-      "card": "T-027-be",
-      "children": [],
-      "code": "T-027-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "needs-decision:ND-04",
-        "task:T-026"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "ring-invitations",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-027-be",
-      "inherits": {
-        "release": "feature:ring-invitations"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "shared-rings",
-      "parentTask": "T-027",
-      "parents": [
-        "task:T-027"
-      ],
-      "path": "social-pin/tasks/T-027 Join a Ring with a code or verified work email/T-027-be Backend · Join a Ring with a code or verified work email.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s74"
-      ],
-      "status": "todo",
-      "summary": "The API side of T-027 Join a Ring with a code or verified work email: the endpoints, data and rules its What describes. Record what shipped in T-027-be Backend Delivery and how to call it in…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/shared-rings",
-        "priority/high",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-027-be Backend · Join a Ring with a code or verified work email",
-      "updated": "2026-10-26"
-    },
-    "task:T-027-fe": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-026",
-          "title": "T-026 Ring invitations invite, review, decline",
-          "why": "T-026 Ring invitations invite, review, decline is needs decision"
-        },
-        {
-          "id": "task:T-027-be",
-          "title": "T-027-be Backend · Join a Ring with a code or verified work email",
-          "why": "T-027-be Backend · Join a Ring with a code or verified work email is blocked"
-        }
-      ],
-      "card": "T-027-fe",
-      "children": [],
-      "code": "T-027-fe",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "needs-decision:ND-04",
-        "task:T-026",
-        "task:T-027-be"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "ring-invitations",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-027-fe",
-      "inherits": {
-        "release": "feature:ring-invitations"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "frontend"
-      ],
-      "layer": "business",
-      "module": "shared-rings",
-      "parentTask": "T-027",
-      "parents": [
-        "task:T-027"
-      ],
-      "path": "social-pin/tasks/T-027 Join a Ring with a code or verified work email/T-027-fe Frontend · Join a Ring with a code or verified work email.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s74"
-      ],
-      "status": "todo",
-      "summary": "The client side of T-027 Join a Ring with a code or verified work email: the screens below show what its What describes, built against Ring Invitations & Join Backend Integration once the backend…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/shared-rings",
-        "priority/high",
-        "frontend"
-      ],
-      "task": null,
-      "title": "T-027-fe Frontend · Join a Ring with a code or verified work email",
-      "updated": "2026-10-26"
-    },
-    "task:T-028": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-027",
-          "title": "T-027 Join a Ring with a code or verified work email",
-          "why": "T-027 Join a Ring with a code or verified work email is blocked"
-        }
-      ],
-      "card": "T-028",
-      "children": [
-        "story:T-028",
-        "task:T-028-be",
-        "task:T-028-fe"
-      ],
-      "code": "T-028",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-027"
-      ],
-      "dir": "social-pin/tasks/T-028 What you contribute to a shared Ring",
-      "effectiveStatus": "needs-decision",
-      "effort": "L",
-      "feature": "ring-invitations",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-028",
-      "inherits": {
-        "release": "feature:ring-invitations"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "shared-rings",
-      "parentTask": null,
-      "parents": [
-        "story:ring-invitations"
-      ],
-      "path": "social-pin/tasks/T-028 What you contribute to a shared Ring/T-028 What you contribute to a shared Ring.md",
-      "pending": [],
-      "priority": "medium",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {
-        "blocked": 2,
-        "draft": 1
-      },
-      "scope": null,
-      "screens": [
-        "s74"
-      ],
-      "status": "needs-decision",
-      "summary": "A member-side projection inside someone else's Ring. Not in the schema; needs a product definition.",
-      "tags": [
-        "task",
-        "task/needs-info",
-        "module/shared-rings",
-        "priority/medium"
-      ],
-      "task": null,
-      "title": "T-028 What you contribute to a shared Ring",
-      "updated": "2026-10-26"
-    },
-    "task:T-028-be": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-027",
-          "title": "T-027 Join a Ring with a code or verified work email",
-          "why": "T-027 Join a Ring with a code or verified work email is blocked"
-        }
-      ],
-      "card": "T-028-be",
-      "children": [],
-      "code": "T-028-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-027"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "L",
-      "feature": "ring-invitations",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-028-be",
-      "inherits": {
-        "release": "feature:ring-invitations"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "shared-rings",
-      "parentTask": "T-028",
-      "parents": [
-        "task:T-028"
-      ],
-      "path": "social-pin/tasks/T-028 What you contribute to a shared Ring/T-028-be Backend · What you contribute to a shared Ring.md",
-      "pending": [],
-      "priority": "medium",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s74"
-      ],
-      "status": "todo",
-      "summary": "The API side of T-028 What you contribute to a shared Ring: the endpoints, data and rules its What describes. Record what shipped in T-028-be Backend Delivery and how to call it in T-028-be…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/shared-rings",
-        "priority/medium",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-028-be Backend · What you contribute to a shared Ring",
-      "updated": "2026-10-26"
-    },
-    "task:T-028-fe": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-027",
-          "title": "T-027 Join a Ring with a code or verified work email",
-          "why": "T-027 Join a Ring with a code or verified work email is blocked"
-        },
-        {
-          "id": "task:T-028-be",
-          "title": "T-028-be Backend · What you contribute to a shared Ring",
-          "why": "T-028-be Backend · What you contribute to a shared Ring is blocked"
-        }
-      ],
-      "card": "T-028-fe",
-      "children": [],
-      "code": "T-028-fe",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-027",
-        "task:T-028-be"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "L",
-      "feature": "ring-invitations",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-028-fe",
-      "inherits": {
-        "release": "feature:ring-invitations"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "frontend"
-      ],
-      "layer": "business",
-      "module": "shared-rings",
-      "parentTask": "T-028",
-      "parents": [
-        "task:T-028"
-      ],
-      "path": "social-pin/tasks/T-028 What you contribute to a shared Ring/T-028-fe Frontend · What you contribute to a shared Ring.md",
-      "pending": [],
-      "priority": "medium",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s74"
-      ],
-      "status": "todo",
-      "summary": "The client side of T-028 What you contribute to a shared Ring: the screens below show what its What describes, built against Ring Invitations & Join Backend Integration once the backend half…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/shared-rings",
-        "priority/medium",
-        "frontend"
-      ],
-      "task": null,
-      "title": "T-028-fe Frontend · What you contribute to a shared Ring",
       "updated": "2026-10-26"
     },
     "task:T-036": {

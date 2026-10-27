@@ -49,8 +49,8 @@ What the client needs from the backend to build the screens in [[Companies Story
 | A company Ring's projection | `GET /views/ring/:ringId` | ✅ | — |
 | Colleague count / roster for owner or admin | `GET /rings/:ringId/members` | ✅ | — |
 | Member count on the Ring row itself | — | ❌ | [[Counts Story|Counts · S6–S10]] |
-| Pending company invitations, review, decline | — | ❌ | [[T-026 Ring invitations invite, review, decline]] |
-| Join a company Ring with a code or work email | — | ❌ | [[T-027 Join a Ring with a code or verified work email]] |
+| Pending company invitations, review, decline | — | ❌ | [[Ring Invitations & Join Story|Ring Invitations & Join · S7]] |
+| Join a company Ring with a code or work email | — | ❌ | [[Ring Invitations & Join Story|Ring Invitations & Join · S8]] |
 | Business account setup creating the business Ring | — | ❌ | [[Exhibitor Story|Exhibitor · S7]] |
 | Who administers a company Ring | — | ❌ | [[Delegated Admins Story|Delegated Admins · S6]] |
 | Logo and file bytes | — | ❌ | [[Files Upload Story|Files Upload · showing files]] |
