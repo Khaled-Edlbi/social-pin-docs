@@ -44,7 +44,7 @@ What the client needs from the backend to build the screen in [[Discover Hub & S
 | Gemma prompt from the same field | — | ❌ | [[Gemma AI Story|Gemma AI · S7]] |
 | Contacts match by hashed email / phone | — | ❌ | [[Discover Hub & Search Story|Discover Hub & Search · S7]] |
 | People tile (requests and contacts) | — | ❌ | [[T-021 Connect request send, inbox, cancel]] |
-| Events tile | — | ❌ | [[T-033 Events list, detail, schedule]] |
+| Events tile | — | ❌ | [[Events Before Story|Events Before · S7]] |
 | Companies tile | — | ❌ | [[Companies Story|Companies · S6]] |
 | Exhibitors tile | — | ❌ | [[T-036 Event mode exhibitors list and detail]] |
 | PinCast tile | — | ❌ | [[PinCast & Nearby Story|PinCast & Nearby · S7]] |

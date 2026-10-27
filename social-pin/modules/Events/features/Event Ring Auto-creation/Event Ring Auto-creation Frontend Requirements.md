@@ -23,7 +23,7 @@ What the client needs from the backend to build s52 and the two screens the gran
 
 - Needs: the new Ring's `id`, `name`, `type` (`EVENT`), `isTemporary`, `startsAt`, `expiresAt`; the event's name and cover; a pending state while the Ring is not yet readable.
 - Actions: Enter event mode (local active-Ring switch), See it in my Ring hub.
-- Source today: not yet. The registration response ([[T-035 Registration transaction with order and payment]]) should return the Ring id, or the client filters `GET /rings?type=EVENT` for the newest Ring (available).
+- Source today: not yet. The registration response ([[Events Before Story|Events Before · S9]]) should return the Ring id, or the client filters `GET /rings?type=EVENT` for the newest Ring (available).
 
 ### [[Screen Index#s16|s16]] My Rings
 
@@ -40,7 +40,7 @@ What the client needs from the backend to build s52 and the two screens the gran
 | Need | Endpoint | Available | Task / decision |
 |---|---|---|---|
 | Create the Event Ring inside the registration transaction | — | ❌ | [[Event Ring Auto-creation Story|Event Ring Auto-creation · S6]] |
-| Registration response carrying the Ring id | — | ❌ | [[T-035 Registration transaction with order and payment]] |
+| Registration response carrying the Ring id | — | ❌ | [[Events Before Story|Events Before · S9]] |
 | List my Rings, including the Event Ring | `GET /rings` (`type`, `isTemporary` filters) | ✅ | — |
 | Ring detail (name, window, flags) | `GET /rings/:id` | ✅ | — |
 | Preview the Event Ring as a member sees it | `GET /views/ring/:ringId` | ✅ | — |
@@ -50,7 +50,7 @@ What the client needs from the backend to build s52 and the two screens the gran
 
 ## Behaviour expectations
 
-- Refetch / realtime: after a succeeded payment on s51, invalidate the Rings list and refetch `GET /rings` before showing s52. If the Ring is not in the list, poll the registration status (endpoint and interval set by T-035) and show the pending state; stop polling when the Ring appears or after a timeout the design must set.
+- Refetch / realtime: after a succeeded payment on s51, invalidate the Rings list and refetch `GET /rings` before showing s52. If the Ring is not in the list, poll the registration status (endpoint and interval set by Events Before · S9) and show the pending state; stop polling when the Ring appears or after a timeout the design must set.
 - Caching keys: `rings:list` (per filter set), `ring:{id}`, `ringView:{id}`. Drop `ringView:{id}` at the Ring's `expiresAt`; nothing cached before expiry is valid after it.
 - Pagination / ordering: `GET /rings` returns default first, then newest; the new Event Ring is therefore the first non-default row. The list honours `TABLE_MAX_LIMIT = 50`.
 - Active Ring: client state only; persist the id per device so event mode survives a restart, and clear it when the Ring's `expiresAt` passes.
@@ -65,12 +65,12 @@ What the client needs from the backend to build s52 and the two screens the gran
 | 404 on `GET /rings/:id` | `E_RING_02` | "Setting up your Ring…" with retry (s52 pending state); after the timeout, "We could not find your Event Ring" with a link to My Rings |
 | 404 on `GET /views/ring/:ringId` | `E_RING_ACCESS_02` | "This event has ended" and the disposition entry (s62) |
 | 400 on `POST /rings` | `E_RING_01` | Never shown; the client does not make this call |
-| registration pending / failed | to be defined by [[T-035 Registration transaction with order and payment]] | Stay on s51 with the payment state; do not open s52 |
+| registration pending / failed | to be defined by [[Events Before Story|Events Before · S9]] | Stay on s51 with the payment state; do not open s52 |
 | webhook late | to be defined by [[Payments & Orders Story|Payments & Orders · S7]] | s52 pending state |
 
 ## Blocked by
 
 - No decision note. Upstream tasks:
-- [[Event Ring Auto-creation Story|Event Ring Auto-creation · S6]] — waits on [[T-033 Events list, detail, schedule]]; every ❌ row above.
-- [[T-035 Registration transaction with order and payment]] — waits on [[T-034 Tickets, packages, levels, sold-out]] and [[Payments & Orders Story|Payments & Orders · S7]] (payment provider undecided); the registration response and the pending-state polling.
+- [[Event Ring Auto-creation Story|Event Ring Auto-creation · S6]] — waits on [[Events Before Story|Events Before · S7]]; every ❌ row above.
+- [[Events Before Story|Events Before · S9]] — waits on [[Events Before Story|Events Before · S8]] and [[Payments & Orders Story|Payments & Orders · S7]] (payment provider undecided); the registration response and the pending-state polling.
 - [[T-037 Event pass with a 60 s rotating code]] — waits on Event Ring Auto-creation · S6 and [[T-007 Issue and rotate the QR token for a Ring]].

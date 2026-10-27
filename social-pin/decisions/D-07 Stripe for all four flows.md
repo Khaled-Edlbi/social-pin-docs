@@ -6,7 +6,7 @@ status: decided
 decidedBy: "khaled"
 decidedAt: 2026-10-21
 features: [payments, subscription]
-affects: ["Payments & Orders", "Subscription (Free vs Pro)", "Payments & Orders Story", "T-035 Registration transaction with order and payment", "Subscription (Free vs Pro) Story"]
+affects: ["Payments & Orders", "Subscription (Free vs Pro)", "Payments & Orders Story", "Events Before Story", "Subscription (Free vs Pro) Story"]
 related: ["ND-07 Payment provider"]
 owner: "khaled"
 created: 2026-10-22
@@ -34,7 +34,7 @@ tags: [decision, decision/decided]
 ## What it changes
 
 - [[Payments & Orders Story|Payments & Orders · S7]]: unblocked; the settlement callback is a Stripe webhook, idempotent on `providerReference`; the PM returns the hand-typed `needs-info` to `todo`.
-- [[T-035 Registration transaction with order and payment]]: unblocked on the provider side; still waits on T-034 and Payments & Orders · S7.
+- [[Events Before Story|Events Before · S9]]: unblocked on the provider side; still waits on Events Before · S8 and Payments & Orders · S7.
 - [[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]]: unblocked; Pro is billed as a Stripe subscription.
 - [[Payments & Orders]] and [[Subscription (Free vs Pro)]]: the stories and the frontend requirements can name Stripe's checkout and billing screens where the design says "payment".
 

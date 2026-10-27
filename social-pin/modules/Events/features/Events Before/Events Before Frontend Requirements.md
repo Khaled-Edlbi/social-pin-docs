@@ -24,22 +24,22 @@ What the client needs to build the events tab, landing page, ticket selection, p
 ### [[Screen Index#s48|s48]] Events tab
 
 - Needs: paginated events with `name`, cover, `startsAt` / `endsAt`, location name and city, my participation flag, "contacts going" count and avatars; filters by date range, location and contacts-going; separate "my events" list.
-- Source today: not yet ([[T-033 Events list, detail, schedule]]).
+- Source today: not yet ([[Events Before Story|Events Before · S7]]).
 
 ### [[Screen Index#s49|s49]] Event landing
 
 - Needs: event detail with description, cover, location (coordinates for the map, `timezone`), schedule, mini-events, lounges, exhibitor preview, my participation and package, capacity summary for the CTA.
-- Source today: not yet (T-033 for detail and schedule, [[T-034 Tickets, packages, levels, sold-out]] for the capacity state).
+- Source today: not yet (Events Before · S7 for detail and schedule, [[Events Before Story|Events Before · S8]] for the capacity state).
 
 ### [[Screen Index#s50|s50]] Tickets & levels
 
 - Needs: packages with price, currency, level, entitlements (mini-events / lounges), remaining capacity, availability per account type; the registration form's pre-fill from the base profile.
-- Source today: not yet (T-034). Pre-fill from the existing profile endpoint is available.
+- Source today: not yet (Events Before · S8). Pre-fill from the existing profile endpoint is available.
 
 ### [[Screen Index#s51|s51]] Payment
 
 - Needs: order creation from a package, accepted methods, provider hand-off, order and payment status.
-- Source today: not yet ([[T-035 Registration transaction with order and payment]], [[Payments & Orders Story|Payments & Orders · S7]]). See [[Payments & Orders Frontend Requirements]].
+- Source today: not yet ([[Events Before Story|Events Before · S9]], [[Payments & Orders Story|Payments & Orders · S7]]). See [[Payments & Orders Frontend Requirements]].
 
 ### [[Screen Index#s52|s52]] Event Ring granted
 
@@ -49,10 +49,10 @@ What the client needs to build the events tab, landing page, ticket selection, p
 
 | Need | Endpoint | Available | Task / decision |
 |---|---|---|---|
-| Events list with filters and "contacts going" | — | ❌ | [[T-033 Events list, detail, schedule]] (contacts going also needs [[T-023 Connection detail and contacts list]]) |
-| Event detail, schedule, mini-events | — | ❌ | [[T-033 Events list, detail, schedule]] |
-| Packages, levels, entitlements, capacity / sold out | — | ❌ | [[T-034 Tickets, packages, levels, sold-out]] |
-| Register (participant + order + payment intent) | — | ❌ | [[T-035 Registration transaction with order and payment]] |
+| Events list with filters and "contacts going" | — | ❌ | [[Events Before Story|Events Before · S7]] (contacts going also needs [[T-023 Connection detail and contacts list]]) |
+| Event detail, schedule, mini-events | — | ❌ | [[Events Before Story|Events Before · S7]] |
+| Packages, levels, entitlements, capacity / sold out | — | ❌ | [[Events Before Story|Events Before · S8]] |
+| Register (participant + order + payment intent) | — | ❌ | [[Events Before Story|Events Before · S9]] |
 | Payment methods, status, webhook completion | — | ❌ | [[Payments & Orders Story|Payments & Orders · S7]] |
 | Event Ring created on success | — | ❌ | [[Event Ring Auto-creation Story|Event Ring Auto-creation · S6]] |
 | Registered Ring in the hub after success | `GET /rings` | ✅ | — |
@@ -71,17 +71,17 @@ What the client needs to build the events tab, landing page, ticket selection, p
 
 | Status | ErrorCode | Show |
 |---|---|---|
-| 404 event | to be defined by [[T-033 Events list, detail, schedule]] | "This event is no longer available", back to s48 |
-| 409 sold out / capacity reached at order time | to be defined by [[T-034 Tickets, packages, levels, sold-out]] | "Sold out while you were deciding", refetch packages, stay on s50 |
-| 409 already registered | to be defined by [[T-035 Registration transaction with order and payment]] | "You are already registered", CTA becomes "Enter event mode" |
+| 404 event | to be defined by [[Events Before Story|Events Before · S7]] | "This event is no longer available", back to s48 |
+| 409 sold out / capacity reached at order time | to be defined by [[Events Before Story|Events Before · S8]] | "Sold out while you were deciding", refetch packages, stay on s50 |
+| 409 already registered | to be defined by [[Events Before Story|Events Before · S9]] | "You are already registered", CTA becomes "Enter event mode" |
 | 402 / payment failed | to be defined by [[Payments & Orders Story|Payments & Orders · S7]] | Failed state on s51 with retry on the same order |
 | 401 | `E_AUTH_04` | Sign in again; keep the selected package locally so the user resumes on s50 |
 
 ## Blocked by
 
 - No decision note. Upstream tasks:
-- [[T-033 Events list, detail, schedule]] — s48, s49; unblocks everything else here.
-- [[T-034 Tickets, packages, levels, sold-out]] — s50; waits on T-033.
-- [[T-035 Registration transaction with order and payment]] — s51, s52; waits on T-034 and Payments & Orders · S7.
+- [[Events Before Story|Events Before · S7]] — s48, s49; unblocks everything else here.
+- [[Events Before Story|Events Before · S8]] — s50; waits on Events Before · S7.
+- [[Events Before Story|Events Before · S9]] — s51, s52; waits on Events Before · S8 and Payments & Orders · S7.
 - [[Payments & Orders Story|Payments & Orders · S7]] — payment provider undecided; s51.
 - [[T-023 Connection detail and contacts list]] — the "contacts going" filter on s48.

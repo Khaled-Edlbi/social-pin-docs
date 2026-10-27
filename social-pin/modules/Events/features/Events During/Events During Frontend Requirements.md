@@ -88,7 +88,7 @@ What the client needs for the in-event hub and its six screens, and whether each
 ## Blocked by
 
 - No decision note. Upstream tasks:
-- [[T-036 Event mode exhibitors list and detail]] — waits on [[T-033 Events list, detail, schedule]]; s54, s55, and unblocks T-038, T-039, Gemma AI · S8.
+- [[T-036 Event mode exhibitors list and detail]] — waits on [[Events Before Story|Events Before · S7]]; s54, s55, and unblocks T-038, T-039, Gemma AI · S8.
 - [[T-037 Event pass with a 60 s rotating code]] — waits on [[T-007 Issue and rotate the QR token for a Ring]] and [[Event Ring Auto-creation Story|Event Ring Auto-creation · S6]]; s56.
 - [[T-039 Catalogue products and talks (new table)]] — needs a schema decision; s58.
-- [[T-040 Lounges and upgrades]] — waits on [[T-034 Tickets, packages, levels, sold-out]] and [[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]]; the lounge states on s53.
+- [[T-040 Lounges and upgrades]] — waits on [[Events Before Story|Events Before · S8]] and [[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]]; the lounge states on s53.

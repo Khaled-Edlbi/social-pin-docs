@@ -83,6 +83,32 @@ Acceptance criteria:
 Acceptance criteria:
 - [ ] Covered by [[Event Ring Auto-creation Story]] S1; this flow must not show s52 before the Ring is readable.
 
+### S7 · Events list, detail, schedule
+
+*From T-033 (status then: To do), merged 2026-10-27.*
+
+`GET /events` with filters and 'contacts going' (needs T-023), `GET /events/:id`, schedule and mini-events.
+
+Screens: [[Screen Index#s48|s48]] Events tab · [[Screen Index#s49|s49]] Event landing
+
+
+### S8 · Tickets, packages, levels, sold-out
+
+*From T-034 (status then: To do), merged 2026-10-27.*
+
+Packages with entitlements; capacity → sold out.
+
+Screens: [[Screen Index#s50|s50]] Tickets & levels
+
+
+### S9 · Registration transaction with order and payment
+
+*From T-035 (status then: Blocked), merged 2026-10-27.*
+
+Participant + order + payment intent; on webhook success → Event Ring Auto-creation · S6 Event Ring.
+
+Screens: [[Screen Index#s51|s51]] Payment · [[Screen Index#s52|s52]] Event Ring granted
+
 ## States and motion the design asks for
 
 - Motion: the event card **expands into the landing page** with the cover as shared element (brief §7.1).
@@ -103,5 +129,5 @@ Acceptance criteria:
 
 - No decision note exists. Open points:
 - S5 and therefore S6 wait on [[Payments & Orders Story|Payments & Orders · S7]], which has no backend yet; the provider is decided ([[ND-07 Payment provider]]), the methods s51 offers are not.
-- [[T-033 Events list, detail, schedule]] — "contacts going" needs [[T-023 Connection detail and contacts list]]; until then S1 ships without that filter.
+- [[Events Before Story|Events Before · S7]] — "contacts going" needs [[T-023 Connection detail and contacts list]]; until then S1 ships without that filter.
 - Whether an RSVP on a free event creates an `Order` with a zero total or no order at all affects S4's call count.

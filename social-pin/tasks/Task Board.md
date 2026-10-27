@@ -28,15 +28,7 @@ kanban-plugin: board
 - [ ] [[T-023-be Backend · Connection detail and contacts list]] #critical #connections #backend
 - [ ] [[T-023-fe Frontend · Connection detail and contacts list]] #critical #connections #frontend
 - [ ] [[T-024-fe Frontend · Block and unblock]] #critical #connections #frontend
-- [ ] [[T-033-fe Frontend · Events list, detail, schedule]] #critical #events-before #frontend
-- [ ] [[T-034 Tickets, packages, levels, sold-out]] #critical #events-before
-- [ ] [[T-034-be Backend · Tickets, packages, levels, sold-out]] #critical #events-before #backend
-- [ ] [[T-034-fe Frontend · Tickets, packages, levels, sold-out]] #critical #events-before #frontend
-- [ ] [[T-035 Registration transaction with order and payment]] #critical #events-before
-- [ ] [[T-035-be Backend · Registration transaction with order and payment]] #critical #events-before #backend
-- [ ] [[T-035-fe Frontend · Registration transaction with order and payment]] #critical #events-before #frontend
 - [ ] [[T-036 Event mode exhibitors list and detail]] #critical #events-during
-- [ ] [[T-036-be Backend · Event mode exhibitors list and detail]] #critical #events-during #backend
 - [ ] [[T-036-fe Frontend · Event mode exhibitors list and detail]] #critical #events-during #frontend
 - [ ] [[T-041-fe Frontend · Availability slots CRUD]] #critical #meetings #frontend
 - [ ] [[T-042 Meeting request, accept with slots, decline with reason]] #critical #meetings
@@ -66,7 +58,6 @@ kanban-plugin: board
 - [ ] [[T-039-be Backend · Catalogue products and talks (new table)]] #high #events-during #backend
 - [ ] [[T-039-fe Frontend · Catalogue products and talks (new table)]] #high #events-during #frontend
 - [ ] [[T-040 Lounges and upgrades]] #high #events-during
-- [ ] [[T-040-be Backend · Lounges and upgrades]] #high #events-during #backend
 - [ ] [[T-040-fe Frontend · Lounges and upgrades]] #high #events-during #frontend
 - [ ] [[T-025-be Backend · Introduce a connection to another]] #medium #connections #backend
 - [ ] [[T-025-fe Frontend · Introduce a connection to another]] #medium #connections #frontend
@@ -82,11 +73,11 @@ kanban-plugin: board
 - [ ] [[T-021-be Backend · Connect request send, inbox, cancel]] #critical #connections #backend
 - [ ] [[T-024 Block and unblock]] #critical #connections
 - [ ] [[T-024-be Backend · Block and unblock]] #critical #connections #backend
-- [ ] [[T-033 Events list, detail, schedule]] #critical #events-before
-- [ ] [[T-033-be Backend · Events list, detail, schedule]] #critical #events-before #backend
+- [ ] [[T-036-be Backend · Event mode exhibitors list and detail]] #critical #events-during #backend
 - [ ] [[T-041 Availability slots CRUD]] #critical #meetings
 - [ ] [[T-041-be Backend · Availability slots CRUD]] #critical #meetings #backend
 - [ ] [[T-026-be Backend · Ring invitations invite, review, decline]] #high #ring-invitations #backend
+- [ ] [[T-040-be Backend · Lounges and upgrades]] #high #events-during #backend
 
 
 ## 🔵 In progress

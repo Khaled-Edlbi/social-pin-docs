@@ -7,11 +7,11 @@ effort: M
 feature: events-during
 module: events
 screens: [s53]
-depends: ["T-034"]
+depends: []
 created: 2026-10-15
 updated: 2026-10-27
 tags: [task, task/blocked, module/events, priority/high]
-related: ["Subscription (Free vs Pro) Story"]
+related: ["Subscription (Free vs Pro) Story", "Events Before Story"]
 ---
 
 # ⛔ T-040 · Lounges and upgrades
@@ -30,7 +30,7 @@ Mini-event access by package or Pro.
 
 ## Dependencies
 
-- Waits on [[T-034 Tickets, packages, levels, sold-out]]
+- Waits on [[Events Before Story|Events Before · S8]]
 - Waits on [[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]]
 
 ## Definition of done

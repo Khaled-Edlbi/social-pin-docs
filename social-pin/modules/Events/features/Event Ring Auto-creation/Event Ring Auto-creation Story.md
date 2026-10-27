@@ -97,4 +97,4 @@ Screens: [[Screen Index#s52|s52]] Event Ring granted
 
 - No decision note exists for this feature. Open points live in the tasks:
 - [[Event Ring Auto-creation Story|Event Ring Auto-creation · S6]] — who owns the Event Ring (the visitor, as the hub shows, or the organizer with the visitor as member) and what the organizer / exhibitor membership rules are. The feature note lists this as a gap; the story assumes the visitor sees it as their own Ring until decided.
-- [[T-035 Registration transaction with order and payment]] — whether the Ring is created at order time or on webhook success decides how long S1's pending state can last.
+- [[Events Before Story|Events Before · S9]] — whether the Ring is created at order time or on webhook success decides how long S1's pending state can last.

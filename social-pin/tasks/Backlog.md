@@ -32,18 +32,9 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-024 Block and unblock]] | [[Connections]] | Connections | ⬜ To do | S | — | — |
 | [[T-024-be Backend · Block and unblock]] `backend` | [[Connections]] | Connections | ⬜ To do | S | — | — |
 | [[T-024-fe Frontend · Block and unblock]] `frontend` | [[Connections]] | Connections | ⛔ Blocked | S | — | [[T-024-be Backend · Block and unblock|T-024-be]] |
-| [[T-033 Events list, detail, schedule]] | [[Events Before]] | Events | ⬜ To do | L | — | — |
-| [[T-033-be Backend · Events list, detail, schedule]] `backend` | [[Events Before]] | Events | ⬜ To do | L | — | — |
-| [[T-033-fe Frontend · Events list, detail, schedule]] `frontend` | [[Events Before]] | Events | ⛔ Blocked | L | — | [[T-033-be Backend · Events list, detail, schedule|T-033-be]] |
-| [[T-034 Tickets, packages, levels, sold-out]] | [[Events Before]] | Events | ⛔ Blocked | M | — | [[T-033 Events list, detail, schedule|T-033]] |
-| [[T-034-be Backend · Tickets, packages, levels, sold-out]] `backend` | [[Events Before]] | Events | ⛔ Blocked | M | — | [[T-033 Events list, detail, schedule|T-033]] |
-| [[T-034-fe Frontend · Tickets, packages, levels, sold-out]] `frontend` | [[Events Before]] | Events | ⛔ Blocked | M | — | [[T-033 Events list, detail, schedule|T-033]], [[T-034-be Backend · Tickets, packages, levels, sold-out|T-034-be]] |
-| [[T-035 Registration transaction with order and payment]] | [[Events Before]] | Events | ⛔ Blocked | L | — | [[T-034 Tickets, packages, levels, sold-out|T-034]] |
-| [[T-035-be Backend · Registration transaction with order and payment]] `backend` | [[Events Before]] | Events | ⛔ Blocked | L | — | [[T-034 Tickets, packages, levels, sold-out|T-034]] |
-| [[T-035-fe Frontend · Registration transaction with order and payment]] `frontend` | [[Events Before]] | Events | ⛔ Blocked | L | — | [[T-034 Tickets, packages, levels, sold-out|T-034]], [[T-035-be Backend · Registration transaction with order and payment|T-035-be]] |
-| [[T-036 Event mode exhibitors list and detail]] | [[Events During]] | Events | ⛔ Blocked | M | — | [[T-033 Events list, detail, schedule|T-033]] |
-| [[T-036-be Backend · Event mode exhibitors list and detail]] `backend` | [[Events During]] | Events | ⛔ Blocked | M | — | [[T-033 Events list, detail, schedule|T-033]] |
-| [[T-036-fe Frontend · Event mode exhibitors list and detail]] `frontend` | [[Events During]] | Events | ⛔ Blocked | M | — | [[T-033 Events list, detail, schedule|T-033]], [[T-036-be Backend · Event mode exhibitors list and detail|T-036-be]] |
+| [[T-036 Event mode exhibitors list and detail]] | [[Events During]] | Events | ⛔ Blocked | M | — | — |
+| [[T-036-be Backend · Event mode exhibitors list and detail]] `backend` | [[Events During]] | Events | ⬜ To do | M | — | — |
+| [[T-036-fe Frontend · Event mode exhibitors list and detail]] `frontend` | [[Events During]] | Events | ⛔ Blocked | M | — | [[T-036-be Backend · Event mode exhibitors list and detail|T-036-be]] |
 | [[T-041 Availability slots CRUD]] | [[Meetings]] | Meetings | ⬜ To do | M | — | — |
 | [[T-041-be Backend · Availability slots CRUD]] `backend` | [[Meetings]] | Meetings | ⬜ To do | M | — | — |
 | [[T-041-fe Frontend · Availability slots CRUD]] `frontend` | [[Meetings]] | Meetings | ⛔ Blocked | M | — | [[T-041-be Backend · Availability slots CRUD|T-041-be]] |
@@ -82,9 +73,9 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-039 Catalogue products and talks (new table)]] | [[Events During]] | Events | ❓ Needs decision | L | — | [[T-036 Event mode exhibitors list and detail|T-036]] |
 | [[T-039-be Backend · Catalogue products and talks (new table)]] `backend` | [[Events During]] | Events | ⛔ Blocked | L | — | [[T-036 Event mode exhibitors list and detail|T-036]] |
 | [[T-039-fe Frontend · Catalogue products and talks (new table)]] `frontend` | [[Events During]] | Events | ⛔ Blocked | L | — | [[T-036 Event mode exhibitors list and detail|T-036]], [[T-039-be Backend · Catalogue products and talks (new table)|T-039-be]] |
-| [[T-040 Lounges and upgrades]] | [[Events During]] | Events | ⛔ Blocked | M | — | [[T-034 Tickets, packages, levels, sold-out|T-034]] |
-| [[T-040-be Backend · Lounges and upgrades]] `backend` | [[Events During]] | Events | ⛔ Blocked | M | — | [[T-034 Tickets, packages, levels, sold-out|T-034]] |
-| [[T-040-fe Frontend · Lounges and upgrades]] `frontend` | [[Events During]] | Events | ⛔ Blocked | M | — | [[T-034 Tickets, packages, levels, sold-out|T-034]], [[T-040-be Backend · Lounges and upgrades|T-040-be]] |
+| [[T-040 Lounges and upgrades]] | [[Events During]] | Events | ⛔ Blocked | M | — | — |
+| [[T-040-be Backend · Lounges and upgrades]] `backend` | [[Events During]] | Events | ⬜ To do | M | — | — |
+| [[T-040-fe Frontend · Lounges and upgrades]] `frontend` | [[Events During]] | Events | ⛔ Blocked | M | — | [[T-040-be Backend · Lounges and upgrades|T-040-be]] |
 | [[T-068 Account moderation and platform role]] | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | M | — | — |
 | [[T-068-be Backend · Account moderation and platform role]] `backend` | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | M | — | — |
 | [[T-069 Scoped role grants]] | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | M | — | [[T-068 Account moderation and platform role|T-068]] |

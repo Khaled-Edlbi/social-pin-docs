@@ -9,9 +9,9 @@ module: events
 parent: T-040
 labels: [backend]
 screens: [s53]
-depends: ["T-034"]
+depends: []
 affects: []
-related: ["Subscription (Free vs Pro) Story"]
+related: ["Subscription (Free vs Pro) Story", "Events Before Story"]
 pending: []
 created: 2026-10-18
 updated: 2026-10-27

@@ -7,10 +7,11 @@ effort: M
 feature: events-during
 module: events
 screens: [s53, s54, s55]
-depends: [T-033]
+depends: []
 created: 2026-10-15
 updated: 2026-10-27
 tags: [task, task/blocked, module/events, priority/critical]
+related: ["Events Before Story"]
 ---
 
 # ⛔ T-036 · Event mode: exhibitors list and detail
@@ -31,7 +32,7 @@ Scoped by the viewer's Event Ring membership (access engine).
 
 ## Dependencies
 
-- Waits on [[T-033 Events list, detail, schedule]]
+- Waits on [[Events Before Story|Events Before · S7]]
 - Unblocks [[T-038 Floor map and booths]]
 - Unblocks [[T-039 Catalogue products and talks (new table)]]
 - Unblocks [[Exhibitor Story|Exhibitor · S8]]

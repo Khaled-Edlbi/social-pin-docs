@@ -9,12 +9,12 @@ module: events
 parent: T-036
 labels: [backend]
 screens: [s53, s54, s55]
-depends: [T-033]
+depends: []
 affects: []
-related: []
+related: ["Events Before Story"]
 pending: []
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [task, task/todo, module/events, priority/critical, backend]
 ---
 
