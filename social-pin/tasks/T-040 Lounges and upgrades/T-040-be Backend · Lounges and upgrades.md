@@ -9,12 +9,12 @@ module: events
 parent: T-040
 labels: [backend]
 screens: [s53]
-depends: [T-034, T-049]
+depends: ["T-034"]
 affects: []
-related: []
+related: ["Subscription (Free vs Pro) Story"]
 pending: []
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [task, task/todo, module/events, priority/high, backend]
 ---
 

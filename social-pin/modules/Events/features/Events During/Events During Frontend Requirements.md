@@ -22,7 +22,7 @@ What the client needs for the in-event hub and its six screens, and whether each
 ### [[Screen Index#s53|s53]] Event mode
 
 - Needs: the active Event Ring (id, name, window, level from my participant row), my package and its entitlements, mini-events with their access state (owned / purchasable / locked), account type for the Pro locks, today's meetings count.
-- Source today: `GET /rings/:id` for the Ring (available); the rest not yet ([[T-040 Lounges and upgrades]], [[T-049 Subscription endpoints and a single Pro gate]], [[T-044 My meetings, calendar, detail, reschedule, cancel]]).
+- Source today: `GET /rings/:id` for the Ring (available); the rest not yet ([[T-040 Lounges and upgrades]], [[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]], [[T-044 My meetings, calendar, detail, reschedule, cancel]]).
 
 ### [[Screen Index#s54|s54]] Exhibitors
 
@@ -60,7 +60,7 @@ What the client needs for the in-event hub and its six screens, and whether each
 | Floor map asset and booths | — | ❌ | [[T-038 Floor map and booths]] |
 | Catalogue of products and talks | — | ❌ | [[T-039 Catalogue products and talks (new table)]] |
 | Mini-event access state, upgrade purchase | — | ❌ | [[T-040 Lounges and upgrades]] |
-| Pro lock state | — | ❌ | [[T-049 Subscription endpoints and a single Pro gate]] |
+| Pro lock state | — | ❌ | [[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]] |
 | Smart Match suggestions | — | ❌ | [[T-052 Smart Match]] |
 | Meetings today | — | ❌ | [[T-044 My meetings, calendar, detail, reschedule, cancel]] |
 
@@ -82,7 +82,7 @@ What the client needs for the in-event hub and its six screens, and whether each
 | 404 on `GET /views/ring/:ringId` (Ring lapsed) | `E_RING_ACCESS_02` | "This event has ended", open the post-event flow |
 | 404 on any event-scoped list | to be defined by [[T-036 Event mode exhibitors list and detail]] | "Not available for this event", exit event mode |
 | pass unavailable | to be defined by [[T-037 Event pass with a 60 s rotating code]] | Last code with "may be expired", retry |
-| 403 Pro gate | to be defined by [[T-049 Subscription endpoints and a single Pro gate]] | Lock with "Go Pro" → s70 |
+| 403 Pro gate | to be defined by [[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]] | Lock with "Go Pro" → s70 |
 | 402 / 409 on an upgrade purchase | to be defined by [[T-040 Lounges and upgrades]] | Keep the locked state, show the payment result |
 
 ## Blocked by
@@ -91,4 +91,4 @@ What the client needs for the in-event hub and its six screens, and whether each
 - [[T-036 Event mode exhibitors list and detail]] — waits on [[T-033 Events list, detail, schedule]]; s54, s55, and unblocks T-038, T-039, T-052.
 - [[T-037 Event pass with a 60 s rotating code]] — waits on [[T-007 Issue and rotate the QR token for a Ring]] and [[Event Ring Auto-creation Story|Event Ring Auto-creation · S6]]; s56.
 - [[T-039 Catalogue products and talks (new table)]] — needs a schema decision; s58.
-- [[T-040 Lounges and upgrades]] — waits on [[T-034 Tickets, packages, levels, sold-out]] and [[T-049 Subscription endpoints and a single Pro gate]]; the lounge states on s53.
+- [[T-040 Lounges and upgrades]] — waits on [[T-034 Tickets, packages, levels, sold-out]] and [[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]]; the lounge states on s53.

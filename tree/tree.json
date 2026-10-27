@@ -429,10 +429,6 @@
     "T-048b Story": "story:T-048b",
     "T-048b-be Backend · Booth analytics and leads CSV export": "task:T-048b-be",
     "T-048b-fe Frontend · Booth analytics and leads CSV export": "task:T-048b-fe",
-    "T-049 Story": "story:T-049",
-    "T-049 Subscription endpoints and a single Pro gate": "task:T-049",
-    "T-049-be Backend · Subscription endpoints and a single Pro gate": "task:T-049-be",
-    "T-049-fe Frontend · Subscription endpoints and a single Pro gate": "task:T-049-fe",
     "T-051 Gemma assistant sheet and suggestions": "task:T-051",
     "T-051 Story": "story:T-051",
     "T-051-be Backend · Gemma assistant sheet and suggestions": "task:T-051-be",
@@ -762,7 +758,6 @@
     "S-68": "story:T-044",
     "S-69": "story:payments",
     "S-71": "story:subscription",
-    "S-72": "story:T-049",
     "S-73": "story:app-shell",
     "S-74": "story:audit-log",
     "S-76": "story:cleanup-jobs",
@@ -903,9 +898,6 @@
     "T-048b": "task:T-048b",
     "T-048b-be": "task:T-048b-be",
     "T-048b-fe": "task:T-048b-fe",
-    "T-049": "task:T-049",
-    "T-049-be": "task:T-049-be",
-    "T-049-fe": "task:T-049-fe",
     "T-051": "task:T-051",
     "T-051-be": "task:T-051-be",
     "T-051-fe": "task:T-051-fe",
@@ -4777,10 +4769,7 @@
       "containers": [
         "feature:account",
         "feature:subscription",
-        "needs-decision:ND-07",
-        "task:T-049",
-        "task:T-049-be",
-        "task:T-049-fe"
+        "needs-decision:ND-07"
       ],
       "kind": "screen",
       "notes": [
@@ -4789,11 +4778,7 @@
         "frontend-requirements:subscription",
         "needs-decision:ND-07",
         "qa-frontend:account",
-        "story:T-049",
-        "story:subscription",
-        "task:T-049",
-        "task:T-049-be",
-        "task:T-049-fe"
+        "story:subscription"
       ],
       "owner": null
     },
@@ -4901,7 +4886,7 @@
     }
   },
   "counts": {
-    "blocked": 132,
+    "blocked": 130,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -4914,28 +4899,28 @@
       "project": 27,
       "qa-backend": 1,
       "qa-frontend": 1,
-      "story": 91,
-      "task": 146
+      "story": 90,
+      "task": 143
     },
     "byLayer": {
       "backend": 56,
-      "business": 316,
+      "business": 312,
       "frontend": 44,
       "qa": 2,
       "shared": 10
     },
     "concepts": 199,
     "decisions": 19,
-    "edges": 4974,
+    "edges": 4947,
     "features": 41,
-    "layerNotes": 181,
+    "layerNotes": 180,
     "modules": 8,
-    "notes": 464,
+    "notes": 460,
     "partial": 4,
     "placeholders": 161,
     "records": 14,
-    "taskLayerNotes": 51,
-    "tasks": 146
+    "taskLayerNotes": 50,
+    "tasks": 143
   },
   "deadlines": {
     "missed": {
@@ -5197,12 +5182,12 @@
     {
       "from": "decision:D-07",
       "kind": "affects",
-      "to": "task:T-035"
+      "to": "story:subscription"
     },
     {
       "from": "decision:D-07",
       "kind": "affects",
-      "to": "task:T-049"
+      "to": "task:T-035"
     },
     {
       "from": "decision:D-13",
@@ -7240,41 +7225,6 @@
       "to": "task:T-048b-fe"
     },
     {
-      "from": "task:T-049",
-      "kind": "blocks",
-      "to": "task:T-040"
-    },
-    {
-      "from": "task:T-049",
-      "kind": "blocks",
-      "to": "task:T-040-be"
-    },
-    {
-      "from": "task:T-049",
-      "kind": "blocks",
-      "to": "task:T-040-fe"
-    },
-    {
-      "from": "task:T-049",
-      "kind": "blocks",
-      "to": "task:T-051"
-    },
-    {
-      "from": "task:T-049",
-      "kind": "blocks",
-      "to": "task:T-051-be"
-    },
-    {
-      "from": "task:T-049",
-      "kind": "blocks",
-      "to": "task:T-051-fe"
-    },
-    {
-      "from": "task:T-049-be",
-      "kind": "blocks",
-      "to": "task:T-049-fe"
-    },
-    {
       "from": "task:T-051",
       "kind": "blocks",
       "to": "task:T-052"
@@ -7472,12 +7422,12 @@
     {
       "from": "needs-decision:ND-07",
       "kind": "decision",
-      "to": "task:T-035"
+      "to": "story:subscription"
     },
     {
       "from": "needs-decision:ND-07",
       "kind": "decision",
-      "to": "task:T-049"
+      "to": "task:T-035"
     },
     {
       "from": "needs-decision:ND-10",
@@ -8195,19 +8145,9 @@
       "to": "task:T-034"
     },
     {
-      "from": "task:T-040",
-      "kind": "depends",
-      "to": "task:T-049"
-    },
-    {
       "from": "task:T-040-be",
       "kind": "depends",
       "to": "task:T-034"
-    },
-    {
-      "from": "task:T-040-be",
-      "kind": "depends",
-      "to": "task:T-049"
     },
     {
       "from": "task:T-040-fe",
@@ -8218,11 +8158,6 @@
       "from": "task:T-040-fe",
       "kind": "depends",
       "to": "task:T-040-be"
-    },
-    {
-      "from": "task:T-040-fe",
-      "kind": "depends",
-      "to": "task:T-049"
     },
     {
       "from": "task:T-041-fe",
@@ -8358,26 +8293,6 @@
       "from": "task:T-048b-fe",
       "kind": "depends",
       "to": "task:T-048b-be"
-    },
-    {
-      "from": "task:T-049-fe",
-      "kind": "depends",
-      "to": "task:T-049-be"
-    },
-    {
-      "from": "task:T-051",
-      "kind": "depends",
-      "to": "task:T-049"
-    },
-    {
-      "from": "task:T-051-be",
-      "kind": "depends",
-      "to": "task:T-049"
-    },
-    {
-      "from": "task:T-051-fe",
-      "kind": "depends",
-      "to": "task:T-049"
     },
     {
       "from": "task:T-051-fe",
@@ -11261,12 +11176,12 @@
     {
       "from": "frontend-delivery:account",
       "kind": "related",
-      "to": "task:T-014"
+      "to": "story:subscription"
     },
     {
       "from": "frontend-delivery:account",
       "kind": "related",
-      "to": "task:T-049"
+      "to": "task:T-014"
     },
     {
       "from": "frontend-delivery:account",
@@ -12627,14 +12542,6 @@
       "to": "decision:D-18"
     },
     {
-      "from": "story:subscription",
-      "kind": "related",
-      "to": "story:T-049",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
       "from": "story:T-021",
       "kind": "related",
       "to": "decision:D-13"
@@ -12932,6 +12839,21 @@
       "to": "story:event-ring-auto"
     },
     {
+      "from": "task:T-040",
+      "kind": "related",
+      "to": "story:subscription"
+    },
+    {
+      "from": "task:T-040-be",
+      "kind": "related",
+      "to": "story:subscription"
+    },
+    {
+      "from": "task:T-040-fe",
+      "kind": "related",
+      "to": "story:subscription"
+    },
+    {
       "from": "task:T-048",
       "kind": "related",
       "to": "story:companies"
@@ -12952,14 +12874,29 @@
       "to": "story:interests"
     },
     {
+      "from": "task:T-051",
+      "kind": "related",
+      "to": "story:subscription"
+    },
+    {
       "from": "task:T-051-be",
+      "kind": "related",
+      "to": "story:interests"
+    },
+    {
+      "from": "task:T-051-be",
+      "kind": "related",
+      "to": "story:subscription"
+    },
+    {
+      "from": "task:T-051-fe",
       "kind": "related",
       "to": "story:interests"
     },
     {
       "from": "task:T-051-fe",
       "kind": "related",
-      "to": "story:interests"
+      "to": "story:subscription"
     },
     {
       "from": "task:T-063",
@@ -24817,7 +24754,7 @@
     {
       "from": "story:subscription",
       "kind": "tree",
-      "to": "task:T-049"
+      "to": "needs-decision:ND-07"
     },
     {
       "from": "story:T-007",
@@ -25488,26 +25425,6 @@
       "from": "task:T-048b",
       "kind": "tree",
       "to": "task:T-048b-fe"
-    },
-    {
-      "from": "task:T-049",
-      "kind": "tree",
-      "to": "needs-decision:ND-07"
-    },
-    {
-      "from": "task:T-049",
-      "kind": "tree",
-      "to": "story:T-049"
-    },
-    {
-      "from": "task:T-049",
-      "kind": "tree",
-      "to": "task:T-049-be"
-    },
-    {
-      "from": "task:T-049",
-      "kind": "tree",
-      "to": "task:T-049-fe"
     },
     {
       "from": "task:T-051",
@@ -26197,17 +26114,17 @@
     {
       "from": "backend-integration:account",
       "kind": "wikilink",
+      "to": "story:subscription"
+    },
+    {
+      "from": "backend-integration:account",
+      "kind": "wikilink",
       "to": "task:T-014"
     },
     {
       "from": "backend-integration:account",
       "kind": "wikilink",
       "to": "task:T-015"
-    },
-    {
-      "from": "backend-integration:account",
-      "kind": "wikilink",
-      "to": "task:T-049"
     },
     {
       "from": "backend-integration:auth",
@@ -26657,12 +26574,12 @@
     {
       "from": "decision:D-07",
       "kind": "wikilink",
-      "to": "task:T-035"
+      "to": "story:subscription"
     },
     {
       "from": "decision:D-07",
       "kind": "wikilink",
-      "to": "task:T-049"
+      "to": "task:T-035"
     },
     {
       "from": "decision:D-15",
@@ -27217,7 +27134,7 @@
     {
       "from": "feature:subscription",
       "kind": "wikilink",
-      "to": "task:T-049"
+      "to": "project:status-report-2026-10-15"
     },
     {
       "from": "feature:widgets",
@@ -27282,17 +27199,17 @@
     {
       "from": "frontend-requirements:account",
       "kind": "wikilink",
+      "to": "story:subscription"
+    },
+    {
+      "from": "frontend-requirements:account",
+      "kind": "wikilink",
       "to": "task:T-014"
     },
     {
       "from": "frontend-requirements:account",
       "kind": "wikilink",
       "to": "task:T-015"
-    },
-    {
-      "from": "frontend-requirements:account",
-      "kind": "wikilink",
-      "to": "task:T-049"
     },
     {
       "from": "frontend-requirements:account",
@@ -27412,6 +27329,11 @@
     {
       "from": "frontend-requirements:badge-qr",
       "kind": "wikilink",
+      "to": "story:subscription"
+    },
+    {
+      "from": "frontend-requirements:badge-qr",
+      "kind": "wikilink",
       "to": "task:T-007"
     },
     {
@@ -27443,11 +27365,6 @@
       "from": "frontend-requirements:badge-qr",
       "kind": "wikilink",
       "to": "task:T-037"
-    },
-    {
-      "from": "frontend-requirements:badge-qr",
-      "kind": "wikilink",
-      "to": "task:T-049"
     },
     {
       "from": "frontend-requirements:badge-qr",
@@ -27927,6 +27844,11 @@
     {
       "from": "frontend-requirements:events-during",
       "kind": "wikilink",
+      "to": "story:subscription"
+    },
+    {
+      "from": "frontend-requirements:events-during",
+      "kind": "wikilink",
       "to": "task:T-007"
     },
     {
@@ -27968,11 +27890,6 @@
       "from": "frontend-requirements:events-during",
       "kind": "wikilink",
       "to": "task:T-044"
-    },
-    {
-      "from": "frontend-requirements:events-during",
-      "kind": "wikilink",
-      "to": "task:T-049"
     },
     {
       "from": "frontend-requirements:events-during",
@@ -28107,17 +28024,17 @@
     {
       "from": "frontend-requirements:gemma",
       "kind": "wikilink",
+      "to": "story:subscription"
+    },
+    {
+      "from": "frontend-requirements:gemma",
+      "kind": "wikilink",
       "to": "task:T-036"
     },
     {
       "from": "frontend-requirements:gemma",
       "kind": "wikilink",
       "to": "task:T-042"
-    },
-    {
-      "from": "frontend-requirements:gemma",
-      "kind": "wikilink",
-      "to": "task:T-049"
     },
     {
       "from": "frontend-requirements:gemma",
@@ -28187,6 +28104,11 @@
     {
       "from": "frontend-requirements:meetings",
       "kind": "wikilink",
+      "to": "story:subscription"
+    },
+    {
+      "from": "frontend-requirements:meetings",
+      "kind": "wikilink",
       "to": "task:T-041"
     },
     {
@@ -28208,11 +28130,6 @@
       "from": "frontend-requirements:meetings",
       "kind": "wikilink",
       "to": "task:T-045"
-    },
-    {
-      "from": "frontend-requirements:meetings",
-      "kind": "wikilink",
-      "to": "task:T-049"
     },
     {
       "from": "frontend-requirements:meetings",
@@ -28843,11 +28760,6 @@
       "from": "frontend-requirements:subscription",
       "kind": "wikilink",
       "to": "task:T-040"
-    },
-    {
-      "from": "frontend-requirements:subscription",
-      "kind": "wikilink",
-      "to": "task:T-049"
     },
     {
       "from": "frontend-requirements:subscription",
@@ -29902,6 +29814,11 @@
     {
       "from": "needs-decision:ND-11",
       "kind": "wikilink",
+      "to": "story:subscription"
+    },
+    {
+      "from": "needs-decision:ND-11",
+      "kind": "wikilink",
       "to": "task:T-007"
     },
     {
@@ -29910,9 +29827,9 @@
       "to": "task:T-037"
     },
     {
-      "from": "needs-decision:ND-11",
+      "from": "needs-decision:ND-12",
       "kind": "wikilink",
-      "to": "task:T-049"
+      "to": "story:subscription"
     },
     {
       "from": "needs-decision:ND-12",
@@ -29923,11 +29840,6 @@
       "from": "needs-decision:ND-12",
       "kind": "wikilink",
       "to": "task:T-007"
-    },
-    {
-      "from": "needs-decision:ND-12",
-      "kind": "wikilink",
-      "to": "task:T-049"
     },
     {
       "from": "needs-decision:ND-13",
@@ -31097,11 +31009,6 @@
     {
       "from": "project:status-report-2026-10-15",
       "kind": "wikilink",
-      "to": "feature:subscription"
-    },
-    {
-      "from": "project:status-report-2026-10-15",
-      "kind": "wikilink",
       "to": "feature:view-as"
     },
     {
@@ -31537,11 +31444,6 @@
     {
       "from": "story:events-during",
       "kind": "wikilink",
-      "to": "task:T-049"
-    },
-    {
-      "from": "story:events-during",
-      "kind": "wikilink",
       "to": "task:T-052"
     },
     {
@@ -31962,6 +31864,11 @@
     {
       "from": "story:T-007",
       "kind": "wikilink",
+      "to": "story:subscription"
+    },
+    {
+      "from": "story:T-007",
+      "kind": "wikilink",
       "to": "task:T-008"
     },
     {
@@ -31973,11 +31880,6 @@
       "from": "story:T-007",
       "kind": "wikilink",
       "to": "task:T-010"
-    },
-    {
-      "from": "story:T-007",
-      "kind": "wikilink",
-      "to": "task:T-049"
     },
     {
       "from": "story:T-008",
@@ -32263,11 +32165,6 @@
       "from": "story:T-048b",
       "kind": "wikilink",
       "to": "feature:exhibitor"
-    },
-    {
-      "from": "story:T-049",
-      "kind": "wikilink",
-      "to": "feature:subscription"
     },
     {
       "from": "story:T-051",
@@ -33810,11 +33707,6 @@
       "to": "project:status-report-2026-10-15"
     },
     {
-      "from": "task:T-040",
-      "kind": "wikilink",
-      "to": "task:T-049"
-    },
-    {
       "from": "task:T-040-be",
       "kind": "wikilink",
       "to": "backend-delivery:events-during"
@@ -34168,51 +34060,6 @@
       "from": "task:T-048b-fe",
       "kind": "wikilink",
       "to": "task:T-048b-be"
-    },
-    {
-      "from": "task:T-049",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-049",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-049",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-049",
-      "kind": "wikilink",
-      "to": "task:T-051"
-    },
-    {
-      "from": "task:T-049-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:subscription"
-    },
-    {
-      "from": "task:T-049-be",
-      "kind": "wikilink",
-      "to": "feature:subscription"
-    },
-    {
-      "from": "task:T-049-fe",
-      "kind": "wikilink",
-      "to": "feature:subscription"
-    },
-    {
-      "from": "task:T-049-fe",
-      "kind": "wikilink",
-      "to": "story:T-049"
-    },
-    {
-      "from": "task:T-049-fe",
-      "kind": "wikilink",
-      "to": "task:T-049-be"
     },
     {
       "from": "task:T-051",
@@ -36237,22 +36084,6 @@
     },
     "social-pin/tasks/T-048b Booth analytics and leads CSV export/T-048b-fe Frontend · Booth analytics and leads CSV export.md": {
       "name": "T-048b-fe Frontend · Booth analytics and leads CSV export",
-      "type": "task"
-    },
-    "social-pin/tasks/T-049 Subscription endpoints and a single Pro gate/T-049 Story.md": {
-      "name": "T-049 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-049 Subscription endpoints and a single Pro gate/T-049 Subscription endpoints and a single Pro gate.md": {
-      "name": "T-049 Subscription endpoints and a single Pro gate",
-      "type": "task"
-    },
-    "social-pin/tasks/T-049 Subscription endpoints and a single Pro gate/T-049-be Backend · Subscription endpoints and a single Pro gate.md": {
-      "name": "T-049-be Backend · Subscription endpoints and a single Pro gate",
-      "type": "task"
-    },
-    "social-pin/tasks/T-049 Subscription endpoints and a single Pro gate/T-049-fe Frontend · Subscription endpoints and a single Pro gate.md": {
-      "name": "T-049-fe Frontend · Subscription endpoints and a single Pro gate",
       "type": "task"
     },
     "social-pin/tasks/T-051 Gemma assistant sheet and suggestions/T-051 Gemma assistant sheet and suggestions.md": {
@@ -41511,7 +41342,7 @@
         "feature:subscription",
         "story:payments",
         "task:T-035",
-        "task:T-049"
+        "story:subscription"
       ],
       "blockedBy": [],
       "card": "D-07",
@@ -43694,11 +43525,12 @@
       "release": "later",
       "resolution": null,
       "rollup": {
-        "blocked": 7,
+        "blocked": 6,
         "decided": 1,
         "draft": 3,
         "missing": 4,
         "needs-decision": 1,
+        "todo": 1,
         "verified": 1
       },
       "scope": null,
@@ -45056,11 +44888,10 @@
       "resolution": null,
       "rollup": {
         "approved": 1,
-        "blocked": 2,
+        "blocked": 1,
         "decided": 1,
-        "draft": 2,
+        "draft": 1,
         "missing": 4,
-        "todo": 2,
         "verified": 1
       },
       "scope": null,
@@ -45078,7 +44909,7 @@
       ],
       "task": null,
       "title": "Subscription (Free vs Pro)",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "feature:view-as": {
       "affects": [],
@@ -45336,7 +45167,7 @@
         "story:counts",
         "story:linked-accounts",
         "task:T-014",
-        "task:T-049",
+        "story:subscription",
         "task:T-063",
         "backend-delivery:auth",
         "backend-integration:auth",
@@ -48547,7 +48378,7 @@
       ],
       "task": null,
       "title": "Meetings Frontend Requirements",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "frontend-requirements:notifications": {
       "affects": [],
@@ -49644,12 +49475,11 @@
       "resolution": null,
       "rollup": {
         "approved": 2,
-        "blocked": 3,
+        "blocked": 2,
         "decided": 1,
-        "draft": 3,
+        "draft": 2,
         "in-progress": 2,
         "missing": 8,
-        "todo": 2,
         "verified": 1
       },
       "scope": null,
@@ -50021,14 +49851,14 @@
       "resolution": null,
       "rollup": {
         "approved": 11,
-        "blocked": 32,
+        "blocked": 31,
         "decided": 3,
         "done": 1,
         "draft": 26,
         "in-progress": 22,
         "missing": 61,
         "needs-decision": 1,
-        "todo": 10,
+        "todo": 11,
         "verified": 3
       },
       "scope": null,
@@ -50478,7 +50308,7 @@
       "blocks": [
         "story:payments",
         "task:T-035",
-        "task:T-049"
+        "story:subscription"
       ],
       "card": "ND-07",
       "children": [
@@ -50511,7 +50341,7 @@
       "parents": [
         "story:payments",
         "task:T-035",
-        "task:T-049"
+        "story:subscription"
       ],
       "path": "social-pin/needs-decisions/ND-07 Payment provider.md",
       "pending": [],
@@ -50650,7 +50480,7 @@
       ],
       "task": null,
       "title": "ND-11 Get or rotate the badge token",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "needs-decision:ND-12": {
       "affects": [],
@@ -50707,7 +50537,7 @@
       ],
       "task": null,
       "title": "ND-12 What the badge QR encodes",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "needs-decision:ND-13": {
       "affects": [],
@@ -56660,12 +56490,12 @@
       ],
       "rollup": {
         "approved": 36,
-        "blocked": 132,
+        "blocked": 130,
         "current": 8,
         "decided": 14,
         "delivered": 2,
         "done": 10,
-        "draft": 85,
+        "draft": 84,
         "in-progress": 55,
         "missing": 161,
         "needs-decision": 8,
@@ -56673,7 +56503,7 @@
         "passing": 1,
         "ready": 2,
         "reference": 31,
-        "todo": 38,
+        "todo": 37,
         "verified": 14
       },
       "scope": null,
@@ -56889,7 +56719,7 @@
         "s34"
       ],
       "status": "draft",
-      "summary": "POST /rings/:ringId/qr returns an opaque token; previous token revoked; 24 h rotation. Permanent token behind the Pro gate (T-049).",
+      "summary": "POST /rings/:ringId/qr returns an opaque token; previous token revoked; 24 h rotation. Permanent token behind the Pro gate (Subscription (Free vs Pro) · S6).",
       "tags": [
         "story",
         "story/draft",
@@ -56898,7 +56728,7 @@
       ],
       "task": "T-007",
       "title": "T-007 Story",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "story:T-008": {
       "affects": [],
@@ -58803,56 +58633,6 @@
       "title": "T-048b Story",
       "updated": "2026-10-26"
     },
-    "story:T-049": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-72",
-      "children": [],
-      "code": "T-049",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
-      "effort": null,
-      "feature": "subscription",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-049",
-      "inherits": {
-        "priority": "task:T-049",
-        "release": "feature:subscription"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "commerce",
-      "parentTask": null,
-      "parents": [
-        "task:T-049"
-      ],
-      "path": "social-pin/tasks/T-049 Subscription endpoints and a single Pro gate/T-049 Story.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "scope": "task",
-      "screens": [
-        "s70"
-      ],
-      "status": "draft",
-      "summary": "Subscribe / cancel / status; ProGate helper used by Smart Match, lounges, Gemma automation, permanent QR.",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/commerce",
-        "layer/business"
-      ],
-      "task": "T-049",
-      "title": "T-049 Story",
-      "updated": "2026-10-26"
-    },
     "story:T-051": {
       "affects": [],
       "blockedBy": [],
@@ -60377,7 +60157,7 @@
       ],
       "task": null,
       "title": "Events During Story",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "story:exhibitor": {
       "affects": [],
@@ -61479,7 +61259,7 @@
       "blockedBy": [],
       "card": "S-71",
       "children": [
-        "task:T-049"
+        "needs-decision:ND-07"
       ],
       "code": "subscription",
       "created": "2026-10-18",
@@ -61507,7 +61287,15 @@
       "path": "social-pin/modules/Commerce/features/Subscription (Free vs Pro)/Subscription (Free vs Pro) Story.md",
       "pending": [],
       "priority": "high",
-      "related": [],
+      "related": [
+        "task:T-040",
+        "task:T-040-be",
+        "task:T-040-fe",
+        "task:T-051",
+        "task:T-051-be",
+        "task:T-051-fe",
+        "frontend-delivery:account"
+      ],
       "release": "v1",
       "resolution": null,
       "scope": "feature",
@@ -62241,7 +62029,7 @@
         "s34"
       ],
       "status": "todo",
-      "summary": "POST /rings/:ringId/qr returns an opaque token; previous token revoked; 24 h rotation. Permanent token behind the Pro gate (T-049).",
+      "summary": "POST /rings/:ringId/qr returns an opaque token; previous token revoked; 24 h rotation. Permanent token behind the Pro gate (Subscription (Free vs Pro) · S6).",
       "tags": [
         "task",
         "task/todo",
@@ -62250,7 +62038,7 @@
       ],
       "task": null,
       "title": "T-007 Issue and rotate the QR token for a Ring",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "task:T-007-be": {
       "affects": [],
@@ -67824,11 +67612,6 @@
           "id": "task:T-034",
           "title": "T-034 Tickets, packages, levels, sold-out",
           "why": "T-034 Tickets, packages, levels, sold-out is blocked"
-        },
-        {
-          "id": "task:T-049",
-          "title": "T-049 Subscription endpoints and a single Pro gate",
-          "why": "T-049 Subscription endpoints and a single Pro gate is to do"
         }
       ],
       "card": "T-040",
@@ -67842,8 +67625,7 @@
       "deadline": null,
       "decision": null,
       "depends": [
-        "task:T-034",
-        "task:T-049"
+        "task:T-034"
       ],
       "dir": "social-pin/tasks/T-040 Lounges and upgrades",
       "effectiveStatus": "blocked",
@@ -67868,6 +67650,7 @@
       "pending": [],
       "priority": "high",
       "related": [
+        "story:subscription",
         "story:payments"
       ],
       "release": "mvp",
@@ -67890,7 +67673,7 @@
       ],
       "task": null,
       "title": "T-040 Lounges and upgrades",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "task:T-040-be": {
       "affects": [],
@@ -67899,11 +67682,6 @@
           "id": "task:T-034",
           "title": "T-034 Tickets, packages, levels, sold-out",
           "why": "T-034 Tickets, packages, levels, sold-out is blocked"
-        },
-        {
-          "id": "task:T-049",
-          "title": "T-049 Subscription endpoints and a single Pro gate",
-          "why": "T-049 Subscription endpoints and a single Pro gate is to do"
         }
       ],
       "card": "T-040-be",
@@ -67913,8 +67691,7 @@
       "deadline": null,
       "decision": null,
       "depends": [
-        "task:T-034",
-        "task:T-049"
+        "task:T-034"
       ],
       "dir": null,
       "effectiveStatus": "blocked",
@@ -67940,7 +67717,9 @@
       "path": "social-pin/tasks/T-040 Lounges and upgrades/T-040-be Backend · Lounges and upgrades.md",
       "pending": [],
       "priority": "high",
-      "related": [],
+      "related": [
+        "story:subscription"
+      ],
       "release": "mvp",
       "resolution": null,
       "rollup": {},
@@ -67959,7 +67738,7 @@
       ],
       "task": null,
       "title": "T-040-be Backend · Lounges and upgrades",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "task:T-040-fe": {
       "affects": [],
@@ -67968,11 +67747,6 @@
           "id": "task:T-034",
           "title": "T-034 Tickets, packages, levels, sold-out",
           "why": "T-034 Tickets, packages, levels, sold-out is blocked"
-        },
-        {
-          "id": "task:T-049",
-          "title": "T-049 Subscription endpoints and a single Pro gate",
-          "why": "T-049 Subscription endpoints and a single Pro gate is to do"
         },
         {
           "id": "task:T-040-be",
@@ -67988,7 +67762,6 @@
       "decision": null,
       "depends": [
         "task:T-034",
-        "task:T-049",
         "task:T-040-be"
       ],
       "dir": null,
@@ -68015,7 +67788,9 @@
       "path": "social-pin/tasks/T-040 Lounges and upgrades/T-040-fe Frontend · Lounges and upgrades.md",
       "pending": [],
       "priority": "high",
-      "related": [],
+      "related": [
+        "story:subscription"
+      ],
       "release": "mvp",
       "resolution": null,
       "rollup": {},
@@ -68034,7 +67809,7 @@
       ],
       "task": null,
       "title": "T-040-fe Frontend · Lounges and upgrades",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "task:T-041": {
       "affects": [],
@@ -69551,198 +69326,9 @@
       "title": "T-048b-fe Frontend · Booth analytics and leads CSV export",
       "updated": "2026-10-26"
     },
-    "task:T-049": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-049",
-      "children": [
-        "story:T-049",
-        "task:T-049-be",
-        "task:T-049-fe",
-        "needs-decision:ND-07"
-      ],
-      "code": "T-049",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": "social-pin/tasks/T-049 Subscription endpoints and a single Pro gate",
-      "effectiveStatus": "todo",
-      "effort": "M",
-      "feature": "subscription",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-049",
-      "inherits": {
-        "release": "feature:subscription"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "commerce",
-      "parentTask": null,
-      "parents": [
-        "story:subscription"
-      ],
-      "path": "social-pin/tasks/T-049 Subscription endpoints and a single Pro gate/T-049 Subscription endpoints and a single Pro gate.md",
-      "pending": [],
-      "priority": "high",
-      "related": [
-        "frontend-delivery:account"
-      ],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {
-        "blocked": 1,
-        "decided": 1,
-        "draft": 1,
-        "todo": 1,
-        "verified": 1
-      },
-      "scope": null,
-      "screens": [
-        "s70"
-      ],
-      "status": "todo",
-      "summary": "Subscribe / cancel / status; ProGate helper used by Smart Match, lounges, Gemma automation, permanent QR.",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/commerce",
-        "priority/high"
-      ],
-      "task": null,
-      "title": "T-049 Subscription endpoints and a single Pro gate",
-      "updated": "2026-10-26"
-    },
-    "task:T-049-be": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-049-be",
-      "children": [],
-      "code": "T-049-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": null,
-      "effectiveStatus": "todo",
-      "effort": "M",
-      "feature": "subscription",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-049-be",
-      "inherits": {
-        "release": "feature:subscription"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "commerce",
-      "parentTask": "T-049",
-      "parents": [
-        "task:T-049"
-      ],
-      "path": "social-pin/tasks/T-049 Subscription endpoints and a single Pro gate/T-049-be Backend · Subscription endpoints and a single Pro gate.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s70"
-      ],
-      "status": "todo",
-      "summary": "The API side of T-049 Subscription endpoints and a single Pro gate: the endpoints, data and rules its What describes. Record what shipped in T-049-be Backend Delivery and how to call it in…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/commerce",
-        "priority/high",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-049-be Backend · Subscription endpoints and a single Pro gate",
-      "updated": "2026-10-26"
-    },
-    "task:T-049-fe": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-049-be",
-          "title": "T-049-be Backend · Subscription endpoints and a single Pro gate",
-          "why": "T-049-be Backend · Subscription endpoints and a single Pro gate is to do"
-        }
-      ],
-      "card": "T-049-fe",
-      "children": [],
-      "code": "T-049-fe",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-049-be"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "subscription",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-049-fe",
-      "inherits": {
-        "release": "feature:subscription"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "frontend"
-      ],
-      "layer": "business",
-      "module": "commerce",
-      "parentTask": "T-049",
-      "parents": [
-        "task:T-049"
-      ],
-      "path": "social-pin/tasks/T-049 Subscription endpoints and a single Pro gate/T-049-fe Frontend · Subscription endpoints and a single Pro gate.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s70"
-      ],
-      "status": "todo",
-      "summary": "The client side of T-049 Subscription endpoints and a single Pro gate: the screens below show what its What describes, built against Subscription (Free vs Pro) Backend Integration once the backend…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/commerce",
-        "priority/high",
-        "frontend"
-      ],
-      "task": null,
-      "title": "T-049-fe Frontend · Subscription endpoints and a single Pro gate",
-      "updated": "2026-10-26"
-    },
     "task:T-051": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-049",
-          "title": "T-049 Subscription endpoints and a single Pro gate",
-          "why": "T-049 Subscription endpoints and a single Pro gate is to do"
-        }
-      ],
+      "blockedBy": [],
       "card": "T-051",
       "children": [
         "story:T-051",
@@ -69753,9 +69339,7 @@
       "created": "2026-10-15",
       "deadline": null,
       "decision": null,
-      "depends": [
-        "task:T-049"
-      ],
+      "depends": [],
       "dir": "social-pin/tasks/T-051 Gemma assistant sheet and suggestions",
       "effectiveStatus": "needs-decision",
       "effort": "L",
@@ -69780,13 +69364,15 @@
       "priority": "medium",
       "related": [
         "story:interests",
+        "story:subscription",
         "frontend-requirements:interests"
       ],
       "release": "later",
       "resolution": null,
       "rollup": {
-        "blocked": 2,
-        "draft": 1
+        "blocked": 1,
+        "draft": 1,
+        "todo": 1
       },
       "scope": null,
       "screens": [
@@ -69806,24 +69392,16 @@
     },
     "task:T-051-be": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-049",
-          "title": "T-049 Subscription endpoints and a single Pro gate",
-          "why": "T-049 Subscription endpoints and a single Pro gate is to do"
-        }
-      ],
+      "blockedBy": [],
       "card": "T-051-be",
       "children": [],
       "code": "T-051-be",
       "created": "2026-10-18",
       "deadline": null,
       "decision": null,
-      "depends": [
-        "task:T-049"
-      ],
+      "depends": [],
       "dir": null,
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "todo",
       "effort": "L",
       "feature": "gemma",
       "foundOn": null,
@@ -69847,7 +69425,8 @@
       "pending": [],
       "priority": "medium",
       "related": [
-        "story:interests"
+        "story:interests",
+        "story:subscription"
       ],
       "release": "later",
       "resolution": null,
@@ -69873,14 +69452,9 @@
       "affects": [],
       "blockedBy": [
         {
-          "id": "task:T-049",
-          "title": "T-049 Subscription endpoints and a single Pro gate",
-          "why": "T-049 Subscription endpoints and a single Pro gate is to do"
-        },
-        {
           "id": "task:T-051-be",
           "title": "T-051-be Backend · Gemma assistant sheet and suggestions",
-          "why": "T-051-be Backend · Gemma assistant sheet and suggestions is blocked"
+          "why": "T-051-be Backend · Gemma assistant sheet and suggestions is to do"
         }
       ],
       "card": "T-051-fe",
@@ -69890,7 +69464,6 @@
       "deadline": null,
       "decision": null,
       "depends": [
-        "task:T-049",
         "task:T-051-be"
       ],
       "dir": null,
@@ -69918,7 +69491,8 @@
       "pending": [],
       "priority": "medium",
       "related": [
-        "story:interests"
+        "story:interests",
+        "story:subscription"
       ],
       "release": "later",
       "resolution": null,

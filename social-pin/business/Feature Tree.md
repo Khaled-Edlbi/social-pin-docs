@@ -92,7 +92,6 @@ Social Pin backend
 ├── Commerce  (❌2)
 │   ├── ❌ Payments & Orders  [High]
 │   └── ❌ Subscription (Free vs Pro)  [High]
-│       └── ⬜ T-049 Subscription endpoints and a single Pro gate
 └── Platform & Cross-cutting  (🟡5 ❌5 ⬜1)
     ├── 🟡 Error Contract  [Critical]
     │   └── ⬜ T-063 Put the ErrorCode on the error body
@@ -192,7 +191,7 @@ Orders, payments, payment webhook, Free vs Pro subscription and the Pro gates.
 | Feature | Status | Priority | Screens | Open tasks |
 |---|---|---|---|---|
 | [[Payments & Orders]] | ❌ TODO | High | s50, s51 | 0 |
-| [[Subscription (Free vs Pro)]] | ❌ TODO | High | s34, s70 | 1 |
+| [[Subscription (Free vs Pro)]] | ❌ TODO | High | s34, s70 | 0 |
 
 ## Platform & Cross-cutting
 

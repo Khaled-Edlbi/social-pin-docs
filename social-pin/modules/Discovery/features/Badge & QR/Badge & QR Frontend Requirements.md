@@ -51,7 +51,7 @@ What the client needs from the backend to build the screens in [[Badge & QR Stor
 | Scan count per Ring | — | ❌ | [[T-009 Scan counter and share link]] |
 | Share link URL | — | ❌ | [[T-009 Scan counter and share link]] |
 | Browser page behind the share link | — | ❌ | [[T-010 Public browser page for viewers without the app]] |
-| Permanent token (Pro) | — | ❌ | [[T-049 Subscription endpoints and a single Pro gate]] |
+| Permanent token (Pro) | — | ❌ | [[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]] |
 | Event pass token, 60 s window | — | ❌ | [[T-037 Event pass with a 60 s rotating code]] |
 | NFC card bound to the same token | — | ❌ | [[T-015 Pair and revoke an NFC card]] |
 | Connect from s44 | — | ❌ | [[T-021 Connect request send, inbox, cancel]] |
@@ -83,5 +83,5 @@ What the client needs from the backend to build the screens in [[Badge & QR Stor
 
 - [[T-010 Public browser page for viewers without the app]] — the share link row and the anonymous-visitor persona (needs a decision on which Ring is public).
 - [[T-007 Issue and rotate the QR token for a Ring]] and [[T-008 Resolve a scanned QR token]] — the token rows; nothing on s34 or s43 is real without them.
-- [[T-049 Subscription endpoints and a single Pro gate]] — the permanent-code row.
+- [[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]] — the permanent-code row.
 - [[T-063 Put the ErrorCode on the error body]] — the error table is by status until then.

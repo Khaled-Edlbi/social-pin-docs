@@ -10,7 +10,7 @@ affects: []
 related: ["Badge & QR"]
 owner: "omar"
 created: 2026-10-25
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [needs-decision, needs-decision/draft]
 ---
 
@@ -28,7 +28,7 @@ Whether opening the badge ([[Screen Index#s34|s34]]) always issues a new token, 
 
 - [[T-007 Story]] already assumes a stable token: S2 reuses a Ring's token when the owner switches back to it while it is valid; S3 rotates it after 24 h and revokes the old one; S4 shows the last token offline with *Refreshing*.
 - Each Ring has its own token; deleting a Ring revokes it (S5).
-- The Pro permanent token ([[T-049 Subscription endpoints and a single Pro gate]]) and the 60 s event pass ([[T-037 Event pass with a 60 s rotating code]]) have their own rules; this card is about the free 24 h token.
+- The Pro permanent token ([[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]]) and the 60 s event pass ([[T-037 Event pass with a 60 s rotating code]]) have their own rules; this card is about the free 24 h token.
 - The app needs `issuedAt` / `expiresAt` from the server whichever option is chosen, so the countdown never trusts the phone's clock.
 
 ## Options

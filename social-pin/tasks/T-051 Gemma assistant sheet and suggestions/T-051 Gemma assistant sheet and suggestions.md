@@ -7,11 +7,11 @@ effort: L
 feature: gemma
 module: platform
 screens: [s13]
-depends: ["T-049"]
+depends: []
 created: 2026-10-15
 updated: 2026-10-27
 tags: [task, task/needs-info, module/platform, priority/medium]
-related: ["Interests Story"]
+related: ["Interests Story", "Subscription (Free vs Pro) Story"]
 ---
 
 # ❓ T-051 · Gemma assistant sheet and suggestions
@@ -31,7 +31,7 @@ Model and provider undecided. Every suggestion scoped by what the asking user ca
 ## Dependencies
 
 - Waits on [[Interests Story|Interests · S5]]
-- Waits on [[T-049 Subscription endpoints and a single Pro gate]]
+- Waits on [[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]]
 - Unblocks [[T-052 Smart Match]]
 
 ## Definition of done

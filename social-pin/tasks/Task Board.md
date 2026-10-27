@@ -93,7 +93,6 @@ kanban-plugin: board
 - [ ] [[T-048b Booth analytics and leads CSV export]] #high #exhibitor
 - [ ] [[T-048b-be Backend · Booth analytics and leads CSV export]] #high #exhibitor #backend
 - [ ] [[T-048b-fe Frontend · Booth analytics and leads CSV export]] #high #exhibitor #frontend
-- [ ] [[T-049-fe Frontend · Subscription endpoints and a single Pro gate]] #high #subscription #frontend
 - [ ] [[T-013 Usage count per file across Rings]] #medium #photo-library
 - [ ] [[T-013-be Backend · Usage count per file across Rings]] #medium #photo-library #backend
 - [ ] [[T-013-fe Frontend · Usage count per file across Rings]] #medium #photo-library #frontend
@@ -107,7 +106,6 @@ kanban-plugin: board
 - [ ] [[T-028-be Backend · What you contribute to a shared Ring]] #medium #ring-invitations #backend
 - [ ] [[T-028-fe Frontend · What you contribute to a shared Ring]] #medium #ring-invitations #frontend
 - [ ] [[T-031-fe Frontend · Import contacts]] #medium #discover-hub #frontend
-- [ ] [[T-051-be Backend · Gemma assistant sheet and suggestions]] #medium #gemma #backend
 - [ ] [[T-051-fe Frontend · Gemma assistant sheet and suggestions]] #medium #gemma #frontend
 - [ ] [[T-052 Smart Match]] #medium #gemma
 - [ ] [[T-052-be Backend · Smart Match]] #medium #gemma #backend
@@ -146,10 +144,9 @@ kanban-plugin: board
 - [ ] [[T-045-be Backend · NotificationService.emit and the inbox]] #high #notifications #backend
 - [ ] [[T-048 Business account setup → business Ring]] #high #exhibitor
 - [ ] [[T-048-be Backend · Business account setup → business Ring]] #high #exhibitor #backend
-- [ ] [[T-049 Subscription endpoints and a single Pro gate]] #high #subscription
-- [ ] [[T-049-be Backend · Subscription endpoints and a single Pro gate]] #high #subscription #backend
 - [ ] [[T-020b-be Backend · Business card scan and portfolio URL import]] #medium #onboarding-imports #backend
 - [ ] [[T-031-be Backend · Import contacts]] #medium #discover-hub #backend
+- [ ] [[T-051-be Backend · Gemma assistant sheet and suggestions]] #medium #gemma #backend
 
 
 ## 🔵 In progress

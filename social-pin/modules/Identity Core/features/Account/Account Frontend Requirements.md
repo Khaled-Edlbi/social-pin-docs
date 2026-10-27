@@ -64,7 +64,7 @@ What the client needs from the backend to build the account section of Me, and w
 | Linked accounts (LinkedIn) | — | ❌ | [[Linked Accounts (OAuth) Story|Linked Accounts (OAuth) · S7]] |
 | Devices list | — | ❌ | [[T-014 Register devices on login; list and remove]] |
 | NFC card | — | ❌ | [[T-015 Pair and revoke an NFC card]] |
-| Subscription / Upgrade | — | ❌ | [[T-049 Subscription endpoints and a single Pro gate]] |
+| Subscription / Upgrade | — | ❌ | [[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]] |
 | Re-verify a changed email or phone | — | ❌ | no task yet; gap recorded in [[Account#Gaps]] |
 
 ## Behaviour expectations

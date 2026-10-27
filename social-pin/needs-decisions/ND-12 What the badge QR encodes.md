@@ -10,7 +10,7 @@ affects: []
 related: ["Badge & QR"]
 owner: "omar"
 created: 2026-10-25
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [needs-decision, needs-decision/draft]
 ---
 
@@ -22,7 +22,7 @@ tags: [needs-decision, needs-decision/draft]
 
 ## What has to be decided
 
-What the QR on the badge ([[Screen Index#s34|s34]]) carries: the bare token, or a URL with the token in it. A bare token works only when the Social Pin app scans it ([[Screen Index#s43|s43]]); a phone's own camera shows it as text, and someone without the app gets nothing. A URL opens the app when it is installed and a browser page when it is not ([[T-010 Public browser page for viewers without the app]]). The choice fixes the format of every code ever shown or printed (Pro codes are permanent: [[T-049 Subscription endpoints and a single Pro gate]]), so it is hard to change later. Until it is chosen, [[T-007 Issue and rotate the QR token for a Ring]] cannot fix its response shape and the app cannot tell "a Social Pin code" from any other QR ([[T-008 Story]] S3).
+What the QR on the badge ([[Screen Index#s34|s34]]) carries: the bare token, or a URL with the token in it. A bare token works only when the Social Pin app scans it ([[Screen Index#s43|s43]]); a phone's own camera shows it as text, and someone without the app gets nothing. A URL opens the app when it is installed and a browser page when it is not ([[T-010 Public browser page for viewers without the app]]). The choice fixes the format of every code ever shown or printed (Pro codes are permanent: [[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]]), so it is hard to change later. Until it is chosen, [[T-007 Issue and rotate the QR token for a Ring]] cannot fix its response shape and the app cannot tell "a Social Pin code" from any other QR ([[T-008 Story]] S3).
 
 ## Notes
 

@@ -44,7 +44,7 @@ What the client needs to build the Gemma sheet, Smart Match and the inline sugge
 | Confirm or reject an AI action | — | ❌ | [[T-051 Gemma assistant sheet and suggestions]] |
 | Smart Match list for an event; mark viewed / dismissed | — | ❌ | [[T-052 Smart Match]] (blocked on T-051 and [[T-036 Event mode exhibitors list and detail]]) |
 | Auto-send meeting requests from matches (Pro) | — | ❌ | [[T-052 Smart Match]] via [[T-042 Meeting request, accept with slots, decline with reason]] |
-| Pro gate on Smart Match and automation | — | ❌ | [[T-049 Subscription endpoints and a single Pro gate]] |
+| Pro gate on Smart Match and automation | — | ❌ | [[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]] |
 | Interests feeding matchmaking | — | ❌ | [[Interests Story|Interests · S5]] |
 | Pin-name suggestions | — | ❌ | [[ND-06 Pin name rules]] |
 
@@ -55,13 +55,13 @@ What the client needs to build the Gemma sheet, Smart Match and the inline sugge
 - Refetch / realtime: refetch the session after each confirm; refetch Smart Match on entering event mode and after a request is sent. No streaming is specified.
 - Caching keys: `gemma:session:{contextType}:{contextId}`; `smartMatch:{eventId}`; clear both on logout and on a Ring switch.
 - Pagination / ordering: Smart Match ordered by `strength` then `score` descending; the paginated envelope `{ data, meta: { total } }` with `limit` ≤ 50 applies if the list is paginated.
-- Pro: render the Smart Match entry for every user; the list for Pro only. The gate's error is not defined until T-049.
+- Pro: render the Smart Match entry for every user; the list for Pro only. The gate's error is not defined until Subscription (Free vs Pro) · S6.
 
 ## Error states the UI must handle
 
 | Status | ErrorCode | Show |
 |---|---|---|
-| 403 | not defined yet (Pro gate, T-049) | upgrade prompt |
+| 403 | not defined yet (Pro gate, Subscription (Free vs Pro) · S6) | upgrade prompt |
 | 404 | `E_RING_ACCESS_*` on `/views` for a matched person who became invisible | drop the card; one generic message |
 | 409 | not defined yet | action already confirmed or executed; refetch the session |
 

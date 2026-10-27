@@ -7,7 +7,7 @@ module: events
 status: draft
 screens: [s53, s54, s55, s56, s57, s58]
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [story, story/draft, module/events, layer/business]
 ---
 
@@ -106,5 +106,5 @@ Acceptance criteria:
 
 - No decision note exists. Open points:
 - [[T-039 Catalogue products and talks (new table)]] — schema for products and talks undecided; S6.
-- [[T-049 Subscription endpoints and a single Pro gate]] — until the `ProGate` exists, S1 and S7 cannot show a truthful lock.
+- [[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]] — until the `ProGate` exists, S1 and S7 cannot show a truthful lock.
 - [[T-052 Smart Match]] — Pro and Gemma; the tile exists on s53 but the feature is [[Gemma AI]]'s.

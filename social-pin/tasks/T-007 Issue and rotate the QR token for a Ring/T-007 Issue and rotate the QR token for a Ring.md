@@ -9,7 +9,7 @@ module: discovery
 screens: [s34]
 depends: []
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [task, task/todo, module/discovery, priority/critical]
 ---
 
@@ -21,7 +21,7 @@ tags: [task, task/todo, module/discovery, priority/critical]
 
 ## What
 
-`POST /rings/:ringId/qr` returns an opaque token; previous token revoked; 24 h rotation. Permanent token behind the Pro gate (T-049).
+`POST /rings/:ringId/qr` returns an opaque token; previous token revoked; 24 h rotation. Permanent token behind the Pro gate (Subscription (Free vs Pro) · S6).
 
 ## Design
 

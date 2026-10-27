@@ -14,7 +14,7 @@ approvedBy: ""
 approvedAt: ""
 owner: "omar"
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [story, story/draft, module/discovery, layer/business]
 task: T-007
 ---
@@ -25,7 +25,7 @@ task: T-007
 
 > Derived from the task [[T-007 Issue and rotate the QR token for a Ring]]; **not approved by product yet**. The feature-level story is [[Badge & QR Story]]; this note says what the user gets from this task in particular. `approved` when product signs off (`approvedBy`, `approvedAt`); `verified` when both QA notes are `passing`.
 
-`POST /rings/:ringId/qr` returns an opaque token; previous token revoked; 24 h rotation. Permanent token behind the Pro gate (T-049).
+`POST /rings/:ringId/qr` returns an opaque token; previous token revoked; 24 h rotation. Permanent token behind the Pro gate (Subscription (Free vs Pro) · S6).
 
 ## Persona
 
@@ -82,7 +82,7 @@ Acceptance criteria:
 **As a** Pro user **I want** a permanent code **so that** I print it once.
 
 Acceptance criteria:
-- [ ] Out of scope here: [[T-049 Subscription endpoints and a single Pro gate]]. A free account always gets the 24 h token; the badge shows *Get Pro* next to the "rotates daily" line.
+- [ ] Out of scope here: [[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]]. A free account always gets the 24 h token; the badge shows *Get Pro* next to the "rotates daily" line.
 
 ## States and motion the design asks for
 

@@ -7,7 +7,7 @@ module: meetings
 status: draft
 screens: [s59, s61, s64, s66, s67]
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [frontend-requirements, frontend-requirements/draft, module/meetings, layer/frontend]
 ---
 
@@ -80,7 +80,7 @@ What the client needs for the slot-based request, the incoming list, the calenda
 | 404 on `GET /views/ring/:ringId` (window not open, declined, blocked) | `E_RING_ACCESS_01` | "Profile not available", same copy for every cause |
 | 404 on `GET /views/ring/:ringId` (window ended) | `E_RING_ACCESS_02` | "This meeting has ended", open the disposition sheet |
 | 400 / 404 on the disposition | `E_RING_07` / `E_RING_02` | As in [[Post-Event Frontend Requirements]] |
-| 403 Pro gate on Gemma auto-request | to be defined by [[T-049 Subscription endpoints and a single Pro gate]] | "Go Pro" → s70 |
+| 403 Pro gate on Gemma auto-request | to be defined by [[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]] | "Go Pro" → s70 |
 
 ## Blocked by
 

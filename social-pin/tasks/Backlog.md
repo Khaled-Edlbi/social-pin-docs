@@ -112,9 +112,9 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-039 Catalogue products and talks (new table)]] | [[Events During]] | Events | ❓ Needs decision | L | — | [[T-036 Event mode exhibitors list and detail|T-036]] |
 | [[T-039-be Backend · Catalogue products and talks (new table)]] `backend` | [[Events During]] | Events | ⛔ Blocked | L | — | [[T-036 Event mode exhibitors list and detail|T-036]] |
 | [[T-039-fe Frontend · Catalogue products and talks (new table)]] `frontend` | [[Events During]] | Events | ⛔ Blocked | L | — | [[T-036 Event mode exhibitors list and detail|T-036]], [[T-039-be Backend · Catalogue products and talks (new table)|T-039-be]] |
-| [[T-040 Lounges and upgrades]] | [[Events During]] | Events | ⛔ Blocked | M | — | [[T-034 Tickets, packages, levels, sold-out|T-034]], [[T-049 Subscription endpoints and a single Pro gate|T-049]] |
-| [[T-040-be Backend · Lounges and upgrades]] `backend` | [[Events During]] | Events | ⛔ Blocked | M | — | [[T-034 Tickets, packages, levels, sold-out|T-034]], [[T-049 Subscription endpoints and a single Pro gate|T-049]] |
-| [[T-040-fe Frontend · Lounges and upgrades]] `frontend` | [[Events During]] | Events | ⛔ Blocked | M | — | [[T-034 Tickets, packages, levels, sold-out|T-034]], [[T-049 Subscription endpoints and a single Pro gate|T-049]], [[T-040-be Backend · Lounges and upgrades|T-040-be]] |
+| [[T-040 Lounges and upgrades]] | [[Events During]] | Events | ⛔ Blocked | M | — | [[T-034 Tickets, packages, levels, sold-out|T-034]] |
+| [[T-040-be Backend · Lounges and upgrades]] `backend` | [[Events During]] | Events | ⛔ Blocked | M | — | [[T-034 Tickets, packages, levels, sold-out|T-034]] |
+| [[T-040-fe Frontend · Lounges and upgrades]] `frontend` | [[Events During]] | Events | ⛔ Blocked | M | — | [[T-034 Tickets, packages, levels, sold-out|T-034]], [[T-040-be Backend · Lounges and upgrades|T-040-be]] |
 | [[T-045 NotificationService.emit and the inbox]] | [[Notifications]] | Platform & Cross-cutting | ⬜ To do | M | — | — |
 | [[T-045-be Backend · NotificationService.emit and the inbox]] `backend` | [[Notifications]] | Platform & Cross-cutting | ⬜ To do | M | — | — |
 | [[T-045-fe Frontend · NotificationService.emit and the inbox]] `frontend` | [[Notifications]] | Platform & Cross-cutting | ⛔ Blocked | M | — | [[T-045-be Backend · NotificationService.emit and the inbox|T-045-be]] |
@@ -127,9 +127,6 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-048b Booth analytics and leads CSV export]] | [[Exhibitor]] | Events | ⛔ Blocked | M | — | [[T-009 Scan counter and share link|T-009]], [[T-036 Event mode exhibitors list and detail|T-036]] |
 | [[T-048b-be Backend · Booth analytics and leads CSV export]] `backend` | [[Exhibitor]] | Events | ⛔ Blocked | M | — | [[T-009 Scan counter and share link|T-009]], [[T-036 Event mode exhibitors list and detail|T-036]] |
 | [[T-048b-fe Frontend · Booth analytics and leads CSV export]] `frontend` | [[Exhibitor]] | Events | ⛔ Blocked | M | — | [[T-009 Scan counter and share link|T-009]], [[T-036 Event mode exhibitors list and detail|T-036]], [[T-048b-be Backend · Booth analytics and leads CSV export|T-048b-be]] |
-| [[T-049 Subscription endpoints and a single Pro gate]] | [[Subscription (Free vs Pro)]] | Commerce | ⬜ To do | M | — | — |
-| [[T-049-be Backend · Subscription endpoints and a single Pro gate]] `backend` | [[Subscription (Free vs Pro)]] | Commerce | ⬜ To do | M | — | — |
-| [[T-049-fe Frontend · Subscription endpoints and a single Pro gate]] `frontend` | [[Subscription (Free vs Pro)]] | Commerce | ⛔ Blocked | M | — | [[T-049-be Backend · Subscription endpoints and a single Pro gate|T-049-be]] |
 | [[T-068 Account moderation and platform role]] | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | M | — | — |
 | [[T-068-be Backend · Account moderation and platform role]] `backend` | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | M | — | — |
 | [[T-069 Scoped role grants]] | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | M | — | [[T-068 Account moderation and platform role|T-068]] |
@@ -160,9 +157,9 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-031 Import contacts]] | [[Discover Hub & Search]] | Discovery | ❓ Needs decision | M | — | — |
 | [[T-031-be Backend · Import contacts]] `backend` | [[Discover Hub & Search]] | Discovery | ⬜ To do | M | — | — |
 | [[T-031-fe Frontend · Import contacts]] `frontend` | [[Discover Hub & Search]] | Discovery | ⛔ Blocked | M | — | [[T-031-be Backend · Import contacts|T-031-be]] |
-| [[T-051 Gemma assistant sheet and suggestions]] | [[Gemma AI]] | Platform & Cross-cutting | ❓ Needs decision | L | — | [[T-049 Subscription endpoints and a single Pro gate|T-049]] |
-| [[T-051-be Backend · Gemma assistant sheet and suggestions]] `backend` | [[Gemma AI]] | Platform & Cross-cutting | ⛔ Blocked | L | — | [[T-049 Subscription endpoints and a single Pro gate|T-049]] |
-| [[T-051-fe Frontend · Gemma assistant sheet and suggestions]] `frontend` | [[Gemma AI]] | Platform & Cross-cutting | ⛔ Blocked | L | — | [[T-049 Subscription endpoints and a single Pro gate|T-049]], [[T-051-be Backend · Gemma assistant sheet and suggestions|T-051-be]] |
+| [[T-051 Gemma assistant sheet and suggestions]] | [[Gemma AI]] | Platform & Cross-cutting | ❓ Needs decision | L | — | — |
+| [[T-051-be Backend · Gemma assistant sheet and suggestions]] `backend` | [[Gemma AI]] | Platform & Cross-cutting | ⬜ To do | L | — | — |
+| [[T-051-fe Frontend · Gemma assistant sheet and suggestions]] `frontend` | [[Gemma AI]] | Platform & Cross-cutting | ⛔ Blocked | L | — | [[T-051-be Backend · Gemma assistant sheet and suggestions|T-051-be]] |
 | [[T-052 Smart Match]] | [[Gemma AI]] | Platform & Cross-cutting | ⛔ Blocked | L | — | [[T-051 Gemma assistant sheet and suggestions|T-051]], [[T-036 Event mode exhibitors list and detail|T-036]] |
 | [[T-052-be Backend · Smart Match]] `backend` | [[Gemma AI]] | Platform & Cross-cutting | ⛔ Blocked | L | — | [[T-051 Gemma assistant sheet and suggestions|T-051]], [[T-036 Event mode exhibitors list and detail|T-036]] |
 | [[T-052-fe Frontend · Smart Match]] `frontend` | [[Gemma AI]] | Platform & Cross-cutting | ⛔ Blocked | L | — | [[T-051 Gemma assistant sheet and suggestions|T-051]], [[T-036 Event mode exhibitors list and detail|T-036]], [[T-052-be Backend · Smart Match|T-052-be]] |

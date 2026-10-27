@@ -9,9 +9,9 @@ module: platform
 parent: T-051
 labels: [backend]
 screens: [s13]
-depends: ["T-049"]
+depends: []
 affects: []
-related: ["Interests Story"]
+related: ["Interests Story", "Subscription (Free vs Pro) Story"]
 pending: []
 created: 2026-10-18
 updated: 2026-10-27
