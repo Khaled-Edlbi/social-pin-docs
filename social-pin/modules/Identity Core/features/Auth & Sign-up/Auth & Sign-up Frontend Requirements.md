@@ -96,9 +96,9 @@ Sign-in is steps 1 and 2 only, then Home.
 | The default Ring after registration | `GET /rings` | ✅ | — (listed under [[Rings]]) |
 | Suggested handles on s06 | — (client, from the person's own name) | ✅ | — ([[D-06 Yearly rename, old name freed, case-insensitive]]) |
 | The once-a-year rename limit | — | ❌ | [[Profiles & Pin Name Story|Profiles & Pin Name · S12–S13]] |
-| The code actually delivered by email | — | ❌ | [[T-001 Wire an email provider for one-time codes]] |
-| The code actually delivered by SMS | — | ❌ | [[T-002 Wire an SMS provider for one-time codes]] |
-| `devCode` removed from every challenge | — | ❌ | [[T-003 Remove devCode once delivery works]] |
+| The code actually delivered by email | — | ❌ | [[Code Delivery Story|Code Delivery · S6]] |
+| The code actually delivered by SMS | — | ❌ | [[Code Delivery Story|Code Delivery · S7]] |
+| `devCode` removed from every challenge | — | ❌ | [[Code Delivery Story|Code Delivery · S8]] |
 | Register the device on sign-in (s75) | — | ❌ | [[Devices & NFC Story|Devices & NFC · S6]] |
 | Sign in with LinkedIn | — | ❌ | [[Linked Accounts (OAuth) Story|Linked Accounts (OAuth) · S7]] |
 | Stable `ErrorCode` on the error body | — | ❌ | [[Error Contract Story|Error Contract · S4–S8]] |
@@ -135,5 +135,5 @@ Removed on 2026-10-15 and not coming back: `POST /auth/reset-password`, `POST /a
 
 ## Blocked by
 
-- Nothing for the flows above. [[T-001 Wire an email provider for one-time codes]] / [[T-002 Wire an SMS provider for one-time codes]] decide when `devCode` can go ([[T-003 Remove devCode once delivery works]]).
+- Nothing for the flows above. [[Code Delivery Story|Code Delivery · S6]] / [[Code Delivery Story|Code Delivery · S7]] decide when `devCode` can go ([[Code Delivery Story|Code Delivery · S8]]).
 - The rename limit on s06 waits on [[Profiles & Pin Name Story|Profiles & Pin Name · S12–S13]].

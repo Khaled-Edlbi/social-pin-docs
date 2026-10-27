@@ -115,7 +115,7 @@ Two bodies carry the sign-out meaning, and since [[B-02 Deleted account answers 
 - `PATCH /users/me` cannot touch `accountType`, `role` or `status`: the whitelist answers 400 before anything is written, so there is no self-promotion to `PRO` or `ADMIN` (B11 ✅).
 - `POST /auth/login` on an unknown, deleted or never-registered address answers 201 with no `devCode`, so the response never reveals whether an account exists (B16 ✅).
 - No code, token or password is in any account response (B2 ✅).
-- **Standing caveat, not a row:** while `devCode` is returned in every environment, knowing an address is enough to sign in as it ([[Account Backend Integration]], [[T-003 Remove devCode once delivery works]]). Every privacy result above holds only against a caller who does not know the address.
+- **Standing caveat, not a row:** while `devCode` is returned in every environment, knowing an address is enough to sign in as it ([[Account Backend Integration]], [[Code Delivery Story|Code Delivery · S8]]). Every privacy result above holds only against a caller who does not know the address.
 - **Tester trap:** the North-American `+1 555 555 01xx` range is rejected as "phone must be a valid phone number". That is correct E.164 validation of a reserved fictional range, not a defect; use a real-shaped number such as `+442071838750`.
 
 ## Verdict

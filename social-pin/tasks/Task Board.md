@@ -16,8 +16,6 @@ kanban-plugin: board
 
 ## ⛔ Blocked
 
-- [ ] [[T-002 Wire an SMS provider for one-time codes]] #critical #code-delivery
-- [ ] [[T-002-be Backend · Wire an SMS provider for one-time codes]] #critical #code-delivery #backend
 - [ ] [[T-007-fe Frontend · Issue and rotate the QR token for a Ring]] #critical #badge-qr #frontend
 - [ ] [[T-008 Resolve a scanned QR token]] #critical #badge-qr
 - [ ] [[T-008-be Backend · Resolve a scanned QR token]] #critical #badge-qr #backend
@@ -49,8 +47,6 @@ kanban-plugin: board
 - [ ] [[T-044 My meetings, calendar, detail, reschedule, cancel]] #critical #meetings
 - [ ] [[T-044-be Backend · My meetings, calendar, detail, reschedule, cancel]] #critical #meetings #backend
 - [ ] [[T-044-fe Frontend · My meetings, calendar, detail, reschedule, cancel]] #critical #meetings #frontend
-- [ ] [[T-003 Remove devCode once delivery works]] #high #code-delivery
-- [ ] [[T-003-be Backend · Remove devCode once delivery works]] #high #code-delivery #backend
 - [ ] [[T-009 Scan counter and share link]] #high #badge-qr
 - [ ] [[T-009-be Backend · Scan counter and share link]] #high #badge-qr #backend
 - [ ] [[T-009-fe Frontend · Scan counter and share link]] #high #badge-qr #frontend
@@ -80,8 +76,6 @@ kanban-plugin: board
 
 ## ⬜ To do
 
-- [ ] [[T-001 Wire an email provider for one-time codes]] #critical #code-delivery
-- [ ] [[T-001-be Backend · Wire an email provider for one-time codes]] #critical #code-delivery #backend
 - [ ] [[T-007 Issue and rotate the QR token for a Ring]] #critical #badge-qr
 - [ ] [[T-007-be Backend · Issue and rotate the QR token for a Ring]] #critical #badge-qr #backend
 - [ ] [[T-021 Connect request send, inbox, cancel]] #critical #connections

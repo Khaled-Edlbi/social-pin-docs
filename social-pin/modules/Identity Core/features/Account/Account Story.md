@@ -11,7 +11,7 @@ approvedAt: 2026-10-25
 related: ["ND-20 Whether an unverified new address may sign in", "D-20 The changed address still signs in, the words are corrected", "B-01 An unverified changed email still signs in"]
 owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [story, story/approved, module/identity, layer/business]
 ---
 
@@ -99,5 +99,5 @@ Acceptance criteria:
 ## Open questions
 
 - No decision blocks this feature. Re-verifying a changed email or phone has no dedicated route; it is recorded in [[Account#Gaps]] and needs a task when the Me screen is built.
-- Whether an unverified new address may sign in was answered **for now**, not for good: [[D-20 The changed address still signs in, the words are corrected]] leaves the gate out while `POST /auth/login` still returns `devCode`, and asks for the question again when [[T-003 Remove devCode once delivery works]] lands. S2's and S3's copy changes back with it.
+- Whether an unverified new address may sign in was answered **for now**, not for good: [[D-20 The changed address still signs in, the words are corrected]] leaves the gate out while `POST /auth/login` still returns `devCode`, and asks for the question again when [[Code Delivery Story|Code Delivery · S8]] lands. S2's and S3's copy changes back with it.
 - The connection count and linked accounts on s68 belong to [[Counts]] and [[Linked Accounts (OAuth)]].

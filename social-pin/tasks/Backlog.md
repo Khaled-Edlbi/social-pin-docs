@@ -14,10 +14,6 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 
 | Task | Feature | Module | Status | Effort | Deadline | Depends on / blocked by |
 |---|---|---|---|---|---|---|
-| [[T-001 Wire an email provider for one-time codes]] | [[Code Delivery]] | Platform & Cross-cutting | ⬜ To do | S | — | — |
-| [[T-001-be Backend · Wire an email provider for one-time codes]] `backend` | [[Code Delivery]] | Platform & Cross-cutting | ⬜ To do | S | — | — |
-| [[T-002 Wire an SMS provider for one-time codes]] | [[Code Delivery]] | Platform & Cross-cutting | ⛔ Blocked | S | — | [[T-001 Wire an email provider for one-time codes|T-001]] |
-| [[T-002-be Backend · Wire an SMS provider for one-time codes]] `backend` | [[Code Delivery]] | Platform & Cross-cutting | ⛔ Blocked | S | — | [[T-001 Wire an email provider for one-time codes|T-001]] |
 | [[T-007 Issue and rotate the QR token for a Ring]] | [[Badge & QR]] | Discovery | ⬜ To do | M | — | — |
 | [[T-007-be Backend · Issue and rotate the QR token for a Ring]] `backend` | [[Badge & QR]] | Discovery | ⬜ To do | M | — | — |
 | [[T-007-fe Frontend · Issue and rotate the QR token for a Ring]] `frontend` | [[Badge & QR]] | Discovery | ⛔ Blocked | M | — | [[T-007-be Backend · Issue and rotate the QR token for a Ring|T-007-be]] |
@@ -65,8 +61,6 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | Task | Feature | Module | Status | Effort | Deadline | Depends on / blocked by |
 |---|---|---|---|---|---|---|
 | [[B-01 An unverified changed email still signs in]] `bug` | [[Account]] | Identity Core | 🟡 Partial (2 notes) · By design | S | — | — |
-| [[T-003 Remove devCode once delivery works]] | [[Code Delivery]] | Platform & Cross-cutting | ⛔ Blocked | S | — | [[T-001 Wire an email provider for one-time codes|T-001]], [[T-002 Wire an SMS provider for one-time codes|T-002]] |
-| [[T-003-be Backend · Remove devCode once delivery works]] `backend` | [[Code Delivery]] | Platform & Cross-cutting | ⛔ Blocked | S | — | [[T-001 Wire an email provider for one-time codes|T-001]], [[T-002 Wire an SMS provider for one-time codes|T-002]] |
 | [[T-009 Scan counter and share link]] | [[Badge & QR]] | Discovery | ⛔ Blocked | S | — | [[T-008 Resolve a scanned QR token|T-008]] |
 | [[T-009-be Backend · Scan counter and share link]] `backend` | [[Badge & QR]] | Discovery | ⛔ Blocked | S | — | [[T-008 Resolve a scanned QR token|T-008]] |
 | [[T-009-fe Frontend · Scan counter and share link]] `frontend` | [[Badge & QR]] | Discovery | ⛔ Blocked | S | — | [[T-008 Resolve a scanned QR token|T-008]], [[T-009-be Backend · Scan counter and share link|T-009-be]] |

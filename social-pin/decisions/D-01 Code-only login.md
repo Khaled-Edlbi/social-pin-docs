@@ -26,7 +26,7 @@ tags: [decision, decision/decided]
 
 - `POST /auth/login { identifier }` issues a LOGIN code; `POST /auth/login/verify { identifier, code }` returns the session.
 - `complete-registration` takes only `pinName` / `fullName`; `reset-password` and `change-password` are removed; `users.password_hash` is dropped.
-- `devCode` is returned in every environment until [[Code Delivery]] is wired, so the decision did **not** wait on delivery; T-003 removes it later.
+- `devCode` is returned in every environment until [[Code Delivery]] is wired, so the decision did **not** wait on delivery; Code Delivery · S8 removes it later.
 
 Options B (password and code) and C (password only) are ruled out.
 

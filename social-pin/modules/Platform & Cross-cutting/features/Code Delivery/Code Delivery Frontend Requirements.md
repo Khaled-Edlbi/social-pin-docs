@@ -28,18 +28,18 @@ What the client needs to make s02 real: the challenge response it already gets, 
 
 | Need | Endpoint | Available | Task / decision |
 |---|---|---|---|
-| Issue a sign-up code and get the challenge | `POST /auth/sign-up` | ✅ | — (`devCode` in every environment until T-003) |
-| Issue a sign-in code | `POST /auth/login` | ✅ | — (`devCode` in every environment until T-003) |
-| Resend a sign-up or sign-in code | `POST /auth/request-code` | ✅ | — (`devCode` in every environment until T-003) |
-| The email actually sent | — | ❌ | [[T-001 Wire an email provider for one-time codes]] |
-| The SMS actually sent | — | ❌ | [[T-002 Wire an SMS provider for one-time codes]] |
-| `devCode` removed from the challenge | — | ❌ | [[T-003 Remove devCode once delivery works]] (blocked on T-001, T-002) |
+| Issue a sign-up code and get the challenge | `POST /auth/sign-up` | ✅ | — (`devCode` in every environment until Code Delivery · S8) |
+| Issue a sign-in code | `POST /auth/login` | ✅ | — (`devCode` in every environment until Code Delivery · S8) |
+| Resend a sign-up or sign-in code | `POST /auth/request-code` | ✅ | — (`devCode` in every environment until Code Delivery · S8) |
+| The email actually sent | — | ❌ | [[Code Delivery Story|Code Delivery · S6]] |
+| The SMS actually sent | — | ❌ | [[Code Delivery Story|Code Delivery · S7]] |
+| `devCode` removed from the challenge | — | ❌ | [[Code Delivery Story|Code Delivery · S8]] (blocked on Code Delivery · S6, Code Delivery · S7) |
 
 ## Behaviour expectations
 
 - Refetch / realtime: none. The screen waits on the user; no polling for delivery status exists or is planned.
 - Countdown: run the resend timer from `expiresAt` (ten minutes from issue), with a shorter client-side resend cool-down product sets; the backend imposes no resend interval today, so the client must not rely on a 429 to throttle resends.
-- `devCode`: fill the input when present; never require it, never persist it, never infer account existence from it. It disappears when [[T-003 Remove devCode once delivery works]] ships; no client change is needed then if the field is treated as optional.
+- `devCode`: fill the input when present; never require it, never persist it, never infer account existence from it. It disappears when [[Code Delivery Story|Code Delivery · S8]] ships; no client change is needed then if the field is treated as optional.
 - Caching keys: none. Keep the current challenge (`destination`, `channel`, `expiresAt`) in memory for the life of s02 only.
 - Pagination / ordering: none.
 - After a wrong guess keep the digits for editing; after a 429 clear them and disable "Verify" until a new challenge arrives.
@@ -59,5 +59,5 @@ What the client needs to make s02 real: the challenge response it already gets, 
 
 ## Blocked by
 
-- No decision blocks delivery itself; [[T-001 Wire an email provider for one-time codes]] and [[T-002 Wire an SMS provider for one-time codes]] are To do.
+- No decision blocks delivery itself; [[Code Delivery Story|Code Delivery · S6]] and [[Code Delivery Story|Code Delivery · S7]] are To do.
 - [[ND-01 Passwordless login]] — decides whether the same code also logs a returning user in; it needs delivery first either way.

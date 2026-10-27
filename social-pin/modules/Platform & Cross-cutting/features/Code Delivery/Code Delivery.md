@@ -7,7 +7,7 @@ release: mvp
 module: platform
 screens: [s02]
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [feature, module/platform, priority/critical, release/mvp]
 ---
 
@@ -29,17 +29,24 @@ Wireframe brief sections: [[Wireframe Brief#The three login/signup methods|§3.2
 
 Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map in [[Navigation Map]], see [[Design Reference]].
 
-## Tasks
+## Work
 
-| Task | Status | Priority | Effort |
-|---|---|---|---|
-| [[T-001 Wire an email provider for one-time codes]] | ⬜ To do | Critical | S |
-| [[T-002 Wire an SMS provider for one-time codes]] | ⬜ To do | Critical | S |
-| [[T-003 Remove devCode once delivery works]] | ⛔ Blocked | High | S |
+One story per feature (since 2026-10-27): all of this feature's work is in [[Code Delivery Story]]. The tasks merged into it on 2026-10-27:
 
-```dataview
-TABLE status, priority, effort FROM #task WHERE feature = "code-delivery" SORT priority ASC
-```
+| Was | Title | Status then | Priority | Now in the story |
+|---|---|---|---|---|
+| T-001 | Wire an email provider for one-time codes | To do | critical | S6 |
+| T-002 | Wire an SMS provider for one-time codes | To do | critical | S7 |
+| T-003 | Remove devCode once delivery works | Blocked | high | S8 |
+
+### Log of the merged tasks
+
+- T-001 · 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
+- T-001 · 2026-10-18 · created as the backend half of T-001
+- T-002 · 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
+- T-002 · 2026-10-18 · created as the backend half of T-002
+- T-003 · 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
+- T-003 · 2026-10-18 · created as the backend half of T-003
 
 ## Related
 

@@ -113,4 +113,4 @@ Acceptance criteria:
 ## Open questions
 
 - Decided: [[D-06 Yearly rename, old name freed, case-insensitive]]: s06 suggests handles from the person's own name (built on the client); a later rename is limited to once a year ([[Profiles & Pin Name Story|Profiles & Pin Name · S12–S13]]).
-- Delivery latency once [[T-001 Wire an email provider for one-time codes]] lands: the resend cool-down and the expired state should be tuned on real numbers.
+- Delivery latency once [[Code Delivery Story|Code Delivery · S6]] lands: the resend cool-down and the expired state should be tuned on real numbers.

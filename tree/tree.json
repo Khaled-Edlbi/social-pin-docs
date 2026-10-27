@@ -269,15 +269,6 @@
     "Subscription (Free vs Pro) Backend Delivery": "backend-delivery:subscription",
     "Subscription (Free vs Pro) Frontend Requirements": "frontend-requirements:subscription",
     "Subscription (Free vs Pro) Story": "story:subscription",
-    "T-001 Story": "story:T-001",
-    "T-001 Wire an email provider for one-time codes": "task:T-001",
-    "T-001-be Backend · Wire an email provider for one-time codes": "task:T-001-be",
-    "T-002 Story": "story:T-002",
-    "T-002 Wire an SMS provider for one-time codes": "task:T-002",
-    "T-002-be Backend · Wire an SMS provider for one-time codes": "task:T-002-be",
-    "T-003 Remove devCode once delivery works": "task:T-003",
-    "T-003 Story": "story:T-003",
-    "T-003-be Backend · Remove devCode once delivery works": "task:T-003-be",
     "T-007 Issue and rotate the QR token for a Ring": "task:T-007",
     "T-007 Story": "story:T-007",
     "T-007-be Backend · Issue and rotate the QR token for a Ring": "task:T-007-be",
@@ -679,9 +670,6 @@
     "S-74": "story:audit-log",
     "S-76": "story:cleanup-jobs",
     "S-78": "story:code-delivery",
-    "S-79": "story:T-001",
-    "S-80": "story:T-002",
-    "S-81": "story:T-003",
     "S-82": "story:devices",
     "S-85": "story:e2e-tests",
     "S-87": "story:error-contract",
@@ -689,12 +677,6 @@
     "S-92": "story:interests",
     "S-94": "story:linked-accounts",
     "S-96": "story:notifications",
-    "T-001": "task:T-001",
-    "T-001-be": "task:T-001-be",
-    "T-002": "task:T-002",
-    "T-002-be": "task:T-002-be",
-    "T-003": "task:T-003",
-    "T-003-be": "task:T-003-be",
     "T-007": "task:T-007",
     "T-007-be": "task:T-007-be",
     "T-007-fe": "task:T-007-fe",
@@ -3090,13 +3072,7 @@
       "containers": [
         "feature:auth",
         "feature:code-delivery",
-        "needs-decision:ND-01",
-        "task:T-001",
-        "task:T-001-be",
-        "task:T-002",
-        "task:T-002-be",
-        "task:T-003",
-        "task:T-003-be"
+        "needs-decision:ND-01"
       ],
       "kind": "screen",
       "notes": [
@@ -3108,17 +3084,8 @@
         "frontend-requirements:auth",
         "frontend-requirements:code-delivery",
         "needs-decision:ND-01",
-        "story:T-001",
-        "story:T-002",
-        "story:T-003",
         "story:auth",
-        "story:code-delivery",
-        "task:T-001",
-        "task:T-001-be",
-        "task:T-002",
-        "task:T-002-be",
-        "task:T-003",
-        "task:T-003-be"
+        "story:code-delivery"
       ],
       "owner": null
     },
@@ -4582,7 +4549,7 @@
     }
   },
   "counts": {
-    "blocked": 99,
+    "blocked": 95,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -4595,28 +4562,28 @@
       "project": 27,
       "qa-backend": 1,
       "qa-frontend": 1,
-      "story": 72,
-      "task": 89
+      "story": 69,
+      "task": 83
     },
     "byLayer": {
       "backend": 56,
-      "business": 240,
+      "business": 231,
       "frontend": 44,
       "qa": 2,
       "shared": 10
     },
     "concepts": 199,
     "decisions": 19,
-    "edges": 4419,
+    "edges": 4362,
     "features": 41,
-    "layerNotes": 162,
+    "layerNotes": 159,
     "modules": 8,
-    "notes": 388,
+    "notes": 379,
     "partial": 4,
     "placeholders": 155,
     "records": 14,
-    "taskLayerNotes": 32,
-    "tasks": 89
+    "taskLayerNotes": 29,
+    "tasks": 83
   },
   "deadlines": {
     "missed": {
@@ -6232,36 +6199,6 @@
       "to": "frontend-requirements:ring-invitations"
     },
     {
-      "from": "task:T-001",
-      "kind": "blocks",
-      "to": "task:T-002"
-    },
-    {
-      "from": "task:T-001",
-      "kind": "blocks",
-      "to": "task:T-002-be"
-    },
-    {
-      "from": "task:T-001",
-      "kind": "blocks",
-      "to": "task:T-003"
-    },
-    {
-      "from": "task:T-001",
-      "kind": "blocks",
-      "to": "task:T-003-be"
-    },
-    {
-      "from": "task:T-002",
-      "kind": "blocks",
-      "to": "task:T-003"
-    },
-    {
-      "from": "task:T-002",
-      "kind": "blocks",
-      "to": "task:T-003-be"
-    },
-    {
       "from": "task:T-007",
       "kind": "blocks",
       "to": "task:T-008"
@@ -7000,36 +6937,6 @@
       "from": "story:payments",
       "kind": "depends",
       "to": "needs-decision:ND-07"
-    },
-    {
-      "from": "task:T-002",
-      "kind": "depends",
-      "to": "task:T-001"
-    },
-    {
-      "from": "task:T-002-be",
-      "kind": "depends",
-      "to": "task:T-001"
-    },
-    {
-      "from": "task:T-003",
-      "kind": "depends",
-      "to": "task:T-001"
-    },
-    {
-      "from": "task:T-003",
-      "kind": "depends",
-      "to": "task:T-002"
-    },
-    {
-      "from": "task:T-003-be",
-      "kind": "depends",
-      "to": "task:T-001"
-    },
-    {
-      "from": "task:T-003-be",
-      "kind": "depends",
-      "to": "task:T-002"
     },
     {
       "from": "task:T-007-fe",
@@ -8214,6 +8121,11 @@
     {
       "from": "backend-delivery:account",
       "kind": "related",
+      "to": "story:code-delivery"
+    },
+    {
+      "from": "backend-delivery:account",
+      "kind": "related",
       "to": "story:error-contract",
       "via": [
         "E_AUTH_03"
@@ -8237,11 +8149,6 @@
         "POST /auth/login",
         "POST /auth/login/verify"
       ]
-    },
-    {
-      "from": "backend-delivery:account",
-      "kind": "related",
-      "to": "task:T-003"
     },
     {
       "from": "backend-delivery:auth",
@@ -8788,7 +8695,7 @@
     {
       "from": "decision:D-20",
       "kind": "related",
-      "to": "task:T-003"
+      "to": "story:code-delivery"
     },
     {
       "from": "feature:account",
@@ -10601,7 +10508,7 @@
     {
       "from": "needs-decision:ND-20",
       "kind": "related",
-      "to": "task:T-003"
+      "to": "story:code-delivery"
     },
     {
       "from": "needs-decision:ND-21",
@@ -11073,30 +10980,6 @@
       "from": "story:badge-qr",
       "kind": "related",
       "to": "story:T-010",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
-      "from": "story:code-delivery",
-      "kind": "related",
-      "to": "story:T-001",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
-      "from": "story:code-delivery",
-      "kind": "related",
-      "to": "story:T-002",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
-      "from": "story:code-delivery",
-      "kind": "related",
-      "to": "story:T-003",
       "via": [
         "sum-of"
       ]
@@ -11640,7 +11523,7 @@
     {
       "from": "task:B-01",
       "kind": "related",
-      "to": "task:T-003"
+      "to": "story:code-delivery"
     },
     {
       "from": "task:B-02",
@@ -22985,21 +22868,6 @@
       "to": "task:T-010"
     },
     {
-      "from": "story:code-delivery",
-      "kind": "tree",
-      "to": "task:T-001"
-    },
-    {
-      "from": "story:code-delivery",
-      "kind": "tree",
-      "to": "task:T-002"
-    },
-    {
-      "from": "story:code-delivery",
-      "kind": "tree",
-      "to": "task:T-003"
-    },
-    {
       "from": "story:companies",
       "kind": "tree",
       "to": "needs-decision:ND-18"
@@ -23208,36 +23076,6 @@
       "from": "task:B-01",
       "kind": "tree",
       "to": "needs-decision:ND-20"
-    },
-    {
-      "from": "task:T-001",
-      "kind": "tree",
-      "to": "story:T-001"
-    },
-    {
-      "from": "task:T-001",
-      "kind": "tree",
-      "to": "task:T-001-be"
-    },
-    {
-      "from": "task:T-002",
-      "kind": "tree",
-      "to": "story:T-002"
-    },
-    {
-      "from": "task:T-002",
-      "kind": "tree",
-      "to": "task:T-002-be"
-    },
-    {
-      "from": "task:T-003",
-      "kind": "tree",
-      "to": "story:T-003"
-    },
-    {
-      "from": "task:T-003",
-      "kind": "tree",
-      "to": "task:T-003-be"
     },
     {
       "from": "task:T-007",
@@ -24242,6 +24080,11 @@
     {
       "from": "backend-integration:auth",
       "kind": "wikilink",
+      "to": "story:code-delivery"
+    },
+    {
+      "from": "backend-integration:auth",
+      "kind": "wikilink",
       "to": "story:devices"
     },
     {
@@ -24253,21 +24096,6 @@
       "from": "backend-integration:auth",
       "kind": "wikilink",
       "to": "story:linked-accounts"
-    },
-    {
-      "from": "backend-integration:auth",
-      "kind": "wikilink",
-      "to": "task:T-001"
-    },
-    {
-      "from": "backend-integration:auth",
-      "kind": "wikilink",
-      "to": "task:T-002"
-    },
-    {
-      "from": "backend-integration:auth",
-      "kind": "wikilink",
-      "to": "task:T-003"
     },
     {
       "from": "backend-integration:files",
@@ -24747,17 +24575,7 @@
     {
       "from": "feature:code-delivery",
       "kind": "wikilink",
-      "to": "task:T-001"
-    },
-    {
-      "from": "feature:code-delivery",
-      "kind": "wikilink",
-      "to": "task:T-002"
-    },
-    {
-      "from": "feature:code-delivery",
-      "kind": "wikilink",
-      "to": "task:T-003"
+      "to": "project:status-report-2026-10-15"
     },
     {
       "from": "feature:companies",
@@ -25317,27 +25135,17 @@
     {
       "from": "frontend-requirements:auth",
       "kind": "wikilink",
+      "to": "story:code-delivery"
+    },
+    {
+      "from": "frontend-requirements:auth",
+      "kind": "wikilink",
       "to": "story:devices"
     },
     {
       "from": "frontend-requirements:auth",
       "kind": "wikilink",
       "to": "story:linked-accounts"
-    },
-    {
-      "from": "frontend-requirements:auth",
-      "kind": "wikilink",
-      "to": "task:T-001"
-    },
-    {
-      "from": "frontend-requirements:auth",
-      "kind": "wikilink",
-      "to": "task:T-002"
-    },
-    {
-      "from": "frontend-requirements:auth",
-      "kind": "wikilink",
-      "to": "task:T-003"
     },
     {
       "from": "frontend-requirements:badge-qr",
@@ -25443,21 +25251,6 @@
       "from": "frontend-requirements:code-delivery",
       "kind": "wikilink",
       "to": "story:error-contract"
-    },
-    {
-      "from": "frontend-requirements:code-delivery",
-      "kind": "wikilink",
-      "to": "task:T-001"
-    },
-    {
-      "from": "frontend-requirements:code-delivery",
-      "kind": "wikilink",
-      "to": "task:T-002"
-    },
-    {
-      "from": "frontend-requirements:code-delivery",
-      "kind": "wikilink",
-      "to": "task:T-003"
     },
     {
       "from": "frontend-requirements:companies",
@@ -28607,22 +28400,12 @@
     {
       "from": "project:frontend-passwordless-migration",
       "kind": "wikilink",
+      "to": "story:code-delivery"
+    },
+    {
+      "from": "project:frontend-passwordless-migration",
+      "kind": "wikilink",
       "to": "story:linked-accounts"
-    },
-    {
-      "from": "project:frontend-passwordless-migration",
-      "kind": "wikilink",
-      "to": "task:T-001"
-    },
-    {
-      "from": "project:frontend-passwordless-migration",
-      "kind": "wikilink",
-      "to": "task:T-002"
-    },
-    {
-      "from": "project:frontend-passwordless-migration",
-      "kind": "wikilink",
-      "to": "task:T-003"
     },
     {
       "from": "project:glossary",
@@ -28852,11 +28635,6 @@
     {
       "from": "project:status-report-2026-10-15",
       "kind": "wikilink",
-      "to": "feature:code-delivery"
-    },
-    {
-      "from": "project:status-report-2026-10-15",
-      "kind": "wikilink",
       "to": "feature:connections"
     },
     {
@@ -29017,7 +28795,7 @@
     {
       "from": "qa-backend:account",
       "kind": "wikilink",
-      "to": "task:T-003"
+      "to": "story:code-delivery"
     },
     {
       "from": "qa-backend:account",
@@ -29047,17 +28825,17 @@
     {
       "from": "story:account",
       "kind": "wikilink",
+      "to": "story:code-delivery"
+    },
+    {
+      "from": "story:account",
+      "kind": "wikilink",
       "to": "story:profiles"
     },
     {
       "from": "story:account",
       "kind": "wikilink",
       "to": "story:ring-projection"
-    },
-    {
-      "from": "story:account",
-      "kind": "wikilink",
-      "to": "task:T-003"
     },
     {
       "from": "story:app-shell",
@@ -29097,7 +28875,7 @@
     {
       "from": "story:auth",
       "kind": "wikilink",
-      "to": "task:T-001"
+      "to": "story:code-delivery"
     },
     {
       "from": "story:badge-qr",
@@ -29705,21 +29483,6 @@
       "to": "task:T-007"
     },
     {
-      "from": "story:T-001",
-      "kind": "wikilink",
-      "to": "feature:code-delivery"
-    },
-    {
-      "from": "story:T-002",
-      "kind": "wikilink",
-      "to": "feature:code-delivery"
-    },
-    {
-      "from": "story:T-003",
-      "kind": "wikilink",
-      "to": "feature:code-delivery"
-    },
-    {
       "from": "story:T-007",
       "kind": "wikilink",
       "to": "feature:badge-qr"
@@ -30028,96 +29791,6 @@
       "from": "task:B-02",
       "kind": "wikilink",
       "to": "story:account"
-    },
-    {
-      "from": "task:T-001",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-001",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-001",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-001",
-      "kind": "wikilink",
-      "to": "task:T-002"
-    },
-    {
-      "from": "task:T-001",
-      "kind": "wikilink",
-      "to": "task:T-003"
-    },
-    {
-      "from": "task:T-001-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:code-delivery"
-    },
-    {
-      "from": "task:T-001-be",
-      "kind": "wikilink",
-      "to": "feature:code-delivery"
-    },
-    {
-      "from": "task:T-002",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-002",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-002",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-002",
-      "kind": "wikilink",
-      "to": "task:T-003"
-    },
-    {
-      "from": "task:T-002-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:code-delivery"
-    },
-    {
-      "from": "task:T-002-be",
-      "kind": "wikilink",
-      "to": "feature:code-delivery"
-    },
-    {
-      "from": "task:T-003",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-003",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-003",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-003-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:code-delivery"
-    },
-    {
-      "from": "task:T-003-be",
-      "kind": "wikilink",
-      "to": "feature:code-delivery"
     },
     {
       "from": "task:T-007",
@@ -32304,42 +31977,6 @@
       "name": "Backlog",
       "type": "map"
     },
-    "social-pin/tasks/T-001 Wire an email provider for one-time codes/T-001 Story.md": {
-      "name": "T-001 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-001 Wire an email provider for one-time codes/T-001 Wire an email provider for one-time codes.md": {
-      "name": "T-001 Wire an email provider for one-time codes",
-      "type": "task"
-    },
-    "social-pin/tasks/T-001 Wire an email provider for one-time codes/T-001-be Backend · Wire an email provider for one-time codes.md": {
-      "name": "T-001-be Backend · Wire an email provider for one-time codes",
-      "type": "task"
-    },
-    "social-pin/tasks/T-002 Wire an SMS provider for one-time codes/T-002 Story.md": {
-      "name": "T-002 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-002 Wire an SMS provider for one-time codes/T-002 Wire an SMS provider for one-time codes.md": {
-      "name": "T-002 Wire an SMS provider for one-time codes",
-      "type": "task"
-    },
-    "social-pin/tasks/T-002 Wire an SMS provider for one-time codes/T-002-be Backend · Wire an SMS provider for one-time codes.md": {
-      "name": "T-002-be Backend · Wire an SMS provider for one-time codes",
-      "type": "task"
-    },
-    "social-pin/tasks/T-003 Remove devCode once delivery works/T-003 Remove devCode once delivery works.md": {
-      "name": "T-003 Remove devCode once delivery works",
-      "type": "task"
-    },
-    "social-pin/tasks/T-003 Remove devCode once delivery works/T-003 Story.md": {
-      "name": "T-003 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-003 Remove devCode once delivery works/T-003-be Backend · Remove devCode once delivery works.md": {
-      "name": "T-003-be Backend · Remove devCode once delivery works",
-      "type": "task"
-    },
     "social-pin/tasks/T-007 Issue and rotate the QR token for a Ring/T-007 Issue and rotate the QR token for a Ring.md": {
       "name": "T-007 Issue and rotate the QR token for a Ring",
       "type": "task"
@@ -33156,7 +32793,7 @@
         "task:B-02",
         "task:B-01",
         "decision:D-20",
-        "task:T-003",
+        "story:code-delivery",
         "backend-integration:account",
         "frontend-delivery:account",
         "frontend-requirements:account",
@@ -33200,7 +32837,7 @@
       ],
       "task": null,
       "title": "Account Backend Delivery",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "backend-delivery:app-shell": {
       "affects": [],
@@ -38300,7 +37937,7 @@
         "needs-decision:ND-20",
         "backend-integration:auth",
         "frontend-delivery:account",
-        "task:T-003",
+        "story:code-delivery",
         "backend-delivery:account",
         "backend-integration:account",
         "story:account",
@@ -38318,7 +37955,7 @@
       ],
       "task": null,
       "title": "D-20 The changed address still signs in, the words are corrected",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "feature:account": {
       "affects": [],
@@ -38908,10 +38545,9 @@
       "resolution": null,
       "rollup": {
         "approved": 1,
-        "blocked": 5,
-        "draft": 4,
-        "missing": 4,
-        "todo": 2
+        "blocked": 1,
+        "draft": 1,
+        "missing": 4
       },
       "scope": null,
       "screens": [
@@ -38927,7 +38563,7 @@
       ],
       "task": null,
       "title": "Code Delivery",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "feature:companies": {
       "affects": [],
@@ -46220,13 +45856,13 @@
       "resolution": null,
       "rollup": {
         "approved": 10,
-        "blocked": 15,
+        "blocked": 11,
         "decided": 3,
         "done": 1,
-        "draft": 20,
+        "draft": 17,
         "in-progress": 22,
         "missing": 55,
-        "todo": 3,
+        "todo": 1,
         "verified": 3
       },
       "scope": null,
@@ -47390,7 +47026,7 @@
         "backend-integration:auth",
         "frontend-delivery:account",
         "project:auth-model",
-        "task:T-003",
+        "story:code-delivery",
         "decision:D-20",
         "backend-delivery:account",
         "backend-integration:account",
@@ -47411,7 +47047,7 @@
       ],
       "task": null,
       "title": "ND-20 Whether an unverified new address may sign in",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "needs-decision:ND-21": {
       "affects": [
@@ -52766,12 +52402,12 @@
       ],
       "rollup": {
         "approved": 34,
-        "blocked": 99,
+        "blocked": 95,
         "current": 8,
         "decided": 14,
         "delivered": 2,
         "done": 10,
-        "draft": 68,
+        "draft": 65,
         "in-progress": 55,
         "missing": 155,
         "needs-decision": 5,
@@ -52779,7 +52415,7 @@
         "passing": 1,
         "ready": 2,
         "reference": 31,
-        "todo": 17,
+        "todo": 15,
         "verified": 14
       },
       "scope": null,
@@ -52790,156 +52426,6 @@
       "tags": [],
       "task": null,
       "title": "Social Pin",
-      "updated": "2026-10-26"
-    },
-    "story:T-001": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-79",
-      "children": [],
-      "code": "T-001",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
-      "effort": null,
-      "feature": "code-delivery",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-001",
-      "inherits": {
-        "priority": "task:T-001",
-        "release": "feature:code-delivery"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": null,
-      "parents": [
-        "task:T-001"
-      ],
-      "path": "social-pin/tasks/T-001 Wire an email provider for one-time codes/T-001 Story.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "scope": "task",
-      "screens": [
-        "s02"
-      ],
-      "status": "draft",
-      "summary": "Replace AuthService.issueCode's log line with a mail send. Keep the devCode gate until delivery is verified in staging.",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/platform",
-        "layer/business"
-      ],
-      "task": "T-001",
-      "title": "T-001 Story",
-      "updated": "2026-10-26"
-    },
-    "story:T-002": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-80",
-      "children": [],
-      "code": "T-002",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
-      "effort": null,
-      "feature": "code-delivery",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-002",
-      "inherits": {
-        "priority": "task:T-002",
-        "release": "feature:code-delivery"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": null,
-      "parents": [
-        "task:T-002"
-      ],
-      "path": "social-pin/tasks/T-002 Wire an SMS provider for one-time codes/T-002 Story.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "scope": "task",
-      "screens": [
-        "s02"
-      ],
-      "status": "draft",
-      "summary": "Same seam as T-001 for the PHONE channel.",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/platform",
-        "layer/business"
-      ],
-      "task": "T-002",
-      "title": "T-002 Story",
-      "updated": "2026-10-26"
-    },
-    "story:T-003": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-81",
-      "children": [],
-      "code": "T-003",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
-      "effort": null,
-      "feature": "code-delivery",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-003",
-      "inherits": {
-        "priority": "task:T-003",
-        "release": "feature:code-delivery"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": null,
-      "parents": [
-        "task:T-003"
-      ],
-      "path": "social-pin/tasks/T-003 Remove devCode once delivery works/T-003 Story.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "scope": "task",
-      "screens": [
-        "s02"
-      ],
-      "status": "draft",
-      "summary": "Delete devCode from VerificationChallengeEntity and the allow-list in AuthService.",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/platform",
-        "layer/business"
-      ],
-      "task": "T-003",
-      "title": "T-003 Story",
       "updated": "2026-10-26"
     },
     "story:T-007": {
@@ -54501,7 +53987,7 @@
       ],
       "task": null,
       "title": "Account Story",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "story:app-shell": {
       "affects": [],
@@ -54832,11 +54318,7 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-78",
-      "children": [
-        "task:T-001",
-        "task:T-002",
-        "task:T-003"
-      ],
+      "children": [],
       "code": "code-delivery",
       "created": "2026-10-18",
       "deadline": null,
@@ -54863,7 +54345,12 @@
       "path": "social-pin/modules/Platform & Cross-cutting/features/Code Delivery/Code Delivery Story.md",
       "pending": [],
       "priority": "critical",
-      "related": [],
+      "related": [
+        "task:B-01",
+        "needs-decision:ND-20",
+        "decision:D-20",
+        "backend-delivery:account"
+      ],
       "release": "mvp",
       "resolution": null,
       "scope": "feature",
@@ -54880,7 +54367,7 @@
       ],
       "task": null,
       "title": "Code Delivery Story",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "story:companies": {
       "affects": [],
@@ -56820,7 +56307,7 @@
         "qa-frontend:account",
         "backend-integration:auth",
         "needs-decision:ND-01",
-        "task:T-003",
+        "story:code-delivery",
         "needs-decision:ND-20",
         "decision:D-20",
         "backend-delivery:account",
@@ -56848,7 +56335,7 @@
       ],
       "task": null,
       "title": "B-01 An unverified changed email still signs in",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "task:B-02": {
       "affects": [
@@ -56931,394 +56418,6 @@
       "task": null,
       "title": "B-02 Deleted account answers 401, not the documented 404 E_USER_01",
       "updated": "2026-10-27"
-    },
-    "task:T-001": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-001",
-      "children": [
-        "story:T-001",
-        "task:T-001-be"
-      ],
-      "code": "T-001",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": "social-pin/tasks/T-001 Wire an email provider for one-time codes",
-      "effectiveStatus": "todo",
-      "effort": "S",
-      "feature": "code-delivery",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-001",
-      "inherits": {
-        "release": "feature:code-delivery"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": null,
-      "parents": [
-        "story:code-delivery"
-      ],
-      "path": "social-pin/tasks/T-001 Wire an email provider for one-time codes/T-001 Wire an email provider for one-time codes.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {
-        "draft": 1,
-        "todo": 1
-      },
-      "scope": null,
-      "screens": [
-        "s02"
-      ],
-      "status": "todo",
-      "summary": "Replace AuthService.issueCode's log line with a mail send. Keep the devCode gate until delivery is verified in staging.",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/platform",
-        "priority/critical"
-      ],
-      "task": null,
-      "title": "T-001 Wire an email provider for one-time codes",
-      "updated": "2026-10-26"
-    },
-    "task:T-001-be": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-001-be",
-      "children": [],
-      "code": "T-001-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": null,
-      "effectiveStatus": "todo",
-      "effort": "S",
-      "feature": "code-delivery",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-001-be",
-      "inherits": {
-        "release": "feature:code-delivery"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": "T-001",
-      "parents": [
-        "task:T-001"
-      ],
-      "path": "social-pin/tasks/T-001 Wire an email provider for one-time codes/T-001-be Backend · Wire an email provider for one-time codes.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s02"
-      ],
-      "status": "todo",
-      "summary": "The API side of T-001 Wire an email provider for one-time codes: the endpoints, data and rules its What describes. Record what shipped in T-001-be Backend Delivery and how to call it in T-001-be…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/platform",
-        "priority/critical",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-001-be Backend · Wire an email provider for one-time codes",
-      "updated": "2026-10-26"
-    },
-    "task:T-002": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-001",
-          "title": "T-001 Wire an email provider for one-time codes",
-          "why": "T-001 Wire an email provider for one-time codes is to do"
-        }
-      ],
-      "card": "T-002",
-      "children": [
-        "story:T-002",
-        "task:T-002-be"
-      ],
-      "code": "T-002",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-001"
-      ],
-      "dir": "social-pin/tasks/T-002 Wire an SMS provider for one-time codes",
-      "effectiveStatus": "blocked",
-      "effort": "S",
-      "feature": "code-delivery",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-002",
-      "inherits": {
-        "release": "feature:code-delivery"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": null,
-      "parents": [
-        "story:code-delivery"
-      ],
-      "path": "social-pin/tasks/T-002 Wire an SMS provider for one-time codes/T-002 Wire an SMS provider for one-time codes.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {
-        "blocked": 1,
-        "draft": 1
-      },
-      "scope": null,
-      "screens": [
-        "s02"
-      ],
-      "status": "todo",
-      "summary": "Same seam as T-001 for the PHONE channel.",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/platform",
-        "priority/critical"
-      ],
-      "task": null,
-      "title": "T-002 Wire an SMS provider for one-time codes",
-      "updated": "2026-10-26"
-    },
-    "task:T-002-be": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-001",
-          "title": "T-001 Wire an email provider for one-time codes",
-          "why": "T-001 Wire an email provider for one-time codes is to do"
-        }
-      ],
-      "card": "T-002-be",
-      "children": [],
-      "code": "T-002-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-001"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "S",
-      "feature": "code-delivery",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-002-be",
-      "inherits": {
-        "release": "feature:code-delivery"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": "T-002",
-      "parents": [
-        "task:T-002"
-      ],
-      "path": "social-pin/tasks/T-002 Wire an SMS provider for one-time codes/T-002-be Backend · Wire an SMS provider for one-time codes.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s02"
-      ],
-      "status": "todo",
-      "summary": "The API side of T-002 Wire an SMS provider for one-time codes: the endpoints, data and rules its What describes. Record what shipped in T-002-be Backend Delivery and how to call it in T-002-be…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/platform",
-        "priority/critical",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-002-be Backend · Wire an SMS provider for one-time codes",
-      "updated": "2026-10-26"
-    },
-    "task:T-003": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-001",
-          "title": "T-001 Wire an email provider for one-time codes",
-          "why": "T-001 Wire an email provider for one-time codes is to do"
-        },
-        {
-          "id": "task:T-002",
-          "title": "T-002 Wire an SMS provider for one-time codes",
-          "why": "T-002 Wire an SMS provider for one-time codes is blocked"
-        }
-      ],
-      "card": "T-003",
-      "children": [
-        "story:T-003",
-        "task:T-003-be"
-      ],
-      "code": "T-003",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-001",
-        "task:T-002"
-      ],
-      "dir": "social-pin/tasks/T-003 Remove devCode once delivery works",
-      "effectiveStatus": "blocked",
-      "effort": "S",
-      "feature": "code-delivery",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-003",
-      "inherits": {
-        "release": "feature:code-delivery"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": null,
-      "parents": [
-        "story:code-delivery"
-      ],
-      "path": "social-pin/tasks/T-003 Remove devCode once delivery works/T-003 Remove devCode once delivery works.md",
-      "pending": [],
-      "priority": "high",
-      "related": [
-        "task:B-01",
-        "needs-decision:ND-20",
-        "decision:D-20",
-        "backend-delivery:account"
-      ],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {
-        "blocked": 1,
-        "draft": 1
-      },
-      "scope": null,
-      "screens": [
-        "s02"
-      ],
-      "status": "blocked",
-      "summary": "Delete devCode from VerificationChallengeEntity and the allow-list in AuthService.",
-      "tags": [
-        "task",
-        "task/blocked",
-        "module/platform",
-        "priority/high"
-      ],
-      "task": null,
-      "title": "T-003 Remove devCode once delivery works",
-      "updated": "2026-10-26"
-    },
-    "task:T-003-be": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-001",
-          "title": "T-001 Wire an email provider for one-time codes",
-          "why": "T-001 Wire an email provider for one-time codes is to do"
-        },
-        {
-          "id": "task:T-002",
-          "title": "T-002 Wire an SMS provider for one-time codes",
-          "why": "T-002 Wire an SMS provider for one-time codes is blocked"
-        }
-      ],
-      "card": "T-003-be",
-      "children": [],
-      "code": "T-003-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-001",
-        "task:T-002"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "S",
-      "feature": "code-delivery",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-003-be",
-      "inherits": {
-        "release": "feature:code-delivery"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": "T-003",
-      "parents": [
-        "task:T-003"
-      ],
-      "path": "social-pin/tasks/T-003 Remove devCode once delivery works/T-003-be Backend · Remove devCode once delivery works.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s02"
-      ],
-      "status": "todo",
-      "summary": "The API side of T-003 Remove devCode once delivery works: the endpoints, data and rules its What describes. Record what shipped in T-003-be Backend Delivery and how to call it in T-003-be Backend…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/platform",
-        "priority/high",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-003-be Backend · Remove devCode once delivery works",
-      "updated": "2026-10-26"
     },
     "task:T-007": {
       "affects": [],

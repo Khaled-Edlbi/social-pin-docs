@@ -85,9 +85,6 @@ Social Pin backend
 └── Platform & Cross-cutting  (🟡5 ❌5 ⬜1)
     ├── 🟡 Error Contract  [Critical]
     ├── 🟡 Code Delivery  [Critical]
-    │   ├── ⬜ T-001 Wire an email provider for one-time codes
-    │   ├── ⬜ T-002 Wire an SMS provider for one-time codes
-    │   └── ⛔ T-003 Remove devCode once delivery works
     ├── 🟡 Devices & NFC  [High]
     ├── 🟡 Interests  [High]
     ├── 🟡 Linked Accounts (OAuth)  [High]
@@ -183,7 +180,7 @@ The error contract, notifications, Gemma AI, devices, interests, widgets, linked
 | Feature | Status | Priority | Screens | Open tasks |
 |---|---|---|---|---|
 | [[Error Contract]] | 🟡 Partial (needs more) | Critical | — | 0 |
-| [[Code Delivery]] | 🟡 Partial (needs more) | Critical | s02 | 3 |
+| [[Code Delivery]] | 🟡 Partial (needs more) | Critical | s02 | 0 |
 | [[Devices & NFC]] | 🟡 Partial (needs more) | High | s75 | 0 |
 | [[Interests]] | 🟡 Partial (needs more) | High | s07, s71 | 0 |
 | [[Linked Accounts (OAuth)]] | 🟡 Partial (needs more) | High | s01, s04, s68 | 0 |

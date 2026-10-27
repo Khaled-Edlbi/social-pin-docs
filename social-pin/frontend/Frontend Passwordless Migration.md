@@ -138,15 +138,15 @@ Drive the resend timer and the "code expired" state (s02) from `expiresAt`, not 
 
 ## `devCode` — read this before building the code screen
 
-OTP delivery (email / SMS) is **not wired** on the backend ([[Code Delivery]], T-001 / T-002). Until it is, every response that issues a code returns the plaintext code as `devCode`, **in every environment**. This is a deliberate product decision (2026-10-15) so the app can sign in end to end before a provider exists.
+OTP delivery (email / SMS) is **not wired** on the backend ([[Code Delivery]], Code Delivery · S6 / Code Delivery · S7). Until it is, every response that issues a code returns the plaintext code as `devCode`, **in every environment**. This is a deliberate product decision (2026-10-15) so the app can sign in end to end before a provider exists.
 
 What that means for the client:
 
 1. **For now:** read `devCode` from the challenge and pre-fill (or auto-submit) the code field, so testers never have to open server logs.
-2. **Build the code-entry screen as if `devCode` did not exist.** It will be removed ([[T-003 Remove devCode once delivery works]]) with no API version bump. The field is optional in the OpenAPI document for exactly this reason.
+2. **Build the code-entry screen as if `devCode` did not exist.** It will be removed ([[Code Delivery Story|Code Delivery · S8]]) with no API version bump. The field is optional in the OpenAPI document for exactly this reason.
 3. **Never branch on `devCode` being present to decide whether the account exists.** Its absence today means "no code was issued", which is also what an unknown identifier returns, but that is a side effect, not a contract.
 4. **Do not log or persist it** beyond the screen that uses it.
-5. Security reality while it is returned: anyone who knows an account's email or phone can sign in as it. Treat every environment as a dev environment until T-003 ships.
+5. Security reality while it is returned: anyone who knows an account's email or phone can sign in as it. Treat every environment as a dev environment until Code Delivery · S8 ships.
 
 ---
 
@@ -265,5 +265,5 @@ curl -s localhost:3000/api/v1/auth/login/verify \
 
 ## What is still coming (and will not change the contract above)
 
-- Email and SMS delivery of the code ([[T-001 Wire an email provider for one-time codes]], [[T-002 Wire an SMS provider for one-time codes]]). When that lands, `devCode` disappears ([[T-003 Remove devCode once delivery works]]) and the user types the code they received. Nothing else changes.
+- Email and SMS delivery of the code ([[Code Delivery Story|Code Delivery · S6]], [[Code Delivery Story|Code Delivery · S7]]). When that lands, `devCode` disappears ([[Code Delivery Story|Code Delivery · S8]]) and the user types the code they received. Nothing else changes.
 - Login via a linked provider (LinkedIn) is a separate feature, [[Linked Accounts (OAuth) Story|Linked Accounts (OAuth) · S7]], no longer blocked by ND-01.

@@ -12,11 +12,11 @@ labels: []
 screens: [s68]
 depends: []
 affects: ["Account Backend Delivery", "Account Story", "Account QA Backend"]
-related: ["Account Backend Integration", "Account QA Backend", "Account QA Frontend", "Auth & Sign-up Backend Integration", "ND-01 Passwordless login", "T-003 Remove devCode once delivery works", "ND-20 Whether an unverified new address may sign in", "D-20 The changed address still signs in, the words are corrected"]
+related: ["Account Backend Integration", "Account QA Backend", "Account QA Frontend", "Auth & Sign-up Backend Integration", "ND-01 Passwordless login", "Code Delivery Story", "ND-20 Whether an unverified new address may sign in", "D-20 The changed address still signs in, the words are corrected"]
 pending: ["[[Account QA Frontend]]: re-run row F10 against the corrected notes (/qa)", "@khaled: re-approve [[Account Story]] after the S2 and S3 copy change (/owner)"]
 owner: "khaled"
 created: 2026-10-26
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [bug, bug/done, module/identity, priority/high, resolution/by-design]
 ---
 
@@ -38,9 +38,9 @@ tags: [bug, bug/done, module/identity, priority/high, resolution/by-design]
 
 **The client has already taken a side.** [[Account Frontend Delivery]] refuses to promise what S2 asks, because the backend does not enforce it: the copy reads "Confirming a new email or number isn't in the app yet". So the screen is honest and the **story** is the thing that is wrong. Settling this bug means deciding whether the backend grows the gate or the story drops the promise.
 
-**Worth knowing before fixing.** While `devCode` is returned in every environment ([[T-003 Remove devCode once delivery works]]), knowing an address is already enough to sign in as it, so this gate buys little security today. It becomes real the moment T-003 lands. Which way it goes is a product call as much as a backend one — if the answer is not obvious, raise a decision card rather than guessing.
+**Worth knowing before fixing.** While `devCode` is returned in every environment ([[Code Delivery Story|Code Delivery · S8]]), knowing an address is already enough to sign in as it, so this gate buys little security today. It becomes real the moment Code Delivery · S8 lands. Which way it goes is a product call as much as a backend one — if the answer is not obvious, raise a decision card rather than guessing.
 
-**Answered 2026-10-26.** [[ND-20 Whether an unverified new address may sign in]] was raised from this bug and decided on [[D-20 The changed address still signs in, the words are corrected]]: **option 2**, the words are wrong, not the build. No gate is added and no code ships; the story has dropped the promise, and this bug closes once [[Account Backend Delivery]] and [[Account Backend Integration]] say what the API actually does and rows B9 and F10 have been re-run. The gate itself is deferred, not refused: it comes back with [[T-003 Remove devCode once delivery works]].
+**Answered 2026-10-26.** [[ND-20 Whether an unverified new address may sign in]] was raised from this bug and decided on [[D-20 The changed address still signs in, the words are corrected]]: **option 2**, the words are wrong, not the build. No gate is added and no code ships; the story has dropped the promise, and this bug closes once [[Account Backend Delivery]] and [[Account Backend Integration]] say what the API actually does and rows B9 and F10 have been re-run. The gate itself is deferred, not refused: it comes back with [[Code Delivery Story|Code Delivery · S8]].
 
 ## Design
 

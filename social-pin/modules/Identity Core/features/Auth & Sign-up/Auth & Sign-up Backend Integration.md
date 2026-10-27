@@ -57,9 +57,9 @@ One code screen serves both flows: same six-cell input, same resend button with 
 OTP delivery is not wired ([[Code Delivery]]). Until it is, **every response that issues a code returns the plaintext code as `devCode`, in every environment, production included**: a product decision of 2026-10-15 so the app can be used before a provider exists.
 
 - For now: pre-fill (or auto-submit) the code from `devCode` so testers never read server logs.
-- Build the screen as if `devCode` did not exist. It will be removed without an API version bump ([[T-003 Remove devCode once delivery works]]); the field is optional in the OpenAPI document for that reason.
+- Build the screen as if `devCode` did not exist. It will be removed without an API version bump ([[Code Delivery Story|Code Delivery · S8]]); the field is optional in the OpenAPI document for that reason.
 - Never branch on its presence to decide whether an account exists; never log or persist it.
-- Security reality while it is returned: anyone who knows an account's email or phone can sign in as it. Treat every environment as a dev environment until T-003 ships.
+- Security reality while it is returned: anyone who knows an account's email or phone can sign in as it. Treat every environment as a dev environment until Code Delivery · S8 ships.
 
 ## Sessions and the token store
 
@@ -102,7 +102,7 @@ Retired and never returned again: `E_AUTH_02` (invalid password) and `E_USER_04`
 
 ## Not available yet
 
-- **Code delivery.** No email or SMS provider is wired ([[T-001 Wire an email provider for one-time codes]], [[T-002 Wire an SMS provider for one-time codes]]); `devCode` stands in until then.
+- **Code delivery.** No email or SMS provider is wired ([[Code Delivery Story|Code Delivery · S6]], [[Code Delivery Story|Code Delivery · S7]]); `devCode` stands in until then.
 - Social login ([[Linked Accounts (OAuth) Story|Linked Accounts (OAuth) · S7]]), device registration on login ([[Devices & NFC Story|Devices & NFC · S6]]).
 
 ## Checklist
