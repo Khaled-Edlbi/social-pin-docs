@@ -1,7 +1,7 @@
 ---
 type: project
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [project, frontend, auth]
 layer: frontend
 ---
@@ -266,4 +266,4 @@ curl -s localhost:3000/api/v1/auth/login/verify \
 ## What is still coming (and will not change the contract above)
 
 - Email and SMS delivery of the code ([[T-001 Wire an email provider for one-time codes]], [[T-002 Wire an SMS provider for one-time codes]]). When that lands, `devCode` disappears ([[T-003 Remove devCode once delivery works]]) and the user types the code they received. Nothing else changes.
-- Login via a linked provider (LinkedIn) is a separate feature, [[T-019 LinkedIn OAuth link, unlink, login]], no longer blocked by ND-01.
+- Login via a linked provider (LinkedIn) is a separate feature, [[Linked Accounts (OAuth) Story|Linked Accounts (OAuth) · S7]], no longer blocked by ND-01.

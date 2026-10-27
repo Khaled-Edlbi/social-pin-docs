@@ -91,12 +91,9 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-018 Widget CRUD on the projection]] | [[Widgets]] | Identity Core | ❓ Needs decision | M | — | [[T-017 Extend WIDGET_TYPE to the design's list|T-017]] |
 | [[T-018-be Backend · Widget CRUD on the projection]] `backend` | [[Widgets]] | Identity Core | ⛔ Blocked | M | — | [[T-017 Extend WIDGET_TYPE to the design's list|T-017]] |
 | [[T-018-fe Frontend · Widget CRUD on the projection]] `frontend` | [[Widgets]] | Identity Core | ⛔ Blocked | M | — | [[T-017 Extend WIDGET_TYPE to the design's list|T-017]], [[T-018-be Backend · Widget CRUD on the projection|T-018-be]] |
-| [[T-019 LinkedIn OAuth link, unlink, login]] | [[Linked Accounts (OAuth)]] | Platform & Cross-cutting | ⬜ To do | L | — | — |
-| [[T-019-be Backend · LinkedIn OAuth link, unlink, login]] `backend` | [[Linked Accounts (OAuth)]] | Platform & Cross-cutting | ⬜ To do | L | — | — |
-| [[T-019-fe Frontend · LinkedIn OAuth link, unlink, login]] `frontend` | [[Linked Accounts (OAuth)]] | Platform & Cross-cutting | ⛔ Blocked | L | — | [[T-019-be Backend · LinkedIn OAuth link, unlink, login|T-019-be]] |
-| [[T-020 LinkedIn import → review → base profile]] | [[Onboarding Imports]] | Identity Core | ⛔ Blocked | L | — | [[T-019 LinkedIn OAuth link, unlink, login|T-019]] |
-| [[T-020-be Backend · LinkedIn import → review → base profile]] `backend` | [[Onboarding Imports]] | Identity Core | ⛔ Blocked | L | — | [[T-019 LinkedIn OAuth link, unlink, login|T-019]] |
-| [[T-020-fe Frontend · LinkedIn import → review → base profile]] `frontend` | [[Onboarding Imports]] | Identity Core | ⛔ Blocked | L | — | [[T-019 LinkedIn OAuth link, unlink, login|T-019]], [[T-020-be Backend · LinkedIn import → review → base profile|T-020-be]] |
+| [[T-020 LinkedIn import → review → base profile]] | [[Onboarding Imports]] | Identity Core | ⬜ To do | L | — | [[D-02 One main profile every Ring starts from|D-02]] |
+| [[T-020-be Backend · LinkedIn import → review → base profile]] `backend` | [[Onboarding Imports]] | Identity Core | ⬜ To do | L | — | [[ND-02 Base profile work fields|ND-02]] |
+| [[T-020-fe Frontend · LinkedIn import → review → base profile]] `frontend` | [[Onboarding Imports]] | Identity Core | ⛔ Blocked | L | — | [[T-020-be Backend · LinkedIn import → review → base profile|T-020-be]] |
 | [[T-026 Ring invitations invite, review, decline]] | [[Ring Invitations & Join]] | Shared Rings & Companies | ❓ Needs decision | M | — | [[ND-04 Ring settings|ND-04]] |
 | [[T-026-be Backend · Ring invitations invite, review, decline]] `backend` | [[Ring Invitations & Join]] | Shared Rings & Companies | ⬜ To do | M | — | [[ND-04 Ring settings|ND-04]] |
 | [[T-026-fe Frontend · Ring invitations invite, review, decline]] `frontend` | [[Ring Invitations & Join]] | Shared Rings & Companies | ⛔ Blocked | M | — | [[T-026-be Backend · Ring invitations invite, review, decline|T-026-be]] |

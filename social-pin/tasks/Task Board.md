@@ -68,9 +68,6 @@ kanban-plugin: board
 - [ ] [[T-017-fe Frontend · Extend WIDGET_TYPE to the design's list]] #high #widgets #frontend
 - [ ] [[T-018-be Backend · Widget CRUD on the projection]] #high #widgets #backend
 - [ ] [[T-018-fe Frontend · Widget CRUD on the projection]] #high #widgets #frontend
-- [ ] [[T-019-fe Frontend · LinkedIn OAuth link, unlink, login]] #high #linked-accounts #frontend
-- [ ] [[T-020 LinkedIn import → review → base profile]] #high #onboarding-imports
-- [ ] [[T-020-be Backend · LinkedIn import → review → base profile]] #high #onboarding-imports #backend
 - [ ] [[T-020-fe Frontend · LinkedIn import → review → base profile]] #high #onboarding-imports #frontend
 - [ ] [[T-026-fe Frontend · Ring invitations invite, review, decline]] #high #ring-invitations #frontend
 - [ ] [[T-027 Join a Ring with a code or verified work email]] #high #ring-invitations
@@ -144,8 +141,8 @@ kanban-plugin: board
 - [ ] [[T-014-be Backend · Register devices on login; list and remove]] #high #devices #backend
 - [ ] [[T-017 Extend WIDGET_TYPE to the design's list]] #high #widgets
 - [ ] [[T-017-be Backend · Extend WIDGET_TYPE to the design's list]] #high #widgets #backend
-- [ ] [[T-019 LinkedIn OAuth link, unlink, login]] #high #linked-accounts
-- [ ] [[T-019-be Backend · LinkedIn OAuth link, unlink, login]] #high #linked-accounts #backend
+- [ ] [[T-020 LinkedIn import → review → base profile]] #high #onboarding-imports
+- [ ] [[T-020-be Backend · LinkedIn import → review → base profile]] #high #onboarding-imports #backend
 - [ ] [[T-026-be Backend · Ring invitations invite, review, decline]] #high #ring-invitations #backend
 - [ ] [[T-030 Discover search by !pinname and recent searches]] #high #discover-hub
 - [ ] [[T-030-be Backend · Discover search by !pinname and recent searches]] #high #discover-hub #backend

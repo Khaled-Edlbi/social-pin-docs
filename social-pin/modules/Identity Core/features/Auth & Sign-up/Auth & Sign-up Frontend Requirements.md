@@ -100,7 +100,7 @@ Sign-in is steps 1 and 2 only, then Home.
 | The code actually delivered by SMS | — | ❌ | [[T-002 Wire an SMS provider for one-time codes]] |
 | `devCode` removed from every challenge | — | ❌ | [[T-003 Remove devCode once delivery works]] |
 | Register the device on sign-in (s75) | — | ❌ | [[T-014 Register devices on login; list and remove]] |
-| Sign in with LinkedIn | — | ❌ | [[T-019 LinkedIn OAuth link, unlink, login]] |
+| Sign in with LinkedIn | — | ❌ | [[Linked Accounts (OAuth) Story|Linked Accounts (OAuth) · S7]] |
 | Stable `ErrorCode` on the error body | — | ❌ | [[T-063 Put the ErrorCode on the error body]] |
 
 The import steps, *Profile basics*' work fields and Interests are asked for in their own notes (see *The sign-up flow in the client*).

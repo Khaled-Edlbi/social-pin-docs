@@ -107,7 +107,6 @@ Social Pin backend
     │   └── ⬜ T-015 Pair and revoke an NFC card
     ├── 🟡 Interests  [High]
     ├── 🟡 Linked Accounts (OAuth)  [High]
-    │   └── ⬜ T-019 LinkedIn OAuth: link, unlink, login
     ├── ❌ Notifications  [High]
     │   ├── ⬜ T-045 NotificationService.emit and the inbox
     │   └── ⛔ T-046 Push delivery and preferences
@@ -207,7 +206,7 @@ The error contract, notifications, Gemma AI, devices, interests, widgets, linked
 | [[Code Delivery]] | 🟡 Partial (needs more) | Critical | s02 | 3 |
 | [[Devices & NFC]] | 🟡 Partial (needs more) | High | s75 | 2 |
 | [[Interests]] | 🟡 Partial (needs more) | High | s07, s71 | 0 |
-| [[Linked Accounts (OAuth)]] | 🟡 Partial (needs more) | High | s01, s04, s68 | 1 |
+| [[Linked Accounts (OAuth)]] | 🟡 Partial (needs more) | High | s01, s04, s68 | 0 |
 | [[Notifications]] | ❌ TODO | High | s69 | 2 |
 | [[Gemma AI]] | ❌ TODO | Medium | s13, s60 | 2 |
 | [[Audit Log]] | ❌ TODO | Critical | — | 0 |

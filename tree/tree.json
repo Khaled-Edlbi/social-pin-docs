@@ -318,10 +318,6 @@
     "T-018 Widget CRUD on the projection": "task:T-018",
     "T-018-be Backend · Widget CRUD on the projection": "task:T-018-be",
     "T-018-fe Frontend · Widget CRUD on the projection": "task:T-018-fe",
-    "T-019 LinkedIn OAuth link, unlink, login": "task:T-019",
-    "T-019 Story": "story:T-019",
-    "T-019-be Backend · LinkedIn OAuth link, unlink, login": "task:T-019-be",
-    "T-019-fe Frontend · LinkedIn OAuth link, unlink, login": "task:T-019-fe",
     "T-020 LinkedIn import → review → base profile": "task:T-020",
     "T-020 Story": "story:T-020",
     "T-020-be Backend · LinkedIn import → review → base profile": "task:T-020-be",
@@ -795,7 +791,6 @@
     "S-91": "story:T-052",
     "S-92": "story:interests",
     "S-94": "story:linked-accounts",
-    "S-95": "story:T-019",
     "S-96": "story:notifications",
     "S-97": "story:T-045",
     "S-98": "story:T-046",
@@ -835,9 +830,6 @@
     "T-018": "task:T-018",
     "T-018-be": "task:T-018-be",
     "T-018-fe": "task:T-018-fe",
-    "T-019": "task:T-019",
-    "T-019-be": "task:T-019-be",
-    "T-019-fe": "task:T-019-fe",
     "T-020": "task:T-020",
     "T-020-be": "task:T-020-be",
     "T-020-fe": "task:T-020-fe",
@@ -2798,8 +2790,7 @@
         "needs-decision:ND-20",
         "project:developer-setup",
         "project:frontend-passwordless-migration",
-        "task:B-01",
-        "task:T-019"
+        "task:B-01"
       ],
       "kind": "endpoint",
       "notes": [
@@ -2815,11 +2806,9 @@
         "project:developer-setup",
         "project:frontend-passwordless-migration",
         "qa-backend:account",
-        "story:T-019",
         "story:account",
         "story:linked-accounts",
-        "task:B-01",
-        "task:T-019"
+        "task:B-01"
       ],
       "owner": "feature:auth"
     },
@@ -3271,10 +3260,7 @@
         "feature:auth",
         "feature:linked-accounts",
         "feature:onboarding-imports",
-        "needs-decision:ND-01",
-        "task:T-019",
-        "task:T-019-be",
-        "task:T-019-fe"
+        "needs-decision:ND-01"
       ],
       "kind": "screen",
       "notes": [
@@ -3288,12 +3274,8 @@
         "frontend-requirements:onboarding-imports",
         "needs-decision:ND-01",
         "qa-frontend:account",
-        "story:T-019",
         "story:auth",
-        "story:linked-accounts",
-        "task:T-019",
-        "task:T-019-be",
-        "task:T-019-fe"
+        "story:linked-accounts"
       ],
       "owner": null
     },
@@ -3394,9 +3376,6 @@
       "containers": [
         "feature:linked-accounts",
         "feature:onboarding-imports",
-        "task:T-019",
-        "task:T-019-be",
-        "task:T-019-fe",
         "task:T-020",
         "task:T-020-be",
         "task:T-020-fe"
@@ -3409,13 +3388,9 @@
         "feature:onboarding-imports",
         "frontend-requirements:linked-accounts",
         "frontend-requirements:onboarding-imports",
-        "story:T-019",
         "story:T-020",
         "story:linked-accounts",
         "story:onboarding-imports",
-        "task:T-019",
-        "task:T-019-be",
-        "task:T-019-fe",
         "task:T-020",
         "task:T-020-be",
         "task:T-020-fe"
@@ -4789,10 +4764,7 @@
         "feature:profiles",
         "needs-decision:ND-20",
         "task:B-01",
-        "task:B-02",
-        "task:T-019",
-        "task:T-019-be",
-        "task:T-019-fe"
+        "task:B-02"
       ],
       "kind": "screen",
       "notes": [
@@ -4815,17 +4787,13 @@
         "needs-decision:ND-20",
         "qa-backend:account",
         "qa-frontend:account",
-        "story:T-019",
         "story:account",
         "story:auth",
         "story:counts",
         "story:linked-accounts",
         "story:payments",
         "task:B-01",
-        "task:B-02",
-        "task:T-019",
-        "task:T-019-be",
-        "task:T-019-fe"
+        "task:B-02"
       ],
       "owner": null
     },
@@ -4984,7 +4952,7 @@
     }
   },
   "counts": {
-    "blocked": 139,
+    "blocked": 136,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -4997,28 +4965,28 @@
       "project": 27,
       "qa-backend": 1,
       "qa-frontend": 1,
-      "story": 94,
-      "task": 155
+      "story": 93,
+      "task": 152
     },
     "byLayer": {
       "backend": 56,
-      "business": 328,
+      "business": 324,
       "frontend": 44,
       "qa": 2,
       "shared": 10
     },
     "concepts": 199,
     "decisions": 19,
-    "edges": 5066,
+    "edges": 5031,
     "features": 41,
-    "layerNotes": 184,
+    "layerNotes": 183,
     "modules": 8,
-    "notes": 476,
+    "notes": 472,
     "partial": 4,
     "placeholders": 161,
     "records": 14,
-    "taskLayerNotes": 54,
-    "tasks": 155
+    "taskLayerNotes": 53,
+    "tasks": 152
   },
   "deadlines": {
     "missed": {
@@ -5115,7 +5083,7 @@
     {
       "from": "decision:D-01",
       "kind": "affects",
-      "to": "task:T-019"
+      "to": "story:linked-accounts"
     },
     {
       "from": "decision:D-02",
@@ -5465,7 +5433,7 @@
     {
       "from": "frontend-requirements:onboarding-imports",
       "kind": "affects",
-      "to": "task:T-019"
+      "to": "story:linked-accounts"
     },
     {
       "from": "frontend-requirements:onboarding-imports",
@@ -6953,26 +6921,6 @@
       "to": "task:T-018-fe"
     },
     {
-      "from": "task:T-019",
-      "kind": "blocks",
-      "to": "task:T-020"
-    },
-    {
-      "from": "task:T-019",
-      "kind": "blocks",
-      "to": "task:T-020-be"
-    },
-    {
-      "from": "task:T-019",
-      "kind": "blocks",
-      "to": "task:T-020-fe"
-    },
-    {
-      "from": "task:T-019-be",
-      "kind": "blocks",
-      "to": "task:T-019-fe"
-    },
-    {
       "from": "task:T-020-be",
       "kind": "blocks",
       "to": "task:T-020-fe"
@@ -8028,39 +7976,19 @@
       "to": "task:T-018-be"
     },
     {
-      "from": "task:T-019-fe",
-      "kind": "depends",
-      "to": "task:T-019-be"
-    },
-    {
       "from": "task:T-020",
       "kind": "depends",
       "to": "decision:D-02"
     },
     {
-      "from": "task:T-020",
-      "kind": "depends",
-      "to": "task:T-019"
-    },
-    {
       "from": "task:T-020-be",
-      "kind": "depends",
-      "to": "needs-decision:ND-02"
-    },
-    {
-      "from": "task:T-020-be",
-      "kind": "depends",
-      "to": "task:T-019"
-    },
-    {
-      "from": "task:T-020-fe",
       "kind": "depends",
       "to": "needs-decision:ND-02"
     },
     {
       "from": "task:T-020-fe",
       "kind": "depends",
-      "to": "task:T-019"
+      "to": "needs-decision:ND-02"
     },
     {
       "from": "task:T-020-fe",
@@ -9448,14 +9376,6 @@
     {
       "from": "backend-delivery:account",
       "kind": "related",
-      "to": "story:T-019",
-      "via": [
-        "POST /auth/login/verify"
-      ]
-    },
-    {
-      "from": "backend-delivery:account",
-      "kind": "related",
       "to": "story:T-063",
       "via": [
         "E_AUTH_03"
@@ -9476,14 +9396,6 @@
       "from": "backend-delivery:account",
       "kind": "related",
       "to": "task:T-003"
-    },
-    {
-      "from": "backend-delivery:account",
-      "kind": "related",
-      "to": "task:T-019",
-      "via": [
-        "POST /auth/login/verify"
-      ]
     },
     {
       "from": "backend-delivery:auth",
@@ -9817,14 +9729,6 @@
     {
       "from": "backend-integration:account",
       "kind": "related",
-      "to": "story:T-019",
-      "via": [
-        "POST /auth/login/verify"
-      ]
-    },
-    {
-      "from": "backend-integration:account",
-      "kind": "related",
       "to": "story:T-063",
       "via": [
         "E_AUTH_03"
@@ -9839,14 +9743,6 @@
         "E_AUTH_03",
         "E_USER_01",
         "GET /users/me"
-      ]
-    },
-    {
-      "from": "backend-integration:account",
-      "kind": "related",
-      "to": "task:T-019",
-      "via": [
-        "POST /auth/login/verify"
       ]
     },
     {
@@ -11521,12 +11417,12 @@
     {
       "from": "frontend-delivery:account",
       "kind": "related",
-      "to": "task:T-014"
+      "to": "story:linked-accounts"
     },
     {
       "from": "frontend-delivery:account",
       "kind": "related",
-      "to": "task:T-019"
+      "to": "task:T-014"
     },
     {
       "from": "frontend-delivery:account",
@@ -12593,14 +12489,6 @@
       ]
     },
     {
-      "from": "story:linked-accounts",
-      "kind": "related",
-      "to": "story:T-019",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
       "from": "story:meetings",
       "kind": "related",
       "to": "story:T-041",
@@ -13139,6 +13027,21 @@
       "from": "task:B-02",
       "kind": "related",
       "to": "task:T-063"
+    },
+    {
+      "from": "task:T-020",
+      "kind": "related",
+      "to": "story:linked-accounts"
+    },
+    {
+      "from": "task:T-020-be",
+      "kind": "related",
+      "to": "story:linked-accounts"
+    },
+    {
+      "from": "task:T-020-fe",
+      "kind": "related",
+      "to": "story:linked-accounts"
     },
     {
       "from": "task:T-021",
@@ -13829,14 +13732,6 @@
     {
       "from": "decision:D-20",
       "kind": "shares",
-      "to": "task:T-019",
-      "via": [
-        "POST /auth/login/verify"
-      ]
-    },
-    {
-      "from": "decision:D-20",
-      "kind": "shares",
       "to": "task:T-063",
       "via": [
         "E_AUTH_03"
@@ -14253,14 +14148,6 @@
     {
       "from": "feature:account",
       "kind": "shares",
-      "to": "task:T-019",
-      "via": [
-        "POST /auth/login/verify"
-      ]
-    },
-    {
-      "from": "feature:account",
-      "kind": "shares",
       "to": "task:T-022",
       "via": [
         "GET /rings"
@@ -14596,14 +14483,6 @@
       "from": "feature:audit-log",
       "kind": "shares",
       "to": "task:B-01",
-      "via": [
-        "POST /auth/login/verify"
-      ]
-    },
-    {
-      "from": "feature:audit-log",
-      "kind": "shares",
-      "to": "task:T-019",
       "via": [
         "POST /auth/login/verify"
       ]
@@ -15022,14 +14901,6 @@
         "E_AUTH_03",
         "E_USER_01",
         "GET /rings"
-      ]
-    },
-    {
-      "from": "feature:auth",
-      "kind": "shares",
-      "to": "task:T-019",
-      "via": [
-        "POST /auth/login/verify"
       ]
     },
     {
@@ -19368,14 +19239,6 @@
       ]
     },
     {
-      "from": "feature:linked-accounts",
-      "kind": "shares",
-      "to": "task:T-019",
-      "via": [
-        "POST /auth/login/verify"
-      ]
-    },
-    {
       "from": "feature:meetings",
       "kind": "shares",
       "to": "feature:photo-library",
@@ -22143,14 +22006,6 @@
     {
       "from": "needs-decision:ND-20",
       "kind": "shares",
-      "to": "task:T-019",
-      "via": [
-        "POST /auth/login/verify"
-      ]
-    },
-    {
-      "from": "needs-decision:ND-20",
-      "kind": "shares",
       "to": "task:T-063",
       "via": [
         "E_AUTH_03"
@@ -22338,14 +22193,6 @@
       "from": "project:developer-setup",
       "kind": "shares",
       "to": "task:B-01",
-      "via": [
-        "POST /auth/login/verify"
-      ]
-    },
-    {
-      "from": "project:developer-setup",
-      "kind": "shares",
-      "to": "task:T-019",
       "via": [
         "POST /auth/login/verify"
       ]
@@ -22681,14 +22528,6 @@
       "to": "task:B-02",
       "via": [
         "E_AUTH_03"
-      ]
-    },
-    {
-      "from": "project:frontend-passwordless-migration",
-      "kind": "shares",
-      "to": "task:T-019",
-      "via": [
-        "POST /auth/login/verify"
       ]
     },
     {
@@ -25053,11 +24892,6 @@
       "to": "task:T-052"
     },
     {
-      "from": "story:linked-accounts",
-      "kind": "tree",
-      "to": "task:T-019"
-    },
-    {
       "from": "story:meetings",
       "kind": "tree",
       "to": "task:T-041"
@@ -25416,21 +25250,6 @@
       "from": "task:T-018",
       "kind": "tree",
       "to": "task:T-018-fe"
-    },
-    {
-      "from": "task:T-019",
-      "kind": "tree",
-      "to": "story:T-019"
-    },
-    {
-      "from": "task:T-019",
-      "kind": "tree",
-      "to": "task:T-019-be"
-    },
-    {
-      "from": "task:T-019",
-      "kind": "tree",
-      "to": "task:T-019-fe"
     },
     {
       "from": "task:T-020",
@@ -26640,6 +26459,11 @@
     {
       "from": "backend-integration:auth",
       "kind": "wikilink",
+      "to": "story:linked-accounts"
+    },
+    {
+      "from": "backend-integration:auth",
+      "kind": "wikilink",
       "to": "task:T-001"
     },
     {
@@ -26656,11 +26480,6 @@
       "from": "backend-integration:auth",
       "kind": "wikilink",
       "to": "task:T-014"
-    },
-    {
-      "from": "backend-integration:auth",
-      "kind": "wikilink",
-      "to": "task:T-019"
     },
     {
       "from": "backend-integration:auth",
@@ -27025,7 +26844,7 @@
     {
       "from": "decision:D-01",
       "kind": "wikilink",
-      "to": "task:T-019"
+      "to": "story:linked-accounts"
     },
     {
       "from": "decision:D-06",
@@ -27380,7 +27199,7 @@
     {
       "from": "feature:linked-accounts",
       "kind": "wikilink",
-      "to": "task:T-019"
+      "to": "project:status-report-2026-10-15"
     },
     {
       "from": "feature:meetings",
@@ -27675,17 +27494,17 @@
     {
       "from": "frontend-requirements:account",
       "kind": "wikilink",
+      "to": "story:linked-accounts"
+    },
+    {
+      "from": "frontend-requirements:account",
+      "kind": "wikilink",
       "to": "task:T-014"
     },
     {
       "from": "frontend-requirements:account",
       "kind": "wikilink",
       "to": "task:T-015"
-    },
-    {
-      "from": "frontend-requirements:account",
-      "kind": "wikilink",
-      "to": "task:T-019"
     },
     {
       "from": "frontend-requirements:account",
@@ -27775,6 +27594,11 @@
     {
       "from": "frontend-requirements:auth",
       "kind": "wikilink",
+      "to": "story:linked-accounts"
+    },
+    {
+      "from": "frontend-requirements:auth",
+      "kind": "wikilink",
       "to": "task:T-001"
     },
     {
@@ -27791,11 +27615,6 @@
       "from": "frontend-requirements:auth",
       "kind": "wikilink",
       "to": "task:T-014"
-    },
-    {
-      "from": "frontend-requirements:auth",
-      "kind": "wikilink",
-      "to": "task:T-019"
     },
     {
       "from": "frontend-requirements:badge-qr",
@@ -28565,11 +28384,6 @@
     {
       "from": "frontend-requirements:linked-accounts",
       "kind": "wikilink",
-      "to": "task:T-019"
-    },
-    {
-      "from": "frontend-requirements:linked-accounts",
-      "kind": "wikilink",
       "to": "task:T-020"
     },
     {
@@ -28660,12 +28474,12 @@
     {
       "from": "frontend-requirements:onboarding-imports",
       "kind": "wikilink",
-      "to": "story:onboarding-imports"
+      "to": "story:linked-accounts"
     },
     {
       "from": "frontend-requirements:onboarding-imports",
       "kind": "wikilink",
-      "to": "task:T-019"
+      "to": "story:onboarding-imports"
     },
     {
       "from": "frontend-requirements:onboarding-imports",
@@ -30243,6 +30057,11 @@
       "to": "story:auth"
     },
     {
+      "from": "needs-decision:ND-01",
+      "kind": "wikilink",
+      "to": "story:linked-accounts"
+    },
+    {
       "from": "needs-decision:ND-02",
       "kind": "wikilink",
       "to": "story:profiles"
@@ -31175,6 +30994,11 @@
     {
       "from": "project:frontend-passwordless-migration",
       "kind": "wikilink",
+      "to": "story:linked-accounts"
+    },
+    {
+      "from": "project:frontend-passwordless-migration",
+      "kind": "wikilink",
       "to": "task:T-001"
     },
     {
@@ -31186,11 +31010,6 @@
       "from": "project:frontend-passwordless-migration",
       "kind": "wikilink",
       "to": "task:T-003"
-    },
-    {
-      "from": "project:frontend-passwordless-migration",
-      "kind": "wikilink",
-      "to": "task:T-019"
     },
     {
       "from": "project:glossary",
@@ -31466,11 +31285,6 @@
       "from": "project:status-report-2026-10-15",
       "kind": "wikilink",
       "to": "feature:gemma"
-    },
-    {
-      "from": "project:status-report-2026-10-15",
-      "kind": "wikilink",
-      "to": "feature:linked-accounts"
     },
     {
       "from": "project:status-report-2026-10-15",
@@ -32045,11 +31859,6 @@
     {
       "from": "story:linked-accounts",
       "kind": "wikilink",
-      "to": "needs-decision:ND-01"
-    },
-    {
-      "from": "story:linked-accounts",
-      "kind": "wikilink",
       "to": "project:auth-model"
     },
     {
@@ -32085,7 +31894,7 @@
     {
       "from": "story:onboarding-imports",
       "kind": "wikilink",
-      "to": "task:T-019"
+      "to": "story:linked-accounts"
     },
     {
       "from": "story:payments",
@@ -32496,11 +32305,6 @@
       "from": "story:T-018",
       "kind": "wikilink",
       "to": "feature:widgets"
-    },
-    {
-      "from": "story:T-019",
-      "kind": "wikilink",
-      "to": "feature:linked-accounts"
     },
     {
       "from": "story:T-020",
@@ -33366,56 +33170,6 @@
       "from": "task:T-018-fe",
       "kind": "wikilink",
       "to": "task:T-018-be"
-    },
-    {
-      "from": "task:T-019",
-      "kind": "wikilink",
-      "to": "needs-decision:ND-01"
-    },
-    {
-      "from": "task:T-019",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-019",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-019",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-019",
-      "kind": "wikilink",
-      "to": "task:T-020"
-    },
-    {
-      "from": "task:T-019-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:linked-accounts"
-    },
-    {
-      "from": "task:T-019-be",
-      "kind": "wikilink",
-      "to": "feature:linked-accounts"
-    },
-    {
-      "from": "task:T-019-fe",
-      "kind": "wikilink",
-      "to": "feature:linked-accounts"
-    },
-    {
-      "from": "task:T-019-fe",
-      "kind": "wikilink",
-      "to": "story:T-019"
-    },
-    {
-      "from": "task:T-019-fe",
-      "kind": "wikilink",
-      "to": "task:T-019-be"
     },
     {
       "from": "task:T-020",
@@ -36383,22 +36137,6 @@
       "name": "T-018-fe Frontend · Widget CRUD on the projection",
       "type": "task"
     },
-    "social-pin/tasks/T-019 LinkedIn OAuth link, unlink, login/T-019 LinkedIn OAuth link, unlink, login.md": {
-      "name": "T-019 LinkedIn OAuth link, unlink, login",
-      "type": "task"
-    },
-    "social-pin/tasks/T-019 LinkedIn OAuth link, unlink, login/T-019 Story.md": {
-      "name": "T-019 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-019 LinkedIn OAuth link, unlink, login/T-019-be Backend · LinkedIn OAuth link, unlink, login.md": {
-      "name": "T-019-be Backend · LinkedIn OAuth link, unlink, login",
-      "type": "task"
-    },
-    "social-pin/tasks/T-019 LinkedIn OAuth link, unlink, login/T-019-fe Frontend · LinkedIn OAuth link, unlink, login.md": {
-      "name": "T-019-fe Frontend · LinkedIn OAuth link, unlink, login",
-      "type": "task"
-    },
     "social-pin/tasks/T-020 LinkedIn import → review → base profile/T-020 LinkedIn import → review → base profile.md": {
       "name": "T-020 LinkedIn import → review → base profile",
       "type": "task"
@@ -37453,11 +37191,9 @@
         "frontend-requirements:linked-accounts",
         "project:developer-guide",
         "project:frontend-passwordless-migration",
-        "task:T-019",
         "frontend-requirements:audit-log",
         "backend-delivery:linked-accounts",
         "story:linked-accounts",
-        "story:T-019",
         "project:developer-setup",
         "feature:account",
         "qa-frontend:account",
@@ -39846,11 +39582,9 @@
         "frontend-requirements:linked-accounts",
         "project:developer-guide",
         "project:frontend-passwordless-migration",
-        "task:T-019",
         "frontend-requirements:audit-log",
         "backend-delivery:linked-accounts",
         "story:linked-accounts",
-        "story:T-019",
         "project:developer-setup",
         "frontend-requirements:badge-qr",
         "qa-frontend:account",
@@ -39994,7 +39728,7 @@
       ],
       "task": null,
       "title": "Auth & Sign-up Backend Integration",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "backend-integration:badge-qr": {
       "affects": [],
@@ -41753,7 +41487,7 @@
       "affects": [
         "feature:auth",
         "feature:linked-accounts",
-        "task:T-019",
+        "story:linked-accounts",
         "story:auth"
       ],
       "blockedBy": [],
@@ -44482,11 +44216,10 @@
       "resolution": null,
       "rollup": {
         "approved": 1,
-        "blocked": 2,
+        "blocked": 1,
         "decided": 1,
-        "draft": 2,
+        "draft": 1,
         "missing": 4,
-        "todo": 2,
         "verified": 1
       },
       "scope": null,
@@ -44505,7 +44238,7 @@
       ],
       "task": null,
       "title": "Linked Accounts (OAuth)",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "feature:meetings": {
       "affects": [],
@@ -44720,12 +44453,12 @@
       "resolution": null,
       "rollup": {
         "approved": 1,
-        "blocked": 6,
+        "blocked": 4,
         "decided": 1,
         "draft": 3,
         "missing": 4,
         "needs-decision": 1,
-        "todo": 1,
+        "todo": 3,
         "verified": 1
       },
       "scope": null,
@@ -45976,7 +45709,7 @@
         "feature:profiles",
         "story:files",
         "story:counts",
-        "task:T-019",
+        "story:linked-accounts",
         "task:T-014",
         "task:T-049",
         "task:T-063",
@@ -49135,7 +48868,7 @@
       ],
       "task": null,
       "title": "Linked Accounts (OAuth) Frontend Requirements",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "frontend-requirements:meetings": {
       "affects": [],
@@ -49243,7 +48976,7 @@
     },
     "frontend-requirements:onboarding-imports": {
       "affects": [
-        "task:T-019",
+        "story:linked-accounts",
         "task:T-020",
         "task:T-020b"
       ],
@@ -50532,7 +50265,7 @@
       "resolution": null,
       "rollup": {
         "approved": 12,
-        "blocked": 17,
+        "blocked": 15,
         "current": 8,
         "decided": 7,
         "delivered": 2,
@@ -50544,7 +50277,7 @@
         "partial": 4,
         "passing": 1,
         "ready": 2,
-        "todo": 5,
+        "todo": 7,
         "verified": 7
       },
       "scope": null,
@@ -50663,14 +50396,14 @@
       "resolution": null,
       "rollup": {
         "approved": 11,
-        "blocked": 33,
+        "blocked": 32,
         "decided": 3,
         "done": 1,
-        "draft": 27,
+        "draft": 26,
         "in-progress": 22,
         "missing": 61,
         "needs-decision": 1,
-        "todo": 12,
+        "todo": 10,
         "verified": 3
       },
       "scope": null,
@@ -52897,7 +52630,7 @@
       ],
       "task": null,
       "title": "Frontend Passwordless Migration",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "project:glossary": {
       "affects": [],
@@ -57302,12 +57035,12 @@
       ],
       "rollup": {
         "approved": 36,
-        "blocked": 139,
+        "blocked": 136,
         "current": 8,
         "decided": 14,
         "delivered": 2,
         "done": 10,
-        "draft": 88,
+        "draft": 87,
         "in-progress": 55,
         "missing": 161,
         "needs-decision": 8,
@@ -58000,61 +57733,6 @@
       ],
       "task": "T-018",
       "title": "T-018 Story",
-      "updated": "2026-10-26"
-    },
-    "story:T-019": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-95",
-      "children": [],
-      "code": "T-019",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
-      "effort": null,
-      "feature": "linked-accounts",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-019",
-      "inherits": {
-        "priority": "task:T-019",
-        "release": "feature:linked-accounts"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": null,
-      "parents": [
-        "task:T-019"
-      ],
-      "path": "social-pin/tasks/T-019 LinkedIn OAuth link, unlink, login/T-019 Story.md",
-      "pending": [],
-      "priority": "high",
-      "related": [
-        "backend-delivery:account",
-        "backend-integration:account"
-      ],
-      "release": "v1",
-      "resolution": null,
-      "scope": "task",
-      "screens": [
-        "s01",
-        "s04",
-        "s68"
-      ],
-      "status": "draft",
-      "summary": "Callback writes SocialIdentity. Login via provider returns a session the same way POST /auth/login/verify does (ND-01 decided: passwordless, code-only; a linked provider is the second way to prove…",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/platform",
-        "layer/business"
-      ],
-      "task": "T-019",
-      "title": "T-019 Story",
       "updated": "2026-10-26"
     },
     "story:T-020": {
@@ -61417,9 +61095,7 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-94",
-      "children": [
-        "task:T-019"
-      ],
+      "children": [],
       "code": "linked-accounts",
       "created": "2026-10-18",
       "deadline": null,
@@ -61447,8 +61123,12 @@
       "pending": [],
       "priority": "high",
       "related": [
+        "task:T-020",
+        "task:T-020-be",
+        "task:T-020-fe",
         "backend-delivery:account",
-        "backend-integration:account"
+        "backend-integration:account",
+        "frontend-delivery:account"
       ],
       "release": "v1",
       "resolution": null,
@@ -61468,7 +61148,7 @@
       ],
       "task": null,
       "title": "Linked Accounts (OAuth) Story",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "story:meetings": {
       "affects": [],
@@ -61639,7 +61319,7 @@
       ],
       "task": null,
       "title": "Onboarding Imports Story",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "story:operator-panel": {
       "affects": [],
@@ -64917,203 +64597,9 @@
       "title": "T-018-fe Frontend · Widget CRUD on the projection",
       "updated": "2026-10-26"
     },
-    "task:T-019": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-019",
-      "children": [
-        "story:T-019",
-        "task:T-019-be",
-        "task:T-019-fe"
-      ],
-      "code": "T-019",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": "social-pin/tasks/T-019 LinkedIn OAuth link, unlink, login",
-      "effectiveStatus": "todo",
-      "effort": "L",
-      "feature": "linked-accounts",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-019",
-      "inherits": {
-        "release": "feature:linked-accounts"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": null,
-      "parents": [
-        "story:linked-accounts"
-      ],
-      "path": "social-pin/tasks/T-019 LinkedIn OAuth link, unlink, login/T-019 LinkedIn OAuth link, unlink, login.md",
-      "pending": [],
-      "priority": "high",
-      "related": [
-        "backend-delivery:account",
-        "backend-integration:account",
-        "frontend-delivery:account"
-      ],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {
-        "blocked": 1,
-        "draft": 1,
-        "todo": 1
-      },
-      "scope": null,
-      "screens": [
-        "s01",
-        "s04",
-        "s68"
-      ],
-      "status": "todo",
-      "summary": "Callback writes SocialIdentity. Login via provider returns a session the same way POST /auth/login/verify does (ND-01 decided: passwordless, code-only; a linked provider is the second way to prove…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/platform",
-        "priority/high"
-      ],
-      "task": null,
-      "title": "T-019 LinkedIn OAuth link, unlink, login",
-      "updated": "2026-10-26"
-    },
-    "task:T-019-be": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-019-be",
-      "children": [],
-      "code": "T-019-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": null,
-      "effectiveStatus": "todo",
-      "effort": "L",
-      "feature": "linked-accounts",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-019-be",
-      "inherits": {
-        "release": "feature:linked-accounts"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": "T-019",
-      "parents": [
-        "task:T-019"
-      ],
-      "path": "social-pin/tasks/T-019 LinkedIn OAuth link, unlink, login/T-019-be Backend · LinkedIn OAuth link, unlink, login.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s01",
-        "s04",
-        "s68"
-      ],
-      "status": "todo",
-      "summary": "The API side of T-019 LinkedIn OAuth link, unlink, login: the endpoints, data and rules its What describes. Record what shipped in T-019-be Backend Delivery and how to call it in T-019-be Backend…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/platform",
-        "priority/high",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-019-be Backend · LinkedIn OAuth link, unlink, login",
-      "updated": "2026-10-26"
-    },
-    "task:T-019-fe": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-019-be",
-          "title": "T-019-be Backend · LinkedIn OAuth link, unlink, login",
-          "why": "T-019-be Backend · LinkedIn OAuth link, unlink, login is to do"
-        }
-      ],
-      "card": "T-019-fe",
-      "children": [],
-      "code": "T-019-fe",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-019-be"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "L",
-      "feature": "linked-accounts",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-019-fe",
-      "inherits": {
-        "release": "feature:linked-accounts"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "frontend"
-      ],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": "T-019",
-      "parents": [
-        "task:T-019"
-      ],
-      "path": "social-pin/tasks/T-019 LinkedIn OAuth link, unlink, login/T-019-fe Frontend · LinkedIn OAuth link, unlink, login.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s01",
-        "s04",
-        "s68"
-      ],
-      "status": "todo",
-      "summary": "The client side of T-019 LinkedIn OAuth link, unlink, login: the screens below show what its What describes, built against Linked Accounts (OAuth) Backend Integration once the backend half…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/platform",
-        "priority/high",
-        "frontend"
-      ],
-      "task": null,
-      "title": "T-019-fe Frontend · LinkedIn OAuth link, unlink, login",
-      "updated": "2026-10-26"
-    },
     "task:T-020": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-019",
-          "title": "T-019 LinkedIn OAuth link, unlink, login",
-          "why": "T-019 LinkedIn OAuth link, unlink, login is to do"
-        }
-      ],
+      "blockedBy": [],
       "card": "T-020",
       "children": [
         "story:T-020",
@@ -65125,11 +64611,10 @@
       "deadline": null,
       "decision": null,
       "depends": [
-        "task:T-019",
         "decision:D-02"
       ],
       "dir": "social-pin/tasks/T-020 LinkedIn import → review → base profile",
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "todo",
       "effort": "L",
       "feature": "onboarding-imports",
       "foundOn": null,
@@ -65151,14 +64636,16 @@
       "pending": [],
       "priority": "high",
       "related": [
+        "story:linked-accounts",
         "needs-decision:ND-21",
         "frontend-requirements:profiles"
       ],
       "release": "mvp",
       "resolution": null,
       "rollup": {
-        "blocked": 2,
-        "draft": 1
+        "blocked": 1,
+        "draft": 1,
+        "todo": 1
       },
       "scope": null,
       "screens": [
@@ -65175,17 +64662,11 @@
       ],
       "task": null,
       "title": "T-020 LinkedIn import → review → base profile",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "task:T-020-be": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-019",
-          "title": "T-019 LinkedIn OAuth link, unlink, login",
-          "why": "T-019 LinkedIn OAuth link, unlink, login is to do"
-        }
-      ],
+      "blockedBy": [],
       "card": "T-020-be",
       "children": [],
       "code": "T-020-be",
@@ -65193,11 +64674,10 @@
       "deadline": null,
       "decision": null,
       "depends": [
-        "task:T-019",
         "needs-decision:ND-02"
       ],
       "dir": null,
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "todo",
       "effort": "L",
       "feature": "onboarding-imports",
       "foundOn": null,
@@ -65220,7 +64700,9 @@
       "path": "social-pin/tasks/T-020 LinkedIn import → review → base profile/T-020-be Backend · LinkedIn import → review → base profile.md",
       "pending": [],
       "priority": "high",
-      "related": [],
+      "related": [
+        "story:linked-accounts"
+      ],
       "release": "mvp",
       "resolution": null,
       "rollup": {},
@@ -65240,20 +64722,15 @@
       ],
       "task": null,
       "title": "T-020-be Backend · LinkedIn import → review → base profile",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "task:T-020-fe": {
       "affects": [],
       "blockedBy": [
         {
-          "id": "task:T-019",
-          "title": "T-019 LinkedIn OAuth link, unlink, login",
-          "why": "T-019 LinkedIn OAuth link, unlink, login is to do"
-        },
-        {
           "id": "task:T-020-be",
           "title": "T-020-be Backend · LinkedIn import → review → base profile",
-          "why": "T-020-be Backend · LinkedIn import → review → base profile is blocked"
+          "why": "T-020-be Backend · LinkedIn import → review → base profile is to do"
         }
       ],
       "card": "T-020-fe",
@@ -65263,7 +64740,6 @@
       "deadline": null,
       "decision": null,
       "depends": [
-        "task:T-019",
         "needs-decision:ND-02",
         "task:T-020-be"
       ],
@@ -65291,7 +64767,9 @@
       "path": "social-pin/tasks/T-020 LinkedIn import → review → base profile/T-020-fe Frontend · LinkedIn import → review → base profile.md",
       "pending": [],
       "priority": "high",
-      "related": [],
+      "related": [
+        "story:linked-accounts"
+      ],
       "release": "mvp",
       "resolution": null,
       "rollup": {},
@@ -65311,7 +64789,7 @@
       ],
       "task": null,
       "title": "T-020-fe Frontend · LinkedIn import → review → base profile",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "task:T-020b": {
       "affects": [],

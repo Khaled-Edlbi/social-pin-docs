@@ -7,7 +7,7 @@ module: identity
 status: draft
 screens: [s01, s03, s03a, s03b, s04, s05]
 depends: []
-affects: ["T-019 LinkedIn OAuth link, unlink, login", "T-020 LinkedIn import → review → base profile", "T-020b Business card scan and portfolio URL import"]
+affects: ["Linked Accounts (OAuth) Story", "T-020 LinkedIn import → review → base profile", "T-020b Business card scan and portfolio URL import"]
 related: ["D-02 One main profile every Ring starts from", "D-03 Links entered once, switched on or off per Ring", "ND-21 How a business card and a portfolio page are read", "Profiles & Pin Name Story", "Files Upload Story", "T-063 Put the ErrorCode on the error body", "Auth & Sign-up", "Files Upload", "Ring Projection"]
 created: 2026-10-18
 updated: 2026-10-27
@@ -37,7 +37,7 @@ If the backend prefers to write at registration instead (candidates confirmed in
 
 ### [[Screen Index#s01|s01]] Welcome · Continue with LinkedIn
 
-- The same LinkedIn hand-off as s04, offered before an email or phone is typed. Whether LinkedIn can **create** the account (no email code) or only feeds an import after the code is [[T-019 LinkedIn OAuth link, unlink, login]]'s to say; until then the client sends it to s03.
+- The same LinkedIn hand-off as s04, offered before an email or phone is typed. Whether LinkedIn can **create** the account (no email code) or only feeds an import after the code is [[Linked Accounts (OAuth) Story|Linked Accounts (OAuth) · S7]]'s to say; until then the client sends it to s03.
 
 ### [[Screen Index#s03|s03]] Start from
 
@@ -87,7 +87,7 @@ If the backend prefers to write at registration instead (candidates confirmed in
 | Continue without an import (full name at registration) | `POST /auth/complete-registration` | ✅ | — (listed under [[Auth & Sign-up]]) |
 | Pin-name step after the import | `GET /profiles/pin-name/:pinName/availability` | ✅ | — (listed under [[Profiles & Pin Name]]) |
 | Carry a card photo to the server, if ND-21 says so | `POST /files` | ✅ | — ([[Files Upload]]) |
-| LinkedIn OAuth start and callback back into the app, with the onboarding token | — | ❌ | [[T-019 LinkedIn OAuth link, unlink, login]] |
+| LinkedIn OAuth start and callback back into the app, with the onboarding token | — | ❌ | [[Linked Accounts (OAuth) Story|Linked Accounts (OAuth) · S7]] |
 | Candidate fields from LinkedIn (photo already stored as a file id, not a LinkedIn URL) | — | ❌ | [[T-020 LinkedIn import → review → base profile]] |
 | Candidate fields from a card photo | — or ❌ | depends on ND-21 | [[T-020b Business card scan and portfolio URL import]] · [[ND-21 How a business card and a portfolio page are read]] |
 | Candidate fields from a portfolio address | — | ❌ | [[T-020b Business card scan and portfolio URL import]] · [[ND-21 How a business card and a portfolio page are read]] |
@@ -107,7 +107,7 @@ If the backend prefers to write at registration instead (candidates confirmed in
 
 | Status | ErrorCode | Show |
 |---|---|---|
-| — | to be defined by T-019 / T-020 / T-020b | LinkedIn cancelled or denied, nothing returned, page unreachable, unreadable card: "We couldn't read that. Fill it in yourself?" with the manual path |
+| — | to be defined by Linked Accounts (OAuth) · S7 / T-020 / T-020b | LinkedIn cancelled or denied, nothing returned, page unreachable, unreadable card: "We couldn't read that. Fill it in yourself?" with the manual path |
 | 401 | — (onboarding token expired) | a new code is sent; back to Verify, the review kept |
 | 409 | `E_PROFILE_02` | on s06: "That Pin name is taken" |
 
@@ -115,7 +115,7 @@ Until [[T-063 Put the ErrorCode on the error body]] ships, branch on status and 
 
 ## Blocked by
 
-- [[T-019 LinkedIn OAuth link, unlink, login]] — s01's LinkedIn button and s04 can't start.
+- [[Linked Accounts (OAuth) Story|Linked Accounts (OAuth) · S7]] — s01's LinkedIn button and s04 can't start.
 - [[T-020 LinkedIn import → review → base profile]] — s04's candidates and s05's LinkedIn rows.
 - [[Profiles & Pin Name Story|Profiles & Pin Name · S9–S11]] — nowhere to save headline, company, location, photo or bio after review.
 - [[ND-21 How a business card and a portfolio page are read]] → [[T-020b Business card scan and portfolio URL import]] — s03a and s03b.

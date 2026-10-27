@@ -41,7 +41,7 @@ Screens: [[Screen Index#s01|s01]], [[Screen Index#s02|s02]]
 
 ## Tasks waiting on this
 
-- [[T-019 LinkedIn OAuth link, unlink, login]]
+- [[Linked Accounts (OAuth) Story|Linked Accounts (OAuth) · S7]]
 - [[Auth & Sign-up Story|Auth & Sign-up · Decide passwordless login]]
 
 ## Decision

@@ -64,7 +64,7 @@ Until [[T-063 Put the ErrorCode on the error body]] puts the code on the wire, b
 ## Not available yet
 
 - Connection count ("218 connections") on s68: [[Counts Story|Counts · S11]].
-- Linked accounts (LinkedIn): [[T-019 LinkedIn OAuth link, unlink, login]].
+- Linked accounts (LinkedIn): [[Linked Accounts (OAuth) Story|Linked Accounts (OAuth) · S7]].
 - Devices list and NFC: [[T-014 Register devices on login; list and remove]], [[T-015 Pair and revoke an NFC card]].
 - Subscription management: [[T-049 Subscription endpoints and a single Pro gate]].
 - Re-verifying a changed email or phone: no route; see [[Account#Gaps]].

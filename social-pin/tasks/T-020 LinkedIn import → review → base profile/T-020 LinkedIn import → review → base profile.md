@@ -7,11 +7,12 @@ effort: L
 feature: onboarding-imports
 module: identity
 screens: [s04, s05]
-depends: [T-019, "D-02 One main profile every Ring starts from"]
+depends: ["D-02 One main profile every Ring starts from"]
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-27
 owner: "Omar Fostok"
 tags: [task, task/todo, module/identity, priority/high]
+related: ["Linked Accounts (OAuth) Story"]
 ---
 
 # ⬜ T-020 · LinkedIn import → review → base profile
@@ -31,7 +32,7 @@ Import endpoint returns candidate fields; confirm endpoint writes the chosen one
 
 ## Dependencies
 
-- Waits on [[T-019 LinkedIn OAuth link, unlink, login]]
+- Waits on [[Linked Accounts (OAuth) Story|Linked Accounts (OAuth) · S7]]
 - Waited on decision [[ND-02 Base profile work fields]], decided by [[D-02 One main profile every Ring starts from]]
 
 ## Definition of done
@@ -45,5 +46,5 @@ Import endpoint returns candidate fields; confirm endpoint writes the chosen one
 ## Log
 
 - 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
-- 2026-10-25 · ND-02 decided ([[D-02 One main profile every Ring starts from]]); What and Dependencies updated, flag cleared. Still waits on T-019.
-- 2026-10-26 · `tickets/pm/…/S-09-depends-dr-02` · `depends` points at the decision card D-02 instead of ND-02; the hand-typed `blocked` removed: the build shows it blocked by T-019, the one real blocker.
+- 2026-10-25 · ND-02 decided ([[D-02 One main profile every Ring starts from]]); What and Dependencies updated, flag cleared. Still waits on Linked Accounts (OAuth) · S7.
+- 2026-10-26 · `tickets/pm/…/S-09-depends-dr-02` · `depends` points at the decision card D-02 instead of ND-02; the hand-typed `blocked` removed: the build shows it blocked by Linked Accounts (OAuth) · S7, the one real blocker.

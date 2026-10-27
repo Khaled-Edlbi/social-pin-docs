@@ -9,7 +9,7 @@ screens: [s03, s03a, s03b, s04, s05]
 approvedBy: "khaled"
 approvedAt: 2026-10-25
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 owner: "omar"
 related: ["D-02 One main profile every Ring starts from"]
 tags: [story, story/approved, module/identity, layer/business]
@@ -99,4 +99,4 @@ Acceptance criteria:
 - Decided: [[D-02 One main profile every Ring starts from]]. S5 still waits for the main profile fields to be built (not ticketed yet).
 - Which main-profile fields an import may overwrite without asking, when the profile already has values (D-02, *Still open*).
 - Provider choice for card OCR and URL scraping ([[T-020b Business card scan and portfolio URL import]]) — blocks S3 and S4.
-- Whether a LinkedIn login (not only import) is offered on s01 depends on [[ND-01 Passwordless login]] and [[T-019 LinkedIn OAuth link, unlink, login]].
+- Whether a LinkedIn login (not only import) is offered on s01 depends on [[ND-01 Passwordless login]] and [[Linked Accounts (OAuth) Story|Linked Accounts (OAuth) · S7]].

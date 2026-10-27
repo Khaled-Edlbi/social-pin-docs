@@ -7,7 +7,7 @@ module: identity
 status: current
 screens: [s01, s02, s06, s08, s68]
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-27
 related: ["B-02 Deleted account answers 401, not the documented 404 E_USER_01", E_USER_01]
 tags: [backend-integration, backend-integration/current, module/identity, layer/backend]
 ---
@@ -103,7 +103,7 @@ Retired and never returned again: `E_AUTH_02` (invalid password) and `E_USER_04`
 ## Not available yet
 
 - **Code delivery.** No email or SMS provider is wired ([[T-001 Wire an email provider for one-time codes]], [[T-002 Wire an SMS provider for one-time codes]]); `devCode` stands in until then.
-- Social login ([[T-019 LinkedIn OAuth link, unlink, login]]), device registration on login ([[T-014 Register devices on login; list and remove]]).
+- Social login ([[Linked Accounts (OAuth) Story|Linked Accounts (OAuth) · S7]]), device registration on login ([[T-014 Register devices on login; list and remove]]).
 
 ## Checklist
 

@@ -10,7 +10,7 @@ approvedBy: "khaled"
 approvedAt: 2026-10-25
 owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [story, story/approved, module/platform, layer/business]
 ---
 
@@ -77,6 +77,14 @@ Acceptance criteria:
 - [ ] [[ND-01 Passwordless login]] is decided (code-only): provider login must return the same session pair as `POST /auth/login/verify`; the client treats LinkedIn as sign-up plus import only.
 - [ ] When decided, a successful provider login issues the normal session pair and records `lastLoginAt`.
 
+### S7 · LinkedIn OAuth link, unlink, login
+
+*From T-019 (status then: To do), merged 2026-10-27.*
+
+Callback writes `SocialIdentity`. Login via provider returns a session the same way `POST /auth/login/verify` does (ND-01 decided: passwordless, code-only; a linked provider is the second way to prove the identity).
+
+Screens: [[Screen Index#s01|s01]] Welcome · [[Screen Index#s04|s04]] Importing · [[Screen Index#s68|s68]] Me / Account
+
 ## States and motion the design asks for
 
 - State: OAuth in progress, cancelled, failed, permissions denied; partial import; nothing returned (fall back to manual) ([[Wireframe Brief#The three login/signup methods|§3.2]], [[Wireframe Brief#LinkedIn profile import|§3.3]]).
@@ -86,8 +94,8 @@ Acceptance criteria:
 
 - `SocialIdentity` is unique on (`provider`, `providerUserId`) and indexed by user; providers are GOOGLE, APPLE, FACEBOOK, LINKEDIN, MICROSOFT; `email` is optional and informational.
 - Registration today ends with the Pin name in one transaction (no password, [[ND-01 Passwordless login]] decided); a provider sign-up still has to pass through `complete-registration` ([[Auth Model]]).
-- Nothing OAuth exists; [[T-019 LinkedIn OAuth link, unlink, login]] is ❓.
+- Nothing OAuth exists; [[Linked Accounts (OAuth) Story|Linked Accounts (OAuth) · S7]] is ❓.
 
 ## Open questions
 
-- None open: [[ND-01 Passwordless login]] is decided (code-only). What remains is [[T-019 LinkedIn OAuth link, unlink, login]].
+- None open: [[ND-01 Passwordless login]] is decided (code-only). What remains is [[Linked Accounts (OAuth) Story|Linked Accounts (OAuth) · S7]].
