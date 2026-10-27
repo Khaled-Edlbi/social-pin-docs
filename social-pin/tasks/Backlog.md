@@ -82,9 +82,6 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-012 List my files (photo library)]] | [[Photo Library]] | Identity Core | ⬜ To do | S | — | — |
 | [[T-012-be Backend · List my files (photo library)]] `backend` | [[Photo Library]] | Identity Core | ⬜ To do | S | — | — |
 | [[T-012-fe Frontend · List my files (photo library)]] `frontend` | [[Photo Library]] | Identity Core | ⛔ Blocked | S | — | [[T-012-be Backend · List my files (photo library)|T-012-be]] |
-| [[T-014 Register devices on login; list and remove]] | [[Devices & NFC]] | Platform & Cross-cutting | ⬜ To do | M | — | — |
-| [[T-014-be Backend · Register devices on login; list and remove]] `backend` | [[Devices & NFC]] | Platform & Cross-cutting | ⬜ To do | M | — | — |
-| [[T-014-fe Frontend · Register devices on login; list and remove]] `frontend` | [[Devices & NFC]] | Platform & Cross-cutting | ⛔ Blocked | M | — | [[T-014-be Backend · Register devices on login; list and remove|T-014-be]] |
 | [[T-017 Extend WIDGET_TYPE to the design's list]] | [[Widgets]] | Identity Core | ⬜ To do | S | — | — |
 | [[T-017-be Backend · Extend WIDGET_TYPE to the design's list]] `backend` | [[Widgets]] | Identity Core | ⬜ To do | S | — | — |
 | [[T-017-fe Frontend · Extend WIDGET_TYPE to the design's list]] `frontend` | [[Widgets]] | Identity Core | ⛔ Blocked | S | — | [[T-017-be Backend · Extend WIDGET_TYPE to the design's list|T-017-be]] |
@@ -118,9 +115,9 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-045 NotificationService.emit and the inbox]] | [[Notifications]] | Platform & Cross-cutting | ⬜ To do | M | — | — |
 | [[T-045-be Backend · NotificationService.emit and the inbox]] `backend` | [[Notifications]] | Platform & Cross-cutting | ⬜ To do | M | — | — |
 | [[T-045-fe Frontend · NotificationService.emit and the inbox]] `frontend` | [[Notifications]] | Platform & Cross-cutting | ⛔ Blocked | M | — | [[T-045-be Backend · NotificationService.emit and the inbox|T-045-be]] |
-| [[T-046 Push delivery and preferences]] | [[Notifications]] | Platform & Cross-cutting | ⛔ Blocked | M | — | [[T-045 NotificationService.emit and the inbox|T-045]], [[T-014 Register devices on login; list and remove|T-014]] |
-| [[T-046-be Backend · Push delivery and preferences]] `backend` | [[Notifications]] | Platform & Cross-cutting | ⛔ Blocked | M | — | [[T-045 NotificationService.emit and the inbox|T-045]], [[T-014 Register devices on login; list and remove|T-014]] |
-| [[T-046-fe Frontend · Push delivery and preferences]] `frontend` | [[Notifications]] | Platform & Cross-cutting | ⛔ Blocked | M | — | [[T-045 NotificationService.emit and the inbox|T-045]], [[T-014 Register devices on login; list and remove|T-014]], [[T-046-be Backend · Push delivery and preferences|T-046-be]] |
+| [[T-046 Push delivery and preferences]] | [[Notifications]] | Platform & Cross-cutting | ⛔ Blocked | M | — | [[T-045 NotificationService.emit and the inbox|T-045]] |
+| [[T-046-be Backend · Push delivery and preferences]] `backend` | [[Notifications]] | Platform & Cross-cutting | ⛔ Blocked | M | — | [[T-045 NotificationService.emit and the inbox|T-045]] |
+| [[T-046-fe Frontend · Push delivery and preferences]] `frontend` | [[Notifications]] | Platform & Cross-cutting | ⛔ Blocked | M | — | [[T-045 NotificationService.emit and the inbox|T-045]], [[T-046-be Backend · Push delivery and preferences|T-046-be]] |
 | [[T-048 Business account setup → business Ring]] | [[Exhibitor]] | Events | ⬜ To do | L | — | — |
 | [[T-048-be Backend · Business account setup → business Ring]] `backend` | [[Exhibitor]] | Events | ⬜ To do | L | — | — |
 | [[T-048-fe Frontend · Business account setup → business Ring]] `frontend` | [[Exhibitor]] | Events | ⛔ Blocked | L | — | [[T-048-be Backend · Business account setup → business Ring|T-048-be]] |
@@ -142,9 +139,6 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-013 Usage count per file across Rings]] | [[Photo Library]] | Identity Core | ⛔ Blocked | S | — | [[T-012 List my files (photo library)|T-012]] |
 | [[T-013-be Backend · Usage count per file across Rings]] `backend` | [[Photo Library]] | Identity Core | ⛔ Blocked | S | — | [[T-012 List my files (photo library)|T-012]] |
 | [[T-013-fe Frontend · Usage count per file across Rings]] `frontend` | [[Photo Library]] | Identity Core | ⛔ Blocked | S | — | [[T-012 List my files (photo library)|T-012]], [[T-013-be Backend · Usage count per file across Rings|T-013-be]] |
-| [[T-015 Pair and revoke an NFC card]] | [[Devices & NFC]] | Platform & Cross-cutting | ⛔ Blocked | M | — | [[T-007 Issue and rotate the QR token for a Ring|T-007]] |
-| [[T-015-be Backend · Pair and revoke an NFC card]] `backend` | [[Devices & NFC]] | Platform & Cross-cutting | ⛔ Blocked | M | — | [[T-007 Issue and rotate the QR token for a Ring|T-007]] |
-| [[T-015-fe Frontend · Pair and revoke an NFC card]] `frontend` | [[Devices & NFC]] | Platform & Cross-cutting | ⛔ Blocked | M | — | [[T-007 Issue and rotate the QR token for a Ring|T-007]], [[T-015-be Backend · Pair and revoke an NFC card|T-015-be]] |
 | [[T-020b Business card scan and portfolio URL import]] | [[Onboarding Imports]] | Identity Core | ⛔ Blocked | L | — | [[ND-21 How a business card and a portfolio page are read|ND-21]] |
 | [[T-020b-be Backend · Business card scan and portfolio URL import]] `backend` | [[Onboarding Imports]] | Identity Core | ⬜ To do | L | — | [[ND-02 Base profile work fields|ND-02]] |
 | [[T-020b-fe Frontend · Business card scan and portfolio URL import]] `frontend` | [[Onboarding Imports]] | Identity Core | ⛔ Blocked | L | — | [[T-020b-be Backend · Business card scan and portfolio URL import|T-020b-be]] |

@@ -64,7 +64,6 @@ kanban-plugin: board
 - [ ] [[T-010-be Backend · Public browser page for viewers without the app]] #high #badge-qr #backend
 - [ ] [[T-010-fe Frontend · Public browser page for viewers without the app]] #high #badge-qr #frontend
 - [ ] [[T-012-fe Frontend · List my files (photo library)]] #high #photo-library #frontend
-- [ ] [[T-014-fe Frontend · Register devices on login; list and remove]] #high #devices #frontend
 - [ ] [[T-017-fe Frontend · Extend WIDGET_TYPE to the design's list]] #high #widgets #frontend
 - [ ] [[T-018-be Backend · Widget CRUD on the projection]] #high #widgets #backend
 - [ ] [[T-018-fe Frontend · Widget CRUD on the projection]] #high #widgets #frontend
@@ -96,9 +95,6 @@ kanban-plugin: board
 - [ ] [[T-013 Usage count per file across Rings]] #medium #photo-library
 - [ ] [[T-013-be Backend · Usage count per file across Rings]] #medium #photo-library #backend
 - [ ] [[T-013-fe Frontend · Usage count per file across Rings]] #medium #photo-library #frontend
-- [ ] [[T-015 Pair and revoke an NFC card]] #medium #devices
-- [ ] [[T-015-be Backend · Pair and revoke an NFC card]] #medium #devices #backend
-- [ ] [[T-015-fe Frontend · Pair and revoke an NFC card]] #medium #devices #frontend
 - [ ] [[T-020b Business card scan and portfolio URL import]] #medium #onboarding-imports
 - [ ] [[T-020b-fe Frontend · Business card scan and portfolio URL import]] #medium #onboarding-imports #frontend
 - [ ] [[T-025-be Backend · Introduce a connection to another]] #medium #connections #backend
@@ -131,8 +127,6 @@ kanban-plugin: board
 - [ ] [[T-067-be Backend · Split E_RING_01 and E_RING_PROFILE_03]] #critical #error-contract #backend
 - [ ] [[T-012 List my files (photo library)]] #high #photo-library
 - [ ] [[T-012-be Backend · List my files (photo library)]] #high #photo-library #backend
-- [ ] [[T-014 Register devices on login; list and remove]] #high #devices
-- [ ] [[T-014-be Backend · Register devices on login; list and remove]] #high #devices #backend
 - [ ] [[T-017 Extend WIDGET_TYPE to the design's list]] #high #widgets
 - [ ] [[T-017-be Backend · Extend WIDGET_TYPE to the design's list]] #high #widgets #backend
 - [ ] [[T-020 LinkedIn import → review → base profile]] #high #onboarding-imports

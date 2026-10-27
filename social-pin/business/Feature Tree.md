@@ -100,8 +100,6 @@ Social Pin backend
     │   ├── ⬜ T-002 Wire an SMS provider for one-time codes
     │   └── ⛔ T-003 Remove devCode once delivery works
     ├── 🟡 Devices & NFC  [High]
-    │   ├── ⬜ T-014 Register devices on login; list and remove
-    │   └── ⬜ T-015 Pair and revoke an NFC card
     ├── 🟡 Interests  [High]
     ├── 🟡 Linked Accounts (OAuth)  [High]
     ├── ❌ Notifications  [High]
@@ -201,7 +199,7 @@ The error contract, notifications, Gemma AI, devices, interests, widgets, linked
 |---|---|---|---|---|
 | [[Error Contract]] | 🟡 Partial (needs more) | Critical | — | 1 |
 | [[Code Delivery]] | 🟡 Partial (needs more) | Critical | s02 | 3 |
-| [[Devices & NFC]] | 🟡 Partial (needs more) | High | s75 | 2 |
+| [[Devices & NFC]] | 🟡 Partial (needs more) | High | s75 | 0 |
 | [[Interests]] | 🟡 Partial (needs more) | High | s07, s71 | 0 |
 | [[Linked Accounts (OAuth)]] | 🟡 Partial (needs more) | High | s01, s04, s68 | 0 |
 | [[Notifications]] | ❌ TODO | High | s69 | 2 |

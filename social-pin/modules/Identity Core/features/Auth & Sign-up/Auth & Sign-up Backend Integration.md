@@ -103,7 +103,7 @@ Retired and never returned again: `E_AUTH_02` (invalid password) and `E_USER_04`
 ## Not available yet
 
 - **Code delivery.** No email or SMS provider is wired ([[T-001 Wire an email provider for one-time codes]], [[T-002 Wire an SMS provider for one-time codes]]); `devCode` stands in until then.
-- Social login ([[Linked Accounts (OAuth) Story|Linked Accounts (OAuth) · S7]]), device registration on login ([[T-014 Register devices on login; list and remove]]).
+- Social login ([[Linked Accounts (OAuth) Story|Linked Accounts (OAuth) · S7]]), device registration on login ([[Devices & NFC Story|Devices & NFC · S6]]).
 
 ## Checklist
 

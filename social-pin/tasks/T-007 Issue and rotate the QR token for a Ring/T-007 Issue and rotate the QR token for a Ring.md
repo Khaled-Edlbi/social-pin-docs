@@ -30,7 +30,7 @@ tags: [task, task/todo, module/discovery, priority/critical]
 ## Dependencies
 
 - Unblocks [[T-008 Resolve a scanned QR token]]
-- Unblocks [[T-015 Pair and revoke an NFC card]]
+- Unblocks [[Devices & NFC Story|Devices & NFC · S7]]
 - Unblocks [[T-037 Event pass with a 60 s rotating code]]
 
 ## Definition of done

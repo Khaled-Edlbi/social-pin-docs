@@ -7,7 +7,7 @@ module: platform
 status: draft
 screens: [s69]
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [frontend-requirements, frontend-requirements/draft, module/platform, layer/frontend]
 ---
 
@@ -42,7 +42,7 @@ What the client needs for the inbox, the bell, the deep links, push and preferen
 | Unread count for the bell | — | ❌ | [[T-045 NotificationService.emit and the inbox]] |
 | Mark one read / mark all read | — | ❌ | [[T-045 NotificationService.emit and the inbox]] |
 | Producers emit (connections, meetings, PinCast, events) | — (internal `emit`) | ❌ | [[T-045 NotificationService.emit and the inbox]]; each producer's own task |
-| Push to registered devices | — | ❌ | [[T-046 Push delivery and preferences]] (blocked on T-045 and [[T-014 Register devices on login; list and remove]]) |
+| Push to registered devices | — | ❌ | [[T-046 Push delivery and preferences]] (blocked on T-045 and [[Devices & NFC Story|Devices & NFC · S6]]) |
 | Preferences read / update | — | ❌ | [[T-046 Push delivery and preferences]] |
 
 ## Behaviour expectations
@@ -69,4 +69,4 @@ No notification codes exist yet; T-045 and T-046 add them. `ErrorCode` is not on
 
 ## Blocked by
 
-- No decision. [[T-045 NotificationService.emit and the inbox]] is To do; [[T-046 Push delivery and preferences]] is ⛔ behind it and [[T-014 Register devices on login; list and remove]].
+- No decision. [[T-045 NotificationService.emit and the inbox]] is To do; [[T-046 Push delivery and preferences]] is ⛔ behind it and [[Devices & NFC Story|Devices & NFC · S6]].

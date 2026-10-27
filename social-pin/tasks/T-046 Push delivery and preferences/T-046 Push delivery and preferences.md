@@ -7,10 +7,11 @@ effort: M
 feature: notifications
 module: platform
 screens: [s69]
-depends: [T-045, T-014]
+depends: ["T-045"]
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [task, task/blocked, module/platform, priority/high]
+related: ["Devices & NFC Story"]
 ---
 
 # ⛔ T-046 · Push delivery and preferences
@@ -30,7 +31,7 @@ Push via device tokens; preferences CRUD.
 ## Dependencies
 
 - Waits on [[T-045 NotificationService.emit and the inbox]]
-- Waits on [[T-014 Register devices on login; list and remove]]
+- Waits on [[Devices & NFC Story|Devices & NFC · S6]]
 
 ## Definition of done
 

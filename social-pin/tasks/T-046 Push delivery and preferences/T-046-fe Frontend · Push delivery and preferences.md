@@ -9,12 +9,12 @@ module: platform
 parent: T-046
 labels: [frontend]
 screens: [s69]
-depends: [T-045, T-014, T-046-be]
+depends: ["T-045", "T-046-be"]
 affects: []
-related: []
+related: ["Devices & NFC Story"]
 pending: []
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [task, task/todo, module/platform, priority/high, frontend]
 ---
 

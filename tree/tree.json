@@ -302,14 +302,6 @@
     "T-013 Usage count per file across Rings": "task:T-013",
     "T-013-be Backend · Usage count per file across Rings": "task:T-013-be",
     "T-013-fe Frontend · Usage count per file across Rings": "task:T-013-fe",
-    "T-014 Register devices on login; list and remove": "task:T-014",
-    "T-014 Story": "story:T-014",
-    "T-014-be Backend · Register devices on login; list and remove": "task:T-014-be",
-    "T-014-fe Frontend · Register devices on login; list and remove": "task:T-014-fe",
-    "T-015 Pair and revoke an NFC card": "task:T-015",
-    "T-015 Story": "story:T-015",
-    "T-015-be Backend · Pair and revoke an NFC card": "task:T-015-be",
-    "T-015-fe Frontend · Pair and revoke an NFC card": "task:T-015-fe",
     "T-017 Extend WIDGET_TYPE to the design's list": "task:T-017",
     "T-017 Story": "story:T-017",
     "T-017-be Backend · Extend WIDGET_TYPE to the design's list": "task:T-017-be",
@@ -766,8 +758,6 @@
     "S-80": "story:T-002",
     "S-81": "story:T-003",
     "S-82": "story:devices",
-    "S-83": "story:T-014",
-    "S-84": "story:T-015",
     "S-85": "story:e2e-tests",
     "S-87": "story:error-contract",
     "S-88": "story:T-063",
@@ -803,12 +793,6 @@
     "T-013": "task:T-013",
     "T-013-be": "task:T-013-be",
     "T-013-fe": "task:T-013-fe",
-    "T-014": "task:T-014",
-    "T-014-be": "task:T-014-be",
-    "T-014-fe": "task:T-014-fe",
-    "T-015": "task:T-015",
-    "T-015-be": "task:T-015-be",
-    "T-015-fe": "task:T-015-fe",
     "T-017": "task:T-017",
     "T-017-be": "task:T-017-be",
     "T-017-fe": "task:T-017-fe",
@@ -2320,12 +2304,11 @@
     },
     "GET /users/me/devices": {
       "containers": [
-        "task:T-014"
+        "feature:devices"
       ],
       "kind": "endpoint",
       "notes": [
-        "story:T-014",
-        "task:T-014"
+        "story:devices"
       ],
       "owner": null
     },
@@ -4857,13 +4840,7 @@
     "s75": {
       "containers": [
         "feature:auth",
-        "feature:devices",
-        "task:T-014",
-        "task:T-014-be",
-        "task:T-014-fe",
-        "task:T-015",
-        "task:T-015-be",
-        "task:T-015-fe"
+        "feature:devices"
       ],
       "kind": "screen",
       "notes": [
@@ -4871,22 +4848,14 @@
         "feature:devices",
         "frontend-requirements:auth",
         "frontend-requirements:devices",
-        "story:T-014",
-        "story:T-015",
         "story:auth",
-        "story:devices",
-        "task:T-014",
-        "task:T-014-be",
-        "task:T-014-fe",
-        "task:T-015",
-        "task:T-015-be",
-        "task:T-015-fe"
+        "story:devices"
       ],
       "owner": null
     }
   },
   "counts": {
-    "blocked": 130,
+    "blocked": 126,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -4899,28 +4868,28 @@
       "project": 27,
       "qa-backend": 1,
       "qa-frontend": 1,
-      "story": 90,
-      "task": 143
+      "story": 88,
+      "task": 137
     },
     "byLayer": {
       "backend": 56,
-      "business": 312,
+      "business": 304,
       "frontend": 44,
       "qa": 2,
       "shared": 10
     },
     "concepts": 199,
     "decisions": 19,
-    "edges": 4947,
+    "edges": 4898,
     "features": 41,
-    "layerNotes": 180,
+    "layerNotes": 178,
     "modules": 8,
-    "notes": 460,
+    "notes": 452,
     "partial": 4,
     "placeholders": 161,
     "records": 14,
-    "taskLayerNotes": 50,
-    "tasks": 143
+    "taskLayerNotes": 48,
+    "tasks": 137
   },
   "deadlines": {
     "missed": {
@@ -6672,21 +6641,6 @@
     {
       "from": "task:T-007",
       "kind": "blocks",
-      "to": "task:T-015"
-    },
-    {
-      "from": "task:T-007",
-      "kind": "blocks",
-      "to": "task:T-015-be"
-    },
-    {
-      "from": "task:T-007",
-      "kind": "blocks",
-      "to": "task:T-015-fe"
-    },
-    {
-      "from": "task:T-007",
-      "kind": "blocks",
       "to": "task:T-037"
     },
     {
@@ -6788,31 +6742,6 @@
       "from": "task:T-013-be",
       "kind": "blocks",
       "to": "task:T-013-fe"
-    },
-    {
-      "from": "task:T-014",
-      "kind": "blocks",
-      "to": "task:T-046"
-    },
-    {
-      "from": "task:T-014",
-      "kind": "blocks",
-      "to": "task:T-046-be"
-    },
-    {
-      "from": "task:T-014",
-      "kind": "blocks",
-      "to": "task:T-046-fe"
-    },
-    {
-      "from": "task:T-014-be",
-      "kind": "blocks",
-      "to": "task:T-014-fe"
-    },
-    {
-      "from": "task:T-015-be",
-      "kind": "blocks",
-      "to": "task:T-015-fe"
     },
     {
       "from": "task:T-017",
@@ -7755,31 +7684,6 @@
       "to": "task:T-013-be"
     },
     {
-      "from": "task:T-014-fe",
-      "kind": "depends",
-      "to": "task:T-014-be"
-    },
-    {
-      "from": "task:T-015",
-      "kind": "depends",
-      "to": "task:T-007"
-    },
-    {
-      "from": "task:T-015-be",
-      "kind": "depends",
-      "to": "task:T-007"
-    },
-    {
-      "from": "task:T-015-fe",
-      "kind": "depends",
-      "to": "task:T-007"
-    },
-    {
-      "from": "task:T-015-fe",
-      "kind": "depends",
-      "to": "task:T-015-be"
-    },
-    {
       "from": "task:T-017-fe",
       "kind": "depends",
       "to": "task:T-017-be"
@@ -8222,27 +8126,12 @@
     {
       "from": "task:T-046",
       "kind": "depends",
-      "to": "task:T-014"
-    },
-    {
-      "from": "task:T-046",
-      "kind": "depends",
       "to": "task:T-045"
     },
     {
       "from": "task:T-046-be",
       "kind": "depends",
-      "to": "task:T-014"
-    },
-    {
-      "from": "task:T-046-be",
-      "kind": "depends",
       "to": "task:T-045"
-    },
-    {
-      "from": "task:T-046-fe",
-      "kind": "depends",
-      "to": "task:T-014"
     },
     {
       "from": "task:T-046-fe",
@@ -11166,6 +11055,11 @@
     {
       "from": "frontend-delivery:account",
       "kind": "related",
+      "to": "story:devices"
+    },
+    {
+      "from": "frontend-delivery:account",
+      "kind": "related",
       "to": "story:files"
     },
     {
@@ -11177,11 +11071,6 @@
       "from": "frontend-delivery:account",
       "kind": "related",
       "to": "story:subscription"
-    },
-    {
-      "from": "frontend-delivery:account",
-      "kind": "related",
-      "to": "task:T-014"
     },
     {
       "from": "frontend-delivery:account",
@@ -12100,22 +11989,6 @@
       "to": "decision:D-04"
     },
     {
-      "from": "story:devices",
-      "kind": "related",
-      "to": "story:T-014",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
-      "from": "story:devices",
-      "kind": "related",
-      "to": "story:T-015",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
       "from": "story:discover-hub",
       "kind": "related",
       "to": "story:T-030",
@@ -12852,6 +12725,21 @@
       "from": "task:T-040-fe",
       "kind": "related",
       "to": "story:subscription"
+    },
+    {
+      "from": "task:T-046",
+      "kind": "related",
+      "to": "story:devices"
+    },
+    {
+      "from": "task:T-046-be",
+      "kind": "related",
+      "to": "story:devices"
+    },
+    {
+      "from": "task:T-046-fe",
+      "kind": "related",
+      "to": "story:devices"
     },
     {
       "from": "task:T-048",
@@ -24557,16 +24445,6 @@
       "to": "task:T-025"
     },
     {
-      "from": "story:devices",
-      "kind": "tree",
-      "to": "task:T-014"
-    },
-    {
-      "from": "story:devices",
-      "kind": "tree",
-      "to": "task:T-015"
-    },
-    {
       "from": "story:discover-hub",
       "kind": "tree",
       "to": "task:T-030"
@@ -24940,36 +24818,6 @@
       "from": "task:T-013",
       "kind": "tree",
       "to": "task:T-013-fe"
-    },
-    {
-      "from": "task:T-014",
-      "kind": "tree",
-      "to": "story:T-014"
-    },
-    {
-      "from": "task:T-014",
-      "kind": "tree",
-      "to": "task:T-014-be"
-    },
-    {
-      "from": "task:T-014",
-      "kind": "tree",
-      "to": "task:T-014-fe"
-    },
-    {
-      "from": "task:T-015",
-      "kind": "tree",
-      "to": "story:T-015"
-    },
-    {
-      "from": "task:T-015",
-      "kind": "tree",
-      "to": "task:T-015-be"
-    },
-    {
-      "from": "task:T-015",
-      "kind": "tree",
-      "to": "task:T-015-fe"
     },
     {
       "from": "task:T-017",
@@ -26114,17 +25962,12 @@
     {
       "from": "backend-integration:account",
       "kind": "wikilink",
+      "to": "story:devices"
+    },
+    {
+      "from": "backend-integration:account",
+      "kind": "wikilink",
       "to": "story:subscription"
-    },
-    {
-      "from": "backend-integration:account",
-      "kind": "wikilink",
-      "to": "task:T-014"
-    },
-    {
-      "from": "backend-integration:account",
-      "kind": "wikilink",
-      "to": "task:T-015"
     },
     {
       "from": "backend-integration:auth",
@@ -26159,6 +26002,11 @@
     {
       "from": "backend-integration:auth",
       "kind": "wikilink",
+      "to": "story:devices"
+    },
+    {
+      "from": "backend-integration:auth",
+      "kind": "wikilink",
       "to": "story:linked-accounts"
     },
     {
@@ -26175,11 +26023,6 @@
       "from": "backend-integration:auth",
       "kind": "wikilink",
       "to": "task:T-003"
-    },
-    {
-      "from": "backend-integration:auth",
-      "kind": "wikilink",
-      "to": "task:T-014"
     },
     {
       "from": "backend-integration:auth",
@@ -26779,12 +26622,7 @@
     {
       "from": "feature:devices",
       "kind": "wikilink",
-      "to": "task:T-014"
-    },
-    {
-      "from": "feature:devices",
-      "kind": "wikilink",
-      "to": "task:T-015"
+      "to": "project:status-report-2026-10-15"
     },
     {
       "from": "feature:discover-hub",
@@ -27189,6 +27027,11 @@
     {
       "from": "frontend-requirements:account",
       "kind": "wikilink",
+      "to": "story:devices"
+    },
+    {
+      "from": "frontend-requirements:account",
+      "kind": "wikilink",
       "to": "story:files"
     },
     {
@@ -27200,16 +27043,6 @@
       "from": "frontend-requirements:account",
       "kind": "wikilink",
       "to": "story:subscription"
-    },
-    {
-      "from": "frontend-requirements:account",
-      "kind": "wikilink",
-      "to": "task:T-014"
-    },
-    {
-      "from": "frontend-requirements:account",
-      "kind": "wikilink",
-      "to": "task:T-015"
     },
     {
       "from": "frontend-requirements:account",
@@ -27294,6 +27127,11 @@
     {
       "from": "frontend-requirements:auth",
       "kind": "wikilink",
+      "to": "story:devices"
+    },
+    {
+      "from": "frontend-requirements:auth",
+      "kind": "wikilink",
       "to": "story:linked-accounts"
     },
     {
@@ -27312,14 +27150,14 @@
       "to": "task:T-003"
     },
     {
-      "from": "frontend-requirements:auth",
+      "from": "frontend-requirements:badge-qr",
       "kind": "wikilink",
-      "to": "task:T-014"
+      "to": "story:badge-qr"
     },
     {
       "from": "frontend-requirements:badge-qr",
       "kind": "wikilink",
-      "to": "story:badge-qr"
+      "to": "story:devices"
     },
     {
       "from": "frontend-requirements:badge-qr",
@@ -27350,11 +27188,6 @@
       "from": "frontend-requirements:badge-qr",
       "kind": "wikilink",
       "to": "task:T-010"
-    },
-    {
-      "from": "frontend-requirements:badge-qr",
-      "kind": "wikilink",
-      "to": "task:T-015"
     },
     {
       "from": "frontend-requirements:badge-qr",
@@ -27640,16 +27473,6 @@
       "from": "frontend-requirements:devices",
       "kind": "wikilink",
       "to": "task:T-008"
-    },
-    {
-      "from": "frontend-requirements:devices",
-      "kind": "wikilink",
-      "to": "task:T-014"
-    },
-    {
-      "from": "frontend-requirements:devices",
-      "kind": "wikilink",
-      "to": "task:T-015"
     },
     {
       "from": "frontend-requirements:devices",
@@ -28144,12 +27967,12 @@
     {
       "from": "frontend-requirements:notifications",
       "kind": "wikilink",
-      "to": "story:notifications"
+      "to": "story:devices"
     },
     {
       "from": "frontend-requirements:notifications",
       "kind": "wikilink",
-      "to": "task:T-014"
+      "to": "story:notifications"
     },
     {
       "from": "frontend-requirements:notifications",
@@ -30934,11 +30757,6 @@
     {
       "from": "project:status-report-2026-10-15",
       "kind": "wikilink",
-      "to": "feature:devices"
-    },
-    {
-      "from": "project:status-report-2026-10-15",
-      "kind": "wikilink",
       "to": "feature:discover-hub"
     },
     {
@@ -31335,11 +31153,6 @@
       "from": "story:devices",
       "kind": "wikilink",
       "to": "project:auth-model"
-    },
-    {
-      "from": "story:devices",
-      "kind": "wikilink",
-      "to": "task:T-007"
     },
     {
       "from": "story:discover-hub",
@@ -31937,16 +31750,6 @@
       "to": "feature:photo-library"
     },
     {
-      "from": "story:T-014",
-      "kind": "wikilink",
-      "to": "feature:devices"
-    },
-    {
-      "from": "story:T-015",
-      "kind": "wikilink",
-      "to": "feature:devices"
-    },
-    {
       "from": "story:T-017",
       "kind": "wikilink",
       "to": "feature:widgets"
@@ -32364,12 +32167,12 @@
     {
       "from": "task:T-007",
       "kind": "wikilink",
-      "to": "task:T-008"
+      "to": "story:devices"
     },
     {
       "from": "task:T-007",
       "kind": "wikilink",
-      "to": "task:T-015"
+      "to": "task:T-008"
     },
     {
       "from": "task:T-007",
@@ -32625,91 +32428,6 @@
       "from": "task:T-013-fe",
       "kind": "wikilink",
       "to": "task:T-013-be"
-    },
-    {
-      "from": "task:T-014",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-014",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-014",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-014",
-      "kind": "wikilink",
-      "to": "task:T-046"
-    },
-    {
-      "from": "task:T-014-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:devices"
-    },
-    {
-      "from": "task:T-014-be",
-      "kind": "wikilink",
-      "to": "feature:devices"
-    },
-    {
-      "from": "task:T-014-fe",
-      "kind": "wikilink",
-      "to": "feature:devices"
-    },
-    {
-      "from": "task:T-014-fe",
-      "kind": "wikilink",
-      "to": "story:T-014"
-    },
-    {
-      "from": "task:T-014-fe",
-      "kind": "wikilink",
-      "to": "task:T-014-be"
-    },
-    {
-      "from": "task:T-015",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-015",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-015",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-015-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:devices"
-    },
-    {
-      "from": "task:T-015-be",
-      "kind": "wikilink",
-      "to": "feature:devices"
-    },
-    {
-      "from": "task:T-015-fe",
-      "kind": "wikilink",
-      "to": "feature:devices"
-    },
-    {
-      "from": "task:T-015-fe",
-      "kind": "wikilink",
-      "to": "story:T-015"
-    },
-    {
-      "from": "task:T-015-fe",
-      "kind": "wikilink",
-      "to": "task:T-015-be"
     },
     {
       "from": "task:T-017",
@@ -35576,38 +35294,6 @@
     },
     "social-pin/tasks/T-013 Usage count per file across Rings/T-013-fe Frontend · Usage count per file across Rings.md": {
       "name": "T-013-fe Frontend · Usage count per file across Rings",
-      "type": "task"
-    },
-    "social-pin/tasks/T-014 Register devices on login; list and remove/T-014 Register devices on login; list and remove.md": {
-      "name": "T-014 Register devices on login; list and remove",
-      "type": "task"
-    },
-    "social-pin/tasks/T-014 Register devices on login; list and remove/T-014 Story.md": {
-      "name": "T-014 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-014 Register devices on login; list and remove/T-014-be Backend · Register devices on login; list and remove.md": {
-      "name": "T-014-be Backend · Register devices on login; list and remove",
-      "type": "task"
-    },
-    "social-pin/tasks/T-014 Register devices on login; list and remove/T-014-fe Frontend · Register devices on login; list and remove.md": {
-      "name": "T-014-fe Frontend · Register devices on login; list and remove",
-      "type": "task"
-    },
-    "social-pin/tasks/T-015 Pair and revoke an NFC card/T-015 Pair and revoke an NFC card.md": {
-      "name": "T-015 Pair and revoke an NFC card",
-      "type": "task"
-    },
-    "social-pin/tasks/T-015 Pair and revoke an NFC card/T-015 Story.md": {
-      "name": "T-015 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-015 Pair and revoke an NFC card/T-015-be Backend · Pair and revoke an NFC card.md": {
-      "name": "T-015-be Backend · Pair and revoke an NFC card",
-      "type": "task"
-    },
-    "social-pin/tasks/T-015 Pair and revoke an NFC card/T-015-fe Frontend · Pair and revoke an NFC card.md": {
-      "name": "T-015-fe Frontend · Pair and revoke an NFC card",
       "type": "task"
     },
     "social-pin/tasks/T-017 Extend WIDGET_TYPE to the design's list/T-017 Extend WIDGET_TYPE to the design's list.md": {
@@ -42832,10 +42518,9 @@
       "resolution": null,
       "rollup": {
         "approved": 1,
-        "blocked": 5,
-        "draft": 3,
-        "missing": 4,
-        "todo": 2
+        "blocked": 1,
+        "draft": 1,
+        "missing": 4
       },
       "scope": null,
       "screens": [
@@ -42851,7 +42536,7 @@
       ],
       "task": null,
       "title": "Devices & NFC",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "feature:discover-hub": {
       "affects": [],
@@ -45166,7 +44851,7 @@
         "story:files",
         "story:counts",
         "story:linked-accounts",
-        "task:T-014",
+        "story:devices",
         "story:subscription",
         "task:T-063",
         "backend-delivery:auth",
@@ -47734,7 +47419,7 @@
       ],
       "task": null,
       "title": "Devices & NFC Frontend Requirements",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "frontend-requirements:discover-hub": {
       "affects": [],
@@ -48428,7 +48113,7 @@
       ],
       "task": null,
       "title": "Notifications Frontend Requirements",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "frontend-requirements:onboarding-imports": {
       "affects": [
@@ -49851,14 +49536,14 @@
       "resolution": null,
       "rollup": {
         "approved": 11,
-        "blocked": 31,
+        "blocked": 27,
         "decided": 3,
         "done": 1,
-        "draft": 26,
+        "draft": 24,
         "in-progress": 22,
         "missing": 61,
         "needs-decision": 1,
-        "todo": 11,
+        "todo": 9,
         "verified": 3
       },
       "scope": null,
@@ -56490,12 +56175,12 @@
       ],
       "rollup": {
         "approved": 36,
-        "blocked": 130,
+        "blocked": 126,
         "current": 8,
         "decided": 14,
         "delivered": 2,
         "done": 10,
-        "draft": 84,
+        "draft": 82,
         "in-progress": 55,
         "missing": 161,
         "needs-decision": 8,
@@ -56503,7 +56188,7 @@
         "passing": 1,
         "ready": 2,
         "reference": 31,
-        "todo": 37,
+        "todo": 35,
         "verified": 14
       },
       "scope": null,
@@ -56987,106 +56672,6 @@
       ],
       "task": "T-013",
       "title": "T-013 Story",
-      "updated": "2026-10-26"
-    },
-    "story:T-014": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-83",
-      "children": [],
-      "code": "T-014",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
-      "effort": null,
-      "feature": "devices",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-014",
-      "inherits": {
-        "priority": "task:T-014",
-        "release": "feature:devices"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": null,
-      "parents": [
-        "task:T-014"
-      ],
-      "path": "social-pin/tasks/T-014 Register devices on login; list and remove/T-014 Story.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "scope": "task",
-      "screens": [
-        "s75"
-      ],
-      "status": "draft",
-      "summary": "UserDevice row on login (name, platform, push token). GET /users/me/devices, DELETE …/devices/:id revoking that device's refresh tokens.",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/platform",
-        "layer/business"
-      ],
-      "task": "T-014",
-      "title": "T-014 Story",
-      "updated": "2026-10-26"
-    },
-    "story:T-015": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-84",
-      "children": [],
-      "code": "T-015",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
-      "effort": null,
-      "feature": "devices",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-015",
-      "inherits": {
-        "priority": "task:T-015",
-        "release": "feature:devices"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": null,
-      "parents": [
-        "task:T-015"
-      ],
-      "path": "social-pin/tasks/T-015 Pair and revoke an NFC card/T-015 Story.md",
-      "pending": [],
-      "priority": "medium",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "scope": "task",
-      "screens": [
-        "s75"
-      ],
-      "status": "draft",
-      "summary": "NfcToken mirrors RingQrToken; resolve path shared with T-008.",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/platform",
-        "layer/business"
-      ],
-      "task": "T-015",
-      "title": "T-015 Story",
       "updated": "2026-10-26"
     },
     "story:T-017": {
@@ -59774,10 +59359,7 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-82",
-      "children": [
-        "task:T-014",
-        "task:T-015"
-      ],
+      "children": [],
       "code": "devices",
       "created": "2026-10-18",
       "deadline": null,
@@ -59804,7 +59386,12 @@
       "path": "social-pin/modules/Platform & Cross-cutting/features/Devices & NFC/Devices & NFC Story.md",
       "pending": [],
       "priority": "high",
-      "related": [],
+      "related": [
+        "task:T-046",
+        "task:T-046-be",
+        "task:T-046-fe",
+        "frontend-delivery:account"
+      ],
       "release": "v1",
       "resolution": null,
       "scope": "feature",
@@ -59821,7 +59408,7 @@
       ],
       "task": null,
       "title": "Devices & NFC Story",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "story:discover-hub": {
       "affects": [],
@@ -63139,385 +62726,6 @@
       ],
       "task": null,
       "title": "T-013-fe Frontend · Usage count per file across Rings",
-      "updated": "2026-10-26"
-    },
-    "task:T-014": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-014",
-      "children": [
-        "story:T-014",
-        "task:T-014-be",
-        "task:T-014-fe"
-      ],
-      "code": "T-014",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": "social-pin/tasks/T-014 Register devices on login; list and remove",
-      "effectiveStatus": "todo",
-      "effort": "M",
-      "feature": "devices",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-014",
-      "inherits": {
-        "release": "feature:devices"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": null,
-      "parents": [
-        "story:devices"
-      ],
-      "path": "social-pin/tasks/T-014 Register devices on login; list and remove/T-014 Register devices on login; list and remove.md",
-      "pending": [],
-      "priority": "high",
-      "related": [
-        "frontend-delivery:account"
-      ],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {
-        "blocked": 1,
-        "draft": 1,
-        "todo": 1
-      },
-      "scope": null,
-      "screens": [
-        "s75"
-      ],
-      "status": "todo",
-      "summary": "UserDevice row on login (name, platform, push token). GET /users/me/devices, DELETE …/devices/:id revoking that device's refresh tokens.",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/platform",
-        "priority/high"
-      ],
-      "task": null,
-      "title": "T-014 Register devices on login; list and remove",
-      "updated": "2026-10-26"
-    },
-    "task:T-014-be": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-014-be",
-      "children": [],
-      "code": "T-014-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": null,
-      "effectiveStatus": "todo",
-      "effort": "M",
-      "feature": "devices",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-014-be",
-      "inherits": {
-        "release": "feature:devices"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": "T-014",
-      "parents": [
-        "task:T-014"
-      ],
-      "path": "social-pin/tasks/T-014 Register devices on login; list and remove/T-014-be Backend · Register devices on login; list and remove.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s75"
-      ],
-      "status": "todo",
-      "summary": "The API side of T-014 Register devices on login; list and remove: the endpoints, data and rules its What describes. Record what shipped in T-014-be Backend Delivery and how to call it in T-014-be…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/platform",
-        "priority/high",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-014-be Backend · Register devices on login; list and remove",
-      "updated": "2026-10-26"
-    },
-    "task:T-014-fe": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-014-be",
-          "title": "T-014-be Backend · Register devices on login; list and remove",
-          "why": "T-014-be Backend · Register devices on login; list and remove is to do"
-        }
-      ],
-      "card": "T-014-fe",
-      "children": [],
-      "code": "T-014-fe",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-014-be"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "devices",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-014-fe",
-      "inherits": {
-        "release": "feature:devices"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "frontend"
-      ],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": "T-014",
-      "parents": [
-        "task:T-014"
-      ],
-      "path": "social-pin/tasks/T-014 Register devices on login; list and remove/T-014-fe Frontend · Register devices on login; list and remove.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s75"
-      ],
-      "status": "todo",
-      "summary": "The client side of T-014 Register devices on login; list and remove: the screens below show what its What describes, built against Devices & NFC Backend Integration once the backend half (T-014-be…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/platform",
-        "priority/high",
-        "frontend"
-      ],
-      "task": null,
-      "title": "T-014-fe Frontend · Register devices on login; list and remove",
-      "updated": "2026-10-26"
-    },
-    "task:T-015": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-007",
-          "title": "T-007 Issue and rotate the QR token for a Ring",
-          "why": "T-007 Issue and rotate the QR token for a Ring is to do"
-        }
-      ],
-      "card": "T-015",
-      "children": [
-        "story:T-015",
-        "task:T-015-be",
-        "task:T-015-fe"
-      ],
-      "code": "T-015",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-007"
-      ],
-      "dir": "social-pin/tasks/T-015 Pair and revoke an NFC card",
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "devices",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-015",
-      "inherits": {
-        "release": "feature:devices"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": null,
-      "parents": [
-        "story:devices"
-      ],
-      "path": "social-pin/tasks/T-015 Pair and revoke an NFC card/T-015 Pair and revoke an NFC card.md",
-      "pending": [],
-      "priority": "medium",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {
-        "blocked": 2,
-        "draft": 1
-      },
-      "scope": null,
-      "screens": [
-        "s75"
-      ],
-      "status": "todo",
-      "summary": "NfcToken mirrors RingQrToken; resolve path shared with T-008.",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/platform",
-        "priority/medium"
-      ],
-      "task": null,
-      "title": "T-015 Pair and revoke an NFC card",
-      "updated": "2026-10-26"
-    },
-    "task:T-015-be": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-007",
-          "title": "T-007 Issue and rotate the QR token for a Ring",
-          "why": "T-007 Issue and rotate the QR token for a Ring is to do"
-        }
-      ],
-      "card": "T-015-be",
-      "children": [],
-      "code": "T-015-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-007"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "devices",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-015-be",
-      "inherits": {
-        "release": "feature:devices"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": "T-015",
-      "parents": [
-        "task:T-015"
-      ],
-      "path": "social-pin/tasks/T-015 Pair and revoke an NFC card/T-015-be Backend · Pair and revoke an NFC card.md",
-      "pending": [],
-      "priority": "medium",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s75"
-      ],
-      "status": "todo",
-      "summary": "The API side of T-015 Pair and revoke an NFC card: the endpoints, data and rules its What describes. Record what shipped in T-015-be Backend Delivery and how to call it in T-015-be Backend…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/platform",
-        "priority/medium",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-015-be Backend · Pair and revoke an NFC card",
-      "updated": "2026-10-26"
-    },
-    "task:T-015-fe": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-007",
-          "title": "T-007 Issue and rotate the QR token for a Ring",
-          "why": "T-007 Issue and rotate the QR token for a Ring is to do"
-        },
-        {
-          "id": "task:T-015-be",
-          "title": "T-015-be Backend · Pair and revoke an NFC card",
-          "why": "T-015-be Backend · Pair and revoke an NFC card is blocked"
-        }
-      ],
-      "card": "T-015-fe",
-      "children": [],
-      "code": "T-015-fe",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-007",
-        "task:T-015-be"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "devices",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-015-fe",
-      "inherits": {
-        "release": "feature:devices"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "frontend"
-      ],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": "T-015",
-      "parents": [
-        "task:T-015"
-      ],
-      "path": "social-pin/tasks/T-015 Pair and revoke an NFC card/T-015-fe Frontend · Pair and revoke an NFC card.md",
-      "pending": [],
-      "priority": "medium",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s75"
-      ],
-      "status": "todo",
-      "summary": "The client side of T-015 Pair and revoke an NFC card: the screens below show what its What describes, built against Devices & NFC Backend Integration once the backend half (T-015-be Backend · Pair…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/platform",
-        "priority/medium",
-        "frontend"
-      ],
-      "task": null,
-      "title": "T-015-fe Frontend · Pair and revoke an NFC card",
       "updated": "2026-10-26"
     },
     "task:T-017": {
@@ -68715,11 +67923,6 @@
           "id": "task:T-045",
           "title": "T-045 NotificationService.emit and the inbox",
           "why": "T-045 NotificationService.emit and the inbox is to do"
-        },
-        {
-          "id": "task:T-014",
-          "title": "T-014 Register devices on login; list and remove",
-          "why": "T-014 Register devices on login; list and remove is to do"
         }
       ],
       "card": "T-046",
@@ -68733,8 +67936,7 @@
       "deadline": null,
       "decision": null,
       "depends": [
-        "task:T-045",
-        "task:T-014"
+        "task:T-045"
       ],
       "dir": "social-pin/tasks/T-046 Push delivery and preferences",
       "effectiveStatus": "blocked",
@@ -68758,7 +67960,9 @@
       "path": "social-pin/tasks/T-046 Push delivery and preferences/T-046 Push delivery and preferences.md",
       "pending": [],
       "priority": "high",
-      "related": [],
+      "related": [
+        "story:devices"
+      ],
       "release": "v1",
       "resolution": null,
       "rollup": {
@@ -68779,7 +67983,7 @@
       ],
       "task": null,
       "title": "T-046 Push delivery and preferences",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "task:T-046-be": {
       "affects": [],
@@ -68788,11 +67992,6 @@
           "id": "task:T-045",
           "title": "T-045 NotificationService.emit and the inbox",
           "why": "T-045 NotificationService.emit and the inbox is to do"
-        },
-        {
-          "id": "task:T-014",
-          "title": "T-014 Register devices on login; list and remove",
-          "why": "T-014 Register devices on login; list and remove is to do"
         }
       ],
       "card": "T-046-be",
@@ -68802,8 +68001,7 @@
       "deadline": null,
       "decision": null,
       "depends": [
-        "task:T-045",
-        "task:T-014"
+        "task:T-045"
       ],
       "dir": null,
       "effectiveStatus": "blocked",
@@ -68829,7 +68027,9 @@
       "path": "social-pin/tasks/T-046 Push delivery and preferences/T-046-be Backend · Push delivery and preferences.md",
       "pending": [],
       "priority": "high",
-      "related": [],
+      "related": [
+        "story:devices"
+      ],
       "release": "v1",
       "resolution": null,
       "rollup": {},
@@ -68848,7 +68048,7 @@
       ],
       "task": null,
       "title": "T-046-be Backend · Push delivery and preferences",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "task:T-046-fe": {
       "affects": [],
@@ -68857,11 +68057,6 @@
           "id": "task:T-045",
           "title": "T-045 NotificationService.emit and the inbox",
           "why": "T-045 NotificationService.emit and the inbox is to do"
-        },
-        {
-          "id": "task:T-014",
-          "title": "T-014 Register devices on login; list and remove",
-          "why": "T-014 Register devices on login; list and remove is to do"
         },
         {
           "id": "task:T-046-be",
@@ -68877,7 +68072,6 @@
       "decision": null,
       "depends": [
         "task:T-045",
-        "task:T-014",
         "task:T-046-be"
       ],
       "dir": null,
@@ -68904,7 +68098,9 @@
       "path": "social-pin/tasks/T-046 Push delivery and preferences/T-046-fe Frontend · Push delivery and preferences.md",
       "pending": [],
       "priority": "high",
-      "related": [],
+      "related": [
+        "story:devices"
+      ],
       "release": "v1",
       "resolution": null,
       "rollup": {},
@@ -68923,7 +68119,7 @@
       ],
       "task": null,
       "title": "T-046-fe Frontend · Push delivery and preferences",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "task:T-048": {
       "affects": [],

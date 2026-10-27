@@ -99,7 +99,7 @@ Sign-in is steps 1 and 2 only, then Home.
 | The code actually delivered by email | — | ❌ | [[T-001 Wire an email provider for one-time codes]] |
 | The code actually delivered by SMS | — | ❌ | [[T-002 Wire an SMS provider for one-time codes]] |
 | `devCode` removed from every challenge | — | ❌ | [[T-003 Remove devCode once delivery works]] |
-| Register the device on sign-in (s75) | — | ❌ | [[T-014 Register devices on login; list and remove]] |
+| Register the device on sign-in (s75) | — | ❌ | [[Devices & NFC Story|Devices & NFC · S6]] |
 | Sign in with LinkedIn | — | ❌ | [[Linked Accounts (OAuth) Story|Linked Accounts (OAuth) · S7]] |
 | Stable `ErrorCode` on the error body | — | ❌ | [[T-063 Put the ErrorCode on the error body]] |
 
