@@ -6,11 +6,11 @@ status: decided
 decidedBy: "product + backend lead"
 decidedAt: 2026-10-15
 features: [auth, linked-accounts]
-affects: ["Auth & Sign-up", "Linked Accounts (OAuth)", "T-019 LinkedIn OAuth link, unlink, login", "T-056 Decide passwordless login"]
+affects: ["Auth & Sign-up", "Linked Accounts (OAuth)", "T-019 LinkedIn OAuth link, unlink, login", "Auth & Sign-up Story"]
 related: ["ND-01 Passwordless login", "Code Delivery"]
 owner: "khaled"
 created: 2026-10-22
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [decision, decision/decided]
 ---
 
@@ -40,7 +40,7 @@ Options B (password and code) and C (password only) are ruled out.
 
 - [[Auth & Sign-up]]: login and registration are code-only; client-facing write-up in [[Frontend Passwordless Migration]].
 - [[Linked Accounts (OAuth)]]: no password to link against; [[T-019 LinkedIn OAuth link, unlink, login]] is no longer blocked by this decision.
-- [[T-056 Decide passwordless login]]: done.
+- [[Auth & Sign-up Story|Auth & Sign-up · Decide passwordless login]]: done.
 
 ## Still open
 

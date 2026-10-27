@@ -5,7 +5,7 @@ status: open
 features: [auth, linked-accounts]
 screens: [s01, s02]
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [needs-decision, needs-decision/open]
 ---
 
@@ -42,7 +42,7 @@ Screens: [[Screen Index#s01|s01]], [[Screen Index#s02|s02]]
 ## Tasks waiting on this
 
 - [[T-019 LinkedIn OAuth link, unlink, login]]
-- [[T-056 Decide passwordless login]]
+- [[Auth & Sign-up Story|Auth & Sign-up · Decide passwordless login]]
 
 ## Decision
 

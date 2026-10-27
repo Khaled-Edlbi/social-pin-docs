@@ -479,7 +479,6 @@
     "T-055 Run the e2e suite in CI against PostGIS": "task:T-055",
     "T-055 Story": "story:T-055",
     "T-055-be Backend · Run the e2e suite in CI against PostGIS": "task:T-055-be",
-    "T-056 Decide passwordless login": "task:T-056",
     "T-058 Decide field library vs per-Ring copies": "task:T-058",
     "T-060 Decide copy or inherit": "task:T-060",
     "T-063 Put the ErrorCode on the error body": "task:T-063",
@@ -992,7 +991,6 @@
     "T-054-be": "task:T-054-be",
     "T-055": "task:T-055",
     "T-055-be": "task:T-055-be",
-    "T-056": "task:T-056",
     "T-058": "task:T-058",
     "T-060": "task:T-060",
     "T-063": "task:T-063",
@@ -3338,8 +3336,7 @@
         "needs-decision:ND-01",
         "task:T-019",
         "task:T-019-be",
-        "task:T-019-fe",
-        "task:T-056"
+        "task:T-019-fe"
       ],
       "kind": "screen",
       "notes": [
@@ -3358,8 +3355,7 @@
         "story:linked-accounts",
         "task:T-019",
         "task:T-019-be",
-        "task:T-019-fe",
-        "task:T-056"
+        "task:T-019-fe"
       ],
       "owner": null
     },
@@ -5120,27 +5116,27 @@
       "qa-backend": 1,
       "qa-frontend": 1,
       "story": 101,
-      "task": 178
+      "task": 177
     },
     "byLayer": {
       "backend": 56,
-      "business": 358,
+      "business": 357,
       "frontend": 44,
       "qa": 2,
       "shared": 10
     },
     "concepts": 199,
     "decisions": 19,
-    "edges": 5242,
+    "edges": 5234,
     "features": 41,
     "layerNotes": 191,
     "modules": 8,
-    "notes": 506,
+    "notes": 505,
     "partial": 5,
     "placeholders": 162,
     "records": 14,
     "taskLayerNotes": 62,
-    "tasks": 178
+    "tasks": 177
   },
   "deadlines": {
     "missed": {
@@ -5232,12 +5228,12 @@
     {
       "from": "decision:D-01",
       "kind": "affects",
-      "to": "task:T-019"
+      "to": "story:auth"
     },
     {
       "from": "decision:D-01",
       "kind": "affects",
-      "to": "task:T-056"
+      "to": "task:T-019"
     },
     {
       "from": "decision:D-02",
@@ -8973,11 +8969,6 @@
       "from": "task:T-052-fe",
       "kind": "depends",
       "to": "task:T-052-be"
-    },
-    {
-      "from": "task:T-056",
-      "kind": "depends",
-      "to": "needs-decision:ND-01"
     },
     {
       "from": "task:T-058",
@@ -25292,11 +25283,6 @@
       "to": "task:T-053"
     },
     {
-      "from": "story:auth",
-      "kind": "tree",
-      "to": "task:T-056"
-    },
-    {
       "from": "story:badge-qr",
       "kind": "tree",
       "to": "task:T-007"
@@ -27569,12 +27555,12 @@
     {
       "from": "decision:D-01",
       "kind": "wikilink",
-      "to": "task:T-019"
+      "to": "story:auth"
     },
     {
       "from": "decision:D-01",
       "kind": "wikilink",
-      "to": "task:T-056"
+      "to": "task:T-019"
     },
     {
       "from": "decision:D-06",
@@ -27679,7 +27665,7 @@
     {
       "from": "feature:auth",
       "kind": "wikilink",
-      "to": "task:T-056"
+      "to": "project:status-report-2026-10-15"
     },
     {
       "from": "feature:badge-qr",
@@ -30842,6 +30828,11 @@
       "to": "feature:code-delivery"
     },
     {
+      "from": "needs-decision:ND-01",
+      "kind": "wikilink",
+      "to": "story:auth"
+    },
+    {
       "from": "needs-decision:ND-02",
       "kind": "wikilink",
       "to": "story:profiles"
@@ -32009,11 +32000,6 @@
     {
       "from": "project:status-report-2026-10-15",
       "kind": "wikilink",
-      "to": "feature:auth"
-    },
-    {
-      "from": "project:status-report-2026-10-15",
-      "kind": "wikilink",
       "to": "feature:badge-qr"
     },
     {
@@ -32360,11 +32346,6 @@
       "from": "story:auth",
       "kind": "wikilink",
       "to": "feature:rings"
-    },
-    {
-      "from": "story:auth",
-      "kind": "wikilink",
-      "to": "needs-decision:ND-01"
     },
     {
       "from": "story:auth",
@@ -35867,31 +35848,6 @@
       "to": "feature:e2e-tests"
     },
     {
-      "from": "task:T-056",
-      "kind": "wikilink",
-      "to": "needs-decision:ND-01"
-    },
-    {
-      "from": "task:T-056",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-056",
-      "kind": "wikilink",
-      "to": "project:frontend-passwordless-migration"
-    },
-    {
-      "from": "task:T-056",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-056",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
       "from": "task:T-058",
       "kind": "wikilink",
       "to": "needs-decision:ND-03"
@@ -38054,10 +38010,6 @@
     },
     "social-pin/tasks/T-055 Run the e2e suite in CI against PostGIS/T-055-be Backend · Run the e2e suite in CI against PostGIS.md": {
       "name": "T-055-be Backend · Run the e2e suite in CI against PostGIS",
-      "type": "task"
-    },
-    "social-pin/tasks/T-056 Decide passwordless login/T-056 Decide passwordless login.md": {
-      "name": "T-056 Decide passwordless login",
       "type": "task"
     },
     "social-pin/tasks/T-058 Decide field library vs per-Ring copies/T-058 Decide field library vs per-Ring copies.md": {
@@ -42903,7 +42855,7 @@
         "feature:auth",
         "feature:linked-accounts",
         "task:T-019",
-        "task:T-056"
+        "story:auth"
       ],
       "blockedBy": [],
       "card": "D-01",
@@ -42954,7 +42906,7 @@
       ],
       "task": null,
       "title": "D-01 Code-only login",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "decision:D-02": {
       "affects": [
@@ -44100,7 +44052,7 @@
         "approved": 1,
         "current": 1,
         "decided": 1,
-        "done": 2,
+        "done": 1,
         "missing": 3,
         "ready": 1,
         "verified": 1
@@ -44123,7 +44075,7 @@
       ],
       "task": null,
       "title": "Auth & Sign-up",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "feature:badge-qr": {
       "affects": [],
@@ -51696,7 +51648,7 @@
         "current": 8,
         "decided": 7,
         "delivered": 2,
-        "done": 12,
+        "done": 11,
         "draft": 17,
         "in-progress": 13,
         "missing": 40,
@@ -51965,7 +51917,7 @@
       ],
       "task": null,
       "title": "ND-01 Passwordless login",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "needs-decision:ND-02": {
       "affects": [],
@@ -58467,7 +58419,7 @@
         "current": 8,
         "decided": 14,
         "delivered": 2,
-        "done": 13,
+        "done": 12,
         "draft": 95,
         "in-progress": 58,
         "missing": 162,
@@ -61834,9 +61786,7 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-02",
-      "children": [
-        "task:T-056"
-      ],
+      "children": [],
       "code": "auth",
       "created": "2026-10-18",
       "deadline": null,
@@ -74333,60 +74283,6 @@
       "task": null,
       "title": "T-055-be Backend · Run the e2e suite in CI against PostGIS",
       "updated": "2026-10-26"
-    },
-    "task:T-056": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-056",
-      "children": [],
-      "code": "T-056",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": "ND-01",
-      "depends": [
-        "needs-decision:ND-01"
-      ],
-      "dir": "social-pin/tasks/T-056 Decide passwordless login",
-      "effectiveStatus": "done",
-      "effort": "S",
-      "feature": "auth",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-056",
-      "inherits": {
-        "release": "feature:auth"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "identity",
-      "parentTask": null,
-      "parents": [
-        "story:auth"
-      ],
-      "path": "social-pin/tasks/T-056 Decide passwordless login/T-056 Decide passwordless login.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s01"
-      ],
-      "status": "done",
-      "summary": "See ND-01 Passwordless login. Decided: option A, code-only login. Shipped in social-pin PR #1. Frontend write-up: Frontend Passwordless Migration.",
-      "tags": [
-        "task",
-        "task/done",
-        "module/identity",
-        "priority/critical"
-      ],
-      "task": null,
-      "title": "T-056 Decide passwordless login",
-      "updated": "2026-10-15"
     },
     "task:T-058": {
       "affects": [],
