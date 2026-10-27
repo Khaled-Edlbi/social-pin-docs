@@ -67,7 +67,6 @@ Social Pin backend
 │   │   ├── ⬜ T-030 Discover search by !pinname and recent searches
 │   │   └── ❓ T-031 Import contacts
 │   └── ❌ PinCast & Nearby  [High]
-│       └── ⬜ T-032 PinCast: setup, start, stop, results
 ├── Events  (🟡1 ❌4)
 │   ├── 🟡 Event Ring Auto-creation  [Critical]
 │   ├── ❌ Events Before  [Critical]
@@ -165,7 +164,7 @@ Badge / QR, Discover hub, PinCast proximity broadcast, nearby by Ring, contact i
 |---|---|---|---|---|
 | [[Badge & QR]] | 🟡 Partial (needs more) | Critical | s34, s43, s44, s56 | 4 |
 | [[Discover Hub & Search]] | ❌ TODO | High | s38 | 2 |
-| [[PinCast & Nearby]] | ❌ TODO | High | s11, s39, s40, s41, s42 | 1 |
+| [[PinCast & Nearby]] | ❌ TODO | High | s11, s39, s40, s41, s42 | 0 |
 
 ## Events
 

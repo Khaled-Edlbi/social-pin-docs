@@ -103,9 +103,6 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-030 Discover search by !pinname and recent searches]] | [[Discover Hub & Search]] | Discovery | ⬜ To do | S | — | — |
 | [[T-030-be Backend · Discover search by !pinname and recent searches]] `backend` | [[Discover Hub & Search]] | Discovery | ⬜ To do | S | — | — |
 | [[T-030-fe Frontend · Discover search by !pinname and recent searches]] `frontend` | [[Discover Hub & Search]] | Discovery | ⛔ Blocked | S | — | [[T-030-be Backend · Discover search by !pinname and recent searches|T-030-be]] |
-| [[T-032 PinCast setup, start, stop, results]] | [[PinCast & Nearby]] | Discovery | ⬜ To do | L | — | — |
-| [[T-032-be Backend · PinCast setup, start, stop, results]] `backend` | [[PinCast & Nearby]] | Discovery | ⬜ To do | L | — | — |
-| [[T-032-fe Frontend · PinCast setup, start, stop, results]] `frontend` | [[PinCast & Nearby]] | Discovery | ⛔ Blocked | L | — | [[T-032-be Backend · PinCast setup, start, stop, results|T-032-be]] |
 | [[T-037 Event pass with a 60 s rotating code]] | [[Events During]] | Events | ⛔ Blocked | M | — | [[T-007 Issue and rotate the QR token for a Ring|T-007]] |
 | [[T-037-be Backend · Event pass with a 60 s rotating code]] `backend` | [[Events During]] | Events | ⛔ Blocked | M | — | [[T-007 Issue and rotate the QR token for a Ring|T-007]] |
 | [[T-037-fe Frontend · Event pass with a 60 s rotating code]] `frontend` | [[Events During]] | Events | ⛔ Blocked | M | — | [[T-007 Issue and rotate the QR token for a Ring|T-007]], [[T-037-be Backend · Event pass with a 60 s rotating code|T-037-be]] |

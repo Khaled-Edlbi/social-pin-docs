@@ -74,7 +74,6 @@ kanban-plugin: board
 - [ ] [[T-027-be Backend · Join a Ring with a code or verified work email]] #high #ring-invitations #backend
 - [ ] [[T-027-fe Frontend · Join a Ring with a code or verified work email]] #high #ring-invitations #frontend
 - [ ] [[T-030-fe Frontend · Discover search by !pinname and recent searches]] #high #discover-hub #frontend
-- [ ] [[T-032-fe Frontend · PinCast setup, start, stop, results]] #high #pincast #frontend
 - [ ] [[T-037 Event pass with a 60 s rotating code]] #high #events-during
 - [ ] [[T-037-be Backend · Event pass with a 60 s rotating code]] #high #events-during #backend
 - [ ] [[T-037-fe Frontend · Event pass with a 60 s rotating code]] #high #events-during #frontend
@@ -146,8 +145,6 @@ kanban-plugin: board
 - [ ] [[T-026-be Backend · Ring invitations invite, review, decline]] #high #ring-invitations #backend
 - [ ] [[T-030 Discover search by !pinname and recent searches]] #high #discover-hub
 - [ ] [[T-030-be Backend · Discover search by !pinname and recent searches]] #high #discover-hub #backend
-- [ ] [[T-032 PinCast setup, start, stop, results]] #high #pincast
-- [ ] [[T-032-be Backend · PinCast setup, start, stop, results]] #high #pincast #backend
 - [ ] [[T-045 NotificationService.emit and the inbox]] #high #notifications
 - [ ] [[T-045-be Backend · NotificationService.emit and the inbox]] #high #notifications #backend
 - [ ] [[T-048 Business account setup → business Ring]] #high #exhibitor

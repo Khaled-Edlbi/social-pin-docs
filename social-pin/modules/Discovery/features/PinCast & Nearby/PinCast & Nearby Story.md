@@ -10,7 +10,7 @@ approvedBy: "khaled"
 approvedAt: 2026-10-25
 owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [story, story/approved, module/discovery, layer/business]
 ---
 
@@ -84,6 +84,14 @@ Acceptance criteria:
 - [ ] States: searching, none found, permission needed; no coordinates or distances beyond "nearby".
 - [ ] A "pins nearby" notification is opt-in and off by default.
 
+### S7 · PinCast setup, start, stop, results
+
+*From T-032 (status then: To do), merged 2026-10-27.*
+
+Bound to a Ring, radius, duration. Geo query with the existing GiST index. Recipients list; coordinates never returned. Nearby-by-Ring through `RingAccessService`.
+
+Screens: [[Screen Index#s39|s39]] PinCast · hidden · [[Screen Index#s40|s40]] PinCast · live · [[Screen Index#s41|s41]] PinCast setup · [[Screen Index#s42|s42]] PinCast results
+
 ## States and motion the design asks for
 
 - State: setup, live / countdown, ended-with-results, ended-empty; Home idle versus broadcasting; radar searching, none found, permission needed.
@@ -99,6 +107,6 @@ Acceptance criteria:
 
 ## Open questions
 
-- [[T-032 PinCast setup, start, stop, results]] — the allowed distance and duration steps, how a recipient's device reports its position (interval, background), whether a recipient must be in a Ring of the broadcaster to be *reached* or only to *see*, and the purge delay that bounds S5's last bullet.
+- [[PinCast & Nearby Story|PinCast & Nearby · S7]] — the allowed distance and duration steps, how a recipient's device reports its position (interval, background), whether a recipient must be in a Ring of the broadcaster to be *reached* or only to *see*, and the purge delay that bounds S5's last bullet.
 - [[T-045 NotificationService.emit and the inbox]] — "PinCast ended" and "pins nearby"; until then s42 is reached from s40 only.
 - [[T-046 Push delivery and preferences]] — replaces polling on s40 and the opt-in of S6.

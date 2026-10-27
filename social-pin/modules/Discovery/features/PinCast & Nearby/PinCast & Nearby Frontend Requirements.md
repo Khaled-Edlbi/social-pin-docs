@@ -55,13 +55,13 @@ What the client needs from the backend to build the screens in [[PinCast & Nearb
 |---|---|---|---|
 | Rings for the picker | `GET /rings` | ✅ | — |
 | What a reached person shares with me | `GET /views/user/:userId/perspectives` | ✅ | — |
-| Allowed distance and duration steps | — | ❌ | [[T-032 PinCast setup, start, stop, results]] |
-| Start a PinCast with Ring, radius, duration, position | — | ❌ | [[T-032 PinCast setup, start, stop, results]] |
-| Current PinCast with server end time | — | ❌ | [[T-032 PinCast setup, start, stop, results]] |
-| Report my position while live | — | ❌ | [[T-032 PinCast setup, start, stop, results]] |
-| Stop | — | ❌ | [[T-032 PinCast setup, start, stop, results]] |
-| Recipients so far and final results, no coordinates | — | ❌ | [[T-032 PinCast setup, start, stop, results]] |
-| Nearby by Ring through the access engine | — | ❌ | [[T-032 PinCast setup, start, stop, results]] |
+| Allowed distance and duration steps | — | ❌ | [[PinCast & Nearby Story|PinCast & Nearby · S7]] |
+| Start a PinCast with Ring, radius, duration, position | — | ❌ | [[PinCast & Nearby Story|PinCast & Nearby · S7]] |
+| Current PinCast with server end time | — | ❌ | [[PinCast & Nearby Story|PinCast & Nearby · S7]] |
+| Report my position while live | — | ❌ | [[PinCast & Nearby Story|PinCast & Nearby · S7]] |
+| Stop | — | ❌ | [[PinCast & Nearby Story|PinCast & Nearby · S7]] |
+| Recipients so far and final results, no coordinates | — | ❌ | [[PinCast & Nearby Story|PinCast & Nearby · S7]] |
+| Nearby by Ring through the access engine | — | ❌ | [[PinCast & Nearby Story|PinCast & Nearby · S7]] |
 | Connect / accept from a result row | — | ❌ | [[T-021 Connect request send, inbox, cancel]] |
 | "PinCast ended" and "pins nearby" notifications | — | ❌ | [[T-045 NotificationService.emit and the inbox]] |
 | Push instead of polling on s40 | — | ❌ | [[T-046 Push delivery and preferences]] |
@@ -85,12 +85,12 @@ What the client needs from the backend to build the screens in [[PinCast & Nearb
 | 404 | `E_RING_02` | the picked Ring is not mine or is gone: refetch `GET /rings` |
 | 401 | `E_AUTH_04` | sign in again |
 | 400 | — | radius or duration outside the allowed steps: should not happen if the UI uses the returned steps; inline |
-| — | PinCast-specific codes | to be defined by T-032 (already live, Ring not live, position missing); branch on `statusCode` until [[T-063 Put the ErrorCode on the error body]] |
+| — | PinCast-specific codes | to be defined by PinCast & Nearby · S7 (already live, Ring not live, position missing); branch on `statusCode` until [[T-063 Put the ErrorCode on the error body]] |
 | client | location permission denied | inline state on s39 / s41 with *Open settings*; the Nearby radar shows "permission needed" |
 
 ## Blocked by
 
-- [[T-032 PinCast setup, start, stop, results]] — every ❌ row; the allowed steps, the position-reporting rule and the "reached versus see" rule are design inputs the client needs before layout is final.
+- [[PinCast & Nearby Story|PinCast & Nearby · S7]] — every ❌ row; the allowed steps, the position-reporting rule and the "reached versus see" rule are design inputs the client needs before layout is final.
 - [[T-045 NotificationService.emit and the inbox]] and [[T-046 Push delivery and preferences]] — s42 reached by notification; polling on s40 until then.
 - [[Cleanup Jobs Story|Cleanup Jobs · S4]] — how long results stay complete.
 - [[T-063 Put the ErrorCode on the error body]] — the error table is by status until then.

@@ -366,10 +366,6 @@
     "T-031 Story": "story:T-031",
     "T-031-be Backend · Import contacts": "task:T-031-be",
     "T-031-fe Frontend · Import contacts": "task:T-031-fe",
-    "T-032 PinCast setup, start, stop, results": "task:T-032",
-    "T-032 Story": "story:T-032",
-    "T-032-be Backend · PinCast setup, start, stop, results": "task:T-032-be",
-    "T-032-fe Frontend · PinCast setup, start, stop, results": "task:T-032-fe",
     "T-033 Events list, detail, schedule": "task:T-033",
     "T-033 Story": "story:T-033",
     "T-033-be Backend · Events list, detail, schedule": "task:T-033-be",
@@ -748,7 +744,6 @@
     "S-43": "story:T-030",
     "S-44": "story:T-031",
     "S-45": "story:pincast",
-    "S-46": "story:T-032",
     "S-47": "story:event-ring-auto",
     "S-49": "story:events-before",
     "S-50": "story:T-033",
@@ -866,9 +861,6 @@
     "T-031": "task:T-031",
     "T-031-be": "task:T-031-be",
     "T-031-fe": "task:T-031-fe",
-    "T-032": "task:T-032",
-    "T-032-be": "task:T-032-be",
-    "T-032-fe": "task:T-032-fe",
     "T-033": "task:T-033",
     "T-033-be": "task:T-033-be",
     "T-033-fe": "task:T-033-fe",
@@ -4045,81 +4037,53 @@
     },
     "s39": {
       "containers": [
-        "feature:pincast",
-        "task:T-032",
-        "task:T-032-be",
-        "task:T-032-fe"
+        "feature:pincast"
       ],
       "kind": "screen",
       "notes": [
         "backend-delivery:pincast",
         "feature:pincast",
         "frontend-requirements:pincast",
-        "story:T-032",
-        "story:pincast",
-        "task:T-032",
-        "task:T-032-be",
-        "task:T-032-fe"
+        "story:pincast"
       ],
       "owner": null
     },
     "s40": {
       "containers": [
-        "feature:pincast",
-        "task:T-032",
-        "task:T-032-be",
-        "task:T-032-fe"
+        "feature:pincast"
       ],
       "kind": "screen",
       "notes": [
         "backend-delivery:pincast",
         "feature:pincast",
         "frontend-requirements:pincast",
-        "story:T-032",
-        "story:pincast",
-        "task:T-032",
-        "task:T-032-be",
-        "task:T-032-fe"
+        "story:pincast"
       ],
       "owner": null
     },
     "s41": {
       "containers": [
-        "feature:pincast",
-        "task:T-032",
-        "task:T-032-be",
-        "task:T-032-fe"
+        "feature:pincast"
       ],
       "kind": "screen",
       "notes": [
         "backend-delivery:pincast",
         "feature:pincast",
         "frontend-requirements:pincast",
-        "story:T-032",
-        "story:pincast",
-        "task:T-032",
-        "task:T-032-be",
-        "task:T-032-fe"
+        "story:pincast"
       ],
       "owner": null
     },
     "s42": {
       "containers": [
-        "feature:pincast",
-        "task:T-032",
-        "task:T-032-be",
-        "task:T-032-fe"
+        "feature:pincast"
       ],
       "kind": "screen",
       "notes": [
         "backend-delivery:pincast",
         "feature:pincast",
         "frontend-requirements:pincast",
-        "story:T-032",
-        "story:pincast",
-        "task:T-032",
-        "task:T-032-be",
-        "task:T-032-fe"
+        "story:pincast"
       ],
       "owner": null
     },
@@ -4952,7 +4916,7 @@
     }
   },
   "counts": {
-    "blocked": 136,
+    "blocked": 135,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -4965,28 +4929,28 @@
       "project": 27,
       "qa-backend": 1,
       "qa-frontend": 1,
-      "story": 93,
-      "task": 152
+      "story": 92,
+      "task": 149
     },
     "byLayer": {
       "backend": 56,
-      "business": 324,
+      "business": 320,
       "frontend": 44,
       "qa": 2,
       "shared": 10
     },
     "concepts": 199,
     "decisions": 19,
-    "edges": 5031,
+    "edges": 5013,
     "features": 41,
-    "layerNotes": 183,
+    "layerNotes": 182,
     "modules": 8,
-    "notes": 472,
+    "notes": 468,
     "partial": 4,
     "placeholders": 161,
     "records": 14,
-    "taskLayerNotes": 53,
-    "tasks": 152
+    "taskLayerNotes": 52,
+    "tasks": 149
   },
   "deadlines": {
     "missed": {
@@ -7071,11 +7035,6 @@
       "to": "task:T-031-fe"
     },
     {
-      "from": "task:T-032-be",
-      "kind": "blocks",
-      "to": "task:T-032-fe"
-    },
-    {
       "from": "task:T-033",
       "kind": "blocks",
       "to": "task:T-034"
@@ -8169,11 +8128,6 @@
       "from": "task:T-031-fe",
       "kind": "depends",
       "to": "task:T-031-be"
-    },
-    {
-      "from": "task:T-032-fe",
-      "kind": "depends",
-      "to": "task:T-032-be"
     },
     {
       "from": "task:T-033-fe",
@@ -12659,14 +12613,6 @@
       "from": "story:photo-library",
       "kind": "related",
       "to": "story:T-013",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
-      "from": "story:pincast",
-      "kind": "related",
-      "to": "story:T-032",
       "via": [
         "sum-of"
       ]
@@ -24972,11 +24918,6 @@
       "to": "task:T-013"
     },
     {
-      "from": "story:pincast",
-      "kind": "tree",
-      "to": "task:T-032"
-    },
-    {
       "from": "story:post-event",
       "kind": "tree",
       "to": "task:T-050"
@@ -25435,21 +25376,6 @@
       "from": "task:T-031",
       "kind": "tree",
       "to": "task:T-031-fe"
-    },
-    {
-      "from": "task:T-032",
-      "kind": "tree",
-      "to": "story:T-032"
-    },
-    {
-      "from": "task:T-032",
-      "kind": "tree",
-      "to": "task:T-032-be"
-    },
-    {
-      "from": "task:T-032",
-      "kind": "tree",
-      "to": "task:T-032-fe"
     },
     {
       "from": "task:T-033",
@@ -27304,7 +27230,7 @@
     {
       "from": "feature:pincast",
       "kind": "wikilink",
-      "to": "task:T-032"
+      "to": "project:status-report-2026-10-15"
     },
     {
       "from": "feature:post-event",
@@ -27979,6 +27905,11 @@
     {
       "from": "frontend-requirements:discover-hub",
       "kind": "wikilink",
+      "to": "story:pincast"
+    },
+    {
+      "from": "frontend-requirements:discover-hub",
+      "kind": "wikilink",
       "to": "task:T-021"
     },
     {
@@ -27990,11 +27921,6 @@
       "from": "frontend-requirements:discover-hub",
       "kind": "wikilink",
       "to": "task:T-031"
-    },
-    {
-      "from": "frontend-requirements:discover-hub",
-      "kind": "wikilink",
-      "to": "task:T-032"
     },
     {
       "from": "frontend-requirements:discover-hub",
@@ -28625,11 +28551,6 @@
       "from": "frontend-requirements:pincast",
       "kind": "wikilink",
       "to": "task:T-021"
-    },
-    {
-      "from": "frontend-requirements:pincast",
-      "kind": "wikilink",
-      "to": "task:T-032"
     },
     {
       "from": "frontend-requirements:pincast",
@@ -31309,11 +31230,6 @@
     {
       "from": "project:status-report-2026-10-15",
       "kind": "wikilink",
-      "to": "feature:pincast"
-    },
-    {
-      "from": "project:status-report-2026-10-15",
-      "kind": "wikilink",
       "to": "feature:post-event"
     },
     {
@@ -32435,11 +32351,6 @@
       "from": "story:T-031",
       "kind": "wikilink",
       "to": "feature:discover-hub"
-    },
-    {
-      "from": "story:T-032",
-      "kind": "wikilink",
-      "to": "feature:pincast"
     },
     {
       "from": "story:T-033",
@@ -33730,46 +33641,6 @@
       "from": "task:T-031-fe",
       "kind": "wikilink",
       "to": "task:T-031-be"
-    },
-    {
-      "from": "task:T-032",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-032",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-032",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-032-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:pincast"
-    },
-    {
-      "from": "task:T-032-be",
-      "kind": "wikilink",
-      "to": "feature:pincast"
-    },
-    {
-      "from": "task:T-032-fe",
-      "kind": "wikilink",
-      "to": "feature:pincast"
-    },
-    {
-      "from": "task:T-032-fe",
-      "kind": "wikilink",
-      "to": "story:T-032"
-    },
-    {
-      "from": "task:T-032-fe",
-      "kind": "wikilink",
-      "to": "task:T-032-be"
     },
     {
       "from": "task:T-033",
@@ -36327,22 +36198,6 @@
     },
     "social-pin/tasks/T-031 Import contacts/T-031-fe Frontend · Import contacts.md": {
       "name": "T-031-fe Frontend · Import contacts",
-      "type": "task"
-    },
-    "social-pin/tasks/T-032 PinCast setup, start, stop, results/T-032 PinCast setup, start, stop, results.md": {
-      "name": "T-032 PinCast setup, start, stop, results",
-      "type": "task"
-    },
-    "social-pin/tasks/T-032 PinCast setup, start, stop, results/T-032 Story.md": {
-      "name": "T-032 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-032 PinCast setup, start, stop, results/T-032-be Backend · PinCast setup, start, stop, results.md": {
-      "name": "T-032-be Backend · PinCast setup, start, stop, results",
-      "type": "task"
-    },
-    "social-pin/tasks/T-032 PinCast setup, start, stop, results/T-032-fe Frontend · PinCast setup, start, stop, results.md": {
-      "name": "T-032-fe Frontend · PinCast setup, start, stop, results",
       "type": "task"
     },
     "social-pin/tasks/T-033 Events list, detail, schedule/T-033 Events list, detail, schedule.md": {
@@ -44761,10 +44616,9 @@
       "resolution": null,
       "rollup": {
         "approved": 1,
-        "blocked": 2,
-        "draft": 2,
-        "missing": 4,
-        "todo": 2
+        "blocked": 1,
+        "draft": 1,
+        "missing": 4
       },
       "scope": null,
       "screens": [
@@ -44784,7 +44638,7 @@
       ],
       "task": null,
       "title": "PinCast & Nearby",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "feature:post-event": {
       "affects": [],
@@ -50135,12 +49989,12 @@
       "resolution": null,
       "rollup": {
         "approved": 3,
-        "blocked": 18,
-        "draft": 11,
+        "blocked": 17,
+        "draft": 10,
         "in-progress": 3,
         "missing": 12,
         "needs-decision": 1,
-        "todo": 7
+        "todo": 5
       },
       "scope": null,
       "screens": [],
@@ -57035,12 +56889,12 @@
       ],
       "rollup": {
         "approved": 36,
-        "blocked": 136,
+        "blocked": 135,
         "current": 8,
         "decided": 14,
         "delivered": 2,
         "done": 10,
-        "draft": 87,
+        "draft": 86,
         "in-progress": 55,
         "missing": 161,
         "needs-decision": 8,
@@ -57048,7 +56902,7 @@
         "passing": 1,
         "ready": 2,
         "reference": 31,
-        "todo": 40,
+        "todo": 38,
         "verified": 14
       },
       "scope": null,
@@ -58367,59 +58221,6 @@
       ],
       "task": "T-031",
       "title": "T-031 Story",
-      "updated": "2026-10-26"
-    },
-    "story:T-032": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-46",
-      "children": [],
-      "code": "T-032",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
-      "effort": null,
-      "feature": "pincast",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-032",
-      "inherits": {
-        "priority": "task:T-032",
-        "release": "feature:pincast"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "discovery",
-      "parentTask": null,
-      "parents": [
-        "task:T-032"
-      ],
-      "path": "social-pin/tasks/T-032 PinCast setup, start, stop, results/T-032 Story.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "scope": "task",
-      "screens": [
-        "s39",
-        "s40",
-        "s41",
-        "s42"
-      ],
-      "status": "draft",
-      "summary": "Bound to a Ring, radius, duration. Geo query with the existing GiST index. Recipients list; coordinates never returned. Nearby-by-Ring through RingAccessService.",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/discovery",
-        "layer/business"
-      ],
-      "task": "T-032",
-      "title": "T-032 Story",
       "updated": "2026-10-26"
     },
     "story:T-033": {
@@ -61501,9 +61302,7 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-45",
-      "children": [
-        "task:T-032"
-      ],
+      "children": [],
       "code": "pincast",
       "created": "2026-10-18",
       "deadline": null,
@@ -61551,7 +61350,7 @@
       ],
       "task": null,
       "title": "PinCast & Nearby Story",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "story:post-event": {
       "affects": [],
@@ -66896,193 +66695,6 @@
       ],
       "task": null,
       "title": "T-031-fe Frontend · Import contacts",
-      "updated": "2026-10-26"
-    },
-    "task:T-032": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-032",
-      "children": [
-        "story:T-032",
-        "task:T-032-be",
-        "task:T-032-fe"
-      ],
-      "code": "T-032",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": "social-pin/tasks/T-032 PinCast setup, start, stop, results",
-      "effectiveStatus": "todo",
-      "effort": "L",
-      "feature": "pincast",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-032",
-      "inherits": {
-        "release": "feature:pincast"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "discovery",
-      "parentTask": null,
-      "parents": [
-        "story:pincast"
-      ],
-      "path": "social-pin/tasks/T-032 PinCast setup, start, stop, results/T-032 PinCast setup, start, stop, results.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {
-        "blocked": 1,
-        "draft": 1,
-        "todo": 1
-      },
-      "scope": null,
-      "screens": [
-        "s39",
-        "s40",
-        "s41",
-        "s42"
-      ],
-      "status": "todo",
-      "summary": "Bound to a Ring, radius, duration. Geo query with the existing GiST index. Recipients list; coordinates never returned. Nearby-by-Ring through RingAccessService.",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/discovery",
-        "priority/high"
-      ],
-      "task": null,
-      "title": "T-032 PinCast setup, start, stop, results",
-      "updated": "2026-10-26"
-    },
-    "task:T-032-be": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-032-be",
-      "children": [],
-      "code": "T-032-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": null,
-      "effectiveStatus": "todo",
-      "effort": "L",
-      "feature": "pincast",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-032-be",
-      "inherits": {
-        "release": "feature:pincast"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "discovery",
-      "parentTask": "T-032",
-      "parents": [
-        "task:T-032"
-      ],
-      "path": "social-pin/tasks/T-032 PinCast setup, start, stop, results/T-032-be Backend · PinCast setup, start, stop, results.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s39",
-        "s40",
-        "s41",
-        "s42"
-      ],
-      "status": "todo",
-      "summary": "The API side of T-032 PinCast setup, start, stop, results: the endpoints, data and rules its What describes. Record what shipped in T-032-be Backend Delivery and how to call it in T-032-be Backend…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/discovery",
-        "priority/high",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-032-be Backend · PinCast setup, start, stop, results",
-      "updated": "2026-10-26"
-    },
-    "task:T-032-fe": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-032-be",
-          "title": "T-032-be Backend · PinCast setup, start, stop, results",
-          "why": "T-032-be Backend · PinCast setup, start, stop, results is to do"
-        }
-      ],
-      "card": "T-032-fe",
-      "children": [],
-      "code": "T-032-fe",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-032-be"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "L",
-      "feature": "pincast",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-032-fe",
-      "inherits": {
-        "release": "feature:pincast"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "frontend"
-      ],
-      "layer": "business",
-      "module": "discovery",
-      "parentTask": "T-032",
-      "parents": [
-        "task:T-032"
-      ],
-      "path": "social-pin/tasks/T-032 PinCast setup, start, stop, results/T-032-fe Frontend · PinCast setup, start, stop, results.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s39",
-        "s40",
-        "s41",
-        "s42"
-      ],
-      "status": "todo",
-      "summary": "The client side of T-032 PinCast setup, start, stop, results: the screens below show what its What describes, built against PinCast & Nearby Backend Integration once the backend half (T-032-be…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/discovery",
-        "priority/high",
-        "frontend"
-      ],
-      "task": null,
-      "title": "T-032-fe Frontend · PinCast setup, start, stop, results",
       "updated": "2026-10-26"
     },
     "task:T-033": {

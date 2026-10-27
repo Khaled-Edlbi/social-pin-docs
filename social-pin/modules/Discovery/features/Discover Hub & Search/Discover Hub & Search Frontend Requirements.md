@@ -47,7 +47,7 @@ What the client needs from the backend to build the screen in [[Discover Hub & S
 | Events tile | — | ❌ | [[T-033 Events list, detail, schedule]] |
 | Companies tile | — | ❌ | [[Companies Story|Companies · S6]] |
 | Exhibitors tile | — | ❌ | [[T-036 Event mode exhibitors list and detail]] |
-| PinCast tile | — | ❌ | [[T-032 PinCast setup, start, stop, results]] |
+| PinCast tile | — | ❌ | [[PinCast & Nearby Story|PinCast & Nearby · S7]] |
 | Avatar on recent-search rows and results | — | ❌ | [[Files Upload Story|Files Upload · showing files]] |
 
 ## Behaviour expectations
