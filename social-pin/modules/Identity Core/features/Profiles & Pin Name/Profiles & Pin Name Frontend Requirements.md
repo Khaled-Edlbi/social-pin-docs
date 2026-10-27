@@ -7,7 +7,7 @@ module: identity
 status: draft
 screens: [s06, s68]
 depends: []
-affects: ["T-078 Main profile fields from D-02"]
+affects: ["Profiles & Pin Name Story"]
 related: ["D-02 One main profile every Ring starts from", "D-06 Yearly rename, old name freed, case-insensitive", "Onboarding Imports", "Auth & Sign-up", "Files Upload", "Files Upload Story", "T-020 LinkedIn import → review → base profile", "T-063 Put the ErrorCode on the error body"]
 created: 2026-10-18
 updated: 2026-10-27
@@ -19,7 +19,7 @@ tags: [frontend-requirements, frontend-requirements/draft, module/identity, laye
 
 **Feature:** [[Profiles & Pin Name]] · **Status:** Draft · **Story:** [[Profiles & Pin Name Story]] · **Backend Integration:** [[Profiles & Pin Name Backend Integration]]
 
-What the client needs from the backend for the Pin-name claim, sign-up's *Profile basics* step and the owner's profile editor, and whether each need is met today. The main profile of [[D-02 One main profile every Ring starts from]] (headline, role, company, location, photo, bio) is asked of the backend in [[T-078 Main profile fields from D-02]]; the Pin-name rules are [[D-06 Yearly rename, old name freed, case-insensitive]]. Shapes, field limits and the enum values are in [[Profiles & Pin Name Backend Integration]].
+What the client needs from the backend for the Pin-name claim, sign-up's *Profile basics* step and the owner's profile editor, and whether each need is met today. The main profile of [[D-02 One main profile every Ring starts from]] (headline, role, company, location, photo, bio) is asked of the backend in [[Profiles & Pin Name Story|Profiles & Pin Name · S9–S11]]; the Pin-name rules are [[D-06 Yearly rename, old name freed, case-insensitive]]. Shapes, field limits and the enum values are in [[Profiles & Pin Name Backend Integration]].
 
 ## Per screen
 
@@ -36,7 +36,7 @@ What the client needs from the backend for the Pin-name claim, sign-up's *Profil
 
 - Where it sits: after Start from (s03) or an import's review (s05), **before** Claim your Pin (s06). The account doesn't exist yet.
 - Fields: full name (required), photo, headline, company, location; the photo from the camera or the library.
-- Needs: the full name goes into `POST /auth/complete-registration` (`fullName`) ✅. The other four are written to the new main profile **right after registration**, with `PATCH /profiles/:id` (the photo as a `POST /files` id): ❌ until [[T-078 Main profile fields from D-02]].
+- Needs: the full name goes into `POST /auth/complete-registration` (`fullName`) ✅. The other four are written to the new main profile **right after registration**, with `PATCH /profiles/:id` (the photo as a `POST /files` id): ❌ until [[Profiles & Pin Name Story|Profiles & Pin Name · S9–S11]].
 - Source today: the name is saved; photo, headline, company and location are kept in memory and lost.
 
 ### Privacy rows on Me ([[Screen Index#s68|s68]])
@@ -49,7 +49,7 @@ What the client needs from the backend for the Pin-name claim, sign-up's *Profil
 - Fields shown: `pinName` (with `!` decoration), `fullName`, `nickname`, the three sensitive fields with "shared only with Rings you choose", `profileType`, `isDefault`.
 - States: loading, saving, cleared, default badge, delete disabled on the default.
 - Source today: `GET /profiles`, `GET /profiles/:id`, `PATCH /profiles/:id`, `POST /profiles`, `POST /profiles/:id/default`, `DELETE /profiles/:id`.
-- Not available: headline, role, company, location, photo, bio ([[T-078 Main profile fields from D-02]]); the once-a-year rename limit (no task yet).
+- Not available: headline, role, company, location, photo, bio ([[Profiles & Pin Name Story|Profiles & Pin Name · S9–S11]]); the once-a-year rename limit (no task yet).
 
 ## Field map
 
@@ -63,12 +63,12 @@ What the client needs from the backend for the Pin-name claim, sign-up's *Profil
 | Marital status | `maritalStatus` | enum from `/docs` or `null` |
 | Type | `profileType` | `PERSONAL` (default), `PROFESSIONAL`, `BUSINESS` |
 | Default | `isDefault` | one per account |
-| Headline | main profile (T-078) | length set by T-078; a Ring may change it |
-| Role | main profile (T-078) | behaves like headline until product says otherwise (D-02 *Still open*) |
-| Company | main profile (T-078) | a Ring may change it |
-| Location | main profile (T-078) | a Ring may change it |
-| Photo | main profile (T-078), a file id from `POST /files` | shown once [[Files Upload Story|Files Upload · showing files]] ships; a Ring may pick another |
-| Bio | main profile (T-078) | a Ring may change it |
+| Headline | main profile (Profiles & Pin Name · S9–S11) | length set by Profiles & Pin Name · S9–S11; a Ring may change it |
+| Role | main profile (Profiles & Pin Name · S9–S11) | behaves like headline until product says otherwise (D-02 *Still open*) |
+| Company | main profile (Profiles & Pin Name · S9–S11) | a Ring may change it |
+| Location | main profile (Profiles & Pin Name · S9–S11) | a Ring may change it |
+| Photo | main profile (Profiles & Pin Name · S9–S11), a file id from `POST /files` | shown once [[Files Upload Story|Files Upload · showing files]] ships; a Ring may pick another |
+| Bio | main profile (Profiles & Pin Name · S9–S11) | a Ring may change it |
 
 ## Endpoints required
 
@@ -82,7 +82,7 @@ What the client needs from the backend for the Pin-name claim, sign-up's *Profil
 | Make a profile the default | `POST /profiles/:id/default` | ✅ | — |
 | Delete a non-default profile | `DELETE /profiles/:id` | ✅ | — |
 | Claim the handle at registration | `POST /auth/complete-registration` | ✅ | — (listed under [[Auth & Sign-up]]) |
-| Main profile fields (headline, role, company, location, photo, bio) on read and `PATCH` | `GET /profiles`, `PATCH /profiles/:id` | ❌ | [[T-078 Main profile fields from D-02]] |
+| Main profile fields (headline, role, company, location, photo, bio) on read and `PATCH` | `GET /profiles`, `PATCH /profiles/:id` | ❌ | [[Profiles & Pin Name Story|Profiles & Pin Name · S9–S11]] |
 | Upload the profile photo | `POST /files` | ✅ | — ([[Files Upload]]) |
 | Show the profile photo | — | ❌ | [[Files Upload Story|Files Upload · showing files]] |
 | Once-a-year rename limit, enforced and its next date readable | — | ❌ | no task yet ([[D-06 Yearly rename, old name freed, case-insensitive]]) |
@@ -115,6 +115,6 @@ Until [[T-063 Put the ErrorCode on the error body]] ships, branch on status and 
 
 ## Blocked by
 
-- [[T-078 Main profile fields from D-02]] — *Profile basics*, the editor's work section, and the headline every design screen shows.
+- [[Profiles & Pin Name Story|Profiles & Pin Name · S9–S11]] — *Profile basics*, the editor's work section, and the headline every design screen shows.
 - [[Files Upload Story|Files Upload · showing files]] — the photo, once saved.
 - The once-a-year rename limit has no task: the client shows the copy but nothing enforces it.

@@ -28,8 +28,6 @@ Social Pin backend
 │   │   └── ✅ T-056 Decide: passwordless login (decided: code-only)
 │   ├── ✅ Account  [Critical]
 │   ├── ✅ Profiles & Pin Name  [Critical]
-│   │   ├── ❓ T-057 Decide: base profile work fields
-│   │   └── ❓ T-061 Decide: Pin name rules
 │   ├── ✅ Rings  [Critical]
 │   ├── ✅ Ring Members  [Critical]
 │   ├── ✅ Ring Projection  [Critical]
@@ -141,7 +139,7 @@ Account, profile, Rings, what each Ring shows, and the access engine. The part o
 |---|---|---|---|---|
 | [[Auth & Sign-up]] | ✅ Done | Critical | s01, s02, s06, s08, s68 | 0 |
 | [[Account]] | ✅ Done | Critical | s68 | 0 |
-| [[Profiles & Pin Name]] | ✅ Done | Critical | s06 | 2 |
+| [[Profiles & Pin Name]] | ✅ Done | Critical | s06 | 0 |
 | [[Rings]] | ✅ Done | Critical | s08, s09, s16, s17, s18, s19, s20, s21, s22, s26, s62 | 0 |
 | [[Ring Members]] | ✅ Done | Critical | s15, s47 | 0 |
 | [[Ring Projection]] | ✅ Done | Critical | s14, s20, s23, s24, s25, s29, s36 | 2 |

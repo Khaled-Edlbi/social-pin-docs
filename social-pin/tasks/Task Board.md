@@ -109,7 +109,6 @@ kanban-plugin: board
 - [ ] [[T-050 Post-event summary and follow-ups]] #high #post-event
 - [ ] [[T-050-be Backend · Post-event summary and follow-ups]] #high #post-event #backend
 - [ ] [[T-050-fe Frontend · Post-event summary and follow-ups]] #high #post-event #frontend
-- [ ] [[T-078-fe Frontend · Main profile fields from D-02]] #high #profiles #frontend
 - [ ] [[T-013 Usage count per file across Rings]] #medium #photo-library
 - [ ] [[T-013-be Backend · Usage count per file across Rings]] #medium #photo-library #backend
 - [ ] [[T-013-fe Frontend · Usage count per file across Rings]] #medium #photo-library #frontend
@@ -175,11 +174,8 @@ kanban-plugin: board
 - [ ] [[T-049-be Backend · Subscription endpoints and a single Pro gate]] #high #subscription #backend
 - [ ] [[T-054 Cleanup jobs]] #high #cleanup-jobs
 - [ ] [[T-054-be Backend · Cleanup jobs]] #high #cleanup-jobs #backend
-- [ ] [[T-078 Main profile fields from D-02]] #high #profiles
-- [ ] [[T-078-be Backend · Main profile fields from D-02]] #high #profiles #backend
 - [ ] [[T-020b-be Backend · Business card scan and portfolio URL import]] #medium #onboarding-imports #backend
 - [ ] [[T-031-be Backend · Import contacts]] #medium #discover-hub #backend
-- [ ] [[T-079 Enforce the once-a-year Pin name rename]] #medium #profiles
 
 
 ## 🔵 In progress
@@ -208,10 +204,8 @@ kanban-plugin: board
 ## ✅ Done
 
 - [x] [[T-056 Decide passwordless login]] #critical #auth
-- [x] [[T-057 Decide base profile work fields]] #critical #profiles
 - [x] [[T-058 Decide field library vs per-Ring copies]] #critical #ring-projection
 - [x] [[T-060 Decide copy or inherit]] #high #ring-projection
-- [x] [[T-061 Decide Pin name rules]] #high #profiles
 
 
 %% kanban:settings

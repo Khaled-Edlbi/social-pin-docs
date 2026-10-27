@@ -164,9 +164,6 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-069-be Backend · Scoped role grants]] `backend` | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | M | — | [[T-068 Account moderation and platform role|T-068]] |
 | [[T-071 Audit-log read endpoints]] | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | S | — | [[T-053 Audit log writes|T-053]], [[T-068 Account moderation and platform role|T-068]] |
 | [[T-071-be Backend · Audit-log read endpoints]] `backend` | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | S | — | [[T-053 Audit log writes|T-053]], [[T-068 Account moderation and platform role|T-068]] |
-| [[T-078 Main profile fields from D-02]] | [[Profiles & Pin Name]] | Identity Core | ⬜ To do | L | — | [[D-02 One main profile every Ring starts from|D-02]] |
-| [[T-078-be Backend · Main profile fields from D-02]] `backend` | [[Profiles & Pin Name]] | Identity Core | ⬜ To do | L | — | [[D-02 One main profile every Ring starts from|D-02]] |
-| [[T-078-fe Frontend · Main profile fields from D-02]] `frontend` | [[Profiles & Pin Name]] | Identity Core | ⛔ Blocked | L | — | [[T-078-be Backend · Main profile fields from D-02|T-078-be]] |
 
 ## Medium
 
@@ -202,14 +199,11 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-072 Platform stats]] | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | S | — | [[T-068 Account moderation and platform role|T-068]] |
 | [[T-072-be Backend · Platform stats]] `backend` | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | S | — | [[T-068 Account moderation and platform role|T-068]] |
 | [[T-073 GitLab pipeline and Docker setup]] `chore` | [[Build & Deploy]] | Platform & Cross-cutting | 🟡 Partial (3 notes) | S | — | — |
-| [[T-079 Enforce the once-a-year Pin name rename]] | [[Profiles & Pin Name]] | Identity Core | ⬜ To do | M | — | [[D-06 Yearly rename, old name freed, case-insensitive|D-06]] |
 
 ## Done
 
 | Task | Feature | Module | Effort | Resolution |
 |---|---|---|---|---|
 | [[T-056 Decide passwordless login]] | [[Auth & Sign-up]] | Identity Core | S | — |
-| [[T-057 Decide base profile work fields]] | [[Profiles & Pin Name]] | Identity Core | S | — |
 | [[T-058 Decide field library vs per-Ring copies]] | [[Ring Projection]] | Identity Core | S | — |
 | [[T-060 Decide copy or inherit]] | [[Ring Projection]] | Identity Core | S | — |
-| [[T-061 Decide Pin name rules]] | [[Profiles & Pin Name]] | Identity Core | S | — |

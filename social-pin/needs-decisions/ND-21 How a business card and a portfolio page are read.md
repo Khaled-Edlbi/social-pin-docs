@@ -7,7 +7,7 @@ blocks: [T-020b]
 decider: "owner"
 screens: [s03a, s03b]
 affects: ["T-020b Business card scan and portfolio URL import", "Onboarding Imports"]
-related: ["D-02 One main profile every Ring starts from", "D-03 Links entered once, switched on or off per Ring", "T-078 Main profile fields from D-02", "T-020 LinkedIn import → review → base profile", "Files Upload"]
+related: ["D-02 One main profile every Ring starts from", "D-03 Links entered once, switched on or off per Ring", "Profiles & Pin Name Story", "T-020 LinkedIn import → review → base profile", "Files Upload"]
 created: 2026-10-26
 owner: "Omar Fostok"
 tags: [needs-decision, needs-decision/open]
@@ -25,7 +25,7 @@ Two sign-up options on *Start from* (s03) need a way to turn something the perso
 
 ## Notes
 
-- Both imports end on the same review step as LinkedIn (s05) and write to the **main profile** ([[D-02 One main profile every Ring starts from]]), whose fields come with [[T-078 Main profile fields from D-02]]: full name, headline, role, company, location, photo, bio. Phone, email and links go where [[D-03 Links entered once, switched on or off per Ring]] puts them.
+- Both imports end on the same review step as LinkedIn (s05) and write to the **main profile** ([[D-02 One main profile every Ring starts from]]), whose fields come with [[Profiles & Pin Name Story|Profiles & Pin Name · S9–S11]]: full name, headline, role, company, location, photo, bio. Phone, email and links go where [[D-03 Links entered once, switched on or off per Ring]] puts them.
 - Nothing is built on either side: the app shows s03a and s03b with sample data; the backend has no endpoint for either ([[Onboarding Imports Frontend Requirements]] rows "Card image recognition" and "Portfolio URL extraction", ❌).
 - `POST /files` exists if an image has to reach the server ([[Files Upload]]); its bytes can't be read back yet (Files Upload S7–S11), which doesn't matter for reading a card on the server.
 - It is the person's **own** card and site. Whatever is read is a suggestion: nothing is saved until they confirm it on s05. Which fields an import may overwrite is the [[Onboarding Imports]] story's to say, not this card's.

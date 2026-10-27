@@ -8,9 +8,9 @@ status: ready
 screens: [s01, s02, s06, s08, s68, s75]
 depends: []
 affects: []
-related: ["ND-01 Passwordless login", "D-06 Yearly rename, old name freed, case-insensitive", "Onboarding Imports Frontend Requirements", "Profiles & Pin Name Frontend Requirements", "Interests Frontend Requirements", "Rings", "T-079 Enforce the once-a-year Pin name rename", "T-063 Put the ErrorCode on the error body"]
+related: ["ND-01 Passwordless login", "D-06 Yearly rename, old name freed, case-insensitive", "Onboarding Imports Frontend Requirements", "Profiles & Pin Name Frontend Requirements", "Interests Frontend Requirements", "Rings", "Profiles & Pin Name Story", "T-063 Put the ErrorCode on the error body"]
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 owner: "Omar Fostok"
 tags: [frontend-requirements, frontend-requirements/ready, module/identity, layer/frontend]
 ---
@@ -63,7 +63,7 @@ Sign-in is steps 1 and 2 only, then Home.
 - The handle only: the full name is collected **before**, on *Profile basics*, and is required there; it reaches the backend as `fullName` in `complete-registration`.
 - The `!` is a prefix, never sent; 3–30 letters, digits, `.`, `_`, checked on the client first; availability is asked 400 ms after typing stops.
 - **Suggestions are built on the client** from the person's own name and shown as chips, as [[D-06 Yearly rename, old name freed, case-insensitive]] decided; no endpoint needed. Capitals don't matter: the backend already compares names lower-cased.
-- The copy "You can change it once a year." is enforced by [[T-079 Enforce the once-a-year Pin name rename]], not yet.
+- The copy "You can change it once a year." is enforced by [[Profiles & Pin Name Story|Profiles & Pin Name · S12–S13]], not yet.
 - This is where the account is created: the onboarding token is dropped once `complete-registration` returns and the steps before can't be gone back to.
 - An expired onboarding token sends a new code and goes back to Verify, keeping what was typed; 409 `E_AUTH_08` (already registered) asks for a sign-in code instead.
 - Source today: `GET /profiles/pin-name/:pinName/availability` (public) → `{ pinName, available }`; `POST /auth/complete-registration { onboardingToken, pinName, fullName? }` → session, 409 `E_AUTH_08` / `E_PROFILE_02`.
@@ -95,7 +95,7 @@ Sign-in is steps 1 and 2 only, then Home.
 | Sign out this device / everywhere | `POST /auth/logout`, `POST /auth/logout-everywhere` | ✅ | — |
 | The default Ring after registration | `GET /rings` | ✅ | — (listed under [[Rings]]) |
 | Suggested handles on s06 | — (client, from the person's own name) | ✅ | — ([[D-06 Yearly rename, old name freed, case-insensitive]]) |
-| The once-a-year rename limit | — | ❌ | [[T-079 Enforce the once-a-year Pin name rename]] |
+| The once-a-year rename limit | — | ❌ | [[Profiles & Pin Name Story|Profiles & Pin Name · S12–S13]] |
 | The code actually delivered by email | — | ❌ | [[T-001 Wire an email provider for one-time codes]] |
 | The code actually delivered by SMS | — | ❌ | [[T-002 Wire an SMS provider for one-time codes]] |
 | `devCode` removed from every challenge | — | ❌ | [[T-003 Remove devCode once delivery works]] |
@@ -136,4 +136,4 @@ Removed on 2026-10-15 and not coming back: `POST /auth/reset-password`, `POST /a
 ## Blocked by
 
 - Nothing for the flows above. [[T-001 Wire an email provider for one-time codes]] / [[T-002 Wire an SMS provider for one-time codes]] decide when `devCode` can go ([[T-003 Remove devCode once delivery works]]).
-- The rename limit on s06 waits on [[T-079 Enforce the once-a-year Pin name rename]].
+- The rename limit on s06 waits on [[Profiles & Pin Name Story|Profiles & Pin Name · S12–S13]].

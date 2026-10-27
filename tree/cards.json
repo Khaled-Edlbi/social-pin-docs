@@ -261,8 +261,6 @@
     "story:T-070": "S-111",
     "story:T-071": "S-112",
     "story:T-072": "S-113",
-    "story:T-078": "S-114",
-    "story:T-079": "S-115",
     "story:account": "S-01",
     "story:app-shell": "S-73",
     "story:audit-log": "S-74",
@@ -461,10 +459,8 @@
     "task:T-055": "T-055",
     "task:T-055-be": "T-055-be",
     "task:T-056": "T-056",
-    "task:T-057": "T-057",
     "task:T-058": "T-058",
     "task:T-060": "T-060",
-    "task:T-061": "T-061",
     "task:T-063": "T-063",
     "task:T-063-be": "T-063-be",
     "task:T-063-fe": "T-063-fe",
@@ -481,11 +477,7 @@
     "task:T-071-be": "T-071-be",
     "task:T-072": "T-072",
     "task:T-072-be": "T-072-be",
-    "task:T-073": "T-073",
-    "task:T-078": "T-078",
-    "task:T-078-be": "T-078-be",
-    "task:T-078-fe": "T-078-fe",
-    "task:T-079": "T-079"
+    "task:T-073": "T-073"
   },
   "retired": {
     "BD-40": "backend-delivery:T-065-be",
@@ -524,6 +516,8 @@
     "S-105": "story:pay-for-an-order",
     "S-106": "story:T-065",
     "S-107": "story:T-066",
+    "S-114": "story:T-078",
+    "S-115": "story:T-079",
     "S-99": "story:google-auth",
     "T-004": "task:T-004",
     "T-004-be": "task:T-004-be",
@@ -531,7 +525,9 @@
     "T-005": "task:T-005",
     "T-005-be": "task:T-005-be",
     "T-005-fe": "task:T-005-fe",
+    "T-057": "task:T-057",
     "T-059": "task:T-059",
+    "T-061": "task:T-061",
     "T-062": "task:T-062",
     "T-062-be": "task:T-062-be",
     "T-062-fe": "task:T-062-fe",
@@ -545,7 +541,11 @@
     "T-074": "task:T-074",
     "T-075": "task:T-075",
     "T-076": "task:T-076",
-    "T-077": "task:T-077"
+    "T-077": "task:T-077",
+    "T-078": "task:T-078",
+    "T-078-be": "task:T-078-be",
+    "T-078-fe": "task:T-078-fe",
+    "T-079": "task:T-079"
   },
   "schema": 1
 }

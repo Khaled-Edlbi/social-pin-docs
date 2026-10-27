@@ -5,7 +5,7 @@ status: open
 features: [profiles, ring-projection, onboarding-imports, photo-library]
 screens: [s05, s06, s11, s23, s29]
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [needs-decision, needs-decision/open]
 ---
 
@@ -44,7 +44,7 @@ Screens: [[Screen Index#s05|s05]], [[Screen Index#s06|s06]], [[Screen Index#s11|
 
 - [[T-020 LinkedIn import → review → base profile]]
 - [[T-020b Business card scan and portfolio URL import]]
-- [[T-057 Decide base profile work fields]]
+- [[Profiles & Pin Name Story|Profiles & Pin Name · Decide base profile work fields]]
 - [[T-060 Decide copy or inherit]]
 
 ## Decision
