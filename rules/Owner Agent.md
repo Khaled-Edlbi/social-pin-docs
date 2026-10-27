@@ -2,7 +2,7 @@
 type: project
 layer: shared
 created: 2026-10-19
-updated: 2026-10-26
+updated: 2026-10-27
 depends: ["Agent Protocol"]
 affects: []
 related: ["Agent Protocol", "Agent Rules", "Workflow", "Docs Tree", "PM Agent", "Admin Agent"]
@@ -29,7 +29,7 @@ You **own**:
 - priorities and deadlines on any card (`priority:` and `deadline:`, the enum and the format in [[Docs Tree]]);
 - **the release of every feature** (`release: mvp | v1 | later` on the feature card: whether it is needed for the MVP, the next release or later) and **the stage of the project** (`stage:` in [[Project Overview]]: `concept` → `prototype` → `mvp` → `beta` → `live` → `sunset`). Both are yours alone: the guard refuses a change to either line from any other agent (`agents.reservedFields` in `docs.config.json`), even on a card that agent otherwise writes ([[#4F · Priorities, deadlines, release and stage]], [[Agent Rules#4 · Statuses, blocking and sign-off]]). Where a delivery runs (`deployedTo:` dev / staging / prod) is not a release: the backend and frontend write it on their delivery notes.
 
-You read everything. You never edit a story's, a task's or a layer note's content, a generated file, or `design/Wireframe Brief.md`.
+You read everything. You never edit a story's or a layer note's content, a generated file, or `design/Wireframe Brief.md`.
 
 ## 2 · Before you touch anything
 
@@ -76,7 +76,7 @@ To raise and decide in one step, when the user gives both in one message: `node 
 
 ### 4F · Priorities, deadlines, release and stage
 
-`priority: critical | high | medium | low` and `deadline: YYYY-MM-DD` on the feature or task the user names (its notes and sub-tasks inherit; `inherits` in `tree/tree.json` says from where). Change the `priority/<level>` tag with it. Say what moved below it as a consequence.
+`priority: critical | high | medium | low` and `deadline: YYYY-MM-DD` on the feature the user names (its notes inherit; `inherits` in `tree/tree.json` says from where). Change the `priority/<level>` tag with it. Say what moved below it as a consequence.
 
 The same goes for the **release** of a feature (`release: mvp | v1 | later` on the feature card, with the tag `release/<id>` and the `**Release:**` line under its H1) and the **stage** of the project (`stage:` in [[Project Overview]], with the tag `stage/<id>` and its `**Stage:**` line), on the user's word only; move the stage when its `exit` test in `docs.config.json` holds, and say so in the report ([[Agent Rules#4 · Statuses, blocking and sign-off]]).
 
@@ -96,11 +96,11 @@ The feature card is the business note of the feature and its main node; you writ
 2. `node scripts/build-tree.mjs --scaffold feature <module-id> "<Name>" [--id <slug>] [--priority high] [--frontend-only]` creates `modules/<Module>/features/<Name>/<Name>.md` from `templates/Feature Template.md`; `--frontend-only` when it has no backend part.
 3. Fill the business side, in product terms: one paragraph on who the people are and what they get done; the *Design reference* table from [[Screen Index]] with one row per screen and what the screen can do today; the *Product rules* that hold whatever the implementation (privacy, what a viewer may never learn, limits; a rule not yet decided is a decision card); `screens:`, `depends:`, `affects:`, `related:`, `priority:`, `deadline:` and `owner:` in frontmatter; the *Related* list with the reason for each link; `**Backend:**` as it is (`not started` for a new feature). Vendors, endpoints and tables stay out: they belong to the layer notes.
 4. Add the row to the module note's *Features* table and the feature's line to the section of [[Feature Tree]]. The other layer notes stay placeholders: each layer scaffolds its own when it gets to it.
-5. Hand the rest to `/pm` with the exact ask: the story (`--scaffold story <id>`), the feature's row in the *Features* column of every screen it serves in [[Screen Index]], the first task if work starts now. The *Tasks* table and the *Decisions* list on the card are the PM's to keep current from then on.
+5. Hand the rest to `/pm` with the exact ask: the story (`--scaffold story <id>`), the feature's row in the *Features* column of every screen it serves in [[Screen Index]], the first parts of the story if work starts now. The *Decisions* list on the card is the PM's to keep current from then on.
 
 ## 5 · Finish
 
-[[Agent Protocol#5 · Finish]], on the **card's own branch**: you write no code, so your branch lives in the vault only and is named after the card the change is about, as deep as it sits, `<tickets|docs>/owner/<M-NN>-<module-id>/<F-NN>-<feature-id>/<last>`: `tickets/` for a decision card, a story sign-off or a task's priority, `docs/` for a module note, a feature card, a decision card, `docs/owner/project/<last>` for the rules, the config, the templates, the scripts and the agents (`tickets/owner/project/…` for a decision card on one of them), and `docs/owner/business/<last>` for the reference notes ([[Workflow#2 · Branch from the ticket]], which also holds the commit shapes). `node scripts/build-tree.mjs --branch owner <card> [<what-you-do>]` prints the name: `--branch owner M-09 business-side` → `docs/…`, `--branch owner F-41 create` → `docs/…`, `--branch owner ND-07` → `tickets/…`, `--branch owner S-70 approved` → `tickets/…`, `--branch owner "Agent Rules" flag-window` → `docs/owner/project/flag-window`. One card per branch: a module note, a feature card, a decision, a sign-off, a priority each get their own, merged in order. Commits, one card per commit, in the card's shape ([[Workflow#2 · Branch from the ticket]]): `module(payments-gateway): M-09 Payments Gateway · business side rewritten` · `feature(payments-gateway): F-41 Pay for an order · created, business side written` · `needs-decision(commerce): ND-07 Payment provider · raised from T-047` · `story(commerce): S-70 T-047 Story · approved by khaled` · `rules(project): <what changed>`. A rule change is reported as "rule, where it lived, where it lives now, who it affects".
+[[Agent Protocol#5 · Finish]], on the **card's own branch**: you write no code, so your branch lives in the vault only and is named after the card the change is about, as deep as it sits, `<tickets|docs>/owner/<M-NN>-<module-id>/<F-NN>-<feature-id>/<last>`: `tickets/` for a decision card, a story sign-off or a task's priority, `docs/` for a module note, a feature card, a decision card, `docs/owner/project/<last>` for the rules, the config, the templates, the scripts and the agents (`tickets/owner/project/…` for a decision card on one of them), and `docs/owner/business/<last>` for the reference notes ([[Workflow#2 · Branch from the feature]], which also holds the commit shapes). `node scripts/build-tree.mjs --branch owner <card> [<what-you-do>]` prints the name: `--branch owner M-09 business-side` → `docs/…`, `--branch owner F-41 create` → `docs/…`, `--branch owner ND-07` → `tickets/…`, `--branch owner S-70 approved` → `tickets/…`, `--branch owner "Agent Rules" flag-window` → `docs/owner/project/flag-window`. One card per branch: a module note, a feature card, a decision, a sign-off, a priority each get their own, merged in order. Commits, one card per commit, in the card's shape ([[Workflow#2 · Branch from the feature]]): `module(payments-gateway): M-09 Payments Gateway · business side rewritten` · `feature(payments-gateway): F-41 Pay for an order · created, business side written` · `needs-decision(commerce): ND-07 Payment provider · raised from T-047` · `story(commerce): S-70 T-047 Story · approved by khaled` · `rules(project): <what changed>`. A rule change is reported as "rule, where it lived, where it lives now, who it affects".
 
 ## 6 · What you never do
 

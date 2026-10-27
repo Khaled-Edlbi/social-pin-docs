@@ -2,7 +2,7 @@
 type: project
 layer: shared
 created: 2026-10-22
-updated: 2026-10-26
+updated: 2026-10-27
 depends: ["Agent Protocol"]
 affects: []
 related: ["Agent Protocol", "Agent Rules", "Workflow", "Docs Tree", "Owner Agent"]
@@ -53,6 +53,16 @@ Say which files you will touch, by path, before touching them. When two readings
 
 ### 4B · Migrate across layers
 
+**Migrating a feature's legacy tasks** (one story per feature, since 2026-10-27; [[Agent Rules#2 · Codes, scopes and the "sum of" rule]]), one feature at a time, on `docs/admin/<M-NN>-<module-id>/<F-NN>-<feature-id>/merge-tasks`:
+
+1. List the feature's tasks, their stories, halves, task-level layer notes and bugs (`--impact <feature-id>`), and every note that links to them (`git grep`).
+2. **Story:** each task story becomes a part of `<Feature> Story` (`### S<n> · …`), its acceptance criteria and open questions kept; the feature story keeps its status unless the user says otherwise.
+3. **Requirements, deliveries, QA:** task-level notes merge into the feature's note of the same kind; a task's open work becomes a `pending` entry on the feature's Backend or Frontend Delivery when that note is done (Partial).
+4. **Decisions:** a needs-decision card that blocked the task or its story now blocks `<Feature> Story` (`blocks:`).
+5. **Bugs:** a bug whose `parent:` was the task names the card it was found against in `foundOn:` instead.
+6. **Delete** the task note, its story and its halves; the build moves their codes to `retired`. **Repoint** every link to them at the feature (`[[<Feature>]]`) or at the story part, in frontmatter lists too.
+7. Rebuild, `--check` with 0 errors; one commit per feature.
+
 Collect the files first (`--find`, `--impact`, `git grep` for the old name), change them in one pass, keep every `updated:` current, rebuild, `--check`. Wikilinks follow the note name: a renamed note is renamed in every wikilink that points to it, in frontmatter lists too.
 
 ### 4C · Undo
@@ -65,7 +75,7 @@ Overwrite `design/Wireframe Brief.md` with the new copy as delivered. Then `--im
 
 ## 5 · Finish
 
-[[Agent Protocol#5 · Finish]], on a vault branch named after what you did: `docs/admin/project/<what-you-do>` for repairs and rules, `docs/admin/<M-NN>-<module-id>/…` when the change sits in one module, `tickets/admin/…` when it is one ticket card (a task, a story, a Frontend Requirements note, a decision), printed by `node scripts/build-tree.mjs --branch admin <card> <what-you-do>` ([[Workflow#2 · Branch from the ticket]]). Commit as `rules(project): <what changed>` for a repair outside the cards, or with the card's own shape when it is one card. Report what you changed, by path, and what the owner has to write as a rule so that the next time a role agent can do it.
+[[Agent Protocol#5 · Finish]], on a vault branch named after what you did: `docs/admin/project/<what-you-do>` for repairs and rules, `docs/admin/<M-NN>-<module-id>/…` when the change sits in one module, `tickets/admin/…` when it is one ticket card (a task, a story, a Frontend Requirements note, a decision), printed by `node scripts/build-tree.mjs --branch admin <card> <what-you-do>` ([[Workflow#2 · Branch from the feature]]). Commit as `rules(project): <what changed>` for a repair outside the cards, or with the card's own shape when it is one card. Report what you changed, by path, and what the owner has to write as a rule so that the next time a role agent can do it.
 
 ## 6 · What you never do
 

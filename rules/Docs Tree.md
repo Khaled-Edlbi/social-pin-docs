@@ -2,14 +2,14 @@
 type: project
 layer: shared
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 related: ["Agent Rules", "Workflow", "Project Overview"]
 tags: [project, layer/shared, map]
 ---
 
 # Docs Tree · how to read it, how to keep it true
 
-The docs tree is the readable map of this vault: **project → module → feature → one note per layer, the feature's tasks under its story, then its decisions**. Every card is one Markdown file; it shows the note's card code (`S-01`, `BD-05`; a task's and a decision's is in its title) and kind, its layer colour, the file's name, a **priority flag** and a **deadline clock** ([[#Priority and deadline marks]]) and a status chip; double-clicking it opens the full note. Behind the cards, the relations between notes (related, affects, depends, blocks, the hand-off flow, shared endpoints, mentions) are drawn as faint lines that light up when you hover or focus a card. The page has three views of the same data: **Tree** (the hierarchy), **Graph** (features and decisions, or every note, clustered by module and pulled together by their relations) and **Outline** (the tree as a keyboard-friendly list); the filters on the left apply to all three.
+The docs tree is the readable map of this vault: **project → module → feature → one note per layer (one story holding all of the feature's work), then its decisions**. Every card is one Markdown file; it shows the note's card code (`S-01`, `BD-05`; a task's and a decision's is in its title) and kind, its layer colour, the file's name, a **priority flag** and a **deadline clock** ([[#Priority and deadline marks]]) and a status chip; double-clicking it opens the full note. Behind the cards, the relations between notes (related, affects, depends, blocks, the hand-off flow, shared endpoints, mentions) are drawn as faint lines that light up when you hover or focus a card. The page has three views of the same data: **Tree** (the hierarchy), **Graph** (features and decisions, or every note, clustered by module and pulled together by their relations) and **Outline** (the tree as a keyboard-friendly list); the filters on the left apply to all three.
 
 | | |
 |---|---|
@@ -20,6 +20,8 @@ The docs tree is the readable map of this vault: **project → module → featur
 | Source of truth | the notes' **frontmatter** and `docs.config.json` (the layers). The tree, the [[Task Board]] and the [[Backlog]] are generated; nothing in them is typed by hand. |
 
 ## The shape
+
+> **Since 2026-10-27, one story per feature, one flow** ([[Agent Rules#2 · Codes, scopes and the "sum of" rule]]): new work is a part of the feature's story, never a task. The tasks, task stories and `-fe` / `-be` halves drawn below are **legacy cards**, shown until the admin migrates their feature; [[Task Board]] and [[Backlog]] list only them.
 
 ```
 Social Pin (project)
@@ -156,7 +158,7 @@ The build **fails** on: unparsable frontmatter or a missing key, a `type` that i
 
 **Changing a status** means editing `status:`, the tag (`<kind>/<status>`), the emoji in the H1 and `updated:`, then rebuilding. Never edit a generated file by hand: the next build overwrites it and CI fails on drift.
 
-## After finishing a task
+## After finishing a part of the story
 
 The checklist, by layer, is [[Agent Rules#6 · After a task — the checklist, by layer]]; the sequence is [[Workflow]]. In one line: `--impact` before and after, relations declared, flags placed, the task-level notes written and rolled up into the feature-level ones, `updated:` everywhere, rebuild, commit the generated files with the notes.
 
