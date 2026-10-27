@@ -1524,6 +1524,7 @@ function scaffoldTask(result, featureId, title, bug = false) {
   if (foundOn && !bug) die(`--found-on is for a bug: node scripts/build-tree.mjs --scaffold bug ${featureId} "${title}" --found-on "${foundOn}"`);
   if (foundOn && parentCode) die('--found-on and --parent are the two ways a bug hangs somewhere: pass one');
   if (foundOn && !json.byName[foundOn]) die(`--found-on "${foundOn}" is not a note name in this vault`);
+  if (bug && parentCode) die('a bug hangs on the card it was found against: --found-on "<note name>" (the story, a delivery, integration or QA note); --parent is for legacy tasks, which are retired (rules/Agent Rules.md §2)');
   if (bug && !foundOn && !parentCode) die('a bug names where it was found: --parent T-NNN for one found against a task, or --found-on "<note name>" for the card it was found against');
   const split = !parent && !docsOnly && !bug; // a build task gets its story and its halves; a sub-task, a docs-only task or a bug does not
   const code = bug ? nextNumber(result, 'B', 2) : nextNumber(result, 'T', 3);
@@ -1676,6 +1677,9 @@ function scaffoldRecord(result, ref, title) {
 // ---------------------------------------------------------------- scaffold · layer notes
 function scaffold(result, kindId, code) {
   const extra = args[args.indexOf('--scaffold') + 3];
+  // one story per feature, one flow (rules/Agent Rules.md §2, since 2026-10-27): no new tasks, no task-level notes
+  if (kindId === 'task') die('tasks are retired: one story per feature, one flow (rules/Agent Rules.md §2). Add the work as a new part of the feature\'s story (/pm), then its rows to the feature\'s Frontend Requirements (/frontend).');
+  if (kindId !== 'bug' && isTaskId(code)) die(`task-level notes are retired: write the feature's note instead, node scripts/build-tree.mjs --scaffold ${kindId} <feature-id> (rules/Agent Rules.md §2)`);
   if (kindId === 'task' || kindId === 'bug') return scaffoldTask(result, code, extra && !extra.startsWith('--') ? extra : null, kindId === 'bug');
   if (kindId === 'feature') return scaffoldFeature(result, code, extra && !extra.startsWith('--') ? extra : null);
   if (kindId === 'needs-decision') return scaffoldDecision(result, code, extra);

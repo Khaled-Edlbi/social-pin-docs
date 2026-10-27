@@ -2,7 +2,7 @@
 type: project
 layer: shared
 created: 2026-10-19
-updated: 2026-10-26
+updated: 2026-10-27
 depends: []
 affects: ["Owner Agent", "PM Agent", "Backend Agent", "Frontend Agent", "QA Agent", "Admin Agent"]
 related: ["Agent Rules", "Workflow", "Docs Tree"]
@@ -26,7 +26,7 @@ The vault has five agents, one per role, each a note in `rules/` that **is** its
 The user speaks in product words ("the speed search", "the rings module", "that ticket about counts"); the vault speaks in ids and cards. Before anything else, turn every noun in the request into a card:
 
 - `node scripts/build-tree.mjs --find "<the words>"` lists the cards and concepts that match, best first, with their card code, kind, layer, feature and module. Run it once per noun.
-- A module → its id in `docs.config.json` `modules[]` (identity, connections, shared-rings, discovery, events, meetings, commerce, platform). A feature → its `id:` and its `F-NN`. A ticket → `T-NNN`, a sub-task → `T-NNN-fe` / `-be`. A screen → `sNN` from [[Screen Index]]. An endpoint or error code → the concept the tree knows, with the feature that owns it.
+- A module → its id in `docs.config.json` `modules[]` (identity, connections, shared-rings, discovery, events, meetings, commerce, platform). A feature → its `id:` and its `F-NN`. A piece of work → the feature's story and its part (`S-NN S7`); there are no tasks since 2026-10-27, and a `T-NNN` names a legacy task not yet migrated. A screen → `sNN` from [[Screen Index]]. An endpoint or error code → the concept the tree knows, with the feature that owns it.
 - Then `node scripts/build-tree.mjs --impact <the card>` for what you are about to change, and read what it lists in that order: the same feature's notes, the directly linked notes, the two-hop notes only when the change crosses a feature boundary ([[Agent Rules#3 · Relations]]).
 
 Never invent a module, a feature id, a screen id, a ticket number, an endpoint or a code. When nothing matches, say so and ask.
@@ -44,9 +44,9 @@ Wait for the answer. When two readings of the request would lead to materially d
 
 ## 4 · Act, inside your scope
 
-- New notes: `node scripts/build-tree.mjs --scaffold <kind> <feature-id | T-NNN>`, `--scaffold task …`, `--scaffold feature …`, `--scaffold needs-decision "<card>" "<title>"`, `--scaffold decision ND-NN "<the answer>"` ([[Docs Tree#For agents]]). Fill the template; do not reshape it.
+- New notes: `node scripts/build-tree.mjs --scaffold <kind> <feature-id>`, `--scaffold feature …`, `--scaffold bug …`, `--scaffold needs-decision "<card>" "<title>"`, `--scaffold decision ND-NN "<the answer>"` ([[Docs Tree#For agents]]). Fill the template; do not reshape it.
 - Existing notes: Edit, the exact lines. Keep the frontmatter flat; declare `depends` / `affects` / `related`; every touched note gets today's `updated:`.
-- A note you do not own that your change makes wrong: a flag line under its H1, and the note named in your task's `## Log`. The owning agent clears the flag when it has updated the note.
+- A note you do not own that your change makes wrong: a flag line under its H1, and the note named in the `## Log` of the note you changed. The owning agent clears the flag when it has updated the note.
 - A status change is four things together: `status:`, the `<kind>/<status>` tag, the H1 emoji, `updated:` ([[Agent Rules#4 · Statuses, blocking and sign-off]]). A feature's, a module's and the project's status is never typed.
 - When the guard refuses an edit, read its message and do what it says: flag, or hand over. Never route around it with a shell command.
 
@@ -54,11 +54,11 @@ Wait for the answer. When two readings of the request would lead to materially d
 
 1. `--impact` again on what you changed; update what you own, flag what you do not.
 2. `node scripts/build-tree.mjs`, then `node scripts/build-tree.mjs --check`: 0 errors, 0 warnings, nothing stale. Fix; never silence.
-3. Commit the notes **with** the generated files (`tree/`, [[Card Index]], [[Task Board]], [[Backlog]]) on the card's vault branch that `node scripts/build-tree.mjs --branch <agent> <card> [<what-you-do>]` prints, for every agent: `tickets/<agent>/…` for a task, a story, a Frontend Requirements note or a decision card, `docs/<agent>/…` for a delivery, integration or QA note, a decision card, a module or feature card and the rules. Code goes on `<module>/<T-NNN>/<what-you-do>` in the code repositories, never in the vault. The shapes and the commit messages are in [[Workflow#2 · Branch from the ticket]].
+3. Commit the notes **with** the generated files (`tree/`, [[Card Index]], [[Task Board]], [[Backlog]]) on the card's vault branch that `node scripts/build-tree.mjs --branch <agent> <card> [<what-you-do>]` prints, for every agent: `tickets/<agent>/…` for a task, a story, a Frontend Requirements note or a decision card, `docs/<agent>/…` for a delivery, integration or QA note, a decision card, a module or feature card and the rules. Code goes on `<module>/<T-NNN>/<what-you-do>` in the code repositories, never in the vault. The shapes and the commit messages are in [[Workflow#2 · Branch from the feature]].
 4. Report, in the vault's words: what you created or changed, by card code and path; what now waits on whom (an approval, a decision, another agent); what you flagged for another layer; what the user still has to answer.
 
 ## 6 · Hand-offs between agents
 
-An agent never does another agent's work, even when asked nicely: it names the agent and the exact ask. The owner writes the rules and the config, shapes the modules and the feature cards, and signs; the PM shapes stories and tasks; any agent raises the needs-decision card its own card needs (draft, then open), and the PM or the owner decides it on its decision card (D-NN, set decided), after which the needs-decision card shows Fulfilled by itself ([[Agent Rules#4 · Statuses, blocking and sign-off]]); the backend and the frontend write their delivery and integration notes and their halves of a task; QA writes the QA notes and files bugs. The flow in `docs.config.json` says who waits on whom; a card that is ⛔ Blocked is not worked on, whoever asks.
+An agent never does another agent's work, even when asked nicely: it names the agent and the exact ask. The owner writes the rules and the config, shapes the modules and the feature cards, and signs; the PM shapes the feature stories (one per feature, all its work in it); any agent raises the needs-decision card its own card needs (draft, then open), and the PM or the owner decides it on its decision card (D-NN, set decided), after which the needs-decision card shows Fulfilled by itself ([[Agent Rules#4 · Statuses, blocking and sign-off]]); the backend and the frontend write their delivery and integration notes and their halves of a task; QA writes the QA notes and files bugs. The flow in `docs.config.json` says who waits on whom; a card that is ⛔ Blocked is not worked on, whoever asks.
 
 Related: [[Agent Rules]] · [[Workflow]] · [[Docs Tree]] · [[Owner Agent]] · [[PM Agent]] · [[Backend Agent]] · [[Frontend Agent]] · [[QA Agent]] · [[Admin Agent]]

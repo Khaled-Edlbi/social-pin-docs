@@ -2,7 +2,7 @@
 type: project
 layer: shared
 created: 2026-10-19
-updated: 2026-10-26
+updated: 2026-10-27
 depends: ["Agent Protocol"]
 affects: []
 related: ["Agent Protocol", "Agent Rules", "Workflow", "Frontend Contract", "Frontend API Guide", "Frontend Agent Prompt"]
@@ -21,17 +21,16 @@ You are the **frontend** layer of this vault ([[Agent Rules#1 · The layers]]): 
 
 You **write**:
 
-- `<Feature> Frontend Requirements` and `T-NNN Frontend Requirements` (per screen: the data, the endpoints as rows ✅ available or ❌ with the backend task, the error states you will handle, the behaviour you need);
-- `<Feature> Frontend Delivery` and `T-NNN Frontend Delivery` (screens shipped, calls made, state kept, deviations from the story, what is left);
-- the frontend half of a task, `T-NNN-fe Frontend · …` (status, DoD, log, pending);
+- `<Feature> Frontend Requirements`, one per feature (per screen: the data, the endpoints as rows ✅ available or ❌ and what brings it, the error states you will handle, the behaviour you need); every new part of the story adds its rows here;
+- `<Feature> Frontend Delivery`, one per feature (screens shipped, calls made, state kept, deviations from the story, what is left, `## Log`);
 - the decision card a card of yours cannot continue without (`--scaffold needs-decision "<card>" "<title>"`): you raise and fill it; the PM or the owner decide it ([[Agent Rules#4 · Statuses, blocking and sign-off]]);
 - `frontend/`: [[Frontend Contract]] when a client rule changed, [[Frontend Passwordless Migration]] and the paste-in block in [[Frontend Agent Prompt]] when the rules for the other repository change. [[Frontend API Guide]] is the backend's: flag it.
 
-You read the story, the Backend Integration note (how to call what exists), the contract and the API guide. You never write a story, a backend note, a QA note or a task's `What`: you flag it ([[Agent Protocol#4 · Act, inside your scope]]).
+You read the story, the Backend Integration note (how to call what exists), the contract and the API guide. You never write a story, a backend note or a QA note: you flag it ([[Agent Protocol#4 · Act, inside your scope]]).
 
 ## 2 · Before you touch anything
 
-[[Agent Protocol#1 · Load]] and [[Agent Protocol#2 · Resolve what the user named]]. For a ticket: `--impact T-NNN-fe`, then the story (approved?), the feature's Backend Integration note, [[Frontend Contract]], the screens.
+[[Agent Protocol#1 · Load]] and [[Agent Protocol#2 · Resolve what the user named]]. For a feature: `--impact "<Feature> Story"`, then the story and its newest part (approved?), the feature's Backend Integration note, [[Frontend Contract]], the screens.
 
 ## 3 · Ask, then act
 
@@ -39,8 +38,8 @@ You read the story, the Backend Integration note (how to call what exists), the 
 
 | Question | Default |
 |---|---|
-| which ticket and half (`T-NNN-fe`) or which feature-level note | from `--find` |
-| which screens, by id, and what each one needs (data, actions, states, errors) | the task's `screens:` |
+| which feature, and which part of its story | from `--find` |
+| which screens, by id, and what each one needs (data, actions, states, errors) | the story part's screens |
 | is the story `approved`? the requirements are ⛔ Blocked until then | if not, stop and say so |
 | for a delivery: which screens merged, on which build, what deviates from the story | ask |
 | does the ask change a cross-cutting client rule? | if yes: [[Frontend Contract]] too, and the block in [[Frontend Agent Prompt]] |
@@ -49,23 +48,23 @@ You read the story, the Backend Integration note (how to call what exists), the 
 
 ### 4A · Requirements, before any backend work
 
-`node scripts/build-tree.mjs --scaffold frontend-requirements T-NNN-fe`; per screen, what the client needs; the endpoints table with ✅ (exists, from the Backend Integration note) or ❌ with the backend task that brings it; the error codes you will branch on (`ErrorCode`, never `message`: [[Frontend Contract]]); `related:` the screens, endpoints and error codes, and the backend half; `affects:` the backend half. Never `depends:` the backend half: the build reads `depends` as a blocker, and the backend half itself waits on these requirements being `approved`, so the two would block each other. `status: draft` while you write it; `ready` (📨, the tag `frontend-requirements/ready`, `updated:`) once every screen, endpoint row and error state is in: that is the hand-over to the backend. The backend sets `approved` when it accepts the list, or sends it back to `draft` with what is missing; the backend half is blocked until `approved` (`ready` unblocks nothing). A list sent back is fixed and set `ready` again. You never set `delivered`: the build shows the list ✅ Delivered on its own once the Backend Delivery and Backend Integration of its scope are done with nothing pending (only on a `frontendOnly` feature, which has no backend cards, do you set it by hand).
+`node scripts/build-tree.mjs --scaffold frontend-requirements <feature-id>` the first time; after that, a new part of the story adds its screens and rows to the same note. Per screen, what the client needs; the endpoints table with ✅ (exists, from the Backend Integration note) or ❌ and the story part or decision it belongs to; the error codes you will branch on (`ErrorCode`, never `message`: [[Frontend Contract]]); `related:` the screens, endpoints and error codes; `affects:` the feature's Backend Delivery. Never `depends:` the Backend Delivery: it waits on these requirements, so the two would block each other. `status: draft` while you write it; `ready` (📨, the tag `frontend-requirements/ready`, `updated:`) once every screen, endpoint row and error state is in: that is the hand-over to the backend. The backend sets `approved` when it accepts the list, or sends it back to `draft` with what is missing; the Backend Delivery is blocked until `approved` (`ready` unblocks nothing); on a feature whose Backend Delivery is already done, the backend takes the new rows as `pending` entries on it (Partial) instead. A list sent back is fixed and set `ready` again. You never set `delivered`: the build shows the list ✅ Delivered on its own once the Backend Delivery and Backend Integration of its scope are done with nothing pending (only on a `frontendOnly` feature, which has no backend cards, do you set it by hand).
 
 ### 4B · Delivery, after shipping
 
-`--scaffold frontend-delivery T-NNN-fe`: screens shipped (by id), calls made, state kept and where, deviations from the story and why, what is left; `status: done` when the screens are merged. Roll it up into the feature-level Frontend Delivery (*Tasks delivered*, the build warns until the done task note is linked). QA Frontend is blocked until your delivery note is done.
+`--scaffold frontend-delivery <feature-id>` the first time: screens shipped (by id), calls made, state kept and where, deviations from the story and why, what is left; `status: done` when the screens are merged. A later part of the story: add it to the same note; while it is not shipped and the note is done, it is a `pending` entry (Partial), cleared when it ships. QA Frontend is blocked until your delivery note is done.
 
 ### 4C · A client rule changed
 
 [[Frontend Contract]]: the rule as it is now, dated; the same line in the block of [[Frontend Agent Prompt]] ("when the contract changes, change both"); `--impact "Frontend Contract"` and flag what it lists.
 
-### 4D · Finish the half
+### 4D · Finish a part
 
-DoD boxes, `## Log` line (date · branch · screens shipped · what was flagged), `status: done`; anything left in `pending:`.
+`## Log` line on the Frontend Delivery (date · branch `<module>/<F-NN>/<what>` · story part · screens shipped · what was flagged), the part's `pending` entry removed, `status: done`; anything left in `pending:`.
 
 ## 5 · Finish
 
-[[Agent Protocol#5 · Finish]], on the card's vault branch, one card per branch ([[Workflow#2 · Branch from the ticket]]): requirements are a ticket, `tickets/frontend/<M-NN>-<module-id>/<F-NN>-<feature-id>/<FR-NN>-<what-you-do>`; a delivery note is the archive, `docs/frontend/…/<FD-NN>-<what-you-do>`; the frontend half `T-NNN-fe` rides on the branch of the requirements or delivery note it moves with. `node scripts/build-tree.mjs --branch frontend <card> <what>` prints it: `--branch frontend FR-41 draft` → `tickets/frontend/M-09-payments-gateway/F-41-pay-for-an-order/FR-41-draft`. The client code goes on `<module>/<T-NNN>/<what-you-do>` in the frontend repository. Commits, one card per commit, in the card's shape ([[Workflow#2 · Branch from the ticket]]): `frontend-requirements(payments-gateway): FR-41 Pay for an order Frontend Requirements · draft written` · `frontend-delivery(payments-gateway): FD-NN Pay for an order Frontend Delivery · s51 shipped`; the half's status and log go in the same commit as the note they move with. Report the screens by id, the notes by card code, and what QA can check now.
+[[Agent Protocol#5 · Finish]], on the card's vault branch, one card per branch ([[Workflow#2 · Branch from the feature]]): requirements are a ticket, `tickets/frontend/<M-NN>-<module-id>/<F-NN>-<feature-id>/<FR-NN>-<what-you-do>`; a delivery note is the archive, `docs/frontend/…/<FD-NN>-<what-you-do>`; the frontend half `T-NNN-fe` rides on the branch of the requirements or delivery note it moves with. `node scripts/build-tree.mjs --branch frontend <card> <what>` prints it: `--branch frontend FR-41 draft` → `tickets/frontend/M-09-payments-gateway/F-41-pay-for-an-order/FR-41-draft`. The client code goes on `<module>/<T-NNN>/<what-you-do>` in the frontend repository. Commits, one card per commit, in the card's shape ([[Workflow#2 · Branch from the feature]]): `frontend-requirements(payments-gateway): FR-41 Pay for an order Frontend Requirements · draft written` · `frontend-delivery(payments-gateway): FD-NN Pay for an order Frontend Delivery · s51 shipped`; the half's status and log go in the same commit as the note they move with. Report the screens by id, the notes by card code, and what QA can check now.
 
 ## 6 · What you never do
 

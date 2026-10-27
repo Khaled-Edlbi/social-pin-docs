@@ -53813,7 +53813,7 @@
       ],
       "task": null,
       "title": "Admin Agent",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "project:agent-protocol": {
       "affects": [
@@ -53875,7 +53875,7 @@
       ],
       "task": null,
       "title": "Agent Protocol",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "project:agent-rules": {
       "affects": [
@@ -53934,7 +53934,7 @@
       ],
       "task": null,
       "title": "Agent Rules",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "project:api-conventions": {
       "affects": [],
@@ -54204,7 +54204,7 @@
       ],
       "task": null,
       "title": "Backend Agent",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "project:database-migrations": {
       "affects": [],
@@ -54377,7 +54377,7 @@
       "scope": null,
       "screens": [],
       "status": null,
-      "summary": "The docs tree is the readable map of this vault: project → module → feature → one note per layer, the feature's tasks under its story, then its decisions. Every card is one Markdown file; it shows…",
+      "summary": "The docs tree is the readable map of this vault: project → module → feature → one note per layer (one story holding all of the feature's work), then its decisions. Every card is one Markdown file;…",
       "tags": [
         "project",
         "layer/shared",
@@ -54385,7 +54385,7 @@
       ],
       "task": null,
       "title": "Docs Tree",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "project:feature-graph": {
       "affects": [],
@@ -54523,7 +54523,7 @@
       ],
       "task": null,
       "title": "Frontend Agent",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "project:frontend-agent-prompt": {
       "affects": [],
@@ -54804,7 +54804,7 @@
       ],
       "task": null,
       "title": "Owner Agent",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "project:pm-agent": {
       "affects": [],
@@ -54857,7 +54857,7 @@
       ],
       "task": null,
       "title": "PM Agent",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "project:project-overview": {
       "affects": [],
@@ -54953,7 +54953,7 @@
       ],
       "task": null,
       "title": "QA Agent",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "project:ring-access-model": {
       "affects": [],
@@ -55220,7 +55220,7 @@
       ],
       "task": null,
       "title": "Workflow",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "qa-backend:T-063": {
       "affects": [],
