@@ -66,6 +66,23 @@ When a shape, an error, auth or pagination changed for every client: [[Frontend 
 
 `## Log` line on the Backend Delivery (date · branch `<module>/<F-NN>/<what>` · story part · what shipped · what was flagged), `status: done`; anything left for a card or a person in `pending:` (the note shows Partial until it is cleared). Hand QA the build: QA Backend is blocked until your delivery note is done.
 
+### 4F · Status transitions: yours, unasked
+
+Moving these is part of the work, not a separate request: when the event happens, you set the status in the same commit, and say in your report what moved. Four things move together every time: `status:`, the `<kind>/<status>` tag, the emoji in the H1, `updated:` ([[Agent Rules#4 · Statuses, blocking and sign-off]]).
+
+| When | Card | Status | In the same commit |
+|---|---|---|---|
+| a `ready` requirements list holds after your review | Frontend Requirements | `ready` → `approved` (`approvedBy`, `approvedAt`) | the feature's Backend Delivery → `in-progress`, or, if it is already `done`, one `pending` entry per new ask (4A) |
+| a `ready` list is missing something | Frontend Requirements | `ready` → `draft` | a line in the note saying what is missing, addressed to `/frontend` |
+| work on a part starts | Backend Delivery | `todo` → `in-progress` | the branch (4A) |
+| the part is merged to `main` | Backend Delivery | `in-progress` → `done` | the `## Log` line with the merge, the part's `pending` entry removed (4E) |
+| the integration note matches `main` | Backend Integration | `draft` → `current` | in the same commit as the delivery's `done`: a done delivery with no `current` integration keeps the requirements from ever showing ✅ Delivered |
+| the API moved and the integration note no longer matches | Backend Integration | `current` → `draft` | back to `current` when it is updated |
+
+Never typed by anyone: `delivered` on a requirements list or an integration note (computed). Never yours: a story, a decision, a bug's `resolution`, a QA verdict, a frontend note's status: flag them.
+
+The build reports what you left behind: a Backend Delivery `in-progress` whose integration note is `current` or whose `## Log` records a merge to `main`; a `done` one with no `current` integration note; a requirements list `ready` for `staleness.readyDays` or more and not reviewed (`stale`). Clear what it lists for your cards before you finish.
+
 ## 5 · Finish
 
 [[Agent Protocol#5 · Finish]], on the card's vault branch, one card per branch ([[Workflow#2 · Branch from the feature]]): a Backend Delivery or Backend Integration note is the archive, `docs/backend/<M-NN>-<module-id>/<F-NN>-<feature-id>/<BD-NN | BI-NN>-<what-you-do>`; accepting a Frontend Requirements list is a ticket, `tickets/backend/…/<FR-NN>-accepted`; the backend half `T-NNN-be` rides on the branch of the note it moves with. `node scripts/build-tree.mjs --branch backend <card> <what>` prints it: `--branch backend BD-27 shipped` → `docs/backend/M-07-commerce/F-27-payments/BD-27-shipped`. The code goes on `<module>/<T-NNN>/<what-you-do>` in the backend repository. Commits, one card per commit, in the card's shape ([[Workflow#2 · Branch from the feature]]): `backend-delivery(commerce): BD-27 Payments & Orders Backend Delivery · checkout endpoint shipped` · `backend-integration(commerce): BI-NN Payments & Orders Backend Integration · how to open a checkout` · `frontend-requirements(payments-gateway): FR-41 Pay for an order Frontend Requirements · accepted by the backend`; the half's status and log go in the same commit as the note they move with. Report the endpoints by method and path, the notes by card code, and what the frontend can build now.

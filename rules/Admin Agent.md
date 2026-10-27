@@ -49,7 +49,7 @@ Say which files you will touch, by path, before touching them. When two readings
 
 ### 4A · Repair the tree
 
-`node scripts/build-tree.mjs --check`, read every error; fix the notes, never the generated files by hand (the build rewrites them: `node scripts/build-tree.mjs`, then `--check` again until it prints 0 errors, 0 warnings, nothing stale). A card code is never changed or reused: a duplicate is resolved by giving the newer card the next free code through the build, not by typing one ([[Agent Rules#2 · Codes, scopes and the "sum of" rule]]).
+`node scripts/build-tree.mjs --check`, read every error. The stale-status warnings and the `stale` lines (a delivery left `in-progress` after its merge, a `done` delivery with no `current` integration, a requirements list `ready` and not reviewed) belong to the layer that owns the card: you move one only when that layer is not acting, and you say so in the card's `## Log`. Then fix the notes, never the generated files by hand (the build rewrites them: `node scripts/build-tree.mjs`, then `--check` again until it prints 0 errors, 0 warnings, nothing stale). A card code is never changed or reused: a duplicate is resolved by giving the newer card the next free code through the build, not by typing one ([[Agent Rules#2 · Codes, scopes and the "sum of" rule]]).
 
 ### 4B · Migrate across layers
 

@@ -162,6 +162,10 @@
     ],
     "missed": { "id": "missed", "label": "Missed", "color": "#6b7280", "icon": "💀" }
   },
+  "staleness": {
+    "description": "Statuses the work has moved past, which the build reports so nobody has to remember them (rules/Agent Rules.md §4, Status transitions). A Frontend Requirements list `ready` for readyDays or more since its `updated:` date is printed as `stale` on every build: the backend has not approved it or sent it back. It depends on today's date, so it is printed only, never written into the generated files; the content-based checks (a Backend Delivery still in-progress after its merge, a done one with no current Backend Integration) are ordinary warnings.",
+    "readyDays": 3
+  },
   "stages": {
     "description": "Where the product is in its life, typed by the owner as stage: <id> in business/Project Overview.md and drawn as a chip on the project card beside its computed status. A stage is never computed; exit is the test that moves it to the next one. requiresRelease names a release target whose features must all be Done before the stage is typed: the build warns when they are not.",
     "levels": [
