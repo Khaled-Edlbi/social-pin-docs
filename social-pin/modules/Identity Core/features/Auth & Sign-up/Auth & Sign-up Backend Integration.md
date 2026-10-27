@@ -14,6 +14,8 @@ tags: [backend-integration, backend-integration/current, module/identity, layer/
 
 # 🔌 Auth & Sign-up · Backend Integration
 
+> ⚠ Affected by [[Auth & Sign-up QA Backend]] (2026-10-27): three rows differ on `main @ b4984d6`. **Refresh is not single-use under a race**: two concurrent `POST /auth/refresh` with one token both answer 201 and both new tokens stay live ([[B-03 Two refreshes at once both succeed and fork the session]]). **`sign-up { email, phone }` is a 201**, not 400 `E_AUTH_07`, and stores both ([[B-04 Sign-up accepts an email and a phone together]]). **An expired or forged onboarding token is 401**, not 400 `E_AUTH_05` ([[B-05 Expired onboarding token answers 401, not the documented 400]]). `/backend`.
+
 **Feature:** [[Auth & Sign-up]] · **Backend:** ✅ Done (passwordless since 2026-10-15, [[ND-01 Passwordless login]]) · **Read first:** [[Frontend Contract]], [[Auth Model]], [[Frontend Passwordless Migration]]
 
 What the client builds: the welcome screen, one code-entry screen used by both sign-up and sign-in, the claim-your-Pin step, a token store that handles rotation, and sign-out. **There is no password anywhere**: not at sign-up, not at sign-in, not in account settings.

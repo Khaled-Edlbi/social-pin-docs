@@ -14,6 +14,8 @@ tags: [backend-delivery, backend-delivery/done, module/identity, layer/backend]
 
 # ✅ Auth & Sign-up · Backend Delivery
 
+> ⚠ Affected by [[Auth & Sign-up QA Backend]] (2026-10-27): "revoked in the same transaction" holds one call at a time but not for two concurrent refreshes of one token, which both succeed ([[B-03 Two refreshes at once both succeed and fork the session]]). And every timestamp the app writes (code expiry included) is stored shifted by the server's time zone, 3 hours early on a UTC+3 machine ([[B-06 Timestamps the app writes are stored shifted by the server time zone]]). `/backend`.
+
 **Feature:** [[Auth & Sign-up]] · **Status:** Done · **Integration guide:** [[Auth & Sign-up Backend Integration]] · **Requirements:** [[Auth & Sign-up Frontend Requirements]] · **QA:** [[Auth & Sign-up QA Backend]]
 
 What the backend shipped for this feature and how it works. The sum of this feature's task-level Backend Delivery notes (see the *Tasks* table below).

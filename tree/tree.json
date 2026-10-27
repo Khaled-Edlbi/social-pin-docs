@@ -63,10 +63,15 @@
     "Auth & Sign-up Backend Delivery": "backend-delivery:auth",
     "Auth & Sign-up Backend Integration": "backend-integration:auth",
     "Auth & Sign-up Frontend Requirements": "frontend-requirements:auth",
+    "Auth & Sign-up QA Backend": "qa-backend:auth",
     "Auth & Sign-up Story": "story:auth",
     "Auth Model": "project:auth-model",
     "B-01 An unverified changed email still signs in": "task:B-01",
     "B-02 Deleted account answers 401, not the documented 404 E_USER_01": "task:B-02",
+    "B-03 Two refreshes at once both succeed and fork the session": "task:B-03",
+    "B-04 Sign-up accepts an email and a phone together": "task:B-04",
+    "B-05 Expired onboarding token answers 401, not the documented 400": "task:B-05",
+    "B-06 Timestamps the app writes are stored shifted by the server time zone": "task:B-06",
     "Backend Agent": "project:backend-agent",
     "Badge & QR": "feature:badge-qr",
     "Badge & QR Backend Delivery": "backend-delivery:badge-qr",
@@ -300,6 +305,10 @@
   "cards": {
     "B-01": "task:B-01",
     "B-02": "task:B-02",
+    "B-03": "task:B-03",
+    "B-04": "task:B-04",
+    "B-05": "task:B-05",
+    "B-06": "task:B-06",
     "BD-01": "backend-delivery:account",
     "BD-02": "backend-delivery:auth",
     "BD-03": "backend-delivery:counts",
@@ -498,6 +507,7 @@
     "P-26": "project:qa-agent",
     "P-27": "project:admin-agent",
     "QB-04": "qa-backend:account",
+    "QB-05": "qa-backend:auth",
     "QF-04": "qa-frontend:account",
     "S-01": "story:account",
     "S-02": "story:auth",
@@ -716,6 +726,7 @@
         "frontend-requirements:auth",
         "frontend-requirements:code-delivery",
         "project:frontend-passwordless-migration",
+        "qa-backend:auth",
         "story:auth",
         "story:error-contract"
       ],
@@ -736,6 +747,7 @@
         "frontend-requirements:auth",
         "project:auth-model",
         "project:frontend-passwordless-migration",
+        "qa-backend:auth",
         "story:error-contract"
       ],
       "owner": null
@@ -771,6 +783,7 @@
         "project:frontend-api-guide",
         "project:frontend-passwordless-migration",
         "qa-backend:account",
+        "qa-backend:auth",
         "qa-frontend:account",
         "story:account",
         "story:auth",
@@ -804,7 +817,8 @@
         "feature:view-as",
         "project:frontend-api-guide",
         "project:frontend-contract",
-        "project:frontend-passwordless-migration"
+        "project:frontend-passwordless-migration",
+        "task:B-03"
       ],
       "kind": "error",
       "notes": [
@@ -835,8 +849,10 @@
         "project:frontend-contract",
         "project:frontend-passwordless-migration",
         "qa-backend:account",
+        "qa-backend:auth",
         "qa-frontend:account",
-        "story:auth"
+        "story:auth",
+        "task:B-03"
       ],
       "owner": null
     },
@@ -846,7 +862,8 @@
         "feature:code-delivery",
         "feature:error-contract",
         "project:frontend-api-guide",
-        "project:frontend-passwordless-migration"
+        "project:frontend-passwordless-migration",
+        "task:B-05"
       ],
       "kind": "error",
       "notes": [
@@ -855,9 +872,11 @@
         "frontend-requirements:code-delivery",
         "project:frontend-api-guide",
         "project:frontend-passwordless-migration",
+        "qa-backend:auth",
         "story:auth",
         "story:code-delivery",
-        "story:error-contract"
+        "story:error-contract",
+        "task:B-05"
       ],
       "owner": null
     },
@@ -879,6 +898,7 @@
         "project:auth-model",
         "project:frontend-api-guide",
         "project:frontend-passwordless-migration",
+        "qa-backend:auth",
         "story:auth",
         "story:code-delivery",
         "story:error-contract"
@@ -889,14 +909,17 @@
       "containers": [
         "feature:auth",
         "feature:code-delivery",
-        "project:frontend-passwordless-migration"
+        "project:frontend-passwordless-migration",
+        "task:B-04"
       ],
       "kind": "error",
       "notes": [
         "backend-integration:auth",
         "frontend-requirements:auth",
         "frontend-requirements:code-delivery",
-        "project:frontend-passwordless-migration"
+        "project:frontend-passwordless-migration",
+        "qa-backend:auth",
+        "task:B-04"
       ],
       "owner": null
     },
@@ -912,6 +935,7 @@
         "backend-integration:auth",
         "frontend-requirements:auth",
         "project:frontend-passwordless-migration",
+        "qa-backend:auth",
         "story:error-contract"
       ],
       "owner": null
@@ -1012,6 +1036,7 @@
         "frontend-requirements:onboarding-imports",
         "frontend-requirements:profiles",
         "project:frontend-passwordless-migration",
+        "qa-backend:auth",
         "story:auth",
         "story:error-contract",
         "story:profiles"
@@ -1251,6 +1276,7 @@
         "frontend-requirements:account",
         "project:auth-model",
         "qa-backend:account",
+        "qa-backend:auth",
         "qa-frontend:account",
         "task:B-02"
       ],
@@ -1303,6 +1329,7 @@
         "frontend-requirements:auth",
         "project:auth-model",
         "project:frontend-passwordless-migration",
+        "qa-backend:auth",
         "story:error-contract"
       ],
       "owner": null
@@ -1540,6 +1567,7 @@
     "GET /profiles": {
       "containers": [
         "feature:account",
+        "feature:auth",
         "feature:profiles",
         "feature:ring-projection",
         "task:B-02"
@@ -1554,6 +1582,7 @@
         "frontend-requirements:profiles",
         "frontend-requirements:ring-projection",
         "qa-backend:account",
+        "qa-backend:auth",
         "story:account",
         "story:profiles",
         "task:B-02"
@@ -1599,6 +1628,7 @@
         "project:frontend-passwordless-migration",
         "project:spec-map",
         "project:status-report-2026-10-15",
+        "qa-backend:auth",
         "story:auth",
         "story:discover-hub",
         "story:profiles"
@@ -1648,6 +1678,7 @@
         "project:spec-map",
         "project:status-report-2026-10-15",
         "qa-backend:account",
+        "qa-backend:auth",
         "story:auth",
         "story:connections",
         "story:counts",
@@ -1694,6 +1725,7 @@
       "kind": "endpoint",
       "notes": [
         "backend-integration:rings",
+        "qa-backend:auth",
         "story:auth"
       ],
       "owner": null
@@ -1874,6 +1906,7 @@
     "GET /users/me": {
       "containers": [
         "feature:account",
+        "feature:auth",
         "feature:badge-qr",
         "feature:counts",
         "feature:linked-accounts",
@@ -1890,6 +1923,7 @@
         "frontend-requirements:linked-accounts",
         "frontend-requirements:ring-projection",
         "qa-backend:account",
+        "qa-backend:auth",
         "qa-frontend:account",
         "story:account",
         "story:counts",
@@ -2278,7 +2312,8 @@
         "feature:onboarding-imports",
         "feature:profiles",
         "project:frontend-passwordless-migration",
-        "project:status-report-2026-10-15"
+        "project:status-report-2026-10-15",
+        "task:B-05"
       ],
       "kind": "endpoint",
       "notes": [
@@ -2289,8 +2324,10 @@
         "frontend-requirements:profiles",
         "project:frontend-passwordless-migration",
         "project:status-report-2026-10-15",
+        "qa-backend:auth",
         "story:onboarding-imports",
-        "story:profiles"
+        "story:profiles",
+        "task:B-05"
       ],
       "owner": "feature:auth"
     },
@@ -2320,6 +2357,7 @@
         "project:developer-guide",
         "project:frontend-passwordless-migration",
         "qa-backend:account",
+        "qa-backend:auth",
         "story:account",
         "story:auth",
         "task:B-01"
@@ -2352,6 +2390,7 @@
         "project:developer-setup",
         "project:frontend-passwordless-migration",
         "qa-backend:account",
+        "qa-backend:auth",
         "story:account",
         "story:linked-accounts",
         "task:B-01"
@@ -2372,6 +2411,7 @@
         "frontend-requirements:account",
         "frontend-requirements:auth",
         "project:frontend-passwordless-migration",
+        "qa-backend:auth",
         "story:auth"
       ],
       "owner": "feature:auth"
@@ -2394,6 +2434,7 @@
         "frontend-requirements:devices",
         "project:frontend-api-guide",
         "project:frontend-passwordless-migration",
+        "qa-backend:auth",
         "story:auth",
         "story:devices"
       ],
@@ -2407,7 +2448,8 @@
         "feature:devices",
         "project:frontend-agent-prompt",
         "project:frontend-api-guide",
-        "project:frontend-passwordless-migration"
+        "project:frontend-passwordless-migration",
+        "task:B-03"
       ],
       "kind": "endpoint",
       "notes": [
@@ -2420,7 +2462,9 @@
         "project:frontend-api-guide",
         "project:frontend-passwordless-migration",
         "qa-backend:account",
-        "story:auth"
+        "qa-backend:auth",
+        "story:auth",
+        "task:B-03"
       ],
       "owner": "feature:auth"
     },
@@ -2437,6 +2481,7 @@
         "frontend-requirements:auth",
         "frontend-requirements:code-delivery",
         "project:frontend-passwordless-migration",
+        "qa-backend:auth",
         "story:code-delivery"
       ],
       "owner": "feature:auth"
@@ -2462,7 +2507,8 @@
         "project:frontend-contract",
         "project:frontend-passwordless-migration",
         "project:spec-map",
-        "project:status-report-2026-10-15"
+        "project:status-report-2026-10-15",
+        "task:B-04"
       ],
       "kind": "endpoint",
       "notes": [
@@ -2476,8 +2522,10 @@
         "project:spec-map",
         "project:status-report-2026-10-15",
         "qa-backend:account",
+        "qa-backend:auth",
         "story:auth",
-        "story:code-delivery"
+        "story:code-delivery",
+        "task:B-04"
       ],
       "owner": "feature:auth"
     },
@@ -2494,6 +2542,7 @@
         "frontend-requirements:auth",
         "frontend-requirements:code-delivery",
         "project:frontend-passwordless-migration",
+        "qa-backend:auth",
         "story:auth",
         "story:code-delivery"
       ],
@@ -2800,7 +2849,8 @@
         "feature:auth",
         "feature:linked-accounts",
         "feature:onboarding-imports",
-        "needs-decision:ND-01"
+        "needs-decision:ND-01",
+        "task:B-04"
       ],
       "kind": "screen",
       "notes": [
@@ -2813,9 +2863,11 @@
         "frontend-requirements:linked-accounts",
         "frontend-requirements:onboarding-imports",
         "needs-decision:ND-01",
+        "qa-backend:auth",
         "qa-frontend:account",
         "story:auth",
-        "story:linked-accounts"
+        "story:linked-accounts",
+        "task:B-04"
       ],
       "owner": null
     },
@@ -2835,6 +2887,7 @@
         "frontend-requirements:auth",
         "frontend-requirements:code-delivery",
         "needs-decision:ND-01",
+        "qa-backend:auth",
         "story:auth",
         "story:code-delivery"
       ],
@@ -2921,7 +2974,8 @@
         "feature:auth",
         "feature:profiles",
         "needs-decision:ND-02",
-        "needs-decision:ND-06"
+        "needs-decision:ND-06",
+        "task:B-05"
       ],
       "kind": "screen",
       "notes": [
@@ -2935,8 +2989,10 @@
         "frontend-requirements:profiles",
         "needs-decision:ND-02",
         "needs-decision:ND-06",
+        "qa-backend:auth",
         "story:auth",
-        "story:profiles"
+        "story:profiles",
+        "task:B-05"
       ],
       "owner": null
     },
@@ -2968,6 +3024,7 @@
         "feature:rings",
         "frontend-requirements:auth",
         "frontend-requirements:rings",
+        "qa-backend:auth",
         "story:auth",
         "story:rings"
       ],
@@ -3920,7 +3977,8 @@
         "feature:profiles",
         "needs-decision:ND-20",
         "task:B-01",
-        "task:B-02"
+        "task:B-02",
+        "task:B-03"
       ],
       "kind": "screen",
       "notes": [
@@ -3942,6 +4000,7 @@
         "frontend-requirements:profiles",
         "needs-decision:ND-20",
         "qa-backend:account",
+        "qa-backend:auth",
         "qa-frontend:account",
         "story:account",
         "story:auth",
@@ -3949,7 +4008,8 @@
         "story:linked-accounts",
         "story:payments",
         "task:B-01",
-        "task:B-02"
+        "task:B-02",
+        "task:B-03"
       ],
       "owner": null
     },
@@ -4052,6 +4112,7 @@
         "feature:devices",
         "frontend-requirements:auth",
         "frontend-requirements:devices",
+        "qa-backend:auth",
         "story:auth",
         "story:devices"
       ],
@@ -4070,30 +4131,30 @@
       "module": 8,
       "needs-decision": 19,
       "project": 27,
-      "qa-backend": 1,
+      "qa-backend": 2,
       "qa-frontend": 1,
       "story": 41,
-      "task": 2
+      "task": 6
     },
     "byLayer": {
       "backend": 56,
-      "business": 122,
+      "business": 126,
       "frontend": 44,
-      "qa": 2,
+      "qa": 3,
       "shared": 10
     },
     "concepts": 198,
     "decisions": 19,
-    "edges": 3506,
+    "edges": 3703,
     "features": 41,
-    "layerNotes": 131,
+    "layerNotes": 132,
     "modules": 8,
-    "notes": 268,
+    "notes": 273,
     "partial": 4,
-    "placeholders": 154,
+    "placeholders": 153,
     "records": 14,
     "taskLayerNotes": 0,
-    "tasks": 2
+    "tasks": 6
   },
   "deadlines": {
     "missed": {
@@ -4646,6 +4707,56 @@
       "from": "task:B-02",
       "kind": "affects",
       "to": "story:account"
+    },
+    {
+      "from": "task:B-03",
+      "kind": "affects",
+      "to": "backend-delivery:auth"
+    },
+    {
+      "from": "task:B-03",
+      "kind": "affects",
+      "to": "backend-integration:auth"
+    },
+    {
+      "from": "task:B-03",
+      "kind": "affects",
+      "to": "qa-backend:auth"
+    },
+    {
+      "from": "task:B-04",
+      "kind": "affects",
+      "to": "backend-integration:auth"
+    },
+    {
+      "from": "task:B-04",
+      "kind": "affects",
+      "to": "qa-backend:auth"
+    },
+    {
+      "from": "task:B-05",
+      "kind": "affects",
+      "to": "backend-integration:auth"
+    },
+    {
+      "from": "task:B-05",
+      "kind": "affects",
+      "to": "qa-backend:auth"
+    },
+    {
+      "from": "task:B-06",
+      "kind": "affects",
+      "to": "backend-delivery:auth"
+    },
+    {
+      "from": "task:B-06",
+      "kind": "affects",
+      "to": "project:database-migrations"
+    },
+    {
+      "from": "task:B-06",
+      "kind": "affects",
+      "to": "qa-backend:auth"
     },
     {
       "from": "backend-delivery:audit-log",
@@ -5833,6 +5944,16 @@
       "to": "story:account"
     },
     {
+      "from": "qa-backend:auth",
+      "kind": "depends",
+      "to": "backend-delivery:auth"
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "depends",
+      "to": "story:auth"
+    },
+    {
       "from": "story:events-before",
       "kind": "depends",
       "to": "needs-decision:ND-07"
@@ -5856,6 +5977,11 @@
       "from": "backend-delivery:auth",
       "kind": "flow",
       "to": "backend-integration:auth"
+    },
+    {
+      "from": "backend-delivery:auth",
+      "kind": "flow",
+      "to": "qa-backend:auth"
     },
     {
       "from": "backend-delivery:files",
@@ -6103,6 +6229,11 @@
       "to": "story:account"
     },
     {
+      "from": "qa-backend:auth",
+      "kind": "flow",
+      "to": "story:auth"
+    },
+    {
       "from": "qa-frontend:account",
       "kind": "flow",
       "to": "story:account"
@@ -6306,6 +6437,31 @@
       "from": "backend-delivery:profiles",
       "kind": "pending",
       "to": "story:profiles"
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "pending",
+      "to": "story:auth"
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "pending",
+      "to": "task:B-03"
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "pending",
+      "to": "task:B-04"
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "pending",
+      "to": "task:B-05"
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "pending",
+      "to": "task:B-06"
     },
     {
       "from": "qa-frontend:account",
@@ -6545,6 +6701,17 @@
     {
       "from": "backend-delivery:account",
       "kind": "related",
+      "to": "qa-backend:auth",
+      "via": [
+        "E_AUTH_03",
+        "E_USER_01",
+        "POST /auth/login",
+        "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "backend-delivery:account",
+      "kind": "related",
       "to": "qa-frontend:account",
       "via": [
         "E_AUTH_03",
@@ -6651,6 +6818,27 @@
       "to": "qa-backend:account",
       "via": [
         "E_USER_01"
+      ]
+    },
+    {
+      "from": "backend-delivery:auth",
+      "kind": "related",
+      "to": "qa-backend:auth",
+      "via": [
+        "E_AUTH_03",
+        "E_AUTH_04",
+        "E_AUTH_06",
+        "E_AUTH_08",
+        "E_USER_01",
+        "POST /auth/complete-registration",
+        "POST /auth/login",
+        "POST /auth/login/verify",
+        "POST /auth/logout",
+        "POST /auth/logout-everywhere",
+        "POST /auth/refresh",
+        "POST /auth/request-code",
+        "POST /auth/sign-up",
+        "POST /auth/verify-code"
       ]
     },
     {
@@ -6888,6 +7076,19 @@
     {
       "from": "backend-integration:account",
       "kind": "related",
+      "to": "qa-backend:auth",
+      "via": [
+        "E_AUTH_03",
+        "E_AUTH_04",
+        "E_USER_01",
+        "GET /users/me",
+        "POST /auth/login",
+        "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "backend-integration:account",
+      "kind": "related",
       "to": "qa-frontend:account",
       "via": [
         "E_AUTH_03",
@@ -6983,6 +7184,32 @@
       "via": [
         "E_AUTH_03",
         "E_USER_01"
+      ]
+    },
+    {
+      "from": "backend-integration:auth",
+      "kind": "related",
+      "to": "qa-backend:auth",
+      "via": [
+        "E_AUTH_01",
+        "E_AUTH_03",
+        "E_AUTH_04",
+        "E_AUTH_05",
+        "E_AUTH_06",
+        "E_AUTH_07",
+        "E_AUTH_08",
+        "E_PROFILE_02",
+        "E_USER_01",
+        "GET /profiles/pin-name/:pinName/availability",
+        "POST /auth/complete-registration",
+        "POST /auth/login",
+        "POST /auth/login/verify",
+        "POST /auth/logout",
+        "POST /auth/logout-everywhere",
+        "POST /auth/refresh",
+        "POST /auth/request-code",
+        "POST /auth/sign-up",
+        "POST /auth/verify-code"
       ]
     },
     {
@@ -9342,6 +9569,569 @@
       "to": "story:error-contract"
     },
     {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "backend-delivery:devices",
+      "via": [
+        "POST /auth/logout-everywhere"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "backend-delivery:error-contract"
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "backend-delivery:linked-accounts",
+      "via": [
+        "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "backend-delivery:profiles",
+      "via": [
+        "E_PROFILE_02",
+        "GET /profiles/pin-name/:pinName/availability"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "backend-integration:profiles",
+      "via": [
+        "E_PROFILE_02",
+        "GET /profiles/pin-name/:pinName/availability"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "decision:D-20",
+      "via": [
+        "E_AUTH_03",
+        "POST /auth/login",
+        "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "feature:account",
+      "via": [
+        "E_USER_01"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "frontend-delivery:account",
+      "via": [
+        "E_AUTH_03",
+        "E_USER_01",
+        "POST /auth/logout"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "frontend-requirements:account",
+      "via": [
+        "E_AUTH_03",
+        "E_AUTH_04",
+        "E_USER_01",
+        "POST /auth/logout"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "frontend-requirements:app-shell",
+      "via": [
+        "E_AUTH_04",
+        "POST /auth/refresh"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "frontend-requirements:audit-log",
+      "via": [
+        "POST /auth/login/verify",
+        "POST /auth/logout-everywhere"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "frontend-requirements:auth",
+      "via": [
+        "E_AUTH_01",
+        "E_AUTH_03",
+        "E_AUTH_04",
+        "E_AUTH_05",
+        "E_AUTH_06",
+        "E_AUTH_07",
+        "E_AUTH_08",
+        "E_PROFILE_02",
+        "GET /profiles/pin-name/:pinName/availability",
+        "POST /auth/complete-registration",
+        "POST /auth/login",
+        "POST /auth/login/verify",
+        "POST /auth/logout",
+        "POST /auth/logout-everywhere",
+        "POST /auth/refresh",
+        "POST /auth/request-code",
+        "POST /auth/sign-up",
+        "POST /auth/verify-code"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "frontend-requirements:badge-qr",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "frontend-requirements:code-delivery",
+      "via": [
+        "E_AUTH_01",
+        "E_AUTH_05",
+        "E_AUTH_06",
+        "E_AUTH_07",
+        "POST /auth/login",
+        "POST /auth/request-code",
+        "POST /auth/sign-up",
+        "POST /auth/verify-code"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "frontend-requirements:companies",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "frontend-requirements:connections",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "frontend-requirements:delegated-admins",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "frontend-requirements:devices",
+      "via": [
+        "E_AUTH_03",
+        "E_AUTH_04",
+        "POST /auth/logout-everywhere",
+        "POST /auth/refresh"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "frontend-requirements:discover-hub",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "frontend-requirements:error-contract",
+      "via": [
+        "E_AUTH_03",
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "frontend-requirements:events-before",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "frontend-requirements:gemma",
+      "via": [
+        "GET /profiles/pin-name/:pinName/availability"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "frontend-requirements:interests",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "frontend-requirements:linked-accounts",
+      "via": [
+        "E_AUTH_04",
+        "POST /auth/login",
+        "POST /auth/sign-up"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "frontend-requirements:notifications",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "frontend-requirements:onboarding-imports",
+      "via": [
+        "E_PROFILE_02",
+        "GET /profiles/pin-name/:pinName/availability",
+        "POST /auth/complete-registration"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "frontend-requirements:payments",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "frontend-requirements:pincast",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "frontend-requirements:post-event",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "frontend-requirements:profiles",
+      "via": [
+        "E_PROFILE_02",
+        "GET /profiles/pin-name/:pinName/availability",
+        "POST /auth/complete-registration"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "frontend-requirements:ring-invitations",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "frontend-requirements:subscription",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "frontend-requirements:view-as",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "needs-decision:ND-01"
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "needs-decision:ND-20",
+      "via": [
+        "E_AUTH_03",
+        "POST /auth/login",
+        "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "project:auth-model",
+      "via": [
+        "E_AUTH_03",
+        "E_AUTH_06",
+        "E_USER_01"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "project:developer-guide",
+      "via": [
+        "POST /auth/login"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "project:developer-setup",
+      "via": [
+        "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "project:frontend-agent-prompt",
+      "via": [
+        "POST /auth/refresh"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "project:frontend-api-guide",
+      "via": [
+        "E_AUTH_03",
+        "E_AUTH_04",
+        "E_AUTH_05",
+        "E_AUTH_06",
+        "GET /profiles/pin-name/:pinName/availability",
+        "POST /auth/logout-everywhere",
+        "POST /auth/refresh"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "project:frontend-contract",
+      "via": [
+        "E_AUTH_04",
+        "GET /profiles/pin-name/:pinName/availability",
+        "POST /auth/sign-up"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "project:frontend-passwordless-migration",
+      "via": [
+        "E_AUTH_01",
+        "E_AUTH_03",
+        "E_AUTH_04",
+        "E_AUTH_05",
+        "E_AUTH_06",
+        "E_AUTH_07",
+        "E_AUTH_08",
+        "E_PROFILE_02",
+        "GET /profiles/pin-name/:pinName/availability",
+        "POST /auth/complete-registration",
+        "POST /auth/login",
+        "POST /auth/login/verify",
+        "POST /auth/logout",
+        "POST /auth/logout-everywhere",
+        "POST /auth/refresh",
+        "POST /auth/request-code",
+        "POST /auth/sign-up",
+        "POST /auth/verify-code"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "project:spec-map",
+      "via": [
+        "GET /profiles/pin-name/:pinName/availability",
+        "POST /auth/sign-up"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "project:status-report-2026-10-15",
+      "via": [
+        "GET /profiles/pin-name/:pinName/availability",
+        "POST /auth/complete-registration",
+        "POST /auth/sign-up"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "qa-backend:account",
+      "via": [
+        "E_AUTH_03",
+        "E_AUTH_04",
+        "E_USER_01",
+        "POST /auth/login",
+        "POST /auth/login/verify",
+        "POST /auth/refresh",
+        "POST /auth/sign-up"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "qa-frontend:account",
+      "via": [
+        "E_AUTH_03",
+        "E_AUTH_04",
+        "E_USER_01"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "story:account",
+      "via": [
+        "E_AUTH_03",
+        "POST /auth/login",
+        "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "story:auth",
+      "via": [
+        "E_AUTH_01",
+        "E_AUTH_03",
+        "E_AUTH_04",
+        "E_AUTH_05",
+        "E_AUTH_06",
+        "E_PROFILE_02",
+        "GET /profiles/pin-name/:pinName/availability",
+        "POST /auth/login",
+        "POST /auth/logout",
+        "POST /auth/logout-everywhere",
+        "POST /auth/refresh",
+        "POST /auth/sign-up",
+        "POST /auth/verify-code"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "story:code-delivery",
+      "via": [
+        "E_AUTH_05",
+        "E_AUTH_06",
+        "POST /auth/request-code",
+        "POST /auth/sign-up",
+        "POST /auth/verify-code"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "story:devices",
+      "via": [
+        "POST /auth/logout-everywhere"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "story:discover-hub",
+      "via": [
+        "GET /profiles/pin-name/:pinName/availability"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "story:error-contract",
+      "via": [
+        "E_AUTH_01",
+        "E_AUTH_03",
+        "E_AUTH_05",
+        "E_AUTH_06",
+        "E_AUTH_08",
+        "E_PROFILE_02"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "story:linked-accounts",
+      "via": [
+        "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "story:onboarding-imports",
+      "via": [
+        "POST /auth/complete-registration"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "story:profiles",
+      "via": [
+        "E_PROFILE_02",
+        "GET /profiles/pin-name/:pinName/availability",
+        "POST /auth/complete-registration"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "task:B-01",
+      "via": [
+        "E_AUTH_03",
+        "POST /auth/login",
+        "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "task:B-02",
+      "via": [
+        "E_AUTH_03",
+        "E_USER_01"
+      ]
+    },
+    {
       "from": "qa-frontend:account",
       "kind": "related",
       "to": "frontend-requirements:account"
@@ -9745,6 +10535,522 @@
       "from": "task:B-02",
       "kind": "related",
       "to": "story:error-contract"
+    },
+    {
+      "from": "task:B-03",
+      "kind": "related",
+      "to": "backend-delivery:auth",
+      "via": [
+        "E_AUTH_04",
+        "POST /auth/refresh"
+      ]
+    },
+    {
+      "from": "task:B-03",
+      "kind": "related",
+      "to": "backend-integration:account",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "task:B-03",
+      "kind": "related",
+      "to": "backend-integration:auth",
+      "via": [
+        "E_AUTH_04",
+        "POST /auth/refresh"
+      ]
+    },
+    {
+      "from": "task:B-03",
+      "kind": "related",
+      "to": "frontend-requirements:account",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "task:B-03",
+      "kind": "related",
+      "to": "frontend-requirements:app-shell",
+      "via": [
+        "E_AUTH_04",
+        "POST /auth/refresh"
+      ]
+    },
+    {
+      "from": "task:B-03",
+      "kind": "related",
+      "to": "frontend-requirements:auth",
+      "via": [
+        "E_AUTH_04",
+        "POST /auth/refresh"
+      ]
+    },
+    {
+      "from": "task:B-03",
+      "kind": "related",
+      "to": "frontend-requirements:badge-qr",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "task:B-03",
+      "kind": "related",
+      "to": "frontend-requirements:companies",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "task:B-03",
+      "kind": "related",
+      "to": "frontend-requirements:connections",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "task:B-03",
+      "kind": "related",
+      "to": "frontend-requirements:delegated-admins",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "task:B-03",
+      "kind": "related",
+      "to": "frontend-requirements:devices",
+      "via": [
+        "E_AUTH_04",
+        "POST /auth/refresh"
+      ]
+    },
+    {
+      "from": "task:B-03",
+      "kind": "related",
+      "to": "frontend-requirements:discover-hub",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "task:B-03",
+      "kind": "related",
+      "to": "frontend-requirements:error-contract",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "task:B-03",
+      "kind": "related",
+      "to": "frontend-requirements:events-before",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "task:B-03",
+      "kind": "related",
+      "to": "frontend-requirements:interests",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "task:B-03",
+      "kind": "related",
+      "to": "frontend-requirements:linked-accounts",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "task:B-03",
+      "kind": "related",
+      "to": "frontend-requirements:notifications",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "task:B-03",
+      "kind": "related",
+      "to": "frontend-requirements:payments",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "task:B-03",
+      "kind": "related",
+      "to": "frontend-requirements:pincast",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "task:B-03",
+      "kind": "related",
+      "to": "frontend-requirements:post-event",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "task:B-03",
+      "kind": "related",
+      "to": "frontend-requirements:ring-invitations",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "task:B-03",
+      "kind": "related",
+      "to": "frontend-requirements:subscription",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "task:B-03",
+      "kind": "related",
+      "to": "frontend-requirements:view-as",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "task:B-03",
+      "kind": "related",
+      "to": "project:auth-model"
+    },
+    {
+      "from": "task:B-03",
+      "kind": "related",
+      "to": "project:frontend-agent-prompt",
+      "via": [
+        "POST /auth/refresh"
+      ]
+    },
+    {
+      "from": "task:B-03",
+      "kind": "related",
+      "to": "project:frontend-api-guide",
+      "via": [
+        "E_AUTH_04",
+        "POST /auth/refresh"
+      ]
+    },
+    {
+      "from": "task:B-03",
+      "kind": "related",
+      "to": "project:frontend-contract",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "task:B-03",
+      "kind": "related",
+      "to": "project:frontend-passwordless-migration",
+      "via": [
+        "E_AUTH_04",
+        "POST /auth/refresh"
+      ]
+    },
+    {
+      "from": "task:B-03",
+      "kind": "related",
+      "to": "qa-backend:account",
+      "via": [
+        "E_AUTH_04",
+        "POST /auth/refresh"
+      ]
+    },
+    {
+      "from": "task:B-03",
+      "kind": "related",
+      "to": "qa-backend:auth",
+      "via": [
+        "E_AUTH_04",
+        "POST /auth/refresh"
+      ]
+    },
+    {
+      "from": "task:B-03",
+      "kind": "related",
+      "to": "qa-frontend:account",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "task:B-03",
+      "kind": "related",
+      "to": "story:auth",
+      "via": [
+        "E_AUTH_04",
+        "POST /auth/refresh"
+      ]
+    },
+    {
+      "from": "task:B-04",
+      "kind": "related",
+      "to": "backend-delivery:auth",
+      "via": [
+        "POST /auth/sign-up"
+      ]
+    },
+    {
+      "from": "task:B-04",
+      "kind": "related",
+      "to": "backend-integration:auth",
+      "via": [
+        "E_AUTH_07",
+        "POST /auth/sign-up"
+      ]
+    },
+    {
+      "from": "task:B-04",
+      "kind": "related",
+      "to": "frontend-requirements:auth",
+      "via": [
+        "E_AUTH_07",
+        "POST /auth/sign-up"
+      ]
+    },
+    {
+      "from": "task:B-04",
+      "kind": "related",
+      "to": "frontend-requirements:code-delivery",
+      "via": [
+        "E_AUTH_07",
+        "POST /auth/sign-up"
+      ]
+    },
+    {
+      "from": "task:B-04",
+      "kind": "related",
+      "to": "frontend-requirements:linked-accounts",
+      "via": [
+        "POST /auth/sign-up"
+      ]
+    },
+    {
+      "from": "task:B-04",
+      "kind": "related",
+      "to": "project:frontend-contract",
+      "via": [
+        "POST /auth/sign-up"
+      ]
+    },
+    {
+      "from": "task:B-04",
+      "kind": "related",
+      "to": "project:frontend-passwordless-migration",
+      "via": [
+        "E_AUTH_07",
+        "POST /auth/sign-up"
+      ]
+    },
+    {
+      "from": "task:B-04",
+      "kind": "related",
+      "to": "project:spec-map",
+      "via": [
+        "POST /auth/sign-up"
+      ]
+    },
+    {
+      "from": "task:B-04",
+      "kind": "related",
+      "to": "project:status-report-2026-10-15",
+      "via": [
+        "POST /auth/sign-up"
+      ]
+    },
+    {
+      "from": "task:B-04",
+      "kind": "related",
+      "to": "qa-backend:account",
+      "via": [
+        "POST /auth/sign-up"
+      ]
+    },
+    {
+      "from": "task:B-04",
+      "kind": "related",
+      "to": "qa-backend:auth",
+      "via": [
+        "E_AUTH_07",
+        "POST /auth/sign-up"
+      ]
+    },
+    {
+      "from": "task:B-04",
+      "kind": "related",
+      "to": "story:auth",
+      "via": [
+        "POST /auth/sign-up"
+      ]
+    },
+    {
+      "from": "task:B-04",
+      "kind": "related",
+      "to": "story:code-delivery",
+      "via": [
+        "POST /auth/sign-up"
+      ]
+    },
+    {
+      "from": "task:B-05",
+      "kind": "related",
+      "to": "backend-delivery:auth",
+      "via": [
+        "POST /auth/complete-registration"
+      ]
+    },
+    {
+      "from": "task:B-05",
+      "kind": "related",
+      "to": "backend-integration:auth",
+      "via": [
+        "E_AUTH_05",
+        "POST /auth/complete-registration"
+      ]
+    },
+    {
+      "from": "task:B-05",
+      "kind": "related",
+      "to": "frontend-requirements:auth",
+      "via": [
+        "E_AUTH_05",
+        "POST /auth/complete-registration"
+      ]
+    },
+    {
+      "from": "task:B-05",
+      "kind": "related",
+      "to": "frontend-requirements:code-delivery",
+      "via": [
+        "E_AUTH_05"
+      ]
+    },
+    {
+      "from": "task:B-05",
+      "kind": "related",
+      "to": "frontend-requirements:onboarding-imports",
+      "via": [
+        "POST /auth/complete-registration"
+      ]
+    },
+    {
+      "from": "task:B-05",
+      "kind": "related",
+      "to": "frontend-requirements:profiles",
+      "via": [
+        "POST /auth/complete-registration"
+      ]
+    },
+    {
+      "from": "task:B-05",
+      "kind": "related",
+      "to": "project:frontend-api-guide",
+      "via": [
+        "E_AUTH_05"
+      ]
+    },
+    {
+      "from": "task:B-05",
+      "kind": "related",
+      "to": "project:frontend-passwordless-migration",
+      "via": [
+        "E_AUTH_05",
+        "POST /auth/complete-registration"
+      ]
+    },
+    {
+      "from": "task:B-05",
+      "kind": "related",
+      "to": "project:status-report-2026-10-15",
+      "via": [
+        "POST /auth/complete-registration"
+      ]
+    },
+    {
+      "from": "task:B-05",
+      "kind": "related",
+      "to": "qa-backend:auth",
+      "via": [
+        "E_AUTH_05",
+        "POST /auth/complete-registration"
+      ]
+    },
+    {
+      "from": "task:B-05",
+      "kind": "related",
+      "to": "story:auth",
+      "via": [
+        "E_AUTH_05"
+      ]
+    },
+    {
+      "from": "task:B-05",
+      "kind": "related",
+      "to": "story:code-delivery",
+      "via": [
+        "E_AUTH_05"
+      ]
+    },
+    {
+      "from": "task:B-05",
+      "kind": "related",
+      "to": "story:error-contract",
+      "via": [
+        "E_AUTH_05"
+      ]
+    },
+    {
+      "from": "task:B-05",
+      "kind": "related",
+      "to": "story:onboarding-imports",
+      "via": [
+        "POST /auth/complete-registration"
+      ]
+    },
+    {
+      "from": "task:B-05",
+      "kind": "related",
+      "to": "story:profiles",
+      "via": [
+        "POST /auth/complete-registration"
+      ]
+    },
+    {
+      "from": "task:B-06",
+      "kind": "related",
+      "to": "backend-delivery:auth"
+    },
+    {
+      "from": "task:B-06",
+      "kind": "related",
+      "to": "project:database-migrations"
+    },
+    {
+      "from": "task:B-06",
+      "kind": "related",
+      "to": "qa-backend:account"
+    },
+    {
+      "from": "task:B-06",
+      "kind": "related",
+      "to": "qa-backend:auth"
     },
     {
       "from": "decision:D-13",
@@ -10261,7 +11567,9 @@
         "E_AUTH_03",
         "E_AUTH_04",
         "E_USER_01",
+        "GET /profiles",
         "GET /rings",
+        "GET /users/me",
         "POST /auth/login",
         "POST /auth/login/verify",
         "POST /auth/logout",
@@ -10644,6 +11952,23 @@
       ]
     },
     {
+      "from": "feature:account",
+      "kind": "shares",
+      "to": "task:B-03",
+      "via": [
+        "E_AUTH_04",
+        "POST /auth/refresh"
+      ]
+    },
+    {
+      "from": "feature:account",
+      "kind": "shares",
+      "to": "task:B-04",
+      "via": [
+        "POST /auth/sign-up"
+      ]
+    },
+    {
       "from": "feature:app-shell",
       "kind": "shares",
       "to": "feature:auth",
@@ -10896,6 +12221,15 @@
       ]
     },
     {
+      "from": "feature:app-shell",
+      "kind": "shares",
+      "to": "task:B-03",
+      "via": [
+        "E_AUTH_04",
+        "POST /auth/refresh"
+      ]
+    },
+    {
       "from": "feature:audit-log",
       "kind": "shares",
       "to": "feature:auth",
@@ -10967,7 +12301,8 @@
       "to": "feature:badge-qr",
       "via": [
         "E_AUTH_04",
-        "GET /rings"
+        "GET /rings",
+        "GET /users/me"
       ]
     },
     {
@@ -11016,7 +12351,8 @@
       "kind": "shares",
       "to": "feature:counts",
       "via": [
-        "GET /rings"
+        "GET /rings",
+        "GET /users/me"
       ]
     },
     {
@@ -11119,6 +12455,7 @@
       "to": "feature:linked-accounts",
       "via": [
         "E_AUTH_04",
+        "GET /users/me",
         "POST /auth/login",
         "POST /auth/login/verify",
         "POST /auth/sign-up"
@@ -11182,6 +12519,7 @@
       "to": "feature:profiles",
       "via": [
         "E_PROFILE_02",
+        "GET /profiles",
         "GET /profiles/pin-name/:pinName/availability",
         "POST /auth/complete-registration"
       ]
@@ -11200,6 +12538,15 @@
       "to": "feature:ring-members",
       "via": [
         "GET /rings"
+      ]
+    },
+    {
+      "from": "feature:auth",
+      "kind": "shares",
+      "to": "feature:ring-projection",
+      "via": [
+        "GET /profiles",
+        "GET /users/me"
       ]
     },
     {
@@ -11378,7 +12725,36 @@
       "via": [
         "E_AUTH_03",
         "E_USER_01",
-        "GET /rings"
+        "GET /profiles",
+        "GET /rings",
+        "GET /users/me"
+      ]
+    },
+    {
+      "from": "feature:auth",
+      "kind": "shares",
+      "to": "task:B-03",
+      "via": [
+        "E_AUTH_04",
+        "POST /auth/refresh"
+      ]
+    },
+    {
+      "from": "feature:auth",
+      "kind": "shares",
+      "to": "task:B-04",
+      "via": [
+        "E_AUTH_07",
+        "POST /auth/sign-up"
+      ]
+    },
+    {
+      "from": "feature:auth",
+      "kind": "shares",
+      "to": "task:B-05",
+      "via": [
+        "E_AUTH_05",
+        "POST /auth/complete-registration"
       ]
     },
     {
@@ -11766,6 +13142,14 @@
       ]
     },
     {
+      "from": "feature:badge-qr",
+      "kind": "shares",
+      "to": "task:B-03",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
       "from": "feature:cleanup-jobs",
       "kind": "shares",
       "to": "feature:companies",
@@ -12100,6 +13484,23 @@
       "to": "task:B-01",
       "via": [
         "POST /auth/login"
+      ]
+    },
+    {
+      "from": "feature:code-delivery",
+      "kind": "shares",
+      "to": "task:B-04",
+      "via": [
+        "E_AUTH_07",
+        "POST /auth/sign-up"
+      ]
+    },
+    {
+      "from": "feature:code-delivery",
+      "kind": "shares",
+      "to": "task:B-05",
+      "via": [
+        "E_AUTH_05"
       ]
     },
     {
@@ -12481,6 +13882,14 @@
         "GET /rings/shared-with-me",
         "GET /views/ring/:ringId",
         "POST /rings"
+      ]
+    },
+    {
+      "from": "feature:companies",
+      "kind": "shares",
+      "to": "task:B-03",
+      "via": [
+        "E_AUTH_04"
       ]
     },
     {
@@ -12920,6 +14329,14 @@
       "to": "task:B-02",
       "via": [
         "GET /rings"
+      ]
+    },
+    {
+      "from": "feature:connections",
+      "kind": "shares",
+      "to": "task:B-03",
+      "via": [
+        "E_AUTH_04"
       ]
     },
     {
@@ -13503,6 +14920,14 @@
       ]
     },
     {
+      "from": "feature:delegated-admins",
+      "kind": "shares",
+      "to": "task:B-03",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
       "from": "feature:devices",
       "kind": "shares",
       "to": "feature:discover-hub",
@@ -13667,6 +15092,15 @@
       "to": "task:B-02",
       "via": [
         "E_AUTH_03"
+      ]
+    },
+    {
+      "from": "feature:devices",
+      "kind": "shares",
+      "to": "task:B-03",
+      "via": [
+        "E_AUTH_04",
+        "POST /auth/refresh"
       ]
     },
     {
@@ -13851,6 +15285,14 @@
       "via": [
         "GET /profiles/pin-name/:pinName/availability",
         "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "feature:discover-hub",
+      "kind": "shares",
+      "to": "task:B-03",
+      "via": [
+        "E_AUTH_04"
       ]
     },
     {
@@ -14195,6 +15637,22 @@
       "to": "task:B-02",
       "via": [
         "E_AUTH_03"
+      ]
+    },
+    {
+      "from": "feature:error-contract",
+      "kind": "shares",
+      "to": "task:B-03",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "feature:error-contract",
+      "kind": "shares",
+      "to": "task:B-05",
+      "via": [
+        "E_AUTH_05"
       ]
     },
     {
@@ -14587,6 +16045,14 @@
       "to": "task:B-02",
       "via": [
         "GET /rings"
+      ]
+    },
+    {
+      "from": "feature:events-before",
+      "kind": "shares",
+      "to": "task:B-03",
+      "via": [
+        "E_AUTH_04"
       ]
     },
     {
@@ -15201,6 +16667,14 @@
       ]
     },
     {
+      "from": "feature:interests",
+      "kind": "shares",
+      "to": "task:B-03",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
       "from": "feature:linked-accounts",
       "kind": "shares",
       "to": "feature:notifications",
@@ -15348,6 +16822,22 @@
       "to": "task:B-02",
       "via": [
         "GET /users/me"
+      ]
+    },
+    {
+      "from": "feature:linked-accounts",
+      "kind": "shares",
+      "to": "task:B-03",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "feature:linked-accounts",
+      "kind": "shares",
+      "to": "task:B-04",
+      "via": [
+        "POST /auth/sign-up"
       ]
     },
     {
@@ -15636,6 +17126,14 @@
       ]
     },
     {
+      "from": "feature:notifications",
+      "kind": "shares",
+      "to": "task:B-03",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
       "from": "feature:onboarding-imports",
       "kind": "shares",
       "to": "feature:photo-library",
@@ -15716,6 +17214,14 @@
         "GET /profiles/pin-name/:pinName/availability",
         "POST /auth/complete-registration",
         "POST /files"
+      ]
+    },
+    {
+      "from": "feature:onboarding-imports",
+      "kind": "shares",
+      "to": "task:B-05",
+      "via": [
+        "POST /auth/complete-registration"
       ]
     },
     {
@@ -15803,6 +17309,14 @@
       "from": "feature:payments",
       "kind": "shares",
       "to": "project:frontend-passwordless-migration",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "feature:payments",
+      "kind": "shares",
+      "to": "task:B-03",
       "via": [
         "E_AUTH_04"
       ]
@@ -16159,6 +17673,14 @@
       ]
     },
     {
+      "from": "feature:pincast",
+      "kind": "shares",
+      "to": "task:B-03",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
       "from": "feature:post-event",
       "kind": "shares",
       "to": "feature:ring-access",
@@ -16341,6 +17863,14 @@
       ]
     },
     {
+      "from": "feature:post-event",
+      "kind": "shares",
+      "to": "task:B-03",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
       "from": "feature:profiles",
       "kind": "shares",
       "to": "feature:ring-access",
@@ -16439,6 +17969,14 @@
       "to": "task:B-02",
       "via": [
         "GET /profiles"
+      ]
+    },
+    {
+      "from": "feature:profiles",
+      "kind": "shares",
+      "to": "task:B-05",
+      "via": [
+        "POST /auth/complete-registration"
       ]
     },
     {
@@ -16740,6 +18278,14 @@
       "via": [
         "GET /rings/shared-with-me",
         "GET /views/ring/:ringId"
+      ]
+    },
+    {
+      "from": "feature:ring-invitations",
+      "kind": "shares",
+      "to": "task:B-03",
+      "via": [
+        "E_AUTH_04"
       ]
     },
     {
@@ -17190,6 +18736,14 @@
       ]
     },
     {
+      "from": "feature:subscription",
+      "kind": "shares",
+      "to": "task:B-03",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
       "from": "feature:view-as",
       "kind": "shares",
       "to": "feature:widgets",
@@ -17290,6 +18844,14 @@
       "to": "task:B-02",
       "via": [
         "GET /rings"
+      ]
+    },
+    {
+      "from": "feature:view-as",
+      "kind": "shares",
+      "to": "task:B-03",
+      "via": [
+        "E_AUTH_04"
       ]
     },
     {
@@ -17777,6 +19339,14 @@
       ]
     },
     {
+      "from": "project:frontend-agent-prompt",
+      "kind": "shares",
+      "to": "task:B-03",
+      "via": [
+        "POST /auth/refresh"
+      ]
+    },
+    {
       "from": "project:frontend-api-guide",
       "kind": "shares",
       "to": "project:frontend-contract",
@@ -17849,6 +19419,23 @@
       ]
     },
     {
+      "from": "project:frontend-api-guide",
+      "kind": "shares",
+      "to": "task:B-03",
+      "via": [
+        "E_AUTH_04",
+        "POST /auth/refresh"
+      ]
+    },
+    {
+      "from": "project:frontend-api-guide",
+      "kind": "shares",
+      "to": "task:B-05",
+      "via": [
+        "E_AUTH_05"
+      ]
+    },
+    {
       "from": "project:frontend-contract",
       "kind": "shares",
       "to": "project:frontend-passwordless-migration",
@@ -17908,6 +19495,22 @@
       ]
     },
     {
+      "from": "project:frontend-contract",
+      "kind": "shares",
+      "to": "task:B-03",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "project:frontend-contract",
+      "kind": "shares",
+      "to": "task:B-04",
+      "via": [
+        "POST /auth/sign-up"
+      ]
+    },
+    {
       "from": "project:frontend-passwordless-migration",
       "kind": "shares",
       "to": "project:spec-map",
@@ -17942,6 +19545,33 @@
       "to": "task:B-02",
       "via": [
         "E_AUTH_03"
+      ]
+    },
+    {
+      "from": "project:frontend-passwordless-migration",
+      "kind": "shares",
+      "to": "task:B-03",
+      "via": [
+        "E_AUTH_04",
+        "POST /auth/refresh"
+      ]
+    },
+    {
+      "from": "project:frontend-passwordless-migration",
+      "kind": "shares",
+      "to": "task:B-04",
+      "via": [
+        "E_AUTH_07",
+        "POST /auth/sign-up"
+      ]
+    },
+    {
+      "from": "project:frontend-passwordless-migration",
+      "kind": "shares",
+      "to": "task:B-05",
+      "via": [
+        "E_AUTH_05",
+        "POST /auth/complete-registration"
       ]
     },
     {
@@ -17993,12 +19623,41 @@
       ]
     },
     {
+      "from": "project:spec-map",
+      "kind": "shares",
+      "to": "task:B-04",
+      "via": [
+        "POST /auth/sign-up"
+      ]
+    },
+    {
       "from": "project:status-report-2026-10-15",
       "kind": "shares",
       "to": "task:B-02",
       "via": [
         "GET /rings"
       ]
+    },
+    {
+      "from": "project:status-report-2026-10-15",
+      "kind": "shares",
+      "to": "task:B-04",
+      "via": [
+        "POST /auth/sign-up"
+      ]
+    },
+    {
+      "from": "project:status-report-2026-10-15",
+      "kind": "shares",
+      "to": "task:B-05",
+      "via": [
+        "POST /auth/complete-registration"
+      ]
+    },
+    {
+      "from": "backend-delivery:auth",
+      "kind": "tree",
+      "to": "task:B-06"
     },
     {
       "from": "backend-integration:account",
@@ -18009,6 +19668,21 @@
       "from": "backend-integration:account",
       "kind": "tree",
       "to": "task:B-02"
+    },
+    {
+      "from": "backend-integration:auth",
+      "kind": "tree",
+      "to": "task:B-03"
+    },
+    {
+      "from": "backend-integration:auth",
+      "kind": "tree",
+      "to": "task:B-04"
+    },
+    {
+      "from": "backend-integration:auth",
+      "kind": "tree",
+      "to": "task:B-05"
     },
     {
       "from": "feature:account",
@@ -21096,6 +22770,26 @@
       "to": "project:status-report-2026-10-15"
     },
     {
+      "from": "feature:auth",
+      "kind": "wikilink",
+      "to": "task:B-03"
+    },
+    {
+      "from": "feature:auth",
+      "kind": "wikilink",
+      "to": "task:B-04"
+    },
+    {
+      "from": "feature:auth",
+      "kind": "wikilink",
+      "to": "task:B-05"
+    },
+    {
+      "from": "feature:auth",
+      "kind": "wikilink",
+      "to": "task:B-06"
+    },
+    {
       "from": "feature:badge-qr",
       "kind": "wikilink",
       "to": "project:status-report-2026-10-15"
@@ -23308,6 +25002,11 @@
     {
       "from": "module:identity",
       "kind": "wikilink",
+      "to": "qa-backend:auth"
+    },
+    {
+      "from": "module:identity",
+      "kind": "wikilink",
       "to": "qa-frontend:account"
     },
     {
@@ -24951,6 +26650,21 @@
       "to": "story:operator-panel"
     },
     {
+      "from": "qa-backend:auth",
+      "kind": "wikilink",
+      "to": "feature:interests"
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "wikilink",
+      "to": "feature:onboarding-imports"
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "wikilink",
+      "to": "feature:rings"
+    },
+    {
       "from": "qa-frontend:account",
       "kind": "wikilink",
       "to": "story:account"
@@ -25838,6 +27552,22 @@
       "name": "B-02 Deleted account answers 401, not the documented 404 E_USER_01",
       "type": "bug"
     },
+    "social-pin/bugs/B-03 Two refreshes at once both succeed and fork the session.md": {
+      "name": "B-03 Two refreshes at once both succeed and fork the session",
+      "type": "bug"
+    },
+    "social-pin/bugs/B-04 Sign-up accepts an email and a phone together.md": {
+      "name": "B-04 Sign-up accepts an email and a phone together",
+      "type": "bug"
+    },
+    "social-pin/bugs/B-05 Expired onboarding token answers 401, not the documented 400.md": {
+      "name": "B-05 Expired onboarding token answers 401, not the documented 400",
+      "type": "bug"
+    },
+    "social-pin/bugs/B-06 Timestamps the app writes are stored shifted by the server time zone.md": {
+      "name": "B-06 Timestamps the app writes are stored shifted by the server time zone",
+      "type": "bug"
+    },
     "social-pin/business/Feature Graph.md": {
       "name": "Feature Graph",
       "type": "map"
@@ -26193,6 +27923,10 @@
     "social-pin/modules/Identity Core/features/Auth & Sign-up/Auth & Sign-up Frontend Requirements.md": {
       "name": "Auth & Sign-up Frontend Requirements",
       "type": "frontend-requirements"
+    },
+    "social-pin/modules/Identity Core/features/Auth & Sign-up/Auth & Sign-up QA Backend.md": {
+      "name": "Auth & Sign-up QA Backend",
+      "type": "qa-backend"
     },
     "social-pin/modules/Identity Core/features/Auth & Sign-up/Auth & Sign-up Story.md": {
       "name": "Auth & Sign-up Story",
@@ -27131,6 +28865,7 @@
         "backend-delivery:auth",
         "backend-integration:auth",
         "frontend-requirements:auth",
+        "qa-backend:auth",
         "story:auth",
         "frontend-requirements:code-delivery",
         "frontend-requirements:linked-accounts",
@@ -27277,7 +29012,9 @@
       "affects": [],
       "blockedBy": [],
       "card": "BD-02",
-      "children": [],
+      "children": [
+        "task:B-06"
+      ],
       "code": "auth",
       "created": "2026-10-15",
       "deadline": null,
@@ -27305,6 +29042,10 @@
       "pending": [],
       "priority": "critical",
       "related": [
+        "task:B-03",
+        "task:B-04",
+        "task:B-05",
+        "task:B-06",
         "backend-delivery:account",
         "backend-integration:account",
         "task:B-02",
@@ -27314,6 +29055,7 @@
         "qa-backend:account",
         "qa-frontend:account",
         "backend-integration:auth",
+        "qa-backend:auth",
         "project:auth-model"
       ],
       "release": "mvp",
@@ -27825,7 +29567,9 @@
       "path": "social-pin/modules/Platform & Cross-cutting/features/Devices & NFC/Devices & NFC Backend Delivery.md",
       "pending": [],
       "priority": "high",
-      "related": [],
+      "related": [
+        "qa-backend:auth"
+      ],
       "release": "v1",
       "resolution": null,
       "scope": "feature",
@@ -27993,7 +29737,8 @@
       "priority": "critical",
       "related": [
         "task:B-02",
-        "qa-backend:account"
+        "qa-backend:account",
+        "qa-backend:auth"
       ],
       "release": "mvp",
       "resolution": null,
@@ -28451,7 +30196,8 @@
       "priority": "high",
       "related": [
         "backend-delivery:account",
-        "backend-integration:account"
+        "backend-integration:account",
+        "qa-backend:auth"
       ],
       "release": "v1",
       "resolution": null,
@@ -28967,7 +30713,9 @@
         }
       ],
       "priority": "critical",
-      "related": [],
+      "related": [
+        "qa-backend:auth"
+      ],
       "release": "mvp",
       "resolution": null,
       "scope": "feature",
@@ -29464,6 +31212,7 @@
       "priority": "critical",
       "related": [
         "task:B-01",
+        "task:B-03",
         "backend-delivery:account",
         "task:B-02",
         "decision:D-20",
@@ -29476,6 +31225,7 @@
         "backend-delivery:auth",
         "backend-integration:auth",
         "frontend-requirements:auth",
+        "qa-backend:auth",
         "story:auth",
         "frontend-requirements:code-delivery",
         "frontend-requirements:linked-accounts",
@@ -29564,7 +31314,11 @@
       "affects": [],
       "blockedBy": [],
       "card": "BI-02",
-      "children": [],
+      "children": [
+        "task:B-03",
+        "task:B-04",
+        "task:B-05"
+      ],
       "code": "auth",
       "created": "2026-10-15",
       "deadline": null,
@@ -29593,6 +31347,9 @@
       "priority": "critical",
       "related": [
         "task:B-01",
+        "task:B-03",
+        "task:B-04",
+        "task:B-05",
         "needs-decision:ND-20",
         "decision:D-20",
         "backend-delivery:account",
@@ -29604,6 +31361,7 @@
         "frontend-delivery:account",
         "frontend-requirements:account",
         "qa-frontend:account",
+        "qa-backend:auth",
         "project:auth-model"
       ],
       "release": "mvp",
@@ -30954,7 +32712,8 @@
       "pending": [],
       "priority": "critical",
       "related": [
-        "qa-backend:account"
+        "qa-backend:account",
+        "qa-backend:auth"
       ],
       "release": "mvp",
       "resolution": null,
@@ -32248,6 +34007,7 @@
         "backend-delivery:account",
         "backend-integration:account",
         "story:account",
+        "qa-backend:auth",
         "project:auth-model"
       ],
       "release": null,
@@ -32319,6 +34079,7 @@
         "backend-integration:account",
         "backend-delivery:auth",
         "backend-integration:auth",
+        "qa-backend:auth",
         "project:auth-model"
       ],
       "release": "mvp",
@@ -32556,8 +34317,10 @@
         "current": 1,
         "decided": 1,
         "done": 1,
-        "missing": 3,
+        "failing": 1,
+        "missing": 2,
         "ready": 1,
+        "todo": 4,
         "verified": 1
       },
       "scope": null,
@@ -35512,6 +37275,7 @@
         "story:error-contract",
         "backend-delivery:auth",
         "backend-integration:auth",
+        "qa-backend:auth",
         "project:auth-model"
       ],
       "release": "mvp",
@@ -37351,12 +39115,14 @@
       "pending": [],
       "priority": "critical",
       "related": [
+        "task:B-03",
         "backend-delivery:account",
         "backend-integration:account",
         "frontend-delivery:account",
         "qa-frontend:account",
         "backend-delivery:auth",
         "backend-integration:auth",
+        "qa-backend:auth",
         "project:auth-model"
       ],
       "release": "mvp",
@@ -37408,7 +39174,10 @@
       "path": "social-pin/modules/Platform & Cross-cutting/features/App Shell & Onboarding Narrative/App Shell & Onboarding Narrative Frontend Requirements.md",
       "pending": [],
       "priority": "medium",
-      "related": [],
+      "related": [
+        "task:B-03",
+        "qa-backend:auth"
+      ],
       "release": "later",
       "resolution": null,
       "scope": "feature",
@@ -37463,7 +39232,8 @@
       "priority": "critical",
       "related": [
         "backend-delivery:account",
-        "backend-integration:account"
+        "backend-integration:account",
+        "qa-backend:auth"
       ],
       "release": "mvp",
       "resolution": null,
@@ -37513,6 +39283,9 @@
       "pending": [],
       "priority": "critical",
       "related": [
+        "task:B-03",
+        "task:B-04",
+        "task:B-05",
         "backend-delivery:account",
         "backend-integration:account",
         "needs-decision:ND-01",
@@ -37523,6 +39296,7 @@
         "feature:rings",
         "story:profiles",
         "story:error-contract",
+        "qa-backend:auth",
         "story:auth",
         "project:auth-model"
       ],
@@ -37581,7 +39355,9 @@
       "pending": [],
       "priority": "critical",
       "related": [
-        "backend-integration:account"
+        "task:B-03",
+        "backend-integration:account",
+        "qa-backend:auth"
       ],
       "release": "mvp",
       "resolution": null,
@@ -37730,8 +39506,11 @@
       "pending": [],
       "priority": "critical",
       "related": [
+        "task:B-04",
+        "task:B-05",
         "backend-delivery:account",
-        "backend-integration:account"
+        "backend-integration:account",
+        "qa-backend:auth"
       ],
       "release": "mvp",
       "resolution": null,
@@ -37788,7 +39567,10 @@
       "path": "social-pin/modules/Shared Rings & Companies/features/Companies/Companies Frontend Requirements.md",
       "pending": [],
       "priority": "high",
-      "related": [],
+      "related": [
+        "task:B-03",
+        "qa-backend:auth"
+      ],
       "release": "v1",
       "resolution": null,
       "scope": "feature",
@@ -37845,7 +39627,10 @@
       "path": "social-pin/modules/Connections/features/Connections/Connections Frontend Requirements.md",
       "pending": [],
       "priority": "critical",
-      "related": [],
+      "related": [
+        "task:B-03",
+        "qa-backend:auth"
+      ],
       "release": "mvp",
       "resolution": null,
       "scope": "feature",
@@ -37963,7 +39748,10 @@
       "path": "social-pin/modules/Shared Rings & Companies/features/Delegated Admins/Delegated Admins Frontend Requirements.md",
       "pending": [],
       "priority": "high",
-      "related": [],
+      "related": [
+        "task:B-03",
+        "qa-backend:auth"
+      ],
       "release": "v1",
       "resolution": null,
       "scope": "feature",
@@ -38015,8 +39803,10 @@
       "pending": [],
       "priority": "high",
       "related": [
+        "task:B-03",
         "backend-delivery:account",
         "backend-integration:account",
+        "qa-backend:auth",
         "project:auth-model"
       ],
       "release": "v1",
@@ -38068,7 +39858,10 @@
       "path": "social-pin/modules/Discovery/features/Discover Hub & Search/Discover Hub & Search Frontend Requirements.md",
       "pending": [],
       "priority": "high",
-      "related": [],
+      "related": [
+        "task:B-03",
+        "qa-backend:auth"
+      ],
       "release": "v1",
       "resolution": null,
       "scope": "feature",
@@ -38167,8 +39960,10 @@
       "pending": [],
       "priority": "critical",
       "related": [
+        "task:B-03",
         "backend-delivery:account",
         "backend-integration:account",
+        "qa-backend:auth",
         "project:auth-model"
       ],
       "release": "mvp",
@@ -38268,7 +40063,10 @@
       "path": "social-pin/modules/Events/features/Events Before/Events Before Frontend Requirements.md",
       "pending": [],
       "priority": "critical",
-      "related": [],
+      "related": [
+        "task:B-03",
+        "qa-backend:auth"
+      ],
       "release": "mvp",
       "resolution": null,
       "scope": "feature",
@@ -38493,7 +40291,9 @@
       "path": "social-pin/modules/Platform & Cross-cutting/features/Gemma AI/Gemma AI Frontend Requirements.md",
       "pending": [],
       "priority": "medium",
-      "related": [],
+      "related": [
+        "qa-backend:auth"
+      ],
       "release": "later",
       "resolution": null,
       "scope": "feature",
@@ -38547,7 +40347,9 @@
       "pending": [],
       "priority": "high",
       "related": [
+        "task:B-03",
         "frontend-requirements:auth",
+        "qa-backend:auth",
         "feature:auth",
         "feature:gemma",
         "story:gemma",
@@ -38604,8 +40406,11 @@
       "pending": [],
       "priority": "high",
       "related": [
+        "task:B-03",
+        "task:B-04",
         "backend-delivery:account",
-        "backend-integration:account"
+        "backend-integration:account",
+        "qa-backend:auth"
       ],
       "release": "v1",
       "resolution": null,
@@ -38712,7 +40517,10 @@
       "path": "social-pin/modules/Platform & Cross-cutting/features/Notifications/Notifications Frontend Requirements.md",
       "pending": [],
       "priority": "high",
-      "related": [],
+      "related": [
+        "task:B-03",
+        "qa-backend:auth"
+      ],
       "release": "v1",
       "resolution": null,
       "scope": "feature",
@@ -38766,7 +40574,9 @@
       "pending": [],
       "priority": "high",
       "related": [
+        "task:B-05",
         "frontend-requirements:auth",
+        "qa-backend:auth",
         "decision:D-02",
         "decision:D-03",
         "needs-decision:ND-21",
@@ -38877,7 +40687,10 @@
       "path": "social-pin/modules/Commerce/features/Payments & Orders/Payments & Orders Frontend Requirements.md",
       "pending": [],
       "priority": "high",
-      "related": [],
+      "related": [
+        "task:B-03",
+        "qa-backend:auth"
+      ],
       "release": "v1",
       "resolution": null,
       "scope": "feature",
@@ -38979,7 +40792,10 @@
       "path": "social-pin/modules/Discovery/features/PinCast & Nearby/PinCast & Nearby Frontend Requirements.md",
       "pending": [],
       "priority": "high",
-      "related": [],
+      "related": [
+        "task:B-03",
+        "qa-backend:auth"
+      ],
       "release": "v1",
       "resolution": null,
       "scope": "feature",
@@ -39033,7 +40849,10 @@
       "path": "social-pin/modules/Events/features/Post-Event/Post-Event Frontend Requirements.md",
       "pending": [],
       "priority": "high",
-      "related": [],
+      "related": [
+        "task:B-03",
+        "qa-backend:auth"
+      ],
       "release": "v1",
       "resolution": null,
       "scope": "feature",
@@ -39086,7 +40905,9 @@
       "pending": [],
       "priority": "critical",
       "related": [
+        "task:B-05",
         "frontend-requirements:auth",
+        "qa-backend:auth",
         "decision:D-02",
         "decision:D-06",
         "feature:onboarding-imports",
@@ -39200,7 +41021,10 @@
       "path": "social-pin/modules/Shared Rings & Companies/features/Ring Invitations & Join/Ring Invitations & Join Frontend Requirements.md",
       "pending": [],
       "priority": "high",
-      "related": [],
+      "related": [
+        "task:B-03",
+        "qa-backend:auth"
+      ],
       "release": "v1",
       "resolution": null,
       "scope": "feature",
@@ -39420,7 +41244,10 @@
       "path": "social-pin/modules/Commerce/features/Subscription (Free vs Pro)/Subscription (Free vs Pro) Frontend Requirements.md",
       "pending": [],
       "priority": "high",
-      "related": [],
+      "related": [
+        "task:B-03",
+        "qa-backend:auth"
+      ],
       "release": "v1",
       "resolution": null,
       "scope": "feature",
@@ -39471,7 +41298,10 @@
       "path": "social-pin/modules/Identity Core/features/View As & Pin Views/View As & Pin Views Frontend Requirements.md",
       "pending": [],
       "priority": "critical",
-      "related": [],
+      "related": [
+        "task:B-03",
+        "qa-backend:auth"
+      ],
       "release": "mvp",
       "resolution": null,
       "scope": "feature",
@@ -40021,12 +41851,14 @@
         "delivered": 2,
         "done": 9,
         "draft": 11,
+        "failing": 1,
         "in-progress": 13,
-        "missing": 40,
+        "missing": 39,
         "needs-decision": 1,
         "partial": 4,
         "passing": 1,
         "ready": 2,
+        "todo": 4,
         "verified": 7
       },
       "scope": null,
@@ -40265,7 +42097,8 @@
       "related": [
         "task:B-01",
         "decision:D-01",
-        "frontend-requirements:auth"
+        "frontend-requirements:auth",
+        "qa-backend:auth"
       ],
       "release": null,
       "resolution": null,
@@ -41311,7 +43144,8 @@
         "decision:D-20",
         "backend-delivery:account",
         "backend-integration:account",
-        "story:account"
+        "story:account",
+        "qa-backend:auth"
       ],
       "release": null,
       "resolution": null,
@@ -41768,11 +43602,13 @@
       "priority": null,
       "related": [
         "task:B-02",
+        "task:B-03",
         "needs-decision:ND-20",
         "backend-delivery:account",
         "backend-integration:account",
         "backend-delivery:auth",
         "backend-integration:auth",
+        "qa-backend:auth",
         "feature:account",
         "frontend-delivery:account",
         "frontend-requirements:account",
@@ -41885,7 +43721,9 @@
       "path": "social-pin/backend/Database & Migrations.md",
       "pending": [],
       "priority": null,
-      "related": [],
+      "related": [
+        "task:B-06"
+      ],
       "release": null,
       "resolution": null,
       "scope": null,
@@ -41929,7 +43767,8 @@
       "priority": null,
       "related": [
         "backend-delivery:account",
-        "backend-integration:account"
+        "backend-integration:account",
+        "qa-backend:auth"
       ],
       "release": null,
       "resolution": null,
@@ -41976,6 +43815,7 @@
         "feature:build-deploy",
         "backend-delivery:account",
         "backend-integration:account",
+        "qa-backend:auth",
         "story:build-deploy"
       ],
       "release": null,
@@ -42211,6 +44051,8 @@
       "pending": [],
       "priority": null,
       "related": [
+        "task:B-03",
+        "qa-backend:auth",
         "project:agent-rules",
         "project:frontend-agent",
         "project:frontend-contract",
@@ -42260,8 +44102,11 @@
       "pending": [],
       "priority": null,
       "related": [
+        "task:B-03",
+        "task:B-05",
         "backend-delivery:account",
         "backend-integration:account",
+        "qa-backend:auth",
         "project:backend-agent",
         "project:frontend-agent",
         "project:auth-model",
@@ -42310,6 +44155,9 @@
       "priority": null,
       "related": [
         "feature:error-contract",
+        "task:B-03",
+        "task:B-04",
+        "qa-backend:auth",
         "project:frontend-agent",
         "project:frontend-agent-prompt"
       ],
@@ -42355,8 +44203,12 @@
       "pending": [],
       "priority": null,
       "related": [
+        "task:B-03",
+        "task:B-04",
+        "task:B-05",
         "backend-delivery:account",
         "backend-integration:account",
+        "qa-backend:auth",
         "project:auth-model"
       ],
       "release": null,
@@ -42776,8 +44628,10 @@
         "feature:companies",
         "feature:delegated-admins",
         "feature:ring-invitations",
+        "task:B-04",
         "backend-delivery:account",
-        "backend-integration:account"
+        "backend-integration:account",
+        "qa-backend:auth"
       ],
       "release": null,
       "resolution": null,
@@ -42820,7 +44674,11 @@
       "path": "social-pin/business/Status Report 2026-10-15.md",
       "pending": [],
       "priority": null,
-      "related": [],
+      "related": [
+        "task:B-04",
+        "task:B-05",
+        "qa-backend:auth"
+      ],
       "release": null,
       "resolution": null,
       "scope": null,
@@ -42924,6 +44782,9 @@
       "related": [
         "task:B-01",
         "task:B-02",
+        "task:B-03",
+        "task:B-04",
+        "task:B-06",
         "backend-delivery:account",
         "backend-integration:account",
         "backend-integration:auth",
@@ -42933,6 +44794,7 @@
         "story:error-contract",
         "qa-frontend:account",
         "backend-delivery:auth",
+        "qa-backend:auth",
         "project:auth-model"
       ],
       "release": "mvp",
@@ -43003,19 +44865,25 @@
     "qa-backend:auth": {
       "affects": [],
       "blockedBy": [],
-      "card": null,
+      "card": "QB-05",
       "children": [],
       "code": "auth",
-      "created": null,
+      "created": "2026-10-27",
       "deadline": null,
-      "depends": [],
-      "effectiveStatus": "missing",
+      "depends": [
+        "backend-delivery:auth",
+        "story:auth"
+      ],
+      "effectiveStatus": "failing",
       "effort": null,
       "feature": "auth",
       "foundOn": null,
       "frontendOnly": false,
       "id": "qa-backend:auth",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:auth",
+        "release": "feature:auth"
+      },
       "kind": "qa-backend",
       "label": "QA Backend",
       "labels": [],
@@ -43025,20 +44893,124 @@
       "parents": [
         "feature:auth"
       ],
-      "path": null,
-      "pending": [],
-      "priority": null,
-      "related": [],
-      "release": null,
+      "path": "social-pin/modules/Identity Core/features/Auth & Sign-up/Auth & Sign-up QA Backend.md",
+      "pending": [
+        {
+          "person": null,
+          "text": "row B42, filed 2026-10-27, re-run when it ships",
+          "to": "task:B-03"
+        },
+        {
+          "person": null,
+          "text": "row B5, filed 2026-10-27, re-run when it ships",
+          "to": "task:B-04"
+        },
+        {
+          "person": null,
+          "text": "row B30, filed 2026-10-27, re-run when it ships",
+          "to": "task:B-05"
+        },
+        {
+          "person": null,
+          "text": "re-run B15 by ageing a code with Postgres now(), filed 2026-10-27",
+          "to": "task:B-06"
+        },
+        {
+          "person": null,
+          "text": "S2 says the 429 comes after five wrong tries; the build answers it on the sixth submission (/pm)",
+          "to": "story:auth"
+        }
+      ],
+      "priority": "critical",
+      "related": [
+        "task:B-03",
+        "task:B-04",
+        "task:B-05",
+        "task:B-06",
+        "backend-delivery:account",
+        "backend-integration:account",
+        "backend-delivery:auth",
+        "backend-integration:auth",
+        "frontend-requirements:auth",
+        "qa-backend:account",
+        "project:auth-model",
+        "backend-integration:profiles",
+        "backend-delivery:error-contract",
+        "story:code-delivery",
+        "story:error-contract",
+        "needs-decision:ND-01",
+        "story:auth",
+        "frontend-requirements:code-delivery",
+        "frontend-requirements:linked-accounts",
+        "project:spec-map",
+        "project:status-report-2026-10-15",
+        "project:frontend-contract",
+        "project:frontend-passwordless-migration",
+        "frontend-requirements:onboarding-imports",
+        "story:onboarding-imports",
+        "frontend-requirements:profiles",
+        "story:profiles",
+        "task:B-01",
+        "needs-decision:ND-20",
+        "decision:D-20",
+        "story:account",
+        "project:developer-guide",
+        "frontend-requirements:audit-log",
+        "backend-delivery:linked-accounts",
+        "story:linked-accounts",
+        "project:developer-setup",
+        "frontend-requirements:app-shell",
+        "frontend-requirements:devices",
+        "project:frontend-agent-prompt",
+        "project:frontend-api-guide",
+        "frontend-delivery:account",
+        "frontend-requirements:account",
+        "backend-delivery:devices",
+        "story:devices",
+        "story:discover-hub",
+        "backend-delivery:profiles",
+        "frontend-requirements:gemma",
+        "task:B-02",
+        "qa-frontend:account",
+        "frontend-requirements:error-contract",
+        "frontend-requirements:payments",
+        "frontend-requirements:subscription",
+        "frontend-requirements:connections",
+        "frontend-requirements:badge-qr",
+        "frontend-requirements:discover-hub",
+        "frontend-requirements:pincast",
+        "frontend-requirements:events-before",
+        "frontend-requirements:post-event",
+        "frontend-requirements:view-as",
+        "frontend-requirements:interests",
+        "frontend-requirements:notifications",
+        "frontend-requirements:companies",
+        "frontend-requirements:delegated-admins",
+        "frontend-requirements:ring-invitations",
+        "feature:account"
+      ],
+      "release": "mvp",
+      "resolution": null,
       "scope": "feature",
-      "screens": [],
-      "status": null,
-      "summary": "Not written yet. Create it with: node scripts/build-tree.mjs --scaffold qa-backend auth",
-      "tags": [],
+      "screens": [
+        "s01",
+        "s02",
+        "s06",
+        "s08",
+        "s68",
+        "s75"
+      ],
+      "status": "failing",
+      "summary": "Expected behaviour of the API, as artefacts a person can check a build against: tables and diagrams, not test code (the specs live in the backend repo). status: passing or failing after a run; the…",
+      "tags": [
+        "qa-backend",
+        "qa-backend/failing",
+        "module/identity",
+        "layer/qa"
+      ],
       "task": null,
-      "template": "templates/QA Backend Template.md",
       "title": "Auth & Sign-up QA Backend",
-      "updated": null
+      "updated": "2026-10-27"
     },
     "qa-backend:badge-qr": {
       "affects": [],
@@ -44750,6 +46722,7 @@
       "related": [
         "task:B-01",
         "task:B-02",
+        "task:B-03",
         "backend-delivery:account",
         "backend-integration:account",
         "frontend-requirements:account",
@@ -44759,6 +46732,7 @@
         "story:files",
         "backend-delivery:auth",
         "backend-integration:auth",
+        "qa-backend:auth",
         "project:auth-model"
       ],
       "release": "mvp",
@@ -46691,14 +48665,15 @@
         "delivered": 2,
         "done": 10,
         "draft": 41,
+        "failing": 1,
         "in-progress": 44,
-        "missing": 154,
+        "missing": 153,
         "needs-decision": 1,
         "partial": 4,
         "passing": 1,
         "ready": 2,
         "reference": 31,
-        "todo": 5,
+        "todo": 9,
         "verified": 14
       },
       "scope": null,
@@ -46748,6 +48723,7 @@
         "needs-decision:ND-20",
         "decision:D-20",
         "task:B-01",
+        "qa-backend:auth",
         "project:auth-model"
       ],
       "release": "mvp",
@@ -46903,8 +48879,12 @@
       "pending": [],
       "priority": "critical",
       "related": [
+        "task:B-03",
+        "task:B-04",
+        "task:B-05",
         "backend-delivery:account",
         "backend-integration:account",
+        "qa-backend:auth",
         "decision:D-06",
         "frontend-requirements:auth",
         "feature:onboarding-imports",
@@ -47141,9 +49121,12 @@
       "priority": "critical",
       "related": [
         "task:B-01",
+        "task:B-04",
+        "task:B-05",
         "needs-decision:ND-20",
         "decision:D-20",
-        "backend-delivery:account"
+        "backend-delivery:account",
+        "qa-backend:auth"
       ],
       "release": "mvp",
       "resolution": null,
@@ -47439,7 +49422,8 @@
       "pending": [],
       "priority": "high",
       "related": [
-        "frontend-delivery:account"
+        "frontend-delivery:account",
+        "qa-backend:auth"
       ],
       "release": "v1",
       "resolution": null,
@@ -47490,7 +49474,9 @@
       "path": "social-pin/modules/Discovery/features/Discover Hub & Search/Discover Hub & Search Story.md",
       "pending": [],
       "priority": "high",
-      "related": [],
+      "related": [
+        "qa-backend:auth"
+      ],
       "release": "v1",
       "resolution": null,
       "scope": "feature",
@@ -47594,6 +49580,7 @@
       "priority": "critical",
       "related": [
         "task:B-02",
+        "task:B-05",
         "needs-decision:ND-19",
         "decision:D-19",
         "backend-delivery:account",
@@ -47602,6 +49589,7 @@
         "qa-backend:account",
         "qa-frontend:account",
         "frontend-requirements:auth",
+        "qa-backend:auth",
         "frontend-requirements:counts",
         "frontend-requirements:onboarding-imports",
         "frontend-requirements:profiles",
@@ -48052,7 +50040,8 @@
       "related": [
         "backend-delivery:account",
         "backend-integration:account",
-        "frontend-delivery:account"
+        "frontend-delivery:account",
+        "qa-backend:auth"
       ],
       "release": "v1",
       "resolution": null,
@@ -48218,7 +50207,9 @@
       "pending": [],
       "priority": "high",
       "related": [
+        "task:B-05",
         "needs-decision:ND-21",
+        "qa-backend:auth",
         "decision:D-02",
         "frontend-requirements:profiles"
       ],
@@ -48554,8 +50545,10 @@
       "pending": [],
       "priority": "critical",
       "related": [
+        "task:B-05",
         "needs-decision:ND-21",
         "frontend-requirements:auth",
+        "qa-backend:auth",
         "story:auth",
         "frontend-requirements:onboarding-imports",
         "decision:D-02",
@@ -49092,6 +51085,7 @@
         "decision:D-20",
         "backend-delivery:account",
         "story:account",
+        "qa-backend:auth",
         "project:auth-model"
       ],
       "release": "mvp",
@@ -49177,7 +51171,8 @@
         "feature:profiles",
         "backend-integration:account",
         "backend-delivery:auth",
-        "backend-integration:auth"
+        "backend-integration:auth",
+        "qa-backend:auth"
       ],
       "release": "mvp",
       "resolution": "fixed",
@@ -49197,6 +51192,302 @@
       ],
       "task": null,
       "title": "B-02 Deleted account answers 401, not the documented 404 E_USER_01",
+      "updated": "2026-10-27"
+    },
+    "task:B-03": {
+      "affects": [
+        "backend-integration:auth",
+        "backend-delivery:auth",
+        "qa-backend:auth"
+      ],
+      "blockedBy": [],
+      "card": "B-03",
+      "children": [],
+      "code": "B-03",
+      "created": "2026-10-27",
+      "deadline": null,
+      "decision": null,
+      "depends": [],
+      "dir": null,
+      "effectiveStatus": "todo",
+      "effort": "S",
+      "feature": "auth",
+      "foundOn": "Auth & Sign-up Backend Integration",
+      "frontendOnly": false,
+      "id": "task:B-03",
+      "inherits": {
+        "release": "feature:auth"
+      },
+      "kind": "task",
+      "label": "Bug",
+      "labels": [
+        "bug"
+      ],
+      "layer": "business",
+      "module": "identity",
+      "parentTask": null,
+      "parents": [
+        "backend-integration:auth"
+      ],
+      "path": "social-pin/bugs/B-03 Two refreshes at once both succeed and fork the session.md",
+      "pending": [],
+      "priority": "high",
+      "related": [
+        "backend-integration:auth",
+        "qa-backend:auth",
+        "project:auth-model",
+        "qa-backend:account",
+        "backend-delivery:auth",
+        "frontend-requirements:auth",
+        "story:auth",
+        "frontend-requirements:app-shell",
+        "frontend-requirements:devices",
+        "project:frontend-agent-prompt",
+        "project:frontend-api-guide",
+        "project:frontend-passwordless-migration",
+        "frontend-requirements:payments",
+        "frontend-requirements:subscription",
+        "frontend-requirements:connections",
+        "frontend-requirements:badge-qr",
+        "frontend-requirements:discover-hub",
+        "frontend-requirements:pincast",
+        "frontend-requirements:events-before",
+        "frontend-requirements:post-event",
+        "backend-integration:account",
+        "frontend-requirements:account",
+        "qa-frontend:account",
+        "frontend-requirements:view-as",
+        "frontend-requirements:error-contract",
+        "frontend-requirements:interests",
+        "frontend-requirements:linked-accounts",
+        "frontend-requirements:notifications",
+        "frontend-requirements:companies",
+        "frontend-requirements:delegated-admins",
+        "frontend-requirements:ring-invitations",
+        "project:frontend-contract"
+      ],
+      "release": "mvp",
+      "resolution": null,
+      "rollup": {},
+      "scope": null,
+      "screens": [
+        "s68"
+      ],
+      "status": "todo",
+      "summary": "The fix is the backend's (/backend): revoke with a conditional write (revokedAt: null in the where, and treat zero rows updated as 401), or lock the row, so exactly one rotation wins.",
+      "tags": [
+        "bug",
+        "bug/todo",
+        "module/identity",
+        "priority/high"
+      ],
+      "task": null,
+      "title": "B-03 Two refreshes at once both succeed and fork the session",
+      "updated": "2026-10-27"
+    },
+    "task:B-04": {
+      "affects": [
+        "backend-integration:auth",
+        "qa-backend:auth"
+      ],
+      "blockedBy": [],
+      "card": "B-04",
+      "children": [],
+      "code": "B-04",
+      "created": "2026-10-27",
+      "deadline": null,
+      "decision": null,
+      "depends": [],
+      "dir": null,
+      "effectiveStatus": "todo",
+      "effort": "S",
+      "feature": "auth",
+      "foundOn": "Auth & Sign-up Backend Integration",
+      "frontendOnly": false,
+      "id": "task:B-04",
+      "inherits": {
+        "release": "feature:auth"
+      },
+      "kind": "task",
+      "label": "Bug",
+      "labels": [
+        "bug"
+      ],
+      "layer": "business",
+      "module": "identity",
+      "parentTask": null,
+      "parents": [
+        "backend-integration:auth"
+      ],
+      "path": "social-pin/bugs/B-04 Sign-up accepts an email and a phone together.md",
+      "pending": [],
+      "priority": "medium",
+      "related": [
+        "backend-integration:auth",
+        "qa-backend:auth",
+        "qa-backend:account",
+        "backend-delivery:auth",
+        "frontend-requirements:auth",
+        "story:auth",
+        "frontend-requirements:code-delivery",
+        "story:code-delivery",
+        "frontend-requirements:linked-accounts",
+        "project:spec-map",
+        "project:status-report-2026-10-15",
+        "project:frontend-contract",
+        "project:frontend-passwordless-migration"
+      ],
+      "release": "mvp",
+      "resolution": null,
+      "rollup": {},
+      "scope": null,
+      "screens": [
+        "s01"
+      ],
+      "status": "todo",
+      "summary": "The fix is the backend's (/backend): reject both with 400 EAUTH07, as the contract says. Or, if both should be allowed, that is a product call and the integration note moves instead.",
+      "tags": [
+        "bug",
+        "bug/todo",
+        "module/identity",
+        "priority/medium"
+      ],
+      "task": null,
+      "title": "B-04 Sign-up accepts an email and a phone together",
+      "updated": "2026-10-27"
+    },
+    "task:B-05": {
+      "affects": [
+        "backend-integration:auth",
+        "qa-backend:auth"
+      ],
+      "blockedBy": [],
+      "card": "B-05",
+      "children": [],
+      "code": "B-05",
+      "created": "2026-10-27",
+      "deadline": null,
+      "decision": null,
+      "depends": [],
+      "dir": null,
+      "effectiveStatus": "todo",
+      "effort": "S",
+      "feature": "auth",
+      "foundOn": "Auth & Sign-up Backend Integration",
+      "frontendOnly": false,
+      "id": "task:B-05",
+      "inherits": {
+        "release": "feature:auth"
+      },
+      "kind": "task",
+      "label": "Bug",
+      "labels": [
+        "bug"
+      ],
+      "layer": "business",
+      "module": "identity",
+      "parentTask": null,
+      "parents": [
+        "backend-integration:auth"
+      ],
+      "path": "social-pin/bugs/B-05 Expired onboarding token answers 401, not the documented 400.md",
+      "pending": [],
+      "priority": "low",
+      "related": [
+        "backend-integration:auth",
+        "qa-backend:auth",
+        "backend-delivery:auth",
+        "frontend-requirements:auth",
+        "frontend-requirements:onboarding-imports",
+        "story:onboarding-imports",
+        "frontend-requirements:profiles",
+        "story:profiles",
+        "project:status-report-2026-10-15",
+        "project:frontend-passwordless-migration",
+        "story:auth",
+        "frontend-requirements:code-delivery",
+        "story:code-delivery",
+        "story:error-contract",
+        "project:frontend-api-guide"
+      ],
+      "release": "mvp",
+      "resolution": null,
+      "rollup": {},
+      "scope": null,
+      "screens": [
+        "s06"
+      ],
+      "status": "todo",
+      "summary": "Output of node scripts/build-tree.mjs --impact B-05 when the bug was filed: the notes the fix touches and that must be updated or flagged when it ships.",
+      "tags": [
+        "bug",
+        "bug/todo",
+        "module/identity",
+        "priority/low"
+      ],
+      "task": null,
+      "title": "B-05 Expired onboarding token answers 401, not the documented 400",
+      "updated": "2026-10-27"
+    },
+    "task:B-06": {
+      "affects": [
+        "backend-delivery:auth",
+        "project:database-migrations",
+        "qa-backend:auth"
+      ],
+      "blockedBy": [],
+      "card": "B-06",
+      "children": [],
+      "code": "B-06",
+      "created": "2026-10-27",
+      "deadline": null,
+      "decision": null,
+      "depends": [],
+      "dir": null,
+      "effectiveStatus": "todo",
+      "effort": "M",
+      "feature": "auth",
+      "foundOn": "Auth & Sign-up Backend Delivery",
+      "frontendOnly": false,
+      "id": "task:B-06",
+      "inherits": {
+        "release": "feature:auth"
+      },
+      "kind": "task",
+      "label": "Bug",
+      "labels": [
+        "bug"
+      ],
+      "layer": "business",
+      "module": "identity",
+      "parentTask": null,
+      "parents": [
+        "backend-delivery:auth"
+      ],
+      "path": "social-pin/bugs/B-06 Timestamps the app writes are stored shifted by the server time zone.md",
+      "pending": [],
+      "priority": "high",
+      "related": [
+        "backend-delivery:auth",
+        "qa-backend:auth",
+        "project:database-migrations",
+        "qa-backend:account"
+      ],
+      "release": "mvp",
+      "resolution": null,
+      "rollup": {},
+      "scope": null,
+      "screens": [],
+      "status": "todo",
+      "summary": "The app reads its own values back shifted the other way, so the API looks right (lastLoginAt and expiresAt come back correct, rows B1 and B34) and the app's own comparisons agree with each other.…",
+      "tags": [
+        "bug",
+        "bug/todo",
+        "module/identity",
+        "priority/high"
+      ],
+      "task": null,
+      "title": "B-06 Timestamps the app writes are stored shifted by the server time zone",
       "updated": "2026-10-27"
     }
   },

@@ -47,6 +47,17 @@ One story per feature (since 2026-10-27): all of this feature's work is in [[Aut
 - T-056 · 2026-10-15 · decided A and shipped (`feat(auth): passwordless sign-in with OTP codes`, merged to `main`)
 - T-056 · 2026-10-18 · vault updated; [[Frontend Passwordless Migration]] written for the client team
 
+### Bugs
+
+Filed from [[Auth & Sign-up QA Backend]] on 2026-10-27; each hangs under the card it was found against.
+
+| Bug | Status | Priority | Effort |
+|---|---|---|---|
+| [[B-03 Two refreshes at once both succeed and fork the session]] | ⬜ To do | high | S |
+| [[B-04 Sign-up accepts an email and a phone together]] | ⬜ To do | medium | S |
+| [[B-05 Expired onboarding token answers 401, not the documented 400]] | ⬜ To do | low | S |
+| [[B-06 Timestamps the app writes are stored shifted by the server time zone]] | ⬜ To do | high | M |
+
 ## Decisions
 
 - [[ND-01 Passwordless login]] — decided, code-only login
