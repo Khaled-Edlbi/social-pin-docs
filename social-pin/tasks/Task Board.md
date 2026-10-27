@@ -186,7 +186,6 @@ kanban-plugin: board
 - [ ] [[T-054-be Backend · Cleanup jobs]] #high #cleanup-jobs #backend
 - [ ] [[T-078 Main profile fields from D-02]] #high #profiles
 - [ ] [[T-078-be Backend · Main profile fields from D-02]] #high #profiles #backend
-- [ ] [[B-02 Deleted account answers 401, not the documented 404 E_USER_01]] #medium #account #bug
 - [ ] [[T-020b-be Backend · Business card scan and portfolio URL import]] #medium #onboarding-imports #backend
 - [ ] [[T-031-be Backend · Import contacts]] #medium #discover-hub #backend
 - [ ] [[T-079 Enforce the once-a-year Pin name rename]] #medium #profiles
@@ -210,7 +209,8 @@ kanban-plugin: board
 
 ## 🟡 Partial (done, notes pending)
 
-- [ ] [[B-01 An unverified changed email still signs in]] #high #account #bug #resolution/by-design — [[Account Backend Delivery]]: correct the "proven again before it can sign in" sentence and clear the QA flag (/backend); [[Account Backend Integration]]: say that a changed destination is unverified and still signs in (/backend); [[Account QA Backend]]: re-run row B9 against the corrected notes (/qa); [[Account QA Frontend]]: re-run row F10 against the corrected notes (/qa); @khaled: re-approve [[Account Story]] after the S2 and S3 copy change (/owner)
+- [ ] [[B-01 An unverified changed email still signs in]] #high #account #bug #resolution/by-design — [[Account QA Frontend]]: re-run row F10 against the corrected notes (/qa); @khaled: re-approve [[Account Story]] after the S2 and S3 copy change (/owner)
+- [ ] [[B-02 Deleted account answers 401, not the documented 404 E_USER_01]] #medium #account #bug #resolution/fixed — [[Account Frontend Delivery]]: keep the 404 branch on GET /users/me deliberately, and decide whether a 404 from any other authenticated route also ends the session (/frontend); [[Account QA Frontend]]: run F15 on a build with main @ b4984d6; needs a second phone (/qa)
 - [ ] [[T-073 GitLab pipeline and Docker setup]] #medium #build-deploy #chore — @backend: the pipeline's runs are not verified from here; @backend: no production job — only development and stage; @backend: docs-only task, so no layer notes (Workflow §3)
 
 

@@ -2,6 +2,7 @@
 type: project
 created: 2026-10-15
 updated: 2026-10-26
+related: ["B-02 Deleted account answers 401, not the documented 404 E_USER_01", E_USER_01, E_AUTH_03]
 tags: [project]
 layer: backend
 ---
@@ -27,7 +28,7 @@ As implemented. Feature note: [[Auth & Sign-up]]. Decided: [[ND-01 Passwordless 
 | refresh | `refresh` | 7 days | only `/auth/refresh` and `/auth/logout`; **rotating, single-use**, stored bcrypt-hashed |
 | onboarding | `onboarding` | 15 min | only `complete-registration` |
 
-`JwtStrategy` rejects anything whose scope is not exactly `access`, and **re-reads the user on every request**, so a SUSPENDED account loses access at once.
+`JwtStrategy` rejects anything whose scope is not exactly `access`, and **re-reads the user on every request**, so a SUSPENDED account loses access at once (401 `E_AUTH_03`). A DELETED account, or a `sub` with no row, answers **404 `E_USER_01`** on every route instead, so the client can tell "deleted" from "suspended" ([[B-02 Deleted account answers 401, not the documented 404 E_USER_01]]).
 
 **What is hashed is the refresh JWT's `jti`, never the JWT.** bcrypt ignores input past 72 bytes, and the first 72 bytes of a refresh JWT are identical for every token a user holds. Hashing the JWT made every live row match every token, so rotation and revocation silently did nothing. Fixed and regression-tested 2026-10-07; `REFRESH_TOKEN_BYTES = 48` keeps the `jti` under the limit.
 

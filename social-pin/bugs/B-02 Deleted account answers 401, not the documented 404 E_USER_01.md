@@ -1,7 +1,8 @@
 ---
 type: bug
 id: B-02
-status: todo
+status: done
+resolution: fixed
 priority: medium
 effort: S
 feature: account
@@ -12,15 +13,15 @@ screens: [s68]
 depends: []
 affects: ["Account Backend Integration", "Account Story", "Account QA Backend"]
 related: ["Account QA Backend", "Account QA Frontend", "Account Backend Delivery", "Error Contract Backend Delivery", "Auth Model", "T-063 Put the ErrorCode on the error body", "Rings", "Profiles & Pin Name"]
-pending: []
+pending: ["[[Account Frontend Delivery]]: keep the 404 branch on GET /users/me deliberately, and decide whether a 404 from any other authenticated route also ends the session (/frontend)", "[[Account QA Frontend]]: run F15 on a build with main @ b4984d6; needs a second phone (/qa)"]
 created: 2026-10-26
 updated: 2026-10-26
-tags: [bug, bug/todo, module/identity, priority/medium]
+tags: [bug, bug/done, module/identity, priority/medium, resolution/fixed]
 ---
 
-# ⬜ B-02 · Deleted account answers 401, not the documented 404 E_USER_01
+# ✅ B-02 · Deleted account answers 401, not the documented 404 E_USER_01
 
-**Found against:** [[Account Backend Integration]] · **Feature:** [[Account]] · **Status:** To do · **Priority:** Medium · **Deadline:** — · **Effort:** S
+**Found against:** [[Account Backend Integration]] · **Feature:** [[Account]] · **Status:** Done · **Resolution:** fixed · **Priority:** Medium · **Deadline:** — · **Effort:** S
 
 **Found by:** [[Account QA Backend]] row B14, on build `dev 2026-10-26 · localhost:3000`, and seen from the client in [[Account QA Frontend]] row F19.
 
@@ -56,17 +57,20 @@ Output of `node scripts/build-tree.mjs --impact B-02` when the bug was filed: th
 
 ## Definition of done
 
-- [ ] Decided which way it goes: the guard lets `DELETED` through to a 404, or the notes are corrected to 401
-- [ ] If the notes move: the `E_USER_01` row updated or retired in [[Account Backend Integration]], and [[Account Story]] S4 re-approved (`/pm`, then `/owner`)
-- [ ] The client's dead 404 branch removed or kept deliberately, with [[Account Frontend Delivery]] saying which (`/frontend`)
-- [ ] Code per the backend's `CLAUDE.md` (every visibility decision through `RingAccessService`)
-- [ ] `pnpm typecheck && pnpm test` green
-- [ ] The flag line on [[Account Backend Integration]] cleared
-- [ ] `depends` / `affects` / `related` declared; notes listed by `--impact` updated or flagged
-- [ ] [[Account QA Backend]] row B14 and [[Account QA Frontend]] row F19 re-run on a named build and cleared from their `pending` (`/qa`)
-- [ ] `node scripts/build-tree.mjs` run; tree, board and backlog committed
+- [x] Decided which way it goes: the guard answers a `DELETED` account 404 `E_USER_01` (2026-10-26, @khaled: "fix it in the backend side")
+- [x] ~~If the notes move: the `E_USER_01` row updated or retired in [[Account Backend Integration]], and [[Account Story]] S4 re-approved~~ — not applicable: the code moved to the contract, S4 is unchanged
+- [ ] The client's dead 404 branch removed or kept deliberately, with [[Account Frontend Delivery]] saying which (`/frontend`) — in `pending`; the branch is live now
+- [x] Code per the backend's `CLAUDE.md` — `JwtStrategy` only; no visibility decision involved
+- [x] `pnpm typecheck && pnpm test` green — 216 tests, `main @ b4984d6`
+- [x] The flag line on [[Account Backend Integration]] cleared
+- [x] `depends` / `affects` / `related` declared; notes listed by `--impact` updated or flagged
+- [ ] [[Account QA Backend]] row B14 ✅ on `main @ b4984d6` and cleared from its `pending`; [[Account QA Frontend]] row F15 (the deleted-account row; F19 is the suspended one) not run yet, in `pending` (`/qa`)
+- [x] `node scripts/build-tree.mjs` run; tree, board and backlog committed
 
 ## Log
+
+- 2026-10-26 · branch `tickets/qa/M-01-identity/F-01-account/B-02-fixed` · `/qa` re-ran B14 on `main @ b4984d6` (localhost:3001, Node 22.22.2): a deleted account's old token answers `404 "User not found"` on `/users/me`, `/rings` and `/profiles`; a suspended one keeps 401 (B21 ✅). Closed `done`, `resolution: fixed`, on @khaled's word. Partial until the two `pending` items clear: [[Account Frontend Delivery]] (`/frontend`) and [[Account QA Frontend]] F15 (`/qa`, needs a second phone).
+- 2026-10-26 · backend `B-02/auth/deleted-account-404`, merged to `main` as `b4984d6` · `JwtStrategy` answers a DELETED account (or a missing row) 404 `E_USER_01`; SUSPENDED and PENDING keep 401 `E_AUTH_03`. Backend notes updated; this card, both QA notes and [[Account Frontend Delivery]] flagged.
 
 - 2026-10-26 · branch `docs/admin/project/bug-type` · retyped by `/admin`: `type: bug` (tags `bug`, `bug/<status>`) instead of a task with `labels: [bug]`, as every bug card now is. Nothing else changed: same code, same place in the tree, same status.
 - 2026-10-26 · created with --scaffold task --label bug --found-on "Account Backend Integration", filed by QA from [[Account QA Backend]] row B14. Replaces T-075 and T-077, both withdrawn the same day with their codes retired, as the bug rule moved twice: first to hang a parentless bug under the feature's story, then to hang it under the card it was found against and number it `B-NN`.
