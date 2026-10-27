@@ -3,17 +3,17 @@ type: feature
 id: counts
 name: "Counts"
 priority: high
-release: v1
+release: mvp
 module: identity
 screens: [s11, s12, s14, s16, s17, s68]
 created: 2026-10-15
-updated: 2026-10-26
-tags: [feature, module/identity, priority/high, release/v1]
+updated: 2026-10-27
+tags: [feature, module/identity, priority/high, release/mvp]
 ---
 
 # Counts
 
-**Backend:** Partial (needs more) · **Priority:** High · **Release:** v1 · **Module:** [[Identity Core Module|Identity Core]]
+**Backend:** Partial (needs more) · **Priority:** High · **Release:** MVP · **Module:** [[Identity Core Module|Identity Core]]
 
 **Layers:** [[Counts Story|Story]] · [[Counts Frontend Requirements|Frontend Requirements]] · [[Counts Backend Delivery|Backend Delivery]] · [[Counts Backend Integration|Backend Integration]] · [[Counts Frontend Delivery|Frontend Delivery]] · [[Counts QA Backend|QA Backend]] · [[Counts QA Frontend|QA Frontend]]
 

@@ -8,7 +8,7 @@ feature: counts
 module: identity
 parent: T-005
 labels: [backend]
-screens: [s11, s68]
+screens: [s68]
 depends: [T-021]
 affects: []
 related: []

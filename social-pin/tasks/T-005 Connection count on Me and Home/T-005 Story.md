@@ -5,15 +5,16 @@ scope: task
 feature: counts
 module: identity
 status: draft
-screens: [s11, s68]
-depends: []
+screens: [s68]
+depends: [T-021]
 affects: []
-related: []
+related: ["Counts Story", "Counts Frontend Requirements", "D-15 Several Rings per connection, remove or disconnect", "D-17 Requests expire after 30 days, optional note, ask again at once", "Connections", "Account"]
 pending: []
 approvedBy: ""
 approvedAt: ""
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
+owner: "Omar Fostok"
 tags: [story, story/draft, module/identity, layer/business]
 task: T-005
 ---
@@ -24,31 +25,38 @@ task: T-005
 
 > Derived from the task [[T-005 Connection count on Me and Home]]; **not approved by product yet**. The feature-level story is [[Counts Story]]; this note says what the user gets from this task in particular. `approved` when product signs off (`approvedBy`, `approvedAt`); `verified` when both QA notes are `passing`.
 
-Needs connections to exist.
+A person who has started connecting with others wants to see, on Me, how many connections they have ("218 connections"), next to how many Rings they own. Connections don't exist in the backend yet ([[T-021 Connect request send, inbox, cancel]]), so until then the number is simply not shown. **Me only**: Home shows no connections count (decided 2026-10-27 by omar, [[Counts Story]] S4).
 
 ## Persona
 
-Who this is for (personal user, visitor, exhibitor, organizer, Ring owner, Ring member) and the moment they are in.
+A **personal user** on Me ([[Screen Index#s68|s68]]), checking how their network has grown after an event or a week of scanning badges.
 
 ## Stories
 
-### S1 · Connection count on Me and Home ([[Screen Index#s11|s11]], [[Screen Index#s68|s68]])
+### S1 · Connections on Me ([[Screen Index#s68|s68]])
 
-**As a** … **I want** … **so that** …
+**As a** user **I want** "N connections" on my profile card on Me **so that** I see how many people I have exchanged access with.
 
 Acceptance criteria:
-- [ ] …
-- [ ] …
+- [ ] The profile card under my name reads "2 Rings · 218 connections": the Rings part is `meta.total` of `GET /rings` (exists today), the connections part is the number this task adds.
+- [ ] N counts **people I have an accepted connection with**, once each, however many of my Rings they are in ([[D-15 Several Rings per connection, remove or disconnect]]).
+- [ ] Someone I removed from all my Rings but kept as a connection ("Remove from Rings") still counts; someone I **disconnected** does not.
+- [ ] Pending, declined, cancelled and expired requests don't count ([[D-17 Requests expire after 30 days, optional note, ask again at once]]).
+- [ ] Until connections exist, the connections part is **hidden**: not "0 connections", not a sample number. The card reads "2 Rings".
+- [ ] The number is mine only: nobody else ever sees how many connections I have.
+- [ ] It refetches when Me opens and after I accept a request or disconnect someone.
 
 ## States and motion the design asks for
 
-- State: …
-- Motion: …
+- State: the connections part appears only once the backend sends a number; 0 is shown as "0 connections" only once connections exist and I have none.
+- Motion: none asked for.
 
 ## Rules the backend already enforces
 
-Edge cases a story must respect because the backend decides them (from the feature's Backend Delivery note).
+- Connections don't exist yet: nothing can be counted ([[Counts Backend Delivery]]).
+- Every visibility decision goes through `RingAccessService`; a count is owner-facing and never part of a view or a perspective.
 
 ## Open questions
 
-- [[ND-NN …]] — what it blocks here.
+- Whether the count rides on `GET /users/me`, on a stats endpoint, or on the connections list's `meta.total` is for the backend to choose in T-005-be; the client needs one number and no extra list call on Me.
+- The task keeps its title "on Me and Home"; Home is out by the 2026-10-27 decision.
