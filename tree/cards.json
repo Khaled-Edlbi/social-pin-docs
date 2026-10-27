@@ -198,6 +198,7 @@
     "project:status-report-2026-10-15": "P-05",
     "project:workflow": "P-20",
     "qa-backend:account": "QB-04",
+    "qa-backend:auth": "QB-05",
     "qa-frontend:account": "QF-04",
     "story:T-001": "S-79",
     "story:T-002": "S-80",

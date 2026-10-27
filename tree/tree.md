@@ -24,7 +24,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
       - 📨 [Auth & Sign-up Frontend Requirements](social-pin/modules/Identity%20Core/features/Auth%20%26%20Sign-up/Auth%20%26%20Sign-up%20Frontend%20Requirements.md) (FR-02, Frontend Requirements, Critical)
       - ✅ [Auth & Sign-up Backend Delivery](social-pin/modules/Identity%20Core/features/Auth%20%26%20Sign-up/Auth%20%26%20Sign-up%20Backend%20Delivery.md) (BD-02, Backend Delivery, Critical)
       - 🔵 [Auth & Sign-up Backend Integration](social-pin/modules/Identity%20Core/features/Auth%20%26%20Sign-up/Auth%20%26%20Sign-up%20Backend%20Integration.md) (BI-02, Backend Integration, Critical)
-      - ∅ _Auth & Sign-up QA Backend_ (QA Backend)
+      - ✏️ [Auth & Sign-up QA Backend](social-pin/modules/Identity%20Core/features/Auth%20%26%20Sign-up/Auth%20%26%20Sign-up%20QA%20Backend.md) (QB-05, QA Backend, Critical)
       - ∅ _Auth & Sign-up Frontend Delivery_ (Frontend Delivery)
       - ∅ _Auth & Sign-up QA Frontend_ (QA Frontend, blocked by Auth & Sign-up Frontend Delivery)
       - ✅ [ND-01 Passwordless login](social-pin/needs-decisions/ND-01%20Passwordless%20login.md) (Needs decision)
