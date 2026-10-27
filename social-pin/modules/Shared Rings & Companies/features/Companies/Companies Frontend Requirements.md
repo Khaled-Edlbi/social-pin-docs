@@ -51,7 +51,7 @@ What the client needs from the backend to build the screens in [[Companies Story
 | Member count on the Ring row itself | — | ❌ | [[Counts Story|Counts · S6–S10]] |
 | Pending company invitations, review, decline | — | ❌ | [[T-026 Ring invitations invite, review, decline]] |
 | Join a company Ring with a code or work email | — | ❌ | [[T-027 Join a Ring with a code or verified work email]] |
-| Business account setup creating the business Ring | — | ❌ | [[T-048 Business account setup → business Ring]] |
+| Business account setup creating the business Ring | — | ❌ | [[Exhibitor Story|Exhibitor · S7]] |
 | Who administers a company Ring | — | ❌ | [[Delegated Admins Story|Delegated Admins · S6]] |
 | Logo and file bytes | — | ❌ | [[Files Upload Story|Files Upload · showing files]] |
 
@@ -78,5 +78,5 @@ What the client needs from the backend to build the screens in [[Companies Story
 
 - [[ND-04 Ring settings]] — the colleague count and list for plain members ("members can see each other").
 - [[Companies Story|Companies · S6]] — the business ↔ Ring link that lets s72 group Rings under a company; every ❌ row above except invitations and setup.
-- [[T-048 Business account setup → business Ring]] — the owner's path into s72; how team members are seeded into the employees Ring.
+- [[Exhibitor Story|Exhibitor · S7]] — the owner's path into s72; how team members are seeded into the employees Ring.
 - [[Error Contract Story|Error Contract · S4–S8]] — the error table is by status until then.

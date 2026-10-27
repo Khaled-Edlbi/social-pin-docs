@@ -9,7 +9,7 @@ module: events
 screens: [s53, s54, s55]
 depends: [T-033]
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [task, task/blocked, module/events, priority/critical]
 ---
 
@@ -34,7 +34,7 @@ Scoped by the viewer's Event Ring membership (access engine).
 - Waits on [[T-033 Events list, detail, schedule]]
 - Unblocks [[T-038 Floor map and booths]]
 - Unblocks [[T-039 Catalogue products and talks (new table)]]
-- Unblocks [[T-048b Booth analytics and leads CSV export]]
+- Unblocks [[Exhibitor Story|Exhibitor · S8]]
 - Unblocks [[T-052 Smart Match]]
 
 ## Definition of done

@@ -405,14 +405,6 @@
     "T-046 Story": "story:T-046",
     "T-046-be Backend · Push delivery and preferences": "task:T-046-be",
     "T-046-fe Frontend · Push delivery and preferences": "task:T-046-fe",
-    "T-048 Business account setup → business Ring": "task:T-048",
-    "T-048 Story": "story:T-048",
-    "T-048-be Backend · Business account setup → business Ring": "task:T-048-be",
-    "T-048-fe Frontend · Business account setup → business Ring": "task:T-048-fe",
-    "T-048b Booth analytics and leads CSV export": "task:T-048b",
-    "T-048b Story": "story:T-048b",
-    "T-048b-be Backend · Booth analytics and leads CSV export": "task:T-048b-be",
-    "T-048b-fe Frontend · Booth analytics and leads CSV export": "task:T-048b-fe",
     "T-051 Gemma assistant sheet and suggestions": "task:T-051",
     "T-051 Story": "story:T-051",
     "T-051-be Backend · Gemma assistant sheet and suggestions": "task:T-051-be",
@@ -721,8 +713,6 @@
     "S-57": "story:T-039",
     "S-58": "story:T-040",
     "S-59": "story:exhibitor",
-    "S-60": "story:T-048",
-    "S-61": "story:T-048b",
     "S-62": "story:post-event",
     "S-64": "story:meetings",
     "S-65": "story:T-041",
@@ -850,12 +840,6 @@
     "T-046": "task:T-046",
     "T-046-be": "task:T-046-be",
     "T-046-fe": "task:T-046-fe",
-    "T-048": "task:T-048",
-    "T-048-be": "task:T-048-be",
-    "T-048-fe": "task:T-048-fe",
-    "T-048b": "task:T-048b",
-    "T-048b-be": "task:T-048b-be",
-    "T-048b-fe": "task:T-048b-fe",
     "T-051": "task:T-051",
     "T-051-be": "task:T-051-be",
     "T-051-fe": "task:T-051-fe",
@@ -4495,21 +4479,14 @@
     },
     "s63": {
       "containers": [
-        "feature:exhibitor",
-        "task:T-048",
-        "task:T-048-be",
-        "task:T-048-fe"
+        "feature:exhibitor"
       ],
       "kind": "screen",
       "notes": [
         "backend-delivery:exhibitor",
         "feature:exhibitor",
         "frontend-requirements:exhibitor",
-        "story:T-048",
-        "story:exhibitor",
-        "task:T-048",
-        "task:T-048-be",
-        "task:T-048-fe"
+        "story:exhibitor"
       ],
       "owner": null
     },
@@ -4547,21 +4524,14 @@
     },
     "s65": {
       "containers": [
-        "feature:exhibitor",
-        "task:T-048b",
-        "task:T-048b-be",
-        "task:T-048b-fe"
+        "feature:exhibitor"
       ],
       "kind": "screen",
       "notes": [
         "backend-delivery:exhibitor",
         "feature:exhibitor",
         "frontend-requirements:exhibitor",
-        "story:T-048b",
-        "story:exhibitor",
-        "task:T-048b",
-        "task:T-048b-be",
-        "task:T-048b-fe"
+        "story:exhibitor"
       ],
       "owner": null
     },
@@ -4787,7 +4757,7 @@
     }
   },
   "counts": {
-    "blocked": 120,
+    "blocked": 116,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -4800,28 +4770,28 @@
       "project": 27,
       "qa-backend": 1,
       "qa-frontend": 1,
-      "story": 84,
-      "task": 125
+      "story": 82,
+      "task": 119
     },
     "byLayer": {
       "backend": 56,
-      "business": 288,
+      "business": 280,
       "frontend": 44,
       "qa": 2,
       "shared": 10
     },
     "concepts": 199,
     "decisions": 19,
-    "edges": 4728,
+    "edges": 4676,
     "features": 41,
-    "layerNotes": 174,
+    "layerNotes": 172,
     "modules": 8,
-    "notes": 436,
+    "notes": 428,
     "partial": 4,
     "placeholders": 155,
     "records": 14,
-    "taskLayerNotes": 44,
-    "tasks": 125
+    "taskLayerNotes": 42,
+    "tasks": 119
   },
   "deadlines": {
     "missed": {
@@ -6547,21 +6517,6 @@
       "to": "task:T-008-fe"
     },
     {
-      "from": "task:T-009",
-      "kind": "blocks",
-      "to": "task:T-048b"
-    },
-    {
-      "from": "task:T-009",
-      "kind": "blocks",
-      "to": "task:T-048b-be"
-    },
-    {
-      "from": "task:T-009",
-      "kind": "blocks",
-      "to": "task:T-048b-fe"
-    },
-    {
       "from": "task:T-009-be",
       "kind": "blocks",
       "to": "task:T-009-fe"
@@ -6854,21 +6809,6 @@
     {
       "from": "task:T-036",
       "kind": "blocks",
-      "to": "task:T-048b"
-    },
-    {
-      "from": "task:T-036",
-      "kind": "blocks",
-      "to": "task:T-048b-be"
-    },
-    {
-      "from": "task:T-036",
-      "kind": "blocks",
-      "to": "task:T-048b-fe"
-    },
-    {
-      "from": "task:T-036",
-      "kind": "blocks",
       "to": "task:T-052"
     },
     {
@@ -6985,16 +6925,6 @@
       "from": "task:T-046-be",
       "kind": "blocks",
       "to": "task:T-046-fe"
-    },
-    {
-      "from": "task:T-048-be",
-      "kind": "blocks",
-      "to": "task:T-048-fe"
-    },
-    {
-      "from": "task:T-048b-be",
-      "kind": "blocks",
-      "to": "task:T-048b-fe"
     },
     {
       "from": "task:T-051",
@@ -7950,46 +7880,6 @@
       "from": "task:T-046-fe",
       "kind": "depends",
       "to": "task:T-046-be"
-    },
-    {
-      "from": "task:T-048-fe",
-      "kind": "depends",
-      "to": "task:T-048-be"
-    },
-    {
-      "from": "task:T-048b",
-      "kind": "depends",
-      "to": "task:T-009"
-    },
-    {
-      "from": "task:T-048b",
-      "kind": "depends",
-      "to": "task:T-036"
-    },
-    {
-      "from": "task:T-048b-be",
-      "kind": "depends",
-      "to": "task:T-009"
-    },
-    {
-      "from": "task:T-048b-be",
-      "kind": "depends",
-      "to": "task:T-036"
-    },
-    {
-      "from": "task:T-048b-fe",
-      "kind": "depends",
-      "to": "task:T-009"
-    },
-    {
-      "from": "task:T-048b-fe",
-      "kind": "depends",
-      "to": "task:T-036"
-    },
-    {
-      "from": "task:T-048b-fe",
-      "kind": "depends",
-      "to": "task:T-048b-be"
     },
     {
       "from": "task:T-051-fe",
@@ -11861,22 +11751,6 @@
       ]
     },
     {
-      "from": "story:exhibitor",
-      "kind": "related",
-      "to": "story:T-048",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
-      "from": "story:exhibitor",
-      "kind": "related",
-      "to": "story:T-048b",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
       "from": "story:gemma",
       "kind": "related",
       "to": "decision:D-06"
@@ -12486,21 +12360,6 @@
       "from": "task:T-046-fe",
       "kind": "related",
       "to": "story:devices"
-    },
-    {
-      "from": "task:T-048",
-      "kind": "related",
-      "to": "story:companies"
-    },
-    {
-      "from": "task:T-048-be",
-      "kind": "related",
-      "to": "story:companies"
-    },
-    {
-      "from": "task:T-048-fe",
-      "kind": "related",
-      "to": "story:companies"
     },
     {
       "from": "task:T-051",
@@ -23897,16 +23756,6 @@
       "to": "task:T-040"
     },
     {
-      "from": "story:exhibitor",
-      "kind": "tree",
-      "to": "task:T-048"
-    },
-    {
-      "from": "story:exhibitor",
-      "kind": "tree",
-      "to": "task:T-048b"
-    },
-    {
       "from": "story:files",
       "kind": "tree",
       "to": "needs-decision:ND-16"
@@ -24605,36 +24454,6 @@
       "from": "task:T-046",
       "kind": "tree",
       "to": "task:T-046-fe"
-    },
-    {
-      "from": "task:T-048",
-      "kind": "tree",
-      "to": "story:T-048"
-    },
-    {
-      "from": "task:T-048",
-      "kind": "tree",
-      "to": "task:T-048-be"
-    },
-    {
-      "from": "task:T-048",
-      "kind": "tree",
-      "to": "task:T-048-fe"
-    },
-    {
-      "from": "task:T-048b",
-      "kind": "tree",
-      "to": "story:T-048b"
-    },
-    {
-      "from": "task:T-048b",
-      "kind": "tree",
-      "to": "task:T-048b-be"
-    },
-    {
-      "from": "task:T-048b",
-      "kind": "tree",
-      "to": "task:T-048b-fe"
     },
     {
       "from": "task:T-051",
@@ -25999,12 +25818,7 @@
     {
       "from": "feature:exhibitor",
       "kind": "wikilink",
-      "to": "task:T-048"
-    },
-    {
-      "from": "feature:exhibitor",
-      "kind": "wikilink",
-      "to": "task:T-048b"
+      "to": "project:status-report-2026-10-15"
     },
     {
       "from": "feature:gemma",
@@ -26604,6 +26418,11 @@
     {
       "from": "frontend-requirements:companies",
       "kind": "wikilink",
+      "to": "story:exhibitor"
+    },
+    {
+      "from": "frontend-requirements:companies",
+      "kind": "wikilink",
       "to": "story:files"
     },
     {
@@ -26615,11 +26434,6 @@
       "from": "frontend-requirements:companies",
       "kind": "wikilink",
       "to": "task:T-027"
-    },
-    {
-      "from": "frontend-requirements:companies",
-      "kind": "wikilink",
-      "to": "task:T-048"
     },
     {
       "from": "frontend-requirements:connections",
@@ -27054,16 +26868,6 @@
     {
       "from": "frontend-requirements:exhibitor",
       "kind": "wikilink",
-      "to": "task:T-048"
-    },
-    {
-      "from": "frontend-requirements:exhibitor",
-      "kind": "wikilink",
-      "to": "task:T-048b"
-    },
-    {
-      "from": "frontend-requirements:exhibitor",
-      "kind": "wikilink",
       "to": "task:T-052"
     },
     {
@@ -27464,6 +27268,11 @@
     {
       "from": "frontend-requirements:post-event",
       "kind": "wikilink",
+      "to": "story:exhibitor"
+    },
+    {
+      "from": "frontend-requirements:post-event",
+      "kind": "wikilink",
       "to": "story:post-event"
     },
     {
@@ -27485,11 +27294,6 @@
       "from": "frontend-requirements:post-event",
       "kind": "wikilink",
       "to": "task:T-044"
-    },
-    {
-      "from": "frontend-requirements:post-event",
-      "kind": "wikilink",
-      "to": "task:T-048b"
     },
     {
       "from": "frontend-requirements:post-event",
@@ -30049,11 +29853,6 @@
     {
       "from": "project:status-report-2026-10-15",
       "kind": "wikilink",
-      "to": "feature:exhibitor"
-    },
-    {
-      "from": "project:status-report-2026-10-15",
-      "kind": "wikilink",
       "to": "feature:files"
     },
     {
@@ -30560,11 +30359,6 @@
       "from": "story:exhibitor",
       "kind": "wikilink",
       "to": "story:meetings"
-    },
-    {
-      "from": "story:exhibitor",
-      "kind": "wikilink",
-      "to": "task:T-009"
     },
     {
       "from": "story:files",
@@ -31227,16 +31021,6 @@
       "to": "feature:notifications"
     },
     {
-      "from": "story:T-048",
-      "kind": "wikilink",
-      "to": "feature:exhibitor"
-    },
-    {
-      "from": "story:T-048b",
-      "kind": "wikilink",
-      "to": "feature:exhibitor"
-    },
-    {
       "from": "story:T-051",
       "kind": "wikilink",
       "to": "feature:gemma"
@@ -31524,12 +31308,12 @@
     {
       "from": "task:T-009",
       "kind": "wikilink",
-      "to": "story:post-event"
+      "to": "story:exhibitor"
     },
     {
       "from": "task:T-009",
       "kind": "wikilink",
-      "to": "task:T-048b"
+      "to": "story:post-event"
     },
     {
       "from": "task:T-009-be",
@@ -32419,17 +32203,17 @@
     {
       "from": "task:T-036",
       "kind": "wikilink",
+      "to": "story:exhibitor"
+    },
+    {
+      "from": "task:T-036",
+      "kind": "wikilink",
       "to": "task:T-038"
     },
     {
       "from": "task:T-036",
       "kind": "wikilink",
       "to": "task:T-039"
-    },
-    {
-      "from": "task:T-036",
-      "kind": "wikilink",
-      "to": "task:T-048b"
     },
     {
       "from": "task:T-036",
@@ -32870,86 +32654,6 @@
       "from": "task:T-046-fe",
       "kind": "wikilink",
       "to": "task:T-046-be"
-    },
-    {
-      "from": "task:T-048",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-048",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-048",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-048-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:exhibitor"
-    },
-    {
-      "from": "task:T-048-be",
-      "kind": "wikilink",
-      "to": "feature:exhibitor"
-    },
-    {
-      "from": "task:T-048-fe",
-      "kind": "wikilink",
-      "to": "feature:exhibitor"
-    },
-    {
-      "from": "task:T-048-fe",
-      "kind": "wikilink",
-      "to": "story:T-048"
-    },
-    {
-      "from": "task:T-048-fe",
-      "kind": "wikilink",
-      "to": "task:T-048-be"
-    },
-    {
-      "from": "task:T-048b",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-048b",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-048b",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-048b-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:exhibitor"
-    },
-    {
-      "from": "task:T-048b-be",
-      "kind": "wikilink",
-      "to": "feature:exhibitor"
-    },
-    {
-      "from": "task:T-048b-fe",
-      "kind": "wikilink",
-      "to": "feature:exhibitor"
-    },
-    {
-      "from": "task:T-048b-fe",
-      "kind": "wikilink",
-      "to": "story:T-048b"
-    },
-    {
-      "from": "task:T-048b-fe",
-      "kind": "wikilink",
-      "to": "task:T-048b-be"
     },
     {
       "from": "task:T-051",
@@ -34658,38 +34362,6 @@
     },
     "social-pin/tasks/T-046 Push delivery and preferences/T-046-fe Frontend · Push delivery and preferences.md": {
       "name": "T-046-fe Frontend · Push delivery and preferences",
-      "type": "task"
-    },
-    "social-pin/tasks/T-048 Business account setup → business Ring/T-048 Business account setup → business Ring.md": {
-      "name": "T-048 Business account setup → business Ring",
-      "type": "task"
-    },
-    "social-pin/tasks/T-048 Business account setup → business Ring/T-048 Story.md": {
-      "name": "T-048 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-048 Business account setup → business Ring/T-048-be Backend · Business account setup → business Ring.md": {
-      "name": "T-048-be Backend · Business account setup → business Ring",
-      "type": "task"
-    },
-    "social-pin/tasks/T-048 Business account setup → business Ring/T-048-fe Frontend · Business account setup → business Ring.md": {
-      "name": "T-048-fe Frontend · Business account setup → business Ring",
-      "type": "task"
-    },
-    "social-pin/tasks/T-048b Booth analytics and leads CSV export/T-048b Booth analytics and leads CSV export.md": {
-      "name": "T-048b Booth analytics and leads CSV export",
-      "type": "task"
-    },
-    "social-pin/tasks/T-048b Booth analytics and leads CSV export/T-048b Story.md": {
-      "name": "T-048b Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-048b Booth analytics and leads CSV export/T-048b-be Backend · Booth analytics and leads CSV export.md": {
-      "name": "T-048b-be Backend · Booth analytics and leads CSV export",
-      "type": "task"
-    },
-    "social-pin/tasks/T-048b Booth analytics and leads CSV export/T-048b-fe Frontend · Booth analytics and leads CSV export.md": {
-      "name": "T-048b-fe Frontend · Booth analytics and leads CSV export",
       "type": "task"
     },
     "social-pin/tasks/T-051 Gemma assistant sheet and suggestions/T-051 Gemma assistant sheet and suggestions.md": {
@@ -41837,10 +41509,9 @@
       "resolution": null,
       "rollup": {
         "approved": 1,
-        "blocked": 5,
-        "draft": 3,
-        "missing": 4,
-        "todo": 2
+        "blocked": 1,
+        "draft": 1,
+        "missing": 4
       },
       "scope": null,
       "screens": [
@@ -41858,7 +41529,7 @@
       ],
       "task": null,
       "title": "Exhibitor",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "feature:files": {
       "affects": [],
@@ -48035,13 +47706,13 @@
       "resolution": null,
       "rollup": {
         "approved": 4,
-        "blocked": 31,
+        "blocked": 27,
         "decided": 1,
-        "draft": 15,
+        "draft": 13,
         "in-progress": 4,
         "missing": 20,
         "needs-decision": 1,
-        "todo": 5,
+        "todo": 3,
         "verified": 1
       },
       "scope": null,
@@ -54783,12 +54454,12 @@
       ],
       "rollup": {
         "approved": 35,
-        "blocked": 120,
+        "blocked": 116,
         "current": 8,
         "decided": 14,
         "delivered": 2,
         "done": 10,
-        "draft": 80,
+        "draft": 78,
         "in-progress": 55,
         "missing": 155,
         "needs-decision": 7,
@@ -54796,7 +54467,7 @@
         "passing": 1,
         "ready": 2,
         "reference": 31,
-        "todo": 29,
+        "todo": 27,
         "verified": 14
       },
       "scope": null,
@@ -56626,106 +56297,6 @@
       "title": "T-046 Story",
       "updated": "2026-10-26"
     },
-    "story:T-048": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-60",
-      "children": [],
-      "code": "T-048",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
-      "effort": null,
-      "feature": "exhibitor",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-048",
-      "inherits": {
-        "priority": "task:T-048",
-        "release": "feature:exhibitor"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "events",
-      "parentTask": null,
-      "parents": [
-        "task:T-048"
-      ],
-      "path": "social-pin/tasks/T-048 Business account setup → business Ring/T-048 Story.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "scope": "task",
-      "screens": [
-        "s63"
-      ],
-      "status": "draft",
-      "summary": "Multi-step DTOs; creates Business + a CORPORATE Ring; team members become Ring members.",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/events",
-        "layer/business"
-      ],
-      "task": "T-048",
-      "title": "T-048 Story",
-      "updated": "2026-10-26"
-    },
-    "story:T-048b": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-61",
-      "children": [],
-      "code": "T-048b",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
-      "effort": null,
-      "feature": "exhibitor",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-048b",
-      "inherits": {
-        "priority": "task:T-048b",
-        "release": "feature:exhibitor"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "events",
-      "parentTask": null,
-      "parents": [
-        "task:T-048b"
-      ],
-      "path": "social-pin/tasks/T-048b Booth analytics and leads CSV export/T-048b Story.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "scope": "task",
-      "screens": [
-        "s65"
-      ],
-      "status": "draft",
-      "summary": "Scans, video clicks, Rings opened from AnalyticsEvent; CSV export of leads.",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/events",
-        "layer/business"
-      ],
-      "task": "T-048b",
-      "title": "T-048b Story",
-      "updated": "2026-10-26"
-    },
     "story:T-051": {
       "affects": [],
       "blockedBy": [],
@@ -57536,9 +57107,6 @@
       "pending": [],
       "priority": "high",
       "related": [
-        "task:T-048",
-        "task:T-048-be",
-        "task:T-048-fe",
         "decision:D-04",
         "decision:D-14",
         "decision:D-18"
@@ -58146,10 +57714,7 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-59",
-      "children": [
-        "task:T-048",
-        "task:T-048b"
-      ],
+      "children": [],
       "code": "exhibitor",
       "created": "2026-10-18",
       "deadline": null,
@@ -64112,7 +63677,7 @@
       ],
       "task": null,
       "title": "T-036 Event mode exhibitors list and detail",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "task:T-036-be": {
       "affects": [],
@@ -66160,407 +65725,6 @@
       "task": null,
       "title": "T-046-fe Frontend · Push delivery and preferences",
       "updated": "2026-10-27"
-    },
-    "task:T-048": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-048",
-      "children": [
-        "story:T-048",
-        "task:T-048-be",
-        "task:T-048-fe"
-      ],
-      "code": "T-048",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": "social-pin/tasks/T-048 Business account setup → business Ring",
-      "effectiveStatus": "todo",
-      "effort": "L",
-      "feature": "exhibitor",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-048",
-      "inherits": {
-        "release": "feature:exhibitor"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "events",
-      "parentTask": null,
-      "parents": [
-        "story:exhibitor"
-      ],
-      "path": "social-pin/tasks/T-048 Business account setup → business Ring/T-048 Business account setup → business Ring.md",
-      "pending": [],
-      "priority": "high",
-      "related": [
-        "story:companies"
-      ],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {
-        "blocked": 1,
-        "draft": 1,
-        "todo": 1
-      },
-      "scope": null,
-      "screens": [
-        "s63"
-      ],
-      "status": "todo",
-      "summary": "Multi-step DTOs; creates Business + a CORPORATE Ring; team members become Ring members.",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/events",
-        "priority/high"
-      ],
-      "task": null,
-      "title": "T-048 Business account setup → business Ring",
-      "updated": "2026-10-27"
-    },
-    "task:T-048-be": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-048-be",
-      "children": [],
-      "code": "T-048-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": null,
-      "effectiveStatus": "todo",
-      "effort": "L",
-      "feature": "exhibitor",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-048-be",
-      "inherits": {
-        "release": "feature:exhibitor"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "events",
-      "parentTask": "T-048",
-      "parents": [
-        "task:T-048"
-      ],
-      "path": "social-pin/tasks/T-048 Business account setup → business Ring/T-048-be Backend · Business account setup → business Ring.md",
-      "pending": [],
-      "priority": "high",
-      "related": [
-        "story:companies"
-      ],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s63"
-      ],
-      "status": "todo",
-      "summary": "The API side of T-048 Business account setup → business Ring: the endpoints, data and rules its What describes. Record what shipped in T-048-be Backend Delivery and how to call it in T-048-be…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/events",
-        "priority/high",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-048-be Backend · Business account setup → business Ring",
-      "updated": "2026-10-27"
-    },
-    "task:T-048-fe": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-048-be",
-          "title": "T-048-be Backend · Business account setup → business Ring",
-          "why": "T-048-be Backend · Business account setup → business Ring is to do"
-        }
-      ],
-      "card": "T-048-fe",
-      "children": [],
-      "code": "T-048-fe",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-048-be"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "L",
-      "feature": "exhibitor",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-048-fe",
-      "inherits": {
-        "release": "feature:exhibitor"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "frontend"
-      ],
-      "layer": "business",
-      "module": "events",
-      "parentTask": "T-048",
-      "parents": [
-        "task:T-048"
-      ],
-      "path": "social-pin/tasks/T-048 Business account setup → business Ring/T-048-fe Frontend · Business account setup → business Ring.md",
-      "pending": [],
-      "priority": "high",
-      "related": [
-        "story:companies"
-      ],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s63"
-      ],
-      "status": "todo",
-      "summary": "The client side of T-048 Business account setup → business Ring: the screens below show what its What describes, built against Exhibitor Backend Integration once the backend half (T-048-be Backend…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/events",
-        "priority/high",
-        "frontend"
-      ],
-      "task": null,
-      "title": "T-048-fe Frontend · Business account setup → business Ring",
-      "updated": "2026-10-27"
-    },
-    "task:T-048b": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-009",
-          "title": "T-009 Scan counter and share link",
-          "why": "T-009 Scan counter and share link is blocked"
-        },
-        {
-          "id": "task:T-036",
-          "title": "T-036 Event mode exhibitors list and detail",
-          "why": "T-036 Event mode exhibitors list and detail is blocked"
-        }
-      ],
-      "card": "T-048b",
-      "children": [
-        "story:T-048b",
-        "task:T-048b-be",
-        "task:T-048b-fe"
-      ],
-      "code": "T-048b",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-009",
-        "task:T-036"
-      ],
-      "dir": "social-pin/tasks/T-048b Booth analytics and leads CSV export",
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "exhibitor",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-048b",
-      "inherits": {
-        "release": "feature:exhibitor"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "events",
-      "parentTask": null,
-      "parents": [
-        "story:exhibitor"
-      ],
-      "path": "social-pin/tasks/T-048b Booth analytics and leads CSV export/T-048b Booth analytics and leads CSV export.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {
-        "blocked": 2,
-        "draft": 1
-      },
-      "scope": null,
-      "screens": [
-        "s65"
-      ],
-      "status": "blocked",
-      "summary": "Scans, video clicks, Rings opened from AnalyticsEvent; CSV export of leads.",
-      "tags": [
-        "task",
-        "task/blocked",
-        "module/events",
-        "priority/high"
-      ],
-      "task": null,
-      "title": "T-048b Booth analytics and leads CSV export",
-      "updated": "2026-10-26"
-    },
-    "task:T-048b-be": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-009",
-          "title": "T-009 Scan counter and share link",
-          "why": "T-009 Scan counter and share link is blocked"
-        },
-        {
-          "id": "task:T-036",
-          "title": "T-036 Event mode exhibitors list and detail",
-          "why": "T-036 Event mode exhibitors list and detail is blocked"
-        }
-      ],
-      "card": "T-048b-be",
-      "children": [],
-      "code": "T-048b-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-009",
-        "task:T-036"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "exhibitor",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-048b-be",
-      "inherits": {
-        "release": "feature:exhibitor"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "events",
-      "parentTask": "T-048b",
-      "parents": [
-        "task:T-048b"
-      ],
-      "path": "social-pin/tasks/T-048b Booth analytics and leads CSV export/T-048b-be Backend · Booth analytics and leads CSV export.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s65"
-      ],
-      "status": "todo",
-      "summary": "The API side of T-048b Booth analytics and leads CSV export: the endpoints, data and rules its What describes. Record what shipped in T-048b-be Backend Delivery and how to call it in T-048b-be…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/events",
-        "priority/high",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-048b-be Backend · Booth analytics and leads CSV export",
-      "updated": "2026-10-26"
-    },
-    "task:T-048b-fe": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-009",
-          "title": "T-009 Scan counter and share link",
-          "why": "T-009 Scan counter and share link is blocked"
-        },
-        {
-          "id": "task:T-036",
-          "title": "T-036 Event mode exhibitors list and detail",
-          "why": "T-036 Event mode exhibitors list and detail is blocked"
-        },
-        {
-          "id": "task:T-048b-be",
-          "title": "T-048b-be Backend · Booth analytics and leads CSV export",
-          "why": "T-048b-be Backend · Booth analytics and leads CSV export is blocked"
-        }
-      ],
-      "card": "T-048b-fe",
-      "children": [],
-      "code": "T-048b-fe",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-009",
-        "task:T-036",
-        "task:T-048b-be"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "exhibitor",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-048b-fe",
-      "inherits": {
-        "release": "feature:exhibitor"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "frontend"
-      ],
-      "layer": "business",
-      "module": "events",
-      "parentTask": "T-048b",
-      "parents": [
-        "task:T-048b"
-      ],
-      "path": "social-pin/tasks/T-048b Booth analytics and leads CSV export/T-048b-fe Frontend · Booth analytics and leads CSV export.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s65"
-      ],
-      "status": "todo",
-      "summary": "The client side of T-048b Booth analytics and leads CSV export: the screens below show what its What describes, built against Exhibitor Backend Integration once the backend half (T-048b-be Backend…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/events",
-        "priority/high",
-        "frontend"
-      ],
-      "task": null,
-      "title": "T-048b-fe Frontend · Booth analytics and leads CSV export",
-      "updated": "2026-10-26"
     },
     "task:T-051": {
       "affects": [],

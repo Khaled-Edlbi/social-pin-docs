@@ -22,7 +22,7 @@ What the client needs for business setup, incoming meetings and booth analytics,
 ### [[Screen Index#s63|s63]] Business account
 
 - Needs: a multi-step create with draft persistence (industry, activity, tags, address, social links, logo, phone, email, website, P.O. Box, about, video link, gallery, files); the resulting business and its `CORPORATE` Ring; team members; the Discoverable-via-Gemma toggle.
-- Source today: not yet ([[T-048 Business account setup → business Ring]]). Once the Ring exists, its projection is edited with the existing `GET / PATCH /rings/:ringId/projection`, `…/links`, `…/info-blocks`, `…/attachments`, and members with `GET / POST /rings/:ringId/members` ([[Ring Members]], [[Ring Projection]]).
+- Source today: not yet ([[Exhibitor Story|Exhibitor · S7]]). Once the Ring exists, its projection is edited with the existing `GET / PATCH /rings/:ringId/projection`, `…/links`, `…/info-blocks`, `…/attachments`, and members with `GET / POST /rings/:ringId/members` ([[Ring Members]], [[Ring Projection]]).
 
 ### [[Screen Index#s64|s64]] Incoming meetings
 
@@ -32,20 +32,20 @@ What the client needs for business setup, incoming meetings and booth analytics,
 ### [[Screen Index#s65|s65]] Booth analytics
 
 - Needs: counts of QR scans, video clicks, Rings opened for the event window with a daily series; leads list; CSV export.
-- Source today: not yet ([[T-048b Booth analytics and leads CSV export]]).
+- Source today: not yet ([[Exhibitor Story|Exhibitor · S8]]).
 
 ## Endpoints required
 
 | Need | Endpoint | Available | Task / decision |
 |---|---|---|---|
-| Business create (stepped), business Ring created with it | — | ❌ | [[T-048 Business account setup → business Ring]] |
+| Business create (stepped), business Ring created with it | — | ❌ | [[Exhibitor Story|Exhibitor · S7]] |
 | Edit the business Ring's projection | `GET / PATCH /rings/:ringId/projection` and sub-routes | ✅ | — |
-| Team on the stand = business Ring members | `GET / POST /rings/:ringId/members`, `DELETE …/members/:userId` | ✅ | — (business-member sync is T-048) |
+| Team on the stand = business Ring members | `GET / POST /rings/:ringId/members`, `DELETE …/members/:userId` | ✅ | — (business-member sync is Exhibitor · S7) |
 | Preview the business card as attendees see it | `GET /views/ring/:ringId` | ✅ | — |
 | Incoming meeting requests, accept, decline | — | ❌ | [[T-042 Meeting request, accept with slots, decline with reason]] |
 | Availability slots to offer | — | ❌ | [[T-041 Availability slots CRUD]] |
-| Discoverable-via-Gemma toggle | — | ❌ | [[T-048 Business account setup → business Ring]] (feeds [[T-052 Smart Match]]) |
-| Scans, video clicks, Rings opened; leads CSV | — | ❌ | [[T-048b Booth analytics and leads CSV export]] |
+| Discoverable-via-Gemma toggle | — | ❌ | [[Exhibitor Story|Exhibitor · S7]] (feeds [[T-052 Smart Match]]) |
+| Scans, video clicks, Rings opened; leads CSV | — | ❌ | [[Exhibitor Story|Exhibitor · S8]] |
 | Scan counting itself | — | ❌ | [[T-009 Scan counter and share link]] |
 | Organizer invitation, requested files, booth and payment status | — | ❌ | no task yet; design-only |
 
@@ -66,14 +66,14 @@ What the client needs for business setup, incoming meetings and booth analytics,
 | 409 on the Ring created by setup (name clash) | `E_RING_01` | "You already have a Ring with this name", rename inline |
 | 404 / 403 on `…/members` | `E_RING_02` / `E_RING_05` | "You cannot manage this business", back to s68 |
 | 404 on `GET /views/ring/:ringId` | `E_RING_ACCESS_01` | "Preview not available" |
-| business create validation | to be defined by [[T-048 Business account setup → business Ring]] | Field errors on the step that failed |
+| business create validation | to be defined by [[Exhibitor Story|Exhibitor · S7]] | Field errors on the step that failed |
 | accept / decline conflicts (slot taken, request withdrawn) | to be defined by [[T-042 Meeting request, accept with slots, decline with reason]] | Refetch the request, show its current state |
-| analytics unavailable | to be defined by [[T-048b Booth analytics and leads CSV export]] | Counters at "—" with retry |
+| analytics unavailable | to be defined by [[Exhibitor Story|Exhibitor · S8]] | Counters at "—" with retry |
 
 ## Blocked by
 
 - No decision note. Upstream tasks:
-- [[T-048 Business account setup → business Ring]] — waits on [[Companies Story|Companies · S6]]; s63 entirely.
+- [[Exhibitor Story|Exhibitor · S7]] — waits on [[Companies Story|Companies · S6]]; s63 entirely.
 - [[T-042 Meeting request, accept with slots, decline with reason]] and [[T-041 Availability slots CRUD]] — s64.
-- [[T-048b Booth analytics and leads CSV export]] — waits on [[T-009 Scan counter and share link]] and [[T-036 Event mode exhibitors list and detail]]; s65.
+- [[Exhibitor Story|Exhibitor · S8]] — waits on [[T-009 Scan counter and share link]] and [[T-036 Event mode exhibitors list and detail]]; s65.
 - Organizer touchpoints (invitation, requested files, booth and payment status) — no task yet.

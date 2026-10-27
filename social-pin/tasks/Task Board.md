@@ -83,10 +83,6 @@ kanban-plugin: board
 - [ ] [[T-046 Push delivery and preferences]] #high #notifications
 - [ ] [[T-046-be Backend · Push delivery and preferences]] #high #notifications #backend
 - [ ] [[T-046-fe Frontend · Push delivery and preferences]] #high #notifications #frontend
-- [ ] [[T-048-fe Frontend · Business account setup → business Ring]] #high #exhibitor #frontend
-- [ ] [[T-048b Booth analytics and leads CSV export]] #high #exhibitor
-- [ ] [[T-048b-be Backend · Booth analytics and leads CSV export]] #high #exhibitor #backend
-- [ ] [[T-048b-fe Frontend · Booth analytics and leads CSV export]] #high #exhibitor #frontend
 - [ ] [[T-013 Usage count per file across Rings]] #medium #photo-library
 - [ ] [[T-013-be Backend · Usage count per file across Rings]] #medium #photo-library #backend
 - [ ] [[T-013-fe Frontend · Usage count per file across Rings]] #medium #photo-library #frontend
@@ -125,8 +121,6 @@ kanban-plugin: board
 - [ ] [[T-026-be Backend · Ring invitations invite, review, decline]] #high #ring-invitations #backend
 - [ ] [[T-045 NotificationService.emit and the inbox]] #high #notifications
 - [ ] [[T-045-be Backend · NotificationService.emit and the inbox]] #high #notifications #backend
-- [ ] [[T-048 Business account setup → business Ring]] #high #exhibitor
-- [ ] [[T-048-be Backend · Business account setup → business Ring]] #high #exhibitor #backend
 - [ ] [[T-020b-be Backend · Business card scan and portfolio URL import]] #medium #onboarding-imports #backend
 - [ ] [[T-051-be Backend · Gemma assistant sheet and suggestions]] #medium #gemma #backend
 

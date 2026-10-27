@@ -78,8 +78,6 @@ Social Pin backend
 │   │   ├── ❓ T-039 Catalogue: products and talks (new table)
 │   │   └── ⛔ T-040 Lounges and upgrades
 │   ├── ❌ Exhibitor  [High]
-│   │   ├── ⬜ T-048 Business account setup → business Ring
-│   │   └── ⛔ T-048b Booth analytics and leads CSV export
 │   └── ❌ Post-Event  [High]
 ├── Meetings  (❌1)
 │   └── ❌ Meetings  [Critical]
@@ -168,7 +166,7 @@ Before the event (discover, tickets, payment, Event Ring), during (event mode, e
 | [[Event Ring Auto-creation]] | 🟡 Partial (needs more) | Critical | s52 | 0 |
 | [[Events Before]] | ❌ TODO | Critical | s48, s49, s50, s51, s52 | 3 |
 | [[Events During]] | ❌ TODO | Critical | s53, s54, s55, s56, s57, s58 | 5 |
-| [[Exhibitor]] | ❌ TODO | High | s63, s64, s65 | 2 |
+| [[Exhibitor]] | ❌ TODO | High | s63, s64, s65 | 0 |
 | [[Post-Event]] | ❌ TODO | High | s62 | 0 |
 
 ## Meetings

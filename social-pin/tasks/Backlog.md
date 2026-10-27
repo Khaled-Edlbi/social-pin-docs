@@ -109,12 +109,6 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-046 Push delivery and preferences]] | [[Notifications]] | Platform & Cross-cutting | ⛔ Blocked | M | — | [[T-045 NotificationService.emit and the inbox|T-045]] |
 | [[T-046-be Backend · Push delivery and preferences]] `backend` | [[Notifications]] | Platform & Cross-cutting | ⛔ Blocked | M | — | [[T-045 NotificationService.emit and the inbox|T-045]] |
 | [[T-046-fe Frontend · Push delivery and preferences]] `frontend` | [[Notifications]] | Platform & Cross-cutting | ⛔ Blocked | M | — | [[T-045 NotificationService.emit and the inbox|T-045]], [[T-046-be Backend · Push delivery and preferences|T-046-be]] |
-| [[T-048 Business account setup → business Ring]] | [[Exhibitor]] | Events | ⬜ To do | L | — | — |
-| [[T-048-be Backend · Business account setup → business Ring]] `backend` | [[Exhibitor]] | Events | ⬜ To do | L | — | — |
-| [[T-048-fe Frontend · Business account setup → business Ring]] `frontend` | [[Exhibitor]] | Events | ⛔ Blocked | L | — | [[T-048-be Backend · Business account setup → business Ring|T-048-be]] |
-| [[T-048b Booth analytics and leads CSV export]] | [[Exhibitor]] | Events | ⛔ Blocked | M | — | [[T-009 Scan counter and share link|T-009]], [[T-036 Event mode exhibitors list and detail|T-036]] |
-| [[T-048b-be Backend · Booth analytics and leads CSV export]] `backend` | [[Exhibitor]] | Events | ⛔ Blocked | M | — | [[T-009 Scan counter and share link|T-009]], [[T-036 Event mode exhibitors list and detail|T-036]] |
-| [[T-048b-fe Frontend · Booth analytics and leads CSV export]] `frontend` | [[Exhibitor]] | Events | ⛔ Blocked | M | — | [[T-009 Scan counter and share link|T-009]], [[T-036 Event mode exhibitors list and detail|T-036]], [[T-048b-be Backend · Booth analytics and leads CSV export|T-048b-be]] |
 | [[T-068 Account moderation and platform role]] | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | M | — | — |
 | [[T-068-be Backend · Account moderation and platform role]] `backend` | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | M | — | — |
 | [[T-069 Scoped role grants]] | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | M | — | [[T-068 Account moderation and platform role|T-068]] |

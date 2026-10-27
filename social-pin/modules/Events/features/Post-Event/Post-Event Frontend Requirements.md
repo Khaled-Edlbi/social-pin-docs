@@ -38,7 +38,7 @@ What the client needs for the post-event summary and the Ring disposition sheet,
 | Meetings held during the event | — | ❌ | [[T-044 My meetings, calendar, detail, reschedule, cancel]] |
 | Follow-up suggestions (Gemma) | — | ❌ | [[Post-Event Story|Post-Event · S6]], [[T-051 Gemma assistant sheet and suggestions]] |
 | Pending requests for "Review N" | — | ❌ | [[T-021 Connect request send, inbox, cancel]] |
-| Leads export (exhibitor) | — | ❌ | [[T-048b Booth analytics and leads CSV export]] |
+| Leads export (exhibitor) | — | ❌ | [[Exhibitor Story|Exhibitor · S8]] |
 
 ## Behaviour expectations
 

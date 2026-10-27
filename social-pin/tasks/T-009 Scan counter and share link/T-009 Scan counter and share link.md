@@ -30,7 +30,7 @@ Count per token and per Ring; share link is the public URL of T-010.
 ## Dependencies
 
 - Waits on [[T-008 Resolve a scanned QR token]]
-- Unblocks [[T-048b Booth analytics and leads CSV export]]
+- Unblocks [[Exhibitor Story|Exhibitor · S8]]
 - Unblocks [[Post-Event Story|Post-Event · S6]]
 
 ## Definition of done

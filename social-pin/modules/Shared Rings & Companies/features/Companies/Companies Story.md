@@ -100,4 +100,4 @@ Screens: [[Screen Index#s72|s72]] My companies · [[Screen Index#s73|s73]] Compa
 - Decided: [[D-18 Ring names shown when joined knowingly]] (S2: company Rings joined knowingly are named; S4: the hierarchy is never shown). Building how a membership records its origin is not ticketed yet.
 - Someone the owner reassigns from a Ring they joined knowingly into another company Ring: D-18 reads it as placed, so the new Ring stays unnamed (D-18, *Still open*).
 - [[Companies Story|Companies · S6]] — how a business and its Rings are linked for the member's list (the `Business` tables have no Ring reference in the feature note); the list needs that link to show "which of its Rings I am in".
-- [[T-048 Business account setup → business Ring]] — whether team members on the stand become members of the employees Ring automatically, which is what makes S1 populate for an employee.
+- [[Exhibitor Story|Exhibitor · S7]] — whether team members on the stand become members of the employees Ring automatically, which is what makes S1 populate for an employee.
