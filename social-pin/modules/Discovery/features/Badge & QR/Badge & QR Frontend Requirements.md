@@ -52,14 +52,14 @@ What the client needs from the backend to build the screens in [[Badge & QR Stor
 | Share link URL | — | ❌ | [[Badge & QR Story|Badge & QR · S19]] |
 | Browser page behind the share link | — | ❌ | [[Badge & QR Story|Badge & QR · S20]] |
 | Permanent token (Pro) | — | ❌ | [[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]] |
-| Event pass token, 60 s window | — | ❌ | [[T-037 Event pass with a 60 s rotating code]] |
+| Event pass token, 60 s window | — | ❌ | [[Events During Story|Events During · S9]] |
 | NFC card bound to the same token | — | ❌ | [[Devices & NFC Story|Devices & NFC · S7]] |
 | Connect from s44 | — | ❌ | [[Connections Story|Connections · S8–S12]] |
 | Avatar bytes on the badge and the resolved card | — | ❌ | [[Files Upload Story|Files Upload · showing files]] |
 
 ## Behaviour expectations
 
-- Refetch / realtime: fetch the token when the badge opens if the cached one is older than its window or belongs to another Ring; refetch the counter on open and on pull-down, no polling. The event pass re-fetches at the window boundary from a timer aligned to server time (use the response `Date` header or a `serverTime` field once T-037 defines it).
+- Refetch / realtime: fetch the token when the badge opens if the cached one is older than its window or belongs to another Ring; refetch the counter on open and on pull-down, no polling. The event pass re-fetches at the window boundary from a timer aligned to server time (use the response `Date` header or a `serverTime` field once Events During · S9 defines it).
 - Caching keys: token by (signed-in user, ring id) with `issuedAt`; resolved views by (viewer, token) for 60 s at most, so a re-scan after a revoke is honoured; "recent scans" on the device only, holding the view and the user id, never the token.
 - Pagination / ordering: none on these screens.
 - Scanner: debounce one resolve per token per 5 s; cancel an in-flight resolve on flip-back; never log the token.

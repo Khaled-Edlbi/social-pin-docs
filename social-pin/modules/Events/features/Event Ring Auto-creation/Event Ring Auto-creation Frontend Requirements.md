@@ -45,7 +45,7 @@ What the client needs from the backend to build s52 and the two screens the gran
 | Ring detail (name, window, flags) | `GET /rings/:id` | ✅ | — |
 | Preview the Event Ring as a member sees it | `GET /views/ring/:ringId` | ✅ | — |
 | Organizer / exhibitor side membership rules | — | ❌ | [[Event Ring Auto-creation Story|Event Ring Auto-creation · S6]] |
-| Event pass bound to the Event Ring | — | ❌ | [[T-037 Event pass with a 60 s rotating code]] |
+| Event pass bound to the Event Ring | — | ❌ | [[Events During Story|Events During · S9]] |
 | Keep / merge / auto-delete after the event | `POST /rings/:id/disposition` | ✅ | — |
 
 ## Behaviour expectations
@@ -73,4 +73,4 @@ What the client needs from the backend to build s52 and the two screens the gran
 - No decision note. Upstream tasks:
 - [[Event Ring Auto-creation Story|Event Ring Auto-creation · S6]] — waits on [[Events Before Story|Events Before · S7]]; every ❌ row above.
 - [[Events Before Story|Events Before · S9]] — waits on [[Events Before Story|Events Before · S8]] and [[Payments & Orders Story|Payments & Orders · S7]] (payment provider undecided); the registration response and the pending-state polling.
-- [[T-037 Event pass with a 60 s rotating code]] — waits on Event Ring Auto-creation · S6 and [[Badge & QR Story|Badge & QR · S7–S12]].
+- [[Events During Story|Events During · S9]] — waits on Event Ring Auto-creation · S6 and [[Badge & QR Story|Badge & QR · S7–S12]].

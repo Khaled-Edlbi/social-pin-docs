@@ -34,7 +34,7 @@ What the client needs to create an order, pay for it and learn the result, and w
 ### [[Screen Index#s53|s53]] Event mode (upgrade sheet)
 
 - Needs: the same order and payment calls for a mini-event or level upgrade; the mini-event's access state after success.
-- Source today: not yet ([[T-040 Lounges and upgrades]], Payments & Orders · S7).
+- Source today: not yet ([[Events During Story|Events During · S12]], Payments & Orders · S7).
 
 ### [[Screen Index#s68|s68]] Me / Account (orders and receipts)
 
@@ -51,7 +51,7 @@ What the client needs to create an order, pay for it and learn the result, and w
 | Order / payment status to poll | — | ❌ | [[Payments & Orders Story|Payments & Orders · S7]] |
 | Provider webhook (server to server, idempotent on `providerReference`) | — | ❌ | [[Payments & Orders Story|Payments & Orders · S7]] |
 | Registration completes and the Event Ring is granted on success | — | ❌ | [[Events Before Story|Events Before · S9]], [[Event Ring Auto-creation Story|Event Ring Auto-creation · S6]] |
-| In-event upgrade purchase | — | ❌ | [[T-040 Lounges and upgrades]] |
+| In-event upgrade purchase | — | ❌ | [[Events During Story|Events During · S12]] |
 | My orders and receipts | — | ❌ | [[Payments & Orders Story|Payments & Orders · S7]] |
 | Audit of every payment action | — | ❌ | [[Audit Log Story|Audit Log · S4]] |
 | "Registration confirmed" notification | — | ❌ | [[Notifications Story|Notifications · S7]] |
@@ -84,4 +84,4 @@ What the client needs to create an order, pay for it and learn the result, and w
 - [[Payments & Orders Story|Payments & Orders · S7]] — needs the provider decision (card / e-payment per organizer); every row above.
 - [[Events Before Story|Events Before · S9]] — waits on [[Events Before Story|Events Before · S8]] and Payments & Orders · S7; the order creation and the registration-complete signal.
 - [[Event Ring Auto-creation Story|Event Ring Auto-creation · S6]] — the Ring id on success.
-- [[T-040 Lounges and upgrades]] — the in-event upgrade sheet.
+- [[Events During Story|Events During · S12]] — the in-event upgrade sheet.

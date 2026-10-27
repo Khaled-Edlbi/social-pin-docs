@@ -46,7 +46,7 @@ What the client needs from the backend to build the screen in [[Discover Hub & S
 | People tile (requests and contacts) | — | ❌ | [[Connections Story|Connections · S8–S12]] |
 | Events tile | — | ❌ | [[Events Before Story|Events Before · S7]] |
 | Companies tile | — | ❌ | [[Companies Story|Companies · S6]] |
-| Exhibitors tile | — | ❌ | [[T-036 Event mode exhibitors list and detail]] |
+| Exhibitors tile | — | ❌ | [[Events During Story|Events During · S8]] |
 | PinCast tile | — | ❌ | [[PinCast & Nearby Story|PinCast & Nearby · S7]] |
 | Avatar on recent-search rows and results | — | ❌ | [[Files Upload Story|Files Upload · showing files]] |
 

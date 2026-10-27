@@ -270,26 +270,6 @@
     "Subscription (Free vs Pro) Backend Delivery": "backend-delivery:subscription",
     "Subscription (Free vs Pro) Frontend Requirements": "frontend-requirements:subscription",
     "Subscription (Free vs Pro) Story": "story:subscription",
-    "T-036 Event mode exhibitors list and detail": "task:T-036",
-    "T-036 Story": "story:T-036",
-    "T-036-be Backend · Event mode exhibitors list and detail": "task:T-036-be",
-    "T-036-fe Frontend · Event mode exhibitors list and detail": "task:T-036-fe",
-    "T-037 Event pass with a 60 s rotating code": "task:T-037",
-    "T-037 Story": "story:T-037",
-    "T-037-be Backend · Event pass with a 60 s rotating code": "task:T-037-be",
-    "T-037-fe Frontend · Event pass with a 60 s rotating code": "task:T-037-fe",
-    "T-038 Floor map and booths": "task:T-038",
-    "T-038 Story": "story:T-038",
-    "T-038-be Backend · Floor map and booths": "task:T-038-be",
-    "T-038-fe Frontend · Floor map and booths": "task:T-038-fe",
-    "T-039 Catalogue products and talks (new table)": "task:T-039",
-    "T-039 Story": "story:T-039",
-    "T-039-be Backend · Catalogue products and talks (new table)": "task:T-039-be",
-    "T-039-fe Frontend · Catalogue products and talks (new table)": "task:T-039-fe",
-    "T-040 Lounges and upgrades": "task:T-040",
-    "T-040 Story": "story:T-040",
-    "T-040-be Backend · Lounges and upgrades": "task:T-040-be",
-    "T-040-fe Frontend · Lounges and upgrades": "task:T-040-fe",
     "View As & Pin Views": "feature:view-as",
     "View As & Pin Views Backend Delivery": "backend-delivery:view-as",
     "View As & Pin Views Backend Integration": "backend-integration:view-as",
@@ -544,11 +524,6 @@
     "S-47": "story:event-ring-auto",
     "S-49": "story:events-before",
     "S-53": "story:events-during",
-    "S-54": "story:T-036",
-    "S-55": "story:T-037",
-    "S-56": "story:T-038",
-    "S-57": "story:T-039",
-    "S-58": "story:T-040",
     "S-59": "story:exhibitor",
     "S-62": "story:post-event",
     "S-64": "story:meetings",
@@ -564,22 +539,7 @@
     "S-89": "story:gemma",
     "S-92": "story:interests",
     "S-94": "story:linked-accounts",
-    "S-96": "story:notifications",
-    "T-036": "task:T-036",
-    "T-036-be": "task:T-036-be",
-    "T-036-fe": "task:T-036-fe",
-    "T-037": "task:T-037",
-    "T-037-be": "task:T-037-be",
-    "T-037-fe": "task:T-037-fe",
-    "T-038": "task:T-038",
-    "T-038-be": "task:T-038-be",
-    "T-038-fe": "task:T-038-fe",
-    "T-039": "task:T-039",
-    "T-039-be": "task:T-039-be",
-    "T-039-fe": "task:T-039-fe",
-    "T-040": "task:T-040",
-    "T-040-be": "task:T-040-be",
-    "T-040-fe": "task:T-040-fe"
+    "S-96": "story:notifications"
   },
   "concepts": {
     "DELETE /admin/users/:userId/roles/:assignmentId": {
@@ -3735,79 +3695,48 @@
     "s53": {
       "containers": [
         "feature:events-during",
-        "feature:payments",
-        "task:T-036",
-        "task:T-036-be",
-        "task:T-036-fe",
-        "task:T-040",
-        "task:T-040-be",
-        "task:T-040-fe"
+        "feature:payments"
       ],
       "kind": "screen",
       "notes": [
         "backend-delivery:events-during",
         "feature:events-during",
         "frontend-requirements:events-during",
-        "story:T-036",
-        "story:T-040",
         "story:events-during",
-        "story:payments",
-        "task:T-036",
-        "task:T-036-be",
-        "task:T-036-fe",
-        "task:T-040",
-        "task:T-040-be",
-        "task:T-040-fe"
+        "story:payments"
       ],
       "owner": null
     },
     "s54": {
       "containers": [
-        "feature:events-during",
-        "task:T-036",
-        "task:T-036-be",
-        "task:T-036-fe"
+        "feature:events-during"
       ],
       "kind": "screen",
       "notes": [
         "backend-delivery:events-during",
         "feature:events-during",
         "frontend-requirements:events-during",
-        "story:T-036",
-        "story:events-during",
-        "task:T-036",
-        "task:T-036-be",
-        "task:T-036-fe"
+        "story:events-during"
       ],
       "owner": null
     },
     "s55": {
       "containers": [
-        "feature:events-during",
-        "task:T-036",
-        "task:T-036-be",
-        "task:T-036-fe"
+        "feature:events-during"
       ],
       "kind": "screen",
       "notes": [
         "backend-delivery:events-during",
         "feature:events-during",
         "frontend-requirements:events-during",
-        "story:T-036",
-        "story:events-during",
-        "task:T-036",
-        "task:T-036-be",
-        "task:T-036-fe"
+        "story:events-during"
       ],
       "owner": null
     },
     "s56": {
       "containers": [
         "feature:badge-qr",
-        "feature:events-during",
-        "task:T-037",
-        "task:T-037-be",
-        "task:T-037-fe"
+        "feature:events-during"
       ],
       "kind": "screen",
       "notes": [
@@ -3817,52 +3746,34 @@
         "feature:events-during",
         "frontend-requirements:badge-qr",
         "frontend-requirements:events-during",
-        "story:T-037",
         "story:badge-qr",
-        "story:events-during",
-        "task:T-037",
-        "task:T-037-be",
-        "task:T-037-fe"
+        "story:events-during"
       ],
       "owner": null
     },
     "s57": {
       "containers": [
-        "feature:events-during",
-        "task:T-038",
-        "task:T-038-be",
-        "task:T-038-fe"
+        "feature:events-during"
       ],
       "kind": "screen",
       "notes": [
         "backend-delivery:events-during",
         "feature:events-during",
         "frontend-requirements:events-during",
-        "story:T-038",
-        "story:events-during",
-        "task:T-038",
-        "task:T-038-be",
-        "task:T-038-fe"
+        "story:events-during"
       ],
       "owner": null
     },
     "s58": {
       "containers": [
-        "feature:events-during",
-        "task:T-039",
-        "task:T-039-be",
-        "task:T-039-fe"
+        "feature:events-during"
       ],
       "kind": "screen",
       "notes": [
         "backend-delivery:events-during",
         "feature:events-during",
         "frontend-requirements:events-during",
-        "story:T-039",
-        "story:events-during",
-        "task:T-039",
-        "task:T-039-be",
-        "task:T-039-fe"
+        "story:events-during"
       ],
       "owner": null
     },
@@ -4148,7 +4059,7 @@
     }
   },
   "counts": {
-    "blocked": 49,
+    "blocked": 38,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -4161,28 +4072,28 @@
       "project": 27,
       "qa-backend": 1,
       "qa-frontend": 1,
-      "story": 46,
-      "task": 17
+      "story": 41,
+      "task": 2
     },
     "byLayer": {
       "backend": 56,
-      "business": 142,
+      "business": 122,
       "frontend": 44,
       "qa": 2,
       "shared": 10
     },
     "concepts": 198,
     "decisions": 19,
-    "edges": 3622,
+    "edges": 3502,
     "features": 41,
-    "layerNotes": 136,
+    "layerNotes": 131,
     "modules": 8,
-    "notes": 290,
+    "notes": 270,
     "partial": 4,
     "placeholders": 154,
     "records": 14,
-    "taskLayerNotes": 5,
-    "tasks": 17
+    "taskLayerNotes": 0,
+    "tasks": 2
   },
   "deadlines": {
     "missed": {
@@ -5628,61 +5539,6 @@
       "to": "frontend-requirements:ring-invitations"
     },
     {
-      "from": "task:T-036",
-      "kind": "blocks",
-      "to": "task:T-038"
-    },
-    {
-      "from": "task:T-036",
-      "kind": "blocks",
-      "to": "task:T-038-be"
-    },
-    {
-      "from": "task:T-036",
-      "kind": "blocks",
-      "to": "task:T-038-fe"
-    },
-    {
-      "from": "task:T-036",
-      "kind": "blocks",
-      "to": "task:T-039"
-    },
-    {
-      "from": "task:T-036",
-      "kind": "blocks",
-      "to": "task:T-039-be"
-    },
-    {
-      "from": "task:T-036",
-      "kind": "blocks",
-      "to": "task:T-039-fe"
-    },
-    {
-      "from": "task:T-036-be",
-      "kind": "blocks",
-      "to": "task:T-036-fe"
-    },
-    {
-      "from": "task:T-037-be",
-      "kind": "blocks",
-      "to": "task:T-037-fe"
-    },
-    {
-      "from": "task:T-038-be",
-      "kind": "blocks",
-      "to": "task:T-038-fe"
-    },
-    {
-      "from": "task:T-039-be",
-      "kind": "blocks",
-      "to": "task:T-039-fe"
-    },
-    {
-      "from": "task:T-040-be",
-      "kind": "blocks",
-      "to": "task:T-040-fe"
-    },
-    {
       "from": "needs-decision:ND-01",
       "kind": "decision",
       "to": "feature:auth"
@@ -5991,61 +5847,6 @@
       "from": "story:payments",
       "kind": "depends",
       "to": "needs-decision:ND-07"
-    },
-    {
-      "from": "task:T-036-fe",
-      "kind": "depends",
-      "to": "task:T-036-be"
-    },
-    {
-      "from": "task:T-037-fe",
-      "kind": "depends",
-      "to": "task:T-037-be"
-    },
-    {
-      "from": "task:T-038",
-      "kind": "depends",
-      "to": "task:T-036"
-    },
-    {
-      "from": "task:T-038-be",
-      "kind": "depends",
-      "to": "task:T-036"
-    },
-    {
-      "from": "task:T-038-fe",
-      "kind": "depends",
-      "to": "task:T-036"
-    },
-    {
-      "from": "task:T-038-fe",
-      "kind": "depends",
-      "to": "task:T-038-be"
-    },
-    {
-      "from": "task:T-039",
-      "kind": "depends",
-      "to": "task:T-036"
-    },
-    {
-      "from": "task:T-039-be",
-      "kind": "depends",
-      "to": "task:T-036"
-    },
-    {
-      "from": "task:T-039-fe",
-      "kind": "depends",
-      "to": "task:T-036"
-    },
-    {
-      "from": "task:T-039-fe",
-      "kind": "depends",
-      "to": "task:T-039-be"
-    },
-    {
-      "from": "task:T-040-fe",
-      "kind": "depends",
-      "to": "task:T-040-be"
     },
     {
       "from": "backend-delivery:account",
@@ -9677,46 +9478,6 @@
       "to": "feature:payments"
     },
     {
-      "from": "story:events-during",
-      "kind": "related",
-      "to": "story:T-036",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
-      "from": "story:events-during",
-      "kind": "related",
-      "to": "story:T-037",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
-      "from": "story:events-during",
-      "kind": "related",
-      "to": "story:T-038",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
-      "from": "story:events-during",
-      "kind": "related",
-      "to": "story:T-039",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
-      "from": "story:events-during",
-      "kind": "related",
-      "to": "story:T-040",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
       "from": "story:gemma",
       "kind": "related",
       "to": "decision:D-06"
@@ -9764,7 +9525,7 @@
     {
       "from": "story:payments",
       "kind": "related",
-      "to": "task:T-040"
+      "to": "story:events-during"
     },
     {
       "from": "story:photo-library",
@@ -9975,81 +9736,6 @@
       "from": "task:B-02",
       "kind": "related",
       "to": "story:error-contract"
-    },
-    {
-      "from": "task:T-036",
-      "kind": "related",
-      "to": "story:events-before"
-    },
-    {
-      "from": "task:T-036-be",
-      "kind": "related",
-      "to": "story:events-before"
-    },
-    {
-      "from": "task:T-036-fe",
-      "kind": "related",
-      "to": "story:events-before"
-    },
-    {
-      "from": "task:T-037",
-      "kind": "related",
-      "to": "story:badge-qr"
-    },
-    {
-      "from": "task:T-037",
-      "kind": "related",
-      "to": "story:event-ring-auto"
-    },
-    {
-      "from": "task:T-037-be",
-      "kind": "related",
-      "to": "story:badge-qr"
-    },
-    {
-      "from": "task:T-037-be",
-      "kind": "related",
-      "to": "story:event-ring-auto"
-    },
-    {
-      "from": "task:T-037-fe",
-      "kind": "related",
-      "to": "story:badge-qr"
-    },
-    {
-      "from": "task:T-037-fe",
-      "kind": "related",
-      "to": "story:event-ring-auto"
-    },
-    {
-      "from": "task:T-040",
-      "kind": "related",
-      "to": "story:events-before"
-    },
-    {
-      "from": "task:T-040",
-      "kind": "related",
-      "to": "story:subscription"
-    },
-    {
-      "from": "task:T-040-be",
-      "kind": "related",
-      "to": "story:events-before"
-    },
-    {
-      "from": "task:T-040-be",
-      "kind": "related",
-      "to": "story:subscription"
-    },
-    {
-      "from": "task:T-040-fe",
-      "kind": "related",
-      "to": "story:events-before"
-    },
-    {
-      "from": "task:T-040-fe",
-      "kind": "related",
-      "to": "story:subscription"
     },
     {
       "from": "decision:D-13",
@@ -20356,31 +20042,6 @@
       "to": "needs-decision:ND-07"
     },
     {
-      "from": "story:events-during",
-      "kind": "tree",
-      "to": "task:T-036"
-    },
-    {
-      "from": "story:events-during",
-      "kind": "tree",
-      "to": "task:T-037"
-    },
-    {
-      "from": "story:events-during",
-      "kind": "tree",
-      "to": "task:T-038"
-    },
-    {
-      "from": "story:events-during",
-      "kind": "tree",
-      "to": "task:T-039"
-    },
-    {
-      "from": "story:events-during",
-      "kind": "tree",
-      "to": "task:T-040"
-    },
-    {
       "from": "story:files",
       "kind": "tree",
       "to": "needs-decision:ND-16"
@@ -20409,81 +20070,6 @@
       "from": "task:B-01",
       "kind": "tree",
       "to": "needs-decision:ND-20"
-    },
-    {
-      "from": "task:T-036",
-      "kind": "tree",
-      "to": "story:T-036"
-    },
-    {
-      "from": "task:T-036",
-      "kind": "tree",
-      "to": "task:T-036-be"
-    },
-    {
-      "from": "task:T-036",
-      "kind": "tree",
-      "to": "task:T-036-fe"
-    },
-    {
-      "from": "task:T-037",
-      "kind": "tree",
-      "to": "story:T-037"
-    },
-    {
-      "from": "task:T-037",
-      "kind": "tree",
-      "to": "task:T-037-be"
-    },
-    {
-      "from": "task:T-037",
-      "kind": "tree",
-      "to": "task:T-037-fe"
-    },
-    {
-      "from": "task:T-038",
-      "kind": "tree",
-      "to": "story:T-038"
-    },
-    {
-      "from": "task:T-038",
-      "kind": "tree",
-      "to": "task:T-038-be"
-    },
-    {
-      "from": "task:T-038",
-      "kind": "tree",
-      "to": "task:T-038-fe"
-    },
-    {
-      "from": "task:T-039",
-      "kind": "tree",
-      "to": "story:T-039"
-    },
-    {
-      "from": "task:T-039",
-      "kind": "tree",
-      "to": "task:T-039-be"
-    },
-    {
-      "from": "task:T-039",
-      "kind": "tree",
-      "to": "task:T-039-fe"
-    },
-    {
-      "from": "task:T-040",
-      "kind": "tree",
-      "to": "story:T-040"
-    },
-    {
-      "from": "task:T-040",
-      "kind": "tree",
-      "to": "task:T-040-be"
-    },
-    {
-      "from": "task:T-040",
-      "kind": "tree",
-      "to": "task:T-040-fe"
     },
     {
       "from": "backend-delivery:account",
@@ -21623,27 +21209,7 @@
     {
       "from": "feature:events-during",
       "kind": "wikilink",
-      "to": "task:T-036"
-    },
-    {
-      "from": "feature:events-during",
-      "kind": "wikilink",
-      "to": "task:T-037"
-    },
-    {
-      "from": "feature:events-during",
-      "kind": "wikilink",
-      "to": "task:T-038"
-    },
-    {
-      "from": "feature:events-during",
-      "kind": "wikilink",
-      "to": "task:T-039"
-    },
-    {
-      "from": "feature:events-during",
-      "kind": "wikilink",
-      "to": "task:T-040"
+      "to": "project:status-report-2026-10-15"
     },
     {
       "from": "feature:exhibitor",
@@ -22023,17 +21589,17 @@
     {
       "from": "frontend-requirements:badge-qr",
       "kind": "wikilink",
+      "to": "story:events-during"
+    },
+    {
+      "from": "frontend-requirements:badge-qr",
+      "kind": "wikilink",
       "to": "story:files"
     },
     {
       "from": "frontend-requirements:badge-qr",
       "kind": "wikilink",
       "to": "story:subscription"
-    },
-    {
-      "from": "frontend-requirements:badge-qr",
-      "kind": "wikilink",
-      "to": "task:T-037"
     },
     {
       "from": "frontend-requirements:cleanup-jobs",
@@ -22293,6 +21859,11 @@
     {
       "from": "frontend-requirements:discover-hub",
       "kind": "wikilink",
+      "to": "story:events-during"
+    },
+    {
+      "from": "frontend-requirements:discover-hub",
+      "kind": "wikilink",
       "to": "story:files"
     },
     {
@@ -22304,11 +21875,6 @@
       "from": "frontend-requirements:discover-hub",
       "kind": "wikilink",
       "to": "story:pincast"
-    },
-    {
-      "from": "frontend-requirements:discover-hub",
-      "kind": "wikilink",
-      "to": "task:T-036"
     },
     {
       "from": "frontend-requirements:e2e-tests",
@@ -22348,12 +21914,12 @@
     {
       "from": "frontend-requirements:event-ring-auto",
       "kind": "wikilink",
-      "to": "story:payments"
+      "to": "story:events-during"
     },
     {
       "from": "frontend-requirements:event-ring-auto",
       "kind": "wikilink",
-      "to": "task:T-037"
+      "to": "story:payments"
     },
     {
       "from": "frontend-requirements:events-before",
@@ -22436,31 +22002,6 @@
       "to": "story:subscription"
     },
     {
-      "from": "frontend-requirements:events-during",
-      "kind": "wikilink",
-      "to": "task:T-036"
-    },
-    {
-      "from": "frontend-requirements:events-during",
-      "kind": "wikilink",
-      "to": "task:T-037"
-    },
-    {
-      "from": "frontend-requirements:events-during",
-      "kind": "wikilink",
-      "to": "task:T-038"
-    },
-    {
-      "from": "frontend-requirements:events-during",
-      "kind": "wikilink",
-      "to": "task:T-039"
-    },
-    {
-      "from": "frontend-requirements:events-during",
-      "kind": "wikilink",
-      "to": "task:T-040"
-    },
-    {
       "from": "frontend-requirements:exhibitor",
       "kind": "wikilink",
       "to": "feature:notifications"
@@ -22493,6 +22034,11 @@
     {
       "from": "frontend-requirements:exhibitor",
       "kind": "wikilink",
+      "to": "story:events-during"
+    },
+    {
+      "from": "frontend-requirements:exhibitor",
+      "kind": "wikilink",
       "to": "story:exhibitor"
     },
     {
@@ -22504,11 +22050,6 @@
       "from": "frontend-requirements:exhibitor",
       "kind": "wikilink",
       "to": "story:meetings"
-    },
-    {
-      "from": "frontend-requirements:exhibitor",
-      "kind": "wikilink",
-      "to": "task:T-036"
     },
     {
       "from": "frontend-requirements:files",
@@ -22558,6 +22099,11 @@
     {
       "from": "frontend-requirements:gemma",
       "kind": "wikilink",
+      "to": "story:events-during"
+    },
+    {
+      "from": "frontend-requirements:gemma",
+      "kind": "wikilink",
       "to": "story:gemma"
     },
     {
@@ -22574,11 +22120,6 @@
       "from": "frontend-requirements:gemma",
       "kind": "wikilink",
       "to": "story:subscription"
-    },
-    {
-      "from": "frontend-requirements:gemma",
-      "kind": "wikilink",
-      "to": "task:T-036"
     },
     {
       "from": "frontend-requirements:interests",
@@ -22708,17 +22249,17 @@
     {
       "from": "frontend-requirements:payments",
       "kind": "wikilink",
+      "to": "story:events-during"
+    },
+    {
+      "from": "frontend-requirements:payments",
+      "kind": "wikilink",
       "to": "story:notifications"
     },
     {
       "from": "frontend-requirements:payments",
       "kind": "wikilink",
       "to": "story:payments"
-    },
-    {
-      "from": "frontend-requirements:payments",
-      "kind": "wikilink",
-      "to": "task:T-040"
     },
     {
       "from": "frontend-requirements:photo-library",
@@ -23183,6 +22724,11 @@
     {
       "from": "frontend-requirements:subscription",
       "kind": "wikilink",
+      "to": "story:events-during"
+    },
+    {
+      "from": "frontend-requirements:subscription",
+      "kind": "wikilink",
       "to": "story:gemma"
     },
     {
@@ -23194,11 +22740,6 @@
       "from": "frontend-requirements:subscription",
       "kind": "wikilink",
       "to": "story:subscription"
-    },
-    {
-      "from": "frontend-requirements:subscription",
-      "kind": "wikilink",
-      "to": "task:T-040"
     },
     {
       "from": "frontend-requirements:view-as",
@@ -24218,12 +23759,12 @@
     {
       "from": "needs-decision:ND-11",
       "kind": "wikilink",
-      "to": "story:subscription"
+      "to": "story:events-during"
     },
     {
       "from": "needs-decision:ND-11",
       "kind": "wikilink",
-      "to": "task:T-037"
+      "to": "story:subscription"
     },
     {
       "from": "needs-decision:ND-12",
@@ -25253,11 +24794,6 @@
     {
       "from": "project:status-report-2026-10-15",
       "kind": "wikilink",
-      "to": "feature:events-during"
-    },
-    {
-      "from": "project:status-report-2026-10-15",
-      "kind": "wikilink",
       "to": "feature:files"
     },
     {
@@ -25501,6 +25037,11 @@
       "to": "project:ring-access-model"
     },
     {
+      "from": "story:badge-qr",
+      "kind": "wikilink",
+      "to": "story:events-during"
+    },
+    {
       "from": "story:cleanup-jobs",
       "kind": "wikilink",
       "to": "feature:ring-access"
@@ -25664,6 +25205,11 @@
       "from": "story:event-ring-auto",
       "kind": "wikilink",
       "to": "story:events-before"
+    },
+    {
+      "from": "story:event-ring-auto",
+      "kind": "wikilink",
+      "to": "story:events-during"
     },
     {
       "from": "story:event-ring-auto",
@@ -25859,11 +25405,6 @@
       "from": "story:payments",
       "kind": "wikilink",
       "to": "story:event-ring-auto"
-    },
-    {
-      "from": "story:payments",
-      "kind": "wikilink",
-      "to": "story:events-during"
     },
     {
       "from": "story:payments",
@@ -26106,31 +25647,6 @@
       "to": "story:events-during"
     },
     {
-      "from": "story:T-036",
-      "kind": "wikilink",
-      "to": "feature:events-during"
-    },
-    {
-      "from": "story:T-037",
-      "kind": "wikilink",
-      "to": "feature:events-during"
-    },
-    {
-      "from": "story:T-038",
-      "kind": "wikilink",
-      "to": "feature:events-during"
-    },
-    {
-      "from": "story:T-039",
-      "kind": "wikilink",
-      "to": "feature:events-during"
-    },
-    {
-      "from": "story:T-040",
-      "kind": "wikilink",
-      "to": "feature:events-during"
-    },
-    {
       "from": "story:view-as",
       "kind": "wikilink",
       "to": "backend-integration:view-as"
@@ -26164,226 +25680,6 @@
       "from": "task:B-02",
       "kind": "wikilink",
       "to": "story:account"
-    },
-    {
-      "from": "task:T-036",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-036",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-036",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-036",
-      "kind": "wikilink",
-      "to": "story:exhibitor"
-    },
-    {
-      "from": "task:T-036",
-      "kind": "wikilink",
-      "to": "story:gemma"
-    },
-    {
-      "from": "task:T-036",
-      "kind": "wikilink",
-      "to": "task:T-038"
-    },
-    {
-      "from": "task:T-036",
-      "kind": "wikilink",
-      "to": "task:T-039"
-    },
-    {
-      "from": "task:T-036-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:events-during"
-    },
-    {
-      "from": "task:T-036-be",
-      "kind": "wikilink",
-      "to": "feature:events-during"
-    },
-    {
-      "from": "task:T-036-fe",
-      "kind": "wikilink",
-      "to": "feature:events-during"
-    },
-    {
-      "from": "task:T-036-fe",
-      "kind": "wikilink",
-      "to": "story:T-036"
-    },
-    {
-      "from": "task:T-036-fe",
-      "kind": "wikilink",
-      "to": "task:T-036-be"
-    },
-    {
-      "from": "task:T-037",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-037",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-037",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-037-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:events-during"
-    },
-    {
-      "from": "task:T-037-be",
-      "kind": "wikilink",
-      "to": "feature:events-during"
-    },
-    {
-      "from": "task:T-037-fe",
-      "kind": "wikilink",
-      "to": "feature:events-during"
-    },
-    {
-      "from": "task:T-037-fe",
-      "kind": "wikilink",
-      "to": "story:T-037"
-    },
-    {
-      "from": "task:T-037-fe",
-      "kind": "wikilink",
-      "to": "task:T-037-be"
-    },
-    {
-      "from": "task:T-038",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-038",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-038",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-038-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:events-during"
-    },
-    {
-      "from": "task:T-038-be",
-      "kind": "wikilink",
-      "to": "feature:events-during"
-    },
-    {
-      "from": "task:T-038-fe",
-      "kind": "wikilink",
-      "to": "feature:events-during"
-    },
-    {
-      "from": "task:T-038-fe",
-      "kind": "wikilink",
-      "to": "story:T-038"
-    },
-    {
-      "from": "task:T-038-fe",
-      "kind": "wikilink",
-      "to": "task:T-038-be"
-    },
-    {
-      "from": "task:T-039",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-039",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-039",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-039-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:events-during"
-    },
-    {
-      "from": "task:T-039-be",
-      "kind": "wikilink",
-      "to": "feature:events-during"
-    },
-    {
-      "from": "task:T-039-fe",
-      "kind": "wikilink",
-      "to": "feature:events-during"
-    },
-    {
-      "from": "task:T-039-fe",
-      "kind": "wikilink",
-      "to": "story:T-039"
-    },
-    {
-      "from": "task:T-039-fe",
-      "kind": "wikilink",
-      "to": "task:T-039-be"
-    },
-    {
-      "from": "task:T-040",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-040",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-040",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-040-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:events-during"
-    },
-    {
-      "from": "task:T-040-be",
-      "kind": "wikilink",
-      "to": "feature:events-during"
-    },
-    {
-      "from": "task:T-040-fe",
-      "kind": "wikilink",
-      "to": "feature:events-during"
-    },
-    {
-      "from": "task:T-040-fe",
-      "kind": "wikilink",
-      "to": "story:T-040"
-    },
-    {
-      "from": "task:T-040-fe",
-      "kind": "wikilink",
-      "to": "task:T-040-be"
     }
   ],
   "emoji": {
@@ -27443,86 +26739,6 @@
     "social-pin/tasks/Backlog.md": {
       "name": "Backlog",
       "type": "map"
-    },
-    "social-pin/tasks/T-036 Event mode exhibitors list and detail/T-036 Event mode exhibitors list and detail.md": {
-      "name": "T-036 Event mode exhibitors list and detail",
-      "type": "task"
-    },
-    "social-pin/tasks/T-036 Event mode exhibitors list and detail/T-036 Story.md": {
-      "name": "T-036 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-036 Event mode exhibitors list and detail/T-036-be Backend · Event mode exhibitors list and detail.md": {
-      "name": "T-036-be Backend · Event mode exhibitors list and detail",
-      "type": "task"
-    },
-    "social-pin/tasks/T-036 Event mode exhibitors list and detail/T-036-fe Frontend · Event mode exhibitors list and detail.md": {
-      "name": "T-036-fe Frontend · Event mode exhibitors list and detail",
-      "type": "task"
-    },
-    "social-pin/tasks/T-037 Event pass with a 60 s rotating code/T-037 Event pass with a 60 s rotating code.md": {
-      "name": "T-037 Event pass with a 60 s rotating code",
-      "type": "task"
-    },
-    "social-pin/tasks/T-037 Event pass with a 60 s rotating code/T-037 Story.md": {
-      "name": "T-037 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-037 Event pass with a 60 s rotating code/T-037-be Backend · Event pass with a 60 s rotating code.md": {
-      "name": "T-037-be Backend · Event pass with a 60 s rotating code",
-      "type": "task"
-    },
-    "social-pin/tasks/T-037 Event pass with a 60 s rotating code/T-037-fe Frontend · Event pass with a 60 s rotating code.md": {
-      "name": "T-037-fe Frontend · Event pass with a 60 s rotating code",
-      "type": "task"
-    },
-    "social-pin/tasks/T-038 Floor map and booths/T-038 Floor map and booths.md": {
-      "name": "T-038 Floor map and booths",
-      "type": "task"
-    },
-    "social-pin/tasks/T-038 Floor map and booths/T-038 Story.md": {
-      "name": "T-038 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-038 Floor map and booths/T-038-be Backend · Floor map and booths.md": {
-      "name": "T-038-be Backend · Floor map and booths",
-      "type": "task"
-    },
-    "social-pin/tasks/T-038 Floor map and booths/T-038-fe Frontend · Floor map and booths.md": {
-      "name": "T-038-fe Frontend · Floor map and booths",
-      "type": "task"
-    },
-    "social-pin/tasks/T-039 Catalogue products and talks (new table)/T-039 Catalogue products and talks (new table).md": {
-      "name": "T-039 Catalogue products and talks (new table)",
-      "type": "task"
-    },
-    "social-pin/tasks/T-039 Catalogue products and talks (new table)/T-039 Story.md": {
-      "name": "T-039 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-039 Catalogue products and talks (new table)/T-039-be Backend · Catalogue products and talks (new table).md": {
-      "name": "T-039-be Backend · Catalogue products and talks (new table)",
-      "type": "task"
-    },
-    "social-pin/tasks/T-039 Catalogue products and talks (new table)/T-039-fe Frontend · Catalogue products and talks (new table).md": {
-      "name": "T-039-fe Frontend · Catalogue products and talks (new table)",
-      "type": "task"
-    },
-    "social-pin/tasks/T-040 Lounges and upgrades/T-040 Lounges and upgrades.md": {
-      "name": "T-040 Lounges and upgrades",
-      "type": "task"
-    },
-    "social-pin/tasks/T-040 Lounges and upgrades/T-040 Story.md": {
-      "name": "T-040 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-040 Lounges and upgrades/T-040-be Backend · Lounges and upgrades.md": {
-      "name": "T-040-be Backend · Lounges and upgrades",
-      "type": "task"
-    },
-    "social-pin/tasks/T-040 Lounges and upgrades/T-040-fe Frontend · Lounges and upgrades.md": {
-      "name": "T-040-fe Frontend · Lounges and upgrades",
-      "type": "task"
     },
     "social-pin/tasks/Task Board.md": {
       "name": "Task Board",
@@ -34469,11 +33685,9 @@
       "release": "mvp",
       "resolution": null,
       "rollup": {
-        "blocked": 13,
-        "draft": 6,
-        "missing": 4,
-        "needs-decision": 1,
-        "todo": 3
+        "blocked": 2,
+        "draft": 1,
+        "missing": 4
       },
       "scope": null,
       "screens": [
@@ -34494,7 +33708,7 @@
       ],
       "task": null,
       "title": "Events During",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "feature:exhibitor": {
       "affects": [],
@@ -40727,13 +39941,12 @@
       "resolution": null,
       "rollup": {
         "approved": 4,
-        "blocked": 17,
+        "blocked": 6,
         "decided": 1,
-        "draft": 10,
+        "draft": 5,
         "in-progress": 4,
         "missing": 20,
-        "needs-decision": 1,
-        "todo": 4,
+        "todo": 1,
         "verified": 1
       },
       "scope": null,
@@ -47465,20 +46678,20 @@
       ],
       "rollup": {
         "approved": 31,
-        "blocked": 49,
+        "blocked": 38,
         "current": 8,
         "decided": 14,
         "delivered": 2,
         "done": 10,
-        "draft": 46,
+        "draft": 41,
         "in-progress": 44,
         "missing": 154,
-        "needs-decision": 2,
+        "needs-decision": 1,
         "partial": 4,
         "passing": 1,
         "ready": 2,
         "reference": 31,
-        "todo": 8,
+        "todo": 5,
         "verified": 14
       },
       "scope": null,
@@ -47489,258 +46702,6 @@
       "tags": [],
       "task": null,
       "title": "Social Pin",
-      "updated": "2026-10-26"
-    },
-    "story:T-036": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-54",
-      "children": [],
-      "code": "T-036",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
-      "effort": null,
-      "feature": "events-during",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-036",
-      "inherits": {
-        "priority": "task:T-036",
-        "release": "feature:events-during"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "events",
-      "parentTask": null,
-      "parents": [
-        "task:T-036"
-      ],
-      "path": "social-pin/tasks/T-036 Event mode exhibitors list and detail/T-036 Story.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "scope": "task",
-      "screens": [
-        "s53",
-        "s54",
-        "s55"
-      ],
-      "status": "draft",
-      "summary": "Scoped by the viewer's Event Ring membership (access engine).",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/events",
-        "layer/business"
-      ],
-      "task": "T-036",
-      "title": "T-036 Story",
-      "updated": "2026-10-26"
-    },
-    "story:T-037": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-55",
-      "children": [],
-      "code": "T-037",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
-      "effort": null,
-      "feature": "events-during",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-037",
-      "inherits": {
-        "priority": "task:T-037",
-        "release": "feature:events-during"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "events",
-      "parentTask": null,
-      "parents": [
-        "task:T-037"
-      ],
-      "path": "social-pin/tasks/T-037 Event pass with a 60 s rotating code/T-037 Story.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "scope": "task",
-      "screens": [
-        "s56"
-      ],
-      "status": "draft",
-      "summary": "Same token mechanism as the badge, shorter window, bound to the Event Ring.",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/events",
-        "layer/business"
-      ],
-      "task": "T-037",
-      "title": "T-037 Story",
-      "updated": "2026-10-26"
-    },
-    "story:T-038": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-56",
-      "children": [],
-      "code": "T-038",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
-      "effort": null,
-      "feature": "events-during",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-038",
-      "inherits": {
-        "priority": "task:T-038",
-        "release": "feature:events-during"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "events",
-      "parentTask": null,
-      "parents": [
-        "task:T-038"
-      ],
-      "path": "social-pin/tasks/T-038 Floor map and booths/T-038 Story.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "scope": "task",
-      "screens": [
-        "s57"
-      ],
-      "status": "draft",
-      "summary": "Booth positions on a map asset; Booth already exists.",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/events",
-        "layer/business"
-      ],
-      "task": "T-038",
-      "title": "T-038 Story",
-      "updated": "2026-10-26"
-    },
-    "story:T-039": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-57",
-      "children": [],
-      "code": "T-039",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
-      "effort": null,
-      "feature": "events-during",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-039",
-      "inherits": {
-        "priority": "task:T-039",
-        "release": "feature:events-during"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "events",
-      "parentTask": null,
-      "parents": [
-        "task:T-039"
-      ],
-      "path": "social-pin/tasks/T-039 Catalogue products and talks (new table)/T-039 Story.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "scope": "task",
-      "screens": [
-        "s58"
-      ],
-      "status": "draft",
-      "summary": "No products table yet. Schema design needed: product belongs to an exhibitor, talk belongs to a mini-event?",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/events",
-        "layer/business"
-      ],
-      "task": "T-039",
-      "title": "T-039 Story",
-      "updated": "2026-10-26"
-    },
-    "story:T-040": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-58",
-      "children": [],
-      "code": "T-040",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
-      "effort": null,
-      "feature": "events-during",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-040",
-      "inherits": {
-        "priority": "task:T-040",
-        "release": "feature:events-during"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "events",
-      "parentTask": null,
-      "parents": [
-        "task:T-040"
-      ],
-      "path": "social-pin/tasks/T-040 Lounges and upgrades/T-040 Story.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "scope": "task",
-      "screens": [
-        "s53"
-      ],
-      "status": "draft",
-      "summary": "Mini-event access by package or Pro.",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/events",
-        "layer/business"
-      ],
-      "task": "T-040",
-      "title": "T-040 Story",
       "updated": "2026-10-26"
     },
     "story:account": {
@@ -48018,11 +46979,7 @@
       "path": "social-pin/modules/Discovery/features/Badge & QR/Badge & QR Story.md",
       "pending": [],
       "priority": "critical",
-      "related": [
-        "task:T-037",
-        "task:T-037-be",
-        "task:T-037-fe"
-      ],
+      "related": [],
       "release": "mvp",
       "resolution": null,
       "scope": "feature",
@@ -48687,11 +47644,7 @@
       "path": "social-pin/modules/Events/features/Event Ring Auto-creation/Event Ring Auto-creation Story.md",
       "pending": [],
       "priority": "critical",
-      "related": [
-        "task:T-037",
-        "task:T-037-be",
-        "task:T-037-fe"
-      ],
+      "related": [],
       "release": "mvp",
       "resolution": null,
       "scope": "feature",
@@ -48746,12 +47699,6 @@
       "pending": [],
       "priority": "critical",
       "related": [
-        "task:T-036",
-        "task:T-036-be",
-        "task:T-036-fe",
-        "task:T-040",
-        "task:T-040-be",
-        "task:T-040-fe",
         "story:payments",
         "feature:payments",
         "feature:event-ring-auto"
@@ -48782,13 +47729,7 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-53",
-      "children": [
-        "task:T-036",
-        "task:T-037",
-        "task:T-038",
-        "task:T-039",
-        "task:T-040"
-      ],
+      "children": [],
       "code": "events-during",
       "created": "2026-10-18",
       "deadline": null,
@@ -48815,7 +47756,9 @@
       "path": "social-pin/modules/Events/features/Events During/Events During Story.md",
       "pending": [],
       "priority": "critical",
-      "related": [],
+      "related": [
+        "story:payments"
+      ],
       "release": "mvp",
       "resolution": null,
       "scope": "feature",
@@ -49387,7 +48330,7 @@
         "feature:subscription",
         "feature:audit-log",
         "story:events-before",
-        "task:T-040"
+        "story:events-during"
       ],
       "release": "v1",
       "resolution": null,
@@ -49950,9 +48893,6 @@
       "pending": [],
       "priority": "high",
       "related": [
-        "task:T-040",
-        "task:T-040-be",
-        "task:T-040-fe",
         "frontend-delivery:account"
       ],
       "release": "v1",
@@ -50246,969 +49186,6 @@
       ],
       "task": null,
       "title": "B-02 Deleted account answers 401, not the documented 404 E_USER_01",
-      "updated": "2026-10-27"
-    },
-    "task:T-036": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-036",
-      "children": [
-        "story:T-036",
-        "task:T-036-be",
-        "task:T-036-fe"
-      ],
-      "code": "T-036",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": "social-pin/tasks/T-036 Event mode exhibitors list and detail",
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "events-during",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-036",
-      "inherits": {
-        "release": "feature:events-during"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "events",
-      "parentTask": null,
-      "parents": [
-        "story:events-during"
-      ],
-      "path": "social-pin/tasks/T-036 Event mode exhibitors list and detail/T-036 Event mode exhibitors list and detail.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [
-        "story:events-before"
-      ],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {
-        "blocked": 1,
-        "draft": 1,
-        "todo": 1
-      },
-      "scope": null,
-      "screens": [
-        "s53",
-        "s54",
-        "s55"
-      ],
-      "status": "blocked",
-      "summary": "Scoped by the viewer's Event Ring membership (access engine).",
-      "tags": [
-        "task",
-        "task/blocked",
-        "module/events",
-        "priority/critical"
-      ],
-      "task": null,
-      "title": "T-036 Event mode exhibitors list and detail",
-      "updated": "2026-10-27"
-    },
-    "task:T-036-be": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-036-be",
-      "children": [],
-      "code": "T-036-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": null,
-      "effectiveStatus": "todo",
-      "effort": "M",
-      "feature": "events-during",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-036-be",
-      "inherits": {
-        "release": "feature:events-during"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "events",
-      "parentTask": "T-036",
-      "parents": [
-        "task:T-036"
-      ],
-      "path": "social-pin/tasks/T-036 Event mode exhibitors list and detail/T-036-be Backend · Event mode exhibitors list and detail.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [
-        "story:events-before"
-      ],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s53",
-        "s54",
-        "s55"
-      ],
-      "status": "todo",
-      "summary": "The API side of T-036 Event mode exhibitors list and detail: the endpoints, data and rules its What describes. Record what shipped in T-036-be Backend Delivery and how to call it in T-036-be…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/events",
-        "priority/critical",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-036-be Backend · Event mode exhibitors list and detail",
-      "updated": "2026-10-27"
-    },
-    "task:T-036-fe": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-036-be",
-          "title": "T-036-be Backend · Event mode exhibitors list and detail",
-          "why": "T-036-be Backend · Event mode exhibitors list and detail is to do"
-        }
-      ],
-      "card": "T-036-fe",
-      "children": [],
-      "code": "T-036-fe",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-036-be"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "events-during",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-036-fe",
-      "inherits": {
-        "release": "feature:events-during"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "frontend"
-      ],
-      "layer": "business",
-      "module": "events",
-      "parentTask": "T-036",
-      "parents": [
-        "task:T-036"
-      ],
-      "path": "social-pin/tasks/T-036 Event mode exhibitors list and detail/T-036-fe Frontend · Event mode exhibitors list and detail.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [
-        "story:events-before"
-      ],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s53",
-        "s54",
-        "s55"
-      ],
-      "status": "todo",
-      "summary": "The client side of T-036 Event mode exhibitors list and detail: the screens below show what its What describes, built against Events During Backend Integration once the backend half (T-036-be…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/events",
-        "priority/critical",
-        "frontend"
-      ],
-      "task": null,
-      "title": "T-036-fe Frontend · Event mode exhibitors list and detail",
-      "updated": "2026-10-27"
-    },
-    "task:T-037": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-037",
-      "children": [
-        "story:T-037",
-        "task:T-037-be",
-        "task:T-037-fe"
-      ],
-      "code": "T-037",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": "social-pin/tasks/T-037 Event pass with a 60 s rotating code",
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "events-during",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-037",
-      "inherits": {
-        "release": "feature:events-during"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "events",
-      "parentTask": null,
-      "parents": [
-        "story:events-during"
-      ],
-      "path": "social-pin/tasks/T-037 Event pass with a 60 s rotating code/T-037 Event pass with a 60 s rotating code.md",
-      "pending": [],
-      "priority": "high",
-      "related": [
-        "story:event-ring-auto",
-        "story:badge-qr"
-      ],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {
-        "blocked": 1,
-        "draft": 1,
-        "todo": 1
-      },
-      "scope": null,
-      "screens": [
-        "s56"
-      ],
-      "status": "blocked",
-      "summary": "Same token mechanism as the badge, shorter window, bound to the Event Ring.",
-      "tags": [
-        "task",
-        "task/blocked",
-        "module/events",
-        "priority/high"
-      ],
-      "task": null,
-      "title": "T-037 Event pass with a 60 s rotating code",
-      "updated": "2026-10-27"
-    },
-    "task:T-037-be": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-037-be",
-      "children": [],
-      "code": "T-037-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": null,
-      "effectiveStatus": "todo",
-      "effort": "M",
-      "feature": "events-during",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-037-be",
-      "inherits": {
-        "release": "feature:events-during"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "events",
-      "parentTask": "T-037",
-      "parents": [
-        "task:T-037"
-      ],
-      "path": "social-pin/tasks/T-037 Event pass with a 60 s rotating code/T-037-be Backend · Event pass with a 60 s rotating code.md",
-      "pending": [],
-      "priority": "high",
-      "related": [
-        "story:event-ring-auto",
-        "story:badge-qr"
-      ],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s56"
-      ],
-      "status": "todo",
-      "summary": "The API side of T-037 Event pass with a 60 s rotating code: the endpoints, data and rules its What describes. Record what shipped in T-037-be Backend Delivery and how to call it in T-037-be…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/events",
-        "priority/high",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-037-be Backend · Event pass with a 60 s rotating code",
-      "updated": "2026-10-27"
-    },
-    "task:T-037-fe": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-037-be",
-          "title": "T-037-be Backend · Event pass with a 60 s rotating code",
-          "why": "T-037-be Backend · Event pass with a 60 s rotating code is to do"
-        }
-      ],
-      "card": "T-037-fe",
-      "children": [],
-      "code": "T-037-fe",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-037-be"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "events-during",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-037-fe",
-      "inherits": {
-        "release": "feature:events-during"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "frontend"
-      ],
-      "layer": "business",
-      "module": "events",
-      "parentTask": "T-037",
-      "parents": [
-        "task:T-037"
-      ],
-      "path": "social-pin/tasks/T-037 Event pass with a 60 s rotating code/T-037-fe Frontend · Event pass with a 60 s rotating code.md",
-      "pending": [],
-      "priority": "high",
-      "related": [
-        "story:event-ring-auto",
-        "story:badge-qr"
-      ],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s56"
-      ],
-      "status": "todo",
-      "summary": "The client side of T-037 Event pass with a 60 s rotating code: the screens below show what its What describes, built against Events During Backend Integration once the backend half (T-037-be…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/events",
-        "priority/high",
-        "frontend"
-      ],
-      "task": null,
-      "title": "T-037-fe Frontend · Event pass with a 60 s rotating code",
-      "updated": "2026-10-27"
-    },
-    "task:T-038": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-036",
-          "title": "T-036 Event mode exhibitors list and detail",
-          "why": "T-036 Event mode exhibitors list and detail is blocked"
-        }
-      ],
-      "card": "T-038",
-      "children": [
-        "story:T-038",
-        "task:T-038-be",
-        "task:T-038-fe"
-      ],
-      "code": "T-038",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-036"
-      ],
-      "dir": "social-pin/tasks/T-038 Floor map and booths",
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "events-during",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-038",
-      "inherits": {
-        "release": "feature:events-during"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "events",
-      "parentTask": null,
-      "parents": [
-        "story:events-during"
-      ],
-      "path": "social-pin/tasks/T-038 Floor map and booths/T-038 Floor map and booths.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {
-        "blocked": 2,
-        "draft": 1
-      },
-      "scope": null,
-      "screens": [
-        "s57"
-      ],
-      "status": "blocked",
-      "summary": "Booth positions on a map asset; Booth already exists.",
-      "tags": [
-        "task",
-        "task/blocked",
-        "module/events",
-        "priority/high"
-      ],
-      "task": null,
-      "title": "T-038 Floor map and booths",
-      "updated": "2026-10-26"
-    },
-    "task:T-038-be": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-036",
-          "title": "T-036 Event mode exhibitors list and detail",
-          "why": "T-036 Event mode exhibitors list and detail is blocked"
-        }
-      ],
-      "card": "T-038-be",
-      "children": [],
-      "code": "T-038-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-036"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "events-during",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-038-be",
-      "inherits": {
-        "release": "feature:events-during"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "events",
-      "parentTask": "T-038",
-      "parents": [
-        "task:T-038"
-      ],
-      "path": "social-pin/tasks/T-038 Floor map and booths/T-038-be Backend · Floor map and booths.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s57"
-      ],
-      "status": "todo",
-      "summary": "The API side of T-038 Floor map and booths: the endpoints, data and rules its What describes. Record what shipped in T-038-be Backend Delivery and how to call it in T-038-be Backend Integration,…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/events",
-        "priority/high",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-038-be Backend · Floor map and booths",
-      "updated": "2026-10-26"
-    },
-    "task:T-038-fe": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-036",
-          "title": "T-036 Event mode exhibitors list and detail",
-          "why": "T-036 Event mode exhibitors list and detail is blocked"
-        },
-        {
-          "id": "task:T-038-be",
-          "title": "T-038-be Backend · Floor map and booths",
-          "why": "T-038-be Backend · Floor map and booths is blocked"
-        }
-      ],
-      "card": "T-038-fe",
-      "children": [],
-      "code": "T-038-fe",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-036",
-        "task:T-038-be"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "events-during",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-038-fe",
-      "inherits": {
-        "release": "feature:events-during"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "frontend"
-      ],
-      "layer": "business",
-      "module": "events",
-      "parentTask": "T-038",
-      "parents": [
-        "task:T-038"
-      ],
-      "path": "social-pin/tasks/T-038 Floor map and booths/T-038-fe Frontend · Floor map and booths.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s57"
-      ],
-      "status": "todo",
-      "summary": "The client side of T-038 Floor map and booths: the screens below show what its What describes, built against Events During Backend Integration once the backend half (T-038-be Backend · Floor map…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/events",
-        "priority/high",
-        "frontend"
-      ],
-      "task": null,
-      "title": "T-038-fe Frontend · Floor map and booths",
-      "updated": "2026-10-26"
-    },
-    "task:T-039": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-036",
-          "title": "T-036 Event mode exhibitors list and detail",
-          "why": "T-036 Event mode exhibitors list and detail is blocked"
-        }
-      ],
-      "card": "T-039",
-      "children": [
-        "story:T-039",
-        "task:T-039-be",
-        "task:T-039-fe"
-      ],
-      "code": "T-039",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-036"
-      ],
-      "dir": "social-pin/tasks/T-039 Catalogue products and talks (new table)",
-      "effectiveStatus": "needs-decision",
-      "effort": "L",
-      "feature": "events-during",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-039",
-      "inherits": {
-        "release": "feature:events-during"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "events",
-      "parentTask": null,
-      "parents": [
-        "story:events-during"
-      ],
-      "path": "social-pin/tasks/T-039 Catalogue products and talks (new table)/T-039 Catalogue products and talks (new table).md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {
-        "blocked": 2,
-        "draft": 1
-      },
-      "scope": null,
-      "screens": [
-        "s58"
-      ],
-      "status": "needs-decision",
-      "summary": "No products table yet. Schema design needed: product belongs to an exhibitor, talk belongs to a mini-event?",
-      "tags": [
-        "task",
-        "task/needs-info",
-        "module/events",
-        "priority/high"
-      ],
-      "task": null,
-      "title": "T-039 Catalogue products and talks (new table)",
-      "updated": "2026-10-26"
-    },
-    "task:T-039-be": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-036",
-          "title": "T-036 Event mode exhibitors list and detail",
-          "why": "T-036 Event mode exhibitors list and detail is blocked"
-        }
-      ],
-      "card": "T-039-be",
-      "children": [],
-      "code": "T-039-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-036"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "L",
-      "feature": "events-during",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-039-be",
-      "inherits": {
-        "release": "feature:events-during"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "events",
-      "parentTask": "T-039",
-      "parents": [
-        "task:T-039"
-      ],
-      "path": "social-pin/tasks/T-039 Catalogue products and talks (new table)/T-039-be Backend · Catalogue products and talks (new table).md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s58"
-      ],
-      "status": "todo",
-      "summary": "The API side of T-039 Catalogue products and talks (new table): the endpoints, data and rules its What describes. Record what shipped in T-039-be Backend Delivery and how to call it in T-039-be…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/events",
-        "priority/high",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-039-be Backend · Catalogue products and talks (new table)",
-      "updated": "2026-10-26"
-    },
-    "task:T-039-fe": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-036",
-          "title": "T-036 Event mode exhibitors list and detail",
-          "why": "T-036 Event mode exhibitors list and detail is blocked"
-        },
-        {
-          "id": "task:T-039-be",
-          "title": "T-039-be Backend · Catalogue products and talks (new table)",
-          "why": "T-039-be Backend · Catalogue products and talks (new table) is blocked"
-        }
-      ],
-      "card": "T-039-fe",
-      "children": [],
-      "code": "T-039-fe",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-036",
-        "task:T-039-be"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "L",
-      "feature": "events-during",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-039-fe",
-      "inherits": {
-        "release": "feature:events-during"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "frontend"
-      ],
-      "layer": "business",
-      "module": "events",
-      "parentTask": "T-039",
-      "parents": [
-        "task:T-039"
-      ],
-      "path": "social-pin/tasks/T-039 Catalogue products and talks (new table)/T-039-fe Frontend · Catalogue products and talks (new table).md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s58"
-      ],
-      "status": "todo",
-      "summary": "The client side of T-039 Catalogue products and talks (new table): the screens below show what its What describes, built against Events During Backend Integration once the backend half (T-039-be…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/events",
-        "priority/high",
-        "frontend"
-      ],
-      "task": null,
-      "title": "T-039-fe Frontend · Catalogue products and talks (new table)",
-      "updated": "2026-10-26"
-    },
-    "task:T-040": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-040",
-      "children": [
-        "story:T-040",
-        "task:T-040-be",
-        "task:T-040-fe"
-      ],
-      "code": "T-040",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": "social-pin/tasks/T-040 Lounges and upgrades",
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "events-during",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-040",
-      "inherits": {
-        "release": "feature:events-during"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "events",
-      "parentTask": null,
-      "parents": [
-        "story:events-during"
-      ],
-      "path": "social-pin/tasks/T-040 Lounges and upgrades/T-040 Lounges and upgrades.md",
-      "pending": [],
-      "priority": "high",
-      "related": [
-        "story:subscription",
-        "story:events-before",
-        "story:payments"
-      ],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {
-        "blocked": 1,
-        "draft": 1,
-        "todo": 1
-      },
-      "scope": null,
-      "screens": [
-        "s53"
-      ],
-      "status": "blocked",
-      "summary": "Mini-event access by package or Pro.",
-      "tags": [
-        "task",
-        "task/blocked",
-        "module/events",
-        "priority/high"
-      ],
-      "task": null,
-      "title": "T-040 Lounges and upgrades",
-      "updated": "2026-10-27"
-    },
-    "task:T-040-be": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-040-be",
-      "children": [],
-      "code": "T-040-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": null,
-      "effectiveStatus": "todo",
-      "effort": "M",
-      "feature": "events-during",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-040-be",
-      "inherits": {
-        "release": "feature:events-during"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "events",
-      "parentTask": "T-040",
-      "parents": [
-        "task:T-040"
-      ],
-      "path": "social-pin/tasks/T-040 Lounges and upgrades/T-040-be Backend · Lounges and upgrades.md",
-      "pending": [],
-      "priority": "high",
-      "related": [
-        "story:subscription",
-        "story:events-before"
-      ],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s53"
-      ],
-      "status": "todo",
-      "summary": "The API side of T-040 Lounges and upgrades: the endpoints, data and rules its What describes. Record what shipped in T-040-be Backend Delivery and how to call it in T-040-be Backend Integration,…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/events",
-        "priority/high",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-040-be Backend · Lounges and upgrades",
-      "updated": "2026-10-27"
-    },
-    "task:T-040-fe": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-040-be",
-          "title": "T-040-be Backend · Lounges and upgrades",
-          "why": "T-040-be Backend · Lounges and upgrades is to do"
-        }
-      ],
-      "card": "T-040-fe",
-      "children": [],
-      "code": "T-040-fe",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-040-be"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "events-during",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-040-fe",
-      "inherits": {
-        "release": "feature:events-during"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "frontend"
-      ],
-      "layer": "business",
-      "module": "events",
-      "parentTask": "T-040",
-      "parents": [
-        "task:T-040"
-      ],
-      "path": "social-pin/tasks/T-040 Lounges and upgrades/T-040-fe Frontend · Lounges and upgrades.md",
-      "pending": [],
-      "priority": "high",
-      "related": [
-        "story:subscription",
-        "story:events-before"
-      ],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s53"
-      ],
-      "status": "todo",
-      "summary": "The client side of T-040 Lounges and upgrades: the screens below show what its What describes, built against Events During Backend Integration once the backend half (T-040-be Backend · Lounges and…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/events",
-        "priority/high",
-        "frontend"
-      ],
-      "task": null,
-      "title": "T-040-fe Frontend · Lounges and upgrades",
       "updated": "2026-10-27"
     }
   },

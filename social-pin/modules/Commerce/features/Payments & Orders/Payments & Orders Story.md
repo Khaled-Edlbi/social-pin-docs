@@ -10,7 +10,7 @@ approvedBy: "khaled"
 approvedAt: 2026-10-25
 depends: ["ND-07 Payment provider"]
 affects: ["Events Before", "Events During", "Event Ring Auto-creation"]
-related: ["D-07 Stripe for all four flows", "Events Before", "Events During", "Event Ring Auto-creation", "Subscription (Free vs Pro)", "Audit Log", "Events Before Story", "T-040 Lounges and upgrades"]
+related: ["D-07 Stripe for all four flows", "Events Before", "Events During", "Event Ring Auto-creation", "Subscription (Free vs Pro)", "Audit Log", "Events Before Story", "Events During Story"]
 owner: "khaled"
 created: 2026-10-18
 updated: 2026-10-27
@@ -74,7 +74,7 @@ Acceptance criteria:
 Acceptance criteria:
 - [ ] Same order and payment flow as S1–S3 in a sheet over s53; on success the mini-event state flips to owned ([[Events During Story]] S7).
 - [ ] Pro any-lounge access shows no price; it is a subscription, not an order ([[Subscription (Free vs Pro) Story]]).
-- [ ] Not available yet ([[T-040 Lounges and upgrades]]).
+- [ ] Not available yet ([[Events During Story|Events During · S12]]).
 
 ### S6 · Receipts and history ([[Screen Index#s68|s68]])
 

@@ -75,5 +75,5 @@ What the client needs for business setup, incoming meetings and booth analytics,
 - No decision note. Upstream tasks:
 - [[Exhibitor Story|Exhibitor · S7]] — waits on [[Companies Story|Companies · S6]]; s63 entirely.
 - [[Meetings Story|Meetings · S9]] and [[Meetings Story|Meetings · S8]] — s64.
-- [[Exhibitor Story|Exhibitor · S8]] — waits on [[Badge & QR Story|Badge & QR · S19]] and [[T-036 Event mode exhibitors list and detail]]; s65.
+- [[Exhibitor Story|Exhibitor · S8]] — waits on [[Badge & QR Story|Badge & QR · S19]] and [[Events During Story|Events During · S8]]; s65.
 - Organizer touchpoints (invitation, requested files, booth and payment status) — no task yet.

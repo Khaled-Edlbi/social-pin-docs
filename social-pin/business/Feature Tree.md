@@ -51,11 +51,6 @@ Social Pin backend
 │   ├── 🟡 Event Ring Auto-creation  [Critical]
 │   ├── ❌ Events Before  [Critical]
 │   ├── ❌ Events During  [Critical]
-│   │   ├── ⛔ T-036 Event mode: exhibitors list and detail
-│   │   ├── ⛔ T-037 Event pass with a 60 s rotating code
-│   │   ├── ⛔ T-038 Floor map and booths
-│   │   ├── ❓ T-039 Catalogue: products and talks (new table)
-│   │   └── ⛔ T-040 Lounges and upgrades
 │   ├── ❌ Exhibitor  [High]
 │   └── ❌ Post-Event  [High]
 ├── Meetings  (❌1)
@@ -133,7 +128,7 @@ Before the event (discover, tickets, payment, Event Ring), during (event mode, e
 |---|---|---|---|---|
 | [[Event Ring Auto-creation]] | 🟡 Partial (needs more) | Critical | s52 | 0 |
 | [[Events Before]] | ❌ TODO | Critical | s48, s49, s50, s51, s52 | 0 |
-| [[Events During]] | ❌ TODO | Critical | s53, s54, s55, s56, s57, s58 | 5 |
+| [[Events During]] | ❌ TODO | Critical | s53, s54, s55, s56, s57, s58 | 0 |
 | [[Exhibitor]] | ❌ TODO | High | s63, s64, s65 | 0 |
 | [[Post-Event]] | ❌ TODO | High | s62 | 0 |
 

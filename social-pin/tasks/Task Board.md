@@ -8,29 +8,14 @@ kanban-plugin: board
 
 ## ❓ Needs a decision / info
 
-- [ ] [[T-039 Catalogue products and talks (new table)]] #high #events-during
 
 
 ## ⛔ Blocked
 
-- [ ] [[T-036 Event mode exhibitors list and detail]] #critical #events-during
-- [ ] [[T-036-fe Frontend · Event mode exhibitors list and detail]] #critical #events-during #frontend
-- [ ] [[T-037 Event pass with a 60 s rotating code]] #high #events-during
-- [ ] [[T-037-fe Frontend · Event pass with a 60 s rotating code]] #high #events-during #frontend
-- [ ] [[T-038 Floor map and booths]] #high #events-during
-- [ ] [[T-038-be Backend · Floor map and booths]] #high #events-during #backend
-- [ ] [[T-038-fe Frontend · Floor map and booths]] #high #events-during #frontend
-- [ ] [[T-039-be Backend · Catalogue products and talks (new table)]] #high #events-during #backend
-- [ ] [[T-039-fe Frontend · Catalogue products and talks (new table)]] #high #events-during #frontend
-- [ ] [[T-040 Lounges and upgrades]] #high #events-during
-- [ ] [[T-040-fe Frontend · Lounges and upgrades]] #high #events-during #frontend
 
 
 ## ⬜ To do
 
-- [ ] [[T-036-be Backend · Event mode exhibitors list and detail]] #critical #events-during #backend
-- [ ] [[T-037-be Backend · Event pass with a 60 s rotating code]] #high #events-during #backend
-- [ ] [[T-040-be Backend · Lounges and upgrades]] #high #events-during #backend
 
 
 ## 🔵 In progress

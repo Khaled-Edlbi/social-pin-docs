@@ -237,7 +237,7 @@ Screens: [[Screen Index#s34|s34]] Badge (flip)
 - [[Badge & QR Story|Badge & QR · S20]] — which Ring an anonymous visitor sees (a public Ring type or the default Ring); S5's link has no destination until decided.
 - [[Badge & QR Story|Badge & QR · S13–S18]] — whether the resolved body carries the presenter's user id for *Connect*, which the view entity does not and must not.
 - [[Badge & QR Story|Badge & QR · S7–S12]] — whether rotation is server-scheduled or on demand, which decides the client's refresh rule in S1.
-- [[T-037 Event pass with a 60 s rotating code]] — the pass window and whether the client or the server drives the 60 s boundary.
+- [[Events During Story|Events During · S9]] — the pass window and whether the client or the server drives the 60 s boundary.
 - (Badge & QR · S7–S12) **Get or rotate.** If every `POST` revokes the previous token, opening the badge twice (or on two phones) kills the code just shown. The app asks for: return the current token while it's in its window, and issue a new one only when it's past it or when the owner asks to reset it.
 - (Badge & QR · S7–S12) **What the QR encodes.** A bare token only works inside the app. A URL carrying the token (for example `https://<domain>/q/<token>`) also opens the browser page for people without the app ([[Badge & QR Story|Badge & QR · S20]]) and lets the phone's own camera open the app. The app asks for the URL form, decided now so printed codes don't change later.
 - (Badge & QR · S7–S12) **Response shape.** The app needs `{ token, issuedAt, expiresAt }` (and `url` if the URL form is chosen); `expiresAt` from the server, so the countdown doesn't trust the phone's clock.

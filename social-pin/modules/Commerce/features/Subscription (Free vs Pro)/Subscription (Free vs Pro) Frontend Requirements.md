@@ -32,7 +32,7 @@ What the client needs to show the plan, sell Pro and render every Pro lock truth
 ### [[Screen Index#s53|s53]] Event mode (locks)
 
 - Needs: the plan to render locks on Smart Match, Lounges and the Gemma assistant; the server's 403 on a gated call as the source of truth.
-- Source today: not yet (Subscription (Free vs Pro) · S6; the gated features themselves are [[Gemma AI Story|Gemma AI · S8]], [[T-040 Lounges and upgrades]], [[Gemma AI Story|Gemma AI · S7]]).
+- Source today: not yet (Subscription (Free vs Pro) · S6; the gated features themselves are [[Gemma AI Story|Gemma AI · S8]], [[Events During Story|Events During · S12]], [[Gemma AI Story|Gemma AI · S7]]).
 
 ### [[Screen Index#s68|s68]] Me / Account
 
@@ -48,7 +48,7 @@ What the client needs to show the plan, sell Pro and render every Pro lock truth
 | Cancel at period end | — | ❌ | [[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]] |
 | One `ProGate` returning 403 on every gated call | — | ❌ | [[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]] |
 | Permanent QR on Pro | — | ❌ | [[Badge & QR Story|Badge & QR · S7–S12]] |
-| Any-lounge access on Pro | — | ❌ | [[T-040 Lounges and upgrades]] |
+| Any-lounge access on Pro | — | ❌ | [[Events During Story|Events During · S12]] |
 | Smart Match on Pro | — | ❌ | [[Gemma AI Story|Gemma AI · S8]] |
 | Gemma automation on Pro | — | ❌ | [[Gemma AI Story|Gemma AI · S7]] |
 | Billing channel and receipts | — | ❌ | [[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]] (channel undecided; see [[Payments & Orders Story|Payments & Orders · S7]]) |
@@ -79,4 +79,4 @@ What the client needs to show the plan, sell Pro and render every Pro lock truth
 - No decision note. Upstream tasks:
 - [[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]] — every row above; the billing channel is undecided within it.
 - [[Badge & QR Story|Badge & QR · S7–S12]] — the permanent QR on s34.
-- [[T-040 Lounges and upgrades]], [[Gemma AI Story|Gemma AI · S8]], [[Gemma AI Story|Gemma AI · S7]] — the gated features the locks sit on; each waits on Subscription (Free vs Pro) · S6.
+- [[Events During Story|Events During · S12]], [[Gemma AI Story|Gemma AI · S8]], [[Gemma AI Story|Gemma AI · S7]] — the gated features the locks sit on; each waits on Subscription (Free vs Pro) · S6.

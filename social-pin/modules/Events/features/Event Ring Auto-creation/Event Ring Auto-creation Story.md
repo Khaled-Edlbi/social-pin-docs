@@ -60,7 +60,7 @@ Acceptance criteria:
 
 Acceptance criteria:
 - [ ] The pass screen cannot open before the Ring exists; it shows the pending state instead.
-- [ ] The rotating code is requested for the Event Ring's id, never for the default Ring ([[T-037 Event pass with a 60 s rotating code]] waits on Event Ring Auto-creation · S6).
+- [ ] The rotating code is requested for the Event Ring's id, never for the default Ring ([[Events During Story|Events During · S9]] waits on Event Ring Auto-creation · S6).
 
 ### S5 · Membership stays private ([[Screen Index#s53|s53]])
 
