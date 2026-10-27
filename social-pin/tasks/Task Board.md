@@ -58,7 +58,6 @@ kanban-plugin: board
 - [ ] [[T-010 Public browser page for viewers without the app]] #high #badge-qr
 - [ ] [[T-010-be Backend · Public browser page for viewers without the app]] #high #badge-qr #backend
 - [ ] [[T-010-fe Frontend · Public browser page for viewers without the app]] #high #badge-qr #frontend
-- [ ] [[T-012-fe Frontend · List my files (photo library)]] #high #photo-library #frontend
 - [ ] [[T-017-fe Frontend · Extend WIDGET_TYPE to the design's list]] #high #widgets #frontend
 - [ ] [[T-018-be Backend · Widget CRUD on the projection]] #high #widgets #backend
 - [ ] [[T-018-fe Frontend · Widget CRUD on the projection]] #high #widgets #frontend
@@ -77,9 +76,6 @@ kanban-plugin: board
 - [ ] [[T-040 Lounges and upgrades]] #high #events-during
 - [ ] [[T-040-be Backend · Lounges and upgrades]] #high #events-during #backend
 - [ ] [[T-040-fe Frontend · Lounges and upgrades]] #high #events-during #frontend
-- [ ] [[T-013 Usage count per file across Rings]] #medium #photo-library
-- [ ] [[T-013-be Backend · Usage count per file across Rings]] #medium #photo-library #backend
-- [ ] [[T-013-fe Frontend · Usage count per file across Rings]] #medium #photo-library #frontend
 - [ ] [[T-025-be Backend · Introduce a connection to another]] #medium #connections #backend
 - [ ] [[T-025-fe Frontend · Introduce a connection to another]] #medium #connections #frontend
 - [ ] [[T-028-be Backend · What you contribute to a shared Ring]] #medium #ring-invitations #backend
@@ -100,8 +96,6 @@ kanban-plugin: board
 - [ ] [[T-033-be Backend · Events list, detail, schedule]] #critical #events-before #backend
 - [ ] [[T-041 Availability slots CRUD]] #critical #meetings
 - [ ] [[T-041-be Backend · Availability slots CRUD]] #critical #meetings #backend
-- [ ] [[T-012 List my files (photo library)]] #high #photo-library
-- [ ] [[T-012-be Backend · List my files (photo library)]] #high #photo-library #backend
 - [ ] [[T-017 Extend WIDGET_TYPE to the design's list]] #high #widgets
 - [ ] [[T-017-be Backend · Extend WIDGET_TYPE to the design's list]] #high #widgets #backend
 - [ ] [[T-026-be Backend · Ring invitations invite, review, decline]] #high #ring-invitations #backend

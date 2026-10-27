@@ -73,9 +73,6 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-010 Public browser page for viewers without the app]] | [[Badge & QR]] | Discovery | ⛔ Blocked | M | — | [[T-008 Resolve a scanned QR token|T-008]], [[ND-12 What the badge QR encodes|ND-12]] |
 | [[T-010-be Backend · Public browser page for viewers without the app]] `backend` | [[Badge & QR]] | Discovery | ⛔ Blocked | M | — | [[T-008 Resolve a scanned QR token|T-008]] |
 | [[T-010-fe Frontend · Public browser page for viewers without the app]] `frontend` | [[Badge & QR]] | Discovery | ⛔ Blocked | M | — | [[T-008 Resolve a scanned QR token|T-008]], [[T-010-be Backend · Public browser page for viewers without the app|T-010-be]] |
-| [[T-012 List my files (photo library)]] | [[Photo Library]] | Identity Core | ⬜ To do | S | — | — |
-| [[T-012-be Backend · List my files (photo library)]] `backend` | [[Photo Library]] | Identity Core | ⬜ To do | S | — | — |
-| [[T-012-fe Frontend · List my files (photo library)]] `frontend` | [[Photo Library]] | Identity Core | ⛔ Blocked | S | — | [[T-012-be Backend · List my files (photo library)|T-012-be]] |
 | [[T-017 Extend WIDGET_TYPE to the design's list]] | [[Widgets]] | Identity Core | ⬜ To do | S | — | — |
 | [[T-017-be Backend · Extend WIDGET_TYPE to the design's list]] `backend` | [[Widgets]] | Identity Core | ⬜ To do | S | — | — |
 | [[T-017-fe Frontend · Extend WIDGET_TYPE to the design's list]] `frontend` | [[Widgets]] | Identity Core | ⛔ Blocked | S | — | [[T-017-be Backend · Extend WIDGET_TYPE to the design's list|T-017-be]] |
@@ -112,9 +109,6 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | Task | Feature | Module | Status | Effort | Deadline | Depends on / blocked by |
 |---|---|---|---|---|---|---|
 | [[B-02 Deleted account answers 401, not the documented 404 E_USER_01]] `bug` | [[Account]] | Identity Core | 🟡 Partial (2 notes) · Fixed | S | — | — |
-| [[T-013 Usage count per file across Rings]] | [[Photo Library]] | Identity Core | ⛔ Blocked | S | — | [[T-012 List my files (photo library)|T-012]] |
-| [[T-013-be Backend · Usage count per file across Rings]] `backend` | [[Photo Library]] | Identity Core | ⛔ Blocked | S | — | [[T-012 List my files (photo library)|T-012]] |
-| [[T-013-fe Frontend · Usage count per file across Rings]] `frontend` | [[Photo Library]] | Identity Core | ⛔ Blocked | S | — | [[T-012 List my files (photo library)|T-012]], [[T-013-be Backend · Usage count per file across Rings|T-013-be]] |
 | [[T-025 Introduce a connection to another]] | [[Connections]] | Connections | ❓ Needs decision | M | — | [[T-023 Connection detail and contacts list|T-023]] |
 | [[T-025-be Backend · Introduce a connection to another]] `backend` | [[Connections]] | Connections | ⛔ Blocked | M | — | [[T-023 Connection detail and contacts list|T-023]] |
 | [[T-025-fe Frontend · Introduce a connection to another]] `frontend` | [[Connections]] | Connections | ⛔ Blocked | M | — | [[T-023 Connection detail and contacts list|T-023]], [[T-025-be Backend · Introduce a connection to another|T-025-be]] |

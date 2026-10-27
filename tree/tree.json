@@ -294,14 +294,6 @@
     "T-010 Story": "story:T-010",
     "T-010-be Backend · Public browser page for viewers without the app": "task:T-010-be",
     "T-010-fe Frontend · Public browser page for viewers without the app": "task:T-010-fe",
-    "T-012 List my files (photo library)": "task:T-012",
-    "T-012 Story": "story:T-012",
-    "T-012-be Backend · List my files (photo library)": "task:T-012-be",
-    "T-012-fe Frontend · List my files (photo library)": "task:T-012-fe",
-    "T-013 Story": "story:T-013",
-    "T-013 Usage count per file across Rings": "task:T-013",
-    "T-013-be Backend · Usage count per file across Rings": "task:T-013-be",
-    "T-013-fe Frontend · Usage count per file across Rings": "task:T-013-fe",
     "T-017 Extend WIDGET_TYPE to the design's list": "task:T-017",
     "T-017 Story": "story:T-017",
     "T-017-be Backend · Extend WIDGET_TYPE to the design's list": "task:T-017-be",
@@ -645,8 +637,6 @@
     "S-112": "story:T-071",
     "S-113": "story:T-072",
     "S-116": "story:build-deploy",
-    "S-12": "story:T-012",
-    "S-13": "story:T-013",
     "S-14": "story:profiles",
     "S-15": "story:ring-access",
     "S-16": "story:ring-members",
@@ -727,12 +717,6 @@
     "T-010": "task:T-010",
     "T-010-be": "task:T-010-be",
     "T-010-fe": "task:T-010-fe",
-    "T-012": "task:T-012",
-    "T-012-be": "task:T-012-be",
-    "T-012-fe": "task:T-012-fe",
-    "T-013": "task:T-013",
-    "T-013-be": "task:T-013-be",
-    "T-013-fe": "task:T-013-fe",
     "T-017": "task:T-017",
     "T-017-be": "task:T-017-be",
     "T-017-fe": "task:T-017-fe",
@@ -1761,15 +1745,13 @@
     },
     "GET /files": {
       "containers": [
-        "feature:photo-library",
-        "task:T-012"
+        "feature:photo-library"
       ],
       "kind": "endpoint",
       "notes": [
         "backend-delivery:photo-library",
         "frontend-requirements:photo-library",
-        "story:T-012",
-        "task:T-012"
+        "story:photo-library"
       ],
       "owner": "feature:photo-library"
     },
@@ -3673,13 +3655,7 @@
       "containers": [
         "feature:files",
         "feature:photo-library",
-        "needs-decision:ND-16",
-        "task:T-012",
-        "task:T-012-be",
-        "task:T-012-fe",
-        "task:T-013",
-        "task:T-013-be",
-        "task:T-013-fe"
+        "needs-decision:ND-16"
       ],
       "kind": "screen",
       "notes": [
@@ -3687,16 +3663,8 @@
         "feature:photo-library",
         "frontend-requirements:photo-library",
         "needs-decision:ND-16",
-        "story:T-012",
-        "story:T-013",
         "story:files",
-        "story:photo-library",
-        "task:T-012",
-        "task:T-012-be",
-        "task:T-012-fe",
-        "task:T-013",
-        "task:T-013-be",
-        "task:T-013-fe"
+        "story:photo-library"
       ],
       "owner": null
     },
@@ -4651,7 +4619,7 @@
     }
   },
   "counts": {
-    "blocked": 106,
+    "blocked": 102,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -4664,28 +4632,28 @@
       "project": 27,
       "qa-backend": 1,
       "qa-frontend": 1,
-      "story": 76,
-      "task": 101
+      "story": 74,
+      "task": 95
     },
     "byLayer": {
       "backend": 56,
-      "business": 256,
+      "business": 248,
       "frontend": 44,
       "qa": 2,
       "shared": 10
     },
     "concepts": 199,
     "decisions": 19,
-    "edges": 4514,
+    "edges": 4468,
     "features": 41,
-    "layerNotes": 166,
+    "layerNotes": 164,
     "modules": 8,
-    "notes": 404,
+    "notes": 396,
     "partial": 4,
     "placeholders": 155,
     "records": 14,
-    "taskLayerNotes": 36,
-    "tasks": 101
+    "taskLayerNotes": 34,
+    "tasks": 95
   },
   "deadlines": {
     "missed": {
@@ -6411,31 +6379,6 @@
       "to": "task:T-010-fe"
     },
     {
-      "from": "task:T-012",
-      "kind": "blocks",
-      "to": "task:T-013"
-    },
-    {
-      "from": "task:T-012",
-      "kind": "blocks",
-      "to": "task:T-013-be"
-    },
-    {
-      "from": "task:T-012",
-      "kind": "blocks",
-      "to": "task:T-013-fe"
-    },
-    {
-      "from": "task:T-012-be",
-      "kind": "blocks",
-      "to": "task:T-012-fe"
-    },
-    {
-      "from": "task:T-013-be",
-      "kind": "blocks",
-      "to": "task:T-013-fe"
-    },
-    {
       "from": "task:T-017",
       "kind": "blocks",
       "to": "task:T-018"
@@ -7214,31 +7157,6 @@
       "from": "task:T-010-fe",
       "kind": "depends",
       "to": "task:T-010-be"
-    },
-    {
-      "from": "task:T-012-fe",
-      "kind": "depends",
-      "to": "task:T-012-be"
-    },
-    {
-      "from": "task:T-013",
-      "kind": "depends",
-      "to": "task:T-012"
-    },
-    {
-      "from": "task:T-013-be",
-      "kind": "depends",
-      "to": "task:T-012"
-    },
-    {
-      "from": "task:T-013-fe",
-      "kind": "depends",
-      "to": "task:T-012"
-    },
-    {
-      "from": "task:T-013-fe",
-      "kind": "depends",
-      "to": "task:T-013-be"
     },
     {
       "from": "task:T-017-fe",
@@ -11585,22 +11503,6 @@
       "from": "story:photo-library",
       "kind": "related",
       "to": "decision:D-05"
-    },
-    {
-      "from": "story:photo-library",
-      "kind": "related",
-      "to": "story:T-012",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
-      "from": "story:photo-library",
-      "kind": "related",
-      "to": "story:T-013",
-      "via": [
-        "sum-of"
-      ]
     },
     {
       "from": "story:profiles",
@@ -18531,14 +18433,6 @@
     {
       "from": "feature:photo-library",
       "kind": "shares",
-      "to": "task:T-012",
-      "via": [
-        "GET /files"
-      ]
-    },
-    {
-      "from": "feature:photo-library",
-      "kind": "shares",
       "to": "task:T-022",
       "via": [
         "E_RING_02"
@@ -23359,16 +23253,6 @@
       "to": "needs-decision:ND-07"
     },
     {
-      "from": "story:photo-library",
-      "kind": "tree",
-      "to": "task:T-012"
-    },
-    {
-      "from": "story:photo-library",
-      "kind": "tree",
-      "to": "task:T-013"
-    },
-    {
       "from": "story:ring-invitations",
       "kind": "tree",
       "to": "needs-decision:ND-18"
@@ -23547,36 +23431,6 @@
       "from": "task:T-010",
       "kind": "tree",
       "to": "task:T-010-fe"
-    },
-    {
-      "from": "task:T-012",
-      "kind": "tree",
-      "to": "story:T-012"
-    },
-    {
-      "from": "task:T-012",
-      "kind": "tree",
-      "to": "task:T-012-be"
-    },
-    {
-      "from": "task:T-012",
-      "kind": "tree",
-      "to": "task:T-012-fe"
-    },
-    {
-      "from": "task:T-013",
-      "kind": "tree",
-      "to": "story:T-013"
-    },
-    {
-      "from": "task:T-013",
-      "kind": "tree",
-      "to": "task:T-013-be"
-    },
-    {
-      "from": "task:T-013",
-      "kind": "tree",
-      "to": "task:T-013-fe"
     },
     {
       "from": "task:T-017",
@@ -24591,12 +24445,7 @@
     {
       "from": "backend-integration:files",
       "kind": "wikilink",
-      "to": "task:T-012"
-    },
-    {
-      "from": "backend-integration:files",
-      "kind": "wikilink",
-      "to": "task:T-013"
+      "to": "story:photo-library"
     },
     {
       "from": "backend-integration:profiles",
@@ -25346,12 +25195,7 @@
     {
       "from": "feature:photo-library",
       "kind": "wikilink",
-      "to": "task:T-012"
-    },
-    {
-      "from": "feature:photo-library",
-      "kind": "wikilink",
-      "to": "task:T-013"
+      "to": "project:status-report-2026-10-15"
     },
     {
       "from": "feature:pincast",
@@ -26301,12 +26145,7 @@
     {
       "from": "frontend-requirements:files",
       "kind": "wikilink",
-      "to": "task:T-012"
-    },
-    {
-      "from": "frontend-requirements:files",
-      "kind": "wikilink",
-      "to": "task:T-013"
+      "to": "story:photo-library"
     },
     {
       "from": "frontend-requirements:gemma",
@@ -26572,16 +26411,6 @@
       "from": "frontend-requirements:photo-library",
       "kind": "wikilink",
       "to": "story:photo-library"
-    },
-    {
-      "from": "frontend-requirements:photo-library",
-      "kind": "wikilink",
-      "to": "task:T-012"
-    },
-    {
-      "from": "frontend-requirements:photo-library",
-      "kind": "wikilink",
-      "to": "task:T-013"
     },
     {
       "from": "frontend-requirements:pincast",
@@ -29236,11 +29065,6 @@
     {
       "from": "project:status-report-2026-10-15",
       "kind": "wikilink",
-      "to": "feature:photo-library"
-    },
-    {
-      "from": "project:status-report-2026-10-15",
-      "kind": "wikilink",
       "to": "feature:ring-access"
     },
     {
@@ -29721,7 +29545,7 @@
     {
       "from": "story:files",
       "kind": "wikilink",
-      "to": "task:T-012"
+      "to": "story:photo-library"
     },
     {
       "from": "story:gemma",
@@ -30152,16 +29976,6 @@
       "from": "story:T-010",
       "kind": "wikilink",
       "to": "feature:badge-qr"
-    },
-    {
-      "from": "story:T-012",
-      "kind": "wikilink",
-      "to": "feature:photo-library"
-    },
-    {
-      "from": "story:T-013",
-      "kind": "wikilink",
-      "to": "feature:photo-library"
     },
     {
       "from": "story:T-017",
@@ -30692,91 +30506,6 @@
       "from": "task:T-010-fe",
       "kind": "wikilink",
       "to": "task:T-010-be"
-    },
-    {
-      "from": "task:T-012",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-012",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-012",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-012",
-      "kind": "wikilink",
-      "to": "task:T-013"
-    },
-    {
-      "from": "task:T-012-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:photo-library"
-    },
-    {
-      "from": "task:T-012-be",
-      "kind": "wikilink",
-      "to": "feature:photo-library"
-    },
-    {
-      "from": "task:T-012-fe",
-      "kind": "wikilink",
-      "to": "feature:photo-library"
-    },
-    {
-      "from": "task:T-012-fe",
-      "kind": "wikilink",
-      "to": "story:T-012"
-    },
-    {
-      "from": "task:T-012-fe",
-      "kind": "wikilink",
-      "to": "task:T-012-be"
-    },
-    {
-      "from": "task:T-013",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-013",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-013",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-013-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:photo-library"
-    },
-    {
-      "from": "task:T-013-be",
-      "kind": "wikilink",
-      "to": "feature:photo-library"
-    },
-    {
-      "from": "task:T-013-fe",
-      "kind": "wikilink",
-      "to": "feature:photo-library"
-    },
-    {
-      "from": "task:T-013-fe",
-      "kind": "wikilink",
-      "to": "story:T-013"
-    },
-    {
-      "from": "task:T-013-fe",
-      "kind": "wikilink",
-      "to": "task:T-013-be"
     },
     {
       "from": "task:T-017",
@@ -32961,38 +32690,6 @@
     },
     "social-pin/tasks/T-010 Public browser page for viewers without the app/T-010-fe Frontend · Public browser page for viewers without the app.md": {
       "name": "T-010-fe Frontend · Public browser page for viewers without the app",
-      "type": "task"
-    },
-    "social-pin/tasks/T-012 List my files (photo library)/T-012 List my files (photo library).md": {
-      "name": "T-012 List my files (photo library)",
-      "type": "task"
-    },
-    "social-pin/tasks/T-012 List my files (photo library)/T-012 Story.md": {
-      "name": "T-012 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-012 List my files (photo library)/T-012-be Backend · List my files (photo library).md": {
-      "name": "T-012-be Backend · List my files (photo library)",
-      "type": "task"
-    },
-    "social-pin/tasks/T-012 List my files (photo library)/T-012-fe Frontend · List my files (photo library).md": {
-      "name": "T-012-fe Frontend · List my files (photo library)",
-      "type": "task"
-    },
-    "social-pin/tasks/T-013 Usage count per file across Rings/T-013 Story.md": {
-      "name": "T-013 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-013 Usage count per file across Rings/T-013 Usage count per file across Rings.md": {
-      "name": "T-013 Usage count per file across Rings",
-      "type": "task"
-    },
-    "social-pin/tasks/T-013 Usage count per file across Rings/T-013-be Backend · Usage count per file across Rings.md": {
-      "name": "T-013-be Backend · Usage count per file across Rings",
-      "type": "task"
-    },
-    "social-pin/tasks/T-013 Usage count per file across Rings/T-013-fe Frontend · Usage count per file across Rings.md": {
-      "name": "T-013-fe Frontend · Usage count per file across Rings",
       "type": "task"
     },
     "social-pin/tasks/T-017 Extend WIDGET_TYPE to the design's list/T-017 Extend WIDGET_TYPE to the design's list.md": {
@@ -41224,11 +40921,10 @@
       "resolution": null,
       "rollup": {
         "approved": 1,
-        "blocked": 5,
+        "blocked": 1,
         "decided": 2,
-        "draft": 3,
+        "draft": 1,
         "missing": 4,
-        "todo": 2,
         "verified": 2
       },
       "scope": null,
@@ -41246,7 +40942,7 @@
       ],
       "task": null,
       "title": "Photo Library",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "feature:pincast": {
       "affects": [],
@@ -46716,19 +46412,19 @@
       "resolution": null,
       "rollup": {
         "approved": 11,
-        "blocked": 13,
+        "blocked": 9,
         "current": 8,
         "decided": 7,
         "delivered": 2,
         "done": 9,
-        "draft": 15,
+        "draft": 13,
         "in-progress": 13,
         "missing": 40,
         "needs-decision": 2,
         "partial": 4,
         "passing": 1,
         "ready": 2,
-        "todo": 4,
+        "todo": 2,
         "verified": 7
       },
       "scope": null,
@@ -53393,12 +53089,12 @@
       ],
       "rollup": {
         "approved": 34,
-        "blocked": 106,
+        "blocked": 102,
         "current": 8,
         "decided": 14,
         "delivered": 2,
         "done": 10,
-        "draft": 72,
+        "draft": 70,
         "in-progress": 55,
         "missing": 155,
         "needs-decision": 6,
@@ -53406,7 +53102,7 @@
         "passing": 1,
         "ready": 2,
         "reference": 31,
-        "todo": 21,
+        "todo": 19,
         "verified": 14
       },
       "scope": null,
@@ -53790,106 +53486,6 @@
       ],
       "task": "T-010",
       "title": "T-010 Story",
-      "updated": "2026-10-26"
-    },
-    "story:T-012": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-12",
-      "children": [],
-      "code": "T-012",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
-      "effort": null,
-      "feature": "photo-library",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-012",
-      "inherits": {
-        "priority": "task:T-012",
-        "release": "feature:photo-library"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "identity",
-      "parentTask": null,
-      "parents": [
-        "task:T-012"
-      ],
-      "path": "social-pin/tasks/T-012 List my files (photo library)/T-012 Story.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "scope": "task",
-      "screens": [
-        "s30"
-      ],
-      "status": "draft",
-      "summary": "GET /files paginated with kind filter, owner only, via a FileQueryBuilderService.",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/identity",
-        "layer/business"
-      ],
-      "task": "T-012",
-      "title": "T-012 Story",
-      "updated": "2026-10-26"
-    },
-    "story:T-013": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-13",
-      "children": [],
-      "code": "T-013",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
-      "effort": null,
-      "feature": "photo-library",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-013",
-      "inherits": {
-        "priority": "task:T-013",
-        "release": "feature:photo-library"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "identity",
-      "parentTask": null,
-      "parents": [
-        "task:T-013"
-      ],
-      "path": "social-pin/tasks/T-013 Usage count per file across Rings/T-013 Story.md",
-      "pending": [],
-      "priority": "medium",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "scope": "task",
-      "screens": [
-        "s30"
-      ],
-      "status": "draft",
-      "summary": "ringCount on FileEntity from RingProfile.avatarFileId + RingProfileFile references.",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/identity",
-        "layer/business"
-      ],
-      "task": "T-013",
-      "title": "T-013 Story",
       "updated": "2026-10-26"
     },
     "story:T-017": {
@@ -56923,10 +56519,7 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-11",
-      "children": [
-        "task:T-012",
-        "task:T-013"
-      ],
+      "children": [],
       "code": "photo-library",
       "created": "2026-10-18",
       "deadline": null,
@@ -56974,7 +56567,7 @@
       ],
       "task": null,
       "title": "Photo Library Story",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "story:pincast": {
       "affects": [],
@@ -58936,383 +58529,6 @@
       ],
       "task": null,
       "title": "T-010-fe Frontend · Public browser page for viewers without the app",
-      "updated": "2026-10-26"
-    },
-    "task:T-012": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-012",
-      "children": [
-        "story:T-012",
-        "task:T-012-be",
-        "task:T-012-fe"
-      ],
-      "code": "T-012",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": "social-pin/tasks/T-012 List my files (photo library)",
-      "effectiveStatus": "todo",
-      "effort": "S",
-      "feature": "photo-library",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-012",
-      "inherits": {
-        "release": "feature:photo-library"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "identity",
-      "parentTask": null,
-      "parents": [
-        "story:photo-library"
-      ],
-      "path": "social-pin/tasks/T-012 List my files (photo library)/T-012 List my files (photo library).md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {
-        "blocked": 1,
-        "draft": 1,
-        "todo": 1
-      },
-      "scope": null,
-      "screens": [
-        "s30"
-      ],
-      "status": "todo",
-      "summary": "GET /files paginated with kind filter, owner only, via a FileQueryBuilderService.",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/identity",
-        "priority/high"
-      ],
-      "task": null,
-      "title": "T-012 List my files (photo library)",
-      "updated": "2026-10-26"
-    },
-    "task:T-012-be": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-012-be",
-      "children": [],
-      "code": "T-012-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": null,
-      "effectiveStatus": "todo",
-      "effort": "S",
-      "feature": "photo-library",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-012-be",
-      "inherits": {
-        "release": "feature:photo-library"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "identity",
-      "parentTask": "T-012",
-      "parents": [
-        "task:T-012"
-      ],
-      "path": "social-pin/tasks/T-012 List my files (photo library)/T-012-be Backend · List my files (photo library).md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s30"
-      ],
-      "status": "todo",
-      "summary": "The API side of T-012 List my files (photo library): the endpoints, data and rules its What describes. Record what shipped in T-012-be Backend Delivery and how to call it in T-012-be Backend…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/identity",
-        "priority/high",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-012-be Backend · List my files (photo library)",
-      "updated": "2026-10-26"
-    },
-    "task:T-012-fe": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-012-be",
-          "title": "T-012-be Backend · List my files (photo library)",
-          "why": "T-012-be Backend · List my files (photo library) is to do"
-        }
-      ],
-      "card": "T-012-fe",
-      "children": [],
-      "code": "T-012-fe",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-012-be"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "S",
-      "feature": "photo-library",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-012-fe",
-      "inherits": {
-        "release": "feature:photo-library"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "frontend"
-      ],
-      "layer": "business",
-      "module": "identity",
-      "parentTask": "T-012",
-      "parents": [
-        "task:T-012"
-      ],
-      "path": "social-pin/tasks/T-012 List my files (photo library)/T-012-fe Frontend · List my files (photo library).md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s30"
-      ],
-      "status": "todo",
-      "summary": "The client side of T-012 List my files (photo library): the screens below show what its What describes, built against Photo Library Backend Integration once the backend half (T-012-be Backend ·…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/identity",
-        "priority/high",
-        "frontend"
-      ],
-      "task": null,
-      "title": "T-012-fe Frontend · List my files (photo library)",
-      "updated": "2026-10-26"
-    },
-    "task:T-013": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-012",
-          "title": "T-012 List my files (photo library)",
-          "why": "T-012 List my files (photo library) is to do"
-        }
-      ],
-      "card": "T-013",
-      "children": [
-        "story:T-013",
-        "task:T-013-be",
-        "task:T-013-fe"
-      ],
-      "code": "T-013",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-012"
-      ],
-      "dir": "social-pin/tasks/T-013 Usage count per file across Rings",
-      "effectiveStatus": "blocked",
-      "effort": "S",
-      "feature": "photo-library",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-013",
-      "inherits": {
-        "release": "feature:photo-library"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "identity",
-      "parentTask": null,
-      "parents": [
-        "story:photo-library"
-      ],
-      "path": "social-pin/tasks/T-013 Usage count per file across Rings/T-013 Usage count per file across Rings.md",
-      "pending": [],
-      "priority": "medium",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {
-        "blocked": 2,
-        "draft": 1
-      },
-      "scope": null,
-      "screens": [
-        "s30"
-      ],
-      "status": "todo",
-      "summary": "ringCount on FileEntity from RingProfile.avatarFileId + RingProfileFile references.",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/identity",
-        "priority/medium"
-      ],
-      "task": null,
-      "title": "T-013 Usage count per file across Rings",
-      "updated": "2026-10-26"
-    },
-    "task:T-013-be": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-012",
-          "title": "T-012 List my files (photo library)",
-          "why": "T-012 List my files (photo library) is to do"
-        }
-      ],
-      "card": "T-013-be",
-      "children": [],
-      "code": "T-013-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-012"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "S",
-      "feature": "photo-library",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-013-be",
-      "inherits": {
-        "release": "feature:photo-library"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "identity",
-      "parentTask": "T-013",
-      "parents": [
-        "task:T-013"
-      ],
-      "path": "social-pin/tasks/T-013 Usage count per file across Rings/T-013-be Backend · Usage count per file across Rings.md",
-      "pending": [],
-      "priority": "medium",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s30"
-      ],
-      "status": "todo",
-      "summary": "The API side of T-013 Usage count per file across Rings: the endpoints, data and rules its What describes. Record what shipped in T-013-be Backend Delivery and how to call it in T-013-be Backend…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/identity",
-        "priority/medium",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-013-be Backend · Usage count per file across Rings",
-      "updated": "2026-10-26"
-    },
-    "task:T-013-fe": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-012",
-          "title": "T-012 List my files (photo library)",
-          "why": "T-012 List my files (photo library) is to do"
-        },
-        {
-          "id": "task:T-013-be",
-          "title": "T-013-be Backend · Usage count per file across Rings",
-          "why": "T-013-be Backend · Usage count per file across Rings is blocked"
-        }
-      ],
-      "card": "T-013-fe",
-      "children": [],
-      "code": "T-013-fe",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-012",
-        "task:T-013-be"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "S",
-      "feature": "photo-library",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-013-fe",
-      "inherits": {
-        "release": "feature:photo-library"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "frontend"
-      ],
-      "layer": "business",
-      "module": "identity",
-      "parentTask": "T-013",
-      "parents": [
-        "task:T-013"
-      ],
-      "path": "social-pin/tasks/T-013 Usage count per file across Rings/T-013-fe Frontend · Usage count per file across Rings.md",
-      "pending": [],
-      "priority": "medium",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s30"
-      ],
-      "status": "todo",
-      "summary": "The client side of T-013 Usage count per file across Rings: the screens below show what its What describes, built against Photo Library Backend Integration once the backend half (T-013-be Backend…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/identity",
-        "priority/medium",
-        "frontend"
-      ],
-      "task": null,
-      "title": "T-013-fe Frontend · Usage count per file across Rings",
       "updated": "2026-10-26"
     },
     "task:T-017": {

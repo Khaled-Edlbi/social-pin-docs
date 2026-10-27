@@ -9,7 +9,7 @@ screens: [s29, s30]
 approvedBy: "khaled"
 approvedAt: 2026-10-25
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 owner: "omar"
 related: ["D-02 One main profile every Ring starts from", "D-05 Inherit per field, copy without members"]
 tags: [story, story/approved, module/identity, layer/business]
@@ -80,6 +80,23 @@ Acceptance criteria:
 Acceptance criteria:
 - [ ] Sends `PATCH … { avatarFileId: null }`; the Ring then follows the main photo, and changes with it from then on; only the photo stops being the Ring's own, the Ring's other fields are untouched ([[D-05 Inherit per field, copy without members]]).
 - [ ] Until the main photo exists on the profile ([[D-02 One main profile every Ring starts from]], not built yet), the action is disabled with "coming soon"; clearing today would show no photo at all.
+
+### S7 · List my files (photo library)
+
+*From T-012 (status then: To do), merged 2026-10-27.*
+
+`GET /files` paginated with `kind` filter, owner only, via a `FileQueryBuilderService`.
+
+Screens: [[Screen Index#s30|s30]] Photo library
+
+
+### S8 · Usage count per file across Rings
+
+*From T-013 (status then: To do), merged 2026-10-27.*
+
+`ringCount` on `FileEntity` from `RingProfile.avatarFileId` + `RingProfileFile` references.
+
+Screens: [[Screen Index#s30|s30]] Photo library
 
 ## States and motion the design asks for
 

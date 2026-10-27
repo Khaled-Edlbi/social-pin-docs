@@ -96,7 +96,7 @@ Acceptance criteria:
 **As a** Ring owner **I want** thumbnails of the photos I uploaded **so that** I pick one by looking at it.
 
 Acceptance criteria:
-- [ ] Every photo the library lists shows a thumbnail. The list itself is [[T-012 List my files (photo library)]].
+- [ ] Every photo the library lists shows a thumbnail. The list itself is [[Photo Library Story|Photo Library · S7]].
 
 ### S9 · A viewer sees the photo and files this Ring shows ([[Screen Index#s31|s31]], [[Screen Index#s44|s44]])
 
@@ -144,4 +144,4 @@ Acceptance criteria:
 
 - No decision blocks uploading (S1–S6). **Showing files (S7–S11) waits on [[ND-16 Viewer access to file bytes]]**: an authenticated route keyed by file id, or a signed `url` on the entities. The view's attachments carry the attachment `id` and no `fileId`, so a viewer cannot call a route keyed by file id with what it is given; a signed `url` on the view answers that and loads like any web image, a route needs the bearer token on every image request.
 - Thumbnails: whether the library and Ring lists get a smaller size, or download the full photo.
-- The library screen waits on [[T-012 List my files (photo library)]].
+- The library screen waits on [[Photo Library Story|Photo Library · S7]].

@@ -35,8 +35,6 @@ Social Pin backend
 │   ├── ✅ Ring Access Engine  [Critical]
 │   ├── 🟡 Counts  [High]
 │   ├── 🟡 Photo Library  [High]
-│   │   ├── ⬜ T-012 List my files (photo library)
-│   │   └── ⬜ T-013 Usage count per file across Rings
 │   ├── 🟡 Widgets  [High]
 │   │   ├── ⬜ T-017 Extend WIDGET_TYPE to the design's list
 │   │   └── ❓ T-018 Widget CRUD on the projection
@@ -119,7 +117,7 @@ Account, profile, Rings, what each Ring shows, and the access engine. The part o
 | [[Files Upload]] | ✅ Done | High | s14, s20, s36 | 0 |
 | [[Ring Access Engine]] | ✅ Done | Critical | — | 0 |
 | [[Counts]] | 🟡 Partial (needs more) | High | s11, s12, s14, s16, s17, s68 | 0 |
-| [[Photo Library]] | 🟡 Partial (needs more) | High | s29, s30 | 2 |
+| [[Photo Library]] | 🟡 Partial (needs more) | High | s29, s30 | 0 |
 | [[Widgets]] | 🟡 Partial (needs more) | High | s36, s37 | 2 |
 | [[Onboarding Imports]] | ❌ TODO | High | s03, s03a, s03b, s04, s05 | 0 |
 

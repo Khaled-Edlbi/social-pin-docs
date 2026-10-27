@@ -45,8 +45,8 @@ What the client needs to build the per-Ring photo picker and the library grid, a
 | Set a Ring's photo / clear it | `PATCH /rings/:ringId/projection` | ✅ | — (listed under [[Ring Projection]]) |
 | Read a Ring's current photo id | `GET /rings/:ringId/projection` | ✅ | — (listed under [[Ring Projection]]) |
 | Delete a photo | `DELETE /files/:id` | ✅ | — (listed under [[Files Upload]]) |
-| List my files, filter by kind (images) | — | ❌ | [[T-012 List my files (photo library)]] |
-| "N Rings inherit it" per file | — | ❌ | [[T-013 Usage count per file across Rings]] |
+| List my files, filter by kind (images) | — | ❌ | [[Photo Library Story|Photo Library · S7]] |
+| "N Rings inherit it" per file | — | ❌ | [[Photo Library Story|Photo Library · S8]] |
 | Thumbnails and the full photo | — | ❌ | [[Files Upload Story|Files Upload · showing files]] |
 | Base profile photo for "Reset to Pin" | — | ❌ | [[ND-02 Base profile work fields]] |
 | Inherit-by-default semantics | — | ❌ | [[ND-05 Copy or inherit]] |
@@ -54,9 +54,9 @@ What the client needs to build the per-Ring photo picker and the library grid, a
 ## Behaviour expectations
 
 - Refetch / realtime: refetch `GET /files` (once it exists) on screen focus and after every upload or delete; refetch the Ring's projection after `PATCH`; invalidate `view:<viewer>:ring:<ringId>` so "View as" shows the new photo once bytes can be served.
-- Caching keys: `files:<userId>:images` for the grid; `projection:<ringId>` for the current photo. Session-only list of uploaded ids until T-012.
+- Caching keys: `files:<userId>:images` for the grid; `projection:<ringId>` for the current photo. Session-only list of uploaded ids until Photo Library · S7.
 - Pagination / ordering: `GET /files` is expected paginated (`limit` ≤ 50, `meta.total`), newest first, with a `kind` filter; the grid uses infinite scroll on `skip`.
-- Usage count: the client does not compute "N Rings inherit it" by scanning every projection; it waits for `ringCount` on the entity (T-013) and shows nothing until then.
+- Usage count: the client does not compute "N Rings inherit it" by scanning every projection; it waits for `ringCount` on the entity (Photo Library · S8) and shows nothing until then.
 - Delete: detach from known Rings first (`avatarFileId: null`), then delete; the backend does not cascade.
 - Images: client-side downsizing for very large photos is allowed before upload; the server allow-list and 25 MB limit still apply.
 - Placeholders: without bytes, show the locally picked image during the session and initials afterwards; never build a URL from an id.
@@ -76,7 +76,7 @@ Until [[Error Contract Story|Error Contract · S4–S8]] ships, branch on status
 
 ## Blocked by
 
-- [[T-012 List my files (photo library)]] — the grid on s30 beyond this session's uploads.
-- [[T-013 Usage count per file across Rings]] — "N Rings inherit it".
+- [[Photo Library Story|Photo Library · S7]] — the grid on s30 beyond this session's uploads.
+- [[Photo Library Story|Photo Library · S8]] — "N Rings inherit it".
 - [[Files Upload Story|Files Upload · showing files]] — every thumbnail and the large preview on s29.
 - [[ND-02 Base profile work fields]] — "Reset to Pin".
