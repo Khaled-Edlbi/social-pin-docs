@@ -3,33 +3,33 @@ type: needs-decision
 id: ND-12
 status: draft
 features: [badge-qr]
-blocks: ["T-007 Story", "T-010"]
+blocks: ["Badge & QR Story"]
 decider: "owner"
 screens: [s34, s43]
 affects: []
 related: ["Badge & QR"]
 owner: "omar"
 created: 2026-10-25
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [needs-decision, needs-decision/draft]
 ---
 
 # ❓ ND-12 · What the badge QR encodes
 
-**Status:** draft · **Decider:** owner · **Raised:** 2026-10-25 · **Needed by:** [[T-007 Story]], [[T-010 Public browser page for viewers without the app]] · **Feature:** [[Badge & QR]]
+**Status:** draft · **Decider:** owner · **Raised:** 2026-10-25 · **Needed by:** [[Badge & QR Story|Badge & QR · S7–S12]], [[Badge & QR Story|Badge & QR · S20]] · **Feature:** [[Badge & QR]]
 
 > The needs-decision card: `draft` while the question is written, `open` once it is ready for the decider; it shows **Fulfilled** by itself once its decision card (D-NN) is `decided`. The cards in `blocks` are **Blocked · ND-12** while this is `draft` or `open` and return to their own status once it is fulfilled. Nobody edits their `status:` for this, and nobody types `fulfilled` or `decided` here.
 
 ## What has to be decided
 
-What the QR on the badge ([[Screen Index#s34|s34]]) carries: the bare token, or a URL with the token in it. A bare token works only when the Social Pin app scans it ([[Screen Index#s43|s43]]); a phone's own camera shows it as text, and someone without the app gets nothing. A URL opens the app when it is installed and a browser page when it is not ([[T-010 Public browser page for viewers without the app]]). The choice fixes the format of every code ever shown or printed (Pro codes are permanent: [[T-049 Subscription endpoints and a single Pro gate]]), so it is hard to change later. Until it is chosen, [[T-007 Issue and rotate the QR token for a Ring]] cannot fix its response shape and the app cannot tell "a Social Pin code" from any other QR ([[T-008 Story]] S3).
+What the QR on the badge ([[Screen Index#s34|s34]]) carries: the bare token, or a URL with the token in it. A bare token works only when the Social Pin app scans it ([[Screen Index#s43|s43]]); a phone's own camera shows it as text, and someone without the app gets nothing. A URL opens the app when it is installed and a browser page when it is not ([[Badge & QR Story|Badge & QR · S20]]). The choice fixes the format of every code ever shown or printed (Pro codes are permanent: [[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]]), so it is hard to change later. Until it is chosen, [[Badge & QR Story|Badge & QR · S7–S12]] cannot fix its response shape and the app cannot tell "a Social Pin code" from any other QR ([[Badge & QR Story|Badge & QR · S13–S18]] S3).
 
 ## Notes
 
-- [[T-007 Story]] open questions: the app asks for the URL form, for example `https://<domain>/q/<token>`, and for `url` on the response next to `token`, `issuedAt`, `expiresAt`.
+- [[Badge & QR Story|Badge & QR · S7–S12]] open questions: the app asks for the URL form, for example `https://<domain>/q/<token>`, and for `url` on the response next to `token`, `issuedAt`, `expiresAt`.
 - A URL needs a domain the product controls and app links set up on both platforms; the app recognises its own format on the phone without a request.
-- [[T-010 Public browser page for viewers without the app]] still needs its own answer on which Ring an anonymous viewer sees; this card only decides whether the code can lead there.
-- The token must stay opaque in either form: no Ring id, no user id ([[T-007 Story]] S1).
+- [[Badge & QR Story|Badge & QR · S20]] still needs its own answer on which Ring an anonymous viewer sees; this card only decides whether the code can lead there.
+- The token must stay opaque in either form: no Ring id, no user id ([[Badge & QR Story|Badge & QR · S7–S12]] S1).
 
 ## Options
 
@@ -41,7 +41,7 @@ Recommendation: option 1, decided now, so codes printed on Pro cards and event b
 
 ## Responsible
 
-`decider` above: the owner, before [[T-007 Story]] is approved, after hearing from the frontend what app links need on both platforms and from the backend which domain serves `/q/`.
+`decider` above: the owner, before [[Badge & QR Story|Badge & QR · S7–S12]] is approved, after hearing from the frontend what app links need on both platforms and from the backend which domain serves `/q/`.
 
 ## Decision
 

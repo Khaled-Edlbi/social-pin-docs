@@ -6,11 +6,11 @@ status: decided
 decidedBy: "molham"
 decidedAt: 2026-10-25
 features: [ring-projection, widgets]
-affects: ["Ring Projection", "Widgets", "T-018 Widget CRUD on the projection", "T-058 Decide field library vs per-Ring copies"]
+affects: ["Ring Projection", "Widgets", "Widgets Story", "Ring Projection Story"]
 related: ["ND-03 Field library vs per-Ring copies", "D-02 One main profile every Ring starts from"]
 owner: "khaled"
 created: 2026-10-25
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [decision, decision/decided]
 ---
 
@@ -43,8 +43,8 @@ Answered on the product-questions page, 2026-10-22, recorded on molham's word on
 ## What it changes
 
 - [[Ring Projection]]: links (and info blocks) belong to the profile; each Ring holds only which of them are on. Hidden rows stay excluded by the query.
-- [[Widgets]]: built on the library from the start; [[T-018 Widget CRUD on the projection]] is no longer waiting on this decision.
-- [[T-058 Decide field library vs per-Ring copies]]: its decision is taken; the PM closes it.
+- [[Widgets]]: built on the library from the start; [[Widgets Story|Widgets · S7]] is no longer waiting on this decision.
+- [[Ring Projection Story|Ring Projection · Decide field library vs per-Ring copies]]: its decision is taken; the PM closes it.
 
 ## Still open
 

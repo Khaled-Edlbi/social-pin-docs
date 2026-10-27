@@ -62,12 +62,12 @@ What the client needs from the backend for every screen that renders another per
 | All perspectives of one person | `GET /views/user/:userId/perspectives` | ✅ | — |
 | My live Rings for the View as selector | `GET /rings` | ✅ | — (listed under [[Rings]]) |
 | Photo and attachment bytes | — | ❌ | [[Files Upload Story|Files Upload · showing files]] |
-| Issue a rotating QR token for a Ring | — | ❌ | [[T-007 Issue and rotate the QR token for a Ring]] |
-| Resolve a scanned token to a view | — | ❌ | [[T-008 Resolve a scanned QR token]] |
-| Connect after a scan | — | ❌ | [[T-021 Connect request send, inbox, cancel]] |
-| A `userId` to call `/perspectives` with | — | ❌ | [[T-023 Connection detail and contacts list]] |
-| Browser page for viewers without the app | — | ❌ | [[T-010 Public browser page for viewers without the app]] |
-| Widgets rendered in the view | — | ❌ | [[T-018 Widget CRUD on the projection]] |
+| Issue a rotating QR token for a Ring | — | ❌ | [[Badge & QR Story|Badge & QR · S7–S12]] |
+| Resolve a scanned token to a view | — | ❌ | [[Badge & QR Story|Badge & QR · S13–S18]] |
+| Connect after a scan | — | ❌ | [[Connections Story|Connections · S8–S12]] |
+| A `userId` to call `/perspectives` with | — | ❌ | [[Connections Story|Connections · S19–S24]] |
+| Browser page for viewers without the app | — | ❌ | [[Badge & QR Story|Badge & QR · S20]] |
+| Widgets rendered in the view | — | ❌ | [[Widgets Story|Widgets · S7]] |
 
 ## Behaviour expectations
 
@@ -91,10 +91,10 @@ What the client needs from the backend for every screen that renders another per
 | 400 | — (validation; malformed handle or id) | treat as the same "not available" message |
 | 401 | `E_AUTH_04` | sign in again (the views are authenticated routes) |
 
-Until [[T-063 Put the ErrorCode on the error body]] ships, the body carries no `ErrorCode`: branch on status and endpoint. The two 404 bodies on `/views/pin` are identical by design; do not try to tell them apart.
+Until [[Error Contract Story|Error Contract · S4–S8]] ships, the body carries no `ErrorCode`: branch on status and endpoint. The two 404 bodies on `/views/pin` are identical by design; do not try to tell them apart.
 
 ## Blocked by
 
 - [[Files Upload Story|Files Upload · showing files]] — the photo and attachment downloads on s31 and s44.
-- [[T-007 Issue and rotate the QR token for a Ring]] and [[T-008 Resolve a scanned QR token]] — the real QR payload on s44; a Ring id in the QR is a stopgap.
-- [[T-021 Connect request send, inbox, cancel]] — the Connect action on s44.
+- [[Badge & QR Story|Badge & QR · S7–S12]] and [[Badge & QR Story|Badge & QR · S13–S18]] — the real QR payload on s44; a Ring id in the QR is a stopgap.
+- [[Connections Story|Connections · S8–S12]] — the Connect action on s44.

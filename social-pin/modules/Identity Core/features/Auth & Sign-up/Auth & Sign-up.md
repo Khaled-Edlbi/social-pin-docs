@@ -7,7 +7,7 @@ release: mvp
 module: identity
 screens: [s01, s02, s06, s08, s68]
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [feature, module/identity, priority/critical, release/mvp]
 ---
 
@@ -33,15 +33,19 @@ Wireframe brief sections: [[Wireframe Brief#Onboarding flow|§3.1 Onboarding flo
 
 Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map in [[Navigation Map]], see [[Design Reference]].
 
-## Tasks
+## Work
 
-| Task | Status | Priority | Effort |
-|---|---|---|---|
-| [[T-056 Decide passwordless login]] | ✅ Done | Critical | S |
+One story per feature (since 2026-10-27): all of this feature's work is in [[Auth & Sign-up Story]]. The tasks merged into it on 2026-10-27:
 
-```dataview
-TABLE status, priority, effort FROM #task WHERE feature = "auth" SORT priority ASC
-```
+| Was | Title | Status then | Priority | Now in the story |
+|---|---|---|---|---|
+| T-056 | Decide passwordless login | Done | critical | history only |
+
+### Log of the merged tasks
+
+- T-056 · 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
+- T-056 · 2026-10-15 · decided A and shipped (`feat(auth): passwordless sign-in with OTP codes`, merged to `main`)
+- T-056 · 2026-10-18 · vault updated; [[Frontend Passwordless Migration]] written for the client team
 
 ## Decisions
 

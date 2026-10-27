@@ -6,11 +6,11 @@ status: decided
 decidedBy: "molham"
 decidedAt: 2026-10-25
 features: [onboarding-imports, photo-library, profiles, ring-projection]
-affects: ["Profiles & Pin Name", "Ring Projection", "Onboarding Imports", "Photo Library", "T-020 LinkedIn import → review → base profile", "T-020b Business card scan and portfolio URL import", "T-057 Decide base profile work fields", "T-060 Decide copy or inherit"]
+affects: ["Profiles & Pin Name", "Ring Projection", "Onboarding Imports", "Photo Library", "Onboarding Imports Story", "Profiles & Pin Name Story", "Ring Projection Story"]
 related: ["ND-02 Base profile work fields", "D-05 Inherit per field, copy without members", "D-03 Links entered once, switched on or off per Ring"]
 owner: "khaled"
 created: 2026-10-25
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [decision, decision/decided]
 ---
 
@@ -51,10 +51,10 @@ Answered on the product-questions page, 2026-10-22, recorded on molham's word on
 
 - [[Profiles & Pin Name]]: the profile gains headline, role, company, location, photo and bio as main-profile fields; full name is never set per Ring.
 - [[Ring Projection]]: each Ring may change headline, company, location, photo and bio for itself; a field it has not changed shows the main value.
-- [[Onboarding Imports]]: imports (LinkedIn, business card, portfolio URL) fill the main profile, not one Ring; [[T-020 LinkedIn import → review → base profile]] and [[T-020b Business card scan and portfolio URL import]] are no longer waiting on this decision.
+- [[Onboarding Imports]]: imports (LinkedIn, business card, portfolio URL) fill the main profile, not one Ring; [[Onboarding Imports Story|Onboarding Imports · S7]] and [[Onboarding Imports Story|Onboarding Imports · S8]] are no longer waiting on this decision.
 - [[Photo Library]]: a Ring's photo is the main photo unless the Ring picks another.
-- [[T-057 Decide base profile work fields]]: its decision is taken; the PM closes it.
-- [[T-060 Decide copy or inherit]]: the main profile it needed now exists; its own answer is [[D-05 Inherit per field, copy without members]].
+- [[Profiles & Pin Name Story|Profiles & Pin Name · Decide base profile work fields]]: its decision is taken; the PM closes it.
+- [[Ring Projection Story|Ring Projection · Decide copy or inherit]]: the main profile it needed now exists; its own answer is [[D-05 Inherit per field, copy without members]].
 
 ## Still open
 

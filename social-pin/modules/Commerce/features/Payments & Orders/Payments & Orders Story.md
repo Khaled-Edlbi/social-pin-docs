@@ -10,10 +10,10 @@ approvedBy: "khaled"
 approvedAt: 2026-10-25
 depends: ["ND-07 Payment provider"]
 affects: ["Events Before", "Events During", "Event Ring Auto-creation"]
-related: ["D-07 Stripe for all four flows", "T-047 Orders, payments and the provider webhook", "Events Before", "Events During", "Event Ring Auto-creation", "Subscription (Free vs Pro)", "Audit Log", "T-034 Tickets, packages, levels, sold-out", "T-035 Registration transaction with order and payment", "T-040 Lounges and upgrades"]
+related: ["D-07 Stripe for all four flows", "Events Before", "Events During", "Event Ring Auto-creation", "Subscription (Free vs Pro)", "Audit Log", "Events Before Story", "Events During Story"]
 owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [story, story/approved, module/commerce, layer/business]
 ---
 
@@ -38,7 +38,7 @@ Acceptance criteria:
 - [ ] Submitting twice reuses the same order (client idempotency key); a changed selection creates a new order and abandons the previous one.
 - [ ] A sold-out item at order time fails the whole order; the client refetches packages and keeps the rest of the selection.
 - [ ] A free selection creates no payment and goes straight to s52 ([[Events Before Story]] S4).
-- [ ] Not available yet ([[T-035 Registration transaction with order and payment]]).
+- [ ] Not available yet ([[Events Before Story|Events Before · S9]]).
 
 ### S2 · Pay on s51 ([[Screen Index#s51|s51]])
 
@@ -65,7 +65,7 @@ Acceptance criteria:
 Acceptance criteria:
 - [ ] Stripe's webhook, not the client, marks the payment succeeded; a replayed webhook is harmless (`providerReference` unique).
 - [ ] If the app was closed, the next open shows the event under "My events" with the Event Ring in the hub; a notification "Registration confirmed" deep-links to s52 once [[Notifications]] exist.
-- [ ] Not available yet ([[T-047 Orders, payments and the provider webhook]]).
+- [ ] Not available yet ([[Payments & Orders Story|Payments & Orders · S7]]).
 
 ### S5 · In-event upgrade ([[Screen Index#s53|s53]])
 
@@ -74,7 +74,7 @@ Acceptance criteria:
 Acceptance criteria:
 - [ ] Same order and payment flow as S1–S3 in a sheet over s53; on success the mini-event state flips to owned ([[Events During Story]] S7).
 - [ ] Pro any-lounge access shows no price; it is a subscription, not an order ([[Subscription (Free vs Pro) Story]]).
-- [ ] Not available yet ([[T-040 Lounges and upgrades]]).
+- [ ] Not available yet ([[Events During Story|Events During · S12]]).
 
 ### S6 · Receipts and history ([[Screen Index#s68|s68]])
 
@@ -83,6 +83,14 @@ Acceptance criteria:
 Acceptance criteria:
 - [ ] Orders listed newest first with status, items, total, method and collector; the receipt reference Stripe gives when there is one.
 - [ ] Refunds are read-only here; the organizer handles them on the web.
+
+### S7 · Orders, payments and the provider webhook
+
+*From T-047 (status then: Needs a decision), merged 2026-10-27.*
+
+Provider undecided. Webhook idempotent on `providerReference`. Audit every payment action.
+
+Screens: [[Screen Index#s51|s51]] Payment
 
 ## States and motion the design asks for
 
@@ -94,12 +102,12 @@ Acceptance criteria:
 - One buyer per order (CHECK constraint); `OrderItem` holds a price snapshot so historical totals never derive from mutable prices.
 - `Payment.providerReference` is unique: a replayed webhook updates rather than duplicates.
 - `PAYMENT_METHOD` covers cash, card, bank and wallet; `Payment.collectedBy` records `ORGANIZER` vs `SOCIAL_PIN`. Modelled, not decided: which methods are offered, and who collects per organizer.
-- The registration transaction (participant + order + payment intent) and the Event Ring creation are one `@Transactional` unit on webhook success ([[T-035 Registration transaction with order and payment]], [[T-011 Create the Event Ring on registration]]).
+- The registration transaction (participant + order + payment intent) and the Event Ring creation are one `@Transactional` unit on webhook success ([[Events Before Story|Events Before · S9]], [[Event Ring Auto-creation Story|Event Ring Auto-creation · S6]]).
 - `AuditLog` exists for every payment action; no service writes it yet ([[Audit Log]]).
 
 ## Open questions
 
 - Which payment methods s51 offers (card only through Stripe's checkout, or more, per organizer): not raised yet; S2 is drawn so either answer fits.
-- Whether an unpaid order holds its items against sold-out while it is paid, and for how long: not raised yet; S1's sold-out handling follows the answer ([[T-034 Tickets, packages, levels, sold-out]]).
+- Whether an unpaid order holds its items against sold-out while it is paid, and for how long: not raised yet; S1's sold-out handling follows the answer ([[Events Before Story|Events Before · S8]]).
 - Whether a free RSVP creates a zero-total order (one history for everything) or no order at all.
 - Who collects (organizer or Social Pin) per organizer: not raised yet.

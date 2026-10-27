@@ -6,11 +6,11 @@ status: decided
 decidedBy: "molham"
 decidedAt: 2026-10-25
 features: [connections]
-affects: ["Connections", "T-021 Connect request send, inbox, cancel", "T-022 Accept into a Ring (sets grantedRingId)"]
+affects: ["Connections", "Connections Story"]
 related: ["ND-13 Whether the requester sees a declined request", "ND-17 Request expiry, note and asking again"]
 owner: "khaled"
 created: 2026-10-25
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [decision, decision/decided]
 ---
 
@@ -32,13 +32,13 @@ Answered on the product-questions page, 2026-10-22 ("yes visible"), recorded on 
 
 - Product chose clarity for the requester over hiding the refusal: a person waiting on a request that will never be answered is the worse experience.
 - With asking again allowed straight away, a visible decline is the requester's signal to try again (with a note) or move on.
-- Traded away: the receiver's decline is no longer private; the requester knows they were turned down. A block still reads as "This profile isn't available to you", never as a decline ([[T-021 Story]] S2), so a person who wants to stay invisible blocks rather than declines.
+- Traded away: the receiver's decline is no longer private; the requester knows they were turned down. A block still reads as "This profile isn't available to you", never as a decline ([[Connections Story|Connections · S8–S12]] S2), so a person who wants to stay invisible blocks rather than declines.
 
 ## What it changes
 
 - [[Connections]]: a request is pending, accepted, declined, cancelled or expired, and the requester sees each of them.
-- [[T-021 Connect request send, inbox, cancel]]: `GET /connections/requests?direction=sent` returns declined requests with that status; s44's button shows the decline and offers *Connect* again; the open question *Request statuses* in [[T-021 Story]] is answered.
-- [[T-022 Accept into a Ring (sets grantedRingId)]]: the decline path closes the request as **declined, visible to the requester**; [[T-022 Story]] S4's "The requester isn't told it was declined" is reversed.
+- [[Connections Story|Connections · S8–S12]]: `GET /connections/requests?direction=sent` returns declined requests with that status; s44's button shows the decline and offers *Connect* again; the open question *Request statuses* in [[Connections Story|Connections · S8–S12]] is answered.
+- [[Connections Story|Connections · S13–S18]]: the decline path closes the request as **declined, visible to the requester**; [[Connections Story|Connections · S13–S18]] S4's "The requester isn't told it was declined" is reversed.
 
 ## Still open
 

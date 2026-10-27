@@ -154,7 +154,7 @@ for humans and may be reworded at any time; the code will not change meaning.
 
 **Today the code is not on the wire.** The exception filter writes only
 `statusCode`, `message`, `error`, `path` and `timestamp`, and `error` reads
-`HttpException` for domain errors. Until that is fixed (T-063 in
+`HttpException` for domain errors. Until that is fixed (Error Contract · S4–S8 in
 `social-pin-docs`), branch on the status and the endpoint; the per-feature
 frontend notes in the docs vault list the code each endpoint will carry, so the
 switch can be written now and lit up later.

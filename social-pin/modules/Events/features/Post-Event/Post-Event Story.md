@@ -10,7 +10,7 @@ approvedBy: "khaled"
 approvedAt: 2026-10-25
 owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [story, story/approved, module/events, layer/business]
 ---
 
@@ -70,6 +70,14 @@ Acceptance criteria:
 - [ ] Counters read scans, meetings and leads; "Export leads" reuses [[Exhibitor Story]] S4.
 - [ ] The business Ring is permanent and gets no disposition sheet; only the Event Ring does.
 
+### S6 · Post-event summary and follow-ups
+
+*From T-050 (status then: Blocked), merged 2026-10-27.*
+
+Compute `EventSummary` (connections, meetings, scans); follow-up suggestions.
+
+Screens: [[Screen Index#s62|s62]] Post-event summary
+
 ## States and motion the design asks for
 
 - Motion: the summary **assembles from the user's event activity** (brief §8.5).
@@ -87,6 +95,6 @@ Acceptance criteria:
 ## Open questions
 
 - No decision note exists. Open points:
-- [[T-050 Post-event summary and follow-ups]] — waits on [[T-009 Scan counter and share link]], [[T-023 Connection detail and contacts list]] and [[T-044 My meetings, calendar, detail, reschedule, cancel]]; S1 and S2.
+- [[Post-Event Story|Post-Event · S6]] — waits on [[Badge & QR Story|Badge & QR · S19]], [[Connections Story|Connections · S19–S24]] and [[Meetings Story|Meetings · S11]]; S1 and S2.
 - Who triggers the summary (a job at `expiresAt`, or the first open of s62) decides how long S1's placeholder lasts.
 - Whether "delete" on s62 should read "expire" (the Screen Index note says keep / merge / expire) is copy, not behaviour: the call is `AUTO_DELETE` either way.

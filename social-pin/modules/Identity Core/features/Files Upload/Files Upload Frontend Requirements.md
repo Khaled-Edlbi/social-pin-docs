@@ -58,8 +58,8 @@ What the client needs from the backend to upload, attach, inspect and delete fil
 | Detach from a Ring | `DELETE …/attachments/:attachmentId` | ✅ | — (listed under [[Ring Projection]]) |
 | Use a file as the Ring photo | `PATCH /rings/:ringId/projection` | ✅ | — (listed under [[Ring Projection]]) |
 | Display or download the bytes | — | ❌ | [[Files Upload Story|Files Upload · showing files]] |
-| List my files (library, filter by kind) | — | ❌ | [[T-012 List my files (photo library)]] |
-| "N Rings inherit it" per file | — | ❌ | [[T-013 Usage count per file across Rings]] |
+| List my files (library, filter by kind) | — | ❌ | [[Photo Library Story|Photo Library · S7]] |
+| "N Rings inherit it" per file | — | ❌ | [[Photo Library Story|Photo Library · S8]] |
 | Hide / show or reorder an attachment in place | — | ❌ | no task yet; attachments have `isVisible` and `sortOrder` on create only (gap to record in [[Ring Projection]]) |
 
 ## Behaviour expectations
@@ -86,9 +86,9 @@ What the client needs from the backend to upload, attach, inspect and delete fil
 | 403 | `E_RING_05` | the attach target is not editable by this user: read-only editor |
 | 404 | `E_RING_PROFILE_04` | attachment not in this projection: refetch the editor |
 
-Until [[T-063 Put the ErrorCode on the error body]] ships, branch on status and endpoint.
+Until [[Error Contract Story|Error Contract · S4–S8]] ships, branch on status and endpoint.
 
 ## Blocked by
 
 - [[Files Upload Story|Files Upload · showing files]] — every preview, thumbnail and download on s14, s29 and the viewer screens.
-- [[T-012 List my files (photo library)]] — picking an already-uploaded file instead of uploading again.
+- [[Photo Library Story|Photo Library · S7]] — picking an already-uploaded file instead of uploading again.

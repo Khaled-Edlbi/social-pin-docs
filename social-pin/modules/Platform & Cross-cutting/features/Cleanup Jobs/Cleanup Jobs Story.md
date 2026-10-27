@@ -10,7 +10,7 @@ approvedBy: "khaled"
 approvedAt: 2026-10-25
 owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [story, story/approved, module/platform, layer/business]
 ---
 
@@ -51,6 +51,12 @@ Acceptance criteria:
 - [ ] Materialising a status never changes an access decision: `RingAccessService` keeps deciding from `startsAt` / `expiresAt` against `now`.
 - [ ] A Ring that is `EXPIRED` stays editable by its owner (keep / merge / delete), as `assertCanAdminister` already ignores expiry.
 
+### S4 · Cleanup jobs
+
+*From T-054 (status then: To do), merged 2026-10-27.*
+
+`@nestjs/schedule`: AUTO_DELETE Rings, PinCast recipients, expired codes, materialise EXPIRED statuses.
+
 ## States and motion the design asks for
 
 - None. No prototype screen references these jobs.
@@ -58,7 +64,7 @@ Acceptance criteria:
 ## Rules the backend already enforces
 
 - Access is correct without the jobs: expiry is evaluated live on every request, exclusive at the `expiresAt` instant ([[Ring Access Engine]]).
-- The schema carries `Ring.disposition`, `PincastRecipient.detectedAt` (indexed) and `VerificationCode.expiresAt` (indexed); the jobs are not written ([[T-054 Cleanup jobs]]).
+- The schema carries `Ring.disposition`, `PincastRecipient.detectedAt` (indexed) and `VerificationCode.expiresAt` (indexed); the jobs are not written ([[Cleanup Jobs Story|Cleanup Jobs · S4]]).
 
 ## Open questions
 

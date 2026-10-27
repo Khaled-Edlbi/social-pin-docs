@@ -7,7 +7,7 @@ module: platform
 status: draft
 screens: []
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [frontend-requirements, frontend-requirements/draft, module/platform, layer/frontend]
 ---
 
@@ -28,7 +28,7 @@ What the client depends on from the sweepers: that they never remove something a
 
 | Need | Endpoint | Available | Task / decision |
 |---|---|---|---|
-| AUTO_DELETE Rings removed; recipients and expired codes purged; EXPIRED materialised | — (scheduled, no route) | ❌ | [[T-054 Cleanup jobs]] |
+| AUTO_DELETE Rings removed; recipients and expired codes purged; EXPIRED materialised | — (scheduled, no route) | ❌ | [[Cleanup Jobs Story|Cleanup Jobs · S4]] |
 
 ## Behaviour expectations
 
@@ -44,8 +44,8 @@ What the client depends on from the sweepers: that they never remove something a
 
 | Status | ErrorCode | Show |
 |---|---|---|
-| 404 on `GET /rings/:id` | `E_RING_02` (not on the wire until [[T-063 Put the ErrorCode on the error body]]) | "This Ring was deleted"; remove it from local state |
+| 404 on `GET /rings/:id` | `E_RING_02` (not on the wire until [[Error Contract Story|Error Contract · S4–S8]]) | "This Ring was deleted"; remove it from local state |
 
 ## Blocked by
 
-- No decision. [[T-054 Cleanup jobs]] is To do; the recipient retention window must be set when it ships.
+- No decision. [[Cleanup Jobs Story|Cleanup Jobs · S4]] is To do; the recipient retention window must be set when it ships.

@@ -8,7 +8,7 @@ module: events
 screens: [s53, s54, s55, s56, s57, s58]
 related: ["Rings", "View As & Pin Views"]
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [feature, module/events, priority/critical, release/mvp]
 ---
 
@@ -35,19 +35,35 @@ Wireframe brief sections: [[Wireframe Brief#In-event hub|§8.1 In-event hub]], [
 
 Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map in [[Navigation Map]], see [[Design Reference]].
 
-## Tasks
+## Work
 
-| Task | Status | Priority | Effort |
-|---|---|---|---|
-| [[T-036 Event mode exhibitors list and detail]] | ⛔ Blocked | Critical | M |
-| [[T-037 Event pass with a 60 s rotating code]] | ⛔ Blocked | High | M |
-| [[T-038 Floor map and booths]] | ⛔ Blocked | High | M |
-| [[T-039 Catalogue products and talks (new table)]] | ❓ Needs a decision / info | High | L |
-| [[T-040 Lounges and upgrades]] | ⛔ Blocked | High | M |
+One story per feature (since 2026-10-27): all of this feature's work is in [[Events During Story]]. The tasks merged into it on 2026-10-27:
 
-```dataview
-TABLE status, priority, effort FROM #task WHERE feature = "events-during" SORT priority ASC
-```
+| Was | Title | Status then | Priority | Now in the story |
+|---|---|---|---|---|
+| T-036 | Event mode exhibitors list and detail | Blocked | critical | S8 |
+| T-037 | Event pass with a 60 s rotating code | Blocked | high | S9 |
+| T-038 | Floor map and booths | Blocked | high | S10 |
+| T-039 | Catalogue products and talks (new table) | Needs a decision | high | S11 |
+| T-040 | Lounges and upgrades | Blocked | high | S12 |
+
+### Log of the merged tasks
+
+- T-036 · 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
+- T-036 · 2026-10-18 · created as the backend half of T-036
+- T-036 · 2026-10-18 · created as the frontend half of T-036
+- T-037 · 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
+- T-037 · 2026-10-18 · created as the backend half of T-037
+- T-037 · 2026-10-18 · created as the frontend half of T-037
+- T-038 · 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
+- T-038 · 2026-10-18 · created as the backend half of T-038
+- T-038 · 2026-10-18 · created as the frontend half of T-038
+- T-039 · 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
+- T-039 · 2026-10-18 · created as the backend half of T-039
+- T-039 · 2026-10-18 · created as the frontend half of T-039
+- T-040 · 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
+- T-040 · 2026-10-18 · created as the backend half of T-040
+- T-040 · 2026-10-18 · created as the frontend half of T-040
 
 ## Related
 

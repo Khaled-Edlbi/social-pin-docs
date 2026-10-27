@@ -65,19 +65,19 @@ What the client needs from the backend to build the screens in [[Connections Sto
 |---|---|---|---|
 | Render the scanned or looked-up person | `GET /views/ring/:ringId`, `GET /views/pin/:pinName` | ✅ | — |
 | Everything the person shares with me, for s45 / s47 rows | `GET /views/user/:userId/perspectives` | ✅ | — |
-| Send a request to a user id | — | ❌ | [[T-021 Connect request send, inbox, cancel]] |
-| Incoming and sent lists, cancel | — | ❌ | [[T-021 Connect request send, inbox, cancel]] |
-| Accept into a Ring in one transaction, decline | — | ❌ | [[T-022 Accept into a Ring (sets grantedRingId)]] |
+| Send a request to a user id | — | ❌ | [[Connections Story|Connections · S8–S12]] |
+| Incoming and sent lists, cancel | — | ❌ | [[Connections Story|Connections · S8–S12]] |
+| Accept into a Ring in one transaction, decline | — | ❌ | [[Connections Story|Connections · S13–S18]] |
 | Rings for the picker | `GET /rings` | ✅ | — |
-| Suggested Ring on accept | — | ❌ | [[T-051 Gemma assistant sheet and suggestions]] |
-| Connection detail, contacts list, events in common, mutual | — | ❌ | [[T-023 Connection detail and contacts list]] |
+| Suggested Ring on accept | — | ❌ | [[Gemma AI Story|Gemma AI · S7]] |
+| Connection detail, contacts list, events in common, mutual | — | ❌ | [[Connections Story|Connections · S19–S24]] |
 | Move to another Ring | `POST /rings/:ringId/members/:userId/reassign` | ✅ | — |
 | Change the access window | `PATCH /rings/:ringId/members/:userId` | ✅ | — |
 | Revoke access | `DELETE /rings/:ringId/members/:userId` | ✅ | — |
-| Block, unblock, blocked list | — | ❌ | [[T-024 Block and unblock]] |
-| Introduce | — | ❌ | [[T-025 Introduce a connection to another]] |
-| Connection count on Me and Home | — | ❌ | [[T-005 Connection count on Me and Home]] |
-| Push or inbox notification on request and accept | — | ❌ | [[T-045 NotificationService.emit and the inbox]] |
+| Block, unblock, blocked list | — | ❌ | [[Connections Story|Connections · S25]] |
+| Introduce | — | ❌ | [[Connections Story|Connections · S26]] |
+| Connection count on Me and Home | — | ❌ | [[Counts Story|Counts · S11]] |
+| Push or inbox notification on request and accept | — | ❌ | [[Notifications Story|Notifications · S7]] |
 | Avatar bytes on every row | — | ❌ | [[Files Upload Story|Files Upload · showing files]] |
 
 ## Behaviour expectations
@@ -92,7 +92,7 @@ What the client needs from the backend to build the screens in [[Connections Sto
 
 | Status | ErrorCode | Show |
 |---|---|---|
-| 404 | `E_RING_ACCESS_01` (views; T-021 reuses the body for send) | one message: "This profile isn't available to you" — never "blocked" |
+| 404 | `E_RING_ACCESS_01` (views; Connections · S8–S12 reuses the body for send) | one message: "This profile isn't available to you" — never "blocked" |
 | 404 | `E_RING_ACCESS_02` | same message to a viewer |
 | 403 | `E_RING_05` | hide owner-only parts of s47 (the caller is not owner / admin of that Ring) |
 | 404 | `E_RING_02` | the Ring on s46 / s47 is gone: refetch the picker |
@@ -101,11 +101,11 @@ What the client needs from the backend to build the screens in [[Connections Sto
 | 404 | `E_RING_MEMBER_02` | membership row missing on reassign / revoke: refresh s47 |
 | 400 | `E_RING_07` | reassign target is not the same owner's Ring: validation |
 | 401 | `E_AUTH_04` | sign in again |
-| — | request-specific codes | to be defined by T-021 / T-022 / T-024; branch on `statusCode` until [[T-063 Put the ErrorCode on the error body]] |
+| — | request-specific codes | to be defined by Connections · S8–S12 / Connections · S13–S18 / Connections · S25; branch on `statusCode` until [[Error Contract Story|Error Contract · S4–S8]] |
 
 ## Blocked by
 
-- [[T-025 Introduce a connection to another]] — the *Introduce* row on s47 (needs product input).
+- [[Connections Story|Connections · S26]] — the *Introduce* row on s47 (needs product input).
 - [[ND-04 Ring settings]] — mutual connections on s47 if "members can see each other" is ever on.
-- [[T-022 Accept into a Ring (sets grantedRingId)]] — whether a connection-granted Ring is listed by name on `GET /rings/shared-with-me` (the open question in the story); the s17 list depends on the answer.
-- [[T-063 Put the ErrorCode on the error body]] — the error table above is by status until then.
+- [[Connections Story|Connections · S13–S18]] — whether a connection-granted Ring is listed by name on `GET /rings/shared-with-me` (the open question in the story); the s17 list depends on the answer.
+- [[Error Contract Story|Error Contract · S4–S8]] — the error table above is by status until then.

@@ -48,7 +48,7 @@ What the client needs from the backend to build the account section of Me, and w
 | Phone + chip | `GET /users/me` → `phone`, `phoneVerifiedAt` | E.164 on the wire |
 | Free / Pro | `GET /users/me` → `accountType` | `FREE` / `PRO` |
 | Last signed in | `GET /users/me` → `lastLoginAt` | relative time |
-| Connections | — | [[T-005 Connection count on Me and Home]] |
+| Connections | — | [[Counts Story|Counts · S11]] |
 
 ## Endpoints required
 
@@ -60,11 +60,11 @@ What the client needs from the backend to build the account section of Me, and w
 | Full name and Pin name for the header | `GET /profiles` | ✅ | — (listed under [[Profiles & Pin Name]]) |
 | Default Ring and its photo id | `GET /rings`, `GET /rings/:ringId/projection` | ✅ | — (listed under [[Rings]] and [[Ring Projection]]) |
 | Photo bytes for the header | — | ❌ | [[Files Upload Story|Files Upload · showing files]] |
-| Connection count ("218 connections") | — | ❌ | [[T-005 Connection count on Me and Home]] |
-| Linked accounts (LinkedIn) | — | ❌ | [[T-019 LinkedIn OAuth link, unlink, login]] |
-| Devices list | — | ❌ | [[T-014 Register devices on login; list and remove]] |
-| NFC card | — | ❌ | [[T-015 Pair and revoke an NFC card]] |
-| Subscription / Upgrade | — | ❌ | [[T-049 Subscription endpoints and a single Pro gate]] |
+| Connection count ("218 connections") | — | ❌ | [[Counts Story|Counts · S11]] |
+| Linked accounts (LinkedIn) | — | ❌ | [[Linked Accounts (OAuth) Story|Linked Accounts (OAuth) · S7]] |
+| Devices list | — | ❌ | [[Devices & NFC Story|Devices & NFC · S6]] |
+| NFC card | — | ❌ | [[Devices & NFC Story|Devices & NFC · S7]] |
+| Subscription / Upgrade | — | ❌ | [[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]] |
 | Re-verify a changed email or phone | — | ❌ | no task yet; gap recorded in [[Account#Gaps]] |
 
 ## Behaviour expectations
@@ -89,7 +89,7 @@ What the client needs from the backend to build the account section of Me, and w
 | 401 | `E_AUTH_04` | the refresh failed: sign in again |
 | 400 | — (validation; `message` is a string array) | inline on the field |
 
-Until [[T-063 Put the ErrorCode on the error body]] ships, the body carries no `ErrorCode`: branch on status and endpoint, keep `message` display-only.
+Until [[Error Contract Story|Error Contract · S4–S8]] ships, the body carries no `ErrorCode`: branch on status and endpoint, keep `message` display-only.
 
 ## Blocked by
 

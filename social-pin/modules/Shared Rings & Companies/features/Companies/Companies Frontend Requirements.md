@@ -31,7 +31,7 @@ What the client needs from the backend to build the screens in [[Companies Story
 ### [[Screen Index#s73|s73]] Company detail
 
 - Needs: one business with its tags, address, contact fields, links, about, files (name, mime type, size); the company Rings I am a live member of; the colleague count for owner / admin; *Leave company*.
-- Source today: the Rings I am in: `GET /rings/shared-with-me` filtered client-side by `type === "CORPORATE"` and the company's Ring ids once T-029 provides them; each Ring's projection: `GET /views/ring/:ringId`; the roster count for an admin: `GET /rings/:ringId/members?status=ACTIVE` (`meta.total`). Business detail and leave: not yet.
+- Source today: the Rings I am in: `GET /rings/shared-with-me` filtered client-side by `type === "CORPORATE"` and the company's Ring ids once Companies · S6 provides them; each Ring's projection: `GET /views/ring/:ringId`; the roster count for an admin: `GET /rings/:ringId/members?status=ACTIVE` (`meta.total`). Business detail and leave: not yet.
 
 ### Company Ring from s73 ([[Screen Index#s14|s14]])
 
@@ -42,17 +42,17 @@ What the client needs from the backend to build the screens in [[Companies Story
 
 | Need | Endpoint | Available | Task / decision |
 |---|---|---|---|
-| List my companies with my role | — | ❌ | [[T-029 My companies and company detail]] |
-| Company detail (facts, tags, files, its Ring ids) | — | ❌ | [[T-029 My companies and company detail]] |
-| Leave a company | — | ❌ | [[T-029 My companies and company detail]] |
+| List my companies with my role | — | ❌ | [[Companies Story|Companies · S6]] |
+| Company detail (facts, tags, files, its Ring ids) | — | ❌ | [[Companies Story|Companies · S6]] |
+| Leave a company | — | ❌ | [[Companies Story|Companies · S6]] |
 | Company Rings I am in (name, colour, `parentRingId`) | `GET /rings/shared-with-me` | ✅ | — |
 | A company Ring's projection | `GET /views/ring/:ringId` | ✅ | — |
 | Colleague count / roster for owner or admin | `GET /rings/:ringId/members` | ✅ | — |
-| Member count on the Ring row itself | — | ❌ | [[T-004 Member count per Ring on list and detail]] |
-| Pending company invitations, review, decline | — | ❌ | [[T-026 Ring invitations invite, review, decline]] |
-| Join a company Ring with a code or work email | — | ❌ | [[T-027 Join a Ring with a code or verified work email]] |
-| Business account setup creating the business Ring | — | ❌ | [[T-048 Business account setup → business Ring]] |
-| Who administers a company Ring | — | ❌ | [[T-006 Delegated admin endpoints]] |
+| Member count on the Ring row itself | — | ❌ | [[Counts Story|Counts · S6–S10]] |
+| Pending company invitations, review, decline | — | ❌ | [[Ring Invitations & Join Story|Ring Invitations & Join · S7]] |
+| Join a company Ring with a code or work email | — | ❌ | [[Ring Invitations & Join Story|Ring Invitations & Join · S8]] |
+| Business account setup creating the business Ring | — | ❌ | [[Exhibitor Story|Exhibitor · S7]] |
+| Who administers a company Ring | — | ❌ | [[Delegated Admins Story|Delegated Admins · S6]] |
 | Logo and file bytes | — | ❌ | [[Files Upload Story|Files Upload · showing files]] |
 
 ## Behaviour expectations
@@ -60,7 +60,7 @@ What the client needs from the backend to build the screens in [[Companies Story
 - Refetch / realtime: s72 refetches on screen focus (invitations and memberships change without any action of the viewer); s73 refetches after *Leave*. No polling.
 - Caching keys: companies by (signed-in user); a company by (signed-in user, business id); the Ring projections by (viewer, ring id) as in [[View As & Pin Views Backend Integration]]. Invalidate the shared-Rings cache on leave.
 - Pagination / ordering: companies `{ data, meta: { total } }`, ordered by name; Rings inside a company ordered parent first, then by name; files by name. `limit` ≤ 50.
-- Role display: derive "owner / admin / member" from what T-029 returns, never from calling the roster for every Ring.
+- Role display: derive "owner / admin / member" from what Companies · S6 returns, never from calling the roster for every Ring.
 - Hidden counts: do not call `GET /rings/:ringId/members` speculatively for a plain member; call it only when the user is known to be owner or admin, and treat a 403 as "hide the count".
 
 ## Error states the UI must handle
@@ -72,11 +72,11 @@ What the client needs from the backend to build the screens in [[Companies Story
 | 403 | `E_RING_05` | roster requested without admin rights: hide the colleague count silently |
 | 404 | `E_RING_02` | Ring id unknown to the caller: refetch s73 |
 | 401 | `E_AUTH_04` | sign in again |
-| — | business-specific codes | to be defined by T-029; branch on `statusCode` until [[T-063 Put the ErrorCode on the error body]] |
+| — | business-specific codes | to be defined by Companies · S6; branch on `statusCode` until [[Error Contract Story|Error Contract · S4–S8]] |
 
 ## Blocked by
 
 - [[ND-04 Ring settings]] — the colleague count and list for plain members ("members can see each other").
-- [[T-029 My companies and company detail]] — the business ↔ Ring link that lets s72 group Rings under a company; every ❌ row above except invitations and setup.
-- [[T-048 Business account setup → business Ring]] — the owner's path into s72; how team members are seeded into the employees Ring.
-- [[T-063 Put the ErrorCode on the error body]] — the error table is by status until then.
+- [[Companies Story|Companies · S6]] — the business ↔ Ring link that lets s72 group Rings under a company; every ❌ row above except invitations and setup.
+- [[Exhibitor Story|Exhibitor · S7]] — the owner's path into s72; how team members are seeded into the employees Ring.
+- [[Error Contract Story|Error Contract · S4–S8]] — the error table is by status until then.

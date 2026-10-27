@@ -7,7 +7,7 @@ release: mvp
 module: identity
 screens: [s14, s20, s23, s24, s25, s29, s36]
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 owner: "omar"
 tags: [feature, module/identity, priority/critical, release/mvp]
 ---
@@ -43,16 +43,21 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 - **Links are entered once** and each Ring only switches them **on or off**; a link never has a different value in different Rings ([[D-03 Links entered once, switched on or off per Ring]]). The type is detected from the pasted link; booking, Behance, Dribbble, GitHub and YouTube join today's types.
 - Not built yet: today each Ring keeps its own copy of every link and info block, and there is no main profile to inherit from.
 
-## Tasks
+## Work
 
-| Task | Status | Priority | Effort |
-|---|---|---|---|
-| [[T-058 Decide field library vs per-Ring copies]] | ✅ Done | Critical | S |
-| [[T-060 Decide copy or inherit]] | ✅ Done | High | S |
+One story per feature (since 2026-10-27): all of this feature's work is in [[Ring Projection Story]]. The tasks merged into it on 2026-10-27:
 
-```dataview
-TABLE status, priority, effort FROM #task WHERE feature = "ring-projection" SORT priority ASC
-```
+| Was | Title | Status then | Priority | Now in the story |
+|---|---|---|---|---|
+| T-058 | Decide field library vs per-Ring copies | Done | critical | history only |
+| T-060 | Decide copy or inherit | Done | high | history only |
+
+### Log of the merged tasks
+
+- T-058 · 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
+- T-058 · 2026-10-25 · `tickets/pm/M-01-identity/F-10-ring-projection/T-058-closed` · closed: ND-03 decided by molham on [[D-03 Links entered once, switched on or off per Ring]]; the empty T-058 Story template retired (a Decide task has no story of its own); flag cleared.
+- T-060 · 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
+- T-060 · 2026-10-25 · `tickets/pm/M-01-identity/F-10-ring-projection/T-060-closed` · closed: ND-05 decided by molham on [[D-05 Inherit per field, copy without members]]; the empty T-060 Story template retired (a Decide task has no story of its own); flag cleared.
 
 ## Decisions
 

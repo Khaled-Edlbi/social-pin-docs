@@ -10,7 +10,7 @@ approvedBy: "khaled"
 approvedAt: 2026-10-25
 owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [story, story/approved, module/commerce, layer/business]
 ---
 
@@ -70,6 +70,14 @@ Acceptance criteria:
 - [ ] "Manage" offers cancel; the screen shows "Pro until <date>" afterwards; gates stay open until then.
 - [ ] At lapse the plan returns to Free: the permanent QR stops being permanent (the token rotates again), Smart Match and any-lounge lock; nothing the user created is deleted.
 
+### S6 · Subscription endpoints and a single Pro gate
+
+*From T-049 (status then: To do), merged 2026-10-27.*
+
+Subscribe / cancel / status; `ProGate` helper used by Smart Match, lounges, Gemma automation, permanent QR.
+
+Screens: [[Screen Index#s70|s70]] Subscription
+
 ## States and motion the design asks for
 
 - State: locked (needs Pro), unlocked; purchase pending / failed / succeeded; "Pro until <date>" after cancel.
@@ -79,14 +87,14 @@ Acceptance criteria:
 ## Rules the backend already enforces
 
 - `User.accountType` is `FREE` or `PRO`; `Subscription` keeps one live row per owner and plan (partial unique index).
-- Nothing reads `accountType` to gate a feature yet; the plan is to have one `ProGate` helper every gated feature calls ([[T-049 Subscription endpoints and a single Pro gate]]), so a gate is a server 403, never a client check.
+- Nothing reads `accountType` to gate a feature yet; the plan is to have one `ProGate` helper every gated feature calls ([[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]]), so a gate is a server 403, never a client check.
 - Gates named in the glossary and the brief: Smart Match, any-lounge access, Gemma automation, permanent QR ([[Glossary]]).
-- The badge's 24 h rotation is the Free behaviour; permanent QR is the Pro behaviour of the same token ([[Badge & QR]], [[T-007 Issue and rotate the QR token for a Ring]]).
+- The badge's 24 h rotation is the Free behaviour; permanent QR is the Pro behaviour of the same token ([[Badge & QR]], [[Badge & QR Story|Badge & QR · S7–S12]]).
 - Every visibility decision still goes through `RingAccessService`; Pro changes what features a user may use, never what a viewer may see of a profile ([[Ring Access Model]]).
 
 ## Open questions
 
 - No decision note exists. Open points:
-- [[T-049 Subscription endpoints and a single Pro gate]] — billing channel (app store vs the payment provider of [[T-047 Orders, payments and the provider webhook]]) and receipt storage; S3 and S5 depend on it.
+- [[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]] — billing channel (app store vs the payment provider of [[Payments & Orders Story|Payments & Orders · S7]]) and receipt storage; S3 and S5 depend on it.
 - Whether the AI assistant entry on s53 ("AI assistant (Pro)" in the brief) is a gate of its own or part of "Gemma automation"; S2's list has four items until decided.
 - Whether an exhibitor's business account carries its own plan or inherits the owner's.

@@ -5,7 +5,7 @@ status: open
 features: [rings, ring-projection, photo-library]
 screens: [s18, s23, s28, s29]
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [needs-decision, needs-decision/open]
 ---
 
@@ -41,7 +41,7 @@ Screens: [[Screen Index#s18|s18]], [[Screen Index#s23|s23]], [[Screen Index#s28|
 
 ## Tasks waiting on this
 
-- [[T-060 Decide copy or inherit]]
+- [[Ring Projection Story|Ring Projection · Decide copy or inherit]]
 
 ## Decision
 

@@ -7,7 +7,7 @@ module: platform
 status: draft
 screens: [s00a, s00b, s00c, s00d]
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [frontend-requirements, frontend-requirements/draft, module/platform, layer/frontend]
 ---
 
@@ -42,14 +42,14 @@ What the client needs to build the splash, the three value panels, the tab bar a
 ### Tab bar and persistent chrome (no screen id)
 
 - Needs: five slots Home · Events · ◎ Badge · Discover · Me; centre button elevated; the notifications bell with an unread indicator; the active-Ring switcher at the top of Home.
-- Source today: the bell has no count to show until [[Notifications]] ships ([[T-045 NotificationService.emit and the inbox]]); render it without a number. The switcher reads `GET /rings`, owned by [[Rings]]. The badge sheet reads the active Ring, owned by [[Badge & QR]].
+- Source today: the bell has no count to show until [[Notifications]] ships ([[Notifications Story|Notifications · S7]]); render it without a number. The switcher reads `GET /rings`, owned by [[Rings]]. The badge sheet reads the active Ring, owned by [[Badge & QR]].
 
 ## Endpoints required
 
 | Need | Endpoint | Available | Task / decision |
 |---|---|---|---|
 | Splash, value panels, tab bar | — | n/a | frontend only; the feature note lists no endpoints |
-| Unread count on the bell | — | ❌ | [[T-045 NotificationService.emit and the inbox]] (owned by [[Notifications]]) |
+| Unread count on the bell | — | ❌ | [[Notifications Story|Notifications · S7]] (owned by [[Notifications]]) |
 | Session decision on launch | — | n/a | local token store; refresh behaviour documented under [[Auth & Sign-up]] |
 
 ## Behaviour expectations
@@ -65,8 +65,8 @@ What the client needs to build the splash, the three value panels, the tab bar a
 
 | Status | ErrorCode | Show |
 |---|---|---|
-| — | — | None. The shell issues no request. A failed lazy refresh on Home (401, `E_AUTH_04` once [[T-063 Put the ErrorCode on the error body]] ships) is handled by the token store and sends the user to s01. |
+| — | — | None. The shell issues no request. A failed lazy refresh on Home (401, `E_AUTH_04` once [[Error Contract Story|Error Contract · S4–S8]] ships) is handled by the token store and sends the user to s01. |
 
 ## Blocked by
 
-- Nothing. No decision note names this feature. The bell count waits on [[T-045 NotificationService.emit and the inbox]], but the shell can ship without it.
+- Nothing. No decision note names this feature. The bell count waits on [[Notifications Story|Notifications · S7]], but the shell can ship without it.

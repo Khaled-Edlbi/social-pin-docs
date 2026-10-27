@@ -79,8 +79,8 @@ What the client needs from the backend to build the "what this Ring shows" edito
 | Display the photo and attachments | — | ❌ | [[Files Upload Story|Files Upload · showing files]] |
 | One field library switched on / off per Ring | — | ❌ | [[ND-03 Field library vs per-Ring copies]] |
 | Inherit from the Pin / copy another Ring's bio | — | ❌ | [[ND-05 Copy or inherit]], [[ND-02 Base profile work fields]] |
-| Widgets add / edit / remove | — | ❌ | [[T-017 Extend WIDGET_TYPE to the design's list]], [[T-018 Widget CRUD on the projection]] |
-| Member count on s14 | — | ❌ | [[T-004 Member count per Ring on list and detail]] |
+| Widgets add / edit / remove | — | ❌ | [[Widgets Story|Widgets · S6]], [[Widgets Story|Widgets · S7]] |
+| Member count on s14 | — | ❌ | [[Counts Story|Counts · S6–S10]] |
 
 ## Behaviour expectations
 
@@ -107,7 +107,7 @@ What the client needs from the backend to build the "what this Ring shows" edito
 | 409 | `E_PROFILE_01` | the Ring's profile is gone: re-pick the profile on the Ring |
 | 400 | — (validation; `message` is a string array) | inline on the field (lengths, enum, JSON) |
 
-Until [[T-063 Put the ErrorCode on the error body]] ships, branch on status and endpoint.
+Until [[Error Contract Story|Error Contract · S4–S8]] ships, branch on status and endpoint.
 
 ## Blocked by
 

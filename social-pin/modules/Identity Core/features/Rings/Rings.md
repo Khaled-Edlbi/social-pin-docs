@@ -7,7 +7,7 @@ release: mvp
 module: identity
 screens: [s08, s09, s16, s17, s18, s19, s20, s21, s22, s26, s62]
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 owner: "omar"
 tags: [feature, module/identity, priority/critical, release/mvp]
 ---
@@ -49,15 +49,18 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 - **Copying a Ring** copies its fields, bio, photo, colour and settings, **never its members**; afterwards the two are independent ([[D-05 Inherit per field, copy without members]]).
 - Not built yet: none of the settings exist on a Ring today, and `GET /rings/shared-with-me` still returns the Ring's name to members.
 
-## Tasks
+## Work
 
-| Task | Status | Priority | Effort |
-|---|---|---|---|
-| [[T-059 Decide Ring settings]] | ✅ Done | Critical | S |
+One story per feature (since 2026-10-27): all of this feature's work is in [[Rings Story]]. The tasks merged into it on 2026-10-27:
 
-```dataview
-TABLE status, priority, effort FROM #task WHERE feature = "rings" SORT priority ASC
-```
+| Was | Title | Status then | Priority | Now in the story |
+|---|---|---|---|---|
+| T-059 | Decide Ring settings | Done | critical | history only |
+
+### Log of the merged tasks
+
+- T-059 · 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
+- T-059 · 2026-10-25 · `tickets/pm/M-01-identity/F-11-rings/T-059-closed` · closed: ND-04 decided by molham on [[D-04 Ring settings at launch and their defaults]]; the empty T-059 Story template retired (a Decide task has no story of its own); flag cleared.
 
 ## Decisions
 

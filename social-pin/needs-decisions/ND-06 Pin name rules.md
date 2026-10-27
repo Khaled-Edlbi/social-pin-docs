@@ -5,7 +5,7 @@ status: open
 features: [profiles, gemma]
 screens: [s06]
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [needs-decision, needs-decision/open]
 ---
 
@@ -40,7 +40,7 @@ Screens: [[Screen Index#s06|s06]]
 
 ## Tasks waiting on this
 
-- [[T-061 Decide Pin name rules]]
+- [[Profiles & Pin Name Story|Profiles & Pin Name · Decide Pin name rules]]
 
 ## Decision
 

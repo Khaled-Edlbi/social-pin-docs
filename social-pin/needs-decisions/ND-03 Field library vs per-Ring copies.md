@@ -5,7 +5,7 @@ status: open
 features: [ring-projection, widgets]
 screens: [s20, s24]
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [needs-decision, needs-decision/open]
 ---
 
@@ -40,8 +40,8 @@ Screens: [[Screen Index#s20|s20]], [[Screen Index#s24|s24]]
 
 ## Tasks waiting on this
 
-- [[T-018 Widget CRUD on the projection]]
-- [[T-058 Decide field library vs per-Ring copies]]
+- [[Widgets Story|Widgets · S7]]
+- [[Ring Projection Story|Ring Projection · Decide field library vs per-Ring copies]]
 
 ## Decision
 

@@ -9,7 +9,7 @@ screens: [s26, s27]
 approvedBy: "khaled"
 approvedAt: 2026-10-25
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 owner: "omar"
 related: ["D-04 Ring settings at launch and their defaults"]
 tags: [story, story/approved, module/shared-rings, layer/business]
@@ -43,7 +43,7 @@ Acceptance criteria:
 **As a** Ring owner on Edit · permissions, **I want** to change what each admin may do, **so that** a content editor does not also control membership.
 
 Acceptance criteria:
-- [ ] Each admin row shows the level with a short explanation of what it allows: at least *content* (edit the Ring and its projection) and *members* (also manage who is in it), using the backend's level names once T-006 publishes the enum.
+- [ ] Each admin row shows the level with a short explanation of what it allows: at least *content* (edit the Ring and its projection) and *members* (also manage who is in it), using the backend's level names once Delegated Admins · S6 publishes the enum.
 - [ ] *Save* applies the change immediately: the admin's next request already runs under the new level; *Cancel* reverts the screen.
 - [ ] The owner cannot lower their own rights and cannot appoint themselves.
 
@@ -63,7 +63,7 @@ Acceptance criteria:
 Acceptance criteria:
 - [ ] A Ring I administer is reachable from the shared-Rings list with an *Edit* affordance; the edit screens are the same ones the owner uses, with owner-only parts hidden.
 - [ ] At the content level I can change name, colour, expiry and the projection; at the members level I can also open the people screen and add, move or revoke members.
-- [ ] I can change the Ring's settings (S5), as the owner can ([[D-04 Ring settings at launch and their defaults]]); which level is needed is [[T-006 Delegated admin endpoints]]'s to define.
+- [ ] I can change the Ring's settings (S5), as the owner can ([[D-04 Ring settings at launch and their defaults]]); which level is needed is [[Delegated Admins Story|Delegated Admins · S6]]'s to define.
 - [ ] I cannot delete the Ring, make it the default, or appoint other admins; those controls are absent, not disabled.
 
 ### S5 · The Ring's settings ([[Screen Index#s26|s26]], [[Screen Index#s27|s27]])
@@ -75,6 +75,14 @@ Acceptance criteria:
 - [ ] Not shown at launch: required work email domain (with [[Companies]]), members can message me (with messaging), see when I'm at an event (with events).
 - [ ] The owner and the Ring's admins can change them; a plain member never sees this screen.
 - [ ] Not available yet: until the settings exist, they are rendered disabled with a single "coming soon" note and nothing is sent for them on *Save*; *Save* on s26 still sends the Ring fields that exist today (name, colour, expiry).
+
+### S6 · Delegated admin endpoints
+
+*From T-006 (status then: To do), merged 2026-10-27.*
+
+`GET/POST /rings/:ringId/admins`, `PATCH/DELETE …/admins/:userId`. Owner only. Reuse `assertCanAdminister` levels.
+
+Screens: [[Screen Index#s26|s26]] Edit · access · [[Screen Index#s27|s27]] Edit · permissions
 
 ## States and motion the design asks for
 
@@ -94,5 +102,5 @@ Acceptance criteria:
 
 - Decided: [[D-04 Ring settings at launch and their defaults]] (S5, and admins may change the settings). Building the settings is not ticketed yet.
 - Whether an admin may change every setting or only some, for example not "who it's for" (D-04, *Still open*; until it is answered, all of them).
-- [[T-006 Delegated admin endpoints]] — the full list of permission levels and whether an admin needs to be a connection or a member first; S1's picker assumes a connection.
-- [[T-023 Connection detail and contacts list]] — the picker for S1 and the names on the admin rows.
+- [[Delegated Admins Story|Delegated Admins · S6]] — the full list of permission levels and whether an admin needs to be a connection or a member first; S1's picker assumes a connection.
+- [[Connections Story|Connections · S19–S24]] — the picker for S1 and the names on the admin rows.

@@ -7,8 +7,9 @@ module: identity
 status: done
 screens: [s06]
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [backend-delivery, backend-delivery/done, module/identity, layer/backend]
+pending: ["[[Profiles & Pin Name Story]]: S9–S11 Main profile fields from D-02 (was T-078)", "[[Profiles & Pin Name Story]]: S12 Enforce the once-a-year Pin name rename (was T-079)"]
 ---
 
 # ✅ Profiles & Pin Name · Backend Delivery

@@ -29,7 +29,7 @@ What the client needs from the backend to build the screens in [[Delegated Admin
 ### [[Screen Index#s27|s27]] Edit · permissions
 
 - Needs: the level enum with a label per level, change an admin's level, the disabled "all settings" block.
-- Source today: not yet. Levels known from the engine: `CONTENT_MANAGER`, `MEMBER_MANAGER`; the full enum ships with T-006.
+- Source today: not yet. Levels known from the engine: `CONTENT_MANAGER`, `MEMBER_MANAGER`; the full enum ships with Delegated Admins · S6.
 
 ### Admin's own view (journey through s26)
 
@@ -44,13 +44,13 @@ What the client needs from the backend to build the screens in [[Delegated Admin
 | Read the Ring as owner | `GET /rings/:id` | ✅ | — |
 | Delete the Ring (owner) | `DELETE /rings/:id` | ✅ | — |
 | Manage members as owner or `MEMBER_MANAGER`+ | `GET / POST /rings/:ringId/members`, `PATCH / DELETE …/:userId`, `POST …/:userId/reassign` | ✅ | — |
-| List admins of a Ring | — | ❌ | [[T-006 Delegated admin endpoints]] |
-| Add an admin at a level | — | ❌ | [[T-006 Delegated admin endpoints]] |
-| Change an admin's level | — | ❌ | [[T-006 Delegated admin endpoints]] |
-| Remove an admin | — | ❌ | [[T-006 Delegated admin endpoints]] |
-| Rings I administer, with my level | — | ❌ | [[T-006 Delegated admin endpoints]] |
-| Names and avatars for admin rows, picker over my connections | — | ❌ | [[T-023 Connection detail and contacts list]] |
-| Notify the person made admin | — | ❌ | [[T-045 NotificationService.emit and the inbox]] |
+| List admins of a Ring | — | ❌ | [[Delegated Admins Story|Delegated Admins · S6]] |
+| Add an admin at a level | — | ❌ | [[Delegated Admins Story|Delegated Admins · S6]] |
+| Change an admin's level | — | ❌ | [[Delegated Admins Story|Delegated Admins · S6]] |
+| Remove an admin | — | ❌ | [[Delegated Admins Story|Delegated Admins · S6]] |
+| Rings I administer, with my level | — | ❌ | [[Delegated Admins Story|Delegated Admins · S6]] |
+| Names and avatars for admin rows, picker over my connections | — | ❌ | [[Connections Story|Connections · S19–S24]] |
+| Notify the person made admin | — | ❌ | [[Notifications Story|Notifications · S7]] |
 | Audience settings on s26 / s27 | — | ❌ | [[ND-04 Ring settings]] |
 | Avatar bytes | — | ❌ | [[Files Upload Story|Files Upload · showing files]] |
 
@@ -72,11 +72,11 @@ What the client needs from the backend to build the screens in [[Delegated Admin
 | 409 | `E_RING_04` | deleting the default Ring: "Choose another default first" |
 | 400 | — | validation on unknown keys: should not happen once disabled settings are never sent |
 | 401 | `E_AUTH_04` | sign in again |
-| — | admin-specific codes | to be defined by T-006; branch on `statusCode` until [[T-063 Put the ErrorCode on the error body]] |
+| — | admin-specific codes | to be defined by Delegated Admins · S6; branch on `statusCode` until [[Error Contract Story|Error Contract · S4–S8]] |
 
 ## Blocked by
 
 - [[ND-04 Ring settings]] — the audience settings rows on s26 / s27.
-- [[T-006 Delegated admin endpoints]] — all five admin rows above, including the level enum the s27 labels depend on.
-- [[T-023 Connection detail and contacts list]] — the picker and the names on the rows.
-- [[T-063 Put the ErrorCode on the error body]] — the error table is by status until then.
+- [[Delegated Admins Story|Delegated Admins · S6]] — all five admin rows above, including the level enum the s27 labels depend on.
+- [[Connections Story|Connections · S19–S24]] — the picker and the names on the rows.
+- [[Error Contract Story|Error Contract · S4–S8]] — the error table is by status until then.

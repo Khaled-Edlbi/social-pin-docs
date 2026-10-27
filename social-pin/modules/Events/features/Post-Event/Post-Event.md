@@ -8,7 +8,7 @@ module: events
 screens: [s62]
 related: ["View As & Pin Views"]
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [feature, module/events, priority/high, release/v1]
 ---
 
@@ -30,15 +30,19 @@ Wireframe brief sections: [[Wireframe Brief#Post-event|§8.5 Post-event]]
 
 Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map in [[Navigation Map]], see [[Design Reference]].
 
-## Tasks
+## Work
 
-| Task | Status | Priority | Effort |
-|---|---|---|---|
-| [[T-050 Post-event summary and follow-ups]] | ⛔ Blocked | High | M |
+One story per feature (since 2026-10-27): all of this feature's work is in [[Post-Event Story]]. The tasks merged into it on 2026-10-27:
 
-```dataview
-TABLE status, priority, effort FROM #task WHERE feature = "post-event" SORT priority ASC
-```
+| Was | Title | Status then | Priority | Now in the story |
+|---|---|---|---|---|
+| T-050 | Post-event summary and follow-ups | Blocked | high | S6 |
+
+### Log of the merged tasks
+
+- T-050 · 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
+- T-050 · 2026-10-18 · created as the backend half of T-050
+- T-050 · 2026-10-18 · created as the frontend half of T-050
 
 ## Related
 

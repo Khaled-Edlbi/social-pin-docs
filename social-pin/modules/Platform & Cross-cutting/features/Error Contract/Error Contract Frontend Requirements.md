@@ -7,7 +7,7 @@ module: platform
 status: draft
 screens: []
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [frontend-requirements, frontend-requirements/draft, module/platform, layer/frontend]
 ---
 
@@ -22,19 +22,19 @@ What the client's error layer depends on. There is no screen; the per-feature re
 ### No screen
 
 - Needs: one parser for the body `{ statusCode, message, error, path, timestamp }`; a switch on the stable code once it is on the wire; a fallback that shows `message` when no code is recognised.
-- Source today: the body is served for every error. **`ErrorCode` is not on the wire** until [[T-063 Put the ErrorCode on the error body]]; `error` reads `"HttpException"` for every domain error.
+- Source today: the body is served for every error. **`ErrorCode` is not on the wire** until [[Error Contract Story|Error Contract · S4–S8]]; `error` reads `"HttpException"` for every domain error.
 
 ## Endpoints required
 
 | Need | Endpoint | Available | Task / decision |
 |---|---|---|---|
 | One error body for every route | — (cross-cutting; `AllExceptionsFilter`) | ✅ | — |
-| The stable code on the body | — | ❌ | [[T-063 Put the ErrorCode on the error body]] |
+| The stable code on the body | — | ❌ | [[Error Contract Story|Error Contract · S4–S8]] |
 | Single-meaning codes (`E_RING_01`, `E_RING_PROFILE_03` split) | — | ❌ | noted in [[Error Contract]]; no task yet |
 
 ## Behaviour expectations
 
-- Until T-063 ships: branch on `statusCode` and the endpoint called; treat `message` as display-only; write the switch on the codes now, keyed by the per-feature tables, so it activates when the field appears. Read the field as optional so a body without it still parses.
+- Until Error Contract · S4–S8 ships: branch on `statusCode` and the endpoint called; treat `message` as display-only; write the switch on the codes now, keyed by the per-feature tables, so it activates when the field appears. Read the field as optional so a body without it still parses.
 - `message` is a string on domain errors and a string array on validation failures; render an array as a list or join it.
 - 500 means an unhandled server error: show a generic message, never the body, and allow retry.
 - 401 on any route with `E_AUTH_04` semantics is "sign in again" after one refresh attempt; 401 with `E_AUTH_03` semantics is "account suspended" and must not trigger a refresh.
@@ -54,8 +54,8 @@ What the client's error layer depends on. There is no screen; the per-feature re
 | 429 | domain code | retry later, e.g. code burned |
 | 500 | — | generic failure, retry |
 
-The `ErrorCode` column applies only after [[T-063 Put the ErrorCode on the error body]]; before it, the body has no code.
+The `ErrorCode` column applies only after [[Error Contract Story|Error Contract · S4–S8]]; before it, the body has no code.
 
 ## Blocked by
 
-- No decision. [[T-063 Put the ErrorCode on the error body]] is To do and every frontend note's error table assumes it.
+- No decision. [[Error Contract Story|Error Contract · S4–S8]] is To do and every frontend note's error table assumes it.

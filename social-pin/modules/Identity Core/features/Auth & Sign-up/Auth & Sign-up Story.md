@@ -9,9 +9,9 @@ screens: [s01, s02, s06, s08, s68, s75]
 approvedBy: "khaled"
 approvedAt: 2026-10-25
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 owner: "Omar Fostok"
-related: ["D-06 Yearly rename, old name freed, case-insensitive", "Auth & Sign-up Frontend Requirements", "Onboarding Imports", "Interests", "T-078 Main profile fields from D-02", "T-079 Enforce the once-a-year Pin name rename"]
+related: ["D-06 Yearly rename, old name freed, case-insensitive", "Auth & Sign-up Frontend Requirements", "Onboarding Imports", "Interests", "Profiles & Pin Name Story"]
 tags: [story, story/approved, module/identity, layer/business]
 ---
 
@@ -60,7 +60,7 @@ Acceptance criteria:
 - [ ] The `!` is rendered as a prefix and never sent; the field validates 3 to 30 characters of letters, digits, `.` and `_` on the client.
 - [ ] A debounced `GET /profiles/pin-name/:pinName/availability` shows free / taken; it never reveals who holds a taken name. Capitals don't matter (`Omar.Fostok` is `omar.fostok`).
 - [ ] s06 offers suggestions built **only from my own name** (the full name from *Profile basics*), never from anyone else's ([[D-06 Yearly rename, old name freed, case-insensitive]], [[Profiles & Pin Name Story]] S1). They are built on the client, as chips; no endpoint is needed.
-- [ ] "You can change it once a year." is enforced by [[T-079 Enforce the once-a-year Pin name rename]]: not available yet.
+- [ ] "You can change it once a year." is enforced by [[Profiles & Pin Name Story|Profiles & Pin Name · S12–S13]]: not available yet.
 - [ ] The full name (up to 120 characters) comes from *Profile basics*; it is the same on every Ring.
 - [ ] Submit calls `POST /auth/complete-registration { onboardingToken, pinName, fullName? }`; a 409 `E_PROFILE_02` returns focus to the handle.
 
@@ -112,5 +112,5 @@ Acceptance criteria:
 
 ## Open questions
 
-- Decided: [[D-06 Yearly rename, old name freed, case-insensitive]]: s06 suggests handles from the person's own name (built on the client); a later rename is limited to once a year ([[T-079 Enforce the once-a-year Pin name rename]]).
-- Delivery latency once [[T-001 Wire an email provider for one-time codes]] lands: the resend cool-down and the expired state should be tuned on real numbers.
+- Decided: [[D-06 Yearly rename, old name freed, case-insensitive]]: s06 suggests handles from the person's own name (built on the client); a later rename is limited to once a year ([[Profiles & Pin Name Story|Profiles & Pin Name · S12–S13]]).
+- Delivery latency once [[Code Delivery Story|Code Delivery · S6]] lands: the resend cool-down and the expired state should be tuned on real numbers.

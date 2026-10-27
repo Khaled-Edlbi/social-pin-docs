@@ -8,7 +8,7 @@ module: shared-rings
 screens: [s72, s73]
 related: ["Ring Members"]
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-27
 owner: "omar"
 tags: [feature, module/shared-rings, priority/high, release/v1]
 ---
@@ -39,15 +39,19 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 - The required work email domain belongs to this feature, not to the launch set of Ring settings.
 - Not built yet: memberships do not record how they were created, and the company screens do not exist.
 
-## Tasks
+## Work
 
-| Task | Status | Priority | Effort |
-|---|---|---|---|
-| [[T-029 My companies and company detail]] | ⬜ To do | High | M |
+One story per feature (since 2026-10-27): all of this feature's work is in [[Companies Story]]. The tasks merged into it on 2026-10-27:
 
-```dataview
-TABLE status, priority, effort FROM #task WHERE feature = "companies" SORT priority ASC
-```
+| Was | Title | Status then | Priority | Now in the story |
+|---|---|---|---|---|
+| T-029 | My companies and company detail | To do | high | S6 |
+
+### Log of the merged tasks
+
+- T-029 · 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
+- T-029 · 2026-10-18 · created as the backend half of T-029
+- T-029 · 2026-10-18 · created as the frontend half of T-029
 
 ## Decisions
 
