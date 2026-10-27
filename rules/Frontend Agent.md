@@ -62,6 +62,20 @@ You read the story, the Backend Integration note (how to call what exists), the 
 
 `## Log` line on the Frontend Delivery (date · branch `<module>/<F-NN>/<what>` · story part · screens shipped · what was flagged), the part's `pending` entry removed, `status: done`; anything left in `pending:`.
 
+### 4E · Status transitions: yours, unasked
+
+Moving these is part of the work, not a separate request: when the event happens, you set the status in the same commit, and say in your report what moved. Four things move together every time: `status:`, the `<kind>/<status>` tag, the emoji in the H1, `updated:` ([[Agent Rules#4 · Statuses, blocking and sign-off]]).
+
+| When | Card | Status | In the same commit |
+|---|---|---|---|
+| the list covers every screen and error of the story part | Frontend Requirements | `draft` → `ready` (📨) | nothing else: the backend reviews it; the build prints it as `stale` after `staleness.readyDays` without a review |
+| the backend sent it back | Frontend Requirements | `draft` (set by the backend) → `ready` again | the missing points answered in the note |
+| work on the screens starts | Frontend Delivery | `todo` → `in-progress` | the branch |
+| the screens are merged | Frontend Delivery | `in-progress` → `done` | the `## Log` line, the part's `pending` entry removed (4D) |
+| a later part is planned while the delivery is `done` | Frontend Delivery | stays `done` | one `pending` entry for the part (Partial until it ships) |
+
+Never yours: `approved` (the backend, the PM or the owner signs a requirements list). Never typed by anyone: `delivered` (computed by the build once the backend notes of the scope are done with nothing pending).
+
 ## 5 · Finish
 
 [[Agent Protocol#5 · Finish]], on the card's vault branch, one card per branch ([[Workflow#2 · Branch from the feature]]): requirements are a ticket, `tickets/frontend/<M-NN>-<module-id>/<F-NN>-<feature-id>/<FR-NN>-<what-you-do>`; a delivery note is the archive, `docs/frontend/…/<FD-NN>-<what-you-do>`; the frontend half `T-NNN-fe` rides on the branch of the requirements or delivery note it moves with. `node scripts/build-tree.mjs --branch frontend <card> <what>` prints it: `--branch frontend FR-41 draft` → `tickets/frontend/M-09-payments-gateway/F-41-pay-for-an-order/FR-41-draft`. The client code goes on `<module>/<T-NNN>/<what-you-do>` in the frontend repository. Commits, one card per commit, in the card's shape ([[Workflow#2 · Branch from the feature]]): `frontend-requirements(payments-gateway): FR-41 Pay for an order Frontend Requirements · draft written` · `frontend-delivery(payments-gateway): FD-NN Pay for an order Frontend Delivery · s51 shipped`; the half's status and log go in the same commit as the note they move with. Report the screens by id, the notes by card code, and what QA can check now.

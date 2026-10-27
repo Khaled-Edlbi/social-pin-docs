@@ -66,7 +66,7 @@ An agent is three things: an entry in `docs.config.json` `agents.list` (`id`, `l
 
 ### 4D · Approve a story or a requirements list
 
-Only when the user says so in the current message. The four fields that move together, plus the sign-off: `status: approved`, `approvedBy: "<the user's name>"`, `approvedAt: <today>`, the tag `<kind>/approved`, `updated:`. The next card in the flow unblocks on the next build. A `verified` story is QA's to set, not yours.
+Only when the user says so in the current message. The four fields that move together, plus the sign-off: `status: approved`, `approvedBy: "<the user's name>"`, `approvedAt: <today>`, the tag `<kind>/approved`, `updated:`. The next card in the flow unblocks on the next build. A `verified` story is QA's to set, not yours. Approving a requirements list does not move the Backend Delivery, which is not yours: say in your report that `/backend` can start, and it sets the delivery `in-progress` ([[Backend Agent#4F · Status transitions: yours, unasked]]). When the build prints a list as `stale` (ready, not reviewed), propose to approve it or to send it to `/backend` ([[Agent Rules#4 · Statuses, blocking and sign-off]]).
 
 ### 4E · Decide a decision
 
