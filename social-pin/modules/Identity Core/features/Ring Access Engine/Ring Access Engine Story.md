@@ -9,7 +9,7 @@ screens: []
 approvedBy: "khaled"
 approvedAt: 2026-10-25
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 owner: "omar"
 related: ["D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-18 Ring names shown when joined knowingly"]
 tags: [story, story/approved, module/identity, layer/business]
@@ -79,7 +79,7 @@ Acceptance criteria:
 
 Acceptance criteria:
 - [ ] A 403 `E_RING_05` on `/rings/:id`, `/members` or `/projection` hides the editing UI quietly; it is not an error toast.
-- [ ] Levels: `MEMBER_MANAGER` for the roster, `CONTENT_MANAGER` for Ring edits and the projection, `FULL` above both. No endpoint grants them yet ([[T-006 Delegated admin endpoints]]), so only owners pass today.
+- [ ] Levels: `MEMBER_MANAGER` for the roster, `CONTENT_MANAGER` for Ring edits and the projection, `FULL` above both. No endpoint grants them yet ([[Delegated Admins Story|Delegated Admins · S6]]), so only owners pass today.
 
 ### S7 · One 404 for three causes ([[Screen Index#s44|s44]])
 

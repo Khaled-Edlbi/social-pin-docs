@@ -7,7 +7,7 @@ module: identity
 status: current
 screens: []
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [backend-integration, backend-integration/current, module/identity, layer/backend]
 ---
 
@@ -37,7 +37,7 @@ The engine has no endpoints of its own; it is what decides every `/views` answer
 
 ## Admin levels
 
-Delegated admins (`RingAdmin`, [[Delegated Admins]]) are checked per route: `MEMBER_MANAGER` for the roster, `CONTENT_MANAGER` for Ring edits and the projection, `FULL` above both. There are no endpoints to grant these yet ([[T-006 Delegated admin endpoints]]); until then only owners pass.
+Delegated admins (`RingAdmin`, [[Delegated Admins]]) are checked per route: `MEMBER_MANAGER` for the roster, `CONTENT_MANAGER` for Ring edits and the projection, `FULL` above both. There are no endpoints to grant these yet ([[Delegated Admins Story|Delegated Admins · S6]]); until then only owners pass.
 
 ## What the client must never do
 

@@ -278,10 +278,6 @@
     "T-003 Remove devCode once delivery works": "task:T-003",
     "T-003 Story": "story:T-003",
     "T-003-be Backend · Remove devCode once delivery works": "task:T-003-be",
-    "T-006 Delegated admin endpoints": "task:T-006",
-    "T-006 Story": "story:T-006",
-    "T-006-be Backend · Delegated admin endpoints": "task:T-006-be",
-    "T-006-fe Frontend · Delegated admin endpoints": "task:T-006-fe",
     "T-007 Issue and rotate the QR token for a Ring": "task:T-007",
     "T-007 Story": "story:T-007",
     "T-007-be Backend · Issue and rotate the QR token for a Ring": "task:T-007-be",
@@ -747,7 +743,6 @@
     "S-28": "story:T-025",
     "S-29": "story:companies",
     "S-31": "story:delegated-admins",
-    "S-32": "story:T-006",
     "S-33": "story:ring-invitations",
     "S-34": "story:T-026",
     "S-35": "story:T-027",
@@ -815,9 +810,6 @@
     "T-002-be": "task:T-002-be",
     "T-003": "task:T-003",
     "T-003-be": "task:T-003-be",
-    "T-006": "task:T-006",
-    "T-006-be": "task:T-006-be",
-    "T-006-fe": "task:T-006-fe",
     "T-007": "task:T-007",
     "T-007-be": "task:T-007-be",
     "T-007-fe": "task:T-007-fe",
@@ -3848,10 +3840,7 @@
       "containers": [
         "feature:delegated-admins",
         "feature:rings",
-        "needs-decision:ND-04",
-        "task:T-006",
-        "task:T-006-be",
-        "task:T-006-fe"
+        "needs-decision:ND-04"
       ],
       "kind": "screen",
       "notes": [
@@ -3863,22 +3852,15 @@
         "frontend-requirements:delegated-admins",
         "frontend-requirements:rings",
         "needs-decision:ND-04",
-        "story:T-006",
         "story:delegated-admins",
-        "story:rings",
-        "task:T-006",
-        "task:T-006-be",
-        "task:T-006-fe"
+        "story:rings"
       ],
       "owner": null
     },
     "s27": {
       "containers": [
         "feature:delegated-admins",
-        "needs-decision:ND-04",
-        "task:T-006",
-        "task:T-006-be",
-        "task:T-006-fe"
+        "needs-decision:ND-04"
       ],
       "kind": "screen",
       "notes": [
@@ -3886,11 +3868,7 @@
         "feature:delegated-admins",
         "frontend-requirements:delegated-admins",
         "needs-decision:ND-04",
-        "story:T-006",
-        "story:delegated-admins",
-        "task:T-006",
-        "task:T-006-be",
-        "task:T-006-fe"
+        "story:delegated-admins"
       ],
       "owner": null
     },
@@ -5030,7 +5008,7 @@
     }
   },
   "counts": {
-    "blocked": 141,
+    "blocked": 140,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -5043,28 +5021,28 @@
       "project": 27,
       "qa-backend": 1,
       "qa-frontend": 1,
-      "story": 96,
-      "task": 161
+      "story": 95,
+      "task": 158
     },
     "byLayer": {
       "backend": 56,
-      "business": 336,
+      "business": 332,
       "frontend": 44,
       "qa": 2,
       "shared": 10
     },
     "concepts": 199,
     "decisions": 19,
-    "edges": 5108,
+    "edges": 5089,
     "features": 41,
-    "layerNotes": 186,
+    "layerNotes": 185,
     "modules": 8,
-    "notes": 484,
+    "notes": 480,
     "partial": 4,
     "placeholders": 161,
     "records": 14,
-    "taskLayerNotes": 56,
-    "tasks": 161
+    "taskLayerNotes": 55,
+    "tasks": 158
   },
   "deadlines": {
     "missed": {
@@ -6799,11 +6777,6 @@
       "to": "task:T-003-be"
     },
     {
-      "from": "task:T-006-be",
-      "kind": "blocks",
-      "to": "task:T-006-fe"
-    },
-    {
       "from": "task:T-007",
       "kind": "blocks",
       "to": "task:T-008"
@@ -7942,11 +7915,6 @@
       "from": "task:T-003-be",
       "kind": "depends",
       "to": "task:T-002"
-    },
-    {
-      "from": "task:T-006-fe",
-      "kind": "depends",
-      "to": "task:T-006-be"
     },
     {
       "from": "task:T-007-fe",
@@ -11137,7 +11105,7 @@
     {
       "from": "feature:operator-panel",
       "kind": "related",
-      "to": "task:T-006"
+      "to": "story:delegated-admins"
     },
     {
       "from": "feature:payments",
@@ -12546,14 +12514,6 @@
       "to": "decision:D-04"
     },
     {
-      "from": "story:delegated-admins",
-      "kind": "related",
-      "to": "story:T-006",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
       "from": "story:devices",
       "kind": "related",
       "to": "story:T-014",
@@ -13370,7 +13330,7 @@
     {
       "from": "task:T-068",
       "kind": "related",
-      "to": "task:T-006"
+      "to": "story:delegated-admins"
     },
     {
       "from": "task:T-068-be",
@@ -13380,7 +13340,7 @@
     {
       "from": "task:T-069",
       "kind": "related",
-      "to": "task:T-006"
+      "to": "story:delegated-admins"
     },
     {
       "from": "task:T-071",
@@ -25063,11 +25023,6 @@
       "to": "task:T-025"
     },
     {
-      "from": "story:delegated-admins",
-      "kind": "tree",
-      "to": "task:T-006"
-    },
-    {
       "from": "story:devices",
       "kind": "tree",
       "to": "task:T-014"
@@ -25376,21 +25331,6 @@
       "from": "task:T-003",
       "kind": "tree",
       "to": "task:T-003-be"
-    },
-    {
-      "from": "task:T-006",
-      "kind": "tree",
-      "to": "story:T-006"
-    },
-    {
-      "from": "task:T-006",
-      "kind": "tree",
-      "to": "task:T-006-be"
-    },
-    {
-      "from": "task:T-006",
-      "kind": "tree",
-      "to": "task:T-006-fe"
     },
     {
       "from": "task:T-007",
@@ -26910,7 +26850,7 @@
     {
       "from": "backend-integration:ring-access",
       "kind": "wikilink",
-      "to": "task:T-006"
+      "to": "story:delegated-admins"
     },
     {
       "from": "backend-integration:ring-access",
@@ -26960,7 +26900,7 @@
     {
       "from": "backend-integration:ring-members",
       "kind": "wikilink",
-      "to": "task:T-006"
+      "to": "story:delegated-admins"
     },
     {
       "from": "backend-integration:ring-members",
@@ -27400,7 +27340,7 @@
     {
       "from": "feature:delegated-admins",
       "kind": "wikilink",
-      "to": "task:T-006"
+      "to": "project:status-report-2026-10-15"
     },
     {
       "from": "feature:devices",
@@ -28095,12 +28035,12 @@
     {
       "from": "frontend-requirements:companies",
       "kind": "wikilink",
-      "to": "story:files"
+      "to": "story:delegated-admins"
     },
     {
       "from": "frontend-requirements:companies",
       "kind": "wikilink",
-      "to": "task:T-006"
+      "to": "story:files"
     },
     {
       "from": "frontend-requirements:companies",
@@ -28236,11 +28176,6 @@
       "from": "frontend-requirements:delegated-admins",
       "kind": "wikilink",
       "to": "story:files"
-    },
-    {
-      "from": "frontend-requirements:delegated-admins",
-      "kind": "wikilink",
-      "to": "task:T-006"
     },
     {
       "from": "frontend-requirements:delegated-admins",
@@ -29090,12 +29025,12 @@
     {
       "from": "frontend-requirements:ring-access",
       "kind": "wikilink",
-      "to": "story:ring-access"
+      "to": "story:delegated-admins"
     },
     {
       "from": "frontend-requirements:ring-access",
       "kind": "wikilink",
-      "to": "task:T-006"
+      "to": "story:ring-access"
     },
     {
       "from": "frontend-requirements:ring-access",
@@ -29205,12 +29140,12 @@
     {
       "from": "frontend-requirements:ring-members",
       "kind": "wikilink",
-      "to": "story:ring-members"
+      "to": "story:delegated-admins"
     },
     {
       "from": "frontend-requirements:ring-members",
       "kind": "wikilink",
-      "to": "task:T-006"
+      "to": "story:ring-members"
     },
     {
       "from": "frontend-requirements:ring-members",
@@ -29360,12 +29295,12 @@
     {
       "from": "frontend-requirements:rings",
       "kind": "wikilink",
-      "to": "story:rings"
+      "to": "story:delegated-admins"
     },
     {
       "from": "frontend-requirements:rings",
       "kind": "wikilink",
-      "to": "task:T-006"
+      "to": "story:rings"
     },
     {
       "from": "frontend-requirements:rings",
@@ -31585,11 +31520,6 @@
     {
       "from": "project:status-report-2026-10-15",
       "kind": "wikilink",
-      "to": "feature:delegated-admins"
-    },
-    {
-      "from": "project:status-report-2026-10-15",
-      "kind": "wikilink",
       "to": "feature:devices"
     },
     {
@@ -32420,12 +32350,12 @@
     {
       "from": "story:ring-access",
       "kind": "wikilink",
-      "to": "story:ring-invitations"
+      "to": "story:delegated-admins"
     },
     {
       "from": "story:ring-access",
       "kind": "wikilink",
-      "to": "task:T-006"
+      "to": "story:ring-invitations"
     },
     {
       "from": "story:ring-access",
@@ -32513,11 +32443,6 @@
       "to": "story:ring-projection"
     },
     {
-      "from": "story:rings",
-      "kind": "wikilink",
-      "to": "task:T-006"
-    },
-    {
       "from": "story:subscription",
       "kind": "wikilink",
       "to": "feature:badge-qr"
@@ -32561,11 +32486,6 @@
       "from": "story:T-003",
       "kind": "wikilink",
       "to": "feature:code-delivery"
-    },
-    {
-      "from": "story:T-006",
-      "kind": "wikilink",
-      "to": "feature:delegated-admins"
     },
     {
       "from": "story:T-007",
@@ -32730,12 +32650,12 @@
     {
       "from": "story:T-022",
       "kind": "wikilink",
-      "to": "story:T-021"
+      "to": "story:delegated-admins"
     },
     {
       "from": "story:T-022",
       "kind": "wikilink",
-      "to": "task:T-006"
+      "to": "story:T-021"
     },
     {
       "from": "story:T-022",
@@ -33086,46 +33006,6 @@
       "from": "task:T-003-be",
       "kind": "wikilink",
       "to": "feature:code-delivery"
-    },
-    {
-      "from": "task:T-006",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-006",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-006",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-006-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:delegated-admins"
-    },
-    {
-      "from": "task:T-006-be",
-      "kind": "wikilink",
-      "to": "feature:delegated-admins"
-    },
-    {
-      "from": "task:T-006-fe",
-      "kind": "wikilink",
-      "to": "feature:delegated-admins"
-    },
-    {
-      "from": "task:T-006-fe",
-      "kind": "wikilink",
-      "to": "story:T-006"
-    },
-    {
-      "from": "task:T-006-fe",
-      "kind": "wikilink",
-      "to": "task:T-006-be"
     },
     {
       "from": "task:T-007",
@@ -36486,22 +36366,6 @@
     },
     "social-pin/tasks/T-003 Remove devCode once delivery works/T-003-be Backend · Remove devCode once delivery works.md": {
       "name": "T-003-be Backend · Remove devCode once delivery works",
-      "type": "task"
-    },
-    "social-pin/tasks/T-006 Delegated admin endpoints/T-006 Delegated admin endpoints.md": {
-      "name": "T-006 Delegated admin endpoints",
-      "type": "task"
-    },
-    "social-pin/tasks/T-006 Delegated admin endpoints/T-006 Story.md": {
-      "name": "T-006 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-006 Delegated admin endpoints/T-006-be Backend · Delegated admin endpoints.md": {
-      "name": "T-006-be Backend · Delegated admin endpoints",
-      "type": "task"
-    },
-    "social-pin/tasks/T-006 Delegated admin endpoints/T-006-fe Frontend · Delegated admin endpoints.md": {
-      "name": "T-006-fe Frontend · Delegated admin endpoints",
       "type": "task"
     },
     "social-pin/tasks/T-007 Issue and rotate the QR token for a Ring/T-007 Issue and rotate the QR token for a Ring.md": {
@@ -41685,7 +41549,7 @@
       ],
       "task": null,
       "title": "Ring Access Engine Backend Integration",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "backend-integration:ring-invitations": {
       "affects": [],
@@ -41782,7 +41646,7 @@
       ],
       "task": null,
       "title": "Ring Members Backend Integration",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "backend-integration:ring-projection": {
       "affects": [],
@@ -43863,11 +43727,10 @@
       "resolution": null,
       "rollup": {
         "approved": 1,
-        "blocked": 2,
+        "blocked": 1,
         "decided": 1,
-        "draft": 2,
+        "draft": 1,
         "missing": 4,
-        "todo": 2,
         "verified": 1
       },
       "scope": null,
@@ -43885,7 +43748,7 @@
       ],
       "task": null,
       "title": "Delegated Admins",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "feature:devices": {
       "affects": [],
@@ -45091,7 +44954,7 @@
         "feature:auth",
         "feature:delegated-admins",
         "story:audit-log",
-        "task:T-006",
+        "story:delegated-admins",
         "project:ring-access-model",
         "project:architecture",
         "project:api-conventions",
@@ -49971,7 +49834,7 @@
       ],
       "task": null,
       "title": "Ring Access Engine Frontend Requirements",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "frontend-requirements:ring-invitations": {
       "affects": [],
@@ -51023,13 +50886,13 @@
       "resolution": null,
       "rollup": {
         "approved": 1,
-        "blocked": 12,
+        "blocked": 11,
         "decided": 2,
-        "draft": 7,
+        "draft": 6,
         "in-progress": 3,
         "missing": 12,
         "needs-decision": 2,
-        "todo": 3,
+        "todo": 1,
         "verified": 2
       },
       "scope": null,
@@ -57601,12 +57464,12 @@
       ],
       "rollup": {
         "approved": 36,
-        "blocked": 141,
+        "blocked": 140,
         "current": 8,
         "decided": 14,
         "delivered": 2,
         "done": 10,
-        "draft": 90,
+        "draft": 89,
         "in-progress": 55,
         "missing": 161,
         "needs-decision": 8,
@@ -57614,7 +57477,7 @@
         "passing": 1,
         "ready": 2,
         "reference": 31,
-        "todo": 44,
+        "todo": 42,
         "verified": 14
       },
       "scope": null,
@@ -57775,57 +57638,6 @@
       ],
       "task": "T-003",
       "title": "T-003 Story",
-      "updated": "2026-10-26"
-    },
-    "story:T-006": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-32",
-      "children": [],
-      "code": "T-006",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
-      "effort": null,
-      "feature": "delegated-admins",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-006",
-      "inherits": {
-        "priority": "task:T-006",
-        "release": "feature:delegated-admins"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "shared-rings",
-      "parentTask": null,
-      "parents": [
-        "task:T-006"
-      ],
-      "path": "social-pin/tasks/T-006 Delegated admin endpoints/T-006 Story.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "scope": "task",
-      "screens": [
-        "s26",
-        "s27"
-      ],
-      "status": "draft",
-      "summary": "GET/POST /rings/:ringId/admins, PATCH/DELETE …/admins/:userId. Owner only. Reuse assertCanAdminister levels.",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/shared-rings",
-        "layer/business"
-      ],
-      "task": "T-006",
-      "title": "T-006 Story",
       "updated": "2026-10-26"
     },
     "story:T-007": {
@@ -61139,9 +60951,7 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-31",
-      "children": [
-        "task:T-006"
-      ],
+      "children": [],
       "code": "delegated-admins",
       "created": "2026-10-18",
       "deadline": null,
@@ -61169,6 +60979,9 @@
       "pending": [],
       "priority": "high",
       "related": [
+        "feature:operator-panel",
+        "task:T-068",
+        "task:T-069",
         "decision:D-04"
       ],
       "release": "v1",
@@ -61188,7 +61001,7 @@
       ],
       "task": null,
       "title": "Delegated Admins Story",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "story:devices": {
       "affects": [],
@@ -62431,7 +62244,7 @@
       ],
       "task": null,
       "title": "Ring Access Engine Story",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "story:ring-invitations": {
       "affects": [],
@@ -62672,7 +62485,7 @@
       ],
       "task": null,
       "title": "Rings Story",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "story:subscription": {
       "affects": [],
@@ -63390,191 +63203,6 @@
       ],
       "task": null,
       "title": "T-003-be Backend · Remove devCode once delivery works",
-      "updated": "2026-10-26"
-    },
-    "task:T-006": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-006",
-      "children": [
-        "story:T-006",
-        "task:T-006-be",
-        "task:T-006-fe"
-      ],
-      "code": "T-006",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": "social-pin/tasks/T-006 Delegated admin endpoints",
-      "effectiveStatus": "todo",
-      "effort": "M",
-      "feature": "delegated-admins",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-006",
-      "inherits": {
-        "release": "feature:delegated-admins"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "shared-rings",
-      "parentTask": null,
-      "parents": [
-        "story:delegated-admins"
-      ],
-      "path": "social-pin/tasks/T-006 Delegated admin endpoints/T-006 Delegated admin endpoints.md",
-      "pending": [],
-      "priority": "high",
-      "related": [
-        "feature:operator-panel",
-        "task:T-068",
-        "task:T-069"
-      ],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {
-        "blocked": 1,
-        "draft": 1,
-        "todo": 1
-      },
-      "scope": null,
-      "screens": [
-        "s26",
-        "s27"
-      ],
-      "status": "todo",
-      "summary": "GET/POST /rings/:ringId/admins, PATCH/DELETE …/admins/:userId. Owner only. Reuse assertCanAdminister levels.",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/shared-rings",
-        "priority/high"
-      ],
-      "task": null,
-      "title": "T-006 Delegated admin endpoints",
-      "updated": "2026-10-26"
-    },
-    "task:T-006-be": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-006-be",
-      "children": [],
-      "code": "T-006-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": null,
-      "effectiveStatus": "todo",
-      "effort": "M",
-      "feature": "delegated-admins",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-006-be",
-      "inherits": {
-        "release": "feature:delegated-admins"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "shared-rings",
-      "parentTask": "T-006",
-      "parents": [
-        "task:T-006"
-      ],
-      "path": "social-pin/tasks/T-006 Delegated admin endpoints/T-006-be Backend · Delegated admin endpoints.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s26",
-        "s27"
-      ],
-      "status": "todo",
-      "summary": "The API side of T-006 Delegated admin endpoints: the endpoints, data and rules its What describes. Record what shipped in T-006-be Backend Delivery and how to call it in T-006-be Backend…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/shared-rings",
-        "priority/high",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-006-be Backend · Delegated admin endpoints",
-      "updated": "2026-10-26"
-    },
-    "task:T-006-fe": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-006-be",
-          "title": "T-006-be Backend · Delegated admin endpoints",
-          "why": "T-006-be Backend · Delegated admin endpoints is to do"
-        }
-      ],
-      "card": "T-006-fe",
-      "children": [],
-      "code": "T-006-fe",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-006-be"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "delegated-admins",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-006-fe",
-      "inherits": {
-        "release": "feature:delegated-admins"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "frontend"
-      ],
-      "layer": "business",
-      "module": "shared-rings",
-      "parentTask": "T-006",
-      "parents": [
-        "task:T-006"
-      ],
-      "path": "social-pin/tasks/T-006 Delegated admin endpoints/T-006-fe Frontend · Delegated admin endpoints.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s26",
-        "s27"
-      ],
-      "status": "todo",
-      "summary": "The client side of T-006 Delegated admin endpoints: the screens below show what its What describes, built against Delegated Admins Backend Integration once the backend half (T-006-be Backend ·…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/shared-rings",
-        "priority/high",
-        "frontend"
-      ],
-      "task": null,
-      "title": "T-006-fe Frontend · Delegated admin endpoints",
       "updated": "2026-10-26"
     },
     "task:T-007": {
@@ -72794,7 +72422,7 @@
       "pending": [],
       "priority": "high",
       "related": [
-        "task:T-006",
+        "story:delegated-admins",
         "story:audit-log",
         "qa-frontend:account"
       ],
@@ -72926,7 +72554,7 @@
       "pending": [],
       "priority": "high",
       "related": [
-        "task:T-006"
+        "story:delegated-admins"
       ],
       "release": "later",
       "resolution": null,
@@ -72946,7 +72574,7 @@
       ],
       "task": null,
       "title": "T-069 Scoped role grants",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "task:T-069-be": {
       "affects": [

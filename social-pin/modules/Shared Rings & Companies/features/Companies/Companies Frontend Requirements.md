@@ -52,7 +52,7 @@ What the client needs from the backend to build the screens in [[Companies Story
 | Pending company invitations, review, decline | — | ❌ | [[T-026 Ring invitations invite, review, decline]] |
 | Join a company Ring with a code or work email | — | ❌ | [[T-027 Join a Ring with a code or verified work email]] |
 | Business account setup creating the business Ring | — | ❌ | [[T-048 Business account setup → business Ring]] |
-| Who administers a company Ring | — | ❌ | [[T-006 Delegated admin endpoints]] |
+| Who administers a company Ring | — | ❌ | [[Delegated Admins Story|Delegated Admins · S6]] |
 | Logo and file bytes | — | ❌ | [[Files Upload Story|Files Upload · showing files]] |
 
 ## Behaviour expectations

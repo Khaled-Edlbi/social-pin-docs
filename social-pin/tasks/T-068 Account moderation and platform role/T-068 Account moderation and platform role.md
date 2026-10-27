@@ -10,7 +10,7 @@ labels: []
 screens: []
 depends: []
 affects: ["Spec Map", "Frontend API Guide", "Account", "Auth & Sign-up"]
-related: ["T-006", "Audit Log Story"]
+related: ["Delegated Admins Story", "Audit Log Story"]
 pending: []
 created: 2026-10-26
 updated: 2026-10-27

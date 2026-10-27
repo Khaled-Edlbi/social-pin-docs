@@ -7,7 +7,7 @@ module: identity
 status: current
 screens: [s15, s47]
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [backend-integration, backend-integration/current, module/identity, layer/backend]
 ---
 
@@ -77,7 +77,7 @@ The roster per Ring, refetched after every write. Do not keep a member's "what t
 - Names and photos on the roster: [[T-023 Connection detail and contacts list]].
 - "Scan someone in" (s15): [[T-008 Resolve a scanned QR token]].
 - "Members can see each other" (s27): [[ND-04 Ring settings]].
-- Adding or removing delegated admins: [[T-006 Delegated admin endpoints]].
+- Adding or removing delegated admins: [[Delegated Admins Story|Delegated Admins · S6]].
 
 ## Checklist
 

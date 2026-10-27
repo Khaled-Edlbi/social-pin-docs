@@ -80,7 +80,7 @@ are ring-level access and permissions, which belong to [[Delegated Admins]].
 - [[Auth & Sign-up]] — the platform role on the JWT, and refresh-token
   revocation on suspension
 - [[Delegated Admins]] — the ring-level namesake
-  ([[T-006 Delegated admin endpoints]]): a ring owner delegating administration,
+  ([[Delegated Admins Story|Delegated Admins · S6]]): a ring owner delegating administration,
   not platform staff. Different routes, different rules.
 
 Project context: [[Ring Access Model]] · [[Architecture]] · [[API Conventions]] · [[Spec Map]]

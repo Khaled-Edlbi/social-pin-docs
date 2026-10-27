@@ -57,7 +57,6 @@ kanban-plugin: board
 - [ ] [[T-067-fe Frontend · Split E_RING_01 and E_RING_PROFILE_03]] #critical #error-contract #frontend
 - [ ] [[T-003 Remove devCode once delivery works]] #high #code-delivery
 - [ ] [[T-003-be Backend · Remove devCode once delivery works]] #high #code-delivery #backend
-- [ ] [[T-006-fe Frontend · Delegated admin endpoints]] #high #delegated-admins #frontend
 - [ ] [[T-009 Scan counter and share link]] #high #badge-qr
 - [ ] [[T-009-be Backend · Scan counter and share link]] #high #badge-qr #backend
 - [ ] [[T-009-fe Frontend · Scan counter and share link]] #high #badge-qr #frontend
@@ -140,8 +139,6 @@ kanban-plugin: board
 - [ ] [[T-063 Put the ErrorCode on the error body]] #critical #error-contract
 - [ ] [[T-063-be Backend · Put the ErrorCode on the error body]] #critical #error-contract #backend
 - [ ] [[T-067-be Backend · Split E_RING_01 and E_RING_PROFILE_03]] #critical #error-contract #backend
-- [ ] [[T-006 Delegated admin endpoints]] #high #delegated-admins
-- [ ] [[T-006-be Backend · Delegated admin endpoints]] #high #delegated-admins #backend
 - [ ] [[T-012 List my files (photo library)]] #high #photo-library
 - [ ] [[T-012-be Backend · List my files (photo library)]] #high #photo-library #backend
 - [ ] [[T-014 Register devices on login; list and remove]] #high #devices

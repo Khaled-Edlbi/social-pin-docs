@@ -73,9 +73,6 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[B-01 An unverified changed email still signs in]] `bug` | [[Account]] | Identity Core | 🟡 Partial (2 notes) · By design | S | — | — |
 | [[T-003 Remove devCode once delivery works]] | [[Code Delivery]] | Platform & Cross-cutting | ⛔ Blocked | S | — | [[T-001 Wire an email provider for one-time codes|T-001]], [[T-002 Wire an SMS provider for one-time codes|T-002]] |
 | [[T-003-be Backend · Remove devCode once delivery works]] `backend` | [[Code Delivery]] | Platform & Cross-cutting | ⛔ Blocked | S | — | [[T-001 Wire an email provider for one-time codes|T-001]], [[T-002 Wire an SMS provider for one-time codes|T-002]] |
-| [[T-006 Delegated admin endpoints]] | [[Delegated Admins]] | Shared Rings & Companies | ⬜ To do | M | — | — |
-| [[T-006-be Backend · Delegated admin endpoints]] `backend` | [[Delegated Admins]] | Shared Rings & Companies | ⬜ To do | M | — | — |
-| [[T-006-fe Frontend · Delegated admin endpoints]] `frontend` | [[Delegated Admins]] | Shared Rings & Companies | ⛔ Blocked | M | — | [[T-006-be Backend · Delegated admin endpoints|T-006-be]] |
 | [[T-009 Scan counter and share link]] | [[Badge & QR]] | Discovery | ⛔ Blocked | S | — | [[T-008 Resolve a scanned QR token|T-008]] |
 | [[T-009-be Backend · Scan counter and share link]] `backend` | [[Badge & QR]] | Discovery | ⛔ Blocked | S | — | [[T-008 Resolve a scanned QR token|T-008]] |
 | [[T-009-fe Frontend · Scan counter and share link]] `frontend` | [[Badge & QR]] | Discovery | ⛔ Blocked | S | — | [[T-008 Resolve a scanned QR token|T-008]], [[T-009-be Backend · Scan counter and share link|T-009-be]] |

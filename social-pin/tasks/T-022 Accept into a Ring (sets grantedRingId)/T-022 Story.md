@@ -94,7 +94,7 @@ Acceptance criteria:
 
 - `POST /rings/:ringId/members` already grants a Ring's view to a user, and re-adding someone whose access lapsed reactivates their row; accept should reuse it inside the transaction.
 - Reassign (`POST …/members/:userId/reassign`) moves a member in one transaction, so they never see two perspectives at once; revoke marks the row `REMOVED`.
-- Only the owner or a delegated admin manages a Ring's members ([[T-006 Delegated admin endpoints]]).
+- Only the owner or a delegated admin manages a Ring's members ([[Delegated Admins Story|Delegated Admins · S6]]).
 - Not available yet: `GET /rings/shared-with-me` still returns the Ring's name to members; hiding it is the change [[D-14 Shared with me lists people, never the Ring]] asks of [[Rings]].
 
 ## Open questions

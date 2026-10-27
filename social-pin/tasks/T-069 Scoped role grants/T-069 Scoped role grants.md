@@ -10,10 +10,10 @@ labels: []
 screens: []
 depends: [T-068]
 affects: ["Spec Map", "Frontend API Guide", "Auth & Sign-up"]
-related: [T-006]
+related: ["Delegated Admins Story"]
 pending: []
 created: 2026-10-26
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [task, task/in-progress, module/platform, priority/high]
 ---
 
@@ -39,7 +39,7 @@ names into the same array `RolesGuard` matches, so granting a role named
 gated the same way — in the service, because the route itself stays open to
 ADMIN for the scoped grants that are the common case.
 
-Not to be confused with [[T-006 Delegated admin endpoints]], which is
+Not to be confused with [[Delegated Admins Story|Delegated Admins · S6]], which is
 ring-level (`/rings/:ringId/admins`, owner only, `assertCanAdminister`).
 Both have to exist; neither closes the other.
 
