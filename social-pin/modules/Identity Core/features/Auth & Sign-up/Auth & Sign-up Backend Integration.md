@@ -8,6 +8,7 @@ status: current
 screens: [s01, s02, s06, s08, s68]
 created: 2026-10-15
 updated: 2026-10-26
+related: ["B-02 Deleted account answers 401, not the documented 404 E_USER_01", E_USER_01]
 tags: [backend-integration, backend-integration/current, module/identity, layer/backend]
 ---
 
@@ -71,6 +72,7 @@ OTP delivery is not wired ([[Code Delivery]]). Until it is, **every response tha
 - **Serialise refreshes.** One in-flight refresh promise; every request that got a 401 waits on it and retries once. Two concurrent refreshes end the session.
 - 401 `E_AUTH_04` from `/auth/refresh` means sign in again. Rotated, revoked, expired and forged tokens all give that one answer.
 - A SUSPENDED account gets 401 `E_AUTH_03` on its next call, not after the access token expires: treat it as a sign-out, do not refresh.
+- A DELETED account (deleted on another device) gets **404 `E_USER_01`** on its next call, on any route: also a sign-out, with the "account deleted" copy ([[Account Backend Integration]]).
 - `POST /auth/logout` takes the **refresh** token as bearer; `POST /auth/logout-everywhere` takes the access token and revokes every session, the caller's included. It is the only "sign me out of every device" action; there is no change-password to do it any more.
 - Sending the access token to `/auth/refresh`, or the refresh token to any other route, is a 401 `E_AUTH_04`: the scopes are checked.
 
@@ -86,6 +88,7 @@ OTP delivery is not wired ([[Code Delivery]]). Until it is, **every response tha
 | 409 | `E_AUTH_08` | complete-registration on an account that already finished | go to sign-in |
 | 409 | `E_PROFILE_02` | pin name taken at the last moment | back to the Pin step |
 | 401 | `E_AUTH_03` | suspended account on any later call | sign-out state |
+| 404 | `E_USER_01` | deleted account on any later call | sign-out state, "account deleted" |
 | 401 | `E_AUTH_04` | refresh token rotated, revoked, expired or wrong scope | sign in again |
 
 Retired and never returned again: `E_AUTH_02` (invalid password) and `E_USER_04` (current password). Remove any handling of them. Until [[T-063 Put the ErrorCode on the error body]] ships, the wire body carries `statusCode`, `message` and `error` but **not** `ErrorCode`; branch on status and endpoint. See [[Error Contract]].
