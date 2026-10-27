@@ -39132,7 +39132,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
-      "release": "v1",
+      "release": "mvp",
       "scope": "feature",
       "screens": [
         "s11",
@@ -45384,7 +45384,7 @@
         "project:api-conventions",
         "project:spec-map"
       ],
-      "release": "v1",
+      "release": "mvp",
       "rollup": {
         "approved": 2,
         "blocked": 5,
@@ -45407,11 +45407,11 @@
         "feature",
         "module/identity",
         "priority/high",
-        "release/v1"
+        "release/mvp"
       ],
       "task": null,
       "title": "Counts",
-      "updated": "2026-10-25"
+      "updated": "2026-10-27"
     },
     "feature:delegated-admins": {
       "affects": [],
@@ -50183,7 +50183,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
-      "release": "v1",
+      "release": "mvp",
       "scope": "feature",
       "screens": [
         "s11",
@@ -57617,13 +57617,13 @@
           "done": 0,
           "id": "mvp",
           "partial": 0,
-          "total": 20
+          "total": 21
         },
         {
           "done": 0,
           "id": "v1",
           "partial": 0,
-          "total": 17
+          "total": 16
         },
         {
           "done": 0,
@@ -57837,7 +57837,7 @@
       "related": [
         "decision-record:DR-04"
       ],
-      "release": "v1",
+      "release": "mvp",
       "scope": "task",
       "screens": [
         "s14",
@@ -57886,7 +57886,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
-      "release": "v1",
+      "release": "mvp",
       "scope": "task",
       "screens": [
         "s11",
@@ -61555,7 +61555,7 @@
         "decision-record:DR-04",
         "decision-record:DR-14"
       ],
-      "release": "v1",
+      "release": "mvp",
       "scope": "feature",
       "screens": [
         "s11",
@@ -63613,7 +63613,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
-      "release": "v1",
+      "release": "mvp",
       "rollup": {
         "approved": 1,
         "blocked": 1,
@@ -63670,7 +63670,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
-      "release": "v1",
+      "release": "mvp",
       "rollup": {},
       "scope": null,
       "screens": [
@@ -63732,7 +63732,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
-      "release": "v1",
+      "release": "mvp",
       "rollup": {},
       "scope": null,
       "screens": [
@@ -63798,7 +63798,7 @@
       "related": [
         "frontend-delivery:account"
       ],
-      "release": "v1",
+      "release": "mvp",
       "rollup": {
         "blocked": 2,
         "draft": 1
@@ -63862,7 +63862,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
-      "release": "v1",
+      "release": "mvp",
       "rollup": {},
       "scope": null,
       "screens": [
@@ -63930,7 +63930,7 @@
       "pending": [],
       "priority": "high",
       "related": [],
-      "release": "v1",
+      "release": "mvp",
       "rollup": {},
       "scope": null,
       "screens": [
