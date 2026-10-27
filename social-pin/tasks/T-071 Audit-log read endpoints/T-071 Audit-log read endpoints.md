@@ -8,12 +8,12 @@ feature: operator-panel
 module: platform
 labels: []
 screens: []
-depends: [T-053, T-068]
+depends: ["T-068"]
 affects: ["Spec Map", "Frontend API Guide", "Audit Log"]
-related: []
+related: ["Audit Log Story"]
 pending: []
 created: 2026-10-26
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [task, task/in-progress, module/platform, priority/high]
 ---
 
@@ -32,7 +32,7 @@ for one entry with its full `metadata`.
 The detail route is SUPER_ADMIN-only because `metadata` is the one field
 that can carry the shape of a change; `E_ADMIN_08` when the entry is not
 there. The reads come from `AuditLogService`, which already owns the table
-([[T-053 Audit log writes]]), rather than a second query path into
+([[Audit Log Story|Audit Log · S4]]), rather than a second query path into
 `audit_logs`. The table stays append-only: no route deletes an entry at any
 role.
 

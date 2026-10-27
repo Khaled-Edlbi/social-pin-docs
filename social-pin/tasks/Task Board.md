@@ -180,8 +180,6 @@ kanban-plugin: board
 
 ## 🔵 In progress
 
-- [ ] [[T-053 Audit log writes]] #critical #audit-log — @backend: the access, payment and AI writers; @backend: the retention job for audit_logs
-- [ ] [[T-053-be Backend · Audit log writes]] #critical #audit-log #backend — @backend: the access, payment and AI writers; @backend: the retention job for audit_logs
 - [ ] [[T-068 Account moderation and platform role]] #high #operator-panel
 - [ ] [[T-068-be Backend · Account moderation and platform role]] #high #operator-panel #backend
 - [ ] [[T-069 Scoped role grants]] #high #operator-panel

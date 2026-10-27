@@ -7,7 +7,7 @@ module: platform
 status: draft
 screens: []
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [frontend-requirements, frontend-requirements/draft, module/platform, layer/frontend]
 ---
 
@@ -21,14 +21,14 @@ What the client depends on from the audit log: nothing it can see. There is no s
 
 ### No screen
 
-- Needs: nothing rendered. The design has no audit view, and [[T-053 Audit log writes]] adds writes only.
+- Needs: nothing rendered. The design has no audit view, and [[Audit Log Story|Audit Log · S4]] adds writes only.
 - Source today: none.
 
 ## Endpoints required
 
 | Need | Endpoint | Available | Task / decision |
 |---|---|---|---|
-| Audit rows written behind auth, Ring member, payment and AI calls | — (side effect of existing calls) | ❌ | [[T-053 Audit log writes]] |
+| Audit rows written behind auth, Ring member, payment and AI calls | — (side effect of existing calls) | ❌ | [[Audit Log Story|Audit Log · S4]] |
 | Read my own audit trail | — | ❌ | not proposed; no task exists |
 
 ## Behaviour expectations
@@ -47,4 +47,4 @@ What the client depends on from the audit log: nothing it can see. There is no s
 
 ## Blocked by
 
-- No decision. [[T-053 Audit log writes]] is To do; nothing on the client waits on it.
+- No decision. [[Audit Log Story|Audit Log · S4]] is To do; nothing on the client waits on it.

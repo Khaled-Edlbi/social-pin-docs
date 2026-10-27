@@ -61,8 +61,6 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-044 My meetings, calendar, detail, reschedule, cancel]] | [[Meetings]] | Meetings | ⛔ Blocked | M | — | [[T-042 Meeting request, accept with slots, decline with reason|T-042]] |
 | [[T-044-be Backend · My meetings, calendar, detail, reschedule, cancel]] `backend` | [[Meetings]] | Meetings | ⛔ Blocked | M | — | [[T-042 Meeting request, accept with slots, decline with reason|T-042]] |
 | [[T-044-fe Frontend · My meetings, calendar, detail, reschedule, cancel]] `frontend` | [[Meetings]] | Meetings | ⛔ Blocked | M | — | [[T-042 Meeting request, accept with slots, decline with reason|T-042]], [[T-044-be Backend · My meetings, calendar, detail, reschedule, cancel|T-044-be]] |
-| [[T-053 Audit log writes]] | [[Audit Log]] | Platform & Cross-cutting | 🔵 In progress (2 notes) | S | — | — |
-| [[T-053-be Backend · Audit log writes]] `backend` | [[Audit Log]] | Platform & Cross-cutting | 🔵 In progress (2 notes) | S | — | — |
 | [[T-055 Run the e2e suite in CI against PostGIS]] | [[E2E Test Run]] | Platform & Cross-cutting | ⬜ To do | S | — | — |
 | [[T-055-be Backend · Run the e2e suite in CI against PostGIS]] `backend` | [[E2E Test Run]] | Platform & Cross-cutting | ⬜ To do | S | — | — |
 | [[T-063 Put the ErrorCode on the error body]] | [[Error Contract]] | Platform & Cross-cutting | ⬜ To do | S | — | — |
@@ -158,12 +156,12 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-050-fe Frontend · Post-event summary and follow-ups]] `frontend` | [[Post-Event]] | Events | ⛔ Blocked | M | — | [[T-009 Scan counter and share link|T-009]], [[T-023 Connection detail and contacts list|T-023]], [[T-044 My meetings, calendar, detail, reschedule, cancel|T-044]], [[T-050-be Backend · Post-event summary and follow-ups|T-050-be]] |
 | [[T-054 Cleanup jobs]] | [[Cleanup Jobs]] | Platform & Cross-cutting | ⬜ To do | M | — | — |
 | [[T-054-be Backend · Cleanup jobs]] `backend` | [[Cleanup Jobs]] | Platform & Cross-cutting | ⬜ To do | M | — | — |
-| [[T-068 Account moderation and platform role]] | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | M | — | [[T-053 Audit log writes|T-053]] |
-| [[T-068-be Backend · Account moderation and platform role]] `backend` | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | M | — | [[T-053 Audit log writes|T-053]] |
+| [[T-068 Account moderation and platform role]] | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | M | — | — |
+| [[T-068-be Backend · Account moderation and platform role]] `backend` | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | M | — | — |
 | [[T-069 Scoped role grants]] | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | M | — | [[T-068 Account moderation and platform role|T-068]] |
 | [[T-069-be Backend · Scoped role grants]] `backend` | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | M | — | [[T-068 Account moderation and platform role|T-068]] |
-| [[T-071 Audit-log read endpoints]] | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | S | — | [[T-053 Audit log writes|T-053]], [[T-068 Account moderation and platform role|T-068]] |
-| [[T-071-be Backend · Audit-log read endpoints]] `backend` | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | S | — | [[T-053 Audit log writes|T-053]], [[T-068 Account moderation and platform role|T-068]] |
+| [[T-071 Audit-log read endpoints]] | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | S | — | [[T-068 Account moderation and platform role|T-068]] |
+| [[T-071-be Backend · Audit-log read endpoints]] `backend` | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | S | — | [[T-068 Account moderation and platform role|T-068]] |
 
 ## Medium
 

@@ -8,12 +8,12 @@ feature: operator-panel
 module: platform
 labels: []
 screens: []
-depends: [T-053]
+depends: []
 affects: ["Spec Map", "Frontend API Guide", "Account", "Auth & Sign-up"]
-related: [T-006]
+related: ["T-006", "Audit Log Story"]
 pending: []
 created: 2026-10-26
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [task, task/in-progress, module/platform, priority/high]
 ---
 

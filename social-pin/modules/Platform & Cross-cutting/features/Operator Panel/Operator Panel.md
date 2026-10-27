@@ -10,7 +10,7 @@ depends: []
 affects: []
 related: ["Audit Log", "Account", "Auth & Sign-up", "Delegated Admins"]
 created: 2026-10-26
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [feature, module/platform, priority/high, release/later]
 ---
 
@@ -75,7 +75,7 @@ are ring-level access and permissions, which belong to [[Delegated Admins]].
 ## Related
 
 - [[Audit Log]] — the panel writes the trail and reads it; the trail's other
-  writers stay with [[T-053 Audit log writes]]
+  writers stay with [[Audit Log Story|Audit Log · S4]]
 - [[Account]] — the same `users` rows, from the account holder's side
 - [[Auth & Sign-up]] — the platform role on the JWT, and refresh-token
   revocation on suspension

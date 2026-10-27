@@ -7,7 +7,7 @@ module: commerce
 status: draft
 screens: [s50, s51]
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [frontend-requirements, frontend-requirements/draft, module/commerce, layer/frontend]
 ---
 
@@ -53,7 +53,7 @@ What the client needs to create an order, pay for it and learn the result, and w
 | Registration completes and the Event Ring is granted on success | — | ❌ | [[T-035 Registration transaction with order and payment]], [[T-011 Create the Event Ring on registration]] |
 | In-event upgrade purchase | — | ❌ | [[T-040 Lounges and upgrades]] |
 | My orders and receipts | — | ❌ | [[T-047 Orders, payments and the provider webhook]] |
-| Audit of every payment action | — | ❌ | [[T-053 Audit log writes]] |
+| Audit of every payment action | — | ❌ | [[Audit Log Story|Audit Log · S4]] |
 | "Registration confirmed" notification | — | ❌ | [[T-045 NotificationService.emit and the inbox]] |
 
 ## Behaviour expectations

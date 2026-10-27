@@ -9,12 +9,12 @@ module: platform
 parent: T-068
 labels: [backend]
 screens: []
-depends: [T-053]
+depends: []
 affects: ["Spec Map", "Frontend API Guide", "Account", "Auth & Sign-up"]
-related: []
+related: ["Audit Log Story"]
 pending: []
 created: 2026-10-26
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [task, task/in-progress, module/platform, priority/high, backend]
 ---
 

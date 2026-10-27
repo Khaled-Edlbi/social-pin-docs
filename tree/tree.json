@@ -471,9 +471,6 @@
     "T-052 Story": "story:T-052",
     "T-052-be Backend · Smart Match": "task:T-052-be",
     "T-052-fe Frontend · Smart Match": "task:T-052-fe",
-    "T-053 Audit log writes": "task:T-053",
-    "T-053 Story": "story:T-053",
-    "T-053-be Backend · Audit log writes": "task:T-053-be",
     "T-054 Cleanup jobs": "task:T-054",
     "T-054 Story": "story:T-054",
     "T-054-be Backend · Cleanup jobs": "task:T-054-be",
@@ -810,7 +807,6 @@
     "S-72": "story:T-049",
     "S-73": "story:app-shell",
     "S-74": "story:audit-log",
-    "S-75": "story:T-053",
     "S-76": "story:cleanup-jobs",
     "S-77": "story:T-054",
     "S-78": "story:code-delivery",
@@ -984,8 +980,6 @@
     "T-052": "task:T-052",
     "T-052-be": "task:T-052-be",
     "T-052-fe": "task:T-052-fe",
-    "T-053": "task:T-053",
-    "T-053-be": "task:T-053-be",
     "T-054": "task:T-054",
     "T-054-be": "task:T-054-be",
     "T-055": "task:T-055",
@@ -5107,28 +5101,28 @@
       "project": 27,
       "qa-backend": 1,
       "qa-frontend": 1,
-      "story": 102,
-      "task": 174
+      "story": 101,
+      "task": 172
     },
     "byLayer": {
       "backend": 56,
-      "business": 355,
+      "business": 352,
       "frontend": 44,
       "qa": 2,
       "shared": 10
     },
     "concepts": 199,
     "decisions": 19,
-    "edges": 5218,
+    "edges": 5200,
     "features": 41,
-    "layerNotes": 192,
+    "layerNotes": 191,
     "modules": 8,
-    "notes": 503,
+    "notes": 500,
     "partial": 4,
     "placeholders": 161,
     "records": 14,
-    "taskLayerNotes": 62,
-    "tasks": 174
+    "taskLayerNotes": 61,
+    "tasks": 172
   },
   "deadlines": {
     "missed": {
@@ -7653,26 +7647,6 @@
       "to": "task:T-052-fe"
     },
     {
-      "from": "task:T-053",
-      "kind": "blocks",
-      "to": "task:T-068"
-    },
-    {
-      "from": "task:T-053",
-      "kind": "blocks",
-      "to": "task:T-068-be"
-    },
-    {
-      "from": "task:T-053",
-      "kind": "blocks",
-      "to": "task:T-071"
-    },
-    {
-      "from": "task:T-053",
-      "kind": "blocks",
-      "to": "task:T-071-be"
-    },
-    {
       "from": "task:T-063",
       "kind": "blocks",
       "to": "story:T-067"
@@ -8968,16 +8942,6 @@
       "to": "task:T-067-be"
     },
     {
-      "from": "task:T-068",
-      "kind": "depends",
-      "to": "task:T-053"
-    },
-    {
-      "from": "task:T-068-be",
-      "kind": "depends",
-      "to": "task:T-053"
-    },
-    {
       "from": "task:T-069",
       "kind": "depends",
       "to": "task:T-068"
@@ -9000,17 +8964,7 @@
     {
       "from": "task:T-071",
       "kind": "depends",
-      "to": "task:T-053"
-    },
-    {
-      "from": "task:T-071",
-      "kind": "depends",
       "to": "task:T-068"
-    },
-    {
-      "from": "task:T-071-be",
-      "kind": "depends",
-      "to": "task:T-053"
     },
     {
       "from": "task:T-071-be",
@@ -11356,12 +11310,12 @@
     {
       "from": "feature:operator-panel",
       "kind": "related",
-      "to": "task:T-006"
+      "to": "story:audit-log"
     },
     {
       "from": "feature:operator-panel",
       "kind": "related",
-      "to": "task:T-053"
+      "to": "task:T-006"
     },
     {
       "from": "feature:payments",
@@ -12594,14 +12548,6 @@
       "to": "task:B-01"
     },
     {
-      "from": "story:audit-log",
-      "kind": "related",
-      "to": "story:T-053",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
       "from": "story:auth",
       "kind": "related",
       "to": "decision:D-06"
@@ -13570,16 +13516,6 @@
       "to": "decision:D-15"
     },
     {
-      "from": "task:T-053",
-      "kind": "related",
-      "to": "task:T-068"
-    },
-    {
-      "from": "task:T-053",
-      "kind": "related",
-      "to": "task:T-071"
-    },
-    {
       "from": "task:T-063",
       "kind": "related",
       "to": "decision:D-19"
@@ -13612,12 +13548,32 @@
     {
       "from": "task:T-068",
       "kind": "related",
+      "to": "story:audit-log"
+    },
+    {
+      "from": "task:T-068",
+      "kind": "related",
       "to": "task:T-006"
+    },
+    {
+      "from": "task:T-068-be",
+      "kind": "related",
+      "to": "story:audit-log"
     },
     {
       "from": "task:T-069",
       "kind": "related",
       "to": "task:T-006"
+    },
+    {
+      "from": "task:T-071",
+      "kind": "related",
+      "to": "story:audit-log"
+    },
+    {
+      "from": "task:T-071-be",
+      "kind": "related",
+      "to": "story:audit-log"
     },
     {
       "from": "decision:D-13",
@@ -25225,11 +25181,6 @@
       "to": "module:shared-rings"
     },
     {
-      "from": "story:audit-log",
-      "kind": "tree",
-      "to": "task:T-053"
-    },
-    {
       "from": "story:badge-qr",
       "kind": "tree",
       "to": "task:T-007"
@@ -26373,16 +26324,6 @@
       "from": "task:T-052",
       "kind": "tree",
       "to": "task:T-052-fe"
-    },
-    {
-      "from": "task:T-053",
-      "kind": "tree",
-      "to": "story:T-053"
-    },
-    {
-      "from": "task:T-053",
-      "kind": "tree",
-      "to": "task:T-053-be"
     },
     {
       "from": "task:T-054",
@@ -27587,7 +27528,7 @@
     {
       "from": "feature:audit-log",
       "kind": "wikilink",
-      "to": "task:T-053"
+      "to": "project:status-report-2026-10-15"
     },
     {
       "from": "feature:auth",
@@ -28213,11 +28154,6 @@
       "from": "frontend-requirements:audit-log",
       "kind": "wikilink",
       "to": "story:audit-log"
-    },
-    {
-      "from": "frontend-requirements:audit-log",
-      "kind": "wikilink",
-      "to": "task:T-053"
     },
     {
       "from": "frontend-requirements:audit-log",
@@ -29197,6 +29133,11 @@
     {
       "from": "frontend-requirements:payments",
       "kind": "wikilink",
+      "to": "story:audit-log"
+    },
+    {
+      "from": "frontend-requirements:payments",
+      "kind": "wikilink",
       "to": "story:payments"
     },
     {
@@ -29228,11 +29169,6 @@
       "from": "frontend-requirements:payments",
       "kind": "wikilink",
       "to": "task:T-047"
-    },
-    {
-      "from": "frontend-requirements:payments",
-      "kind": "wikilink",
-      "to": "task:T-053"
     },
     {
       "from": "frontend-requirements:payments",
@@ -31937,11 +31873,6 @@
     {
       "from": "project:status-report-2026-10-15",
       "kind": "wikilink",
-      "to": "feature:audit-log"
-    },
-    {
-      "from": "project:status-report-2026-10-15",
-      "kind": "wikilink",
       "to": "feature:badge-qr"
     },
     {
@@ -33353,11 +33284,6 @@
       "from": "story:T-052",
       "kind": "wikilink",
       "to": "feature:gemma"
-    },
-    {
-      "from": "story:T-053",
-      "kind": "wikilink",
-      "to": "feature:audit-log"
     },
     {
       "from": "story:T-054",
@@ -35710,31 +35636,6 @@
       "to": "task:T-052-be"
     },
     {
-      "from": "task:T-053",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-053",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-053",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-053-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:audit-log"
-    },
-    {
-      "from": "task:T-053-be",
-      "kind": "wikilink",
-      "to": "feature:audit-log"
-    },
-    {
       "from": "task:T-054",
       "kind": "wikilink",
       "to": "project:architecture"
@@ -37890,18 +37791,6 @@
     },
     "social-pin/tasks/T-052 Smart Match/T-052-fe Frontend · Smart Match.md": {
       "name": "T-052-fe Frontend · Smart Match",
-      "type": "task"
-    },
-    "social-pin/tasks/T-053 Audit log writes/T-053 Audit log writes.md": {
-      "name": "T-053 Audit log writes",
-      "type": "task"
-    },
-    "social-pin/tasks/T-053 Audit log writes/T-053 Story.md": {
-      "name": "T-053 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-053 Audit log writes/T-053-be Backend · Audit log writes.md": {
-      "name": "T-053-be Backend · Audit log writes",
       "type": "task"
     },
     "social-pin/tasks/T-054 Cleanup jobs/T-054 Cleanup jobs.md": {
@@ -43870,8 +43759,7 @@
       "rollup": {
         "approved": 1,
         "blocked": 1,
-        "draft": 2,
-        "in-progress": 2,
+        "draft": 1,
         "missing": 4
       },
       "scope": null,
@@ -43886,7 +43774,7 @@
       ],
       "task": null,
       "title": "Audit Log",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "feature:auth": {
       "affects": [],
@@ -45801,7 +45689,7 @@
         "feature:account",
         "feature:auth",
         "feature:delegated-admins",
-        "task:T-053",
+        "story:audit-log",
         "task:T-006",
         "project:ring-access-model",
         "project:architecture",
@@ -45827,7 +45715,7 @@
       ],
       "task": null,
       "title": "Operator Panel",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "feature:payments": {
       "affects": [],
@@ -49001,7 +48889,7 @@
       ],
       "task": null,
       "title": "Audit Log Frontend Requirements",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "frontend-requirements:auth": {
       "affects": [],
@@ -50418,7 +50306,7 @@
       ],
       "task": null,
       "title": "Payments & Orders Frontend Requirements",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "frontend-requirements:photo-library": {
       "affects": [],
@@ -51679,8 +51567,8 @@
         "blocked": 34,
         "decided": 3,
         "done": 1,
-        "draft": 31,
-        "in-progress": 24,
+        "draft": 30,
+        "in-progress": 22,
         "missing": 61,
         "needs-decision": 1,
         "todo": 18,
@@ -58320,8 +58208,8 @@
         "decided": 14,
         "delivered": 2,
         "done": 10,
-        "draft": 96,
-        "in-progress": 57,
+        "draft": 95,
+        "in-progress": 55,
         "missing": 161,
         "needs-decision": 9,
         "partial": 4,
@@ -61019,54 +60907,6 @@
       "title": "T-052 Story",
       "updated": "2026-10-26"
     },
-    "story:T-053": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-75",
-      "children": [],
-      "code": "T-053",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
-      "effort": null,
-      "feature": "audit-log",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-053",
-      "inherits": {
-        "priority": "task:T-053",
-        "release": "feature:audit-log"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": null,
-      "parents": [
-        "task:T-053"
-      ],
-      "path": "social-pin/tasks/T-053 Audit log writes/T-053 Story.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "scope": "task",
-      "screens": [],
-      "status": "draft",
-      "summary": "AuditService.record() from auth, ring members, payments, AI actions.",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/platform",
-        "layer/business"
-      ],
-      "task": "T-053",
-      "title": "T-053 Story",
-      "updated": "2026-10-26"
-    },
     "story:T-054": {
       "affects": [],
       "blockedBy": [],
@@ -61636,9 +61476,7 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-74",
-      "children": [
-        "task:T-053"
-      ],
+      "children": [],
       "code": "audit-log",
       "created": "2026-10-18",
       "deadline": null,
@@ -61665,7 +61503,13 @@
       "path": "social-pin/modules/Platform & Cross-cutting/features/Audit Log/Audit Log Story.md",
       "pending": [],
       "priority": "critical",
-      "related": [],
+      "related": [
+        "feature:operator-panel",
+        "task:T-068",
+        "task:T-068-be",
+        "task:T-071",
+        "task:T-071-be"
+      ],
       "release": "mvp",
       "resolution": null,
       "scope": "feature",
@@ -61680,7 +61524,7 @@
       ],
       "task": null,
       "title": "Audit Log Story",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "story:auth": {
       "affects": [],
@@ -73831,141 +73675,6 @@
       "title": "T-052-fe Frontend · Smart Match",
       "updated": "2026-10-26"
     },
-    "task:T-053": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-053",
-      "children": [
-        "story:T-053",
-        "task:T-053-be"
-      ],
-      "code": "T-053",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": "social-pin/tasks/T-053 Audit log writes",
-      "effectiveStatus": "in-progress",
-      "effort": "S",
-      "feature": "audit-log",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-053",
-      "inherits": {
-        "release": "feature:audit-log"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": null,
-      "parents": [
-        "story:audit-log"
-      ],
-      "path": "social-pin/tasks/T-053 Audit log writes/T-053 Audit log writes.md",
-      "pending": [
-        {
-          "person": "backend",
-          "text": "the access, payment and AI writers",
-          "to": null
-        },
-        {
-          "person": "backend",
-          "text": "the retention job for audit_logs",
-          "to": null
-        }
-      ],
-      "priority": "critical",
-      "related": [
-        "feature:operator-panel",
-        "task:T-068",
-        "task:T-071"
-      ],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {
-        "draft": 1,
-        "in-progress": 1
-      },
-      "scope": null,
-      "screens": [],
-      "status": "in-progress",
-      "summary": "AuditLogService.record() from auth, ring members, payments and AI actions. The service is AuditLogService, not AuditService: it owns the auditlogs table, and record() deliberately carries no…",
-      "tags": [
-        "task",
-        "task/in-progress",
-        "module/platform",
-        "priority/critical"
-      ],
-      "task": null,
-      "title": "T-053 Audit log writes",
-      "updated": "2026-10-26"
-    },
-    "task:T-053-be": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-053-be",
-      "children": [],
-      "code": "T-053-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": null,
-      "effectiveStatus": "in-progress",
-      "effort": "S",
-      "feature": "audit-log",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-053-be",
-      "inherits": {
-        "release": "feature:audit-log"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": "T-053",
-      "parents": [
-        "task:T-053"
-      ],
-      "path": "social-pin/tasks/T-053 Audit log writes/T-053-be Backend · Audit log writes.md",
-      "pending": [
-        {
-          "person": "backend",
-          "text": "the access, payment and AI writers",
-          "to": null
-        },
-        {
-          "person": "backend",
-          "text": "the retention job for audit_logs",
-          "to": null
-        }
-      ],
-      "priority": "critical",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [],
-      "status": "in-progress",
-      "summary": "The API side of T-053 Audit log writes: the endpoints, data and rules its What describes. Record what shipped in T-053-be Backend Delivery and how to call it in T-053-be Backend Integration, and…",
-      "tags": [
-        "task",
-        "task/in-progress",
-        "module/platform",
-        "priority/critical",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-053-be Backend · Audit log writes",
-      "updated": "2026-10-26"
-    },
     "task:T-054": {
       "affects": [],
       "blockedBy": [],
@@ -74586,13 +74295,7 @@
         "feature:account",
         "feature:auth"
       ],
-      "blockedBy": [
-        {
-          "id": "task:T-053",
-          "title": "T-053 Audit log writes",
-          "why": "T-053 Audit log writes is in progress"
-        }
-      ],
+      "blockedBy": [],
       "card": "T-068",
       "children": [
         "story:T-068",
@@ -74602,9 +74305,7 @@
       "created": "2026-10-26",
       "deadline": null,
       "decision": null,
-      "depends": [
-        "task:T-053"
-      ],
+      "depends": [],
       "dir": "social-pin/tasks/T-068 Account moderation and platform role",
       "effectiveStatus": "in-progress",
       "effort": "M",
@@ -74628,8 +74329,8 @@
       "pending": [],
       "priority": "high",
       "related": [
-        "task:T-053",
         "task:T-006",
+        "story:audit-log",
         "qa-frontend:account"
       ],
       "release": "later",
@@ -74650,7 +74351,7 @@
       ],
       "task": null,
       "title": "T-068 Account moderation and platform role",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "task:T-068-be": {
       "affects": [
@@ -74659,22 +74360,14 @@
         "feature:account",
         "feature:auth"
       ],
-      "blockedBy": [
-        {
-          "id": "task:T-053",
-          "title": "T-053 Audit log writes",
-          "why": "T-053 Audit log writes is in progress"
-        }
-      ],
+      "blockedBy": [],
       "card": "T-068-be",
       "children": [],
       "code": "T-068-be",
       "created": "2026-10-26",
       "deadline": null,
       "decision": null,
-      "depends": [
-        "task:T-053"
-      ],
+      "depends": [],
       "dir": null,
       "effectiveStatus": "in-progress",
       "effort": "M",
@@ -74699,7 +74392,9 @@
       "path": "social-pin/tasks/T-068 Account moderation and platform role/T-068-be Backend · Account moderation and platform role.md",
       "pending": [],
       "priority": "high",
-      "related": [],
+      "related": [
+        "story:audit-log"
+      ],
       "release": "later",
       "resolution": null,
       "rollup": {},
@@ -74716,7 +74411,7 @@
       ],
       "task": null,
       "title": "T-068-be Backend · Account moderation and platform role",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "task:T-069": {
       "affects": [
@@ -74992,11 +74687,6 @@
       ],
       "blockedBy": [
         {
-          "id": "task:T-053",
-          "title": "T-053 Audit log writes",
-          "why": "T-053 Audit log writes is in progress"
-        },
-        {
           "id": "task:T-068",
           "title": "T-068 Account moderation and platform role",
           "why": "T-068 Account moderation and platform role is in progress"
@@ -75012,7 +74702,6 @@
       "deadline": null,
       "decision": null,
       "depends": [
-        "task:T-053",
         "task:T-068"
       ],
       "dir": "social-pin/tasks/T-071 Audit-log read endpoints",
@@ -75038,7 +74727,7 @@
       "pending": [],
       "priority": "high",
       "related": [
-        "task:T-053"
+        "story:audit-log"
       ],
       "release": "later",
       "resolution": null,
@@ -75058,7 +74747,7 @@
       ],
       "task": null,
       "title": "T-071 Audit-log read endpoints",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "task:T-071-be": {
       "affects": [
@@ -75067,11 +74756,6 @@
         "feature:audit-log"
       ],
       "blockedBy": [
-        {
-          "id": "task:T-053",
-          "title": "T-053 Audit log writes",
-          "why": "T-053 Audit log writes is in progress"
-        },
         {
           "id": "task:T-068",
           "title": "T-068 Account moderation and platform role",
@@ -75085,7 +74769,6 @@
       "deadline": null,
       "decision": null,
       "depends": [
-        "task:T-053",
         "task:T-068"
       ],
       "dir": null,
@@ -75112,7 +74795,9 @@
       "path": "social-pin/tasks/T-071 Audit-log read endpoints/T-071-be Backend · Audit-log read endpoints.md",
       "pending": [],
       "priority": "high",
-      "related": [],
+      "related": [
+        "story:audit-log"
+      ],
       "release": "later",
       "resolution": null,
       "rollup": {},
@@ -75129,7 +74814,7 @@
       ],
       "task": null,
       "title": "T-071-be Backend · Audit-log read endpoints",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "task:T-072": {
       "affects": [

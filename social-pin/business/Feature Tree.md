@@ -120,7 +120,6 @@ Social Pin backend
     │   ├── ❓ T-051 Gemma assistant sheet and suggestions
     │   └── ⛔ T-052 Smart Match
     ├── ❌ Audit Log  [Critical]
-    │   └── ⬜ T-053 Audit log writes
     ├── ❌ Cleanup Jobs  [High]
     │   └── ⬜ T-054 Cleanup jobs
     ├── ❌ E2E Test Run  [Critical]
@@ -218,7 +217,7 @@ The error contract, notifications, Gemma AI, devices, interests, widgets, linked
 | [[Linked Accounts (OAuth)]] | 🟡 Partial (needs more) | High | s01, s04, s68 | 1 |
 | [[Notifications]] | ❌ TODO | High | s69 | 2 |
 | [[Gemma AI]] | ❌ TODO | Medium | s13, s60 | 2 |
-| [[Audit Log]] | ❌ TODO | Critical | — | 1 |
+| [[Audit Log]] | ❌ TODO | Critical | — | 0 |
 | [[Cleanup Jobs]] | ❌ TODO | High | — | 1 |
 | [[E2E Test Run]] | ❌ TODO | Critical | — | 1 |
 | [[App Shell & Onboarding Narrative]] | ⬜ Frontend only | Medium | s00a, s00b, s00c, s00d | 0 |
