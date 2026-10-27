@@ -471,9 +471,6 @@
     "T-052 Story": "story:T-052",
     "T-052-be Backend · Smart Match": "task:T-052-be",
     "T-052-fe Frontend · Smart Match": "task:T-052-fe",
-    "T-055 Run the e2e suite in CI against PostGIS": "task:T-055",
-    "T-055 Story": "story:T-055",
-    "T-055-be Backend · Run the e2e suite in CI against PostGIS": "task:T-055-be",
     "T-063 Put the ErrorCode on the error body": "task:T-063",
     "T-063 Story": "story:T-063",
     "T-063-be Backend · Put the ErrorCode on the error body": "task:T-063-be",
@@ -813,7 +810,6 @@
     "S-83": "story:T-014",
     "S-84": "story:T-015",
     "S-85": "story:e2e-tests",
-    "S-86": "story:T-055",
     "S-87": "story:error-contract",
     "S-88": "story:T-063",
     "S-89": "story:gemma",
@@ -976,8 +972,6 @@
     "T-052": "task:T-052",
     "T-052-be": "task:T-052-be",
     "T-052-fe": "task:T-052-fe",
-    "T-055": "task:T-055",
-    "T-055-be": "task:T-055-be",
     "T-063": "task:T-063",
     "T-063-be": "task:T-063-be",
     "T-063-fe": "task:T-063-fe",
@@ -5095,28 +5089,28 @@
       "project": 27,
       "qa-backend": 1,
       "qa-frontend": 1,
-      "story": 100,
-      "task": 170
+      "story": 99,
+      "task": 168
     },
     "byLayer": {
       "backend": 56,
-      "business": 349,
+      "business": 346,
       "frontend": 44,
       "qa": 2,
       "shared": 10
     },
     "concepts": 199,
     "decisions": 19,
-    "edges": 5188,
+    "edges": 5176,
     "features": 41,
-    "layerNotes": 190,
+    "layerNotes": 189,
     "modules": 8,
-    "notes": 497,
+    "notes": 494,
     "partial": 4,
     "placeholders": 161,
     "records": 14,
-    "taskLayerNotes": 60,
-    "tasks": 170
+    "taskLayerNotes": 59,
+    "tasks": 168
   },
   "deadlines": {
     "missed": {
@@ -10544,7 +10538,7 @@
     {
       "from": "feature:build-deploy",
       "kind": "related",
-      "to": "task:T-055"
+      "to": "story:e2e-tests"
     },
     {
       "from": "feature:cleanup-jobs",
@@ -12761,14 +12755,6 @@
       "from": "story:discover-hub",
       "kind": "related",
       "to": "story:T-031",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
-      "from": "story:e2e-tests",
-      "kind": "related",
-      "to": "story:T-055",
       "via": [
         "sum-of"
       ]
@@ -25262,11 +25248,6 @@
       "to": "task:T-031"
     },
     {
-      "from": "story:e2e-tests",
-      "kind": "tree",
-      "to": "task:T-055"
-    },
-    {
       "from": "story:error-contract",
       "kind": "tree",
       "to": "task:T-063"
@@ -26305,16 +26286,6 @@
       "from": "task:T-052",
       "kind": "tree",
       "to": "task:T-052-fe"
-    },
-    {
-      "from": "task:T-055",
-      "kind": "tree",
-      "to": "story:T-055"
-    },
-    {
-      "from": "task:T-055",
-      "kind": "tree",
-      "to": "task:T-055-be"
     },
     {
       "from": "task:T-063",
@@ -27664,7 +27635,7 @@
     {
       "from": "feature:e2e-tests",
       "kind": "wikilink",
-      "to": "task:T-055"
+      "to": "project:status-report-2026-10-15"
     },
     {
       "from": "feature:error-contract",
@@ -28595,11 +28566,6 @@
       "from": "frontend-requirements:e2e-tests",
       "kind": "wikilink",
       "to": "story:e2e-tests"
-    },
-    {
-      "from": "frontend-requirements:e2e-tests",
-      "kind": "wikilink",
-      "to": "task:T-055"
     },
     {
       "from": "frontend-requirements:error-contract",
@@ -31874,11 +31840,6 @@
     {
       "from": "project:status-report-2026-10-15",
       "kind": "wikilink",
-      "to": "feature:e2e-tests"
-    },
-    {
-      "from": "project:status-report-2026-10-15",
-      "kind": "wikilink",
       "to": "feature:error-contract"
     },
     {
@@ -33245,11 +33206,6 @@
       "from": "story:T-052",
       "kind": "wikilink",
       "to": "feature:gemma"
-    },
-    {
-      "from": "story:T-055",
-      "kind": "wikilink",
-      "to": "feature:e2e-tests"
     },
     {
       "from": "story:T-067",
@@ -35592,31 +35548,6 @@
       "to": "task:T-052-be"
     },
     {
-      "from": "task:T-055",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-055",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-055",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-055-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:e2e-tests"
-    },
-    {
-      "from": "task:T-055-be",
-      "kind": "wikilink",
-      "to": "feature:e2e-tests"
-    },
-    {
       "from": "task:T-063",
       "kind": "wikilink",
       "to": "backend-delivery:error-contract"
@@ -37722,18 +37653,6 @@
     },
     "social-pin/tasks/T-052 Smart Match/T-052-fe Frontend · Smart Match.md": {
       "name": "T-052-fe Frontend · Smart Match",
-      "type": "task"
-    },
-    "social-pin/tasks/T-055 Run the e2e suite in CI against PostGIS/T-055 Run the e2e suite in CI against PostGIS.md": {
-      "name": "T-055 Run the e2e suite in CI against PostGIS",
-      "type": "task"
-    },
-    "social-pin/tasks/T-055 Run the e2e suite in CI against PostGIS/T-055 Story.md": {
-      "name": "T-055 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-055 Run the e2e suite in CI against PostGIS/T-055-be Backend · Run the e2e suite in CI against PostGIS.md": {
-      "name": "T-055-be Backend · Run the e2e suite in CI against PostGIS",
       "type": "task"
     },
     "social-pin/tasks/T-063 Put the ErrorCode on the error body/T-063 Put the ErrorCode on the error body.md": {
@@ -43911,7 +43830,7 @@
       "related": [
         "feature:e2e-tests",
         "project:developer-setup",
-        "task:T-055",
+        "story:e2e-tests",
         "project:ring-access-model",
         "project:architecture",
         "project:api-conventions",
@@ -44603,9 +44522,8 @@
       "rollup": {
         "approved": 1,
         "blocked": 1,
-        "draft": 2,
-        "missing": 4,
-        "todo": 2
+        "draft": 1,
+        "missing": 4
       },
       "scope": null,
       "screens": [],
@@ -44619,7 +44537,7 @@
       ],
       "task": null,
       "title": "E2E Test Run",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "feature:error-contract": {
       "affects": [],
@@ -49461,7 +49379,7 @@
       ],
       "task": null,
       "title": "E2E Test Run Frontend Requirements",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "frontend-requirements:error-contract": {
       "affects": [],
@@ -51485,11 +51403,11 @@
         "blocked": 34,
         "decided": 3,
         "done": 1,
-        "draft": 29,
+        "draft": 28,
         "in-progress": 22,
         "missing": 61,
         "needs-decision": 1,
-        "todo": 16,
+        "todo": 14,
         "verified": 3
       },
       "scope": null,
@@ -58126,7 +58044,7 @@
         "decided": 14,
         "delivered": 2,
         "done": 10,
-        "draft": 94,
+        "draft": 93,
         "in-progress": 55,
         "missing": 161,
         "needs-decision": 9,
@@ -58134,7 +58052,7 @@
         "passing": 1,
         "ready": 2,
         "reference": 31,
-        "todo": 47,
+        "todo": 45,
         "verified": 14
       },
       "scope": null,
@@ -60825,54 +60743,6 @@
       "title": "T-052 Story",
       "updated": "2026-10-26"
     },
-    "story:T-055": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-86",
-      "children": [],
-      "code": "T-055",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
-      "effort": null,
-      "feature": "e2e-tests",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-055",
-      "inherits": {
-        "priority": "task:T-055",
-        "release": "feature:e2e-tests"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": null,
-      "parents": [
-        "task:T-055"
-      ],
-      "path": "social-pin/tasks/T-055 Run the e2e suite in CI against PostGIS/T-055 Story.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "scope": "task",
-      "screens": [],
-      "status": "draft",
-      "summary": "Service container postgis/postgis; prisma:deploy, db:seed, test:e2e.",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/platform",
-        "layer/business"
-      ],
-      "task": "T-055",
-      "title": "T-055 Story",
-      "updated": "2026-10-26"
-    },
     "story:T-063": {
       "affects": [],
       "blockedBy": [],
@@ -62017,9 +61887,7 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-85",
-      "children": [
-        "task:T-055"
-      ],
+      "children": [],
       "code": "e2e-tests",
       "created": "2026-10-18",
       "deadline": null,
@@ -62046,7 +61914,9 @@
       "path": "social-pin/modules/Platform & Cross-cutting/features/E2E Test Run/E2E Test Run Story.md",
       "pending": [],
       "priority": "critical",
-      "related": [],
+      "related": [
+        "feature:build-deploy"
+      ],
       "release": "mvp",
       "resolution": null,
       "scope": "feature",
@@ -62061,7 +61931,7 @@
       ],
       "task": null,
       "title": "E2E Test Run Story",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "story:error-contract": {
       "affects": [],
@@ -73541,117 +73411,6 @@
       ],
       "task": null,
       "title": "T-052-fe Frontend · Smart Match",
-      "updated": "2026-10-26"
-    },
-    "task:T-055": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-055",
-      "children": [
-        "story:T-055",
-        "task:T-055-be"
-      ],
-      "code": "T-055",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": "social-pin/tasks/T-055 Run the e2e suite in CI against PostGIS",
-      "effectiveStatus": "todo",
-      "effort": "S",
-      "feature": "e2e-tests",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-055",
-      "inherits": {
-        "release": "feature:e2e-tests"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": null,
-      "parents": [
-        "story:e2e-tests"
-      ],
-      "path": "social-pin/tasks/T-055 Run the e2e suite in CI against PostGIS/T-055 Run the e2e suite in CI against PostGIS.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [
-        "feature:build-deploy"
-      ],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {
-        "draft": 1,
-        "todo": 1
-      },
-      "scope": null,
-      "screens": [],
-      "status": "todo",
-      "summary": "Service container postgis/postgis; prisma:deploy, db:seed, test:e2e.",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/platform",
-        "priority/critical"
-      ],
-      "task": null,
-      "title": "T-055 Run the e2e suite in CI against PostGIS",
-      "updated": "2026-10-26"
-    },
-    "task:T-055-be": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-055-be",
-      "children": [],
-      "code": "T-055-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": null,
-      "effectiveStatus": "todo",
-      "effort": "S",
-      "feature": "e2e-tests",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-055-be",
-      "inherits": {
-        "release": "feature:e2e-tests"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": "T-055",
-      "parents": [
-        "task:T-055"
-      ],
-      "path": "social-pin/tasks/T-055 Run the e2e suite in CI against PostGIS/T-055-be Backend · Run the e2e suite in CI against PostGIS.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [],
-      "status": "todo",
-      "summary": "The API side of T-055 Run the e2e suite in CI against PostGIS: the endpoints, data and rules its What describes. Record what shipped in T-055-be Backend Delivery and how to call it in T-055-be…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/platform",
-        "priority/critical",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-055-be Backend · Run the e2e suite in CI against PostGIS",
       "updated": "2026-10-26"
     },
     "task:T-063": {

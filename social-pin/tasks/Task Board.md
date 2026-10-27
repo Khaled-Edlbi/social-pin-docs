@@ -143,8 +143,6 @@ kanban-plugin: board
 - [ ] [[T-033-be Backend · Events list, detail, schedule]] #critical #events-before #backend
 - [ ] [[T-041 Availability slots CRUD]] #critical #meetings
 - [ ] [[T-041-be Backend · Availability slots CRUD]] #critical #meetings #backend
-- [ ] [[T-055 Run the e2e suite in CI against PostGIS]] #critical #e2e-tests
-- [ ] [[T-055-be Backend · Run the e2e suite in CI against PostGIS]] #critical #e2e-tests #backend
 - [ ] [[T-063 Put the ErrorCode on the error body]] #critical #error-contract
 - [ ] [[T-063-be Backend · Put the ErrorCode on the error body]] #critical #error-contract #backend
 - [ ] [[T-067-be Backend · Split E_RING_01 and E_RING_PROFILE_03]] #critical #error-contract #backend

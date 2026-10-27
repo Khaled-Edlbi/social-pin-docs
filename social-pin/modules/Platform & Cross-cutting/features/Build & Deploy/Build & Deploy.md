@@ -67,7 +67,7 @@ One story per feature (since 2026-10-27): all of this feature's work is in [[Bui
 
 ## Related
 
-- [[E2E Test Run]] — the other half of CI: [[T-055 Run the e2e suite in CI against PostGIS]]
+- [[E2E Test Run]] — the other half of CI: [[E2E Test Run Story|E2E Test Run · S4]]
   adds a test job to this pipeline
 - [[Developer Setup]] — the same stack, run locally rather than in a job
 

@@ -61,8 +61,6 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-044 My meetings, calendar, detail, reschedule, cancel]] | [[Meetings]] | Meetings | ⛔ Blocked | M | — | [[T-042 Meeting request, accept with slots, decline with reason|T-042]] |
 | [[T-044-be Backend · My meetings, calendar, detail, reschedule, cancel]] `backend` | [[Meetings]] | Meetings | ⛔ Blocked | M | — | [[T-042 Meeting request, accept with slots, decline with reason|T-042]] |
 | [[T-044-fe Frontend · My meetings, calendar, detail, reschedule, cancel]] `frontend` | [[Meetings]] | Meetings | ⛔ Blocked | M | — | [[T-042 Meeting request, accept with slots, decline with reason|T-042]], [[T-044-be Backend · My meetings, calendar, detail, reschedule, cancel|T-044-be]] |
-| [[T-055 Run the e2e suite in CI against PostGIS]] | [[E2E Test Run]] | Platform & Cross-cutting | ⬜ To do | S | — | — |
-| [[T-055-be Backend · Run the e2e suite in CI against PostGIS]] `backend` | [[E2E Test Run]] | Platform & Cross-cutting | ⬜ To do | S | — | — |
 | [[T-063 Put the ErrorCode on the error body]] | [[Error Contract]] | Platform & Cross-cutting | ⬜ To do | S | — | — |
 | [[T-063-be Backend · Put the ErrorCode on the error body]] `backend` | [[Error Contract]] | Platform & Cross-cutting | ⬜ To do | S | — | — |
 | [[T-063-fe Frontend · Put the ErrorCode on the error body]] `frontend` | [[Error Contract]] | Platform & Cross-cutting | ⛔ Blocked | S | — | [[T-063-be Backend · Put the ErrorCode on the error body|T-063-be]] |
