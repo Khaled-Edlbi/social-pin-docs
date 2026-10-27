@@ -66,11 +66,11 @@ What the client needs from the backend to build s52 and the two screens the gran
 | 404 on `GET /views/ring/:ringId` | `E_RING_ACCESS_02` | "This event has ended" and the disposition entry (s62) |
 | 400 on `POST /rings` | `E_RING_01` | Never shown; the client does not make this call |
 | registration pending / failed | to be defined by [[T-035 Registration transaction with order and payment]] | Stay on s51 with the payment state; do not open s52 |
-| webhook late | to be defined by [[T-047 Orders, payments and the provider webhook]] | s52 pending state |
+| webhook late | to be defined by [[Payments & Orders Story|Payments & Orders · S7]] | s52 pending state |
 
 ## Blocked by
 
 - No decision note. Upstream tasks:
 - [[Event Ring Auto-creation Story|Event Ring Auto-creation · S6]] — waits on [[T-033 Events list, detail, schedule]]; every ❌ row above.
-- [[T-035 Registration transaction with order and payment]] — waits on [[T-034 Tickets, packages, levels, sold-out]] and [[T-047 Orders, payments and the provider webhook]] (payment provider undecided); the registration response and the pending-state polling.
+- [[T-035 Registration transaction with order and payment]] — waits on [[T-034 Tickets, packages, levels, sold-out]] and [[Payments & Orders Story|Payments & Orders · S7]] (payment provider undecided); the registration response and the pending-state polling.
 - [[T-037 Event pass with a 60 s rotating code]] — waits on Event Ring Auto-creation · S6 and [[T-007 Issue and rotate the QR token for a Ring]].

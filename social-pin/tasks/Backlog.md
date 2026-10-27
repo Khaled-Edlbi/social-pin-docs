@@ -42,9 +42,9 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-034 Tickets, packages, levels, sold-out]] | [[Events Before]] | Events | ⛔ Blocked | M | — | [[T-033 Events list, detail, schedule|T-033]] |
 | [[T-034-be Backend · Tickets, packages, levels, sold-out]] `backend` | [[Events Before]] | Events | ⛔ Blocked | M | — | [[T-033 Events list, detail, schedule|T-033]] |
 | [[T-034-fe Frontend · Tickets, packages, levels, sold-out]] `frontend` | [[Events Before]] | Events | ⛔ Blocked | M | — | [[T-033 Events list, detail, schedule|T-033]], [[T-034-be Backend · Tickets, packages, levels, sold-out|T-034-be]] |
-| [[T-035 Registration transaction with order and payment]] | [[Events Before]] | Events | ⛔ Blocked | L | — | [[T-034 Tickets, packages, levels, sold-out|T-034]], [[T-047 Orders, payments and the provider webhook|T-047]] |
-| [[T-035-be Backend · Registration transaction with order and payment]] `backend` | [[Events Before]] | Events | ⛔ Blocked | L | — | [[T-034 Tickets, packages, levels, sold-out|T-034]], [[T-047 Orders, payments and the provider webhook|T-047]] |
-| [[T-035-fe Frontend · Registration transaction with order and payment]] `frontend` | [[Events Before]] | Events | ⛔ Blocked | L | — | [[T-034 Tickets, packages, levels, sold-out|T-034]], [[T-047 Orders, payments and the provider webhook|T-047]], [[T-035-be Backend · Registration transaction with order and payment|T-035-be]] |
+| [[T-035 Registration transaction with order and payment]] | [[Events Before]] | Events | ⛔ Blocked | L | — | [[T-034 Tickets, packages, levels, sold-out|T-034]] |
+| [[T-035-be Backend · Registration transaction with order and payment]] `backend` | [[Events Before]] | Events | ⛔ Blocked | L | — | [[T-034 Tickets, packages, levels, sold-out|T-034]] |
+| [[T-035-fe Frontend · Registration transaction with order and payment]] `frontend` | [[Events Before]] | Events | ⛔ Blocked | L | — | [[T-034 Tickets, packages, levels, sold-out|T-034]], [[T-035-be Backend · Registration transaction with order and payment|T-035-be]] |
 | [[T-036 Event mode exhibitors list and detail]] | [[Events During]] | Events | ⛔ Blocked | M | — | [[T-033 Events list, detail, schedule|T-033]] |
 | [[T-036-be Backend · Event mode exhibitors list and detail]] `backend` | [[Events During]] | Events | ⛔ Blocked | M | — | [[T-033 Events list, detail, schedule|T-033]] |
 | [[T-036-fe Frontend · Event mode exhibitors list and detail]] `frontend` | [[Events During]] | Events | ⛔ Blocked | M | — | [[T-033 Events list, detail, schedule|T-033]], [[T-036-be Backend · Event mode exhibitors list and detail|T-036-be]] |
@@ -136,8 +136,6 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-046 Push delivery and preferences]] | [[Notifications]] | Platform & Cross-cutting | ⛔ Blocked | M | — | [[T-045 NotificationService.emit and the inbox|T-045]], [[T-014 Register devices on login; list and remove|T-014]] |
 | [[T-046-be Backend · Push delivery and preferences]] `backend` | [[Notifications]] | Platform & Cross-cutting | ⛔ Blocked | M | — | [[T-045 NotificationService.emit and the inbox|T-045]], [[T-014 Register devices on login; list and remove|T-014]] |
 | [[T-046-fe Frontend · Push delivery and preferences]] `frontend` | [[Notifications]] | Platform & Cross-cutting | ⛔ Blocked | M | — | [[T-045 NotificationService.emit and the inbox|T-045]], [[T-014 Register devices on login; list and remove|T-014]], [[T-046-be Backend · Push delivery and preferences|T-046-be]] |
-| [[T-047 Orders, payments and the provider webhook]] | [[Payments & Orders]] | Commerce | ❓ Needs decision | L | — | — |
-| [[T-047-be Backend · Orders, payments and the provider webhook]] `backend` | [[Payments & Orders]] | Commerce | ⬜ To do | L | — | — |
 | [[T-048 Business account setup → business Ring]] | [[Exhibitor]] | Events | ⛔ Blocked | L | — | [[T-029 My companies and company detail|T-029]] |
 | [[T-048-be Backend · Business account setup → business Ring]] `backend` | [[Exhibitor]] | Events | ⛔ Blocked | L | — | [[T-029 My companies and company detail|T-029]] |
 | [[T-048-fe Frontend · Business account setup → business Ring]] `frontend` | [[Exhibitor]] | Events | ⛔ Blocked | L | — | [[T-029 My companies and company detail|T-029]], [[T-048-be Backend · Business account setup → business Ring|T-048-be]] |

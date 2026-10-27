@@ -9,12 +9,12 @@ module: events
 parent: T-035
 labels: [frontend]
 screens: [s51, s52]
-depends: [T-034, T-047, T-035-be]
+depends: ["T-034", "T-035-be"]
 affects: []
-related: []
+related: ["Payments & Orders Story"]
 pending: []
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [task, task/todo, module/events, priority/critical, frontend]
 ---
 

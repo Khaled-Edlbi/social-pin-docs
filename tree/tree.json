@@ -441,9 +441,6 @@
     "T-046 Story": "story:T-046",
     "T-046-be Backend · Push delivery and preferences": "task:T-046-be",
     "T-046-fe Frontend · Push delivery and preferences": "task:T-046-fe",
-    "T-047 Orders, payments and the provider webhook": "task:T-047",
-    "T-047 Story": "story:T-047",
-    "T-047-be Backend · Orders, payments and the provider webhook": "task:T-047-be",
     "T-048 Business account setup → business Ring": "task:T-048",
     "T-048 Story": "story:T-048",
     "T-048-be Backend · Business account setup → business Ring": "task:T-048-be",
@@ -792,7 +789,6 @@
     "S-67": "story:T-043",
     "S-68": "story:T-044",
     "S-69": "story:payments",
-    "S-70": "story:T-047",
     "S-71": "story:subscription",
     "S-72": "story:T-049",
     "S-73": "story:app-shell",
@@ -946,8 +942,6 @@
     "T-046": "task:T-046",
     "T-046-be": "task:T-046-be",
     "T-046-fe": "task:T-046-fe",
-    "T-047": "task:T-047",
-    "T-047-be": "task:T-047-be",
     "T-048": "task:T-048",
     "T-048-be": "task:T-048-be",
     "T-048-fe": "task:T-048-fe",
@@ -4435,9 +4429,7 @@
         "needs-decision:ND-07",
         "task:T-035",
         "task:T-035-be",
-        "task:T-035-fe",
-        "task:T-047",
-        "task:T-047-be"
+        "task:T-035-fe"
       ],
       "kind": "screen",
       "notes": [
@@ -4449,14 +4441,11 @@
         "frontend-requirements:payments",
         "needs-decision:ND-07",
         "story:T-035",
-        "story:T-047",
         "story:events-before",
         "story:payments",
         "task:T-035",
         "task:T-035-be",
-        "task:T-035-fe",
-        "task:T-047",
-        "task:T-047-be"
+        "task:T-035-fe"
       ],
       "owner": null
     },
@@ -5078,28 +5067,28 @@
       "project": 27,
       "qa-backend": 1,
       "qa-frontend": 1,
-      "story": 98,
-      "task": 166
+      "story": 97,
+      "task": 164
     },
     "byLayer": {
       "backend": 56,
-      "business": 343,
+      "business": 340,
       "frontend": 44,
       "qa": 2,
       "shared": 10
     },
     "concepts": 199,
     "decisions": 19,
-    "edges": 5154,
+    "edges": 5131,
     "features": 41,
-    "layerNotes": 188,
+    "layerNotes": 187,
     "modules": 8,
-    "notes": 491,
+    "notes": 488,
     "partial": 4,
     "placeholders": 161,
     "records": 14,
-    "taskLayerNotes": 58,
-    "tasks": 166
+    "taskLayerNotes": 57,
+    "tasks": 164
   },
   "deadlines": {
     "missed": {
@@ -5356,12 +5345,12 @@
     {
       "from": "decision:D-07",
       "kind": "affects",
-      "to": "task:T-035"
+      "to": "story:payments"
     },
     {
       "from": "decision:D-07",
       "kind": "affects",
-      "to": "task:T-047"
+      "to": "task:T-035"
     },
     {
       "from": "decision:D-07",
@@ -7509,21 +7498,6 @@
       "to": "task:T-046-fe"
     },
     {
-      "from": "task:T-047",
-      "kind": "blocks",
-      "to": "task:T-035"
-    },
-    {
-      "from": "task:T-047",
-      "kind": "blocks",
-      "to": "task:T-035-be"
-    },
-    {
-      "from": "task:T-047",
-      "kind": "blocks",
-      "to": "task:T-035-fe"
-    },
-    {
       "from": "task:T-048-be",
       "kind": "blocks",
       "to": "task:T-048-fe"
@@ -7766,12 +7740,12 @@
     {
       "from": "needs-decision:ND-07",
       "kind": "decision",
-      "to": "task:T-035"
+      "to": "story:payments"
     },
     {
       "from": "needs-decision:ND-07",
       "kind": "decision",
-      "to": "task:T-047"
+      "to": "task:T-035"
     },
     {
       "from": "needs-decision:ND-07",
@@ -8434,19 +8408,9 @@
       "to": "task:T-034"
     },
     {
-      "from": "task:T-035",
-      "kind": "depends",
-      "to": "task:T-047"
-    },
-    {
       "from": "task:T-035-be",
       "kind": "depends",
       "to": "task:T-034"
-    },
-    {
-      "from": "task:T-035-be",
-      "kind": "depends",
-      "to": "task:T-047"
     },
     {
       "from": "task:T-035-fe",
@@ -8457,11 +8421,6 @@
       "from": "task:T-035-fe",
       "kind": "depends",
       "to": "task:T-035-be"
-    },
-    {
-      "from": "task:T-035-fe",
-      "kind": "depends",
-      "to": "task:T-047"
     },
     {
       "from": "task:T-036",
@@ -12967,30 +12926,12 @@
     {
       "from": "story:payments",
       "kind": "related",
-      "to": "story:T-047",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
-      "from": "story:payments",
-      "kind": "related",
       "to": "task:T-034"
     },
     {
       "from": "story:payments",
       "kind": "related",
-      "to": "task:T-035"
-    },
-    {
-      "from": "story:payments",
-      "kind": "related",
       "to": "task:T-040"
-    },
-    {
-      "from": "story:payments",
-      "kind": "related",
-      "to": "task:T-047"
     },
     {
       "from": "story:photo-library",
@@ -13417,6 +13358,21 @@
       "from": "task:T-023",
       "kind": "related",
       "to": "decision:D-15"
+    },
+    {
+      "from": "task:T-035",
+      "kind": "related",
+      "to": "story:payments"
+    },
+    {
+      "from": "task:T-035-be",
+      "kind": "related",
+      "to": "story:payments"
+    },
+    {
+      "from": "task:T-035-fe",
+      "kind": "related",
+      "to": "story:payments"
     },
     {
       "from": "task:T-037",
@@ -25346,7 +25302,7 @@
     {
       "from": "story:payments",
       "kind": "tree",
-      "to": "task:T-047"
+      "to": "needs-decision:ND-07"
     },
     {
       "from": "story:photo-library",
@@ -26107,21 +26063,6 @@
       "from": "task:T-046",
       "kind": "tree",
       "to": "task:T-046-fe"
-    },
-    {
-      "from": "task:T-047",
-      "kind": "tree",
-      "to": "needs-decision:ND-07"
-    },
-    {
-      "from": "task:T-047",
-      "kind": "tree",
-      "to": "story:T-047"
-    },
-    {
-      "from": "task:T-047",
-      "kind": "tree",
-      "to": "task:T-047-be"
     },
     {
       "from": "task:T-048",
@@ -27341,11 +27282,6 @@
     {
       "from": "decision:D-07",
       "kind": "wikilink",
-      "to": "task:T-047"
-    },
-    {
-      "from": "decision:D-07",
-      "kind": "wikilink",
       "to": "task:T-049"
     },
     {
@@ -27746,7 +27682,7 @@
     {
       "from": "feature:payments",
       "kind": "wikilink",
-      "to": "task:T-047"
+      "to": "project:status-report-2026-10-15"
     },
     {
       "from": "feature:photo-library",
@@ -28521,6 +28457,11 @@
     {
       "from": "frontend-requirements:event-ring-auto",
       "kind": "wikilink",
+      "to": "story:payments"
+    },
+    {
+      "from": "frontend-requirements:event-ring-auto",
+      "kind": "wikilink",
       "to": "task:T-007"
     },
     {
@@ -28542,11 +28483,6 @@
       "from": "frontend-requirements:event-ring-auto",
       "kind": "wikilink",
       "to": "task:T-037"
-    },
-    {
-      "from": "frontend-requirements:event-ring-auto",
-      "kind": "wikilink",
-      "to": "task:T-047"
     },
     {
       "from": "frontend-requirements:event-ring-auto",
@@ -28602,11 +28538,6 @@
       "from": "frontend-requirements:events-before",
       "kind": "wikilink",
       "to": "task:T-035"
-    },
-    {
-      "from": "frontend-requirements:events-before",
-      "kind": "wikilink",
-      "to": "task:T-047"
     },
     {
       "from": "frontend-requirements:events-before",
@@ -29022,11 +28953,6 @@
       "from": "frontend-requirements:payments",
       "kind": "wikilink",
       "to": "task:T-045"
-    },
-    {
-      "from": "frontend-requirements:payments",
-      "kind": "wikilink",
-      "to": "task:T-047"
     },
     {
       "from": "frontend-requirements:payments",
@@ -29551,6 +29477,11 @@
     {
       "from": "frontend-requirements:subscription",
       "kind": "wikilink",
+      "to": "story:payments"
+    },
+    {
+      "from": "frontend-requirements:subscription",
+      "kind": "wikilink",
       "to": "story:subscription"
     },
     {
@@ -29562,11 +29493,6 @@
       "from": "frontend-requirements:subscription",
       "kind": "wikilink",
       "to": "task:T-040"
-    },
-    {
-      "from": "frontend-requirements:subscription",
-      "kind": "wikilink",
-      "to": "task:T-047"
     },
     {
       "from": "frontend-requirements:subscription",
@@ -30592,11 +30518,6 @@
       "from": "needs-decision:ND-07",
       "kind": "wikilink",
       "to": "module:commerce"
-    },
-    {
-      "from": "needs-decision:ND-07",
-      "kind": "wikilink",
-      "to": "story:payments"
     },
     {
       "from": "needs-decision:ND-10",
@@ -31821,11 +31742,6 @@
     {
       "from": "project:status-report-2026-10-15",
       "kind": "wikilink",
-      "to": "feature:payments"
-    },
-    {
-      "from": "project:status-report-2026-10-15",
-      "kind": "wikilink",
       "to": "feature:photo-library"
     },
     {
@@ -32262,11 +32178,6 @@
       "from": "story:events-before",
       "kind": "wikilink",
       "to": "task:T-023"
-    },
-    {
-      "from": "story:events-before",
-      "kind": "wikilink",
-      "to": "task:T-047"
     },
     {
       "from": "story:events-during",
@@ -32729,11 +32640,6 @@
       "to": "task:T-007"
     },
     {
-      "from": "story:subscription",
-      "kind": "wikilink",
-      "to": "task:T-047"
-    },
-    {
       "from": "story:T-001",
       "kind": "wikilink",
       "to": "feature:code-delivery"
@@ -33077,11 +32983,6 @@
       "from": "story:T-046",
       "kind": "wikilink",
       "to": "feature:notifications"
-    },
-    {
-      "from": "story:T-047",
-      "kind": "wikilink",
-      "to": "feature:payments"
     },
     {
       "from": "story:T-048",
@@ -34644,11 +34545,6 @@
       "to": "project:status-report-2026-10-15"
     },
     {
-      "from": "task:T-035",
-      "kind": "wikilink",
-      "to": "task:T-047"
-    },
-    {
       "from": "task:T-035-be",
       "kind": "wikilink",
       "to": "backend-delivery:events-before"
@@ -35147,31 +35043,6 @@
       "from": "task:T-046-fe",
       "kind": "wikilink",
       "to": "task:T-046-be"
-    },
-    {
-      "from": "task:T-047",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-047",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-047",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-047-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:payments"
-    },
-    {
-      "from": "task:T-047-be",
-      "kind": "wikilink",
-      "to": "feature:payments"
     },
     {
       "from": "task:T-048",
@@ -37409,18 +37280,6 @@
     },
     "social-pin/tasks/T-046 Push delivery and preferences/T-046-fe Frontend · Push delivery and preferences.md": {
       "name": "T-046-fe Frontend · Push delivery and preferences",
-      "type": "task"
-    },
-    "social-pin/tasks/T-047 Orders, payments and the provider webhook/T-047 Orders, payments and the provider webhook.md": {
-      "name": "T-047 Orders, payments and the provider webhook",
-      "type": "task"
-    },
-    "social-pin/tasks/T-047 Orders, payments and the provider webhook/T-047 Story.md": {
-      "name": "T-047 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-047 Orders, payments and the provider webhook/T-047-be Backend · Orders, payments and the provider webhook.md": {
-      "name": "T-047-be Backend · Orders, payments and the provider webhook",
       "type": "task"
     },
     "social-pin/tasks/T-048 Business account setup → business Ring/T-048 Business account setup → business Ring.md": {
@@ -42745,7 +42604,7 @@
       "affects": [
         "feature:payments",
         "feature:subscription",
-        "task:T-047",
+        "story:payments",
         "task:T-035",
         "task:T-049"
       ],
@@ -42799,7 +42658,7 @@
       ],
       "task": null,
       "title": "D-07 Stripe for all four flows",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "decision:D-13": {
       "affects": [
@@ -45473,10 +45332,8 @@
         "approved": 1,
         "blocked": 1,
         "decided": 1,
-        "draft": 2,
+        "draft": 1,
         "missing": 4,
-        "needs-decision": 1,
-        "todo": 1,
         "verified": 1
       },
       "scope": null,
@@ -45494,7 +45351,7 @@
       ],
       "task": null,
       "title": "Payments & Orders",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "feature:photo-library": {
       "affects": [],
@@ -50549,7 +50406,7 @@
       ],
       "task": null,
       "title": "Subscription (Free vs Pro) Frontend Requirements",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "frontend-requirements:view-as": {
       "affects": [],
@@ -50888,11 +50745,10 @@
         "approved": 2,
         "blocked": 3,
         "decided": 1,
-        "draft": 4,
+        "draft": 3,
         "in-progress": 2,
         "missing": 8,
-        "needs-decision": 1,
-        "todo": 3,
+        "todo": 2,
         "verified": 1
       },
       "scope": null,
@@ -51719,7 +51575,7 @@
       "affects": [],
       "blockedBy": [],
       "blocks": [
-        "task:T-047",
+        "story:payments",
         "task:T-035",
         "task:T-049"
       ],
@@ -51752,7 +51608,7 @@
       "module": null,
       "parentTask": null,
       "parents": [
-        "task:T-047",
+        "story:payments",
         "task:T-035",
         "task:T-049"
       ],
@@ -51779,7 +51635,7 @@
       ],
       "task": null,
       "title": "ND-07 Payment provider",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "needs-decision:ND-10": {
       "affects": [],
@@ -57908,15 +57764,15 @@
         "decided": 14,
         "delivered": 2,
         "done": 10,
-        "draft": 92,
+        "draft": 91,
         "in-progress": 55,
         "missing": 161,
-        "needs-decision": 9,
+        "needs-decision": 8,
         "partial": 4,
         "passing": 1,
         "ready": 2,
         "reference": 31,
-        "todo": 45,
+        "todo": 44,
         "verified": 14
       },
       "scope": null,
@@ -60207,56 +60063,6 @@
       "title": "T-046 Story",
       "updated": "2026-10-26"
     },
-    "story:T-047": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-70",
-      "children": [],
-      "code": "T-047",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
-      "effort": null,
-      "feature": "payments",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-047",
-      "inherits": {
-        "priority": "task:T-047",
-        "release": "feature:payments"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "commerce",
-      "parentTask": null,
-      "parents": [
-        "task:T-047"
-      ],
-      "path": "social-pin/tasks/T-047 Orders, payments and the provider webhook/T-047 Story.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "scope": "task",
-      "screens": [
-        "s51"
-      ],
-      "status": "draft",
-      "summary": "Provider undecided. Webhook idempotent on providerReference. Audit every payment action.",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/commerce",
-        "layer/business"
-      ],
-      "task": "T-047",
-      "title": "T-047 Story",
-      "updated": "2026-10-26"
-    },
     "story:T-048": {
       "affects": [],
       "blockedBy": [],
@@ -61917,7 +61723,7 @@
       ],
       "task": null,
       "title": "Events Before Story",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "story:events-during": {
       "affects": [],
@@ -62495,7 +62301,7 @@
       "blockedBy": [],
       "card": "S-69",
       "children": [
-        "task:T-047"
+        "needs-decision:ND-07"
       ],
       "code": "payments",
       "created": "2026-10-18",
@@ -62526,15 +62332,16 @@
       "pending": [],
       "priority": "high",
       "related": [
+        "task:T-035",
+        "task:T-035-be",
+        "task:T-035-fe",
         "decision:D-07",
-        "task:T-047",
         "feature:events-before",
         "feature:events-during",
         "feature:event-ring-auto",
         "feature:subscription",
         "feature:audit-log",
         "task:T-034",
-        "task:T-035",
         "task:T-040"
       ],
       "release": "v1",
@@ -63125,7 +62932,7 @@
       ],
       "task": null,
       "title": "Subscription (Free vs Pro) Story",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "story:view-as": {
       "affects": [],
@@ -69341,11 +69148,6 @@
           "id": "task:T-034",
           "title": "T-034 Tickets, packages, levels, sold-out",
           "why": "T-034 Tickets, packages, levels, sold-out is blocked"
-        },
-        {
-          "id": "task:T-047",
-          "title": "T-047 Orders, payments and the provider webhook",
-          "why": "T-047 Orders, payments and the provider webhook is needs decision"
         }
       ],
       "card": "T-035",
@@ -69360,8 +69162,7 @@
       "deadline": null,
       "decision": null,
       "depends": [
-        "task:T-034",
-        "task:T-047"
+        "task:T-034"
       ],
       "dir": "social-pin/tasks/T-035 Registration transaction with order and payment",
       "effectiveStatus": "blocked",
@@ -69420,11 +69221,6 @@
           "id": "task:T-034",
           "title": "T-034 Tickets, packages, levels, sold-out",
           "why": "T-034 Tickets, packages, levels, sold-out is blocked"
-        },
-        {
-          "id": "task:T-047",
-          "title": "T-047 Orders, payments and the provider webhook",
-          "why": "T-047 Orders, payments and the provider webhook is needs decision"
         }
       ],
       "card": "T-035-be",
@@ -69434,8 +69230,7 @@
       "deadline": null,
       "decision": null,
       "depends": [
-        "task:T-034",
-        "task:T-047"
+        "task:T-034"
       ],
       "dir": null,
       "effectiveStatus": "blocked",
@@ -69461,7 +69256,9 @@
       "path": "social-pin/tasks/T-035 Registration transaction with order and payment/T-035-be Backend · Registration transaction with order and payment.md",
       "pending": [],
       "priority": "critical",
-      "related": [],
+      "related": [
+        "story:payments"
+      ],
       "release": "mvp",
       "resolution": null,
       "rollup": {},
@@ -69481,7 +69278,7 @@
       ],
       "task": null,
       "title": "T-035-be Backend · Registration transaction with order and payment",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "task:T-035-fe": {
       "affects": [],
@@ -69490,11 +69287,6 @@
           "id": "task:T-034",
           "title": "T-034 Tickets, packages, levels, sold-out",
           "why": "T-034 Tickets, packages, levels, sold-out is blocked"
-        },
-        {
-          "id": "task:T-047",
-          "title": "T-047 Orders, payments and the provider webhook",
-          "why": "T-047 Orders, payments and the provider webhook is needs decision"
         },
         {
           "id": "task:T-035-be",
@@ -69510,7 +69302,6 @@
       "decision": null,
       "depends": [
         "task:T-034",
-        "task:T-047",
         "task:T-035-be"
       ],
       "dir": null,
@@ -69537,7 +69328,9 @@
       "path": "social-pin/tasks/T-035 Registration transaction with order and payment/T-035-fe Frontend · Registration transaction with order and payment.md",
       "pending": [],
       "priority": "critical",
-      "related": [],
+      "related": [
+        "story:payments"
+      ],
       "release": "mvp",
       "resolution": null,
       "rollup": {},
@@ -69557,7 +69350,7 @@
       ],
       "task": null,
       "title": "T-035-fe Frontend · Registration transaction with order and payment",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "task:T-036": {
       "affects": [],
@@ -71698,124 +71491,6 @@
       ],
       "task": null,
       "title": "T-046-fe Frontend · Push delivery and preferences",
-      "updated": "2026-10-26"
-    },
-    "task:T-047": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-047",
-      "children": [
-        "story:T-047",
-        "task:T-047-be",
-        "needs-decision:ND-07"
-      ],
-      "code": "T-047",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": "social-pin/tasks/T-047 Orders, payments and the provider webhook",
-      "effectiveStatus": "needs-decision",
-      "effort": "L",
-      "feature": "payments",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-047",
-      "inherits": {
-        "release": "feature:payments"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "commerce",
-      "parentTask": null,
-      "parents": [
-        "story:payments"
-      ],
-      "path": "social-pin/tasks/T-047 Orders, payments and the provider webhook/T-047 Orders, payments and the provider webhook.md",
-      "pending": [],
-      "priority": "high",
-      "related": [
-        "story:payments"
-      ],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {
-        "decided": 1,
-        "draft": 1,
-        "todo": 1,
-        "verified": 1
-      },
-      "scope": null,
-      "screens": [
-        "s51"
-      ],
-      "status": "needs-decision",
-      "summary": "Provider undecided. Webhook idempotent on providerReference. Audit every payment action.",
-      "tags": [
-        "task",
-        "task/needs-info",
-        "module/commerce",
-        "priority/high"
-      ],
-      "task": null,
-      "title": "T-047 Orders, payments and the provider webhook",
-      "updated": "2026-10-26"
-    },
-    "task:T-047-be": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-047-be",
-      "children": [],
-      "code": "T-047-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": null,
-      "effectiveStatus": "todo",
-      "effort": "L",
-      "feature": "payments",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-047-be",
-      "inherits": {
-        "release": "feature:payments"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "commerce",
-      "parentTask": "T-047",
-      "parents": [
-        "task:T-047"
-      ],
-      "path": "social-pin/tasks/T-047 Orders, payments and the provider webhook/T-047-be Backend · Orders, payments and the provider webhook.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s51"
-      ],
-      "status": "todo",
-      "summary": "The API side of T-047 Orders, payments and the provider webhook: the endpoints, data and rules its What describes. Record what shipped in T-047-be Backend Delivery and how to call it in T-047-be…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/commerce",
-        "priority/high",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-047-be Backend · Orders, payments and the provider webhook",
       "updated": "2026-10-26"
     },
     "task:T-048": {

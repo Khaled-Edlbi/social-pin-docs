@@ -39,7 +39,7 @@ What the client needs to build the events tab, landing page, ticket selection, p
 ### [[Screen Index#s51|s51]] Payment
 
 - Needs: order creation from a package, accepted methods, provider hand-off, order and payment status.
-- Source today: not yet ([[T-035 Registration transaction with order and payment]], [[T-047 Orders, payments and the provider webhook]]). See [[Payments & Orders Frontend Requirements]].
+- Source today: not yet ([[T-035 Registration transaction with order and payment]], [[Payments & Orders Story|Payments & Orders · S7]]). See [[Payments & Orders Frontend Requirements]].
 
 ### [[Screen Index#s52|s52]] Event Ring granted
 
@@ -53,13 +53,13 @@ What the client needs to build the events tab, landing page, ticket selection, p
 | Event detail, schedule, mini-events | — | ❌ | [[T-033 Events list, detail, schedule]] |
 | Packages, levels, entitlements, capacity / sold out | — | ❌ | [[T-034 Tickets, packages, levels, sold-out]] |
 | Register (participant + order + payment intent) | — | ❌ | [[T-035 Registration transaction with order and payment]] |
-| Payment methods, status, webhook completion | — | ❌ | [[T-047 Orders, payments and the provider webhook]] |
+| Payment methods, status, webhook completion | — | ❌ | [[Payments & Orders Story|Payments & Orders · S7]] |
 | Event Ring created on success | — | ❌ | [[Event Ring Auto-creation Story|Event Ring Auto-creation · S6]] |
 | Registered Ring in the hub after success | `GET /rings` | ✅ | — |
 
 ## Behaviour expectations
 
-- Refetch / realtime: refetch the event detail when s49 regains focus (capacity changes); refetch packages on entering s50; after s51 reports succeeded, invalidate `events:mine`, `event:{id}` and `rings:list` before opening s52. Poll the order status on s51 while pending (interval set by T-047).
+- Refetch / realtime: refetch the event detail when s49 regains focus (capacity changes); refetch packages on entering s50; after s51 reports succeeded, invalidate `events:mine`, `event:{id}` and `rings:list` before opening s52. Poll the order status on s51 while pending (interval set by Payments & Orders · S7).
 - Caching keys: `events:list:{filters}`, `events:mine`, `event:{id}`, `event:{id}:packages`, `order:{id}`.
 - Pagination / ordering: events list is paginated (`limit`, `skip`; `TABLE_MAX_LIMIT = 50`), default `limit` 20, ordered by `startsAt` ascending for Discover and descending for past "my events"; `meta.total` is the unpaginated count. Filters that are absent are not sent (the builder treats `undefined` as "no filter", `false` as a real value).
 - Idempotency: one client-generated key per registration attempt, reused on retry; a second tap on "Pay" while pending is ignored by the client.
@@ -74,7 +74,7 @@ What the client needs to build the events tab, landing page, ticket selection, p
 | 404 event | to be defined by [[T-033 Events list, detail, schedule]] | "This event is no longer available", back to s48 |
 | 409 sold out / capacity reached at order time | to be defined by [[T-034 Tickets, packages, levels, sold-out]] | "Sold out while you were deciding", refetch packages, stay on s50 |
 | 409 already registered | to be defined by [[T-035 Registration transaction with order and payment]] | "You are already registered", CTA becomes "Enter event mode" |
-| 402 / payment failed | to be defined by [[T-047 Orders, payments and the provider webhook]] | Failed state on s51 with retry on the same order |
+| 402 / payment failed | to be defined by [[Payments & Orders Story|Payments & Orders · S7]] | Failed state on s51 with retry on the same order |
 | 401 | `E_AUTH_04` | Sign in again; keep the selected package locally so the user resumes on s50 |
 
 ## Blocked by
@@ -82,6 +82,6 @@ What the client needs to build the events tab, landing page, ticket selection, p
 - No decision note. Upstream tasks:
 - [[T-033 Events list, detail, schedule]] — s48, s49; unblocks everything else here.
 - [[T-034 Tickets, packages, levels, sold-out]] — s50; waits on T-033.
-- [[T-035 Registration transaction with order and payment]] — s51, s52; waits on T-034 and T-047.
-- [[T-047 Orders, payments and the provider webhook]] — payment provider undecided; s51.
+- [[T-035 Registration transaction with order and payment]] — s51, s52; waits on T-034 and Payments & Orders · S7.
+- [[Payments & Orders Story|Payments & Orders · S7]] — payment provider undecided; s51.
 - [[T-023 Connection detail and contacts list]] — the "contacts going" filter on s48.

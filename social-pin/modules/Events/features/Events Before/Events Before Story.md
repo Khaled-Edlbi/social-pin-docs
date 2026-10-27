@@ -12,7 +12,7 @@ depends: ["ND-07 Payment provider"]
 related: ["Payments & Orders", "Event Ring Auto-creation"]
 owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [story, story/approved, module/events, layer/business]
 ---
 
@@ -102,6 +102,6 @@ Acceptance criteria:
 ## Open questions
 
 - No decision note exists. Open points:
-- S5 and therefore S6 wait on [[T-047 Orders, payments and the provider webhook]], which has no backend yet; the provider is decided ([[ND-07 Payment provider]]), the methods s51 offers are not.
+- S5 and therefore S6 wait on [[Payments & Orders Story|Payments & Orders · S7]], which has no backend yet; the provider is decided ([[ND-07 Payment provider]]), the methods s51 offers are not.
 - [[T-033 Events list, detail, schedule]] — "contacts going" needs [[T-023 Connection detail and contacts list]]; until then S1 ships without that filter.
 - Whether an RSVP on a free event creates an `Order` with a zero total or no order at all affects S4's call count.

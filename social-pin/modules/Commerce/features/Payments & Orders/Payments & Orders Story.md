@@ -10,7 +10,7 @@ approvedBy: "khaled"
 approvedAt: 2026-10-25
 depends: ["ND-07 Payment provider"]
 affects: ["Events Before", "Events During", "Event Ring Auto-creation"]
-related: ["D-07 Stripe for all four flows", "T-047 Orders, payments and the provider webhook", "Events Before", "Events During", "Event Ring Auto-creation", "Subscription (Free vs Pro)", "Audit Log", "T-034 Tickets, packages, levels, sold-out", "T-035 Registration transaction with order and payment", "T-040 Lounges and upgrades"]
+related: ["D-07 Stripe for all four flows", "Events Before", "Events During", "Event Ring Auto-creation", "Subscription (Free vs Pro)", "Audit Log", "T-034 Tickets, packages, levels, sold-out", "T-035 Registration transaction with order and payment", "T-040 Lounges and upgrades"]
 owner: "khaled"
 created: 2026-10-18
 updated: 2026-10-27
@@ -65,7 +65,7 @@ Acceptance criteria:
 Acceptance criteria:
 - [ ] Stripe's webhook, not the client, marks the payment succeeded; a replayed webhook is harmless (`providerReference` unique).
 - [ ] If the app was closed, the next open shows the event under "My events" with the Event Ring in the hub; a notification "Registration confirmed" deep-links to s52 once [[Notifications]] exist.
-- [ ] Not available yet ([[T-047 Orders, payments and the provider webhook]]).
+- [ ] Not available yet ([[Payments & Orders Story|Payments & Orders · S7]]).
 
 ### S5 · In-event upgrade ([[Screen Index#s53|s53]])
 
@@ -83,6 +83,14 @@ Acceptance criteria:
 Acceptance criteria:
 - [ ] Orders listed newest first with status, items, total, method and collector; the receipt reference Stripe gives when there is one.
 - [ ] Refunds are read-only here; the organizer handles them on the web.
+
+### S7 · Orders, payments and the provider webhook
+
+*From T-047 (status then: Needs a decision), merged 2026-10-27.*
+
+Provider undecided. Webhook idempotent on `providerReference`. Audit every payment action.
+
+Screens: [[Screen Index#s51|s51]] Payment
 
 ## States and motion the design asks for
 

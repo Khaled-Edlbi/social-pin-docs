@@ -11,7 +11,6 @@ kanban-plugin: board
 - [ ] [[T-018 Widget CRUD on the projection]] #high #widgets
 - [ ] [[T-026 Ring invitations invite, review, decline]] #high #ring-invitations
 - [ ] [[T-039 Catalogue products and talks (new table)]] #high #events-during
-- [ ] [[T-047 Orders, payments and the provider webhook]] #high #payments
 - [ ] [[T-025 Introduce a connection to another]] #medium #connections
 - [ ] [[T-028 What you contribute to a shared Ring]] #medium #ring-invitations
 - [ ] [[T-031 Import contacts]] #medium #discover-hub
@@ -165,7 +164,6 @@ kanban-plugin: board
 - [ ] [[T-032-be Backend · PinCast setup, start, stop, results]] #high #pincast #backend
 - [ ] [[T-045 NotificationService.emit and the inbox]] #high #notifications
 - [ ] [[T-045-be Backend · NotificationService.emit and the inbox]] #high #notifications #backend
-- [ ] [[T-047-be Backend · Orders, payments and the provider webhook]] #high #payments #backend
 - [ ] [[T-049 Subscription endpoints and a single Pro gate]] #high #subscription
 - [ ] [[T-049-be Backend · Subscription endpoints and a single Pro gate]] #high #subscription #backend
 - [ ] [[T-020b-be Backend · Business card scan and portfolio URL import]] #medium #onboarding-imports #backend

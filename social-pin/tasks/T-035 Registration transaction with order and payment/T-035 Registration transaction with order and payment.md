@@ -7,15 +7,16 @@ effort: L
 feature: events-before
 module: events
 screens: [s51, s52]
-depends: [T-034, T-047]
+depends: ["T-034"]
 created: 2026-10-15
 updated: 2026-10-27
 tags: [task, task/blocked, module/events, priority/critical]
+related: ["Payments & Orders Story"]
 ---
 
 # ⛔ T-035 · Registration transaction with order and payment
 
-> ⚠ Affected by [[ND-07 Payment provider]] (2026-10-21): the payment step of the registration is a Stripe checkout; still waits on T-034 and T-047.
+> ⚠ Affected by [[ND-07 Payment provider]] (2026-10-21): the payment step of the registration is a Stripe checkout; still waits on T-034 and Payments & Orders · S7.
 
 **Feature:** [[Events Before]] · **Status:** Blocked · **Priority:** Critical · **Effort:** L (S < 1 day, M 1–3 days, L > 3 days)
 
@@ -33,7 +34,7 @@ Participant + order + payment intent; on webhook success → Event Ring Auto-cre
 ## Dependencies
 
 - Waits on [[T-034 Tickets, packages, levels, sold-out]]
-- Waits on [[T-047 Orders, payments and the provider webhook]]
+- Waits on [[Payments & Orders Story|Payments & Orders · S7]]
 
 ## Definition of done
 

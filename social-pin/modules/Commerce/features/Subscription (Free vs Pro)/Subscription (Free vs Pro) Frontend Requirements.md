@@ -7,7 +7,7 @@ module: commerce
 status: draft
 screens: [s34, s70]
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [frontend-requirements, frontend-requirements/draft, module/commerce, layer/frontend]
 ---
 
@@ -51,7 +51,7 @@ What the client needs to show the plan, sell Pro and render every Pro lock truth
 | Any-lounge access on Pro | — | ❌ | [[T-040 Lounges and upgrades]] |
 | Smart Match on Pro | — | ❌ | [[T-052 Smart Match]] |
 | Gemma automation on Pro | — | ❌ | [[T-051 Gemma assistant sheet and suggestions]] |
-| Billing channel and receipts | — | ❌ | [[T-049 Subscription endpoints and a single Pro gate]] (channel undecided; see [[T-047 Orders, payments and the provider webhook]]) |
+| Billing channel and receipts | — | ❌ | [[T-049 Subscription endpoints and a single Pro gate]] (channel undecided; see [[Payments & Orders Story|Payments & Orders · S7]]) |
 
 ## Behaviour expectations
 

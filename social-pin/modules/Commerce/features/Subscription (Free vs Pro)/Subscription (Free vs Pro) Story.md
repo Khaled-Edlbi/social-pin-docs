@@ -10,7 +10,7 @@ approvedBy: "khaled"
 approvedAt: 2026-10-25
 owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [story, story/approved, module/commerce, layer/business]
 ---
 
@@ -87,6 +87,6 @@ Acceptance criteria:
 ## Open questions
 
 - No decision note exists. Open points:
-- [[T-049 Subscription endpoints and a single Pro gate]] — billing channel (app store vs the payment provider of [[T-047 Orders, payments and the provider webhook]]) and receipt storage; S3 and S5 depend on it.
+- [[T-049 Subscription endpoints and a single Pro gate]] — billing channel (app store vs the payment provider of [[Payments & Orders Story|Payments & Orders · S7]]) and receipt storage; S3 and S5 depend on it.
 - Whether the AI assistant entry on s53 ("AI assistant (Pro)" in the brief) is a gate of its own or part of "Gemma automation"; S2's list has four items until decided.
 - Whether an exhibitor's business account carries its own plan or inherits the owner's.

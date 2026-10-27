@@ -95,7 +95,6 @@ Social Pin backend
 │       └── ⬜ T-044 My meetings, calendar, detail, reschedule, cancel
 ├── Commerce  (❌2)
 │   ├── ❌ Payments & Orders  [High]
-│   │   └── ❓ T-047 Orders, payments and the provider webhook
 │   └── ❌ Subscription (Free vs Pro)  [High]
 │       └── ⬜ T-049 Subscription endpoints and a single Pro gate
 └── Platform & Cross-cutting  (🟡5 ❌5 ⬜1)
@@ -198,7 +197,7 @@ Orders, payments, payment webhook, Free vs Pro subscription and the Pro gates.
 
 | Feature | Status | Priority | Screens | Open tasks |
 |---|---|---|---|---|
-| [[Payments & Orders]] | ❌ TODO | High | s50, s51 | 1 |
+| [[Payments & Orders]] | ❌ TODO | High | s50, s51 | 0 |
 | [[Subscription (Free vs Pro)]] | ❌ TODO | High | s34, s70 | 1 |
 
 ## Platform & Cross-cutting
