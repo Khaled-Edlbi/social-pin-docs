@@ -97,9 +97,6 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-027 Join a Ring with a code or verified work email]] | [[Ring Invitations & Join]] | Shared Rings & Companies | ⛔ Blocked | M | — | [[T-026 Ring invitations invite, review, decline|T-026]] |
 | [[T-027-be Backend · Join a Ring with a code or verified work email]] `backend` | [[Ring Invitations & Join]] | Shared Rings & Companies | ⛔ Blocked | M | — | [[T-026 Ring invitations invite, review, decline|T-026]] |
 | [[T-027-fe Frontend · Join a Ring with a code or verified work email]] `frontend` | [[Ring Invitations & Join]] | Shared Rings & Companies | ⛔ Blocked | M | — | [[T-026 Ring invitations invite, review, decline|T-026]], [[T-027-be Backend · Join a Ring with a code or verified work email|T-027-be]] |
-| [[T-030 Discover search by !pinname and recent searches]] | [[Discover Hub & Search]] | Discovery | ⬜ To do | S | — | — |
-| [[T-030-be Backend · Discover search by !pinname and recent searches]] `backend` | [[Discover Hub & Search]] | Discovery | ⬜ To do | S | — | — |
-| [[T-030-fe Frontend · Discover search by !pinname and recent searches]] `frontend` | [[Discover Hub & Search]] | Discovery | ⛔ Blocked | S | — | [[T-030-be Backend · Discover search by !pinname and recent searches|T-030-be]] |
 | [[T-037 Event pass with a 60 s rotating code]] | [[Events During]] | Events | ⛔ Blocked | M | — | [[T-007 Issue and rotate the QR token for a Ring|T-007]] |
 | [[T-037-be Backend · Event pass with a 60 s rotating code]] `backend` | [[Events During]] | Events | ⛔ Blocked | M | — | [[T-007 Issue and rotate the QR token for a Ring|T-007]] |
 | [[T-037-fe Frontend · Event pass with a 60 s rotating code]] `frontend` | [[Events During]] | Events | ⛔ Blocked | M | — | [[T-007 Issue and rotate the QR token for a Ring|T-007]], [[T-037-be Backend · Event pass with a 60 s rotating code|T-037-be]] |
@@ -148,9 +145,6 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-028 What you contribute to a shared Ring]] | [[Ring Invitations & Join]] | Shared Rings & Companies | ❓ Needs decision | L | — | [[T-027 Join a Ring with a code or verified work email|T-027]] |
 | [[T-028-be Backend · What you contribute to a shared Ring]] `backend` | [[Ring Invitations & Join]] | Shared Rings & Companies | ⛔ Blocked | L | — | [[T-027 Join a Ring with a code or verified work email|T-027]] |
 | [[T-028-fe Frontend · What you contribute to a shared Ring]] `frontend` | [[Ring Invitations & Join]] | Shared Rings & Companies | ⛔ Blocked | L | — | [[T-027 Join a Ring with a code or verified work email|T-027]], [[T-028-be Backend · What you contribute to a shared Ring|T-028-be]] |
-| [[T-031 Import contacts]] | [[Discover Hub & Search]] | Discovery | ❓ Needs decision | M | — | — |
-| [[T-031-be Backend · Import contacts]] `backend` | [[Discover Hub & Search]] | Discovery | ⬜ To do | M | — | — |
-| [[T-031-fe Frontend · Import contacts]] `frontend` | [[Discover Hub & Search]] | Discovery | ⛔ Blocked | M | — | [[T-031-be Backend · Import contacts|T-031-be]] |
 | [[T-051 Gemma assistant sheet and suggestions]] | [[Gemma AI]] | Platform & Cross-cutting | ❓ Needs decision | L | — | — |
 | [[T-051-be Backend · Gemma assistant sheet and suggestions]] `backend` | [[Gemma AI]] | Platform & Cross-cutting | ⬜ To do | L | — | — |
 | [[T-051-fe Frontend · Gemma assistant sheet and suggestions]] `frontend` | [[Gemma AI]] | Platform & Cross-cutting | ⛔ Blocked | L | — | [[T-051-be Backend · Gemma assistant sheet and suggestions|T-051-be]] |

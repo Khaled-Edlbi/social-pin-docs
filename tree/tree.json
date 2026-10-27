@@ -350,14 +350,6 @@
     "T-028 What you contribute to a shared Ring": "task:T-028",
     "T-028-be Backend · What you contribute to a shared Ring": "task:T-028-be",
     "T-028-fe Frontend · What you contribute to a shared Ring": "task:T-028-fe",
-    "T-030 Discover search by !pinname and recent searches": "task:T-030",
-    "T-030 Story": "story:T-030",
-    "T-030-be Backend · Discover search by !pinname and recent searches": "task:T-030-be",
-    "T-030-fe Frontend · Discover search by !pinname and recent searches": "task:T-030-fe",
-    "T-031 Import contacts": "task:T-031",
-    "T-031 Story": "story:T-031",
-    "T-031-be Backend · Import contacts": "task:T-031-be",
-    "T-031-fe Frontend · Import contacts": "task:T-031-fe",
     "T-033 Events list, detail, schedule": "task:T-033",
     "T-033 Story": "story:T-033",
     "T-033-be Backend · Events list, detail, schedule": "task:T-033-be",
@@ -725,8 +717,6 @@
     "S-40": "story:T-009",
     "S-41": "story:T-010",
     "S-42": "story:discover-hub",
-    "S-43": "story:T-030",
-    "S-44": "story:T-031",
     "S-45": "story:pincast",
     "S-47": "story:event-ring-auto",
     "S-49": "story:events-before",
@@ -829,12 +819,6 @@
     "T-028": "task:T-028",
     "T-028-be": "task:T-028-be",
     "T-028-fe": "task:T-028-fe",
-    "T-030": "task:T-030",
-    "T-030-be": "task:T-030-be",
-    "T-030-fe": "task:T-030-fe",
-    "T-031": "task:T-031",
-    "T-031-be": "task:T-031-be",
-    "T-031-fe": "task:T-031-fe",
     "T-033": "task:T-033",
     "T-033-be": "task:T-033-be",
     "T-033-fe": "task:T-033-fe",
@@ -2324,12 +2308,11 @@
     },
     "GET /views/pin": {
       "containers": [
-        "task:T-030"
+        "feature:discover-hub"
       ],
       "kind": "endpoint",
       "notes": [
-        "story:T-030",
-        "task:T-030"
+        "story:discover-hub"
       ],
       "owner": null
     },
@@ -3977,28 +3960,14 @@
     },
     "s38": {
       "containers": [
-        "feature:discover-hub",
-        "task:T-030",
-        "task:T-030-be",
-        "task:T-030-fe",
-        "task:T-031",
-        "task:T-031-be",
-        "task:T-031-fe"
+        "feature:discover-hub"
       ],
       "kind": "screen",
       "notes": [
         "backend-delivery:discover-hub",
         "feature:discover-hub",
         "frontend-requirements:discover-hub",
-        "story:T-030",
-        "story:T-031",
-        "story:discover-hub",
-        "task:T-030",
-        "task:T-030-be",
-        "task:T-030-fe",
-        "task:T-031",
-        "task:T-031-be",
-        "task:T-031-fe"
+        "story:discover-hub"
       ],
       "owner": null
     },
@@ -4855,7 +4824,7 @@
     }
   },
   "counts": {
-    "blocked": 126,
+    "blocked": 124,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -4868,28 +4837,28 @@
       "project": 27,
       "qa-backend": 1,
       "qa-frontend": 1,
-      "story": 88,
-      "task": 137
+      "story": 86,
+      "task": 131
     },
     "byLayer": {
       "backend": 56,
-      "business": 304,
+      "business": 296,
       "frontend": 44,
       "qa": 2,
       "shared": 10
     },
     "concepts": 199,
     "decisions": 19,
-    "edges": 4898,
+    "edges": 4862,
     "features": 41,
-    "layerNotes": 178,
+    "layerNotes": 176,
     "modules": 8,
-    "notes": 452,
+    "notes": 444,
     "partial": 4,
     "placeholders": 161,
     "records": 14,
-    "taskLayerNotes": 48,
-    "tasks": 137
+    "taskLayerNotes": 46,
+    "tasks": 131
   },
   "deadlines": {
     "missed": {
@@ -6894,16 +6863,6 @@
       "to": "task:T-028-fe"
     },
     {
-      "from": "task:T-030-be",
-      "kind": "blocks",
-      "to": "task:T-030-fe"
-    },
-    {
-      "from": "task:T-031-be",
-      "kind": "blocks",
-      "to": "task:T-031-fe"
-    },
-    {
       "from": "task:T-033",
       "kind": "blocks",
       "to": "task:T-034"
@@ -7907,16 +7866,6 @@
       "from": "task:T-028-fe",
       "kind": "depends",
       "to": "task:T-028-be"
-    },
-    {
-      "from": "task:T-030-fe",
-      "kind": "depends",
-      "to": "task:T-030-be"
-    },
-    {
-      "from": "task:T-031-fe",
-      "kind": "depends",
-      "to": "task:T-031-be"
     },
     {
       "from": "task:T-033-fe",
@@ -11987,22 +11936,6 @@
       "from": "story:delegated-admins",
       "kind": "related",
       "to": "decision:D-04"
-    },
-    {
-      "from": "story:discover-hub",
-      "kind": "related",
-      "to": "story:T-030",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
-      "from": "story:discover-hub",
-      "kind": "related",
-      "to": "story:T-031",
-      "via": [
-        "sum-of"
-      ]
     },
     {
       "from": "story:events-before",
@@ -24445,16 +24378,6 @@
       "to": "task:T-025"
     },
     {
-      "from": "story:discover-hub",
-      "kind": "tree",
-      "to": "task:T-030"
-    },
-    {
-      "from": "story:discover-hub",
-      "kind": "tree",
-      "to": "task:T-031"
-    },
-    {
       "from": "story:error-contract",
       "kind": "tree",
       "to": "task:T-063"
@@ -25003,36 +24926,6 @@
       "from": "task:T-028",
       "kind": "tree",
       "to": "task:T-028-fe"
-    },
-    {
-      "from": "task:T-030",
-      "kind": "tree",
-      "to": "story:T-030"
-    },
-    {
-      "from": "task:T-030",
-      "kind": "tree",
-      "to": "task:T-030-be"
-    },
-    {
-      "from": "task:T-030",
-      "kind": "tree",
-      "to": "task:T-030-fe"
-    },
-    {
-      "from": "task:T-031",
-      "kind": "tree",
-      "to": "story:T-031"
-    },
-    {
-      "from": "task:T-031",
-      "kind": "tree",
-      "to": "task:T-031-be"
-    },
-    {
-      "from": "task:T-031",
-      "kind": "tree",
-      "to": "task:T-031-fe"
     },
     {
       "from": "task:T-033",
@@ -26627,12 +26520,7 @@
     {
       "from": "feature:discover-hub",
       "kind": "wikilink",
-      "to": "task:T-030"
-    },
-    {
-      "from": "feature:discover-hub",
-      "kind": "wikilink",
-      "to": "task:T-031"
+      "to": "project:status-report-2026-10-15"
     },
     {
       "from": "feature:e2e-tests",
@@ -27508,16 +27396,6 @@
       "from": "frontend-requirements:discover-hub",
       "kind": "wikilink",
       "to": "task:T-021"
-    },
-    {
-      "from": "frontend-requirements:discover-hub",
-      "kind": "wikilink",
-      "to": "task:T-030"
-    },
-    {
-      "from": "frontend-requirements:discover-hub",
-      "kind": "wikilink",
-      "to": "task:T-031"
     },
     {
       "from": "frontend-requirements:discover-hub",
@@ -30757,11 +30635,6 @@
     {
       "from": "project:status-report-2026-10-15",
       "kind": "wikilink",
-      "to": "feature:discover-hub"
-    },
-    {
-      "from": "project:status-report-2026-10-15",
-      "kind": "wikilink",
       "to": "feature:error-contract"
     },
     {
@@ -31880,16 +31753,6 @@
       "to": "feature:ring-invitations"
     },
     {
-      "from": "story:T-030",
-      "kind": "wikilink",
-      "to": "feature:discover-hub"
-    },
-    {
-      "from": "story:T-031",
-      "kind": "wikilink",
-      "to": "feature:discover-hub"
-    },
-    {
       "from": "story:T-033",
       "kind": "wikilink",
       "to": "feature:events-before"
@@ -33003,86 +32866,6 @@
       "from": "task:T-028-fe",
       "kind": "wikilink",
       "to": "task:T-028-be"
-    },
-    {
-      "from": "task:T-030",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-030",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-030",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-030-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:discover-hub"
-    },
-    {
-      "from": "task:T-030-be",
-      "kind": "wikilink",
-      "to": "feature:discover-hub"
-    },
-    {
-      "from": "task:T-030-fe",
-      "kind": "wikilink",
-      "to": "feature:discover-hub"
-    },
-    {
-      "from": "task:T-030-fe",
-      "kind": "wikilink",
-      "to": "story:T-030"
-    },
-    {
-      "from": "task:T-030-fe",
-      "kind": "wikilink",
-      "to": "task:T-030-be"
-    },
-    {
-      "from": "task:T-031",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-031",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-031",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-031-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:discover-hub"
-    },
-    {
-      "from": "task:T-031-be",
-      "kind": "wikilink",
-      "to": "feature:discover-hub"
-    },
-    {
-      "from": "task:T-031-fe",
-      "kind": "wikilink",
-      "to": "feature:discover-hub"
-    },
-    {
-      "from": "task:T-031-fe",
-      "kind": "wikilink",
-      "to": "story:T-031"
-    },
-    {
-      "from": "task:T-031-fe",
-      "kind": "wikilink",
-      "to": "task:T-031-be"
     },
     {
       "from": "task:T-033",
@@ -35486,38 +35269,6 @@
     },
     "social-pin/tasks/T-028 What you contribute to a shared Ring/T-028-fe Frontend · What you contribute to a shared Ring.md": {
       "name": "T-028-fe Frontend · What you contribute to a shared Ring",
-      "type": "task"
-    },
-    "social-pin/tasks/T-030 Discover search by !pinname and recent searches/T-030 Discover search by !pinname and recent searches.md": {
-      "name": "T-030 Discover search by !pinname and recent searches",
-      "type": "task"
-    },
-    "social-pin/tasks/T-030 Discover search by !pinname and recent searches/T-030 Story.md": {
-      "name": "T-030 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-030 Discover search by !pinname and recent searches/T-030-be Backend · Discover search by !pinname and recent searches.md": {
-      "name": "T-030-be Backend · Discover search by !pinname and recent searches",
-      "type": "task"
-    },
-    "social-pin/tasks/T-030 Discover search by !pinname and recent searches/T-030-fe Frontend · Discover search by !pinname and recent searches.md": {
-      "name": "T-030-fe Frontend · Discover search by !pinname and recent searches",
-      "type": "task"
-    },
-    "social-pin/tasks/T-031 Import contacts/T-031 Import contacts.md": {
-      "name": "T-031 Import contacts",
-      "type": "task"
-    },
-    "social-pin/tasks/T-031 Import contacts/T-031 Story.md": {
-      "name": "T-031 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-031 Import contacts/T-031-be Backend · Import contacts.md": {
-      "name": "T-031-be Backend · Import contacts",
-      "type": "task"
-    },
-    "social-pin/tasks/T-031 Import contacts/T-031-fe Frontend · Import contacts.md": {
-      "name": "T-031-fe Frontend · Import contacts",
       "type": "task"
     },
     "social-pin/tasks/T-033 Events list, detail, schedule/T-033 Events list, detail, schedule.md": {
@@ -42590,11 +42341,9 @@
       "resolution": null,
       "rollup": {
         "approved": 1,
-        "blocked": 3,
-        "draft": 3,
-        "missing": 4,
-        "needs-decision": 1,
-        "todo": 3
+        "blocked": 1,
+        "draft": 1,
+        "missing": 4
       },
       "scope": null,
       "screens": [
@@ -42610,7 +42359,7 @@
       ],
       "task": null,
       "title": "Discover Hub & Search",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "feature:e2e-tests": {
       "affects": [],
@@ -49275,12 +49024,11 @@
       "resolution": null,
       "rollup": {
         "approved": 3,
-        "blocked": 17,
-        "draft": 10,
+        "blocked": 15,
+        "draft": 8,
         "in-progress": 3,
         "missing": 12,
-        "needs-decision": 1,
-        "todo": 5
+        "todo": 2
       },
       "scope": null,
       "screens": [],
@@ -56175,20 +55923,20 @@
       ],
       "rollup": {
         "approved": 36,
-        "blocked": 126,
+        "blocked": 124,
         "current": 8,
         "decided": 14,
         "delivered": 2,
         "done": 10,
-        "draft": 82,
+        "draft": 80,
         "in-progress": 55,
         "missing": 161,
-        "needs-decision": 8,
+        "needs-decision": 7,
         "partial": 4,
         "passing": 1,
         "ready": 2,
         "reference": 31,
-        "todo": 35,
+        "todo": 32,
         "verified": 14
       },
       "scope": null,
@@ -57307,106 +57055,6 @@
       ],
       "task": "T-028",
       "title": "T-028 Story",
-      "updated": "2026-10-26"
-    },
-    "story:T-030": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-43",
-      "children": [],
-      "code": "T-030",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
-      "effort": null,
-      "feature": "discover-hub",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-030",
-      "inherits": {
-        "priority": "task:T-030",
-        "release": "feature:discover-hub"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "discovery",
-      "parentTask": null,
-      "parents": [
-        "task:T-030"
-      ],
-      "path": "social-pin/tasks/T-030 Discover search by !pinname and recent searches/T-030 Story.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "scope": "task",
-      "screens": [
-        "s38"
-      ],
-      "status": "draft",
-      "summary": "Exact-name resolve reuses GET /views/pin. Recent searches stored per user. No fuzzy search over other users' names.",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/discovery",
-        "layer/business"
-      ],
-      "task": "T-030",
-      "title": "T-030 Story",
-      "updated": "2026-10-26"
-    },
-    "story:T-031": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-44",
-      "children": [],
-      "code": "T-031",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
-      "effort": null,
-      "feature": "discover-hub",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-031",
-      "inherits": {
-        "priority": "task:T-031",
-        "release": "feature:discover-hub"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "discovery",
-      "parentTask": null,
-      "parents": [
-        "task:T-031"
-      ],
-      "path": "social-pin/tasks/T-031 Import contacts/T-031 Story.md",
-      "pending": [],
-      "priority": "medium",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "scope": "task",
-      "screens": [
-        "s38"
-      ],
-      "status": "draft",
-      "summary": "Match hashed emails / phones against users; must not reveal who is on the platform beyond the match. Privacy review needed.",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/discovery",
-        "layer/business"
-      ],
-      "task": "T-031",
-      "title": "T-031 Story",
       "updated": "2026-10-26"
     },
     "story:T-033": {
@@ -59414,10 +59062,7 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-42",
-      "children": [
-        "task:T-030",
-        "task:T-031"
-      ],
+      "children": [],
       "code": "discover-hub",
       "created": "2026-10-18",
       "deadline": null,
@@ -65054,362 +64699,6 @@
       ],
       "task": null,
       "title": "T-028-fe Frontend · What you contribute to a shared Ring",
-      "updated": "2026-10-26"
-    },
-    "task:T-030": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-030",
-      "children": [
-        "story:T-030",
-        "task:T-030-be",
-        "task:T-030-fe"
-      ],
-      "code": "T-030",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": "social-pin/tasks/T-030 Discover search by !pinname and recent searches",
-      "effectiveStatus": "todo",
-      "effort": "S",
-      "feature": "discover-hub",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-030",
-      "inherits": {
-        "release": "feature:discover-hub"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "discovery",
-      "parentTask": null,
-      "parents": [
-        "story:discover-hub"
-      ],
-      "path": "social-pin/tasks/T-030 Discover search by !pinname and recent searches/T-030 Discover search by !pinname and recent searches.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {
-        "blocked": 1,
-        "draft": 1,
-        "todo": 1
-      },
-      "scope": null,
-      "screens": [
-        "s38"
-      ],
-      "status": "todo",
-      "summary": "Exact-name resolve reuses GET /views/pin. Recent searches stored per user. No fuzzy search over other users' names.",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/discovery",
-        "priority/high"
-      ],
-      "task": null,
-      "title": "T-030 Discover search by !pinname and recent searches",
-      "updated": "2026-10-26"
-    },
-    "task:T-030-be": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-030-be",
-      "children": [],
-      "code": "T-030-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": null,
-      "effectiveStatus": "todo",
-      "effort": "S",
-      "feature": "discover-hub",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-030-be",
-      "inherits": {
-        "release": "feature:discover-hub"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "discovery",
-      "parentTask": "T-030",
-      "parents": [
-        "task:T-030"
-      ],
-      "path": "social-pin/tasks/T-030 Discover search by !pinname and recent searches/T-030-be Backend · Discover search by !pinname and recent searches.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s38"
-      ],
-      "status": "todo",
-      "summary": "The API side of T-030 Discover search by !pinname and recent searches: the endpoints, data and rules its What describes. Record what shipped in T-030-be Backend Delivery and how to call it in…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/discovery",
-        "priority/high",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-030-be Backend · Discover search by !pinname and recent searches",
-      "updated": "2026-10-26"
-    },
-    "task:T-030-fe": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-030-be",
-          "title": "T-030-be Backend · Discover search by !pinname and recent searches",
-          "why": "T-030-be Backend · Discover search by !pinname and recent searches is to do"
-        }
-      ],
-      "card": "T-030-fe",
-      "children": [],
-      "code": "T-030-fe",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-030-be"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "S",
-      "feature": "discover-hub",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-030-fe",
-      "inherits": {
-        "release": "feature:discover-hub"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "frontend"
-      ],
-      "layer": "business",
-      "module": "discovery",
-      "parentTask": "T-030",
-      "parents": [
-        "task:T-030"
-      ],
-      "path": "social-pin/tasks/T-030 Discover search by !pinname and recent searches/T-030-fe Frontend · Discover search by !pinname and recent searches.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s38"
-      ],
-      "status": "todo",
-      "summary": "The client side of T-030 Discover search by !pinname and recent searches: the screens below show what its What describes, built against Discover Hub & Search Backend Integration once the backend…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/discovery",
-        "priority/high",
-        "frontend"
-      ],
-      "task": null,
-      "title": "T-030-fe Frontend · Discover search by !pinname and recent searches",
-      "updated": "2026-10-26"
-    },
-    "task:T-031": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-031",
-      "children": [
-        "story:T-031",
-        "task:T-031-be",
-        "task:T-031-fe"
-      ],
-      "code": "T-031",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": "social-pin/tasks/T-031 Import contacts",
-      "effectiveStatus": "needs-decision",
-      "effort": "M",
-      "feature": "discover-hub",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-031",
-      "inherits": {
-        "release": "feature:discover-hub"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "discovery",
-      "parentTask": null,
-      "parents": [
-        "story:discover-hub"
-      ],
-      "path": "social-pin/tasks/T-031 Import contacts/T-031 Import contacts.md",
-      "pending": [],
-      "priority": "medium",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {
-        "blocked": 1,
-        "draft": 1,
-        "todo": 1
-      },
-      "scope": null,
-      "screens": [
-        "s38"
-      ],
-      "status": "needs-decision",
-      "summary": "Match hashed emails / phones against users; must not reveal who is on the platform beyond the match. Privacy review needed.",
-      "tags": [
-        "task",
-        "task/needs-info",
-        "module/discovery",
-        "priority/medium"
-      ],
-      "task": null,
-      "title": "T-031 Import contacts",
-      "updated": "2026-10-26"
-    },
-    "task:T-031-be": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-031-be",
-      "children": [],
-      "code": "T-031-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": null,
-      "effectiveStatus": "todo",
-      "effort": "M",
-      "feature": "discover-hub",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-031-be",
-      "inherits": {
-        "release": "feature:discover-hub"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "discovery",
-      "parentTask": "T-031",
-      "parents": [
-        "task:T-031"
-      ],
-      "path": "social-pin/tasks/T-031 Import contacts/T-031-be Backend · Import contacts.md",
-      "pending": [],
-      "priority": "medium",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s38"
-      ],
-      "status": "todo",
-      "summary": "The API side of T-031 Import contacts: the endpoints, data and rules its What describes. Record what shipped in T-031-be Backend Delivery and how to call it in T-031-be Backend Integration, and…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/discovery",
-        "priority/medium",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-031-be Backend · Import contacts",
-      "updated": "2026-10-26"
-    },
-    "task:T-031-fe": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-031-be",
-          "title": "T-031-be Backend · Import contacts",
-          "why": "T-031-be Backend · Import contacts is to do"
-        }
-      ],
-      "card": "T-031-fe",
-      "children": [],
-      "code": "T-031-fe",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-031-be"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "discover-hub",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-031-fe",
-      "inherits": {
-        "release": "feature:discover-hub"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "frontend"
-      ],
-      "layer": "business",
-      "module": "discovery",
-      "parentTask": "T-031",
-      "parents": [
-        "task:T-031"
-      ],
-      "path": "social-pin/tasks/T-031 Import contacts/T-031-fe Frontend · Import contacts.md",
-      "pending": [],
-      "priority": "medium",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s38"
-      ],
-      "status": "todo",
-      "summary": "The client side of T-031 Import contacts: the screens below show what its What describes, built against Discover Hub & Search Backend Integration once the backend half (T-031-be Backend · Import…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/discovery",
-        "priority/medium",
-        "frontend"
-      ],
-      "task": null,
-      "title": "T-031-fe Frontend · Import contacts",
       "updated": "2026-10-26"
     },
     "task:T-033": {

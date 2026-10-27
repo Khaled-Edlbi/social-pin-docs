@@ -64,8 +64,6 @@ Social Pin backend
 │   │   ├── ⬜ T-009 Scan counter and share link
 │   │   └── ❓ T-010 Public browser page for viewers without the app
 │   ├── ❌ Discover Hub & Search  [High]
-│   │   ├── ⬜ T-030 Discover search by !pinname and recent searches
-│   │   └── ❓ T-031 Import contacts
 │   └── ❌ PinCast & Nearby  [High]
 ├── Events  (🟡1 ❌4)
 │   ├── 🟡 Event Ring Auto-creation  [Critical]
@@ -159,7 +157,7 @@ Badge / QR, Discover hub, PinCast proximity broadcast, nearby by Ring, contact i
 | Feature | Status | Priority | Screens | Open tasks |
 |---|---|---|---|---|
 | [[Badge & QR]] | 🟡 Partial (needs more) | Critical | s34, s43, s44, s56 | 4 |
-| [[Discover Hub & Search]] | ❌ TODO | High | s38 | 2 |
+| [[Discover Hub & Search]] | ❌ TODO | High | s38 | 0 |
 | [[PinCast & Nearby]] | ❌ TODO | High | s11, s39, s40, s41, s42 | 0 |
 
 ## Events

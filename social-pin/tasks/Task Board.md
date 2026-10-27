@@ -13,7 +13,6 @@ kanban-plugin: board
 - [ ] [[T-039 Catalogue products and talks (new table)]] #high #events-during
 - [ ] [[T-025 Introduce a connection to another]] #medium #connections
 - [ ] [[T-028 What you contribute to a shared Ring]] #medium #ring-invitations
-- [ ] [[T-031 Import contacts]] #medium #discover-hub
 - [ ] [[T-051 Gemma assistant sheet and suggestions]] #medium #gemma
 
 
@@ -72,7 +71,6 @@ kanban-plugin: board
 - [ ] [[T-027 Join a Ring with a code or verified work email]] #high #ring-invitations
 - [ ] [[T-027-be Backend · Join a Ring with a code or verified work email]] #high #ring-invitations #backend
 - [ ] [[T-027-fe Frontend · Join a Ring with a code or verified work email]] #high #ring-invitations #frontend
-- [ ] [[T-030-fe Frontend · Discover search by !pinname and recent searches]] #high #discover-hub #frontend
 - [ ] [[T-037 Event pass with a 60 s rotating code]] #high #events-during
 - [ ] [[T-037-be Backend · Event pass with a 60 s rotating code]] #high #events-during #backend
 - [ ] [[T-037-fe Frontend · Event pass with a 60 s rotating code]] #high #events-during #frontend
@@ -101,7 +99,6 @@ kanban-plugin: board
 - [ ] [[T-025-fe Frontend · Introduce a connection to another]] #medium #connections #frontend
 - [ ] [[T-028-be Backend · What you contribute to a shared Ring]] #medium #ring-invitations #backend
 - [ ] [[T-028-fe Frontend · What you contribute to a shared Ring]] #medium #ring-invitations #frontend
-- [ ] [[T-031-fe Frontend · Import contacts]] #medium #discover-hub #frontend
 - [ ] [[T-051-fe Frontend · Gemma assistant sheet and suggestions]] #medium #gemma #frontend
 - [ ] [[T-052 Smart Match]] #medium #gemma
 - [ ] [[T-052-be Backend · Smart Match]] #medium #gemma #backend
@@ -132,14 +129,11 @@ kanban-plugin: board
 - [ ] [[T-020 LinkedIn import → review → base profile]] #high #onboarding-imports
 - [ ] [[T-020-be Backend · LinkedIn import → review → base profile]] #high #onboarding-imports #backend
 - [ ] [[T-026-be Backend · Ring invitations invite, review, decline]] #high #ring-invitations #backend
-- [ ] [[T-030 Discover search by !pinname and recent searches]] #high #discover-hub
-- [ ] [[T-030-be Backend · Discover search by !pinname and recent searches]] #high #discover-hub #backend
 - [ ] [[T-045 NotificationService.emit and the inbox]] #high #notifications
 - [ ] [[T-045-be Backend · NotificationService.emit and the inbox]] #high #notifications #backend
 - [ ] [[T-048 Business account setup → business Ring]] #high #exhibitor
 - [ ] [[T-048-be Backend · Business account setup → business Ring]] #high #exhibitor #backend
 - [ ] [[T-020b-be Backend · Business card scan and portfolio URL import]] #medium #onboarding-imports #backend
-- [ ] [[T-031-be Backend · Import contacts]] #medium #discover-hub #backend
 - [ ] [[T-051-be Backend · Gemma assistant sheet and suggestions]] #medium #gemma #backend
 
 

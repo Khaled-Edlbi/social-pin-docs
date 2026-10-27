@@ -39,10 +39,10 @@ What the client needs from the backend to build the screen in [[Discover Hub & S
 | Need | Endpoint | Available | Task / decision |
 |---|---|---|---|
 | Resolve an exact Pin name to what the person shares with me | `GET /views/pin/:pinName` | ✅ | — |
-| Recent searches: list, add on success, remove one, clear | — | ❌ | [[T-030 Discover search by !pinname and recent searches]] |
+| Recent searches: list, add on success, remove one, clear | — | ❌ | [[Discover Hub & Search Story|Discover Hub & Search · S6]] |
 | Business Pin name resolving to a company / exhibitor screen | — | ❌ | [[Companies Story|Companies · S6]] |
 | Gemma prompt from the same field | — | ❌ | [[T-051 Gemma assistant sheet and suggestions]] |
-| Contacts match by hashed email / phone | — | ❌ | [[T-031 Import contacts]] |
+| Contacts match by hashed email / phone | — | ❌ | [[Discover Hub & Search Story|Discover Hub & Search · S7]] |
 | People tile (requests and contacts) | — | ❌ | [[T-021 Connect request send, inbox, cancel]] |
 | Events tile | — | ❌ | [[T-033 Events list, detail, schedule]] |
 | Companies tile | — | ❌ | [[Companies Story|Companies · S6]] |
@@ -65,12 +65,12 @@ What the client needs from the backend to build the screen in [[Discover Hub & S
 | 404 | `E_RING_ACCESS_01` | "This Pin isn't available to you" inline under the field; keep the text; do not add to recent searches |
 | 400 | — | the name failed validation (empty, bad characters): inline, generic |
 | 401 | `E_AUTH_04` | sign in again |
-| — | recent-search and contacts codes | to be defined by T-030 / T-031; branch on `statusCode` until [[T-063 Put the ErrorCode on the error body]] |
+| — | recent-search and contacts codes | to be defined by Discover Hub & Search · S6 / Discover Hub & Search · S7; branch on `statusCode` until [[T-063 Put the ErrorCode on the error body]] |
 | client | contacts permission denied | inline state on the tile with *Open settings* |
 
 ## Blocked by
 
-- [[T-031 Import contacts]] — the contacts row and the s03 handover (privacy review, needs a decision).
-- [[T-030 Discover search by !pinname and recent searches]] — server-side versus device-only recent searches; the list rows above.
+- [[Discover Hub & Search Story|Discover Hub & Search · S7]] — the contacts row and the s03 handover (privacy review, needs a decision).
+- [[Discover Hub & Search Story|Discover Hub & Search · S6]] — server-side versus device-only recent searches; the list rows above.
 - [[T-051 Gemma assistant sheet and suggestions]] — the Gemma row.
 - [[T-063 Put the ErrorCode on the error body]] — the error table is by status until then.
