@@ -89,7 +89,7 @@ Screens: [[Screen Index#s13|s13]] Gemma sheet
 
 *From T-052 (status then: Blocked), merged 2026-10-27.*
 
-Over interests and event participants; strength Strong / Good / Weak; Pro only; auto-request meetings via T-042.
+Over interests and event participants; strength Strong / Good / Weak; Pro only; auto-request meetings via Meetings · S9.
 
 Screens: [[Screen Index#s60|s60]] Smart Match
 

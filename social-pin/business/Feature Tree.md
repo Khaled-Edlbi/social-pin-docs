@@ -69,10 +69,6 @@ Social Pin backend
 │   └── ❌ Post-Event  [High]
 ├── Meetings  (❌1)
 │   └── ❌ Meetings  [Critical]
-│       ├── ⬜ T-041 Availability slots CRUD
-│       ├── ⬜ T-042 Meeting request, accept with slots, decline with reason
-│       ├── ⬜ T-043 Temporary meeting Ring per meeting
-│       └── ⬜ T-044 My meetings, calendar, detail, reschedule, cancel
 ├── Commerce  (❌2)
 │   ├── ❌ Payments & Orders  [High]
 │   └── ❌ Subscription (Free vs Pro)  [High]
@@ -156,7 +152,7 @@ Availability slots, slot-based requests, temporary meeting Rings, accept / decli
 
 | Feature | Status | Priority | Screens | Open tasks |
 |---|---|---|---|---|
-| [[Meetings]] | ❌ TODO | Critical | s59, s61, s64, s66, s67 | 4 |
+| [[Meetings]] | ❌ TODO | Critical | s59, s61, s64, s66, s67 | 0 |
 
 ## Commerce
 

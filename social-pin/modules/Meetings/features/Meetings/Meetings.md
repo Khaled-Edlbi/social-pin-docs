@@ -8,7 +8,7 @@ module: meetings
 screens: [s59, s61, s64, s66, s67]
 related: ["View As & Pin Views"]
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [feature, module/meetings, priority/critical, release/mvp]
 ---
 
@@ -34,18 +34,30 @@ Wireframe brief sections: [[Wireframe Brief#Exhibitor discovery → request a me
 
 Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map in [[Navigation Map]], see [[Design Reference]].
 
-## Tasks
+## Work
 
-| Task | Status | Priority | Effort |
-|---|---|---|---|
-| [[T-041 Availability slots CRUD]] | ⬜ To do | Critical | M |
-| [[T-042 Meeting request, accept with slots, decline with reason]] | ⬜ To do | Critical | L |
-| [[T-043 Temporary meeting Ring per meeting]] | ⬜ To do | Critical | M |
-| [[T-044 My meetings, calendar, detail, reschedule, cancel]] | ⬜ To do | Critical | M |
+One story per feature (since 2026-10-27): all of this feature's work is in [[Meetings Story]]. The tasks merged into it on 2026-10-27:
 
-```dataview
-TABLE status, priority, effort FROM #task WHERE feature = "meetings" SORT priority ASC
-```
+| Was | Title | Status then | Priority | Now in the story |
+|---|---|---|---|---|
+| T-041 | Availability slots CRUD | To do | critical | S8 |
+| T-042 | Meeting request, accept with slots, decline with reason | To do | critical | S9 |
+| T-043 | Temporary meeting Ring per meeting | To do | critical | S10 |
+| T-044 | My meetings, calendar, detail, reschedule, cancel | To do | critical | S11 |
+
+### Log of the merged tasks
+
+- T-041 · 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
+- T-041 · 2026-10-18 · created as the backend half of T-041
+- T-041 · 2026-10-18 · created as the frontend half of T-041
+- T-042 · 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
+- T-042 · 2026-10-18 · created as the backend half of T-042
+- T-042 · 2026-10-18 · created as the frontend half of T-042
+- T-043 · 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
+- T-043 · 2026-10-18 · created as the backend half of T-043
+- T-044 · 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
+- T-044 · 2026-10-18 · created as the backend half of T-044
+- T-044 · 2026-10-18 · created as the frontend half of T-044
 
 ## Related
 

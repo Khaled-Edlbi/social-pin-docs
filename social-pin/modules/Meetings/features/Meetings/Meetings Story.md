@@ -87,6 +87,41 @@ Acceptance criteria:
 - [ ] "Reschedule" opens s59 as a new request referencing this meeting; the old meeting stays until the new one is confirmed. "Cancel" asks for confirmation and returns to s66 as cancelled.
 - [ ] After the meeting window, the meeting Ring lapses; the keep / merge / auto-delete sheet reuses [[Post-Event Story]] S3 with `POST /rings/:id/disposition`.
 
+### S8 · Availability slots CRUD
+
+*From T-041 (status then: To do), merged 2026-10-27.*
+
+Exclusion constraint already guards overlaps; map the DB error to a domain error.
+
+Screens: [[Screen Index#s59|s59]] Request a meeting · [[Screen Index#s64|s64]] Incoming meetings
+
+
+### S9 · Meeting request, accept with slots, decline with reason
+
+*From T-042 (status then: To do), merged 2026-10-27.*
+
+Each transition `@Transactional`. Decline → notification with reason (Notifications · S7).
+
+Screens: [[Screen Index#s59|s59]] Request a meeting · [[Screen Index#s64|s64]] Incoming meetings
+
+
+### S10 · Temporary meeting Ring per meeting
+
+*From T-043 (status then: To do), merged 2026-10-27.*
+
+`MEETING` Ring with window = meeting time ± margin; both participants are members; disposition after.
+
+Screens: [[Screen Index#s59|s59]] Request a meeting · [[Screen Index#s67|s67]] Meeting detail
+
+
+### S11 · My meetings, calendar, detail, reschedule, cancel
+
+*From T-044 (status then: To do), merged 2026-10-27.*
+
+Agenda, shared files (via `File`), reschedule = new request referencing the old meeting.
+
+Screens: [[Screen Index#s61|s61]] My meetings · [[Screen Index#s66|s66]] Meetings · [[Screen Index#s67|s67]] Meeting detail
+
 ## States and motion the design asks for
 
 - Motion: requesting a meeting **spawns a temporary Ring** that animates in as a distinct, time-limited object, differentiated by structure (dashed), not colour (brief §8.2, signature motion 9).
@@ -96,9 +131,9 @@ Acceptance criteria:
 
 ## Rules the backend already enforces
 
-- `availability_slots` carries an exclusion constraint (`tstzrange`, `btree_gist`): two concurrent bookings of one slot cannot both commit; the loser gets a domain error, not a duplicate meeting ([[T-041 Availability slots CRUD]]).
+- `availability_slots` carries an exclusion constraint (`tstzrange`, `btree_gist`): two concurrent bookings of one slot cannot both commit; the loser gets a domain error, not a duplicate meeting ([[Meetings Story|Meetings · S8]]).
 - `SLOT_SOURCE` records where a slot came from (`MANUAL`, `CALENDAR_SYNC`, `PACKAGE`); a revoked calendar integration removes only what it created.
-- The meeting Ring (`RING_TYPE.MEETING`) cannot be created by `POST /rings` (400 `E_RING_01`); the request flow creates it with both participants as members ([[T-043 Temporary meeting Ring per meeting]]).
+- The meeting Ring (`RING_TYPE.MEETING`) cannot be created by `POST /rings` (400 `E_RING_01`); the request flow creates it with both participants as members ([[Meetings Story|Meetings · S10]]).
 - The meeting Ring makes both parties visible to each other for the meeting window only, resolved on every request; a block overrides it in both directions ([[Ring Access Model]]).
 - Neither party learns which Ring the other placed them in; the meeting Ring view carries no `ringId`.
 - Disposition after the window is the existing `UNDECIDED → KEEP | MERGE | AUTO_DELETE` ([[Rings]]).
@@ -106,6 +141,6 @@ Acceptance criteria:
 ## Open questions
 
 - No decision note exists. Open points:
-- [[T-043 Temporary meeting Ring per meeting]] — who owns the meeting Ring (requester, receiver, or both as members of a Ring without an owner) decides who sees the disposition sheet in S7.
-- [[T-042 Meeting request, accept with slots, decline with reason]] — the margin around the meeting window and whether offering alternatives holds those slots.
+- [[Meetings Story|Meetings · S10]] — who owns the meeting Ring (requester, receiver, or both as members of a Ring without an owner) decides who sees the disposition sheet in S7.
+- [[Meetings Story|Meetings · S9]] — the margin around the meeting window and whether offering alternatives holds those slots.
 - [[Notifications Story|Notifications · S7]] — the decline notification and its reason depend on it.

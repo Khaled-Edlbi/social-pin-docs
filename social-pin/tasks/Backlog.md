@@ -35,17 +35,6 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-036 Event mode exhibitors list and detail]] | [[Events During]] | Events | ⛔ Blocked | M | — | — |
 | [[T-036-be Backend · Event mode exhibitors list and detail]] `backend` | [[Events During]] | Events | ⬜ To do | M | — | — |
 | [[T-036-fe Frontend · Event mode exhibitors list and detail]] `frontend` | [[Events During]] | Events | ⛔ Blocked | M | — | [[T-036-be Backend · Event mode exhibitors list and detail|T-036-be]] |
-| [[T-041 Availability slots CRUD]] | [[Meetings]] | Meetings | ⬜ To do | M | — | — |
-| [[T-041-be Backend · Availability slots CRUD]] `backend` | [[Meetings]] | Meetings | ⬜ To do | M | — | — |
-| [[T-041-fe Frontend · Availability slots CRUD]] `frontend` | [[Meetings]] | Meetings | ⛔ Blocked | M | — | [[T-041-be Backend · Availability slots CRUD|T-041-be]] |
-| [[T-042 Meeting request, accept with slots, decline with reason]] | [[Meetings]] | Meetings | ⛔ Blocked | L | — | [[T-041 Availability slots CRUD|T-041]] |
-| [[T-042-be Backend · Meeting request, accept with slots, decline with reason]] `backend` | [[Meetings]] | Meetings | ⛔ Blocked | L | — | [[T-041 Availability slots CRUD|T-041]] |
-| [[T-042-fe Frontend · Meeting request, accept with slots, decline with reason]] `frontend` | [[Meetings]] | Meetings | ⛔ Blocked | L | — | [[T-041 Availability slots CRUD|T-041]], [[T-042-be Backend · Meeting request, accept with slots, decline with reason|T-042-be]] |
-| [[T-043 Temporary meeting Ring per meeting]] | [[Meetings]] | Meetings | ⛔ Blocked | M | — | [[T-042 Meeting request, accept with slots, decline with reason|T-042]] |
-| [[T-043-be Backend · Temporary meeting Ring per meeting]] `backend` | [[Meetings]] | Meetings | ⛔ Blocked | M | — | [[T-042 Meeting request, accept with slots, decline with reason|T-042]] |
-| [[T-044 My meetings, calendar, detail, reschedule, cancel]] | [[Meetings]] | Meetings | ⛔ Blocked | M | — | [[T-042 Meeting request, accept with slots, decline with reason|T-042]] |
-| [[T-044-be Backend · My meetings, calendar, detail, reschedule, cancel]] `backend` | [[Meetings]] | Meetings | ⛔ Blocked | M | — | [[T-042 Meeting request, accept with slots, decline with reason|T-042]] |
-| [[T-044-fe Frontend · My meetings, calendar, detail, reschedule, cancel]] `frontend` | [[Meetings]] | Meetings | ⛔ Blocked | M | — | [[T-042 Meeting request, accept with slots, decline with reason|T-042]], [[T-044-be Backend · My meetings, calendar, detail, reschedule, cancel|T-044-be]] |
 
 ## High
 

@@ -43,7 +43,7 @@ What the client needs to build the Gemma sheet, Smart Match and the inline sugge
 | Open a session, send a message, receive suggestion cards | — | ❌ | [[Gemma AI Story|Gemma AI · S7]] (needs a model / provider decision) |
 | Confirm or reject an AI action | — | ❌ | [[Gemma AI Story|Gemma AI · S7]] |
 | Smart Match list for an event; mark viewed / dismissed | — | ❌ | [[Gemma AI Story|Gemma AI · S8]] (blocked on Gemma AI · S7 and [[T-036 Event mode exhibitors list and detail]]) |
-| Auto-send meeting requests from matches (Pro) | — | ❌ | [[Gemma AI Story|Gemma AI · S8]] via [[T-042 Meeting request, accept with slots, decline with reason]] |
+| Auto-send meeting requests from matches (Pro) | — | ❌ | [[Gemma AI Story|Gemma AI · S8]] via [[Meetings Story|Meetings · S9]] |
 | Pro gate on Smart Match and automation | — | ❌ | [[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]] |
 | Interests feeding matchmaking | — | ❌ | [[Interests Story|Interests · S5]] |
 | Pin-name suggestions | — | ❌ | [[ND-06 Pin name rules]] |

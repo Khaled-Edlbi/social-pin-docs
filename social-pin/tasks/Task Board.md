@@ -28,15 +28,6 @@ kanban-plugin: board
 - [ ] [[T-024-fe Frontend · Block and unblock]] #critical #connections #frontend
 - [ ] [[T-036 Event mode exhibitors list and detail]] #critical #events-during
 - [ ] [[T-036-fe Frontend · Event mode exhibitors list and detail]] #critical #events-during #frontend
-- [ ] [[T-041-fe Frontend · Availability slots CRUD]] #critical #meetings #frontend
-- [ ] [[T-042 Meeting request, accept with slots, decline with reason]] #critical #meetings
-- [ ] [[T-042-be Backend · Meeting request, accept with slots, decline with reason]] #critical #meetings #backend
-- [ ] [[T-042-fe Frontend · Meeting request, accept with slots, decline with reason]] #critical #meetings #frontend
-- [ ] [[T-043 Temporary meeting Ring per meeting]] #critical #meetings
-- [ ] [[T-043-be Backend · Temporary meeting Ring per meeting]] #critical #meetings #backend
-- [ ] [[T-044 My meetings, calendar, detail, reschedule, cancel]] #critical #meetings
-- [ ] [[T-044-be Backend · My meetings, calendar, detail, reschedule, cancel]] #critical #meetings #backend
-- [ ] [[T-044-fe Frontend · My meetings, calendar, detail, reschedule, cancel]] #critical #meetings #frontend
 - [ ] [[T-009 Scan counter and share link]] #high #badge-qr
 - [ ] [[T-009-be Backend · Scan counter and share link]] #high #badge-qr #backend
 - [ ] [[T-009-fe Frontend · Scan counter and share link]] #high #badge-qr #frontend
@@ -66,8 +57,6 @@ kanban-plugin: board
 - [ ] [[T-024 Block and unblock]] #critical #connections
 - [ ] [[T-024-be Backend · Block and unblock]] #critical #connections #backend
 - [ ] [[T-036-be Backend · Event mode exhibitors list and detail]] #critical #events-during #backend
-- [ ] [[T-041 Availability slots CRUD]] #critical #meetings
-- [ ] [[T-041-be Backend · Availability slots CRUD]] #critical #meetings #backend
 - [ ] [[T-040-be Backend · Lounges and upgrades]] #high #events-during #backend
 
 

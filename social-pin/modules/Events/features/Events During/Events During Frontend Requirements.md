@@ -22,7 +22,7 @@ What the client needs for the in-event hub and its six screens, and whether each
 ### [[Screen Index#s53|s53]] Event mode
 
 - Needs: the active Event Ring (id, name, window, level from my participant row), my package and its entitlements, mini-events with their access state (owned / purchasable / locked), account type for the Pro locks, today's meetings count.
-- Source today: `GET /rings/:id` for the Ring (available); the rest not yet ([[T-040 Lounges and upgrades]], [[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]], [[T-044 My meetings, calendar, detail, reschedule, cancel]]).
+- Source today: `GET /rings/:id` for the Ring (available); the rest not yet ([[T-040 Lounges and upgrades]], [[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]], [[Meetings Story|Meetings · S11]]).
 
 ### [[Screen Index#s54|s54]] Exhibitors
 
@@ -62,7 +62,7 @@ What the client needs for the in-event hub and its six screens, and whether each
 | Mini-event access state, upgrade purchase | — | ❌ | [[T-040 Lounges and upgrades]] |
 | Pro lock state | — | ❌ | [[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]] |
 | Smart Match suggestions | — | ❌ | [[Gemma AI Story|Gemma AI · S8]] |
-| Meetings today | — | ❌ | [[T-044 My meetings, calendar, detail, reschedule, cancel]] |
+| Meetings today | — | ❌ | [[Meetings Story|Meetings · S11]] |
 
 ## Behaviour expectations
 

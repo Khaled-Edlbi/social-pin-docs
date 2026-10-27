@@ -27,7 +27,7 @@ What the client needs for business setup, incoming meetings and booth analytics,
 ### [[Screen Index#s64|s64]] Incoming meetings
 
 - Needs: meeting requests addressed to the business or to me, grouped by status, with requester card, requested slot, event; accept-with-slots and decline-with-reason; organizer touchpoints (invitation, requested files, booth, payment status).
-- Source today: not yet ([[T-042 Meeting request, accept with slots, decline with reason]]; the organizer touchpoints have no task).
+- Source today: not yet ([[Meetings Story|Meetings · S9]]; the organizer touchpoints have no task).
 
 ### [[Screen Index#s65|s65]] Booth analytics
 
@@ -42,8 +42,8 @@ What the client needs for business setup, incoming meetings and booth analytics,
 | Edit the business Ring's projection | `GET / PATCH /rings/:ringId/projection` and sub-routes | ✅ | — |
 | Team on the stand = business Ring members | `GET / POST /rings/:ringId/members`, `DELETE …/members/:userId` | ✅ | — (business-member sync is Exhibitor · S7) |
 | Preview the business card as attendees see it | `GET /views/ring/:ringId` | ✅ | — |
-| Incoming meeting requests, accept, decline | — | ❌ | [[T-042 Meeting request, accept with slots, decline with reason]] |
-| Availability slots to offer | — | ❌ | [[T-041 Availability slots CRUD]] |
+| Incoming meeting requests, accept, decline | — | ❌ | [[Meetings Story|Meetings · S9]] |
+| Availability slots to offer | — | ❌ | [[Meetings Story|Meetings · S8]] |
 | Discoverable-via-Gemma toggle | — | ❌ | [[Exhibitor Story|Exhibitor · S7]] (feeds [[Gemma AI Story|Gemma AI · S8]]) |
 | Scans, video clicks, Rings opened; leads CSV | — | ❌ | [[Exhibitor Story|Exhibitor · S8]] |
 | Scan counting itself | — | ❌ | [[T-009 Scan counter and share link]] |
@@ -67,13 +67,13 @@ What the client needs for business setup, incoming meetings and booth analytics,
 | 404 / 403 on `…/members` | `E_RING_02` / `E_RING_05` | "You cannot manage this business", back to s68 |
 | 404 on `GET /views/ring/:ringId` | `E_RING_ACCESS_01` | "Preview not available" |
 | business create validation | to be defined by [[Exhibitor Story|Exhibitor · S7]] | Field errors on the step that failed |
-| accept / decline conflicts (slot taken, request withdrawn) | to be defined by [[T-042 Meeting request, accept with slots, decline with reason]] | Refetch the request, show its current state |
+| accept / decline conflicts (slot taken, request withdrawn) | to be defined by [[Meetings Story|Meetings · S9]] | Refetch the request, show its current state |
 | analytics unavailable | to be defined by [[Exhibitor Story|Exhibitor · S8]] | Counters at "—" with retry |
 
 ## Blocked by
 
 - No decision note. Upstream tasks:
 - [[Exhibitor Story|Exhibitor · S7]] — waits on [[Companies Story|Companies · S6]]; s63 entirely.
-- [[T-042 Meeting request, accept with slots, decline with reason]] and [[T-041 Availability slots CRUD]] — s64.
+- [[Meetings Story|Meetings · S9]] and [[Meetings Story|Meetings · S8]] — s64.
 - [[Exhibitor Story|Exhibitor · S8]] — waits on [[T-009 Scan counter and share link]] and [[T-036 Event mode exhibitors list and detail]]; s65.
 - Organizer touchpoints (invitation, requested files, booth and payment status) — no task yet.

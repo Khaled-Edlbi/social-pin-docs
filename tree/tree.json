@@ -325,21 +325,6 @@
     "T-040 Story": "story:T-040",
     "T-040-be Backend · Lounges and upgrades": "task:T-040-be",
     "T-040-fe Frontend · Lounges and upgrades": "task:T-040-fe",
-    "T-041 Availability slots CRUD": "task:T-041",
-    "T-041 Story": "story:T-041",
-    "T-041-be Backend · Availability slots CRUD": "task:T-041-be",
-    "T-041-fe Frontend · Availability slots CRUD": "task:T-041-fe",
-    "T-042 Meeting request, accept with slots, decline with reason": "task:T-042",
-    "T-042 Story": "story:T-042",
-    "T-042-be Backend · Meeting request, accept with slots, decline with reason": "task:T-042-be",
-    "T-042-fe Frontend · Meeting request, accept with slots, decline with reason": "task:T-042-fe",
-    "T-043 Story": "story:T-043",
-    "T-043 Temporary meeting Ring per meeting": "task:T-043",
-    "T-043-be Backend · Temporary meeting Ring per meeting": "task:T-043-be",
-    "T-044 My meetings, calendar, detail, reschedule, cancel": "task:T-044",
-    "T-044 Story": "story:T-044",
-    "T-044-be Backend · My meetings, calendar, detail, reschedule, cancel": "task:T-044-be",
-    "T-044-fe Frontend · My meetings, calendar, detail, reschedule, cancel": "task:T-044-fe",
     "T-068 Account moderation and platform role": "task:T-068",
     "T-068 Story": "story:T-068",
     "T-068-be Backend · Account moderation and platform role": "task:T-068-be",
@@ -630,10 +615,6 @@
     "S-59": "story:exhibitor",
     "S-62": "story:post-event",
     "S-64": "story:meetings",
-    "S-65": "story:T-041",
-    "S-66": "story:T-042",
-    "S-67": "story:T-043",
-    "S-68": "story:T-044",
     "S-69": "story:payments",
     "S-71": "story:subscription",
     "S-73": "story:app-shell",
@@ -689,17 +670,6 @@
     "T-040": "task:T-040",
     "T-040-be": "task:T-040-be",
     "T-040-fe": "task:T-040-fe",
-    "T-041": "task:T-041",
-    "T-041-be": "task:T-041-be",
-    "T-041-fe": "task:T-041-fe",
-    "T-042": "task:T-042",
-    "T-042-be": "task:T-042-be",
-    "T-042-fe": "task:T-042-fe",
-    "T-043": "task:T-043",
-    "T-043-be": "task:T-043-be",
-    "T-044": "task:T-044",
-    "T-044-be": "task:T-044-be",
-    "T-044-fe": "task:T-044-fe",
     "T-068": "task:T-068",
     "T-068-be": "task:T-068-be",
     "T-069": "task:T-069",
@@ -4104,33 +4074,14 @@
     },
     "s59": {
       "containers": [
-        "feature:meetings",
-        "task:T-041",
-        "task:T-041-be",
-        "task:T-041-fe",
-        "task:T-042",
-        "task:T-042-be",
-        "task:T-042-fe",
-        "task:T-043",
-        "task:T-043-be"
+        "feature:meetings"
       ],
       "kind": "screen",
       "notes": [
         "backend-delivery:meetings",
         "feature:meetings",
         "frontend-requirements:meetings",
-        "story:T-041",
-        "story:T-042",
-        "story:T-043",
-        "story:meetings",
-        "task:T-041",
-        "task:T-041-be",
-        "task:T-041-fe",
-        "task:T-042",
-        "task:T-042-be",
-        "task:T-042-fe",
-        "task:T-043",
-        "task:T-043-be"
+        "story:meetings"
       ],
       "owner": null
     },
@@ -4149,21 +4100,14 @@
     },
     "s61": {
       "containers": [
-        "feature:meetings",
-        "task:T-044",
-        "task:T-044-be",
-        "task:T-044-fe"
+        "feature:meetings"
       ],
       "kind": "screen",
       "notes": [
         "backend-delivery:meetings",
         "feature:meetings",
         "frontend-requirements:meetings",
-        "story:T-044",
-        "story:meetings",
-        "task:T-044",
-        "task:T-044-be",
-        "task:T-044-fe"
+        "story:meetings"
       ],
       "owner": null
     },
@@ -4207,13 +4151,7 @@
     "s64": {
       "containers": [
         "feature:exhibitor",
-        "feature:meetings",
-        "task:T-041",
-        "task:T-041-be",
-        "task:T-041-fe",
-        "task:T-042",
-        "task:T-042-be",
-        "task:T-042-fe"
+        "feature:meetings"
       ],
       "kind": "screen",
       "notes": [
@@ -4223,16 +4161,8 @@
         "feature:meetings",
         "frontend-requirements:exhibitor",
         "frontend-requirements:meetings",
-        "story:T-041",
-        "story:T-042",
         "story:exhibitor",
-        "story:meetings",
-        "task:T-041",
-        "task:T-041-be",
-        "task:T-041-fe",
-        "task:T-042",
-        "task:T-042-be",
-        "task:T-042-fe"
+        "story:meetings"
       ],
       "owner": null
     },
@@ -4251,46 +4181,27 @@
     },
     "s66": {
       "containers": [
-        "feature:meetings",
-        "task:T-044",
-        "task:T-044-be",
-        "task:T-044-fe"
+        "feature:meetings"
       ],
       "kind": "screen",
       "notes": [
         "backend-delivery:meetings",
         "feature:meetings",
         "frontend-requirements:meetings",
-        "story:T-044",
-        "story:meetings",
-        "task:T-044",
-        "task:T-044-be",
-        "task:T-044-fe"
+        "story:meetings"
       ],
       "owner": null
     },
     "s67": {
       "containers": [
-        "feature:meetings",
-        "task:T-043",
-        "task:T-043-be",
-        "task:T-044",
-        "task:T-044-be",
-        "task:T-044-fe"
+        "feature:meetings"
       ],
       "kind": "screen",
       "notes": [
         "backend-delivery:meetings",
         "feature:meetings",
         "frontend-requirements:meetings",
-        "story:T-043",
-        "story:T-044",
-        "story:meetings",
-        "task:T-043",
-        "task:T-043-be",
-        "task:T-044",
-        "task:T-044-be",
-        "task:T-044-fe"
+        "story:meetings"
       ],
       "owner": null
     },
@@ -4443,7 +4354,7 @@
     }
   },
   "counts": {
-    "blocked": 80,
+    "blocked": 71,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -4456,28 +4367,28 @@
       "project": 27,
       "qa-backend": 1,
       "qa-frontend": 1,
-      "story": 63,
-      "task": 65
+      "story": 59,
+      "task": 54
     },
     "byLayer": {
       "backend": 56,
-      "business": 207,
+      "business": 192,
       "frontend": 44,
       "qa": 2,
       "shared": 10
     },
     "concepts": 199,
     "decisions": 19,
-    "edges": 4193,
+    "edges": 4106,
     "features": 41,
-    "layerNotes": 153,
+    "layerNotes": 149,
     "modules": 8,
-    "notes": 355,
+    "notes": 340,
     "partial": 4,
     "placeholders": 155,
     "records": 14,
-    "taskLayerNotes": 23,
-    "tasks": 65
+    "taskLayerNotes": 19,
+    "tasks": 54
   },
   "deadlines": {
     "missed": {
@@ -6293,61 +6204,6 @@
       "to": "task:T-040-fe"
     },
     {
-      "from": "task:T-041",
-      "kind": "blocks",
-      "to": "task:T-042"
-    },
-    {
-      "from": "task:T-041",
-      "kind": "blocks",
-      "to": "task:T-042-be"
-    },
-    {
-      "from": "task:T-041",
-      "kind": "blocks",
-      "to": "task:T-042-fe"
-    },
-    {
-      "from": "task:T-041-be",
-      "kind": "blocks",
-      "to": "task:T-041-fe"
-    },
-    {
-      "from": "task:T-042",
-      "kind": "blocks",
-      "to": "task:T-043"
-    },
-    {
-      "from": "task:T-042",
-      "kind": "blocks",
-      "to": "task:T-043-be"
-    },
-    {
-      "from": "task:T-042",
-      "kind": "blocks",
-      "to": "task:T-044"
-    },
-    {
-      "from": "task:T-042",
-      "kind": "blocks",
-      "to": "task:T-044-be"
-    },
-    {
-      "from": "task:T-042",
-      "kind": "blocks",
-      "to": "task:T-044-fe"
-    },
-    {
-      "from": "task:T-042-be",
-      "kind": "blocks",
-      "to": "task:T-042-fe"
-    },
-    {
-      "from": "task:T-044-be",
-      "kind": "blocks",
-      "to": "task:T-044-fe"
-    },
-    {
       "from": "task:T-068",
       "kind": "blocks",
       "to": "task:T-069"
@@ -6911,61 +6767,6 @@
       "from": "task:T-040-fe",
       "kind": "depends",
       "to": "task:T-040-be"
-    },
-    {
-      "from": "task:T-041-fe",
-      "kind": "depends",
-      "to": "task:T-041-be"
-    },
-    {
-      "from": "task:T-042",
-      "kind": "depends",
-      "to": "task:T-041"
-    },
-    {
-      "from": "task:T-042-be",
-      "kind": "depends",
-      "to": "task:T-041"
-    },
-    {
-      "from": "task:T-042-fe",
-      "kind": "depends",
-      "to": "task:T-041"
-    },
-    {
-      "from": "task:T-042-fe",
-      "kind": "depends",
-      "to": "task:T-042-be"
-    },
-    {
-      "from": "task:T-043",
-      "kind": "depends",
-      "to": "task:T-042"
-    },
-    {
-      "from": "task:T-043-be",
-      "kind": "depends",
-      "to": "task:T-042"
-    },
-    {
-      "from": "task:T-044",
-      "kind": "depends",
-      "to": "task:T-042"
-    },
-    {
-      "from": "task:T-044-be",
-      "kind": "depends",
-      "to": "task:T-042"
-    },
-    {
-      "from": "task:T-044-fe",
-      "kind": "depends",
-      "to": "task:T-042"
-    },
-    {
-      "from": "task:T-044-fe",
-      "kind": "depends",
-      "to": "task:T-044-be"
     },
     {
       "from": "task:T-069",
@@ -10752,38 +10553,6 @@
       "from": "story:gemma",
       "kind": "related",
       "to": "decision:D-06"
-    },
-    {
-      "from": "story:meetings",
-      "kind": "related",
-      "to": "story:T-041",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
-      "from": "story:meetings",
-      "kind": "related",
-      "to": "story:T-042",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
-      "from": "story:meetings",
-      "kind": "related",
-      "to": "story:T-043",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
-      "from": "story:meetings",
-      "kind": "related",
-      "to": "story:T-044",
-      "via": [
-        "sum-of"
-      ]
     },
     {
       "from": "story:onboarding-imports",
@@ -22524,26 +22293,6 @@
       "to": "needs-decision:ND-16"
     },
     {
-      "from": "story:meetings",
-      "kind": "tree",
-      "to": "task:T-041"
-    },
-    {
-      "from": "story:meetings",
-      "kind": "tree",
-      "to": "task:T-042"
-    },
-    {
-      "from": "story:meetings",
-      "kind": "tree",
-      "to": "task:T-043"
-    },
-    {
-      "from": "story:meetings",
-      "kind": "tree",
-      "to": "task:T-044"
-    },
-    {
       "from": "story:onboarding-imports",
       "kind": "tree",
       "to": "needs-decision:ND-21"
@@ -22852,61 +22601,6 @@
       "from": "task:T-040",
       "kind": "tree",
       "to": "task:T-040-fe"
-    },
-    {
-      "from": "task:T-041",
-      "kind": "tree",
-      "to": "story:T-041"
-    },
-    {
-      "from": "task:T-041",
-      "kind": "tree",
-      "to": "task:T-041-be"
-    },
-    {
-      "from": "task:T-041",
-      "kind": "tree",
-      "to": "task:T-041-fe"
-    },
-    {
-      "from": "task:T-042",
-      "kind": "tree",
-      "to": "story:T-042"
-    },
-    {
-      "from": "task:T-042",
-      "kind": "tree",
-      "to": "task:T-042-be"
-    },
-    {
-      "from": "task:T-042",
-      "kind": "tree",
-      "to": "task:T-042-fe"
-    },
-    {
-      "from": "task:T-043",
-      "kind": "tree",
-      "to": "story:T-043"
-    },
-    {
-      "from": "task:T-043",
-      "kind": "tree",
-      "to": "task:T-043-be"
-    },
-    {
-      "from": "task:T-044",
-      "kind": "tree",
-      "to": "story:T-044"
-    },
-    {
-      "from": "task:T-044",
-      "kind": "tree",
-      "to": "task:T-044-be"
-    },
-    {
-      "from": "task:T-044",
-      "kind": "tree",
-      "to": "task:T-044-fe"
     },
     {
       "from": "task:T-068",
@@ -24226,22 +23920,7 @@
     {
       "from": "feature:meetings",
       "kind": "wikilink",
-      "to": "task:T-041"
-    },
-    {
-      "from": "feature:meetings",
-      "kind": "wikilink",
-      "to": "task:T-042"
-    },
-    {
-      "from": "feature:meetings",
-      "kind": "wikilink",
-      "to": "task:T-043"
-    },
-    {
-      "from": "feature:meetings",
-      "kind": "wikilink",
-      "to": "task:T-044"
+      "to": "project:status-report-2026-10-15"
     },
     {
       "from": "feature:notifications",
@@ -25066,6 +24745,11 @@
     {
       "from": "frontend-requirements:events-during",
       "kind": "wikilink",
+      "to": "story:meetings"
+    },
+    {
+      "from": "frontend-requirements:events-during",
+      "kind": "wikilink",
       "to": "story:subscription"
     },
     {
@@ -25097,11 +24781,6 @@
       "from": "frontend-requirements:events-during",
       "kind": "wikilink",
       "to": "task:T-040"
-    },
-    {
-      "from": "frontend-requirements:events-during",
-      "kind": "wikilink",
-      "to": "task:T-044"
     },
     {
       "from": "frontend-requirements:exhibitor",
@@ -25141,22 +24820,17 @@
     {
       "from": "frontend-requirements:exhibitor",
       "kind": "wikilink",
+      "to": "story:meetings"
+    },
+    {
+      "from": "frontend-requirements:exhibitor",
+      "kind": "wikilink",
       "to": "task:T-009"
     },
     {
       "from": "frontend-requirements:exhibitor",
       "kind": "wikilink",
       "to": "task:T-036"
-    },
-    {
-      "from": "frontend-requirements:exhibitor",
-      "kind": "wikilink",
-      "to": "task:T-041"
-    },
-    {
-      "from": "frontend-requirements:exhibitor",
-      "kind": "wikilink",
-      "to": "task:T-042"
     },
     {
       "from": "frontend-requirements:files",
@@ -25216,17 +24890,17 @@
     {
       "from": "frontend-requirements:gemma",
       "kind": "wikilink",
+      "to": "story:meetings"
+    },
+    {
+      "from": "frontend-requirements:gemma",
+      "kind": "wikilink",
       "to": "story:subscription"
     },
     {
       "from": "frontend-requirements:gemma",
       "kind": "wikilink",
       "to": "task:T-036"
-    },
-    {
-      "from": "frontend-requirements:gemma",
-      "kind": "wikilink",
-      "to": "task:T-042"
     },
     {
       "from": "frontend-requirements:interests",
@@ -25292,26 +24966,6 @@
       "from": "frontend-requirements:meetings",
       "kind": "wikilink",
       "to": "story:subscription"
-    },
-    {
-      "from": "frontend-requirements:meetings",
-      "kind": "wikilink",
-      "to": "task:T-041"
-    },
-    {
-      "from": "frontend-requirements:meetings",
-      "kind": "wikilink",
-      "to": "task:T-042"
-    },
-    {
-      "from": "frontend-requirements:meetings",
-      "kind": "wikilink",
-      "to": "task:T-043"
-    },
-    {
-      "from": "frontend-requirements:meetings",
-      "kind": "wikilink",
-      "to": "task:T-044"
     },
     {
       "from": "frontend-requirements:notifications",
@@ -25511,6 +25165,11 @@
     {
       "from": "frontend-requirements:post-event",
       "kind": "wikilink",
+      "to": "story:meetings"
+    },
+    {
+      "from": "frontend-requirements:post-event",
+      "kind": "wikilink",
       "to": "story:post-event"
     },
     {
@@ -25527,11 +25186,6 @@
       "from": "frontend-requirements:post-event",
       "kind": "wikilink",
       "to": "task:T-023"
-    },
-    {
-      "from": "frontend-requirements:post-event",
-      "kind": "wikilink",
-      "to": "task:T-044"
     },
     {
       "from": "frontend-requirements:profiles",
@@ -28046,11 +27700,6 @@
     {
       "from": "project:status-report-2026-10-15",
       "kind": "wikilink",
-      "to": "feature:meetings"
-    },
-    {
-      "from": "project:status-report-2026-10-15",
-      "kind": "wikilink",
       "to": "feature:ring-access"
     },
     {
@@ -29039,26 +28688,6 @@
       "to": "feature:events-during"
     },
     {
-      "from": "story:T-041",
-      "kind": "wikilink",
-      "to": "feature:meetings"
-    },
-    {
-      "from": "story:T-042",
-      "kind": "wikilink",
-      "to": "feature:meetings"
-    },
-    {
-      "from": "story:T-043",
-      "kind": "wikilink",
-      "to": "feature:meetings"
-    },
-    {
-      "from": "story:T-044",
-      "kind": "wikilink",
-      "to": "feature:meetings"
-    },
-    {
       "from": "story:T-068",
       "kind": "wikilink",
       "to": "feature:operator-panel"
@@ -29762,171 +29391,6 @@
       "from": "task:T-040-fe",
       "kind": "wikilink",
       "to": "task:T-040-be"
-    },
-    {
-      "from": "task:T-041",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-041",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-041",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-041",
-      "kind": "wikilink",
-      "to": "task:T-042"
-    },
-    {
-      "from": "task:T-041-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:meetings"
-    },
-    {
-      "from": "task:T-041-be",
-      "kind": "wikilink",
-      "to": "feature:meetings"
-    },
-    {
-      "from": "task:T-041-fe",
-      "kind": "wikilink",
-      "to": "feature:meetings"
-    },
-    {
-      "from": "task:T-041-fe",
-      "kind": "wikilink",
-      "to": "story:T-041"
-    },
-    {
-      "from": "task:T-041-fe",
-      "kind": "wikilink",
-      "to": "task:T-041-be"
-    },
-    {
-      "from": "task:T-042",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-042",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-042",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-042",
-      "kind": "wikilink",
-      "to": "task:T-043"
-    },
-    {
-      "from": "task:T-042",
-      "kind": "wikilink",
-      "to": "task:T-044"
-    },
-    {
-      "from": "task:T-042-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:meetings"
-    },
-    {
-      "from": "task:T-042-be",
-      "kind": "wikilink",
-      "to": "feature:meetings"
-    },
-    {
-      "from": "task:T-042-fe",
-      "kind": "wikilink",
-      "to": "feature:meetings"
-    },
-    {
-      "from": "task:T-042-fe",
-      "kind": "wikilink",
-      "to": "story:T-042"
-    },
-    {
-      "from": "task:T-042-fe",
-      "kind": "wikilink",
-      "to": "task:T-042-be"
-    },
-    {
-      "from": "task:T-043",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-043",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-043",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-043-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:meetings"
-    },
-    {
-      "from": "task:T-043-be",
-      "kind": "wikilink",
-      "to": "feature:meetings"
-    },
-    {
-      "from": "task:T-044",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-044",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-044",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-044",
-      "kind": "wikilink",
-      "to": "story:post-event"
-    },
-    {
-      "from": "task:T-044-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:meetings"
-    },
-    {
-      "from": "task:T-044-be",
-      "kind": "wikilink",
-      "to": "feature:meetings"
-    },
-    {
-      "from": "task:T-044-fe",
-      "kind": "wikilink",
-      "to": "feature:meetings"
-    },
-    {
-      "from": "task:T-044-fe",
-      "kind": "wikilink",
-      "to": "story:T-044"
-    },
-    {
-      "from": "task:T-044-fe",
-      "kind": "wikilink",
-      "to": "task:T-044-be"
     },
     {
       "from": "task:T-068-be",
@@ -31230,66 +30694,6 @@
     },
     "social-pin/tasks/T-040 Lounges and upgrades/T-040-fe Frontend · Lounges and upgrades.md": {
       "name": "T-040-fe Frontend · Lounges and upgrades",
-      "type": "task"
-    },
-    "social-pin/tasks/T-041 Availability slots CRUD/T-041 Availability slots CRUD.md": {
-      "name": "T-041 Availability slots CRUD",
-      "type": "task"
-    },
-    "social-pin/tasks/T-041 Availability slots CRUD/T-041 Story.md": {
-      "name": "T-041 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-041 Availability slots CRUD/T-041-be Backend · Availability slots CRUD.md": {
-      "name": "T-041-be Backend · Availability slots CRUD",
-      "type": "task"
-    },
-    "social-pin/tasks/T-041 Availability slots CRUD/T-041-fe Frontend · Availability slots CRUD.md": {
-      "name": "T-041-fe Frontend · Availability slots CRUD",
-      "type": "task"
-    },
-    "social-pin/tasks/T-042 Meeting request, accept with slots, decline with reason/T-042 Meeting request, accept with slots, decline with reason.md": {
-      "name": "T-042 Meeting request, accept with slots, decline with reason",
-      "type": "task"
-    },
-    "social-pin/tasks/T-042 Meeting request, accept with slots, decline with reason/T-042 Story.md": {
-      "name": "T-042 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-042 Meeting request, accept with slots, decline with reason/T-042-be Backend · Meeting request, accept with slots, decline with reason.md": {
-      "name": "T-042-be Backend · Meeting request, accept with slots, decline with reason",
-      "type": "task"
-    },
-    "social-pin/tasks/T-042 Meeting request, accept with slots, decline with reason/T-042-fe Frontend · Meeting request, accept with slots, decline with reason.md": {
-      "name": "T-042-fe Frontend · Meeting request, accept with slots, decline with reason",
-      "type": "task"
-    },
-    "social-pin/tasks/T-043 Temporary meeting Ring per meeting/T-043 Story.md": {
-      "name": "T-043 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-043 Temporary meeting Ring per meeting/T-043 Temporary meeting Ring per meeting.md": {
-      "name": "T-043 Temporary meeting Ring per meeting",
-      "type": "task"
-    },
-    "social-pin/tasks/T-043 Temporary meeting Ring per meeting/T-043-be Backend · Temporary meeting Ring per meeting.md": {
-      "name": "T-043-be Backend · Temporary meeting Ring per meeting",
-      "type": "task"
-    },
-    "social-pin/tasks/T-044 My meetings, calendar, detail, reschedule, cancel/T-044 My meetings, calendar, detail, reschedule, cancel.md": {
-      "name": "T-044 My meetings, calendar, detail, reschedule, cancel",
-      "type": "task"
-    },
-    "social-pin/tasks/T-044 My meetings, calendar, detail, reschedule, cancel/T-044 Story.md": {
-      "name": "T-044 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-044 My meetings, calendar, detail, reschedule, cancel/T-044-be Backend · My meetings, calendar, detail, reschedule, cancel.md": {
-      "name": "T-044-be Backend · My meetings, calendar, detail, reschedule, cancel",
-      "type": "task"
-    },
-    "social-pin/tasks/T-044 My meetings, calendar, detail, reschedule, cancel/T-044-fe Frontend · My meetings, calendar, detail, reschedule, cancel.md": {
-      "name": "T-044-fe Frontend · My meetings, calendar, detail, reschedule, cancel",
       "type": "task"
     },
     "social-pin/tasks/T-068 Account moderation and platform role/T-068 Account moderation and platform role.md": {
@@ -38789,10 +38193,9 @@
       "resolution": null,
       "rollup": {
         "approved": 1,
-        "blocked": 10,
-        "draft": 5,
-        "missing": 4,
-        "todo": 2
+        "blocked": 1,
+        "draft": 1,
+        "missing": 4
       },
       "scope": null,
       "screens": [
@@ -38812,7 +38215,7 @@
       ],
       "task": null,
       "title": "Meetings",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "feature:notifications": {
       "affects": [],
@@ -44721,11 +44124,10 @@
       "resolution": null,
       "rollup": {
         "approved": 1,
-        "blocked": 10,
-        "draft": 5,
+        "blocked": 1,
+        "draft": 1,
         "in-progress": 1,
-        "missing": 4,
-        "todo": 2
+        "missing": 4
       },
       "scope": null,
       "screens": [],
@@ -51332,12 +50734,12 @@
       ],
       "rollup": {
         "approved": 34,
-        "blocked": 80,
+        "blocked": 71,
         "current": 8,
         "decided": 14,
         "delivered": 2,
         "done": 10,
-        "draft": 59,
+        "draft": 55,
         "in-progress": 55,
         "missing": 155,
         "needs-decision": 3,
@@ -51345,7 +50747,7 @@
         "passing": 1,
         "ready": 2,
         "reference": 31,
-        "todo": 14,
+        "todo": 12,
         "verified": 14
       },
       "scope": null,
@@ -52113,211 +51515,6 @@
       ],
       "task": "T-040",
       "title": "T-040 Story",
-      "updated": "2026-10-26"
-    },
-    "story:T-041": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-65",
-      "children": [],
-      "code": "T-041",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
-      "effort": null,
-      "feature": "meetings",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-041",
-      "inherits": {
-        "priority": "task:T-041",
-        "release": "feature:meetings"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "meetings",
-      "parentTask": null,
-      "parents": [
-        "task:T-041"
-      ],
-      "path": "social-pin/tasks/T-041 Availability slots CRUD/T-041 Story.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "scope": "task",
-      "screens": [
-        "s59",
-        "s64"
-      ],
-      "status": "draft",
-      "summary": "Exclusion constraint already guards overlaps; map the DB error to a domain error.",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/meetings",
-        "layer/business"
-      ],
-      "task": "T-041",
-      "title": "T-041 Story",
-      "updated": "2026-10-26"
-    },
-    "story:T-042": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-66",
-      "children": [],
-      "code": "T-042",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
-      "effort": null,
-      "feature": "meetings",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-042",
-      "inherits": {
-        "priority": "task:T-042",
-        "release": "feature:meetings"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "meetings",
-      "parentTask": null,
-      "parents": [
-        "task:T-042"
-      ],
-      "path": "social-pin/tasks/T-042 Meeting request, accept with slots, decline with reason/T-042 Story.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "scope": "task",
-      "screens": [
-        "s59",
-        "s64"
-      ],
-      "status": "draft",
-      "summary": "Each transition @Transactional. Decline → notification with reason (Notifications · S7).",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/meetings",
-        "layer/business"
-      ],
-      "task": "T-042",
-      "title": "T-042 Story",
-      "updated": "2026-10-27"
-    },
-    "story:T-043": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-67",
-      "children": [],
-      "code": "T-043",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
-      "effort": null,
-      "feature": "meetings",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-043",
-      "inherits": {
-        "priority": "task:T-043",
-        "release": "feature:meetings"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "meetings",
-      "parentTask": null,
-      "parents": [
-        "task:T-043"
-      ],
-      "path": "social-pin/tasks/T-043 Temporary meeting Ring per meeting/T-043 Story.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "scope": "task",
-      "screens": [
-        "s59",
-        "s67"
-      ],
-      "status": "draft",
-      "summary": "MEETING Ring with window = meeting time ± margin; both participants are members; disposition after.",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/meetings",
-        "layer/business"
-      ],
-      "task": "T-043",
-      "title": "T-043 Story",
-      "updated": "2026-10-26"
-    },
-    "story:T-044": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-68",
-      "children": [],
-      "code": "T-044",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
-      "effort": null,
-      "feature": "meetings",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-044",
-      "inherits": {
-        "priority": "task:T-044",
-        "release": "feature:meetings"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "meetings",
-      "parentTask": null,
-      "parents": [
-        "task:T-044"
-      ],
-      "path": "social-pin/tasks/T-044 My meetings, calendar, detail, reschedule, cancel/T-044 Story.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "scope": "task",
-      "screens": [
-        "s61",
-        "s66",
-        "s67"
-      ],
-      "status": "draft",
-      "summary": "Agenda, shared files (via File), reschedule = new request referencing the old meeting.",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/meetings",
-        "layer/business"
-      ],
-      "task": "T-044",
-      "title": "T-044 Story",
       "updated": "2026-10-26"
     },
     "story:T-068": {
@@ -53921,12 +53118,7 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-64",
-      "children": [
-        "task:T-041",
-        "task:T-042",
-        "task:T-043",
-        "task:T-044"
-      ],
+      "children": [],
       "code": "meetings",
       "created": "2026-10-18",
       "deadline": null,
@@ -57783,725 +56975,6 @@
       "task": null,
       "title": "T-040-fe Frontend · Lounges and upgrades",
       "updated": "2026-10-27"
-    },
-    "task:T-041": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-041",
-      "children": [
-        "story:T-041",
-        "task:T-041-be",
-        "task:T-041-fe"
-      ],
-      "code": "T-041",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": "social-pin/tasks/T-041 Availability slots CRUD",
-      "effectiveStatus": "todo",
-      "effort": "M",
-      "feature": "meetings",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-041",
-      "inherits": {
-        "release": "feature:meetings"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "meetings",
-      "parentTask": null,
-      "parents": [
-        "story:meetings"
-      ],
-      "path": "social-pin/tasks/T-041 Availability slots CRUD/T-041 Availability slots CRUD.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {
-        "blocked": 1,
-        "draft": 1,
-        "todo": 1
-      },
-      "scope": null,
-      "screens": [
-        "s59",
-        "s64"
-      ],
-      "status": "todo",
-      "summary": "Exclusion constraint already guards overlaps; map the DB error to a domain error.",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/meetings",
-        "priority/critical"
-      ],
-      "task": null,
-      "title": "T-041 Availability slots CRUD",
-      "updated": "2026-10-26"
-    },
-    "task:T-041-be": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-041-be",
-      "children": [],
-      "code": "T-041-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": null,
-      "effectiveStatus": "todo",
-      "effort": "M",
-      "feature": "meetings",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-041-be",
-      "inherits": {
-        "release": "feature:meetings"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "meetings",
-      "parentTask": "T-041",
-      "parents": [
-        "task:T-041"
-      ],
-      "path": "social-pin/tasks/T-041 Availability slots CRUD/T-041-be Backend · Availability slots CRUD.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s59",
-        "s64"
-      ],
-      "status": "todo",
-      "summary": "The API side of T-041 Availability slots CRUD: the endpoints, data and rules its What describes. Record what shipped in T-041-be Backend Delivery and how to call it in T-041-be Backend…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/meetings",
-        "priority/critical",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-041-be Backend · Availability slots CRUD",
-      "updated": "2026-10-26"
-    },
-    "task:T-041-fe": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-041-be",
-          "title": "T-041-be Backend · Availability slots CRUD",
-          "why": "T-041-be Backend · Availability slots CRUD is to do"
-        }
-      ],
-      "card": "T-041-fe",
-      "children": [],
-      "code": "T-041-fe",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-041-be"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "meetings",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-041-fe",
-      "inherits": {
-        "release": "feature:meetings"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "frontend"
-      ],
-      "layer": "business",
-      "module": "meetings",
-      "parentTask": "T-041",
-      "parents": [
-        "task:T-041"
-      ],
-      "path": "social-pin/tasks/T-041 Availability slots CRUD/T-041-fe Frontend · Availability slots CRUD.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s59",
-        "s64"
-      ],
-      "status": "todo",
-      "summary": "The client side of T-041 Availability slots CRUD: the screens below show what its What describes, built against Meetings Backend Integration once the backend half (T-041-be Backend · Availability…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/meetings",
-        "priority/critical",
-        "frontend"
-      ],
-      "task": null,
-      "title": "T-041-fe Frontend · Availability slots CRUD",
-      "updated": "2026-10-26"
-    },
-    "task:T-042": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-041",
-          "title": "T-041 Availability slots CRUD",
-          "why": "T-041 Availability slots CRUD is to do"
-        }
-      ],
-      "card": "T-042",
-      "children": [
-        "story:T-042",
-        "task:T-042-be",
-        "task:T-042-fe"
-      ],
-      "code": "T-042",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-041"
-      ],
-      "dir": "social-pin/tasks/T-042 Meeting request, accept with slots, decline with reason",
-      "effectiveStatus": "blocked",
-      "effort": "L",
-      "feature": "meetings",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-042",
-      "inherits": {
-        "release": "feature:meetings"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "meetings",
-      "parentTask": null,
-      "parents": [
-        "story:meetings"
-      ],
-      "path": "social-pin/tasks/T-042 Meeting request, accept with slots, decline with reason/T-042 Meeting request, accept with slots, decline with reason.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {
-        "blocked": 2,
-        "draft": 1
-      },
-      "scope": null,
-      "screens": [
-        "s59",
-        "s64"
-      ],
-      "status": "todo",
-      "summary": "Each transition @Transactional. Decline → notification with reason (Notifications · S7).",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/meetings",
-        "priority/critical"
-      ],
-      "task": null,
-      "title": "T-042 Meeting request, accept with slots, decline with reason",
-      "updated": "2026-10-27"
-    },
-    "task:T-042-be": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-041",
-          "title": "T-041 Availability slots CRUD",
-          "why": "T-041 Availability slots CRUD is to do"
-        }
-      ],
-      "card": "T-042-be",
-      "children": [],
-      "code": "T-042-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-041"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "L",
-      "feature": "meetings",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-042-be",
-      "inherits": {
-        "release": "feature:meetings"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "meetings",
-      "parentTask": "T-042",
-      "parents": [
-        "task:T-042"
-      ],
-      "path": "social-pin/tasks/T-042 Meeting request, accept with slots, decline with reason/T-042-be Backend · Meeting request, accept with slots, decline with reason.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s59",
-        "s64"
-      ],
-      "status": "todo",
-      "summary": "The API side of T-042 Meeting request, accept with slots, decline with reason: the endpoints, data and rules its What describes. Record what shipped in T-042-be Backend Delivery and how to call it…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/meetings",
-        "priority/critical",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-042-be Backend · Meeting request, accept with slots, decline with reason",
-      "updated": "2026-10-26"
-    },
-    "task:T-042-fe": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-041",
-          "title": "T-041 Availability slots CRUD",
-          "why": "T-041 Availability slots CRUD is to do"
-        },
-        {
-          "id": "task:T-042-be",
-          "title": "T-042-be Backend · Meeting request, accept with slots, decline with reason",
-          "why": "T-042-be Backend · Meeting request, accept with slots, decline with reason is blocked"
-        }
-      ],
-      "card": "T-042-fe",
-      "children": [],
-      "code": "T-042-fe",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-041",
-        "task:T-042-be"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "L",
-      "feature": "meetings",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-042-fe",
-      "inherits": {
-        "release": "feature:meetings"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "frontend"
-      ],
-      "layer": "business",
-      "module": "meetings",
-      "parentTask": "T-042",
-      "parents": [
-        "task:T-042"
-      ],
-      "path": "social-pin/tasks/T-042 Meeting request, accept with slots, decline with reason/T-042-fe Frontend · Meeting request, accept with slots, decline with reason.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s59",
-        "s64"
-      ],
-      "status": "todo",
-      "summary": "The client side of T-042 Meeting request, accept with slots, decline with reason: the screens below show what its What describes, built against Meetings Backend Integration once the backend half…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/meetings",
-        "priority/critical",
-        "frontend"
-      ],
-      "task": null,
-      "title": "T-042-fe Frontend · Meeting request, accept with slots, decline with reason",
-      "updated": "2026-10-26"
-    },
-    "task:T-043": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-042",
-          "title": "T-042 Meeting request, accept with slots, decline with reason",
-          "why": "T-042 Meeting request, accept with slots, decline with reason is blocked"
-        }
-      ],
-      "card": "T-043",
-      "children": [
-        "story:T-043",
-        "task:T-043-be"
-      ],
-      "code": "T-043",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-042"
-      ],
-      "dir": "social-pin/tasks/T-043 Temporary meeting Ring per meeting",
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "meetings",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-043",
-      "inherits": {
-        "release": "feature:meetings"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "meetings",
-      "parentTask": null,
-      "parents": [
-        "story:meetings"
-      ],
-      "path": "social-pin/tasks/T-043 Temporary meeting Ring per meeting/T-043 Temporary meeting Ring per meeting.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {
-        "blocked": 1,
-        "draft": 1
-      },
-      "scope": null,
-      "screens": [
-        "s59",
-        "s67"
-      ],
-      "status": "todo",
-      "summary": "MEETING Ring with window = meeting time ± margin; both participants are members; disposition after.",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/meetings",
-        "priority/critical"
-      ],
-      "task": null,
-      "title": "T-043 Temporary meeting Ring per meeting",
-      "updated": "2026-10-26"
-    },
-    "task:T-043-be": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-042",
-          "title": "T-042 Meeting request, accept with slots, decline with reason",
-          "why": "T-042 Meeting request, accept with slots, decline with reason is blocked"
-        }
-      ],
-      "card": "T-043-be",
-      "children": [],
-      "code": "T-043-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-042"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "meetings",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-043-be",
-      "inherits": {
-        "release": "feature:meetings"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "meetings",
-      "parentTask": "T-043",
-      "parents": [
-        "task:T-043"
-      ],
-      "path": "social-pin/tasks/T-043 Temporary meeting Ring per meeting/T-043-be Backend · Temporary meeting Ring per meeting.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s59",
-        "s67"
-      ],
-      "status": "todo",
-      "summary": "The API side of T-043 Temporary meeting Ring per meeting: the endpoints, data and rules its What describes. Record what shipped in T-043-be Backend Delivery and how to call it in T-043-be Backend…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/meetings",
-        "priority/critical",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-043-be Backend · Temporary meeting Ring per meeting",
-      "updated": "2026-10-26"
-    },
-    "task:T-044": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-042",
-          "title": "T-042 Meeting request, accept with slots, decline with reason",
-          "why": "T-042 Meeting request, accept with slots, decline with reason is blocked"
-        }
-      ],
-      "card": "T-044",
-      "children": [
-        "story:T-044",
-        "task:T-044-be",
-        "task:T-044-fe"
-      ],
-      "code": "T-044",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-042"
-      ],
-      "dir": "social-pin/tasks/T-044 My meetings, calendar, detail, reschedule, cancel",
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "meetings",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-044",
-      "inherits": {
-        "release": "feature:meetings"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "meetings",
-      "parentTask": null,
-      "parents": [
-        "story:meetings"
-      ],
-      "path": "social-pin/tasks/T-044 My meetings, calendar, detail, reschedule, cancel/T-044 My meetings, calendar, detail, reschedule, cancel.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {
-        "blocked": 2,
-        "draft": 1
-      },
-      "scope": null,
-      "screens": [
-        "s61",
-        "s66",
-        "s67"
-      ],
-      "status": "todo",
-      "summary": "Agenda, shared files (via File), reschedule = new request referencing the old meeting.",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/meetings",
-        "priority/critical"
-      ],
-      "task": null,
-      "title": "T-044 My meetings, calendar, detail, reschedule, cancel",
-      "updated": "2026-10-27"
-    },
-    "task:T-044-be": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-042",
-          "title": "T-042 Meeting request, accept with slots, decline with reason",
-          "why": "T-042 Meeting request, accept with slots, decline with reason is blocked"
-        }
-      ],
-      "card": "T-044-be",
-      "children": [],
-      "code": "T-044-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-042"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "meetings",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-044-be",
-      "inherits": {
-        "release": "feature:meetings"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "meetings",
-      "parentTask": "T-044",
-      "parents": [
-        "task:T-044"
-      ],
-      "path": "social-pin/tasks/T-044 My meetings, calendar, detail, reschedule, cancel/T-044-be Backend · My meetings, calendar, detail, reschedule, cancel.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s61",
-        "s66",
-        "s67"
-      ],
-      "status": "todo",
-      "summary": "The API side of T-044 My meetings, calendar, detail, reschedule, cancel: the endpoints, data and rules its What describes. Record what shipped in T-044-be Backend Delivery and how to call it in…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/meetings",
-        "priority/critical",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-044-be Backend · My meetings, calendar, detail, reschedule, cancel",
-      "updated": "2026-10-26"
-    },
-    "task:T-044-fe": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-042",
-          "title": "T-042 Meeting request, accept with slots, decline with reason",
-          "why": "T-042 Meeting request, accept with slots, decline with reason is blocked"
-        },
-        {
-          "id": "task:T-044-be",
-          "title": "T-044-be Backend · My meetings, calendar, detail, reschedule, cancel",
-          "why": "T-044-be Backend · My meetings, calendar, detail, reschedule, cancel is blocked"
-        }
-      ],
-      "card": "T-044-fe",
-      "children": [],
-      "code": "T-044-fe",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-042",
-        "task:T-044-be"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "meetings",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-044-fe",
-      "inherits": {
-        "release": "feature:meetings"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "frontend"
-      ],
-      "layer": "business",
-      "module": "meetings",
-      "parentTask": "T-044",
-      "parents": [
-        "task:T-044"
-      ],
-      "path": "social-pin/tasks/T-044 My meetings, calendar, detail, reschedule, cancel/T-044-fe Frontend · My meetings, calendar, detail, reschedule, cancel.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s61",
-        "s66",
-        "s67"
-      ],
-      "status": "todo",
-      "summary": "The client side of T-044 My meetings, calendar, detail, reschedule, cancel: the screens below show what its What describes, built against Meetings Backend Integration once the backend half…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/meetings",
-        "priority/critical",
-        "frontend"
-      ],
-      "task": null,
-      "title": "T-044-fe Frontend · My meetings, calendar, detail, reschedule, cancel",
-      "updated": "2026-10-26"
     },
     "task:T-068": {
       "affects": [

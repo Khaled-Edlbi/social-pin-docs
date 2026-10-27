@@ -22,39 +22,39 @@ What the client needs for the slot-based request, the incoming list, the calenda
 ### [[Screen Index#s59|s59]] Request a meeting
 
 - Needs: the other party's free availability slots for the event (start, end, in the event's timezone); create a request with slot, title, note, optional reference to a meeting being rescheduled; for the exhibitor, my own free slots to offer and an accept call with up to three slots.
-- Source today: not yet ([[T-041 Availability slots CRUD]], [[T-042 Meeting request, accept with slots, decline with reason]]).
+- Source today: not yet ([[Meetings Story|Meetings · S8]], [[Meetings Story|Meetings · S9]]).
 
 ### [[Screen Index#s61|s61]] My meetings
 
 - Needs: today's meetings and requests for the active event with status and the offered slots to confirm; confirm call.
-- Source today: not yet ([[T-044 My meetings, calendar, detail, reschedule, cancel]], T-042).
+- Source today: not yet ([[Meetings Story|Meetings · S11]], Meetings · S9).
 
 ### [[Screen Index#s64|s64]] Incoming meetings
 
 - Needs: requests addressed to me or my business, grouped by status; accept and decline (with reason).
-- Source today: not yet (T-042).
+- Source today: not yet (Meetings · S9).
 
 ### [[Screen Index#s66|s66]] Meetings
 
 - Needs: all my meetings, paginated, with filters (upcoming, past, event) and the fields for a calendar; the meeting Ring id per card for the visual link.
-- Source today: not yet (T-044). The Ring itself will be readable with `GET /rings/:id` or under `GET /rings/shared-with-me` depending on ownership (T-043).
+- Source today: not yet (Meetings · S11). The Ring itself will be readable with `GET /rings/:id` or under `GET /rings/shared-with-me` depending on ownership (Meetings · S10).
 
 ### [[Screen Index#s67|s67]] Meeting detail
 
 - Needs: participants, agenda, shared files, slot, booth, status; reschedule (new request referencing this meeting) and cancel.
-- Source today: not yet (T-044). The other participant's card renders with `GET /views/ring/:ringId` through the meeting Ring once T-043 creates it; the disposition after the window is `POST /rings/:id/disposition` (available).
+- Source today: not yet (Meetings · S11). The other participant's card renders with `GET /views/ring/:ringId` through the meeting Ring once Meetings · S10 creates it; the disposition after the window is `POST /rings/:id/disposition` (available).
 
 ## Endpoints required
 
 | Need | Endpoint | Available | Task / decision |
 |---|---|---|---|
-| My availability slots: list, create, delete | — | ❌ | [[T-041 Availability slots CRUD]] |
-| Another party's free slots for an event | — | ❌ | [[T-041 Availability slots CRUD]] |
-| Create a request with a slot | — | ❌ | [[T-042 Meeting request, accept with slots, decline with reason]] |
-| Accept (confirm or offer slots), decline with reason, requester confirms | — | ❌ | [[T-042 Meeting request, accept with slots, decline with reason]] |
-| Meeting Ring created per request, both parties members | — | ❌ | [[T-043 Temporary meeting Ring per meeting]] |
-| The other participant as the meeting Ring shows them | `GET /views/ring/:ringId` | ✅ | — (needs the Ring from T-043) |
-| My meetings list, calendar, detail, reschedule, cancel | — | ❌ | [[T-044 My meetings, calendar, detail, reschedule, cancel]] |
+| My availability slots: list, create, delete | — | ❌ | [[Meetings Story|Meetings · S8]] |
+| Another party's free slots for an event | — | ❌ | [[Meetings Story|Meetings · S8]] |
+| Create a request with a slot | — | ❌ | [[Meetings Story|Meetings · S9]] |
+| Accept (confirm or offer slots), decline with reason, requester confirms | — | ❌ | [[Meetings Story|Meetings · S9]] |
+| Meeting Ring created per request, both parties members | — | ❌ | [[Meetings Story|Meetings · S10]] |
+| The other participant as the meeting Ring shows them | `GET /views/ring/:ringId` | ✅ | — (needs the Ring from Meetings · S10) |
+| My meetings list, calendar, detail, reschedule, cancel | — | ❌ | [[Meetings Story|Meetings · S11]] |
 | Decline notification with reason | — | ❌ | [[Notifications Story|Notifications · S7]] |
 | Keep / merge / auto-delete the lapsed meeting Ring | `POST /rings/:id/disposition` | ✅ | — |
 | Calendar sync (`CalendarIntegration`) | — | ❌ | no task yet |
@@ -74,9 +74,9 @@ What the client needs for the slot-based request, the incoming list, the calenda
 
 | Status | ErrorCode | Show |
 |---|---|---|
-| 409 slot already booked (exclusion constraint) | to be defined by [[T-041 Availability slots CRUD]] | "That slot was just taken", refresh the slots |
-| 409 request already answered or withdrawn | to be defined by [[T-042 Meeting request, accept with slots, decline with reason]] | Refetch and show the current state |
-| 400 decline without a reason | to be defined by [[T-042 Meeting request, accept with slots, decline with reason]] | Field error; the client validates first |
+| 409 slot already booked (exclusion constraint) | to be defined by [[Meetings Story|Meetings · S8]] | "That slot was just taken", refresh the slots |
+| 409 request already answered or withdrawn | to be defined by [[Meetings Story|Meetings · S9]] | Refetch and show the current state |
+| 400 decline without a reason | to be defined by [[Meetings Story|Meetings · S9]] | Field error; the client validates first |
 | 404 on `GET /views/ring/:ringId` (window not open, declined, blocked) | `E_RING_ACCESS_01` | "Profile not available", same copy for every cause |
 | 404 on `GET /views/ring/:ringId` (window ended) | `E_RING_ACCESS_02` | "This meeting has ended", open the disposition sheet |
 | 400 / 404 on the disposition | `E_RING_07` / `E_RING_02` | As in [[Post-Event Frontend Requirements]] |
@@ -85,8 +85,8 @@ What the client needs for the slot-based request, the incoming list, the calenda
 ## Blocked by
 
 - No decision note. Upstream tasks:
-- [[T-041 Availability slots CRUD]] — s59 and the exhibitor's offer; unblocks T-042.
-- [[T-042 Meeting request, accept with slots, decline with reason]] — s59, s61, s64; unblocks T-043 and T-044.
-- [[T-043 Temporary meeting Ring per meeting]] — the Ring behind every card and the participant card on s67.
-- [[T-044 My meetings, calendar, detail, reschedule, cancel]] — s61, s66, s67.
+- [[Meetings Story|Meetings · S8]] — s59 and the exhibitor's offer; unblocks Meetings · S9.
+- [[Meetings Story|Meetings · S9]] — s59, s61, s64; unblocks Meetings · S10 and Meetings · S11.
+- [[Meetings Story|Meetings · S10]] — the Ring behind every card and the participant card on s67.
+- [[Meetings Story|Meetings · S11]] — s61, s66, s67.
 - [[Notifications Story|Notifications · S7]] — the decline reason reaching the requester.
