@@ -4149,13 +4149,7 @@
   ],
   "diagnostics": {
     "errors": [],
-    "warnings": [
-      "social-pin/modules/Platform & Cross-cutting/features/Error Contract/Error Contract.md: wikilink [[T-063 Frontend Requirements]] resolves to no note",
-      "social-pin/modules/Platform & Cross-cutting/features/Error Contract/Error Contract.md: wikilink [[T-063 Put the ErrorCode on the error body]] resolves to no note",
-      "social-pin/modules/Platform & Cross-cutting/features/Error Contract/Error Contract.md: wikilink [[T-063-be Backend · Put the ErrorCode on the error body]] resolves to no note",
-      "social-pin/modules/Platform & Cross-cutting/features/Error Contract/Error Contract.md: wikilink [[T-063-fe Frontend · Put the ErrorCode on the error body]] resolves to no note",
-      "social-pin/modules/Platform & Cross-cutting/features/Error Contract/Error Contract.md: wikilink [[T-067-be Backend · Split E_RING_01 and E_RING_PROFILE_03]] resolves to no note"
-    ]
+    "warnings": []
   },
   "edges": [
     {
