@@ -7,7 +7,7 @@ release: mvp
 module: platform
 screens: []
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [feature, module/platform, priority/critical, release/mvp]
 ---
 
@@ -25,15 +25,18 @@ _No prototype screen. This is a backend-only concern._
 
 Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map in [[Navigation Map]], see [[Design Reference]].
 
-## Tasks
+## Work
 
-| Task | Status | Priority | Effort |
-|---|---|---|---|
-| [[T-055 Run the e2e suite in CI against PostGIS]] | ⬜ To do | Critical | S |
+One story per feature (since 2026-10-27): all of this feature's work is in [[E2E Test Run Story]]. The tasks merged into it on 2026-10-27:
 
-```dataview
-TABLE status, priority, effort FROM #task WHERE feature = "e2e-tests" SORT priority ASC
-```
+| Was | Title | Status then | Priority | Now in the story |
+|---|---|---|---|---|
+| T-055 | Run the e2e suite in CI against PostGIS | To do | critical | S4 |
+
+### Log of the merged tasks
+
+- T-055 · 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
+- T-055 · 2026-10-18 · created as the backend half of T-055
 
 ## Related
 

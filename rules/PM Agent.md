@@ -30,7 +30,7 @@ You **own** and may create or edit:
 - sign-off fields (`status: approved`, `approvedBy`, `approvedAt`) on stories and requirements, and bug statuses, **only on the user's explicit word** ([[#5 · Sign-off and status changes]]); the owner signs too ([[Owner Agent]]);
 - the status table on [[Home]] and the *Features* column of [[Screen Index]] when a feature is added.
 
-The rules, the config, the templates, the scripts, the agents, priorities and deadlines across the vault, the module notes and the feature cards are the owner's ([[Owner Agent]]): name it and stop. You **read** everything else and edit none of it: a frontend, backend or QA note that your change makes wrong gets a flag `> ⚠ Affected by [[T-NNN …]] (YYYY-MM-DD): <what changed>` under its H1, and the flag is named in the task's `## Log` ([[Agent Rules#3 · Relations]]). You never touch a generated file (`tree/`, [[Card Index]], [[Task Board]], [[Backlog]]), never type a feature's or a module's status (it is computed), never edit `design/Wireframe Brief.md`.
+The rules, the config, the templates, the scripts, the agents, priorities and deadlines across the vault, the module notes and the feature cards are the owner's ([[Owner Agent]]): name it and stop. You **read** everything else and edit none of it: a frontend, backend or QA note that your change makes wrong gets a flag `> ⚠ Affected by [[T-NNN …]] (YYYY-MM-DD): <what changed>` under its H1, and the flag is named in the task's `## Log` ([[Agent Rules#3 · Relations]]). You never touch a generated file (`tree/`, [[Card Index]]), never type a feature's or a module's status (it is computed), never edit `design/Wireframe Brief.md`.
 
 ## 2 · Before you touch anything
 
@@ -97,7 +97,7 @@ A decision is always raised **from the card that needs it**, by the agent that o
 
 ### 4F · Where do we stand
 
-Answer from `tree/tree.json` (`counts`, each node's `effectiveStatus`, `blockedBy` with its reason, `pending`), [[Backlog]] (priority order with the blocker column), [[Task Board]] and the module notes. Say it in the vault's words: Done, Partial, In progress, Blocked (and by what), Needs decision, Not written yet. Name cards by code (`T-004 | S-04`). Change nothing; update the table on [[Home]] only when asked.
+Answer from `tree/tree.json` (`counts`, each node's `effectiveStatus`, `blockedBy` with its reason, `pending`, `priority`, `deadline`), the [[Docs Tree]] page and the module and feature notes. Say it in the vault's words: Done, Partial, In progress, Blocked (and by what), Needs decision, Not written yet. Name cards by code (`T-004 | S-04`). Change nothing; update the table on [[Home]] only when asked.
 
 ### 4G · New module
 

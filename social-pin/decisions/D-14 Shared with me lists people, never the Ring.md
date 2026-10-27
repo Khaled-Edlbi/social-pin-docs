@@ -6,11 +6,11 @@ status: decided
 decidedBy: "molham"
 decidedAt: 2026-10-25
 features: [connections]
-affects: ["Connections", "Rings", "Ring Members", "T-022 Accept into a Ring (sets grantedRingId)", "T-023 Connection detail and contacts list"]
+affects: ["Connections", "Rings", "Ring Members", "Connections Story"]
 related: ["ND-14 Connection-granted Ring on Shared with me", "View As & Pin Views", "D-15 Several Rings per connection, remove or disconnect"]
 owner: "khaled"
 created: 2026-10-25
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [decision, decision/decided]
 ---
 
@@ -34,7 +34,7 @@ Answered on the product-questions page, 2026-10-22 ("dont show"; Shared with me 
 
 ## Why
 
-- [[T-022 Story]] S3 promises that the requester never learns the Ring they were put in; a Ring name on s17 would break that promise for every member, not only connections.
+- [[Connections Story|Connections · S13–S18]] S3 promises that the requester never learns the Ring they were put in; a Ring name on s17 would break that promise for every member, not only connections.
 - Owners name Rings for themselves ("Acquaintances", "Maybe later"); those names were never meant to be read by the people in them.
 - Listing everyone who shares with me makes s17 one place to find every card shared with me, instead of splitting people by how they got in.
 - Traded away: the `shared-with-me` row changes for every member, and a person in two of someone's Rings sees one person, not two Rings ([[D-15 Several Rings per connection, remove or disconnect]] says which version they see).
@@ -44,8 +44,8 @@ Answered on the product-questions page, 2026-10-22 ("dont show"; Shared with me 
 - [[Rings]]: `GET /rings/shared-with-me` stops returning the Ring's name, colour and type to a member; it returns the person who shares.
 - [[Ring Members]]: a member can no longer read the identity of the Ring they are in.
 - [[Connections]]: someone accepted into a Ring appears on the requester's Shared with me as the person, like everyone else.
-- [[T-022 Accept into a Ring (sets grantedRingId)]]: S3 holds as written; the open question *Shared with me by name* in [[T-022 Story]] is answered (listed, without a name).
-- [[T-023 Connection detail and contacts list]]: contacts and Shared with me both reach a person, neither names the Ring.
+- [[Connections Story|Connections · S13–S18]]: S3 holds as written; the open question *Shared with me by name* in [[Connections Story|Connections · S13–S18]] is answered (listed, without a name).
+- [[Connections Story|Connections · S19–S24]]: contacts and Shared with me both reach a person, neither names the Ring.
 
 ## Still open
 

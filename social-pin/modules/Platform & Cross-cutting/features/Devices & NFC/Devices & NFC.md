@@ -7,7 +7,7 @@ release: v1
 module: platform
 screens: [s75]
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [feature, module/platform, priority/high, release/v1]
 ---
 
@@ -29,16 +29,23 @@ Wireframe brief sections: [[Wireframe Brief#Contacts & Devices|§6.4 Contacts & 
 
 Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map in [[Navigation Map]], see [[Design Reference]].
 
-## Tasks
+## Work
 
-| Task | Status | Priority | Effort |
-|---|---|---|---|
-| [[T-014 Register devices on login; list and remove]] | ⬜ To do | High | M |
-| [[T-015 Pair and revoke an NFC card]] | ⬜ To do | Medium | M |
+One story per feature (since 2026-10-27): all of this feature's work is in [[Devices & NFC Story]]. The tasks merged into it on 2026-10-27:
 
-```dataview
-TABLE status, priority, effort FROM #task WHERE feature = "devices" SORT priority ASC
-```
+| Was | Title | Status then | Priority | Now in the story |
+|---|---|---|---|---|
+| T-014 | Register devices on login; list and remove | To do | high | S6 |
+| T-015 | Pair and revoke an NFC card | To do | medium | S7 |
+
+### Log of the merged tasks
+
+- T-014 · 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
+- T-014 · 2026-10-18 · created as the backend half of T-014
+- T-014 · 2026-10-18 · created as the frontend half of T-014
+- T-015 · 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
+- T-015 · 2026-10-18 · created as the backend half of T-015
+- T-015 · 2026-10-18 · created as the frontend half of T-015
 
 ## Related
 

@@ -8,7 +8,7 @@ status: failing
 screens: [s01, s02, s06, s08, s68, s75]
 depends: ["Auth & Sign-up Backend Delivery", "Auth & Sign-up Story"]
 affects: []
-related: ["Auth & Sign-up Backend Integration", "Auth & Sign-up Frontend Requirements", "Account QA Backend", "Auth Model", "Profiles & Pin Name Backend Integration", "Error Contract Backend Delivery", "T-003 Remove devCode once delivery works", "T-063 Put the ErrorCode on the error body", "ND-01 Passwordless login", "POST /auth/sign-up", "POST /auth/verify-code", "POST /auth/request-code", "POST /auth/complete-registration", "POST /auth/login", "POST /auth/login/verify", "POST /auth/refresh", "POST /auth/logout", "POST /auth/logout-everywhere", "GET /profiles/pin-name/:pinName/availability", E_AUTH_01, E_AUTH_03, E_AUTH_04, E_AUTH_05, E_AUTH_06, E_AUTH_07, E_AUTH_08, E_PROFILE_02, E_USER_01, "B-03 Two refreshes at once both succeed and fork the session", "B-04 Sign-up accepts an email and a phone together", "B-05 Expired onboarding token answers 401, not the documented 400", "B-06 Timestamps the app writes are stored shifted by the server time zone"]
+related: ["Auth & Sign-up Backend Integration", "Auth & Sign-up Frontend Requirements", "Account QA Backend", "Auth Model", "Profiles & Pin Name Backend Integration", "Error Contract Backend Delivery", "Code Delivery Story", "Error Contract Story", "ND-01 Passwordless login", "POST /auth/sign-up", "POST /auth/verify-code", "POST /auth/request-code", "POST /auth/complete-registration", "POST /auth/login", "POST /auth/login/verify", "POST /auth/refresh", "POST /auth/logout", "POST /auth/logout-everywhere", "GET /profiles/pin-name/:pinName/availability", E_AUTH_01, E_AUTH_03, E_AUTH_04, E_AUTH_05, E_AUTH_06, E_AUTH_07, E_AUTH_08, E_PROFILE_02, E_USER_01, "B-03 Two refreshes at once both succeed and fork the session", "B-04 Sign-up accepts an email and a phone together", "B-05 Expired onboarding token answers 401, not the documented 400", "B-06 Timestamps the app writes are stored shifted by the server time zone"]
 pending: ["[[B-03 Two refreshes at once both succeed and fork the session]]: row B42, filed 2026-10-27, re-run when it ships", "[[B-04 Sign-up accepts an email and a phone together]]: row B5, filed 2026-10-27, re-run when it ships", "[[B-05 Expired onboarding token answers 401, not the documented 400]]: row B30, filed 2026-10-27, re-run when it ships", "[[B-06 Timestamps the app writes are stored shifted by the server time zone]]: re-run B15 by ageing a code with Postgres now(), filed 2026-10-27", "[[Auth & Sign-up Story]]: S2 says the 429 comes after five wrong tries; the build answers it on the sixth submission (/pm)"]
 created: 2026-10-27
 updated: 2026-10-27
@@ -27,7 +27,7 @@ Expected behaviour of the API, as artefacts a person can check a build against: 
 
 **Covered.** The nine auth routes and the one public Pin check of [[Auth & Sign-up Backend Integration]]: the three sign-up calls (`sign-up` → `verify-code` → `complete-registration`), the two sign-in calls (`login` → `login/verify`), resend (`request-code`), the session calls (`refresh`, `logout`, `logout-everywhere`) and `GET /profiles/pin-name/:pinName/availability`. Their shapes, normalisation, the code lifecycle (10 minutes, five wrong guesses, superseded on resend), the token scopes, and the guarantee that `complete-registration` leaves either a whole identity or nothing.
 
-**Not covered.** Copy, timers and screen states (that is the QA Frontend's). Delivery of codes by email or SMS, which does not exist yet ([[T-001 Wire an email provider for one-time codes]], [[T-002 Wire an SMS provider for one-time codes]]): every row reads the code from `devCode`. Suspended and deleted accounts on later calls, already run in [[Account QA Backend]] (B14, B21); rows B46 and B47 here only point at them. The steps between s02 and s06 ([[Onboarding Imports]]) and after s08 ([[Interests]], [[Rings]]). Rate limiting: no route throttles requests today, so there is nothing to check yet.
+**Not covered.** Copy, timers and screen states (that is the QA Frontend's). Delivery of codes by email or SMS, which does not exist yet ([[Code Delivery Story|Code Delivery · S6]], [[Code Delivery Story|Code Delivery · S7]]): every row reads the code from `devCode`. Suspended and deleted accounts on later calls, already run in [[Account QA Backend]] (B14, B21); rows B46 and B47 here only point at them. The steps between s02 and s06 ([[Onboarding Imports]]) and after s08 ([[Interests]], [[Rings]]). Rate limiting: no route throttles requests today, so there is nothing to check yet.
 
 **Rows that state the contract against the code.** Where the integration note and the code read differently, the row states the integration note's promise (that is the contract), so a difference shows up as 🔴 rather than being written into the expectation. B5 and B30 were such rows and both differ on the run. **B14 vs [[Auth & Sign-up Story]] S2:** the story says the 429 comes "after five wrong tries". The build counts five wrong guesses as 400s and answers the **sixth** submission 429, even when that sixth code is right; the row follows the integration note ("sixth wrong guess") and passes, and the story's wording is the PM's to check (in `pending`).
 
@@ -35,7 +35,7 @@ Expected behaviour of the API, as artefacts a person can check a build against: 
 
 ## Expected behaviour
 
-Every row is one acceptance criterion of [[Auth & Sign-up Story]] or one rule of [[Auth & Sign-up Backend Integration]]. ✅ as expected · 🔴 differs · ⬜ not run. Bodies are the API's `{ statusCode, message, error, path, timestamp }`; `ErrorCode` is not on the wire until [[T-063 Put the ErrorCode on the error body]], so the code column names what the contract promises.
+Every row is one acceptance criterion of [[Auth & Sign-up Story]] or one rule of [[Auth & Sign-up Backend Integration]]. ✅ as expected · 🔴 differs · ⬜ not run. Bodies are the API's `{ statusCode, message, error, path, timestamp }`; `ErrorCode` is not on the wire until [[Error Contract Story|Error Contract · S4–S8]], so the code column names what the contract promises.
 
 ### `POST /auth/sign-up` — S1 Start with an email or a phone (s01)
 
@@ -150,7 +150,7 @@ Every end state answers 400 `E_AUTH_05` to a further attempt.
 
 ## Error matrix
 
-What the contract promises. The message column is the text the build sends; until [[T-063 Put the ErrorCode on the error body]] the client tells rows apart by status and endpoint.
+What the contract promises. The message column is the text the build sends; until [[Error Contract Story|Error Contract · S4–S8]] the client tells rows apart by status and endpoint.
 
 | Situation | Status | ErrorCode | Message | Rows |
 |---|---|---|---|---|
@@ -173,7 +173,7 @@ Retired, and never to be seen: `E_AUTH_02` (invalid password), `E_USER_04` (curr
 
 ## Privacy and access checks
 
-- **Existence is not revealed at step 1 of sign-in.** `login` and `request-code` answer a known and an unknown address with the same status and the same fields (B19, B33). **Standing caveat, not a row:** while `devCode` is returned ([[T-003 Remove devCode once delivery works]]), its presence *does* tell a caller the account exists, and knowing an address is enough to sign in as it. Every privacy result here holds only once T-003 ships.
+- **Existence is not revealed at step 1 of sign-in.** `login` and `request-code` answer a known and an unknown address with the same status and the same fields (B19, B33). **Standing caveat, not a row:** while `devCode` is returned ([[Code Delivery Story|Code Delivery · S8]]), its presence *does* tell a caller the account exists, and knowing an address is enough to sign in as it. Every privacy result here holds only once Code Delivery S8 ships.
 - `sign-up` on an ACTIVE address answers 409 `E_AUTH_01` (B9): that reveals the account exists, by design, so the client can switch to sign-in without asking (S1).
 - PENDING and SUSPENDED accounts get one identical 403 at `login/verify` (B38, B39): the client cannot tell them apart.
 - The Pin check never names the holder of a taken name (B21).

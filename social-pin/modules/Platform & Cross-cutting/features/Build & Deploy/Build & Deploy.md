@@ -10,7 +10,7 @@ depends: []
 affects: []
 related: ["E2E Test Run", "Developer Setup"]
 created: 2026-10-26
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [feature, module/platform, priority/medium, release/later]
 ---
 
@@ -48,11 +48,17 @@ _No prototype screen. This is a delivery concern, not a product one._
   ships a compose file and runs `docker compose pull`, so what runs is the image
   the pipeline built.
 
-## Tasks
+## Work
 
-| Task | Status | Priority | Effort |
-|---|---|---|---|
-| [[T-073 GitLab pipeline and Docker setup]] | ✅ Done | Medium | S |
+One story per feature (since 2026-10-27): all of this feature's work is in [[Build & Deploy Story]]. The tasks merged into it on 2026-10-27:
+
+| Was | Title | Status then | Priority | Now in the story |
+|---|---|---|---|---|
+| T-073 | GitLab pipeline and Docker setup | Done | medium | history only |
+
+### Log of the merged tasks
+
+- T-073 · 2026-10-26 · filed retroactively under [[Build & Deploy]] for `c1dd4a4`, which
 
 ## Decisions
 
@@ -61,7 +67,7 @@ _No prototype screen. This is a delivery concern, not a product one._
 
 ## Related
 
-- [[E2E Test Run]] — the other half of CI: [[T-055 Run the e2e suite in CI against PostGIS]]
+- [[E2E Test Run]] — the other half of CI: [[E2E Test Run Story|E2E Test Run · S4]]
   adds a test job to this pipeline
 - [[Developer Setup]] — the same stack, run locally rather than in a job
 

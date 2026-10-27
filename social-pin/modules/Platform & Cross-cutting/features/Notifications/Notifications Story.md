@@ -10,7 +10,7 @@ approvedBy: "khaled"
 approvedAt: 2026-10-25
 owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [story, story/approved, module/platform, layer/business]
 ---
 
@@ -76,6 +76,23 @@ Acceptance criteria:
 - [ ] One row per `NOTIFICATION_TYPE` with `inAppEnabled`, `pushEnabled`, `emailEnabled`; defaults in-app on, push on, email off.
 - [ ] Turning in-app off for a type stops it appearing on s69; the preference screen itself is not in the prototype and is reached from Me.
 
+### S7 · NotificationService.emit and the inbox
+
+*From T-045 (status then: To do), merged 2026-10-27.*
+
+Internal emit with `dedupeKey`; `GET /notifications` grouped by day; mark one / all read. Other modules import the module.
+
+Screens: [[Screen Index#s69|s69]] Notifications
+
+
+### S8 · Push delivery and preferences
+
+*From T-046 (status then: Blocked), merged 2026-10-27.*
+
+Push via device tokens; preferences CRUD.
+
+Screens: [[Screen Index#s69|s69]] Notifications
+
 ## States and motion the design asks for
 
 - State: empty inbox, unread rows, all read, loading, offline (last fetched list); bell with and without indicator ([[Wireframe Brief#Notifications|§11]], [[Wireframe Brief#Global navigation & app shell|§2]]).
@@ -85,7 +102,7 @@ Acceptance criteria:
 
 - `Notification` carries `type`, `title`, `body`, `data` (deep-link target and counters only), `readAt`, `dedupeKey` (unique), indexed by (user, readAt, createdAt); `NotificationPreference` is unique per (user, type).
 - The types are fixed by the enum: connection request received / accepted, Ring membership added, Ring expiring, PinCast ended, pins nearby, meeting request received / accepted / declined, meeting reminder, event reminder, exhibitor approved / rejected, order paid, system.
-- Nothing emits, lists or pushes yet ([[T-045 NotificationService.emit and the inbox]], [[T-046 Push delivery and preferences]]); push needs registered devices from [[Devices & NFC]].
+- Nothing emits, lists or pushes yet ([[Notifications Story|Notifications · S7]], [[Notifications Story|Notifications · S8]]); push needs registered devices from [[Devices & NFC]].
 
 ## Open questions
 

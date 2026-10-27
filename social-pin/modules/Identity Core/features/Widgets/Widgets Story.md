@@ -9,7 +9,7 @@ screens: [s36, s37]
 approvedBy: "khaled"
 approvedAt: 2026-10-25
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 owner: "omar"
 related: ["D-03 Links entered once, switched on or off per Ring"]
 tags: [story, story/approved, module/identity, layer/business]
@@ -71,6 +71,23 @@ Acceptance criteria:
 - [ ] `WIDGET_TYPE` today: `LINKS`, `GALLERY`, `VIDEO`, `FILES`, `CALENDAR`, `CONTACT_CARD`, `MAP`, `CUSTOM`; rows have `sortOrder` and `isVisible`.
 - [ ] No row can be created from the app; the array is empty for every Ring created through the API.
 
+### S6 · Extend WIDGET_TYPE to the design's list
+
+*From T-017 (status then: To do), merged 2026-10-27.*
+
+Add AVAILABILITY, PAYMENT, NOW_PLAYING, TESTIMONIAL. New migration; never edit an applied one.
+
+Screens: [[Screen Index#s37|s37]] Widgets
+
+
+### S7 · Widget CRUD on the projection
+
+*From T-018 (status then: Needs a decision), merged 2026-10-27.*
+
+`…/projection/widgets` with `type`, `config` (validated per type), `sortOrder`, `isVisible`. Viewer rendering in `toView`. Built on the library model ND-03 chose (one library, on/off per Ring: [[D-03 Links entered once, switched on or off per Ring]]), not on the per-Ring copies.
+
+Screens: [[Screen Index#s36|s36]] Add to this Ring · [[Screen Index#s37|s37]] Widgets
+
 ## States and motion the design asks for
 
 - State: picker with selectable and "coming soon" types, selected count on the primary button, widget rows on Ring data (greyed when hidden), empty ("No widgets yet").
@@ -84,6 +101,6 @@ Acceptance criteria:
 
 ## Open questions
 
-- Decided: [[D-03 Links entered once, switched on or off per Ring]]; widgets are built on the library from the start ([[T-018 Widget CRUD on the projection]], which still waits on [[T-017 Extend WIDGET_TYPE to the design's list]]).
+- Decided: [[D-03 Links entered once, switched on or off per Ring]]; widgets are built on the library from the start ([[Widgets Story|Widgets · S7]], which still waits on [[Widgets Story|Widgets · S6]]).
 - Whether the order of widgets is shared or per Ring, as for links (D-03, *Still open*).
-- Per-type `config` schemas (what an Availability or Payment widget carries) are not defined; [[T-018 Widget CRUD on the projection]] must specify them before the picker can validate.
+- Per-type `config` schemas (what an Availability or Payment widget carries) are not defined; [[Widgets Story|Widgets · S7]] must specify them before the picker can validate.

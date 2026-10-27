@@ -8,7 +8,7 @@ module: events
 screens: [s48, s49, s50, s51, s52]
 related: ["Rings"]
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [feature, module/events, priority/critical, release/mvp]
 ---
 
@@ -34,17 +34,27 @@ Wireframe brief sections: [[Wireframe Brief#Before-event journeys|§7 Before-eve
 
 Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map in [[Navigation Map]], see [[Design Reference]].
 
-## Tasks
+## Work
 
-| Task | Status | Priority | Effort |
-|---|---|---|---|
-| [[T-033 Events list, detail, schedule]] | ⬜ To do | Critical | L |
-| [[T-034 Tickets, packages, levels, sold-out]] | ⬜ To do | Critical | M |
-| [[T-035 Registration transaction with order and payment]] | ⛔ Blocked | Critical | L |
+One story per feature (since 2026-10-27): all of this feature's work is in [[Events Before Story]]. The tasks merged into it on 2026-10-27:
 
-```dataview
-TABLE status, priority, effort FROM #task WHERE feature = "events-before" SORT priority ASC
-```
+| Was | Title | Status then | Priority | Now in the story |
+|---|---|---|---|---|
+| T-033 | Events list, detail, schedule | To do | critical | S7 |
+| T-034 | Tickets, packages, levels, sold-out | To do | critical | S8 |
+| T-035 | Registration transaction with order and payment | Blocked | critical | S9 |
+
+### Log of the merged tasks
+
+- T-033 · 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
+- T-033 · 2026-10-18 · created as the backend half of T-033
+- T-033 · 2026-10-18 · created as the frontend half of T-033
+- T-034 · 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
+- T-034 · 2026-10-18 · created as the backend half of T-034
+- T-034 · 2026-10-18 · created as the frontend half of T-034
+- T-035 · 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
+- T-035 · 2026-10-18 · created as the backend half of T-035
+- T-035 · 2026-10-18 · created as the frontend half of T-035
 
 ## Related
 

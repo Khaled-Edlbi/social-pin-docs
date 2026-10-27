@@ -10,7 +10,7 @@ depends: []
 affects: []
 related: ["Audit Log", "Account", "Auth & Sign-up", "Delegated Admins"]
 created: 2026-10-26
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [feature, module/platform, priority/high, release/later]
 ---
 
@@ -56,15 +56,30 @@ are ring-level access and permissions, which belong to [[Delegated Admins]].
 - **The errors are coarse on purpose.** An admin endpoint must not become an
   oracle for *why* a target is off-limits.
 
-## Tasks
+## Work
 
-| Task | Status | Priority | Effort |
-|---|---|---|---|
-| [[T-068 Account moderation and platform role]] | 🟡 In progress | High | M |
-| [[T-069 Scoped role grants]] | 🟡 In progress | High | M |
-| [[T-070 Roles and permissions catalogue]] | 🟡 In progress | Medium | S |
-| [[T-071 Audit-log read endpoints]] | 🟡 In progress | High | S |
-| [[T-072 Platform stats]] | 🟡 In progress | Medium | S |
+One story per feature (since 2026-10-27): all of this feature's work is in [[Operator Panel Story]]. The tasks merged into it on 2026-10-27:
+
+| Was | Title | Status then | Priority | Now in the story |
+|---|---|---|---|---|
+| T-068 | Account moderation and platform role | In progress | high | S3 |
+| T-069 | Scoped role grants | In progress | high | S4 |
+| T-070 | Roles and permissions catalogue | In progress | medium | S5 |
+| T-071 | Audit-log read endpoints | In progress | high | S6 |
+| T-072 | Platform stats | In progress | medium | S7 |
+
+### Log of the merged tasks
+
+- T-068 · 2026-10-26 · filed under [[Operator Panel]], after the code: the backend
+- T-068 · 2026-10-26 · created as the backend half of T-068; the code sits on
+- T-069 · 2026-10-26 · filed under [[Operator Panel]], after the code: the backend
+- T-069 · 2026-10-26 · created as the backend half of T-069; the code sits on
+- T-070 · 2026-10-26 · filed under [[Operator Panel]], after the code: the backend
+- T-070 · 2026-10-26 · created as the backend half of T-070; the code sits on
+- T-071 · 2026-10-26 · filed under [[Operator Panel]], after the code: the backend
+- T-071 · 2026-10-26 · created as the backend half of T-071; the code sits on
+- T-072 · 2026-10-26 · filed under [[Operator Panel]], after the code: the backend
+- T-072 · 2026-10-26 · created as the backend half of T-072; the code sits on
 
 ## Decisions
 
@@ -75,12 +90,12 @@ are ring-level access and permissions, which belong to [[Delegated Admins]].
 ## Related
 
 - [[Audit Log]] — the panel writes the trail and reads it; the trail's other
-  writers stay with [[T-053 Audit log writes]]
+  writers stay with [[Audit Log Story|Audit Log · S4]]
 - [[Account]] — the same `users` rows, from the account holder's side
 - [[Auth & Sign-up]] — the platform role on the JWT, and refresh-token
   revocation on suspension
 - [[Delegated Admins]] — the ring-level namesake
-  ([[T-006 Delegated admin endpoints]]): a ring owner delegating administration,
+  ([[Delegated Admins Story|Delegated Admins · S6]]): a ring owner delegating administration,
   not platform staff. Different routes, different rules.
 
 Project context: [[Ring Access Model]] · [[Architecture]] · [[API Conventions]] · [[Spec Map]]

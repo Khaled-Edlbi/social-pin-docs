@@ -6,11 +6,11 @@ status: decided
 decidedBy: "molham"
 decidedAt: 2026-10-25
 features: [photo-library, ring-projection, rings]
-affects: ["Rings", "Ring Projection", "Photo Library", "T-060 Decide copy or inherit"]
+affects: ["Rings", "Ring Projection", "Photo Library", "Ring Projection Story"]
 related: ["ND-05 Copy or inherit", "D-02 One main profile every Ring starts from", "D-04 Ring settings at launch and their defaults"]
 owner: "khaled"
 created: 2026-10-25
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [decision, decision/decided]
 ---
 
@@ -44,7 +44,7 @@ Answered on the product-questions page, 2026-10-22, recorded on molham's word on
 - [[Ring Projection]]: each field of a Ring is either its own value or the main profile's; "Reset to Pin" (s23) returns a field to inheriting.
 - [[Rings]]: creating a Ring can copy another (fields, bio, photo, colour, settings; no members).
 - [[Photo Library]]: a Ring's photo inherits the main photo until the Ring picks its own.
-- [[T-060 Decide copy or inherit]]: its decision is taken; the PM closes it.
+- [[Ring Projection Story|Ring Projection · Decide copy or inherit]]: its decision is taken; the PM closes it.
 
 ## Still open
 

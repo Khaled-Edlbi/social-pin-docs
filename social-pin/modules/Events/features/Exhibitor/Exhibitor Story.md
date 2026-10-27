@@ -10,7 +10,7 @@ approvedBy: "khaled"
 approvedAt: 2026-10-25
 owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [story, story/approved, module/events, layer/business]
 ---
 
@@ -80,6 +80,23 @@ Acceptance criteria:
 - [ ] Default off; a change takes effect immediately for future suggestions.
 - [ ] Auto-requested meetings arrive in S3's Need action group like any other request.
 
+### S7 · Business account setup → business Ring
+
+*From T-048 (status then: To do), merged 2026-10-27.*
+
+Multi-step DTOs; creates `Business` + a `CORPORATE` Ring; team members become Ring members.
+
+Screens: [[Screen Index#s63|s63]] Business account
+
+
+### S8 · Booth analytics and leads CSV export
+
+*From T-048b (status then: Blocked), merged 2026-10-27.*
+
+Scans, video clicks, Rings opened from `AnalyticsEvent`; CSV export of leads.
+
+Screens: [[Screen Index#s65|s65]] Booth analytics
+
 ## States and motion the design asks for
 
 - Motion: business-account creation **forms a business Ring** with the Ring-creation motion (brief §9.1).
@@ -88,15 +105,15 @@ Acceptance criteria:
 
 ## Rules the backend already enforces
 
-- `POST /rings` with `type = CORPORATE` is allowed, but the business Ring is created by the business setup transaction so the `Business` and the Ring never exist without each other (T-048); the client does not create it separately.
+- `POST /rings` with `type = CORPORATE` is allowed, but the business Ring is created by the business setup transaction so the `Business` and the Ring never exist without each other (Exhibitor · S7); the client does not create it separately.
 - Membership is private: a team member never reads their own membership row; viewers see the business Ring view, not the member list ([[Ring Access Model]]).
 - Delegated administration of the business Ring goes through `assertCanAdminister` with a permission level ([[Rings]]).
 - `EventParticipant.role` distinguishes exhibitor from visitor inside one registration flow.
-- No service writes `AnalyticsEvent` or `AuditLog` yet; S4 counts are zero until [[T-009 Scan counter and share link]] and T-048b.
+- No service writes `AnalyticsEvent` or `AuditLog` yet; S4 counts are zero until [[Badge & QR Story|Badge & QR · S19]] and Exhibitor · S8.
 
 ## Open questions
 
 - No decision note exists. Open points:
-- [[T-048 Business account setup → business Ring]] — waits on [[T-029 My companies and company detail]]; whether a business is a `Company` or its own aggregate changes S1's target.
-- [[T-048b Booth analytics and leads CSV export]] — which analytics identify the viewer (connections only?) is a privacy choice S4 depends on.
+- [[Exhibitor Story|Exhibitor · S7]] — waits on [[Companies Story|Companies · S6]]; whether a business is a `Company` or its own aggregate changes S1's target.
+- [[Exhibitor Story|Exhibitor · S8]] — which analytics identify the viewer (connections only?) is a privacy choice S4 depends on.
 - The organizer's invitation and file-request flows have no task yet; S5 is design-only.

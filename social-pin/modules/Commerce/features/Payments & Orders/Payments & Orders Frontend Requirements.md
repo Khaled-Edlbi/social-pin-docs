@@ -7,7 +7,7 @@ module: commerce
 status: draft
 screens: [s50, s51]
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [frontend-requirements, frontend-requirements/draft, module/commerce, layer/frontend]
 ---
 
@@ -24,41 +24,41 @@ What the client needs to create an order, pay for it and learn the result, and w
 ### [[Screen Index#s50|s50]] Tickets & levels
 
 - Needs: create an order from the selected package and add-ons; the response with line items (name, unit price snapshot, quantity), currency, total, accepted methods, collector, and the order id to resume.
-- Source today: not yet ([[T-035 Registration transaction with order and payment]], [[T-047 Orders, payments and the provider webhook]]).
+- Source today: not yet ([[Events Before Story|Events Before · S9]], [[Payments & Orders Story|Payments & Orders · S7]]).
 
 ### [[Screen Index#s51|s51]] Payment
 
 - Needs: methods for this order; start a payment with a method (provider hand-off data for card / wallet, instructions for cash / bank); order and payment status (pending, failed with reason, succeeded); registration-complete flag and the Event Ring id on success.
-- Source today: not yet (T-047, T-035).
+- Source today: not yet (Payments & Orders · S7, Events Before · S9).
 
 ### [[Screen Index#s53|s53]] Event mode (upgrade sheet)
 
 - Needs: the same order and payment calls for a mini-event or level upgrade; the mini-event's access state after success.
-- Source today: not yet ([[T-040 Lounges and upgrades]], T-047).
+- Source today: not yet ([[Events During Story|Events During · S12]], Payments & Orders · S7).
 
 ### [[Screen Index#s68|s68]] Me / Account (orders and receipts)
 
 - Needs: my orders, paginated, with items, total, status, method, collector, provider receipt reference.
-- Source today: not yet (T-047).
+- Source today: not yet (Payments & Orders · S7).
 
 ## Endpoints required
 
 | Need | Endpoint | Available | Task / decision |
 |---|---|---|---|
-| Create an order with price snapshots | — | ❌ | [[T-035 Registration transaction with order and payment]] |
-| Accepted methods and collector per order | — | ❌ | [[T-047 Orders, payments and the provider webhook]] (provider undecided) |
-| Start a payment, provider hand-off | — | ❌ | [[T-047 Orders, payments and the provider webhook]] |
-| Order / payment status to poll | — | ❌ | [[T-047 Orders, payments and the provider webhook]] |
-| Provider webhook (server to server, idempotent on `providerReference`) | — | ❌ | [[T-047 Orders, payments and the provider webhook]] |
-| Registration completes and the Event Ring is granted on success | — | ❌ | [[T-035 Registration transaction with order and payment]], [[T-011 Create the Event Ring on registration]] |
-| In-event upgrade purchase | — | ❌ | [[T-040 Lounges and upgrades]] |
-| My orders and receipts | — | ❌ | [[T-047 Orders, payments and the provider webhook]] |
-| Audit of every payment action | — | ❌ | [[T-053 Audit log writes]] |
-| "Registration confirmed" notification | — | ❌ | [[T-045 NotificationService.emit and the inbox]] |
+| Create an order with price snapshots | — | ❌ | [[Events Before Story|Events Before · S9]] |
+| Accepted methods and collector per order | — | ❌ | [[Payments & Orders Story|Payments & Orders · S7]] (provider undecided) |
+| Start a payment, provider hand-off | — | ❌ | [[Payments & Orders Story|Payments & Orders · S7]] |
+| Order / payment status to poll | — | ❌ | [[Payments & Orders Story|Payments & Orders · S7]] |
+| Provider webhook (server to server, idempotent on `providerReference`) | — | ❌ | [[Payments & Orders Story|Payments & Orders · S7]] |
+| Registration completes and the Event Ring is granted on success | — | ❌ | [[Events Before Story|Events Before · S9]], [[Event Ring Auto-creation Story|Event Ring Auto-creation · S6]] |
+| In-event upgrade purchase | — | ❌ | [[Events During Story|Events During · S12]] |
+| My orders and receipts | — | ❌ | [[Payments & Orders Story|Payments & Orders · S7]] |
+| Audit of every payment action | — | ❌ | [[Audit Log Story|Audit Log · S4]] |
+| "Registration confirmed" notification | — | ❌ | [[Notifications Story|Notifications · S7]] |
 
 ## Behaviour expectations
 
-- Refetch / realtime: poll the order status while pending (interval set by T-047; back off after 2 minutes to on-focus refetch); resume polling when the app returns to the foreground with a pending order stored locally. On succeeded, invalidate `events:mine`, `event:{id}`, `event:{id}:packages`, `event:{id}:miniEvents` and `rings:list`.
+- Refetch / realtime: poll the order status while pending (interval set by Payments & Orders · S7; back off after 2 minutes to on-focus refetch); resume polling when the app returns to the foreground with a pending order stored locally. On succeeded, invalidate `events:mine`, `event:{id}`, `event:{id}:packages`, `event:{id}:miniEvents` and `rings:list`.
 - Caching keys: `order:{id}`, `orders:mine`, `order:{id}:methods`. The pending order id is persisted per device so s51 can resume after a restart.
 - Pagination / ordering: orders newest first, paginated (`limit` 20, `TABLE_MAX_LIMIT = 50`); `meta.total` is the unpaginated count.
 - Idempotency: a client-generated key per order attempt and per payment start, reused on retry; a second tap while in flight is ignored. A changed selection means a new key. Never retry a succeeded payment.
@@ -67,21 +67,21 @@ What the client needs to create an order, pay for it and learn the result, and w
 
 ## Error states the UI must handle
 
-`ErrorCode` is not on the wire yet ([[T-063 Put the ErrorCode on the error body]]); branch on status and endpoint until it is.
+`ErrorCode` is not on the wire yet ([[Error Contract Story|Error Contract · S4–S8]]); branch on status and endpoint until it is.
 
 | Status | ErrorCode | Show |
 |---|---|---|
-| 409 item sold out at order time | to be defined by [[T-034 Tickets, packages, levels, sold-out]] | "Sold out while you were deciding", refetch packages, stay on s50 |
-| 409 already registered / duplicate order | to be defined by [[T-035 Registration transaction with order and payment]] | Open the existing order, or s52 if complete |
-| 400 method not accepted for this order | to be defined by [[T-047 Orders, payments and the provider webhook]] | Refetch methods, reselect |
-| 402 / provider declined | to be defined by [[T-047 Orders, payments and the provider webhook]] | Failed state with the provider's reason, "Try again" |
-| 409 payment already succeeded | to be defined by [[T-047 Orders, payments and the provider webhook]] | Treat as success, proceed to s52 |
+| 409 item sold out at order time | to be defined by [[Events Before Story|Events Before · S8]] | "Sold out while you were deciding", refetch packages, stay on s50 |
+| 409 already registered / duplicate order | to be defined by [[Events Before Story|Events Before · S9]] | Open the existing order, or s52 if complete |
+| 400 method not accepted for this order | to be defined by [[Payments & Orders Story|Payments & Orders · S7]] | Refetch methods, reselect |
+| 402 / provider declined | to be defined by [[Payments & Orders Story|Payments & Orders · S7]] | Failed state with the provider's reason, "Try again" |
+| 409 payment already succeeded | to be defined by [[Payments & Orders Story|Payments & Orders · S7]] | Treat as success, proceed to s52 |
 | 401 | `E_AUTH_04` | Sign in again; resume the pending order afterwards |
 
 ## Blocked by
 
 - No decision note. Upstream tasks:
-- [[T-047 Orders, payments and the provider webhook]] — needs the provider decision (card / e-payment per organizer); every row above.
-- [[T-035 Registration transaction with order and payment]] — waits on [[T-034 Tickets, packages, levels, sold-out]] and T-047; the order creation and the registration-complete signal.
-- [[T-011 Create the Event Ring on registration]] — the Ring id on success.
-- [[T-040 Lounges and upgrades]] — the in-event upgrade sheet.
+- [[Payments & Orders Story|Payments & Orders · S7]] — needs the provider decision (card / e-payment per organizer); every row above.
+- [[Events Before Story|Events Before · S9]] — waits on [[Events Before Story|Events Before · S8]] and Payments & Orders · S7; the order creation and the registration-complete signal.
+- [[Event Ring Auto-creation Story|Event Ring Auto-creation · S6]] — the Ring id on success.
+- [[Events During Story|Events During · S12]] — the in-event upgrade sheet.

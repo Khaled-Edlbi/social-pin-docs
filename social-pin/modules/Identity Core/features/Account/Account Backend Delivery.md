@@ -7,10 +7,10 @@ module: identity
 status: done
 screens: [s68]
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-27
 depends: []
 affects: ["Account Backend Integration", "Account QA Backend"]
-related: ["B-02 Deleted account answers 401, not the documented 404 E_USER_01", "B-01 An unverified changed email still signs in", "D-20 The changed address still signs in, the words are corrected", "T-003 Remove devCode once delivery works", "DELETE /users/me", "PATCH /users/me", "POST /auth/login", "POST /auth/login/verify", E_USER_01, E_AUTH_03]
+related: ["B-02 Deleted account answers 401, not the documented 404 E_USER_01", "B-01 An unverified changed email still signs in", "D-20 The changed address still signs in, the words are corrected", "Code Delivery Story", "DELETE /users/me", "PATCH /users/me", "POST /auth/login", "POST /auth/login/verify", "E_USER_01", "E_AUTH_03"]
 tags: [backend-delivery, backend-delivery/done, module/identity, layer/backend]
 ---
 
@@ -34,7 +34,7 @@ What the backend shipped for this feature and how it works. The sum of this feat
 
 ## How it works
 
-`UserService` owns the `users` row; `AuthService` only orchestrates flows over it. `GET /users/me` reads through `selectUserAccount`, a narrow select rather than the full `users` row (there is no password column any more; sign-in is passwordless). `PATCH /users/me` normalises the value (email lower-cased and trimmed, phone stripped to E.164), checks uniqueness (409 `E_USER_02` / `E_USER_03`) and **clears the matching `…VerifiedAt`**. The cleared flag only marks the destination unverified: it does **not** stop it signing in. `POST /auth/login` issues a code for the new address and `POST /auth/login/verify` returns a session, by decision ([[D-20 The changed address still signs in, the words are corrected]]); a sign-in gate on the verified flags is deferred to [[T-003 Remove devCode once delivery works]], since while `devCode` is returned it would buy nothing. `DELETE /users/me` is a soft delete that keeps the row (meetings, orders and audit logs reference it) but releases the unique email and phone so the person can sign up again, and revokes every refresh token. An access token issued before the delete is refused by `JwtStrategy` (it re-reads the user on every request) with **404 `E_USER_01`** on every route, kept apart from the 401 `E_AUTH_03` a suspended account gets ([[B-02 Deleted account answers 401, not the documented 404 E_USER_01]]). There is deliberately no `GET /users/:id` and no search: another person is reachable only through a Ring projection.
+`UserService` owns the `users` row; `AuthService` only orchestrates flows over it. `GET /users/me` reads through `selectUserAccount`, a narrow select rather than the full `users` row (there is no password column any more; sign-in is passwordless). `PATCH /users/me` normalises the value (email lower-cased and trimmed, phone stripped to E.164), checks uniqueness (409 `E_USER_02` / `E_USER_03`) and **clears the matching `…VerifiedAt`**. The cleared flag only marks the destination unverified: it does **not** stop it signing in. `POST /auth/login` issues a code for the new address and `POST /auth/login/verify` returns a session, by decision ([[D-20 The changed address still signs in, the words are corrected]]); a sign-in gate on the verified flags is deferred to [[Code Delivery Story|Code Delivery · S8]], since while `devCode` is returned it would buy nothing. `DELETE /users/me` is a soft delete that keeps the row (meetings, orders and audit logs reference it) but releases the unique email and phone so the person can sign up again, and revokes every refresh token. An access token issued before the delete is refused by `JwtStrategy` (it re-reads the user on every request) with **404 `E_USER_01`** on every route, kept apart from the 401 `E_AUTH_03` a suspended account gets ([[B-02 Deleted account answers 401, not the documented 404 E_USER_01]]). There is deliberately no `GET /users/:id` and no search: another person is reachable only through a Ring projection.
 
 ### What exists
 

@@ -7,7 +7,7 @@ module: events
 status: draft
 screens: [s53, s54, s55, s56, s57, s58]
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [story, story/draft, module/events, layer/business]
 ---
 
@@ -76,7 +76,7 @@ Acceptance criteria:
 
 Acceptance criteria:
 - [ ] Products belong to an exhibitor and open s55; talks belong to a mini-event and show time, room and the access state from S7.
-- [ ] Blocked until [[T-039 Catalogue products and talks (new table)]] decides the schema; the tile is hidden, not disabled, until then.
+- [ ] Blocked until [[Events During Story|Events During · S11]] decides the schema; the tile is hidden, not disabled, until then.
 
 ### S7 · Lounges and upgrades ([[Screen Index#s53|s53]])
 
@@ -86,6 +86,50 @@ Acceptance criteria:
 - [ ] Each mini-event shows one of three states: owned (my package's `MINI_EVENT_ACCESS` entitlement or Pro any-lounge), purchasable (price), locked (needs Delegate / Sponsor / VIP upgrade or Pro).
 - [ ] Upgrade during the event follows [[Payments & Orders Story]]; on success the state flips to owned without leaving s53.
 - [ ] Pro any-lounge access is a server-side gate; the client only reads the state.
+
+### S8 · Event mode exhibitors list and detail
+
+*From T-036 (status then: Blocked), merged 2026-10-27.*
+
+Scoped by the viewer's Event Ring membership (access engine).
+
+Screens: [[Screen Index#s53|s53]] Event mode · [[Screen Index#s54|s54]] Exhibitors · [[Screen Index#s55|s55]] Exhibitor
+
+
+### S9 · Event pass with a 60 s rotating code
+
+*From T-037 (status then: Blocked), merged 2026-10-27.*
+
+Same token mechanism as the badge, shorter window, bound to the Event Ring.
+
+Screens: [[Screen Index#s56|s56]] Event pass
+
+
+### S10 · Floor map and booths
+
+*From T-038 (status then: Blocked), merged 2026-10-27.*
+
+Booth positions on a map asset; `Booth` already exists.
+
+Screens: [[Screen Index#s57|s57]] Floor map
+
+
+### S11 · Catalogue products and talks (new table)
+
+*From T-039 (status then: Needs a decision), merged 2026-10-27.*
+
+No products table yet. Schema design needed: product belongs to an exhibitor, talk belongs to a mini-event?
+
+Screens: [[Screen Index#s58|s58]] Catalogue
+
+
+### S12 · Lounges and upgrades
+
+*From T-040 (status then: Blocked), merged 2026-10-27.*
+
+Mini-event access by package or Pro.
+
+Screens: [[Screen Index#s53|s53]] Event mode
 
 ## States and motion the design asks for
 
@@ -105,6 +149,6 @@ Acceptance criteria:
 ## Open questions
 
 - No decision note exists. Open points:
-- [[T-039 Catalogue products and talks (new table)]] — schema for products and talks undecided; S6.
-- [[T-049 Subscription endpoints and a single Pro gate]] — until the `ProGate` exists, S1 and S7 cannot show a truthful lock.
-- [[T-052 Smart Match]] — Pro and Gemma; the tile exists on s53 but the feature is [[Gemma AI]]'s.
+- [[Events During Story|Events During · S11]] — schema for products and talks undecided; S6.
+- [[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]] — until the `ProGate` exists, S1 and S7 cannot show a truthful lock.
+- [[Gemma AI Story|Gemma AI · S8]] — Pro and Gemma; the tile exists on s53 but the feature is [[Gemma AI]]'s.

@@ -10,7 +10,7 @@ approvedBy: "khaled"
 approvedAt: 2026-10-25
 owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [story, story/approved, module/identity, layer/business]
 ---
 
@@ -86,7 +86,7 @@ Acceptance criteria:
 **As a** viewer **I want** to ask for access or keep the card **so that** the encounter is not lost.
 
 Acceptance criteria:
-- [ ] "Save for later" keeps the handle locally and returns to Home; "Connect" waits on [[T-021 Connect request send, inbox, cancel]].
+- [ ] "Save for later" keeps the handle locally and returns to Home; "Connect" waits on [[Connections Story|Connections · S8–S12]].
 - [ ] Nothing in the saved card identifies the Ring or the owner's user id.
 
 ## States and motion the design asks for
@@ -104,4 +104,4 @@ Acceptance criteria:
 
 ## Open questions
 
-- No decision blocks the read path. The QR payload is a design gap: scanning is meant to resolve a rotating token ([[T-007 Issue and rotate the QR token for a Ring]], [[T-008 Resolve a scanned QR token]]); until then a Ring id in the QR is temporary.
+- No decision blocks the read path. The QR payload is a design gap: scanning is meant to resolve a rotating token ([[Badge & QR Story|Badge & QR · S7–S12]], [[Badge & QR Story|Badge & QR · S13–S18]]); until then a Ring id in the QR is temporary.

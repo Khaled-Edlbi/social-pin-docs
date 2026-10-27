@@ -8,10 +8,10 @@ blocks: [B-01]
 decider: "pm"
 screens: [s68]
 affects: ["Account Story", "Account Backend Delivery", "Account Backend Integration", "Account QA Backend", "Account QA Frontend"]
-related: ["B-01 An unverified changed email still signs in", "Auth & Sign-up Backend Integration", "Account Frontend Delivery", "Auth Model", "T-003 Remove devCode once delivery works", "D-20 The changed address still signs in, the words are corrected"]
+related: ["B-01 An unverified changed email still signs in", "Auth & Sign-up Backend Integration", "Account Frontend Delivery", "Auth Model", "Code Delivery Story", "D-20 The changed address still signs in, the words are corrected"]
 owner: "khaled"
 created: 2026-10-26
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [needs-decision, needs-decision/open, priority/high]
 ---
 
@@ -28,7 +28,7 @@ An address changed through `PATCH /users/me` comes back with `emailVerifiedAt: n
 ## Notes
 
 - **There is no re-verify route.** [[Account Backend Delivery]] records it: a changed email or phone comes back unverified and nothing marks it verified again (`request-code` + `verify-code` with purpose `SIGN_UP` is not designed for it and not tested). A gate added today would therefore shut a person out of the address they just moved to, with no way back, unless a second destination is still verified — and for an email-only account that is the whole account. Any gate needs the re-verify route first, which is not scoped and has no task.
-- **The gate buys little security while `devCode` is returned.** `POST /auth/login` answers with the code in every environment ([[T-003 Remove devCode once delivery works]]), so knowing an address is already enough to sign in as it. The gate becomes worth something the moment T-003 lands, not before.
+- **The gate buys little security while `devCode` is returned.** `POST /auth/login` answers with the code in every environment ([[Code Delivery Story|Code Delivery · S8]]), so knowing an address is already enough to sign in as it. The gate becomes worth something the moment Code Delivery · S8 lands, not before.
 - **The client has already taken the second side.** [[Account Frontend Delivery]] refuses to promise what S2 asks and ships the honest copy instead — "Confirming a new email or number isn't in the app yet" — because the backend does not enforce the promise. The screen and the build agree with each other; only the story and [[Account Backend Delivery]] disagree with both.
 - **The endpoints are not this feature's.** `login` and `login/verify` belong to [[Auth & Sign-up Backend Integration]] (BI-02), so a gate is a change to the Auth & Sign-up contract, documented in [[Frontend API Guide]], and not a change local to Account.
 - The same holds for a changed phone, and `PATCH /users/me` clears whichever flag matches.
@@ -37,7 +37,7 @@ An address changed through `PATCH /users/me` comes back with `emailVerifiedAt: n
 ## Options
 
 1. **Gate the sign-in on the verified flags.** `login` and `login/verify` refuse a destination whose `…VerifiedAt` is `null` with 403 `E_AUTH_03`, the shape the client already handles. The story keeps its promise and [[Account Backend Delivery]] stays true. Costs the re-verify route first — without it a changed address is a dead end and an email-only account locks itself out — so it is a task of its own before B-01 can close, and it moves the Auth & Sign-up contract for every client.
-2. **Leave the behaviour as it is and correct the words.** No code ships. [[Account Story]] S2's acceptance criterion and copy drop the promise (`/pm`, re-approved by `/owner`), [[Account Backend Delivery]]'s "proven again before it can sign in" sentence is corrected and its flag line cleared, and [[Account Backend Integration]] says plainly that a changed destination is unverified but still signs in. The gap stays written down in [[Account#Gaps]] with the re-verify route, to be revisited when [[T-003 Remove devCode once delivery works]] lands and the gate starts to mean something. **Recommended by the backend:** it matches what the build and the screens already do, and it does not ship a lock-out.
+2. **Leave the behaviour as it is and correct the words.** No code ships. [[Account Story]] S2's acceptance criterion and copy drop the promise (`/pm`, re-approved by `/owner`), [[Account Backend Delivery]]'s "proven again before it can sign in" sentence is corrected and its flag line cleared, and [[Account Backend Integration]] says plainly that a changed destination is unverified but still signs in. The gap stays written down in [[Account#Gaps]] with the re-verify route, to be revisited when [[Code Delivery Story|Code Delivery · S8]] lands and the gate starts to mean something. **Recommended by the backend:** it matches what the build and the screens already do, and it does not ship a lock-out.
 
 ## Responsible
 

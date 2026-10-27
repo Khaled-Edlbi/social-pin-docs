@@ -8,7 +8,7 @@ module: shared-rings
 screens: [s17, s74]
 related: ["View As & Pin Views"]
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-27
 owner: "omar"
 tags: [feature, module/shared-rings, priority/high, release/v1]
 ---
@@ -38,17 +38,29 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 - Who may ask to join and whether the owner approves each one are Ring settings, by default **with a code or by invitation** and **approve each one** ([[D-04 Ring settings at launch and their defaults]]); members may invite others only when the owner turns that on.
 - Not built yet: invitations, codes and work-email joining do not exist.
 
-## Tasks
+## Work
 
-| Task | Status | Priority | Effort |
-|---|---|---|---|
-| [[T-026 Ring invitations invite, review, decline]] | ❓ Needs a decision / info | High | M |
-| [[T-027 Join a Ring with a code or verified work email]] | ⛔ Blocked | High | M |
-| [[T-028 What you contribute to a shared Ring]] | ❓ Needs a decision / info | Medium | L |
+One story per feature (since 2026-10-27): all of this feature's work is in [[Ring Invitations & Join Story]]. The tasks merged into it on 2026-10-27:
 
-```dataview
-TABLE status, priority, effort FROM #task WHERE feature = "ring-invitations" SORT priority ASC
-```
+| Was | Title | Status then | Priority | Now in the story |
+|---|---|---|---|---|
+| T-026 | Ring invitations invite, review, decline | Needs a decision | high | S7 |
+| T-027 | Join a Ring with a code or verified work email | Blocked | high | S8 |
+| T-028 | What you contribute to a shared Ring | Needs a decision | medium | S9 |
+
+### Log of the merged tasks
+
+- T-026 · 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
+- T-026 · 2026-10-25 · ND-04 decided ([[D-04 Ring settings at launch and their defaults]]); What and Dependencies updated, flag cleared. Status left as typed (needs-info) until product says it can move to todo.
+- T-026 · 2026-10-18 · created as the backend half of T-026
+- T-026 · 2026-10-18 · created as the frontend half of T-026
+- T-027 · 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
+- T-027 · 2026-10-25 · ND-04 decided ([[D-04 Ring settings at launch and their defaults]]); What and Dependencies updated, flag cleared. Still waits on T-026.
+- T-027 · 2026-10-18 · created as the backend half of T-027
+- T-027 · 2026-10-18 · created as the frontend half of T-027
+- T-028 · 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
+- T-028 · 2026-10-18 · created as the backend half of T-028
+- T-028 · 2026-10-18 · created as the frontend half of T-028
 
 ## Decisions
 

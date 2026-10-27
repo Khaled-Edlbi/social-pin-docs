@@ -10,7 +10,7 @@ approvedBy: "khaled"
 approvedAt: 2026-10-25
 owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [story, story/approved, module/platform, layer/business]
 ---
 
@@ -67,6 +67,23 @@ Acceptance criteria:
 - [ ] Pairing creates an `NfcToken` bound to one Ring with an optional label and expiry; the raw token is written to the card and only its hash stored.
 - [ ] The card can be revoked from s75; a revoked or expired card resolves to the same 404 as a bad QR, never to an explanation.
 
+### S6 · Register devices on login; list and remove
+
+*From T-014 (status then: To do), merged 2026-10-27.*
+
+`UserDevice` row on login (name, platform, push token). `GET /users/me/devices`, `DELETE …/devices/:id` revoking that device's refresh tokens.
+
+Screens: [[Screen Index#s75|s75]] My devices
+
+
+### S7 · Pair and revoke an NFC card
+
+*From T-015 (status then: To do), merged 2026-10-27.*
+
+`NfcToken` mirrors `RingQrToken`; resolve path shared with Badge & QR · S13–S18.
+
+Screens: [[Screen Index#s75|s75]] My devices
+
 ## States and motion the design asks for
 
 - State: current device highlighted; list with remove per row; confirm sheet for remove and for sign-out-others ([[Wireframe Brief#Contacts & Devices|§6.4]], [[Wireframe Brief#Account, subscription & settings|§12]]).
@@ -80,4 +97,4 @@ Acceptance criteria:
 
 ## Open questions
 
-- No decision note names this feature. [[T-015 Pair and revoke an NFC card]] waits on [[T-007 Issue and rotate the QR token for a Ring]] so the two tokens share one resolve path.
+- No decision note names this feature. [[Devices & NFC Story|Devices & NFC · S7]] waits on [[Badge & QR Story|Badge & QR · S7–S12]] so the two tokens share one resolve path.

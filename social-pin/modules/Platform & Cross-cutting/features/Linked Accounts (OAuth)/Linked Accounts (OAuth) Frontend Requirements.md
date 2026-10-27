@@ -7,7 +7,7 @@ module: platform
 status: draft
 screens: [s01, s04, s68]
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [frontend-requirements, frontend-requirements/draft, module/platform, layer/frontend]
 ---
 
@@ -27,7 +27,7 @@ What the client needs for the LinkedIn button, the return into Importing, and th
 ### [[Screen Index#s04|s04]] Importing
 
 - Needs: confirmation that the identity is linked; the imported field set (avatar, name, headline, company, location) to animate in; "Skip and fill it in myself" → s06.
-- Source today: not yet. The review step and the write into the base profile belong to [[Onboarding Imports]] ([[T-020 LinkedIn import → review → base profile]]).
+- Source today: not yet. The review step and the write into the base profile belong to [[Onboarding Imports]] ([[Onboarding Imports Story|Onboarding Imports · S7]]).
 
 ### [[Screen Index#s68|s68]] Me / Account
 
@@ -38,12 +38,12 @@ What the client needs for the LinkedIn button, the return into Importing, and th
 
 | Need | Endpoint | Available | Task / decision |
 |---|---|---|---|
-| Start the LinkedIn OAuth hand-off | — | ❌ | [[T-019 LinkedIn OAuth link, unlink, login]] |
-| Callback writing `SocialIdentity` | — | ❌ | [[T-019 LinkedIn OAuth link, unlink, login]] |
-| List my linked identities | — | ❌ | [[T-019 LinkedIn OAuth link, unlink, login]] |
-| Link / unlink a provider from Me | — | ❌ | [[T-019 LinkedIn OAuth link, unlink, login]] |
-| Log in with a linked provider | — | ❌ | [[T-019 LinkedIn OAuth link, unlink, login]] |
-| Import the provider profile into the base profile | — | ❌ | [[T-020 LinkedIn import → review → base profile]] (owned by [[Onboarding Imports]]) |
+| Start the LinkedIn OAuth hand-off | — | ❌ | [[Linked Accounts (OAuth) Story|Linked Accounts (OAuth) · S7]] |
+| Callback writing `SocialIdentity` | — | ❌ | [[Linked Accounts (OAuth) Story|Linked Accounts (OAuth) · S7]] |
+| List my linked identities | — | ❌ | [[Linked Accounts (OAuth) Story|Linked Accounts (OAuth) · S7]] |
+| Link / unlink a provider from Me | — | ❌ | [[Linked Accounts (OAuth) Story|Linked Accounts (OAuth) · S7]] |
+| Log in with a linked provider | — | ❌ | [[Linked Accounts (OAuth) Story|Linked Accounts (OAuth) · S7]] |
+| Import the provider profile into the base profile | — | ❌ | [[Onboarding Imports Story|Onboarding Imports · S7]] (owned by [[Onboarding Imports]]) |
 
 ## Behaviour expectations
 
@@ -64,8 +64,8 @@ What the client needs for the LinkedIn button, the return into Importing, and th
 | 400 | not defined yet | unlink refused (last sign-in method): say what to add first |
 | 401 | `E_AUTH_04` | session gone during link: sign in again |
 
-No OAuth codes exist yet; T-019 adds them. `ErrorCode` is not on the wire until [[T-063 Put the ErrorCode on the error body]] ships.
+No OAuth codes exist yet; Linked Accounts (OAuth) · S7 adds them. `ErrorCode` is not on the wire until [[Error Contract Story|Error Contract · S4–S8]] ships.
 
 ## Blocked by
 
-- [[ND-01 Passwordless login]] is decided (code-only, 2026-10-15); nothing here waits on it. The login row waits on [[T-019 LinkedIn OAuth link, unlink, login]] is ❓ because of it.
+- [[ND-01 Passwordless login]] is decided (code-only, 2026-10-15); nothing here waits on it. The login row waits on [[Linked Accounts (OAuth) Story|Linked Accounts (OAuth) · S7]] is ❓ because of it.

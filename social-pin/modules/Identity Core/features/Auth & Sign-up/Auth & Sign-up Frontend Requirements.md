@@ -8,9 +8,9 @@ status: ready
 screens: [s01, s02, s06, s08, s68, s75]
 depends: []
 affects: []
-related: ["ND-01 Passwordless login", "D-06 Yearly rename, old name freed, case-insensitive", "Onboarding Imports Frontend Requirements", "Profiles & Pin Name Frontend Requirements", "Interests Frontend Requirements", "Rings", "T-079 Enforce the once-a-year Pin name rename", "T-063 Put the ErrorCode on the error body"]
+related: ["ND-01 Passwordless login", "D-06 Yearly rename, old name freed, case-insensitive", "Onboarding Imports Frontend Requirements", "Profiles & Pin Name Frontend Requirements", "Interests Frontend Requirements", "Rings", "Profiles & Pin Name Story", "Error Contract Story"]
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 owner: "Omar Fostok"
 tags: [frontend-requirements, frontend-requirements/ready, module/identity, layer/frontend]
 ---
@@ -63,7 +63,7 @@ Sign-in is steps 1 and 2 only, then Home.
 - The handle only: the full name is collected **before**, on *Profile basics*, and is required there; it reaches the backend as `fullName` in `complete-registration`.
 - The `!` is a prefix, never sent; 3–30 letters, digits, `.`, `_`, checked on the client first; availability is asked 400 ms after typing stops.
 - **Suggestions are built on the client** from the person's own name and shown as chips, as [[D-06 Yearly rename, old name freed, case-insensitive]] decided; no endpoint needed. Capitals don't matter: the backend already compares names lower-cased.
-- The copy "You can change it once a year." is enforced by [[T-079 Enforce the once-a-year Pin name rename]], not yet.
+- The copy "You can change it once a year." is enforced by [[Profiles & Pin Name Story|Profiles & Pin Name · S12–S13]], not yet.
 - This is where the account is created: the onboarding token is dropped once `complete-registration` returns and the steps before can't be gone back to.
 - An expired onboarding token sends a new code and goes back to Verify, keeping what was typed; 409 `E_AUTH_08` (already registered) asks for a sign-in code instead.
 - Source today: `GET /profiles/pin-name/:pinName/availability` (public) → `{ pinName, available }`; `POST /auth/complete-registration { onboardingToken, pinName, fullName? }` → session, 409 `E_AUTH_08` / `E_PROFILE_02`.
@@ -95,13 +95,13 @@ Sign-in is steps 1 and 2 only, then Home.
 | Sign out this device / everywhere | `POST /auth/logout`, `POST /auth/logout-everywhere` | ✅ | — |
 | The default Ring after registration | `GET /rings` | ✅ | — (listed under [[Rings]]) |
 | Suggested handles on s06 | — (client, from the person's own name) | ✅ | — ([[D-06 Yearly rename, old name freed, case-insensitive]]) |
-| The once-a-year rename limit | — | ❌ | [[T-079 Enforce the once-a-year Pin name rename]] |
-| The code actually delivered by email | — | ❌ | [[T-001 Wire an email provider for one-time codes]] |
-| The code actually delivered by SMS | — | ❌ | [[T-002 Wire an SMS provider for one-time codes]] |
-| `devCode` removed from every challenge | — | ❌ | [[T-003 Remove devCode once delivery works]] |
-| Register the device on sign-in (s75) | — | ❌ | [[T-014 Register devices on login; list and remove]] |
-| Sign in with LinkedIn | — | ❌ | [[T-019 LinkedIn OAuth link, unlink, login]] |
-| Stable `ErrorCode` on the error body | — | ❌ | [[T-063 Put the ErrorCode on the error body]] |
+| The once-a-year rename limit | — | ❌ | [[Profiles & Pin Name Story|Profiles & Pin Name · S12–S13]] |
+| The code actually delivered by email | — | ❌ | [[Code Delivery Story|Code Delivery · S6]] |
+| The code actually delivered by SMS | — | ❌ | [[Code Delivery Story|Code Delivery · S7]] |
+| `devCode` removed from every challenge | — | ❌ | [[Code Delivery Story|Code Delivery · S8]] |
+| Register the device on sign-in (s75) | — | ❌ | [[Devices & NFC Story|Devices & NFC · S6]] |
+| Sign in with LinkedIn | — | ❌ | [[Linked Accounts (OAuth) Story|Linked Accounts (OAuth) · S7]] |
+| Stable `ErrorCode` on the error body | — | ❌ | [[Error Contract Story|Error Contract · S4–S8]] |
 
 The import steps, *Profile basics*' work fields and Interests are asked for in their own notes (see *The sign-up flow in the client*).
 
@@ -126,14 +126,14 @@ Removed on 2026-10-15 and not coming back: `POST /auth/reset-password`, `POST /a
 | 400 | `E_AUTH_05` | "That code is wrong or has expired."; boxes shake and empty |
 | 429 | `E_AUTH_06` | boxes locked, "Send a new code" |
 | 403 | `E_AUTH_03` | on `login/verify`: "This account isn't active" + Start sign-up again |
-| 401 | `E_AUTH_03` | on any other call: signed out to Welcome with "This account can't sign in right now…" (lights up with [[T-063 Put the ErrorCode on the error body]]; until then the refused refresh ends the session) |
+| 401 | `E_AUTH_03` | on any other call: signed out to Welcome with "This account can't sign in right now…" (lights up with [[Error Contract Story|Error Contract · S4–S8]]; until then the refused refresh ends the session) |
 | 409 | `E_AUTH_08` | "Sign-up already completed": a sign-in code is sent instead |
 | 409 | `E_PROFILE_02` | the handle shows as taken |
 | 401 | `E_AUTH_04` | Welcome, "Your session has expired. Please sign in again." |
 
-`E_AUTH_02` and `E_USER_04` are retired and never returned. Until [[T-063 Put the ErrorCode on the error body]] ships the body carries no `ErrorCode`; the client branches on status and endpoint.
+`E_AUTH_02` and `E_USER_04` are retired and never returned. Until [[Error Contract Story|Error Contract · S4–S8]] ships the body carries no `ErrorCode`; the client branches on status and endpoint.
 
 ## Blocked by
 
-- Nothing for the flows above. [[T-001 Wire an email provider for one-time codes]] / [[T-002 Wire an SMS provider for one-time codes]] decide when `devCode` can go ([[T-003 Remove devCode once delivery works]]).
-- The rename limit on s06 waits on [[T-079 Enforce the once-a-year Pin name rename]].
+- Nothing for the flows above. [[Code Delivery Story|Code Delivery · S6]] / [[Code Delivery Story|Code Delivery · S7]] decide when `devCode` can go ([[Code Delivery Story|Code Delivery · S8]]).
+- The rename limit on s06 waits on [[Profiles & Pin Name Story|Profiles & Pin Name · S12–S13]].

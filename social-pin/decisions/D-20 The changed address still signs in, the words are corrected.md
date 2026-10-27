@@ -7,10 +7,10 @@ decidedBy: "khaled"
 decidedAt: 2026-10-26
 features: [account]
 affects: ["Account Story", "Account Backend Delivery", "Account Backend Integration", "Account QA Backend", "Account QA Frontend", "B-01 An unverified changed email still signs in"]
-related: ["ND-20 Whether an unverified new address may sign in", "Auth & Sign-up Backend Integration", "Account Frontend Delivery", "T-003 Remove devCode once delivery works"]
+related: ["ND-20 Whether an unverified new address may sign in", "Auth & Sign-up Backend Integration", "Account Frontend Delivery", "Code Delivery Story"]
 owner: "khaled"
 created: 2026-10-26
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [decision, decision/decided]
 ---
 
@@ -22,13 +22,13 @@ tags: [decision, decision/decided]
 
 ## What was decided
 
-**Option 2 — it is ok for now.** An address changed through `PATCH /users/me` keeps signing in straight away, unverified, exactly as the build does today: `POST /auth/login` issues a code for it and `POST /auth/login/verify` returns a session. No gate is added to either endpoint, so no code ships for [[B-01 An unverified changed email still signs in]]. What moves is the wording: [[Account Story]] S2 and S3 drop the promise that a new address must be verified before it can be used to sign in, and the two backend notes that assert the gate are corrected to describe the behaviour as it is. This rules out option 1 (403 `E_AUTH_03` on an unverified destination) **for now**, not forever: the question comes back the day [[T-003 Remove devCode once delivery works]] lands, and a gate still needs a re-verify route before it can be built at all.
+**Option 2 — it is ok for now.** An address changed through `PATCH /users/me` keeps signing in straight away, unverified, exactly as the build does today: `POST /auth/login` issues a code for it and `POST /auth/login/verify` returns a session. No gate is added to either endpoint, so no code ships for [[B-01 An unverified changed email still signs in]]. What moves is the wording: [[Account Story]] S2 and S3 drop the promise that a new address must be verified before it can be used to sign in, and the two backend notes that assert the gate are corrected to describe the behaviour as it is. This rules out option 1 (403 `E_AUTH_03` on an unverified destination) **for now**, not forever: the question comes back the day [[Code Delivery Story|Code Delivery · S8]] lands, and a gate still needs a re-verify route before it can be built at all.
 
 ## Why
 
 Three facts pointed the same way. There is **no re-verify route**: nothing marks a changed email or phone verified again, so a gate added today would shut a person out of the address they had just moved to, and for an email-only account out of the account itself. The gate would also buy **almost no security** while `POST /auth/login` returns `devCode` in every environment — knowing an address is already enough to sign in as it — so it would be a lock-out in exchange for nothing. And the **client has already taken this side**: [[Account Frontend Delivery]] shipped the honest copy, "Confirming a new email or number isn't in the app yet", because it would not promise what the backend does not enforce. The screens and the build agreed with each other; only the story and [[Account Backend Delivery]] disagreed with both, so the words were the thing that was wrong.
 
-What was traded away is a real protection: an address nobody has proven can sign in, and a person who mistypes their new email hands sign-in to whoever owns the address they typed. The gap is accepted deliberately, written down rather than described as handled, and tied to T-003 so it is reconsidered before `devCode` disappears.
+What was traded away is a real protection: an address nobody has proven can sign in, and a person who mistypes their new email hands sign-in to whoever owns the address they typed. The gap is accepted deliberately, written down rather than described as handled, and tied to Code Delivery · S8 so it is reconsidered before `devCode` disappears.
 
 ## What it changes
 
@@ -41,4 +41,4 @@ What was traded away is a real protection: an address nobody has proven can sign
 
 ## Still open
 
-The **re-verify route** for a changed email or phone: no route exists, it is recorded in [[Account#Gaps]], and it has no task. Nothing is blocked on it today. The **gate itself** is deferred, not refused: when [[T-003 Remove devCode once delivery works]] lands, `devCode` stops covering the hole and option 1 becomes worth its cost — a new needs-decision card then, raised from whichever card needs it, with the re-verify route scoped first.
+The **re-verify route** for a changed email or phone: no route exists, it is recorded in [[Account#Gaps]], and it has no task. Nothing is blocked on it today. The **gate itself** is deferred, not refused: when [[Code Delivery Story|Code Delivery · S8]] lands, `devCode` stops covering the hole and option 1 becomes worth its cost — a new needs-decision card then, raised from whichever card needs it, with the re-verify route scoped first.

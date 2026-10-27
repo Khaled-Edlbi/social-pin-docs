@@ -7,7 +7,7 @@ module: identity
 status: current
 screens: [s15, s47]
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [backend-integration, backend-integration/current, module/identity, layer/backend]
 ---
 
@@ -48,7 +48,7 @@ What the client builds: the owner's "Ring people" roster: list who is in a Ring,
 `RingMemberEntity`: `id`, `ringId`, `userId`, `status` (`PENDING` / `ACTIVE` / `EXPIRED` / `REMOVED`), `addedById`, `startsAt`, `expiresAt`, `createdAt`, `updatedAt`.
 
 - `EXPIRED` is never set by the backend today; compute "lapsed" from `expiresAt` on the client.
-- The roster carries **`userId` only**. There is no endpoint that turns a user id into a name or Pin name, and `GET /views/user/:userId/perspectives` returns what *that person shares with the viewer*, which is empty unless they added the owner to a Ring of theirs. A people screen with names needs the contacts work: [[T-023 Connection detail and contacts list]]. See [[Ring Members#Gaps]].
+- The roster carries **`userId` only**. There is no endpoint that turns a user id into a name or Pin name, and `GET /views/user/:userId/perspectives` returns what *that person shares with the viewer*, which is empty unless they added the owner to a Ring of theirs. A people screen with names needs the contacts work: [[Connections Story|Connections · S19–S24]]. See [[Ring Members#Gaps]].
 
 ## State to keep on the client
 
@@ -73,11 +73,11 @@ The roster per Ring, refetched after every write. Do not keep a member's "what t
 
 ## Not available yet
 
-- Where a `userId` comes from: today the only in-app sources would be a scan or a connect request, and neither exists yet. The roster works once [[Connections]] delivers [[T-021 Connect request send, inbox, cancel]] and [[T-022 Accept into a Ring (sets grantedRingId)]].
-- Names and photos on the roster: [[T-023 Connection detail and contacts list]].
-- "Scan someone in" (s15): [[T-008 Resolve a scanned QR token]].
+- Where a `userId` comes from: today the only in-app sources would be a scan or a connect request, and neither exists yet. The roster works once [[Connections]] delivers [[Connections Story|Connections · S8–S12]] and [[Connections Story|Connections · S13–S18]].
+- Names and photos on the roster: [[Connections Story|Connections · S19–S24]].
+- "Scan someone in" (s15): [[Badge & QR Story|Badge & QR · S13–S18]].
 - "Members can see each other" (s27): [[ND-04 Ring settings]].
-- Adding or removing delegated admins: [[T-006 Delegated admin endpoints]].
+- Adding or removing delegated admins: [[Delegated Admins Story|Delegated Admins · S6]].
 
 ## Checklist
 

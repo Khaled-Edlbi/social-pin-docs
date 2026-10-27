@@ -10,7 +10,7 @@ approvedBy: "khaled"
 approvedAt: 2026-10-25
 owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [story, story/approved, module/platform, layer/business]
 ---
 
@@ -52,6 +52,12 @@ Acceptance criteria:
 - [ ] The specs asserting that hidden links and `ringId` never appear in a response pass, and the passwordless sign-in flow (`login` → `login/verify`) is covered end to end.
 - [ ] A spec asserts `devCode` is present under `NODE_ENV=test` and absent otherwise.
 
+### S4 · Run the e2e suite in CI against PostGIS
+
+*From T-055 (status then: To do), merged 2026-10-27.*
+
+Service container `postgis/postgis`; `prisma:deploy`, `db:seed`, `test:e2e`.
+
 ## States and motion the design asks for
 
 - None. No prototype screen references the test run.
@@ -63,4 +69,4 @@ Acceptance criteria:
 
 ## Open questions
 
-- No decision note names this feature. [[T-055 Run the e2e suite in CI against PostGIS]] is To do.
+- No decision note names this feature. [[E2E Test Run Story|E2E Test Run · S4]] is To do.

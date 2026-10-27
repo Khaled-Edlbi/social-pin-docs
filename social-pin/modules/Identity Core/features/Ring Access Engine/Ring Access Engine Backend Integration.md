@@ -7,7 +7,7 @@ module: identity
 status: current
 screens: []
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [backend-integration, backend-integration/current, module/identity, layer/backend]
 ---
 
@@ -21,7 +21,7 @@ The engine has no endpoints of its own; it is what decides every `/views` answer
 
 - **Access is resolved on every request, against the server's `now`.** There is no state to refresh, no token to renew, no "access cache" to clear. Moving someone between Rings, revoking them, or a Ring expiring changes the next response.
 - **Both windows count.** A viewer loses access when the Ring's `expiresAt` passes **or** the membership's does, and gains it only when both `startsAt` have passed. Expiry is exclusive: at the instant of `expiresAt` the Ring is already closed.
-- **A block is mutual.** Neither party sees the other, whatever Rings they still share. (Nothing can create a block yet: [[T-024 Block and unblock]].)
+- **A block is mutual.** Neither party sees the other, whatever Rings they still share. (Nothing can create a block yet: [[Connections Story|Connections · S25]].)
 - **The owner always sees their own Rings** on `/views/ring/:ringId` while they are live, and always edits them, live or not.
 
 ## What the client must do
@@ -37,7 +37,7 @@ The engine has no endpoints of its own; it is what decides every `/views` answer
 
 ## Admin levels
 
-Delegated admins (`RingAdmin`, [[Delegated Admins]]) are checked per route: `MEMBER_MANAGER` for the roster, `CONTENT_MANAGER` for Ring edits and the projection, `FULL` above both. There are no endpoints to grant these yet ([[T-006 Delegated admin endpoints]]); until then only owners pass.
+Delegated admins (`RingAdmin`, [[Delegated Admins]]) are checked per route: `MEMBER_MANAGER` for the roster, `CONTENT_MANAGER` for Ring edits and the projection, `FULL` above both. There are no endpoints to grant these yet ([[Delegated Admins Story|Delegated Admins · S6]]); until then only owners pass.
 
 ## What the client must never do
 

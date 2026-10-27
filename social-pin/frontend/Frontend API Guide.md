@@ -1,7 +1,7 @@
 ---
 type: project
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [project]
 layer: frontend
 ---
@@ -154,7 +154,7 @@ for humans and may be reworded at any time; the code will not change meaning.
 
 **Today the code is not on the wire.** The exception filter writes only
 `statusCode`, `message`, `error`, `path` and `timestamp`, and `error` reads
-`HttpException` for domain errors. Until that is fixed (T-063 in
+`HttpException` for domain errors. Until that is fixed (Error Contract · S4–S8 in
 `social-pin-docs`), branch on the status and the endpoint; the per-feature
 frontend notes in the docs vault list the code each endpoint will carry, so the
 switch can be written now and lit up later.
@@ -358,7 +358,7 @@ audit entry at any role.
 
 **There is no way to fetch the bytes back yet.** The response has no URL and
 no route serves a file by id, so `avatarFileId` and attachment ids cannot be
-rendered; show placeholders until T-062 ships.
+rendered; show placeholders until Files Upload serves file bytes (its story S7–S11).
 
 ---
 

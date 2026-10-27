@@ -10,7 +10,7 @@ approvedBy: "khaled"
 approvedAt: 2026-10-25
 owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [story, story/approved, module/platform, layer/business]
 ---
 
@@ -50,6 +50,20 @@ Acceptance criteria:
 - [ ] A payment state change and a confirmed `AiAction` execution each write a row; the AI row names the `AiAction` id as `resourceId`.
 - [ ] A failed audit write never turns a successful request into an error for the client.
 
+### S4 · Audit log writes
+
+*From T-053 (status then: In progress), merged 2026-10-27.*
+
+`AuditLogService.record()` from auth, ring members, payments and AI actions.
+The service is `AuditLogService`, not `AuditService`: it owns the `audit_logs`
+table, and `record()` deliberately carries no transaction of its own so it
+joins the caller's — an entry cannot claim a change the database rolled back.
+
+Shipped so far: the service, its reads, and the operator panel's writes (a
+status change, the platform role, a role grant or revoke each record one). See
+[[Operator Panel]]. Still open, and why this stays in progress: the access,
+payment and AI writers, and the retention job.
+
 ## States and motion the design asks for
 
 - None. No prototype screen references the audit log.
@@ -57,8 +71,8 @@ Acceptance criteria:
 ## Rules the backend already enforces
 
 - The table and its indexes (`actorId + createdAt`, `resourceType + resourceId + createdAt`, `action + createdAt`) exist; `actorId` is nullable and set to null when the actor's account is deleted, so the trail outlives the account.
-- Nothing writes to it yet ([[T-053 Audit log writes]]). The list of actions to log is fixed by the feature note: auth, ring members, payments, AI actions.
+- Nothing writes to it yet ([[Audit Log Story|Audit Log · S4]]). The list of actions to log is fixed by the feature note: auth, ring members, payments, AI actions.
 
 ## Open questions
 
-- No decision note names this feature. Retention of audit rows is not stated anywhere and should be set before [[T-053 Audit log writes]] ships.
+- No decision note names this feature. Retention of audit rows is not stated anywhere and should be set before [[Audit Log Story|Audit Log · S4]] ships.

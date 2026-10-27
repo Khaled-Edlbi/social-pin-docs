@@ -7,7 +7,7 @@ module: identity
 status: done
 screens: [s15, s47]
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [backend-delivery, backend-delivery/done, module/identity, layer/backend]
 ---
 
@@ -47,7 +47,7 @@ What the backend shipped for this feature and how it works. The sum of this feat
 
 - s15 "Scan someone in" and "Add" go through the connect flow, which does not exist yet. See [[Connections]].
 - "Members can see each other" (s27) would change the owner-only rule. See [[ND-04 Ring settings]].
-- **The roster carries `userId` only.** No endpoint resolves a user id to a name or Pin name, so the people screen (s15) cannot show names until the contacts work lands. See [[T-023 Connection detail and contacts list]].
+- **The roster carries `userId` only.** No endpoint resolves a user id to a name or Pin name, so the people screen (s15) cannot show names until the contacts work lands. See [[Connections Story|Connections · S19–S24]].
 
 ## Tasks delivered
 

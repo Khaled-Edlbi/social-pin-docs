@@ -7,7 +7,7 @@ release: v1
 module: platform
 screens: [s69]
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [feature, module/platform, priority/high, release/v1]
 ---
 
@@ -29,16 +29,23 @@ Wireframe brief sections: [[Wireframe Brief#Notifications|§11 Notifications]]
 
 Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map in [[Navigation Map]], see [[Design Reference]].
 
-## Tasks
+## Work
 
-| Task | Status | Priority | Effort |
-|---|---|---|---|
-| [[T-045 NotificationService.emit and the inbox]] | ⬜ To do | High | M |
-| [[T-046 Push delivery and preferences]] | ⛔ Blocked | High | M |
+One story per feature (since 2026-10-27): all of this feature's work is in [[Notifications Story]]. The tasks merged into it on 2026-10-27:
 
-```dataview
-TABLE status, priority, effort FROM #task WHERE feature = "notifications" SORT priority ASC
-```
+| Was | Title | Status then | Priority | Now in the story |
+|---|---|---|---|---|
+| T-045 | NotificationService.emit and the inbox | To do | high | S7 |
+| T-046 | Push delivery and preferences | Blocked | high | S8 |
+
+### Log of the merged tasks
+
+- T-045 · 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
+- T-045 · 2026-10-18 · created as the backend half of T-045
+- T-045 · 2026-10-18 · created as the frontend half of T-045
+- T-046 · 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
+- T-046 · 2026-10-18 · created as the backend half of T-046
+- T-046 · 2026-10-18 · created as the frontend half of T-046
 
 ## Related
 

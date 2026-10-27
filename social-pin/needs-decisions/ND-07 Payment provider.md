@@ -3,26 +3,26 @@ type: needs-decision
 id: ND-07
 status: open
 features: [payments, subscription]
-blocks: [T-047, T-035, T-049]
+blocks: ["Payments & Orders Story", "Events Before Story", "Subscription (Free vs Pro) Story"]
 decider: "owner"
 screens: [s51, s70]
 affects: []
 related: ["Payments & Orders", "Subscription (Free vs Pro)"]
 owner: "khaled"
 created: 2026-10-21
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [needs-decision, needs-decision/open]
 ---
 
 # ✅ ND-07 · Payment provider
 
-**Status:** fulfilled (its decision card was decided 2026-10-21 by khaled) · **Decider:** owner · **Raised:** 2026-10-21 · **Needed by:** [[T-047 Orders, payments and the provider webhook]], [[T-035 Registration transaction with order and payment]], [[T-049 Subscription endpoints and a single Pro gate]] · **Feature:** [[Payments & Orders]], [[Subscription (Free vs Pro)]] · **Module:** [[Commerce Module]]
+**Status:** fulfilled (its decision card was decided 2026-10-21 by khaled) · **Decider:** owner · **Raised:** 2026-10-21 · **Needed by:** [[Payments & Orders Story|Payments & Orders · S7]], [[Events Before Story|Events Before · S9]], [[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]] · **Feature:** [[Payments & Orders]], [[Subscription (Free vs Pro)]] · **Module:** [[Commerce Module]]
 
 > The cards in `blocks` are **Blocked · ND-07** while this is `draft` or `open` and return to their own status once its decision card (D-07) is decided: this card then shows Fulfilled. Nobody edits their `status:` for this.
 
 ## What has to be decided
 
-Which payment provider Social Pin moves money through, for every purchase in the product: an attendee's ticket, package or sub-event, an exhibitor's package and booth, a user's Pro account, and what the organizer is paid. Until it is chosen, [[T-047 Orders, payments and the provider webhook]] cannot shape the callback that settles an order, [[T-035 Registration transaction with order and payment]] cannot finish a registration that includes a payment, and [[T-049 Subscription endpoints and a single Pro gate]] has no channel to bill Pro on. Choosing one provider for all four flows keeps payments one integration; choosing two splits the Pro billing from the event payments and doubles the integration and the audit.
+Which payment provider Social Pin moves money through, for every purchase in the product: an attendee's ticket, package or sub-event, an exhibitor's package and booth, a user's Pro account, and what the organizer is paid. Until it is chosen, [[Payments & Orders Story|Payments & Orders · S7]] cannot shape the callback that settles an order, [[Events Before Story|Events Before · S9]] cannot finish a registration that includes a payment, and [[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]] has no channel to bill Pro on. Choosing one provider for all four flows keeps payments one integration; choosing two splits the Pro billing from the event payments and doubles the integration and the audit.
 
 ## Notes
 

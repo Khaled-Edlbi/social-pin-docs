@@ -10,7 +10,7 @@ approvedBy: "khaled"
 approvedAt: 2026-10-25
 owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [story, story/approved, module/platform, layer/business]
 ---
 
@@ -61,6 +61,14 @@ Acceptance criteria:
 - [ ] Interests never appear on any Ring view, perspective, connection detail or match reason; a match reason says "shared industry", never which interest.
 - [ ] The only screens that show a user's own interests are s07 and s71.
 
+### S5 · Interests vocabulary and my interests
+
+*From T-016 (status then: To do), merged 2026-10-27.*
+
+`GET /interests` (public reference data), `GET/PUT /users/me/interests`. No outward entity.
+
+Screens: [[Screen Index#s07|s07]] Interests · [[Screen Index#s71|s71]] Interests
+
 ## States and motion the design asks for
 
 - State: empty selection (Continue still enabled as Skip-equivalent or disabled, product to confirm), N picked, saved; loading the vocabulary; offline fallback with the last fetched vocabulary ([[Wireframe Brief#Onboarding flow|§3.1]]).
@@ -70,8 +78,8 @@ Acceptance criteria:
 
 - `Interest.name` is unique and the vocabulary is seeded reference data (`prisma/seed/interest.seed.ts`); `UserInterest` is keyed by (user, interest) with a `weight` defaulting to 1.
 - There is no outward entity for interests and the feature note says there never will be; matchmaking reads them server-side only ([[Gemma AI]]).
-- No endpoint exists yet ([[T-016 Interests vocabulary and my interests]]).
+- No endpoint exists yet ([[Interests Story|Interests · S5]]).
 
 ## Open questions
 
-- No decision note names this feature. Whether a minimum number of picks is required, and whether the `weight` on `UserInterest` is exposed in the picker, are for [[T-016 Interests vocabulary and my interests]] to state.
+- No decision note names this feature. Whether a minimum number of picks is required, and whether the `weight` on `UserInterest` is exposed in the picker, are for [[Interests Story|Interests · S5]] to state.

@@ -6,11 +6,11 @@ status: decided
 decidedBy: "molham"
 decidedAt: 2026-10-25
 features: [connections]
-affects: ["Connections", "Ring Members", "T-022 Accept into a Ring (sets grantedRingId)", "T-023 Connection detail and contacts list"]
+affects: ["Connections", "Ring Members", "Connections Story"]
 related: ["ND-15 One Ring or several per connection", "D-14 Shared with me lists people, never the Ring", "View As & Pin Views"]
 owner: "khaled"
 created: 2026-10-25
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [decision, decision/decided]
 ---
 
@@ -43,10 +43,10 @@ Answered on the product-questions page, 2026-10-22 (Q2 "yes, the oldest"; Q4 "sh
 
 - [[Connections]]: a connection outlives access unless the owner disconnects; a disconnect is its own action.
 - [[Ring Members]]: removing a member from their last Ring of mine offers *Remove from Rings* or *Disconnect*; reassign and revoke stay as they are.
-- [[T-023 Connection detail and contacts list]]: the detail response is a list of Rings, not one; contacts include people with no access (shown as such) and exclude people I disconnected or who blocked me; S1's "Someone I removed from every Ring … is not listed" becomes "Someone I disconnected …", and the open question *Connected without a Ring* is answered.
-- [[T-022 Accept into a Ring (sets grantedRingId)]]: unchanged, accepting puts the person in one Ring; adding to more happens afterwards from s47.
+- [[Connections Story|Connections · S19–S24]]: the detail response is a list of Rings, not one; contacts include people with no access (shown as such) and exclude people I disconnected or who blocked me; S1's "Someone I removed from every Ring … is not listed" becomes "Someone I disconnected …", and the open question *Connected without a Ring* is answered.
+- [[Connections Story|Connections · S13–S18]]: unchanged, accepting puts the person in one Ring; adding to more happens afterwards from s47.
 
 ## Still open
 
-- "The version they see first": where a person meets several versions of me (my card on Shared with me, a scan, the perspectives list) and how they switch between them is [[View As & Pin Views]]' and the T-023 story's to say.
-- Whether a disconnect tells the other person anything follows [[D-13 The requester sees a declined request]] in spirit but was not asked; the T-023 story says it.
+- "The version they see first": where a person meets several versions of me (my card on Shared with me, a scan, the perspectives list) and how they switch between them is [[View As & Pin Views]]' and the Connections · S19–S24 story's to say.
+- Whether a disconnect tells the other person anything follows [[D-13 The requester sees a declined request]] in spirit but was not asked; the Connections · S19–S24 story says it.

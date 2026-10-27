@@ -7,7 +7,7 @@ release: mvp
 module: platform
 screens: [s07, s71]
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [feature, module/platform, priority/high, release/mvp]
 ---
 
@@ -30,15 +30,19 @@ Wireframe brief sections: [[Wireframe Brief#Onboarding flow|§3.1 Onboarding flo
 
 Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map in [[Navigation Map]], see [[Design Reference]].
 
-## Tasks
+## Work
 
-| Task | Status | Priority | Effort |
-|---|---|---|---|
-| [[T-016 Interests vocabulary and my interests]] | ⬜ To do | High | S |
+One story per feature (since 2026-10-27): all of this feature's work is in [[Interests Story]]. The tasks merged into it on 2026-10-27:
 
-```dataview
-TABLE status, priority, effort FROM #task WHERE feature = "interests" SORT priority ASC
-```
+| Was | Title | Status then | Priority | Now in the story |
+|---|---|---|---|---|
+| T-016 | Interests vocabulary and my interests | To do | high | S5 |
+
+### Log of the merged tasks
+
+- T-016 · 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
+- T-016 · 2026-10-18 · created as the backend half of T-016
+- T-016 · 2026-10-18 · created as the frontend half of T-016
 
 ## Related
 

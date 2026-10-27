@@ -7,7 +7,7 @@ module: identity
 status: draft
 screens: [s15, s47]
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [frontend-requirements, frontend-requirements/draft, module/identity, layer/frontend]
 ---
 
@@ -48,11 +48,11 @@ What the client needs from the backend to build the owner's roster and the per-p
 
 | Shown | Source | Notes |
 |---|---|---|
-| Identity | — | placeholder until [[T-023 Connection detail and contacts list]] |
+| Identity | — | placeholder until [[Connections Story|Connections · S19–S24]] |
 | Window | `startsAt`, `expiresAt` | `null` = open-ended |
 | Lapsed | `expiresAt < now` on an `ACTIVE` row | `EXPIRED` is never set server-side |
 | Added | `createdAt`, `addedById` | relative time |
-| Count | `meta.total` of the `ACTIVE` list | roster header; not the design's live member count ([[T-004 Member count per Ring on list and detail]]) |
+| Count | `meta.total` of the `ACTIVE` list | roster header; not the design's live member count ([[Counts Story|Counts · S6–S10]]) |
 
 ## Endpoints required
 
@@ -64,10 +64,10 @@ What the client needs from the backend to build the owner's roster and the per-p
 | Move to another Ring of mine | `POST /rings/:ringId/members/:userId/reassign` | ✅ | — |
 | Revoke | `DELETE /rings/:ringId/members/:userId` | ✅ | — |
 | Picker of my other Rings for reassign | `GET /rings` | ✅ | — (listed under [[Rings]]) |
-| Name, Pin name and photo per row | — | ❌ | [[T-023 Connection detail and contacts list]] |
-| A `userId` to add (connect request accepted) | — | ❌ | [[T-021 Connect request send, inbox, cancel]], [[T-022 Accept into a Ring (sets grantedRingId)]] |
-| Scan someone in | — | ❌ | [[T-008 Resolve a scanned QR token]] |
-| Delegated admins managing the roster | — | ❌ | [[T-006 Delegated admin endpoints]] |
+| Name, Pin name and photo per row | — | ❌ | [[Connections Story|Connections · S19–S24]] |
+| A `userId` to add (connect request accepted) | — | ❌ | [[Connections Story|Connections · S8–S12]], [[Connections Story|Connections · S13–S18]] |
+| Scan someone in | — | ❌ | [[Badge & QR Story|Badge & QR · S13–S18]] |
+| Delegated admins managing the roster | — | ❌ | [[Delegated Admins Story|Delegated Admins · S6]] |
 | Members can see each other | — | ❌ | [[ND-04 Ring settings]] |
 
 ## Behaviour expectations
@@ -94,10 +94,10 @@ What the client needs from the backend to build the owner's roster and the per-p
 | 400 | `E_RING_07` | reassign target is not mine: validation |
 | 400 | — (validation; `message` is a string array) | inline on the window fields |
 
-Until [[T-063 Put the ErrorCode on the error body]] ships, branch on status and endpoint.
+Until [[Error Contract Story|Error Contract · S4–S8]] ships, branch on status and endpoint.
 
 ## Blocked by
 
-- [[T-023 Connection detail and contacts list]] — names and photos on every row; without it the roster is a list of windows.
-- [[T-021 Connect request send, inbox, cancel]] and [[T-022 Accept into a Ring (sets grantedRingId)]] — the only in-app sources of a `userId` to add.
+- [[Connections Story|Connections · S19–S24]] — names and photos on every row; without it the roster is a list of windows.
+- [[Connections Story|Connections · S8–S12]] and [[Connections Story|Connections · S13–S18]] — the only in-app sources of a `userId` to add.
 - [[ND-04 Ring settings]] — "members can see each other" on s27.

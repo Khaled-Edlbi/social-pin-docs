@@ -7,8 +7,8 @@ module: identity
 status: ready
 screens: [s11, s12, s14, s16, s17, s68]
 depends: []
-affects: ["T-004 Member count per Ring on list and detail", "T-005 Connection count on Me and Home"]
-related: ["D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "Rings", "Connections", "T-021 Connect request send, inbox, cancel", "T-063 Put the ErrorCode on the error body"]
+affects: ["Counts Story"]
+related: ["D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "Rings", "Connections", "Connections Story", "Error Contract Story"]
 created: 2026-10-18
 updated: 2026-10-27
 owner: "Omar Fostok"
@@ -28,12 +28,12 @@ Every count here is **owner-facing**: a person only ever sees how many people ar
 ### [[Screen Index#s11|s11]] / [[Screen Index#s12|s12]] Home · Recent Rings
 
 - Needs: "N people" under each of the Rings listed (the client lists the first three of the person's own Rings, default first); "All N" on the section header, N being how many Rings the person owns.
-- Source today: "All N" from `meta.total` of `GET /rings` ✅. Per-Ring "N people": not yet ([[T-004 Member count per Ring on list and detail]]).
+- Source today: "All N" from `meta.total` of `GET /rings` ✅. Per-Ring "N people": not yet ([[Counts Story|Counts · S6–S10]]).
 
 ### Home · the Ring picker (the "My badge" card on s11 / s12; a sheet, no screen id)
 
 - Needs: "N people" beside each of the person's own Rings in the sheet that picks which Ring the badge and "go visible" are for.
-- Source today: the list from `GET /rings` ✅; the count: not yet (T-004).
+- Source today: the list from `GET /rings` ✅; the count: not yet (Counts · S6–S10).
 
 ### [[Screen Index#s14|s14]] Ring data
 
@@ -43,7 +43,7 @@ Every count here is **owner-facing**: a person only ever sees how many people ar
 ### [[Screen Index#s16|s16]] My Rings
 
 - Needs: "My Rings · N" on the tab; "N people" under each Ring (with "· expires 16 Mar" when the Ring has an end date).
-- Source today: the tab from `meta.total` of `GET /rings` ✅. Per-row "N people": not yet (T-004).
+- Source today: the tab from `meta.total` of `GET /rings` ✅. Per-row "N people": not yet (Counts · S6–S10).
 
 ### [[Screen Index#s17|s17]] Shared with me
 
@@ -54,22 +54,22 @@ Every count here is **owner-facing**: a person only ever sees how many people ar
 ### [[Screen Index#s68|s68]] Me / Account
 
 - Needs: "N Rings · N connections" under the name on the profile card. The Rings part from `meta.total` of `GET /rings` ✅; the connections part **hidden, not zero,** until connections exist.
-- Source today: connections: not yet ([[T-005 Connection count on Me and Home]], which waits on connections themselves, [[T-021 Connect request send, inbox, cancel]]).
+- Source today: connections: not yet ([[Counts Story|Counts · S11]], which waits on connections themselves, [[Connections Story|Connections · S8–S12]]).
 
 ## Endpoints required
 
 | Need | Endpoint | Available | Task / decision |
 |---|---|---|---|
 | Number of Rings I own (Home "All N", My Rings tab, Me) | `GET /rings` → `meta.total` | ✅ | — (listed under [[Rings]]) |
-| Live member count per owned Ring, on the list and the detail | — | ❌ | [[T-004 Member count per Ring on list and detail]] |
+| Live member count per owned Ring, on the list and the detail | — | ❌ | [[Counts Story|Counts · S6–S10]] |
 | Number of **people** sharing a Ring with me, live now | — | ❌ | no task yet: asked here. `GET /rings/shared-with-me` → `meta.total` counts Rings today |
-| Connection count on Me (and Home, if the story keeps it) | — | ❌ | [[T-005 Connection count on Me and Home]] (waits on [[T-021 Connect request send, inbox, cancel]]) |
+| Connection count on Me (and Home, if the story keeps it) | — | ❌ | [[Counts Story|Counts · S11]] (waits on [[Connections Story|Connections · S8–S12]]) |
 
 Not asked, by decision: a member count on a Ring shared with me ([[D-14 Shared with me lists people, never the Ring]]).
 
 ## Behaviour expectations
 
-- **One number per Ring, from the backend.** When T-004 ships, the client shows `memberCount` as sent and never counts a roster itself, so the figure matches what the access engine lets people see: live members only (window open, not removed, Ring not expired).
+- **One number per Ring, from the backend.** When Counts · S6–S10 ships, the client shows `memberCount` as sent and never counts a roster itself, so the figure matches what the access engine lets people see: live members only (window open, not removed, Ring not expired).
 - **The count rides on the Ring.** The client prefers `memberCount` on the Ring as `GET /rings` and `GET /rings/:id` return it, so My Rings, Home and the picker need no extra call per Ring.
 - **Refetch:** with their lists (screen focus; after create, delete, a disposition); member counts also after every add, reassign or revoke on s15 / s47.
 - **Caching:** counts are not cached on their own; they live on the list response (`rings:<userId>`, `rings-shared:<userId>`) and expire with it.
@@ -84,10 +84,10 @@ Not asked, by decision: a member count on a Ring shared with me ([[D-14 Shared w
 | 403 | `E_RING_05` | an owner-only count asked for a Ring the person doesn't own: hide the number |
 | 400 | — (validation; `limit` above 50) | client bug; keep `limit` ≤ 50 |
 
-No code of its own exists yet; the rows above are the codes of the list endpoints the counts depend on. Until [[T-063 Put the ErrorCode on the error body]] ships, branch on status and endpoint.
+No code of its own exists yet; the rows above are the codes of the list endpoints the counts depend on. Until [[Error Contract Story|Error Contract · S4–S8]] ships, branch on status and endpoint.
 
 ## Blocked by
 
-- [[T-004 Member count per Ring on list and detail]] — every "N people" on Home, the Ring picker, Ring data and My Rings.
-- [[T-005 Connection count on Me and Home]] — "N connections" on Me; itself waiting on [[T-021 Connect request send, inbox, cancel]].
+- [[Counts Story|Counts · S6–S10]] — every "N people" on Home, the Ring picker, Ring data and My Rings.
+- [[Counts Story|Counts · S11]] — "N connections" on Me; itself waiting on [[Connections Story|Connections · S8–S12]].
 - The people count on Shared with me has no task yet.

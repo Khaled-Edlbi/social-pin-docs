@@ -10,7 +10,7 @@ approvedBy: "khaled"
 approvedAt: 2026-10-25
 owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [story, story/approved, module/platform, layer/business]
 ---
 
@@ -68,7 +68,33 @@ Acceptance criteria:
 Acceptance criteria:
 - [ ] If `devCode` is present in the response, the six boxes are filled and the field stays editable.
 - [ ] If `devCode` is absent, nothing changes; the build never requires it and never stores it.
-- [ ] The build never requires `devCode`; when [[T-003 Remove devCode once delivery works]] removes it, nothing but the pre-fill changes.
+- [ ] The build never requires `devCode`; when [[Code Delivery Story|Code Delivery · S8]] removes it, nothing but the pre-fill changes.
+
+### S6 · Wire an email provider for one-time codes
+
+*From T-001 (status then: To do), merged 2026-10-27.*
+
+Replace `AuthService.issueCode`'s log line with a mail send. Keep the `devCode` gate until delivery is verified in staging.
+
+Screens: [[Screen Index#s02|s02]] Verify
+
+
+### S7 · Wire an SMS provider for one-time codes
+
+*From T-002 (status then: To do), merged 2026-10-27.*
+
+Same seam as Code Delivery · S6 for the PHONE channel.
+
+Screens: [[Screen Index#s02|s02]] Verify
+
+
+### S8 · Remove devCode once delivery works
+
+*From T-003 (status then: Blocked), merged 2026-10-27.*
+
+Delete `devCode` from `VerificationChallengeEntity` and the allow-list in `AuthService`.
+
+Screens: [[Screen Index#s02|s02]] Verify
 
 ## States and motion the design asks for
 

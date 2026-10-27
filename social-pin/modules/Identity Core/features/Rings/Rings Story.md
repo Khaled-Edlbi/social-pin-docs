@@ -9,7 +9,7 @@ screens: [s08, s09, s16, s17, s18, s19, s20, s21, s22, s26, s62]
 approvedBy: "khaled"
 approvedAt: 2026-10-25
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 owner: "omar"
 related: ["D-04 Ring settings at launch and their defaults", "D-05 Inherit per field, copy without members", "D-14 Shared with me lists people, never the Ring", "D-18 Ring names shown when joined knowingly"]
 tags: [story, story/approved, module/identity, layer/business]
@@ -87,7 +87,7 @@ Acceptance criteria:
 - [ ] `PATCH /rings/:id { startsAt?, expiresAt?, isTemporary? }`; `null` clears a bound; the copy explains expiry applies to every member at that instant.
 - [ ] An expired Ring remains editable here; its members cannot read it.
 - [ ] "Delete Ring" behind a confirmation; `DELETE /rings/:id`; 409 `E_RING_04` on the default reads "Choose another default first".
-- [ ] Settings and Permissions (s27) are S9; until the settings exist and [[T-006 Delegated admin endpoints]] ships, they stay placeholders.
+- [ ] Settings and Permissions (s27) are S9; until the settings exist and [[Delegated Admins Story|Delegated Admins · S6]] ships, they stay placeholders.
 
 ### S7 · Make a Ring the default ([[Screen Index#s16|s16]])
 

@@ -7,7 +7,7 @@ release: later
 module: platform
 screens: [s13, s60]
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-27
 owner: "omar"
 tags: [feature, module/platform, priority/medium, release/later]
 ---
@@ -31,16 +31,23 @@ Wireframe brief sections: [[Wireframe Brief#Smart Match|§8.4 Smart Match]], [[W
 
 Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map in [[Navigation Map]], see [[Design Reference]].
 
-## Tasks
+## Work
 
-| Task | Status | Priority | Effort |
-|---|---|---|---|
-| [[T-051 Gemma assistant sheet and suggestions]] | ❓ Needs a decision / info | Medium | L |
-| [[T-052 Smart Match]] | ⛔ Blocked | Medium | L |
+One story per feature (since 2026-10-27): all of this feature's work is in [[Gemma AI Story]]. The tasks merged into it on 2026-10-27:
 
-```dataview
-TABLE status, priority, effort FROM #task WHERE feature = "gemma" SORT priority ASC
-```
+| Was | Title | Status then | Priority | Now in the story |
+|---|---|---|---|---|
+| T-051 | Gemma assistant sheet and suggestions | Needs a decision | medium | S7 |
+| T-052 | Smart Match | Blocked | medium | S8 |
+
+### Log of the merged tasks
+
+- T-051 · 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
+- T-051 · 2026-10-18 · created as the backend half of T-051
+- T-051 · 2026-10-18 · created as the frontend half of T-051
+- T-052 · 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
+- T-052 · 2026-10-18 · created as the backend half of T-052
+- T-052 · 2026-10-18 · created as the frontend half of T-052
 
 ## Decisions
 

@@ -7,7 +7,7 @@ module: identity
 status: done
 screens: [s14, s20, s23, s24, s25, s29, s36]
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [backend-delivery, backend-delivery/done, module/identity, layer/backend]
 ---
 
@@ -58,7 +58,7 @@ What the backend shipped for this feature and how it works. The sum of this feat
 - The design assumes **one library of fields** that each Ring turns on or off ("4 of 7 on", s20 / s24). The backend stores a separate copy per Ring. See [[ND-03 Field library vs per-Ring copies]].
 - "Inherit, stays in sync with your Pin" (s23) and "Copy another Ring's bio" (s28) need the base profile bio and photo. See [[ND-05 Copy or inherit]] and [[ND-02 Base profile work fields]].
 - Widgets (s37) have a table but no endpoints. See [[Widgets]].
-- **`avatarFileId` and attachment ids cannot be fetched**: no route serves file bytes by id. See [[T-062 Serve uploaded file bytes by id]].
+- **`avatarFileId` and attachment ids cannot be fetched**: no route serves file bytes by id. See [[Files Upload Story|Files Upload · showing files]].
 
 ## Tasks delivered
 

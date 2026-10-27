@@ -7,7 +7,7 @@ release: v1
 module: shared-rings
 screens: [s26, s27]
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-27
 owner: "omar"
 tags: [feature, module/shared-rings, priority/high, release/v1]
 ---
@@ -36,15 +36,19 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 - A Ring's **admins can change its settings**, as the owner can ([[D-04 Ring settings at launch and their defaults]]). Whether some settings stay the owner's only was not decided; until it is, admins can change all of them.
 - Not built yet: there is no way to add, change or remove an admin.
 
-## Tasks
+## Work
 
-| Task | Status | Priority | Effort |
-|---|---|---|---|
-| [[T-006 Delegated admin endpoints]] | ⬜ To do | High | M |
+One story per feature (since 2026-10-27): all of this feature's work is in [[Delegated Admins Story]]. The tasks merged into it on 2026-10-27:
 
-```dataview
-TABLE status, priority, effort FROM #task WHERE feature = "delegated-admins" SORT priority ASC
-```
+| Was | Title | Status then | Priority | Now in the story |
+|---|---|---|---|---|
+| T-006 | Delegated admin endpoints | To do | high | S6 |
+
+### Log of the merged tasks
+
+- T-006 · 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
+- T-006 · 2026-10-18 · created as the backend half of T-006
+- T-006 · 2026-10-18 · created as the frontend half of T-006
 
 ## Decisions
 

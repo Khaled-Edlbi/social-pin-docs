@@ -10,7 +10,7 @@ approvedBy: "khaled"
 approvedAt: 2026-10-25
 owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [story, story/approved, module/discovery, layer/business]
 ---
 
@@ -74,6 +74,23 @@ Acceptance criteria:
 - [ ] Results list only the matches; a match is shown as the person's view (what they share with me) with *Connect*; nobody who is not in my contacts is ever listed.
 - [ ] Not available yet: the tile opens s03 in a "coming soon" state until the privacy review is done.
 
+### S6 · Discover search by !pinname and recent searches
+
+*From T-030 (status then: To do), merged 2026-10-27.*
+
+Exact-name resolve reuses `GET /views/pin`. Recent searches stored per user. No fuzzy search over other users' names.
+
+Screens: [[Screen Index#s38|s38]] Discover hub
+
+
+### S7 · Import contacts
+
+*From T-031 (status then: Needs a decision), merged 2026-10-27.*
+
+Match hashed emails / phones against users; must not reveal who is on the platform beyond the match. Privacy review needed.
+
+Screens: [[Screen Index#s38|s38]] Discover hub
+
 ## States and motion the design asks for
 
 - State: hub idle, field focused with recent searches, resolving, resolved (hands over to s44), not available, Gemma coming soon, contacts permission needed.
@@ -83,12 +100,12 @@ Acceptance criteria:
 
 - `GET /views/pin/:pinName` resolves the exact normalised handle and renders the default Ring if the viewer is in it, else the oldest Ring they can see; no profile, no live Ring, or a block all give the same 404 `E_RING_ACCESS_01` ([[View As & Pin Views]]).
 - The response carries no `ringId`, no `userId`; a search result cannot tell the user which Ring they were resolved into.
-- There is no fuzzy or partial lookup on other users' names, and T-030 keeps it that way: search must not become a membership oracle.
+- There is no fuzzy or partial lookup on other users' names, and Discover Hub & Search · S6 keeps it that way: search must not become a membership oracle.
 - The Pin-name availability check (`GET /profiles/pin-name/:pinName/availability`, public) never says who holds a taken name and must not be used by Discover as a "does this person exist" probe.
 
 ## Open questions
 
-- [[T-030 Discover search by !pinname and recent searches]] — whether recent searches are server-side (synced) or device-only; S3 assumes server-side and private.
-- [[T-031 Import contacts]] — the matching rule and what a match returns; S5 is disabled until the privacy review.
-- [[T-051 Gemma assistant sheet and suggestions]] — the assistant sheet behind S4.
-- [[T-029 My companies and company detail]] — whether a business has a Pin name that resolves on this field (the `!vertexlabs` path to s55).
+- [[Discover Hub & Search Story|Discover Hub & Search · S6]] — whether recent searches are server-side (synced) or device-only; S3 assumes server-side and private.
+- [[Discover Hub & Search Story|Discover Hub & Search · S7]] — the matching rule and what a match returns; S5 is disabled until the privacy review.
+- [[Gemma AI Story|Gemma AI · S7]] — the assistant sheet behind S4.
+- [[Companies Story|Companies · S6]] — whether a business has a Pin name that resolves on this field (the `!vertexlabs` path to s55).

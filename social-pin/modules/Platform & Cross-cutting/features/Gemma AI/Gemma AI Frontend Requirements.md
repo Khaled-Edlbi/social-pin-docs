@@ -7,7 +7,7 @@ module: platform
 status: draft
 screens: [s13, s60]
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [frontend-requirements, frontend-requirements/draft, module/platform, layer/frontend]
 ---
 
@@ -40,12 +40,12 @@ What the client needs to build the Gemma sheet, Smart Match and the inline sugge
 
 | Need | Endpoint | Available | Task / decision |
 |---|---|---|---|
-| Open a session, send a message, receive suggestion cards | — | ❌ | [[T-051 Gemma assistant sheet and suggestions]] (needs a model / provider decision) |
-| Confirm or reject an AI action | — | ❌ | [[T-051 Gemma assistant sheet and suggestions]] |
-| Smart Match list for an event; mark viewed / dismissed | — | ❌ | [[T-052 Smart Match]] (blocked on T-051 and [[T-036 Event mode exhibitors list and detail]]) |
-| Auto-send meeting requests from matches (Pro) | — | ❌ | [[T-052 Smart Match]] via [[T-042 Meeting request, accept with slots, decline with reason]] |
-| Pro gate on Smart Match and automation | — | ❌ | [[T-049 Subscription endpoints and a single Pro gate]] |
-| Interests feeding matchmaking | — | ❌ | [[T-016 Interests vocabulary and my interests]] |
+| Open a session, send a message, receive suggestion cards | — | ❌ | [[Gemma AI Story|Gemma AI · S7]] (needs a model / provider decision) |
+| Confirm or reject an AI action | — | ❌ | [[Gemma AI Story|Gemma AI · S7]] |
+| Smart Match list for an event; mark viewed / dismissed | — | ❌ | [[Gemma AI Story|Gemma AI · S8]] (blocked on Gemma AI · S7 and [[Events During Story|Events During · S8]]) |
+| Auto-send meeting requests from matches (Pro) | — | ❌ | [[Gemma AI Story|Gemma AI · S8]] via [[Meetings Story|Meetings · S9]] |
+| Pro gate on Smart Match and automation | — | ❌ | [[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]] |
+| Interests feeding matchmaking | — | ❌ | [[Interests Story|Interests · S5]] |
 | Pin-name suggestions | — | ❌ | [[ND-06 Pin name rules]] |
 
 ## Behaviour expectations
@@ -55,19 +55,19 @@ What the client needs to build the Gemma sheet, Smart Match and the inline sugge
 - Refetch / realtime: refetch the session after each confirm; refetch Smart Match on entering event mode and after a request is sent. No streaming is specified.
 - Caching keys: `gemma:session:{contextType}:{contextId}`; `smartMatch:{eventId}`; clear both on logout and on a Ring switch.
 - Pagination / ordering: Smart Match ordered by `strength` then `score` descending; the paginated envelope `{ data, meta: { total } }` with `limit` ≤ 50 applies if the list is paginated.
-- Pro: render the Smart Match entry for every user; the list for Pro only. The gate's error is not defined until T-049.
+- Pro: render the Smart Match entry for every user; the list for Pro only. The gate's error is not defined until Subscription (Free vs Pro) · S6.
 
 ## Error states the UI must handle
 
 | Status | ErrorCode | Show |
 |---|---|---|
-| 403 | not defined yet (Pro gate, T-049) | upgrade prompt |
+| 403 | not defined yet (Pro gate, Subscription (Free vs Pro) · S6) | upgrade prompt |
 | 404 | `E_RING_ACCESS_*` on `/views` for a matched person who became invisible | drop the card; one generic message |
 | 409 | not defined yet | action already confirmed or executed; refetch the session |
 
-No Gemma codes exist yet. `ErrorCode` is not on the wire until [[T-063 Put the ErrorCode on the error body]] ships.
+No Gemma codes exist yet. `ErrorCode` is not on the wire until [[Error Contract Story|Error Contract · S4–S8]] ships.
 
 ## Blocked by
 
 - [[ND-06 Pin name rules]] — the Pin-name suggestion row waits on it.
-- [[T-051 Gemma assistant sheet and suggestions]] is ❓ (model and provider undecided); [[T-052 Smart Match]] is ⛔ behind it and T-036.
+- [[Gemma AI Story|Gemma AI · S7]] is ❓ (model and provider undecided); [[Gemma AI Story|Gemma AI · S8]] is ⛔ behind it and Events During · S8.

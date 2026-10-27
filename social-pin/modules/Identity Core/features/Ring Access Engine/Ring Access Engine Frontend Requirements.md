@@ -7,7 +7,7 @@ module: identity
 status: draft
 screens: []
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [frontend-requirements, frontend-requirements/draft, module/identity, layer/frontend]
 ---
 
@@ -62,10 +62,10 @@ The engine exposes no endpoint. What the client needs from it is a set of guaran
 | Render one Ring, if readable | `GET /views/ring/:ringId` | ✅ | — (listed under [[View As & Pin Views]]) |
 | Every perspective I hold of one person | `GET /views/user/:userId/perspectives` | ✅ | — (listed under [[View As & Pin Views]]) |
 | 403 when below the admin level | all `/rings/:id` editing routes | ✅ | — |
-| Create or remove a block | — | ❌ | [[T-024 Block and unblock]] |
-| Grant or revoke a delegated admin level | — | ❌ | [[T-006 Delegated admin endpoints]] |
+| Create or remove a block | — | ❌ | [[Connections Story|Connections · S25]] |
+| Grant or revoke a delegated admin level | — | ❌ | [[Delegated Admins Story|Delegated Admins · S6]] |
 | "Members can see each other" and join rules | — | ❌ | [[ND-04 Ring settings]] |
-| Resolve a scanned QR token through the engine | — | ❌ | [[T-008 Resolve a scanned QR token]] |
+| Resolve a scanned QR token through the engine | — | ❌ | [[Badge & QR Story|Badge & QR · S13–S18]] |
 
 ## Behaviour expectations
 
@@ -88,10 +88,10 @@ The engine exposes no endpoint. What the client needs from it is a set of guaran
 | 404 | `E_RING_02` | Ring not found or not administrable: treat as missing |
 | 409 | `E_RING_MEMBER_04` | "Cannot add this user" (a block exists; do not say so) |
 
-Until [[T-063 Put the ErrorCode on the error body]] ships, the body carries no `ErrorCode`: branch on status and endpoint. The `/views` 404 bodies are identical by design and by spec.
+Until [[Error Contract Story|Error Contract · S4–S8]] ships, the body carries no `ErrorCode`: branch on status and endpoint. The `/views` 404 bodies are identical by design and by spec.
 
 ## Blocked by
 
 - [[ND-04 Ring settings]] — any UI that lets members see each other, or that shows join policy; all of it must wait for the engine to enforce it.
-- [[T-024 Block and unblock]] — a block screen; the engine already honours blocks but none can be created.
-- [[T-006 Delegated admin endpoints]] — admin management on s26 / s27; today only owners pass the level check.
+- [[Connections Story|Connections · S25]] — a block screen; the engine already honours blocks but none can be created.
+- [[Delegated Admins Story|Delegated Admins · S6]] — admin management on s26 / s27; today only owners pass the level check.
