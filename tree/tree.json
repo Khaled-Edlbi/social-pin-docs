@@ -61613,7 +61613,7 @@
         "s68"
       ],
       "status": "approved",
-      "summary": "A Ring owner glances at Home or My Rings and wants a sense of scale: how many people each Ring reaches (\"148 people\"), how many Rings they own and how many were shared with them, and, on Me, how…",
+      "summary": "A Ring owner glances at Home or My Rings and wants a sense of scale: how many people each Ring reaches (\"148 people\"), how many Rings they own and how many people share with them, and, on Me, how…",
       "tags": [
         "story",
         "story/approved",
@@ -61622,7 +61622,7 @@
       ],
       "task": null,
       "title": "Counts Story",
-      "updated": "2026-10-25"
+      "updated": "2026-10-27"
     },
     "story:delegated-admins": {
       "affects": [],
