@@ -2218,6 +2218,7 @@
     "GET /rings/:id": {
       "containers": [
         "feature:cleanup-jobs",
+        "feature:counts",
         "feature:delegated-admins",
         "feature:event-ring-auto",
         "feature:events-during",
@@ -2230,6 +2231,7 @@
       "notes": [
         "backend-delivery:rings",
         "frontend-requirements:cleanup-jobs",
+        "frontend-requirements:counts",
         "frontend-requirements:delegated-admins",
         "frontend-requirements:event-ring-auto",
         "frontend-requirements:events-during",
@@ -5251,7 +5253,7 @@
     },
     "concepts": 199,
     "decisions": 18,
-    "edges": 5278,
+    "edges": 5282,
     "features": 41,
     "layerNotes": 196,
     "modules": 8,
@@ -5671,6 +5673,16 @@
       "from": "decision:D-20",
       "kind": "affects",
       "to": "task:T-020b"
+    },
+    {
+      "from": "frontend-requirements:counts",
+      "kind": "affects",
+      "to": "task:T-004"
+    },
+    {
+      "from": "frontend-requirements:counts",
+      "kind": "affects",
+      "to": "task:T-005"
     },
     {
       "from": "frontend-requirements:interests",
@@ -11523,6 +11535,36 @@
       "to": "task:T-079"
     },
     {
+      "from": "frontend-requirements:counts",
+      "kind": "related",
+      "to": "decision-record:DR-04"
+    },
+    {
+      "from": "frontend-requirements:counts",
+      "kind": "related",
+      "to": "decision-record:DR-14"
+    },
+    {
+      "from": "frontend-requirements:counts",
+      "kind": "related",
+      "to": "feature:connections"
+    },
+    {
+      "from": "frontend-requirements:counts",
+      "kind": "related",
+      "to": "feature:rings"
+    },
+    {
+      "from": "frontend-requirements:counts",
+      "kind": "related",
+      "to": "task:T-021"
+    },
+    {
+      "from": "frontend-requirements:counts",
+      "kind": "related",
+      "to": "task:T-063"
+    },
+    {
       "from": "frontend-requirements:interests",
       "kind": "related",
       "to": "feature:auth"
@@ -16068,7 +16110,8 @@
       "to": "feature:counts",
       "via": [
         "E_RING_02",
-        "GET /rings"
+        "GET /rings",
+        "GET /rings/:id"
       ]
     },
     {
@@ -17240,6 +17283,7 @@
       "via": [
         "E_RING_02",
         "E_RING_05",
+        "GET /rings/:id",
         "GET /rings/shared-with-me"
       ]
     },
@@ -17257,7 +17301,8 @@
       "to": "feature:event-ring-auto",
       "via": [
         "E_RING_02",
-        "GET /rings"
+        "GET /rings",
+        "GET /rings/:id"
       ]
     },
     {
@@ -17266,6 +17311,14 @@
       "to": "feature:events-before",
       "via": [
         "GET /rings"
+      ]
+    },
+    {
+      "from": "feature:counts",
+      "kind": "shares",
+      "to": "feature:events-during",
+      "via": [
+        "GET /rings/:id"
       ]
     },
     {
@@ -17291,6 +17344,7 @@
       "to": "feature:meetings",
       "via": [
         "E_RING_02",
+        "GET /rings/:id",
         "GET /rings/shared-with-me"
       ]
     },
@@ -17319,7 +17373,8 @@
       "to": "feature:post-event",
       "via": [
         "E_RING_02",
-        "GET /rings"
+        "GET /rings",
+        "GET /rings/:id"
       ]
     },
     {
@@ -17368,6 +17423,7 @@
         "E_RING_02",
         "E_RING_05",
         "GET /rings",
+        "GET /rings/:id",
         "GET /rings/shared-with-me"
       ]
     },
@@ -17453,6 +17509,7 @@
       "to": "task:T-004",
       "via": [
         "GET /rings",
+        "GET /rings/:id",
         "GET /rings/shared-with-me"
       ]
     },
@@ -28521,21 +28578,6 @@
     {
       "from": "frontend-requirements:counts",
       "kind": "wikilink",
-      "to": "decision-record:DR-04"
-    },
-    {
-      "from": "frontend-requirements:counts",
-      "kind": "wikilink",
-      "to": "decision:D-04"
-    },
-    {
-      "from": "frontend-requirements:counts",
-      "kind": "wikilink",
-      "to": "feature:rings"
-    },
-    {
-      "from": "frontend-requirements:counts",
-      "kind": "wikilink",
       "to": "story:counts"
     },
     {
@@ -28547,16 +28589,6 @@
       "from": "frontend-requirements:counts",
       "kind": "wikilink",
       "to": "task:T-005"
-    },
-    {
-      "from": "frontend-requirements:counts",
-      "kind": "wikilink",
-      "to": "task:T-021"
-    },
-    {
-      "from": "frontend-requirements:counts",
-      "kind": "wikilink",
-      "to": "task:T-063"
     },
     {
       "from": "frontend-requirements:delegated-admins",
@@ -39101,7 +39133,7 @@
         {
           "id": "frontend-requirements:counts",
           "title": "Counts Frontend Requirements",
-          "why": "Counts Frontend Requirements is draft"
+          "why": "Counts Frontend Requirements is ready"
         }
       ],
       "card": "BD-03",
@@ -42924,6 +42956,7 @@
         "decision-record:DR-05",
         "decision-record:DR-18",
         "story:connections",
+        "frontend-requirements:counts",
         "story:counts",
         "story:ring-access",
         "story:ring-members",
@@ -43243,6 +43276,7 @@
         "decision-record:DR-15",
         "decision-record:DR-18",
         "story:connections",
+        "frontend-requirements:counts",
         "story:counts",
         "story:ring-access",
         "story:ring-members",
@@ -45305,7 +45339,8 @@
         "decision:D-13",
         "decision:D-14",
         "decision:D-15",
-        "decision:D-17"
+        "decision:D-17",
+        "frontend-requirements:counts"
       ],
       "release": "mvp",
       "rollup": {
@@ -45388,8 +45423,9 @@
       "rollup": {
         "approved": 2,
         "blocked": 5,
-        "draft": 2,
+        "draft": 1,
         "missing": 4,
+        "ready": 1,
         "todo": 2
       },
       "scope": null,
@@ -47471,6 +47507,7 @@
         "decision:D-14",
         "decision:D-18",
         "frontend-requirements:auth",
+        "frontend-requirements:counts",
         "story:T-022"
       ],
       "release": "mvp",
@@ -50153,7 +50190,10 @@
       "updated": "2026-10-18"
     },
     "frontend-requirements:counts": {
-      "affects": [],
+      "affects": [
+        "task:T-004",
+        "task:T-005"
+      ],
       "blockedBy": [],
       "card": "FR-03",
       "children": [],
@@ -50161,7 +50201,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "ready",
       "effort": null,
       "feature": "counts",
       "frontendOnly": false,
@@ -50182,7 +50222,14 @@
       "path": "modules/Identity Core/Counts/Counts Frontend Requirements.md",
       "pending": [],
       "priority": "high",
-      "related": [],
+      "related": [
+        "decision-record:DR-04",
+        "decision-record:DR-14",
+        "feature:rings",
+        "feature:connections",
+        "task:T-021",
+        "task:T-063"
+      ],
       "release": "mvp",
       "scope": "feature",
       "screens": [
@@ -50193,17 +50240,17 @@
         "s17",
         "s68"
       ],
-      "status": "draft",
-      "summary": "What the client needs to show the numbers the design puts on Home, My Rings, Shared with me, Ring data and Me, and which of them can be read today. The feature has no endpoints of its own; two of…",
+      "status": "ready",
+      "summary": "What the client needs to show the numbers the design puts on Home, the Ring picker, My Rings, Shared with me, Ring data and Me, and which of them can be read today. The feature has no endpoints of…",
       "tags": [
         "frontend-requirements",
-        "frontend-requirements/draft",
+        "frontend-requirements/ready",
         "module/identity",
         "layer/frontend"
       ],
       "task": null,
       "title": "Counts Frontend Requirements",
-      "updated": "2026-10-18"
+      "updated": "2026-10-27"
     },
     "frontend-requirements:delegated-admins": {
       "affects": [],
@@ -52215,13 +52262,13 @@
         "decided": 6,
         "delivered": 1,
         "done": 16,
-        "draft": 20,
+        "draft": 19,
         "failing": 1,
         "in-progress": 13,
         "missing": 40,
         "needs-decision": 2,
         "partial": 1,
-        "ready": 1,
+        "ready": 2,
         "todo": 14,
         "verified": 6
       },
@@ -57639,13 +57686,13 @@
         "decided": 13,
         "delivered": 1,
         "done": 17,
-        "draft": 98,
+        "draft": 97,
         "failing": 1,
         "in-progress": 58,
         "missing": 162,
         "needs-decision": 9,
         "partial": 2,
-        "ready": 1,
+        "ready": 2,
         "reference": 31,
         "todo": 57,
         "verified": 13
@@ -66908,7 +66955,8 @@
       "priority": "critical",
       "related": [
         "decision-record:DR-13",
-        "decision-record:DR-17"
+        "decision-record:DR-17",
+        "frontend-requirements:counts"
       ],
       "release": "mvp",
       "rollup": {
@@ -74024,6 +74072,7 @@
         "qa-backend:account",
         "qa-frontend:account",
         "frontend-requirements:auth",
+        "frontend-requirements:counts",
         "frontend-requirements:onboarding-imports",
         "frontend-requirements:profiles",
         "frontend-requirements:interests",
