@@ -40,7 +40,7 @@ What the client needs to build the widget picker and the widget rows on a Ring, 
 ### Viewer card ([[Screen Index#s44|s44]], [[Screen Index#s31|s31]])
 
 - Needs: visible widgets in the view, hidden ones excluded.
-- Source today: `widgets[]` on `RingProfileViewEntity`; viewer rendering in `toView` is listed as a gap, so treat the array as present but unreliable until [[T-018 Widget CRUD on the projection]].
+- Source today: `widgets[]` on `RingProfileViewEntity`; viewer rendering in `toView` is listed as a gap, so treat the array as present but unreliable until [[Widgets Story|Widgets · S7]].
 
 ## Endpoints required
 
@@ -48,11 +48,11 @@ What the client needs to build the widget picker and the widget rows on a Ring, 
 |---|---|---|---|
 | Read a Ring's widgets (owner) | `GET /rings/:ringId/projection` → `widgets[]` | ✅ | — (listed under [[Ring Projection]]) |
 | Read a Ring's widgets (viewer) | `GET /views/ring/:ringId` → `widgets[]` | ✅ | — (listed under [[View As & Pin Views]]; rendering in `toView` is a gap) |
-| Types Availability, Payment, Now playing, Testimonial | — | ❌ | [[T-017 Extend WIDGET_TYPE to the design's list]] |
-| Create a widget | — | ❌ | [[T-018 Widget CRUD on the projection]] |
-| Edit `config`, `sortOrder`, `isVisible` | — | ❌ | [[T-018 Widget CRUD on the projection]] |
-| Remove a widget | — | ❌ | [[T-018 Widget CRUD on the projection]] |
-| Per-type `config` validation rules | — | ❌ | [[T-018 Widget CRUD on the projection]] |
+| Types Availability, Payment, Now playing, Testimonial | — | ❌ | [[Widgets Story|Widgets · S6]] |
+| Create a widget | — | ❌ | [[Widgets Story|Widgets · S7]] |
+| Edit `config`, `sortOrder`, `isVisible` | — | ❌ | [[Widgets Story|Widgets · S7]] |
+| Remove a widget | — | ❌ | [[Widgets Story|Widgets · S7]] |
+| Per-type `config` validation rules | — | ❌ | [[Widgets Story|Widgets · S7]] |
 | Decide the storage model first | — | ❌ | [[ND-03 Field library vs per-Ring copies]] |
 
 ## Behaviour expectations
@@ -61,14 +61,14 @@ What the client needs to build the widget picker and the widget rows on a Ring, 
 - Caching keys: none of its own; widgets live on `projection:<ringId>` and the view caches.
 - Pagination / ordering: none; render by `sortOrder`. Reorder, once it exists, sends the new `sortOrder` per moved row, as links do.
 - Renderer: one component per known `type`, plus a fallback that renders nothing for an unknown type, so a type added server-side does not break old clients.
-- Picker: list the design's full set; grey the four missing types; show the selected count on the primary button; validate `config` per type on the client with the rules T-018 defines.
+- Picker: list the design's full set; grey the four missing types; show the selected count on the primary button; validate `config` per type on the client with the rules Widgets · S7 defines.
 - Visibility: an `isVisible: false` widget appears greyed in the owner's editor and must not be rendered on the viewer card even if it arrives, until the backend excludes it by the query.
 
 ## Error states the UI must handle
 
 | Status | ErrorCode | Show |
 |---|---|---|
-| — | — | no widget codes exist yet; they will be defined by [[T-018 Widget CRUD on the projection]] |
+| — | — | no widget codes exist yet; they will be defined by [[Widgets Story|Widgets · S7]] |
 | 403 | `E_RING_05` | the projection is not editable by this user: picker hidden |
 | 404 | `E_RING_02` | Ring not found: back to My Rings |
 
@@ -76,6 +76,6 @@ Until [[Error Contract Story|Error Contract · S4–S8]] ships, branch on status
 
 ## Blocked by
 
-- [[ND-03 Field library vs per-Ring copies]] — the storage model widgets are built on; T-018 waits on it.
-- [[T-017 Extend WIDGET_TYPE to the design's list]] — the four design types on s37.
-- [[T-018 Widget CRUD on the projection]] — every write on s37 and s14, and viewer rendering.
+- [[ND-03 Field library vs per-Ring copies]] — the storage model widgets are built on; Widgets · S7 waits on it.
+- [[Widgets Story|Widgets · S6]] — the four design types on s37.
+- [[Widgets Story|Widgets · S7]] — every write on s37 and s14, and viewer rendering.

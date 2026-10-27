@@ -40,7 +40,7 @@ Screens: [[Screen Index#s20|s20]], [[Screen Index#s24|s24]]
 
 ## Tasks waiting on this
 
-- [[T-018 Widget CRUD on the projection]]
+- [[Widgets Story|Widgets · S7]]
 - [[Ring Projection Story|Ring Projection · Decide field library vs per-Ring copies]]
 
 ## Decision

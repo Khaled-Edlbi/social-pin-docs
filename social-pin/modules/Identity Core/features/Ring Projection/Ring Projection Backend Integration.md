@@ -60,7 +60,7 @@ A mismatch is a 400 `E_RING_PROFILE_03` with a human message. Validate on the cl
 
 - **`show*` all default to `false`.** A new Ring shares no birthdate, gender, marital status, phone or email until the owner turns each on, for that Ring. The values themselves live on the profile ([[Profiles & Pin Name Backend Integration]]) and on the account (phone, email). If the base value is empty, turning the flag on shows `null` to the viewer.
 - `isVisible: false` on a link, block or attachment hides it from **every** viewer response: the query excludes it. The owner entity still lists it (with the flag) so the editor can show it greyed out.
-- `widgets[]` is read-only today: there are no widget endpoints ([[T-018 Widget CRUD on the projection]]).
+- `widgets[]` is read-only today: there are no widget endpoints ([[Widgets Story|Widgets · S7]]).
 
 ## State to keep on the client
 
@@ -89,7 +89,7 @@ One editor state per Ring, refetched after every write (the server returns the f
 - **No URL to display the photo or download an attachment.** `avatarFileId` and `attachments[].id` cannot be turned into bytes today: [[Files Upload Story|Files Upload · showing files]].
 - One library of fields each Ring switches on or off ("4 of 7 on", s20 / s24): the backend stores a copy per Ring: [[ND-03 Field library vs per-Ring copies]].
 - "Inherit from your Pin" / "Reset to Pin" / "Copy another Ring" (s23, s28, s29): [[ND-05 Copy or inherit]], [[ND-02 Base profile work fields]].
-- Widgets (s37): [[T-017 Extend WIDGET_TYPE to the design's list]], [[T-018 Widget CRUD on the projection]].
+- Widgets (s37): [[Widgets Story|Widgets · S6]], [[Widgets Story|Widgets · S7]].
 
 ## Checklist
 

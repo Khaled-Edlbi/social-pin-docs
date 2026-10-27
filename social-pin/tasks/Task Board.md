@@ -8,7 +8,6 @@ kanban-plugin: board
 
 ## ❓ Needs a decision / info
 
-- [ ] [[T-018 Widget CRUD on the projection]] #high #widgets
 - [ ] [[T-026 Ring invitations invite, review, decline]] #high #ring-invitations
 - [ ] [[T-039 Catalogue products and talks (new table)]] #high #events-during
 - [ ] [[T-025 Introduce a connection to another]] #medium #connections
@@ -58,9 +57,6 @@ kanban-plugin: board
 - [ ] [[T-010 Public browser page for viewers without the app]] #high #badge-qr
 - [ ] [[T-010-be Backend · Public browser page for viewers without the app]] #high #badge-qr #backend
 - [ ] [[T-010-fe Frontend · Public browser page for viewers without the app]] #high #badge-qr #frontend
-- [ ] [[T-017-fe Frontend · Extend WIDGET_TYPE to the design's list]] #high #widgets #frontend
-- [ ] [[T-018-be Backend · Widget CRUD on the projection]] #high #widgets #backend
-- [ ] [[T-018-fe Frontend · Widget CRUD on the projection]] #high #widgets #frontend
 - [ ] [[T-026-fe Frontend · Ring invitations invite, review, decline]] #high #ring-invitations #frontend
 - [ ] [[T-027 Join a Ring with a code or verified work email]] #high #ring-invitations
 - [ ] [[T-027-be Backend · Join a Ring with a code or verified work email]] #high #ring-invitations #backend
@@ -96,8 +92,6 @@ kanban-plugin: board
 - [ ] [[T-033-be Backend · Events list, detail, schedule]] #critical #events-before #backend
 - [ ] [[T-041 Availability slots CRUD]] #critical #meetings
 - [ ] [[T-041-be Backend · Availability slots CRUD]] #critical #meetings #backend
-- [ ] [[T-017 Extend WIDGET_TYPE to the design's list]] #high #widgets
-- [ ] [[T-017-be Backend · Extend WIDGET_TYPE to the design's list]] #high #widgets #backend
 - [ ] [[T-026-be Backend · Ring invitations invite, review, decline]] #high #ring-invitations #backend
 
 

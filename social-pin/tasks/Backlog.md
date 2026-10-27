@@ -73,12 +73,6 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-010 Public browser page for viewers without the app]] | [[Badge & QR]] | Discovery | ⛔ Blocked | M | — | [[T-008 Resolve a scanned QR token|T-008]], [[ND-12 What the badge QR encodes|ND-12]] |
 | [[T-010-be Backend · Public browser page for viewers without the app]] `backend` | [[Badge & QR]] | Discovery | ⛔ Blocked | M | — | [[T-008 Resolve a scanned QR token|T-008]] |
 | [[T-010-fe Frontend · Public browser page for viewers without the app]] `frontend` | [[Badge & QR]] | Discovery | ⛔ Blocked | M | — | [[T-008 Resolve a scanned QR token|T-008]], [[T-010-be Backend · Public browser page for viewers without the app|T-010-be]] |
-| [[T-017 Extend WIDGET_TYPE to the design's list]] | [[Widgets]] | Identity Core | ⬜ To do | S | — | — |
-| [[T-017-be Backend · Extend WIDGET_TYPE to the design's list]] `backend` | [[Widgets]] | Identity Core | ⬜ To do | S | — | — |
-| [[T-017-fe Frontend · Extend WIDGET_TYPE to the design's list]] `frontend` | [[Widgets]] | Identity Core | ⛔ Blocked | S | — | [[T-017-be Backend · Extend WIDGET_TYPE to the design's list|T-017-be]] |
-| [[T-018 Widget CRUD on the projection]] | [[Widgets]] | Identity Core | ❓ Needs decision | M | — | [[T-017 Extend WIDGET_TYPE to the design's list|T-017]] |
-| [[T-018-be Backend · Widget CRUD on the projection]] `backend` | [[Widgets]] | Identity Core | ⛔ Blocked | M | — | [[T-017 Extend WIDGET_TYPE to the design's list|T-017]] |
-| [[T-018-fe Frontend · Widget CRUD on the projection]] `frontend` | [[Widgets]] | Identity Core | ⛔ Blocked | M | — | [[T-017 Extend WIDGET_TYPE to the design's list|T-017]], [[T-018-be Backend · Widget CRUD on the projection|T-018-be]] |
 | [[T-026 Ring invitations invite, review, decline]] | [[Ring Invitations & Join]] | Shared Rings & Companies | ❓ Needs decision | M | — | [[ND-04 Ring settings|ND-04]] |
 | [[T-026-be Backend · Ring invitations invite, review, decline]] `backend` | [[Ring Invitations & Join]] | Shared Rings & Companies | ⬜ To do | M | — | [[ND-04 Ring settings|ND-04]] |
 | [[T-026-fe Frontend · Ring invitations invite, review, decline]] `frontend` | [[Ring Invitations & Join]] | Shared Rings & Companies | ⛔ Blocked | M | — | [[T-026-be Backend · Ring invitations invite, review, decline|T-026-be]] |

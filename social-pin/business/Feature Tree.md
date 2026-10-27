@@ -36,8 +36,6 @@ Social Pin backend
 │   ├── 🟡 Counts  [High]
 │   ├── 🟡 Photo Library  [High]
 │   ├── 🟡 Widgets  [High]
-│   │   ├── ⬜ T-017 Extend WIDGET_TYPE to the design's list
-│   │   └── ❓ T-018 Widget CRUD on the projection
 │   └── ❌ Onboarding Imports  [High]
 ├── Connections  (❌1)
 │   └── ❌ Connections  [Critical]
@@ -118,7 +116,7 @@ Account, profile, Rings, what each Ring shows, and the access engine. The part o
 | [[Ring Access Engine]] | ✅ Done | Critical | — | 0 |
 | [[Counts]] | 🟡 Partial (needs more) | High | s11, s12, s14, s16, s17, s68 | 0 |
 | [[Photo Library]] | 🟡 Partial (needs more) | High | s29, s30 | 0 |
-| [[Widgets]] | 🟡 Partial (needs more) | High | s36, s37 | 2 |
+| [[Widgets]] | 🟡 Partial (needs more) | High | s36, s37 | 0 |
 | [[Onboarding Imports]] | ❌ TODO | High | s03, s03a, s03b, s04, s05 | 0 |
 
 ## Connections

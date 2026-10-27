@@ -67,7 +67,7 @@ What the client needs from the backend for every screen that renders another per
 | Connect after a scan | — | ❌ | [[T-021 Connect request send, inbox, cancel]] |
 | A `userId` to call `/perspectives` with | — | ❌ | [[T-023 Connection detail and contacts list]] |
 | Browser page for viewers without the app | — | ❌ | [[T-010 Public browser page for viewers without the app]] |
-| Widgets rendered in the view | — | ❌ | [[T-018 Widget CRUD on the projection]] |
+| Widgets rendered in the view | — | ❌ | [[Widgets Story|Widgets · S7]] |
 
 ## Behaviour expectations
 

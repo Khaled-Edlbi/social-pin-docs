@@ -294,14 +294,6 @@
     "T-010 Story": "story:T-010",
     "T-010-be Backend · Public browser page for viewers without the app": "task:T-010-be",
     "T-010-fe Frontend · Public browser page for viewers without the app": "task:T-010-fe",
-    "T-017 Extend WIDGET_TYPE to the design's list": "task:T-017",
-    "T-017 Story": "story:T-017",
-    "T-017-be Backend · Extend WIDGET_TYPE to the design's list": "task:T-017-be",
-    "T-017-fe Frontend · Extend WIDGET_TYPE to the design's list": "task:T-017-fe",
-    "T-018 Story": "story:T-018",
-    "T-018 Widget CRUD on the projection": "task:T-018",
-    "T-018-be Backend · Widget CRUD on the projection": "task:T-018-be",
-    "T-018-fe Frontend · Widget CRUD on the projection": "task:T-018-fe",
     "T-021 Connect request send, inbox, cancel": "task:T-021",
     "T-021 Story": "story:T-021",
     "T-021-be Backend · Connect request send, inbox, cancel": "task:T-021-be",
@@ -644,8 +636,6 @@
     "S-18": "story:rings",
     "S-19": "story:view-as",
     "S-20": "story:widgets",
-    "S-21": "story:T-017",
-    "S-22": "story:T-018",
     "S-23": "story:connections",
     "S-24": "story:T-021",
     "S-25": "story:T-022",
@@ -717,12 +707,6 @@
     "T-010": "task:T-010",
     "T-010-be": "task:T-010-be",
     "T-010-fe": "task:T-010-fe",
-    "T-017": "task:T-017",
-    "T-017-be": "task:T-017-be",
-    "T-017-fe": "task:T-017-fe",
-    "T-018": "task:T-018",
-    "T-018-be": "task:T-018-be",
-    "T-018-fe": "task:T-018-fe",
     "T-021": "task:T-021",
     "T-021-be": "task:T-021-be",
     "T-021-fe": "task:T-021-fe",
@@ -3733,10 +3717,7 @@
       "containers": [
         "feature:files",
         "feature:ring-projection",
-        "feature:widgets",
-        "task:T-018",
-        "task:T-018-be",
-        "task:T-018-fe"
+        "feature:widgets"
       ],
       "kind": "screen",
       "notes": [
@@ -3751,40 +3732,22 @@
         "frontend-requirements:files",
         "frontend-requirements:ring-projection",
         "frontend-requirements:widgets",
-        "story:T-018",
         "story:files",
         "story:ring-projection",
-        "story:widgets",
-        "task:T-018",
-        "task:T-018-be",
-        "task:T-018-fe"
+        "story:widgets"
       ],
       "owner": null
     },
     "s37": {
       "containers": [
-        "feature:widgets",
-        "task:T-017",
-        "task:T-017-be",
-        "task:T-017-fe",
-        "task:T-018",
-        "task:T-018-be",
-        "task:T-018-fe"
+        "feature:widgets"
       ],
       "kind": "screen",
       "notes": [
         "backend-delivery:widgets",
         "feature:widgets",
         "frontend-requirements:widgets",
-        "story:T-017",
-        "story:T-018",
-        "story:widgets",
-        "task:T-017",
-        "task:T-017-be",
-        "task:T-017-fe",
-        "task:T-018",
-        "task:T-018-be",
-        "task:T-018-fe"
+        "story:widgets"
       ],
       "owner": null
     },
@@ -4619,7 +4582,7 @@
     }
   },
   "counts": {
-    "blocked": 102,
+    "blocked": 99,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -4632,28 +4595,28 @@
       "project": 27,
       "qa-backend": 1,
       "qa-frontend": 1,
-      "story": 74,
-      "task": 95
+      "story": 72,
+      "task": 89
     },
     "byLayer": {
       "backend": 56,
-      "business": 248,
+      "business": 240,
       "frontend": 44,
       "qa": 2,
       "shared": 10
     },
     "concepts": 199,
     "decisions": 19,
-    "edges": 4468,
+    "edges": 4419,
     "features": 41,
-    "layerNotes": 164,
+    "layerNotes": 162,
     "modules": 8,
-    "notes": 396,
+    "notes": 388,
     "partial": 4,
     "placeholders": 155,
     "records": 14,
-    "taskLayerNotes": 34,
-    "tasks": 95
+    "taskLayerNotes": 32,
+    "tasks": 89
   },
   "deadlines": {
     "missed": {
@@ -4811,7 +4774,7 @@
     {
       "from": "decision:D-03",
       "kind": "affects",
-      "to": "task:T-018"
+      "to": "story:widgets"
     },
     {
       "from": "decision:D-04",
@@ -6379,31 +6342,6 @@
       "to": "task:T-010-fe"
     },
     {
-      "from": "task:T-017",
-      "kind": "blocks",
-      "to": "task:T-018"
-    },
-    {
-      "from": "task:T-017",
-      "kind": "blocks",
-      "to": "task:T-018-be"
-    },
-    {
-      "from": "task:T-017",
-      "kind": "blocks",
-      "to": "task:T-018-fe"
-    },
-    {
-      "from": "task:T-017-be",
-      "kind": "blocks",
-      "to": "task:T-017-fe"
-    },
-    {
-      "from": "task:T-018-be",
-      "kind": "blocks",
-      "to": "task:T-018-fe"
-    },
-    {
       "from": "task:T-021",
       "kind": "blocks",
       "to": "task:T-022"
@@ -7157,46 +7095,6 @@
       "from": "task:T-010-fe",
       "kind": "depends",
       "to": "task:T-010-be"
-    },
-    {
-      "from": "task:T-017-fe",
-      "kind": "depends",
-      "to": "task:T-017-be"
-    },
-    {
-      "from": "task:T-018",
-      "kind": "depends",
-      "to": "needs-decision:ND-03"
-    },
-    {
-      "from": "task:T-018",
-      "kind": "depends",
-      "to": "task:T-017"
-    },
-    {
-      "from": "task:T-018-be",
-      "kind": "depends",
-      "to": "needs-decision:ND-03"
-    },
-    {
-      "from": "task:T-018-be",
-      "kind": "depends",
-      "to": "task:T-017"
-    },
-    {
-      "from": "task:T-018-fe",
-      "kind": "depends",
-      "to": "needs-decision:ND-03"
-    },
-    {
-      "from": "task:T-018-fe",
-      "kind": "depends",
-      "to": "task:T-017"
-    },
-    {
-      "from": "task:T-018-fe",
-      "kind": "depends",
-      "to": "task:T-018-be"
     },
     {
       "from": "task:T-021-fe",
@@ -11697,22 +11595,6 @@
       "from": "story:widgets",
       "kind": "related",
       "to": "decision:D-03"
-    },
-    {
-      "from": "story:widgets",
-      "kind": "related",
-      "to": "story:T-017",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
-      "from": "story:widgets",
-      "kind": "related",
-      "to": "story:T-018",
-      "via": [
-        "sum-of"
-      ]
     },
     {
       "from": "task:B-01",
@@ -23323,16 +23205,6 @@
       "to": "needs-decision:ND-15"
     },
     {
-      "from": "story:widgets",
-      "kind": "tree",
-      "to": "task:T-017"
-    },
-    {
-      "from": "story:widgets",
-      "kind": "tree",
-      "to": "task:T-018"
-    },
-    {
       "from": "task:B-01",
       "kind": "tree",
       "to": "needs-decision:ND-20"
@@ -23431,36 +23303,6 @@
       "from": "task:T-010",
       "kind": "tree",
       "to": "task:T-010-fe"
-    },
-    {
-      "from": "task:T-017",
-      "kind": "tree",
-      "to": "story:T-017"
-    },
-    {
-      "from": "task:T-017",
-      "kind": "tree",
-      "to": "task:T-017-be"
-    },
-    {
-      "from": "task:T-017",
-      "kind": "tree",
-      "to": "task:T-017-fe"
-    },
-    {
-      "from": "task:T-018",
-      "kind": "tree",
-      "to": "story:T-018"
-    },
-    {
-      "from": "task:T-018",
-      "kind": "tree",
-      "to": "task:T-018-be"
-    },
-    {
-      "from": "task:T-018",
-      "kind": "tree",
-      "to": "task:T-018-fe"
     },
     {
       "from": "task:T-021",
@@ -24645,12 +24487,7 @@
     {
       "from": "backend-integration:ring-projection",
       "kind": "wikilink",
-      "to": "task:T-017"
-    },
-    {
-      "from": "backend-integration:ring-projection",
-      "kind": "wikilink",
-      "to": "task:T-018"
+      "to": "story:widgets"
     },
     {
       "from": "backend-integration:rings",
@@ -25340,12 +25177,7 @@
     {
       "from": "feature:widgets",
       "kind": "wikilink",
-      "to": "task:T-017"
-    },
-    {
-      "from": "feature:widgets",
-      "kind": "wikilink",
-      "to": "task:T-018"
+      "to": "project:status-report-2026-10-15"
     },
     {
       "from": "frontend-delivery:account",
@@ -26755,12 +26587,7 @@
     {
       "from": "frontend-requirements:ring-projection",
       "kind": "wikilink",
-      "to": "task:T-017"
-    },
-    {
-      "from": "frontend-requirements:ring-projection",
-      "kind": "wikilink",
-      "to": "task:T-018"
+      "to": "story:widgets"
     },
     {
       "from": "frontend-requirements:rings",
@@ -26910,6 +26737,11 @@
     {
       "from": "frontend-requirements:view-as",
       "kind": "wikilink",
+      "to": "story:widgets"
+    },
+    {
+      "from": "frontend-requirements:view-as",
+      "kind": "wikilink",
       "to": "task:T-007"
     },
     {
@@ -26921,11 +26753,6 @@
       "from": "frontend-requirements:view-as",
       "kind": "wikilink",
       "to": "task:T-010"
-    },
-    {
-      "from": "frontend-requirements:view-as",
-      "kind": "wikilink",
-      "to": "task:T-018"
     },
     {
       "from": "frontend-requirements:view-as",
@@ -26971,16 +26798,6 @@
       "from": "frontend-requirements:widgets",
       "kind": "wikilink",
       "to": "story:widgets"
-    },
-    {
-      "from": "frontend-requirements:widgets",
-      "kind": "wikilink",
-      "to": "task:T-017"
-    },
-    {
-      "from": "frontend-requirements:widgets",
-      "kind": "wikilink",
-      "to": "task:T-018"
     },
     {
       "from": "module:commerce",
@@ -27866,6 +27683,11 @@
       "from": "needs-decision:ND-03",
       "kind": "wikilink",
       "to": "story:ring-projection"
+    },
+    {
+      "from": "needs-decision:ND-03",
+      "kind": "wikilink",
+      "to": "story:widgets"
     },
     {
       "from": "needs-decision:ND-04",
@@ -29085,11 +28907,6 @@
     {
       "from": "project:status-report-2026-10-15",
       "kind": "wikilink",
-      "to": "feature:widgets"
-    },
-    {
-      "from": "project:status-report-2026-10-15",
-      "kind": "wikilink",
       "to": "needs-decision:ND-01"
     },
     {
@@ -29978,16 +29795,6 @@
       "to": "feature:badge-qr"
     },
     {
-      "from": "story:T-017",
-      "kind": "wikilink",
-      "to": "feature:widgets"
-    },
-    {
-      "from": "story:T-018",
-      "kind": "wikilink",
-      "to": "feature:widgets"
-    },
-    {
       "from": "story:T-021",
       "kind": "wikilink",
       "to": "story:files"
@@ -30506,101 +30313,6 @@
       "from": "task:T-010-fe",
       "kind": "wikilink",
       "to": "task:T-010-be"
-    },
-    {
-      "from": "task:T-017",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-017",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-017",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-017",
-      "kind": "wikilink",
-      "to": "task:T-018"
-    },
-    {
-      "from": "task:T-017-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:widgets"
-    },
-    {
-      "from": "task:T-017-be",
-      "kind": "wikilink",
-      "to": "feature:widgets"
-    },
-    {
-      "from": "task:T-017-fe",
-      "kind": "wikilink",
-      "to": "feature:widgets"
-    },
-    {
-      "from": "task:T-017-fe",
-      "kind": "wikilink",
-      "to": "story:T-017"
-    },
-    {
-      "from": "task:T-017-fe",
-      "kind": "wikilink",
-      "to": "task:T-017-be"
-    },
-    {
-      "from": "task:T-018",
-      "kind": "wikilink",
-      "to": "decision:D-03"
-    },
-    {
-      "from": "task:T-018",
-      "kind": "wikilink",
-      "to": "needs-decision:ND-03"
-    },
-    {
-      "from": "task:T-018",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-018",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-018",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-018-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:widgets"
-    },
-    {
-      "from": "task:T-018-be",
-      "kind": "wikilink",
-      "to": "feature:widgets"
-    },
-    {
-      "from": "task:T-018-fe",
-      "kind": "wikilink",
-      "to": "feature:widgets"
-    },
-    {
-      "from": "task:T-018-fe",
-      "kind": "wikilink",
-      "to": "story:T-018"
-    },
-    {
-      "from": "task:T-018-fe",
-      "kind": "wikilink",
-      "to": "task:T-018-be"
     },
     {
       "from": "task:T-021",
@@ -32690,38 +32402,6 @@
     },
     "social-pin/tasks/T-010 Public browser page for viewers without the app/T-010-fe Frontend · Public browser page for viewers without the app.md": {
       "name": "T-010-fe Frontend · Public browser page for viewers without the app",
-      "type": "task"
-    },
-    "social-pin/tasks/T-017 Extend WIDGET_TYPE to the design's list/T-017 Extend WIDGET_TYPE to the design's list.md": {
-      "name": "T-017 Extend WIDGET_TYPE to the design's list",
-      "type": "task"
-    },
-    "social-pin/tasks/T-017 Extend WIDGET_TYPE to the design's list/T-017 Story.md": {
-      "name": "T-017 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-017 Extend WIDGET_TYPE to the design's list/T-017-be Backend · Extend WIDGET_TYPE to the design's list.md": {
-      "name": "T-017-be Backend · Extend WIDGET_TYPE to the design's list",
-      "type": "task"
-    },
-    "social-pin/tasks/T-017 Extend WIDGET_TYPE to the design's list/T-017-fe Frontend · Extend WIDGET_TYPE to the design's list.md": {
-      "name": "T-017-fe Frontend · Extend WIDGET_TYPE to the design's list",
-      "type": "task"
-    },
-    "social-pin/tasks/T-018 Widget CRUD on the projection/T-018 Story.md": {
-      "name": "T-018 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-018 Widget CRUD on the projection/T-018 Widget CRUD on the projection.md": {
-      "name": "T-018 Widget CRUD on the projection",
-      "type": "task"
-    },
-    "social-pin/tasks/T-018 Widget CRUD on the projection/T-018-be Backend · Widget CRUD on the projection.md": {
-      "name": "T-018-be Backend · Widget CRUD on the projection",
-      "type": "task"
-    },
-    "social-pin/tasks/T-018 Widget CRUD on the projection/T-018-fe Frontend · Widget CRUD on the projection.md": {
-      "name": "T-018-fe Frontend · Widget CRUD on the projection",
       "type": "task"
     },
     "social-pin/tasks/T-021 Connect request send, inbox, cancel/T-021 Connect request send, inbox, cancel.md": {
@@ -37870,7 +37550,7 @@
       "affects": [
         "feature:ring-projection",
         "feature:widgets",
-        "task:T-018",
+        "story:widgets",
         "story:ring-projection"
       ],
       "blockedBy": [],
@@ -41833,12 +41513,10 @@
       "resolution": null,
       "rollup": {
         "approved": 1,
-        "blocked": 4,
+        "blocked": 1,
         "decided": 1,
-        "draft": 3,
+        "draft": 1,
         "missing": 4,
-        "needs-decision": 1,
-        "todo": 2,
         "verified": 1
       },
       "scope": null,
@@ -41856,7 +41534,7 @@
       ],
       "task": null,
       "title": "Widgets",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "frontend-delivery:account": {
       "affects": [],
@@ -46412,19 +46090,18 @@
       "resolution": null,
       "rollup": {
         "approved": 11,
-        "blocked": 9,
+        "blocked": 6,
         "current": 8,
         "decided": 7,
         "delivered": 2,
         "done": 9,
-        "draft": 13,
+        "draft": 11,
         "in-progress": 13,
         "missing": 40,
-        "needs-decision": 2,
+        "needs-decision": 1,
         "partial": 4,
         "passing": 1,
         "ready": 2,
-        "todo": 2,
         "verified": 7
       },
       "scope": null,
@@ -46782,8 +46459,8 @@
       "module": null,
       "parentTask": null,
       "parents": [
-        "feature:widgets",
-        "feature:ring-projection"
+        "feature:ring-projection",
+        "feature:widgets"
       ],
       "path": "social-pin/needs-decisions/ND-03 Field library vs per-Ring copies.md",
       "pending": [],
@@ -53089,20 +52766,20 @@
       ],
       "rollup": {
         "approved": 34,
-        "blocked": 102,
+        "blocked": 99,
         "current": 8,
         "decided": 14,
         "delivered": 2,
         "done": 10,
-        "draft": 70,
+        "draft": 68,
         "in-progress": 55,
         "missing": 155,
-        "needs-decision": 6,
+        "needs-decision": 5,
         "partial": 4,
         "passing": 1,
         "ready": 2,
         "reference": 31,
-        "todo": 19,
+        "todo": 17,
         "verified": 14
       },
       "scope": null,
@@ -53486,107 +53163,6 @@
       ],
       "task": "T-010",
       "title": "T-010 Story",
-      "updated": "2026-10-26"
-    },
-    "story:T-017": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-21",
-      "children": [],
-      "code": "T-017",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
-      "effort": null,
-      "feature": "widgets",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-017",
-      "inherits": {
-        "priority": "task:T-017",
-        "release": "feature:widgets"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "identity",
-      "parentTask": null,
-      "parents": [
-        "task:T-017"
-      ],
-      "path": "social-pin/tasks/T-017 Extend WIDGET_TYPE to the design's list/T-017 Story.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "scope": "task",
-      "screens": [
-        "s37"
-      ],
-      "status": "draft",
-      "summary": "Add AVAILABILITY, PAYMENT, NOWPLAYING, TESTIMONIAL. New migration; never edit an applied one.",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/identity",
-        "layer/business"
-      ],
-      "task": "T-017",
-      "title": "T-017 Story",
-      "updated": "2026-10-26"
-    },
-    "story:T-018": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-22",
-      "children": [],
-      "code": "T-018",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
-      "effort": null,
-      "feature": "widgets",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-018",
-      "inherits": {
-        "priority": "task:T-018",
-        "release": "feature:widgets"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "identity",
-      "parentTask": null,
-      "parents": [
-        "task:T-018"
-      ],
-      "path": "social-pin/tasks/T-018 Widget CRUD on the projection/T-018 Story.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "scope": "task",
-      "screens": [
-        "s36",
-        "s37"
-      ],
-      "status": "draft",
-      "summary": "…/projection/widgets with type, config (validated per type), sortOrder, isVisible. Viewer rendering in toView. Wait for ND-03 so widgets are not built on the copy model twice.",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/identity",
-        "layer/business"
-      ],
-      "task": "T-018",
-      "title": "T-018 Story",
       "updated": "2026-10-26"
     },
     "story:T-021": {
@@ -57138,10 +56714,7 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-20",
-      "children": [
-        "task:T-017",
-        "task:T-018"
-      ],
+      "children": [],
       "code": "widgets",
       "created": "2026-10-18",
       "deadline": null,
@@ -57188,7 +56761,7 @@
       ],
       "task": null,
       "title": "Widgets Story",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "task:B-01": {
       "affects": [
@@ -58529,389 +58102,6 @@
       ],
       "task": null,
       "title": "T-010-fe Frontend · Public browser page for viewers without the app",
-      "updated": "2026-10-26"
-    },
-    "task:T-017": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-017",
-      "children": [
-        "story:T-017",
-        "task:T-017-be",
-        "task:T-017-fe"
-      ],
-      "code": "T-017",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": "social-pin/tasks/T-017 Extend WIDGET_TYPE to the design's list",
-      "effectiveStatus": "todo",
-      "effort": "S",
-      "feature": "widgets",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-017",
-      "inherits": {
-        "release": "feature:widgets"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "identity",
-      "parentTask": null,
-      "parents": [
-        "story:widgets"
-      ],
-      "path": "social-pin/tasks/T-017 Extend WIDGET_TYPE to the design's list/T-017 Extend WIDGET_TYPE to the design's list.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {
-        "blocked": 1,
-        "draft": 1,
-        "todo": 1
-      },
-      "scope": null,
-      "screens": [
-        "s37"
-      ],
-      "status": "todo",
-      "summary": "Add AVAILABILITY, PAYMENT, NOWPLAYING, TESTIMONIAL. New migration; never edit an applied one.",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/identity",
-        "priority/high"
-      ],
-      "task": null,
-      "title": "T-017 Extend WIDGET_TYPE to the design's list",
-      "updated": "2026-10-26"
-    },
-    "task:T-017-be": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-017-be",
-      "children": [],
-      "code": "T-017-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": null,
-      "effectiveStatus": "todo",
-      "effort": "S",
-      "feature": "widgets",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-017-be",
-      "inherits": {
-        "release": "feature:widgets"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "identity",
-      "parentTask": "T-017",
-      "parents": [
-        "task:T-017"
-      ],
-      "path": "social-pin/tasks/T-017 Extend WIDGET_TYPE to the design's list/T-017-be Backend · Extend WIDGET_TYPE to the design's list.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s37"
-      ],
-      "status": "todo",
-      "summary": "The API side of T-017 Extend WIDGETTYPE to the design's list: the endpoints, data and rules its What describes. Record what shipped in T-017-be Backend Delivery and how to call it in T-017-be…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/identity",
-        "priority/high",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-017-be Backend · Extend WIDGET_TYPE to the design's list",
-      "updated": "2026-10-26"
-    },
-    "task:T-017-fe": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-017-be",
-          "title": "T-017-be Backend · Extend WIDGET_TYPE to the design's list",
-          "why": "T-017-be Backend · Extend WIDGET_TYPE to the design's list is to do"
-        }
-      ],
-      "card": "T-017-fe",
-      "children": [],
-      "code": "T-017-fe",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-017-be"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "S",
-      "feature": "widgets",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-017-fe",
-      "inherits": {
-        "release": "feature:widgets"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "frontend"
-      ],
-      "layer": "business",
-      "module": "identity",
-      "parentTask": "T-017",
-      "parents": [
-        "task:T-017"
-      ],
-      "path": "social-pin/tasks/T-017 Extend WIDGET_TYPE to the design's list/T-017-fe Frontend · Extend WIDGET_TYPE to the design's list.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s37"
-      ],
-      "status": "todo",
-      "summary": "The client side of T-017 Extend WIDGETTYPE to the design's list: the screens below show what its What describes, built against Widgets Backend Integration once the backend half (T-017-be Backend ·…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/identity",
-        "priority/high",
-        "frontend"
-      ],
-      "task": null,
-      "title": "T-017-fe Frontend · Extend WIDGET_TYPE to the design's list",
-      "updated": "2026-10-26"
-    },
-    "task:T-018": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-017",
-          "title": "T-017 Extend WIDGET_TYPE to the design's list",
-          "why": "T-017 Extend WIDGET_TYPE to the design's list is to do"
-        }
-      ],
-      "card": "T-018",
-      "children": [
-        "story:T-018",
-        "task:T-018-be",
-        "task:T-018-fe"
-      ],
-      "code": "T-018",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-017",
-        "needs-decision:ND-03"
-      ],
-      "dir": "social-pin/tasks/T-018 Widget CRUD on the projection",
-      "effectiveStatus": "needs-decision",
-      "effort": "M",
-      "feature": "widgets",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-018",
-      "inherits": {
-        "release": "feature:widgets"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "identity",
-      "parentTask": null,
-      "parents": [
-        "story:widgets"
-      ],
-      "path": "social-pin/tasks/T-018 Widget CRUD on the projection/T-018 Widget CRUD on the projection.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {
-        "blocked": 2,
-        "draft": 1
-      },
-      "scope": null,
-      "screens": [
-        "s36",
-        "s37"
-      ],
-      "status": "needs-decision",
-      "summary": "…/projection/widgets with type, config (validated per type), sortOrder, isVisible. Viewer rendering in toView. Built on the library model ND-03 chose (one library, on/off per Ring: D-03 Links…",
-      "tags": [
-        "task",
-        "task/needs-info",
-        "module/identity",
-        "priority/high"
-      ],
-      "task": null,
-      "title": "T-018 Widget CRUD on the projection",
-      "updated": "2026-10-26"
-    },
-    "task:T-018-be": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-017",
-          "title": "T-017 Extend WIDGET_TYPE to the design's list",
-          "why": "T-017 Extend WIDGET_TYPE to the design's list is to do"
-        }
-      ],
-      "card": "T-018-be",
-      "children": [],
-      "code": "T-018-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-017",
-        "needs-decision:ND-03"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "widgets",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-018-be",
-      "inherits": {
-        "release": "feature:widgets"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "identity",
-      "parentTask": "T-018",
-      "parents": [
-        "task:T-018"
-      ],
-      "path": "social-pin/tasks/T-018 Widget CRUD on the projection/T-018-be Backend · Widget CRUD on the projection.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s36",
-        "s37"
-      ],
-      "status": "todo",
-      "summary": "The API side of T-018 Widget CRUD on the projection: the endpoints, data and rules its What describes. Record what shipped in T-018-be Backend Delivery and how to call it in T-018-be Backend…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/identity",
-        "priority/high",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-018-be Backend · Widget CRUD on the projection",
-      "updated": "2026-10-26"
-    },
-    "task:T-018-fe": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-017",
-          "title": "T-017 Extend WIDGET_TYPE to the design's list",
-          "why": "T-017 Extend WIDGET_TYPE to the design's list is to do"
-        },
-        {
-          "id": "task:T-018-be",
-          "title": "T-018-be Backend · Widget CRUD on the projection",
-          "why": "T-018-be Backend · Widget CRUD on the projection is blocked"
-        }
-      ],
-      "card": "T-018-fe",
-      "children": [],
-      "code": "T-018-fe",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-017",
-        "needs-decision:ND-03",
-        "task:T-018-be"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "widgets",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-018-fe",
-      "inherits": {
-        "release": "feature:widgets"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "frontend"
-      ],
-      "layer": "business",
-      "module": "identity",
-      "parentTask": "T-018",
-      "parents": [
-        "task:T-018"
-      ],
-      "path": "social-pin/tasks/T-018 Widget CRUD on the projection/T-018-fe Frontend · Widget CRUD on the projection.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s36",
-        "s37"
-      ],
-      "status": "todo",
-      "summary": "The client side of T-018 Widget CRUD on the projection: the screens below show what its What describes, built against Widgets Backend Integration once the backend half (T-018-be Backend · Widget…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/identity",
-        "priority/high",
-        "frontend"
-      ],
-      "task": null,
-      "title": "T-018-fe Frontend · Widget CRUD on the projection",
       "updated": "2026-10-26"
     },
     "task:T-021": {
