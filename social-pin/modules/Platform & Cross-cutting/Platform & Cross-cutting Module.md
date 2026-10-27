@@ -40,5 +40,5 @@ A module is the sum of its features; a feature is the sum of its tasks. Each fea
 ## Log
 
 - 2026-10-18 · created when the vault moved to layers
-- 2026-10-26 · [[Operator Panel]] added, with T-068 to T-072 under it
+- 2026-10-26 · [[Operator Panel]] added, with Operator Panel · S3 to Operator Panel · S7 under it
 - 2026-10-26 · [[Build & Deploy]] added for the pipeline that already shipped (Build & Deploy · GitLab pipeline and Docker setup)

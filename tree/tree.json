@@ -211,6 +211,7 @@
     "Onboarding Imports Frontend Requirements": "frontend-requirements:onboarding-imports",
     "Onboarding Imports Story": "story:onboarding-imports",
     "Operator Panel": "feature:operator-panel",
+    "Operator Panel Story": "story:operator-panel",
     "Owner Agent": "project:owner-agent",
     "PM Agent": "project:pm-agent",
     "Payments & Orders": "feature:payments",
@@ -325,21 +326,6 @@
     "T-040 Story": "story:T-040",
     "T-040-be Backend · Lounges and upgrades": "task:T-040-be",
     "T-040-fe Frontend · Lounges and upgrades": "task:T-040-fe",
-    "T-068 Account moderation and platform role": "task:T-068",
-    "T-068 Story": "story:T-068",
-    "T-068-be Backend · Account moderation and platform role": "task:T-068-be",
-    "T-069 Scoped role grants": "task:T-069",
-    "T-069 Story": "story:T-069",
-    "T-069-be Backend · Scoped role grants": "task:T-069-be",
-    "T-070 Roles and permissions catalogue": "task:T-070",
-    "T-070 Story": "story:T-070",
-    "T-070-be Backend · Roles and permissions catalogue": "task:T-070-be",
-    "T-071 Audit-log read endpoints": "task:T-071",
-    "T-071 Story": "story:T-071",
-    "T-071-be Backend · Audit-log read endpoints": "task:T-071-be",
-    "T-072 Platform stats": "task:T-072",
-    "T-072 Story": "story:T-072",
-    "T-072-be Backend · Platform stats": "task:T-072-be",
     "View As & Pin Views": "feature:view-as",
     "View As & Pin Views Backend Delivery": "backend-delivery:view-as",
     "View As & Pin Views Backend Integration": "backend-integration:view-as",
@@ -574,13 +560,9 @@
     "S-03": "story:counts",
     "S-06": "story:files",
     "S-08": "story:onboarding-imports",
-    "S-109": "story:T-068",
     "S-11": "story:photo-library",
-    "S-110": "story:T-069",
-    "S-111": "story:T-070",
-    "S-112": "story:T-071",
-    "S-113": "story:T-072",
     "S-116": "story:build-deploy",
+    "S-117": "story:operator-panel",
     "S-14": "story:profiles",
     "S-15": "story:ring-access",
     "S-16": "story:ring-members",
@@ -669,17 +651,7 @@
     "T-039-fe": "task:T-039-fe",
     "T-040": "task:T-040",
     "T-040-be": "task:T-040-be",
-    "T-040-fe": "task:T-040-fe",
-    "T-068": "task:T-068",
-    "T-068-be": "task:T-068-be",
-    "T-069": "task:T-069",
-    "T-069-be": "task:T-069-be",
-    "T-070": "task:T-070",
-    "T-070-be": "task:T-070-be",
-    "T-071": "task:T-071",
-    "T-071-be": "task:T-071-be",
-    "T-072": "task:T-072",
-    "T-072-be": "task:T-072-be"
+    "T-040-fe": "task:T-040-fe"
   },
   "concepts": {
     "DELETE /admin/users/:userId/roles/:assignmentId": {
@@ -787,59 +759,59 @@
     },
     "E_ADMIN_01": {
       "containers": [
-        "project:frontend-api-guide",
-        "task:T-068"
+        "feature:operator-panel",
+        "project:frontend-api-guide"
       ],
       "kind": "error",
       "notes": [
         "project:frontend-api-guide",
-        "task:T-068"
+        "story:operator-panel"
       ],
       "owner": null
     },
     "E_ADMIN_02": {
       "containers": [
-        "project:frontend-api-guide",
-        "task:T-068"
+        "feature:operator-panel",
+        "project:frontend-api-guide"
       ],
       "kind": "error",
       "notes": [
         "project:frontend-api-guide",
-        "task:T-068"
+        "story:operator-panel"
       ],
       "owner": null
     },
     "E_ADMIN_03": {
       "containers": [
-        "task:T-069"
+        "feature:operator-panel"
       ],
       "kind": "error",
       "notes": [
-        "task:T-069"
+        "story:operator-panel"
       ],
       "owner": null
     },
     "E_ADMIN_07": {
       "containers": [
+        "feature:operator-panel",
         "project:frontend-api-guide",
-        "project:spec-map",
-        "task:T-069"
+        "project:spec-map"
       ],
       "kind": "error",
       "notes": [
         "project:frontend-api-guide",
         "project:spec-map",
-        "task:T-069"
+        "story:operator-panel"
       ],
       "owner": null
     },
     "E_ADMIN_08": {
       "containers": [
-        "task:T-071"
+        "feature:operator-panel"
       ],
       "kind": "error",
       "notes": [
-        "task:T-071"
+        "story:operator-panel"
       ],
       "owner": null
     },
@@ -1451,85 +1423,85 @@
     },
     "GET /admin/audit-logs": {
       "containers": [
-        "project:spec-map",
-        "task:T-071"
+        "feature:operator-panel",
+        "project:spec-map"
       ],
       "kind": "endpoint",
       "notes": [
         "project:spec-map",
-        "task:T-071"
+        "story:operator-panel"
       ],
       "owner": null
     },
     "GET /admin/audit-logs/:id": {
       "containers": [
-        "project:spec-map",
-        "task:T-071"
+        "feature:operator-panel",
+        "project:spec-map"
       ],
       "kind": "endpoint",
       "notes": [
         "project:spec-map",
-        "task:T-071"
+        "story:operator-panel"
       ],
       "owner": null
     },
     "GET /admin/roles": {
       "containers": [
-        "project:spec-map",
-        "task:T-070"
+        "feature:operator-panel",
+        "project:spec-map"
       ],
       "kind": "endpoint",
       "notes": [
         "project:spec-map",
-        "task:T-070"
+        "story:operator-panel"
       ],
       "owner": null
     },
     "GET /admin/roles/permissions": {
       "containers": [
-        "project:spec-map",
-        "task:T-070"
+        "feature:operator-panel",
+        "project:spec-map"
       ],
       "kind": "endpoint",
       "notes": [
         "project:spec-map",
-        "task:T-070"
+        "story:operator-panel"
       ],
       "owner": null
     },
     "GET /admin/stats": {
       "containers": [
-        "project:spec-map",
-        "task:T-072"
+        "feature:operator-panel",
+        "project:spec-map"
       ],
       "kind": "endpoint",
       "notes": [
         "project:spec-map",
-        "task:T-072"
+        "story:operator-panel"
       ],
       "owner": null
     },
     "GET /admin/users": {
       "containers": [
-        "project:spec-map",
-        "task:T-068"
+        "feature:operator-panel",
+        "project:spec-map"
       ],
       "kind": "endpoint",
       "notes": [
         "project:spec-map",
-        "task:T-068"
+        "story:operator-panel"
       ],
       "owner": null
     },
     "GET /admin/users/:id": {
       "containers": [
-        "project:spec-map",
-        "task:T-068"
+        "feature:operator-panel",
+        "project:spec-map"
       ],
       "kind": "endpoint",
       "notes": [
         "project:spec-map",
-        "task:T-068"
+        "story:operator-panel"
       ],
       "owner": null
     },
@@ -4367,28 +4339,28 @@
       "project": 27,
       "qa-backend": 1,
       "qa-frontend": 1,
-      "story": 59,
-      "task": 54
+      "story": 55,
+      "task": 44
     },
     "byLayer": {
       "backend": 56,
-      "business": 192,
+      "business": 178,
       "frontend": 44,
       "qa": 2,
       "shared": 10
     },
     "concepts": 199,
     "decisions": 19,
-    "edges": 4106,
+    "edges": 4019,
     "features": 41,
-    "layerNotes": 149,
+    "layerNotes": 145,
     "modules": 8,
-    "notes": 340,
+    "notes": 326,
     "partial": 4,
-    "placeholders": 155,
+    "placeholders": 154,
     "records": 14,
-    "taskLayerNotes": 19,
-    "tasks": 54
+    "taskLayerNotes": 14,
+    "tasks": 44
   },
   "deadlines": {
     "missed": {
@@ -4967,146 +4939,6 @@
       "from": "task:B-02",
       "kind": "affects",
       "to": "story:account"
-    },
-    {
-      "from": "task:T-068",
-      "kind": "affects",
-      "to": "feature:account"
-    },
-    {
-      "from": "task:T-068",
-      "kind": "affects",
-      "to": "feature:auth"
-    },
-    {
-      "from": "task:T-068",
-      "kind": "affects",
-      "to": "project:frontend-api-guide"
-    },
-    {
-      "from": "task:T-068",
-      "kind": "affects",
-      "to": "project:spec-map"
-    },
-    {
-      "from": "task:T-068-be",
-      "kind": "affects",
-      "to": "feature:account"
-    },
-    {
-      "from": "task:T-068-be",
-      "kind": "affects",
-      "to": "feature:auth"
-    },
-    {
-      "from": "task:T-068-be",
-      "kind": "affects",
-      "to": "project:frontend-api-guide"
-    },
-    {
-      "from": "task:T-068-be",
-      "kind": "affects",
-      "to": "project:spec-map"
-    },
-    {
-      "from": "task:T-069",
-      "kind": "affects",
-      "to": "feature:auth"
-    },
-    {
-      "from": "task:T-069",
-      "kind": "affects",
-      "to": "project:frontend-api-guide"
-    },
-    {
-      "from": "task:T-069",
-      "kind": "affects",
-      "to": "project:spec-map"
-    },
-    {
-      "from": "task:T-069-be",
-      "kind": "affects",
-      "to": "feature:auth"
-    },
-    {
-      "from": "task:T-069-be",
-      "kind": "affects",
-      "to": "project:frontend-api-guide"
-    },
-    {
-      "from": "task:T-069-be",
-      "kind": "affects",
-      "to": "project:spec-map"
-    },
-    {
-      "from": "task:T-070",
-      "kind": "affects",
-      "to": "project:frontend-api-guide"
-    },
-    {
-      "from": "task:T-070",
-      "kind": "affects",
-      "to": "project:spec-map"
-    },
-    {
-      "from": "task:T-070-be",
-      "kind": "affects",
-      "to": "project:frontend-api-guide"
-    },
-    {
-      "from": "task:T-070-be",
-      "kind": "affects",
-      "to": "project:spec-map"
-    },
-    {
-      "from": "task:T-071",
-      "kind": "affects",
-      "to": "feature:audit-log"
-    },
-    {
-      "from": "task:T-071",
-      "kind": "affects",
-      "to": "project:frontend-api-guide"
-    },
-    {
-      "from": "task:T-071",
-      "kind": "affects",
-      "to": "project:spec-map"
-    },
-    {
-      "from": "task:T-071-be",
-      "kind": "affects",
-      "to": "feature:audit-log"
-    },
-    {
-      "from": "task:T-071-be",
-      "kind": "affects",
-      "to": "project:frontend-api-guide"
-    },
-    {
-      "from": "task:T-071-be",
-      "kind": "affects",
-      "to": "project:spec-map"
-    },
-    {
-      "from": "task:T-072",
-      "kind": "affects",
-      "to": "project:frontend-api-guide"
-    },
-    {
-      "from": "task:T-072",
-      "kind": "affects",
-      "to": "project:spec-map"
-    },
-    {
-      "from": "task:T-072-be",
-      "kind": "affects",
-      "to": "project:frontend-api-guide"
-    },
-    {
-      "from": "task:T-072-be",
-      "kind": "affects",
-      "to": "project:spec-map"
     },
     {
       "from": "backend-delivery:audit-log",
@@ -6204,46 +6036,6 @@
       "to": "task:T-040-fe"
     },
     {
-      "from": "task:T-068",
-      "kind": "blocks",
-      "to": "task:T-069"
-    },
-    {
-      "from": "task:T-068",
-      "kind": "blocks",
-      "to": "task:T-069-be"
-    },
-    {
-      "from": "task:T-068",
-      "kind": "blocks",
-      "to": "task:T-071"
-    },
-    {
-      "from": "task:T-068",
-      "kind": "blocks",
-      "to": "task:T-071-be"
-    },
-    {
-      "from": "task:T-068",
-      "kind": "blocks",
-      "to": "task:T-072"
-    },
-    {
-      "from": "task:T-068",
-      "kind": "blocks",
-      "to": "task:T-072-be"
-    },
-    {
-      "from": "task:T-069",
-      "kind": "blocks",
-      "to": "task:T-070"
-    },
-    {
-      "from": "task:T-069",
-      "kind": "blocks",
-      "to": "task:T-070-be"
-    },
-    {
       "from": "needs-decision:ND-01",
       "kind": "decision",
       "to": "feature:auth"
@@ -6769,46 +6561,6 @@
       "to": "task:T-040-be"
     },
     {
-      "from": "task:T-069",
-      "kind": "depends",
-      "to": "task:T-068"
-    },
-    {
-      "from": "task:T-069-be",
-      "kind": "depends",
-      "to": "task:T-068"
-    },
-    {
-      "from": "task:T-070",
-      "kind": "depends",
-      "to": "task:T-069"
-    },
-    {
-      "from": "task:T-070-be",
-      "kind": "depends",
-      "to": "task:T-069"
-    },
-    {
-      "from": "task:T-071",
-      "kind": "depends",
-      "to": "task:T-068"
-    },
-    {
-      "from": "task:T-071-be",
-      "kind": "depends",
-      "to": "task:T-068"
-    },
-    {
-      "from": "task:T-072",
-      "kind": "depends",
-      "to": "task:T-068"
-    },
-    {
-      "from": "task:T-072-be",
-      "kind": "depends",
-      "to": "task:T-068"
-    },
-    {
       "from": "backend-delivery:account",
       "kind": "flow",
       "to": "backend-integration:account"
@@ -7281,7 +7033,7 @@
     {
       "from": "qa-frontend:account",
       "kind": "pending",
-      "to": "task:T-068"
+      "to": "story:operator-panel"
     },
     {
       "from": "task:B-01",
@@ -10330,7 +10082,7 @@
     {
       "from": "qa-frontend:account",
       "kind": "related",
-      "to": "task:T-068"
+      "to": "story:operator-panel"
     },
     {
       "from": "story:account",
@@ -10558,46 +10310,6 @@
       "from": "story:onboarding-imports",
       "kind": "related",
       "to": "decision:D-02"
-    },
-    {
-      "from": "story:operator-panel",
-      "kind": "related",
-      "to": "story:T-068",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
-      "from": "story:operator-panel",
-      "kind": "related",
-      "to": "story:T-069",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
-      "from": "story:operator-panel",
-      "kind": "related",
-      "to": "story:T-070",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
-      "from": "story:operator-panel",
-      "kind": "related",
-      "to": "story:T-071",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
-      "from": "story:operator-panel",
-      "kind": "related",
-      "to": "story:T-072",
-      "via": [
-        "sum-of"
-      ]
     },
     {
       "from": "story:payments",
@@ -11008,36 +10720,6 @@
       "from": "task:T-040-fe",
       "kind": "related",
       "to": "story:subscription"
-    },
-    {
-      "from": "task:T-068",
-      "kind": "related",
-      "to": "story:audit-log"
-    },
-    {
-      "from": "task:T-068",
-      "kind": "related",
-      "to": "story:delegated-admins"
-    },
-    {
-      "from": "task:T-068-be",
-      "kind": "related",
-      "to": "story:audit-log"
-    },
-    {
-      "from": "task:T-069",
-      "kind": "related",
-      "to": "story:delegated-admins"
-    },
-    {
-      "from": "task:T-071",
-      "kind": "related",
-      "to": "story:audit-log"
-    },
-    {
-      "from": "task:T-071-be",
-      "kind": "related",
-      "to": "story:audit-log"
     },
     {
       "from": "decision:D-13",
@@ -17332,6 +17014,31 @@
       ]
     },
     {
+      "from": "feature:operator-panel",
+      "kind": "shares",
+      "to": "project:frontend-api-guide",
+      "via": [
+        "E_ADMIN_01",
+        "E_ADMIN_02",
+        "E_ADMIN_07"
+      ]
+    },
+    {
+      "from": "feature:operator-panel",
+      "kind": "shares",
+      "to": "project:spec-map",
+      "via": [
+        "E_ADMIN_07",
+        "GET /admin/audit-logs",
+        "GET /admin/audit-logs/:id",
+        "GET /admin/roles",
+        "GET /admin/roles/permissions",
+        "GET /admin/stats",
+        "GET /admin/users",
+        "GET /admin/users/:id"
+      ]
+    },
+    {
       "from": "feature:payments",
       "kind": "shares",
       "to": "feature:pincast",
@@ -19879,23 +19586,6 @@
       ]
     },
     {
-      "from": "project:frontend-api-guide",
-      "kind": "shares",
-      "to": "task:T-068",
-      "via": [
-        "E_ADMIN_01",
-        "E_ADMIN_02"
-      ]
-    },
-    {
-      "from": "project:frontend-api-guide",
-      "kind": "shares",
-      "to": "task:T-069",
-      "via": [
-        "E_ADMIN_07"
-      ]
-    },
-    {
       "from": "project:frontend-contract",
       "kind": "shares",
       "to": "project:frontend-passwordless-migration",
@@ -20121,49 +19811,6 @@
       "via": [
         "GET /views/user/:userId/perspectives",
         "POST /rings/:ringId/members"
-      ]
-    },
-    {
-      "from": "project:spec-map",
-      "kind": "shares",
-      "to": "task:T-068",
-      "via": [
-        "GET /admin/users",
-        "GET /admin/users/:id"
-      ]
-    },
-    {
-      "from": "project:spec-map",
-      "kind": "shares",
-      "to": "task:T-069",
-      "via": [
-        "E_ADMIN_07"
-      ]
-    },
-    {
-      "from": "project:spec-map",
-      "kind": "shares",
-      "to": "task:T-070",
-      "via": [
-        "GET /admin/roles",
-        "GET /admin/roles/permissions"
-      ]
-    },
-    {
-      "from": "project:spec-map",
-      "kind": "shares",
-      "to": "task:T-071",
-      "via": [
-        "GET /admin/audit-logs",
-        "GET /admin/audit-logs/:id"
-      ]
-    },
-    {
-      "from": "project:spec-map",
-      "kind": "shares",
-      "to": "task:T-072",
-      "via": [
-        "GET /admin/stats"
       ]
     },
     {
@@ -22298,31 +21945,6 @@
       "to": "needs-decision:ND-21"
     },
     {
-      "from": "story:operator-panel",
-      "kind": "tree",
-      "to": "task:T-068"
-    },
-    {
-      "from": "story:operator-panel",
-      "kind": "tree",
-      "to": "task:T-069"
-    },
-    {
-      "from": "story:operator-panel",
-      "kind": "tree",
-      "to": "task:T-070"
-    },
-    {
-      "from": "story:operator-panel",
-      "kind": "tree",
-      "to": "task:T-071"
-    },
-    {
-      "from": "story:operator-panel",
-      "kind": "tree",
-      "to": "task:T-072"
-    },
-    {
       "from": "story:payments",
       "kind": "tree",
       "to": "needs-decision:ND-07"
@@ -22601,56 +22223,6 @@
       "from": "task:T-040",
       "kind": "tree",
       "to": "task:T-040-fe"
-    },
-    {
-      "from": "task:T-068",
-      "kind": "tree",
-      "to": "story:T-068"
-    },
-    {
-      "from": "task:T-068",
-      "kind": "tree",
-      "to": "task:T-068-be"
-    },
-    {
-      "from": "task:T-069",
-      "kind": "tree",
-      "to": "story:T-069"
-    },
-    {
-      "from": "task:T-069",
-      "kind": "tree",
-      "to": "task:T-069-be"
-    },
-    {
-      "from": "task:T-070",
-      "kind": "tree",
-      "to": "story:T-070"
-    },
-    {
-      "from": "task:T-070",
-      "kind": "tree",
-      "to": "task:T-070-be"
-    },
-    {
-      "from": "task:T-071",
-      "kind": "tree",
-      "to": "story:T-071"
-    },
-    {
-      "from": "task:T-071",
-      "kind": "tree",
-      "to": "task:T-071-be"
-    },
-    {
-      "from": "task:T-072",
-      "kind": "tree",
-      "to": "story:T-072"
-    },
-    {
-      "from": "task:T-072",
-      "kind": "tree",
-      "to": "task:T-072-be"
     },
     {
       "from": "backend-delivery:account",
@@ -23941,31 +23513,6 @@
       "from": "feature:onboarding-imports",
       "kind": "wikilink",
       "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "feature:operator-panel",
-      "kind": "wikilink",
-      "to": "task:T-068"
-    },
-    {
-      "from": "feature:operator-panel",
-      "kind": "wikilink",
-      "to": "task:T-069"
-    },
-    {
-      "from": "feature:operator-panel",
-      "kind": "wikilink",
-      "to": "task:T-070"
-    },
-    {
-      "from": "feature:operator-panel",
-      "kind": "wikilink",
-      "to": "task:T-071"
-    },
-    {
-      "from": "feature:operator-panel",
-      "kind": "wikilink",
-      "to": "task:T-072"
     },
     {
       "from": "feature:payments",
@@ -26413,6 +25960,11 @@
       "to": "story:notifications"
     },
     {
+      "from": "module:platform",
+      "kind": "wikilink",
+      "to": "story:operator-panel"
+    },
+    {
       "from": "module:shared-rings",
       "kind": "wikilink",
       "to": "backend-delivery:companies"
@@ -27830,7 +27382,7 @@
     {
       "from": "qa-backend:account",
       "kind": "wikilink",
-      "to": "task:T-068"
+      "to": "story:operator-panel"
     },
     {
       "from": "qa-frontend:account",
@@ -28241,6 +27793,16 @@
       "from": "story:onboarding-imports",
       "kind": "wikilink",
       "to": "story:linked-accounts"
+    },
+    {
+      "from": "story:operator-panel",
+      "kind": "wikilink",
+      "to": "story:audit-log"
+    },
+    {
+      "from": "story:operator-panel",
+      "kind": "wikilink",
+      "to": "story:delegated-admins"
     },
     {
       "from": "story:payments",
@@ -28686,31 +28248,6 @@
       "from": "story:T-040",
       "kind": "wikilink",
       "to": "feature:events-during"
-    },
-    {
-      "from": "story:T-068",
-      "kind": "wikilink",
-      "to": "feature:operator-panel"
-    },
-    {
-      "from": "story:T-069",
-      "kind": "wikilink",
-      "to": "feature:operator-panel"
-    },
-    {
-      "from": "story:T-070",
-      "kind": "wikilink",
-      "to": "feature:operator-panel"
-    },
-    {
-      "from": "story:T-071",
-      "kind": "wikilink",
-      "to": "feature:operator-panel"
-    },
-    {
-      "from": "story:T-072",
-      "kind": "wikilink",
-      "to": "feature:operator-panel"
     },
     {
       "from": "story:view-as",
@@ -29391,31 +28928,6 @@
       "from": "task:T-040-fe",
       "kind": "wikilink",
       "to": "task:T-040-be"
-    },
-    {
-      "from": "task:T-068-be",
-      "kind": "wikilink",
-      "to": "feature:operator-panel"
-    },
-    {
-      "from": "task:T-069-be",
-      "kind": "wikilink",
-      "to": "feature:operator-panel"
-    },
-    {
-      "from": "task:T-070-be",
-      "kind": "wikilink",
-      "to": "feature:operator-panel"
-    },
-    {
-      "from": "task:T-071-be",
-      "kind": "wikilink",
-      "to": "feature:operator-panel"
-    },
-    {
-      "from": "task:T-072-be",
-      "kind": "wikilink",
-      "to": "feature:operator-panel"
     }
   ],
   "emoji": {
@@ -30336,6 +29848,10 @@
       "name": "Notifications",
       "type": "feature"
     },
+    "social-pin/modules/Platform & Cross-cutting/features/Operator Panel/Operator Panel Story.md": {
+      "name": "Operator Panel Story",
+      "type": "story"
+    },
     "social-pin/modules/Platform & Cross-cutting/features/Operator Panel/Operator Panel.md": {
       "name": "Operator Panel",
       "type": "feature"
@@ -30694,66 +30210,6 @@
     },
     "social-pin/tasks/T-040 Lounges and upgrades/T-040-fe Frontend · Lounges and upgrades.md": {
       "name": "T-040-fe Frontend · Lounges and upgrades",
-      "type": "task"
-    },
-    "social-pin/tasks/T-068 Account moderation and platform role/T-068 Account moderation and platform role.md": {
-      "name": "T-068 Account moderation and platform role",
-      "type": "task"
-    },
-    "social-pin/tasks/T-068 Account moderation and platform role/T-068 Story.md": {
-      "name": "T-068 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-068 Account moderation and platform role/T-068-be Backend · Account moderation and platform role.md": {
-      "name": "T-068-be Backend · Account moderation and platform role",
-      "type": "task"
-    },
-    "social-pin/tasks/T-069 Scoped role grants/T-069 Scoped role grants.md": {
-      "name": "T-069 Scoped role grants",
-      "type": "task"
-    },
-    "social-pin/tasks/T-069 Scoped role grants/T-069 Story.md": {
-      "name": "T-069 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-069 Scoped role grants/T-069-be Backend · Scoped role grants.md": {
-      "name": "T-069-be Backend · Scoped role grants",
-      "type": "task"
-    },
-    "social-pin/tasks/T-070 Roles and permissions catalogue/T-070 Roles and permissions catalogue.md": {
-      "name": "T-070 Roles and permissions catalogue",
-      "type": "task"
-    },
-    "social-pin/tasks/T-070 Roles and permissions catalogue/T-070 Story.md": {
-      "name": "T-070 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-070 Roles and permissions catalogue/T-070-be Backend · Roles and permissions catalogue.md": {
-      "name": "T-070-be Backend · Roles and permissions catalogue",
-      "type": "task"
-    },
-    "social-pin/tasks/T-071 Audit-log read endpoints/T-071 Audit-log read endpoints.md": {
-      "name": "T-071 Audit-log read endpoints",
-      "type": "task"
-    },
-    "social-pin/tasks/T-071 Audit-log read endpoints/T-071 Story.md": {
-      "name": "T-071 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-071 Audit-log read endpoints/T-071-be Backend · Audit-log read endpoints.md": {
-      "name": "T-071-be Backend · Audit-log read endpoints",
-      "type": "task"
-    },
-    "social-pin/tasks/T-072 Platform stats/T-072 Platform stats.md": {
-      "name": "T-072 Platform stats",
-      "type": "task"
-    },
-    "social-pin/tasks/T-072 Platform stats/T-072 Story.md": {
-      "name": "T-072 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-072 Platform stats/T-072-be Backend · Platform stats.md": {
-      "name": "T-072-be Backend · Platform stats",
       "type": "task"
     },
     "social-pin/tasks/Task Board.md": {
@@ -38391,7 +37847,7 @@
       "deadline": null,
       "depends": [],
       "dir": "social-pin/modules/Platform & Cross-cutting/features/Operator Panel",
-      "effectiveStatus": "in-progress",
+      "effectiveStatus": "todo",
       "effort": null,
       "feature": "operator-panel",
       "foundOn": null,
@@ -38426,9 +37882,8 @@
       "release": "later",
       "resolution": null,
       "rollup": {
-        "draft": 5,
-        "in-progress": 10,
-        "missing": 7
+        "draft": 1,
+        "missing": 6
       },
       "scope": null,
       "screens": [],
@@ -42848,7 +42303,7 @@
         {
           "id": "story:operator-panel",
           "title": "Operator Panel Story",
-          "why": "Operator Panel Story is not written yet"
+          "why": "Operator Panel Story is draft"
         }
       ],
       "card": null,
@@ -44193,10 +43648,10 @@
         "blocked": 11,
         "decided": 3,
         "done": 1,
-        "draft": 17,
-        "in-progress": 22,
-        "missing": 55,
-        "todo": 1,
+        "draft": 13,
+        "in-progress": 11,
+        "missing": 54,
+        "todo": 2,
         "verified": 3
       },
       "scope": null,
@@ -48787,7 +48242,7 @@
         {
           "person": null,
           "text": "F19 cannot be run until a route suspends an account",
-          "to": "task:T-068"
+          "to": "story:operator-panel"
         },
         {
           "person": "omar",
@@ -48804,7 +48259,7 @@
         "frontend-requirements:account",
         "qa-backend:account",
         "story:error-contract",
-        "task:T-068",
+        "story:operator-panel",
         "story:files",
         "backend-delivery:auth",
         "backend-integration:auth",
@@ -50739,15 +50194,15 @@
         "decided": 14,
         "delivered": 2,
         "done": 10,
-        "draft": 55,
-        "in-progress": 55,
-        "missing": 155,
+        "draft": 51,
+        "in-progress": 44,
+        "missing": 154,
         "needs-decision": 3,
         "partial": 4,
         "passing": 1,
         "ready": 2,
         "reference": 31,
-        "todo": 12,
+        "todo": 13,
         "verified": 14
       },
       "scope": null,
@@ -51517,246 +50972,6 @@
       "title": "T-040 Story",
       "updated": "2026-10-26"
     },
-    "story:T-068": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-109",
-      "children": [],
-      "code": "T-068",
-      "created": "2026-10-26",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
-      "effort": null,
-      "feature": "operator-panel",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-068",
-      "inherits": {
-        "priority": "task:T-068",
-        "release": "feature:operator-panel"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": null,
-      "parents": [
-        "task:T-068"
-      ],
-      "path": "social-pin/tasks/T-068 Account moderation and platform role/T-068 Story.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "later",
-      "resolution": null,
-      "scope": "task",
-      "screens": [],
-      "status": "draft",
-      "summary": "One paragraph: who the user is here and what they are trying to get done, in product terms. approved (👍) when product signs off (approvedBy, approvedAt); verified (✅ Fulfilled) set by the PM once…",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/platform",
-        "layer/business"
-      ],
-      "task": "T-068",
-      "title": "T-068 Story",
-      "updated": "2026-10-26"
-    },
-    "story:T-069": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-110",
-      "children": [],
-      "code": "T-069",
-      "created": "2026-10-26",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
-      "effort": null,
-      "feature": "operator-panel",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-069",
-      "inherits": {
-        "priority": "task:T-069",
-        "release": "feature:operator-panel"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": null,
-      "parents": [
-        "task:T-069"
-      ],
-      "path": "social-pin/tasks/T-069 Scoped role grants/T-069 Story.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "later",
-      "resolution": null,
-      "scope": "task",
-      "screens": [],
-      "status": "draft",
-      "summary": "One paragraph: who the user is here and what they are trying to get done, in product terms. approved (👍) when product signs off (approvedBy, approvedAt); verified (✅ Fulfilled) set by the PM once…",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/platform",
-        "layer/business"
-      ],
-      "task": "T-069",
-      "title": "T-069 Story",
-      "updated": "2026-10-26"
-    },
-    "story:T-070": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-111",
-      "children": [],
-      "code": "T-070",
-      "created": "2026-10-26",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
-      "effort": null,
-      "feature": "operator-panel",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-070",
-      "inherits": {
-        "priority": "task:T-070",
-        "release": "feature:operator-panel"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": null,
-      "parents": [
-        "task:T-070"
-      ],
-      "path": "social-pin/tasks/T-070 Roles and permissions catalogue/T-070 Story.md",
-      "pending": [],
-      "priority": "medium",
-      "related": [],
-      "release": "later",
-      "resolution": null,
-      "scope": "task",
-      "screens": [],
-      "status": "draft",
-      "summary": "One paragraph: who the user is here and what they are trying to get done, in product terms. approved (👍) when product signs off (approvedBy, approvedAt); verified (✅ Fulfilled) set by the PM once…",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/platform",
-        "layer/business"
-      ],
-      "task": "T-070",
-      "title": "T-070 Story",
-      "updated": "2026-10-26"
-    },
-    "story:T-071": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-112",
-      "children": [],
-      "code": "T-071",
-      "created": "2026-10-26",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
-      "effort": null,
-      "feature": "operator-panel",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-071",
-      "inherits": {
-        "priority": "task:T-071",
-        "release": "feature:operator-panel"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": null,
-      "parents": [
-        "task:T-071"
-      ],
-      "path": "social-pin/tasks/T-071 Audit-log read endpoints/T-071 Story.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "later",
-      "resolution": null,
-      "scope": "task",
-      "screens": [],
-      "status": "draft",
-      "summary": "One paragraph: who the user is here and what they are trying to get done, in product terms. approved (👍) when product signs off (approvedBy, approvedAt); verified (✅ Fulfilled) set by the PM once…",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/platform",
-        "layer/business"
-      ],
-      "task": "T-071",
-      "title": "T-071 Story",
-      "updated": "2026-10-26"
-    },
-    "story:T-072": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-113",
-      "children": [],
-      "code": "T-072",
-      "created": "2026-10-26",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
-      "effort": null,
-      "feature": "operator-panel",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-072",
-      "inherits": {
-        "priority": "task:T-072",
-        "release": "feature:operator-panel"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": null,
-      "parents": [
-        "task:T-072"
-      ],
-      "path": "social-pin/tasks/T-072 Platform stats/T-072 Story.md",
-      "pending": [],
-      "priority": "medium",
-      "related": [],
-      "release": "later",
-      "resolution": null,
-      "scope": "task",
-      "screens": [],
-      "status": "draft",
-      "summary": "One paragraph: who the user is here and what they are trying to get done, in product terms. approved (👍) when product signs off (approvedBy, approvedAt); verified (✅ Fulfilled) set by the PM once…",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/platform",
-        "layer/business"
-      ],
-      "task": "T-072",
-      "title": "T-072 Story",
-      "updated": "2026-10-26"
-    },
     "story:account": {
       "affects": [],
       "blockedBy": [],
@@ -51899,11 +51114,7 @@
       "pending": [],
       "priority": "critical",
       "related": [
-        "feature:operator-panel",
-        "task:T-068",
-        "task:T-068-be",
-        "task:T-071",
-        "task:T-071-be"
+        "feature:operator-panel"
       ],
       "release": "mvp",
       "resolution": null,
@@ -52410,8 +51621,6 @@
       "priority": "high",
       "related": [
         "feature:operator-panel",
-        "task:T-068",
-        "task:T-069",
         "decision:D-04"
       ],
       "release": "v1",
@@ -53287,25 +52496,22 @@
     "story:operator-panel": {
       "affects": [],
       "blockedBy": [],
-      "card": null,
-      "children": [
-        "task:T-068",
-        "task:T-069",
-        "task:T-070",
-        "task:T-071",
-        "task:T-072"
-      ],
+      "card": "S-117",
+      "children": [],
       "code": "operator-panel",
-      "created": null,
+      "created": "2026-10-27",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "missing",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "operator-panel",
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:operator-panel",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:operator-panel",
+        "release": "feature:operator-panel"
+      },
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -53315,20 +52521,27 @@
       "parents": [
         "feature:operator-panel"
       ],
-      "path": null,
+      "path": "social-pin/modules/Platform & Cross-cutting/features/Operator Panel/Operator Panel Story.md",
       "pending": [],
-      "priority": null,
-      "related": [],
-      "release": null,
+      "priority": "high",
+      "related": [
+        "qa-frontend:account"
+      ],
+      "release": "later",
+      "resolution": null,
       "scope": "feature",
       "screens": [],
-      "status": null,
-      "summary": "Not written yet. Create it with: node scripts/build-tree.mjs --scaffold story operator-panel",
-      "tags": [],
+      "status": "draft",
+      "summary": "One paragraph: who the user is here and what they are trying to get done, in product terms. approved (👍) when product signs off (approvedBy, approvedAt); verified (✅ Fulfilled) set by the PM once…",
+      "tags": [
+        "story",
+        "story/draft",
+        "module/platform",
+        "layer/business"
+      ],
       "task": null,
-      "template": "templates/Story Template.md",
       "title": "Operator Panel Story",
-      "updated": null
+      "updated": "2026-10-27"
     },
     "story:payments": {
       "affects": [
@@ -56975,665 +56188,6 @@
       "task": null,
       "title": "T-040-fe Frontend · Lounges and upgrades",
       "updated": "2026-10-27"
-    },
-    "task:T-068": {
-      "affects": [
-        "project:spec-map",
-        "project:frontend-api-guide",
-        "feature:account",
-        "feature:auth"
-      ],
-      "blockedBy": [],
-      "card": "T-068",
-      "children": [
-        "story:T-068",
-        "task:T-068-be"
-      ],
-      "code": "T-068",
-      "created": "2026-10-26",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": "social-pin/tasks/T-068 Account moderation and platform role",
-      "effectiveStatus": "in-progress",
-      "effort": "M",
-      "feature": "operator-panel",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-068",
-      "inherits": {
-        "release": "feature:operator-panel"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": null,
-      "parents": [
-        "story:operator-panel"
-      ],
-      "path": "social-pin/tasks/T-068 Account moderation and platform role/T-068 Account moderation and platform role.md",
-      "pending": [],
-      "priority": "high",
-      "related": [
-        "story:delegated-admins",
-        "story:audit-log",
-        "qa-frontend:account"
-      ],
-      "release": "later",
-      "resolution": null,
-      "rollup": {
-        "draft": 1,
-        "in-progress": 1
-      },
-      "scope": null,
-      "screens": [],
-      "status": "in-progress",
-      "summary": "The panel's first screens, for staff rather than users: find an account, read its state, suspend or reactivate it, and set the platform role on it. GET /admin/users with a search over email and…",
-      "tags": [
-        "task",
-        "task/in-progress",
-        "module/platform",
-        "priority/high"
-      ],
-      "task": null,
-      "title": "T-068 Account moderation and platform role",
-      "updated": "2026-10-27"
-    },
-    "task:T-068-be": {
-      "affects": [
-        "project:spec-map",
-        "project:frontend-api-guide",
-        "feature:account",
-        "feature:auth"
-      ],
-      "blockedBy": [],
-      "card": "T-068-be",
-      "children": [],
-      "code": "T-068-be",
-      "created": "2026-10-26",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": null,
-      "effectiveStatus": "in-progress",
-      "effort": "M",
-      "feature": "operator-panel",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-068-be",
-      "inherits": {
-        "release": "feature:operator-panel"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": "T-068",
-      "parents": [
-        "task:T-068"
-      ],
-      "path": "social-pin/tasks/T-068 Account moderation and platform role/T-068-be Backend · Account moderation and platform role.md",
-      "pending": [],
-      "priority": "high",
-      "related": [
-        "story:audit-log"
-      ],
-      "release": "later",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [],
-      "status": "in-progress",
-      "summary": "The API side of T-068 Account moderation and platform role: the endpoints, data and rules its What describes. Record what shipped in T-068-be Backend Delivery and how to call it in T-068-be…",
-      "tags": [
-        "task",
-        "task/in-progress",
-        "module/platform",
-        "priority/high",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-068-be Backend · Account moderation and platform role",
-      "updated": "2026-10-27"
-    },
-    "task:T-069": {
-      "affects": [
-        "project:spec-map",
-        "project:frontend-api-guide",
-        "feature:auth"
-      ],
-      "blockedBy": [
-        {
-          "id": "task:T-068",
-          "title": "T-068 Account moderation and platform role",
-          "why": "T-068 Account moderation and platform role is in progress"
-        }
-      ],
-      "card": "T-069",
-      "children": [
-        "story:T-069",
-        "task:T-069-be"
-      ],
-      "code": "T-069",
-      "created": "2026-10-26",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-068"
-      ],
-      "dir": "social-pin/tasks/T-069 Scoped role grants",
-      "effectiveStatus": "in-progress",
-      "effort": "M",
-      "feature": "operator-panel",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-069",
-      "inherits": {
-        "release": "feature:operator-panel"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": null,
-      "parents": [
-        "story:operator-panel"
-      ],
-      "path": "social-pin/tasks/T-069 Scoped role grants/T-069 Scoped role grants.md",
-      "pending": [],
-      "priority": "high",
-      "related": [
-        "story:delegated-admins"
-      ],
-      "release": "later",
-      "resolution": null,
-      "rollup": {
-        "draft": 1,
-        "in-progress": 1
-      },
-      "scope": null,
-      "screens": [],
-      "status": "in-progress",
-      "summary": "List, grant and revoke the scoped grants in userroles: GET/POST /admin/users/:userId/roles and DELETE .../roles/:assignmentId. The scope type comes from the role rather than the request; a GLOBAL…",
-      "tags": [
-        "task",
-        "task/in-progress",
-        "module/platform",
-        "priority/high"
-      ],
-      "task": null,
-      "title": "T-069 Scoped role grants",
-      "updated": "2026-10-27"
-    },
-    "task:T-069-be": {
-      "affects": [
-        "project:spec-map",
-        "project:frontend-api-guide",
-        "feature:auth"
-      ],
-      "blockedBy": [
-        {
-          "id": "task:T-068",
-          "title": "T-068 Account moderation and platform role",
-          "why": "T-068 Account moderation and platform role is in progress"
-        }
-      ],
-      "card": "T-069-be",
-      "children": [],
-      "code": "T-069-be",
-      "created": "2026-10-26",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-068"
-      ],
-      "dir": null,
-      "effectiveStatus": "in-progress",
-      "effort": "M",
-      "feature": "operator-panel",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-069-be",
-      "inherits": {
-        "release": "feature:operator-panel"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": "T-069",
-      "parents": [
-        "task:T-069"
-      ],
-      "path": "social-pin/tasks/T-069 Scoped role grants/T-069-be Backend · Scoped role grants.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "later",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [],
-      "status": "in-progress",
-      "summary": "The API side of T-069 Scoped role grants: the endpoints, data and rules its What describes. Record what shipped in T-069-be Backend Delivery and how to call it in T-069-be Backend Integration, and…",
-      "tags": [
-        "task",
-        "task/in-progress",
-        "module/platform",
-        "priority/high",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-069-be Backend · Scoped role grants",
-      "updated": "2026-10-26"
-    },
-    "task:T-070": {
-      "affects": [
-        "project:spec-map",
-        "project:frontend-api-guide"
-      ],
-      "blockedBy": [
-        {
-          "id": "task:T-069",
-          "title": "T-069 Scoped role grants",
-          "why": "T-069 Scoped role grants is in progress"
-        }
-      ],
-      "card": "T-070",
-      "children": [
-        "story:T-070",
-        "task:T-070-be"
-      ],
-      "code": "T-070",
-      "created": "2026-10-26",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-069"
-      ],
-      "dir": "social-pin/tasks/T-070 Roles and permissions catalogue",
-      "effectiveStatus": "in-progress",
-      "effort": "S",
-      "feature": "operator-panel",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-070",
-      "inherits": {
-        "release": "feature:operator-panel"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": null,
-      "parents": [
-        "story:operator-panel"
-      ],
-      "path": "social-pin/tasks/T-070 Roles and permissions catalogue/T-070 Roles and permissions catalogue.md",
-      "pending": [],
-      "priority": "medium",
-      "related": [],
-      "release": "later",
-      "resolution": null,
-      "rollup": {
-        "draft": 1,
-        "in-progress": 1
-      },
-      "scope": null,
-      "screens": [],
-      "status": "in-progress",
-      "summary": "Read-only views of the seeded RBAC reference data, so the panel can show what a grant would mean: GET /admin/roles for roles with their permission keys and holder counts, and GET…",
-      "tags": [
-        "task",
-        "task/in-progress",
-        "module/platform",
-        "priority/medium"
-      ],
-      "task": null,
-      "title": "T-070 Roles and permissions catalogue",
-      "updated": "2026-10-26"
-    },
-    "task:T-070-be": {
-      "affects": [
-        "project:spec-map",
-        "project:frontend-api-guide"
-      ],
-      "blockedBy": [
-        {
-          "id": "task:T-069",
-          "title": "T-069 Scoped role grants",
-          "why": "T-069 Scoped role grants is in progress"
-        }
-      ],
-      "card": "T-070-be",
-      "children": [],
-      "code": "T-070-be",
-      "created": "2026-10-26",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-069"
-      ],
-      "dir": null,
-      "effectiveStatus": "in-progress",
-      "effort": "S",
-      "feature": "operator-panel",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-070-be",
-      "inherits": {
-        "release": "feature:operator-panel"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": "T-070",
-      "parents": [
-        "task:T-070"
-      ],
-      "path": "social-pin/tasks/T-070 Roles and permissions catalogue/T-070-be Backend · Roles and permissions catalogue.md",
-      "pending": [],
-      "priority": "medium",
-      "related": [],
-      "release": "later",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [],
-      "status": "in-progress",
-      "summary": "The API side of T-070 Roles and permissions catalogue: the endpoints, data and rules its What describes. Record what shipped in T-070-be Backend Delivery and how to call it in T-070-be Backend…",
-      "tags": [
-        "task",
-        "task/in-progress",
-        "module/platform",
-        "priority/medium",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-070-be Backend · Roles and permissions catalogue",
-      "updated": "2026-10-26"
-    },
-    "task:T-071": {
-      "affects": [
-        "project:spec-map",
-        "project:frontend-api-guide",
-        "feature:audit-log"
-      ],
-      "blockedBy": [
-        {
-          "id": "task:T-068",
-          "title": "T-068 Account moderation and platform role",
-          "why": "T-068 Account moderation and platform role is in progress"
-        }
-      ],
-      "card": "T-071",
-      "children": [
-        "story:T-071",
-        "task:T-071-be"
-      ],
-      "code": "T-071",
-      "created": "2026-10-26",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-068"
-      ],
-      "dir": "social-pin/tasks/T-071 Audit-log read endpoints",
-      "effectiveStatus": "in-progress",
-      "effort": "S",
-      "feature": "operator-panel",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-071",
-      "inherits": {
-        "release": "feature:operator-panel"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": null,
-      "parents": [
-        "story:operator-panel"
-      ],
-      "path": "social-pin/tasks/T-071 Audit-log read endpoints/T-071 Audit-log read endpoints.md",
-      "pending": [],
-      "priority": "high",
-      "related": [
-        "story:audit-log"
-      ],
-      "release": "later",
-      "resolution": null,
-      "rollup": {
-        "draft": 1,
-        "in-progress": 1
-      },
-      "scope": null,
-      "screens": [],
-      "status": "in-progress",
-      "summary": "The trail the panel writes, made readable: GET /admin/audit-logs, filtered by actor, action, resource and time window, and GET /admin/audit-logs/:id for one entry with its full metadata.",
-      "tags": [
-        "task",
-        "task/in-progress",
-        "module/platform",
-        "priority/high"
-      ],
-      "task": null,
-      "title": "T-071 Audit-log read endpoints",
-      "updated": "2026-10-27"
-    },
-    "task:T-071-be": {
-      "affects": [
-        "project:spec-map",
-        "project:frontend-api-guide",
-        "feature:audit-log"
-      ],
-      "blockedBy": [
-        {
-          "id": "task:T-068",
-          "title": "T-068 Account moderation and platform role",
-          "why": "T-068 Account moderation and platform role is in progress"
-        }
-      ],
-      "card": "T-071-be",
-      "children": [],
-      "code": "T-071-be",
-      "created": "2026-10-26",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-068"
-      ],
-      "dir": null,
-      "effectiveStatus": "in-progress",
-      "effort": "S",
-      "feature": "operator-panel",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-071-be",
-      "inherits": {
-        "release": "feature:operator-panel"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": "T-071",
-      "parents": [
-        "task:T-071"
-      ],
-      "path": "social-pin/tasks/T-071 Audit-log read endpoints/T-071-be Backend · Audit-log read endpoints.md",
-      "pending": [],
-      "priority": "high",
-      "related": [
-        "story:audit-log"
-      ],
-      "release": "later",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [],
-      "status": "in-progress",
-      "summary": "The API side of T-071 Audit-log read endpoints: the endpoints, data and rules its What describes. Record what shipped in T-071-be Backend Delivery and how to call it in T-071-be Backend…",
-      "tags": [
-        "task",
-        "task/in-progress",
-        "module/platform",
-        "priority/high",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-071-be Backend · Audit-log read endpoints",
-      "updated": "2026-10-27"
-    },
-    "task:T-072": {
-      "affects": [
-        "project:spec-map",
-        "project:frontend-api-guide"
-      ],
-      "blockedBy": [
-        {
-          "id": "task:T-068",
-          "title": "T-068 Account moderation and platform role",
-          "why": "T-068 Account moderation and platform role is in progress"
-        }
-      ],
-      "card": "T-072",
-      "children": [
-        "story:T-072",
-        "task:T-072-be"
-      ],
-      "code": "T-072",
-      "created": "2026-10-26",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-068"
-      ],
-      "dir": "social-pin/tasks/T-072 Platform stats",
-      "effectiveStatus": "in-progress",
-      "effort": "S",
-      "feature": "operator-panel",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-072",
-      "inherits": {
-        "release": "feature:operator-panel"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": null,
-      "parents": [
-        "story:operator-panel"
-      ],
-      "path": "social-pin/tasks/T-072 Platform stats/T-072 Platform stats.md",
-      "pending": [],
-      "priority": "medium",
-      "related": [],
-      "release": "later",
-      "resolution": null,
-      "rollup": {
-        "draft": 1,
-        "in-progress": 1
-      },
-      "scope": null,
-      "screens": [],
-      "status": "in-progress",
-      "summary": "GET /admin/stats: the dashboard's landing figures — the account lifecycle broken down by status, live ring, profile and role counts, and the audit events of the last 24 hours.",
-      "tags": [
-        "task",
-        "task/in-progress",
-        "module/platform",
-        "priority/medium"
-      ],
-      "task": null,
-      "title": "T-072 Platform stats",
-      "updated": "2026-10-26"
-    },
-    "task:T-072-be": {
-      "affects": [
-        "project:spec-map",
-        "project:frontend-api-guide"
-      ],
-      "blockedBy": [
-        {
-          "id": "task:T-068",
-          "title": "T-068 Account moderation and platform role",
-          "why": "T-068 Account moderation and platform role is in progress"
-        }
-      ],
-      "card": "T-072-be",
-      "children": [],
-      "code": "T-072-be",
-      "created": "2026-10-26",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-068"
-      ],
-      "dir": null,
-      "effectiveStatus": "in-progress",
-      "effort": "S",
-      "feature": "operator-panel",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-072-be",
-      "inherits": {
-        "release": "feature:operator-panel"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": "T-072",
-      "parents": [
-        "task:T-072"
-      ],
-      "path": "social-pin/tasks/T-072 Platform stats/T-072-be Backend · Platform stats.md",
-      "pending": [],
-      "priority": "medium",
-      "related": [],
-      "release": "later",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [],
-      "status": "in-progress",
-      "summary": "The API side of T-072 Platform stats: the endpoints, data and rules its What describes. Record what shipped in T-072-be Backend Delivery and how to call it in T-072-be Backend Integration, and…",
-      "tags": [
-        "task",
-        "task/in-progress",
-        "module/platform",
-        "priority/medium",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-072-be Backend · Platform stats",
-      "updated": "2026-10-26"
     }
   },
   "priorities": [

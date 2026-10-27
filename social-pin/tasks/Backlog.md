@@ -59,12 +59,6 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-040 Lounges and upgrades]] | [[Events During]] | Events | ⛔ Blocked | M | — | — |
 | [[T-040-be Backend · Lounges and upgrades]] `backend` | [[Events During]] | Events | ⬜ To do | M | — | — |
 | [[T-040-fe Frontend · Lounges and upgrades]] `frontend` | [[Events During]] | Events | ⛔ Blocked | M | — | [[T-040-be Backend · Lounges and upgrades|T-040-be]] |
-| [[T-068 Account moderation and platform role]] | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | M | — | — |
-| [[T-068-be Backend · Account moderation and platform role]] `backend` | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | M | — | — |
-| [[T-069 Scoped role grants]] | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | M | — | [[T-068 Account moderation and platform role|T-068]] |
-| [[T-069-be Backend · Scoped role grants]] `backend` | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | M | — | [[T-068 Account moderation and platform role|T-068]] |
-| [[T-071 Audit-log read endpoints]] | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | S | — | [[T-068 Account moderation and platform role|T-068]] |
-| [[T-071-be Backend · Audit-log read endpoints]] `backend` | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | S | — | [[T-068 Account moderation and platform role|T-068]] |
 
 ## Medium
 
@@ -74,10 +68,6 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-025 Introduce a connection to another]] | [[Connections]] | Connections | ❓ Needs decision | M | — | [[T-023 Connection detail and contacts list|T-023]] |
 | [[T-025-be Backend · Introduce a connection to another]] `backend` | [[Connections]] | Connections | ⛔ Blocked | M | — | [[T-023 Connection detail and contacts list|T-023]] |
 | [[T-025-fe Frontend · Introduce a connection to another]] `frontend` | [[Connections]] | Connections | ⛔ Blocked | M | — | [[T-023 Connection detail and contacts list|T-023]], [[T-025-be Backend · Introduce a connection to another|T-025-be]] |
-| [[T-070 Roles and permissions catalogue]] | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | S | — | [[T-069 Scoped role grants|T-069]] |
-| [[T-070-be Backend · Roles and permissions catalogue]] `backend` | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | S | — | [[T-069 Scoped role grants|T-069]] |
-| [[T-072 Platform stats]] | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | S | — | [[T-068 Account moderation and platform role|T-068]] |
-| [[T-072-be Backend · Platform stats]] `backend` | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | S | — | [[T-068 Account moderation and platform role|T-068]] |
 
 ## Done
 
