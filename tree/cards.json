@@ -266,6 +266,7 @@
     "story:audit-log": "S-74",
     "story:auth": "S-02",
     "story:badge-qr": "S-37",
+    "story:build-deploy": "S-116",
     "story:cleanup-jobs": "S-76",
     "story:code-delivery": "S-78",
     "story:companies": "S-29",
@@ -475,8 +476,7 @@
     "task:T-071": "T-071",
     "task:T-071-be": "T-071-be",
     "task:T-072": "T-072",
-    "task:T-072-be": "T-072-be",
-    "task:T-073": "T-073"
+    "task:T-072-be": "T-072-be"
   },
   "retired": {
     "BD-40": "backend-delivery:T-065-be",
@@ -538,6 +538,7 @@
     "T-066": "task:T-066",
     "T-066-be": "task:T-066-be",
     "T-066-fe": "task:T-066-fe",
+    "T-073": "task:T-073",
     "T-074": "task:T-074",
     "T-075": "task:T-075",
     "T-076": "task:T-076",

@@ -198,7 +198,6 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-070-be Backend · Roles and permissions catalogue]] `backend` | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | S | — | [[T-069 Scoped role grants|T-069]] |
 | [[T-072 Platform stats]] | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | S | — | [[T-068 Account moderation and platform role|T-068]] |
 | [[T-072-be Backend · Platform stats]] `backend` | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | S | — | [[T-068 Account moderation and platform role|T-068]] |
-| [[T-073 GitLab pipeline and Docker setup]] `chore` | [[Build & Deploy]] | Platform & Cross-cutting | 🟡 Partial (3 notes) | S | — | — |
 
 ## Done
 

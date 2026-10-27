@@ -73,6 +73,7 @@
     "Badge & QR Frontend Requirements": "frontend-requirements:badge-qr",
     "Badge & QR Story": "story:badge-qr",
     "Build & Deploy": "feature:build-deploy",
+    "Build & Deploy Story": "story:build-deploy",
     "Cleanup Jobs": "feature:cleanup-jobs",
     "Cleanup Jobs Backend Delivery": "backend-delivery:cleanup-jobs",
     "Cleanup Jobs Frontend Requirements": "frontend-requirements:cleanup-jobs",
@@ -504,7 +505,6 @@
     "T-072 Platform stats": "task:T-072",
     "T-072 Story": "story:T-072",
     "T-072-be Backend · Platform stats": "task:T-072-be",
-    "T-073 GitLab pipeline and Docker setup": "task:T-073",
     "View As & Pin Views": "feature:view-as",
     "View As & Pin Views Backend Delivery": "backend-delivery:view-as",
     "View As & Pin Views Backend Integration": "backend-integration:view-as",
@@ -748,6 +748,7 @@
     "S-111": "story:T-070",
     "S-112": "story:T-071",
     "S-113": "story:T-072",
+    "S-116": "story:build-deploy",
     "S-12": "story:T-012",
     "S-13": "story:T-013",
     "S-14": "story:profiles",
@@ -1008,8 +1009,7 @@
     "T-071": "task:T-071",
     "T-071-be": "task:T-071-be",
     "T-072": "task:T-072",
-    "T-072-be": "task:T-072-be",
-    "T-073": "task:T-073"
+    "T-072-be": "task:T-072-be"
   },
   "concepts": {
     "DELETE /admin/users/:userId/roles/:assignmentId": {
@@ -5115,8 +5115,8 @@
       "project": 27,
       "qa-backend": 1,
       "qa-frontend": 1,
-      "story": 101,
-      "task": 177
+      "story": 102,
+      "task": 176
     },
     "byLayer": {
       "backend": 56,
@@ -5127,16 +5127,16 @@
     },
     "concepts": 199,
     "decisions": 19,
-    "edges": 5234,
+    "edges": 5230,
     "features": 41,
-    "layerNotes": 191,
+    "layerNotes": 192,
     "modules": 8,
     "notes": 505,
-    "partial": 5,
-    "placeholders": 162,
+    "partial": 4,
+    "placeholders": 161,
     "records": 14,
     "taskLayerNotes": 62,
-    "tasks": 177
+    "tasks": 176
   },
   "deadlines": {
     "missed": {
@@ -5924,16 +5924,6 @@
       "from": "task:T-072-be",
       "kind": "affects",
       "to": "project:spec-map"
-    },
-    {
-      "from": "task:T-073",
-      "kind": "affects",
-      "to": "project:developer-guide"
-    },
-    {
-      "from": "task:T-073",
-      "kind": "affects",
-      "to": "project:developer-setup"
     },
     {
       "from": "backend-delivery:audit-log",
@@ -13666,11 +13656,6 @@
       "from": "task:T-069",
       "kind": "related",
       "to": "task:T-006"
-    },
-    {
-      "from": "task:T-073",
-      "kind": "related",
-      "to": "task:T-055"
     },
     {
       "from": "decision:D-13",
@@ -25303,11 +25288,6 @@
       "to": "task:T-010"
     },
     {
-      "from": "story:build-deploy",
-      "kind": "tree",
-      "to": "task:T-073"
-    },
-    {
       "from": "story:cleanup-jobs",
       "kind": "tree",
       "to": "task:T-054"
@@ -27686,11 +27666,6 @@
       "from": "feature:badge-qr",
       "kind": "wikilink",
       "to": "task:T-010"
-    },
-    {
-      "from": "feature:build-deploy",
-      "kind": "wikilink",
-      "to": "task:T-073"
     },
     {
       "from": "feature:cleanup-jobs",
@@ -30706,6 +30681,11 @@
       "from": "module:platform",
       "kind": "wikilink",
       "to": "story:audit-log"
+    },
+    {
+      "from": "module:platform",
+      "kind": "wikilink",
+      "to": "story:build-deploy"
     },
     {
       "from": "module:platform",
@@ -36884,6 +36864,10 @@
       "name": "Audit Log",
       "type": "feature"
     },
+    "social-pin/modules/Platform & Cross-cutting/features/Build & Deploy/Build & Deploy Story.md": {
+      "name": "Build & Deploy Story",
+      "type": "story"
+    },
     "social-pin/modules/Platform & Cross-cutting/features/Build & Deploy/Build & Deploy.md": {
       "name": "Build & Deploy",
       "type": "feature"
@@ -38110,10 +38094,6 @@
     },
     "social-pin/tasks/T-072 Platform stats/T-072-be Backend · Platform stats.md": {
       "name": "T-072-be Backend · Platform stats",
-      "type": "task"
-    },
-    "social-pin/tasks/T-073 GitLab pipeline and Docker setup.md": {
-      "name": "T-073 GitLab pipeline and Docker setup",
       "type": "task"
     },
     "social-pin/tasks/Task Board.md": {
@@ -44180,7 +44160,7 @@
       "deadline": null,
       "depends": [],
       "dir": "social-pin/modules/Platform & Cross-cutting/features/Build & Deploy",
-      "effectiveStatus": "in-progress",
+      "effectiveStatus": "todo",
       "effort": null,
       "feature": "build-deploy",
       "foundOn": null,
@@ -44212,8 +44192,8 @@
       "release": "later",
       "resolution": null,
       "rollup": {
-        "missing": 7,
-        "partial": 1
+        "draft": 1,
+        "missing": 6
       },
       "scope": null,
       "screens": [],
@@ -44227,7 +44207,7 @@
       ],
       "task": null,
       "title": "Build & Deploy",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "feature:cleanup-jobs": {
       "affects": [],
@@ -49231,7 +49211,7 @@
         {
           "id": "story:build-deploy",
           "title": "Build & Deploy Story",
-          "why": "Build & Deploy Story is not written yet"
+          "why": "Build & Deploy Story is draft"
         }
       ],
       "card": null,
@@ -51778,12 +51758,11 @@
         "blocked": 34,
         "decided": 3,
         "done": 1,
-        "draft": 30,
-        "in-progress": 25,
-        "missing": 62,
+        "draft": 31,
+        "in-progress": 24,
+        "missing": 61,
         "needs-decision": 1,
-        "partial": 1,
-        "todo": 17,
+        "todo": 18,
         "verified": 3
       },
       "scope": null,
@@ -51797,7 +51776,7 @@
       "task": null,
       "template": null,
       "title": "Platform & Cross-cutting Module",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "module:shared-rings": {
       "affects": [],
@@ -58420,15 +58399,15 @@
         "decided": 14,
         "delivered": 2,
         "done": 12,
-        "draft": 95,
-        "in-progress": 58,
-        "missing": 162,
+        "draft": 96,
+        "in-progress": 57,
+        "missing": 161,
         "needs-decision": 9,
-        "partial": 5,
+        "partial": 4,
         "passing": 1,
         "ready": 2,
         "reference": 31,
-        "todo": 48,
+        "todo": 49,
         "verified": 14
       },
       "scope": null,
@@ -61907,21 +61886,22 @@
     "story:build-deploy": {
       "affects": [],
       "blockedBy": [],
-      "card": null,
-      "children": [
-        "task:T-073"
-      ],
+      "card": "S-116",
+      "children": [],
       "code": "build-deploy",
-      "created": null,
+      "created": "2026-10-27",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "missing",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "build-deploy",
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:build-deploy",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:build-deploy",
+        "release": "feature:build-deploy"
+      },
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -61931,20 +61911,25 @@
       "parents": [
         "feature:build-deploy"
       ],
-      "path": null,
+      "path": "social-pin/modules/Platform & Cross-cutting/features/Build & Deploy/Build & Deploy Story.md",
       "pending": [],
-      "priority": null,
+      "priority": "medium",
       "related": [],
-      "release": null,
+      "release": "later",
+      "resolution": null,
       "scope": "feature",
       "screens": [],
-      "status": null,
-      "summary": "Not written yet. Create it with: node scripts/build-tree.mjs --scaffold story build-deploy",
-      "tags": [],
+      "status": "draft",
+      "summary": "One paragraph: who the user is here and what they are trying to get done, in product terms. approved (👍) when product signs off (approvedBy, approvedAt); verified (✅ Fulfilled) set by the PM once…",
+      "tags": [
+        "story",
+        "story/draft",
+        "module/platform",
+        "layer/business"
+      ],
       "task": null,
-      "template": "templates/Story Template.md",
       "title": "Build & Deploy Story",
-      "updated": null
+      "updated": "2026-10-27"
     },
     "story:cleanup-jobs": {
       "affects": [],
@@ -74208,8 +74193,7 @@
       "pending": [],
       "priority": "critical",
       "related": [
-        "feature:build-deploy",
-        "task:T-073"
+        "feature:build-deploy"
       ],
       "release": "mvp",
       "resolution": null,
@@ -75472,80 +75456,6 @@
       ],
       "task": null,
       "title": "T-072-be Backend · Platform stats",
-      "updated": "2026-10-26"
-    },
-    "task:T-073": {
-      "affects": [
-        "project:developer-guide",
-        "project:developer-setup"
-      ],
-      "blockedBy": [],
-      "card": "T-073",
-      "children": [],
-      "code": "T-073",
-      "created": "2026-10-26",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": null,
-      "effectiveStatus": "partial",
-      "effort": "S",
-      "feature": "build-deploy",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-073",
-      "inherits": {
-        "release": "feature:build-deploy"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "chore"
-      ],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": null,
-      "parents": [
-        "story:build-deploy"
-      ],
-      "path": "social-pin/tasks/T-073 GitLab pipeline and Docker setup.md",
-      "pending": [
-        {
-          "person": "backend",
-          "text": "the pipeline's runs are not verified from here",
-          "to": null
-        },
-        {
-          "person": "backend",
-          "text": "no production job — only development and stage",
-          "to": null
-        },
-        {
-          "person": "backend",
-          "text": "docs-only task, so no layer notes (Workflow §3)",
-          "to": null
-        }
-      ],
-      "priority": "medium",
-      "related": [
-        "task:T-055"
-      ],
-      "release": "later",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [],
-      "status": "done",
-      "summary": "The pipeline that builds the backend and puts it on a server, shipped in c1dd4a4 before this vault had a card for it. .gitlab-ci.yml declares the build and deploy stages and includes…",
-      "tags": [
-        "task",
-        "task/done",
-        "module/platform",
-        "priority/medium",
-        "chore"
-      ],
-      "task": null,
-      "title": "T-073 GitLab pipeline and Docker setup",
       "updated": "2026-10-26"
     }
   },

@@ -3,7 +3,7 @@ type: module
 id: platform
 name: "Platform & Cross-cutting"
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [module, module/platform]
 ---
 
@@ -41,4 +41,4 @@ A module is the sum of its features; a feature is the sum of its tasks. Each fea
 
 - 2026-10-18 · created when the vault moved to layers
 - 2026-10-26 · [[Operator Panel]] added, with T-068 to T-072 under it
-- 2026-10-26 · [[Build & Deploy]] added for the pipeline that already shipped (T-073)
+- 2026-10-26 · [[Build & Deploy]] added for the pipeline that already shipped (Build & Deploy · GitLab pipeline and Docker setup)
