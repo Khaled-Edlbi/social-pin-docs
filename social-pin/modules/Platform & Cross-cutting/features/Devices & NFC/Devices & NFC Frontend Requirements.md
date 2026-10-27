@@ -41,7 +41,7 @@ What the client needs for My devices: a device list keyed by a client-generated 
 - Device identity: generate one stable `deviceId` per installation, persist it locally, and send it on every login and on `complete-registration` once Devices & NFC · S6 defines where. Highlight the row whose `deviceId` matches.
 - Refetch / realtime: refetch the list after a remove or a pair; no push or polling for device changes. A device removed from elsewhere finds out on its next `POST /auth/refresh` (401).
 - `logout-everywhere` today: clear the token store and go to s01 afterwards. Do not label the button "Sign out all other devices" until a route that keeps the caller exists.
-- Push token: send on grant and on rotation; `pushToken` is nullable, so a device without push is still listed. This also unblocks [[T-046 Push delivery and preferences]].
+- Push token: send on grant and on rotation; `pushToken` is nullable, so a device without push is still listed. This also unblocks [[Notifications Story|Notifications · S8]].
 - Caching keys: `devices:{userId}`; invalidate on remove, pair, revoke and logout-everywhere.
 - Pagination / ordering: not defined by the task; a user holds few devices, so the client should assume a plain list, current device first, then `lastSeenAt` descending.
 - NFC: the raw token is written to the card once at pairing and never shown again; the list shows `label`, `status`, `expiresAt` only.

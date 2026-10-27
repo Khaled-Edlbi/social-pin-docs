@@ -77,7 +77,7 @@ What the client needs from the backend to build the screens in [[Connections Sto
 | Block, unblock, blocked list | — | ❌ | [[T-024 Block and unblock]] |
 | Introduce | — | ❌ | [[T-025 Introduce a connection to another]] |
 | Connection count on Me and Home | — | ❌ | [[Counts Story|Counts · S11]] |
-| Push or inbox notification on request and accept | — | ❌ | [[T-045 NotificationService.emit and the inbox]] |
+| Push or inbox notification on request and accept | — | ❌ | [[Notifications Story|Notifications · S7]] |
 | Avatar bytes on every row | — | ❌ | [[Files Upload Story|Files Upload · showing files]] |
 
 ## Behaviour expectations

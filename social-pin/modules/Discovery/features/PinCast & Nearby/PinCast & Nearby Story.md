@@ -108,5 +108,5 @@ Screens: [[Screen Index#s39|s39]] PinCast · hidden · [[Screen Index#s40|s40]] 
 ## Open questions
 
 - [[PinCast & Nearby Story|PinCast & Nearby · S7]] — the allowed distance and duration steps, how a recipient's device reports its position (interval, background), whether a recipient must be in a Ring of the broadcaster to be *reached* or only to *see*, and the purge delay that bounds S5's last bullet.
-- [[T-045 NotificationService.emit and the inbox]] — "PinCast ended" and "pins nearby"; until then s42 is reached from s40 only.
-- [[T-046 Push delivery and preferences]] — replaces polling on s40 and the opt-in of S6.
+- [[Notifications Story|Notifications · S7]] — "PinCast ended" and "pins nearby"; until then s42 is reached from s40 only.
+- [[Notifications Story|Notifications · S8]] — replaces polling on s40 and the opt-in of S6.

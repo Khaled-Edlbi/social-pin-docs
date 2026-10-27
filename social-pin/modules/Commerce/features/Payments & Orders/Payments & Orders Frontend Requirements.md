@@ -54,7 +54,7 @@ What the client needs to create an order, pay for it and learn the result, and w
 | In-event upgrade purchase | — | ❌ | [[T-040 Lounges and upgrades]] |
 | My orders and receipts | — | ❌ | [[Payments & Orders Story|Payments & Orders · S7]] |
 | Audit of every payment action | — | ❌ | [[Audit Log Story|Audit Log · S4]] |
-| "Registration confirmed" notification | — | ❌ | [[T-045 NotificationService.emit and the inbox]] |
+| "Registration confirmed" notification | — | ❌ | [[Notifications Story|Notifications · S7]] |
 
 ## Behaviour expectations
 

@@ -63,14 +63,14 @@ What the client needs from the backend to build the screens in [[PinCast & Nearb
 | Recipients so far and final results, no coordinates | — | ❌ | [[PinCast & Nearby Story|PinCast & Nearby · S7]] |
 | Nearby by Ring through the access engine | — | ❌ | [[PinCast & Nearby Story|PinCast & Nearby · S7]] |
 | Connect / accept from a result row | — | ❌ | [[T-021 Connect request send, inbox, cancel]] |
-| "PinCast ended" and "pins nearby" notifications | — | ❌ | [[T-045 NotificationService.emit and the inbox]] |
-| Push instead of polling on s40 | — | ❌ | [[T-046 Push delivery and preferences]] |
+| "PinCast ended" and "pins nearby" notifications | — | ❌ | [[Notifications Story|Notifications · S7]] |
+| Push instead of polling on s40 | — | ❌ | [[Notifications Story|Notifications · S8]] |
 | Recipient purge that bounds how long s42 stays complete | — | ❌ | [[Cleanup Jobs Story|Cleanup Jobs · S4]] |
 | Avatars on recipient rows | — | ❌ | [[Files Upload Story|Files Upload · showing files]] |
 
 ## Behaviour expectations
 
-- Refetch / realtime: while live, poll the recipients list every 10 s and the Home chip every 30 s; stop polling on end. Position reports at the interval the backend returns, foreground only until a background policy is decided. Switch to push when T-046 lands. s42 loads once and refetches on focus.
+- Refetch / realtime: while live, poll the recipients list every 10 s and the Home chip every 30 s; stop polling on end. Position reports at the interval the backend returns, foreground only until a background policy is decided. Switch to push when Notifications · S8 lands. s42 loads once and refetches on focus.
 - Countdown: computed on the client from the server's end time and a server-time offset taken from the start response; never from the device clock alone.
 - Caching keys: current PinCast by (signed-in user); recipients by (pincast id); results by (pincast id); a reached person's perspectives by (viewer, user id). Invalidate the current PinCast on start, restart, stop and on end time passing.
 - Pagination / ordering: recipients newest-detected first, `{ data, meta: { total } }`, `limit` ≤ 50, paged on s42, first page only on s40.
@@ -91,6 +91,6 @@ What the client needs from the backend to build the screens in [[PinCast & Nearb
 ## Blocked by
 
 - [[PinCast & Nearby Story|PinCast & Nearby · S7]] — every ❌ row; the allowed steps, the position-reporting rule and the "reached versus see" rule are design inputs the client needs before layout is final.
-- [[T-045 NotificationService.emit and the inbox]] and [[T-046 Push delivery and preferences]] — s42 reached by notification; polling on s40 until then.
+- [[Notifications Story|Notifications · S7]] and [[Notifications Story|Notifications · S8]] — s42 reached by notification; polling on s40 until then.
 - [[Cleanup Jobs Story|Cleanup Jobs · S4]] — how long results stay complete.
 - [[Error Contract Story|Error Contract · S4–S8]] — the error table is by status until then.

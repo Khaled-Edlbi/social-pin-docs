@@ -78,10 +78,6 @@ kanban-plugin: board
 - [ ] [[T-040 Lounges and upgrades]] #high #events-during
 - [ ] [[T-040-be Backend · Lounges and upgrades]] #high #events-during #backend
 - [ ] [[T-040-fe Frontend · Lounges and upgrades]] #high #events-during #frontend
-- [ ] [[T-045-fe Frontend · NotificationService.emit and the inbox]] #high #notifications #frontend
-- [ ] [[T-046 Push delivery and preferences]] #high #notifications
-- [ ] [[T-046-be Backend · Push delivery and preferences]] #high #notifications #backend
-- [ ] [[T-046-fe Frontend · Push delivery and preferences]] #high #notifications #frontend
 - [ ] [[T-013 Usage count per file across Rings]] #medium #photo-library
 - [ ] [[T-013-be Backend · Usage count per file across Rings]] #medium #photo-library #backend
 - [ ] [[T-013-fe Frontend · Usage count per file across Rings]] #medium #photo-library #frontend
@@ -114,8 +110,6 @@ kanban-plugin: board
 - [ ] [[T-020 LinkedIn import → review → base profile]] #high #onboarding-imports
 - [ ] [[T-020-be Backend · LinkedIn import → review → base profile]] #high #onboarding-imports #backend
 - [ ] [[T-026-be Backend · Ring invitations invite, review, decline]] #high #ring-invitations #backend
-- [ ] [[T-045 NotificationService.emit and the inbox]] #high #notifications
-- [ ] [[T-045-be Backend · NotificationService.emit and the inbox]] #high #notifications #backend
 - [ ] [[T-020b-be Backend · Business card scan and portfolio URL import]] #medium #onboarding-imports #backend
 
 

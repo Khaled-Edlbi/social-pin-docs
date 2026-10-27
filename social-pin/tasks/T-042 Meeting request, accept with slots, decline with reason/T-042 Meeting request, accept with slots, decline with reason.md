@@ -9,7 +9,7 @@ module: meetings
 screens: [s59, s64]
 depends: [T-041]
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [task, task/todo, module/meetings, priority/critical]
 ---
 
@@ -21,7 +21,7 @@ tags: [task, task/todo, module/meetings, priority/critical]
 
 ## What
 
-Each transition `@Transactional`. Decline → notification with reason (T-045).
+Each transition `@Transactional`. Decline → notification with reason (Notifications · S7).
 
 ## Design
 

@@ -53,7 +53,7 @@ What the client needs from the backend to build the screens in [[Ring Invitation
 | Join policy, join code, required domain on the Ring | — | ❌ | [[ND-04 Ring settings]] |
 | Owner's display name on an invitation row | — | ❌ | [[T-023 Connection detail and contacts list]] |
 | What I contribute to a shared Ring | — | ❌ | [[T-028 What you contribute to a shared Ring]] |
-| Notification on invite | — | ❌ | [[T-045 NotificationService.emit and the inbox]] |
+| Notification on invite | — | ❌ | [[Notifications Story|Notifications · S7]] |
 | Join offer carried by a scanned token | — | ❌ | [[T-008 Resolve a scanned QR token]] |
 
 ## Behaviour expectations

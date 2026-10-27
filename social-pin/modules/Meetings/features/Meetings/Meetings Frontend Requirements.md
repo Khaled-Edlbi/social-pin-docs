@@ -55,7 +55,7 @@ What the client needs for the slot-based request, the incoming list, the calenda
 | Meeting Ring created per request, both parties members | — | ❌ | [[T-043 Temporary meeting Ring per meeting]] |
 | The other participant as the meeting Ring shows them | `GET /views/ring/:ringId` | ✅ | — (needs the Ring from T-043) |
 | My meetings list, calendar, detail, reschedule, cancel | — | ❌ | [[T-044 My meetings, calendar, detail, reschedule, cancel]] |
-| Decline notification with reason | — | ❌ | [[T-045 NotificationService.emit and the inbox]] |
+| Decline notification with reason | — | ❌ | [[Notifications Story|Notifications · S7]] |
 | Keep / merge / auto-delete the lapsed meeting Ring | `POST /rings/:id/disposition` | ✅ | — |
 | Calendar sync (`CalendarIntegration`) | — | ❌ | no task yet |
 
@@ -89,4 +89,4 @@ What the client needs for the slot-based request, the incoming list, the calenda
 - [[T-042 Meeting request, accept with slots, decline with reason]] — s59, s61, s64; unblocks T-043 and T-044.
 - [[T-043 Temporary meeting Ring per meeting]] — the Ring behind every card and the participant card on s67.
 - [[T-044 My meetings, calendar, detail, reschedule, cancel]] — s61, s66, s67.
-- [[T-045 NotificationService.emit and the inbox]] — the decline reason reaching the requester.
+- [[Notifications Story|Notifications · S7]] — the decline reason reaching the requester.

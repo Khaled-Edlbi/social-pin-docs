@@ -79,7 +79,7 @@ Acceptance criteria:
 **As a** receiver **I want** to know a request came in **so that** I don't miss it.
 
 Acceptance criteria:
-- [ ] The People tile shows a count of pending incoming requests. Push and the inbox are [[T-045 NotificationService.emit and the inbox]]; until then the count refetches on focus, at most once a minute.
+- [ ] The People tile shows a count of pending incoming requests. Push and the inbox are [[Notifications Story|Notifications · S7]]; until then the count refetches on focus, at most once a minute.
 
 ## States and motion the design asks for
 

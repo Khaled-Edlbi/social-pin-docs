@@ -108,4 +108,4 @@ Acceptance criteria:
 - No decision note exists. Open points:
 - [[T-043 Temporary meeting Ring per meeting]] — who owns the meeting Ring (requester, receiver, or both as members of a Ring without an owner) decides who sees the disposition sheet in S7.
 - [[T-042 Meeting request, accept with slots, decline with reason]] — the margin around the meeting window and whether offering alternatives holds those slots.
-- [[T-045 NotificationService.emit and the inbox]] — the decline notification and its reason depend on it.
+- [[Notifications Story|Notifications · S7]] — the decline notification and its reason depend on it.

@@ -13,7 +13,7 @@ pending: []
 approvedBy: ""
 approvedAt: ""
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [story, story/draft, module/meetings, layer/business]
 task: T-042
 ---
@@ -24,7 +24,7 @@ task: T-042
 
 > Derived from the task [[T-042 Meeting request, accept with slots, decline with reason]]; **not approved by product yet**. The feature-level story is [[Meetings Story]]; this note says what the user gets from this task in particular. `approved` when product signs off (`approvedBy`, `approvedAt`); `verified` when both QA notes are `passing`.
 
-Each transition `@Transactional`. Decline → notification with reason (T-045).
+Each transition `@Transactional`. Decline → notification with reason (Notifications · S7).
 
 ## Persona
 

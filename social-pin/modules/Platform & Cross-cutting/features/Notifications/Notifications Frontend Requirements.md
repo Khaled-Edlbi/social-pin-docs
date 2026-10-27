@@ -38,12 +38,12 @@ What the client needs for the inbox, the bell, the deep links, push and preferen
 
 | Need | Endpoint | Available | Task / decision |
 |---|---|---|---|
-| List my notifications (grouped by day, newest first) | — | ❌ | [[T-045 NotificationService.emit and the inbox]] (`GET /notifications` proposed) |
-| Unread count for the bell | — | ❌ | [[T-045 NotificationService.emit and the inbox]] |
-| Mark one read / mark all read | — | ❌ | [[T-045 NotificationService.emit and the inbox]] |
-| Producers emit (connections, meetings, PinCast, events) | — (internal `emit`) | ❌ | [[T-045 NotificationService.emit and the inbox]]; each producer's own task |
-| Push to registered devices | — | ❌ | [[T-046 Push delivery and preferences]] (blocked on T-045 and [[Devices & NFC Story|Devices & NFC · S6]]) |
-| Preferences read / update | — | ❌ | [[T-046 Push delivery and preferences]] |
+| List my notifications (grouped by day, newest first) | — | ❌ | [[Notifications Story|Notifications · S7]] (`GET /notifications` proposed) |
+| Unread count for the bell | — | ❌ | [[Notifications Story|Notifications · S7]] |
+| Mark one read / mark all read | — | ❌ | [[Notifications Story|Notifications · S7]] |
+| Producers emit (connections, meetings, PinCast, events) | — (internal `emit`) | ❌ | [[Notifications Story|Notifications · S7]]; each producer's own task |
+| Push to registered devices | — | ❌ | [[Notifications Story|Notifications · S8]] (blocked on Notifications · S7 and [[Devices & NFC Story|Devices & NFC · S6]]) |
+| Preferences read / update | — | ❌ | [[Notifications Story|Notifications · S8]] |
 
 ## Behaviour expectations
 
@@ -65,8 +65,8 @@ What the client needs for the inbox, the bell, the deep links, push and preferen
 | 401 | `E_AUTH_04` | session gone: sign in again |
 | 400 | validation (string array) | `limit` above 50, or an unknown type in a preference update |
 
-No notification codes exist yet; T-045 and T-046 add them. `ErrorCode` is not on the wire until [[Error Contract Story|Error Contract · S4–S8]] ships.
+No notification codes exist yet; Notifications · S7 and Notifications · S8 add them. `ErrorCode` is not on the wire until [[Error Contract Story|Error Contract · S4–S8]] ships.
 
 ## Blocked by
 
-- No decision. [[T-045 NotificationService.emit and the inbox]] is To do; [[T-046 Push delivery and preferences]] is ⛔ behind it and [[Devices & NFC Story|Devices & NFC · S6]].
+- No decision. [[Notifications Story|Notifications · S7]] is To do; [[Notifications Story|Notifications · S8]] is ⛔ behind it and [[Devices & NFC Story|Devices & NFC · S6]].

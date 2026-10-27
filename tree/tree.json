@@ -397,14 +397,6 @@
     "T-044 Story": "story:T-044",
     "T-044-be Backend · My meetings, calendar, detail, reschedule, cancel": "task:T-044-be",
     "T-044-fe Frontend · My meetings, calendar, detail, reschedule, cancel": "task:T-044-fe",
-    "T-045 NotificationService.emit and the inbox": "task:T-045",
-    "T-045 Story": "story:T-045",
-    "T-045-be Backend · NotificationService.emit and the inbox": "task:T-045-be",
-    "T-045-fe Frontend · NotificationService.emit and the inbox": "task:T-045-fe",
-    "T-046 Push delivery and preferences": "task:T-046",
-    "T-046 Story": "story:T-046",
-    "T-046-be Backend · Push delivery and preferences": "task:T-046-be",
-    "T-046-fe Frontend · Push delivery and preferences": "task:T-046-fe",
     "T-068 Account moderation and platform role": "task:T-068",
     "T-068 Story": "story:T-068",
     "T-068-be Backend · Account moderation and platform role": "task:T-068-be",
@@ -727,8 +719,6 @@
     "S-92": "story:interests",
     "S-94": "story:linked-accounts",
     "S-96": "story:notifications",
-    "S-97": "story:T-045",
-    "S-98": "story:T-046",
     "T-001": "task:T-001",
     "T-001-be": "task:T-001-be",
     "T-002": "task:T-002",
@@ -824,12 +814,6 @@
     "T-044": "task:T-044",
     "T-044-be": "task:T-044-be",
     "T-044-fe": "task:T-044-fe",
-    "T-045": "task:T-045",
-    "T-045-be": "task:T-045-be",
-    "T-045-fe": "task:T-045-fe",
-    "T-046": "task:T-046",
-    "T-046-be": "task:T-046-be",
-    "T-046-fe": "task:T-046-fe",
     "T-068": "task:T-068",
     "T-068-be": "task:T-068-be",
     "T-069": "task:T-069",
@@ -1846,14 +1830,12 @@
     },
     "GET /notifications": {
       "containers": [
-        "feature:notifications",
-        "task:T-045"
+        "feature:notifications"
       ],
       "kind": "endpoint",
       "notes": [
         "frontend-requirements:notifications",
-        "story:T-045",
-        "task:T-045"
+        "story:notifications"
       ],
       "owner": null
     },
@@ -4595,28 +4577,14 @@
     },
     "s69": {
       "containers": [
-        "feature:notifications",
-        "task:T-045",
-        "task:T-045-be",
-        "task:T-045-fe",
-        "task:T-046",
-        "task:T-046-be",
-        "task:T-046-fe"
+        "feature:notifications"
       ],
       "kind": "screen",
       "notes": [
         "backend-delivery:notifications",
         "feature:notifications",
         "frontend-requirements:notifications",
-        "story:T-045",
-        "story:T-046",
-        "story:notifications",
-        "task:T-045",
-        "task:T-045-be",
-        "task:T-045-fe",
-        "task:T-046",
-        "task:T-046-be",
-        "task:T-046-fe"
+        "story:notifications"
       ],
       "owner": null
     },
@@ -4727,7 +4695,7 @@
     }
   },
   "counts": {
-    "blocked": 112,
+    "blocked": 108,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -4740,28 +4708,28 @@
       "project": 27,
       "qa-backend": 1,
       "qa-frontend": 1,
-      "story": 80,
-      "task": 113
+      "story": 78,
+      "task": 107
     },
     "byLayer": {
       "backend": 56,
-      "business": 272,
+      "business": 264,
       "frontend": 44,
       "qa": 2,
       "shared": 10
     },
     "concepts": 199,
     "decisions": 19,
-    "edges": 4620,
+    "edges": 4571,
     "features": 41,
-    "layerNotes": 170,
+    "layerNotes": 168,
     "modules": 8,
-    "notes": 420,
+    "notes": 412,
     "partial": 4,
     "placeholders": 155,
     "records": 14,
-    "taskLayerNotes": 40,
-    "tasks": 113
+    "taskLayerNotes": 38,
+    "tasks": 107
   },
   "deadlines": {
     "missed": {
@@ -6857,31 +6825,6 @@
       "to": "task:T-044-fe"
     },
     {
-      "from": "task:T-045",
-      "kind": "blocks",
-      "to": "task:T-046"
-    },
-    {
-      "from": "task:T-045",
-      "kind": "blocks",
-      "to": "task:T-046-be"
-    },
-    {
-      "from": "task:T-045",
-      "kind": "blocks",
-      "to": "task:T-046-fe"
-    },
-    {
-      "from": "task:T-045-be",
-      "kind": "blocks",
-      "to": "task:T-045-fe"
-    },
-    {
-      "from": "task:T-046-be",
-      "kind": "blocks",
-      "to": "task:T-046-fe"
-    },
-    {
       "from": "task:T-068",
       "kind": "blocks",
       "to": "task:T-069"
@@ -7785,31 +7728,6 @@
       "from": "task:T-044-fe",
       "kind": "depends",
       "to": "task:T-044-be"
-    },
-    {
-      "from": "task:T-045-fe",
-      "kind": "depends",
-      "to": "task:T-045-be"
-    },
-    {
-      "from": "task:T-046",
-      "kind": "depends",
-      "to": "task:T-045"
-    },
-    {
-      "from": "task:T-046-be",
-      "kind": "depends",
-      "to": "task:T-045"
-    },
-    {
-      "from": "task:T-046-fe",
-      "kind": "depends",
-      "to": "task:T-045"
-    },
-    {
-      "from": "task:T-046-fe",
-      "kind": "depends",
-      "to": "task:T-046-be"
     },
     {
       "from": "task:T-069",
@@ -11678,22 +11596,6 @@
       ]
     },
     {
-      "from": "story:notifications",
-      "kind": "related",
-      "to": "story:T-045",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
-      "from": "story:notifications",
-      "kind": "related",
-      "to": "story:T-046",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
       "from": "story:onboarding-imports",
       "kind": "related",
       "to": "decision:D-02"
@@ -12219,21 +12121,6 @@
       "from": "task:T-040-fe",
       "kind": "related",
       "to": "story:subscription"
-    },
-    {
-      "from": "task:T-046",
-      "kind": "related",
-      "to": "story:devices"
-    },
-    {
-      "from": "task:T-046-be",
-      "kind": "related",
-      "to": "story:devices"
-    },
-    {
-      "from": "task:T-046-fe",
-      "kind": "related",
-      "to": "story:devices"
     },
     {
       "from": "task:T-068",
@@ -18475,14 +18362,6 @@
       ]
     },
     {
-      "from": "feature:notifications",
-      "kind": "shares",
-      "to": "task:T-045",
-      "via": [
-        "GET /notifications"
-      ]
-    },
-    {
       "from": "feature:onboarding-imports",
       "kind": "shares",
       "to": "feature:photo-library",
@@ -23625,16 +23504,6 @@
       "to": "task:T-044"
     },
     {
-      "from": "story:notifications",
-      "kind": "tree",
-      "to": "task:T-045"
-    },
-    {
-      "from": "story:notifications",
-      "kind": "tree",
-      "to": "task:T-046"
-    },
-    {
       "from": "story:onboarding-imports",
       "kind": "tree",
       "to": "task:T-020"
@@ -24258,36 +24127,6 @@
       "from": "task:T-044",
       "kind": "tree",
       "to": "task:T-044-fe"
-    },
-    {
-      "from": "task:T-045",
-      "kind": "tree",
-      "to": "story:T-045"
-    },
-    {
-      "from": "task:T-045",
-      "kind": "tree",
-      "to": "task:T-045-be"
-    },
-    {
-      "from": "task:T-045",
-      "kind": "tree",
-      "to": "task:T-045-fe"
-    },
-    {
-      "from": "task:T-046",
-      "kind": "tree",
-      "to": "story:T-046"
-    },
-    {
-      "from": "task:T-046",
-      "kind": "tree",
-      "to": "task:T-046-be"
-    },
-    {
-      "from": "task:T-046",
-      "kind": "tree",
-      "to": "task:T-046-fe"
     },
     {
       "from": "task:T-068",
@@ -25667,12 +25506,7 @@
     {
       "from": "feature:notifications",
       "kind": "wikilink",
-      "to": "task:T-045"
-    },
-    {
-      "from": "feature:notifications",
-      "kind": "wikilink",
-      "to": "task:T-046"
+      "to": "project:status-report-2026-10-15"
     },
     {
       "from": "feature:onboarding-imports",
@@ -25992,7 +25826,7 @@
     {
       "from": "frontend-requirements:app-shell",
       "kind": "wikilink",
-      "to": "task:T-045"
+      "to": "story:notifications"
     },
     {
       "from": "frontend-requirements:audit-log",
@@ -26297,6 +26131,11 @@
     {
       "from": "frontend-requirements:connections",
       "kind": "wikilink",
+      "to": "story:notifications"
+    },
+    {
+      "from": "frontend-requirements:connections",
+      "kind": "wikilink",
       "to": "task:T-021"
     },
     {
@@ -26318,11 +26157,6 @@
       "from": "frontend-requirements:connections",
       "kind": "wikilink",
       "to": "task:T-025"
-    },
-    {
-      "from": "frontend-requirements:connections",
-      "kind": "wikilink",
-      "to": "task:T-045"
     },
     {
       "from": "frontend-requirements:counts",
@@ -26357,12 +26191,12 @@
     {
       "from": "frontend-requirements:delegated-admins",
       "kind": "wikilink",
-      "to": "task:T-023"
+      "to": "story:notifications"
     },
     {
       "from": "frontend-requirements:delegated-admins",
       "kind": "wikilink",
-      "to": "task:T-045"
+      "to": "task:T-023"
     },
     {
       "from": "frontend-requirements:devices",
@@ -26377,17 +26211,17 @@
     {
       "from": "frontend-requirements:devices",
       "kind": "wikilink",
+      "to": "story:notifications"
+    },
+    {
+      "from": "frontend-requirements:devices",
+      "kind": "wikilink",
       "to": "task:T-007"
     },
     {
       "from": "frontend-requirements:devices",
       "kind": "wikilink",
       "to": "task:T-008"
-    },
-    {
-      "from": "frontend-requirements:devices",
-      "kind": "wikilink",
-      "to": "task:T-046"
     },
     {
       "from": "frontend-requirements:discover-hub",
@@ -26802,6 +26636,11 @@
     {
       "from": "frontend-requirements:meetings",
       "kind": "wikilink",
+      "to": "story:notifications"
+    },
+    {
+      "from": "frontend-requirements:meetings",
+      "kind": "wikilink",
       "to": "story:subscription"
     },
     {
@@ -26825,11 +26664,6 @@
       "to": "task:T-044"
     },
     {
-      "from": "frontend-requirements:meetings",
-      "kind": "wikilink",
-      "to": "task:T-045"
-    },
-    {
       "from": "frontend-requirements:notifications",
       "kind": "wikilink",
       "to": "feature:devices"
@@ -26848,16 +26682,6 @@
       "from": "frontend-requirements:notifications",
       "kind": "wikilink",
       "to": "story:notifications"
-    },
-    {
-      "from": "frontend-requirements:notifications",
-      "kind": "wikilink",
-      "to": "task:T-045"
-    },
-    {
-      "from": "frontend-requirements:notifications",
-      "kind": "wikilink",
-      "to": "task:T-046"
     },
     {
       "from": "frontend-requirements:onboarding-imports",
@@ -26907,6 +26731,11 @@
     {
       "from": "frontend-requirements:payments",
       "kind": "wikilink",
+      "to": "story:notifications"
+    },
+    {
+      "from": "frontend-requirements:payments",
+      "kind": "wikilink",
       "to": "story:payments"
     },
     {
@@ -26923,11 +26752,6 @@
       "from": "frontend-requirements:payments",
       "kind": "wikilink",
       "to": "task:T-040"
-    },
-    {
-      "from": "frontend-requirements:payments",
-      "kind": "wikilink",
-      "to": "task:T-045"
     },
     {
       "from": "frontend-requirements:photo-library",
@@ -27017,22 +26841,17 @@
     {
       "from": "frontend-requirements:pincast",
       "kind": "wikilink",
+      "to": "story:notifications"
+    },
+    {
+      "from": "frontend-requirements:pincast",
+      "kind": "wikilink",
       "to": "story:pincast"
     },
     {
       "from": "frontend-requirements:pincast",
       "kind": "wikilink",
       "to": "task:T-021"
-    },
-    {
-      "from": "frontend-requirements:pincast",
-      "kind": "wikilink",
-      "to": "task:T-045"
-    },
-    {
-      "from": "frontend-requirements:pincast",
-      "kind": "wikilink",
-      "to": "task:T-046"
     },
     {
       "from": "frontend-requirements:post-event",
@@ -27177,6 +26996,11 @@
     {
       "from": "frontend-requirements:ring-invitations",
       "kind": "wikilink",
+      "to": "story:notifications"
+    },
+    {
+      "from": "frontend-requirements:ring-invitations",
+      "kind": "wikilink",
       "to": "story:ring-invitations"
     },
     {
@@ -27203,11 +27027,6 @@
       "from": "frontend-requirements:ring-invitations",
       "kind": "wikilink",
       "to": "task:T-028"
-    },
-    {
-      "from": "frontend-requirements:ring-invitations",
-      "kind": "wikilink",
-      "to": "task:T-045"
     },
     {
       "from": "frontend-requirements:ring-members",
@@ -29647,11 +29466,6 @@
     {
       "from": "project:status-report-2026-10-15",
       "kind": "wikilink",
-      "to": "feature:notifications"
-    },
-    {
-      "from": "project:status-report-2026-10-15",
-      "kind": "wikilink",
       "to": "feature:onboarding-imports"
     },
     {
@@ -30207,7 +30021,7 @@
     {
       "from": "story:meetings",
       "kind": "wikilink",
-      "to": "task:T-045"
+      "to": "story:notifications"
     },
     {
       "from": "story:notifications",
@@ -30272,12 +30086,7 @@
     {
       "from": "story:pincast",
       "kind": "wikilink",
-      "to": "task:T-045"
-    },
-    {
-      "from": "story:pincast",
-      "kind": "wikilink",
-      "to": "task:T-046"
+      "to": "story:notifications"
     },
     {
       "from": "story:post-event",
@@ -30627,6 +30436,11 @@
     {
       "from": "story:T-021",
       "kind": "wikilink",
+      "to": "story:notifications"
+    },
+    {
+      "from": "story:T-021",
+      "kind": "wikilink",
       "to": "story:T-008"
     },
     {
@@ -30638,11 +30452,6 @@
       "from": "story:T-021",
       "kind": "wikilink",
       "to": "task:T-022"
-    },
-    {
-      "from": "story:T-021",
-      "kind": "wikilink",
-      "to": "task:T-045"
     },
     {
       "from": "story:T-022",
@@ -30788,16 +30597,6 @@
       "from": "story:T-044",
       "kind": "wikilink",
       "to": "feature:meetings"
-    },
-    {
-      "from": "story:T-045",
-      "kind": "wikilink",
-      "to": "feature:notifications"
-    },
-    {
-      "from": "story:T-046",
-      "kind": "wikilink",
-      "to": "feature:notifications"
     },
     {
       "from": "story:T-068",
@@ -32338,91 +32137,6 @@
       "from": "task:T-044-fe",
       "kind": "wikilink",
       "to": "task:T-044-be"
-    },
-    {
-      "from": "task:T-045",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-045",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-045",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-045",
-      "kind": "wikilink",
-      "to": "task:T-046"
-    },
-    {
-      "from": "task:T-045-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:notifications"
-    },
-    {
-      "from": "task:T-045-be",
-      "kind": "wikilink",
-      "to": "feature:notifications"
-    },
-    {
-      "from": "task:T-045-fe",
-      "kind": "wikilink",
-      "to": "feature:notifications"
-    },
-    {
-      "from": "task:T-045-fe",
-      "kind": "wikilink",
-      "to": "story:T-045"
-    },
-    {
-      "from": "task:T-045-fe",
-      "kind": "wikilink",
-      "to": "task:T-045-be"
-    },
-    {
-      "from": "task:T-046",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-046",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-046",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-046-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:notifications"
-    },
-    {
-      "from": "task:T-046-be",
-      "kind": "wikilink",
-      "to": "feature:notifications"
-    },
-    {
-      "from": "task:T-046-fe",
-      "kind": "wikilink",
-      "to": "feature:notifications"
-    },
-    {
-      "from": "task:T-046-fe",
-      "kind": "wikilink",
-      "to": "story:T-046"
-    },
-    {
-      "from": "task:T-046-fe",
-      "kind": "wikilink",
-      "to": "task:T-046-be"
     },
     {
       "from": "task:T-068-be",
@@ -34014,38 +33728,6 @@
     },
     "social-pin/tasks/T-044 My meetings, calendar, detail, reschedule, cancel/T-044-fe Frontend · My meetings, calendar, detail, reschedule, cancel.md": {
       "name": "T-044-fe Frontend · My meetings, calendar, detail, reschedule, cancel",
-      "type": "task"
-    },
-    "social-pin/tasks/T-045 NotificationService.emit and the inbox/T-045 NotificationService.emit and the inbox.md": {
-      "name": "T-045 NotificationService.emit and the inbox",
-      "type": "task"
-    },
-    "social-pin/tasks/T-045 NotificationService.emit and the inbox/T-045 Story.md": {
-      "name": "T-045 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-045 NotificationService.emit and the inbox/T-045-be Backend · NotificationService.emit and the inbox.md": {
-      "name": "T-045-be Backend · NotificationService.emit and the inbox",
-      "type": "task"
-    },
-    "social-pin/tasks/T-045 NotificationService.emit and the inbox/T-045-fe Frontend · NotificationService.emit and the inbox.md": {
-      "name": "T-045-fe Frontend · NotificationService.emit and the inbox",
-      "type": "task"
-    },
-    "social-pin/tasks/T-046 Push delivery and preferences/T-046 Push delivery and preferences.md": {
-      "name": "T-046 Push delivery and preferences",
-      "type": "task"
-    },
-    "social-pin/tasks/T-046 Push delivery and preferences/T-046 Story.md": {
-      "name": "T-046 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-046 Push delivery and preferences/T-046-be Backend · Push delivery and preferences.md": {
-      "name": "T-046-be Backend · Push delivery and preferences",
-      "type": "task"
-    },
-    "social-pin/tasks/T-046 Push delivery and preferences/T-046-fe Frontend · Push delivery and preferences.md": {
-      "name": "T-046-fe Frontend · Push delivery and preferences",
       "type": "task"
     },
     "social-pin/tasks/T-068 Account moderation and platform role/T-068 Account moderation and platform role.md": {
@@ -41628,10 +41310,9 @@
       "resolution": null,
       "rollup": {
         "approved": 1,
-        "blocked": 5,
-        "draft": 3,
-        "missing": 4,
-        "todo": 2
+        "blocked": 1,
+        "draft": 1,
+        "missing": 4
       },
       "scope": null,
       "screens": [
@@ -41647,7 +41328,7 @@
       ],
       "task": null,
       "title": "Notifications",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "feature:onboarding-imports": {
       "affects": [],
@@ -47557,13 +47238,13 @@
       "resolution": null,
       "rollup": {
         "approved": 10,
-        "blocked": 19,
+        "blocked": 15,
         "decided": 3,
         "done": 1,
-        "draft": 22,
+        "draft": 20,
         "in-progress": 22,
         "missing": 55,
-        "todo": 5,
+        "todo": 3,
         "verified": 3
       },
       "scope": null,
@@ -54103,12 +53784,12 @@
       ],
       "rollup": {
         "approved": 35,
-        "blocked": 112,
+        "blocked": 108,
         "current": 8,
         "decided": 14,
         "delivered": 2,
         "done": 10,
-        "draft": 76,
+        "draft": 74,
         "in-progress": 55,
         "missing": 155,
         "needs-decision": 6,
@@ -54116,7 +53797,7 @@
         "passing": 1,
         "ready": 2,
         "reference": 31,
-        "todo": 26,
+        "todo": 24,
         "verified": 14
       },
       "scope": null,
@@ -55732,7 +55413,7 @@
         "s64"
       ],
       "status": "draft",
-      "summary": "Each transition @Transactional. Decline → notification with reason (T-045).",
+      "summary": "Each transition @Transactional. Decline → notification with reason (Notifications · S7).",
       "tags": [
         "story",
         "story/draft",
@@ -55741,7 +55422,7 @@
       ],
       "task": "T-042",
       "title": "T-042 Story",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "story:T-043": {
       "affects": [],
@@ -55844,106 +55525,6 @@
       ],
       "task": "T-044",
       "title": "T-044 Story",
-      "updated": "2026-10-26"
-    },
-    "story:T-045": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-97",
-      "children": [],
-      "code": "T-045",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
-      "effort": null,
-      "feature": "notifications",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-045",
-      "inherits": {
-        "priority": "task:T-045",
-        "release": "feature:notifications"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": null,
-      "parents": [
-        "task:T-045"
-      ],
-      "path": "social-pin/tasks/T-045 NotificationService.emit and the inbox/T-045 Story.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "scope": "task",
-      "screens": [
-        "s69"
-      ],
-      "status": "draft",
-      "summary": "Internal emit with dedupeKey; GET /notifications grouped by day; mark one / all read. Other modules import the module.",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/platform",
-        "layer/business"
-      ],
-      "task": "T-045",
-      "title": "T-045 Story",
-      "updated": "2026-10-26"
-    },
-    "story:T-046": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-98",
-      "children": [],
-      "code": "T-046",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
-      "effort": null,
-      "feature": "notifications",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-046",
-      "inherits": {
-        "priority": "task:T-046",
-        "release": "feature:notifications"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": null,
-      "parents": [
-        "task:T-046"
-      ],
-      "path": "social-pin/tasks/T-046 Push delivery and preferences/T-046 Story.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "scope": "task",
-      "screens": [
-        "s69"
-      ],
-      "status": "draft",
-      "summary": "Push via device tokens; preferences CRUD.",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/platform",
-        "layer/business"
-      ],
-      "task": "T-046",
-      "title": "T-046 Story",
       "updated": "2026-10-26"
     },
     "story:T-068": {
@@ -56893,9 +56474,6 @@
       "pending": [],
       "priority": "high",
       "related": [
-        "task:T-046",
-        "task:T-046-be",
-        "task:T-046-fe",
         "frontend-delivery:account"
       ],
       "release": "v1",
@@ -57606,10 +57184,7 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-96",
-      "children": [
-        "task:T-045",
-        "task:T-046"
-      ],
+      "children": [],
       "code": "notifications",
       "created": "2026-10-18",
       "deadline": null,
@@ -57653,7 +57228,7 @@
       ],
       "task": null,
       "title": "Notifications Story",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "story:onboarding-imports": {
       "affects": [],
@@ -64402,7 +63977,7 @@
         "s64"
       ],
       "status": "todo",
-      "summary": "Each transition @Transactional. Decline → notification with reason (T-045).",
+      "summary": "Each transition @Transactional. Decline → notification with reason (Notifications · S7).",
       "tags": [
         "task",
         "task/todo",
@@ -64411,7 +63986,7 @@
       ],
       "task": null,
       "title": "T-042 Meeting request, accept with slots, decline with reason",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "task:T-042-be": {
       "affects": [],
@@ -64882,389 +64457,6 @@
       "task": null,
       "title": "T-044-fe Frontend · My meetings, calendar, detail, reschedule, cancel",
       "updated": "2026-10-26"
-    },
-    "task:T-045": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-045",
-      "children": [
-        "story:T-045",
-        "task:T-045-be",
-        "task:T-045-fe"
-      ],
-      "code": "T-045",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": "social-pin/tasks/T-045 NotificationService.emit and the inbox",
-      "effectiveStatus": "todo",
-      "effort": "M",
-      "feature": "notifications",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-045",
-      "inherits": {
-        "release": "feature:notifications"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": null,
-      "parents": [
-        "story:notifications"
-      ],
-      "path": "social-pin/tasks/T-045 NotificationService.emit and the inbox/T-045 NotificationService.emit and the inbox.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {
-        "blocked": 1,
-        "draft": 1,
-        "todo": 1
-      },
-      "scope": null,
-      "screens": [
-        "s69"
-      ],
-      "status": "todo",
-      "summary": "Internal emit with dedupeKey; GET /notifications grouped by day; mark one / all read. Other modules import the module.",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/platform",
-        "priority/high"
-      ],
-      "task": null,
-      "title": "T-045 NotificationService.emit and the inbox",
-      "updated": "2026-10-26"
-    },
-    "task:T-045-be": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-045-be",
-      "children": [],
-      "code": "T-045-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": null,
-      "effectiveStatus": "todo",
-      "effort": "M",
-      "feature": "notifications",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-045-be",
-      "inherits": {
-        "release": "feature:notifications"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": "T-045",
-      "parents": [
-        "task:T-045"
-      ],
-      "path": "social-pin/tasks/T-045 NotificationService.emit and the inbox/T-045-be Backend · NotificationService.emit and the inbox.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s69"
-      ],
-      "status": "todo",
-      "summary": "The API side of T-045 NotificationService.emit and the inbox: the endpoints, data and rules its What describes. Record what shipped in T-045-be Backend Delivery and how to call it in T-045-be…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/platform",
-        "priority/high",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-045-be Backend · NotificationService.emit and the inbox",
-      "updated": "2026-10-26"
-    },
-    "task:T-045-fe": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-045-be",
-          "title": "T-045-be Backend · NotificationService.emit and the inbox",
-          "why": "T-045-be Backend · NotificationService.emit and the inbox is to do"
-        }
-      ],
-      "card": "T-045-fe",
-      "children": [],
-      "code": "T-045-fe",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-045-be"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "notifications",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-045-fe",
-      "inherits": {
-        "release": "feature:notifications"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "frontend"
-      ],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": "T-045",
-      "parents": [
-        "task:T-045"
-      ],
-      "path": "social-pin/tasks/T-045 NotificationService.emit and the inbox/T-045-fe Frontend · NotificationService.emit and the inbox.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s69"
-      ],
-      "status": "todo",
-      "summary": "The client side of T-045 NotificationService.emit and the inbox: the screens below show what its What describes, built against Notifications Backend Integration once the backend half (T-045-be…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/platform",
-        "priority/high",
-        "frontend"
-      ],
-      "task": null,
-      "title": "T-045-fe Frontend · NotificationService.emit and the inbox",
-      "updated": "2026-10-26"
-    },
-    "task:T-046": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-045",
-          "title": "T-045 NotificationService.emit and the inbox",
-          "why": "T-045 NotificationService.emit and the inbox is to do"
-        }
-      ],
-      "card": "T-046",
-      "children": [
-        "story:T-046",
-        "task:T-046-be",
-        "task:T-046-fe"
-      ],
-      "code": "T-046",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-045"
-      ],
-      "dir": "social-pin/tasks/T-046 Push delivery and preferences",
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "notifications",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-046",
-      "inherits": {
-        "release": "feature:notifications"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": null,
-      "parents": [
-        "story:notifications"
-      ],
-      "path": "social-pin/tasks/T-046 Push delivery and preferences/T-046 Push delivery and preferences.md",
-      "pending": [],
-      "priority": "high",
-      "related": [
-        "story:devices"
-      ],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {
-        "blocked": 2,
-        "draft": 1
-      },
-      "scope": null,
-      "screens": [
-        "s69"
-      ],
-      "status": "blocked",
-      "summary": "Push via device tokens; preferences CRUD.",
-      "tags": [
-        "task",
-        "task/blocked",
-        "module/platform",
-        "priority/high"
-      ],
-      "task": null,
-      "title": "T-046 Push delivery and preferences",
-      "updated": "2026-10-27"
-    },
-    "task:T-046-be": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-045",
-          "title": "T-045 NotificationService.emit and the inbox",
-          "why": "T-045 NotificationService.emit and the inbox is to do"
-        }
-      ],
-      "card": "T-046-be",
-      "children": [],
-      "code": "T-046-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-045"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "notifications",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-046-be",
-      "inherits": {
-        "release": "feature:notifications"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": "T-046",
-      "parents": [
-        "task:T-046"
-      ],
-      "path": "social-pin/tasks/T-046 Push delivery and preferences/T-046-be Backend · Push delivery and preferences.md",
-      "pending": [],
-      "priority": "high",
-      "related": [
-        "story:devices"
-      ],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s69"
-      ],
-      "status": "todo",
-      "summary": "The API side of T-046 Push delivery and preferences: the endpoints, data and rules its What describes. Record what shipped in T-046-be Backend Delivery and how to call it in T-046-be Backend…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/platform",
-        "priority/high",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-046-be Backend · Push delivery and preferences",
-      "updated": "2026-10-27"
-    },
-    "task:T-046-fe": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-045",
-          "title": "T-045 NotificationService.emit and the inbox",
-          "why": "T-045 NotificationService.emit and the inbox is to do"
-        },
-        {
-          "id": "task:T-046-be",
-          "title": "T-046-be Backend · Push delivery and preferences",
-          "why": "T-046-be Backend · Push delivery and preferences is blocked"
-        }
-      ],
-      "card": "T-046-fe",
-      "children": [],
-      "code": "T-046-fe",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-045",
-        "task:T-046-be"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "notifications",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-046-fe",
-      "inherits": {
-        "release": "feature:notifications"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "frontend"
-      ],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": "T-046",
-      "parents": [
-        "task:T-046"
-      ],
-      "path": "social-pin/tasks/T-046 Push delivery and preferences/T-046-fe Frontend · Push delivery and preferences.md",
-      "pending": [],
-      "priority": "high",
-      "related": [
-        "story:devices"
-      ],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s69"
-      ],
-      "status": "todo",
-      "summary": "The client side of T-046 Push delivery and preferences: the screens below show what its What describes, built against Notifications Backend Integration once the backend half (T-046-be Backend ·…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/platform",
-        "priority/high",
-        "frontend"
-      ],
-      "task": null,
-      "title": "T-046-fe Frontend · Push delivery and preferences",
-      "updated": "2026-10-27"
     },
     "task:T-068": {
       "affects": [

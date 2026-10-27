@@ -98,8 +98,6 @@ Social Pin backend
     ├── 🟡 Interests  [High]
     ├── 🟡 Linked Accounts (OAuth)  [High]
     ├── ❌ Notifications  [High]
-    │   ├── ⬜ T-045 NotificationService.emit and the inbox
-    │   └── ⛔ T-046 Push delivery and preferences
     ├── ❌ Gemma AI  [Medium]
     ├── ❌ Audit Log  [Critical]
     ├── ❌ Cleanup Jobs  [High]
@@ -195,7 +193,7 @@ The error contract, notifications, Gemma AI, devices, interests, widgets, linked
 | [[Devices & NFC]] | 🟡 Partial (needs more) | High | s75 | 0 |
 | [[Interests]] | 🟡 Partial (needs more) | High | s07, s71 | 0 |
 | [[Linked Accounts (OAuth)]] | 🟡 Partial (needs more) | High | s01, s04, s68 | 0 |
-| [[Notifications]] | ❌ TODO | High | s69 | 2 |
+| [[Notifications]] | ❌ TODO | High | s69 | 0 |
 | [[Gemma AI]] | ❌ TODO | Medium | s13, s60 | 0 |
 | [[Audit Log]] | ❌ TODO | Critical | — | 0 |
 | [[Cleanup Jobs]] | ❌ TODO | High | — | 0 |

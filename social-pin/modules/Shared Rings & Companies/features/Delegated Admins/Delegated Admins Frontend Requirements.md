@@ -50,7 +50,7 @@ What the client needs from the backend to build the screens in [[Delegated Admin
 | Remove an admin | — | ❌ | [[Delegated Admins Story|Delegated Admins · S6]] |
 | Rings I administer, with my level | — | ❌ | [[Delegated Admins Story|Delegated Admins · S6]] |
 | Names and avatars for admin rows, picker over my connections | — | ❌ | [[T-023 Connection detail and contacts list]] |
-| Notify the person made admin | — | ❌ | [[T-045 NotificationService.emit and the inbox]] |
+| Notify the person made admin | — | ❌ | [[Notifications Story|Notifications · S7]] |
 | Audience settings on s26 / s27 | — | ❌ | [[ND-04 Ring settings]] |
 | Avatar bytes | — | ❌ | [[Files Upload Story|Files Upload · showing files]] |
 

@@ -103,12 +103,6 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-040 Lounges and upgrades]] | [[Events During]] | Events | ⛔ Blocked | M | — | [[T-034 Tickets, packages, levels, sold-out|T-034]] |
 | [[T-040-be Backend · Lounges and upgrades]] `backend` | [[Events During]] | Events | ⛔ Blocked | M | — | [[T-034 Tickets, packages, levels, sold-out|T-034]] |
 | [[T-040-fe Frontend · Lounges and upgrades]] `frontend` | [[Events During]] | Events | ⛔ Blocked | M | — | [[T-034 Tickets, packages, levels, sold-out|T-034]], [[T-040-be Backend · Lounges and upgrades|T-040-be]] |
-| [[T-045 NotificationService.emit and the inbox]] | [[Notifications]] | Platform & Cross-cutting | ⬜ To do | M | — | — |
-| [[T-045-be Backend · NotificationService.emit and the inbox]] `backend` | [[Notifications]] | Platform & Cross-cutting | ⬜ To do | M | — | — |
-| [[T-045-fe Frontend · NotificationService.emit and the inbox]] `frontend` | [[Notifications]] | Platform & Cross-cutting | ⛔ Blocked | M | — | [[T-045-be Backend · NotificationService.emit and the inbox|T-045-be]] |
-| [[T-046 Push delivery and preferences]] | [[Notifications]] | Platform & Cross-cutting | ⛔ Blocked | M | — | [[T-045 NotificationService.emit and the inbox|T-045]] |
-| [[T-046-be Backend · Push delivery and preferences]] `backend` | [[Notifications]] | Platform & Cross-cutting | ⛔ Blocked | M | — | [[T-045 NotificationService.emit and the inbox|T-045]] |
-| [[T-046-fe Frontend · Push delivery and preferences]] `frontend` | [[Notifications]] | Platform & Cross-cutting | ⛔ Blocked | M | — | [[T-045 NotificationService.emit and the inbox|T-045]], [[T-046-be Backend · Push delivery and preferences|T-046-be]] |
 | [[T-068 Account moderation and platform role]] | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | M | — | — |
 | [[T-068-be Backend · Account moderation and platform role]] `backend` | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | M | — | — |
 | [[T-069 Scoped role grants]] | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | M | — | [[T-068 Account moderation and platform role|T-068]] |
