@@ -149,7 +149,6 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
         - (see above)
     - 🔵 [Rings](social-pin/modules/Identity%20Core/features/Rings/Rings.md) (F-11, release MVP, Critical)
       - 👍 [Rings Story](social-pin/modules/Identity%20Core/features/Rings/Rings%20Story.md) (S-18, User Story, Critical)
-        - ✅ [T-059 Decide Ring settings](social-pin/tasks/T-059%20Decide%20Ring%20settings/T-059%20Decide%20Ring%20settings.md) (Critical)
       - ✏️ [Rings Frontend Requirements](social-pin/modules/Identity%20Core/features/Rings/Rings%20Frontend%20Requirements.md) (FR-11, Frontend Requirements, Critical)
       - ✅ [Rings Backend Delivery](social-pin/modules/Identity%20Core/features/Rings/Rings%20Backend%20Delivery.md) (BD-11, Backend Delivery, Critical)
       - 🔵 [Rings Backend Integration](social-pin/modules/Identity%20Core/features/Rings/Rings%20Backend%20Integration.md) (BI-08, Backend Integration, Critical)

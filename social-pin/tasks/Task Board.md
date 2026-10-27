@@ -216,7 +216,6 @@ kanban-plugin: board
 - [x] [[T-056 Decide passwordless login]] #critical #auth
 - [x] [[T-057 Decide base profile work fields]] #critical #profiles
 - [x] [[T-058 Decide field library vs per-Ring copies]] #critical #ring-projection
-- [x] [[T-059 Decide Ring settings]] #critical #rings
 - [x] [[T-060 Decide copy or inherit]] #high #ring-projection
 - [x] [[T-061 Decide Pin name rules]] #high #profiles
 

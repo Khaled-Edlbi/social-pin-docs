@@ -6,11 +6,11 @@ status: decided
 decidedBy: "molham"
 decidedAt: 2026-10-25
 features: [companies, delegated-admins, ring-invitations, ring-members, rings]
-affects: ["Rings", "Ring Members", "Ring Invitations & Join", "Delegated Admins", "Companies", "Ring Access Engine", "T-026 Ring invitations invite, review, decline", "T-027 Join a Ring with a code or verified work email", "T-059 Decide Ring settings"]
+affects: ["Rings", "Ring Members", "Ring Invitations & Join", "Delegated Admins", "Companies", "Ring Access Engine", "T-026 Ring invitations invite, review, decline", "T-027 Join a Ring with a code or verified work email", "Rings Story"]
 related: ["ND-04 Ring settings", "Ring Access Model"]
 owner: "khaled"
 created: 2026-10-25
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [decision, decision/decided]
 ---
 
@@ -58,7 +58,7 @@ Answered on the product-questions page, 2026-10-22 (defaults, what members see, 
 - [[Ring Invitations & Join]]: joining follows "who can request to join" and "approve each one"; [[T-026 Ring invitations invite, review, decline]] and [[T-027 Join a Ring with a code or verified work email]] are no longer waiting on this decision (T-027's verified work email waits for the domain setting, which comes later).
 - [[Delegated Admins]]: an admin may change a Ring's settings.
 - [[Companies]]: the required work email domain is part of the company work, not the launch set.
-- [[T-059 Decide Ring settings]]: its decision is taken; the PM closes it.
+- [[Rings Story|Rings · Decide Ring settings]]: its decision is taken; the PM closes it.
 
 ## Still open
 

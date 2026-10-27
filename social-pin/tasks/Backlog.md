@@ -217,6 +217,5 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-056 Decide passwordless login]] | [[Auth & Sign-up]] | Identity Core | S | — |
 | [[T-057 Decide base profile work fields]] | [[Profiles & Pin Name]] | Identity Core | S | — |
 | [[T-058 Decide field library vs per-Ring copies]] | [[Ring Projection]] | Identity Core | S | — |
-| [[T-059 Decide Ring settings]] | [[Rings]] | Identity Core | S | — |
 | [[T-060 Decide copy or inherit]] | [[Ring Projection]] | Identity Core | S | — |
 | [[T-061 Decide Pin name rules]] | [[Profiles & Pin Name]] | Identity Core | S | — |
