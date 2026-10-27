@@ -64,7 +64,7 @@ What the client needs for the LinkedIn button, the return into Importing, and th
 | 400 | not defined yet | unlink refused (last sign-in method): say what to add first |
 | 401 | `E_AUTH_04` | session gone during link: sign in again |
 
-No OAuth codes exist yet; Linked Accounts (OAuth) · S7 adds them. `ErrorCode` is not on the wire until [[T-063 Put the ErrorCode on the error body]] ships.
+No OAuth codes exist yet; Linked Accounts (OAuth) · S7 adds them. `ErrorCode` is not on the wire until [[Error Contract Story|Error Contract · S4–S8]] ships.
 
 ## Blocked by
 

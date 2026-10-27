@@ -65,7 +65,7 @@ What the client needs for the inbox, the bell, the deep links, push and preferen
 | 401 | `E_AUTH_04` | session gone: sign in again |
 | 400 | validation (string array) | `limit` above 50, or an unknown type in a preference update |
 
-No notification codes exist yet; T-045 and T-046 add them. `ErrorCode` is not on the wire until [[T-063 Put the ErrorCode on the error body]] ships.
+No notification codes exist yet; T-045 and T-046 add them. `ErrorCode` is not on the wire until [[Error Contract Story|Error Contract · S4–S8]] ships.
 
 ## Blocked by
 

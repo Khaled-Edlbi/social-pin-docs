@@ -7,7 +7,7 @@ module: identity
 status: draft
 screens: [s36, s37]
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [frontend-requirements, frontend-requirements/draft, module/identity, layer/frontend]
 ---
 
@@ -72,7 +72,7 @@ What the client needs to build the widget picker and the widget rows on a Ring, 
 | 403 | `E_RING_05` | the projection is not editable by this user: picker hidden |
 | 404 | `E_RING_02` | Ring not found: back to My Rings |
 
-Until [[T-063 Put the ErrorCode on the error body]] ships, branch on status and endpoint.
+Until [[Error Contract Story|Error Contract · S4–S8]] ships, branch on status and endpoint.
 
 ## Blocked by
 

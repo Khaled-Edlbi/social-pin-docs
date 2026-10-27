@@ -65,7 +65,7 @@ What the client needs from the backend to build the screen in [[Discover Hub & S
 | 404 | `E_RING_ACCESS_01` | "This Pin isn't available to you" inline under the field; keep the text; do not add to recent searches |
 | 400 | — | the name failed validation (empty, bad characters): inline, generic |
 | 401 | `E_AUTH_04` | sign in again |
-| — | recent-search and contacts codes | to be defined by Discover Hub & Search · S6 / Discover Hub & Search · S7; branch on `statusCode` until [[T-063 Put the ErrorCode on the error body]] |
+| — | recent-search and contacts codes | to be defined by Discover Hub & Search · S6 / Discover Hub & Search · S7; branch on `statusCode` until [[Error Contract Story|Error Contract · S4–S8]] |
 | client | contacts permission denied | inline state on the tile with *Open settings* |
 
 ## Blocked by
@@ -73,4 +73,4 @@ What the client needs from the backend to build the screen in [[Discover Hub & S
 - [[Discover Hub & Search Story|Discover Hub & Search · S7]] — the contacts row and the s03 handover (privacy review, needs a decision).
 - [[Discover Hub & Search Story|Discover Hub & Search · S6]] — server-side versus device-only recent searches; the list rows above.
 - [[T-051 Gemma assistant sheet and suggestions]] — the Gemma row.
-- [[T-063 Put the ErrorCode on the error body]] — the error table is by status until then.
+- [[Error Contract Story|Error Contract · S4–S8]] — the error table is by status until then.

@@ -101,11 +101,11 @@ What the client needs from the backend to build the screens in [[Connections Sto
 | 404 | `E_RING_MEMBER_02` | membership row missing on reassign / revoke: refresh s47 |
 | 400 | `E_RING_07` | reassign target is not the same owner's Ring: validation |
 | 401 | `E_AUTH_04` | sign in again |
-| — | request-specific codes | to be defined by T-021 / T-022 / T-024; branch on `statusCode` until [[T-063 Put the ErrorCode on the error body]] |
+| — | request-specific codes | to be defined by T-021 / T-022 / T-024; branch on `statusCode` until [[Error Contract Story|Error Contract · S4–S8]] |
 
 ## Blocked by
 
 - [[T-025 Introduce a connection to another]] — the *Introduce* row on s47 (needs product input).
 - [[ND-04 Ring settings]] — mutual connections on s47 if "members can see each other" is ever on.
 - [[T-022 Accept into a Ring (sets grantedRingId)]] — whether a connection-granted Ring is listed by name on `GET /rings/shared-with-me` (the open question in the story); the s17 list depends on the answer.
-- [[T-063 Put the ErrorCode on the error body]] — the error table above is by status until then.
+- [[Error Contract Story|Error Contract · S4–S8]] — the error table above is by status until then.

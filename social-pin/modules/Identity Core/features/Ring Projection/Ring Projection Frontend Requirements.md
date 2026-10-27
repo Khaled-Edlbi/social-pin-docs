@@ -107,7 +107,7 @@ What the client needs from the backend to build the "what this Ring shows" edito
 | 409 | `E_PROFILE_01` | the Ring's profile is gone: re-pick the profile on the Ring |
 | 400 | — (validation; `message` is a string array) | inline on the field (lengths, enum, JSON) |
 
-Until [[T-063 Put the ErrorCode on the error body]] ships, branch on status and endpoint.
+Until [[Error Contract Story|Error Contract · S4–S8]] ships, branch on status and endpoint.
 
 ## Blocked by
 

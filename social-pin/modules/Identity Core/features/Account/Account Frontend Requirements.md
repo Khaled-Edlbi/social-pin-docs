@@ -89,7 +89,7 @@ What the client needs from the backend to build the account section of Me, and w
 | 401 | `E_AUTH_04` | the refresh failed: sign in again |
 | 400 | — (validation; `message` is a string array) | inline on the field |
 
-Until [[T-063 Put the ErrorCode on the error body]] ships, the body carries no `ErrorCode`: branch on status and endpoint, keep `message` display-only.
+Until [[Error Contract Story|Error Contract · S4–S8]] ships, the body carries no `ErrorCode`: branch on status and endpoint, keep `message` display-only.
 
 ## Blocked by
 

@@ -6,11 +6,11 @@ status: decided
 decidedBy: "khaled"
 decidedAt: 2026-10-25
 features: [error-contract]
-affects: ["T-063", "T-063-fe", "T-063-be", "Agent Rules", "Docs Tree"]
-related: ["ND-19 Where a ticket's layer notes live", "T-063"]
+affects: ["Error Contract Story", "Agent Rules", "Docs Tree"]
+related: ["ND-19 Where a ticket's layer notes live", "Error Contract Story"]
 owner: "khaled"
 created: 2026-10-25
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [decision, decision/decided]
 ---
 
@@ -30,11 +30,11 @@ The ticket's story is one note per ticket, not one per half, and it already name
 
 ## What it changes
 
-- [[T-063 Put the ErrorCode on the error body]]: its chain is the one the tree now draws under it; the ticket continues on `T-063 Frontend Requirements`.
-- [[T-063-fe Frontend · Put the ErrorCode on the error body]] and [[T-063-be Backend · Put the ErrorCode on the error body]]: their *Layer notes* line pointed at `T-063-fe …` / `T-063-be …` cards and now points at the parent's.
-- [[Agent Rules]] §2 says "each half writes its own layer notes (`--scaffold <kind> T-063-fe`)"; that sentence now reads the other way. The *Layer notes* line in `templates/Task Template.md` comes from the same reading. Both are the owner's: the ask is on [[T-063 Put the ErrorCode on the error body]]'s log, and the notes carry a flag.
+- [[Error Contract Story|Error Contract · S4–S8]]: its chain is the one the tree now draws under it; the ticket continues on `T-063 Frontend Requirements`.
+- [[Error Contract Story|Error Contract · S4–S8]] and [[Error Contract Story|Error Contract · S4–S8]]: their *Layer notes* line pointed at `T-063-fe …` / `T-063-be …` cards and now points at the parent's.
+- [[Agent Rules]] §2 says "each half writes its own layer notes (`--scaffold <kind> T-063-fe`)"; that sentence now reads the other way. The *Layer notes* line in `templates/Task Template.md` comes from the same reading. Both are the owner's: the ask is on [[Error Contract Story|Error Contract · S4–S8]]'s log, and the notes carry a flag.
 - `taskFlow.tasks` in `docs.config.json` names parent tasks, which is what it does today (`["T-063"]`).
 
 ## Still open
 
-Whether a **backend-only** ticket, which has one half and no frontend side, should still draw the frontend cards in its chain, and whether `taskFlow` should skip a kind the way `frontendOnly.skips` does for a feature. Nothing is blocked on it: T-063 has both sides. A new needs-decision card when the first backend-only ticket reaches its chain.
+Whether a **backend-only** ticket, which has one half and no frontend side, should still draw the frontend cards in its chain, and whether `taskFlow` should skip a kind the way `frontendOnly.skips` does for a feature. Nothing is blocked on it: Error Contract · S4–S8 has both sides. A new needs-decision card when the first backend-only ticket reaches its chain.

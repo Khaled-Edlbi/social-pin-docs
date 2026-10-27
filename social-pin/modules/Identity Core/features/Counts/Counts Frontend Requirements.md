@@ -8,7 +8,7 @@ status: ready
 screens: [s11, s12, s14, s16, s17, s68]
 depends: []
 affects: ["Counts Story"]
-related: ["D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "Rings", "Connections", "T-021 Connect request send, inbox, cancel", "T-063 Put the ErrorCode on the error body"]
+related: ["D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "Rings", "Connections", "T-021 Connect request send, inbox, cancel", "Error Contract Story"]
 created: 2026-10-18
 updated: 2026-10-27
 owner: "Omar Fostok"
@@ -84,7 +84,7 @@ Not asked, by decision: a member count on a Ring shared with me ([[D-14 Shared w
 | 403 | `E_RING_05` | an owner-only count asked for a Ring the person doesn't own: hide the number |
 | 400 | — (validation; `limit` above 50) | client bug; keep `limit` ≤ 50 |
 
-No code of its own exists yet; the rows above are the codes of the list endpoints the counts depend on. Until [[T-063 Put the ErrorCode on the error body]] ships, branch on status and endpoint.
+No code of its own exists yet; the rows above are the codes of the list endpoints the counts depend on. Until [[Error Contract Story|Error Contract · S4–S8]] ships, branch on status and endpoint.
 
 ## Blocked by
 

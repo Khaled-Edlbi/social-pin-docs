@@ -91,7 +91,7 @@ What the client needs from the backend for every screen that renders another per
 | 400 | — (validation; malformed handle or id) | treat as the same "not available" message |
 | 401 | `E_AUTH_04` | sign in again (the views are authenticated routes) |
 
-Until [[T-063 Put the ErrorCode on the error body]] ships, the body carries no `ErrorCode`: branch on status and endpoint. The two 404 bodies on `/views/pin` are identical by design; do not try to tell them apart.
+Until [[Error Contract Story|Error Contract · S4–S8]] ships, the body carries no `ErrorCode`: branch on status and endpoint. The two 404 bodies on `/views/pin` are identical by design; do not try to tell them apart.
 
 ## Blocked by
 

@@ -54,7 +54,7 @@ What the client needs for My devices: a device list keyed by a client-generated 
 | 401 | `E_AUTH_03` | account suspended on any call: sign-out state |
 | 404 | not defined yet | remove or revoke on an id that is gone: refetch the list |
 
-No device or NFC codes exist yet; Devices & NFC · S6 and Devices & NFC · S7 will add them to `error-code.enum.ts`. `ErrorCode` is not on the wire until [[T-063 Put the ErrorCode on the error body]] ships.
+No device or NFC codes exist yet; Devices & NFC · S6 and Devices & NFC · S7 will add them to `error-code.enum.ts`. `ErrorCode` is not on the wire until [[Error Contract Story|Error Contract · S4–S8]] ships.
 
 ## Blocked by
 

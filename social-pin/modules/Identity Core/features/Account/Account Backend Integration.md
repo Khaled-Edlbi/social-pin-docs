@@ -10,7 +10,7 @@ created: 2026-10-15
 updated: 2026-10-27
 depends: []
 affects: ["Account Frontend Delivery", "Account QA Frontend"]
-related: ["B-02 Deleted account answers 401, not the documented 404 E_USER_01", "B-01 An unverified changed email still signs in", "D-20 The changed address still signs in, the words are corrected", "PATCH /users/me", "POST /auth/login", "POST /auth/login/verify", "GET /users/me", "DELETE /users/me", E_USER_01, E_AUTH_03, "T-063 Put the ErrorCode on the error body"]
+related: ["B-02 Deleted account answers 401, not the documented 404 E_USER_01", "B-01 An unverified changed email still signs in", "D-20 The changed address still signs in, the words are corrected", "PATCH /users/me", "POST /auth/login", "POST /auth/login/verify", "GET /users/me", "DELETE /users/me", "E_USER_01", "E_AUTH_03", "Error Contract Story"]
 tags: [backend-integration, backend-integration/current, module/identity, layer/backend]
 ---
 
@@ -54,7 +54,7 @@ Cache the account per signed-in user; refetch after a `PATCH`, on app resume, an
 | 404 | `E_USER_01` | the account no longer exists (deleted elsewhere); any authenticated route, from the auth guard | sign-out state, "Your account has been deleted." |
 | 401 | `E_AUTH_03` | the account is suspended; any authenticated route | sign-out state, no refresh |
 
-Until [[T-063 Put the ErrorCode on the error body]] puts the code on the wire, branch on the status: a 404 on `GET /users/me` is the deleted account.
+Until [[Error Contract Story|Error Contract · S4–S8]] puts the code on the wire, branch on the status: a 404 on `GET /users/me` is the deleted account.
 
 ## Rules the UI must respect
 

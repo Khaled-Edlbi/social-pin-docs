@@ -75,7 +75,7 @@ What the client needs from the backend to build the screens in [[Badge & QR Stor
 | 404 | `E_RING_02` | issuing a token for a Ring that is not mine: refetch `GET /rings` and reset the active Ring |
 | 403 | `E_RING_05` | an admin below the needed level asked for a token: hide the badge for that Ring |
 | 401 | `E_AUTH_04` | sign in again |
-| — | token-specific codes | to be defined by T-007 / T-008 (invalid, rotated, revoked must share the neutral 404); branch on `statusCode` until [[T-063 Put the ErrorCode on the error body]] |
+| — | token-specific codes | to be defined by T-007 / T-008 (invalid, rotated, revoked must share the neutral 404); branch on `statusCode` until [[Error Contract Story|Error Contract · S4–S8]] |
 | client | camera permission denied | inline state with *Open settings* |
 | client | not a Social Pin code | "Not a Social Pin code", keep scanning |
 
@@ -84,4 +84,4 @@ What the client needs from the backend to build the screens in [[Badge & QR Stor
 - [[T-010 Public browser page for viewers without the app]] — the share link row and the anonymous-visitor persona (needs a decision on which Ring is public).
 - [[T-007 Issue and rotate the QR token for a Ring]] and [[T-008 Resolve a scanned QR token]] — the token rows; nothing on s34 or s43 is real without them.
 - [[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]] — the permanent-code row.
-- [[T-063 Put the ErrorCode on the error body]] — the error table is by status until then.
+- [[Error Contract Story|Error Contract · S4–S8]] — the error table is by status until then.

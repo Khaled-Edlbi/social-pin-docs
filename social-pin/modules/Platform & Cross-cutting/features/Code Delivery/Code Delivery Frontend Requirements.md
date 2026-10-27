@@ -7,7 +7,7 @@ module: platform
 status: draft
 screens: [s02]
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [frontend-requirements, frontend-requirements/draft, module/platform, layer/frontend]
 ---
 
@@ -55,7 +55,7 @@ What the client needs to make s02 real: the challenge response it already gets, 
 | 429 | `E_AUTH_06` | code burned after five wrong guesses: "Request a new code" |
 | 400 | validation (string array) | malformed email or non-E.164 phone: inline |
 
-`ErrorCode` is not on the wire until [[T-063 Put the ErrorCode on the error body]] ships; branch on status and endpoint until then, and keep `message` display-only ([[Error Contract]]).
+`ErrorCode` is not on the wire until [[Error Contract Story|Error Contract · S4–S8]] ships; branch on status and endpoint until then, and keep `message` display-only ([[Error Contract]]).
 
 ## Blocked by
 

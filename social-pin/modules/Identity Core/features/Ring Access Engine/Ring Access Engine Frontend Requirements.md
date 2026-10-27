@@ -88,7 +88,7 @@ The engine exposes no endpoint. What the client needs from it is a set of guaran
 | 404 | `E_RING_02` | Ring not found or not administrable: treat as missing |
 | 409 | `E_RING_MEMBER_04` | "Cannot add this user" (a block exists; do not say so) |
 
-Until [[T-063 Put the ErrorCode on the error body]] ships, the body carries no `ErrorCode`: branch on status and endpoint. The `/views` 404 bodies are identical by design and by spec.
+Until [[Error Contract Story|Error Contract · S4–S8]] ships, the body carries no `ErrorCode`: branch on status and endpoint. The `/views` 404 bodies are identical by design and by spec.
 
 ## Blocked by
 

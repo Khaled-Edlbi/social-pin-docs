@@ -72,7 +72,7 @@ What the client needs to build the per-Ring photo picker and the library grid, a
 | 403 | `E_RING_05` | the Ring is not editable by this user: picker read-only |
 | 404 | `E_RING_02` | the Ring is gone: back to My Rings |
 
-Until [[T-063 Put the ErrorCode on the error body]] ships, branch on status and endpoint.
+Until [[Error Contract Story|Error Contract · S4–S8]] ships, branch on status and endpoint.
 
 ## Blocked by
 

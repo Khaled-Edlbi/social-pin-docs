@@ -8,7 +8,7 @@ status: draft
 screens: [s07, s71]
 depends: []
 affects: ["Interests Story"]
-related: ["Auth & Sign-up", "Gemma AI", "T-051 Gemma assistant sheet and suggestions", "T-063 Put the ErrorCode on the error body"]
+related: ["Auth & Sign-up", "Gemma AI", "T-051 Gemma assistant sheet and suggestions", "Error Contract Story"]
 created: 2026-10-18
 updated: 2026-10-27
 owner: "Omar Fostok"
@@ -68,7 +68,7 @@ What the client needs for the two interest pickers: the vocabulary, the person's
 | 404 | not defined yet | an interest removed from the vocabulary: drop it and resave |
 | 401 | `E_AUTH_04` | session gone: sign in again |
 
-No interest codes exist yet; Interests · S5 adds any it needs. `ErrorCode` is not on the wire until [[T-063 Put the ErrorCode on the error body]] ships.
+No interest codes exist yet; Interests · S5 adds any it needs. `ErrorCode` is not on the wire until [[Error Contract Story|Error Contract · S4–S8]] ships.
 
 ## Blocked by
 

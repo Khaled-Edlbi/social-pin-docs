@@ -65,7 +65,7 @@ What the client needs to build the Gemma sheet, Smart Match and the inline sugge
 | 404 | `E_RING_ACCESS_*` on `/views` for a matched person who became invisible | drop the card; one generic message |
 | 409 | not defined yet | action already confirmed or executed; refetch the session |
 
-No Gemma codes exist yet. `ErrorCode` is not on the wire until [[T-063 Put the ErrorCode on the error body]] ships.
+No Gemma codes exist yet. `ErrorCode` is not on the wire until [[Error Contract Story|Error Contract · S4–S8]] ships.
 
 ## Blocked by
 

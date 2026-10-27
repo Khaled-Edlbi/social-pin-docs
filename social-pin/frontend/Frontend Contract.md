@@ -31,7 +31,7 @@ Sign-up: `sign-up` → `verify-code` → `complete-registration` (pin name, no p
 
 `{ data, meta: { total } }`, `meta.total` unpaginated, `limit` capped at 50 (a 400 above it, not a clamp). One error body `{ statusCode, message, error, path, timestamp }`; validation failures make `message` a string array; unknown body keys are a 400.
 
-**The stable `ErrorCode` is not on the wire yet.** Services throw it, the filter drops it ([[T-063 Put the ErrorCode on the error body]]). Until that ships, branch on `statusCode` and the endpoint, and keep `message` display-only; the per-feature notes list the codes each endpoint will carry so the switch can be written now.
+**The stable `ErrorCode` is not on the wire yet.** Services throw it, the filter drops it ([[Error Contract Story|Error Contract · S4–S8]]). Until that ships, branch on `statusCode` and the endpoint, and keep `message` display-only; the per-feature notes list the codes each endpoint will carry so the switch can be written now.
 
 **No file bytes can be fetched.** `avatarFileId` and attachment ids have no URL ([[Files Upload Story|Files Upload · showing files]]); render placeholders.
 

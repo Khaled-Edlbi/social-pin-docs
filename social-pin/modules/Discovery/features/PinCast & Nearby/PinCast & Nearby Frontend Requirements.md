@@ -85,7 +85,7 @@ What the client needs from the backend to build the screens in [[PinCast & Nearb
 | 404 | `E_RING_02` | the picked Ring is not mine or is gone: refetch `GET /rings` |
 | 401 | `E_AUTH_04` | sign in again |
 | 400 | — | radius or duration outside the allowed steps: should not happen if the UI uses the returned steps; inline |
-| — | PinCast-specific codes | to be defined by PinCast & Nearby · S7 (already live, Ring not live, position missing); branch on `statusCode` until [[T-063 Put the ErrorCode on the error body]] |
+| — | PinCast-specific codes | to be defined by PinCast & Nearby · S7 (already live, Ring not live, position missing); branch on `statusCode` until [[Error Contract Story|Error Contract · S4–S8]] |
 | client | location permission denied | inline state on s39 / s41 with *Open settings*; the Nearby radar shows "permission needed" |
 
 ## Blocked by
@@ -93,4 +93,4 @@ What the client needs from the backend to build the screens in [[PinCast & Nearb
 - [[PinCast & Nearby Story|PinCast & Nearby · S7]] — every ❌ row; the allowed steps, the position-reporting rule and the "reached versus see" rule are design inputs the client needs before layout is final.
 - [[T-045 NotificationService.emit and the inbox]] and [[T-046 Push delivery and preferences]] — s42 reached by notification; polling on s40 until then.
 - [[Cleanup Jobs Story|Cleanup Jobs · S4]] — how long results stay complete.
-- [[T-063 Put the ErrorCode on the error body]] — the error table is by status until then.
+- [[Error Contract Story|Error Contract · S4–S8]] — the error table is by status until then.

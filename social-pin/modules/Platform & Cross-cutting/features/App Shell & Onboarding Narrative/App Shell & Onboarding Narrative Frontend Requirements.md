@@ -7,7 +7,7 @@ module: platform
 status: draft
 screens: [s00a, s00b, s00c, s00d]
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [frontend-requirements, frontend-requirements/draft, module/platform, layer/frontend]
 ---
 
@@ -65,7 +65,7 @@ What the client needs to build the splash, the three value panels, the tab bar a
 
 | Status | ErrorCode | Show |
 |---|---|---|
-| — | — | None. The shell issues no request. A failed lazy refresh on Home (401, `E_AUTH_04` once [[T-063 Put the ErrorCode on the error body]] ships) is handled by the token store and sends the user to s01. |
+| — | — | None. The shell issues no request. A failed lazy refresh on Home (401, `E_AUTH_04` once [[Error Contract Story|Error Contract · S4–S8]] ships) is handled by the token store and sends the user to s01. |
 
 ## Blocked by
 

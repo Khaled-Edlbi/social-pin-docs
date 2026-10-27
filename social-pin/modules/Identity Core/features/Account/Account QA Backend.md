@@ -9,10 +9,10 @@ priority: critical
 screens: [s68]
 depends: ["Account Backend Delivery", "Account Story"]
 affects: []
-related: ["Account Backend Integration", "Auth & Sign-up Backend Integration", "Error Contract Backend Delivery", "Profiles & Pin Name Backend Integration", "Ring Projection Backend Integration", "T-063 Put the ErrorCode on the error body", "B-01 An unverified changed email still signs in", "B-02 Deleted account answers 401, not the documented 404 E_USER_01"]
+related: ["Account Backend Integration", "Auth & Sign-up Backend Integration", "Error Contract Backend Delivery", "Profiles & Pin Name Backend Integration", "Ring Projection Backend Integration", "Error Contract Story", "B-01 An unverified changed email still signs in", "B-02 Deleted account answers 401, not the documented 404 E_USER_01"]
 pending: []
 created: 2026-10-26
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [qa-backend, qa-backend/passing, module/identity, layer/qa, priority/critical]
 ---
 
@@ -95,7 +95,7 @@ A `PENDING` account holds no session: `login/verify` answers 403 `E_AUTH_03` for
 
 ## Error matrix
 
-What the three endpoints actually answer on this build. The `ErrorCode` column is what [[Account Backend Integration]] promises; **no response body on this build carries it** — a known gap of [[Error Contract Backend Delivery]], tracked as [[T-063 Put the ErrorCode on the error body]]. Until it lands, a client branches on status plus endpoint, never on a code.
+What the three endpoints actually answer on this build. The `ErrorCode` column is what [[Account Backend Integration]] promises; **no response body on this build carries it** — a known gap of [[Error Contract Backend Delivery]], tracked as [[Error Contract Story|Error Contract · S4–S8]]. Until it lands, a client branches on status plus endpoint, never on a code.
 
 | Situation | Status | ErrorCode (promised) | Body on the wire | Row |
 |---|---|---|---|---|
@@ -107,7 +107,7 @@ What the three endpoints actually answer on this build. The `ErrorCode` column i
 | a field that fails validation | 400 | — | `message` is a **string array**, one entry per constraint | B12 ✅ |
 | a body key that is not `email` or `phone` | 400 | — | `message: ["property <key> should not exist"]` | B11 ✅ |
 
-Two bodies carry the sign-out meaning, and since [[B-02 Deleted account answers 401, not the documented 404 E_USER_01]] they differ by status: a deleted account reads `404 "User not found"`, a suspended one `401 "Account is not active"`. The client can tell them apart by status alone, before [[T-063 Put the ErrorCode on the error body]] puts the code on the wire. Both are a sign-out, which is what S4 and S6 ask for.
+Two bodies carry the sign-out meaning, and since [[B-02 Deleted account answers 401, not the documented 404 E_USER_01]] they differ by status: a deleted account reads `404 "User not found"`, a suspended one `401 "Account is not active"`. The client can tell them apart by status alone, before [[Error Contract Story|Error Contract · S4–S8]] puts the code on the wire. Both are a sign-out, which is what S4 and S6 ask for.
 
 ## Privacy and access checks
 

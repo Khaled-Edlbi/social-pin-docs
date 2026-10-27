@@ -8,7 +8,7 @@ status: ready
 screens: [s01, s02, s06, s08, s68, s75]
 depends: []
 affects: []
-related: ["ND-01 Passwordless login", "D-06 Yearly rename, old name freed, case-insensitive", "Onboarding Imports Frontend Requirements", "Profiles & Pin Name Frontend Requirements", "Interests Frontend Requirements", "Rings", "Profiles & Pin Name Story", "T-063 Put the ErrorCode on the error body"]
+related: ["ND-01 Passwordless login", "D-06 Yearly rename, old name freed, case-insensitive", "Onboarding Imports Frontend Requirements", "Profiles & Pin Name Frontend Requirements", "Interests Frontend Requirements", "Rings", "Profiles & Pin Name Story", "Error Contract Story"]
 created: 2026-10-18
 updated: 2026-10-27
 owner: "Omar Fostok"
@@ -101,7 +101,7 @@ Sign-in is steps 1 and 2 only, then Home.
 | `devCode` removed from every challenge | — | ❌ | [[T-003 Remove devCode once delivery works]] |
 | Register the device on sign-in (s75) | — | ❌ | [[Devices & NFC Story|Devices & NFC · S6]] |
 | Sign in with LinkedIn | — | ❌ | [[Linked Accounts (OAuth) Story|Linked Accounts (OAuth) · S7]] |
-| Stable `ErrorCode` on the error body | — | ❌ | [[T-063 Put the ErrorCode on the error body]] |
+| Stable `ErrorCode` on the error body | — | ❌ | [[Error Contract Story|Error Contract · S4–S8]] |
 
 The import steps, *Profile basics*' work fields and Interests are asked for in their own notes (see *The sign-up flow in the client*).
 
@@ -126,12 +126,12 @@ Removed on 2026-10-15 and not coming back: `POST /auth/reset-password`, `POST /a
 | 400 | `E_AUTH_05` | "That code is wrong or has expired."; boxes shake and empty |
 | 429 | `E_AUTH_06` | boxes locked, "Send a new code" |
 | 403 | `E_AUTH_03` | on `login/verify`: "This account isn't active" + Start sign-up again |
-| 401 | `E_AUTH_03` | on any other call: signed out to Welcome with "This account can't sign in right now…" (lights up with [[T-063 Put the ErrorCode on the error body]]; until then the refused refresh ends the session) |
+| 401 | `E_AUTH_03` | on any other call: signed out to Welcome with "This account can't sign in right now…" (lights up with [[Error Contract Story|Error Contract · S4–S8]]; until then the refused refresh ends the session) |
 | 409 | `E_AUTH_08` | "Sign-up already completed": a sign-in code is sent instead |
 | 409 | `E_PROFILE_02` | the handle shows as taken |
 | 401 | `E_AUTH_04` | Welcome, "Your session has expired. Please sign in again." |
 
-`E_AUTH_02` and `E_USER_04` are retired and never returned. Until [[T-063 Put the ErrorCode on the error body]] ships the body carries no `ErrorCode`; the client branches on status and endpoint.
+`E_AUTH_02` and `E_USER_04` are retired and never returned. Until [[Error Contract Story|Error Contract · S4–S8]] ships the body carries no `ErrorCode`; the client branches on status and endpoint.
 
 ## Blocked by
 

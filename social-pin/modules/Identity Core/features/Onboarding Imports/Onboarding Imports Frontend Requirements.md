@@ -8,7 +8,7 @@ status: draft
 screens: [s01, s03, s03a, s03b, s04, s05]
 depends: []
 affects: ["Linked Accounts (OAuth) Story", "T-020 LinkedIn import → review → base profile", "T-020b Business card scan and portfolio URL import"]
-related: ["D-02 One main profile every Ring starts from", "D-03 Links entered once, switched on or off per Ring", "ND-21 How a business card and a portfolio page are read", "Profiles & Pin Name Story", "Files Upload Story", "T-063 Put the ErrorCode on the error body", "Auth & Sign-up", "Files Upload", "Ring Projection"]
+related: ["D-02 One main profile every Ring starts from", "D-03 Links entered once, switched on or off per Ring", "ND-21 How a business card and a portfolio page are read", "Profiles & Pin Name Story", "Files Upload Story", "Error Contract Story", "Auth & Sign-up", "Files Upload", "Ring Projection"]
 created: 2026-10-18
 updated: 2026-10-27
 owner: "Omar Fostok"
@@ -111,7 +111,7 @@ If the backend prefers to write at registration instead (candidates confirmed in
 | 401 | — (onboarding token expired) | a new code is sent; back to Verify, the review kept |
 | 409 | `E_PROFILE_02` | on s06: "That Pin name is taken" |
 
-Until [[T-063 Put the ErrorCode on the error body]] ships, branch on status and endpoint.
+Until [[Error Contract Story|Error Contract · S4–S8]] ships, branch on status and endpoint.
 
 ## Blocked by
 

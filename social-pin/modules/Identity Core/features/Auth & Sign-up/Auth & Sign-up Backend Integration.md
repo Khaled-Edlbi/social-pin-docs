@@ -91,7 +91,7 @@ OTP delivery is not wired ([[Code Delivery]]). Until it is, **every response tha
 | 404 | `E_USER_01` | deleted account on any later call | sign-out state, "account deleted" |
 | 401 | `E_AUTH_04` | refresh token rotated, revoked, expired or wrong scope | sign in again |
 
-Retired and never returned again: `E_AUTH_02` (invalid password) and `E_USER_04` (current password). Remove any handling of them. Until [[T-063 Put the ErrorCode on the error body]] ships, the wire body carries `statusCode`, `message` and `error` but **not** `ErrorCode`; branch on status and endpoint. See [[Error Contract]].
+Retired and never returned again: `E_AUTH_02` (invalid password) and `E_USER_04` (current password). Remove any handling of them. Until [[Error Contract Story|Error Contract · S4–S8]] ships, the wire body carries `statusCode`, `message` and `error` but **not** `ErrorCode`; branch on status and endpoint. See [[Error Contract]].
 
 ## Rules the UI must respect
 

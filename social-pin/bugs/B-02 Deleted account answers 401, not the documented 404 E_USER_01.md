@@ -12,10 +12,10 @@ labels: []
 screens: [s68]
 depends: []
 affects: ["Account Backend Integration", "Account Story", "Account QA Backend"]
-related: ["Account QA Backend", "Account QA Frontend", "Account Backend Delivery", "Error Contract Backend Delivery", "Auth Model", "T-063 Put the ErrorCode on the error body", "Rings", "Profiles & Pin Name"]
+related: ["Account QA Backend", "Account QA Frontend", "Account Backend Delivery", "Error Contract Backend Delivery", "Auth Model", "Error Contract Story", "Rings", "Profiles & Pin Name"]
 pending: ["[[Account Frontend Delivery]]: keep the 404 branch on GET /users/me deliberately, and decide whether a 404 from any other authenticated route also ends the session (/frontend)", "[[Account QA Frontend]]: run F15 on a build with main @ b4984d6; needs a second phone (/qa)"]
 created: 2026-10-26
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [bug, bug/done, module/identity, priority/medium, resolution/fixed]
 ---
 
@@ -37,7 +37,7 @@ tags: [bug, bug/done, module/identity, priority/medium, resolution/fixed]
 
 **What the client does with it.** [[Account Frontend Delivery]] has a branch for a 404 on `GET /users/me` that ends the session with "Your account has been deleted." Since the server never sends that 404, the branch is dead code and the user sees whatever the 401 path shows instead. Worth checking on a run which message actually appears ([[Account QA Frontend]] row F19).
 
-**Worth knowing before fixing.** Nothing is broken for a user: the client signs out on the 401, which is what S4 asks for. This is a contract row that does not describe the build, and the cheap fix is to the documents. A deleted account and a **suspended** one also return the identical body, so the client cannot tell them apart and does not need to. Branching on the code is impossible anyway until [[T-063 Put the ErrorCode on the error body]] lands.
+**Worth knowing before fixing.** Nothing is broken for a user: the client signs out on the 401, which is what S4 asks for. This is a contract row that does not describe the build, and the cheap fix is to the documents. A deleted account and a **suspended** one also return the identical body, so the client cannot tell them apart and does not need to. Branching on the code is impossible anyway until [[Error Contract Story|Error Contract · S4–S8]] lands.
 
 ## Design
 

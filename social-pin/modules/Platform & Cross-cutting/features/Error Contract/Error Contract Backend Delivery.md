@@ -7,7 +7,7 @@ module: platform
 status: in-progress
 screens: []
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [backend-delivery, backend-delivery/in-progress, module/platform, layer/backend]
 ---
 
@@ -38,8 +38,8 @@ What the backend shipped for this feature and how it works. The sum of this feat
 
 ### Gaps
 
-- **The code is dropped on the wire.** The filter copies `message` and `error` from the exception response but not `ErrorCode`, so the body never carries it and `error` reads `"HttpException"` for every domain error. The Frontend guide's "branch on the code" is therefore not yet possible; clients branch on status and endpoint. See [[T-063 Put the ErrorCode on the error body]].
-- One code is used for two meanings in places (`E_RING_01` for a name clash **and** a disallowed type; `E_RING_PROFILE_03` for a bad link value, a missing link **and** a missing info block). Worth a split when T-063 lands, since the code becomes something clients switch on.
+- **The code is dropped on the wire.** The filter copies `message` and `error` from the exception response but not `ErrorCode`, so the body never carries it and `error` reads `"HttpException"` for every domain error. The Frontend guide's "branch on the code" is therefore not yet possible; clients branch on status and endpoint. See [[Error Contract Story|Error Contract · S4–S8]].
+- One code is used for two meanings in places (`E_RING_01` for a name clash **and** a disallowed type; `E_RING_PROFILE_03` for a bad link value, a missing link **and** a missing info block). Worth a split when Error Contract · S4–S8 lands, since the code becomes something clients switch on.
 
 ## Tasks delivered
 

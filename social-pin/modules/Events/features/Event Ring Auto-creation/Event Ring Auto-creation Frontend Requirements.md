@@ -58,7 +58,7 @@ What the client needs from the backend to build s52 and the two screens the gran
 
 ## Error states the UI must handle
 
-`ErrorCode` is not on the wire yet ([[T-063 Put the ErrorCode on the error body]]); branch on status and endpoint until it is.
+`ErrorCode` is not on the wire yet ([[Error Contract Story|Error Contract · S4–S8]]); branch on status and endpoint until it is.
 
 | Status | ErrorCode | Show |
 |---|---|---|

@@ -59,12 +59,6 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-044 My meetings, calendar, detail, reschedule, cancel]] | [[Meetings]] | Meetings | ⛔ Blocked | M | — | [[T-042 Meeting request, accept with slots, decline with reason|T-042]] |
 | [[T-044-be Backend · My meetings, calendar, detail, reschedule, cancel]] `backend` | [[Meetings]] | Meetings | ⛔ Blocked | M | — | [[T-042 Meeting request, accept with slots, decline with reason|T-042]] |
 | [[T-044-fe Frontend · My meetings, calendar, detail, reschedule, cancel]] `frontend` | [[Meetings]] | Meetings | ⛔ Blocked | M | — | [[T-042 Meeting request, accept with slots, decline with reason|T-042]], [[T-044-be Backend · My meetings, calendar, detail, reschedule, cancel|T-044-be]] |
-| [[T-063 Put the ErrorCode on the error body]] | [[Error Contract]] | Platform & Cross-cutting | ⬜ To do | S | — | — |
-| [[T-063-be Backend · Put the ErrorCode on the error body]] `backend` | [[Error Contract]] | Platform & Cross-cutting | ⬜ To do | S | — | — |
-| [[T-063-fe Frontend · Put the ErrorCode on the error body]] `frontend` | [[Error Contract]] | Platform & Cross-cutting | ⛔ Blocked | S | — | [[T-063-be Backend · Put the ErrorCode on the error body|T-063-be]] |
-| [[T-067 Split E_RING_01 and E_RING_PROFILE_03]] | [[Error Contract]] | Platform & Cross-cutting | ⛔ Blocked | M | — | [[T-063 Put the ErrorCode on the error body|T-063]] |
-| [[T-067-be Backend · Split E_RING_01 and E_RING_PROFILE_03]] `backend` | [[Error Contract]] | Platform & Cross-cutting | ⬜ To do | M | — | — |
-| [[T-067-fe Frontend · Split E_RING_01 and E_RING_PROFILE_03]] `frontend` | [[Error Contract]] | Platform & Cross-cutting | ⛔ Blocked | M | — | [[T-067-be Backend · Split E_RING_01 and E_RING_PROFILE_03|T-067-be]] |
 
 ## High
 

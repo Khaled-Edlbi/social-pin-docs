@@ -421,14 +421,6 @@
     "T-052 Story": "story:T-052",
     "T-052-be Backend · Smart Match": "task:T-052-be",
     "T-052-fe Frontend · Smart Match": "task:T-052-fe",
-    "T-063 Put the ErrorCode on the error body": "task:T-063",
-    "T-063 Story": "story:T-063",
-    "T-063-be Backend · Put the ErrorCode on the error body": "task:T-063-be",
-    "T-063-fe Frontend · Put the ErrorCode on the error body": "task:T-063-fe",
-    "T-067 Split E_RING_01 and E_RING_PROFILE_03": "task:T-067",
-    "T-067 Story": "story:T-067",
-    "T-067-be Backend · Split E_RING_01 and E_RING_PROFILE_03": "task:T-067-be",
-    "T-067-fe Frontend · Split E_RING_01 and E_RING_PROFILE_03": "task:T-067-fe",
     "T-068 Account moderation and platform role": "task:T-068",
     "T-068 Story": "story:T-068",
     "T-068-be Backend · Account moderation and platform role": "task:T-068-be",
@@ -680,7 +672,6 @@
     "S-08": "story:onboarding-imports",
     "S-09": "story:T-020",
     "S-10": "story:T-020b",
-    "S-108": "story:T-067",
     "S-109": "story:T-068",
     "S-11": "story:photo-library",
     "S-110": "story:T-069",
@@ -750,7 +741,6 @@
     "S-82": "story:devices",
     "S-85": "story:e2e-tests",
     "S-87": "story:error-contract",
-    "S-88": "story:T-063",
     "S-89": "story:gemma",
     "S-90": "story:T-051",
     "S-91": "story:T-052",
@@ -872,12 +862,6 @@
     "T-052": "task:T-052",
     "T-052-be": "task:T-052-be",
     "T-052-fe": "task:T-052-fe",
-    "T-063": "task:T-063",
-    "T-063-be": "task:T-063-be",
-    "T-063-fe": "task:T-063-fe",
-    "T-067": "task:T-067",
-    "T-067-be": "task:T-067-be",
-    "T-067-fe": "task:T-067-fe",
     "T-068": "task:T-068",
     "T-068-be": "task:T-068-be",
     "T-069": "task:T-069",
@@ -942,10 +926,10 @@
     "DELETE /rings/:id": {
       "containers": [
         "feature:delegated-admins",
+        "feature:error-contract",
         "feature:ring-projection",
         "feature:rings",
-        "project:status-report-2026-10-15",
-        "task:T-063"
+        "project:status-report-2026-10-15"
       ],
       "kind": "endpoint",
       "notes": [
@@ -955,10 +939,9 @@
         "frontend-requirements:ring-projection",
         "frontend-requirements:rings",
         "project:status-report-2026-10-15",
-        "story:T-063",
         "story:delegated-admins",
-        "story:rings",
-        "task:T-063"
+        "story:error-contract",
+        "story:rings"
       ],
       "owner": "feature:rings"
     },
@@ -1056,8 +1039,8 @@
       "containers": [
         "feature:auth",
         "feature:code-delivery",
-        "project:frontend-passwordless-migration",
-        "task:T-063"
+        "feature:error-contract",
+        "project:frontend-passwordless-migration"
       ],
       "kind": "error",
       "notes": [
@@ -1065,9 +1048,8 @@
         "frontend-requirements:auth",
         "frontend-requirements:code-delivery",
         "project:frontend-passwordless-migration",
-        "story:T-063",
         "story:auth",
-        "task:T-063"
+        "story:error-contract"
       ],
       "owner": null
     },
@@ -1076,8 +1058,7 @@
         "feature:auth",
         "feature:error-contract",
         "project:auth-model",
-        "project:frontend-passwordless-migration",
-        "task:T-063"
+        "project:frontend-passwordless-migration"
       ],
       "kind": "error",
       "notes": [
@@ -1087,7 +1068,7 @@
         "frontend-requirements:auth",
         "project:auth-model",
         "project:frontend-passwordless-migration",
-        "story:T-063"
+        "story:error-contract"
       ],
       "owner": null
     },
@@ -1103,8 +1084,7 @@
         "project:frontend-api-guide",
         "project:frontend-passwordless-migration",
         "task:B-01",
-        "task:B-02",
-        "task:T-063"
+        "task:B-02"
       ],
       "kind": "error",
       "notes": [
@@ -1124,9 +1104,9 @@
         "project:frontend-passwordless-migration",
         "qa-backend:account",
         "qa-frontend:account",
-        "story:T-063",
         "story:account",
         "story:auth",
+        "story:error-contract",
         "task:B-01",
         "task:B-02"
       ],
@@ -1198,8 +1178,7 @@
         "feature:code-delivery",
         "feature:error-contract",
         "project:frontend-api-guide",
-        "project:frontend-passwordless-migration",
-        "task:T-063"
+        "project:frontend-passwordless-migration"
       ],
       "kind": "error",
       "notes": [
@@ -1208,7 +1187,6 @@
         "frontend-requirements:code-delivery",
         "project:frontend-api-guide",
         "project:frontend-passwordless-migration",
-        "story:T-063",
         "story:auth",
         "story:code-delivery",
         "story:error-contract"
@@ -1219,10 +1197,10 @@
       "containers": [
         "feature:auth",
         "feature:code-delivery",
+        "feature:error-contract",
         "project:auth-model",
         "project:frontend-api-guide",
-        "project:frontend-passwordless-migration",
-        "task:T-063"
+        "project:frontend-passwordless-migration"
       ],
       "kind": "error",
       "notes": [
@@ -1233,9 +1211,9 @@
         "project:auth-model",
         "project:frontend-api-guide",
         "project:frontend-passwordless-migration",
-        "story:T-063",
         "story:auth",
-        "story:code-delivery"
+        "story:code-delivery",
+        "story:error-contract"
       ],
       "owner": null
     },
@@ -1257,8 +1235,8 @@
     "E_AUTH_08": {
       "containers": [
         "feature:auth",
-        "project:frontend-passwordless-migration",
-        "task:T-063"
+        "feature:error-contract",
+        "project:frontend-passwordless-migration"
       ],
       "kind": "error",
       "notes": [
@@ -1266,7 +1244,7 @@
         "backend-integration:auth",
         "frontend-requirements:auth",
         "project:frontend-passwordless-migration",
-        "story:T-063"
+        "story:error-contract"
       ],
       "owner": null
     },
@@ -1352,10 +1330,10 @@
     "E_PROFILE_02": {
       "containers": [
         "feature:auth",
+        "feature:error-contract",
         "feature:onboarding-imports",
         "feature:profiles",
-        "project:frontend-passwordless-migration",
-        "task:T-063"
+        "project:frontend-passwordless-migration"
       ],
       "kind": "error",
       "notes": [
@@ -1366,10 +1344,9 @@
         "frontend-requirements:onboarding-imports",
         "frontend-requirements:profiles",
         "project:frontend-passwordless-migration",
-        "story:T-063",
         "story:auth",
-        "story:profiles",
-        "task:T-063"
+        "story:error-contract",
+        "story:profiles"
       ],
       "owner": null
     },
@@ -1394,11 +1371,7 @@
         "feature:exhibitor",
         "feature:meetings",
         "feature:rings",
-        "project:frontend-api-guide",
-        "task:T-063",
-        "task:T-067",
-        "task:T-067-be",
-        "task:T-067-fe"
+        "project:frontend-api-guide"
       ],
       "kind": "error",
       "notes": [
@@ -1412,16 +1385,10 @@
         "frontend-requirements:exhibitor",
         "frontend-requirements:rings",
         "project:frontend-api-guide",
-        "story:T-063",
-        "story:T-067",
         "story:error-contract",
         "story:event-ring-auto",
         "story:meetings",
-        "story:rings",
-        "task:T-063",
-        "task:T-067",
-        "task:T-067-be",
-        "task:T-067-fe"
+        "story:rings"
       ],
       "owner": null
     },
@@ -1488,8 +1455,8 @@
     "E_RING_04": {
       "containers": [
         "feature:delegated-admins",
-        "feature:rings",
-        "task:T-063"
+        "feature:error-contract",
+        "feature:rings"
       ],
       "kind": "error",
       "notes": [
@@ -1497,7 +1464,7 @@
         "backend-integration:rings",
         "frontend-requirements:delegated-admins",
         "frontend-requirements:rings",
-        "story:T-063",
+        "story:error-contract",
         "story:rings"
       ],
       "owner": null
@@ -1660,8 +1627,7 @@
         "feature:auth",
         "feature:error-contract",
         "project:auth-model",
-        "project:frontend-passwordless-migration",
-        "task:T-063"
+        "project:frontend-passwordless-migration"
       ],
       "kind": "error",
       "notes": [
@@ -1671,8 +1637,7 @@
         "frontend-requirements:auth",
         "project:auth-model",
         "project:frontend-passwordless-migration",
-        "story:T-063",
-        "task:T-063"
+        "story:error-contract"
       ],
       "owner": null
     },
@@ -3599,8 +3564,7 @@
     "s18": {
       "containers": [
         "feature:rings",
-        "needs-decision:ND-05",
-        "task:T-067"
+        "needs-decision:ND-05"
       ],
       "kind": "screen",
       "notes": [
@@ -3609,7 +3573,6 @@
         "feature:rings",
         "frontend-requirements:rings",
         "needs-decision:ND-05",
-        "story:T-067",
         "story:rings"
       ],
       "owner": null
@@ -4824,7 +4787,7 @@
     }
   },
   "counts": {
-    "blocked": 124,
+    "blocked": 120,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -4837,28 +4800,28 @@
       "project": 27,
       "qa-backend": 1,
       "qa-frontend": 1,
-      "story": 86,
-      "task": 131
+      "story": 84,
+      "task": 125
     },
     "byLayer": {
       "backend": 56,
-      "business": 296,
+      "business": 288,
       "frontend": 44,
       "qa": 2,
       "shared": 10
     },
     "concepts": 199,
     "decisions": 19,
-    "edges": 4862,
+    "edges": 4728,
     "features": 41,
-    "layerNotes": 176,
+    "layerNotes": 174,
     "modules": 8,
-    "notes": 444,
+    "notes": 436,
     "partial": 4,
-    "placeholders": 161,
+    "placeholders": 155,
     "records": 14,
-    "taskLayerNotes": 46,
-    "tasks": 131
+    "taskLayerNotes": 44,
+    "tasks": 125
   },
   "deadlines": {
     "missed": {
@@ -4914,7 +4877,13 @@
   ],
   "diagnostics": {
     "errors": [],
-    "warnings": []
+    "warnings": [
+      "social-pin/modules/Platform & Cross-cutting/features/Error Contract/Error Contract.md: wikilink [[T-063 Frontend Requirements]] resolves to no note",
+      "social-pin/modules/Platform & Cross-cutting/features/Error Contract/Error Contract.md: wikilink [[T-063 Put the ErrorCode on the error body]] resolves to no note",
+      "social-pin/modules/Platform & Cross-cutting/features/Error Contract/Error Contract.md: wikilink [[T-063-be Backend · Put the ErrorCode on the error body]] resolves to no note",
+      "social-pin/modules/Platform & Cross-cutting/features/Error Contract/Error Contract.md: wikilink [[T-063-fe Frontend · Put the ErrorCode on the error body]] resolves to no note",
+      "social-pin/modules/Platform & Cross-cutting/features/Error Contract/Error Contract.md: wikilink [[T-067-be Backend · Split E_RING_01 and E_RING_PROFILE_03]] resolves to no note"
+    ]
   },
   "edges": [
     {
@@ -5250,17 +5219,7 @@
     {
       "from": "decision:D-19",
       "kind": "affects",
-      "to": "task:T-063"
-    },
-    {
-      "from": "decision:D-19",
-      "kind": "affects",
-      "to": "task:T-063-be"
-    },
-    {
-      "from": "decision:D-19",
-      "kind": "affects",
-      "to": "task:T-063-fe"
+      "to": "story:error-contract"
     },
     {
       "from": "decision:D-20",
@@ -5456,56 +5415,6 @@
       "from": "task:B-02",
       "kind": "affects",
       "to": "story:account"
-    },
-    {
-      "from": "task:T-063",
-      "kind": "affects",
-      "to": "backend-delivery:error-contract"
-    },
-    {
-      "from": "task:T-063",
-      "kind": "affects",
-      "to": "feature:error-contract"
-    },
-    {
-      "from": "task:T-063",
-      "kind": "affects",
-      "to": "project:api-conventions"
-    },
-    {
-      "from": "task:T-063",
-      "kind": "affects",
-      "to": "project:frontend-contract"
-    },
-    {
-      "from": "task:T-067",
-      "kind": "affects",
-      "to": "backend-delivery:error-contract"
-    },
-    {
-      "from": "task:T-067",
-      "kind": "affects",
-      "to": "feature:error-contract"
-    },
-    {
-      "from": "task:T-067",
-      "kind": "affects",
-      "to": "feature:ring-projection"
-    },
-    {
-      "from": "task:T-067",
-      "kind": "affects",
-      "to": "feature:rings"
-    },
-    {
-      "from": "task:T-067",
-      "kind": "affects",
-      "to": "project:api-conventions"
-    },
-    {
-      "from": "task:T-067",
-      "kind": "affects",
-      "to": "project:frontend-contract"
     },
     {
       "from": "task:T-068",
@@ -5948,16 +5857,6 @@
       "to": "qa-backend:subscription"
     },
     {
-      "from": "backend-delivery:T-063",
-      "kind": "blocks",
-      "to": "backend-integration:T-063"
-    },
-    {
-      "from": "backend-delivery:T-063",
-      "kind": "blocks",
-      "to": "qa-backend:T-063"
-    },
-    {
       "from": "backend-delivery:widgets",
       "kind": "blocks",
       "to": "backend-integration:widgets"
@@ -6116,11 +6015,6 @@
       "from": "backend-integration:subscription",
       "kind": "blocks",
       "to": "frontend-delivery:subscription"
-    },
-    {
-      "from": "backend-integration:T-063",
-      "kind": "blocks",
-      "to": "frontend-delivery:T-063"
     },
     {
       "from": "backend-integration:widgets",
@@ -6318,11 +6212,6 @@
       "to": "qa-frontend:subscription"
     },
     {
-      "from": "frontend-delivery:T-063",
-      "kind": "blocks",
-      "to": "qa-frontend:T-063"
-    },
-    {
       "from": "frontend-delivery:view-as",
       "kind": "blocks",
       "to": "qa-frontend:view-as"
@@ -6481,11 +6370,6 @@
       "from": "frontend-requirements:subscription",
       "kind": "blocks",
       "to": "backend-delivery:subscription"
-    },
-    {
-      "from": "frontend-requirements:T-063",
-      "kind": "blocks",
-      "to": "backend-delivery:T-063"
     },
     {
       "from": "frontend-requirements:widgets",
@@ -7138,26 +7022,6 @@
       "to": "task:T-052-fe"
     },
     {
-      "from": "task:T-063",
-      "kind": "blocks",
-      "to": "story:T-067"
-    },
-    {
-      "from": "task:T-063",
-      "kind": "blocks",
-      "to": "task:T-067"
-    },
-    {
-      "from": "task:T-063-be",
-      "kind": "blocks",
-      "to": "task:T-063-fe"
-    },
-    {
-      "from": "task:T-067-be",
-      "kind": "blocks",
-      "to": "task:T-067-fe"
-    },
-    {
       "from": "task:T-068",
       "kind": "blocks",
       "to": "task:T-069"
@@ -7445,7 +7309,7 @@
     {
       "from": "needs-decision:ND-19",
       "kind": "decision",
-      "to": "task:T-063"
+      "to": "story:error-contract"
     },
     {
       "from": "needs-decision:ND-20",
@@ -7516,11 +7380,6 @@
       "from": "story:payments",
       "kind": "depends",
       "to": "needs-decision:ND-07"
-    },
-    {
-      "from": "story:T-067",
-      "kind": "depends",
-      "to": "task:T-063"
     },
     {
       "from": "task:T-002",
@@ -8173,21 +8032,6 @@
       "to": "task:T-052-be"
     },
     {
-      "from": "task:T-063-fe",
-      "kind": "depends",
-      "to": "task:T-063-be"
-    },
-    {
-      "from": "task:T-067",
-      "kind": "depends",
-      "to": "task:T-063"
-    },
-    {
-      "from": "task:T-067-fe",
-      "kind": "depends",
-      "to": "task:T-067-be"
-    },
-    {
       "from": "task:T-069",
       "kind": "depends",
       "to": "task:T-068"
@@ -8695,7 +8539,7 @@
     {
       "from": "qa-frontend:account",
       "kind": "pending",
-      "to": "task:T-063"
+      "to": "story:error-contract"
     },
     {
       "from": "qa-frontend:account",
@@ -8960,17 +8804,17 @@
     {
       "from": "backend-delivery:account",
       "kind": "related",
-      "to": "story:linked-accounts",
+      "to": "story:error-contract",
       "via": [
-        "POST /auth/login/verify"
+        "E_AUTH_03"
       ]
     },
     {
       "from": "backend-delivery:account",
       "kind": "related",
-      "to": "story:T-063",
+      "to": "story:linked-accounts",
       "via": [
-        "E_AUTH_03"
+        "POST /auth/login/verify"
       ]
     },
     {
@@ -9313,17 +9157,17 @@
     {
       "from": "backend-integration:account",
       "kind": "related",
-      "to": "story:linked-accounts",
+      "to": "story:error-contract",
       "via": [
-        "POST /auth/login/verify"
+        "E_AUTH_03"
       ]
     },
     {
       "from": "backend-integration:account",
       "kind": "related",
-      "to": "story:T-063",
+      "to": "story:linked-accounts",
       "via": [
-        "E_AUTH_03"
+        "POST /auth/login/verify"
       ]
     },
     {
@@ -9336,11 +9180,6 @@
         "E_USER_01",
         "GET /users/me"
       ]
-    },
-    {
-      "from": "backend-integration:account",
-      "kind": "related",
-      "to": "task:T-063"
     },
     {
       "from": "backend-integration:auth",
@@ -9520,6 +9359,11 @@
       "from": "decision:D-19",
       "kind": "related",
       "to": "needs-decision:ND-19"
+    },
+    {
+      "from": "decision:D-19",
+      "kind": "related",
+      "to": "story:error-contract"
     },
     {
       "from": "decision:D-20",
@@ -11009,6 +10853,11 @@
     {
       "from": "frontend-delivery:account",
       "kind": "related",
+      "to": "story:error-contract"
+    },
+    {
+      "from": "frontend-delivery:account",
+      "kind": "related",
       "to": "story:files"
     },
     {
@@ -11020,11 +10869,6 @@
       "from": "frontend-delivery:account",
       "kind": "related",
       "to": "story:subscription"
-    },
-    {
-      "from": "frontend-delivery:account",
-      "kind": "related",
-      "to": "task:T-063"
     },
     {
       "from": "frontend-requirements:auth",
@@ -11059,12 +10903,12 @@
     {
       "from": "frontend-requirements:auth",
       "kind": "related",
-      "to": "story:profiles"
+      "to": "story:error-contract"
     },
     {
       "from": "frontend-requirements:auth",
       "kind": "related",
-      "to": "task:T-063"
+      "to": "story:profiles"
     },
     {
       "from": "frontend-requirements:counts",
@@ -11089,12 +10933,12 @@
     {
       "from": "frontend-requirements:counts",
       "kind": "related",
-      "to": "task:T-021"
+      "to": "story:error-contract"
     },
     {
       "from": "frontend-requirements:counts",
       "kind": "related",
-      "to": "task:T-063"
+      "to": "task:T-021"
     },
     {
       "from": "frontend-requirements:interests",
@@ -11109,12 +10953,12 @@
     {
       "from": "frontend-requirements:interests",
       "kind": "related",
-      "to": "task:T-051"
+      "to": "story:error-contract"
     },
     {
       "from": "frontend-requirements:interests",
       "kind": "related",
-      "to": "task:T-063"
+      "to": "task:T-051"
     },
     {
       "from": "frontend-requirements:onboarding-imports",
@@ -11149,17 +10993,17 @@
     {
       "from": "frontend-requirements:onboarding-imports",
       "kind": "related",
+      "to": "story:error-contract"
+    },
+    {
+      "from": "frontend-requirements:onboarding-imports",
+      "kind": "related",
       "to": "story:files"
     },
     {
       "from": "frontend-requirements:onboarding-imports",
       "kind": "related",
       "to": "story:profiles"
-    },
-    {
-      "from": "frontend-requirements:onboarding-imports",
-      "kind": "related",
-      "to": "task:T-063"
     },
     {
       "from": "frontend-requirements:profiles",
@@ -11189,17 +11033,17 @@
     {
       "from": "frontend-requirements:profiles",
       "kind": "related",
+      "to": "story:error-contract"
+    },
+    {
+      "from": "frontend-requirements:profiles",
+      "kind": "related",
       "to": "story:files"
     },
     {
       "from": "frontend-requirements:profiles",
       "kind": "related",
       "to": "task:T-020"
-    },
-    {
-      "from": "frontend-requirements:profiles",
-      "kind": "related",
-      "to": "task:T-063"
     },
     {
       "from": "needs-decision:ND-07",
@@ -11315,6 +11159,11 @@
       "from": "needs-decision:ND-19",
       "kind": "related",
       "to": "project:docs-tree"
+    },
+    {
+      "from": "needs-decision:ND-19",
+      "kind": "related",
+      "to": "story:error-contract"
     },
     {
       "from": "needs-decision:ND-20",
@@ -11550,7 +11399,7 @@
     {
       "from": "project:auth-model",
       "kind": "related",
-      "to": "story:T-063",
+      "to": "story:error-contract",
       "via": [
         "E_AUTH_03"
       ]
@@ -11719,7 +11568,7 @@
     {
       "from": "qa-backend:account",
       "kind": "related",
-      "to": "task:T-063"
+      "to": "story:error-contract"
     },
     {
       "from": "qa-frontend:account",
@@ -11734,12 +11583,12 @@
     {
       "from": "qa-frontend:account",
       "kind": "related",
-      "to": "story:files"
+      "to": "story:error-contract"
     },
     {
       "from": "qa-frontend:account",
       "kind": "related",
-      "to": "task:T-063"
+      "to": "story:files"
     },
     {
       "from": "qa-frontend:account",
@@ -12413,42 +12262,6 @@
       "to": "feature:view-as"
     },
     {
-      "from": "story:T-063",
-      "kind": "related",
-      "to": "decision:D-19"
-    },
-    {
-      "from": "story:T-063",
-      "kind": "related",
-      "to": "feature:error-contract"
-    },
-    {
-      "from": "story:T-063",
-      "kind": "related",
-      "to": "story:error-contract",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
-      "from": "story:T-067",
-      "kind": "related",
-      "to": "feature:error-contract"
-    },
-    {
-      "from": "story:T-067",
-      "kind": "related",
-      "to": "story:error-contract",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
-      "from": "story:T-067",
-      "kind": "related",
-      "to": "task:T-063"
-    },
-    {
       "from": "story:widgets",
       "kind": "related",
       "to": "decision:D-03"
@@ -12562,7 +12375,7 @@
     {
       "from": "task:B-02",
       "kind": "related",
-      "to": "task:T-063"
+      "to": "story:error-contract"
     },
     {
       "from": "task:T-020",
@@ -12718,36 +12531,6 @@
       "from": "task:T-051-fe",
       "kind": "related",
       "to": "story:subscription"
-    },
-    {
-      "from": "task:T-063",
-      "kind": "related",
-      "to": "decision:D-19"
-    },
-    {
-      "from": "task:T-063",
-      "kind": "related",
-      "to": "needs-decision:ND-19"
-    },
-    {
-      "from": "task:T-063",
-      "kind": "related",
-      "to": "story:T-063"
-    },
-    {
-      "from": "task:T-067",
-      "kind": "related",
-      "to": "story:error-contract"
-    },
-    {
-      "from": "task:T-067",
-      "kind": "related",
-      "to": "story:T-067"
-    },
-    {
-      "from": "task:T-067",
-      "kind": "related",
-      "to": "task:T-063"
     },
     {
       "from": "task:T-068",
@@ -13311,14 +13094,6 @@
       ]
     },
     {
-      "from": "decision:D-20",
-      "kind": "shares",
-      "to": "task:T-063",
-      "via": [
-        "E_AUTH_03"
-      ]
-    },
-    {
       "from": "feature:account",
       "kind": "shares",
       "to": "feature:app-shell",
@@ -13735,14 +13510,6 @@
       ]
     },
     {
-      "from": "feature:account",
-      "kind": "shares",
-      "to": "task:T-063",
-      "via": [
-        "E_AUTH_03"
-      ]
-    },
-    {
       "from": "feature:app-shell",
       "kind": "shares",
       "to": "feature:auth",
@@ -14159,10 +13926,14 @@
       "kind": "shares",
       "to": "feature:error-contract",
       "via": [
+        "E_AUTH_01",
         "E_AUTH_02",
         "E_AUTH_03",
         "E_AUTH_04",
         "E_AUTH_05",
+        "E_AUTH_06",
+        "E_AUTH_08",
+        "E_PROFILE_02",
         "E_USER_04"
       ]
     },
@@ -14490,21 +14261,6 @@
       "to": "task:T-022",
       "via": [
         "GET /rings"
-      ]
-    },
-    {
-      "from": "feature:auth",
-      "kind": "shares",
-      "to": "task:T-063",
-      "via": [
-        "E_AUTH_01",
-        "E_AUTH_02",
-        "E_AUTH_03",
-        "E_AUTH_05",
-        "E_AUTH_06",
-        "E_AUTH_08",
-        "E_PROFILE_02",
-        "E_USER_04"
       ]
     },
     {
@@ -15169,7 +14925,9 @@
       "kind": "shares",
       "to": "feature:error-contract",
       "via": [
-        "E_AUTH_05"
+        "E_AUTH_01",
+        "E_AUTH_05",
+        "E_AUTH_06"
       ]
     },
     {
@@ -15259,16 +15017,6 @@
       "to": "task:B-01",
       "via": [
         "POST /auth/login"
-      ]
-    },
-    {
-      "from": "feature:code-delivery",
-      "kind": "shares",
-      "to": "task:T-063",
-      "via": [
-        "E_AUTH_01",
-        "E_AUTH_05",
-        "E_AUTH_06"
       ]
     },
     {
@@ -16459,9 +16207,11 @@
       "kind": "shares",
       "to": "feature:error-contract",
       "via": [
+        "DELETE /rings/:id",
         "E_AUTH_04",
         "E_RING_01",
-        "E_RING_02"
+        "E_RING_02",
+        "E_RING_04"
       ]
     },
     {
@@ -16772,40 +16522,6 @@
       ]
     },
     {
-      "from": "feature:delegated-admins",
-      "kind": "shares",
-      "to": "task:T-063",
-      "via": [
-        "DELETE /rings/:id",
-        "E_RING_01",
-        "E_RING_04"
-      ]
-    },
-    {
-      "from": "feature:delegated-admins",
-      "kind": "shares",
-      "to": "task:T-067",
-      "via": [
-        "E_RING_01"
-      ]
-    },
-    {
-      "from": "feature:delegated-admins",
-      "kind": "shares",
-      "to": "task:T-067-be",
-      "via": [
-        "E_RING_01"
-      ]
-    },
-    {
-      "from": "feature:delegated-admins",
-      "kind": "shares",
-      "to": "task:T-067-fe",
-      "via": [
-        "E_RING_01"
-      ]
-    },
-    {
       "from": "feature:devices",
       "kind": "shares",
       "to": "feature:discover-hub",
@@ -16968,14 +16684,6 @@
       "from": "feature:devices",
       "kind": "shares",
       "to": "task:B-02",
-      "via": [
-        "E_AUTH_03"
-      ]
-    },
-    {
-      "from": "feature:devices",
-      "kind": "shares",
-      "to": "task:T-063",
       "via": [
         "E_AUTH_03"
       ]
@@ -17282,6 +16990,14 @@
     {
       "from": "feature:error-contract",
       "kind": "shares",
+      "to": "feature:onboarding-imports",
+      "via": [
+        "E_PROFILE_02"
+      ]
+    },
+    {
+      "from": "feature:error-contract",
+      "kind": "shares",
       "to": "feature:payments",
       "via": [
         "E_AUTH_04"
@@ -17316,6 +17032,14 @@
     {
       "from": "feature:error-contract",
       "kind": "shares",
+      "to": "feature:profiles",
+      "via": [
+        "E_PROFILE_02"
+      ]
+    },
+    {
+      "from": "feature:error-contract",
+      "kind": "shares",
       "to": "feature:ring-access",
       "via": [
         "E_RING_02"
@@ -17342,6 +17066,7 @@
       "kind": "shares",
       "to": "feature:ring-projection",
       "via": [
+        "DELETE /rings/:id",
         "E_RING_02"
       ]
     },
@@ -17350,8 +17075,10 @@
       "kind": "shares",
       "to": "feature:rings",
       "via": [
+        "DELETE /rings/:id",
         "E_RING_01",
-        "E_RING_02"
+        "E_RING_02",
+        "E_RING_04"
       ]
     },
     {
@@ -17409,6 +17136,7 @@
       "via": [
         "E_AUTH_02",
         "E_AUTH_03",
+        "E_AUTH_06",
         "E_USER_04"
       ]
     },
@@ -17436,6 +17164,7 @@
         "E_AUTH_03",
         "E_AUTH_04",
         "E_AUTH_05",
+        "E_AUTH_06",
         "E_RING_01"
       ]
     },
@@ -17452,11 +17181,23 @@
       "kind": "shares",
       "to": "project:frontend-passwordless-migration",
       "via": [
+        "E_AUTH_01",
         "E_AUTH_02",
         "E_AUTH_03",
         "E_AUTH_04",
         "E_AUTH_05",
+        "E_AUTH_06",
+        "E_AUTH_08",
+        "E_PROFILE_02",
         "E_USER_04"
+      ]
+    },
+    {
+      "from": "feature:error-contract",
+      "kind": "shares",
+      "to": "project:status-report-2026-10-15",
+      "via": [
+        "DELETE /rings/:id"
       ]
     },
     {
@@ -17489,42 +17230,6 @@
       "to": "task:T-022",
       "via": [
         "E_RING_02"
-      ]
-    },
-    {
-      "from": "feature:error-contract",
-      "kind": "shares",
-      "to": "task:T-063",
-      "via": [
-        "E_AUTH_02",
-        "E_AUTH_03",
-        "E_AUTH_05",
-        "E_RING_01",
-        "E_USER_04"
-      ]
-    },
-    {
-      "from": "feature:error-contract",
-      "kind": "shares",
-      "to": "task:T-067",
-      "via": [
-        "E_RING_01"
-      ]
-    },
-    {
-      "from": "feature:error-contract",
-      "kind": "shares",
-      "to": "task:T-067-be",
-      "via": [
-        "E_RING_01"
-      ]
-    },
-    {
-      "from": "feature:error-contract",
-      "kind": "shares",
-      "to": "task:T-067-fe",
-      "via": [
-        "E_RING_01"
       ]
     },
     {
@@ -17803,38 +17508,6 @@
       "via": [
         "E_RING_02",
         "GET /rings"
-      ]
-    },
-    {
-      "from": "feature:event-ring-auto",
-      "kind": "shares",
-      "to": "task:T-063",
-      "via": [
-        "E_RING_01"
-      ]
-    },
-    {
-      "from": "feature:event-ring-auto",
-      "kind": "shares",
-      "to": "task:T-067",
-      "via": [
-        "E_RING_01"
-      ]
-    },
-    {
-      "from": "feature:event-ring-auto",
-      "kind": "shares",
-      "to": "task:T-067-be",
-      "via": [
-        "E_RING_01"
-      ]
-    },
-    {
-      "from": "feature:event-ring-auto",
-      "kind": "shares",
-      "to": "task:T-067-fe",
-      "via": [
-        "E_RING_01"
       ]
     },
     {
@@ -18352,38 +18025,6 @@
       "to": "task:T-022",
       "via": [
         "E_RING_02"
-      ]
-    },
-    {
-      "from": "feature:exhibitor",
-      "kind": "shares",
-      "to": "task:T-063",
-      "via": [
-        "E_RING_01"
-      ]
-    },
-    {
-      "from": "feature:exhibitor",
-      "kind": "shares",
-      "to": "task:T-067",
-      "via": [
-        "E_RING_01"
-      ]
-    },
-    {
-      "from": "feature:exhibitor",
-      "kind": "shares",
-      "to": "task:T-067-be",
-      "via": [
-        "E_RING_01"
-      ]
-    },
-    {
-      "from": "feature:exhibitor",
-      "kind": "shares",
-      "to": "task:T-067-fe",
-      "via": [
-        "E_RING_01"
       ]
     },
     {
@@ -19059,38 +18700,6 @@
       ]
     },
     {
-      "from": "feature:meetings",
-      "kind": "shares",
-      "to": "task:T-063",
-      "via": [
-        "E_RING_01"
-      ]
-    },
-    {
-      "from": "feature:meetings",
-      "kind": "shares",
-      "to": "task:T-067",
-      "via": [
-        "E_RING_01"
-      ]
-    },
-    {
-      "from": "feature:meetings",
-      "kind": "shares",
-      "to": "task:T-067-be",
-      "via": [
-        "E_RING_01"
-      ]
-    },
-    {
-      "from": "feature:meetings",
-      "kind": "shares",
-      "to": "task:T-067-fe",
-      "via": [
-        "E_RING_01"
-      ]
-    },
-    {
       "from": "feature:notifications",
       "kind": "shares",
       "to": "feature:payments",
@@ -19278,14 +18887,6 @@
       "via": [
         "s03a",
         "s03b"
-      ]
-    },
-    {
-      "from": "feature:onboarding-imports",
-      "kind": "shares",
-      "to": "task:T-063",
-      "via": [
-        "E_PROFILE_02"
       ]
     },
     {
@@ -20063,14 +19664,6 @@
       ]
     },
     {
-      "from": "feature:profiles",
-      "kind": "shares",
-      "to": "task:T-063",
-      "via": [
-        "E_PROFILE_02"
-      ]
-    },
-    {
       "from": "feature:ring-access",
       "kind": "shares",
       "to": "feature:ring-invitations",
@@ -20757,14 +20350,6 @@
       ]
     },
     {
-      "from": "feature:ring-projection",
-      "kind": "shares",
-      "to": "task:T-063",
-      "via": [
-        "DELETE /rings/:id"
-      ]
-    },
-    {
       "from": "feature:rings",
       "kind": "shares",
       "to": "feature:view-as",
@@ -20930,40 +20515,6 @@
         "E_RING_02",
         "GET /rings",
         "GET /rings/shared-with-me"
-      ]
-    },
-    {
-      "from": "feature:rings",
-      "kind": "shares",
-      "to": "task:T-063",
-      "via": [
-        "DELETE /rings/:id",
-        "E_RING_01",
-        "E_RING_04"
-      ]
-    },
-    {
-      "from": "feature:rings",
-      "kind": "shares",
-      "to": "task:T-067",
-      "via": [
-        "E_RING_01"
-      ]
-    },
-    {
-      "from": "feature:rings",
-      "kind": "shares",
-      "to": "task:T-067-be",
-      "via": [
-        "E_RING_01"
-      ]
-    },
-    {
-      "from": "feature:rings",
-      "kind": "shares",
-      "to": "task:T-067-fe",
-      "via": [
-        "E_RING_01"
       ]
     },
     {
@@ -21585,14 +21136,6 @@
       ]
     },
     {
-      "from": "needs-decision:ND-20",
-      "kind": "shares",
-      "to": "task:T-063",
-      "via": [
-        "E_AUTH_03"
-      ]
-    },
-    {
       "from": "needs-decision:ND-21",
       "kind": "shares",
       "to": "project:frontend-contract",
@@ -21733,17 +21276,6 @@
       "via": [
         "E_AUTH_03",
         "E_USER_01"
-      ]
-    },
-    {
-      "from": "project:auth-model",
-      "kind": "shares",
-      "to": "task:T-063",
-      "via": [
-        "E_AUTH_02",
-        "E_AUTH_03",
-        "E_AUTH_06",
-        "E_USER_04"
       ]
     },
     {
@@ -21933,41 +21465,6 @@
     {
       "from": "project:frontend-api-guide",
       "kind": "shares",
-      "to": "task:T-063",
-      "via": [
-        "E_AUTH_03",
-        "E_AUTH_05",
-        "E_AUTH_06",
-        "E_RING_01"
-      ]
-    },
-    {
-      "from": "project:frontend-api-guide",
-      "kind": "shares",
-      "to": "task:T-067",
-      "via": [
-        "E_RING_01"
-      ]
-    },
-    {
-      "from": "project:frontend-api-guide",
-      "kind": "shares",
-      "to": "task:T-067-be",
-      "via": [
-        "E_RING_01"
-      ]
-    },
-    {
-      "from": "project:frontend-api-guide",
-      "kind": "shares",
-      "to": "task:T-067-fe",
-      "via": [
-        "E_RING_01"
-      ]
-    },
-    {
-      "from": "project:frontend-api-guide",
-      "kind": "shares",
       "to": "task:T-068",
       "via": [
         "E_ADMIN_01",
@@ -22109,21 +21606,6 @@
       "to": "task:B-02",
       "via": [
         "E_AUTH_03"
-      ]
-    },
-    {
-      "from": "project:frontend-passwordless-migration",
-      "kind": "shares",
-      "to": "task:T-063",
-      "via": [
-        "E_AUTH_01",
-        "E_AUTH_02",
-        "E_AUTH_03",
-        "E_AUTH_05",
-        "E_AUTH_06",
-        "E_AUTH_08",
-        "E_PROFILE_02",
-        "E_USER_04"
       ]
     },
     {
@@ -22307,14 +21789,6 @@
       "to": "task:T-023",
       "via": [
         "GET /views/user/:userId/perspectives"
-      ]
-    },
-    {
-      "from": "project:status-report-2026-10-15",
-      "kind": "shares",
-      "to": "task:T-063",
-      "via": [
-        "DELETE /rings/:id"
       ]
     },
     {
@@ -24380,12 +23854,7 @@
     {
       "from": "story:error-contract",
       "kind": "tree",
-      "to": "task:T-063"
-    },
-    {
-      "from": "story:error-contract",
-      "kind": "tree",
-      "to": "task:T-067"
+      "to": "needs-decision:ND-19"
     },
     {
       "from": "story:events-before",
@@ -25198,71 +24667,6 @@
       "to": "task:T-052-fe"
     },
     {
-      "from": "task:T-063",
-      "kind": "tree",
-      "to": "backend-delivery:T-063"
-    },
-    {
-      "from": "task:T-063",
-      "kind": "tree",
-      "to": "backend-integration:T-063"
-    },
-    {
-      "from": "task:T-063",
-      "kind": "tree",
-      "to": "frontend-delivery:T-063"
-    },
-    {
-      "from": "task:T-063",
-      "kind": "tree",
-      "to": "frontend-requirements:T-063"
-    },
-    {
-      "from": "task:T-063",
-      "kind": "tree",
-      "to": "needs-decision:ND-19"
-    },
-    {
-      "from": "task:T-063",
-      "kind": "tree",
-      "to": "qa-backend:T-063"
-    },
-    {
-      "from": "task:T-063",
-      "kind": "tree",
-      "to": "qa-frontend:T-063"
-    },
-    {
-      "from": "task:T-063",
-      "kind": "tree",
-      "to": "story:T-063"
-    },
-    {
-      "from": "task:T-063",
-      "kind": "tree",
-      "to": "task:T-063-be"
-    },
-    {
-      "from": "task:T-063",
-      "kind": "tree",
-      "to": "task:T-063-fe"
-    },
-    {
-      "from": "task:T-067",
-      "kind": "tree",
-      "to": "story:T-067"
-    },
-    {
-      "from": "task:T-067",
-      "kind": "tree",
-      "to": "task:T-067-be"
-    },
-    {
-      "from": "task:T-067",
-      "kind": "tree",
-      "to": "task:T-067-fe"
-    },
-    {
       "from": "task:T-068",
       "kind": "tree",
       "to": "story:T-068"
@@ -25436,6 +24840,11 @@
       "from": "backend-delivery:error-contract",
       "kind": "wikilink",
       "to": "frontend-requirements:error-contract"
+    },
+    {
+      "from": "backend-delivery:error-contract",
+      "kind": "wikilink",
+      "to": "story:error-contract"
     },
     {
       "from": "backend-delivery:event-ring-auto",
@@ -25900,6 +25309,11 @@
     {
       "from": "backend-integration:auth",
       "kind": "wikilink",
+      "to": "story:error-contract"
+    },
+    {
+      "from": "backend-integration:auth",
+      "kind": "wikilink",
       "to": "story:linked-accounts"
     },
     {
@@ -25916,11 +25330,6 @@
       "from": "backend-integration:auth",
       "kind": "wikilink",
       "to": "task:T-003"
-    },
-    {
-      "from": "backend-integration:auth",
-      "kind": "wikilink",
-      "to": "task:T-063"
     },
     {
       "from": "backend-integration:files",
@@ -26540,12 +25949,7 @@
     {
       "from": "feature:error-contract",
       "kind": "wikilink",
-      "to": "task:T-063"
-    },
-    {
-      "from": "feature:error-contract",
-      "kind": "wikilink",
-      "to": "task:T-067"
+      "to": "project:agent-rules"
     },
     {
       "from": "feature:event-ring-auto",
@@ -26920,6 +26324,11 @@
     {
       "from": "frontend-requirements:account",
       "kind": "wikilink",
+      "to": "story:error-contract"
+    },
+    {
+      "from": "frontend-requirements:account",
+      "kind": "wikilink",
       "to": "story:files"
     },
     {
@@ -26931,11 +26340,6 @@
       "from": "frontend-requirements:account",
       "kind": "wikilink",
       "to": "story:subscription"
-    },
-    {
-      "from": "frontend-requirements:account",
-      "kind": "wikilink",
-      "to": "task:T-063"
     },
     {
       "from": "frontend-requirements:app-shell",
@@ -26970,12 +26374,12 @@
     {
       "from": "frontend-requirements:app-shell",
       "kind": "wikilink",
-      "to": "task:T-045"
+      "to": "story:error-contract"
     },
     {
       "from": "frontend-requirements:app-shell",
       "kind": "wikilink",
-      "to": "task:T-063"
+      "to": "task:T-045"
     },
     {
       "from": "frontend-requirements:audit-log",
@@ -26985,7 +26389,7 @@
     {
       "from": "frontend-requirements:audit-log",
       "kind": "wikilink",
-      "to": "task:T-063"
+      "to": "story:error-contract"
     },
     {
       "from": "frontend-requirements:auth",
@@ -27050,6 +26454,11 @@
     {
       "from": "frontend-requirements:badge-qr",
       "kind": "wikilink",
+      "to": "story:error-contract"
+    },
+    {
+      "from": "frontend-requirements:badge-qr",
+      "kind": "wikilink",
       "to": "story:files"
     },
     {
@@ -27088,11 +26497,6 @@
       "to": "task:T-037"
     },
     {
-      "from": "frontend-requirements:badge-qr",
-      "kind": "wikilink",
-      "to": "task:T-063"
-    },
-    {
       "from": "frontend-requirements:cleanup-jobs",
       "kind": "wikilink",
       "to": "feature:pincast"
@@ -27115,7 +26519,7 @@
     {
       "from": "frontend-requirements:cleanup-jobs",
       "kind": "wikilink",
-      "to": "task:T-063"
+      "to": "story:error-contract"
     },
     {
       "from": "frontend-requirements:code-delivery",
@@ -27140,6 +26544,11 @@
     {
       "from": "frontend-requirements:code-delivery",
       "kind": "wikilink",
+      "to": "story:error-contract"
+    },
+    {
+      "from": "frontend-requirements:code-delivery",
+      "kind": "wikilink",
       "to": "task:T-001"
     },
     {
@@ -27151,11 +26560,6 @@
       "from": "frontend-requirements:code-delivery",
       "kind": "wikilink",
       "to": "task:T-003"
-    },
-    {
-      "from": "frontend-requirements:code-delivery",
-      "kind": "wikilink",
-      "to": "task:T-063"
     },
     {
       "from": "frontend-requirements:companies",
@@ -27195,6 +26599,11 @@
     {
       "from": "frontend-requirements:companies",
       "kind": "wikilink",
+      "to": "story:error-contract"
+    },
+    {
+      "from": "frontend-requirements:companies",
+      "kind": "wikilink",
       "to": "story:files"
     },
     {
@@ -27211,11 +26620,6 @@
       "from": "frontend-requirements:companies",
       "kind": "wikilink",
       "to": "task:T-048"
-    },
-    {
-      "from": "frontend-requirements:companies",
-      "kind": "wikilink",
-      "to": "task:T-063"
     },
     {
       "from": "frontend-requirements:connections",
@@ -27265,6 +26669,11 @@
     {
       "from": "frontend-requirements:connections",
       "kind": "wikilink",
+      "to": "story:error-contract"
+    },
+    {
+      "from": "frontend-requirements:connections",
+      "kind": "wikilink",
       "to": "story:files"
     },
     {
@@ -27303,11 +26712,6 @@
       "to": "task:T-051"
     },
     {
-      "from": "frontend-requirements:connections",
-      "kind": "wikilink",
-      "to": "task:T-063"
-    },
-    {
       "from": "frontend-requirements:counts",
       "kind": "wikilink",
       "to": "story:counts"
@@ -27330,6 +26734,11 @@
     {
       "from": "frontend-requirements:delegated-admins",
       "kind": "wikilink",
+      "to": "story:error-contract"
+    },
+    {
+      "from": "frontend-requirements:delegated-admins",
+      "kind": "wikilink",
       "to": "story:files"
     },
     {
@@ -27343,14 +26752,14 @@
       "to": "task:T-045"
     },
     {
-      "from": "frontend-requirements:delegated-admins",
+      "from": "frontend-requirements:devices",
       "kind": "wikilink",
-      "to": "task:T-063"
+      "to": "story:devices"
     },
     {
       "from": "frontend-requirements:devices",
       "kind": "wikilink",
-      "to": "story:devices"
+      "to": "story:error-contract"
     },
     {
       "from": "frontend-requirements:devices",
@@ -27368,11 +26777,6 @@
       "to": "task:T-046"
     },
     {
-      "from": "frontend-requirements:devices",
-      "kind": "wikilink",
-      "to": "task:T-063"
-    },
-    {
       "from": "frontend-requirements:discover-hub",
       "kind": "wikilink",
       "to": "story:companies"
@@ -27381,6 +26785,11 @@
       "from": "frontend-requirements:discover-hub",
       "kind": "wikilink",
       "to": "story:discover-hub"
+    },
+    {
+      "from": "frontend-requirements:discover-hub",
+      "kind": "wikilink",
+      "to": "story:error-contract"
     },
     {
       "from": "frontend-requirements:discover-hub",
@@ -27413,11 +26822,6 @@
       "to": "task:T-051"
     },
     {
-      "from": "frontend-requirements:discover-hub",
-      "kind": "wikilink",
-      "to": "task:T-063"
-    },
-    {
       "from": "frontend-requirements:e2e-tests",
       "kind": "wikilink",
       "to": "story:e2e-tests"
@@ -27428,14 +26832,14 @@
       "to": "story:error-contract"
     },
     {
-      "from": "frontend-requirements:error-contract",
+      "from": "frontend-requirements:event-ring-auto",
       "kind": "wikilink",
-      "to": "task:T-063"
+      "to": "frontend-requirements:events-during"
     },
     {
       "from": "frontend-requirements:event-ring-auto",
       "kind": "wikilink",
-      "to": "frontend-requirements:events-during"
+      "to": "story:error-contract"
     },
     {
       "from": "frontend-requirements:event-ring-auto",
@@ -27473,11 +26877,6 @@
       "to": "task:T-037"
     },
     {
-      "from": "frontend-requirements:event-ring-auto",
-      "kind": "wikilink",
-      "to": "task:T-063"
-    },
-    {
       "from": "frontend-requirements:events-before",
       "kind": "wikilink",
       "to": "decision:D-07"
@@ -27491,6 +26890,11 @@
       "from": "frontend-requirements:events-before",
       "kind": "wikilink",
       "to": "frontend-requirements:payments"
+    },
+    {
+      "from": "frontend-requirements:events-before",
+      "kind": "wikilink",
+      "to": "story:error-contract"
     },
     {
       "from": "frontend-requirements:events-before",
@@ -27528,9 +26932,9 @@
       "to": "task:T-035"
     },
     {
-      "from": "frontend-requirements:events-before",
+      "from": "frontend-requirements:events-during",
       "kind": "wikilink",
-      "to": "task:T-063"
+      "to": "story:error-contract"
     },
     {
       "from": "frontend-requirements:events-during",
@@ -27598,11 +27002,6 @@
       "to": "task:T-052"
     },
     {
-      "from": "frontend-requirements:events-during",
-      "kind": "wikilink",
-      "to": "task:T-063"
-    },
-    {
       "from": "frontend-requirements:exhibitor",
       "kind": "wikilink",
       "to": "feature:notifications"
@@ -27621,6 +27020,11 @@
       "from": "frontend-requirements:exhibitor",
       "kind": "wikilink",
       "to": "story:companies"
+    },
+    {
+      "from": "frontend-requirements:exhibitor",
+      "kind": "wikilink",
+      "to": "story:error-contract"
     },
     {
       "from": "frontend-requirements:exhibitor",
@@ -27663,11 +27067,6 @@
       "to": "task:T-052"
     },
     {
-      "from": "frontend-requirements:exhibitor",
-      "kind": "wikilink",
-      "to": "task:T-063"
-    },
-    {
       "from": "frontend-requirements:files",
       "kind": "wikilink",
       "to": "backend-integration:files"
@@ -27676,6 +27075,11 @@
       "from": "frontend-requirements:files",
       "kind": "wikilink",
       "to": "feature:ring-projection"
+    },
+    {
+      "from": "frontend-requirements:files",
+      "kind": "wikilink",
+      "to": "story:error-contract"
     },
     {
       "from": "frontend-requirements:files",
@@ -27693,11 +27097,6 @@
       "to": "task:T-013"
     },
     {
-      "from": "frontend-requirements:files",
-      "kind": "wikilink",
-      "to": "task:T-063"
-    },
-    {
       "from": "frontend-requirements:gemma",
       "kind": "wikilink",
       "to": "decision:D-06"
@@ -27711,6 +27110,11 @@
       "from": "frontend-requirements:gemma",
       "kind": "wikilink",
       "to": "needs-decision:ND-06"
+    },
+    {
+      "from": "frontend-requirements:gemma",
+      "kind": "wikilink",
+      "to": "story:error-contract"
     },
     {
       "from": "frontend-requirements:gemma",
@@ -27748,11 +27152,6 @@
       "to": "task:T-052"
     },
     {
-      "from": "frontend-requirements:gemma",
-      "kind": "wikilink",
-      "to": "task:T-063"
-    },
-    {
       "from": "frontend-requirements:interests",
       "kind": "wikilink",
       "to": "story:interests"
@@ -27780,6 +27179,11 @@
     {
       "from": "frontend-requirements:linked-accounts",
       "kind": "wikilink",
+      "to": "story:error-contract"
+    },
+    {
+      "from": "frontend-requirements:linked-accounts",
+      "kind": "wikilink",
       "to": "story:linked-accounts"
     },
     {
@@ -27788,14 +27192,14 @@
       "to": "task:T-020"
     },
     {
-      "from": "frontend-requirements:linked-accounts",
+      "from": "frontend-requirements:meetings",
       "kind": "wikilink",
-      "to": "task:T-063"
+      "to": "frontend-requirements:post-event"
     },
     {
       "from": "frontend-requirements:meetings",
       "kind": "wikilink",
-      "to": "frontend-requirements:post-event"
+      "to": "story:error-contract"
     },
     {
       "from": "frontend-requirements:meetings",
@@ -27833,11 +27237,6 @@
       "to": "task:T-045"
     },
     {
-      "from": "frontend-requirements:meetings",
-      "kind": "wikilink",
-      "to": "task:T-063"
-    },
-    {
       "from": "frontend-requirements:notifications",
       "kind": "wikilink",
       "to": "feature:devices"
@@ -27846,6 +27245,11 @@
       "from": "frontend-requirements:notifications",
       "kind": "wikilink",
       "to": "story:devices"
+    },
+    {
+      "from": "frontend-requirements:notifications",
+      "kind": "wikilink",
+      "to": "story:error-contract"
     },
     {
       "from": "frontend-requirements:notifications",
@@ -27861,11 +27265,6 @@
       "from": "frontend-requirements:notifications",
       "kind": "wikilink",
       "to": "task:T-046"
-    },
-    {
-      "from": "frontend-requirements:notifications",
-      "kind": "wikilink",
-      "to": "task:T-063"
     },
     {
       "from": "frontend-requirements:onboarding-imports",
@@ -27905,6 +27304,11 @@
     {
       "from": "frontend-requirements:payments",
       "kind": "wikilink",
+      "to": "story:error-contract"
+    },
+    {
+      "from": "frontend-requirements:payments",
+      "kind": "wikilink",
       "to": "story:event-ring-auto"
     },
     {
@@ -27931,11 +27335,6 @@
       "from": "frontend-requirements:payments",
       "kind": "wikilink",
       "to": "task:T-045"
-    },
-    {
-      "from": "frontend-requirements:payments",
-      "kind": "wikilink",
-      "to": "task:T-063"
     },
     {
       "from": "frontend-requirements:photo-library",
@@ -27980,6 +27379,11 @@
     {
       "from": "frontend-requirements:photo-library",
       "kind": "wikilink",
+      "to": "story:error-contract"
+    },
+    {
+      "from": "frontend-requirements:photo-library",
+      "kind": "wikilink",
       "to": "story:files"
     },
     {
@@ -27998,11 +27402,6 @@
       "to": "task:T-013"
     },
     {
-      "from": "frontend-requirements:photo-library",
-      "kind": "wikilink",
-      "to": "task:T-063"
-    },
-    {
       "from": "frontend-requirements:pincast",
       "kind": "wikilink",
       "to": "frontend-requirements:connections"
@@ -28011,6 +27410,11 @@
       "from": "frontend-requirements:pincast",
       "kind": "wikilink",
       "to": "story:cleanup-jobs"
+    },
+    {
+      "from": "frontend-requirements:pincast",
+      "kind": "wikilink",
+      "to": "story:error-contract"
     },
     {
       "from": "frontend-requirements:pincast",
@@ -28038,11 +27442,6 @@
       "to": "task:T-046"
     },
     {
-      "from": "frontend-requirements:pincast",
-      "kind": "wikilink",
-      "to": "task:T-063"
-    },
-    {
       "from": "frontend-requirements:post-event",
       "kind": "wikilink",
       "to": "feature:notifications"
@@ -28051,6 +27450,11 @@
       "from": "frontend-requirements:post-event",
       "kind": "wikilink",
       "to": "story:cleanup-jobs"
+    },
+    {
+      "from": "frontend-requirements:post-event",
+      "kind": "wikilink",
+      "to": "story:error-contract"
     },
     {
       "from": "frontend-requirements:post-event",
@@ -28091,11 +27495,6 @@
       "from": "frontend-requirements:post-event",
       "kind": "wikilink",
       "to": "task:T-051"
-    },
-    {
-      "from": "frontend-requirements:post-event",
-      "kind": "wikilink",
-      "to": "task:T-063"
     },
     {
       "from": "frontend-requirements:profiles",
@@ -28145,6 +27544,11 @@
     {
       "from": "frontend-requirements:ring-access",
       "kind": "wikilink",
+      "to": "story:error-contract"
+    },
+    {
+      "from": "frontend-requirements:ring-access",
+      "kind": "wikilink",
       "to": "story:ring-access"
     },
     {
@@ -28156,11 +27560,6 @@
       "from": "frontend-requirements:ring-access",
       "kind": "wikilink",
       "to": "task:T-024"
-    },
-    {
-      "from": "frontend-requirements:ring-access",
-      "kind": "wikilink",
-      "to": "task:T-063"
     },
     {
       "from": "frontend-requirements:ring-invitations",
@@ -28176,6 +27575,11 @@
       "from": "frontend-requirements:ring-invitations",
       "kind": "wikilink",
       "to": "needs-decision:ND-04"
+    },
+    {
+      "from": "frontend-requirements:ring-invitations",
+      "kind": "wikilink",
+      "to": "story:error-contract"
     },
     {
       "from": "frontend-requirements:ring-invitations",
@@ -28211,11 +27615,6 @@
       "from": "frontend-requirements:ring-invitations",
       "kind": "wikilink",
       "to": "task:T-045"
-    },
-    {
-      "from": "frontend-requirements:ring-invitations",
-      "kind": "wikilink",
-      "to": "task:T-063"
     },
     {
       "from": "frontend-requirements:ring-members",
@@ -28260,6 +27659,11 @@
     {
       "from": "frontend-requirements:ring-members",
       "kind": "wikilink",
+      "to": "story:error-contract"
+    },
+    {
+      "from": "frontend-requirements:ring-members",
+      "kind": "wikilink",
       "to": "story:ring-members"
     },
     {
@@ -28281,11 +27685,6 @@
       "from": "frontend-requirements:ring-members",
       "kind": "wikilink",
       "to": "task:T-023"
-    },
-    {
-      "from": "frontend-requirements:ring-members",
-      "kind": "wikilink",
-      "to": "task:T-063"
     },
     {
       "from": "frontend-requirements:ring-projection",
@@ -28335,6 +27734,11 @@
     {
       "from": "frontend-requirements:ring-projection",
       "kind": "wikilink",
+      "to": "story:error-contract"
+    },
+    {
+      "from": "frontend-requirements:ring-projection",
+      "kind": "wikilink",
       "to": "story:files"
     },
     {
@@ -28351,11 +27755,6 @@
       "from": "frontend-requirements:ring-projection",
       "kind": "wikilink",
       "to": "task:T-018"
-    },
-    {
-      "from": "frontend-requirements:ring-projection",
-      "kind": "wikilink",
-      "to": "task:T-063"
     },
     {
       "from": "frontend-requirements:rings",
@@ -28415,6 +27814,11 @@
     {
       "from": "frontend-requirements:rings",
       "kind": "wikilink",
+      "to": "story:error-contract"
+    },
+    {
+      "from": "frontend-requirements:rings",
+      "kind": "wikilink",
       "to": "story:rings"
     },
     {
@@ -28428,11 +27832,6 @@
       "to": "task:T-027"
     },
     {
-      "from": "frontend-requirements:rings",
-      "kind": "wikilink",
-      "to": "task:T-063"
-    },
-    {
       "from": "frontend-requirements:subscription",
       "kind": "wikilink",
       "to": "feature:badge-qr"
@@ -28441,6 +27840,11 @@
       "from": "frontend-requirements:subscription",
       "kind": "wikilink",
       "to": "project:glossary"
+    },
+    {
+      "from": "frontend-requirements:subscription",
+      "kind": "wikilink",
+      "to": "story:error-contract"
     },
     {
       "from": "frontend-requirements:subscription",
@@ -28473,11 +27877,6 @@
       "to": "task:T-052"
     },
     {
-      "from": "frontend-requirements:subscription",
-      "kind": "wikilink",
-      "to": "task:T-063"
-    },
-    {
       "from": "frontend-requirements:view-as",
       "kind": "wikilink",
       "to": "backend-integration:view-as"
@@ -28491,6 +27890,11 @@
       "from": "frontend-requirements:view-as",
       "kind": "wikilink",
       "to": "frontend-requirements:ring-access"
+    },
+    {
+      "from": "frontend-requirements:view-as",
+      "kind": "wikilink",
+      "to": "story:error-contract"
     },
     {
       "from": "frontend-requirements:view-as",
@@ -28533,11 +27937,6 @@
       "to": "task:T-023"
     },
     {
-      "from": "frontend-requirements:view-as",
-      "kind": "wikilink",
-      "to": "task:T-063"
-    },
-    {
       "from": "frontend-requirements:widgets",
       "kind": "wikilink",
       "to": "backend-integration:ring-projection"
@@ -28565,6 +27964,11 @@
     {
       "from": "frontend-requirements:widgets",
       "kind": "wikilink",
+      "to": "story:error-contract"
+    },
+    {
+      "from": "frontend-requirements:widgets",
+      "kind": "wikilink",
       "to": "story:widgets"
     },
     {
@@ -28576,11 +27980,6 @@
       "from": "frontend-requirements:widgets",
       "kind": "wikilink",
       "to": "task:T-018"
-    },
-    {
-      "from": "frontend-requirements:widgets",
-      "kind": "wikilink",
-      "to": "task:T-063"
     },
     {
       "from": "module:commerce",
@@ -29645,17 +29044,12 @@
     {
       "from": "needs-decision:ND-19",
       "kind": "wikilink",
-      "to": "story:T-063"
+      "to": "backend-delivery:error-contract"
     },
     {
       "from": "needs-decision:ND-19",
       "kind": "wikilink",
-      "to": "task:T-063-be"
-    },
-    {
-      "from": "needs-decision:ND-19",
-      "kind": "wikilink",
-      "to": "task:T-063-fe"
+      "to": "frontend-requirements:error-contract"
     },
     {
       "from": "needs-decision:ND-20",
@@ -30355,6 +29749,11 @@
     {
       "from": "project:frontend-contract",
       "kind": "wikilink",
+      "to": "story:error-contract"
+    },
+    {
+      "from": "project:frontend-contract",
+      "kind": "wikilink",
       "to": "story:files"
     },
     {
@@ -30750,12 +30149,12 @@
     {
       "from": "project:status-report-2026-10-15",
       "kind": "wikilink",
-      "to": "story:files"
+      "to": "story:error-contract"
     },
     {
       "from": "project:status-report-2026-10-15",
       "kind": "wikilink",
-      "to": "task:T-063"
+      "to": "story:files"
     },
     {
       "from": "project:workflow",
@@ -31046,6 +30445,11 @@
       "from": "story:e2e-tests",
       "kind": "wikilink",
       "to": "project:frontend-contract"
+    },
+    {
+      "from": "story:error-contract",
+      "kind": "wikilink",
+      "to": "project:api-conventions"
     },
     {
       "from": "story:event-ring-auto",
@@ -31841,21 +31245,6 @@
       "from": "story:T-052",
       "kind": "wikilink",
       "to": "feature:gemma"
-    },
-    {
-      "from": "story:T-067",
-      "kind": "wikilink",
-      "to": "backend-delivery:error-contract"
-    },
-    {
-      "from": "story:T-067",
-      "kind": "wikilink",
-      "to": "project:api-conventions"
-    },
-    {
-      "from": "story:T-067",
-      "kind": "wikilink",
-      "to": "story:T-063"
     },
     {
       "from": "story:T-068",
@@ -33648,226 +33037,6 @@
       "to": "task:T-052-be"
     },
     {
-      "from": "task:T-063",
-      "kind": "wikilink",
-      "to": "backend-delivery:error-contract"
-    },
-    {
-      "from": "task:T-063",
-      "kind": "wikilink",
-      "to": "feature:account"
-    },
-    {
-      "from": "task:T-063",
-      "kind": "wikilink",
-      "to": "feature:auth"
-    },
-    {
-      "from": "task:T-063",
-      "kind": "wikilink",
-      "to": "feature:code-delivery"
-    },
-    {
-      "from": "task:T-063",
-      "kind": "wikilink",
-      "to": "feature:delegated-admins"
-    },
-    {
-      "from": "task:T-063",
-      "kind": "wikilink",
-      "to": "feature:devices"
-    },
-    {
-      "from": "task:T-063",
-      "kind": "wikilink",
-      "to": "feature:event-ring-auto"
-    },
-    {
-      "from": "task:T-063",
-      "kind": "wikilink",
-      "to": "feature:exhibitor"
-    },
-    {
-      "from": "task:T-063",
-      "kind": "wikilink",
-      "to": "feature:meetings"
-    },
-    {
-      "from": "task:T-063",
-      "kind": "wikilink",
-      "to": "feature:onboarding-imports"
-    },
-    {
-      "from": "task:T-063",
-      "kind": "wikilink",
-      "to": "feature:profiles"
-    },
-    {
-      "from": "task:T-063",
-      "kind": "wikilink",
-      "to": "feature:ring-projection"
-    },
-    {
-      "from": "task:T-063",
-      "kind": "wikilink",
-      "to": "feature:rings"
-    },
-    {
-      "from": "task:T-063",
-      "kind": "wikilink",
-      "to": "project:agent-rules"
-    },
-    {
-      "from": "task:T-063",
-      "kind": "wikilink",
-      "to": "project:api-conventions"
-    },
-    {
-      "from": "task:T-063",
-      "kind": "wikilink",
-      "to": "project:auth-model"
-    },
-    {
-      "from": "task:T-063",
-      "kind": "wikilink",
-      "to": "project:feature-tree"
-    },
-    {
-      "from": "task:T-063",
-      "kind": "wikilink",
-      "to": "project:frontend-contract"
-    },
-    {
-      "from": "task:T-063-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:error-contract"
-    },
-    {
-      "from": "task:T-063-be",
-      "kind": "wikilink",
-      "to": "decision:D-19"
-    },
-    {
-      "from": "task:T-063-be",
-      "kind": "wikilink",
-      "to": "feature:error-contract"
-    },
-    {
-      "from": "task:T-063-fe",
-      "kind": "wikilink",
-      "to": "decision:D-19"
-    },
-    {
-      "from": "task:T-063-fe",
-      "kind": "wikilink",
-      "to": "feature:error-contract"
-    },
-    {
-      "from": "task:T-063-fe",
-      "kind": "wikilink",
-      "to": "story:T-063"
-    },
-    {
-      "from": "task:T-063-fe",
-      "kind": "wikilink",
-      "to": "task:T-063-be"
-    },
-    {
-      "from": "task:T-067",
-      "kind": "wikilink",
-      "to": "backend-delivery:error-contract"
-    },
-    {
-      "from": "task:T-067",
-      "kind": "wikilink",
-      "to": "decision:D-19"
-    },
-    {
-      "from": "task:T-067",
-      "kind": "wikilink",
-      "to": "feature:delegated-admins"
-    },
-    {
-      "from": "task:T-067",
-      "kind": "wikilink",
-      "to": "feature:event-ring-auto"
-    },
-    {
-      "from": "task:T-067",
-      "kind": "wikilink",
-      "to": "feature:exhibitor"
-    },
-    {
-      "from": "task:T-067",
-      "kind": "wikilink",
-      "to": "feature:meetings"
-    },
-    {
-      "from": "task:T-067",
-      "kind": "wikilink",
-      "to": "feature:ring-projection"
-    },
-    {
-      "from": "task:T-067",
-      "kind": "wikilink",
-      "to": "feature:rings"
-    },
-    {
-      "from": "task:T-067",
-      "kind": "wikilink",
-      "to": "project:api-conventions"
-    },
-    {
-      "from": "task:T-067",
-      "kind": "wikilink",
-      "to": "project:frontend-api-guide"
-    },
-    {
-      "from": "task:T-067",
-      "kind": "wikilink",
-      "to": "project:frontend-contract"
-    },
-    {
-      "from": "task:T-067",
-      "kind": "wikilink",
-      "to": "story:T-063"
-    },
-    {
-      "from": "task:T-067-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:error-contract"
-    },
-    {
-      "from": "task:T-067-be",
-      "kind": "wikilink",
-      "to": "feature:error-contract"
-    },
-    {
-      "from": "task:T-067-be",
-      "kind": "wikilink",
-      "to": "project:agent-rules"
-    },
-    {
-      "from": "task:T-067-be",
-      "kind": "wikilink",
-      "to": "task:T-063"
-    },
-    {
-      "from": "task:T-067-fe",
-      "kind": "wikilink",
-      "to": "feature:error-contract"
-    },
-    {
-      "from": "task:T-067-fe",
-      "kind": "wikilink",
-      "to": "story:T-067"
-    },
-    {
-      "from": "task:T-067-fe",
-      "kind": "wikilink",
-      "to": "task:T-067-be"
-    },
-    {
       "from": "task:T-068-be",
       "kind": "wikilink",
       "to": "feature:operator-panel"
@@ -35555,38 +34724,6 @@
       "name": "T-052-fe Frontend · Smart Match",
       "type": "task"
     },
-    "social-pin/tasks/T-063 Put the ErrorCode on the error body/T-063 Put the ErrorCode on the error body.md": {
-      "name": "T-063 Put the ErrorCode on the error body",
-      "type": "task"
-    },
-    "social-pin/tasks/T-063 Put the ErrorCode on the error body/T-063 Story.md": {
-      "name": "T-063 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-063 Put the ErrorCode on the error body/T-063-be Backend · Put the ErrorCode on the error body.md": {
-      "name": "T-063-be Backend · Put the ErrorCode on the error body",
-      "type": "task"
-    },
-    "social-pin/tasks/T-063 Put the ErrorCode on the error body/T-063-fe Frontend · Put the ErrorCode on the error body.md": {
-      "name": "T-063-fe Frontend · Put the ErrorCode on the error body",
-      "type": "task"
-    },
-    "social-pin/tasks/T-067 Split E_RING_01 and E_RING_PROFILE_03/T-067 Split E_RING_01 and E_RING_PROFILE_03.md": {
-      "name": "T-067 Split E_RING_01 and E_RING_PROFILE_03",
-      "type": "task"
-    },
-    "social-pin/tasks/T-067 Split E_RING_01 and E_RING_PROFILE_03/T-067 Story.md": {
-      "name": "T-067 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-067 Split E_RING_01 and E_RING_PROFILE_03/T-067-be Backend · Split E_RING_01 and E_RING_PROFILE_03.md": {
-      "name": "T-067-be Backend · Split E_RING_01 and E_RING_PROFILE_03",
-      "type": "task"
-    },
-    "social-pin/tasks/T-067 Split E_RING_01 and E_RING_PROFILE_03/T-067-fe Frontend · Split E_RING_01 and E_RING_PROFILE_03.md": {
-      "name": "T-067-fe Frontend · Split E_RING_01 and E_RING_PROFILE_03",
-      "type": "task"
-    },
     "social-pin/tasks/T-068 Account moderation and platform role/T-068 Account moderation and platform role.md": {
       "name": "T-068 Account moderation and platform role",
       "type": "task"
@@ -35985,52 +35122,6 @@
     }
   ],
   "nodes": {
-    "backend-delivery:T-063": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "frontend-requirements:T-063",
-          "title": "T-063 Frontend Requirements",
-          "why": "T-063 Frontend Requirements is not written yet"
-        }
-      ],
-      "card": null,
-      "children": [],
-      "code": "T-063",
-      "created": null,
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "missing",
-      "effort": null,
-      "feature": "error-contract",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "backend-delivery:T-063",
-      "inherits": {},
-      "kind": "backend-delivery",
-      "label": "Backend Delivery",
-      "labels": [],
-      "layer": "backend",
-      "module": "platform",
-      "parentTask": null,
-      "parents": [
-        "task:T-063"
-      ],
-      "path": null,
-      "pending": [],
-      "priority": null,
-      "related": [],
-      "release": null,
-      "scope": "task",
-      "screens": [],
-      "status": null,
-      "summary": "Not written yet. Create it with: node scripts/build-tree.mjs --scaffold backend-delivery T-063",
-      "tags": [],
-      "task": "T-063",
-      "template": "templates/Backend Delivery Template.md",
-      "title": "T-063 Backend Delivery",
-      "updated": null
-    },
     "backend-delivery:account": {
       "affects": [
         "backend-integration:account",
@@ -36094,7 +35185,7 @@
         "project:auth-model",
         "frontend-requirements:devices",
         "frontend-requirements:error-contract",
-        "story:T-063",
+        "story:error-contract",
         "project:frontend-api-guide"
       ],
       "release": "mvp",
@@ -36958,7 +36049,7 @@
       ],
       "task": null,
       "title": "Error Contract Backend Delivery",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "backend-delivery:event-ring-auto": {
       "affects": [],
@@ -38373,52 +37464,6 @@
       "title": "Widgets Backend Delivery",
       "updated": "2026-10-26"
     },
-    "backend-integration:T-063": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "backend-delivery:T-063",
-          "title": "T-063 Backend Delivery",
-          "why": "T-063 Backend Delivery is not written yet"
-        }
-      ],
-      "card": null,
-      "children": [],
-      "code": "T-063",
-      "created": null,
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "missing",
-      "effort": null,
-      "feature": "error-contract",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "backend-integration:T-063",
-      "inherits": {},
-      "kind": "backend-integration",
-      "label": "Backend Integration",
-      "labels": [],
-      "layer": "backend",
-      "module": "platform",
-      "parentTask": null,
-      "parents": [
-        "task:T-063"
-      ],
-      "path": null,
-      "pending": [],
-      "priority": null,
-      "related": [],
-      "release": null,
-      "scope": "task",
-      "screens": [],
-      "status": null,
-      "summary": "Not written yet. Create it with: node scripts/build-tree.mjs --scaffold backend-integration T-063",
-      "tags": [],
-      "task": "T-063",
-      "template": "templates/Backend Integration Template.md",
-      "title": "T-063 Backend Integration",
-      "updated": null
-    },
     "backend-integration:account": {
       "affects": [
         "frontend-delivery:account",
@@ -38488,9 +37533,8 @@
         "project:auth-model",
         "frontend-requirements:devices",
         "frontend-requirements:error-contract",
-        "story:T-063",
-        "project:frontend-api-guide",
-        "task:T-063"
+        "story:error-contract",
+        "project:frontend-api-guide"
       ],
       "release": "mvp",
       "resolution": null,
@@ -41161,9 +40205,7 @@
     },
     "decision:D-19": {
       "affects": [
-        "task:T-063",
-        "task:T-063-fe",
-        "task:T-063-be",
+        "story:error-contract",
         "project:agent-rules",
         "project:docs-tree"
       ],
@@ -41200,9 +40242,8 @@
       "pending": [],
       "priority": null,
       "related": [
-        "task:T-063",
         "needs-decision:ND-19",
-        "story:T-063"
+        "story:error-contract"
       ],
       "release": null,
       "resolution": null,
@@ -41216,7 +40257,7 @@
       ],
       "task": null,
       "title": "D-19 A ticket's layer notes live on the parent task",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "decision:D-20": {
       "affects": [
@@ -42473,19 +41514,16 @@
         "project:frontend-contract",
         "project:ring-access-model",
         "project:architecture",
-        "project:spec-map",
-        "story:T-063",
-        "story:T-067"
+        "project:spec-map"
       ],
       "release": "mvp",
       "resolution": null,
       "rollup": {
-        "approved": 2,
-        "blocked": 5,
+        "approved": 1,
+        "blocked": 1,
         "decided": 1,
         "draft": 1,
-        "missing": 10,
-        "todo": 3,
+        "missing": 4,
         "verified": 1
       },
       "scope": null,
@@ -42500,7 +41538,7 @@
       ],
       "task": null,
       "title": "Error Contract",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "feature:event-ring-auto": {
       "affects": [],
@@ -44512,52 +43550,6 @@
       "title": "Widgets",
       "updated": "2026-10-26"
     },
-    "frontend-delivery:T-063": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "backend-integration:T-063",
-          "title": "T-063 Backend Integration",
-          "why": "T-063 Backend Integration is not written yet"
-        }
-      ],
-      "card": null,
-      "children": [],
-      "code": "T-063",
-      "created": null,
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "missing",
-      "effort": null,
-      "feature": "error-contract",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "frontend-delivery:T-063",
-      "inherits": {},
-      "kind": "frontend-delivery",
-      "label": "Frontend Delivery",
-      "labels": [],
-      "layer": "frontend",
-      "module": "platform",
-      "parentTask": null,
-      "parents": [
-        "task:T-063"
-      ],
-      "path": null,
-      "pending": [],
-      "priority": null,
-      "related": [],
-      "release": null,
-      "scope": "task",
-      "screens": [],
-      "status": null,
-      "summary": "Not written yet. Create it with: node scripts/build-tree.mjs --scaffold frontend-delivery T-063",
-      "tags": [],
-      "task": "T-063",
-      "template": "templates/Frontend Delivery Template.md",
-      "title": "T-063 Frontend Delivery",
-      "updated": null
-    },
     "frontend-delivery:account": {
       "affects": [],
       "blockedBy": [],
@@ -44602,7 +43594,7 @@
         "story:linked-accounts",
         "story:devices",
         "story:subscription",
-        "task:T-063",
+        "story:error-contract",
         "backend-delivery:auth",
         "backend-integration:auth",
         "project:auth-model"
@@ -46411,46 +45403,6 @@
       "title": "Widgets Frontend Delivery",
       "updated": null
     },
-    "frontend-requirements:T-063": {
-      "affects": [],
-      "blockedBy": [],
-      "card": null,
-      "children": [],
-      "code": "T-063",
-      "created": null,
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "missing",
-      "effort": null,
-      "feature": "error-contract",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "frontend-requirements:T-063",
-      "inherits": {},
-      "kind": "frontend-requirements",
-      "label": "Frontend Requirements",
-      "labels": [],
-      "layer": "frontend",
-      "module": "platform",
-      "parentTask": null,
-      "parents": [
-        "task:T-063"
-      ],
-      "path": null,
-      "pending": [],
-      "priority": null,
-      "related": [],
-      "release": null,
-      "scope": "task",
-      "screens": [],
-      "status": null,
-      "summary": "Not written yet. Create it with: node scripts/build-tree.mjs --scaffold frontend-requirements T-063",
-      "tags": [],
-      "task": "T-063",
-      "template": "templates/Frontend Requirements Template.md",
-      "title": "T-063 Frontend Requirements",
-      "updated": null
-    },
     "frontend-requirements:account": {
       "affects": [],
       "autoDelivered": true,
@@ -46561,7 +45513,7 @@
       ],
       "task": null,
       "title": "App Shell & Onboarding Narrative Frontend Requirements",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "frontend-requirements:audit-log": {
       "affects": [],
@@ -46655,7 +45607,7 @@
         "frontend-requirements:interests",
         "feature:rings",
         "story:profiles",
-        "task:T-063",
+        "story:error-contract",
         "story:auth",
         "project:auth-model"
       ],
@@ -46882,7 +45834,7 @@
       ],
       "task": null,
       "title": "Code Delivery Frontend Requirements",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "frontend-requirements:companies": {
       "affects": [],
@@ -47040,7 +45992,7 @@
         "feature:rings",
         "feature:connections",
         "task:T-021",
-        "task:T-063"
+        "story:error-contract"
       ],
       "release": "mvp",
       "resolution": null,
@@ -47318,7 +46270,7 @@
       ],
       "task": null,
       "title": "Error Contract Frontend Requirements",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "frontend-requirements:event-ring-auto": {
       "affects": [],
@@ -47684,7 +46636,7 @@
         "feature:auth",
         "feature:gemma",
         "task:T-051",
-        "task:T-063"
+        "story:error-contract"
       ],
       "release": "mvp",
       "resolution": null,
@@ -47906,7 +46858,7 @@
         "needs-decision:ND-21",
         "story:profiles",
         "story:files",
-        "task:T-063",
+        "story:error-contract",
         "feature:auth",
         "feature:files",
         "feature:ring-projection"
@@ -48228,7 +47180,7 @@
         "feature:files",
         "story:files",
         "task:T-020",
-        "task:T-063"
+        "story:error-contract"
       ],
       "release": "mvp",
       "resolution": null,
@@ -48352,7 +47304,7 @@
       ],
       "task": null,
       "title": "Ring Invitations & Join Frontend Requirements",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "frontend-requirements:ring-members": {
       "affects": [],
@@ -48675,7 +47627,7 @@
       ],
       "task": null,
       "title": "Widgets Frontend Requirements",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "group:backend": {
       "affects": [],
@@ -49283,15 +48235,15 @@
       "release": null,
       "resolution": null,
       "rollup": {
-        "approved": 11,
-        "blocked": 27,
+        "approved": 10,
+        "blocked": 23,
         "decided": 3,
         "done": 1,
         "draft": 24,
         "in-progress": 22,
-        "missing": 61,
+        "missing": 55,
         "needs-decision": 1,
-        "todo": 9,
+        "todo": 6,
         "verified": 3
       },
       "scope": null,
@@ -50352,7 +49304,7 @@
       "affects": [],
       "blockedBy": [],
       "blocks": [
-        "task:T-063"
+        "story:error-contract"
       ],
       "card": "ND-19",
       "children": [
@@ -50381,15 +49333,15 @@
       "module": null,
       "parentTask": null,
       "parents": [
-        "task:T-063"
+        "story:error-contract"
       ],
       "path": "social-pin/needs-decisions/ND-19 Where a ticket's layer notes live.md",
       "pending": [],
       "priority": null,
       "related": [
-        "task:T-063",
         "project:agent-rules",
         "project:docs-tree",
+        "story:error-contract",
         "decision:D-19"
       ],
       "release": null,
@@ -50404,7 +49356,7 @@
       ],
       "task": null,
       "title": "ND-19 Where a ticket's layer notes live",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "needs-decision:ND-20": {
       "affects": [
@@ -50932,7 +49884,7 @@
         "story:auth",
         "frontend-requirements:devices",
         "frontend-requirements:error-contract",
-        "story:T-063",
+        "story:error-contract",
         "project:frontend-api-guide",
         "project:frontend-passwordless-migration"
       ],
@@ -52034,52 +50986,6 @@
       "title": "Workflow",
       "updated": "2026-10-27"
     },
-    "qa-backend:T-063": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "backend-delivery:T-063",
-          "title": "T-063 Backend Delivery",
-          "why": "T-063 Backend Delivery is not written yet"
-        }
-      ],
-      "card": null,
-      "children": [],
-      "code": "T-063",
-      "created": null,
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "missing",
-      "effort": null,
-      "feature": "error-contract",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "qa-backend:T-063",
-      "inherits": {},
-      "kind": "qa-backend",
-      "label": "QA Backend",
-      "labels": [],
-      "layer": "qa",
-      "module": "platform",
-      "parentTask": null,
-      "parents": [
-        "task:T-063"
-      ],
-      "path": null,
-      "pending": [],
-      "priority": null,
-      "related": [],
-      "release": null,
-      "scope": "task",
-      "screens": [],
-      "status": null,
-      "summary": "Not written yet. Create it with: node scripts/build-tree.mjs --scaffold qa-backend T-063",
-      "tags": [],
-      "task": "T-063",
-      "template": "templates/QA Backend Template.md",
-      "title": "T-063 QA Backend",
-      "updated": null
-    },
     "qa-backend:account": {
       "affects": [],
       "blockedBy": [],
@@ -52122,7 +51028,7 @@
         "backend-delivery:error-contract",
         "backend-integration:profiles",
         "backend-integration:ring-projection",
-        "task:T-063",
+        "story:error-contract",
         "qa-frontend:account",
         "backend-delivery:auth",
         "project:auth-model"
@@ -52144,7 +51050,7 @@
       ],
       "task": null,
       "title": "Account QA Backend",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "qa-backend:audit-log": {
       "affects": [],
@@ -53892,52 +52798,6 @@
       "title": "Widgets QA Backend",
       "updated": null
     },
-    "qa-frontend:T-063": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "frontend-delivery:T-063",
-          "title": "T-063 Frontend Delivery",
-          "why": "T-063 Frontend Delivery is not written yet"
-        }
-      ],
-      "card": null,
-      "children": [],
-      "code": "T-063",
-      "created": null,
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "missing",
-      "effort": null,
-      "feature": "error-contract",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "qa-frontend:T-063",
-      "inherits": {},
-      "kind": "qa-frontend",
-      "label": "QA Frontend",
-      "labels": [],
-      "layer": "qa",
-      "module": "platform",
-      "parentTask": null,
-      "parents": [
-        "task:T-063"
-      ],
-      "path": null,
-      "pending": [],
-      "priority": null,
-      "related": [],
-      "release": null,
-      "scope": "task",
-      "screens": [],
-      "status": null,
-      "summary": "Not written yet. Create it with: node scripts/build-tree.mjs --scaffold qa-frontend T-063",
-      "tags": [],
-      "task": "T-063",
-      "template": "templates/QA Frontend Template.md",
-      "title": "T-063 QA Frontend",
-      "updated": null
-    },
     "qa-frontend:account": {
       "affects": [],
       "blockedBy": [],
@@ -53971,7 +52831,7 @@
         {
           "person": null,
           "text": "F19 (suspended mid-session, AC-15) can only show the not-active copy once E_AUTH_03 is on the wire",
-          "to": "task:T-063"
+          "to": "story:error-contract"
         },
         {
           "person": null,
@@ -53992,7 +52852,7 @@
         "backend-integration:account",
         "frontend-requirements:account",
         "qa-backend:account",
-        "task:T-063",
+        "story:error-contract",
         "task:T-068",
         "story:files",
         "backend-delivery:auth",
@@ -55922,21 +54782,21 @@
         }
       ],
       "rollup": {
-        "approved": 36,
-        "blocked": 124,
+        "approved": 35,
+        "blocked": 120,
         "current": 8,
         "decided": 14,
         "delivered": 2,
         "done": 10,
         "draft": 80,
         "in-progress": 55,
-        "missing": 161,
+        "missing": 155,
         "needs-decision": 7,
         "partial": 4,
         "passing": 1,
         "ready": 2,
         "reference": 31,
-        "todo": 32,
+        "todo": 29,
         "verified": 14
       },
       "scope": null,
@@ -57966,125 +56826,6 @@
       "title": "T-052 Story",
       "updated": "2026-10-26"
     },
-    "story:T-063": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-88",
-      "children": [],
-      "code": "T-063",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "approved",
-      "effort": null,
-      "feature": "error-contract",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-063",
-      "inherits": {
-        "priority": "task:T-063",
-        "release": "feature:error-contract"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": null,
-      "parents": [
-        "task:T-063"
-      ],
-      "path": "social-pin/tasks/T-063 Put the ErrorCode on the error body/T-063 Story.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [
-        "task:T-063",
-        "backend-delivery:account",
-        "backend-integration:account",
-        "story:error-contract",
-        "feature:error-contract",
-        "decision:D-19",
-        "project:auth-model"
-      ],
-      "release": "mvp",
-      "resolution": null,
-      "scope": "task",
-      "screens": [],
-      "status": "approved",
-      "summary": "Every service throws new HttpException({ ErrorCode, message }, status) and the Frontend guide tells clients to branch on the code and display the message. But AllExceptionsFilter…",
-      "tags": [
-        "story",
-        "story/approved",
-        "module/platform",
-        "layer/business"
-      ],
-      "task": "T-063",
-      "title": "T-063 Story",
-      "updated": "2026-10-26"
-    },
-    "story:T-067": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-063",
-          "title": "T-063 Put the ErrorCode on the error body",
-          "why": "T-063 Put the ErrorCode on the error body is to do"
-        }
-      ],
-      "card": "S-108",
-      "children": [],
-      "code": "T-067",
-      "created": "2026-10-26",
-      "deadline": null,
-      "depends": [
-        "task:T-063"
-      ],
-      "effectiveStatus": "blocked",
-      "effort": null,
-      "feature": "error-contract",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-067",
-      "inherits": {
-        "priority": "task:T-067",
-        "release": "feature:error-contract"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": null,
-      "parents": [
-        "task:T-067"
-      ],
-      "path": "social-pin/tasks/T-067 Split E_RING_01 and E_RING_PROFILE_03/T-067 Story.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [
-        "task:T-067",
-        "story:error-contract",
-        "feature:error-contract",
-        "task:T-063"
-      ],
-      "release": "mvp",
-      "resolution": null,
-      "scope": "task",
-      "screens": [
-        "s18"
-      ],
-      "status": "draft",
-      "summary": "Two codes answer more than one question each. ERING01 is sent both when a Ring name is already used and when the Ring type is not allowed; ERINGPROFILE03 is sent for a bad link value, a missing…",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/platform",
-        "layer/business"
-      ],
-      "task": "T-067",
-      "title": "T-067 Story",
-      "updated": "2026-10-26"
-    },
     "story:T-068": {
       "affects": [],
       "blockedBy": [],
@@ -59163,8 +57904,7 @@
       "blockedBy": [],
       "card": "S-87",
       "children": [
-        "task:T-063",
-        "task:T-067"
+        "needs-decision:ND-19"
       ],
       "code": "error-contract",
       "created": "2026-10-18",
@@ -59193,9 +57933,20 @@
       "pending": [],
       "priority": "critical",
       "related": [
-        "task:T-067",
-        "story:T-063",
-        "story:T-067"
+        "task:B-02",
+        "needs-decision:ND-19",
+        "decision:D-19",
+        "backend-delivery:account",
+        "backend-integration:account",
+        "frontend-delivery:account",
+        "qa-backend:account",
+        "qa-frontend:account",
+        "frontend-requirements:auth",
+        "frontend-requirements:counts",
+        "frontend-requirements:onboarding-imports",
+        "frontend-requirements:profiles",
+        "frontend-requirements:interests",
+        "project:auth-model"
       ],
       "release": "mvp",
       "resolution": null,
@@ -59211,7 +57962,7 @@
       ],
       "task": null,
       "title": "Error Contract Story",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "story:event-ring-auto": {
       "affects": [],
@@ -60797,7 +59548,7 @@
         "backend-delivery:account",
         "backend-delivery:error-contract",
         "project:auth-model",
-        "task:T-063",
+        "story:error-contract",
         "feature:rings",
         "feature:profiles",
         "backend-integration:account",
@@ -60822,7 +59573,7 @@
       ],
       "task": null,
       "title": "B-02 Deleted account answers 401, not the documented 404 E_USER_01",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "task:T-001": {
       "affects": [],
@@ -68214,399 +66965,6 @@
       ],
       "task": null,
       "title": "T-052-fe Frontend · Smart Match",
-      "updated": "2026-10-26"
-    },
-    "task:T-063": {
-      "affects": [
-        "project:api-conventions",
-        "project:frontend-contract",
-        "feature:error-contract",
-        "backend-delivery:error-contract"
-      ],
-      "blockedBy": [],
-      "card": "T-063",
-      "children": [
-        "story:T-063",
-        "frontend-requirements:T-063",
-        "backend-delivery:T-063",
-        "backend-integration:T-063",
-        "qa-backend:T-063",
-        "frontend-delivery:T-063",
-        "qa-frontend:T-063",
-        "task:T-063-be",
-        "task:T-063-fe",
-        "needs-decision:ND-19"
-      ],
-      "code": "T-063",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": "social-pin/tasks/T-063 Put the ErrorCode on the error body",
-      "effectiveStatus": "todo",
-      "effort": "S",
-      "feature": "error-contract",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-063",
-      "inherits": {
-        "release": "feature:error-contract"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": null,
-      "parents": [
-        "story:error-contract"
-      ],
-      "path": "social-pin/tasks/T-063 Put the ErrorCode on the error body/T-063 Put the ErrorCode on the error body.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [
-        "task:B-02",
-        "story:T-063",
-        "needs-decision:ND-19",
-        "decision:D-19",
-        "task:T-067",
-        "backend-integration:account",
-        "frontend-delivery:account",
-        "qa-backend:account",
-        "qa-frontend:account",
-        "frontend-requirements:auth",
-        "frontend-requirements:counts",
-        "frontend-requirements:onboarding-imports",
-        "frontend-requirements:profiles",
-        "frontend-requirements:interests",
-        "story:T-067"
-      ],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {
-        "approved": 1,
-        "blocked": 1,
-        "decided": 1,
-        "missing": 6,
-        "todo": 1,
-        "verified": 1
-      },
-      "scope": null,
-      "screens": [],
-      "status": "todo",
-      "summary": "Every service throws new HttpException({ ErrorCode, message }, status) and the Frontend guide tells clients to branch on the code and display the message. But AllExceptionsFilter…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/platform",
-        "priority/critical"
-      ],
-      "task": null,
-      "title": "T-063 Put the ErrorCode on the error body",
-      "updated": "2026-10-26"
-    },
-    "task:T-063-be": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-063-be",
-      "children": [],
-      "code": "T-063-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": null,
-      "effectiveStatus": "todo",
-      "effort": "S",
-      "feature": "error-contract",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-063-be",
-      "inherits": {
-        "release": "feature:error-contract"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": "T-063",
-      "parents": [
-        "task:T-063"
-      ],
-      "path": "social-pin/tasks/T-063 Put the ErrorCode on the error body/T-063-be Backend · Put the ErrorCode on the error body.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [],
-      "status": "todo",
-      "summary": "The API side of T-063 Put the ErrorCode on the error body: the endpoints, data and rules its What describes. Record what shipped in T-063-be Backend Delivery and how to call it in T-063-be Backend…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/platform",
-        "priority/critical",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-063-be Backend · Put the ErrorCode on the error body",
-      "updated": "2026-10-26"
-    },
-    "task:T-063-fe": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-063-be",
-          "title": "T-063-be Backend · Put the ErrorCode on the error body",
-          "why": "T-063-be Backend · Put the ErrorCode on the error body is to do"
-        }
-      ],
-      "card": "T-063-fe",
-      "children": [],
-      "code": "T-063-fe",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-063-be"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "S",
-      "feature": "error-contract",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-063-fe",
-      "inherits": {
-        "release": "feature:error-contract"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "frontend"
-      ],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": "T-063",
-      "parents": [
-        "task:T-063"
-      ],
-      "path": "social-pin/tasks/T-063 Put the ErrorCode on the error body/T-063-fe Frontend · Put the ErrorCode on the error body.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [],
-      "status": "todo",
-      "summary": "The client side of T-063 Put the ErrorCode on the error body: the screens below show what its What describes, built against Error Contract Backend Integration once the backend half (T-063-be…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/platform",
-        "priority/critical",
-        "frontend"
-      ],
-      "task": null,
-      "title": "T-063-fe Frontend · Put the ErrorCode on the error body",
-      "updated": "2026-10-26"
-    },
-    "task:T-067": {
-      "affects": [
-        "feature:error-contract",
-        "backend-delivery:error-contract",
-        "feature:rings",
-        "feature:ring-projection",
-        "project:api-conventions",
-        "project:frontend-contract"
-      ],
-      "blockedBy": [
-        {
-          "id": "task:T-063",
-          "title": "T-063 Put the ErrorCode on the error body",
-          "why": "T-063 Put the ErrorCode on the error body is to do"
-        }
-      ],
-      "card": "T-067",
-      "children": [
-        "story:T-067",
-        "task:T-067-be",
-        "task:T-067-fe"
-      ],
-      "code": "T-067",
-      "created": "2026-10-26",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-063"
-      ],
-      "dir": "social-pin/tasks/T-067 Split E_RING_01 and E_RING_PROFILE_03",
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "error-contract",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-067",
-      "inherits": {
-        "release": "feature:error-contract"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": null,
-      "parents": [
-        "story:error-contract"
-      ],
-      "path": "social-pin/tasks/T-067 Split E_RING_01 and E_RING_PROFILE_03/T-067 Split E_RING_01 and E_RING_PROFILE_03.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [
-        "story:T-067",
-        "story:error-contract",
-        "task:T-063"
-      ],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {
-        "blocked": 2,
-        "todo": 1
-      },
-      "scope": null,
-      "screens": [],
-      "status": "todo",
-      "summary": "Two error codes each carry more than one meaning, so a client that branches on them cannot tell which refusal it got. ERING01 answers both a Ring name clash and a disallowed Ring type;…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/platform",
-        "priority/critical"
-      ],
-      "task": null,
-      "title": "T-067 Split E_RING_01 and E_RING_PROFILE_03",
-      "updated": "2026-10-26"
-    },
-    "task:T-067-be": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-067-be",
-      "children": [],
-      "code": "T-067-be",
-      "created": "2026-10-26",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": null,
-      "effectiveStatus": "todo",
-      "effort": "M",
-      "feature": "error-contract",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-067-be",
-      "inherits": {
-        "release": "feature:error-contract"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": "T-067",
-      "parents": [
-        "task:T-067"
-      ],
-      "path": "social-pin/tasks/T-067 Split E_RING_01 and E_RING_PROFILE_03/T-067-be Backend · Split E_RING_01 and E_RING_PROFILE_03.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [],
-      "status": "todo",
-      "summary": "The API side of T-067 Split ERING01 and ERINGPROFILE03: the endpoints, data and rules its What describes. Record what shipped in T-067-be Backend Delivery and how to call it in T-067-be Backend…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/platform",
-        "priority/critical",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-067-be Backend · Split E_RING_01 and E_RING_PROFILE_03",
-      "updated": "2026-10-26"
-    },
-    "task:T-067-fe": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-067-be",
-          "title": "T-067-be Backend · Split E_RING_01 and E_RING_PROFILE_03",
-          "why": "T-067-be Backend · Split E_RING_01 and E_RING_PROFILE_03 is to do"
-        }
-      ],
-      "card": "T-067-fe",
-      "children": [],
-      "code": "T-067-fe",
-      "created": "2026-10-26",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-067-be"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "error-contract",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-067-fe",
-      "inherits": {
-        "release": "feature:error-contract"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "frontend"
-      ],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": "T-067",
-      "parents": [
-        "task:T-067"
-      ],
-      "path": "social-pin/tasks/T-067 Split E_RING_01 and E_RING_PROFILE_03/T-067-fe Frontend · Split E_RING_01 and E_RING_PROFILE_03.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [],
-      "status": "todo",
-      "summary": "The client side of T-067 Split ERING01 and ERINGPROFILE03: the screens below show what its What describes, built against Error Contract Backend Integration once the backend half (T-067-be Backend…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/platform",
-        "priority/critical",
-        "frontend"
-      ],
-      "task": null,
-      "title": "T-067-fe Frontend · Split E_RING_01 and E_RING_PROFILE_03",
       "updated": "2026-10-26"
     },
     "task:T-068": {

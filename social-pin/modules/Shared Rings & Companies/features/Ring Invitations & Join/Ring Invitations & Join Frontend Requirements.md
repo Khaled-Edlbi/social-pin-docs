@@ -7,7 +7,7 @@ module: shared-rings
 status: draft
 screens: [s17, s74]
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [frontend-requirements, frontend-requirements/draft, module/shared-rings, layer/frontend]
 ---
 
@@ -72,7 +72,7 @@ What the client needs from the backend to build the screens in [[Ring Invitation
 | 404 | `E_RING_ACCESS_01` | not a member any more or blocked: the same neutral message as any view |
 | 401 | `E_AUTH_04` | sign in again |
 | 400 | — | validation on the code or email field: inline, generic |
-| — | invitation / join codes | to be defined by T-026 / T-027; the UI maps all join failures to one message; branch on `statusCode` until [[T-063 Put the ErrorCode on the error body]] |
+| — | invitation / join codes | to be defined by T-026 / T-027; the UI maps all join failures to one message; branch on `statusCode` until [[Error Contract Story|Error Contract · S4–S8]] |
 
 ## Blocked by
 
@@ -80,4 +80,4 @@ What the client needs from the backend to build the screens in [[Ring Invitation
 - [[T-026 Ring invitations invite, review, decline]] — the invitation object; every invitation row above.
 - [[T-027 Join a Ring with a code or verified work email]] — both self-service join rows.
 - [[T-028 What you contribute to a shared Ring]] — the optional step after joining.
-- [[T-063 Put the ErrorCode on the error body]] — the error table is by status until then.
+- [[Error Contract Story|Error Contract · S4–S8]] — the error table is by status until then.

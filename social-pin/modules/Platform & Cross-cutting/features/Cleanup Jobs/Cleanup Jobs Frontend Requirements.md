@@ -44,7 +44,7 @@ What the client depends on from the sweepers: that they never remove something a
 
 | Status | ErrorCode | Show |
 |---|---|---|
-| 404 on `GET /rings/:id` | `E_RING_02` (not on the wire until [[T-063 Put the ErrorCode on the error body]]) | "This Ring was deleted"; remove it from local state |
+| 404 on `GET /rings/:id` | `E_RING_02` (not on the wire until [[Error Contract Story|Error Contract · S4–S8]]) | "This Ring was deleted"; remove it from local state |
 
 ## Blocked by
 

@@ -43,7 +43,7 @@ What the client depends on from the audit log: nothing it can see. There is no s
 
 | Status | ErrorCode | Show |
 |---|---|---|
-| — | — | None specific to this feature. Until [[T-063 Put the ErrorCode on the error body]] ships, no `ErrorCode` is on the wire for any call. |
+| — | — | None specific to this feature. Until [[Error Contract Story|Error Contract · S4–S8]] ships, no `ErrorCode` is on the wire for any call. |
 
 ## Blocked by
 

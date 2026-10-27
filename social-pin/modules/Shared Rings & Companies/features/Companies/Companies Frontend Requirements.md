@@ -72,11 +72,11 @@ What the client needs from the backend to build the screens in [[Companies Story
 | 403 | `E_RING_05` | roster requested without admin rights: hide the colleague count silently |
 | 404 | `E_RING_02` | Ring id unknown to the caller: refetch s73 |
 | 401 | `E_AUTH_04` | sign in again |
-| — | business-specific codes | to be defined by Companies · S6; branch on `statusCode` until [[T-063 Put the ErrorCode on the error body]] |
+| — | business-specific codes | to be defined by Companies · S6; branch on `statusCode` until [[Error Contract Story|Error Contract · S4–S8]] |
 
 ## Blocked by
 
 - [[ND-04 Ring settings]] — the colleague count and list for plain members ("members can see each other").
 - [[Companies Story|Companies · S6]] — the business ↔ Ring link that lets s72 group Rings under a company; every ❌ row above except invitations and setup.
 - [[T-048 Business account setup → business Ring]] — the owner's path into s72; how team members are seeded into the employees Ring.
-- [[T-063 Put the ErrorCode on the error body]] — the error table is by status until then.
+- [[Error Contract Story|Error Contract · S4–S8]] — the error table is by status until then.

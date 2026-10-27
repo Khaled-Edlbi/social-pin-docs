@@ -8,8 +8,8 @@ status: passing
 screens: [s68, s01, s70]
 depends: []
 affects: []
-related: ["Account Frontend Requirements", "Account QA Backend", "T-063 Put the ErrorCode on the error body", "T-068 Account moderation and platform role", "B-02 Deleted account answers 401, not the documented 404 E_USER_01", "Files Upload Story"]
-pending: ["[[T-063 Put the ErrorCode on the error body]]: F19 (suspended mid-session, AC-15) can only show the not-active copy once E_AUTH_03 is on the wire", "[[T-068 Account moderation and platform role]]: F19 cannot be run until a route suspends an account", "@omar: F3 Pro side, F4, F5, F14 (Back, DA-05), F15, F16 and F20 (saving in Arabic) not run by the Maestro pass; run by hand"]
+related: ["Account Frontend Requirements", "Account QA Backend", "Error Contract Story", "T-068 Account moderation and platform role", "B-02 Deleted account answers 401, not the documented 404 E_USER_01", "Files Upload Story"]
+pending: ["[[Error Contract Story|Error Contract · S4–S8]]: F19 (suspended mid-session, AC-15) can only show the not-active copy once E_AUTH_03 is on the wire", "[[T-068 Account moderation and platform role]]: F19 cannot be run until a route suspends an account", "@omar: F3 Pro side, F4, F5, F14 (Back, DA-05), F15, F16 and F20 (saving in Arabic) not run by the Maestro pass; run by hand"]
 created: 2026-10-26
 updated: 2026-10-27
 tags: [qa-frontend, qa-frontend/passing, module/identity, layer/qa]
@@ -49,7 +49,7 @@ Expected behaviour of the screens, as artefacts: journeys, states and copy to ch
 | F16 | S4 | Airplane mode → Delete account → Delete my account (DA-07) | The connection error toast; still signed in, still on Me. | ⬜ not run: needs airplane mode |
 | F17 | S5 | Me → Privacy (AC-16, RP-13, RP-12) | Each row: on the right what's set on the profile or "Not set"; under the title which of your Rings show it, or "Hidden from all Rings"; never "public". The note says setting a value shows it on no Ring. | ✅ |
 | F18 | S5 | Tap Gender → Female; Marital status → the value already set; Birthdate → a date → OK (AC-16, AC-17, AC-18) | Gender shows **Female**; the line under the title is unchanged (no Ring starts showing it). The same value sends nothing. Birthdate shows the picked date. A picker opens, not a profile editor (recorded deviation). | ✅ |
-| F19 | S6 | Suspend the account while signed in → use the app (AC-15) | Welcome with "This account can't sign in right now. Contact support…", no retry loop. Until [[T-063 Put the ErrorCode on the error body]] the copy is "Your session has expired."; cannot be run until [[T-068 Account moderation and platform role]] suspends an account. | ⬜ not run: see `pending` |
+| F19 | S6 | Suspend the account while signed in → use the app (AC-15) | Welcome with "This account can't sign in right now. Contact support…", no retry loop. Until [[Error Contract Story|Error Contract · S4–S8]] the copy is "Your session has expired."; cannot be run until [[T-068 Account moderation and platform role]] suspends an account. | ⬜ not run: see `pending` |
 | F20 | all | Repeat F2, F6, F13 and F18 in **Arabic** (AC-11, AC-19, DA-08) | Texts in Arabic, right-to-left; the phone number stays left-to-right. | ⬜ F2, the change sheet's title, F18 and the delete ✅ in Arabic (AC-19); saving a change in Arabic not run |
 
 ## Screen states
@@ -90,7 +90,7 @@ flowchart LR
 | — (client check) | change email sheet | "Enter your email." / "Enter an email like name@example.com." |
 | — (client check) | change phone sheet | "Enter your phone number." / "That number doesn't look right. Check it and the country code." |
 | `E_USER_01` (404) | any return of `GET /users/me` | Welcome: "Your account has been deleted." (reachable since `main @ b4984d6`, [[B-02 Deleted account answers 401, not the documented 404 E_USER_01]]) |
-| `E_AUTH_03` (401) | any call | Welcome: "This account can't sign in right now. Contact support if this keeps happening." (once [[T-063 Put the ErrorCode on the error body]] ships) |
+| `E_AUTH_03` (401) | any call | Welcome: "This account can't sign in right now. Contact support if this keeps happening." (once [[Error Contract Story|Error Contract · S4–S8]] ships) |
 | `E_AUTH_04` (401) | the refresh | Welcome: "Your session has expired. Please sign in again." |
 | — (no connection) | Delete account | The connection error toast; the session is kept. |
 
@@ -98,5 +98,5 @@ flowchart LR
 
 - Run on: 2026-10-26 · build: `social_pin` `main` @ `47ce960`, development debug APK, on an Android phone against the dev API (`social-pin.api.dev.brain-socket.com`) · result: ✅ **passing** on every row run: F1, F2, F6–F13, F17, F18 · failing rows: none
 - How: 11 Maestro flows in the client's `.maestro/account/` (one per case, AC-01…AC-19 and DA-01…DA-04), each signing up a throwaway account and deleting it at the end. All 11 passed; one flake (AC-04's cleanup waited past 8 s on a slow delete) passed on re-run.
-- Not run (⬜, in `pending`): F3 Pro side, F4, F5, F14 in part, F15, F16, F20 in part — by hand; F19 — waits on [[T-068 Account moderation and platform role]] and [[T-063 Put the ErrorCode on the error body]]. The note stays Partial until they are.
+- Not run (⬜, in `pending`): F3 Pro side, F4, F5, F14 in part, F15, F16, F20 in part — by hand; F19 — waits on [[T-068 Account moderation and platform role]] and [[Error Contract Story|Error Contract · S4–S8]]. The note stays Partial until they are.
 - Seen on the run, not a failure: an account that has only signed up has no "Last signed in" row — `lastLoginAt` is empty until the first sign-in, and the row is hidden then (AC-01b checks it on an account that has signed in).

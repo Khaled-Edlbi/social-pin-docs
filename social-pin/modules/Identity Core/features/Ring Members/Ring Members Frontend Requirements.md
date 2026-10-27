@@ -94,7 +94,7 @@ What the client needs from the backend to build the owner's roster and the per-p
 | 400 | `E_RING_07` | reassign target is not mine: validation |
 | 400 | — (validation; `message` is a string array) | inline on the window fields |
 
-Until [[T-063 Put the ErrorCode on the error body]] ships, branch on status and endpoint.
+Until [[Error Contract Story|Error Contract · S4–S8]] ships, branch on status and endpoint.
 
 ## Blocked by
 

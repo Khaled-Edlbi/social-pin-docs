@@ -29,7 +29,7 @@ Full description: [[Project Overview]]. Vocabulary: [[Glossary]].
 | Identity core: auth, account, profiles, Rings, members, projections, View as, files, access engine | ✅ Backend done, 49 endpoints, 168 unit tests green; a Backend Integration note per feature ([[Frontend Contract]]) |
 | User stories and frontend requirements | ✏️ Drafted for all 39 features, awaiting product sign-off (the ✏️ Draft chips in the [[Docs Tree]]) |
 | Frontend delivery and QA notes | ∅ None yet: every feature shows the placeholders; the frontend repo's agent rules are in [[Frontend Agent Prompt]] |
-| Error contract (`ErrorCode` on the wire), file bytes by id | 🟡 [[T-063 Put the ErrorCode on the error body]], [[T-062 Serve uploaded file bytes by id]] |
+| Error contract (`ErrorCode` on the wire), file bytes by id | 🟡 [[Error Contract Story|Error Contract · S4–S8]], [[T-062 Serve uploaded file bytes by id]] |
 | Code delivery, counts, delegated admins, badge / QR, Event Ring, photo library, devices, interests, widgets, linked accounts | 🟡 Partial: tables exist, endpoints missing |
 | Connections, shared Rings, companies, Discover, PinCast, events, meetings, exhibitor, post-event, payments, subscription, notifications, Gemma, audit log, cleanup jobs, e2e run | ❌ To do: schema only (about 30 tables with no service) |
 | Design vs backend disagreements | ❓ 5 open [[Decisions]] (ND-01 passwordless: decided and shipped) |

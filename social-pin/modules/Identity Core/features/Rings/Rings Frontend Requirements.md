@@ -101,7 +101,7 @@ What the client needs from the backend to build the Ring lists, the create wizar
 | 409 | `E_RING_04` | deleting the default: "Choose another default first" |
 | 400 | — (validation; `message` is a string array) | inline (name length, `#RRGGBB`, ISO dates, `limit` > 50) |
 
-Until [[T-063 Put the ErrorCode on the error body]] ships, branch on status and endpoint.
+Until [[Error Contract Story|Error Contract · S4–S8]] ships, branch on status and endpoint.
 
 ## Blocked by
 

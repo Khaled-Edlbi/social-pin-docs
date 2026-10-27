@@ -8,7 +8,7 @@ status: done
 screens: [s68]
 depends: []
 affects: []
-related: ["Account Frontend Requirements", "Profiles & Pin Name", "Files Upload Story", "Counts Story", "Linked Accounts (OAuth) Story", "Devices & NFC Story", "Subscription (Free vs Pro) Story", "T-063 Put the ErrorCode on the error body"]
+related: ["Account Frontend Requirements", "Profiles & Pin Name", "Files Upload Story", "Counts Story", "Linked Accounts (OAuth) Story", "Devices & NFC Story", "Subscription (Free vs Pro) Story", "Error Contract Story"]
 pending: []
 deployedTo: []
 created: 2026-10-26
@@ -34,8 +34,8 @@ What the client shipped for the account section of Me, on `social_pin` `main` @ 
 
 | Endpoint | Where | Notes (retries, cache keys, optimistic updates) |
 |---|---|---|
-| `GET /users/me` | startup; Me, the first time it is built; every return to the foreground; after a token refresh | Saved on the phone after every success (secure storage) and held in one app-wide holder; startup shows the saved copy first and waits 10 s for the server. Triggers that coincide make one request. A refresh that fails keeps what is there; a 404 (`E_USER_01`, or the bare status until [[T-063 Put the ErrorCode on the error body]]) ends the session, at startup too. |
-| any authenticated call | network layer | A 401 carrying `E_AUTH_03` ends the session without a refresh. Lights up with [[T-063 Put the ErrorCode on the error body]]; until then the refresh that follows is refused and ends it. |
+| `GET /users/me` | startup; Me, the first time it is built; every return to the foreground; after a token refresh | Saved on the phone after every success (secure storage) and held in one app-wide holder; startup shows the saved copy first and waits 10 s for the server. Triggers that coincide make one request. A refresh that fails keeps what is there; a 404 (`E_USER_01`, or the bare status until [[Error Contract Story|Error Contract · S4–S8]]) ends the session, at startup too. |
+| any authenticated call | network layer | A 401 carrying `E_AUTH_03` ends the session without a refresh. Lights up with [[Error Contract Story|Error Contract · S4–S8]]; until then the refresh that follows is refused and ends it. |
 | `PATCH /users/me` | s68, the change email / phone sheet | Sends only the changed key: email trimmed and lower-cased, phone in E.164 from the country picker. Unchanged value → no request. The response replaces the held and saved account. Not optimistic: one request at a time behind the loader. |
 | `DELETE /users/me` | s68, Delete account | Behind a confirmation sheet. On 200 the token store and every cache are cleared and Welcome replaces the whole stack; `POST /auth/logout` is not called. A failure keeps the session. |
 | `GET /profiles` | Me header and PRIVACY group | `data[0]`: full name and Pin name, birthdate, gender, marital status ([[Profiles & Pin Name]]). |
@@ -46,7 +46,7 @@ What the client shipped for the account section of Me, on `social_pin` `main` @ 
 - The account: one holder for the app's lifetime plus a saved copy on the phone; both cleared the moment the session ends, whatever ended it (sign-out, delete, a refresh that fails).
 - Why a session ended (session over, account suspended, account deleted) decides the one message shown on Welcome: "Your session has expired…", "This account can't sign in right now. Contact support…", or "Your account has been deleted."
 - Verified state is never set on the client: the chip reads `emailVerifiedAt` / `phoneVerifiedAt` from the last answer.
-- Errors branch on `ErrorCode` (`E_USER_02`, `E_USER_03`), falling back to a bare 409 until [[T-063 Put the ErrorCode on the error body]] ships; `message` is never shown for these.
+- Errors branch on `ErrorCode` (`E_USER_02`, `E_USER_03`), falling back to a bare 409 until [[Error Contract Story|Error Contract · S4–S8]] ships; `message` is never shown for these.
 
 ## Deviations from the story or the integration note
 
@@ -59,7 +59,7 @@ What the client shipped for the account section of Me, on `social_pin` `main` @ 
 
 ## Not done yet
 
-- A suspension mid-session (S6) says "Your session has expired" rather than "not active" until [[T-063 Put the ErrorCode on the error body]] puts `E_AUTH_03` on the wire; the client branch is in and needs no change then.
+- A suspension mid-session (S6) says "Your session has expired" rather than "not active" until [[Error Contract Story|Error Contract · S4–S8]] puts `E_AUTH_03` on the wire; the client branch is in and needs no change then.
 - Header photo: initials → [[Files Upload Story|Files Upload · showing files]].
 - Connection count (sample 218) → [[Counts Story|Counts · S11]].
 - Linked accounts → [[Linked Accounts (OAuth) Story|Linked Accounts (OAuth) · S7]]; devices → [[Devices & NFC Story|Devices & NFC · S6]]; subscription / Upgrade → [[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]].

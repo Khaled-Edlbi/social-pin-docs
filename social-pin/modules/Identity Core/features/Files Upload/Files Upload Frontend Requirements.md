@@ -86,7 +86,7 @@ What the client needs from the backend to upload, attach, inspect and delete fil
 | 403 | `E_RING_05` | the attach target is not editable by this user: read-only editor |
 | 404 | `E_RING_PROFILE_04` | attachment not in this projection: refetch the editor |
 
-Until [[T-063 Put the ErrorCode on the error body]] ships, branch on status and endpoint.
+Until [[Error Contract Story|Error Contract · S4–S8]] ships, branch on status and endpoint.
 
 ## Blocked by
 

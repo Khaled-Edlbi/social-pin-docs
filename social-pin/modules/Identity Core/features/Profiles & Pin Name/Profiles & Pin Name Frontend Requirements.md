@@ -8,7 +8,7 @@ status: draft
 screens: [s06, s68]
 depends: []
 affects: ["Profiles & Pin Name Story"]
-related: ["D-02 One main profile every Ring starts from", "D-06 Yearly rename, old name freed, case-insensitive", "Onboarding Imports", "Auth & Sign-up", "Files Upload", "Files Upload Story", "T-020 LinkedIn import → review → base profile", "T-063 Put the ErrorCode on the error body"]
+related: ["D-02 One main profile every Ring starts from", "D-06 Yearly rename, old name freed, case-insensitive", "Onboarding Imports", "Auth & Sign-up", "Files Upload", "Files Upload Story", "T-020 LinkedIn import → review → base profile", "Error Contract Story"]
 created: 2026-10-18
 updated: 2026-10-27
 owner: "Omar Fostok"
@@ -111,7 +111,7 @@ What the client needs from the backend for the Pin-name claim, sign-up's *Profil
 | 404 | `E_PROFILE_01` | treat as missing; refetch the list |
 | 400 | — (validation; `message` is a string array) | inline on the field (length, format, enum) |
 
-Until [[T-063 Put the ErrorCode on the error body]] ships, branch on status and endpoint.
+Until [[Error Contract Story|Error Contract · S4–S8]] ships, branch on status and endpoint.
 
 ## Blocked by
 
