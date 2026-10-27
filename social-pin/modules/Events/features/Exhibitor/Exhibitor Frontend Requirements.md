@@ -44,7 +44,7 @@ What the client needs for business setup, incoming meetings and booth analytics,
 | Preview the business card as attendees see it | `GET /views/ring/:ringId` | ✅ | — |
 | Incoming meeting requests, accept, decline | — | ❌ | [[T-042 Meeting request, accept with slots, decline with reason]] |
 | Availability slots to offer | — | ❌ | [[T-041 Availability slots CRUD]] |
-| Discoverable-via-Gemma toggle | — | ❌ | [[Exhibitor Story|Exhibitor · S7]] (feeds [[T-052 Smart Match]]) |
+| Discoverable-via-Gemma toggle | — | ❌ | [[Exhibitor Story|Exhibitor · S7]] (feeds [[Gemma AI Story|Gemma AI · S8]]) |
 | Scans, video clicks, Rings opened; leads CSV | — | ❌ | [[Exhibitor Story|Exhibitor · S8]] |
 | Scan counting itself | — | ❌ | [[T-009 Scan counter and share link]] |
 | Organizer invitation, requested files, booth and payment status | — | ❌ | no task yet; design-only |

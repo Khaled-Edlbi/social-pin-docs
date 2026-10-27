@@ -32,7 +32,7 @@ What the client needs to show the plan, sell Pro and render every Pro lock truth
 ### [[Screen Index#s53|s53]] Event mode (locks)
 
 - Needs: the plan to render locks on Smart Match, Lounges and the Gemma assistant; the server's 403 on a gated call as the source of truth.
-- Source today: not yet (Subscription (Free vs Pro) · S6; the gated features themselves are [[T-052 Smart Match]], [[T-040 Lounges and upgrades]], [[T-051 Gemma assistant sheet and suggestions]]).
+- Source today: not yet (Subscription (Free vs Pro) · S6; the gated features themselves are [[Gemma AI Story|Gemma AI · S8]], [[T-040 Lounges and upgrades]], [[Gemma AI Story|Gemma AI · S7]]).
 
 ### [[Screen Index#s68|s68]] Me / Account
 
@@ -49,8 +49,8 @@ What the client needs to show the plan, sell Pro and render every Pro lock truth
 | One `ProGate` returning 403 on every gated call | — | ❌ | [[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]] |
 | Permanent QR on Pro | — | ❌ | [[T-007 Issue and rotate the QR token for a Ring]] |
 | Any-lounge access on Pro | — | ❌ | [[T-040 Lounges and upgrades]] |
-| Smart Match on Pro | — | ❌ | [[T-052 Smart Match]] |
-| Gemma automation on Pro | — | ❌ | [[T-051 Gemma assistant sheet and suggestions]] |
+| Smart Match on Pro | — | ❌ | [[Gemma AI Story|Gemma AI · S8]] |
+| Gemma automation on Pro | — | ❌ | [[Gemma AI Story|Gemma AI · S7]] |
 | Billing channel and receipts | — | ❌ | [[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]] (channel undecided; see [[Payments & Orders Story|Payments & Orders · S7]]) |
 
 ## Behaviour expectations
@@ -79,4 +79,4 @@ What the client needs to show the plan, sell Pro and render every Pro lock truth
 - No decision note. Upstream tasks:
 - [[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]] — every row above; the billing channel is undecided within it.
 - [[T-007 Issue and rotate the QR token for a Ring]] — the permanent QR on s34.
-- [[T-040 Lounges and upgrades]], [[T-052 Smart Match]], [[T-051 Gemma assistant sheet and suggestions]] — the gated features the locks sit on; each waits on Subscription (Free vs Pro) · S6.
+- [[T-040 Lounges and upgrades]], [[Gemma AI Story|Gemma AI · S8]], [[Gemma AI Story|Gemma AI · S7]] — the gated features the locks sit on; each waits on Subscription (Free vs Pro) · S6.

@@ -69,7 +69,7 @@ What the client needs from the backend to build the screens in [[Connections Sto
 | Incoming and sent lists, cancel | — | ❌ | [[T-021 Connect request send, inbox, cancel]] |
 | Accept into a Ring in one transaction, decline | — | ❌ | [[T-022 Accept into a Ring (sets grantedRingId)]] |
 | Rings for the picker | `GET /rings` | ✅ | — |
-| Suggested Ring on accept | — | ❌ | [[T-051 Gemma assistant sheet and suggestions]] |
+| Suggested Ring on accept | — | ❌ | [[Gemma AI Story|Gemma AI · S7]] |
 | Connection detail, contacts list, events in common, mutual | — | ❌ | [[T-023 Connection detail and contacts list]] |
 | Move to another Ring | `POST /rings/:ringId/members/:userId/reassign` | ✅ | — |
 | Change the access window | `PATCH /rings/:ringId/members/:userId` | ✅ | — |

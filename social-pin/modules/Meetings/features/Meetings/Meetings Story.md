@@ -10,7 +10,7 @@ approvedBy: "khaled"
 approvedAt: 2026-10-25
 owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [story, story/approved, module/meetings, layer/business]
 ---
 
@@ -22,7 +22,7 @@ A visitor wants to meet an exhibitor (or an exhibitor another exhibitor). They p
 
 ## Persona
 
-Visitor (User A) requesting; exhibitor (User B) receiving on s64 and also requesting exhibitor-to-exhibitor. Gemma's auto-requests (Pro, [[T-052 Smart Match]]) enter the same flow as requests from the visitor.
+Visitor (User A) requesting; exhibitor (User B) receiving on s64 and also requesting exhibitor-to-exhibitor. Gemma's auto-requests (Pro, [[Gemma AI Story|Gemma AI · S8]]) enter the same flow as requests from the visitor.
 
 ## Stories
 

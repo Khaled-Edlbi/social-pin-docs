@@ -7,7 +7,7 @@ module: platform
 status: draft
 screens: [s13, s60]
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 owner: "omar"
 related: ["D-06 Yearly rename, old name freed, case-insensitive"]
 tags: [story, story/draft, module/platform, layer/business]
@@ -76,6 +76,23 @@ Acceptance criteria:
 - [ ] On a rename, suggestions are offered only when a rename is allowed (once a year, [[Profiles & Pin Name Story]] S5).
 - [ ] Bio rewrite and Ring-name suggestions are offered inline and never applied without a tap.
 
+### S7 · Gemma assistant sheet and suggestions
+
+*From T-051 (status then: Needs a decision), merged 2026-10-27.*
+
+Model and provider undecided. Every suggestion scoped by what the asking user can see.
+
+Screens: [[Screen Index#s13|s13]] Gemma sheet
+
+
+### S8 · Smart Match
+
+*From T-052 (status then: Blocked), merged 2026-10-27.*
+
+Over interests and event participants; strength Strong / Good / Weak; Pro only; auto-request meetings via T-042.
+
+Screens: [[Screen Index#s60|s60]] Smart Match
+
 ## States and motion the design asks for
 
 - State: sheet idle, loading, suggestions, "needs confirmation", Pro upsell; Smart Match empty (no event), loading, list, Free locked ([[Wireframe Brief#Smart Match|§8.4]], [[Wireframe Brief#Gemma|§13]]).
@@ -90,4 +107,4 @@ Acceptance criteria:
 ## Open questions
 
 - Decided: [[D-06 Yearly rename, old name freed, case-insensitive]] (S6). Whether the suggestions come from Gemma or from a plain server rule is not decided; either way the input is the person's own name only.
-- [[T-051 Gemma assistant sheet and suggestions]] needs a model and provider decision; no decision note exists for it yet.
+- [[Gemma AI Story|Gemma AI · S7]] needs a model and provider decision; no decision note exists for it yet.

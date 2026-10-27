@@ -36,7 +36,7 @@ What the client needs for the post-event summary and the Ring disposition sheet,
 | Scan counts feeding the summary | — | ❌ | [[T-009 Scan counter and share link]] |
 | Connections made during the event | — | ❌ | [[T-023 Connection detail and contacts list]] |
 | Meetings held during the event | — | ❌ | [[T-044 My meetings, calendar, detail, reschedule, cancel]] |
-| Follow-up suggestions (Gemma) | — | ❌ | [[Post-Event Story|Post-Event · S6]], [[T-051 Gemma assistant sheet and suggestions]] |
+| Follow-up suggestions (Gemma) | — | ❌ | [[Post-Event Story|Post-Event · S6]], [[Gemma AI Story|Gemma AI · S7]] |
 | Pending requests for "Review N" | — | ❌ | [[T-021 Connect request send, inbox, cancel]] |
 | Leads export (exhibitor) | — | ❌ | [[Exhibitor Story|Exhibitor · S8]] |
 

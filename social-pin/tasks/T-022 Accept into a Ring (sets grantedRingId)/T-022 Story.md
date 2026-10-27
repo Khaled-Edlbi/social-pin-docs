@@ -86,7 +86,7 @@ Acceptance criteria:
 
 ## States and motion the design asks for
 
-- s46: the Ring picker with one Ring selected (the design opens with a suggestion picked: [[T-051 Gemma assistant sheet and suggestions]]); the request's note; optional access window; *Accept into <Ring>* → saving → done.
+- s46: the Ring picker with one Ring selected (the design opens with a suggestion picked: [[Gemma AI Story|Gemma AI · S7]]); the request's note; optional access window; *Accept into <Ring>* → saving → done.
 - s45: a row leaves the list after accept or decline.
 - Motion: none beyond the row exit.
 
@@ -100,4 +100,4 @@ Acceptance criteria:
 ## Open questions
 
 - **Accept route.** `POST /connections/requests/:id/accept { ringId, startsAt?, expiresAt? }` and `…/decline`, or a status `PATCH`.
-- **The suggested Ring.** Whether the server suggests a Ring now (by last used, by event), or s46 opens with none picked until [[T-051 Gemma assistant sheet and suggestions]].
+- **The suggested Ring.** Whether the server suggests a Ring now (by last used, by event), or s46 opens with none picked until [[Gemma AI Story|Gemma AI · S7]].

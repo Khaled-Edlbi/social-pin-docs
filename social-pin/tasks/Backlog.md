@@ -133,12 +133,6 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-028 What you contribute to a shared Ring]] | [[Ring Invitations & Join]] | Shared Rings & Companies | ❓ Needs decision | L | — | [[T-027 Join a Ring with a code or verified work email|T-027]] |
 | [[T-028-be Backend · What you contribute to a shared Ring]] `backend` | [[Ring Invitations & Join]] | Shared Rings & Companies | ⛔ Blocked | L | — | [[T-027 Join a Ring with a code or verified work email|T-027]] |
 | [[T-028-fe Frontend · What you contribute to a shared Ring]] `frontend` | [[Ring Invitations & Join]] | Shared Rings & Companies | ⛔ Blocked | L | — | [[T-027 Join a Ring with a code or verified work email|T-027]], [[T-028-be Backend · What you contribute to a shared Ring|T-028-be]] |
-| [[T-051 Gemma assistant sheet and suggestions]] | [[Gemma AI]] | Platform & Cross-cutting | ❓ Needs decision | L | — | — |
-| [[T-051-be Backend · Gemma assistant sheet and suggestions]] `backend` | [[Gemma AI]] | Platform & Cross-cutting | ⬜ To do | L | — | — |
-| [[T-051-fe Frontend · Gemma assistant sheet and suggestions]] `frontend` | [[Gemma AI]] | Platform & Cross-cutting | ⛔ Blocked | L | — | [[T-051-be Backend · Gemma assistant sheet and suggestions|T-051-be]] |
-| [[T-052 Smart Match]] | [[Gemma AI]] | Platform & Cross-cutting | ⛔ Blocked | L | — | [[T-051 Gemma assistant sheet and suggestions|T-051]], [[T-036 Event mode exhibitors list and detail|T-036]] |
-| [[T-052-be Backend · Smart Match]] `backend` | [[Gemma AI]] | Platform & Cross-cutting | ⛔ Blocked | L | — | [[T-051 Gemma assistant sheet and suggestions|T-051]], [[T-036 Event mode exhibitors list and detail|T-036]] |
-| [[T-052-fe Frontend · Smart Match]] `frontend` | [[Gemma AI]] | Platform & Cross-cutting | ⛔ Blocked | L | — | [[T-051 Gemma assistant sheet and suggestions|T-051]], [[T-036 Event mode exhibitors list and detail|T-036]], [[T-052-be Backend · Smart Match|T-052-be]] |
 | [[T-070 Roles and permissions catalogue]] | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | S | — | [[T-069 Scoped role grants|T-069]] |
 | [[T-070-be Backend · Roles and permissions catalogue]] `backend` | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | S | — | [[T-069 Scoped role grants|T-069]] |
 | [[T-072 Platform stats]] | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | S | — | [[T-068 Account moderation and platform role|T-068]] |

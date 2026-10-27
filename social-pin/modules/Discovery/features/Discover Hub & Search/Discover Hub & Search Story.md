@@ -107,5 +107,5 @@ Screens: [[Screen Index#s38|s38]] Discover hub
 
 - [[Discover Hub & Search Story|Discover Hub & Search · S6]] — whether recent searches are server-side (synced) or device-only; S3 assumes server-side and private.
 - [[Discover Hub & Search Story|Discover Hub & Search · S7]] — the matching rule and what a match returns; S5 is disabled until the privacy review.
-- [[T-051 Gemma assistant sheet and suggestions]] — the assistant sheet behind S4.
+- [[Gemma AI Story|Gemma AI · S7]] — the assistant sheet behind S4.
 - [[Companies Story|Companies · S6]] — whether a business has a Pin name that resolves on this field (the `!vertexlabs` path to s55).

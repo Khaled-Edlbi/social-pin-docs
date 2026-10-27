@@ -8,7 +8,7 @@ status: draft
 screens: [s07, s71]
 depends: []
 affects: ["Interests Story"]
-related: ["Auth & Sign-up", "Gemma AI", "T-051 Gemma assistant sheet and suggestions", "Error Contract Story"]
+related: ["Auth & Sign-up", "Gemma AI", "Gemma AI Story", "Error Contract Story"]
 created: 2026-10-18
 updated: 2026-10-27
 owner: "Omar Fostok"
@@ -47,8 +47,8 @@ What the client needs for the two interest pickers: the vocabulary, the person's
 | My selection | — | ❌ | [[Interests Story|Interests · S5]] (`GET /users/me/interests` proposed) |
 | Replace my selection | — | ❌ | [[Interests Story|Interests · S5]] (`PUT /users/me/interests` proposed) |
 | The two s71 switches (use for event suggestions, let Gemma add) | — | ❌ | no task yet: asked here, for Interests · S5 or a task of its own |
-| Suggested from your Rings | — | ❌ | [[T-051 Gemma assistant sheet and suggestions]] (owned by [[Gemma AI]]) |
-| Interests used in matchmaking | — | ❌ | [[T-051 Gemma assistant sheet and suggestions]] |
+| Suggested from your Rings | — | ❌ | [[Gemma AI Story|Gemma AI · S7]] (owned by [[Gemma AI]]) |
+| Interests used in matchmaking | — | ❌ | [[Gemma AI Story|Gemma AI · S7]] |
 
 ## Behaviour expectations
 
@@ -74,4 +74,4 @@ No interest codes exist yet; Interests · S5 adds any it needs. `ErrorCode` is n
 
 - [[Interests Story|Interests · S5]] — s07 and s71 (vocabulary, selection, save). No decision needed.
 - The two s71 switches have no task yet.
-- "Suggested from your Rings" waits on [[T-051 Gemma assistant sheet and suggestions]].
+- "Suggested from your Rings" waits on [[Gemma AI Story|Gemma AI · S7]].

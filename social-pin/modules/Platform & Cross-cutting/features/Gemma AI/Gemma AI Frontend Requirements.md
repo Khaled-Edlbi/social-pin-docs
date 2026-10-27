@@ -40,10 +40,10 @@ What the client needs to build the Gemma sheet, Smart Match and the inline sugge
 
 | Need | Endpoint | Available | Task / decision |
 |---|---|---|---|
-| Open a session, send a message, receive suggestion cards | — | ❌ | [[T-051 Gemma assistant sheet and suggestions]] (needs a model / provider decision) |
-| Confirm or reject an AI action | — | ❌ | [[T-051 Gemma assistant sheet and suggestions]] |
-| Smart Match list for an event; mark viewed / dismissed | — | ❌ | [[T-052 Smart Match]] (blocked on T-051 and [[T-036 Event mode exhibitors list and detail]]) |
-| Auto-send meeting requests from matches (Pro) | — | ❌ | [[T-052 Smart Match]] via [[T-042 Meeting request, accept with slots, decline with reason]] |
+| Open a session, send a message, receive suggestion cards | — | ❌ | [[Gemma AI Story|Gemma AI · S7]] (needs a model / provider decision) |
+| Confirm or reject an AI action | — | ❌ | [[Gemma AI Story|Gemma AI · S7]] |
+| Smart Match list for an event; mark viewed / dismissed | — | ❌ | [[Gemma AI Story|Gemma AI · S8]] (blocked on Gemma AI · S7 and [[T-036 Event mode exhibitors list and detail]]) |
+| Auto-send meeting requests from matches (Pro) | — | ❌ | [[Gemma AI Story|Gemma AI · S8]] via [[T-042 Meeting request, accept with slots, decline with reason]] |
 | Pro gate on Smart Match and automation | — | ❌ | [[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]] |
 | Interests feeding matchmaking | — | ❌ | [[Interests Story|Interests · S5]] |
 | Pin-name suggestions | — | ❌ | [[ND-06 Pin name rules]] |
@@ -70,4 +70,4 @@ No Gemma codes exist yet. `ErrorCode` is not on the wire until [[Error Contract 
 ## Blocked by
 
 - [[ND-06 Pin name rules]] — the Pin-name suggestion row waits on it.
-- [[T-051 Gemma assistant sheet and suggestions]] is ❓ (model and provider undecided); [[T-052 Smart Match]] is ⛔ behind it and T-036.
+- [[Gemma AI Story|Gemma AI · S7]] is ❓ (model and provider undecided); [[Gemma AI Story|Gemma AI · S8]] is ⛔ behind it and T-036.

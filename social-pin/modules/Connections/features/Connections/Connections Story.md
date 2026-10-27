@@ -8,7 +8,7 @@ status: draft
 screens: [s44, s45, s46, s47, s62]
 owner: "omar"
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 related: ["D-04 Ring settings at launch and their defaults", "D-13 The requester sees a declined request", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-17 Requests expire after 30 days, optional note, ask again at once"]
 tags: [story, story/draft, module/connections, layer/business]
 ---
@@ -117,4 +117,4 @@ Acceptance criteria:
 - Decided: [[D-13 The requester sees a declined request]], [[D-14 Shared with me lists people, never the Ring]] (a connection-granted membership lists as the person, never the Ring's name; not available yet), [[D-15 Several Rings per connection, remove or disconnect]], [[D-17 Requests expire after 30 days, optional note, ask again at once]].
 - Mutual connections on s47 count only where a Ring's "members can see each other" is on (off by default, [[D-04 Ring settings at launch and their defaults]]); otherwise they are computed over the viewer's own connections only.
 - The disconnect route, and whether the other person is told anything (D-15, *Still open*).
-- [[T-051 Gemma assistant sheet and suggestions]] — the suggested Ring on s46; the default Ring is the fallback.
+- [[Gemma AI Story|Gemma AI · S7]] — the suggested Ring on s46; the default Ring is the fallback.

@@ -107,4 +107,4 @@ Acceptance criteria:
 - No decision note exists. Open points:
 - [[T-039 Catalogue products and talks (new table)]] — schema for products and talks undecided; S6.
 - [[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]] — until the `ProGate` exists, S1 and S7 cannot show a truthful lock.
-- [[T-052 Smart Match]] — Pro and Gemma; the tile exists on s53 but the feature is [[Gemma AI]]'s.
+- [[Gemma AI Story|Gemma AI · S8]] — Pro and Gemma; the tile exists on s53 but the feature is [[Gemma AI]]'s.

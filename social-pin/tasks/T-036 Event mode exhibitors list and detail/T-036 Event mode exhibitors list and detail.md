@@ -35,7 +35,7 @@ Scoped by the viewer's Event Ring membership (access engine).
 - Unblocks [[T-038 Floor map and booths]]
 - Unblocks [[T-039 Catalogue products and talks (new table)]]
 - Unblocks [[Exhibitor Story|Exhibitor · S8]]
-- Unblocks [[T-052 Smart Match]]
+- Unblocks [[Gemma AI Story|Gemma AI · S8]]
 
 ## Definition of done
 

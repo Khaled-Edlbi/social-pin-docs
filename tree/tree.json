@@ -405,14 +405,6 @@
     "T-046 Story": "story:T-046",
     "T-046-be Backend · Push delivery and preferences": "task:T-046-be",
     "T-046-fe Frontend · Push delivery and preferences": "task:T-046-fe",
-    "T-051 Gemma assistant sheet and suggestions": "task:T-051",
-    "T-051 Story": "story:T-051",
-    "T-051-be Backend · Gemma assistant sheet and suggestions": "task:T-051-be",
-    "T-051-fe Frontend · Gemma assistant sheet and suggestions": "task:T-051-fe",
-    "T-052 Smart Match": "task:T-052",
-    "T-052 Story": "story:T-052",
-    "T-052-be Backend · Smart Match": "task:T-052-be",
-    "T-052-fe Frontend · Smart Match": "task:T-052-fe",
     "T-068 Account moderation and platform role": "task:T-068",
     "T-068 Story": "story:T-068",
     "T-068-be Backend · Account moderation and platform role": "task:T-068-be",
@@ -732,8 +724,6 @@
     "S-85": "story:e2e-tests",
     "S-87": "story:error-contract",
     "S-89": "story:gemma",
-    "S-90": "story:T-051",
-    "S-91": "story:T-052",
     "S-92": "story:interests",
     "S-94": "story:linked-accounts",
     "S-96": "story:notifications",
@@ -840,12 +830,6 @@
     "T-046": "task:T-046",
     "T-046-be": "task:T-046-be",
     "T-046-fe": "task:T-046-fe",
-    "T-051": "task:T-051",
-    "T-051-be": "task:T-051-be",
-    "T-051-fe": "task:T-051-fe",
-    "T-052": "task:T-052",
-    "T-052-be": "task:T-052-be",
-    "T-052-fe": "task:T-052-fe",
     "T-068": "task:T-068",
     "T-068-be": "task:T-068-be",
     "T-069": "task:T-069",
@@ -3430,21 +3414,14 @@
     },
     "s13": {
       "containers": [
-        "feature:gemma",
-        "task:T-051",
-        "task:T-051-be",
-        "task:T-051-fe"
+        "feature:gemma"
       ],
       "kind": "screen",
       "notes": [
         "backend-delivery:gemma",
         "feature:gemma",
         "frontend-requirements:gemma",
-        "story:T-051",
-        "story:gemma",
-        "task:T-051",
-        "task:T-051-be",
-        "task:T-051-fe"
+        "story:gemma"
       ],
       "owner": null
     },
@@ -4415,21 +4392,14 @@
     },
     "s60": {
       "containers": [
-        "feature:gemma",
-        "task:T-052",
-        "task:T-052-be",
-        "task:T-052-fe"
+        "feature:gemma"
       ],
       "kind": "screen",
       "notes": [
         "backend-delivery:gemma",
         "feature:gemma",
         "frontend-requirements:gemma",
-        "story:T-052",
-        "story:gemma",
-        "task:T-052",
-        "task:T-052-be",
-        "task:T-052-fe"
+        "story:gemma"
       ],
       "owner": null
     },
@@ -4757,7 +4727,7 @@
     }
   },
   "counts": {
-    "blocked": 116,
+    "blocked": 112,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -4770,28 +4740,28 @@
       "project": 27,
       "qa-backend": 1,
       "qa-frontend": 1,
-      "story": 82,
-      "task": 119
+      "story": 80,
+      "task": 113
     },
     "byLayer": {
       "backend": 56,
-      "business": 280,
+      "business": 272,
       "frontend": 44,
       "qa": 2,
       "shared": 10
     },
     "concepts": 199,
     "decisions": 19,
-    "edges": 4676,
+    "edges": 4620,
     "features": 41,
-    "layerNotes": 172,
+    "layerNotes": 170,
     "modules": 8,
-    "notes": 428,
+    "notes": 420,
     "partial": 4,
     "placeholders": 155,
     "records": 14,
-    "taskLayerNotes": 42,
-    "tasks": 119
+    "taskLayerNotes": 40,
+    "tasks": 113
   },
   "deadlines": {
     "missed": {
@@ -6807,21 +6777,6 @@
       "to": "task:T-039-fe"
     },
     {
-      "from": "task:T-036",
-      "kind": "blocks",
-      "to": "task:T-052"
-    },
-    {
-      "from": "task:T-036",
-      "kind": "blocks",
-      "to": "task:T-052-be"
-    },
-    {
-      "from": "task:T-036",
-      "kind": "blocks",
-      "to": "task:T-052-fe"
-    },
-    {
       "from": "task:T-036-be",
       "kind": "blocks",
       "to": "task:T-036-fe"
@@ -6925,31 +6880,6 @@
       "from": "task:T-046-be",
       "kind": "blocks",
       "to": "task:T-046-fe"
-    },
-    {
-      "from": "task:T-051",
-      "kind": "blocks",
-      "to": "task:T-052"
-    },
-    {
-      "from": "task:T-051",
-      "kind": "blocks",
-      "to": "task:T-052-be"
-    },
-    {
-      "from": "task:T-051",
-      "kind": "blocks",
-      "to": "task:T-052-fe"
-    },
-    {
-      "from": "task:T-051-be",
-      "kind": "blocks",
-      "to": "task:T-051-fe"
-    },
-    {
-      "from": "task:T-052-be",
-      "kind": "blocks",
-      "to": "task:T-052-fe"
     },
     {
       "from": "task:T-068",
@@ -7880,46 +7810,6 @@
       "from": "task:T-046-fe",
       "kind": "depends",
       "to": "task:T-046-be"
-    },
-    {
-      "from": "task:T-051-fe",
-      "kind": "depends",
-      "to": "task:T-051-be"
-    },
-    {
-      "from": "task:T-052",
-      "kind": "depends",
-      "to": "task:T-036"
-    },
-    {
-      "from": "task:T-052",
-      "kind": "depends",
-      "to": "task:T-051"
-    },
-    {
-      "from": "task:T-052-be",
-      "kind": "depends",
-      "to": "task:T-036"
-    },
-    {
-      "from": "task:T-052-be",
-      "kind": "depends",
-      "to": "task:T-051"
-    },
-    {
-      "from": "task:T-052-fe",
-      "kind": "depends",
-      "to": "task:T-036"
-    },
-    {
-      "from": "task:T-052-fe",
-      "kind": "depends",
-      "to": "task:T-051"
-    },
-    {
-      "from": "task:T-052-fe",
-      "kind": "depends",
-      "to": "task:T-052-be"
     },
     {
       "from": "task:T-069",
@@ -10848,7 +10738,7 @@
     {
       "from": "frontend-requirements:interests",
       "kind": "related",
-      "to": "task:T-051"
+      "to": "story:gemma"
     },
     {
       "from": "frontend-requirements:onboarding-imports",
@@ -11756,22 +11646,6 @@
       "to": "decision:D-06"
     },
     {
-      "from": "story:gemma",
-      "kind": "related",
-      "to": "story:T-051",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
-      "from": "story:gemma",
-      "kind": "related",
-      "to": "story:T-052",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
       "from": "story:meetings",
       "kind": "related",
       "to": "story:T-041",
@@ -12360,36 +12234,6 @@
       "from": "task:T-046-fe",
       "kind": "related",
       "to": "story:devices"
-    },
-    {
-      "from": "task:T-051",
-      "kind": "related",
-      "to": "story:interests"
-    },
-    {
-      "from": "task:T-051",
-      "kind": "related",
-      "to": "story:subscription"
-    },
-    {
-      "from": "task:T-051-be",
-      "kind": "related",
-      "to": "story:interests"
-    },
-    {
-      "from": "task:T-051-be",
-      "kind": "related",
-      "to": "story:subscription"
-    },
-    {
-      "from": "task:T-051-fe",
-      "kind": "related",
-      "to": "story:interests"
-    },
-    {
-      "from": "task:T-051-fe",
-      "kind": "related",
-      "to": "story:subscription"
     },
     {
       "from": "task:T-068",
@@ -23761,16 +23605,6 @@
       "to": "needs-decision:ND-16"
     },
     {
-      "from": "story:gemma",
-      "kind": "tree",
-      "to": "task:T-051"
-    },
-    {
-      "from": "story:gemma",
-      "kind": "tree",
-      "to": "task:T-052"
-    },
-    {
       "from": "story:meetings",
       "kind": "tree",
       "to": "task:T-041"
@@ -24454,36 +24288,6 @@
       "from": "task:T-046",
       "kind": "tree",
       "to": "task:T-046-fe"
-    },
-    {
-      "from": "task:T-051",
-      "kind": "tree",
-      "to": "story:T-051"
-    },
-    {
-      "from": "task:T-051",
-      "kind": "tree",
-      "to": "task:T-051-be"
-    },
-    {
-      "from": "task:T-051",
-      "kind": "tree",
-      "to": "task:T-051-fe"
-    },
-    {
-      "from": "task:T-052",
-      "kind": "tree",
-      "to": "story:T-052"
-    },
-    {
-      "from": "task:T-052",
-      "kind": "tree",
-      "to": "task:T-052-be"
-    },
-    {
-      "from": "task:T-052",
-      "kind": "tree",
-      "to": "task:T-052-fe"
     },
     {
       "from": "task:T-068",
@@ -25828,12 +25632,7 @@
     {
       "from": "feature:gemma",
       "kind": "wikilink",
-      "to": "task:T-051"
-    },
-    {
-      "from": "feature:gemma",
-      "kind": "wikilink",
-      "to": "task:T-052"
+      "to": "project:status-report-2026-10-15"
     },
     {
       "from": "feature:interests",
@@ -26493,6 +26292,11 @@
     {
       "from": "frontend-requirements:connections",
       "kind": "wikilink",
+      "to": "story:gemma"
+    },
+    {
+      "from": "frontend-requirements:connections",
+      "kind": "wikilink",
       "to": "task:T-021"
     },
     {
@@ -26519,11 +26323,6 @@
       "from": "frontend-requirements:connections",
       "kind": "wikilink",
       "to": "task:T-045"
-    },
-    {
-      "from": "frontend-requirements:connections",
-      "kind": "wikilink",
-      "to": "task:T-051"
     },
     {
       "from": "frontend-requirements:counts",
@@ -26613,6 +26412,11 @@
     {
       "from": "frontend-requirements:discover-hub",
       "kind": "wikilink",
+      "to": "story:gemma"
+    },
+    {
+      "from": "frontend-requirements:discover-hub",
+      "kind": "wikilink",
       "to": "story:pincast"
     },
     {
@@ -26629,11 +26433,6 @@
       "from": "frontend-requirements:discover-hub",
       "kind": "wikilink",
       "to": "task:T-036"
-    },
-    {
-      "from": "frontend-requirements:discover-hub",
-      "kind": "wikilink",
-      "to": "task:T-051"
     },
     {
       "from": "frontend-requirements:e2e-tests",
@@ -26763,6 +26562,11 @@
     {
       "from": "frontend-requirements:events-during",
       "kind": "wikilink",
+      "to": "story:gemma"
+    },
+    {
+      "from": "frontend-requirements:events-during",
+      "kind": "wikilink",
       "to": "story:subscription"
     },
     {
@@ -26811,11 +26615,6 @@
       "to": "task:T-044"
     },
     {
-      "from": "frontend-requirements:events-during",
-      "kind": "wikilink",
-      "to": "task:T-052"
-    },
-    {
       "from": "frontend-requirements:exhibitor",
       "kind": "wikilink",
       "to": "feature:notifications"
@@ -26848,6 +26647,11 @@
     {
       "from": "frontend-requirements:exhibitor",
       "kind": "wikilink",
+      "to": "story:gemma"
+    },
+    {
+      "from": "frontend-requirements:exhibitor",
+      "kind": "wikilink",
       "to": "task:T-009"
     },
     {
@@ -26864,11 +26668,6 @@
       "from": "frontend-requirements:exhibitor",
       "kind": "wikilink",
       "to": "task:T-042"
-    },
-    {
-      "from": "frontend-requirements:exhibitor",
-      "kind": "wikilink",
-      "to": "task:T-052"
     },
     {
       "from": "frontend-requirements:files",
@@ -26944,16 +26743,6 @@
       "from": "frontend-requirements:gemma",
       "kind": "wikilink",
       "to": "task:T-042"
-    },
-    {
-      "from": "frontend-requirements:gemma",
-      "kind": "wikilink",
-      "to": "task:T-051"
-    },
-    {
-      "from": "frontend-requirements:gemma",
-      "kind": "wikilink",
-      "to": "task:T-052"
     },
     {
       "from": "frontend-requirements:interests",
@@ -27273,6 +27062,11 @@
     {
       "from": "frontend-requirements:post-event",
       "kind": "wikilink",
+      "to": "story:gemma"
+    },
+    {
+      "from": "frontend-requirements:post-event",
+      "kind": "wikilink",
       "to": "story:post-event"
     },
     {
@@ -27294,11 +27088,6 @@
       "from": "frontend-requirements:post-event",
       "kind": "wikilink",
       "to": "task:T-044"
-    },
-    {
-      "from": "frontend-requirements:post-event",
-      "kind": "wikilink",
-      "to": "task:T-051"
     },
     {
       "from": "frontend-requirements:profiles",
@@ -27653,6 +27442,11 @@
     {
       "from": "frontend-requirements:subscription",
       "kind": "wikilink",
+      "to": "story:gemma"
+    },
+    {
+      "from": "frontend-requirements:subscription",
+      "kind": "wikilink",
       "to": "story:payments"
     },
     {
@@ -27669,16 +27463,6 @@
       "from": "frontend-requirements:subscription",
       "kind": "wikilink",
       "to": "task:T-040"
-    },
-    {
-      "from": "frontend-requirements:subscription",
-      "kind": "wikilink",
-      "to": "task:T-051"
-    },
-    {
-      "from": "frontend-requirements:subscription",
-      "kind": "wikilink",
-      "to": "task:T-052"
     },
     {
       "from": "frontend-requirements:view-as",
@@ -29858,11 +29642,6 @@
     {
       "from": "project:status-report-2026-10-15",
       "kind": "wikilink",
-      "to": "feature:gemma"
-    },
-    {
-      "from": "project:status-report-2026-10-15",
-      "kind": "wikilink",
       "to": "feature:meetings"
     },
     {
@@ -30183,7 +29962,7 @@
     {
       "from": "story:connections",
       "kind": "wikilink",
-      "to": "task:T-051"
+      "to": "story:gemma"
     },
     {
       "from": "story:counts",
@@ -30238,7 +30017,7 @@
     {
       "from": "story:discover-hub",
       "kind": "wikilink",
-      "to": "task:T-051"
+      "to": "story:gemma"
     },
     {
       "from": "story:e2e-tests",
@@ -30323,17 +30102,17 @@
     {
       "from": "story:events-during",
       "kind": "wikilink",
+      "to": "story:gemma"
+    },
+    {
+      "from": "story:events-during",
+      "kind": "wikilink",
       "to": "story:meetings"
     },
     {
       "from": "story:events-during",
       "kind": "wikilink",
       "to": "story:post-event"
-    },
-    {
-      "from": "story:events-during",
-      "kind": "wikilink",
-      "to": "task:T-052"
     },
     {
       "from": "story:exhibitor",
@@ -30423,12 +30202,12 @@
     {
       "from": "story:meetings",
       "kind": "wikilink",
-      "to": "task:T-045"
+      "to": "story:gemma"
     },
     {
       "from": "story:meetings",
       "kind": "wikilink",
-      "to": "task:T-052"
+      "to": "task:T-045"
     },
     {
       "from": "story:notifications",
@@ -30883,6 +30662,11 @@
     {
       "from": "story:T-022",
       "kind": "wikilink",
+      "to": "story:gemma"
+    },
+    {
+      "from": "story:T-022",
+      "kind": "wikilink",
       "to": "story:T-021"
     },
     {
@@ -30894,11 +30678,6 @@
       "from": "story:T-022",
       "kind": "wikilink",
       "to": "task:T-024"
-    },
-    {
-      "from": "story:T-022",
-      "kind": "wikilink",
-      "to": "task:T-051"
     },
     {
       "from": "story:T-023",
@@ -31019,16 +30798,6 @@
       "from": "story:T-046",
       "kind": "wikilink",
       "to": "feature:notifications"
-    },
-    {
-      "from": "story:T-051",
-      "kind": "wikilink",
-      "to": "feature:gemma"
-    },
-    {
-      "from": "story:T-052",
-      "kind": "wikilink",
-      "to": "feature:gemma"
     },
     {
       "from": "story:T-068",
@@ -32208,17 +31977,17 @@
     {
       "from": "task:T-036",
       "kind": "wikilink",
+      "to": "story:gemma"
+    },
+    {
+      "from": "task:T-036",
+      "kind": "wikilink",
       "to": "task:T-038"
     },
     {
       "from": "task:T-036",
       "kind": "wikilink",
       "to": "task:T-039"
-    },
-    {
-      "from": "task:T-036",
-      "kind": "wikilink",
-      "to": "task:T-052"
     },
     {
       "from": "task:T-036-be",
@@ -32654,91 +32423,6 @@
       "from": "task:T-046-fe",
       "kind": "wikilink",
       "to": "task:T-046-be"
-    },
-    {
-      "from": "task:T-051",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-051",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-051",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-051",
-      "kind": "wikilink",
-      "to": "task:T-052"
-    },
-    {
-      "from": "task:T-051-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:gemma"
-    },
-    {
-      "from": "task:T-051-be",
-      "kind": "wikilink",
-      "to": "feature:gemma"
-    },
-    {
-      "from": "task:T-051-fe",
-      "kind": "wikilink",
-      "to": "feature:gemma"
-    },
-    {
-      "from": "task:T-051-fe",
-      "kind": "wikilink",
-      "to": "story:T-051"
-    },
-    {
-      "from": "task:T-051-fe",
-      "kind": "wikilink",
-      "to": "task:T-051-be"
-    },
-    {
-      "from": "task:T-052",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-052",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-052",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-052-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:gemma"
-    },
-    {
-      "from": "task:T-052-be",
-      "kind": "wikilink",
-      "to": "feature:gemma"
-    },
-    {
-      "from": "task:T-052-fe",
-      "kind": "wikilink",
-      "to": "feature:gemma"
-    },
-    {
-      "from": "task:T-052-fe",
-      "kind": "wikilink",
-      "to": "story:T-052"
-    },
-    {
-      "from": "task:T-052-fe",
-      "kind": "wikilink",
-      "to": "task:T-052-be"
     },
     {
       "from": "task:T-068-be",
@@ -34362,38 +34046,6 @@
     },
     "social-pin/tasks/T-046 Push delivery and preferences/T-046-fe Frontend · Push delivery and preferences.md": {
       "name": "T-046-fe Frontend · Push delivery and preferences",
-      "type": "task"
-    },
-    "social-pin/tasks/T-051 Gemma assistant sheet and suggestions/T-051 Gemma assistant sheet and suggestions.md": {
-      "name": "T-051 Gemma assistant sheet and suggestions",
-      "type": "task"
-    },
-    "social-pin/tasks/T-051 Gemma assistant sheet and suggestions/T-051 Story.md": {
-      "name": "T-051 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-051 Gemma assistant sheet and suggestions/T-051-be Backend · Gemma assistant sheet and suggestions.md": {
-      "name": "T-051-be Backend · Gemma assistant sheet and suggestions",
-      "type": "task"
-    },
-    "social-pin/tasks/T-051 Gemma assistant sheet and suggestions/T-051-fe Frontend · Gemma assistant sheet and suggestions.md": {
-      "name": "T-051-fe Frontend · Gemma assistant sheet and suggestions",
-      "type": "task"
-    },
-    "social-pin/tasks/T-052 Smart Match/T-052 Smart Match.md": {
-      "name": "T-052 Smart Match",
-      "type": "task"
-    },
-    "social-pin/tasks/T-052 Smart Match/T-052 Story.md": {
-      "name": "T-052 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-052 Smart Match/T-052-be Backend · Smart Match.md": {
-      "name": "T-052-be Backend · Smart Match",
-      "type": "task"
-    },
-    "social-pin/tasks/T-052 Smart Match/T-052-fe Frontend · Smart Match.md": {
-      "name": "T-052-fe Frontend · Smart Match",
       "type": "task"
     },
     "social-pin/tasks/T-068 Account moderation and platform role/T-068 Account moderation and platform role.md": {
@@ -41668,12 +41320,10 @@
       "release": "later",
       "resolution": null,
       "rollup": {
-        "blocked": 6,
+        "blocked": 2,
         "decided": 1,
-        "draft": 3,
+        "draft": 1,
         "missing": 4,
-        "needs-decision": 1,
-        "todo": 1,
         "verified": 1
       },
       "scope": null,
@@ -41691,7 +41341,7 @@
       ],
       "task": null,
       "title": "Gemma AI",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "feature:interests": {
       "affects": [],
@@ -46306,7 +45956,7 @@
         "frontend-requirements:auth",
         "feature:auth",
         "feature:gemma",
-        "task:T-051",
+        "story:gemma",
         "story:error-contract"
       ],
       "release": "mvp",
@@ -47907,14 +47557,13 @@
       "resolution": null,
       "rollup": {
         "approved": 10,
-        "blocked": 23,
+        "blocked": 19,
         "decided": 3,
         "done": 1,
-        "draft": 24,
+        "draft": 22,
         "in-progress": 22,
         "missing": 55,
-        "needs-decision": 1,
-        "todo": 6,
+        "todo": 5,
         "verified": 3
       },
       "scope": null,
@@ -54454,20 +54103,20 @@
       ],
       "rollup": {
         "approved": 35,
-        "blocked": 116,
+        "blocked": 112,
         "current": 8,
         "decided": 14,
         "delivered": 2,
         "done": 10,
-        "draft": 78,
+        "draft": 76,
         "in-progress": 55,
         "missing": 155,
-        "needs-decision": 7,
+        "needs-decision": 6,
         "partial": 4,
         "passing": 1,
         "ready": 2,
         "reference": 31,
-        "todo": 27,
+        "todo": 26,
         "verified": 14
       },
       "scope": null,
@@ -56297,106 +55946,6 @@
       "title": "T-046 Story",
       "updated": "2026-10-26"
     },
-    "story:T-051": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-90",
-      "children": [],
-      "code": "T-051",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
-      "effort": null,
-      "feature": "gemma",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-051",
-      "inherits": {
-        "priority": "task:T-051",
-        "release": "feature:gemma"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": null,
-      "parents": [
-        "task:T-051"
-      ],
-      "path": "social-pin/tasks/T-051 Gemma assistant sheet and suggestions/T-051 Story.md",
-      "pending": [],
-      "priority": "medium",
-      "related": [],
-      "release": "later",
-      "resolution": null,
-      "scope": "task",
-      "screens": [
-        "s13"
-      ],
-      "status": "draft",
-      "summary": "Model and provider undecided. Every suggestion scoped by what the asking user can see.",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/platform",
-        "layer/business"
-      ],
-      "task": "T-051",
-      "title": "T-051 Story",
-      "updated": "2026-10-26"
-    },
-    "story:T-052": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-91",
-      "children": [],
-      "code": "T-052",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
-      "effort": null,
-      "feature": "gemma",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-052",
-      "inherits": {
-        "priority": "task:T-052",
-        "release": "feature:gemma"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": null,
-      "parents": [
-        "task:T-052"
-      ],
-      "path": "social-pin/tasks/T-052 Smart Match/T-052 Story.md",
-      "pending": [],
-      "priority": "medium",
-      "related": [],
-      "release": "later",
-      "resolution": null,
-      "scope": "task",
-      "screens": [
-        "s60"
-      ],
-      "status": "draft",
-      "summary": "Over interests and event participants; strength Strong / Good / Weak; Pro only; auto-request meetings via T-042.",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/platform",
-        "layer/business"
-      ],
-      "task": "T-052",
-      "title": "T-052 Story",
-      "updated": "2026-10-26"
-    },
     "story:T-068": {
       "affects": [],
       "blockedBy": [],
@@ -57194,7 +56743,7 @@
       ],
       "task": null,
       "title": "Connections Story",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "story:counts": {
       "affects": [],
@@ -57834,10 +57383,7 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-89",
-      "children": [
-        "task:T-051",
-        "task:T-052"
-      ],
+      "children": [],
       "code": "gemma",
       "created": "2026-10-18",
       "deadline": null,
@@ -57865,7 +57411,8 @@
       "pending": [],
       "priority": "medium",
       "related": [
-        "decision:D-06"
+        "decision:D-06",
+        "frontend-requirements:interests"
       ],
       "release": "later",
       "resolution": null,
@@ -57884,7 +57431,7 @@
       ],
       "task": null,
       "title": "Gemma AI Story",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "story:interests": {
       "affects": [],
@@ -57917,11 +57464,7 @@
       "path": "social-pin/modules/Platform & Cross-cutting/features/Interests/Interests Story.md",
       "pending": [],
       "priority": "high",
-      "related": [
-        "task:T-051",
-        "task:T-051-be",
-        "task:T-051-fe"
-      ],
+      "related": [],
       "release": "mvp",
       "resolution": null,
       "scope": "feature",
@@ -58057,7 +57600,7 @@
       ],
       "task": null,
       "title": "Meetings Story",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "story:notifications": {
       "affects": [],
@@ -58839,9 +58382,6 @@
         "task:T-040",
         "task:T-040-be",
         "task:T-040-fe",
-        "task:T-051",
-        "task:T-051-be",
-        "task:T-051-fe",
         "frontend-delivery:account"
       ],
       "release": "v1",
@@ -65725,411 +65265,6 @@
       "task": null,
       "title": "T-046-fe Frontend · Push delivery and preferences",
       "updated": "2026-10-27"
-    },
-    "task:T-051": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-051",
-      "children": [
-        "story:T-051",
-        "task:T-051-be",
-        "task:T-051-fe"
-      ],
-      "code": "T-051",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": "social-pin/tasks/T-051 Gemma assistant sheet and suggestions",
-      "effectiveStatus": "needs-decision",
-      "effort": "L",
-      "feature": "gemma",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-051",
-      "inherits": {
-        "release": "feature:gemma"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": null,
-      "parents": [
-        "story:gemma"
-      ],
-      "path": "social-pin/tasks/T-051 Gemma assistant sheet and suggestions/T-051 Gemma assistant sheet and suggestions.md",
-      "pending": [],
-      "priority": "medium",
-      "related": [
-        "story:interests",
-        "story:subscription",
-        "frontend-requirements:interests"
-      ],
-      "release": "later",
-      "resolution": null,
-      "rollup": {
-        "blocked": 1,
-        "draft": 1,
-        "todo": 1
-      },
-      "scope": null,
-      "screens": [
-        "s13"
-      ],
-      "status": "needs-decision",
-      "summary": "Model and provider undecided. Every suggestion scoped by what the asking user can see.",
-      "tags": [
-        "task",
-        "task/needs-info",
-        "module/platform",
-        "priority/medium"
-      ],
-      "task": null,
-      "title": "T-051 Gemma assistant sheet and suggestions",
-      "updated": "2026-10-27"
-    },
-    "task:T-051-be": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-051-be",
-      "children": [],
-      "code": "T-051-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": null,
-      "effectiveStatus": "todo",
-      "effort": "L",
-      "feature": "gemma",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-051-be",
-      "inherits": {
-        "release": "feature:gemma"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": "T-051",
-      "parents": [
-        "task:T-051"
-      ],
-      "path": "social-pin/tasks/T-051 Gemma assistant sheet and suggestions/T-051-be Backend · Gemma assistant sheet and suggestions.md",
-      "pending": [],
-      "priority": "medium",
-      "related": [
-        "story:interests",
-        "story:subscription"
-      ],
-      "release": "later",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s13"
-      ],
-      "status": "todo",
-      "summary": "The API side of T-051 Gemma assistant sheet and suggestions: the endpoints, data and rules its What describes. Record what shipped in T-051-be Backend Delivery and how to call it in T-051-be…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/platform",
-        "priority/medium",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-051-be Backend · Gemma assistant sheet and suggestions",
-      "updated": "2026-10-27"
-    },
-    "task:T-051-fe": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-051-be",
-          "title": "T-051-be Backend · Gemma assistant sheet and suggestions",
-          "why": "T-051-be Backend · Gemma assistant sheet and suggestions is to do"
-        }
-      ],
-      "card": "T-051-fe",
-      "children": [],
-      "code": "T-051-fe",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-051-be"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "L",
-      "feature": "gemma",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-051-fe",
-      "inherits": {
-        "release": "feature:gemma"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "frontend"
-      ],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": "T-051",
-      "parents": [
-        "task:T-051"
-      ],
-      "path": "social-pin/tasks/T-051 Gemma assistant sheet and suggestions/T-051-fe Frontend · Gemma assistant sheet and suggestions.md",
-      "pending": [],
-      "priority": "medium",
-      "related": [
-        "story:interests",
-        "story:subscription"
-      ],
-      "release": "later",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s13"
-      ],
-      "status": "todo",
-      "summary": "The client side of T-051 Gemma assistant sheet and suggestions: the screens below show what its What describes, built against Gemma AI Backend Integration once the backend half (T-051-be Backend ·…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/platform",
-        "priority/medium",
-        "frontend"
-      ],
-      "task": null,
-      "title": "T-051-fe Frontend · Gemma assistant sheet and suggestions",
-      "updated": "2026-10-27"
-    },
-    "task:T-052": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-051",
-          "title": "T-051 Gemma assistant sheet and suggestions",
-          "why": "T-051 Gemma assistant sheet and suggestions is needs decision"
-        },
-        {
-          "id": "task:T-036",
-          "title": "T-036 Event mode exhibitors list and detail",
-          "why": "T-036 Event mode exhibitors list and detail is blocked"
-        }
-      ],
-      "card": "T-052",
-      "children": [
-        "story:T-052",
-        "task:T-052-be",
-        "task:T-052-fe"
-      ],
-      "code": "T-052",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-051",
-        "task:T-036"
-      ],
-      "dir": "social-pin/tasks/T-052 Smart Match",
-      "effectiveStatus": "blocked",
-      "effort": "L",
-      "feature": "gemma",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-052",
-      "inherits": {
-        "release": "feature:gemma"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": null,
-      "parents": [
-        "story:gemma"
-      ],
-      "path": "social-pin/tasks/T-052 Smart Match/T-052 Smart Match.md",
-      "pending": [],
-      "priority": "medium",
-      "related": [],
-      "release": "later",
-      "resolution": null,
-      "rollup": {
-        "blocked": 2,
-        "draft": 1
-      },
-      "scope": null,
-      "screens": [
-        "s60"
-      ],
-      "status": "blocked",
-      "summary": "Over interests and event participants; strength Strong / Good / Weak; Pro only; auto-request meetings via T-042.",
-      "tags": [
-        "task",
-        "task/blocked",
-        "module/platform",
-        "priority/medium"
-      ],
-      "task": null,
-      "title": "T-052 Smart Match",
-      "updated": "2026-10-26"
-    },
-    "task:T-052-be": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-051",
-          "title": "T-051 Gemma assistant sheet and suggestions",
-          "why": "T-051 Gemma assistant sheet and suggestions is needs decision"
-        },
-        {
-          "id": "task:T-036",
-          "title": "T-036 Event mode exhibitors list and detail",
-          "why": "T-036 Event mode exhibitors list and detail is blocked"
-        }
-      ],
-      "card": "T-052-be",
-      "children": [],
-      "code": "T-052-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-051",
-        "task:T-036"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "L",
-      "feature": "gemma",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-052-be",
-      "inherits": {
-        "release": "feature:gemma"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": "T-052",
-      "parents": [
-        "task:T-052"
-      ],
-      "path": "social-pin/tasks/T-052 Smart Match/T-052-be Backend · Smart Match.md",
-      "pending": [],
-      "priority": "medium",
-      "related": [],
-      "release": "later",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s60"
-      ],
-      "status": "todo",
-      "summary": "The API side of T-052 Smart Match: the endpoints, data and rules its What describes. Record what shipped in T-052-be Backend Delivery and how to call it in T-052-be Backend Integration, and roll…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/platform",
-        "priority/medium",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-052-be Backend · Smart Match",
-      "updated": "2026-10-26"
-    },
-    "task:T-052-fe": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-051",
-          "title": "T-051 Gemma assistant sheet and suggestions",
-          "why": "T-051 Gemma assistant sheet and suggestions is needs decision"
-        },
-        {
-          "id": "task:T-036",
-          "title": "T-036 Event mode exhibitors list and detail",
-          "why": "T-036 Event mode exhibitors list and detail is blocked"
-        },
-        {
-          "id": "task:T-052-be",
-          "title": "T-052-be Backend · Smart Match",
-          "why": "T-052-be Backend · Smart Match is blocked"
-        }
-      ],
-      "card": "T-052-fe",
-      "children": [],
-      "code": "T-052-fe",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-051",
-        "task:T-036",
-        "task:T-052-be"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "L",
-      "feature": "gemma",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-052-fe",
-      "inherits": {
-        "release": "feature:gemma"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "frontend"
-      ],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": "T-052",
-      "parents": [
-        "task:T-052"
-      ],
-      "path": "social-pin/tasks/T-052 Smart Match/T-052-fe Frontend · Smart Match.md",
-      "pending": [],
-      "priority": "medium",
-      "related": [],
-      "release": "later",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s60"
-      ],
-      "status": "todo",
-      "summary": "The client side of T-052 Smart Match: the screens below show what its What describes, built against Gemma AI Backend Integration once the backend half (T-052-be Backend · Smart Match) is current.…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/platform",
-        "priority/medium",
-        "frontend"
-      ],
-      "task": null,
-      "title": "T-052-fe Frontend · Smart Match",
-      "updated": "2026-10-26"
     },
     "task:T-068": {
       "affects": [

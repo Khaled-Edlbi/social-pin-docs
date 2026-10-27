@@ -101,8 +101,6 @@ Social Pin backend
     │   ├── ⬜ T-045 NotificationService.emit and the inbox
     │   └── ⛔ T-046 Push delivery and preferences
     ├── ❌ Gemma AI  [Medium]
-    │   ├── ❓ T-051 Gemma assistant sheet and suggestions
-    │   └── ⛔ T-052 Smart Match
     ├── ❌ Audit Log  [Critical]
     ├── ❌ Cleanup Jobs  [High]
     ├── ❌ E2E Test Run  [Critical]
@@ -198,7 +196,7 @@ The error contract, notifications, Gemma AI, devices, interests, widgets, linked
 | [[Interests]] | 🟡 Partial (needs more) | High | s07, s71 | 0 |
 | [[Linked Accounts (OAuth)]] | 🟡 Partial (needs more) | High | s01, s04, s68 | 0 |
 | [[Notifications]] | ❌ TODO | High | s69 | 2 |
-| [[Gemma AI]] | ❌ TODO | Medium | s13, s60 | 2 |
+| [[Gemma AI]] | ❌ TODO | Medium | s13, s60 | 0 |
 | [[Audit Log]] | ❌ TODO | Critical | — | 0 |
 | [[Cleanup Jobs]] | ❌ TODO | High | — | 0 |
 | [[E2E Test Run]] | ❌ TODO | Critical | — | 0 |
