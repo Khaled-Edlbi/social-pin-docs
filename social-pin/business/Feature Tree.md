@@ -41,8 +41,6 @@ Social Pin backend
 │   │   ├── ⬜ T-017 Extend WIDGET_TYPE to the design's list
 │   │   └── ❓ T-018 Widget CRUD on the projection
 │   └── ❌ Onboarding Imports  [High]
-│       ├── ⛔ T-020 LinkedIn import → review → base profile
-│       └── ❓ T-020b Business card scan and portfolio URL import
 ├── Connections  (❌1)
 │   └── ❌ Connections  [Critical]
 │       ├── ⬜ T-021 Connect request: send, inbox, cancel
@@ -123,7 +121,7 @@ Account, profile, Rings, what each Ring shows, and the access engine. The part o
 | [[Counts]] | 🟡 Partial (needs more) | High | s11, s12, s14, s16, s17, s68 | 0 |
 | [[Photo Library]] | 🟡 Partial (needs more) | High | s29, s30 | 2 |
 | [[Widgets]] | 🟡 Partial (needs more) | High | s36, s37 | 2 |
-| [[Onboarding Imports]] | ❌ TODO | High | s03, s03a, s03b, s04, s05 | 2 |
+| [[Onboarding Imports]] | ❌ TODO | High | s03, s03a, s03b, s04, s05 | 0 |
 
 ## Connections
 

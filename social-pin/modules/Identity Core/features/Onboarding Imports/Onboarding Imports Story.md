@@ -82,6 +82,23 @@ Acceptance criteria:
 - [ ] Every import screen has a one-tap route to s06.
 - [ ] Full name typed later on s06 is sent as `fullName` on `POST /auth/complete-registration`, the only profile field registration accepts today.
 
+### S7 · LinkedIn import → review → base profile
+
+*From T-020 (status then: To do), merged 2026-10-27.*
+
+Import endpoint returns candidate fields; confirm endpoint writes the chosen ones to the main profile (headline, role, company, location, photo, bio: [[D-02 One main profile every Ring starts from]]), which every Ring then inherits field by field.
+
+Screens: [[Screen Index#s04|s04]] Importing · [[Screen Index#s05|s05]] Review import
+
+
+### S8 · Business card scan and portfolio URL import
+
+*From T-020b (status then: To do), merged 2026-10-27.*
+
+How the card and the page are read is [[ND-21 How a business card and a portfolio page are read]]. Same review step as Onboarding Imports · S7, writing to the main profile ([[D-02 One main profile every Ring starts from]]).
+
+Screens: [[Screen Index#s03a|s03a]] Scan a card · [[Screen Index#s03b|s03b]] Portfolio URL
+
 ## States and motion the design asks for
 
 - State (§3.2, §3.3): OAuth cancelled / failed, permissions denied, importing, partial import, nothing returned, edit-before-import.
@@ -98,5 +115,5 @@ Acceptance criteria:
 
 - Decided: [[D-02 One main profile every Ring starts from]]. S5 still waits for the main profile fields to be built (not ticketed yet).
 - Which main-profile fields an import may overwrite without asking, when the profile already has values (D-02, *Still open*).
-- Provider choice for card OCR and URL scraping ([[T-020b Business card scan and portfolio URL import]]) — blocks S3 and S4.
+- Provider choice for card OCR and URL scraping ([[Onboarding Imports Story|Onboarding Imports · S8]]) — blocks S3 and S4.
 - Whether a LinkedIn login (not only import) is offered on s01 depends on [[ND-01 Passwordless login]] and [[Linked Accounts (OAuth) Story|Linked Accounts (OAuth) · S7]].

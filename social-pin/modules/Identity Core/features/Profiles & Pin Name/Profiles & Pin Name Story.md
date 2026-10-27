@@ -114,7 +114,7 @@ Acceptance criteria:
 - [ ] Right after `POST /auth/complete-registration` returns, the client sends what *Profile basics* collected to `PATCH /profiles/:id` on the new default profile; a field left empty is not sent.
 - [ ] The photo is uploaded with `POST /files` first and sent as its file id; until [[Files Upload Story|Files Upload · showing files]] ships it shows as initials everywhere.
 - [ ] A failure here never undoes the account: the values are kept on the phone and sent again on the next launch, or edited on Me.
-- [ ] Imports fill the same fields ([[T-020 LinkedIn import → review → base profile]], [[T-020b Business card scan and portfolio URL import]]): not available yet.
+- [ ] Imports fill the same fields ([[Onboarding Imports Story|Onboarding Imports · S7]], [[Onboarding Imports Story|Onboarding Imports · S8]]): not available yet.
 
 ### S10 · See and change my main profile ([[Screen Index#s68|s68]])
 

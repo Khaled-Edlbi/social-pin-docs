@@ -42,8 +42,8 @@ Screens: [[Screen Index#s05|s05]], [[Screen Index#s06|s06]], [[Screen Index#s11|
 
 ## Tasks waiting on this
 
-- [[T-020 LinkedIn import → review → base profile]]
-- [[T-020b Business card scan and portfolio URL import]]
+- [[Onboarding Imports Story|Onboarding Imports · S7]]
+- [[Onboarding Imports Story|Onboarding Imports · S8]]
 - [[Profiles & Pin Name Story|Profiles & Pin Name · Decide base profile work fields]]
 - [[Ring Projection Story|Ring Projection · Decide copy or inherit]]
 

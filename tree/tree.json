@@ -310,14 +310,6 @@
     "T-018 Widget CRUD on the projection": "task:T-018",
     "T-018-be Backend · Widget CRUD on the projection": "task:T-018-be",
     "T-018-fe Frontend · Widget CRUD on the projection": "task:T-018-fe",
-    "T-020 LinkedIn import → review → base profile": "task:T-020",
-    "T-020 Story": "story:T-020",
-    "T-020-be Backend · LinkedIn import → review → base profile": "task:T-020-be",
-    "T-020-fe Frontend · LinkedIn import → review → base profile": "task:T-020-fe",
-    "T-020b Business card scan and portfolio URL import": "task:T-020b",
-    "T-020b Story": "story:T-020b",
-    "T-020b-be Backend · Business card scan and portfolio URL import": "task:T-020b-be",
-    "T-020b-fe Frontend · Business card scan and portfolio URL import": "task:T-020b-fe",
     "T-021 Connect request send, inbox, cancel": "task:T-021",
     "T-021 Story": "story:T-021",
     "T-021-be Backend · Connect request send, inbox, cancel": "task:T-021-be",
@@ -646,8 +638,6 @@
     "S-03": "story:counts",
     "S-06": "story:files",
     "S-08": "story:onboarding-imports",
-    "S-09": "story:T-020",
-    "S-10": "story:T-020b",
     "S-109": "story:T-068",
     "S-11": "story:photo-library",
     "S-110": "story:T-069",
@@ -749,12 +739,6 @@
     "T-018": "task:T-018",
     "T-018-be": "task:T-018-be",
     "T-018-fe": "task:T-018-fe",
-    "T-020": "task:T-020",
-    "T-020-be": "task:T-020-be",
-    "T-020-fe": "task:T-020-fe",
-    "T-020b": "task:T-020b",
-    "T-020b-be": "task:T-020b-be",
-    "T-020b-fe": "task:T-020b-fe",
     "T-021": "task:T-021",
     "T-021-be": "task:T-021-be",
     "T-021-fe": "task:T-021-fe",
@@ -3188,10 +3172,7 @@
     "s03a": {
       "containers": [
         "feature:onboarding-imports",
-        "needs-decision:ND-21",
-        "task:T-020b",
-        "task:T-020b-be",
-        "task:T-020b-fe"
+        "needs-decision:ND-21"
       ],
       "kind": "other",
       "notes": [
@@ -3199,21 +3180,14 @@
         "feature:onboarding-imports",
         "frontend-requirements:onboarding-imports",
         "needs-decision:ND-21",
-        "story:T-020b",
-        "story:onboarding-imports",
-        "task:T-020b",
-        "task:T-020b-be",
-        "task:T-020b-fe"
+        "story:onboarding-imports"
       ],
       "owner": null
     },
     "s03b": {
       "containers": [
         "feature:onboarding-imports",
-        "needs-decision:ND-21",
-        "task:T-020b",
-        "task:T-020b-be",
-        "task:T-020b-fe"
+        "needs-decision:ND-21"
       ],
       "kind": "other",
       "notes": [
@@ -3221,21 +3195,14 @@
         "feature:onboarding-imports",
         "frontend-requirements:onboarding-imports",
         "needs-decision:ND-21",
-        "story:T-020b",
-        "story:onboarding-imports",
-        "task:T-020b",
-        "task:T-020b-be",
-        "task:T-020b-fe"
+        "story:onboarding-imports"
       ],
       "owner": null
     },
     "s04": {
       "containers": [
         "feature:linked-accounts",
-        "feature:onboarding-imports",
-        "task:T-020",
-        "task:T-020-be",
-        "task:T-020-fe"
+        "feature:onboarding-imports"
       ],
       "kind": "screen",
       "notes": [
@@ -3245,22 +3212,15 @@
         "feature:onboarding-imports",
         "frontend-requirements:linked-accounts",
         "frontend-requirements:onboarding-imports",
-        "story:T-020",
         "story:linked-accounts",
-        "story:onboarding-imports",
-        "task:T-020",
-        "task:T-020-be",
-        "task:T-020-fe"
+        "story:onboarding-imports"
       ],
       "owner": null
     },
     "s05": {
       "containers": [
         "feature:onboarding-imports",
-        "needs-decision:ND-02",
-        "task:T-020",
-        "task:T-020-be",
-        "task:T-020-fe"
+        "needs-decision:ND-02"
       ],
       "kind": "screen",
       "notes": [
@@ -3268,11 +3228,7 @@
         "feature:onboarding-imports",
         "frontend-requirements:onboarding-imports",
         "needs-decision:ND-02",
-        "story:T-020",
-        "story:onboarding-imports",
-        "task:T-020",
-        "task:T-020-be",
-        "task:T-020-fe"
+        "story:onboarding-imports"
       ],
       "owner": null
     },
@@ -4695,7 +4651,7 @@
     }
   },
   "counts": {
-    "blocked": 108,
+    "blocked": 106,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -4708,28 +4664,28 @@
       "project": 27,
       "qa-backend": 1,
       "qa-frontend": 1,
-      "story": 78,
-      "task": 107
+      "story": 76,
+      "task": 101
     },
     "byLayer": {
       "backend": 56,
-      "business": 264,
+      "business": 256,
       "frontend": 44,
       "qa": 2,
       "shared": 10
     },
     "concepts": 199,
     "decisions": 19,
-    "edges": 4571,
+    "edges": 4514,
     "features": 41,
-    "layerNotes": 168,
+    "layerNotes": 166,
     "modules": 8,
-    "notes": 412,
+    "notes": 404,
     "partial": 4,
     "placeholders": 155,
     "records": 14,
-    "taskLayerNotes": 38,
-    "tasks": 107
+    "taskLayerNotes": 36,
+    "tasks": 101
   },
   "deadlines": {
     "missed": {
@@ -4857,22 +4813,17 @@
     {
       "from": "decision:D-02",
       "kind": "affects",
+      "to": "story:onboarding-imports"
+    },
+    {
+      "from": "decision:D-02",
+      "kind": "affects",
       "to": "story:profiles"
     },
     {
       "from": "decision:D-02",
       "kind": "affects",
       "to": "story:ring-projection"
-    },
-    {
-      "from": "decision:D-02",
-      "kind": "affects",
-      "to": "task:T-020"
-    },
-    {
-      "from": "decision:D-02",
-      "kind": "affects",
-      "to": "task:T-020b"
     },
     {
       "from": "decision:D-03",
@@ -5177,12 +5128,7 @@
     {
       "from": "frontend-requirements:onboarding-imports",
       "kind": "affects",
-      "to": "task:T-020"
-    },
-    {
-      "from": "frontend-requirements:onboarding-imports",
-      "kind": "affects",
-      "to": "task:T-020b"
+      "to": "story:onboarding-imports"
     },
     {
       "from": "frontend-requirements:profiles",
@@ -5237,7 +5183,7 @@
     {
       "from": "needs-decision:ND-21",
       "kind": "affects",
-      "to": "task:T-020b"
+      "to": "story:onboarding-imports"
     },
     {
       "from": "project:agent-protocol",
@@ -6317,7 +6263,7 @@
     {
       "from": "needs-decision:ND-21",
       "kind": "blocks",
-      "to": "task:T-020b"
+      "to": "story:onboarding-imports"
     },
     {
       "from": "story:build-deploy",
@@ -6513,16 +6459,6 @@
       "from": "task:T-018-be",
       "kind": "blocks",
       "to": "task:T-018-fe"
-    },
-    {
-      "from": "task:T-020-be",
-      "kind": "blocks",
-      "to": "task:T-020-fe"
-    },
-    {
-      "from": "task:T-020b-be",
-      "kind": "blocks",
-      "to": "task:T-020b-fe"
     },
     {
       "from": "task:T-021",
@@ -7132,7 +7068,7 @@
     {
       "from": "needs-decision:ND-21",
       "kind": "decision",
-      "to": "task:T-020b"
+      "to": "story:onboarding-imports"
     },
     {
       "from": "project:admin-agent",
@@ -7343,46 +7279,6 @@
       "from": "task:T-018-fe",
       "kind": "depends",
       "to": "task:T-018-be"
-    },
-    {
-      "from": "task:T-020",
-      "kind": "depends",
-      "to": "decision:D-02"
-    },
-    {
-      "from": "task:T-020-be",
-      "kind": "depends",
-      "to": "needs-decision:ND-02"
-    },
-    {
-      "from": "task:T-020-fe",
-      "kind": "depends",
-      "to": "needs-decision:ND-02"
-    },
-    {
-      "from": "task:T-020-fe",
-      "kind": "depends",
-      "to": "task:T-020-be"
-    },
-    {
-      "from": "task:T-020b",
-      "kind": "depends",
-      "to": "decision:D-02"
-    },
-    {
-      "from": "task:T-020b-be",
-      "kind": "depends",
-      "to": "needs-decision:ND-02"
-    },
-    {
-      "from": "task:T-020b-fe",
-      "kind": "depends",
-      "to": "needs-decision:ND-02"
-    },
-    {
-      "from": "task:T-020b-fe",
-      "kind": "depends",
-      "to": "task:T-020b-be"
     },
     {
       "from": "task:T-021-fe",
@@ -10741,7 +10637,7 @@
     {
       "from": "frontend-requirements:profiles",
       "kind": "related",
-      "to": "task:T-020"
+      "to": "story:onboarding-imports"
     },
     {
       "from": "needs-decision:ND-07",
@@ -10909,12 +10805,12 @@
     {
       "from": "needs-decision:ND-21",
       "kind": "related",
-      "to": "story:profiles"
+      "to": "story:onboarding-imports"
     },
     {
       "from": "needs-decision:ND-21",
       "kind": "related",
-      "to": "task:T-020"
+      "to": "story:profiles"
     },
     {
       "from": "project:admin-agent",
@@ -11601,22 +11497,6 @@
       "to": "decision:D-02"
     },
     {
-      "from": "story:onboarding-imports",
-      "kind": "related",
-      "to": "story:T-020",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
-      "from": "story:onboarding-imports",
-      "kind": "related",
-      "to": "story:T-020b",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
       "from": "story:operator-panel",
       "kind": "related",
       "to": "story:T-068",
@@ -12026,21 +11906,6 @@
       "from": "task:B-02",
       "kind": "related",
       "to": "story:error-contract"
-    },
-    {
-      "from": "task:T-020",
-      "kind": "related",
-      "to": "story:linked-accounts"
-    },
-    {
-      "from": "task:T-020-be",
-      "kind": "related",
-      "to": "story:linked-accounts"
-    },
-    {
-      "from": "task:T-020-fe",
-      "kind": "related",
-      "to": "story:linked-accounts"
     },
     {
       "from": "task:T-021",
@@ -18445,33 +18310,6 @@
       ]
     },
     {
-      "from": "feature:onboarding-imports",
-      "kind": "shares",
-      "to": "task:T-020b",
-      "via": [
-        "s03a",
-        "s03b"
-      ]
-    },
-    {
-      "from": "feature:onboarding-imports",
-      "kind": "shares",
-      "to": "task:T-020b-be",
-      "via": [
-        "s03a",
-        "s03b"
-      ]
-    },
-    {
-      "from": "feature:onboarding-imports",
-      "kind": "shares",
-      "to": "task:T-020b-fe",
-      "via": [
-        "s03a",
-        "s03b"
-      ]
-    },
-    {
       "from": "feature:payments",
       "kind": "shares",
       "to": "feature:pincast",
@@ -20731,24 +20569,6 @@
       "to": "project:status-report-2026-10-15",
       "via": [
         "POST /files"
-      ]
-    },
-    {
-      "from": "needs-decision:ND-21",
-      "kind": "shares",
-      "to": "task:T-020b-be",
-      "via": [
-        "s03a",
-        "s03b"
-      ]
-    },
-    {
-      "from": "needs-decision:ND-21",
-      "kind": "shares",
-      "to": "task:T-020b-fe",
-      "via": [
-        "s03a",
-        "s03b"
       ]
     },
     {
@@ -23506,12 +23326,7 @@
     {
       "from": "story:onboarding-imports",
       "kind": "tree",
-      "to": "task:T-020"
-    },
-    {
-      "from": "story:onboarding-imports",
-      "kind": "tree",
-      "to": "task:T-020b"
+      "to": "needs-decision:ND-21"
     },
     {
       "from": "story:operator-panel",
@@ -23792,41 +23607,6 @@
       "from": "task:T-018",
       "kind": "tree",
       "to": "task:T-018-fe"
-    },
-    {
-      "from": "task:T-020",
-      "kind": "tree",
-      "to": "story:T-020"
-    },
-    {
-      "from": "task:T-020",
-      "kind": "tree",
-      "to": "task:T-020-be"
-    },
-    {
-      "from": "task:T-020",
-      "kind": "tree",
-      "to": "task:T-020-fe"
-    },
-    {
-      "from": "task:T-020b",
-      "kind": "tree",
-      "to": "needs-decision:ND-21"
-    },
-    {
-      "from": "task:T-020b",
-      "kind": "tree",
-      "to": "story:T-020b"
-    },
-    {
-      "from": "task:T-020b",
-      "kind": "tree",
-      "to": "task:T-020b-be"
-    },
-    {
-      "from": "task:T-020b",
-      "kind": "tree",
-      "to": "task:T-020b-fe"
     },
     {
       "from": "task:T-021",
@@ -25521,12 +25301,7 @@
     {
       "from": "feature:onboarding-imports",
       "kind": "wikilink",
-      "to": "task:T-020"
-    },
-    {
-      "from": "feature:onboarding-imports",
-      "kind": "wikilink",
-      "to": "task:T-020b"
+      "to": "project:status-report-2026-10-15"
     },
     {
       "from": "feature:operator-panel",
@@ -26616,7 +26391,7 @@
     {
       "from": "frontend-requirements:linked-accounts",
       "kind": "wikilink",
-      "to": "task:T-020"
+      "to": "story:onboarding-imports"
     },
     {
       "from": "frontend-requirements:meetings",
@@ -26697,16 +26472,6 @@
       "from": "frontend-requirements:onboarding-imports",
       "kind": "wikilink",
       "to": "story:onboarding-imports"
-    },
-    {
-      "from": "frontend-requirements:onboarding-imports",
-      "kind": "wikilink",
-      "to": "task:T-020"
-    },
-    {
-      "from": "frontend-requirements:onboarding-imports",
-      "kind": "wikilink",
-      "to": "task:T-020b"
     },
     {
       "from": "frontend-requirements:payments",
@@ -28256,6 +28021,11 @@
     {
       "from": "needs-decision:ND-02",
       "kind": "wikilink",
+      "to": "story:onboarding-imports"
+    },
+    {
+      "from": "needs-decision:ND-02",
+      "kind": "wikilink",
       "to": "story:profiles"
     },
     {
@@ -29466,11 +29236,6 @@
     {
       "from": "project:status-report-2026-10-15",
       "kind": "wikilink",
-      "to": "feature:onboarding-imports"
-    },
-    {
-      "from": "project:status-report-2026-10-15",
-      "kind": "wikilink",
       "to": "feature:photo-library"
     },
     {
@@ -30169,16 +29934,6 @@
       "to": "story:view-as"
     },
     {
-      "from": "story:profiles",
-      "kind": "wikilink",
-      "to": "task:T-020"
-    },
-    {
-      "from": "story:profiles",
-      "kind": "wikilink",
-      "to": "task:T-020b"
-    },
-    {
       "from": "story:ring-access",
       "kind": "wikilink",
       "to": "backend-integration:ring-access"
@@ -30417,16 +30172,6 @@
       "from": "story:T-018",
       "kind": "wikilink",
       "to": "feature:widgets"
-    },
-    {
-      "from": "story:T-020",
-      "kind": "wikilink",
-      "to": "feature:onboarding-imports"
-    },
-    {
-      "from": "story:T-020b",
-      "kind": "wikilink",
-      "to": "feature:onboarding-imports"
     },
     {
       "from": "story:T-021",
@@ -31127,106 +30872,6 @@
       "from": "task:T-018-fe",
       "kind": "wikilink",
       "to": "task:T-018-be"
-    },
-    {
-      "from": "task:T-020",
-      "kind": "wikilink",
-      "to": "decision:D-02"
-    },
-    {
-      "from": "task:T-020",
-      "kind": "wikilink",
-      "to": "needs-decision:ND-02"
-    },
-    {
-      "from": "task:T-020",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-020",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-020",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-020-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:onboarding-imports"
-    },
-    {
-      "from": "task:T-020-be",
-      "kind": "wikilink",
-      "to": "feature:onboarding-imports"
-    },
-    {
-      "from": "task:T-020-fe",
-      "kind": "wikilink",
-      "to": "feature:onboarding-imports"
-    },
-    {
-      "from": "task:T-020-fe",
-      "kind": "wikilink",
-      "to": "story:T-020"
-    },
-    {
-      "from": "task:T-020-fe",
-      "kind": "wikilink",
-      "to": "task:T-020-be"
-    },
-    {
-      "from": "task:T-020b",
-      "kind": "wikilink",
-      "to": "decision:D-02"
-    },
-    {
-      "from": "task:T-020b",
-      "kind": "wikilink",
-      "to": "needs-decision:ND-02"
-    },
-    {
-      "from": "task:T-020b",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-020b",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-020b",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-020b-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:onboarding-imports"
-    },
-    {
-      "from": "task:T-020b-be",
-      "kind": "wikilink",
-      "to": "feature:onboarding-imports"
-    },
-    {
-      "from": "task:T-020b-fe",
-      "kind": "wikilink",
-      "to": "feature:onboarding-imports"
-    },
-    {
-      "from": "task:T-020b-fe",
-      "kind": "wikilink",
-      "to": "story:T-020b"
-    },
-    {
-      "from": "task:T-020b-fe",
-      "kind": "wikilink",
-      "to": "task:T-020b-be"
     },
     {
       "from": "task:T-021",
@@ -33380,38 +33025,6 @@
     },
     "social-pin/tasks/T-018 Widget CRUD on the projection/T-018-fe Frontend · Widget CRUD on the projection.md": {
       "name": "T-018-fe Frontend · Widget CRUD on the projection",
-      "type": "task"
-    },
-    "social-pin/tasks/T-020 LinkedIn import → review → base profile/T-020 LinkedIn import → review → base profile.md": {
-      "name": "T-020 LinkedIn import → review → base profile",
-      "type": "task"
-    },
-    "social-pin/tasks/T-020 LinkedIn import → review → base profile/T-020 Story.md": {
-      "name": "T-020 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-020 LinkedIn import → review → base profile/T-020-be Backend · LinkedIn import → review → base profile.md": {
-      "name": "T-020-be Backend · LinkedIn import → review → base profile",
-      "type": "task"
-    },
-    "social-pin/tasks/T-020 LinkedIn import → review → base profile/T-020-fe Frontend · LinkedIn import → review → base profile.md": {
-      "name": "T-020-fe Frontend · LinkedIn import → review → base profile",
-      "type": "task"
-    },
-    "social-pin/tasks/T-020b Business card scan and portfolio URL import/T-020b Business card scan and portfolio URL import.md": {
-      "name": "T-020b Business card scan and portfolio URL import",
-      "type": "task"
-    },
-    "social-pin/tasks/T-020b Business card scan and portfolio URL import/T-020b Story.md": {
-      "name": "T-020b Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-020b Business card scan and portfolio URL import/T-020b-be Backend · Business card scan and portfolio URL import.md": {
-      "name": "T-020b-be Backend · Business card scan and portfolio URL import",
-      "type": "task"
-    },
-    "social-pin/tasks/T-020b Business card scan and portfolio URL import/T-020b-fe Frontend · Business card scan and portfolio URL import.md": {
-      "name": "T-020b-fe Frontend · Business card scan and portfolio URL import",
       "type": "task"
     },
     "social-pin/tasks/T-021 Connect request send, inbox, cancel/T-021 Connect request send, inbox, cancel.md": {
@@ -38491,8 +38104,7 @@
         "feature:ring-projection",
         "feature:onboarding-imports",
         "feature:photo-library",
-        "task:T-020",
-        "task:T-020b",
+        "story:onboarding-imports",
         "story:profiles",
         "story:ring-projection"
       ],
@@ -41384,13 +40996,11 @@
       "release": "mvp",
       "resolution": null,
       "rollup": {
-        "approved": 1,
-        "blocked": 4,
+        "blocked": 2,
         "decided": 1,
-        "draft": 3,
+        "draft": 1,
         "missing": 4,
         "needs-decision": 1,
-        "todo": 3,
         "verified": 1
       },
       "scope": null,
@@ -41411,7 +41021,7 @@
       ],
       "task": null,
       "title": "Onboarding Imports",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "feature:operator-panel": {
       "affects": [],
@@ -45821,8 +45431,7 @@
     "frontend-requirements:onboarding-imports": {
       "affects": [
         "story:linked-accounts",
-        "task:T-020",
-        "task:T-020b"
+        "story:onboarding-imports"
       ],
       "blockedBy": [],
       "card": "FR-05",
@@ -46181,7 +45790,7 @@
         "feature:auth",
         "feature:files",
         "story:files",
-        "task:T-020",
+        "story:onboarding-imports",
         "story:error-contract"
       ],
       "release": "mvp",
@@ -47106,20 +46715,20 @@
       "release": null,
       "resolution": null,
       "rollup": {
-        "approved": 12,
-        "blocked": 15,
+        "approved": 11,
+        "blocked": 13,
         "current": 8,
         "decided": 7,
         "delivered": 2,
         "done": 9,
-        "draft": 17,
+        "draft": 15,
         "in-progress": 13,
         "missing": 40,
         "needs-decision": 2,
         "partial": 4,
         "passing": 1,
         "ready": 2,
-        "todo": 7,
+        "todo": 4,
         "verified": 7
       },
       "scope": null,
@@ -47414,9 +47023,9 @@
       "module": null,
       "parentTask": null,
       "parents": [
-        "feature:onboarding-imports",
         "feature:profiles",
         "feature:ring-projection",
+        "feature:onboarding-imports",
         "feature:photo-library"
       ],
       "path": "social-pin/needs-decisions/ND-02 Base profile work fields.md",
@@ -48433,12 +48042,12 @@
     },
     "needs-decision:ND-21": {
       "affects": [
-        "task:T-020b",
+        "story:onboarding-imports",
         "feature:onboarding-imports"
       ],
       "blockedBy": [],
       "blocks": [
-        "task:T-020b"
+        "story:onboarding-imports"
       ],
       "card": "ND-21",
       "children": [],
@@ -48464,7 +48073,7 @@
       "module": null,
       "parentTask": null,
       "parents": [
-        "task:T-020b"
+        "story:onboarding-imports"
       ],
       "path": "social-pin/needs-decisions/ND-21 How a business card and a portfolio page are read.md",
       "pending": [],
@@ -48473,7 +48082,7 @@
         "decision:D-02",
         "decision:D-03",
         "story:profiles",
-        "task:T-020",
+        "story:onboarding-imports",
         "feature:files",
         "frontend-requirements:onboarding-imports"
       ],
@@ -53783,13 +53392,13 @@
         }
       ],
       "rollup": {
-        "approved": 35,
-        "blocked": 108,
+        "approved": 34,
+        "blocked": 106,
         "current": 8,
         "decided": 14,
         "delivered": 2,
         "done": 10,
-        "draft": 74,
+        "draft": 72,
         "in-progress": 55,
         "missing": 155,
         "needs-decision": 6,
@@ -53797,7 +53406,7 @@
         "passing": 1,
         "ready": 2,
         "reference": 31,
-        "todo": 24,
+        "todo": 21,
         "verified": 14
       },
       "scope": null,
@@ -54382,108 +53991,6 @@
       ],
       "task": "T-018",
       "title": "T-018 Story",
-      "updated": "2026-10-26"
-    },
-    "story:T-020": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-09",
-      "children": [],
-      "code": "T-020",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
-      "effort": null,
-      "feature": "onboarding-imports",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-020",
-      "inherits": {
-        "priority": "task:T-020",
-        "release": "feature:onboarding-imports"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "identity",
-      "parentTask": null,
-      "parents": [
-        "task:T-020"
-      ],
-      "path": "social-pin/tasks/T-020 LinkedIn import → review → base profile/T-020 Story.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "scope": "task",
-      "screens": [
-        "s04",
-        "s05"
-      ],
-      "status": "draft",
-      "summary": "Import endpoint returns candidate fields; confirm endpoint writes the chosen ones to the base profile and the first Ring.",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/identity",
-        "layer/business"
-      ],
-      "task": "T-020",
-      "title": "T-020 Story",
-      "updated": "2026-10-26"
-    },
-    "story:T-020b": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-10",
-      "children": [],
-      "code": "T-020b",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
-      "effort": null,
-      "feature": "onboarding-imports",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-020b",
-      "inherits": {
-        "priority": "task:T-020b",
-        "release": "feature:onboarding-imports"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "identity",
-      "parentTask": null,
-      "parents": [
-        "task:T-020b"
-      ],
-      "path": "social-pin/tasks/T-020b Business card scan and portfolio URL import/T-020b Story.md",
-      "pending": [],
-      "priority": "medium",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "scope": "task",
-      "screens": [
-        "s03a",
-        "s03b"
-      ],
-      "status": "draft",
-      "summary": "Provider decision (OCR, scraping). Same review step as T-020.",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/identity",
-        "layer/business"
-      ],
-      "task": "T-020b",
-      "title": "T-020b Story",
       "updated": "2026-10-26"
     },
     "story:T-021": {
@@ -57094,9 +56601,6 @@
       "pending": [],
       "priority": "high",
       "related": [
-        "task:T-020",
-        "task:T-020-be",
-        "task:T-020-fe",
         "backend-delivery:account",
         "backend-integration:account",
         "frontend-delivery:account"
@@ -57232,17 +56736,22 @@
     },
     "story:onboarding-imports": {
       "affects": [],
-      "blockedBy": [],
+      "blockedBy": [
+        {
+          "id": "needs-decision:ND-21",
+          "title": "ND-21 How a business card and a portfolio page are read",
+          "why": "needs decision ND-21 (open)"
+        }
+      ],
       "card": "S-08",
       "children": [
-        "task:T-020",
-        "task:T-020b"
+        "needs-decision:ND-21"
       ],
       "code": "onboarding-imports",
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "approved",
+      "effectiveStatus": "blocked",
       "effort": null,
       "feature": "onboarding-imports",
       "foundOn": null,
@@ -57265,7 +56774,9 @@
       "pending": [],
       "priority": "high",
       "related": [
-        "decision:D-02"
+        "needs-decision:ND-21",
+        "decision:D-02",
+        "frontend-requirements:profiles"
       ],
       "release": "mvp",
       "resolution": null,
@@ -60185,394 +59696,6 @@
       ],
       "task": null,
       "title": "T-018-fe Frontend · Widget CRUD on the projection",
-      "updated": "2026-10-26"
-    },
-    "task:T-020": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-020",
-      "children": [
-        "story:T-020",
-        "task:T-020-be",
-        "task:T-020-fe"
-      ],
-      "code": "T-020",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "decision:D-02"
-      ],
-      "dir": "social-pin/tasks/T-020 LinkedIn import → review → base profile",
-      "effectiveStatus": "todo",
-      "effort": "L",
-      "feature": "onboarding-imports",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-020",
-      "inherits": {
-        "release": "feature:onboarding-imports"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "identity",
-      "parentTask": null,
-      "parents": [
-        "story:onboarding-imports"
-      ],
-      "path": "social-pin/tasks/T-020 LinkedIn import → review → base profile/T-020 LinkedIn import → review → base profile.md",
-      "pending": [],
-      "priority": "high",
-      "related": [
-        "story:linked-accounts",
-        "needs-decision:ND-21",
-        "frontend-requirements:profiles"
-      ],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {
-        "blocked": 1,
-        "draft": 1,
-        "todo": 1
-      },
-      "scope": null,
-      "screens": [
-        "s04",
-        "s05"
-      ],
-      "status": "todo",
-      "summary": "Import endpoint returns candidate fields; confirm endpoint writes the chosen ones to the main profile (headline, role, company, location, photo, bio: D-02 One main profile every Ring starts from),…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/identity",
-        "priority/high"
-      ],
-      "task": null,
-      "title": "T-020 LinkedIn import → review → base profile",
-      "updated": "2026-10-27"
-    },
-    "task:T-020-be": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-020-be",
-      "children": [],
-      "code": "T-020-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "needs-decision:ND-02"
-      ],
-      "dir": null,
-      "effectiveStatus": "todo",
-      "effort": "L",
-      "feature": "onboarding-imports",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-020-be",
-      "inherits": {
-        "release": "feature:onboarding-imports"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "identity",
-      "parentTask": "T-020",
-      "parents": [
-        "task:T-020"
-      ],
-      "path": "social-pin/tasks/T-020 LinkedIn import → review → base profile/T-020-be Backend · LinkedIn import → review → base profile.md",
-      "pending": [],
-      "priority": "high",
-      "related": [
-        "story:linked-accounts"
-      ],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s04",
-        "s05"
-      ],
-      "status": "todo",
-      "summary": "The API side of T-020 LinkedIn import → review → base profile: the endpoints, data and rules its What describes. Record what shipped in T-020-be Backend Delivery and how to call it in T-020-be…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/identity",
-        "priority/high",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-020-be Backend · LinkedIn import → review → base profile",
-      "updated": "2026-10-27"
-    },
-    "task:T-020-fe": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-020-be",
-          "title": "T-020-be Backend · LinkedIn import → review → base profile",
-          "why": "T-020-be Backend · LinkedIn import → review → base profile is to do"
-        }
-      ],
-      "card": "T-020-fe",
-      "children": [],
-      "code": "T-020-fe",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "needs-decision:ND-02",
-        "task:T-020-be"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "L",
-      "feature": "onboarding-imports",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-020-fe",
-      "inherits": {
-        "release": "feature:onboarding-imports"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "frontend"
-      ],
-      "layer": "business",
-      "module": "identity",
-      "parentTask": "T-020",
-      "parents": [
-        "task:T-020"
-      ],
-      "path": "social-pin/tasks/T-020 LinkedIn import → review → base profile/T-020-fe Frontend · LinkedIn import → review → base profile.md",
-      "pending": [],
-      "priority": "high",
-      "related": [
-        "story:linked-accounts"
-      ],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s04",
-        "s05"
-      ],
-      "status": "todo",
-      "summary": "The client side of T-020 LinkedIn import → review → base profile: the screens below show what its What describes, built against Onboarding Imports Backend Integration once the backend half…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/identity",
-        "priority/high",
-        "frontend"
-      ],
-      "task": null,
-      "title": "T-020-fe Frontend · LinkedIn import → review → base profile",
-      "updated": "2026-10-27"
-    },
-    "task:T-020b": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "needs-decision:ND-21",
-          "title": "ND-21 How a business card and a portfolio page are read",
-          "why": "needs decision ND-21 (open)"
-        }
-      ],
-      "card": "T-020b",
-      "children": [
-        "story:T-020b",
-        "task:T-020b-be",
-        "task:T-020b-fe",
-        "needs-decision:ND-21"
-      ],
-      "code": "T-020b",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "decision:D-02"
-      ],
-      "dir": "social-pin/tasks/T-020b Business card scan and portfolio URL import",
-      "effectiveStatus": "blocked",
-      "effort": "L",
-      "feature": "onboarding-imports",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-020b",
-      "inherits": {
-        "release": "feature:onboarding-imports"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "identity",
-      "parentTask": null,
-      "parents": [
-        "story:onboarding-imports"
-      ],
-      "path": "social-pin/tasks/T-020b Business card scan and portfolio URL import/T-020b Business card scan and portfolio URL import.md",
-      "pending": [],
-      "priority": "medium",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {
-        "blocked": 1,
-        "draft": 1,
-        "needs-decision": 1,
-        "todo": 1
-      },
-      "scope": null,
-      "screens": [
-        "s03a",
-        "s03b"
-      ],
-      "status": "todo",
-      "summary": "How the card and the page are read is ND-21 How a business card and a portfolio page are read. Same review step as T-020, writing to the main profile (D-02 One main profile every Ring starts from).",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/identity",
-        "priority/medium"
-      ],
-      "task": null,
-      "title": "T-020b Business card scan and portfolio URL import",
-      "updated": "2026-10-26"
-    },
-    "task:T-020b-be": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-020b-be",
-      "children": [],
-      "code": "T-020b-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "needs-decision:ND-02"
-      ],
-      "dir": null,
-      "effectiveStatus": "todo",
-      "effort": "L",
-      "feature": "onboarding-imports",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-020b-be",
-      "inherits": {
-        "release": "feature:onboarding-imports"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "identity",
-      "parentTask": "T-020b",
-      "parents": [
-        "task:T-020b"
-      ],
-      "path": "social-pin/tasks/T-020b Business card scan and portfolio URL import/T-020b-be Backend · Business card scan and portfolio URL import.md",
-      "pending": [],
-      "priority": "medium",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s03a",
-        "s03b"
-      ],
-      "status": "todo",
-      "summary": "The API side of T-020b Business card scan and portfolio URL import: the endpoints, data and rules its What describes. Record what shipped in T-020b-be Backend Delivery and how to call it in…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/identity",
-        "priority/medium",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-020b-be Backend · Business card scan and portfolio URL import",
-      "updated": "2026-10-26"
-    },
-    "task:T-020b-fe": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-020b-be",
-          "title": "T-020b-be Backend · Business card scan and portfolio URL import",
-          "why": "T-020b-be Backend · Business card scan and portfolio URL import is to do"
-        }
-      ],
-      "card": "T-020b-fe",
-      "children": [],
-      "code": "T-020b-fe",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "needs-decision:ND-02",
-        "task:T-020b-be"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "L",
-      "feature": "onboarding-imports",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-020b-fe",
-      "inherits": {
-        "release": "feature:onboarding-imports"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "frontend"
-      ],
-      "layer": "business",
-      "module": "identity",
-      "parentTask": "T-020b",
-      "parents": [
-        "task:T-020b"
-      ],
-      "path": "social-pin/tasks/T-020b Business card scan and portfolio URL import/T-020b-fe Frontend · Business card scan and portfolio URL import.md",
-      "pending": [],
-      "priority": "medium",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s03a",
-        "s03b"
-      ],
-      "status": "todo",
-      "summary": "The client side of T-020b Business card scan and portfolio URL import: the screens below show what its What describes, built against Onboarding Imports Backend Integration once the backend half…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/identity",
-        "priority/medium",
-        "frontend"
-      ],
-      "task": null,
-      "title": "T-020b-fe Frontend · Business card scan and portfolio URL import",
       "updated": "2026-10-26"
     },
     "task:T-021": {

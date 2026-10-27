@@ -27,7 +27,7 @@ What the client needs for the LinkedIn button, the return into Importing, and th
 ### [[Screen Index#s04|s04]] Importing
 
 - Needs: confirmation that the identity is linked; the imported field set (avatar, name, headline, company, location) to animate in; "Skip and fill it in myself" → s06.
-- Source today: not yet. The review step and the write into the base profile belong to [[Onboarding Imports]] ([[T-020 LinkedIn import → review → base profile]]).
+- Source today: not yet. The review step and the write into the base profile belong to [[Onboarding Imports]] ([[Onboarding Imports Story|Onboarding Imports · S7]]).
 
 ### [[Screen Index#s68|s68]] Me / Account
 
@@ -43,7 +43,7 @@ What the client needs for the LinkedIn button, the return into Importing, and th
 | List my linked identities | — | ❌ | [[Linked Accounts (OAuth) Story|Linked Accounts (OAuth) · S7]] |
 | Link / unlink a provider from Me | — | ❌ | [[Linked Accounts (OAuth) Story|Linked Accounts (OAuth) · S7]] |
 | Log in with a linked provider | — | ❌ | [[Linked Accounts (OAuth) Story|Linked Accounts (OAuth) · S7]] |
-| Import the provider profile into the base profile | — | ❌ | [[T-020 LinkedIn import → review → base profile]] (owned by [[Onboarding Imports]]) |
+| Import the provider profile into the base profile | — | ❌ | [[Onboarding Imports Story|Onboarding Imports · S7]] (owned by [[Onboarding Imports]]) |
 
 ## Behaviour expectations
 

@@ -82,9 +82,6 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-018 Widget CRUD on the projection]] | [[Widgets]] | Identity Core | ❓ Needs decision | M | — | [[T-017 Extend WIDGET_TYPE to the design's list|T-017]] |
 | [[T-018-be Backend · Widget CRUD on the projection]] `backend` | [[Widgets]] | Identity Core | ⛔ Blocked | M | — | [[T-017 Extend WIDGET_TYPE to the design's list|T-017]] |
 | [[T-018-fe Frontend · Widget CRUD on the projection]] `frontend` | [[Widgets]] | Identity Core | ⛔ Blocked | M | — | [[T-017 Extend WIDGET_TYPE to the design's list|T-017]], [[T-018-be Backend · Widget CRUD on the projection|T-018-be]] |
-| [[T-020 LinkedIn import → review → base profile]] | [[Onboarding Imports]] | Identity Core | ⬜ To do | L | — | [[D-02 One main profile every Ring starts from|D-02]] |
-| [[T-020-be Backend · LinkedIn import → review → base profile]] `backend` | [[Onboarding Imports]] | Identity Core | ⬜ To do | L | — | [[ND-02 Base profile work fields|ND-02]] |
-| [[T-020-fe Frontend · LinkedIn import → review → base profile]] `frontend` | [[Onboarding Imports]] | Identity Core | ⛔ Blocked | L | — | [[T-020-be Backend · LinkedIn import → review → base profile|T-020-be]] |
 | [[T-026 Ring invitations invite, review, decline]] | [[Ring Invitations & Join]] | Shared Rings & Companies | ❓ Needs decision | M | — | [[ND-04 Ring settings|ND-04]] |
 | [[T-026-be Backend · Ring invitations invite, review, decline]] `backend` | [[Ring Invitations & Join]] | Shared Rings & Companies | ⬜ To do | M | — | [[ND-04 Ring settings|ND-04]] |
 | [[T-026-fe Frontend · Ring invitations invite, review, decline]] `frontend` | [[Ring Invitations & Join]] | Shared Rings & Companies | ⛔ Blocked | M | — | [[T-026-be Backend · Ring invitations invite, review, decline|T-026-be]] |
@@ -118,9 +115,6 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-013 Usage count per file across Rings]] | [[Photo Library]] | Identity Core | ⛔ Blocked | S | — | [[T-012 List my files (photo library)|T-012]] |
 | [[T-013-be Backend · Usage count per file across Rings]] `backend` | [[Photo Library]] | Identity Core | ⛔ Blocked | S | — | [[T-012 List my files (photo library)|T-012]] |
 | [[T-013-fe Frontend · Usage count per file across Rings]] `frontend` | [[Photo Library]] | Identity Core | ⛔ Blocked | S | — | [[T-012 List my files (photo library)|T-012]], [[T-013-be Backend · Usage count per file across Rings|T-013-be]] |
-| [[T-020b Business card scan and portfolio URL import]] | [[Onboarding Imports]] | Identity Core | ⛔ Blocked | L | — | [[ND-21 How a business card and a portfolio page are read|ND-21]] |
-| [[T-020b-be Backend · Business card scan and portfolio URL import]] `backend` | [[Onboarding Imports]] | Identity Core | ⬜ To do | L | — | [[ND-02 Base profile work fields|ND-02]] |
-| [[T-020b-fe Frontend · Business card scan and portfolio URL import]] `frontend` | [[Onboarding Imports]] | Identity Core | ⛔ Blocked | L | — | [[T-020b-be Backend · Business card scan and portfolio URL import|T-020b-be]] |
 | [[T-025 Introduce a connection to another]] | [[Connections]] | Connections | ❓ Needs decision | M | — | [[T-023 Connection detail and contacts list|T-023]] |
 | [[T-025-be Backend · Introduce a connection to another]] `backend` | [[Connections]] | Connections | ⛔ Blocked | M | — | [[T-023 Connection detail and contacts list|T-023]] |
 | [[T-025-fe Frontend · Introduce a connection to another]] `frontend` | [[Connections]] | Connections | ⛔ Blocked | M | — | [[T-023 Connection detail and contacts list|T-023]], [[T-025-be Backend · Introduce a connection to another|T-025-be]] |

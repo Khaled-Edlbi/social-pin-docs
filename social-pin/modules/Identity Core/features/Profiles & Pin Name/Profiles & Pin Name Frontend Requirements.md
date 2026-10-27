@@ -8,7 +8,7 @@ status: draft
 screens: [s06, s68]
 depends: []
 affects: ["Profiles & Pin Name Story"]
-related: ["D-02 One main profile every Ring starts from", "D-06 Yearly rename, old name freed, case-insensitive", "Onboarding Imports", "Auth & Sign-up", "Files Upload", "Files Upload Story", "T-020 LinkedIn import → review → base profile", "Error Contract Story"]
+related: ["D-02 One main profile every Ring starts from", "D-06 Yearly rename, old name freed, case-insensitive", "Onboarding Imports", "Auth & Sign-up", "Files Upload", "Files Upload Story", "Onboarding Imports Story", "Error Contract Story"]
 created: 2026-10-18
 updated: 2026-10-27
 owner: "Omar Fostok"
@@ -87,7 +87,7 @@ What the client needs from the backend for the Pin-name claim, sign-up's *Profil
 | Show the profile photo | — | ❌ | [[Files Upload Story|Files Upload · showing files]] |
 | Once-a-year rename limit, enforced and its next date readable | — | ❌ | no task yet ([[D-06 Yearly rename, old name freed, case-insensitive]]) |
 | Suggested handles on s06 | — (client, from the person's own name) | ✅ | — ([[D-06 Yearly rename, old name freed, case-insensitive]]) |
-| Import into the profile | — | ❌ | [[T-020 LinkedIn import → review → base profile]] |
+| Import into the profile | — | ❌ | [[Onboarding Imports Story|Onboarding Imports · S7]] |
 
 ## Behaviour expectations
 

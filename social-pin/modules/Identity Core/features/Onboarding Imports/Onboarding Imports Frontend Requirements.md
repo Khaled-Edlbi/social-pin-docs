@@ -7,7 +7,7 @@ module: identity
 status: draft
 screens: [s01, s03, s03a, s03b, s04, s05]
 depends: []
-affects: ["Linked Accounts (OAuth) Story", "T-020 LinkedIn import → review → base profile", "T-020b Business card scan and portfolio URL import"]
+affects: ["Linked Accounts (OAuth) Story", "Onboarding Imports Story"]
 related: ["D-02 One main profile every Ring starts from", "D-03 Links entered once, switched on or off per Ring", "ND-21 How a business card and a portfolio page are read", "Profiles & Pin Name Story", "Files Upload Story", "Error Contract Story", "Auth & Sign-up", "Files Upload", "Ring Projection"]
 created: 2026-10-18
 updated: 2026-10-27
@@ -88,9 +88,9 @@ If the backend prefers to write at registration instead (candidates confirmed in
 | Pin-name step after the import | `GET /profiles/pin-name/:pinName/availability` | ✅ | — (listed under [[Profiles & Pin Name]]) |
 | Carry a card photo to the server, if ND-21 says so | `POST /files` | ✅ | — ([[Files Upload]]) |
 | LinkedIn OAuth start and callback back into the app, with the onboarding token | — | ❌ | [[Linked Accounts (OAuth) Story|Linked Accounts (OAuth) · S7]] |
-| Candidate fields from LinkedIn (photo already stored as a file id, not a LinkedIn URL) | — | ❌ | [[T-020 LinkedIn import → review → base profile]] |
-| Candidate fields from a card photo | — or ❌ | depends on ND-21 | [[T-020b Business card scan and portfolio URL import]] · [[ND-21 How a business card and a portfolio page are read]] |
-| Candidate fields from a portfolio address | — | ❌ | [[T-020b Business card scan and portfolio URL import]] · [[ND-21 How a business card and a portfolio page are read]] |
+| Candidate fields from LinkedIn (photo already stored as a file id, not a LinkedIn URL) | — | ❌ | [[Onboarding Imports Story|Onboarding Imports · S7]] |
+| Candidate fields from a card photo | — or ❌ | depends on ND-21 | [[Onboarding Imports Story|Onboarding Imports · S8]] · [[ND-21 How a business card and a portfolio page are read]] |
+| Candidate fields from a portfolio address | — | ❌ | [[Onboarding Imports Story|Onboarding Imports · S8]] · [[ND-21 How a business card and a portfolio page are read]] |
 | Main profile fields to write the confirmed values into | `PATCH /profiles/:id` (new fields) | ❌ | [[Profiles & Pin Name Story|Profiles & Pin Name · S9–S11]] |
 | Show the imported photo back | — | ❌ | [[Files Upload Story|Files Upload · showing files]] |
 
@@ -107,7 +107,7 @@ If the backend prefers to write at registration instead (candidates confirmed in
 
 | Status | ErrorCode | Show |
 |---|---|---|
-| — | to be defined by Linked Accounts (OAuth) · S7 / T-020 / T-020b | LinkedIn cancelled or denied, nothing returned, page unreachable, unreadable card: "We couldn't read that. Fill it in yourself?" with the manual path |
+| — | to be defined by Linked Accounts (OAuth) · S7 / Onboarding Imports · S7 / Onboarding Imports · S8 | LinkedIn cancelled or denied, nothing returned, page unreachable, unreadable card: "We couldn't read that. Fill it in yourself?" with the manual path |
 | 401 | — (onboarding token expired) | a new code is sent; back to Verify, the review kept |
 | 409 | `E_PROFILE_02` | on s06: "That Pin name is taken" |
 
@@ -116,6 +116,6 @@ Until [[Error Contract Story|Error Contract · S4–S8]] ships, branch on status
 ## Blocked by
 
 - [[Linked Accounts (OAuth) Story|Linked Accounts (OAuth) · S7]] — s01's LinkedIn button and s04 can't start.
-- [[T-020 LinkedIn import → review → base profile]] — s04's candidates and s05's LinkedIn rows.
+- [[Onboarding Imports Story|Onboarding Imports · S7]] — s04's candidates and s05's LinkedIn rows.
 - [[Profiles & Pin Name Story|Profiles & Pin Name · S9–S11]] — nowhere to save headline, company, location, photo or bio after review.
-- [[ND-21 How a business card and a portfolio page are read]] → [[T-020b Business card scan and portfolio URL import]] — s03a and s03b.
+- [[ND-21 How a business card and a portfolio page are read]] → [[Onboarding Imports Story|Onboarding Imports · S8]] — s03a and s03b.

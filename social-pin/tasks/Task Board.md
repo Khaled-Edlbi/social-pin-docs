@@ -62,7 +62,6 @@ kanban-plugin: board
 - [ ] [[T-017-fe Frontend · Extend WIDGET_TYPE to the design's list]] #high #widgets #frontend
 - [ ] [[T-018-be Backend · Widget CRUD on the projection]] #high #widgets #backend
 - [ ] [[T-018-fe Frontend · Widget CRUD on the projection]] #high #widgets #frontend
-- [ ] [[T-020-fe Frontend · LinkedIn import → review → base profile]] #high #onboarding-imports #frontend
 - [ ] [[T-026-fe Frontend · Ring invitations invite, review, decline]] #high #ring-invitations #frontend
 - [ ] [[T-027 Join a Ring with a code or verified work email]] #high #ring-invitations
 - [ ] [[T-027-be Backend · Join a Ring with a code or verified work email]] #high #ring-invitations #backend
@@ -81,8 +80,6 @@ kanban-plugin: board
 - [ ] [[T-013 Usage count per file across Rings]] #medium #photo-library
 - [ ] [[T-013-be Backend · Usage count per file across Rings]] #medium #photo-library #backend
 - [ ] [[T-013-fe Frontend · Usage count per file across Rings]] #medium #photo-library #frontend
-- [ ] [[T-020b Business card scan and portfolio URL import]] #medium #onboarding-imports
-- [ ] [[T-020b-fe Frontend · Business card scan and portfolio URL import]] #medium #onboarding-imports #frontend
 - [ ] [[T-025-be Backend · Introduce a connection to another]] #medium #connections #backend
 - [ ] [[T-025-fe Frontend · Introduce a connection to another]] #medium #connections #frontend
 - [ ] [[T-028-be Backend · What you contribute to a shared Ring]] #medium #ring-invitations #backend
@@ -107,10 +104,7 @@ kanban-plugin: board
 - [ ] [[T-012-be Backend · List my files (photo library)]] #high #photo-library #backend
 - [ ] [[T-017 Extend WIDGET_TYPE to the design's list]] #high #widgets
 - [ ] [[T-017-be Backend · Extend WIDGET_TYPE to the design's list]] #high #widgets #backend
-- [ ] [[T-020 LinkedIn import → review → base profile]] #high #onboarding-imports
-- [ ] [[T-020-be Backend · LinkedIn import → review → base profile]] #high #onboarding-imports #backend
 - [ ] [[T-026-be Backend · Ring invitations invite, review, decline]] #high #ring-invitations #backend
-- [ ] [[T-020b-be Backend · Business card scan and portfolio URL import]] #medium #onboarding-imports #backend
 
 
 ## 🔵 In progress
