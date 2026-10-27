@@ -11,10 +11,10 @@ labels: [backend]
 screens: [s05, s23, s68]
 depends: ["D-02 One main profile every Ring starts from"]
 affects: []
-related: ["D-05 Inherit per field, copy without members", "T-062 Serve uploaded file bytes by id", "T-020 LinkedIn import → review → base profile", "T-020b Business card scan and portfolio URL import", "Onboarding Imports", "Ring Projection", "Files Upload", "Auth & Sign-up"]
+related: ["D-05 Inherit per field, copy without members", "Files Upload Story", "T-020 LinkedIn import → review → base profile", "T-020b Business card scan and portfolio URL import", "Onboarding Imports", "Ring Projection", "Files Upload", "Auth & Sign-up"]
 pending: []
 created: 2026-10-26
-updated: 2026-10-26
+updated: 2026-10-27
 owner: "Omar Fostok"
 tags: [task, task/todo, module/identity, priority/high, backend]
 ---

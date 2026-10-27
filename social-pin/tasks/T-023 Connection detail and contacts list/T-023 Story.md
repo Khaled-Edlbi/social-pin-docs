@@ -14,7 +14,7 @@ approvedBy: "khaled"
 approvedAt: 2026-10-25
 owner: "omar"
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [story, story/approved, module/connections, layer/business]
 task: T-023
 ---
@@ -39,7 +39,7 @@ A Ring owner after a few weeks of scanning and accepting, with people spread acr
 
 Acceptance criteria:
 - [ ] `GET /connections` lists my connections, paged (`limit` ≤ 50, `meta.total`), sorted by display name.
-- [ ] Each row has the person's `userId`, `displayName`, `pinName`, `avatarFileId` (shown once [[T-062 Serve uploaded file bytes by id]] ships) and when we connected.
+- [ ] Each row has the person's `userId`, `displayName`, `pinName`, `avatarFileId` (shown once [[Files Upload Story|Files Upload · showing files]] ships) and when we connected.
 - [ ] A search (`q`) matches name or Pin name, only within my own connections; it never finds strangers.
 - [ ] Someone I removed from all my Rings but did not disconnect **is listed**, marked as having no access; I can add them to a Ring again without a new request.
 - [ ] Someone I **disconnected**, or who blocked me, is not listed.
@@ -90,7 +90,7 @@ Acceptance criteria:
 
 - Contacts: list, search with no results ("No one by that name"), empty ("No connections yet. Scan someone to start"); a "No access" marker on a connection in none of my Rings.
 - s47: loading; the person; their Rings with windows; actions; the *Remove from Rings* / *Disconnect* choice at the last removal; refreshing after an action.
-- No avatars until T-062: initials.
+- No avatars until Files Upload shows files (S7–S11): initials.
 - Motion: none asked for.
 
 ## Rules the backend already enforces

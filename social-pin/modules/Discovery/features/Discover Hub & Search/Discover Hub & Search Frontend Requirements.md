@@ -7,7 +7,7 @@ module: discovery
 status: draft
 screens: [s38]
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [frontend-requirements, frontend-requirements/draft, module/discovery, layer/frontend]
 ---
 
@@ -48,7 +48,7 @@ What the client needs from the backend to build the screen in [[Discover Hub & S
 | Companies tile | — | ❌ | [[T-029 My companies and company detail]] |
 | Exhibitors tile | — | ❌ | [[T-036 Event mode exhibitors list and detail]] |
 | PinCast tile | — | ❌ | [[T-032 PinCast setup, start, stop, results]] |
-| Avatar on recent-search rows and results | — | ❌ | [[T-062 Serve uploaded file bytes by id]] |
+| Avatar on recent-search rows and results | — | ❌ | [[Files Upload Story|Files Upload · showing files]] |
 
 ## Behaviour expectations
 

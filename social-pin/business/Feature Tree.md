@@ -1,7 +1,7 @@
 ---
 type: map
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [map]
 layer: business
 ---
@@ -38,7 +38,6 @@ Social Pin backend
 │   │   └── ❓ T-060 Decide: copy or inherit
 │   ├── ✅ View As & Pin Views  [Critical]
 │   ├── ✅ Files Upload  [High]
-│   │   └── ⬜ T-062 Serve uploaded file bytes by id
 │   ├── ✅ Ring Access Engine  [Critical]
 │   ├── 🟡 Counts  [High]
 │   │   ├── ⬜ T-004 Member count per Ring on list and detail
@@ -150,7 +149,7 @@ Account, profile, Rings, what each Ring shows, and the access engine. The part o
 | [[Ring Members]] | ✅ Done | Critical | s15, s47 | 0 |
 | [[Ring Projection]] | ✅ Done | Critical | s14, s20, s23, s24, s25, s29, s36 | 2 |
 | [[View As & Pin Views]] | ✅ Done | Critical | s10, s31, s44 | 0 |
-| [[Files Upload]] | ✅ Done | High | s14, s20, s36 | 1 |
+| [[Files Upload]] | ✅ Done | High | s14, s20, s36 | 0 |
 | [[Ring Access Engine]] | ✅ Done | Critical | — | 0 |
 | [[Counts]] | 🟡 Partial (needs more) | High | s11, s12, s14, s16, s17, s68 | 2 |
 | [[Photo Library]] | 🟡 Partial (needs more) | High | s29, s30 | 2 |

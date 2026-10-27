@@ -7,7 +7,7 @@ module: identity
 status: draft
 screens: [s10, s31, s44]
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [frontend-requirements, frontend-requirements/draft, module/identity, layer/frontend]
 ---
 
@@ -47,7 +47,7 @@ What the client needs from the backend for every screen that renders another per
 | Shown on the card | Source | Notes |
 |---|---|---|
 | `!pinName`, name, nickname, bio | `pinName`, `displayName`, `nickname`, `bio` | `displayName` already falls back to the full name |
-| Photo | `avatarFileId` | placeholder until [[T-062 Serve uploaded file bytes by id]] |
+| Photo | `avatarFileId` | placeholder until [[Files Upload Story|Files Upload · showing files]] |
 | Theme | `themeConfig` | free-form JSON; also the switcher's label |
 | Sensitive rows | `birthdate`, `gender`, `maritalStatus`, `email`, `phone` | shown only when not `null` |
 | Links, fields, files | `links[]`, `infoBlocks[]`, `attachments[]` | visible rows only; no `isVisible` here |
@@ -61,7 +61,7 @@ What the client needs from the backend for every screen that renders another per
 | Render one Ring (scan, View as) | `GET /views/ring/:ringId` | ✅ | — |
 | All perspectives of one person | `GET /views/user/:userId/perspectives` | ✅ | — |
 | My live Rings for the View as selector | `GET /rings` | ✅ | — (listed under [[Rings]]) |
-| Photo and attachment bytes | — | ❌ | [[T-062 Serve uploaded file bytes by id]] |
+| Photo and attachment bytes | — | ❌ | [[Files Upload Story|Files Upload · showing files]] |
 | Issue a rotating QR token for a Ring | — | ❌ | [[T-007 Issue and rotate the QR token for a Ring]] |
 | Resolve a scanned token to a view | — | ❌ | [[T-008 Resolve a scanned QR token]] |
 | Connect after a scan | — | ❌ | [[T-021 Connect request send, inbox, cancel]] |
@@ -95,6 +95,6 @@ Until [[T-063 Put the ErrorCode on the error body]] ships, the body carries no `
 
 ## Blocked by
 
-- [[T-062 Serve uploaded file bytes by id]] — the photo and attachment downloads on s31 and s44.
+- [[Files Upload Story|Files Upload · showing files]] — the photo and attachment downloads on s31 and s44.
 - [[T-007 Issue and rotate the QR token for a Ring]] and [[T-008 Resolve a scanned QR token]] — the real QR payload on s44; a Ring id in the QR is a stopgap.
 - [[T-021 Connect request send, inbox, cancel]] — the Connect action on s44.

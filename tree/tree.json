@@ -493,10 +493,6 @@
     "T-059 Decide Ring settings": "task:T-059",
     "T-060 Decide copy or inherit": "task:T-060",
     "T-061 Decide Pin name rules": "task:T-061",
-    "T-062 Serve uploaded file bytes by id": "task:T-062",
-    "T-062 Story": "story:T-062",
-    "T-062-be Backend · Serve uploaded file bytes by id": "task:T-062-be",
-    "T-062-fe Frontend · Serve uploaded file bytes by id": "task:T-062-fe",
     "T-063 Put the ErrorCode on the error body": "task:T-063",
     "T-063 Story": "story:T-063",
     "T-063-be Backend · Put the ErrorCode on the error body": "task:T-063-be",
@@ -762,7 +758,6 @@
     "S-04": "story:T-004",
     "S-05": "story:T-005",
     "S-06": "story:files",
-    "S-07": "story:T-062",
     "S-08": "story:onboarding-imports",
     "S-09": "story:T-020",
     "S-10": "story:T-020b",
@@ -1030,9 +1025,6 @@
     "T-059": "task:T-059",
     "T-060": "task:T-060",
     "T-061": "task:T-061",
-    "T-062": "task:T-062",
-    "T-062-be": "task:T-062-be",
-    "T-062-fe": "task:T-062-fe",
     "T-063": "task:T-063",
     "T-063-be": "task:T-063-be",
     "T-063-fe": "task:T-063-fe",
@@ -1079,8 +1071,7 @@
     "DELETE /files/:id": {
       "containers": [
         "feature:files",
-        "feature:photo-library",
-        "task:T-062"
+        "feature:photo-library"
       ],
       "kind": "endpoint",
       "notes": [
@@ -1088,7 +1079,6 @@
         "backend-integration:files",
         "frontend-requirements:files",
         "frontend-requirements:photo-library",
-        "story:T-062",
         "story:files",
         "story:photo-library"
       ],
@@ -1437,8 +1427,7 @@
     "E_FILE_01": {
       "containers": [
         "feature:files",
-        "feature:photo-library",
-        "task:T-062"
+        "feature:photo-library"
       ],
       "kind": "error",
       "notes": [
@@ -1446,7 +1435,6 @@
         "backend-integration:files",
         "frontend-requirements:files",
         "frontend-requirements:photo-library",
-        "story:T-062",
         "story:files"
       ],
       "owner": null
@@ -2040,8 +2028,7 @@
       "containers": [
         "feature:files",
         "feature:photo-library",
-        "needs-decision:ND-16",
-        "task:T-062"
+        "needs-decision:ND-16"
       ],
       "kind": "endpoint",
       "notes": [
@@ -2050,21 +2037,17 @@
         "frontend-requirements:files",
         "frontend-requirements:photo-library",
         "needs-decision:ND-16",
-        "story:T-062",
         "story:files"
       ],
       "owner": "feature:files"
     },
     "GET /files/:id/content": {
       "containers": [
-        "needs-decision:ND-16",
-        "task:T-062"
+        "needs-decision:ND-16"
       ],
       "kind": "endpoint",
       "notes": [
-        "needs-decision:ND-16",
-        "story:T-062",
-        "task:T-062"
+        "needs-decision:ND-16"
       ],
       "owner": null
     },
@@ -3740,10 +3723,7 @@
         "needs-decision:ND-16",
         "task:T-004",
         "task:T-004-be",
-        "task:T-004-fe",
-        "task:T-062",
-        "task:T-062-be",
-        "task:T-062-fe"
+        "task:T-004-fe"
       ],
       "kind": "screen",
       "notes": [
@@ -3760,16 +3740,12 @@
         "frontend-requirements:ring-projection",
         "needs-decision:ND-16",
         "story:T-004",
-        "story:T-062",
         "story:counts",
         "story:files",
         "story:ring-projection",
         "task:T-004",
         "task:T-004-be",
-        "task:T-004-fe",
-        "task:T-062",
-        "task:T-062-be",
-        "task:T-062-fe"
+        "task:T-004-fe"
       ],
       "owner": null
     },
@@ -4069,10 +4045,7 @@
         "feature:ring-projection",
         "needs-decision:ND-02",
         "needs-decision:ND-05",
-        "needs-decision:ND-16",
-        "task:T-062",
-        "task:T-062-be",
-        "task:T-062-fe"
+        "needs-decision:ND-16"
       ],
       "kind": "screen",
       "notes": [
@@ -4086,17 +4059,14 @@
         "needs-decision:ND-02",
         "needs-decision:ND-05",
         "needs-decision:ND-16",
-        "story:T-062",
         "story:photo-library",
-        "story:ring-projection",
-        "task:T-062",
-        "task:T-062-be",
-        "task:T-062-fe"
+        "story:ring-projection"
       ],
       "owner": null
     },
     "s30": {
       "containers": [
+        "feature:files",
         "feature:photo-library",
         "needs-decision:ND-16",
         "task:T-012",
@@ -4104,10 +4074,7 @@
         "task:T-012-fe",
         "task:T-013",
         "task:T-013-be",
-        "task:T-013-fe",
-        "task:T-062",
-        "task:T-062-be",
-        "task:T-062-fe"
+        "task:T-013-fe"
       ],
       "kind": "screen",
       "notes": [
@@ -4117,27 +4084,22 @@
         "needs-decision:ND-16",
         "story:T-012",
         "story:T-013",
-        "story:T-062",
+        "story:files",
         "story:photo-library",
         "task:T-012",
         "task:T-012-be",
         "task:T-012-fe",
         "task:T-013",
         "task:T-013-be",
-        "task:T-013-fe",
-        "task:T-062",
-        "task:T-062-be",
-        "task:T-062-fe"
+        "task:T-013-fe"
       ],
       "owner": null
     },
     "s31": {
       "containers": [
+        "feature:files",
         "feature:view-as",
-        "needs-decision:ND-16",
-        "task:T-062",
-        "task:T-062-be",
-        "task:T-062-fe"
+        "needs-decision:ND-16"
       ],
       "kind": "screen",
       "notes": [
@@ -4146,11 +4108,8 @@
         "feature:view-as",
         "frontend-requirements:view-as",
         "needs-decision:ND-16",
-        "story:T-062",
-        "story:view-as",
-        "task:T-062",
-        "task:T-062-be",
-        "task:T-062-fe"
+        "story:files",
+        "story:view-as"
       ],
       "owner": null
     },
@@ -4391,6 +4350,7 @@
       "containers": [
         "feature:badge-qr",
         "feature:connections",
+        "feature:files",
         "feature:view-as",
         "needs-decision:ND-10",
         "needs-decision:ND-13",
@@ -4401,10 +4361,7 @@
         "task:T-008-fe",
         "task:T-021",
         "task:T-021-be",
-        "task:T-021-fe",
-        "task:T-062",
-        "task:T-062-be",
-        "task:T-062-fe"
+        "task:T-021-fe"
       ],
       "kind": "screen",
       "notes": [
@@ -4424,19 +4381,16 @@
         "needs-decision:ND-17",
         "story:T-008",
         "story:T-021",
-        "story:T-062",
         "story:badge-qr",
         "story:connections",
+        "story:files",
         "story:view-as",
         "task:T-008",
         "task:T-008-be",
         "task:T-008-fe",
         "task:T-021",
         "task:T-021-be",
-        "task:T-021-fe",
-        "task:T-062",
-        "task:T-062-be",
-        "task:T-062-fe"
+        "task:T-021-fe"
       ],
       "owner": null
     },
@@ -5252,7 +5206,7 @@
     }
   },
   "counts": {
-    "blocked": 153,
+    "blocked": 152,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -5265,28 +5219,28 @@
       "project": 27,
       "qa-backend": 1,
       "qa-frontend": 1,
-      "story": 106,
-      "task": 194
+      "story": 105,
+      "task": 191
     },
     "byLayer": {
       "backend": 56,
-      "business": 379,
+      "business": 375,
       "frontend": 44,
       "qa": 2,
       "shared": 10
     },
     "concepts": 199,
     "decisions": 19,
-    "edges": 5387,
+    "edges": 5362,
     "features": 41,
-    "layerNotes": 196,
+    "layerNotes": 195,
     "modules": 8,
-    "notes": 529,
+    "notes": 525,
     "partial": 3,
     "placeholders": 162,
     "records": 14,
-    "taskLayerNotes": 67,
-    "tasks": 194
+    "taskLayerNotes": 66,
+    "tasks": 191
   },
   "deadlines": {
     "missed": {
@@ -6975,7 +6929,7 @@
     {
       "from": "needs-decision:ND-16",
       "kind": "blocks",
-      "to": "story:T-062"
+      "to": "story:files"
     },
     {
       "from": "needs-decision:ND-21",
@@ -7888,11 +7842,6 @@
       "to": "task:T-071-be"
     },
     {
-      "from": "task:T-062-be",
-      "kind": "blocks",
-      "to": "task:T-062-fe"
-    },
-    {
       "from": "task:T-063",
       "kind": "blocks",
       "to": "story:T-067"
@@ -8165,7 +8114,7 @@
     {
       "from": "needs-decision:ND-16",
       "kind": "decision",
-      "to": "story:T-062"
+      "to": "story:files"
     },
     {
       "from": "needs-decision:ND-17",
@@ -9251,11 +9200,6 @@
       "from": "task:T-061",
       "kind": "depends",
       "to": "needs-decision:ND-06"
-    },
-    {
-      "from": "task:T-062-fe",
-      "kind": "depends",
-      "to": "task:T-062-be"
     },
     {
       "from": "task:T-063-fe",
@@ -11460,6 +11404,11 @@
     {
       "from": "frontend-delivery:account",
       "kind": "related",
+      "to": "story:files"
+    },
+    {
+      "from": "frontend-delivery:account",
+      "kind": "related",
       "to": "task:T-005"
     },
     {
@@ -11476,11 +11425,6 @@
       "from": "frontend-delivery:account",
       "kind": "related",
       "to": "task:T-049"
-    },
-    {
-      "from": "frontend-delivery:account",
-      "kind": "related",
-      "to": "task:T-062"
     },
     {
       "from": "frontend-delivery:account",
@@ -11610,7 +11554,7 @@
     {
       "from": "frontend-requirements:onboarding-imports",
       "kind": "related",
-      "to": "task:T-062"
+      "to": "story:files"
     },
     {
       "from": "frontend-requirements:onboarding-imports",
@@ -11650,12 +11594,12 @@
     {
       "from": "frontend-requirements:profiles",
       "kind": "related",
-      "to": "task:T-020"
+      "to": "story:files"
     },
     {
       "from": "frontend-requirements:profiles",
       "kind": "related",
-      "to": "task:T-062"
+      "to": "task:T-020"
     },
     {
       "from": "frontend-requirements:profiles",
@@ -12070,7 +12014,7 @@
     {
       "from": "qa-frontend:account",
       "kind": "related",
-      "to": "task:T-062"
+      "to": "story:files"
     },
     {
       "from": "qa-frontend:account",
@@ -12452,14 +12396,6 @@
       "from": "story:exhibitor",
       "kind": "related",
       "to": "story:T-048b",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
-      "from": "story:files",
-      "kind": "related",
-      "to": "story:T-062",
       "via": [
         "sum-of"
       ]
@@ -13025,17 +12961,17 @@
     {
       "from": "story:T-078",
       "kind": "related",
+      "to": "story:files"
+    },
+    {
+      "from": "story:T-078",
+      "kind": "related",
       "to": "task:T-020"
     },
     {
       "from": "story:T-078",
       "kind": "related",
       "to": "task:T-020b"
-    },
-    {
-      "from": "story:T-078",
-      "kind": "related",
-      "to": "task:T-062"
     },
     {
       "from": "story:T-079",
@@ -13311,17 +13247,17 @@
     {
       "from": "task:T-078",
       "kind": "related",
+      "to": "story:files"
+    },
+    {
+      "from": "task:T-078",
+      "kind": "related",
       "to": "task:T-020"
     },
     {
       "from": "task:T-078",
       "kind": "related",
       "to": "task:T-020b"
-    },
-    {
-      "from": "task:T-078",
-      "kind": "related",
-      "to": "task:T-062"
     },
     {
       "from": "task:T-078-be",
@@ -13351,17 +13287,17 @@
     {
       "from": "task:T-078-be",
       "kind": "related",
+      "to": "story:files"
+    },
+    {
+      "from": "task:T-078-be",
+      "kind": "related",
       "to": "task:T-020"
     },
     {
       "from": "task:T-078-be",
       "kind": "related",
       "to": "task:T-020b"
-    },
-    {
-      "from": "task:T-078-be",
-      "kind": "related",
-      "to": "task:T-062"
     },
     {
       "from": "task:T-078-fe",
@@ -13391,17 +13327,17 @@
     {
       "from": "task:T-078-fe",
       "kind": "related",
+      "to": "story:files"
+    },
+    {
+      "from": "task:T-078-fe",
+      "kind": "related",
       "to": "task:T-020"
     },
     {
       "from": "task:T-078-fe",
       "kind": "related",
       "to": "task:T-020b"
-    },
-    {
-      "from": "task:T-078-fe",
-      "kind": "related",
-      "to": "task:T-062"
     },
     {
       "from": "task:T-079",
@@ -19383,16 +19319,6 @@
     {
       "from": "feature:files",
       "kind": "shares",
-      "to": "task:T-062",
-      "via": [
-        "DELETE /files/:id",
-        "E_FILE_01",
-        "GET /files/:id"
-      ]
-    },
-    {
-      "from": "feature:files",
-      "kind": "shares",
       "to": "task:T-078",
       "via": [
         "POST /files"
@@ -20446,16 +20372,6 @@
       "to": "task:T-022",
       "via": [
         "E_RING_02"
-      ]
-    },
-    {
-      "from": "feature:photo-library",
-      "kind": "shares",
-      "to": "task:T-062",
-      "via": [
-        "DELETE /files/:id",
-        "E_FILE_01",
-        "GET /files/:id"
       ]
     },
     {
@@ -22581,15 +22497,6 @@
       "via": [
         "GET /views/user/:userId/perspectives",
         "POST /rings/:ringId/members"
-      ]
-    },
-    {
-      "from": "needs-decision:ND-16",
-      "kind": "shares",
-      "to": "task:T-062",
-      "via": [
-        "GET /files/:id",
-        "GET /files/:id/content"
       ]
     },
     {
@@ -25707,7 +25614,7 @@
     {
       "from": "story:files",
       "kind": "tree",
-      "to": "task:T-062"
+      "to": "needs-decision:ND-16"
     },
     {
       "from": "story:gemma",
@@ -25923,11 +25830,6 @@
       "from": "story:T-023",
       "kind": "tree",
       "to": "needs-decision:ND-15"
-    },
-    {
-      "from": "story:T-062",
-      "kind": "tree",
-      "to": "needs-decision:ND-16"
     },
     {
       "from": "story:widgets",
@@ -26780,21 +26682,6 @@
       "to": "task:T-055-be"
     },
     {
-      "from": "task:T-062",
-      "kind": "tree",
-      "to": "story:T-062"
-    },
-    {
-      "from": "task:T-062",
-      "kind": "tree",
-      "to": "task:T-062-be"
-    },
-    {
-      "from": "task:T-062",
-      "kind": "tree",
-      "to": "task:T-062-fe"
-    },
-    {
       "from": "task:T-063",
       "kind": "tree",
       "to": "backend-delivery:T-063"
@@ -27142,7 +27029,7 @@
     {
       "from": "backend-delivery:files",
       "kind": "wikilink",
-      "to": "task:T-062"
+      "to": "story:files"
     },
     {
       "from": "backend-delivery:gemma",
@@ -27402,7 +27289,7 @@
     {
       "from": "backend-delivery:ring-projection",
       "kind": "wikilink",
-      "to": "task:T-062"
+      "to": "story:files"
     },
     {
       "from": "backend-delivery:rings",
@@ -27472,7 +27359,7 @@
     {
       "from": "backend-delivery:view-as",
       "kind": "wikilink",
-      "to": "task:T-062"
+      "to": "story:files"
     },
     {
       "from": "backend-delivery:widgets",
@@ -27598,6 +27485,11 @@
       "from": "backend-integration:files",
       "kind": "wikilink",
       "to": "project:frontend-contract"
+    },
+    {
+      "from": "backend-integration:files",
+      "kind": "wikilink",
+      "to": "story:files"
     },
     {
       "from": "backend-integration:files",
@@ -27802,6 +27694,11 @@
     {
       "from": "backend-integration:ring-projection",
       "kind": "wikilink",
+      "to": "story:files"
+    },
+    {
+      "from": "backend-integration:ring-projection",
+      "kind": "wikilink",
       "to": "task:T-017"
     },
     {
@@ -27888,6 +27785,11 @@
       "from": "backend-integration:view-as",
       "kind": "wikilink",
       "to": "project:ring-access-model"
+    },
+    {
+      "from": "backend-integration:view-as",
+      "kind": "wikilink",
+      "to": "story:files"
     },
     {
       "from": "backend-integration:view-as",
@@ -28290,11 +28192,6 @@
       "to": "task:T-048b"
     },
     {
-      "from": "feature:files",
-      "kind": "wikilink",
-      "to": "task:T-062"
-    },
-    {
       "from": "feature:gemma",
       "kind": "wikilink",
       "to": "decision:D-06"
@@ -28632,6 +28529,11 @@
     {
       "from": "frontend-requirements:account",
       "kind": "wikilink",
+      "to": "story:files"
+    },
+    {
+      "from": "frontend-requirements:account",
+      "kind": "wikilink",
       "to": "task:T-005"
     },
     {
@@ -28653,11 +28555,6 @@
       "from": "frontend-requirements:account",
       "kind": "wikilink",
       "to": "task:T-049"
-    },
-    {
-      "from": "frontend-requirements:account",
-      "kind": "wikilink",
-      "to": "task:T-062"
     },
     {
       "from": "frontend-requirements:account",
@@ -28777,6 +28674,11 @@
     {
       "from": "frontend-requirements:badge-qr",
       "kind": "wikilink",
+      "to": "story:files"
+    },
+    {
+      "from": "frontend-requirements:badge-qr",
+      "kind": "wikilink",
       "to": "task:T-007"
     },
     {
@@ -28813,11 +28715,6 @@
       "from": "frontend-requirements:badge-qr",
       "kind": "wikilink",
       "to": "task:T-049"
-    },
-    {
-      "from": "frontend-requirements:badge-qr",
-      "kind": "wikilink",
-      "to": "task:T-062"
     },
     {
       "from": "frontend-requirements:badge-qr",
@@ -28922,6 +28819,11 @@
     {
       "from": "frontend-requirements:companies",
       "kind": "wikilink",
+      "to": "story:files"
+    },
+    {
+      "from": "frontend-requirements:companies",
+      "kind": "wikilink",
       "to": "task:T-004"
     },
     {
@@ -28948,11 +28850,6 @@
       "from": "frontend-requirements:companies",
       "kind": "wikilink",
       "to": "task:T-048"
-    },
-    {
-      "from": "frontend-requirements:companies",
-      "kind": "wikilink",
-      "to": "task:T-062"
     },
     {
       "from": "frontend-requirements:companies",
@@ -29002,6 +28899,11 @@
     {
       "from": "frontend-requirements:connections",
       "kind": "wikilink",
+      "to": "story:files"
+    },
+    {
+      "from": "frontend-requirements:connections",
+      "kind": "wikilink",
       "to": "task:T-005"
     },
     {
@@ -29042,11 +28944,6 @@
     {
       "from": "frontend-requirements:connections",
       "kind": "wikilink",
-      "to": "task:T-062"
-    },
-    {
-      "from": "frontend-requirements:connections",
-      "kind": "wikilink",
       "to": "task:T-063"
     },
     {
@@ -29082,6 +28979,11 @@
     {
       "from": "frontend-requirements:delegated-admins",
       "kind": "wikilink",
+      "to": "story:files"
+    },
+    {
+      "from": "frontend-requirements:delegated-admins",
+      "kind": "wikilink",
       "to": "task:T-006"
     },
     {
@@ -29093,11 +28995,6 @@
       "from": "frontend-requirements:delegated-admins",
       "kind": "wikilink",
       "to": "task:T-045"
-    },
-    {
-      "from": "frontend-requirements:delegated-admins",
-      "kind": "wikilink",
-      "to": "task:T-062"
     },
     {
       "from": "frontend-requirements:delegated-admins",
@@ -29147,6 +29044,11 @@
     {
       "from": "frontend-requirements:discover-hub",
       "kind": "wikilink",
+      "to": "story:files"
+    },
+    {
+      "from": "frontend-requirements:discover-hub",
+      "kind": "wikilink",
       "to": "task:T-021"
     },
     {
@@ -29183,11 +29085,6 @@
       "from": "frontend-requirements:discover-hub",
       "kind": "wikilink",
       "to": "task:T-051"
-    },
-    {
-      "from": "frontend-requirements:discover-hub",
-      "kind": "wikilink",
-      "to": "task:T-062"
     },
     {
       "from": "frontend-requirements:discover-hub",
@@ -29483,11 +29380,6 @@
       "from": "frontend-requirements:files",
       "kind": "wikilink",
       "to": "task:T-013"
-    },
-    {
-      "from": "frontend-requirements:files",
-      "kind": "wikilink",
-      "to": "task:T-062"
     },
     {
       "from": "frontend-requirements:files",
@@ -29792,6 +29684,11 @@
     {
       "from": "frontend-requirements:photo-library",
       "kind": "wikilink",
+      "to": "story:files"
+    },
+    {
+      "from": "frontend-requirements:photo-library",
+      "kind": "wikilink",
       "to": "story:photo-library"
     },
     {
@@ -29807,17 +29704,17 @@
     {
       "from": "frontend-requirements:photo-library",
       "kind": "wikilink",
-      "to": "task:T-062"
-    },
-    {
-      "from": "frontend-requirements:photo-library",
-      "kind": "wikilink",
       "to": "task:T-063"
     },
     {
       "from": "frontend-requirements:pincast",
       "kind": "wikilink",
       "to": "frontend-requirements:connections"
+    },
+    {
+      "from": "frontend-requirements:pincast",
+      "kind": "wikilink",
+      "to": "story:files"
     },
     {
       "from": "frontend-requirements:pincast",
@@ -29848,11 +29745,6 @@
       "from": "frontend-requirements:pincast",
       "kind": "wikilink",
       "to": "task:T-054"
-    },
-    {
-      "from": "frontend-requirements:pincast",
-      "kind": "wikilink",
-      "to": "task:T-062"
     },
     {
       "from": "frontend-requirements:pincast",
@@ -30157,6 +30049,11 @@
     {
       "from": "frontend-requirements:ring-projection",
       "kind": "wikilink",
+      "to": "story:files"
+    },
+    {
+      "from": "frontend-requirements:ring-projection",
+      "kind": "wikilink",
       "to": "story:ring-projection"
     },
     {
@@ -30173,11 +30070,6 @@
       "from": "frontend-requirements:ring-projection",
       "kind": "wikilink",
       "to": "task:T-018"
-    },
-    {
-      "from": "frontend-requirements:ring-projection",
-      "kind": "wikilink",
-      "to": "task:T-062"
     },
     {
       "from": "frontend-requirements:ring-projection",
@@ -30327,6 +30219,11 @@
     {
       "from": "frontend-requirements:view-as",
       "kind": "wikilink",
+      "to": "story:files"
+    },
+    {
+      "from": "frontend-requirements:view-as",
+      "kind": "wikilink",
       "to": "story:view-as"
     },
     {
@@ -30358,11 +30255,6 @@
       "from": "frontend-requirements:view-as",
       "kind": "wikilink",
       "to": "task:T-023"
-    },
-    {
-      "from": "frontend-requirements:view-as",
-      "kind": "wikilink",
-      "to": "task:T-062"
     },
     {
       "from": "frontend-requirements:view-as",
@@ -31420,11 +31312,6 @@
       "to": "backend-integration:view-as"
     },
     {
-      "from": "needs-decision:ND-16",
-      "kind": "wikilink",
-      "to": "task:T-062"
-    },
-    {
       "from": "needs-decision:ND-17",
       "kind": "wikilink",
       "to": "story:T-022"
@@ -32165,6 +32052,11 @@
       "to": "project:frontend-passwordless-migration"
     },
     {
+      "from": "project:frontend-contract",
+      "kind": "wikilink",
+      "to": "story:files"
+    },
+    {
       "from": "project:frontend-passwordless-migration",
       "kind": "wikilink",
       "to": "feature:code-delivery"
@@ -32415,6 +32307,11 @@
       "to": "needs-decision:ND-04"
     },
     {
+      "from": "project:spec-map",
+      "kind": "wikilink",
+      "to": "story:files"
+    },
+    {
       "from": "project:status-report-2026-10-15",
       "kind": "wikilink",
       "to": "feature:account"
@@ -32647,7 +32544,7 @@
     {
       "from": "project:status-report-2026-10-15",
       "kind": "wikilink",
-      "to": "task:T-062"
+      "to": "story:files"
     },
     {
       "from": "project:status-report-2026-10-15",
@@ -33083,11 +32980,6 @@
       "from": "story:exhibitor",
       "kind": "wikilink",
       "to": "task:T-029"
-    },
-    {
-      "from": "story:files",
-      "kind": "wikilink",
-      "to": "backend-integration:files"
     },
     {
       "from": "story:files",
@@ -33617,6 +33509,11 @@
     {
       "from": "story:T-021",
       "kind": "wikilink",
+      "to": "story:files"
+    },
+    {
+      "from": "story:T-021",
+      "kind": "wikilink",
       "to": "story:T-008"
     },
     {
@@ -33633,11 +33530,6 @@
       "from": "story:T-021",
       "kind": "wikilink",
       "to": "task:T-045"
-    },
-    {
-      "from": "story:T-021",
-      "kind": "wikilink",
-      "to": "task:T-062"
     },
     {
       "from": "story:T-022",
@@ -33687,6 +33579,11 @@
     {
       "from": "story:T-023",
       "kind": "wikilink",
+      "to": "story:files"
+    },
+    {
+      "from": "story:T-023",
+      "kind": "wikilink",
       "to": "task:T-021"
     },
     {
@@ -33698,11 +33595,6 @@
       "from": "story:T-023",
       "kind": "wikilink",
       "to": "task:T-024"
-    },
-    {
-      "from": "story:T-023",
-      "kind": "wikilink",
-      "to": "task:T-062"
     },
     {
       "from": "story:T-024",
@@ -33868,16 +33760,6 @@
       "from": "story:T-055",
       "kind": "wikilink",
       "to": "feature:e2e-tests"
-    },
-    {
-      "from": "story:T-062",
-      "kind": "wikilink",
-      "to": "feature:files"
-    },
-    {
-      "from": "story:T-062",
-      "kind": "wikilink",
-      "to": "task:T-012"
     },
     {
       "from": "story:T-067",
@@ -36485,76 +36367,6 @@
       "to": "project:status-report-2026-10-15"
     },
     {
-      "from": "task:T-062",
-      "kind": "wikilink",
-      "to": "backend-integration:files"
-    },
-    {
-      "from": "task:T-062",
-      "kind": "wikilink",
-      "to": "backend-integration:ring-projection"
-    },
-    {
-      "from": "task:T-062",
-      "kind": "wikilink",
-      "to": "backend-integration:view-as"
-    },
-    {
-      "from": "task:T-062",
-      "kind": "wikilink",
-      "to": "feature:ring-projection"
-    },
-    {
-      "from": "task:T-062",
-      "kind": "wikilink",
-      "to": "feature:view-as"
-    },
-    {
-      "from": "task:T-062",
-      "kind": "wikilink",
-      "to": "project:feature-tree"
-    },
-    {
-      "from": "task:T-062",
-      "kind": "wikilink",
-      "to": "project:frontend-contract"
-    },
-    {
-      "from": "task:T-062-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:files"
-    },
-    {
-      "from": "task:T-062-be",
-      "kind": "wikilink",
-      "to": "backend-integration:files"
-    },
-    {
-      "from": "task:T-062-be",
-      "kind": "wikilink",
-      "to": "feature:files"
-    },
-    {
-      "from": "task:T-062-fe",
-      "kind": "wikilink",
-      "to": "backend-integration:files"
-    },
-    {
-      "from": "task:T-062-fe",
-      "kind": "wikilink",
-      "to": "feature:files"
-    },
-    {
-      "from": "task:T-062-fe",
-      "kind": "wikilink",
-      "to": "story:T-062"
-    },
-    {
-      "from": "task:T-062-fe",
-      "kind": "wikilink",
-      "to": "task:T-062-be"
-    },
-    {
       "from": "task:T-063",
       "kind": "wikilink",
       "to": "backend-delivery:error-contract"
@@ -38805,22 +38617,6 @@
       "name": "T-061 Decide Pin name rules",
       "type": "task"
     },
-    "social-pin/tasks/T-062 Serve uploaded file bytes by id/T-062 Serve uploaded file bytes by id.md": {
-      "name": "T-062 Serve uploaded file bytes by id",
-      "type": "task"
-    },
-    "social-pin/tasks/T-062 Serve uploaded file bytes by id/T-062 Story.md": {
-      "name": "T-062 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-062 Serve uploaded file bytes by id/T-062-be Backend · Serve uploaded file bytes by id.md": {
-      "name": "T-062-be Backend · Serve uploaded file bytes by id",
-      "type": "task"
-    },
-    "social-pin/tasks/T-062 Serve uploaded file bytes by id/T-062-fe Frontend · Serve uploaded file bytes by id.md": {
-      "name": "T-062-fe Frontend · Serve uploaded file bytes by id",
-      "type": "task"
-    },
     "social-pin/tasks/T-063 Put the ErrorCode on the error body/T-063 Put the ErrorCode on the error body.md": {
       "name": "T-063 Put the ErrorCode on the error body",
       "type": "task"
@@ -40504,7 +40300,7 @@
       ],
       "task": null,
       "title": "Files Upload Backend Delivery",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "backend-delivery:gemma": {
       "affects": [],
@@ -41390,7 +41186,7 @@
       ],
       "task": null,
       "title": "Ring Projection Backend Delivery",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "backend-delivery:rings": {
       "affects": [],
@@ -41559,7 +41355,7 @@
       ],
       "task": null,
       "title": "View As & Pin Views Backend Delivery",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "backend-delivery:widgets": {
       "affects": [],
@@ -42611,7 +42407,7 @@
       ],
       "task": null,
       "title": "Files Upload Backend Integration",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "backend-integration:gemma": {
       "affects": [],
@@ -43374,7 +43170,7 @@
       ],
       "task": null,
       "title": "Ring Projection Backend Integration",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "backend-integration:rings": {
       "affects": [],
@@ -43532,7 +43328,7 @@
       ],
       "task": null,
       "title": "View As & Pin Views Backend Integration",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "backend-integration:widgets": {
       "affects": [],
@@ -46109,13 +45905,11 @@
       "release": "v1",
       "resolution": null,
       "rollup": {
-        "approved": 1,
-        "blocked": 2,
+        "blocked": 1,
         "current": 1,
         "done": 1,
         "draft": 2,
-        "missing": 3,
-        "todo": 2
+        "missing": 3
       },
       "scope": null,
       "screens": [
@@ -46133,7 +45927,7 @@
       ],
       "task": null,
       "title": "Files Upload",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "feature:gemma": {
       "affects": [],
@@ -47844,7 +47638,7 @@
         "decision:D-20",
         "frontend-requirements:account",
         "feature:profiles",
-        "task:T-062",
+        "story:files",
         "task:T-005",
         "task:T-019",
         "task:T-014",
@@ -47867,7 +47661,7 @@
       ],
       "task": null,
       "title": "Account Frontend Delivery",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "frontend-delivery:app-shell": {
       "affects": [],
@@ -49747,7 +49541,7 @@
       ],
       "task": null,
       "title": "Account Frontend Requirements",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "frontend-requirements:app-shell": {
       "affects": [],
@@ -49966,7 +49760,7 @@
       ],
       "task": null,
       "title": "Badge & QR Frontend Requirements",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "frontend-requirements:build-deploy": {
       "affects": [],
@@ -50167,7 +49961,7 @@
       ],
       "task": null,
       "title": "Companies Frontend Requirements",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "frontend-requirements:connections": {
       "affects": [],
@@ -50227,7 +50021,7 @@
       ],
       "task": null,
       "title": "Connections Frontend Requirements",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "frontend-requirements:counts": {
       "affects": [
@@ -50344,7 +50138,7 @@
       ],
       "task": null,
       "title": "Delegated Admins Frontend Requirements",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "frontend-requirements:devices": {
       "affects": [],
@@ -50444,7 +50238,7 @@
       ],
       "task": null,
       "title": "Discover Hub & Search Frontend Requirements",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "frontend-requirements:e2e-tests": {
       "affects": [],
@@ -50809,7 +50603,7 @@
       ],
       "task": null,
       "title": "Files Upload Frontend Requirements",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "frontend-requirements:gemma": {
       "affects": [],
@@ -51124,7 +50918,7 @@
         "decision:D-03",
         "needs-decision:ND-21",
         "task:T-078",
-        "task:T-062",
+        "story:files",
         "task:T-063",
         "feature:auth",
         "feature:files",
@@ -51151,7 +50945,7 @@
       ],
       "task": null,
       "title": "Onboarding Imports Frontend Requirements",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "frontend-requirements:operator-panel": {
       "affects": [],
@@ -51299,7 +51093,7 @@
       ],
       "task": null,
       "title": "Photo Library Frontend Requirements",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "frontend-requirements:pincast": {
       "affects": [],
@@ -51353,7 +51147,7 @@
       ],
       "task": null,
       "title": "PinCast & Nearby Frontend Requirements",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "frontend-requirements:post-event": {
       "affects": [],
@@ -51445,7 +51239,7 @@
         "feature:onboarding-imports",
         "feature:auth",
         "feature:files",
-        "task:T-062",
+        "story:files",
         "task:T-020",
         "task:T-063"
       ],
@@ -51466,7 +51260,7 @@
       ],
       "task": null,
       "title": "Profiles & Pin Name Frontend Requirements",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "frontend-requirements:ring-access": {
       "affects": [],
@@ -51678,7 +51472,7 @@
       ],
       "task": null,
       "title": "Ring Projection Frontend Requirements",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "frontend-requirements:rings": {
       "affects": [],
@@ -51841,7 +51635,7 @@
       ],
       "task": null,
       "title": "View As & Pin Views Frontend Requirements",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "frontend-requirements:widgets": {
       "affects": [],
@@ -52372,8 +52166,8 @@
       "release": null,
       "resolution": null,
       "rollup": {
-        "approved": 15,
-        "blocked": 24,
+        "approved": 14,
+        "blocked": 23,
         "current": 9,
         "decided": 7,
         "delivered": 1,
@@ -52385,7 +52179,7 @@
         "needs-decision": 2,
         "partial": 2,
         "ready": 2,
-        "todo": 13,
+        "todo": 11,
         "verified": 7
       },
       "scope": null,
@@ -53382,7 +53176,7 @@
       "affects": [],
       "blockedBy": [],
       "blocks": [
-        "story:T-062"
+        "story:files"
       ],
       "card": "ND-16",
       "children": [],
@@ -53408,7 +53202,7 @@
       "module": null,
       "parentTask": null,
       "parents": [
-        "story:T-062"
+        "story:files"
       ],
       "path": "social-pin/needs-decisions/ND-16 Viewer access to file bytes.md",
       "pending": [],
@@ -53436,7 +53230,7 @@
       ],
       "task": null,
       "title": "ND-16 Viewer access to file bytes",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "needs-decision:ND-17": {
       "affects": [
@@ -54469,7 +54263,7 @@
       ],
       "task": null,
       "title": "Feature Tree",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "project:frontend-agent": {
       "affects": [],
@@ -54618,7 +54412,7 @@
       ],
       "task": null,
       "title": "Frontend API Guide",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "project:frontend-contract": {
       "affects": [],
@@ -54664,7 +54458,7 @@
       ],
       "task": null,
       "title": "Frontend Contract",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "project:frontend-passwordless-migration": {
       "affects": [],
@@ -55124,7 +54918,7 @@
       ],
       "task": null,
       "title": "Spec Map",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "project:status-report-2026-10-15": {
       "affects": [],
@@ -55167,7 +54961,7 @@
       ],
       "task": null,
       "title": "Status Report 2026-10-15",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "project:workflow": {
       "affects": [],
@@ -57193,7 +56987,7 @@
         "qa-backend:account",
         "task:T-063",
         "task:T-068",
-        "task:T-062"
+        "story:files"
       ],
       "release": "mvp",
       "resolution": null,
@@ -57213,7 +57007,7 @@
       ],
       "task": null,
       "title": "Account QA Frontend",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "qa-frontend:app-shell": {
       "affects": [],
@@ -59118,8 +58912,8 @@
         }
       ],
       "rollup": {
-        "approved": 39,
-        "blocked": 153,
+        "approved": 38,
+        "blocked": 152,
         "current": 9,
         "decided": 14,
         "delivered": 1,
@@ -59132,7 +58926,7 @@
         "partial": 3,
         "ready": 2,
         "reference": 31,
-        "todo": 56,
+        "todo": 54,
         "verified": 14
       },
       "scope": null,
@@ -60306,7 +60100,7 @@
       ],
       "task": "T-021",
       "title": "T-021 Story",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "story:T-022": {
       "affects": [],
@@ -60423,7 +60217,7 @@
       ],
       "task": "T-023",
       "title": "T-023 Story",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "story:T-024": {
       "affects": [],
@@ -62082,68 +61876,6 @@
       "title": "T-055 Story",
       "updated": "2026-10-26"
     },
-    "story:T-062": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "needs-decision:ND-16",
-          "title": "ND-16 Viewer access to file bytes",
-          "why": "needs decision ND-16 (draft)"
-        }
-      ],
-      "card": "S-07",
-      "children": [
-        "needs-decision:ND-16"
-      ],
-      "code": "T-062",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "blocked",
-      "effort": null,
-      "feature": "files",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-062",
-      "inherits": {
-        "priority": "task:T-062",
-        "release": "feature:files"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "identity",
-      "parentTask": null,
-      "parents": [
-        "task:T-062"
-      ],
-      "path": "social-pin/tasks/T-062 Serve uploaded file bytes by id/T-062 Story.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "scope": "task",
-      "screens": [
-        "s14",
-        "s29",
-        "s30",
-        "s31",
-        "s44"
-      ],
-      "status": "draft",
-      "summary": "A client cannot display a Ring photo or download an attachment today. FileEntity deliberately omits storageKey, the static /uploads mount is keyed by that storage path, and nothing maps a file id…",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/identity",
-        "layer/business"
-      ],
-      "task": "T-062",
-      "title": "T-062 Story",
-      "updated": "2026-10-26"
-    },
     "story:T-063": {
       "affects": [],
       "blockedBy": [],
@@ -62535,7 +62267,7 @@
       "priority": "high",
       "related": [
         "decision:D-05",
-        "task:T-062",
+        "story:files",
         "task:T-020",
         "task:T-020b",
         "feature:onboarding-imports",
@@ -62561,7 +62293,7 @@
       ],
       "task": "T-078",
       "title": "T-078 Story",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "story:T-079": {
       "affects": [],
@@ -63732,16 +63464,22 @@
     },
     "story:files": {
       "affects": [],
-      "blockedBy": [],
+      "blockedBy": [
+        {
+          "id": "needs-decision:ND-16",
+          "title": "ND-16 Viewer access to file bytes",
+          "why": "needs decision ND-16 (draft)"
+        }
+      ],
       "card": "S-06",
       "children": [
-        "task:T-062"
+        "needs-decision:ND-16"
       ],
       "code": "files",
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "approved",
+      "effectiveStatus": "blocked",
       "effort": null,
       "feature": "files",
       "foundOn": null,
@@ -63763,14 +63501,26 @@
       "path": "social-pin/modules/Identity Core/features/Files Upload/Files Upload Story.md",
       "pending": [],
       "priority": "high",
-      "related": [],
+      "related": [
+        "task:T-078",
+        "task:T-078-be",
+        "task:T-078-fe",
+        "frontend-delivery:account",
+        "qa-frontend:account",
+        "frontend-requirements:onboarding-imports",
+        "frontend-requirements:profiles",
+        "story:T-078"
+      ],
       "release": "v1",
       "resolution": null,
       "scope": "feature",
       "screens": [
         "s14",
         "s20",
-        "s36"
+        "s36",
+        "s30",
+        "s31",
+        "s44"
       ],
       "status": "approved",
       "summary": "A Ring owner wants a Ring to carry a photo and a few documents (a portfolio PDF, a pitch deck) without those files becoming public. Upload is a private step: a file belongs to the uploader and is…",
@@ -63782,7 +63532,7 @@
       ],
       "task": null,
       "title": "Files Upload Story",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "story:gemma": {
       "affects": [],
@@ -75990,205 +75740,6 @@
       "title": "T-061 Decide Pin name rules",
       "updated": "2026-10-26"
     },
-    "task:T-062": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-062",
-      "children": [
-        "story:T-062",
-        "task:T-062-be",
-        "task:T-062-fe"
-      ],
-      "code": "T-062",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": "social-pin/tasks/T-062 Serve uploaded file bytes by id",
-      "effectiveStatus": "todo",
-      "effort": "S",
-      "feature": "files",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-062",
-      "inherits": {
-        "release": "feature:files"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "identity",
-      "parentTask": null,
-      "parents": [
-        "story:files"
-      ],
-      "path": "social-pin/tasks/T-062 Serve uploaded file bytes by id/T-062 Serve uploaded file bytes by id.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [
-        "task:T-078",
-        "task:T-078-be",
-        "task:T-078-fe",
-        "frontend-delivery:account",
-        "qa-frontend:account",
-        "frontend-requirements:onboarding-imports",
-        "frontend-requirements:profiles",
-        "story:T-078"
-      ],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {
-        "blocked": 2,
-        "draft": 1,
-        "todo": 1
-      },
-      "scope": null,
-      "screens": [
-        "s14",
-        "s29",
-        "s30",
-        "s31",
-        "s44"
-      ],
-      "status": "todo",
-      "summary": "A client cannot display a Ring photo or download an attachment today. FileEntity deliberately omits storageKey, the static /uploads mount is keyed by that storage path, and nothing maps a file id…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/identity",
-        "priority/critical"
-      ],
-      "task": null,
-      "title": "T-062 Serve uploaded file bytes by id",
-      "updated": "2026-10-26"
-    },
-    "task:T-062-be": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-062-be",
-      "children": [],
-      "code": "T-062-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": null,
-      "effectiveStatus": "todo",
-      "effort": "S",
-      "feature": "files",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-062-be",
-      "inherits": {
-        "release": "feature:files"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "identity",
-      "parentTask": "T-062",
-      "parents": [
-        "task:T-062"
-      ],
-      "path": "social-pin/tasks/T-062 Serve uploaded file bytes by id/T-062-be Backend · Serve uploaded file bytes by id.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s14",
-        "s29",
-        "s30",
-        "s31",
-        "s44"
-      ],
-      "status": "todo",
-      "summary": "The API side of T-062 Serve uploaded file bytes by id: the endpoints, data and rules its What describes. Record what shipped in T-062-be Backend Delivery and how to call it in T-062-be Backend…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/identity",
-        "priority/critical",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-062-be Backend · Serve uploaded file bytes by id",
-      "updated": "2026-10-26"
-    },
-    "task:T-062-fe": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-062-be",
-          "title": "T-062-be Backend · Serve uploaded file bytes by id",
-          "why": "T-062-be Backend · Serve uploaded file bytes by id is to do"
-        }
-      ],
-      "card": "T-062-fe",
-      "children": [],
-      "code": "T-062-fe",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-062-be"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "S",
-      "feature": "files",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-062-fe",
-      "inherits": {
-        "release": "feature:files"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "frontend"
-      ],
-      "layer": "business",
-      "module": "identity",
-      "parentTask": "T-062",
-      "parents": [
-        "task:T-062"
-      ],
-      "path": "social-pin/tasks/T-062 Serve uploaded file bytes by id/T-062-fe Frontend · Serve uploaded file bytes by id.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s14",
-        "s29",
-        "s30",
-        "s31",
-        "s44"
-      ],
-      "status": "todo",
-      "summary": "The client side of T-062 Serve uploaded file bytes by id: the screens below show what its What describes, built against Files Upload Backend Integration once the backend half (T-062-be Backend ·…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/identity",
-        "priority/critical",
-        "frontend"
-      ],
-      "task": null,
-      "title": "T-062-fe Frontend · Serve uploaded file bytes by id",
-      "updated": "2026-10-26"
-    },
     "task:T-063": {
       "affects": [
         "project:api-conventions",
@@ -77385,7 +76936,7 @@
       "priority": "high",
       "related": [
         "decision:D-05",
-        "task:T-062",
+        "story:files",
         "task:T-020",
         "task:T-020b",
         "feature:onboarding-imports",
@@ -77419,7 +76970,7 @@
       ],
       "task": null,
       "title": "T-078 Main profile fields from D-02",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "task:T-078-be": {
       "affects": [],
@@ -77459,7 +77010,7 @@
       "priority": "high",
       "related": [
         "decision:D-05",
-        "task:T-062",
+        "story:files",
         "task:T-020",
         "task:T-020b",
         "feature:onboarding-imports",
@@ -77487,7 +77038,7 @@
       ],
       "task": null,
       "title": "T-078-be Backend · Main profile fields from D-02",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "task:T-078-fe": {
       "affects": [],
@@ -77533,7 +77084,7 @@
       "priority": "high",
       "related": [
         "decision:D-05",
-        "task:T-062",
+        "story:files",
         "task:T-020",
         "task:T-020b",
         "feature:onboarding-imports",
@@ -77561,7 +77112,7 @@
       ],
       "task": null,
       "title": "T-078-fe Frontend · Main profile fields from D-02",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "task:T-079": {
       "affects": [

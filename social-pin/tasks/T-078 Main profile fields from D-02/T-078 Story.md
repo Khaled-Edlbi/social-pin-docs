@@ -8,12 +8,12 @@ status: approved
 screens: [s05, s23, s68]
 depends: ["D-02 One main profile every Ring starts from"]
 affects: []
-related: ["D-05 Inherit per field, copy without members", "T-062 Serve uploaded file bytes by id", "T-020 LinkedIn import → review → base profile", "T-020b Business card scan and portfolio URL import", "Onboarding Imports", "Ring Projection", "Files Upload", "Auth & Sign-up"]
+related: ["D-05 Inherit per field, copy without members", "Files Upload Story", "T-020 LinkedIn import → review → base profile", "T-020b Business card scan and portfolio URL import", "Onboarding Imports", "Ring Projection", "Files Upload", "Auth & Sign-up"]
 pending: []
 approvedBy: "omar"
 approvedAt: 2026-10-26
 created: 2026-10-26
-updated: 2026-10-26
+updated: 2026-10-27
 owner: "Omar Fostok"
 tags: [story, story/approved, module/identity, layer/business]
 task: T-078
@@ -37,7 +37,7 @@ A **personal user**, in two moments: the first minute, on sign-up's *Profile bas
 
 Acceptance criteria:
 - [ ] Right after `POST /auth/complete-registration` returns, the client sends what *Profile basics* collected to `PATCH /profiles/:id` on the new default profile; a field left empty is not sent.
-- [ ] The photo is uploaded with `POST /files` first and sent as its file id; until [[T-062 Serve uploaded file bytes by id]] ships it shows as initials everywhere.
+- [ ] The photo is uploaded with `POST /files` first and sent as its file id; until [[Files Upload Story|Files Upload · showing files]] ships it shows as initials everywhere.
 - [ ] A failure here never undoes the account: the values are kept on the phone and sent again on the next launch, or edited on Me.
 - [ ] Imports fill the same fields ([[T-020 LinkedIn import → review → base profile]], [[T-020b Business card scan and portfolio URL import]]): not available yet.
 
@@ -69,7 +69,7 @@ Acceptance criteria:
 
 - `PATCH /profiles/:id` sends only the keys it changes; unknown keys are a 400 ([[Profiles & Pin Name Backend Integration]]).
 - Visibility goes through `RingAccessService`: a person's profile is reachable only through a Ring projection; there is no `GET /users/:id`.
-- Uploads: `POST /files` exists; the bytes can't be fetched back until [[T-062 Serve uploaded file bytes by id]].
+- Uploads: `POST /files` exists; the bytes can't be fetched back until [[Files Upload Story|Files Upload · showing files]].
 
 ## Open questions
 

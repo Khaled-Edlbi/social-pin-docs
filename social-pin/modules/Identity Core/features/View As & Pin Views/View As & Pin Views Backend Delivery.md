@@ -7,7 +7,7 @@ module: identity
 status: done
 screens: [s10, s31, s44]
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [backend-delivery, backend-delivery/done, module/identity, layer/backend]
 ---
 
@@ -44,7 +44,7 @@ Three routes on `ProfileViewController`, all returning `RingProfileViewEntity`, 
 
 - The scanned-pin screen (s44) continues into a Connect request, which does not exist. See [[Connections]].
 - Scanning resolves a **QR token**, not a ring id; token issue / resolve is not written. See [[Badge & QR]].
-- **The photo and the attachments cannot be rendered**: no route serves file bytes by id. See [[T-062 Serve uploaded file bytes by id]].
+- **The photo and the attachments cannot be rendered**: no route serves file bytes by id. See [[Files Upload Story|Files Upload · showing files]].
 - The owner's "View as" of an **expired** Ring is a 404 `E_RING_ACCESS_02`, because `assertRingReadable` applies the live filter to the owner too. Fine for the member's view; the s62 post-event screen must not rely on it to preview an expired Event Ring.
 
 ## Tasks delivered

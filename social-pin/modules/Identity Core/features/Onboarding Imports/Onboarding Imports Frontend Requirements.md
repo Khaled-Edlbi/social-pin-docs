@@ -8,9 +8,9 @@ status: draft
 screens: [s01, s03, s03a, s03b, s04, s05]
 depends: []
 affects: ["T-019 LinkedIn OAuth link, unlink, login", "T-020 LinkedIn import → review → base profile", "T-020b Business card scan and portfolio URL import"]
-related: ["D-02 One main profile every Ring starts from", "D-03 Links entered once, switched on or off per Ring", "ND-21 How a business card and a portfolio page are read", "T-078 Main profile fields from D-02", "T-062 Serve uploaded file bytes by id", "T-063 Put the ErrorCode on the error body", "Auth & Sign-up", "Files Upload", "Ring Projection"]
+related: ["D-02 One main profile every Ring starts from", "D-03 Links entered once, switched on or off per Ring", "ND-21 How a business card and a portfolio page are read", "T-078 Main profile fields from D-02", "Files Upload Story", "T-063 Put the ErrorCode on the error body", "Auth & Sign-up", "Files Upload", "Ring Projection"]
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 owner: "Omar Fostok"
 tags: [frontend-requirements, frontend-requirements/draft, module/identity, layer/frontend]
 ---
@@ -92,7 +92,7 @@ If the backend prefers to write at registration instead (candidates confirmed in
 | Candidate fields from a card photo | — or ❌ | depends on ND-21 | [[T-020b Business card scan and portfolio URL import]] · [[ND-21 How a business card and a portfolio page are read]] |
 | Candidate fields from a portfolio address | — | ❌ | [[T-020b Business card scan and portfolio URL import]] · [[ND-21 How a business card and a portfolio page are read]] |
 | Main profile fields to write the confirmed values into | `PATCH /profiles/:id` (new fields) | ❌ | [[T-078 Main profile fields from D-02]] |
-| Show the imported photo back | — | ❌ | [[T-062 Serve uploaded file bytes by id]] |
+| Show the imported photo back | — | ❌ | [[Files Upload Story|Files Upload · showing files]] |
 
 ## Behaviour expectations
 

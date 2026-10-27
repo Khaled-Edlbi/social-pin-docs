@@ -7,7 +7,7 @@ module: shared-rings
 status: draft
 screens: [s72, s73]
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [frontend-requirements, frontend-requirements/draft, module/shared-rings, layer/frontend]
 ---
 
@@ -53,7 +53,7 @@ What the client needs from the backend to build the screens in [[Companies Story
 | Join a company Ring with a code or work email | — | ❌ | [[T-027 Join a Ring with a code or verified work email]] |
 | Business account setup creating the business Ring | — | ❌ | [[T-048 Business account setup → business Ring]] |
 | Who administers a company Ring | — | ❌ | [[T-006 Delegated admin endpoints]] |
-| Logo and file bytes | — | ❌ | [[T-062 Serve uploaded file bytes by id]] |
+| Logo and file bytes | — | ❌ | [[Files Upload Story|Files Upload · showing files]] |
 
 ## Behaviour expectations
 

@@ -3,33 +3,33 @@ type: needs-decision
 id: ND-16
 status: draft
 features: [files]
-blocks: ["T-062 Story"]
+blocks: ["Files Upload Story"]
 decider: "owner"
 screens: [s14, s29, s30, s31, s44]
 affects: []
 related: ["Files Upload", "Ring Projection", "View As & Pin Views"]
 owner: "omar"
 created: 2026-10-25
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [needs-decision, needs-decision/draft]
 ---
 
 # ❓ ND-16 · Viewer access to file bytes
 
-**Status:** draft · **Decider:** owner · **Raised:** 2026-10-25 · **Needed by:** [[T-062 Story]] · **Feature:** [[Files Upload]]
+**Status:** draft · **Decider:** owner · **Raised:** 2026-10-25 · **Needed by:** [[Files Upload Story]] · **Feature:** [[Files Upload]]
 
 > The needs-decision card: `draft` while the question is written, `open` once it is ready for the decider; it shows **Fulfilled** by itself once its decision card (D-NN) is `decided`. The cards in `blocks` are **Blocked · ND-16** while this is `draft` or `open` and return to their own status once it is fulfilled. Nobody edits their `status:` for this, and nobody types `fulfilled` or `decided` here.
 
 ## What has to be decided
 
-How a client gets the bytes of a Ring photo or attachment, and with which id: an authenticated route keyed by file id, or a signed `url` handed out on the entities. The owner has the file id everywhere; a viewer does not: the view's attachments carry only the attachment `id`. Until this is chosen, [[T-062 Serve uploaded file bytes by id]] cannot name its route or its response fields, and every photo and file in the app ([[Screen Index#s14|s14]], [[Screen Index#s29|s29]], [[Screen Index#s30|s30]], [[Screen Index#s31|s31]], [[Screen Index#s44|s44]]) stays a placeholder.
+How a client gets the bytes of a Ring photo or attachment, and with which id: an authenticated route keyed by file id, or a signed `url` handed out on the entities. The owner has the file id everywhere; a viewer does not: the view's attachments carry only the attachment `id`. Until this is chosen, [[Files Upload Story|Files Upload · showing files]] cannot name its route or its response fields, and every photo and file in the app ([[Screen Index#s14|s14]], [[Screen Index#s29|s29]], [[Screen Index#s30|s30]], [[Screen Index#s31|s31]], [[Screen Index#s44|s44]]) stays a placeholder.
 
 ## Notes
 
 - Nothing serves file bytes today: `storageKey` is private, the static `/uploads` mount is keyed by it, and `GET /files/:id` returns metadata to the uploader only ([[Files Upload Backend Delivery]], [[Files Upload Backend Integration]]).
 - The owner's `RingProfileOwnerEntity` carries `avatarFileId` and `fileId` per attachment ([[Ring Projection Backend Integration]]); the viewer's `RingProfileViewEntity` carries `avatarFileId` and, per attachment, `id`, `label`, `filename`, `mimeType`, `sizeBytes`, no `fileId` ([[View As & Pin Views Backend Integration]]).
 - The task names `GET /files/:id/content` or a signed `url` on the view entities; access is the uploader, or anyone who may see a live Ring that references the file, through `RingAccessService`. `PUBLIC` files skip the check.
-- A refused file must look like a missing one (one 404), a hidden attachment is never served, and a link copied out of the app must be useless without access ([[T-062 Story]] S5).
+- A refused file must look like a missing one (one 404), a hidden attachment is never served, and a link copied out of the app must be useless without access ([[Files Upload Story]] S5).
 - Context-scoped files are served from the API's own origin, which is why uploads are limited to an allow-list of types ([[Files Upload Backend Delivery]]).
 
 ## Options
@@ -42,7 +42,7 @@ Recommendation: option 3. It answers which id a viewer has, keeps file ids off t
 
 ## Responsible
 
-`decider` above: the owner, before [[T-062 Story]] is approved, after hearing from the backend how urls would be signed and how long they live, and from the frontend how images are cached.
+`decider` above: the owner, before [[Files Upload Story]] is approved, after hearing from the backend how urls would be signed and how long they live, and from the frontend how images are cached.
 
 ## Decision
 

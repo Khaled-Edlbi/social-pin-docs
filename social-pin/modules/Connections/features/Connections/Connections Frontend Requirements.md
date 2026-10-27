@@ -7,7 +7,7 @@ module: connections
 status: draft
 screens: [s44, s45, s46, s47, s62]
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [frontend-requirements, frontend-requirements/draft, module/connections, layer/frontend]
 ---
 
@@ -78,7 +78,7 @@ What the client needs from the backend to build the screens in [[Connections Sto
 | Introduce | — | ❌ | [[T-025 Introduce a connection to another]] |
 | Connection count on Me and Home | — | ❌ | [[T-005 Connection count on Me and Home]] |
 | Push or inbox notification on request and accept | — | ❌ | [[T-045 NotificationService.emit and the inbox]] |
-| Avatar bytes on every row | — | ❌ | [[T-062 Serve uploaded file bytes by id]] |
+| Avatar bytes on every row | — | ❌ | [[Files Upload Story|Files Upload · showing files]] |
 
 ## Behaviour expectations
 

@@ -8,7 +8,7 @@ module: identity
 screens: [s14, s20, s36]
 related: ["Rings"]
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [feature, module/identity, priority/high, release/v1]
 ---
 
@@ -32,15 +32,9 @@ Wireframe brief sections: [[Wireframe Brief#Home — Rings hub + active profile|
 
 Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map in [[Navigation Map]], see [[Design Reference]].
 
-## Tasks
+## Work
 
-| Task | Status | Priority | Effort |
-|---|---|---|---|
-| [[T-062 Serve uploaded file bytes by id]] | ⬜ To do | Critical | S |
-
-```dataview
-TABLE status, priority, effort FROM #task WHERE feature = "files" SORT priority ASC
-```
+One story per feature (since 2026-10-27): all of this feature's work is in [[Files Upload Story]] — upload, attach and delete (S1–S6) and showing files (S7–S11, formerly T-062, waiting on [[ND-16 Viewer access to file bytes]]).
 
 ## Related
 
