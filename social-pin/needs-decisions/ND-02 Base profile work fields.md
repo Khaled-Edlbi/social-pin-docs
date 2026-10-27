@@ -45,7 +45,7 @@ Screens: [[Screen Index#s05|s05]], [[Screen Index#s06|s06]], [[Screen Index#s11|
 - [[T-020 LinkedIn import → review → base profile]]
 - [[T-020b Business card scan and portfolio URL import]]
 - [[Profiles & Pin Name Story|Profiles & Pin Name · Decide base profile work fields]]
-- [[T-060 Decide copy or inherit]]
+- [[Ring Projection Story|Ring Projection · Decide copy or inherit]]
 
 ## Decision
 

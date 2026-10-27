@@ -202,8 +202,6 @@ kanban-plugin: board
 
 ## ✅ Done
 
-- [x] [[T-058 Decide field library vs per-Ring copies]] #critical #ring-projection
-- [x] [[T-060 Decide copy or inherit]] #high #ring-projection
 
 
 %% kanban:settings

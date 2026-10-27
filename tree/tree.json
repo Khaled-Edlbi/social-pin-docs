@@ -480,8 +480,6 @@
     "T-055 Run the e2e suite in CI against PostGIS": "task:T-055",
     "T-055 Story": "story:T-055",
     "T-055-be Backend · Run the e2e suite in CI against PostGIS": "task:T-055-be",
-    "T-058 Decide field library vs per-Ring copies": "task:T-058",
-    "T-060 Decide copy or inherit": "task:T-060",
     "T-063 Put the ErrorCode on the error body": "task:T-063",
     "T-063 Story": "story:T-063",
     "T-063-be Backend · Put the ErrorCode on the error body": "task:T-063-be",
@@ -992,8 +990,6 @@
     "T-054-be": "task:T-054-be",
     "T-055": "task:T-055",
     "T-055-be": "task:T-055-be",
-    "T-058": "task:T-058",
-    "T-060": "task:T-060",
     "T-063": "task:T-063",
     "T-063-be": "task:T-063-be",
     "T-063-fe": "task:T-063-fe",
@@ -3861,8 +3857,7 @@
     "s24": {
       "containers": [
         "feature:ring-projection",
-        "needs-decision:ND-03",
-        "task:T-058"
+        "needs-decision:ND-03"
       ],
       "kind": "screen",
       "notes": [
@@ -3871,8 +3866,7 @@
         "feature:ring-projection",
         "frontend-requirements:ring-projection",
         "needs-decision:ND-03",
-        "story:ring-projection",
-        "task:T-058"
+        "story:ring-projection"
       ],
       "owner": null
     },
@@ -3942,13 +3936,11 @@
     },
     "s28": {
       "containers": [
-        "needs-decision:ND-05",
-        "task:T-060"
+        "needs-decision:ND-05"
       ],
       "kind": "screen",
       "notes": [
-        "needs-decision:ND-05",
-        "task:T-060"
+        "needs-decision:ND-05"
       ],
       "owner": null
     },
@@ -5116,27 +5108,27 @@
       "qa-backend": 1,
       "qa-frontend": 1,
       "story": 102,
-      "task": 176
+      "task": 174
     },
     "byLayer": {
       "backend": 56,
-      "business": 357,
+      "business": 355,
       "frontend": 44,
       "qa": 2,
       "shared": 10
     },
     "concepts": 199,
     "decisions": 19,
-    "edges": 5230,
+    "edges": 5218,
     "features": 41,
     "layerNotes": 192,
     "modules": 8,
-    "notes": 505,
+    "notes": 503,
     "partial": 4,
     "placeholders": 161,
     "records": 14,
     "taskLayerNotes": 62,
-    "tasks": 176
+    "tasks": 174
   },
   "deadlines": {
     "missed": {
@@ -5263,17 +5255,17 @@
     {
       "from": "decision:D-02",
       "kind": "affects",
+      "to": "story:ring-projection"
+    },
+    {
+      "from": "decision:D-02",
+      "kind": "affects",
       "to": "task:T-020"
     },
     {
       "from": "decision:D-02",
       "kind": "affects",
       "to": "task:T-020b"
-    },
-    {
-      "from": "decision:D-02",
-      "kind": "affects",
-      "to": "task:T-060"
     },
     {
       "from": "decision:D-03",
@@ -5288,12 +5280,12 @@
     {
       "from": "decision:D-03",
       "kind": "affects",
-      "to": "task:T-018"
+      "to": "story:ring-projection"
     },
     {
       "from": "decision:D-03",
       "kind": "affects",
-      "to": "task:T-058"
+      "to": "task:T-018"
     },
     {
       "from": "decision:D-04",
@@ -5358,7 +5350,7 @@
     {
       "from": "decision:D-05",
       "kind": "affects",
-      "to": "task:T-060"
+      "to": "story:ring-projection"
     },
     {
       "from": "decision:D-06",
@@ -8959,21 +8951,6 @@
       "from": "task:T-052-fe",
       "kind": "depends",
       "to": "task:T-052-be"
-    },
-    {
-      "from": "task:T-058",
-      "kind": "depends",
-      "to": "needs-decision:ND-03"
-    },
-    {
-      "from": "task:T-060",
-      "kind": "depends",
-      "to": "needs-decision:ND-02"
-    },
-    {
-      "from": "task:T-060",
-      "kind": "depends",
-      "to": "needs-decision:ND-05"
     },
     {
       "from": "task:T-063-fe",
@@ -13601,21 +13578,6 @@
       "from": "task:T-053",
       "kind": "related",
       "to": "task:T-071"
-    },
-    {
-      "from": "task:T-058",
-      "kind": "related",
-      "to": "decision:D-03"
-    },
-    {
-      "from": "task:T-060",
-      "kind": "related",
-      "to": "decision:D-02"
-    },
-    {
-      "from": "task:T-060",
-      "kind": "related",
-      "to": "decision:D-05"
     },
     {
       "from": "task:T-063",
@@ -25573,16 +25535,6 @@
       "to": "task:T-028"
     },
     {
-      "from": "story:ring-projection",
-      "kind": "tree",
-      "to": "task:T-058"
-    },
-    {
-      "from": "story:ring-projection",
-      "kind": "tree",
-      "to": "task:T-060"
-    },
-    {
       "from": "story:subscription",
       "kind": "tree",
       "to": "task:T-049"
@@ -28105,12 +28057,7 @@
     {
       "from": "feature:ring-projection",
       "kind": "wikilink",
-      "to": "task:T-058"
-    },
-    {
-      "from": "feature:ring-projection",
-      "kind": "wikilink",
-      "to": "task:T-060"
+      "to": "project:status-report-2026-10-15"
     },
     {
       "from": "feature:rings",
@@ -30818,9 +30765,24 @@
       "to": "story:profiles"
     },
     {
+      "from": "needs-decision:ND-02",
+      "kind": "wikilink",
+      "to": "story:ring-projection"
+    },
+    {
+      "from": "needs-decision:ND-03",
+      "kind": "wikilink",
+      "to": "story:ring-projection"
+    },
+    {
       "from": "needs-decision:ND-04",
       "kind": "wikilink",
       "to": "story:rings"
+    },
+    {
+      "from": "needs-decision:ND-05",
+      "kind": "wikilink",
+      "to": "story:ring-projection"
     },
     {
       "from": "needs-decision:ND-06",
@@ -32116,11 +32078,6 @@
       "from": "project:status-report-2026-10-15",
       "kind": "wikilink",
       "to": "feature:ring-members"
-    },
-    {
-      "from": "project:status-report-2026-10-15",
-      "kind": "wikilink",
-      "to": "feature:ring-projection"
     },
     {
       "from": "project:status-report-2026-10-15",
@@ -35828,31 +35785,6 @@
       "to": "feature:e2e-tests"
     },
     {
-      "from": "task:T-058",
-      "kind": "wikilink",
-      "to": "needs-decision:ND-03"
-    },
-    {
-      "from": "task:T-058",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-060",
-      "kind": "wikilink",
-      "to": "needs-decision:ND-02"
-    },
-    {
-      "from": "task:T-060",
-      "kind": "wikilink",
-      "to": "needs-decision:ND-05"
-    },
-    {
-      "from": "task:T-060",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
       "from": "task:T-063",
       "kind": "wikilink",
       "to": "backend-delivery:error-contract"
@@ -37994,14 +37926,6 @@
     },
     "social-pin/tasks/T-055 Run the e2e suite in CI against PostGIS/T-055-be Backend · Run the e2e suite in CI against PostGIS.md": {
       "name": "T-055-be Backend · Run the e2e suite in CI against PostGIS",
-      "type": "task"
-    },
-    "social-pin/tasks/T-058 Decide field library vs per-Ring copies/T-058 Decide field library vs per-Ring copies.md": {
-      "name": "T-058 Decide field library vs per-Ring copies",
-      "type": "task"
-    },
-    "social-pin/tasks/T-060 Decide copy or inherit/T-060 Decide copy or inherit.md": {
-      "name": "T-060 Decide copy or inherit",
       "type": "task"
     },
     "social-pin/tasks/T-063 Put the ErrorCode on the error body/T-063 Put the ErrorCode on the error body.md": {
@@ -42897,7 +42821,7 @@
         "task:T-020",
         "task:T-020b",
         "story:profiles",
-        "task:T-060"
+        "story:ring-projection"
       ],
       "blockedBy": [],
       "card": "D-02",
@@ -42935,7 +42859,6 @@
       "pending": [],
       "priority": null,
       "related": [
-        "task:T-060",
         "needs-decision:ND-21",
         "needs-decision:ND-02",
         "decision:D-05",
@@ -42966,7 +42889,7 @@
         "feature:ring-projection",
         "feature:widgets",
         "task:T-018",
-        "task:T-058"
+        "story:ring-projection"
       ],
       "blockedBy": [],
       "card": "D-03",
@@ -43002,7 +42925,6 @@
       "pending": [],
       "priority": null,
       "related": [
-        "task:T-058",
         "needs-decision:ND-21",
         "decision:D-02",
         "needs-decision:ND-03",
@@ -43022,7 +42944,7 @@
       ],
       "task": null,
       "title": "D-03 Links entered once, switched on or off per Ring",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "decision:D-04": {
       "affects": [
@@ -43107,7 +43029,7 @@
         "feature:rings",
         "feature:ring-projection",
         "feature:photo-library",
-        "task:T-060"
+        "story:ring-projection"
       ],
       "blockedBy": [],
       "card": "D-05",
@@ -43144,7 +43066,6 @@
       "pending": [],
       "priority": null,
       "related": [
-        "task:T-060",
         "decision:D-02",
         "needs-decision:ND-05",
         "decision:D-04",
@@ -43164,7 +43085,7 @@
       ],
       "task": null,
       "title": "D-05 Inherit per field, copy without members",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "decision:D-06": {
       "affects": [
@@ -46600,7 +46521,7 @@
         "approved": 1,
         "current": 1,
         "decided": 3,
-        "done": 3,
+        "done": 1,
         "draft": 1,
         "missing": 3,
         "verified": 3
@@ -46625,7 +46546,7 @@
       ],
       "task": null,
       "title": "Ring Projection",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "feature:rings": {
       "affects": [],
@@ -51628,7 +51549,7 @@
         "current": 8,
         "decided": 7,
         "delivered": 2,
-        "done": 11,
+        "done": 9,
         "draft": 17,
         "in-progress": 13,
         "missing": 40,
@@ -51933,8 +51854,8 @@
       "parentTask": null,
       "parents": [
         "feature:onboarding-imports",
-        "feature:ring-projection",
         "feature:profiles",
+        "feature:ring-projection",
         "feature:photo-library"
       ],
       "path": "social-pin/needs-decisions/ND-02 Base profile work fields.md",
@@ -52019,7 +51940,7 @@
       ],
       "task": null,
       "title": "ND-03 Field library vs per-Ring copies",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "needs-decision:ND-04": {
       "affects": [],
@@ -52120,8 +52041,8 @@
       "module": null,
       "parentTask": null,
       "parents": [
-        "feature:ring-projection",
         "feature:rings",
+        "feature:ring-projection",
         "feature:photo-library"
       ],
       "path": "social-pin/needs-decisions/ND-05 Copy or inherit.md",
@@ -52147,7 +52068,7 @@
       ],
       "task": null,
       "title": "ND-05 Copy or inherit",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "needs-decision:ND-06": {
       "affects": [],
@@ -58398,7 +58319,7 @@
         "current": 8,
         "decided": 14,
         "delivered": 2,
-        "done": 12,
+        "done": 10,
         "draft": 96,
         "in-progress": 57,
         "missing": 161,
@@ -63634,10 +63555,7 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-17",
-      "children": [
-        "task:T-058",
-        "task:T-060"
-      ],
+      "children": [],
       "code": "ring-projection",
       "created": "2026-10-18",
       "deadline": null,
@@ -74266,120 +74184,6 @@
       ],
       "task": null,
       "title": "T-055-be Backend · Run the e2e suite in CI against PostGIS",
-      "updated": "2026-10-26"
-    },
-    "task:T-058": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-058",
-      "children": [],
-      "code": "T-058",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": "ND-03",
-      "depends": [
-        "needs-decision:ND-03"
-      ],
-      "dir": "social-pin/tasks/T-058 Decide field library vs per-Ring copies",
-      "effectiveStatus": "done",
-      "effort": "S",
-      "feature": "ring-projection",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-058",
-      "inherits": {
-        "release": "feature:ring-projection"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "identity",
-      "parentTask": null,
-      "parents": [
-        "story:ring-projection"
-      ],
-      "path": "social-pin/tasks/T-058 Decide field library vs per-Ring copies/T-058 Decide field library vs per-Ring copies.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [
-        "decision:D-03"
-      ],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s24"
-      ],
-      "status": "done",
-      "summary": "Take ND-03 Field library vs per-Ring copies. Decided by D-03 Links entered once, switched on or off per Ring: one library of links, each Ring only switches them on or off. Building it is not…",
-      "tags": [
-        "task",
-        "task/done",
-        "module/identity",
-        "priority/critical"
-      ],
-      "task": null,
-      "title": "T-058 Decide field library vs per-Ring copies",
-      "updated": "2026-10-26"
-    },
-    "task:T-060": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-060",
-      "children": [],
-      "code": "T-060",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": "ND-05",
-      "depends": [
-        "needs-decision:ND-02",
-        "needs-decision:ND-05"
-      ],
-      "dir": "social-pin/tasks/T-060 Decide copy or inherit",
-      "effectiveStatus": "done",
-      "effort": "S",
-      "feature": "ring-projection",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-060",
-      "inherits": {
-        "release": "feature:ring-projection"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "identity",
-      "parentTask": null,
-      "parents": [
-        "story:ring-projection"
-      ],
-      "path": "social-pin/tasks/T-060 Decide copy or inherit/T-060 Decide copy or inherit.md",
-      "pending": [],
-      "priority": "high",
-      "related": [
-        "decision:D-05",
-        "decision:D-02"
-      ],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s28"
-      ],
-      "status": "done",
-      "summary": "Take ND-05 Copy or inherit. Decided by D-05 Inherit per field, copy without members: Rings inherit the main profile field by field, and copying a Ring never copies its members. Building it is not…",
-      "tags": [
-        "task",
-        "task/done",
-        "module/identity",
-        "priority/high"
-      ],
-      "task": null,
-      "title": "T-060 Decide copy or inherit",
       "updated": "2026-10-26"
     },
     "task:T-063": {

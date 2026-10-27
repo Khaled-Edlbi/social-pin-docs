@@ -203,5 +203,3 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 
 | Task | Feature | Module | Effort | Resolution |
 |---|---|---|---|---|
-| [[T-058 Decide field library vs per-Ring copies]] | [[Ring Projection]] | Identity Core | S | — |
-| [[T-060 Decide copy or inherit]] | [[Ring Projection]] | Identity Core | S | — |

@@ -30,8 +30,6 @@ Social Pin backend
 │   ├── ✅ Rings  [Critical]
 │   ├── ✅ Ring Members  [Critical]
 │   ├── ✅ Ring Projection  [Critical]
-│   │   ├── ❓ T-058 Decide: field library vs per-Ring copies
-│   │   └── ❓ T-060 Decide: copy or inherit
 │   ├── ✅ View As & Pin Views  [Critical]
 │   ├── ✅ Files Upload  [High]
 │   ├── ✅ Ring Access Engine  [Critical]
@@ -141,7 +139,7 @@ Account, profile, Rings, what each Ring shows, and the access engine. The part o
 | [[Profiles & Pin Name]] | ✅ Done | Critical | s06 | 0 |
 | [[Rings]] | ✅ Done | Critical | s08, s09, s16, s17, s18, s19, s20, s21, s22, s26, s62 | 0 |
 | [[Ring Members]] | ✅ Done | Critical | s15, s47 | 0 |
-| [[Ring Projection]] | ✅ Done | Critical | s14, s20, s23, s24, s25, s29, s36 | 2 |
+| [[Ring Projection]] | ✅ Done | Critical | s14, s20, s23, s24, s25, s29, s36 | 0 |
 | [[View As & Pin Views]] | ✅ Done | Critical | s10, s31, s44 | 0 |
 | [[Files Upload]] | ✅ Done | High | s14, s20, s36 | 0 |
 | [[Ring Access Engine]] | ✅ Done | Critical | — | 0 |

@@ -116,8 +116,6 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
         - ⚖️ [D-04 Ring settings at launch and their defaults](social-pin/decisions/D-04%20Ring%20settings%20at%20launch%20and%20their%20defaults.md) (Decision)
     - 🔵 [Ring Projection](social-pin/modules/Identity%20Core/features/Ring%20Projection/Ring%20Projection.md) (F-10, release MVP, Critical)
       - 👍 [Ring Projection Story](social-pin/modules/Identity%20Core/features/Ring%20Projection/Ring%20Projection%20Story.md) (S-17, User Story, Critical)
-        - ✅ [T-058 Decide field library vs per-Ring copies](social-pin/tasks/T-058%20Decide%20field%20library%20vs%20per-Ring%20copies/T-058%20Decide%20field%20library%20vs%20per-Ring%20copies.md) (Critical)
-        - ✅ [T-060 Decide copy or inherit](social-pin/tasks/T-060%20Decide%20copy%20or%20inherit/T-060%20Decide%20copy%20or%20inherit.md) (High)
       - ✏️ [Ring Projection Frontend Requirements](social-pin/modules/Identity%20Core/features/Ring%20Projection/Ring%20Projection%20Frontend%20Requirements.md) (FR-10, Frontend Requirements, Critical)
       - ✅ [Ring Projection Backend Delivery](social-pin/modules/Identity%20Core/features/Ring%20Projection/Ring%20Projection%20Backend%20Delivery.md) (BD-10, Backend Delivery, Critical)
       - 🔵 [Ring Projection Backend Integration](social-pin/modules/Identity%20Core/features/Ring%20Projection/Ring%20Projection%20Backend%20Integration.md) (BI-07, Backend Integration, Critical)
