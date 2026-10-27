@@ -83,7 +83,6 @@ Social Pin backend
 │   │   ├── ⬜ T-048 Business account setup → business Ring
 │   │   └── ⛔ T-048b Booth analytics and leads CSV export
 │   └── ❌ Post-Event  [High]
-│       └── ⛔ T-050 Post-event summary and follow-ups
 ├── Meetings  (❌1)
 │   └── ❌ Meetings  [Critical]
 │       ├── ⬜ T-041 Availability slots CRUD
@@ -176,7 +175,7 @@ Before the event (discover, tickets, payment, Event Ring), during (event mode, e
 | [[Events Before]] | ❌ TODO | Critical | s48, s49, s50, s51, s52 | 3 |
 | [[Events During]] | ❌ TODO | Critical | s53, s54, s55, s56, s57, s58 | 5 |
 | [[Exhibitor]] | ❌ TODO | High | s63, s64, s65 | 2 |
-| [[Post-Event]] | ❌ TODO | High | s62 | 1 |
+| [[Post-Event]] | ❌ TODO | High | s62 | 0 |
 
 ## Meetings
 

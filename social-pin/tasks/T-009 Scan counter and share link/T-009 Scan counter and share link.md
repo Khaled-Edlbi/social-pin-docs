@@ -9,7 +9,7 @@ module: discovery
 screens: [s34]
 depends: [T-008]
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [task, task/todo, module/discovery, priority/high]
 ---
 
@@ -31,7 +31,7 @@ Count per token and per Ring; share link is the public URL of T-010.
 
 - Waits on [[T-008 Resolve a scanned QR token]]
 - Unblocks [[T-048b Booth analytics and leads CSV export]]
-- Unblocks [[T-050 Post-event summary and follow-ups]]
+- Unblocks [[Post-Event Story|Post-Event · S6]]
 
 ## Definition of done
 

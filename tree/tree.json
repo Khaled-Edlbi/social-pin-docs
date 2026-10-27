@@ -433,10 +433,6 @@
     "T-049 Subscription endpoints and a single Pro gate": "task:T-049",
     "T-049-be Backend · Subscription endpoints and a single Pro gate": "task:T-049-be",
     "T-049-fe Frontend · Subscription endpoints and a single Pro gate": "task:T-049-fe",
-    "T-050 Post-event summary and follow-ups": "task:T-050",
-    "T-050 Story": "story:T-050",
-    "T-050-be Backend · Post-event summary and follow-ups": "task:T-050-be",
-    "T-050-fe Frontend · Post-event summary and follow-ups": "task:T-050-fe",
     "T-051 Gemma assistant sheet and suggestions": "task:T-051",
     "T-051 Story": "story:T-051",
     "T-051-be Backend · Gemma assistant sheet and suggestions": "task:T-051-be",
@@ -759,7 +755,6 @@
     "S-60": "story:T-048",
     "S-61": "story:T-048b",
     "S-62": "story:post-event",
-    "S-63": "story:T-050",
     "S-64": "story:meetings",
     "S-65": "story:T-041",
     "S-66": "story:T-042",
@@ -911,9 +906,6 @@
     "T-049": "task:T-049",
     "T-049-be": "task:T-049-be",
     "T-049-fe": "task:T-049-fe",
-    "T-050": "task:T-050",
-    "T-050-be": "task:T-050-be",
-    "T-050-fe": "task:T-050-fe",
     "T-051": "task:T-051",
     "T-051-be": "task:T-051-be",
     "T-051-fe": "task:T-051-fe",
@@ -4574,10 +4566,7 @@
       "containers": [
         "feature:connections",
         "feature:post-event",
-        "feature:rings",
-        "task:T-050",
-        "task:T-050-be",
-        "task:T-050-fe"
+        "feature:rings"
       ],
       "kind": "screen",
       "notes": [
@@ -4591,13 +4580,9 @@
         "frontend-requirements:connections",
         "frontend-requirements:post-event",
         "frontend-requirements:rings",
-        "story:T-050",
         "story:connections",
         "story:post-event",
-        "story:rings",
-        "task:T-050",
-        "task:T-050-be",
-        "task:T-050-fe"
+        "story:rings"
       ],
       "owner": null
     },
@@ -4916,7 +4901,7 @@
     }
   },
   "counts": {
-    "blocked": 135,
+    "blocked": 132,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -4929,28 +4914,28 @@
       "project": 27,
       "qa-backend": 1,
       "qa-frontend": 1,
-      "story": 92,
-      "task": 149
+      "story": 91,
+      "task": 146
     },
     "byLayer": {
       "backend": 56,
-      "business": 320,
+      "business": 316,
       "frontend": 44,
       "qa": 2,
       "shared": 10
     },
     "concepts": 199,
     "decisions": 19,
-    "edges": 5013,
+    "edges": 4974,
     "features": 41,
-    "layerNotes": 182,
+    "layerNotes": 181,
     "modules": 8,
-    "notes": 468,
+    "notes": 464,
     "partial": 4,
     "placeholders": 161,
     "records": 14,
-    "taskLayerNotes": 52,
-    "tasks": 149
+    "taskLayerNotes": 51,
+    "tasks": 146
   },
   "deadlines": {
     "missed": {
@@ -6785,21 +6770,6 @@
       "to": "task:T-048b-fe"
     },
     {
-      "from": "task:T-009",
-      "kind": "blocks",
-      "to": "task:T-050"
-    },
-    {
-      "from": "task:T-009",
-      "kind": "blocks",
-      "to": "task:T-050-be"
-    },
-    {
-      "from": "task:T-009",
-      "kind": "blocks",
-      "to": "task:T-050-fe"
-    },
-    {
       "from": "task:T-009-be",
       "kind": "blocks",
       "to": "task:T-009-fe"
@@ -6948,21 +6918,6 @@
       "from": "task:T-023",
       "kind": "blocks",
       "to": "task:T-025-fe"
-    },
-    {
-      "from": "task:T-023",
-      "kind": "blocks",
-      "to": "task:T-050"
-    },
-    {
-      "from": "task:T-023",
-      "kind": "blocks",
-      "to": "task:T-050-be"
-    },
-    {
-      "from": "task:T-023",
-      "kind": "blocks",
-      "to": "task:T-050-fe"
     },
     {
       "from": "task:T-023-be",
@@ -7245,21 +7200,6 @@
       "to": "task:T-042-fe"
     },
     {
-      "from": "task:T-044",
-      "kind": "blocks",
-      "to": "task:T-050"
-    },
-    {
-      "from": "task:T-044",
-      "kind": "blocks",
-      "to": "task:T-050-be"
-    },
-    {
-      "from": "task:T-044",
-      "kind": "blocks",
-      "to": "task:T-050-fe"
-    },
-    {
       "from": "task:T-044-be",
       "kind": "blocks",
       "to": "task:T-044-fe"
@@ -7333,11 +7273,6 @@
       "from": "task:T-049-be",
       "kind": "blocks",
       "to": "task:T-049-fe"
-    },
-    {
-      "from": "task:T-050-be",
-      "kind": "blocks",
-      "to": "task:T-050-fe"
     },
     {
       "from": "task:T-051",
@@ -8428,56 +8363,6 @@
       "from": "task:T-049-fe",
       "kind": "depends",
       "to": "task:T-049-be"
-    },
-    {
-      "from": "task:T-050",
-      "kind": "depends",
-      "to": "task:T-009"
-    },
-    {
-      "from": "task:T-050",
-      "kind": "depends",
-      "to": "task:T-023"
-    },
-    {
-      "from": "task:T-050",
-      "kind": "depends",
-      "to": "task:T-044"
-    },
-    {
-      "from": "task:T-050-be",
-      "kind": "depends",
-      "to": "task:T-009"
-    },
-    {
-      "from": "task:T-050-be",
-      "kind": "depends",
-      "to": "task:T-023"
-    },
-    {
-      "from": "task:T-050-be",
-      "kind": "depends",
-      "to": "task:T-044"
-    },
-    {
-      "from": "task:T-050-fe",
-      "kind": "depends",
-      "to": "task:T-009"
-    },
-    {
-      "from": "task:T-050-fe",
-      "kind": "depends",
-      "to": "task:T-023"
-    },
-    {
-      "from": "task:T-050-fe",
-      "kind": "depends",
-      "to": "task:T-044"
-    },
-    {
-      "from": "task:T-050-fe",
-      "kind": "depends",
-      "to": "task:T-050-be"
     },
     {
       "from": "task:T-051",
@@ -12613,14 +12498,6 @@
       "from": "story:photo-library",
       "kind": "related",
       "to": "story:T-013",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
-      "from": "story:post-event",
-      "kind": "related",
-      "to": "story:T-050",
       "via": [
         "sum-of"
       ]
@@ -24918,11 +24795,6 @@
       "to": "task:T-013"
     },
     {
-      "from": "story:post-event",
-      "kind": "tree",
-      "to": "task:T-050"
-    },
-    {
       "from": "story:ring-invitations",
       "kind": "tree",
       "to": "needs-decision:ND-18"
@@ -25636,21 +25508,6 @@
       "from": "task:T-049",
       "kind": "tree",
       "to": "task:T-049-fe"
-    },
-    {
-      "from": "task:T-050",
-      "kind": "tree",
-      "to": "story:T-050"
-    },
-    {
-      "from": "task:T-050",
-      "kind": "tree",
-      "to": "task:T-050-be"
-    },
-    {
-      "from": "task:T-050",
-      "kind": "tree",
-      "to": "task:T-050-fe"
     },
     {
       "from": "task:T-051",
@@ -27235,7 +27092,7 @@
     {
       "from": "feature:post-event",
       "kind": "wikilink",
-      "to": "task:T-050"
+      "to": "project:status-report-2026-10-15"
     },
     {
       "from": "feature:profiles",
@@ -28611,11 +28468,6 @@
       "from": "frontend-requirements:post-event",
       "kind": "wikilink",
       "to": "task:T-048b"
-    },
-    {
-      "from": "frontend-requirements:post-event",
-      "kind": "wikilink",
-      "to": "task:T-050"
     },
     {
       "from": "frontend-requirements:post-event",
@@ -31230,11 +31082,6 @@
     {
       "from": "project:status-report-2026-10-15",
       "kind": "wikilink",
-      "to": "feature:post-event"
-    },
-    {
-      "from": "project:status-report-2026-10-15",
-      "kind": "wikilink",
       "to": "feature:ring-access"
     },
     {
@@ -31898,21 +31745,6 @@
       "to": "story:meetings"
     },
     {
-      "from": "story:post-event",
-      "kind": "wikilink",
-      "to": "task:T-009"
-    },
-    {
-      "from": "story:post-event",
-      "kind": "wikilink",
-      "to": "task:T-023"
-    },
-    {
-      "from": "story:post-event",
-      "kind": "wikilink",
-      "to": "task:T-044"
-    },
-    {
       "from": "story:profiles",
       "kind": "wikilink",
       "to": "backend-integration:profiles"
@@ -32438,11 +32270,6 @@
       "to": "feature:subscription"
     },
     {
-      "from": "story:T-050",
-      "kind": "wikilink",
-      "to": "feature:post-event"
-    },
-    {
       "from": "story:T-051",
       "kind": "wikilink",
       "to": "feature:gemma"
@@ -32745,12 +32572,12 @@
     {
       "from": "task:T-009",
       "kind": "wikilink",
-      "to": "task:T-048b"
+      "to": "story:post-event"
     },
     {
       "from": "task:T-009",
       "kind": "wikilink",
-      "to": "task:T-050"
+      "to": "task:T-048b"
     },
     {
       "from": "task:T-009-be",
@@ -33295,12 +33122,12 @@
     {
       "from": "task:T-023",
       "kind": "wikilink",
-      "to": "task:T-025"
+      "to": "story:post-event"
     },
     {
       "from": "task:T-023",
       "kind": "wikilink",
-      "to": "task:T-050"
+      "to": "task:T-025"
     },
     {
       "from": "task:T-023-be",
@@ -34150,7 +33977,7 @@
     {
       "from": "task:T-044",
       "kind": "wikilink",
-      "to": "task:T-050"
+      "to": "story:post-event"
     },
     {
       "from": "task:T-044-be",
@@ -34386,46 +34213,6 @@
       "from": "task:T-049-fe",
       "kind": "wikilink",
       "to": "task:T-049-be"
-    },
-    {
-      "from": "task:T-050",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-050",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-050",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-050-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:post-event"
-    },
-    {
-      "from": "task:T-050-be",
-      "kind": "wikilink",
-      "to": "feature:post-event"
-    },
-    {
-      "from": "task:T-050-fe",
-      "kind": "wikilink",
-      "to": "feature:post-event"
-    },
-    {
-      "from": "task:T-050-fe",
-      "kind": "wikilink",
-      "to": "story:T-050"
-    },
-    {
-      "from": "task:T-050-fe",
-      "kind": "wikilink",
-      "to": "task:T-050-be"
     },
     {
       "from": "task:T-051",
@@ -36466,22 +36253,6 @@
     },
     "social-pin/tasks/T-049 Subscription endpoints and a single Pro gate/T-049-fe Frontend · Subscription endpoints and a single Pro gate.md": {
       "name": "T-049-fe Frontend · Subscription endpoints and a single Pro gate",
-      "type": "task"
-    },
-    "social-pin/tasks/T-050 Post-event summary and follow-ups/T-050 Post-event summary and follow-ups.md": {
-      "name": "T-050 Post-event summary and follow-ups",
-      "type": "task"
-    },
-    "social-pin/tasks/T-050 Post-event summary and follow-ups/T-050 Story.md": {
-      "name": "T-050 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-050 Post-event summary and follow-ups/T-050-be Backend · Post-event summary and follow-ups.md": {
-      "name": "T-050-be Backend · Post-event summary and follow-ups",
-      "type": "task"
-    },
-    "social-pin/tasks/T-050 Post-event summary and follow-ups/T-050-fe Frontend · Post-event summary and follow-ups.md": {
-      "name": "T-050-fe Frontend · Post-event summary and follow-ups",
       "type": "task"
     },
     "social-pin/tasks/T-051 Gemma assistant sheet and suggestions/T-051 Gemma assistant sheet and suggestions.md": {
@@ -44695,8 +44466,8 @@
       "resolution": null,
       "rollup": {
         "approved": 1,
-        "blocked": 4,
-        "draft": 2,
+        "blocked": 1,
+        "draft": 1,
         "missing": 4
       },
       "scope": null,
@@ -44713,7 +44484,7 @@
       ],
       "task": null,
       "title": "Post-Event",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "feature:profiles": {
       "affects": [],
@@ -50049,9 +49820,9 @@
       "resolution": null,
       "rollup": {
         "approved": 4,
-        "blocked": 34,
+        "blocked": 31,
         "decided": 1,
-        "draft": 16,
+        "draft": 15,
         "in-progress": 4,
         "missing": 20,
         "needs-decision": 1,
@@ -56889,12 +56660,12 @@
       ],
       "rollup": {
         "approved": 36,
-        "blocked": 135,
+        "blocked": 132,
         "current": 8,
         "decided": 14,
         "delivered": 2,
         "done": 10,
-        "draft": 86,
+        "draft": 85,
         "in-progress": 55,
         "missing": 161,
         "needs-decision": 8,
@@ -59080,56 +58851,6 @@
       ],
       "task": "T-049",
       "title": "T-049 Story",
-      "updated": "2026-10-26"
-    },
-    "story:T-050": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-63",
-      "children": [],
-      "code": "T-050",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
-      "effort": null,
-      "feature": "post-event",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-050",
-      "inherits": {
-        "priority": "task:T-050",
-        "release": "feature:post-event"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "events",
-      "parentTask": null,
-      "parents": [
-        "task:T-050"
-      ],
-      "path": "social-pin/tasks/T-050 Post-event summary and follow-ups/T-050 Story.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "scope": "task",
-      "screens": [
-        "s62"
-      ],
-      "status": "draft",
-      "summary": "Compute EventSummary (connections, meetings, scans); follow-up suggestions.",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/events",
-        "layer/business"
-      ],
-      "task": "T-050",
-      "title": "T-050 Story",
       "updated": "2026-10-26"
     },
     "story:T-051": {
@@ -61356,9 +61077,7 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-62",
-      "children": [
-        "task:T-050"
-      ],
+      "children": [],
       "code": "post-event",
       "created": "2026-10-18",
       "deadline": null,
@@ -61402,7 +61121,7 @@
       ],
       "task": null,
       "title": "Post-Event Story",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "story:profiles": {
       "affects": [],
@@ -62918,7 +62637,7 @@
       ],
       "task": null,
       "title": "T-009 Scan counter and share link",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "task:T-009-be": {
       "affects": [],
@@ -65246,7 +64965,7 @@
       ],
       "task": null,
       "title": "T-023 Connection detail and contacts list",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "task:T-023-be": {
       "affects": [],
@@ -68898,7 +68617,7 @@
       ],
       "task": null,
       "title": "T-044 My meetings, calendar, detail, reschedule, cancel",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "task:T-044-be": {
       "affects": [],
@@ -70013,241 +69732,6 @@
       ],
       "task": null,
       "title": "T-049-fe Frontend · Subscription endpoints and a single Pro gate",
-      "updated": "2026-10-26"
-    },
-    "task:T-050": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-009",
-          "title": "T-009 Scan counter and share link",
-          "why": "T-009 Scan counter and share link is blocked"
-        },
-        {
-          "id": "task:T-023",
-          "title": "T-023 Connection detail and contacts list",
-          "why": "T-023 Connection detail and contacts list is blocked"
-        },
-        {
-          "id": "task:T-044",
-          "title": "T-044 My meetings, calendar, detail, reschedule, cancel",
-          "why": "T-044 My meetings, calendar, detail, reschedule, cancel is blocked"
-        }
-      ],
-      "card": "T-050",
-      "children": [
-        "story:T-050",
-        "task:T-050-be",
-        "task:T-050-fe"
-      ],
-      "code": "T-050",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-009",
-        "task:T-023",
-        "task:T-044"
-      ],
-      "dir": "social-pin/tasks/T-050 Post-event summary and follow-ups",
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "post-event",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-050",
-      "inherits": {
-        "release": "feature:post-event"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "events",
-      "parentTask": null,
-      "parents": [
-        "story:post-event"
-      ],
-      "path": "social-pin/tasks/T-050 Post-event summary and follow-ups/T-050 Post-event summary and follow-ups.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {
-        "blocked": 2,
-        "draft": 1
-      },
-      "scope": null,
-      "screens": [
-        "s62"
-      ],
-      "status": "blocked",
-      "summary": "Compute EventSummary (connections, meetings, scans); follow-up suggestions.",
-      "tags": [
-        "task",
-        "task/blocked",
-        "module/events",
-        "priority/high"
-      ],
-      "task": null,
-      "title": "T-050 Post-event summary and follow-ups",
-      "updated": "2026-10-26"
-    },
-    "task:T-050-be": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-009",
-          "title": "T-009 Scan counter and share link",
-          "why": "T-009 Scan counter and share link is blocked"
-        },
-        {
-          "id": "task:T-023",
-          "title": "T-023 Connection detail and contacts list",
-          "why": "T-023 Connection detail and contacts list is blocked"
-        },
-        {
-          "id": "task:T-044",
-          "title": "T-044 My meetings, calendar, detail, reschedule, cancel",
-          "why": "T-044 My meetings, calendar, detail, reschedule, cancel is blocked"
-        }
-      ],
-      "card": "T-050-be",
-      "children": [],
-      "code": "T-050-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-009",
-        "task:T-023",
-        "task:T-044"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "post-event",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-050-be",
-      "inherits": {
-        "release": "feature:post-event"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "events",
-      "parentTask": "T-050",
-      "parents": [
-        "task:T-050"
-      ],
-      "path": "social-pin/tasks/T-050 Post-event summary and follow-ups/T-050-be Backend · Post-event summary and follow-ups.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s62"
-      ],
-      "status": "todo",
-      "summary": "The API side of T-050 Post-event summary and follow-ups: the endpoints, data and rules its What describes. Record what shipped in T-050-be Backend Delivery and how to call it in T-050-be Backend…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/events",
-        "priority/high",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-050-be Backend · Post-event summary and follow-ups",
-      "updated": "2026-10-26"
-    },
-    "task:T-050-fe": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-009",
-          "title": "T-009 Scan counter and share link",
-          "why": "T-009 Scan counter and share link is blocked"
-        },
-        {
-          "id": "task:T-023",
-          "title": "T-023 Connection detail and contacts list",
-          "why": "T-023 Connection detail and contacts list is blocked"
-        },
-        {
-          "id": "task:T-044",
-          "title": "T-044 My meetings, calendar, detail, reschedule, cancel",
-          "why": "T-044 My meetings, calendar, detail, reschedule, cancel is blocked"
-        },
-        {
-          "id": "task:T-050-be",
-          "title": "T-050-be Backend · Post-event summary and follow-ups",
-          "why": "T-050-be Backend · Post-event summary and follow-ups is blocked"
-        }
-      ],
-      "card": "T-050-fe",
-      "children": [],
-      "code": "T-050-fe",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-009",
-        "task:T-023",
-        "task:T-044",
-        "task:T-050-be"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "post-event",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-050-fe",
-      "inherits": {
-        "release": "feature:post-event"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "frontend"
-      ],
-      "layer": "business",
-      "module": "events",
-      "parentTask": "T-050",
-      "parents": [
-        "task:T-050"
-      ],
-      "path": "social-pin/tasks/T-050 Post-event summary and follow-ups/T-050-fe Frontend · Post-event summary and follow-ups.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s62"
-      ],
-      "status": "todo",
-      "summary": "The client side of T-050 Post-event summary and follow-ups: the screens below show what its What describes, built against Post-Event Backend Integration once the backend half (T-050-be Backend ·…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/events",
-        "priority/high",
-        "frontend"
-      ],
-      "task": null,
-      "title": "T-050-fe Frontend · Post-event summary and follow-ups",
       "updated": "2026-10-26"
     },
     "task:T-051": {

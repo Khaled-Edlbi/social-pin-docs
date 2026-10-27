@@ -130,9 +130,6 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-049 Subscription endpoints and a single Pro gate]] | [[Subscription (Free vs Pro)]] | Commerce | ⬜ To do | M | — | — |
 | [[T-049-be Backend · Subscription endpoints and a single Pro gate]] `backend` | [[Subscription (Free vs Pro)]] | Commerce | ⬜ To do | M | — | — |
 | [[T-049-fe Frontend · Subscription endpoints and a single Pro gate]] `frontend` | [[Subscription (Free vs Pro)]] | Commerce | ⛔ Blocked | M | — | [[T-049-be Backend · Subscription endpoints and a single Pro gate|T-049-be]] |
-| [[T-050 Post-event summary and follow-ups]] | [[Post-Event]] | Events | ⛔ Blocked | M | — | [[T-009 Scan counter and share link|T-009]], [[T-023 Connection detail and contacts list|T-023]], [[T-044 My meetings, calendar, detail, reschedule, cancel|T-044]] |
-| [[T-050-be Backend · Post-event summary and follow-ups]] `backend` | [[Post-Event]] | Events | ⛔ Blocked | M | — | [[T-009 Scan counter and share link|T-009]], [[T-023 Connection detail and contacts list|T-023]], [[T-044 My meetings, calendar, detail, reschedule, cancel|T-044]] |
-| [[T-050-fe Frontend · Post-event summary and follow-ups]] `frontend` | [[Post-Event]] | Events | ⛔ Blocked | M | — | [[T-009 Scan counter and share link|T-009]], [[T-023 Connection detail and contacts list|T-023]], [[T-044 My meetings, calendar, detail, reschedule, cancel|T-044]], [[T-050-be Backend · Post-event summary and follow-ups|T-050-be]] |
 | [[T-068 Account moderation and platform role]] | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | M | — | — |
 | [[T-068-be Backend · Account moderation and platform role]] `backend` | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | M | — | — |
 | [[T-069 Scoped role grants]] | [[Operator Panel]] | Platform & Cross-cutting | 🔵 In progress | M | — | [[T-068 Account moderation and platform role|T-068]] |

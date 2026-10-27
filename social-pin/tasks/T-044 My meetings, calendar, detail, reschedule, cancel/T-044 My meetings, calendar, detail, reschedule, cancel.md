@@ -9,7 +9,7 @@ module: meetings
 screens: [s61, s66, s67]
 depends: [T-042]
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [task, task/todo, module/meetings, priority/critical]
 ---
 
@@ -32,7 +32,7 @@ Agenda, shared files (via `File`), reschedule = new request referencing the old 
 ## Dependencies
 
 - Waits on [[T-042 Meeting request, accept with slots, decline with reason]]
-- Unblocks [[T-050 Post-event summary and follow-ups]]
+- Unblocks [[Post-Event Story|Post-Event · S6]]
 
 ## Definition of done
 

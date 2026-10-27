@@ -94,9 +94,6 @@ kanban-plugin: board
 - [ ] [[T-048b-be Backend · Booth analytics and leads CSV export]] #high #exhibitor #backend
 - [ ] [[T-048b-fe Frontend · Booth analytics and leads CSV export]] #high #exhibitor #frontend
 - [ ] [[T-049-fe Frontend · Subscription endpoints and a single Pro gate]] #high #subscription #frontend
-- [ ] [[T-050 Post-event summary and follow-ups]] #high #post-event
-- [ ] [[T-050-be Backend · Post-event summary and follow-ups]] #high #post-event #backend
-- [ ] [[T-050-fe Frontend · Post-event summary and follow-ups]] #high #post-event #frontend
 - [ ] [[T-013 Usage count per file across Rings]] #medium #photo-library
 - [ ] [[T-013-be Backend · Usage count per file across Rings]] #medium #photo-library #backend
 - [ ] [[T-013-fe Frontend · Usage count per file across Rings]] #medium #photo-library #frontend

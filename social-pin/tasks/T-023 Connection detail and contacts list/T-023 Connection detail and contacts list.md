@@ -9,7 +9,7 @@ module: connections
 screens: [s47]
 depends: [T-022]
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-27
 owner: "omar"
 related: ["D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect"]
 tags: [task, task/todo, module/connections, priority/critical]
@@ -33,7 +33,7 @@ Owner-side detail shows which Rings (owner only; a connection may sit in several
 
 - Waits on [[T-022 Accept into a Ring (sets grantedRingId)]]
 - Unblocks [[T-025 Introduce a connection to another]]
-- Unblocks [[T-050 Post-event summary and follow-ups]]
+- Unblocks [[Post-Event Story|Post-Event · S6]]
 
 ## Definition of done
 
