@@ -7,7 +7,7 @@ module: identity
 status: current
 screens: [s68]
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-27
 depends: []
 affects: ["Account Frontend Delivery", "Account QA Frontend"]
 related: ["B-02 Deleted account answers 401, not the documented 404 E_USER_01", "B-01 An unverified changed email still signs in", "D-20 The changed address still signs in, the words are corrected", "PATCH /users/me", "POST /auth/login", "POST /auth/login/verify", "GET /users/me", "DELETE /users/me", E_USER_01, E_AUTH_03, "T-063 Put the ErrorCode on the error body"]
@@ -63,7 +63,7 @@ Until [[T-063 Put the ErrorCode on the error body]] puts the code on the wire, b
 
 ## Not available yet
 
-- Connection count ("218 connections") on s68: [[T-005 Connection count on Me and Home]].
+- Connection count ("218 connections") on s68: [[Counts Story|Counts · S11]].
 - Linked accounts (LinkedIn): [[T-019 LinkedIn OAuth link, unlink, login]].
 - Devices list and NFC: [[T-014 Register devices on login; list and remove]], [[T-015 Pair and revoke an NFC card]].
 - Subscription management: [[T-049 Subscription endpoints and a single Pro gate]].

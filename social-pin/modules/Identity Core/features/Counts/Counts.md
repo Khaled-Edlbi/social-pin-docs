@@ -34,16 +34,24 @@ Wireframe brief sections: [[Wireframe Brief#Home — Rings hub + active profile|
 
 Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map in [[Navigation Map]], see [[Design Reference]].
 
-## Tasks
+## Work
 
-| Task | Status | Priority | Effort |
-|---|---|---|---|
-| [[T-004 Member count per Ring on list and detail]] | ⬜ To do | High | S |
-| [[T-005 Connection count on Me and Home]] | ⛔ Blocked | High | S |
+One story per feature (since 2026-10-27): all of this feature's work is in [[Counts Story]]. The tasks merged into it on 2026-10-27:
 
-```dataview
-TABLE status, priority, effort FROM #task WHERE feature = "counts" SORT priority ASC
-```
+| Was | Title | Status then | Priority | Now in the story |
+|---|---|---|---|---|
+| T-004 | Member count per Ring on list and detail | To do | high | S6–S10 |
+| T-005 | Connection count on Me and Home | To do | high | S11 |
+
+### Log of the merged tasks
+
+- T-004 · 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
+- T-004 · 2026-10-18 · created as the backend half of T-004
+- T-004 · 2026-10-18 · created as the frontend half of T-004
+- T-005 · 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
+- T-005 · 2026-10-27 · `tickets/pm/…/S-05-written` · story written; What filled in; Me only (Home dropped by decision); the hand-typed `blocked` removed: the build shows it blocked by T-021.
+- T-005 · 2026-10-18 · created as the backend half of T-005
+- T-005 · 2026-10-18 · created as the frontend half of T-005
 
 ## Related
 

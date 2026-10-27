@@ -48,7 +48,7 @@ What the client needs from the backend to build the screens in [[Companies Story
 | Company Rings I am in (name, colour, `parentRingId`) | `GET /rings/shared-with-me` | ✅ | — |
 | A company Ring's projection | `GET /views/ring/:ringId` | ✅ | — |
 | Colleague count / roster for owner or admin | `GET /rings/:ringId/members` | ✅ | — |
-| Member count on the Ring row itself | — | ❌ | [[T-004 Member count per Ring on list and detail]] |
+| Member count on the Ring row itself | — | ❌ | [[Counts Story|Counts · S6–S10]] |
 | Pending company invitations, review, decline | — | ❌ | [[T-026 Ring invitations invite, review, decline]] |
 | Join a company Ring with a code or work email | — | ❌ | [[T-027 Join a Ring with a code or verified work email]] |
 | Business account setup creating the business Ring | — | ❌ | [[T-048 Business account setup → business Ring]] |

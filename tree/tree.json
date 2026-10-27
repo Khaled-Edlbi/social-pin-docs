@@ -277,14 +277,6 @@
     "T-003 Remove devCode once delivery works": "task:T-003",
     "T-003 Story": "story:T-003",
     "T-003-be Backend · Remove devCode once delivery works": "task:T-003-be",
-    "T-004 Member count per Ring on list and detail": "task:T-004",
-    "T-004 Story": "story:T-004",
-    "T-004-be Backend · Member count per Ring on list and detail": "task:T-004-be",
-    "T-004-fe Frontend · Member count per Ring on list and detail": "task:T-004-fe",
-    "T-005 Connection count on Me and Home": "task:T-005",
-    "T-005 Story": "story:T-005",
-    "T-005-be Backend · Connection count on Me and Home": "task:T-005-be",
-    "T-005-fe Frontend · Connection count on Me and Home": "task:T-005-fe",
     "T-006 Delegated admin endpoints": "task:T-006",
     "T-006 Story": "story:T-006",
     "T-006-be Backend · Delegated admin endpoints": "task:T-006-be",
@@ -754,8 +746,6 @@
     "S-01": "story:account",
     "S-02": "story:auth",
     "S-03": "story:counts",
-    "S-04": "story:T-004",
-    "S-05": "story:T-005",
     "S-06": "story:files",
     "S-08": "story:onboarding-imports",
     "S-09": "story:T-020",
@@ -862,12 +852,6 @@
     "T-002-be": "task:T-002-be",
     "T-003": "task:T-003",
     "T-003-be": "task:T-003-be",
-    "T-004": "task:T-004",
-    "T-004-be": "task:T-004-be",
-    "T-004-fe": "task:T-004-fe",
-    "T-005": "task:T-005",
-    "T-005-be": "task:T-005-be",
-    "T-005-fe": "task:T-005-fe",
     "T-006": "task:T-006",
     "T-006-be": "task:T-006-be",
     "T-006-fe": "task:T-006-fe",
@@ -2179,8 +2163,6 @@
         "project:spec-map",
         "project:status-report-2026-10-15",
         "task:B-02",
-        "task:T-004",
-        "task:T-005",
         "task:T-022"
       ],
       "kind": "endpoint",
@@ -2205,8 +2187,6 @@
         "project:spec-map",
         "project:status-report-2026-10-15",
         "qa-backend:account",
-        "story:T-004",
-        "story:T-005",
         "story:T-022",
         "story:auth",
         "story:counts",
@@ -2226,8 +2206,7 @@
         "feature:events-during",
         "feature:meetings",
         "feature:post-event",
-        "feature:rings",
-        "task:T-004"
+        "feature:rings"
       ],
       "kind": "endpoint",
       "notes": [
@@ -2240,7 +2219,7 @@
         "frontend-requirements:meetings",
         "frontend-requirements:post-event",
         "frontend-requirements:rings",
-        "story:T-004",
+        "story:counts",
         "story:delegated-admins",
         "story:post-event"
       ],
@@ -2261,8 +2240,8 @@
     "GET /rings/:ringId/members": {
       "containers": [
         "feature:companies",
+        "feature:counts",
         "feature:ring-members",
-        "task:T-004",
         "task:T-023"
       ],
       "kind": "endpoint",
@@ -2271,9 +2250,9 @@
         "backend-integration:ring-members",
         "frontend-requirements:companies",
         "frontend-requirements:ring-members",
-        "story:T-004",
         "story:T-023",
-        "story:companies"
+        "story:companies",
+        "story:counts"
       ],
       "owner": "feature:ring-members"
     },
@@ -2353,7 +2332,6 @@
         "project:frontend-contract",
         "project:spec-map",
         "project:status-report-2026-10-15",
-        "task:T-004",
         "task:T-022"
       ],
       "kind": "endpoint",
@@ -2377,7 +2355,6 @@
         "project:frontend-contract",
         "project:spec-map",
         "project:status-report-2026-10-15",
-        "story:T-004",
         "story:T-022",
         "story:companies",
         "story:counts",
@@ -2438,10 +2415,10 @@
       "containers": [
         "feature:account",
         "feature:badge-qr",
+        "feature:counts",
         "feature:linked-accounts",
         "feature:ring-projection",
-        "task:B-02",
-        "task:T-005"
+        "task:B-02"
       ],
       "kind": "endpoint",
       "notes": [
@@ -2454,8 +2431,8 @@
         "frontend-requirements:ring-projection",
         "qa-backend:account",
         "qa-frontend:account",
-        "story:T-005",
         "story:account",
+        "story:counts",
         "task:B-02"
       ],
       "owner": "feature:account"
@@ -3729,10 +3706,7 @@
         "feature:counts",
         "feature:files",
         "feature:ring-projection",
-        "needs-decision:ND-16",
-        "task:T-004",
-        "task:T-004-be",
-        "task:T-004-fe"
+        "needs-decision:ND-16"
       ],
       "kind": "screen",
       "notes": [
@@ -3748,13 +3722,9 @@
         "frontend-requirements:files",
         "frontend-requirements:ring-projection",
         "needs-decision:ND-16",
-        "story:T-004",
         "story:counts",
         "story:files",
-        "story:ring-projection",
-        "task:T-004",
-        "task:T-004-be",
-        "task:T-004-fe"
+        "story:ring-projection"
       ],
       "owner": null
     },
@@ -3777,10 +3747,7 @@
     "s16": {
       "containers": [
         "feature:counts",
-        "feature:rings",
-        "task:T-004",
-        "task:T-004-be",
-        "task:T-004-fe"
+        "feature:rings"
       ],
       "kind": "screen",
       "notes": [
@@ -3791,12 +3758,8 @@
         "feature:rings",
         "frontend-requirements:counts",
         "frontend-requirements:rings",
-        "story:T-004",
         "story:counts",
-        "story:rings",
-        "task:T-004",
-        "task:T-004-be",
-        "task:T-004-fe"
+        "story:rings"
       ],
       "owner": null
     },
@@ -4981,9 +4944,6 @@
         "needs-decision:ND-20",
         "task:B-01",
         "task:B-02",
-        "task:T-005",
-        "task:T-005-be",
-        "task:T-005-fe",
         "task:T-019",
         "task:T-019-be",
         "task:T-019-fe",
@@ -5013,7 +4973,6 @@
         "needs-decision:ND-20",
         "qa-backend:account",
         "qa-frontend:account",
-        "story:T-005",
         "story:T-019",
         "story:T-078",
         "story:T-079",
@@ -5024,9 +4983,6 @@
         "story:payments",
         "task:B-01",
         "task:B-02",
-        "task:T-005",
-        "task:T-005-be",
-        "task:T-005-fe",
         "task:T-019",
         "task:T-019-be",
         "task:T-019-fe",
@@ -5213,7 +5169,7 @@
     }
   },
   "counts": {
-    "blocked": 152,
+    "blocked": 147,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -5226,28 +5182,28 @@
       "project": 27,
       "qa-backend": 1,
       "qa-frontend": 1,
-      "story": 105,
-      "task": 190
+      "story": 103,
+      "task": 184
     },
     "byLayer": {
       "backend": 56,
-      "business": 374,
+      "business": 366,
       "frontend": 44,
       "qa": 2,
       "shared": 10
     },
     "concepts": 199,
     "decisions": 19,
-    "edges": 5440,
+    "edges": 5343,
     "features": 41,
-    "layerNotes": 195,
+    "layerNotes": 193,
     "modules": 8,
-    "notes": 524,
+    "notes": 516,
     "partial": 4,
     "placeholders": 162,
     "records": 14,
-    "taskLayerNotes": 66,
-    "tasks": 190
+    "taskLayerNotes": 64,
+    "tasks": 184
   },
   "deadlines": {
     "missed": {
@@ -5303,9 +5259,7 @@
   ],
   "diagnostics": {
     "errors": [],
-    "warnings": [
-      "social-pin/tasks/T-005 Connection count on Me and Home/T-005 Story.md: uses `GET /rings`, owned by Rings, but nothing in T-005 Connection count on Me and Home declares related/affects/depends to it"
-    ]
+    "warnings": []
   },
   "edges": [
     {
@@ -5686,12 +5640,7 @@
     {
       "from": "frontend-requirements:counts",
       "kind": "affects",
-      "to": "task:T-004"
-    },
-    {
-      "from": "frontend-requirements:counts",
-      "kind": "affects",
-      "to": "task:T-005"
+      "to": "story:counts"
     },
     {
       "from": "frontend-requirements:interests",
@@ -7029,16 +6978,6 @@
       "to": "task:T-003-be"
     },
     {
-      "from": "task:T-004-be",
-      "kind": "blocks",
-      "to": "task:T-004-fe"
-    },
-    {
-      "from": "task:T-005-be",
-      "kind": "blocks",
-      "to": "task:T-005-fe"
-    },
-    {
       "from": "task:T-006-be",
       "kind": "blocks",
       "to": "task:T-006-fe"
@@ -7307,26 +7246,6 @@
       "from": "task:T-020b-be",
       "kind": "blocks",
       "to": "task:T-020b-fe"
-    },
-    {
-      "from": "task:T-021",
-      "kind": "blocks",
-      "to": "story:T-005"
-    },
-    {
-      "from": "task:T-021",
-      "kind": "blocks",
-      "to": "task:T-005"
-    },
-    {
-      "from": "task:T-021",
-      "kind": "blocks",
-      "to": "task:T-005-be"
-    },
-    {
-      "from": "task:T-021",
-      "kind": "blocks",
-      "to": "task:T-005-fe"
     },
     {
       "from": "task:T-021",
@@ -8254,11 +8173,6 @@
       "to": "needs-decision:ND-07"
     },
     {
-      "from": "story:T-005",
-      "kind": "depends",
-      "to": "task:T-021"
-    },
-    {
       "from": "story:T-067",
       "kind": "depends",
       "to": "task:T-063"
@@ -8302,31 +8216,6 @@
       "from": "task:T-003-be",
       "kind": "depends",
       "to": "task:T-002"
-    },
-    {
-      "from": "task:T-004-fe",
-      "kind": "depends",
-      "to": "task:T-004-be"
-    },
-    {
-      "from": "task:T-005",
-      "kind": "depends",
-      "to": "task:T-021"
-    },
-    {
-      "from": "task:T-005-be",
-      "kind": "depends",
-      "to": "task:T-021"
-    },
-    {
-      "from": "task:T-005-fe",
-      "kind": "depends",
-      "to": "task:T-005-be"
-    },
-    {
-      "from": "task:T-005-fe",
-      "kind": "depends",
-      "to": "task:T-021"
     },
     {
       "from": "task:T-006-fe",
@@ -10407,17 +10296,17 @@
     {
       "from": "backend-integration:account",
       "kind": "related",
-      "to": "story:linked-accounts",
+      "to": "story:counts",
       "via": [
-        "POST /auth/login/verify"
+        "GET /users/me"
       ]
     },
     {
       "from": "backend-integration:account",
       "kind": "related",
-      "to": "story:T-005",
+      "to": "story:linked-accounts",
       "via": [
-        "GET /users/me"
+        "POST /auth/login/verify"
       ]
     },
     {
@@ -12117,12 +12006,12 @@
     {
       "from": "frontend-delivery:account",
       "kind": "related",
-      "to": "story:files"
+      "to": "story:counts"
     },
     {
       "from": "frontend-delivery:account",
       "kind": "related",
-      "to": "task:T-005"
+      "to": "story:files"
     },
     {
       "from": "frontend-delivery:account",
@@ -13080,14 +12969,6 @@
       "to": "decision:D-14"
     },
     {
-      "from": "story:counts",
-      "kind": "related",
-      "to": "story:T-004",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
       "from": "story:delegated-admins",
       "kind": "related",
       "to": "decision:D-04"
@@ -13628,44 +13509,6 @@
       "from": "story:subscription",
       "kind": "related",
       "to": "story:T-049",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
-      "from": "story:T-004",
-      "kind": "related",
-      "to": "decision:D-04"
-    },
-    {
-      "from": "story:T-005",
-      "kind": "related",
-      "to": "decision:D-15"
-    },
-    {
-      "from": "story:T-005",
-      "kind": "related",
-      "to": "decision:D-17"
-    },
-    {
-      "from": "story:T-005",
-      "kind": "related",
-      "to": "feature:account"
-    },
-    {
-      "from": "story:T-005",
-      "kind": "related",
-      "to": "feature:connections"
-    },
-    {
-      "from": "story:T-005",
-      "kind": "related",
-      "to": "frontend-requirements:counts"
-    },
-    {
-      "from": "story:T-005",
-      "kind": "related",
-      "to": "story:counts",
       "via": [
         "sum-of"
       ]
@@ -14361,14 +14204,6 @@
     {
       "from": "decision:D-14",
       "kind": "shares",
-      "to": "task:T-004",
-      "via": [
-        "GET /rings/shared-with-me"
-      ]
-    },
-    {
-      "from": "decision:D-14",
-      "kind": "shares",
       "to": "task:T-022",
       "via": [
         "GET /rings/shared-with-me",
@@ -14615,14 +14450,6 @@
     {
       "from": "decision:D-18",
       "kind": "shares",
-      "to": "task:T-004",
-      "via": [
-        "GET /rings/shared-with-me"
-      ]
-    },
-    {
-      "from": "decision:D-18",
-      "kind": "shares",
       "to": "task:T-022",
       "via": [
         "GET /rings/shared-with-me"
@@ -14858,7 +14685,8 @@
       "kind": "shares",
       "to": "feature:counts",
       "via": [
-        "GET /rings"
+        "GET /rings",
+        "GET /users/me"
       ]
     },
     {
@@ -15184,23 +15012,6 @@
     {
       "from": "feature:account",
       "kind": "shares",
-      "to": "task:T-004",
-      "via": [
-        "GET /rings"
-      ]
-    },
-    {
-      "from": "feature:account",
-      "kind": "shares",
-      "to": "task:T-005",
-      "via": [
-        "GET /rings",
-        "GET /users/me"
-      ]
-    },
-    {
-      "from": "feature:account",
-      "kind": "shares",
       "to": "task:T-019",
       "via": [
         "POST /auth/login/verify"
@@ -15488,22 +15299,6 @@
       "from": "feature:app-shell",
       "kind": "shares",
       "to": "task:B-02",
-      "via": [
-        "GET /rings"
-      ]
-    },
-    {
-      "from": "feature:app-shell",
-      "kind": "shares",
-      "to": "task:T-004",
-      "via": [
-        "GET /rings"
-      ]
-    },
-    {
-      "from": "feature:app-shell",
-      "kind": "shares",
-      "to": "task:T-005",
       "via": [
         "GET /rings"
       ]
@@ -16009,22 +15804,6 @@
     {
       "from": "feature:auth",
       "kind": "shares",
-      "to": "task:T-004",
-      "via": [
-        "GET /rings"
-      ]
-    },
-    {
-      "from": "feature:auth",
-      "kind": "shares",
-      "to": "task:T-005",
-      "via": [
-        "GET /rings"
-      ]
-    },
-    {
-      "from": "feature:auth",
-      "kind": "shares",
       "to": "task:T-019",
       "via": [
         "POST /auth/login/verify"
@@ -16108,7 +15887,8 @@
       "via": [
         "E_RING_02",
         "E_RING_05",
-        "GET /rings"
+        "GET /rings",
+        "GET /users/me"
       ]
     },
     {
@@ -16447,23 +16227,6 @@
     {
       "from": "feature:badge-qr",
       "kind": "shares",
-      "to": "task:T-004",
-      "via": [
-        "GET /rings"
-      ]
-    },
-    {
-      "from": "feature:badge-qr",
-      "kind": "shares",
-      "to": "task:T-005",
-      "via": [
-        "GET /rings",
-        "GET /users/me"
-      ]
-    },
-    {
-      "from": "feature:badge-qr",
-      "kind": "shares",
       "to": "task:T-007",
       "via": [
         "E_RING_02",
@@ -16728,23 +16491,6 @@
     {
       "from": "feature:cleanup-jobs",
       "kind": "shares",
-      "to": "task:T-004",
-      "via": [
-        "GET /rings",
-        "GET /rings/:id"
-      ]
-    },
-    {
-      "from": "feature:cleanup-jobs",
-      "kind": "shares",
-      "to": "task:T-005",
-      "via": [
-        "GET /rings"
-      ]
-    },
-    {
-      "from": "feature:cleanup-jobs",
-      "kind": "shares",
       "to": "task:T-007",
       "via": [
         "E_RING_02"
@@ -16885,6 +16631,7 @@
       "via": [
         "E_RING_02",
         "E_RING_05",
+        "GET /rings/:ringId/members",
         "GET /rings/:ringId/members?status=ACTIVE",
         "GET /rings/shared-with-me"
       ]
@@ -17243,15 +16990,6 @@
         "GET /rings/shared-with-me",
         "GET /views/ring/:ringId",
         "POST /rings"
-      ]
-    },
-    {
-      "from": "feature:companies",
-      "kind": "shares",
-      "to": "task:T-004",
-      "via": [
-        "GET /rings/:ringId/members",
-        "GET /rings/shared-with-me"
       ]
     },
     {
@@ -17719,23 +17457,6 @@
     {
       "from": "feature:connections",
       "kind": "shares",
-      "to": "task:T-004",
-      "via": [
-        "GET /rings",
-        "GET /rings/shared-with-me"
-      ]
-    },
-    {
-      "from": "feature:connections",
-      "kind": "shares",
-      "to": "task:T-005",
-      "via": [
-        "GET /rings"
-      ]
-    },
-    {
-      "from": "feature:connections",
-      "kind": "shares",
       "to": "task:T-007",
       "via": [
         "E_RING_02",
@@ -17835,6 +17556,14 @@
     {
       "from": "feature:counts",
       "kind": "shares",
+      "to": "feature:linked-accounts",
+      "via": [
+        "GET /users/me"
+      ]
+    },
+    {
+      "from": "feature:counts",
+      "kind": "shares",
       "to": "feature:meetings",
       "via": [
         "E_RING_02",
@@ -17897,6 +17626,7 @@
         "E_RING_02",
         "E_RING_05",
         "GET /rings",
+        "GET /rings/:ringId/members",
         "GET /rings/:ringId/members?status=ACTIVE"
       ]
     },
@@ -17906,7 +17636,8 @@
       "to": "feature:ring-projection",
       "via": [
         "E_RING_02",
-        "E_RING_05"
+        "E_RING_05",
+        "GET /users/me"
       ]
     },
     {
@@ -18018,25 +17749,8 @@
       "kind": "shares",
       "to": "task:B-02",
       "via": [
-        "GET /rings"
-      ]
-    },
-    {
-      "from": "feature:counts",
-      "kind": "shares",
-      "to": "task:T-004",
-      "via": [
         "GET /rings",
-        "GET /rings/:id",
-        "GET /rings/shared-with-me"
-      ]
-    },
-    {
-      "from": "feature:counts",
-      "kind": "shares",
-      "to": "task:T-005",
-      "via": [
-        "GET /rings"
+        "GET /users/me"
       ]
     },
     {
@@ -18055,6 +17769,14 @@
         "E_RING_02",
         "GET /rings",
         "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "feature:counts",
+      "kind": "shares",
+      "to": "task:T-023",
+      "via": [
+        "GET /rings/:ringId/members"
       ]
     },
     {
@@ -18370,15 +18092,6 @@
       "to": "project:status-report-2026-10-15",
       "via": [
         "DELETE /rings/:id",
-        "GET /rings/shared-with-me"
-      ]
-    },
-    {
-      "from": "feature:delegated-admins",
-      "kind": "shares",
-      "to": "task:T-004",
-      "via": [
-        "GET /rings/:id",
         "GET /rings/shared-with-me"
       ]
     },
@@ -19410,23 +19123,6 @@
     {
       "from": "feature:event-ring-auto",
       "kind": "shares",
-      "to": "task:T-004",
-      "via": [
-        "GET /rings",
-        "GET /rings/:id"
-      ]
-    },
-    {
-      "from": "feature:event-ring-auto",
-      "kind": "shares",
-      "to": "task:T-005",
-      "via": [
-        "GET /rings"
-      ]
-    },
-    {
-      "from": "feature:event-ring-auto",
-      "kind": "shares",
       "to": "task:T-007",
       "via": [
         "E_RING_02",
@@ -19625,22 +19321,6 @@
     {
       "from": "feature:events-before",
       "kind": "shares",
-      "to": "task:T-004",
-      "via": [
-        "GET /rings"
-      ]
-    },
-    {
-      "from": "feature:events-before",
-      "kind": "shares",
-      "to": "task:T-005",
-      "via": [
-        "GET /rings"
-      ]
-    },
-    {
-      "from": "feature:events-before",
-      "kind": "shares",
       "to": "task:T-022",
       "via": [
         "GET /rings"
@@ -19767,14 +19447,6 @@
       "to": "project:status-report-2026-10-15",
       "via": [
         "GET /views/ring/:ringId"
-      ]
-    },
-    {
-      "from": "feature:events-during",
-      "kind": "shares",
-      "to": "task:T-004",
-      "via": [
-        "GET /rings/:id"
       ]
     },
     {
@@ -20507,14 +20179,6 @@
     {
       "from": "feature:linked-accounts",
       "kind": "shares",
-      "to": "task:T-005",
-      "via": [
-        "GET /users/me"
-      ]
-    },
-    {
-      "from": "feature:linked-accounts",
-      "kind": "shares",
       "to": "task:T-019",
       "via": [
         "POST /auth/login/verify"
@@ -20731,15 +20395,6 @@
         "GET /views/ring/:ringId",
         "POST /rings",
         "POST /rings/:id/disposition"
-      ]
-    },
-    {
-      "from": "feature:meetings",
-      "kind": "shares",
-      "to": "task:T-004",
-      "via": [
-        "GET /rings/:id",
-        "GET /rings/shared-with-me"
       ]
     },
     {
@@ -21467,23 +21122,6 @@
     {
       "from": "feature:pincast",
       "kind": "shares",
-      "to": "task:T-004",
-      "via": [
-        "GET /rings",
-        "GET /rings/shared-with-me"
-      ]
-    },
-    {
-      "from": "feature:pincast",
-      "kind": "shares",
-      "to": "task:T-005",
-      "via": [
-        "GET /rings"
-      ]
-    },
-    {
-      "from": "feature:pincast",
-      "kind": "shares",
       "to": "task:T-007",
       "via": [
         "E_RING_02"
@@ -21685,23 +21323,6 @@
       "from": "feature:post-event",
       "kind": "shares",
       "to": "task:B-02",
-      "via": [
-        "GET /rings"
-      ]
-    },
-    {
-      "from": "feature:post-event",
-      "kind": "shares",
-      "to": "task:T-004",
-      "via": [
-        "GET /rings",
-        "GET /rings/:id"
-      ]
-    },
-    {
-      "from": "feature:post-event",
-      "kind": "shares",
-      "to": "task:T-005",
       "via": [
         "GET /rings"
       ]
@@ -22046,14 +21667,6 @@
     {
       "from": "feature:ring-access",
       "kind": "shares",
-      "to": "task:T-004",
-      "via": [
-        "GET /rings/shared-with-me"
-      ]
-    },
-    {
-      "from": "feature:ring-access",
-      "kind": "shares",
       "to": "task:T-007",
       "via": [
         "E_RING_02",
@@ -22202,14 +21815,6 @@
       "via": [
         "GET /rings/shared-with-me",
         "GET /views/ring/:ringId"
-      ]
-    },
-    {
-      "from": "feature:ring-invitations",
-      "kind": "shares",
-      "to": "task:T-004",
-      "via": [
-        "GET /rings/shared-with-me"
       ]
     },
     {
@@ -22380,23 +21985,6 @@
     {
       "from": "feature:ring-members",
       "kind": "shares",
-      "to": "task:T-004",
-      "via": [
-        "GET /rings",
-        "GET /rings/:ringId/members"
-      ]
-    },
-    {
-      "from": "feature:ring-members",
-      "kind": "shares",
-      "to": "task:T-005",
-      "via": [
-        "GET /rings"
-      ]
-    },
-    {
-      "from": "feature:ring-members",
-      "kind": "shares",
       "to": "task:T-007",
       "via": [
         "E_RING_02"
@@ -22552,14 +22140,6 @@
       "to": "task:B-02",
       "via": [
         "GET /profiles",
-        "GET /users/me"
-      ]
-    },
-    {
-      "from": "feature:ring-projection",
-      "kind": "shares",
-      "to": "task:T-005",
-      "via": [
         "GET /users/me"
       ]
     },
@@ -22742,24 +22322,6 @@
       "from": "feature:rings",
       "kind": "shares",
       "to": "task:B-02",
-      "via": [
-        "GET /rings"
-      ]
-    },
-    {
-      "from": "feature:rings",
-      "kind": "shares",
-      "to": "task:T-004",
-      "via": [
-        "GET /rings",
-        "GET /rings/:id",
-        "GET /rings/shared-with-me"
-      ]
-    },
-    {
-      "from": "feature:rings",
-      "kind": "shares",
-      "to": "task:T-005",
       "via": [
         "GET /rings"
       ]
@@ -22956,22 +22518,6 @@
       "from": "feature:view-as",
       "kind": "shares",
       "to": "task:B-02",
-      "via": [
-        "GET /rings"
-      ]
-    },
-    {
-      "from": "feature:view-as",
-      "kind": "shares",
-      "to": "task:T-004",
-      "via": [
-        "GET /rings"
-      ]
-    },
-    {
-      "from": "feature:view-as",
-      "kind": "shares",
-      "to": "task:T-005",
       "via": [
         "GET /rings"
       ]
@@ -23304,14 +22850,6 @@
     {
       "from": "needs-decision:ND-14",
       "kind": "shares",
-      "to": "task:T-004",
-      "via": [
-        "GET /rings/shared-with-me"
-      ]
-    },
-    {
-      "from": "needs-decision:ND-14",
-      "kind": "shares",
       "to": "task:T-022",
       "via": [
         "GET /rings/shared-with-me",
@@ -23397,14 +22935,6 @@
       "from": "needs-decision:ND-18",
       "kind": "shares",
       "to": "project:status-report-2026-10-15",
-      "via": [
-        "GET /rings/shared-with-me"
-      ]
-    },
-    {
-      "from": "needs-decision:ND-18",
-      "kind": "shares",
-      "to": "task:T-004",
       "via": [
         "GET /rings/shared-with-me"
       ]
@@ -23967,23 +23497,6 @@
     {
       "from": "project:frontend-contract",
       "kind": "shares",
-      "to": "task:T-004",
-      "via": [
-        "GET /rings",
-        "GET /rings/shared-with-me"
-      ]
-    },
-    {
-      "from": "project:frontend-contract",
-      "kind": "shares",
-      "to": "task:T-005",
-      "via": [
-        "GET /rings"
-      ]
-    },
-    {
-      "from": "project:frontend-contract",
-      "kind": "shares",
       "to": "task:T-007",
       "via": [
         "GET /views/ring/:ringId"
@@ -24165,23 +23678,6 @@
     {
       "from": "project:spec-map",
       "kind": "shares",
-      "to": "task:T-004",
-      "via": [
-        "GET /rings",
-        "GET /rings/shared-with-me"
-      ]
-    },
-    {
-      "from": "project:spec-map",
-      "kind": "shares",
-      "to": "task:T-005",
-      "via": [
-        "GET /rings"
-      ]
-    },
-    {
-      "from": "project:spec-map",
-      "kind": "shares",
       "to": "task:T-007",
       "via": [
         "GET /views/ring/:ringId"
@@ -24261,23 +23757,6 @@
       "from": "project:status-report-2026-10-15",
       "kind": "shares",
       "to": "task:B-02",
-      "via": [
-        "GET /rings"
-      ]
-    },
-    {
-      "from": "project:status-report-2026-10-15",
-      "kind": "shares",
-      "to": "task:T-004",
-      "via": [
-        "GET /rings",
-        "GET /rings/shared-with-me"
-      ]
-    },
-    {
-      "from": "project:status-report-2026-10-15",
-      "kind": "shares",
-      "to": "task:T-005",
       "via": [
         "GET /rings"
       ]
@@ -26418,16 +25897,6 @@
       "to": "task:T-025"
     },
     {
-      "from": "story:counts",
-      "kind": "tree",
-      "to": "task:T-004"
-    },
-    {
-      "from": "story:counts",
-      "kind": "tree",
-      "to": "task:T-005"
-    },
-    {
       "from": "story:delegated-admins",
       "kind": "tree",
       "to": "task:T-006"
@@ -26781,36 +26250,6 @@
       "from": "task:T-003",
       "kind": "tree",
       "to": "task:T-003-be"
-    },
-    {
-      "from": "task:T-004",
-      "kind": "tree",
-      "to": "story:T-004"
-    },
-    {
-      "from": "task:T-004",
-      "kind": "tree",
-      "to": "task:T-004-be"
-    },
-    {
-      "from": "task:T-004",
-      "kind": "tree",
-      "to": "task:T-004-fe"
-    },
-    {
-      "from": "task:T-005",
-      "kind": "tree",
-      "to": "story:T-005"
-    },
-    {
-      "from": "task:T-005",
-      "kind": "tree",
-      "to": "task:T-005-be"
-    },
-    {
-      "from": "task:T-005",
-      "kind": "tree",
-      "to": "task:T-005-fe"
     },
     {
       "from": "task:T-006",
@@ -28265,11 +27704,6 @@
     {
       "from": "backend-integration:account",
       "kind": "wikilink",
-      "to": "task:T-005"
-    },
-    {
-      "from": "backend-integration:account",
-      "kind": "wikilink",
       "to": "task:T-014"
     },
     {
@@ -28630,7 +28064,7 @@
     {
       "from": "backend-integration:rings",
       "kind": "wikilink",
-      "to": "task:T-004"
+      "to": "story:counts"
     },
     {
       "from": "backend-integration:rings",
@@ -28930,12 +28364,7 @@
     {
       "from": "feature:counts",
       "kind": "wikilink",
-      "to": "task:T-004"
-    },
-    {
-      "from": "feature:counts",
-      "kind": "wikilink",
-      "to": "task:T-005"
+      "to": "project:status-report-2026-10-15"
     },
     {
       "from": "feature:delegated-admins",
@@ -29375,12 +28804,12 @@
     {
       "from": "frontend-requirements:account",
       "kind": "wikilink",
-      "to": "story:files"
+      "to": "story:counts"
     },
     {
       "from": "frontend-requirements:account",
       "kind": "wikilink",
-      "to": "task:T-005"
+      "to": "story:files"
     },
     {
       "from": "frontend-requirements:account",
@@ -29665,12 +29094,12 @@
     {
       "from": "frontend-requirements:companies",
       "kind": "wikilink",
-      "to": "story:files"
+      "to": "story:counts"
     },
     {
       "from": "frontend-requirements:companies",
       "kind": "wikilink",
-      "to": "task:T-004"
+      "to": "story:files"
     },
     {
       "from": "frontend-requirements:companies",
@@ -29745,12 +29174,12 @@
     {
       "from": "frontend-requirements:connections",
       "kind": "wikilink",
-      "to": "story:files"
+      "to": "story:counts"
     },
     {
       "from": "frontend-requirements:connections",
       "kind": "wikilink",
-      "to": "task:T-005"
+      "to": "story:files"
     },
     {
       "from": "frontend-requirements:connections",
@@ -29796,16 +29225,6 @@
       "from": "frontend-requirements:counts",
       "kind": "wikilink",
       "to": "story:counts"
-    },
-    {
-      "from": "frontend-requirements:counts",
-      "kind": "wikilink",
-      "to": "task:T-004"
-    },
-    {
-      "from": "frontend-requirements:counts",
-      "kind": "wikilink",
-      "to": "task:T-005"
     },
     {
       "from": "frontend-requirements:delegated-admins",
@@ -30815,12 +30234,12 @@
     {
       "from": "frontend-requirements:ring-members",
       "kind": "wikilink",
-      "to": "story:ring-members"
+      "to": "story:counts"
     },
     {
       "from": "frontend-requirements:ring-members",
       "kind": "wikilink",
-      "to": "task:T-004"
+      "to": "story:ring-members"
     },
     {
       "from": "frontend-requirements:ring-members",
@@ -30895,17 +30314,17 @@
     {
       "from": "frontend-requirements:ring-projection",
       "kind": "wikilink",
+      "to": "story:counts"
+    },
+    {
+      "from": "frontend-requirements:ring-projection",
+      "kind": "wikilink",
       "to": "story:files"
     },
     {
       "from": "frontend-requirements:ring-projection",
       "kind": "wikilink",
       "to": "story:ring-projection"
-    },
-    {
-      "from": "frontend-requirements:ring-projection",
-      "kind": "wikilink",
-      "to": "task:T-004"
     },
     {
       "from": "frontend-requirements:ring-projection",
@@ -30965,12 +30384,12 @@
     {
       "from": "frontend-requirements:rings",
       "kind": "wikilink",
-      "to": "story:rings"
+      "to": "story:counts"
     },
     {
       "from": "frontend-requirements:rings",
       "kind": "wikilink",
-      "to": "task:T-004"
+      "to": "story:rings"
     },
     {
       "from": "frontend-requirements:rings",
@@ -33190,11 +32609,6 @@
     {
       "from": "project:status-report-2026-10-15",
       "kind": "wikilink",
-      "to": "feature:counts"
-    },
-    {
-      "from": "project:status-report-2026-10-15",
-      "kind": "wikilink",
       "to": "feature:delegated-admins"
     },
     {
@@ -33626,6 +33040,21 @@
       "from": "story:connections",
       "kind": "wikilink",
       "to": "task:T-051"
+    },
+    {
+      "from": "story:counts",
+      "kind": "wikilink",
+      "to": "backend-delivery:counts"
+    },
+    {
+      "from": "story:counts",
+      "kind": "wikilink",
+      "to": "decision:D-15"
+    },
+    {
+      "from": "story:counts",
+      "kind": "wikilink",
+      "to": "decision:D-17"
     },
     {
       "from": "story:delegated-admins",
@@ -34178,26 +33607,6 @@
       "to": "feature:code-delivery"
     },
     {
-      "from": "story:T-004",
-      "kind": "wikilink",
-      "to": "feature:counts"
-    },
-    {
-      "from": "story:T-005",
-      "kind": "wikilink",
-      "to": "backend-delivery:counts"
-    },
-    {
-      "from": "story:T-005",
-      "kind": "wikilink",
-      "to": "feature:counts"
-    },
-    {
-      "from": "story:T-005",
-      "kind": "wikilink",
-      "to": "task:T-021"
-    },
-    {
       "from": "story:T-006",
       "kind": "wikilink",
       "to": "feature:delegated-admins"
@@ -34365,17 +33774,12 @@
     {
       "from": "story:T-022",
       "kind": "wikilink",
+      "to": "story:counts"
+    },
+    {
+      "from": "story:T-022",
+      "kind": "wikilink",
       "to": "story:T-021"
-    },
-    {
-      "from": "story:T-022",
-      "kind": "wikilink",
-      "to": "task:T-004"
-    },
-    {
-      "from": "story:T-022",
-      "kind": "wikilink",
-      "to": "task:T-005"
     },
     {
       "from": "story:T-022",
@@ -34776,96 +34180,6 @@
       "from": "task:T-003-be",
       "kind": "wikilink",
       "to": "feature:code-delivery"
-    },
-    {
-      "from": "task:T-004",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-004",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-004",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-004-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:counts"
-    },
-    {
-      "from": "task:T-004-be",
-      "kind": "wikilink",
-      "to": "feature:counts"
-    },
-    {
-      "from": "task:T-004-fe",
-      "kind": "wikilink",
-      "to": "feature:counts"
-    },
-    {
-      "from": "task:T-004-fe",
-      "kind": "wikilink",
-      "to": "story:T-004"
-    },
-    {
-      "from": "task:T-004-fe",
-      "kind": "wikilink",
-      "to": "task:T-004-be"
-    },
-    {
-      "from": "task:T-005",
-      "kind": "wikilink",
-      "to": "decision:D-15"
-    },
-    {
-      "from": "task:T-005",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-005",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-005",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-005",
-      "kind": "wikilink",
-      "to": "task:T-021"
-    },
-    {
-      "from": "task:T-005-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:counts"
-    },
-    {
-      "from": "task:T-005-be",
-      "kind": "wikilink",
-      "to": "feature:counts"
-    },
-    {
-      "from": "task:T-005-fe",
-      "kind": "wikilink",
-      "to": "feature:counts"
-    },
-    {
-      "from": "task:T-005-fe",
-      "kind": "wikilink",
-      "to": "story:T-005"
-    },
-    {
-      "from": "task:T-005-fe",
-      "kind": "wikilink",
-      "to": "task:T-005-be"
     },
     {
       "from": "task:T-006",
@@ -35611,6 +34925,11 @@
       "from": "task:T-021",
       "kind": "wikilink",
       "to": "project:status-report-2026-10-15"
+    },
+    {
+      "from": "task:T-021",
+      "kind": "wikilink",
+      "to": "story:counts"
     },
     {
       "from": "task:T-021",
@@ -38562,38 +37881,6 @@
     },
     "social-pin/tasks/T-003 Remove devCode once delivery works/T-003-be Backend · Remove devCode once delivery works.md": {
       "name": "T-003-be Backend · Remove devCode once delivery works",
-      "type": "task"
-    },
-    "social-pin/tasks/T-004 Member count per Ring on list and detail/T-004 Member count per Ring on list and detail.md": {
-      "name": "T-004 Member count per Ring on list and detail",
-      "type": "task"
-    },
-    "social-pin/tasks/T-004 Member count per Ring on list and detail/T-004 Story.md": {
-      "name": "T-004 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-004 Member count per Ring on list and detail/T-004-be Backend · Member count per Ring on list and detail.md": {
-      "name": "T-004-be Backend · Member count per Ring on list and detail",
-      "type": "task"
-    },
-    "social-pin/tasks/T-004 Member count per Ring on list and detail/T-004-fe Frontend · Member count per Ring on list and detail.md": {
-      "name": "T-004-fe Frontend · Member count per Ring on list and detail",
-      "type": "task"
-    },
-    "social-pin/tasks/T-005 Connection count on Me and Home/T-005 Connection count on Me and Home.md": {
-      "name": "T-005 Connection count on Me and Home",
-      "type": "task"
-    },
-    "social-pin/tasks/T-005 Connection count on Me and Home/T-005 Story.md": {
-      "name": "T-005 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-005 Connection count on Me and Home/T-005-be Backend · Connection count on Me and Home.md": {
-      "name": "T-005-be Backend · Connection count on Me and Home",
-      "type": "task"
-    },
-    "social-pin/tasks/T-005 Connection count on Me and Home/T-005-fe Frontend · Connection count on Me and Home.md": {
-      "name": "T-005-fe Frontend · Connection count on Me and Home",
       "type": "task"
     },
     "social-pin/tasks/T-006 Delegated admin endpoints/T-006 Delegated admin endpoints.md": {
@@ -42380,8 +41667,8 @@
         "project:developer-setup",
         "frontend-requirements:badge-qr",
         "qa-frontend:account",
+        "story:counts",
         "frontend-requirements:ring-projection",
-        "story:T-005",
         "feature:account",
         "project:auth-model",
         "frontend-requirements:devices",
@@ -42406,7 +41693,7 @@
       ],
       "task": null,
       "title": "Account Backend Integration",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "backend-integration:audit-log": {
       "affects": [],
@@ -44131,7 +43418,7 @@
       ],
       "task": null,
       "title": "Rings Backend Integration",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "backend-integration:subscription": {
       "affects": [],
@@ -44534,7 +43821,6 @@
         "story:companies",
         "story:delegated-admins",
         "story:ring-invitations",
-        "story:T-004",
         "story:T-023"
       ],
       "release": null,
@@ -44927,7 +44213,6 @@
         "story:connections",
         "story:ring-access",
         "story:ring-members",
-        "story:T-005",
         "story:T-023"
       ],
       "release": null,
@@ -44988,7 +44273,6 @@
         "needs-decision:ND-17",
         "decision:D-13",
         "story:connections",
-        "story:T-005",
         "story:T-021",
         "story:T-022"
       ],
@@ -45253,7 +44537,6 @@
         "backend-integration:account",
         "backend-delivery:auth",
         "backend-integration:auth",
-        "story:T-005",
         "project:auth-model"
       ],
       "release": "mvp",
@@ -45954,8 +45237,7 @@
         "needs-decision:ND-14",
         "needs-decision:ND-15",
         "needs-decision:ND-17",
-        "frontend-requirements:counts",
-        "story:T-005"
+        "frontend-requirements:counts"
       ],
       "release": "mvp",
       "resolution": null,
@@ -46039,11 +45321,10 @@
       "release": "mvp",
       "resolution": null,
       "rollup": {
-        "approved": 2,
-        "blocked": 6,
+        "approved": 1,
+        "blocked": 1,
         "missing": 4,
-        "ready": 1,
-        "todo": 2
+        "ready": 1
       },
       "scope": null,
       "screens": [
@@ -48547,7 +47828,7 @@
         "frontend-requirements:account",
         "feature:profiles",
         "story:files",
-        "task:T-005",
+        "story:counts",
         "task:T-019",
         "task:T-014",
         "task:T-049",
@@ -50952,8 +50233,7 @@
     },
     "frontend-requirements:counts": {
       "affects": [
-        "task:T-004",
-        "task:T-005"
+        "story:counts"
       ],
       "blockedBy": [],
       "card": "FR-03",
@@ -50990,8 +50270,7 @@
         "feature:rings",
         "feature:connections",
         "task:T-021",
-        "task:T-063",
-        "story:T-005"
+        "task:T-063"
       ],
       "release": "mvp",
       "resolution": null,
@@ -52354,7 +51633,7 @@
       ],
       "task": null,
       "title": "Ring Members Frontend Requirements",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "frontend-requirements:ring-projection": {
       "affects": [],
@@ -52472,7 +51751,7 @@
       ],
       "task": null,
       "title": "Rings Frontend Requirements",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "frontend-requirements:subscription": {
       "affects": [],
@@ -53106,8 +52385,8 @@
       "release": null,
       "resolution": null,
       "rollup": {
-        "approved": 14,
-        "blocked": 23,
+        "approved": 13,
+        "blocked": 18,
         "current": 8,
         "decided": 7,
         "delivered": 2,
@@ -53119,7 +52398,7 @@
         "partial": 3,
         "passing": 1,
         "ready": 2,
-        "todo": 10,
+        "todo": 8,
         "verified": 7
       },
       "scope": null,
@@ -59879,8 +59158,8 @@
         }
       ],
       "rollup": {
-        "approved": 38,
-        "blocked": 152,
+        "approved": 37,
+        "blocked": 147,
         "current": 8,
         "decided": 14,
         "delivered": 2,
@@ -59893,7 +59172,7 @@
         "passing": 1,
         "ready": 2,
         "reference": 31,
-        "todo": 53,
+        "todo": 51,
         "verified": 14
       },
       "scope": null,
@@ -60055,125 +59334,6 @@
       "task": "T-003",
       "title": "T-003 Story",
       "updated": "2026-10-26"
-    },
-    "story:T-004": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-04",
-      "children": [],
-      "code": "T-004",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "approved",
-      "effort": null,
-      "feature": "counts",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-004",
-      "inherits": {
-        "priority": "task:T-004",
-        "release": "feature:counts"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "identity",
-      "parentTask": null,
-      "parents": [
-        "task:T-004"
-      ],
-      "path": "social-pin/tasks/T-004 Member count per Ring on list and detail/T-004 Story.md",
-      "pending": [],
-      "priority": "high",
-      "related": [
-        "decision:D-04"
-      ],
-      "release": "mvp",
-      "resolution": null,
-      "scope": "task",
-      "screens": [
-        "s14",
-        "s16"
-      ],
-      "status": "approved",
-      "summary": "Add memberCount (live members only) to RingEntity via a count select filtered by the same window logic, or a stats sub-endpoint. Owner-only.",
-      "tags": [
-        "story",
-        "story/approved",
-        "module/identity",
-        "layer/business"
-      ],
-      "task": "T-004",
-      "title": "T-004 Story",
-      "updated": "2026-10-26"
-    },
-    "story:T-005": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-021",
-          "title": "T-021 Connect request send, inbox, cancel",
-          "why": "T-021 Connect request send, inbox, cancel is to do"
-        }
-      ],
-      "card": "S-05",
-      "children": [],
-      "code": "T-005",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [
-        "task:T-021"
-      ],
-      "effectiveStatus": "blocked",
-      "effort": null,
-      "feature": "counts",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-005",
-      "inherits": {
-        "priority": "task:T-005",
-        "release": "feature:counts"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "identity",
-      "parentTask": null,
-      "parents": [
-        "task:T-005"
-      ],
-      "path": "social-pin/tasks/T-005 Connection count on Me and Home/T-005 Story.md",
-      "pending": [],
-      "priority": "high",
-      "related": [
-        "backend-integration:account",
-        "story:counts",
-        "frontend-requirements:counts",
-        "decision:D-15",
-        "decision:D-17",
-        "feature:connections",
-        "feature:account"
-      ],
-      "release": "mvp",
-      "resolution": null,
-      "scope": "task",
-      "screens": [
-        "s68"
-      ],
-      "status": "draft",
-      "summary": "A person who has started connecting with others wants to see, on Me, how many connections they have (\"218 connections\"), next to how many Rings they own. Connections don't exist in the backend yet…",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/identity",
-        "layer/business"
-      ],
-      "task": "T-005",
-      "title": "T-005 Story",
-      "updated": "2026-10-27"
     },
     "story:T-006": {
       "affects": [],
@@ -61130,7 +60290,7 @@
       ],
       "task": "T-022",
       "title": "T-022 Story",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "story:T-023": {
       "affects": [],
@@ -63887,10 +63047,7 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-03",
-      "children": [
-        "task:T-004",
-        "task:T-005"
-      ],
+      "children": [],
       "code": "counts",
       "created": "2026-10-18",
       "deadline": null,
@@ -63918,9 +63075,10 @@
       "pending": [],
       "priority": "high",
       "related": [
+        "backend-integration:account",
+        "frontend-delivery:account",
         "decision:D-04",
-        "decision:D-14",
-        "story:T-005"
+        "decision:D-14"
       ],
       "release": "mvp",
       "resolution": null,
@@ -66205,387 +65363,6 @@
       ],
       "task": null,
       "title": "T-003-be Backend · Remove devCode once delivery works",
-      "updated": "2026-10-26"
-    },
-    "task:T-004": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-004",
-      "children": [
-        "story:T-004",
-        "task:T-004-be",
-        "task:T-004-fe"
-      ],
-      "code": "T-004",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": "social-pin/tasks/T-004 Member count per Ring on list and detail",
-      "effectiveStatus": "todo",
-      "effort": "S",
-      "feature": "counts",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-004",
-      "inherits": {
-        "release": "feature:counts"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "identity",
-      "parentTask": null,
-      "parents": [
-        "story:counts"
-      ],
-      "path": "social-pin/tasks/T-004 Member count per Ring on list and detail/T-004 Member count per Ring on list and detail.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {
-        "approved": 1,
-        "blocked": 1,
-        "todo": 1
-      },
-      "scope": null,
-      "screens": [
-        "s14",
-        "s16"
-      ],
-      "status": "todo",
-      "summary": "Add memberCount (live members only) to RingEntity via a count select filtered by the same window logic, or a stats sub-endpoint. Owner-only.",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/identity",
-        "priority/high"
-      ],
-      "task": null,
-      "title": "T-004 Member count per Ring on list and detail",
-      "updated": "2026-10-26"
-    },
-    "task:T-004-be": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-004-be",
-      "children": [],
-      "code": "T-004-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": null,
-      "effectiveStatus": "todo",
-      "effort": "S",
-      "feature": "counts",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-004-be",
-      "inherits": {
-        "release": "feature:counts"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "identity",
-      "parentTask": "T-004",
-      "parents": [
-        "task:T-004"
-      ],
-      "path": "social-pin/tasks/T-004 Member count per Ring on list and detail/T-004-be Backend · Member count per Ring on list and detail.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s14",
-        "s16"
-      ],
-      "status": "todo",
-      "summary": "The API side of T-004 Member count per Ring on list and detail: the endpoints, data and rules its What describes. Record what shipped in T-004-be Backend Delivery and how to call it in T-004-be…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/identity",
-        "priority/high",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-004-be Backend · Member count per Ring on list and detail",
-      "updated": "2026-10-26"
-    },
-    "task:T-004-fe": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-004-be",
-          "title": "T-004-be Backend · Member count per Ring on list and detail",
-          "why": "T-004-be Backend · Member count per Ring on list and detail is to do"
-        }
-      ],
-      "card": "T-004-fe",
-      "children": [],
-      "code": "T-004-fe",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-004-be"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "S",
-      "feature": "counts",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-004-fe",
-      "inherits": {
-        "release": "feature:counts"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "frontend"
-      ],
-      "layer": "business",
-      "module": "identity",
-      "parentTask": "T-004",
-      "parents": [
-        "task:T-004"
-      ],
-      "path": "social-pin/tasks/T-004 Member count per Ring on list and detail/T-004-fe Frontend · Member count per Ring on list and detail.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s14",
-        "s16"
-      ],
-      "status": "todo",
-      "summary": "The client side of T-004 Member count per Ring on list and detail: the screens below show what its What describes, built against Counts Backend Integration once the backend half (T-004-be Backend…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/identity",
-        "priority/high",
-        "frontend"
-      ],
-      "task": null,
-      "title": "T-004-fe Frontend · Member count per Ring on list and detail",
-      "updated": "2026-10-26"
-    },
-    "task:T-005": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-021",
-          "title": "T-021 Connect request send, inbox, cancel",
-          "why": "T-021 Connect request send, inbox, cancel is to do"
-        }
-      ],
-      "card": "T-005",
-      "children": [
-        "story:T-005",
-        "task:T-005-be",
-        "task:T-005-fe"
-      ],
-      "code": "T-005",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-021"
-      ],
-      "dir": "social-pin/tasks/T-005 Connection count on Me and Home",
-      "effectiveStatus": "blocked",
-      "effort": "S",
-      "feature": "counts",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-005",
-      "inherits": {
-        "release": "feature:counts"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "identity",
-      "parentTask": null,
-      "parents": [
-        "story:counts"
-      ],
-      "path": "social-pin/tasks/T-005 Connection count on Me and Home/T-005 Connection count on Me and Home.md",
-      "pending": [],
-      "priority": "high",
-      "related": [
-        "frontend-delivery:account"
-      ],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {
-        "blocked": 3
-      },
-      "scope": null,
-      "screens": [
-        "s68"
-      ],
-      "status": "todo",
-      "summary": "Show on Me how many connections the person has (\"2 Rings · 218 connections\"): the number of people with an accepted connection, once each however many Rings they are in (D-15 Several Rings per…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/identity",
-        "priority/high"
-      ],
-      "task": null,
-      "title": "T-005 Connection count on Me and Home",
-      "updated": "2026-10-27"
-    },
-    "task:T-005-be": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-021",
-          "title": "T-021 Connect request send, inbox, cancel",
-          "why": "T-021 Connect request send, inbox, cancel is to do"
-        }
-      ],
-      "card": "T-005-be",
-      "children": [],
-      "code": "T-005-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-021"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "S",
-      "feature": "counts",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-005-be",
-      "inherits": {
-        "release": "feature:counts"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "identity",
-      "parentTask": "T-005",
-      "parents": [
-        "task:T-005"
-      ],
-      "path": "social-pin/tasks/T-005 Connection count on Me and Home/T-005-be Backend · Connection count on Me and Home.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s68"
-      ],
-      "status": "todo",
-      "summary": "The API side of T-005 Connection count on Me and Home: the endpoints, data and rules its What describes. Record what shipped in T-005-be Backend Delivery and how to call it in T-005-be Backend…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/identity",
-        "priority/high",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-005-be Backend · Connection count on Me and Home",
-      "updated": "2026-10-26"
-    },
-    "task:T-005-fe": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-021",
-          "title": "T-021 Connect request send, inbox, cancel",
-          "why": "T-021 Connect request send, inbox, cancel is to do"
-        },
-        {
-          "id": "task:T-005-be",
-          "title": "T-005-be Backend · Connection count on Me and Home",
-          "why": "T-005-be Backend · Connection count on Me and Home is blocked"
-        }
-      ],
-      "card": "T-005-fe",
-      "children": [],
-      "code": "T-005-fe",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-021",
-        "task:T-005-be"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "S",
-      "feature": "counts",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-005-fe",
-      "inherits": {
-        "release": "feature:counts"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "frontend"
-      ],
-      "layer": "business",
-      "module": "identity",
-      "parentTask": "T-005",
-      "parents": [
-        "task:T-005"
-      ],
-      "path": "social-pin/tasks/T-005 Connection count on Me and Home/T-005-fe Frontend · Connection count on Me and Home.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s68"
-      ],
-      "status": "todo",
-      "summary": "The client side of T-005 Connection count on Me and Home: the screens below show what its What describes, built against Counts Backend Integration once the backend half (T-005-be Backend ·…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/identity",
-        "priority/high",
-        "frontend"
-      ],
-      "task": null,
-      "title": "T-005-fe Frontend · Connection count on Me and Home",
       "updated": "2026-10-26"
     },
     "task:T-006": {
@@ -69670,7 +68447,7 @@
       ],
       "task": null,
       "title": "T-021 Connect request send, inbox, cancel",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "task:T-021-be": {
       "affects": [],

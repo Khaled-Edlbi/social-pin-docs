@@ -9,7 +9,7 @@ module: connections
 screens: [s44, s45]
 depends: []
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-27
 owner: "omar"
 related: ["D-13 The requester sees a declined request", "D-17 Requests expire after 30 days, optional note, ask again at once"]
 tags: [task, task/todo, module/connections, priority/critical]
@@ -32,7 +32,7 @@ tags: [task, task/todo, module/connections, priority/critical]
 
 ## Dependencies
 
-- Unblocks [[T-005 Connection count on Me and Home]]
+- Unblocks [[Counts Story|Counts · S11]]
 - Unblocks [[T-022 Accept into a Ring (sets grantedRingId)]]
 
 ## Definition of done

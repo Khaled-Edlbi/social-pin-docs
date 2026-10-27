@@ -7,7 +7,7 @@ module: identity
 status: draft
 screens: [s15, s47]
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [frontend-requirements, frontend-requirements/draft, module/identity, layer/frontend]
 ---
 
@@ -52,7 +52,7 @@ What the client needs from the backend to build the owner's roster and the per-p
 | Window | `startsAt`, `expiresAt` | `null` = open-ended |
 | Lapsed | `expiresAt < now` on an `ACTIVE` row | `EXPIRED` is never set server-side |
 | Added | `createdAt`, `addedById` | relative time |
-| Count | `meta.total` of the `ACTIVE` list | roster header; not the design's live member count ([[T-004 Member count per Ring on list and detail]]) |
+| Count | `meta.total` of the `ACTIVE` list | roster header; not the design's live member count ([[Counts Story|Counts · S6–S10]]) |
 
 ## Endpoints required
 

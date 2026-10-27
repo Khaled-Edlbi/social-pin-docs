@@ -14,7 +14,7 @@ approvedBy: "khaled"
 approvedAt: 2026-10-25
 owner: "omar"
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [story, story/approved, module/connections, layer/business]
 task: T-022
 ---
@@ -71,8 +71,8 @@ Acceptance criteria:
 **As a** receiver **I want** the new person to appear where I'd look **so that** I can find them again.
 
 Acceptance criteria:
-- [ ] They're on the Ring's People tab ([[Screen Index#s15|s15]]) and in the Ring's `memberCount` ([[T-004 Member count per Ring on list and detail]]) on the next fetch.
-- [ ] My connection count ([[T-005 Connection count on Me and Home]]) goes up by one.
+- [ ] They're on the Ring's People tab ([[Screen Index#s15|s15]]) and in the Ring's `memberCount` ([[Counts Story|Counts · S6–S10]]) on the next fetch.
+- [ ] My connection count ([[Counts Story|Counts · S11]]) goes up by one.
 - [ ] Accepting someone already in that Ring is treated as done (`E_RING_MEMBER_01`), not as an error.
 
 ### S6 · When adding them isn't allowed ([[Screen Index#s46|s46]])

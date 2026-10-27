@@ -80,7 +80,7 @@ What the client needs from the backend to build the "what this Ring shows" edito
 | One field library switched on / off per Ring | — | ❌ | [[ND-03 Field library vs per-Ring copies]] |
 | Inherit from the Pin / copy another Ring's bio | — | ❌ | [[ND-05 Copy or inherit]], [[ND-02 Base profile work fields]] |
 | Widgets add / edit / remove | — | ❌ | [[T-017 Extend WIDGET_TYPE to the design's list]], [[T-018 Widget CRUD on the projection]] |
-| Member count on s14 | — | ❌ | [[T-004 Member count per Ring on list and detail]] |
+| Member count on s14 | — | ❌ | [[Counts Story|Counts · S6–S10]] |
 
 ## Behaviour expectations
 

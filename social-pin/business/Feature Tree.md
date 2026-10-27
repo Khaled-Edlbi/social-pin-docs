@@ -39,8 +39,6 @@ Social Pin backend
 │   ├── ✅ Files Upload  [High]
 │   ├── ✅ Ring Access Engine  [Critical]
 │   ├── 🟡 Counts  [High]
-│   │   ├── ⬜ T-004 Member count per Ring on list and detail
-│   │   └── ⛔ T-005 Connection count on Me and Home
 │   ├── 🟡 Photo Library  [High]
 │   │   ├── ⬜ T-012 List my files (photo library)
 │   │   └── ⬜ T-013 Usage count per file across Rings
@@ -150,7 +148,7 @@ Account, profile, Rings, what each Ring shows, and the access engine. The part o
 | [[View As & Pin Views]] | ✅ Done | Critical | s10, s31, s44 | 0 |
 | [[Files Upload]] | ✅ Done | High | s14, s20, s36 | 0 |
 | [[Ring Access Engine]] | ✅ Done | Critical | — | 0 |
-| [[Counts]] | 🟡 Partial (needs more) | High | s11, s12, s14, s16, s17, s68 | 2 |
+| [[Counts]] | 🟡 Partial (needs more) | High | s11, s12, s14, s16, s17, s68 | 0 |
 | [[Photo Library]] | 🟡 Partial (needs more) | High | s29, s30 | 2 |
 | [[Widgets]] | 🟡 Partial (needs more) | High | s36, s37 | 2 |
 | [[Onboarding Imports]] | ❌ TODO | High | s03, s03a, s03b, s04, s05 | 2 |

@@ -79,12 +79,6 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[B-01 An unverified changed email still signs in]] `bug` | [[Account]] | Identity Core | 🟡 Partial (2 notes) · By design | S | — | — |
 | [[T-003 Remove devCode once delivery works]] | [[Code Delivery]] | Platform & Cross-cutting | ⛔ Blocked | S | — | [[T-001 Wire an email provider for one-time codes|T-001]], [[T-002 Wire an SMS provider for one-time codes|T-002]] |
 | [[T-003-be Backend · Remove devCode once delivery works]] `backend` | [[Code Delivery]] | Platform & Cross-cutting | ⛔ Blocked | S | — | [[T-001 Wire an email provider for one-time codes|T-001]], [[T-002 Wire an SMS provider for one-time codes|T-002]] |
-| [[T-004 Member count per Ring on list and detail]] | [[Counts]] | Identity Core | ⬜ To do | S | — | — |
-| [[T-004-be Backend · Member count per Ring on list and detail]] `backend` | [[Counts]] | Identity Core | ⬜ To do | S | — | — |
-| [[T-004-fe Frontend · Member count per Ring on list and detail]] `frontend` | [[Counts]] | Identity Core | ⛔ Blocked | S | — | [[T-004-be Backend · Member count per Ring on list and detail|T-004-be]] |
-| [[T-005 Connection count on Me and Home]] | [[Counts]] | Identity Core | ⛔ Blocked | S | — | [[T-021 Connect request send, inbox, cancel|T-021]] |
-| [[T-005-be Backend · Connection count on Me and Home]] `backend` | [[Counts]] | Identity Core | ⛔ Blocked | S | — | [[T-021 Connect request send, inbox, cancel|T-021]] |
-| [[T-005-fe Frontend · Connection count on Me and Home]] `frontend` | [[Counts]] | Identity Core | ⛔ Blocked | S | — | [[T-021 Connect request send, inbox, cancel|T-021]], [[T-005-be Backend · Connection count on Me and Home|T-005-be]] |
 | [[T-006 Delegated admin endpoints]] | [[Delegated Admins]] | Shared Rings & Companies | ⬜ To do | M | — | — |
 | [[T-006-be Backend · Delegated admin endpoints]] `backend` | [[Delegated Admins]] | Shared Rings & Companies | ⬜ To do | M | — | — |
 | [[T-006-fe Frontend · Delegated admin endpoints]] `frontend` | [[Delegated Admins]] | Shared Rings & Companies | ⛔ Blocked | M | — | [[T-006-be Backend · Delegated admin endpoints|T-006-be]] |

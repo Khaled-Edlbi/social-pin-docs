@@ -48,7 +48,7 @@ What the client needs from the backend to build the account section of Me, and w
 | Phone + chip | `GET /users/me` → `phone`, `phoneVerifiedAt` | E.164 on the wire |
 | Free / Pro | `GET /users/me` → `accountType` | `FREE` / `PRO` |
 | Last signed in | `GET /users/me` → `lastLoginAt` | relative time |
-| Connections | — | [[T-005 Connection count on Me and Home]] |
+| Connections | — | [[Counts Story|Counts · S11]] |
 
 ## Endpoints required
 
@@ -60,7 +60,7 @@ What the client needs from the backend to build the account section of Me, and w
 | Full name and Pin name for the header | `GET /profiles` | ✅ | — (listed under [[Profiles & Pin Name]]) |
 | Default Ring and its photo id | `GET /rings`, `GET /rings/:ringId/projection` | ✅ | — (listed under [[Rings]] and [[Ring Projection]]) |
 | Photo bytes for the header | — | ❌ | [[Files Upload Story|Files Upload · showing files]] |
-| Connection count ("218 connections") | — | ❌ | [[T-005 Connection count on Me and Home]] |
+| Connection count ("218 connections") | — | ❌ | [[Counts Story|Counts · S11]] |
 | Linked accounts (LinkedIn) | — | ❌ | [[T-019 LinkedIn OAuth link, unlink, login]] |
 | Devices list | — | ❌ | [[T-014 Register devices on login; list and remove]] |
 | NFC card | — | ❌ | [[T-015 Pair and revoke an NFC card]] |
