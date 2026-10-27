@@ -7,7 +7,7 @@ module: events
 status: draft
 screens: [s63, s64, s65]
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [frontend-requirements, frontend-requirements/draft, module/events, layer/frontend]
 ---
 
@@ -73,7 +73,7 @@ What the client needs for business setup, incoming meetings and booth analytics,
 ## Blocked by
 
 - No decision note. Upstream tasks:
-- [[T-048 Business account setup → business Ring]] — waits on [[T-029 My companies and company detail]]; s63 entirely.
+- [[T-048 Business account setup → business Ring]] — waits on [[Companies Story|Companies · S6]]; s63 entirely.
 - [[T-042 Meeting request, accept with slots, decline with reason]] and [[T-041 Availability slots CRUD]] — s64.
 - [[T-048b Booth analytics and leads CSV export]] — waits on [[T-009 Scan counter and share link]] and [[T-036 Event mode exhibitors list and detail]]; s65.
 - Organizer touchpoints (invitation, requested files, booth and payment status) — no task yet.

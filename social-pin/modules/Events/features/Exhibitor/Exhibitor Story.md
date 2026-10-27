@@ -10,7 +10,7 @@ approvedBy: "khaled"
 approvedAt: 2026-10-25
 owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [story, story/approved, module/events, layer/business]
 ---
 
@@ -97,6 +97,6 @@ Acceptance criteria:
 ## Open questions
 
 - No decision note exists. Open points:
-- [[T-048 Business account setup → business Ring]] — waits on [[T-029 My companies and company detail]]; whether a business is a `Company` or its own aggregate changes S1's target.
+- [[T-048 Business account setup → business Ring]] — waits on [[Companies Story|Companies · S6]]; whether a business is a `Company` or its own aggregate changes S1's target.
 - [[T-048b Booth analytics and leads CSV export]] — which analytics identify the viewer (connections only?) is a privacy choice S4 depends on.
 - The organizer's invitation and file-request flows have no task yet; S5 is design-only.

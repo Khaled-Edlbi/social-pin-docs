@@ -10,7 +10,7 @@ approvedBy: "khaled"
 approvedAt: 2026-10-25
 owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [story, story/approved, module/discovery, layer/business]
 ---
 
@@ -91,4 +91,4 @@ Acceptance criteria:
 - [[T-030 Discover search by !pinname and recent searches]] — whether recent searches are server-side (synced) or device-only; S3 assumes server-side and private.
 - [[T-031 Import contacts]] — the matching rule and what a match returns; S5 is disabled until the privacy review.
 - [[T-051 Gemma assistant sheet and suggestions]] — the assistant sheet behind S4.
-- [[T-029 My companies and company detail]] — whether a business has a Pin name that resolves on this field (the `!vertexlabs` path to s55).
+- [[Companies Story|Companies · S6]] — whether a business has a Pin name that resolves on this field (the `!vertexlabs` path to s55).

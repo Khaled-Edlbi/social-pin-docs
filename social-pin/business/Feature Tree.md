@@ -58,7 +58,6 @@ Social Pin backend
 │   │   ├── ⛔ T-027 Join a Ring with a code or verified work email
 │   │   └── ❓ T-028 "What you contribute" to a shared Ring
 │   └── ❌ Companies  [High]
-│       └── ⬜ T-029 My companies and company detail
 ├── Discovery  (🟡1 ❌2)
 │   ├── 🟡 Badge & QR  [Critical]
 │   │   ├── ⬜ T-007 Issue and rotate the QR token for a Ring
@@ -159,7 +158,7 @@ Rings owned by someone else that you belong to: invitations, joining by code or 
 |---|---|---|---|---|
 | [[Delegated Admins]] | 🟡 Partial (needs more) | High | s26, s27 | 1 |
 | [[Ring Invitations & Join]] | ❌ TODO | High | s17, s74 | 3 |
-| [[Companies]] | ❌ TODO | High | s72, s73 | 1 |
+| [[Companies]] | ❌ TODO | High | s72, s73 | 0 |
 
 ## Discovery
 

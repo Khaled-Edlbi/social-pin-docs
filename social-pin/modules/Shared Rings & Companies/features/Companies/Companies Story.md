@@ -7,7 +7,7 @@ module: shared-rings
 status: draft
 screens: [s72, s73]
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 owner: "omar"
 related: ["D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "D-18 Ring names shown when joined knowingly"]
 tags: [story, story/draft, module/shared-rings, layer/business]
@@ -72,6 +72,14 @@ Acceptance criteria:
 - [ ] After the setup flow of [[Exhibitor]] completes, s72 lists the company with my role as owner and s16 shows the `CORPORATE` Ring.
 - [ ] The ring-forming motion from Ring creation plays once for the new business Ring.
 
+### S6 · My companies and company detail
+
+*From T-029 (status then: To do), merged 2026-10-27.*
+
+`GET /businesses/mine`, `GET /businesses/:id`, leave. Company Rings as `CORPORATE` with `parentRingId`.
+
+Screens: [[Screen Index#s72|s72]] My companies · [[Screen Index#s73|s73]] Company detail
+
 ## States and motion the design asks for
 
 - State: list with companies, list with pending invitations, empty; detail loaded, leaving (progress), left.
@@ -91,5 +99,5 @@ Acceptance criteria:
 - Decided: [[D-04 Ring settings at launch and their defaults]]: a plain member sees colleagues only where the Ring's "members can see each other" is on (S2). The **required work email domain** setting comes with this feature, not at launch.
 - Decided: [[D-18 Ring names shown when joined knowingly]] (S2: company Rings joined knowingly are named; S4: the hierarchy is never shown). Building how a membership records its origin is not ticketed yet.
 - Someone the owner reassigns from a Ring they joined knowingly into another company Ring: D-18 reads it as placed, so the new Ring stays unnamed (D-18, *Still open*).
-- [[T-029 My companies and company detail]] — how a business and its Rings are linked for the member's list (the `Business` tables have no Ring reference in the feature note); the list needs that link to show "which of its Rings I am in".
+- [[Companies Story|Companies · S6]] — how a business and its Rings are linked for the member's list (the `Business` tables have no Ring reference in the feature note); the list needs that link to show "which of its Rings I am in".
 - [[T-048 Business account setup → business Ring]] — whether team members on the stand become members of the employees Ring automatically, which is what makes S1 populate for an employee.

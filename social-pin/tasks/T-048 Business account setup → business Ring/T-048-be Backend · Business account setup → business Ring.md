@@ -9,12 +9,12 @@ module: events
 parent: T-048
 labels: [backend]
 screens: [s63]
-depends: [T-029]
+depends: []
 affects: []
-related: []
+related: ["Companies Story"]
 pending: []
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [task, task/todo, module/events, priority/high, backend]
 ---
 

@@ -109,9 +109,6 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-027 Join a Ring with a code or verified work email]] | [[Ring Invitations & Join]] | Shared Rings & Companies | ⛔ Blocked | M | — | [[T-026 Ring invitations invite, review, decline|T-026]] |
 | [[T-027-be Backend · Join a Ring with a code or verified work email]] `backend` | [[Ring Invitations & Join]] | Shared Rings & Companies | ⛔ Blocked | M | — | [[T-026 Ring invitations invite, review, decline|T-026]] |
 | [[T-027-fe Frontend · Join a Ring with a code or verified work email]] `frontend` | [[Ring Invitations & Join]] | Shared Rings & Companies | ⛔ Blocked | M | — | [[T-026 Ring invitations invite, review, decline|T-026]], [[T-027-be Backend · Join a Ring with a code or verified work email|T-027-be]] |
-| [[T-029 My companies and company detail]] | [[Companies]] | Shared Rings & Companies | ⬜ To do | M | — | — |
-| [[T-029-be Backend · My companies and company detail]] `backend` | [[Companies]] | Shared Rings & Companies | ⬜ To do | M | — | — |
-| [[T-029-fe Frontend · My companies and company detail]] `frontend` | [[Companies]] | Shared Rings & Companies | ⛔ Blocked | M | — | [[T-029-be Backend · My companies and company detail|T-029-be]] |
 | [[T-030 Discover search by !pinname and recent searches]] | [[Discover Hub & Search]] | Discovery | ⬜ To do | S | — | — |
 | [[T-030-be Backend · Discover search by !pinname and recent searches]] `backend` | [[Discover Hub & Search]] | Discovery | ⬜ To do | S | — | — |
 | [[T-030-fe Frontend · Discover search by !pinname and recent searches]] `frontend` | [[Discover Hub & Search]] | Discovery | ⛔ Blocked | S | — | [[T-030-be Backend · Discover search by !pinname and recent searches|T-030-be]] |
@@ -136,9 +133,9 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-046 Push delivery and preferences]] | [[Notifications]] | Platform & Cross-cutting | ⛔ Blocked | M | — | [[T-045 NotificationService.emit and the inbox|T-045]], [[T-014 Register devices on login; list and remove|T-014]] |
 | [[T-046-be Backend · Push delivery and preferences]] `backend` | [[Notifications]] | Platform & Cross-cutting | ⛔ Blocked | M | — | [[T-045 NotificationService.emit and the inbox|T-045]], [[T-014 Register devices on login; list and remove|T-014]] |
 | [[T-046-fe Frontend · Push delivery and preferences]] `frontend` | [[Notifications]] | Platform & Cross-cutting | ⛔ Blocked | M | — | [[T-045 NotificationService.emit and the inbox|T-045]], [[T-014 Register devices on login; list and remove|T-014]], [[T-046-be Backend · Push delivery and preferences|T-046-be]] |
-| [[T-048 Business account setup → business Ring]] | [[Exhibitor]] | Events | ⛔ Blocked | L | — | [[T-029 My companies and company detail|T-029]] |
-| [[T-048-be Backend · Business account setup → business Ring]] `backend` | [[Exhibitor]] | Events | ⛔ Blocked | L | — | [[T-029 My companies and company detail|T-029]] |
-| [[T-048-fe Frontend · Business account setup → business Ring]] `frontend` | [[Exhibitor]] | Events | ⛔ Blocked | L | — | [[T-029 My companies and company detail|T-029]], [[T-048-be Backend · Business account setup → business Ring|T-048-be]] |
+| [[T-048 Business account setup → business Ring]] | [[Exhibitor]] | Events | ⬜ To do | L | — | — |
+| [[T-048-be Backend · Business account setup → business Ring]] `backend` | [[Exhibitor]] | Events | ⬜ To do | L | — | — |
+| [[T-048-fe Frontend · Business account setup → business Ring]] `frontend` | [[Exhibitor]] | Events | ⛔ Blocked | L | — | [[T-048-be Backend · Business account setup → business Ring|T-048-be]] |
 | [[T-048b Booth analytics and leads CSV export]] | [[Exhibitor]] | Events | ⛔ Blocked | M | — | [[T-009 Scan counter and share link|T-009]], [[T-036 Event mode exhibitors list and detail|T-036]] |
 | [[T-048b-be Backend · Booth analytics and leads CSV export]] `backend` | [[Exhibitor]] | Events | ⛔ Blocked | M | — | [[T-009 Scan counter and share link|T-009]], [[T-036 Event mode exhibitors list and detail|T-036]] |
 | [[T-048b-fe Frontend · Booth analytics and leads CSV export]] `frontend` | [[Exhibitor]] | Events | ⛔ Blocked | M | — | [[T-009 Scan counter and share link|T-009]], [[T-036 Event mode exhibitors list and detail|T-036]], [[T-048b-be Backend · Booth analytics and leads CSV export|T-048b-be]] |

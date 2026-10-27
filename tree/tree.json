@@ -370,10 +370,6 @@
     "T-028 What you contribute to a shared Ring": "task:T-028",
     "T-028-be Backend · What you contribute to a shared Ring": "task:T-028-be",
     "T-028-fe Frontend · What you contribute to a shared Ring": "task:T-028-fe",
-    "T-029 My companies and company detail": "task:T-029",
-    "T-029 Story": "story:T-029",
-    "T-029-be Backend · My companies and company detail": "task:T-029-be",
-    "T-029-fe Frontend · My companies and company detail": "task:T-029-fe",
     "T-030 Discover search by !pinname and recent searches": "task:T-030",
     "T-030 Story": "story:T-030",
     "T-030-be Backend · Discover search by !pinname and recent searches": "task:T-030-be",
@@ -750,7 +746,6 @@
     "S-27": "story:T-024",
     "S-28": "story:T-025",
     "S-29": "story:companies",
-    "S-30": "story:T-029",
     "S-31": "story:delegated-admins",
     "S-32": "story:T-006",
     "S-33": "story:ring-invitations",
@@ -889,9 +884,6 @@
     "T-028": "task:T-028",
     "T-028-be": "task:T-028-be",
     "T-028-fe": "task:T-028-fe",
-    "T-029": "task:T-029",
-    "T-029-be": "task:T-029-be",
-    "T-029-fe": "task:T-029-fe",
     "T-030": "task:T-030",
     "T-030-be": "task:T-030-be",
     "T-030-fe": "task:T-030-fe",
@@ -1860,23 +1852,21 @@
     },
     "GET /businesses/:id": {
       "containers": [
-        "task:T-029"
+        "feature:companies"
       ],
       "kind": "endpoint",
       "notes": [
-        "story:T-029",
-        "task:T-029"
+        "story:companies"
       ],
       "owner": null
     },
     "GET /businesses/mine": {
       "containers": [
-        "task:T-029"
+        "feature:companies"
       ],
       "kind": "endpoint",
       "notes": [
-        "story:T-029",
-        "task:T-029"
+        "story:companies"
       ],
       "owner": null
     },
@@ -4952,10 +4942,7 @@
     "s72": {
       "containers": [
         "feature:companies",
-        "needs-decision:ND-18",
-        "task:T-029",
-        "task:T-029-be",
-        "task:T-029-fe"
+        "needs-decision:ND-18"
       ],
       "kind": "screen",
       "notes": [
@@ -4963,21 +4950,14 @@
         "feature:companies",
         "frontend-requirements:companies",
         "needs-decision:ND-18",
-        "story:T-029",
-        "story:companies",
-        "task:T-029",
-        "task:T-029-be",
-        "task:T-029-fe"
+        "story:companies"
       ],
       "owner": null
     },
     "s73": {
       "containers": [
         "feature:companies",
-        "needs-decision:ND-18",
-        "task:T-029",
-        "task:T-029-be",
-        "task:T-029-fe"
+        "needs-decision:ND-18"
       ],
       "kind": "screen",
       "notes": [
@@ -4985,11 +4965,7 @@
         "feature:companies",
         "frontend-requirements:companies",
         "needs-decision:ND-18",
-        "story:T-029",
-        "story:companies",
-        "task:T-029",
-        "task:T-029-be",
-        "task:T-029-fe"
+        "story:companies"
       ],
       "owner": null
     },
@@ -5054,7 +5030,7 @@
     }
   },
   "counts": {
-    "blocked": 144,
+    "blocked": 141,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -5067,28 +5043,28 @@
       "project": 27,
       "qa-backend": 1,
       "qa-frontend": 1,
-      "story": 97,
-      "task": 164
+      "story": 96,
+      "task": 161
     },
     "byLayer": {
       "backend": 56,
-      "business": 340,
+      "business": 336,
       "frontend": 44,
       "qa": 2,
       "shared": 10
     },
     "concepts": 199,
     "decisions": 19,
-    "edges": 5131,
+    "edges": 5108,
     "features": 41,
-    "layerNotes": 187,
+    "layerNotes": 186,
     "modules": 8,
-    "notes": 488,
+    "notes": 484,
     "partial": 4,
     "placeholders": 161,
     "records": 14,
-    "taskLayerNotes": 57,
-    "tasks": 164
+    "taskLayerNotes": 56,
+    "tasks": 161
   },
   "deadlines": {
     "missed": {
@@ -7208,26 +7184,6 @@
       "to": "task:T-028-fe"
     },
     {
-      "from": "task:T-029",
-      "kind": "blocks",
-      "to": "task:T-048"
-    },
-    {
-      "from": "task:T-029",
-      "kind": "blocks",
-      "to": "task:T-048-be"
-    },
-    {
-      "from": "task:T-029",
-      "kind": "blocks",
-      "to": "task:T-048-fe"
-    },
-    {
-      "from": "task:T-029-be",
-      "kind": "blocks",
-      "to": "task:T-029-fe"
-    },
-    {
       "from": "task:T-030-be",
       "kind": "blocks",
       "to": "task:T-030-fe"
@@ -8358,11 +8314,6 @@
       "to": "task:T-028-be"
     },
     {
-      "from": "task:T-029-fe",
-      "kind": "depends",
-      "to": "task:T-029-be"
-    },
-    {
       "from": "task:T-030-fe",
       "kind": "depends",
       "to": "task:T-030-be"
@@ -8631,21 +8582,6 @@
       "from": "task:T-046-fe",
       "kind": "depends",
       "to": "task:T-046-be"
-    },
-    {
-      "from": "task:T-048",
-      "kind": "depends",
-      "to": "task:T-029"
-    },
-    {
-      "from": "task:T-048-be",
-      "kind": "depends",
-      "to": "task:T-029"
-    },
-    {
-      "from": "task:T-048-fe",
-      "kind": "depends",
-      "to": "task:T-029"
     },
     {
       "from": "task:T-048-fe",
@@ -12530,14 +12466,6 @@
       "to": "decision:D-18"
     },
     {
-      "from": "story:companies",
-      "kind": "related",
-      "to": "story:T-029",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
       "from": "story:connections",
       "kind": "related",
       "to": "decision:D-04"
@@ -13388,6 +13316,21 @@
       "from": "task:T-037-fe",
       "kind": "related",
       "to": "story:event-ring-auto"
+    },
+    {
+      "from": "task:T-048",
+      "kind": "related",
+      "to": "story:companies"
+    },
+    {
+      "from": "task:T-048-be",
+      "kind": "related",
+      "to": "story:companies"
+    },
+    {
+      "from": "task:T-048-fe",
+      "kind": "related",
+      "to": "story:companies"
     },
     {
       "from": "task:T-063",
@@ -25095,11 +25038,6 @@
       "to": "needs-decision:ND-18"
     },
     {
-      "from": "story:companies",
-      "kind": "tree",
-      "to": "task:T-029"
-    },
-    {
       "from": "story:connections",
       "kind": "tree",
       "to": "task:T-021"
@@ -25793,21 +25731,6 @@
       "from": "task:T-028",
       "kind": "tree",
       "to": "task:T-028-fe"
-    },
-    {
-      "from": "task:T-029",
-      "kind": "tree",
-      "to": "story:T-029"
-    },
-    {
-      "from": "task:T-029",
-      "kind": "tree",
-      "to": "task:T-029-be"
-    },
-    {
-      "from": "task:T-029",
-      "kind": "tree",
-      "to": "task:T-029-fe"
     },
     {
       "from": "task:T-030",
@@ -27407,7 +27330,7 @@
     {
       "from": "feature:companies",
       "kind": "wikilink",
-      "to": "task:T-029"
+      "to": "project:status-report-2026-10-15"
     },
     {
       "from": "feature:connections",
@@ -28192,11 +28115,6 @@
     {
       "from": "frontend-requirements:companies",
       "kind": "wikilink",
-      "to": "task:T-029"
-    },
-    {
-      "from": "frontend-requirements:companies",
-      "kind": "wikilink",
       "to": "task:T-048"
     },
     {
@@ -28377,6 +28295,11 @@
     {
       "from": "frontend-requirements:discover-hub",
       "kind": "wikilink",
+      "to": "story:companies"
+    },
+    {
+      "from": "frontend-requirements:discover-hub",
+      "kind": "wikilink",
       "to": "story:discover-hub"
     },
     {
@@ -28388,11 +28311,6 @@
       "from": "frontend-requirements:discover-hub",
       "kind": "wikilink",
       "to": "task:T-021"
-    },
-    {
-      "from": "frontend-requirements:discover-hub",
-      "kind": "wikilink",
-      "to": "task:T-029"
     },
     {
       "from": "frontend-requirements:discover-hub",
@@ -28632,17 +28550,17 @@
     {
       "from": "frontend-requirements:exhibitor",
       "kind": "wikilink",
+      "to": "story:companies"
+    },
+    {
+      "from": "frontend-requirements:exhibitor",
+      "kind": "wikilink",
       "to": "story:exhibitor"
     },
     {
       "from": "frontend-requirements:exhibitor",
       "kind": "wikilink",
       "to": "task:T-009"
-    },
-    {
-      "from": "frontend-requirements:exhibitor",
-      "kind": "wikilink",
-      "to": "task:T-029"
     },
     {
       "from": "frontend-requirements:exhibitor",
@@ -31662,11 +31580,6 @@
     {
       "from": "project:status-report-2026-10-15",
       "kind": "wikilink",
-      "to": "feature:companies"
-    },
-    {
-      "from": "project:status-report-2026-10-15",
-      "kind": "wikilink",
       "to": "feature:connections"
     },
     {
@@ -32045,11 +31958,6 @@
       "to": "feature:ring-invitations"
     },
     {
-      "from": "story:companies",
-      "kind": "wikilink",
-      "to": "task:T-048"
-    },
-    {
       "from": "story:connections",
       "kind": "wikilink",
       "to": "backend-integration:ring-members"
@@ -32122,7 +32030,7 @@
     {
       "from": "story:discover-hub",
       "kind": "wikilink",
-      "to": "task:T-029"
+      "to": "story:companies"
     },
     {
       "from": "story:discover-hub",
@@ -32242,17 +32150,17 @@
     {
       "from": "story:exhibitor",
       "kind": "wikilink",
+      "to": "story:companies"
+    },
+    {
+      "from": "story:exhibitor",
+      "kind": "wikilink",
       "to": "story:meetings"
     },
     {
       "from": "story:exhibitor",
       "kind": "wikilink",
       "to": "task:T-009"
-    },
-    {
-      "from": "story:exhibitor",
-      "kind": "wikilink",
-      "to": "task:T-029"
     },
     {
       "from": "story:files",
@@ -32893,11 +32801,6 @@
       "from": "story:T-028",
       "kind": "wikilink",
       "to": "feature:ring-invitations"
-    },
-    {
-      "from": "story:T-029",
-      "kind": "wikilink",
-      "to": "feature:companies"
     },
     {
       "from": "story:T-030",
@@ -34258,51 +34161,6 @@
       "from": "task:T-028-fe",
       "kind": "wikilink",
       "to": "task:T-028-be"
-    },
-    {
-      "from": "task:T-029",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-029",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-029",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-029",
-      "kind": "wikilink",
-      "to": "task:T-048"
-    },
-    {
-      "from": "task:T-029-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:companies"
-    },
-    {
-      "from": "task:T-029-be",
-      "kind": "wikilink",
-      "to": "feature:companies"
-    },
-    {
-      "from": "task:T-029-fe",
-      "kind": "wikilink",
-      "to": "feature:companies"
-    },
-    {
-      "from": "task:T-029-fe",
-      "kind": "wikilink",
-      "to": "story:T-029"
-    },
-    {
-      "from": "task:T-029-fe",
-      "kind": "wikilink",
-      "to": "task:T-029-be"
     },
     {
       "from": "task:T-030",
@@ -36996,22 +36854,6 @@
     },
     "social-pin/tasks/T-028 What you contribute to a shared Ring/T-028-fe Frontend · What you contribute to a shared Ring.md": {
       "name": "T-028-fe Frontend · What you contribute to a shared Ring",
-      "type": "task"
-    },
-    "social-pin/tasks/T-029 My companies and company detail/T-029 My companies and company detail.md": {
-      "name": "T-029 My companies and company detail",
-      "type": "task"
-    },
-    "social-pin/tasks/T-029 My companies and company detail/T-029 Story.md": {
-      "name": "T-029 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-029 My companies and company detail/T-029-be Backend · My companies and company detail.md": {
-      "name": "T-029-be Backend · My companies and company detail",
-      "type": "task"
-    },
-    "social-pin/tasks/T-029 My companies and company detail/T-029-fe Frontend · My companies and company detail.md": {
-      "name": "T-029-fe Frontend · My companies and company detail",
       "type": "task"
     },
     "social-pin/tasks/T-030 Discover search by !pinname and recent searches/T-030 Discover search by !pinname and recent searches.md": {
@@ -43774,11 +43616,10 @@
       "release": "v1",
       "resolution": null,
       "rollup": {
-        "blocked": 3,
+        "blocked": 2,
         "decided": 2,
-        "draft": 2,
+        "draft": 1,
         "missing": 4,
-        "todo": 2,
         "verified": 2
       },
       "scope": null,
@@ -43796,7 +43637,7 @@
       ],
       "task": null,
       "title": "Companies",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "feature:connections": {
       "affects": [],
@@ -44631,9 +44472,10 @@
       "resolution": null,
       "rollup": {
         "approved": 1,
-        "blocked": 7,
+        "blocked": 5,
         "draft": 3,
-        "missing": 4
+        "missing": 4,
+        "todo": 2
       },
       "scope": null,
       "screens": [
@@ -49369,7 +49211,7 @@
       ],
       "task": null,
       "title": "Exhibitor Frontend Requirements",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "frontend-requirements:files": {
       "affects": [],
@@ -50919,13 +50761,13 @@
       "resolution": null,
       "rollup": {
         "approved": 4,
-        "blocked": 36,
+        "blocked": 34,
         "decided": 1,
         "draft": 16,
         "in-progress": 4,
         "missing": 20,
         "needs-decision": 1,
-        "todo": 3,
+        "todo": 5,
         "verified": 1
       },
       "scope": null,
@@ -51181,13 +51023,13 @@
       "resolution": null,
       "rollup": {
         "approved": 1,
-        "blocked": 13,
+        "blocked": 12,
         "decided": 2,
-        "draft": 8,
+        "draft": 7,
         "in-progress": 3,
         "missing": 12,
         "needs-decision": 2,
-        "todo": 5,
+        "todo": 3,
         "verified": 2
       },
       "scope": null,
@@ -57759,12 +57601,12 @@
       ],
       "rollup": {
         "approved": 36,
-        "blocked": 144,
+        "blocked": 141,
         "current": 8,
         "decided": 14,
         "delivered": 2,
         "done": 10,
-        "draft": 91,
+        "draft": 90,
         "in-progress": 55,
         "missing": 161,
         "needs-decision": 8,
@@ -59148,57 +58990,6 @@
       ],
       "task": "T-028",
       "title": "T-028 Story",
-      "updated": "2026-10-26"
-    },
-    "story:T-029": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-30",
-      "children": [],
-      "code": "T-029",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
-      "effort": null,
-      "feature": "companies",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-029",
-      "inherits": {
-        "priority": "task:T-029",
-        "release": "feature:companies"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "shared-rings",
-      "parentTask": null,
-      "parents": [
-        "task:T-029"
-      ],
-      "path": "social-pin/tasks/T-029 My companies and company detail/T-029 Story.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "scope": "task",
-      "screens": [
-        "s72",
-        "s73"
-      ],
-      "status": "draft",
-      "summary": "GET /businesses/mine, GET /businesses/:id, leave. Company Rings as CORPORATE with parentRingId.",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/shared-rings",
-        "layer/business"
-      ],
-      "task": "T-029",
-      "title": "T-029 Story",
       "updated": "2026-10-26"
     },
     "story:T-030": {
@@ -61163,7 +60954,6 @@
       "blockedBy": [],
       "card": "S-29",
       "children": [
-        "task:T-029",
         "needs-decision:ND-18"
       ],
       "code": "companies",
@@ -61193,6 +60983,9 @@
       "pending": [],
       "priority": "high",
       "related": [
+        "task:T-048",
+        "task:T-048-be",
+        "task:T-048-fe",
         "decision:D-04",
         "decision:D-14",
         "decision:D-18"
@@ -61214,7 +61007,7 @@
       ],
       "task": null,
       "title": "Companies Story",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "story:connections": {
       "affects": [],
@@ -61501,7 +61294,7 @@
       ],
       "task": null,
       "title": "Discover Hub & Search Story",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "story:e2e-tests": {
       "affects": [],
@@ -61839,7 +61632,7 @@
       ],
       "task": null,
       "title": "Exhibitor Story",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "story:files": {
       "affects": [],
@@ -68035,187 +67828,6 @@
       "title": "T-028-fe Frontend · What you contribute to a shared Ring",
       "updated": "2026-10-26"
     },
-    "task:T-029": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-029",
-      "children": [
-        "story:T-029",
-        "task:T-029-be",
-        "task:T-029-fe"
-      ],
-      "code": "T-029",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": "social-pin/tasks/T-029 My companies and company detail",
-      "effectiveStatus": "todo",
-      "effort": "M",
-      "feature": "companies",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-029",
-      "inherits": {
-        "release": "feature:companies"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "shared-rings",
-      "parentTask": null,
-      "parents": [
-        "story:companies"
-      ],
-      "path": "social-pin/tasks/T-029 My companies and company detail/T-029 My companies and company detail.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {
-        "blocked": 1,
-        "draft": 1,
-        "todo": 1
-      },
-      "scope": null,
-      "screens": [
-        "s72",
-        "s73"
-      ],
-      "status": "todo",
-      "summary": "GET /businesses/mine, GET /businesses/:id, leave. Company Rings as CORPORATE with parentRingId.",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/shared-rings",
-        "priority/high"
-      ],
-      "task": null,
-      "title": "T-029 My companies and company detail",
-      "updated": "2026-10-26"
-    },
-    "task:T-029-be": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-029-be",
-      "children": [],
-      "code": "T-029-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": null,
-      "effectiveStatus": "todo",
-      "effort": "M",
-      "feature": "companies",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-029-be",
-      "inherits": {
-        "release": "feature:companies"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "shared-rings",
-      "parentTask": "T-029",
-      "parents": [
-        "task:T-029"
-      ],
-      "path": "social-pin/tasks/T-029 My companies and company detail/T-029-be Backend · My companies and company detail.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s72",
-        "s73"
-      ],
-      "status": "todo",
-      "summary": "The API side of T-029 My companies and company detail: the endpoints, data and rules its What describes. Record what shipped in T-029-be Backend Delivery and how to call it in T-029-be Backend…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/shared-rings",
-        "priority/high",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-029-be Backend · My companies and company detail",
-      "updated": "2026-10-26"
-    },
-    "task:T-029-fe": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-029-be",
-          "title": "T-029-be Backend · My companies and company detail",
-          "why": "T-029-be Backend · My companies and company detail is to do"
-        }
-      ],
-      "card": "T-029-fe",
-      "children": [],
-      "code": "T-029-fe",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-029-be"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "companies",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-029-fe",
-      "inherits": {
-        "release": "feature:companies"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "frontend"
-      ],
-      "layer": "business",
-      "module": "shared-rings",
-      "parentTask": "T-029",
-      "parents": [
-        "task:T-029"
-      ],
-      "path": "social-pin/tasks/T-029 My companies and company detail/T-029-fe Frontend · My companies and company detail.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s72",
-        "s73"
-      ],
-      "status": "todo",
-      "summary": "The client side of T-029 My companies and company detail: the screens below show what its What describes, built against Companies Backend Integration once the backend half (T-029-be Backend · My…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/shared-rings",
-        "priority/high",
-        "frontend"
-      ],
-      "task": null,
-      "title": "T-029-fe Frontend · My companies and company detail",
-      "updated": "2026-10-26"
-    },
     "task:T-030": {
       "affects": [],
       "blockedBy": [],
@@ -71495,13 +71107,7 @@
     },
     "task:T-048": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-029",
-          "title": "T-029 My companies and company detail",
-          "why": "T-029 My companies and company detail is to do"
-        }
-      ],
+      "blockedBy": [],
       "card": "T-048",
       "children": [
         "story:T-048",
@@ -71512,11 +71118,9 @@
       "created": "2026-10-15",
       "deadline": null,
       "decision": null,
-      "depends": [
-        "task:T-029"
-      ],
+      "depends": [],
       "dir": "social-pin/tasks/T-048 Business account setup → business Ring",
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "todo",
       "effort": "L",
       "feature": "exhibitor",
       "foundOn": null,
@@ -71537,12 +71141,15 @@
       "path": "social-pin/tasks/T-048 Business account setup → business Ring/T-048 Business account setup → business Ring.md",
       "pending": [],
       "priority": "high",
-      "related": [],
+      "related": [
+        "story:companies"
+      ],
       "release": "v1",
       "resolution": null,
       "rollup": {
-        "blocked": 2,
-        "draft": 1
+        "blocked": 1,
+        "draft": 1,
+        "todo": 1
       },
       "scope": null,
       "screens": [
@@ -71558,28 +71165,20 @@
       ],
       "task": null,
       "title": "T-048 Business account setup → business Ring",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "task:T-048-be": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-029",
-          "title": "T-029 My companies and company detail",
-          "why": "T-029 My companies and company detail is to do"
-        }
-      ],
+      "blockedBy": [],
       "card": "T-048-be",
       "children": [],
       "code": "T-048-be",
       "created": "2026-10-18",
       "deadline": null,
       "decision": null,
-      "depends": [
-        "task:T-029"
-      ],
+      "depends": [],
       "dir": null,
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "todo",
       "effort": "L",
       "feature": "exhibitor",
       "foundOn": null,
@@ -71602,7 +71201,9 @@
       "path": "social-pin/tasks/T-048 Business account setup → business Ring/T-048-be Backend · Business account setup → business Ring.md",
       "pending": [],
       "priority": "high",
-      "related": [],
+      "related": [
+        "story:companies"
+      ],
       "release": "v1",
       "resolution": null,
       "rollup": {},
@@ -71621,20 +71222,15 @@
       ],
       "task": null,
       "title": "T-048-be Backend · Business account setup → business Ring",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "task:T-048-fe": {
       "affects": [],
       "blockedBy": [
         {
-          "id": "task:T-029",
-          "title": "T-029 My companies and company detail",
-          "why": "T-029 My companies and company detail is to do"
-        },
-        {
           "id": "task:T-048-be",
           "title": "T-048-be Backend · Business account setup → business Ring",
-          "why": "T-048-be Backend · Business account setup → business Ring is blocked"
+          "why": "T-048-be Backend · Business account setup → business Ring is to do"
         }
       ],
       "card": "T-048-fe",
@@ -71644,7 +71240,6 @@
       "deadline": null,
       "decision": null,
       "depends": [
-        "task:T-029",
         "task:T-048-be"
       ],
       "dir": null,
@@ -71671,7 +71266,9 @@
       "path": "social-pin/tasks/T-048 Business account setup → business Ring/T-048-fe Frontend · Business account setup → business Ring.md",
       "pending": [],
       "priority": "high",
-      "related": [],
+      "related": [
+        "story:companies"
+      ],
       "release": "v1",
       "resolution": null,
       "rollup": {},
@@ -71690,7 +71287,7 @@
       ],
       "task": null,
       "title": "T-048-fe Frontend · Business account setup → business Ring",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "task:T-048b": {
       "affects": [],

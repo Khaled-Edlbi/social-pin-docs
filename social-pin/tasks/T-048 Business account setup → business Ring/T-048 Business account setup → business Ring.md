@@ -7,10 +7,11 @@ effort: L
 feature: exhibitor
 module: events
 screens: [s63]
-depends: [T-029]
+depends: []
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [task, task/todo, module/events, priority/high]
+related: ["Companies Story"]
 ---
 
 # ⬜ T-048 · Business account setup → business Ring
@@ -29,7 +30,7 @@ Multi-step DTOs; creates `Business` + a `CORPORATE` Ring; team members become Ri
 
 ## Dependencies
 
-- Waits on [[T-029 My companies and company detail]]
+- Waits on [[Companies Story|Companies · S6]]
 
 ## Definition of done
 

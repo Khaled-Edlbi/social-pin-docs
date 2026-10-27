@@ -40,12 +40,12 @@ What the client needs from the backend to build the screen in [[Discover Hub & S
 |---|---|---|---|
 | Resolve an exact Pin name to what the person shares with me | `GET /views/pin/:pinName` | ✅ | — |
 | Recent searches: list, add on success, remove one, clear | — | ❌ | [[T-030 Discover search by !pinname and recent searches]] |
-| Business Pin name resolving to a company / exhibitor screen | — | ❌ | [[T-029 My companies and company detail]] |
+| Business Pin name resolving to a company / exhibitor screen | — | ❌ | [[Companies Story|Companies · S6]] |
 | Gemma prompt from the same field | — | ❌ | [[T-051 Gemma assistant sheet and suggestions]] |
 | Contacts match by hashed email / phone | — | ❌ | [[T-031 Import contacts]] |
 | People tile (requests and contacts) | — | ❌ | [[T-021 Connect request send, inbox, cancel]] |
 | Events tile | — | ❌ | [[T-033 Events list, detail, schedule]] |
-| Companies tile | — | ❌ | [[T-029 My companies and company detail]] |
+| Companies tile | — | ❌ | [[Companies Story|Companies · S6]] |
 | Exhibitors tile | — | ❌ | [[T-036 Event mode exhibitors list and detail]] |
 | PinCast tile | — | ❌ | [[T-032 PinCast setup, start, stop, results]] |
 | Avatar on recent-search rows and results | — | ❌ | [[Files Upload Story|Files Upload · showing files]] |

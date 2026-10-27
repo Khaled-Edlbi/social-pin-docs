@@ -78,7 +78,6 @@ kanban-plugin: board
 - [ ] [[T-027 Join a Ring with a code or verified work email]] #high #ring-invitations
 - [ ] [[T-027-be Backend · Join a Ring with a code or verified work email]] #high #ring-invitations #backend
 - [ ] [[T-027-fe Frontend · Join a Ring with a code or verified work email]] #high #ring-invitations #frontend
-- [ ] [[T-029-fe Frontend · My companies and company detail]] #high #companies #frontend
 - [ ] [[T-030-fe Frontend · Discover search by !pinname and recent searches]] #high #discover-hub #frontend
 - [ ] [[T-032-fe Frontend · PinCast setup, start, stop, results]] #high #pincast #frontend
 - [ ] [[T-037 Event pass with a 60 s rotating code]] #high #events-during
@@ -96,8 +95,6 @@ kanban-plugin: board
 - [ ] [[T-046 Push delivery and preferences]] #high #notifications
 - [ ] [[T-046-be Backend · Push delivery and preferences]] #high #notifications #backend
 - [ ] [[T-046-fe Frontend · Push delivery and preferences]] #high #notifications #frontend
-- [ ] [[T-048 Business account setup → business Ring]] #high #exhibitor
-- [ ] [[T-048-be Backend · Business account setup → business Ring]] #high #exhibitor #backend
 - [ ] [[T-048-fe Frontend · Business account setup → business Ring]] #high #exhibitor #frontend
 - [ ] [[T-048b Booth analytics and leads CSV export]] #high #exhibitor
 - [ ] [[T-048b-be Backend · Booth analytics and leads CSV export]] #high #exhibitor #backend
@@ -156,14 +153,14 @@ kanban-plugin: board
 - [ ] [[T-019 LinkedIn OAuth link, unlink, login]] #high #linked-accounts
 - [ ] [[T-019-be Backend · LinkedIn OAuth link, unlink, login]] #high #linked-accounts #backend
 - [ ] [[T-026-be Backend · Ring invitations invite, review, decline]] #high #ring-invitations #backend
-- [ ] [[T-029 My companies and company detail]] #high #companies
-- [ ] [[T-029-be Backend · My companies and company detail]] #high #companies #backend
 - [ ] [[T-030 Discover search by !pinname and recent searches]] #high #discover-hub
 - [ ] [[T-030-be Backend · Discover search by !pinname and recent searches]] #high #discover-hub #backend
 - [ ] [[T-032 PinCast setup, start, stop, results]] #high #pincast
 - [ ] [[T-032-be Backend · PinCast setup, start, stop, results]] #high #pincast #backend
 - [ ] [[T-045 NotificationService.emit and the inbox]] #high #notifications
 - [ ] [[T-045-be Backend · NotificationService.emit and the inbox]] #high #notifications #backend
+- [ ] [[T-048 Business account setup → business Ring]] #high #exhibitor
+- [ ] [[T-048-be Backend · Business account setup → business Ring]] #high #exhibitor #backend
 - [ ] [[T-049 Subscription endpoints and a single Pro gate]] #high #subscription
 - [ ] [[T-049-be Backend · Subscription endpoints and a single Pro gate]] #high #subscription #backend
 - [ ] [[T-020b-be Backend · Business card scan and portfolio URL import]] #medium #onboarding-imports #backend
