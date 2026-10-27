@@ -8,9 +8,9 @@ status: approved
 screens: [s11, s12, s14, s16, s17, s68]
 approvedBy: "khaled"
 approvedAt: 2026-10-25
-owner: "omar"
+owner: "Omar Fostok"
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 related: ["D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring"]
 tags: [story, story/approved, module/identity, layer/business]
 ---
@@ -19,9 +19,9 @@ tags: [story, story/approved, module/identity, layer/business]
 
 **Feature:** [[Counts]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[Counts Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
-A Ring owner glances at Home or My Rings and wants a sense of scale: how many people each Ring reaches ("148 people"), how many Rings they own and how many were shared with them, and, on Me, how many connections they have ("218 connections"). The numbers are derived from data that exists today; what is missing is a way to read them.
+A Ring owner glances at Home or My Rings and wants a sense of scale: how many people each Ring reaches ("148 people"), how many Rings they own and how many people share with them, and, on Me, how many connections they have ("218 connections"). The numbers are derived from data that exists today; what is missing is a way to read them.
 
-**Task stories:** [[T-004 Story]] (T-004: the member count in S1, S2, S3 and S5). S4 waits on [[T-005 Story]], still the empty template.
+**Task stories:** [[T-004 Story]] (T-004: the member count in S1, S2, S3 and S5). S4 waits on [[T-005 Story]].
 
 ## Persona
 
@@ -29,15 +29,24 @@ A Ring owner on Home ([[Wireframe Brief#Home — Rings hub + active profile|§4.
 
 ## Stories
 
-### S1 · Ring switcher with counts ([[Screen Index#s11|s11]], [[Screen Index#s12|s12]])
+### S1 · Recent Rings on Home ([[Screen Index#s11|s11]], [[Screen Index#s12|s12]])
 
-**As a** Ring owner **I want** each card in the Ring carousel to show how many people are in it **so that** I know which audience I am about to broadcast to.
+**As a** Ring owner **I want** each of my Rings listed under *Recent Rings* on Home to show how many people are in it **so that** I know which audience I am about to broadcast to.
 
 Acceptance criteria:
 - [ ] Each owned Ring card shows "N people"; the count includes live members only (both windows open, not removed).
 - [ ] Until the count ships, the card shows the name and colour without a number, not "0 people".
-- [ ] "All 5" on the carousel header uses `meta.total` of `GET /rings`, which exists today.
+- [ ] "All N" on the *Recent Rings* header is the number of Rings I own, `meta.total` of `GET /rings`, which exists today; never a fixed number.
 - [ ] Switching Rings re-composes the profile; the count moves with its card.
+
+### S1b · The Ring picker (Home → the *My badge* card; a sheet, no screen id)
+
+**As a** Ring owner **I want** each of my Rings in the picker to show how many people are in it **so that** I choose the audience my badge and "go visible" are for knowing its size.
+
+Acceptance criteria:
+- [ ] Each of my own Rings in the sheet shows "N people", live members only, from the same number as S1 ([[T-004 Member count per Ring on list and detail]]).
+- [ ] Until the count ships, the Ring shows its name and colour with no number, never "0 people".
+- [ ] Only my own Rings are in the picker; a Ring shared with me never appears with a count.
 
 ### S2 · My Rings and Shared with me tabs ([[Screen Index#s16|s16]], [[Screen Index#s17|s17]])
 
@@ -61,8 +70,10 @@ Acceptance criteria:
 
 **As a** user **I want** "218 connections" on Me **so that** I see how many people I have exchanged access with.
 
+**Me only**, decided 2026-10-27 by omar: Home shows no connections count. The wireframe brief lists a "connections counter" on Home (§4.1), but the Home screens (s11, s12) have none; this story follows the screens. [[T-005 Connection count on Me and Home]] keeps its title but covers Me only.
+
 Acceptance criteria:
-- [ ] The row is hidden, not zero, until connections exist in the backend.
+- [ ] On the profile card under the name ("2 Rings · 218 connections"), the connections part is hidden, not zero and not a sample number, until connections exist in the backend.
 - [ ] When it ships, the count is the number of accepted connections, not the sum of Ring members.
 
 ### S5 · Counts stay honest after changes (journey, no prototype screen)
