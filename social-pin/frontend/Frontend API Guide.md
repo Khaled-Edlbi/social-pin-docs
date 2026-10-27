@@ -1,7 +1,7 @@
 ---
 type: project
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [project]
 layer: frontend
 ---
@@ -358,7 +358,7 @@ audit entry at any role.
 
 **There is no way to fetch the bytes back yet.** The response has no URL and
 no route serves a file by id, so `avatarFileId` and attachment ids cannot be
-rendered; show placeholders until T-062 ships.
+rendered; show placeholders until Files Upload serves file bytes (its story S7–S11).
 
 ---
 

@@ -7,7 +7,7 @@ module: discovery
 status: draft
 screens: [s34, s43, s44, s56]
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [frontend-requirements, frontend-requirements/draft, module/discovery, layer/frontend]
 ---
 
@@ -55,7 +55,7 @@ What the client needs from the backend to build the screens in [[Badge & QR Stor
 | Event pass token, 60 s window | — | ❌ | [[T-037 Event pass with a 60 s rotating code]] |
 | NFC card bound to the same token | — | ❌ | [[T-015 Pair and revoke an NFC card]] |
 | Connect from s44 | — | ❌ | [[T-021 Connect request send, inbox, cancel]] |
-| Avatar bytes on the badge and the resolved card | — | ❌ | [[T-062 Serve uploaded file bytes by id]] |
+| Avatar bytes on the badge and the resolved card | — | ❌ | [[Files Upload Story|Files Upload · showing files]] |
 
 ## Behaviour expectations
 

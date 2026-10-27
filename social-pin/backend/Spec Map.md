@@ -1,7 +1,7 @@
 ---
 type: project
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [project]
 layer: backend
 ---
@@ -256,4 +256,4 @@ Stated plainly, because a gap described as done is worse than a gap.
    Tracked as T-063 in `social-pin-docs`.
 8. **No route serves file bytes by id.** `FileEntity` hides `storageKey` by
    design and nothing maps a file id to a download, so `avatarFileId` and
-   attachment ids cannot be rendered by a client. Tracked as T-062.
+   attachment ids cannot be rendered by a client. Tracked in [[Files Upload Story]] S7–S11.

@@ -7,7 +7,7 @@ module: identity
 status: current
 screens: [s14, s20, s36]
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [backend-integration, backend-integration/current, module/identity, layer/backend]
 ---
 
@@ -68,7 +68,7 @@ The `id` returned by the upload, until it is referenced. There is no list endpoi
 
 ## Not available yet
 
-- **Fetching the bytes back.** No endpoint or URL serves a file by id, so photos and attachments cannot be displayed or downloaded in a client yet: [[T-062 Serve uploaded file bytes by id]].
+- **Fetching the bytes back.** No endpoint or URL serves a file by id, so photos and attachments cannot be displayed or downloaded in a client yet: [[Files Upload Story|Files Upload · showing files]].
 - "My files" list and the photo library (s30): [[T-012 List my files (photo library)]].
 - "N Rings inherit it": [[T-013 Usage count per file across Rings]].
 
@@ -77,4 +77,4 @@ The `id` returned by the upload, until it is referenced. There is no list endpoi
 - [ ] Client-side type and size check mirroring the table.
 - [ ] Multipart field named `file`, correct MIME type set.
 - [ ] Upload → reference as two steps, with the id held in between.
-- [ ] No URL built from ids; placeholder rendering until T-062.
+- [ ] No URL built from ids; placeholder rendering until showing files ships ([[Files Upload Story]] S7–S11).

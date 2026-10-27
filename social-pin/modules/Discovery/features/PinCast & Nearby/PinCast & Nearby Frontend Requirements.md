@@ -7,7 +7,7 @@ module: discovery
 status: draft
 screens: [s11, s39, s40, s41, s42]
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [frontend-requirements, frontend-requirements/draft, module/discovery, layer/frontend]
 ---
 
@@ -66,7 +66,7 @@ What the client needs from the backend to build the screens in [[PinCast & Nearb
 | "PinCast ended" and "pins nearby" notifications | — | ❌ | [[T-045 NotificationService.emit and the inbox]] |
 | Push instead of polling on s40 | — | ❌ | [[T-046 Push delivery and preferences]] |
 | Recipient purge that bounds how long s42 stays complete | — | ❌ | [[T-054 Cleanup jobs]] |
-| Avatars on recipient rows | — | ❌ | [[T-062 Serve uploaded file bytes by id]] |
+| Avatars on recipient rows | — | ❌ | [[Files Upload Story|Files Upload · showing files]] |
 
 ## Behaviour expectations
 

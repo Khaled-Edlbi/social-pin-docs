@@ -7,7 +7,7 @@ module: identity
 status: draft
 screens: [s14, s20, s36]
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [frontend-requirements, frontend-requirements/draft, module/identity, layer/frontend]
 ---
 
@@ -57,7 +57,7 @@ What the client needs from the backend to upload, attach, inspect and delete fil
 | Attach a file to a Ring | `POST /rings/:ringId/projection/attachments` | ✅ | — (listed under [[Ring Projection]]) |
 | Detach from a Ring | `DELETE …/attachments/:attachmentId` | ✅ | — (listed under [[Ring Projection]]) |
 | Use a file as the Ring photo | `PATCH /rings/:ringId/projection` | ✅ | — (listed under [[Ring Projection]]) |
-| Display or download the bytes | — | ❌ | [[T-062 Serve uploaded file bytes by id]] |
+| Display or download the bytes | — | ❌ | [[Files Upload Story|Files Upload · showing files]] |
 | List my files (library, filter by kind) | — | ❌ | [[T-012 List my files (photo library)]] |
 | "N Rings inherit it" per file | — | ❌ | [[T-013 Usage count per file across Rings]] |
 | Hide / show or reorder an attachment in place | — | ❌ | no task yet; attachments have `isVisible` and `sortOrder` on create only (gap to record in [[Ring Projection]]) |
@@ -71,7 +71,7 @@ What the client needs from the backend to upload, attach, inspect and delete fil
 - Client checks before upload: type in the allow-list (JPEG, PNG, WebP, GIF, PDF, DOCX, XLSX, PPTX, DOC, PPT, TXT, CSV) and size ≤ 25 MB. The server remains the authority.
 - Two-step semantics: an uploaded file is "in your library", not "on your profile". Only an attached file is shown as part of a Ring.
 - Delete order: detach, then delete. A deleted file leaves its attachment rows in place; the UI must not depend on the backend to cascade.
-- No URL guessing: never derive a path from `id`, `filename` or `checksum`; render a placeholder until T-062 ships.
+- No URL guessing: never derive a path from `id`, `filename` or `checksum`; render a placeholder until showing files ships (S7–S11 of the story).
 - Retention: keep the local image or file handle for the editing session so the owner sees what they picked; after relaunch the placeholder returns.
 
 ## Error states the UI must handle
@@ -90,5 +90,5 @@ Until [[T-063 Put the ErrorCode on the error body]] ships, branch on status and 
 
 ## Blocked by
 
-- [[T-062 Serve uploaded file bytes by id]] — every preview, thumbnail and download on s14, s29 and the viewer screens.
+- [[Files Upload Story|Files Upload · showing files]] — every preview, thumbnail and download on s14, s29 and the viewer screens.
 - [[T-012 List my files (photo library)]] — picking an already-uploaded file instead of uploading again.

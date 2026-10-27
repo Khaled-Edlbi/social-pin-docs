@@ -1,7 +1,7 @@
 ---
 type: project
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [project]
 layer: frontend
 ---
@@ -33,7 +33,7 @@ Sign-up: `sign-up` → `verify-code` → `complete-registration` (pin name, no p
 
 **The stable `ErrorCode` is not on the wire yet.** Services throw it, the filter drops it ([[T-063 Put the ErrorCode on the error body]]). Until that ships, branch on `statusCode` and the endpoint, and keep `message` display-only; the per-feature notes list the codes each endpoint will carry so the switch can be written now.
 
-**No file bytes can be fetched.** `avatarFileId` and attachment ids have no URL ([[T-062 Serve uploaded file bytes by id]]); render placeholders.
+**No file bytes can be fetched.** `avatarFileId` and attachment ids have no URL ([[Files Upload Story|Files Upload · showing files]]); render placeholders.
 
 ## Endpoints by feature
 

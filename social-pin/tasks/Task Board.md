@@ -55,7 +55,6 @@ kanban-plugin: board
 - [ ] [[T-044 My meetings, calendar, detail, reschedule, cancel]] #critical #meetings
 - [ ] [[T-044-be Backend · My meetings, calendar, detail, reschedule, cancel]] #critical #meetings #backend
 - [ ] [[T-044-fe Frontend · My meetings, calendar, detail, reschedule, cancel]] #critical #meetings #frontend
-- [ ] [[T-062-fe Frontend · Serve uploaded file bytes by id]] #critical #files #frontend
 - [ ] [[T-063-fe Frontend · Put the ErrorCode on the error body]] #critical #error-contract #frontend
 - [ ] [[T-067 Split E_RING_01 and E_RING_PROFILE_03]] #critical #error-contract
 - [ ] [[T-067-fe Frontend · Split E_RING_01 and E_RING_PROFILE_03]] #critical #error-contract #frontend
@@ -151,8 +150,6 @@ kanban-plugin: board
 - [ ] [[T-041-be Backend · Availability slots CRUD]] #critical #meetings #backend
 - [ ] [[T-055 Run the e2e suite in CI against PostGIS]] #critical #e2e-tests
 - [ ] [[T-055-be Backend · Run the e2e suite in CI against PostGIS]] #critical #e2e-tests #backend
-- [ ] [[T-062 Serve uploaded file bytes by id]] #critical #files
-- [ ] [[T-062-be Backend · Serve uploaded file bytes by id]] #critical #files #backend
 - [ ] [[T-063 Put the ErrorCode on the error body]] #critical #error-contract
 - [ ] [[T-063-be Backend · Put the ErrorCode on the error body]] #critical #error-contract #backend
 - [ ] [[T-067-be Backend · Split E_RING_01 and E_RING_PROFILE_03]] #critical #error-contract #backend

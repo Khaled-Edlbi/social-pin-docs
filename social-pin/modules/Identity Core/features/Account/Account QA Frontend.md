@@ -8,10 +8,10 @@ status: passing
 screens: [s68, s01, s70]
 depends: []
 affects: []
-related: ["Account Frontend Requirements", "Account QA Backend", "T-063 Put the ErrorCode on the error body", "T-068 Account moderation and platform role", "B-02 Deleted account answers 401, not the documented 404 E_USER_01", "T-062 Serve uploaded file bytes by id"]
+related: ["Account Frontend Requirements", "Account QA Backend", "T-063 Put the ErrorCode on the error body", "T-068 Account moderation and platform role", "B-02 Deleted account answers 401, not the documented 404 E_USER_01", "Files Upload Story"]
 pending: ["[[T-063 Put the ErrorCode on the error body]]: F19 (suspended mid-session, AC-15) can only show the not-active copy once E_AUTH_03 is on the wire", "[[T-068 Account moderation and platform role]]: F19 cannot be run until a route suspends an account", "@omar: F3 Pro side, F4, F5, F14 (Back, DA-05), F15, F16 and F20 (saving in Arabic) not run by the Maestro pass; run by hand"]
 created: 2026-10-26
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [qa-frontend, qa-frontend/passing, module/identity, layer/qa]
 ---
 
@@ -31,7 +31,7 @@ Expected behaviour of the screens, as artefacts: journeys, states and copy to ch
 
 | # | Story | Steps (case) | Expected | Checked |
 |---|---|---|---|---|
-| F1 | S1 | Sign in → Me (PR-01) | The header shows the default profile's full name and `!pinName`; the photo is initials until [[T-062 Serve uploaded file bytes by id]]. | ✅ |
+| F1 | S1 | Sign in → Me (PR-01) | The header shows the default profile's full name and `!pinName`; the photo is initials until [[Files Upload Story|Files Upload · showing files]]. | ✅ |
 | F2 | S1 | Me (AC-01, AC-02) | ACCOUNT group under the plan card: Email and Phone with the real values, each **Verified** or **Unverified** from `…VerifiedAt`; "Add" where there is none; "Last signed in" as a relative time. | ✅ |
 | F3 | S1 | A Free and a Pro account → Me (AC-03) | Free: "Free plan" and **Upgrade**, which opens [[Screen Index#s70|s70]]. Pro: "Pro plan", no Upgrade (shown on the plan card, not as a header badge: [[Account Frontend Delivery#Deviations from the story or the integration note]]). | ⬜ Free side ✅ (AC-01); Pro side and Upgrade → s70 not run |
 | F4 | S1 | Change the plan or verify an address on the backend → background → foreground (AC-12, AC-10) | Me shows the change without a restart. | ⬜ not run: needs the plan or a verification changed on the backend |

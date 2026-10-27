@@ -8,11 +8,11 @@ status: done
 screens: [s68]
 depends: []
 affects: []
-related: ["Account Frontend Requirements", "Profiles & Pin Name", "T-062 Serve uploaded file bytes by id", "T-005 Connection count on Me and Home", "T-019 LinkedIn OAuth link, unlink, login", "T-014 Register devices on login; list and remove", "T-049 Subscription endpoints and a single Pro gate", "T-063 Put the ErrorCode on the error body"]
+related: ["Account Frontend Requirements", "Profiles & Pin Name", "Files Upload Story", "T-005 Connection count on Me and Home", "T-019 LinkedIn OAuth link, unlink, login", "T-014 Register devices on login; list and remove", "T-049 Subscription endpoints and a single Pro gate", "T-063 Put the ErrorCode on the error body"]
 pending: []
 deployedTo: []
 created: 2026-10-26
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [frontend-delivery, frontend-delivery/done, module/identity, layer/frontend]
 ---
 
@@ -58,7 +58,7 @@ What the client shipped for the account section of Me, on `social_pin` `main` @ 
 ## Not done yet
 
 - A suspension mid-session (S6) says "Your session has expired" rather than "not active" until [[T-063 Put the ErrorCode on the error body]] puts `E_AUTH_03` on the wire; the client branch is in and needs no change then.
-- Header photo: initials → [[T-062 Serve uploaded file bytes by id]].
+- Header photo: initials → [[Files Upload Story|Files Upload · showing files]].
 - Connection count (sample 218) → [[T-005 Connection count on Me and Home]].
 - Linked accounts → [[T-019 LinkedIn OAuth link, unlink, login]]; devices → [[T-014 Register devices on login; list and remove]]; subscription / Upgrade → [[T-049 Subscription endpoints and a single Pro gate]].
 - Re-verifying a changed email or phone: no backend route and no task yet ([[Account#Gaps]]).

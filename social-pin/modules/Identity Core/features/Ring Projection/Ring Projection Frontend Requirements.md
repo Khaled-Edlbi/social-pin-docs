@@ -7,7 +7,7 @@ module: identity
 status: draft
 screens: [s14, s20, s23, s24, s25, s29, s36]
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [frontend-requirements, frontend-requirements/draft, module/identity, layer/frontend]
 ---
 
@@ -76,7 +76,7 @@ What the client needs from the backend to build the "what this Ring shows" edito
 | Attach a file | `POST …/attachments` | ✅ | — |
 | Detach a file | `DELETE …/attachments/:attachmentId` | ✅ | — |
 | Preview as the audience | `GET /views/ring/:ringId` | ✅ | — (listed under [[View As & Pin Views]]) |
-| Display the photo and attachments | — | ❌ | [[T-062 Serve uploaded file bytes by id]] |
+| Display the photo and attachments | — | ❌ | [[Files Upload Story|Files Upload · showing files]] |
 | One field library switched on / off per Ring | — | ❌ | [[ND-03 Field library vs per-Ring copies]] |
 | Inherit from the Pin / copy another Ring's bio | — | ❌ | [[ND-05 Copy or inherit]], [[ND-02 Base profile work fields]] |
 | Widgets add / edit / remove | — | ❌ | [[T-017 Extend WIDGET_TYPE to the design's list]], [[T-018 Widget CRUD on the projection]] |
@@ -113,4 +113,4 @@ Until [[T-063 Put the ErrorCode on the error body]] ships, branch on status and 
 
 - [[ND-03 Field library vs per-Ring copies]] — the "N of 7 on" toggle list on s20 / s24; build an add-list until decided.
 - [[ND-05 Copy or inherit]] and [[ND-02 Base profile work fields]] — "Inherit" and "Copy a Ring" on s23 / s28, "Reset to Pin" on s29.
-- [[T-062 Serve uploaded file bytes by id]] — every photo and attachment preview.
+- [[Files Upload Story|Files Upload · showing files]] — every photo and attachment preview.

@@ -7,7 +7,7 @@ module: shared-rings
 status: draft
 screens: [s26, s27]
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [frontend-requirements, frontend-requirements/draft, module/shared-rings, layer/frontend]
 ---
 
@@ -52,7 +52,7 @@ What the client needs from the backend to build the screens in [[Delegated Admin
 | Names and avatars for admin rows, picker over my connections | — | ❌ | [[T-023 Connection detail and contacts list]] |
 | Notify the person made admin | — | ❌ | [[T-045 NotificationService.emit and the inbox]] |
 | Audience settings on s26 / s27 | — | ❌ | [[ND-04 Ring settings]] |
-| Avatar bytes | — | ❌ | [[T-062 Serve uploaded file bytes by id]] |
+| Avatar bytes | — | ❌ | [[Files Upload Story|Files Upload · showing files]] |
 
 ## Behaviour expectations
 

@@ -65,9 +65,6 @@ Columns as a board: [[Task Board]] (Kanban plugin format; also readable as a pla
 | [[T-053-be Backend · Audit log writes]] `backend` | [[Audit Log]] | Platform & Cross-cutting | 🔵 In progress (2 notes) | S | — | — |
 | [[T-055 Run the e2e suite in CI against PostGIS]] | [[E2E Test Run]] | Platform & Cross-cutting | ⬜ To do | S | — | — |
 | [[T-055-be Backend · Run the e2e suite in CI against PostGIS]] `backend` | [[E2E Test Run]] | Platform & Cross-cutting | ⬜ To do | S | — | — |
-| [[T-062 Serve uploaded file bytes by id]] | [[Files Upload]] | Identity Core | ⬜ To do | S | — | — |
-| [[T-062-be Backend · Serve uploaded file bytes by id]] `backend` | [[Files Upload]] | Identity Core | ⬜ To do | S | — | — |
-| [[T-062-fe Frontend · Serve uploaded file bytes by id]] `frontend` | [[Files Upload]] | Identity Core | ⛔ Blocked | S | — | [[T-062-be Backend · Serve uploaded file bytes by id|T-062-be]] |
 | [[T-063 Put the ErrorCode on the error body]] | [[Error Contract]] | Platform & Cross-cutting | ⬜ To do | S | — | — |
 | [[T-063-be Backend · Put the ErrorCode on the error body]] `backend` | [[Error Contract]] | Platform & Cross-cutting | ⬜ To do | S | — | — |
 | [[T-063-fe Frontend · Put the ErrorCode on the error body]] `frontend` | [[Error Contract]] | Platform & Cross-cutting | ⛔ Blocked | S | — | [[T-063-be Backend · Put the ErrorCode on the error body|T-063-be]] |

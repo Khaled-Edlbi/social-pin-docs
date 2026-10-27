@@ -10,10 +10,10 @@ labels: []
 screens: [s05, s23, s68]
 depends: ["D-02 One main profile every Ring starts from"]
 affects: ["Profiles & Pin Name Backend Integration", "Onboarding Imports", "T-020 LinkedIn import → review → base profile", "T-020b Business card scan and portfolio URL import"]
-related: ["D-05 Inherit per field, copy without members", "T-062 Serve uploaded file bytes by id", "T-020 LinkedIn import → review → base profile", "T-020b Business card scan and portfolio URL import", "Onboarding Imports", "Ring Projection", "Files Upload", "Auth & Sign-up"]
+related: ["D-05 Inherit per field, copy without members", "Files Upload Story", "T-020 LinkedIn import → review → base profile", "T-020b Business card scan and portfolio URL import", "Onboarding Imports", "Ring Projection", "Files Upload", "Auth & Sign-up"]
 pending: []
 created: 2026-10-26
-updated: 2026-10-26
+updated: 2026-10-27
 owner: "Omar Fostok"
 tags: [task, task/todo, module/identity, priority/high]
 ---
@@ -26,7 +26,7 @@ tags: [task, task/todo, module/identity, priority/high]
 
 ## What
 
-Give the profile the six main-profile fields [[D-02 One main profile every Ring starts from]] decided: **headline, role, company, location, photo, bio**, written once on the person's own profile and read by every Ring that has not changed them. Today the profile has none of them, so sign-up's *Profile basics* step and the imports collect values the app cannot save, and every Ring keeps its own copy. Backend: the `Profile` entity and its migration, the six fields on `GET /profiles`, `GET /profiles/:id` and `PATCH /profiles/:id` (photo as the id of a file from `POST /files`), with their limits stated in the integration note; full name stays the one field no Ring may change. Frontend: sign-up saves what *Profile basics* collected right after registration, and Me shows and edits the six fields. Not in this task: how a Ring follows the main value field by field ([[D-05 Inherit per field, copy without members]], on [[Ring Projection]]), serving the photo's bytes ([[T-062 Serve uploaded file bytes by id]]), and the imports that fill these fields ([[T-020 LinkedIn import → review → base profile]], [[T-020b Business card scan and portfolio URL import]]).
+Give the profile the six main-profile fields [[D-02 One main profile every Ring starts from]] decided: **headline, role, company, location, photo, bio**, written once on the person's own profile and read by every Ring that has not changed them. Today the profile has none of them, so sign-up's *Profile basics* step and the imports collect values the app cannot save, and every Ring keeps its own copy. Backend: the `Profile` entity and its migration, the six fields on `GET /profiles`, `GET /profiles/:id` and `PATCH /profiles/:id` (photo as the id of a file from `POST /files`), with their limits stated in the integration note; full name stays the one field no Ring may change. Frontend: sign-up saves what *Profile basics* collected right after registration, and Me shows and edits the six fields. Not in this task: how a Ring follows the main value field by field ([[D-05 Inherit per field, copy without members]], on [[Ring Projection]]), serving the photo's bytes ([[Files Upload Story|Files Upload · showing files]]), and the imports that fill these fields ([[T-020 LinkedIn import → review → base profile]], [[T-020b Business card scan and portfolio URL import]]).
 
 ## Design
 

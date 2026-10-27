@@ -14,7 +14,7 @@ approvedBy: ""
 approvedAt: ""
 owner: "omar"
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [story, story/draft, module/connections, layer/business]
 task: T-021
 ---
@@ -59,7 +59,7 @@ Acceptance criteria:
 
 Acceptance criteria:
 - [ ] `GET /connections/requests?direction=incoming` lists pending requests, newest first, paged (`limit` ≤ 50, `meta.total`).
-- [ ] Each row has the person's `displayName`, `pinName`, `avatarFileId` (shown once [[T-062 Serve uploaded file bytes by id]] ships), when it was sent, where from (scan, event) if known, and the **note** if there is one.
+- [ ] Each row has the person's `displayName`, `pinName`, `avatarFileId` (shown once [[Files Upload Story|Files Upload · showing files]] ships), when it was sent, where from (scan, event) if known, and the **note** if there is one.
 - [ ] The tab label shows `meta.total`.
 - [ ] Accept and Decline on a row lead to [[T-022 Accept into a Ring (sets grantedRingId)]].
 - [ ] A request left unanswered for **30 days expires**: it leaves the incoming list and closes with no connection.

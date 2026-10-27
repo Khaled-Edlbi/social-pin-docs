@@ -8,9 +8,9 @@ status: draft
 screens: [s06, s68]
 depends: []
 affects: ["T-078 Main profile fields from D-02"]
-related: ["D-02 One main profile every Ring starts from", "D-06 Yearly rename, old name freed, case-insensitive", "Onboarding Imports", "Auth & Sign-up", "Files Upload", "T-062 Serve uploaded file bytes by id", "T-020 LinkedIn import → review → base profile", "T-063 Put the ErrorCode on the error body"]
+related: ["D-02 One main profile every Ring starts from", "D-06 Yearly rename, old name freed, case-insensitive", "Onboarding Imports", "Auth & Sign-up", "Files Upload", "Files Upload Story", "T-020 LinkedIn import → review → base profile", "T-063 Put the ErrorCode on the error body"]
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 owner: "Omar Fostok"
 tags: [frontend-requirements, frontend-requirements/draft, module/identity, layer/frontend]
 ---
@@ -67,7 +67,7 @@ What the client needs from the backend for the Pin-name claim, sign-up's *Profil
 | Role | main profile (T-078) | behaves like headline until product says otherwise (D-02 *Still open*) |
 | Company | main profile (T-078) | a Ring may change it |
 | Location | main profile (T-078) | a Ring may change it |
-| Photo | main profile (T-078), a file id from `POST /files` | shown once [[T-062 Serve uploaded file bytes by id]] ships; a Ring may pick another |
+| Photo | main profile (T-078), a file id from `POST /files` | shown once [[Files Upload Story|Files Upload · showing files]] ships; a Ring may pick another |
 | Bio | main profile (T-078) | a Ring may change it |
 
 ## Endpoints required
@@ -84,7 +84,7 @@ What the client needs from the backend for the Pin-name claim, sign-up's *Profil
 | Claim the handle at registration | `POST /auth/complete-registration` | ✅ | — (listed under [[Auth & Sign-up]]) |
 | Main profile fields (headline, role, company, location, photo, bio) on read and `PATCH` | `GET /profiles`, `PATCH /profiles/:id` | ❌ | [[T-078 Main profile fields from D-02]] |
 | Upload the profile photo | `POST /files` | ✅ | — ([[Files Upload]]) |
-| Show the profile photo | — | ❌ | [[T-062 Serve uploaded file bytes by id]] |
+| Show the profile photo | — | ❌ | [[Files Upload Story|Files Upload · showing files]] |
 | Once-a-year rename limit, enforced and its next date readable | — | ❌ | no task yet ([[D-06 Yearly rename, old name freed, case-insensitive]]) |
 | Suggested handles on s06 | — (client, from the person's own name) | ✅ | — ([[D-06 Yearly rename, old name freed, case-insensitive]]) |
 | Import into the profile | — | ❌ | [[T-020 LinkedIn import → review → base profile]] |
@@ -116,5 +116,5 @@ Until [[T-063 Put the ErrorCode on the error body]] ships, branch on status and 
 ## Blocked by
 
 - [[T-078 Main profile fields from D-02]] — *Profile basics*, the editor's work section, and the headline every design screen shows.
-- [[T-062 Serve uploaded file bytes by id]] — the photo, once saved.
+- [[Files Upload Story|Files Upload · showing files]] — the photo, once saved.
 - The once-a-year rename limit has no task: the client shows the copy but nothing enforces it.
