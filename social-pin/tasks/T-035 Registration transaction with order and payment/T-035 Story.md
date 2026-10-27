@@ -13,7 +13,7 @@ pending: []
 approvedBy: ""
 approvedAt: ""
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [story, story/draft, module/events, layer/business]
 task: T-035
 ---
@@ -24,7 +24,7 @@ task: T-035
 
 > Derived from the task [[T-035 Registration transaction with order and payment]]; **not approved by product yet**. The feature-level story is [[Events Before Story]]; this note says what the user gets from this task in particular. `approved` when product signs off (`approvedBy`, `approvedAt`); `verified` when both QA notes are `passing`.
 
-Participant + order + payment intent; on webhook success → T-011 Event Ring.
+Participant + order + payment intent; on webhook success → Event Ring Auto-creation · S6 Event Ring.
 
 ## Persona
 

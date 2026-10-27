@@ -13,7 +13,7 @@ affects: ["Events Before", "Events During", "Event Ring Auto-creation"]
 related: ["D-07 Stripe for all four flows", "T-047 Orders, payments and the provider webhook", "Events Before", "Events During", "Event Ring Auto-creation", "Subscription (Free vs Pro)", "Audit Log", "T-034 Tickets, packages, levels, sold-out", "T-035 Registration transaction with order and payment", "T-040 Lounges and upgrades"]
 owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [story, story/approved, module/commerce, layer/business]
 ---
 
@@ -94,7 +94,7 @@ Acceptance criteria:
 - One buyer per order (CHECK constraint); `OrderItem` holds a price snapshot so historical totals never derive from mutable prices.
 - `Payment.providerReference` is unique: a replayed webhook updates rather than duplicates.
 - `PAYMENT_METHOD` covers cash, card, bank and wallet; `Payment.collectedBy` records `ORGANIZER` vs `SOCIAL_PIN`. Modelled, not decided: which methods are offered, and who collects per organizer.
-- The registration transaction (participant + order + payment intent) and the Event Ring creation are one `@Transactional` unit on webhook success ([[T-035 Registration transaction with order and payment]], [[T-011 Create the Event Ring on registration]]).
+- The registration transaction (participant + order + payment intent) and the Event Ring creation are one `@Transactional` unit on webhook success ([[T-035 Registration transaction with order and payment]], [[Event Ring Auto-creation Story|Event Ring Auto-creation · S6]]).
 - `AuditLog` exists for every payment action; no service writes it yet ([[Audit Log]]).
 
 ## Open questions

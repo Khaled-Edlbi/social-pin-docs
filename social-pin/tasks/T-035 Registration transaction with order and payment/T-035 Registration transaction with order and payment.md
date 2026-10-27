@@ -9,7 +9,7 @@ module: events
 screens: [s51, s52]
 depends: [T-034, T-047]
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [task, task/blocked, module/events, priority/critical]
 ---
 
@@ -23,7 +23,7 @@ tags: [task, task/blocked, module/events, priority/critical]
 
 ## What
 
-Participant + order + payment intent; on webhook success → T-011 Event Ring.
+Participant + order + payment intent; on webhook success → Event Ring Auto-creation · S6 Event Ring.
 
 ## Design
 

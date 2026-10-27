@@ -7,7 +7,7 @@ module: events
 status: draft
 screens: [s48, s49, s50, s51, s52]
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [frontend-requirements, frontend-requirements/draft, module/events, layer/frontend]
 ---
 
@@ -54,7 +54,7 @@ What the client needs to build the events tab, landing page, ticket selection, p
 | Packages, levels, entitlements, capacity / sold out | — | ❌ | [[T-034 Tickets, packages, levels, sold-out]] |
 | Register (participant + order + payment intent) | — | ❌ | [[T-035 Registration transaction with order and payment]] |
 | Payment methods, status, webhook completion | — | ❌ | [[T-047 Orders, payments and the provider webhook]] |
-| Event Ring created on success | — | ❌ | [[T-011 Create the Event Ring on registration]] |
+| Event Ring created on success | — | ❌ | [[Event Ring Auto-creation Story|Event Ring Auto-creation · S6]] |
 | Registered Ring in the hub after success | `GET /rings` | ✅ | — |
 
 ## Behaviour expectations

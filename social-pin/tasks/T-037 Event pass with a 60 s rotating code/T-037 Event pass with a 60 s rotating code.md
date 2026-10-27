@@ -7,10 +7,11 @@ effort: M
 feature: events-during
 module: events
 screens: [s56]
-depends: [T-007, T-011]
+depends: ["T-007"]
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [task, task/blocked, module/events, priority/high]
+related: ["Event Ring Auto-creation Story"]
 ---
 
 # ⛔ T-037 · Event pass with a 60 s rotating code
@@ -30,7 +31,7 @@ Same token mechanism as the badge, shorter window, bound to the Event Ring.
 ## Dependencies
 
 - Waits on [[T-007 Issue and rotate the QR token for a Ring]]
-- Waits on [[T-011 Create the Event Ring on registration]]
+- Waits on [[Event Ring Auto-creation Story|Event Ring Auto-creation · S6]]
 
 ## Definition of done
 

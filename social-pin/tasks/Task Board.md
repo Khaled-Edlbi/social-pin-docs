@@ -26,8 +26,6 @@ kanban-plugin: board
 - [ ] [[T-008 Resolve a scanned QR token]] #critical #badge-qr
 - [ ] [[T-008-be Backend · Resolve a scanned QR token]] #critical #badge-qr #backend
 - [ ] [[T-008-fe Frontend · Resolve a scanned QR token]] #critical #badge-qr #frontend
-- [ ] [[T-011 Create the Event Ring on registration]] #critical #event-ring-auto
-- [ ] [[T-011-be Backend · Create the Event Ring on registration]] #critical #event-ring-auto #backend
 - [ ] [[T-021-fe Frontend · Connect request send, inbox, cancel]] #critical #connections #frontend
 - [ ] [[T-022 Accept into a Ring (sets grantedRingId)]] #critical #connections
 - [ ] [[T-022-be Backend · Accept into a Ring (sets grantedRingId)]] #critical #connections #backend

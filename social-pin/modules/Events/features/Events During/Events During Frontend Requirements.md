@@ -7,7 +7,7 @@ module: events
 status: draft
 screens: [s53, s54, s55, s56, s57, s58]
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [frontend-requirements, frontend-requirements/draft, module/events, layer/frontend]
 ---
 
@@ -89,6 +89,6 @@ What the client needs for the in-event hub and its six screens, and whether each
 
 - No decision note. Upstream tasks:
 - [[T-036 Event mode exhibitors list and detail]] — waits on [[T-033 Events list, detail, schedule]]; s54, s55, and unblocks T-038, T-039, T-052.
-- [[T-037 Event pass with a 60 s rotating code]] — waits on [[T-007 Issue and rotate the QR token for a Ring]] and [[T-011 Create the Event Ring on registration]]; s56.
+- [[T-037 Event pass with a 60 s rotating code]] — waits on [[T-007 Issue and rotate the QR token for a Ring]] and [[Event Ring Auto-creation Story|Event Ring Auto-creation · S6]]; s56.
 - [[T-039 Catalogue products and talks (new table)]] — needs a schema decision; s58.
 - [[T-040 Lounges and upgrades]] — waits on [[T-034 Tickets, packages, levels, sold-out]] and [[T-049 Subscription endpoints and a single Pro gate]]; the lounge states on s53.

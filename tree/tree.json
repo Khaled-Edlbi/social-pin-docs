@@ -298,9 +298,6 @@
     "T-010 Story": "story:T-010",
     "T-010-be Backend · Public browser page for viewers without the app": "task:T-010-be",
     "T-010-fe Frontend · Public browser page for viewers without the app": "task:T-010-fe",
-    "T-011 Create the Event Ring on registration": "task:T-011",
-    "T-011 Story": "story:T-011",
-    "T-011-be Backend · Create the Event Ring on registration": "task:T-011-be",
     "T-012 List my files (photo library)": "task:T-012",
     "T-012 Story": "story:T-012",
     "T-012-be Backend · List my files (photo library)": "task:T-012-be",
@@ -774,7 +771,6 @@
     "S-45": "story:pincast",
     "S-46": "story:T-032",
     "S-47": "story:event-ring-auto",
-    "S-48": "story:T-011",
     "S-49": "story:events-before",
     "S-50": "story:T-033",
     "S-51": "story:T-034",
@@ -843,8 +839,6 @@
     "T-010": "task:T-010",
     "T-010-be": "task:T-010-be",
     "T-010-fe": "task:T-010-fe",
-    "T-011": "task:T-011",
-    "T-011-be": "task:T-011-be",
     "T-012": "task:T-012",
     "T-012-be": "task:T-012-be",
     "T-012-fe": "task:T-012-fe",
@@ -4470,8 +4464,6 @@
       "containers": [
         "feature:event-ring-auto",
         "feature:events-before",
-        "task:T-011",
-        "task:T-011-be",
         "task:T-035",
         "task:T-035-be",
         "task:T-035-fe"
@@ -4484,12 +4476,9 @@
         "feature:events-before",
         "frontend-requirements:event-ring-auto",
         "frontend-requirements:events-before",
-        "story:T-011",
         "story:T-035",
         "story:event-ring-auto",
         "story:events-before",
-        "task:T-011",
-        "task:T-011-be",
         "task:T-035",
         "task:T-035-be",
         "task:T-035-fe"
@@ -5076,7 +5065,7 @@
     }
   },
   "counts": {
-    "blocked": 146,
+    "blocked": 144,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -5089,28 +5078,28 @@
       "project": 27,
       "qa-backend": 1,
       "qa-frontend": 1,
-      "story": 99,
-      "task": 168
+      "story": 98,
+      "task": 166
     },
     "byLayer": {
       "backend": 56,
-      "business": 346,
+      "business": 343,
       "frontend": 44,
       "qa": 2,
       "shared": 10
     },
     "concepts": 199,
     "decisions": 19,
-    "edges": 5176,
+    "edges": 5154,
     "features": 41,
-    "layerNotes": 189,
+    "layerNotes": 188,
     "modules": 8,
-    "notes": 494,
+    "notes": 491,
     "partial": 4,
     "placeholders": 161,
     "records": 14,
-    "taskLayerNotes": 59,
-    "tasks": 168
+    "taskLayerNotes": 58,
+    "tasks": 166
   },
   "deadlines": {
     "missed": {
@@ -6975,21 +6964,6 @@
       "to": "task:T-010-fe"
     },
     {
-      "from": "task:T-011",
-      "kind": "blocks",
-      "to": "task:T-037"
-    },
-    {
-      "from": "task:T-011",
-      "kind": "blocks",
-      "to": "task:T-037-be"
-    },
-    {
-      "from": "task:T-011",
-      "kind": "blocks",
-      "to": "task:T-037-fe"
-    },
-    {
       "from": "task:T-012",
       "kind": "blocks",
       "to": "task:T-013"
@@ -7278,16 +7252,6 @@
       "from": "task:T-032-be",
       "kind": "blocks",
       "to": "task:T-032-fe"
-    },
-    {
-      "from": "task:T-033",
-      "kind": "blocks",
-      "to": "task:T-011"
-    },
-    {
-      "from": "task:T-033",
-      "kind": "blocks",
-      "to": "task:T-011-be"
     },
     {
       "from": "task:T-033",
@@ -8120,16 +8084,6 @@
       "to": "task:T-010-be"
     },
     {
-      "from": "task:T-011",
-      "kind": "depends",
-      "to": "task:T-033"
-    },
-    {
-      "from": "task:T-011-be",
-      "kind": "depends",
-      "to": "task:T-033"
-    },
-    {
       "from": "task:T-012-fe",
       "kind": "depends",
       "to": "task:T-012-be"
@@ -8535,29 +8489,14 @@
       "to": "task:T-007"
     },
     {
-      "from": "task:T-037",
-      "kind": "depends",
-      "to": "task:T-011"
-    },
-    {
       "from": "task:T-037-be",
-      "kind": "depends",
-      "to": "task:T-007"
-    },
-    {
-      "from": "task:T-037-be",
-      "kind": "depends",
-      "to": "task:T-011"
-    },
-    {
-      "from": "task:T-037-fe",
       "kind": "depends",
       "to": "task:T-007"
     },
     {
       "from": "task:T-037-fe",
       "kind": "depends",
-      "to": "task:T-011"
+      "to": "task:T-007"
     },
     {
       "from": "task:T-037-fe",
@@ -12760,14 +12699,6 @@
       ]
     },
     {
-      "from": "story:event-ring-auto",
-      "kind": "related",
-      "to": "story:T-011",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
       "from": "story:events-before",
       "kind": "related",
       "to": "feature:event-ring-auto"
@@ -13486,6 +13417,21 @@
       "from": "task:T-023",
       "kind": "related",
       "to": "decision:D-15"
+    },
+    {
+      "from": "task:T-037",
+      "kind": "related",
+      "to": "story:event-ring-auto"
+    },
+    {
+      "from": "task:T-037-be",
+      "kind": "related",
+      "to": "story:event-ring-auto"
+    },
+    {
+      "from": "task:T-037-fe",
+      "kind": "related",
+      "to": "story:event-ring-auto"
     },
     {
       "from": "task:T-063",
@@ -25258,11 +25204,6 @@
       "to": "task:T-067"
     },
     {
-      "from": "story:event-ring-auto",
-      "kind": "tree",
-      "to": "task:T-011"
-    },
-    {
       "from": "story:events-before",
       "kind": "tree",
       "to": "task:T-033"
@@ -25621,16 +25562,6 @@
       "from": "task:T-010",
       "kind": "tree",
       "to": "task:T-010-fe"
-    },
-    {
-      "from": "task:T-011",
-      "kind": "tree",
-      "to": "story:T-011"
-    },
-    {
-      "from": "task:T-011",
-      "kind": "tree",
-      "to": "task:T-011-be"
     },
     {
       "from": "task:T-012",
@@ -27660,7 +27591,7 @@
     {
       "from": "feature:event-ring-auto",
       "kind": "wikilink",
-      "to": "task:T-011"
+      "to": "project:status-report-2026-10-15"
     },
     {
       "from": "feature:events-before",
@@ -28595,11 +28526,6 @@
     {
       "from": "frontend-requirements:event-ring-auto",
       "kind": "wikilink",
-      "to": "task:T-011"
-    },
-    {
-      "from": "frontend-requirements:event-ring-auto",
-      "kind": "wikilink",
       "to": "task:T-033"
     },
     {
@@ -28645,17 +28571,17 @@
     {
       "from": "frontend-requirements:events-before",
       "kind": "wikilink",
+      "to": "story:event-ring-auto"
+    },
+    {
+      "from": "frontend-requirements:events-before",
+      "kind": "wikilink",
       "to": "story:events-before"
     },
     {
       "from": "frontend-requirements:events-before",
       "kind": "wikilink",
       "to": "story:payments"
-    },
-    {
-      "from": "frontend-requirements:events-before",
-      "kind": "wikilink",
-      "to": "task:T-011"
     },
     {
       "from": "frontend-requirements:events-before",
@@ -28690,17 +28616,17 @@
     {
       "from": "frontend-requirements:events-during",
       "kind": "wikilink",
+      "to": "story:event-ring-auto"
+    },
+    {
+      "from": "frontend-requirements:events-during",
+      "kind": "wikilink",
       "to": "story:events-during"
     },
     {
       "from": "frontend-requirements:events-during",
       "kind": "wikilink",
       "to": "task:T-007"
-    },
-    {
-      "from": "frontend-requirements:events-during",
-      "kind": "wikilink",
-      "to": "task:T-011"
     },
     {
       "from": "frontend-requirements:events-during",
@@ -29070,12 +28996,12 @@
     {
       "from": "frontend-requirements:payments",
       "kind": "wikilink",
-      "to": "story:payments"
+      "to": "story:event-ring-auto"
     },
     {
       "from": "frontend-requirements:payments",
       "kind": "wikilink",
-      "to": "task:T-011"
+      "to": "story:payments"
     },
     {
       "from": "frontend-requirements:payments",
@@ -29230,17 +29156,17 @@
     {
       "from": "frontend-requirements:post-event",
       "kind": "wikilink",
+      "to": "story:event-ring-auto"
+    },
+    {
+      "from": "frontend-requirements:post-event",
+      "kind": "wikilink",
       "to": "story:post-event"
     },
     {
       "from": "frontend-requirements:post-event",
       "kind": "wikilink",
       "to": "task:T-009"
-    },
-    {
-      "from": "frontend-requirements:post-event",
-      "kind": "wikilink",
-      "to": "task:T-011"
     },
     {
       "from": "frontend-requirements:post-event",
@@ -31845,11 +31771,6 @@
     {
       "from": "project:status-report-2026-10-15",
       "kind": "wikilink",
-      "to": "feature:event-ring-auto"
-    },
-    {
-      "from": "project:status-report-2026-10-15",
-      "kind": "wikilink",
       "to": "feature:events-before"
     },
     {
@@ -32318,11 +32239,6 @@
       "to": "task:T-035"
     },
     {
-      "from": "story:event-ring-auto",
-      "kind": "wikilink",
-      "to": "task:T-037"
-    },
-    {
       "from": "story:events-before",
       "kind": "wikilink",
       "to": "needs-decision:ND-07"
@@ -32546,11 +32462,6 @@
       "from": "story:payments",
       "kind": "wikilink",
       "to": "story:subscription"
-    },
-    {
-      "from": "story:payments",
-      "kind": "wikilink",
-      "to": "task:T-011"
     },
     {
       "from": "story:pincast",
@@ -32916,11 +32827,6 @@
       "from": "story:T-010",
       "kind": "wikilink",
       "to": "feature:badge-qr"
-    },
-    {
-      "from": "story:T-011",
-      "kind": "wikilink",
-      "to": "feature:event-ring-auto"
     },
     {
       "from": "story:T-012",
@@ -33611,41 +33517,6 @@
       "from": "task:T-010-fe",
       "kind": "wikilink",
       "to": "task:T-010-be"
-    },
-    {
-      "from": "task:T-011",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-011",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-011",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-011",
-      "kind": "wikilink",
-      "to": "task:T-033"
-    },
-    {
-      "from": "task:T-011",
-      "kind": "wikilink",
-      "to": "task:T-037"
-    },
-    {
-      "from": "task:T-011-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:event-ring-auto"
-    },
-    {
-      "from": "task:T-011-be",
-      "kind": "wikilink",
-      "to": "feature:event-ring-auto"
     },
     {
       "from": "task:T-012",
@@ -34666,6 +34537,11 @@
       "from": "task:T-033",
       "kind": "wikilink",
       "to": "project:status-report-2026-10-15"
+    },
+    {
+      "from": "task:T-033",
+      "kind": "wikilink",
+      "to": "story:event-ring-auto"
     },
     {
       "from": "task:T-033",
@@ -36961,18 +36837,6 @@
     },
     "social-pin/tasks/T-010 Public browser page for viewers without the app/T-010-fe Frontend · Public browser page for viewers without the app.md": {
       "name": "T-010-fe Frontend · Public browser page for viewers without the app",
-      "type": "task"
-    },
-    "social-pin/tasks/T-011 Create the Event Ring on registration/T-011 Create the Event Ring on registration.md": {
-      "name": "T-011 Create the Event Ring on registration",
-      "type": "task"
-    },
-    "social-pin/tasks/T-011 Create the Event Ring on registration/T-011 Story.md": {
-      "name": "T-011 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-011 Create the Event Ring on registration/T-011-be Backend · Create the Event Ring on registration.md": {
-      "name": "T-011-be Backend · Create the Event Ring on registration",
       "type": "task"
     },
     "social-pin/tasks/T-012 List my files (photo library)/T-012 List my files (photo library).md": {
@@ -44668,8 +44532,8 @@
       "resolution": null,
       "rollup": {
         "approved": 1,
-        "blocked": 3,
-        "draft": 2,
+        "blocked": 1,
+        "draft": 1,
         "missing": 4
       },
       "scope": null,
@@ -44686,7 +44550,7 @@
       ],
       "task": null,
       "title": "Event Ring Auto-creation",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "feature:events-before": {
       "affects": [],
@@ -49481,7 +49345,7 @@
       ],
       "task": null,
       "title": "Event Ring Auto-creation Frontend Requirements",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "frontend-requirements:events-before": {
       "affects": [],
@@ -49535,7 +49399,7 @@
       ],
       "task": null,
       "title": "Events Before Frontend Requirements",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "frontend-requirements:events-during": {
       "affects": [],
@@ -49596,7 +49460,7 @@
       ],
       "task": null,
       "title": "Events During Frontend Requirements",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "frontend-requirements:exhibitor": {
       "affects": [],
@@ -51199,9 +51063,9 @@
       "resolution": null,
       "rollup": {
         "approved": 4,
-        "blocked": 38,
+        "blocked": 36,
         "decided": 1,
-        "draft": 17,
+        "draft": 16,
         "in-progress": 4,
         "missing": 20,
         "needs-decision": 1,
@@ -58039,12 +57903,12 @@
       ],
       "rollup": {
         "approved": 36,
-        "blocked": 146,
+        "blocked": 144,
         "current": 8,
         "decided": 14,
         "delivered": 2,
         "done": 10,
-        "draft": 93,
+        "draft": 92,
         "in-progress": 55,
         "missing": 161,
         "needs-decision": 9,
@@ -58487,56 +58351,6 @@
       ],
       "task": "T-010",
       "title": "T-010 Story",
-      "updated": "2026-10-26"
-    },
-    "story:T-011": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-48",
-      "children": [],
-      "code": "T-011",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
-      "effort": null,
-      "feature": "event-ring-auto",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-011",
-      "inherits": {
-        "priority": "task:T-011",
-        "release": "feature:event-ring-auto"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "events",
-      "parentTask": null,
-      "parents": [
-        "task:T-011"
-      ],
-      "path": "social-pin/tasks/T-011 Create the Event Ring on registration/T-011 Story.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "scope": "task",
-      "screens": [
-        "s52"
-      ],
-      "status": "draft",
-      "summary": "Inside the registration transaction: create an EVENT Ring (temporary, window = event dates), add the participant, link EventParticipant.ringId.",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/events",
-        "layer/business"
-      ],
-      "task": "T-011",
-      "title": "T-011 Story",
       "updated": "2026-10-26"
     },
     "story:T-012": {
@@ -59825,7 +59639,7 @@
         "s52"
       ],
       "status": "draft",
-      "summary": "Participant + order + payment intent; on webhook success → T-011 Event Ring.",
+      "summary": "Participant + order + payment intent; on webhook success → Event Ring Auto-creation · S6 Event Ring.",
       "tags": [
         "story",
         "story/draft",
@@ -59834,7 +59648,7 @@
       ],
       "task": "T-035",
       "title": "T-035 Story",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "story:T-036": {
       "affects": [],
@@ -61992,9 +61806,7 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-47",
-      "children": [
-        "task:T-011"
-      ],
+      "children": [],
       "code": "event-ring-auto",
       "created": "2026-10-18",
       "deadline": null,
@@ -62021,7 +61833,11 @@
       "path": "social-pin/modules/Events/features/Event Ring Auto-creation/Event Ring Auto-creation Story.md",
       "pending": [],
       "priority": "critical",
-      "related": [],
+      "related": [
+        "task:T-037",
+        "task:T-037-be",
+        "task:T-037-fe"
+      ],
       "release": "mvp",
       "resolution": null,
       "scope": "feature",
@@ -62038,7 +61854,7 @@
       ],
       "task": null,
       "title": "Event Ring Auto-creation Story",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "story:events-before": {
       "affects": [],
@@ -62740,7 +62556,7 @@
       ],
       "task": null,
       "title": "Payments & Orders Story",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "story:photo-library": {
       "affects": [],
@@ -64943,135 +64759,6 @@
       ],
       "task": null,
       "title": "T-010-fe Frontend · Public browser page for viewers without the app",
-      "updated": "2026-10-26"
-    },
-    "task:T-011": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-033",
-          "title": "T-033 Events list, detail, schedule",
-          "why": "T-033 Events list, detail, schedule is to do"
-        }
-      ],
-      "card": "T-011",
-      "children": [
-        "story:T-011",
-        "task:T-011-be"
-      ],
-      "code": "T-011",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-033"
-      ],
-      "dir": "social-pin/tasks/T-011 Create the Event Ring on registration",
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "event-ring-auto",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-011",
-      "inherits": {
-        "release": "feature:event-ring-auto"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "events",
-      "parentTask": null,
-      "parents": [
-        "story:event-ring-auto"
-      ],
-      "path": "social-pin/tasks/T-011 Create the Event Ring on registration/T-011 Create the Event Ring on registration.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {
-        "blocked": 1,
-        "draft": 1
-      },
-      "scope": null,
-      "screens": [
-        "s52"
-      ],
-      "status": "blocked",
-      "summary": "Inside the registration transaction: create an EVENT Ring (temporary, window = event dates), add the participant, link EventParticipant.ringId.",
-      "tags": [
-        "task",
-        "task/blocked",
-        "module/events",
-        "priority/critical"
-      ],
-      "task": null,
-      "title": "T-011 Create the Event Ring on registration",
-      "updated": "2026-10-26"
-    },
-    "task:T-011-be": {
-      "affects": [],
-      "blockedBy": [
-        {
-          "id": "task:T-033",
-          "title": "T-033 Events list, detail, schedule",
-          "why": "T-033 Events list, detail, schedule is to do"
-        }
-      ],
-      "card": "T-011-be",
-      "children": [],
-      "code": "T-011-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [
-        "task:T-033"
-      ],
-      "dir": null,
-      "effectiveStatus": "blocked",
-      "effort": "M",
-      "feature": "event-ring-auto",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-011-be",
-      "inherits": {
-        "release": "feature:event-ring-auto"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "events",
-      "parentTask": "T-011",
-      "parents": [
-        "task:T-011"
-      ],
-      "path": "social-pin/tasks/T-011 Create the Event Ring on registration/T-011-be Backend · Create the Event Ring on registration.md",
-      "pending": [],
-      "priority": "critical",
-      "related": [],
-      "release": "mvp",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [
-        "s52"
-      ],
-      "status": "todo",
-      "summary": "The API side of T-011 Create the Event Ring on registration: the endpoints, data and rules its What describes. Record what shipped in T-011-be Backend Delivery and how to call it in T-011-be…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/events",
-        "priority/critical",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-011-be Backend · Create the Event Ring on registration",
       "updated": "2026-10-26"
     },
     "task:T-012": {
@@ -69324,7 +69011,7 @@
       ],
       "task": null,
       "title": "T-033 Events list, detail, schedule",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "task:T-033-be": {
       "affects": [],
@@ -69715,7 +69402,7 @@
         "s52"
       ],
       "status": "blocked",
-      "summary": "Participant + order + payment intent; on webhook success → T-011 Event Ring.",
+      "summary": "Participant + order + payment intent; on webhook success → Event Ring Auto-creation · S6 Event Ring.",
       "tags": [
         "task",
         "task/blocked",
@@ -69724,7 +69411,7 @@
       ],
       "task": null,
       "title": "T-035 Registration transaction with order and payment",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "task:T-035-be": {
       "affects": [],
@@ -70084,11 +69771,6 @@
           "id": "task:T-007",
           "title": "T-007 Issue and rotate the QR token for a Ring",
           "why": "T-007 Issue and rotate the QR token for a Ring is to do"
-        },
-        {
-          "id": "task:T-011",
-          "title": "T-011 Create the Event Ring on registration",
-          "why": "T-011 Create the Event Ring on registration is blocked"
         }
       ],
       "card": "T-037",
@@ -70102,8 +69784,7 @@
       "deadline": null,
       "decision": null,
       "depends": [
-        "task:T-007",
-        "task:T-011"
+        "task:T-007"
       ],
       "dir": "social-pin/tasks/T-037 Event pass with a 60 s rotating code",
       "effectiveStatus": "blocked",
@@ -70127,7 +69808,9 @@
       "path": "social-pin/tasks/T-037 Event pass with a 60 s rotating code/T-037 Event pass with a 60 s rotating code.md",
       "pending": [],
       "priority": "high",
-      "related": [],
+      "related": [
+        "story:event-ring-auto"
+      ],
       "release": "mvp",
       "resolution": null,
       "rollup": {
@@ -70148,7 +69831,7 @@
       ],
       "task": null,
       "title": "T-037 Event pass with a 60 s rotating code",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "task:T-037-be": {
       "affects": [],
@@ -70157,11 +69840,6 @@
           "id": "task:T-007",
           "title": "T-007 Issue and rotate the QR token for a Ring",
           "why": "T-007 Issue and rotate the QR token for a Ring is to do"
-        },
-        {
-          "id": "task:T-011",
-          "title": "T-011 Create the Event Ring on registration",
-          "why": "T-011 Create the Event Ring on registration is blocked"
         }
       ],
       "card": "T-037-be",
@@ -70171,8 +69849,7 @@
       "deadline": null,
       "decision": null,
       "depends": [
-        "task:T-007",
-        "task:T-011"
+        "task:T-007"
       ],
       "dir": null,
       "effectiveStatus": "blocked",
@@ -70198,7 +69875,9 @@
       "path": "social-pin/tasks/T-037 Event pass with a 60 s rotating code/T-037-be Backend · Event pass with a 60 s rotating code.md",
       "pending": [],
       "priority": "high",
-      "related": [],
+      "related": [
+        "story:event-ring-auto"
+      ],
       "release": "mvp",
       "resolution": null,
       "rollup": {},
@@ -70217,7 +69896,7 @@
       ],
       "task": null,
       "title": "T-037-be Backend · Event pass with a 60 s rotating code",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "task:T-037-fe": {
       "affects": [],
@@ -70226,11 +69905,6 @@
           "id": "task:T-007",
           "title": "T-007 Issue and rotate the QR token for a Ring",
           "why": "T-007 Issue and rotate the QR token for a Ring is to do"
-        },
-        {
-          "id": "task:T-011",
-          "title": "T-011 Create the Event Ring on registration",
-          "why": "T-011 Create the Event Ring on registration is blocked"
         },
         {
           "id": "task:T-037-be",
@@ -70246,7 +69920,6 @@
       "decision": null,
       "depends": [
         "task:T-007",
-        "task:T-011",
         "task:T-037-be"
       ],
       "dir": null,
@@ -70273,7 +69946,9 @@
       "path": "social-pin/tasks/T-037 Event pass with a 60 s rotating code/T-037-fe Frontend · Event pass with a 60 s rotating code.md",
       "pending": [],
       "priority": "high",
-      "related": [],
+      "related": [
+        "story:event-ring-auto"
+      ],
       "release": "mvp",
       "resolution": null,
       "rollup": {},
@@ -70292,7 +69967,7 @@
       ],
       "task": null,
       "title": "T-037-fe Frontend · Event pass with a 60 s rotating code",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "task:T-038": {
       "affects": [],

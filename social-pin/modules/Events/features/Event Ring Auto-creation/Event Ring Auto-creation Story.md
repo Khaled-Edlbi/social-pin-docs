@@ -10,7 +10,7 @@ approvedBy: "khaled"
 approvedAt: 2026-10-25
 owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [story, story/approved, module/events, layer/business]
 ---
 
@@ -18,7 +18,7 @@ tags: [story, story/approved, module/events, layer/business]
 
 **Feature:** [[Event Ring Auto-creation]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[Event Ring Auto-creation Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
-A visitor has just paid for, or RSVP'd to, an event. The product promise is that registration does not end in a receipt but in an identity change: an Event Ring appears in their hub, and "entering" the event means switching to it. This story covers the moment the Ring is granted and the places it has to show up afterwards. The backend has the `EVENT` Ring type and the temporary-Ring lifecycle, but nothing creates the Ring yet ([[T-011 Create the Event Ring on registration]]).
+A visitor has just paid for, or RSVP'd to, an event. The product promise is that registration does not end in a receipt but in an identity change: an Event Ring appears in their hub, and "entering" the event means switching to it. This story covers the moment the Ring is granted and the places it has to show up afterwards. The backend has the `EVENT` Ring type and the temporary-Ring lifecycle, but nothing creates the Ring yet ([[Event Ring Auto-creation Story|Event Ring Auto-creation · S6]]).
 
 ## Persona
 
@@ -60,7 +60,7 @@ Acceptance criteria:
 
 Acceptance criteria:
 - [ ] The pass screen cannot open before the Ring exists; it shows the pending state instead.
-- [ ] The rotating code is requested for the Event Ring's id, never for the default Ring ([[T-037 Event pass with a 60 s rotating code]] waits on T-011).
+- [ ] The rotating code is requested for the Event Ring's id, never for the default Ring ([[T-037 Event pass with a 60 s rotating code]] waits on Event Ring Auto-creation · S6).
 
 ### S5 · Membership stays private ([[Screen Index#s53|s53]])
 
@@ -69,6 +69,14 @@ Acceptance criteria:
 Acceptance criteria:
 - [ ] Nothing the client renders for another attendee names a Ring id or a membership row; the exhibitor card is a Ring view, not a member list.
 - [ ] Lists on s53 / s54 are scoped by the viewer's live membership of the Event Ring, resolved by the backend on every request; the client caches nothing across the event's `expiresAt`.
+
+### S6 · Create the Event Ring on registration
+
+*From T-011 (status then: Blocked), merged 2026-10-27.*
+
+Inside the registration transaction: create an `EVENT` Ring (temporary, window = event dates), add the participant, link `EventParticipant.ringId`.
+
+Screens: [[Screen Index#s52|s52]] Event Ring granted
 
 ## States and motion the design asks for
 
@@ -79,7 +87,7 @@ Acceptance criteria:
 
 ## Rules the backend already enforces
 
-- `POST /rings` rejects `type = EVENT` with 400 `E_RING_01`; the client must never create the Ring itself. Only the registration transaction will (T-011).
+- `POST /rings` rejects `type = EVENT` with 400 `E_RING_01`; the client must never create the Ring itself. Only the registration transaction will (Event Ring Auto-creation · S6).
 - Access is resolved on every request against `now`; both the Ring's window and the membership's are checked, and expiry is exclusive: the Ring is unreadable at its `expiresAt` instant ([[Ring Access Model]]).
 - The owner's "View as" of an expired Ring is a 404 `E_RING_ACCESS_02`; the post-event screen must not rely on it to preview the Ring.
 - Owner editing ignores expiry (`assertCanAdminister`), so the keep / merge / auto-delete choice stays possible after the event ([[Rings]]).
@@ -88,5 +96,5 @@ Acceptance criteria:
 ## Open questions
 
 - No decision note exists for this feature. Open points live in the tasks:
-- [[T-011 Create the Event Ring on registration]] — who owns the Event Ring (the visitor, as the hub shows, or the organizer with the visitor as member) and what the organizer / exhibitor membership rules are. The feature note lists this as a gap; the story assumes the visitor sees it as their own Ring until decided.
+- [[Event Ring Auto-creation Story|Event Ring Auto-creation · S6]] — who owns the Event Ring (the visitor, as the hub shows, or the organizer with the visitor as member) and what the organizer / exhibitor membership rules are. The feature note lists this as a gap; the story assumes the visitor sees it as their own Ring until decided.
 - [[T-035 Registration transaction with order and payment]] — whether the Ring is created at order time or on webhook success decides how long S1's pending state can last.

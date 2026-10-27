@@ -9,12 +9,12 @@ module: events
 parent: T-037
 labels: [frontend]
 screens: [s56]
-depends: [T-007, T-011, T-037-be]
+depends: ["T-007", "T-037-be"]
 affects: []
-related: []
+related: ["Event Ring Auto-creation Story"]
 pending: []
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [task, task/todo, module/events, priority/high, frontend]
 ---
 

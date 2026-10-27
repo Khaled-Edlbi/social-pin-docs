@@ -50,7 +50,7 @@ What the client needs to create an order, pay for it and learn the result, and w
 | Start a payment, provider hand-off | — | ❌ | [[T-047 Orders, payments and the provider webhook]] |
 | Order / payment status to poll | — | ❌ | [[T-047 Orders, payments and the provider webhook]] |
 | Provider webhook (server to server, idempotent on `providerReference`) | — | ❌ | [[T-047 Orders, payments and the provider webhook]] |
-| Registration completes and the Event Ring is granted on success | — | ❌ | [[T-035 Registration transaction with order and payment]], [[T-011 Create the Event Ring on registration]] |
+| Registration completes and the Event Ring is granted on success | — | ❌ | [[T-035 Registration transaction with order and payment]], [[Event Ring Auto-creation Story|Event Ring Auto-creation · S6]] |
 | In-event upgrade purchase | — | ❌ | [[T-040 Lounges and upgrades]] |
 | My orders and receipts | — | ❌ | [[T-047 Orders, payments and the provider webhook]] |
 | Audit of every payment action | — | ❌ | [[Audit Log Story|Audit Log · S4]] |
@@ -83,5 +83,5 @@ What the client needs to create an order, pay for it and learn the result, and w
 - No decision note. Upstream tasks:
 - [[T-047 Orders, payments and the provider webhook]] — needs the provider decision (card / e-payment per organizer); every row above.
 - [[T-035 Registration transaction with order and payment]] — waits on [[T-034 Tickets, packages, levels, sold-out]] and T-047; the order creation and the registration-complete signal.
-- [[T-011 Create the Event Ring on registration]] — the Ring id on success.
+- [[Event Ring Auto-creation Story|Event Ring Auto-creation · S6]] — the Ring id on success.
 - [[T-040 Lounges and upgrades]] — the in-event upgrade sheet.

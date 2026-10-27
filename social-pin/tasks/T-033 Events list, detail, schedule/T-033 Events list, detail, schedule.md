@@ -9,7 +9,7 @@ module: events
 screens: [s48, s49]
 depends: []
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [task, task/todo, module/events, priority/critical]
 ---
 
@@ -30,7 +30,7 @@ tags: [task, task/todo, module/events, priority/critical]
 
 ## Dependencies
 
-- Unblocks [[T-011 Create the Event Ring on registration]]
+- Unblocks [[Event Ring Auto-creation Story|Event Ring Auto-creation · S6]]
 - Unblocks [[T-034 Tickets, packages, levels, sold-out]]
 - Unblocks [[T-036 Event mode exhibitors list and detail]]
 

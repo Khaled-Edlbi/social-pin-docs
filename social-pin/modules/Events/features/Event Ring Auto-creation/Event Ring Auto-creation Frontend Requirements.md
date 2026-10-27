@@ -7,7 +7,7 @@ module: events
 status: draft
 screens: [s52]
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [frontend-requirements, frontend-requirements/draft, module/events, layer/frontend]
 ---
 
@@ -28,7 +28,7 @@ What the client needs from the backend to build s52 and the two screens the gran
 ### [[Screen Index#s16|s16]] My Rings
 
 - Needs: the Event Ring in the list with its window and temporary flag; "View as".
-- Source today: `GET /rings` with the `type` and `isTemporary` filters; `GET /views/ring/:ringId` for the preview. Both available; the Ring row is not, until T-011.
+- Source today: `GET /rings` with the `type` and `isTemporary` filters; `GET /views/ring/:ringId` for the preview. Both available; the Ring row is not, until Event Ring Auto-creation · S6.
 
 ### [[Screen Index#s53|s53]] Event mode
 
@@ -39,12 +39,12 @@ What the client needs from the backend to build s52 and the two screens the gran
 
 | Need | Endpoint | Available | Task / decision |
 |---|---|---|---|
-| Create the Event Ring inside the registration transaction | — | ❌ | [[T-011 Create the Event Ring on registration]] |
+| Create the Event Ring inside the registration transaction | — | ❌ | [[Event Ring Auto-creation Story|Event Ring Auto-creation · S6]] |
 | Registration response carrying the Ring id | — | ❌ | [[T-035 Registration transaction with order and payment]] |
 | List my Rings, including the Event Ring | `GET /rings` (`type`, `isTemporary` filters) | ✅ | — |
 | Ring detail (name, window, flags) | `GET /rings/:id` | ✅ | — |
 | Preview the Event Ring as a member sees it | `GET /views/ring/:ringId` | ✅ | — |
-| Organizer / exhibitor side membership rules | — | ❌ | [[T-011 Create the Event Ring on registration]] |
+| Organizer / exhibitor side membership rules | — | ❌ | [[Event Ring Auto-creation Story|Event Ring Auto-creation · S6]] |
 | Event pass bound to the Event Ring | — | ❌ | [[T-037 Event pass with a 60 s rotating code]] |
 | Keep / merge / auto-delete after the event | `POST /rings/:id/disposition` | ✅ | — |
 
@@ -71,6 +71,6 @@ What the client needs from the backend to build s52 and the two screens the gran
 ## Blocked by
 
 - No decision note. Upstream tasks:
-- [[T-011 Create the Event Ring on registration]] — waits on [[T-033 Events list, detail, schedule]]; every ❌ row above.
+- [[Event Ring Auto-creation Story|Event Ring Auto-creation · S6]] — waits on [[T-033 Events list, detail, schedule]]; every ❌ row above.
 - [[T-035 Registration transaction with order and payment]] — waits on [[T-034 Tickets, packages, levels, sold-out]] and [[T-047 Orders, payments and the provider webhook]] (payment provider undecided); the registration response and the pending-state polling.
-- [[T-037 Event pass with a 60 s rotating code]] — waits on T-011 and [[T-007 Issue and rotate the QR token for a Ring]].
+- [[T-037 Event pass with a 60 s rotating code]] — waits on Event Ring Auto-creation · S6 and [[T-007 Issue and rotate the QR token for a Ring]].

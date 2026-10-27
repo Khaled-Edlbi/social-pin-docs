@@ -64,5 +64,5 @@ What the client needs for the post-event summary and the Ring disposition sheet,
 
 - No decision note. Upstream tasks:
 - [[T-050 Post-event summary and follow-ups]] — the counters and suggestions; waits on [[T-009 Scan counter and share link]], [[T-023 Connection detail and contacts list]], [[T-044 My meetings, calendar, detail, reschedule, cancel]].
-- [[T-011 Create the Event Ring on registration]] — without an Event Ring there is nothing to dispose of on s62; the disposition endpoint can be exercised today only on a manually created temporary Ring.
+- [[Event Ring Auto-creation Story|Event Ring Auto-creation · S6]] — without an Event Ring there is nothing to dispose of on s62; the disposition endpoint can be exercised today only on a manually created temporary Ring.
 - [[Cleanup Jobs Story|Cleanup Jobs · S4]] — the purge of `AUTO_DELETE` Rings; the client sees an archived Ring until it runs.
