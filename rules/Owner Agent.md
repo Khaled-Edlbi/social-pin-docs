@@ -82,7 +82,7 @@ The same goes for the **release** of a feature (`release: mvp | v1 | later` on t
 
 ### 4G · Where do we stand
 
-From `tree/tree.json` (`counts`, each node's `effectiveStatus`, `blockedBy`, `pending`, `deadline`), [[Backlog]], [[Task Board]], the module notes. Answer in the vault's words, by card code; update the table on [[Home]] when the user asks for the report to be kept.
+From `tree/tree.json` (`counts`, each node's `effectiveStatus`, `blockedBy`, `pending`, `deadline`), the [[Docs Tree]] page, the module and feature notes. Answer in the vault's words, by card code; update the table on [[Home]] when the user asks for the report to be kept.
 
 ### 4H · Release
 

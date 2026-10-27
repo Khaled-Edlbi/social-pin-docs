@@ -8,7 +8,7 @@ tags: [map]
 
 > **Browse it as a tree:** `https://khaled-edlbi.github.io/social-pin-docs/` (or `node scripts/build-tree.mjs --serve` locally). Project → module → feature → one note per layer (story, frontend requirements, backend delivery, backend integration, frontend delivery, QA backend, QA frontend), then tasks and decisions, each with a status chip, as a tree, a relation graph or an outline; relations light up on hover; filter by module, layer, kind and status. How it works: [[Docs Tree]]. The rules every agent follows: [[Agent Rules]]. The sequence: [[Workflow]].
 >
-> **Open this repository as an Obsidian vault.** Everything is plain Markdown with wikilinks, so it also reads fine on GitHub. Optional plugins: **Kanban** (the generated [[Task Board]]), **Dataview**.
+> **Open this repository as an Obsidian vault.** Everything is plain Markdown with wikilinks, so it also reads fine on GitHub. Optional plugin: **Dataview**.
 
 ## What Social Pin is
 
@@ -63,10 +63,6 @@ social-pin-docs/
     │       ├── <Feature> Frontend Delivery.md     frontend · what the client shipped
     │       ├── <Feature> QA Backend.md            qa       · expected API behaviour, verdict
     │       └── <Feature> QA Frontend.md           qa       · expected screen behaviour, verdict
-    ├── tasks/
-    │   ├── T-NNN <Title>.md       a task; becomes tasks/T-NNN <Title>/ with the same seven kinds of notes (code T-NNN) as teams pick it up
-    │   ├── Task Board.md          GENERATED Kanban
-    │   └── Backlog.md             GENERATED priority table with blockers
     ├── bugs/                      the bugs, B-NN <Title>.md
     ├── needs-decisions/           the needs-decision cards, ND-NN <Title>.md: the questions
     ├── decisions/                 the decision cards, D-NN <Title>.md: the answers; and the Decisions table
@@ -75,7 +71,7 @@ social-pin-docs/
 
 ## Start here, by role
 
-- **Backend developer** → [[Backlog]] → the ticket → `node scripts/build-tree.mjs --impact T-NNN` → the feature's Backend Delivery and Frontend Requirements → [[Ring Access Model]] → [[Architecture#Build order for a new feature]]. To write the notes: `/backend …` ([[Backend Agent]]).
+- **Backend developer** → the feature's approved Frontend Requirements → its story → `node scripts/build-tree.mjs --impact "<Feature> Story"` → the feature's Backend Delivery → [[Ring Access Model]] → [[Architecture#Build order for a new feature]]. To write the notes: `/backend …` ([[Backend Agent]]).
 - **Frontend developer** → [[Frontend Contract]] → the feature's Backend Integration note → [[Frontend API Guide]]. The rules for the frontend repo's agent: [[Frontend Agent Prompt]]; to write the notes here: `/frontend …` ([[Frontend Agent]]). **Auth is passwordless since 2026-10-15**: [[Frontend Passwordless Migration]].
 - **Product / design** → [[Decisions]] first (five answers unblock 19 tasks), the ✏️ Draft stories in the [[Docs Tree]] to approve, [[Screen Index]] for what each screen can do today. To create a feature with its business side: `/owner …` ([[Owner Agent]]); its story or a task: `/pm …` ([[PM Agent]]); a decision card is raised by whichever agent owns the card that needs it and decided by `/pm` or `/owner`; to approve, change a rule or set priorities: `/owner …` ([[Owner Agent]]).
 - **QA** → a feature's two delivery notes and its story; `--scaffold qa-backend <feature>` / `qa-frontend` to start the artefacts, or `/qa …` ([[QA Agent]]).

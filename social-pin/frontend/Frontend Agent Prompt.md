@@ -2,7 +2,7 @@
 type: project
 layer: frontend
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 related: ["Agent Rules", "Frontend Contract", "Frontend API Guide"]
 tags: [project, layer/frontend, rules]
 ---
@@ -74,10 +74,10 @@ lists.
 - [ ] Frontend Requirements written before backend work was requested; Frontend Delivery written after;
       QA Frontend when checks ran; feature-level notes updated (sum of tasks)
 - [ ] `depends` / `affects` / `related` declared; notes listed by `--impact` updated or flagged
-- [ ] Task note: `status: done`, DoD boxes, `## Log` line (date · branch · what shipped)
-- [ ] `node scripts/build-tree.mjs` run in the vault; `tree/`, `tasks/Task Board.md`, `tasks/Backlog.md`
+- [ ] The feature's Frontend Delivery: `status: done` (or the story part's `pending` entry cleared), `## Log` line (date · branch · story part · what shipped)
+- [ ] `node scripts/build-tree.mjs` run in the vault; `tree/` and `Card Index.md`
       committed with the notes (`--check` is what CI runs)
-- [ ] Both branches pushed; the two pull requests link each other and the ticket
+- [ ] Both branches pushed; the two pull requests link each other and the feature's story
 ````
 
 ## Why these rules and not others

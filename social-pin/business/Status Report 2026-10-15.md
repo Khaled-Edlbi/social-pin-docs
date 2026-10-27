@@ -75,7 +75,7 @@ The comparison this vault was built from. The backend was checked against the de
 5. **Copy or inherit** (s18, s23, s28). → [[ND-05 Copy or inherit]]
 6. **Pin name rules** (s06): once-a-year rename and suggested names vs no limit and deliberately no suggestions. → [[ND-06 Pin name rules]]
 
-All six are tracked in [[Decisions]]; the tasks they block are on the [[Task Board]].
+All six are tracked in [[Decisions]]; the cards they block show it in the [[Docs Tree]].
 
 ## Addendum · frontend documentation pass (2026-10-15, later the same day)
 

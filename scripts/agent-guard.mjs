@@ -32,7 +32,7 @@ const PROTOCOL = agentsCfg.protocol || 'rules/Agent Protocol.md';
 // the product's cards live in `projectDir`; the docs system (rules/, templates/, scripts/, tree/) at the root
 const PROJECT_DIR = String(cfg.projectDir || '').replace(/^\/+|\/+$/g, '');
 const prj = (rel) => (PROJECT_DIR ? `${PROJECT_DIR}/${rel}` : rel);
-const GENERATED = ['tree/**', prj('Card Index.md'), prj('tasks/Task Board.md'), prj('tasks/Backlog.md')];
+const GENERATED = ['tree/**', prj('Card Index.md')];
 const HAND_WRITTEN = ['tree/index.html']; // the tree page is source, the owner's (`paths` in its agents.list entry); the build only copies it to site/
 const VERBATIM = [prj('design/Wireframe Brief.md')];
 const KINDS = []; // { id, file, layer }
