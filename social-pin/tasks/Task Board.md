@@ -172,8 +172,6 @@ kanban-plugin: board
 - [ ] [[T-047-be Backend · Orders, payments and the provider webhook]] #high #payments #backend
 - [ ] [[T-049 Subscription endpoints and a single Pro gate]] #high #subscription
 - [ ] [[T-049-be Backend · Subscription endpoints and a single Pro gate]] #high #subscription #backend
-- [ ] [[T-054 Cleanup jobs]] #high #cleanup-jobs
-- [ ] [[T-054-be Backend · Cleanup jobs]] #high #cleanup-jobs #backend
 - [ ] [[T-020b-be Backend · Business card scan and portfolio URL import]] #medium #onboarding-imports #backend
 - [ ] [[T-031-be Backend · Import contacts]] #medium #discover-hub #backend
 

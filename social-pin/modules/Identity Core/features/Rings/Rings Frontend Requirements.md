@@ -74,7 +74,7 @@ What the client needs from the backend to build the Ring lists, the create wizar
 | Copy a Ring when creating (s18) | — | ❌ | [[ND-05 Copy or inherit]] |
 | Review / decline an invite, join with a code (s17) | — | ❌ | [[T-026 Ring invitations invite, review, decline]], [[T-027 Join a Ring with a code or verified work email]] |
 | Delegated admins (s26, s27) | — | ❌ | [[T-006 Delegated admin endpoints]] |
-| Purge of AUTO_DELETE Rings | — | ❌ | [[T-054 Cleanup jobs]] |
+| Purge of AUTO_DELETE Rings | — | ❌ | [[Cleanup Jobs Story|Cleanup Jobs · S4]] |
 
 ## Behaviour expectations
 

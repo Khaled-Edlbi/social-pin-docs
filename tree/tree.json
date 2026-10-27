@@ -471,9 +471,6 @@
     "T-052 Story": "story:T-052",
     "T-052-be Backend · Smart Match": "task:T-052-be",
     "T-052-fe Frontend · Smart Match": "task:T-052-fe",
-    "T-054 Cleanup jobs": "task:T-054",
-    "T-054 Story": "story:T-054",
-    "T-054-be Backend · Cleanup jobs": "task:T-054-be",
     "T-055 Run the e2e suite in CI against PostGIS": "task:T-055",
     "T-055 Story": "story:T-055",
     "T-055-be Backend · Run the e2e suite in CI against PostGIS": "task:T-055-be",
@@ -808,7 +805,6 @@
     "S-73": "story:app-shell",
     "S-74": "story:audit-log",
     "S-76": "story:cleanup-jobs",
-    "S-77": "story:T-054",
     "S-78": "story:code-delivery",
     "S-79": "story:T-001",
     "S-80": "story:T-002",
@@ -980,8 +976,6 @@
     "T-052": "task:T-052",
     "T-052-be": "task:T-052-be",
     "T-052-fe": "task:T-052-fe",
-    "T-054": "task:T-054",
-    "T-054-be": "task:T-054-be",
     "T-055": "task:T-055",
     "T-055-be": "task:T-055-be",
     "T-063": "task:T-063",
@@ -5101,28 +5095,28 @@
       "project": 27,
       "qa-backend": 1,
       "qa-frontend": 1,
-      "story": 101,
-      "task": 172
+      "story": 100,
+      "task": 170
     },
     "byLayer": {
       "backend": 56,
-      "business": 352,
+      "business": 349,
       "frontend": 44,
       "qa": 2,
       "shared": 10
     },
     "concepts": 199,
     "decisions": 19,
-    "edges": 5200,
+    "edges": 5188,
     "features": 41,
-    "layerNotes": 191,
+    "layerNotes": 190,
     "modules": 8,
-    "notes": 500,
+    "notes": 497,
     "partial": 4,
     "placeholders": 161,
     "records": 14,
-    "taskLayerNotes": 61,
-    "tasks": 172
+    "taskLayerNotes": 60,
+    "tasks": 170
   },
   "deadlines": {
     "missed": {
@@ -12600,14 +12594,6 @@
       "from": "story:badge-qr",
       "kind": "related",
       "to": "story:T-010",
-      "via": [
-        "sum-of"
-      ]
-    },
-    {
-      "from": "story:cleanup-jobs",
-      "kind": "related",
-      "to": "story:T-054",
       "via": [
         "sum-of"
       ]
@@ -25201,11 +25187,6 @@
       "to": "task:T-010"
     },
     {
-      "from": "story:cleanup-jobs",
-      "kind": "tree",
-      "to": "task:T-054"
-    },
-    {
       "from": "story:code-delivery",
       "kind": "tree",
       "to": "task:T-001"
@@ -26326,16 +26307,6 @@
       "to": "task:T-052-fe"
     },
     {
-      "from": "task:T-054",
-      "kind": "tree",
-      "to": "story:T-054"
-    },
-    {
-      "from": "task:T-054",
-      "kind": "tree",
-      "to": "task:T-054-be"
-    },
-    {
       "from": "task:T-055",
       "kind": "tree",
       "to": "story:T-055"
@@ -27363,17 +27334,17 @@
     {
       "from": "backend-integration:rings",
       "kind": "wikilink",
+      "to": "story:cleanup-jobs"
+    },
+    {
+      "from": "backend-integration:rings",
+      "kind": "wikilink",
       "to": "story:counts"
     },
     {
       "from": "backend-integration:rings",
       "kind": "wikilink",
       "to": "task:T-026"
-    },
-    {
-      "from": "backend-integration:rings",
-      "kind": "wikilink",
-      "to": "task:T-054"
     },
     {
       "from": "backend-integration:view-as",
@@ -27563,7 +27534,7 @@
     {
       "from": "feature:cleanup-jobs",
       "kind": "wikilink",
-      "to": "task:T-054"
+      "to": "project:status-report-2026-10-15"
     },
     {
       "from": "feature:code-delivery",
@@ -28284,11 +28255,6 @@
       "from": "frontend-requirements:cleanup-jobs",
       "kind": "wikilink",
       "to": "story:cleanup-jobs"
-    },
-    {
-      "from": "frontend-requirements:cleanup-jobs",
-      "kind": "wikilink",
-      "to": "task:T-054"
     },
     {
       "from": "frontend-requirements:cleanup-jobs",
@@ -29248,6 +29214,11 @@
     {
       "from": "frontend-requirements:pincast",
       "kind": "wikilink",
+      "to": "story:cleanup-jobs"
+    },
+    {
+      "from": "frontend-requirements:pincast",
+      "kind": "wikilink",
       "to": "story:files"
     },
     {
@@ -29278,17 +29249,17 @@
     {
       "from": "frontend-requirements:pincast",
       "kind": "wikilink",
-      "to": "task:T-054"
-    },
-    {
-      "from": "frontend-requirements:pincast",
-      "kind": "wikilink",
       "to": "task:T-063"
     },
     {
       "from": "frontend-requirements:post-event",
       "kind": "wikilink",
       "to": "feature:notifications"
+    },
+    {
+      "from": "frontend-requirements:post-event",
+      "kind": "wikilink",
+      "to": "story:cleanup-jobs"
     },
     {
       "from": "frontend-requirements:post-event",
@@ -29334,11 +29305,6 @@
       "from": "frontend-requirements:post-event",
       "kind": "wikilink",
       "to": "task:T-051"
-    },
-    {
-      "from": "frontend-requirements:post-event",
-      "kind": "wikilink",
-      "to": "task:T-054"
     },
     {
       "from": "frontend-requirements:post-event",
@@ -29648,6 +29614,11 @@
     {
       "from": "frontend-requirements:rings",
       "kind": "wikilink",
+      "to": "story:cleanup-jobs"
+    },
+    {
+      "from": "frontend-requirements:rings",
+      "kind": "wikilink",
       "to": "story:counts"
     },
     {
@@ -29669,11 +29640,6 @@
       "from": "frontend-requirements:rings",
       "kind": "wikilink",
       "to": "task:T-027"
-    },
-    {
-      "from": "frontend-requirements:rings",
-      "kind": "wikilink",
-      "to": "task:T-054"
     },
     {
       "from": "frontend-requirements:rings",
@@ -31878,11 +31844,6 @@
     {
       "from": "project:status-report-2026-10-15",
       "kind": "wikilink",
-      "to": "feature:cleanup-jobs"
-    },
-    {
-      "from": "project:status-report-2026-10-15",
-      "kind": "wikilink",
       "to": "feature:code-delivery"
     },
     {
@@ -33284,11 +33245,6 @@
       "from": "story:T-052",
       "kind": "wikilink",
       "to": "feature:gemma"
-    },
-    {
-      "from": "story:T-054",
-      "kind": "wikilink",
-      "to": "feature:cleanup-jobs"
     },
     {
       "from": "story:T-055",
@@ -35636,31 +35592,6 @@
       "to": "task:T-052-be"
     },
     {
-      "from": "task:T-054",
-      "kind": "wikilink",
-      "to": "project:architecture"
-    },
-    {
-      "from": "task:T-054",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
-    },
-    {
-      "from": "task:T-054",
-      "kind": "wikilink",
-      "to": "project:status-report-2026-10-15"
-    },
-    {
-      "from": "task:T-054-be",
-      "kind": "wikilink",
-      "to": "backend-delivery:cleanup-jobs"
-    },
-    {
-      "from": "task:T-054-be",
-      "kind": "wikilink",
-      "to": "feature:cleanup-jobs"
-    },
-    {
       "from": "task:T-055",
       "kind": "wikilink",
       "to": "project:architecture"
@@ -37791,18 +37722,6 @@
     },
     "social-pin/tasks/T-052 Smart Match/T-052-fe Frontend · Smart Match.md": {
       "name": "T-052-fe Frontend · Smart Match",
-      "type": "task"
-    },
-    "social-pin/tasks/T-054 Cleanup jobs/T-054 Cleanup jobs.md": {
-      "name": "T-054 Cleanup jobs",
-      "type": "task"
-    },
-    "social-pin/tasks/T-054 Cleanup jobs/T-054 Story.md": {
-      "name": "T-054 Story",
-      "type": "story"
-    },
-    "social-pin/tasks/T-054 Cleanup jobs/T-054-be Backend · Cleanup jobs.md": {
-      "name": "T-054-be Backend · Cleanup jobs",
       "type": "task"
     },
     "social-pin/tasks/T-055 Run the e2e suite in CI against PostGIS/T-055 Run the e2e suite in CI against PostGIS.md": {
@@ -44070,9 +43989,8 @@
       "rollup": {
         "approved": 1,
         "blocked": 1,
-        "draft": 2,
-        "missing": 4,
-        "todo": 2
+        "draft": 1,
+        "missing": 4
       },
       "scope": null,
       "screens": [],
@@ -44086,7 +44004,7 @@
       ],
       "task": null,
       "title": "Cleanup Jobs",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "feature:code-delivery": {
       "affects": [],
@@ -49106,7 +49024,7 @@
       ],
       "task": null,
       "title": "Cleanup Jobs Frontend Requirements",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "frontend-requirements:code-delivery": {
       "affects": [],
@@ -50461,7 +50379,7 @@
       ],
       "task": null,
       "title": "Post-Event Frontend Requirements",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "frontend-requirements:profiles": {
       "affects": [
@@ -51567,11 +51485,11 @@
         "blocked": 34,
         "decided": 3,
         "done": 1,
-        "draft": 30,
+        "draft": 29,
         "in-progress": 22,
         "missing": 61,
         "needs-decision": 1,
-        "todo": 18,
+        "todo": 16,
         "verified": 3
       },
       "scope": null,
@@ -58208,7 +58126,7 @@
         "decided": 14,
         "delivered": 2,
         "done": 10,
-        "draft": 95,
+        "draft": 94,
         "in-progress": 55,
         "missing": 161,
         "needs-decision": 9,
@@ -58216,7 +58134,7 @@
         "passing": 1,
         "ready": 2,
         "reference": 31,
-        "todo": 49,
+        "todo": 47,
         "verified": 14
       },
       "scope": null,
@@ -60907,54 +60825,6 @@
       "title": "T-052 Story",
       "updated": "2026-10-26"
     },
-    "story:T-054": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "S-77",
-      "children": [],
-      "code": "T-054",
-      "created": "2026-10-18",
-      "deadline": null,
-      "depends": [],
-      "effectiveStatus": "draft",
-      "effort": null,
-      "feature": "cleanup-jobs",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "story:T-054",
-      "inherits": {
-        "priority": "task:T-054",
-        "release": "feature:cleanup-jobs"
-      },
-      "kind": "story",
-      "label": "User Story",
-      "labels": [],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": null,
-      "parents": [
-        "task:T-054"
-      ],
-      "path": "social-pin/tasks/T-054 Cleanup jobs/T-054 Story.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "scope": "task",
-      "screens": [],
-      "status": "draft",
-      "summary": "@nestjs/schedule: AUTODELETE Rings, PinCast recipients, expired codes, materialise EXPIRED statuses.",
-      "tags": [
-        "story",
-        "story/draft",
-        "module/platform",
-        "layer/business"
-      ],
-      "task": "T-054",
-      "title": "T-054 Story",
-      "updated": "2026-10-26"
-    },
     "story:T-055": {
       "affects": [],
       "blockedBy": [],
@@ -61700,9 +61570,7 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-76",
-      "children": [
-        "task:T-054"
-      ],
+      "children": [],
       "code": "cleanup-jobs",
       "created": "2026-10-18",
       "deadline": null,
@@ -61744,7 +61612,7 @@
       ],
       "task": null,
       "title": "Cleanup Jobs Story",
-      "updated": "2026-10-26"
+      "updated": "2026-10-27"
     },
     "story:code-delivery": {
       "affects": [],
@@ -73673,115 +73541,6 @@
       ],
       "task": null,
       "title": "T-052-fe Frontend · Smart Match",
-      "updated": "2026-10-26"
-    },
-    "task:T-054": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-054",
-      "children": [
-        "story:T-054",
-        "task:T-054-be"
-      ],
-      "code": "T-054",
-      "created": "2026-10-15",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": "social-pin/tasks/T-054 Cleanup jobs",
-      "effectiveStatus": "todo",
-      "effort": "M",
-      "feature": "cleanup-jobs",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-054",
-      "inherits": {
-        "release": "feature:cleanup-jobs"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": null,
-      "parents": [
-        "story:cleanup-jobs"
-      ],
-      "path": "social-pin/tasks/T-054 Cleanup jobs/T-054 Cleanup jobs.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {
-        "draft": 1,
-        "todo": 1
-      },
-      "scope": null,
-      "screens": [],
-      "status": "todo",
-      "summary": "@nestjs/schedule: AUTODELETE Rings, PinCast recipients, expired codes, materialise EXPIRED statuses.",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/platform",
-        "priority/high"
-      ],
-      "task": null,
-      "title": "T-054 Cleanup jobs",
-      "updated": "2026-10-26"
-    },
-    "task:T-054-be": {
-      "affects": [],
-      "blockedBy": [],
-      "card": "T-054-be",
-      "children": [],
-      "code": "T-054-be",
-      "created": "2026-10-18",
-      "deadline": null,
-      "decision": null,
-      "depends": [],
-      "dir": null,
-      "effectiveStatus": "todo",
-      "effort": "M",
-      "feature": "cleanup-jobs",
-      "foundOn": null,
-      "frontendOnly": false,
-      "id": "task:T-054-be",
-      "inherits": {
-        "release": "feature:cleanup-jobs"
-      },
-      "kind": "task",
-      "label": "Task",
-      "labels": [
-        "backend"
-      ],
-      "layer": "business",
-      "module": "platform",
-      "parentTask": "T-054",
-      "parents": [
-        "task:T-054"
-      ],
-      "path": "social-pin/tasks/T-054 Cleanup jobs/T-054-be Backend · Cleanup jobs.md",
-      "pending": [],
-      "priority": "high",
-      "related": [],
-      "release": "v1",
-      "resolution": null,
-      "rollup": {},
-      "scope": null,
-      "screens": [],
-      "status": "todo",
-      "summary": "The API side of T-054 Cleanup jobs: the endpoints, data and rules its What describes. Record what shipped in T-054-be Backend Delivery and how to call it in T-054-be Backend Integration, and roll…",
-      "tags": [
-        "task",
-        "task/todo",
-        "module/platform",
-        "priority/high",
-        "backend"
-      ],
-      "task": null,
-      "title": "T-054-be Backend · Cleanup jobs",
       "updated": "2026-10-26"
     },
     "task:T-055": {

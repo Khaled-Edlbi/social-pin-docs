@@ -65,7 +65,7 @@ What the client needs from the backend to build the screens in [[PinCast & Nearb
 | Connect / accept from a result row | — | ❌ | [[T-021 Connect request send, inbox, cancel]] |
 | "PinCast ended" and "pins nearby" notifications | — | ❌ | [[T-045 NotificationService.emit and the inbox]] |
 | Push instead of polling on s40 | — | ❌ | [[T-046 Push delivery and preferences]] |
-| Recipient purge that bounds how long s42 stays complete | — | ❌ | [[T-054 Cleanup jobs]] |
+| Recipient purge that bounds how long s42 stays complete | — | ❌ | [[Cleanup Jobs Story|Cleanup Jobs · S4]] |
 | Avatars on recipient rows | — | ❌ | [[Files Upload Story|Files Upload · showing files]] |
 
 ## Behaviour expectations
@@ -92,5 +92,5 @@ What the client needs from the backend to build the screens in [[PinCast & Nearb
 
 - [[T-032 PinCast setup, start, stop, results]] — every ❌ row; the allowed steps, the position-reporting rule and the "reached versus see" rule are design inputs the client needs before layout is final.
 - [[T-045 NotificationService.emit and the inbox]] and [[T-046 Push delivery and preferences]] — s42 reached by notification; polling on s40 until then.
-- [[T-054 Cleanup jobs]] — how long results stay complete.
+- [[Cleanup Jobs Story|Cleanup Jobs · S4]] — how long results stay complete.
 - [[T-063 Put the ErrorCode on the error body]] — the error table is by status until then.

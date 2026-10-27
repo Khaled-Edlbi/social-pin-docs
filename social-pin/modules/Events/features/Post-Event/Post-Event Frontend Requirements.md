@@ -7,7 +7,7 @@ module: events
 status: draft
 screens: [s62]
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [frontend-requirements, frontend-requirements/draft, module/events, layer/frontend]
 ---
 
@@ -65,4 +65,4 @@ What the client needs for the post-event summary and the Ring disposition sheet,
 - No decision note. Upstream tasks:
 - [[T-050 Post-event summary and follow-ups]] — the counters and suggestions; waits on [[T-009 Scan counter and share link]], [[T-023 Connection detail and contacts list]], [[T-044 My meetings, calendar, detail, reschedule, cancel]].
 - [[T-011 Create the Event Ring on registration]] — without an Event Ring there is nothing to dispose of on s62; the disposition endpoint can be exercised today only on a manually created temporary Ring.
-- [[T-054 Cleanup jobs]] — the purge of `AUTO_DELETE` Rings; the client sees an archived Ring until it runs.
+- [[Cleanup Jobs Story|Cleanup Jobs · S4]] — the purge of `AUTO_DELETE` Rings; the client sees an archived Ring until it runs.

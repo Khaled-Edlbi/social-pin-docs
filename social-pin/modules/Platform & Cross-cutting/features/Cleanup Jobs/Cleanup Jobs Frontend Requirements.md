@@ -7,7 +7,7 @@ module: platform
 status: draft
 screens: []
 created: 2026-10-18
-updated: 2026-10-26
+updated: 2026-10-27
 tags: [frontend-requirements, frontend-requirements/draft, module/platform, layer/frontend]
 ---
 
@@ -28,7 +28,7 @@ What the client depends on from the sweepers: that they never remove something a
 
 | Need | Endpoint | Available | Task / decision |
 |---|---|---|---|
-| AUTO_DELETE Rings removed; recipients and expired codes purged; EXPIRED materialised | — (scheduled, no route) | ❌ | [[T-054 Cleanup jobs]] |
+| AUTO_DELETE Rings removed; recipients and expired codes purged; EXPIRED materialised | — (scheduled, no route) | ❌ | [[Cleanup Jobs Story|Cleanup Jobs · S4]] |
 
 ## Behaviour expectations
 
@@ -48,4 +48,4 @@ What the client depends on from the sweepers: that they never remove something a
 
 ## Blocked by
 
-- No decision. [[T-054 Cleanup jobs]] is To do; the recipient retention window must be set when it ships.
+- No decision. [[Cleanup Jobs Story|Cleanup Jobs · S4]] is To do; the recipient retention window must be set when it ships.
