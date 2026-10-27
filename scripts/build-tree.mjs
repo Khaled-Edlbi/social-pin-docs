@@ -192,6 +192,10 @@ export function loadConfig(errors = []) {
   const windowDays = Number.isFinite(dl.windowDays) && dl.windowDays > 0 ? dl.windowDays : DEFAULT_DEADLINES.windowDays;
   if (dl.windowDays !== undefined && !(Number.isFinite(dl.windowDays) && dl.windowDays > 0)) err('deadlines.windowDays must be a positive number of days');
   const deadlines = { windowDays, zones: zones.map((z) => ({ id: z.id, label: z.label || z.id, color: z.color || null })), missed: { ...DEFAULT_DEADLINES.missed, ...(dl.missed || {}) } };
+  // staleness: how long a requirements list may sit `ready` before every build reports it (printed only: it depends on today)
+  const st = cfg.staleness || {};
+  if (st.readyDays !== undefined && !(Number.isFinite(st.readyDays) && st.readyDays > 0)) err('staleness.readyDays must be a positive number of days');
+  const staleness = { readyDays: Number.isFinite(st.readyDays) && st.readyDays > 0 ? st.readyDays : 3 };
   // stages (typed on the project), release targets (on features) and environments (deployedTo on deliveries): three small enums, same shape
   const enumOf = (key, items, extra = () => ({})) => {
     const byId = new Map();
@@ -209,7 +213,7 @@ export function loadConfig(errors = []) {
   for (const s of stages.list) if (s.requiresRelease !== null && !releases.byId.has(s.requiresRelease)) err(`stages.levels: "${s.id}" requiresRelease "${s.requiresRelease}" is not a release target`);
   const environments = { ...enumOf('environments.list', cfg.environments?.list ?? DEFAULT_ENVIRONMENTS), kinds: Array.isArray(cfg.environments?.kinds) ? cfg.environments.kinds : ['backend-delivery', 'frontend-delivery'] };
   for (const k of environments.kinds) if (!kinds.has(k)) err(`environments.kinds names unknown kind "${k}"`);
-  return { ...cfg, kinds, kindOrder, flowOrder, flowBack, flowBlocks, frontendOnlySkips, taskFlow, taskLabels, priorities, deadlines, stages, releases, environments, resolutions, cardCodes: { pad, structural, prefixes, prefixOf } };
+  return { ...cfg, kinds, kindOrder, flowOrder, flowBack, flowBlocks, frontendOnlySkips, taskFlow, taskLabels, priorities, deadlines, staleness, stages, releases, environments, resolutions, cardCodes: { pad, structural, prefixes, prefixOf } };
 }
 const DEFAULT_PRIORITIES = [
   { id: 'critical', label: 'Critical', color: '#dc2626', aliases: ['P0'] }, { id: 'high', label: 'High', color: '#f97316', aliases: ['P1'] },
@@ -894,6 +898,20 @@ export function build() {
     const fe = bi.scope === 'task' ? String(bi.code).replace(/-be$/, '-fe') : bi.code;
     const of = (kind, code) => Object.values(nodes).find((x) => x.kind === kind && x.path && x.scope === bi.scope && x.code === code);
     if (backendDone(of('qa-backend', bi.code)) && backendDone(of('frontend-delivery', fe))) { bi.effectiveStatus = 'delivered'; bi.autoDelivered = true; }
+  }
+
+  // stale statuses (rules/Agent Rules.md §4, Status transitions): a Backend Delivery left behind by the work it describes.
+  // Both checks read only the notes, so they are ordinary warnings; the time-based one (a list `ready` too long) is staleNotices, printed only
+  const MERGED_LOG = /merged (?:in)?to `?main`?|\bmain @ `?[0-9a-f]{7}/i;
+  for (const bd of Object.values(nodes)) {
+    if (bd.kind !== 'backend-delivery' || !bd.path) continue;
+    const bi = Object.values(nodes).find((x) => x.kind === 'backend-integration' && x.path && x.scope === bd.scope && x.code === bd.code);
+    if (bd.status === 'in-progress') {
+      const log = noteOf.get(bd.id).body.split(/^## Log[ \t]*$/m)[1] || '';
+      if (bi && bi.status === 'current') warn(bd.path, 'status: in-progress, but its Backend Integration is `current` (it matches `main`), so the work is merged: set `done`');
+      else if (MERGED_LOG.test(log)) warn(bd.path, 'status: in-progress, but its ## Log records a merge to `main`: set `done`');
+    }
+    if (bd.status === 'done' && !(bi && bi.status === 'current')) warn(bd.path, `status: done, but its Backend Integration is ${bi ? `\`${bi.status}\`` : 'not written'}: the requirements of this scope cannot reach \`delivered\` until it is \`current\``);
   }
 
   // a story is fulfilled (`verified`) by the PM only once QA has finished on its scope: every QA note it needs is passing with nothing pending
@@ -1710,11 +1728,24 @@ if (has('--impact')) {
   process.exit(0);
 }
 const text = result.json ? stableStringify(result.json) : '';
+// a requirements list left `ready` for staleness.readyDays or more since its `updated:`: it depends on today,
+// so it is printed on every build and never written into tree.json (or `--check` would drift day by day)
+const staleNotices = (() => {
+  if (!result.json) return [];
+  const days = result.cfg?.staleness?.readyDays ?? 3, now = Date.parse(today());
+  return Object.values(result.json.nodes)
+    .filter((n) => n.kind === 'frontend-requirements' && n.path && n.status === 'ready' && n.updated)
+    .map((n) => ({ n, age: Math.floor((now - Date.parse(String(n.updated))) / 86_400_000) }))
+    .filter((x) => x.age >= days)
+    .sort((a, b) => b.age - a.age)
+    .map(({ n, age }) => `${n.path}: \`ready\` since ${n.updated} (${age} days) and not reviewed: \`/backend\` approves it or sends it back to \`draft\``);
+})();
 for (const w of result.warnings) console.warn(`warning  ${w}`);
+for (const s of staleNotices) console.warn(`stale    ${s}`);
 for (const e of result.errors) console.error(`error    ${e}`);
 if (result.json) {
   const c = result.json.counts;
-  console.log(`modules ${c.modules} · features ${c.features} · layer notes ${c.layerNotes} (${c.taskLayerNotes} task-level) · tasks ${c.tasks} · decisions ${c.decisions} · placeholders ${c.placeholders} · blocked ${c.blocked} · concepts ${c.concepts} · notes ${c.notes} · edges ${c.edges} · warnings ${result.warnings.length} · errors ${result.errors.length}`);
+  console.log(`modules ${c.modules} · features ${c.features} · layer notes ${c.layerNotes} (${c.taskLayerNotes} task-level) · tasks ${c.tasks} · decisions ${c.decisions} · placeholders ${c.placeholders} · blocked ${c.blocked} · concepts ${c.concepts} · notes ${c.notes} · edges ${c.edges} · warnings ${result.warnings.length} · stale ${staleNotices.length} · errors ${result.errors.length}`);
 }
 if (result.errors.length) { console.error('\nFix the errors above, then run again.'); process.exit(1); }
 
