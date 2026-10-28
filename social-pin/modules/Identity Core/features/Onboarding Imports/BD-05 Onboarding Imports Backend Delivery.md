@@ -31,12 +31,6 @@ What the backend shipped for this feature and how it works. The sum of this feat
 - Card OCR and URL scraping need a provider decision.
 - A review step with include / skip per field before anything is written.
 
-## Tasks delivered
-
-| Task | Delivery note | Status |
-|---|---|---|
-| — | — | — |
-
 ## Log
 
 - 2026-10-18 · split out of [[F-05 Onboarding Imports]] when the vault moved to layers

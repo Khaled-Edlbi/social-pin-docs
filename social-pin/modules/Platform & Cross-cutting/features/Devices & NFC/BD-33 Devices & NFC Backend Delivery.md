@@ -37,12 +37,6 @@ What the backend shipped for this feature and how it works. The sum of this feat
 - List devices with the current one highlighted; remove one (revoke its sessions).
 - Pair / revoke an NFC card (`NfcToken` mirrors `RingQrToken`).
 
-## Tasks delivered
-
-| Task | Delivery note | Status |
-|---|---|---|
-| — | — | — |
-
 ## Log
 
 - 2026-10-18 · split out of [[F-33 Devices & NFC]] when the vault moved to layers

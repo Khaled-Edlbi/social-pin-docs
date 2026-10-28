@@ -35,12 +35,6 @@ What the backend shipped for this feature and how it works. The sum of this feat
 - `GET/PUT /users/me/interests`.
 - No outward entity, ever: interests feed [[F-36 Gemma AI]] matchmaking only.
 
-## Tasks delivered
-
-| Task | Delivery note | Status |
-|---|---|---|
-| — | — | — |
-
 ## Log
 
 - 2026-10-18 · split out of [[F-37 Interests]] when the vault moved to layers

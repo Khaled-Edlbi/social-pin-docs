@@ -299,8 +299,7 @@
     "P": "project",
     "QB": "qa-backend",
     "QF": "qa-frontend",
-    "S": "story",
-    "T": "task"
+    "S": "story"
   },
   "cards": {
     "B-01": "task:B-01",
@@ -4142,6 +4141,7 @@
   },
   "counts": {
     "blocked": 38,
+    "bugs": 6,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -4170,12 +4170,10 @@
     "features": 41,
     "layerNotes": 132,
     "modules": 8,
-    "notes": 273,
+    "notes": 270,
     "partial": 4,
     "placeholders": 153,
-    "records": 14,
-    "taskLayerNotes": 0,
-    "tasks": 6
+    "records": 14
   },
   "deadlines": {
     "missed": {
@@ -28956,18 +28954,6 @@
     "templates/Story Template.md": {
       "name": "Story Template",
       "type": "story"
-    },
-    "templates/Task Backend Half Template.md": {
-      "name": "Task Backend Half Template",
-      "type": "task"
-    },
-    "templates/Task Frontend Half Template.md": {
-      "name": "Task Frontend Half Template",
-      "type": "task"
-    },
-    "templates/Task Template.md": {
-      "name": "Task Template",
-      "type": "task"
     }
   },
   "flow": [
@@ -52148,12 +52134,5 @@
       "label": "Sunset",
       "requiresRelease": null
     }
-  ],
-  "taskLabels": [
-    "chore",
-    "spike",
-    "docs",
-    "frontend",
-    "backend"
   ]
 }

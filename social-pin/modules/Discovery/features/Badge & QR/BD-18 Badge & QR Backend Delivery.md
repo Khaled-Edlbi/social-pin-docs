@@ -40,12 +40,6 @@ What the backend shipped for this feature and how it works. The sum of this feat
 - "Share link" and a public browser page for viewers without the app.
 - Event pass code rotating every 60 s (s56) is the same mechanism with a shorter window. See [[F-23 Events During]].
 
-## Tasks delivered
-
-| Task | Delivery note | Status |
-|---|---|---|
-| — | — | — |
-
 ## Log
 
 - 2026-10-18 · split out of [[F-18 Badge & QR]] when the vault moved to layers

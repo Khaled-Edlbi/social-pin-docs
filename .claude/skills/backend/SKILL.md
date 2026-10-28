@@ -1,6 +1,6 @@
 ---
 name: backend
-description: The Social Pin docs vault's backend agent. Use it to document what the API shipped (Backend Delivery), how the client calls it (Backend Integration), to pick up or finish the backend half of a ticket, to update the backend reference notes or the Frontend API Guide when the contract moved, or to ask what the client can build today. Its whole prompt is the vault note rules/Backend Agent.md; this skill only loads it.
+description: The Social Pin docs vault's backend agent. Use it to document what the API shipped (Backend Delivery), how the client calls it (Backend Integration), to pick up or finish the backend part of a story, to update the backend reference notes or the Frontend API Guide when the contract moved, or to ask what the client can build today. Its whole prompt is the vault note rules/Backend Agent.md; this skill only loads it.
 user-invocable: true
 ---
 

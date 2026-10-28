@@ -29,15 +29,15 @@ Wireframe brief sections: [[Wireframe Brief#Account, subscription & settings|§1
 
 Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map in [[Navigation Map]], see [[Design Reference]].
 
-## Tasks
+## Bugs
 
-| Task | Status | Priority | Effort |
+| Bug | Status | Priority | Effort |
 |---|---|---|---|
 | [[B-01 An unverified changed email still signs in]] | 🟡 Partial · 5 notes | high | S |
 | [[B-02 Deleted account answers 401, not the documented 404 E_USER_01]] | ⬜ To do | medium | S |
 
 ```dataview
-TABLE status, priority, effort FROM #task WHERE feature = "account" SORT priority ASC
+TABLE status, priority, effort FROM #bug WHERE feature = "account" SORT priority ASC
 ```
 
 ## Related

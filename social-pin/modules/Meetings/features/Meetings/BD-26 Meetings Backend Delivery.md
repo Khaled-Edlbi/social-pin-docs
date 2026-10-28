@@ -36,12 +36,6 @@ What the backend shipped for this feature and how it works. The sum of this feat
 - Calendar view and detail; reschedule and cancel.
 - Decline sends a notification with the reason.
 
-## Tasks delivered
-
-| Task | Delivery note | Status |
-|---|---|---|
-| — | — | — |
-
 ## Log
 
 - 2026-10-18 · split out of [[F-26 Meetings]] when the vault moved to layers

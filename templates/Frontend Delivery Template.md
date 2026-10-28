@@ -1,6 +1,6 @@
 ---
 type: frontend-delivery
-code: <feature id, or T-NNN for a task-level note>
+code: <feature id>
 scope: feature
 feature: <feature id>
 module: <module id>
@@ -9,8 +9,8 @@ screens: []
 depends: []
 affects: []
 related: []
-# priority: high           # optional: inherits the task's or the feature's when absent (critical | high | medium | low)
-# deadline: YYYY-MM-DD      # optional: inherits the task's or the feature's when absent
+# priority: high           # optional: inherits the feature's when absent (critical | high | medium | low)
+# deadline: YYYY-MM-DD      # optional: inherits the feature's when absent
 # pending: ["[[Note]]: what is left", "@who: what is left"]   # done, but a note is left for a card or a person → Partial until cleared
 pending: []
 # deployedTo: where this build runs, dev | staging | prod (docs.config.json environments); empty until deployed
@@ -26,7 +26,7 @@ tags: [frontend-delivery, frontend-delivery/todo, module/<module>, layer/fronten
 
 **Feature:** [[<Feature name>]] · **Status:** To do · **Built from:** [[<Feature name> Backend Integration]] · **Against:** [[<Feature name> Story]] · **QA:** [[<Feature name> QA Frontend]]
 
-Written by the **frontend** team after shipping: what the client built, so the backend, QA and product know what exists. A feature-level note is the sum of its task-level notes (table at the end).
+Written by the **frontend** team after shipping: what the client built, so the backend, QA and product know what exists. One note per feature: a new part of the story adds its screens here.
 
 ## Screens shipped
 
@@ -45,16 +45,11 @@ Written by the **frontend** team after shipping: what the client built, so the b
 
 ## Deviations from the story or the integration note
 
-- … (and why; link the decision or task if one exists)
+- … (and why; link the decision or the story part if one exists)
 
 ## Not done yet
 
-- … → [[T-NNN …]]
-
-## Tasks delivered
-
-| Task | Delivery note | Status |
-|---|---|---|
+- … → [[S-NN <Feature name> Story#S<n> · …]] or [[ND-NN …]]
 
 ## Log
 

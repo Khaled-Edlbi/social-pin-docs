@@ -65,12 +65,6 @@ What the client shipped for the account section of Me, on `social_pin` `main` @ 
 - Linked accounts → [[S-94 Linked Accounts (OAuth) Story|Linked Accounts (OAuth) · S7]]; devices → [[S-82 Devices & NFC Story|Devices & NFC · S6]]; subscription / Upgrade → [[S-71 Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]].
 - Re-verifying a changed email or phone: no backend route and no task yet ([[F-01 Account#Gaps]]).
 
-## Tasks delivered
-
-| Task | Delivery note | Status |
-|---|---|---|
-| — | feature-level only: no task-level notes for Account | — |
-
 ## Log
 
 - 2026-10-26 · `main` @ `99b97e7` (social_pin) · s68 ACCOUNT group, change email / phone, plan from `accountType`; delete (`461958f`) and header (`a58e6b8`) shipped earlier · flagged nothing

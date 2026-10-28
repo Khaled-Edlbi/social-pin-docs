@@ -65,12 +65,6 @@ What the backend shipped for this feature and how it works. The sum of this feat
 
 - Code delivery is not wired, see [[F-32 Code Delivery]]. Until it is, `devCode` is returned in every environment.
 
-## Tasks delivered
-
-| Task | Delivery note | Status |
-|---|---|---|
-| — | — | — |
-
 ## Log
 
 - 2026-10-18 · split out of [[F-02 Auth & Sign-up]] when the vault moved to layers

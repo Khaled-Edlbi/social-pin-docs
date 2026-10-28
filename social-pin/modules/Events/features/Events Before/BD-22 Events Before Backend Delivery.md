@@ -33,12 +33,6 @@ What the backend shipped for this feature and how it works. The sum of this feat
 - Packages and visitor levels; sold-out state.
 - Registration transaction: participant + order + Event Ring (see [[F-21 Event Ring Auto-creation]], [[F-27 Payments & Orders]]).
 
-## Tasks delivered
-
-| Task | Delivery note | Status |
-|---|---|---|
-| — | — | — |
-
 ## Log
 
 - 2026-10-18 · split out of [[F-22 Events Before]] when the vault moved to layers

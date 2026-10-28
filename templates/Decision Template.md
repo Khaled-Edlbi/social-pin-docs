@@ -30,7 +30,7 @@ The reasons: the facts on the needs-decision card that weighed, what was heard f
 
 ## What it changes
 
-- [[<card>]]: what this card now does differently. Every feature and task named here is in `affects`; a note you do not own gets a flag line pointing here.
+- [[<card>]]: what this card now does differently. Every feature and card named here is in `affects`; a note you do not own gets a flag line pointing here.
 
 ## Still open
 

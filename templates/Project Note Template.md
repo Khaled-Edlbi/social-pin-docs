@@ -12,4 +12,4 @@ tags: [project, layer/<layer>]
 
 # <Title>
 
-Reference for one layer (stack, conventions, migrations, contracts): the things that are true across features. Feature- and task-specific behaviour does not go here; it goes in the feature's layer notes.
+Reference for one layer (stack, conventions, migrations, contracts): the things that are true across features. Feature-specific behaviour does not go here; it goes in the feature's layer notes.

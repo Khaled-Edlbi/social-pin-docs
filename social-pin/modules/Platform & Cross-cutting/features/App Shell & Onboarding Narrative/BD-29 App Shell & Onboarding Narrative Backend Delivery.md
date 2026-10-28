@@ -25,12 +25,6 @@ What the backend shipped for this feature and how it works. The sum of this feat
 
 - Frontend only. Listed so every design screen maps to something.
 
-## Tasks delivered
-
-| Task | Delivery note | Status |
-|---|---|---|
-| — | — | — |
-
 ## Log
 
 - 2026-10-18 · split out of [[F-29 App Shell & Onboarding Narrative]] when the vault moved to layers

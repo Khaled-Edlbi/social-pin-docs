@@ -33,12 +33,6 @@ What the backend shipped for this feature and how it works. The sum of this feat
 - Each job idempotent and logged.
 - Access is already correct without them: expiry is evaluated live.
 
-## Tasks delivered
-
-| Task | Delivery note | Status |
-|---|---|---|
-| — | — | — |
-
 ## Log
 
 - 2026-10-18 · split out of [[F-31 Cleanup Jobs]] when the vault moved to layers

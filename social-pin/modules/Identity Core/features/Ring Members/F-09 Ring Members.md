@@ -40,14 +40,6 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 - **A member never learns which Ring they are in** ([[D-14 Shared with me lists people, never the Ring]]), unless they joined it knowingly (invitation, code, work email); a membership records how it was created, and a person the owner added, accepted or reassigned is never told the Ring's name ([[D-18 Ring names shown when joined knowingly]]).
 - Not built yet: the choice at the last removal and the members-see-each-other setting.
 
-## Tasks
-
-_No open tasks._
-
-```dataview
-TABLE status, priority, effort FROM #task WHERE feature = "ring-members" SORT priority ASC
-```
-
 ## Decisions
 
 - [[ND-04 Ring settings]] — decided, six settings at launch with private defaults ([[D-04 Ring settings at launch and their defaults|D-04]])

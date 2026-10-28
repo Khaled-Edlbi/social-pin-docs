@@ -25,16 +25,16 @@ You **own** and may create or edit:
 
 - on the feature note `modules/<Module>/features/<Feature>/F-NN <Feature>.md`, the *Decisions* list only: the card itself and its business side are the owner's, who creates it and hands you its story ([[Owner Agent#4I · Create a feature]]);
 - the user stories, one per feature (`S-NN <Feature> Story`), holding all of the feature's work;
-- the bugs `bugs/B-NN …` (`type: bug`), which QA files and you close (tasks are retired: [[Agent Rules#2 · Codes, scopes and the "sum of" rule]]);
+- the bugs `bugs/B-NN …` (`type: bug`), which QA files and you close ([[Agent Rules#2 · Codes, scopes and the "sum of" rule]]);
 - the needs-decision cards `needs-decisions/ND-NN …` (`type: needs-decision`) your own cards need, the decision cards `decisions/D-NN …` that take any decision on the user's word, and the table in [[Decisions]]; every layer raises the cards its own need, and only you or the owner decide them ([[Agent Rules#4 · Statuses, blocking and sign-off]]);
 - sign-off fields (`status: approved`, `approvedBy`, `approvedAt`) on stories and requirements, and bug statuses, **only on the user's explicit word** ([[#5 · Sign-off and status changes]]); the owner signs too ([[Owner Agent]]);
 - the status table on [[Home]] and the *Features* column of [[Screen Index]] when a feature is added.
 
-The rules, the config, the templates, the scripts, the agents, priorities and deadlines across the vault, the module notes and the feature cards are the owner's ([[Owner Agent]]): name it and stop. You **read** everything else and edit none of it: a frontend, backend or QA note that your change makes wrong gets a flag `> ⚠ Affected by [[T-NNN …]] (YYYY-MM-DD): <what changed>` under its H1, and the flag is named in the task's `## Log` ([[Agent Rules#3 · Relations]]). You never touch a generated file (`tree/`, [[Card Index]]), never type a feature's or a module's status (it is computed), never edit `design/Wireframe Brief.md`.
+The rules, the config, the templates, the scripts, the agents, priorities and deadlines across the vault, the module notes and the feature cards are the owner's ([[Owner Agent]]): name it and stop. You **read** everything else and edit none of it: a frontend, backend or QA note that your change makes wrong gets a flag `> ⚠ Affected by [[<the card you changed>]] (YYYY-MM-DD): <what changed>` under its H1, and the flag is named in the `## Log` of the note you changed ([[Agent Rules#3 · Relations]]). You never touch a generated file (`tree/`, [[Card Index]]), never type a feature's or a module's status (it is computed), never edit `design/Wireframe Brief.md`.
 
 ## 2 · Before you touch anything
 
-[[Agent Protocol#1 · Load]] and [[Agent Protocol#2 · Resolve what the user named]]. For a feature, open its note, its story, its Backend Delivery (what exists today) and its screens in [[Screen Index]]; for a task, its parent feature's story and the tasks already under the feature (do not file a duplicate); for a decision, the open ones in [[Decisions]].
+[[Agent Protocol#1 · Load]] and [[Agent Protocol#2 · Resolve what the user named]]. For a feature, open its note, its story, its Backend Delivery (what exists today) and its screens in [[Screen Index]]; for a bug, the feature's story and the bugs already under the feature (do not file a duplicate); for a decision, the open ones in [[Decisions]].
 
 ## 3 · Ask, then act
 
@@ -68,7 +68,7 @@ The owner creates the feature card and writes its business side, then hands you 
 
 ### 4B · New work on a feature
 
-Every piece of work is a **new part of the feature's one story**, never a task ([[Agent Rules#2 · Codes, scopes and the "sum of" rule]]):
+Every piece of work is a **new part of the feature's one story**, never a separate card ([[Agent Rules#2 · Codes, scopes and the "sum of" rule]]):
 
 1. `--impact "S-NN <Feature> Story"`, read what it lists; check the story does not already cover it.
 2. Add the part to `S-NN <Feature> Story`: `### S<n> · <screen or journey> ([[Screen Index#sNN|sNN]])`, **As a** … **I want** … **so that** …, and acceptance criteria that name the endpoint, field, error code or copy; what exists today stated as it is, what does not as "not available yet". `related:` the endpoints, screens and features it touches.
@@ -97,7 +97,7 @@ A decision is always raised **from the card that needs it**, by the agent that o
 
 ### 4F · Where do we stand
 
-Answer from `tree/tree.json` (`counts`, each node's `effectiveStatus`, `blockedBy` with its reason, `pending`, `priority`, `deadline`), the [[Docs Tree]] page and the module and feature notes. Say it in the vault's words: Done, Partial, In progress, Blocked (and by what), Needs decision, Not written yet. Name cards by code (`T-004 | S-04`). Change nothing; update the table on [[Home]] only when asked.
+Answer from `tree/tree.json` (`counts`, each node's `effectiveStatus`, `blockedBy` with its reason, `pending`, `priority`, `deadline`), the [[Docs Tree]] page and the module and feature notes. Say it in the vault's words: Done, Partial, In progress, Blocked (and by what), Needs decision, Not written yet. Name cards by code (`B-01 | S-04`). Change nothing; update the table on [[Home]] only when asked.
 
 ### 4G · New module
 
@@ -110,10 +110,10 @@ You change a status **only when the user tells you to, in that message**, and yo
 | The user says | You set | And |
 |---|---|---|
 | approve the story / the requirements | `status: approved`, `approvedBy: "<the user's name>"`, `approvedAt: <today>` | the next card in the flow unblocks on the next build |
-| decide ND-NN (option …) | the decision card: `node scripts/build-tree.mjs --scaffold decision ND-NN "<the answer>"` (it starts `draft`), filled with *What was decided*, *Why*, *What it changes* (every feature and card, also in its `affects:`) and *Still open*; then on D-NN `status: decided`, `decidedBy: "<the user's name>"`, `decidedAt: <today>`, the tag `decision/decided`. ND-NN shows ✅ Fulfilled by itself: never type `decided` or `fulfilled` on it, nor `decidedBy` / `decidedAt`; give its H1 ✅ and reduce its `## Decision` to one line pointing at D-NN; the answer and its consequences are never written into ND-NN | the cards in `blocks` return to their own status on the next build; `--impact D-NN` and flag what it lists, pointing at the record; the row in [[Decisions]]; a `T-NNN Decide …` task gets its halves now |
+| decide ND-NN (option …) | the decision card: `node scripts/build-tree.mjs --scaffold decision ND-NN "<the answer>"` (it starts `draft`), filled with *What was decided*, *Why*, *What it changes* (every feature and card, also in its `affects:`) and *Still open*; then on D-NN `status: decided`, `decidedBy: "<the user's name>"`, `decidedAt: <today>`, the tag `decision/decided`. ND-NN shows ✅ Fulfilled by itself: never type `decided` or `fulfilled` on it, nor `decidedBy` / `decidedAt`; give its H1 ✅ and reduce its `## Decision` to one line pointing at D-NN; the answer and its consequences are never written into ND-NN | the cards in `blocks` return to their own status on the next build; `--impact D-NN` and flag what it lists, pointing at the record; the row in [[Decisions]] |
 | close a bug | `status: done` with its `resolution:` and a `## Log` line (date · branch · what shipped · what was flagged) | anything left for a card or a person goes in `pending:` (the bug shows Partial until it is cleared) |
 | close a bug (B-NN) | the same, with the tag `bug/<status>`, plus `resolution: fixed \| by-design \| duplicate \| cannot-reproduce \| wont-fix` and the tag `resolution/<id>`: how it ended, never instead of the status ([[Agent Rules#4 · Statuses, blocking and sign-off]]) | `by-design` and `wont-fix` name the decision card they rest on in `related:`; the build warns on a bug done without a resolution, and a bug with `pending` is still Partial |
-| fulfil the story | `status: verified` (shown ✅ Fulfilled), the tag `story/verified`, `updated:`, only when every QA note of the story's scope is `passing` with nothing in `pending` (task story: the halves' QA notes; feature story: the feature's QA Backend and QA Frontend, only QA Frontend when `frontendOnly`); QA reports it ready, you set it | the build fails on a story fulfilled earlier; the task and the feature count the story as done only from here |
+| fulfil the story | `status: verified` (shown ✅ Fulfilled), the tag `story/verified`, `updated:`, only when every QA note of the story's scope is `passing` with nothing in `pending` (the feature's QA Backend and QA Frontend, only QA Frontend when `frontendOnly`); QA reports it ready, you set it | the build fails on a story fulfilled earlier; the feature counts the story as done only from here |
 
 **What you move unasked.** The sign-offs above wait for the user's word; the statuses that only record what already happened do not, and you set them in the same commit as the work: a card you create starts at its first status (`draft` story, `todo` bug, `draft` needs-decision). And you **propose** a sign-off the moment it is due, without being asked: a story whose QA notes all pass ("S-NN is ready to fulfil: say *fulfil*"), a bug QA re-ran green ("B-NN can be closed as fixed: say *close*"), a requirements list the build prints as `stale` (ask the backend, or the owner, to review it).
 
@@ -139,7 +139,7 @@ The list in [[Agent Rules#7 · What never happens]], plus:
 - create a feature card, which is the owner's ([[Owner Agent#4I · Create a feature]]), or a ticket, a screen id or an endpoint name that the user did not ask for or that the vault does not know;
 - raise a decision in prose, or type a card `blocked` by hand because of one: the decision card blocks it and releases it;
 - write another layer's note (requirements, delivery, integration, QA) or edit one instead of flagging it;
-- put feature or task behaviour into a project reference note, or stack and migration detail into a feature note;
+- put feature behaviour into a project reference note, or stack and migration detail into a feature note;
 - edit `design/Wireframe Brief.md`, a generated file, or a card code;
 - describe something as done that the tree shows as open;
 - put two stories on one branch, or a vault change on a code repository's `<module>/<F-NN>/…` branch ([[#6 · Finish]]);

@@ -60,12 +60,6 @@ What the backend shipped for this feature and how it works. The sum of this feat
 - Widgets (s37) have a table but no endpoints. See [[F-13 Widgets]].
 - **`avatarFileId` and attachment ids cannot be fetched**: no route serves file bytes by id. See [[S-06 Files Upload Story|Files Upload · showing files]].
 
-## Tasks delivered
-
-| Task | Delivery note | Status |
-|---|---|---|
-| — | — | — |
-
 ## Log
 
 - 2026-10-18 · split out of [[F-10 Ring Projection]] when the vault moved to layers

@@ -37,12 +37,6 @@ What the backend shipped for this feature and how it works. The sum of this feat
 - Join code and required verified email domain: both need Ring settings, see [[ND-04 Ring settings]].
 - "What you contribute" is a member-side projection into a shared Ring: new concept, not in the schema.
 
-## Tasks delivered
-
-| Task | Delivery note | Status |
-|---|---|---|
-| — | — | — |
-
 ## Log
 
 - 2026-10-18 · split out of [[F-17 Ring Invitations & Join]] when the vault moved to layers

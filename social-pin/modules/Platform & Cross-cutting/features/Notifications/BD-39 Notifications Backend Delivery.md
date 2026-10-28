@@ -34,12 +34,6 @@ What the backend shipped for this feature and how it works. The sum of this feat
 - Push delivery via device tokens, see [[F-33 Devices & NFC]].
 - Preferences CRUD.
 
-## Tasks delivered
-
-| Task | Delivery note | Status |
-|---|---|---|
-| — | — | — |
-
 ## Log
 
 - 2026-10-18 · split out of [[F-39 Notifications]] when the vault moved to layers

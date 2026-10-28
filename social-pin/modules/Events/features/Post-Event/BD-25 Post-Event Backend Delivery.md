@@ -37,12 +37,6 @@ What the backend shipped for this feature and how it works. The sum of this feat
 - Follow-up suggestions (Gemma).
 - Needs scan counting from [[F-18 Badge & QR]] and connections from [[F-14 Connections]].
 
-## Tasks delivered
-
-| Task | Delivery note | Status |
-|---|---|---|
-| — | — | — |
-
 ## Log
 
 - 2026-10-18 · split out of [[F-25 Post-Event]] when the vault moved to layers

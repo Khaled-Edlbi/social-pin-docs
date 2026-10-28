@@ -37,12 +37,6 @@ What the backend shipped for this feature and how it works. The sum of this feat
 - "PinCast ended" and "pins nearby" notifications.
 - Recipient purge job, see [[F-31 Cleanup Jobs]].
 
-## Tasks delivered
-
-| Task | Delivery note | Status |
-|---|---|---|
-| — | — | — |
-
 ## Log
 
 - 2026-10-18 · split out of [[F-20 PinCast & Nearby]] when the vault moved to layers

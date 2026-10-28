@@ -39,12 +39,6 @@ What the backend shipped for this feature and how it works. The sum of this feat
 - Usage count per file across Ring projections.
 - "Reset to Pin" (s29) needs a base profile photo. See [[ND-02 Base profile work fields]].
 
-## Tasks delivered
-
-| Task | Delivery note | Status |
-|---|---|---|
-| — | — | — |
-
 ## Log
 
 - 2026-10-18 · split out of [[F-06 Photo Library]] when the vault moved to layers

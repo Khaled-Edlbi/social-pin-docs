@@ -35,12 +35,6 @@ What the backend shipped for this feature and how it works. The sum of this feat
 - No endpoint returns a connection count (and connections do not exist yet).
 - Decide whether counts ride on the list entities (`memberCount` on `RingEntity`) or on a separate stats endpoint.
 
-## Tasks delivered
-
-| Task | Delivery note | Status |
-|---|---|---|
-| — | — | — |
-
 ## Log
 
 - 2026-10-18 · split out of [[F-03 Counts]] when the vault moved to layers

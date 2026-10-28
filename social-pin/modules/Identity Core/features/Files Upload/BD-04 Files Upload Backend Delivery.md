@@ -44,12 +44,6 @@ What the backend shipped for this feature and how it works. The sum of this feat
 - No "list my files" and no "N Rings inherit it" count. See [[F-06 Photo Library]].
 - **No route serves the bytes back.** `storageKey` is private, the static `/uploads` mount is keyed by it, and nothing maps a file id to a download, so photos and attachments cannot be displayed by a client yet. See [[S-06 Files Upload Story|Files Upload · showing files]].
 
-## Tasks delivered
-
-| Task | Delivery note | Status |
-|---|---|---|
-| — | — | — |
-
 ## Log
 
 - 2026-10-18 · split out of [[F-04 Files Upload]] when the vault moved to layers
