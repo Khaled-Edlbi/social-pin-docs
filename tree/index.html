@@ -607,7 +607,7 @@ async function load() {
   if (!collapsed) collapsed = Object.values(d.nodes).filter((n) => n.kind === 'module' || n.kind === 'feature' || n.kind === 'group' || (n.kind === 'task' && n.children.length)).map((n) => n.id);
   S.collapsed = collapsed;
   totals = computeTotals();
-  $('#totals').textContent = `${d.counts.features} features · ${d.counts.tasks} tasks · ${d.counts.decisions} decisions`;
+  $('#totals').textContent = `${d.counts.features} features · ${d.counts.bugs} bugs · ${d.counts.decisions} decisions`;
   buildSvg();
   $('#loading').remove();
   renderSidebar(); syncChrome();

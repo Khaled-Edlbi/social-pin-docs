@@ -7,7 +7,6 @@ effort: S
 feature: auth
 module: identity
 foundOn: BI-02 Auth & Sign-up Backend Integration
-labels: []
 screens: [s68]
 depends: []
 affects: ["BI-02 Auth & Sign-up Backend Integration", "BD-02 Auth & Sign-up Backend Delivery", "QB-05 Auth & Sign-up QA Backend"]

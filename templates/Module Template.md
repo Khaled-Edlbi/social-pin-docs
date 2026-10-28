@@ -12,7 +12,7 @@ tags: [module, module/<module id>]
 
 # <Module name> · Module
 
-One paragraph, in product terms: who the people are here, what they get done, and why it is its own module and not part of another. Vendors, endpoints and tables stay out; they belong to the layer notes. A module is the sum of its features; a feature is the sum of its tasks.
+One paragraph, in product terms: who the people are here, what they get done, and why it is its own module and not part of another. Vendors, endpoints and tables stay out; they belong to the layer notes. A module is the sum of its features; a feature is the sum of its cards, and all of its work is a part of its story.
 
 ## Features
 

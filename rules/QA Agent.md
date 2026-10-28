@@ -13,7 +13,7 @@ tags: [project, layer/shared, rules, agent]
 
 This note **is** the prompt of the QA agent; `/qa …` loads [[Agent Protocol]] and then this note. Edit this note to change how it behaves. Its scope is `agents.list[id = qa]` in `docs.config.json`; the guard enforces it.
 
-How to call it: `/qa write the QA backend note for T-004-be` · `/qa ran build 2026-10-19.3 against Rings: all passing` · `/qa bug on s16: the member count shows 0 for the default Ring` · `/qa which stories are ready to fulfil?`
+How to call it: `/qa write the QA backend note for Counts` · `/qa ran build 2026-10-19.3 against Rings: all passing` · `/qa bug on s16: the member count shows 0 for the default Ring` · `/qa which stories are ready to fulfil?`
 
 ## 1 · Who you are
 
@@ -91,7 +91,7 @@ Never `passing` with a row not run: a row not run is ⬜ and a `pending` entry, 
 
 ## 5 · Finish
 
-[[Agent Protocol#5 · Finish]], on the card's vault branch, one card per branch ([[Workflow#2 · Branch from the feature]]): a QA Backend or QA Frontend note is the archive, `docs/qa/<M-NN>-<module-id>/<F-NN>-<feature-id>/<QB-NN | QF-NN>-<verdict>`; a bug is a ticket, `tickets/qa/…/<T-NNN>-filed`. `node scripts/build-tree.mjs --branch qa <card> <what>` prints it. Commits, one card per commit, in the card's shape ([[Workflow#2 · Branch from the feature]]): `qa-backend(payments-gateway): QB-NN Pay for an order QA Backend · passing on <build>` · `qa-frontend(payments-gateway): QF-NN Pay for an order QA Frontend · failing on <build>, T-066 filed` · `bug(payments-gateway): T-066 <title> · filed against T-065` (a bug sub-task takes the next free task number, `T-NNN`, never `T-NNN-bug-N`). Report the verdict per note by card code, the bugs filed, and which stories are ready to fulfil (for the PM) or still waiting, and on what.
+[[Agent Protocol#5 · Finish]], on the card's vault branch, one card per branch ([[Workflow#2 · Branch from the feature]]): a QA Backend or QA Frontend note is the archive, `docs/qa/<M-NN>-<module-id>/<F-NN>-<feature-id>/<QB-NN | QF-NN>-<verdict>`; a bug is a ticket, `tickets/qa/…/<B-NN>-filed`. `node scripts/build-tree.mjs --branch qa <card> <what>` prints it. Commits, one card per commit, in the card's shape ([[Workflow#2 · Branch from the feature]]): `qa-backend(payments-gateway): QB-NN Pay for an order QA Backend · passing on <build>` · `qa-frontend(payments-gateway): QF-NN Pay for an order QA Frontend · failing on <build>, B-07 filed` · `bug(payments-gateway): B-07 <title> · filed against QF-NN` (a bug takes the next free `B-NN` and hangs on the card it was found against, `--found-on "<note name>"`). Report the verdict per note by card code, the bugs filed, and which stories are ready to fulfil (for the PM) or still waiting, and on what.
 
 ## 6 · What you never do
 

@@ -47,12 +47,6 @@ What the backend shipped for this feature and how it works. The sum of this feat
 - The Me screen (s68) shows connection counts and linked accounts, both missing. See [[F-03 Counts]] and [[F-38 Linked Accounts (OAuth)]].
 - A changed email or phone comes back unverified and there is **no dedicated re-verify route**: `request-code` + `verify-code` with purpose `SIGN_UP` would mark it verified, but that path is not designed for it and not tested. Worth a task when the Me screen is built.
 
-## Tasks delivered
-
-| Task | Delivery note | Status |
-|---|---|---|
-| — | — | — |
-
 ## Log
 
 - 2026-10-18 · split out of [[F-01 Account]] when the vault moved to layers

@@ -41,12 +41,6 @@ What the backend shipped for this feature and how it works. The sum of this feat
 - Nothing can create a `UserBlock` yet, so the block rule is enforced but unreachable. See [[F-14 Connections]].
 - New domains (events, meetings, PinCast, chat) must add their checks **here**, not in their own modules. Golden rule 8 in `CLAUDE.md`.
 
-## Tasks delivered
-
-| Task | Delivery note | Status |
-|---|---|---|
-| — | — | — |
-
 ## Log
 
 - 2026-10-18 · split out of [[F-08 Ring Access Engine]] when the vault moved to layers

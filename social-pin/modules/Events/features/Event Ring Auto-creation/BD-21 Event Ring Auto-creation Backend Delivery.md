@@ -35,12 +35,6 @@ What the backend shipped for this feature and how it works. The sum of this feat
 - Grant the organizer / exhibitor side membership rules.
 - Enter event mode switches the active Ring (frontend) but needs the Ring to exist.
 
-## Tasks delivered
-
-| Task | Delivery note | Status |
-|---|---|---|
-| — | — | — |
-
 ## Log
 
 - 2026-10-18 · split out of [[F-21 Event Ring Auto-creation]] when the vault moved to layers

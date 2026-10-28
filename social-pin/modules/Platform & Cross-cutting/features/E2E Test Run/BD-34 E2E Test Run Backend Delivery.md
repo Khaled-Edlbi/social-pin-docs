@@ -32,12 +32,6 @@ What the backend shipped for this feature and how it works. The sum of this feat
 - CI job with a `postgis/postgis` service container.
 - Run `pnpm prisma:deploy && pnpm db:seed && pnpm test:e2e`.
 
-## Tasks delivered
-
-| Task | Delivery note | Status |
-|---|---|---|
-| — | — | — |
-
 ## Log
 
 - 2026-10-18 · split out of [[F-34 E2E Test Run]] when the vault moved to layers

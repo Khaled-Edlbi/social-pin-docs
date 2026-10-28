@@ -7,7 +7,6 @@ effort: M
 feature: auth
 module: identity
 foundOn: BD-02 Auth & Sign-up Backend Delivery
-labels: []
 screens: []
 depends: []
 affects: ["BD-02 Auth & Sign-up Backend Delivery", "Database & Migrations", "QB-05 Auth & Sign-up QA Backend"]

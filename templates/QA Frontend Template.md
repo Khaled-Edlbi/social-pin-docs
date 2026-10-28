@@ -1,6 +1,6 @@
 ---
 type: qa-frontend
-code: <feature id, or T-NNN for a task-level note>
+code: <feature id>
 scope: feature
 feature: <feature id>
 module: <module id>
@@ -9,8 +9,8 @@ screens: []
 depends: []
 affects: []
 related: []
-# priority: high           # optional: inherits the task's or the feature's when absent (critical | high | medium | low)
-# deadline: YYYY-MM-DD      # optional: inherits the task's or the feature's when absent
+# priority: high           # optional: inherits the feature's when absent (critical | high | medium | low)
+# deadline: YYYY-MM-DD      # optional: inherits the feature's when absent
 # pending: ["[[Note]]: what is left", "@who: what is left"]   # done, but a note is left for a card or a person → Partial until cleared
 pending: []
 created: <date>

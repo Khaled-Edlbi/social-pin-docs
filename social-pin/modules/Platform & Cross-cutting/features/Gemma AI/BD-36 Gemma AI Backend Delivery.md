@@ -34,12 +34,6 @@ What the backend shipped for this feature and how it works. The sum of this feat
 - Auto-send meeting requests (Pro).
 - Audit every AI action.
 
-## Tasks delivered
-
-| Task | Delivery note | Status |
-|---|---|---|
-| — | — | — |
-
 ## Log
 
 - 2026-10-18 · split out of [[F-36 Gemma AI]] when the vault moved to layers

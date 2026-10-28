@@ -41,12 +41,6 @@ What the backend shipped for this feature and how it works. The sum of this feat
 - **The code is dropped on the wire.** The filter copies `message` and `error` from the exception response but not `ErrorCode`, so the body never carries it and `error` reads `"HttpException"` for every domain error. The Frontend guide's "branch on the code" is therefore not yet possible; clients branch on status and endpoint. See [[S-87 Error Contract Story|Error Contract · S4–S8]].
 - One code is used for two meanings in places (`E_RING_01` for a name clash **and** a disallowed type; `E_RING_PROFILE_03` for a bad link value, a missing link **and** a missing info block). Worth a split when Error Contract · S4–S8 lands, since the code becomes something clients switch on.
 
-## Tasks delivered
-
-| Task | Delivery note | Status |
-|---|---|---|
-| — | — | — |
-
 ## Log
 
 - 2026-10-18 · split out of [[F-35 Error Contract]] when the vault moved to layers

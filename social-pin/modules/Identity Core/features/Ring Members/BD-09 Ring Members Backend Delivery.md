@@ -49,12 +49,6 @@ What the backend shipped for this feature and how it works. The sum of this feat
 - "Members can see each other" (s27) would change the owner-only rule. See [[ND-04 Ring settings]].
 - **The roster carries `userId` only.** No endpoint resolves a user id to a name or Pin name, so the people screen (s15) cannot show names until the contacts work lands. See [[S-23 Connections Story|Connections · S19–S24]].
 
-## Tasks delivered
-
-| Task | Delivery note | Status |
-|---|---|---|
-| — | — | — |
-
 ## Log
 
 - 2026-10-18 · split out of [[F-09 Ring Members]] when the vault moved to layers

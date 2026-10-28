@@ -33,14 +33,6 @@ Wireframe brief sections: [[Wireframe Brief#Global navigation & app shell|§2 Gl
 
 Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map in [[Navigation Map]], see [[Design Reference]].
 
-## Tasks
-
-_No open tasks._
-
-```dataview
-TABLE status, priority, effort FROM #task WHERE feature = "app-shell" SORT priority ASC
-```
-
 ## Related
 
 - [[F-02 Auth & Sign-up]]

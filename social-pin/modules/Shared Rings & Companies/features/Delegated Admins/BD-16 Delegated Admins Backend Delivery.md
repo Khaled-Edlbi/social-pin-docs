@@ -34,12 +34,6 @@ What the backend shipped for this feature and how it works. The sum of this feat
 - No list / add / change-level / remove admin endpoints.
 - No notification to the person made admin.
 
-## Tasks delivered
-
-| Task | Delivery note | Status |
-|---|---|---|
-| — | — | — |
-
 ## Log
 
 - 2026-10-18 · split out of [[F-16 Delegated Admins]] when the vault moved to layers

@@ -41,12 +41,6 @@ What the backend shipped for this feature and how it works. The sum of this feat
 - `devCode` must be deleted from `AuthService.issueCode` and `VerificationChallengeEntity` once delivery is wired. The client is told to build the code screen as if it did not exist ([[Frontend Passwordless Migration]]).
 - Resend timer and expired-code states (s02) depend on the provider's latency.
 
-## Tasks delivered
-
-| Task | Delivery note | Status |
-|---|---|---|
-| — | — | — |
-
 ## Log
 
 - 2026-10-18 · split out of [[F-32 Code Delivery]] when the vault moved to layers

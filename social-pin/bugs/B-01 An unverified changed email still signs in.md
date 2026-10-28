@@ -8,7 +8,6 @@ effort: S
 feature: account
 module: identity
 foundOn: BI-01 Account Backend Integration
-labels: []
 screens: [s68]
 depends: []
 affects: ["BD-01 Account Backend Delivery", "S-01 Account Story", "QB-04 Account QA Backend"]

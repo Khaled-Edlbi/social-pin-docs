@@ -35,12 +35,6 @@ What the backend shipped for this feature and how it works. The sum of this feat
 - CRUD under `/rings/:ringId/projection/widgets` with sort order and visibility.
 - Viewer rendering through `RingProfileService.toView`.
 
-## Tasks delivered
-
-| Task | Delivery note | Status |
-|---|---|---|
-| — | — | — |
-
 ## Log
 
 - 2026-10-18 · split out of [[F-13 Widgets]] when the vault moved to layers

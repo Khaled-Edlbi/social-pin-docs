@@ -3,9 +3,9 @@ type: feature
 id: <slug>
 name: "<Feature name>"
 priority: high
-# release: the release this feature is scoped to, mvp | v1 | later (docs.config.json releases); its layer notes and tasks inherit it
+# release: the release this feature is scoped to, mvp | v1 | later (docs.config.json releases); its layer notes and bugs inherit it
 release: later
-# deadline: YYYY-MM-DD      # optional: the feature's date; its layer notes and tasks inherit it unless they carry their own
+# deadline: YYYY-MM-DD      # optional: the feature's date; its layer notes and bugs inherit it unless they carry their own
 module: <identity|connections|shared-rings|discovery|events|meetings|commerce|platform>
 # frontendOnly: true      # optional: no backend part; the backend and QA-backend cards are not required and do not count
 screens: []
@@ -36,12 +36,6 @@ Wireframe brief sections: [[Wireframe Brief#…|§…]]
 ## Product rules
 
 - The rules that hold whatever the implementation (privacy, what a viewer may never learn, limits).
-
-## Tasks
-
-| Task | Status | Priority | Effort |
-|---|---|---|---|
-| [[T-NNN …]] | ⬜ To do | High | M |
 
 ## Decisions
 

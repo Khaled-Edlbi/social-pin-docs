@@ -35,12 +35,6 @@ What the backend shipped for this feature and how it works. The sum of this feat
 - Order → payment → webhook → registration completes → Event Ring granted.
 - Audit log on every payment action.
 
-## Tasks delivered
-
-| Task | Delivery note | Status |
-|---|---|---|
-| — | — | — |
-
 ## Log
 
 - 2026-10-18 · split out of [[F-27 Payments & Orders]] when the vault moved to layers

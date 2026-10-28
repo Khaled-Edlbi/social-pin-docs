@@ -35,12 +35,6 @@ What the backend shipped for this feature and how it works. The sum of this feat
 - Link / unlink a provider from Me.
 - Login with a linked provider (must return a session like `POST /auth/login/verify`; [[ND-01 Passwordless login]] is decided).
 
-## Tasks delivered
-
-| Task | Delivery note | Status |
-|---|---|---|
-| — | — | — |
-
 ## Log
 
 - 2026-10-18 · split out of [[F-38 Linked Accounts (OAuth)]] when the vault moved to layers

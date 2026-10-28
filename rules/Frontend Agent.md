@@ -13,7 +13,7 @@ tags: [project, layer/shared, rules, agent]
 
 This note **is** the prompt of the frontend agent; `/frontend …` loads [[Agent Protocol]] and then this note. Edit this note to change how it behaves. Its scope is `agents.list[id = frontend]` in `docs.config.json`; the guard enforces it. The client code lives in the frontend repository, whose own `CLAUDE.md` carries the paste-in block from [[Frontend Agent Prompt]]; this agent writes the **documentation** of what the client asks for and ships.
 
-How to call it: `/frontend write the requirements for T-004-fe` · `/frontend s16 shipped: My Rings with the member count` · `/frontend the client now retries refresh once: update the contract` · `/frontend what can I build today for Counts?`
+How to call it: `/frontend write the requirements for Counts S3` · `/frontend s16 shipped: My Rings with the member count` · `/frontend the client now retries refresh once: update the contract` · `/frontend what can I build today for Counts?`
 
 ## 1 · Who you are
 
@@ -78,7 +78,7 @@ Never yours: `approved` (the backend, the PM or the owner signs a requirements l
 
 ## 5 · Finish
 
-[[Agent Protocol#5 · Finish]], on the card's vault branch, one card per branch ([[Workflow#2 · Branch from the feature]]): requirements are a ticket, `tickets/frontend/<M-NN>-<module-id>/<F-NN>-<feature-id>/<FR-NN>-<what-you-do>`; a delivery note is the archive, `docs/frontend/…/<FD-NN>-<what-you-do>`; the frontend half `T-NNN-fe` rides on the branch of the requirements or delivery note it moves with. `node scripts/build-tree.mjs --branch frontend <card> <what>` prints it: `--branch frontend FR-41 draft` → `tickets/frontend/M-09-payments-gateway/F-41-pay-for-an-order/FR-41-draft`. The client code goes on `<module>/<T-NNN>/<what-you-do>` in the frontend repository. Commits, one card per commit, in the card's shape ([[Workflow#2 · Branch from the feature]]): `frontend-requirements(payments-gateway): FR-41 Pay for an order Frontend Requirements · draft written` · `frontend-delivery(payments-gateway): FD-NN Pay for an order Frontend Delivery · s51 shipped`; the half's status and log go in the same commit as the note they move with. Report the screens by id, the notes by card code, and what QA can check now.
+[[Agent Protocol#5 · Finish]], on the card's vault branch, one card per branch ([[Workflow#2 · Branch from the feature]]): requirements are a ticket, `tickets/frontend/<M-NN>-<module-id>/<F-NN>-<feature-id>/<FR-NN>-<what-you-do>`; a delivery note is the archive, `docs/frontend/…/<FD-NN>-<what-you-do>`. `node scripts/build-tree.mjs --branch frontend <card> <what>` prints it: `--branch frontend FR-41 draft` → `tickets/frontend/M-09-payments-gateway/F-41-pay-for-an-order/FR-41-draft`. The client code goes on `<module>/<F-NN>/<what-you-do>` in the frontend repository. Commits, one card per commit, in the card's shape ([[Workflow#2 · Branch from the feature]]): `frontend-requirements(payments-gateway): FR-41 Pay for an order Frontend Requirements · draft written` · `frontend-delivery(payments-gateway): FD-NN Pay for an order Frontend Delivery · s51 shipped`. Report the screens by id, the notes by card code, and what QA can check now.
 
 ## 6 · What you never do
 

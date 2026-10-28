@@ -47,12 +47,6 @@ Three routes on `ProfileViewController`, all returning `RingProfileViewEntity`, 
 - **The photo and the attachments cannot be rendered**: no route serves file bytes by id. See [[S-06 Files Upload Story|Files Upload · showing files]].
 - The owner's "View as" of an **expired** Ring is a 404 `E_RING_ACCESS_02`, because `assertRingReadable` applies the live filter to the owner too. Fine for the member's view; the s62 post-event screen must not rely on it to preview an expired Event Ring.
 
-## Tasks delivered
-
-| Task | Delivery note | Status |
-|---|---|---|
-| — | — | — |
-
 ## Log
 
 - 2026-10-18 · split out of [[F-12 View As & Pin Views]] when the vault moved to layers

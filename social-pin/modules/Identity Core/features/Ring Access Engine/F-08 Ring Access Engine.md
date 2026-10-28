@@ -28,14 +28,6 @@ Wireframe brief sections: [[Wireframe Brief#Core product concept|§1 Core produc
 
 Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map in [[Navigation Map]], see [[Design Reference]].
 
-## Tasks
-
-_No open tasks._
-
-```dataview
-TABLE status, priority, effort FROM #task WHERE feature = "ring-access" SORT priority ASC
-```
-
 ## Decisions
 
 - [[ND-04 Ring settings]] — decided, six settings at launch with private defaults ([[D-04 Ring settings at launch and their defaults|D-04]])

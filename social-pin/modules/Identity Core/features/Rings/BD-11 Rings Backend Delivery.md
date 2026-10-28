@@ -56,12 +56,6 @@ What the backend shipped for this feature and how it works. The sum of this feat
 - "Copy a Ring" when creating (s18) has no endpoint. See [[ND-05 Copy or inherit]].
 - The sweeper that materialises `RING_STATUS.EXPIRED` and purges `AUTO_DELETE` Rings is not written. See [[F-31 Cleanup Jobs]].
 
-## Tasks delivered
-
-| Task | Delivery note | Status |
-|---|---|---|
-| — | — | — |
-
 ## Log
 
 - 2026-10-18 · split out of [[F-11 Rings]] when the vault moved to layers
