@@ -2,7 +2,7 @@
 type: project
 layer: shared
 created: 2026-10-19
-updated: 2026-10-27
+updated: 2026-10-28
 depends: ["Agent Protocol"]
 affects: []
 related: ["Agent Protocol", "Agent Rules", "Workflow"]
@@ -21,7 +21,7 @@ You are the **QA** layer of this vault ([[Agent Rules#1 · The layers]]): you wr
 
 You **write**:
 
-- `<Feature> QA Backend` (given / when / then per endpoint, the state diagram, the error matrix, the verdict) and `<Feature> QA Frontend` (journeys, screen states, error copy, the verdict), one of each per feature; a new part of the story adds its rows;
+- `QB-NN <Feature> QA Backend` (given / when / then per endpoint, the state diagram, the error matrix, the verdict) and `QF-NN <Feature> QA Frontend` (journeys, screen states, error copy, the verdict), one of each per feature; a new part of the story adds its rows;
 - bugs: `bugs/B-NN …`, `type: bug` (from `templates/Bug Template.md`), hung under the card the bug was found against, with what happens, what should happen, the screen or endpoint, the build;
 - the decision card a QA note of yours cannot continue without (`--scaffold needs-decision "<card>" "<title>"`): you raise and fill it; the PM or the owner decide it ([[Agent Rules#4 · Statuses, blocking and sign-off]]).
 
@@ -29,7 +29,7 @@ You read the story, both delivery notes and the integration note. You never writ
 
 ## 2 · Before you touch anything
 
-[[Agent Protocol#1 · Load]] and [[Agent Protocol#2 · Resolve what the user named]]. For a feature: `--impact "<Feature> Story"`, the story, the delivery note you check against, the integration note for the shapes and error codes.
+[[Agent Protocol#1 · Load]] and [[Agent Protocol#2 · Resolve what the user named]]. For a feature: `--impact "S-NN <Feature> Story"`, the story, the delivery note you check against, the integration note for the shapes and error codes.
 
 ## 3 · Ask, then act
 
@@ -47,7 +47,7 @@ You read the story, both delivery notes and the integration note. You never writ
 
 ### 4A · Write the artefacts
 
-`node scripts/build-tree.mjs --scaffold qa-backend <feature-id>` or `--scaffold qa-frontend <feature-id>` the first time (later parts add rows to the same note; a note already passing takes the new rows as `pending` until they run); fill the template's tables from the story's acceptance criteria and the delivery note: every criterion becomes a row with a checkbox; the state diagram and the error matrix (backend) or the journeys and the screen states with their copy (frontend). `related:` the endpoints, error codes and screens. `status: draft` until a run.
+`node scripts/build-tree.mjs --scaffold qa-backend <feature-id>` or `--scaffold qa-frontend <feature-id>` the first time (they write `QB-NN <Feature> QA Backend.md` and `QF-NN <Feature> QA Frontend.md`, born with their codes, and repoint the links written to the card's plain name; [[Agent Rules#2 · Codes, scopes and the "sum of" rule]]) (later parts add rows to the same note; a note already passing takes the new rows as `pending` until they run); fill the template's tables from the story's acceptance criteria and the delivery note: every criterion becomes a row with a checkbox; the state diagram and the error matrix (backend) or the journeys and the screen states with their copy (frontend). `related:` the endpoints, error codes and screens. `status: draft` until a run.
 
 ### 4B · Record a run
 
@@ -59,9 +59,9 @@ A bug is its own type, `type: bug` (tags `bug`, `bug/<status>`), numbered `B-NN`
 
 | The failing row is in | File it with | It hangs under |
 |---|---|---|
-| a feature-level QA note (`<Feature> QA Backend`) | `--scaffold bug <feature-id> "<Title>" --found-on "<note name>"` | the card you were testing: the Backend Integration note for a backend row, the Frontend Delivery note for a frontend one |
+| a feature-level QA note (`QB-NN <Feature> QA Backend`) | `--scaffold bug <feature-id> "<Title>" --found-on "<note name>"` | the card you were testing: the Backend Integration note for a backend row, the Frontend Delivery note for a frontend one |
 
-**Name the card you were checking against, not your own QA note.** A backend row fails against the contract in `<Feature> Backend Integration`, so that is the `--found-on`; a frontend row fails against `<Feature> Frontend Delivery`. The scaffold writes `**Found against:** [[<that card>]]` under the H1 and puts it in `related:`. Your QA note is named right under it with the row — `**Found by:** [[<your QA note>]] row BNN, on build <build>` — and the bug goes in your QA note's `pending:`, so the note stays Partial until the bug is closed and `--impact` on either card lists the other.
+**Name the card you were checking against, not your own QA note.** A backend row fails against the contract in `BI-NN <Feature> Backend Integration`, so that is the `--found-on`; a frontend row fails against `FD-NN <Feature> Frontend Delivery`. The scaffold writes `**Found against:** [[<that card>]]` under the H1 and puts it in `related:`. Your QA note is named right under it with the row — `**Found by:** [[<your QA note>]] row BNN, on build <build>` — and the bug goes in your QA note's `pending:`, so the note stays Partial until the bug is closed and `--impact` on either card lists the other.
 
 In `## What`: what happens, what should happen (the story's criterion), where (screen id or endpoint), on which build. The fix is the layer's work: say which agent (`/backend` or `/frontend`).
 

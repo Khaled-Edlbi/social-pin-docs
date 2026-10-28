@@ -1,6 +1,6 @@
 ---
 type: home
-updated: 2026-10-26
+updated: 2026-10-28
 tags: [map]
 ---
 
@@ -29,7 +29,7 @@ Full description: [[Project Overview]]. Vocabulary: [[Glossary]].
 | Identity core: auth, account, profiles, Rings, members, projections, View as, files, access engine | ✅ Backend done, 49 endpoints, 168 unit tests green; a Backend Integration note per feature ([[Frontend Contract]]) |
 | User stories and frontend requirements | ✏️ Drafted for all 39 features, awaiting product sign-off (the ✏️ Draft chips in the [[Docs Tree]]) |
 | Frontend delivery and QA notes | ∅ None yet: every feature shows the placeholders; the frontend repo's agent rules are in [[Frontend Agent Prompt]] |
-| Error contract (`ErrorCode` on the wire), file bytes by id | 🟡 [[Error Contract Story|Error Contract · S4–S8]], [[T-062 Serve uploaded file bytes by id]] |
+| Error contract (`ErrorCode` on the wire), file bytes by id | 🟡 [[S-87 Error Contract Story|Error Contract · S4–S8]], [[T-062 Serve uploaded file bytes by id]] |
 | Code delivery, counts, delegated admins, badge / QR, Event Ring, photo library, devices, interests, widgets, linked accounts | 🟡 Partial: tables exist, endpoints missing |
 | Connections, shared Rings, companies, Discover, PinCast, events, meetings, exhibitor, post-event, payments, subscription, notifications, Gemma, audit log, cleanup jobs, e2e run | ❌ To do: schema only (about 30 tables with no service) |
 | Design vs backend disagreements | ❓ 5 open [[Decisions]] (ND-01 passwordless: decided and shipped) |
@@ -53,16 +53,16 @@ social-pin-docs/
     ├── frontend/                  FRONTEND docs: Frontend Contract · Frontend API Guide · Frontend Passwordless Migration · Frontend Agent Prompt
     ├── backend/                   BACKEND docs: Architecture · API Conventions · Auth Model · Ring Access Model · Database & Migrations · Developer Setup · Spec Map · Developer Guide
     ├── modules/<Module>/
-    │   ├── <Module> Module.md     the module = the sum of its features
-    │   └── features/<Feature>/    one folder per feature; anything else the module holds gets its own folder beside features/
-    │       ├── <Feature>.md                       business: the main node (what it is for, screens, tasks, decisions)
-    │       ├── <Feature> Story.md                 business · draft → approved → verified
-    │       ├── <Feature> Frontend Requirements.md frontend · what the client asks of the backend
-    │       ├── <Feature> Backend Delivery.md      backend  · what shipped, how it works, gaps
-    │       ├── <Feature> Backend Integration.md   backend  · how the client calls it
-    │       ├── <Feature> Frontend Delivery.md     frontend · what the client shipped
-    │       ├── <Feature> QA Backend.md            qa       · expected API behaviour, verdict
-    │       └── <Feature> QA Frontend.md           qa       · expected screen behaviour, verdict
+    │   ├── M-NN <Module> Module.md   the module = the sum of its features (every card's file name starts with its code)
+    │   └── features/<Feature>/    one folder per feature, named without a code; anything else the module holds gets its own folder beside features/
+    │       ├── F-NN <Feature>.md                         business: the main node (what it is for, screens, tasks, decisions)
+    │       ├── S-NN <Feature> Story.md                   business · draft → approved → verified
+    │       ├── FR-NN <Feature> Frontend Requirements.md  frontend · what the client asks of the backend
+    │       ├── BD-NN <Feature> Backend Delivery.md       backend  · what shipped, how it works, gaps
+    │       ├── BI-NN <Feature> Backend Integration.md    backend  · how the client calls it
+    │       ├── FD-NN <Feature> Frontend Delivery.md      frontend · what the client shipped
+    │       ├── QB-NN <Feature> QA Backend.md             qa       · expected API behaviour, verdict
+    │       └── QF-NN <Feature> QA Frontend.md            qa       · expected screen behaviour, verdict
     ├── bugs/                      the bugs, B-NN <Title>.md
     ├── needs-decisions/           the needs-decision cards, ND-NN <Title>.md: the questions
     ├── decisions/                 the decision cards, D-NN <Title>.md: the answers; and the Decisions table
@@ -71,7 +71,7 @@ social-pin-docs/
 
 ## Start here, by role
 
-- **Backend developer** → the feature's approved Frontend Requirements → its story → `node scripts/build-tree.mjs --impact "<Feature> Story"` → the feature's Backend Delivery → [[Ring Access Model]] → [[Architecture#Build order for a new feature]]. To write the notes: `/backend …` ([[Backend Agent]]).
+- **Backend developer** → the feature's approved Frontend Requirements → its story → `node scripts/build-tree.mjs --impact "S-NN <Feature> Story"` → the feature's Backend Delivery → [[Ring Access Model]] → [[Architecture#Build order for a new feature]]. To write the notes: `/backend …` ([[Backend Agent]]).
 - **Frontend developer** → [[Frontend Contract]] → the feature's Backend Integration note → [[Frontend API Guide]]. The rules for the frontend repo's agent: [[Frontend Agent Prompt]]; to write the notes here: `/frontend …` ([[Frontend Agent]]). **Auth is passwordless since 2026-10-15**: [[Frontend Passwordless Migration]].
 - **Product / design** → [[Decisions]] first (five answers unblock 19 tasks), the ✏️ Draft stories in the [[Docs Tree]] to approve, [[Screen Index]] for what each screen can do today. To create a feature with its business side: `/owner …` ([[Owner Agent]]); its story or a task: `/pm …` ([[PM Agent]]); a decision card is raised by whichever agent owns the card that needs it and decided by `/pm` or `/owner`; to approve, change a rule or set priorities: `/owner …` ([[Owner Agent]]).
 - **QA** → a feature's two delivery notes and its story; `--scaffold qa-backend <feature>` / `qa-frontend` to start the artefacts, or `/qa …` ([[QA Agent]]).

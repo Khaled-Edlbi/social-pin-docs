@@ -6,17 +6,17 @@ status: decided
 decidedBy: "molham"
 decidedAt: 2026-10-25
 features: [connections]
-affects: ["Connections", "Rings", "Ring Members", "Connections Story"]
-related: ["ND-14 Connection-granted Ring on Shared with me", "View As & Pin Views", "D-15 Several Rings per connection, remove or disconnect"]
+affects: ["F-14 Connections", "F-11 Rings", "F-09 Ring Members", "S-23 Connections Story"]
+related: ["ND-14 Connection-granted Ring on Shared with me", "F-12 View As & Pin Views", "D-15 Several Rings per connection, remove or disconnect"]
 owner: "khaled"
 created: 2026-10-25
-updated: 2026-10-27
+updated: 2026-10-28
 tags: [decision, decision/decided]
 ---
 
 # ⚖️ D-14 · Shared with me lists people, never the Ring
 
-**Answers:** [[ND-14 Connection-granted Ring on Shared with me]] · **Decided by:** molham · **On:** 2026-10-25 · **Feature:** [[Connections]]
+**Answers:** [[ND-14 Connection-granted Ring on Shared with me]] · **Decided by:** molham · **On:** 2026-10-25 · **Feature:** [[F-14 Connections]]
 
 > This card is the answer to [[ND-14 Connection-granted Ring on Shared with me]]. The needs-decision card keeps the question, the facts and the options; this decision card says what was decided, why, and what it changes. `draft` while the answer is prepared; `decided` only by the PM or the owner, on the user's word, with `decidedBy` and `decidedAt`: then [[ND-14 Connection-granted Ring on Shared with me]] shows Fulfilled by itself and the cards it blocked continue.
 
@@ -34,18 +34,18 @@ Answered on the product-questions page, 2026-10-22 ("dont show"; Shared with me 
 
 ## Why
 
-- [[Connections Story|Connections · S13–S18]] S3 promises that the requester never learns the Ring they were put in; a Ring name on s17 would break that promise for every member, not only connections.
+- [[S-23 Connections Story|Connections · S13–S18]] S3 promises that the requester never learns the Ring they were put in; a Ring name on s17 would break that promise for every member, not only connections.
 - Owners name Rings for themselves ("Acquaintances", "Maybe later"); those names were never meant to be read by the people in them.
 - Listing everyone who shares with me makes s17 one place to find every card shared with me, instead of splitting people by how they got in.
 - Traded away: the `shared-with-me` row changes for every member, and a person in two of someone's Rings sees one person, not two Rings ([[D-15 Several Rings per connection, remove or disconnect]] says which version they see).
 
 ## What it changes
 
-- [[Rings]]: `GET /rings/shared-with-me` stops returning the Ring's name, colour and type to a member; it returns the person who shares.
-- [[Ring Members]]: a member can no longer read the identity of the Ring they are in.
-- [[Connections]]: someone accepted into a Ring appears on the requester's Shared with me as the person, like everyone else.
-- [[Connections Story|Connections · S13–S18]]: S3 holds as written; the open question *Shared with me by name* in [[Connections Story|Connections · S13–S18]] is answered (listed, without a name).
-- [[Connections Story|Connections · S19–S24]]: contacts and Shared with me both reach a person, neither names the Ring.
+- [[F-11 Rings]]: `GET /rings/shared-with-me` stops returning the Ring's name, colour and type to a member; it returns the person who shares.
+- [[F-09 Ring Members]]: a member can no longer read the identity of the Ring they are in.
+- [[F-14 Connections]]: someone accepted into a Ring appears on the requester's Shared with me as the person, like everyone else.
+- [[S-23 Connections Story|Connections · S13–S18]]: S3 holds as written; the open question *Shared with me by name* in [[S-23 Connections Story|Connections · S13–S18]] is answered (listed, without a name).
+- [[S-23 Connections Story|Connections · S19–S24]]: contacts and Shared with me both reach a person, neither names the Ring.
 
 ## Still open
 

@@ -3,20 +3,20 @@ type: needs-decision
 id: ND-19
 status: open
 features: [error-contract]
-blocks: ["Error Contract Story"]
+blocks: ["S-87 Error Contract Story"]
 decider: "owner"
 screens: []
 affects: []
-related: ["Agent Rules", "Docs Tree", "Error Contract Story"]
+related: ["Agent Rules", "Docs Tree", "S-87 Error Contract Story"]
 owner: "khaled"
 created: 2026-10-25
-updated: 2026-10-27
+updated: 2026-10-28
 tags: [needs-decision, needs-decision/open]
 ---
 
 # ✅ ND-19 · Where a ticket's layer notes live
 
-**Status:** open · **Decider:** owner · **Raised:** 2026-10-25 · **Needed by:** [[Error Contract Story|Error Contract · S4–S8]] · **Feature:** [[Error Contract]]
+**Status:** open · **Decider:** owner · **Raised:** 2026-10-25 · **Needed by:** [[S-87 Error Contract Story|Error Contract · S4–S8]] · **Feature:** [[F-35 Error Contract]]
 
 > The needs-decision card: `draft` while the question is written, `open` once it is ready for the decider; it shows **Fulfilled** by itself once its decision card (D-NN) is `decided`. The cards in `blocks` are **Blocked · ND-19** while this is `draft` or `open` and return to their own status once it is fulfilled. Nobody edits their `status:` for this, and nobody types `fulfilled` or `decided` here.
 
@@ -26,7 +26,7 @@ A build task is split into its halves, `T-NNN-fe` and `T-NNN-be`, and each half 
 
 ## Notes
 
-- **The two sides already disagree in writing.** [[Error Contract Story|Error Contract · S4–S8]]'s header links `[[Error Contract Frontend Requirements|Error Contract · S4–S8]]`, `[[Error Contract Backend Integration|Error Contract · S4–S8]]`, `[[Error Contract QA Backend|Error Contract · S4–S8]]` and `[[Error Contract QA Frontend|Error Contract · S4–S8]]` — the parent. The halves' own notes ([[Error Contract Story|Error Contract · S4–S8]], [[Error Contract Story|Error Contract · S4–S8]]) tell their team to scaffold `[[Error Contract Backend Delivery|Error Contract · S4–S8]]` — the half. Both lines come from templates, so every build ticket in the vault carries the contradiction.
+- **The two sides already disagree in writing.** [[S-87 Error Contract Story|Error Contract · S4–S8]]'s header links `[[FR-35 Error Contract Frontend Requirements|Error Contract · S4–S8]]`, `[[Error Contract Backend Integration|Error Contract · S4–S8]]`, `[[Error Contract QA Backend|Error Contract · S4–S8]]` and `[[Error Contract QA Frontend|Error Contract · S4–S8]]` — the parent. The halves' own notes ([[S-87 Error Contract Story|Error Contract · S4–S8]], [[S-87 Error Contract Story|Error Contract · S4–S8]]) tell their team to scaffold `[[BD-35 Error Contract Backend Delivery|Error Contract · S4–S8]]` — the half. Both lines come from templates, so every build ticket in the vault carries the contradiction.
 - [[Agent Rules#2 · Codes, scopes and the "sum of" rule]] says "each half writes its own layer notes (`--scaffold <kind> T-063-fe`)", which reads for the half.
 - `taskFlow` in `docs.config.json` (added 2026-10-25) draws the chain under the parent, for the tasks it names; it names `T-063` today. Whichever way this goes, that list and one of the two templates have to follow — both are the owner's files.
 - A ticket's story is one note per ticket, not one per half, and the feature-level notes are the sum of the task-level ones. A chain per half gives two Backend Delivery notes to roll up where the story gives one.
@@ -39,7 +39,7 @@ A build task is split into its halves, `T-NNN-fe` and `T-NNN-be`, and each half 
 
 ## Responsible
 
-`decider` above: the owner, who holds the rules, the config and the templates. The PM raises it because the ticket it blocks is the PM's; the frontend and backend agents are the ones it costs, since they write the notes either way. Needed before the first layer note of [[Error Contract Story|Error Contract · S4–S8]] is written, which is the next step on that ticket.
+`decider` above: the owner, who holds the rules, the config and the templates. The PM raises it because the ticket it blocks is the PM's; the frontend and backend agents are the ones it costs, since they write the notes either way. Needed before the first layer note of [[S-87 Error Contract Story|Error Contract · S4–S8]] is written, which is the next step on that ticket.
 
 ## Decision
 

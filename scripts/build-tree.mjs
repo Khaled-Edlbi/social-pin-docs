@@ -79,6 +79,11 @@ const codeKind = (n) => (isBug(n) ? 'bug' : n.kind);
 // the folder a task-like note lives in: bugs/ for a bug (type: bug), tasks/ for a task
 const taskRoot = (note) => (note.data?.type === 'bug' ? 'bugs' : 'tasks');
 const ID_CODED = new Set(['task', 'needs-decision', 'decision']); // the card code is the note's id
+// a module, a feature and a feature's layer notes carry their card code in front of the file name too: `M-07 Commerce Module`, `F-27 Payments & Orders`, `S-69 Payments & Orders Story`
+const CODED_STEM = /^([A-Z]{1,4}-\d+) (.+)$/;
+const bareName = (stem) => CODED_STEM.exec(stem)?.[2] ?? stem; // the name without its code
+const stemCode = (stem) => CODED_STEM.exec(stem)?.[1] ?? null;
+const namedByCard = (n) => !!n.path && (n.kind === 'module' || n.kind === 'feature' || (!!n.scope && n.scope === 'feature'));
 
 // ---------------------------------------------------------------- config
 export function loadConfig(errors = []) {
@@ -465,8 +470,8 @@ export function build() {
   const moduleNotes = new Map(byType('module').map((n) => [n.data.id, n]));
   for (const m of cfg.modules) {
     const note = moduleNotes.get(m.id);
-    if (!note) warn(prj(`modules/${m.name}`), `no module note yet (create ${prj(`modules/${m.name}/${m.name} Module.md`)} from templates/Module Template.md)`);
-    else if (note.rel !== prj(`modules/${m.name}/${m.name} Module.md`)) warn(note.rel, `module note expected at ${prj(`modules/${m.name}/${m.name} Module.md`)}`);
+    if (!note) warn(prj(`modules/${m.name}`), `no module note yet (create ${prj(`modules/${m.name}/M-NN ${m.name} Module.md`)} from templates/Module Template.md, M-NN the next free module code)`);
+    else if (path.posix.dirname(note.rel) !== prj(`modules/${m.name}`) || bareName(note.stem) !== `${m.name} Module`) warn(note.rel, `module note expected at ${prj(`modules/${m.name}/<M-NN> ${m.name} Module.md`)}`);
     const d = addNode(base(note, { id: `module:${m.id}`, kind: 'module', title: note?.stem ?? `${m.name} Module`, name: m.name, module: m.id, summary: note?.summary ?? m.description, label: 'Module', path: note?.rel ?? null, template: note ? null : 'templates/Module Template.md' }));
     if (note) noteOf.set(d.id, note);
     moduleNodes.set(m.id, d);
@@ -482,12 +487,12 @@ export function build() {
     else if (list(n.data.tags).some((t) => t.startsWith('status/'))) err(n.rel, 'a feature\'s status is computed from its cards: remove the status/* tag');
     const parts = (n.prel ?? '').split('/');
     const folderModule = MODULE_BY_NAME.get(parts[1]);
-    if (parts[0] !== 'modules' || !folderModule) err(n.rel, `feature notes live in ${prj('modules/<Module>/features/<Feature>/<Feature>.md')}`);
-    else if (parts[2] !== 'features' || parts[3] !== n.stem || parts[4] !== n.name || parts.length !== 5) warn(n.rel, `expected at ${prj(`modules/${parts[1]}/features/${n.stem}/${n.name}`)}: a module keeps its features in features/, beside its module note`);
+    if (parts[0] !== 'modules' || !folderModule) err(n.rel, `feature notes live in ${prj('modules/<Module>/features/<Feature>/<F-NN> <Feature>.md')}`);
+    else if (parts[2] !== 'features' || parts[3] !== bareName(n.stem) || parts[4] !== n.name || parts.length !== 5) warn(n.rel, `expected at ${prj(`modules/${parts[1]}/features/${bareName(n.stem)}/${n.name}`)}: a module keeps its features in features/, beside its module note, one folder per feature named without its code`);
     const mod = n.data.module;
     if (!MODULE_BY_ID.has(mod)) err(n.rel, `module "${mod}" is not in docs.config.json modules`);
     else if (folderModule && folderModule.id !== mod) err(n.rel, `module "${mod}" does not match folder "${parts[1]}" (${folderModule.id})`);
-    const f = addNode(base(n, { id: `feature:${n.data.id}`, kind: 'feature', layer: 'business', feature: n.data.id, code: n.data.id, status: null, effectiveStatus: 'todo', module: mod, label: 'Feature', name: n.data.name ?? n.stem, dir: path.posix.dirname(n.rel), frontendOnly: n.data.frontendOnly === true }));
+    const f = addNode(base(n, { id: `feature:${n.data.id}`, kind: 'feature', layer: 'business', feature: n.data.id, code: n.data.id, status: null, effectiveStatus: 'todo', module: mod, label: 'Feature', name: n.data.name ?? bareName(n.stem), dir: path.posix.dirname(n.rel), frontendOnly: n.data.frontendOnly === true }));
     noteOf.set(f.id, n);
     if (featureNodes.has(n.data.id)) err(n.rel, `second feature note with id "${n.data.id}"`);
     featureNodes.set(n.data.id, f);
@@ -580,8 +585,7 @@ export function build() {
       container = featureNodes.get(n.data.feature) || null;
       if (!container) { err(n.rel, `feature "${n.data.feature}" is not a feature id`); continue; }
       if (n.data.code !== n.data.feature) err(n.rel, `code "${n.data.code}" must equal the feature id "${n.data.feature}" on a feature-level note`);
-      const expected = `${container.dir}/${container.title} ${kind.file}.md`;
-      if (n.rel !== expected) warn(n.rel, `expected at ${expected}`);
+      if (path.posix.dirname(n.rel) !== container.dir || bareName(n.stem) !== `${container.name} ${kind.file}`) warn(n.rel, `expected at ${container.dir}/<${kind.prefix}-NN> ${container.name} ${kind.file}.md`);
     } else if (scope === 'task') {
       requireKeys(n, ['task']);
       if (n.data.code !== n.data.task) err(n.rel, `code "${n.data.code}" must equal the task id "${n.data.task}" on a task-level note`);
@@ -614,7 +618,7 @@ export function build() {
       if (f.frontendOnly && cfg.frontendOnlySkips.includes(kid)) continue;
       const kind = KIND.get(kid);
       const c = addNode(base(null, {
-        id: `${kid}:${fid}`, kind: kid, layer: kind.layer, feature: fid, code: fid, scope: 'feature', title: `${f.title} ${kind.file}`, path: null, template: kind.template,
+        id: `${kid}:${fid}`, kind: kid, layer: kind.layer, feature: fid, code: fid, scope: 'feature', title: `${f.name} ${kind.file}`, path: null, template: kind.template,
         status: null, effectiveStatus: 'missing', module: f.module, label: kind.label,
         summary: `Not written yet. Create it with: node scripts/build-tree.mjs --scaffold ${kid} ${fid}`,
       }));
@@ -794,7 +798,11 @@ export function build() {
       if (key === 'depends' && n.decision) refs.push(n.decision);
       for (const ref of refs) {
         const r = resolve(ref, n);
-        if (!r) { err(note.rel, `${key}: "${ref}" is not a note name, task, decision, feature, module, sibling kind or known concept`); continue; }
+        if (!r) {
+          const coded = Object.values(nodes).find((x) => namedByCard(x) && bareName(path.posix.basename(x.path, '.md')) === String(ref).trim());
+          err(note.rel, coded ? `${key}: "${ref}" — the card is named with its code now, write "${coded.title}"` : `${key}: "${ref}" is not a note name, task, decision, feature, module, sibling kind or known concept`);
+          continue;
+        }
         for (const to of r.ids) {
           if (to === id) continue;
           if (key === 'depends' && !n.depends.includes(to)) n.depends.push(to);
@@ -990,12 +998,16 @@ export function build() {
   const treePairs = new Set(edges.filter((e) => e.kind === 'tree').map((e) => [e.from, e.to].sort().join('|')));
   const placeholderTitles = new Set(Object.values(nodes).filter((n) => n.effectiveStatus === 'missing').map((n) => n.title));
   for (const [code] of taskNodes) for (const k of KIND.values()) placeholderTitles.add(`${code} ${k.file}`); // a task's future layer notes
-  for (const [, f] of featureNodes) for (const k of KIND.values()) placeholderTitles.add(`${f.title} ${k.file}`);
+  for (const [, f] of featureNodes) for (const k of KIND.values()) placeholderTitles.add(`${f.name} ${k.file}`);
+  // a card renamed with its code: the old name still points somewhere, so say which name to write
+  const codedByBare = new Map();
+  for (const n of Object.values(nodes)) if (namedByCard(n)) { const stem = path.posix.basename(n.path, '.md'); if (stemCode(stem)) codedByBare.set(bareName(stem), stem); }
   for (const [id, note] of noteOf) {
     for (const l of note.links) {
       const target = noteNamed(l.target);
       if (!l.target) continue; // [[#heading]] links to itself
-      if (!target) { if (!placeholderTitles.has(l.target) && !/^(https?:)|\.(canvas|png|jpg|svg)$|^(T-NNN|ND-NN|<)/.test(l.target)) warn(note.rel, `wikilink [[${l.target}]] resolves to no note`); continue; }
+      if (!target && codedByBare.has(l.target)) { warn(note.rel, `wikilink [[${l.target}]]: the card is named with its code now, write [[${codedByBare.get(l.target)}]]`); continue; }
+      if (!target) { if (!placeholderTitles.has(l.target) &&!/^(https?:)|\.(canvas|png|jpg|svg)$|^(T-NNN|[A-Z]{1,4}-NN\b|<)/.test(l.target)) warn(note.rel, `wikilink [[${l.target}]] resolves to no note`); continue; }
       const to = ownerOfPath.get(target.rel);
       if (!to || to === id) continue;
       if (treePairs.has([id, to].sort().join('|'))) continue;
@@ -1107,7 +1119,7 @@ export function build() {
 
   // ---------------------------------------------------------- card codes: one unique code per card, kept in tree/cards.json, never reused
   const registry = loadCards(errors);
-  const cards = assignCards({ nodes, rootId: root.id, cfg, registry, err: (m) => errors.push(`tree/cards.json: ${m}`) });
+  const cards = assignCards({ nodes, rootId: root.id, cfg, registry, err: (m) => errors.push(`tree/cards.json: ${m}`), warn: (m) => warnings.push(m) });
   // every card says when it was made: created: YYYY-MM-DD, set once by the scaffold or the template and never changed
   for (const n of Object.values(nodes)) {
     if (!n.card || !n.path) continue;
@@ -1157,7 +1169,7 @@ function loadCards(errors) {
 }
 
 const CARD_KINDS = new Set(STRUCTURAL);
-function assignCards({ nodes, rootId, cfg, registry, err }) {
+function assignCards({ nodes, rootId, cfg, registry, err, warn }) {
   const { pad, prefixes, prefixOf } = cfg.cardCodes;
   const isCard = (n) => !!n.path && (CARD_KINDS.has(n.kind) || cfg.kinds.has(n.kind));
   const CODE = /^([A-Z]{1,4})-(\d+)([a-z]?(?:-[a-z]{2})?)$/;
@@ -1193,7 +1205,17 @@ function assignCards({ nodes, rootId, cfg, registry, err }) {
     if (m[1] !== want) { err(`${id}: code ${code} carries prefix ${m[1]}, but a ${n.kind} card's prefix is ${want}`); continue; }
     claim(code, id);
   }
-  // 3 · new cards: the next free number for the prefix, in tree order
+  // 3 · a new card named with its code (the scaffold writes `<code> <name>.md`) claims that code, before any number is handed out below
+  for (const n of Object.values(nodes)) {
+    if (!namedByCard(n) || n.card) continue;
+    const named = stemCode(path.posix.basename(n.path, '.md'));
+    if (!named) continue;
+    const m = CODE.exec(named);
+    if (!m || m[1] !== prefixOf(n.kind)) { err(`${n.path}: the file name starts with ${named}, but a ${n.kind} card's prefix is ${prefixOf(n.kind)}`); continue; }
+    if (taken.has(named) || byCode[named]) { err(`${n.path}: the file name claims ${named}, which ${byCode[named] ? `is held by ${byCode[named]}` : 'is retired'}; create cards with node scripts/build-tree.mjs --scaffold, which takes the next free code`); continue; }
+    claim(named, n.id);
+  }
+  // new cards with no code in the name: the next free number for the prefix, in tree order
   const next = new Map(); // prefix -> highest number seen (claimed or retired)
   const note = (code) => { const m = CODE.exec(code); if (m && !m[3]) next.set(m[1], Math.max(next.get(m[1]) || 0, Number(m[2]))); };
   for (const c of taken) note(c);
@@ -1216,6 +1238,13 @@ function assignCards({ nodes, rootId, cfg, registry, err }) {
   };
   walkNode(rootId);
   for (const n of Object.values(nodes)) if (isCard(n) && !n.card && !ID_CODED.has(n.kind)) walkNode(n.id); // a card not reachable from the root (should not happen)
+  // a module, a feature and a feature's layer notes carry their code in front of the file name, as a task or a bug does: the code never moves, the file follows it
+  for (const n of Object.values(nodes)) {
+    if (!namedByCard(n) || !n.card) continue;
+    const stem = path.posix.basename(n.path, '.md'), named = stemCode(stem);
+    if (!named) warn(`${n.path}: a ${n.kind} card's file name starts with its code: rename to ${path.posix.dirname(n.path)}/${n.card} ${stem}.md and update the links`);
+    else if (named !== n.card) err(`${n.path}: the file name says ${named}, but the card's code is ${n.card} (tree/cards.json); a code is never changed: rename the file to ${n.card} ${bareName(stem)}.md`);
+  }
   // 4 · the registry to write back: current cards, plus every code that was ever given and is no longer held
   const retired = { ...registry.retired };
   for (const [id, code] of Object.entries(registry.cards)) if (cardsOut[id] !== code && !byCode[code]) retired[code] = id;
@@ -1360,7 +1389,8 @@ export function impact(json, query) {
   return { start, family: [...family].map((id) => nodes[id]), first, second, dependents };
 }
 
-const nodeLine = (n) => `${emojiOf(n)} ${n.title}${n.card ? ` [${n.card}]` : ''}${n.code && n.code !== n.title && n.code !== n.card ? ` (${n.code})` : ''}${n.path ? ` — ${n.path}` : ''}`;
+const cardTag = (n) => (n.card && !n.title.startsWith(`${n.card} `) ? ` [${n.card}]` : ''); // a card named with its code is not tagged twice
+const nodeLine = (n) => `${emojiOf(n)} ${n.title}${cardTag(n)}${n.code && n.code !== n.title && n.code !== n.card ? ` (${n.code})` : ''}${n.path ? ` — ${n.path}` : ''}`;
 
 // ---------------------------------------------------------------- find: the cards and concepts that match some words
 export function find(json, query, limit = 12) {
@@ -1427,7 +1457,7 @@ function printImpact(json, r, query) {
   const layerOf = (n) => n.layer ?? 'business';
   const now = new Date();
   const due = (n) => { if (!n.deadline) return ''; const z = deadlineZone(n.deadline, now, json.deadlines); return ` · due ${n.deadline} (${z.missed ? `${z.icon || ''} ${z.label}, ${-z.daysLeft} day${-z.daysLeft === 1 ? '' : 's'} ago`.trim() : `${z.label}, ${z.daysLeft} day${z.daysLeft === 1 ? '' : 's'} left`})`; };
-  const line = (n) => `${emojiOf(n)} ${n.title}${n.card ? ` [${n.card}]` : ''}${n.code && n.code !== n.title && n.code !== n.card ? ` (${n.code})` : ''}${n.priority ? ` · ${priorityLabel(json, n)}` : ''}${due(n)}${n.path ? ` — ${n.path}` : ''}`;
+  const line = (n) => `${emojiOf(n)} ${n.title}${cardTag(n)}${n.code && n.code !== n.title && n.code !== n.card ? ` (${n.code})` : ''}${n.priority ? ` · ${priorityLabel(json, n)}` : ''}${due(n)}${n.path ? ` — ${n.path}` : ''}`;
   if (r.concept) {
     console.log(`Concept ${r.concept} (${r.kind})${r.owner ? `, owned by ${nodes[r.owner].title}` : ''} is mentioned by ${r.notes.length} notes:`);
     for (const n of r.notes) console.log(`  ${line(n)}`);
@@ -1574,16 +1604,20 @@ function scaffoldFeature(result, moduleId, name) {
   const release = opt('--release', 'later');
   if (!cfg.releases.byId.has(release)) die(`release "${release}": ${cfg.releases.list.map((r) => r.id).join(', ')}`);
   const date = today();
-  const dest = PROJ('modules', m.name, 'features', name, `${name}.md`);
-  if (fs.existsSync(dest)) die(`${path.relative(ROOT, dest)} already exists`);
+  // the feature card is born with its code, in a folder named without it: features/<Name>/F-NN <Name>.md
+  const card = nextNumber(result, cfg.cardCodes.structural.feature, cfg.cardCodes.pad);
+  const dest = PROJ('modules', m.name, 'features', name, `${card} ${name}.md`);
+  if (fs.existsSync(path.dirname(dest))) die(`${path.relative(ROOT, path.dirname(dest))} already exists`);
   const { body } = parseFrontmatter(fs.readFileSync(path.join(ROOT, 'templates/Feature Template.md'), 'utf8'));
   const fm = { type: 'feature', id, name, priority, release, module: moduleId };
   if (has('--frontend-only')) fm.frontendOnly = true;
   Object.assign(fm, { screens: [], depends: [], affects: [], related: [], created: date, updated: date, tags: ['feature', `module/${moduleId}`, `priority/${priority}`, `release/${release}`] });
-  const text = fill(body, { '<Feature name>': name, '<Module name>': m.name, '<date>': date })
+  const moduleTitle = json.nodes[`module:${moduleId}`]?.title ?? `${m.name} Module`;
+  const text = fill(body, { '[[<Module name> Module': `[[${moduleTitle}`, '<Feature name>': name, '<Module name>': m.name, '<date>': date })
     .replace('**Priority:** High', `**Priority:** ${cfg.priorities.byId.get(priority).label}`).replace('**Release:** Later', `**Release:** ${cfg.releases.byId.get(release).label}`);
   const rel = writeNote(dest, fm, text, ['name']);
-  console.log(`wrote ${rel} (feature ${id} in ${m.name})\nnext: node scripts/build-tree.mjs --scaffold story ${id}; fill the note (what it is for, the screens, the product rules); add the row to [[${m.name} Module]] and the feature to its screens in [[Screen Index]]; then node scripts/build-tree.mjs`);
+  console.log(`wrote ${rel} (${card}, feature ${id} in ${m.name})\nnext: node scripts/build-tree.mjs --scaffold story ${id}; fill the note (what it is for, the screens, the product rules); add the row to [[${moduleTitle}]] and the feature to its screens in [[Screen Index]]; then node scripts/build-tree.mjs`);
+  repointLinks(new Map([[name, `${card} ${name}`]]));
 }
 
 // ---------------------------------------------------------------- scaffold · the decision card a card needs
@@ -1665,7 +1699,7 @@ function scaffold(result, kindId, code) {
   const nodes = json.nodes;
   const template = fs.readFileSync(path.join(ROOT, kind.template), 'utf8');
   const today = new Date().toISOString().slice(0, 10);
-  let dest, fm, name, featureNode, taskNode = null;
+  let dest, fm, name, featureNode, taskNode = null, card = null;
   if (isTaskId(code)) {
     taskNode = nodes[`task:${code}`];
     if (!taskNode) { console.error(`no task ${code}`); process.exit(1); }
@@ -1680,8 +1714,10 @@ function scaffold(result, kindId, code) {
   } else {
     featureNode = nodes[`feature:${code}`];
     if (!featureNode) { console.error(`no feature with id "${code}"`); process.exit(1); }
-    dest = path.join(ROOT, featureNode.dir, `${featureNode.title} ${kind.file}.md`);
-    name = featureNode.title;
+    // the card is born with its code: `<PREFIX>-NN <Feature> <Kind>.md`, the next free number for the kind's prefix
+    card = nextNumber(result, kind.prefix, cfg.cardCodes.pad);
+    dest = path.join(ROOT, featureNode.dir, `${card} ${featureNode.name} ${kind.file}.md`);
+    name = featureNode.name;
     fm = { type: kind.id, code, scope: 'feature', feature: code, module: featureNode.module };
   }
   if (fs.existsSync(dest)) { console.error(`${path.relative(ROOT, dest)} already exists`); process.exit(1); }
@@ -1690,10 +1726,55 @@ function scaffold(result, kindId, code) {
   const out = { ...data, ...fm, status, screens: featureNode?.screens ?? [], created: today, updated: today, tags: [kind.id, `${kind.id}/${status}`, `module/${fm.module}`, `layer/${kind.layer}`] };
   for (const k of ['depends', 'affects', 'related', 'blockedBy']) if (k in out) out[k] = [];
   const yaml = yamlOf(out);
-  let text = body.replace(/<Feature name>/g, name).replace(/<date>/g, today).replace(/<feature id>/g, fm.feature).replace(/<module id>/g, fm.module).replace(/<module>/g, fm.module);
+  // links to the feature and its other cards by their names as they are now: coded once written, the placeholder name until then
+  let text = body;
+  if (!taskNode) {
+    const stem = path.basename(dest, '.md');
+    for (const k of cfg.kinds.values()) text = text.split(`[[<Feature name> ${k.file}`).join(`[[${k.id === kind.id ? stem : nodes[`${k.id}:${code}`]?.title ?? `${name} ${k.file}`}`);
+    text = text.replace(/\[\[<Feature name>(?=[\]|#])/g, `[[${featureNode.title}`);
+  }
+  text = text.replace(/<Feature name>/g, name).replace(/<date>/g, today).replace(/<feature id>/g, fm.feature).replace(/<module id>/g, fm.module).replace(/<module>/g, fm.module);
   if (taskNode) text = text.replace(/\*\*Feature:\*\* \[\[[^\]]+\]\]/, `**Task:** [[${result.notes.find((n) => n.rel === taskNode.path).stem}]] · **Feature:** [[${featureNode.title}]] · **Feature-level note:** [[${featureNode.title} ${kind.file}]]`).replace(/\[\[([^\]|]+?) (Story|Frontend Requirements|Backend Delivery|Backend Integration|Frontend Delivery|QA Backend|QA Frontend)\]\]/g, (m, who, k) => (who === name ? `[[${code} ${k}]]` : m));
   fs.writeFileSync(dest, `---\n${yaml}\n---\n${text}`);
-  console.log(`wrote ${path.relative(ROOT, dest)} (status ${status}); fill it in, declare depends/affects/related, then run node scripts/build-tree.mjs`);
+  console.log(`wrote ${path.relative(ROOT, dest)} (${card ? `${card}, ` : ''}status ${status}); fill it in, declare depends/affects/related, then run node scripts/build-tree.mjs`);
+  if (card) repointLinks(new Map([[`${name} ${kind.file}`, path.basename(dest, '.md')]]));
+}
+
+// a card is named with its code from the day it is written: the links other notes wrote to its name while it was a placeholder
+// (`[[Payments & Orders Backend Integration]]`) are repointed at the coded name, in the bodies and in the frontmatter lists; nothing else in those notes changes
+function renameLinks(text, renames) {
+  // a table cell escapes the alias pipe: [[Name\|Alias]]
+  let out = text.replace(/\[\[([^\]|#\n]+?)(\\?(?:[#|][^\]\n]*)?)\]\]/g, (m, t, rest) => (renames.has(t.trim()) ? `[[${renames.get(t.trim())}${rest}]]` : m));
+  const end = /^---\r?\n/.test(out) ? out.indexOf('\n---', 4) : -1;
+  if (end < 0) return out;
+  const fm = out.slice(0, end).split('\n').map((raw) => {
+    const cr = raw.endsWith('\r') ? '\r' : '', line = cr ? raw.slice(0, -1) : raw; // the notes keep the line endings they have
+    const m = /^(depends|affects|related|blockedBy|blocks|foundOn|pending): (.*)$/.exec(line);
+    if (!m) return raw;
+    const item = (s) => { const q = /^"(.*)"$/.exec(s); const v = q ? q[1] : s; return renames.has(v) ? (q || /\s/.test(renames.get(v)) ? JSON.stringify(renames.get(v)) : renames.get(v)) : s; };
+    const list = /^\[(.*)\]$/.exec(m[2]);
+    if (!list) { const v = m[2].trim(); return renames.has(v) ? `${m[1]}: ${renames.get(v)}${cr}` : item(v) === v ? raw : `${m[1]}: ${item(v)}${cr}`; } // a scalar keeps its quoting
+    const items = list[1].split(/,(?=(?:[^"]*"[^"]*")*[^"]*$)/).map((s) => s.trim()).filter(Boolean);
+    return items.some((s) => item(s) !== s) ? `${m[1]}: [${items.map(item).join(', ')}]${cr}` : raw;
+  }).join('\n');
+  return fm + out.slice(end);
+}
+function repointLinks(renames) {
+  const skip = new Set([...GENERATED, prj('design/Wireframe Brief.md')]); // generated files are rebuilt; the brief is verbatim
+  const touched = [];
+  // the product's notes only: the rules and the templates quote placeholder names as examples, and stay as written
+  const walk = (dir) => {
+    for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+      if (e.name.startsWith('.')) continue;
+      const p = path.join(dir, e.name), rel = path.relative(ROOT, p).split(path.sep).join('/');
+      if (e.isDirectory()) { walk(p); continue; }
+      if (!e.name.endsWith('.md') || skip.has(rel)) continue;
+      const before = fs.readFileSync(p, 'utf8'), after = renameLinks(before, renames);
+      if (after !== before) { fs.writeFileSync(p, after); touched.push(rel); }
+    }
+  };
+  walk(PROJ());
+  if (touched.length) console.log(`repointed the links to ${[...renames.keys()].map((k) => `[[${k}]] → [[${renames.get(k)}]]`).join(', ')} in:\n${touched.map((t) => `  ${t}`).join('\n')}`);
 }
 
 // ---------------------------------------------------------------- main

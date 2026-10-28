@@ -1,7 +1,7 @@
 ---
 type: project
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-28
 tags: [project]
 layer: backend
 ---
@@ -61,9 +61,9 @@ Read the SQL before committing.
 | Field library (profile-owned links / info blocks, per-Ring visibility rows) | [[ND-03 Field library vs per-Ring copies]] |
 | Ring settings columns (audience, join policy, members visible, …) | [[ND-04 Ring settings]] |
 | `pinNameChangedAt` | [[ND-06 Pin name rules]] |
-| `WIDGET_TYPE` + AVAILABILITY, PAYMENT, NOW_PLAYING, TESTIMONIAL | [[Widgets]] |
-| Products / catalogue table | [[Events During]] |
-| Ring invitation state | [[Ring Invitations & Join]] |
+| `WIDGET_TYPE` + AVAILABILITY, PAYMENT, NOW_PLAYING, TESTIMONIAL | [[F-13 Widgets]] |
+| Products / catalogue table | [[F-23 Events During]] |
+| Ring invitation state | [[F-17 Ring Invitations & Join]] |
 
 ## Seeding
 

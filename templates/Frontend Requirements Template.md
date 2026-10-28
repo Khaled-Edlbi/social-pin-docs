@@ -21,7 +21,7 @@ tags: [frontend-requirements, frontend-requirements/draft, module/<module>, laye
 
 # <Feature name> · Frontend Requirements
 
-> Blocked by default until [[<Feature name> User Story]] is `approved` (the hand-off order in `docs.config.json`); `blockedBy: []` opts out, `blockedBy: [...]` names other blockers.
+> Blocked by default until [[<Feature name> Story]] is `approved` (the hand-off order in `docs.config.json`); `blockedBy: []` opts out, `blockedBy: [...]` names other blockers.
 
 **Feature:** [[<Feature name>]] · **Status:** Draft · **Story:** [[<Feature name> Story]] · **Backend Integration:** [[<Feature name> Backend Integration]]
 

@@ -5,7 +5,7 @@ status: open
 features: [profiles, gemma]
 screens: [s06]
 created: 2026-10-15
-updated: 2026-10-27
+updated: 2026-10-28
 tags: [needs-decision, needs-decision/open]
 ---
 
@@ -33,14 +33,14 @@ A. Add `pinNameChangedAt`, reject a rename within 365 days with a domain error, 
 
 ## Affects
 
-- [[Profiles & Pin Name]]
-- [[Gemma AI]]
+- [[F-07 Profiles & Pin Name]]
+- [[F-36 Gemma AI]]
 
 Screens: [[Screen Index#s06|s06]]
 
 ## Tasks waiting on this
 
-- [[Profiles & Pin Name Story|Profiles & Pin Name · Decide Pin name rules]]
+- [[S-14 Profiles & Pin Name Story|Profiles & Pin Name · Decide Pin name rules]]
 
 ## Decision
 

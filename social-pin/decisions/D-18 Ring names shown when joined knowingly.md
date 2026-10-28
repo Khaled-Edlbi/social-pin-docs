@@ -6,17 +6,17 @@ status: decided
 decidedBy: "molham"
 decidedAt: 2026-10-25
 features: [companies, ring-invitations]
-affects: ["Companies", "Ring Invitations & Join", "Rings", "Ring Members", "Ring Access Engine", "Companies Story", "Ring Invitations & Join Story"]
+affects: ["F-15 Companies", "F-17 Ring Invitations & Join", "F-11 Rings", "F-09 Ring Members", "F-08 Ring Access Engine", "S-29 Companies Story", "S-33 Ring Invitations & Join Story"]
 related: ["ND-18 Company and invited Ring names shown to members", "D-14 Shared with me lists people, never the Ring", "D-04 Ring settings at launch and their defaults"]
 owner: "khaled"
 created: 2026-10-25
-updated: 2026-10-26
+updated: 2026-10-28
 tags: [decision, decision/decided]
 ---
 
 # ⚖️ D-18 · Ring names shown when joined knowingly
 
-**Answers:** [[ND-18 Company and invited Ring names shown to members]] · **Decided by:** molham · **On:** 2026-10-25 · **Feature:** [[Companies]], [[Ring Invitations & Join]]
+**Answers:** [[ND-18 Company and invited Ring names shown to members]] · **Decided by:** molham · **On:** 2026-10-25 · **Feature:** [[F-15 Companies]], [[F-17 Ring Invitations & Join]]
 
 > This card is the answer to [[ND-18 Company and invited Ring names shown to members]]. The needs-decision card keeps the question, the facts and the options; this decision card says what was decided, why, and what it changes. `draft` while the answer is prepared; `decided` only by the PM or the owner, on the user's word, with `decidedBy` and `decidedAt`: then [[ND-18 Company and invited Ring names shown to members]] shows Fulfilled by itself and the cards it blocked continue.
 
@@ -50,14 +50,14 @@ Decided by molham on 2026-10-25, after the question was explained in product ter
 
 ## What it changes
 
-- [[Companies]]: s73 names the company Rings the member joined knowingly; [[Companies Story]] is no longer blocked and its S2 and S4 follow this card.
-- [[Ring Invitations & Join]]: an invitation and the review screen name the Ring; a Ring joined by invitation, code or work email keeps showing its name; [[Ring Invitations & Join Story]] is no longer blocked and its S1 and S2 follow this card.
-- [[Rings]]: `GET /rings/shared-with-me` may return a Ring's name only for a membership created by invitation, code or work email; never for a connection accept or an owner add.
-- [[Ring Members]]: a membership records how it was created; reassigning someone into another Ring is an owner action, so the target Ring is never named to them.
-- [[Ring Access Engine]]: decides, per membership, whether a Ring may be named to that member.
+- [[F-15 Companies]]: s73 names the company Rings the member joined knowingly; [[S-29 Companies Story]] is no longer blocked and its S2 and S4 follow this card.
+- [[F-17 Ring Invitations & Join]]: an invitation and the review screen name the Ring; a Ring joined by invitation, code or work email keeps showing its name; [[S-33 Ring Invitations & Join Story]] is no longer blocked and its S1 and S2 follow this card.
+- [[F-11 Rings]]: `GET /rings/shared-with-me` may return a Ring's name only for a membership created by invitation, code or work email; never for a connection accept or an owner add.
+- [[F-09 Ring Members]]: a membership records how it was created; reassigning someone into another Ring is an owner action, so the target Ring is never named to them.
+- [[F-08 Ring Access Engine]]: decides, per membership, whether a Ring may be named to that member.
 
 ## Still open
 
 - A person **reassigned** by the owner from a Ring they joined knowingly into another Ring: this card reads it as placed (the new Ring is never named). Confirm when the story that builds reassign is approved.
 - Whether the Ring's "who it's for" label ([[D-04 Ring settings at launch and their defaults]]) shows alongside the name on an invitation was not asked; the natural reading is yes for a Ring that is named.
-- How a membership records its origin is the backend's to design (the [[Ring Members]] delivery note when built).
+- How a membership records its origin is the backend's to design (the [[F-09 Ring Members]] delivery note when built).

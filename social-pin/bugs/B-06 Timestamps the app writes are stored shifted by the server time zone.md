@@ -6,23 +6,23 @@ priority: high
 effort: M
 feature: auth
 module: identity
-foundOn: Auth & Sign-up Backend Delivery
+foundOn: BD-02 Auth & Sign-up Backend Delivery
 labels: []
 screens: []
 depends: []
-affects: ["Auth & Sign-up Backend Delivery", "Database & Migrations", "Auth & Sign-up QA Backend"]
-related: ["Auth & Sign-up Backend Delivery", "Auth & Sign-up QA Backend", "Database & Migrations", "Account QA Backend"]
+affects: ["BD-02 Auth & Sign-up Backend Delivery", "Database & Migrations", "QB-05 Auth & Sign-up QA Backend"]
+related: ["BD-02 Auth & Sign-up Backend Delivery", "QB-05 Auth & Sign-up QA Backend", "Database & Migrations", "QB-04 Account QA Backend"]
 pending: []
 created: 2026-10-27
-updated: 2026-10-27
+updated: 2026-10-28
 tags: [bug, bug/todo, module/identity, priority/high]
 ---
 
 # ⬜ B-06 · Timestamps the app writes are stored shifted by the server time zone
 
-**Found against:** [[Auth & Sign-up Backend Delivery]] · **Feature:** [[Auth & Sign-up]] (found here; the defect is in every module) · **Status:** To do · **Priority:** High · **Deadline:** — · **Effort:** M
+**Found against:** [[BD-02 Auth & Sign-up Backend Delivery]] · **Feature:** [[F-02 Auth & Sign-up]] (found here; the defect is in every module) · **Status:** To do · **Priority:** High · **Deadline:** — · **Effort:** M
 
-**Found by:** [[Auth & Sign-up QA Backend]] while setting up row B15, on build `main @ b4984d6 · localhost:3001, Node 22.22.2`.
+**Found by:** [[QB-05 Auth & Sign-up QA Backend]] while setting up row B15, on build `main @ b4984d6 · localhost:3001, Node 22.22.2`.
 
 ## What
 
@@ -53,19 +53,19 @@ No screen.
 
 Output of `node scripts/build-tree.mjs --impact B-06` when the bug was filed: the notes the fix touches and that must be updated or flagged when it ships.
 
-- [[Auth & Sign-up Backend Delivery]] · BD-02 — where it was found (code expiry)
+- [[BD-02 Auth & Sign-up Backend Delivery]] · BD-02 — where it was found (code expiry)
 - [[Database & Migrations]] — the `timestamptz` rule this breaks
-- [[Auth & Sign-up QA Backend]] · QB-05 — row B15's setup, re-run against a corrected build
-- [[Auth & Sign-up]] · F-02 — wikilink →
+- [[QB-05 Auth & Sign-up QA Backend]] · QB-05 — row B15's setup, re-run against a corrected build
+- [[F-02 Auth & Sign-up]] · F-02 — wikilink →
 
 ## Definition of done
 
 - [ ] The behaviour is fixed, and a decision taken for the rows already stored (`resolution:` set, the tag `resolution/<id>` with it)
 - [ ] A check that runs with a non-UTC `TZ` and compares a stored value with Postgres `now()`
-- [ ] [[Auth & Sign-up QA Backend]] row B15 re-run by ageing a code with Postgres's `now()`, on a named build
+- [ ] [[QB-05 Auth & Sign-up QA Backend]] row B15 re-run by ageing a code with Postgres's `now()`, on a named build
 - [ ] `depends` / `affects` / `related` declared; notes listed by `--impact` updated or flagged
 - [ ] `node scripts/build-tree.mjs` run; tree, board and backlog committed
 
 ## Log
 
-- 2026-10-27 · filed with --scaffold bug, found against Auth & Sign-up Backend Delivery, while setting up [[Auth & Sign-up QA Backend]] row B15 on `main @ b4984d6`
+- 2026-10-27 · filed with --scaffold bug, found against Auth & Sign-up Backend Delivery, while setting up [[QB-05 Auth & Sign-up QA Backend]] row B15 on `main @ b4984d6`

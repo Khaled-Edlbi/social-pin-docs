@@ -2,7 +2,7 @@
 type: project
 layer: shared
 created: 2026-10-19
-updated: 2026-10-27
+updated: 2026-10-28
 depends: ["Agent Protocol"]
 affects: []
 related: ["Agent Protocol", "Agent Rules", "Workflow", "Frontend Contract", "Frontend API Guide", "Frontend Agent Prompt"]
@@ -21,8 +21,8 @@ You are the **frontend** layer of this vault ([[Agent Rules#1 · The layers]]): 
 
 You **write**:
 
-- `<Feature> Frontend Requirements`, one per feature (per screen: the data, the endpoints as rows ✅ available or ❌ and what brings it, the error states you will handle, the behaviour you need); every new part of the story adds its rows here;
-- `<Feature> Frontend Delivery`, one per feature (screens shipped, calls made, state kept, deviations from the story, what is left, `## Log`);
+- `FR-NN <Feature> Frontend Requirements`, one per feature (per screen: the data, the endpoints as rows ✅ available or ❌ and what brings it, the error states you will handle, the behaviour you need); every new part of the story adds its rows here;
+- `FD-NN <Feature> Frontend Delivery`, one per feature (screens shipped, calls made, state kept, deviations from the story, what is left, `## Log`);
 - the decision card a card of yours cannot continue without (`--scaffold needs-decision "<card>" "<title>"`): you raise and fill it; the PM or the owner decide it ([[Agent Rules#4 · Statuses, blocking and sign-off]]);
 - `frontend/`: [[Frontend Contract]] when a client rule changed, [[Frontend Passwordless Migration]] and the paste-in block in [[Frontend Agent Prompt]] when the rules for the other repository change. [[Frontend API Guide]] is the backend's: flag it.
 
@@ -30,7 +30,7 @@ You read the story, the Backend Integration note (how to call what exists), the 
 
 ## 2 · Before you touch anything
 
-[[Agent Protocol#1 · Load]] and [[Agent Protocol#2 · Resolve what the user named]]. For a feature: `--impact "<Feature> Story"`, then the story and its newest part (approved?), the feature's Backend Integration note, [[Frontend Contract]], the screens.
+[[Agent Protocol#1 · Load]] and [[Agent Protocol#2 · Resolve what the user named]]. For a feature: `--impact "S-NN <Feature> Story"`, then the story and its newest part (approved?), the feature's Backend Integration note, [[Frontend Contract]], the screens.
 
 ## 3 · Ask, then act
 
@@ -48,11 +48,11 @@ You read the story, the Backend Integration note (how to call what exists), the 
 
 ### 4A · Requirements, before any backend work
 
-`node scripts/build-tree.mjs --scaffold frontend-requirements <feature-id>` the first time; after that, a new part of the story adds its screens and rows to the same note. Per screen, what the client needs; the endpoints table with ✅ (exists, from the Backend Integration note) or ❌ and the story part or decision it belongs to; the error codes you will branch on (`ErrorCode`, never `message`: [[Frontend Contract]]); `related:` the screens, endpoints and error codes; `affects:` the feature's Backend Delivery. Never `depends:` the Backend Delivery: it waits on these requirements, so the two would block each other. `status: draft` while you write it; `ready` (📨, the tag `frontend-requirements/ready`, `updated:`) once every screen, endpoint row and error state is in: that is the hand-over to the backend. The backend sets `approved` when it accepts the list, or sends it back to `draft` with what is missing; the Backend Delivery is blocked until `approved` (`ready` unblocks nothing); on a feature whose Backend Delivery is already done, the backend takes the new rows as `pending` entries on it (Partial) instead. A list sent back is fixed and set `ready` again. You never set `delivered`: the build shows the list ✅ Delivered on its own once the Backend Delivery and Backend Integration of its scope are done with nothing pending (only on a `frontendOnly` feature, which has no backend cards, do you set it by hand).
+`node scripts/build-tree.mjs --scaffold frontend-requirements <feature-id>` the first time (it writes `FR-NN <Feature> Frontend Requirements.md`, born with its code, and repoints the links written to the card's plain name; [[Agent Rules#2 · Codes, scopes and the "sum of" rule]]); after that, a new part of the story adds its screens and rows to the same note. Per screen, what the client needs; the endpoints table with ✅ (exists, from the Backend Integration note) or ❌ and the story part or decision it belongs to; the error codes you will branch on (`ErrorCode`, never `message`: [[Frontend Contract]]); `related:` the screens, endpoints and error codes; `affects:` the feature's Backend Delivery. Never `depends:` the Backend Delivery: it waits on these requirements, so the two would block each other. `status: draft` while you write it; `ready` (📨, the tag `frontend-requirements/ready`, `updated:`) once every screen, endpoint row and error state is in: that is the hand-over to the backend. The backend sets `approved` when it accepts the list, or sends it back to `draft` with what is missing; the Backend Delivery is blocked until `approved` (`ready` unblocks nothing); on a feature whose Backend Delivery is already done, the backend takes the new rows as `pending` entries on it (Partial) instead. A list sent back is fixed and set `ready` again. You never set `delivered`: the build shows the list ✅ Delivered on its own once the Backend Delivery and Backend Integration of its scope are done with nothing pending (only on a `frontendOnly` feature, which has no backend cards, do you set it by hand).
 
 ### 4B · Delivery, after shipping
 
-`--scaffold frontend-delivery <feature-id>` the first time: screens shipped (by id), calls made, state kept and where, deviations from the story and why, what is left; `status: done` when the screens are merged. A later part of the story: add it to the same note; while it is not shipped and the note is done, it is a `pending` entry (Partial), cleared when it ships. QA Frontend is blocked until your delivery note is done.
+`--scaffold frontend-delivery <feature-id>` the first time (it writes `FD-NN <Feature> Frontend Delivery.md`, born with its code, and repoints the links written to the card's plain name; [[Agent Rules#2 · Codes, scopes and the "sum of" rule]]): screens shipped (by id), calls made, state kept and where, deviations from the story and why, what is left; `status: done` when the screens are merged. A later part of the story: add it to the same note; while it is not shipped and the note is done, it is a `pending` entry (Partial), cleared when it ships. QA Frontend is blocked until your delivery note is done.
 
 ### 4C · A client rule changed
 

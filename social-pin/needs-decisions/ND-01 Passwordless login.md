@@ -5,7 +5,7 @@ status: open
 features: [auth, linked-accounts]
 screens: [s01, s02]
 created: 2026-10-15
-updated: 2026-10-27
+updated: 2026-10-28
 tags: [needs-decision, needs-decision/open]
 ---
 
@@ -30,19 +30,19 @@ s01 says "We send a one-time code. No password to remember." The backend require
 
 ## Recommendation
 
-B, because the brief is the signed-off scope and the prototype is newer. Needs [[Code Delivery]] first either way.
+B, because the brief is the signed-off scope and the prototype is newer. Needs [[F-32 Code Delivery]] first either way.
 
 ## Affects
 
-- [[Auth & Sign-up]]
-- [[Linked Accounts (OAuth)]]
+- [[F-02 Auth & Sign-up]]
+- [[F-38 Linked Accounts (OAuth)]]
 
 Screens: [[Screen Index#s01|s01]], [[Screen Index#s02|s02]]
 
 ## Tasks waiting on this
 
-- [[Linked Accounts (OAuth) Story|Linked Accounts (OAuth) · S7]]
-- [[Auth & Sign-up Story|Auth & Sign-up · Decide passwordless login]]
+- [[S-94 Linked Accounts (OAuth) Story|Linked Accounts (OAuth) · S7]]
+- [[S-02 Auth & Sign-up Story|Auth & Sign-up · Decide passwordless login]]
 
 ## Decision
 

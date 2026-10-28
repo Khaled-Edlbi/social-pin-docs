@@ -5,7 +5,7 @@ status: open
 features: [ring-projection, widgets]
 screens: [s20, s24]
 created: 2026-10-15
-updated: 2026-10-27
+updated: 2026-10-28
 tags: [needs-decision, needs-decision/open]
 ---
 
@@ -33,15 +33,15 @@ A, before more projection features (widgets) are built on the copy model.
 
 ## Affects
 
-- [[Ring Projection]]
-- [[Widgets]]
+- [[F-10 Ring Projection]]
+- [[F-13 Widgets]]
 
 Screens: [[Screen Index#s20|s20]], [[Screen Index#s24|s24]]
 
 ## Tasks waiting on this
 
-- [[Widgets Story|Widgets · S7]]
-- [[Ring Projection Story|Ring Projection · Decide field library vs per-Ring copies]]
+- [[S-20 Widgets Story|Widgets · S7]]
+- [[S-17 Ring Projection Story|Ring Projection · Decide field library vs per-Ring copies]]
 
 ## Decision
 

@@ -1,0 +1,72 @@
+---
+type: frontend-requirements
+code: notifications
+scope: feature
+feature: notifications
+module: platform
+status: draft
+screens: [s69]
+created: 2026-10-18
+updated: 2026-10-28
+tags: [frontend-requirements, frontend-requirements/draft, module/platform, layer/frontend]
+---
+
+# Notifications · Frontend Requirements
+
+**Feature:** [[F-39 Notifications]] · **Status:** Draft · **Story:** [[S-96 Notifications Story]] · **API Integration:** not yet (backend not built)
+
+What the client needs for the inbox, the bell, the deep links, push and preferences. Nothing is available; the schema fixes the fields and the type list.
+
+## Per screen
+
+### [[Screen Index#s69|s69]] Notifications
+
+- Needs: a list of `{ id, type, title, body, data, readAt, createdAt }` newest first; an unread count; "Mark all read"; per-row mark read; the deep-link target from `data`; states empty, loading, offline.
+- Source today: not yet.
+
+### Bell on Home (persistent chrome, no screen id)
+
+- Needs: the unread count only.
+- Source today: not yet. Render the bell without a number until the count exists.
+
+### Preferences (reached from Me; no prototype screen)
+
+- Needs: one row per `NOTIFICATION_TYPE` with `inAppEnabled`, `pushEnabled`, `emailEnabled`; save per toggle.
+- Source today: not yet.
+
+## Endpoints required
+
+| Need | Endpoint | Available | Task / decision |
+|---|---|---|---|
+| List my notifications (grouped by day, newest first) | — | ❌ | [[S-96 Notifications Story|Notifications · S7]] (`GET /notifications` proposed) |
+| Unread count for the bell | — | ❌ | [[S-96 Notifications Story|Notifications · S7]] |
+| Mark one read / mark all read | — | ❌ | [[S-96 Notifications Story|Notifications · S7]] |
+| Producers emit (connections, meetings, PinCast, events) | — (internal `emit`) | ❌ | [[S-96 Notifications Story|Notifications · S7]]; each producer's own task |
+| Push to registered devices | — | ❌ | [[S-96 Notifications Story|Notifications · S8]] (blocked on Notifications · S7 and [[S-82 Devices & NFC Story|Devices & NFC · S6]]) |
+| Preferences read / update | — | ❌ | [[S-96 Notifications Story|Notifications · S8]] |
+
+## Behaviour expectations
+
+- Refetch / realtime: refetch the list and the count on app foreground, on opening s69, and when a push arrives; no socket is specified. Push delivery itself waits on device registration ([[F-33 Devices & NFC]]).
+- Badge count: the number of rows with `readAt` null; decrement optimistically on tap and reconcile with the next fetch.
+- Grouping: Today / Yesterday / Last 7 days computed client-side from `createdAt` in the device timezone; the backend orders, the client groups.
+- Deep links: read `data` for the target id and screen; then fetch the target through its own authorized endpoint (`/views`, PinCast results, meeting detail). Never render content from `data`; it carries no sensitive fields by design.
+- Idempotency: `dedupeKey` is server-side; the client may still receive the same push twice from the platform and must de-duplicate by `id`.
+- Caching keys: `notifications:{userId}` (list), `notifications:unread:{userId}` (count), `notificationPrefs:{userId}`; clear on logout.
+- Pagination / ordering: the `{ data, meta: { total } }` envelope with `limit` ≤ 50, `createdAt` descending; load older pages on scroll. `meta.total` is unpaginated.
+- Preferences: defaults are in-app on, push on, email off; a type with in-app off is excluded server-side from the list.
+
+## Error states the UI must handle
+
+| Status | ErrorCode | Show |
+|---|---|---|
+| 404 | not defined yet | mark read on an id that is gone: drop the row |
+| 404 | `E_RING_ACCESS_*` on the deep-link target | the target's own "not found" message; the notification stays |
+| 401 | `E_AUTH_04` | session gone: sign in again |
+| 400 | validation (string array) | `limit` above 50, or an unknown type in a preference update |
+
+No notification codes exist yet; Notifications · S7 and Notifications · S8 add them. `ErrorCode` is not on the wire until [[S-87 Error Contract Story|Error Contract · S4–S8]] ships.
+
+## Blocked by
+
+- No decision. [[S-96 Notifications Story|Notifications · S7]] is To do; [[S-96 Notifications Story|Notifications · S8]] is ⛔ behind it and [[S-82 Devices & NFC Story|Devices & NFC · S6]].

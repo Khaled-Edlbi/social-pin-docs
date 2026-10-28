@@ -2,7 +2,7 @@
 type: project
 layer: shared
 created: 2026-10-18
-updated: 2026-10-27
+updated: 2026-10-28
 related: ["Agent Rules", "Workflow", "Project Overview"]
 tags: [project, layer/shared, map]
 ---
@@ -146,11 +146,11 @@ node scripts/build-tree.mjs --find "speed search"    # the cards and concepts th
 node scripts/build-tree.mjs --branch owner F-41 create   # any agent's vault branch for a card: <tickets|docs>/<agent>/<M-NN>-<module-id>/<F-NN>-<feature-id>/<last>, as deep as the card sits; tickets/ for a task, story, Frontend Requirements or decision card, docs/ for the rest (docs.config.json branches, Workflow §2)
 node scripts/agent-guard.mjs status                  # which agent is active and what it may write; `selftest` runs the allow / deny matrix
 node scripts/build-tree.mjs --scaffold backend-delivery T-004   # create a layer note from its template (moves the task into its folder)
-node scripts/build-tree.mjs --scaffold qa-frontend rings        # … at feature level
+node scripts/build-tree.mjs --scaffold qa-frontend rings        # … at feature level: QF-NN Rings QA Frontend.md, the next free QF number, and every [[Rings QA Frontend]] link repointed at it
 node scripts/build-tree.mjs --scaffold task counts "Member count on the Ring card"   # a task with the next free number, its story and its fe / be halves (--backend-only, --docs-only, --parent T-NNN)
 node scripts/build-tree.mjs --scaffold bug counts "Count shows 0 on the default Ring" --parent T-004   # a bug (type: bug) with the next free B-NN, written to bugs/, hung under the task it was found against (--found-on "<note name>" for any other card)
-node scripts/build-tree.mjs --scaffold feature discovery "Nearby by interest"        # a feature note in its module folder (--id <slug>, --frontend-only)
-node scripts/build-tree.mjs --scaffold needs-decision "Counts Frontend Requirements" "Where the count comes from"   # the decision card a card needs: ND-NN, blocks that card while open
+node scripts/build-tree.mjs --scaffold feature discovery "Nearby by interest"        # a feature note in its module folder, features/Nearby by interest/F-NN Nearby by interest.md (--id <slug>, --frontend-only)
+node scripts/build-tree.mjs --scaffold needs-decision "FR-03 Counts Frontend Requirements" "Where the count comes from"   # the decision card a card needs: ND-NN, blocks that card while open
 node scripts/build-tree.mjs --scaffold decision ND-04 "Hidden by default"   # the decision card that takes ND-04: D-04, the answer, why and what it changes (the PM or the owner, on the user's word)
 ```
 
@@ -164,7 +164,7 @@ The checklist, by layer, is [[Agent Rules#6 · After a task — the checklist, b
 
 ## Creating a new feature or module
 
-Feature: `node scripts/build-tree.mjs --scaffold feature <module-id> "<Name>"` creates `modules/<Module>/features/<Feature>/<Feature>.md` from `templates/Feature Template.md`, then `--scaffold story <id>` and the other kinds as each layer gets to them; add the feature to the module note's table and the screens it serves in [[Screen Index]]. Module: add it to `modules` in `docs.config.json`, create `modules/<Module>/<Module> Module.md` from `templates/Module Template.md`. Rebuild; the tree picks everything up from the frontmatter. The Feature Map canvas in `business/` is optional and only adds *related* lines.
+Feature: `node scripts/build-tree.mjs --scaffold feature <module-id> "<Name>"` creates `modules/<Module>/features/<Feature>/F-NN <Feature>.md` from `templates/Feature Template.md`, then `--scaffold story <id>` and the other kinds as each layer gets to them; add the feature to the module note's table and the screens it serves in [[Screen Index]]. Module: add it to `modules` in `docs.config.json`, create `modules/<Module>/M-NN <Module> Module.md` from `templates/Module Template.md`, M-NN the next free module code (the build prints it in its warning when the file has none). Rebuild; the tree picks everything up from the frontmatter. The Feature Map canvas in `business/` is optional and only adds *related* lines.
 
 The agents run these on request, each inside its own files: [[Owner Agent]] (`/owner`), [[PM Agent]] (`/pm`), [[Backend Agent]] (`/backend`), [[Frontend Agent]] (`/frontend`), [[QA Agent]] (`/qa`), and [[Admin Agent]] (`/admin`) inside every file, for repairs only; with no agent active nothing is written and the first answer is which agent to use. The shared steps and the guard are in [[Agent Protocol]].
 

@@ -2,7 +2,7 @@
 type: project
 layer: shared
 created: 2026-10-19
-updated: 2026-10-27
+updated: 2026-10-28
 depends: []
 affects: ["Owner Agent", "PM Agent", "Backend Agent", "Frontend Agent", "QA Agent", "Admin Agent"]
 related: ["Agent Rules", "Workflow", "Docs Tree"]
@@ -35,7 +35,7 @@ Never invent a module, a feature id, a screen id, a ticket number, an endpoint o
 
 Before you create or change anything, send **one** question message (one batch, not a dialogue) that carries:
 
-1. **What you resolved**, for confirmation: "`speed search` → [[Discover Hub & Search]] (F-19, discovery); `the ticket` → T-030". When two cards fit, offer both.
+1. **What you resolved**, for confirmation: "`speed search` → [[F-19 Discover Hub & Search]] (F-19, discovery); `the ticket` → T-030". When two cards fit, offer both.
 2. **What your playbook still needs**, with the default you propose for each so the user can answer "yes": the fields your note's playbook lists (screens, priority, effort, which side, what it depends on, the build it was tested on, the endpoint that moved…).
 3. **The files you will touch**, by path, and the notes you will only flag. If the request needs a file outside your scope, say which agent owns it and what the exact ask to that agent is; do not do it.
 4. **What has to happen first**: an approval, a decision card, a hand-off that is not done (the card is ⛔ Blocked in the tree and stays so).
@@ -44,7 +44,7 @@ Wait for the answer. When two readings of the request would lead to materially d
 
 ## 4 · Act, inside your scope
 
-- New notes: `node scripts/build-tree.mjs --scaffold <kind> <feature-id>`, `--scaffold feature …`, `--scaffold bug …`, `--scaffold needs-decision "<card>" "<title>"`, `--scaffold decision ND-NN "<the answer>"` ([[Docs Tree#For agents]]). Fill the template; do not reshape it.
+- New notes: `node scripts/build-tree.mjs --scaffold <kind> <feature-id>`, `--scaffold feature …`, `--scaffold bug …`, `--scaffold needs-decision "<card>" "<title>"`, `--scaffold decision ND-NN "<the answer>"` ([[Docs Tree#For agents]]). Fill the template; do not reshape it. **Every card is born with its code in front of its file name** (`F-27 Payments & Orders`, `S-69 Payments & Orders Story`, `B-07 …`, `ND-21 …`): the scaffold takes the next free number and repoints the links written to the card's plain name while it was not written yet; never type a code into a file name, never rename a card, and link it by that full name ([[Agent Rules#2 · Codes, scopes and the "sum of" rule]]).
 - Existing notes: Edit, the exact lines. Keep the frontmatter flat; declare `depends` / `affects` / `related`; every touched note gets today's `updated:`.
 - A note you do not own that your change makes wrong: a flag line under its H1, and the note named in the `## Log` of the note you changed. The owning agent clears the flag when it has updated the note.
 - A status change is four things together: `status:`, the `<kind>/<status>` tag, the H1 emoji, `updated:` ([[Agent Rules#4 · Statuses, blocking and sign-off]]). A feature's, a module's and the project's status is never typed.
