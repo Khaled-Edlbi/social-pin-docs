@@ -168,6 +168,14 @@ export function loadConfig(errors = []) {
   const prefixOf = (kind) => structural[kind] ?? kinds.get(kind)?.prefix ?? null;
   const frontendOnlySkips = Array.isArray(cfg.frontendOnly?.skips) ? cfg.frontendOnly.skips : [];
   for (const k of frontendOnlySkips) if (!kinds.has(k)) err(`frontendOnly.skips names unknown kind "${k}"`);
+  // flowFolder: the feature's layer notes live in its subfolder `folder`, all but the kinds in `except` (the story), which sit beside the feature card
+  const ff = cfg.flowFolder || {};
+  if (ff.folder !== undefined && (typeof ff.folder !== 'string' || !/^[\w .-]+$/.test(ff.folder))) err(`flowFolder.folder must be a plain folder name (got ${JSON.stringify(ff.folder)})`);
+  const flowExcept = Array.isArray(ff.except) ? ff.except : [];
+  for (const k of flowExcept) if (!kinds.has(k)) err(`flowFolder.except names unknown kind "${k}"`);
+  const flowFolder = { folder: typeof ff.folder === 'string' && ff.folder ? ff.folder : null, except: new Set(flowExcept) };
+  // the folder a feature's note of this kind lives in, from the feature's own folder
+  flowFolder.dirOf = (featureDir, kindId) => (flowFolder.folder && !flowFolder.except.has(kindId) ? `${featureDir}/${flowFolder.folder}` : featureDir);
   // priorities: the enum every card may carry, highest first; `aliases` are old codes (P0 …) the build still reads, with a warning
   const ID = /^[a-z][a-z0-9-]*$/;
   const levels = Array.isArray(cfg.priorities?.levels) && cfg.priorities.levels.length ? cfg.priorities.levels : DEFAULT_PRIORITIES;
@@ -207,7 +215,7 @@ export function loadConfig(errors = []) {
   for (const s of stages.list) if (s.requiresRelease !== null && !releases.byId.has(s.requiresRelease)) err(`stages.levels: "${s.id}" requiresRelease "${s.requiresRelease}" is not a release target`);
   const environments = { ...enumOf('environments.list', cfg.environments?.list ?? DEFAULT_ENVIRONMENTS), kinds: Array.isArray(cfg.environments?.kinds) ? cfg.environments.kinds : ['backend-delivery', 'frontend-delivery'] };
   for (const k of environments.kinds) if (!kinds.has(k)) err(`environments.kinds names unknown kind "${k}"`);
-  return { ...cfg, kinds, kindOrder, flowOrder, flowBack, flowBlocks, frontendOnlySkips, priorities, deadlines, staleness, stages, releases, environments, resolutions, cardCodes: { pad, structural, prefixes, prefixOf } };
+  return { ...cfg, kinds, kindOrder, flowOrder, flowBack, flowBlocks, frontendOnlySkips, flowFolder, priorities, deadlines, staleness, stages, releases, environments, resolutions, cardCodes: { pad, structural, prefixes, prefixOf } };
 }
 const DEFAULT_PRIORITIES = [
   { id: 'critical', label: 'Critical', color: '#dc2626', aliases: ['P0'] }, { id: 'high', label: 'High', color: '#f97316', aliases: ['P1'] },
@@ -562,7 +570,8 @@ export function build() {
       container = featureNodes.get(n.data.feature) || null;
       if (!container) { err(n.rel, `feature "${n.data.feature}" is not a feature id`); continue; }
       if (n.data.code !== n.data.feature) err(n.rel, `code "${n.data.code}" must equal the feature id "${n.data.feature}" on a feature-level note`);
-      if (path.posix.dirname(n.rel) !== container.dir || bareName(n.stem) !== `${container.name} ${kind.file}`) warn(n.rel, `expected at ${container.dir}/<${kind.prefix}-NN> ${container.name} ${kind.file}.md`);
+      const dir = cfg.flowFolder.dirOf(container.dir, kind.id); // the story beside the feature card, the rest in its flow/ folder
+      if (path.posix.dirname(n.rel) !== dir || bareName(n.stem) !== `${container.name} ${kind.file}`) warn(n.rel, `expected at ${dir}/<${kind.prefix}-NN> ${container.name} ${kind.file}.md`);
     } else if (scope === 'task') { err(n.rel, 'scope: task — there are no tasks: a layer note belongs to its feature (scope: feature, code: <feature id>) (rules/Agent Rules.md §2)'); continue; }
     else { err(n.rel, `scope must be "feature" (got "${scope}")`); continue; }
     const f = featureNodes.get(n.data.feature);
@@ -1576,7 +1585,8 @@ function scaffold(result, kindId, code) {
   if (!featureNode) { console.error(`no feature with id "${code}" (a layer note belongs to its feature: --scaffold ${kindId} <feature-id>)`); process.exit(1); }
   // the card is born with its code: `<PREFIX>-NN <Feature> <Kind>.md`, the next free number for the kind's prefix
   const card = nextNumber(result, kind.prefix, cfg.cardCodes.pad);
-  const dest = path.join(ROOT, featureNode.dir, `${card} ${featureNode.name} ${kind.file}.md`);
+  const dest = path.join(ROOT, cfg.flowFolder.dirOf(featureNode.dir, kind.id), `${card} ${featureNode.name} ${kind.file}.md`);
+  fs.mkdirSync(path.dirname(dest), { recursive: true });
   const name = featureNode.name;
   const fm = { type: kind.id, code, scope: 'feature', feature: code, module: featureNode.module };
   if (fs.existsSync(dest)) { console.error(`${path.relative(ROOT, dest)} already exists`); process.exit(1); }

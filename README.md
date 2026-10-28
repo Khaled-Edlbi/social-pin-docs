@@ -17,7 +17,7 @@ node scripts/build-tree.mjs --scaffold bug counts "<Title>" --found-on "<note na
 - `rules/` — the workflow, the agent rules, the docs tree guide, the agents (the docs system, at the root with `templates/`, `scripts/` and `tree/`)
 - `social-pin/` — the product's docs, every card; the folders below are inside it (`projectDir` in `docs.config.json`):
 - `business/`, `frontend/`, `backend/` — the project reference for each side
-- `modules/<Module>/features/<Feature>/` — the feature's business note and one note per layer (story, frontend requirements, backend delivery, backend integration, frontend delivery, QA backend, QA frontend)
+- `modules/<Module>/features/<Feature>/` — the feature's business note and its story; its other layer notes (frontend requirements, backend delivery, backend integration, frontend delivery, QA backend, QA frontend) in its `flow/` folder
 - `bugs/` — one note per bug (`B-NN`, `type: bug`); in the tree it hangs under the card it was found against
 - `needs-decisions/` — the open and answered questions (ND-NN), where the design and the backend disagree
 - `decisions/` — the answers (D-NN) and the Decisions table

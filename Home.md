@@ -57,12 +57,13 @@ social-pin-docs/
     │   └── features/<Feature>/    one folder per feature, named without a code; anything else the module holds gets its own folder beside features/
     │       ├── F-NN <Feature>.md                         business: the main node (what it is for, screens, rules, decisions)
     │       ├── S-NN <Feature> Story.md                   business · draft → approved → verified
-    │       ├── FR-NN <Feature> Frontend Requirements.md  frontend · what the client asks of the backend
-    │       ├── BD-NN <Feature> Backend Delivery.md       backend  · what shipped, how it works, gaps
-    │       ├── BI-NN <Feature> Backend Integration.md    backend  · how the client calls it
-    │       ├── FD-NN <Feature> Frontend Delivery.md      frontend · what the client shipped
-    │       ├── QB-NN <Feature> QA Backend.md             qa       · expected API behaviour, verdict
-    │       └── QF-NN <Feature> QA Frontend.md            qa       · expected screen behaviour, verdict
+    │       └── flow/                                     the rest of the feature's hand-off flow, one note per layer
+    │           ├── FR-NN <Feature> Frontend Requirements.md  frontend · what the client asks of the backend
+    │           ├── BD-NN <Feature> Backend Delivery.md       backend  · what shipped, how it works, gaps
+    │           ├── BI-NN <Feature> Backend Integration.md    backend  · how the client calls it
+    │           ├── FD-NN <Feature> Frontend Delivery.md      frontend · what the client shipped
+    │           ├── QB-NN <Feature> QA Backend.md             qa       · expected API behaviour, verdict
+    │           └── QF-NN <Feature> QA Frontend.md            qa       · expected screen behaviour, verdict
     ├── bugs/                      the bugs, B-NN <Title>.md
     ├── needs-decisions/           the needs-decision cards, ND-NN <Title>.md: the questions
     ├── decisions/                 the decision cards, D-NN <Title>.md: the answers; and the Decisions table
