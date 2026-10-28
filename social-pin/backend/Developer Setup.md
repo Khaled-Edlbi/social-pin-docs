@@ -1,7 +1,7 @@
 ---
 type: project
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-28
 tags: [project]
 layer: backend
 ---
@@ -60,4 +60,4 @@ There are no passwords. Sign in with `POST /auth/login { identifier }` and answe
 - Every new `DateTime` needs `@db.Timestamptz(3)`.
 - Jest needs `jest.swc-env.js` to run first (an `@swc/core` cache-path shim and a `.js`-specifier mapper).
 
-Related: [[Architecture]] · [[Database & Migrations]] · [[E2E Test Run]]
+Related: [[Architecture]] · [[Database & Migrations]] · [[F-34 E2E Test Run]]

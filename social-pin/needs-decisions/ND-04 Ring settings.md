@@ -5,7 +5,7 @@ status: open
 features: [rings, ring-members, ring-invitations, delegated-admins, companies]
 screens: [s19, s22, s26, s27]
 created: 2026-10-15
-updated: 2026-10-27
+updated: 2026-10-28
 tags: [needs-decision, needs-decision/open]
 ---
 
@@ -20,7 +20,7 @@ The Edit Access / Permissions screens show settings the schema does not have: wh
 ## Facts
 
 - "Members can see each other" changes the rule in `CLAUDE.md` that only the owner can see who is in a Ring. It must be an explicit, default-off Ring setting enforced inside `RingAccessService`.
-- Join rules (code, email domain, auto-accept) are prerequisites for [[Ring Invitations & Join]].
+- Join rules (code, email domain, auto-accept) are prerequisites for [[F-17 Ring Invitations & Join]].
 
 ## Options
 
@@ -33,19 +33,19 @@ B. These settings are access rules, and rule 8 wants them where the engine can r
 
 ## Affects
 
-- [[Rings]]
-- [[Ring Members]]
-- [[Ring Invitations & Join]]
-- [[Delegated Admins]]
-- [[Companies]]
+- [[F-11 Rings]]
+- [[F-09 Ring Members]]
+- [[F-17 Ring Invitations & Join]]
+- [[F-16 Delegated Admins]]
+- [[F-15 Companies]]
 
 Screens: [[Screen Index#s19|s19]], [[Screen Index#s22|s22]], [[Screen Index#s26|s26]], [[Screen Index#s27|s27]]
 
 ## Tasks waiting on this
 
-- [[Ring Invitations & Join Story|Ring Invitations & Join · S7]]
-- [[Ring Invitations & Join Story|Ring Invitations & Join · S8]]
-- [[Rings Story|Rings · Decide Ring settings]]
+- [[S-33 Ring Invitations & Join Story|Ring Invitations & Join · S7]]
+- [[S-33 Ring Invitations & Join Story|Ring Invitations & Join · S8]]
+- [[S-18 Rings Story|Rings · Decide Ring settings]]
 
 ## Decision
 

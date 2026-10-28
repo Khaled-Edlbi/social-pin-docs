@@ -1,0 +1,133 @@
+---
+type: story
+code: events-before
+scope: feature
+feature: events-before
+module: events
+status: approved
+screens: [s48, s49, s50, s51, s52]
+approvedBy: "khaled"
+approvedAt: 2026-10-25
+depends: ["ND-07 Payment provider"]
+related: ["F-27 Payments & Orders", "F-21 Event Ring Auto-creation"]
+owner: "khaled"
+created: 2026-10-18
+updated: 2026-10-28
+tags: [story, story/approved, module/events, layer/business]
+---
+
+# Events Before · User Story
+
+**Feature:** [[F-22 Events Before]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[FR-22 Events Before Frontend Requirements]] · **API Integration:** not yet (backend not built)
+
+A visitor browses upcoming events, opens one, picks a ticket or package, pays or RSVPs, and ends with an Event Ring in their hub. The schema for events, packages, entitlements and mini-events exists; no endpoint does yet. Everything below is the visitor's path from "I heard about this event" to "I am registered".
+
+## Persona
+
+Visitor (User A) before the event: discovering, deciding, registering. An exhibitor (User B) takes the same path and branches at s50 ("Set up" → business account, [[S-59 Exhibitor Story]]). The organizer (User C) publishes events on the web and is not on these screens.
+
+## Stories
+
+### S1 · Events tab ([[Screen Index#s48|s48]])
+
+**As a** visitor, **I want** to browse upcoming events and see which I already joined, **so that** I can decide where to go and jump back into my own events.
+
+Acceptance criteria:
+- [ ] Two sections: "My events" (events I have a participant row for) and "Discover" (public upcoming events), each a card with name, cover, date, location.
+- [ ] Filters: date range, location / city, "your contacts are going" (count and up to three avatars of my connections registered there, computed from what I may see, never from membership rows).
+- [ ] Past events drop out of Discover and move to the bottom of My events with a "Past" marker.
+- [ ] Empty state for each section; the tab bar stays reachable.
+
+### S2 · Event landing ([[Screen Index#s49|s49]])
+
+**As a** visitor, **I want** one page with the event's essentials, **so that** I can decide to register without leaving it.
+
+Acceptance criteria:
+- [ ] Shows name, cover, location with map, date and time in the event's timezone, schedule, exhibitor list, mini-events, lounges, Gemma entry, and one primary CTA.
+- [ ] Primary CTA reads "RSVP" for free events, "Register" or "Get tickets" for paid ones, "Registered · Enter event mode" when I hold a participant row, "Sold out" when no package has capacity.
+- [ ] Exhibitors, floor map and catalogue links open the in-event screens read-only before the event; the scoped versions need the Event Ring ([[S-53 Events During Story]]).
+
+### S3 · Tickets, packages and levels ([[Screen Index#s50|s50]])
+
+**As a** visitor, **I want** to compare packages and visitor levels and see what each unlocks, **so that** I pick the right access before paying.
+
+Acceptance criteria:
+- [ ] Each package shows name, price, level (Visitor, Sponsor, VIP, Exhibitor, Staff), the sub-events / lounges it entitles (`PackageEntitlement` rows with `MINI_EVENT_ACCESS`), remaining capacity or "Sold out".
+- [ ] A sold-out or unavailable tier is visible but not selectable; the reason is shown ("Sold out", "Not available for your account type").
+- [ ] "Continue · $160" reflects the selected package's price snapshot; the total is recomputed on the server at order time, never trusted from the client.
+- [ ] The Exhibitor level routes to "Set up" → [[Screen Index#s63|s63]] instead of payment.
+
+### S4 · RSVP and registration form ([[Screen Index#s50|s50]])
+
+**As a** visitor, **I want** the registration form pre-filled from my account, **so that** registering takes seconds.
+
+Acceptance criteria:
+- [ ] Name, email, phone and company pre-fill from the base profile; the user can edit them for this registration only.
+- [ ] A free package skips s51 and goes straight to s52 after one call.
+- [ ] Submitting twice does not create two participants; the client sends one idempotency key per attempt.
+
+### S5 · Payment ([[Screen Index#s51|s51]])
+
+**As a** visitor, **I want** to pay for what I chose and see a clear result, **so that** I know whether I am in.
+
+Acceptance criteria:
+- [ ] "Continue" on s50 hands the unpaid order to s51, where it is paid through Stripe's hosted checkout (the provider is decided on [[ND-07 Payment provider]]); which methods s51 offers is still open.
+- [ ] States: pending (waiting for Stripe), failed (with retry, same order), succeeded (→ s52).
+- [ ] Leaving during pending keeps the order; reopening s51 resumes it rather than creating a new one.
+- [ ] Details are in [[S-69 Payments & Orders Story]]; this story only needs the three states.
+
+### S6 · Event Ring granted ([[Screen Index#s52|s52]])
+
+**As a** visitor, **I want** success to mean an Event Ring in my hub, **so that** the event is now part of my identity.
+
+Acceptance criteria:
+- [ ] Covered by [[S-47 Event Ring Auto-creation Story]] S1; this flow must not show s52 before the Ring is readable.
+
+### S7 · Events list, detail, schedule
+
+*From T-033 (status then: To do), merged 2026-10-27.*
+
+`GET /events` with filters and 'contacts going' (needs Connections · S19–S24), `GET /events/:id`, schedule and mini-events.
+
+Screens: [[Screen Index#s48|s48]] Events tab · [[Screen Index#s49|s49]] Event landing
+
+
+### S8 · Tickets, packages, levels, sold-out
+
+*From T-034 (status then: To do), merged 2026-10-27.*
+
+Packages with entitlements; capacity → sold out.
+
+Screens: [[Screen Index#s50|s50]] Tickets & levels
+
+
+### S9 · Registration transaction with order and payment
+
+*From T-035 (status then: Blocked), merged 2026-10-27.*
+
+Participant + order + payment intent; on webhook success → Event Ring Auto-creation · S6 Event Ring.
+
+Screens: [[Screen Index#s51|s51]] Payment · [[Screen Index#s52|s52]] Event Ring granted
+
+## States and motion the design asks for
+
+- Motion: the event card **expands into the landing page** with the cover as shared element (brief §7.1).
+- Motion: successful registration animates the **Event Ring joining the Ring carousel** (brief §7.3).
+- State: sold out, tier unavailable, payment pending / failed / succeeded, registered.
+- State: "your contacts are going" avatars on cards; empty when none.
+
+## Rules the backend already enforces
+
+- No events endpoint exists; the rules below are schema facts the stories must respect.
+- One buyer per order (CHECK), `OrderItem` holds a price snapshot: the price the user saw is the price charged, not the current one.
+- `Payment.providerReference` is unique: a replayed webhook updates, never duplicates; the client's retry on a failed payment reuses the order.
+- `EventParticipant.role` carries visitor vs exhibitor; there is one registration flow with role-conditional branches, not two.
+- `Event.timezone` and `Location.timezone` are IANA zones; dates are stored in UTC and rendered in the event's zone.
+- The Event Ring is created in the registration transaction and cannot be created by the client ([[S-47 Event Ring Auto-creation Story]]).
+
+## Open questions
+
+- No decision note exists. Open points:
+- S5 and therefore S6 wait on [[S-69 Payments & Orders Story|Payments & Orders · S7]], which has no backend yet; the provider is decided ([[ND-07 Payment provider]]), the methods s51 offers are not.
+- [[S-49 Events Before Story|Events Before · S7]] — "contacts going" needs [[S-23 Connections Story|Connections · S19–S24]]; until then S1 ships without that filter.
+- Whether an RSVP on a free event creates an `Order` with a zero total or no order at all affects S4's call count.

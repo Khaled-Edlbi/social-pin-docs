@@ -2,7 +2,7 @@
 type: project
 layer: shared
 created: 2026-10-19
-updated: 2026-10-27
+updated: 2026-10-28
 affects: []
 depends: ["Agent Protocol"]
 related: ["Agent Protocol", "Agent Rules", "Workflow", "Docs Tree", "Owner Agent"]
@@ -23,8 +23,8 @@ You are the **senior product manager** of Social Pin and the agent of the **Busi
 
 You **own** and may create or edit:
 
-- on the feature note `modules/<Module>/features/<Feature>/<Feature>.md`, the *Decisions* list only: the card itself and its business side are the owner's, who creates it and hands you its story ([[Owner Agent#4I · Create a feature]]);
-- the user stories, one per feature (`<Feature> Story`), holding all of the feature's work;
+- on the feature note `modules/<Module>/features/<Feature>/F-NN <Feature>.md`, the *Decisions* list only: the card itself and its business side are the owner's, who creates it and hands you its story ([[Owner Agent#4I · Create a feature]]);
+- the user stories, one per feature (`S-NN <Feature> Story`), holding all of the feature's work;
 - the bugs `bugs/B-NN …` (`type: bug`), which QA files and you close (tasks are retired: [[Agent Rules#2 · Codes, scopes and the "sum of" rule]]);
 - the needs-decision cards `needs-decisions/ND-NN …` (`type: needs-decision`) your own cards need, the decision cards `decisions/D-NN …` that take any decision on the user's word, and the table in [[Decisions]]; every layer raises the cards its own need, and only you or the owner decide them ([[Agent Rules#4 · Statuses, blocking and sign-off]]);
 - sign-off fields (`status: approved`, `approvedBy`, `approvedAt`) on stories and requirements, and bug statuses, **only on the user's explicit word** ([[#5 · Sign-off and status changes]]); the owner signs too ([[Owner Agent]]);
@@ -70,8 +70,8 @@ The owner creates the feature card and writes its business side, then hands you 
 
 Every piece of work is a **new part of the feature's one story**, never a task ([[Agent Rules#2 · Codes, scopes and the "sum of" rule]]):
 
-1. `--impact "<Feature> Story"`, read what it lists; check the story does not already cover it.
-2. Add the part to `<Feature> Story`: `### S<n> · <screen or journey> ([[Screen Index#sNN|sNN]])`, **As a** … **I want** … **so that** …, and acceptance criteria that name the endpoint, field, error code or copy; what exists today stated as it is, what does not as "not available yet". `related:` the endpoints, screens and features it touches.
+1. `--impact "S-NN <Feature> Story"`, read what it lists; check the story does not already cover it.
+2. Add the part to `S-NN <Feature> Story`: `### S<n> · <screen or journey> ([[Screen Index#sNN|sNN]])`, **As a** … **I want** … **so that** …, and acceptance criteria that name the endpoint, field, error code or copy; what exists today stated as it is, what does not as "not available yet". `related:` the endpoints, screens and features it touches.
 3. A part added to an `approved` story is new scope: say so in your report; product approves it (the story goes back to `draft` until then, on the user's word, when the part changes what was approved; a part that only records what shipped keeps it `approved`).
 4. A part that cannot continue without a decision gets a decision card that blocks the story ([[#4E · A decision card]]).
 5. Hand it on by name: `/frontend` adds what the part needs to the feature's Frontend Requirements; the backend approves and builds it. Priority and deadline are the feature card's (the owner's).
@@ -83,7 +83,7 @@ A bug is its own type, `type: bug` (tags `bug`, `bug/<status>`, `templates/Bug T
 
 ### 4D · A user story
 
-One per feature: `node scripts/build-tree.mjs --scaffold story <feature-id>` once; every later piece of work is a new part of it ([[#4B · New work on a feature]]). The template is `templates/Story Template.md`; a story reads like [[Rings Story]]:
+One per feature: `node scripts/build-tree.mjs --scaffold story <feature-id>` once (it writes `S-NN <Feature> Story.md`, born with its code, and repoints the links written to the card's plain name; [[Agent Rules#2 · Codes, scopes and the "sum of" rule]]); every later piece of work is a new part of it ([[#4B · New work on a feature]]). The template is `templates/Story Template.md`; a story reads like [[S-18 Rings Story]]:
 
 - **Persona** first: who this is for (personal user, visitor, exhibitor, organizer, Ring owner, Ring member) and the moment they are in, with the screens.
 - One story per screen or journey: `### S1 · <Screen or journey> ([[Screen Index#sNN|sNN]])`, then **As a** … **I want** … **so that** ….

@@ -3,20 +3,20 @@ type: needs-decision
 id: ND-18
 status: open
 features: [companies, ring-invitations]
-blocks: ["Companies Story", "Ring Invitations & Join Story"]
+blocks: ["S-29 Companies Story", "S-33 Ring Invitations & Join Story"]
 decider: "owner"
 screens: [s17, s72, s73, s74]
-affects: ["Companies", "Ring Invitations & Join"]
-related: ["D-14 Shared with me lists people, never the Ring", "Companies", "Ring Invitations & Join", "Rings"]
+affects: ["F-15 Companies", "F-17 Ring Invitations & Join"]
+related: ["D-14 Shared with me lists people, never the Ring", "F-15 Companies", "F-17 Ring Invitations & Join", "F-11 Rings"]
 owner: "omar"
 created: 2026-10-25
-updated: 2026-10-26
+updated: 2026-10-28
 tags: [needs-decision, needs-decision/open]
 ---
 
 # ✅ ND-18 · Company and invited Ring names shown to members
 
-**Status:** open · **Decider:** owner · **Raised:** 2026-10-25 · **Needed by:** [[Companies Story]], [[Ring Invitations & Join Story]] · **Feature:** [[Companies]], [[Ring Invitations & Join]]
+**Status:** open · **Decider:** owner · **Raised:** 2026-10-25 · **Needed by:** [[S-29 Companies Story]], [[S-33 Ring Invitations & Join Story]] · **Feature:** [[F-15 Companies]], [[F-17 Ring Invitations & Join]]
 
 > The needs-decision card: `draft` while the question is written, `open` once it is ready for the decider; it shows **Fulfilled** by itself once its decision card (D-NN) is `decided`. The cards in `blocks` are **Blocked · ND-18** while this is `draft` or `open` and return to their own status once it is fulfilled. Nobody edits their `status:` for this, and nobody types `fulfilled` or `decided` here.
 
@@ -26,11 +26,11 @@ Whether a member may ever see the **name** of a Ring they are in, when they join
 
 ## Notes
 
-- Today the two stories follow D-14: [[Companies Story]] S2 and S4 show company Rings without their names; [[Ring Invitations & Join Story]] S1 and S2 show the owner and the inviter, never the Ring's name, colour, type or "who it's for" label.
+- Today the two stories follow D-14: [[S-29 Companies Story]] S2 and S4 show company Rings without their names; [[S-33 Ring Invitations & Join Story]] S1 and S2 show the owner and the inviter, never the Ring's name, colour, type or "who it's for" label.
 - The concern behind D-14 is a person **placed** in a Ring by its owner (a connection accepted into "Acquaintances", a member added by the owner) learning how the owner groups them. A person who **chose** to join a named Ring already knows its name: the invitation or the code told them.
-- `GET /rings/shared-with-me` returns the Ring's name to every member today; D-14 asks [[Rings]] to stop that. Whatever is decided here is an exception to that change, so the backend needs it before building it.
+- `GET /rings/shared-with-me` returns the Ring's name to every member today; D-14 asks [[F-11 Rings]] to stop that. Whatever is decided here is an exception to that change, so the backend needs it before building it.
 - The Ring settings of [[D-04 Ring settings at launch and their defaults]] have no "show the name to members" switch; option 3 would add one.
-- Company Rings are `CORPORATE`, nested with `parentRingId` ([[Companies Story]]); the parent / child structure is never shown to a member as a tree.
+- Company Rings are `CORPORATE`, nested with `parentRingId` ([[S-29 Companies Story]]); the parent / child structure is never shown to a member as a tree.
 
 ## Options
 
@@ -42,7 +42,7 @@ Recommendation: option 2. It keeps D-14's promise where it matters (nobody learn
 
 ## Responsible
 
-`decider` above: the owner, before [[Companies Story]] and [[Ring Invitations & Join Story]] are approved, after hearing from the backend whether a membership can record how it was created (invite, code, work email, accept, owner add).
+`decider` above: the owner, before [[S-29 Companies Story]] and [[S-33 Ring Invitations & Join Story]] are approved, after hearing from the backend whether a membership can record how it was created (invite, code, work email, accept, owner add).
 
 ## Decision
 

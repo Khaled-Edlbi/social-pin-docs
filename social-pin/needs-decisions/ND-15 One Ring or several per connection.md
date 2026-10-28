@@ -3,34 +3,34 @@ type: needs-decision
 id: ND-15
 status: open
 features: [connections]
-blocks: ["Connections Story"]
+blocks: ["S-23 Connections Story"]
 decider: "owner"
 screens: [s15, s47]
 affects: []
-related: ["Connections", "Ring Members"]
+related: ["F-14 Connections", "F-09 Ring Members"]
 owner: "omar"
 created: 2026-10-25
-updated: 2026-10-27
+updated: 2026-10-28
 tags: [needs-decision, needs-decision/open]
 ---
 
 # ✅ ND-15 · One Ring or several per connection
 
-**Status:** open · **Decider:** owner · **Raised:** 2026-10-25 · **Needed by:** [[Connections Story|Connections · S19–S24]] · **Feature:** [[Connections]]
+**Status:** open · **Decider:** owner · **Raised:** 2026-10-25 · **Needed by:** [[S-23 Connections Story|Connections · S19–S24]] · **Feature:** [[F-14 Connections]]
 
 > The needs-decision card: `draft` while the question is written, `open` once it is ready for the decider; it shows **Fulfilled** by itself once its decision card (D-NN) is `decided`. The cards in `blocks` are **Blocked · ND-15** while this is `draft` or `open` and return to their own status once it is fulfilled. Nobody edits their `status:` for this, and nobody types `fulfilled` or `decided` here.
 
 ## What has to be decided
 
-Two linked questions about what a connection is. First, whether a connection sits in **one** of the owner's Rings or may sit in **several**: [[Connections Story|Connections · S13–S18]] accepts someone into one Ring, while the design's Connection detail ([[Screen Index#s47|s47]]) draws a person in more than one, and the API allows it. Second, whether a person removed from every one of the owner's Rings is **still a connection** (listed in contacts, with no access) or **no longer one**. Until both are answered, [[Connections Story|Connections · S19–S24]] cannot shape the detail response (a Ring or a list of Rings) or say who the contacts list includes.
+Two linked questions about what a connection is. First, whether a connection sits in **one** of the owner's Rings or may sit in **several**: [[S-23 Connections Story|Connections · S13–S18]] accepts someone into one Ring, while the design's Connection detail ([[Screen Index#s47|s47]]) draws a person in more than one, and the API allows it. Second, whether a person removed from every one of the owner's Rings is **still a connection** (listed in contacts, with no access) or **no longer one**. Until both are answered, [[S-23 Connections Story|Connections · S19–S24]] cannot shape the detail response (a Ring or a list of Rings) or say who the contacts list includes.
 
 ## Notes
 
-- The API already allows several memberships per person: `POST /rings/:ringId/members` adds to any of the owner's Rings, and `GET /views/user/:userId/perspectives` exists to return everything one person shares with the caller ([[Ring Members Backend Integration]], [[View As & Pin Views Backend Integration]]).
-- `grantedRingId` records the Ring of the accept only ([[Connections Story|Connections · S13–S18]]); it is one value.
-- Reassign moves a member between Rings in one transaction; revoke marks the row `REMOVED`, never deleted ([[Connections Story|Connections · S19–S24]], rules).
-- [[Connections Story|Connections · S19–S24]] S1 already says someone removed from every Ring is not listed, while its open questions leave it undecided; whichever option is chosen, that criterion follows the answer.
-- Someone who blocked the owner stays off the list in every option ([[Connections Story|Connections · S25]]).
+- The API already allows several memberships per person: `POST /rings/:ringId/members` adds to any of the owner's Rings, and `GET /views/user/:userId/perspectives` exists to return everything one person shares with the caller ([[BI-06 Ring Members Backend Integration]], [[BI-09 View As & Pin Views Backend Integration]]).
+- `grantedRingId` records the Ring of the accept only ([[S-23 Connections Story|Connections · S13–S18]]); it is one value.
+- Reassign moves a member between Rings in one transaction; revoke marks the row `REMOVED`, never deleted ([[S-23 Connections Story|Connections · S19–S24]], rules).
+- [[S-23 Connections Story|Connections · S19–S24]] S1 already says someone removed from every Ring is not listed, while its open questions leave it undecided; whichever option is chosen, that criterion follows the answer.
+- Someone who blocked the owner stays off the list in every option ([[S-23 Connections Story|Connections · S25]]).
 
 ## Options
 
@@ -42,7 +42,7 @@ Recommendation: option 1. It matches the design and the API, and revoking access
 
 ## Responsible
 
-`decider` above: the owner, before [[Connections Story|Connections · S19–S24]] is approved, after hearing from the backend what the `Connection` row keeps when the last membership is revoked.
+`decider` above: the owner, before [[S-23 Connections Story|Connections · S19–S24]] is approved, after hearing from the backend what the `Connection` row keeps when the last membership is revoked.
 
 ## Decision
 

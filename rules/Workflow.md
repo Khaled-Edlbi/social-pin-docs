@@ -2,7 +2,7 @@
 type: project
 layer: shared
 created: 2026-10-15
-updated: 2026-10-27
+updated: 2026-10-28
 related: ["Agent Rules", "Docs Tree"]
 tags: [project, layer/shared]
 ---
@@ -23,11 +23,11 @@ The code repositories share one name per ticket, so the backend and the client p
 
 ## 1 · Story first (business)
 
-Every piece of work starts from **the feature's story**, `<Feature> Story` (one per feature, since 2026-10-27): a new screen, a change or a gap is a new part of that story (`### S7 · <screen or journey>`, with its acceptance criteria), written by the PM ([[PM Agent]]), approved by product. There are no tasks: no `T-NNN`, no task story, no `-fe` / `-be` halves ([[Agent Rules#2 · Codes, scopes and the "sum of" rule]]). From the story the work runs through the feature's one flow (§3): the frontend adds what the new part needs to the feature's Frontend Requirements and sets it `ready`, the backend approves it and builds it, and so on. The feature card carries the priority and the deadline. A story or a card in ❓ *Needs a decision* or ⛔ *Blocked* is not workable: the decision or the blocker comes first.
+Every piece of work starts from **the feature's story**, `S-NN <Feature> Story` (one per feature, since 2026-10-27): a new screen, a change or a gap is a new part of that story (`### S7 · <screen or journey>`, with its acceptance criteria), written by the PM ([[PM Agent]]), approved by product. There are no tasks: no `T-NNN`, no task story, no `-fe` / `-be` halves ([[Agent Rules#2 · Codes, scopes and the "sum of" rule]]). From the story the work runs through the feature's one flow (§3): the frontend adds what the new part needs to the feature's Frontend Requirements and sets it `ready`, the backend approves it and builds it, and so on. The feature card carries the priority and the deadline. A story or a card in ❓ *Needs a decision* or ⛔ *Blocked* is not workable: the decision or the blocker comes first.
 
 **When a card needs a decision**, at any step below: create the needs-decision card from the card that needs it, `node scripts/build-tree.mjs --scaffold needs-decision "<card>" "<title>"` (`needs-decisions/ND-NN <Title>.md`, `status: draft`, `blocks: ["<card>"]`), write what has to be decided, the notes and who decides (`decider:`), set it `open` when it is ready for the decider, then rebuild: it hangs under the card, the card shows **Blocked · ND-NN** (from `draft` on) and everything after it waits. Do not touch the card's `status:`. The answer goes on its own card, the decision card (`node scripts/build-tree.mjs --scaffold decision ND-NN "<the answer>"`, `draft`: what was decided, why, what it changes in `affects`, what stays open); when the user decides, the PM or the owner sets it `decided` (`decidedBy`, `decidedAt`). The needs-decision card then shows ✅ **Fulfilled** by itself (nobody types it; its *Decision* section becomes one line pointing at the decision card), the next build returns the card to its own status and work continues, with the needs-decision card under the card and the decision card under it. The rule: [[Agent Rules#4 · Statuses, blocking and sign-off]].
 
-Run `node scripts/build-tree.mjs --impact "<Feature> Story"` before writing the new part: what it lists is the reading list for everyone who picks the work up.
+Run `node scripts/build-tree.mjs --impact "S-NN <Feature> Story"` before writing the new part: what it lists is the reading list for everyone who picks the work up.
 
 ## 2 · Branch from the feature
 
@@ -105,12 +105,12 @@ Story ──▶ Frontend Requirements ──▶ Backend Delivery ──▶ Backe
 
 | Step | Layer | Note (one per feature) | Done when |
 |---|---|---|---|
-| 1 | Business | `<Feature> Story`, with the new part added | `approved` by product |
-| 2 | Frontend | `<Feature> Frontend Requirements` | `ready` (📨) by the frontend when the list is complete; `approved` by the backend, or back to `draft` with what is missing; ✅ `delivered` **on its own** once the backend cards of its scope (Backend Delivery `done`, Backend Integration `current`) are done with nothing pending: the build computes it, nobody types it (a `frontendOnly` feature has no backend cards and sets it by hand) |
-| 3 | Backend | `<Feature> Backend Delivery` | `done`: code merged, `pnpm typecheck && pnpm test` green |
-| 4 | Backend | `<Feature> Backend Integration` | 🔵 `current`: matches `main`, handed off (the frontend and QA use it); ✅ Delivered **on its own** once the QA Backend passes and the Frontend Delivery is done, nothing pending: the build computes it, nobody types it |
-| 5 | Frontend | `<Feature> Frontend Delivery` | `done`: screens merged |
-| 6 | QA | `<Feature> QA Backend`, `<Feature> QA Frontend` | `passing` on a named build |
+| 1 | Business | `S-NN <Feature> Story`, with the new part added | `approved` by product |
+| 2 | Frontend | `FR-NN <Feature> Frontend Requirements` | `ready` (📨) by the frontend when the list is complete; `approved` by the backend, or back to `draft` with what is missing; ✅ `delivered` **on its own** once the backend cards of its scope (Backend Delivery `done`, Backend Integration `current`) are done with nothing pending: the build computes it, nobody types it (a `frontendOnly` feature has no backend cards and sets it by hand) |
+| 3 | Backend | `BD-NN <Feature> Backend Delivery` | `done`: code merged, `pnpm typecheck && pnpm test` green |
+| 4 | Backend | `BI-NN <Feature> Backend Integration` | 🔵 `current`: matches `main`, handed off (the frontend and QA use it); ✅ Delivered **on its own** once the QA Backend passes and the Frontend Delivery is done, nothing pending: the build computes it, nobody types it |
+| 5 | Frontend | `FD-NN <Feature> Frontend Delivery` | `done`: screens merged |
+| 6 | QA | `QB-NN <Feature> QA Backend`, `QF-NN <Feature> QA Frontend` | `passing` on a named build |
 | 7 | Business | the story | ✅ Fulfilled (`verified`): set by the **PM** once both QA notes pass with nothing pending; never by QA |
 
 Create each note with `node scripts/build-tree.mjs --scaffold <kind> <feature-id>` the first time; after that, a new part of the story is added to the same notes, and a note already done takes it as a `pending` entry (Partial) until it is built ([[Agent Rules#2 · Codes, scopes and the "sum of" rule]]). The order is the default from `docs.config.json` and **each step is blocked until the step before it is handed off** (the story and the requirements at `approved`, the others at their done status): the tree shows the card as ⛔ Blocked with the reason until then. A layer may be blocked by any other through `blockedBy` ([[Agent Rules#4 · Statuses, blocking and sign-off]]), and a new layer slots into the flow by config ([[Agent Rules#5 · Adding a layer]]).

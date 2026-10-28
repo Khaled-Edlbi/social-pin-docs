@@ -2,7 +2,7 @@
 type: project
 layer: shared
 created: 2026-10-19
-updated: 2026-10-27
+updated: 2026-10-28
 depends: ["Agent Protocol"]
 affects: []
 related: ["Agent Protocol", "Agent Rules", "Workflow", "Architecture", "API Conventions", "Ring Access Model", "Frontend API Guide"]
@@ -21,7 +21,7 @@ You are the **backend** layer of this vault ([[Agent Rules#1 · The layers]]): a
 
 You **write**:
 
-- `<Feature> Backend Delivery`, one per feature (what shipped: endpoints, tables, how it works, what exists, gaps) and `<Feature> Backend Integration`, one per feature (how the client calls it: screens to calls, shapes, errors, rules), feature- and task-level;
+- `BD-NN <Feature> Backend Delivery`, one per feature (what shipped: endpoints, tables, how it works, what exists, gaps) and `BI-NN <Feature> Backend Integration`, one per feature (how the client calls it: screens to calls, shapes, errors, rules), feature- and task-level;
 - the reference in `backend/` ([[Spec Map]], [[Developer Guide]], [[API Conventions]], [[Database & Migrations]], [[Architecture]], [[Developer Setup]]) when the stack, a migration or a convention changed, and [[Frontend API Guide]] when the contract moved;
 - the decision card a card of yours cannot continue without (`--scaffold needs-decision "<card>" "<title>"`): you raise and fill it; the PM or the owner decide it ([[Agent Rules#4 · Statuses, blocking and sign-off]]);
 - **lines, never rewrites**, in three notes that are not yours: the ✅ / ❌ rows of a Frontend Requirements note (✅ with the endpoint once it exists), the *Backend* column of a module note and the `**Backend:**` line of a feature note ([[Agent Rules#6 · After a task — the checklist, by layer]]). A requirements list the frontend has set `ready` (📨) is yours to review: it goes `approved` on your word when the backend accepts it, or back to `draft` with a line in the note saying what is missing ([[Workflow#3 · The layers, in flow order]]); a list still in `draft` is not finished, wait for `ready`.
@@ -30,7 +30,7 @@ You read the story, the Frontend Requirements, the feature note and the screens.
 
 ## 2 · Before you touch anything
 
-[[Agent Protocol#1 · Load]] and [[Agent Protocol#2 · Resolve what the user named]]. For a feature: `--impact "<Feature> Frontend Requirements"`, then the Frontend Requirements (what the client asked), the story (what the user gets), the feature-level Backend Delivery (what exists already) and [[Ring Access Model]].
+[[Agent Protocol#1 · Load]] and [[Agent Protocol#2 · Resolve what the user named]]. For a feature: `--impact "FR-NN <Feature> Frontend Requirements"`, then the Frontend Requirements (what the client asked), the story (what the user gets), the feature-level Backend Delivery (what exists already) and [[Ring Access Model]].
 
 ## 3 · Ask, then act
 
@@ -48,11 +48,11 @@ You read the story, the Frontend Requirements, the feature note and the screens.
 
 ### 4A · Pick up work
 
-When you approve the requirements: if the feature's Backend Delivery is not done yet, set it `in-progress` (the tag, 🔵 in the H1, `updated:`); **if it is already `done`, keep it done and add one `pending` entry per new ask** (`pending: ["[[<Feature> Frontend Requirements]]: <the ask>"]`), so it shows 🟡 Partial and the requirements cannot show ✅ Delivered until you clear them ([[Agent Rules#2 · Codes, scopes and the "sum of" rule]]). Branch `<module>/<F-NN>/<what-you-do>` in every repo ([[Workflow#2 · Branch from the feature]]). Nothing starts while the Frontend Requirements are not `approved`.
+When you approve the requirements: if the feature's Backend Delivery is not done yet, set it `in-progress` (the tag, 🔵 in the H1, `updated:`); **if it is already `done`, keep it done and add one `pending` entry per new ask** (`pending: ["[[FR-NN <Feature> Frontend Requirements]]: <the ask>"]`), so it shows 🟡 Partial and the requirements cannot show ✅ Delivered until you clear them ([[Agent Rules#2 · Codes, scopes and the "sum of" rule]]). Branch `<module>/<F-NN>/<what-you-do>` in every repo ([[Workflow#2 · Branch from the feature]]). Nothing starts while the Frontend Requirements are not `approved`.
 
 ### 4B · Document what shipped
 
-`node scripts/build-tree.mjs --scaffold backend-delivery <feature-id>` the first time (later parts go into the same note), then fill it: the endpoints table (method, path, auth, who may call it), the tables and columns, *How it works* (the access decisions, the rules), *What exists*, *Gaps* (what the story asks that is not there); `related:` lists every endpoint and error code you own and the screens it serves. Then `--scaffold backend-integration <feature-id>` the first time: the screens to calls, request and response shapes as they are on the wire, the error matrix, the rules the client must respect. `status: done` and `current` when they match `main`. `current` hands the integration note off (🔵, in use, not done); you never type `delivered`: the build shows it ✅ Delivered once the QA Backend of its scope passes and the Frontend Delivery is done, both with nothing pending; when the API moves, set it back to `draft` and it loses Delivered with it.
+`node scripts/build-tree.mjs --scaffold backend-delivery <feature-id>` the first time (it writes `BD-NN <Feature> Backend Delivery.md`, born with its code, and repoints the links written to the card's plain name; [[Agent Rules#2 · Codes, scopes and the "sum of" rule]]) (later parts go into the same note), then fill it: the endpoints table (method, path, auth, who may call it), the tables and columns, *How it works* (the access decisions, the rules), *What exists*, *Gaps* (what the story asks that is not there); `related:` lists every endpoint and error code you own and the screens it serves. Then `--scaffold backend-integration <feature-id>` the first time: the screens to calls, request and response shapes as they are on the wire, the error matrix, the rules the client must respect. `status: done` and `current` when they match `main`. `current` hands the integration note off (🔵, in use, not done); you never type `delivered`: the build shows it ✅ Delivered once the QA Backend of its scope passes and the Frontend Delivery is done, both with nothing pending; when the API moves, set it back to `draft` and it loses Delivered with it.
 
 ### 4C · A part shipped
 

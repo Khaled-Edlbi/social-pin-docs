@@ -2,7 +2,7 @@
 type: project
 layer: frontend
 created: 2026-10-18
-updated: 2026-10-27
+updated: 2026-10-28
 related: ["Agent Rules", "Frontend Contract", "Frontend API Guide"]
 tags: [project, layer/frontend, rules]
 ---
@@ -25,8 +25,8 @@ Obsidian vault shared with the backend. Clone it next to this repo. The vault's 
    `node scripts/build-tree.mjs --impact T-NNN` (or the feature id, or an endpoint such as
    `"GET /rings/:id"`). Read what it lists, in this order: the same feature's notes, the directly linked
    notes, the two-hop notes only if the change crosses a feature boundary. Do not read the rest.
-3. Then read, in this order: the feature note (`modules/<Module>/features/<Feature>/<Feature>.md`), the story
-   (`<Feature> Story.md`), the **Backend Integration** note (`<Feature> Backend Integration.md`, how to
+3. Then read, in this order: the feature note (`modules/<Module>/features/<Feature>/F-NN <Feature>.md`), the story
+   (`S-NN <Feature> Story.md`), the **Backend Integration** note (`BI-NN <Feature> Backend Integration.md`, how to
    call the API), `frontend/Frontend Contract.md` (the cross-cutting client rules) and
    `frontend/Frontend API Guide.md` (the long form). The screens are in `design/Screen Index.md`.
 
@@ -46,7 +46,7 @@ Only frontend-layer notes. Create each one with `node scripts/build-tree.mjs --s
   the backend task; the error states you will handle. `status: approved` once the backend accepts it.
 - **After shipping**: `T-NNN Frontend Delivery.md` (kind `frontend-delivery`): screens shipped, calls
   made, state kept, deviations from the story, what is left. Then update the feature-level
-  `<Feature> Frontend Delivery.md`: it is the sum of its task notes and must link yours.
+  `FD-NN <Feature> Frontend Delivery.md`: it is the sum of its task notes and must link yours.
 - **When you ran the checks**: `T-NNN QA Frontend.md` (kind `qa-frontend`): journeys, screen states,
   error copy, as tables and diagrams, never test code; `status: passing | failing` with the build.
 - Never edit a story, a backend note or a QA Backend note. If your change makes one wrong, add

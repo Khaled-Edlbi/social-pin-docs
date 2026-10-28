@@ -1,7 +1,7 @@
 ---
 type: project
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-28
 related: ["B-02 Deleted account answers 401, not the documented 404 E_USER_01", E_USER_01, E_AUTH_03]
 tags: [project]
 layer: backend
@@ -9,7 +9,7 @@ layer: backend
 
 # Auth Model
 
-As implemented. Feature note: [[Auth & Sign-up]]. Decided: [[ND-01 Passwordless login]] (code-only, 2026-10-15). Client-facing changes: [[Frontend Passwordless Migration]].
+As implemented. Feature note: [[F-02 Auth & Sign-up]]. Decided: [[ND-01 Passwordless login]] (code-only, 2026-10-15). Client-facing changes: [[Frontend Passwordless Migration]].
 
 **There is no password anywhere.** Every sign-in is a 6-digit OTP. `users.password_hash` was dropped (`20261015120000_drop_password_hash`); `VERIFICATION_PURPOSE.PASSWORD_RESET`, `E_AUTH_02` and `E_USER_04` are retired and must not be reused.
 
@@ -58,4 +58,4 @@ POST /auth/login/verify   → session; 403 E_AUTH_03 unless ACTIVE (public)
 
 ## Not wired
 
-OTP delivery: `AuthService.issueCode` logs the code (`TODO(delivery)`). Because nothing is delivered, `sign-up`, `login` and `request-code` return the plaintext code as `devCode` **in every environment** (product decision, 2026-10-15), so the app can sign in before a provider exists. While it is returned, anyone who knows an account's email or phone can sign in as it. Delete `devCode` from `AuthService.issueCode` and `VerificationChallengeEntity` when delivery is wired. See [[Code Delivery]].
+OTP delivery: `AuthService.issueCode` logs the code (`TODO(delivery)`). Because nothing is delivered, `sign-up`, `login` and `request-code` return the plaintext code as `devCode` **in every environment** (product decision, 2026-10-15), so the app can sign in before a provider exists. While it is returned, anyone who knows an account's email or phone can sign in as it. Delete `devCode` from `AuthService.issueCode` and `VerificationChallengeEntity` when delivery is wired. See [[F-32 Code Delivery]].

@@ -2,7 +2,7 @@
 type: project
 layer: shared
 created: 2026-10-19
-updated: 2026-10-27
+updated: 2026-10-28
 depends: ["Agent Protocol"]
 affects: []
 related: ["Agent Protocol", "Agent Rules", "Workflow", "Docs Tree", "PM Agent", "Admin Agent"]
@@ -23,7 +23,7 @@ You **own**:
 
 - the rules and the shape of the vault: `rules/` ([[Agent Rules]], [[Workflow]], [[Docs Tree]], this note and the other agent notes), `CLAUDE.md`, `README.md`, [[Home]], `docs.config.json` (layers, kinds, statuses, flow, modules, priorities, deadlines, the agents), `templates/`, `scripts/`, the tree page `tree/index.html` (hand-written source; the build copies it to `site/`, and the rest of `tree/` is generated), `.claude/` (the skills and the hooks), `.github/`, `.gitattributes` and `.gitignore`;
 - the product reference in `business/` ([[Project Overview]], [[Glossary]], the feature tree and graph, status reports) and the module notes;
-- the feature cards `modules/<Module>/features/<Feature>/<Feature>.md`: you create them and write their business side (what the feature is for, the screens, the product rules, the relations); the PM keeps their *Tasks* table and *Decisions* list current and writes their stories ([[#4I · Create a feature]]);
+- the feature cards `modules/<Module>/features/<Feature>/F-NN <Feature>.md`: you create them and write their business side (what the feature is for, the screens, the product rules, the relations); the PM keeps their *Tasks* table and *Decisions* list current and writes their stories ([[#4I · Create a feature]]);
 - the decisions: you take them on the decision card `D-NN` (the answer, set `decided`; its needs-decision card `ND-NN` then shows Fulfilled by itself), and you may raise one yourself and decide it in the same step on the user's word; the PM decides too, every other agent only raises ([[Agent Rules#4 · Statuses, blocking and sign-off]]);
 - the sign-offs: a story or a requirements list goes `approved` on your word, with your name;
 - priorities and deadlines on any card (`priority:` and `deadline:`, the enum and the format in [[Docs Tree]]);
@@ -93,7 +93,7 @@ Merge the vault's pull requests when `--check` and the guard selftest are green;
 The feature card is the business note of the feature and its main node; you write it, the PM writes what hangs under it.
 
 1. `node scripts/build-tree.mjs --find "<the words>"` first: a feature the vault already has is updated, not duplicated, and one that overlaps an existing feature is a decision card on that feature, not a second card.
-2. `node scripts/build-tree.mjs --scaffold feature <module-id> "<Name>" [--id <slug>] [--priority high] [--frontend-only]` creates `modules/<Module>/features/<Name>/<Name>.md` from `templates/Feature Template.md`; `--frontend-only` when it has no backend part.
+2. `node scripts/build-tree.mjs --scaffold feature <module-id> "<Name>" [--id <slug>] [--priority high] [--frontend-only]` creates `modules/<Module>/features/<Name>/F-NN <Name>.md` from `templates/Feature Template.md`, the folder named without the code and the file with the next free `F` number ([[Agent Rules#2 · Codes, scopes and the "sum of" rule]]); `--frontend-only` when it has no backend part.
 3. Fill the business side, in product terms: one paragraph on who the people are and what they get done; the *Design reference* table from [[Screen Index]] with one row per screen and what the screen can do today; the *Product rules* that hold whatever the implementation (privacy, what a viewer may never learn, limits; a rule not yet decided is a decision card); `screens:`, `depends:`, `affects:`, `related:`, `priority:`, `deadline:` and `owner:` in frontmatter; the *Related* list with the reason for each link; `**Backend:**` as it is (`not started` for a new feature). Vendors, endpoints and tables stay out: they belong to the layer notes.
 4. Add the row to the module note's *Features* table and the feature's line to the section of [[Feature Tree]]. The other layer notes stay placeholders: each layer scaffolds its own when it gets to it.
 5. Hand the rest to `/pm` with the exact ask: the story (`--scaffold story <id>`), the feature's row in the *Features* column of every screen it serves in [[Screen Index]], the first parts of the story if work starts now. The *Decisions* list on the card is the PM's to keep current from then on.

@@ -6,29 +6,29 @@ priority: medium
 effort: S
 feature: auth
 module: identity
-foundOn: Auth & Sign-up Backend Integration
+foundOn: BI-02 Auth & Sign-up Backend Integration
 labels: []
 screens: [s01]
 depends: []
-affects: ["Auth & Sign-up Backend Integration", "Auth & Sign-up QA Backend"]
-related: ["Auth & Sign-up Backend Integration", "Auth & Sign-up QA Backend", "POST /auth/sign-up", E_AUTH_07]
+affects: ["BI-02 Auth & Sign-up Backend Integration", "QB-05 Auth & Sign-up QA Backend"]
+related: ["BI-02 Auth & Sign-up Backend Integration", "QB-05 Auth & Sign-up QA Backend", "POST /auth/sign-up", E_AUTH_07]
 pending: []
 created: 2026-10-27
-updated: 2026-10-27
+updated: 2026-10-28
 tags: [bug, bug/todo, module/identity, priority/medium]
 ---
 
 # ⬜ B-04 · Sign-up accepts an email and a phone together
 
-**Found against:** [[Auth & Sign-up Backend Integration]] · **Feature:** [[Auth & Sign-up]] · **Status:** To do · **Priority:** Medium · **Deadline:** — · **Effort:** S
+**Found against:** [[BI-02 Auth & Sign-up Backend Integration]] · **Feature:** [[F-02 Auth & Sign-up]] · **Status:** To do · **Priority:** Medium · **Deadline:** — · **Effort:** S
 
-**Found by:** [[Auth & Sign-up QA Backend]] row B5, on build `main @ b4984d6 · localhost:3001, Node 22.22.2`.
+**Found by:** [[QB-05 Auth & Sign-up QA Backend]] row B5, on build `main @ b4984d6 · localhost:3001, Node 22.22.2`.
 
 ## What
 
 **What happens.** `POST /auth/sign-up { email, phone }` answers 201 and sends the code to the **email**. The PENDING account is stored with **both** the email and the phone. The phone was never proven, yet it is now attached: a later `sign-up { phone }` with that number answers 201 and continues the same PENDING account (a code to the phone), and once the account completes, the number belongs to it without ever having been verified.
 
-**What should happen.** [[Auth & Sign-up Backend Integration]]: *"Exactly one: neither is a 400 `E_AUTH_07`"*, and its error table: *"sign-up with neither or both of email / phone"* → 400 `E_AUTH_07`.
+**What should happen.** [[BI-02 Auth & Sign-up Backend Integration]]: *"Exactly one: neither is a 400 `E_AUTH_07`"*, and its error table: *"sign-up with neither or both of email / phone"* → 400 `E_AUTH_07`.
 
 **Where.** `POST /auth/sign-up`: `UserService.findOrCreatePending` rejects only the body with neither; `SignUpDto` leaves "exactly one" to the service. Code: `src/modules/user/`, `src/modules/auth/dto/sign-up.dto.ts`.
 
@@ -44,9 +44,9 @@ The fix is the backend's (`/backend`): reject both with 400 `E_AUTH_07`, as the 
 
 Output of `node scripts/build-tree.mjs --impact B-04` when the bug was filed: the notes the fix touches and that must be updated or flagged when it ships.
 
-- [[Auth & Sign-up Backend Integration]] · BI-02 — the `E_AUTH_07` row
-- [[Auth & Sign-up QA Backend]] · QB-05 — row B5, re-run when this ships
-- [[Auth & Sign-up]] · F-02 — wikilink →
+- [[BI-02 Auth & Sign-up Backend Integration]] · BI-02 — the `E_AUTH_07` row
+- [[QB-05 Auth & Sign-up QA Backend]] · QB-05 — row B5, re-run when this ships
+- [[F-02 Auth & Sign-up]] · F-02 — wikilink →
 
 ## Definition of done
 
@@ -57,4 +57,4 @@ Output of `node scripts/build-tree.mjs --impact B-04` when the bug was filed: th
 
 ## Log
 
-- 2026-10-27 · filed with --scaffold bug, found against Auth & Sign-up Backend Integration, from [[Auth & Sign-up QA Backend]] row B5 on `main @ b4984d6`
+- 2026-10-27 · filed with --scaffold bug, found against Auth & Sign-up Backend Integration, from [[QB-05 Auth & Sign-up QA Backend]] row B5 on `main @ b4984d6`
