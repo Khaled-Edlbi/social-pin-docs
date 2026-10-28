@@ -230,10 +230,10 @@ if (cmd === 'bash') {
 }
 if (cmd === 'selftest') {
   const E = (o, n) => ({ old: o, new: n });
-  const story = 'social-pin/modules/Identity Core/features/Rings/S-18 Rings Story.md', fr = 'social-pin/modules/Identity Core/features/Rings/FR-11 Rings Frontend Requirements.md', bd = 'social-pin/modules/Identity Core/features/Rings/BD-11 Rings Backend Delivery.md';
+  const story = 'social-pin/modules/Identity Core/features/Rings/S-18 Rings Story.md', fr = 'social-pin/modules/Identity Core/features/Rings/flow/FR-11 Rings Frontend Requirements.md', bd = 'social-pin/modules/Identity Core/features/Rings/flow/BD-11 Rings Backend Delivery.md';
   const feature = 'social-pin/modules/Identity Core/features/Rings/F-11 Rings.md', mod = 'social-pin/modules/Identity Core/M-01 Identity Core Module.md';
-  const bi = 'social-pin/modules/Identity Core/features/Rings/BI-08 Rings Backend Integration.md', fd = 'social-pin/modules/Identity Core/features/Account/FD-04 Account Frontend Delivery.md';
-  const newQa = 'social-pin/modules/Identity Core/features/Rings/QB-99 Rings QA Backend.md', newBd = 'social-pin/modules/Identity Core/features/Account/BD-99 Account Backend Delivery.md', newTask = 'social-pin/tasks/T-099 Something new.md';
+  const bi = 'social-pin/modules/Identity Core/features/Rings/flow/BI-08 Rings Backend Integration.md', fd = 'social-pin/modules/Identity Core/features/Account/flow/FD-04 Account Frontend Delivery.md';
+  const newQa = 'social-pin/modules/Identity Core/features/Rings/flow/QB-99 Rings QA Backend.md', newBd = 'social-pin/modules/Identity Core/features/Account/flow/BD-99 Account Backend Delivery.md', newTask = 'social-pin/tasks/T-099 Something new.md';
   const flag = E('# Rings · User Story\n', '# Rings · User Story\n\n> ⚠ Affected by [[BI-08 Rings Backend Integration]] (2026-10-19): memberCount added\n');
   const sign = E('status: draft\napprovedBy: ""\napprovedAt: ""\nupdated: 2026-10-18\ntags: [story, story/draft, module/identity, layer/business]', 'status: approved\napprovedBy: "Khaled"\napprovedAt: 2026-10-19\nupdated: 2026-10-19\ntags: [story, story/approved, module/identity, layer/business]');
   const body = E('**As a** new user', '**As a** returning user');
@@ -262,7 +262,7 @@ if (cmd === 'selftest') {
     ['backend', fd, 'edit', body, false], ['backend', newQa, 'write', null, false], ['backend', 'social-pin/frontend/Frontend Contract.md', 'edit', body, false], ['backend', 'social-pin/design/Wireframe Brief.md', 'edit', body, false],
     ['frontend', fr, 'write', null, true], ['frontend', fd, 'edit', body, true], ['frontend', 'social-pin/frontend/Frontend Contract.md', 'edit', body, true], ['frontend', 'social-pin/frontend/Frontend API Guide.md', 'edit', body, false],
     ['frontend', bd, 'edit', body, false], ['frontend', bd, 'edit', flag, true], ['frontend', story, 'edit', sign, false],
-    ['qa', newQa, 'write', null, true], ['qa', 'social-pin/modules/Identity Core/features/Rings/QF-99 Rings QA Frontend.md', 'write', null, true], ['qa', story, 'edit', sign, false], ['qa', story, 'edit', body, false], ['qa', bd, 'edit', flag, true], ['qa', bd, 'edit', body, false],
+    ['qa', newQa, 'write', null, true], ['qa', 'social-pin/modules/Identity Core/features/Rings/flow/QF-99 Rings QA Frontend.md', 'write', null, true], ['qa', story, 'edit', sign, false], ['qa', story, 'edit', body, false], ['qa', bd, 'edit', flag, true], ['qa', bd, 'edit', body, false],
     // needs-decision cards (ND-NN): anyone raises and fills them, draft or open; nobody types them decided or fulfilled, not even the PM or the owner (Agent Rules §4)
     ['owner', newDec, 'write', openWrite, true], ['owner', newDec, 'write', decidedWrite, false], ['owner', dec, 'edit', decideSign, false], ['owner', dec, 'edit', openSign, true],
     ['pm', newDec, 'write', decidedWrite, false], ['pm', dec, 'edit', decideSign, false], ['pm', dec, 'edit', fulfilSign, false], ['pm', dec, 'edit', openSign, true], ['pm', dec, 'edit', decBody, true],

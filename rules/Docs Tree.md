@@ -47,7 +47,7 @@ Social Pin (project)
 └── Project rules   ← rules/      workflow, agent rules, this note (the docs system, at the root)
 ```
 
-The seven layer notes come from `docs.config.json`, listed in the **hand-off order** the config's `flow` gives (story → frontend requirements → backend delivery → backend integration → frontend delivery, QA after each delivery, QA back to the story); a slot with no note yet is drawn as a dashed placeholder whose summary gives the `--scaffold` command that creates it. Adding a layer to the config adds its slots everywhere.
+On disk the story sits beside the feature card and the six other layer notes in the feature's `flow/` folder (`flowFolder` in `docs.config.json`); the tree draws them the same either way. The seven layer notes come from `docs.config.json`, listed in the **hand-off order** the config's `flow` gives (story → frontend requirements → backend delivery → backend integration → frontend delivery, QA after each delivery, QA back to the story); a slot with no note yet is drawn as a dashed placeholder whose summary gives the `--scaffold` command that creates it. Adding a layer to the config adds its slots everywhere.
 
 ## For humans
 

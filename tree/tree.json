@@ -4230,7 +4230,7 @@
   "diagnostics": {
     "errors": [],
     "warnings": [
-      "social-pin/modules/Platform & Cross-cutting/features/App Shell & Onboarding Narrative/BD-29 App Shell & Onboarding Narrative Backend Delivery.md: status: done, but its Backend Integration is not written: the requirements of this scope cannot reach `delivered` until it is `current`"
+      "social-pin/modules/Platform & Cross-cutting/features/App Shell & Onboarding Narrative/flow/BD-29 App Shell & Onboarding Narrative Backend Delivery.md: status: done, but its Backend Integration is not written: the requirements of this scope cannot reach `delivered` until it is `current`"
     ]
   },
   "edges": [
@@ -28107,513 +28107,513 @@
       "name": "M-07 Commerce Module",
       "type": "module"
     },
-    "social-pin/modules/Commerce/features/Payments & Orders/BD-27 Payments & Orders Backend Delivery.md": {
-      "name": "BD-27 Payments & Orders Backend Delivery",
-      "type": "backend-delivery"
-    },
     "social-pin/modules/Commerce/features/Payments & Orders/F-27 Payments & Orders.md": {
       "name": "F-27 Payments & Orders",
       "type": "feature"
-    },
-    "social-pin/modules/Commerce/features/Payments & Orders/FR-27 Payments & Orders Frontend Requirements.md": {
-      "name": "FR-27 Payments & Orders Frontend Requirements",
-      "type": "frontend-requirements"
     },
     "social-pin/modules/Commerce/features/Payments & Orders/S-69 Payments & Orders Story.md": {
       "name": "S-69 Payments & Orders Story",
       "type": "story"
     },
-    "social-pin/modules/Commerce/features/Subscription (Free vs Pro)/BD-28 Subscription (Free vs Pro) Backend Delivery.md": {
-      "name": "BD-28 Subscription (Free vs Pro) Backend Delivery",
+    "social-pin/modules/Commerce/features/Payments & Orders/flow/BD-27 Payments & Orders Backend Delivery.md": {
+      "name": "BD-27 Payments & Orders Backend Delivery",
       "type": "backend-delivery"
+    },
+    "social-pin/modules/Commerce/features/Payments & Orders/flow/FR-27 Payments & Orders Frontend Requirements.md": {
+      "name": "FR-27 Payments & Orders Frontend Requirements",
+      "type": "frontend-requirements"
     },
     "social-pin/modules/Commerce/features/Subscription (Free vs Pro)/F-28 Subscription (Free vs Pro).md": {
       "name": "F-28 Subscription (Free vs Pro)",
       "type": "feature"
     },
-    "social-pin/modules/Commerce/features/Subscription (Free vs Pro)/FR-28 Subscription (Free vs Pro) Frontend Requirements.md": {
-      "name": "FR-28 Subscription (Free vs Pro) Frontend Requirements",
-      "type": "frontend-requirements"
-    },
     "social-pin/modules/Commerce/features/Subscription (Free vs Pro)/S-71 Subscription (Free vs Pro) Story.md": {
       "name": "S-71 Subscription (Free vs Pro) Story",
       "type": "story"
+    },
+    "social-pin/modules/Commerce/features/Subscription (Free vs Pro)/flow/BD-28 Subscription (Free vs Pro) Backend Delivery.md": {
+      "name": "BD-28 Subscription (Free vs Pro) Backend Delivery",
+      "type": "backend-delivery"
+    },
+    "social-pin/modules/Commerce/features/Subscription (Free vs Pro)/flow/FR-28 Subscription (Free vs Pro) Frontend Requirements.md": {
+      "name": "FR-28 Subscription (Free vs Pro) Frontend Requirements",
+      "type": "frontend-requirements"
     },
     "social-pin/modules/Connections/M-02 Connections Module.md": {
       "name": "M-02 Connections Module",
       "type": "module"
     },
-    "social-pin/modules/Connections/features/Connections/BD-14 Connections Backend Delivery.md": {
-      "name": "BD-14 Connections Backend Delivery",
-      "type": "backend-delivery"
-    },
     "social-pin/modules/Connections/features/Connections/F-14 Connections.md": {
       "name": "F-14 Connections",
       "type": "feature"
-    },
-    "social-pin/modules/Connections/features/Connections/FR-14 Connections Frontend Requirements.md": {
-      "name": "FR-14 Connections Frontend Requirements",
-      "type": "frontend-requirements"
     },
     "social-pin/modules/Connections/features/Connections/S-23 Connections Story.md": {
       "name": "S-23 Connections Story",
       "type": "story"
     },
+    "social-pin/modules/Connections/features/Connections/flow/BD-14 Connections Backend Delivery.md": {
+      "name": "BD-14 Connections Backend Delivery",
+      "type": "backend-delivery"
+    },
+    "social-pin/modules/Connections/features/Connections/flow/FR-14 Connections Frontend Requirements.md": {
+      "name": "FR-14 Connections Frontend Requirements",
+      "type": "frontend-requirements"
+    },
     "social-pin/modules/Discovery/M-04 Discovery Module.md": {
       "name": "M-04 Discovery Module",
       "type": "module"
-    },
-    "social-pin/modules/Discovery/features/Badge & QR/BD-18 Badge & QR Backend Delivery.md": {
-      "name": "BD-18 Badge & QR Backend Delivery",
-      "type": "backend-delivery"
     },
     "social-pin/modules/Discovery/features/Badge & QR/F-18 Badge & QR.md": {
       "name": "F-18 Badge & QR",
       "type": "feature"
     },
-    "social-pin/modules/Discovery/features/Badge & QR/FR-18 Badge & QR Frontend Requirements.md": {
-      "name": "FR-18 Badge & QR Frontend Requirements",
-      "type": "frontend-requirements"
-    },
     "social-pin/modules/Discovery/features/Badge & QR/S-37 Badge & QR Story.md": {
       "name": "S-37 Badge & QR Story",
       "type": "story"
     },
-    "social-pin/modules/Discovery/features/Discover Hub & Search/BD-19 Discover Hub & Search Backend Delivery.md": {
-      "name": "BD-19 Discover Hub & Search Backend Delivery",
+    "social-pin/modules/Discovery/features/Badge & QR/flow/BD-18 Badge & QR Backend Delivery.md": {
+      "name": "BD-18 Badge & QR Backend Delivery",
       "type": "backend-delivery"
+    },
+    "social-pin/modules/Discovery/features/Badge & QR/flow/FR-18 Badge & QR Frontend Requirements.md": {
+      "name": "FR-18 Badge & QR Frontend Requirements",
+      "type": "frontend-requirements"
     },
     "social-pin/modules/Discovery/features/Discover Hub & Search/F-19 Discover Hub & Search.md": {
       "name": "F-19 Discover Hub & Search",
       "type": "feature"
     },
-    "social-pin/modules/Discovery/features/Discover Hub & Search/FR-19 Discover Hub & Search Frontend Requirements.md": {
-      "name": "FR-19 Discover Hub & Search Frontend Requirements",
-      "type": "frontend-requirements"
-    },
     "social-pin/modules/Discovery/features/Discover Hub & Search/S-42 Discover Hub & Search Story.md": {
       "name": "S-42 Discover Hub & Search Story",
       "type": "story"
     },
-    "social-pin/modules/Discovery/features/PinCast & Nearby/BD-20 PinCast & Nearby Backend Delivery.md": {
-      "name": "BD-20 PinCast & Nearby Backend Delivery",
+    "social-pin/modules/Discovery/features/Discover Hub & Search/flow/BD-19 Discover Hub & Search Backend Delivery.md": {
+      "name": "BD-19 Discover Hub & Search Backend Delivery",
       "type": "backend-delivery"
+    },
+    "social-pin/modules/Discovery/features/Discover Hub & Search/flow/FR-19 Discover Hub & Search Frontend Requirements.md": {
+      "name": "FR-19 Discover Hub & Search Frontend Requirements",
+      "type": "frontend-requirements"
     },
     "social-pin/modules/Discovery/features/PinCast & Nearby/F-20 PinCast & Nearby.md": {
       "name": "F-20 PinCast & Nearby",
       "type": "feature"
     },
-    "social-pin/modules/Discovery/features/PinCast & Nearby/FR-20 PinCast & Nearby Frontend Requirements.md": {
-      "name": "FR-20 PinCast & Nearby Frontend Requirements",
-      "type": "frontend-requirements"
-    },
     "social-pin/modules/Discovery/features/PinCast & Nearby/S-45 PinCast & Nearby Story.md": {
       "name": "S-45 PinCast & Nearby Story",
       "type": "story"
+    },
+    "social-pin/modules/Discovery/features/PinCast & Nearby/flow/BD-20 PinCast & Nearby Backend Delivery.md": {
+      "name": "BD-20 PinCast & Nearby Backend Delivery",
+      "type": "backend-delivery"
+    },
+    "social-pin/modules/Discovery/features/PinCast & Nearby/flow/FR-20 PinCast & Nearby Frontend Requirements.md": {
+      "name": "FR-20 PinCast & Nearby Frontend Requirements",
+      "type": "frontend-requirements"
     },
     "social-pin/modules/Events/M-05 Events Module.md": {
       "name": "M-05 Events Module",
       "type": "module"
     },
-    "social-pin/modules/Events/features/Event Ring Auto-creation/BD-21 Event Ring Auto-creation Backend Delivery.md": {
-      "name": "BD-21 Event Ring Auto-creation Backend Delivery",
-      "type": "backend-delivery"
-    },
     "social-pin/modules/Events/features/Event Ring Auto-creation/F-21 Event Ring Auto-creation.md": {
       "name": "F-21 Event Ring Auto-creation",
       "type": "feature"
-    },
-    "social-pin/modules/Events/features/Event Ring Auto-creation/FR-21 Event Ring Auto-creation Frontend Requirements.md": {
-      "name": "FR-21 Event Ring Auto-creation Frontend Requirements",
-      "type": "frontend-requirements"
     },
     "social-pin/modules/Events/features/Event Ring Auto-creation/S-47 Event Ring Auto-creation Story.md": {
       "name": "S-47 Event Ring Auto-creation Story",
       "type": "story"
     },
-    "social-pin/modules/Events/features/Events Before/BD-22 Events Before Backend Delivery.md": {
-      "name": "BD-22 Events Before Backend Delivery",
+    "social-pin/modules/Events/features/Event Ring Auto-creation/flow/BD-21 Event Ring Auto-creation Backend Delivery.md": {
+      "name": "BD-21 Event Ring Auto-creation Backend Delivery",
       "type": "backend-delivery"
+    },
+    "social-pin/modules/Events/features/Event Ring Auto-creation/flow/FR-21 Event Ring Auto-creation Frontend Requirements.md": {
+      "name": "FR-21 Event Ring Auto-creation Frontend Requirements",
+      "type": "frontend-requirements"
     },
     "social-pin/modules/Events/features/Events Before/F-22 Events Before.md": {
       "name": "F-22 Events Before",
       "type": "feature"
     },
-    "social-pin/modules/Events/features/Events Before/FR-22 Events Before Frontend Requirements.md": {
-      "name": "FR-22 Events Before Frontend Requirements",
-      "type": "frontend-requirements"
-    },
     "social-pin/modules/Events/features/Events Before/S-49 Events Before Story.md": {
       "name": "S-49 Events Before Story",
       "type": "story"
     },
-    "social-pin/modules/Events/features/Events During/BD-23 Events During Backend Delivery.md": {
-      "name": "BD-23 Events During Backend Delivery",
+    "social-pin/modules/Events/features/Events Before/flow/BD-22 Events Before Backend Delivery.md": {
+      "name": "BD-22 Events Before Backend Delivery",
       "type": "backend-delivery"
+    },
+    "social-pin/modules/Events/features/Events Before/flow/FR-22 Events Before Frontend Requirements.md": {
+      "name": "FR-22 Events Before Frontend Requirements",
+      "type": "frontend-requirements"
     },
     "social-pin/modules/Events/features/Events During/F-23 Events During.md": {
       "name": "F-23 Events During",
       "type": "feature"
     },
-    "social-pin/modules/Events/features/Events During/FR-23 Events During Frontend Requirements.md": {
-      "name": "FR-23 Events During Frontend Requirements",
-      "type": "frontend-requirements"
-    },
     "social-pin/modules/Events/features/Events During/S-53 Events During Story.md": {
       "name": "S-53 Events During Story",
       "type": "story"
     },
-    "social-pin/modules/Events/features/Exhibitor/BD-24 Exhibitor Backend Delivery.md": {
-      "name": "BD-24 Exhibitor Backend Delivery",
+    "social-pin/modules/Events/features/Events During/flow/BD-23 Events During Backend Delivery.md": {
+      "name": "BD-23 Events During Backend Delivery",
       "type": "backend-delivery"
+    },
+    "social-pin/modules/Events/features/Events During/flow/FR-23 Events During Frontend Requirements.md": {
+      "name": "FR-23 Events During Frontend Requirements",
+      "type": "frontend-requirements"
     },
     "social-pin/modules/Events/features/Exhibitor/F-24 Exhibitor.md": {
       "name": "F-24 Exhibitor",
       "type": "feature"
     },
-    "social-pin/modules/Events/features/Exhibitor/FR-24 Exhibitor Frontend Requirements.md": {
-      "name": "FR-24 Exhibitor Frontend Requirements",
-      "type": "frontend-requirements"
-    },
     "social-pin/modules/Events/features/Exhibitor/S-59 Exhibitor Story.md": {
       "name": "S-59 Exhibitor Story",
       "type": "story"
     },
-    "social-pin/modules/Events/features/Post-Event/BD-25 Post-Event Backend Delivery.md": {
-      "name": "BD-25 Post-Event Backend Delivery",
+    "social-pin/modules/Events/features/Exhibitor/flow/BD-24 Exhibitor Backend Delivery.md": {
+      "name": "BD-24 Exhibitor Backend Delivery",
       "type": "backend-delivery"
+    },
+    "social-pin/modules/Events/features/Exhibitor/flow/FR-24 Exhibitor Frontend Requirements.md": {
+      "name": "FR-24 Exhibitor Frontend Requirements",
+      "type": "frontend-requirements"
     },
     "social-pin/modules/Events/features/Post-Event/F-25 Post-Event.md": {
       "name": "F-25 Post-Event",
       "type": "feature"
     },
-    "social-pin/modules/Events/features/Post-Event/FR-25 Post-Event Frontend Requirements.md": {
-      "name": "FR-25 Post-Event Frontend Requirements",
-      "type": "frontend-requirements"
-    },
     "social-pin/modules/Events/features/Post-Event/S-62 Post-Event Story.md": {
       "name": "S-62 Post-Event Story",
       "type": "story"
+    },
+    "social-pin/modules/Events/features/Post-Event/flow/BD-25 Post-Event Backend Delivery.md": {
+      "name": "BD-25 Post-Event Backend Delivery",
+      "type": "backend-delivery"
+    },
+    "social-pin/modules/Events/features/Post-Event/flow/FR-25 Post-Event Frontend Requirements.md": {
+      "name": "FR-25 Post-Event Frontend Requirements",
+      "type": "frontend-requirements"
     },
     "social-pin/modules/Identity Core/M-01 Identity Core Module.md": {
       "name": "M-01 Identity Core Module",
       "type": "module"
     },
-    "social-pin/modules/Identity Core/features/Account/BD-01 Account Backend Delivery.md": {
-      "name": "BD-01 Account Backend Delivery",
-      "type": "backend-delivery"
-    },
-    "social-pin/modules/Identity Core/features/Account/BI-01 Account Backend Integration.md": {
-      "name": "BI-01 Account Backend Integration",
-      "type": "backend-integration"
-    },
     "social-pin/modules/Identity Core/features/Account/F-01 Account.md": {
       "name": "F-01 Account",
       "type": "feature"
-    },
-    "social-pin/modules/Identity Core/features/Account/FD-04 Account Frontend Delivery.md": {
-      "name": "FD-04 Account Frontend Delivery",
-      "type": "frontend-delivery"
-    },
-    "social-pin/modules/Identity Core/features/Account/FR-01 Account Frontend Requirements.md": {
-      "name": "FR-01 Account Frontend Requirements",
-      "type": "frontend-requirements"
-    },
-    "social-pin/modules/Identity Core/features/Account/QB-04 Account QA Backend.md": {
-      "name": "QB-04 Account QA Backend",
-      "type": "qa-backend"
-    },
-    "social-pin/modules/Identity Core/features/Account/QF-04 Account QA Frontend.md": {
-      "name": "QF-04 Account QA Frontend",
-      "type": "qa-frontend"
     },
     "social-pin/modules/Identity Core/features/Account/S-01 Account Story.md": {
       "name": "S-01 Account Story",
       "type": "story"
     },
-    "social-pin/modules/Identity Core/features/Auth & Sign-up/BD-02 Auth & Sign-up Backend Delivery.md": {
-      "name": "BD-02 Auth & Sign-up Backend Delivery",
+    "social-pin/modules/Identity Core/features/Account/flow/BD-01 Account Backend Delivery.md": {
+      "name": "BD-01 Account Backend Delivery",
       "type": "backend-delivery"
     },
-    "social-pin/modules/Identity Core/features/Auth & Sign-up/BI-02 Auth & Sign-up Backend Integration.md": {
-      "name": "BI-02 Auth & Sign-up Backend Integration",
+    "social-pin/modules/Identity Core/features/Account/flow/BI-01 Account Backend Integration.md": {
+      "name": "BI-01 Account Backend Integration",
       "type": "backend-integration"
+    },
+    "social-pin/modules/Identity Core/features/Account/flow/FD-04 Account Frontend Delivery.md": {
+      "name": "FD-04 Account Frontend Delivery",
+      "type": "frontend-delivery"
+    },
+    "social-pin/modules/Identity Core/features/Account/flow/FR-01 Account Frontend Requirements.md": {
+      "name": "FR-01 Account Frontend Requirements",
+      "type": "frontend-requirements"
+    },
+    "social-pin/modules/Identity Core/features/Account/flow/QB-04 Account QA Backend.md": {
+      "name": "QB-04 Account QA Backend",
+      "type": "qa-backend"
+    },
+    "social-pin/modules/Identity Core/features/Account/flow/QF-04 Account QA Frontend.md": {
+      "name": "QF-04 Account QA Frontend",
+      "type": "qa-frontend"
     },
     "social-pin/modules/Identity Core/features/Auth & Sign-up/F-02 Auth & Sign-up.md": {
       "name": "F-02 Auth & Sign-up",
       "type": "feature"
     },
-    "social-pin/modules/Identity Core/features/Auth & Sign-up/FR-02 Auth & Sign-up Frontend Requirements.md": {
-      "name": "FR-02 Auth & Sign-up Frontend Requirements",
-      "type": "frontend-requirements"
-    },
-    "social-pin/modules/Identity Core/features/Auth & Sign-up/QB-05 Auth & Sign-up QA Backend.md": {
-      "name": "QB-05 Auth & Sign-up QA Backend",
-      "type": "qa-backend"
-    },
     "social-pin/modules/Identity Core/features/Auth & Sign-up/S-02 Auth & Sign-up Story.md": {
       "name": "S-02 Auth & Sign-up Story",
       "type": "story"
     },
-    "social-pin/modules/Identity Core/features/Counts/BD-03 Counts Backend Delivery.md": {
-      "name": "BD-03 Counts Backend Delivery",
+    "social-pin/modules/Identity Core/features/Auth & Sign-up/flow/BD-02 Auth & Sign-up Backend Delivery.md": {
+      "name": "BD-02 Auth & Sign-up Backend Delivery",
       "type": "backend-delivery"
+    },
+    "social-pin/modules/Identity Core/features/Auth & Sign-up/flow/BI-02 Auth & Sign-up Backend Integration.md": {
+      "name": "BI-02 Auth & Sign-up Backend Integration",
+      "type": "backend-integration"
+    },
+    "social-pin/modules/Identity Core/features/Auth & Sign-up/flow/FR-02 Auth & Sign-up Frontend Requirements.md": {
+      "name": "FR-02 Auth & Sign-up Frontend Requirements",
+      "type": "frontend-requirements"
+    },
+    "social-pin/modules/Identity Core/features/Auth & Sign-up/flow/QB-05 Auth & Sign-up QA Backend.md": {
+      "name": "QB-05 Auth & Sign-up QA Backend",
+      "type": "qa-backend"
     },
     "social-pin/modules/Identity Core/features/Counts/F-03 Counts.md": {
       "name": "F-03 Counts",
       "type": "feature"
     },
-    "social-pin/modules/Identity Core/features/Counts/FR-03 Counts Frontend Requirements.md": {
-      "name": "FR-03 Counts Frontend Requirements",
-      "type": "frontend-requirements"
-    },
     "social-pin/modules/Identity Core/features/Counts/S-03 Counts Story.md": {
       "name": "S-03 Counts Story",
       "type": "story"
     },
-    "social-pin/modules/Identity Core/features/Files Upload/BD-04 Files Upload Backend Delivery.md": {
-      "name": "BD-04 Files Upload Backend Delivery",
+    "social-pin/modules/Identity Core/features/Counts/flow/BD-03 Counts Backend Delivery.md": {
+      "name": "BD-03 Counts Backend Delivery",
       "type": "backend-delivery"
     },
-    "social-pin/modules/Identity Core/features/Files Upload/BI-03 Files Upload Backend Integration.md": {
-      "name": "BI-03 Files Upload Backend Integration",
-      "type": "backend-integration"
+    "social-pin/modules/Identity Core/features/Counts/flow/FR-03 Counts Frontend Requirements.md": {
+      "name": "FR-03 Counts Frontend Requirements",
+      "type": "frontend-requirements"
     },
     "social-pin/modules/Identity Core/features/Files Upload/F-04 Files Upload.md": {
       "name": "F-04 Files Upload",
       "type": "feature"
     },
-    "social-pin/modules/Identity Core/features/Files Upload/FR-04 Files Upload Frontend Requirements.md": {
-      "name": "FR-04 Files Upload Frontend Requirements",
-      "type": "frontend-requirements"
-    },
     "social-pin/modules/Identity Core/features/Files Upload/S-06 Files Upload Story.md": {
       "name": "S-06 Files Upload Story",
       "type": "story"
     },
-    "social-pin/modules/Identity Core/features/Onboarding Imports/BD-05 Onboarding Imports Backend Delivery.md": {
-      "name": "BD-05 Onboarding Imports Backend Delivery",
+    "social-pin/modules/Identity Core/features/Files Upload/flow/BD-04 Files Upload Backend Delivery.md": {
+      "name": "BD-04 Files Upload Backend Delivery",
       "type": "backend-delivery"
+    },
+    "social-pin/modules/Identity Core/features/Files Upload/flow/BI-03 Files Upload Backend Integration.md": {
+      "name": "BI-03 Files Upload Backend Integration",
+      "type": "backend-integration"
+    },
+    "social-pin/modules/Identity Core/features/Files Upload/flow/FR-04 Files Upload Frontend Requirements.md": {
+      "name": "FR-04 Files Upload Frontend Requirements",
+      "type": "frontend-requirements"
     },
     "social-pin/modules/Identity Core/features/Onboarding Imports/F-05 Onboarding Imports.md": {
       "name": "F-05 Onboarding Imports",
       "type": "feature"
     },
-    "social-pin/modules/Identity Core/features/Onboarding Imports/FR-05 Onboarding Imports Frontend Requirements.md": {
-      "name": "FR-05 Onboarding Imports Frontend Requirements",
-      "type": "frontend-requirements"
-    },
     "social-pin/modules/Identity Core/features/Onboarding Imports/S-08 Onboarding Imports Story.md": {
       "name": "S-08 Onboarding Imports Story",
       "type": "story"
     },
-    "social-pin/modules/Identity Core/features/Photo Library/BD-06 Photo Library Backend Delivery.md": {
-      "name": "BD-06 Photo Library Backend Delivery",
+    "social-pin/modules/Identity Core/features/Onboarding Imports/flow/BD-05 Onboarding Imports Backend Delivery.md": {
+      "name": "BD-05 Onboarding Imports Backend Delivery",
       "type": "backend-delivery"
+    },
+    "social-pin/modules/Identity Core/features/Onboarding Imports/flow/FR-05 Onboarding Imports Frontend Requirements.md": {
+      "name": "FR-05 Onboarding Imports Frontend Requirements",
+      "type": "frontend-requirements"
     },
     "social-pin/modules/Identity Core/features/Photo Library/F-06 Photo Library.md": {
       "name": "F-06 Photo Library",
       "type": "feature"
     },
-    "social-pin/modules/Identity Core/features/Photo Library/FR-06 Photo Library Frontend Requirements.md": {
-      "name": "FR-06 Photo Library Frontend Requirements",
-      "type": "frontend-requirements"
-    },
     "social-pin/modules/Identity Core/features/Photo Library/S-11 Photo Library Story.md": {
       "name": "S-11 Photo Library Story",
       "type": "story"
     },
-    "social-pin/modules/Identity Core/features/Profiles & Pin Name/BD-07 Profiles & Pin Name Backend Delivery.md": {
-      "name": "BD-07 Profiles & Pin Name Backend Delivery",
+    "social-pin/modules/Identity Core/features/Photo Library/flow/BD-06 Photo Library Backend Delivery.md": {
+      "name": "BD-06 Photo Library Backend Delivery",
       "type": "backend-delivery"
     },
-    "social-pin/modules/Identity Core/features/Profiles & Pin Name/BI-04 Profiles & Pin Name Backend Integration.md": {
-      "name": "BI-04 Profiles & Pin Name Backend Integration",
-      "type": "backend-integration"
+    "social-pin/modules/Identity Core/features/Photo Library/flow/FR-06 Photo Library Frontend Requirements.md": {
+      "name": "FR-06 Photo Library Frontend Requirements",
+      "type": "frontend-requirements"
     },
     "social-pin/modules/Identity Core/features/Profiles & Pin Name/F-07 Profiles & Pin Name.md": {
       "name": "F-07 Profiles & Pin Name",
       "type": "feature"
     },
-    "social-pin/modules/Identity Core/features/Profiles & Pin Name/FR-07 Profiles & Pin Name Frontend Requirements.md": {
-      "name": "FR-07 Profiles & Pin Name Frontend Requirements",
-      "type": "frontend-requirements"
-    },
     "social-pin/modules/Identity Core/features/Profiles & Pin Name/S-14 Profiles & Pin Name Story.md": {
       "name": "S-14 Profiles & Pin Name Story",
       "type": "story"
     },
-    "social-pin/modules/Identity Core/features/Ring Access Engine/BD-08 Ring Access Engine Backend Delivery.md": {
-      "name": "BD-08 Ring Access Engine Backend Delivery",
+    "social-pin/modules/Identity Core/features/Profiles & Pin Name/flow/BD-07 Profiles & Pin Name Backend Delivery.md": {
+      "name": "BD-07 Profiles & Pin Name Backend Delivery",
       "type": "backend-delivery"
     },
-    "social-pin/modules/Identity Core/features/Ring Access Engine/BI-05 Ring Access Engine Backend Integration.md": {
-      "name": "BI-05 Ring Access Engine Backend Integration",
+    "social-pin/modules/Identity Core/features/Profiles & Pin Name/flow/BI-04 Profiles & Pin Name Backend Integration.md": {
+      "name": "BI-04 Profiles & Pin Name Backend Integration",
       "type": "backend-integration"
+    },
+    "social-pin/modules/Identity Core/features/Profiles & Pin Name/flow/FR-07 Profiles & Pin Name Frontend Requirements.md": {
+      "name": "FR-07 Profiles & Pin Name Frontend Requirements",
+      "type": "frontend-requirements"
     },
     "social-pin/modules/Identity Core/features/Ring Access Engine/F-08 Ring Access Engine.md": {
       "name": "F-08 Ring Access Engine",
       "type": "feature"
     },
-    "social-pin/modules/Identity Core/features/Ring Access Engine/FR-08 Ring Access Engine Frontend Requirements.md": {
-      "name": "FR-08 Ring Access Engine Frontend Requirements",
-      "type": "frontend-requirements"
-    },
     "social-pin/modules/Identity Core/features/Ring Access Engine/S-15 Ring Access Engine Story.md": {
       "name": "S-15 Ring Access Engine Story",
       "type": "story"
     },
-    "social-pin/modules/Identity Core/features/Ring Members/BD-09 Ring Members Backend Delivery.md": {
-      "name": "BD-09 Ring Members Backend Delivery",
+    "social-pin/modules/Identity Core/features/Ring Access Engine/flow/BD-08 Ring Access Engine Backend Delivery.md": {
+      "name": "BD-08 Ring Access Engine Backend Delivery",
       "type": "backend-delivery"
     },
-    "social-pin/modules/Identity Core/features/Ring Members/BI-06 Ring Members Backend Integration.md": {
-      "name": "BI-06 Ring Members Backend Integration",
+    "social-pin/modules/Identity Core/features/Ring Access Engine/flow/BI-05 Ring Access Engine Backend Integration.md": {
+      "name": "BI-05 Ring Access Engine Backend Integration",
       "type": "backend-integration"
+    },
+    "social-pin/modules/Identity Core/features/Ring Access Engine/flow/FR-08 Ring Access Engine Frontend Requirements.md": {
+      "name": "FR-08 Ring Access Engine Frontend Requirements",
+      "type": "frontend-requirements"
     },
     "social-pin/modules/Identity Core/features/Ring Members/F-09 Ring Members.md": {
       "name": "F-09 Ring Members",
       "type": "feature"
     },
-    "social-pin/modules/Identity Core/features/Ring Members/FR-09 Ring Members Frontend Requirements.md": {
-      "name": "FR-09 Ring Members Frontend Requirements",
-      "type": "frontend-requirements"
-    },
     "social-pin/modules/Identity Core/features/Ring Members/S-16 Ring Members Story.md": {
       "name": "S-16 Ring Members Story",
       "type": "story"
     },
-    "social-pin/modules/Identity Core/features/Ring Projection/BD-10 Ring Projection Backend Delivery.md": {
-      "name": "BD-10 Ring Projection Backend Delivery",
+    "social-pin/modules/Identity Core/features/Ring Members/flow/BD-09 Ring Members Backend Delivery.md": {
+      "name": "BD-09 Ring Members Backend Delivery",
       "type": "backend-delivery"
     },
-    "social-pin/modules/Identity Core/features/Ring Projection/BI-07 Ring Projection Backend Integration.md": {
-      "name": "BI-07 Ring Projection Backend Integration",
+    "social-pin/modules/Identity Core/features/Ring Members/flow/BI-06 Ring Members Backend Integration.md": {
+      "name": "BI-06 Ring Members Backend Integration",
       "type": "backend-integration"
+    },
+    "social-pin/modules/Identity Core/features/Ring Members/flow/FR-09 Ring Members Frontend Requirements.md": {
+      "name": "FR-09 Ring Members Frontend Requirements",
+      "type": "frontend-requirements"
     },
     "social-pin/modules/Identity Core/features/Ring Projection/F-10 Ring Projection.md": {
       "name": "F-10 Ring Projection",
       "type": "feature"
     },
-    "social-pin/modules/Identity Core/features/Ring Projection/FR-10 Ring Projection Frontend Requirements.md": {
-      "name": "FR-10 Ring Projection Frontend Requirements",
-      "type": "frontend-requirements"
-    },
     "social-pin/modules/Identity Core/features/Ring Projection/S-17 Ring Projection Story.md": {
       "name": "S-17 Ring Projection Story",
       "type": "story"
     },
-    "social-pin/modules/Identity Core/features/Rings/BD-11 Rings Backend Delivery.md": {
-      "name": "BD-11 Rings Backend Delivery",
+    "social-pin/modules/Identity Core/features/Ring Projection/flow/BD-10 Ring Projection Backend Delivery.md": {
+      "name": "BD-10 Ring Projection Backend Delivery",
       "type": "backend-delivery"
     },
-    "social-pin/modules/Identity Core/features/Rings/BI-08 Rings Backend Integration.md": {
-      "name": "BI-08 Rings Backend Integration",
+    "social-pin/modules/Identity Core/features/Ring Projection/flow/BI-07 Ring Projection Backend Integration.md": {
+      "name": "BI-07 Ring Projection Backend Integration",
       "type": "backend-integration"
+    },
+    "social-pin/modules/Identity Core/features/Ring Projection/flow/FR-10 Ring Projection Frontend Requirements.md": {
+      "name": "FR-10 Ring Projection Frontend Requirements",
+      "type": "frontend-requirements"
     },
     "social-pin/modules/Identity Core/features/Rings/F-11 Rings.md": {
       "name": "F-11 Rings",
       "type": "feature"
     },
-    "social-pin/modules/Identity Core/features/Rings/FR-11 Rings Frontend Requirements.md": {
-      "name": "FR-11 Rings Frontend Requirements",
-      "type": "frontend-requirements"
-    },
     "social-pin/modules/Identity Core/features/Rings/S-18 Rings Story.md": {
       "name": "S-18 Rings Story",
       "type": "story"
     },
-    "social-pin/modules/Identity Core/features/View As & Pin Views/BD-12 View As & Pin Views Backend Delivery.md": {
-      "name": "BD-12 View As & Pin Views Backend Delivery",
+    "social-pin/modules/Identity Core/features/Rings/flow/BD-11 Rings Backend Delivery.md": {
+      "name": "BD-11 Rings Backend Delivery",
       "type": "backend-delivery"
     },
-    "social-pin/modules/Identity Core/features/View As & Pin Views/BI-09 View As & Pin Views Backend Integration.md": {
-      "name": "BI-09 View As & Pin Views Backend Integration",
+    "social-pin/modules/Identity Core/features/Rings/flow/BI-08 Rings Backend Integration.md": {
+      "name": "BI-08 Rings Backend Integration",
       "type": "backend-integration"
+    },
+    "social-pin/modules/Identity Core/features/Rings/flow/FR-11 Rings Frontend Requirements.md": {
+      "name": "FR-11 Rings Frontend Requirements",
+      "type": "frontend-requirements"
     },
     "social-pin/modules/Identity Core/features/View As & Pin Views/F-12 View As & Pin Views.md": {
       "name": "F-12 View As & Pin Views",
       "type": "feature"
     },
-    "social-pin/modules/Identity Core/features/View As & Pin Views/FR-12 View As & Pin Views Frontend Requirements.md": {
-      "name": "FR-12 View As & Pin Views Frontend Requirements",
-      "type": "frontend-requirements"
-    },
     "social-pin/modules/Identity Core/features/View As & Pin Views/S-19 View As & Pin Views Story.md": {
       "name": "S-19 View As & Pin Views Story",
       "type": "story"
     },
-    "social-pin/modules/Identity Core/features/Widgets/BD-13 Widgets Backend Delivery.md": {
-      "name": "BD-13 Widgets Backend Delivery",
+    "social-pin/modules/Identity Core/features/View As & Pin Views/flow/BD-12 View As & Pin Views Backend Delivery.md": {
+      "name": "BD-12 View As & Pin Views Backend Delivery",
       "type": "backend-delivery"
+    },
+    "social-pin/modules/Identity Core/features/View As & Pin Views/flow/BI-09 View As & Pin Views Backend Integration.md": {
+      "name": "BI-09 View As & Pin Views Backend Integration",
+      "type": "backend-integration"
+    },
+    "social-pin/modules/Identity Core/features/View As & Pin Views/flow/FR-12 View As & Pin Views Frontend Requirements.md": {
+      "name": "FR-12 View As & Pin Views Frontend Requirements",
+      "type": "frontend-requirements"
     },
     "social-pin/modules/Identity Core/features/Widgets/F-13 Widgets.md": {
       "name": "F-13 Widgets",
       "type": "feature"
     },
-    "social-pin/modules/Identity Core/features/Widgets/FR-13 Widgets Frontend Requirements.md": {
-      "name": "FR-13 Widgets Frontend Requirements",
-      "type": "frontend-requirements"
-    },
     "social-pin/modules/Identity Core/features/Widgets/S-20 Widgets Story.md": {
       "name": "S-20 Widgets Story",
       "type": "story"
+    },
+    "social-pin/modules/Identity Core/features/Widgets/flow/BD-13 Widgets Backend Delivery.md": {
+      "name": "BD-13 Widgets Backend Delivery",
+      "type": "backend-delivery"
+    },
+    "social-pin/modules/Identity Core/features/Widgets/flow/FR-13 Widgets Frontend Requirements.md": {
+      "name": "FR-13 Widgets Frontend Requirements",
+      "type": "frontend-requirements"
     },
     "social-pin/modules/Meetings/M-06 Meetings Module.md": {
       "name": "M-06 Meetings Module",
       "type": "module"
     },
-    "social-pin/modules/Meetings/features/Meetings/BD-26 Meetings Backend Delivery.md": {
-      "name": "BD-26 Meetings Backend Delivery",
-      "type": "backend-delivery"
-    },
     "social-pin/modules/Meetings/features/Meetings/F-26 Meetings.md": {
       "name": "F-26 Meetings",
       "type": "feature"
-    },
-    "social-pin/modules/Meetings/features/Meetings/FR-26 Meetings Frontend Requirements.md": {
-      "name": "FR-26 Meetings Frontend Requirements",
-      "type": "frontend-requirements"
     },
     "social-pin/modules/Meetings/features/Meetings/S-64 Meetings Story.md": {
       "name": "S-64 Meetings Story",
       "type": "story"
     },
+    "social-pin/modules/Meetings/features/Meetings/flow/BD-26 Meetings Backend Delivery.md": {
+      "name": "BD-26 Meetings Backend Delivery",
+      "type": "backend-delivery"
+    },
+    "social-pin/modules/Meetings/features/Meetings/flow/FR-26 Meetings Frontend Requirements.md": {
+      "name": "FR-26 Meetings Frontend Requirements",
+      "type": "frontend-requirements"
+    },
     "social-pin/modules/Platform & Cross-cutting/M-08 Platform & Cross-cutting Module.md": {
       "name": "M-08 Platform & Cross-cutting Module",
       "type": "module"
-    },
-    "social-pin/modules/Platform & Cross-cutting/features/App Shell & Onboarding Narrative/BD-29 App Shell & Onboarding Narrative Backend Delivery.md": {
-      "name": "BD-29 App Shell & Onboarding Narrative Backend Delivery",
-      "type": "backend-delivery"
     },
     "social-pin/modules/Platform & Cross-cutting/features/App Shell & Onboarding Narrative/F-29 App Shell & Onboarding Narrative.md": {
       "name": "F-29 App Shell & Onboarding Narrative",
       "type": "feature"
     },
-    "social-pin/modules/Platform & Cross-cutting/features/App Shell & Onboarding Narrative/FR-29 App Shell & Onboarding Narrative Frontend Requirements.md": {
-      "name": "FR-29 App Shell & Onboarding Narrative Frontend Requirements",
-      "type": "frontend-requirements"
-    },
     "social-pin/modules/Platform & Cross-cutting/features/App Shell & Onboarding Narrative/S-73 App Shell & Onboarding Narrative Story.md": {
       "name": "S-73 App Shell & Onboarding Narrative Story",
       "type": "story"
     },
-    "social-pin/modules/Platform & Cross-cutting/features/Audit Log/BD-30 Audit Log Backend Delivery.md": {
-      "name": "BD-30 Audit Log Backend Delivery",
+    "social-pin/modules/Platform & Cross-cutting/features/App Shell & Onboarding Narrative/flow/BD-29 App Shell & Onboarding Narrative Backend Delivery.md": {
+      "name": "BD-29 App Shell & Onboarding Narrative Backend Delivery",
       "type": "backend-delivery"
+    },
+    "social-pin/modules/Platform & Cross-cutting/features/App Shell & Onboarding Narrative/flow/FR-29 App Shell & Onboarding Narrative Frontend Requirements.md": {
+      "name": "FR-29 App Shell & Onboarding Narrative Frontend Requirements",
+      "type": "frontend-requirements"
     },
     "social-pin/modules/Platform & Cross-cutting/features/Audit Log/F-30 Audit Log.md": {
       "name": "F-30 Audit Log",
       "type": "feature"
     },
-    "social-pin/modules/Platform & Cross-cutting/features/Audit Log/FR-30 Audit Log Frontend Requirements.md": {
-      "name": "FR-30 Audit Log Frontend Requirements",
-      "type": "frontend-requirements"
-    },
     "social-pin/modules/Platform & Cross-cutting/features/Audit Log/S-74 Audit Log Story.md": {
       "name": "S-74 Audit Log Story",
       "type": "story"
+    },
+    "social-pin/modules/Platform & Cross-cutting/features/Audit Log/flow/BD-30 Audit Log Backend Delivery.md": {
+      "name": "BD-30 Audit Log Backend Delivery",
+      "type": "backend-delivery"
+    },
+    "social-pin/modules/Platform & Cross-cutting/features/Audit Log/flow/FR-30 Audit Log Frontend Requirements.md": {
+      "name": "FR-30 Audit Log Frontend Requirements",
+      "type": "frontend-requirements"
     },
     "social-pin/modules/Platform & Cross-cutting/features/Build & Deploy/F-43 Build & Deploy.md": {
       "name": "F-43 Build & Deploy",
@@ -28623,149 +28623,149 @@
       "name": "S-116 Build & Deploy Story",
       "type": "story"
     },
-    "social-pin/modules/Platform & Cross-cutting/features/Cleanup Jobs/BD-31 Cleanup Jobs Backend Delivery.md": {
-      "name": "BD-31 Cleanup Jobs Backend Delivery",
-      "type": "backend-delivery"
-    },
     "social-pin/modules/Platform & Cross-cutting/features/Cleanup Jobs/F-31 Cleanup Jobs.md": {
       "name": "F-31 Cleanup Jobs",
       "type": "feature"
-    },
-    "social-pin/modules/Platform & Cross-cutting/features/Cleanup Jobs/FR-31 Cleanup Jobs Frontend Requirements.md": {
-      "name": "FR-31 Cleanup Jobs Frontend Requirements",
-      "type": "frontend-requirements"
     },
     "social-pin/modules/Platform & Cross-cutting/features/Cleanup Jobs/S-76 Cleanup Jobs Story.md": {
       "name": "S-76 Cleanup Jobs Story",
       "type": "story"
     },
-    "social-pin/modules/Platform & Cross-cutting/features/Code Delivery/BD-32 Code Delivery Backend Delivery.md": {
-      "name": "BD-32 Code Delivery Backend Delivery",
+    "social-pin/modules/Platform & Cross-cutting/features/Cleanup Jobs/flow/BD-31 Cleanup Jobs Backend Delivery.md": {
+      "name": "BD-31 Cleanup Jobs Backend Delivery",
       "type": "backend-delivery"
+    },
+    "social-pin/modules/Platform & Cross-cutting/features/Cleanup Jobs/flow/FR-31 Cleanup Jobs Frontend Requirements.md": {
+      "name": "FR-31 Cleanup Jobs Frontend Requirements",
+      "type": "frontend-requirements"
     },
     "social-pin/modules/Platform & Cross-cutting/features/Code Delivery/F-32 Code Delivery.md": {
       "name": "F-32 Code Delivery",
       "type": "feature"
     },
-    "social-pin/modules/Platform & Cross-cutting/features/Code Delivery/FR-32 Code Delivery Frontend Requirements.md": {
-      "name": "FR-32 Code Delivery Frontend Requirements",
-      "type": "frontend-requirements"
-    },
     "social-pin/modules/Platform & Cross-cutting/features/Code Delivery/S-78 Code Delivery Story.md": {
       "name": "S-78 Code Delivery Story",
       "type": "story"
     },
-    "social-pin/modules/Platform & Cross-cutting/features/Devices & NFC/BD-33 Devices & NFC Backend Delivery.md": {
-      "name": "BD-33 Devices & NFC Backend Delivery",
+    "social-pin/modules/Platform & Cross-cutting/features/Code Delivery/flow/BD-32 Code Delivery Backend Delivery.md": {
+      "name": "BD-32 Code Delivery Backend Delivery",
       "type": "backend-delivery"
+    },
+    "social-pin/modules/Platform & Cross-cutting/features/Code Delivery/flow/FR-32 Code Delivery Frontend Requirements.md": {
+      "name": "FR-32 Code Delivery Frontend Requirements",
+      "type": "frontend-requirements"
     },
     "social-pin/modules/Platform & Cross-cutting/features/Devices & NFC/F-33 Devices & NFC.md": {
       "name": "F-33 Devices & NFC",
       "type": "feature"
     },
-    "social-pin/modules/Platform & Cross-cutting/features/Devices & NFC/FR-33 Devices & NFC Frontend Requirements.md": {
-      "name": "FR-33 Devices & NFC Frontend Requirements",
-      "type": "frontend-requirements"
-    },
     "social-pin/modules/Platform & Cross-cutting/features/Devices & NFC/S-82 Devices & NFC Story.md": {
       "name": "S-82 Devices & NFC Story",
       "type": "story"
     },
-    "social-pin/modules/Platform & Cross-cutting/features/E2E Test Run/BD-34 E2E Test Run Backend Delivery.md": {
-      "name": "BD-34 E2E Test Run Backend Delivery",
+    "social-pin/modules/Platform & Cross-cutting/features/Devices & NFC/flow/BD-33 Devices & NFC Backend Delivery.md": {
+      "name": "BD-33 Devices & NFC Backend Delivery",
       "type": "backend-delivery"
+    },
+    "social-pin/modules/Platform & Cross-cutting/features/Devices & NFC/flow/FR-33 Devices & NFC Frontend Requirements.md": {
+      "name": "FR-33 Devices & NFC Frontend Requirements",
+      "type": "frontend-requirements"
     },
     "social-pin/modules/Platform & Cross-cutting/features/E2E Test Run/F-34 E2E Test Run.md": {
       "name": "F-34 E2E Test Run",
       "type": "feature"
     },
-    "social-pin/modules/Platform & Cross-cutting/features/E2E Test Run/FR-34 E2E Test Run Frontend Requirements.md": {
-      "name": "FR-34 E2E Test Run Frontend Requirements",
-      "type": "frontend-requirements"
-    },
     "social-pin/modules/Platform & Cross-cutting/features/E2E Test Run/S-85 E2E Test Run Story.md": {
       "name": "S-85 E2E Test Run Story",
       "type": "story"
     },
-    "social-pin/modules/Platform & Cross-cutting/features/Error Contract/BD-35 Error Contract Backend Delivery.md": {
-      "name": "BD-35 Error Contract Backend Delivery",
+    "social-pin/modules/Platform & Cross-cutting/features/E2E Test Run/flow/BD-34 E2E Test Run Backend Delivery.md": {
+      "name": "BD-34 E2E Test Run Backend Delivery",
       "type": "backend-delivery"
+    },
+    "social-pin/modules/Platform & Cross-cutting/features/E2E Test Run/flow/FR-34 E2E Test Run Frontend Requirements.md": {
+      "name": "FR-34 E2E Test Run Frontend Requirements",
+      "type": "frontend-requirements"
     },
     "social-pin/modules/Platform & Cross-cutting/features/Error Contract/F-35 Error Contract.md": {
       "name": "F-35 Error Contract",
       "type": "feature"
     },
-    "social-pin/modules/Platform & Cross-cutting/features/Error Contract/FR-35 Error Contract Frontend Requirements.md": {
-      "name": "FR-35 Error Contract Frontend Requirements",
-      "type": "frontend-requirements"
-    },
     "social-pin/modules/Platform & Cross-cutting/features/Error Contract/S-87 Error Contract Story.md": {
       "name": "S-87 Error Contract Story",
       "type": "story"
     },
-    "social-pin/modules/Platform & Cross-cutting/features/Gemma AI/BD-36 Gemma AI Backend Delivery.md": {
-      "name": "BD-36 Gemma AI Backend Delivery",
+    "social-pin/modules/Platform & Cross-cutting/features/Error Contract/flow/BD-35 Error Contract Backend Delivery.md": {
+      "name": "BD-35 Error Contract Backend Delivery",
       "type": "backend-delivery"
+    },
+    "social-pin/modules/Platform & Cross-cutting/features/Error Contract/flow/FR-35 Error Contract Frontend Requirements.md": {
+      "name": "FR-35 Error Contract Frontend Requirements",
+      "type": "frontend-requirements"
     },
     "social-pin/modules/Platform & Cross-cutting/features/Gemma AI/F-36 Gemma AI.md": {
       "name": "F-36 Gemma AI",
       "type": "feature"
     },
-    "social-pin/modules/Platform & Cross-cutting/features/Gemma AI/FR-36 Gemma AI Frontend Requirements.md": {
-      "name": "FR-36 Gemma AI Frontend Requirements",
-      "type": "frontend-requirements"
-    },
     "social-pin/modules/Platform & Cross-cutting/features/Gemma AI/S-89 Gemma AI Story.md": {
       "name": "S-89 Gemma AI Story",
       "type": "story"
     },
-    "social-pin/modules/Platform & Cross-cutting/features/Interests/BD-37 Interests Backend Delivery.md": {
-      "name": "BD-37 Interests Backend Delivery",
+    "social-pin/modules/Platform & Cross-cutting/features/Gemma AI/flow/BD-36 Gemma AI Backend Delivery.md": {
+      "name": "BD-36 Gemma AI Backend Delivery",
       "type": "backend-delivery"
+    },
+    "social-pin/modules/Platform & Cross-cutting/features/Gemma AI/flow/FR-36 Gemma AI Frontend Requirements.md": {
+      "name": "FR-36 Gemma AI Frontend Requirements",
+      "type": "frontend-requirements"
     },
     "social-pin/modules/Platform & Cross-cutting/features/Interests/F-37 Interests.md": {
       "name": "F-37 Interests",
       "type": "feature"
     },
-    "social-pin/modules/Platform & Cross-cutting/features/Interests/FR-37 Interests Frontend Requirements.md": {
-      "name": "FR-37 Interests Frontend Requirements",
-      "type": "frontend-requirements"
-    },
     "social-pin/modules/Platform & Cross-cutting/features/Interests/S-92 Interests Story.md": {
       "name": "S-92 Interests Story",
       "type": "story"
     },
-    "social-pin/modules/Platform & Cross-cutting/features/Linked Accounts (OAuth)/BD-38 Linked Accounts (OAuth) Backend Delivery.md": {
-      "name": "BD-38 Linked Accounts (OAuth) Backend Delivery",
+    "social-pin/modules/Platform & Cross-cutting/features/Interests/flow/BD-37 Interests Backend Delivery.md": {
+      "name": "BD-37 Interests Backend Delivery",
       "type": "backend-delivery"
+    },
+    "social-pin/modules/Platform & Cross-cutting/features/Interests/flow/FR-37 Interests Frontend Requirements.md": {
+      "name": "FR-37 Interests Frontend Requirements",
+      "type": "frontend-requirements"
     },
     "social-pin/modules/Platform & Cross-cutting/features/Linked Accounts (OAuth)/F-38 Linked Accounts (OAuth).md": {
       "name": "F-38 Linked Accounts (OAuth)",
       "type": "feature"
     },
-    "social-pin/modules/Platform & Cross-cutting/features/Linked Accounts (OAuth)/FR-38 Linked Accounts (OAuth) Frontend Requirements.md": {
-      "name": "FR-38 Linked Accounts (OAuth) Frontend Requirements",
-      "type": "frontend-requirements"
-    },
     "social-pin/modules/Platform & Cross-cutting/features/Linked Accounts (OAuth)/S-94 Linked Accounts (OAuth) Story.md": {
       "name": "S-94 Linked Accounts (OAuth) Story",
       "type": "story"
     },
-    "social-pin/modules/Platform & Cross-cutting/features/Notifications/BD-39 Notifications Backend Delivery.md": {
-      "name": "BD-39 Notifications Backend Delivery",
+    "social-pin/modules/Platform & Cross-cutting/features/Linked Accounts (OAuth)/flow/BD-38 Linked Accounts (OAuth) Backend Delivery.md": {
+      "name": "BD-38 Linked Accounts (OAuth) Backend Delivery",
       "type": "backend-delivery"
+    },
+    "social-pin/modules/Platform & Cross-cutting/features/Linked Accounts (OAuth)/flow/FR-38 Linked Accounts (OAuth) Frontend Requirements.md": {
+      "name": "FR-38 Linked Accounts (OAuth) Frontend Requirements",
+      "type": "frontend-requirements"
     },
     "social-pin/modules/Platform & Cross-cutting/features/Notifications/F-39 Notifications.md": {
       "name": "F-39 Notifications",
       "type": "feature"
     },
-    "social-pin/modules/Platform & Cross-cutting/features/Notifications/FR-39 Notifications Frontend Requirements.md": {
-      "name": "FR-39 Notifications Frontend Requirements",
-      "type": "frontend-requirements"
-    },
     "social-pin/modules/Platform & Cross-cutting/features/Notifications/S-96 Notifications Story.md": {
       "name": "S-96 Notifications Story",
       "type": "story"
+    },
+    "social-pin/modules/Platform & Cross-cutting/features/Notifications/flow/BD-39 Notifications Backend Delivery.md": {
+      "name": "BD-39 Notifications Backend Delivery",
+      "type": "backend-delivery"
+    },
+    "social-pin/modules/Platform & Cross-cutting/features/Notifications/flow/FR-39 Notifications Frontend Requirements.md": {
+      "name": "FR-39 Notifications Frontend Requirements",
+      "type": "frontend-requirements"
     },
     "social-pin/modules/Platform & Cross-cutting/features/Operator Panel/F-42 Operator Panel.md": {
       "name": "F-42 Operator Panel",
@@ -28779,53 +28779,53 @@
       "name": "M-03 Shared Rings & Companies Module",
       "type": "module"
     },
-    "social-pin/modules/Shared Rings & Companies/features/Companies/BD-15 Companies Backend Delivery.md": {
-      "name": "BD-15 Companies Backend Delivery",
-      "type": "backend-delivery"
-    },
     "social-pin/modules/Shared Rings & Companies/features/Companies/F-15 Companies.md": {
       "name": "F-15 Companies",
       "type": "feature"
-    },
-    "social-pin/modules/Shared Rings & Companies/features/Companies/FR-15 Companies Frontend Requirements.md": {
-      "name": "FR-15 Companies Frontend Requirements",
-      "type": "frontend-requirements"
     },
     "social-pin/modules/Shared Rings & Companies/features/Companies/S-29 Companies Story.md": {
       "name": "S-29 Companies Story",
       "type": "story"
     },
-    "social-pin/modules/Shared Rings & Companies/features/Delegated Admins/BD-16 Delegated Admins Backend Delivery.md": {
-      "name": "BD-16 Delegated Admins Backend Delivery",
+    "social-pin/modules/Shared Rings & Companies/features/Companies/flow/BD-15 Companies Backend Delivery.md": {
+      "name": "BD-15 Companies Backend Delivery",
       "type": "backend-delivery"
+    },
+    "social-pin/modules/Shared Rings & Companies/features/Companies/flow/FR-15 Companies Frontend Requirements.md": {
+      "name": "FR-15 Companies Frontend Requirements",
+      "type": "frontend-requirements"
     },
     "social-pin/modules/Shared Rings & Companies/features/Delegated Admins/F-16 Delegated Admins.md": {
       "name": "F-16 Delegated Admins",
       "type": "feature"
     },
-    "social-pin/modules/Shared Rings & Companies/features/Delegated Admins/FR-16 Delegated Admins Frontend Requirements.md": {
-      "name": "FR-16 Delegated Admins Frontend Requirements",
-      "type": "frontend-requirements"
-    },
     "social-pin/modules/Shared Rings & Companies/features/Delegated Admins/S-31 Delegated Admins Story.md": {
       "name": "S-31 Delegated Admins Story",
       "type": "story"
     },
-    "social-pin/modules/Shared Rings & Companies/features/Ring Invitations & Join/BD-17 Ring Invitations & Join Backend Delivery.md": {
-      "name": "BD-17 Ring Invitations & Join Backend Delivery",
+    "social-pin/modules/Shared Rings & Companies/features/Delegated Admins/flow/BD-16 Delegated Admins Backend Delivery.md": {
+      "name": "BD-16 Delegated Admins Backend Delivery",
       "type": "backend-delivery"
+    },
+    "social-pin/modules/Shared Rings & Companies/features/Delegated Admins/flow/FR-16 Delegated Admins Frontend Requirements.md": {
+      "name": "FR-16 Delegated Admins Frontend Requirements",
+      "type": "frontend-requirements"
     },
     "social-pin/modules/Shared Rings & Companies/features/Ring Invitations & Join/F-17 Ring Invitations & Join.md": {
       "name": "F-17 Ring Invitations & Join",
       "type": "feature"
     },
-    "social-pin/modules/Shared Rings & Companies/features/Ring Invitations & Join/FR-17 Ring Invitations & Join Frontend Requirements.md": {
-      "name": "FR-17 Ring Invitations & Join Frontend Requirements",
-      "type": "frontend-requirements"
-    },
     "social-pin/modules/Shared Rings & Companies/features/Ring Invitations & Join/S-33 Ring Invitations & Join Story.md": {
       "name": "S-33 Ring Invitations & Join Story",
       "type": "story"
+    },
+    "social-pin/modules/Shared Rings & Companies/features/Ring Invitations & Join/flow/BD-17 Ring Invitations & Join Backend Delivery.md": {
+      "name": "BD-17 Ring Invitations & Join Backend Delivery",
+      "type": "backend-delivery"
+    },
+    "social-pin/modules/Shared Rings & Companies/features/Ring Invitations & Join/flow/FR-17 Ring Invitations & Join Frontend Requirements.md": {
+      "name": "FR-17 Ring Invitations & Join Frontend Requirements",
+      "type": "frontend-requirements"
     },
     "social-pin/needs-decisions/ND-01 Passwordless login.md": {
       "name": "ND-01 Passwordless login",
@@ -29254,7 +29254,7 @@
       "parents": [
         "feature:account"
       ],
-      "path": "social-pin/modules/Identity Core/features/Account/BD-01 Account Backend Delivery.md",
+      "path": "social-pin/modules/Identity Core/features/Account/flow/BD-01 Account Backend Delivery.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -29336,7 +29336,7 @@
       "parents": [
         "feature:app-shell"
       ],
-      "path": "social-pin/modules/Platform & Cross-cutting/features/App Shell & Onboarding Narrative/BD-29 App Shell & Onboarding Narrative Backend Delivery.md",
+      "path": "social-pin/modules/Platform & Cross-cutting/features/App Shell & Onboarding Narrative/flow/BD-29 App Shell & Onboarding Narrative Backend Delivery.md",
       "pending": [],
       "priority": "medium",
       "related": [],
@@ -29395,7 +29395,7 @@
       "parents": [
         "feature:audit-log"
       ],
-      "path": "social-pin/modules/Platform & Cross-cutting/features/Audit Log/BD-30 Audit Log Backend Delivery.md",
+      "path": "social-pin/modules/Platform & Cross-cutting/features/Audit Log/flow/BD-30 Audit Log Backend Delivery.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -29445,7 +29445,7 @@
       "parents": [
         "feature:auth"
       ],
-      "path": "social-pin/modules/Identity Core/features/Auth & Sign-up/BD-02 Auth & Sign-up Backend Delivery.md",
+      "path": "social-pin/modules/Identity Core/features/Auth & Sign-up/flow/BD-02 Auth & Sign-up Backend Delivery.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -29522,7 +29522,7 @@
       "parents": [
         "feature:badge-qr"
       ],
-      "path": "social-pin/modules/Discovery/features/Badge & QR/BD-18 Badge & QR Backend Delivery.md",
+      "path": "social-pin/modules/Discovery/features/Badge & QR/flow/BD-18 Badge & QR Backend Delivery.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -29627,7 +29627,7 @@
       "parents": [
         "feature:cleanup-jobs"
       ],
-      "path": "social-pin/modules/Platform & Cross-cutting/features/Cleanup Jobs/BD-31 Cleanup Jobs Backend Delivery.md",
+      "path": "social-pin/modules/Platform & Cross-cutting/features/Cleanup Jobs/flow/BD-31 Cleanup Jobs Backend Delivery.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -29681,7 +29681,7 @@
       "parents": [
         "feature:code-delivery"
       ],
-      "path": "social-pin/modules/Platform & Cross-cutting/features/Code Delivery/BD-32 Code Delivery Backend Delivery.md",
+      "path": "social-pin/modules/Platform & Cross-cutting/features/Code Delivery/flow/BD-32 Code Delivery Backend Delivery.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -29737,7 +29737,7 @@
       "parents": [
         "feature:companies"
       ],
-      "path": "social-pin/modules/Shared Rings & Companies/features/Companies/BD-15 Companies Backend Delivery.md",
+      "path": "social-pin/modules/Shared Rings & Companies/features/Companies/flow/BD-15 Companies Backend Delivery.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -29794,7 +29794,7 @@
       "parents": [
         "feature:connections"
       ],
-      "path": "social-pin/modules/Connections/features/Connections/BD-14 Connections Backend Delivery.md",
+      "path": "social-pin/modules/Connections/features/Connections/flow/BD-14 Connections Backend Delivery.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -29854,7 +29854,7 @@
       "parents": [
         "feature:counts"
       ],
-      "path": "social-pin/modules/Identity Core/features/Counts/BD-03 Counts Backend Delivery.md",
+      "path": "social-pin/modules/Identity Core/features/Counts/flow/BD-03 Counts Backend Delivery.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -29915,7 +29915,7 @@
       "parents": [
         "feature:delegated-admins"
       ],
-      "path": "social-pin/modules/Shared Rings & Companies/features/Delegated Admins/BD-16 Delegated Admins Backend Delivery.md",
+      "path": "social-pin/modules/Shared Rings & Companies/features/Delegated Admins/flow/BD-16 Delegated Admins Backend Delivery.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -29972,7 +29972,7 @@
       "parents": [
         "feature:devices"
       ],
-      "path": "social-pin/modules/Platform & Cross-cutting/features/Devices & NFC/BD-33 Devices & NFC Backend Delivery.md",
+      "path": "social-pin/modules/Platform & Cross-cutting/features/Devices & NFC/flow/BD-33 Devices & NFC Backend Delivery.md",
       "pending": [],
       "priority": "high",
       "related": [
@@ -30030,7 +30030,7 @@
       "parents": [
         "feature:discover-hub"
       ],
-      "path": "social-pin/modules/Discovery/features/Discover Hub & Search/BD-19 Discover Hub & Search Backend Delivery.md",
+      "path": "social-pin/modules/Discovery/features/Discover Hub & Search/flow/BD-19 Discover Hub & Search Backend Delivery.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -30086,7 +30086,7 @@
       "parents": [
         "feature:e2e-tests"
       ],
-      "path": "social-pin/modules/Platform & Cross-cutting/features/E2E Test Run/BD-34 E2E Test Run Backend Delivery.md",
+      "path": "social-pin/modules/Platform & Cross-cutting/features/E2E Test Run/flow/BD-34 E2E Test Run Backend Delivery.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -30140,7 +30140,7 @@
       "parents": [
         "feature:error-contract"
       ],
-      "path": "social-pin/modules/Platform & Cross-cutting/features/Error Contract/BD-35 Error Contract Backend Delivery.md",
+      "path": "social-pin/modules/Platform & Cross-cutting/features/Error Contract/flow/BD-35 Error Contract Backend Delivery.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -30199,7 +30199,7 @@
       "parents": [
         "feature:event-ring-auto"
       ],
-      "path": "social-pin/modules/Events/features/Event Ring Auto-creation/BD-21 Event Ring Auto-creation Backend Delivery.md",
+      "path": "social-pin/modules/Events/features/Event Ring Auto-creation/flow/BD-21 Event Ring Auto-creation Backend Delivery.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -30255,7 +30255,7 @@
       "parents": [
         "feature:events-before"
       ],
-      "path": "social-pin/modules/Events/features/Events Before/BD-22 Events Before Backend Delivery.md",
+      "path": "social-pin/modules/Events/features/Events Before/flow/BD-22 Events Before Backend Delivery.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -30315,7 +30315,7 @@
       "parents": [
         "feature:events-during"
       ],
-      "path": "social-pin/modules/Events/features/Events During/BD-23 Events During Backend Delivery.md",
+      "path": "social-pin/modules/Events/features/Events During/flow/BD-23 Events During Backend Delivery.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -30376,7 +30376,7 @@
       "parents": [
         "feature:exhibitor"
       ],
-      "path": "social-pin/modules/Events/features/Exhibitor/BD-24 Exhibitor Backend Delivery.md",
+      "path": "social-pin/modules/Events/features/Exhibitor/flow/BD-24 Exhibitor Backend Delivery.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -30428,7 +30428,7 @@
       "parents": [
         "feature:files"
       ],
-      "path": "social-pin/modules/Identity Core/features/Files Upload/BD-04 Files Upload Backend Delivery.md",
+      "path": "social-pin/modules/Identity Core/features/Files Upload/flow/BD-04 Files Upload Backend Delivery.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -30486,7 +30486,7 @@
       "parents": [
         "feature:gemma"
       ],
-      "path": "social-pin/modules/Platform & Cross-cutting/features/Gemma AI/BD-36 Gemma AI Backend Delivery.md",
+      "path": "social-pin/modules/Platform & Cross-cutting/features/Gemma AI/flow/BD-36 Gemma AI Backend Delivery.md",
       "pending": [],
       "priority": "medium",
       "related": [],
@@ -30543,7 +30543,7 @@
       "parents": [
         "feature:interests"
       ],
-      "path": "social-pin/modules/Platform & Cross-cutting/features/Interests/BD-37 Interests Backend Delivery.md",
+      "path": "social-pin/modules/Platform & Cross-cutting/features/Interests/flow/BD-37 Interests Backend Delivery.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -30600,7 +30600,7 @@
       "parents": [
         "feature:linked-accounts"
       ],
-      "path": "social-pin/modules/Platform & Cross-cutting/features/Linked Accounts (OAuth)/BD-38 Linked Accounts (OAuth) Backend Delivery.md",
+      "path": "social-pin/modules/Platform & Cross-cutting/features/Linked Accounts (OAuth)/flow/BD-38 Linked Accounts (OAuth) Backend Delivery.md",
       "pending": [],
       "priority": "high",
       "related": [
@@ -30662,7 +30662,7 @@
       "parents": [
         "feature:meetings"
       ],
-      "path": "social-pin/modules/Meetings/features/Meetings/BD-26 Meetings Backend Delivery.md",
+      "path": "social-pin/modules/Meetings/features/Meetings/flow/BD-26 Meetings Backend Delivery.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -30722,7 +30722,7 @@
       "parents": [
         "feature:notifications"
       ],
-      "path": "social-pin/modules/Platform & Cross-cutting/features/Notifications/BD-39 Notifications Backend Delivery.md",
+      "path": "social-pin/modules/Platform & Cross-cutting/features/Notifications/flow/BD-39 Notifications Backend Delivery.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -30778,7 +30778,7 @@
       "parents": [
         "feature:onboarding-imports"
       ],
-      "path": "social-pin/modules/Identity Core/features/Onboarding Imports/BD-05 Onboarding Imports Backend Delivery.md",
+      "path": "social-pin/modules/Identity Core/features/Onboarding Imports/flow/BD-05 Onboarding Imports Backend Delivery.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -30884,7 +30884,7 @@
       "parents": [
         "feature:payments"
       ],
-      "path": "social-pin/modules/Commerce/features/Payments & Orders/BD-27 Payments & Orders Backend Delivery.md",
+      "path": "social-pin/modules/Commerce/features/Payments & Orders/flow/BD-27 Payments & Orders Backend Delivery.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -30941,7 +30941,7 @@
       "parents": [
         "feature:photo-library"
       ],
-      "path": "social-pin/modules/Identity Core/features/Photo Library/BD-06 Photo Library Backend Delivery.md",
+      "path": "social-pin/modules/Identity Core/features/Photo Library/flow/BD-06 Photo Library Backend Delivery.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -30998,7 +30998,7 @@
       "parents": [
         "feature:pincast"
       ],
-      "path": "social-pin/modules/Discovery/features/PinCast & Nearby/BD-20 PinCast & Nearby Backend Delivery.md",
+      "path": "social-pin/modules/Discovery/features/PinCast & Nearby/flow/BD-20 PinCast & Nearby Backend Delivery.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -31058,7 +31058,7 @@
       "parents": [
         "feature:post-event"
       ],
-      "path": "social-pin/modules/Events/features/Post-Event/BD-25 Post-Event Backend Delivery.md",
+      "path": "social-pin/modules/Events/features/Post-Event/flow/BD-25 Post-Event Backend Delivery.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -31108,7 +31108,7 @@
       "parents": [
         "feature:profiles"
       ],
-      "path": "social-pin/modules/Identity Core/features/Profiles & Pin Name/BD-07 Profiles & Pin Name Backend Delivery.md",
+      "path": "social-pin/modules/Identity Core/features/Profiles & Pin Name/flow/BD-07 Profiles & Pin Name Backend Delivery.md",
       "pending": [
         {
           "person": null,
@@ -31171,7 +31171,7 @@
       "parents": [
         "feature:ring-access"
       ],
-      "path": "social-pin/modules/Identity Core/features/Ring Access Engine/BD-08 Ring Access Engine Backend Delivery.md",
+      "path": "social-pin/modules/Identity Core/features/Ring Access Engine/flow/BD-08 Ring Access Engine Backend Delivery.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -31225,7 +31225,7 @@
       "parents": [
         "feature:ring-invitations"
       ],
-      "path": "social-pin/modules/Shared Rings & Companies/features/Ring Invitations & Join/BD-17 Ring Invitations & Join Backend Delivery.md",
+      "path": "social-pin/modules/Shared Rings & Companies/features/Ring Invitations & Join/flow/BD-17 Ring Invitations & Join Backend Delivery.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -31276,7 +31276,7 @@
       "parents": [
         "feature:ring-members"
       ],
-      "path": "social-pin/modules/Identity Core/features/Ring Members/BD-09 Ring Members Backend Delivery.md",
+      "path": "social-pin/modules/Identity Core/features/Ring Members/flow/BD-09 Ring Members Backend Delivery.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -31327,7 +31327,7 @@
       "parents": [
         "feature:ring-projection"
       ],
-      "path": "social-pin/modules/Identity Core/features/Ring Projection/BD-10 Ring Projection Backend Delivery.md",
+      "path": "social-pin/modules/Identity Core/features/Ring Projection/flow/BD-10 Ring Projection Backend Delivery.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -31383,7 +31383,7 @@
       "parents": [
         "feature:rings"
       ],
-      "path": "social-pin/modules/Identity Core/features/Rings/BD-11 Rings Backend Delivery.md",
+      "path": "social-pin/modules/Identity Core/features/Rings/flow/BD-11 Rings Backend Delivery.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -31449,7 +31449,7 @@
       "parents": [
         "feature:subscription"
       ],
-      "path": "social-pin/modules/Commerce/features/Subscription (Free vs Pro)/BD-28 Subscription (Free vs Pro) Backend Delivery.md",
+      "path": "social-pin/modules/Commerce/features/Subscription (Free vs Pro)/flow/BD-28 Subscription (Free vs Pro) Backend Delivery.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -31500,7 +31500,7 @@
       "parents": [
         "feature:view-as"
       ],
-      "path": "social-pin/modules/Identity Core/features/View As & Pin Views/BD-12 View As & Pin Views Backend Delivery.md",
+      "path": "social-pin/modules/Identity Core/features/View As & Pin Views/flow/BD-12 View As & Pin Views Backend Delivery.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -31558,7 +31558,7 @@
       "parents": [
         "feature:widgets"
       ],
-      "path": "social-pin/modules/Identity Core/features/Widgets/BD-13 Widgets Backend Delivery.md",
+      "path": "social-pin/modules/Identity Core/features/Widgets/flow/BD-13 Widgets Backend Delivery.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -31616,7 +31616,7 @@
       "parents": [
         "feature:account"
       ],
-      "path": "social-pin/modules/Identity Core/features/Account/BI-01 Account Backend Integration.md",
+      "path": "social-pin/modules/Identity Core/features/Account/flow/BI-01 Account Backend Integration.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -31751,7 +31751,7 @@
       "parents": [
         "feature:auth"
       ],
-      "path": "social-pin/modules/Identity Core/features/Auth & Sign-up/BI-02 Auth & Sign-up Backend Integration.md",
+      "path": "social-pin/modules/Identity Core/features/Auth & Sign-up/flow/BI-02 Auth & Sign-up Backend Integration.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -32560,7 +32560,7 @@
       "parents": [
         "feature:files"
       ],
-      "path": "social-pin/modules/Identity Core/features/Files Upload/BI-03 Files Upload Backend Integration.md",
+      "path": "social-pin/modules/Identity Core/features/Files Upload/flow/BI-03 Files Upload Backend Integration.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -33118,7 +33118,7 @@
       "parents": [
         "feature:profiles"
       ],
-      "path": "social-pin/modules/Identity Core/features/Profiles & Pin Name/BI-04 Profiles & Pin Name Backend Integration.md",
+      "path": "social-pin/modules/Identity Core/features/Profiles & Pin Name/flow/BI-04 Profiles & Pin Name Backend Integration.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -33171,7 +33171,7 @@
       "parents": [
         "feature:ring-access"
       ],
-      "path": "social-pin/modules/Identity Core/features/Ring Access Engine/BI-05 Ring Access Engine Backend Integration.md",
+      "path": "social-pin/modules/Identity Core/features/Ring Access Engine/flow/BI-05 Ring Access Engine Backend Integration.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -33265,7 +33265,7 @@
       "parents": [
         "feature:ring-members"
       ],
-      "path": "social-pin/modules/Identity Core/features/Ring Members/BI-06 Ring Members Backend Integration.md",
+      "path": "social-pin/modules/Identity Core/features/Ring Members/flow/BI-06 Ring Members Backend Integration.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -33316,7 +33316,7 @@
       "parents": [
         "feature:ring-projection"
       ],
-      "path": "social-pin/modules/Identity Core/features/Ring Projection/BI-07 Ring Projection Backend Integration.md",
+      "path": "social-pin/modules/Identity Core/features/Ring Projection/flow/BI-07 Ring Projection Backend Integration.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -33374,7 +33374,7 @@
       "parents": [
         "feature:rings"
       ],
-      "path": "social-pin/modules/Identity Core/features/Rings/BI-08 Rings Backend Integration.md",
+      "path": "social-pin/modules/Identity Core/features/Rings/flow/BI-08 Rings Backend Integration.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -33480,7 +33480,7 @@
       "parents": [
         "feature:view-as"
       ],
-      "path": "social-pin/modules/Identity Core/features/View As & Pin Views/BI-09 View As & Pin Views Backend Integration.md",
+      "path": "social-pin/modules/Identity Core/features/View As & Pin Views/flow/BI-09 View As & Pin Views Backend Integration.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -37669,7 +37669,7 @@
       "parents": [
         "feature:account"
       ],
-      "path": "social-pin/modules/Identity Core/features/Account/FD-04 Account Frontend Delivery.md",
+      "path": "social-pin/modules/Identity Core/features/Account/flow/FD-04 Account Frontend Delivery.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -39524,7 +39524,7 @@
       "parents": [
         "feature:account"
       ],
-      "path": "social-pin/modules/Identity Core/features/Account/FR-01 Account Frontend Requirements.md",
+      "path": "social-pin/modules/Identity Core/features/Account/flow/FR-01 Account Frontend Requirements.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -39585,7 +39585,7 @@
       "parents": [
         "feature:app-shell"
       ],
-      "path": "social-pin/modules/Platform & Cross-cutting/features/App Shell & Onboarding Narrative/FR-29 App Shell & Onboarding Narrative Frontend Requirements.md",
+      "path": "social-pin/modules/Platform & Cross-cutting/features/App Shell & Onboarding Narrative/flow/FR-29 App Shell & Onboarding Narrative Frontend Requirements.md",
       "pending": [],
       "priority": "medium",
       "related": [
@@ -39642,7 +39642,7 @@
       "parents": [
         "feature:audit-log"
       ],
-      "path": "social-pin/modules/Platform & Cross-cutting/features/Audit Log/FR-30 Audit Log Frontend Requirements.md",
+      "path": "social-pin/modules/Platform & Cross-cutting/features/Audit Log/flow/FR-30 Audit Log Frontend Requirements.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -39694,7 +39694,7 @@
       "parents": [
         "feature:auth"
       ],
-      "path": "social-pin/modules/Identity Core/features/Auth & Sign-up/FR-02 Auth & Sign-up Frontend Requirements.md",
+      "path": "social-pin/modules/Identity Core/features/Auth & Sign-up/flow/FR-02 Auth & Sign-up Frontend Requirements.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -39767,7 +39767,7 @@
       "parents": [
         "feature:badge-qr"
       ],
-      "path": "social-pin/modules/Discovery/features/Badge & QR/FR-18 Badge & QR Frontend Requirements.md",
+      "path": "social-pin/modules/Discovery/features/Badge & QR/flow/FR-18 Badge & QR Frontend Requirements.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -39871,7 +39871,7 @@
       "parents": [
         "feature:cleanup-jobs"
       ],
-      "path": "social-pin/modules/Platform & Cross-cutting/features/Cleanup Jobs/FR-31 Cleanup Jobs Frontend Requirements.md",
+      "path": "social-pin/modules/Platform & Cross-cutting/features/Cleanup Jobs/flow/FR-31 Cleanup Jobs Frontend Requirements.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -39919,7 +39919,7 @@
       "parents": [
         "feature:code-delivery"
       ],
-      "path": "social-pin/modules/Platform & Cross-cutting/features/Code Delivery/FR-32 Code Delivery Frontend Requirements.md",
+      "path": "social-pin/modules/Platform & Cross-cutting/features/Code Delivery/flow/FR-32 Code Delivery Frontend Requirements.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -39982,7 +39982,7 @@
       "parents": [
         "feature:companies"
       ],
-      "path": "social-pin/modules/Shared Rings & Companies/features/Companies/FR-15 Companies Frontend Requirements.md",
+      "path": "social-pin/modules/Shared Rings & Companies/features/Companies/flow/FR-15 Companies Frontend Requirements.md",
       "pending": [],
       "priority": "high",
       "related": [
@@ -40043,7 +40043,7 @@
       "parents": [
         "feature:connections"
       ],
-      "path": "social-pin/modules/Connections/features/Connections/FR-14 Connections Frontend Requirements.md",
+      "path": "social-pin/modules/Connections/features/Connections/flow/FR-14 Connections Frontend Requirements.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -40103,7 +40103,7 @@
       "parents": [
         "feature:counts"
       ],
-      "path": "social-pin/modules/Identity Core/features/Counts/FR-03 Counts Frontend Requirements.md",
+      "path": "social-pin/modules/Identity Core/features/Counts/flow/FR-03 Counts Frontend Requirements.md",
       "pending": [],
       "priority": "high",
       "related": [
@@ -40165,7 +40165,7 @@
       "parents": [
         "feature:delegated-admins"
       ],
-      "path": "social-pin/modules/Shared Rings & Companies/features/Delegated Admins/FR-16 Delegated Admins Frontend Requirements.md",
+      "path": "social-pin/modules/Shared Rings & Companies/features/Delegated Admins/flow/FR-16 Delegated Admins Frontend Requirements.md",
       "pending": [],
       "priority": "high",
       "related": [
@@ -40220,7 +40220,7 @@
       "parents": [
         "feature:devices"
       ],
-      "path": "social-pin/modules/Platform & Cross-cutting/features/Devices & NFC/FR-33 Devices & NFC Frontend Requirements.md",
+      "path": "social-pin/modules/Platform & Cross-cutting/features/Devices & NFC/flow/FR-33 Devices & NFC Frontend Requirements.md",
       "pending": [],
       "priority": "high",
       "related": [
@@ -40277,7 +40277,7 @@
       "parents": [
         "feature:discover-hub"
       ],
-      "path": "social-pin/modules/Discovery/features/Discover Hub & Search/FR-19 Discover Hub & Search Frontend Requirements.md",
+      "path": "social-pin/modules/Discovery/features/Discover Hub & Search/flow/FR-19 Discover Hub & Search Frontend Requirements.md",
       "pending": [],
       "priority": "high",
       "related": [
@@ -40331,7 +40331,7 @@
       "parents": [
         "feature:e2e-tests"
       ],
-      "path": "social-pin/modules/Platform & Cross-cutting/features/E2E Test Run/FR-34 E2E Test Run Frontend Requirements.md",
+      "path": "social-pin/modules/Platform & Cross-cutting/features/E2E Test Run/flow/FR-34 E2E Test Run Frontend Requirements.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -40381,7 +40381,7 @@
       "parents": [
         "feature:error-contract"
       ],
-      "path": "social-pin/modules/Platform & Cross-cutting/features/Error Contract/FR-35 Error Contract Frontend Requirements.md",
+      "path": "social-pin/modules/Platform & Cross-cutting/features/Error Contract/flow/FR-35 Error Contract Frontend Requirements.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -40481,7 +40481,7 @@
       "parents": [
         "feature:event-ring-auto"
       ],
-      "path": "social-pin/modules/Events/features/Event Ring Auto-creation/FR-21 Event Ring Auto-creation Frontend Requirements.md",
+      "path": "social-pin/modules/Events/features/Event Ring Auto-creation/flow/FR-21 Event Ring Auto-creation Frontend Requirements.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -40531,7 +40531,7 @@
       "parents": [
         "feature:events-before"
       ],
-      "path": "social-pin/modules/Events/features/Events Before/FR-22 Events Before Frontend Requirements.md",
+      "path": "social-pin/modules/Events/features/Events Before/flow/FR-22 Events Before Frontend Requirements.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -40595,7 +40595,7 @@
       "parents": [
         "feature:events-during"
       ],
-      "path": "social-pin/modules/Events/features/Events During/FR-23 Events During Frontend Requirements.md",
+      "path": "social-pin/modules/Events/features/Events During/flow/FR-23 Events During Frontend Requirements.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -40650,7 +40650,7 @@
       "parents": [
         "feature:exhibitor"
       ],
-      "path": "social-pin/modules/Events/features/Exhibitor/FR-24 Exhibitor Frontend Requirements.md",
+      "path": "social-pin/modules/Events/features/Exhibitor/flow/FR-24 Exhibitor Frontend Requirements.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -40702,7 +40702,7 @@
       "parents": [
         "feature:files"
       ],
-      "path": "social-pin/modules/Identity Core/features/Files Upload/FR-04 Files Upload Frontend Requirements.md",
+      "path": "social-pin/modules/Identity Core/features/Files Upload/flow/FR-04 Files Upload Frontend Requirements.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -40760,7 +40760,7 @@
       "parents": [
         "feature:gemma"
       ],
-      "path": "social-pin/modules/Platform & Cross-cutting/features/Gemma AI/FR-36 Gemma AI Frontend Requirements.md",
+      "path": "social-pin/modules/Platform & Cross-cutting/features/Gemma AI/flow/FR-36 Gemma AI Frontend Requirements.md",
       "pending": [],
       "priority": "medium",
       "related": [
@@ -40815,7 +40815,7 @@
       "parents": [
         "feature:interests"
       ],
-      "path": "social-pin/modules/Platform & Cross-cutting/features/Interests/FR-37 Interests Frontend Requirements.md",
+      "path": "social-pin/modules/Platform & Cross-cutting/features/Interests/flow/FR-37 Interests Frontend Requirements.md",
       "pending": [],
       "priority": "high",
       "related": [
@@ -40875,7 +40875,7 @@
       "parents": [
         "feature:linked-accounts"
       ],
-      "path": "social-pin/modules/Platform & Cross-cutting/features/Linked Accounts (OAuth)/FR-38 Linked Accounts (OAuth) Frontend Requirements.md",
+      "path": "social-pin/modules/Platform & Cross-cutting/features/Linked Accounts (OAuth)/flow/FR-38 Linked Accounts (OAuth) Frontend Requirements.md",
       "pending": [],
       "priority": "high",
       "related": [
@@ -40934,7 +40934,7 @@
       "parents": [
         "feature:meetings"
       ],
-      "path": "social-pin/modules/Meetings/features/Meetings/FR-26 Meetings Frontend Requirements.md",
+      "path": "social-pin/modules/Meetings/features/Meetings/flow/FR-26 Meetings Frontend Requirements.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -40988,7 +40988,7 @@
       "parents": [
         "feature:notifications"
       ],
-      "path": "social-pin/modules/Platform & Cross-cutting/features/Notifications/FR-39 Notifications Frontend Requirements.md",
+      "path": "social-pin/modules/Platform & Cross-cutting/features/Notifications/flow/FR-39 Notifications Frontend Requirements.md",
       "pending": [],
       "priority": "high",
       "related": [
@@ -41045,7 +41045,7 @@
       "parents": [
         "feature:onboarding-imports"
       ],
-      "path": "social-pin/modules/Identity Core/features/Onboarding Imports/FR-05 Onboarding Imports Frontend Requirements.md",
+      "path": "social-pin/modules/Identity Core/features/Onboarding Imports/flow/FR-05 Onboarding Imports Frontend Requirements.md",
       "pending": [],
       "priority": "high",
       "related": [
@@ -41159,7 +41159,7 @@
       "parents": [
         "feature:payments"
       ],
-      "path": "social-pin/modules/Commerce/features/Payments & Orders/FR-27 Payments & Orders Frontend Requirements.md",
+      "path": "social-pin/modules/Commerce/features/Payments & Orders/flow/FR-27 Payments & Orders Frontend Requirements.md",
       "pending": [],
       "priority": "high",
       "related": [
@@ -41214,7 +41214,7 @@
       "parents": [
         "feature:photo-library"
       ],
-      "path": "social-pin/modules/Identity Core/features/Photo Library/FR-06 Photo Library Frontend Requirements.md",
+      "path": "social-pin/modules/Identity Core/features/Photo Library/flow/FR-06 Photo Library Frontend Requirements.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -41265,7 +41265,7 @@
       "parents": [
         "feature:pincast"
       ],
-      "path": "social-pin/modules/Discovery/features/PinCast & Nearby/FR-20 PinCast & Nearby Frontend Requirements.md",
+      "path": "social-pin/modules/Discovery/features/PinCast & Nearby/flow/FR-20 PinCast & Nearby Frontend Requirements.md",
       "pending": [],
       "priority": "high",
       "related": [
@@ -41323,7 +41323,7 @@
       "parents": [
         "feature:post-event"
       ],
-      "path": "social-pin/modules/Events/features/Post-Event/FR-25 Post-Event Frontend Requirements.md",
+      "path": "social-pin/modules/Events/features/Post-Event/flow/FR-25 Post-Event Frontend Requirements.md",
       "pending": [],
       "priority": "high",
       "related": [
@@ -41379,7 +41379,7 @@
       "parents": [
         "feature:profiles"
       ],
-      "path": "social-pin/modules/Identity Core/features/Profiles & Pin Name/FR-07 Profiles & Pin Name Frontend Requirements.md",
+      "path": "social-pin/modules/Identity Core/features/Profiles & Pin Name/flow/FR-07 Profiles & Pin Name Frontend Requirements.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -41442,7 +41442,7 @@
       "parents": [
         "feature:ring-access"
       ],
-      "path": "social-pin/modules/Identity Core/features/Ring Access Engine/FR-08 Ring Access Engine Frontend Requirements.md",
+      "path": "social-pin/modules/Identity Core/features/Ring Access Engine/flow/FR-08 Ring Access Engine Frontend Requirements.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -41496,7 +41496,7 @@
       "parents": [
         "feature:ring-invitations"
       ],
-      "path": "social-pin/modules/Shared Rings & Companies/features/Ring Invitations & Join/FR-17 Ring Invitations & Join Frontend Requirements.md",
+      "path": "social-pin/modules/Shared Rings & Companies/features/Ring Invitations & Join/flow/FR-17 Ring Invitations & Join Frontend Requirements.md",
       "pending": [],
       "priority": "high",
       "related": [
@@ -41551,7 +41551,7 @@
       "parents": [
         "feature:ring-members"
       ],
-      "path": "social-pin/modules/Identity Core/features/Ring Members/FR-09 Ring Members Frontend Requirements.md",
+      "path": "social-pin/modules/Identity Core/features/Ring Members/flow/FR-09 Ring Members Frontend Requirements.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -41602,7 +41602,7 @@
       "parents": [
         "feature:ring-projection"
       ],
-      "path": "social-pin/modules/Identity Core/features/Ring Projection/FR-10 Ring Projection Frontend Requirements.md",
+      "path": "social-pin/modules/Identity Core/features/Ring Projection/flow/FR-10 Ring Projection Frontend Requirements.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -41660,7 +41660,7 @@
       "parents": [
         "feature:rings"
       ],
-      "path": "social-pin/modules/Identity Core/features/Rings/FR-11 Rings Frontend Requirements.md",
+      "path": "social-pin/modules/Identity Core/features/Rings/flow/FR-11 Rings Frontend Requirements.md",
       "pending": [],
       "priority": "critical",
       "related": [],
@@ -41720,7 +41720,7 @@
       "parents": [
         "feature:subscription"
       ],
-      "path": "social-pin/modules/Commerce/features/Subscription (Free vs Pro)/FR-28 Subscription (Free vs Pro) Frontend Requirements.md",
+      "path": "social-pin/modules/Commerce/features/Subscription (Free vs Pro)/flow/FR-28 Subscription (Free vs Pro) Frontend Requirements.md",
       "pending": [],
       "priority": "high",
       "related": [
@@ -41775,7 +41775,7 @@
       "parents": [
         "feature:view-as"
       ],
-      "path": "social-pin/modules/Identity Core/features/View As & Pin Views/FR-12 View As & Pin Views Frontend Requirements.md",
+      "path": "social-pin/modules/Identity Core/features/View As & Pin Views/flow/FR-12 View As & Pin Views Frontend Requirements.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -41831,7 +41831,7 @@
       "parents": [
         "feature:widgets"
       ],
-      "path": "social-pin/modules/Identity Core/features/Widgets/FR-13 Widgets Frontend Requirements.md",
+      "path": "social-pin/modules/Identity Core/features/Widgets/flow/FR-13 Widgets Frontend Requirements.md",
       "pending": [],
       "priority": "high",
       "related": [],
@@ -45263,7 +45263,7 @@
       "parents": [
         "feature:account"
       ],
-      "path": "social-pin/modules/Identity Core/features/Account/QB-04 Account QA Backend.md",
+      "path": "social-pin/modules/Identity Core/features/Account/flow/QB-04 Account QA Backend.md",
       "pending": [],
       "priority": "critical",
       "related": [
@@ -45381,7 +45381,7 @@
       "parents": [
         "feature:auth"
       ],
-      "path": "social-pin/modules/Identity Core/features/Auth & Sign-up/QB-05 Auth & Sign-up QA Backend.md",
+      "path": "social-pin/modules/Identity Core/features/Auth & Sign-up/flow/QB-05 Auth & Sign-up QA Backend.md",
       "pending": [
         {
           "person": null,
@@ -47188,7 +47188,7 @@
       "parents": [
         "feature:account"
       ],
-      "path": "social-pin/modules/Identity Core/features/Account/QF-04 Account QA Frontend.md",
+      "path": "social-pin/modules/Identity Core/features/Account/flow/QF-04 Account QA Frontend.md",
       "pending": [
         {
           "person": null,
