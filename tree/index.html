@@ -619,7 +619,7 @@ async function load() {
   const byIdOf = (l) => (Array.isArray(l) ? Object.fromEntries(l.map((x) => [x.id, x])) : {});
   STAGE = byIdOf(d.stages); RELEASE = byIdOf(d.releases); ENV = byIdOf(d.environments && d.environments.list); RESOLUTION = byIdOf(d.resolutions);
   if (d.deadlines && Array.isArray(d.deadlines.zones) && d.deadlines.zones.length) DL = { windowDays: d.deadlines.windowDays > 0 ? d.deadlines.windowDays : 3, zones: d.deadlines.zones, missed: { ...DL.missed, ...(d.deadlines.missed || {}) } };
-  KIND_GROUPS = [{ title: 'Structure', keys: ['feature'] }, ...(d.layers || []).map((l) => ({ title: l.label, color: l.color, keys: l.kinds.map((k) => k.id) })), { title: 'Work', keys: ['task', 'needs-decision', 'decision'] }, { title: 'Reference', keys: ['project'] }];
+  KIND_GROUPS = [{ title: 'Structure', keys: ['module', 'feature'] }, ...(d.layers || []).map((l) => ({ title: l.label, color: l.color, keys: l.kinds.map((k) => k.id) })), { title: 'Work', keys: ['task', 'needs-decision', 'decision'] }, { title: 'Reference', keys: ['project'] }];
   if (d.repo && d.repo.owner) $('#repo-link').href = `https://github.com/${d.repo.owner}/${d.repo.name}`;
   if (!S.view) S.view = window.innerWidth < 720 ? 'outline' : 'tree';
   let collapsed = store.get('collapsed', null);
