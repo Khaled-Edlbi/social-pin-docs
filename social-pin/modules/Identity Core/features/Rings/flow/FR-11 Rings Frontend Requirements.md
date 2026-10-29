@@ -4,7 +4,7 @@ code: rings
 scope: feature
 feature: rings
 module: identity
-status: draft
+status: ready
 screens: [s08, s09, s16, s17, s18, s19, s20, s21, s22, s26, s27, s62]
 depends: ["S-18 Rings Story"]
 affects: ["BD-11 Rings Backend Delivery"]
@@ -12,12 +12,12 @@ related: ["D-04 Ring settings at launch and their defaults", "D-14 Shared with m
 created: 2026-10-18
 updated: 2026-10-29
 owner: "Omar Fostok"
-tags: [frontend-requirements, frontend-requirements/draft, module/identity, layer/frontend]
+tags: [frontend-requirements, frontend-requirements/ready, module/identity, layer/frontend]
 ---
 
 # Rings · Frontend Requirements
 
-**Feature:** [[F-11 Rings]] · **Status:** Draft · **Story:** [[S-18 Rings Story]] · **Backend Integration:** [[BI-08 Rings Backend Integration]]
+**Feature:** [[F-11 Rings]] · **Status:** 📨 Ready 2026-10-29, waiting on the backend's review · **Story:** [[S-18 Rings Story]] · **Backend Integration:** [[BI-08 Rings Backend Integration]]
 
 What the client needs from the backend to build the Ring lists, the create wizard, the edit screens and the post-event choice, and whether each need is met today. Field rules, enums and the disposition semantics are in [[BI-08 Rings Backend Integration]].
 
