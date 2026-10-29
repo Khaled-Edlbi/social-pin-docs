@@ -13,6 +13,8 @@ tags: [backend-integration, backend-integration/current, module/identity, layer/
 
 # 🔌 Ring Projection · Backend Integration
 
+> ⚠ Affected by [[B-08 Owner projection drops each attachment's file details]] (2026-10-29): on `main @ c85db4b` the owner's `attachments[]` rows carry only `id`, `label`, `sortOrder`, `isVisible`; the `fileId`, `filename`, `mimeType` and `sizeBytes` this note promises are missing ([[QB-06 Files Upload QA Backend]] B12, B16). For `/backend`.
+
 > ⚠ Affected by [[D-16 Files load from signed links that expire in 15 minutes]] (2026-10-29): the owner's projection will carry `avatarUrl` and a `url` per attachment, signed, valid 15 minutes. For `/backend`.
 
 > ⚠ Affected by [[D-02 One main profile every Ring starts from]] (2026-10-25): ND-02 decided, one main profile (headline, role, company, location, photo, bio) every Ring starts from; a Ring may change all of them but the full name and keeps its own value when the main one changes.

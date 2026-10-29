@@ -17,7 +17,7 @@ tags: [feature, module/identity, priority/high, release/v1]
 
 **Backend:** Done · **Priority:** High · **Release:** v1 · **Module:** [[M-01 Identity Core Module|Identity Core]]
 
-**Layers:** [[S-06 Files Upload Story|Story]] · [[FR-04 Files Upload Frontend Requirements|Frontend Requirements]] · [[BD-04 Files Upload Backend Delivery|Backend Delivery]] · [[BI-03 Files Upload Backend Integration|Backend Integration]] · [[Files Upload Frontend Delivery|Frontend Delivery]] · [[Files Upload QA Backend|QA Backend]] · [[Files Upload QA Frontend|QA Frontend]]
+**Layers:** [[S-06 Files Upload Story|Story]] · [[FR-04 Files Upload Frontend Requirements|Frontend Requirements]] · [[BD-04 Files Upload Backend Delivery|Backend Delivery]] · [[BI-03 Files Upload Backend Integration|Backend Integration]] · [[Files Upload Frontend Delivery|Frontend Delivery]] · [[QB-06 Files Upload QA Backend|QA Backend]] · [[Files Upload QA Frontend|QA Frontend]]
 
 Multipart upload with type and size checks, metadata read, delete. A file becomes visible only when a reachable context (a Ring projection) references it.
 
