@@ -3,7 +3,6 @@ id: F-23
 type: feature
 module: events
 feature: events-during
-name: "Events During"
 priority: critical
 release: mvp
 screens: [s53, s54, s55, s56, s57, s58]

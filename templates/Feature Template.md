@@ -3,7 +3,6 @@ id: F-NN                   # the card code, in front of the file name: F-NN <Fea
 type: feature
 module: <identity|connections|shared-rings|discovery|events|meetings|commerce|platform>
 feature: <slug>                # the feature id every other card names (feature: <slug>)
-name: "<Feature name>"
 priority: high
 # deadline: YYYY-MM-DD      # optional: the feature's date; its layer notes and bugs inherit it unless they carry their own
 # release: the release this feature is scoped to, mvp | v1 | later (docs.config.json releases); its layer notes and bugs inherit it

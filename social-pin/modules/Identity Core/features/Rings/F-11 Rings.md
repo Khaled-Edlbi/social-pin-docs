@@ -3,7 +3,6 @@ id: F-11
 type: feature
 module: identity
 feature: rings
-name: "Rings"
 priority: critical
 release: mvp
 screens: [s08, s09, s16, s17, s18, s19, s20, s21, s22, s26, s27, s62]

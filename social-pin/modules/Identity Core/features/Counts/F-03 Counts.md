@@ -3,7 +3,6 @@ id: F-03
 type: feature
 module: identity
 feature: counts
-name: "Counts"
 priority: high
 release: mvp
 screens: [s11, s12, s14, s16, s17, s68]

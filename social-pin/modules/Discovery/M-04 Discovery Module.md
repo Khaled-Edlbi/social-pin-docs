@@ -2,7 +2,6 @@
 id: M-04
 type: module
 module: discovery
-name: "Discovery"
 created: 2026-10-18
 updated: 2026-10-29
 tags: [module, module/discovery]

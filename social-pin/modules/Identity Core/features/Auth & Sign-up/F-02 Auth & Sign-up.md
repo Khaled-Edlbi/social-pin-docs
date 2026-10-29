@@ -3,7 +3,6 @@ id: F-02
 type: feature
 module: identity
 feature: auth
-name: "Auth & Sign-up"
 priority: critical
 release: mvp
 screens: [s01, s02, s06, s08, s68]

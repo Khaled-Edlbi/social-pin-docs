@@ -3,7 +3,6 @@ id: F-18
 type: feature
 module: discovery
 feature: badge-qr
-name: "Badge & QR"
 priority: critical
 release: mvp
 screens: [s34, s43, s44, s56]

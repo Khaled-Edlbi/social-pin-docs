@@ -3,7 +3,6 @@ id: F-34
 type: feature
 module: platform
 feature: e2e-tests
-name: "E2E Test Run"
 priority: critical
 release: mvp
 screens: []

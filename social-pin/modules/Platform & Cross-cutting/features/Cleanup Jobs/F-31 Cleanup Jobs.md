@@ -3,7 +3,6 @@ id: F-31
 type: feature
 module: platform
 feature: cleanup-jobs
-name: "Cleanup Jobs"
 priority: high
 release: v1
 screens: []

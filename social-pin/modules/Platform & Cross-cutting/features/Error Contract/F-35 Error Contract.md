@@ -3,7 +3,6 @@ id: F-35
 type: feature
 module: platform
 feature: error-contract
-name: "Error Contract"
 priority: critical
 release: mvp
 screens: []

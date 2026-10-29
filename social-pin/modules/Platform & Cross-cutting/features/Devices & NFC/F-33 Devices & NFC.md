@@ -3,7 +3,6 @@ id: F-33
 type: feature
 module: platform
 feature: devices
-name: "Devices & NFC"
 priority: high
 release: v1
 screens: [s75]

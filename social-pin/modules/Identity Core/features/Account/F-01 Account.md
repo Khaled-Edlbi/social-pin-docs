@@ -3,7 +3,6 @@ id: F-01
 type: feature
 module: identity
 feature: account
-name: "Account"
 priority: critical
 release: mvp
 screens: [s68]

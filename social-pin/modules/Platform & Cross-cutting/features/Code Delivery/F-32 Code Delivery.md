@@ -3,7 +3,6 @@ id: F-32
 type: feature
 module: platform
 feature: code-delivery
-name: "Code Delivery"
 priority: critical
 release: mvp
 screens: [s02]

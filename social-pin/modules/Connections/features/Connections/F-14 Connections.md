@@ -3,7 +3,6 @@ id: F-14
 type: feature
 module: connections
 feature: connections
-name: "Connections"
 priority: critical
 release: mvp
 screens: [s44, s45, s46, s47, s62]

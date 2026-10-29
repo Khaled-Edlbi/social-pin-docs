@@ -3,7 +3,6 @@ id: F-43
 type: feature
 module: platform
 feature: build-deploy
-name: "Build & Deploy"
 priority: medium
 release: later
 screens: []

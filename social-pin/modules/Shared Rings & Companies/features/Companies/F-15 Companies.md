@@ -3,7 +3,6 @@ id: F-15
 type: feature
 module: shared-rings
 feature: companies
-name: "Companies"
 priority: high
 release: v1
 screens: [s72, s73]

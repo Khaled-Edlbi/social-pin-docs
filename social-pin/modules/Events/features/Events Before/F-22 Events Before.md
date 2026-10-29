@@ -3,7 +3,6 @@ id: F-22
 type: feature
 module: events
 feature: events-before
-name: "Events Before"
 priority: critical
 release: mvp
 screens: [s48, s49, s50, s51, s52]

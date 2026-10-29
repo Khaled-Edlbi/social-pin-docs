@@ -3,7 +3,6 @@ id: F-25
 type: feature
 module: events
 feature: post-event
-name: "Post-Event"
 priority: high
 release: v1
 screens: [s62]

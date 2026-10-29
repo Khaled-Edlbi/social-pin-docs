@@ -3,7 +3,6 @@ id: F-08
 type: feature
 module: identity
 feature: ring-access
-name: "Ring Access Engine"
 priority: critical
 release: mvp
 screens: [s15, s16, s17, s26, s27, s44, s47, s62]

@@ -3,7 +3,6 @@ id: F-07
 type: feature
 module: identity
 feature: profiles
-name: "Profiles & Pin Name"
 priority: critical
 release: mvp
 screens: [s05b, s06, s23, s44, s68]

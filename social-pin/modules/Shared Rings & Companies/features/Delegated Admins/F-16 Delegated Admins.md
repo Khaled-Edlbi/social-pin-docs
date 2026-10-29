@@ -3,7 +3,6 @@ id: F-16
 type: feature
 module: shared-rings
 feature: delegated-admins
-name: "Delegated Admins"
 priority: high
 release: v1
 screens: [s26, s27]

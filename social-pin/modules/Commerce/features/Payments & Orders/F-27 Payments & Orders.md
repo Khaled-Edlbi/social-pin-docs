@@ -3,7 +3,6 @@ id: F-27
 type: feature
 module: commerce
 feature: payments
-name: "Payments & Orders"
 priority: high
 release: v1
 screens: [s50, s51]
