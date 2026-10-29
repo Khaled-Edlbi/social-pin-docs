@@ -2131,10 +2131,12 @@
     },
     "GET /views/*": {
       "containers": [
+        "feature:files",
         "feature:view-as"
       ],
       "kind": "endpoint",
       "notes": [
+        "frontend-requirements:files",
         "frontend-requirements:view-as"
       ],
       "owner": null
@@ -22188,6 +22190,7 @@
       "to": "feature:view-as",
       "via": [
         "GET /rings/:ringId/projection",
+        "GET /views/*",
         "GET /views/pin/:pinName",
         "GET /views/ring/:ringId"
       ]
