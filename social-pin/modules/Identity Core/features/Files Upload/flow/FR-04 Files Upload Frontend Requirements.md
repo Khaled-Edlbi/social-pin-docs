@@ -9,15 +9,13 @@ screens: [s14, s20, s24, s36, s29, s30, s31, s44]
 owner: "Omar Fostok"
 depends: ["S-06 Files Upload Story"]
 affects: ["BD-04 Files Upload Backend Delivery"]
-related: ["BI-03 Files Upload Backend Integration", "BI-07 Ring Projection Backend Integration", "BI-09 View As & Pin Views Backend Integration", "FR-06 Photo Library Frontend Requirements", "FR-10 Ring Projection Frontend Requirements", "FR-12 View As & Pin Views Frontend Requirements", "ND-16 Viewer access to file bytes", "D-03 Links entered once, switched on or off per Ring", "POST /files", "GET /files", "GET /files/:id", "DELETE /files/:id", "GET /rings/:ringId/projection", "PATCH /rings/:ringId/projection", "POST /rings/:ringId/projection/attachments", "DELETE /rings/:ringId/projection/attachments/:attachmentId", E_FILE_01, E_FILE_02, E_FILE_03, E_FILE_04, E_RING_05]
+related: ["BI-03 Files Upload Backend Integration", "BI-07 Ring Projection Backend Integration", "BI-09 View As & Pin Views Backend Integration", "FR-06 Photo Library Frontend Requirements", "FR-10 Ring Projection Frontend Requirements", "FR-12 View As & Pin Views Frontend Requirements", "ND-16 Viewer access to file bytes", "D-16 Files load from signed links that expire in 15 minutes", "D-03 Links entered once, switched on or off per Ring", "POST /files", "GET /files", "GET /files/:id", "DELETE /files/:id", "GET /rings/:ringId/projection", "PATCH /rings/:ringId/projection", "POST /rings/:ringId/projection/attachments", "DELETE /rings/:ringId/projection/attachments/:attachmentId", E_FILE_01, E_FILE_02, E_FILE_03, E_FILE_04, E_RING_05]
 created: 2026-10-18
 updated: 2026-10-29
 tags: [frontend-requirements, frontend-requirements/ready, module/identity, layer/frontend]
 ---
 
 # Files Upload · Frontend Requirements
-
-> ⚠ Affected by [[D-16 Files load from signed links that expire in 15 minutes]] (2026-10-29): files load from `avatarUrl` and a `url` per attachment, signed and valid 15 minutes; re-read the entity when a link has expired. The showing-files rows need updating. For `/frontend`.
 
 **Feature:** [[F-04 Files Upload]] · **Status:** 📨 Ready 2026-10-29, waiting on the backend's review · **Story:** [[S-06 Files Upload Story]] · **Backend Integration:** [[BI-03 Files Upload Backend Integration]]
 
@@ -56,17 +54,17 @@ The screen is [[FR-10 Ring Projection Frontend Requirements|Ring Projection's]];
 - Needs: `attachments[]` with `filename` and `sortOrder` for the chips; `mimeType` and `sizeBytes` for the detail sheet.
 - Shows: file chips with the name only, in the "Attachments & links" row with the links, by `sortOrder`; a tap opens a sheet with name, type and size and "Download coming soon" until S10 ships; the pencil → s24; with no files or links, only the dashed "+ Add" chip (→ s36).
 - States: chips, empty ("+ Add" only), detail sheet, "Download coming soon".
-- Source today: `GET /rings/:ringId/projection` (`attachments[]`). Opening a file: not available yet ([[ND-16 Viewer access to file bytes]]).
+- Source today: `GET /rings/:ringId/projection` (`attachments[]`). Opening a file: from the attachment's signed `url` (valid 15 minutes) once the backend ships it ([[D-16 Files load from signed links that expire in 15 minutes]]); until then "Download coming soon".
 
 ### [[Screen Index#s29|s29]] Photo for this Ring (upload step) (S4, S7)
 
 - Needs: upload an image and set it as this Ring's photo; show it.
-- Source today: `POST /files`, `PATCH /rings/:ringId/projection { avatarFileId }`. Showing the photo: not available yet ([[ND-16 Viewer access to file bytes]]). The rest of the screen, crop for this Ring included, is [[FR-06 Photo Library Frontend Requirements|Photo Library's]].
+- Source today: `POST /files`, `PATCH /rings/:ringId/projection { avatarFileId }`. Showing the photo: from the projection's signed `avatarUrl` (valid 15 minutes) once the backend ships it ([[D-16 Files load from signed links that expire in 15 minutes]]). The rest of the screen, crop for this Ring included, is [[FR-06 Photo Library Frontend Requirements|Photo Library's]].
 
 ### [[Screen Index#s30|s30]] Photo library: the file side (S8)
 
 - Needs: upload a photo into the library (`POST /files`, image types only); a thumbnail for every photo listed.
-- Source today: `POST /files`. The list (`GET /files?kind=image`) is [[FR-06 Photo Library Frontend Requirements|Photo Library's]]; thumbnails: not available yet ([[ND-16 Viewer access to file bytes]]). Camera as a source and the LinkedIn photo are other features' ([[S-11 Photo Library Story]], [[S-94 Linked Accounts (OAuth) Story]]).
+- Source today: `POST /files`. The list (`GET /files?kind=image`) is [[FR-06 Photo Library Frontend Requirements|Photo Library's]]; thumbnails: from each photo's signed link once the backend ships it ([[D-16 Files load from signed links that expire in 15 minutes]]). Camera as a source and the LinkedIn photo are other features' ([[S-11 Photo Library Story]], [[S-94 Linked Accounts (OAuth) Story]]).
 
 ### [[Screen Index#s31|s31]] View as · [[Screen Index#s44|s44]] Scanned Pin: the file side (S9)
 
@@ -75,7 +73,7 @@ The screens are [[FR-12 View As & Pin Views Frontend Requirements|View As & Pin 
 - Needs: the view's `attachments[]` (`id`, `label`, `filename`, `mimeType`, `sizeBytes`), each shown with its name and size; opening (PDF, image) or downloading one; the photo from `avatarFileId`.
 - Not requested: a date on the attachment (the design's "updated Mar"): a file is never replaced, only uploaded again.
 - Not this feature's: s31's owner face, "Where each field goes" ([[S-19 View As & Pin Views Story]]).
-- Source today: `GET /views/ring/:ringId` (`attachments[]`, `avatarFileId`). Opening and the photo: not available yet; the view carries no `fileId`, so the route or the `url` is [[ND-16 Viewer access to file bytes]]'s to choose.
+- Source today: `GET /views/ring/:ringId` (`attachments[]`, `avatarFileId`). Opening and the photo: from the view's signed `url` per attachment and `avatarUrl` (valid 15 minutes, no file id), once the backend ships them ([[D-16 Files load from signed links that expire in 15 minutes]], [[FR-12 View As & Pin Views Frontend Requirements|FR-12]]).
 
 ### Any screen · file metadata and delete (S5, no prototype screen)
 
@@ -93,7 +91,7 @@ The screens are [[FR-12 View As & Pin Views Frontend Requirements|View As & Pin 
 | Detach from a Ring (switch off) | `DELETE /rings/:ringId/projection/attachments/:attachmentId` | ✅ | S3, S12 (listed under [[F-10 Ring Projection]]) |
 | Use a file as the Ring photo | `PATCH /rings/:ringId/projection` | ✅ | S4 (listed under [[F-10 Ring Projection]]) |
 | List my files by kind: `kind=image` (JPEG, PNG, WebP, GIF) and `kind=document` (every other type on the allow-list) | `GET /files?kind=` | ❌ | [[S-11 Photo Library Story\|Photo Library · S7]]; F-04 needs `document` as well as `image` (S12, S2) |
-| Display or download the bytes (owner and viewer) | — | ❌ | [[ND-16 Viewer access to file bytes]]; S7–S11 |
+| Display or download the bytes (owner and viewer): a signed `avatarUrl` and a signed `url` per attachment on the owner projection and the view, valid 15 minutes, no file id | `GET …/projection`, `GET /views/*` | ❌ | [[D-16 Files load from signed links that expire in 15 minutes]] (decided); S7–S11 |
 | Rings using each photo: `usedBy: [{ ringId, name }]` and `followerCount` on the main photo, photos only (attachments not counted) | `GET /files?kind=image` | ❌ | [[S-11 Photo Library Story\|Photo Library · S8]], asked in [[FR-06 Photo Library Frontend Requirements\|FR-06]]; s30 only, not needed for documents |
 | Reorder or rename an attachment | — | not asked | not in the design; later (S12) |
 
@@ -107,7 +105,8 @@ The screens are [[FR-12 View As & Pin Views Frontend Requirements|View As & Pin 
 - Two-step semantics: an uploaded file is "in your library", not "on your profile". Only an attached file is shown as part of a Ring.
 - On / off: the client never sends `isVisible` on an attachment. A row that arrives with `isVisible: false` (written outside the app) is shown off; switching it on detaches it and attaches it again.
 - Delete order: detach, then delete. A deleted file leaves its attachment rows in place; the UI must not depend on the backend to cascade.
-- No URL guessing: never derive a path from `id`, `filename` or `checksum`; render a placeholder until [[ND-16 Viewer access to file bytes]] is decided and its route ships (S7–S11).
+- No URL guessing: never derive a path from `id`, `filename` or `checksum`; load photos and files only from the signed `avatarUrl` / `url` ([[D-16 Files load from signed links that expire in 15 minutes]]); a placeholder until they ship (S7–S11).
+- Signed links are valid 15 minutes: when one fails to load (expired), read the projection or view again for fresh links; never keep a link beyond the session.
 - Retention: keep the local image or file handle for the editing session so the owner sees what they picked; after relaunch the placeholder returns.
 
 ## Error states the UI must handle
@@ -126,5 +125,5 @@ Until [[S-87 Error Contract Story|Error Contract · S4–S8]] ships, branch on s
 
 ## Blocked by
 
-- [[ND-16 Viewer access to file bytes]]: every preview, thumbnail, photo and download on s14, s29, s30, s31 and s44 (S7–S11).
+- [[D-16 Files load from signed links that expire in 15 minutes]] (decided, not built): every preview, thumbnail, photo and download on s14, s29, s30, s31 and s44 (S7–S11).
 - [[S-11 Photo Library Story|Photo Library · S7]]: listing the library (`GET /files?kind=`), so s20 and s24 can offer files not yet on this Ring, and wizard uploads can be kept on Cancel.
