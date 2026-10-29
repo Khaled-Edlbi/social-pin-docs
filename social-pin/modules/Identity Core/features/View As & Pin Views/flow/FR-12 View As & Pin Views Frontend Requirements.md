@@ -13,6 +13,8 @@ tags: [frontend-requirements, frontend-requirements/draft, module/identity, laye
 
 # View As & Pin Views · Frontend Requirements
 
+> ⚠ Affected by [[S-19 View As & Pin Views Story]] (2026-10-29): design review. S1: s10 is the View as component, both faces, the new Ring and Public. S2: the owner face ("where each field goes", three counts, "Edit what <Ring> sees"), worked out on the phone; Save contact and Connect disabled on my own preview. S3: the card's top lines (name, nickname, headline · company, `!pinname`), my own scan context, the photo and files from D-16's signed links (refetch when expired), no date on files, Connect disabled, ⋯ holds Block. S7: Save contact to the phone's contacts (replaces Save for later). Screens: s62.
+
 > ⚠ Affected by [[D-16 Files load from signed links that expire in 15 minutes]] (2026-10-29): the pin view shows photos and files from `avatarUrl` and `url`, signed, valid 15 minutes. For `/frontend`.
 
 **Feature:** [[F-12 View As & Pin Views]] · **Status:** Draft · **Story:** [[S-19 View As & Pin Views Story]] · **Backend Integration:** [[BI-09 View As & Pin Views Backend Integration]]
