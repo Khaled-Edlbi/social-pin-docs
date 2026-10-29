@@ -4254,6 +4254,7 @@
         "feature:post-event",
         "feature:ring-access",
         "feature:rings",
+        "feature:view-as",
         "frontend-requirements:connections",
         "frontend-requirements:post-event",
         "frontend-requirements:ring-access",
@@ -43294,10 +43295,11 @@
       "screens": [
         "s10",
         "s31",
-        "s44"
+        "s44",
+        "s62"
       ],
       "status": null,
-      "summary": "The viewer-facing read path: open someone by Pin name, render one Ring (QR scan and the owner's \"View as\"), and list every perspective you hold of one person.",
+      "summary": "The viewer-facing read path: open someone by Pin name, render one Ring (QR scan and the owner's \"View as\", with the owner's own \"where each field goes\" face), and list every perspective you hold…",
       "tags": [
         "feature",
         "module/identity",
@@ -43306,7 +43308,7 @@
       ],
       "task": null,
       "title": "F-12 View As & Pin Views",
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "feature:widgets": {
       "affects": [],
