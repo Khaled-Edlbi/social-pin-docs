@@ -4228,7 +4228,8 @@
         "feature:connections",
         "feature:post-event",
         "feature:ring-access",
-        "feature:rings"
+        "feature:rings",
+        "feature:view-as"
       ],
       "kind": "screen",
       "notes": [
@@ -4247,7 +4248,8 @@
         "story:connections",
         "story:post-event",
         "story:ring-access",
-        "story:rings"
+        "story:rings",
+        "story:view-as"
       ],
       "owner": null
     },
@@ -4512,7 +4514,7 @@
     },
     "concepts": 213,
     "decisions": 21,
-    "edges": 4285,
+    "edges": 4292,
     "features": 41,
     "layerNotes": 133,
     "modules": 8,
@@ -15102,6 +15104,36 @@
       "from": "story:rings",
       "kind": "related",
       "to": "story:ring-projection"
+    },
+    {
+      "from": "story:view-as",
+      "kind": "related",
+      "to": "decision:D-14"
+    },
+    {
+      "from": "story:view-as",
+      "kind": "related",
+      "to": "decision:D-16"
+    },
+    {
+      "from": "story:view-as",
+      "kind": "related",
+      "to": "decision:D-18"
+    },
+    {
+      "from": "story:view-as",
+      "kind": "related",
+      "to": "feature:counts"
+    },
+    {
+      "from": "story:view-as",
+      "kind": "related",
+      "to": "needs-decision:ND-12"
+    },
+    {
+      "from": "story:view-as",
+      "kind": "related",
+      "to": "story:connections"
     },
     {
       "from": "story:widgets",
@@ -32713,12 +32745,17 @@
     {
       "from": "story:view-as",
       "kind": "wikilink",
-      "to": "story:badge-qr"
+      "to": "feature:badge-qr"
     },
     {
       "from": "story:view-as",
       "kind": "wikilink",
-      "to": "story:connections"
+      "to": "needs-decision:ND-10"
+    },
+    {
+      "from": "story:view-as",
+      "kind": "wikilink",
+      "to": "story:badge-qr"
     },
     {
       "from": "story:widgets",
@@ -39170,6 +39207,7 @@
         "story:ring-members",
         "frontend-requirements:rings",
         "story:rings",
+        "story:view-as",
         "story:companies",
         "story:ring-invitations"
       ],
@@ -39306,7 +39344,8 @@
         "qa-backend:files",
         "story:files",
         "frontend-requirements:photo-library",
-        "story:photo-library"
+        "story:photo-library",
+        "story:view-as"
       ],
       "release": null,
       "resolution": null,
@@ -39431,6 +39470,7 @@
         "story:ring-members",
         "frontend-requirements:rings",
         "story:rings",
+        "story:view-as",
         "story:companies",
         "story:ring-invitations"
       ],
@@ -40401,7 +40441,8 @@
         "project:ring-access-model",
         "project:architecture",
         "project:api-conventions",
-        "project:spec-map"
+        "project:spec-map",
+        "story:view-as"
       ],
       "release": "mvp",
       "resolution": null,
@@ -48862,7 +48903,8 @@
       "priority": null,
       "related": [
         "feature:badge-qr",
-        "needs-decision:ND-22"
+        "needs-decision:ND-22",
+        "story:view-as"
       ],
       "release": null,
       "resolution": null,
@@ -55798,7 +55840,8 @@
         "story:ring-members",
         "frontend-requirements:ring-projection",
         "frontend-requirements:rings",
-        "story:rings"
+        "story:rings",
+        "story:view-as"
       ],
       "release": "mvp",
       "resolution": null,
@@ -57654,7 +57697,13 @@
         "story:profiles",
         "frontend-requirements:ring-access",
         "frontend-requirements:ring-projection",
-        "story:ring-projection"
+        "story:ring-projection",
+        "decision:D-14",
+        "decision:D-16",
+        "decision:D-18",
+        "needs-decision:ND-12",
+        "story:connections",
+        "feature:counts"
       ],
       "release": "mvp",
       "resolution": null,
@@ -57662,7 +57711,8 @@
       "screens": [
         "s10",
         "s31",
-        "s44"
+        "s44",
+        "s62"
       ],
       "status": "approved",
       "summary": "Two people, one screen component. The owner flips to \"View as\" to see a Ring exactly as its members do: the \"aha\" that teaches the whole model. A viewer scans a badge or types a !pinname and gets…",
@@ -57674,7 +57724,7 @@
       ],
       "task": null,
       "title": "S-19 View As & Pin Views Story",
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "story:widgets": {
       "affects": [],
