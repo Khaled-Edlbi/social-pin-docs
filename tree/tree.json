@@ -1861,6 +1861,7 @@
         "feature:account",
         "feature:files",
         "feature:photo-library",
+        "feature:profiles",
         "feature:ring-projection",
         "feature:widgets"
       ],
@@ -1871,6 +1872,7 @@
         "frontend-requirements:account",
         "frontend-requirements:files",
         "frontend-requirements:photo-library",
+        "frontend-requirements:profiles",
         "frontend-requirements:ring-projection",
         "frontend-requirements:widgets",
         "story:files",
@@ -4366,7 +4368,7 @@
     },
     "concepts": 206,
     "decisions": 21,
-    "edges": 4114,
+    "edges": 4115,
     "features": 41,
     "layerNotes": 132,
     "modules": 8,
@@ -9799,6 +9801,7 @@
       "kind": "related",
       "to": "frontend-requirements:profiles",
       "via": [
+        "GET /rings/:ringId/projection",
         "PATCH /rings/:ringId/projection",
         "POST /files"
       ]
@@ -10265,6 +10268,7 @@
       "kind": "related",
       "to": "frontend-requirements:profiles",
       "via": [
+        "GET /rings/:ringId/projection",
         "PATCH /rings/:ringId/projection",
         "POST /files"
       ]
@@ -10657,6 +10661,7 @@
       "via": [
         "E_PROFILE_01",
         "GET /profiles",
+        "GET /rings/:ringId/projection",
         "PATCH /rings/:ringId/projection",
         "POST /files"
       ]
@@ -15639,6 +15644,7 @@
       "to": "feature:profiles",
       "via": [
         "GET /profiles",
+        "GET /rings/:ringId/projection",
         "GET /users/:id",
         "PATCH /profiles/:id"
       ]
@@ -20404,6 +20410,7 @@
       "kind": "shares",
       "to": "feature:profiles",
       "via": [
+        "GET /rings/:ringId/projection",
         "PATCH /rings/:ringId/projection",
         "POST /files"
       ]
@@ -21374,6 +21381,7 @@
       "kind": "shares",
       "to": "feature:profiles",
       "via": [
+        "GET /rings/:ringId/projection",
         "PATCH /rings/:ringId/projection",
         "POST /files"
       ]
@@ -21921,6 +21929,7 @@
       "via": [
         "E_PROFILE_01",
         "GET /profiles",
+        "GET /rings/:ringId/projection",
         "PATCH /rings/:ringId/projection",
         "POST /files"
       ]
@@ -21931,6 +21940,14 @@
       "to": "feature:view-as",
       "via": [
         "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "feature:profiles",
+      "kind": "shares",
+      "to": "feature:widgets",
+      "via": [
+        "GET /rings/:ringId/projection"
       ]
     },
     {

@@ -17,8 +17,6 @@ tags: [frontend-requirements, frontend-requirements/ready, module/identity, laye
 
 # Profiles & Pin Name · Frontend Requirements
 
-> ⚠ Affected by [[S-17 Ring Projection Story]] (2026-10-29): Me's privacy rows list and switch Rings ([[S-17 Ring Projection Story|Ring Projection · S4]]): each needs every Ring's `showBirthdate` / `showGender` / `showMaritalStatus`, and to set them per Ring (`PATCH /rings/:ringId/projection` ✅). New ask: my Rings with their five `show*` switches in one call (today one `GET …/projection` per Ring).
-
 **Feature:** [[F-07 Profiles & Pin Name]] · **Status:** 📨 Ready 2026-10-29, waiting on the backend's review · **Story:** [[S-14 Profiles & Pin Name Story]] · **Backend Integration:** [[BI-04 Profiles & Pin Name Backend Integration]]
 
 What the client needs from the backend for *Profile basics* and the Pin-name claim during sign-up, and for the profile editor opened from the Me header, and whether each need is met today. The main profile of [[D-02 One main profile every Ring starts from]] (headline, role, company, location, photo, bio) is asked of the backend in [[S-14 Profiles & Pin Name Story|Profiles & Pin Name · S9–S11]]; the Pin-name rules are [[D-06 Yearly rename, old name freed, case-insensitive]]. Shapes, field limits and the enum values are in [[BI-04 Profiles & Pin Name Backend Integration]]. One profile per person in v1: the client uses the default profile (`data[0]`) only.
@@ -60,7 +58,9 @@ What the client needs from the backend for *Profile basics* and the Pin-name cla
 ### [[Screen Index#s68|s68]] Me (S3, S4)
 
 - The header card opens the profile editor.
-- Privacy rows: birthdate, gender and marital status, set from the row with `PATCH /profiles/:id`, one field per request, `null` clears ✅ (shipped in the client 2026-10-26). Under each row, which Rings show it (from the Rings' projections).
+- Privacy rows: birthdate, gender and marital status, set from the row with `PATCH /profiles/:id`, one field per request, `null` clears ✅ (shipped in the client 2026-10-26).
+- **Which Rings show each one** ([[S-17 Ring Projection Story|Ring Projection · S4]]): the row reads "Hidden from all Rings", "Family Ring only", "Family and Company". Tapping it opens the value **and a list of my Rings with a switch each**; switching one sets `showBirthdate` / `showGender` / `showMaritalStatus` on that Ring's projection (`PATCH /rings/:ringId/projection` ✅), the same switch as that Ring's s24. Each Ring in the list links to its s24. A field with no value can't be switched on for any Ring.
+- Needs: **my Rings with their five `show*` switches, in one call** ❌ (today one `GET /rings/:ringId/projection` per Ring).
 
 ### [[Screen Index#s23|s23]] Edit · how you appear (S11)
 
@@ -97,6 +97,7 @@ The screen and the look-up by Pin name are [[FR-12 View As & Pin Views Frontend 
 | List my profiles, default first | `GET /profiles` | ✅ | S3, S10 (the client reads `data[0]`) |
 | Read one of my profiles | `GET /profiles/:id` | ✅ | — |
 | Edit name, nickname, handle, sensitive fields | `PATCH /profiles/:id` | ✅ | S3, S4, S12 |
+| **My Rings with their five `show*` switches** (`showBirthdate`, `showGender`, `showMaritalStatus`, `showPhone`, `showEmail`), in one call, for Me's privacy rows | — | ❌ | S4 ([[S-17 Ring Projection Story\|Ring Projection · S4]]); setting each is `PATCH /rings/:ringId/projection` ✅ |
 | **Clear the nickname** (`nickname: null`, as the sensitive fields already accept) | `PATCH /profiles/:id` | ❌ | S3 |
 | Main profile fields (headline, role, company, location, photo, bio) on read and `PATCH` | `GET /profiles`, `PATCH /profiles/:id` | ❌ | [[S-14 Profiles & Pin Name Story\|Profiles & Pin Name · S9–S11]] |
 | **Once-a-year rename**: the next allowed rename date on the profile, and a refused rename (inside the year) answered with its **own `ErrorCode`**; a change of capitals only is not a rename; the first rename after sign-up is allowed. Field and code to be named by the backend. | `GET /profiles`, `PATCH /profiles/:id` | ❌ | [[S-14 Profiles & Pin Name Story\|Profiles & Pin Name · S12–S13]] |
