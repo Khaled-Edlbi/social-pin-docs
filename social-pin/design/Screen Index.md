@@ -21,6 +21,7 @@ All 78 screens of the prototype (`socialPin-design/.proto2.json`, ids are the pr
 | <a id="s03b"></a>**s03b** | Portfolio URL | ❌ | [[F-05 Onboarding Imports]] |  |
 | <a id="s04"></a>**s04** | Importing | 🟡 | [[F-05 Onboarding Imports]], [[F-38 Linked Accounts (OAuth)]] |  |
 | <a id="s05"></a>**s05** | Review import | ❌ | [[F-05 Onboarding Imports]] | Needs base profile → ND-02 |
+| <a id="s05b"></a>**s05b** | Profile basics | 🟡 | [[F-07 Profiles & Pin Name]], [[F-05 Onboarding Imports]] | Not in the prototype; built in the app. Name required; photo, headline, company, location optional |
 | <a id="s06"></a>**s06** | Claim your Pin | ✅ | [[F-07 Profiles & Pin Name]] | Availability check done; yearly rename + suggestions → ND-06 |
 | <a id="s07"></a>**s07** | Interests | 🟡 | [[F-37 Interests]] |  |
 | <a id="s08"></a>**s08** | First Ring | ✅ | [[F-11 Rings]], [[F-02 Auth & Sign-up]] | Default Ring is created by complete-registration |
@@ -179,6 +180,14 @@ Reached from: [[Screen Index#s01|s01]], [[Screen Index#s03|s03]]
 Leads to: Confirm & continue → [[Screen Index#s06|s06]], Skip → [[Screen Index#s06|s06]]
 
 Reached from: [[Screen Index#s03a|s03a]], [[Screen Index#s03b|s03b]]
+
+### s05b
+
+**Profile basics** · 🟡 Built in the app, not in the prototype · Features: [[F-07 Profiles & Pin Name]], [[F-05 Onboarding Imports]] · Name required; photo, headline, company, location optional ([[S-14 Profiles & Pin Name Story|Profiles & Pin Name · S9]])
+
+Leads to: Continue → [[Screen Index#s06|s06]] (or back to [[Screen Index#s05|s05]] when opened from it)
+
+Reached from: [[Screen Index#s03|s03]] (Fill it in myself), [[Screen Index#s05|s05]] (Edit, Add), [[Screen Index#s03b|s03b]] (Skip), [[Screen Index#s04|s04]] (a failed import)
 
 ### s06
 

@@ -16,6 +16,8 @@ tags: [story, story/approved, module/identity, layer/business]
 
 # View As & Pin Views · User Story
 
+> ⚠ Affected by [[S-14 Profiles & Pin Name Story]] (2026-10-29): the nickname is in v1 (S-14 S3) and Rings show it, so the viewer's card (s31, s44) needs a place for it; not drawn yet. A public web page by Pin name is [[ND-22 Public web page by Pin name]], separate from `GET /views/pin/:pinName`.
+
 **Feature:** [[F-12 View As & Pin Views]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[FR-12 View As & Pin Views Frontend Requirements]] · **Backend Integration:** [[BI-09 View As & Pin Views Backend Integration]]
 
 Two people, one screen component. The owner flips to "View as" to see a Ring exactly as its members do: the "aha" that teaches the whole model. A viewer scans a badge or types a `!pinname` and gets the one perspective they are allowed, with no hint of which Ring that is or whether other Rings exist. Both render the same shape from the same route, which is what makes the preview trustworthy.
