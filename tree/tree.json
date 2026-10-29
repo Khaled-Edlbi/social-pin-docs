@@ -234,6 +234,7 @@
     "ND-20 Whether an unverified new address may sign in": "needs-decision:ND-20",
     "ND-21 How a business card and a portfolio page are read": "needs-decision:ND-21",
     "ND-22 Public web page by Pin name": "needs-decision:ND-22",
+    "ND-23 Mutual connections and events in common": "needs-decision:ND-23",
     "Owner Agent": "project:owner-agent",
     "PM Agent": "project:pm-agent",
     "Project Overview": "project:project-overview",
@@ -480,6 +481,7 @@
     "ND-20": "needs-decision:ND-20",
     "ND-21": "needs-decision:ND-21",
     "ND-22": "needs-decision:ND-22",
+    "ND-23": "needs-decision:ND-23",
     "P-01": "project:feature-graph",
     "P-02": "project:feature-tree",
     "P-03": "project:glossary",
@@ -3777,7 +3779,8 @@
         "feature:connections",
         "feature:ring-access",
         "feature:ring-members",
-        "needs-decision:ND-15"
+        "needs-decision:ND-15",
+        "needs-decision:ND-23"
       ],
       "kind": "screen",
       "notes": [
@@ -3789,6 +3792,7 @@
         "frontend-requirements:connections",
         "frontend-requirements:ring-members",
         "needs-decision:ND-15",
+        "needs-decision:ND-23",
         "story:connections",
         "story:ring-access",
         "story:ring-members"
@@ -4268,7 +4272,7 @@
       "frontend-delivery": 1,
       "frontend-requirements": 39,
       "module": 8,
-      "needs-decision": 20,
+      "needs-decision": 21,
       "project": 27,
       "qa-backend": 2,
       "qa-frontend": 1,
@@ -4277,18 +4281,18 @@
     },
     "byLayer": {
       "backend": 56,
-      "business": 127,
+      "business": 128,
       "frontend": 44,
       "qa": 3,
       "shared": 10
     },
     "concepts": 203,
-    "decisions": 20,
-    "edges": 3908,
+    "decisions": 21,
+    "edges": 3919,
     "features": 41,
     "layerNotes": 132,
     "modules": 8,
-    "notes": 271,
+    "notes": 272,
     "partial": 4,
     "placeholders": 153,
     "records": 14
@@ -5763,6 +5767,11 @@
       "to": "story:profiles"
     },
     {
+      "from": "needs-decision:ND-23",
+      "kind": "blocks",
+      "to": "story:connections"
+    },
+    {
       "from": "story:build-deploy",
       "kind": "blocks",
       "to": "frontend-requirements:build-deploy"
@@ -6066,6 +6075,16 @@
       "from": "needs-decision:ND-22",
       "kind": "decision",
       "to": "story:profiles"
+    },
+    {
+      "from": "needs-decision:ND-23",
+      "kind": "decision",
+      "to": "feature:connections"
+    },
+    {
+      "from": "needs-decision:ND-23",
+      "kind": "decision",
+      "to": "story:connections"
     },
     {
       "from": "frontend-requirements:files",
@@ -10882,6 +10901,36 @@
       "from": "needs-decision:ND-22",
       "kind": "related",
       "to": "story:view-as"
+    },
+    {
+      "from": "needs-decision:ND-23",
+      "kind": "related",
+      "to": "decision:D-04"
+    },
+    {
+      "from": "needs-decision:ND-23",
+      "kind": "related",
+      "to": "decision:D-14"
+    },
+    {
+      "from": "needs-decision:ND-23",
+      "kind": "related",
+      "to": "feature:connections"
+    },
+    {
+      "from": "needs-decision:ND-23",
+      "kind": "related",
+      "to": "feature:events-during"
+    },
+    {
+      "from": "needs-decision:ND-23",
+      "kind": "related",
+      "to": "feature:ring-access"
+    },
+    {
+      "from": "needs-decision:ND-23",
+      "kind": "related",
+      "to": "story:ring-access"
     },
     {
       "from": "project:admin-agent",
@@ -23685,6 +23734,11 @@
       "to": "needs-decision:ND-17"
     },
     {
+      "from": "story:connections",
+      "kind": "tree",
+      "to": "needs-decision:ND-23"
+    },
+    {
       "from": "story:error-contract",
       "kind": "tree",
       "to": "needs-decision:ND-19"
@@ -28737,6 +28791,11 @@
     {
       "from": "story:connections",
       "kind": "wikilink",
+      "to": "feature:ring-access"
+    },
+    {
+      "from": "story:connections",
+      "kind": "wikilink",
       "to": "feature:rings"
     },
     {
@@ -30401,6 +30460,10 @@
     },
     "social-pin/needs-decisions/ND-22 Public web page by Pin name.md": {
       "name": "ND-22 Public web page by Pin name",
+      "type": "needs-decision"
+    },
+    "social-pin/needs-decisions/ND-23 Mutual connections and events in common.md": {
+      "name": "ND-23 Mutual connections and events in common",
       "type": "needs-decision"
     },
     "templates/Backend Delivery Template.md": {
@@ -35323,6 +35386,7 @@
       "pending": [],
       "priority": null,
       "related": [
+        "needs-decision:ND-23",
         "needs-decision:ND-04",
         "project:ring-access-model",
         "decision:D-05",
@@ -35639,6 +35703,7 @@
       "priority": null,
       "related": [
         "needs-decision:ND-18",
+        "needs-decision:ND-23",
         "needs-decision:ND-14",
         "feature:view-as",
         "decision:D-15",
@@ -36724,6 +36789,7 @@
         "needs-decision:ND-14",
         "needs-decision:ND-15",
         "needs-decision:ND-17",
+        "needs-decision:ND-23",
         "frontend-requirements:counts"
       ],
       "release": "mvp",
@@ -36733,6 +36799,7 @@
         "decided": 4,
         "draft": 1,
         "missing": 4,
+        "needs-decision": 1,
         "verified": 4
       },
       "scope": null,
@@ -37400,6 +37467,7 @@
         "project:api-conventions",
         "project:spec-map",
         "feature:post-event",
+        "needs-decision:ND-23",
         "story:payments"
       ],
       "release": "mvp",
@@ -38573,7 +38641,8 @@
         "project:api-conventions",
         "project:spec-map",
         "feature:gemma",
-        "feature:delegated-admins"
+        "feature:delegated-admins",
+        "needs-decision:ND-23"
       ],
       "release": "mvp",
       "resolution": null,
@@ -43895,6 +43964,7 @@
         "decided": 4,
         "draft": 1,
         "missing": 4,
+        "needs-decision": 1,
         "todo": 1,
         "verified": 4
       },
@@ -45528,6 +45598,65 @@
       ],
       "task": null,
       "title": "ND-22 Public web page by Pin name",
+      "updated": "2026-10-29"
+    },
+    "needs-decision:ND-23": {
+      "affects": [],
+      "blockedBy": [],
+      "blocks": [
+        "story:connections"
+      ],
+      "card": "ND-23",
+      "children": [],
+      "code": "ND-23",
+      "created": "2026-10-29",
+      "deadline": null,
+      "decider": "owner",
+      "depends": [],
+      "effectiveStatus": "needs-decision",
+      "effort": null,
+      "feature": null,
+      "features": [
+        "connections"
+      ],
+      "foundOn": null,
+      "frontendOnly": false,
+      "id": "needs-decision:ND-23",
+      "inherits": {},
+      "kind": "needs-decision",
+      "label": "Needs decision",
+      "labels": [],
+      "layer": "business",
+      "module": null,
+      "parentTask": null,
+      "parents": [
+        "story:connections"
+      ],
+      "path": "social-pin/needs-decisions/ND-23 Mutual connections and events in common.md",
+      "pending": [],
+      "priority": null,
+      "related": [
+        "feature:connections",
+        "feature:ring-access",
+        "story:ring-access",
+        "decision:D-04",
+        "decision:D-14",
+        "feature:events-during"
+      ],
+      "release": null,
+      "resolution": null,
+      "scope": null,
+      "screens": [
+        "s47"
+      ],
+      "status": "needs-decision",
+      "summary": "What Connection detail (s47) may tell me about what I share with another person: the people we're both connected to (\"4 mutual connections · Omar, Lina, Rami +1\") and the events we both went to…",
+      "tags": [
+        "needs-decision",
+        "needs-decision/open"
+      ],
+      "task": null,
+      "title": "ND-23 Mutual connections and events in common",
       "updated": "2026-10-29"
     },
     "project:admin-agent": {
@@ -50993,7 +51122,7 @@
         "failing": 1,
         "in-progress": 45,
         "missing": 153,
-        "needs-decision": 2,
+        "needs-decision": 3,
         "partial": 4,
         "passing": 1,
         "ready": 5,
@@ -51545,6 +51674,11 @@
           "id": "needs-decision:ND-10",
           "title": "ND-10 How Connect addresses the scanned person",
           "why": "needs decision ND-10 (draft)"
+        },
+        {
+          "id": "needs-decision:ND-23",
+          "title": "ND-23 Mutual connections and events in common",
+          "why": "needs decision ND-23 (open)"
         }
       ],
       "card": "S-23",
@@ -51553,7 +51687,8 @@
         "needs-decision:ND-13",
         "needs-decision:ND-14",
         "needs-decision:ND-15",
-        "needs-decision:ND-17"
+        "needs-decision:ND-17",
+        "needs-decision:ND-23"
       ],
       "code": "connections",
       "created": "2026-10-18",
@@ -52993,6 +53128,7 @@
       "pending": [],
       "priority": "critical",
       "related": [
+        "needs-decision:ND-23",
         "frontend-requirements:files",
         "frontend-requirements:photo-library",
         "decision:D-04",
