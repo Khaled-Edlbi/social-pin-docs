@@ -40810,8 +40810,8 @@
         "current": 1,
         "decided": 3,
         "done": 1,
-        "draft": 1,
         "missing": 3,
+        "ready": 1,
         "verified": 3
       },
       "scope": null,
@@ -45519,7 +45519,7 @@
       "depends": [
         "story:ring-projection"
       ],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "ready",
       "effort": null,
       "feature": "ring-projection",
       "foundOn": null,
@@ -45630,11 +45630,11 @@
         "s37",
         "s68"
       ],
-      "status": "draft",
+      "status": "ready",
       "summary": "What the client needs from the backend to build the \"what this Ring shows\" editor across its screens, and whether each need is met today. Shapes, the link-type table and field limits are in BI-07…",
       "tags": [
         "frontend-requirements",
-        "frontend-requirements/draft",
+        "frontend-requirements/ready",
         "module/identity",
         "layer/frontend"
       ],
@@ -46398,14 +46398,14 @@
         "decided": 7,
         "delivered": 2,
         "done": 9,
-        "draft": 6,
+        "draft": 5,
         "failing": 1,
         "in-progress": 13,
         "missing": 39,
         "needs-decision": 2,
         "partial": 4,
         "passing": 1,
-        "ready": 7,
+        "ready": 8,
         "todo": 4,
         "verified": 7
       },
@@ -53410,14 +53410,14 @@
         "decided": 14,
         "delivered": 2,
         "done": 10,
-        "draft": 35,
+        "draft": 34,
         "failing": 1,
         "in-progress": 45,
         "missing": 153,
         "needs-decision": 3,
         "partial": 4,
         "passing": 1,
-        "ready": 7,
+        "ready": 8,
         "reference": 31,
         "todo": 9,
         "verified": 14

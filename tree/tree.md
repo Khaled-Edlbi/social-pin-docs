@@ -105,7 +105,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
         - ⚖️ [D-04 Ring settings at launch and their defaults](social-pin/decisions/D-04%20Ring%20settings%20at%20launch%20and%20their%20defaults.md) (Decision)
     - 🔵 [F-10 Ring Projection](social-pin/modules/Identity%20Core/features/Ring%20Projection/F-10%20Ring%20Projection.md) (release MVP, Critical)
       - 👍 [S-17 Ring Projection Story](social-pin/modules/Identity%20Core/features/Ring%20Projection/S-17%20Ring%20Projection%20Story.md) (User Story, Critical)
-      - ✏️ [FR-10 Ring Projection Frontend Requirements](social-pin/modules/Identity%20Core/features/Ring%20Projection/flow/FR-10%20Ring%20Projection%20Frontend%20Requirements.md) (Frontend Requirements, Critical)
+      - 📨 [FR-10 Ring Projection Frontend Requirements](social-pin/modules/Identity%20Core/features/Ring%20Projection/flow/FR-10%20Ring%20Projection%20Frontend%20Requirements.md) (Frontend Requirements, Critical)
       - ✅ [BD-10 Ring Projection Backend Delivery](social-pin/modules/Identity%20Core/features/Ring%20Projection/flow/BD-10%20Ring%20Projection%20Backend%20Delivery.md) (Backend Delivery, Critical)
       - 🔵 [BI-07 Ring Projection Backend Integration](social-pin/modules/Identity%20Core/features/Ring%20Projection/flow/BI-07%20Ring%20Projection%20Backend%20Integration.md) (Backend Integration, Critical)
       - ∅ _Ring Projection QA Backend_ (QA Backend)
