@@ -13,6 +13,8 @@ tags: [frontend-requirements, frontend-requirements/draft, module/identity, laye
 
 # Ring Access Engine · Frontend Requirements
 
+> ⚠ Affected by [[S-15 Ring Access Engine Story]] (2026-10-29): design review. S1: Shared with me rows are per person (a Ring's name only when joined knowingly, D-18; the Ring placed in first, D-15; every row as the person until memberships record their origin; a count only when members can see each other). S8: D-04's three join choices; the three later settings hidden; the settings are built in [[S-18 Rings Story|Rings · S9]], so "Blocked by ND-04" and the "❌ ND-04" row (ND-04 is decided, D-04) should point there. s47's mutual connections wait on a card from [[S-23 Connections Story]]. Screens: s15, s16, s17, s26, s27, s44, s47, s62.
+
 > ⚠ Affected by [[D-04 Ring settings at launch and their defaults]] (2026-10-25): ND-04 decided, six Ring settings at launch with private defaults (join with a code or invite, approve each one, members can't see each other, invite or save attachments); the owner and the Ring's admins change them; members who may see each other see full cards.
 
 **Feature:** [[F-08 Ring Access Engine]] · **Status:** Draft · **Story:** [[S-15 Ring Access Engine Story]] · **Backend Integration:** [[BI-05 Ring Access Engine Backend Integration]]
