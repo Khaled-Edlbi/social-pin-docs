@@ -15,6 +15,8 @@ tags: [story, story/draft, module/platform, layer/business]
 
 # Gemma AI · User Story
 
+> ⚠ Affected by [[S-17 Ring Projection Story]] (2026-10-29): s23's "**Gemma: rewrite**" (the bio) is this story's and is not shown until Gemma is built ([[S-17 Ring Projection Story|Ring Projection · S3]]), like s06's "Gemma: suggest" ([[S-14 Profiles & Pin Name Story|Profiles & Pin Name · S1]]).
+
 **Feature:** [[F-36 Gemma AI]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[FR-36 Gemma AI Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 Gemma is the assistant that sits across the app rather than in a tab: a sheet opened from Home, a suggestion inside the accept flow, a list of matches at an event, and small nudges wherever a name or a bio is typed. The user is asking "what should I do next" about their Rings, their connections and their meetings, and the one rule that makes Gemma safe in this product is that she may only see what the asking user may see. Nothing is built; the schema for sessions, messages, actions and match results exists.

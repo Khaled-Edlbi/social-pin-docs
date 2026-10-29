@@ -13,6 +13,8 @@ tags: [frontend-requirements, frontend-requirements/draft, module/identity, laye
 
 # Ring Projection · Frontend Requirements
 
+> ⚠ Affected by [[S-17 Ring Projection Story]] (2026-10-29): design review. S1: s14 renders only what's on. S3: s23's rows (full name read-only; headline, role, company, location, nickname each Follow / Own / Reset; Copy a Ring available now; no theme; Gemma hidden). S4: s24's rows (Headline, Role & company, Location with switches; phone, email, birthdate, gender, marital status with value previews; the same private switches on Me). S5: "+ Add a social profile" (paste, detect; the five D-03 types are a new ask). S7: "Add a field" sheet. New S9 (the library) and S10 (per field off / follow / own) replace the "❌ ND-03" row. Photo row: [[ND-16 Viewer access to file bytes]]. Screens: s28, s30, s37, s68 added.
+
 > ⚠ Affected by [[D-02 One main profile every Ring starts from]] (2026-10-25): ND-02 decided, one main profile (headline, role, company, location, photo, bio) every Ring starts from; a Ring may change all of them but the full name and keeps its own value when the main one changes.
 
 > ⚠ Affected by [[D-03 Links entered once, switched on or off per Ring]] (2026-10-25): ND-03 decided, links are entered once and only switched on or off per Ring; booking, Behance, Dribbble, GitHub and YouTube join the types, detected from the pasted link.
