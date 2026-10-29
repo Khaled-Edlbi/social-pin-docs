@@ -17,6 +17,8 @@ tags: [story, story/approved, module/identity, layer/business]
 
 # Onboarding Imports · User Story
 
+> ⚠ Affected by [[S-14 Profiles & Pin Name Story]] (2026-10-29): *Profile basics* is **s05b** (S-14 S9): "Fill it in myself" on s03 goes to s05b, not s06; Edit and Add on s05 open s05b and return to s05; a failed import goes to s05b. S1 and S6 here ("→ s06"; "full name typed later on s06") should say s05b.
+
 **Feature:** [[F-05 Onboarding Imports]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[FR-05 Onboarding Imports Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 A new user has just verified their code and does not want to type a profile from scratch. They start from something they already have: a LinkedIn account, a paper business card, or a portfolio URL. The import proposes fields, the user reviews each one (include / skip, edit inline), and the confirmed fields populate the **main profile** (headline, role, company, location, photo, bio, and the full name), which every Ring then follows field by field, the first Ring included ([[Wireframe Brief#LinkedIn profile import|§3.3]], [[D-02 One main profile every Ring starts from]]). Nothing is written before the user confirms.

@@ -29,6 +29,7 @@ Where the design and the backend disagree, and every other decision a card needs
 | [[ND-19 Where a ticket's layer notes live]] | fulfilled (1, the parent task) | [[D-19 A ticket's layer notes live on the parent task]] | [[F-35 Error Contract]] | — |
 | [[ND-20 Whether an unverified new address may sign in]] | fulfilled (2, it signs in, the words are corrected) | [[D-20 The changed address still signs in, the words are corrected]] | [[F-01 Account]] | s68 |
 | [[ND-21 How a business card and a portfolio page are read]] | open | — | [[F-05 Onboarding Imports]] | s03a, s03b |
+| [[ND-22 Public web page by Pin name]] | open | — | [[F-07 Profiles & Pin Name]] | s06, s44 |
 
 ```dataview
 TABLE status, features FROM #needs-decision

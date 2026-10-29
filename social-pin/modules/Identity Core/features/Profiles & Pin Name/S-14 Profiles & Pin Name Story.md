@@ -5,25 +5,25 @@ scope: feature
 feature: profiles
 module: identity
 status: approved
-screens: [s06]
-approvedBy: "khaled"
-approvedAt: 2026-10-25
+screens: [s05b, s06, s23, s44, s68]
+approvedBy: "Omar Fostok"
+approvedAt: 2026-10-29
 created: 2026-10-18
-updated: 2026-10-28
-owner: "omar"
-related: ["D-02 One main profile every Ring starts from", "D-06 Yearly rename, old name freed, case-insensitive"]
+updated: 2026-10-29
+owner: "Omar Fostok"
+related: ["D-02 One main profile every Ring starts from", "D-05 Inherit per field, copy without members", "D-06 Yearly rename, old name freed, case-insensitive", "ND-22 Public web page by Pin name", "S-01 Account Story", "S-08 Onboarding Imports Story", "S-17 Ring Projection Story", "S-19 View As & Pin Views Story", "S-89 Gemma AI Story", "F-18 Badge & QR"]
 tags: [story, story/approved, module/identity, layer/business]
 ---
 
 # Profiles & Pin Name · User Story
 
-**Feature:** [[F-07 Profiles & Pin Name]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[FR-07 Profiles & Pin Name Frontend Requirements]] · **Backend Integration:** [[BI-04 Profiles & Pin Name Backend Integration]]
+**Feature:** [[F-07 Profiles & Pin Name]] · **Status:** Approved 2026-10-29 by Omar Fostok (first approved 2026-10-25 by khaled; reworked 2026-10-29 by the design review: S1–S3, S7, S9, S10, S12 changed; S5, S6, S8 merged or moved) · **Frontend Requirements:** [[FR-07 Profiles & Pin Name Frontend Requirements]] · **Backend Integration:** [[BI-04 Profiles & Pin Name Backend Integration]]
 
-A person claims a `!handle` that is theirs across the whole product, the thing printed on a badge and typed into Discover, and keeps the canonical facts about themselves (name, nickname, birthdate, gender, marital status, and the work details of the main profile: headline, role, company, location, photo, bio) in one place. Rings then decide what each audience gets. The Pin name is public by nature; the sensitive fields are private by default and opt-in per Ring.
+A person claims a `!handle` that is theirs across the whole product, the thing printed on a badge and typed into Discover, and keeps the canonical facts about themselves (full name, nickname, birthdate, gender, marital status, and the work details of the main profile: headline, role, company, location, photo, bio) in one place. Rings then decide what each audience gets. The Pin name is public by nature; the sensitive fields are private by default and opt-in per Ring. One profile per person in v1.
 
 ## Persona
 
-A new user at the Claim your Pin step ([[Screen Index#s06|s06]]) of onboarding, and later the same person as an owner editing their profile from Me ([[Screen Index#s68|s68]]). Accounts with several profiles (personal and business) are a secondary case.
+A new user at *Profile basics* ([[Screen Index#s05b|s05b]]) and Claim your Pin ([[Screen Index#s06|s06]]) during sign-up, and later the same person editing their profile from the header of Me ([[Screen Index#s68|s68]]).
 
 ## Stories
 
@@ -33,11 +33,14 @@ A new user at the Claim your Pin step ([[Screen Index#s06|s06]]) of onboarding, 
 
 Acceptance criteria:
 - [ ] The field shows a fixed `!` prefix as decoration; the value sent never contains it.
-- [ ] Client rule before any request: 3 to 30 characters, letters, digits, `.` and `_`; the hint reads the rule, not a regex.
+- [ ] Client rule before any request: **3 to 30** characters, letters, digits, `.` and `_`; the hint reads the rule, not a regex. The design's counter "/24" is out of date: the rule is 30, as the backend and the app already enforce.
 - [ ] A debounced (300 ms) `GET /profiles/pin-name/:pinName/availability` returns `{ pinName, available }`; the field shows a check or "Taken" without naming anyone.
 - [ ] Case does not matter for availability (`SaraAz` = `saraaz`); the casing typed is what is displayed later.
+- [ ] When available, the line reads "Available — socialpin.me/<handle>", as designed. It is **text, not a link**, until [[ND-22 Public web page by Pin name]] is decided and the page is built.
 - [ ] Continue is enabled only on `available: true`; the ring progress indicator fills a segment on success.
-- [ ] When the handle is taken, the field offers a few suggestions built **only from my own name** (what I typed and my full name), each already checked as free; a suggestion never reveals or derives from who holds the taken name ([[D-06 Yearly rename, old name freed, case-insensitive]]). Not available yet: the backend returns no suggestions today.
+- [ ] Suggestion chips are built **on the phone, only from my own name** (what I typed and my full name), each checked as free; a suggestion never reveals or derives from who holds a taken name ([[D-06 Yearly rename, old name freed, case-insensitive]]).
+- [ ] The design's **"Gemma: suggest"** chip is [[S-89 Gemma AI Story|Gemma AI · S6]]'s and is **not shown** until Gemma is built.
+- [ ] The "Your code is ready · Temporary and rotating…" card on s06 is [[F-18 Badge & QR]]'s, not this story's.
 
 ### S2 · Taken at the last moment ([[Screen Index#s06|s06]])
 
@@ -45,18 +48,22 @@ Acceptance criteria:
 
 Acceptance criteria:
 - [ ] A 409 `E_PROFILE_02` from `POST /auth/complete-registration` keeps the user on s06 with the field focused and the message "That Pin name was just taken".
-- [ ] The optional full name typed on the same screen is retained.
+- [ ] The full name typed on *Profile basics* (s05b, S9) is retained.
 
-### S3 · Edit my name and nickname (profile editor, reached from [[Screen Index#s68|s68]])
+### S3 · Edit my name and nickname (the profile editor, opened from the Me header, [[Screen Index#s68|s68]])
 
-**As an** owner **I want** to edit my full name and nickname **so that** every Ring that inherits them shows the right ones.
+**As an** owner **I want** to edit my full name and nickname **so that** every Ring that follows them shows the right ones.
 
 Acceptance criteria:
-- [ ] The editor loads `GET /profiles` and edits `data[0]` (the default profile) with `PATCH /profiles/:id`.
-- [ ] `fullName` ≤ 120, `nickname` ≤ 60; a save returns the updated `ProfileEntity` and the editor refetches.
+- [ ] The **profile editor** is opened by tapping the **header card on Me** (photo, name, "!handle · N Rings · N connections", ›). It holds the full name, the nickname, the Pin name (S12) and the work details (S10). **For the designer:** the editor is not drawn; it needs designing and a screen id.
+- [ ] The editor loads `GET /profiles` and edits `data[0]` (the default, and in v1 the only, profile) with `PATCH /profiles/:id`.
+- [ ] `fullName` ≤ 120. The full name is the same in every Ring.
+- [ ] **"What friends call you"**: the nickname, optional, ≤ 60, sent as `nickname`; `null` clears it. It's extra, never a replacement for the full name.
+- [ ] **Rings show the nickname** unless a Ring sets its own: a Ring's projection has its own `nickname`, and `null` there follows the profile's ([[D-05 Inherit per field, copy without members]]). **For the designer:** where the nickname sits on a Ring's card (the viewer's card on s31 and s44, [[S-19 View As & Pin Views Story]]) and the Ring's own nickname on s23 ([[S-17 Ring Projection Story]]) are not drawn.
+- [ ] A save returns the updated `ProfileEntity` and the editor refetches.
 - [ ] The copy explains that a Ring's `displayName` falls back to this full name, never to the nickname.
 
-### S4 · Sensitive base fields (profile editor, reached from [[Screen Index#s68|s68]])
+### S4 · Sensitive base fields (Me, [[Screen Index#s68|s68]])
 
 **As an** owner **I want** to store my birthdate, gender and marital status once **so that** I can share them with the Rings I choose and no other.
 
@@ -65,66 +72,55 @@ Acceptance criteria:
 - [ ] `birthdate` is an ISO date; `gender` and `maritalStatus` are enum pickers from `/docs`.
 - [ ] No switch on this screen makes a value public; the opt-in lives on each Ring's "what it shows" ([[S-17 Ring Projection Story]]).
 
-### S5 · Rename my Pin (profile editor, reached from [[Screen Index#s68|s68]])
+### S5 · Rename my Pin
 
-**As an** owner **I want** to change my handle **so that** my badge and lookups follow my new name.
+*Merged into S12 on 2026-10-29 (design review): the same rename, once a year, with the old name freed.*
 
-Acceptance criteria:
-- [ ] The same live availability check as S1; `PATCH /profiles/:id { pinName }`; 409 `E_PROFILE_02` inline.
-- [ ] The copy says the old handle stops resolving at once (`GET /views/pin/:old` becomes a 404 for everyone) and **becomes free for anyone to claim**: nothing redirects to the new name, and a badge or link printed with the old name may later lead to someone else ([[D-06 Yearly rename, old name freed, case-insensitive]]).
-- [ ] A handle can be changed **once a year**; the screen says when the next change is allowed, and a rename inside the year is refused with a domain error shown inline. Not available yet: today a rename is unlimited.
-- [ ] A change of capitals only (`SaraAz` → `saraaz`) is the same name and is not a rename.
-- [ ] Taken names offer suggestions as in S1.
+### S6 · Several profiles and the default
 
-### S8 · My work details, once (profile editor, reached from [[Screen Index#s68|s68]])
-
-**As an** owner **I want** to write my headline, role, company, location, photo and bio once **so that** every Ring shows them without my retyping them ([[D-02 One main profile every Ring starts from]]).
-
-Acceptance criteria:
-- [ ] The editor has a "work" section with headline, role, company, location, photo and bio; these six are the whole main profile, nothing else is added.
-- [ ] Every Ring shows these values unless the Ring changed a field for itself ([[S-17 Ring Projection Story]] S3); a Ring that changed a field keeps its own value when I change the main one.
-- [ ] My full name is the same in every Ring; no Ring changes it.
-- [ ] Imports fill this section, not one Ring ([[S-08 Onboarding Imports Story]]).
-- [ ] Not available yet: `Profile` has none of these six fields today.
-
-### S6 · Several profiles and the default (profile editor, no prototype screen)
-
-**As an** owner with a business identity **I want** a second profile and a choice of default **so that** my badge resolves to the right one.
-
-Acceptance criteria:
-- [ ] `POST /profiles` with a free `pinName` and `profileType` (`PERSONAL`, `PROFESSIONAL`, `BUSINESS`); the list shows the default first.
-- [ ] "Make default" calls `POST /profiles/:id/default`; the previous default loses its badge in the same refresh.
-- [ ] Delete is offered only on non-default profiles; a 409 `E_PROFILE_03` reads "Choose another default first".
+*Moved to Open questions on 2026-10-29 (design review): one profile per person in v1.*
 
 ### S7 · My Pin name is how others find me (journey, [[Screen Index#s44|s44]])
 
 **As an** owner **I want** to know what my handle does for others **so that** I understand what claiming it means.
 
 Acceptance criteria:
-- [ ] Me shows the handle with a "share" hint: anyone who looks it up gets the Ring they are in, or nothing.
-- [ ] The look-up itself and the one-message 404 are in [[S-19 View As & Pin Views Story]].
+- [ ] Me shows the handle in its header (Account's, [[S-01 Account Story]]). No separate share hint: the design has none.
+- [ ] The look-up itself and the one-message 404 are in [[S-19 View As & Pin Views Story]]; a public web page by Pin name is [[ND-22 Public web page by Pin name]].
 
-### S9 · Sign-up keeps what I typed (*Profile basics*, no screen id yet)
+### S8 · My work details, once
 
-*From T-078 Main profile fields from D-02 (status then: To do), merged 2026-10-27.*
+*Merged into S10 on 2026-10-29 (design review): the same work details, edited in the profile editor.*
 
-**As a** new user **I want** the headline, company, location and photo I enter during sign-up to be on my profile **so that** I do not type them again and my first Ring already shows them.
+### S9 · Sign-up keeps what I typed (*Profile basics*, [[Screen Index#s05b|s05b]])
+
+*From T-078 Main profile fields from D-02 (status then: To do), merged 2026-10-27; screen id given 2026-10-29.*
+
+**As a** new user **I want** the name, headline, company, location and photo I enter during sign-up to be on my profile **so that** I do not type them again and my first Ring already shows them.
 
 Acceptance criteria:
-- [ ] Right after `POST /auth/complete-registration` returns, the client sends what *Profile basics* collected to `PATCH /profiles/:id` on the new default profile; a field left empty is not sent.
-- [ ] The photo is uploaded with `POST /files` first and sent as its file id; until [[S-06 Files Upload Story|Files Upload · showing files]] ships it shows as initials everywhere.
-- [ ] A failure here never undoes the account: the values are kept on the phone and sent again on the next launch, or edited on Me.
+- [ ] ***Profile basics* (s05b)** is built in the app and not drawn in the prototype (**for the designer:** it goes between s03 / s05 and s06). Title "Tell people who you are"; **full name** required; photo (camera or library), headline, company and location optional.
+- [ ] Reached from "Fill it in myself" on s03; from Edit and each "Add" on s05 (it returns to s05 on Continue, so the import is still confirmed); from Skip on the portfolio step; and after a failed import. Continue → s06.
+- [ ] The full name is sent as `fullName` on `POST /auth/complete-registration`.
+- [ ] Right after `POST /auth/complete-registration` returns, the client sends the rest to `PATCH /profiles/:id` on the new default profile; a field left empty is not sent.
+- [ ] The photo is uploaded with `POST /files` first and sent as its file id; until [[ND-16 Viewer access to file bytes]] is decided and served it shows as initials everywhere.
+- [ ] A failure here never undoes the account: the values are kept on the phone and sent again on the next launch, or edited in the profile editor.
 - [ ] Imports fill the same fields ([[S-08 Onboarding Imports Story|Onboarding Imports · S7]], [[S-08 Onboarding Imports Story|Onboarding Imports · S8]]): not available yet.
 
-### S10 · See and change my main profile ([[Screen Index#s68|s68]])
+### S10 · See and change my main profile (the profile editor, from the Me header, [[Screen Index#s68|s68]])
 
-**As a** signed-in user **I want** to see and edit my headline, role, company, location, photo and bio on Me **so that** one change reaches every Ring that follows it.
+**As a** signed-in user **I want** to write my headline, role, company, location, photo and bio once, and change them in one place **so that** one change reaches every Ring that follows it ([[D-02 One main profile every Ring starts from]]).
 
 Acceptance criteria:
-- [ ] `GET /profiles` (default first) returns the six fields, `null` when not set; the Me header shows headline and company under the name.
+- [ ] The profile editor (S3) has a "work" section with headline, role, company, location, photo and bio; these six are the whole main profile, nothing else is added.
+- [ ] `GET /profiles` (default first) returns the six fields, `null` when not set.
 - [ ] Each field is changed with `PATCH /profiles/:id`, sending only that field; `null` clears it. The response replaces the held and saved profile.
-- [ ] Full name is edited here too and is the same on every Ring; no Ring can change it.
+- [ ] Every Ring shows these values unless the Ring changed a field for itself ([[S-17 Ring Projection Story]] S3); a Ring that changed a field keeps its own value when I change the main one.
+- [ ] Full name is edited in the same editor and is the same on every Ring; no Ring can change it.
 - [ ] The limits the backend sets (length per field) are checked on the client before sending; a 400 shows under the field.
+- [ ] Imports fill this section, not one Ring ([[S-08 Onboarding Imports Story]]).
+- [ ] The Me header is not this story's: it shows photo, name and "!handle · N Rings · N connections" ([[S-01 Account Story]]); headline and company are seen in the editor and on the Rings.
+- [ ] Not available yet: `Profile` has none of these six fields today.
 
 ### S11 · Rings start from the main profile ([[Screen Index#s23|s23]])
 
@@ -132,21 +128,22 @@ Acceptance criteria:
 
 Acceptance criteria:
 - [ ] The main values are what "Inherit from your Pin" on s23 refers to.
-- [ ] How each Ring follows or overrides each field is [[D-05 Inherit per field, copy without members]], built on [[F-10 Ring Projection]]: not in this task.
+- [ ] How each Ring follows or overrides each field is [[D-05 Inherit per field, copy without members]], built on [[F-10 Ring Projection]]: not in this story.
 - [ ] The main profile itself is never shown to another person: a viewer only ever sees a Ring's projection.
 
-### S12 · Change my Pin name (profile editor, from [[Screen Index#s68|s68]])
+### S12 · Change my Pin name (the profile editor, from the Me header, [[Screen Index#s68|s68]])
 
-*From T-079 Enforce the once-a-year Pin name rename (status then: To do), merged 2026-10-27.*
+*From T-079 Enforce the once-a-year Pin name rename (status then: To do), merged 2026-10-27; S5 merged in 2026-10-29.*
 
-**As a** signed-in user **I want** to change my Pin name and know when I can change it again **so that** I am never surprised by a refusal.
+**As a** signed-in user **I want** to change my Pin name and know when I can change it again **so that** my badge and lookups follow my new name and I am never surprised by a refusal.
 
 Acceptance criteria:
-- [ ] The first rename after sign-up is allowed (claiming at s06 is not a rename); `PATCH /profiles/:id { pinName }` still checks the name is free (409 `E_PROFILE_02`).
+- [ ] The same live availability check as S1 (3–30, suggestions from my own name); `PATCH /profiles/:id { pinName }`; 409 `E_PROFILE_02` inline.
+- [ ] The first rename after sign-up is allowed (claiming at s06 is not a rename).
 - [ ] After a rename, the profile says when the next one is allowed; the editor shows it next to the name ("You can change it again on 26 Oct 2027").
-- [ ] A rename within a year of the last one is refused with its own error code; the editor says "You can change your Pin name once a year. Next change: <date>." and keeps the current name.
-- [ ] A change of capitals only is not a rename and is not counted.
-- [ ] The old name is free for anyone at once, as today; nothing redirects to the new one.
+- [ ] A rename within a year of the last one is refused with its own error code; the editor says "You can change your Pin name once a year. Next change: <date>." and keeps the current name. Not available yet: today a rename is unlimited.
+- [ ] A change of capitals only (`SaraAz` → `saraaz`) is the same name and is not a rename, and is not counted.
+- [ ] The copy says the old handle stops resolving at once (`GET /views/pin/:old` becomes a 404 for everyone) and **becomes free for anyone to claim**: nothing redirects to the new name, and a badge or link printed with the old name may later lead to someone else ([[D-06 Yearly rename, old name freed, case-insensitive]]; what a public web page does after a rename is [[ND-22 Public web page by Pin name]]).
 
 ### S13 · Claim at sign-up ([[Screen Index#s06|s06]])
 
@@ -157,36 +154,29 @@ Acceptance criteria:
 
 ## States and motion the design asks for
 
-- State on s06: typing, checking, available, taken, invalid format, taken-at-submit.
-- State in the editor: saving, cleared sensitive field, default badge on the profile list.
-- Motion: s06 is one step of the onboarding ring-fill; availability feedback is an inline state change, no extra motion. Reduced motion: no change needed.
-- (Profiles & Pin Name · S9–S11) *Profile basics*: every field optional except the name; the photo picker shows the chosen photo at once.
-- (Profiles & Pin Name · S9–S11) Me: an empty field reads "Add"; saving shows the loader on that field only.
-- (Profiles & Pin Name · S12–S13) Editor: the Pin-name row shows the next allowed date when it is in the future, nothing extra otherwise.
-- (Profiles & Pin Name · S12–S13) Refused rename: the message under the field; the field keeps the current name.
+- State on s06: typing, checking, available ("Available — socialpin.me/<handle>", as text), taken, invalid format, taken-at-submit, suggestions.
+- State on s05b: name missing (error under the field), photo picked / removed, optional fields empty.
+- State in the profile editor: saving (the loader on that field only), an empty field reads "Add", cleared sensitive field, the next allowed rename date when it is in the future, a refused rename (the message under the field; the field keeps the current name).
+- Motion: s05b and s06 are steps of the onboarding ring-fill; availability feedback is an inline state change, no extra motion. Reduced motion: no change needed.
 
 ## Rules the backend already enforces
 
-- Uniqueness is global and case-insensitive on `pinNameNormalized`; the original casing is kept for display. The availability route is public and answers only a boolean.
+- Uniqueness is global and case-insensitive on `pinNameNormalized`; the original casing is kept for display. The availability route is public and answers only a boolean. Pin names are 3–30 letters, digits, `.`, `_`, sent without the `!` ([[BI-04 Profiles & Pin Name Backend Integration]]).
 - `POST /profiles` and a `PATCH` that changes the handle run the check and the write in one transaction; two concurrent claims cannot both win.
-- The first profile is created inside `completeRegistration`'s transaction and is the default; one default per account (partial unique index); `POST /profiles/:id/default` demotes then promotes in one transaction.
-- `DELETE /profiles/:id` is a soft delete and refuses the default (409 `E_PROFILE_03`).
+- The first profile is created inside `completeRegistration`'s transaction and is the default; one default per account (partial unique index).
 - The three sensitive fields are nullable; `null` clears. Whether an audience sees them is decided per Ring in `RingProfileService.toView`, nowhere else.
-- These endpoints return the caller's own profiles only; another person is reachable through `/views/…`.
-- (Profiles & Pin Name · S9–S11) `PATCH /profiles/:id` sends only the keys it changes; unknown keys are a 400 ([[BI-04 Profiles & Pin Name Backend Integration]]).
-- (Profiles & Pin Name · S9–S11) Visibility goes through `RingAccessService`: a person's profile is reachable only through a Ring projection; there is no `GET /users/:id`.
-- (Profiles & Pin Name · S9–S11) Uploads: `POST /files` exists; the bytes can't be fetched back until [[S-06 Files Upload Story|Files Upload · showing files]].
-- (Profiles & Pin Name · S12–S13) Pin names are unique globally and ignore capitals (`pinNameNormalized`); 3–30 letters, digits, `.`, `_`; sent without the `!` ([[BI-04 Profiles & Pin Name Backend Integration]]).
-- (Profiles & Pin Name · S12–S13) A handle change re-checks uniqueness in the same transaction as the write.
+- `nickname` (≤ 60) is on the profile; a Ring's projection has its own `nickname`, and `null` there falls back to the profile's ([[BI-07 Ring Projection Backend Integration]]).
+- These endpoints return the caller's own profiles only; another person is reachable through `/views/…`. Visibility goes through `RingAccessService`; there is no `GET /users/:id`.
+- `PATCH /profiles/:id` sends only the keys it changes; unknown keys are a 400.
+- Uploads: `POST /files` exists; the bytes can't be fetched back until [[ND-16 Viewer access to file bytes]].
 
 ## Open questions
 
-- Decided: [[D-02 One main profile every Ring starts from]] (the work section, S8) and [[D-06 Yearly rename, old name freed, case-insensitive]] (S1 suggestions, S5 limit). Building them is not ticketed yet.
+- Decided: [[D-02 One main profile every Ring starts from]] (the work section, S10) and [[D-06 Yearly rename, old name freed, case-insensitive]] (S1 suggestions, S12 limit). Building them: S9–S11 and S12–S13.
 - Whether a Ring may change **role** was not asked; until product says otherwise it follows headline (D-02, *Still open*).
-- Whether the first year counts from sign-up or from the first rename; the natural reading is that the first rename is free (D-06, *Still open*).
-- (Profiles & Pin Name · S9–S11) **Role** was left out of D-02's per-Ring table; until product says otherwise it behaves like headline (D-02 *Still open*).
-- (Profiles & Pin Name · S9–S11) Which main-profile fields an import may overwrite without asking is [[F-05 Onboarding Imports]]' story to say.
-- (Profiles & Pin Name · S9–S11) Sign-up's *Profile basics* step has no screen id in [[Screen Index]]; the design team should give it one.
-- (Profiles & Pin Name · S12–S13) D-06 left open whether the year starts at sign-up or at the first rename; this task takes the natural reading (first rename free). Product can say otherwise before the task starts.
-- (Profiles & Pin Name · S12–S13) What a printed badge or saved link does after its name is released: [[F-18 Badge & QR]], [[ND-12 What the badge QR encodes]].
-
+- D-06 left open whether the year starts at sign-up or at the first rename; this story takes the natural reading (first rename free). Product can say otherwise before S12 is built.
+- Which main-profile fields an import may overwrite without asking is [[F-05 Onboarding Imports]]' story to say.
+- **Public web page by Pin name** (`socialpin.me/<pinName>`): [[ND-22 Public web page by Pin name]]; it blocks this story until decided, though only S1's link waits on it.
+- **Several profiles per account** (Personal, Professional, Business) and choosing the default: later, not in v1. The backend supports it (`POST /profiles`, `POST /profiles/:id/default`, `DELETE /profiles/:id`, 409 `E_PROFILE_03`); the app uses the default profile only. A business identity is a company ([[F-15 Companies]], s63), not a second profile.
+- **The nickname on Rings**: shown to every Ring by default, or only to Rings that switch it on (like the sensitive fields)? Until product says otherwise, it follows the main profile like the bio: shown unless a Ring changes it. For the designer, with S3.
+- What a printed badge or saved link does after its name is released: [[F-18 Badge & QR]], [[ND-12 What the badge QR encodes]].

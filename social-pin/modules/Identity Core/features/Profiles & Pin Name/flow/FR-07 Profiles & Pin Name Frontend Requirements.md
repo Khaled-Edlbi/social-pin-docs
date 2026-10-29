@@ -17,6 +17,8 @@ tags: [frontend-requirements, frontend-requirements/draft, module/identity, laye
 
 # Profiles & Pin Name · Frontend Requirements
 
+> ⚠ Affected by [[S-14 Profiles & Pin Name Story]] (2026-10-29): design review. *Profile basics* is **s05b** (S9); the profile editor opens from the **Me header** (S3) and holds the full name, the nickname ("What friends call you", ≤ 60, S3), the Pin name (S12) and the work details (S10); one profile per person in v1 (S6 moved to Open questions: no create / default / delete, no `E_PROFILE_03`); s06's "Gemma: suggest" is hidden, and "socialpin.me/<handle>" is text, not a link, until [[ND-22 Public web page by Pin name]] (S1); S5 merged into S12, S8 into S10. Screens: s05b, s06, s23, s44, s68. The photo row now waits on ND-16; the once-a-year limit is S12 (needs the next allowed date and its error code).
+
 **Feature:** [[F-07 Profiles & Pin Name]] · **Status:** Draft · **Story:** [[S-14 Profiles & Pin Name Story]] · **Backend Integration:** [[BI-04 Profiles & Pin Name Backend Integration]]
 
 What the client needs from the backend for the Pin-name claim, sign-up's *Profile basics* step and the owner's profile editor, and whether each need is met today. The main profile of [[D-02 One main profile every Ring starts from]] (headline, role, company, location, photo, bio) is asked of the backend in [[S-14 Profiles & Pin Name Story|Profiles & Pin Name · S9–S11]]; the Pin-name rules are [[D-06 Yearly rename, old name freed, case-insensitive]]. Shapes, field limits and the enum values are in [[BI-04 Profiles & Pin Name Backend Integration]].

@@ -17,6 +17,8 @@ tags: [story, story/approved, module/identity, layer/business]
 
 # Account · User Story
 
+> ⚠ Affected by [[S-14 Profiles & Pin Name Story]] (2026-10-29): the profile editor opens from the **Me header card**, not from a row (S-14 S3). "Manage account" on s68 has no destination, and what the brief puts under it is elsewhere: personal info in the profile editor, email and phone on Me itself, no password (sign-in is by code, ND-01). This story decides whether the row gets a purpose (deleting the account, signed-in devices…) or is removed.
+
 **Feature:** [[F-01 Account]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[FR-01 Account Frontend Requirements]] · **Backend Integration:** [[BI-01 Account Backend Integration]]
 
 A signed-in person opens Me to check which email and phone their account is on, to change one of them, and, rarely, to leave. The account is the thin layer under the profile: it holds the sign-in identity, the verified state of each destination and the Free / Pro type. Everything that describes the person (name, photo, bio) lives on the profile and on Ring projections, so the Me header is composed from three sources, never fetched from one.

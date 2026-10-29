@@ -233,6 +233,7 @@
     "ND-19 Where a ticket's layer notes live": "needs-decision:ND-19",
     "ND-20 Whether an unverified new address may sign in": "needs-decision:ND-20",
     "ND-21 How a business card and a portfolio page are read": "needs-decision:ND-21",
+    "ND-22 Public web page by Pin name": "needs-decision:ND-22",
     "Owner Agent": "project:owner-agent",
     "PM Agent": "project:pm-agent",
     "Project Overview": "project:project-overview",
@@ -478,6 +479,7 @@
     "ND-19": "needs-decision:ND-19",
     "ND-20": "needs-decision:ND-20",
     "ND-21": "needs-decision:ND-21",
+    "ND-22": "needs-decision:ND-22",
     "P-01": "project:feature-graph",
     "P-02": "project:feature-tree",
     "P-03": "project:glossary",
@@ -2033,6 +2035,7 @@
         "feature:ring-access",
         "feature:view-as",
         "needs-decision:ND-10",
+        "needs-decision:ND-22",
         "project:frontend-api-guide",
         "project:frontend-contract",
         "project:status-report-2026-10-15"
@@ -2048,6 +2051,7 @@
         "frontend-requirements:ring-access",
         "frontend-requirements:view-as",
         "needs-decision:ND-10",
+        "needs-decision:ND-22",
         "project:frontend-api-guide",
         "project:frontend-contract",
         "project:status-report-2026-10-15",
@@ -3034,6 +3038,16 @@
       ],
       "owner": null
     },
+    "s05b": {
+      "containers": [
+        "feature:profiles"
+      ],
+      "kind": "other",
+      "notes": [
+        "story:profiles"
+      ],
+      "owner": null
+    },
     "s06": {
       "containers": [
         "feature:auth",
@@ -3041,6 +3055,7 @@
         "feature:profiles",
         "needs-decision:ND-02",
         "needs-decision:ND-06",
+        "needs-decision:ND-22",
         "task:B-05"
       ],
       "kind": "screen",
@@ -3056,6 +3071,7 @@
         "frontend-requirements:profiles",
         "needs-decision:ND-02",
         "needs-decision:ND-06",
+        "needs-decision:ND-22",
         "qa-backend:auth",
         "story:auth",
         "story:profiles",
@@ -3356,6 +3372,7 @@
     "s23": {
       "containers": [
         "feature:photo-library",
+        "feature:profiles",
         "feature:ring-projection",
         "needs-decision:ND-02",
         "needs-decision:ND-05"
@@ -3371,6 +3388,7 @@
         "needs-decision:ND-02",
         "needs-decision:ND-05",
         "story:photo-library",
+        "story:profiles",
         "story:ring-projection"
       ],
       "owner": null
@@ -3670,11 +3688,13 @@
         "feature:badge-qr",
         "feature:connections",
         "feature:files",
+        "feature:profiles",
         "feature:view-as",
         "needs-decision:ND-10",
         "needs-decision:ND-13",
         "needs-decision:ND-16",
-        "needs-decision:ND-17"
+        "needs-decision:ND-17",
+        "needs-decision:ND-22"
       ],
       "kind": "screen",
       "notes": [
@@ -3694,9 +3714,11 @@
         "needs-decision:ND-13",
         "needs-decision:ND-16",
         "needs-decision:ND-17",
+        "needs-decision:ND-22",
         "story:badge-qr",
         "story:connections",
         "story:files",
+        "story:profiles",
         "story:view-as"
       ],
       "owner": null
@@ -4100,6 +4122,7 @@
         "story:linked-accounts",
         "story:payments",
         "story:photo-library",
+        "story:profiles",
         "task:B-01",
         "task:B-02",
         "task:B-03"
@@ -4213,7 +4236,7 @@
     }
   },
   "counts": {
-    "blocked": 37,
+    "blocked": 38,
     "bugs": 6,
     "byKind": {
       "backend-delivery": 39,
@@ -4223,7 +4246,7 @@
       "frontend-delivery": 1,
       "frontend-requirements": 39,
       "module": 8,
-      "needs-decision": 19,
+      "needs-decision": 20,
       "project": 27,
       "qa-backend": 2,
       "qa-frontend": 1,
@@ -4232,18 +4255,18 @@
     },
     "byLayer": {
       "backend": 56,
-      "business": 126,
+      "business": 127,
       "frontend": 44,
       "qa": 3,
       "shared": 10
     },
-    "concepts": 202,
-    "decisions": 19,
-    "edges": 3846,
+    "concepts": 203,
+    "decisions": 20,
+    "edges": 3870,
     "features": 41,
     "layerNotes": 132,
     "modules": 8,
-    "notes": 270,
+    "notes": 271,
     "partial": 4,
     "placeholders": 153,
     "records": 14
@@ -5713,6 +5736,11 @@
       "to": "story:onboarding-imports"
     },
     {
+      "from": "needs-decision:ND-22",
+      "kind": "blocks",
+      "to": "story:profiles"
+    },
+    {
       "from": "story:build-deploy",
       "kind": "blocks",
       "to": "frontend-requirements:build-deploy"
@@ -6006,6 +6034,16 @@
       "from": "needs-decision:ND-21",
       "kind": "decision",
       "to": "story:onboarding-imports"
+    },
+    {
+      "from": "needs-decision:ND-22",
+      "kind": "decision",
+      "to": "feature:profiles"
+    },
+    {
+      "from": "needs-decision:ND-22",
+      "kind": "decision",
+      "to": "story:profiles"
     },
     {
       "from": "frontend-requirements:files",
@@ -10487,6 +10525,36 @@
       "to": "story:profiles"
     },
     {
+      "from": "needs-decision:ND-22",
+      "kind": "related",
+      "to": "decision:D-06"
+    },
+    {
+      "from": "needs-decision:ND-22",
+      "kind": "related",
+      "to": "feature:badge-qr"
+    },
+    {
+      "from": "needs-decision:ND-22",
+      "kind": "related",
+      "to": "feature:profiles"
+    },
+    {
+      "from": "needs-decision:ND-22",
+      "kind": "related",
+      "to": "feature:view-as"
+    },
+    {
+      "from": "needs-decision:ND-22",
+      "kind": "related",
+      "to": "needs-decision:ND-12"
+    },
+    {
+      "from": "needs-decision:ND-22",
+      "kind": "related",
+      "to": "story:view-as"
+    },
+    {
       "from": "project:admin-agent",
       "kind": "related",
       "to": "project:agent-protocol"
@@ -11658,7 +11726,47 @@
     {
       "from": "story:profiles",
       "kind": "related",
+      "to": "decision:D-05"
+    },
+    {
+      "from": "story:profiles",
+      "kind": "related",
       "to": "decision:D-06"
+    },
+    {
+      "from": "story:profiles",
+      "kind": "related",
+      "to": "feature:badge-qr"
+    },
+    {
+      "from": "story:profiles",
+      "kind": "related",
+      "to": "needs-decision:ND-22"
+    },
+    {
+      "from": "story:profiles",
+      "kind": "related",
+      "to": "story:account"
+    },
+    {
+      "from": "story:profiles",
+      "kind": "related",
+      "to": "story:gemma"
+    },
+    {
+      "from": "story:profiles",
+      "kind": "related",
+      "to": "story:onboarding-imports"
+    },
+    {
+      "from": "story:profiles",
+      "kind": "related",
+      "to": "story:ring-projection"
+    },
+    {
+      "from": "story:profiles",
+      "kind": "related",
+      "to": "story:view-as"
     },
     {
       "from": "story:ring-access",
@@ -15570,6 +15678,14 @@
     {
       "from": "feature:connections",
       "kind": "shares",
+      "to": "needs-decision:ND-22",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "feature:connections",
+      "kind": "shares",
       "to": "project:agent-rules",
       "via": [
         "E_RING_02"
@@ -16589,6 +16705,14 @@
     {
       "from": "feature:discover-hub",
       "kind": "shares",
+      "to": "needs-decision:ND-22",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "feature:discover-hub",
+      "kind": "shares",
       "to": "project:frontend-api-guide",
       "via": [
         "E_AUTH_04",
@@ -16668,6 +16792,14 @@
       "from": "feature:e2e-tests",
       "kind": "shares",
       "to": "needs-decision:ND-10",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "feature:e2e-tests",
+      "kind": "shares",
+      "to": "needs-decision:ND-22",
       "via": [
         "GET /views/pin/:pinName"
       ]
@@ -19352,6 +19484,14 @@
     {
       "from": "feature:profiles",
       "kind": "shares",
+      "to": "needs-decision:ND-22",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "feature:profiles",
+      "kind": "shares",
       "to": "project:frontend-api-guide",
       "via": [
         "GET /profiles/pin-name/:pinName/availability",
@@ -19511,6 +19651,14 @@
       "to": "needs-decision:ND-18",
       "via": [
         "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "feature:ring-access",
+      "kind": "shares",
+      "to": "needs-decision:ND-22",
+      "via": [
+        "GET /views/pin/:pinName"
       ]
     },
     {
@@ -20218,6 +20366,14 @@
     {
       "from": "feature:view-as",
       "kind": "shares",
+      "to": "needs-decision:ND-22",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "feature:view-as",
+      "kind": "shares",
       "to": "project:frontend-api-guide",
       "via": [
         "E_AUTH_04",
@@ -20409,6 +20565,14 @@
       "to": "needs-decision:ND-15",
       "via": [
         "GET /views/user/:userId/perspectives"
+      ]
+    },
+    {
+      "from": "needs-decision:ND-10",
+      "kind": "shares",
+      "to": "needs-decision:ND-22",
+      "via": [
+        "GET /views/pin/:pinName"
       ]
     },
     {
@@ -20640,6 +20804,30 @@
       "to": "project:status-report-2026-10-15",
       "via": [
         "POST /files"
+      ]
+    },
+    {
+      "from": "needs-decision:ND-22",
+      "kind": "shares",
+      "to": "project:frontend-api-guide",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "needs-decision:ND-22",
+      "kind": "shares",
+      "to": "project:frontend-contract",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "needs-decision:ND-22",
+      "kind": "shares",
+      "to": "project:status-report-2026-10-15",
+      "via": [
+        "GET /views/pin/:pinName"
       ]
     },
     {
@@ -23177,6 +23365,11 @@
       "to": "needs-decision:ND-07"
     },
     {
+      "from": "story:profiles",
+      "kind": "tree",
+      "to": "needs-decision:ND-22"
+    },
+    {
       "from": "story:ring-invitations",
       "kind": "tree",
       "to": "needs-decision:ND-18"
@@ -25490,6 +25683,11 @@
       "from": "frontend-requirements:profiles",
       "kind": "wikilink",
       "to": "backend-integration:profiles"
+    },
+    {
+      "from": "frontend-requirements:profiles",
+      "kind": "wikilink",
+      "to": "needs-decision:ND-22"
     },
     {
       "from": "frontend-requirements:profiles",
@@ -28074,11 +28272,6 @@
     {
       "from": "story:account",
       "kind": "wikilink",
-      "to": "story:profiles"
-    },
-    {
-      "from": "story:account",
-      "kind": "wikilink",
       "to": "story:ring-projection"
     },
     {
@@ -28457,11 +28650,6 @@
       "to": "feature:ring-access"
     },
     {
-      "from": "story:gemma",
-      "kind": "wikilink",
-      "to": "story:profiles"
-    },
-    {
       "from": "story:interests",
       "kind": "wikilink",
       "to": "feature:gemma"
@@ -28609,12 +28797,12 @@
     {
       "from": "story:profiles",
       "kind": "wikilink",
-      "to": "decision:D-05"
+      "to": "backend-integration:ring-projection"
     },
     {
       "from": "story:profiles",
       "kind": "wikilink",
-      "to": "feature:badge-qr"
+      "to": "feature:companies"
     },
     {
       "from": "story:profiles",
@@ -28634,22 +28822,7 @@
     {
       "from": "story:profiles",
       "kind": "wikilink",
-      "to": "story:files"
-    },
-    {
-      "from": "story:profiles",
-      "kind": "wikilink",
-      "to": "story:onboarding-imports"
-    },
-    {
-      "from": "story:profiles",
-      "kind": "wikilink",
-      "to": "story:ring-projection"
-    },
-    {
-      "from": "story:profiles",
-      "kind": "wikilink",
-      "to": "story:view-as"
+      "to": "needs-decision:ND-16"
     },
     {
       "from": "story:ring-access",
@@ -29874,6 +30047,10 @@
     },
     "social-pin/needs-decisions/ND-21 How a business card and a portfolio page are read.md": {
       "name": "ND-21 How a business card and a portfolio page are read",
+      "type": "needs-decision"
+    },
+    "social-pin/needs-decisions/ND-22 Public web page by Pin name.md": {
+      "name": "ND-22 Public web page by Pin name",
       "type": "needs-decision"
     },
     "templates/Backend Delivery Template.md": {
@@ -34863,6 +35040,7 @@
         "decision:D-04",
         "frontend-requirements:photo-library",
         "story:photo-library",
+        "story:profiles",
         "story:ring-projection",
         "story:rings"
       ],
@@ -34921,6 +35099,7 @@
       "pending": [],
       "priority": null,
       "related": [
+        "needs-decision:ND-22",
         "needs-decision:ND-06",
         "feature:badge-qr",
         "frontend-requirements:auth",
@@ -35810,7 +35989,9 @@
         "feature:post-event",
         "needs-decision:ND-11",
         "needs-decision:ND-12",
-        "decision:D-06"
+        "needs-decision:ND-22",
+        "decision:D-06",
+        "story:profiles"
       ],
       "release": "mvp",
       "resolution": null,
@@ -37945,16 +38126,18 @@
         "project:api-conventions",
         "project:spec-map",
         "task:B-02",
+        "needs-decision:ND-22",
         "frontend-delivery:account"
       ],
       "release": "mvp",
       "resolution": null,
       "rollup": {
-        "approved": 1,
+        "blocked": 1,
         "current": 1,
         "decided": 2,
         "draft": 1,
         "missing": 3,
+        "needs-decision": 1,
         "partial": 1,
         "verified": 2
       },
@@ -38543,6 +38726,7 @@
         "needs-decision:ND-10",
         "needs-decision:ND-14",
         "needs-decision:ND-16",
+        "needs-decision:ND-22",
         "decision:D-14",
         "decision:D-15"
       ],
@@ -43482,8 +43666,8 @@
       "release": null,
       "resolution": null,
       "rollup": {
-        "approved": 11,
-        "blocked": 6,
+        "approved": 10,
+        "blocked": 7,
         "current": 8,
         "decided": 7,
         "delivered": 2,
@@ -43492,7 +43676,7 @@
         "failing": 1,
         "in-progress": 13,
         "missing": 39,
-        "needs-decision": 1,
+        "needs-decision": 2,
         "partial": 4,
         "passing": 1,
         "ready": 4,
@@ -44278,7 +44462,8 @@
       "pending": [],
       "priority": null,
       "related": [
-        "feature:badge-qr"
+        "feature:badge-qr",
+        "needs-decision:ND-22"
       ],
       "release": null,
       "resolution": null,
@@ -44871,6 +45056,67 @@
       "task": null,
       "title": "ND-21 How a business card and a portfolio page are read",
       "updated": "2026-10-26"
+    },
+    "needs-decision:ND-22": {
+      "affects": [],
+      "blockedBy": [],
+      "blocks": [
+        "story:profiles"
+      ],
+      "card": "ND-22",
+      "children": [],
+      "code": "ND-22",
+      "created": "2026-10-29",
+      "deadline": null,
+      "decider": "owner",
+      "depends": [],
+      "effectiveStatus": "needs-decision",
+      "effort": null,
+      "feature": null,
+      "features": [
+        "profiles"
+      ],
+      "foundOn": null,
+      "frontendOnly": false,
+      "id": "needs-decision:ND-22",
+      "inherits": {},
+      "kind": "needs-decision",
+      "label": "Needs decision",
+      "labels": [],
+      "layer": "business",
+      "module": null,
+      "parentTask": null,
+      "parents": [
+        "story:profiles"
+      ],
+      "path": "social-pin/needs-decisions/ND-22 Public web page by Pin name.md",
+      "pending": [],
+      "priority": null,
+      "related": [
+        "feature:profiles",
+        "feature:badge-qr",
+        "feature:view-as",
+        "needs-decision:ND-12",
+        "decision:D-06",
+        "story:view-as",
+        "story:profiles"
+      ],
+      "release": null,
+      "resolution": null,
+      "scope": null,
+      "screens": [
+        "s06",
+        "s44"
+      ],
+      "status": "needs-decision",
+      "summary": "Whether socialpin.me/<pinName> is a real public web page, and if so what it shows and how it behaves. s06 (Claim your Pin) shows \"Available — socialpin.me/<handle>\", and the design review of…",
+      "tags": [
+        "needs-decision",
+        "needs-decision/open"
+      ],
+      "task": null,
+      "title": "ND-22 Public web page by Pin name",
+      "updated": "2026-10-29"
     },
     "project:admin-agent": {
       "affects": [],
@@ -50319,8 +50565,8 @@
         }
       ],
       "rollup": {
-        "approved": 32,
-        "blocked": 37,
+        "approved": 31,
+        "blocked": 38,
         "current": 8,
         "decided": 14,
         "delivered": 2,
@@ -50329,7 +50575,7 @@
         "failing": 1,
         "in-progress": 45,
         "missing": 153,
-        "needs-decision": 1,
+        "needs-decision": 2,
         "partial": 4,
         "passing": 1,
         "ready": 4,
@@ -50385,6 +50631,7 @@
         "decision:D-20",
         "task:B-01",
         "qa-backend:auth",
+        "story:profiles",
         "frontend-requirements:error-contract",
         "project:auth-model"
       ],
@@ -51614,6 +51861,7 @@
       "pending": [],
       "priority": "medium",
       "related": [
+        "story:profiles",
         "decision:D-06",
         "frontend-requirements:interests"
       ],
@@ -51894,7 +52142,8 @@
         "qa-backend:auth",
         "decision:D-02",
         "story:photo-library",
-        "frontend-requirements:profiles"
+        "frontend-requirements:profiles",
+        "story:profiles"
       ],
       "release": "mvp",
       "resolution": null,
@@ -52207,14 +52456,22 @@
     },
     "story:profiles": {
       "affects": [],
-      "blockedBy": [],
+      "blockedBy": [
+        {
+          "id": "needs-decision:ND-22",
+          "title": "ND-22 Public web page by Pin name",
+          "why": "needs decision ND-22 (open)"
+        }
+      ],
       "card": "S-14",
-      "children": [],
+      "children": [
+        "needs-decision:ND-22"
+      ],
       "code": "profiles",
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "approved",
+      "effectiveStatus": "blocked",
       "effort": null,
       "feature": "profiles",
       "foundOn": null,
@@ -52247,16 +52504,28 @@
         "frontend-requirements:photo-library",
         "story:photo-library",
         "decision:D-02",
-        "decision:D-06"
+        "decision:D-05",
+        "decision:D-06",
+        "needs-decision:ND-22",
+        "story:account",
+        "story:onboarding-imports",
+        "story:ring-projection",
+        "story:view-as",
+        "story:gemma",
+        "feature:badge-qr"
       ],
       "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
-        "s06"
+        "s05b",
+        "s06",
+        "s23",
+        "s44",
+        "s68"
       ],
       "status": "approved",
-      "summary": "A person claims a !handle that is theirs across the whole product, the thing printed on a badge and typed into Discover, and keeps the canonical facts about themselves (name, nickname, birthdate,…",
+      "summary": "A person claims a !handle that is theirs across the whole product, the thing printed on a badge and typed into Discover, and keeps the canonical facts about themselves (full name, nickname,…",
       "tags": [
         "story",
         "story/approved",
@@ -52265,7 +52534,7 @@
       ],
       "task": null,
       "title": "S-14 Profiles & Pin Name Story",
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "story:ring-access": {
       "affects": [],
@@ -52470,6 +52739,7 @@
         "frontend-requirements:files",
         "story:files",
         "frontend-requirements:photo-library",
+        "story:profiles",
         "decision:D-02",
         "decision:D-03",
         "decision:D-05"
@@ -52650,7 +52920,9 @@
       "pending": [],
       "priority": "critical",
       "related": [
-        "story:files"
+        "needs-decision:ND-22",
+        "story:files",
+        "story:profiles"
       ],
       "release": "mvp",
       "resolution": null,
