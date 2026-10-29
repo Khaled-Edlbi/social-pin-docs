@@ -1,7 +1,7 @@
 ---
 type: needs-decision
 id: ND-16
-status: draft
+status: open
 features: [files]
 blocks: ["S-06 Files Upload Story"]
 decider: "owner"
@@ -11,12 +11,12 @@ related: ["F-04 Files Upload", "F-10 Ring Projection", "F-12 View As & Pin Views
 owner: "omar"
 created: 2026-10-25
 updated: 2026-10-29
-tags: [needs-decision, needs-decision/draft]
+tags: [needs-decision, needs-decision/open]
 ---
 
 # ❓ ND-16 · Viewer access to file bytes
 
-**Status:** draft · **Decider:** owner · **Raised:** 2026-10-25 · **Needed by:** [[S-06 Files Upload Story]] · **Feature:** [[F-04 Files Upload]]
+**Status:** open · **Decider:** owner · **Raised:** 2026-10-25 · **Needed by:** [[S-06 Files Upload Story]] · **Feature:** [[F-04 Files Upload]]
 
 > The needs-decision card: `draft` while the question is written, `open` once it is ready for the decider; it shows **Fulfilled** by itself once its decision card (D-NN) is `decided`. The cards in `blocks` are **Blocked · ND-16** while this is `draft` or `open` and return to their own status once it is fulfilled. Nobody edits their `status:` for this, and nobody types `fulfilled` or `decided` here.
 
