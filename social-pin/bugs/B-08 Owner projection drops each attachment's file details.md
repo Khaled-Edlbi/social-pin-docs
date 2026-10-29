@@ -57,3 +57,4 @@ Output of `node scripts/build-tree.mjs --impact B-08` when the bug was filed: th
 ## Log
 
 - 2026-10-29 · filed with --scaffold bug, found against BI-07 Ring Projection Backend Integration, from [[QB-06 Files Upload QA Backend]] rows B12 and B16 on `main @ c85db4b`
+- 2026-10-29 · fix merged: branch `B-08/ring-profile/owner-attachment-file-details`, backend `main @ c80ed9d`. `RingProfileService.toOwnerView` flattens each attachment's file on every owner route; recorded in [[BD-10 Ring Projection Backend Delivery]], BI-07's flag cleared. [[QB-06 Files Upload QA Backend]] re-run on that build: B12 and B16 ✅, 32 of 32. Left: `resolution` and `status`, on the user's word.

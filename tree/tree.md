@@ -48,7 +48,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
       - ✅ [BD-04 Files Upload Backend Delivery](social-pin/modules/Identity%20Core/features/Files%20Upload/flow/BD-04%20Files%20Upload%20Backend%20Delivery.md) (Backend Delivery, High)
         - ✅ [B-07 Context-scoped uploads are served by the public static mount](social-pin/bugs/B-07%20Context-scoped%20uploads%20are%20served%20by%20the%20public%20static%20mount.md) (bug, Fixed, High)
       - 🔵 [BI-03 Files Upload Backend Integration](social-pin/modules/Identity%20Core/features/Files%20Upload/flow/BI-03%20Files%20Upload%20Backend%20Integration.md) (Backend Integration, High)
-      - 🔴 [QB-06 Files Upload QA Backend](social-pin/modules/Identity%20Core/features/Files%20Upload/flow/QB-06%20Files%20Upload%20QA%20Backend.md) (QA Backend, 1 pending note, High)
+      - 🟡 [QB-06 Files Upload QA Backend](social-pin/modules/Identity%20Core/features/Files%20Upload/flow/QB-06%20Files%20Upload%20QA%20Backend.md) (QA Backend, 1 pending note, High)
       - ∅ _Files Upload Frontend Delivery_ (Frontend Delivery)
       - ∅ _Files Upload QA Frontend_ (QA Frontend, blocked by Files Upload Frontend Delivery)
     - 🔵 [F-05 Onboarding Imports](social-pin/modules/Identity%20Core/features/Onboarding%20Imports/F-05%20Onboarding%20Imports.md) (release MVP, Medium)
