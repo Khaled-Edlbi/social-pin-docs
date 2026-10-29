@@ -4,7 +4,7 @@ code: ring-access
 scope: feature
 feature: ring-access
 module: identity
-status: draft
+status: ready
 screens: [s15, s16, s17, s26, s27, s31, s44, s47, s62]
 depends: ["S-15 Ring Access Engine Story"]
 affects: ["BD-08 Ring Access Engine Backend Delivery"]
@@ -12,12 +12,12 @@ related: ["BI-05 Ring Access Engine Backend Integration", "Ring Access Model", "
 created: 2026-10-18
 updated: 2026-10-29
 owner: "Omar Fostok"
-tags: [frontend-requirements, frontend-requirements/draft, module/identity, layer/frontend]
+tags: [frontend-requirements, frontend-requirements/ready, module/identity, layer/frontend]
 ---
 
 # Ring Access Engine · Frontend Requirements
 
-**Feature:** [[F-08 Ring Access Engine]] · **Status:** Draft · **Story:** [[S-15 Ring Access Engine Story]] · **Backend Integration:** [[BI-05 Ring Access Engine Backend Integration]]
+**Feature:** [[F-08 Ring Access Engine]] · **Status:** 📨 Ready 2026-10-29, waiting on the backend's review · **Story:** [[S-15 Ring Access Engine Story]] · **Backend Integration:** [[BI-05 Ring Access Engine Backend Integration]]
 
 The engine exposes no endpoint. What the client needs from it is a set of guarantees that other endpoints carry: which rows appear on Shared with me and what each may say, what every `/views` route answers, and when an owner route says 403. This note lists those guarantees per surface and the client behaviour they require; the assumptions are spelled out in [[BI-05 Ring Access Engine Backend Integration]] and [[Ring Access Model]]. The screens themselves belong to other features ([[F-11 Rings]], [[F-09 Ring Members]], [[F-12 View As & Pin Views]], [[F-14 Connections]]); each section here is only what the engine decides on it.
 
