@@ -3634,6 +3634,7 @@
         "backend-delivery:delegated-admins",
         "feature:delegated-admins",
         "feature:ring-access",
+        "feature:rings",
         "frontend-requirements:delegated-admins",
         "frontend-requirements:ring-access",
         "frontend-requirements:rings",
@@ -42563,10 +42564,11 @@
         "s21",
         "s22",
         "s26",
+        "s27",
         "s62"
       ],
       "status": null,
-      "summary": "My Rings and Shared-with-me lists, create a Ring with name, colour, type, expiry and temporary flag, edit, set default, delete, and the keep / merge / auto-delete disposition for temporary Rings.",
+      "summary": "My Rings and Shared-with-me lists; the first Ring from a template at sign-up; a four-step wizard (name it → who is in it → what it shows → how you appear) with a colour, an icon, who it's for, and…",
       "tags": [
         "feature",
         "module/identity",
@@ -42575,7 +42577,7 @@
       ],
       "task": null,
       "title": "F-11 Rings",
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "feature:subscription": {
       "affects": [],
