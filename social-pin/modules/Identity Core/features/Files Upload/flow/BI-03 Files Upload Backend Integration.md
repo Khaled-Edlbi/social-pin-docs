@@ -7,11 +7,13 @@ module: identity
 status: current
 screens: [s14, s20, s36]
 created: 2026-10-15
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [backend-integration, backend-integration/current, module/identity, layer/backend]
 ---
 
 # 🔌 Files Upload · Backend Integration
+
+> ⚠ Affected by [[D-16 Files load from signed links that expire in 15 minutes]] (2026-10-29): files will load from a signed `url` valid 15 minutes, not from a route keyed by file id; update when it ships. For `/backend`.
 
 **Feature:** [[F-04 Files Upload]] · **Backend:** ✅ Done · **Read first:** [[Frontend Contract]]
 

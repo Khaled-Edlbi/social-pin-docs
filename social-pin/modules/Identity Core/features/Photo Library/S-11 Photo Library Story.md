@@ -17,6 +17,8 @@ tags: [story, story/approved, module/identity, layer/business]
 
 # Photo Library · User Story
 
+> ⚠ Affected by [[D-16 Files load from signed links that expire in 15 minutes]] (2026-10-29): library photos load from the same signed links, valid 15 minutes. For `/pm`.
+
 **Feature:** [[F-06 Photo Library]] · **Status:** Approved 2026-10-29 by Omar Fostok (first approved 2026-10-25 by khaled; reworked 2026-10-29 by the design review: S1–S8 changed) · **Frontend Requirements:** [[FR-06 Photo Library Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 A Ring owner keeps a handful of photos, a formal headshot, a casual one, a team picture, and picks a different one per Ring. The library is the owner's private pool of uploads; a photo reaches an audience only when a Ring's projection points at it. One of them is the **main photo** of the main profile, which every Ring shows until the Ring picks its own ([[D-02 One main profile every Ring starts from]], [[D-05 Inherit per field, copy without members]]). The library screen shows each photo with the Rings that use it, and the per-Ring screen is a picker: the main photo or any photo of the library.

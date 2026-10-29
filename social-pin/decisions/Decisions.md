@@ -1,6 +1,6 @@
 ---
 type: map
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [map]
 ---
 
@@ -23,7 +23,7 @@ Where the design and the backend disagree, and every other decision a card needs
 | [[ND-13 Whether the requester sees a declined request]] | fulfilled (3, shown as declined) | [[D-13 The requester sees a declined request]] | [[F-14 Connections]] | s44, s45 |
 | [[ND-14 Connection-granted Ring on Shared with me]] | fulfilled (2, people, never the Ring) | [[D-14 Shared with me lists people, never the Ring]] | [[F-14 Connections]], [[F-11 Rings]], [[F-09 Ring Members]] | s17, s46 |
 | [[ND-15 One Ring or several per connection]] | fulfilled (1, several; remove or disconnect) | [[D-15 Several Rings per connection, remove or disconnect]] | [[F-14 Connections]], [[F-09 Ring Members]] | s15, s47 |
-| [[ND-16 Viewer access to file bytes]] | draft | — | [[F-04 Files Upload]] | s14, s29, s30, s31, s44 |
+| [[ND-16 Viewer access to file bytes]] | fulfilled (3, signed links, 15 minutes) | [[D-16 Files load from signed links that expire in 15 minutes]] | [[F-04 Files Upload]], [[F-06 Photo Library]], [[F-10 Ring Projection]], [[F-12 View As & Pin Views]] | s14, s29, s30, s31, s44 |
 | [[ND-17 Request expiry, note and asking again]] | fulfilled (1, 30 days, note, ask again) | [[D-17 Requests expire after 30 days, optional note, ask again at once]] | [[F-14 Connections]] | s44, s45 |
 | [[ND-18 Company and invited Ring names shown to members]] | fulfilled (2, named when joined knowingly) | [[D-18 Ring names shown when joined knowingly]] | [[F-15 Companies]], [[F-17 Ring Invitations & Join]], [[F-11 Rings]], [[F-09 Ring Members]] | s17, s72, s73, s74 |
 | [[ND-19 Where a ticket's layer notes live]] | fulfilled (1, the parent task) | [[D-19 A ticket's layer notes live on the parent task]] | [[F-35 Error Contract]] | — |

@@ -13,6 +13,8 @@ tags: [backend-delivery, backend-delivery/done, module/identity, layer/backend]
 
 # ✅ Files Upload · Backend Delivery
 
+> ⚠ Affected by [[D-16 Files load from signed links that expire in 15 minutes]] (2026-10-29): next work: the signed-link route, its secret and the 15-minute lifetime, and `url` on the uploader's file metadata. For `/backend`.
+
 **Feature:** [[F-04 Files Upload]] · **Status:** Done · **Integration guide:** [[BI-03 Files Upload Backend Integration]] · **Requirements:** [[FR-04 Files Upload Frontend Requirements]] · **QA:** [[Files Upload QA Backend]]
 
 What the backend shipped for this feature and how it works. The sum of this feature's task-level Backend Delivery notes (see the *Tasks* table below).

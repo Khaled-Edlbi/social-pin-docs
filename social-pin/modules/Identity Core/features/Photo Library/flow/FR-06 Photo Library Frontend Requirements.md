@@ -17,6 +17,8 @@ tags: [frontend-requirements, frontend-requirements/ready, module/identity, laye
 
 # Photo Library · Frontend Requirements
 
+> ⚠ Affected by [[D-16 Files load from signed links that expire in 15 minutes]] (2026-10-29): library thumbnails load from a signed `url` valid 15 minutes; re-read when expired. For `/frontend`.
+
 **Feature:** [[F-06 Photo Library]] · **Status:** 📨 Ready 2026-10-29, waiting on the backend's review · **Story:** [[S-11 Photo Library Story]] · **API Integration:** not yet (backend not built)
 
 What the client needs to build the per-Ring photo picker, the library grid and its management mode, and which of it exists. Upload works ([[BI-03 Files Upload Backend Integration]]); setting a Ring's photo works ([[BI-07 Ring Projection Backend Integration]]); listing, the Rings per photo, the main photo and displaying do not.
