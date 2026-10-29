@@ -3260,6 +3260,7 @@
         "backend-integration:rings",
         "feature:counts",
         "feature:ring-access",
+        "feature:ring-members",
         "feature:rings",
         "frontend-requirements:counts",
         "frontend-requirements:ring-access",
@@ -3610,6 +3611,7 @@
       ],
       "kind": "screen",
       "notes": [
+        "feature:ring-members",
         "frontend-requirements:ring-members",
         "story:ring-members"
       ],
@@ -3808,6 +3810,7 @@
       "notes": [
         "backend-delivery:connections",
         "feature:connections",
+        "feature:ring-members",
         "frontend-requirements:connections",
         "frontend-requirements:ring-members",
         "needs-decision:ND-14",
@@ -4334,7 +4337,7 @@
     },
     "concepts": 205,
     "decisions": 21,
-    "edges": 4051,
+    "edges": 4052,
     "features": 41,
     "layerNotes": 132,
     "modules": 8,
@@ -26499,6 +26502,11 @@
     {
       "from": "feature:ring-members",
       "kind": "wikilink",
+      "to": "feature:badge-qr"
+    },
+    {
+      "from": "feature:ring-members",
+      "kind": "wikilink",
       "to": "needs-decision:ND-14"
     },
     {
@@ -40128,10 +40136,13 @@
       "scope": null,
       "screens": [
         "s15",
+        "s16",
+        "s35",
+        "s46",
         "s47"
       ],
       "status": null,
-      "summary": "The owner's roster of a Ring: list, add, edit the access window, move someone to another Ring live, revoke.",
+      "summary": "The owner's roster of a Ring: list and search it, add people, approve those who asked to join, set each person's access window, bring people in from another Ring, choose which of my Rings someone…",
       "tags": [
         "feature",
         "module/identity",
@@ -40140,7 +40151,7 @@
       ],
       "task": null,
       "title": "F-09 Ring Members",
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "feature:ring-projection": {
       "affects": [],
