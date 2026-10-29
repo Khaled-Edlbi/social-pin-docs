@@ -15,6 +15,8 @@ tags: [story, story/draft, module/connections, layer/business]
 
 # Connections · User Story
 
+> ⚠ Affected by [[S-15 Ring Access Engine Story]] (2026-10-29): s47's "4 mutual connections · Omar, Lina, Rami +1" and "2 events in common" reveal another person's connections and events; nothing decides whether that's allowed. A needs-decision card is to be raised from this story ("Mutual connections and events in common", decider: owner); until it's decided s47 shows neither.
+
 **Feature:** [[F-14 Connections]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[FR-14 Connections Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 Two people met, one scanned the other, and now one of them wants access. A connection in Social Pin is an access request: the requester asks to be let in, the owner decides which Ring to put them in, and from that moment the requester sees exactly that Ring's perspective and nothing about the Ring itself ([[D-14 Shared with me lists people, never the Ring]]). A request is pending, accepted, declined, cancelled or expired after 30 days, and the requester sees which ([[D-13 The requester sees a declined request]], [[D-17 Requests expire after 30 days, optional note, ask again at once]]). A person can sit in several of the owner's Rings, and a connection outlives access unless the owner disconnects ([[D-15 Several Rings per connection, remove or disconnect]]). There is no feed, no follower count on display, no "following back".

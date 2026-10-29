@@ -3217,6 +3217,7 @@
     },
     "s15": {
       "containers": [
+        "feature:ring-access",
         "feature:ring-members",
         "needs-decision:ND-15"
       ],
@@ -3227,6 +3228,7 @@
         "feature:ring-members",
         "frontend-requirements:ring-members",
         "needs-decision:ND-15",
+        "story:ring-access",
         "story:ring-members"
       ],
       "owner": null
@@ -3234,6 +3236,7 @@
     "s16": {
       "containers": [
         "feature:counts",
+        "feature:ring-access",
         "feature:rings"
       ],
       "kind": "screen",
@@ -3246,6 +3249,7 @@
         "frontend-requirements:counts",
         "frontend-requirements:rings",
         "story:counts",
+        "story:ring-access",
         "story:rings"
       ],
       "owner": null
@@ -3253,6 +3257,7 @@
     "s17": {
       "containers": [
         "feature:counts",
+        "feature:ring-access",
         "feature:ring-invitations",
         "feature:rings",
         "needs-decision:ND-14",
@@ -3273,6 +3278,7 @@
         "needs-decision:ND-14",
         "needs-decision:ND-18",
         "story:counts",
+        "story:ring-access",
         "story:ring-invitations",
         "story:rings"
       ],
@@ -3433,6 +3439,7 @@
     "s26": {
       "containers": [
         "feature:delegated-admins",
+        "feature:ring-access",
         "feature:rings",
         "needs-decision:ND-04"
       ],
@@ -3447,6 +3454,7 @@
         "frontend-requirements:rings",
         "needs-decision:ND-04",
         "story:delegated-admins",
+        "story:ring-access",
         "story:rings"
       ],
       "owner": null
@@ -3454,6 +3462,7 @@
     "s27": {
       "containers": [
         "feature:delegated-admins",
+        "feature:ring-access",
         "needs-decision:ND-04"
       ],
       "kind": "screen",
@@ -3462,7 +3471,8 @@
         "feature:delegated-admins",
         "frontend-requirements:delegated-admins",
         "needs-decision:ND-04",
-        "story:delegated-admins"
+        "story:delegated-admins",
+        "story:ring-access"
       ],
       "owner": null
     },
@@ -3692,6 +3702,7 @@
         "feature:connections",
         "feature:files",
         "feature:profiles",
+        "feature:ring-access",
         "feature:view-as",
         "needs-decision:ND-10",
         "needs-decision:ND-13",
@@ -3724,6 +3735,7 @@
         "story:connections",
         "story:files",
         "story:profiles",
+        "story:ring-access",
         "story:view-as"
       ],
       "owner": null
@@ -3763,6 +3775,7 @@
     "s47": {
       "containers": [
         "feature:connections",
+        "feature:ring-access",
         "feature:ring-members",
         "needs-decision:ND-15"
       ],
@@ -3777,6 +3790,7 @@
         "frontend-requirements:ring-members",
         "needs-decision:ND-15",
         "story:connections",
+        "story:ring-access",
         "story:ring-members"
       ],
       "owner": null
@@ -3991,6 +4005,7 @@
       "containers": [
         "feature:connections",
         "feature:post-event",
+        "feature:ring-access",
         "feature:rings"
       ],
       "kind": "screen",
@@ -4007,6 +4022,7 @@
         "frontend-requirements:rings",
         "story:connections",
         "story:post-event",
+        "story:ring-access",
         "story:rings"
       ],
       "owner": null
@@ -4268,7 +4284,7 @@
     },
     "concepts": 203,
     "decisions": 20,
-    "edges": 3902,
+    "edges": 3908,
     "features": 41,
     "layerNotes": 132,
     "modules": 8,
@@ -12101,6 +12117,21 @@
       "from": "story:ring-access",
       "kind": "related",
       "to": "decision:D-18"
+    },
+    {
+      "from": "story:ring-access",
+      "kind": "related",
+      "to": "story:connections"
+    },
+    {
+      "from": "story:ring-access",
+      "kind": "related",
+      "to": "story:ring-members"
+    },
+    {
+      "from": "story:ring-access",
+      "kind": "related",
+      "to": "story:rings"
     },
     {
       "from": "story:ring-invitations",
@@ -26054,6 +26085,11 @@
       "to": "story:ring-access"
     },
     {
+      "from": "frontend-requirements:ring-access",
+      "kind": "wikilink",
+      "to": "story:rings"
+    },
+    {
       "from": "frontend-requirements:ring-invitations",
       "kind": "wikilink",
       "to": "decision:D-04"
@@ -26277,6 +26313,11 @@
       "from": "frontend-requirements:rings",
       "kind": "wikilink",
       "to": "story:error-contract"
+    },
+    {
+      "from": "frontend-requirements:rings",
+      "kind": "wikilink",
+      "to": "story:ring-access"
     },
     {
       "from": "frontend-requirements:rings",
@@ -29136,7 +29177,12 @@
     {
       "from": "story:ring-access",
       "kind": "wikilink",
-      "to": "story:connections"
+      "to": "feature:companies"
+    },
+    {
+      "from": "story:ring-access",
+      "kind": "wikilink",
+      "to": "feature:events-during"
     },
     {
       "from": "story:ring-access",
@@ -51542,7 +51588,8 @@
         "decision:D-15",
         "decision:D-17",
         "frontend-requirements:counts",
-        "frontend-requirements:photo-library"
+        "frontend-requirements:photo-library",
+        "story:ring-access"
       ],
       "release": "mvp",
       "resolution": null,
@@ -52951,12 +52998,24 @@
         "decision:D-04",
         "decision:D-14",
         "decision:D-15",
-        "decision:D-18"
+        "decision:D-18",
+        "story:rings",
+        "story:ring-members",
+        "story:connections"
       ],
       "release": "mvp",
       "resolution": null,
       "scope": "feature",
-      "screens": [],
+      "screens": [
+        "s15",
+        "s16",
+        "s17",
+        "s26",
+        "s27",
+        "s44",
+        "s47",
+        "s62"
+      ],
       "status": "approved",
       "summary": "The engine has no screen of its own; it is the answer to the product's one question, what is this viewer allowed to see about this person, in this context, at this moment? These stories are the…",
       "tags": [
@@ -52967,7 +53026,7 @@
       ],
       "task": null,
       "title": "S-15 Ring Access Engine Story",
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "story:ring-invitations": {
       "affects": [],
@@ -53058,6 +53117,7 @@
       "pending": [],
       "priority": "critical",
       "related": [
+        "story:ring-access",
         "decision:D-04",
         "decision:D-14",
         "decision:D-15",
@@ -53178,6 +53238,7 @@
       "pending": [],
       "priority": "critical",
       "related": [
+        "story:ring-access",
         "decision:D-04",
         "decision:D-05",
         "decision:D-14",

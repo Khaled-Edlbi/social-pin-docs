@@ -14,6 +14,8 @@ tags: [feature, module/identity, priority/critical, release/mvp]
 
 # Ring Access Engine
 
+> ⚠ Affected by [[S-15 Ring Access Engine Story]] (2026-10-29): the story now lists the screens its promises show on (s15, s16, s17, s26, s27, s44, s47, s62); the card's `screens:` is empty and its Design reference says "no prototype screen". Ask: `/owner list s15, s16, s17, s26, s27, s44, s47, s62 on Ring Access Engine as the screens its promises show on`.
+
 **Backend:** Done · **Priority:** Critical · **Release:** MVP · **Module:** [[M-01 Identity Core Module|Identity Core]]
 
 **Layers:** [[S-15 Ring Access Engine Story|Story]] · [[FR-08 Ring Access Engine Frontend Requirements|Frontend Requirements]] · [[BD-08 Ring Access Engine Backend Delivery|Backend Delivery]] · [[BI-05 Ring Access Engine Backend Integration|Backend Integration]] · [[Ring Access Engine Frontend Delivery|Frontend Delivery]] · [[Ring Access Engine QA Backend|QA Backend]] · [[Ring Access Engine QA Frontend|QA Frontend]]

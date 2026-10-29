@@ -13,6 +13,8 @@ tags: [frontend-requirements, frontend-requirements/draft, module/identity, laye
 
 # Rings · Frontend Requirements
 
+> ⚠ Affected by [[S-15 Ring Access Engine Story]] (2026-10-29): the settings row "Purpose, join policy, members visible, email domain ❌ ND-04" points at a decided question; it should ask for **the six launch settings** (save and read each on a Ring, D-04's defaults, owner and admins may change them) → [[S-18 Rings Story|Rings · S9]], without the email domain (later). Shared with me (`GET /rings/shared-with-me`) needs per row the person (the owner's card) and, only for a Ring joined knowingly, its name and who shared it, and a member count only when its members can see each other (S-15 S1). Then this note goes `ready`.
+
 > ⚠ Affected by [[D-04 Ring settings at launch and their defaults]] (2026-10-25): ND-04 decided, six Ring settings at launch with private defaults (join with a code or invite, approve each one, members can't see each other, invite or save attachments); the owner and the Ring's admins change them; members who may see each other see full cards.
 
 > ⚠ Affected by [[D-05 Inherit per field, copy without members]] (2026-10-25): ND-05 decided, a Ring inherits the main profile field by field until it changes that field; copying a Ring copies fields, bio, photo, colour and settings, never members.

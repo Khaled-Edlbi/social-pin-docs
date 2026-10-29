@@ -17,6 +17,8 @@ tags: [story, story/approved, module/identity, layer/business]
 
 # Ring Members · User Story
 
+> ⚠ Affected by [[S-15 Ring Access Engine Story]] (2026-10-29): s15's footnote follows the Ring's "members can see each other" setting: "Members never see who else is in this Ring — only you do." while off (the default, and every Ring until the setting exists), "Members of this Ring can see each other." while on (S-15 S8).
+
 **Feature:** [[F-09 Ring Members]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[FR-09 Ring Members Frontend Requirements]] · **Backend Integration:** [[BI-06 Ring Members Backend Integration]]
 
 A Ring owner manages who is in a Ring: sees the roster, adds someone, gives them a time-boxed window, moves them to another Ring when the relationship changes, or revokes them. Every change is live: the person's next request already reflects it. One person can be in several of the owner's Rings ([[D-15 Several Rings per connection, remove or disconnect]]). The roster is the owner's private view: a member sees the other members only when the Ring's "members can see each other" is on ([[D-04 Ring settings at launch and their defaults]]), and never learns which Ring they are in ([[D-14 Shared with me lists people, never the Ring]]) unless they joined it themselves; every membership records how it was created ([[D-18 Ring names shown when joined knowingly]]).
