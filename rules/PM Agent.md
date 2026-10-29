@@ -2,7 +2,7 @@
 type: project
 layer: shared
 created: 2026-10-19
-updated: 2026-10-28
+updated: 2026-10-29
 affects: []
 depends: ["Agent Protocol"]
 related: ["Agent Protocol", "Agent Rules", "Workflow", "Docs Tree", "Owner Agent"]
@@ -113,7 +113,7 @@ You change a status **only when the user tells you to, in that message**, and yo
 | decide ND-NN (option …) | the decision card: `node scripts/build-tree.mjs --scaffold decision ND-NN "<the answer>"` (it starts `draft`), filled with *What was decided*, *Why*, *What it changes* (every feature and card, also in its `affects:`) and *Still open*; then on D-NN `status: decided`, `decidedBy: "<the user's name>"`, `decidedAt: <today>`, the tag `decision/decided`. ND-NN shows ✅ Fulfilled by itself: never type `decided` or `fulfilled` on it, nor `decidedBy` / `decidedAt`; give its H1 ✅ and reduce its `## Decision` to one line pointing at D-NN; the answer and its consequences are never written into ND-NN | the cards in `blocks` return to their own status on the next build; `--impact D-NN` and flag what it lists, pointing at the record; the row in [[Decisions]] |
 | close a bug | `status: done` with its `resolution:` and a `## Log` line (date · branch · what shipped · what was flagged) | anything left for a card or a person goes in `pending:` (the bug shows Partial until it is cleared) |
 | close a bug (B-NN) | the same, with the tag `bug/<status>`, plus `resolution: fixed \| by-design \| duplicate \| cannot-reproduce \| wont-fix` and the tag `resolution/<id>`: how it ended, never instead of the status ([[Agent Rules#4 · Statuses, blocking and sign-off]]) | `by-design` and `wont-fix` name the decision card they rest on in `related:`; the build warns on a bug done without a resolution, and a bug with `pending` is still Partial |
-| fulfil the story | `status: verified` (shown ✅ Fulfilled), the tag `story/verified`, `updated:`, only when every QA note of the story's scope is `passing` with nothing in `pending` (the feature's QA Backend and QA Frontend, only QA Frontend when `frontendOnly`); QA reports it ready, you set it | the build fails on a story fulfilled earlier; the feature counts the story as done only from here |
+| fulfil the story | `status: verified` (shown ✅ Fulfilled), the tag `story/verified`, `updated:`, only when every QA note of the story's scope is `passing` with nothing in `pending` or `unmet` (the feature's QA Backend and QA Frontend, only QA Frontend when `frontendOnly`); QA reports it ready, you set it | the build fails on a story fulfilled earlier; the feature counts the story as done only from here |
 
 **What you move unasked.** The sign-offs above wait for the user's word; the statuses that only record what already happened do not, and you set them in the same commit as the work: a card you create starts at its first status (`draft` story, `todo` bug, `draft` needs-decision). And you **propose** a sign-off the moment it is due, without being asked: a story whose QA notes all pass ("S-NN is ready to fulfil: say *fulfil*"), a bug QA re-ran green ("B-NN can be closed as fixed: say *close*"), a requirements list the build prints as `stale` (ask the backend, or the owner, to review it).
 

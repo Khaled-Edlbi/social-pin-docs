@@ -649,8 +649,9 @@ const shown = (n) => (CODE_TITLED.has(n.kind) && n.card && n.title.startsWith(n.
 const displayKind = (n) => (n.kind === 'task' && (n.labels || []).includes('bug') ? 'bug' : n.kind);
 const kicker = (n) => (n.card && (CODE_TITLED.has(n.kind) || !n.title.startsWith(n.card)) ? n.card + ' · ' : '') + kindOf(displayKind(n)).name.toUpperCase() + (n.parentTask ? ' · SUB-TASK OF ' + n.parentTask : '') + (n.frontendOnly ? ' · FRONTEND ONLY' : '');
 const flowIdx = (kind) => FLOW.order.indexOf(kind);
-// is a story fulfilled? only the PM fulfils it (`verified`), once QA has finished: 'checked' when fulfilled, 'cross' when any QA card is failing,
-// 'pending' until then (with "waiting for the PM" once every QA card is passing with nothing pending); a task story's QA cards sit under its halves
+// does the delivery fulfil the story? only the PM fulfils it (`verified`), once QA has finished: 'checked' when fulfilled, 'cross' when a QA card
+// lists story parts in `unmet` (not built, or built other than the story says), 'pending' otherwise, open bugs included: a bug marks the card it
+// was found against, not the story ("waiting for the PM" once every QA card is passing with nothing pending); a task story's QA cards sit under its halves
 const doneSet = (kind) => { for (const l of S.D.layers || []) for (const k of l.kinds) if (k.id === kind) return k.done || []; return []; };
 const skipsFor = (n) => (n && n.frontendOnly && S.D.frontendOnly && Array.isArray(S.D.frontendOnly.skips)) ? S.D.frontendOnly.skips : [];
 function storyVerdict(n) {
@@ -662,17 +663,18 @@ function storyVerdict(n) {
   const halves = parent && parent.kind === 'task' ? parent.children.map(node).filter((c) => c && c.kind === 'task') : null;
   const wanted = halves ? backKinds.filter((k) => halves.some((h) => (h.labels || []).includes(k === 'qa-backend' ? 'backend' : 'frontend'))) : backKinds;
   const qa = wanted.map((k) => pool.find((c) => c.kind === k) || { kind: k, effectiveStatus: 'missing', status: null, title: kindOf(k).name, pending: [] });
-  const line = (c) => `${kindOf(c.kind).name} · ${c.effectiveStatus === 'missing' ? 'not written yet' : statusText(c)}`;
-  const finished = (c) => doneSet(c.kind).includes(c.status) && !(c.pending || []).length;
+  const unmetOf = (c) => (c.unmet || []).length;
+  const line = (c) => `${kindOf(c.kind).name} · ${c.effectiveStatus === 'missing' ? 'not written yet' : statusText(c)}${unmetOf(c) ? ` · ${unmetOf(c)} story part${unmetOf(c) === 1 ? '' : 's'} unmet` : ''}`;
+  const finished = (c) => doneSet(c.kind).includes(c.status) && !(c.pending || []).length && !unmetOf(c);
   if (n.status === 'verified') return { state: 'checked', text: 'Story fulfilled · by the PM', lines: qa.map(line) };
-  if (qa.some((c) => c.status === 'failing')) return { state: 'cross', text: 'Story not fulfilled · QA found wrong results', lines: qa.map(line) };
+  if (qa.some(unmetOf)) return { state: 'cross', text: 'Story not fulfilled · the delivery does not do what the story says', lines: qa.map(line) };
   if (qa.length && qa.every(finished)) return { state: 'pending', text: 'QA done · waiting for the PM to fulfil the story', lines: qa.map(line) };
   return { state: 'pending', text: 'Story not fulfilled yet', lines: qa.map(line) };
 }
 const VERDICT = {
   checked: { ...GREEN, d: 'M -3.6 0.2 L -1.2 2.6 L 3.6 -2.6', name: 'Fulfilled' },
   pending: { ...OCHRE, d: 'M 0 -3.4 V 0.2 L 2.4 1.8 M 0 -5.2 A 5.2 5.2 0 1 1 -0.01 -5.2', name: 'Pending' },
-  cross: { c: ST.failing.c, bg: ST.failing.bg, ink: ST.failing.ink, d: 'M -3 -3 L 3 3 M 3 -3 L -3 3', name: 'Wrong results' },
+  cross: { c: ST.failing.c, bg: ST.failing.bg, ink: ST.failing.ink, d: 'M -3 -3 L 3 3 M 3 -3 L -3 3', name: 'Not as the story says' },
 };
 const chipStyle = (n) => { const st = stOf(n); return `--bg:${st.bg};--ink:${st.ink};--bd:${st.dashed ? st.c : 'transparent'}`; };
 const chipHtml = (n, extraCls = '') => `<span class="stchip${stOf(n).dashed ? ' dashed' : ''}${extraCls ? ' ' + extraCls : ''}" style="${chipStyle(n)}">${esc(statusText(n))}</span>`;
@@ -925,7 +927,7 @@ function renderCards(list) {
       const tt = sel('text', { x: 14, y: 8, 'dominant-baseline': 'middle' }, g, { font: `600 13px ${FONT}`, fill: st.dashed ? 'var(--color-neutral-700)' : 'var(--color-text)', pointerEvents: 'none' }); tt.textContent = shown(n);
       const vd = storyVerdict(n);
       if (vd) {
-        // the story's verdict badge on the top-right corner: ✓ fulfilled, ◷ pending, ✕ wrong results
+        // the story's verdict badge on the top-right corner: ✓ fulfilled, ◷ pending, ✕ the delivery does not do what the story says
         const v = VERDICT[vd.state], bg = sel('g', { 'data-verdict': vd.state }, g);
         sel('circle', { cx: it.w, cy: -T.H, r: 8.5 }, bg, { fill: v.bg, stroke: v.c, strokeWidth: 1.2 });
         sel('path', { d: v.d, transform: `translate(${it.w}, ${-T.H})` }, bg, { fill: 'none', stroke: v.ink, strokeWidth: 1.6, strokeLinecap: 'round', strokeLinejoin: 'round', pointerEvents: 'none' });
@@ -940,12 +942,15 @@ function renderCards(list) {
       let lx = noChip ? cx + 6 : cx - 6;
       for (const t of [...tagsOf(n)].reverse()) { const tw_ = Math.ceil(tw(t.text, `700 9px ${FONT}`)) + 12; lx -= tw_; sel('rect', { x: lx, y: -8, width: tw_, height: 16, rx: 2 }, g, { fill: t.bg, stroke: t.c, strokeWidth: 1 }); const tt_ = sel('text', { x: lx + 6, y: 0.5, 'dominant-baseline': 'middle' }, g, { font: `700 9px ${FONT}`, fill: t.ink, pointerEvents: 'none' }); tt_.textContent = t.text; lx -= 6; }
       for (const l of [...(n.labels || [])].reverse()) { const ls = labelStyle(l), text = l.toUpperCase(), lw = Math.ceil(tw(text, `700 8px ${FONT}`) + text.length * 0.6) + 10; lx -= lw; sel('rect', { x: lx, y: -8, width: lw, height: 16, rx: 2 }, g, { fill: ls.bg, stroke: ls.c, strokeWidth: 1 }); const lt = sel('text', { x: lx + 5, y: 0.5, 'dominant-baseline': 'middle' }, g, { font: `700 8px ${FONT}`, letterSpacing: '0.06em', fill: ls.ink, pointerEvents: 'none' }); lt.textContent = text; lx -= 6; }
-      // the corner badges: the priority flag on the top-left corner, the deadline clock (a skull once missed) on the bottom-right; the story verdict keeps the top-right
+      // the corner badges: the priority flag on the top-left corner, the deadline clock (a skull once missed) on the bottom-right, the open-bug mark on the
+      // bottom-left (bugs found against this card and not closed); the story verdict keeps the top-right
       const badge = (cx0, cy0, color, title, draw) => { const bg = sel('g', { 'data-mark': '' }, g); sel('circle', { cx: cx0, cy: cy0, r: 8.5 }, bg, { fill: `color-mix(in srgb, ${color} 18%, var(--color-neutral-100))`, stroke: color, strokeWidth: 1.2 }); draw(bg, cx0, cy0, color); sel('title', {}, bg).textContent = title; };
       const stroke = (color) => ({ fill: 'none', stroke: color, strokeWidth: 1.6, strokeLinecap: 'round', strokeLinejoin: 'round', pointerEvents: 'none' });
       const z = dueOf(n), p = prioOf(n);
       if (p) badge(0, -T.H, p.color || 'currentColor', `Priority: ${p.label}${inheritedFrom(n, 'priority')}`, (bg, cx0, cy0, color) => sel('path', { d: FLAG_D, transform: `translate(${cx0}, ${cy0}) scale(0.85)` }, bg, stroke(color)));
       if (z) badge(it.w, T.H, z.color || 'currentColor', `Deadline ${z.date} · ${z.text}${inheritedFrom(n, 'deadline')}`, (bg, cx0, cy0, color) => { if (z.missed) { const t = sel('text', { x: cx0, y: cy0 + 0.5, 'text-anchor': 'middle', 'dominant-baseline': 'middle' }, bg, { font: `11px ${FONT}`, pointerEvents: 'none' }); t.textContent = z.icon || '💀'; } else sel('path', { d: CLOCK_D, transform: `translate(${cx0}, ${cy0}) scale(0.9)` }, bg, stroke(color)); });
+      const bugs = (n.openBugs || []).map(node).filter(Boolean);
+      if (bugs.length) badge(0, T.H, ST.failing.c, `Open bug${bugs.length === 1 ? '' : 's'} found against this card:\n${bugs.map((b) => (b.card && !b.title.startsWith(b.card) ? `${b.card} ${b.title}` : b.title)).join('\n')}`, (bg, cx0, cy0) => { const t = sel('text', { x: cx0, y: cy0 + 0.5, 'text-anchor': 'middle', 'dominant-baseline': 'middle' }, bg, { font: `10px ${FONT}`, pointerEvents: 'none' }); t.textContent = '🐞'; });
       let caretT = null, caretC = null;
       if (it.caret) {
         const cg = sel('g', {}, g, { cursor: 'pointer' });
@@ -1335,6 +1340,8 @@ function stateHtml(n) {
   const z = dueOf(n);
   if (z) out.push(relGroup(z.missed ? 'Deadline missed' : 'Deadline', '', `<span class="rel" style="cursor:default">${marksHtml({ deadline: n.deadline })}<span class="lt">${esc(z.date)}</span><span class="why">${esc(z.text)}</span></span>`, n.inherits && n.inherits.deadline && node(n.inherits.deadline) ? `Inherited from ${esc(node(n.inherits.deadline).title)}` : `The card's own deadline · the clock turns ${DL.zones.map((x) => x.label.toLowerCase()).join(' → ')} over the last ${DL.windowDays} days, ${DL.missed.icon || '💀'} once missed`));
   if (Array.isArray(n.blockedBy) && n.blockedBy.length) out.push(relGroup('Blocked by', String(n.blockedBy.length), n.blockedBy.map((b) => relItem(b.id, `<span class="why">${esc(b.why)}</span>`)).join('')));
+  if (Array.isArray(n.unmet) && n.unmet.length) out.push(relGroup('Story parts unmet', String(n.unmet.length), n.unmet.map((p) => p.to ? relItem(p.to, `<span class="why">${esc(p.text)}</span>`) : `<span class="rel" style="cursor:default"><i class="ph-duotone ph-user" style="font-size:13px"></i>${p.person ? `<span class="lt">@${esc(p.person)}</span>` : ''}<span class="why">${esc(p.text)}</span></span>`).join(''), 'The delivery does not do what the story says here: the story shows ✕ until a re-run clears them'));
+  if (Array.isArray(n.openBugs) && n.openBugs.length) out.push(relGroup('Open bugs', String(n.openBugs.length), n.openBugs.map((b) => relItem(b, '')).join(''), 'Found against this card and not closed; the story is not marked by them'));
   if (Array.isArray(n.pending) && n.pending.length) out.push(relGroup('Pending', String(n.pending.length), n.pending.map((p) => p.to ? relItem(p.to, `<span class="why">${esc(p.text)}</span>`) : `<span class="rel" style="cursor:default"><i class="ph-duotone ph-user" style="font-size:13px"></i>${p.person ? `<span class="lt">@${esc(p.person)}</span>` : ''}<span class="why">${esc(p.text)}</span></span>`).join(''), n.effectiveStatus === 'partial' ? 'Partial until these are cleared or handed over' : 'Notes left for a card or a person'));
   return out.join('');
 }
@@ -1441,7 +1448,7 @@ function splitList(s) {
   out.push(cur); return out;
 }
 // a frontmatter value as the properties table shows it: wikilinks, card codes and ids become card links, lists read "a, b, c"
-const PLAIN_KEYS = new Set(["type", "id", "name", "code", "status", "priority", "effort", "deadline", "created", "updated", "owner", "decider", "tags", "labels", "screens", "scope", "layer", "frontendOnly", "pending", "stage", "release", "resolution", "deployedTo"]);
+const PLAIN_KEYS = new Set(["type", "id", "name", "code", "status", "priority", "effort", "deadline", "created", "updated", "owner", "decider", "tags", "labels", "screens", "scope", "layer", "frontendOnly", "pending", "unmet", "stage", "release", "resolution", "deployedTo"]);
 function fmLink(key, t) {
   if (PLAIN_KEYS.has(key)) return null;
   const d = S.D;

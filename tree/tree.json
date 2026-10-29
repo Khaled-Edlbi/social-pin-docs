@@ -4531,7 +4531,7 @@
     },
     "concepts": 214,
     "decisions": 21,
-    "edges": 4350,
+    "edges": 4351,
     "features": 41,
     "layerNotes": 133,
     "modules": 8,
@@ -31468,6 +31468,11 @@
     {
       "from": "project:agent-rules",
       "kind": "wikilink",
+      "to": "backend-delivery:files"
+    },
+    {
+      "from": "project:agent-rules",
+      "kind": "wikilink",
       "to": "frontend-requirements:rings"
     },
     {
@@ -34756,6 +34761,7 @@
       "labels": [],
       "layer": "backend",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:account"
@@ -34812,6 +34818,7 @@
       ],
       "task": null,
       "title": "BD-01 Account Backend Delivery",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "backend-delivery:app-shell": {
@@ -34838,6 +34845,7 @@
       "labels": [],
       "layer": "backend",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:app-shell"
@@ -34865,6 +34873,7 @@
       ],
       "task": null,
       "title": "BD-29 App Shell & Onboarding Narrative Backend Delivery",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "backend-delivery:audit-log": {
@@ -34897,6 +34906,7 @@
       "labels": [],
       "layer": "backend",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:audit-log"
@@ -34919,6 +34929,7 @@
       ],
       "task": null,
       "title": "BD-30 Audit Log Backend Delivery",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "backend-delivery:auth": {
@@ -34947,6 +34958,9 @@
       "labels": [],
       "layer": "backend",
       "module": "identity",
+      "openBugs": [
+        "task:B-06"
+      ],
       "parentTask": null,
       "parents": [
         "feature:auth"
@@ -34993,6 +35007,7 @@
       ],
       "task": null,
       "title": "BD-02 Auth & Sign-up Backend Delivery",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "backend-delivery:badge-qr": {
@@ -35025,6 +35040,7 @@
       "labels": [],
       "layer": "backend",
       "module": "discovery",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:badge-qr"
@@ -35056,6 +35072,7 @@
       ],
       "task": null,
       "title": "BD-18 Badge & QR Backend Delivery",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "backend-delivery:build-deploy": {
@@ -35085,6 +35102,7 @@
       "labels": [],
       "layer": "backend",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:build-deploy"
@@ -35102,6 +35120,7 @@
       "task": null,
       "template": "templates/Backend Delivery Template.md",
       "title": "Build & Deploy Backend Delivery",
+      "unmet": [],
       "updated": null
     },
     "backend-delivery:cleanup-jobs": {
@@ -35134,6 +35153,7 @@
       "labels": [],
       "layer": "backend",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:cleanup-jobs"
@@ -35156,6 +35176,7 @@
       ],
       "task": null,
       "title": "BD-31 Cleanup Jobs Backend Delivery",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "backend-delivery:code-delivery": {
@@ -35188,6 +35209,7 @@
       "labels": [],
       "layer": "backend",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:code-delivery"
@@ -35212,6 +35234,7 @@
       ],
       "task": null,
       "title": "BD-32 Code Delivery Backend Delivery",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "backend-delivery:companies": {
@@ -35244,6 +35267,7 @@
       "labels": [],
       "layer": "backend",
       "module": "shared-rings",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:companies"
@@ -35269,6 +35293,7 @@
       ],
       "task": null,
       "title": "BD-15 Companies Backend Delivery",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "backend-delivery:connections": {
@@ -35301,6 +35326,7 @@
       "labels": [],
       "layer": "backend",
       "module": "connections",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:connections"
@@ -35329,6 +35355,7 @@
       ],
       "task": null,
       "title": "BD-14 Connections Backend Delivery",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "backend-delivery:counts": {
@@ -35361,6 +35388,7 @@
       "labels": [],
       "layer": "backend",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:counts"
@@ -35390,6 +35418,7 @@
       ],
       "task": null,
       "title": "BD-03 Counts Backend Delivery",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "backend-delivery:delegated-admins": {
@@ -35422,6 +35451,7 @@
       "labels": [],
       "layer": "backend",
       "module": "shared-rings",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:delegated-admins"
@@ -35449,6 +35479,7 @@
       ],
       "task": null,
       "title": "BD-16 Delegated Admins Backend Delivery",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "backend-delivery:devices": {
@@ -35481,6 +35512,7 @@
       "labels": [],
       "layer": "backend",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:devices"
@@ -35507,6 +35539,7 @@
       ],
       "task": null,
       "title": "BD-33 Devices & NFC Backend Delivery",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "backend-delivery:discover-hub": {
@@ -35539,6 +35572,7 @@
       "labels": [],
       "layer": "backend",
       "module": "discovery",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:discover-hub"
@@ -35563,6 +35597,7 @@
       ],
       "task": null,
       "title": "BD-19 Discover Hub & Search Backend Delivery",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "backend-delivery:e2e-tests": {
@@ -35595,6 +35630,7 @@
       "labels": [],
       "layer": "backend",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:e2e-tests"
@@ -35617,6 +35653,7 @@
       ],
       "task": null,
       "title": "BD-34 E2E Test Run Backend Delivery",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "backend-delivery:error-contract": {
@@ -35643,6 +35680,7 @@
       "labels": [],
       "layer": "backend",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:error-contract"
@@ -35674,6 +35712,7 @@
       ],
       "task": null,
       "title": "BD-35 Error Contract Backend Delivery",
+      "unmet": [],
       "updated": "2026-10-29"
     },
     "backend-delivery:event-ring-auto": {
@@ -35706,6 +35745,7 @@
       "labels": [],
       "layer": "backend",
       "module": "events",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:event-ring-auto"
@@ -35730,6 +35770,7 @@
       ],
       "task": null,
       "title": "BD-21 Event Ring Auto-creation Backend Delivery",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "backend-delivery:events-before": {
@@ -35762,6 +35803,7 @@
       "labels": [],
       "layer": "backend",
       "module": "events",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:events-before"
@@ -35790,6 +35832,7 @@
       ],
       "task": null,
       "title": "BD-22 Events Before Backend Delivery",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "backend-delivery:events-during": {
@@ -35822,6 +35865,7 @@
       "labels": [],
       "layer": "backend",
       "module": "events",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:events-during"
@@ -35851,6 +35895,7 @@
       ],
       "task": null,
       "title": "BD-23 Events During Backend Delivery",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "backend-delivery:exhibitor": {
@@ -35883,6 +35928,7 @@
       "labels": [],
       "layer": "backend",
       "module": "events",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:exhibitor"
@@ -35909,6 +35955,7 @@
       ],
       "task": null,
       "title": "BD-24 Exhibitor Backend Delivery",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "backend-delivery:files": {
@@ -35937,6 +35984,7 @@
       "labels": [],
       "layer": "backend",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:files"
@@ -35970,6 +36018,7 @@
       ],
       "task": null,
       "title": "BD-04 Files Upload Backend Delivery",
+      "unmet": [],
       "updated": "2026-10-29"
     },
     "backend-delivery:gemma": {
@@ -36002,6 +36051,7 @@
       "labels": [],
       "layer": "backend",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:gemma"
@@ -36027,6 +36077,7 @@
       ],
       "task": null,
       "title": "BD-36 Gemma AI Backend Delivery",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "backend-delivery:interests": {
@@ -36059,6 +36110,7 @@
       "labels": [],
       "layer": "backend",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:interests"
@@ -36084,6 +36136,7 @@
       ],
       "task": null,
       "title": "BD-37 Interests Backend Delivery",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "backend-delivery:linked-accounts": {
@@ -36116,6 +36169,7 @@
       "labels": [],
       "layer": "backend",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:linked-accounts"
@@ -36146,6 +36200,7 @@
       ],
       "task": null,
       "title": "BD-38 Linked Accounts (OAuth) Backend Delivery",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "backend-delivery:meetings": {
@@ -36178,6 +36233,7 @@
       "labels": [],
       "layer": "backend",
       "module": "meetings",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:meetings"
@@ -36206,6 +36262,7 @@
       ],
       "task": null,
       "title": "BD-26 Meetings Backend Delivery",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "backend-delivery:notifications": {
@@ -36238,6 +36295,7 @@
       "labels": [],
       "layer": "backend",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:notifications"
@@ -36262,6 +36320,7 @@
       ],
       "task": null,
       "title": "BD-39 Notifications Backend Delivery",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "backend-delivery:onboarding-imports": {
@@ -36294,6 +36353,7 @@
       "labels": [],
       "layer": "backend",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:onboarding-imports"
@@ -36322,6 +36382,7 @@
       ],
       "task": null,
       "title": "BD-05 Onboarding Imports Backend Delivery",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "backend-delivery:operator-panel": {
@@ -36351,6 +36412,7 @@
       "labels": [],
       "layer": "backend",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:operator-panel"
@@ -36368,6 +36430,7 @@
       "task": null,
       "template": "templates/Backend Delivery Template.md",
       "title": "Operator Panel Backend Delivery",
+      "unmet": [],
       "updated": null
     },
     "backend-delivery:payments": {
@@ -36400,6 +36463,7 @@
       "labels": [],
       "layer": "backend",
       "module": "commerce",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:payments"
@@ -36425,6 +36489,7 @@
       ],
       "task": null,
       "title": "BD-27 Payments & Orders Backend Delivery",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "backend-delivery:photo-library": {
@@ -36457,6 +36522,7 @@
       "labels": [],
       "layer": "backend",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:photo-library"
@@ -36485,6 +36551,7 @@
       ],
       "task": null,
       "title": "BD-06 Photo Library Backend Delivery",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "backend-delivery:pincast": {
@@ -36517,6 +36584,7 @@
       "labels": [],
       "layer": "backend",
       "module": "discovery",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:pincast"
@@ -36545,6 +36613,7 @@
       ],
       "task": null,
       "title": "BD-20 PinCast & Nearby Backend Delivery",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "backend-delivery:post-event": {
@@ -36577,6 +36646,7 @@
       "labels": [],
       "layer": "backend",
       "module": "events",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:post-event"
@@ -36601,6 +36671,7 @@
       ],
       "task": null,
       "title": "BD-25 Post-Event Backend Delivery",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "backend-delivery:profiles": {
@@ -36627,6 +36698,7 @@
       "labels": [],
       "layer": "backend",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:profiles"
@@ -36666,6 +36738,7 @@
       ],
       "task": null,
       "title": "BD-07 Profiles & Pin Name Backend Delivery",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "backend-delivery:ring-access": {
@@ -36692,6 +36765,7 @@
       "labels": [],
       "layer": "backend",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:ring-access"
@@ -36721,6 +36795,7 @@
       ],
       "task": null,
       "title": "BD-08 Ring Access Engine Backend Delivery",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "backend-delivery:ring-invitations": {
@@ -36753,6 +36828,7 @@
       "labels": [],
       "layer": "backend",
       "module": "shared-rings",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:ring-invitations"
@@ -36778,6 +36854,7 @@
       ],
       "task": null,
       "title": "BD-17 Ring Invitations & Join Backend Delivery",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "backend-delivery:ring-members": {
@@ -36804,6 +36881,7 @@
       "labels": [],
       "layer": "backend",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:ring-members"
@@ -36831,6 +36909,7 @@
       ],
       "task": null,
       "title": "BD-09 Ring Members Backend Delivery",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "backend-delivery:ring-projection": {
@@ -36857,6 +36936,7 @@
       "labels": [],
       "layer": "backend",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:ring-projection"
@@ -36893,6 +36973,7 @@
       ],
       "task": null,
       "title": "BD-10 Ring Projection Backend Delivery",
+      "unmet": [],
       "updated": "2026-10-29"
     },
     "backend-delivery:rings": {
@@ -36919,6 +37000,7 @@
       "labels": [],
       "layer": "backend",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:rings"
@@ -36958,6 +37040,7 @@
       ],
       "task": null,
       "title": "BD-11 Rings Backend Delivery",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "backend-delivery:subscription": {
@@ -36990,6 +37073,7 @@
       "labels": [],
       "layer": "backend",
       "module": "commerce",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:subscription"
@@ -37015,6 +37099,7 @@
       ],
       "task": null,
       "title": "BD-28 Subscription (Free vs Pro) Backend Delivery",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "backend-delivery:view-as": {
@@ -37041,6 +37126,7 @@
       "labels": [],
       "layer": "backend",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:view-as"
@@ -37072,6 +37158,7 @@
       ],
       "task": null,
       "title": "BD-12 View As & Pin Views Backend Delivery",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "backend-delivery:widgets": {
@@ -37104,6 +37191,7 @@
       "labels": [],
       "layer": "backend",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:widgets"
@@ -37129,6 +37217,7 @@
       ],
       "task": null,
       "title": "BD-13 Widgets Backend Delivery",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "backend-integration:account": {
@@ -37162,6 +37251,7 @@
       "labels": [],
       "layer": "backend",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:account"
@@ -37222,6 +37312,7 @@
       ],
       "task": null,
       "title": "BI-01 Account Backend Integration",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "backend-integration:audit-log": {
@@ -37251,6 +37342,7 @@
       "labels": [],
       "layer": "backend",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:audit-log"
@@ -37268,6 +37360,7 @@
       "task": null,
       "template": "templates/Backend Integration Template.md",
       "title": "Audit Log Backend Integration",
+      "unmet": [],
       "updated": null
     },
     "backend-integration:auth": {
@@ -37298,6 +37391,11 @@
       "labels": [],
       "layer": "backend",
       "module": "identity",
+      "openBugs": [
+        "task:B-03",
+        "task:B-04",
+        "task:B-05"
+      ],
       "parentTask": null,
       "parents": [
         "feature:auth"
@@ -37346,6 +37444,7 @@
       ],
       "task": null,
       "title": "BI-02 Auth & Sign-up Backend Integration",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "backend-integration:badge-qr": {
@@ -37375,6 +37474,7 @@
       "labels": [],
       "layer": "backend",
       "module": "discovery",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:badge-qr"
@@ -37392,6 +37492,7 @@
       "task": null,
       "template": "templates/Backend Integration Template.md",
       "title": "Badge & QR Backend Integration",
+      "unmet": [],
       "updated": null
     },
     "backend-integration:build-deploy": {
@@ -37421,6 +37522,7 @@
       "labels": [],
       "layer": "backend",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:build-deploy"
@@ -37438,6 +37540,7 @@
       "task": null,
       "template": "templates/Backend Integration Template.md",
       "title": "Build & Deploy Backend Integration",
+      "unmet": [],
       "updated": null
     },
     "backend-integration:cleanup-jobs": {
@@ -37467,6 +37570,7 @@
       "labels": [],
       "layer": "backend",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:cleanup-jobs"
@@ -37484,6 +37588,7 @@
       "task": null,
       "template": "templates/Backend Integration Template.md",
       "title": "Cleanup Jobs Backend Integration",
+      "unmet": [],
       "updated": null
     },
     "backend-integration:code-delivery": {
@@ -37513,6 +37618,7 @@
       "labels": [],
       "layer": "backend",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:code-delivery"
@@ -37530,6 +37636,7 @@
       "task": null,
       "template": "templates/Backend Integration Template.md",
       "title": "Code Delivery Backend Integration",
+      "unmet": [],
       "updated": null
     },
     "backend-integration:companies": {
@@ -37559,6 +37666,7 @@
       "labels": [],
       "layer": "backend",
       "module": "shared-rings",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:companies"
@@ -37576,6 +37684,7 @@
       "task": null,
       "template": "templates/Backend Integration Template.md",
       "title": "Companies Backend Integration",
+      "unmet": [],
       "updated": null
     },
     "backend-integration:connections": {
@@ -37605,6 +37714,7 @@
       "labels": [],
       "layer": "backend",
       "module": "connections",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:connections"
@@ -37622,6 +37732,7 @@
       "task": null,
       "template": "templates/Backend Integration Template.md",
       "title": "Connections Backend Integration",
+      "unmet": [],
       "updated": null
     },
     "backend-integration:counts": {
@@ -37651,6 +37762,7 @@
       "labels": [],
       "layer": "backend",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:counts"
@@ -37668,6 +37780,7 @@
       "task": null,
       "template": "templates/Backend Integration Template.md",
       "title": "Counts Backend Integration",
+      "unmet": [],
       "updated": null
     },
     "backend-integration:delegated-admins": {
@@ -37697,6 +37810,7 @@
       "labels": [],
       "layer": "backend",
       "module": "shared-rings",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:delegated-admins"
@@ -37714,6 +37828,7 @@
       "task": null,
       "template": "templates/Backend Integration Template.md",
       "title": "Delegated Admins Backend Integration",
+      "unmet": [],
       "updated": null
     },
     "backend-integration:devices": {
@@ -37743,6 +37858,7 @@
       "labels": [],
       "layer": "backend",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:devices"
@@ -37760,6 +37876,7 @@
       "task": null,
       "template": "templates/Backend Integration Template.md",
       "title": "Devices & NFC Backend Integration",
+      "unmet": [],
       "updated": null
     },
     "backend-integration:discover-hub": {
@@ -37789,6 +37906,7 @@
       "labels": [],
       "layer": "backend",
       "module": "discovery",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:discover-hub"
@@ -37806,6 +37924,7 @@
       "task": null,
       "template": "templates/Backend Integration Template.md",
       "title": "Discover Hub & Search Backend Integration",
+      "unmet": [],
       "updated": null
     },
     "backend-integration:e2e-tests": {
@@ -37835,6 +37954,7 @@
       "labels": [],
       "layer": "backend",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:e2e-tests"
@@ -37852,6 +37972,7 @@
       "task": null,
       "template": "templates/Backend Integration Template.md",
       "title": "E2E Test Run Backend Integration",
+      "unmet": [],
       "updated": null
     },
     "backend-integration:error-contract": {
@@ -37881,6 +38002,7 @@
       "labels": [],
       "layer": "backend",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:error-contract"
@@ -37898,6 +38020,7 @@
       "task": null,
       "template": "templates/Backend Integration Template.md",
       "title": "Error Contract Backend Integration",
+      "unmet": [],
       "updated": null
     },
     "backend-integration:event-ring-auto": {
@@ -37927,6 +38050,7 @@
       "labels": [],
       "layer": "backend",
       "module": "events",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:event-ring-auto"
@@ -37944,6 +38068,7 @@
       "task": null,
       "template": "templates/Backend Integration Template.md",
       "title": "Event Ring Auto-creation Backend Integration",
+      "unmet": [],
       "updated": null
     },
     "backend-integration:events-before": {
@@ -37973,6 +38098,7 @@
       "labels": [],
       "layer": "backend",
       "module": "events",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:events-before"
@@ -37990,6 +38116,7 @@
       "task": null,
       "template": "templates/Backend Integration Template.md",
       "title": "Events Before Backend Integration",
+      "unmet": [],
       "updated": null
     },
     "backend-integration:events-during": {
@@ -38019,6 +38146,7 @@
       "labels": [],
       "layer": "backend",
       "module": "events",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:events-during"
@@ -38036,6 +38164,7 @@
       "task": null,
       "template": "templates/Backend Integration Template.md",
       "title": "Events During Backend Integration",
+      "unmet": [],
       "updated": null
     },
     "backend-integration:exhibitor": {
@@ -38065,6 +38194,7 @@
       "labels": [],
       "layer": "backend",
       "module": "events",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:exhibitor"
@@ -38082,6 +38212,7 @@
       "task": null,
       "template": "templates/Backend Integration Template.md",
       "title": "Exhibitor Backend Integration",
+      "unmet": [],
       "updated": null
     },
     "backend-integration:files": {
@@ -38108,6 +38239,7 @@
       "labels": [],
       "layer": "backend",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:files"
@@ -38143,6 +38275,7 @@
       ],
       "task": null,
       "title": "BI-03 Files Upload Backend Integration",
+      "unmet": [],
       "updated": "2026-10-29"
     },
     "backend-integration:gemma": {
@@ -38172,6 +38305,7 @@
       "labels": [],
       "layer": "backend",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:gemma"
@@ -38189,6 +38323,7 @@
       "task": null,
       "template": "templates/Backend Integration Template.md",
       "title": "Gemma AI Backend Integration",
+      "unmet": [],
       "updated": null
     },
     "backend-integration:interests": {
@@ -38218,6 +38353,7 @@
       "labels": [],
       "layer": "backend",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:interests"
@@ -38235,6 +38371,7 @@
       "task": null,
       "template": "templates/Backend Integration Template.md",
       "title": "Interests Backend Integration",
+      "unmet": [],
       "updated": null
     },
     "backend-integration:linked-accounts": {
@@ -38264,6 +38401,7 @@
       "labels": [],
       "layer": "backend",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:linked-accounts"
@@ -38281,6 +38419,7 @@
       "task": null,
       "template": "templates/Backend Integration Template.md",
       "title": "Linked Accounts (OAuth) Backend Integration",
+      "unmet": [],
       "updated": null
     },
     "backend-integration:meetings": {
@@ -38310,6 +38449,7 @@
       "labels": [],
       "layer": "backend",
       "module": "meetings",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:meetings"
@@ -38327,6 +38467,7 @@
       "task": null,
       "template": "templates/Backend Integration Template.md",
       "title": "Meetings Backend Integration",
+      "unmet": [],
       "updated": null
     },
     "backend-integration:notifications": {
@@ -38356,6 +38497,7 @@
       "labels": [],
       "layer": "backend",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:notifications"
@@ -38373,6 +38515,7 @@
       "task": null,
       "template": "templates/Backend Integration Template.md",
       "title": "Notifications Backend Integration",
+      "unmet": [],
       "updated": null
     },
     "backend-integration:onboarding-imports": {
@@ -38402,6 +38545,7 @@
       "labels": [],
       "layer": "backend",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:onboarding-imports"
@@ -38419,6 +38563,7 @@
       "task": null,
       "template": "templates/Backend Integration Template.md",
       "title": "Onboarding Imports Backend Integration",
+      "unmet": [],
       "updated": null
     },
     "backend-integration:operator-panel": {
@@ -38448,6 +38593,7 @@
       "labels": [],
       "layer": "backend",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:operator-panel"
@@ -38465,6 +38611,7 @@
       "task": null,
       "template": "templates/Backend Integration Template.md",
       "title": "Operator Panel Backend Integration",
+      "unmet": [],
       "updated": null
     },
     "backend-integration:payments": {
@@ -38494,6 +38641,7 @@
       "labels": [],
       "layer": "backend",
       "module": "commerce",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:payments"
@@ -38511,6 +38659,7 @@
       "task": null,
       "template": "templates/Backend Integration Template.md",
       "title": "Payments & Orders Backend Integration",
+      "unmet": [],
       "updated": null
     },
     "backend-integration:photo-library": {
@@ -38540,6 +38689,7 @@
       "labels": [],
       "layer": "backend",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:photo-library"
@@ -38557,6 +38707,7 @@
       "task": null,
       "template": "templates/Backend Integration Template.md",
       "title": "Photo Library Backend Integration",
+      "unmet": [],
       "updated": null
     },
     "backend-integration:pincast": {
@@ -38586,6 +38737,7 @@
       "labels": [],
       "layer": "backend",
       "module": "discovery",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:pincast"
@@ -38603,6 +38755,7 @@
       "task": null,
       "template": "templates/Backend Integration Template.md",
       "title": "PinCast & Nearby Backend Integration",
+      "unmet": [],
       "updated": null
     },
     "backend-integration:post-event": {
@@ -38632,6 +38785,7 @@
       "labels": [],
       "layer": "backend",
       "module": "events",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:post-event"
@@ -38649,6 +38803,7 @@
       "task": null,
       "template": "templates/Backend Integration Template.md",
       "title": "Post-Event Backend Integration",
+      "unmet": [],
       "updated": null
     },
     "backend-integration:profiles": {
@@ -38675,6 +38830,7 @@
       "labels": [],
       "layer": "backend",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:profiles"
@@ -38707,6 +38863,7 @@
       ],
       "task": null,
       "title": "BI-04 Profiles & Pin Name Backend Integration",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "backend-integration:ring-access": {
@@ -38733,6 +38890,7 @@
       "labels": [],
       "layer": "backend",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:ring-access"
@@ -38762,6 +38920,7 @@
       ],
       "task": null,
       "title": "BI-05 Ring Access Engine Backend Integration",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "backend-integration:ring-invitations": {
@@ -38791,6 +38950,7 @@
       "labels": [],
       "layer": "backend",
       "module": "shared-rings",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:ring-invitations"
@@ -38808,6 +38968,7 @@
       "task": null,
       "template": "templates/Backend Integration Template.md",
       "title": "Ring Invitations & Join Backend Integration",
+      "unmet": [],
       "updated": null
     },
     "backend-integration:ring-members": {
@@ -38834,6 +38995,7 @@
       "labels": [],
       "layer": "backend",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:ring-members"
@@ -38867,6 +39029,7 @@
       ],
       "task": null,
       "title": "BI-06 Ring Members Backend Integration",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "backend-integration:ring-projection": {
@@ -38895,6 +39058,7 @@
       "labels": [],
       "layer": "backend",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:ring-projection"
@@ -38937,6 +39101,7 @@
       ],
       "task": null,
       "title": "BI-07 Ring Projection Backend Integration",
+      "unmet": [],
       "updated": "2026-10-29"
     },
     "backend-integration:rings": {
@@ -38963,6 +39128,7 @@
       "labels": [],
       "layer": "backend",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:rings"
@@ -39006,6 +39172,7 @@
       ],
       "task": null,
       "title": "BI-08 Rings Backend Integration",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "backend-integration:subscription": {
@@ -39035,6 +39202,7 @@
       "labels": [],
       "layer": "backend",
       "module": "commerce",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:subscription"
@@ -39052,6 +39220,7 @@
       "task": null,
       "template": "templates/Backend Integration Template.md",
       "title": "Subscription (Free vs Pro) Backend Integration",
+      "unmet": [],
       "updated": null
     },
     "backend-integration:view-as": {
@@ -39078,6 +39247,7 @@
       "labels": [],
       "layer": "backend",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:view-as"
@@ -39111,6 +39281,7 @@
       ],
       "task": null,
       "title": "BI-09 View As & Pin Views Backend Integration",
+      "unmet": [],
       "updated": "2026-10-29"
     },
     "backend-integration:widgets": {
@@ -39140,6 +39311,7 @@
       "labels": [],
       "layer": "backend",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:widgets"
@@ -39157,6 +39329,7 @@
       "task": null,
       "template": "templates/Backend Integration Template.md",
       "title": "Widgets Backend Integration",
+      "unmet": [],
       "updated": null
     },
     "decision:D-01": {
@@ -39192,6 +39365,7 @@
       "labels": [],
       "layer": "business",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "needs-decision:ND-01"
@@ -39215,6 +39389,7 @@
       ],
       "task": null,
       "title": "D-01 Code-only login",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "decision:D-02": {
@@ -39255,6 +39430,7 @@
       "labels": [],
       "layer": "business",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "needs-decision:ND-02"
@@ -39288,6 +39464,7 @@
       ],
       "task": null,
       "title": "D-02 One main profile every Ring starts from",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "decision:D-03": {
@@ -39323,6 +39500,7 @@
       "labels": [],
       "layer": "business",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "needs-decision:ND-03"
@@ -39353,6 +39531,7 @@
       ],
       "task": null,
       "title": "D-03 Links entered once, switched on or off per Ring",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "decision:D-04": {
@@ -39395,6 +39574,7 @@
       "labels": [],
       "layer": "business",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "needs-decision:ND-04"
@@ -39433,6 +39613,7 @@
       ],
       "task": null,
       "title": "D-04 Ring settings at launch and their defaults",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "decision:D-05": {
@@ -39469,6 +39650,7 @@
       "labels": [],
       "layer": "business",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "needs-decision:ND-05"
@@ -39500,6 +39682,7 @@
       ],
       "task": null,
       "title": "D-05 Inherit per field, copy without members",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "decision:D-06": {
@@ -39535,6 +39718,7 @@
       "labels": [],
       "layer": "business",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "needs-decision:ND-06"
@@ -39564,6 +39748,7 @@
       ],
       "task": null,
       "title": "D-06 Yearly rename, old name freed, case-insensitive",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "decision:D-07": {
@@ -39601,6 +39786,7 @@
       "labels": [],
       "layer": "business",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "needs-decision:ND-07"
@@ -39624,6 +39810,7 @@
       ],
       "task": null,
       "title": "D-07 Stripe for all four flows",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "decision:D-13": {
@@ -39656,6 +39843,7 @@
       "labels": [],
       "layer": "business",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "needs-decision:ND-13"
@@ -39681,6 +39869,7 @@
       ],
       "task": null,
       "title": "D-13 The requester sees a declined request",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "decision:D-14": {
@@ -39715,6 +39904,7 @@
       "labels": [],
       "layer": "business",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "needs-decision:ND-14"
@@ -39754,6 +39944,7 @@
       ],
       "task": null,
       "title": "D-14 Shared with me lists people, never the Ring",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "decision:D-15": {
@@ -39787,6 +39978,7 @@
       "labels": [],
       "layer": "business",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "needs-decision:ND-15"
@@ -39819,6 +40011,7 @@
       ],
       "task": null,
       "title": "D-15 Several Rings per connection, remove or disconnect",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "decision:D-16": {
@@ -39858,6 +40051,7 @@
       "labels": [],
       "layer": "business",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "needs-decision:ND-16"
@@ -39894,6 +40088,7 @@
       ],
       "task": null,
       "title": "D-16 Files load from signed links that expire in 15 minutes",
+      "unmet": [],
       "updated": "2026-10-29"
     },
     "decision:D-17": {
@@ -39926,6 +40121,7 @@
       "labels": [],
       "layer": "business",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "needs-decision:ND-17"
@@ -39950,6 +40146,7 @@
       ],
       "task": null,
       "title": "D-17 Requests expire after 30 days, optional note, ask again at once",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "decision:D-18": {
@@ -39988,6 +40185,7 @@
       "labels": [],
       "layer": "business",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "needs-decision:ND-18"
@@ -40021,6 +40219,7 @@
       ],
       "task": null,
       "title": "D-18 Ring names shown when joined knowingly",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "decision:D-19": {
@@ -40054,6 +40253,7 @@
       "labels": [],
       "layer": "business",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "needs-decision:ND-19"
@@ -40077,6 +40277,7 @@
       ],
       "task": null,
       "title": "D-19 A ticket's layer notes live on the parent task",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "decision:D-20": {
@@ -40113,6 +40314,7 @@
       "labels": [],
       "layer": "business",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "needs-decision:ND-20"
@@ -40145,6 +40347,7 @@
       ],
       "task": null,
       "title": "D-20 The changed address still signs in, the words are corrected",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "feature:account": {
@@ -40178,6 +40381,7 @@
       "layer": "business",
       "module": "identity",
       "name": "Account",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "module:identity"
@@ -40231,6 +40435,7 @@
       ],
       "task": null,
       "title": "F-01 Account",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "feature:app-shell": {
@@ -40262,6 +40467,7 @@
       "layer": "business",
       "module": "platform",
       "name": "App Shell & Onboarding Narrative",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "module:platform"
@@ -40301,6 +40507,7 @@
       ],
       "task": null,
       "title": "F-29 App Shell & Onboarding Narrative",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "feature:audit-log": {
@@ -40334,6 +40541,7 @@
       "layer": "business",
       "module": "platform",
       "name": "Audit Log",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "module:platform"
@@ -40373,6 +40581,7 @@
       ],
       "task": null,
       "title": "F-30 Audit Log",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "feature:auth": {
@@ -40407,6 +40616,7 @@
       "layer": "business",
       "module": "identity",
       "name": "Auth & Sign-up",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "module:identity"
@@ -40465,6 +40675,7 @@
       ],
       "task": null,
       "title": "F-02 Auth & Sign-up",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "feature:badge-qr": {
@@ -40498,6 +40709,7 @@
       "layer": "business",
       "module": "discovery",
       "name": "Badge & QR",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "module:discovery"
@@ -40551,6 +40763,7 @@
       ],
       "task": null,
       "title": "F-18 Badge & QR",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "feature:build-deploy": {
@@ -40584,6 +40797,7 @@
       "layer": "business",
       "module": "platform",
       "name": "Build & Deploy",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "module:platform"
@@ -40619,6 +40833,7 @@
       ],
       "task": null,
       "title": "F-43 Build & Deploy",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "feature:cleanup-jobs": {
@@ -40652,6 +40867,7 @@
       "layer": "business",
       "module": "platform",
       "name": "Cleanup Jobs",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "module:platform"
@@ -40688,6 +40904,7 @@
       ],
       "task": null,
       "title": "F-31 Cleanup Jobs",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "feature:code-delivery": {
@@ -40721,6 +40938,7 @@
       "layer": "business",
       "module": "platform",
       "name": "Code Delivery",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "module:platform"
@@ -40759,6 +40977,7 @@
       ],
       "task": null,
       "title": "F-32 Code Delivery",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "feature:companies": {
@@ -40793,6 +41012,7 @@
       "layer": "business",
       "module": "shared-rings",
       "name": "Companies",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "module:shared-rings"
@@ -40836,6 +41056,7 @@
       ],
       "task": null,
       "title": "F-15 Companies",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "feature:connections": {
@@ -40869,6 +41090,7 @@
       "layer": "business",
       "module": "connections",
       "name": "Connections",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "module:connections"
@@ -40929,6 +41151,7 @@
       ],
       "task": null,
       "title": "F-14 Connections",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "feature:counts": {
@@ -40962,6 +41185,7 @@
       "layer": "business",
       "module": "identity",
       "name": "Counts",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "module:identity"
@@ -41006,6 +41230,7 @@
       ],
       "task": null,
       "title": "F-03 Counts",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "feature:delegated-admins": {
@@ -41040,6 +41265,7 @@
       "layer": "business",
       "module": "shared-rings",
       "name": "Delegated Admins",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "module:shared-rings"
@@ -41083,6 +41309,7 @@
       ],
       "task": null,
       "title": "F-16 Delegated Admins",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "feature:devices": {
@@ -41116,6 +41343,7 @@
       "layer": "business",
       "module": "platform",
       "name": "Devices & NFC",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "module:platform"
@@ -41155,6 +41383,7 @@
       ],
       "task": null,
       "title": "F-33 Devices & NFC",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "feature:discover-hub": {
@@ -41188,6 +41417,7 @@
       "layer": "business",
       "module": "discovery",
       "name": "Discover Hub & Search",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "module:discovery"
@@ -41227,6 +41457,7 @@
       ],
       "task": null,
       "title": "F-19 Discover Hub & Search",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "feature:e2e-tests": {
@@ -41260,6 +41491,7 @@
       "layer": "business",
       "module": "platform",
       "name": "E2E Test Run",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "module:platform"
@@ -41296,6 +41528,7 @@
       ],
       "task": null,
       "title": "F-34 E2E Test Run",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "feature:error-contract": {
@@ -41329,6 +41562,7 @@
       "layer": "business",
       "module": "platform",
       "name": "Error Contract",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "module:platform"
@@ -41364,6 +41598,7 @@
       ],
       "task": null,
       "title": "F-35 Error Contract",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "feature:event-ring-auto": {
@@ -41397,6 +41632,7 @@
       "layer": "business",
       "module": "events",
       "name": "Event Ring Auto-creation",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "module:events"
@@ -41441,6 +41677,7 @@
       ],
       "task": null,
       "title": "F-21 Event Ring Auto-creation",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "feature:events-before": {
@@ -41474,6 +41711,7 @@
       "layer": "business",
       "module": "events",
       "name": "Events Before",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "module:events"
@@ -41522,6 +41760,7 @@
       ],
       "task": null,
       "title": "F-22 Events Before",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "feature:events-during": {
@@ -41555,6 +41794,7 @@
       "layer": "business",
       "module": "events",
       "name": "Events During",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "module:events"
@@ -41606,6 +41846,7 @@
       ],
       "task": null,
       "title": "F-23 Events During",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "feature:exhibitor": {
@@ -41639,6 +41880,7 @@
       "layer": "business",
       "module": "events",
       "name": "Exhibitor",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "module:events"
@@ -41682,6 +41924,7 @@
       ],
       "task": null,
       "title": "F-24 Exhibitor",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "feature:files": {
@@ -41715,6 +41958,7 @@
       "layer": "business",
       "module": "identity",
       "name": "Files Upload",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "module:identity"
@@ -41769,6 +42013,7 @@
       ],
       "task": null,
       "title": "F-04 Files Upload",
+      "unmet": [],
       "updated": "2026-10-29"
     },
     "feature:gemma": {
@@ -41803,6 +42048,7 @@
       "layer": "business",
       "module": "platform",
       "name": "Gemma AI",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "module:platform"
@@ -41850,6 +42096,7 @@
       ],
       "task": null,
       "title": "F-36 Gemma AI",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "feature:interests": {
@@ -41883,6 +42130,7 @@
       "layer": "business",
       "module": "platform",
       "name": "Interests",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "module:platform"
@@ -41922,6 +42170,7 @@
       ],
       "task": null,
       "title": "F-37 Interests",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "feature:linked-accounts": {
@@ -41956,6 +42205,7 @@
       "layer": "business",
       "module": "platform",
       "name": "Linked Accounts (OAuth)",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "module:platform"
@@ -41999,6 +42249,7 @@
       ],
       "task": null,
       "title": "F-38 Linked Accounts (OAuth)",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "feature:meetings": {
@@ -42032,6 +42283,7 @@
       "layer": "business",
       "module": "meetings",
       "name": "Meetings",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "module:meetings"
@@ -42080,6 +42332,7 @@
       ],
       "task": null,
       "title": "F-26 Meetings",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "feature:notifications": {
@@ -42113,6 +42366,7 @@
       "layer": "business",
       "module": "platform",
       "name": "Notifications",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "module:platform"
@@ -42155,6 +42409,7 @@
       ],
       "task": null,
       "title": "F-39 Notifications",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "feature:onboarding-imports": {
@@ -42189,6 +42444,7 @@
       "layer": "business",
       "module": "identity",
       "name": "Onboarding Imports",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "module:identity"
@@ -42236,6 +42492,7 @@
       ],
       "task": null,
       "title": "F-05 Onboarding Imports",
+      "unmet": [],
       "updated": "2026-10-29"
     },
     "feature:operator-panel": {
@@ -42269,6 +42526,7 @@
       "layer": "business",
       "module": "platform",
       "name": "Operator Panel",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "module:platform"
@@ -42306,6 +42564,7 @@
       ],
       "task": null,
       "title": "F-42 Operator Panel",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "feature:payments": {
@@ -42339,6 +42598,7 @@
       "layer": "business",
       "module": "commerce",
       "name": "Payments & Orders",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "module:commerce"
@@ -42383,6 +42643,7 @@
       ],
       "task": null,
       "title": "F-27 Payments & Orders",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "feature:photo-library": {
@@ -42418,6 +42679,7 @@
       "layer": "business",
       "module": "identity",
       "name": "Photo Library",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "module:identity"
@@ -42461,6 +42723,7 @@
       ],
       "task": null,
       "title": "F-06 Photo Library",
+      "unmet": [],
       "updated": "2026-10-29"
     },
     "feature:pincast": {
@@ -42494,6 +42757,7 @@
       "layer": "business",
       "module": "discovery",
       "name": "PinCast & Nearby",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "module:discovery"
@@ -42540,6 +42804,7 @@
       ],
       "task": null,
       "title": "F-20 PinCast & Nearby",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "feature:post-event": {
@@ -42573,6 +42838,7 @@
       "layer": "business",
       "module": "events",
       "name": "Post-Event",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "module:events"
@@ -42615,6 +42881,7 @@
       ],
       "task": null,
       "title": "F-25 Post-Event",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "feature:profiles": {
@@ -42650,6 +42917,7 @@
       "layer": "business",
       "module": "identity",
       "name": "Profiles & Pin Name",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "module:identity"
@@ -42700,6 +42968,7 @@
       ],
       "task": null,
       "title": "F-07 Profiles & Pin Name",
+      "unmet": [],
       "updated": "2026-10-29"
     },
     "feature:ring-access": {
@@ -42733,6 +43002,7 @@
       "layer": "business",
       "module": "identity",
       "name": "Ring Access Engine",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "module:identity"
@@ -42787,6 +43057,7 @@
       ],
       "task": null,
       "title": "F-08 Ring Access Engine",
+      "unmet": [],
       "updated": "2026-10-29"
     },
     "feature:ring-invitations": {
@@ -42821,6 +43092,7 @@
       "layer": "business",
       "module": "shared-rings",
       "name": "Ring Invitations & Join",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "module:shared-rings"
@@ -42864,6 +43136,7 @@
       ],
       "task": null,
       "title": "F-17 Ring Invitations & Join",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "feature:ring-members": {
@@ -42898,6 +43171,7 @@
       "layer": "business",
       "module": "identity",
       "name": "Ring Members",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "module:identity"
@@ -42949,6 +43223,7 @@
       ],
       "task": null,
       "title": "F-09 Ring Members",
+      "unmet": [],
       "updated": "2026-10-29"
     },
     "feature:ring-projection": {
@@ -42985,6 +43260,7 @@
       "layer": "business",
       "module": "identity",
       "name": "Ring Projection",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "module:identity"
@@ -43043,6 +43319,7 @@
       ],
       "task": null,
       "title": "F-10 Ring Projection",
+      "unmet": [],
       "updated": "2026-10-29"
     },
     "feature:rings": {
@@ -43078,6 +43355,7 @@
       "layer": "business",
       "module": "identity",
       "name": "Rings",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "module:identity"
@@ -43152,6 +43430,7 @@
       ],
       "task": null,
       "title": "F-11 Rings",
+      "unmet": [],
       "updated": "2026-10-29"
     },
     "feature:subscription": {
@@ -43185,6 +43464,7 @@
       "layer": "business",
       "module": "commerce",
       "name": "Subscription (Free vs Pro)",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "module:commerce"
@@ -43230,6 +43510,7 @@
       ],
       "task": null,
       "title": "F-28 Subscription (Free vs Pro)",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "feature:view-as": {
@@ -43263,6 +43544,7 @@
       "layer": "business",
       "module": "identity",
       "name": "View As & Pin Views",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "module:identity"
@@ -43323,6 +43605,7 @@
       ],
       "task": null,
       "title": "F-12 View As & Pin Views",
+      "unmet": [],
       "updated": "2026-10-29"
     },
     "feature:widgets": {
@@ -43357,6 +43640,7 @@
       "layer": "business",
       "module": "identity",
       "name": "Widgets",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "module:identity"
@@ -43397,6 +43681,7 @@
       ],
       "task": null,
       "title": "F-13 Widgets",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "frontend-delivery:account": {
@@ -43424,6 +43709,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:account"
@@ -43468,6 +43754,7 @@
       ],
       "task": null,
       "title": "FD-04 Account Frontend Delivery",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "frontend-delivery:app-shell": {
@@ -43491,6 +43778,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:app-shell"
@@ -43508,6 +43796,7 @@
       "task": null,
       "template": "templates/Frontend Delivery Template.md",
       "title": "App Shell & Onboarding Narrative Frontend Delivery",
+      "unmet": [],
       "updated": null
     },
     "frontend-delivery:audit-log": {
@@ -43537,6 +43826,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:audit-log"
@@ -43554,6 +43844,7 @@
       "task": null,
       "template": "templates/Frontend Delivery Template.md",
       "title": "Audit Log Frontend Delivery",
+      "unmet": [],
       "updated": null
     },
     "frontend-delivery:auth": {
@@ -43577,6 +43868,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:auth"
@@ -43594,6 +43886,7 @@
       "task": null,
       "template": "templates/Frontend Delivery Template.md",
       "title": "Auth & Sign-up Frontend Delivery",
+      "unmet": [],
       "updated": null
     },
     "frontend-delivery:badge-qr": {
@@ -43623,6 +43916,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "discovery",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:badge-qr"
@@ -43640,6 +43934,7 @@
       "task": null,
       "template": "templates/Frontend Delivery Template.md",
       "title": "Badge & QR Frontend Delivery",
+      "unmet": [],
       "updated": null
     },
     "frontend-delivery:build-deploy": {
@@ -43669,6 +43964,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:build-deploy"
@@ -43686,6 +43982,7 @@
       "task": null,
       "template": "templates/Frontend Delivery Template.md",
       "title": "Build & Deploy Frontend Delivery",
+      "unmet": [],
       "updated": null
     },
     "frontend-delivery:cleanup-jobs": {
@@ -43715,6 +44012,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:cleanup-jobs"
@@ -43732,6 +44030,7 @@
       "task": null,
       "template": "templates/Frontend Delivery Template.md",
       "title": "Cleanup Jobs Frontend Delivery",
+      "unmet": [],
       "updated": null
     },
     "frontend-delivery:code-delivery": {
@@ -43761,6 +44060,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:code-delivery"
@@ -43778,6 +44078,7 @@
       "task": null,
       "template": "templates/Frontend Delivery Template.md",
       "title": "Code Delivery Frontend Delivery",
+      "unmet": [],
       "updated": null
     },
     "frontend-delivery:companies": {
@@ -43807,6 +44108,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "shared-rings",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:companies"
@@ -43824,6 +44126,7 @@
       "task": null,
       "template": "templates/Frontend Delivery Template.md",
       "title": "Companies Frontend Delivery",
+      "unmet": [],
       "updated": null
     },
     "frontend-delivery:connections": {
@@ -43853,6 +44156,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "connections",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:connections"
@@ -43870,6 +44174,7 @@
       "task": null,
       "template": "templates/Frontend Delivery Template.md",
       "title": "Connections Frontend Delivery",
+      "unmet": [],
       "updated": null
     },
     "frontend-delivery:counts": {
@@ -43899,6 +44204,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:counts"
@@ -43916,6 +44222,7 @@
       "task": null,
       "template": "templates/Frontend Delivery Template.md",
       "title": "Counts Frontend Delivery",
+      "unmet": [],
       "updated": null
     },
     "frontend-delivery:delegated-admins": {
@@ -43945,6 +44252,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "shared-rings",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:delegated-admins"
@@ -43962,6 +44270,7 @@
       "task": null,
       "template": "templates/Frontend Delivery Template.md",
       "title": "Delegated Admins Frontend Delivery",
+      "unmet": [],
       "updated": null
     },
     "frontend-delivery:devices": {
@@ -43991,6 +44300,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:devices"
@@ -44008,6 +44318,7 @@
       "task": null,
       "template": "templates/Frontend Delivery Template.md",
       "title": "Devices & NFC Frontend Delivery",
+      "unmet": [],
       "updated": null
     },
     "frontend-delivery:discover-hub": {
@@ -44037,6 +44348,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "discovery",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:discover-hub"
@@ -44054,6 +44366,7 @@
       "task": null,
       "template": "templates/Frontend Delivery Template.md",
       "title": "Discover Hub & Search Frontend Delivery",
+      "unmet": [],
       "updated": null
     },
     "frontend-delivery:e2e-tests": {
@@ -44083,6 +44396,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:e2e-tests"
@@ -44100,6 +44414,7 @@
       "task": null,
       "template": "templates/Frontend Delivery Template.md",
       "title": "E2E Test Run Frontend Delivery",
+      "unmet": [],
       "updated": null
     },
     "frontend-delivery:error-contract": {
@@ -44129,6 +44444,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:error-contract"
@@ -44146,6 +44462,7 @@
       "task": null,
       "template": "templates/Frontend Delivery Template.md",
       "title": "Error Contract Frontend Delivery",
+      "unmet": [],
       "updated": null
     },
     "frontend-delivery:event-ring-auto": {
@@ -44175,6 +44492,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "events",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:event-ring-auto"
@@ -44192,6 +44510,7 @@
       "task": null,
       "template": "templates/Frontend Delivery Template.md",
       "title": "Event Ring Auto-creation Frontend Delivery",
+      "unmet": [],
       "updated": null
     },
     "frontend-delivery:events-before": {
@@ -44221,6 +44540,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "events",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:events-before"
@@ -44238,6 +44558,7 @@
       "task": null,
       "template": "templates/Frontend Delivery Template.md",
       "title": "Events Before Frontend Delivery",
+      "unmet": [],
       "updated": null
     },
     "frontend-delivery:events-during": {
@@ -44267,6 +44588,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "events",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:events-during"
@@ -44284,6 +44606,7 @@
       "task": null,
       "template": "templates/Frontend Delivery Template.md",
       "title": "Events During Frontend Delivery",
+      "unmet": [],
       "updated": null
     },
     "frontend-delivery:exhibitor": {
@@ -44313,6 +44636,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "events",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:exhibitor"
@@ -44330,6 +44654,7 @@
       "task": null,
       "template": "templates/Frontend Delivery Template.md",
       "title": "Exhibitor Frontend Delivery",
+      "unmet": [],
       "updated": null
     },
     "frontend-delivery:files": {
@@ -44353,6 +44678,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:files"
@@ -44370,6 +44696,7 @@
       "task": null,
       "template": "templates/Frontend Delivery Template.md",
       "title": "Files Upload Frontend Delivery",
+      "unmet": [],
       "updated": null
     },
     "frontend-delivery:gemma": {
@@ -44399,6 +44726,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:gemma"
@@ -44416,6 +44744,7 @@
       "task": null,
       "template": "templates/Frontend Delivery Template.md",
       "title": "Gemma AI Frontend Delivery",
+      "unmet": [],
       "updated": null
     },
     "frontend-delivery:interests": {
@@ -44445,6 +44774,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:interests"
@@ -44462,6 +44792,7 @@
       "task": null,
       "template": "templates/Frontend Delivery Template.md",
       "title": "Interests Frontend Delivery",
+      "unmet": [],
       "updated": null
     },
     "frontend-delivery:linked-accounts": {
@@ -44491,6 +44822,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:linked-accounts"
@@ -44508,6 +44840,7 @@
       "task": null,
       "template": "templates/Frontend Delivery Template.md",
       "title": "Linked Accounts (OAuth) Frontend Delivery",
+      "unmet": [],
       "updated": null
     },
     "frontend-delivery:meetings": {
@@ -44537,6 +44870,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "meetings",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:meetings"
@@ -44554,6 +44888,7 @@
       "task": null,
       "template": "templates/Frontend Delivery Template.md",
       "title": "Meetings Frontend Delivery",
+      "unmet": [],
       "updated": null
     },
     "frontend-delivery:notifications": {
@@ -44583,6 +44918,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:notifications"
@@ -44600,6 +44936,7 @@
       "task": null,
       "template": "templates/Frontend Delivery Template.md",
       "title": "Notifications Frontend Delivery",
+      "unmet": [],
       "updated": null
     },
     "frontend-delivery:onboarding-imports": {
@@ -44629,6 +44966,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:onboarding-imports"
@@ -44646,6 +44984,7 @@
       "task": null,
       "template": "templates/Frontend Delivery Template.md",
       "title": "Onboarding Imports Frontend Delivery",
+      "unmet": [],
       "updated": null
     },
     "frontend-delivery:operator-panel": {
@@ -44675,6 +45014,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:operator-panel"
@@ -44692,6 +45032,7 @@
       "task": null,
       "template": "templates/Frontend Delivery Template.md",
       "title": "Operator Panel Frontend Delivery",
+      "unmet": [],
       "updated": null
     },
     "frontend-delivery:payments": {
@@ -44721,6 +45062,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "commerce",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:payments"
@@ -44738,6 +45080,7 @@
       "task": null,
       "template": "templates/Frontend Delivery Template.md",
       "title": "Payments & Orders Frontend Delivery",
+      "unmet": [],
       "updated": null
     },
     "frontend-delivery:photo-library": {
@@ -44767,6 +45110,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:photo-library"
@@ -44784,6 +45128,7 @@
       "task": null,
       "template": "templates/Frontend Delivery Template.md",
       "title": "Photo Library Frontend Delivery",
+      "unmet": [],
       "updated": null
     },
     "frontend-delivery:pincast": {
@@ -44813,6 +45158,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "discovery",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:pincast"
@@ -44830,6 +45176,7 @@
       "task": null,
       "template": "templates/Frontend Delivery Template.md",
       "title": "PinCast & Nearby Frontend Delivery",
+      "unmet": [],
       "updated": null
     },
     "frontend-delivery:post-event": {
@@ -44859,6 +45206,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "events",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:post-event"
@@ -44876,6 +45224,7 @@
       "task": null,
       "template": "templates/Frontend Delivery Template.md",
       "title": "Post-Event Frontend Delivery",
+      "unmet": [],
       "updated": null
     },
     "frontend-delivery:profiles": {
@@ -44899,6 +45248,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:profiles"
@@ -44916,6 +45266,7 @@
       "task": null,
       "template": "templates/Frontend Delivery Template.md",
       "title": "Profiles & Pin Name Frontend Delivery",
+      "unmet": [],
       "updated": null
     },
     "frontend-delivery:ring-access": {
@@ -44939,6 +45290,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:ring-access"
@@ -44956,6 +45308,7 @@
       "task": null,
       "template": "templates/Frontend Delivery Template.md",
       "title": "Ring Access Engine Frontend Delivery",
+      "unmet": [],
       "updated": null
     },
     "frontend-delivery:ring-invitations": {
@@ -44985,6 +45338,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "shared-rings",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:ring-invitations"
@@ -45002,6 +45356,7 @@
       "task": null,
       "template": "templates/Frontend Delivery Template.md",
       "title": "Ring Invitations & Join Frontend Delivery",
+      "unmet": [],
       "updated": null
     },
     "frontend-delivery:ring-members": {
@@ -45025,6 +45380,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:ring-members"
@@ -45042,6 +45398,7 @@
       "task": null,
       "template": "templates/Frontend Delivery Template.md",
       "title": "Ring Members Frontend Delivery",
+      "unmet": [],
       "updated": null
     },
     "frontend-delivery:ring-projection": {
@@ -45065,6 +45422,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:ring-projection"
@@ -45082,6 +45440,7 @@
       "task": null,
       "template": "templates/Frontend Delivery Template.md",
       "title": "Ring Projection Frontend Delivery",
+      "unmet": [],
       "updated": null
     },
     "frontend-delivery:rings": {
@@ -45105,6 +45464,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:rings"
@@ -45122,6 +45482,7 @@
       "task": null,
       "template": "templates/Frontend Delivery Template.md",
       "title": "Rings Frontend Delivery",
+      "unmet": [],
       "updated": null
     },
     "frontend-delivery:subscription": {
@@ -45151,6 +45512,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "commerce",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:subscription"
@@ -45168,6 +45530,7 @@
       "task": null,
       "template": "templates/Frontend Delivery Template.md",
       "title": "Subscription (Free vs Pro) Frontend Delivery",
+      "unmet": [],
       "updated": null
     },
     "frontend-delivery:view-as": {
@@ -45191,6 +45554,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:view-as"
@@ -45208,6 +45572,7 @@
       "task": null,
       "template": "templates/Frontend Delivery Template.md",
       "title": "View As & Pin Views Frontend Delivery",
+      "unmet": [],
       "updated": null
     },
     "frontend-delivery:widgets": {
@@ -45237,6 +45602,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:widgets"
@@ -45254,6 +45620,7 @@
       "task": null,
       "template": "templates/Frontend Delivery Template.md",
       "title": "Widgets Frontend Delivery",
+      "unmet": [],
       "updated": null
     },
     "frontend-requirements:account": {
@@ -45281,6 +45648,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:account"
@@ -45324,6 +45692,7 @@
       ],
       "task": null,
       "title": "FR-01 Account Frontend Requirements",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "frontend-requirements:app-shell": {
@@ -45350,6 +45719,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:app-shell"
@@ -45383,6 +45753,7 @@
       ],
       "task": null,
       "title": "FR-29 App Shell & Onboarding Narrative Frontend Requirements",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "frontend-requirements:audit-log": {
@@ -45409,6 +45780,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:audit-log"
@@ -45435,6 +45807,7 @@
       ],
       "task": null,
       "title": "FR-30 Audit Log Frontend Requirements",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "frontend-requirements:auth": {
@@ -45461,6 +45834,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:auth"
@@ -45511,6 +45885,7 @@
       ],
       "task": null,
       "title": "FR-02 Auth & Sign-up Frontend Requirements",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "frontend-requirements:badge-qr": {
@@ -45537,6 +45912,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "discovery",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:badge-qr"
@@ -45576,6 +45952,7 @@
       ],
       "task": null,
       "title": "FR-18 Badge & QR Frontend Requirements",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "frontend-requirements:build-deploy": {
@@ -45605,6 +45982,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:build-deploy"
@@ -45622,6 +46000,7 @@
       "task": null,
       "template": "templates/Frontend Requirements Template.md",
       "title": "Build & Deploy Frontend Requirements",
+      "unmet": [],
       "updated": null
     },
     "frontend-requirements:cleanup-jobs": {
@@ -45648,6 +46027,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:cleanup-jobs"
@@ -45676,6 +46056,7 @@
       ],
       "task": null,
       "title": "FR-31 Cleanup Jobs Frontend Requirements",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "frontend-requirements:code-delivery": {
@@ -45702,6 +46083,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:code-delivery"
@@ -45733,6 +46115,7 @@
       ],
       "task": null,
       "title": "FR-32 Code Delivery Frontend Requirements",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "frontend-requirements:companies": {
@@ -45765,6 +46148,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "shared-rings",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:companies"
@@ -45802,6 +46186,7 @@
       ],
       "task": null,
       "title": "FR-15 Companies Frontend Requirements",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "frontend-requirements:connections": {
@@ -45834,6 +46219,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "connections",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:connections"
@@ -45874,6 +46260,7 @@
       ],
       "task": null,
       "title": "FR-14 Connections Frontend Requirements",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "frontend-requirements:counts": {
@@ -45902,6 +46289,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:counts"
@@ -45946,6 +46334,7 @@
       ],
       "task": null,
       "title": "FR-03 Counts Frontend Requirements",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "frontend-requirements:delegated-admins": {
@@ -45972,6 +46361,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "shared-rings",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:delegated-admins"
@@ -46008,6 +46398,7 @@
       ],
       "task": null,
       "title": "FR-16 Delegated Admins Frontend Requirements",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "frontend-requirements:devices": {
@@ -46034,6 +46425,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:devices"
@@ -46065,6 +46457,7 @@
       ],
       "task": null,
       "title": "FR-33 Devices & NFC Frontend Requirements",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "frontend-requirements:discover-hub": {
@@ -46091,6 +46484,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "discovery",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:discover-hub"
@@ -46122,6 +46516,7 @@
       ],
       "task": null,
       "title": "FR-19 Discover Hub & Search Frontend Requirements",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "frontend-requirements:e2e-tests": {
@@ -46148,6 +46543,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:e2e-tests"
@@ -46174,6 +46570,7 @@
       ],
       "task": null,
       "title": "FR-34 E2E Test Run Frontend Requirements",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "frontend-requirements:error-contract": {
@@ -46202,6 +46599,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:error-contract"
@@ -46277,6 +46675,7 @@
       ],
       "task": null,
       "title": "FR-35 Error Contract Frontend Requirements",
+      "unmet": [],
       "updated": "2026-10-29"
     },
     "frontend-requirements:event-ring-auto": {
@@ -46303,6 +46702,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "events",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:event-ring-auto"
@@ -46334,6 +46734,7 @@
       ],
       "task": null,
       "title": "FR-21 Event Ring Auto-creation Frontend Requirements",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "frontend-requirements:events-before": {
@@ -46360,6 +46761,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "events",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:events-before"
@@ -46394,6 +46796,7 @@
       ],
       "task": null,
       "title": "FR-22 Events Before Frontend Requirements",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "frontend-requirements:events-during": {
@@ -46426,6 +46829,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "events",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:events-during"
@@ -46459,6 +46863,7 @@
       ],
       "task": null,
       "title": "FR-23 Events During Frontend Requirements",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "frontend-requirements:exhibitor": {
@@ -46485,6 +46890,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "events",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:exhibitor"
@@ -46519,6 +46925,7 @@
       ],
       "task": null,
       "title": "FR-24 Exhibitor Frontend Requirements",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "frontend-requirements:files": {
@@ -46549,6 +46956,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:files"
@@ -46625,6 +47033,7 @@
       ],
       "task": null,
       "title": "FR-04 Files Upload Frontend Requirements",
+      "unmet": [],
       "updated": "2026-10-29"
     },
     "frontend-requirements:gemma": {
@@ -46657,6 +47066,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:gemma"
@@ -46685,6 +47095,7 @@
       ],
       "task": null,
       "title": "FR-36 Gemma AI Frontend Requirements",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "frontend-requirements:interests": {
@@ -46713,6 +47124,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:interests"
@@ -46747,6 +47159,7 @@
       ],
       "task": null,
       "title": "FR-37 Interests Frontend Requirements",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "frontend-requirements:linked-accounts": {
@@ -46773,6 +47186,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:linked-accounts"
@@ -46806,6 +47220,7 @@
       ],
       "task": null,
       "title": "FR-38 Linked Accounts (OAuth) Frontend Requirements",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "frontend-requirements:meetings": {
@@ -46832,6 +47247,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "meetings",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:meetings"
@@ -46867,6 +47283,7 @@
       ],
       "task": null,
       "title": "FR-26 Meetings Frontend Requirements",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "frontend-requirements:notifications": {
@@ -46893,6 +47310,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:notifications"
@@ -46921,6 +47339,7 @@
       ],
       "task": null,
       "title": "FR-39 Notifications Frontend Requirements",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "frontend-requirements:onboarding-imports": {
@@ -46950,6 +47369,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:onboarding-imports"
@@ -46997,6 +47417,7 @@
       ],
       "task": null,
       "title": "FR-05 Onboarding Imports Frontend Requirements",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "frontend-requirements:operator-panel": {
@@ -47026,6 +47447,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:operator-panel"
@@ -47043,6 +47465,7 @@
       "task": null,
       "template": "templates/Frontend Requirements Template.md",
       "title": "Operator Panel Frontend Requirements",
+      "unmet": [],
       "updated": null
     },
     "frontend-requirements:payments": {
@@ -47069,6 +47492,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "commerce",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:payments"
@@ -47098,6 +47522,7 @@
       ],
       "task": null,
       "title": "FR-27 Payments & Orders Frontend Requirements",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "frontend-requirements:photo-library": {
@@ -47128,6 +47553,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:photo-library"
@@ -47212,6 +47638,7 @@
       ],
       "task": null,
       "title": "FR-06 Photo Library Frontend Requirements",
+      "unmet": [],
       "updated": "2026-10-29"
     },
     "frontend-requirements:pincast": {
@@ -47238,6 +47665,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "discovery",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:pincast"
@@ -47276,6 +47704,7 @@
       ],
       "task": null,
       "title": "FR-20 PinCast & Nearby Frontend Requirements",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "frontend-requirements:post-event": {
@@ -47302,6 +47731,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "events",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:post-event"
@@ -47335,6 +47765,7 @@
       ],
       "task": null,
       "title": "FR-25 Post-Event Frontend Requirements",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "frontend-requirements:profiles": {
@@ -47365,6 +47796,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:profiles"
@@ -47444,6 +47876,7 @@
       ],
       "task": null,
       "title": "FR-07 Profiles & Pin Name Frontend Requirements",
+      "unmet": [],
       "updated": "2026-10-29"
     },
     "frontend-requirements:ring-access": {
@@ -47474,6 +47907,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:ring-access"
@@ -47578,6 +48012,7 @@
       ],
       "task": null,
       "title": "FR-08 Ring Access Engine Frontend Requirements",
+      "unmet": [],
       "updated": "2026-10-29"
     },
     "frontend-requirements:ring-invitations": {
@@ -47610,6 +48045,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "shared-rings",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:ring-invitations"
@@ -47643,6 +48079,7 @@
       ],
       "task": null,
       "title": "FR-17 Ring Invitations & Join Frontend Requirements",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "frontend-requirements:ring-members": {
@@ -47673,6 +48110,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:ring-members"
@@ -47762,6 +48200,7 @@
       ],
       "task": null,
       "title": "FR-09 Ring Members Frontend Requirements",
+      "unmet": [],
       "updated": "2026-10-29"
     },
     "frontend-requirements:ring-projection": {
@@ -47792,6 +48231,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:ring-projection"
@@ -47902,6 +48342,7 @@
       ],
       "task": null,
       "title": "FR-10 Ring Projection Frontend Requirements",
+      "unmet": [],
       "updated": "2026-10-29"
     },
     "frontend-requirements:rings": {
@@ -47932,6 +48373,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:rings"
@@ -48009,6 +48451,7 @@
       ],
       "task": null,
       "title": "FR-11 Rings Frontend Requirements",
+      "unmet": [],
       "updated": "2026-10-29"
     },
     "frontend-requirements:subscription": {
@@ -48035,6 +48478,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "commerce",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:subscription"
@@ -48064,6 +48508,7 @@
       ],
       "task": null,
       "title": "FR-28 Subscription (Free vs Pro) Frontend Requirements",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "frontend-requirements:view-as": {
@@ -48094,6 +48539,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:view-as"
@@ -48191,6 +48637,7 @@
       ],
       "task": null,
       "title": "FR-12 View As & Pin Views Frontend Requirements",
+      "unmet": [],
       "updated": "2026-10-29"
     },
     "frontend-requirements:widgets": {
@@ -48217,6 +48664,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:widgets"
@@ -48251,6 +48699,7 @@
       ],
       "task": null,
       "title": "FR-13 Widgets Frontend Requirements",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "group:backend": {
@@ -48285,6 +48734,7 @@
       "labels": [],
       "layer": "backend",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "root"
@@ -48301,6 +48751,7 @@
       "tags": [],
       "task": null,
       "title": "Backend docs",
+      "unmet": [],
       "updated": null
     },
     "group:business": {
@@ -48332,6 +48783,7 @@
       "labels": [],
       "layer": "business",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "root"
@@ -48348,6 +48800,7 @@
       "tags": [],
       "task": null,
       "title": "Business docs",
+      "unmet": [],
       "updated": null
     },
     "group:frontend": {
@@ -48378,6 +48831,7 @@
       "labels": [],
       "layer": "frontend",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "root"
@@ -48394,6 +48848,7 @@
       "tags": [],
       "task": null,
       "title": "Frontend docs",
+      "unmet": [],
       "updated": null
     },
     "group:shared": {
@@ -48430,6 +48885,7 @@
       "labels": [],
       "layer": "shared",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "root"
@@ -48446,6 +48902,7 @@
       "tags": [],
       "task": null,
       "title": "Project rules",
+      "unmet": [],
       "updated": null
     },
     "module:commerce": {
@@ -48473,6 +48930,7 @@
       "layer": null,
       "module": "commerce",
       "name": "Commerce",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "root"
@@ -48503,6 +48961,7 @@
       "task": null,
       "template": null,
       "title": "M-07 Commerce Module",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "module:connections": {
@@ -48529,6 +48988,7 @@
       "layer": null,
       "module": "connections",
       "name": "Connections",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "root"
@@ -48559,6 +49019,7 @@
       "task": null,
       "template": null,
       "title": "M-02 Connections Module",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "module:discovery": {
@@ -48587,6 +49048,7 @@
       "layer": null,
       "module": "discovery",
       "name": "Discovery",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "root"
@@ -48615,6 +49077,7 @@
       "task": null,
       "template": null,
       "title": "M-04 Discovery Module",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "module:events": {
@@ -48645,6 +49108,7 @@
       "layer": null,
       "module": "events",
       "name": "Events",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "root"
@@ -48676,6 +49140,7 @@
       "task": null,
       "template": null,
       "title": "M-05 Events Module",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "module:identity": {
@@ -48714,6 +49179,7 @@
       "layer": null,
       "module": "identity",
       "name": "Identity Core",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "root"
@@ -48753,6 +49219,7 @@
       "task": null,
       "template": null,
       "title": "M-01 Identity Core Module",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "module:meetings": {
@@ -48779,6 +49246,7 @@
       "layer": null,
       "module": "meetings",
       "name": "Meetings",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "root"
@@ -48807,6 +49275,7 @@
       "task": null,
       "template": null,
       "title": "M-06 Meetings Module",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "module:platform": {
@@ -48845,6 +49314,7 @@
       "layer": null,
       "module": "platform",
       "name": "Platform & Cross-cutting",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "root"
@@ -48877,6 +49347,7 @@
       "task": null,
       "template": null,
       "title": "M-08 Platform & Cross-cutting Module",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "module:shared-rings": {
@@ -48905,6 +49376,7 @@
       "layer": null,
       "module": "shared-rings",
       "name": "Shared Rings & Companies",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "root"
@@ -48935,6 +49407,7 @@
       "task": null,
       "template": null,
       "title": "M-03 Shared Rings & Companies Module",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "needs-decision:ND-01": {
@@ -48967,6 +49440,7 @@
       "labels": [],
       "layer": "business",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:auth",
@@ -48996,6 +49470,7 @@
       ],
       "task": null,
       "title": "ND-01 Passwordless login",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "needs-decision:ND-02": {
@@ -49030,6 +49505,7 @@
       "labels": [],
       "layer": "business",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:profiles",
@@ -49061,6 +49537,7 @@
       ],
       "task": null,
       "title": "ND-02 Base profile work fields",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "needs-decision:ND-03": {
@@ -49093,6 +49570,7 @@
       "labels": [],
       "layer": "business",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:ring-projection",
@@ -49119,6 +49597,7 @@
       ],
       "task": null,
       "title": "ND-03 Field library vs per-Ring copies",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "needs-decision:ND-04": {
@@ -49154,6 +49633,7 @@
       "labels": [],
       "layer": "business",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:rings",
@@ -49185,6 +49665,7 @@
       ],
       "task": null,
       "title": "ND-04 Ring settings",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "needs-decision:ND-05": {
@@ -49218,6 +49699,7 @@
       "labels": [],
       "layer": "business",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:rings",
@@ -49248,6 +49730,7 @@
       ],
       "task": null,
       "title": "ND-05 Copy or inherit",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "needs-decision:ND-06": {
@@ -49280,6 +49763,7 @@
       "labels": [],
       "layer": "business",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:profiles",
@@ -49305,6 +49789,7 @@
       ],
       "task": null,
       "title": "ND-06 Pin name rules",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "needs-decision:ND-07": {
@@ -49342,6 +49827,7 @@
       "labels": [],
       "layer": "business",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "story:payments",
@@ -49371,6 +49857,7 @@
       ],
       "task": null,
       "title": "ND-07 Payment provider",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "needs-decision:ND-10": {
@@ -49403,6 +49890,7 @@
       "labels": [],
       "layer": "business",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "story:badge-qr",
@@ -49434,6 +49922,7 @@
       ],
       "task": null,
       "title": "ND-10 How Connect addresses the scanned person",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "needs-decision:ND-11": {
@@ -49464,6 +49953,7 @@
       "labels": [],
       "layer": "business",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "story:badge-qr"
@@ -49488,6 +49978,7 @@
       ],
       "task": null,
       "title": "ND-11 Get or rotate the badge token",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "needs-decision:ND-12": {
@@ -49518,6 +50009,7 @@
       "labels": [],
       "layer": "business",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "story:badge-qr"
@@ -49546,6 +50038,7 @@
       ],
       "task": null,
       "title": "ND-12 What the badge QR encodes",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "needs-decision:ND-13": {
@@ -49579,6 +50072,7 @@
       "labels": [],
       "layer": "business",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "story:connections"
@@ -49606,6 +50100,7 @@
       ],
       "task": null,
       "title": "ND-13 Whether the requester sees a declined request",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "needs-decision:ND-14": {
@@ -49639,6 +50134,7 @@
       "labels": [],
       "layer": "business",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "story:connections"
@@ -49671,6 +50167,7 @@
       ],
       "task": null,
       "title": "ND-14 Connection-granted Ring on Shared with me",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "needs-decision:ND-15": {
@@ -49704,6 +50201,7 @@
       "labels": [],
       "layer": "business",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "story:connections"
@@ -49734,6 +50232,7 @@
       ],
       "task": null,
       "title": "ND-15 One Ring or several per connection",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "needs-decision:ND-16": {
@@ -49767,6 +50266,7 @@
       "labels": [],
       "layer": "business",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "story:files"
@@ -49806,6 +50306,7 @@
       ],
       "task": null,
       "title": "ND-16 Viewer access to file bytes",
+      "unmet": [],
       "updated": "2026-10-29"
     },
     "needs-decision:ND-17": {
@@ -49841,6 +50342,7 @@
       "labels": [],
       "layer": "business",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "story:connections"
@@ -49869,6 +50371,7 @@
       ],
       "task": null,
       "title": "ND-17 Request expiry, note and asking again",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "needs-decision:ND-18": {
@@ -49907,6 +50410,7 @@
       "labels": [],
       "layer": "business",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "story:companies",
@@ -49941,6 +50445,7 @@
       ],
       "task": null,
       "title": "ND-18 Company and invited Ring names shown to members",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "needs-decision:ND-19": {
@@ -49974,6 +50479,7 @@
       "labels": [],
       "layer": "business",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "story:error-contract"
@@ -49999,6 +50505,7 @@
       ],
       "task": null,
       "title": "ND-19 Where a ticket's layer notes live",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "needs-decision:ND-20": {
@@ -50038,6 +50545,7 @@
       "labels": [],
       "layer": "business",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "task:B-01"
@@ -50073,6 +50581,7 @@
       ],
       "task": null,
       "title": "ND-20 Whether an unverified new address may sign in",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "needs-decision:ND-21": {
@@ -50106,6 +50615,7 @@
       "labels": [],
       "layer": "business",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "story:onboarding-imports"
@@ -50141,6 +50651,7 @@
       ],
       "task": null,
       "title": "ND-21 How a business card and a portfolio page are read",
+      "unmet": [],
       "updated": "2026-10-26"
     },
     "needs-decision:ND-22": {
@@ -50171,6 +50682,7 @@
       "labels": [],
       "layer": "business",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "story:profiles"
@@ -50206,6 +50718,7 @@
       ],
       "task": null,
       "title": "ND-22 Public web page by Pin name",
+      "unmet": [],
       "updated": "2026-10-29"
     },
     "needs-decision:ND-23": {
@@ -50236,6 +50749,7 @@
       "labels": [],
       "layer": "business",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "story:connections"
@@ -50266,6 +50780,7 @@
       ],
       "task": null,
       "title": "ND-23 Mutual connections and events in common",
+      "unmet": [],
       "updated": "2026-10-29"
     },
     "project:admin-agent": {
@@ -50291,6 +50806,7 @@
       "labels": [],
       "layer": "shared",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "group:shared"
@@ -50319,6 +50835,7 @@
       ],
       "task": null,
       "title": "Admin Agent",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "project:agent-protocol": {
@@ -50349,6 +50866,7 @@
       "labels": [],
       "layer": "shared",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "group:shared"
@@ -50381,6 +50899,7 @@
       ],
       "task": null,
       "title": "Agent Protocol",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "project:agent-rules": {
@@ -50407,6 +50926,7 @@
       "labels": [],
       "layer": "shared",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "group:shared"
@@ -50444,7 +50964,8 @@
       ],
       "task": null,
       "title": "Agent Rules",
-      "updated": "2026-10-28"
+      "unmet": [],
+      "updated": "2026-10-29"
     },
     "project:api-conventions": {
       "affects": [],
@@ -50467,6 +50988,7 @@
       "labels": [],
       "layer": "backend",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "group:backend"
@@ -50534,6 +51056,7 @@
       ],
       "task": null,
       "title": "API Conventions",
+      "unmet": [],
       "updated": "2026-10-26"
     },
     "project:architecture": {
@@ -50557,6 +51080,7 @@
       "labels": [],
       "layer": "backend",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "group:backend"
@@ -50620,6 +51144,7 @@
       ],
       "task": null,
       "title": "Architecture",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "project:auth-model": {
@@ -50643,6 +51168,7 @@
       "labels": [],
       "layer": "backend",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "group:backend"
@@ -50686,6 +51212,7 @@
       ],
       "task": null,
       "title": "Auth Model",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "project:backend-agent": {
@@ -50711,6 +51238,7 @@
       "labels": [],
       "layer": "shared",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "group:shared"
@@ -50741,6 +51269,7 @@
       ],
       "task": null,
       "title": "Backend Agent",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "project:database-migrations": {
@@ -50764,6 +51293,7 @@
       "labels": [],
       "layer": "backend",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "group:backend"
@@ -50785,6 +51315,7 @@
       ],
       "task": null,
       "title": "Database & Migrations",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "project:developer-guide": {
@@ -50808,6 +51339,7 @@
       "labels": [],
       "layer": "backend",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "group:backend"
@@ -50831,6 +51363,7 @@
       ],
       "task": null,
       "title": "Developer Guide",
+      "unmet": [],
       "updated": "2026-10-29"
     },
     "project:developer-setup": {
@@ -50854,6 +51387,7 @@
       "labels": [],
       "layer": "backend",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "group:backend"
@@ -50879,6 +51413,7 @@
       ],
       "task": null,
       "title": "Developer Setup",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "project:docs-tree": {
@@ -50902,6 +51437,7 @@
       "labels": [],
       "layer": "shared",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "group:shared"
@@ -50936,7 +51472,8 @@
       ],
       "task": null,
       "title": "Docs Tree",
-      "updated": "2026-10-28"
+      "unmet": [],
+      "updated": "2026-10-29"
     },
     "project:feature-graph": {
       "affects": [],
@@ -50959,6 +51496,7 @@
       "labels": [],
       "layer": "business",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "group:business"
@@ -50978,6 +51516,7 @@
       ],
       "task": null,
       "title": "Feature Graph",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "project:feature-tree": {
@@ -51001,6 +51540,7 @@
       "labels": [],
       "layer": "business",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "group:business"
@@ -51020,6 +51560,7 @@
       ],
       "task": null,
       "title": "Feature Tree",
+      "unmet": [],
       "updated": "2026-10-29"
     },
     "project:frontend-agent": {
@@ -51045,6 +51586,7 @@
       "labels": [],
       "layer": "shared",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "group:shared"
@@ -51074,6 +51616,7 @@
       ],
       "task": null,
       "title": "Frontend Agent",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "project:frontend-agent-prompt": {
@@ -51097,6 +51640,7 @@
       "labels": [],
       "layer": "frontend",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "group:frontend"
@@ -51129,6 +51673,7 @@
       ],
       "task": null,
       "title": "Frontend Agent Prompt",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "project:frontend-api-guide": {
@@ -51152,6 +51697,7 @@
       "labels": [],
       "layer": "frontend",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "group:frontend"
@@ -51187,6 +51733,7 @@
       ],
       "task": null,
       "title": "Frontend API Guide",
+      "unmet": [],
       "updated": "2026-10-27"
     },
     "project:frontend-contract": {
@@ -51210,6 +51757,7 @@
       "labels": [],
       "layer": "frontend",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "group:frontend"
@@ -51247,6 +51795,7 @@
       ],
       "task": null,
       "title": "Frontend Contract",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "project:frontend-passwordless-migration": {
@@ -51270,6 +51819,7 @@
       "labels": [],
       "layer": "frontend",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "group:frontend"
@@ -51301,6 +51851,7 @@
       ],
       "task": null,
       "title": "Frontend Passwordless Migration",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "project:glossary": {
@@ -51324,6 +51875,7 @@
       "labels": [],
       "layer": "business",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "group:business"
@@ -51343,6 +51895,7 @@
       ],
       "task": null,
       "title": "Glossary",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "project:owner-agent": {
@@ -51368,6 +51921,7 @@
       "labels": [],
       "layer": "shared",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "group:shared"
@@ -51397,6 +51951,7 @@
       ],
       "task": null,
       "title": "Owner Agent",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "project:pm-agent": {
@@ -51422,6 +51977,7 @@
       "labels": [],
       "layer": "shared",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "group:shared"
@@ -51450,7 +52006,8 @@
       ],
       "task": null,
       "title": "PM Agent",
-      "updated": "2026-10-28"
+      "unmet": [],
+      "updated": "2026-10-29"
     },
     "project:project-overview": {
       "affects": [],
@@ -51473,6 +52030,7 @@
       "labels": [],
       "layer": "business",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "group:business"
@@ -51495,6 +52053,7 @@
       ],
       "task": null,
       "title": "Project Overview",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "project:qa-agent": {
@@ -51520,6 +52079,7 @@
       "labels": [],
       "layer": "shared",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "group:shared"
@@ -51546,7 +52106,8 @@
       ],
       "task": null,
       "title": "QA Agent",
-      "updated": "2026-10-28"
+      "unmet": [],
+      "updated": "2026-10-29"
     },
     "project:ring-access-model": {
       "affects": [],
@@ -51569,6 +52130,7 @@
       "labels": [],
       "layer": "backend",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "group:backend"
@@ -51636,6 +52198,7 @@
       ],
       "task": null,
       "title": "Ring Access Model",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "project:spec-map": {
@@ -51659,6 +52222,7 @@
       "labels": [],
       "layer": "backend",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "group:backend"
@@ -51734,6 +52298,7 @@
       ],
       "task": null,
       "title": "Spec Map",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "project:status-report-2026-10-15": {
@@ -51757,6 +52322,7 @@
       "labels": [],
       "layer": "business",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "group:business"
@@ -51792,6 +52358,7 @@
       ],
       "task": null,
       "title": "Status Report 2026-10-15",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "project:workflow": {
@@ -51815,6 +52382,7 @@
       "labels": [],
       "layer": "shared",
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "group:shared"
@@ -51845,6 +52413,7 @@
       ],
       "task": null,
       "title": "Workflow",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "qa-backend:account": {
@@ -51873,6 +52442,7 @@
       "labels": [],
       "layer": "qa",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:account"
@@ -51920,6 +52490,7 @@
       ],
       "task": null,
       "title": "QB-04 Account QA Backend",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "qa-backend:audit-log": {
@@ -51949,6 +52520,7 @@
       "labels": [],
       "layer": "qa",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:audit-log"
@@ -51966,6 +52538,7 @@
       "task": null,
       "template": "templates/QA Backend Template.md",
       "title": "Audit Log QA Backend",
+      "unmet": [],
       "updated": null
     },
     "qa-backend:auth": {
@@ -51995,6 +52568,7 @@
       "labels": [],
       "layer": "qa",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:auth"
@@ -52118,6 +52692,7 @@
       ],
       "task": null,
       "title": "QB-05 Auth & Sign-up QA Backend",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "qa-backend:badge-qr": {
@@ -52147,6 +52722,7 @@
       "labels": [],
       "layer": "qa",
       "module": "discovery",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:badge-qr"
@@ -52164,6 +52740,7 @@
       "task": null,
       "template": "templates/QA Backend Template.md",
       "title": "Badge & QR QA Backend",
+      "unmet": [],
       "updated": null
     },
     "qa-backend:build-deploy": {
@@ -52193,6 +52770,7 @@
       "labels": [],
       "layer": "qa",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:build-deploy"
@@ -52210,6 +52788,7 @@
       "task": null,
       "template": "templates/QA Backend Template.md",
       "title": "Build & Deploy QA Backend",
+      "unmet": [],
       "updated": null
     },
     "qa-backend:cleanup-jobs": {
@@ -52239,6 +52818,7 @@
       "labels": [],
       "layer": "qa",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:cleanup-jobs"
@@ -52256,6 +52836,7 @@
       "task": null,
       "template": "templates/QA Backend Template.md",
       "title": "Cleanup Jobs QA Backend",
+      "unmet": [],
       "updated": null
     },
     "qa-backend:code-delivery": {
@@ -52285,6 +52866,7 @@
       "labels": [],
       "layer": "qa",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:code-delivery"
@@ -52302,6 +52884,7 @@
       "task": null,
       "template": "templates/QA Backend Template.md",
       "title": "Code Delivery QA Backend",
+      "unmet": [],
       "updated": null
     },
     "qa-backend:companies": {
@@ -52331,6 +52914,7 @@
       "labels": [],
       "layer": "qa",
       "module": "shared-rings",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:companies"
@@ -52348,6 +52932,7 @@
       "task": null,
       "template": "templates/QA Backend Template.md",
       "title": "Companies QA Backend",
+      "unmet": [],
       "updated": null
     },
     "qa-backend:connections": {
@@ -52377,6 +52962,7 @@
       "labels": [],
       "layer": "qa",
       "module": "connections",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:connections"
@@ -52394,6 +52980,7 @@
       "task": null,
       "template": "templates/QA Backend Template.md",
       "title": "Connections QA Backend",
+      "unmet": [],
       "updated": null
     },
     "qa-backend:counts": {
@@ -52423,6 +53010,7 @@
       "labels": [],
       "layer": "qa",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:counts"
@@ -52440,6 +53028,7 @@
       "task": null,
       "template": "templates/QA Backend Template.md",
       "title": "Counts QA Backend",
+      "unmet": [],
       "updated": null
     },
     "qa-backend:delegated-admins": {
@@ -52469,6 +53058,7 @@
       "labels": [],
       "layer": "qa",
       "module": "shared-rings",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:delegated-admins"
@@ -52486,6 +53076,7 @@
       "task": null,
       "template": "templates/QA Backend Template.md",
       "title": "Delegated Admins QA Backend",
+      "unmet": [],
       "updated": null
     },
     "qa-backend:devices": {
@@ -52515,6 +53106,7 @@
       "labels": [],
       "layer": "qa",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:devices"
@@ -52532,6 +53124,7 @@
       "task": null,
       "template": "templates/QA Backend Template.md",
       "title": "Devices & NFC QA Backend",
+      "unmet": [],
       "updated": null
     },
     "qa-backend:discover-hub": {
@@ -52561,6 +53154,7 @@
       "labels": [],
       "layer": "qa",
       "module": "discovery",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:discover-hub"
@@ -52578,6 +53172,7 @@
       "task": null,
       "template": "templates/QA Backend Template.md",
       "title": "Discover Hub & Search QA Backend",
+      "unmet": [],
       "updated": null
     },
     "qa-backend:e2e-tests": {
@@ -52607,6 +53202,7 @@
       "labels": [],
       "layer": "qa",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:e2e-tests"
@@ -52624,6 +53220,7 @@
       "task": null,
       "template": "templates/QA Backend Template.md",
       "title": "E2E Test Run QA Backend",
+      "unmet": [],
       "updated": null
     },
     "qa-backend:error-contract": {
@@ -52653,6 +53250,7 @@
       "labels": [],
       "layer": "qa",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:error-contract"
@@ -52670,6 +53268,7 @@
       "task": null,
       "template": "templates/QA Backend Template.md",
       "title": "Error Contract QA Backend",
+      "unmet": [],
       "updated": null
     },
     "qa-backend:event-ring-auto": {
@@ -52699,6 +53298,7 @@
       "labels": [],
       "layer": "qa",
       "module": "events",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:event-ring-auto"
@@ -52716,6 +53316,7 @@
       "task": null,
       "template": "templates/QA Backend Template.md",
       "title": "Event Ring Auto-creation QA Backend",
+      "unmet": [],
       "updated": null
     },
     "qa-backend:events-before": {
@@ -52745,6 +53346,7 @@
       "labels": [],
       "layer": "qa",
       "module": "events",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:events-before"
@@ -52762,6 +53364,7 @@
       "task": null,
       "template": "templates/QA Backend Template.md",
       "title": "Events Before QA Backend",
+      "unmet": [],
       "updated": null
     },
     "qa-backend:events-during": {
@@ -52791,6 +53394,7 @@
       "labels": [],
       "layer": "qa",
       "module": "events",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:events-during"
@@ -52808,6 +53412,7 @@
       "task": null,
       "template": "templates/QA Backend Template.md",
       "title": "Events During QA Backend",
+      "unmet": [],
       "updated": null
     },
     "qa-backend:exhibitor": {
@@ -52837,6 +53442,7 @@
       "labels": [],
       "layer": "qa",
       "module": "events",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:exhibitor"
@@ -52854,6 +53460,7 @@
       "task": null,
       "template": "templates/QA Backend Template.md",
       "title": "Exhibitor QA Backend",
+      "unmet": [],
       "updated": null
     },
     "qa-backend:files": {
@@ -52883,6 +53490,7 @@
       "labels": [],
       "layer": "qa",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:files"
@@ -52967,6 +53575,7 @@
       ],
       "task": null,
       "title": "QB-06 Files Upload QA Backend",
+      "unmet": [],
       "updated": "2026-10-29"
     },
     "qa-backend:gemma": {
@@ -52996,6 +53605,7 @@
       "labels": [],
       "layer": "qa",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:gemma"
@@ -53013,6 +53623,7 @@
       "task": null,
       "template": "templates/QA Backend Template.md",
       "title": "Gemma AI QA Backend",
+      "unmet": [],
       "updated": null
     },
     "qa-backend:interests": {
@@ -53042,6 +53653,7 @@
       "labels": [],
       "layer": "qa",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:interests"
@@ -53059,6 +53671,7 @@
       "task": null,
       "template": "templates/QA Backend Template.md",
       "title": "Interests QA Backend",
+      "unmet": [],
       "updated": null
     },
     "qa-backend:linked-accounts": {
@@ -53088,6 +53701,7 @@
       "labels": [],
       "layer": "qa",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:linked-accounts"
@@ -53105,6 +53719,7 @@
       "task": null,
       "template": "templates/QA Backend Template.md",
       "title": "Linked Accounts (OAuth) QA Backend",
+      "unmet": [],
       "updated": null
     },
     "qa-backend:meetings": {
@@ -53134,6 +53749,7 @@
       "labels": [],
       "layer": "qa",
       "module": "meetings",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:meetings"
@@ -53151,6 +53767,7 @@
       "task": null,
       "template": "templates/QA Backend Template.md",
       "title": "Meetings QA Backend",
+      "unmet": [],
       "updated": null
     },
     "qa-backend:notifications": {
@@ -53180,6 +53797,7 @@
       "labels": [],
       "layer": "qa",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:notifications"
@@ -53197,6 +53815,7 @@
       "task": null,
       "template": "templates/QA Backend Template.md",
       "title": "Notifications QA Backend",
+      "unmet": [],
       "updated": null
     },
     "qa-backend:onboarding-imports": {
@@ -53226,6 +53845,7 @@
       "labels": [],
       "layer": "qa",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:onboarding-imports"
@@ -53243,6 +53863,7 @@
       "task": null,
       "template": "templates/QA Backend Template.md",
       "title": "Onboarding Imports QA Backend",
+      "unmet": [],
       "updated": null
     },
     "qa-backend:operator-panel": {
@@ -53272,6 +53893,7 @@
       "labels": [],
       "layer": "qa",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:operator-panel"
@@ -53289,6 +53911,7 @@
       "task": null,
       "template": "templates/QA Backend Template.md",
       "title": "Operator Panel QA Backend",
+      "unmet": [],
       "updated": null
     },
     "qa-backend:payments": {
@@ -53318,6 +53941,7 @@
       "labels": [],
       "layer": "qa",
       "module": "commerce",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:payments"
@@ -53335,6 +53959,7 @@
       "task": null,
       "template": "templates/QA Backend Template.md",
       "title": "Payments & Orders QA Backend",
+      "unmet": [],
       "updated": null
     },
     "qa-backend:photo-library": {
@@ -53364,6 +53989,7 @@
       "labels": [],
       "layer": "qa",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:photo-library"
@@ -53381,6 +54007,7 @@
       "task": null,
       "template": "templates/QA Backend Template.md",
       "title": "Photo Library QA Backend",
+      "unmet": [],
       "updated": null
     },
     "qa-backend:pincast": {
@@ -53410,6 +54037,7 @@
       "labels": [],
       "layer": "qa",
       "module": "discovery",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:pincast"
@@ -53427,6 +54055,7 @@
       "task": null,
       "template": "templates/QA Backend Template.md",
       "title": "PinCast & Nearby QA Backend",
+      "unmet": [],
       "updated": null
     },
     "qa-backend:post-event": {
@@ -53456,6 +54085,7 @@
       "labels": [],
       "layer": "qa",
       "module": "events",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:post-event"
@@ -53473,6 +54103,7 @@
       "task": null,
       "template": "templates/QA Backend Template.md",
       "title": "Post-Event QA Backend",
+      "unmet": [],
       "updated": null
     },
     "qa-backend:profiles": {
@@ -53496,6 +54127,7 @@
       "labels": [],
       "layer": "qa",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:profiles"
@@ -53513,6 +54145,7 @@
       "task": null,
       "template": "templates/QA Backend Template.md",
       "title": "Profiles & Pin Name QA Backend",
+      "unmet": [],
       "updated": null
     },
     "qa-backend:ring-access": {
@@ -53536,6 +54169,7 @@
       "labels": [],
       "layer": "qa",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:ring-access"
@@ -53553,6 +54187,7 @@
       "task": null,
       "template": "templates/QA Backend Template.md",
       "title": "Ring Access Engine QA Backend",
+      "unmet": [],
       "updated": null
     },
     "qa-backend:ring-invitations": {
@@ -53582,6 +54217,7 @@
       "labels": [],
       "layer": "qa",
       "module": "shared-rings",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:ring-invitations"
@@ -53599,6 +54235,7 @@
       "task": null,
       "template": "templates/QA Backend Template.md",
       "title": "Ring Invitations & Join QA Backend",
+      "unmet": [],
       "updated": null
     },
     "qa-backend:ring-members": {
@@ -53622,6 +54259,7 @@
       "labels": [],
       "layer": "qa",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:ring-members"
@@ -53639,6 +54277,7 @@
       "task": null,
       "template": "templates/QA Backend Template.md",
       "title": "Ring Members QA Backend",
+      "unmet": [],
       "updated": null
     },
     "qa-backend:ring-projection": {
@@ -53662,6 +54301,7 @@
       "labels": [],
       "layer": "qa",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:ring-projection"
@@ -53679,6 +54319,7 @@
       "task": null,
       "template": "templates/QA Backend Template.md",
       "title": "Ring Projection QA Backend",
+      "unmet": [],
       "updated": null
     },
     "qa-backend:rings": {
@@ -53702,6 +54343,7 @@
       "labels": [],
       "layer": "qa",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:rings"
@@ -53719,6 +54361,7 @@
       "task": null,
       "template": "templates/QA Backend Template.md",
       "title": "Rings QA Backend",
+      "unmet": [],
       "updated": null
     },
     "qa-backend:subscription": {
@@ -53748,6 +54391,7 @@
       "labels": [],
       "layer": "qa",
       "module": "commerce",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:subscription"
@@ -53765,6 +54409,7 @@
       "task": null,
       "template": "templates/QA Backend Template.md",
       "title": "Subscription (Free vs Pro) QA Backend",
+      "unmet": [],
       "updated": null
     },
     "qa-backend:view-as": {
@@ -53788,6 +54433,7 @@
       "labels": [],
       "layer": "qa",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:view-as"
@@ -53805,6 +54451,7 @@
       "task": null,
       "template": "templates/QA Backend Template.md",
       "title": "View As & Pin Views QA Backend",
+      "unmet": [],
       "updated": null
     },
     "qa-backend:widgets": {
@@ -53834,6 +54481,7 @@
       "labels": [],
       "layer": "qa",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:widgets"
@@ -53851,6 +54499,7 @@
       "task": null,
       "template": "templates/QA Backend Template.md",
       "title": "Widgets QA Backend",
+      "unmet": [],
       "updated": null
     },
     "qa-frontend:account": {
@@ -53877,6 +54526,7 @@
       "labels": [],
       "layer": "qa",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:account"
@@ -53935,6 +54585,7 @@
       ],
       "task": null,
       "title": "QF-04 Account QA Frontend",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "qa-frontend:app-shell": {
@@ -53964,6 +54615,7 @@
       "labels": [],
       "layer": "qa",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:app-shell"
@@ -53981,6 +54633,7 @@
       "task": null,
       "template": "templates/QA Frontend Template.md",
       "title": "App Shell & Onboarding Narrative QA Frontend",
+      "unmet": [],
       "updated": null
     },
     "qa-frontend:audit-log": {
@@ -54010,6 +54663,7 @@
       "labels": [],
       "layer": "qa",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:audit-log"
@@ -54027,6 +54681,7 @@
       "task": null,
       "template": "templates/QA Frontend Template.md",
       "title": "Audit Log QA Frontend",
+      "unmet": [],
       "updated": null
     },
     "qa-frontend:auth": {
@@ -54056,6 +54711,7 @@
       "labels": [],
       "layer": "qa",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:auth"
@@ -54073,6 +54729,7 @@
       "task": null,
       "template": "templates/QA Frontend Template.md",
       "title": "Auth & Sign-up QA Frontend",
+      "unmet": [],
       "updated": null
     },
     "qa-frontend:badge-qr": {
@@ -54102,6 +54759,7 @@
       "labels": [],
       "layer": "qa",
       "module": "discovery",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:badge-qr"
@@ -54119,6 +54777,7 @@
       "task": null,
       "template": "templates/QA Frontend Template.md",
       "title": "Badge & QR QA Frontend",
+      "unmet": [],
       "updated": null
     },
     "qa-frontend:build-deploy": {
@@ -54148,6 +54807,7 @@
       "labels": [],
       "layer": "qa",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:build-deploy"
@@ -54165,6 +54825,7 @@
       "task": null,
       "template": "templates/QA Frontend Template.md",
       "title": "Build & Deploy QA Frontend",
+      "unmet": [],
       "updated": null
     },
     "qa-frontend:cleanup-jobs": {
@@ -54194,6 +54855,7 @@
       "labels": [],
       "layer": "qa",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:cleanup-jobs"
@@ -54211,6 +54873,7 @@
       "task": null,
       "template": "templates/QA Frontend Template.md",
       "title": "Cleanup Jobs QA Frontend",
+      "unmet": [],
       "updated": null
     },
     "qa-frontend:code-delivery": {
@@ -54240,6 +54903,7 @@
       "labels": [],
       "layer": "qa",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:code-delivery"
@@ -54257,6 +54921,7 @@
       "task": null,
       "template": "templates/QA Frontend Template.md",
       "title": "Code Delivery QA Frontend",
+      "unmet": [],
       "updated": null
     },
     "qa-frontend:companies": {
@@ -54286,6 +54951,7 @@
       "labels": [],
       "layer": "qa",
       "module": "shared-rings",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:companies"
@@ -54303,6 +54969,7 @@
       "task": null,
       "template": "templates/QA Frontend Template.md",
       "title": "Companies QA Frontend",
+      "unmet": [],
       "updated": null
     },
     "qa-frontend:connections": {
@@ -54332,6 +54999,7 @@
       "labels": [],
       "layer": "qa",
       "module": "connections",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:connections"
@@ -54349,6 +55017,7 @@
       "task": null,
       "template": "templates/QA Frontend Template.md",
       "title": "Connections QA Frontend",
+      "unmet": [],
       "updated": null
     },
     "qa-frontend:counts": {
@@ -54378,6 +55047,7 @@
       "labels": [],
       "layer": "qa",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:counts"
@@ -54395,6 +55065,7 @@
       "task": null,
       "template": "templates/QA Frontend Template.md",
       "title": "Counts QA Frontend",
+      "unmet": [],
       "updated": null
     },
     "qa-frontend:delegated-admins": {
@@ -54424,6 +55095,7 @@
       "labels": [],
       "layer": "qa",
       "module": "shared-rings",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:delegated-admins"
@@ -54441,6 +55113,7 @@
       "task": null,
       "template": "templates/QA Frontend Template.md",
       "title": "Delegated Admins QA Frontend",
+      "unmet": [],
       "updated": null
     },
     "qa-frontend:devices": {
@@ -54470,6 +55143,7 @@
       "labels": [],
       "layer": "qa",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:devices"
@@ -54487,6 +55161,7 @@
       "task": null,
       "template": "templates/QA Frontend Template.md",
       "title": "Devices & NFC QA Frontend",
+      "unmet": [],
       "updated": null
     },
     "qa-frontend:discover-hub": {
@@ -54516,6 +55191,7 @@
       "labels": [],
       "layer": "qa",
       "module": "discovery",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:discover-hub"
@@ -54533,6 +55209,7 @@
       "task": null,
       "template": "templates/QA Frontend Template.md",
       "title": "Discover Hub & Search QA Frontend",
+      "unmet": [],
       "updated": null
     },
     "qa-frontend:e2e-tests": {
@@ -54562,6 +55239,7 @@
       "labels": [],
       "layer": "qa",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:e2e-tests"
@@ -54579,6 +55257,7 @@
       "task": null,
       "template": "templates/QA Frontend Template.md",
       "title": "E2E Test Run QA Frontend",
+      "unmet": [],
       "updated": null
     },
     "qa-frontend:error-contract": {
@@ -54608,6 +55287,7 @@
       "labels": [],
       "layer": "qa",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:error-contract"
@@ -54625,6 +55305,7 @@
       "task": null,
       "template": "templates/QA Frontend Template.md",
       "title": "Error Contract QA Frontend",
+      "unmet": [],
       "updated": null
     },
     "qa-frontend:event-ring-auto": {
@@ -54654,6 +55335,7 @@
       "labels": [],
       "layer": "qa",
       "module": "events",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:event-ring-auto"
@@ -54671,6 +55353,7 @@
       "task": null,
       "template": "templates/QA Frontend Template.md",
       "title": "Event Ring Auto-creation QA Frontend",
+      "unmet": [],
       "updated": null
     },
     "qa-frontend:events-before": {
@@ -54700,6 +55383,7 @@
       "labels": [],
       "layer": "qa",
       "module": "events",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:events-before"
@@ -54717,6 +55401,7 @@
       "task": null,
       "template": "templates/QA Frontend Template.md",
       "title": "Events Before QA Frontend",
+      "unmet": [],
       "updated": null
     },
     "qa-frontend:events-during": {
@@ -54746,6 +55431,7 @@
       "labels": [],
       "layer": "qa",
       "module": "events",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:events-during"
@@ -54763,6 +55449,7 @@
       "task": null,
       "template": "templates/QA Frontend Template.md",
       "title": "Events During QA Frontend",
+      "unmet": [],
       "updated": null
     },
     "qa-frontend:exhibitor": {
@@ -54792,6 +55479,7 @@
       "labels": [],
       "layer": "qa",
       "module": "events",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:exhibitor"
@@ -54809,6 +55497,7 @@
       "task": null,
       "template": "templates/QA Frontend Template.md",
       "title": "Exhibitor QA Frontend",
+      "unmet": [],
       "updated": null
     },
     "qa-frontend:files": {
@@ -54838,6 +55527,7 @@
       "labels": [],
       "layer": "qa",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:files"
@@ -54855,6 +55545,7 @@
       "task": null,
       "template": "templates/QA Frontend Template.md",
       "title": "Files Upload QA Frontend",
+      "unmet": [],
       "updated": null
     },
     "qa-frontend:gemma": {
@@ -54884,6 +55575,7 @@
       "labels": [],
       "layer": "qa",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:gemma"
@@ -54901,6 +55593,7 @@
       "task": null,
       "template": "templates/QA Frontend Template.md",
       "title": "Gemma AI QA Frontend",
+      "unmet": [],
       "updated": null
     },
     "qa-frontend:interests": {
@@ -54930,6 +55623,7 @@
       "labels": [],
       "layer": "qa",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:interests"
@@ -54947,6 +55641,7 @@
       "task": null,
       "template": "templates/QA Frontend Template.md",
       "title": "Interests QA Frontend",
+      "unmet": [],
       "updated": null
     },
     "qa-frontend:linked-accounts": {
@@ -54976,6 +55671,7 @@
       "labels": [],
       "layer": "qa",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:linked-accounts"
@@ -54993,6 +55689,7 @@
       "task": null,
       "template": "templates/QA Frontend Template.md",
       "title": "Linked Accounts (OAuth) QA Frontend",
+      "unmet": [],
       "updated": null
     },
     "qa-frontend:meetings": {
@@ -55022,6 +55719,7 @@
       "labels": [],
       "layer": "qa",
       "module": "meetings",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:meetings"
@@ -55039,6 +55737,7 @@
       "task": null,
       "template": "templates/QA Frontend Template.md",
       "title": "Meetings QA Frontend",
+      "unmet": [],
       "updated": null
     },
     "qa-frontend:notifications": {
@@ -55068,6 +55767,7 @@
       "labels": [],
       "layer": "qa",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:notifications"
@@ -55085,6 +55785,7 @@
       "task": null,
       "template": "templates/QA Frontend Template.md",
       "title": "Notifications QA Frontend",
+      "unmet": [],
       "updated": null
     },
     "qa-frontend:onboarding-imports": {
@@ -55114,6 +55815,7 @@
       "labels": [],
       "layer": "qa",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:onboarding-imports"
@@ -55131,6 +55833,7 @@
       "task": null,
       "template": "templates/QA Frontend Template.md",
       "title": "Onboarding Imports QA Frontend",
+      "unmet": [],
       "updated": null
     },
     "qa-frontend:operator-panel": {
@@ -55160,6 +55863,7 @@
       "labels": [],
       "layer": "qa",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:operator-panel"
@@ -55177,6 +55881,7 @@
       "task": null,
       "template": "templates/QA Frontend Template.md",
       "title": "Operator Panel QA Frontend",
+      "unmet": [],
       "updated": null
     },
     "qa-frontend:payments": {
@@ -55206,6 +55911,7 @@
       "labels": [],
       "layer": "qa",
       "module": "commerce",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:payments"
@@ -55223,6 +55929,7 @@
       "task": null,
       "template": "templates/QA Frontend Template.md",
       "title": "Payments & Orders QA Frontend",
+      "unmet": [],
       "updated": null
     },
     "qa-frontend:photo-library": {
@@ -55252,6 +55959,7 @@
       "labels": [],
       "layer": "qa",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:photo-library"
@@ -55269,6 +55977,7 @@
       "task": null,
       "template": "templates/QA Frontend Template.md",
       "title": "Photo Library QA Frontend",
+      "unmet": [],
       "updated": null
     },
     "qa-frontend:pincast": {
@@ -55298,6 +56007,7 @@
       "labels": [],
       "layer": "qa",
       "module": "discovery",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:pincast"
@@ -55315,6 +56025,7 @@
       "task": null,
       "template": "templates/QA Frontend Template.md",
       "title": "PinCast & Nearby QA Frontend",
+      "unmet": [],
       "updated": null
     },
     "qa-frontend:post-event": {
@@ -55344,6 +56055,7 @@
       "labels": [],
       "layer": "qa",
       "module": "events",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:post-event"
@@ -55361,6 +56073,7 @@
       "task": null,
       "template": "templates/QA Frontend Template.md",
       "title": "Post-Event QA Frontend",
+      "unmet": [],
       "updated": null
     },
     "qa-frontend:profiles": {
@@ -55390,6 +56103,7 @@
       "labels": [],
       "layer": "qa",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:profiles"
@@ -55407,6 +56121,7 @@
       "task": null,
       "template": "templates/QA Frontend Template.md",
       "title": "Profiles & Pin Name QA Frontend",
+      "unmet": [],
       "updated": null
     },
     "qa-frontend:ring-access": {
@@ -55436,6 +56151,7 @@
       "labels": [],
       "layer": "qa",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:ring-access"
@@ -55453,6 +56169,7 @@
       "task": null,
       "template": "templates/QA Frontend Template.md",
       "title": "Ring Access Engine QA Frontend",
+      "unmet": [],
       "updated": null
     },
     "qa-frontend:ring-invitations": {
@@ -55482,6 +56199,7 @@
       "labels": [],
       "layer": "qa",
       "module": "shared-rings",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:ring-invitations"
@@ -55499,6 +56217,7 @@
       "task": null,
       "template": "templates/QA Frontend Template.md",
       "title": "Ring Invitations & Join QA Frontend",
+      "unmet": [],
       "updated": null
     },
     "qa-frontend:ring-members": {
@@ -55528,6 +56247,7 @@
       "labels": [],
       "layer": "qa",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:ring-members"
@@ -55545,6 +56265,7 @@
       "task": null,
       "template": "templates/QA Frontend Template.md",
       "title": "Ring Members QA Frontend",
+      "unmet": [],
       "updated": null
     },
     "qa-frontend:ring-projection": {
@@ -55574,6 +56295,7 @@
       "labels": [],
       "layer": "qa",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:ring-projection"
@@ -55591,6 +56313,7 @@
       "task": null,
       "template": "templates/QA Frontend Template.md",
       "title": "Ring Projection QA Frontend",
+      "unmet": [],
       "updated": null
     },
     "qa-frontend:rings": {
@@ -55620,6 +56343,7 @@
       "labels": [],
       "layer": "qa",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:rings"
@@ -55637,6 +56361,7 @@
       "task": null,
       "template": "templates/QA Frontend Template.md",
       "title": "Rings QA Frontend",
+      "unmet": [],
       "updated": null
     },
     "qa-frontend:subscription": {
@@ -55666,6 +56391,7 @@
       "labels": [],
       "layer": "qa",
       "module": "commerce",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:subscription"
@@ -55683,6 +56409,7 @@
       "task": null,
       "template": "templates/QA Frontend Template.md",
       "title": "Subscription (Free vs Pro) QA Frontend",
+      "unmet": [],
       "updated": null
     },
     "qa-frontend:view-as": {
@@ -55712,6 +56439,7 @@
       "labels": [],
       "layer": "qa",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:view-as"
@@ -55729,6 +56457,7 @@
       "task": null,
       "template": "templates/QA Frontend Template.md",
       "title": "View As & Pin Views QA Frontend",
+      "unmet": [],
       "updated": null
     },
     "qa-frontend:widgets": {
@@ -55758,6 +56487,7 @@
       "labels": [],
       "layer": "qa",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:widgets"
@@ -55775,6 +56505,7 @@
       "task": null,
       "template": "templates/QA Frontend Template.md",
       "title": "Widgets QA Frontend",
+      "unmet": [],
       "updated": null
     },
     "root": {
@@ -55812,6 +56543,7 @@
       "labels": [],
       "layer": null,
       "module": null,
+      "openBugs": [],
       "parentTask": null,
       "parents": [],
       "path": null,
@@ -55866,6 +56598,7 @@
       "tags": [],
       "task": null,
       "title": "Social Pin",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "story:account": {
@@ -55892,6 +56625,7 @@
       "labels": [],
       "layer": "business",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:account"
@@ -55928,6 +56662,7 @@
       ],
       "task": null,
       "title": "S-01 Account Story",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "story:app-shell": {
@@ -55954,6 +56689,7 @@
       "labels": [],
       "layer": "business",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:app-shell"
@@ -55981,6 +56717,7 @@
       ],
       "task": null,
       "title": "S-73 App Shell & Onboarding Narrative Story",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "story:audit-log": {
@@ -56007,6 +56744,7 @@
       "labels": [],
       "layer": "business",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:audit-log"
@@ -56031,6 +56769,7 @@
       ],
       "task": null,
       "title": "S-74 Audit Log Story",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "story:auth": {
@@ -56057,6 +56796,7 @@
       "labels": [],
       "layer": "business",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:auth"
@@ -56103,6 +56843,7 @@
       ],
       "task": null,
       "title": "S-02 Auth & Sign-up Story",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "story:badge-qr": {
@@ -56149,6 +56890,7 @@
       "labels": [],
       "layer": "business",
       "module": "discovery",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:badge-qr"
@@ -56182,6 +56924,7 @@
       ],
       "task": null,
       "title": "S-37 Badge & QR Story",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "story:build-deploy": {
@@ -56208,6 +56951,7 @@
       "labels": [],
       "layer": "business",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:build-deploy"
@@ -56234,6 +56978,7 @@
       ],
       "task": null,
       "title": "S-116 Build & Deploy Story",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "story:cleanup-jobs": {
@@ -56260,6 +57005,7 @@
       "labels": [],
       "layer": "business",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:cleanup-jobs"
@@ -56282,6 +57028,7 @@
       ],
       "task": null,
       "title": "S-76 Cleanup Jobs Story",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "story:code-delivery": {
@@ -56308,6 +57055,7 @@
       "labels": [],
       "layer": "business",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:code-delivery"
@@ -56341,6 +57089,7 @@
       ],
       "task": null,
       "title": "S-78 Code Delivery Story",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "story:companies": {
@@ -56369,6 +57118,7 @@
       "labels": [],
       "layer": "business",
       "module": "shared-rings",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:companies"
@@ -56406,6 +57156,7 @@
       ],
       "task": null,
       "title": "S-29 Companies Story",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "story:connections": {
@@ -56450,6 +57201,7 @@
       "labels": [],
       "layer": "business",
       "module": "connections",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:connections"
@@ -56495,6 +57247,7 @@
       ],
       "task": null,
       "title": "S-23 Connections Story",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "story:counts": {
@@ -56521,6 +57274,7 @@
       "labels": [],
       "layer": "business",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:counts"
@@ -56559,6 +57313,7 @@
       ],
       "task": null,
       "title": "S-03 Counts Story",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "story:delegated-admins": {
@@ -56585,6 +57340,7 @@
       "labels": [],
       "layer": "business",
       "module": "shared-rings",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:delegated-admins"
@@ -56620,6 +57376,7 @@
       ],
       "task": null,
       "title": "S-31 Delegated Admins Story",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "story:devices": {
@@ -56646,6 +57403,7 @@
       "labels": [],
       "layer": "business",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:devices"
@@ -56673,6 +57431,7 @@
       ],
       "task": null,
       "title": "S-82 Devices & NFC Story",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "story:discover-hub": {
@@ -56699,6 +57458,7 @@
       "labels": [],
       "layer": "business",
       "module": "discovery",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:discover-hub"
@@ -56729,6 +57489,7 @@
       ],
       "task": null,
       "title": "S-42 Discover Hub & Search Story",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "story:e2e-tests": {
@@ -56755,6 +57516,7 @@
       "labels": [],
       "layer": "business",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:e2e-tests"
@@ -56779,6 +57541,7 @@
       ],
       "task": null,
       "title": "S-85 E2E Test Run Story",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "story:error-contract": {
@@ -56807,6 +57570,7 @@
       "labels": [],
       "layer": "business",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:error-contract"
@@ -56851,6 +57615,7 @@
       ],
       "task": null,
       "title": "S-87 Error Contract Story",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "story:event-ring-auto": {
@@ -56877,6 +57642,7 @@
       "labels": [],
       "layer": "business",
       "module": "events",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:event-ring-auto"
@@ -56907,6 +57673,7 @@
       ],
       "task": null,
       "title": "S-47 Event Ring Auto-creation Story",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "story:events-before": {
@@ -56937,6 +57704,7 @@
       "labels": [],
       "layer": "business",
       "module": "events",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:events-before"
@@ -56969,6 +57737,7 @@
       ],
       "task": null,
       "title": "S-49 Events Before Story",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "story:events-during": {
@@ -56995,6 +57764,7 @@
       "labels": [],
       "layer": "business",
       "module": "events",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:events-during"
@@ -57026,6 +57796,7 @@
       ],
       "task": null,
       "title": "S-53 Events During Story",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "story:exhibitor": {
@@ -57052,6 +57823,7 @@
       "labels": [],
       "layer": "business",
       "module": "events",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:exhibitor"
@@ -57080,6 +57852,7 @@
       ],
       "task": null,
       "title": "S-59 Exhibitor Story",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "story:files": {
@@ -57108,6 +57881,7 @@
       "labels": [],
       "layer": "business",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:files"
@@ -57157,6 +57931,7 @@
       ],
       "task": null,
       "title": "S-06 Files Upload Story",
+      "unmet": [],
       "updated": "2026-10-29"
     },
     "story:gemma": {
@@ -57183,6 +57958,7 @@
       "labels": [],
       "layer": "business",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:gemma"
@@ -57216,6 +57992,7 @@
       ],
       "task": null,
       "title": "S-89 Gemma AI Story",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "story:interests": {
@@ -57242,6 +58019,7 @@
       "labels": [],
       "layer": "business",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:interests"
@@ -57267,6 +58045,7 @@
       ],
       "task": null,
       "title": "S-92 Interests Story",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "story:linked-accounts": {
@@ -57293,6 +58072,7 @@
       "labels": [],
       "layer": "business",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:linked-accounts"
@@ -57325,6 +58105,7 @@
       ],
       "task": null,
       "title": "S-94 Linked Accounts (OAuth) Story",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "story:meetings": {
@@ -57351,6 +58132,7 @@
       "labels": [],
       "layer": "business",
       "module": "meetings",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:meetings"
@@ -57381,6 +58163,7 @@
       ],
       "task": null,
       "title": "S-64 Meetings Story",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "story:notifications": {
@@ -57407,6 +58190,7 @@
       "labels": [],
       "layer": "business",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:notifications"
@@ -57431,6 +58215,7 @@
       ],
       "task": null,
       "title": "S-96 Notifications Story",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "story:onboarding-imports": {
@@ -57465,6 +58250,7 @@
       "labels": [],
       "layer": "business",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:onboarding-imports"
@@ -57501,6 +58287,7 @@
       ],
       "task": null,
       "title": "S-08 Onboarding Imports Story",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "story:operator-panel": {
@@ -57527,6 +58314,7 @@
       "labels": [],
       "layer": "business",
       "module": "platform",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:operator-panel"
@@ -57551,6 +58339,7 @@
       ],
       "task": null,
       "title": "S-117 Operator Panel Story",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "story:payments": {
@@ -57585,6 +58374,7 @@
       "labels": [],
       "layer": "business",
       "module": "commerce",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:payments"
@@ -57621,6 +58411,7 @@
       ],
       "task": null,
       "title": "S-69 Payments & Orders Story",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "story:photo-library": {
@@ -57647,6 +58438,7 @@
       "labels": [],
       "layer": "business",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:photo-library"
@@ -57689,6 +58481,7 @@
       ],
       "task": null,
       "title": "S-11 Photo Library Story",
+      "unmet": [],
       "updated": "2026-10-29"
     },
     "story:pincast": {
@@ -57715,6 +58508,7 @@
       "labels": [],
       "layer": "business",
       "module": "discovery",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:pincast"
@@ -57746,6 +58540,7 @@
       ],
       "task": null,
       "title": "S-45 PinCast & Nearby Story",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "story:post-event": {
@@ -57772,6 +58567,7 @@
       "labels": [],
       "layer": "business",
       "module": "events",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:post-event"
@@ -57801,6 +58597,7 @@
       ],
       "task": null,
       "title": "S-62 Post-Event Story",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "story:profiles": {
@@ -57835,6 +58632,7 @@
       "labels": [],
       "layer": "business",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:profiles"
@@ -57887,6 +58685,7 @@
       ],
       "task": null,
       "title": "S-14 Profiles & Pin Name Story",
+      "unmet": [],
       "updated": "2026-10-29"
     },
     "story:ring-access": {
@@ -57913,6 +58712,7 @@
       "labels": [],
       "layer": "business",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:ring-access"
@@ -57961,6 +58761,7 @@
       ],
       "task": null,
       "title": "S-15 Ring Access Engine Story",
+      "unmet": [],
       "updated": "2026-10-29"
     },
     "story:ring-invitations": {
@@ -57989,6 +58790,7 @@
       "labels": [],
       "layer": "business",
       "module": "shared-rings",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:ring-invitations"
@@ -58025,6 +58827,7 @@
       ],
       "task": null,
       "title": "S-33 Ring Invitations & Join Story",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "story:ring-members": {
@@ -58051,6 +58854,7 @@
       "labels": [],
       "layer": "business",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:ring-members"
@@ -58090,6 +58894,7 @@
       ],
       "task": null,
       "title": "S-16 Ring Members Story",
+      "unmet": [],
       "updated": "2026-10-29"
     },
     "story:ring-projection": {
@@ -58116,6 +58921,7 @@
       "labels": [],
       "layer": "business",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:ring-projection"
@@ -58167,6 +58973,7 @@
       ],
       "task": null,
       "title": "S-17 Ring Projection Story",
+      "unmet": [],
       "updated": "2026-10-29"
     },
     "story:rings": {
@@ -58193,6 +59000,7 @@
       "labels": [],
       "layer": "business",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:rings"
@@ -58244,6 +59052,7 @@
       ],
       "task": null,
       "title": "S-18 Rings Story",
+      "unmet": [],
       "updated": "2026-10-29"
     },
     "story:subscription": {
@@ -58272,6 +59081,7 @@
       "labels": [],
       "layer": "business",
       "module": "commerce",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:subscription"
@@ -58299,6 +59109,7 @@
       ],
       "task": null,
       "title": "S-71 Subscription (Free vs Pro) Story",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "story:view-as": {
@@ -58325,6 +59136,7 @@
       "labels": [],
       "layer": "business",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:view-as"
@@ -58367,6 +59179,7 @@
       ],
       "task": null,
       "title": "S-19 View As & Pin Views Story",
+      "unmet": [],
       "updated": "2026-10-29"
     },
     "story:widgets": {
@@ -58393,6 +59206,7 @@
       "labels": [],
       "layer": "business",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:widgets"
@@ -58426,6 +59240,7 @@
       ],
       "task": null,
       "title": "S-20 Widgets Story",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "task:B-01": {
@@ -58461,6 +59276,7 @@
       ],
       "layer": "business",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "backend-integration:account"
@@ -58515,6 +59331,7 @@
       ],
       "task": null,
       "title": "B-01 An unverified changed email still signs in",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "task:B-02": {
@@ -58548,6 +59365,7 @@
       ],
       "layer": "business",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "backend-integration:account"
@@ -58603,6 +59421,7 @@
       ],
       "task": null,
       "title": "B-02 Deleted account answers 401, not the documented 404 E_USER_01",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "task:B-03": {
@@ -58636,6 +59455,7 @@
       ],
       "layer": "business",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "backend-integration:auth"
@@ -58694,6 +59514,7 @@
       ],
       "task": null,
       "title": "B-03 Two refreshes at once both succeed and fork the session",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "task:B-04": {
@@ -58726,6 +59547,7 @@
       ],
       "layer": "business",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "backend-integration:auth"
@@ -58765,6 +59587,7 @@
       ],
       "task": null,
       "title": "B-04 Sign-up accepts an email and a phone together",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "task:B-05": {
@@ -58797,6 +59620,7 @@
       ],
       "layer": "business",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "backend-integration:auth"
@@ -58839,6 +59663,7 @@
       ],
       "task": null,
       "title": "B-05 Expired onboarding token answers 401, not the documented 400",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "task:B-06": {
@@ -58872,6 +59697,7 @@
       ],
       "layer": "business",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "backend-delivery:auth"
@@ -58901,6 +59727,7 @@
       ],
       "task": null,
       "title": "B-06 Timestamps the app writes are stored shifted by the server time zone",
+      "unmet": [],
       "updated": "2026-10-28"
     },
     "task:B-07": {
@@ -58934,6 +59761,7 @@
       ],
       "layer": "business",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "backend-delivery:files"
@@ -58985,6 +59813,7 @@
       ],
       "task": null,
       "title": "B-07 Context-scoped uploads are served by the public static mount",
+      "unmet": [],
       "updated": "2026-10-29"
     },
     "task:B-08": {
@@ -59017,6 +59846,7 @@
       ],
       "layer": "business",
       "module": "identity",
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "backend-integration:ring-projection"
@@ -59064,6 +59894,7 @@
       ],
       "task": null,
       "title": "B-08 Owner projection drops each attachment's file details",
+      "unmet": [],
       "updated": "2026-10-29"
     }
   },
