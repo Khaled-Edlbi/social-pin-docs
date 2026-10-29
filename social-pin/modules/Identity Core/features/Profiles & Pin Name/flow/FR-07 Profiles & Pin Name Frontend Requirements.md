@@ -4,7 +4,7 @@ code: profiles
 scope: feature
 feature: profiles
 module: identity
-status: draft
+status: ready
 screens: [s05b, s06, s23, s44, s68]
 depends: ["S-14 Profiles & Pin Name Story"]
 affects: ["BD-07 Profiles & Pin Name Backend Delivery"]
@@ -12,12 +12,12 @@ related: ["D-02 One main profile every Ring starts from", "D-05 Inherit per fiel
 created: 2026-10-18
 updated: 2026-10-29
 owner: "Omar Fostok"
-tags: [frontend-requirements, frontend-requirements/draft, module/identity, layer/frontend]
+tags: [frontend-requirements, frontend-requirements/ready, module/identity, layer/frontend]
 ---
 
 # Profiles & Pin Name · Frontend Requirements
 
-**Feature:** [[F-07 Profiles & Pin Name]] · **Status:** Draft · **Story:** [[S-14 Profiles & Pin Name Story]] · **Backend Integration:** [[BI-04 Profiles & Pin Name Backend Integration]]
+**Feature:** [[F-07 Profiles & Pin Name]] · **Status:** 📨 Ready 2026-10-29, waiting on the backend's review · **Story:** [[S-14 Profiles & Pin Name Story]] · **Backend Integration:** [[BI-04 Profiles & Pin Name Backend Integration]]
 
 What the client needs from the backend for *Profile basics* and the Pin-name claim during sign-up, and for the profile editor opened from the Me header, and whether each need is met today. The main profile of [[D-02 One main profile every Ring starts from]] (headline, role, company, location, photo, bio) is asked of the backend in [[S-14 Profiles & Pin Name Story|Profiles & Pin Name · S9–S11]]; the Pin-name rules are [[D-06 Yearly rename, old name freed, case-insensitive]]. Shapes, field limits and the enum values are in [[BI-04 Profiles & Pin Name Backend Integration]]. One profile per person in v1: the client uses the default profile (`data[0]`) only.
 

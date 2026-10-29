@@ -75,7 +75,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
     - 🔵 [F-07 Profiles & Pin Name](social-pin/modules/Identity%20Core/features/Profiles%20%26%20Pin%20Name/F-07%20Profiles%20%26%20Pin%20Name.md) (release MVP, Critical)
       - ⛔ [S-14 Profiles & Pin Name Story](social-pin/modules/Identity%20Core/features/Profiles%20%26%20Pin%20Name/S-14%20Profiles%20%26%20Pin%20Name%20Story.md) (User Story, Critical, blocked by ND-22 Public web page by Pin name)
         - ❓ [ND-22 Public web page by Pin name](social-pin/needs-decisions/ND-22%20Public%20web%20page%20by%20Pin%20name.md) (Needs decision)
-      - ✏️ [FR-07 Profiles & Pin Name Frontend Requirements](social-pin/modules/Identity%20Core/features/Profiles%20%26%20Pin%20Name/flow/FR-07%20Profiles%20%26%20Pin%20Name%20Frontend%20Requirements.md) (Frontend Requirements, Critical)
+      - 📨 [FR-07 Profiles & Pin Name Frontend Requirements](social-pin/modules/Identity%20Core/features/Profiles%20%26%20Pin%20Name/flow/FR-07%20Profiles%20%26%20Pin%20Name%20Frontend%20Requirements.md) (Frontend Requirements, Critical)
       - 🟡 [BD-07 Profiles & Pin Name Backend Delivery](social-pin/modules/Identity%20Core/features/Profiles%20%26%20Pin%20Name/flow/BD-07%20Profiles%20%26%20Pin%20Name%20Backend%20Delivery.md) (Backend Delivery, 2 pending notes, Critical)
       - 🔵 [BI-04 Profiles & Pin Name Backend Integration](social-pin/modules/Identity%20Core/features/Profiles%20%26%20Pin%20Name/flow/BI-04%20Profiles%20%26%20Pin%20Name%20Backend%20Integration.md) (Backend Integration, Critical)
       - ∅ _Profiles & Pin Name QA Backend_ (QA Backend)
