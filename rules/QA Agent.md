@@ -92,7 +92,10 @@ Moving these is part of the work, not a separate request: when the run ends, you
 | a run where a row differs | QA Backend / QA Frontend | → `failing` | a story part not fulfilled in `unmet`, a bug filed (4C) and named in `pending` (4B) |
 | a re-run shows an `unmet` part delivered | QA Backend / QA Frontend | its line removed from `unmet`; `passing` once nothing differs | the row ✅; the story's badge returns from ✕ to ◷ by itself |
 | a row that differs | a new bug | `todo` (from the scaffold) | hung where it was found; the note it contradicts flagged (4D) |
-| a re-run shows the bug gone | the bug | `resolution:` on the user's word (4C) | the row ✅, the bug's entry removed from your note's `pending` |
+| the backend or the frontend set a bug `ready` (its fix shipped) | the bug | re-test it on a named build; until then it stays `ready` | nothing else: `ready` is your cue |
+| the re-test passes | the bug | `ready` → `done`, `resolution: fixed`, the tag `resolution/fixed`, on the user's word (4C) | the row ✅, the bug's entry removed from your note's `pending`, a `## Log` line on the bug (date · build · passed) |
+| the re-test fails | the bug | `ready` → `todo` (reopened, unasked: it records a fact) | a `## Log` line on the bug saying what the re-test showed, on which build; the bug stays in your note's `pending`; the fixing agent picks it up again |
+| a re-run shows the bug gone without a fix, or the row expected the wrong thing | the bug | `resolution:` on the user's word (4C) | the row ✅, the bug's entry removed from your note's `pending` |
 | every QA note of a story's scope passes with nothing pending | the story | **not yours** | report "S-NN is ready to fulfil" (4E); the PM sets it |
 
 Never `passing` with a row not run: a row not run is ⬜ and a `pending` entry, so the note shows Partial.

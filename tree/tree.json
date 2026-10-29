@@ -2,8 +2,8 @@
   "agents": [
     {
       "id": "owner",
-      "label": "Owner (CEO / CTO)",
-      "layer": "shared",
+      "label": "Owner (business owner)",
+      "layer": "business",
       "note": "rules/Owner Agent.md"
     },
     {
@@ -32,7 +32,7 @@
     },
     {
       "id": "admin",
-      "label": "Admin (the guard off)",
+      "label": "Admin (the docs system, the guard off)",
       "layer": "shared",
       "note": "rules/Admin Agent.md"
     }
@@ -50863,7 +50863,7 @@
       "task": null,
       "title": "Admin Agent",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "project:agent-protocol": {
       "affects": [
@@ -51297,7 +51297,7 @@
       "task": null,
       "title": "Backend Agent",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "project:database-migrations": {
       "affects": [],
@@ -51645,7 +51645,7 @@
       "task": null,
       "title": "Frontend Agent",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "project:frontend-agent-prompt": {
       "affects": [],
@@ -51970,7 +51970,7 @@
       "scope": null,
       "screens": [],
       "status": null,
-      "summary": "This note is the prompt of the owner agent; /owner … loads Agent Protocol and then this note. Edit this note to change how the agent behaves. Its scope is agents.list[id = owner] in…",
+      "summary": "This note is the prompt of the owner agent; /owner … loads Agent Protocol and then this note. Edit this note to change how the agent behaves (the note is the admin's to write: Admin Agent). Its…",
       "tags": [
         "project",
         "layer/shared",
@@ -51980,7 +51980,7 @@
       "task": null,
       "title": "Owner Agent",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "project:pm-agent": {
       "affects": [],
@@ -52442,7 +52442,7 @@
       "task": null,
       "title": "Workflow",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "qa-backend:account": {
       "affects": [],

@@ -211,7 +211,7 @@
     { "id": "shared", "folder": "rules", "label": "Project rules", "description": "The workflow, the agent rules and the docs tree: rules every layer follows." }
   ],
   "agents": {
-    "description": "The agents that edit this vault, one per role, invoked as /<id> in Claude Code (.claude/skills/<id>/SKILL.md loads the note). Each one writes only what its `writes` block names: `types` (structural note types; `bug` is a bug card, type: bug),`kinds` (layer-note kinds), `paths` (globs; `except` removes); `editOnly` is the same but Edit only, never a rewrite or a new file. `signs` are the kinds where the agent may change only the sign-off lines (status, approvedBy / approvedAt, decidedBy / decidedAt, updated, tags, the H1); `fields` the frontmatter keys it may set on any card. Every agent raises the needs-decision card its own card needs (`needs-decision` in its `types`), but only an agent with `decision` in `signs` may set a decision card's status, decidedBy or decidedAt, and only such an agent writes the decision card that takes it (`decision` in its `types`): the answer lives on that card, D-NN for ND-NN, never in the decision card (rules/Agent Rules.md §4). Every agent may add a flag line (> ⚠ Affected by …) under any note's H1; nobody edits a generated file or design/Wireframe Brief.md. One entry may set `writes.all: true` instead (the admin, /admin): the guard then refuses it nothing, generated files and the brief included; it is the user's own hand for repairs, not a role. While no agent is active every write is refused and the agent asks which one to use. `marker` is a folder holding one file per Claude Code session, named by its session id, with that session's active agent: sessions sharing the folder never change each other's agent. The hook in .claude/settings.json runs scripts/agent-guard.mjs to enforce this; the shared protocol is rules/Agent Protocol.md.",
+    "description": "The agents that edit this vault, one per role, invoked as /<id> in Claude Code (.claude/skills/<id>/SKILL.md loads the note). Each one writes only what its `writes` block names: `types` (structural note types; `bug` is a bug card, type: bug),`kinds` (layer-note kinds), `paths` (globs; `except` removes); `editOnly` is the same but Edit only, never a rewrite or a new file. `signs` are the kinds where the agent may change only the sign-off lines (status, approvedBy / approvedAt, decidedBy / decidedAt, updated, tags, the H1); `fields` the frontmatter keys it may set on any card; `bugStatuses` the statuses it may move a bug card to (only status, updated, tags and the H1, from todo, in-progress or ready, never done: the backend and the frontend set in-progress when they start a fix and ready when it ships, and QA re-tests it, rules/Agent Rules.md §4). Every agent raises the needs-decision card its own card needs (`needs-decision` in its `types`), but only an agent with `decision` in `signs` may set a decision card's status, decidedBy or decidedAt, and only such an agent writes the decision card that takes it (`decision` in its `types`): the answer lives on that card, D-NN for ND-NN, never in the decision card (rules/Agent Rules.md §4). Every agent may add a flag line (> ⚠ Affected by …) under any note's H1; nobody edits a generated file or design/Wireframe Brief.md. One entry may set `writes.all: true` instead (the admin, /admin): the guard then refuses it nothing, generated files and the brief included; it owns the docs system (the rules, this config, the templates, the scripts, the tree page, the agents, .claude/ and .github/) and is the user's own hand for repairs; the owner is the business owner and writes cards and business notes only. While no agent is active every write is refused and the agent asks which one to use. `marker` is a folder holding one file per Claude Code session, named by its session id, with that session's active agent: sessions sharing the folder never change each other's agent. The hook in .claude/settings.json runs scripts/agent-guard.mjs to enforce this; the shared protocol is rules/Agent Protocol.md.",
     "marker": ".claude/.active-agent",
     "protocol": "rules/Agent Protocol.md",
     "reservedFields": {
@@ -223,10 +223,10 @@
     "list": [
       {
         "id": "owner",
-        "label": "Owner (CEO / CTO)",
+        "label": "Owner (business owner)",
         "note": "rules/Owner Agent.md",
-        "layer": "shared",
-        "writes": { "types": ["module", "feature", "needs-decision", "decision"], "kinds": [], "paths": ["rules/**", "social-pin/decisions/Decisions.md", "docs.config.json", "templates/**", "scripts/**", "tree/index.html", ".claude/**", ".github/**", ".gitattributes", ".gitignore", "Home.md", "README.md", "CLAUDE.md", "social-pin/business/**"] },
+        "layer": "business",
+        "writes": { "types": ["module", "feature", "needs-decision", "decision"], "kinds": [], "paths": ["social-pin/decisions/Decisions.md", "Home.md", "social-pin/business/**"] },
         "signs": ["story", "frontend-requirements", "decision"],
         "fields": ["priority", "deadline"]
       },
@@ -244,14 +244,16 @@
         "note": "rules/Backend Agent.md",
         "layer": "backend",
         "writes": { "types": ["needs-decision"], "kinds": ["backend-delivery", "backend-integration"], "paths": ["social-pin/backend/**", "social-pin/frontend/Frontend API Guide.md"], "editOnly": { "kinds": ["frontend-requirements"], "types": ["feature", "module"] } },
-        "signs": ["frontend-requirements"]
+        "signs": ["frontend-requirements"],
+        "bugStatuses": ["in-progress", "ready"]
       },
       {
         "id": "frontend",
         "label": "Frontend",
         "note": "rules/Frontend Agent.md",
         "layer": "frontend",
-        "writes": { "types": ["needs-decision"], "kinds": ["frontend-requirements", "frontend-delivery"], "paths": ["social-pin/frontend/**"], "except": ["social-pin/frontend/Frontend API Guide.md"] }
+        "writes": { "types": ["needs-decision"], "kinds": ["frontend-requirements", "frontend-delivery"], "paths": ["social-pin/frontend/**"], "except": ["social-pin/frontend/Frontend API Guide.md"] },
+        "bugStatuses": ["in-progress", "ready"]
       },
       {
         "id": "qa",
@@ -262,7 +264,7 @@
       },
       {
         "id": "admin",
-        "label": "Admin (the guard off)",
+        "label": "Admin (the docs system, the guard off)",
         "note": "rules/Admin Agent.md",
         "layer": "shared",
         "writes": { "all": true }

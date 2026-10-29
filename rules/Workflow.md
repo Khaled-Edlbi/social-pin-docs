@@ -2,7 +2,7 @@
 type: project
 layer: shared
 created: 2026-10-15
-updated: 2026-10-28
+updated: 2026-10-29
 related: ["Agent Rules", "Docs Tree"]
 tags: [project, layer/shared]
 ---
@@ -43,7 +43,7 @@ docs/<agent>/<M-NN>-<module-id>/<F-NN>-<feature-id>/<last>
 ```
 
 - The prefix comes from the card's kind (`branches` in `docs.config.json`): **`tickets/`** for the cards that ask for or plan work, a story, a bug, a Frontend Requirements note, a needs-decision card; **`docs/`** for the archive of what is, a Backend Delivery, a Backend Integration, a Frontend Delivery, a QA Backend or QA Frontend note, a decision card, a module or feature card, and everything outside the modules (the rules, the reference notes).
-- `<agent>` is the agent that writes it: `owner`, `pm`, `frontend`, `backend`, `qa`; `admin` for a repair or a migration by [[Admin Agent]].
+- `<agent>` is the agent that writes it: `owner`, `pm`, `frontend`, `backend`, `qa`; `admin` for the docs system (the rules, the config, the templates, the scripts, the tree page, the agents) and for a repair or a migration, by [[Admin Agent]].
 - Then the card's path: `<M-NN>-<module-id>` when the card sits in a module, `/<F-NN>-<feature-id>` when it sits in a feature; the codes as [[Card Index]] lists them, the ids as `docs.config.json` spells them, never a backend folder.
 - `<last>` is a short kebab-case `<what-you-do>` when the branch's card **is** the module or the feature, and `<card code>-<what-you-do>` for a card under them: a decision, a story sign-off.
 - Outside a module: `docs/<agent>/project/<last>` for the rules, the config, the templates, the scripts, the agents, CI, [[Home]], the README, `CLAUDE.md`, and for a decision raised on any of them; `docs/<agent>/business/<last>` for the reference notes in `business/` ([[Project Overview]], [[Glossary]], [[Feature Tree]], the status reports).
@@ -57,10 +57,10 @@ docs/<agent>/<M-NN>-<module-id>/<F-NN>-<feature-id>/<last>
 | the owner creates the feature F-41 | `docs/owner/M-09-payments-gateway/F-41-pay-for-an-order/create` |
 | the owner raises ND-07 under the Payments & Orders story (feature `payments`, module `commerce`) | `tickets/owner/M-07-commerce/F-27-payments/ND-07-payment-provider` |
 | the PM records the answer on D-09 | `docs/pm/M-09-payments-gateway/F-41-pay-for-an-order/D-09-decided` |
-| the owner raises a vault rule's decision card | `tickets/owner/project/ND-08-flag-window` |
+| the admin raises a vault rule's decision card | `tickets/admin/project/ND-08-flag-window` |
 | the owner approves the story S-70 | `tickets/owner/M-07-commerce/F-27-payments/S-70-approved` |
 | the owner sets Payments & Orders to critical | `docs/owner/M-07-commerce/F-27-payments/priority-critical` |
-| the owner changes a rule | `docs/owner/project/owner-creates-features` |
+| the admin changes a rule | `docs/admin/project/owner-creates-features` |
 | the owner adds a Glossary entry | `docs/owner/business/glossary-payment-terms` |
 | the PM writes the feature story S-69 | `tickets/pm/M-07-commerce/F-27-payments/S-69-draft` |
 | the PM adds a part to the story S-105 | `tickets/pm/M-09-payments-gateway/F-41-pay-for-an-order/S-105-s7-refunds` |
@@ -68,6 +68,8 @@ docs/<agent>/<M-NN>-<module-id>/<F-NN>-<feature-id>/<last>
 | the frontend records Pay for an order Frontend Delivery | `docs/frontend/M-09-payments-gateway/F-41-pay-for-an-order/FD-NN-shipped` |
 | the backend records Payments & Orders Backend Delivery (BD-27) | `docs/backend/M-07-commerce/F-27-payments/BD-27-shipped` |
 | QA records a run on a QA Backend note | `docs/qa/M-NN-<module>/F-NN-<feature>/QB-NN-passing` |
+| the backend sets the bug B-06 ready once its fix ships | `tickets/backend/M-01-identity/F-02-auth/B-06-ready` |
+| QA closes or reopens B-06 after the re-test | `tickets/qa/M-01-identity/F-02-auth/B-06-closed`, `…/B-06-reopened` |
 | the admin repairs a stale tree after a merge | `docs/admin/project/repair-tree` |
 
 **Commits on these branches**, one card per commit:
@@ -82,7 +84,7 @@ Per agent, branch and commit together (a decision card commits as `decision`, a 
 |---|---|---|
 | owner | `docs/owner/M-09-payments-gateway/F-41-pay-for-an-order/create` | `feature(payments-gateway): F-41 Pay for an order · created, business side written` |
 | owner | `tickets/owner/M-07-commerce/F-27-payments/ND-07-payment-provider` | `needs-decision(commerce): ND-07 Payment provider · raised from S-27` |
-| owner | `docs/owner/project/<what>` | `rules(project): <what changed>` |
+| owner | `docs/owner/business/<what>` | `reference(business): <note name> · <what changed>` |
 | pm | `tickets/pm/M-09-payments-gateway/F-41-pay-for-an-order/S-105-draft` | `story(payments-gateway): S-105 Pay for an order Story · draft written` |
 | pm | `tickets/pm/M-09-payments-gateway/F-41-pay-for-an-order/S-105-s7-refunds` | `story(payments-gateway): S-105 Pay for an order Story · S7 refunds added` |
 | pm | `docs/pm/M-09-payments-gateway/F-41-pay-for-an-order/D-09-decided` | `decision(payments-gateway): D-09 30-minute hold tied to the Stripe checkout · ND-09 decided, option 2` |
@@ -92,6 +94,7 @@ Per agent, branch and commit together (a decision card commits as `decision`, a 
 | backend | `docs/backend/M-07-commerce/F-27-payments/BD-27-shipped` | `backend-delivery(commerce): BD-27 Payments & Orders Backend Delivery · checkout endpoint shipped` |
 | qa | `docs/qa/M-09-payments-gateway/F-41-pay-for-an-order/QB-NN-passing` | `qa-backend(payments-gateway): QB-NN Pay for an order QA Backend · passing on <build>` |
 | qa | `tickets/qa/M-09-payments-gateway/F-41-pay-for-an-order/B-07-filed` | `bug(payments-gateway): B-07 <title> · filed against QB-41` (a bug has its own `B` number and hangs on the card it was found against: `--found-on "<note name>"`) |
+| backend | `tickets/backend/M-01-identity/F-02-auth/B-06-ready` | `bug(identity): B-06 <title> · ready, fixed in BD-02` (the fixing layer sets `in-progress` and `ready` only; QA closes it) |
 | admin | `docs/admin/project/<what>` | `rules(project): <what changed>` |
 
 The body: two or three lines on what changed and why, the other files touched, the trailers `Feature: F-NN`, `Story: S-NN`, `Decision: ND-NN` when one is involved, then the attribution line. Rebuild before each commit and include the generated files, so every commit passes `--check` on its own. The bash guard reads the attribution line's angle brackets as a redirect: commit with `git commit -F <file outside the vault>`, or with a `git commit -F -` heredoc whose command starts with `git` and contains no `&&` or `;`.

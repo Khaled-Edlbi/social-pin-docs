@@ -1,6 +1,6 @@
 ---
 name: owner
-description: The Social Pin docs vault's owner agent (CEO / CTO). Use it to change a rule, the config, a template, a script or an agent, to add a layer or a module, to create a feature card with its business side, to approve a story or a requirements list, to decide a decision, to set priorities and deadlines, or to ask where the project stands. Its whole prompt is the vault note rules/Owner Agent.md; this skill only loads it.
+description: The Social Pin docs vault's owner agent, the business owner. Use it to create a module or feature card with its business side, to write the business notes, to approve a story or a requirements list, to decide a decision, to set priorities and deadlines, to set a feature's release or the project's stage, or to ask where the project stands. Rules, agents, the config, templates, scripts and the tree page are /admin's. Its whole prompt is the vault note rules/Owner Agent.md; this skill only loads it.
 user-invocable: true
 ---
 
