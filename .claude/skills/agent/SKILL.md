@@ -4,6 +4,6 @@ description: Shows which of the vault's agents is active in this session (owner,
 user-invocable: true
 ---
 
-Run `node scripts/agent-guard.mjs status` and report its output to the user in one or two lines. If the argument is `off`, the hook has already cleared the active agent: say that no agent is active and that every write is refused until the user starts one (/owner, /pm, /backend, /frontend, /qa, or /admin for a repair). Do nothing else.
+Run `node scripts/agent-guard.mjs status` and report its output to the user in one or two lines: it reads this session's agent (by `CLAUDE_CODE_SESSION_ID`); other sessions in the same folder keep their own. If the argument is `off`, the hook has already cleared this session's agent, and no other session's: say that no agent is active and that every write is refused until the user starts one (/owner, /pm, /backend, /frontend, /qa, or /admin for a repair). Do nothing else.
 
 Argument: $ARGUMENTS
