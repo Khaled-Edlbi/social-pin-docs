@@ -1067,7 +1067,6 @@
       "notes": [
         "backend-delivery:profiles",
         "backend-integration:profiles",
-        "frontend-requirements:profiles",
         "story:profiles"
       ],
       "owner": null
@@ -3044,6 +3043,7 @@
       ],
       "kind": "other",
       "notes": [
+        "frontend-requirements:profiles",
         "story:profiles"
       ],
       "owner": null
@@ -3384,6 +3384,7 @@
         "feature:photo-library",
         "feature:ring-projection",
         "frontend-requirements:photo-library",
+        "frontend-requirements:profiles",
         "frontend-requirements:ring-projection",
         "needs-decision:ND-02",
         "needs-decision:ND-05",
@@ -3709,6 +3710,7 @@
         "frontend-requirements:badge-qr",
         "frontend-requirements:connections",
         "frontend-requirements:files",
+        "frontend-requirements:profiles",
         "frontend-requirements:view-as",
         "needs-decision:ND-10",
         "needs-decision:ND-13",
@@ -4262,7 +4264,7 @@
     },
     "concepts": 203,
     "decisions": 20,
-    "edges": 3870,
+    "edges": 3900,
     "features": 41,
     "layerNotes": 132,
     "modules": 8,
@@ -4703,7 +4705,7 @@
     {
       "from": "frontend-requirements:profiles",
       "kind": "affects",
-      "to": "story:profiles"
+      "to": "backend-delivery:profiles"
     },
     {
       "from": "needs-decision:ND-17",
@@ -6054,6 +6056,11 @@
       "from": "frontend-requirements:photo-library",
       "kind": "depends",
       "to": "story:photo-library"
+    },
+    {
+      "from": "frontend-requirements:profiles",
+      "kind": "depends",
+      "to": "story:profiles"
     },
     {
       "from": "project:admin-agent",
@@ -9071,7 +9078,12 @@
     {
       "from": "frontend-requirements:auth",
       "kind": "related",
-      "to": "frontend-requirements:profiles"
+      "to": "frontend-requirements:profiles",
+      "via": [
+        "E_PROFILE_02",
+        "GET /profiles/pin-name/:pinName/availability",
+        "POST /auth/complete-registration"
+      ]
     },
     {
       "from": "frontend-requirements:auth",
@@ -10314,7 +10326,94 @@
     {
       "from": "frontend-requirements:profiles",
       "kind": "related",
+      "to": "backend-delivery:auth",
+      "via": [
+        "POST /auth/complete-registration"
+      ]
+    },
+    {
+      "from": "frontend-requirements:profiles",
+      "kind": "related",
+      "to": "backend-delivery:files",
+      "via": [
+        "POST /files"
+      ]
+    },
+    {
+      "from": "frontend-requirements:profiles",
+      "kind": "related",
+      "to": "backend-delivery:profiles",
+      "via": [
+        "DELETE /profiles/:id",
+        "E_PROFILE_02",
+        "GET /profiles",
+        "GET /profiles/:id",
+        "GET /profiles/pin-name/:pinName/availability",
+        "PATCH /profiles/:id",
+        "POST /profiles",
+        "POST /profiles/:id/default"
+      ]
+    },
+    {
+      "from": "frontend-requirements:profiles",
+      "kind": "related",
+      "to": "backend-integration:account",
+      "via": [
+        "GET /profiles"
+      ]
+    },
+    {
+      "from": "frontend-requirements:profiles",
+      "kind": "related",
+      "to": "backend-integration:auth",
+      "via": [
+        "E_PROFILE_02",
+        "GET /profiles/pin-name/:pinName/availability",
+        "POST /auth/complete-registration"
+      ]
+    },
+    {
+      "from": "frontend-requirements:profiles",
+      "kind": "related",
+      "to": "backend-integration:files",
+      "via": [
+        "POST /files"
+      ]
+    },
+    {
+      "from": "frontend-requirements:profiles",
+      "kind": "related",
+      "to": "backend-integration:profiles",
+      "via": [
+        "DELETE /profiles/:id",
+        "E_PROFILE_01",
+        "E_PROFILE_02",
+        "GET /profiles",
+        "GET /profiles/:id",
+        "GET /profiles/pin-name/:pinName/availability",
+        "PATCH /profiles/:id",
+        "POST /profiles",
+        "POST /profiles/:id/default"
+      ]
+    },
+    {
+      "from": "frontend-requirements:profiles",
+      "kind": "related",
+      "to": "backend-integration:ring-projection",
+      "via": [
+        "E_PROFILE_01",
+        "POST /files"
+      ]
+    },
+    {
+      "from": "frontend-requirements:profiles",
+      "kind": "related",
       "to": "decision:D-02"
+    },
+    {
+      "from": "frontend-requirements:profiles",
+      "kind": "related",
+      "to": "decision:D-05"
     },
     {
       "from": "frontend-requirements:profiles",
@@ -10329,6 +10428,11 @@
     {
       "from": "frontend-requirements:profiles",
       "kind": "related",
+      "to": "feature:badge-qr"
+    },
+    {
+      "from": "frontend-requirements:profiles",
+      "kind": "related",
       "to": "feature:files"
     },
     {
@@ -10339,17 +10443,222 @@
     {
       "from": "frontend-requirements:profiles",
       "kind": "related",
-      "to": "story:error-contract"
+      "to": "frontend-delivery:account",
+      "via": [
+        "GET /profiles",
+        "PATCH /profiles/:id"
+      ]
     },
     {
       "from": "frontend-requirements:profiles",
       "kind": "related",
-      "to": "story:files"
+      "to": "frontend-requirements:account",
+      "via": [
+        "GET /profiles"
+      ]
     },
     {
       "from": "frontend-requirements:profiles",
       "kind": "related",
-      "to": "story:onboarding-imports"
+      "to": "frontend-requirements:error-contract",
+      "via": [
+        "E_PROFILE_02",
+        "POST /auth/complete-registration"
+      ]
+    },
+    {
+      "from": "frontend-requirements:profiles",
+      "kind": "related",
+      "to": "frontend-requirements:gemma",
+      "via": [
+        "GET /profiles/pin-name/:pinName/availability"
+      ]
+    },
+    {
+      "from": "frontend-requirements:profiles",
+      "kind": "related",
+      "to": "frontend-requirements:onboarding-imports",
+      "via": [
+        "E_PROFILE_02",
+        "GET /profiles/pin-name/:pinName/availability",
+        "PATCH /profiles/:id",
+        "POST /auth/complete-registration",
+        "POST /files"
+      ]
+    },
+    {
+      "from": "frontend-requirements:profiles",
+      "kind": "related",
+      "to": "frontend-requirements:ring-projection",
+      "via": [
+        "E_PROFILE_01",
+        "GET /profiles",
+        "POST /files"
+      ]
+    },
+    {
+      "from": "frontend-requirements:profiles",
+      "kind": "related",
+      "to": "frontend-requirements:view-as"
+    },
+    {
+      "from": "frontend-requirements:profiles",
+      "kind": "related",
+      "to": "needs-decision:ND-16"
+    },
+    {
+      "from": "frontend-requirements:profiles",
+      "kind": "related",
+      "to": "needs-decision:ND-21",
+      "via": [
+        "POST /files"
+      ]
+    },
+    {
+      "from": "frontend-requirements:profiles",
+      "kind": "related",
+      "to": "needs-decision:ND-22"
+    },
+    {
+      "from": "frontend-requirements:profiles",
+      "kind": "related",
+      "to": "project:frontend-api-guide",
+      "via": [
+        "GET /profiles/pin-name/:pinName/availability"
+      ]
+    },
+    {
+      "from": "frontend-requirements:profiles",
+      "kind": "related",
+      "to": "project:frontend-contract",
+      "via": [
+        "GET /profiles/pin-name/:pinName/availability",
+        "POST /files",
+        "POST /profiles/:id/default"
+      ]
+    },
+    {
+      "from": "frontend-requirements:profiles",
+      "kind": "related",
+      "to": "project:frontend-passwordless-migration",
+      "via": [
+        "E_PROFILE_02",
+        "GET /profiles/pin-name/:pinName/availability",
+        "POST /auth/complete-registration"
+      ]
+    },
+    {
+      "from": "frontend-requirements:profiles",
+      "kind": "related",
+      "to": "project:spec-map",
+      "via": [
+        "GET /profiles/pin-name/:pinName/availability",
+        "POST /profiles"
+      ]
+    },
+    {
+      "from": "frontend-requirements:profiles",
+      "kind": "related",
+      "to": "project:status-report-2026-10-15",
+      "via": [
+        "GET /profiles/pin-name/:pinName/availability",
+        "POST /auth/complete-registration",
+        "POST /files"
+      ]
+    },
+    {
+      "from": "frontend-requirements:profiles",
+      "kind": "related",
+      "to": "qa-backend:account",
+      "via": [
+        "GET /profiles"
+      ]
+    },
+    {
+      "from": "frontend-requirements:profiles",
+      "kind": "related",
+      "to": "story:account",
+      "via": [
+        "GET /profiles"
+      ]
+    },
+    {
+      "from": "frontend-requirements:profiles",
+      "kind": "related",
+      "to": "story:auth",
+      "via": [
+        "E_PROFILE_02",
+        "GET /profiles/pin-name/:pinName/availability"
+      ]
+    },
+    {
+      "from": "frontend-requirements:profiles",
+      "kind": "related",
+      "to": "story:discover-hub",
+      "via": [
+        "GET /profiles/pin-name/:pinName/availability"
+      ]
+    },
+    {
+      "from": "frontend-requirements:profiles",
+      "kind": "related",
+      "to": "story:error-contract",
+      "via": [
+        "E_PROFILE_02"
+      ]
+    },
+    {
+      "from": "frontend-requirements:profiles",
+      "kind": "related",
+      "to": "story:files",
+      "via": [
+        "POST /files"
+      ]
+    },
+    {
+      "from": "frontend-requirements:profiles",
+      "kind": "related",
+      "to": "story:gemma"
+    },
+    {
+      "from": "frontend-requirements:profiles",
+      "kind": "related",
+      "to": "story:onboarding-imports",
+      "via": [
+        "POST /auth/complete-registration"
+      ]
+    },
+    {
+      "from": "frontend-requirements:profiles",
+      "kind": "related",
+      "to": "story:photo-library",
+      "via": [
+        "POST /files"
+      ]
+    },
+    {
+      "from": "frontend-requirements:profiles",
+      "kind": "related",
+      "to": "story:profiles",
+      "via": [
+        "DELETE /profiles/:id",
+        "E_PROFILE_02",
+        "GET /profiles",
+        "GET /profiles/pin-name/:pinName/availability",
+        "PATCH /profiles/:id",
+        "POST /auth/complete-registration",
+        "POST /files",
+        "POST /profiles",
+        "POST /profiles/:id/default"
+      ]
+    },
+    {
+      "from": "frontend-requirements:profiles",
+      "kind": "related",
+      "to": "task:B-02",
+      "via": [
+        "GET /profiles"
+      ]
     },
     {
       "from": "needs-decision:ND-07",
@@ -11183,6 +11492,7 @@
       "to": "frontend-requirements:profiles",
       "via": [
         "E_PROFILE_02",
+        "GET /profiles",
         "GET /profiles/pin-name/:pinName/availability",
         "POST /auth/complete-registration"
       ]
@@ -23702,11 +24012,6 @@
     {
       "from": "backend-delivery:profiles",
       "kind": "wikilink",
-      "to": "frontend-requirements:profiles"
-    },
-    {
-      "from": "backend-delivery:profiles",
-      "kind": "wikilink",
       "to": "needs-decision:ND-02"
     },
     {
@@ -25678,21 +25983,6 @@
       "from": "frontend-requirements:post-event",
       "kind": "wikilink",
       "to": "story:post-event"
-    },
-    {
-      "from": "frontend-requirements:profiles",
-      "kind": "wikilink",
-      "to": "backend-integration:profiles"
-    },
-    {
-      "from": "frontend-requirements:profiles",
-      "kind": "wikilink",
-      "to": "needs-decision:ND-22"
-    },
-    {
-      "from": "frontend-requirements:profiles",
-      "kind": "wikilink",
-      "to": "story:profiles"
     },
     {
       "from": "frontend-requirements:ring-access",
@@ -30614,7 +30904,8 @@
         "backend-integration:auth",
         "qa-backend:auth",
         "frontend-requirements:error-contract",
-        "project:auth-model"
+        "project:auth-model",
+        "frontend-requirements:profiles"
       ],
       "release": "mvp",
       "resolution": null,
@@ -31578,7 +31869,8 @@
       "priority": "high",
       "related": [
         "frontend-requirements:files",
-        "frontend-requirements:photo-library"
+        "frontend-requirements:photo-library",
+        "frontend-requirements:profiles"
       ],
       "release": "v1",
       "resolution": null,
@@ -32274,7 +32566,8 @@
       ],
       "priority": "critical",
       "related": [
-        "qa-backend:auth"
+        "qa-backend:auth",
+        "frontend-requirements:profiles"
       ],
       "release": "mvp",
       "resolution": null,
@@ -32810,7 +33103,8 @@
         "project:auth-model",
         "frontend-requirements:devices",
         "story:error-contract",
-        "project:frontend-api-guide"
+        "project:frontend-api-guide",
+        "frontend-requirements:profiles"
       ],
       "release": "mvp",
       "resolution": null,
@@ -32929,7 +33223,8 @@
         "qa-frontend:account",
         "qa-backend:auth",
         "frontend-requirements:error-contract",
-        "project:auth-model"
+        "project:auth-model",
+        "frontend-requirements:profiles"
       ],
       "release": "mvp",
       "resolution": null,
@@ -33722,7 +34017,8 @@
       "priority": "high",
       "related": [
         "frontend-requirements:files",
-        "frontend-requirements:photo-library"
+        "frontend-requirements:photo-library",
+        "frontend-requirements:profiles"
       ],
       "release": "v1",
       "resolution": null,
@@ -34283,7 +34579,8 @@
       "priority": "critical",
       "related": [
         "qa-backend:account",
-        "qa-backend:auth"
+        "qa-backend:auth",
+        "frontend-requirements:profiles"
       ],
       "release": "mvp",
       "resolution": null,
@@ -34488,7 +34785,8 @@
       "related": [
         "qa-backend:account",
         "frontend-requirements:files",
-        "frontend-requirements:photo-library"
+        "frontend-requirements:photo-library",
+        "frontend-requirements:profiles"
       ],
       "release": "mvp",
       "resolution": null,
@@ -35040,6 +35338,7 @@
         "decision:D-04",
         "frontend-requirements:photo-library",
         "story:photo-library",
+        "frontend-requirements:profiles",
         "story:profiles",
         "story:ring-projection",
         "story:rings"
@@ -35991,6 +36290,7 @@
         "needs-decision:ND-12",
         "needs-decision:ND-22",
         "decision:D-06",
+        "frontend-requirements:profiles",
         "story:profiles"
       ],
       "release": "mvp",
@@ -38879,6 +39179,7 @@
         "backend-delivery:auth",
         "backend-integration:auth",
         "qa-backend:auth",
+        "frontend-requirements:profiles",
         "frontend-requirements:error-contract",
         "project:auth-model"
       ],
@@ -40729,6 +41030,7 @@
         "qa-backend:auth",
         "frontend-requirements:files",
         "frontend-requirements:photo-library",
+        "frontend-requirements:profiles",
         "frontend-requirements:error-contract",
         "project:auth-model"
       ],
@@ -41597,6 +41899,7 @@
         "backend-delivery:auth",
         "backend-integration:auth",
         "qa-backend:auth",
+        "frontend-requirements:profiles",
         "story:error-contract",
         "backend-delivery:error-contract",
         "project:frontend-api-guide",
@@ -42024,7 +42327,8 @@
       "pending": [],
       "priority": "medium",
       "related": [
-        "qa-backend:auth"
+        "qa-backend:auth",
+        "frontend-requirements:profiles"
       ],
       "release": "later",
       "resolution": null,
@@ -42324,7 +42628,8 @@
         "feature:auth",
         "feature:files",
         "feature:ring-projection",
-        "frontend-requirements:photo-library"
+        "frontend-requirements:photo-library",
+        "frontend-requirements:profiles"
       ],
       "release": "mvp",
       "resolution": null,
@@ -42675,7 +42980,7 @@
     },
     "frontend-requirements:profiles": {
       "affects": [
-        "story:profiles"
+        "backend-delivery:profiles"
       ],
       "blockedBy": [],
       "card": "FR-07",
@@ -42683,7 +42988,9 @@
       "code": "profiles",
       "created": "2026-10-18",
       "deadline": null,
-      "depends": [],
+      "depends": [
+        "story:profiles"
+      ],
       "effectiveStatus": "draft",
       "effort": null,
       "feature": "profiles",
@@ -42713,23 +43020,59 @@
         "frontend-requirements:files",
         "frontend-requirements:photo-library",
         "decision:D-02",
+        "decision:D-05",
         "decision:D-06",
-        "feature:onboarding-imports",
+        "needs-decision:ND-16",
+        "needs-decision:ND-22",
+        "frontend-requirements:account",
+        "frontend-requirements:ring-projection",
+        "frontend-requirements:view-as",
+        "story:onboarding-imports",
+        "story:gemma",
+        "story:error-contract",
         "feature:auth",
         "feature:files",
+        "feature:onboarding-imports",
+        "feature:badge-qr",
+        "story:discover-hub",
+        "backend-integration:auth",
+        "story:auth",
+        "frontend-requirements:onboarding-imports",
+        "backend-delivery:profiles",
+        "backend-integration:profiles",
+        "story:profiles",
+        "frontend-requirements:gemma",
+        "project:spec-map",
+        "project:status-report-2026-10-15",
+        "project:frontend-api-guide",
+        "project:frontend-contract",
+        "project:frontend-passwordless-migration",
+        "task:B-02",
+        "backend-integration:account",
+        "frontend-delivery:account",
+        "qa-backend:account",
+        "story:account",
+        "backend-delivery:auth",
+        "frontend-requirements:error-contract",
+        "needs-decision:ND-21",
+        "backend-delivery:files",
+        "backend-integration:files",
         "story:files",
-        "story:onboarding-imports",
-        "story:error-contract"
+        "story:photo-library",
+        "backend-integration:ring-projection"
       ],
       "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
+        "s05b",
         "s06",
+        "s23",
+        "s44",
         "s68"
       ],
       "status": "draft",
-      "summary": "What the client needs from the backend for the Pin-name claim, sign-up's Profile basics step and the owner's profile editor, and whether each need is met today. The main profile of D-02 One main…",
+      "summary": "What the client needs from the backend for Profile basics and the Pin-name claim during sign-up, and for the profile editor opened from the Me header, and whether each need is met today. The main…",
       "tags": [
         "frontend-requirements",
         "frontend-requirements/draft",
@@ -42738,7 +43081,7 @@
       ],
       "task": null,
       "title": "FR-07 Profiles & Pin Name Frontend Requirements",
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "frontend-requirements:ring-access": {
       "affects": [],
@@ -42940,7 +43283,8 @@
       "related": [
         "backend-integration:account",
         "frontend-requirements:files",
-        "frontend-requirements:photo-library"
+        "frontend-requirements:photo-library",
+        "frontend-requirements:profiles"
       ],
       "release": "mvp",
       "resolution": null,
@@ -43119,6 +43463,7 @@
         "task:B-03",
         "qa-backend:auth",
         "frontend-requirements:files",
+        "frontend-requirements:profiles",
         "frontend-requirements:error-contract"
       ],
       "release": "mvp",
@@ -44705,7 +45050,8 @@
         "frontend-requirements:files",
         "story:files",
         "frontend-requirements:photo-library",
-        "story:photo-library"
+        "story:photo-library",
+        "frontend-requirements:profiles"
       ],
       "release": null,
       "resolution": null,
@@ -45038,7 +45384,8 @@
         "feature:files",
         "frontend-requirements:files",
         "frontend-requirements:onboarding-imports",
-        "frontend-requirements:photo-library"
+        "frontend-requirements:photo-library",
+        "frontend-requirements:profiles"
       ],
       "release": null,
       "resolution": null,
@@ -45099,6 +45446,7 @@
         "needs-decision:ND-12",
         "decision:D-06",
         "story:view-as",
+        "frontend-requirements:profiles",
         "story:profiles"
       ],
       "release": null,
@@ -46003,6 +46351,7 @@
         "backend-delivery:account",
         "backend-integration:account",
         "qa-backend:auth",
+        "frontend-requirements:profiles",
         "frontend-requirements:error-contract",
         "project:backend-agent",
         "project:frontend-agent",
@@ -46057,6 +46406,7 @@
         "qa-backend:auth",
         "frontend-requirements:files",
         "frontend-requirements:photo-library",
+        "frontend-requirements:profiles",
         "frontend-requirements:error-contract",
         "project:frontend-agent",
         "project:frontend-agent-prompt"
@@ -46109,6 +46459,7 @@
         "backend-delivery:account",
         "backend-integration:account",
         "qa-backend:auth",
+        "frontend-requirements:profiles",
         "frontend-requirements:error-contract",
         "project:auth-model"
       ],
@@ -46534,7 +46885,8 @@
         "backend-integration:account",
         "qa-backend:auth",
         "frontend-requirements:files",
-        "frontend-requirements:photo-library"
+        "frontend-requirements:photo-library",
+        "frontend-requirements:profiles"
       ],
       "release": null,
       "resolution": null,
@@ -46582,7 +46934,8 @@
         "task:B-05",
         "qa-backend:auth",
         "frontend-requirements:files",
-        "frontend-requirements:photo-library"
+        "frontend-requirements:photo-library",
+        "frontend-requirements:profiles"
       ],
       "release": null,
       "resolution": null,
@@ -46700,6 +47053,7 @@
         "qa-frontend:account",
         "backend-delivery:auth",
         "qa-backend:auth",
+        "frontend-requirements:profiles",
         "frontend-requirements:error-contract",
         "project:auth-model"
       ],
@@ -50631,6 +50985,7 @@
         "decision:D-20",
         "task:B-01",
         "qa-backend:auth",
+        "frontend-requirements:profiles",
         "story:profiles",
         "frontend-requirements:error-contract",
         "project:auth-model"
@@ -50799,6 +51154,7 @@
         "feature:onboarding-imports",
         "feature:interests",
         "story:profiles",
+        "frontend-requirements:profiles",
         "frontend-requirements:error-contract",
         "project:auth-model"
       ],
@@ -51393,7 +51749,8 @@
       "pending": [],
       "priority": "high",
       "related": [
-        "qa-backend:auth"
+        "qa-backend:auth",
+        "frontend-requirements:profiles"
       ],
       "release": "v1",
       "resolution": null,
@@ -51861,6 +52218,7 @@
       "pending": [],
       "priority": "medium",
       "related": [
+        "frontend-requirements:profiles",
         "story:profiles",
         "decision:D-06",
         "frontend-requirements:interests"
@@ -52327,7 +52685,8 @@
         "story:onboarding-imports",
         "story:profiles",
         "story:linked-accounts",
-        "needs-decision:ND-16"
+        "needs-decision:ND-16",
+        "frontend-requirements:profiles"
       ],
       "release": "v1",
       "resolution": null,
@@ -52503,6 +52862,7 @@
         "frontend-requirements:onboarding-imports",
         "frontend-requirements:photo-library",
         "story:photo-library",
+        "frontend-requirements:profiles",
         "decision:D-02",
         "decision:D-05",
         "decision:D-06",
@@ -53150,6 +53510,7 @@
         "backend-delivery:auth",
         "backend-integration:auth",
         "qa-backend:auth",
+        "frontend-requirements:profiles",
         "frontend-requirements:error-contract"
       ],
       "release": "mvp",
