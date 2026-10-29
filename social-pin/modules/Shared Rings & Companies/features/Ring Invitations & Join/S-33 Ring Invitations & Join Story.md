@@ -15,6 +15,8 @@ tags: [story, story/draft, module/shared-rings, layer/business]
 
 # Ring Invitations & Join · User Story
 
+> ⚠ Affected by [[S-18 Rings Story]] (2026-10-29): where the owner invites someone or makes a code for a Ring, one line says "**People who join this way will see this Ring's name.**" (D-18), since the Ring's name copy (s09, s22) now reads "Only you see this name, unless someone joins it with an invitation or a code." The wizard's step 2 "Invite" (s19) is this story's.
+
 > ⚠ Affected by [[S-16 Ring Members Story]] (2026-10-29): the **owner approves a Ring's join requests on s15** ("Waiting on you · N", S-16 S9): Add makes the person a member recorded as joined knowingly, Decline removes the request. This story makes the requests; s15 needs, per Ring, the pending requests with who asked, how (with a code, from the public card) and when.
 
 **Feature:** [[F-17 Ring Invitations & Join]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[FR-17 Ring Invitations & Join Frontend Requirements]] · **API Integration:** not yet (backend not built)

@@ -15,6 +15,8 @@ tags: [story, story/draft, module/connections, layer/business]
 
 # Connections · User Story
 
+> ⚠ Affected by [[S-18 Rings Story]] (2026-10-29): the new-Ring wizard's step 2 (s19) picks people from **my connections**: searchable, each with **whether they're in any of my Rings** (for the "No Ring yet" filter). That list is this story's (S19–S24).
+
 > ⚠ Affected by [[S-16 Ring Members Story]] (2026-10-29): s47's "IN RING" is now a **checklist** (S-16 S5): tick adds the person to a Ring, untick removes them, add before remove when moving; unticking the last Ring asks Remove from Rings or **Disconnect**, which needs this story's disconnect route. "Revoke access" removes them from all my Rings. S4 here ("Add to another Ring", "Move to another Ring") should follow the checklist; the window per Ring is S-16 S3.
 
 **Feature:** [[F-14 Connections]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[FR-14 Connections Frontend Requirements]] · **API Integration:** not yet (backend not built)

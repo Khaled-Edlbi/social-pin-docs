@@ -3550,7 +3550,8 @@
         "frontend-requirements:rings",
         "needs-decision:ND-04",
         "story:delegated-admins",
-        "story:ring-access"
+        "story:ring-access",
+        "story:rings"
       ],
       "owner": null
     },
@@ -4414,7 +4415,7 @@
     },
     "concepts": 208,
     "decisions": 21,
-    "edges": 4165,
+    "edges": 4170,
     "features": 41,
     "layerNotes": 132,
     "modules": 8,
@@ -14465,7 +14466,32 @@
     {
       "from": "story:rings",
       "kind": "related",
+      "to": "decision:D-15"
+    },
+    {
+      "from": "story:rings",
+      "kind": "related",
       "to": "decision:D-18"
+    },
+    {
+      "from": "story:rings",
+      "kind": "related",
+      "to": "story:connections"
+    },
+    {
+      "from": "story:rings",
+      "kind": "related",
+      "to": "story:gemma"
+    },
+    {
+      "from": "story:rings",
+      "kind": "related",
+      "to": "story:ring-invitations"
+    },
+    {
+      "from": "story:rings",
+      "kind": "related",
+      "to": "story:ring-projection"
     },
     {
       "from": "story:widgets",
@@ -31523,11 +31549,6 @@
       "to": "story:badge-qr"
     },
     {
-      "from": "story:ring-invitations",
-      "kind": "wikilink",
-      "to": "story:rings"
-    },
-    {
       "from": "story:ring-members",
       "kind": "wikilink",
       "to": "backend-integration:ring-members"
@@ -31565,12 +31586,17 @@
     {
       "from": "story:rings",
       "kind": "wikilink",
-      "to": "decision:D-15"
+      "to": "feature:companies"
     },
     {
       "from": "story:rings",
       "kind": "wikilink",
-      "to": "feature:companies"
+      "to": "feature:counts"
+    },
+    {
+      "from": "story:rings",
+      "kind": "wikilink",
+      "to": "feature:event-ring-auto"
     },
     {
       "from": "story:rings",
@@ -31580,7 +31606,7 @@
     {
       "from": "story:rings",
       "kind": "wikilink",
-      "to": "story:ring-projection"
+      "to": "story:profiles"
     },
     {
       "from": "story:subscription",
@@ -38111,7 +38137,8 @@
         "story:ring-access",
         "frontend-requirements:ring-members",
         "story:ring-members",
-        "frontend-requirements:rings"
+        "frontend-requirements:rings",
+        "story:rings"
       ],
       "release": null,
       "resolution": null,
@@ -54554,7 +54581,8 @@
         "frontend-requirements:ring-members",
         "story:ring-members",
         "frontend-requirements:ring-projection",
-        "frontend-requirements:rings"
+        "frontend-requirements:rings",
+        "story:rings"
       ],
       "release": "mvp",
       "resolution": null,
@@ -55268,6 +55296,7 @@
         "story:profiles",
         "frontend-requirements:ring-projection",
         "story:ring-projection",
+        "story:rings",
         "decision:D-06",
         "frontend-requirements:interests"
       ],
@@ -56068,6 +56097,7 @@
         "story:ring-members",
         "frontend-requirements:ring-projection",
         "frontend-requirements:rings",
+        "story:rings",
         "decision:D-04",
         "decision:D-14",
         "decision:D-18"
@@ -56199,7 +56229,8 @@
         "decision:D-05",
         "story:view-as",
         "story:gemma",
-        "feature:linked-accounts"
+        "feature:linked-accounts",
+        "story:rings"
       ],
       "release": "mvp",
       "resolution": null,
@@ -56269,7 +56300,12 @@
         "decision:D-04",
         "decision:D-05",
         "decision:D-14",
-        "decision:D-18"
+        "decision:D-15",
+        "decision:D-18",
+        "story:ring-projection",
+        "story:connections",
+        "story:ring-invitations",
+        "story:gemma"
       ],
       "release": "mvp",
       "resolution": null,
@@ -56285,6 +56321,7 @@
         "s21",
         "s22",
         "s26",
+        "s27",
         "s62"
       ],
       "status": "approved",
@@ -56297,7 +56334,7 @@
       ],
       "task": null,
       "title": "S-18 Rings Story",
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "story:subscription": {
       "affects": [],

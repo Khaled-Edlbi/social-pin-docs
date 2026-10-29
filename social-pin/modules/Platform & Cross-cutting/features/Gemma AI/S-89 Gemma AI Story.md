@@ -15,6 +15,8 @@ tags: [story, story/draft, module/platform, layer/business]
 
 # Gemma AI · User Story
 
+> ⚠ Affected by [[S-18 Rings Story]] (2026-10-29): three more Gemma entry points are this story's and hidden until Gemma is built: "**Gemma: suggest**" (Ring names, s18), "**Gemma: rewrite**" (who a Ring is for, s22), "**Suggested by Gemma**" (people for a new Ring, s19).
+
 > ⚠ Affected by [[S-17 Ring Projection Story]] (2026-10-29): s23's "**Gemma: rewrite**" (the bio) is this story's and is not shown until Gemma is built ([[S-17 Ring Projection Story|Ring Projection · S3]]), like s06's "Gemma: suggest" ([[S-14 Profiles & Pin Name Story|Profiles & Pin Name · S1]]).
 
 **Feature:** [[F-36 Gemma AI]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[FR-36 Gemma AI Frontend Requirements]] · **API Integration:** not yet (backend not built)
