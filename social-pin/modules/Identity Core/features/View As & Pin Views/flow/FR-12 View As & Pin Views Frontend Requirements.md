@@ -4,7 +4,7 @@ code: view-as
 scope: feature
 feature: view-as
 module: identity
-status: draft
+status: ready
 screens: [s10, s31, s44, s62]
 depends: ["S-19 View As & Pin Views Story"]
 affects: ["BD-12 View As & Pin Views Backend Delivery"]
@@ -12,12 +12,12 @@ related: ["BI-09 View As & Pin Views Backend Integration", "D-16 Files load from
 created: 2026-10-18
 updated: 2026-10-29
 owner: "Omar Fostok"
-tags: [frontend-requirements, frontend-requirements/draft, module/identity, layer/frontend]
+tags: [frontend-requirements, frontend-requirements/ready, module/identity, layer/frontend]
 ---
 
 # View As & Pin Views · Frontend Requirements
 
-**Feature:** [[F-12 View As & Pin Views]] · **Status:** Draft · **Story:** [[S-19 View As & Pin Views Story]] · **Backend Integration:** [[BI-09 View As & Pin Views Backend Integration]]
+**Feature:** [[F-12 View As & Pin Views]] · **Status:** 📨 Ready 2026-10-29, waiting on the backend's review · **Story:** [[S-19 View As & Pin Views Story]] · **Backend Integration:** [[BI-09 View As & Pin Views Backend Integration]]
 
 What the client needs from the backend for every screen that renders another person, and for the owner's preview, and whether each need is met today. The viewer shape and the cache rule are in [[BI-09 View As & Pin Views Backend Integration]]. Photos and files load from signed links that expire in 15 minutes ([[D-16 Files load from signed links that expire in 15 minutes]]).
 
