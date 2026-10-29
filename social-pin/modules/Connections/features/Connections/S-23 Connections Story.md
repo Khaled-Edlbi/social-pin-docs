@@ -15,6 +15,8 @@ tags: [story, story/draft, module/connections, layer/business]
 
 # Connections · User Story
 
+> ⚠ Affected by [[S-16 Ring Members Story]] (2026-10-29): s47's "IN RING" is now a **checklist** (S-16 S5): tick adds the person to a Ring, untick removes them, add before remove when moving; unticking the last Ring asks Remove from Rings or **Disconnect**, which needs this story's disconnect route. "Revoke access" removes them from all my Rings. S4 here ("Add to another Ring", "Move to another Ring") should follow the checklist; the window per Ring is S-16 S3.
+
 **Feature:** [[F-14 Connections]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[FR-14 Connections Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 Two people met, one scanned the other, and now one of them wants access. A connection in Social Pin is an access request: the requester asks to be let in, the owner decides which Ring to put them in, and from that moment the requester sees exactly that Ring's perspective and nothing about the Ring itself ([[D-14 Shared with me lists people, never the Ring]]). A request is pending, accepted, declined, cancelled or expired after 30 days, and the requester sees which ([[D-13 The requester sees a declined request]], [[D-17 Requests expire after 30 days, optional note, ask again at once]]). A person can sit in several of the owner's Rings, and a connection outlives access unless the owner disconnects ([[D-15 Several Rings per connection, remove or disconnect]]). There is no feed, no follower count on display, no "following back".
