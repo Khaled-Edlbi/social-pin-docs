@@ -4531,7 +4531,7 @@
     },
     "concepts": 214,
     "decisions": 21,
-    "edges": 4352,
+    "edges": 4353,
     "features": 41,
     "layerNotes": 133,
     "modules": 8,
@@ -7405,6 +7405,11 @@
         "E_AUTH_03",
         "E_USER_01"
       ]
+    },
+    {
+      "from": "backend-delivery:auth",
+      "kind": "related",
+      "to": "project:database-migrations"
     },
     {
       "from": "backend-delivery:auth",
@@ -34990,6 +34995,7 @@
         "qa-backend:auth",
         "frontend-requirements:error-contract",
         "project:auth-model",
+        "project:database-migrations",
         "frontend-requirements:profiles"
       ],
       "release": "mvp",
@@ -35013,7 +35019,7 @@
       "task": null,
       "title": "BD-02 Auth & Sign-up Backend Delivery",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "backend-delivery:badge-qr": {
       "affects": [],
@@ -51323,7 +51329,8 @@
       "pending": [],
       "priority": null,
       "related": [
-        "task:B-06"
+        "task:B-06",
+        "backend-delivery:auth"
       ],
       "release": null,
       "resolution": null,
@@ -51337,7 +51344,7 @@
       "task": null,
       "title": "Database & Migrations",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "project:developer-guide": {
       "affects": [],

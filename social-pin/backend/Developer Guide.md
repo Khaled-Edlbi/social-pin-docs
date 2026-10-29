@@ -159,6 +159,9 @@ consequence is no `baseUrl` path aliases — relative imports throughout.
 **Every new `DateTime` column needs `@db.Timestamptz(3)`.** The default
 `timestamp without time zone` would be reinterpreted in the session timezone by
 any raw query or external tool, and the exclusion constraint needs `tstzrange`.
+The column type is half of it: the session must run in UTC too, which
+`createPgAdapter` (`src/prisma/pg-adapter.ts`) does for every connection. Build a
+Prisma client only through it ([[Database & Migrations#Prisma 7 rules]]).
 
 **The Jest setup has two shims, in `jest.swc-env.js`.** It has to run as plain
 CommonJS before the first transform. See the deviations list in `CLAUDE.md` for
