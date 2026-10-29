@@ -15,8 +15,6 @@ tags: [story, story/draft, module/connections, layer/business]
 
 # Connections · User Story
 
-> ⚠ Affected by [[S-15 Ring Access Engine Story]] (2026-10-29): s47's "4 mutual connections · Omar, Lina, Rami +1" and "2 events in common" reveal another person's connections and events; nothing decides whether that's allowed. A needs-decision card is to be raised from this story ("Mutual connections and events in common", decider: owner); until it's decided s47 shows neither.
-
 **Feature:** [[F-14 Connections]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[FR-14 Connections Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 Two people met, one scanned the other, and now one of them wants access. A connection in Social Pin is an access request: the requester asks to be let in, the owner decides which Ring to put them in, and from that moment the requester sees exactly that Ring's perspective and nothing about the Ring itself ([[D-14 Shared with me lists people, never the Ring]]). A request is pending, accepted, declined, cancelled or expired after 30 days, and the requester sees which ([[D-13 The requester sees a declined request]], [[D-17 Requests expire after 30 days, optional note, ask again at once]]). A person can sit in several of the owner's Rings, and a connection outlives access unless the owner disconnects ([[D-15 Several Rings per connection, remove or disconnect]]). There is no feed, no follower count on display, no "following back".
@@ -253,8 +251,10 @@ Acceptance criteria:
 **As a** user **I want** events in common and mutual connections **so that** I remember how I know this person.
 
 Acceptance criteria:
+- [ ] **What may be shown is [[ND-23 Mutual connections and events in common]]** (raised 2026-10-29); until it's decided, s47 shows **neither** section, hidden, not empty.
 - [ ] Events in common: may ship after the events features; until then the section is hidden, not empty.
-- [ ] Mutual connections: only people who are connections of both of us, and only where a Ring's "members can see each other" is on (off by default, [[D-04 Ring settings at launch and their defaults]]); hidden otherwise. Not available yet: the setting does not exist.
+- [ ] Mutual connections: draft rule, to be confirmed or replaced by ND-23: only people who are connections of both of us, and only where a Ring's "members can see each other" is on (off by default, [[D-04 Ring settings at launch and their defaults]]); hidden otherwise. Not available yet: the setting does not exist.
+- [ ] A blocked pair never appears in each other's lists; the engine decides what's shown ([[F-08 Ring Access Engine]]).
 
 ### S25 · Block and unblock
 
@@ -313,7 +313,7 @@ Screens: [[Screen Index#s47|s47]] Connection detail
 - [[S-23 Connections Story|Connections · S26]] — semantics of *Introduce* on s47 (a request on someone's behalf, or a suggestion to Gemma); the button stays disabled until decided.
 - [[ND-10 How Connect addresses the scanned person]] — open; blocks S1's addressing ([[S-23 Connections Story|Connections · S8–S12]]).
 - Decided: [[D-13 The requester sees a declined request]], [[D-14 Shared with me lists people, never the Ring]] (a connection-granted membership lists as the person, never the Ring's name; not available yet), [[D-15 Several Rings per connection, remove or disconnect]], [[D-17 Requests expire after 30 days, optional note, ask again at once]].
-- Mutual connections on s47 count only where a Ring's "members can see each other" is on (off by default, [[D-04 Ring settings at launch and their defaults]]); otherwise they are computed over the viewer's own connections only.
+- **Mutual connections and events in common on s47: [[ND-23 Mutual connections and events in common]]** (open; the owner decides). This line used to say "otherwise they are computed over the viewer's own connections only", which disagreed with S24; ND-23 settles both.
 - The disconnect route, and whether the other person is told anything (D-15, *Still open*).
 - [[S-89 Gemma AI Story|Gemma AI · S7]] — the suggested Ring on s46; the default Ring is the fallback.
 - (Connections · S8–S12) **The receiver's id** ([[ND-10 How Connect addresses the scanned person]]). The view body has no user id. The app needs it from the scan ([[S-37 Badge & QR Story|Badge & QR · S13–S18]]) or from a `pinName` lookup; or the request accepts the scanned token or the `pinName` and resolves the person itself. This story stays Blocked · ND-10 until it is decided.

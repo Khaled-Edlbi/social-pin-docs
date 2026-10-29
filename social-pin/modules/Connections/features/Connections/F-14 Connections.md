@@ -83,6 +83,7 @@ One story per feature (since 2026-10-27): all of this feature's work is in [[S-2
 - [[ND-14 Connection-granted Ring on Shared with me]] — decided, Shared with me lists people, never the Ring ([[D-14 Shared with me lists people, never the Ring|D-14]])
 - [[ND-15 One Ring or several per connection]] — decided, several Rings per connection, remove or disconnect ([[D-15 Several Rings per connection, remove or disconnect|D-15]])
 - [[ND-17 Request expiry, note and asking again]] — decided, 30-day expiry, optional note, ask again at once ([[D-17 Requests expire after 30 days, optional note, ask again at once|D-17]])
+- [[ND-23 Mutual connections and events in common]] — open: what s47 may show about the people and events two connections share; blocks [[S-23 Connections Story|Connections · S24]]
 
 ## Related
 
