@@ -1,20 +1,20 @@
 ---
+id: FD-NN                  # the card code, in front of the file name; --scaffold writes it
 type: frontend-delivery
-code: <feature id>
-scope: feature
-feature: <feature id>
 module: <module id>
+feature: <feature id>
 status: todo
+scope: feature
+# priority: high           # optional: inherits the feature's when absent (critical | high | medium | low)
+# deadline: YYYY-MM-DD      # optional: inherits the feature's when absent
+# deployedTo: where this build runs, dev | staging | prod (docs.config.json environments); empty until deployed
+deployedTo: []
 screens: []
 depends: []
 affects: []
 related: []
-# priority: high           # optional: inherits the feature's when absent (critical | high | medium | low)
-# deadline: YYYY-MM-DD      # optional: inherits the feature's when absent
 # pending: ["[[Note]]: what is left", "@who: what is left"]   # done, but a note is left for a card or a person → Partial until cleared
 pending: []
-# deployedTo: where this build runs, dev | staging | prod (docs.config.json environments); empty until deployed
-deployedTo: []
 created: <date>
 updated: <date>
 tags: [frontend-delivery, frontend-delivery/todo, module/<module>, layer/frontend]

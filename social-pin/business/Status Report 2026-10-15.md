@@ -1,10 +1,11 @@
 ---
+id: P-05
 type: report
+layer: business
 date: 2026-10-15
 created: 2026-10-15
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [project, report]
-layer: business
 ---
 
 # Status Report · Backend vs Design (2026-10-15)

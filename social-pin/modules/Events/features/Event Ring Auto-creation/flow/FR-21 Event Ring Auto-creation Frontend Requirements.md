@@ -1,13 +1,13 @@
 ---
+id: FR-21
 type: frontend-requirements
-code: event-ring-auto
-scope: feature
-feature: event-ring-auto
 module: events
+feature: event-ring-auto
 status: draft
+scope: feature
 screens: [s52]
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [frontend-requirements, frontend-requirements/draft, module/events, layer/frontend]
 ---
 

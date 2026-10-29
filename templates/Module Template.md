@@ -1,6 +1,7 @@
 ---
+id: M-NN                   # the card code, in front of the file name: M-NN <Module> Module.md
 type: module
-id: <module id>
+module: <module id>
 name: "<Module name>"
 # priority: high           # optional (critical | high | medium | low); a module's features carry their own
 # deadline: YYYY-MM-DD      # optional

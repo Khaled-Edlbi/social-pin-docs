@@ -1,13 +1,13 @@
 ---
+id: BD-32
 type: backend-delivery
-code: code-delivery
-scope: feature
-feature: code-delivery
 module: platform
+feature: code-delivery
 status: in-progress
+scope: feature
 screens: [s02]
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [backend-delivery, backend-delivery/in-progress, module/platform, layer/backend]
 ---
 

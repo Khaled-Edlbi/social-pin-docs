@@ -1,14 +1,14 @@
 ---
+id: BI-02
 type: backend-integration
-code: auth
-scope: feature
-feature: auth
 module: identity
+feature: auth
 status: current
+scope: feature
 screens: [s01, s02, s06, s08, s68]
-created: 2026-10-15
-updated: 2026-10-28
 related: ["B-02 Deleted account answers 401, not the documented 404 E_USER_01", E_USER_01]
+created: 2026-10-15
+updated: 2026-10-29
 tags: [backend-integration, backend-integration/current, module/identity, layer/backend]
 ---
 

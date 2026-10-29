@@ -1,11 +1,11 @@
 ---
-type: needs-decision
 id: ND-01
+type: needs-decision
 status: open
 features: [auth, linked-accounts]
 screens: [s01, s02]
 created: 2026-10-15
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [needs-decision, needs-decision/open]
 ---
 

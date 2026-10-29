@@ -1,16 +1,16 @@
 ---
-type: decision
 id: D-03
-decision: ND-03
+type: decision
 status: decided
+features: [ring-projection, widgets]
+decision: ND-03
 decidedBy: "molham"
 decidedAt: 2026-10-25
-features: [ring-projection, widgets]
+owner: "khaled"
 affects: ["F-10 Ring Projection", "F-13 Widgets", "S-20 Widgets Story", "S-17 Ring Projection Story"]
 related: ["ND-03 Field library vs per-Ring copies", "D-02 One main profile every Ring starts from"]
-owner: "khaled"
 created: 2026-10-25
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [decision, decision/decided]
 ---
 

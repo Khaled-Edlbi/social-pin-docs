@@ -1,18 +1,18 @@
 ---
+id: S-49
 type: story
-code: events-before
-scope: feature
-feature: events-before
 module: events
+feature: events-before
 status: approved
+scope: feature
 screens: [s48, s49, s50, s51, s52]
 approvedBy: "khaled"
 approvedAt: 2026-10-25
+owner: "khaled"
 depends: ["ND-07 Payment provider"]
 related: ["F-27 Payments & Orders", "F-21 Event Ring Auto-creation"]
-owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [story, story/approved, module/events, layer/business]
 ---
 

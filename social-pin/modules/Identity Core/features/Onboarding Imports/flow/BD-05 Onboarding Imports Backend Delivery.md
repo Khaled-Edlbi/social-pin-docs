@@ -1,13 +1,13 @@
 ---
+id: BD-05
 type: backend-delivery
-code: onboarding-imports
-scope: feature
-feature: onboarding-imports
 module: identity
+feature: onboarding-imports
 status: todo
+scope: feature
 screens: [s03, s03a, s03b, s04, s05]
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [backend-delivery, backend-delivery/todo, module/identity, layer/backend]
 ---
 

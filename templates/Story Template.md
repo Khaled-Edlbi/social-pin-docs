@@ -1,20 +1,20 @@
 ---
+id: S-NN                  # the card code, in front of the file name; --scaffold writes it
 type: story
-code: <feature id>
-scope: feature
-feature: <feature id>
 module: <module id>
+feature: <feature id>
 status: draft
+scope: feature
+# priority: high           # optional: inherits the feature's when absent (critical | high | medium | low)
+# deadline: YYYY-MM-DD      # optional: inherits the feature's when absent
 screens: []
+approvedBy: ""
+approvedAt: ""
 depends: []
 affects: []
 related: []
-# priority: high           # optional: inherits the feature's when absent (critical | high | medium | low)
-# deadline: YYYY-MM-DD      # optional: inherits the feature's when absent
 # pending: ["[[Note]]: what is left", "@who: what is left"]   # done, but a note is left for a card or a person → Partial until cleared
 pending: []
-approvedBy: ""
-approvedAt: ""
 created: <date>
 updated: <date>
 tags: [story, story/draft, module/<module>, layer/business]

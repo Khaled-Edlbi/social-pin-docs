@@ -1,16 +1,16 @@
 ---
-type: decision
 id: D-07
-decision: ND-07
+type: decision
 status: decided
+features: [payments, subscription]
+decision: ND-07
 decidedBy: "khaled"
 decidedAt: 2026-10-21
-features: [payments, subscription]
+owner: "khaled"
 affects: ["F-27 Payments & Orders", "F-28 Subscription (Free vs Pro)", "S-69 Payments & Orders Story", "S-49 Events Before Story", "S-71 Subscription (Free vs Pro) Story"]
 related: ["ND-07 Payment provider"]
-owner: "khaled"
 created: 2026-10-22
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [decision, decision/decided]
 ---
 

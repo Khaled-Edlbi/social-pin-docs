@@ -1,17 +1,17 @@
 ---
+id: S-02
 type: story
-code: auth
-scope: feature
-feature: auth
 module: identity
+feature: auth
 status: approved
+scope: feature
 screens: [s01, s02, s06, s08, s68, s75]
 approvedBy: "khaled"
 approvedAt: 2026-10-25
-created: 2026-10-18
-updated: 2026-10-28
 owner: "Omar Fostok"
 related: ["D-06 Yearly rename, old name freed, case-insensitive", "FR-02 Auth & Sign-up Frontend Requirements", "F-05 Onboarding Imports", "F-37 Interests", "S-14 Profiles & Pin Name Story"]
+created: 2026-10-18
+updated: 2026-10-29
 tags: [story, story/approved, module/identity, layer/business]
 ---
 

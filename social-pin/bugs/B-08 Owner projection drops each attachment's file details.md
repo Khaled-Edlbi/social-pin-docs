@@ -1,12 +1,12 @@
 ---
-type: bug
 id: B-08
+type: bug
+module: identity
+feature: ring-projection
 status: done
 resolution: fixed
 priority: high
 effort: S
-feature: ring-projection
-module: identity
 foundOn: "BI-07 Ring Projection Backend Integration"
 screens: [s14, s24, s36]
 depends: []

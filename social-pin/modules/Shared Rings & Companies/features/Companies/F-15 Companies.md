@@ -1,15 +1,16 @@
 ---
+id: F-15
 type: feature
-id: companies
+module: shared-rings
+feature: companies
 name: "Companies"
 priority: high
 release: v1
-module: shared-rings
 screens: [s72, s73]
+owner: "omar"
 related: ["F-09 Ring Members"]
 created: 2026-10-15
-updated: 2026-10-28
-owner: "omar"
+updated: 2026-10-29
 tags: [feature, module/shared-rings, priority/high, release/v1]
 ---
 

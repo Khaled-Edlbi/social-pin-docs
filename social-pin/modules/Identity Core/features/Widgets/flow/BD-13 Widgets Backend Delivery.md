@@ -1,13 +1,13 @@
 ---
+id: BD-13
 type: backend-delivery
-code: widgets
-scope: feature
-feature: widgets
 module: identity
+feature: widgets
 status: in-progress
+scope: feature
 screens: [s36, s37]
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [backend-delivery, backend-delivery/in-progress, module/identity, layer/backend]
 ---
 

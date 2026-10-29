@@ -1,16 +1,16 @@
 ---
-type: decision
 id: D-01
-decision: ND-01
+type: decision
 status: decided
+features: [auth, linked-accounts]
+decision: ND-01
 decidedBy: "product + backend lead"
 decidedAt: 2026-10-15
-features: [auth, linked-accounts]
+owner: "khaled"
 affects: ["F-02 Auth & Sign-up", "F-38 Linked Accounts (OAuth)", "S-94 Linked Accounts (OAuth) Story", "S-02 Auth & Sign-up Story"]
 related: ["ND-01 Passwordless login", "F-32 Code Delivery"]
-owner: "khaled"
 created: 2026-10-22
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [decision, decision/decided]
 ---
 

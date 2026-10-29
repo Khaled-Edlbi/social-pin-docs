@@ -1,14 +1,15 @@
 ---
+id: F-13
 type: feature
-id: widgets
+module: identity
+feature: widgets
 name: "Widgets"
 priority: high
 release: v1
-module: identity
 screens: [s36, s37]
-created: 2026-10-15
-updated: 2026-10-28
 owner: "omar"
+created: 2026-10-15
+updated: 2026-10-29
 tags: [feature, module/identity, priority/high, release/v1]
 ---
 

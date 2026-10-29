@@ -1,15 +1,15 @@
 ---
+id: S-29
 type: story
-code: companies
-scope: feature
-feature: companies
 module: shared-rings
+feature: companies
 status: draft
+scope: feature
 screens: [s72, s73]
-created: 2026-10-18
-updated: 2026-10-28
 owner: "omar"
 related: ["D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "D-18 Ring names shown when joined knowingly"]
+created: 2026-10-18
+updated: 2026-10-29
 tags: [story, story/draft, module/shared-rings, layer/business]
 ---
 

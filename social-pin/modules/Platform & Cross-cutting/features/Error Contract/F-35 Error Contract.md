@@ -1,13 +1,14 @@
 ---
+id: F-35
 type: feature
-id: error-contract
+module: platform
+feature: error-contract
 name: "Error Contract"
 priority: critical
 release: mvp
-module: platform
 screens: []
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [feature, module/platform, priority/critical, release/mvp]
 ---
 

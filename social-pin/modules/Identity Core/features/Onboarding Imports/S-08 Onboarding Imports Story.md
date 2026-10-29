@@ -1,17 +1,17 @@
 ---
+id: S-08
 type: story
-code: onboarding-imports
-scope: feature
-feature: onboarding-imports
 module: identity
+feature: onboarding-imports
 status: approved
+scope: feature
 screens: [s03, s03a, s03b, s04, s05]
 approvedBy: "khaled"
 approvedAt: 2026-10-25
-created: 2026-10-18
-updated: 2026-10-28
 owner: "omar"
 related: ["D-02 One main profile every Ring starts from"]
+created: 2026-10-18
+updated: 2026-10-29
 tags: [story, story/approved, module/identity, layer/business]
 ---
 

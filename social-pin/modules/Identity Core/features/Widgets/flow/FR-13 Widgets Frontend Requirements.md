@@ -1,13 +1,13 @@
 ---
+id: FR-13
 type: frontend-requirements
-code: widgets
-scope: feature
-feature: widgets
 module: identity
+feature: widgets
 status: draft
+scope: feature
 screens: [s36, s37]
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [frontend-requirements, frontend-requirements/draft, module/identity, layer/frontend]
 ---
 

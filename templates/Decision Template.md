@@ -1,14 +1,14 @@
 ---
-type: decision
 id: D-NN
-decision: ND-NN
+type: decision
 status: draft
+features: []
+decision: ND-NN
 decidedBy: ""
 decidedAt: ""
-features: []
+owner: ""
 affects: []
 related: []
-owner: ""
 created: <date>
 updated: <date>
 tags: [decision, decision/draft]

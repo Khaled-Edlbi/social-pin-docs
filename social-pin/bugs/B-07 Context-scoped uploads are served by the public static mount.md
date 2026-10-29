@@ -1,12 +1,12 @@
 ---
-type: bug
 id: B-07
+type: bug
+module: identity
+feature: files
 status: done
 resolution: fixed
 priority: high
 effort: S
-feature: files
-module: identity
 foundOn: "BD-04 Files Upload Backend Delivery"
 screens: [s14, s20, s24, s36, s29, s30, s31, s44]
 depends: []

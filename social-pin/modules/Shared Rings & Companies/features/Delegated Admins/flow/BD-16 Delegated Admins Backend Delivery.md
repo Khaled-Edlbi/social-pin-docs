@@ -1,13 +1,13 @@
 ---
+id: BD-16
 type: backend-delivery
-code: delegated-admins
-scope: feature
-feature: delegated-admins
 module: shared-rings
+feature: delegated-admins
 status: in-progress
+scope: feature
 screens: [s26, s27]
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [backend-delivery, backend-delivery/in-progress, module/shared-rings, layer/backend]
 ---
 

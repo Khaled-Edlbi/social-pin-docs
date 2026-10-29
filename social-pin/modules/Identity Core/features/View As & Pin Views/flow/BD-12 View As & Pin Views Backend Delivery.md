@@ -1,13 +1,13 @@
 ---
+id: BD-12
 type: backend-delivery
-code: view-as
-scope: feature
-feature: view-as
 module: identity
+feature: view-as
 status: done
+scope: feature
 screens: [s10, s31, s44]
 created: 2026-10-15
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [backend-delivery, backend-delivery/done, module/identity, layer/backend]
 ---
 

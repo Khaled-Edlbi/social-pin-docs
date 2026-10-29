@@ -1,13 +1,13 @@
 ---
+id: FR-27
 type: frontend-requirements
-code: payments
-scope: feature
-feature: payments
 module: commerce
+feature: payments
 status: draft
+scope: feature
 screens: [s50, s51]
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [frontend-requirements, frontend-requirements/draft, module/commerce, layer/frontend]
 ---
 

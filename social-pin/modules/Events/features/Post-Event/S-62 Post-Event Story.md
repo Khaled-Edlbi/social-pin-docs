@@ -1,16 +1,16 @@
 ---
+id: S-62
 type: story
-code: post-event
-scope: feature
-feature: post-event
 module: events
+feature: post-event
 status: approved
+scope: feature
 screens: [s62]
 approvedBy: "khaled"
 approvedAt: 2026-10-25
 owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [story, story/approved, module/events, layer/business]
 ---
 

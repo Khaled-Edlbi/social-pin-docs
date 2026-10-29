@@ -1,10 +1,10 @@
 ---
-type: needs-decision
 id: ND-NN
+type: needs-decision
 status: draft
+features: []
 # priority: high           # optional: how urgent the decision is (critical | high | medium | low)
 # deadline: YYYY-MM-DD      # optional: when it must be taken
-features: []
 blocks: []
 decider: ""
 screens: []

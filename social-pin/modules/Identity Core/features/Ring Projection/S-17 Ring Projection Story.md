@@ -1,17 +1,17 @@
 ---
+id: S-17
 type: story
-code: ring-projection
-scope: feature
-feature: ring-projection
 module: identity
+feature: ring-projection
 status: approved
+scope: feature
 screens: [s14, s20, s23, s24, s25, s28, s29, s30, s36, s37, s68]
 approvedBy: "Omar Fostok"
 approvedAt: 2026-10-29
-created: 2026-10-18
-updated: 2026-10-29
 owner: "Omar Fostok"
 related: ["D-02 One main profile every Ring starts from", "D-03 Links entered once, switched on or off per Ring", "D-05 Inherit per field, copy without members", "S-06 Files Upload Story", "S-14 Profiles & Pin Name Story", "S-19 View As & Pin Views Story", "S-89 Gemma AI Story", "F-38 Linked Accounts (OAuth)"]
+created: 2026-10-18
+updated: 2026-10-29
 tags: [story, story/approved, module/identity, layer/business]
 ---
 

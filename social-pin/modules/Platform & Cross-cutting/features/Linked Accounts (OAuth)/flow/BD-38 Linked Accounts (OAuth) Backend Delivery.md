@@ -1,13 +1,13 @@
 ---
+id: BD-38
 type: backend-delivery
-code: linked-accounts
-scope: feature
-feature: linked-accounts
 module: platform
+feature: linked-accounts
 status: in-progress
+scope: feature
 screens: [s01, s04, s68]
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [backend-delivery, backend-delivery/in-progress, module/platform, layer/backend]
 ---
 

@@ -1,19 +1,19 @@
 ---
+id: FR-NN                  # the card code, in front of the file name; --scaffold writes it
 type: frontend-requirements
-code: <feature id>
-scope: feature
-feature: <feature id>
 module: <identity|connections|shared-rings|discovery|events|meetings|commerce|platform>
+feature: <feature id>
 status: draft
+scope: feature
+# priority: high           # optional: inherits the feature's when absent (critical | high | medium | low)
+# deadline: YYYY-MM-DD      # optional: inherits the feature's when absent
 screens: []
+blockedBy: []
 depends: []
 affects: []
 related: []
-# priority: high           # optional: inherits the feature's when absent (critical | high | medium | low)
-# deadline: YYYY-MM-DD      # optional: inherits the feature's when absent
 # pending: ["[[Note]]: what is left", "@who: what is left"]   # done, but a note is left for a card or a person → Partial until cleared
 pending: []
-blockedBy: []
 created: <date>
 updated: <date>
 tags: [frontend-requirements, frontend-requirements/draft, module/<module>, layer/frontend]

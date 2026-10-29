@@ -1,15 +1,15 @@
 ---
+id: S-23
 type: story
-code: connections
-scope: feature
-feature: connections
 module: connections
+feature: connections
 status: draft
+scope: feature
 screens: [s44, s45, s46, s47, s62]
 owner: "omar"
-created: 2026-10-18
-updated: 2026-10-28
 related: ["D-04 Ring settings at launch and their defaults", "D-13 The requester sees a declined request", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-17 Requests expire after 30 days, optional note, ask again at once"]
+created: 2026-10-18
+updated: 2026-10-29
 tags: [story, story/draft, module/connections, layer/business]
 ---
 

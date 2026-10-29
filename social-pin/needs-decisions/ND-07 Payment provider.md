@@ -1,16 +1,16 @@
 ---
-type: needs-decision
 id: ND-07
+type: needs-decision
 status: open
 features: [payments, subscription]
 blocks: ["S-69 Payments & Orders Story", "S-49 Events Before Story", "S-71 Subscription (Free vs Pro) Story"]
 decider: "owner"
 screens: [s51, s70]
+owner: "khaled"
 affects: []
 related: ["F-27 Payments & Orders", "F-28 Subscription (Free vs Pro)"]
-owner: "khaled"
 created: 2026-10-21
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [needs-decision, needs-decision/open]
 ---
 

@@ -1,11 +1,11 @@
 ---
-type: needs-decision
 id: ND-06
+type: needs-decision
 status: open
 features: [profiles, gemma]
 screens: [s06]
 created: 2026-10-15
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [needs-decision, needs-decision/open]
 ---
 

@@ -1,17 +1,17 @@
 ---
-type: needs-decision
 id: ND-20
+type: needs-decision
 status: open
-priority: high
 features: [account]
+priority: high
 blocks: [B-01]
 decider: "pm"
 screens: [s68]
+owner: "khaled"
 affects: ["S-01 Account Story", "BD-01 Account Backend Delivery", "BI-01 Account Backend Integration", "QB-04 Account QA Backend", "QF-04 Account QA Frontend"]
 related: ["B-01 An unverified changed email still signs in", "BI-02 Auth & Sign-up Backend Integration", "FD-04 Account Frontend Delivery", "Auth Model", "S-78 Code Delivery Story", "D-20 The changed address still signs in, the words are corrected"]
-owner: "khaled"
 created: 2026-10-26
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [needs-decision, needs-decision/open, priority/high]
 ---
 

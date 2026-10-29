@@ -1,16 +1,16 @@
 ---
-type: decision
 id: D-14
-decision: ND-14
+type: decision
 status: decided
+features: [connections]
+decision: ND-14
 decidedBy: "molham"
 decidedAt: 2026-10-25
-features: [connections]
+owner: "khaled"
 affects: ["F-14 Connections", "F-11 Rings", "F-09 Ring Members", "S-23 Connections Story"]
 related: ["ND-14 Connection-granted Ring on Shared with me", "F-12 View As & Pin Views", "D-15 Several Rings per connection, remove or disconnect"]
-owner: "khaled"
 created: 2026-10-25
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [decision, decision/decided]
 ---
 

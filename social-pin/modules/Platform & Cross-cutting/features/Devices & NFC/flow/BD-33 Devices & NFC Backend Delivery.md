@@ -1,13 +1,13 @@
 ---
+id: BD-33
 type: backend-delivery
-code: devices
-scope: feature
-feature: devices
 module: platform
+feature: devices
 status: in-progress
+scope: feature
 screens: [s75]
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [backend-delivery, backend-delivery/in-progress, module/platform, layer/backend]
 ---
 

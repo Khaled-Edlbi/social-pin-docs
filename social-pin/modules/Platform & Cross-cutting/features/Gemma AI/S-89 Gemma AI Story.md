@@ -1,15 +1,15 @@
 ---
+id: S-89
 type: story
-code: gemma
-scope: feature
-feature: gemma
 module: platform
+feature: gemma
 status: draft
+scope: feature
 screens: [s13, s60]
-created: 2026-10-18
-updated: 2026-10-28
 owner: "omar"
 related: ["D-06 Yearly rename, old name freed, case-insensitive"]
+created: 2026-10-18
+updated: 2026-10-29
 tags: [story, story/draft, module/platform, layer/business]
 ---
 

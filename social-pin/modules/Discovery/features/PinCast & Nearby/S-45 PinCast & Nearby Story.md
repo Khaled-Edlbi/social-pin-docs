@@ -1,16 +1,16 @@
 ---
+id: S-45
 type: story
-code: pincast
-scope: feature
-feature: pincast
 module: discovery
+feature: pincast
 status: approved
+scope: feature
 screens: [s11, s39, s40, s41, s42]
 approvedBy: "khaled"
 approvedAt: 2026-10-25
 owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [story, story/approved, module/discovery, layer/business]
 ---
 

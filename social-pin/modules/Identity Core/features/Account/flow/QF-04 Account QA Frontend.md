@@ -1,17 +1,17 @@
 ---
+id: QF-04
 type: qa-frontend
-code: account
-scope: feature
-feature: account
 module: identity
+feature: account
 status: passing
+scope: feature
 screens: [s68, s01, s70]
 depends: []
 affects: []
 related: ["FR-01 Account Frontend Requirements", "QB-04 Account QA Backend", "S-87 Error Contract Story", "S-117 Operator Panel Story", "B-02 Deleted account answers 401, not the documented 404 E_USER_01", "S-06 Files Upload Story"]
 pending: ["[[S-87 Error Contract Story|Error Contract · S4–S8]]: F19 (suspended mid-session, AC-15) can only show the not-active copy once E_AUTH_03 is on the wire", "[[S-117 Operator Panel Story|Operator Panel · S3]]: F19 cannot be run until a route suspends an account", "@omar: F3 Pro side, F4, F5, F14 (Back, DA-05), F15, F16 and F20 (saving in Arabic) not run by the Maestro pass; run by hand"]
 created: 2026-10-26
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [qa-frontend, qa-frontend/passing, module/identity, layer/qa]
 ---
 

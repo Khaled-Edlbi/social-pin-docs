@@ -1,15 +1,15 @@
 ---
+id: FR-01
 type: frontend-requirements
-code: account
-scope: feature
-feature: account
 module: identity
+feature: account
 status: approved
+scope: feature
+screens: [s68]
 approvedBy: "omar"
 approvedAt: 2026-10-26
-screens: [s68]
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [frontend-requirements, frontend-requirements/approved, module/identity, layer/frontend]
 ---
 

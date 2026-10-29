@@ -1,9 +1,10 @@
 ---
+id: P-09
 type: project
-created: 2026-10-18
-updated: 2026-10-28
-tags: [project, frontend, auth]
 layer: frontend
+created: 2026-10-18
+updated: 2026-10-29
+tags: [project, frontend, auth]
 ---
 
 # Frontend · Passwordless Migration

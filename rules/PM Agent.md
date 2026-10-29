@@ -1,11 +1,12 @@
 ---
+id: P-21
 type: project
 layer: shared
+depends: ["Agent Protocol"]
+affects: []
+related: ["Agent Protocol", "Agent Rules", "Workflow", "Docs Tree", "Owner Agent"]
 created: 2026-10-19
 updated: 2026-10-29
-affects: []
-depends: ["Agent Protocol"]
-related: ["Agent Protocol", "Agent Rules", "Workflow", "Docs Tree", "Owner Agent"]
 tags: [project, layer/shared, rules, agent]
 ---
 

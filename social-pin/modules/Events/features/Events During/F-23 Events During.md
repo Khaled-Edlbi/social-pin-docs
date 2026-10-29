@@ -1,14 +1,15 @@
 ---
+id: F-23
 type: feature
-id: events-during
+module: events
+feature: events-during
 name: "Events During"
 priority: critical
 release: mvp
-module: events
 screens: [s53, s54, s55, s56, s57, s58]
 related: ["F-11 Rings", "F-12 View As & Pin Views"]
 created: 2026-10-15
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [feature, module/events, priority/critical, release/mvp]
 ---
 

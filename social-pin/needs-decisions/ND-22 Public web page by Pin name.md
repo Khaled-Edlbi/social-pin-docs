@@ -1,14 +1,14 @@
 ---
-type: needs-decision
 id: ND-22
+type: needs-decision
 status: open
 features: [profiles]
 blocks: ["S-14 Profiles & Pin Name Story"]
 decider: "owner"
 screens: [s06, s44]
+owner: "Omar Fostok"
 affects: []
 related: ["F-07 Profiles & Pin Name", "F-18 Badge & QR", "F-12 View As & Pin Views", "ND-12 What the badge QR encodes", "D-06 Yearly rename, old name freed, case-insensitive", "S-19 View As & Pin Views Story"]
-owner: "Omar Fostok"
 created: 2026-10-29
 updated: 2026-10-29
 tags: [needs-decision, needs-decision/open]

@@ -1,10 +1,10 @@
 ---
+id: QB-04
 type: qa-backend
-code: account
-scope: feature
-feature: account
 module: identity
+feature: account
 status: passing
+scope: feature
 priority: critical
 screens: [s68]
 depends: ["BD-01 Account Backend Delivery", "S-01 Account Story"]
@@ -12,7 +12,7 @@ affects: []
 related: ["BI-01 Account Backend Integration", "BI-02 Auth & Sign-up Backend Integration", "BD-35 Error Contract Backend Delivery", "BI-04 Profiles & Pin Name Backend Integration", "BI-07 Ring Projection Backend Integration", "S-87 Error Contract Story", "B-01 An unverified changed email still signs in", "B-02 Deleted account answers 401, not the documented 404 E_USER_01"]
 pending: []
 created: 2026-10-26
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [qa-backend, qa-backend/passing, module/identity, layer/qa, priority/critical]
 ---
 

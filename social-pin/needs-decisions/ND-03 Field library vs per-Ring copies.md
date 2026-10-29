@@ -1,11 +1,11 @@
 ---
-type: needs-decision
 id: ND-03
+type: needs-decision
 status: open
 features: [ring-projection, widgets]
 screens: [s20, s24]
 created: 2026-10-15
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [needs-decision, needs-decision/open]
 ---
 

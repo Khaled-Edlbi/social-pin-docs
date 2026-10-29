@@ -34827,7 +34827,7 @@
       "task": null,
       "title": "BD-01 Account Backend Delivery",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "backend-delivery:app-shell": {
       "affects": [],
@@ -34882,7 +34882,7 @@
       "task": null,
       "title": "BD-29 App Shell & Onboarding Narrative Backend Delivery",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "backend-delivery:audit-log": {
       "affects": [],
@@ -34938,7 +34938,7 @@
       "task": null,
       "title": "BD-30 Audit Log Backend Delivery",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "backend-delivery:auth": {
       "affects": [],
@@ -35082,7 +35082,7 @@
       "task": null,
       "title": "BD-18 Badge & QR Backend Delivery",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "backend-delivery:build-deploy": {
       "affects": [],
@@ -35186,7 +35186,7 @@
       "task": null,
       "title": "BD-31 Cleanup Jobs Backend Delivery",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "backend-delivery:code-delivery": {
       "affects": [],
@@ -35244,7 +35244,7 @@
       "task": null,
       "title": "BD-32 Code Delivery Backend Delivery",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "backend-delivery:companies": {
       "affects": [],
@@ -35303,7 +35303,7 @@
       "task": null,
       "title": "BD-15 Companies Backend Delivery",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "backend-delivery:connections": {
       "affects": [],
@@ -35365,7 +35365,7 @@
       "task": null,
       "title": "BD-14 Connections Backend Delivery",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "backend-delivery:counts": {
       "affects": [],
@@ -35428,7 +35428,7 @@
       "task": null,
       "title": "BD-03 Counts Backend Delivery",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "backend-delivery:delegated-admins": {
       "affects": [],
@@ -35489,7 +35489,7 @@
       "task": null,
       "title": "BD-16 Delegated Admins Backend Delivery",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "backend-delivery:devices": {
       "affects": [],
@@ -35549,7 +35549,7 @@
       "task": null,
       "title": "BD-33 Devices & NFC Backend Delivery",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "backend-delivery:discover-hub": {
       "affects": [],
@@ -35607,7 +35607,7 @@
       "task": null,
       "title": "BD-19 Discover Hub & Search Backend Delivery",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "backend-delivery:e2e-tests": {
       "affects": [],
@@ -35663,7 +35663,7 @@
       "task": null,
       "title": "BD-34 E2E Test Run Backend Delivery",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "backend-delivery:error-contract": {
       "affects": [],
@@ -35780,7 +35780,7 @@
       "task": null,
       "title": "BD-21 Event Ring Auto-creation Backend Delivery",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "backend-delivery:events-before": {
       "affects": [],
@@ -35842,7 +35842,7 @@
       "task": null,
       "title": "BD-22 Events Before Backend Delivery",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "backend-delivery:events-during": {
       "affects": [],
@@ -35905,7 +35905,7 @@
       "task": null,
       "title": "BD-23 Events During Backend Delivery",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "backend-delivery:exhibitor": {
       "affects": [],
@@ -35965,7 +35965,7 @@
       "task": null,
       "title": "BD-24 Exhibitor Backend Delivery",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "backend-delivery:files": {
       "affects": [],
@@ -36103,7 +36103,7 @@
       "task": null,
       "title": "BD-36 Gemma AI Backend Delivery",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "backend-delivery:interests": {
       "affects": [],
@@ -36162,7 +36162,7 @@
       "task": null,
       "title": "BD-37 Interests Backend Delivery",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "backend-delivery:linked-accounts": {
       "affects": [],
@@ -36226,7 +36226,7 @@
       "task": null,
       "title": "BD-38 Linked Accounts (OAuth) Backend Delivery",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "backend-delivery:meetings": {
       "affects": [],
@@ -36288,7 +36288,7 @@
       "task": null,
       "title": "BD-26 Meetings Backend Delivery",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "backend-delivery:notifications": {
       "affects": [],
@@ -36346,7 +36346,7 @@
       "task": null,
       "title": "BD-39 Notifications Backend Delivery",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "backend-delivery:onboarding-imports": {
       "affects": [],
@@ -36408,7 +36408,7 @@
       "task": null,
       "title": "BD-05 Onboarding Imports Backend Delivery",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "backend-delivery:operator-panel": {
       "affects": [],
@@ -36515,7 +36515,7 @@
       "task": null,
       "title": "BD-27 Payments & Orders Backend Delivery",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "backend-delivery:photo-library": {
       "affects": [],
@@ -36577,7 +36577,7 @@
       "task": null,
       "title": "BD-06 Photo Library Backend Delivery",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "backend-delivery:pincast": {
       "affects": [],
@@ -36639,7 +36639,7 @@
       "task": null,
       "title": "BD-20 PinCast & Nearby Backend Delivery",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "backend-delivery:post-event": {
       "affects": [],
@@ -36697,7 +36697,7 @@
       "task": null,
       "title": "BD-25 Post-Event Backend Delivery",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "backend-delivery:profiles": {
       "affects": [],
@@ -36764,7 +36764,7 @@
       "task": null,
       "title": "BD-07 Profiles & Pin Name Backend Delivery",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "backend-delivery:ring-access": {
       "affects": [],
@@ -36821,7 +36821,7 @@
       "task": null,
       "title": "BD-08 Ring Access Engine Backend Delivery",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "backend-delivery:ring-invitations": {
       "affects": [],
@@ -36880,7 +36880,7 @@
       "task": null,
       "title": "BD-17 Ring Invitations & Join Backend Delivery",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "backend-delivery:ring-members": {
       "affects": [],
@@ -36935,7 +36935,7 @@
       "task": null,
       "title": "BD-09 Ring Members Backend Delivery",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "backend-delivery:ring-projection": {
       "affects": [],
@@ -37066,7 +37066,7 @@
       "task": null,
       "title": "BD-11 Rings Backend Delivery",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "backend-delivery:subscription": {
       "affects": [],
@@ -37125,7 +37125,7 @@
       "task": null,
       "title": "BD-28 Subscription (Free vs Pro) Backend Delivery",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "backend-delivery:view-as": {
       "affects": [],
@@ -37184,7 +37184,7 @@
       "task": null,
       "title": "BD-12 View As & Pin Views Backend Delivery",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "backend-delivery:widgets": {
       "affects": [],
@@ -37243,7 +37243,7 @@
       "task": null,
       "title": "BD-13 Widgets Backend Delivery",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "backend-integration:account": {
       "affects": [
@@ -37338,7 +37338,7 @@
       "task": null,
       "title": "BI-01 Account Backend Integration",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "backend-integration:audit-log": {
       "affects": [],
@@ -37470,7 +37470,7 @@
       "task": null,
       "title": "BI-02 Auth & Sign-up Backend Integration",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "backend-integration:badge-qr": {
       "affects": [],
@@ -38889,7 +38889,7 @@
       "task": null,
       "title": "BI-04 Profiles & Pin Name Backend Integration",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "backend-integration:ring-access": {
       "affects": [],
@@ -38946,7 +38946,7 @@
       "task": null,
       "title": "BI-05 Ring Access Engine Backend Integration",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "backend-integration:ring-invitations": {
       "affects": [],
@@ -39055,7 +39055,7 @@
       "task": null,
       "title": "BI-06 Ring Members Backend Integration",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "backend-integration:ring-projection": {
       "affects": [],
@@ -39198,7 +39198,7 @@
       "task": null,
       "title": "BI-08 Rings Backend Integration",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "backend-integration:subscription": {
       "affects": [],
@@ -39415,7 +39415,7 @@
       "task": null,
       "title": "D-01 Code-only login",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "decision:D-02": {
       "affects": [
@@ -39490,7 +39490,7 @@
       "task": null,
       "title": "D-02 One main profile every Ring starts from",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "decision:D-03": {
       "affects": [
@@ -39557,7 +39557,7 @@
       "task": null,
       "title": "D-03 Links entered once, switched on or off per Ring",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "decision:D-04": {
       "affects": [
@@ -39639,7 +39639,7 @@
       "task": null,
       "title": "D-04 Ring settings at launch and their defaults",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "decision:D-05": {
       "affects": [
@@ -39708,7 +39708,7 @@
       "task": null,
       "title": "D-05 Inherit per field, copy without members",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "decision:D-06": {
       "affects": [
@@ -39774,7 +39774,7 @@
       "task": null,
       "title": "D-06 Yearly rename, old name freed, case-insensitive",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "decision:D-07": {
       "affects": [
@@ -39836,7 +39836,7 @@
       "task": null,
       "title": "D-07 Stripe for all four flows",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "decision:D-13": {
       "affects": [
@@ -39895,7 +39895,7 @@
       "task": null,
       "title": "D-13 The requester sees a declined request",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "decision:D-14": {
       "affects": [
@@ -39970,7 +39970,7 @@
       "task": null,
       "title": "D-14 Shared with me lists people, never the Ring",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "decision:D-15": {
       "affects": [
@@ -40037,7 +40037,7 @@
       "task": null,
       "title": "D-15 Several Rings per connection, remove or disconnect",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "decision:D-16": {
       "affects": [
@@ -40172,7 +40172,7 @@
       "task": null,
       "title": "D-17 Requests expire after 30 days, optional note, ask again at once",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "decision:D-18": {
       "affects": [
@@ -40245,7 +40245,7 @@
       "task": null,
       "title": "D-18 Ring names shown when joined knowingly",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "decision:D-19": {
       "affects": [
@@ -40303,7 +40303,7 @@
       "task": null,
       "title": "D-19 A ticket's layer notes live on the parent task",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "decision:D-20": {
       "affects": [
@@ -40373,7 +40373,7 @@
       "task": null,
       "title": "D-20 The changed address still signs in, the words are corrected",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "feature:account": {
       "affects": [],
@@ -40461,7 +40461,7 @@
       "task": null,
       "title": "F-01 Account",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "feature:app-shell": {
       "affects": [],
@@ -40533,7 +40533,7 @@
       "task": null,
       "title": "F-29 App Shell & Onboarding Narrative",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "feature:audit-log": {
       "affects": [],
@@ -40607,7 +40607,7 @@
       "task": null,
       "title": "F-30 Audit Log",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "feature:auth": {
       "affects": [],
@@ -40701,7 +40701,7 @@
       "task": null,
       "title": "F-02 Auth & Sign-up",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "feature:badge-qr": {
       "affects": [],
@@ -40789,7 +40789,7 @@
       "task": null,
       "title": "F-18 Badge & QR",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "feature:build-deploy": {
       "affects": [],
@@ -40859,7 +40859,7 @@
       "task": null,
       "title": "F-43 Build & Deploy",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "feature:cleanup-jobs": {
       "affects": [],
@@ -40930,7 +40930,7 @@
       "task": null,
       "title": "F-31 Cleanup Jobs",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "feature:code-delivery": {
       "affects": [],
@@ -41003,7 +41003,7 @@
       "task": null,
       "title": "F-32 Code Delivery",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "feature:companies": {
       "affects": [],
@@ -41082,7 +41082,7 @@
       "task": null,
       "title": "F-15 Companies",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "feature:connections": {
       "affects": [],
@@ -41177,7 +41177,7 @@
       "task": null,
       "title": "F-14 Connections",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "feature:counts": {
       "affects": [],
@@ -41256,7 +41256,7 @@
       "task": null,
       "title": "F-03 Counts",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "feature:delegated-admins": {
       "affects": [],
@@ -41335,7 +41335,7 @@
       "task": null,
       "title": "F-16 Delegated Admins",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "feature:devices": {
       "affects": [],
@@ -41409,7 +41409,7 @@
       "task": null,
       "title": "F-33 Devices & NFC",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "feature:discover-hub": {
       "affects": [],
@@ -41483,7 +41483,7 @@
       "task": null,
       "title": "F-19 Discover Hub & Search",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "feature:e2e-tests": {
       "affects": [],
@@ -41554,7 +41554,7 @@
       "task": null,
       "title": "F-34 E2E Test Run",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "feature:error-contract": {
       "affects": [],
@@ -41624,7 +41624,7 @@
       "task": null,
       "title": "F-35 Error Contract",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "feature:event-ring-auto": {
       "affects": [],
@@ -41703,7 +41703,7 @@
       "task": null,
       "title": "F-21 Event Ring Auto-creation",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "feature:events-before": {
       "affects": [],
@@ -41786,7 +41786,7 @@
       "task": null,
       "title": "F-22 Events Before",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "feature:events-during": {
       "affects": [],
@@ -41872,7 +41872,7 @@
       "task": null,
       "title": "F-23 Events During",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "feature:exhibitor": {
       "affects": [],
@@ -41950,7 +41950,7 @@
       "task": null,
       "title": "F-24 Exhibitor",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "feature:files": {
       "affects": [],
@@ -42122,7 +42122,7 @@
       "task": null,
       "title": "F-36 Gemma AI",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "feature:interests": {
       "affects": [],
@@ -42196,7 +42196,7 @@
       "task": null,
       "title": "F-37 Interests",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "feature:linked-accounts": {
       "affects": [],
@@ -42275,7 +42275,7 @@
       "task": null,
       "title": "F-38 Linked Accounts (OAuth)",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "feature:meetings": {
       "affects": [],
@@ -42358,7 +42358,7 @@
       "task": null,
       "title": "F-26 Meetings",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "feature:notifications": {
       "affects": [],
@@ -42435,7 +42435,7 @@
       "task": null,
       "title": "F-39 Notifications",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "feature:onboarding-imports": {
       "affects": [],
@@ -42590,7 +42590,7 @@
       "task": null,
       "title": "F-42 Operator Panel",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "feature:payments": {
       "affects": [],
@@ -42669,7 +42669,7 @@
       "task": null,
       "title": "F-27 Payments & Orders",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "feature:photo-library": {
       "affects": [],
@@ -42830,7 +42830,7 @@
       "task": null,
       "title": "F-20 PinCast & Nearby",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "feature:post-event": {
       "affects": [],
@@ -42907,7 +42907,7 @@
       "task": null,
       "title": "F-25 Post-Event",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "feature:profiles": {
       "affects": [],
@@ -43162,7 +43162,7 @@
       "task": null,
       "title": "F-17 Ring Invitations & Join",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "feature:ring-members": {
       "affects": [],
@@ -43536,7 +43536,7 @@
       "task": null,
       "title": "F-28 Subscription (Free vs Pro)",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "feature:view-as": {
       "affects": [],
@@ -43707,7 +43707,7 @@
       "task": null,
       "title": "F-13 Widgets",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "frontend-delivery:account": {
       "affects": [],
@@ -43780,7 +43780,7 @@
       "task": null,
       "title": "FD-04 Account Frontend Delivery",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "frontend-delivery:app-shell": {
       "affects": [],
@@ -45718,7 +45718,7 @@
       "task": null,
       "title": "FR-01 Account Frontend Requirements",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "frontend-requirements:app-shell": {
       "affects": [],
@@ -45779,7 +45779,7 @@
       "task": null,
       "title": "FR-29 App Shell & Onboarding Narrative Frontend Requirements",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "frontend-requirements:audit-log": {
       "affects": [],
@@ -45833,7 +45833,7 @@
       "task": null,
       "title": "FR-30 Audit Log Frontend Requirements",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "frontend-requirements:auth": {
       "affects": [],
@@ -45911,7 +45911,7 @@
       "task": null,
       "title": "FR-02 Auth & Sign-up Frontend Requirements",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "frontend-requirements:badge-qr": {
       "affects": [],
@@ -45978,7 +45978,7 @@
       "task": null,
       "title": "FR-18 Badge & QR Frontend Requirements",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "frontend-requirements:build-deploy": {
       "affects": [],
@@ -46082,7 +46082,7 @@
       "task": null,
       "title": "FR-31 Cleanup Jobs Frontend Requirements",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "frontend-requirements:code-delivery": {
       "affects": [],
@@ -46141,7 +46141,7 @@
       "task": null,
       "title": "FR-32 Code Delivery Frontend Requirements",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "frontend-requirements:companies": {
       "affects": [],
@@ -46212,7 +46212,7 @@
       "task": null,
       "title": "FR-15 Companies Frontend Requirements",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "frontend-requirements:connections": {
       "affects": [],
@@ -46286,7 +46286,7 @@
       "task": null,
       "title": "FR-14 Connections Frontend Requirements",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "frontend-requirements:counts": {
       "affects": [
@@ -46360,7 +46360,7 @@
       "task": null,
       "title": "FR-03 Counts Frontend Requirements",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "frontend-requirements:delegated-admins": {
       "affects": [],
@@ -46424,7 +46424,7 @@
       "task": null,
       "title": "FR-16 Delegated Admins Frontend Requirements",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "frontend-requirements:devices": {
       "affects": [],
@@ -46483,7 +46483,7 @@
       "task": null,
       "title": "FR-33 Devices & NFC Frontend Requirements",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "frontend-requirements:discover-hub": {
       "affects": [],
@@ -46542,7 +46542,7 @@
       "task": null,
       "title": "FR-19 Discover Hub & Search Frontend Requirements",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "frontend-requirements:e2e-tests": {
       "affects": [],
@@ -46596,7 +46596,7 @@
       "task": null,
       "title": "FR-34 E2E Test Run Frontend Requirements",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "frontend-requirements:error-contract": {
       "affects": [
@@ -46760,7 +46760,7 @@
       "task": null,
       "title": "FR-21 Event Ring Auto-creation Frontend Requirements",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "frontend-requirements:events-before": {
       "affects": [],
@@ -46822,7 +46822,7 @@
       "task": null,
       "title": "FR-22 Events Before Frontend Requirements",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "frontend-requirements:events-during": {
       "affects": [],
@@ -46889,7 +46889,7 @@
       "task": null,
       "title": "FR-23 Events During Frontend Requirements",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "frontend-requirements:exhibitor": {
       "affects": [],
@@ -46951,7 +46951,7 @@
       "task": null,
       "title": "FR-24 Exhibitor Frontend Requirements",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "frontend-requirements:files": {
       "affects": [
@@ -47121,7 +47121,7 @@
       "task": null,
       "title": "FR-36 Gemma AI Frontend Requirements",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "frontend-requirements:interests": {
       "affects": [
@@ -47185,7 +47185,7 @@
       "task": null,
       "title": "FR-37 Interests Frontend Requirements",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "frontend-requirements:linked-accounts": {
       "affects": [],
@@ -47246,7 +47246,7 @@
       "task": null,
       "title": "FR-38 Linked Accounts (OAuth) Frontend Requirements",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "frontend-requirements:meetings": {
       "affects": [],
@@ -47309,7 +47309,7 @@
       "task": null,
       "title": "FR-26 Meetings Frontend Requirements",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "frontend-requirements:notifications": {
       "affects": [],
@@ -47365,7 +47365,7 @@
       "task": null,
       "title": "FR-39 Notifications Frontend Requirements",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "frontend-requirements:onboarding-imports": {
       "affects": [
@@ -47443,7 +47443,7 @@
       "task": null,
       "title": "FR-05 Onboarding Imports Frontend Requirements",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "frontend-requirements:operator-panel": {
       "affects": [],
@@ -47548,7 +47548,7 @@
       "task": null,
       "title": "FR-27 Payments & Orders Frontend Requirements",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "frontend-requirements:photo-library": {
       "affects": [
@@ -47730,7 +47730,7 @@
       "task": null,
       "title": "FR-20 PinCast & Nearby Frontend Requirements",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "frontend-requirements:post-event": {
       "affects": [],
@@ -47791,7 +47791,7 @@
       "task": null,
       "title": "FR-25 Post-Event Frontend Requirements",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "frontend-requirements:profiles": {
       "affects": [
@@ -48105,7 +48105,7 @@
       "task": null,
       "title": "FR-17 Ring Invitations & Join Frontend Requirements",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "frontend-requirements:ring-members": {
       "affects": [
@@ -48534,7 +48534,7 @@
       "task": null,
       "title": "FR-28 Subscription (Free vs Pro) Frontend Requirements",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "frontend-requirements:view-as": {
       "affects": [
@@ -48725,7 +48725,7 @@
       "task": null,
       "title": "FR-13 Widgets Frontend Requirements",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "group:backend": {
       "affects": [],
@@ -48987,7 +48987,7 @@
       "template": null,
       "title": "M-07 Commerce Module",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "module:connections": {
       "affects": [],
@@ -49045,7 +49045,7 @@
       "template": null,
       "title": "M-02 Connections Module",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "module:discovery": {
       "affects": [],
@@ -49103,7 +49103,7 @@
       "template": null,
       "title": "M-04 Discovery Module",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "module:events": {
       "affects": [],
@@ -49166,7 +49166,7 @@
       "template": null,
       "title": "M-05 Events Module",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "module:identity": {
       "affects": [],
@@ -49245,7 +49245,7 @@
       "template": null,
       "title": "M-01 Identity Core Module",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "module:meetings": {
       "affects": [],
@@ -49301,7 +49301,7 @@
       "template": null,
       "title": "M-06 Meetings Module",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "module:platform": {
       "affects": [],
@@ -49373,7 +49373,7 @@
       "template": null,
       "title": "M-08 Platform & Cross-cutting Module",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "module:shared-rings": {
       "affects": [],
@@ -49433,7 +49433,7 @@
       "template": null,
       "title": "M-03 Shared Rings & Companies Module",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "needs-decision:ND-01": {
       "affects": [],
@@ -49496,7 +49496,7 @@
       "task": null,
       "title": "ND-01 Passwordless login",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "needs-decision:ND-02": {
       "affects": [],
@@ -49563,7 +49563,7 @@
       "task": null,
       "title": "ND-02 Base profile work fields",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "needs-decision:ND-03": {
       "affects": [],
@@ -49623,7 +49623,7 @@
       "task": null,
       "title": "ND-03 Field library vs per-Ring copies",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "needs-decision:ND-04": {
       "affects": [],
@@ -49691,7 +49691,7 @@
       "task": null,
       "title": "ND-04 Ring settings",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "needs-decision:ND-05": {
       "affects": [],
@@ -49756,7 +49756,7 @@
       "task": null,
       "title": "ND-05 Copy or inherit",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "needs-decision:ND-06": {
       "affects": [],
@@ -49815,7 +49815,7 @@
       "task": null,
       "title": "ND-06 Pin name rules",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "needs-decision:ND-07": {
       "affects": [],
@@ -49883,7 +49883,7 @@
       "task": null,
       "title": "ND-07 Payment provider",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "needs-decision:ND-10": {
       "affects": [],
@@ -49948,7 +49948,7 @@
       "task": null,
       "title": "ND-10 How Connect addresses the scanned person",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "needs-decision:ND-11": {
       "affects": [],
@@ -50004,7 +50004,7 @@
       "task": null,
       "title": "ND-11 Get or rotate the badge token",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "needs-decision:ND-12": {
       "affects": [],
@@ -50064,7 +50064,7 @@
       "task": null,
       "title": "ND-12 What the badge QR encodes",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "needs-decision:ND-13": {
       "affects": [],
@@ -50126,7 +50126,7 @@
       "task": null,
       "title": "ND-13 Whether the requester sees a declined request",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "needs-decision:ND-14": {
       "affects": [],
@@ -50193,7 +50193,7 @@
       "task": null,
       "title": "ND-14 Connection-granted Ring on Shared with me",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "needs-decision:ND-15": {
       "affects": [],
@@ -50258,7 +50258,7 @@
       "task": null,
       "title": "ND-15 One Ring or several per connection",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "needs-decision:ND-16": {
       "affects": [],
@@ -50397,7 +50397,7 @@
       "task": null,
       "title": "ND-17 Request expiry, note and asking again",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "needs-decision:ND-18": {
       "affects": [
@@ -50471,7 +50471,7 @@
       "task": null,
       "title": "ND-18 Company and invited Ring names shown to members",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "needs-decision:ND-19": {
       "affects": [],
@@ -50531,7 +50531,7 @@
       "task": null,
       "title": "ND-19 Where a ticket's layer notes live",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "needs-decision:ND-20": {
       "affects": [
@@ -50607,7 +50607,7 @@
       "task": null,
       "title": "ND-20 Whether an unverified new address may sign in",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "needs-decision:ND-21": {
       "affects": [
@@ -50677,7 +50677,7 @@
       "task": null,
       "title": "ND-21 How a business card and a portfolio page are read",
       "unmet": [],
-      "updated": "2026-10-26"
+      "updated": "2026-10-29"
     },
     "needs-decision:ND-22": {
       "affects": [],
@@ -51082,7 +51082,7 @@
       "task": null,
       "title": "API Conventions",
       "unmet": [],
-      "updated": "2026-10-26"
+      "updated": "2026-10-29"
     },
     "project:architecture": {
       "affects": [],
@@ -51170,7 +51170,7 @@
       "task": null,
       "title": "Architecture",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "project:auth-model": {
       "affects": [],
@@ -51238,7 +51238,7 @@
       "task": null,
       "title": "Auth Model",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "project:backend-agent": {
       "affects": [],
@@ -51440,7 +51440,7 @@
       "task": null,
       "title": "Developer Setup",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "project:docs-tree": {
       "affects": [],
@@ -51543,7 +51543,7 @@
       "task": null,
       "title": "Feature Graph",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "project:feature-tree": {
       "affects": [],
@@ -51700,7 +51700,7 @@
       "task": null,
       "title": "Frontend Agent Prompt",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "project:frontend-api-guide": {
       "affects": [],
@@ -51760,7 +51760,7 @@
       "task": null,
       "title": "Frontend API Guide",
       "unmet": [],
-      "updated": "2026-10-27"
+      "updated": "2026-10-29"
     },
     "project:frontend-contract": {
       "affects": [],
@@ -51822,7 +51822,7 @@
       "task": null,
       "title": "Frontend Contract",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "project:frontend-passwordless-migration": {
       "affects": [],
@@ -51878,7 +51878,7 @@
       "task": null,
       "title": "Frontend Passwordless Migration",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "project:glossary": {
       "affects": [],
@@ -51922,7 +51922,7 @@
       "task": null,
       "title": "Glossary",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "project:owner-agent": {
       "affects": [],
@@ -52080,7 +52080,7 @@
       "task": null,
       "title": "Project Overview",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "project:qa-agent": {
       "affects": [],
@@ -52225,7 +52225,7 @@
       "task": null,
       "title": "Ring Access Model",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "project:spec-map": {
       "affects": [],
@@ -52325,7 +52325,7 @@
       "task": null,
       "title": "Spec Map",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "project:status-report-2026-10-15": {
       "affects": [],
@@ -52385,7 +52385,7 @@
       "task": null,
       "title": "Status Report 2026-10-15",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "project:workflow": {
       "affects": [],
@@ -52517,7 +52517,7 @@
       "task": null,
       "title": "QB-04 Account QA Backend",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "qa-backend:audit-log": {
       "affects": [],
@@ -52719,7 +52719,7 @@
       "task": null,
       "title": "QB-05 Auth & Sign-up QA Backend",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "qa-backend:badge-qr": {
       "affects": [],
@@ -54612,7 +54612,7 @@
       "task": null,
       "title": "QF-04 Account QA Frontend",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "qa-frontend:app-shell": {
       "affects": [],
@@ -56625,7 +56625,7 @@
       "task": null,
       "title": "Social Pin",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "story:account": {
       "affects": [],
@@ -56689,7 +56689,7 @@
       "task": null,
       "title": "S-01 Account Story",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "story:app-shell": {
       "affects": [],
@@ -56744,7 +56744,7 @@
       "task": null,
       "title": "S-73 App Shell & Onboarding Narrative Story",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "story:audit-log": {
       "affects": [],
@@ -56796,7 +56796,7 @@
       "task": null,
       "title": "S-74 Audit Log Story",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "story:auth": {
       "affects": [],
@@ -56870,7 +56870,7 @@
       "task": null,
       "title": "S-02 Auth & Sign-up Story",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "story:badge-qr": {
       "affects": [],
@@ -56951,7 +56951,7 @@
       "task": null,
       "title": "S-37 Badge & QR Story",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "story:build-deploy": {
       "affects": [],
@@ -57005,7 +57005,7 @@
       "task": null,
       "title": "S-116 Build & Deploy Story",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "story:cleanup-jobs": {
       "affects": [],
@@ -57055,7 +57055,7 @@
       "task": null,
       "title": "S-76 Cleanup Jobs Story",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "story:code-delivery": {
       "affects": [],
@@ -57116,7 +57116,7 @@
       "task": null,
       "title": "S-78 Code Delivery Story",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "story:companies": {
       "affects": [],
@@ -57183,7 +57183,7 @@
       "task": null,
       "title": "S-29 Companies Story",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "story:connections": {
       "affects": [],
@@ -57274,7 +57274,7 @@
       "task": null,
       "title": "S-23 Connections Story",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "story:counts": {
       "affects": [],
@@ -57340,7 +57340,7 @@
       "task": null,
       "title": "S-03 Counts Story",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "story:delegated-admins": {
       "affects": [],
@@ -57403,7 +57403,7 @@
       "task": null,
       "title": "S-31 Delegated Admins Story",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "story:devices": {
       "affects": [],
@@ -57458,7 +57458,7 @@
       "task": null,
       "title": "S-82 Devices & NFC Story",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "story:discover-hub": {
       "affects": [],
@@ -57516,7 +57516,7 @@
       "task": null,
       "title": "S-42 Discover Hub & Search Story",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "story:e2e-tests": {
       "affects": [],
@@ -57568,7 +57568,7 @@
       "task": null,
       "title": "S-85 E2E Test Run Story",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "story:error-contract": {
       "affects": [],
@@ -57642,7 +57642,7 @@
       "task": null,
       "title": "S-87 Error Contract Story",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "story:event-ring-auto": {
       "affects": [],
@@ -57700,7 +57700,7 @@
       "task": null,
       "title": "S-47 Event Ring Auto-creation Story",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "story:events-before": {
       "affects": [],
@@ -57764,7 +57764,7 @@
       "task": null,
       "title": "S-49 Events Before Story",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "story:events-during": {
       "affects": [],
@@ -57823,7 +57823,7 @@
       "task": null,
       "title": "S-53 Events During Story",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "story:exhibitor": {
       "affects": [],
@@ -57879,7 +57879,7 @@
       "task": null,
       "title": "S-59 Exhibitor Story",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "story:files": {
       "affects": [],
@@ -58019,7 +58019,7 @@
       "task": null,
       "title": "S-89 Gemma AI Story",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "story:interests": {
       "affects": [],
@@ -58072,7 +58072,7 @@
       "task": null,
       "title": "S-92 Interests Story",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "story:linked-accounts": {
       "affects": [],
@@ -58132,7 +58132,7 @@
       "task": null,
       "title": "S-94 Linked Accounts (OAuth) Story",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "story:meetings": {
       "affects": [],
@@ -58190,7 +58190,7 @@
       "task": null,
       "title": "S-64 Meetings Story",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "story:notifications": {
       "affects": [],
@@ -58242,7 +58242,7 @@
       "task": null,
       "title": "S-96 Notifications Story",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "story:onboarding-imports": {
       "affects": [],
@@ -58314,7 +58314,7 @@
       "task": null,
       "title": "S-08 Onboarding Imports Story",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "story:operator-panel": {
       "affects": [],
@@ -58366,7 +58366,7 @@
       "task": null,
       "title": "S-117 Operator Panel Story",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "story:payments": {
       "affects": [
@@ -58438,7 +58438,7 @@
       "task": null,
       "title": "S-69 Payments & Orders Story",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "story:photo-library": {
       "affects": [],
@@ -58567,7 +58567,7 @@
       "task": null,
       "title": "S-45 PinCast & Nearby Story",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "story:post-event": {
       "affects": [],
@@ -58624,7 +58624,7 @@
       "task": null,
       "title": "S-62 Post-Event Story",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "story:profiles": {
       "affects": [],
@@ -58854,7 +58854,7 @@
       "task": null,
       "title": "S-33 Ring Invitations & Join Story",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "story:ring-members": {
       "affects": [],
@@ -59136,7 +59136,7 @@
       "task": null,
       "title": "S-71 Subscription (Free vs Pro) Story",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "story:view-as": {
       "affects": [],
@@ -59267,7 +59267,7 @@
       "task": null,
       "title": "S-20 Widgets Story",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "task:B-01": {
       "affects": [
@@ -59358,7 +59358,7 @@
       "task": null,
       "title": "B-01 An unverified changed email still signs in",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "task:B-02": {
       "affects": [
@@ -59448,7 +59448,7 @@
       "task": null,
       "title": "B-02 Deleted account answers 401, not the documented 404 E_USER_01",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "task:B-03": {
       "affects": [
@@ -59541,7 +59541,7 @@
       "task": null,
       "title": "B-03 Two refreshes at once both succeed and fork the session",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "task:B-04": {
       "affects": [
@@ -59614,7 +59614,7 @@
       "task": null,
       "title": "B-04 Sign-up accepts an email and a phone together",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "task:B-05": {
       "affects": [
@@ -59690,7 +59690,7 @@
       "task": null,
       "title": "B-05 Expired onboarding token answers 401, not the documented 400",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "task:B-06": {
       "affects": [
@@ -59754,7 +59754,7 @@
       "task": null,
       "title": "B-06 Timestamps the app writes are stored shifted by the server time zone",
       "unmet": [],
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "task:B-07": {
       "affects": [

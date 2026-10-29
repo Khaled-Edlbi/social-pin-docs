@@ -1,13 +1,14 @@
 ---
+id: F-27
 type: feature
-id: payments
+module: commerce
+feature: payments
 name: "Payments & Orders"
 priority: high
 release: v1
-module: commerce
 screens: [s50, s51]
 created: 2026-10-15
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [feature, module/commerce, priority/high, release/v1]
 ---
 

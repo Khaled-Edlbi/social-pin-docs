@@ -1,16 +1,16 @@
 ---
+id: S-94
 type: story
-code: linked-accounts
-scope: feature
-feature: linked-accounts
 module: platform
+feature: linked-accounts
 status: approved
+scope: feature
 screens: [s01, s04, s68]
 approvedBy: "khaled"
 approvedAt: 2026-10-25
 owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [story, story/approved, module/platform, layer/business]
 ---
 

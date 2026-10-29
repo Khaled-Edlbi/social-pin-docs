@@ -1,13 +1,13 @@
 ---
+id: S-53
 type: story
-code: events-during
-scope: feature
-feature: events-during
 module: events
+feature: events-during
 status: draft
+scope: feature
 screens: [s53, s54, s55, s56, s57, s58]
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [story, story/draft, module/events, layer/business]
 ---
 

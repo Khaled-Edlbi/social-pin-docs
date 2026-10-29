@@ -1,13 +1,13 @@
 ---
+id: FR-16
 type: frontend-requirements
-code: delegated-admins
-scope: feature
-feature: delegated-admins
 module: shared-rings
+feature: delegated-admins
 status: draft
+scope: feature
 screens: [s26, s27]
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [frontend-requirements, frontend-requirements/draft, module/shared-rings, layer/frontend]
 ---
 

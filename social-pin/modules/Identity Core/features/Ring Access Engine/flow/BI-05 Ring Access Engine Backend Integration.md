@@ -1,13 +1,13 @@
 ---
+id: BI-05
 type: backend-integration
-code: ring-access
-scope: feature
-feature: ring-access
 module: identity
+feature: ring-access
 status: current
+scope: feature
 screens: []
 created: 2026-10-15
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [backend-integration, backend-integration/current, module/identity, layer/backend]
 ---
 

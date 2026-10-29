@@ -1,13 +1,13 @@
 ---
+id: BD-27
 type: backend-delivery
-code: payments
-scope: feature
-feature: payments
 module: commerce
+feature: payments
 status: todo
+scope: feature
 screens: [s50, s51]
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [backend-delivery, backend-delivery/todo, module/commerce, layer/backend]
 ---
 

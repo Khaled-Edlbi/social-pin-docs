@@ -1,16 +1,16 @@
 ---
+id: S-47
 type: story
-code: event-ring-auto
-scope: feature
-feature: event-ring-auto
 module: events
+feature: event-ring-auto
 status: approved
+scope: feature
 screens: [s52]
 approvedBy: "khaled"
 approvedAt: 2026-10-25
 owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [story, story/approved, module/events, layer/business]
 ---
 

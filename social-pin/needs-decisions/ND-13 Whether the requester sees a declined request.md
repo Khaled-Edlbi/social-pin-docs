@@ -1,16 +1,16 @@
 ---
-type: needs-decision
 id: ND-13
+type: needs-decision
 status: open
 features: [connections]
 blocks: ["S-23 Connections Story"]
 decider: "owner"
 screens: [s44, s45]
+owner: "omar"
 affects: []
 related: ["F-14 Connections"]
-owner: "omar"
 created: 2026-10-25
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [needs-decision, needs-decision/open]
 ---
 

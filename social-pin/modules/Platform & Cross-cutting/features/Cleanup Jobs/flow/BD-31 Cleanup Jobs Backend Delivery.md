@@ -1,13 +1,13 @@
 ---
+id: BD-31
 type: backend-delivery
-code: cleanup-jobs
-scope: feature
-feature: cleanup-jobs
 module: platform
+feature: cleanup-jobs
 status: todo
+scope: feature
 screens: []
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [backend-delivery, backend-delivery/todo, module/platform, layer/backend]
 ---
 

@@ -1,11 +1,12 @@
 ---
+id: P-27
 type: project
 layer: shared
-created: 2026-10-22
-updated: 2026-10-29
 depends: ["Agent Protocol"]
 affects: []
 related: ["Agent Protocol", "Agent Rules", "Workflow", "Docs Tree", "Owner Agent"]
+created: 2026-10-22
+updated: 2026-10-29
 tags: [project, layer/shared, rules, agent]
 ---
 
@@ -66,6 +67,8 @@ Say which files you will touch, by path, before touching them. When two readings
 ### 4B · Migrate across layers
 
 Collect the files first (`--find`, `--impact`, `git grep` for the old name), change them in one pass, keep every `updated:` current, rebuild, `--check`. Wikilinks follow the note name: a renamed note is renamed in every wikilink that points to it, in frontmatter lists too. A card's file name starts with its code ([[Agent Rules#2 · Codes, scopes and the "sum of" rule]]): a rename changes only what follows the code (`F-27 Payments & Orders` → `F-27 Checkout`), and a feature folder, named without the code, is renamed with it.
+
+**The frontmatter head** (done 2026-10-29 for every card, `docs/admin/project/frontmatter-head`): `node scripts/build-tree.mjs --normalize all` put every card in the order of `frontmatter` in `docs.config.json`, `id` the card code, a module's and a feature's slug in its own `module:` / `feature:`, a layer note's `code:` gone; it runs again on any card the build warns about, and the order itself is a config change.
 
 **Card codes in file names** (done 2026-10-28 for every module, feature and layer note that existed; `docs/admin/project/card-codes-in-file-names`): when `--check` warns that a card's file name lacks its code, `git mv` it to the name the warning gives and repoint every link to the old name with the build's own `renameLinks` (the one `--scaffold` uses: bodies, escaped table pipes, frontmatter lists, CRLF kept), then rebuild. The codes in `tree/cards.json` never move.
 

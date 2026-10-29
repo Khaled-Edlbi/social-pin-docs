@@ -1,13 +1,13 @@
 ---
+id: FR-36
 type: frontend-requirements
-code: gemma
-scope: feature
-feature: gemma
 module: platform
+feature: gemma
 status: draft
+scope: feature
 screens: [s13, s60]
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [frontend-requirements, frontend-requirements/draft, module/platform, layer/frontend]
 ---
 

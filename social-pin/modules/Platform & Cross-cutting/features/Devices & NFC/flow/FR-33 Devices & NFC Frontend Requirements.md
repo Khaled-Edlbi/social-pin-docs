@@ -1,13 +1,13 @@
 ---
+id: FR-33
 type: frontend-requirements
-code: devices
-scope: feature
-feature: devices
 module: platform
+feature: devices
 status: draft
+scope: feature
 screens: [s75]
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [frontend-requirements, frontend-requirements/draft, module/platform, layer/frontend]
 ---
 

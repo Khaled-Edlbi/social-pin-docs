@@ -1,9 +1,10 @@
 ---
+id: P-19
 type: project
 layer: shared
+related: ["Agent Rules", "Workflow", "Project Overview"]
 created: 2026-10-18
 updated: 2026-10-29
-related: ["Agent Rules", "Workflow", "Project Overview"]
 tags: [project, layer/shared, map]
 ---
 
@@ -151,6 +152,7 @@ node scripts/build-tree.mjs --set-status B-06 done --resolution fixed   # … a 
 node scripts/build-tree.mjs --set F-11 priority high      # the field, its priority/<id> tag, its first-line segment and updated:; also deadline 2026-11-15; none drops it (inherited again)
 node scripts/build-tree.mjs --flag S-23 BD-02 "the count moved to the ring"   # the ⚠ flag line under BD-02's H1, and the entry in S-23's ## Log
 node scripts/build-tree.mjs --finish qa B-06 closed      # the build and --check in one pass, the notes to update (yours) or flag (not yours), the branch and the commit message
+node scripts/build-tree.mjs --normalize B-06             # the card's frontmatter in the vault's order: id (its code) · type · module · feature · status, then docs.config.json frontmatter.order (all: every card)
 node scripts/build-tree.mjs --branch owner F-41 create   # any agent's vault branch for a card: <tickets|docs>/<agent>/<M-NN>-<module-id>/<F-NN>-<feature-id>/<last>, as deep as the card sits; tickets/ for a story, Frontend Requirements, needs-decision card or bug, docs/ for the rest (docs.config.json branches, Workflow §2)
 node scripts/agent-guard.mjs status                  # this session's agent and what it may write (outside a session: every session's); `selftest` runs the allow / deny matrix
 node scripts/build-tree.mjs --scaffold qa-frontend rings        # create a feature's layer note from its template: QF-NN Rings QA Frontend.md, the next free QF number, and every [[Rings QA Frontend]] link repointed at it
@@ -160,7 +162,7 @@ node scripts/build-tree.mjs --scaffold needs-decision "FR-03 Counts Frontend Req
 node scripts/build-tree.mjs --scaffold decision ND-04 "Hidden by default"   # the decision card that takes ND-04: D-04, the answer, why and what it changes (the PM or the owner, on the user's word)
 ```
 
-The build **fails** on: unparsable frontmatter or a missing key, a `type` that is neither structural nor a kind in the config, an unknown `status` for the kind, a `priority` outside the enum or a `deadline` or `created` that is not a date, a `feature` / `module` / `foundOn` / `depends` / `affects` / `related` / `blockedBy` target that does not resolve, two notes with the same code and kind, a card code in `tree/cards.json` given to two cards, reused after it was retired or carrying another kind's prefix, a feature whose `module` does not match its folder, a needs-decision card typed `decided` or `fulfilled` or carrying `decidedBy` / `decidedAt`, two decision cards for one question, a decided answer to a question still in `draft`, a decision card with an unknown status or set `decided` without `decidedBy` / `decidedAt`, a config that names a missing template, a file name containing `# ? % \`. It **warns** on a note outside its expected path, a wikilink to nothing, a missing `updated:`, a card without `created:`, an old priority code (`P1` for `high`), and a note that uses an endpoint owned by another feature without declaring a relation to it.
+The build **fails** on: unparsable frontmatter or a missing key, a `type` that is neither structural nor a kind in the config, an unknown `status` for the kind, a `priority` outside the enum or a `deadline` or `created` that is not a date, a `feature` / `module` / `foundOn` / `depends` / `affects` / `related` / `blockedBy` target that does not resolve, two notes with the same code and kind, a card code in `tree/cards.json` given to two cards, reused after it was retired or carrying another kind's prefix, a feature whose `module` does not match its folder, a needs-decision card typed `decided` or `fulfilled` or carrying `decidedBy` / `decidedAt`, two decision cards for one question, a decided answer to a question still in `draft`, a decision card with an unknown status or set `decided` without `decidedBy` / `decidedAt`, a config that names a missing template, a file name containing `# ? % \`. It also **fails** on a card whose `id` is not its card code, that misses a head key its type takes (`id` · `type` · `module` · `feature` · `status`, `frontmatter.headByType`) or carries one it does not (a `feature:` on a module card). It **warns** on a card whose frontmatter is out of the vault's order (`--normalize` fixes it), a note outside its expected path, a wikilink to nothing, a missing `updated:`, a card without `created:`, an old priority code (`P1` for `high`), and a note that uses an endpoint owned by another feature without declaring a relation to it.
 
 **Changing a status** means editing `status:`, the tag (`<kind>/<status>`), the emoji in the H1 and `updated:`, then rebuilding; `--set-status` does the four in one write. Never edit a generated file by hand: the next build overwrites it and CI fails on drift.
 

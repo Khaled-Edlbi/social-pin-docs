@@ -1,9 +1,10 @@
 ---
+id: P-06
 type: project
 layer: frontend
-created: 2026-10-18
-updated: 2026-10-28
 related: ["Agent Rules", "Frontend Contract", "Frontend API Guide"]
+created: 2026-10-18
+updated: 2026-10-29
 tags: [project, layer/frontend, rules]
 ---
 

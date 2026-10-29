@@ -1,14 +1,15 @@
 ---
+id: F-26
 type: feature
-id: meetings
+module: meetings
+feature: meetings
 name: "Meetings"
 priority: critical
 release: mvp
-module: meetings
 screens: [s59, s61, s64, s66, s67]
 related: ["F-12 View As & Pin Views"]
 created: 2026-10-15
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [feature, module/meetings, priority/critical, release/mvp]
 ---
 

@@ -1,13 +1,13 @@
 ---
+id: BD-15
 type: backend-delivery
-code: companies
-scope: feature
-feature: companies
 module: shared-rings
+feature: companies
 status: todo
+scope: feature
 screens: [s72, s73]
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [backend-delivery, backend-delivery/todo, module/shared-rings, layer/backend]
 ---
 

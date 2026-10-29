@@ -1,14 +1,15 @@
 ---
+id: F-06
 type: feature
-id: photo-library
+module: identity
+feature: photo-library
 name: "Photo Library"
 priority: high
 release: v1
-module: identity
 screens: [s23, s29, s30, s68]
+owner: "Omar Fostok"
 created: 2026-10-15
 updated: 2026-10-29
-owner: "Omar Fostok"
 tags: [feature, module/identity, priority/high, release/v1]
 ---
 

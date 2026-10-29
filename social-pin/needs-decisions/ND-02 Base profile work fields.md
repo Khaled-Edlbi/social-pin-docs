@@ -1,11 +1,11 @@
 ---
-type: needs-decision
 id: ND-02
+type: needs-decision
 status: open
 features: [profiles, ring-projection, onboarding-imports, photo-library]
 screens: [s05, s06, s11, s23, s29]
 created: 2026-10-15
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [needs-decision, needs-decision/open]
 ---
 

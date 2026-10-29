@@ -1,16 +1,16 @@
 ---
-type: needs-decision
 id: ND-18
+type: needs-decision
 status: open
 features: [companies, ring-invitations]
 blocks: ["S-29 Companies Story", "S-33 Ring Invitations & Join Story"]
 decider: "owner"
 screens: [s17, s72, s73, s74]
+owner: "omar"
 affects: ["F-15 Companies", "F-17 Ring Invitations & Join"]
 related: ["D-14 Shared with me lists people, never the Ring", "F-15 Companies", "F-17 Ring Invitations & Join", "F-11 Rings"]
-owner: "omar"
 created: 2026-10-25
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [needs-decision, needs-decision/open]
 ---
 

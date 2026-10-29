@@ -1,13 +1,13 @@
 ---
+id: FR-25
 type: frontend-requirements
-code: post-event
-scope: feature
-feature: post-event
 module: events
+feature: post-event
 status: draft
+scope: feature
 screens: [s62]
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [frontend-requirements, frontend-requirements/draft, module/events, layer/frontend]
 ---
 

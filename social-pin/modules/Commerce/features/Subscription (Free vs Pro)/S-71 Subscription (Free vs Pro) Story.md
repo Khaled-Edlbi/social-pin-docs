@@ -1,16 +1,16 @@
 ---
+id: S-71
 type: story
-code: subscription
-scope: feature
-feature: subscription
 module: commerce
+feature: subscription
 status: approved
+scope: feature
 screens: [s34, s70]
 approvedBy: "khaled"
 approvedAt: 2026-10-25
 owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [story, story/approved, module/commerce, layer/business]
 ---
 

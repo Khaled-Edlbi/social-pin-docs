@@ -1,16 +1,16 @@
 ---
+id: BI-01
 type: backend-integration
-code: account
-scope: feature
-feature: account
 module: identity
+feature: account
 status: current
+scope: feature
 screens: [s68]
-created: 2026-10-15
-updated: 2026-10-28
 depends: []
 affects: ["FD-04 Account Frontend Delivery", "QF-04 Account QA Frontend"]
 related: ["B-02 Deleted account answers 401, not the documented 404 E_USER_01", "B-01 An unverified changed email still signs in", "D-20 The changed address still signs in, the words are corrected", "PATCH /users/me", "POST /auth/login", "POST /auth/login/verify", "GET /users/me", "DELETE /users/me", "E_USER_01", "E_AUTH_03", "S-87 Error Contract Story"]
+created: 2026-10-15
+updated: 2026-10-29
 tags: [backend-integration, backend-integration/current, module/identity, layer/backend]
 ---
 

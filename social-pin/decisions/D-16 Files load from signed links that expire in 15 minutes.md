@@ -1,14 +1,14 @@
 ---
-type: decision
 id: D-16
-decision: ND-16
+type: decision
 status: decided
+features: [files]
+decision: ND-16
 decidedBy: "khaled"
 decidedAt: 2026-10-29
-features: [files]
+owner: "khaled"
 affects: ["S-06 Files Upload Story", "FR-04 Files Upload Frontend Requirements", "BD-04 Files Upload Backend Delivery", "BI-03 Files Upload Backend Integration", "BI-07 Ring Projection Backend Integration", "BI-09 View As & Pin Views Backend Integration", "S-11 Photo Library Story", "FR-06 Photo Library Frontend Requirements", "FR-12 View As & Pin Views Frontend Requirements"]
 related: ["ND-16 Viewer access to file bytes", "F-10 Ring Projection", "F-12 View As & Pin Views", "B-07 Context-scoped uploads are served by the public static mount", E_FILE_01]
-owner: "khaled"
 created: 2026-10-29
 updated: 2026-10-29
 tags: [decision, decision/decided]

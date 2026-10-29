@@ -1,16 +1,16 @@
 ---
-type: needs-decision
 id: ND-19
+type: needs-decision
 status: open
 features: [error-contract]
 blocks: ["S-87 Error Contract Story"]
 decider: "owner"
 screens: []
+owner: "khaled"
 affects: []
 related: ["Agent Rules", "Docs Tree", "S-87 Error Contract Story"]
-owner: "khaled"
 created: 2026-10-25
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [needs-decision, needs-decision/open]
 ---
 

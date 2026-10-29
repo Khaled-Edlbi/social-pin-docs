@@ -1,15 +1,16 @@
 ---
-type: needs-decision
 id: ND-21
+type: needs-decision
 status: open
 features: [onboarding-imports]
 blocks: ["S-08 Onboarding Imports Story"]
 decider: "owner"
 screens: [s03a, s03b]
+owner: "Omar Fostok"
 affects: ["S-08 Onboarding Imports Story", "F-05 Onboarding Imports"]
 related: ["D-02 One main profile every Ring starts from", "D-03 Links entered once, switched on or off per Ring", "S-14 Profiles & Pin Name Story", "S-08 Onboarding Imports Story", "F-04 Files Upload"]
 created: 2026-10-26
-owner: "Omar Fostok"
+updated: 2026-10-29
 tags: [needs-decision, needs-decision/open]
 ---
 

@@ -1,16 +1,16 @@
 ---
-type: decision
 id: D-05
-decision: ND-05
+type: decision
 status: decided
+features: [photo-library, ring-projection, rings]
+decision: ND-05
 decidedBy: "molham"
 decidedAt: 2026-10-25
-features: [photo-library, ring-projection, rings]
+owner: "khaled"
 affects: ["F-11 Rings", "F-10 Ring Projection", "F-06 Photo Library", "S-17 Ring Projection Story"]
 related: ["ND-05 Copy or inherit", "D-02 One main profile every Ring starts from", "D-04 Ring settings at launch and their defaults"]
-owner: "khaled"
 created: 2026-10-25
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [decision, decision/decided]
 ---
 

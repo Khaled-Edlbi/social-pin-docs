@@ -1,16 +1,16 @@
 ---
-type: decision
 id: D-06
-decision: ND-06
+type: decision
 status: decided
+features: [gemma, profiles]
+decision: ND-06
 decidedBy: "molham"
 decidedAt: 2026-10-25
-features: [gemma, profiles]
+owner: "khaled"
 affects: ["F-07 Profiles & Pin Name", "F-36 Gemma AI", "F-02 Auth & Sign-up", "S-14 Profiles & Pin Name Story"]
 related: ["ND-06 Pin name rules", "F-18 Badge & QR"]
-owner: "khaled"
 created: 2026-10-25
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [decision, decision/decided]
 ---
 

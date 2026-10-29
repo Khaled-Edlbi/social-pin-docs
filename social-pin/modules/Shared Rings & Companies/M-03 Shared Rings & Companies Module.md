@@ -1,9 +1,10 @@
 ---
+id: M-03
 type: module
-id: shared-rings
+module: shared-rings
 name: "Shared Rings & Companies"
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [module, module/shared-rings]
 ---
 

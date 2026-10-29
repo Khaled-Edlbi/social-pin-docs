@@ -1,13 +1,13 @@
 ---
+id: FR-20
 type: frontend-requirements
-code: pincast
-scope: feature
-feature: pincast
 module: discovery
+feature: pincast
 status: draft
+scope: feature
 screens: [s11, s39, s40, s41, s42]
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [frontend-requirements, frontend-requirements/draft, module/discovery, layer/frontend]
 ---
 

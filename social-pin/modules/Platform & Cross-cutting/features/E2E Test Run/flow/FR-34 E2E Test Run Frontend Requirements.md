@@ -1,13 +1,13 @@
 ---
+id: FR-34
 type: frontend-requirements
-code: e2e-tests
-scope: feature
-feature: e2e-tests
 module: platform
+feature: e2e-tests
 status: draft
+scope: feature
 screens: []
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [frontend-requirements, frontend-requirements/draft, module/platform, layer/frontend]
 ---
 

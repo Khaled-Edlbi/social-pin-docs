@@ -1,14 +1,15 @@
 ---
+id: F-18
 type: feature
-id: badge-qr
+module: discovery
+feature: badge-qr
 name: "Badge & QR"
 priority: critical
 release: mvp
-module: discovery
 screens: [s34, s43, s44, s56]
 related: ["F-01 Account", "F-11 Rings"]
 created: 2026-10-15
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [feature, module/discovery, priority/critical, release/mvp]
 ---
 

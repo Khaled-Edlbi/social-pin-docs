@@ -1,10 +1,10 @@
 ---
+id: BD-35
 type: backend-delivery
-code: error-contract
-scope: feature
-feature: error-contract
 module: platform
+feature: error-contract
 status: in-progress
+scope: feature
 screens: []
 created: 2026-10-15
 updated: 2026-10-29

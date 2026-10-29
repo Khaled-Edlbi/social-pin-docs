@@ -1,16 +1,16 @@
 ---
-type: decision
 id: D-04
-decision: ND-04
+type: decision
 status: decided
+features: [companies, delegated-admins, ring-invitations, ring-members, rings]
+decision: ND-04
 decidedBy: "molham"
 decidedAt: 2026-10-25
-features: [companies, delegated-admins, ring-invitations, ring-members, rings]
+owner: "khaled"
 affects: ["F-11 Rings", "F-09 Ring Members", "F-17 Ring Invitations & Join", "F-16 Delegated Admins", "F-15 Companies", "F-08 Ring Access Engine", "S-33 Ring Invitations & Join Story", "S-18 Rings Story"]
 related: ["ND-04 Ring settings", "Ring Access Model"]
-owner: "khaled"
 created: 2026-10-25
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [decision, decision/decided]
 ---
 

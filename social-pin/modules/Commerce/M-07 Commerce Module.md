@@ -1,9 +1,10 @@
 ---
+id: M-07
 type: module
-id: commerce
+module: commerce
 name: "Commerce"
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [module, module/commerce]
 ---
 

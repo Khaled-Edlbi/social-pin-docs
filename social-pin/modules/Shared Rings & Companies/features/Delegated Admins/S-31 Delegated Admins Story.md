@@ -1,17 +1,17 @@
 ---
+id: S-31
 type: story
-code: delegated-admins
-scope: feature
-feature: delegated-admins
 module: shared-rings
+feature: delegated-admins
 status: approved
+scope: feature
 screens: [s26, s27]
 approvedBy: "khaled"
 approvedAt: 2026-10-25
-created: 2026-10-18
-updated: 2026-10-28
 owner: "omar"
 related: ["D-04 Ring settings at launch and their defaults"]
+created: 2026-10-18
+updated: 2026-10-29
 tags: [story, story/approved, module/shared-rings, layer/business]
 ---
 

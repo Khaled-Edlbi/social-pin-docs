@@ -1,11 +1,11 @@
 ---
-type: needs-decision
 id: ND-04
+type: needs-decision
 status: open
 features: [rings, ring-members, ring-invitations, delegated-admins, companies]
 screens: [s19, s22, s26, s27]
 created: 2026-10-15
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [needs-decision, needs-decision/open]
 ---
 

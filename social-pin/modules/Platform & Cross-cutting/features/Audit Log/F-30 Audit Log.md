@@ -1,13 +1,14 @@
 ---
+id: F-30
 type: feature
-id: audit-log
+module: platform
+feature: audit-log
 name: "Audit Log"
 priority: critical
 release: mvp
-module: platform
 screens: []
 created: 2026-10-15
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [feature, module/platform, priority/critical, release/mvp]
 ---
 

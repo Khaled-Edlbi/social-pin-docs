@@ -1,17 +1,17 @@
 ---
+id: S-20
 type: story
-code: widgets
-scope: feature
-feature: widgets
 module: identity
+feature: widgets
 status: approved
+scope: feature
 screens: [s36, s37]
 approvedBy: "khaled"
 approvedAt: 2026-10-25
-created: 2026-10-18
-updated: 2026-10-28
 owner: "omar"
 related: ["D-03 Links entered once, switched on or off per Ring"]
+created: 2026-10-18
+updated: 2026-10-29
 tags: [story, story/approved, module/identity, layer/business]
 ---
 

@@ -1,13 +1,14 @@
 ---
+id: F-37
 type: feature
-id: interests
+module: platform
+feature: interests
 name: "Interests"
 priority: high
 release: mvp
-module: platform
 screens: [s07, s71]
 created: 2026-10-15
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [feature, module/platform, priority/high, release/mvp]
 ---
 

@@ -1,13 +1,14 @@
 ---
+id: F-02
 type: feature
-id: auth
+module: identity
+feature: auth
 name: "Auth & Sign-up"
 priority: critical
 release: mvp
-module: identity
 screens: [s01, s02, s06, s08, s68]
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [feature, module/identity, priority/critical, release/mvp]
 ---
 

@@ -1,17 +1,17 @@
 ---
+id: FR-09
 type: frontend-requirements
-code: ring-members
-scope: feature
-feature: ring-members
 module: identity
+feature: ring-members
 status: ready
+scope: feature
 screens: [s15, s16, s35, s46, s47]
+owner: "Omar Fostok"
 depends: ["S-16 Ring Members Story"]
 affects: ["BD-09 Ring Members Backend Delivery"]
 related: ["BI-06 Ring Members Backend Integration", "D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-18 Ring names shown when joined knowingly", "FR-08 Ring Access Engine Frontend Requirements", "FR-11 Rings Frontend Requirements", "S-18 Rings Story", "S-23 Connections Story", "S-33 Ring Invitations & Join Story", "S-87 Error Contract Story", "GET /rings/:ringId/members", "POST /rings/:ringId/members", "PATCH /rings/:ringId/members/:userId", "DELETE /rings/:ringId/members/:userId", "POST /rings/:ringId/members/:userId/reassign", "GET /rings", E_RING_05, E_RING_02]
 created: 2026-10-18
 updated: 2026-10-29
-owner: "Omar Fostok"
 tags: [frontend-requirements, frontend-requirements/ready, module/identity, layer/frontend]
 ---
 

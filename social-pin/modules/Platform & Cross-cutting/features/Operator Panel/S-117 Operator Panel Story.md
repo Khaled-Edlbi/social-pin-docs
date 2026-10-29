@@ -1,19 +1,19 @@
 ---
+id: S-117
 type: story
-code: operator-panel
-scope: feature
-feature: operator-panel
 module: platform
+feature: operator-panel
 status: draft
+scope: feature
 screens: []
+approvedBy: ""
+approvedAt: ""
 depends: []
 affects: []
 related: []
 pending: []
-approvedBy: ""
-approvedAt: ""
 created: 2026-10-27
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [story, story/draft, module/platform, layer/business]
 ---
 

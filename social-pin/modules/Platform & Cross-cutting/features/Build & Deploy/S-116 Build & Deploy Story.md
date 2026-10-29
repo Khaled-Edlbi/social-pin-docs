@@ -1,20 +1,20 @@
 ---
+id: S-116
 type: story
-code: build-deploy
-scope: feature
-feature: build-deploy
 module: platform
+feature: build-deploy
 status: draft
+scope: feature
 screens: []
+approvedBy: ""
+approvedAt: ""
+owner: "Omar Fostok"
 depends: []
 affects: []
 related: ["F-43 Build & Deploy", "Architecture", "Developer Setup"]
 pending: []
-approvedBy: ""
-approvedAt: ""
-owner: "Omar Fostok"
 created: 2026-10-27
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [story, story/draft, module/platform, layer/business]
 ---
 

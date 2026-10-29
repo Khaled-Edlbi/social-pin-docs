@@ -1,13 +1,14 @@
 ---
+id: F-03
 type: feature
-id: counts
+module: identity
+feature: counts
 name: "Counts"
 priority: high
 release: mvp
-module: identity
 screens: [s11, s12, s14, s16, s17, s68]
 created: 2026-10-15
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [feature, module/identity, priority/high, release/mvp]
 ---
 

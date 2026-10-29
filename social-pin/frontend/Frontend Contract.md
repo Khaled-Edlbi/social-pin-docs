@@ -1,9 +1,10 @@
 ---
+id: P-08
 type: project
-created: 2026-10-15
-updated: 2026-10-28
-tags: [project]
 layer: frontend
+created: 2026-10-15
+updated: 2026-10-29
+tags: [project]
 ---
 
 # Frontend Contract

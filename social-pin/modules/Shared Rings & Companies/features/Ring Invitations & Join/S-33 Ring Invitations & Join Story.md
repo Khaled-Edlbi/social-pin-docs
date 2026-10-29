@@ -1,15 +1,15 @@
 ---
+id: S-33
 type: story
-code: ring-invitations
-scope: feature
-feature: ring-invitations
 module: shared-rings
+feature: ring-invitations
 status: draft
+scope: feature
 screens: [s17, s74]
-created: 2026-10-18
-updated: 2026-10-28
 owner: "omar"
 related: ["D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "D-18 Ring names shown when joined knowingly"]
+created: 2026-10-18
+updated: 2026-10-29
 tags: [story, story/draft, module/shared-rings, layer/business]
 ---
 

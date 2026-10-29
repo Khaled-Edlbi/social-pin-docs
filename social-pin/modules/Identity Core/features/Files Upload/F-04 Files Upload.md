@@ -1,15 +1,16 @@
 ---
+id: F-04
 type: feature
-id: files
+module: identity
+feature: files
 name: "Files Upload"
 priority: high
 release: v1
-module: identity
 screens: [s14, s20, s24, s36, s29, s30, s31, s44]
+owner: "Omar Fostok"
 related: ["F-11 Rings"]
 created: 2026-10-18
 updated: 2026-10-29
-owner: "Omar Fostok"
 tags: [feature, module/identity, priority/high, release/v1]
 ---
 

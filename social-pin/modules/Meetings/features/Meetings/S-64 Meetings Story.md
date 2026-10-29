@@ -1,16 +1,16 @@
 ---
+id: S-64
 type: story
-code: meetings
-scope: feature
-feature: meetings
 module: meetings
+feature: meetings
 status: approved
+scope: feature
 screens: [s59, s61, s64, s66, s67]
 approvedBy: "khaled"
 approvedAt: 2026-10-25
 owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [story, story/approved, module/meetings, layer/business]
 ---
 

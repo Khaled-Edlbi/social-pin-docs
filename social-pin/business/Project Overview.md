@@ -1,10 +1,11 @@
 ---
+id: P-04
 type: project
+layer: business
 stage: mvp
 created: 2026-10-15
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [project, stage/mvp]
-layer: business
 ---
 
 # Project Overview

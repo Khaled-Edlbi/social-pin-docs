@@ -1,13 +1,13 @@
 ---
+id: FR-04
 type: frontend-requirements
-code: files
-scope: feature
-feature: files
 module: identity
+feature: files
 status: approved
+scope: feature
+screens: [s14, s20, s24, s36, s29, s30, s31, s44]
 approvedBy: "khaled"
 approvedAt: 2026-10-29
-screens: [s14, s20, s24, s36, s29, s30, s31, s44]
 owner: "Omar Fostok"
 depends: ["S-06 Files Upload Story"]
 affects: ["BD-04 Files Upload Backend Delivery"]

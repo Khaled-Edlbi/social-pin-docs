@@ -1,13 +1,13 @@
 ---
+id: FR-39
 type: frontend-requirements
-code: notifications
-scope: feature
-feature: notifications
 module: platform
+feature: notifications
 status: draft
+scope: feature
 screens: [s69]
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [frontend-requirements, frontend-requirements/draft, module/platform, layer/frontend]
 ---
 

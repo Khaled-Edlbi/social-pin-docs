@@ -1,18 +1,18 @@
 ---
+id: FD-04
 type: frontend-delivery
-code: account
-scope: feature
-feature: account
 module: identity
+feature: account
 status: done
+scope: feature
+deployedTo: []
 screens: [s68]
 depends: []
 affects: []
 related: ["FR-01 Account Frontend Requirements", "F-07 Profiles & Pin Name", "S-06 Files Upload Story", "S-03 Counts Story", "S-94 Linked Accounts (OAuth) Story", "S-82 Devices & NFC Story", "S-71 Subscription (Free vs Pro) Story", "S-87 Error Contract Story"]
 pending: []
-deployedTo: []
 created: 2026-10-26
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [frontend-delivery, frontend-delivery/done, module/identity, layer/frontend]
 ---
 

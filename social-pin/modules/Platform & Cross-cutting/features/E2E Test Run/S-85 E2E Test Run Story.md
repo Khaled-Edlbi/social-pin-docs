@@ -1,16 +1,16 @@
 ---
+id: S-85
 type: story
-code: e2e-tests
-scope: feature
-feature: e2e-tests
 module: platform
+feature: e2e-tests
 status: approved
+scope: feature
 screens: []
 approvedBy: "khaled"
 approvedAt: 2026-10-25
 owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [story, story/approved, module/platform, layer/business]
 ---
 

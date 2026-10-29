@@ -1,13 +1,13 @@
 ---
+id: BD-24
 type: backend-delivery
-code: exhibitor
-scope: feature
-feature: exhibitor
 module: events
+feature: exhibitor
 status: todo
+scope: feature
 screens: [s63, s64, s65]
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [backend-delivery, backend-delivery/todo, module/events, layer/backend]
 ---
 

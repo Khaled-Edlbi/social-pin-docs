@@ -1,13 +1,13 @@
 ---
+id: FR-24
 type: frontend-requirements
-code: exhibitor
-scope: feature
-feature: exhibitor
 module: events
+feature: exhibitor
 status: draft
+scope: feature
 screens: [s63, s64, s65]
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [frontend-requirements, frontend-requirements/draft, module/events, layer/frontend]
 ---
 

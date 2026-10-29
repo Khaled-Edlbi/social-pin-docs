@@ -1,13 +1,13 @@
 ---
+id: FR-29
 type: frontend-requirements
-code: app-shell
-scope: feature
-feature: app-shell
 module: platform
+feature: app-shell
 status: draft
+scope: feature
 screens: [s00a, s00b, s00c, s00d]
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [frontend-requirements, frontend-requirements/draft, module/platform, layer/frontend]
 ---
 

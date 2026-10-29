@@ -1,16 +1,16 @@
 ---
-type: needs-decision
 id: ND-10
+type: needs-decision
 status: draft
 features: [badge-qr, connections]
 blocks: ["S-37 Badge & QR Story", "S-23 Connections Story"]
 decider: "owner"
 screens: [s43, s44]
+owner: "omar"
 affects: []
 related: ["F-12 View As & Pin Views", "F-14 Connections"]
-owner: "omar"
 created: 2026-10-25
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [needs-decision, needs-decision/draft]
 ---
 

@@ -1,13 +1,13 @@
 ---
+id: BD-06
 type: backend-delivery
-code: photo-library
-scope: feature
-feature: photo-library
 module: identity
+feature: photo-library
 status: in-progress
+scope: feature
 screens: [s29, s30]
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [backend-delivery, backend-delivery/in-progress, module/identity, layer/backend]
 ---
 

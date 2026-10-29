@@ -1,13 +1,13 @@
 ---
+id: FR-32
 type: frontend-requirements
-code: code-delivery
-scope: feature
-feature: code-delivery
 module: platform
+feature: code-delivery
 status: draft
+scope: feature
 screens: [s02]
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [frontend-requirements, frontend-requirements/draft, module/platform, layer/frontend]
 ---
 
