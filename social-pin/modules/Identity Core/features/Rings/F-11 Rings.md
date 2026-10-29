@@ -5,37 +5,36 @@ name: "Rings"
 priority: critical
 release: mvp
 module: identity
-screens: [s08, s09, s16, s17, s18, s19, s20, s21, s22, s26, s62]
+screens: [s08, s09, s16, s17, s18, s19, s20, s21, s22, s26, s27, s62]
 created: 2026-10-18
-updated: 2026-10-28
-owner: "omar"
+updated: 2026-10-29
+owner: "Omar Fostok"
 tags: [feature, module/identity, priority/critical, release/mvp]
 ---
 
 # Rings
 
-> ⚠ Affected by [[S-18 Rings Story]] (2026-10-29): the story now also uses s27 (permissions, S9); the Design reference's notes on s18 ("Copy a Ring decided, not built") and s19 ("Audience settings decided") change: step 1 is "Start from" with Copy disabled until a copy endpoint exists, and step 2 is people (the settings are on step 4, s21). The default Ring is "Public" (s08, s16). Ask: `/owner add s27 to Rings' screens and update the s18 / s19 notes`.
-
 **Backend:** Done · **Priority:** Critical · **Release:** MVP · **Module:** [[M-01 Identity Core Module|Identity Core]]
 
 **Layers:** [[S-18 Rings Story|Story]] · [[FR-11 Rings Frontend Requirements|Frontend Requirements]] · [[BD-11 Rings Backend Delivery|Backend Delivery]] · [[BI-08 Rings Backend Integration|Backend Integration]] · [[Rings Frontend Delivery|Frontend Delivery]] · [[Rings QA Backend|QA Backend]] · [[Rings QA Frontend|QA Frontend]]
 
-My Rings and Shared-with-me lists, create a Ring with name, colour, type, expiry and temporary flag, edit, set default, delete, and the keep / merge / auto-delete disposition for temporary Rings.
+My Rings and Shared-with-me lists; the first Ring from a template at sign-up; a four-step wizard (name it → who is in it → what it shows → how you appear) with a colour, an icon, who it's for, and a start (blank, a copy of another Ring, or a temporary Event Ring); edit; the default Ring (the "Public" Ring strangers see, changed on a Ring's Access screen); delete; the six Ring settings; and the keep / merge / let it go choice for temporary Rings.
 
 ## Design reference
 
 | Screen | Name | Note |
 |---|---|---|
-| [[Screen Index#s08|s08]] | First Ring | Default Ring is created by complete-registration |
-| [[Screen Index#s09|s09]] | Create first Ring |  |
-| [[Screen Index#s16|s16]] | My Rings |  |
-| [[Screen Index#s17|s17]] | Shared with me | List done; review / decline invite todo |
-| [[Screen Index#s18|s18]] | New Ring · step 1 | Copy a Ring decided (D-05), not built |
-| [[Screen Index#s19|s19]] | New Ring · step 2 (who is in it) | Audience settings decided (D-04), not built |
-| [[Screen Index#s20|s20]] | New Ring · step 3 (what it shows) | Field library decided (D-03), not built |
-| [[Screen Index#s21|s21]] | New Ring · step 4 (how you appear) |  |
-| [[Screen Index#s22|s22]] | Edit · name & purpose | Purpose decided (D-04), not built |
-| [[Screen Index#s26|s26]] | Edit · access | Settings decided (D-04), not built |
+| [[Screen Index#s08|s08]] | First Ring | The default "Public" Ring is created by complete-registration; three templates (Work, Events, Personal) pre-fill s09 |
+| [[Screen Index#s09|s09]] | Create first Ring | Name, colour (not drawn yet), what it shows, expiry |
+| [[Screen Index#s16|s16]] | My Rings | Default first; no make-default or delete on the list |
+| [[Screen Index#s17|s17]] | Shared with me | One row per person; a Ring's name only when joined knowingly (backend not yet); invites todo |
+| [[Screen Index#s18|s18]] | New Ring · step 1 | "Start from": Blank, Copy an existing Ring (needs a copy endpoint, D-05), Event Ring (temporary, dates); no type picker |
+| [[Screen Index#s19|s19]] | New Ring · step 2 (who is in it) | People from my connections (needs the connections list, [[F-14 Connections]]) |
+| [[Screen Index#s20|s20]] | New Ring · step 3 (what it shows) | The library switched on per Ring ([[F-10 Ring Projection]]), not built |
+| [[Screen Index#s21|s21]] | New Ring · step 4 (how you appear) | Photo, bio, three of the settings, a summary |
+| [[Screen Index#s22|s22]] | Edit · name & purpose | Who it's for (a setting, D-04), not built |
+| [[Screen Index#s26|s26]] | Edit · access | Expiry, "Make this my default Ring", Delete; settings decided (D-04), not built |
+| [[Screen Index#s27|s27]] | Edit · permissions | The settings (D-04's three join choices; the three later ones hidden), not built |
 | [[Screen Index#s62|s62]] | Post-event summary | Keep / merge / expire done |
 
 Wireframe brief sections: [[Wireframe Brief#Ring management|§4.2 Ring management]], [[Wireframe Brief#Post-event|§8.5 Post-event]]
