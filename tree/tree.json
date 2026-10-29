@@ -5215,6 +5215,11 @@
       "to": "backend-integration:files"
     },
     {
+      "from": "task:B-07",
+      "kind": "affects",
+      "to": "qa-backend:files"
+    },
+    {
       "from": "task:B-08",
       "kind": "affects",
       "to": "backend-integration:ring-projection"
@@ -7003,11 +7008,6 @@
       "from": "qa-backend:auth",
       "kind": "pending",
       "to": "task:B-06"
-    },
-    {
-      "from": "qa-backend:files",
-      "kind": "pending",
-      "to": "task:B-07"
     },
     {
       "from": "qa-backend:files",
@@ -41165,11 +41165,10 @@
         "approved": 1,
         "current": 1,
         "decided": 1,
-        "done": 1,
+        "done": 2,
         "failing": 1,
         "missing": 2,
         "ready": 1,
-        "todo": 1,
         "verified": 1
       },
       "scope": null,
@@ -48065,7 +48064,7 @@
         "current": 8,
         "decided": 8,
         "delivered": 2,
-        "done": 9,
+        "done": 10,
         "draft": 4,
         "failing": 2,
         "in-progress": 13,
@@ -48074,7 +48073,7 @@
         "partial": 4,
         "passing": 1,
         "ready": 8,
-        "todo": 6,
+        "todo": 5,
         "verified": 8
       },
       "scope": null,
@@ -52216,11 +52215,6 @@
           "person": null,
           "text": "rows B12 and B16, filed 2026-10-29, re-run when it ships",
           "to": "task:B-08"
-        },
-        {
-          "person": null,
-          "text": "rows B30–B32 pass on `main @ c85db4b`; closing the bug (resolution `fixed`) waits on the user's word",
-          "to": "task:B-07"
         }
       ],
       "priority": "high",
@@ -55179,7 +55173,7 @@
         "current": 8,
         "decided": 15,
         "delivered": 2,
-        "done": 10,
+        "done": 11,
         "draft": 33,
         "failing": 2,
         "in-progress": 45,
@@ -55189,7 +55183,7 @@
         "passing": 1,
         "ready": 8,
         "reference": 31,
-        "todo": 11,
+        "todo": 10,
         "verified": 15
       },
       "scope": null,
@@ -58215,7 +58209,8 @@
     "task:B-07": {
       "affects": [
         "backend-delivery:files",
-        "backend-integration:files"
+        "backend-integration:files",
+        "qa-backend:files"
       ],
       "blockedBy": [],
       "card": "B-07",
@@ -58226,7 +58221,7 @@
       "decision": null,
       "depends": [],
       "dir": null,
-      "effectiveStatus": "todo",
+      "effectiveStatus": "done",
       "effort": "S",
       "feature": "files",
       "foundOn": "BD-04 Files Upload Backend Delivery",
@@ -58250,13 +58245,13 @@
       "pending": [],
       "priority": "high",
       "related": [
+        "qa-backend:files",
         "backend-delivery:files",
         "backend-integration:files",
         "needs-decision:ND-16",
         "story:files",
         "needs-decision:ND-21",
         "frontend-requirements:files",
-        "qa-backend:files",
         "frontend-requirements:onboarding-imports",
         "frontend-requirements:photo-library",
         "story:photo-library",
@@ -58269,7 +58264,7 @@
         "decision:D-16"
       ],
       "release": "v1",
-      "resolution": null,
+      "resolution": "fixed",
       "rollup": {},
       "scope": null,
       "screens": [
@@ -58282,13 +58277,14 @@
         "s31",
         "s44"
       ],
-      "status": "todo",
+      "status": "done",
       "summary": "The fix is the backend's (/backend): mount only a public/ folder under uploadsDir, and keep CONTEXTSCOPED files out of it. It does not wait on ND-16; until ND-16 ships, no client can load a…",
       "tags": [
         "bug",
-        "bug/todo",
+        "bug/done",
         "module/identity",
-        "priority/high"
+        "priority/high",
+        "resolution/fixed"
       ],
       "task": null,
       "title": "B-07 Context-scoped uploads are served by the public static mount",
