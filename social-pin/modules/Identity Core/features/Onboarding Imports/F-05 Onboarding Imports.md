@@ -3,7 +3,6 @@ id: F-05
 type: feature
 module: identity
 feature: onboarding-imports
-name: "Onboarding Imports"
 priority: medium
 release: mvp
 screens: [s03, s03a, s03b, s04, s05]

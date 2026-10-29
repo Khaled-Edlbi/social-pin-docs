@@ -3,7 +3,6 @@ id: F-12
 type: feature
 module: identity
 feature: view-as
-name: "View As & Pin Views"
 priority: critical
 release: mvp
 screens: [s10, s31, s44, s62]

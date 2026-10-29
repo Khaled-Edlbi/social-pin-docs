@@ -3,7 +3,6 @@ id: F-13
 type: feature
 module: identity
 feature: widgets
-name: "Widgets"
 priority: high
 release: v1
 screens: [s36, s37]

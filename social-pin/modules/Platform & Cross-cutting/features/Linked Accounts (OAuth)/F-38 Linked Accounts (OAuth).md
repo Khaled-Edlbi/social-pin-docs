@@ -3,7 +3,6 @@ id: F-38
 type: feature
 module: platform
 feature: linked-accounts
-name: "Linked Accounts (OAuth)"
 priority: high
 release: v1
 screens: [s01, s04, s68]

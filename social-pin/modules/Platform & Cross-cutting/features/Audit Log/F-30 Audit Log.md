@@ -3,7 +3,6 @@ id: F-30
 type: feature
 module: platform
 feature: audit-log
-name: "Audit Log"
 priority: critical
 release: mvp
 screens: []

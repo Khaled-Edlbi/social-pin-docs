@@ -2,7 +2,6 @@
 id: M-08
 type: module
 module: platform
-name: "Platform & Cross-cutting"
 created: 2026-10-18
 updated: 2026-10-29
 tags: [module, module/platform]

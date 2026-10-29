@@ -3,7 +3,6 @@ id: F-20
 type: feature
 module: discovery
 feature: pincast
-name: "PinCast & Nearby"
 priority: high
 release: v1
 screens: [s11, s39, s40, s41, s42]

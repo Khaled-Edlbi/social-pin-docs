@@ -3,7 +3,6 @@ id: F-39
 type: feature
 module: platform
 feature: notifications
-name: "Notifications"
 priority: high
 release: v1
 screens: [s69]

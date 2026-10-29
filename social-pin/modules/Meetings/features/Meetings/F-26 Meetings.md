@@ -3,7 +3,6 @@ id: F-26
 type: feature
 module: meetings
 feature: meetings
-name: "Meetings"
 priority: critical
 release: mvp
 screens: [s59, s61, s64, s66, s67]

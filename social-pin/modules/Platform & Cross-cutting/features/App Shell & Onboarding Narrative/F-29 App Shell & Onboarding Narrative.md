@@ -3,7 +3,6 @@ id: F-29
 type: feature
 module: platform
 feature: app-shell
-name: "App Shell & Onboarding Narrative"
 priority: medium
 release: later
 frontendOnly: true

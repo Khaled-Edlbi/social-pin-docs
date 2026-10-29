@@ -3,7 +3,6 @@ id: F-06
 type: feature
 module: identity
 feature: photo-library
-name: "Photo Library"
 priority: high
 release: v1
 screens: [s23, s29, s30, s68]

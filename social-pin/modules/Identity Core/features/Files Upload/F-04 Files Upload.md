@@ -3,7 +3,6 @@ id: F-04
 type: feature
 module: identity
 feature: files
-name: "Files Upload"
 priority: high
 release: v1
 screens: [s14, s20, s24, s36, s29, s30, s31, s44]

@@ -3,7 +3,6 @@ id: F-28
 type: feature
 module: commerce
 feature: subscription
-name: "Subscription (Free vs Pro)"
 priority: high
 release: v1
 screens: [s34, s70]

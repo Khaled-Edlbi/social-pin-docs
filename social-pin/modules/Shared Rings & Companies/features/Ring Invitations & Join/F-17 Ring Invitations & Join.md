@@ -3,7 +3,6 @@ id: F-17
 type: feature
 module: shared-rings
 feature: ring-invitations
-name: "Ring Invitations & Join"
 priority: high
 release: v1
 screens: [s17, s74]

@@ -525,7 +525,7 @@ export function build() {
     const mod = n.data.module;
     if (!MODULE_BY_ID.has(mod)) err(n.rel, `module "${mod}" is not in docs.config.json modules`);
     else if (folderModule && folderModule.id !== mod) err(n.rel, `module "${mod}" does not match folder "${parts[1]}" (${folderModule.id})`);
-    const f = addNode(base(n, { id: `feature:${fid}`, kind: 'feature', layer: 'business', feature: fid, code: fid, status: null, effectiveStatus: 'todo', module: mod, label: 'Feature', name: n.data.name ?? bareName(n.stem), dir: path.posix.dirname(n.rel), frontendOnly: n.data.frontendOnly === true }));
+    const f = addNode(base(n, { id: `feature:${fid}`, kind: 'feature', layer: 'business', feature: fid, code: fid, status: null, effectiveStatus: 'todo', module: mod, label: 'Feature', name: bareName(n.stem), dir: path.posix.dirname(n.rel), frontendOnly: n.data.frontendOnly === true }));
     noteOf.set(f.id, n);
     if (featureNodes.has(fid)) err(n.rel, `second feature note with id "${fid}"`);
     featureNodes.set(fid, f);
@@ -1117,6 +1117,7 @@ export function build() {
     for (const k of cfg.frontmatter.head) if (!head.includes(k) && note.data[k] !== undefined && !(type === 'feature' && k === 'status')) err(n.path, `"${k}:" does not apply to a ${type} card (its head is ${head.join(', ')}): remove it (${fix})`);
     const keys = Object.keys(note.data), want = [...keys].map((k, i) => [k, i]).sort((a, b) => cfg.frontmatter.rank(a[0]) - cfg.frontmatter.rank(b[0]) || a[1] - b[1]).map(([k]) => k);
     if (keys.some((k, i) => k !== want[i])) warn(n.path, `frontmatter out of order: ${want.join(', ')} (docs.config.json frontmatter; ${fix})`);
+    if (note.data.name !== undefined) warn(n.path, `name: repeats the file name, which is the card's name: remove it (${fix})`);
     if (note.data.code !== undefined && cfg.kinds.has(type)) warn(n.path, `code: is gone (feature: names the feature): remove it (${fix})`);
   }
   // every card says when it was made: created: YYYY-MM-DD, set once by the scaffold or the template and never changed
@@ -1569,13 +1570,13 @@ function scaffoldFeature(result, moduleId, name) {
   const dest = PROJ('modules', m.name, 'features', name, `${card} ${name}.md`);
   if (fs.existsSync(path.dirname(dest))) die(`${path.relative(ROOT, path.dirname(dest))} already exists`);
   const { body } = parseFrontmatter(fs.readFileSync(path.join(ROOT, 'templates/Feature Template.md'), 'utf8'));
-  const fm = { id: card, type: 'feature', module: moduleId, feature: id, name, priority, release };
+  const fm = { id: card, type: 'feature', module: moduleId, feature: id, priority, release }; // its name is its file name
   if (has('--frontend-only')) fm.frontendOnly = true;
   Object.assign(fm, { screens: [], depends: [], affects: [], related: [], created: date, updated: date, tags: ['feature', `module/${moduleId}`, `priority/${priority}`, `release/${release}`] });
   const moduleTitle = json.nodes[`module:${moduleId}`]?.title ?? `${m.name} Module`;
   const text = fill(body, { '[[<Module name> Module': `[[${moduleTitle}`, '<Feature name>': name, '<Module name>': m.name, '<date>': date })
     .replace('**Priority:** High', `**Priority:** ${cfg.priorities.byId.get(priority).label}`).replace('**Release:** Later', `**Release:** ${cfg.releases.byId.get(release).label}`);
-  const rel = writeNote(dest, fm, text, ['name']);
+  const rel = writeNote(dest, fm, text);
   console.log(`wrote ${rel} (${card}, feature ${id} in ${m.name})\nnext: node scripts/build-tree.mjs --scaffold story ${id}; fill the note (what it is for, the screens, the product rules); add the row to [[${moduleTitle}]] and the feature to its screens in [[Screen Index]]; then node scripts/build-tree.mjs`);
   repointLinks(new Map([[name, `${card} ${name}`]]));
 }
@@ -1940,7 +1941,7 @@ async function flagNote(result, changedRef, targetRef, what) {
 
 // ---------------------------------------------------------------- normalize: a card's frontmatter in the vault's order (docs.config.json frontmatter), its id the card code
 // Moves every key line as written (a comment or blank line goes with the key below it); a module's or a feature's slug moves from id:
-// to module: / feature:, a layer note's code: (the feature id again) goes, a head key the type does not take goes, id: becomes the card code.
+// to module: / feature:, a layer note's code: (the feature id again) and a name: (the file name again) go, a head key the type does not take goes, id: becomes the card code.
 function normalizedFrontmatter(note, node, cfg) {
   const entries = []; let carry = [];
   for (const l of note.fm) { const k = lineKey(l); if (!k) { carry.push(l); continue; } entries.push({ k, lines: [...carry, l] }); carry = []; }
@@ -1949,6 +1950,7 @@ function normalizedFrontmatter(note, node, cfg) {
   const type = keyValue(note.fm, 'type'), id = keyValue(note.fm, 'id');
   if ((type === 'module' || type === 'feature') && at(type) < 0 && id && !CARD_CODE.test(id)) set(type, id);
   if (cfg.kinds.has(type) && at('code') >= 0) { if (at('feature') < 0) set('feature', keyValue(note.fm, 'code')); drop('code'); }
+  drop('name'); // the file name is the card's name (since 2026-10-29)
   set('id', node.card);
   const head = cfg.frontmatter.headOf(type);
   for (const k of cfg.frontmatter.head) if (!head.includes(k)) drop(k);

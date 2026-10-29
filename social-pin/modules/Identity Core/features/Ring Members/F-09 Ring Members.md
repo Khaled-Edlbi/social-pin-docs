@@ -3,7 +3,6 @@ id: F-09
 type: feature
 module: identity
 feature: ring-members
-name: "Ring Members"
 priority: critical
 release: mvp
 screens: [s15, s16, s35, s46, s47]

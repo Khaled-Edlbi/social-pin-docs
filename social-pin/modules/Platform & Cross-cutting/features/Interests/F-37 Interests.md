@@ -3,7 +3,6 @@ id: F-37
 type: feature
 module: platform
 feature: interests
-name: "Interests"
 priority: high
 release: mvp
 screens: [s07, s71]

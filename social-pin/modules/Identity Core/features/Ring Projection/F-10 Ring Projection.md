@@ -3,7 +3,6 @@ id: F-10
 type: feature
 module: identity
 feature: ring-projection
-name: "Ring Projection"
 priority: critical
 release: mvp
 screens: [s14, s20, s23, s24, s25, s28, s29, s30, s36, s37, s68]

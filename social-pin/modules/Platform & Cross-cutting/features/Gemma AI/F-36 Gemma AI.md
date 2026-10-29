@@ -3,7 +3,6 @@ id: F-36
 type: feature
 module: platform
 feature: gemma
-name: "Gemma AI"
 priority: medium
 release: later
 screens: [s13, s60]

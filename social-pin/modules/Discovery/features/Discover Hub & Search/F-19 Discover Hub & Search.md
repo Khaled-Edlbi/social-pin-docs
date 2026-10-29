@@ -3,7 +3,6 @@ id: F-19
 type: feature
 module: discovery
 feature: discover-hub
-name: "Discover Hub & Search"
 priority: high
 release: v1
 screens: [s38]

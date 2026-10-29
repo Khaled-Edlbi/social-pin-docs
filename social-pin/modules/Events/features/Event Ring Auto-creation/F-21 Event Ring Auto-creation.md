@@ -3,7 +3,6 @@ id: F-21
 type: feature
 module: events
 feature: event-ring-auto
-name: "Event Ring Auto-creation"
 priority: critical
 release: mvp
 screens: [s52]

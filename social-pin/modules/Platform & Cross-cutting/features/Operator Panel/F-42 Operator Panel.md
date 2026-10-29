@@ -3,7 +3,6 @@ id: F-42
 type: feature
 module: platform
 feature: operator-panel
-name: "Operator Panel"
 priority: high
 release: later
 screens: []

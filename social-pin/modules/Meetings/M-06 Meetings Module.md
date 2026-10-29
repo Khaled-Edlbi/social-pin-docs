@@ -2,7 +2,6 @@
 id: M-06
 type: module
 module: meetings
-name: "Meetings"
 created: 2026-10-18
 updated: 2026-10-29
 tags: [module, module/meetings]

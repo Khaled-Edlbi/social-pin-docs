@@ -2,7 +2,6 @@
 id: M-05
 type: module
 module: events
-name: "Events"
 created: 2026-10-18
 updated: 2026-10-29
 tags: [module, module/events]

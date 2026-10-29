@@ -3,7 +3,6 @@ id: F-24
 type: feature
 module: events
 feature: exhibitor
-name: "Exhibitor"
 priority: high
 release: v1
 screens: [s63, s64, s65]
