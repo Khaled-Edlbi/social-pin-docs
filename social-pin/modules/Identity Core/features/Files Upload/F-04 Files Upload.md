@@ -5,16 +5,15 @@ name: "Files Upload"
 priority: high
 release: v1
 module: identity
-screens: [s14, s20, s36]
+screens: [s14, s20, s24, s36, s29, s30, s31, s44]
 related: ["F-11 Rings"]
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
+owner: "Omar Fostok"
 tags: [feature, module/identity, priority/high, release/v1]
 ---
 
 # Files Upload
-
-> ⚠ Affected by [[S-06 Files Upload Story]] (2026-10-29): the story now covers s24 (S12, switching a file on or off) and s29, s30, s31, s44; `screens:` lists s14, s20, s36 only. Ask: `/owner add s24, s29, s30, s31, s44 to Files Upload's screens`.
 
 **Backend:** Done · **Priority:** High · **Release:** v1 · **Module:** [[M-01 Identity Core Module|Identity Core]]
 
@@ -26,9 +25,14 @@ Multipart upload with type and size checks, metadata read, delete. A file become
 
 | Screen | Name | Note |
 |---|---|---|
-| [[Screen Index#s14|s14]] | Ring data |  |
-| [[Screen Index#s20|s20]] | New Ring · step 3 (what it shows) | Field library → ND-03 |
-| [[Screen Index#s36|s36]] | Add to this Ring |  |
+| [[Screen Index#s14|s14]] | Ring data | Files as chips beside the links; opening one waits on ND-16 |
+| [[Screen Index#s20|s20]] | New Ring · step 3 (what it shows) | Files switched on or off; field library → ND-03 |
+| [[Screen Index#s24|s24]] | Edit · what it shows | Files switched on or off (attach / detach) |
+| [[Screen Index#s36|s36]] | Add to this Ring | File → picker → upload → attach |
+| [[Screen Index#s29|s29]] | Photo for this Ring | Uploading a Ring photo; showing it waits on ND-16 |
+| [[Screen Index#s30|s30]] | Photo library | Uploading a photo; thumbnails wait on ND-16 |
+| [[Screen Index#s31|s31]] | View as (flip) | A Ring's files and photo as a viewer gets them; waits on ND-16 |
+| [[Screen Index#s44|s44]] | Scanned Pin | The same, for someone who scanned a badge; waits on ND-16 |
 
 Wireframe brief sections: [[Wireframe Brief#Home — Rings hub + active profile|§4.1 Home — Rings hub + active profile]]
 
