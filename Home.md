@@ -45,7 +45,7 @@ social-pin-docs/
 ├── rules/                         RULES for every layer: Workflow · Agent Rules · Docs Tree · the agents (Agent Protocol · Owner · PM · Backend · Frontend · QA · Admin Agent): `/owner` `/pm` `/backend` `/frontend` `/qa`, `/admin` for the docs system and repairs
 ├── templates/                     one per note kind (the scaffold command uses them)
 ├── tree/                          the docs tree page (index.html), its generated index (tree.json, tree.md) and the card-code registry (cards.json)
-├── scripts/build-tree.mjs         build · --check · --serve · --impact · --scaffold (layer notes, bug, feature, needs-decision, decision)
+├── scripts/build-tree.mjs         build · --check · --serve · --impact · --find · --list · --set-status · --set · --flag · --finish · --scaffold (layer notes, bug, feature, needs-decision, decision)
 │
 └── social-pin/                    THE PRODUCT'S DOCS: every card lives here
     ├── Card Index.md              GENERATED: every card with its unique code (M-01, F-05, S-01, FR-05, BD-05, B-01, ND-04, D-04, P-10) and the cards it links to as B-01 | S-01

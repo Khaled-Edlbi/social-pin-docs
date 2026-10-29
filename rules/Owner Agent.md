@@ -71,13 +71,13 @@ To raise and decide in one step, when the user gives both in one message: `node 
 
 ### 4F · Priorities, deadlines, release and stage
 
-`priority: critical | high | medium | low` and `deadline: YYYY-MM-DD` on the feature the user names (its notes inherit; `inherits` in `tree/tree.json` says from where). Change the `priority/<level>` tag with it. Say what moved below it as a consequence.
+`priority: critical | high | medium | low` and `deadline: YYYY-MM-DD` on the feature the user names (its notes inherit; `inherits` in `tree/tree.json` says from where). `node scripts/build-tree.mjs --set <card> priority <level>` (or `deadline <date>`) writes the field, its tag, the first line and `updated:` in one call. Say what moved below it as a consequence.
 
 The same goes for the **release** of a feature (`release: mvp | v1 | later` on the feature card, with the tag `release/<id>` and the `**Release:**` line under its H1) and the **stage** of the project (`stage:` in [[Project Overview]], with the tag `stage/<id>` and its `**Stage:**` line), on the user's word only; move the stage when its `exit` test in `docs.config.json` holds, and say so in the report ([[Agent Rules#4 · Statuses, blocking and sign-off]]).
 
 ### 4G · Where do we stand
 
-From `tree/tree.json` (`counts`, each node's `effectiveStatus`, `blockedBy`, `pending`, `deadline`), the [[Docs Tree]] page, the module and feature notes. Answer in the vault's words, by card code; update the table on [[Home]] when the user asks for the report to be kept.
+From `--list` (one line per card: `--list module=identity`, `--list kind=bug status=todo`) and `--impact <card>` (`blockedBy`, `pending`, `deadline`; never `tree/tree.json` read whole), the [[Docs Tree]] page, the module and feature notes. Answer in the vault's words, by card code; update the table on [[Home]] when the user asks for the report to be kept.
 
 ### 4H · Release
 
@@ -95,7 +95,7 @@ The feature card is the business note of the feature and its main node; you writ
 
 ## 5 · Finish
 
-[[Agent Protocol#5 · Finish]], on the **card's own branch**: you write no code, so your branch lives in the vault only and is named after the card the change is about, as deep as it sits, `<tickets|docs>/owner/<M-NN>-<module-id>/<F-NN>-<feature-id>/<last>`: `tickets/` for a needs-decision card, a story sign-off or a story's priority, `docs/` for a module note, a feature card, a decision card, and `docs/owner/business/<last>` for the reference notes ([[Workflow#2 · Branch from the feature]], which also holds the commit shapes). `node scripts/build-tree.mjs --branch owner <card> [<what-you-do>]` prints the name: `--branch owner M-09 business-side` → `docs/…`, `--branch owner F-41 create` → `docs/…`, `--branch owner ND-07` → `tickets/…`, `--branch owner S-70 approved` → `tickets/…`. One card per branch: a module note, a feature card, a decision, a sign-off, a priority each get their own, merged in order. Commits, one card per commit, in the card's shape ([[Workflow#2 · Branch from the feature]]): `module(payments-gateway): M-09 Payments Gateway · business side rewritten` · `feature(payments-gateway): F-41 Pay for an order · created, business side written` · `needs-decision(commerce): ND-07 Payment provider · raised from S-69` · `story(commerce): S-69 Payments & Orders Story · approved by khaled` · `reference(business): Glossary · payment terms added`.
+[[Agent Protocol#5 · Finish]], on the **card's own branch**: you write no code, so your branch lives in the vault only and is named after the card the change is about, as deep as it sits, `<tickets|docs>/owner/<M-NN>-<module-id>/<F-NN>-<feature-id>/<last>`: `tickets/` for a needs-decision card, a story sign-off or a story's priority, `docs/` for a module note, a feature card, a decision card, and `docs/owner/business/<last>` for the reference notes ([[Workflow#2 · Branch from the feature]], which also holds the commit shapes). `node scripts/build-tree.mjs --finish owner <card> [<what-you-do>]` prints the name and the commit message (`--branch` alone prints the name): `--branch owner M-09 business-side` → `docs/…`, `--branch owner F-41 create` → `docs/…`, `--branch owner ND-07` → `tickets/…`, `--branch owner S-70 approved` → `tickets/…`. One card per branch: a module note, a feature card, a decision, a sign-off, a priority each get their own, merged in order. Commits, one card per commit, in the card's shape ([[Workflow#2 · Branch from the feature]]): `module(payments-gateway): M-09 Payments Gateway · business side rewritten` · `feature(payments-gateway): F-41 Pay for an order · created, business side written` · `needs-decision(commerce): ND-07 Payment provider · raised from S-69` · `story(commerce): S-69 Payments & Orders Story · approved by khaled` · `reference(business): Glossary · payment terms added`.
 
 ## 6 · What you never do
 

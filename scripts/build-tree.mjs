@@ -8,6 +8,15 @@
  *   node scripts/build-tree.mjs --out DIR            writes the site somewhere else
  *   node scripts/build-tree.mjs --impact "<note|code>"   what a change to that note touches (two hops), grouped by layer; a card code (S-01) works too
  *   node scripts/build-tree.mjs --find "<words>"     the cards and concepts that match some words (a module, a feature, a screen, an endpoint): how an agent resolves what the user named
+ *   node scripts/build-tree.mjs --list [filter …]    one line per card (code · name · kind · status · feature · module · path); filters: kind=bug status=todo feature=auth module=identity, or words
+ *                                                    (--find, --impact, --branch and --list end with one ⚠ line when the tree has errors or a stale generated file; silent when clean)
+ *   node scripts/build-tree.mjs --set-status <card> <status> [--resolution <id>] [--by <name>]
+ *                                                    status:, the <kind>/<status> tag, the H1 emoji, the first line's Status segment and updated:, in one write
+ *   node scripts/build-tree.mjs --set <card> priority|deadline <value|none>   the field, its tag (priority/<id>), its first-line segment and updated:
+ *   node scripts/build-tree.mjs --flag <card changed> <note> "<what changed>"   the ⚠ flag line under the note's H1 and the entry in the changed card's ## Log
+ *                                                    (these three ask scripts/agent-guard.mjs whether the active agent may make exactly that change, refuse it
+ *                                                    otherwise, and put the file back if it would break the build)
+ *   node scripts/build-tree.mjs --finish <agent> <card> [<what-you-do>]   the build and --check in one pass, the notes to update or flag, the branch and the commit message
  *   node scripts/build-tree.mjs --scaffold <kind> <feature-id>   creates a feature's layer note from its template, named with its next free code
  *   node scripts/build-tree.mjs --scaffold bug <feature-id> "<Title>" --found-on "<note name>" [--priority high] [--effort S]
  *                                                    creates the bug (type: bug) with the next free B-NN, under the card it was found against;
@@ -888,7 +897,9 @@ export function build() {
       if (bi && bi.status === 'current') warn(bd.path, 'status: in-progress, but its Backend Integration is `current` (it matches `main`), so the work is merged: set `done`');
       else if (MERGED_LOG.test(log)) warn(bd.path, 'status: in-progress, but its ## Log records a merge to `main`: set `done`');
     }
-    if (bd.status === 'done' && !(bi && bi.status === 'current')) warn(bd.path, `status: done, but its Backend Integration is ${bi ? `\`${bi.status}\`` : 'not written'}: the requirements of this scope cannot reach \`delivered\` until it is \`current\``);
+    // a frontendOnly feature skips its Backend Integration (frontendOnly.skips): its requirements reach `delivered` by hand, so nothing waits on one
+    const biSkipped = !!nodes[`feature:${bd.feature}`]?.frontendOnly && cfg.frontendOnlySkips.includes('backend-integration');
+    if (bd.status === 'done' && !biSkipped && !(bi && bi.status === 'current')) warn(bd.path, `status: done, but its Backend Integration is ${bi ? `\`${bi.status}\`` : 'not written'}: the requirements of this scope cannot reach \`delivered\` until it is \`current\``);
   }
 
   // a story is fulfilled (`verified`) by the PM only once QA has finished on its scope: every QA note it needs is passing with nothing pending or unmet
@@ -1669,8 +1680,281 @@ function repointLinks(renames) {
   if (touched.length) console.log(`repointed the links to ${[...renames.keys()].map((k) => `[[${k}]] → [[${renames.get(k)}]]`).join(', ')} in:\n${touched.map((t) => `  ${t}`).join('\n')}`);
 }
 
+// ---------------------------------------------------------------- the generated files, and whether the ones on disk are stale
+const outputsOf = (result) => [[JSON_PATH, stableStringify(result.json)], [MD_PATH, treeMarkdown(result.json)], [CARDS_PATH, stableStringify(result.cards)], [INDEX_PATH, cardIndexMarkdown(result.json)]];
+const staleOf = (outputs) => outputs.filter(([p, t]) => (fs.existsSync(p) ? fs.readFileSync(p, 'utf8') : '') !== t).map(([p]) => path.relative(ROOT, p).split(path.sep).join('/'));
+// the reading commands (--find, --impact, --branch, --list) say in one line when the tree is broken, so nobody runs --check just to load
+function healthLine(result) {
+  const e = result.errors.length, stale = result.json ? staleOf(outputsOf(result)) : [];
+  if (!e && !stale.length) return '';
+  return `⚠ the tree is not clean: ${e ? `${e} error${e === 1 ? '' : 's'}` : ''}${e && stale.length ? '; ' : ''}${stale.length ? `stale ${stale.join(', ')}` : ''}. Run node scripts/build-tree.mjs --check for the list; nobody builds on a broken tree.`;
+}
+
+// ---------------------------------------------------------------- list: one line per card, the vault's overview without tree/tree.json
+// filters: key=value (kind, status, feature, module, layer, priority; status matches the note's own or the chip's) or words in the line
+function printList(result, filters) {
+  const { json, cfg } = result;
+  const order = [...cfg.cardCodes.prefixes.keys()];
+  const rank = (card) => { const [p, num] = card.split('-'); return [order.indexOf(p), Number.parseInt(num, 10) || 0]; };
+  const rows = Object.values(json.nodes).filter((n) => n.card && n.path).map((n) => {
+    const kind = codeKind(n), status = legendOf(n), own = n.status && n.status !== n.effectiveStatus ? ` (${n.status})` : '';
+    const feature = n.kind === 'feature' ? n.code : n.feature || '—';
+    return { n, kind, line: `${n.card} · ${bareName(n.title.replace(/^[A-Z]+-\d+ /, '')) || n.title} · ${kind} · ${status}${own} · ${feature} · ${n.module || '—'} · ${n.path}` };
+  });
+  const keyed = { kind: (r) => [r.kind, r.n.kind], status: (r) => [r.n.status, r.n.effectiveStatus, legendOf(r.n).toLowerCase()], feature: (r) => [r.n.kind === 'feature' ? r.n.code : r.n.feature], module: (r) => [r.n.module], layer: (r) => [r.n.layer], priority: (r) => [r.n.priority] };
+  const tests = filters.map((f) => {
+    const m = /^([a-z]+)=(.+)$/.exec(f);
+    if (m && keyed[m[1]]) return (r) => keyed[m[1]](r).some((v) => String(v ?? '').toLowerCase() === m[2].toLowerCase());
+    return (r) => r.line.toLowerCase().includes(f.toLowerCase());
+  });
+  const hits = rows.filter((r) => tests.every((t) => t(r))).sort((a, b) => { const [pa, na] = rank(a.n.card), [pb, nb] = rank(b.n.card); return pa - pb || na - nb; });
+  console.log(`code · name · kind · status · feature · module · path${filters.length ? `   (filter: ${filters.join(' ')})` : ''}`);
+  for (const r of hits) console.log(r.line);
+  console.log(`${hits.length} of ${rows.length} cards`);
+}
+
+// ---------------------------------------------------------------- one-call edits: --set-status, --set, --flag
+// Each writes the note itself, after asking scripts/agent-guard.mjs the same question its hook asks for an Edit: may the active agent
+// make exactly this change? (No shell bypass: out of scope is refused here, with the guard's message.) Then it rebuilds in memory and
+// puts the file back if the change brought a new build error. The generated files are written by --finish (or the plain build).
+function resolveCard(json, ref) {
+  const q = String(ref || '').trim();
+  if (!q) return null;
+  const ns = Object.values(json.nodes).filter((n) => n.path);
+  return ns.find((n) => n.card === q) || ns.find((n) => n.title === q) || ns.find((n) => n.path === q) || ns.find((n) => n.id === q)
+    || ns.find((n) => (n.kind === 'feature' || isBug(n) || ID_CODED.has(n.kind)) && n.code === q) || ns.find((n) => n.title.toLowerCase() === q.toLowerCase())
+    || (json.byName[q] ? json.nodes[json.byName[q]] : null);
+}
+const cardOrDie = (json, ref) => resolveCard(json, ref) ?? die(`no card "${ref}" (a card code, a note name or a feature id; try --find "${ref}")`);
+const eolOf = (t) => (t.includes('\r\n') ? '\r\n' : '\n');
+function readNote(rel) {
+  const raw = fs.readFileSync(path.join(ROOT, rel), 'utf8'), lf = raw.replace(/\r\n/g, '\n');
+  const m = /^---\n([\s\S]*?)\n---\n?/.exec(lf);
+  if (!m) die(`${rel}: no frontmatter`);
+  return { rel, raw, eol: eolOf(raw), lf, fm: m[1].split('\n'), body: lf.slice(m[0].length) };
+}
+const noteText = (note) => `---\n${note.fm.join('\n')}\n---\n${note.body}`;
+const keyAt = (fm, k) => fm.findIndex((l) => l.startsWith(`${k}:`));
+const keyValue = (fm, k) => { const i = keyAt(fm, k); return i < 0 ? null : fm[i].slice(k.length + 1).trim().replace(/^"(.*)"$/, '$1'); };
+function setKey(fm, k, v, after = []) {
+  const line = `${k}: ${v}`, i = keyAt(fm, k);
+  if (i >= 0) { fm[i] = line; return; }
+  for (const a of after) { const j = keyAt(fm, a); if (j >= 0) { fm.splice(j + 1, 0, line); return; } }
+  const t = keyAt(fm, 'tags'); fm.splice(t >= 0 ? t : fm.length, 0, line);
+}
+const dropKey = (fm, k) => { const i = keyAt(fm, k); if (i >= 0) fm.splice(i, 1); };
+// tags: [a, b]: put <prefix>/<value> in place of the old one (after the tag `after` when new), or drop it when value is null
+function setTag(fm, prefix, value, after = prefix) {
+  const i = keyAt(fm, 'tags'), m = i >= 0 ? /^tags:\s*\[(.*)\]\s*$/.exec(fm[i]) : null;
+  const tags = m ? m[1].split(',').map((s) => s.trim()).filter(Boolean) : [];
+  const at = tags.findIndex((t) => t.startsWith(`${prefix}/`));
+  if (value === null) { if (at >= 0) tags.splice(at, 1); }
+  else if (at >= 0) tags[at] = `${prefix}/${value}`;
+  else { const k = tags.indexOf(after); tags.splice(k >= 0 ? k + 1 : tags.length, 0, `${prefix}/${value}`); }
+  if (i >= 0) fm[i] = `tags: [${tags.join(', ')}]`; else fm.push(`tags: [${tags.join(', ')}]`);
+}
+// the H1 carries a status emoji on the cards that have one (a bug, a delivery: ⬜ 🟡 ✅); the constant ones (🔌 🧪 ❓ ⚖️) and the bare H1s stay
+const HEADING_EMOJI = { todo: '⬜', 'in-progress': '🟡', done: '✅', ready: '📨', blocked: '⛔', 'needs-info': '❓' };
+const HEADING_SET = new Set(Object.values(HEADING_EMOJI));
+function setHeadingEmoji(note, status) {
+  const lines = note.body.split('\n'), h = lines.findIndex((l) => l.startsWith('# '));
+  if (h < 0 || !HEADING_EMOJI[status]) return false;
+  const [, first, rest] = /^# (\S+) (.*)$/.exec(lines[h]) ?? [];
+  if (!first || !HEADING_SET.has(first)) return false;
+  lines[h] = `# ${HEADING_EMOJI[status]} ${rest}`; note.body = lines.join('\n');
+  return first !== HEADING_EMOJI[status];
+}
+// the `**<Name>:** <value> ·` segment of the card's first line: `to(value)` gives the new value, or null to leave a value it does not recognise
+function setSegment(note, name, to) {
+  const re = new RegExp(`(\\*\\*${name}:\\*\\*[ \\t]*)([^·\\n]*?)([ \\t]*(?:·|$))`, 'm');
+  const lines = note.body.split('\n'), i = lines.findIndex((l) => re.test(l));
+  if (i < 0) return 'none';
+  const next = to(re.exec(lines[i])[2]);
+  if (next === null) return 'kept';
+  lines[i] = lines[i].replace(re, (m, lead, value, end) => `${lead}${next}${end}`);
+  note.body = lines.join('\n');
+  return 'set';
+}
+// a value that starts with one of `from` (case aside): that part replaced by `to`, the rest (a hint in brackets) kept
+const replaceLead = (from, to) => (cur) => { const hit = from.filter(Boolean).find((f) => cur.toLowerCase().startsWith(String(f).toLowerCase())); return hit ? `${to}${cur.slice(hit.length)}` : null; };
+const statusLabel = (s) => (s === 'needs-info' ? 'Needs info' : LEGEND[s] ?? s);
+async function guardOf(rel, before, after) {
+  const g = await import('./agent-guard.mjs');
+  if (!g.inClaudeCode()) return { allow: true, who: 'you' }; // a person's own terminal: the guard is for the agents
+  const a = g.activeAgent();
+  if (!a) return { allow: false, message: g.noAgent().message };
+  return { ...g.decide(a, rel, 'edit', { old: before, new: after }), who: a.id };
+}
+// write the notes, rebuild in memory, and put them back if the change brought a new build error
+function writeChecked(result, notes) {
+  for (const n of notes) fs.writeFileSync(path.join(ROOT, n.rel), noteText(n).replace(/\n/g, n.eol));
+  const after = build(), was = new Set(result.errors), wasW = new Set(result.warnings);
+  const fresh = after.errors.filter((e) => !was.has(e));
+  if (fresh.length) {
+    for (const n of notes) fs.writeFileSync(path.join(ROOT, n.rel), n.raw);
+    for (const e of fresh) console.error(`error    ${e}`);
+    die(`nothing written: the change above would break the build (${notes.map((n) => n.rel).join(', ')} restored)`);
+  }
+  for (const w of after.warnings.filter((x) => !wasW.has(x))) console.warn(`warning  ${w}`);
+  return after;
+}
+
+async function setStatus(result, ref, status) {
+  const { json, cfg } = result;
+  if (!ref || !status) die('usage: node scripts/build-tree.mjs --set-status <card> <status> [--resolution <id>] [--by <name>]');
+  const n = cardOrDie(json, ref);
+  if (['feature', 'module', 'project'].includes(n.kind)) die(`${n.card}: a ${n.kind}'s status is computed from its cards; nobody types it (rules/Agent Rules.md §4)`);
+  const bug = isBug(n), kindId = codeKind(n), kind = cfg.kinds.get(n.kind);
+  const statuses = bug ? Object.keys(STATUS.task) : kind ? kind.statuses : n.kind === 'needs-decision' ? Object.keys(STATUS['needs-decision']) : n.kind === 'decision' ? ['draft', 'decided'] : [];
+  if (!statuses.includes(status)) die(`${n.card}: "${status}" is not a ${kindId} status (${statuses.join(', ')}${n.kind === 'needs-decision' ? '; Fulfilled is computed once its decision card is decided' : ''})`);
+  if (n.kind === 'frontend-requirements' && status === 'delivered' && !json.nodes[`feature:${n.feature}`]?.frontendOnly) die(`${n.card}: delivered is computed by the build once the Backend Delivery and Backend Integration of its scope are done; nobody types it (rules/Agent Rules.md §4)`);
+  const opening = new Set([statuses[0], 'todo', 'draft', 'blocked', 'needs-info']);
+  if (n.blockedBy?.length && !opening.has(status)) die(`${n.card} is ⛔ Blocked: ${n.blockedBy.map((b) => b.why).join('; ')}. A blocked card is not worked on until that is handed off (rules/Agent Protocol.md §6).`);
+  const res = opt('--resolution', null), by = opt('--by', null);
+  if (res && (!bug || status !== 'done')) die('--resolution goes with a bug set to done');
+  if (res && !cfg.resolutions.byId.has(res)) die(`resolution "${res}": ${cfg.resolutions.list.map((r) => r.id).join(', ')}`);
+  const note = readNote(n.path), from = keyValue(note.fm, 'status');
+  if (from === status && !res && !by) die(`${n.card} is already ${status}`);
+  const date = today(), tagPrefix = bug ? 'bug' : n.kind;
+  setKey(note.fm, 'status', status, ['id', 'type']);
+  if (bug && status !== 'done') { dropKey(note.fm, 'resolution'); setTag(note.fm, 'resolution', null); } // an open bug carries no resolution
+  if (res) { setKey(note.fm, 'resolution', res, ['status']); setTag(note.fm, 'resolution', res, note.fm.find((l) => l.startsWith('tags:'))?.match(/priority\/[a-z-]+/)?.[0] ?? tagPrefix); }
+  if (by) { const [who, at] = n.kind === 'decision' || keyAt(note.fm, 'decidedBy') >= 0 ? ['decidedBy', 'decidedAt'] : ['approvedBy', 'approvedAt']; setKey(note.fm, who, JSON.stringify(by), ['status', 'resolution']); setKey(note.fm, at, date, [who]); }
+  setKey(note.fm, 'updated', date, ['created']);
+  setTag(note.fm, tagPrefix, status, tagPrefix);
+  const emoji = setHeadingEmoji(note, status);
+  const bare = { ...note, fm: [...note.fm] }; // the same change without the first line's Status segment, for an agent whose sign-off may not touch it
+  // the first line's Status segment is rewritten only when it reads exactly the old status (`To do`, `draft`): a sentence there is the author's
+  const signed = by && ['approved', 'decided'].includes(status) ? ` ${date} by ${by}` : '';
+  const seg = setSegment(note, 'Status', (cur) => (cur === statusLabel(from) ? `${statusLabel(status)}${signed}` : cur === from ? `${status}${signed}` : null));
+  let use = note, g = await guardOf(n.path, note.lf, noteText(note)), segNote = seg === 'set' ? ' · first line **Status:** ' + statusLabel(status) : seg === 'kept' ? ' · first line **Status:** left as written (not the old status label: edit it if it is wrong)' : '';
+  if (!g.allow && seg === 'set') { const g2 = await guardOf(n.path, bare.lf, noteText(bare)); if (g2.allow) { use = bare; g = g2; segNote = ' · first line **Status:** left (your sign-off changes the status lines only)'; } }
+  if (!g.allow) die(g.message);
+  writeChecked(result, [use]);
+  console.log(`${n.card} ${n.title.replace(/^[A-Z]+-\d+ /, '')}: status ${from} → ${status}${res ? ` · resolution ${res}` : ''}${by ? ` · signed by ${by}` : ''} · tag ${tagPrefix}/${status}${emoji ? ` · H1 ${HEADING_EMOJI[status]}` : ''}${segNote} · updated ${date}  (${g.who}) — ${n.path}`);
+  console.log(`next: node scripts/build-tree.mjs --finish <agent> ${n.card} <what-you-do>`);
+}
+
+async function setField(result, ref, field, value) {
+  const { json, cfg } = result;
+  if (!ref || !['priority', 'deadline'].includes(field) || !value) die('usage: node scripts/build-tree.mjs --set <card> priority <critical|high|medium|low|none> | --set <card> deadline <YYYY-MM-DD|none>');
+  const n = cardOrDie(json, ref);
+  const none = value === 'none';
+  if (field === 'priority' && !none && !cfg.priorities.byId.has(value)) die(`priority "${value}": ${cfg.priorities.levels.map((l) => l.id).join(', ')}, or none to inherit the feature's`);
+  if (field === 'deadline' && !none && !DATE.test(value)) die(`deadline "${value}": YYYY-MM-DD, or none`);
+  const note = readNote(n.path), from = keyValue(note.fm, field), date = today();
+  if (from === value || (none && from === null)) die(`${n.card} already has ${field} ${from ?? 'none'}`);
+  if (none) dropKey(note.fm, field); else setKey(note.fm, field, value, field === 'priority' ? ['resolution', 'status', 'id', 'type'] : ['priority', 'resolution', 'status', 'id', 'type']);
+  if (field === 'priority') setTag(note.fm, 'priority', none ? null : value, note.fm.find((l) => l.startsWith('tags:'))?.match(/module\/[a-z0-9-]+/)?.[0]);
+  setKey(note.fm, 'updated', date, ['created']);
+  const label = (id) => cfg.priorities.byId.get(id)?.label;
+  const seg = field === 'priority'
+    ? (none ? 'kept' : setSegment(note, 'Priority', replaceLead([label(from), ...cfg.priorities.levels.map((l) => l.label)], label(value))))
+    : setSegment(note, 'Deadline', replaceLead([from, '—', '-'], none ? '—' : value));
+  const g = await guardOf(n.path, note.lf, noteText(note));
+  if (!g.allow) die(g.message);
+  writeChecked(result, [note]);
+  console.log(`${n.card}: ${field} ${from ?? '(inherited)'} → ${none ? '(inherited)' : value}${field === 'priority' ? ` · tag ${none ? 'removed' : `priority/${value}`}` : ''}${seg === 'set' ? ` · first line **${field === 'priority' ? 'Priority' : 'Deadline'}:** updated` : ''} · updated ${date}  (${g.who}) — ${n.path}`);
+  console.log(`next: node scripts/build-tree.mjs --finish <agent> ${n.card} ${field}-${none ? 'inherited' : value}`);
+}
+
+async function flagNote(result, changedRef, targetRef, what) {
+  const { json } = result;
+  if (!changedRef || !targetRef || !what || what.startsWith('--')) die('usage: node scripts/build-tree.mjs --flag <card you changed> <note to flag> "<what changed>"');
+  const c = cardOrDie(json, changedRef), t = cardOrDie(json, targetRef), date = today();
+  if (c.id === t.id) die('a note is not flagged by its own change');
+  const flag = `> ⚠ Affected by [[${c.title}]] (${date}): ${what}`;
+  const target = readNote(t.path), lines = target.body.split('\n'), h = lines.findIndex((l) => l.startsWith('# '));
+  if (h < 0) die(`${t.path}: no H1 to put the flag under`);
+  const done = [];
+  if (!lines.includes(flag)) {
+    lines.splice(h + 1, 0, '', flag);
+    if (lines[h + 3] !== '') lines.splice(h + 3, 0, '');
+    target.body = lines.join('\n');
+    const g = await guardOf(t.path, target.lf, noteText(target));
+    if (!g.allow) die(g.message);
+    done.push(target);
+  }
+  // the entry in the changed note's ## Log: at the end of the section, or a new section at the end of the note
+  const changed = readNote(c.path), cl = changed.body.split('\n'), entry = `- ${date} · flagged [[${t.title}]]: ${what}`;
+  let logNote = '';
+  if (!cl.includes(entry)) {
+    const s = cl.findIndex((l) => /^## Log\b/.test(l));
+    if (s < 0) { while (cl.length && cl[cl.length - 1] === '') cl.pop(); cl.push('', '## Log', '', entry, ''); }
+    else {
+      let e = cl.findIndex((l, i) => i > s && /^#{1,2} /.test(l)); if (e < 0) e = cl.length;
+      let last = -1; for (let i = s + 1; i < e; i++) if (cl[i].startsWith('- ')) { last = i; while (i + 1 < e && /^\s{2,}\S/.test(cl[i + 1])) last = ++i; }
+      cl.splice(last >= 0 ? last + 1 : s + 1, 0, ...(last >= 0 ? [entry] : ['', entry]));
+    }
+    changed.body = cl.join('\n');
+    const g = await guardOf(c.path, changed.lf, noteText(changed));
+    if (g.allow) done.push(changed); else logNote = `\nthe ## Log entry in ${c.path} was not written: ${g.message}`;
+  }
+  if (!done.length) die(`nothing to do: ${t.card} already carries that flag and ${c.card} that entry`);
+  writeChecked(result, done);
+  console.log(`flagged ${t.card} ${t.path}\n  ${flag}${done.includes(changed) ? `\nlogged in ${c.card} ${c.path}\n  ${entry}` : ''}${logNote}`);
+}
+
+// ---------------------------------------------------------------- finish: the build, --check, the notes to update or flag, the branch and the commit message
+async function finishCard(result, agentId, ref, what) {
+  if (!agentId || !ref) die('usage: node scripts/build-tree.mjs --finish <agent> <card> [<what-you-do>]');
+  if (result.errors.length) { for (const e of result.errors) console.error(`error    ${e}`); die('\nnot finished: fix the errors above, then run --finish again'); }
+  const { json, cfg } = result;
+  const n = cardOrDie(json, ref);
+  const br = branchName(json, agentId, n.card, what, cfg.branches || {});
+  if (br.error) die(br.error);
+  const g = await import('./agent-guard.mjs');
+  const agent = g.agentOf(agentId) ?? die(`no agent "${agentId}" in docs.config.json agents.list`);
+  const live = g.inClaudeCode() ? g.activeAgent() : null;
+  // 1 · the build and --check, in one pass: write the generated files, then nothing can be stale
+  const outputs = outputsOf(result);
+  fs.mkdirSync(TREE_DIR, { recursive: true });
+  for (const [p, t] of outputs) fs.writeFileSync(p, t);
+  copySite(OUT_DIR, result.notes);
+  for (const w of result.warnings) console.warn(`warning  ${w}`);
+  const stale = staleOf(outputs);
+  console.log(`build: wrote ${GENERATED.join(', ')} · --check: ${result.errors.length} errors, ${result.warnings.length} warning${result.warnings.length === 1 ? '' : 's'}, ${stale.length ? `stale ${stale.join(', ')}` : 'nothing stale'}`);
+  if (live && live.id !== agent.id) console.warn(`note: the active agent in this session is ${live.id}, not ${agent.id}`);
+  // 2 · what the change touches: the same feature and the direct links, yours to update, the rest to flag
+  const imp = impact(json, n.card);
+  const near = imp ? [...imp.family.filter((x) => x.id !== n.id), ...[...imp.first.keys()].map((id) => json.nodes[id])].filter((x) => x?.path) : [];
+  if (near.length) {
+    const yours = [], others = [];
+    for (const x of near) (g.decide(agent, x.path, 'edit', { old: 'a', new: 'b' }).allow ? yours : others).push(x);
+    if (yours.length) { console.log(`\nupdate, if the change made them wrong (yours):`); for (const x of yours) console.log(`  ${x.card} ${x.path}`); }
+    if (others.length) { console.log(`\nflag, if the change made them wrong (not yours): node scripts/build-tree.mjs --flag ${n.card} <card> "<what changed>"`); for (const x of others) console.log(`  ${x.card} ${x.path}`); }
+  }
+  // 3 · the branch and the commit (Workflow §2)
+  const words = what ? String(what).replace(/-/g, ' ') : '';
+  const feature = n.kind === 'feature' ? n : n.feature ? json.nodes[`feature:${n.feature}`] : null;
+  const moduleId = n.kind === 'module' ? n.id.replace(/^module:/, '') : n.module || feature?.module || null;
+  const subject = n.kind === 'project' ? (n.layer === 'business' ? `reference(business): ${n.title} · ${words || 'updated'}` : `rules(project): ${words || n.title}`)
+    : `${codeKind(n)}(${moduleId || 'project'}): ${n.title}${words ? ` · ${words}` : ''}`;
+  const decision = n.kind === 'needs-decision' ? n.card : n.kind === 'decision' ? n.decides : null;
+  const trailers = [feature?.card && `Feature: ${feature.card}`, n.kind === 'story' && `Story: ${n.card}`, decision && `Decision: ${decision}`].filter(Boolean);
+  const { spawnSync } = await import('node:child_process');
+  const changed = (spawnSync('git', ['status', '--porcelain', '--untracked-files=all'], { cwd: ROOT, encoding: 'utf8' }).stdout || '').split('\n').filter(Boolean).map((l) => l.slice(3).replace(/^"(.*)"$/, '$1'));
+  console.log(`\nbranch: ${br.branch}\ncommit: ${subject}${trailers.length ? `\n        ${trailers.join(' · ')}` : ''}`);
+  if (changed.length) console.log(`files:  ${changed.join('\n        ')}`);
+  console.log(`\ngit switch -c ${br.branch}   (or git switch ${br.branch} when it exists)\ngit add -A\ngit commit -F - <<'MSG'\n${subject}\n\n<two or three lines: what changed and why>\n${trailers.length ? `\n${trailers.join('\n')}\n` : ''}\n<the attribution line>\nMSG`);
+}
+
 // ---------------------------------------------------------------- main
 const result = build();
+for (const [flag, run] of [['--set-status', (i) => setStatus(result, args[i + 1], args[i + 2])], ['--set', (i) => setField(result, args[i + 1], args[i + 2], args[i + 3])], ['--flag', (i) => flagNote(result, args[i + 1], args[i + 2], args[i + 3])], ['--finish', (i) => finishCard(result, args[i + 1], args[i + 2], args[i + 3] && !args[i + 3].startsWith('--') ? args[i + 3] : undefined)]]) {
+  if (!has(flag)) continue;
+  if (flag !== '--finish' && result.errors.length) { for (const e of result.errors) console.error(`error    ${e}`); die('the vault has errors: fix them first (or /admin repairs them)'); }
+  await run(args.indexOf(flag));
+  process.exit(0);
+}
+if (has('--list')) {
+  if (!result.json) process.exit(1);
+  const i = args.indexOf('--list'), filters = [];
+  for (let j = i + 1; j < args.length && !args[j].startsWith('--'); j++) filters.push(args[j]);
+  printList(result, filters);
+  const h = healthLine(result); if (h) console.error(h);
+  process.exit(0);
+}
 if (has('--scaffold')) {
   const i = args.indexOf('--scaffold');
   // the decision card is what clears "decided but has no record", so that error does not stop its own scaffold
@@ -1680,27 +1964,27 @@ if (has('--scaffold')) {
   process.exit(0);
 }
 if (has('--find')) {
-  if (result.errors.length) for (const e of result.errors) console.error(`error    ${e}`);
-  if (!result.json) process.exit(1);
+  if (!result.json) { for (const e of result.errors) console.error(`error    ${e}`); process.exit(1); }
   printFind(result.json, opt('--find', ''));
+  const h = healthLine(result); if (h) console.error(h);
   process.exit(0);
 }
 if (has('--branch')) {
-  if (result.errors.length) for (const e of result.errors) console.error(`error    ${e}`);
-  if (!result.json) process.exit(1);
+  if (!result.json) { for (const e of result.errors) console.error(`error    ${e}`); process.exit(1); }
   const i = args.indexOf('--branch');
   const r = branchName(result.json, args[i + 1], args[i + 2], args[i + 3], loadConfig([])?.branches || {});
   if (r.error) { console.error(r.error); process.exit(1); }
   console.log(r.branch);
+  const h = healthLine(result); if (h) console.error(h);
   process.exit(0);
 }
 if (has('--impact')) {
-  if (result.errors.length) for (const e of result.errors) console.error(`error    ${e}`);
+  if (!result.json) { for (const e of result.errors) console.error(`error    ${e}`); process.exit(1); }
   const q = opt('--impact', '');
   printImpact(result.json, impact(result.json, q), q);
+  const h = healthLine(result); if (h) console.error(h);
   process.exit(0);
 }
-const text = result.json ? stableStringify(result.json) : '';
 // a requirements list left `ready` for staleness.readyDays or more since its `updated:`: it depends on today,
 // so it is printed on every build and never written into tree.json (or `--check` would drift day by day)
 const staleNotices = (() => {
@@ -1722,9 +2006,9 @@ if (result.json) {
 }
 if (result.errors.length) { console.error('\nFix the errors above, then run again.'); process.exit(1); }
 
-const outputs = [[JSON_PATH, text], [MD_PATH, treeMarkdown(result.json)], [CARDS_PATH, stableStringify(result.cards)], [INDEX_PATH, cardIndexMarkdown(result.json)]];
+const outputs = outputsOf(result);
 if (has('--check')) {
-  const stale = outputs.filter(([p, t]) => (fs.existsSync(p) ? fs.readFileSync(p, 'utf8') : '') !== t).map(([p]) => path.relative(ROOT, p));
+  const stale = staleOf(outputs);
   if (stale.length) {
     console.error(`\nstale: ${stale.join(', ')}. Run \`node scripts/build-tree.mjs\` and commit ${GENERATED.join(', ')}.`);
     process.exit(2);

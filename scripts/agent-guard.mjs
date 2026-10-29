@@ -18,16 +18,19 @@
  * No active agent → every Edit / Write and every writing shell command is refused with one instruction: ask the user which agent
  * they will use for the change and wait for them to type it (/owner …, /pm …, /admin …); nobody picks an agent for the user.
  * An agent whose `writes.all` is true (/admin, rules/Admin Agent.md) may write anything, generated files and the verbatim brief included,
- * from the shell too. Node 22 built-ins only.
+ * from the shell too. While no agent is active, read-only shell commands still pass (git status/log/diff/show, build-tree.mjs --find /
+ * --impact / --check / --branch / --list, cat, head, grep, ls, wc …); anything else is refused.
+ * It runs on every Bash, Edit and Write call, so it stays light: fs and path at load, docs.config.json read once, a file classified by
+ * its own `type:` line (never tree/tree.json); the selftest's imports load only when it runs. scripts/build-tree.mjs imports `decide`
+ * and `activeAgent` from here, so its one-call edits (--set-status, --set, --flag) are checked by the same rules. Node 22 built-ins only.
  */
 import fs from 'node:fs';
-import os from 'node:os';
 import path from 'node:path';
-import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const cmd = process.argv[2] || 'status';
+const IS_MAIN = !!process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+const cmd = IS_MAIN ? process.argv[2] || 'status' : null;
 
 const readJson = (p, fallback) => { try { return JSON.parse(fs.readFileSync(p, 'utf8')); } catch { return fallback; } };
 const cfg = readJson(path.join(ROOT, 'docs.config.json'), {});
@@ -50,10 +53,13 @@ const readStdin = () => { try { return JSON.parse(fs.readFileSync(0, 'utf8') || 
 const input = ['prompt', 'session', 'check', 'bash'].includes(cmd) ? readStdin() : {};
 // the session this run is for: the hook's session_id, else the shell's; one marker file per session (a hook without one shares "default")
 const SESSION = String(input.session_id || process.env.CLAUDE_CODE_SESSION_ID || '').replace(/[^A-Za-z0-9_-]/g, '') || null;
+// inside Claude Code (an agent's shell) a write needs an active agent; a person's own terminal is not guarded (build-tree.mjs asks this)
+export const inClaudeCode = () => !!(process.env.CLAUDECODE || process.env.CLAUDE_CODE_SESSION_ID);
 const markerDir = () => { try { return fs.statSync(MARKER).isDirectory(); } catch { return false; } };
 const markerOf = (sid) => path.join(MARKER, sid || 'default');
 const active = (sid = SESSION) => { if (!markerDir()) return null; try { return fs.readFileSync(markerOf(sid), 'utf8').trim() || null; } catch { return null; } };
-const agentOf = (id) => AGENTS.find((a) => a.id === id) || null;
+export const agentOf = (id) => AGENTS.find((a) => a.id === id) || null;
+export const activeAgent = () => agentOf(active() || '');
 const setActive = (id, sid = SESSION) => {
   if (fs.existsSync(MARKER) && !markerDir()) fs.unlinkSync(MARKER); // the old shared marker file gives way to the per-session folder
   fs.mkdirSync(MARKER, { recursive: true }); fs.writeFileSync(markerOf(sid), `${id}\n`);
@@ -88,26 +94,22 @@ const glob = (pattern, rel) => {
   const re = '^' + pattern.split('**').map((seg) => seg.split('*').map((s) => s.replace(/[.+^${}()|[\]\\?]/g, '\\$&')).join('[^/]*')).join('.*') + '$';
   return new RegExp(re).test(rel);
 };
-function classify(rel) {
-  const tree = readJson(path.join(ROOT, 'tree', 'tree.json'), null);
-  const out = { rel, type: null, kind: null, layer: null, labels: [], generated: GENERATED.some((g) => glob(g, rel)) && !HAND_WRITTEN.includes(rel), verbatim: VERBATIM.includes(rel) };
-  const node = tree ? Object.values(tree.nodes || {}).find((n) => n.path === rel) : null;
-  if (node) {
-    out.labels = node.labels || [];
-    if (KINDS.some((k) => k.id === node.kind)) { out.kind = node.kind; out.layer = node.layer; }
-    // a bug (type: bug) is a node of kind `task` with `bug` in its labels inside the tree: to the guard it is the bug type, written by the agents with `bug` in their types
-    else { out.type = node.kind === 'task' && out.labels.includes('bug') ? 'bug' : node.kind; out.layer = node.layer || STRUCTURAL_LAYER[out.type] || null; }
-    return out;
-  }
-  const f = tree?.files?.[rel];
-  if (f?.type) {
-    if (KINDS.some((k) => k.id === f.type)) { const k = KINDS.find((k) => k.id === f.type); out.kind = k.id; out.layer = k.layer; }
-    else if (STRUCTURAL_LAYER[f.type]) { out.type = f.type; out.layer = STRUCTURAL_LAYER[f.type]; }
-    return out;
-  }
-  // a file the tree does not know yet (being created): the same path rules the build uses
-  const base = path.posix.basename(rel, '.md');
+// the note's own `type:` line, from the file on disk (or, for a new file, the content being written): what the build reads too
+const typeLine = (text) => { const fm = /^---\r?\n([\s\S]*?)\r?\n---/.exec(text || ''); return fm ? /^type:\s*"?([\w-]+)"?\s*$/m.exec(fm[1])?.[1] ?? null : null; };
+function classify(rel, content = null) {
+  const out = { rel, type: null, kind: null, layer: null, generated: GENERATED.some((g) => glob(g, rel)) && !HAND_WRITTEN.includes(rel), verbatim: VERBATIM.includes(rel) };
   const area = (cfg.projectAreas || []).find((a) => a.folder === path.posix.dirname(rel));
+  let text = null;
+  if (rel.endsWith('.md')) { try { text = fs.readFileSync(path.join(ROOT, rel), 'utf8'); } catch { text = content; } }
+  const t = typeLine(text);
+  if (t) {
+    const k = KINDS.find((x) => x.id === t);
+    if (k) { out.kind = k.id; out.layer = k.layer; }
+    else if (STRUCTURAL_LAYER[t]) { out.type = t; out.layer = t === 'project' && area ? area.id : STRUCTURAL_LAYER[t]; }
+    return out; // a type the guard does not scope (a map, a report) is a plain file
+  }
+  // a file with no type yet (being created): the same path rules the build uses
+  const base = path.posix.basename(rel, '.md');
   if (area && rel.endsWith('.md')) { out.type = 'project'; out.layer = area.id; return out; }
   // inside the project folder the card folders sit as they always did
   rel = PROJECT_DIR ? (rel.startsWith(`${PROJECT_DIR}/`) ? rel.slice(PROJECT_DIR.length + 1) : `\u0000${rel}`) : rel;
@@ -135,6 +137,16 @@ const changedLines = (oldS, newS) => {
 const isFlagEdit = (edit) => { if (!edit) return false; const { added, removed } = changedLines(edit.old, edit.new); return removed.length === 0 && added.length >= 1 && added.every((l) => FLAG.test(l) || l.trim() === ''); };
 const onlyLines = (edit, re) => { if (!edit) return false; const { added, removed } = changedLines(edit.old, edit.new); return [...added, ...removed].every((l) => re.test(l)); };
 const fieldLines = (fields) => new RegExp(`^(${fields.join('|')}|updated|tags):`);
+// a field edit may also change that field's segment of the card's first line (`· **Priority:** High · **Deadline:** — ·`), nothing else on it
+const capital = (f) => f.replace(/^./, (c) => c.toUpperCase());
+const isFieldEdit = (fields, edit) => {
+  if (!edit) return false;
+  const { added, removed } = changedLines(edit.old, edit.new);
+  const fm = fieldLines(fields), segs = fields.map((f) => new RegExp(`\\*\\*${capital(f)}:\\*\\*[^·]*`, 'g'));
+  const strip = (l) => segs.reduce((s, re) => s.replace(re, '§'), l);
+  const was = new Set(removed.filter((l) => !fm.test(l)).map(strip)), now = new Set(added.filter((l) => !fm.test(l)).map(strip));
+  return added.every((l) => fm.test(l) || was.has(strip(l))) && removed.every((l) => fm.test(l) || now.has(strip(l)));
+};
 // a bug the agent fixes (`bugStatuses`, the backend and the frontend): only status, updated, tags and the H1, from todo, in-progress or ready
 // to one of its statuses; never done, never a resolution: QA re-tests the fix and closes or reopens it (Agent Rules §4)
 const BUG_STATUS_LINES = /^(status|updated|tags):|^# /;
@@ -174,7 +186,7 @@ export function decide(agent, rel, op, edit) {
   // op: 'edit' (old/new strings) | 'write' (a whole file; new or rewritten)
   const w = agent.writes || {};
   if (w.all) return { allow: true }; // the admin: anything in the repository (Agent Protocol, "The guard")
-  const c = classify(rel);
+  const c = classify(rel, edit?.new);
   const label = c.kind ? `${c.kind} note (${c.layer} layer)` : c.type ? `${c.type} note` : 'file';
   const deny = (why) => ({ allow: false, message: `${agent.id} agent: "${rel}" is a ${label}. ${why} Allowed for you: ${scopeWords(agent)}. The rules: ${PROTOCOL}.` });
   if (c.generated) return { allow: false, message: `${agent.id} agent: "${rel}" is generated by node scripts/build-tree.mjs; nobody edits it by hand. Run the build.` };
@@ -190,7 +202,7 @@ export function decide(agent, rel, op, edit) {
   const reserved = reservedTouched(rel, op, edit).filter((k) => !RESERVED[k].includes(agent.id));
   if (reserved.length) {
     const by = [...new Set(reserved.flatMap((k) => RESERVED[k]))].map((id) => `/${id}`).join(' or ');
-    return { allow: false, message: `${agent.id} agent: ${reserved.map((k) => `"${k}:"`).join(' and ')} in "${rel}" ${reserved.length === 1 ? 'is' : 'are'} set by ${by} only, on the user's word (a feature's release, the project's stage). Hand that change to ${by}; the rest of your edit can go without that line. The rules: ${PROTOCOL}.` };
+    return { allow: false, message: `${agent.id} agent: ${reserved.map((k) => `"${k}:"`).join(' and ')} in "${rel}" ${reserved.length === 1 ? 'is' : 'are'} set by ${by} only, on the user's word (agents.reservedFields: a feature's release and the project's stage are the owner's, a bug's resolution the PM's and QA's). Hand that change to ${by}; the rest of your edit can go without that line. The rules: ${PROTOCOL}.` };
   }
   if (inPaths || inKinds || inTypes) return { allow: true };
   const eo = w.editOnly || {};
@@ -201,7 +213,7 @@ export function decide(agent, rel, op, edit) {
   if (op === 'edit' && c.type === 'bug' && agent.bugStatuses?.length && isBugStatusEdit(agent, edit)) return { allow: true };
   if (c.type === 'bug' && agent.bugStatuses?.length) return deny(`On a bug you may only move its status to ${agent.bugStatuses.join(' or ')} (from todo, in-progress or ready): an Edit of status:, the bug/<status> tag, updated: and the H1, nothing else. Closing it (done, resolution) is QA's after the re-test, or the PM's; record the fix in your own note and add a flag line under the bug's H1.`);
   if (op === 'edit' && c.kind && (agent.signs || []).includes(c.kind) && onlyLines(edit, SIGN_LINES)) return { allow: true };
-  if (op === 'edit' && agent.fields?.length && onlyLines(edit, fieldLines(agent.fields))) return { allow: true };
+  if (op === 'edit' && agent.fields?.length && isFieldEdit(agent.fields, edit)) return { allow: true };
   const owners = AGENTS.filter((a) => a.id !== agent.id && decideOwner(a, c)).map((a) => `/${a.id}`);
   const hint = owners.length ? `Hand the change to ${owners.join(' or ')}, or add a flag line (> ⚠ Affected by [[<card>]] (YYYY-MM-DD): …) under its H1.` : 'Nobody writes it from here; add a flag line under its H1 if it is a note.';
   return deny(hint);
@@ -215,6 +227,29 @@ const agentList = () => {
   return admins ? `${roles} (${admins} may write anything)` : roles;
 };
 export const noAgent = () => ({ allow: false, message: `No agent is active, so nothing is written yet. Ask the user which agent they will use for this change — ${agentList()} — and wait for them to type it as the next message (e.g. "/pm <the request>"); do not choose for them and do not retry. The rules: ${PROTOCOL}.` });
+
+// a shell command that only reads: every piece of a pipe or a chain is a reading command, and nothing is redirected into a file
+const READ_SEGMENT = [
+  /^git\s+(status|log|diff|show|blame|rev-parse|ls-files|grep|describe|shortlog)\b(?!.*\s--output\b)/, /^git\s+branch(\s+(--list|-a|-r|-vv?|--show-current))*\s*$/,
+  /^node\s+scripts\/build-tree\.mjs\s+(--find|--impact|--check|--branch|--list)\b/,
+  /^node\s+scripts\/agent-guard\.mjs(\s+(status|selftest))?\s*$/,
+  /^(cat|head|tail|grep|rg|ls|wc|pwd|diff|cd|echo|uniq|cut|tr|stat|file|which|date)\b/, /^sort\b(?!.*\s-o\b)/,
+  /^sed\s+-n\b/, /^awk\b(?![^']*'[^']*(>|system\())/, /^find\b(?!.*\s-(delete|exec|execdir|ok|fprint\w*)\b)/,
+];
+const segments = (c) => {
+  const out = []; let cur = '', q = null;
+  for (let i = 0; i < c.length; i++) {
+    const ch = c[i];
+    if (q) { cur += ch; if (ch === q) q = null; continue; }
+    if (ch === '"' || ch === "'") { q = ch; cur += ch; continue; }
+    if (ch === ';' || ch === '\n' || ch === '|' || (ch === '&' && c[i + 1] === '&')) { out.push(cur); cur = ''; if (c[i + 1] === ch) i++; continue; }
+    cur += ch;
+  }
+  return [...out, cur].map((s) => s.trim()).filter(Boolean);
+};
+// a redirect into a file, outside quotes; 2>&1 and > /dev/null write nothing
+const redirects = (s) => /(^|[^0-9&<>])\d?>{1,2}(?!&)\s*(?!\/dev\/null\b)\S/.test(s.replace(/'[^']*'|"[^"]*"/g, '""'));
+export const readOnly = (c) => !/<<|\$\(|`/.test(c) && segments(c).every((s) => READ_SEGMENT.some((re) => re.test(s)) && !redirects(s));
 
 const relOf = (p) => { if (!p) return null; const abs = path.isAbsolute(p) ? p : path.join(ROOT, p); const rel = path.relative(ROOT, abs).split(path.sep).join('/'); return rel.startsWith('..') ? null : rel; };
 
@@ -263,11 +298,12 @@ if (cmd === 'bash') {
   if (a?.writes?.all) process.exit(0); // the admin: the shell is not guarded either
   const { tool_input: ti = {} } = input;
   const c = String(ti.command || '').trim();
+  // no agent: reading is free, writing waits for the user's choice of agent
+  if (!a) { if (readOnly(c)) process.exit(0); console.error(noAgent().message); process.exit(2); }
   const allowed = /^(node scripts\/(build-tree|agent-guard)\.mjs\b|git\b|ls\b|cat\b|head\b|tail\b|grep\b|rg\b|find\b|wc\b|diff\b|sed -n\b|pwd\b|echo\b[^>]*$)/;
   const writes = /(^|[^<>])>{1,2}(?!&)|\btee\b|\bsed\s+-[a-zA-Z]*i|\bperl\s+-[a-zA-Z]*i|\b(mv|cp|rm|touch|mkdir|rmdir|truncate|dd)\b|\bpython3?\b|\bnode\s+(?!scripts\/(build-tree|agent-guard)\.mjs)/;
   if (allowed.test(c) && !/&&|;|\|\s*(tee|sed|perl|python|node|sh|bash)\b/.test(c)) process.exit(0);
   if (!writes.test(c)) process.exit(0);
-  if (!a) { console.error(noAgent().message); process.exit(2); } // no agent: a writing command is refused like an Edit would be
   console.error(`${a.id} agent: this command writes files around the guard. Use Edit or Write (the guard checks them), node scripts/build-tree.mjs --scaffold for new notes, and git for commits.`);
   process.exit(2);
 }
@@ -298,6 +334,8 @@ if (cmd === 'selftest') {
   const bugResolve = bugEdit('in-progress', 'ready', '\nresolution: fixed'), bugReadyBody = bugEdit('in-progress', 'ready', '\n**Fixed in** BD-02');
   const bugLine = (s, p = 'High') => `**Found against:** [[BI-01 Account Backend Integration]] · **Feature:** [[F-01 Account]] · **Status:** ${s} · **Priority:** ${p} · **Effort:** S`;
   const bugReadyLine = E(`status: in-progress\n${bugLine('In progress')}`, `status: ready\n${bugLine('Ready')}`), bugReadyPrio = E(`status: in-progress\n${bugLine('In progress')}`, `status: ready\n${bugLine('Ready', 'Low')}`);
+  // --set priority / deadline: the field lines and the field's own segment of the first line, nothing else on it
+  const prioLine = E(`priority: high\n${bugLine('To do')}`, `priority: low\n${bugLine('To do', 'Low')}`), prioStatus = E(`priority: high\n${bugLine('To do')}`, `priority: low\n${bugLine('Done', 'Low')}`);
   const relWriteSame = E('','---\ntype: feature\nid: rings\nrelease: mvp\n---\n'), relWriteNew = E('', '---\ntype: feature\nid: rings\nrelease: later\n---\n');
   const M = [
     // agent, path, op, edit, expected
@@ -334,6 +372,7 @@ if (cmd === 'selftest') {
     // ...but the backend and the frontend (bugStatuses) move a bug they fix to in-progress, then ready; never done, never back from done, never a resolution
     ['backend', bug, 'edit', bugStart, true], ['backend', bug, 'edit', bugReady, true], ['frontend', bug, 'edit', bugStart, true], ['frontend', bug, 'edit', bugReady, true],
     ['backend', bug, 'edit', bugDone, false], ['backend', bug, 'edit', bugReopen, false], ['backend', bug, 'edit', bugResolve, false], ['backend', bug, 'edit', bugReadyBody, false], ['backend', bug, 'edit', bugReadyLine, true], ['backend', bug, 'edit', bugReadyPrio, false],['backend', bug, 'write', null, false],
+    ['owner', bug, 'edit', prioLine, true], ['owner', bug, 'edit', prioStatus, false], ['owner', bd, 'edit', prioLine, true], ['backend', bug, 'edit', prioLine, false],
     ['owner', bug, 'edit', bugStart, false], ['pm', bug, 'edit', bugStart, true], ['qa', bug, 'edit', bugReopenTodo, true], ['qa', bug, 'edit', bugDone, true],
     // the admin (writes.all): the guard refuses it nothing, the generated files and the verbatim brief included
     ['admin', 'tree/tree.json', 'write', null, true], ['admin', 'social-pin/Card Index.md', 'edit', body, true], ['admin', 'social-pin/design/Wireframe Brief.md', 'edit', body, true], ['admin', 'rules/Agent Rules.md', 'write', null, true],
@@ -347,7 +386,21 @@ if (cmd === 'selftest') {
     if (!ok) bad++;
     console.log(`${ok ? 'ok  ' : 'FAIL'} ${id.padEnd(8)} ${op.padEnd(5)} ${expected ? 'allow' : 'deny '} ${rel}${ok ? '' : `\n     got ${d.allow ? 'allow' : 'deny'}: ${d.message || ''}`}`);
   }
+  // no agent active: read-only shell commands pass, anything that writes is refused
+  const B = [
+    ['git status', true], ['git log --oneline -5', true], ['git diff HEAD~1 -- rules/', true], ['git show HEAD:docs.config.json', true],
+    ['node scripts/build-tree.mjs --find "speed search"', true], ['node scripts/build-tree.mjs --impact B-06', true], ['node scripts/build-tree.mjs --check', true],
+    ['node scripts/build-tree.mjs --branch qa B-06 closed', true], ['node scripts/build-tree.mjs --list kind=bug status=todo', true], ['node scripts/agent-guard.mjs status', true],
+    ['cat "social-pin/bugs/B-06 x.md" | head -20', true], ['grep -rn "status:" social-pin/bugs | wc -l', true], ['ls social-pin && git status', true], ['node scripts/build-tree.mjs --check 2>&1 | tail -3', true],
+    ['node scripts/build-tree.mjs --find x > /dev/null', true],
+    ['node scripts/build-tree.mjs', false], ['node scripts/build-tree.mjs --set-status B-06 done', false], ['node scripts/build-tree.mjs --finish qa B-06 closed', false],
+    ['git commit -m x', false], ['git checkout -b x', false], ['git add -A', false], ['cat a > b', false], ['echo x >> notes.md', false], ['sed -i s/a/b/ f.md', false],
+    ['rm -rf social-pin', false], ['ls; rm x', false], ['cat x | tee y', false], ['node -e "require(\'fs\').writeFileSync(\'x\',1)"', false], ['find . -name "*.md" -delete', false],
+    ['git status && git commit -am x', false], ['git branch -D main', false], ['git branch --show-current', true], ['sort -o x y', false], ['cat <<EOF > x', false], ['python3 x.py', false], ['ls $(rm x)', false],
+  ];
+  for (const [c, expected] of B) { const ok = readOnly(c) === expected; if (!ok) bad++; console.log(`${ok ? 'ok  ' : 'FAIL'} no agent bash ${expected ? 'allow' : 'deny '} ${c}`); }
   // two sessions in one folder, with different agents: the real hooks run against a temporary marker folder, which starts as the old shared file
+  const os = await import('node:os'), { spawnSync } = await import('node:child_process');
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'agent-guard-'));
   const marker = path.join(tmp, '.active-agent');
   fs.writeFileSync(marker, 'owner\n');
@@ -383,8 +436,7 @@ if (cmd === 'selftest') {
     console.log(`${ok ? 'ok  ' : 'FAIL'} session ${sid} ${hookCmd.padEnd(7)} exit ${exit} ${what}${ok ? '' : `\n     got exit ${r.status}, agents ${JSON.stringify(got)}, want ${JSON.stringify(want)}${r.stderr ? `: ${r.stderr.trim()}` : ''}`}`);
   }
   fs.rmSync(tmp, { recursive: true, force: true });
-  console.log(`${M.length - bad} of ${M.length} rows as expected; ${S.length - sBad} of ${S.length} two-session rows as expected`);
+  console.log(`${M.length + B.length - bad} of ${M.length + B.length} rows as expected; ${S.length - sBad} of ${S.length} two-session rows as expected`);
   process.exit(bad || sBad ? 1 : 0);
 }
-console.error(`unknown command "${cmd}": prompt | session | check | bash | status | selftest`);
-process.exit(1);
+if (IS_MAIN) { console.error(`unknown command "${cmd}": prompt | session | check | bash | status | selftest`); process.exit(1); }
