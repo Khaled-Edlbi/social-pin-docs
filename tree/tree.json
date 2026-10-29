@@ -1972,6 +1972,16 @@
       ],
       "owner": null
     },
+    "GET /uploads/files/<key>": {
+      "containers": [
+        "task:B-07"
+      ],
+      "kind": "endpoint",
+      "notes": [
+        "task:B-07"
+      ],
+      "owner": null
+    },
     "GET /uploads/files/<uuid>.<ext>": {
       "containers": [
         "task:B-07"
@@ -4400,7 +4410,7 @@
       "qa": 3,
       "shared": 10
     },
-    "concepts": 207,
+    "concepts": 208,
     "decisions": 21,
     "edges": 4142,
     "features": 41,
@@ -34149,7 +34159,7 @@
       ],
       "task": null,
       "title": "BD-04 Files Upload Backend Delivery",
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "backend-delivery:gemma": {
       "affects": [],
@@ -48771,7 +48781,7 @@
       ],
       "task": null,
       "title": "Developer Guide",
-      "updated": "2026-10-26"
+      "updated": "2026-10-29"
     },
     "project:developer-setup": {
       "affects": [],

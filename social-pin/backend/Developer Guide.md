@@ -1,7 +1,7 @@
 ---
 type: project
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-29
 tags: [project]
 layer: backend
 ---
@@ -48,7 +48,7 @@ The startup banner then prints every address the app serves:
 [Bootstrap]   API      http://localhost:3000/api/v1
 [Bootstrap]   Docs     http://localhost:3000/docs
 [Bootstrap]   OpenAPI  http://localhost:3000/docs-json
-[Bootstrap]   Uploads  http://localhost:3000/uploads
+[Bootstrap]   Uploads  http://localhost:3000/uploads/public
 [Bootstrap] WARN  OTP delivery is not configured — verification codes are logged above.
 ```
 
