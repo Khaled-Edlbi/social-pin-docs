@@ -4531,12 +4531,12 @@
     },
     "concepts": 214,
     "decisions": 21,
-    "edges": 4351,
+    "edges": 4352,
     "features": 41,
     "layerNotes": 133,
     "modules": 8,
     "notes": 276,
-    "partial": 4,
+    "partial": 5,
     "placeholders": 152,
     "records": 15
   },
@@ -7008,6 +7008,11 @@
       "from": "story:widgets",
       "kind": "flow",
       "to": "frontend-requirements:widgets"
+    },
+    {
+      "from": "backend-delivery:files",
+      "kind": "pending",
+      "to": "frontend-requirements:files"
     },
     {
       "from": "backend-delivery:profiles",
@@ -35969,7 +35974,7 @@
       "created": "2026-10-15",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "done",
+      "effectiveStatus": "partial",
       "effort": null,
       "feature": "files",
       "foundOn": null,
@@ -35990,7 +35995,23 @@
         "feature:files"
       ],
       "path": "social-pin/modules/Identity Core/features/Files Upload/flow/BD-04 Files Upload Backend Delivery.md",
-      "pending": [],
+      "pending": [
+        {
+          "person": null,
+          "text": "GET /files?kind=image|document, the library list (Photo Library · S7)",
+          "to": "frontend-requirements:files"
+        },
+        {
+          "person": null,
+          "text": "signed avatarUrl and url per attachment on the owner projection and the view, valid 15 minutes (D-16, S7–S11)",
+          "to": "frontend-requirements:files"
+        },
+        {
+          "person": null,
+          "text": "usedBy and followerCount on GET /files?kind=image (Photo Library · S8)",
+          "to": "frontend-requirements:files"
+        }
+      ],
       "priority": "high",
       "related": [
         "task:B-07",
@@ -41983,13 +42004,13 @@
       "release": "v1",
       "resolution": null,
       "rollup": {
-        "approved": 1,
+        "approved": 2,
         "current": 1,
         "decided": 1,
-        "done": 2,
+        "done": 1,
         "missing": 2,
+        "partial": 1,
         "passing": 1,
-        "ready": 1,
         "verified": 1
       },
       "scope": null,
@@ -46941,7 +46962,7 @@
       "depends": [
         "story:files"
       ],
-      "effectiveStatus": "ready",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "files",
       "foundOn": null,
@@ -47023,11 +47044,11 @@
         "s31",
         "s44"
       ],
-      "status": "ready",
+      "status": "approved",
       "summary": "What the client needs from the backend to upload, attach, switch on or off, inspect and delete files behind the Ring screens, and whether each need is met today. The multipart shape, the…",
       "tags": [
         "frontend-requirements",
-        "frontend-requirements/ready",
+        "frontend-requirements/approved",
         "module/identity",
         "layer/frontend"
       ],
@@ -49191,20 +49212,20 @@
       "release": null,
       "resolution": null,
       "rollup": {
-        "approved": 11,
+        "approved": 12,
         "blocked": 6,
         "current": 8,
         "decided": 8,
         "delivered": 2,
-        "done": 11,
+        "done": 10,
         "draft": 2,
         "failing": 1,
         "in-progress": 13,
         "missing": 38,
         "needs-decision": 2,
-        "partial": 4,
+        "partial": 5,
         "passing": 2,
-        "ready": 10,
+        "ready": 9,
         "todo": 4,
         "verified": 8
       },
@@ -56572,20 +56593,20 @@
         }
       ],
       "rollup": {
-        "approved": 32,
+        "approved": 33,
         "blocked": 37,
         "current": 8,
         "decided": 15,
         "delivered": 2,
-        "done": 12,
+        "done": 11,
         "draft": 31,
         "failing": 1,
         "in-progress": 45,
         "missing": 152,
         "needs-decision": 3,
-        "partial": 4,
+        "partial": 5,
         "passing": 2,
-        "ready": 10,
+        "ready": 9,
         "reference": 31,
         "todo": 9,
         "verified": 15
