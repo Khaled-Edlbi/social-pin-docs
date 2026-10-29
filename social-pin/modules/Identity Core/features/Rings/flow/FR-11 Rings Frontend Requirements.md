@@ -17,6 +17,8 @@ tags: [frontend-requirements, frontend-requirements/draft, module/identity, laye
 
 # Rings · Frontend Requirements
 
+> ⚠ Affected by [[S-18 Rings Story]] (2026-10-29): design review. S1: s08 templates pre-fill s09; s09 asks name, colour, what it shows, expiry. S4: step 1 "Start from" (Blank, Copy, Event Ring with dates), no type picker, name 1–24 in the app; step 2 people from my connections (with "in any of my Rings"); step 4 three settings and a summary. S6 / S7: "Make this my default Ring" on s26; a temporary Ring can't be the default (new small ask). Copy a Ring needs a copy endpoint (the "❌ ND-05" row). Gemma chips hidden. Screens: s27.
+
 > ⚠ Affected by [[D-05 Inherit per field, copy without members]] (2026-10-25): ND-05 decided, a Ring inherits the main profile field by field until it changes that field; copying a Ring copies fields, bio, photo, colour and settings, never members.
 
 **Feature:** [[F-11 Rings]] · **Status:** Draft · **Story:** [[S-18 Rings Story]] · **Backend Integration:** [[BI-08 Rings Backend Integration]]

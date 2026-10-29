@@ -14,6 +14,8 @@ tags: [feature, module/identity, priority/critical, release/mvp]
 
 # Rings
 
+> ⚠ Affected by [[S-18 Rings Story]] (2026-10-29): the story now also uses s27 (permissions, S9); the Design reference's notes on s18 ("Copy a Ring decided, not built") and s19 ("Audience settings decided") change: step 1 is "Start from" with Copy disabled until a copy endpoint exists, and step 2 is people (the settings are on step 4, s21). The default Ring is "Public" (s08, s16). Ask: `/owner add s27 to Rings' screens and update the s18 / s19 notes`.
+
 **Backend:** Done · **Priority:** Critical · **Release:** MVP · **Module:** [[M-01 Identity Core Module|Identity Core]]
 
 **Layers:** [[S-18 Rings Story|Story]] · [[FR-11 Rings Frontend Requirements|Frontend Requirements]] · [[BD-11 Rings Backend Delivery|Backend Delivery]] · [[BI-08 Rings Backend Integration|Backend Integration]] · [[Rings Frontend Delivery|Frontend Delivery]] · [[Rings QA Backend|QA Backend]] · [[Rings QA Frontend|QA Frontend]]
