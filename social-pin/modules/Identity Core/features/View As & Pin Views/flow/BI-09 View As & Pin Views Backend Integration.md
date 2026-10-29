@@ -7,11 +7,13 @@ module: identity
 status: current
 screens: [s10, s31, s44]
 created: 2026-10-15
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [backend-integration, backend-integration/current, module/identity, layer/backend]
 ---
 
 # 🔌 View As & Pin Views · Backend Integration
+
+> ⚠ Affected by [[D-16 Files load from signed links that expire in 15 minutes]] (2026-10-29): the viewer's view will carry `avatarUrl` and a `url` per attachment, signed, valid 15 minutes, and still no file id. For `/backend`.
 
 **Feature:** [[F-12 View As & Pin Views]] · **Backend:** ✅ Done · **Read first:** [[Frontend Contract]], [[Ring Access Model]]
 

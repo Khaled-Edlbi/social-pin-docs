@@ -7,11 +7,13 @@ module: identity
 status: draft
 screens: [s10, s31, s44]
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [frontend-requirements, frontend-requirements/draft, module/identity, layer/frontend]
 ---
 
 # View As & Pin Views · Frontend Requirements
+
+> ⚠ Affected by [[D-16 Files load from signed links that expire in 15 minutes]] (2026-10-29): the pin view shows photos and files from `avatarUrl` and `url`, signed, valid 15 minutes. For `/frontend`.
 
 **Feature:** [[F-12 View As & Pin Views]] · **Status:** Draft · **Story:** [[S-19 View As & Pin Views Story]] · **Backend Integration:** [[BI-09 View As & Pin Views Backend Integration]]
 

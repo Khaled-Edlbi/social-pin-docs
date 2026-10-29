@@ -17,6 +17,8 @@ tags: [story, story/approved, module/identity, layer/business]
 
 # Files Upload · User Story
 
+> ⚠ Affected by [[D-16 Files load from signed links that expire in 15 minutes]] (2026-10-29): ND-16 is decided, option 3. Showing files (S7–S11) uses a signed `url` that lives 15 minutes; the "route or signed `url`" wording becomes the signed `url`, and S11's copied link expires. For `/pm`.
+
 **Feature:** [[F-04 Files Upload]] · **Status:** Approved 2026-10-29 by Omar Fostok (first approved 2026-10-25 by khaled; reopened 2026-10-29 by the design review: S1–S3, S9 changed, S12 added) · **Frontend Requirements:** [[FR-04 Files Upload Frontend Requirements]] · **Backend Integration:** [[BI-03 Files Upload Backend Integration]]
 
 A Ring owner wants a Ring to carry a photo and a few documents (a portfolio PDF, a pitch deck) without those files becoming public. Upload is a private step: a file belongs to the uploader and is visible to nobody until a Ring projection references it, at which point whoever may see that Ring may see the file. The client's job is to make the two steps (upload, then attach) feel like one.

@@ -17,6 +17,8 @@ tags: [frontend-requirements, frontend-requirements/ready, module/identity, laye
 
 # Files Upload · Frontend Requirements
 
+> ⚠ Affected by [[D-16 Files load from signed links that expire in 15 minutes]] (2026-10-29): files load from `avatarUrl` and a `url` per attachment, signed and valid 15 minutes; re-read the entity when a link has expired. The showing-files rows need updating. For `/frontend`.
+
 **Feature:** [[F-04 Files Upload]] · **Status:** 📨 Ready 2026-10-29, waiting on the backend's review · **Story:** [[S-06 Files Upload Story]] · **Backend Integration:** [[BI-03 Files Upload Backend Integration]]
 
 What the client needs from the backend to upload, attach, switch on or off, inspect and delete files behind the Ring screens, and whether each need is met today. The multipart shape, the allow-list and the limits are in [[BI-03 Files Upload Backend Integration]].
