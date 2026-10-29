@@ -637,6 +637,16 @@
       ],
       "owner": "feature:ring-members"
     },
+    "DELETE /rings/:ringId/projection/attachments/:attachmentId": {
+      "containers": [
+        "feature:files"
+      ],
+      "kind": "endpoint",
+      "notes": [
+        "story:files"
+      ],
+      "owner": null
+    },
     "DELETE /users/me": {
       "containers": [
         "feature:account",
@@ -1508,12 +1518,15 @@
     },
     "GET /files": {
       "containers": [
+        "feature:files",
         "feature:photo-library"
       ],
       "kind": "endpoint",
       "notes": [
         "backend-delivery:photo-library",
+        "frontend-requirements:files",
         "frontend-requirements:photo-library",
+        "story:files",
         "story:photo-library"
       ],
       "owner": "feature:photo-library"
@@ -1542,6 +1555,17 @@
       "kind": "endpoint",
       "notes": [
         "needs-decision:ND-16"
+      ],
+      "owner": null
+    },
+    "GET /files?kind=document": {
+      "containers": [
+        "feature:files"
+      ],
+      "kind": "endpoint",
+      "notes": [
+        "frontend-requirements:files",
+        "story:files"
       ],
       "owner": null
     },
@@ -3322,6 +3346,7 @@
     },
     "s24": {
       "containers": [
+        "feature:files",
         "feature:ring-projection",
         "needs-decision:ND-03"
       ],
@@ -3332,6 +3357,7 @@
         "feature:ring-projection",
         "frontend-requirements:ring-projection",
         "needs-decision:ND-03",
+        "story:files",
         "story:ring-projection"
       ],
       "owner": null
@@ -3398,6 +3424,7 @@
     },
     "s29": {
       "containers": [
+        "feature:files",
         "feature:photo-library",
         "feature:ring-projection",
         "needs-decision:ND-02",
@@ -3416,6 +3443,7 @@
         "needs-decision:ND-02",
         "needs-decision:ND-05",
         "needs-decision:ND-16",
+        "story:files",
         "story:photo-library",
         "story:ring-projection"
       ],
@@ -4140,7 +4168,7 @@
     }
   },
   "counts": {
-    "blocked": 38,
+    "blocked": 39,
     "bugs": 6,
     "byKind": {
       "backend-delivery": 39,
@@ -4164,9 +4192,9 @@
       "qa": 3,
       "shared": 10
     },
-    "concepts": 198,
+    "concepts": 200,
     "decisions": 19,
-    "edges": 3744,
+    "edges": 3752,
     "features": 41,
     "layerNotes": 132,
     "modules": 8,
@@ -5653,6 +5681,11 @@
       "from": "story:events-during",
       "kind": "blocks",
       "to": "frontend-requirements:events-during"
+    },
+    {
+      "from": "story:files",
+      "kind": "blocks",
+      "to": "frontend-requirements:files"
     },
     {
       "from": "story:gemma",
@@ -10653,6 +10686,31 @@
       "from": "story:events-before",
       "kind": "related",
       "to": "feature:payments"
+    },
+    {
+      "from": "story:files",
+      "kind": "related",
+      "to": "decision:D-03"
+    },
+    {
+      "from": "story:files",
+      "kind": "related",
+      "to": "needs-decision:ND-16"
+    },
+    {
+      "from": "story:files",
+      "kind": "related",
+      "to": "story:photo-library"
+    },
+    {
+      "from": "story:files",
+      "kind": "related",
+      "to": "story:ring-projection"
+    },
+    {
+      "from": "story:files",
+      "kind": "related",
+      "to": "story:view-as"
     },
     {
       "from": "story:gemma",
@@ -16839,6 +16897,7 @@
         "E_FILE_03",
         "E_FILE_04",
         "E_RING_05",
+        "GET /files",
         "GET /files/:id",
         "GET /rings/:ringId/projection",
         "PATCH /rings/:ringId/projection",
@@ -27451,7 +27510,22 @@
     {
       "from": "story:files",
       "kind": "wikilink",
-      "to": "story:photo-library"
+      "to": "story:gemma"
+    },
+    {
+      "from": "story:files",
+      "kind": "wikilink",
+      "to": "story:linked-accounts"
+    },
+    {
+      "from": "story:files",
+      "kind": "wikilink",
+      "to": "story:rings"
+    },
+    {
+      "from": "story:files",
+      "kind": "wikilink",
+      "to": "story:widgets"
     },
     {
       "from": "story:gemma",
@@ -27727,11 +27801,6 @@
       "from": "story:ring-projection",
       "kind": "wikilink",
       "to": "backend-integration:ring-projection"
-    },
-    {
-      "from": "story:ring-projection",
-      "kind": "wikilink",
-      "to": "story:files"
     },
     {
       "from": "story:ring-projection",
@@ -33723,6 +33792,7 @@
         "needs-decision:ND-21",
         "decision:D-02",
         "needs-decision:ND-03",
+        "story:files",
         "frontend-requirements:onboarding-imports",
         "story:ring-projection",
         "story:widgets"
@@ -36021,10 +36091,10 @@
       "release": "v1",
       "resolution": null,
       "rollup": {
-        "blocked": 1,
+        "blocked": 2,
         "current": 1,
         "done": 1,
-        "draft": 2,
+        "draft": 1,
         "missing": 3
       },
       "scope": null,
@@ -40676,14 +40746,20 @@
     },
     "frontend-requirements:files": {
       "affects": [],
-      "blockedBy": [],
+      "blockedBy": [
+        {
+          "id": "story:files",
+          "title": "S-06 Files Upload Story",
+          "why": "S-06 Files Upload Story is draft"
+        }
+      ],
       "card": "FR-04",
       "children": [],
       "code": "files",
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "blocked",
       "effort": null,
       "feature": "files",
       "foundOn": null,
@@ -42326,12 +42402,12 @@
       "resolution": null,
       "rollup": {
         "approved": 11,
-        "blocked": 6,
+        "blocked": 7,
         "current": 8,
         "decided": 7,
         "delivered": 2,
         "done": 9,
-        "draft": 11,
+        "draft": 10,
         "failing": 1,
         "in-progress": 13,
         "missing": 39,
@@ -43360,7 +43436,8 @@
       "related": [
         "feature:files",
         "feature:ring-projection",
-        "feature:view-as"
+        "feature:view-as",
+        "story:files"
       ],
       "release": null,
       "resolution": null,
@@ -49148,12 +49225,12 @@
       ],
       "rollup": {
         "approved": 31,
-        "blocked": 38,
+        "blocked": 39,
         "current": 8,
         "decided": 14,
         "delivered": 2,
         "done": 10,
-        "draft": 40,
+        "draft": 39,
         "failing": 1,
         "in-progress": 44,
         "missing": 153,
@@ -50368,6 +50445,11 @@
       "related": [
         "frontend-delivery:account",
         "qa-frontend:account",
+        "decision:D-03",
+        "story:ring-projection",
+        "story:photo-library",
+        "story:view-as",
+        "needs-decision:ND-16",
         "frontend-requirements:onboarding-imports",
         "frontend-requirements:profiles"
       ],
@@ -50377,22 +50459,24 @@
       "screens": [
         "s14",
         "s20",
+        "s24",
         "s36",
+        "s29",
         "s30",
         "s31",
         "s44"
       ],
-      "status": "approved",
+      "status": "draft",
       "summary": "A Ring owner wants a Ring to carry a photo and a few documents (a portfolio PDF, a pitch deck) without those files becoming public. Upload is a private step: a file belongs to the uploader and is…",
       "tags": [
         "story",
-        "story/approved",
+        "story/draft",
         "module/identity",
         "layer/business"
       ],
       "task": null,
       "title": "S-06 Files Upload Story",
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "story:gemma": {
       "affects": [],
@@ -50880,6 +50964,7 @@
       "pending": [],
       "priority": "high",
       "related": [
+        "story:files",
         "decision:D-02",
         "decision:D-05"
       ],
@@ -51263,6 +51348,7 @@
       "pending": [],
       "priority": "critical",
       "related": [
+        "story:files",
         "decision:D-02",
         "decision:D-03",
         "decision:D-05"
@@ -51442,7 +51528,9 @@
       "path": "social-pin/modules/Identity Core/features/View As & Pin Views/S-19 View As & Pin Views Story.md",
       "pending": [],
       "priority": "critical",
-      "related": [],
+      "related": [
+        "story:files"
+      ],
       "release": "mvp",
       "resolution": null,
       "scope": "feature",
