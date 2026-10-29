@@ -6,6 +6,7 @@ feature: files
 module: identity
 status: done
 screens: [s14, s20, s36]
+pending: ["[[FR-04 Files Upload Frontend Requirements]]: GET /files?kind=image|document, the library list (Photo Library · S7)", "[[FR-04 Files Upload Frontend Requirements]]: signed avatarUrl and url per attachment on the owner projection and the view, valid 15 minutes (D-16, S7–S11)", "[[FR-04 Files Upload Frontend Requirements]]: usedBy and followerCount on GET /files?kind=image (Photo Library · S8)"]
 created: 2026-10-15
 updated: 2026-10-29
 tags: [backend-delivery, backend-delivery/done, module/identity, layer/backend]
@@ -50,3 +51,4 @@ What the backend shipped for this feature and how it works. The sum of this feat
 
 - 2026-10-18 · split out of [[F-04 Files Upload]] when the vault moved to layers
 - 2026-10-29 · branch `B-07/file/uploads-public-only`, merged to `main @ c85db4b` · fixes [[B-07 Context-scoped uploads are served by the public static mount]]: the static mount serves only `<uploadsDir>/public` at `/uploads/public`; context-scoped uploads are no longer reachable at `/uploads/files/…`. No endpoint or response shape changed. Spec: `src/common/bootstrap/configure-app.spec.ts`. Flagged nothing: no client calls the mount.
+- 2026-10-29 · [[FR-04 Files Upload Frontend Requirements]] approved by the backend (branch `tickets/backend/M-01-identity/F-04-files/FR-04-accepted`). This note stays `done`; its three open asks are in `pending` (the library list, the signed links of [[D-16 Files load from signed links that expire in 15 minutes]], `usedBy`), so it reads Partial until they ship.

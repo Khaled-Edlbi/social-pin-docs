@@ -4,7 +4,9 @@ code: files
 scope: feature
 feature: files
 module: identity
-status: ready
+status: approved
+approvedBy: "khaled"
+approvedAt: 2026-10-29
 screens: [s14, s20, s24, s36, s29, s30, s31, s44]
 owner: "Omar Fostok"
 depends: ["S-06 Files Upload Story"]
@@ -12,12 +14,12 @@ affects: ["BD-04 Files Upload Backend Delivery"]
 related: ["BI-03 Files Upload Backend Integration", "BI-07 Ring Projection Backend Integration", "BI-09 View As & Pin Views Backend Integration", "FR-06 Photo Library Frontend Requirements", "FR-10 Ring Projection Frontend Requirements", "FR-12 View As & Pin Views Frontend Requirements", "ND-16 Viewer access to file bytes", "D-16 Files load from signed links that expire in 15 minutes", "D-03 Links entered once, switched on or off per Ring", "POST /files", "GET /files", "GET /files/:id", "DELETE /files/:id", "GET /rings/:ringId/projection", "PATCH /rings/:ringId/projection", "POST /rings/:ringId/projection/attachments", "DELETE /rings/:ringId/projection/attachments/:attachmentId", E_FILE_01, E_FILE_02, E_FILE_03, E_FILE_04, E_RING_05]
 created: 2026-10-18
 updated: 2026-10-29
-tags: [frontend-requirements, frontend-requirements/ready, module/identity, layer/frontend]
+tags: [frontend-requirements, frontend-requirements/approved, module/identity, layer/frontend]
 ---
 
 # Files Upload · Frontend Requirements
 
-**Feature:** [[F-04 Files Upload]] · **Status:** 📨 Ready 2026-10-29, waiting on the backend's review · **Story:** [[S-06 Files Upload Story]] · **Backend Integration:** [[BI-03 Files Upload Backend Integration]]
+**Feature:** [[F-04 Files Upload]] · **Status:** 👍 Approved 2026-10-29 by khaled (the backend's review) · **Story:** [[S-06 Files Upload Story]] · **Backend Integration:** [[BI-03 Files Upload Backend Integration]]
 
 What the client needs from the backend to upload, attach, switch on or off, inspect and delete files behind the Ring screens, and whether each need is met today. The multipart shape, the allow-list and the limits are in [[BI-03 Files Upload Backend Integration]].
 
@@ -127,3 +129,7 @@ Until [[S-87 Error Contract Story|Error Contract · S4–S8]] ships, branch on s
 
 - [[D-16 Files load from signed links that expire in 15 minutes]] (decided, not built): every preview, thumbnail, photo and download on s14, s29, s30, s31 and s44 (S7–S11).
 - [[S-11 Photo Library Story|Photo Library · S7]]: listing the library (`GET /files?kind=`), so s20 and s24 can offer files not yet on this Ring, and wizard uploads can be kept on Cancel.
+
+## Sign-off
+
+- Approved by: khaled · on: 2026-10-29 (the backend's review, against `main @ c80ed9d`). The six ✅ rows are on `main` and pass live in [[QB-06 Files Upload QA Backend]] (32 of 32). The three ❌ rows are accepted as asks and sit as `pending` on [[BD-04 Files Upload Backend Delivery]] until they ship; this list shows ✅ Delivered on its own once they are cleared.
