@@ -7,10 +7,7 @@ priority: high
 effort: S
 feature: <feature slug>
 module: <module id>
-# parent: T-NNN            # found against a task: the bug is its sub-task (same feature) and hangs under it; the task cannot be done while the bug is open
-# foundOn: <note name>     # found against any other card (a Backend Integration note, a Frontend Delivery, a story): the bug hangs under that card; parent or foundOn, never both
-# labels: []               # optional: chore | spike | docs | frontend | backend (docs.config.json taskLabels); never bug, type: bug already says it
-labels: []
+foundOn: <note name>       # the card it was found against (a Backend Integration note, a Frontend Delivery, a story), by its note name, code included: the bug hangs under that card
 screens: []
 depends: []
 affects: []

@@ -1,6 +1,6 @@
 ---
 type: map
-updated: 2026-10-26
+updated: 2026-10-28
 tags: [map, design]
 ---
 
@@ -514,8 +514,8 @@ graph LR
 
 ## Flows that cross into unbuilt backend
 
-- **s44 Scanned Pin → s46 Accept → s47 Connection detail**: read is done, Connect is [[Connections]].
-- **s50 Tickets → s51 Payment → s52 Event Ring granted → s53 Event mode**: all [[Events Before]], [[Payments & Orders]], [[Event Ring Auto-creation]].
-- **s55 Exhibitor → s59 Request a meeting → s61 / s67**: [[Meetings]].
-- **s39 → s40 → s42 PinCast**: [[PinCast & Nearby]].
-- **s17 → s74 Join a company Ring**: [[Ring Invitations & Join]], waiting on [[ND-04 Ring settings]].
+- **s44 Scanned Pin → s46 Accept → s47 Connection detail**: read is done, Connect is [[F-14 Connections]].
+- **s50 Tickets → s51 Payment → s52 Event Ring granted → s53 Event mode**: all [[F-22 Events Before]], [[F-27 Payments & Orders]], [[F-21 Event Ring Auto-creation]].
+- **s55 Exhibitor → s59 Request a meeting → s61 / s67**: [[F-26 Meetings]].
+- **s39 → s40 → s42 PinCast**: [[F-20 PinCast & Nearby]].
+- **s17 → s74 Join a company Ring**: [[F-17 Ring Invitations & Join]], waiting on [[ND-04 Ring settings]].

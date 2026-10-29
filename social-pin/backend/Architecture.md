@@ -1,7 +1,7 @@
 ---
 type: project
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-28
 tags: [project]
 layer: backend
 ---
@@ -86,13 +86,13 @@ A service change ships a spec covering every thrown domain error, each query-bui
 
 | Module | Owns | Feature notes |
 |---|---|---|
-| `auth` | sign-up, OTP sign-in, tokens | [[Auth & Sign-up]], [[Auth Model]] |
-| `user` | `/users/me` | [[Account]] |
-| `profile` | profiles, Pin name | [[Profiles & Pin Name]] |
-| `ring` | Rings, members | [[Rings]], [[Ring Members]] |
-| `ring-profile` | projections, `/views` | [[Ring Projection]], [[View As & Pin Views]] |
-| `file` | uploads | [[Files Upload]] |
-| `ring-access` | the engine | [[Ring Access Engine]] |
+| `auth` | sign-up, OTP sign-in, tokens | [[F-02 Auth & Sign-up]], [[Auth Model]] |
+| `user` | `/users/me` | [[F-01 Account]] |
+| `profile` | profiles, Pin name | [[F-07 Profiles & Pin Name]] |
+| `ring` | Rings, members | [[F-11 Rings]], [[F-09 Ring Members]] |
+| `ring-profile` | projections, `/views` | [[F-10 Ring Projection]], [[F-12 View As & Pin Views]] |
+| `file` | uploads | [[F-04 Files Upload]] |
+| `ring-access` | the engine | [[F-08 Ring Access Engine]] |
 
 Every TODO feature becomes a new folder under `src/modules/` and a new row here.
 

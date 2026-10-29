@@ -6,17 +6,17 @@ status: decided
 decidedBy: "molham"
 decidedAt: 2026-10-25
 features: [connections]
-affects: ["Connections", "Connections Story"]
+affects: ["F-14 Connections", "S-23 Connections Story"]
 related: ["ND-17 Request expiry, note and asking again", "D-13 The requester sees a declined request"]
 owner: "khaled"
 created: 2026-10-25
-updated: 2026-10-27
+updated: 2026-10-28
 tags: [decision, decision/decided]
 ---
 
 # ⚖️ D-17 · Requests expire after 30 days, optional note, ask again at once
 
-**Answers:** [[ND-17 Request expiry, note and asking again]] · **Decided by:** molham · **On:** 2026-10-25 · **Feature:** [[Connections]]
+**Answers:** [[ND-17 Request expiry, note and asking again]] · **Decided by:** molham · **On:** 2026-10-25 · **Feature:** [[F-14 Connections]]
 
 > This card is the answer to [[ND-17 Request expiry, note and asking again]]. The needs-decision card keeps the question, the facts and the options; this decision card says what was decided, why, and what it changes. `draft` while the answer is prepared; `decided` only by the PM or the owner, on the user's word, with `decidedBy` and `decidedAt`: then [[ND-17 Request expiry, note and asking again]] shows Fulfilled by itself and the cards it blocked continue.
 
@@ -26,7 +26,7 @@ tags: [decision, decision/decided]
 
 - **Expiry.** A connection request left unanswered **expires after 30 days**. An expired request is closed with no connection; the requester sees it as expired and can ask again.
 - **A note.** A request **may carry a short note** ("We met at TechSummit"), **optional**, at most **200 characters**.
-- **Asking again.** After a decline ([[D-13 The requester sees a declined request]]) or an expiry, the requester **can ask again straight away**; there is no waiting period. A request still pending is not duplicated ([[Connections Story|Connections · S8–S12]] S1).
+- **Asking again.** After a decline ([[D-13 The requester sees a declined request]]) or an expiry, the requester **can ask again straight away**; there is no waiting period. A request still pending is not duplicated ([[S-23 Connections Story|Connections · S8–S12]] S1).
 
 Options 2 (no expiry, no note, a wait after a decline) and 3 (a waiting period after a decline) are ruled out.
 
@@ -36,13 +36,13 @@ Answered on the product-questions page, 2026-10-22 (Q3: expiry "ok" to the sugge
 
 - An expiry stops requests from waiting forever and gives a decline and silence the same end, with a clear status for the requester.
 - A note helps the receiver place someone they met once; keeping it optional keeps a scan-and-connect quick, and 200 characters keeps it a line, not a message.
-- Asking again at once fits a visible decline: the requester can add context and retry. **Traded away:** nothing stops a requester from asking repeatedly; a receiver who does not want that blocks ([[Connections Story|Connections · S25]]).
+- Asking again at once fits a visible decline: the requester can add context and retry. **Traded away:** nothing stops a requester from asking repeatedly; a receiver who does not want that blocks ([[S-23 Connections Story|Connections · S25]]).
 
 ## What it changes
 
-- [[Connections]]: a request is pending, accepted, declined, cancelled or **expired**; it may carry a note.
-- [[Connections Story|Connections · S8–S12]]: `POST /connections/requests` takes an optional note (≤ 200 characters); requests lapse after 30 days; the open questions *Expiry* and *A note* in [[Connections Story|Connections · S8–S12]] are answered.
-- [[Connections Story|Connections · S13–S18]]: [[Connections Story|Connections · S13–S18]] S4's "may ask again later" becomes "may ask again straight away"; the receiver sees the note on the request (s45, s46).
+- [[F-14 Connections]]: a request is pending, accepted, declined, cancelled or **expired**; it may carry a note.
+- [[S-23 Connections Story|Connections · S8–S12]]: `POST /connections/requests` takes an optional note (≤ 200 characters); requests lapse after 30 days; the open questions *Expiry* and *A note* in [[S-23 Connections Story|Connections · S8–S12]] are answered.
+- [[S-23 Connections Story|Connections · S13–S18]]: [[S-23 Connections Story|Connections · S13–S18]] S4's "may ask again later" becomes "may ask again straight away"; the receiver sees the note on the request (s45, s46).
 
 ## Still open
 

@@ -2,7 +2,7 @@
 type: project
 stage: mvp
 created: 2026-10-15
-updated: 2026-10-26
+updated: 2026-10-28
 tags: [project, stage/mvp]
 layer: business
 ---
@@ -18,9 +18,9 @@ Social Pin is a digital-identity app. A person has **one account** and **many Ri
 Four ideas carry the whole product:
 
 1. **Switching Ring re-composes your identity.** The badge, the profile, the QR all change with the active Ring.
-2. **"View as."** The owner sees their profile exactly as a chosen Ring sees it. In the backend this is literally the same code path as the member's view ([[View As & Pin Views]]).
-3. **A connection is an access request.** On accept the owner picks a Ring. Membership is private to the owner; access is live-revocable and can expire ([[Connections]], [[Ring Members]]).
-4. **Events and meetings are Rings too.** Registering for an event grants an Event Ring; a meeting spawns a temporary Ring; afterwards the owner keeps, merges or lets it expire ([[Event Ring Auto-creation]], [[Meetings]], [[Rings]]).
+2. **"View as."** The owner sees their profile exactly as a chosen Ring sees it. In the backend this is literally the same code path as the member's view ([[F-12 View As & Pin Views]]).
+3. **A connection is an access request.** On accept the owner picks a Ring. Membership is private to the owner; access is live-revocable and can expire ([[F-14 Connections]], [[F-09 Ring Members]]).
+4. **Events and meetings are Rings too.** Registering for an event grants an Event Ring; a meeting spawns a temporary Ring; afterwards the owner keeps, merges or lets it expire ([[F-21 Event Ring Auto-creation]], [[F-26 Meetings]], [[F-11 Rings]]).
 
 Surrounding features: a badge / QR bound to the active Ring, PinCast proximity broadcast, nearby-by-Ring, events with tickets and exhibitors, slot-based meetings, companies and shared Rings, notifications, Free vs Pro, and Gemma, the AI layer that suggests Rings, matches and intros.
 

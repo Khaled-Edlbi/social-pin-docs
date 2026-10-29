@@ -3,31 +3,31 @@ type: needs-decision
 id: ND-07
 status: open
 features: [payments, subscription]
-blocks: ["Payments & Orders Story", "Events Before Story", "Subscription (Free vs Pro) Story"]
+blocks: ["S-69 Payments & Orders Story", "S-49 Events Before Story", "S-71 Subscription (Free vs Pro) Story"]
 decider: "owner"
 screens: [s51, s70]
 affects: []
-related: ["Payments & Orders", "Subscription (Free vs Pro)"]
+related: ["F-27 Payments & Orders", "F-28 Subscription (Free vs Pro)"]
 owner: "khaled"
 created: 2026-10-21
-updated: 2026-10-27
+updated: 2026-10-28
 tags: [needs-decision, needs-decision/open]
 ---
 
 # ✅ ND-07 · Payment provider
 
-**Status:** fulfilled (its decision card was decided 2026-10-21 by khaled) · **Decider:** owner · **Raised:** 2026-10-21 · **Needed by:** [[Payments & Orders Story|Payments & Orders · S7]], [[Events Before Story|Events Before · S9]], [[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]] · **Feature:** [[Payments & Orders]], [[Subscription (Free vs Pro)]] · **Module:** [[Commerce Module]]
+**Status:** fulfilled (its decision card was decided 2026-10-21 by khaled) · **Decider:** owner · **Raised:** 2026-10-21 · **Needed by:** [[S-69 Payments & Orders Story|Payments & Orders · S7]], [[S-49 Events Before Story|Events Before · S9]], [[S-71 Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]] · **Feature:** [[F-27 Payments & Orders]], [[F-28 Subscription (Free vs Pro)]] · **Module:** [[M-07 Commerce Module]]
 
 > The cards in `blocks` are **Blocked · ND-07** while this is `draft` or `open` and return to their own status once its decision card (D-07) is decided: this card then shows Fulfilled. Nobody edits their `status:` for this.
 
 ## What has to be decided
 
-Which payment provider Social Pin moves money through, for every purchase in the product: an attendee's ticket, package or sub-event, an exhibitor's package and booth, a user's Pro account, and what the organizer is paid. Until it is chosen, [[Payments & Orders Story|Payments & Orders · S7]] cannot shape the callback that settles an order, [[Events Before Story|Events Before · S9]] cannot finish a registration that includes a payment, and [[Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]] has no channel to bill Pro on. Choosing one provider for all four flows keeps payments one integration; choosing two splits the Pro billing from the event payments and doubles the integration and the audit.
+Which payment provider Social Pin moves money through, for every purchase in the product: an attendee's ticket, package or sub-event, an exhibitor's package and booth, a user's Pro account, and what the organizer is paid. Until it is chosen, [[S-69 Payments & Orders Story|Payments & Orders · S7]] cannot shape the callback that settles an order, [[S-49 Events Before Story|Events Before · S9]] cannot finish a registration that includes a payment, and [[S-71 Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]] has no channel to bill Pro on. Choosing one provider for all four flows keeps payments one integration; choosing two splits the Pro billing from the event payments and doubles the integration and the audit.
 
 ## Notes
 
-- The design asks for payment methods per organizer (card, e-payment and others), a confirmation that grants the Event Ring, and three states the buyer sees: pending, failed, succeeded ([[Wireframe Brief#Tickets, access levels, RSVP, registration, payment|§7.3]]). Exhibitors see booth and payment status ([[Wireframe Brief#Exhibitor journeys (User B)|§9]]). Pro is a recurring account type ([[Subscription (Free vs Pro)]]).
-- The backend has already shaped the order around a `providerReference` that keeps the settlement idempotent ([[Payments & Orders]]); every payment action must be audited ([[Audit Log]]).
+- The design asks for payment methods per organizer (card, e-payment and others), a confirmation that grants the Event Ring, and three states the buyer sees: pending, failed, succeeded ([[Wireframe Brief#Tickets, access levels, RSVP, registration, payment|§7.3]]). Exhibitors see booth and payment status ([[Wireframe Brief#Exhibitor journeys (User B)|§9]]). Pro is a recurring account type ([[F-28 Subscription (Free vs Pro)]]).
+- The backend has already shaped the order around a `providerReference` that keeps the settlement idempotent ([[F-27 Payments & Orders]]); every payment action must be audited ([[F-30 Audit Log]]).
 - The product has four money flows: pay for an order, refund, pay the organizer, pay for Pro. The provider has to carry all four or this card has to say which one it does not.
 - Where the organizers are based decides which providers can pay them out; the product has not written that market down yet.
 - Nothing has been tried: no provider is wired in the backend today.
@@ -40,7 +40,7 @@ Which payment provider Social Pin moves money through, for every purchase in the
 
 ## Responsible
 
-`decider` above: the owner, before the [[Payments & Orders Story]] is approved, after hearing from the backend what the settlement callback needs and from the PM which flow ships first.
+`decider` above: the owner, before the [[S-69 Payments & Orders Story]] is approved, after hearing from the backend what the settlement callback needs and from the PM which flow ships first.
 
 ## Decision
 

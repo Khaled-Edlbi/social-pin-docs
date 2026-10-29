@@ -6,17 +6,17 @@ status: decided
 decidedBy: "molham"
 decidedAt: 2026-10-25
 features: [onboarding-imports, photo-library, profiles, ring-projection]
-affects: ["Profiles & Pin Name", "Ring Projection", "Onboarding Imports", "Photo Library", "Onboarding Imports Story", "Profiles & Pin Name Story", "Ring Projection Story"]
+affects: ["F-07 Profiles & Pin Name", "F-10 Ring Projection", "F-05 Onboarding Imports", "F-06 Photo Library", "S-08 Onboarding Imports Story", "S-14 Profiles & Pin Name Story", "S-17 Ring Projection Story"]
 related: ["ND-02 Base profile work fields", "D-05 Inherit per field, copy without members", "D-03 Links entered once, switched on or off per Ring"]
 owner: "khaled"
 created: 2026-10-25
-updated: 2026-10-27
+updated: 2026-10-28
 tags: [decision, decision/decided]
 ---
 
 # ⚖️ D-02 · One main profile every Ring starts from
 
-**Answers:** [[ND-02 Base profile work fields]] · **Decided by:** molham · **On:** 2026-10-25 · **Feature:** [[Onboarding Imports]], [[Photo Library]], [[Profiles & Pin Name]], [[Ring Projection]]
+**Answers:** [[ND-02 Base profile work fields]] · **Decided by:** molham · **On:** 2026-10-25 · **Feature:** [[F-05 Onboarding Imports]], [[F-06 Photo Library]], [[F-07 Profiles & Pin Name]], [[F-10 Ring Projection]]
 
 > This card is the answer to [[ND-02 Base profile work fields]]. The needs-decision card keeps the question, the facts and the options; this decision card says what was decided, why, and what it changes. `draft` while the answer is prepared; `decided` only by the PM or the owner, on the user's word, with `decidedBy` and `decidedAt`: then [[ND-02 Base profile work fields]] shows Fulfilled by itself and the cards it blocked continue.
 
@@ -49,14 +49,14 @@ Answered on the product-questions page, 2026-10-22, recorded on molham's word on
 
 ## What it changes
 
-- [[Profiles & Pin Name]]: the profile gains headline, role, company, location, photo and bio as main-profile fields; full name is never set per Ring.
-- [[Ring Projection]]: each Ring may change headline, company, location, photo and bio for itself; a field it has not changed shows the main value.
-- [[Onboarding Imports]]: imports (LinkedIn, business card, portfolio URL) fill the main profile, not one Ring; [[Onboarding Imports Story|Onboarding Imports · S7]] and [[Onboarding Imports Story|Onboarding Imports · S8]] are no longer waiting on this decision.
-- [[Photo Library]]: a Ring's photo is the main photo unless the Ring picks another.
-- [[Profiles & Pin Name Story|Profiles & Pin Name · Decide base profile work fields]]: its decision is taken; the PM closes it.
-- [[Ring Projection Story|Ring Projection · Decide copy or inherit]]: the main profile it needed now exists; its own answer is [[D-05 Inherit per field, copy without members]].
+- [[F-07 Profiles & Pin Name]]: the profile gains headline, role, company, location, photo and bio as main-profile fields; full name is never set per Ring.
+- [[F-10 Ring Projection]]: each Ring may change headline, company, location, photo and bio for itself; a field it has not changed shows the main value.
+- [[F-05 Onboarding Imports]]: imports (LinkedIn, business card, portfolio URL) fill the main profile, not one Ring; [[S-08 Onboarding Imports Story|Onboarding Imports · S7]] and [[S-08 Onboarding Imports Story|Onboarding Imports · S8]] are no longer waiting on this decision.
+- [[F-06 Photo Library]]: a Ring's photo is the main photo unless the Ring picks another.
+- [[S-14 Profiles & Pin Name Story|Profiles & Pin Name · Decide base profile work fields]]: its decision is taken; the PM closes it.
+- [[S-17 Ring Projection Story|Ring Projection · Decide copy or inherit]]: the main profile it needed now exists; its own answer is [[D-05 Inherit per field, copy without members]].
 
 ## Still open
 
 - **Role** was not in the per-Ring table. Until product says otherwise, it follows headline (a Ring may change it); a needs-decision card only if someone disagrees.
-- Which main-profile fields an import may overwrite without asking is [[Onboarding Imports]]' story to say.
+- Which main-profile fields an import may overwrite without asking is [[F-05 Onboarding Imports]]' story to say.

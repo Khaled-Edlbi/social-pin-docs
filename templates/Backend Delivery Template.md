@@ -1,6 +1,6 @@
 ---
 type: backend-delivery
-code: <feature id, or T-NNN for a task-level note>
+code: <feature id>
 scope: feature
 feature: <feature id>
 module: <module id>
@@ -9,8 +9,8 @@ screens: []
 depends: []
 affects: []
 related: []
-# priority: high           # optional: inherits the task's or the feature's when absent (critical | high | medium | low)
-# deadline: YYYY-MM-DD      # optional: inherits the task's or the feature's when absent
+# priority: high           # optional: inherits the feature's when absent (critical | high | medium | low)
+# deadline: YYYY-MM-DD      # optional: inherits the feature's when absent
 # pending: ["[[Note]]: what is left", "@who: what is left"]   # done, but a note is left for a card or a person → Partial until cleared
 pending: []
 # deployedTo: where this delivery runs, dev | staging | prod (docs.config.json environments); empty until deployed
@@ -26,7 +26,7 @@ tags: [backend-delivery, backend-delivery/todo, module/<module>, layer/backend]
 
 **Feature:** [[<Feature name>]] · **Status:** To do · **Integration guide:** [[<Feature name> Backend Integration]] · **Requirements:** [[<Feature name> Frontend Requirements]] · **QA:** [[<Feature name> QA Backend]]
 
-Written by the **backend** team: what shipped and how it works, as it **is**. A feature-level note is the sum of its task-level notes (table at the end).
+Written by the **backend** team: what shipped and how it works, as it **is**. One note per feature: a new part of the story adds its rows here.
 
 ## Endpoints, tables and code
 
@@ -48,12 +48,7 @@ Call order, transactions, access checks (every visibility decision goes through 
 
 ### Gaps
 
-- … → [[T-NNN …]]
-
-## Tasks delivered
-
-| Task | Delivery note | Status |
-|---|---|---|
+- … → [[S-NN <Feature name> Story#S<n> · …]] or [[ND-NN …]]
 
 ## Log
 

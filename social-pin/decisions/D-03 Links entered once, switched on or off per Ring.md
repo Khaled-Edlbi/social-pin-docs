@@ -6,17 +6,17 @@ status: decided
 decidedBy: "molham"
 decidedAt: 2026-10-25
 features: [ring-projection, widgets]
-affects: ["Ring Projection", "Widgets", "Widgets Story", "Ring Projection Story"]
+affects: ["F-10 Ring Projection", "F-13 Widgets", "S-20 Widgets Story", "S-17 Ring Projection Story"]
 related: ["ND-03 Field library vs per-Ring copies", "D-02 One main profile every Ring starts from"]
 owner: "khaled"
 created: 2026-10-25
-updated: 2026-10-27
+updated: 2026-10-28
 tags: [decision, decision/decided]
 ---
 
 # ⚖️ D-03 · Links entered once, switched on or off per Ring
 
-**Answers:** [[ND-03 Field library vs per-Ring copies]] · **Decided by:** molham · **On:** 2026-10-25 · **Feature:** [[Ring Projection]], [[Widgets]]
+**Answers:** [[ND-03 Field library vs per-Ring copies]] · **Decided by:** molham · **On:** 2026-10-25 · **Feature:** [[F-10 Ring Projection]], [[F-13 Widgets]]
 
 > This card is the answer to [[ND-03 Field library vs per-Ring copies]]. The needs-decision card keeps the question, the facts and the options; this decision card says what was decided, why, and what it changes. `draft` while the answer is prepared; `decided` only by the PM or the owner, on the user's word, with `decidedBy` and `decidedAt`: then [[ND-03 Field library vs per-Ring copies]] shows Fulfilled by itself and the cards it blocked continue.
 
@@ -37,14 +37,14 @@ Answered on the product-questions page, 2026-10-22, recorded on molham's word on
 
 - s20 and s24 ("4 of 7 on") are drawn on a library; only option A lets that screen be built honestly.
 - On/off only keeps one answer to "what is my LinkedIn" and avoids a link that silently differs between Rings; two different values are two links.
-- Deciding now, before [[Widgets]] is built on the copy model, saves a second migration.
+- Deciding now, before [[F-13 Widgets]] is built on the copy model, saves a second migration.
 - Traded away: a migration (links and info blocks owned by the profile, a per-Ring visibility row) and a rewrite of the projection service, which the needs-decision card had already priced.
 
 ## What it changes
 
-- [[Ring Projection]]: links (and info blocks) belong to the profile; each Ring holds only which of them are on. Hidden rows stay excluded by the query.
-- [[Widgets]]: built on the library from the start; [[Widgets Story|Widgets · S7]] is no longer waiting on this decision.
-- [[Ring Projection Story|Ring Projection · Decide field library vs per-Ring copies]]: its decision is taken; the PM closes it.
+- [[F-10 Ring Projection]]: links (and info blocks) belong to the profile; each Ring holds only which of them are on. Hidden rows stay excluded by the query.
+- [[F-13 Widgets]]: built on the library from the start; [[S-20 Widgets Story|Widgets · S7]] is no longer waiting on this decision.
+- [[S-17 Ring Projection Story|Ring Projection · Decide field library vs per-Ring copies]]: its decision is taken; the PM closes it.
 
 ## Still open
 

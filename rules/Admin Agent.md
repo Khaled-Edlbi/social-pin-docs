@@ -2,7 +2,7 @@
 type: project
 layer: shared
 created: 2026-10-22
-updated: 2026-10-27
+updated: 2026-10-28
 depends: ["Agent Protocol"]
 affects: []
 related: ["Agent Protocol", "Agent Rules", "Workflow", "Docs Tree", "Owner Agent"]
@@ -49,21 +49,13 @@ Say which files you will touch, by path, before touching them. When two readings
 
 ### 4A · Repair the tree
 
-`node scripts/build-tree.mjs --check`, read every error; fix the notes, never the generated files by hand (the build rewrites them: `node scripts/build-tree.mjs`, then `--check` again until it prints 0 errors, 0 warnings, nothing stale). A card code is never changed or reused: a duplicate is resolved by giving the newer card the next free code through the build, not by typing one ([[Agent Rules#2 · Codes, scopes and the "sum of" rule]]).
+`node scripts/build-tree.mjs --check`, read every error. The stale-status warnings and the `stale` lines (a delivery left `in-progress` after its merge, a `done` delivery with no `current` integration, a requirements list `ready` and not reviewed) belong to the layer that owns the card: you move one only when that layer is not acting, and you say so in the card's `## Log`. Then fix the notes, never the generated files by hand (the build rewrites them: `node scripts/build-tree.mjs`, then `--check` again until it prints 0 errors, 0 warnings, nothing stale). A card code is never changed or reused: a duplicate is resolved by giving the newer card the next free code through the build, not by typing one ([[Agent Rules#2 · Codes, scopes and the "sum of" rule]]).
 
 ### 4B · Migrate across layers
 
-**Migrating a feature's legacy tasks** (one story per feature, since 2026-10-27; [[Agent Rules#2 · Codes, scopes and the "sum of" rule]]), one feature at a time, on `docs/admin/<M-NN>-<module-id>/<F-NN>-<feature-id>/merge-tasks`:
+Collect the files first (`--find`, `--impact`, `git grep` for the old name), change them in one pass, keep every `updated:` current, rebuild, `--check`. Wikilinks follow the note name: a renamed note is renamed in every wikilink that points to it, in frontmatter lists too. A card's file name starts with its code ([[Agent Rules#2 · Codes, scopes and the "sum of" rule]]): a rename changes only what follows the code (`F-27 Payments & Orders` → `F-27 Checkout`), and a feature folder, named without the code, is renamed with it.
 
-1. List the feature's tasks, their stories, halves, task-level layer notes and bugs (`--impact <feature-id>`), and every note that links to them (`git grep`).
-2. **Story:** each task story becomes a part of `<Feature> Story` (`### S<n> · …`), its acceptance criteria and open questions kept; the feature story keeps its status unless the user says otherwise.
-3. **Requirements, deliveries, QA:** task-level notes merge into the feature's note of the same kind; a task's open work becomes a `pending` entry on the feature's Backend or Frontend Delivery when that note is done (Partial).
-4. **Decisions:** a needs-decision card that blocked the task or its story now blocks `<Feature> Story` (`blocks:`).
-5. **Bugs:** a bug whose `parent:` was the task names the card it was found against in `foundOn:` instead.
-6. **Delete** the task note, its story and its halves; the build moves their codes to `retired`. **Repoint** every link to them at the feature (`[[<Feature>]]`) or at the story part, in frontmatter lists too.
-7. Rebuild, `--check` with 0 errors; one commit per feature.
-
-Collect the files first (`--find`, `--impact`, `git grep` for the old name), change them in one pass, keep every `updated:` current, rebuild, `--check`. Wikilinks follow the note name: a renamed note is renamed in every wikilink that points to it, in frontmatter lists too.
+**Card codes in file names** (done 2026-10-28 for every module, feature and layer note that existed; `docs/admin/project/card-codes-in-file-names`): when `--check` warns that a card's file name lacks its code, `git mv` it to the name the warning gives and repoint every link to the old name with the build's own `renameLinks` (the one `--scaffold` uses: bodies, escaped table pipes, frontmatter lists, CRLF kept), then rebuild. The codes in `tree/cards.json` never move.
 
 ### 4C · Undo
 
@@ -75,13 +67,13 @@ Overwrite `design/Wireframe Brief.md` with the new copy as delivered. Then `--im
 
 ## 5 · Finish
 
-[[Agent Protocol#5 · Finish]], on a vault branch named after what you did: `docs/admin/project/<what-you-do>` for repairs and rules, `docs/admin/<M-NN>-<module-id>/…` when the change sits in one module, `tickets/admin/…` when it is one ticket card (a task, a story, a Frontend Requirements note, a decision), printed by `node scripts/build-tree.mjs --branch admin <card> <what-you-do>` ([[Workflow#2 · Branch from the feature]]). Commit as `rules(project): <what changed>` for a repair outside the cards, or with the card's own shape when it is one card. Report what you changed, by path, and what the owner has to write as a rule so that the next time a role agent can do it.
+[[Agent Protocol#5 · Finish]], on a vault branch named after what you did: `docs/admin/project/<what-you-do>` for repairs and rules, `docs/admin/<M-NN>-<module-id>/…` when the change sits in one module, `tickets/admin/…` when it is one ticket card (a story, a Frontend Requirements note, a needs-decision card, a bug), printed by `node scripts/build-tree.mjs --branch admin <card> <what-you-do>` ([[Workflow#2 · Branch from the feature]]). Commit as `rules(project): <what changed>` for a repair outside the cards, or with the card's own shape when it is one card. Report what you changed, by path, and what the owner has to write as a rule so that the next time a role agent can do it.
 
 ## 6 · What you never do
 
 [[Agent Rules#7 · What never happens]] still applies to you in substance, and in addition:
 
-- a role agent's ordinary work: a story, a task, a delivery note, a decision, a sign-off, a priority; name the agent and stop;
+- a role agent's ordinary work: a story, a bug, a delivery note, a decision, a sign-off, a priority; name the agent and stop;
 - decide, approve or verify anything: the user's word to `/owner` or `/pm` takes a decision, yours does not ([[Agent Rules#4 · Statuses, blocking and sign-off]]);
 - type a feature's, a module's or the project's status, or edit a generated file by hand instead of rebuilding;
 - stay active longer than the repair: once done, say so, and the user types `/agent off` or the next role.

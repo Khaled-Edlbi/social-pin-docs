@@ -6,17 +6,17 @@ status: decided
 decidedBy: "khaled"
 decidedAt: 2026-10-25
 features: [error-contract]
-affects: ["Error Contract Story", "Agent Rules", "Docs Tree"]
-related: ["ND-19 Where a ticket's layer notes live", "Error Contract Story"]
+affects: ["S-87 Error Contract Story", "Agent Rules", "Docs Tree"]
+related: ["ND-19 Where a ticket's layer notes live", "S-87 Error Contract Story"]
 owner: "khaled"
 created: 2026-10-25
-updated: 2026-10-27
+updated: 2026-10-28
 tags: [decision, decision/decided]
 ---
 
 # ✅ D-19 · A ticket's layer notes live on the parent task
 
-**Answers:** [[ND-19 Where a ticket's layer notes live]] · **Decided by:** khaled · **On:** 2026-10-25 · **Feature:** [[Error Contract]]
+**Answers:** [[ND-19 Where a ticket's layer notes live]] · **Decided by:** khaled · **On:** 2026-10-25 · **Feature:** [[F-35 Error Contract]]
 
 > This card is the answer to [[ND-19 Where a ticket's layer notes live]]. The needs-decision card keeps the question, the facts and the options; this decision card says what was decided, why, and what it changes. `draft` while the answer is prepared; `decided` only by the PM or the owner, on the user's word, with `decidedBy` and `decidedAt`: then [[ND-19 Where a ticket's layer notes live]] shows Fulfilled by itself and the cards it blocked continue.
 
@@ -30,9 +30,9 @@ The ticket's story is one note per ticket, not one per half, and it already name
 
 ## What it changes
 
-- [[Error Contract Story|Error Contract · S4–S8]]: its chain is the one the tree now draws under it; the ticket continues on `T-063 Frontend Requirements`.
-- [[Error Contract Story|Error Contract · S4–S8]] and [[Error Contract Story|Error Contract · S4–S8]]: their *Layer notes* line pointed at `T-063-fe …` / `T-063-be …` cards and now points at the parent's.
-- [[Agent Rules]] §2 says "each half writes its own layer notes (`--scaffold <kind> T-063-fe`)"; that sentence now reads the other way. The *Layer notes* line in `templates/Task Template.md` comes from the same reading. Both are the owner's: the ask is on [[Error Contract Story|Error Contract · S4–S8]]'s log, and the notes carry a flag.
+- [[S-87 Error Contract Story|Error Contract · S4–S8]]: its chain is the one the tree now draws under it; the ticket continues on `T-063 Frontend Requirements`.
+- [[S-87 Error Contract Story|Error Contract · S4–S8]] and [[S-87 Error Contract Story|Error Contract · S4–S8]]: their *Layer notes* line pointed at `T-063-fe …` / `T-063-be …` cards and now points at the parent's.
+- [[Agent Rules]] §2 says "each half writes its own layer notes (`--scaffold <kind> T-063-fe`)"; that sentence now reads the other way. The *Layer notes* line in `templates/Task Template.md` comes from the same reading. Both are the owner's: the ask is on [[S-87 Error Contract Story|Error Contract · S4–S8]]'s log, and the notes carry a flag.
 - `taskFlow.tasks` in `docs.config.json` names parent tasks, which is what it does today (`["T-063"]`).
 
 ## Still open

@@ -111,8 +111,8 @@
   ],
   "cardCodes": {
     "pad": 2,
-    "structural": { "module": "M", "feature": "F", "project": "P", "task": "T", "bug": "B", "needs-decision": "ND", "decision": "D" },
-    "description": "Every card (one Markdown file in the tree) carries one unique code: <prefix>-<number>. A task's, a bug's and a decision's code is its id (T-004, B-01, ND-04); every other card gets the next free number for its kind's prefix, kept in tree/cards.json and listed in Card Index.md; a code is never reused. A bug is its own note type, type: bug (tags bug, bug/<status>): it takes the task statuses, has its own B prefix and number sequence, and hangs under the task it was found against (parent) or the card named in foundOn, never under the feature's story. It is created with node scripts/build-tree.mjs --scaffold bug from templates/Bug Template.md, and its file lives in bugs/B-NN <Title>.md whatever it hangs under. Every card coded by its id starts its file name with that code: tasks/T-NNN, bugs/B-NN, needs-decisions/ND-NN, decisions/D-NN."
+    "structural": { "module": "M", "feature": "F", "project": "P", "bug": "B", "needs-decision": "ND", "decision": "D" },
+    "description": "Every card (one Markdown file in the tree) carries one unique code: <prefix>-<number>. A bug's and a decision's code is its id (B-01, ND-04, D-04); every other card gets the next free number for its kind's prefix, kept in tree/cards.json and listed in Card Index.md; a code is never reused. A bug is its own note type, type: bug (tags bug, bug/<status>): it takes the task statuses, has its own B prefix and number sequence, and hangs under the card named in foundOn (the card it was found against), never under the feature's story. There are no tasks: the work is a part of the feature's story; the retired T- codes stay retired in tree/cards.json. It is created with node scripts/build-tree.mjs --scaffold bug from templates/Bug Template.md, and its file lives in bugs/B-NN <Title>.md whatever it hangs under. Every card's file name starts with its code: bugs/B-NN, needs-decisions/ND-NN, decisions/D-NN, and, since 2026-10-28, modules/<Module>/M-NN <Module> Module.md, features/<Feature>/F-NN <Feature>.md and features/<Feature>/S-NN <Feature> Story.md and features/<Feature>/flow/<PREFIX>-NN <Feature> <Kind>.md (FR, BD, BI, FD, QB, QF); folders carry no code. --scaffold feature and --scaffold <kind> write the card with the next free code and repoint the links written to its plain name; project notes (P) keep their plain names."
   },
   "flow": [
     ["story", "frontend-requirements"],
@@ -127,14 +127,9 @@
   "defaultBlocks": [],
   "frontendOnly": { "skips": ["backend-delivery", "backend-integration", "qa-backend"] },
   "requiredAtFeatureLevel": ["story", "frontend-requirements", "backend-delivery", "backend-integration", "frontend-delivery", "qa-backend", "qa-frontend"],
-  "taskFlow": {
-    "description": "The card flow a task draws under itself: the same chain a feature draws, at task scope, tied to the task's own story. `kinds` are the slots; a slot with no note yet is a dashed placeholder blocked by the card before it, exactly as at feature level. `tasks` says which tasks draw it: a list of task ids turns it on for those only, which is how a change to the flow is tried on one ticket before the vault takes it; \"all\" turns it on for every task. A task whose feature is frontendOnly skips the kinds in frontendOnly.skips.",
-    "kinds": ["story", "frontend-requirements", "backend-delivery", "backend-integration", "frontend-delivery", "qa-backend", "qa-frontend"],
-    "tasks": ["T-063"]
-  },
-  "taskLabels": ["chore", "spike", "docs", "frontend", "backend"],
+  "flowFolder": { "description": "Where a feature's layer notes live: the feature card and the kinds in except (its story) sit in the feature's folder, every other layer note in its subfolder named folder (modules/<Module>/features/<Feature>/flow/FR-NN <Feature> Frontend Requirements.md). The build warns on a note anywhere else; --scaffold <kind> writes it there.", "folder": "flow", "except": ["story"] },
   "priorities": {
-    "description": "The priority enum every card may carry (priority: <id> in frontmatter, mirrored by the tag priority/<id>). A layer note without one inherits its task's or feature's; a sub-task its parent's. The tree draws it as a flag in the level's colour. aliases are the old P-codes, accepted with a warning.",
+    "description": "The priority enum every card may carry (priority: <id> in frontmatter, mirrored by the tag priority/<id>). A layer note or a bug without one inherits its feature's. The tree draws it as a flag in the level's colour. aliases are the old P-codes, accepted with a warning.",
     "levels": [
       { "id": "critical", "label": "Critical", "color": "#dc2626", "aliases": ["P0"], "description": "Launch blocker: nothing ships without it." },
       { "id": "high", "label": "High", "color": "#f97316", "aliases": ["P1"], "description": "Needed for the release; scheduled next." },
@@ -153,7 +148,7 @@
     ]
   },
   "deadlines": {
-    "description": "deadline: YYYY-MM-DD on any card (a layer note inherits its task's or feature's). The tree colours a clock by how much of the last windowDays is left, split evenly over zones from farthest to nearest: with windowDays 3, more than two days left is on track (green), the day before is due soon (yellow), the deadline day is the last day (red); after it the card is missed (skull). The colour is computed when the page is viewed, never written into the generated files.",
+    "description": "deadline: YYYY-MM-DD on any card (a layer note or a bug inherits its feature's). The tree colours a clock by how much of the last windowDays is left, split evenly over zones from farthest to nearest: with windowDays 3, more than two days left is on track (green), the day before is due soon (yellow), the deadline day is the last day (red); after it the card is missed (skull). The colour is computed when the page is viewed, never written into the generated files.",
     "windowDays": 3,
     "zones": [
       { "id": "on-track", "label": "On track", "color": "#16a34a" },
@@ -161,6 +156,10 @@
       { "id": "last-day", "label": "Last day", "color": "#dc2626" }
     ],
     "missed": { "id": "missed", "label": "Missed", "color": "#6b7280", "icon": "💀" }
+  },
+  "staleness": {
+    "description": "Statuses the work has moved past, which the build reports so nobody has to remember them (rules/Agent Rules.md §4, Status transitions). A Frontend Requirements list `ready` for readyDays or more since its `updated:` date is printed as `stale` on every build: the backend has not approved it or sent it back. It depends on today's date, so it is printed only, never written into the generated files; the content-based checks (a Backend Delivery still in-progress after its merge, a done one with no current Backend Integration) are ordinary warnings.",
+    "readyDays": 3
   },
   "stages": {
     "description": "Where the product is in its life, typed by the owner as stage: <id> in business/Project Overview.md and drawn as a chip on the project card beside its computed status. A stage is never computed; exit is the test that moves it to the next one. requiresRelease names a release target whose features must all be Done before the stage is typed: the build warns when they are not.",
@@ -174,7 +173,7 @@
     ]
   },
   "releases": {
-    "description": "The release a feature is scoped to: release: <id> on the feature card, mirrored by the tag release/<id>; its layer notes and tasks inherit it. The project card counts, per target, the features Done out of the total. A feature without one shows as No release.",
+    "description": "The release a feature is scoped to: release: <id> on the feature card, mirrored by the tag release/<id>; its layer notes and bugs inherit it. The project card counts, per target, the features Done out of the total. A feature without one shows as No release.",
     "targets": [
       { "id": "mvp", "label": "MVP", "color": "#0ea5e9", "description": "In the first release: nothing ships without it." },
       { "id": "v1", "label": "v1", "color": "#8b5cf6", "description": "The release after the MVP." },
@@ -191,8 +190,8 @@
     ]
   },
   "branches": {
-    "description": "Vault branches, for every agent: <prefix>/<agent>/<M-NN>-<module-id>/<F-NN>-<feature-id>/<card>-<what-you-do>, printed by node scripts/build-tree.mjs --branch <agent> <card> [<what>]. The prefix is tickets for the cards that ask for or plan work (the kinds listed under tickets), docs for the archive of what is (every other card, the rules and the reference notes). Code repositories keep <module>/<T-NNN>/<what-you-do> (rules/Workflow.md §2).",
-    "tickets": ["task", "bug", "story", "frontend-requirements", "needs-decision"],
+    "description": "Vault branches, for every agent: <prefix>/<agent>/<M-NN>-<module-id>/<F-NN>-<feature-id>/<card>-<what-you-do>, printed by node scripts/build-tree.mjs --branch <agent> <card> [<what>]. The prefix is tickets for the cards that ask for or plan work (the kinds listed under tickets), docs for the archive of what is (every other card, the rules and the reference notes). Code repositories use <module>/<F-NN>/<what-you-do> (rules/Workflow.md §2).",
+    "tickets": ["bug", "story", "frontend-requirements", "needs-decision"],
     "default": "docs"
   },
   "modules": [
@@ -212,7 +211,7 @@
     { "id": "shared", "folder": "rules", "label": "Project rules", "description": "The workflow, the agent rules and the docs tree: rules every layer follows." }
   ],
   "agents": {
-    "description": "The agents that edit this vault, one per role, invoked as /<id> in Claude Code (.claude/skills/<id>/SKILL.md loads the note). Each one writes only what its `writes` block names: `types` (structural note types; `bug` is a bug card, type: bug),`kinds` (layer-note kinds, feature- and task-level), `taskLabels` (task notes carrying one of these labels), `paths` (globs; `except` removes); `editOnly` is the same but Edit only, never a rewrite or a new file. `signs` are the kinds where the agent may change only the sign-off lines (status, approvedBy / approvedAt, decidedBy / decidedAt, updated, tags, the H1); `fields` the frontmatter keys it may set on any card. Every agent raises the needs-decision card its own card needs (`needs-decision` in its `types`), but only an agent with `decision` in `signs` may set a decision card's status, decidedBy or decidedAt, and only such an agent writes the decision card that takes it (`decision` in its `types`): the answer lives on that card, D-NN for ND-NN, never in the decision card (rules/Agent Rules.md §4). Every agent may add a flag line (> ⚠ Affected by …) under any note's H1; nobody edits a generated file or design/Wireframe Brief.md. One entry may set `writes.all: true` instead (the admin, /admin): the guard then refuses it nothing, generated files and the brief included; it is the user's own hand for repairs, not a role. While no agent is active every write is refused and the agent asks which one to use. The hook in .claude/settings.json runs scripts/agent-guard.mjs to enforce this; the shared protocol is rules/Agent Protocol.md.",
+    "description": "The agents that edit this vault, one per role, invoked as /<id> in Claude Code (.claude/skills/<id>/SKILL.md loads the note). Each one writes only what its `writes` block names: `types` (structural note types; `bug` is a bug card, type: bug),`kinds` (layer-note kinds), `paths` (globs; `except` removes); `editOnly` is the same but Edit only, never a rewrite or a new file. `signs` are the kinds where the agent may change only the sign-off lines (status, approvedBy / approvedAt, decidedBy / decidedAt, updated, tags, the H1); `fields` the frontmatter keys it may set on any card. Every agent raises the needs-decision card its own card needs (`needs-decision` in its `types`), but only an agent with `decision` in `signs` may set a decision card's status, decidedBy or decidedAt, and only such an agent writes the decision card that takes it (`decision` in its `types`): the answer lives on that card, D-NN for ND-NN, never in the decision card (rules/Agent Rules.md §4). Every agent may add a flag line (> ⚠ Affected by …) under any note's H1; nobody edits a generated file or design/Wireframe Brief.md. One entry may set `writes.all: true` instead (the admin, /admin): the guard then refuses it nothing, generated files and the brief included; it is the user's own hand for repairs, not a role. While no agent is active every write is refused and the agent asks which one to use. The hook in .claude/settings.json runs scripts/agent-guard.mjs to enforce this; the shared protocol is rules/Agent Protocol.md.",
     "marker": ".claude/.active-agent",
     "protocol": "rules/Agent Protocol.md",
     "reservedFields": {
@@ -236,7 +235,7 @@
         "label": "Product manager",
         "note": "rules/PM Agent.md",
         "layer": "business",
-        "writes": { "types": ["feature", "task", "bug", "needs-decision", "decision", "module"], "kinds": ["story"], "taskLabels": ["chore", "spike", "docs"], "paths": ["social-pin/business/**", "social-pin/decisions/Decisions.md", "social-pin/design/Screen Index.md", "Home.md"] },
+        "writes": { "types": ["feature", "bug", "needs-decision", "decision", "module"], "kinds": ["story"], "paths": ["social-pin/business/**", "social-pin/decisions/Decisions.md", "social-pin/design/Screen Index.md", "Home.md"] },
         "signs": ["story", "frontend-requirements", "decision"]
       },
       {
@@ -244,7 +243,7 @@
         "label": "Backend",
         "note": "rules/Backend Agent.md",
         "layer": "backend",
-        "writes": { "types": ["needs-decision"], "kinds": ["backend-delivery", "backend-integration"], "taskLabels": ["backend"], "paths": ["social-pin/backend/**", "social-pin/frontend/Frontend API Guide.md"], "editOnly": { "kinds": ["frontend-requirements"], "types": ["feature", "module"] } },
+        "writes": { "types": ["needs-decision"], "kinds": ["backend-delivery", "backend-integration"], "paths": ["social-pin/backend/**", "social-pin/frontend/Frontend API Guide.md"], "editOnly": { "kinds": ["frontend-requirements"], "types": ["feature", "module"] } },
         "signs": ["frontend-requirements"]
       },
       {
@@ -252,7 +251,7 @@
         "label": "Frontend",
         "note": "rules/Frontend Agent.md",
         "layer": "frontend",
-        "writes": { "types": ["needs-decision"], "kinds": ["frontend-requirements", "frontend-delivery"], "taskLabels": ["frontend"], "paths": ["social-pin/frontend/**"], "except": ["social-pin/frontend/Frontend API Guide.md"] }
+        "writes": { "types": ["needs-decision"], "kinds": ["frontend-requirements", "frontend-delivery"], "paths": ["social-pin/frontend/**"], "except": ["social-pin/frontend/Frontend API Guide.md"] }
       },
       {
         "id": "qa",

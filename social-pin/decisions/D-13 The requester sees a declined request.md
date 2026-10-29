@@ -6,17 +6,17 @@ status: decided
 decidedBy: "molham"
 decidedAt: 2026-10-25
 features: [connections]
-affects: ["Connections", "Connections Story"]
+affects: ["F-14 Connections", "S-23 Connections Story"]
 related: ["ND-13 Whether the requester sees a declined request", "ND-17 Request expiry, note and asking again"]
 owner: "khaled"
 created: 2026-10-25
-updated: 2026-10-27
+updated: 2026-10-28
 tags: [decision, decision/decided]
 ---
 
 # ⚖️ D-13 · The requester sees a declined request
 
-**Answers:** [[ND-13 Whether the requester sees a declined request]] · **Decided by:** molham · **On:** 2026-10-25 · **Feature:** [[Connections]]
+**Answers:** [[ND-13 Whether the requester sees a declined request]] · **Decided by:** molham · **On:** 2026-10-25 · **Feature:** [[F-14 Connections]]
 
 > This card is the answer to [[ND-13 Whether the requester sees a declined request]]. The needs-decision card keeps the question, the facts and the options; this decision card says what was decided, why, and what it changes. `draft` while the answer is prepared; `decided` only by the PM or the owner, on the user's word, with `decidedBy` and `decidedAt`: then [[ND-13 Whether the requester sees a declined request]] shows Fulfilled by itself and the cards it blocked continue.
 
@@ -32,13 +32,13 @@ Answered on the product-questions page, 2026-10-22 ("yes visible"), recorded on 
 
 - Product chose clarity for the requester over hiding the refusal: a person waiting on a request that will never be answered is the worse experience.
 - With asking again allowed straight away, a visible decline is the requester's signal to try again (with a note) or move on.
-- Traded away: the receiver's decline is no longer private; the requester knows they were turned down. A block still reads as "This profile isn't available to you", never as a decline ([[Connections Story|Connections · S8–S12]] S2), so a person who wants to stay invisible blocks rather than declines.
+- Traded away: the receiver's decline is no longer private; the requester knows they were turned down. A block still reads as "This profile isn't available to you", never as a decline ([[S-23 Connections Story|Connections · S8–S12]] S2), so a person who wants to stay invisible blocks rather than declines.
 
 ## What it changes
 
-- [[Connections]]: a request is pending, accepted, declined, cancelled or expired, and the requester sees each of them.
-- [[Connections Story|Connections · S8–S12]]: `GET /connections/requests?direction=sent` returns declined requests with that status; s44's button shows the decline and offers *Connect* again; the open question *Request statuses* in [[Connections Story|Connections · S8–S12]] is answered.
-- [[Connections Story|Connections · S13–S18]]: the decline path closes the request as **declined, visible to the requester**; [[Connections Story|Connections · S13–S18]] S4's "The requester isn't told it was declined" is reversed.
+- [[F-14 Connections]]: a request is pending, accepted, declined, cancelled or expired, and the requester sees each of them.
+- [[S-23 Connections Story|Connections · S8–S12]]: `GET /connections/requests?direction=sent` returns declined requests with that status; s44's button shows the decline and offers *Connect* again; the open question *Request statuses* in [[S-23 Connections Story|Connections · S8–S12]] is answered.
+- [[S-23 Connections Story|Connections · S13–S18]]: the decline path closes the request as **declined, visible to the requester**; [[S-23 Connections Story|Connections · S13–S18]] S4's "The requester isn't told it was declined" is reversed.
 
 ## Still open
 

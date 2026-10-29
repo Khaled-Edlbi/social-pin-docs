@@ -1,0 +1,141 @@
+---
+type: qa-backend
+code: account
+scope: feature
+feature: account
+module: identity
+status: passing
+priority: critical
+screens: [s68]
+depends: ["BD-01 Account Backend Delivery", "S-01 Account Story"]
+affects: []
+related: ["BI-01 Account Backend Integration", "BI-02 Auth & Sign-up Backend Integration", "BD-35 Error Contract Backend Delivery", "BI-04 Profiles & Pin Name Backend Integration", "BI-07 Ring Projection Backend Integration", "S-87 Error Contract Story", "B-01 An unverified changed email still signs in", "B-02 Deleted account answers 401, not the documented 404 E_USER_01"]
+pending: []
+created: 2026-10-26
+updated: 2026-10-28
+tags: [qa-backend, qa-backend/passing, module/identity, layer/qa, priority/critical]
+---
+
+# 🧪 Account · QA Backend
+
+**Feature:** [[F-01 Account]] · **Verifies:** [[BD-01 Account Backend Delivery]] against [[S-01 Account Story]] and [[FR-01 Account Frontend Requirements]] · **Verdict:** ✅ Passing · 2026-10-26 · `main @ b4984d6 · localhost:3001, Node 22.22.2`
+
+Expected behaviour of the API, as artefacts a person can check a build against: tables and diagrams, **not test code** (the specs live in the backend repo). `status: passing` or `failing` after a run; the verdict tells the PM whether the story can be fulfilled (passing with nothing pending).
+
+## Scope
+
+**Covered.** The three account endpoints of [[BI-01 Account Backend Integration]] — `GET /users/me`, `PATCH /users/me`, `DELETE /users/me` — their shapes, their normalisation and uniqueness rules, their error rows, the auth scopes that guard them, and the two sibling reads the Me header is composed from (`GET /profiles`, `GET /rings`), checked only for the fields s68 needs.
+
+**Not covered.** The composition itself and every piece of copy (s68 is [[QF-04 Account QA Frontend]]'s). The sign-up and sign-in flows beyond what it takes to hold a session and to prove an address was released ([[F-02 Auth & Sign-up]] owns them). The Pro upgrade (s70, no backend). Connection counts, linked accounts, devices and subscriptions, all absent by design — see *Not available yet* in [[BI-01 Account Backend Integration]].
+
+**Test data.** Two throwaway accounts created and soft-deleted inside the run, `qa-bi01-a-20261026@test.local` (renamed to `…-a2-…` by B6) and `qa-bi01-b-20261026@test.local`. Rows B17 and B18 left two PENDING sign-ups on the released address and phone; they never completed registration and hold no Ring. The B14 / B21 re-run added two more, both soft-deleted at the end of the run: `qa-b02-a-183542@test.local` (deleted by B14) and `qa-b02-b-183542@test.local` (suspended by B21 through the seeded `admin@socialpin.test`, reinstated, then deleted). The B9 re-run added `qa-b02-c-183858@test.local`, changed to `qa-b01-c2-183858@test.local` and a `+44 20 718…` number, then deleted.
+
+## Expected behaviour
+
+Every row is one criterion of [[S-01 Account Story]], checked against the build named in the verdict. ✅ as expected · 🔴 differs · ⬜ not run.
+
+### `GET /users/me` — S1 Open Me / Account
+
+| # | Given | When | Then | Checked |
+|---|---|---|---|---|
+| B1 | a signed-in account | `GET /users/me` with the access token | 200 and exactly `id`, `email`, `phone`, `status`, `accountType`, `role`, `emailVerifiedAt`, `phoneVerifiedAt`, `lastLoginAt`, `createdAt`, `updatedAt` | ✅ |
+| B2 | any account | `GET /users/me` | the body carries **no password field of any kind**, and no name and no photo | ✅ |
+| B3 | a fresh sign-up | `GET /users/me` | `status: "ACTIVE"`, `accountType: "FREE"`, `role: "USER"`, `phone: null`, `lastLoginAt: null`, `emailVerifiedAt` set by the sign-up code | ✅ |
+| B4 | that account signs in once | `GET /users/me` | `lastLoginAt` now carries the sign-in instant | ✅ |
+| B5 | the Me header's other two sources | `GET /profiles` and `GET /rings` | `data[0]` is the default profile (`isDefault: true`, `pinName`, `fullName`, and `birthdate` / `gender` / `maritalStatus` for the S5 privacy row) and the default Ring (`isDefault: true`, `profileId` pointing at it) | ✅ |
+
+### `PATCH /users/me` — S2 Change the email, S3 Change the phone
+
+| # | Given | When | Then | Checked |
+|---|---|---|---|---|
+| B6 | a verified email | `PATCH { email: "  QA-BI01-A2-…@Test.Local  " }` | 200; the stored email is trimmed and lower-cased, and `emailVerifiedAt` is back to `null` | ✅ |
+| B7 | a free number | `PATCH { phone: "+442071838751" }` and `PATCH { phone: "+44 20 7183 8751" }` | 200 both times; stored as E.164, spaces removed, `phoneVerifiedAt` stays `null` | ✅ |
+| B8 | the account's own current email | `PATCH { email: <the same value> }` | 200, not a 409 against itself | ✅ |
+| B9 | an email, then a phone, changed through `PATCH /users/me` and therefore **unverified** (`…VerifiedAt: null`) | `POST /auth/login` then `POST /auth/login/verify` with the new destination | 201 with a `devCode`, then a full session: an unverified changed destination signs in at once, by decision ([[D-20 The changed address still signs in, the words are corrected]]). The released old address answers 201 with **no** `devCode` | ✅ (was 🔴, [[B-01 An unverified changed email still signs in]], by design) |
+| B10 | the same account | `PATCH {}` (nothing to change) | 200 and the account unchanged — a no-op, not a 400 | ✅ |
+| B11 | any account | `PATCH { accountType, role, status }` | 400, one `message` entry per rejected key (`property … should not exist`): the whitelist keeps privilege off the route | ✅ |
+| B12 | any account | `PATCH { email: "not-an-email" }` or `{ email: null }` | 400 `["email must be an email"]`, nothing written | ✅ |
+| B13 | an address held by another account | `PATCH { email: <theirs> }` / `PATCH { phone: <theirs> }` | 409 "That email is already in use" / "That phone number is already in use" | ✅ |
+
+### `DELETE /users/me` — S4 Delete the account
+
+| # | Given | When | Then | Checked |
+|---|---|---|---|---|
+| B14 | a signed-in account | `DELETE /users/me`, then any call with the same access token | 200 with an empty body on the delete, then **404 "User not found"** (`E_USER_01`) on `GET /users/me`, `GET /rings`, `GET /profiles` and `PATCH /users/me`, not the 401 a suspended account gets | ✅ (was 🔴, [[B-02 Deleted account answers 401, not the documented 404 E_USER_01]]) |
+| B15 | the deleted account's tokens | `POST /auth/refresh` with its refresh token | 401 "Refresh token is no longer valid. Sign in again." — every session revoked in the same transaction | ✅ |
+| B16 | the deleted account's address | `POST /auth/login` with it | 201 with **no `devCode`**: the server does not say the account is gone | ✅ |
+| B17 | the released email | `POST /auth/sign-up` with it | 201 with a `devCode`: the address is free to sign up again | ✅ |
+| B18 | the released phone | `POST /auth/sign-up` with it | 201 with a `devCode`: the number is free too | ✅ |
+
+### Access and scope
+
+| # | Given | When | Then | Checked |
+|---|---|---|---|---|
+| B19 | no token, a malformed token, or the **refresh** token | `GET`, `PATCH` or `DELETE /users/me` | 401 every time; the refresh scope is rejected on an API route | ✅ |
+| B20 | any signed-in account | `GET /users/:id` with its own id | 404: there is no such route, by design | ✅ |
+| B21 | an account suspended by `PATCH /admin/users/:id/status { status: "SUSPENDED" }` | any call with its access token; `POST /auth/refresh`; `POST /auth/login/verify` | 401 "Account is not active" (`E_AUTH_03`) on `GET /users/me` and `GET /rings`; 401 "Refresh token is no longer valid" on refresh (the suspension revoked it); 403 "This account is not active" on sign-in | ✅ |
+
+## State diagram
+
+The account states `GET /users/me` can report, and what each one does to a call.
+
+```mermaid
+stateDiagram-v2
+  [*] --> PENDING: POST /auth/sign-up
+  PENDING --> ACTIVE: POST /auth/complete-registration
+  ACTIVE --> ACTIVE: PATCH /users/me (email or phone, verified flag cleared)
+  ACTIVE --> SUSPENDED: PATCH /admin/users/:id/status (sessions revoked)
+  SUSPENDED --> ACTIVE: PATCH /admin/users/:id/status
+  ACTIVE --> DELETED: DELETE /users/me (soft, sessions revoked)
+  SUSPENDED --> [*]: every call 401 "Account is not active" (E_AUTH_03)
+  DELETED --> [*]: every call 404 "User not found" (E_USER_01); email and phone released
+```
+
+A `PENDING` account holds no session: `login/verify` answers 403 `E_AUTH_03` for it, the same message a suspended one gets ([[BI-02 Auth & Sign-up Backend Integration]]).
+
+## Error matrix
+
+What the three endpoints actually answer on this build. The `ErrorCode` column is what [[BI-01 Account Backend Integration]] promises; **no response body on this build carries it** — a known gap of [[BD-35 Error Contract Backend Delivery]], tracked as [[S-87 Error Contract Story|Error Contract · S4–S8]]. Until it lands, a client branches on status plus endpoint, never on a code.
+
+| Situation | Status | ErrorCode (promised) | Body on the wire | Row |
+|---|---|---|---|---|
+| email already on another account | 409 | `E_USER_02` | `{statusCode: 409, message: "That email is already in use", error: "HttpException", path, timestamp}` | B13 ✅ |
+| phone already on another account | 409 | `E_USER_03` | `{… "That phone number is already in use" …}` | B13 ✅ |
+| the account no longer exists (deleted) | 404 | `E_USER_01` | `{statusCode: 404, message: "User not found", error: "HttpException", …}` | B14 ✅ |
+| suspended account on any later call | 401 | `E_AUTH_03` | `{statusCode: 401, message: "Account is not active", error: "HttpException", …}` | B21 ✅ |
+| no, malformed or wrong-scope token | 401 | `E_AUTH_04` | `{statusCode: 401, message: "Unauthorized", error: "UnauthorizedException", …}` | B19 ✅ |
+| a field that fails validation | 400 | — | `message` is a **string array**, one entry per constraint | B12 ✅ |
+| a body key that is not `email` or `phone` | 400 | — | `message: ["property <key> should not exist"]` | B11 ✅ |
+
+Two bodies carry the sign-out meaning, and since [[B-02 Deleted account answers 401, not the documented 404 E_USER_01]] they differ by status: a deleted account reads `404 "User not found"`, a suspended one `401 "Account is not active"`. The client can tell them apart by status alone, before [[S-87 Error Contract Story|Error Contract · S4–S8]] puts the code on the wire. Both are a sign-out, which is what S4 and S6 ask for.
+
+## Privacy and access checks
+
+- `GET /users/:id` and user search do not exist: another person is reachable only through a Ring projection (B20 ✅).
+- `PATCH /users/me` cannot touch `accountType`, `role` or `status`: the whitelist answers 400 before anything is written, so there is no self-promotion to `PRO` or `ADMIN` (B11 ✅).
+- `POST /auth/login` on an unknown, deleted or never-registered address answers 201 with no `devCode`, so the response never reveals whether an account exists (B16 ✅).
+- No code, token or password is in any account response (B2 ✅).
+- **Standing caveat, not a row:** while `devCode` is returned in every environment, knowing an address is enough to sign in as it ([[BI-01 Account Backend Integration]], [[S-78 Code Delivery Story|Code Delivery · S8]]). Every privacy result above holds only against a caller who does not know the address.
+- **Tester trap:** the North-American `+1 555 555 01xx` range is rejected as "phone must be a valid phone number". That is correct E.164 validation of a reserved fictional range, not a defect; use a real-shaped number such as `+442071838750`.
+
+## Verdict
+
+- **B9 re-run on:** 2026-10-26 · **build:** `main @ b4984d6 · localhost:3001, Node 22.22.2` · **result:** ✅ **passing** · 21 of 21 rows as expected, nothing pending. B9 now checks what [[BD-01 Account Backend Delivery]] and [[BI-01 Account Backend Integration]] say since their correction: a changed email and a changed phone stay unverified and both sign in at once ([[D-20 The changed address still signs in, the words are corrected]]). [[B-01 An unverified changed email still signs in]]'s B9 item cleared.
+- **Re-run on:** 2026-10-26 · **build:** `main @ b4984d6 · localhost:3001, Node 22.22.2` · **rows:** B14, B15, B16, B19, B21 · **result:** 🔴 **failing on B9 alone** · 20 of 21 rows as expected, 1 differs, none unrun.
+- **B14 — fixed.** A deleted account's old access token now answers `404 "User not found"` on `/users/me` (GET and PATCH), `/rings` and `/profiles`. [[B-02 Deleted account answers 401, not the documented 404 E_USER_01]] closed as `fixed`.
+- **B21 — run, as expected.** [[S-117 Operator Panel Story|Operator Panel · S3]] shipped the suspend route; a suspended account answers 401 on every call, its refresh token is dead, and sign-in is a 403.
+- **B9 — still open.** Its expectation is withdrawn by [[D-20 The changed address still signs in, the words are corrected]], but [[BD-01 Account Backend Delivery]] and [[BI-01 Account Backend Integration]] still carry the old sentence ([[B-01 An unverified changed email still signs in]]'s pending, `/backend`). Re-run once they are corrected.
+- **Tester trap: the dev server on `localhost:3000` was running under Node 18.18**, the version nvm had active. Prisma 7 needs Node 20.19 or later: on 18, every request that creates a row (sign-up, sign-in, refresh) answers `500 Internal server error` with `crypto is not defined` in the log. The run was made on the same checkout and database under Node 22.22.2 on port 3001. Not a defect of the build; `package.json` declares no `engines`, so nothing warns.
+- **First run:** 2026-10-26 · **build:** `dev 2026-10-26 · localhost:3000` (no commit recorded) · **result:** 🔴 **failing** · 19 of 21 rows as expected, 2 differ, 1 not run.
+- **B9 — an unverified, changed email signs in immediately.** [[BD-01 Account Backend Delivery]] and [[S-01 Account Story]] both state that clearing `…VerifiedAt` means the address must be proven again before it can be used to sign in. It is not: `POST /auth/login` issues a code for the new address and `POST /auth/login/verify` returns a full session. Either the backend gates sign-in on `emailVerifiedAt` / `phoneVerifiedAt`, or both notes and S2's copy are corrected to say the new address works for sign-in at once. Filed as [[B-01 An unverified changed email still signs in]], flagged on the delivery note; the backend's to settle.
+- **B14 — the delete answers 401, not the documented 404.** [[BI-01 Account Backend Integration]]'s error matrix tells the client to handle `404 E_USER_01` as a sign-out state. The guard rejects a `DELETED` account before any handler runs, so the 404 row cannot be reached and the client only ever sees `401 "Account is not active"`. The sign-out behaviour is correct; the contract row is wrong. Filed as [[B-02 Deleted account answers 401, not the documented 404 E_USER_01]], flagged on the integration note.
+- **B21 — not run.** Nothing can suspend an account until [[S-117 Operator Panel Story|Operator Panel · S3]] ships. The row stays open.
+- Everything the feature actually ships — the account shape with no password, normalisation, the verified flags, both uniqueness conflicts, the whitelist, the soft delete with its session revocation and its release of the email and the phone — behaved as [[BD-01 Account Backend Delivery]] describes.
+- **[[S-01 Account Story]] (S-01) is not ready to fulfil:** the backend side is clear, but [[QF-04 Account QA Frontend]] still has open rows (F10, F15 and others in its `pending`), and the story waits on the owner's re-approval of S2 and S3.
+
+## Log
+
+- 2026-10-26 · first run against the local dev server; B9 and B14 differ from the notes, B21 unrun. Flagged [[BD-01 Account Backend Delivery]] and [[BI-01 Account Backend Integration]].
+- 2026-10-26 · B9 filed as [[B-01 An unverified changed email still signs in]], B14 as [[B-02 Deleted account answers 401, not the documented 404 E_USER_01]], both under [[F-01 Account]] with no parent task (the findings are feature-level, [[Agent Rules#2 · Codes, scopes and the "sum of" rule]]). They replace T-074 and T-075, withdrawn the same day and their codes retired.
+- 2026-10-26 · branch `tickets/qa/M-01-identity/F-01-account/B-02-fixed` · re-ran B14, B15, B16, B19 and B21 on `main @ b4984d6` (localhost:3001, Node 22.22.2): B14 ✅ now 404, B21 ✅ now runnable. [[B-02 Deleted account answers 401, not the documented 404 E_USER_01]] closed `fixed`; B-02 and B21 cleared from `pending`. B9 stays open on [[B-01 An unverified changed email still signs in]]'s backend corrections. localhost:3000 was on Node 18.18 and answered 500 to every write.
+- 2026-10-26 · same branch · re-ran B9 on `main @ b4984d6` (localhost:3001, Node 22.22.2) against the corrected backend notes: ✅ by design (D-20). B-01's B9 item cleared; `pending` empty; verdict ✅ passing.

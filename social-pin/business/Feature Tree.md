@@ -1,7 +1,7 @@
 ---
 type: map
 created: 2026-10-15
-updated: 2026-10-27
+updated: 2026-10-28
 tags: [map]
 layer: business
 ---
@@ -78,19 +78,19 @@ Account, profile, Rings, what each Ring shows, and the access engine. The part o
 
 | Feature | Status | Priority | Screens | Open tasks |
 |---|---|---|---|---|
-| [[Auth & Sign-up]] | ✅ Done | Critical | s01, s02, s06, s08, s68 | 0 |
-| [[Account]] | ✅ Done | Critical | s68 | 0 |
-| [[Profiles & Pin Name]] | ✅ Done | Critical | s06 | 0 |
-| [[Rings]] | ✅ Done | Critical | s08, s09, s16, s17, s18, s19, s20, s21, s22, s26, s62 | 0 |
-| [[Ring Members]] | ✅ Done | Critical | s15, s47 | 0 |
-| [[Ring Projection]] | ✅ Done | Critical | s14, s20, s23, s24, s25, s29, s36 | 0 |
-| [[View As & Pin Views]] | ✅ Done | Critical | s10, s31, s44 | 0 |
-| [[Files Upload]] | ✅ Done | High | s14, s20, s36 | 0 |
-| [[Ring Access Engine]] | ✅ Done | Critical | — | 0 |
-| [[Counts]] | 🟡 Partial (needs more) | High | s11, s12, s14, s16, s17, s68 | 0 |
-| [[Photo Library]] | 🟡 Partial (needs more) | High | s29, s30 | 0 |
-| [[Widgets]] | 🟡 Partial (needs more) | High | s36, s37 | 0 |
-| [[Onboarding Imports]] | ❌ TODO | High | s03, s03a, s03b, s04, s05 | 0 |
+| [[F-02 Auth & Sign-up]] | ✅ Done | Critical | s01, s02, s06, s08, s68 | 0 |
+| [[F-01 Account]] | ✅ Done | Critical | s68 | 0 |
+| [[F-07 Profiles & Pin Name]] | ✅ Done | Critical | s06 | 0 |
+| [[F-11 Rings]] | ✅ Done | Critical | s08, s09, s16, s17, s18, s19, s20, s21, s22, s26, s62 | 0 |
+| [[F-09 Ring Members]] | ✅ Done | Critical | s15, s47 | 0 |
+| [[F-10 Ring Projection]] | ✅ Done | Critical | s14, s20, s23, s24, s25, s29, s36 | 0 |
+| [[F-12 View As & Pin Views]] | ✅ Done | Critical | s10, s31, s44 | 0 |
+| [[F-04 Files Upload]] | ✅ Done | High | s14, s20, s36 | 0 |
+| [[F-08 Ring Access Engine]] | ✅ Done | Critical | — | 0 |
+| [[F-03 Counts]] | 🟡 Partial (needs more) | High | s11, s12, s14, s16, s17, s68 | 0 |
+| [[F-06 Photo Library]] | 🟡 Partial (needs more) | High | s29, s30 | 0 |
+| [[F-13 Widgets]] | 🟡 Partial (needs more) | High | s36, s37 | 0 |
+| [[F-05 Onboarding Imports]] | ❌ TODO | High | s03, s03a, s03b, s04, s05 | 0 |
 
 ## Connections
 
@@ -98,7 +98,7 @@ Connect requests after a scan, accept into a Ring, blocks, contacts. The next mo
 
 | Feature | Status | Priority | Screens | Open tasks |
 |---|---|---|---|---|
-| [[Connections]] | ❌ TODO | Critical | s44, s45, s46, s47, s62 | 0 |
+| [[F-14 Connections]] | ❌ TODO | Critical | s44, s45, s46, s47, s62 | 0 |
 
 ## Shared Rings & Companies
 
@@ -106,9 +106,9 @@ Rings owned by someone else that you belong to: invitations, joining by code or 
 
 | Feature | Status | Priority | Screens | Open tasks |
 |---|---|---|---|---|
-| [[Delegated Admins]] | 🟡 Partial (needs more) | High | s26, s27 | 0 |
-| [[Ring Invitations & Join]] | ❌ TODO | High | s17, s74 | 0 |
-| [[Companies]] | ❌ TODO | High | s72, s73 | 0 |
+| [[F-16 Delegated Admins]] | 🟡 Partial (needs more) | High | s26, s27 | 0 |
+| [[F-17 Ring Invitations & Join]] | ❌ TODO | High | s17, s74 | 0 |
+| [[F-15 Companies]] | ❌ TODO | High | s72, s73 | 0 |
 
 ## Discovery
 
@@ -116,9 +116,9 @@ Badge / QR, Discover hub, PinCast proximity broadcast, nearby by Ring, contact i
 
 | Feature | Status | Priority | Screens | Open tasks |
 |---|---|---|---|---|
-| [[Badge & QR]] | 🟡 Partial (needs more) | Critical | s34, s43, s44, s56 | 0 |
-| [[Discover Hub & Search]] | ❌ TODO | High | s38 | 0 |
-| [[PinCast & Nearby]] | ❌ TODO | High | s11, s39, s40, s41, s42 | 0 |
+| [[F-18 Badge & QR]] | 🟡 Partial (needs more) | Critical | s34, s43, s44, s56 | 0 |
+| [[F-19 Discover Hub & Search]] | ❌ TODO | High | s38 | 0 |
+| [[F-20 PinCast & Nearby]] | ❌ TODO | High | s11, s39, s40, s41, s42 | 0 |
 
 ## Events
 
@@ -126,11 +126,11 @@ Before the event (discover, tickets, payment, Event Ring), during (event mode, e
 
 | Feature | Status | Priority | Screens | Open tasks |
 |---|---|---|---|---|
-| [[Event Ring Auto-creation]] | 🟡 Partial (needs more) | Critical | s52 | 0 |
-| [[Events Before]] | ❌ TODO | Critical | s48, s49, s50, s51, s52 | 0 |
-| [[Events During]] | ❌ TODO | Critical | s53, s54, s55, s56, s57, s58 | 0 |
-| [[Exhibitor]] | ❌ TODO | High | s63, s64, s65 | 0 |
-| [[Post-Event]] | ❌ TODO | High | s62 | 0 |
+| [[F-21 Event Ring Auto-creation]] | 🟡 Partial (needs more) | Critical | s52 | 0 |
+| [[F-22 Events Before]] | ❌ TODO | Critical | s48, s49, s50, s51, s52 | 0 |
+| [[F-23 Events During]] | ❌ TODO | Critical | s53, s54, s55, s56, s57, s58 | 0 |
+| [[F-24 Exhibitor]] | ❌ TODO | High | s63, s64, s65 | 0 |
+| [[F-25 Post-Event]] | ❌ TODO | High | s62 | 0 |
 
 ## Meetings
 
@@ -138,7 +138,7 @@ Availability slots, slot-based requests, temporary meeting Rings, accept / decli
 
 | Feature | Status | Priority | Screens | Open tasks |
 |---|---|---|---|---|
-| [[Meetings]] | ❌ TODO | Critical | s59, s61, s64, s66, s67 | 0 |
+| [[F-26 Meetings]] | ❌ TODO | Critical | s59, s61, s64, s66, s67 | 0 |
 
 ## Commerce
 
@@ -146,8 +146,8 @@ Orders, payments, payment webhook, Free vs Pro subscription and the Pro gates.
 
 | Feature | Status | Priority | Screens | Open tasks |
 |---|---|---|---|---|
-| [[Payments & Orders]] | ❌ TODO | High | s50, s51 | 0 |
-| [[Subscription (Free vs Pro)]] | ❌ TODO | High | s34, s70 | 0 |
+| [[F-27 Payments & Orders]] | ❌ TODO | High | s50, s51 | 0 |
+| [[F-28 Subscription (Free vs Pro)]] | ❌ TODO | High | s34, s70 | 0 |
 
 ## Platform & Cross-cutting
 
@@ -155,17 +155,17 @@ The error contract, notifications, Gemma AI, devices, interests, widgets, linked
 
 | Feature | Status | Priority | Screens | Open tasks |
 |---|---|---|---|---|
-| [[Error Contract]] | 🟡 Partial (needs more) | Critical | — | 0 |
-| [[Code Delivery]] | 🟡 Partial (needs more) | Critical | s02 | 0 |
-| [[Devices & NFC]] | 🟡 Partial (needs more) | High | s75 | 0 |
-| [[Interests]] | 🟡 Partial (needs more) | High | s07, s71 | 0 |
-| [[Linked Accounts (OAuth)]] | 🟡 Partial (needs more) | High | s01, s04, s68 | 0 |
-| [[Notifications]] | ❌ TODO | High | s69 | 0 |
-| [[Gemma AI]] | ❌ TODO | Medium | s13, s60 | 0 |
-| [[Audit Log]] | ❌ TODO | Critical | — | 0 |
-| [[Cleanup Jobs]] | ❌ TODO | High | — | 0 |
-| [[E2E Test Run]] | ❌ TODO | Critical | — | 0 |
-| [[App Shell & Onboarding Narrative]] | ⬜ Frontend only | Medium | s00a, s00b, s00c, s00d | 0 |
+| [[F-35 Error Contract]] | 🟡 Partial (needs more) | Critical | — | 0 |
+| [[F-32 Code Delivery]] | 🟡 Partial (needs more) | Critical | s02 | 0 |
+| [[F-33 Devices & NFC]] | 🟡 Partial (needs more) | High | s75 | 0 |
+| [[F-37 Interests]] | 🟡 Partial (needs more) | High | s07, s71 | 0 |
+| [[F-38 Linked Accounts (OAuth)]] | 🟡 Partial (needs more) | High | s01, s04, s68 | 0 |
+| [[F-39 Notifications]] | ❌ TODO | High | s69 | 0 |
+| [[F-36 Gemma AI]] | ❌ TODO | Medium | s13, s60 | 0 |
+| [[F-30 Audit Log]] | ❌ TODO | Critical | — | 0 |
+| [[F-31 Cleanup Jobs]] | ❌ TODO | High | — | 0 |
+| [[F-34 E2E Test Run]] | ❌ TODO | Critical | — | 0 |
+| [[F-29 App Shell & Onboarding Narrative]] | ⬜ Frontend only | Medium | s00a, s00b, s00c, s00d | 0 |
 
 ## Live view (Dataview plugin)
 

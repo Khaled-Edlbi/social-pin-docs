@@ -6,17 +6,17 @@ status: decided
 decidedBy: "molham"
 decidedAt: 2026-10-25
 features: [companies, delegated-admins, ring-invitations, ring-members, rings]
-affects: ["Rings", "Ring Members", "Ring Invitations & Join", "Delegated Admins", "Companies", "Ring Access Engine", "Ring Invitations & Join Story", "Rings Story"]
+affects: ["F-11 Rings", "F-09 Ring Members", "F-17 Ring Invitations & Join", "F-16 Delegated Admins", "F-15 Companies", "F-08 Ring Access Engine", "S-33 Ring Invitations & Join Story", "S-18 Rings Story"]
 related: ["ND-04 Ring settings", "Ring Access Model"]
 owner: "khaled"
 created: 2026-10-25
-updated: 2026-10-27
+updated: 2026-10-28
 tags: [decision, decision/decided]
 ---
 
 # ⚖️ D-04 · Ring settings at launch and their defaults
 
-**Answers:** [[ND-04 Ring settings]] · **Decided by:** molham · **On:** 2026-10-25 · **Feature:** [[Companies]], [[Delegated Admins]], [[Ring Invitations & Join]], [[Ring Members]], [[Rings]]
+**Answers:** [[ND-04 Ring settings]] · **Decided by:** molham · **On:** 2026-10-25 · **Feature:** [[F-15 Companies]], [[F-16 Delegated Admins]], [[F-17 Ring Invitations & Join]], [[F-09 Ring Members]], [[F-11 Rings]]
 
 > This card is the answer to [[ND-04 Ring settings]]. The needs-decision card keeps the question, the facts and the options; this decision card says what was decided, why, and what it changes. `draft` while the answer is prepared; `decided` only by the PM or the owner, on the user's word, with `decidedBy` and `decidedAt`: then [[ND-04 Ring settings]] shows Fulfilled by itself and the cards it blocked continue.
 
@@ -32,12 +32,12 @@ tags: [decision, decision/decided]
 | Members can see each other | yes | **off** |
 | Members can invite others | yes | **off** |
 | Members can save attachments | yes | **off** |
-| Required work email domain | later, with [[Companies]] | — |
+| Required work email domain | later, with [[F-15 Companies]] | — |
 | Members can message me | later, with messaging | — |
 | See when I'm at an event | later, with events | — |
 
 - **Members can see each other**, when the owner turns it on, shows members each other's **full cards**, not just names.
-- **Who can change the settings:** the Ring's owner **and the Ring's admins** ([[Delegated Admins]]).
+- **Who can change the settings:** the Ring's owner **and the Ring's admins** ([[F-16 Delegated Admins]]).
 - The needs-decision card's options A (a JSON column) and B (typed columns) are about storage and were not put to product; the backend chooses, and the card's recommendation, B, stands unless the backend says why not.
 
 Answered on the product-questions page, 2026-10-22 (defaults, what members see, who can change the settings), with the launch set and the remaining defaults proposed by the owner agent and accepted by molham on 2026-10-25.
@@ -52,13 +52,13 @@ Answered on the product-questions page, 2026-10-22 (defaults, what members see, 
 
 ## What it changes
 
-- [[Rings]]: a Ring carries the six launch settings with these defaults; the edit-access and permissions screens (s19, s22, s26, s27) show those six.
-- [[Ring Access Engine]]: "members can see each other", "members can invite" and "members can save attachments" are access rules it enforces; with the first off, only the owner sees who is in the Ring, as today.
-- [[Ring Members]]: the members list is visible to members only when the Ring allows it, and then with full cards.
-- [[Ring Invitations & Join]]: joining follows "who can request to join" and "approve each one"; [[Ring Invitations & Join Story|Ring Invitations & Join · S7]] and [[Ring Invitations & Join Story|Ring Invitations & Join · S8]] are no longer waiting on this decision (Ring Invitations & Join · S8's verified work email waits for the domain setting, which comes later).
-- [[Delegated Admins]]: an admin may change a Ring's settings.
-- [[Companies]]: the required work email domain is part of the company work, not the launch set.
-- [[Rings Story|Rings · Decide Ring settings]]: its decision is taken; the PM closes it.
+- [[F-11 Rings]]: a Ring carries the six launch settings with these defaults; the edit-access and permissions screens (s19, s22, s26, s27) show those six.
+- [[F-08 Ring Access Engine]]: "members can see each other", "members can invite" and "members can save attachments" are access rules it enforces; with the first off, only the owner sees who is in the Ring, as today.
+- [[F-09 Ring Members]]: the members list is visible to members only when the Ring allows it, and then with full cards.
+- [[F-17 Ring Invitations & Join]]: joining follows "who can request to join" and "approve each one"; [[S-33 Ring Invitations & Join Story|Ring Invitations & Join · S7]] and [[S-33 Ring Invitations & Join Story|Ring Invitations & Join · S8]] are no longer waiting on this decision (Ring Invitations & Join · S8's verified work email waits for the domain setting, which comes later).
+- [[F-16 Delegated Admins]]: an admin may change a Ring's settings.
+- [[F-15 Companies]]: the required work email domain is part of the company work, not the launch set.
+- [[S-18 Rings Story|Rings · Decide Ring settings]]: its decision is taken; the PM closes it.
 
 ## Still open
 

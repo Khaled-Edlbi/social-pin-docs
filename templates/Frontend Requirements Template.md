@@ -1,6 +1,6 @@
 ---
 type: frontend-requirements
-code: <feature id, or T-NNN for a task-level note>
+code: <feature id>
 scope: feature
 feature: <feature id>
 module: <identity|connections|shared-rings|discovery|events|meetings|commerce|platform>
@@ -9,8 +9,8 @@ screens: []
 depends: []
 affects: []
 related: []
-# priority: high           # optional: inherits the task's or the feature's when absent (critical | high | medium | low)
-# deadline: YYYY-MM-DD      # optional: inherits the task's or the feature's when absent
+# priority: high           # optional: inherits the feature's when absent (critical | high | medium | low)
+# deadline: YYYY-MM-DD      # optional: inherits the feature's when absent
 # pending: ["[[Note]]: what is left", "@who: what is left"]   # done, but a note is left for a card or a person → Partial until cleared
 pending: []
 blockedBy: []
@@ -21,7 +21,7 @@ tags: [frontend-requirements, frontend-requirements/draft, module/<module>, laye
 
 # <Feature name> · Frontend Requirements
 
-> Blocked by default until [[<Feature name> User Story]] is `approved` (the hand-off order in `docs.config.json`); `blockedBy: []` opts out, `blockedBy: [...]` names other blockers.
+> Blocked by default until [[<Feature name> Story]] is `approved` (the hand-off order in `docs.config.json`); `blockedBy: []` opts out, `blockedBy: [...]` names other blockers.
 
 **Feature:** [[<Feature name>]] · **Status:** Draft · **Story:** [[<Feature name> Story]] · **Backend Integration:** [[<Feature name> Backend Integration]]
 
@@ -36,10 +36,10 @@ Written by the **frontend** team, read by the backend: what the client needs to 
 
 ## Endpoints required
 
-| Need | Endpoint | Available | Task / decision |
+| Need | Endpoint | Available | Story part / decision |
 |---|---|---|---|
 | … | `GET /…` | ✅ | — |
-| … | — | ❌ | [[T-NNN …]] |
+| … | — | ❌ | [[S-NN <Feature name> Story#S<n> · …]] |
 
 ## Behaviour expectations
 

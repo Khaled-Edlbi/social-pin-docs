@@ -12,7 +12,7 @@
 		{
 			"id": "f_auth",
 			"type": "file",
-			"file": "social-pin/modules/Identity Core/features/Auth & Sign-up/Auth & Sign-up.md",
+			"file": "social-pin/modules/Identity Core/features/Auth & Sign-up/F-02 Auth & Sign-up.md",
 			"x": 0,
 			"y": 0,
 			"width": 300,
@@ -22,7 +22,7 @@
 		{
 			"id": "f_account",
 			"type": "file",
-			"file": "social-pin/modules/Identity Core/features/Account/Account.md",
+			"file": "social-pin/modules/Identity Core/features/Account/F-01 Account.md",
 			"x": 0,
 			"y": 86,
 			"width": 300,
@@ -32,7 +32,7 @@
 		{
 			"id": "f_profiles",
 			"type": "file",
-			"file": "social-pin/modules/Identity Core/features/Profiles & Pin Name/Profiles & Pin Name.md",
+			"file": "social-pin/modules/Identity Core/features/Profiles & Pin Name/F-07 Profiles & Pin Name.md",
 			"x": 0,
 			"y": 172,
 			"width": 300,
@@ -42,7 +42,7 @@
 		{
 			"id": "f_rings",
 			"type": "file",
-			"file": "social-pin/modules/Identity Core/features/Rings/Rings.md",
+			"file": "social-pin/modules/Identity Core/features/Rings/F-11 Rings.md",
 			"x": 0,
 			"y": 258,
 			"width": 300,
@@ -52,7 +52,7 @@
 		{
 			"id": "f_ring-members",
 			"type": "file",
-			"file": "social-pin/modules/Identity Core/features/Ring Members/Ring Members.md",
+			"file": "social-pin/modules/Identity Core/features/Ring Members/F-09 Ring Members.md",
 			"x": 0,
 			"y": 344,
 			"width": 300,
@@ -62,7 +62,7 @@
 		{
 			"id": "f_ring-projection",
 			"type": "file",
-			"file": "social-pin/modules/Identity Core/features/Ring Projection/Ring Projection.md",
+			"file": "social-pin/modules/Identity Core/features/Ring Projection/F-10 Ring Projection.md",
 			"x": 0,
 			"y": 430,
 			"width": 300,
@@ -72,7 +72,7 @@
 		{
 			"id": "f_view-as",
 			"type": "file",
-			"file": "social-pin/modules/Identity Core/features/View As & Pin Views/View As & Pin Views.md",
+			"file": "social-pin/modules/Identity Core/features/View As & Pin Views/F-12 View As & Pin Views.md",
 			"x": 0,
 			"y": 516,
 			"width": 300,
@@ -82,7 +82,7 @@
 		{
 			"id": "f_files",
 			"type": "file",
-			"file": "social-pin/modules/Identity Core/features/Files Upload/Files Upload.md",
+			"file": "social-pin/modules/Identity Core/features/Files Upload/F-04 Files Upload.md",
 			"x": 0,
 			"y": 602,
 			"width": 300,
@@ -92,7 +92,7 @@
 		{
 			"id": "f_ring-access",
 			"type": "file",
-			"file": "social-pin/modules/Identity Core/features/Ring Access Engine/Ring Access Engine.md",
+			"file": "social-pin/modules/Identity Core/features/Ring Access Engine/F-08 Ring Access Engine.md",
 			"x": 0,
 			"y": 688,
 			"width": 300,
@@ -102,7 +102,7 @@
 		{
 			"id": "f_counts",
 			"type": "file",
-			"file": "social-pin/modules/Identity Core/features/Counts/Counts.md",
+			"file": "social-pin/modules/Identity Core/features/Counts/F-03 Counts.md",
 			"x": 0,
 			"y": 774,
 			"width": 300,
@@ -112,7 +112,7 @@
 		{
 			"id": "f_photo-library",
 			"type": "file",
-			"file": "social-pin/modules/Identity Core/features/Photo Library/Photo Library.md",
+			"file": "social-pin/modules/Identity Core/features/Photo Library/F-06 Photo Library.md",
 			"x": 0,
 			"y": 860,
 			"width": 300,
@@ -122,7 +122,7 @@
 		{
 			"id": "f_widgets",
 			"type": "file",
-			"file": "social-pin/modules/Identity Core/features/Widgets/Widgets.md",
+			"file": "social-pin/modules/Identity Core/features/Widgets/F-13 Widgets.md",
 			"x": 0,
 			"y": 946,
 			"width": 300,
@@ -132,7 +132,7 @@
 		{
 			"id": "f_onboarding-imports",
 			"type": "file",
-			"file": "social-pin/modules/Identity Core/features/Onboarding Imports/Onboarding Imports.md",
+			"file": "social-pin/modules/Identity Core/features/Onboarding Imports/F-05 Onboarding Imports.md",
 			"x": 0,
 			"y": 1032,
 			"width": 300,
@@ -151,7 +151,7 @@
 		{
 			"id": "f_connections",
 			"type": "file",
-			"file": "social-pin/modules/Connections/features/Connections/Connections.md",
+			"file": "social-pin/modules/Connections/features/Connections/F-14 Connections.md",
 			"x": 380,
 			"y": 0,
 			"width": 300,
@@ -170,7 +170,7 @@
 		{
 			"id": "f_delegated-admins",
 			"type": "file",
-			"file": "social-pin/modules/Shared Rings & Companies/features/Delegated Admins/Delegated Admins.md",
+			"file": "social-pin/modules/Shared Rings & Companies/features/Delegated Admins/F-16 Delegated Admins.md",
 			"x": 760,
 			"y": 0,
 			"width": 300,
@@ -180,7 +180,7 @@
 		{
 			"id": "f_ring-invitations",
 			"type": "file",
-			"file": "social-pin/modules/Shared Rings & Companies/features/Ring Invitations & Join/Ring Invitations & Join.md",
+			"file": "social-pin/modules/Shared Rings & Companies/features/Ring Invitations & Join/F-17 Ring Invitations & Join.md",
 			"x": 760,
 			"y": 86,
 			"width": 300,
@@ -190,7 +190,7 @@
 		{
 			"id": "f_companies",
 			"type": "file",
-			"file": "social-pin/modules/Shared Rings & Companies/features/Companies/Companies.md",
+			"file": "social-pin/modules/Shared Rings & Companies/features/Companies/F-15 Companies.md",
 			"x": 760,
 			"y": 172,
 			"width": 300,
@@ -209,7 +209,7 @@
 		{
 			"id": "f_badge-qr",
 			"type": "file",
-			"file": "social-pin/modules/Discovery/features/Badge & QR/Badge & QR.md",
+			"file": "social-pin/modules/Discovery/features/Badge & QR/F-18 Badge & QR.md",
 			"x": 1140,
 			"y": 0,
 			"width": 300,
@@ -219,7 +219,7 @@
 		{
 			"id": "f_discover-hub",
 			"type": "file",
-			"file": "social-pin/modules/Discovery/features/Discover Hub & Search/Discover Hub & Search.md",
+			"file": "social-pin/modules/Discovery/features/Discover Hub & Search/F-19 Discover Hub & Search.md",
 			"x": 1140,
 			"y": 86,
 			"width": 300,
@@ -229,7 +229,7 @@
 		{
 			"id": "f_pincast",
 			"type": "file",
-			"file": "social-pin/modules/Discovery/features/PinCast & Nearby/PinCast & Nearby.md",
+			"file": "social-pin/modules/Discovery/features/PinCast & Nearby/F-20 PinCast & Nearby.md",
 			"x": 1140,
 			"y": 172,
 			"width": 300,
@@ -248,7 +248,7 @@
 		{
 			"id": "f_event-ring-auto",
 			"type": "file",
-			"file": "social-pin/modules/Events/features/Event Ring Auto-creation/Event Ring Auto-creation.md",
+			"file": "social-pin/modules/Events/features/Event Ring Auto-creation/F-21 Event Ring Auto-creation.md",
 			"x": 1520,
 			"y": 0,
 			"width": 300,
@@ -258,7 +258,7 @@
 		{
 			"id": "f_events-before",
 			"type": "file",
-			"file": "social-pin/modules/Events/features/Events Before/Events Before.md",
+			"file": "social-pin/modules/Events/features/Events Before/F-22 Events Before.md",
 			"x": 1520,
 			"y": 86,
 			"width": 300,
@@ -268,7 +268,7 @@
 		{
 			"id": "f_events-during",
 			"type": "file",
-			"file": "social-pin/modules/Events/features/Events During/Events During.md",
+			"file": "social-pin/modules/Events/features/Events During/F-23 Events During.md",
 			"x": 1520,
 			"y": 172,
 			"width": 300,
@@ -278,7 +278,7 @@
 		{
 			"id": "f_exhibitor",
 			"type": "file",
-			"file": "social-pin/modules/Events/features/Exhibitor/Exhibitor.md",
+			"file": "social-pin/modules/Events/features/Exhibitor/F-24 Exhibitor.md",
 			"x": 1520,
 			"y": 258,
 			"width": 300,
@@ -288,7 +288,7 @@
 		{
 			"id": "f_post-event",
 			"type": "file",
-			"file": "social-pin/modules/Events/features/Post-Event/Post-Event.md",
+			"file": "social-pin/modules/Events/features/Post-Event/F-25 Post-Event.md",
 			"x": 1520,
 			"y": 344,
 			"width": 300,
@@ -307,7 +307,7 @@
 		{
 			"id": "f_meetings",
 			"type": "file",
-			"file": "social-pin/modules/Meetings/features/Meetings/Meetings.md",
+			"file": "social-pin/modules/Meetings/features/Meetings/F-26 Meetings.md",
 			"x": 1900,
 			"y": 0,
 			"width": 300,
@@ -326,7 +326,7 @@
 		{
 			"id": "f_payments",
 			"type": "file",
-			"file": "social-pin/modules/Commerce/features/Payments & Orders/Payments & Orders.md",
+			"file": "social-pin/modules/Commerce/features/Payments & Orders/F-27 Payments & Orders.md",
 			"x": 2280,
 			"y": 0,
 			"width": 300,
@@ -336,7 +336,7 @@
 		{
 			"id": "f_subscription",
 			"type": "file",
-			"file": "social-pin/modules/Commerce/features/Subscription (Free vs Pro)/Subscription (Free vs Pro).md",
+			"file": "social-pin/modules/Commerce/features/Subscription (Free vs Pro)/F-28 Subscription (Free vs Pro).md",
 			"x": 2280,
 			"y": 86,
 			"width": 300,
@@ -355,7 +355,7 @@
 		{
 			"id": "f_code-delivery",
 			"type": "file",
-			"file": "social-pin/modules/Platform & Cross-cutting/features/Code Delivery/Code Delivery.md",
+			"file": "social-pin/modules/Platform & Cross-cutting/features/Code Delivery/F-32 Code Delivery.md",
 			"x": 2660,
 			"y": 0,
 			"width": 300,
@@ -365,7 +365,7 @@
 		{
 			"id": "f_devices",
 			"type": "file",
-			"file": "social-pin/modules/Platform & Cross-cutting/features/Devices & NFC/Devices & NFC.md",
+			"file": "social-pin/modules/Platform & Cross-cutting/features/Devices & NFC/F-33 Devices & NFC.md",
 			"x": 2660,
 			"y": 86,
 			"width": 300,
@@ -375,7 +375,7 @@
 		{
 			"id": "f_interests",
 			"type": "file",
-			"file": "social-pin/modules/Platform & Cross-cutting/features/Interests/Interests.md",
+			"file": "social-pin/modules/Platform & Cross-cutting/features/Interests/F-37 Interests.md",
 			"x": 2660,
 			"y": 172,
 			"width": 300,
@@ -385,7 +385,7 @@
 		{
 			"id": "f_linked-accounts",
 			"type": "file",
-			"file": "social-pin/modules/Platform & Cross-cutting/features/Linked Accounts (OAuth)/Linked Accounts (OAuth).md",
+			"file": "social-pin/modules/Platform & Cross-cutting/features/Linked Accounts (OAuth)/F-38 Linked Accounts (OAuth).md",
 			"x": 2660,
 			"y": 258,
 			"width": 300,
@@ -395,7 +395,7 @@
 		{
 			"id": "f_notifications",
 			"type": "file",
-			"file": "social-pin/modules/Platform & Cross-cutting/features/Notifications/Notifications.md",
+			"file": "social-pin/modules/Platform & Cross-cutting/features/Notifications/F-39 Notifications.md",
 			"x": 2660,
 			"y": 344,
 			"width": 300,
@@ -405,7 +405,7 @@
 		{
 			"id": "f_gemma",
 			"type": "file",
-			"file": "social-pin/modules/Platform & Cross-cutting/features/Gemma AI/Gemma AI.md",
+			"file": "social-pin/modules/Platform & Cross-cutting/features/Gemma AI/F-36 Gemma AI.md",
 			"x": 2660,
 			"y": 430,
 			"width": 300,
@@ -415,7 +415,7 @@
 		{
 			"id": "f_audit-log",
 			"type": "file",
-			"file": "social-pin/modules/Platform & Cross-cutting/features/Audit Log/Audit Log.md",
+			"file": "social-pin/modules/Platform & Cross-cutting/features/Audit Log/F-30 Audit Log.md",
 			"x": 2660,
 			"y": 516,
 			"width": 300,
@@ -425,7 +425,7 @@
 		{
 			"id": "f_cleanup-jobs",
 			"type": "file",
-			"file": "social-pin/modules/Platform & Cross-cutting/features/Cleanup Jobs/Cleanup Jobs.md",
+			"file": "social-pin/modules/Platform & Cross-cutting/features/Cleanup Jobs/F-31 Cleanup Jobs.md",
 			"x": 2660,
 			"y": 602,
 			"width": 300,
@@ -435,7 +435,7 @@
 		{
 			"id": "f_e2e-tests",
 			"type": "file",
-			"file": "social-pin/modules/Platform & Cross-cutting/features/E2E Test Run/E2E Test Run.md",
+			"file": "social-pin/modules/Platform & Cross-cutting/features/E2E Test Run/F-34 E2E Test Run.md",
 			"x": 2660,
 			"y": 688,
 			"width": 300,
@@ -445,7 +445,7 @@
 		{
 			"id": "f_app-shell",
 			"type": "file",
-			"file": "social-pin/modules/Platform & Cross-cutting/features/App Shell & Onboarding Narrative/App Shell & Onboarding Narrative.md",
+			"file": "social-pin/modules/Platform & Cross-cutting/features/App Shell & Onboarding Narrative/F-29 App Shell & Onboarding Narrative.md",
 			"x": 2660,
 			"y": 774,
 			"width": 300,
