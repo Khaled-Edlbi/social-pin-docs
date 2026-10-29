@@ -4,19 +4,21 @@ code: error-contract
 scope: feature
 feature: error-contract
 module: platform
-status: ready
+status: approved
+approvedBy: "khaled"
+approvedAt: 2026-10-29
 screens: [s01, s02, s06, s18, s68]
 depends: []
 affects: ["S-87 Error Contract Story"]
 related: ["S-87 Error Contract Story", "BD-35 Error Contract Backend Delivery", "BI-02 Auth & Sign-up Backend Integration", "BI-01 Account Backend Integration", "Frontend API Guide", "Frontend Contract", "API Conventions", E_AUTH_03, E_AUTH_04, E_AUTH_05, E_AUTH_06, E_USER_01]
 created: 2026-10-18
-updated: 2026-10-28
-tags: [frontend-requirements, frontend-requirements/ready, module/platform, layer/frontend]
+updated: 2026-10-29
+tags: [frontend-requirements, frontend-requirements/approved, module/platform, layer/frontend]
 ---
 
 # Error Contract · Frontend Requirements
 
-**Feature:** [[F-35 Error Contract]] · **Status:** Ready (waiting for the backend) · **Story:** [[S-87 Error Contract Story]] · **API Integration:** not yet (backend not built)
+**Feature:** [[F-35 Error Contract]] · **Status:** Approved 2026-10-29 by khaled · **Story:** [[S-87 Error Contract Story]] · **API Integration:** not yet (backend not built)
 
 What the client's error layer needs from every error the API sends. There is no screen of its own: every screen renders its errors through one parser, and the per-feature requirements notes list which codes their endpoints carry. This note fixes the shape they all share, how the client reads it, and the cases that are easy to get wrong.
 
@@ -115,8 +117,12 @@ Before [[S-87 Error Contract Story|Error Contract · S4–S8]] ships the `errorC
 
 ## Sign-off
 
-- Approved by: — · on: —
+- Approved by: khaled · on: 2026-10-29 (the backend's review, against `main @ b4984d6`)
+- Two notes from the review, for `/frontend`; neither holds the approval up:
+  - `POST /auth/complete-registration` also answers **404 `E_USER_01`** when the onboarding token's account is gone. That route is public and has no session, so the "account deleted → sign out" handler applies to authenticated routes only; there it is "start sign-up again".
+  - `POST /auth/complete-registration` also answers **400 `E_AUTH_05`** (`"This verification was not for a sign-up"`) when the code was issued for a sign-in. The 401 row covers only the expired onboarding token; this one falls to the "400 · domain code" row, back to s02.
 
 ## Log
 
 - 2026-10-27 · branch `tickets/frontend/M-08-platform/F-35-error-contract/FR-35-ready` · rewritten on khaled's request after the backend's review of the draft (eight points, branch `tickets/backend/M-08-platform/F-35-error-contract/FR-35-reviewed`): the wire key named (`errorCode`, optional); the four kinds of 401 and when a refresh is allowed; 403 `E_AUTH_03` as an account state; 404 `E_USER_01` as a deleted account; 429 as a burned code; validation decided as a plain list with best-effort field placement (S8 unchanged); the stale "no task yet" row pointed at Error Contract · S9–S11; `error` never branched on. Set `ready` for the backend to approve or send back. The 401 on `complete-registration` is the build today; it is filed as bug B-05 against the integration note, which promises 400.
+- 2026-10-29 · branch `tickets/backend/M-08-platform/F-35-error-contract/FR-35-accepted` · approved by the backend: the eight review points are answered and every status and code in the list matches `main @ b4984d6`. Two notes added under *Sign-off* (the second 404 `E_USER_01` and 400 `E_AUTH_05` on `complete-registration`). [[BD-35 Error Contract Backend Delivery]] stays `in-progress`; Error Contract · S4–S8 is the next backend work.

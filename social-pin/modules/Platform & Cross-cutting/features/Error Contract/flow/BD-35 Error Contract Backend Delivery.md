@@ -7,7 +7,7 @@ module: platform
 status: in-progress
 screens: []
 created: 2026-10-15
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [backend-delivery, backend-delivery/in-progress, module/platform, layer/backend]
 ---
 
@@ -44,3 +44,4 @@ What the backend shipped for this feature and how it works. The sum of this feat
 ## Log
 
 - 2026-10-18 · split out of [[F-35 Error Contract]] when the vault moved to layers
+- 2026-10-29 · [[FR-35 Error Contract Frontend Requirements]] approved (branch `tickets/backend/M-08-platform/F-35-error-contract/FR-35-accepted`); this note is no longer blocked by it. Next: Error Contract · S4–S8, `errorCode` on the body.
