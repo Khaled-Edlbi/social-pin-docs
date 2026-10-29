@@ -45,6 +45,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
         - ✏️ [ND-16 Viewer access to file bytes](social-pin/needs-decisions/ND-16%20Viewer%20access%20to%20file%20bytes.md) (Needs decision)
       - 📨 [FR-04 Files Upload Frontend Requirements](social-pin/modules/Identity%20Core/features/Files%20Upload/flow/FR-04%20Files%20Upload%20Frontend%20Requirements.md) (Frontend Requirements, High)
       - ✅ [BD-04 Files Upload Backend Delivery](social-pin/modules/Identity%20Core/features/Files%20Upload/flow/BD-04%20Files%20Upload%20Backend%20Delivery.md) (Backend Delivery, High)
+        - ⬜ [B-07 Context-scoped uploads are served by the public static mount](social-pin/bugs/B-07%20Context-scoped%20uploads%20are%20served%20by%20the%20public%20static%20mount.md) (bug, High)
       - 🔵 [BI-03 Files Upload Backend Integration](social-pin/modules/Identity%20Core/features/Files%20Upload/flow/BI-03%20Files%20Upload%20Backend%20Integration.md) (Backend Integration, High)
       - ∅ _Files Upload QA Backend_ (QA Backend)
       - ∅ _Files Upload Frontend Delivery_ (Frontend Delivery)
