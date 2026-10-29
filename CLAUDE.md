@@ -14,7 +14,7 @@ The repository holds two things: the **docs system** at the root (`rules/`, `tem
 |---|---|---|
 | `business/` `frontend/` `backend/` | project reference for that layer: overview, glossary, contract, API guide, architecture, conventions, migrations, setup (`type: project`, `layer:`) | `templates/Project Note Template.md` |
 | `rules/` | the rules every layer follows: `Workflow`, `Agent Rules`, `Docs Tree`; the agents, one note per role that **is** its prompt: `Agent Protocol` (shared), `Owner Agent`, `PM Agent`, `Backend Agent`, `Frontend Agent`, `QA Agent`, `Admin Agent`. The whole docs system (`rules/`, `docs.config.json`, `templates/`, `scripts/`, `tree/index.html`, `.claude/`, `.github/`, this file, `README.md`) is the **admin's**; the **owner** is the business owner and writes cards and business notes only | — |
-| `.claude/` | `skills/<id>/SKILL.md`: `/owner`, `/pm`, `/backend`, `/frontend`, `/qa` load the agent's note, `/admin` the unguarded one that owns the docs system and does the repairs (`/agent` shows the active one, `/agent off` clears it; each Claude Code session keeps its own, in `.claude/.active-agent/<session id>`, so sessions sharing the folder never change each other's agent); `settings.json`: the hooks that run `scripts/agent-guard.mjs`, which refuses every write while no agent is active (the first answer is then which agent to use) and lets an active agent write only the files its `agents.list` entry in `docs.config.json` names (plus a flag line under any H1, and sign-off lines where allowed; the admin, anything) | — |
+| `.claude/` | `skills/<id>/SKILL.md`: `/owner`, `/pm`, `/backend`, `/frontend`, `/qa` load the agent's note, `/admin` the unguarded one that owns the docs system and does the repairs (`/agent` shows the active one, `/agent off` clears it; each Claude Code session keeps its own, in `.claude/.active-agent/<session id>`, so sessions sharing the folder never change each other's agent); `settings.json`: the hooks that run `scripts/agent-guard.mjs`, which refuses every write while no agent is active (the first answer is then which agent to use; read-only commands still pass) and lets an active agent write only the files its `agents.list` entry in `docs.config.json` names (plus a flag line under any H1, and sign-off lines where allowed; the admin, anything) | — |
 | `modules/<Module>/M-NN <Module> Module.md` | module: the sum of its features, which live in `modules/<Module>/features/`; anything else a module holds later gets its own folder beside `features/` (`type: module`) | `templates/Module Template.md` |
 | `modules/<Module>/features/<Feature>/F-NN <Feature>.md` | feature: the business main node (`type: feature`, no `status:`: the chip is computed from its cards; `frontendOnly: true` when it has no backend part) | `templates/Feature Template.md` |
 | `modules/<Module>/features/<Feature>/S-NN <Feature> Story.md`, `…/<Feature>/flow/<PREFIX>-NN <Feature> <Kind>.md` | one note per layer kind: `S-NN … Story` beside the feature card, and in the feature's `flow/` folder (`flowFolder` in `docs.config.json`) `FR-NN … Frontend Requirements`, `BD-NN … Backend Delivery`, `BI-NN … Backend Integration`, `FD-NN … Frontend Delivery`, `QB-NN … QA Backend`, `QF-NN … QA Frontend` (`scope: feature`, `code: <feature id>`); the folders carry no code | `templates/<Kind> Template.md` |
@@ -28,17 +28,23 @@ The repository holds two things: the **docs system** at the root (`rules/`, `tem
 flow, the default blocks, the card-code prefixes, the modules and the agents (who writes what). `Card Index.md`, `tree/cards.json`, `tree/tree.json` and `tree/tree.md` are **generated**:
 never edit them by hand.
 
-## Read the tree first, then only what `--impact` lists
+## Ask the build, then read only what `--impact` lists
 
-`tree/tree.json` is the whole vault as one object (nodes, edges, concepts). Read
-it before walking folders. Before creating or changing any card, run
+`tree/tree.json` is the whole vault as one object (nodes, edges, concepts), some
+60,000 lines: never read it whole and never walk the folders. An overview is
+`node scripts/build-tree.mjs --list [kind=bug status=todo feature=auth …]`, one
+line per card. To turn the words a person uses ("the speed search", "the rings
+module") into cards and ids: `node scripts/build-tree.mjs --find "<words>"`.
+Before creating or changing any card, run
 `node scripts/build-tree.mjs --impact "<note | card code | feature id | endpoint | E_CODE>"`
 and read what it returns: the same feature's notes, the directly linked notes,
-the two-hop notes only when the change crosses a feature boundary. To turn the
-words a person uses ("the speed search", "the rings module") into cards and ids:
-`node scripts/build-tree.mjs --find "<words>"`. How to read the page and the
-JSON: `rules/Docs Tree.md`. How an agent takes a request (resolve, align in
-one question, act in scope, finish): `rules/Agent Protocol.md`.
+the two-hop notes only when the change crosses a feature boundary. These end
+with one `⚠` line when the tree is broken or stale (stop and report), and are
+silent when it is clean. The common edits are one call each: `--set-status`,
+`--set priority|deadline`, `--flag`; the finish is `--finish <agent> <card>
+[<what>]`. How to read the page and the JSON: `rules/Docs Tree.md`. How an agent
+takes a request (resolve, align in one question unless the request is exact,
+act in scope, finish): `rules/Agent Protocol.md`.
 
 ## The workflow this vault enforces
 
@@ -48,7 +54,7 @@ one question, act in scope, finish): `rules/Agent Protocol.md`.
 2. The branch in every **code** repo is named after the feature: `<module>/<F-NN>/<what-you-do>` (e.g. `ring/F-11/member-count`). In the vault, every agent's branch is named after the card, as deep as it sits: `tickets/<agent>/<M-NN>-<module-id>/<F-NN>-<feature-id>/<card>-<what>` for the cards that ask for or plan work (story, Frontend Requirements, needs-decision, bug), `docs/<agent>/…` for the archive (delivery, integration and QA notes, decision cards, module and feature cards), `docs/<agent>/project/…` for the rules; `node scripts/build-tree.mjs --branch <agent> <card> [<what>]` prints the name (`rules/Workflow.md` §2, `branches` in `docs.config.json`).
 3. Each layer writes **its own notes only**, created once per feature with `node scripts/build-tree.mjs --scaffold <kind> <feature-id>` (a feature: `--scaffold feature <module-id> "<Name>"`): frontend requirements before backend work; backend delivery + integration when the API ships; frontend delivery when the screens ship; QA notes (artefacts, never test code) when checks run. The feature's notes hold all of its work; the module note is the sum of its features.
 4. Every card in the flow is blocked by default until the card before it is handed off (story and requirements at `approved`, the rest at done; a requirements list goes `draft → ready → approved`: the frontend sets 📨 `ready` when it is complete, the backend approves it or sends it back to `draft`, and `ready` unblocks nothing); a note's `blockedBy` overrides. A card that **needs a decision** gets a decision card under it (`--scaffold needs-decision "<card>" "<title>"`: what has to be decided, notes, who decides) and is Blocked · ND-NN until that card is `decided`, then returns to its own status by itself; never type `blocked` on the card for this. Every note declares `depends` / `affects` / `related` (and `blockedBy` when blocked, by any layer) in frontmatter; after the change, `--impact` again and update or flag (`> ⚠ Affected by [[<the card you changed>]] (date): …`) every note it lists that you do not own.
-5. `node scripts/build-tree.mjs` is run and the generated files are committed with the notes. CI runs `--check` on every pull request and fails on errors or drift.
+5. `node scripts/build-tree.mjs --finish <agent> <card> [<what>]` runs the build and `--check`, lists what to update or flag, and prints the branch and the commit message; the generated files are committed with the notes. CI runs `--check` on every pull request and fails on errors or drift.
 
 ## Conventions
 

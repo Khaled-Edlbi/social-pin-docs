@@ -116,7 +116,15 @@ The rule: [[Agent Rules#4 · Statuses, blocking and sign-off]]. `tree/tree.md` r
 
 ## For agents
 
-Read `tree/tree.json` **first**: it is the whole vault as one object, and cheaper than walking the folders. Then run `--impact` for the thing you are about to change and read only what it lists ([[Agent Rules#3 · Relations]]).
+**Never read `tree/tree.json` whole**: it is the whole vault as one object, some 60,000 lines, and the build answers every question an agent has of it in a few lines. Ask the build, never the folders:
+
+- **an overview**: `--list [filter …]`, one line per card, `code · name · kind · status · feature · module · path` (the status is the chip's, with the note's own in brackets when they differ); filters are `kind=`, `status=` (the note's own or the chip's), `feature=`, `module=`, `layer=`, `priority=`, or words in the line, all of them applied: `--list kind=bug status=todo`, `--list feature=auth`, `--list module=identity blocked`;
+- **what the user named**: `--find "<words>"`, the matching cards and concepts, best first;
+- **what a change touches**: `--impact <card>`, then read only what it lists ([[Agent Rules#3 · Relations]]).
+
+Each of these ends with one line, `⚠ the tree is not clean: …`, when the build has errors or a generated file is stale, and prints nothing more when the tree is clean: that line is the load check ([[Agent Protocol#1 · Load]]); `--check` gives the list.
+
+The shape below is what the page and the scripts read; an agent needs it only to read one field of one node.
 
 - `nodes[id]`: `kind` (`root`, `module`, `feature`, `task` (a bug, `type: bug`: a node of kind `task` with `label: "Bug"` and `bug` in its `labels`; there are no other tasks), `needs-decision` (the question, ND-NN), `decision` (the answer, D-NN), `group`, `project`, or a kind id from the config such as `backend-delivery`), `layer`, `title`, `path` (the file to read; `null` for a placeholder, whose `template` and `summary` say how to create it), `code` (`B-NN`, `ND-NN`, `D-NN` or the feature id), `scope` (`feature` on a layer note), `feature`, `labels` (`bug` on a bug), `module`, `status` (the note's own; `null` on a feature, whose status is computed), `effectiveStatus` (what the chip shows), `blockedBy` (a list of `{ id, title, why }`), `pending` (a list of `{ text, to, person }`: the notes that make a done card Partial), `frontendOnly`, `depends` / `affects` / `related` (resolved ids), `screens`, `priority` (a level id from `priorities`, own or inherited), `deadline` (`YYYY-MM-DD`, own or inherited; the zone is not stored), `inherits` (`{ priority?: <source id>, deadline?: <source id> }` for the inherited ones), `children`, `parents`, `summary`, `rollup`.
 - `card` on every node with a file is its unique card code (`M-01`, `F-05`, `S-01`, `FR-05`, `BD-05`, `B-01`, `ND-04`, `P-10`; `null` on the root, the groups and placeholders); `cards` maps every code to its node id and `cardPrefixes` every prefix to its kind. The code is stable: `tree/cards.json` remembers it across builds.
@@ -137,6 +145,12 @@ node scripts/build-tree.mjs --impact S-01                  # the same, by card c
 node scripts/build-tree.mjs --impact "Ring Access Engine"   # what a change touches: same feature, direct links, two hops, dependents
 node scripts/build-tree.mjs --impact B-01            # … for a bug; also a feature id, "GET /rings/:id", E_RING_02, s14
 node scripts/build-tree.mjs --find "speed search"    # the cards and concepts that match some words, best first: how an agent turns what you said into ids
+node scripts/build-tree.mjs --list kind=bug status=todo   # one line per card: code · name · kind · status · feature · module · path (filters: kind= status= feature= module= layer= priority=, or words)
+node scripts/build-tree.mjs --set-status B-06 in-progress   # status:, the <kind>/<status> tag, the H1 emoji, the first line's Status segment and updated:, in one write
+node scripts/build-tree.mjs --set-status B-06 done --resolution fixed   # … a bug closed with how it ended; --by <name> on a sign-off (approvedBy / approvedAt, decidedBy / decidedAt)
+node scripts/build-tree.mjs --set F-11 priority high      # the field, its priority/<id> tag, its first-line segment and updated:; also deadline 2026-11-15; none drops it (inherited again)
+node scripts/build-tree.mjs --flag S-23 BD-02 "the count moved to the ring"   # the ⚠ flag line under BD-02's H1, and the entry in S-23's ## Log
+node scripts/build-tree.mjs --finish qa B-06 closed      # the build and --check in one pass, the notes to update (yours) or flag (not yours), the branch and the commit message
 node scripts/build-tree.mjs --branch owner F-41 create   # any agent's vault branch for a card: <tickets|docs>/<agent>/<M-NN>-<module-id>/<F-NN>-<feature-id>/<last>, as deep as the card sits; tickets/ for a story, Frontend Requirements, needs-decision card or bug, docs/ for the rest (docs.config.json branches, Workflow §2)
 node scripts/agent-guard.mjs status                  # this session's agent and what it may write (outside a session: every session's); `selftest` runs the allow / deny matrix
 node scripts/build-tree.mjs --scaffold qa-frontend rings        # create a feature's layer note from its template: QF-NN Rings QA Frontend.md, the next free QF number, and every [[Rings QA Frontend]] link repointed at it
@@ -148,11 +162,13 @@ node scripts/build-tree.mjs --scaffold decision ND-04 "Hidden by default"   # th
 
 The build **fails** on: unparsable frontmatter or a missing key, a `type` that is neither structural nor a kind in the config, an unknown `status` for the kind, a `priority` outside the enum or a `deadline` or `created` that is not a date, a `feature` / `module` / `foundOn` / `depends` / `affects` / `related` / `blockedBy` target that does not resolve, two notes with the same code and kind, a card code in `tree/cards.json` given to two cards, reused after it was retired or carrying another kind's prefix, a feature whose `module` does not match its folder, a needs-decision card typed `decided` or `fulfilled` or carrying `decidedBy` / `decidedAt`, two decision cards for one question, a decided answer to a question still in `draft`, a decision card with an unknown status or set `decided` without `decidedBy` / `decidedAt`, a config that names a missing template, a file name containing `# ? % \`. It **warns** on a note outside its expected path, a wikilink to nothing, a missing `updated:`, a card without `created:`, an old priority code (`P1` for `high`), and a note that uses an endpoint owned by another feature without declaring a relation to it.
 
-**Changing a status** means editing `status:`, the tag (`<kind>/<status>`), the emoji in the H1 and `updated:`, then rebuilding. Never edit a generated file by hand: the next build overwrites it and CI fails on drift.
+**Changing a status** means editing `status:`, the tag (`<kind>/<status>`), the emoji in the H1 and `updated:`, then rebuilding; `--set-status` does the four in one write. Never edit a generated file by hand: the next build overwrites it and CI fails on drift.
+
+**The one-call edits** (`--set-status`, `--set`, `--flag`) write the notes themselves, so they are guarded by the script: it reads the session's active agent (`agents.marker`, by `CLAUDE_CODE_SESSION_ID`) and asks `scripts/agent-guard.mjs` the question its hook asks of an Edit, for exactly the lines it is about to change. Out of scope is refused with the guard's message and nothing is written; with no agent active everything is refused; from a person's own terminal (no Claude Code session) it writes as that person. `--set-status` also refuses a status the kind does not have, a computed one (a feature's, a module's, the project's, a requirements list's `delivered` unless the feature is `frontendOnly`), and any status but the first on a ⛔ Blocked card. After writing it rebuilds in memory; a change that would add a build error is put back and the error printed. A first-line segment (`**Status:** To do`) is rewritten only when it reads exactly the old value; a sentence there is left as written, and the command says so. They do not write the generated files: `--finish` does, in the same pass as `--check`.
 
 ## After finishing a part of the story
 
-The checklist, by layer, is [[Agent Rules#6 · After a change — the checklist, by layer]]; the sequence is [[Workflow]]. In one line: `--impact` before and after, relations declared, flags placed, the feature's notes written, `updated:` everywhere, rebuild, commit the generated files with the notes.
+The checklist, by layer, is [[Agent Rules#6 · After a change — the checklist, by layer]]; the sequence is [[Workflow]]. In one line: `--impact` before, relations declared, the feature's notes written, `updated:` everywhere, then `--finish` (the build, `--check`, the notes to update or flag, the branch and the commit message), flags placed, the generated files committed with the notes.
 
 ## Creating a new feature or module
 

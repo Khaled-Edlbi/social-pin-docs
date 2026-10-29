@@ -126,10 +126,10 @@ There is nothing to roll up: the story, the requirements, the deliveries and the
 
 ## 5 · Finish
 
-1. `--impact` again; update or flag every note it lists that the change made wrong.
+1. `node scripts/build-tree.mjs --finish <agent> <card> [<what-you-do>]` does steps 1 and 4 in one call and prints the branch and the commit message ([[Agent Protocol#5 · Finish]]): update or flag (`--flag`) every note it lists that the change made wrong.
 2. The layer note you built: `status: done` (or the `pending` entry for the part removed), a `## Log` line (date · branch · story part · what shipped, which notes were flagged). Anything left for another card or a person goes in `pending:` (the note shows 🟡 Partial until it is cleared); nothing is typed into the feature note's status.
 3. Every touched note: today's `updated:`.
-4. `node scripts/build-tree.mjs`; commit `tree/tree.json`, `tree/tree.md`, `tree/cards.json`, `Card Index.md` with the notes (a new note gets its card code here, see [[Card Index]]). `--check` is what CI runs.
+4. The build (`--finish` runs it); commit `tree/tree.json`, `tree/tree.md`, `tree/cards.json`, `Card Index.md` with the notes (a new note gets its card code here, see [[Card Index]]). `--check` is what CI runs.
 5. Push every branch; open the pull requests; link them to each other and to the feature's story. Report what shipped and what stays open in the vault's words.
 
 ## Where to look for what

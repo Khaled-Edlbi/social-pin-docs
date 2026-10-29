@@ -8,6 +8,9 @@ node scripts/build-tree.mjs --check                     # validate the notes and
 node scripts/build-tree.mjs                             # regenerate tree/ and social-pin/Card Index.md after editing notes
 node scripts/build-tree.mjs --impact "Ring Access Engine"   # what a change to a note, card code, feature or endpoint touches
 node scripts/build-tree.mjs --find "speed search"           # the cards and concepts that match some words: how an agent resolves what you named
+node scripts/build-tree.mjs --list kind=bug status=todo     # one line per card (code · name · kind · status · feature · module · path), filtered
+node scripts/build-tree.mjs --set-status B-06 ready         # a status change in one call (also --set <card> priority|deadline, --flag), checked by the agent guard
+node scripts/build-tree.mjs --finish qa B-06 closed         # the build and --check, what to update or flag, the branch and the commit message
 node scripts/agent-guard.mjs selftest                       # the agents' allow / deny matrix (what each of /owner /pm /backend /frontend /qa may write; /admin, the docs system's owner, may write anything)
 node scripts/build-tree.mjs --scaffold backend-delivery counts   # create a feature's layer note from its template, named with its next free code
 node scripts/build-tree.mjs --scaffold bug counts "<Title>" --found-on "<note name>"   # a bug with the next free B-NN; also `feature <module-id> "<Name>"`, `needs-decision "<card>" "<Title>"` and `decision ND-NN "<the answer>"`

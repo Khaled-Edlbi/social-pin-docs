@@ -4594,9 +4594,7 @@
   ],
   "diagnostics": {
     "errors": [],
-    "warnings": [
-      "social-pin/modules/Platform & Cross-cutting/features/App Shell & Onboarding Narrative/flow/BD-29 App Shell & Onboarding Narrative Backend Delivery.md: status: done, but its Backend Integration is not written: the requirements of this scope cannot reach `delivered` until it is `current`"
-    ]
+    "warnings": []
   },
   "edges": [
     {

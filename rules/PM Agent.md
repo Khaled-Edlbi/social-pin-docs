@@ -38,12 +38,12 @@ Priorities and deadlines across the vault, the module notes and the feature card
 
 ## 3 · Ask, then act
 
-[[Agent Protocol#3 · Align, in one message]]. Settle these before creating anything, with your proposal for each so the user can just say yes. Never invent a module, a feature id, a screen id, a ticket number or an endpoint: every one of them comes from `docs.config.json`, `tree/tree.json` or [[Screen Index]].
+[[Agent Protocol#3 · Align, in one message]]. Settle these before creating anything, with your proposal for each so the user can just say yes. Never invent a module, a feature id, a screen id, a ticket number or an endpoint: every one of them comes from `docs.config.json`, `--find` / `--list` or [[Screen Index]].
 
 | Question | Where the answer comes from | Default when the user does not say |
 |---|---|---|
 | Which module? | `modules[]` in `docs.config.json` (ids: identity, connections, shared-rings, discovery, events, meetings, commerce, platform) | the module of the feature named; a new module is the owner's ([[Owner Agent]]) |
-| Which feature? | `--find`, then `feature:<id>` in `tree/tree.json` | an existing feature when the request fits one; a feature the vault does not have is the owner's to create ([[Owner Agent#4I · Create a feature]]): name it and stop |
+| Which feature? | `--find`, then `--list feature=<id>` | an existing feature when the request fits one; a feature the vault does not have is the owner's to create ([[Owner Agent#4I · Create a feature]]): name it and stop |
 | Which screens? | ids in [[Screen Index]] (`s44`) | the feature's `screens:` |
 | Both sides or backend only? | a screen changes → the part has screen and backend criteria; a provider, a job, a migration → backend criteria only | both |
 | What does it depend on? | parts, cards and decisions the `--impact` list shows as open | none |
@@ -97,7 +97,7 @@ A decision is always raised **from the card that needs it**, by the agent that o
 
 ### 4F · Where do we stand
 
-Answer from `tree/tree.json` (`counts`, each node's `effectiveStatus`, `blockedBy` with its reason, `pending`, `priority`, `deadline`), the [[Docs Tree]] page and the module and feature notes. Say it in the vault's words: Done, Partial, In progress, Blocked (and by what), Needs decision, Not written yet. Name cards by code (`B-01 | S-04`). Change nothing; update the table on [[Home]] only when asked.
+Answer from `--list` (one line per card with its chip: `--list feature=<id>`, `--list status=blocked`) and `--impact <card>` (`blockedBy` with its reason, `pending`, `priority`, `deadline`; never `tree/tree.json` read whole), the [[Docs Tree]] page and the module and feature notes. Say it in the vault's words: Done, Partial, In progress, Blocked (and by what), Needs decision, Not written yet. Name cards by code (`B-01 | S-04`). Change nothing; update the table on [[Home]] only when asked.
 
 ### 4G · New module
 
@@ -117,7 +117,7 @@ You change a status **only when the user tells you to, in that message**, and yo
 
 **What you move unasked.** The sign-offs above wait for the user's word; the statuses that only record what already happened do not, and you set them in the same commit as the work: a card you create starts at its first status (`draft` story, `todo` bug, `draft` needs-decision). And you **propose** a sign-off the moment it is due, without being asked: a story whose QA notes all pass ("S-NN is ready to fulfil: say *fulfil*"), a bug without a fix that should end (`by-design`, `duplicate`, `wont-fix`: "B-NN can be closed: say *close*"), a requirements list the build prints as `stale` (ask the backend, or the owner, to review it).
 
-Four things move together on every status change: `status:`, the `<kind>/<status>` tag, the emoji in the H1, `updated:` ([[Agent Rules#4 · Statuses, blocking and sign-off]]). A card is never marked done while the card before it in the flow is not handed off, unless its `blockedBy` says why that is fine.
+Four things move together on every status change: `status:`, the `<kind>/<status>` tag, the emoji in the H1, `updated:` ([[Agent Rules#4 · Statuses, blocking and sign-off]]); `node scripts/build-tree.mjs --set-status <card> <status>` writes them in one call (`--by "<the user's name>"` for a sign-off, `--resolution <id>` for a bug closed, [[Agent Protocol#4 · Act, inside your scope]]). A card is never marked done while the card before it in the flow is not handed off, unless its `blockedBy` says why that is fine.
 
 ## 6 · Finish
 
@@ -125,7 +125,7 @@ Four things move together on every status change: `status:`, the `<kind>/<status
 
 - **The branch is the card's:** a story or a needs-decision card is a ticket, `tickets/pm/<M-NN>-<module-id>/<F-NN>-<feature-id>/<card>-<what-you-do>`; a decision card, the module note or the feature card's *Decisions* section on its own are the archive, `docs/pm/…`. `node scripts/build-tree.mjs --branch pm <card> <what>` prints it: `--branch pm S-69 draft` → `tickets/pm/M-07-commerce/F-27-payments/S-69-draft`, `--branch pm D-09 decided` → `docs/pm/M-09-payments-gateway/F-41-pay-for-an-order/D-09-decided`.
 - **Everything around that story rides on its branch:** the [[Screen Index]] rows, the card's *Decisions* section, a decision card raised from the story (the card itself came on the owner's branch). A second feature's story gets its own branch, even when the same request brought both.
-- **Codes come from the build:** a new story or decision has no code until `node scripts/build-tree.mjs` has run once. Scaffold, fill, build, then `--branch`, then cut the branch; the working tree carries over.
+- **Codes come from the build:** a new story or decision has no code until `node scripts/build-tree.mjs` has run once. Scaffold, fill, then `--finish pm <card> <what>` (the build, `--check`, the branch and the commit message), then cut the branch; the working tree carries over.
 - **One commit per change, one card per commit**, in the card shape from Workflow §2: `story(identity): S-99 Google Auth Story · draft written` · `story(identity): S-99 Google Auth Story · S4 Google callback added` · `bug(identity): B-12 Callback loses the code · filed against BI-40` · `needs-decision(identity): ND-08 Match by email · raised from S-99` · `decision(identity): D-08 Match by email only · ND-08 decided, option 1`. A change that touches a few files around one card names the main card and lists the other files in the body.
 
 Then report what you created or changed by card code and path, what now waits on the user (approvals, decisions, answers), what you flagged for another layer.
