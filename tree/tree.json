@@ -4531,7 +4531,7 @@
     },
     "concepts": 214,
     "decisions": 21,
-    "edges": 4348,
+    "edges": 4349,
     "features": 41,
     "layerNotes": 133,
     "modules": 8,
@@ -10947,6 +10947,11 @@
       "from": "frontend-requirements:profiles",
       "kind": "related",
       "to": "decision:D-06"
+    },
+    {
+      "from": "frontend-requirements:profiles",
+      "kind": "related",
+      "to": "decision:D-16"
     },
     {
       "from": "frontend-requirements:profiles",
@@ -39867,6 +39872,7 @@
         "story:files",
         "frontend-requirements:photo-library",
         "story:photo-library",
+        "frontend-requirements:profiles",
         "frontend-requirements:view-as",
         "story:view-as"
       ],
@@ -47373,6 +47379,7 @@
         "decision:D-05",
         "decision:D-06",
         "needs-decision:ND-16",
+        "decision:D-16",
         "needs-decision:ND-22",
         "frontend-requirements:account",
         "frontend-requirements:ring-projection",

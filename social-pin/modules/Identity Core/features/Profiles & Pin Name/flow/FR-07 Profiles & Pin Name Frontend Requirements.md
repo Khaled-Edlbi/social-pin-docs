@@ -8,7 +8,7 @@ status: ready
 screens: [s05b, s06, s23, s44, s68]
 depends: ["S-14 Profiles & Pin Name Story"]
 affects: ["BD-07 Profiles & Pin Name Backend Delivery"]
-related: ["D-02 One main profile every Ring starts from", "D-05 Inherit per field, copy without members", "D-06 Yearly rename, old name freed, case-insensitive", "ND-16 Viewer access to file bytes", "ND-22 Public web page by Pin name", "FR-01 Account Frontend Requirements", "FR-10 Ring Projection Frontend Requirements", "FR-12 View As & Pin Views Frontend Requirements", "S-08 Onboarding Imports Story", "S-89 Gemma AI Story", "S-87 Error Contract Story", "F-02 Auth & Sign-up", "F-04 Files Upload", "F-05 Onboarding Imports", "F-18 Badge & QR", "GET /profiles/pin-name/:pinName/availability", "GET /profiles", "GET /profiles/:id", "PATCH /profiles/:id", "POST /profiles", "POST /profiles/:id/default", "DELETE /profiles/:id", "POST /auth/complete-registration", "POST /files", E_PROFILE_01, E_PROFILE_02]
+related: ["D-02 One main profile every Ring starts from", "D-05 Inherit per field, copy without members", "D-06 Yearly rename, old name freed, case-insensitive", "ND-16 Viewer access to file bytes", "D-16 Files load from signed links that expire in 15 minutes", "ND-22 Public web page by Pin name", "FR-01 Account Frontend Requirements", "FR-10 Ring Projection Frontend Requirements", "FR-12 View As & Pin Views Frontend Requirements", "S-08 Onboarding Imports Story", "S-89 Gemma AI Story", "S-87 Error Contract Story", "F-02 Auth & Sign-up", "F-04 Files Upload", "F-05 Onboarding Imports", "F-18 Badge & QR", "GET /profiles/pin-name/:pinName/availability", "GET /profiles", "GET /profiles/:id", "PATCH /profiles/:id", "POST /profiles", "POST /profiles/:id/default", "DELETE /profiles/:id", "POST /auth/complete-registration", "POST /files", E_PROFILE_01, E_PROFILE_02]
 created: 2026-10-18
 updated: 2026-10-29
 owner: "Omar Fostok"
@@ -85,7 +85,7 @@ The screen and the look-up by Pin name are [[FR-12 View As & Pin Views Frontend 
 | Role | main profile (S9–S11) | behaves like headline until product says otherwise (D-02 *Still open*) |
 | Company | main profile (S9–S11) | a Ring may change it |
 | Location | main profile (S9–S11) | a Ring may change it |
-| Photo | main profile (S9–S11), a file id from `POST /files` | shown once [[ND-16 Viewer access to file bytes]] is served; a Ring may pick another |
+| Photo | main profile (S9–S11), a file id from `POST /files` | shown from a signed `avatarUrl` (valid 15 minutes) once the backend ships it ([[D-16 Files load from signed links that expire in 15 minutes]]); a Ring may pick another |
 | Bio | main profile (S9–S11) | a Ring may change it |
 
 ## Endpoints required
@@ -102,7 +102,7 @@ The screen and the look-up by Pin name are [[FR-12 View As & Pin Views Frontend 
 | Main profile fields (headline, role, company, location, photo, bio) on read and `PATCH` | `GET /profiles`, `PATCH /profiles/:id` | ❌ | [[S-14 Profiles & Pin Name Story\|Profiles & Pin Name · S9–S11]] |
 | **Once-a-year rename**: the next allowed rename date on the profile, and a refused rename (inside the year) answered with its **own `ErrorCode`**; a change of capitals only is not a rename; the first rename after sign-up is allowed. Field and code to be named by the backend. | `GET /profiles`, `PATCH /profiles/:id` | ❌ | [[S-14 Profiles & Pin Name Story\|Profiles & Pin Name · S12–S13]] |
 | Upload the profile photo | `POST /files` | ✅ | S9 ([[F-04 Files Upload]]) |
-| Show the profile photo | — | ❌ | [[ND-16 Viewer access to file bytes]] |
+| Show the profile photo: a signed `avatarUrl` for the main photo on `GET /profiles`, valid 15 minutes, no file id needed to show it | `GET /profiles` | ❌ | [[D-16 Files load from signed links that expire in 15 minutes]] (decided) |
 | Public web page by Pin name (`socialpin.me/<pinName>`) | — | ❌ | [[ND-22 Public web page by Pin name]] |
 | Suggested handles on s06 and in the editor | — (client, from the person's own name) | ✅ | S1 ([[D-06 Yearly rename, old name freed, case-insensitive]]) |
 | Gemma's handle suggestions | — | ❌ | [[S-89 Gemma AI Story\|Gemma AI · S6]]; the chip is hidden until then |
@@ -137,5 +137,5 @@ Until [[S-87 Error Contract Story|Error Contract · S4–S8]] ships, branch on s
 
 - [[S-14 Profiles & Pin Name Story|Profiles & Pin Name · S9–S11]]: s05b's optional fields saved, the editor's work section.
 - [[S-14 Profiles & Pin Name Story|Profiles & Pin Name · S12–S13]]: the once-a-year limit and its date.
-- [[ND-16 Viewer access to file bytes]]: the photo, once saved.
+- [[D-16 Files load from signed links that expire in 15 minutes]] (decided, not built): showing the photo, once saved; it loads from a signed link and is read again when the link expires.
 - [[ND-22 Public web page by Pin name]]: s06's socialpin.me line as a link (text until then).
