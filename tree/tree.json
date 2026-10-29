@@ -2303,6 +2303,7 @@
       "containers": [
         "feature:files",
         "feature:photo-library",
+        "feature:profiles",
         "feature:ring-projection",
         "project:spec-map",
         "project:status-report-2026-10-15"
@@ -2313,6 +2314,7 @@
         "backend-integration:ring-projection",
         "frontend-requirements:files",
         "frontend-requirements:photo-library",
+        "frontend-requirements:profiles",
         "frontend-requirements:ring-projection",
         "project:spec-map",
         "project:status-report-2026-10-15",
@@ -3505,11 +3507,13 @@
     },
     "s28": {
       "containers": [
+        "feature:ring-projection",
         "needs-decision:ND-05"
       ],
       "kind": "screen",
       "notes": [
-        "needs-decision:ND-05"
+        "needs-decision:ND-05",
+        "story:ring-projection"
       ],
       "owner": null
     },
@@ -3546,6 +3550,7 @@
       "containers": [
         "feature:files",
         "feature:photo-library",
+        "feature:ring-projection",
         "needs-decision:ND-16"
       ],
       "kind": "screen",
@@ -3557,7 +3562,8 @@
         "frontend-requirements:photo-library",
         "needs-decision:ND-16",
         "story:files",
-        "story:photo-library"
+        "story:photo-library",
+        "story:ring-projection"
       ],
       "owner": null
     },
@@ -3644,6 +3650,7 @@
     },
     "s37": {
       "containers": [
+        "feature:ring-projection",
         "feature:widgets"
       ],
       "kind": "screen",
@@ -3651,6 +3658,7 @@
         "backend-delivery:widgets",
         "feature:widgets",
         "frontend-requirements:widgets",
+        "story:ring-projection",
         "story:widgets"
       ],
       "owner": null
@@ -4160,6 +4168,7 @@
         "feature:payments",
         "feature:photo-library",
         "feature:profiles",
+        "feature:ring-projection",
         "needs-decision:ND-20",
         "task:B-01",
         "task:B-02",
@@ -4198,6 +4207,7 @@
         "story:payments",
         "story:photo-library",
         "story:profiles",
+        "story:ring-projection",
         "task:B-01",
         "task:B-02",
         "task:B-03"
@@ -4337,7 +4347,7 @@
     },
     "concepts": 205,
     "decisions": 21,
-    "edges": 4052,
+    "edges": 4059,
     "features": 41,
     "layerNotes": 132,
     "modules": 8,
@@ -9759,6 +9769,7 @@
       "kind": "related",
       "to": "frontend-requirements:profiles",
       "via": [
+        "PATCH /rings/:ringId/projection",
         "POST /files"
       ]
     },
@@ -10222,6 +10233,7 @@
       "kind": "related",
       "to": "frontend-requirements:profiles",
       "via": [
+        "PATCH /rings/:ringId/projection",
         "POST /files"
       ]
     },
@@ -13672,6 +13684,21 @@
       "from": "story:ring-projection",
       "kind": "related",
       "to": "decision:D-05"
+    },
+    {
+      "from": "story:ring-projection",
+      "kind": "related",
+      "to": "feature:linked-accounts"
+    },
+    {
+      "from": "story:ring-projection",
+      "kind": "related",
+      "to": "story:gemma"
+    },
+    {
+      "from": "story:ring-projection",
+      "kind": "related",
+      "to": "story:view-as"
     },
     {
       "from": "story:rings",
@@ -19778,6 +19805,7 @@
       "kind": "shares",
       "to": "feature:profiles",
       "via": [
+        "PATCH /rings/:ringId/projection",
         "POST /files"
       ]
     },
@@ -20746,6 +20774,7 @@
       "kind": "shares",
       "to": "feature:profiles",
       "via": [
+        "PATCH /rings/:ringId/projection",
         "POST /files"
       ]
     },
@@ -21289,6 +21318,7 @@
       "via": [
         "E_PROFILE_01",
         "GET /profiles",
+        "PATCH /rings/:ringId/projection",
         "POST /files"
       ]
     },
@@ -21361,6 +21391,7 @@
       "to": "project:spec-map",
       "via": [
         "GET /profiles/pin-name/:pinName/availability",
+        "PATCH /rings/:ringId/projection",
         "POST /profiles"
       ]
     },
@@ -21371,6 +21402,7 @@
       "via": [
         "GET /profiles/pin-name/:pinName/availability",
         "GET /views/pin/:pinName",
+        "PATCH /rings/:ringId/projection",
         "POST /auth/complete-registration",
         "POST /files"
       ]
@@ -27515,6 +27547,11 @@
       "to": "story:post-event"
     },
     {
+      "from": "frontend-requirements:profiles",
+      "kind": "wikilink",
+      "to": "story:ring-projection"
+    },
+    {
       "from": "frontend-requirements:ring-access",
       "kind": "wikilink",
       "to": "feature:connections"
@@ -27618,6 +27655,11 @@
       "from": "frontend-requirements:ring-projection",
       "kind": "wikilink",
       "to": "needs-decision:ND-05"
+    },
+    {
+      "from": "frontend-requirements:ring-projection",
+      "kind": "wikilink",
+      "to": "needs-decision:ND-16"
     },
     {
       "from": "frontend-requirements:ring-projection",
@@ -30567,7 +30609,17 @@
     {
       "from": "story:ring-projection",
       "kind": "wikilink",
-      "to": "story:view-as"
+      "to": "feature:widgets"
+    },
+    {
+      "from": "story:ring-projection",
+      "kind": "wikilink",
+      "to": "needs-decision:ND-16"
+    },
+    {
+      "from": "story:ring-projection",
+      "kind": "wikilink",
+      "to": "story:photo-library"
     },
     {
       "from": "story:rings",
@@ -39173,7 +39225,8 @@
         "project:ring-access-model",
         "project:architecture",
         "project:api-conventions",
-        "project:spec-map"
+        "project:spec-map",
+        "story:ring-projection"
       ],
       "release": "v1",
       "resolution": null,
@@ -54040,6 +54093,7 @@
       "related": [
         "frontend-requirements:profiles",
         "story:profiles",
+        "story:ring-projection",
         "decision:D-06",
         "frontend-requirements:interests"
       ],
@@ -54959,7 +55013,10 @@
         "frontend-requirements:ring-access",
         "decision:D-02",
         "decision:D-03",
-        "decision:D-05"
+        "decision:D-05",
+        "story:view-as",
+        "story:gemma",
+        "feature:linked-accounts"
       ],
       "release": "mvp",
       "resolution": null,
@@ -54970,11 +55027,15 @@
         "s23",
         "s24",
         "s25",
+        "s28",
         "s29",
-        "s36"
+        "s30",
+        "s36",
+        "s37",
+        "s68"
       ],
       "status": "approved",
-      "summary": "A Ring owner decides what one audience sees: the name and nickname they go by there, the bio, the photo, the theme, which social and contact links, which info blocks (\"Add a field\"), which files,…",
+      "summary": "A Ring owner decides what one audience sees: the headline, role, company and location they go by there (or none of them), the nickname, the bio, the photo, which social and contact links, which…",
       "tags": [
         "story",
         "story/approved",
@@ -54983,7 +55044,7 @@
       ],
       "task": null,
       "title": "S-17 Ring Projection Story",
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "story:rings": {
       "affects": [],
@@ -55145,7 +55206,8 @@
         "needs-decision:ND-22",
         "story:files",
         "story:profiles",
-        "frontend-requirements:ring-access"
+        "frontend-requirements:ring-access",
+        "story:ring-projection"
       ],
       "release": "mvp",
       "resolution": null,

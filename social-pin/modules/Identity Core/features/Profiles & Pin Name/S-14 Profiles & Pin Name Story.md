@@ -17,6 +17,8 @@ tags: [story, story/approved, module/identity, layer/business]
 
 # Profiles & Pin Name · User Story
 
+> ⚠ Affected by [[S-17 Ring Projection Story]] (2026-10-29): Me's privacy rows (S4) now **list and switch Rings**: each of Birthdate, Gender, Marital status shows which Rings show it ("Family Ring only") and opens the value plus a list of my Rings with a switch each; the same switches as each Ring's s24 (`showBirthdate`, `showGender`, `showMaritalStatus`; [[S-17 Ring Projection Story|Ring Projection · S4]]).
+
 **Feature:** [[F-07 Profiles & Pin Name]] · **Status:** Approved 2026-10-29 by Omar Fostok (first approved 2026-10-25 by khaled; reworked 2026-10-29 by the design review: S1–S3, S7, S9, S10, S12 changed; S5, S6, S8 merged or moved) · **Frontend Requirements:** [[FR-07 Profiles & Pin Name Frontend Requirements]] · **Backend Integration:** [[BI-04 Profiles & Pin Name Backend Integration]]
 
 A person claims a `!handle` that is theirs across the whole product, the thing printed on a badge and typed into Discover, and keeps the canonical facts about themselves (full name, nickname, birthdate, gender, marital status, and the work details of the main profile: headline, role, company, location, photo, bio) in one place. Rings then decide what each audience gets. The Pin name is public by nature; the sensitive fields are private by default and opt-in per Ring. One profile per person in v1.

@@ -14,6 +14,8 @@ tags: [feature, module/identity, priority/critical, release/mvp]
 
 # Ring Projection
 
+> ⚠ Affected by [[S-17 Ring Projection Story]] (2026-10-29): the story now also uses s28 (Copy from a Ring), s30 (Photo library, from s23's Upload), s37 (Widgets, from s36) and s68 (Me's privacy rows switch Rings); and S9 / S10 build the decided rules (the library, per field off / follow / own), so the Design reference's "decided (D-03 / D-05), not built" now points at them. Ask: `/owner add s28, s30, s37, s68 to Ring Projection's screens`.
+
 **Backend:** Done · **Priority:** Critical · **Release:** MVP · **Module:** [[M-01 Identity Core Module|Identity Core]]
 
 **Layers:** [[S-17 Ring Projection Story|Story]] · [[FR-10 Ring Projection Frontend Requirements|Frontend Requirements]] · [[BD-10 Ring Projection Backend Delivery|Backend Delivery]] · [[BI-07 Ring Projection Backend Integration|Backend Integration]] · [[Ring Projection Frontend Delivery|Frontend Delivery]] · [[Ring Projection QA Backend|QA Backend]] · [[Ring Projection QA Frontend|QA Frontend]]
