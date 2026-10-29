@@ -38,7 +38,7 @@ All 78 screens of the prototype (`socialPin-design/.proto2.json`, ids are the pr
 | <a id="s20"></a>**s20** | New Ring · step 3 (what it shows) | ✅ | [[F-10 Ring Projection]], [[F-04 Files Upload]] | Field library → ND-03 |
 | <a id="s21"></a>**s21** | New Ring · step 4 (how you appear) | ✅ | [[F-11 Rings]], [[F-10 Ring Projection]] |  |
 | <a id="s22"></a>**s22** | Edit · name & purpose | ✅ | [[F-11 Rings]] | Purpose → ND-04 |
-| <a id="s23"></a>**s23** | Edit · how you appear | ✅ | [[F-10 Ring Projection]] | Inherit → ND-05 / ND-02 |
+| <a id="s23"></a>**s23** | Edit · how you appear | ✅ | [[F-10 Ring Projection]], [[F-06 Photo Library]] | Inherit → ND-05 / ND-02 |
 | <a id="s24"></a>**s24** | Edit · what it shows | ✅ | [[F-10 Ring Projection]], [[F-04 Files Upload]] | "4 of 7 on" → ND-03 |
 | <a id="s25"></a>**s25** | Edit · social profiles | ✅ | [[F-10 Ring Projection]] |  |
 | <a id="s26"></a>**s26** | Edit · access | 🟡 | [[F-11 Rings]], [[F-16 Delegated Admins]] | Settings → ND-04 |
@@ -81,7 +81,7 @@ All 78 screens of the prototype (`socialPin-design/.proto2.json`, ids are the pr
 | <a id="s65"></a>**s65** | Booth analytics | ❌ | [[F-24 Exhibitor]] |  |
 | <a id="s66"></a>**s66** | Meetings | ❌ | [[F-26 Meetings]] |  |
 | <a id="s67"></a>**s67** | Meeting detail | ❌ | [[F-26 Meetings]] |  |
-| <a id="s68"></a>**s68** | Me / Account | 🟡 | [[F-01 Account]], [[F-38 Linked Accounts (OAuth)]], [[F-03 Counts]], [[F-28 Subscription (Free vs Pro)]] |  |
+| <a id="s68"></a>**s68** | Me / Account | 🟡 | [[F-01 Account]], [[F-38 Linked Accounts (OAuth)]], [[F-03 Counts]], [[F-28 Subscription (Free vs Pro)]], [[F-06 Photo Library]] |  |
 | <a id="s69"></a>**s69** | Notifications | ❌ | [[F-39 Notifications]] |  |
 | <a id="s70"></a>**s70** | Subscription | ❌ | [[F-28 Subscription (Free vs Pro)]] |  |
 | <a id="s71"></a>**s71** | Interests | 🟡 | [[F-37 Interests]] |  |

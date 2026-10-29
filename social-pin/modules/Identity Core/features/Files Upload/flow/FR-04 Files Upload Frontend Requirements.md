@@ -17,6 +17,8 @@ tags: [frontend-requirements, frontend-requirements/ready, module/identity, laye
 
 # Files Upload · Frontend Requirements
 
+> ⚠ Affected by [[S-11 Photo Library Story]] (2026-10-29): Photo Library · S8 is now "which Rings use each photo" (`usedBy: [{ ringId, name }]`, `followerCount` on the main photo, photos only), not a bare "N Rings inherit it" count; the endpoints row "'N Rings inherit it' per photo" should say so.
+
 **Feature:** [[F-04 Files Upload]] · **Status:** 📨 Ready 2026-10-29, waiting on the backend's review · **Story:** [[S-06 Files Upload Story]] · **Backend Integration:** [[BI-03 Files Upload Backend Integration]]
 
 What the client needs from the backend to upload, attach, switch on or off, inspect and delete files behind the Ring screens, and whether each need is met today. The multipart shape, the allow-list and the limits are in [[BI-03 Files Upload Backend Integration]].
