@@ -7,17 +7,23 @@
  *   node scripts/agent-guard.mjs session    SessionStart hook: a new session starts with no active agent
  *   node scripts/agent-guard.mjs check      PreToolUse hook on Edit / Write: exit 2 (blocked) when the active agent may not write that file
  *   node scripts/agent-guard.mjs bash       PreToolUse hook on Bash: exit 2 when an active agent tries to write files around the guard
- *   node scripts/agent-guard.mjs status     prints the active agent and what it may write
- *   node scripts/agent-guard.mjs selftest   runs the allow / deny matrix; exit 1 on a mismatch (CI runs it)
+ *   node scripts/agent-guard.mjs status     prints this session's agent and what it may write; outside a session, every session's agent
+ *   node scripts/agent-guard.mjs selftest   runs the allow / deny matrix and the two-session rows; exit 1 on a mismatch (CI runs it)
  *
  * The agents and their scopes are `agents.list` in docs.config.json; the rules in words are rules/Agent Protocol.md.
+ * The active agent is kept per Claude Code session: `agents.marker` is a folder with one file per session, named by the `session_id`
+ * the hooks receive on stdin (from the shell, `CLAUDE_CODE_SESSION_ID`), so sessions sharing the folder never change each other's agent.
+ * The old shared marker (a plain file at that path) counts for no session and is replaced by the folder on the next "/<agent>".
+ * AGENT_GUARD_MARKER overrides the folder (the selftest's two-session rows use a temporary one).
  * No active agent → every Edit / Write and every writing shell command is refused with one instruction: ask the user which agent
  * they will use for the change and wait for them to type it (/owner …, /pm …, /admin …); nobody picks an agent for the user.
  * An agent whose `writes.all` is true (/admin, rules/Admin Agent.md) may write anything, generated files and the verbatim brief included,
  * from the shell too. Node 22 built-ins only.
  */
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
+import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -27,7 +33,7 @@ const readJson = (p, fallback) => { try { return JSON.parse(fs.readFileSync(p, '
 const cfg = readJson(path.join(ROOT, 'docs.config.json'), {});
 const agentsCfg = cfg.agents || {};
 const AGENTS = agentsCfg.list || [];
-const MARKER = path.join(ROOT, agentsCfg.marker || '.claude/.active-agent');
+const MARKER = process.env.AGENT_GUARD_MARKER ? path.resolve(process.env.AGENT_GUARD_MARKER) : path.join(ROOT, agentsCfg.marker || '.claude/.active-agent');
 const PROTOCOL = agentsCfg.protocol || 'rules/Agent Protocol.md';
 // the product's cards live in `projectDir`; the docs system (rules/, templates/, scripts/, tree/) at the root
 const PROJECT_DIR = String(cfg.projectDir || '').replace(/^\/+|\/+$/g, '');
@@ -40,10 +46,23 @@ for (const layer of cfg.layers || []) for (const k of layer.kinds || []) KINDS.p
 const STRUCTURAL_LAYER = { module: 'business', feature: 'business', bug: 'business', 'needs-decision': 'business', 'decision': 'business', project: 'shared' };
 
 const readStdin = () => { try { return JSON.parse(fs.readFileSync(0, 'utf8') || '{}'); } catch { return {}; } };
-const active = () => { try { return fs.readFileSync(MARKER, 'utf8').trim() || null; } catch { return null; } };
+// the hooks get their JSON on stdin once; `status` and `selftest` run from a terminal and read none
+const input = ['prompt', 'session', 'check', 'bash'].includes(cmd) ? readStdin() : {};
+// the session this run is for: the hook's session_id, else the shell's; one marker file per session (a hook without one shares "default")
+const SESSION = String(input.session_id || process.env.CLAUDE_CODE_SESSION_ID || '').replace(/[^A-Za-z0-9_-]/g, '') || null;
+const markerDir = () => { try { return fs.statSync(MARKER).isDirectory(); } catch { return false; } };
+const markerOf = (sid) => path.join(MARKER, sid || 'default');
+const active = (sid = SESSION) => { if (!markerDir()) return null; try { return fs.readFileSync(markerOf(sid), 'utf8').trim() || null; } catch { return null; } };
 const agentOf = (id) => AGENTS.find((a) => a.id === id) || null;
-const setActive = (id) => { fs.mkdirSync(path.dirname(MARKER), { recursive: true }); fs.writeFileSync(MARKER, `${id}\n`); };
-const clearActive = () => { try { fs.unlinkSync(MARKER); } catch {} };
+const setActive = (id, sid = SESSION) => {
+  if (fs.existsSync(MARKER) && !markerDir()) fs.unlinkSync(MARKER); // the old shared marker file gives way to the per-session folder
+  fs.mkdirSync(MARKER, { recursive: true }); fs.writeFileSync(markerOf(sid), `${id}\n`);
+};
+const clearActive = (sid = SESSION) => { try { fs.unlinkSync(markerOf(sid)); } catch {} };
+const sessions = () => { if (!markerDir()) return []; return fs.readdirSync(MARKER).map((sid) => ({ sid, agent: active(sid) })).filter((s) => s.agent); };
+// a session that ended without "/agent off" leaves its file behind; a new session sweeps those older than a month
+const PRUNE_DAYS = 30;
+const pruneStale = () => { if (!markerDir()) return; for (const f of fs.readdirSync(MARKER)) { try { const p = path.join(MARKER, f); if (Date.now() - fs.statSync(p).mtimeMs > PRUNE_DAYS * 864e5) fs.unlinkSync(p); } catch {} } };
 
 // ---------------------------------------------------------------- what may an agent write, in words
 function scopeWords(a) {
@@ -182,34 +201,39 @@ const relOf = (p) => { if (!p) return null; const abs = path.isAbsolute(p) ? p :
 
 // ---------------------------------------------------------------- commands
 if (cmd === 'prompt') {
-  const { prompt = '' } = readStdin();
+  const { prompt = '' } = input;
   const m = /^\s*\/([a-z]+)\b\s*(.*)$/s.exec(prompt);
   if (m) {
     const [, name, rest] = m;
     if (agentOf(name)) { setActive(name); const a = agentOf(name); console.log(`Active agent: ${a.id} (${a.label}). Follow ${PROTOCOL} and ${a.note}. You may write: ${scopeWords(a)}. Everything else is denied by the guard.`); }
     else if (name === 'agent') {
-      if (/^off\b/.test(rest.trim())) { clearActive(); console.log(`No agent is active: every write is refused until the user starts one with ${agentList()}.`); }
+      if (/^off\b/.test(rest.trim())) { clearActive(); console.log(`No agent is active in this session: every write is refused until the user starts one with ${agentList()}. Other sessions keep their own.`); }
       else { const a = agentOf(active() || ''); console.log(a ? `Active agent: ${a.id} (${a.label}); writes ${scopeWords(a)}. "/agent off" clears it.` : `No agent is active: every write is refused until the user starts one with ${agentList()}. Ask which one before anything else.`); }
     }
   }
   process.exit(0);
 }
-if (cmd === 'session') { clearActive(); process.exit(0); }
+if (cmd === 'session') { clearActive(); pruneStale(); process.exit(0); } // this session's entry only: the others keep their agent
 if (cmd === 'status') {
+  if (!SESSION) {
+    const all = sessions();
+    console.log(all.length ? `Active agents, one per Claude Code session in this folder:\n${all.map((s) => `  ${s.sid}: ${s.agent}`).join('\n')}` : `No session has an active agent. Agents: ${agentList()}.`);
+    process.exit(0);
+  }
   const a = agentOf(active() || '');
-  console.log(a ? `Active agent: ${a.id} (${a.label})\nwrites: ${scopeWords(a)}\nnote: ${a.note}\nprotocol: ${PROTOCOL}` : `No agent is active: every write is refused until the user starts one. Agents: ${agentList()}. Ask which one before anything else.`);
+  console.log(a ? `Active agent: ${a.id} (${a.label})\nwrites: ${scopeWords(a)}\nnote: ${a.note}\nprotocol: ${PROTOCOL}` : `No agent is active in this session: every write is refused until the user starts one. Agents: ${agentList()}. Ask which one before anything else.`);
   process.exit(0);
 }
 if (cmd === 'check') {
   const a = agentOf(active() || '');
-  const { tool_name: tool = '', tool_input: input = {} } = readStdin();
-  const rel = relOf(input.file_path || input.notebook_path);
+  const { tool_name: tool = '', tool_input: ti = {} } = input;
+  const rel = relOf(ti.file_path || ti.notebook_path);
   if (!rel) process.exit(0); // a file outside the repository is not the vault's business
   if (!a) { console.error(noAgent().message); process.exit(2); }
   let op = 'write', edit = null;
-  if (tool === 'Edit' && typeof input.old_string === 'string') { op = 'edit'; edit = { old: input.old_string, new: input.new_string ?? '' }; }
-  else if (tool === 'MultiEdit' && Array.isArray(input.edits)) { op = 'edit'; edit = { old: input.edits.map((e) => e.old_string ?? '').join('\n'), new: input.edits.map((e) => e.new_string ?? '').join('\n') }; }
-  else if (typeof input.content === 'string') edit = { old: '', new: input.content }; // a Write: the whole file, so the decision rule can read its status
+  if (tool === 'Edit' && typeof ti.old_string === 'string') { op = 'edit'; edit = { old: ti.old_string, new: ti.new_string ?? '' }; }
+  else if (tool === 'MultiEdit' && Array.isArray(ti.edits)) { op = 'edit'; edit = { old: ti.edits.map((e) => e.old_string ?? '').join('\n'), new: ti.edits.map((e) => e.new_string ?? '').join('\n') }; }
+  else if (typeof ti.content === 'string') edit = { old: '', new: ti.content }; // a Write: the whole file, so the decision rule can read its status
   const d = decide(a, rel, op, edit);
   if (d.allow) process.exit(0);
   console.error(d.message);
@@ -218,8 +242,8 @@ if (cmd === 'check') {
 if (cmd === 'bash') {
   const a = agentOf(active() || '');
   if (a?.writes?.all) process.exit(0); // the admin: the shell is not guarded either
-  const { tool_input: input = {} } = readStdin();
-  const c = String(input.command || '').trim();
+  const { tool_input: ti = {} } = input;
+  const c = String(ti.command || '').trim();
   const allowed = /^(node scripts\/(build-tree|agent-guard)\.mjs\b|git\b|ls\b|cat\b|head\b|tail\b|grep\b|rg\b|find\b|wc\b|diff\b|sed -n\b|pwd\b|echo\b[^>]*$)/;
   const writes = /(^|[^<>])>{1,2}(?!&)|\btee\b|\bsed\s+-[a-zA-Z]*i|\bperl\s+-[a-zA-Z]*i|\b(mv|cp|rm|touch|mkdir|rmdir|truncate|dd)\b|\bpython3?\b|\bnode\s+(?!scripts\/(build-tree|agent-guard)\.mjs)/;
   if (allowed.test(c) && !/&&|;|\|\s*(tee|sed|perl|python|node|sh|bash)\b/.test(c)) process.exit(0);
@@ -292,8 +316,44 @@ if (cmd === 'selftest') {
     if (!ok) bad++;
     console.log(`${ok ? 'ok  ' : 'FAIL'} ${id.padEnd(8)} ${op.padEnd(5)} ${expected ? 'allow' : 'deny '} ${rel}${ok ? '' : `\n     got ${d.allow ? 'allow' : 'deny'}: ${d.message || ''}`}`);
   }
-  console.log(`${M.length - bad} of ${M.length} rows as expected`);
-  process.exit(bad ? 1 : 0);
+  // two sessions in one folder, with different agents: the real hooks run against a temporary marker folder, which starts as the old shared file
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'agent-guard-'));
+  const marker = path.join(tmp, '.active-agent');
+  fs.writeFileSync(marker, 'owner\n');
+  const hook = (hookCmd, sid, payload) => spawnSync(process.execPath, [fileURLToPath(import.meta.url), hookCmd], {
+    input: JSON.stringify({ session_id: sid, ...payload }), encoding: 'utf8', env: { ...process.env, AGENT_GUARD_MARKER: marker, CLAUDE_CODE_SESSION_ID: '' },
+  });
+  const agentIn = (sid) => { try { return fs.readFileSync(path.join(marker, sid), 'utf8').trim() || null; } catch { return null; } };
+  const write = (file) => ({ tool_name: 'Write', tool_input: { file_path: file, content: 'x\n' } });
+  const S = [
+    // session, hook, payload, expected exit, each session's agent afterwards
+    ['A', 'check', write('rules/Agent Rules.md'), 2, { A: null, B: null }], // the old shared marker grants nobody
+    ['A', 'prompt', { prompt: '/owner change a rule' }, 0, { A: 'owner', B: null }],
+    ['B', 'prompt', { prompt: '/pm write the story' }, 0, { A: 'owner', B: 'pm' }],
+    ['A', 'check', write('rules/Agent Rules.md'), 0, { A: 'owner', B: 'pm' }],
+    ['B', 'check', write('rules/Agent Rules.md'), 2, { A: 'owner', B: 'pm' }],
+    ['B', 'check', write(story), 0, { A: 'owner', B: 'pm' }],
+    ['A', 'check', write(story), 2, { A: 'owner', B: 'pm' }],
+    ['C', 'session', {}, 0, { A: 'owner', B: 'pm', C: null }], // a third session starting clears only its own entry
+    ['C', 'check', write('rules/Agent Rules.md'), 2, { A: 'owner', B: 'pm', C: null }],
+    ['B', 'prompt', { prompt: '/agent off' }, 0, { A: 'owner', B: null }],
+    ['B', 'check', write(story), 2, { A: 'owner', B: null }],
+    ['A', 'check', write('rules/Agent Rules.md'), 0, { A: 'owner', B: null }],
+    ['B', 'prompt', { prompt: '/qa' }, 0, { A: 'owner', B: 'qa' }],
+    ['A', 'session', {}, 0, { A: null, B: 'qa' }], // /clear or a restart of session A
+  ];
+  let sBad = 0;
+  for (const [sid, hookCmd, payload, exit, want] of S) {
+    const r = hook(hookCmd, sid, payload);
+    const got = Object.fromEntries(Object.keys(want).map((k) => [k, agentIn(k)]));
+    const ok = r.status === exit && Object.keys(want).every((k) => got[k] === want[k]);
+    if (!ok) sBad++;
+    const what = payload.prompt || payload.tool_input?.file_path || '';
+    console.log(`${ok ? 'ok  ' : 'FAIL'} session ${sid} ${hookCmd.padEnd(7)} exit ${exit} ${what}${ok ? '' : `\n     got exit ${r.status}, agents ${JSON.stringify(got)}, want ${JSON.stringify(want)}${r.stderr ? `: ${r.stderr.trim()}` : ''}`}`);
+  }
+  fs.rmSync(tmp, { recursive: true, force: true });
+  console.log(`${M.length - bad} of ${M.length} rows as expected; ${S.length - sBad} of ${S.length} two-session rows as expected`);
+  process.exit(bad || sBad ? 1 : 0);
 }
 console.error(`unknown command "${cmd}": prompt | session | check | bash | status | selftest`);
 process.exit(1);

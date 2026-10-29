@@ -2,7 +2,7 @@
 type: project
 layer: shared
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 related: ["Agent Rules", "Workflow", "Project Overview"]
 tags: [project, layer/shared, map]
 ---
@@ -138,7 +138,7 @@ node scripts/build-tree.mjs --impact "Ring Access Engine"   # what a change touc
 node scripts/build-tree.mjs --impact B-01            # … for a bug; also a feature id, "GET /rings/:id", E_RING_02, s14
 node scripts/build-tree.mjs --find "speed search"    # the cards and concepts that match some words, best first: how an agent turns what you said into ids
 node scripts/build-tree.mjs --branch owner F-41 create   # any agent's vault branch for a card: <tickets|docs>/<agent>/<M-NN>-<module-id>/<F-NN>-<feature-id>/<last>, as deep as the card sits; tickets/ for a story, Frontend Requirements, needs-decision card or bug, docs/ for the rest (docs.config.json branches, Workflow §2)
-node scripts/agent-guard.mjs status                  # which agent is active and what it may write; `selftest` runs the allow / deny matrix
+node scripts/agent-guard.mjs status                  # this session's agent and what it may write (outside a session: every session's); `selftest` runs the allow / deny matrix
 node scripts/build-tree.mjs --scaffold qa-frontend rings        # create a feature's layer note from its template: QF-NN Rings QA Frontend.md, the next free QF number, and every [[Rings QA Frontend]] link repointed at it
 node scripts/build-tree.mjs --scaffold bug counts "Count shows 0 on the default Ring" --found-on "BD-03 Counts Backend Delivery"   # a bug (type: bug) with the next free B-NN, written to bugs/, hung under the card it was found against
 node scripts/build-tree.mjs --scaffold feature discovery "Nearby by interest"        # a feature note in its module folder, features/Nearby by interest/F-NN Nearby by interest.md (--id <slug>, --frontend-only)

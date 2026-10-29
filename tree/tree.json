@@ -50381,7 +50381,7 @@
       ],
       "task": null,
       "title": "Agent Protocol",
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "project:agent-rules": {
       "affects": [
@@ -50936,7 +50936,7 @@
       ],
       "task": null,
       "title": "Docs Tree",
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "project:feature-graph": {
       "affects": [],
