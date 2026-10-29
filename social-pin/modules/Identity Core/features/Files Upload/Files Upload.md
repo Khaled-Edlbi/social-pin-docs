@@ -14,6 +14,8 @@ tags: [feature, module/identity, priority/high, release/v1]
 
 # Files Upload
 
+> ⚠ Affected by [[Files Upload Story]] (2026-10-29): the story now covers s24 (S12, switching a file on or off) and s29, s30, s31, s44; `screens:` lists s14, s20, s36 only. Ask: `/owner add s24, s29, s30, s31, s44 to Files Upload's screens`.
+
 **Backend:** Done · **Priority:** High · **Release:** v1 · **Module:** [[Identity Core Module|Identity Core]]
 
 **Layers:** [[Files Upload Story|Story]] · [[Files Upload Frontend Requirements|Frontend Requirements]] · [[Files Upload Backend Delivery|Backend Delivery]] · [[Files Upload Backend Integration|Backend Integration]] · [[Files Upload Frontend Delivery|Frontend Delivery]] · [[Files Upload QA Backend|QA Backend]] · [[Files Upload QA Frontend|QA Frontend]]

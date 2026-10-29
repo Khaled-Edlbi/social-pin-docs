@@ -13,6 +13,8 @@ tags: [frontend-requirements, frontend-requirements/draft, module/identity, laye
 
 # Files Upload · Frontend Requirements
 
+> ⚠ Affected by [[Files Upload Story]] (2026-10-29): design review. S1 (File opens the picker, back to s36), S2 (Cancel keeps wizard uploads; deletes them until `GET /files` ships), S3 (file chips, detail sheet, pencil → s24, only "+ Add" when empty, no greyed rows), S9 (name and size, no date) changed; S12 added (switch a file on or off on s20 / s24: `GET /files?kind=document`, on = `POST …/attachments`, off = `DELETE …/attachments/:id`). Hide / show in place is no longer needed; s24, s30, s31, s44 need sections.
+
 **Feature:** [[Files Upload]] · **Status:** Draft · **Story:** [[Files Upload Story]] · **Backend Integration:** [[Files Upload Backend Integration]]
 
 What the client needs from the backend to upload, attach, inspect and delete files behind the Ring screens, and whether each need is met today. The multipart shape, the allow-list and the limits are in [[Files Upload Backend Integration]].

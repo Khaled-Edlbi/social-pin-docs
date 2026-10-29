@@ -17,6 +17,8 @@ tags: [story, story/approved, module/identity, layer/business]
 
 # Ring Projection · User Story
 
+> ⚠ Affected by [[Files Upload Story]] (2026-10-29): a file is switched off by detaching it (`DELETE …/attachments/:attachmentId`), not hidden ([[Files Upload Story|Files Upload · S12]]); S1 ("hidden rows greyed") and S4 (an `isVisible` switch on file rows) no longer hold for files. This answers D-03's open point for files; the change to S1 and S4 comes in its own request.
+
 **Feature:** [[Ring Projection]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[Ring Projection Frontend Requirements]] · **Backend Integration:** [[Ring Projection Backend Integration]]
 
 A Ring owner decides what one audience sees: the name and nickname they go by there, the bio, the photo, the theme, which social and contact links, which info blocks ("Add a field"), which files, and whether this Ring may see their birthdate, gender, marital status, phone and email. The projection is the Ring's perspective of the one profile; editing it and then checking it with "View as" is the core loop of the product. Decided, not built yet: a Ring follows the main profile field by field until it changes a field ([[D-02 One main profile every Ring starts from]], [[D-05 Inherit per field, copy without members]]), and links are one library each Ring switches on or off ([[D-03 Links entered once, switched on or off per Ring]]).

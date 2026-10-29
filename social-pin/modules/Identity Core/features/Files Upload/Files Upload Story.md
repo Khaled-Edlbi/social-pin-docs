@@ -4,27 +4,28 @@ code: files
 scope: feature
 feature: files
 module: identity
-status: approved
-screens: [s14, s20, s36, s30, s31, s44]
-approvedBy: "khaled"
-approvedAt: 2026-10-25
-owner: "khaled"
+status: draft
+screens: [s14, s20, s24, s36, s29, s30, s31, s44]
+owner: "Omar Fostok"
+related: ["D-03 Links entered once, switched on or off per Ring", "Ring Projection Story", "Photo Library Story", "View As & Pin Views Story", "ND-16 Viewer access to file bytes"]
 created: 2026-10-18
-updated: 2026-10-27
-tags: [story, story/approved, module/identity, layer/business]
+updated: 2026-10-29
+tags: [story, story/draft, module/identity, layer/business]
 ---
 
 # Files Upload · User Story
 
-**Feature:** [[Files Upload]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[Files Upload Frontend Requirements]] · **Backend Integration:** [[Files Upload Backend Integration]]
+**Feature:** [[Files Upload]] · **Status:** Draft since 2026-10-29 (approved 2026-10-25 by khaled; reopened by the design review: S1–S3, S9 changed, S12 added; waits on product's approval) · **Frontend Requirements:** [[Files Upload Frontend Requirements]] · **Backend Integration:** [[Files Upload Backend Integration]]
 
 A Ring owner wants a Ring to carry a photo and a few documents (a portfolio PDF, a pitch deck) without those files becoming public. Upload is a private step: a file belongs to the uploader and is visible to nobody until a Ring projection references it, at which point whoever may see that Ring may see the file. The client's job is to make the two steps (upload, then attach) feel like one.
 
-Upload, attach and delete (S1 to S6) run on endpoints that exist. **Showing files** (S7 to S11) was the task T-062, merged into this story on 2026-10-27 (one story per feature); it waits on [[ND-16 Viewer access to file bytes]].
+Upload, attach and delete (S1 to S6) run on endpoints that exist. **Showing files** (S7 to S11) was the task T-062, merged into this story on 2026-10-27 (one story per feature); it waits on [[ND-16 Viewer access to file bytes]]. **Switching a file on or off for a Ring** (S12) runs on existing endpoints; listing the library waits on `GET /files` ([[Photo Library Story|Photo Library · S7]]).
+
+Files follow the library rule of [[D-03 Links entered once, switched on or off per Ring]]: a file is uploaded once and belongs to its owner, and each Ring only switches it on or off. The attachment row is the Ring's "this file is on" record: attaching switches a file on, detaching switches it off. There is no hidden-but-attached state in the editor.
 
 ## Persona
 
-A Ring owner editing a Ring from Ring data ([[Screen Index#s14|s14]]), the create wizard's "what it shows" step ([[Screen Index#s20|s20]]) or "Add to this Ring" ([[Screen Index#s36|s36]]), on a phone with the file picker or the camera roll open.
+A Ring owner editing a Ring from Ring data ([[Screen Index#s14|s14]]), the create wizard's "what it shows" step ([[Screen Index#s20|s20]]), "What this Ring shows" ([[Screen Index#s24|s24]]) or "Add to this Ring" ([[Screen Index#s36|s36]]), on a phone with the file picker or the camera roll open.
 
 ## Stories
 
@@ -33,9 +34,10 @@ A Ring owner editing a Ring from Ring data ([[Screen Index#s14|s14]]), the creat
 **As a** Ring owner **I want** to add a PDF or a document to a Ring **so that** this audience can read it from my profile.
 
 Acceptance criteria:
-- [ ] "File" opens the system picker; the chosen file is checked on the device against the allow-list and the 25 MB limit before any request.
+- [ ] "File" on s36 opens the system picker straight away (the prototype's "File → s24" link is a placeholder: it loops back to s36); the chosen file is checked on the device against the allow-list and the 25 MB limit before any request.
 - [ ] The upload runs as `POST /files` (multipart, one part named `file`, the real MIME type) with a progress indicator; on 201 the returned `id` is held in memory.
-- [ ] The file is then attached with `POST /rings/:ringId/projection/attachments { fileId, label? }`; the attachment appears in the list with its `filename`, `mimeType` and `sizeBytes`.
+- [ ] The file is then attached with `POST /rings/:ringId/projection/attachments { fileId, label? }`, and the owner is back on s36; Done goes to s14, where the file shows under "Attachments & links" (S3).
+- [ ] One file per pick: a PDF, a PPT or a single image. A gallery of several photos is a widget ([[Widgets Story]]).
 - [ ] If the attach step fails, the upload is not shown as "on your profile"; the user can retry the attach or discard the file (`DELETE /files/:id`).
 - [ ] An oversized file reads "Too large (max 25 MB)" before upload; an unsupported type reads "Unsupported file type".
 
@@ -45,7 +47,8 @@ Acceptance criteria:
 
 Acceptance criteria:
 - [ ] The Ring exists before step 3 (created by `POST /rings` in step 1), so uploads can be attached to its projection right away.
-- [ ] Cancelling the wizard offers to delete the files uploaded during it, since nothing else references them.
+- [ ] Step 3 lists files as switches beside the fields (S12).
+- [ ] Cancel asks nothing (the design goes straight to s16) and deletes the Ring ([[Rings Story]]). Files uploaded during the wizard stay in the library and show, switched off, on the next Ring. Until `GET /files` ships they are deleted on Cancel (`DELETE /files/:id`), since nothing could list them. Files switched on from the library are never deleted.
 - [ ] The count of attachments carried into step 4 matches the projection's `attachments[]`.
 
 ### S3 · See attachments on Ring data ([[Screen Index#s14|s14]])
@@ -53,8 +56,10 @@ Acceptance criteria:
 **As a** Ring owner **I want** to see which files this Ring shows **so that** I can check the Ring before sharing it.
 
 Acceptance criteria:
-- [ ] Attachments list from `GET /rings/:ringId/projection` with name, type icon and size; hidden ones (`isVisible: false`) are greyed in the owner's editor.
-- [ ] A tap on an attachment shows its metadata; until S10 ships there is no preview or download, and the UI says "Download coming soon" rather than failing.
+- [ ] Attachments from `GET /rings/:ringId/projection` (`attachments[]`, by `sortOrder`) show as chips with the file name, in the same row as the links, as the design draws "Attachments & links". No type icon, no size on the chip.
+- [ ] A tap on a file chip opens a sheet with its name, type (`mimeType`) and size (`sizeBytes`); until S10 ships there is no preview or download, and the sheet says "Download coming soon" rather than failing.
+- [ ] The pencil next to "Attachments & links" goes to s24, where files are switched on or off (S12).
+- [ ] With no files or links, the section shows only the dashed "+ Add" chip, which goes to s36; there is no "No files yet" text.
 - [ ] Detaching (`DELETE …/attachments/:attachmentId`) removes it from this Ring but keeps the file in the library.
 
 ### S4 · Pick a photo for a Ring (journey, from [[Screen Index#s29|s29]])
@@ -104,6 +109,7 @@ Acceptance criteria:
 
 Acceptance criteria:
 - [ ] On s44 (scanned Pin) and s31 (View as), the photo from the view's `avatarFileId` shows.
+- [ ] Each attachment on the view shows its name and size (`filename`, `sizeBytes`). No date: the design's "updated Mar" is not shown, since a file is never replaced, only uploaded again.
 - [ ] Each attachment on the view opens (PDF, image) or downloads.
 - [ ] The owner's "View as" shows exactly what a viewer gets: the same photo, the same files, no hidden one.
 
@@ -123,10 +129,24 @@ Acceptance criteria:
 - [ ] A hidden attachment (`isVisible: false`) is never served to a viewer.
 - [ ] A link or id copied out of the app is no use to someone without access (or expires, if a signed `url` is chosen: [[ND-16 Viewer access to file bytes]]).
 
+### S12 · Switch a file on or off for this Ring ([[Screen Index#s20|s20]], [[Screen Index#s24|s24]])
+
+**As a** Ring owner **I want** my files listed once beside the fields, each switched on or off for this Ring **so that** I upload a file once and choose which Rings show it.
+
+The on/off screens are [[Ring Projection Story|Ring Projection · S2 and S4]]; this part says how a file behaves on them ([[D-03 Links entered once, switched on or off per Ring]]).
+
+Acceptance criteria:
+- [ ] My documents are listed from `GET /files?kind=document` beside the fields: a file attached to this Ring shows on, the rest off, and the "N of M on" count includes both. Not available yet: `GET /files` with its `kind` filter is [[Photo Library Story|Photo Library · S7]]; F-04 needs the document kind as well as images.
+- [ ] Switching a file on attaches it (`POST /rings/:ringId/projection/attachments { fileId }`).
+- [ ] Switching a file off detaches it (`DELETE /rings/:ringId/projection/attachments/:attachmentId`); the file stays in the library. The Ring's audience stops seeing it at once.
+- [ ] Until `GET /files` ships, only the files already on this Ring are listed; a file switched off stays on the list, shown off, for as long as the owner is on the screen.
+- [ ] "+ Add a field, link or file" goes to s36 (S1).
+- [ ] Reordering or renaming an attachment is not in the design: later.
+
 ## States and motion the design asks for
 
-- State: picking, uploading (progress), uploaded-not-attached, attached, hidden, failed, too large, unsupported type.
-- State: attachment rows on Ring data with type icon and size; "Download coming soon" until bytes can be served.
+- State: picking, uploading (progress), uploaded-not-attached, attached (on), not attached (off), failed, too large, unsupported type.
+- State: file chips on Ring data with the name only; the detail sheet with type, size and "Download coming soon" until bytes can be served; only "+ Add" when empty.
 - Motion: an added attachment slides into the Ring's list as part of the Ring re-compose; no upload-specific motion is asked for.
 - Showing a photo (S7–S9): the initials placeholder (or a file icon) until the bytes arrive, with no layout jump when the photo replaces it; a missing or refused photo stays on the placeholder silently, no error toast for a picture.
 - Opening a file (S9, S10): a progress state while it downloads; the system viewer opens it.
@@ -145,3 +165,6 @@ Acceptance criteria:
 - No decision blocks uploading (S1–S6). **Showing files (S7–S11) waits on [[ND-16 Viewer access to file bytes]]**: an authenticated route keyed by file id, or a signed `url` on the entities. The view's attachments carry the attachment `id` and no `fileId`, so a viewer cannot call a route keyed by file id with what it is given; a signed `url` on the view answers that and loads like any web image, a route needs the bearer token on every image request.
 - Thumbnails: whether the library and Ring lists get a smaller size, or download the full photo.
 - The library screen waits on [[Photo Library Story|Photo Library · S7]].
+- Covered by other features, not this story (design review 2026-10-29): the **gallery** on s36 ([[Widgets Story]], Gallery widget); **crop for this Ring** on s29 and **camera as a source** on s30 ([[Photo Library Story]], not written there yet); **pulling the LinkedIn photo** into the library on s30 ([[Linked Accounts (OAuth) Story]], not written there yet); **Gemma's "you have one in another Ring · Add"** file suggestion on s36 ([[Gemma AI Story]], not written there yet).
+- s31's owner face, **"Where each field goes"** (every field, link and file with the Rings it is on), belongs to [[View As & Pin Views Story]]; no story covers it yet.
+- [[Ring Projection Story]] S1 (hidden rows greyed) and S4 (an `isVisible` switch on file rows) still describe files as hidden, not detached; it takes the change in its own request.
