@@ -5,28 +5,30 @@ name: "Profiles & Pin Name"
 priority: critical
 release: mvp
 module: identity
-screens: [s06]
+screens: [s05b, s06, s23, s44, s68]
 created: 2026-10-18
-updated: 2026-10-28
-owner: "omar"
+updated: 2026-10-29
+owner: "Omar Fostok"
 tags: [feature, module/identity, priority/critical, release/mvp]
 ---
 
 # Profiles & Pin Name
 
-> ⚠ Affected by [[S-14 Profiles & Pin Name Story]] (2026-10-29): the story now covers s05b (*Profile basics*), s06, s23, s44 and s68; `screens:` lists s06 only. One profile per person in v1, so the summary's "Multiple profiles per account" is later. Ask: `/owner add s05b, s23, s44, s68 to Profiles & Pin Name's screens, and say multiple profiles are later`.
-
 **Backend:** Done · **Priority:** Critical · **Release:** MVP · **Module:** [[M-01 Identity Core Module|Identity Core]]
 
 **Layers:** [[S-14 Profiles & Pin Name Story|Story]] · [[FR-07 Profiles & Pin Name Frontend Requirements|Frontend Requirements]] · [[BD-07 Profiles & Pin Name Backend Delivery|Backend Delivery]] · [[BI-04 Profiles & Pin Name Backend Integration|Backend Integration]] · [[Profiles & Pin Name Frontend Delivery|Frontend Delivery]] · [[Profiles & Pin Name QA Backend|QA Backend]] · [[Profiles & Pin Name QA Frontend|QA Frontend]]
 
-Multiple profiles per account, the `!`-prefixed unique Pin name with a public live availability check, and the sensitive base fields (birthdate, gender, marital status) that Rings opt into.
+One profile per person: the full name, the nickname, the main profile every Ring starts from, the `!`-prefixed unique Pin name with a public live availability check, and the sensitive base fields (birthdate, gender, marital status) that Rings opt into. Several profiles per account (Personal, Professional, Business) are **later**, not in v1: the backend supports them, the app uses the default profile only, and a business identity is a company ([[F-15 Companies]]).
 
 ## Design reference
 
 | Screen | Name | Note |
 |---|---|---|
-| [[Screen Index#s06|s06]] | Claim your Pin | Availability check done; yearly rename + suggestions decided ([[D-06 Yearly rename, old name freed, case-insensitive|D-06]]), not built |
+| [[Screen Index#s05b|s05b]] | Profile basics | Built in the app, not drawn in the prototype: name required; photo, headline, company, location optional |
+| [[Screen Index#s06|s06]] | Claim your Pin | Availability check done; yearly rename + suggestions decided ([[D-06 Yearly rename, old name freed, case-insensitive|D-06]]), not built; the public page behind "socialpin.me/<handle>" waits on [[ND-22 Public web page by Pin name|ND-22]] |
+| [[Screen Index#s68|s68]] | Me / Account | The header opens the profile editor (not drawn yet); privacy rows done |
+| [[Screen Index#s23|s23]] | Edit · how you appear | "Inherit from your Pin" means the main profile's values |
+| [[Screen Index#s44|s44]] | Scanned Pin | How others find you by Pin name (the look-up is [[F-12 View As & Pin Views]]') |
 
 Wireframe brief sections: [[Wireframe Brief#Onboarding flow|§3.1 Onboarding flow]], [[Wireframe Brief#Account, subscription & settings|§12 Account, subscription & settings]]
 
@@ -38,6 +40,7 @@ Prototype: `socialPin-design/.proto2.json` (screen ids above), click-through map
 - A Pin name can be **changed once a year**; the old name is **free for anyone** at the rename, with no redirect ([[D-06 Yearly rename, old name freed, case-insensitive]]). Not built yet: renames are unlimited today.
 - Pin names **ignore capitals**: `Omar.Fostok` and `omar.fostok` are one name.
 - When a name is taken, **suggestions come only from the person's own name**; the availability check never reveals who holds a name.
+- **One profile per person in v1.** Several profiles per account are later.
 
 ## Work
 
