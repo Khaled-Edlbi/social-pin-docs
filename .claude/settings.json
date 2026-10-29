@@ -8,7 +8,8 @@
     ],
     "PreToolUse": [
       { "matcher": "Edit|Write|MultiEdit|NotebookEdit", "hooks": [{ "type": "command", "command": "node scripts/agent-guard.mjs check" }] },
-      { "matcher": "Bash", "hooks": [{ "type": "command", "command": "node scripts/agent-guard.mjs bash" }] }
+      { "matcher": "Bash", "hooks": [{ "type": "command", "command": "node scripts/agent-guard.mjs bash" }] },
+      { "matcher": "PowerShell", "hooks": [{ "type": "command", "command": "node scripts/agent-guard.mjs powershell" }] }
     ]
   }
 }
