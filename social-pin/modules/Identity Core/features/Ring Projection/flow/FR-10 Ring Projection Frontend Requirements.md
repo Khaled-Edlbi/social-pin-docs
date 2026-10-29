@@ -4,7 +4,7 @@ code: ring-projection
 scope: feature
 feature: ring-projection
 module: identity
-status: draft
+status: ready
 screens: [s14, s20, s23, s24, s25, s28, s29, s30, s36, s37, s68]
 depends: ["S-17 Ring Projection Story"]
 affects: ["BD-10 Ring Projection Backend Delivery"]
@@ -12,12 +12,12 @@ related: ["BI-07 Ring Projection Backend Integration", "D-02 One main profile ev
 created: 2026-10-18
 updated: 2026-10-29
 owner: "Omar Fostok"
-tags: [frontend-requirements, frontend-requirements/draft, module/identity, layer/frontend]
+tags: [frontend-requirements, frontend-requirements/ready, module/identity, layer/frontend]
 ---
 
 # Ring Projection · Frontend Requirements
 
-**Feature:** [[F-10 Ring Projection]] · **Status:** Draft · **Story:** [[S-17 Ring Projection Story]] · **Backend Integration:** [[BI-07 Ring Projection Backend Integration]]
+**Feature:** [[F-10 Ring Projection]] · **Status:** 📨 Ready 2026-10-29, waiting on the backend's review · **Story:** [[S-17 Ring Projection Story]] · **Backend Integration:** [[BI-07 Ring Projection Backend Integration]]
 
 What the client needs from the backend to build the "what this Ring shows" editor across its screens, and whether each need is met today. Shapes, the link-type table and field limits are in [[BI-07 Ring Projection Backend Integration]]. Today each Ring holds **its own copies** of links and custom fields, and main-profile fields have nowhere to live; the app imitates the library on the phone (`save_ring_exposure_use_case.dart`) until S9 and S10 ship.
 
