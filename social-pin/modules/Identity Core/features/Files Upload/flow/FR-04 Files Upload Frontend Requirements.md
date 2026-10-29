@@ -17,8 +17,6 @@ tags: [frontend-requirements, frontend-requirements/ready, module/identity, laye
 
 # Files Upload · Frontend Requirements
 
-> ⚠ Affected by [[S-11 Photo Library Story]] (2026-10-29): Photo Library · S8 is now "which Rings use each photo" (`usedBy: [{ ringId, name }]`, `followerCount` on the main photo, photos only), not a bare "N Rings inherit it" count; the endpoints row "'N Rings inherit it' per photo" should say so.
-
 **Feature:** [[F-04 Files Upload]] · **Status:** 📨 Ready 2026-10-29, waiting on the backend's review · **Story:** [[S-06 Files Upload Story]] · **Backend Integration:** [[BI-03 Files Upload Backend Integration]]
 
 What the client needs from the backend to upload, attach, switch on or off, inspect and delete files behind the Ring screens, and whether each need is met today. The multipart shape, the allow-list and the limits are in [[BI-03 Files Upload Backend Integration]].
@@ -94,7 +92,7 @@ The screens are [[FR-12 View As & Pin Views Frontend Requirements|View As & Pin 
 | Use a file as the Ring photo | `PATCH /rings/:ringId/projection` | ✅ | S4 (listed under [[F-10 Ring Projection]]) |
 | List my files by kind: `kind=image` (JPEG, PNG, WebP, GIF) and `kind=document` (every other type on the allow-list) | `GET /files?kind=` | ❌ | [[S-11 Photo Library Story\|Photo Library · S7]]; F-04 needs `document` as well as `image` (S12, S2) |
 | Display or download the bytes (owner and viewer) | — | ❌ | [[ND-16 Viewer access to file bytes]]; S7–S11 |
-| "N Rings inherit it" per photo | — | ❌ | [[S-11 Photo Library Story\|Photo Library · S8]]; s30 only, not needed for documents |
+| Rings using each photo: `usedBy: [{ ringId, name }]` and `followerCount` on the main photo, photos only (attachments not counted) | `GET /files?kind=image` | ❌ | [[S-11 Photo Library Story\|Photo Library · S8]], asked in [[FR-06 Photo Library Frontend Requirements\|FR-06]]; s30 only, not needed for documents |
 | Reorder or rename an attachment | — | not asked | not in the design; later (S12) |
 
 ## Behaviour expectations
