@@ -4,18 +4,20 @@ code: files
 scope: feature
 feature: files
 module: identity
-status: draft
+status: approved
 screens: [s14, s20, s24, s36, s29, s30, s31, s44]
+approvedBy: "Omar Fostok"
+approvedAt: 2026-10-29
 owner: "Omar Fostok"
 related: ["D-03 Links entered once, switched on or off per Ring", "S-17 Ring Projection Story", "S-11 Photo Library Story", "S-19 View As & Pin Views Story", "ND-16 Viewer access to file bytes"]
 created: 2026-10-18
 updated: 2026-10-29
-tags: [story, story/draft, module/identity, layer/business]
+tags: [story, story/approved, module/identity, layer/business]
 ---
 
 # Files Upload · User Story
 
-**Feature:** [[F-04 Files Upload]] · **Status:** Draft since 2026-10-29 (approved 2026-10-25 by khaled; reopened by the design review: S1–S3, S9 changed, S12 added; waits on product's approval) · **Frontend Requirements:** [[FR-04 Files Upload Frontend Requirements]] · **Backend Integration:** [[BI-03 Files Upload Backend Integration]]
+**Feature:** [[F-04 Files Upload]] · **Status:** Approved 2026-10-29 by Omar Fostok (first approved 2026-10-25 by khaled; reopened 2026-10-29 by the design review: S1–S3, S9 changed, S12 added) · **Frontend Requirements:** [[FR-04 Files Upload Frontend Requirements]] · **Backend Integration:** [[BI-03 Files Upload Backend Integration]]
 
 A Ring owner wants a Ring to carry a photo and a few documents (a portfolio PDF, a pitch deck) without those files becoming public. Upload is a private step: a file belongs to the uploader and is visible to nobody until a Ring projection references it, at which point whoever may see that Ring may see the file. The client's job is to make the two steps (upload, then attach) feel like one.
 

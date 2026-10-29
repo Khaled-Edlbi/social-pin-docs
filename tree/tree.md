@@ -43,7 +43,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
     - 🔵 [F-04 Files Upload](social-pin/modules/Identity%20Core/features/Files%20Upload/F-04%20Files%20Upload.md) (release v1, High)
       - ⛔ [S-06 Files Upload Story](social-pin/modules/Identity%20Core/features/Files%20Upload/S-06%20Files%20Upload%20Story.md) (User Story, High, blocked by ND-16 Viewer access to file bytes)
         - ✏️ [ND-16 Viewer access to file bytes](social-pin/needs-decisions/ND-16%20Viewer%20access%20to%20file%20bytes.md) (Needs decision)
-      - ⛔ [FR-04 Files Upload Frontend Requirements](social-pin/modules/Identity%20Core/features/Files%20Upload/flow/FR-04%20Files%20Upload%20Frontend%20Requirements.md) (Frontend Requirements, High, blocked by S-06 Files Upload Story)
+      - ✏️ [FR-04 Files Upload Frontend Requirements](social-pin/modules/Identity%20Core/features/Files%20Upload/flow/FR-04%20Files%20Upload%20Frontend%20Requirements.md) (Frontend Requirements, High)
       - ✅ [BD-04 Files Upload Backend Delivery](social-pin/modules/Identity%20Core/features/Files%20Upload/flow/BD-04%20Files%20Upload%20Backend%20Delivery.md) (Backend Delivery, High)
       - 🔵 [BI-03 Files Upload Backend Integration](social-pin/modules/Identity%20Core/features/Files%20Upload/flow/BI-03%20Files%20Upload%20Backend%20Integration.md) (Backend Integration, High)
       - ∅ _Files Upload QA Backend_ (QA Backend)

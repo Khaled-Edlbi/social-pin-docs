@@ -4168,7 +4168,7 @@
     }
   },
   "counts": {
-    "blocked": 39,
+    "blocked": 38,
     "bugs": 6,
     "byKind": {
       "backend-delivery": 39,
@@ -4194,7 +4194,7 @@
     },
     "concepts": 200,
     "decisions": 19,
-    "edges": 3752,
+    "edges": 3751,
     "features": 41,
     "layerNotes": 132,
     "modules": 8,
@@ -5681,11 +5681,6 @@
       "from": "story:events-during",
       "kind": "blocks",
       "to": "frontend-requirements:events-during"
-    },
-    {
-      "from": "story:files",
-      "kind": "blocks",
-      "to": "frontend-requirements:files"
     },
     {
       "from": "story:gemma",
@@ -36091,10 +36086,10 @@
       "release": "v1",
       "resolution": null,
       "rollup": {
-        "blocked": 2,
+        "blocked": 1,
         "current": 1,
         "done": 1,
-        "draft": 1,
+        "draft": 2,
         "missing": 3
       },
       "scope": null,
@@ -40746,20 +40741,14 @@
     },
     "frontend-requirements:files": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "story:files",
-          "title": "S-06 Files Upload Story",
-          "why": "S-06 Files Upload Story is draft"
-        }
-      ],
+      "blockedBy": [],
       "card": "FR-04",
       "children": [],
       "code": "files",
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "files",
       "foundOn": null,
@@ -42402,12 +42391,12 @@
       "resolution": null,
       "rollup": {
         "approved": 11,
-        "blocked": 7,
+        "blocked": 6,
         "current": 8,
         "decided": 7,
         "delivered": 2,
         "done": 9,
-        "draft": 10,
+        "draft": 11,
         "failing": 1,
         "in-progress": 13,
         "missing": 39,
@@ -49225,12 +49214,12 @@
       ],
       "rollup": {
         "approved": 31,
-        "blocked": 39,
+        "blocked": 38,
         "current": 8,
         "decided": 14,
         "delivered": 2,
         "done": 10,
-        "draft": 39,
+        "draft": 40,
         "failing": 1,
         "in-progress": 44,
         "missing": 153,
@@ -50466,11 +50455,11 @@
         "s31",
         "s44"
       ],
-      "status": "draft",
+      "status": "approved",
       "summary": "A Ring owner wants a Ring to carry a photo and a few documents (a portfolio PDF, a pitch deck) without those files becoming public. Upload is a private step: a file belongs to the uploader and is…",
       "tags": [
         "story",
-        "story/draft",
+        "story/approved",
         "module/identity",
         "layer/business"
       ],
