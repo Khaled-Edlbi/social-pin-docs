@@ -4517,7 +4517,7 @@
     "layerNotes": 133,
     "modules": 8,
     "notes": 276,
-    "partial": 4,
+    "partial": 5,
     "placeholders": 152,
     "records": 15
   },
@@ -41167,8 +41167,8 @@
         "current": 1,
         "decided": 1,
         "done": 2,
-        "failing": 1,
         "missing": 2,
+        "partial": 1,
         "ready": 1,
         "verified": 1
       },
@@ -48068,11 +48068,11 @@
         "delivered": 2,
         "done": 10,
         "draft": 3,
-        "failing": 2,
+        "failing": 1,
         "in-progress": 13,
         "missing": 38,
         "needs-decision": 2,
-        "partial": 4,
+        "partial": 5,
         "passing": 1,
         "ready": 9,
         "todo": 5,
@@ -52192,7 +52192,7 @@
         "backend-delivery:files",
         "story:files"
       ],
-      "effectiveStatus": "failing",
+      "effectiveStatus": "partial",
       "effort": null,
       "feature": "files",
       "foundOn": null,
@@ -52215,7 +52215,7 @@
       "pending": [
         {
           "person": null,
-          "text": "rows B12 and B16, filed 2026-10-29, re-run when it ships",
+          "text": "rows B12 and B16 pass on `main @ c80ed9d`; closing the bug (resolution `fixed`) waits on the user's word",
           "to": "task:B-08"
         }
       ],
@@ -52287,11 +52287,11 @@
         "s31",
         "s44"
       ],
-      "status": "failing",
+      "status": "passing",
       "summary": "Expected behaviour of the API, as artefacts a person can check a build against: tables and diagrams, not test code (the specs live in the backend repo). status: passing or failing after a run; the…",
       "tags": [
         "qa-backend",
-        "qa-backend/failing",
+        "qa-backend/passing",
         "module/identity",
         "layer/qa"
       ],
@@ -55177,11 +55177,11 @@
         "delivered": 2,
         "done": 11,
         "draft": 32,
-        "failing": 2,
+        "failing": 1,
         "in-progress": 45,
         "missing": 152,
         "needs-decision": 3,
-        "partial": 4,
+        "partial": 5,
         "passing": 1,
         "ready": 9,
         "reference": 31,

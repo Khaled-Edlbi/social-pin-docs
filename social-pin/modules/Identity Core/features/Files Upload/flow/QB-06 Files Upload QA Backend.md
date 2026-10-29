@@ -4,22 +4,22 @@ code: files
 scope: feature
 feature: files
 module: identity
-status: failing
+status: passing
 screens: [s14, s20, s24, s36, s29, s30, s31, s44]
 depends: ["BD-04 Files Upload Backend Delivery", "S-06 Files Upload Story"]
 affects: []
 related: ["BI-03 Files Upload Backend Integration", "FR-04 Files Upload Frontend Requirements", "BI-07 Ring Projection Backend Integration", "BI-09 View As & Pin Views Backend Integration", "D-16 Files load from signed links that expire in 15 minutes", "B-07 Context-scoped uploads are served by the public static mount", "B-08 Owner projection drops each attachment's file details", "B-06 Timestamps the app writes are stored shifted by the server time zone", "POST /files", "GET /files/:id", "DELETE /files/:id", "GET /rings/:ringId/projection", "PATCH /rings/:ringId/projection", "POST /rings/:ringId/projection/attachments", "DELETE /rings/:ringId/projection/attachments/:attachmentId", "GET /views/pin/:pinName", E_FILE_01, E_FILE_02, E_FILE_03, E_FILE_04, E_RING_05]
-pending: ["[[B-08 Owner projection drops each attachment's file details]]: rows B12 and B16, filed 2026-10-29, re-run when it ships"]
+pending: ["[[B-08 Owner projection drops each attachment's file details]]: rows B12 and B16 pass on `main @ c80ed9d`; closing the bug (resolution `fixed`) waits on the user's word"]
 created: 2026-10-29
 updated: 2026-10-29
-tags: [qa-backend, qa-backend/failing, module/identity, layer/qa]
+tags: [qa-backend, qa-backend/passing, module/identity, layer/qa]
 ---
 
 # 🧪 Files Upload · QA Backend
 
 > Blocked by default until [[BD-04 Files Upload Backend Delivery]] is `done` (the hand-off order in `docs.config.json`); `blockedBy: []` opts out, `blockedBy: [...]` names other blockers.
 
-**Feature:** [[F-04 Files Upload]] · **Verifies:** [[BD-04 Files Upload Backend Delivery]] against [[S-06 Files Upload Story]] and [[FR-04 Files Upload Frontend Requirements]], with the shapes and errors of [[BI-03 Files Upload Backend Integration]] and [[BI-07 Ring Projection Backend Integration]] · **Verdict:** 🔴 Failing · 2026-10-29 · `main @ c85db4b · localhost:3101, Node 22.22.2` · 30 of 32 as expected
+**Feature:** [[F-04 Files Upload]] · **Verifies:** [[BD-04 Files Upload Backend Delivery]] against [[S-06 Files Upload Story]] and [[FR-04 Files Upload Frontend Requirements]], with the shapes and errors of [[BI-03 Files Upload Backend Integration]] and [[BI-07 Ring Projection Backend Integration]] · **Verdict:** 🟢 Passing · 2026-10-29 · `main @ c80ed9d · localhost:3101, Node 22.22.2` · 32 of 32 as expected
 
 Expected behaviour of the API, as artefacts a person can check a build against: tables and diagrams, **not test code** (the specs live in the backend repo). `status: passing` or `failing` after a run; the verdict tells the PM whether the story can be fulfilled (passing with nothing pending).
 
@@ -60,11 +60,11 @@ Expected behaviour of the API, as artefacts a person can check a build against: 
 
 | # | Given | When | Then | Checked |
 |---|---|---|---|---|
-| B12 | Sara's PDF, her *E-commerce Clients* Ring | `{ fileId, label: "Portfolio" }` | 201, the owner's projection with an `attachments[]` row: its own `id`, `fileId`, `label`, `filename`, `mimeType`, `sizeBytes`, `sortOrder`, `isVisible: true` ([[BI-07 Ring Projection Backend Integration]]). **Actual: 201, but the row carries only `id`, `label`, `sortOrder`, `isVisible`; `fileId`, `filename`, `mimeType` and `sizeBytes` are missing.** | 🔴 [[B-08 Owner projection drops each attachment's file details]] |
+| B12 | Sara's PDF, her *E-commerce Clients* Ring | `{ fileId, label: "Portfolio" }` | 201, the owner's projection with an `attachments[]` row: its own `id`, `fileId`, `label`, `filename`, `mimeType`, `sizeBytes`, `sortOrder`, `isVisible: true` ([[BI-07 Ring Projection Backend Integration]]) | ✅ on `c80ed9d` (🔴 on `c85db4b`: [[B-08 Owner projection drops each attachment's file details]]) |
 | B13 | the PDF attached in B12 | attached again with `label: "Portfolio v2"` | 201, still **one** row for that file, now labelled "Portfolio v2" | ✅ |
 | B14 | a file Omar uploaded | Sara attaches it to her Ring | 400 `E_FILE_04` "That file is not one of yours"; nothing attached | ✅ |
 | B15 | Sara's Ring | **Omar** attaches his own file to it | 403 `E_RING_05` "You are not permitted to administer this ring" ([[BI-07 Ring Projection Backend Integration]]: not the owner nor an admin); nothing attached. A Ring id nobody has answers 404 | ✅ |
-| B16 | two attachments, `sortOrder` 1 and 0 | Sara reads `GET /rings/:ringId/projection` | `attachments[]` ordered by `sortOrder`, each with `filename`, `mimeType`, `sizeBytes` (S3: the chip's name, the sheet's type and size). **Actual: the order is right (Deck, then Portfolio v2), but no row has `filename`, `mimeType` or `sizeBytes`.** | 🔴 [[B-08 Owner projection drops each attachment's file details]] |
+| B16 | two attachments, `sortOrder` 1 and 0 | Sara reads `GET /rings/:ringId/projection` | `attachments[]` ordered by `sortOrder`, each with `filename`, `mimeType`, `sizeBytes` (S3: the chip's name, the sheet's type and size) | ✅ on `c80ed9d` (🔴 on `c85db4b`: [[B-08 Owner projection drops each attachment's file details]]) |
 
 ### `PATCH /rings/:ringId/projection { avatarFileId }` — S4 Pick a photo for a Ring
 
@@ -154,7 +154,8 @@ stateDiagram-v2
 
 ## Verdict
 
-- Run on: 2026-10-29 · build: `main @ c85db4b · localhost:3101, Node 22.22.2` · result: 🔴 failing, 30 of 32 as expected · failing rows: B12, B16 ([[B-08 Owner projection drops each attachment's file details]])
+- Run on: 2026-10-29 · build: `main @ c80ed9d · localhost:3101, Node 22.22.2` (run on the fix branch at `6491d0b`, merged with no other change) · result: 🟢 passing, 32 of 32 as expected · failing rows: none
+- Previous run: 2026-10-29 · `main @ c85db4b` · 🔴 30 of 32, B12 and B16 on [[B-08 Owner projection drops each attachment's file details]], which the fix answered. Closing B-08 waits on the user's word, so it stays in `pending` and the note reads Partial until then.
 - [[B-07 Context-scoped uploads are served by the public static mount]]: rows B30–B32 show it fixed on this build; closed `fixed` on 2026-10-29.
 - Seen in passing, not a row here: the `files.created_at` the run wrote reads three hours behind the server's clock, the shift [[B-06 Timestamps the app writes are stored shifted by the server time zone]] already describes.
 
@@ -162,3 +163,4 @@ stateDiagram-v2
 
 - 2026-10-29 · written from [[S-06 Files Upload Story]] S1–S6 and S12, [[BI-03 Files Upload Backend Integration]] and [[BI-07 Ring Projection Backend Integration]]; first run on `main @ c85db4b`: 30 of 32, [[B-08 Owner projection drops each attachment's file details]] filed against BI-07 for B12 and B16. B15 was first written as a 404 and corrected to the documented 403 `E_RING_05` before the recorded run.
 - 2026-10-29 · [[B-07 Context-scoped uploads are served by the public static mount]] closed `fixed` on khaled's word, from rows B30–B32; its entry cleared from `pending`. [[B-08 Owner projection drops each attachment's file details]] is the one entry left.
+- 2026-10-29 · re-run of all 32 rows on `main @ c80ed9d` (the B-08 fix): 32 of 32, `status: passing`. B12 and B16 now carry `fileId`, `filename`, `mimeType` and `sizeBytes`.
