@@ -95,7 +95,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
       - ∅ _Ring Access Engine QA Frontend_ (QA Frontend, blocked by Ring Access Engine Frontend Delivery)
     - 🔵 [F-09 Ring Members](social-pin/modules/Identity%20Core/features/Ring%20Members/F-09%20Ring%20Members.md) (release MVP, Critical)
       - 👍 [S-16 Ring Members Story](social-pin/modules/Identity%20Core/features/Ring%20Members/S-16%20Ring%20Members%20Story.md) (User Story, Critical)
-      - ✏️ [FR-09 Ring Members Frontend Requirements](social-pin/modules/Identity%20Core/features/Ring%20Members/flow/FR-09%20Ring%20Members%20Frontend%20Requirements.md) (Frontend Requirements, Critical)
+      - 📨 [FR-09 Ring Members Frontend Requirements](social-pin/modules/Identity%20Core/features/Ring%20Members/flow/FR-09%20Ring%20Members%20Frontend%20Requirements.md) (Frontend Requirements, Critical)
       - ✅ [BD-09 Ring Members Backend Delivery](social-pin/modules/Identity%20Core/features/Ring%20Members/flow/BD-09%20Ring%20Members%20Backend%20Delivery.md) (Backend Delivery, Critical)
       - 🔵 [BI-06 Ring Members Backend Integration](social-pin/modules/Identity%20Core/features/Ring%20Members/flow/BI-06%20Ring%20Members%20Backend%20Integration.md) (Backend Integration, Critical)
       - ∅ _Ring Members QA Backend_ (QA Backend)
