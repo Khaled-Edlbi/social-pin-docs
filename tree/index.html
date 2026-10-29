@@ -125,6 +125,7 @@ aside.filters { width: var(--drawer-w); min-width: 200px; max-width: 60vw; flex:
 .preset[aria-pressed="true"] { background: var(--color-accent-100); color: var(--color-accent-800); }
 .preset .pn { font-size: 14px; font-weight: 600; }
 .preset .ph { font-size: 12px; font-style: italic; color: var(--color-neutral-700); }
+.sec-groups { display: flex; flex-direction: column; gap: 12px; } /* in the stylesheet, not inline, so a folded section hides it */
 .group { display: flex; flex-direction: column; gap: 6px; }
 .group-title { display: flex; align-items: baseline; gap: 6px; font-size: 12px; font-style: italic; color: var(--color-neutral-700); }
 .group-title .gh { font-size: 11px; font-style: normal; color: var(--color-neutral-600); }
@@ -333,19 +334,19 @@ article .obsidian-only { border: 1px dashed var(--color-neutral-400); color: var
     </section>
     <section class="sec kinds">
       <div class="sec-head" data-sec="kinds" role="button" tabindex="0" aria-expanded="true"><span class="sec-title"><i class="ph-duotone ph-caret-down fold"></i>Note type</span><span class="sec-hint">what it is, by layer</span></div>
-      <div id="kinds" style="display:flex;flex-direction:column;gap:12px"></div>
+      <div id="kinds" class="sec-groups"></div>
     </section>
     <section class="sec statuses">
       <div class="sec-head" data-sec="statuses" role="button" tabindex="0" aria-expanded="true"><span class="sec-title"><i class="ph-duotone ph-caret-down fold"></i>Status</span><span class="sec-hint">where it stands</span></div>
-      <div id="statuses" style="display:flex;flex-direction:column;gap:12px"></div>
+      <div id="statuses" class="sec-groups"></div>
     </section>
     <section class="sec">
       <div class="sec-head" data-sec="urgency" role="button" tabindex="0" aria-expanded="true"><span class="sec-title"><i class="ph-duotone ph-caret-down fold"></i>Priority &amp; deadline</span><span class="sec-hint">how urgent</span></div>
-      <div id="urgency" style="display:flex;flex-direction:column;gap:12px"></div>
+      <div id="urgency" class="sec-groups"></div>
     </section>
     <section class="sec">
       <div class="sec-head" data-sec="dates" role="button" tabindex="0" aria-expanded="true"><span class="sec-title"><i class="ph-duotone ph-caret-down fold"></i>Dates</span><span class="sec-hint">when</span></div>
-      <div id="dates" style="display:flex;flex-direction:column;gap:12px">
+      <div id="dates" class="sec-groups">
         <div class="group"><div class="group-title">Created<span class="gh">the card's created: date</span></div><div class="chips" id="cr-chips"></div><div class="range"><input class="input" type="date" id="cr-from" aria-label="Created from" title="Created on or after"><span class="sep">to</span><input class="input" type="date" id="cr-to" aria-label="Created to" title="Created on or before"></div></div>
         <div class="group"><div class="group-title">Updated<span class="gh">the note's updated: date</span></div><div class="chips" id="upd-chips"></div><div class="range"><input class="input" type="date" id="upd-from" aria-label="Updated from" title="Updated on or after"><span class="sep">to</span><input class="input" type="date" id="upd-to" aria-label="Updated to" title="Updated on or before"></div></div>
         <div class="group"><div class="group-title">Deadline<span class="gh">due between two dates</span></div><div class="chips" id="dl-chips"></div><div class="range"><input class="input" type="date" id="dl-from" aria-label="Deadline from" title="Due on or after"><span class="sep">to</span><input class="input" type="date" id="dl-to" aria-label="Deadline to" title="Due on or before"></div></div>
