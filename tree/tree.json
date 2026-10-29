@@ -3043,6 +3043,7 @@
       ],
       "kind": "other",
       "notes": [
+        "feature:profiles",
         "frontend-requirements:profiles",
         "story:profiles"
       ],
@@ -3382,6 +3383,7 @@
         "backend-delivery:ring-projection",
         "backend-integration:ring-projection",
         "feature:photo-library",
+        "feature:profiles",
         "feature:ring-projection",
         "frontend-requirements:photo-library",
         "frontend-requirements:profiles",
@@ -3706,6 +3708,7 @@
         "feature:badge-qr",
         "feature:connections",
         "feature:files",
+        "feature:profiles",
         "feature:view-as",
         "frontend-requirements:badge-qr",
         "frontend-requirements:connections",
@@ -4106,6 +4109,7 @@
         "feature:counts",
         "feature:linked-accounts",
         "feature:photo-library",
+        "feature:profiles",
         "frontend-delivery:account",
         "frontend-requirements:account",
         "frontend-requirements:auth",
@@ -4264,7 +4268,7 @@
     },
     "concepts": 203,
     "decisions": 20,
-    "edges": 3900,
+    "edges": 3902,
     "features": 41,
     "layerNotes": 132,
     "modules": 8,
@@ -24927,6 +24931,16 @@
     {
       "from": "feature:profiles",
       "kind": "wikilink",
+      "to": "feature:companies"
+    },
+    {
+      "from": "feature:profiles",
+      "kind": "wikilink",
+      "to": "feature:view-as"
+    },
+    {
+      "from": "feature:profiles",
+      "kind": "wikilink",
       "to": "project:status-report-2026-10-15"
     },
     {
@@ -38443,10 +38457,14 @@
       },
       "scope": null,
       "screens": [
-        "s06"
+        "s05b",
+        "s06",
+        "s23",
+        "s44",
+        "s68"
       ],
       "status": null,
-      "summary": "Multiple profiles per account, the !-prefixed unique Pin name with a public live availability check, and the sensitive base fields (birthdate, gender, marital status) that Rings opt into.",
+      "summary": "One profile per person: the full name, the nickname, the main profile every Ring starts from, the !-prefixed unique Pin name with a public live availability check, and the sensitive base fields…",
       "tags": [
         "feature",
         "module/identity",
@@ -38455,7 +38473,7 @@
       ],
       "task": null,
       "title": "F-07 Profiles & Pin Name",
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "feature:ring-access": {
       "affects": [],
