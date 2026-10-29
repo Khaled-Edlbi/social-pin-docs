@@ -42548,8 +42548,8 @@
         "current": 1,
         "decided": 2,
         "done": 1,
-        "draft": 1,
         "missing": 3,
+        "ready": 1,
         "verified": 2
       },
       "scope": null,
@@ -47319,7 +47319,7 @@
       "depends": [
         "story:rings"
       ],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "ready",
       "effort": null,
       "feature": "rings",
       "foundOn": null,
@@ -47400,11 +47400,11 @@
         "s27",
         "s62"
       ],
-      "status": "draft",
+      "status": "ready",
       "summary": "What the client needs from the backend to build the Ring lists, the create wizard, the edit screens and the post-event choice, and whether each need is met today. Field rules, enums and the…",
       "tags": [
         "frontend-requirements",
-        "frontend-requirements/draft",
+        "frontend-requirements/ready",
         "module/identity",
         "layer/frontend"
       ],
@@ -48066,14 +48066,14 @@
         "decided": 8,
         "delivered": 2,
         "done": 9,
-        "draft": 4,
+        "draft": 3,
         "failing": 2,
         "in-progress": 13,
         "missing": 38,
         "needs-decision": 2,
         "partial": 4,
         "passing": 1,
-        "ready": 8,
+        "ready": 9,
         "todo": 6,
         "verified": 8
       },
@@ -55180,14 +55180,14 @@
         "decided": 15,
         "delivered": 2,
         "done": 10,
-        "draft": 33,
+        "draft": 32,
         "failing": 2,
         "in-progress": 45,
         "missing": 152,
         "needs-decision": 3,
         "partial": 4,
         "passing": 1,
-        "ready": 8,
+        "ready": 9,
         "reference": 31,
         "todo": 11,
         "verified": 15
