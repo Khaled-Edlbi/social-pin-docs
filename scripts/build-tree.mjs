@@ -51,7 +51,8 @@ const BAD_NAME = /[#?%\\]/;
 
 // Structural statuses (not layer-specific). Layer kinds take theirs from docs.config.json.
 const STATUS = {
-  task: { todo: 'todo', 'needs-info': 'needs-decision', blocked: 'blocked', 'in-progress': 'in-progress', done: 'done' },
+  // a bug: ready = the fix shipped, waiting on QA's re-test (QA closes it done, or reopens it todo)
+  task: { todo: 'todo', 'needs-info': 'needs-decision', blocked: 'blocked', 'in-progress': 'in-progress', ready: 'ready', done: 'done' },
   'needs-decision': { draft: 'draft', open: 'needs-decision' }, // the needs-decision card's own statuses; fulfilled (shown ✅) is computed once its decision card (D-NN) is decided; nobody types it
 };
 const LEGEND = {
@@ -130,6 +131,7 @@ export function loadConfig(errors = []) {
     const w = a.writes || {};
     for (const k of [...(w.kinds || []), ...(w.editOnly?.kinds || []), ...(a.signs || []).filter((x) => x !== 'needs-decision' && x !== 'decision')]) if (!kinds.has(k)) err(`agents.list: agent "${a.id}" names unknown kind "${k}"`);
     for (const t of [...(w.types || []), ...(w.editOnly?.types || [])]) if (!CARD_TYPES.includes(t)) err(`agents.list: agent "${a.id}" names unknown type "${t}"`);
+    for (const s of a.bugStatuses || []) if (!['in-progress', 'ready'].includes(s)) err(`agents.list: agent "${a.id}" bugStatuses may name in-progress or ready only (got "${s}"): closing a bug is QA's or the PM's`);
   }
   if (cfg.agents?.protocol && !fs.existsSync(path.join(ROOT, cfg.agents.protocol))) err(`agents.protocol names a note that does not exist (${cfg.agents.protocol})`);
   const kindOrder = [...kinds.keys()];
@@ -1022,7 +1024,8 @@ export function build() {
   // In progress when any card is active or the cards are a mix; To do otherwise (Blocked when every card waits on something,
   // or, for a feature, when an open decision was raised on the feature itself: Blocked · ND-NN, whatever its cards short of done)
   // a handed-off card that is not done yet (an approved story or requirements list, a current integration note) is work in flight: active
-  const classify = (c) => (c.effectiveStatus === 'partial' ? 'partial' : isDone(c) ? 'done' : c.effectiveStatus === 'in-progress' || handedOff(c) ? 'active' : c.effectiveStatus === 'blocked' ? 'blocked' : 'todo');
+  // a bug at ready has its fix shipped and waits on QA: work in flight too
+  const classify = (c) => (c.effectiveStatus === 'partial' ? 'partial' : isDone(c) ? 'done' : c.effectiveStatus === 'in-progress' || handedOff(c) || (c.kind === 'task' && c.status === 'ready') ? 'active' : c.effectiveStatus === 'blocked' ? 'blocked' : 'todo');
   const summarize = (ids) => {
     if (!ids.length) return 'todo';
     const k = ids.map((id) => classify(nodes[id]));

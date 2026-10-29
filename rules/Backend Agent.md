@@ -2,7 +2,7 @@
 type: project
 layer: shared
 created: 2026-10-19
-updated: 2026-10-28
+updated: 2026-10-29
 depends: ["Agent Protocol"]
 affects: []
 related: ["Agent Protocol", "Agent Rules", "Workflow", "Architecture", "API Conventions", "Ring Access Model", "Frontend API Guide"]
@@ -78,8 +78,12 @@ Moving these is part of the work, not a separate request: when the event happens
 | the part is merged to `main` | Backend Delivery | `in-progress` → `done` | the `## Log` line with the merge, the part's `pending` entry removed (4E) |
 | the integration note matches `main` | Backend Integration | `draft` → `current` | in the same commit as the delivery's `done`: a done delivery with no `current` integration keeps the requirements from ever showing ✅ Delivered |
 | the API moved and the integration note no longer matches | Backend Integration | `current` → `draft` | back to `current` when it is updated |
+| you start fixing a bug found against a backend card | the bug (B-NN) | `todo` → `in-progress` | the branch |
+| the fix is merged to `main` | the bug (B-NN) | `in-progress` → `ready` (📨: waiting on QA's re-test) | the fix recorded in your Backend Delivery's `## Log` (and the Integration note if the contract moved), and a flag line under the bug's H1: `> ⚠ Affected by [[BD-NN …]] (YYYY-MM-DD): fixed, ready for re-test` |
 
-Never typed by anyone: `delivered` on a requirements list or an integration note (computed). Never yours: a story, a decision, a bug's `resolution`, a QA verdict, a frontend note's status: flag them.
+On a bug you change the status lines only: `status:`, the tag `bug/<status>`, `updated:`, the H1 emoji and the *Status* segment of its first line (`bugStatuses` in your entry; the guard refuses the rest). QA re-tests a `ready` bug and closes it or sends it back to `todo`; a bug back at `todo` is yours again ([[Agent Rules#4 · Statuses, blocking and sign-off]]).
+
+Never typed by anyone: `delivered` on a requirements list or an integration note (computed). Never yours: a story, a decision, a bug's body, its `done` or its `resolution`, a QA verdict, a frontend note's status: flag them.
 
 The build reports what you left behind: a Backend Delivery `in-progress` whose integration note is `current` or whose `## Log` records a merge to `main`; a `done` one with no `current` integration note; a requirements list `ready` for `staleness.readyDays` or more and not reviewed (`stale`). Clear what it lists for your cards before you finish.
 

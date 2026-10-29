@@ -1,7 +1,7 @@
 ---
 type: bug
 id: B-NN                   # the file is bugs/B-NN <Title>.md, whatever card it hangs under
-status: todo
+status: todo                # todo → in-progress (the backend or frontend starts the fix) → ready (the fix shipped; QA re-tests) → done (QA: passed, resolution: fixed) or back to todo (QA: failed, a Log line says why); needs-info, blocked
 priority: high
 # deadline: YYYY-MM-DD      # optional: when it must be fixed; the tree colours it green → yellow → red as the day comes, 💀 once missed (docs.config.json deadlines)
 effort: S
@@ -35,7 +35,7 @@ tags: [bug, bug/todo, module/<module>, priority/high]
 
 **On which build.** The build it was seen on.
 
-The fix is the layer's work: say which agent (`/backend` or `/frontend`).
+The fix is the layer's work: say which agent (`/backend` or `/frontend`). That agent sets `in-progress` when it starts and `ready` when the fix ships (status, tag, H1 and the Status segment only; the fix itself is recorded in its own delivery note, with a flag line here); QA re-tests a `ready` bug and closes it or reopens it.
 
 ## Design
 

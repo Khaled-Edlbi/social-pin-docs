@@ -2,7 +2,7 @@
 type: project
 layer: shared
 created: 2026-10-19
-updated: 2026-10-28
+updated: 2026-10-29
 depends: ["Agent Protocol"]
 affects: []
 related: ["Agent Protocol", "Agent Rules", "Workflow", "Frontend Contract", "Frontend API Guide", "Frontend Agent Prompt"]
@@ -73,6 +73,10 @@ Moving these is part of the work, not a separate request: when the event happens
 | work on the screens starts | Frontend Delivery | `todo` → `in-progress` | the branch |
 | the screens are merged | Frontend Delivery | `in-progress` → `done` | the `## Log` line, the part's `pending` entry removed (4D) |
 | a later part is planned while the delivery is `done` | Frontend Delivery | stays `done` | one `pending` entry for the part (Partial until it ships) |
+| you start fixing a bug found against a Frontend Delivery | the bug (B-NN) | `todo` → `in-progress` | the branch |
+| the fix is merged | the bug (B-NN) | `in-progress` → `ready` (📨: waiting on QA's re-test) | the fix recorded in your Frontend Delivery's `## Log`, and a flag line under the bug's H1: `> ⚠ Affected by [[FD-NN …]] (YYYY-MM-DD): fixed, ready for re-test` |
+
+On a bug you change the status lines only: `status:`, the tag `bug/<status>`, `updated:`, the H1 emoji and the *Status* segment of its first line (`bugStatuses` in your entry; the guard refuses the rest). QA re-tests a `ready` bug and closes it or sends it back to `todo`; a bug back at `todo` is yours again ([[Agent Rules#4 · Statuses, blocking and sign-off]]). Its body, its `done` and its `resolution` are never yours.
 
 Never yours: `approved` (the backend, the PM or the owner signs a requirements list). Never typed by anyone: `delivered` (computed by the build once the backend notes of the scope are done with nothing pending).
 

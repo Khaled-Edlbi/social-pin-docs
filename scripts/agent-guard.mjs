@@ -39,7 +39,7 @@ const PROTOCOL = agentsCfg.protocol || 'rules/Agent Protocol.md';
 const PROJECT_DIR = String(cfg.projectDir || '').replace(/^\/+|\/+$/g, '');
 const prj = (rel) => (PROJECT_DIR ? `${PROJECT_DIR}/${rel}` : rel);
 const GENERATED = ['tree/**', prj('Card Index.md')];
-const HAND_WRITTEN = ['tree/index.html']; // the tree page is source, the owner's (`paths` in its agents.list entry); the build only copies it to site/
+const HAND_WRITTEN = ['tree/index.html']; // the tree page is source, the admin's (the docs system); the build only copies it to site/
 const VERBATIM = [prj('design/Wireframe Brief.md')];
 const KINDS = []; // { id, file, layer }
 for (const layer of cfg.layers || []) for (const k of layer.kinds || []) KINDS.push({ id: k.id, file: k.file, layer: layer.id });
@@ -75,6 +75,7 @@ function scopeWords(a) {
   if (w.editOnly) { const e = []; if (w.editOnly.kinds?.length) e.push(...w.editOnly.kinds); if (w.editOnly.types?.length) e.push(...w.editOnly.types); if (e.length) parts.push(`edits (never rewrites) in ${e.join(', ')} notes`); }
   if (w.types?.includes('needs-decision') && !w.types?.includes('decision')) parts.push('needs-decision cards (ND-NN) to raise and fill, draft or open; the answer, the decision card D-NN, and setting it decided are the PM\'s or the owner\'s');
   if (a.signs?.length) parts.push(`sign-off lines on ${a.signs.join(', ')}`);
+  if (a.bugStatuses?.length) parts.push(`a bug's status, to ${a.bugStatuses.join(' or ')} only (status, the bug/<status> tag, updated, the H1)`);
   if (a.fields?.length) parts.push(`${a.fields.join(' / ')} on any card`);
   const mine = Object.keys(RESERVED).filter((k) => RESERVED[k].includes(a.id));
   if (mine.length) parts.push(`${mine.map((k) => `${k}:`).join(' / ')} (reserved: nobody else may set ${mine.length === 1 ? 'it' : 'them'})`);
@@ -134,6 +135,22 @@ const changedLines = (oldS, newS) => {
 const isFlagEdit = (edit) => { if (!edit) return false; const { added, removed } = changedLines(edit.old, edit.new); return removed.length === 0 && added.length >= 1 && added.every((l) => FLAG.test(l) || l.trim() === ''); };
 const onlyLines = (edit, re) => { if (!edit) return false; const { added, removed } = changedLines(edit.old, edit.new); return [...added, ...removed].every((l) => re.test(l)); };
 const fieldLines = (fields) => new RegExp(`^(${fields.join('|')}|updated|tags):`);
+// a bug the agent fixes (`bugStatuses`, the backend and the frontend): only status, updated, tags and the H1, from todo, in-progress or ready
+// to one of its statuses; never done, never a resolution: QA re-tests the fix and closes or reopens it (Agent Rules §4)
+const BUG_STATUS_LINES = /^(status|updated|tags):|^# /;
+const statusOf = (l) => /^status:\s*"?([a-z-]+)"?\s*$/.exec(l.trim())?.[1] ?? null;
+// the card's `**Found against:** … · **Status:** To do · …` line may change in its Status segment only
+const withoutStatus = (l) => l.replace(/\*\*Status:\*\*[^·]*/, '**Status:**');
+const isBugStatusEdit = (agent, edit) => {
+  if (!edit) return false;
+  const { added, removed } = changedLines(edit.old, edit.new);
+  const was = new Set(removed.filter((l) => l.includes('**Status:**')).map(withoutStatus)), now = new Set(added.filter((l) => l.includes('**Status:**')).map(withoutStatus));
+  const lineOk = (l, other) => BUG_STATUS_LINES.test(l) || (l.includes('**Status:**') && other.has(withoutStatus(l)));
+  if (!added.every((l) => lineOk(l, was)) || !removed.every((l) => lineOk(l, now))) return false;
+  const to = added.filter((l) => /^status:/.test(l)).map(statusOf), from = removed.filter((l) => /^status:/.test(l)).map(statusOf);
+  if (!to.length || !to.every((s) => agent.bugStatuses.includes(s)) || !from.every((s) => ['todo', ...agent.bugStatuses].includes(s))) return false;
+  return !added.some((l) => /^tags:/.test(l) && /\b(bug\/done|resolution\/)/.test(l));
+};
 // a needs-decision card (ND-NN) is draft or open; it is never typed decided or fulfilled and carries no decidedBy / decidedAt:
 // the answer is taken on its decision card (D-NN), which only the PM and the owner write (Agent Rules §4)
 const DECIDED_LINE = /^(status:\s*(decided|fulfilled)\b|decided(By|At):\s*(?!""|$)\S)/;
@@ -181,6 +198,8 @@ export function decide(agent, rel, op, edit) {
   if (editOnly && op === 'edit') return { allow: true };
   if (editOnly) return deny('You may edit lines in it, never rewrite it or create it: use Edit with the exact lines.');
   if (op === 'edit' && isFlagEdit(edit)) return { allow: true };
+  if (op === 'edit' && c.type === 'bug' && agent.bugStatuses?.length && isBugStatusEdit(agent, edit)) return { allow: true };
+  if (c.type === 'bug' && agent.bugStatuses?.length) return deny(`On a bug you may only move its status to ${agent.bugStatuses.join(' or ')} (from todo, in-progress or ready): an Edit of status:, the bug/<status> tag, updated: and the H1, nothing else. Closing it (done, resolution) is QA's after the re-test, or the PM's; record the fix in your own note and add a flag line under the bug's H1.`);
   if (op === 'edit' && c.kind && (agent.signs || []).includes(c.kind) && onlyLines(edit, SIGN_LINES)) return { allow: true };
   if (op === 'edit' && agent.fields?.length && onlyLines(edit, fieldLines(agent.fields))) return { allow: true };
   const owners = AGENTS.filter((a) => a.id !== agent.id && decideOwner(a, c)).map((a) => `/${a.id}`);
@@ -274,11 +293,19 @@ if (cmd === 'selftest') {
   const relSet = E('priority: critical\nrelease: mvp\nmodule: identity', 'priority: critical\nrelease: v1\nmodule: identity'), relKeep = E('priority: critical\nrelease: mvp\nupdated: 2026-10-25', 'priority: high\nrelease: mvp\nupdated: 2026-10-26');
   // a Write is compared with the file on disk: keeping the line is allowed, changing it is not (Rings is release: mvp)
   const bug = 'social-pin/bugs/B-02 Deleted account answers 401, not the documented 404 E_USER_01.md', newBug = 'social-pin/bugs/B-99 Something found.md';
-  const relWriteSame = E('', '---\ntype: feature\nid: rings\nrelease: mvp\n---\n'), relWriteNew = E('', '---\ntype: feature\nid: rings\nrelease: later\n---\n');
+  const bugEdit = (from, to, extra = '') => E(`# 🔴 B-02 · Bug\nstatus: ${from}\nupdated: 2026-10-28\ntags: [bug, bug/${from}, module/identity]`, `# 🔴 B-02 · Bug\nstatus: ${to}\nupdated: 2026-10-29\ntags: [bug, bug/${to}, module/identity]${extra}`);
+  const bugStart = bugEdit('todo', 'in-progress'), bugReady = bugEdit('in-progress', 'ready'), bugDone = bugEdit('ready', 'done'), bugReopen = bugEdit('done', 'in-progress'), bugReopenTodo = bugEdit('ready', 'todo');
+  const bugResolve = bugEdit('in-progress', 'ready', '\nresolution: fixed'), bugReadyBody = bugEdit('in-progress', 'ready', '\n**Fixed in** BD-02');
+  const bugLine = (s, p = 'High') => `**Found against:** [[BI-01 Account Backend Integration]] · **Feature:** [[F-01 Account]] · **Status:** ${s} · **Priority:** ${p} · **Effort:** S`;
+  const bugReadyLine = E(`status: in-progress\n${bugLine('In progress')}`, `status: ready\n${bugLine('Ready')}`), bugReadyPrio = E(`status: in-progress\n${bugLine('In progress')}`, `status: ready\n${bugLine('Ready', 'Low')}`);
+  const relWriteSame = E('','---\ntype: feature\nid: rings\nrelease: mvp\n---\n'), relWriteNew = E('', '---\ntype: feature\nid: rings\nrelease: later\n---\n');
   const M = [
     // agent, path, op, edit, expected
-    ['owner', 'rules/Agent Rules.md', 'write', null, true], ['owner', 'docs.config.json', 'write', null, true], ['owner', mod, 'write', null, true], ['owner', feature, 'write', null, true], ['owner', feature, 'edit', body, true], ['owner', 'social-pin/decisions/Ring settings.md', 'edit', body, true],
-    ['owner', story, 'edit', sign, true], ['owner', story, 'edit', body, false], ['owner', bug, 'edit', prio, true], ['owner', bd, 'write', null, false], ['owner', 'tree/tree.json', 'write', null, false], ['owner', 'tree/index.html', 'edit', body, true], ['pm', 'tree/index.html', 'edit', body, false], ['backend', 'tree/index.html', 'edit', body, false],
+    // the owner is the business owner: cards and business notes; the docs system (rules, config, templates, scripts, the tree page, the agents) is the admin's
+    ['owner', 'rules/Agent Rules.md', 'write', null, false], ['owner', 'docs.config.json', 'write', null, false], ['owner', 'scripts/build-tree.mjs', 'edit', body, false], ['owner', 'templates/Bug Template.md', 'edit', body, false], ['owner', '.claude/settings.json', 'edit', body, false], ['owner', 'CLAUDE.md', 'edit', body, false],
+    ['owner', overview, 'edit', body, true], ['owner', 'Home.md', 'edit', body, true], ['admin', 'tree/index.html', 'edit', body, true], ['admin', 'docs.config.json', 'write', null, true],
+    ['owner', mod, 'write', null, true], ['owner', feature, 'write', null, true], ['owner', feature, 'edit', body, true], ['owner', 'social-pin/decisions/Ring settings.md', 'edit', body, true],
+    ['owner', story, 'edit', sign, true], ['owner', story, 'edit', body, false], ['owner', bug, 'edit', prio, true], ['owner', bd, 'write', null, false], ['owner', 'tree/tree.json', 'write', null, false], ['owner', 'tree/index.html', 'edit', body, false], ['pm', 'tree/index.html', 'edit', body, false], ['backend', 'tree/index.html', 'edit', body, false],
     ['pm', feature, 'write', null, true], ['pm', story, 'edit', body, true], ['pm', newTask, 'write', null, false], ['pm', 'social-pin/needs-decisions/ND-99 A new question.md', 'write', null, true], ['pm', 'social-pin/design/Screen Index.md', 'edit', body, true],
     ['pm', bd, 'edit', body, false], ['pm', bd, 'edit', flag, true], ['pm', fr, 'edit', sign, true], ['pm', 'rules/Agent Rules.md', 'edit', body, false], ['pm', bi, 'edit', body, false], ['pm', 'social-pin/Card Index.md', 'edit', body, false],
     ['backend', bd, 'write', null, true], ['backend', newBd, 'write', null, true], ['backend', bi, 'edit', body, true], ['backend', 'social-pin/backend/Architecture.md', 'edit', body, true], ['backend', 'social-pin/frontend/Frontend API Guide.md', 'edit', body, true],
@@ -301,9 +328,13 @@ if (cmd === 'selftest') {
     ['owner', feature, 'edit', relSet, true], ['pm', feature, 'edit', relSet, false], ['backend', feature, 'edit', relSet, false], ['pm', feature, 'edit', relKeep, true],
     ['pm', feature, 'write', relWriteSame, true], ['pm', feature, 'write', relWriteNew, false], ['owner', feature, 'write', relWriteNew, true],
     ['owner', overview, 'edit', stageSet, true], ['pm', overview, 'edit', stageSet, false], ['pm', overview, 'edit', body, true], ['admin', overview, 'edit', stageSet, true], ['admin', feature, 'edit', relSet, true],
-    // bug cards (type: bug, B-NN): QA files them, the PM closes them; no other role writes one
+    // bug cards (type: bug, B-NN): QA files them and closes or reopens them after the re-test, the PM closes them too; no other role writes one
     ['qa', bug, 'edit', body, true], ['qa', newBug, 'write', null, true], ['pm', bug, 'edit', body, true], ['pm', newBug, 'write', null, true],
     ['backend', bug, 'edit', body, false], ['backend', bug, 'edit', flag, true], ['frontend', bug, 'edit', body, false], ['owner', bug, 'edit', body, false], ['backend', newBug, 'write', null, false],
+    // ...but the backend and the frontend (bugStatuses) move a bug they fix to in-progress, then ready; never done, never back from done, never a resolution
+    ['backend', bug, 'edit', bugStart, true], ['backend', bug, 'edit', bugReady, true], ['frontend', bug, 'edit', bugStart, true], ['frontend', bug, 'edit', bugReady, true],
+    ['backend', bug, 'edit', bugDone, false], ['backend', bug, 'edit', bugReopen, false], ['backend', bug, 'edit', bugResolve, false], ['backend', bug, 'edit', bugReadyBody, false], ['backend', bug, 'edit', bugReadyLine, true], ['backend', bug, 'edit', bugReadyPrio, false],['backend', bug, 'write', null, false],
+    ['owner', bug, 'edit', bugStart, false], ['pm', bug, 'edit', bugStart, true], ['qa', bug, 'edit', bugReopenTodo, true], ['qa', bug, 'edit', bugDone, true],
     // the admin (writes.all): the guard refuses it nothing, the generated files and the verbatim brief included
     ['admin', 'tree/tree.json', 'write', null, true], ['admin', 'social-pin/Card Index.md', 'edit', body, true], ['admin', 'social-pin/design/Wireframe Brief.md', 'edit', body, true], ['admin', 'rules/Agent Rules.md', 'write', null, true],
     ['admin', bd, 'write', null, true], ['admin', fd, 'edit', body, true], ['admin', story, 'edit', sign, true], ['admin', story, 'edit', body, true], ['admin', dec, 'edit', decideSign, true], ['admin', newDec, 'write', decidedWrite, true],
@@ -327,18 +358,18 @@ if (cmd === 'selftest') {
   const write = (file) => ({ tool_name: 'Write', tool_input: { file_path: file, content: 'x\n' } });
   const S = [
     // session, hook, payload, expected exit, each session's agent afterwards
-    ['A', 'check', write('rules/Agent Rules.md'), 2, { A: null, B: null }], // the old shared marker grants nobody
-    ['A', 'prompt', { prompt: '/owner change a rule' }, 0, { A: 'owner', B: null }],
-    ['B', 'prompt', { prompt: '/pm write the story' }, 0, { A: 'owner', B: 'pm' }],
-    ['A', 'check', write('rules/Agent Rules.md'), 0, { A: 'owner', B: 'pm' }],
-    ['B', 'check', write('rules/Agent Rules.md'), 2, { A: 'owner', B: 'pm' }],
-    ['B', 'check', write(story), 0, { A: 'owner', B: 'pm' }],
-    ['A', 'check', write(story), 2, { A: 'owner', B: 'pm' }],
-    ['C', 'session', {}, 0, { A: 'owner', B: 'pm', C: null }], // a third session starting clears only its own entry
-    ['C', 'check', write('rules/Agent Rules.md'), 2, { A: 'owner', B: 'pm', C: null }],
+    ['A', 'check', write(overview), 2, { A: null, B: null }], // the old shared marker grants nobody
+    ['A', 'prompt', { prompt: '/owner write the glossary' }, 0, { A: 'owner', B: null }],
+    ['B', 'prompt', { prompt: '/backend write the delivery' }, 0, { A: 'owner', B: 'backend' }],
+    ['A', 'check', write(overview), 0, { A: 'owner', B: 'backend' }],
+    ['B', 'check', write(overview), 2, { A: 'owner', B: 'backend' }],
+    ['B', 'check', write(bd), 0, { A: 'owner', B: 'backend' }],
+    ['A', 'check', write(bd), 2, { A: 'owner', B: 'backend' }],
+    ['C', 'session', {}, 0, { A: 'owner', B: 'backend', C: null }], // a third session starting clears only its own entry
+    ['C', 'check', write(overview), 2, { A: 'owner', B: 'backend', C: null }],
     ['B', 'prompt', { prompt: '/agent off' }, 0, { A: 'owner', B: null }],
-    ['B', 'check', write(story), 2, { A: 'owner', B: null }],
-    ['A', 'check', write('rules/Agent Rules.md'), 0, { A: 'owner', B: null }],
+    ['B', 'check', write(bd), 2, { A: 'owner', B: null }],
+    ['A', 'check', write(overview), 0, { A: 'owner', B: null }],
     ['B', 'prompt', { prompt: '/qa' }, 0, { A: 'owner', B: 'qa' }],
     ['A', 'session', {}, 0, { A: null, B: 'qa' }], // /clear or a restart of session A
   ];

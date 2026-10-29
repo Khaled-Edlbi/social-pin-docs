@@ -1,6 +1,6 @@
 ---
 type: home
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [map]
 ---
 
@@ -42,7 +42,7 @@ Numbers per module: the eight module notes under `modules/`; the full list: [[Fe
 social-pin-docs/
 ├── Home.md                        ← you are here
 ├── docs.config.json               the layers, their note kinds and statuses, the hand-off flow, default blocks, card-code prefixes, modules; projectDir: social-pin
-├── rules/                         RULES for every layer: Workflow · Agent Rules · Docs Tree · the agents (Agent Protocol · Owner · PM · Backend · Frontend · QA · Admin Agent): `/owner` `/pm` `/backend` `/frontend` `/qa`, `/admin` for repairs
+├── rules/                         RULES for every layer: Workflow · Agent Rules · Docs Tree · the agents (Agent Protocol · Owner · PM · Backend · Frontend · QA · Admin Agent): `/owner` `/pm` `/backend` `/frontend` `/qa`, `/admin` for the docs system and repairs
 ├── templates/                     one per note kind (the scaffold command uses them)
 ├── tree/                          the docs tree page (index.html), its generated index (tree.json, tree.md) and the card-code registry (cards.json)
 ├── scripts/build-tree.mjs         build · --check · --serve · --impact · --scaffold (layer notes, bug, feature, needs-decision, decision)
@@ -76,7 +76,7 @@ social-pin-docs/
 - **Frontend developer** → [[Frontend Contract]] → the feature's Backend Integration note → [[Frontend API Guide]]. The rules for the frontend repo's agent: [[Frontend Agent Prompt]]; to write the notes here: `/frontend …` ([[Frontend Agent]]). **Auth is passwordless since 2026-10-15**: [[Frontend Passwordless Migration]].
 - **Product / design** → [[Decisions]] first (an open one blocks every card it names), the ✏️ Draft stories in the [[Docs Tree]] to approve, [[Screen Index]] for what each screen can do today. To create a feature with its business side: `/owner …` ([[Owner Agent]]); its story: `/pm …` ([[PM Agent]]); a decision card is raised by whichever agent owns the card that needs it and decided by `/pm` or `/owner`; to approve, change a rule or set priorities: `/owner …` ([[Owner Agent]]).
 - **QA** → a feature's two delivery notes and its story; `--scaffold qa-backend <feature>` / `qa-frontend` to start the artefacts, or `/qa …` ([[QA Agent]]).
-- **Anyone new** → [[Project Overview]] → [[Glossary]] → [[Feature Graph]] → [[Docs Tree]]. How the agents take a request and stay inside their files: [[Agent Protocol]]. Nothing is written until an agent is chosen with its slash command; a broken tree or a rename across every layer is `/admin …` ([[Admin Agent]]).
+- **Anyone new** → [[Project Overview]] → [[Glossary]] → [[Feature Graph]] → [[Docs Tree]]. How the agents take a request and stay inside their files: [[Agent Protocol]]. Nothing is written until an agent is chosen with its slash command; a rule, an agent, the tree page, a broken tree or a rename across every layer is `/admin …` ([[Admin Agent]]).
 
 ## How this vault is organised
 
