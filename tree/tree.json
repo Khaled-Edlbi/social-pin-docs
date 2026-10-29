@@ -4213,7 +4213,7 @@
     }
   },
   "counts": {
-    "blocked": 38,
+    "blocked": 37,
     "bugs": 6,
     "byKind": {
       "backend-delivery": 39,
@@ -4239,7 +4239,7 @@
     },
     "concepts": 202,
     "decisions": 19,
-    "edges": 3847,
+    "edges": 3846,
     "features": 41,
     "layerNotes": 132,
     "modules": 8,
@@ -5591,11 +5591,6 @@
       "from": "frontend-requirements:e2e-tests",
       "kind": "blocks",
       "to": "backend-delivery:e2e-tests"
-    },
-    {
-      "from": "frontend-requirements:error-contract",
-      "kind": "blocks",
-      "to": "backend-delivery:error-contract"
     },
     {
       "from": "frontend-requirements:event-ring-auto",
@@ -31086,20 +31081,14 @@
     },
     "backend-delivery:error-contract": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "frontend-requirements:error-contract",
-          "title": "FR-35 Error Contract Frontend Requirements",
-          "why": "FR-35 Error Contract Frontend Requirements is ready"
-        }
-      ],
+      "blockedBy": [],
       "card": "BD-35",
       "children": [],
       "code": "error-contract",
       "created": "2026-10-15",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "error-contract",
       "foundOn": null,
@@ -31142,7 +31131,7 @@
       ],
       "task": null,
       "title": "BD-35 Error Contract Backend Delivery",
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "backend-delivery:event-ring-auto": {
       "affects": [],
@@ -33299,7 +33288,7 @@
         {
           "id": "backend-delivery:error-contract",
           "title": "BD-35 Error Contract Backend Delivery",
-          "why": "BD-35 Error Contract Backend Delivery is blocked"
+          "why": "BD-35 Error Contract Backend Delivery is in progress"
         }
       ],
       "card": null,
@@ -36639,11 +36628,10 @@
       "release": "mvp",
       "resolution": null,
       "rollup": {
-        "approved": 1,
-        "blocked": 1,
+        "approved": 2,
         "decided": 1,
+        "in-progress": 1,
         "missing": 4,
-        "ready": 1,
         "verified": 1
       },
       "scope": null,
@@ -41395,7 +41383,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "ready",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "error-contract",
       "foundOn": null,
@@ -41474,17 +41462,17 @@
         "s18",
         "s68"
       ],
-      "status": "ready",
+      "status": "approved",
       "summary": "What the client's error layer needs from every error the API sends. There is no screen of its own: every screen renders its errors through one parser, and the per-feature requirements notes list…",
       "tags": [
         "frontend-requirements",
-        "frontend-requirements/ready",
+        "frontend-requirements/approved",
         "module/platform",
         "layer/frontend"
       ],
       "task": null,
       "title": "FR-35 Error Contract Frontend Requirements",
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "frontend-requirements:event-ring-auto": {
       "affects": [],
@@ -43625,14 +43613,13 @@
       "release": null,
       "resolution": null,
       "rollup": {
-        "approved": 10,
-        "blocked": 11,
+        "approved": 11,
+        "blocked": 10,
         "decided": 3,
         "done": 1,
         "draft": 12,
-        "in-progress": 11,
+        "in-progress": 12,
         "missing": 54,
-        "ready": 1,
         "todo": 2,
         "verified": 3
       },
@@ -47197,7 +47184,7 @@
         {
           "id": "backend-delivery:error-contract",
           "title": "BD-35 Error Contract Backend Delivery",
-          "why": "BD-35 Error Contract Backend Delivery is blocked"
+          "why": "BD-35 Error Contract Backend Delivery is in progress"
         }
       ],
       "card": null,
@@ -50332,20 +50319,20 @@
         }
       ],
       "rollup": {
-        "approved": 31,
-        "blocked": 38,
+        "approved": 32,
+        "blocked": 37,
         "current": 8,
         "decided": 14,
         "delivered": 2,
         "done": 10,
         "draft": 38,
         "failing": 1,
-        "in-progress": 44,
+        "in-progress": 45,
         "missing": 153,
         "needs-decision": 1,
         "partial": 4,
         "passing": 1,
-        "ready": 5,
+        "ready": 4,
         "reference": 31,
         "todo": 9,
         "verified": 14
