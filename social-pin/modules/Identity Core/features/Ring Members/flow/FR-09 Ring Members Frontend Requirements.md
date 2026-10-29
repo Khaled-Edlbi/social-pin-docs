@@ -4,7 +4,7 @@ code: ring-members
 scope: feature
 feature: ring-members
 module: identity
-status: draft
+status: ready
 screens: [s15, s16, s35, s46, s47]
 depends: ["S-16 Ring Members Story"]
 affects: ["BD-09 Ring Members Backend Delivery"]
@@ -12,12 +12,12 @@ related: ["BI-06 Ring Members Backend Integration", "D-04 Ring settings at launc
 created: 2026-10-18
 updated: 2026-10-29
 owner: "Omar Fostok"
-tags: [frontend-requirements, frontend-requirements/draft, module/identity, layer/frontend]
+tags: [frontend-requirements, frontend-requirements/ready, module/identity, layer/frontend]
 ---
 
 # Ring Members · Frontend Requirements
 
-**Feature:** [[F-09 Ring Members]] · **Status:** Draft · **Story:** [[S-16 Ring Members Story]] · **Backend Integration:** [[BI-06 Ring Members Backend Integration]]
+**Feature:** [[F-09 Ring Members]] · **Status:** 📨 Ready 2026-10-29, waiting on the backend's review · **Story:** [[S-16 Ring Members Story]] · **Backend Integration:** [[BI-06 Ring Members Backend Integration]]
 
 What the client needs from the backend to build the owner's roster, the per-person checklist of Rings, the "bring people in" flow, join approvals and the members a member may see, and whether each need is met today. Shapes, the `status` filter and the window semantics are in [[BI-06 Ring Members Backend Integration]].
 
