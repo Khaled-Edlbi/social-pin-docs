@@ -5,21 +5,19 @@ scope: feature
 feature: rings
 module: identity
 status: draft
-screens: [s08, s09, s16, s17, s18, s19, s20, s21, s22, s26, s62]
+screens: [s08, s09, s16, s17, s18, s19, s20, s21, s22, s26, s27, s62]
+depends: ["S-18 Rings Story"]
+affects: ["BD-11 Rings Backend Delivery"]
+related: ["D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-18 Ring names shown when joined knowingly", "S-15 Ring Access Engine Story", "FR-08 Ring Access Engine Frontend Requirements", "GET /rings/shared-with-me", "PATCH /rings/:id", "POST /rings"]
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
+owner: "Omar Fostok"
 tags: [frontend-requirements, frontend-requirements/draft, module/identity, layer/frontend]
 ---
 
 # Rings · Frontend Requirements
 
-> ⚠ Affected by [[S-15 Ring Access Engine Story]] (2026-10-29): the settings row "Purpose, join policy, members visible, email domain ❌ ND-04" points at a decided question; it should ask for **the six launch settings** (save and read each on a Ring, D-04's defaults, owner and admins may change them) → [[S-18 Rings Story|Rings · S9]], without the email domain (later). Shared with me (`GET /rings/shared-with-me`) needs per row the person (the owner's card) and, only for a Ring joined knowingly, its name and who shared it, and a member count only when its members can see each other (S-15 S1). Then this note goes `ready`.
-
-> ⚠ Affected by [[D-04 Ring settings at launch and their defaults]] (2026-10-25): ND-04 decided, six Ring settings at launch with private defaults (join with a code or invite, approve each one, members can't see each other, invite or save attachments); the owner and the Ring's admins change them; members who may see each other see full cards.
-
 > ⚠ Affected by [[D-05 Inherit per field, copy without members]] (2026-10-25): ND-05 decided, a Ring inherits the main profile field by field until it changes that field; copying a Ring copies fields, bio, photo, colour and settings, never members.
-
-> ⚠ Affected by [[D-14 Shared with me lists people, never the Ring]] (2026-10-25): ND-14 decided, option 2: Shared with me lists the people who share with me and never shows a Ring's name, colour or type to a member.
 
 **Feature:** [[F-11 Rings]] · **Status:** Draft · **Story:** [[S-18 Rings Story]] · **Backend Integration:** [[BI-08 Rings Backend Integration]]
 
@@ -40,8 +38,16 @@ What the client needs from the backend to build the Ring lists, the create wizar
 
 ### [[Screen Index#s17|s17]] Shared with me
 
-- Needs: Rings I can read right now with `name`, `colorHex`, `ownerUserId`, `expiresAt`; a way to open the owner's projection; invite review; join with a code.
-- Source today: `GET /rings/shared-with-me`, then `GET /views/ring/:id`. Invites and join: not yet.
+- **One row per person who shares with me**, live right now ([[D-14 Shared with me lists people, never the Ring]], [[S-15 Ring Access Engine Story|Ring Access Engine · S1]]):
+  - a Ring the owner **placed** me in (my connection request accepted into it, or added by the owner or an admin): the row is **the person**: their name, Pin name and photo from the card they share with me; **no Ring name, colour or type**;
+  - a Ring I **joined knowingly** (an invitation I accepted, a code, a verified work email): the row may also carry **the Ring's name and who shared it** ("Acme Team · Shared by Acme Studio") ([[D-18 Ring names shown when joined knowingly]]);
+  - one person through several Rings: one row, the Ring I was placed in first ([[D-15 Several Rings per connection, remove or disconnect]]).
+- **Member count** ("· N people") only on a named-Ring row, and only when that Ring's "members can see each other" is on; never on a person row.
+- Needs, per row: the owner's card (name, Pin name, photo), the `ringId` to open the view, `expiresAt`; **only for a Ring joined knowingly**: its `name` and who shared it (a person or a company); **only when its members can see each other**: the member count. No `colorHex`, no type, no Ring name otherwise.
+- **Until memberships record how they were made:** every row is shown as the person, with no Ring name and no count.
+- Tap: opens the person's card (`GET /views/ring/:ringId`), never the owner's Ring data (s14).
+- Also on the screen: invite review and join with a code ([[S-33 Ring Invitations & Join Story]]); an invitation names its Ring (D-18).
+- Source today: `GET /rings/shared-with-me` returns Rings with their `name` to every member, and no owner card or count; then `GET /views/ring/:id`. Invites and join: not yet.
 
 ### [[Screen Index#s18|s18]] – [[Screen Index#s21|s21]] New Ring wizard
 
@@ -50,8 +56,28 @@ What the client needs from the backend to build the Ring lists, the create wizar
 
 ### [[Screen Index#s22|s22]] Edit · name & purpose · [[Screen Index#s26|s26]] Edit · access
 
-- Needs: edit name, colour, style, window, temporary flag; delete; purpose, join policy, permissions, delegated admins.
+- Needs: edit name, colour, style, window, temporary flag; delete; the Ring settings (below); delegated admins.
 - Source today: `PATCH /rings/:id`, `DELETE /rings/:id`. Settings and admins: not yet.
+
+### Ring settings: [[Screen Index#s19|s19]] (wizard step 2), [[Screen Index#s22|s22]] (purpose), [[Screen Index#s26|s26]] (access), [[Screen Index#s27|s27]] (permissions) ([[S-18 Rings Story|Rings · S9]])
+
+- **The six launch settings** ([[D-04 Ring settings at launch and their defaults]]), each saved and read on a Ring, with these defaults on a new Ring:
+
+  | Setting | Values | Default |
+  |---|---|---|
+  | Who it's for (purpose) | a label ("Clients", "Investors") | empty |
+  | Who can request to join | **anyone who scans**, **only with a code**, **only invited** | only with a code or by invitation |
+  | Approve each one | on / off (off = auto-accept) | on |
+  | Members can see each other | on / off | off |
+  | Members can invite others | on / off | off |
+  | Members can save attachments | on / off | off |
+
+- **Who may change them:** the Ring's owner and the Ring's admins ([[S-31 Delegated Admins Story]]); a member cannot (403 `E_RING_05`).
+- **Read back:** each Ring's settings come with the Ring (`GET /rings/:id`, and on the list where a screen needs them, e.g. s15's footnote and s17's count read "members can see each other").
+- **Not in v1, not asked:** "Contacts of members" as a join choice; the three later settings (members can message me, see when I'm at an event, required work email domain), each with its feature.
+- s26's summary shows the chosen values in the same words ("Only with a code"); "Permissions · N set" counts only the settings shown.
+- The engine enforces them ([[S-15 Ring Access Engine Story|Ring Access Engine · S8]], [[FR-08 Ring Access Engine Frontend Requirements|FR-08]]).
+- Source today: none of the settings exist on a Ring.
 
 ### [[Screen Index#s62|s62]] Post-event summary
 
@@ -64,6 +90,7 @@ What the client needs from the backend to build the Ring lists, the create wizar
 |---|---|---|---|
 | List my Rings, default first | `GET /rings` | ✅ | — |
 | List Rings shared with me, live now | `GET /rings/shared-with-me` | ✅ | — |
+| Shared with me **per person**: the owner's card per row; a Ring's name and who shared it **only when joined knowingly**; a member count **only when members can see each other**; no colour or type | `GET /rings/shared-with-me` | ❌ | [[S-15 Ring Access Engine Story\|Ring Access Engine · S1]] (D-14, D-18, D-15) |
 | Create a Ring | `POST /rings` | ✅ | — |
 | Read one Ring | `GET /rings/:id` | ✅ | — |
 | Edit name, colour, style, window, temporary flag | `PATCH /rings/:id` | ✅ | — |
@@ -72,7 +99,7 @@ What the client needs from the backend to build the Ring lists, the create wizar
 | Delete | `DELETE /rings/:id` | ✅ | — |
 | Open a shared Ring's projection | `GET /views/ring/:ringId` | ✅ | — (listed under [[F-12 View As & Pin Views]]) |
 | "N people" on list and detail | — | ❌ | [[S-03 Counts Story|Counts · S6–S10]] |
-| Purpose, join policy, members visible, email domain (s19, s22, s26, s27) | — | ❌ | [[ND-04 Ring settings]] |
+| **The six launch settings** (who it's for, who can request to join, approve each one, members can see each other, members can invite, members can save attachments): save and read each on a Ring, D-04's defaults on a new Ring, owner and admins may change them (s19, s22, s26, s27) | `POST /rings`, `PATCH /rings/:id`, `GET /rings/:id` | ❌ | [[S-18 Rings Story\|Rings · S9]] ([[D-04 Ring settings at launch and their defaults]]) |
 | Copy a Ring when creating (s18) | — | ❌ | [[ND-05 Copy or inherit]] |
 | Review / decline an invite, join with a code (s17) | — | ❌ | [[S-33 Ring Invitations & Join Story|Ring Invitations & Join · S7]], [[S-33 Ring Invitations & Join Story|Ring Invitations & Join · S8]] |
 | Delegated admins (s26, s27) | — | ❌ | [[S-31 Delegated Admins Story|Delegated Admins · S6]] |
@@ -89,6 +116,8 @@ What the client needs from the backend to build the Ring lists, the create wizar
 - Default: never flip `isDefault` locally; refetch after `POST …/default`. Hide delete on the default row.
 - MERGE picker: my own Rings excluding the source; the backend refuses anything else with 400 `E_RING_07`.
 - Expired Rings: list them on My Rings with the chip; keep edit routes available; do not call `GET /views/ring/:id` on them.
+- **Shared with me rows:** never use a Ring's `name` as the row title unless the API marks it as joined knowingly; never show "· N people" unless the API sends a count; never show a Ring's colour or type.
+- **Settings:** never show a switch the backend doesn't save; the three later settings stay hidden; a new Ring gets D-04's defaults from the server, not from the client.
 
 ## Error states the UI must handle
 
@@ -107,6 +136,7 @@ Until [[S-87 Error Contract Story|Error Contract · S4–S8]] ships, branch on s
 
 ## Blocked by
 
-- [[ND-04 Ring settings]] — step 2 of the wizard (s19), Purpose on s22, Access on s26, Permissions on s27.
+- [[S-18 Rings Story|Rings · S9]] — the six settings: step 2 of the wizard (s19), Purpose on s22, Access on s26, Permissions on s27.
+- [[S-15 Ring Access Engine Story|Ring Access Engine · S1]] — Shared with me per person (the owner's card, the Ring's name only when joined knowingly, the count only when members can see each other).
 - [[ND-05 Copy or inherit]] — "Copy a Ring" on s18.
 - [[S-03 Counts Story|Counts · S6–S10]] — "N people" on every row.
