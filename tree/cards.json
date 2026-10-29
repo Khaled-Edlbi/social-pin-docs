@@ -248,7 +248,8 @@
     "task:B-03": "B-03",
     "task:B-04": "B-04",
     "task:B-05": "B-05",
-    "task:B-06": "B-06"
+    "task:B-06": "B-06",
+    "task:B-07": "B-07"
   },
   "retired": {
     "BD-40": "backend-delivery:T-065-be",

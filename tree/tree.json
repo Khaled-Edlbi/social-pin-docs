@@ -50,6 +50,7 @@
     "B-04 Sign-up accepts an email and a phone together": "task:B-04",
     "B-05 Expired onboarding token answers 401, not the documented 400": "task:B-05",
     "B-06 Timestamps the app writes are stored shifted by the server time zone": "task:B-06",
+    "B-07 Context-scoped uploads are served by the public static mount": "task:B-07",
     "BD-01 Account Backend Delivery": "backend-delivery:account",
     "BD-02 Auth & Sign-up Backend Delivery": "backend-delivery:auth",
     "BD-03 Counts Backend Delivery": "backend-delivery:counts",
@@ -310,6 +311,7 @@
     "B-04": "task:B-04",
     "B-05": "task:B-05",
     "B-06": "task:B-06",
+    "B-07": "task:B-07",
     "BD-01": "backend-delivery:account",
     "BD-02": "backend-delivery:auth",
     "BD-03": "backend-delivery:counts",
@@ -1970,6 +1972,16 @@
       ],
       "owner": null
     },
+    "GET /uploads/files/<uuid>.<ext>": {
+      "containers": [
+        "task:B-07"
+      ],
+      "kind": "endpoint",
+      "notes": [
+        "task:B-07"
+      ],
+      "owner": null
+    },
     "GET /users/:id": {
       "containers": [
         "feature:account",
@@ -2666,7 +2678,8 @@
         "feature:ring-projection",
         "needs-decision:ND-21",
         "project:frontend-contract",
-        "project:status-report-2026-10-15"
+        "project:status-report-2026-10-15",
+        "task:B-07"
       ],
       "kind": "endpoint",
       "notes": [
@@ -2683,7 +2696,8 @@
         "project:status-report-2026-10-15",
         "story:files",
         "story:photo-library",
-        "story:profiles"
+        "story:profiles",
+        "task:B-07"
       ],
       "owner": "feature:files"
     },
@@ -3223,7 +3237,8 @@
         "feature:counts",
         "feature:files",
         "feature:ring-projection",
-        "needs-decision:ND-16"
+        "needs-decision:ND-16",
+        "task:B-07"
       ],
       "kind": "screen",
       "notes": [
@@ -3241,7 +3256,8 @@
         "needs-decision:ND-16",
         "story:counts",
         "story:files",
-        "story:ring-projection"
+        "story:ring-projection",
+        "task:B-07"
       ],
       "owner": null
     },
@@ -3363,7 +3379,8 @@
         "feature:files",
         "feature:ring-projection",
         "feature:rings",
-        "needs-decision:ND-03"
+        "needs-decision:ND-03",
+        "task:B-07"
       ],
       "kind": "screen",
       "notes": [
@@ -3382,7 +3399,8 @@
         "needs-decision:ND-03",
         "story:files",
         "story:ring-projection",
-        "story:rings"
+        "story:rings",
+        "task:B-07"
       ],
       "owner": null
     },
@@ -3446,7 +3464,8 @@
       "containers": [
         "feature:files",
         "feature:ring-projection",
-        "needs-decision:ND-03"
+        "needs-decision:ND-03",
+        "task:B-07"
       ],
       "kind": "screen",
       "notes": [
@@ -3458,7 +3477,8 @@
         "frontend-requirements:ring-projection",
         "needs-decision:ND-03",
         "story:files",
-        "story:ring-projection"
+        "story:ring-projection",
+        "task:B-07"
       ],
       "owner": null
     },
@@ -3543,7 +3563,8 @@
         "feature:ring-projection",
         "needs-decision:ND-02",
         "needs-decision:ND-05",
-        "needs-decision:ND-16"
+        "needs-decision:ND-16",
+        "task:B-07"
       ],
       "kind": "screen",
       "notes": [
@@ -3561,7 +3582,8 @@
         "needs-decision:ND-16",
         "story:files",
         "story:photo-library",
-        "story:ring-projection"
+        "story:ring-projection",
+        "task:B-07"
       ],
       "owner": null
     },
@@ -3570,7 +3592,8 @@
         "feature:files",
         "feature:photo-library",
         "feature:ring-projection",
-        "needs-decision:ND-16"
+        "needs-decision:ND-16",
+        "task:B-07"
       ],
       "kind": "screen",
       "notes": [
@@ -3584,7 +3607,8 @@
         "needs-decision:ND-16",
         "story:files",
         "story:photo-library",
-        "story:ring-projection"
+        "story:ring-projection",
+        "task:B-07"
       ],
       "owner": null
     },
@@ -3593,7 +3617,8 @@
         "feature:files",
         "feature:ring-access",
         "feature:view-as",
-        "needs-decision:ND-16"
+        "needs-decision:ND-16",
+        "task:B-07"
       ],
       "kind": "screen",
       "notes": [
@@ -3606,7 +3631,8 @@
         "frontend-requirements:view-as",
         "needs-decision:ND-16",
         "story:files",
-        "story:view-as"
+        "story:view-as",
+        "task:B-07"
       ],
       "owner": null
     },
@@ -3648,7 +3674,8 @@
       "containers": [
         "feature:files",
         "feature:ring-projection",
-        "feature:widgets"
+        "feature:widgets",
+        "task:B-07"
       ],
       "kind": "screen",
       "notes": [
@@ -3665,7 +3692,8 @@
         "frontend-requirements:widgets",
         "story:files",
         "story:ring-projection",
-        "story:widgets"
+        "story:widgets",
+        "task:B-07"
       ],
       "owner": null
     },
@@ -3780,7 +3808,8 @@
         "needs-decision:ND-13",
         "needs-decision:ND-16",
         "needs-decision:ND-17",
-        "needs-decision:ND-22"
+        "needs-decision:ND-22",
+        "task:B-07"
       ],
       "kind": "screen",
       "notes": [
@@ -3810,7 +3839,8 @@
         "story:files",
         "story:profiles",
         "story:ring-access",
-        "story:view-as"
+        "story:view-as",
+        "task:B-07"
       ],
       "owner": null
     },
@@ -4347,7 +4377,7 @@
   },
   "counts": {
     "blocked": 38,
-    "bugs": 6,
+    "bugs": 7,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
@@ -4361,22 +4391,22 @@
       "qa-backend": 2,
       "qa-frontend": 1,
       "story": 41,
-      "task": 6
+      "task": 7
     },
     "byLayer": {
       "backend": 56,
-      "business": 128,
+      "business": 129,
       "frontend": 44,
       "qa": 3,
       "shared": 10
     },
-    "concepts": 206,
+    "concepts": 207,
     "decisions": 21,
-    "edges": 4115,
+    "edges": 4142,
     "features": 41,
     "layerNotes": 132,
     "modules": 8,
-    "notes": 272,
+    "notes": 273,
     "partial": 4,
     "placeholders": 153,
     "records": 14
@@ -5019,6 +5049,16 @@
       "from": "task:B-06",
       "kind": "affects",
       "to": "qa-backend:auth"
+    },
+    {
+      "from": "task:B-07",
+      "kind": "affects",
+      "to": "backend-delivery:files"
+    },
+    {
+      "from": "task:B-07",
+      "kind": "affects",
+      "to": "backend-integration:files"
     },
     {
       "from": "backend-delivery:audit-log",
@@ -14931,6 +14971,123 @@
       "to": "qa-backend:auth"
     },
     {
+      "from": "task:B-07",
+      "kind": "related",
+      "to": "backend-delivery:files",
+      "via": [
+        "POST /files"
+      ]
+    },
+    {
+      "from": "task:B-07",
+      "kind": "related",
+      "to": "backend-integration:files",
+      "via": [
+        "POST /files"
+      ]
+    },
+    {
+      "from": "task:B-07",
+      "kind": "related",
+      "to": "backend-integration:ring-projection",
+      "via": [
+        "POST /files"
+      ]
+    },
+    {
+      "from": "task:B-07",
+      "kind": "related",
+      "to": "frontend-requirements:files",
+      "via": [
+        "POST /files"
+      ]
+    },
+    {
+      "from": "task:B-07",
+      "kind": "related",
+      "to": "frontend-requirements:onboarding-imports",
+      "via": [
+        "POST /files"
+      ]
+    },
+    {
+      "from": "task:B-07",
+      "kind": "related",
+      "to": "frontend-requirements:photo-library",
+      "via": [
+        "POST /files"
+      ]
+    },
+    {
+      "from": "task:B-07",
+      "kind": "related",
+      "to": "frontend-requirements:profiles",
+      "via": [
+        "POST /files"
+      ]
+    },
+    {
+      "from": "task:B-07",
+      "kind": "related",
+      "to": "frontend-requirements:ring-projection",
+      "via": [
+        "POST /files"
+      ]
+    },
+    {
+      "from": "task:B-07",
+      "kind": "related",
+      "to": "needs-decision:ND-16"
+    },
+    {
+      "from": "task:B-07",
+      "kind": "related",
+      "to": "needs-decision:ND-21",
+      "via": [
+        "POST /files"
+      ]
+    },
+    {
+      "from": "task:B-07",
+      "kind": "related",
+      "to": "project:frontend-contract",
+      "via": [
+        "POST /files"
+      ]
+    },
+    {
+      "from": "task:B-07",
+      "kind": "related",
+      "to": "project:status-report-2026-10-15",
+      "via": [
+        "POST /files"
+      ]
+    },
+    {
+      "from": "task:B-07",
+      "kind": "related",
+      "to": "story:files",
+      "via": [
+        "POST /files"
+      ]
+    },
+    {
+      "from": "task:B-07",
+      "kind": "related",
+      "to": "story:photo-library",
+      "via": [
+        "POST /files"
+      ]
+    },
+    {
+      "from": "task:B-07",
+      "kind": "related",
+      "to": "story:profiles",
+      "via": [
+        "POST /files"
+      ]
+    },
+    {
       "from": "decision:D-13",
       "kind": "shares",
       "to": "feature:connections",
@@ -20566,6 +20723,14 @@
       ]
     },
     {
+      "from": "feature:files",
+      "kind": "shares",
+      "to": "task:B-07",
+      "via": [
+        "POST /files"
+      ]
+    },
+    {
       "from": "feature:gemma",
       "kind": "shares",
       "to": "feature:onboarding-imports",
@@ -21268,6 +21433,14 @@
       ]
     },
     {
+      "from": "feature:onboarding-imports",
+      "kind": "shares",
+      "to": "task:B-07",
+      "via": [
+        "POST /files"
+      ]
+    },
+    {
       "from": "feature:operator-panel",
       "kind": "shares",
       "to": "project:frontend-api-guide",
@@ -21511,6 +21684,14 @@
       "to": "project:status-report-2026-10-15",
       "via": [
         "PATCH /rings/:ringId/projection",
+        "POST /files"
+      ]
+    },
+    {
+      "from": "feature:photo-library",
+      "kind": "shares",
+      "to": "task:B-07",
+      "via": [
         "POST /files"
       ]
     },
@@ -22045,6 +22226,14 @@
       "to": "task:B-05",
       "via": [
         "POST /auth/complete-registration"
+      ]
+    },
+    {
+      "from": "feature:profiles",
+      "kind": "shares",
+      "to": "task:B-07",
+      "via": [
+        "POST /files"
       ]
     },
     {
@@ -22644,6 +22833,14 @@
         "GET /profiles",
         "GET /rings",
         "GET /users/me"
+      ]
+    },
+    {
+      "from": "feature:ring-projection",
+      "kind": "shares",
+      "to": "task:B-07",
+      "via": [
+        "POST /files"
       ]
     },
     {
@@ -23306,6 +23503,14 @@
       ]
     },
     {
+      "from": "needs-decision:ND-21",
+      "kind": "shares",
+      "to": "task:B-07",
+      "via": [
+        "POST /files"
+      ]
+    },
+    {
       "from": "needs-decision:ND-22",
       "kind": "shares",
       "to": "project:frontend-api-guide",
@@ -23635,6 +23840,14 @@
       ]
     },
     {
+      "from": "project:frontend-contract",
+      "kind": "shares",
+      "to": "task:B-07",
+      "via": [
+        "POST /files"
+      ]
+    },
+    {
       "from": "project:frontend-passwordless-migration",
       "kind": "shares",
       "to": "project:spec-map",
@@ -23779,9 +23992,22 @@
       ]
     },
     {
+      "from": "project:status-report-2026-10-15",
+      "kind": "shares",
+      "to": "task:B-07",
+      "via": [
+        "POST /files"
+      ]
+    },
+    {
       "from": "backend-delivery:auth",
       "kind": "tree",
       "to": "task:B-06"
+    },
+    {
+      "from": "backend-delivery:files",
+      "kind": "tree",
+      "to": "task:B-07"
     },
     {
       "from": "backend-integration:account",
@@ -31272,6 +31498,11 @@
       "from": "task:B-02",
       "kind": "wikilink",
       "to": "story:account"
+    },
+    {
+      "from": "task:B-07",
+      "kind": "wikilink",
+      "to": "feature:files"
     }
   ],
   "emoji": {
@@ -31430,6 +31661,10 @@
     },
     "social-pin/bugs/B-06 Timestamps the app writes are stored shifted by the server time zone.md": {
       "name": "B-06 Timestamps the app writes are stored shifted by the server time zone",
+      "type": "bug"
+    },
+    "social-pin/bugs/B-07 Context-scoped uploads are served by the public static mount.md": {
+      "name": "B-07 Context-scoped uploads are served by the public static mount",
       "type": "bug"
     },
     "social-pin/business/Feature Graph.md": {
@@ -33861,7 +34096,9 @@
       "affects": [],
       "blockedBy": [],
       "card": "BD-04",
-      "children": [],
+      "children": [
+        "task:B-07"
+      ],
       "code": "files",
       "created": "2026-10-15",
       "deadline": null,
@@ -33889,6 +34126,7 @@
       "pending": [],
       "priority": "high",
       "related": [
+        "task:B-07",
         "frontend-requirements:files",
         "frontend-requirements:photo-library",
         "frontend-requirements:profiles"
@@ -36051,6 +36289,7 @@
       "pending": [],
       "priority": "high",
       "related": [
+        "task:B-07",
         "frontend-requirements:files",
         "frontend-requirements:photo-library",
         "frontend-requirements:profiles",
@@ -36827,6 +37066,7 @@
       "pending": [],
       "priority": "critical",
       "related": [
+        "task:B-07",
         "qa-backend:account",
         "frontend-requirements:files",
         "frontend-requirements:photo-library",
@@ -39579,7 +39819,8 @@
         "done": 1,
         "draft": 1,
         "missing": 3,
-        "ready": 1
+        "ready": 1,
+        "todo": 1
       },
       "scope": null,
       "screens": [
@@ -44362,6 +44603,7 @@
       "pending": [],
       "priority": "high",
       "related": [
+        "task:B-07",
         "backend-integration:files",
         "backend-integration:ring-projection",
         "backend-integration:view-as",
@@ -44759,6 +45001,7 @@
       "priority": "high",
       "related": [
         "task:B-05",
+        "task:B-07",
         "frontend-requirements:auth",
         "qa-backend:auth",
         "frontend-requirements:files",
@@ -44934,6 +45177,7 @@
       "pending": [],
       "priority": "high",
       "related": [
+        "task:B-07",
         "frontend-requirements:files",
         "backend-integration:files",
         "backend-integration:ring-projection",
@@ -45165,6 +45409,7 @@
       "priority": "critical",
       "related": [
         "task:B-05",
+        "task:B-07",
         "frontend-requirements:auth",
         "qa-backend:auth",
         "frontend-requirements:files",
@@ -45583,6 +45828,7 @@
       "pending": [],
       "priority": "critical",
       "related": [
+        "task:B-07",
         "backend-integration:account",
         "frontend-requirements:files",
         "frontend-requirements:photo-library",
@@ -46447,7 +46693,7 @@
         "partial": 4,
         "passing": 1,
         "ready": 8,
-        "todo": 4,
+        "todo": 5,
         "verified": 7
       },
       "scope": null,
@@ -47474,6 +47720,7 @@
       "pending": [],
       "priority": null,
       "related": [
+        "task:B-07",
         "feature:files",
         "feature:ring-projection",
         "feature:view-as",
@@ -47810,6 +48057,7 @@
       "pending": [],
       "priority": null,
       "related": [
+        "task:B-07",
         "decision:D-02",
         "decision:D-03",
         "story:profiles",
@@ -48911,6 +49159,7 @@
         "feature:error-contract",
         "task:B-03",
         "task:B-04",
+        "task:B-07",
         "qa-backend:auth",
         "frontend-requirements:files",
         "frontend-requirements:photo-library",
@@ -49450,6 +49699,7 @@
       "related": [
         "task:B-04",
         "task:B-05",
+        "task:B-07",
         "qa-backend:auth",
         "frontend-requirements:files",
         "frontend-requirements:photo-library",
@@ -53460,7 +53710,7 @@
         "passing": 1,
         "ready": 8,
         "reference": 31,
-        "todo": 9,
+        "todo": 10,
         "verified": 14
       },
       "scope": null,
@@ -54714,6 +54964,7 @@
       "pending": [],
       "priority": "high",
       "related": [
+        "task:B-07",
         "frontend-delivery:account",
         "qa-frontend:account",
         "frontend-requirements:files",
@@ -55248,6 +55499,7 @@
       "pending": [],
       "priority": "high",
       "related": [
+        "task:B-07",
         "frontend-requirements:files",
         "story:files",
         "frontend-requirements:photo-library",
@@ -55432,6 +55684,7 @@
       "priority": "critical",
       "related": [
         "task:B-05",
+        "task:B-07",
         "needs-decision:ND-21",
         "frontend-requirements:auth",
         "qa-backend:auth",
@@ -56459,6 +56712,86 @@
       "task": null,
       "title": "B-06 Timestamps the app writes are stored shifted by the server time zone",
       "updated": "2026-10-28"
+    },
+    "task:B-07": {
+      "affects": [
+        "backend-delivery:files",
+        "backend-integration:files"
+      ],
+      "blockedBy": [],
+      "card": "B-07",
+      "children": [],
+      "code": "B-07",
+      "created": "2026-10-29",
+      "deadline": null,
+      "decision": null,
+      "depends": [],
+      "dir": null,
+      "effectiveStatus": "todo",
+      "effort": "S",
+      "feature": "files",
+      "foundOn": "BD-04 Files Upload Backend Delivery",
+      "frontendOnly": false,
+      "id": "task:B-07",
+      "inherits": {
+        "release": "feature:files"
+      },
+      "kind": "task",
+      "label": "Bug",
+      "labels": [
+        "bug"
+      ],
+      "layer": "business",
+      "module": "identity",
+      "parentTask": null,
+      "parents": [
+        "backend-delivery:files"
+      ],
+      "path": "social-pin/bugs/B-07 Context-scoped uploads are served by the public static mount.md",
+      "pending": [],
+      "priority": "high",
+      "related": [
+        "backend-delivery:files",
+        "backend-integration:files",
+        "needs-decision:ND-16",
+        "story:files",
+        "needs-decision:ND-21",
+        "frontend-requirements:files",
+        "frontend-requirements:onboarding-imports",
+        "frontend-requirements:photo-library",
+        "story:photo-library",
+        "frontend-requirements:profiles",
+        "story:profiles",
+        "backend-integration:ring-projection",
+        "frontend-requirements:ring-projection",
+        "project:status-report-2026-10-15",
+        "project:frontend-contract"
+      ],
+      "release": "v1",
+      "resolution": null,
+      "rollup": {},
+      "scope": null,
+      "screens": [
+        "s14",
+        "s20",
+        "s24",
+        "s36",
+        "s29",
+        "s30",
+        "s31",
+        "s44"
+      ],
+      "status": "todo",
+      "summary": "The fix is the backend's (/backend): mount only a public/ folder under uploadsDir, and keep CONTEXTSCOPED files out of it. It does not wait on ND-16; until ND-16 ships, no client can load a…",
+      "tags": [
+        "bug",
+        "bug/todo",
+        "module/identity",
+        "priority/high"
+      ],
+      "task": null,
+      "title": "B-07 Context-scoped uploads are served by the public static mount",
+      "updated": "2026-10-29"
     }
   },
   "priorities": [
