@@ -9,15 +9,13 @@ screens: [s23, s29, s30, s68]
 owner: "Omar Fostok"
 depends: ["S-11 Photo Library Story"]
 affects: ["BD-06 Photo Library Backend Delivery"]
-related: ["BI-03 Files Upload Backend Integration", "BI-07 Ring Projection Backend Integration", "FR-04 Files Upload Frontend Requirements", "FR-07 Profiles & Pin Name Frontend Requirements", "FR-10 Ring Projection Frontend Requirements", "FR-01 Account Frontend Requirements", "S-14 Profiles & Pin Name Story", "ND-16 Viewer access to file bytes", "D-02 One main profile every Ring starts from", "D-05 Inherit per field, copy without members", "POST /files", "GET /files", "GET /files/:id", "DELETE /files/:id", "GET /rings/:ringId/projection", "PATCH /rings/:ringId/projection", E_FILE_01, E_FILE_02, E_FILE_03, E_FILE_04, E_RING_02, E_RING_05]
+related: ["BI-03 Files Upload Backend Integration", "BI-07 Ring Projection Backend Integration", "FR-04 Files Upload Frontend Requirements", "FR-07 Profiles & Pin Name Frontend Requirements", "FR-10 Ring Projection Frontend Requirements", "FR-01 Account Frontend Requirements", "S-14 Profiles & Pin Name Story", "ND-16 Viewer access to file bytes", "D-16 Files load from signed links that expire in 15 minutes", "D-02 One main profile every Ring starts from", "D-05 Inherit per field, copy without members", "POST /files", "GET /files", "GET /files/:id", "DELETE /files/:id", "GET /rings/:ringId/projection", "PATCH /rings/:ringId/projection", E_FILE_01, E_FILE_02, E_FILE_03, E_FILE_04, E_RING_02, E_RING_05]
 created: 2026-10-18
 updated: 2026-10-29
 tags: [frontend-requirements, frontend-requirements/ready, module/identity, layer/frontend]
 ---
 
 # Photo Library · Frontend Requirements
-
-> ⚠ Affected by [[D-16 Files load from signed links that expire in 15 minutes]] (2026-10-29): library thumbnails load from a signed `url` valid 15 minutes; re-read when expired. For `/frontend`.
 
 **Feature:** [[F-06 Photo Library]] · **Status:** 📨 Ready 2026-10-29, waiting on the backend's review · **Story:** [[S-11 Photo Library Story]] · **API Integration:** not yet (backend not built)
 
@@ -41,7 +39,7 @@ The screen is [[FR-10 Ring Projection Frontend Requirements|Ring Projection's]];
 - Actions: "Use for <Ring>" saves the selection and returns to s23 (`PATCH /rings/:ringId/projection { avatarFileId }` for a library photo, `{ avatarFileId: null }` for the Pin photo); "Reset to Pin" saves the Pin photo straight away, whatever is selected; the "+ Upload" tile → Camera or Library (as on s30).
 - Not in v1: the "Crop for this Ring" row is not shown.
 - States: Pin photo selected, library photo selected, saving, placeholder (bytes not available), grid holding only this session's uploads (until S7), "Use my Pin photo" and "Reset to Pin" disabled with "coming soon" (until the main photo exists).
-- Source today: `GET /rings/:ringId/projection`, `PATCH /rings/:ringId/projection`, `POST /files`. List: not available yet. Main photo: not available yet. Bytes: not available yet.
+- Source today: `GET /rings/:ringId/projection`, `PATCH /rings/:ringId/projection`, `POST /files`. List: not available yet. Main photo: not available yet. Showing the photos: from signed links valid 15 minutes once the backend ships them ([[D-16 Files load from signed links that expire in 15 minutes]]).
 
 ### [[Screen Index#s30|s30]] Photo library (S2, S3, S4, S5)
 
@@ -57,7 +55,7 @@ The screen is [[FR-10 Ring Projection Frontend Requirements|Ring Projection's]];
   - Make main: writes the main photo (the same field [[FR-07 Profiles & Pin Name Frontend Requirements|FR-07]] asks for, [[S-14 Profiles & Pin Name Story|Profiles & Pin Name · S9–S11]]); the PIN mark moves. Disabled with "coming soon" until it exists.
   - Delete, three cases: unused → confirm, `DELETE /files/:id`; in `usedBy` → the warning names the Rings, each is cleared (`PATCH … { avatarFileId: null }`), then delete; the main photo → the warning says N Rings will show initials, the main photo is cleared, then delete. Disabled with "coming soon" until S8 ships.
 - States: grid, empty ("No photos yet"), uploading tile, selected tile, usage line, tile sheet, delete confirmation (three wordings), camera permission (asking, denied with a link to settings, no camera: Library only), "coming soon" on Make main and Delete.
-- Source today: `POST /files`, `DELETE /files/:id`, `GET /files/:id`. List, Rings per photo, main photo, thumbnails: not available yet.
+- Source today: `POST /files`, `DELETE /files/:id`, `GET /files/:id`. List, Rings per photo, main photo: not available yet. Thumbnails: from each photo's signed `url` (valid 15 minutes) on the list, once the backend ships it (D-16).
 
 ### [[Screen Index#s68|s68]] Me: the Photo library row (S4)
 
@@ -78,7 +76,7 @@ The screen is [[FR-01 Account Frontend Requirements|Account's]]; this section is
 | List my photos: `kind=image` (JPEG, PNG, WebP, GIF), paginated (`limit` ≤ 50, `meta.total`), newest first, owner only; `kind=document` on the same endpoint for [[FR-04 Files Upload Frontend Requirements\|FR-04]] | `GET /files?kind=` | ❌ | [[S-11 Photo Library Story\|Photo Library · S7]] |
 | Rings using each photo: `usedBy: [{ ringId, name }]` (live Rings whose `avatarFileId` is the file; attachments not counted) and `followerCount` on the main photo, on the list items | `GET /files?kind=image` | ❌ | [[S-11 Photo Library Story\|Photo Library · S8]] |
 | Read and set the main photo (by file id) | — | ❌ | the main profile fields: [[S-14 Profiles & Pin Name Story\|Profiles & Pin Name · S9–S11]], as [[FR-07 Profiles & Pin Name Frontend Requirements\|FR-07]] asks; not asked twice here |
-| Thumbnails and the full photo | — | ❌ | [[ND-16 Viewer access to file bytes]] |
+| Thumbnails and the full photo: a signed `url` per image on the `GET /files?kind=image` list, and `avatarUrl` on a Ring's projection, valid 15 minutes | `GET /files?kind=image`, `GET …/projection` | ❌ | [[D-16 Files load from signed links that expire in 15 minutes]] (decided) |
 | A photo's name (`label`) | — | not asked | later, not in v1 (S2) |
 | A crop frame per Ring | — | not asked | later, not in v1 (S1) |
 
@@ -91,7 +89,7 @@ The screen is [[FR-01 Account Frontend Requirements|Account's]]; this section is
 - Delete: clear every Ring in `usedBy` (and the main photo, when it is the one), then delete; the backend does not cascade. A 404 `E_FILE_01` on any step means already gone.
 - Camera: the permission is asked on first use; denied or unavailable falls back to Library.
 - Images: client-side downsizing for very large photos before upload; the server allow-list and 25 MB limit still apply.
-- Placeholders: without bytes, show the locally picked image during the session and initials afterwards; never build a URL from an id.
+- Photos load only from their signed links (D-16): never build a URL from an id; when a link fails to load (expired, 15 minutes), read the list or the projection again for fresh links. Until the links ship, show the locally picked image during the session and initials afterwards.
 
 ## Error states the UI must handle
 
@@ -111,4 +109,4 @@ Until [[S-87 Error Contract Story|Error Contract · S4–S8]] ships, branch on s
 - [[S-11 Photo Library Story|Photo Library · S7]]: the grids on s29 and s30 beyond this session's uploads, and the count on s68.
 - [[S-11 Photo Library Story|Photo Library · S8]]: the usage line and Delete.
 - [[S-14 Profiles & Pin Name Story|Profiles & Pin Name · S9–S11]]: the main photo, for "Use my Pin photo", "Reset to Pin" and "Make this my main photo".
-- [[ND-16 Viewer access to file bytes]]: every thumbnail and photo.
+- [[D-16 Files load from signed links that expire in 15 minutes]] (decided, not built): every thumbnail and photo.
