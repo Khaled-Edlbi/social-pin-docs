@@ -3364,6 +3364,7 @@
       "notes": [
         "backend-delivery:ring-projection",
         "backend-integration:ring-projection",
+        "feature:photo-library",
         "feature:ring-projection",
         "frontend-requirements:photo-library",
         "frontend-requirements:ring-projection",
@@ -4080,6 +4081,7 @@
         "feature:auth",
         "feature:counts",
         "feature:linked-accounts",
+        "feature:photo-library",
         "frontend-delivery:account",
         "frontend-requirements:account",
         "frontend-requirements:auth",
@@ -37734,11 +37736,13 @@
       },
       "scope": null,
       "screens": [
+        "s23",
         "s29",
-        "s30"
+        "s30",
+        "s68"
       ],
       "status": null,
-      "summary": "The user's uploaded photos, reusable across Rings, with a \"N Rings inherit it\" count (s30).",
+      "summary": "The user's uploaded photos, reusable across Rings, with the Rings that use each photo (s30).",
       "tags": [
         "feature",
         "module/identity",
@@ -37747,7 +37751,7 @@
       ],
       "task": null,
       "title": "F-06 Photo Library",
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "feature:pincast": {
       "affects": [],

@@ -5,29 +5,29 @@ name: "Photo Library"
 priority: high
 release: v1
 module: identity
-screens: [s29, s30]
+screens: [s23, s29, s30, s68]
 created: 2026-10-15
-updated: 2026-10-28
-owner: "omar"
+updated: 2026-10-29
+owner: "Omar Fostok"
 tags: [feature, module/identity, priority/high, release/v1]
 ---
 
 # Photo Library
 
-> ⚠ Affected by [[S-11 Photo Library Story]] (2026-10-29): the story now covers s23 (Change → s29, Upload → s30) and s68 (the Photo library row, management mode); `screens:` lists s29, s30 only. The summary line "with a 'N Rings inherit it' count" now reads "with the Rings that use each photo". Ask: `/owner add s23, s68 to Photo Library's screens`.
-
 **Backend:** Partial (needs more) · **Priority:** High · **Release:** v1 · **Module:** [[M-01 Identity Core Module|Identity Core]]
 
 **Layers:** [[S-11 Photo Library Story|Story]] · [[FR-06 Photo Library Frontend Requirements|Frontend Requirements]] · [[BD-06 Photo Library Backend Delivery|Backend Delivery]] · [[Photo Library Backend Integration|Backend Integration]] · [[Photo Library Frontend Delivery|Frontend Delivery]] · [[Photo Library QA Backend|QA Backend]] · [[Photo Library QA Frontend|QA Frontend]]
 
-The user's uploaded photos, reusable across Rings, with a "N Rings inherit it" count (s30).
+The user's uploaded photos, reusable across Rings, with the Rings that use each photo (s30).
 
 ## Design reference
 
 | Screen | Name | Note |
 |---|---|---|
-| [[Screen Index#s29|s29]] | Photo for this Ring | "Reset to Pin" → ND-02 |
-| [[Screen Index#s30|s30]] | Photo library |  |
+| [[Screen Index#s23|s23]] | Edit · how you appear | The photo entry: Change → s29, Upload → s30 |
+| [[Screen Index#s29|s29]] | Photo for this Ring | A picker: the Pin photo or a library photo; "Reset to Pin" waits on the main photo (D-02, not built) |
+| [[Screen Index#s30|s30]] | Photo library | Grid with the Rings using each photo; management mode from Me |
+| [[Screen Index#s68|s68]] | Me / Account | The "Photo library" row and its count |
 
 Wireframe brief sections: [[Wireframe Brief#Home — Rings hub + active profile|§4.1 Home — Rings hub + active profile]]
 
