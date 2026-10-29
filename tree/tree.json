@@ -36569,8 +36569,9 @@
         "blocked": 1,
         "current": 1,
         "done": 1,
-        "draft": 2,
-        "missing": 3
+        "draft": 1,
+        "missing": 3,
+        "ready": 1
       },
       "scope": null,
       "screens": [
@@ -41240,7 +41241,7 @@
       "depends": [
         "story:files"
       ],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "ready",
       "effort": null,
       "feature": "files",
       "foundOn": null,
@@ -41317,11 +41318,11 @@
         "s31",
         "s44"
       ],
-      "status": "draft",
+      "status": "ready",
       "summary": "What the client needs from the backend to upload, attach, switch on or off, inspect and delete files behind the Ring screens, and whether each need is met today. The multipart shape, the…",
       "tags": [
         "frontend-requirements",
-        "frontend-requirements/draft",
+        "frontend-requirements/ready",
         "module/identity",
         "layer/frontend"
       ],
@@ -42948,14 +42949,14 @@
         "decided": 7,
         "delivered": 2,
         "done": 9,
-        "draft": 11,
+        "draft": 10,
         "failing": 1,
         "in-progress": 13,
         "missing": 39,
         "needs-decision": 1,
         "partial": 4,
         "passing": 1,
-        "ready": 2,
+        "ready": 3,
         "todo": 4,
         "verified": 7
       },
@@ -49776,14 +49777,14 @@
         "decided": 14,
         "delivered": 2,
         "done": 10,
-        "draft": 40,
+        "draft": 39,
         "failing": 1,
         "in-progress": 44,
         "missing": 153,
         "needs-decision": 1,
         "partial": 4,
         "passing": 1,
-        "ready": 3,
+        "ready": 4,
         "reference": 31,
         "todo": 9,
         "verified": 14

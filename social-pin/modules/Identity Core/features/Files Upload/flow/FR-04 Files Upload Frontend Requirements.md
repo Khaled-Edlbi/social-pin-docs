@@ -4,7 +4,7 @@ code: files
 scope: feature
 feature: files
 module: identity
-status: draft
+status: ready
 screens: [s14, s20, s24, s36, s29, s30, s31, s44]
 owner: "Omar Fostok"
 depends: ["S-06 Files Upload Story"]
@@ -12,12 +12,12 @@ affects: ["BD-04 Files Upload Backend Delivery"]
 related: ["BI-03 Files Upload Backend Integration", "BI-07 Ring Projection Backend Integration", "BI-09 View As & Pin Views Backend Integration", "FR-06 Photo Library Frontend Requirements", "FR-10 Ring Projection Frontend Requirements", "FR-12 View As & Pin Views Frontend Requirements", "ND-16 Viewer access to file bytes", "D-03 Links entered once, switched on or off per Ring", "POST /files", "GET /files", "GET /files/:id", "DELETE /files/:id", "GET /rings/:ringId/projection", "PATCH /rings/:ringId/projection", "POST /rings/:ringId/projection/attachments", "DELETE /rings/:ringId/projection/attachments/:attachmentId", E_FILE_01, E_FILE_02, E_FILE_03, E_FILE_04, E_RING_05]
 created: 2026-10-18
 updated: 2026-10-29
-tags: [frontend-requirements, frontend-requirements/draft, module/identity, layer/frontend]
+tags: [frontend-requirements, frontend-requirements/ready, module/identity, layer/frontend]
 ---
 
 # Files Upload · Frontend Requirements
 
-**Feature:** [[F-04 Files Upload]] · **Status:** Draft · **Story:** [[S-06 Files Upload Story]] · **Backend Integration:** [[BI-03 Files Upload Backend Integration]]
+**Feature:** [[F-04 Files Upload]] · **Status:** 📨 Ready 2026-10-29, waiting on the backend's review · **Story:** [[S-06 Files Upload Story]] · **Backend Integration:** [[BI-03 Files Upload Backend Integration]]
 
 What the client needs from the backend to upload, attach, switch on or off, inspect and delete files behind the Ring screens, and whether each need is met today. The multipart shape, the allow-list and the limits are in [[BI-03 Files Upload Backend Integration]].
 
