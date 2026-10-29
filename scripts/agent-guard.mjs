@@ -7,6 +7,7 @@
  *   node scripts/agent-guard.mjs session    SessionStart hook: a new session starts with no active agent
  *   node scripts/agent-guard.mjs check      PreToolUse hook on Edit / Write: exit 2 (blocked) when the active agent may not write that file
  *   node scripts/agent-guard.mjs bash       PreToolUse hook on Bash: exit 2 when an active agent tries to write files around the guard
+ *   node scripts/agent-guard.mjs powershell PreToolUse hook on PowerShell: the same, for its cmdlets and aliases (Set-Content, Out-File, New-Item, rm, ni …)
  *   node scripts/agent-guard.mjs status     prints this session's agent and what it may write; outside a session, every session's agent
  *   node scripts/agent-guard.mjs selftest   runs the allow / deny matrix and the two-session rows; exit 1 on a mismatch (CI runs it)
  *
@@ -50,7 +51,7 @@ const STRUCTURAL_LAYER = { module: 'business', feature: 'business', bug: 'busine
 
 const readStdin = () => { try { return JSON.parse(fs.readFileSync(0, 'utf8') || '{}'); } catch { return {}; } };
 // the hooks get their JSON on stdin once; `status` and `selftest` run from a terminal and read none
-const input = ['prompt', 'session', 'check', 'bash'].includes(cmd) ? readStdin() : {};
+const input = ['prompt', 'session', 'check', 'bash', 'powershell'].includes(cmd) ? readStdin() : {};
 // the session this run is for: the hook's session_id, else the shell's; one marker file per session (a hook without one shares "default")
 const SESSION = String(input.session_id || process.env.CLAUDE_CODE_SESSION_ID || '').replace(/[^A-Za-z0-9_-]/g, '') || null;
 // inside Claude Code (an agent's shell) a write needs an active agent; a person's own terminal is not guarded (build-tree.mjs asks this)
@@ -236,20 +237,35 @@ const READ_SEGMENT = [
   /^(cat|head|tail|grep|rg|ls|wc|pwd|diff|cd|echo|uniq|cut|tr|stat|file|which|date)\b/, /^sort\b(?!.*\s-o\b)/,
   /^sed\s+-n\b/, /^awk\b(?![^']*'[^']*(>|system\())/, /^find\b(?!.*\s-(delete|exec|execdir|ok|fprint\w*)\b)/,
 ];
-const segments = (c) => {
-  const out = []; let cur = '', q = null;
+// the PowerShell tool's reading cmdlets and their aliases, and the same git and build commands
+const PS_READ_SEGMENT = [
+  ...READ_SEGMENT.slice(0, 3),
+  /^(Get-ChildItem|Get-Content|Select-String|Get-Item|Test-Path|Get-Location|Resolve-Path|Split-Path|Join-Path|Measure-Object|Select-Object|Where-Object|Sort-Object|Group-Object|ForEach-Object|Format-List|Format-Table|Out-String|Write-Output|Write-Host|ConvertFrom-Json|ConvertTo-Json|Compare-Object|Get-FileHash|Get-Date|Get-Command|Set-Location|gci|ls|dir|cat|gc|type|sls|select|where|sort|group|foreach|%|\?|ft|fl|measure|echo|pwd|gi|cd|sl)(\s|$)/i,
+];
+// what writes in PowerShell: the file and item cmdlets, the .NET file calls, another shell or interpreter; an alias counts at the start of a piece
+const PS_WRITE = /\b(Set-Content|Add-Content|Out-File|New-Item|Remove-Item|Move-Item|Copy-Item|Rename-Item|Clear-Content|Clear-Item|Set-Item|New-ItemProperty|Set-ItemProperty|Remove-ItemProperty|Tee-Object|Invoke-Expression|Invoke-Command|Invoke-WebRequest|Invoke-RestMethod|Start-Process|Expand-Archive|Compress-Archive|Export-\w+)\b|\[(System\.)?IO\.|\.(Delete|MoveTo|CopyTo|Create|Save|WriteAll\w*|AppendAll\w*)\s*\(|\b(powershell|pwsh|cmd|bash|sh|wsl|python3?|perl)\b|\bnode\s+(?!scripts\/(build-tree|agent-guard)\.mjs)/i;
+const PS_WRITE_ALIAS = /^(ni|ri|rm|rmdir|rd|del|erase|mv|move|mi|cp|copy|cpi|ren|rni|sc|ac|tee|iex|icm|iwr|irm|saps|start|mkdir|md|clc|cli|si)(\s|$)/i;
+// pieces of a chain or a pipe, split outside quotes (and, for PowerShell, outside { } and ( ) blocks)
+const segments = (c, ps = false) => {
+  const out = []; let cur = '', q = null, depth = 0;
   for (let i = 0; i < c.length; i++) {
     const ch = c[i];
     if (q) { cur += ch; if (ch === q) q = null; continue; }
     if (ch === '"' || ch === "'") { q = ch; cur += ch; continue; }
-    if (ch === ';' || ch === '\n' || ch === '|' || (ch === '&' && c[i + 1] === '&')) { out.push(cur); cur = ''; if (c[i + 1] === ch) i++; continue; }
+    if (ps && (ch === '{' || ch === '(')) depth++;
+    if (ps && (ch === '}' || ch === ')')) depth = Math.max(0, depth - 1);
+    if (!depth && (ch === ';' || ch === '\n' || ch === '|' || (ch === '&' && c[i + 1] === '&'))) { out.push(cur); cur = ''; if (c[i + 1] === ch) i++; continue; }
     cur += ch;
   }
   return [...out, cur].map((s) => s.trim()).filter(Boolean);
 };
-// a redirect into a file, outside quotes; 2>&1 and > /dev/null write nothing
-const redirects = (s) => /(^|[^0-9&<>])\d?>{1,2}(?!&)\s*(?!\/dev\/null\b)\S/.test(s.replace(/'[^']*'|"[^"]*"/g, '""'));
-export const readOnly = (c) => !/<<|\$\(|`/.test(c) && segments(c).every((s) => READ_SEGMENT.some((re) => re.test(s)) && !redirects(s));
+const unquoted = (s) => s.replace(/'[^']*'|"[^"]*"/g, '""');
+// a redirect into a file, outside quotes; 2>&1, > /dev/null and > $null write nothing
+const redirects = (s) => /(^|[^0-9&<>*])[\d*]?>{1,2}(?!&)\s*(?!\/dev\/null\b|\$null\b)\S/.test(unquoted(s));
+export const psWrites = (c) => PS_WRITE.test(unquoted(c)) || segments(c, true).some((s) => PS_WRITE_ALIAS.test(s) || redirects(s));
+export const readOnly = (c, ps = false) => ps
+  ? !/^\s*[&.]\s/.test(c) && !psWrites(c) && segments(c, true).every((s) => PS_READ_SEGMENT.some((re) => re.test(s)))
+  : !/<<|\$\(|`/.test(c) && segments(c).every((s) => READ_SEGMENT.some((re) => re.test(s)) && !redirects(s));
 
 const relOf = (p) => { if (!p) return null; const abs = path.isAbsolute(p) ? p : path.join(ROOT, p); const rel = path.relative(ROOT, abs).split(path.sep).join('/'); return rel.startsWith('..') ? null : rel; };
 
@@ -293,19 +309,26 @@ if (cmd === 'check') {
   console.error(d.message);
   process.exit(2);
 }
-if (cmd === 'bash') {
+if (cmd === 'bash' || cmd === 'powershell') {
   const a = agentOf(active() || '');
   if (a?.writes?.all) process.exit(0); // the admin: the shell is not guarded either
   const { tool_input: ti = {} } = input;
   const c = String(ti.command || '').trim();
+  const ps = cmd === 'powershell';
   // no agent: reading is free, writing waits for the user's choice of agent
-  if (!a) { if (readOnly(c)) process.exit(0); console.error(noAgent().message); process.exit(2); }
+  if (!a) { if (readOnly(c, ps)) process.exit(0); console.error(noAgent().message); process.exit(2); }
+  const refuse = () => { console.error(`${a.id} agent: this command writes files around the guard. Use Edit or Write (the guard checks them), node scripts/build-tree.mjs --scaffold for new notes and --set-status / --set / --flag for the common edits, and git for commits.`); process.exit(2); };
+  if (ps) {
+    // the vault's own scripts (which guard their writes) and git, unchained, pass; anything else passes only when nothing in it writes
+    if (/^(node scripts\/(build-tree|agent-guard)\.mjs\b|git\b)/.test(c) && segments(c, true).length === 1 && !redirects(c)) process.exit(0);
+    if (!psWrites(c)) process.exit(0);
+    refuse();
+  }
   const allowed = /^(node scripts\/(build-tree|agent-guard)\.mjs\b|git\b|ls\b|cat\b|head\b|tail\b|grep\b|rg\b|find\b|wc\b|diff\b|sed -n\b|pwd\b|echo\b[^>]*$)/;
   const writes = /(^|[^<>])>{1,2}(?!&)|\btee\b|\bsed\s+-[a-zA-Z]*i|\bperl\s+-[a-zA-Z]*i|\b(mv|cp|rm|touch|mkdir|rmdir|truncate|dd)\b|\bpython3?\b|\bnode\s+(?!scripts\/(build-tree|agent-guard)\.mjs)/;
   if (allowed.test(c) && !/&&|;|\|\s*(tee|sed|perl|python|node|sh|bash)\b/.test(c)) process.exit(0);
   if (!writes.test(c)) process.exit(0);
-  console.error(`${a.id} agent: this command writes files around the guard. Use Edit or Write (the guard checks them), node scripts/build-tree.mjs --scaffold for new notes, and git for commits.`);
-  process.exit(2);
+  refuse();
 }
 if (cmd === 'selftest') {
   const E = (o, n) => ({ old: o, new: n });
@@ -399,6 +422,20 @@ if (cmd === 'selftest') {
     ['git status && git commit -am x', false], ['git branch -D main', false], ['git branch --show-current', true], ['sort -o x y', false], ['cat <<EOF > x', false], ['python3 x.py', false], ['ls $(rm x)', false],
   ];
   for (const [c, expected] of B) { const ok = readOnly(c) === expected; if (!ok) bad++; console.log(`${ok ? 'ok  ' : 'FAIL'} no agent bash ${expected ? 'allow' : 'deny '} ${c}`); }
+  // the PowerShell tool: [command, passes with no agent (read-only), writes (refused for a role agent)]
+  const P = [
+    ['git status', true, false], ['git log --oneline -5', true, false], ['node scripts/build-tree.mjs --list kind=bug', true, false], ['node scripts/build-tree.mjs --check 2>$null', true, false],
+    ['Get-ChildItem social-pin/bugs | Select-Object Name', true, false], ['Get-Content "social-pin/bugs/B-06 x.md" -TotalCount 20', true, false], ['gci -Recurse -Filter *.md | Measure-Object', true, false],
+    ['Select-String -Path rules/*.md -Pattern "status:" | Sort-Object Path', true, false], ['Get-ChildItem | Where-Object { $_.Length -gt 100 } | ForEach-Object { $_.Name }', true, false],
+    ['Test-Path tree/tree.json; Get-Location', true, false], ['Write-Output "$($env:CLAUDE_CODE_SESSION_ID)"', true, false],
+    ['node scripts/build-tree.mjs', false, false], ['node scripts/build-tree.mjs --set-status B-06 done', false, false], ['git commit -m x', false, false],
+    ['Set-Content -Path x.md -Value y', false, true], ['Add-Content notes.md "x"', false, true], ['"x" | Out-File notes.md', false, true], ['New-Item -ItemType File x.md', false, true],
+    ['Remove-Item -Recurse social-pin', false, true], ['rm x.md', false, true], ['ni x.md', false, true], ['Get-ChildItem | ForEach-Object { Remove-Item $_ }', false, true],
+    ['Get-Content a.md > b.md', false, true], ['echo x >> notes.md', false, true], ['[IO.File]::WriteAllText("x.md", "y")', false, true], ['(Get-Item x.md).Delete()', false, true],
+    ['Copy-Item a.md b.md', false, true], ['Move-Item a.md b.md', false, true], ['Invoke-Expression "rm x"', false, true], ['iex "rm x"', false, true], ['python x.py', false, true],
+    ['node -e "require(\'fs\').writeFileSync(\'x\',1)"', false, true], ['cmd /c del x', false, true], ['Get-Content x | Tee-Object y', false, true], ['& ./write.ps1', false, false],
+  ];
+  for (const [c, ro, wr] of P) { const ok = readOnly(c, true) === ro && psWrites(c) === wr; if (!ok) bad++; console.log(`${ok ? 'ok  ' : 'FAIL'} powershell ${ro ? 'read ' : wr ? 'write' : 'other'} ${c}${ok ? '' : `\n     got read-only ${readOnly(c, true)}, writes ${psWrites(c)}`}`); }
   // two sessions in one folder, with different agents: the real hooks run against a temporary marker folder, which starts as the old shared file
   const os = await import('node:os'), { spawnSync } = await import('node:child_process');
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'agent-guard-'));
@@ -424,6 +461,13 @@ if (cmd === 'selftest') {
     ['B', 'check', write(bd), 2, { A: 'owner', B: null }],
     ['A', 'check', write(overview), 0, { A: 'owner', B: null }],
     ['B', 'prompt', { prompt: '/qa' }, 0, { A: 'owner', B: 'qa' }],
+    // the PowerShell hook, run for real: a role agent's writing cmdlet is refused, its reading one passes; with no agent only reading passes
+    ['B', 'powershell', { tool_input: { command: 'Set-Content x.md y' } }, 2, { A: 'owner', B: 'qa' }],
+    ['B', 'powershell', { tool_input: { command: 'Get-ChildItem social-pin/bugs' } }, 0, { A: 'owner', B: 'qa' }],
+    ['B', 'powershell', { tool_input: { command: 'node scripts/build-tree.mjs --set-status B-06 done --resolution fixed' } }, 0, { A: 'owner', B: 'qa' }],
+    ['C', 'powershell', { tool_input: { command: 'git status' } }, 0, { A: 'owner', B: 'qa', C: null }],
+    ['C', 'powershell', { tool_input: { command: 'New-Item x.md' } }, 2, { A: 'owner', B: 'qa', C: null }],
+    ['C', 'bash', { tool_input: { command: 'git commit -m x' } }, 2, { A: 'owner', B: 'qa', C: null }],
     ['A', 'session', {}, 0, { A: null, B: 'qa' }], // /clear or a restart of session A
   ];
   let sBad = 0;
@@ -436,7 +480,7 @@ if (cmd === 'selftest') {
     console.log(`${ok ? 'ok  ' : 'FAIL'} session ${sid} ${hookCmd.padEnd(7)} exit ${exit} ${what}${ok ? '' : `\n     got exit ${r.status}, agents ${JSON.stringify(got)}, want ${JSON.stringify(want)}${r.stderr ? `: ${r.stderr.trim()}` : ''}`}`);
   }
   fs.rmSync(tmp, { recursive: true, force: true });
-  console.log(`${M.length + B.length - bad} of ${M.length + B.length} rows as expected; ${S.length - sBad} of ${S.length} two-session rows as expected`);
+  console.log(`${M.length + B.length + P.length - bad} of ${M.length + B.length + P.length} rows as expected; ${S.length - sBad} of ${S.length} two-session rows as expected`);
   process.exit(bad || sBad ? 1 : 0);
 }
 if (IS_MAIN) { console.error(`unknown command "${cmd}": prompt | session | check | bash | status | selftest`); process.exit(1); }
