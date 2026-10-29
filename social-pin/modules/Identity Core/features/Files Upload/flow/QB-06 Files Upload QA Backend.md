@@ -9,7 +9,7 @@ screens: [s14, s20, s24, s36, s29, s30, s31, s44]
 depends: ["BD-04 Files Upload Backend Delivery", "S-06 Files Upload Story"]
 affects: []
 related: ["BI-03 Files Upload Backend Integration", "FR-04 Files Upload Frontend Requirements", "BI-07 Ring Projection Backend Integration", "BI-09 View As & Pin Views Backend Integration", "D-16 Files load from signed links that expire in 15 minutes", "B-07 Context-scoped uploads are served by the public static mount", "B-08 Owner projection drops each attachment's file details", "B-06 Timestamps the app writes are stored shifted by the server time zone", "POST /files", "GET /files/:id", "DELETE /files/:id", "GET /rings/:ringId/projection", "PATCH /rings/:ringId/projection", "POST /rings/:ringId/projection/attachments", "DELETE /rings/:ringId/projection/attachments/:attachmentId", "GET /views/pin/:pinName", E_FILE_01, E_FILE_02, E_FILE_03, E_FILE_04, E_RING_05]
-pending: ["[[B-08 Owner projection drops each attachment's file details]]: rows B12 and B16 pass on `main @ c80ed9d`; closing the bug (resolution `fixed`) waits on the user's word"]
+pending: []
 created: 2026-10-29
 updated: 2026-10-29
 tags: [qa-backend, qa-backend/passing, module/identity, layer/qa]
@@ -155,7 +155,7 @@ stateDiagram-v2
 ## Verdict
 
 - Run on: 2026-10-29 · build: `main @ c80ed9d · localhost:3101, Node 22.22.2` (run on the fix branch at `6491d0b`, merged with no other change) · result: 🟢 passing, 32 of 32 as expected · failing rows: none
-- Previous run: 2026-10-29 · `main @ c85db4b` · 🔴 30 of 32, B12 and B16 on [[B-08 Owner projection drops each attachment's file details]], which the fix answered. Closing B-08 waits on the user's word, so it stays in `pending` and the note reads Partial until then.
+- Previous run: 2026-10-29 · `main @ c85db4b` · 🔴 30 of 32, B12 and B16 on [[B-08 Owner projection drops each attachment's file details]], which the fix answered. B-08 closed `fixed` on 2026-10-29; nothing is left in `pending`.
 - [[B-07 Context-scoped uploads are served by the public static mount]]: rows B30–B32 show it fixed on this build; closed `fixed` on 2026-10-29.
 - Seen in passing, not a row here: the `files.created_at` the run wrote reads three hours behind the server's clock, the shift [[B-06 Timestamps the app writes are stored shifted by the server time zone]] already describes.
 
@@ -164,3 +164,4 @@ stateDiagram-v2
 - 2026-10-29 · written from [[S-06 Files Upload Story]] S1–S6 and S12, [[BI-03 Files Upload Backend Integration]] and [[BI-07 Ring Projection Backend Integration]]; first run on `main @ c85db4b`: 30 of 32, [[B-08 Owner projection drops each attachment's file details]] filed against BI-07 for B12 and B16. B15 was first written as a 404 and corrected to the documented 403 `E_RING_05` before the recorded run.
 - 2026-10-29 · [[B-07 Context-scoped uploads are served by the public static mount]] closed `fixed` on khaled's word, from rows B30–B32; its entry cleared from `pending`. [[B-08 Owner projection drops each attachment's file details]] is the one entry left.
 - 2026-10-29 · re-run of all 32 rows on `main @ c80ed9d` (the B-08 fix): 32 of 32, `status: passing`. B12 and B16 now carry `fileId`, `filename`, `mimeType` and `sizeBytes`.
+- 2026-10-29 · [[B-08 Owner projection drops each attachment's file details]] closed `fixed` on khaled's word; its entry cleared from `pending`, which is now empty.
