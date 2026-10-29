@@ -1,11 +1,11 @@
 ---
-type: needs-decision
 id: ND-05
+type: needs-decision
 status: open
 features: [rings, ring-projection, photo-library]
 screens: [s18, s23, s28, s29]
 created: 2026-10-15
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [needs-decision, needs-decision/open]
 ---
 

@@ -1,11 +1,12 @@
 ---
+id: P-22
 type: project
 layer: shared
-created: 2026-10-19
-updated: 2026-10-29
 depends: []
 affects: ["Owner Agent", "PM Agent", "Backend Agent", "Frontend Agent", "QA Agent", "Admin Agent"]
 related: ["Agent Rules", "Workflow", "Docs Tree"]
+created: 2026-10-19
+updated: 2026-10-29
 tags: [project, layer/shared, rules, agent]
 ---
 
@@ -26,7 +27,7 @@ The vault has five agents, one per role, each a note in `rules/` that **is** its
 The user speaks in product words ("the speed search", "the rings module", "that ticket about counts"); the vault speaks in ids and cards. Before anything else, turn every noun in the request into a card:
 
 - `node scripts/build-tree.mjs --find "<the words>"` lists the cards and concepts that match, best first, with their card code, kind, layer, feature and module. Run it once per noun.
-- A module → its id in `docs.config.json` `modules[]` (identity, connections, shared-rings, discovery, events, meetings, commerce, platform). A feature → its `id:` and its `F-NN`. A piece of work → the feature's story and its part (`S-NN S7`); there are no tasks. A defect → its bug, `B-NN`. A screen → `sNN` from [[Screen Index]]. An endpoint or error code → the concept the tree knows, with the feature that owns it.
+- A module → its id in `docs.config.json` `modules[]` (identity, connections, shared-rings, discovery, events, meetings, commerce, platform). A feature → its id (`feature:` on its card) and its `F-NN`. A piece of work → the feature's story and its part (`S-NN S7`); there are no tasks. A defect → its bug, `B-NN`. A screen → `sNN` from [[Screen Index]]. An endpoint or error code → the concept the tree knows, with the feature that owns it.
 - Then `node scripts/build-tree.mjs --impact <the card>` for what you are about to change, and read what it lists in that order: the same feature's notes, the directly linked notes, the two-hop notes only when the change crosses a feature boundary ([[Agent Rules#3 · Relations]]).
 
 Never invent a module, a feature id, a screen id, a ticket number, an endpoint or a code. When nothing matches, say so and ask.
@@ -49,7 +50,7 @@ Wait for the answer. When two readings of the request would lead to materially d
 ## 4 · Act, inside your scope
 
 - New notes: `node scripts/build-tree.mjs --scaffold <kind> <feature-id>`, `--scaffold feature …`, `--scaffold bug …`, `--scaffold needs-decision "<card>" "<title>"`, `--scaffold decision ND-NN "<the answer>"` ([[Docs Tree#For agents]]). Fill the template; do not reshape it. **Every card is born with its code in front of its file name** (`F-27 Payments & Orders`, `S-69 Payments & Orders Story`, `B-07 …`, `ND-21 …`): the scaffold takes the next free number and repoints the links written to the card's plain name while it was not written yet; never type a code into a file name, never rename a card, and link it by that full name ([[Agent Rules#2 · Codes, scopes and the "sum of" rule]]).
-- Existing notes: Edit, the exact lines. Keep the frontmatter flat; declare `depends` / `affects` / `related`; every touched note gets today's `updated:`.
+- Existing notes: Edit, the exact lines. Keep the frontmatter flat and in the vault's order, the head first (`id` · `type` · `module` · `feature` · `status`, [[Agent Rules#2 · Codes, scopes and the "sum of" rule]]; `--normalize <card>` fixes the order); declare `depends` / `affects` / `related`; every touched note gets today's `updated:`.
 - The common edits are one command each ([[Docs Tree#For agents]]); each writes only what the guard lets the active agent write, refuses the rest with the guard's message, and puts the file back if the change would break the build:
   - **a status**: `node scripts/build-tree.mjs --set-status <card> <status>` writes `status:`, the `<kind>/<status>` tag, the H1 emoji, the *Status* segment of the first line (when it reads exactly the old status) and `updated:` together ([[Agent Rules#4 · Statuses, blocking and sign-off]]), and refuses a status the kind does not have, a computed one (a feature's, a module's, the project's, a requirements list's `delivered`) and work on a ⛔ Blocked card. A bug closed: `--resolution <id>`; a sign-off: `--by <name>` (`approvedBy` / `approvedAt`, or `decidedBy` / `decidedAt` on a decision card);
   - **a priority or a deadline**: `--set <card> priority <level>` or `--set <card> deadline <YYYY-MM-DD>` (`none` drops it, so the card inherits again): the field, its tag, its first-line segment and `updated:`;

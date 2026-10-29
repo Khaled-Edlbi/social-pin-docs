@@ -1,13 +1,14 @@
 ---
+id: F-39
 type: feature
-id: notifications
+module: platform
+feature: notifications
 name: "Notifications"
 priority: high
 release: v1
-module: platform
 screens: [s69]
 created: 2026-10-15
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [feature, module/platform, priority/high, release/v1]
 ---
 

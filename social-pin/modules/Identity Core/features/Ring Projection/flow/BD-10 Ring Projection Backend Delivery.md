@@ -1,10 +1,10 @@
 ---
+id: BD-10
 type: backend-delivery
-code: ring-projection
-scope: feature
-feature: ring-projection
 module: identity
+feature: ring-projection
 status: done
+scope: feature
 screens: [s14, s20, s23, s24, s25, s29, s36]
 created: 2026-10-15
 updated: 2026-10-29

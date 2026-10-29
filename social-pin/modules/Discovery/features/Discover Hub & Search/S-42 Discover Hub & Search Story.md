@@ -1,16 +1,16 @@
 ---
+id: S-42
 type: story
-code: discover-hub
-scope: feature
-feature: discover-hub
 module: discovery
+feature: discover-hub
 status: approved
+scope: feature
 screens: [s38]
 approvedBy: "khaled"
 approvedAt: 2026-10-25
 owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [story, story/approved, module/discovery, layer/business]
 ---
 

@@ -1,11 +1,11 @@
 ---
-type: bug
 id: B-05
+type: bug
+module: identity
+feature: auth
 status: todo
 priority: low
 effort: S
-feature: auth
-module: identity
 foundOn: BI-02 Auth & Sign-up Backend Integration
 screens: [s06]
 depends: []
@@ -13,7 +13,7 @@ affects: ["BI-02 Auth & Sign-up Backend Integration", "QB-05 Auth & Sign-up QA B
 related: ["BI-02 Auth & Sign-up Backend Integration", "QB-05 Auth & Sign-up QA Backend", "POST /auth/complete-registration", E_AUTH_05]
 pending: []
 created: 2026-10-27
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [bug, bug/todo, module/identity, priority/low]
 ---
 

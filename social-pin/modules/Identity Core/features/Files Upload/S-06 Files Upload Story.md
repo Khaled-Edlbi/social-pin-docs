@@ -1,10 +1,10 @@
 ---
+id: S-06
 type: story
-code: files
-scope: feature
-feature: files
 module: identity
+feature: files
 status: approved
+scope: feature
 screens: [s14, s20, s24, s36, s29, s30, s31, s44]
 approvedBy: "Omar Fostok"
 approvedAt: 2026-10-29

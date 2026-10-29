@@ -1,17 +1,17 @@
 ---
+id: FR-11
 type: frontend-requirements
-code: rings
-scope: feature
-feature: rings
 module: identity
+feature: rings
 status: ready
+scope: feature
 screens: [s08, s09, s16, s17, s18, s19, s20, s21, s22, s26, s27, s62]
+owner: "Omar Fostok"
 depends: ["S-18 Rings Story"]
 affects: ["BD-11 Rings Backend Delivery"]
 related: ["D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-18 Ring names shown when joined knowingly", "S-15 Ring Access Engine Story", "FR-08 Ring Access Engine Frontend Requirements", "GET /rings/shared-with-me", "PATCH /rings/:id", "POST /rings"]
 created: 2026-10-18
 updated: 2026-10-29
-owner: "Omar Fostok"
 tags: [frontend-requirements, frontend-requirements/ready, module/identity, layer/frontend]
 ---
 

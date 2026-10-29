@@ -1,13 +1,14 @@
 ---
+id: F-19
 type: feature
-id: discover-hub
+module: discovery
+feature: discover-hub
 name: "Discover Hub & Search"
 priority: high
 release: v1
-module: discovery
 screens: [s38]
 created: 2026-10-15
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [feature, module/discovery, priority/high, release/v1]
 ---
 

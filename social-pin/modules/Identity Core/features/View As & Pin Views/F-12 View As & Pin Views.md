@@ -1,14 +1,15 @@
 ---
+id: F-12
 type: feature
-id: view-as
+module: identity
+feature: view-as
 name: "View As & Pin Views"
 priority: critical
 release: mvp
-module: identity
 screens: [s10, s31, s44, s62]
+owner: "Omar Fostok"
 created: 2026-10-18
 updated: 2026-10-29
-owner: "Omar Fostok"
 tags: [feature, module/identity, priority/critical, release/mvp]
 ---
 

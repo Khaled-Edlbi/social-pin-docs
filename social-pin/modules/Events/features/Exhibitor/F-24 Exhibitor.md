@@ -1,14 +1,15 @@
 ---
+id: F-24
 type: feature
-id: exhibitor
+module: events
+feature: exhibitor
 name: "Exhibitor"
 priority: high
 release: v1
-module: events
 screens: [s63, s64, s65]
 related: ["F-12 View As & Pin Views"]
 created: 2026-10-15
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [feature, module/events, priority/high, release/v1]
 ---
 

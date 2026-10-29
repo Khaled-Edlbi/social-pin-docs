@@ -1,16 +1,16 @@
 ---
+id: S-92
 type: story
-code: interests
-scope: feature
-feature: interests
 module: platform
+feature: interests
 status: approved
+scope: feature
 screens: [s07, s71]
 approvedBy: "khaled"
 approvedAt: 2026-10-25
 owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [story, story/approved, module/platform, layer/business]
 ---
 

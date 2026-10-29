@@ -1,17 +1,17 @@
 ---
+id: FR-05
 type: frontend-requirements
-code: onboarding-imports
-scope: feature
-feature: onboarding-imports
 module: identity
+feature: onboarding-imports
 status: draft
+scope: feature
 screens: [s01, s03, s03a, s03b, s04, s05]
+owner: "Omar Fostok"
 depends: []
 affects: ["S-94 Linked Accounts (OAuth) Story", "S-08 Onboarding Imports Story"]
 related: ["D-02 One main profile every Ring starts from", "D-03 Links entered once, switched on or off per Ring", "ND-21 How a business card and a portfolio page are read", "S-14 Profiles & Pin Name Story", "S-06 Files Upload Story", "S-87 Error Contract Story", "F-02 Auth & Sign-up", "F-04 Files Upload", "F-10 Ring Projection"]
 created: 2026-10-18
-updated: 2026-10-28
-owner: "Omar Fostok"
+updated: 2026-10-29
 tags: [frontend-requirements, frontend-requirements/draft, module/identity, layer/frontend]
 ---
 

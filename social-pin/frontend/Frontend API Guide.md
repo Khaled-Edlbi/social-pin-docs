@@ -1,9 +1,10 @@
 ---
+id: P-07
 type: project
-created: 2026-10-15
-updated: 2026-10-27
-tags: [project]
 layer: frontend
+created: 2026-10-15
+updated: 2026-10-29
+tags: [project]
 ---
 # Frontend API guide
 

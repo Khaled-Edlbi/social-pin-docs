@@ -1,13 +1,13 @@
 ---
+id: FR-18
 type: frontend-requirements
-code: badge-qr
-scope: feature
-feature: badge-qr
 module: discovery
+feature: badge-qr
 status: draft
+scope: feature
 screens: [s34, s43, s44, s56]
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [frontend-requirements, frontend-requirements/draft, module/discovery, layer/frontend]
 ---
 

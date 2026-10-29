@@ -1,16 +1,16 @@
 ---
+id: S-37
 type: story
-code: badge-qr
-scope: feature
-feature: badge-qr
 module: discovery
+feature: badge-qr
 status: approved
+scope: feature
 screens: [s34, s43, s44, s56]
 approvedBy: "khaled"
 approvedAt: 2026-10-25
 owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [story, story/approved, module/discovery, layer/business]
 ---
 

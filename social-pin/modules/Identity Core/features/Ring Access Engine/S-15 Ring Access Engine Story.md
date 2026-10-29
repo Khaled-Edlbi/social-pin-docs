@@ -1,17 +1,17 @@
 ---
+id: S-15
 type: story
-code: ring-access
-scope: feature
-feature: ring-access
 module: identity
+feature: ring-access
 status: approved
+scope: feature
 screens: [s15, s16, s17, s26, s27, s44, s47, s62]
 approvedBy: "Omar Fostok"
 approvedAt: 2026-10-29
-created: 2026-10-18
-updated: 2026-10-29
 owner: "Omar Fostok"
 related: ["D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-18 Ring names shown when joined knowingly", "S-18 Rings Story", "S-16 Ring Members Story", "S-23 Connections Story"]
+created: 2026-10-18
+updated: 2026-10-29
 tags: [story, story/approved, module/identity, layer/business]
 ---
 

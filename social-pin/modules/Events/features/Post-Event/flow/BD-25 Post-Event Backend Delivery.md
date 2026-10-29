@@ -1,13 +1,13 @@
 ---
+id: BD-25
 type: backend-delivery
-code: post-event
-scope: feature
-feature: post-event
 module: events
+feature: post-event
 status: todo
+scope: feature
 screens: [s62]
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [backend-delivery, backend-delivery/todo, module/events, layer/backend]
 ---
 

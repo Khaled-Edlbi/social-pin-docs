@@ -1,13 +1,13 @@
 ---
+id: BD-39
 type: backend-delivery
-code: notifications
-scope: feature
-feature: notifications
 module: platform
+feature: notifications
 status: todo
+scope: feature
 screens: [s69]
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [backend-delivery, backend-delivery/todo, module/platform, layer/backend]
 ---
 

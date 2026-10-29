@@ -1,15 +1,16 @@
 ---
+id: F-14
 type: feature
-id: connections
+module: connections
+feature: connections
 name: "Connections"
 priority: critical
 release: mvp
-module: connections
 screens: [s44, s45, s46, s47, s62]
+owner: "omar"
 related: ["F-11 Rings"]
 created: 2026-10-15
-updated: 2026-10-28
-owner: "omar"
+updated: 2026-10-29
 tags: [feature, module/connections, priority/critical, release/mvp]
 ---
 

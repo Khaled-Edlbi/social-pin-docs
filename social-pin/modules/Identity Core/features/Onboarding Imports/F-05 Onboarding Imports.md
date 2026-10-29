@@ -1,15 +1,16 @@
 ---
+id: F-05
 type: feature
-id: onboarding-imports
+module: identity
+feature: onboarding-imports
 name: "Onboarding Imports"
 priority: medium
 release: mvp
-module: identity
 screens: [s03, s03a, s03b, s04, s05]
+owner: "khaled"
 related: ["F-04 Files Upload"]
 created: 2026-10-15
 updated: 2026-10-29
-owner: "khaled"
 tags: [feature, module/identity, priority/medium, release/mvp]
 ---
 

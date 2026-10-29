@@ -1,15 +1,15 @@
 ---
+id: BD-07
 type: backend-delivery
-code: profiles
-scope: feature
-feature: profiles
 module: identity
+feature: profiles
 status: done
+scope: feature
 screens: [s06]
-created: 2026-10-15
-updated: 2026-10-28
-tags: [backend-delivery, backend-delivery/done, module/identity, layer/backend]
 pending: ["[[S-14 Profiles & Pin Name Story]]: S9–S11 Main profile fields from D-02 (was T-078)", "[[S-14 Profiles & Pin Name Story]]: S12 Enforce the once-a-year Pin name rename (was T-079)"]
+created: 2026-10-15
+updated: 2026-10-29
+tags: [backend-delivery, backend-delivery/done, module/identity, layer/backend]
 ---
 
 # ✅ Profiles & Pin Name · Backend Delivery

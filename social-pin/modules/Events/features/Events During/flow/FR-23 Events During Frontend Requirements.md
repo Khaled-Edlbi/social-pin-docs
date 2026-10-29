@@ -1,13 +1,13 @@
 ---
+id: FR-23
 type: frontend-requirements
-code: events-during
-scope: feature
-feature: events-during
 module: events
+feature: events-during
 status: draft
+scope: feature
 screens: [s53, s54, s55, s56, s57, s58]
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [frontend-requirements, frontend-requirements/draft, module/events, layer/frontend]
 ---
 

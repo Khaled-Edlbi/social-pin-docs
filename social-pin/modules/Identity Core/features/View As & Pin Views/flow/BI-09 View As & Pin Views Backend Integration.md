@@ -1,10 +1,10 @@
 ---
+id: BI-09
 type: backend-integration
-code: view-as
-scope: feature
-feature: view-as
 module: identity
+feature: view-as
 status: current
+scope: feature
 screens: [s10, s31, s44]
 created: 2026-10-15
 updated: 2026-10-29

@@ -1,17 +1,17 @@
 ---
+id: FR-07
 type: frontend-requirements
-code: profiles
-scope: feature
-feature: profiles
 module: identity
+feature: profiles
 status: ready
+scope: feature
 screens: [s05b, s06, s23, s44, s68]
+owner: "Omar Fostok"
 depends: ["S-14 Profiles & Pin Name Story"]
 affects: ["BD-07 Profiles & Pin Name Backend Delivery"]
 related: ["D-02 One main profile every Ring starts from", "D-05 Inherit per field, copy without members", "D-06 Yearly rename, old name freed, case-insensitive", "ND-16 Viewer access to file bytes", "D-16 Files load from signed links that expire in 15 minutes", "ND-22 Public web page by Pin name", "FR-01 Account Frontend Requirements", "FR-10 Ring Projection Frontend Requirements", "FR-12 View As & Pin Views Frontend Requirements", "S-08 Onboarding Imports Story", "S-89 Gemma AI Story", "S-87 Error Contract Story", "F-02 Auth & Sign-up", "F-04 Files Upload", "F-05 Onboarding Imports", "F-18 Badge & QR", "GET /profiles/pin-name/:pinName/availability", "GET /profiles", "GET /profiles/:id", "PATCH /profiles/:id", "POST /profiles", "POST /profiles/:id/default", "DELETE /profiles/:id", "POST /auth/complete-registration", "POST /files", E_PROFILE_01, E_PROFILE_02]
 created: 2026-10-18
 updated: 2026-10-29
-owner: "Omar Fostok"
 tags: [frontend-requirements, frontend-requirements/ready, module/identity, layer/frontend]
 ---
 

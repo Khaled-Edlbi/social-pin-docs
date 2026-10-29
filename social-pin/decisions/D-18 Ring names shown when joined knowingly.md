@@ -1,16 +1,16 @@
 ---
-type: decision
 id: D-18
-decision: ND-18
+type: decision
 status: decided
+features: [companies, ring-invitations]
+decision: ND-18
 decidedBy: "molham"
 decidedAt: 2026-10-25
-features: [companies, ring-invitations]
+owner: "khaled"
 affects: ["F-15 Companies", "F-17 Ring Invitations & Join", "F-11 Rings", "F-09 Ring Members", "F-08 Ring Access Engine", "S-29 Companies Story", "S-33 Ring Invitations & Join Story"]
 related: ["ND-18 Company and invited Ring names shown to members", "D-14 Shared with me lists people, never the Ring", "D-04 Ring settings at launch and their defaults"]
-owner: "khaled"
 created: 2026-10-25
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [decision, decision/decided]
 ---
 

@@ -1,12 +1,12 @@
 ---
-type: bug
 id: B-02
+type: bug
+module: identity
+feature: account
 status: done
 resolution: fixed
 priority: medium
 effort: S
-feature: account
-module: identity
 foundOn: BI-01 Account Backend Integration
 screens: [s68]
 depends: []
@@ -14,7 +14,7 @@ affects: ["BI-01 Account Backend Integration", "S-01 Account Story", "QB-04 Acco
 related: ["QB-04 Account QA Backend", "QF-04 Account QA Frontend", "BD-01 Account Backend Delivery", "BD-35 Error Contract Backend Delivery", "Auth Model", "S-87 Error Contract Story", "F-11 Rings", "F-07 Profiles & Pin Name"]
 pending: ["[[FD-04 Account Frontend Delivery]]: keep the 404 branch on GET /users/me deliberately, and decide whether a 404 from any other authenticated route also ends the session (/frontend)", "[[QF-04 Account QA Frontend]]: run F15 on a build with main @ b4984d6; needs a second phone (/qa)"]
 created: 2026-10-26
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [bug, bug/done, module/identity, priority/medium, resolution/fixed]
 ---
 

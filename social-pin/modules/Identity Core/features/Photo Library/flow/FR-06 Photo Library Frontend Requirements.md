@@ -1,10 +1,10 @@
 ---
+id: FR-06
 type: frontend-requirements
-code: photo-library
-scope: feature
-feature: photo-library
 module: identity
+feature: photo-library
 status: ready
+scope: feature
 screens: [s23, s29, s30, s68]
 owner: "Omar Fostok"
 depends: ["S-11 Photo Library Story"]

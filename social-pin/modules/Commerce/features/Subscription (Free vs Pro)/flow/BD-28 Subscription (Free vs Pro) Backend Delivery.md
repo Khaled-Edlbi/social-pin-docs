@@ -1,13 +1,13 @@
 ---
+id: BD-28
 type: backend-delivery
-code: subscription
-scope: feature
-feature: subscription
 module: commerce
+feature: subscription
 status: todo
+scope: feature
 screens: [s34, s70]
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [backend-delivery, backend-delivery/todo, module/commerce, layer/backend]
 ---
 

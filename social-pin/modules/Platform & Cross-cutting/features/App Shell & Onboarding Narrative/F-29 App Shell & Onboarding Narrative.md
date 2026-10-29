@@ -1,14 +1,15 @@
 ---
+id: F-29
 type: feature
-id: app-shell
+module: platform
+feature: app-shell
 name: "App Shell & Onboarding Narrative"
 priority: medium
 release: later
-module: platform
 frontendOnly: true
 screens: [s00a, s00b, s00c, s00d]
 created: 2026-10-15
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [feature, module/platform, priority/medium, release/later]
 ---
 

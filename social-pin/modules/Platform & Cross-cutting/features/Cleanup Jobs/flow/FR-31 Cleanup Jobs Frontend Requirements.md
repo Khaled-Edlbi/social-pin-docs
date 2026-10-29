@@ -1,13 +1,13 @@
 ---
+id: FR-31
 type: frontend-requirements
-code: cleanup-jobs
-scope: feature
-feature: cleanup-jobs
 module: platform
+feature: cleanup-jobs
 status: draft
+scope: feature
 screens: []
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [frontend-requirements, frontend-requirements/draft, module/platform, layer/frontend]
 ---
 

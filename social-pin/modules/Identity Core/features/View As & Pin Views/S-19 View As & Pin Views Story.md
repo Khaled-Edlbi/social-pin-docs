@@ -1,10 +1,10 @@
 ---
+id: S-19
 type: story
-code: view-as
-scope: feature
-feature: view-as
 module: identity
+feature: view-as
 status: approved
+scope: feature
 screens: [s10, s31, s44, s62]
 approvedBy: "Omar Fostok"
 approvedAt: 2026-10-29

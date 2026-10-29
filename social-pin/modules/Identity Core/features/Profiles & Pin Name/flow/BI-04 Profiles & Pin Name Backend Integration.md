@@ -1,13 +1,13 @@
 ---
+id: BI-04
 type: backend-integration
-code: profiles
-scope: feature
-feature: profiles
 module: identity
+feature: profiles
 status: current
+scope: feature
 screens: [s06]
 created: 2026-10-15
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [backend-integration, backend-integration/current, module/identity, layer/backend]
 ---
 

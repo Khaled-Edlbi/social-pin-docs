@@ -1,14 +1,15 @@
 ---
+id: F-07
 type: feature
-id: profiles
+module: identity
+feature: profiles
 name: "Profiles & Pin Name"
 priority: critical
 release: mvp
-module: identity
 screens: [s05b, s06, s23, s44, s68]
+owner: "Omar Fostok"
 created: 2026-10-18
 updated: 2026-10-29
-owner: "Omar Fostok"
 tags: [feature, module/identity, priority/critical, release/mvp]
 ---
 

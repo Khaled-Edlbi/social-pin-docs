@@ -1,10 +1,10 @@
 ---
+id: BD-04
 type: backend-delivery
-code: files
-scope: feature
-feature: files
 module: identity
+feature: files
 status: done
+scope: feature
 screens: [s14, s20, s36]
 pending: ["[[FR-04 Files Upload Frontend Requirements]]: GET /files?kind=image|document, the library list (Photo Library · S7)", "[[FR-04 Files Upload Frontend Requirements]]: signed avatarUrl and url per attachment on the owner projection and the view, valid 15 minutes (D-16, S7–S11)", "[[FR-04 Files Upload Frontend Requirements]]: usedBy and followerCount on GET /files?kind=image (Photo Library · S8)"]
 created: 2026-10-15

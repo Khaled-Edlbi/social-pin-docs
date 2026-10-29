@@ -1,16 +1,16 @@
 ---
+id: S-59
 type: story
-code: exhibitor
-scope: feature
-feature: exhibitor
 module: events
+feature: exhibitor
 status: approved
+scope: feature
 screens: [s63, s64, s65]
 approvedBy: "khaled"
 approvedAt: 2026-10-25
 owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [story, story/approved, module/events, layer/business]
 ---
 

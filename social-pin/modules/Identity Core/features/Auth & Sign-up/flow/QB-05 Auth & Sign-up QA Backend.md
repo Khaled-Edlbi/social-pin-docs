@@ -1,17 +1,17 @@
 ---
+id: QB-05
 type: qa-backend
-code: auth
-scope: feature
-feature: auth
 module: identity
+feature: auth
 status: failing
+scope: feature
 screens: [s01, s02, s06, s08, s68, s75]
 depends: ["BD-02 Auth & Sign-up Backend Delivery", "S-02 Auth & Sign-up Story"]
 affects: []
 related: ["BI-02 Auth & Sign-up Backend Integration", "FR-02 Auth & Sign-up Frontend Requirements", "QB-04 Account QA Backend", "Auth Model", "BI-04 Profiles & Pin Name Backend Integration", "BD-35 Error Contract Backend Delivery", "S-78 Code Delivery Story", "S-87 Error Contract Story", "ND-01 Passwordless login", "POST /auth/sign-up", "POST /auth/verify-code", "POST /auth/request-code", "POST /auth/complete-registration", "POST /auth/login", "POST /auth/login/verify", "POST /auth/refresh", "POST /auth/logout", "POST /auth/logout-everywhere", "GET /profiles/pin-name/:pinName/availability", E_AUTH_01, E_AUTH_03, E_AUTH_04, E_AUTH_05, E_AUTH_06, E_AUTH_07, E_AUTH_08, E_PROFILE_02, E_USER_01, "B-03 Two refreshes at once both succeed and fork the session", "B-04 Sign-up accepts an email and a phone together", "B-05 Expired onboarding token answers 401, not the documented 400", "B-06 Timestamps the app writes are stored shifted by the server time zone"]
 pending: ["[[B-03 Two refreshes at once both succeed and fork the session]]: row B42, filed 2026-10-27, re-run when it ships", "[[B-04 Sign-up accepts an email and a phone together]]: row B5, filed 2026-10-27, re-run when it ships", "[[B-05 Expired onboarding token answers 401, not the documented 400]]: row B30, filed 2026-10-27, re-run when it ships", "[[B-06 Timestamps the app writes are stored shifted by the server time zone]]: re-run B15 by ageing a code with Postgres now(), filed 2026-10-27", "[[S-02 Auth & Sign-up Story]]: S2 says the 429 comes after five wrong tries; the build answers it on the sixth submission (/pm)"]
 created: 2026-10-27
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [qa-backend, qa-backend/failing, module/identity, layer/qa]
 ---
 

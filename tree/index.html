@@ -1397,7 +1397,14 @@ async function renderFile(path, heading, forId) {
   const art = $('#p-article');
   if (got.text === null) { art.innerHTML = `<p class="empty">Could not load <code>${esc(path)}</code> from any of these places:</p><ul class="empty">${got.tried.map((t) => `<li><code>${esc(t)}</code></li>`).join('')}</ul><p class="empty"><a href="${ghUrl(path)}" target="_blank" rel="noopener">Open it on GitHub</a>.</p>`; return; }
   const { data, body } = splitFrontmatter(got.text);
-  $('#p-fm').innerHTML = data ? Object.entries(data).map(([k, v]) => `<dt>${esc(k)}</dt><dd>${fmValue(k, v)}</dd>`).join('') : '';
+  const rows = data ? Object.entries(data).map(([k, v]) => `<dt>${esc(k)}</dt><dd>${fmValue(k, v)}</dd>`) : [];
+  // a module's and a feature's status is computed, never typed: the table shows it where the head puts status, after module / feature
+  const owner = node(forId);
+  if (data && owner && (owner.kind === 'module' || owner.kind === 'feature') && data.status === undefined) {
+    const after = Object.keys(data).indexOf(owner.kind);
+    rows.splice(after >= 0 ? after + 1 : rows.length, 0, `<dt>status</dt><dd><span class="v">${esc(statusText(owner))} <span class="sep">· computed</span></span></dd>`);
+  }
+  $('#p-fm').innerHTML = rows.join('');
   art.innerHTML = md(body, path);
   art.querySelectorAll('pre > code.language-dataview').forEach((c) => { const dv = document.createElement('div'); dv.className = 'obsidian-only'; dv.textContent = 'Dataview query — renders in Obsidian only'; c.parentElement.replaceWith(dv); });
   art.querySelectorAll('h1,h2,h3,h4,h5,h6').forEach((h) => { h.id = slug(h.textContent); });

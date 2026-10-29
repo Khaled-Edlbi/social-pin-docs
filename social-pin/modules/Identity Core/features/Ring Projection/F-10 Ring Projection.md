@@ -1,14 +1,15 @@
 ---
+id: F-10
 type: feature
-id: ring-projection
+module: identity
+feature: ring-projection
 name: "Ring Projection"
 priority: critical
 release: mvp
-module: identity
 screens: [s14, s20, s23, s24, s25, s28, s29, s30, s36, s37, s68]
+owner: "Omar Fostok"
 created: 2026-10-18
 updated: 2026-10-29
-owner: "Omar Fostok"
 tags: [feature, module/identity, priority/critical, release/mvp]
 ---
 

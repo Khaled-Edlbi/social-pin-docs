@@ -1,13 +1,13 @@
 ---
+id: BD-09
 type: backend-delivery
-code: ring-members
-scope: feature
-feature: ring-members
 module: identity
+feature: ring-members
 status: done
+scope: feature
 screens: [s15, s47]
 created: 2026-10-15
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [backend-delivery, backend-delivery/done, module/identity, layer/backend]
 ---
 

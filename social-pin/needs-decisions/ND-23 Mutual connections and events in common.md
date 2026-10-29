@@ -1,14 +1,14 @@
 ---
-type: needs-decision
 id: ND-23
+type: needs-decision
 status: open
 features: [connections]
 blocks: ["S-23 Connections Story"]
 decider: "owner"
 screens: [s47]
+owner: "Omar Fostok"
 affects: []
 related: ["F-14 Connections", "F-08 Ring Access Engine", "S-15 Ring Access Engine Story", "D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "F-23 Events During"]
-owner: "Omar Fostok"
 created: 2026-10-29
 updated: 2026-10-29
 tags: [needs-decision, needs-decision/open]

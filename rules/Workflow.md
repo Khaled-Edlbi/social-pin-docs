@@ -1,9 +1,10 @@
 ---
+id: P-20
 type: project
 layer: shared
+related: ["Agent Rules", "Docs Tree"]
 created: 2026-10-15
 updated: 2026-10-29
-related: ["Agent Rules", "Docs Tree"]
 tags: [project, layer/shared]
 ---
 

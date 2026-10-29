@@ -1,17 +1,17 @@
 ---
+id: FR-03
 type: frontend-requirements
-code: counts
-scope: feature
-feature: counts
 module: identity
+feature: counts
 status: ready
+scope: feature
 screens: [s11, s12, s14, s16, s17, s68]
+owner: "Omar Fostok"
 depends: []
 affects: ["S-03 Counts Story"]
 related: ["D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "F-11 Rings", "F-14 Connections", "S-23 Connections Story", "S-87 Error Contract Story"]
 created: 2026-10-18
-updated: 2026-10-28
-owner: "Omar Fostok"
+updated: 2026-10-29
 tags: [frontend-requirements, frontend-requirements/ready, module/identity, layer/frontend]
 ---
 

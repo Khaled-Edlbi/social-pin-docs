@@ -1,11 +1,12 @@
 ---
+id: P-26
 type: project
 layer: shared
-created: 2026-10-19
-updated: 2026-10-29
 depends: ["Agent Protocol"]
 affects: []
 related: ["Agent Protocol", "Agent Rules", "Workflow"]
+created: 2026-10-19
+updated: 2026-10-29
 tags: [project, layer/shared, rules, agent]
 ---
 

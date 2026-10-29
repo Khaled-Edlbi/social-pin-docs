@@ -1,12 +1,13 @@
 ---
+id: P-NN                   # the card code the build gives the note (Card Index.md)
 type: project
 layer: <business|frontend|backend|shared>
 # priority: high           # optional (critical | high | medium | low)
 # deadline: YYYY-MM-DD      # optional
-created: <date>
-updated: <date>
 affects: []
 related: []
+created: <date>
+updated: <date>
 tags: [project, layer/<layer>]
 ---
 

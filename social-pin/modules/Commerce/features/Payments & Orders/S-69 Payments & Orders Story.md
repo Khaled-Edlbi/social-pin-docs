@@ -1,19 +1,19 @@
 ---
+id: S-69
 type: story
-code: payments
-scope: feature
-feature: payments
 module: commerce
+feature: payments
 status: approved
+scope: feature
 screens: [s50, s51, s53, s68]
 approvedBy: "khaled"
 approvedAt: 2026-10-25
+owner: "khaled"
 depends: ["ND-07 Payment provider"]
 affects: ["F-22 Events Before", "F-23 Events During", "F-21 Event Ring Auto-creation"]
 related: ["D-07 Stripe for all four flows", "F-22 Events Before", "F-23 Events During", "F-21 Event Ring Auto-creation", "F-28 Subscription (Free vs Pro)", "F-30 Audit Log", "S-49 Events Before Story", "S-53 Events During Story"]
-owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [story, story/approved, module/commerce, layer/business]
 ---
 

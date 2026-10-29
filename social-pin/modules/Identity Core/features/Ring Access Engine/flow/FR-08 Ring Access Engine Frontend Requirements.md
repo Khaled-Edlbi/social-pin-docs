@@ -1,17 +1,17 @@
 ---
+id: FR-08
 type: frontend-requirements
-code: ring-access
-scope: feature
-feature: ring-access
 module: identity
+feature: ring-access
 status: ready
+scope: feature
 screens: [s15, s16, s17, s26, s27, s31, s44, s47, s62]
+owner: "Omar Fostok"
 depends: ["S-15 Ring Access Engine Story"]
 affects: ["BD-08 Ring Access Engine Backend Delivery"]
 related: ["BI-05 Ring Access Engine Backend Integration", "Ring Access Model", "D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-18 Ring names shown when joined knowingly", "ND-23 Mutual connections and events in common", "FR-11 Rings Frontend Requirements", "FR-12 View As & Pin Views Frontend Requirements", "S-18 Rings Story", "S-16 Ring Members Story", "S-23 Connections Story", "S-31 Delegated Admins Story", "S-87 Error Contract Story", "GET /rings/shared-with-me", "GET /views/pin/:pinName", "GET /views/ring/:ringId", "GET /views/user/:userId/perspectives", E_RING_05, E_RING_02]
 created: 2026-10-18
 updated: 2026-10-29
-owner: "Omar Fostok"
 tags: [frontend-requirements, frontend-requirements/ready, module/identity, layer/frontend]
 ---
 

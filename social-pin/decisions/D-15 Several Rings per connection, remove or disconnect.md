@@ -1,16 +1,16 @@
 ---
-type: decision
 id: D-15
-decision: ND-15
+type: decision
 status: decided
+features: [connections]
+decision: ND-15
 decidedBy: "molham"
 decidedAt: 2026-10-25
-features: [connections]
+owner: "khaled"
 affects: ["F-14 Connections", "F-09 Ring Members", "S-23 Connections Story"]
 related: ["ND-15 One Ring or several per connection", "D-14 Shared with me lists people, never the Ring", "F-12 View As & Pin Views"]
-owner: "khaled"
 created: 2026-10-25
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [decision, decision/decided]
 ---
 

@@ -1,14 +1,15 @@
 ---
+id: F-25
 type: feature
-id: post-event
+module: events
+feature: post-event
 name: "Post-Event"
 priority: high
 release: v1
-module: events
 screens: [s62]
 related: ["F-12 View As & Pin Views"]
 created: 2026-10-15
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [feature, module/events, priority/high, release/v1]
 ---
 

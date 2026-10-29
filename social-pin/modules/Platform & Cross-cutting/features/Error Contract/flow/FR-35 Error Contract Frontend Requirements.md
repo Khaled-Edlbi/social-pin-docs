@@ -1,13 +1,13 @@
 ---
+id: FR-35
 type: frontend-requirements
-code: error-contract
-scope: feature
-feature: error-contract
 module: platform
+feature: error-contract
 status: approved
+scope: feature
+screens: [s01, s02, s06, s18, s68]
 approvedBy: "khaled"
 approvedAt: 2026-10-29
-screens: [s01, s02, s06, s18, s68]
 depends: []
 affects: ["S-87 Error Contract Story"]
 related: ["S-87 Error Contract Story", "BD-35 Error Contract Backend Delivery", "BI-02 Auth & Sign-up Backend Integration", "BI-01 Account Backend Integration", "Frontend API Guide", "Frontend Contract", "API Conventions", E_AUTH_03, E_AUTH_04, E_AUTH_05, E_AUTH_06, E_USER_01]

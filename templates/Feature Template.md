@@ -1,12 +1,13 @@
 ---
+id: F-NN                   # the card code, in front of the file name: F-NN <Feature>.md
 type: feature
-id: <slug>
+module: <identity|connections|shared-rings|discovery|events|meetings|commerce|platform>
+feature: <slug>                # the feature id every other card names (feature: <slug>)
 name: "<Feature name>"
 priority: high
+# deadline: YYYY-MM-DD      # optional: the feature's date; its layer notes and bugs inherit it unless they carry their own
 # release: the release this feature is scoped to, mvp | v1 | later (docs.config.json releases); its layer notes and bugs inherit it
 release: later
-# deadline: YYYY-MM-DD      # optional: the feature's date; its layer notes and bugs inherit it unless they carry their own
-module: <identity|connections|shared-rings|discovery|events|meetings|commerce|platform>
 # frontendOnly: true      # optional: no backend part; the backend and QA-backend cards are not required and do not count
 screens: []
 depends: []

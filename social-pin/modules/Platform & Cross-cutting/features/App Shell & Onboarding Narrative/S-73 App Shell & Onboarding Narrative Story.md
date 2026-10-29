@@ -1,16 +1,16 @@
 ---
+id: S-73
 type: story
-code: app-shell
-scope: feature
-feature: app-shell
 module: platform
+feature: app-shell
 status: approved
+scope: feature
 screens: [s00a, s00b, s00c, s00d]
 approvedBy: "khaled"
 approvedAt: 2026-10-25
 owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [story, story/approved, module/platform, layer/business]
 ---
 

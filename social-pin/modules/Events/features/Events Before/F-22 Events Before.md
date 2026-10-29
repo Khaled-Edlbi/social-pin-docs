@@ -1,14 +1,15 @@
 ---
+id: F-22
 type: feature
-id: events-before
+module: events
+feature: events-before
 name: "Events Before"
 priority: critical
 release: mvp
-module: events
 screens: [s48, s49, s50, s51, s52]
 related: ["F-11 Rings"]
 created: 2026-10-15
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [feature, module/events, priority/critical, release/mvp]
 ---
 

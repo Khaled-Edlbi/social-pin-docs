@@ -1,21 +1,21 @@
 ---
-type: bug
 id: B-01
+type: bug
+module: identity
+feature: account
 status: done
 resolution: by-design
 priority: high
 effort: S
-feature: account
-module: identity
 foundOn: BI-01 Account Backend Integration
 screens: [s68]
+owner: "khaled"
 depends: []
 affects: ["BD-01 Account Backend Delivery", "S-01 Account Story", "QB-04 Account QA Backend"]
 related: ["BI-01 Account Backend Integration", "QB-04 Account QA Backend", "QF-04 Account QA Frontend", "BI-02 Auth & Sign-up Backend Integration", "ND-01 Passwordless login", "S-78 Code Delivery Story", "ND-20 Whether an unverified new address may sign in", "D-20 The changed address still signs in, the words are corrected"]
 pending: ["[[QF-04 Account QA Frontend]]: re-run row F10 against the corrected notes (/qa)", "@khaled: re-approve [[S-01 Account Story]] after the S2 and S3 copy change (/owner)"]
-owner: "khaled"
 created: 2026-10-26
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [bug, bug/done, module/identity, priority/high, resolution/by-design]
 ---
 

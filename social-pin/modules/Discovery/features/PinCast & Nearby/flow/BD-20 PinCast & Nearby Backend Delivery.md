@@ -1,13 +1,13 @@
 ---
+id: BD-20
 type: backend-delivery
-code: pincast
-scope: feature
-feature: pincast
 module: discovery
+feature: pincast
 status: todo
+scope: feature
 screens: [s11, s39, s40, s41, s42]
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [backend-delivery, backend-delivery/todo, module/discovery, layer/backend]
 ---
 

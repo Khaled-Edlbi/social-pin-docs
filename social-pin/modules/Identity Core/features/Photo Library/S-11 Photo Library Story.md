@@ -1,17 +1,17 @@
 ---
+id: S-11
 type: story
-code: photo-library
-scope: feature
-feature: photo-library
 module: identity
+feature: photo-library
 status: approved
+scope: feature
 screens: [s23, s29, s30, s68]
 approvedBy: "Omar Fostok"
 approvedAt: 2026-10-29
-created: 2026-10-18
-updated: 2026-10-29
 owner: "Omar Fostok"
 related: ["D-02 One main profile every Ring starts from", "D-05 Inherit per field, copy without members", "S-06 Files Upload Story", "S-08 Onboarding Imports Story", "S-14 Profiles & Pin Name Story", "S-94 Linked Accounts (OAuth) Story", "ND-16 Viewer access to file bytes"]
+created: 2026-10-18
+updated: 2026-10-29
 tags: [story, story/approved, module/identity, layer/business]
 ---
 

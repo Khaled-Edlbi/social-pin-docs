@@ -1,16 +1,16 @@
 ---
+id: S-76
 type: story
-code: cleanup-jobs
-scope: feature
-feature: cleanup-jobs
 module: platform
+feature: cleanup-jobs
 status: approved
+scope: feature
 screens: []
 approvedBy: "khaled"
 approvedAt: 2026-10-25
 owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [story, story/approved, module/platform, layer/business]
 ---
 

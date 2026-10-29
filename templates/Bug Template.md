@@ -1,18 +1,18 @@
 ---
-type: bug
 id: B-NN                   # the file is bugs/B-NN <Title>.md, whatever card it hangs under
+type: bug
+module: <module id>
+feature: <feature slug>
 status: todo                # todo → in-progress (the backend or frontend starts the fix) → ready (the fix shipped; QA re-tests) → done (QA: passed, resolution: fixed) or back to todo (QA: failed, a Log line says why); needs-info, blocked
+# resolution: by-design   # set by the PM or QA when it closes: fixed | by-design | duplicate | cannot-reproduce | wont-fix (docs.config.json resolutions, tag resolution/<id>); how it ended, never instead of status; by-design and wont-fix name their decision card in related
 priority: high
 # deadline: YYYY-MM-DD      # optional: when it must be fixed; the tree colours it green → yellow → red as the day comes, 💀 once missed (docs.config.json deadlines)
 effort: S
-feature: <feature slug>
-module: <module id>
 foundOn: <note name>       # the card it was found against (a Backend Integration note, a Frontend Delivery, a story), by its note name, code included: the bug hangs under that card
 screens: []
 depends: []
 affects: []
 related: []
-# resolution: by-design   # set by the PM or QA when it closes: fixed | by-design | duplicate | cannot-reproduce | wont-fix (docs.config.json resolutions, tag resolution/<id>); how it ended, never instead of status; by-design and wont-fix name their decision card in related
 # pending: ["[[Note]]: what is left", "@who: what is left"]   # done, but a note is left for a card or a person → Partial until cleared
 pending: []
 created: <date>

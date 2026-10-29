@@ -1,9 +1,10 @@
 ---
+id: M-02
 type: module
-id: connections
+module: connections
 name: "Connections"
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [module, module/connections]
 ---
 

@@ -1,14 +1,15 @@
 ---
+id: F-21
 type: feature
-id: event-ring-auto
+module: events
+feature: event-ring-auto
 name: "Event Ring Auto-creation"
 priority: critical
 release: mvp
-module: events
 screens: [s52]
 related: ["F-12 View As & Pin Views"]
 created: 2026-10-15
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [feature, module/events, priority/critical, release/mvp]
 ---
 

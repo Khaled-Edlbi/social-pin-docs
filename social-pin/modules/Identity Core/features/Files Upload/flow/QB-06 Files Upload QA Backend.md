@@ -1,10 +1,10 @@
 ---
+id: QB-06
 type: qa-backend
-code: files
-scope: feature
-feature: files
 module: identity
+feature: files
 status: passing
+scope: feature
 screens: [s14, s20, s24, s36, s29, s30, s31, s44]
 depends: ["BD-04 Files Upload Backend Delivery", "S-06 Files Upload Story"]
 affects: []

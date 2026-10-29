@@ -1,11 +1,11 @@
 ---
-type: bug
 id: B-06
+type: bug
+module: identity
+feature: auth
 status: todo
 priority: high
 effort: M
-feature: auth
-module: identity
 foundOn: BD-02 Auth & Sign-up Backend Delivery
 screens: []
 depends: []
@@ -13,7 +13,7 @@ affects: ["BD-02 Auth & Sign-up Backend Delivery", "Database & Migrations", "QB-
 related: ["BD-02 Auth & Sign-up Backend Delivery", "QB-05 Auth & Sign-up QA Backend", "Database & Migrations", "QB-04 Account QA Backend"]
 pending: []
 created: 2026-10-27
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [bug, bug/todo, module/identity, priority/high]
 ---
 

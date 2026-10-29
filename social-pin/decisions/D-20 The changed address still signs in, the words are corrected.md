@@ -1,16 +1,16 @@
 ---
-type: decision
 id: D-20
-decision: ND-20
+type: decision
 status: decided
+features: [account]
+decision: ND-20
 decidedBy: "khaled"
 decidedAt: 2026-10-26
-features: [account]
+owner: "khaled"
 affects: ["S-01 Account Story", "BD-01 Account Backend Delivery", "BI-01 Account Backend Integration", "QB-04 Account QA Backend", "QF-04 Account QA Frontend", "B-01 An unverified changed email still signs in"]
 related: ["ND-20 Whether an unverified new address may sign in", "BI-02 Auth & Sign-up Backend Integration", "FD-04 Account Frontend Delivery", "S-78 Code Delivery Story"]
-owner: "khaled"
 created: 2026-10-26
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [decision, decision/decided]
 ---
 

@@ -1,17 +1,17 @@
 ---
+id: FR-12
 type: frontend-requirements
-code: view-as
-scope: feature
-feature: view-as
 module: identity
+feature: view-as
 status: ready
+scope: feature
 screens: [s10, s31, s44, s62]
+owner: "Omar Fostok"
 depends: ["S-19 View As & Pin Views Story"]
 affects: ["BD-12 View As & Pin Views Backend Delivery"]
 related: ["BI-09 View As & Pin Views Backend Integration", "D-16 Files load from signed links that expire in 15 minutes", "ND-12 What the badge QR encodes", "ND-22 Public web page by Pin name", "ND-10 How Connect addresses the scanned person", "FR-07 Profiles & Pin Name Frontend Requirements", "FR-10 Ring Projection Frontend Requirements", "S-23 Connections Story", "S-37 Badge & QR Story", "S-20 Widgets Story", "S-87 Error Contract Story", "GET /views/pin/:pinName", "GET /views/ring/:ringId", "GET /views/user/:userId/perspectives", "GET /rings"]
 created: 2026-10-18
 updated: 2026-10-29
-owner: "Omar Fostok"
 tags: [frontend-requirements, frontend-requirements/ready, module/identity, layer/frontend]
 ---
 

@@ -1,13 +1,13 @@
 ---
+id: BD-18
 type: backend-delivery
-code: badge-qr
-scope: feature
-feature: badge-qr
 module: discovery
+feature: badge-qr
 status: in-progress
+scope: feature
 screens: [s34, s43, s44, s56]
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [backend-delivery, backend-delivery/in-progress, module/discovery, layer/backend]
 ---
 

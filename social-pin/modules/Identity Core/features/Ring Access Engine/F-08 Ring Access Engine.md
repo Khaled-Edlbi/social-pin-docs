@@ -1,14 +1,15 @@
 ---
+id: F-08
 type: feature
-id: ring-access
+module: identity
+feature: ring-access
 name: "Ring Access Engine"
 priority: critical
 release: mvp
-module: identity
 screens: [s15, s16, s17, s26, s27, s44, s47, s62]
+owner: "Omar Fostok"
 created: 2026-10-18
 updated: 2026-10-29
-owner: "Omar Fostok"
 tags: [feature, module/identity, priority/critical, release/mvp]
 ---
 

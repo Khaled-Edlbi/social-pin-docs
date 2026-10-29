@@ -1,13 +1,13 @@
 ---
+id: BD-08
 type: backend-delivery
-code: ring-access
-scope: feature
-feature: ring-access
 module: identity
+feature: ring-access
 status: done
+scope: feature
 screens: []
 created: 2026-10-15
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [backend-delivery, backend-delivery/done, module/identity, layer/backend]
 ---
 

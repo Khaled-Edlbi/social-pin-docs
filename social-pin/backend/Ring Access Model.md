@@ -1,9 +1,10 @@
 ---
+id: P-16
 type: project
-created: 2026-10-15
-updated: 2026-10-28
-tags: [project, core]
 layer: backend
+created: 2026-10-15
+updated: 2026-10-29
+tags: [project, core]
 ---
 
 # Ring Access Model

@@ -1,17 +1,17 @@
 ---
+id: S-14
 type: story
-code: profiles
-scope: feature
-feature: profiles
 module: identity
+feature: profiles
 status: approved
+scope: feature
 screens: [s05b, s06, s23, s44, s68]
 approvedBy: "Omar Fostok"
 approvedAt: 2026-10-29
-created: 2026-10-18
-updated: 2026-10-29
 owner: "Omar Fostok"
 related: ["D-02 One main profile every Ring starts from", "D-05 Inherit per field, copy without members", "D-06 Yearly rename, old name freed, case-insensitive", "ND-22 Public web page by Pin name", "S-01 Account Story", "S-08 Onboarding Imports Story", "S-17 Ring Projection Story", "S-19 View As & Pin Views Story", "S-89 Gemma AI Story", "F-18 Badge & QR"]
+created: 2026-10-18
+updated: 2026-10-29
 tags: [story, story/approved, module/identity, layer/business]
 ---
 

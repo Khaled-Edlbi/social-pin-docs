@@ -1,13 +1,13 @@
 ---
+id: BD-19
 type: backend-delivery
-code: discover-hub
-scope: feature
-feature: discover-hub
 module: discovery
+feature: discover-hub
 status: todo
+scope: feature
 screens: [s38]
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [backend-delivery, backend-delivery/todo, module/discovery, layer/backend]
 ---
 

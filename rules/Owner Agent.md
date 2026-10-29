@@ -1,11 +1,12 @@
 ---
+id: P-25
 type: project
 layer: shared
-created: 2026-10-19
-updated: 2026-10-29
 depends: ["Agent Protocol"]
 affects: []
 related: ["Agent Protocol", "Agent Rules", "Workflow", "Docs Tree", "PM Agent", "Admin Agent"]
+created: 2026-10-19
+updated: 2026-10-29
 tags: [project, layer/shared, rules, agent]
 ---
 
@@ -57,7 +58,7 @@ The rules, the agents, the layers and kinds, the config, the templates, the scri
 
 ### 4B · Add a module
 
-A module is two things in two scopes: its entry in `modules[]` in `docs.config.json` (the admin's: hand over the id, name and description) and its card `modules/<Name>/M-NN <Name> Module.md` from `templates/Module Template.md` (yours, once the entry is in), then its first feature ([[#4I · Create a feature]]).
+A module is two things in two scopes: its entry in `modules[]` in `docs.config.json` (the admin's: hand over the id, name and description) and its card `modules/<Name>/M-NN <Name> Module.md` from `templates/Module Template.md` (yours, once the entry is in; its head is `id: M-NN`, the code in its file name, `type: module`, `module: <the id>`, and no `feature:`, [[Agent Rules#2 · Codes, scopes and the "sum of" rule]]), then its first feature ([[#4I · Create a feature]]).
 
 ### 4D · Approve a story or a requirements list
 

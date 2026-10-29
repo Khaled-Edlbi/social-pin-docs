@@ -1,16 +1,16 @@
 ---
+id: S-78
 type: story
-code: code-delivery
-scope: feature
-feature: code-delivery
 module: platform
+feature: code-delivery
 status: approved
+scope: feature
 screens: [s02]
 approvedBy: "khaled"
 approvedAt: 2026-10-25
 owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [story, story/approved, module/platform, layer/business]
 ---
 

@@ -1,17 +1,17 @@
 ---
+id: FR-10
 type: frontend-requirements
-code: ring-projection
-scope: feature
-feature: ring-projection
 module: identity
+feature: ring-projection
 status: ready
+scope: feature
 screens: [s14, s20, s23, s24, s25, s28, s29, s30, s36, s37, s68]
+owner: "Omar Fostok"
 depends: ["S-17 Ring Projection Story"]
 affects: ["BD-10 Ring Projection Backend Delivery"]
 related: ["BI-07 Ring Projection Backend Integration", "D-02 One main profile every Ring starts from", "D-03 Links entered once, switched on or off per Ring", "D-05 Inherit per field, copy without members", "ND-16 Viewer access to file bytes", "D-16 Files load from signed links that expire in 15 minutes", "FR-04 Files Upload Frontend Requirements", "FR-06 Photo Library Frontend Requirements", "FR-07 Profiles & Pin Name Frontend Requirements", "S-14 Profiles & Pin Name Story", "S-20 Widgets Story", "S-89 Gemma AI Story", "S-87 Error Contract Story", "GET /rings/:ringId/projection", "PATCH /rings/:ringId/projection", "GET /views/ring/:ringId", "GET /profiles", E_RING_05, E_RING_02, E_FILE_04]
 created: 2026-10-18
 updated: 2026-10-29
-owner: "Omar Fostok"
 tags: [frontend-requirements, frontend-requirements/ready, module/identity, layer/frontend]
 ---
 

@@ -1,15 +1,16 @@
 ---
+id: F-09
 type: feature
-id: ring-members
+module: identity
+feature: ring-members
 name: "Ring Members"
 priority: critical
 release: mvp
-module: identity
 screens: [s15, s16, s35, s46, s47]
+owner: "Omar Fostok"
 related: ["F-12 View As & Pin Views"]
 created: 2026-10-18
 updated: 2026-10-29
-owner: "Omar Fostok"
 tags: [feature, module/identity, priority/critical, release/mvp]
 ---
 

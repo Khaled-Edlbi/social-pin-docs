@@ -1,14 +1,15 @@
 ---
+id: F-20
 type: feature
-id: pincast
+module: discovery
+feature: pincast
 name: "PinCast & Nearby"
 priority: high
 release: v1
-module: discovery
 screens: [s11, s39, s40, s41, s42]
 related: ["F-11 Rings", "F-12 View As & Pin Views"]
 created: 2026-10-15
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [feature, module/discovery, priority/high, release/v1]
 ---
 

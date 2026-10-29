@@ -1,16 +1,16 @@
 ---
-type: decision
 id: D-19
-decision: ND-19
+type: decision
 status: decided
+features: [error-contract]
+decision: ND-19
 decidedBy: "khaled"
 decidedAt: 2026-10-25
-features: [error-contract]
+owner: "khaled"
 affects: ["S-87 Error Contract Story", "Agent Rules", "Docs Tree"]
 related: ["ND-19 Where a ticket's layer notes live", "S-87 Error Contract Story"]
-owner: "khaled"
 created: 2026-10-25
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [decision, decision/decided]
 ---
 

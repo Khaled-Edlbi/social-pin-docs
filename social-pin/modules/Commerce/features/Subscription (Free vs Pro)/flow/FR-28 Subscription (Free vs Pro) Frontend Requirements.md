@@ -1,13 +1,13 @@
 ---
+id: FR-28
 type: frontend-requirements
-code: subscription
-scope: feature
-feature: subscription
 module: commerce
+feature: subscription
 status: draft
+scope: feature
 screens: [s34, s70]
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [frontend-requirements, frontend-requirements/draft, module/commerce, layer/frontend]
 ---
 

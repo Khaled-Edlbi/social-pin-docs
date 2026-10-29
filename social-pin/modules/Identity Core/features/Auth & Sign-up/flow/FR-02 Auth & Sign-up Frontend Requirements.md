@@ -1,17 +1,17 @@
 ---
+id: FR-02
 type: frontend-requirements
-code: auth
-scope: feature
-feature: auth
 module: identity
+feature: auth
 status: ready
+scope: feature
 screens: [s01, s02, s06, s08, s68, s75]
+owner: "Omar Fostok"
 depends: []
 affects: []
 related: ["ND-01 Passwordless login", "D-06 Yearly rename, old name freed, case-insensitive", "FR-05 Onboarding Imports Frontend Requirements", "FR-07 Profiles & Pin Name Frontend Requirements", "FR-37 Interests Frontend Requirements", "F-11 Rings", "S-14 Profiles & Pin Name Story", "S-87 Error Contract Story"]
 created: 2026-10-18
-updated: 2026-10-28
-owner: "Omar Fostok"
+updated: 2026-10-29
 tags: [frontend-requirements, frontend-requirements/ready, module/identity, layer/frontend]
 ---
 

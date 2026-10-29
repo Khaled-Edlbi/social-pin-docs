@@ -1,13 +1,13 @@
 ---
+id: FR-15
 type: frontend-requirements
-code: companies
-scope: feature
-feature: companies
 module: shared-rings
+feature: companies
 status: draft
+scope: feature
 screens: [s72, s73]
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [frontend-requirements, frontend-requirements/draft, module/shared-rings, layer/frontend]
 ---
 

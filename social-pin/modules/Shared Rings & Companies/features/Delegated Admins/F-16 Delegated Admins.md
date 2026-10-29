@@ -1,14 +1,15 @@
 ---
+id: F-16
 type: feature
-id: delegated-admins
+module: shared-rings
+feature: delegated-admins
 name: "Delegated Admins"
 priority: high
 release: v1
-module: shared-rings
 screens: [s26, s27]
-created: 2026-10-15
-updated: 2026-10-28
 owner: "omar"
+created: 2026-10-15
+updated: 2026-10-29
 tags: [feature, module/shared-rings, priority/high, release/v1]
 ---
 

@@ -1,16 +1,16 @@
 ---
-type: decision
 id: D-17
-decision: ND-17
+type: decision
 status: decided
+features: [connections]
+decision: ND-17
 decidedBy: "molham"
 decidedAt: 2026-10-25
-features: [connections]
+owner: "khaled"
 affects: ["F-14 Connections", "S-23 Connections Story"]
 related: ["ND-17 Request expiry, note and asking again", "D-13 The requester sees a declined request"]
-owner: "khaled"
 created: 2026-10-25
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [decision, decision/decided]
 ---
 

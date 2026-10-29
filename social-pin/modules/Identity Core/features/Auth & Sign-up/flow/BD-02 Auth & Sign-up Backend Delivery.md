@@ -1,14 +1,14 @@
 ---
+id: BD-02
 type: backend-delivery
-code: auth
-scope: feature
-feature: auth
 module: identity
+feature: auth
 status: done
+scope: feature
 screens: [s01, s02, s06, s08, s68]
+related: ["B-02 Deleted account answers 401, not the documented 404 E_USER_01", E_USER_01, "B-06 Timestamps the app writes are stored shifted by the server time zone", "Database & Migrations"]
 created: 2026-10-15
 updated: 2026-10-29
-related: ["B-02 Deleted account answers 401, not the documented 404 E_USER_01", E_USER_01, "B-06 Timestamps the app writes are stored shifted by the server time zone", "Database & Migrations"]
 tags: [backend-delivery, backend-delivery/done, module/identity, layer/backend]
 ---
 

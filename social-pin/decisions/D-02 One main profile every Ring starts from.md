@@ -1,16 +1,16 @@
 ---
-type: decision
 id: D-02
-decision: ND-02
+type: decision
 status: decided
+features: [onboarding-imports, photo-library, profiles, ring-projection]
+decision: ND-02
 decidedBy: "molham"
 decidedAt: 2026-10-25
-features: [onboarding-imports, photo-library, profiles, ring-projection]
+owner: "khaled"
 affects: ["F-07 Profiles & Pin Name", "F-10 Ring Projection", "F-05 Onboarding Imports", "F-06 Photo Library", "S-08 Onboarding Imports Story", "S-14 Profiles & Pin Name Story", "S-17 Ring Projection Story"]
 related: ["ND-02 Base profile work fields", "D-05 Inherit per field, copy without members", "D-03 Links entered once, switched on or off per Ring"]
-owner: "khaled"
 created: 2026-10-25
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [decision, decision/decided]
 ---
 

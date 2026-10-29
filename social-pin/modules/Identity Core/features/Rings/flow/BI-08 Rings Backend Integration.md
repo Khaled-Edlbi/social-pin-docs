@@ -1,13 +1,13 @@
 ---
+id: BI-08
 type: backend-integration
-code: rings
-scope: feature
-feature: rings
 module: identity
+feature: rings
 status: current
+scope: feature
 screens: [s08, s09, s16, s17, s18, s19, s20, s21, s22, s26, s62]
 created: 2026-10-15
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [backend-integration, backend-integration/current, module/identity, layer/backend]
 ---
 

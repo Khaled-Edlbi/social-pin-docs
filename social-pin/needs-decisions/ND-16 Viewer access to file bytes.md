@@ -1,14 +1,14 @@
 ---
-type: needs-decision
 id: ND-16
+type: needs-decision
 status: open
 features: [files]
 blocks: ["S-06 Files Upload Story"]
 decider: "owner"
 screens: [s14, s29, s30, s31, s44]
+owner: "omar"
 affects: []
 related: ["F-04 Files Upload", "F-10 Ring Projection", "F-12 View As & Pin Views", "D-16 Files load from signed links that expire in 15 minutes"]
-owner: "omar"
 created: 2026-10-25
 updated: 2026-10-29
 tags: [needs-decision, needs-decision/open]

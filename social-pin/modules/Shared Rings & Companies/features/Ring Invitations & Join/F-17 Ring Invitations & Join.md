@@ -1,15 +1,16 @@
 ---
+id: F-17
 type: feature
-id: ring-invitations
+module: shared-rings
+feature: ring-invitations
 name: "Ring Invitations & Join"
 priority: high
 release: v1
-module: shared-rings
 screens: [s17, s74]
+owner: "omar"
 related: ["F-12 View As & Pin Views"]
 created: 2026-10-15
-updated: 2026-10-28
-owner: "omar"
+updated: 2026-10-29
 tags: [feature, module/shared-rings, priority/high, release/v1]
 ---
 

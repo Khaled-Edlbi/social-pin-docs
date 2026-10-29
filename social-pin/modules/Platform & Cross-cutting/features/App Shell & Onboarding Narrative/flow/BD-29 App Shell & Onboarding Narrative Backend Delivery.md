@@ -1,13 +1,13 @@
 ---
+id: BD-29
 type: backend-delivery
-code: app-shell
-scope: feature
-feature: app-shell
 module: platform
+feature: app-shell
 status: done
+scope: feature
 screens: [s00a, s00b, s00c, s00d]
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [backend-delivery, backend-delivery/done, module/platform, layer/backend]
 ---
 

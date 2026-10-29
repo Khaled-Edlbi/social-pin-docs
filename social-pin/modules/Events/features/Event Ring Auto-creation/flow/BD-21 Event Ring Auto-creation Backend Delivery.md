@@ -1,13 +1,13 @@
 ---
+id: BD-21
 type: backend-delivery
-code: event-ring-auto
-scope: feature
-feature: event-ring-auto
 module: events
+feature: event-ring-auto
 status: in-progress
+scope: feature
 screens: [s52]
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [backend-delivery, backend-delivery/in-progress, module/events, layer/backend]
 ---
 

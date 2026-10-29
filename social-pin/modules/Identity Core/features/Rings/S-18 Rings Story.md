@@ -1,17 +1,17 @@
 ---
+id: S-18
 type: story
-code: rings
-scope: feature
-feature: rings
 module: identity
+feature: rings
 status: approved
+scope: feature
 screens: [s08, s09, s16, s17, s18, s19, s20, s21, s22, s26, s27, s62]
 approvedBy: "Omar Fostok"
 approvedAt: 2026-10-29
-created: 2026-10-18
-updated: 2026-10-29
 owner: "Omar Fostok"
 related: ["D-04 Ring settings at launch and their defaults", "D-05 Inherit per field, copy without members", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-18 Ring names shown when joined knowingly", "S-15 Ring Access Engine Story", "S-16 Ring Members Story", "S-17 Ring Projection Story", "S-23 Connections Story", "S-33 Ring Invitations & Join Story", "S-89 Gemma AI Story"]
+created: 2026-10-18
+updated: 2026-10-29
 tags: [story, story/approved, module/identity, layer/business]
 ---
 

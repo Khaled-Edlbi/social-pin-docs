@@ -1,16 +1,16 @@
 ---
-type: needs-decision
 id: ND-17
+type: needs-decision
 status: open
 features: [connections]
 blocks: ["S-23 Connections Story"]
 decider: "owner"
 screens: [s44, s45]
+owner: "khaled"
 affects: ["S-23 Connections Story"]
 related: ["F-14 Connections", "ND-13 Whether the requester sees a declined request"]
-owner: "khaled"
 created: 2026-10-25
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [needs-decision, needs-decision/open]
 ---
 

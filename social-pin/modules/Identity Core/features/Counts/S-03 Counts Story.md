@@ -1,17 +1,17 @@
 ---
+id: S-03
 type: story
-code: counts
-scope: feature
-feature: counts
 module: identity
+feature: counts
 status: approved
+scope: feature
 screens: [s11, s12, s14, s16, s17, s68]
 approvedBy: "khaled"
 approvedAt: 2026-10-25
 owner: "Omar Fostok"
-created: 2026-10-18
-updated: 2026-10-28
 related: ["D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring"]
+created: 2026-10-18
+updated: 2026-10-29
 tags: [story, story/approved, module/identity, layer/business]
 ---
 

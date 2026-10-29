@@ -1,17 +1,17 @@
 ---
+id: FR-37
 type: frontend-requirements
-code: interests
-scope: feature
-feature: interests
 module: platform
+feature: interests
 status: draft
+scope: feature
 screens: [s07, s71]
+owner: "Omar Fostok"
 depends: []
 affects: ["S-92 Interests Story"]
 related: ["F-02 Auth & Sign-up", "F-36 Gemma AI", "S-89 Gemma AI Story", "S-87 Error Contract Story"]
 created: 2026-10-18
-updated: 2026-10-28
-owner: "Omar Fostok"
+updated: 2026-10-29
 tags: [frontend-requirements, frontend-requirements/draft, module/platform, layer/frontend]
 ---
 

@@ -1,13 +1,14 @@
 ---
+id: F-31
 type: feature
-id: cleanup-jobs
+module: platform
+feature: cleanup-jobs
 name: "Cleanup Jobs"
 priority: high
 release: v1
-module: platform
 screens: []
 created: 2026-10-15
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [feature, module/platform, priority/high, release/v1]
 ---
 

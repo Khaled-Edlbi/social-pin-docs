@@ -1,13 +1,14 @@
 ---
+id: F-33
 type: feature
-id: devices
+module: platform
+feature: devices
 name: "Devices & NFC"
 priority: high
 release: v1
-module: platform
 screens: [s75]
 created: 2026-10-15
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [feature, module/platform, priority/high, release/v1]
 ---
 

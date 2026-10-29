@@ -1,13 +1,13 @@
 ---
+id: FR-19
 type: frontend-requirements
-code: discover-hub
-scope: feature
-feature: discover-hub
 module: discovery
+feature: discover-hub
 status: draft
+scope: feature
 screens: [s38]
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [frontend-requirements, frontend-requirements/draft, module/discovery, layer/frontend]
 ---
 

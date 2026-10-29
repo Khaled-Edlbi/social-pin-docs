@@ -1,16 +1,16 @@
 ---
+id: S-82
 type: story
-code: devices
-scope: feature
-feature: devices
 module: platform
+feature: devices
 status: approved
+scope: feature
 screens: [s75]
 approvedBy: "khaled"
 approvedAt: 2026-10-25
 owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [story, story/approved, module/platform, layer/business]
 ---
 

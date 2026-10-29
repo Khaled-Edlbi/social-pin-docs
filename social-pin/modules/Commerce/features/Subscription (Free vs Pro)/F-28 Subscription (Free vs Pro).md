@@ -1,13 +1,14 @@
 ---
+id: F-28
 type: feature
-id: subscription
+module: commerce
+feature: subscription
 name: "Subscription (Free vs Pro)"
 priority: high
 release: v1
-module: commerce
 screens: [s34, s70]
 created: 2026-10-15
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [feature, module/commerce, priority/high, release/v1]
 ---
 

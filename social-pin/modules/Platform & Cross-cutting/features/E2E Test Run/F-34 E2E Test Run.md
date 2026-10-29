@@ -1,13 +1,14 @@
 ---
+id: F-34
 type: feature
-id: e2e-tests
+module: platform
+feature: e2e-tests
 name: "E2E Test Run"
 priority: critical
 release: mvp
-module: platform
 screens: []
 created: 2026-10-15
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [feature, module/platform, priority/critical, release/mvp]
 ---
 

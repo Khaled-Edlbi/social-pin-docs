@@ -1,16 +1,17 @@
 ---
+id: F-42
 type: feature
-id: operator-panel
+module: platform
+feature: operator-panel
 name: "Operator Panel"
 priority: high
 release: later
-module: platform
 screens: []
 depends: []
 affects: []
 related: ["F-30 Audit Log", "F-01 Account", "F-02 Auth & Sign-up", "F-16 Delegated Admins"]
 created: 2026-10-26
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [feature, module/platform, priority/high, release/later]
 ---
 

@@ -1,17 +1,17 @@
 ---
+id: S-01
 type: story
-code: account
-scope: feature
-feature: account
 module: identity
+feature: account
 status: approved
+scope: feature
 screens: [s68]
 approvedBy: "khaled"
 approvedAt: 2026-10-25
-related: ["ND-20 Whether an unverified new address may sign in", "D-20 The changed address still signs in, the words are corrected", "B-01 An unverified changed email still signs in"]
 owner: "khaled"
+related: ["ND-20 Whether an unverified new address may sign in", "D-20 The changed address still signs in, the words are corrected", "B-01 An unverified changed email still signs in"]
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [story, story/approved, module/identity, layer/business]
 ---
 

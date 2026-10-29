@@ -1,16 +1,17 @@
 ---
+id: F-43
 type: feature
-id: build-deploy
+module: platform
+feature: build-deploy
 name: "Build & Deploy"
 priority: medium
 release: later
-module: platform
 screens: []
 depends: []
 affects: []
 related: ["F-34 E2E Test Run", "Developer Setup"]
 created: 2026-10-26
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [feature, module/platform, priority/medium, release/later]
 ---
 

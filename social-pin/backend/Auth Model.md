@@ -1,10 +1,11 @@
 ---
+id: P-12
 type: project
-created: 2026-10-15
-updated: 2026-10-28
-related: ["B-02 Deleted account answers 401, not the documented 404 E_USER_01", E_USER_01, E_AUTH_03]
-tags: [project]
 layer: backend
+related: ["B-02 Deleted account answers 401, not the documented 404 E_USER_01", E_USER_01, E_AUTH_03]
+created: 2026-10-15
+updated: 2026-10-29
+tags: [project]
 ---
 
 # Auth Model

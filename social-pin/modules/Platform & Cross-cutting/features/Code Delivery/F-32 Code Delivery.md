@@ -1,13 +1,14 @@
 ---
+id: F-32
 type: feature
-id: code-delivery
+module: platform
+feature: code-delivery
 name: "Code Delivery"
 priority: critical
 release: mvp
-module: platform
 screens: [s02]
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [feature, module/platform, priority/critical, release/mvp]
 ---
 

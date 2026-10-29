@@ -1,14 +1,15 @@
 ---
+id: F-36
 type: feature
-id: gemma
+module: platform
+feature: gemma
 name: "Gemma AI"
 priority: medium
 release: later
-module: platform
 screens: [s13, s60]
-created: 2026-10-15
-updated: 2026-10-28
 owner: "omar"
+created: 2026-10-15
+updated: 2026-10-29
 tags: [feature, module/platform, priority/medium, release/later]
 ---
 

@@ -1,13 +1,14 @@
 ---
+id: F-01
 type: feature
-id: account
+module: identity
+feature: account
 name: "Account"
 priority: critical
 release: mvp
-module: identity
 screens: [s68]
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [feature, module/identity, priority/critical, release/mvp]
 ---
 

@@ -1,10 +1,10 @@
 ---
+id: BI-03
 type: backend-integration
-code: files
-scope: feature
-feature: files
 module: identity
+feature: files
 status: current
+scope: feature
 screens: [s14, s20, s36]
 created: 2026-10-15
 updated: 2026-10-29

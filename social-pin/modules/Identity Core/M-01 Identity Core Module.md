@@ -1,9 +1,10 @@
 ---
+id: M-01
 type: module
-id: identity
+module: identity
 name: "Identity Core"
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [module, module/identity]
 ---
 

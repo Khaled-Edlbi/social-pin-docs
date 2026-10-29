@@ -1,13 +1,13 @@
 ---
+id: BD-34
 type: backend-delivery
-code: e2e-tests
-scope: feature
-feature: e2e-tests
 module: platform
+feature: e2e-tests
 status: todo
+scope: feature
 screens: []
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [backend-delivery, backend-delivery/todo, module/platform, layer/backend]
 ---
 
