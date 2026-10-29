@@ -125,6 +125,17 @@ aside.filters { width: var(--drawer-w); min-width: 200px; max-width: 60vw; flex:
 .preset[aria-pressed="true"] { background: var(--color-accent-100); color: var(--color-accent-800); }
 .preset .pn { font-size: 14px; font-weight: 600; }
 .preset .ph { font-size: 12px; font-style: italic; color: var(--color-neutral-700); }
+/* saved views: the reader's own filter sets, each with a remove button; the save button or the name form above them */
+.saved-row { display: flex; align-items: stretch; gap: 2px; }
+.saved-row .preset { flex: 1; min-width: 0; }
+.saved-row .preset .pn, .saved-row .preset .ph { max-width: 100%; overflow-wrap: anywhere; }
+.saved-x { flex: none; display: flex; align-items: center; border: 0; background: transparent; color: var(--color-neutral-600); cursor: pointer; padding: 0 9px; border-radius: 2px; font-size: 15px; }
+.saved-x:hover, .saved-x:focus-visible { background: var(--color-neutral-200); color: var(--color-text); }
+#saved-form { margin-bottom: 8px; }
+#saved-form > .btn { width: 100%; justify-content: flex-start; }
+.save-form { display: flex; flex-direction: column; gap: 6px; }
+.save-form .acts { display: flex; gap: 6px; }
+.save-form .note { font-size: 12px; font-style: italic; color: var(--color-neutral-600); }
 .sec-groups { display: flex; flex-direction: column; gap: 12px; } /* in the stylesheet, not inline, so a folded section hides it */
 .group { display: flex; flex-direction: column; gap: 6px; }
 .group-title { display: flex; align-items: baseline; gap: 6px; font-size: 12px; font-style: italic; color: var(--color-neutral-700); }
@@ -320,8 +331,11 @@ article .obsidian-only { border: 1px dashed var(--color-neutral-400); color: var
       <div class="search-wrap"><i class="ph-duotone ph-magnifying-glass"></i><input class="input" id="search" type="search" placeholder="Notes, ids, screens…" aria-label="Search"></div>
     </section>
     <section class="sec">
-      <div class="sec-head" data-sec="presets" role="button" tabindex="0" aria-expanded="true"><span class="sec-title"><i class="ph-duotone ph-caret-down fold"></i>Saved views</span></div>
-      <div class="list" id="presets"></div>
+      <div class="sec-head" data-sec="presets" role="button" tabindex="0" aria-expanded="true"><span class="sec-title"><i class="ph-duotone ph-caret-down fold"></i>Saved views</span><span class="sec-hint">yours, in this browser</span></div>
+      <div class="saved-views">
+        <div id="saved-form"></div>
+        <div class="list" id="presets"></div>
+      </div>
     </section>
     <section class="sec">
       <div class="sec-head" data-sec="modules" role="button" tabindex="0" aria-expanded="true"><span class="sec-title"><i class="ph-duotone ph-caret-down fold"></i>Module</span><span class="sec-hint">where it lives</span></div>
@@ -495,19 +509,9 @@ const EDGE = {
   wikilink: { name: 'Mentions (wikilink)', verb: 'mentions', color: 'var(--color-neutral-500)' },
 };
 const EDGE_KINDS = Object.keys(EDGE);
-const PRESETS = [
-  { id: 'build', name: 'Buildable today', hint: 'Backend Integration · Current or Delivered', kinds: ['backend-integration'], statuses: ['current', 'delivered'] },
-  { id: 'product', name: 'Waiting on product', hint: 'Needs decision', kinds: [], statuses: ['needs-decision'] },
-  { id: 'flight', name: 'In flight', hint: 'In progress', kinds: [], statuses: ['in-progress'] },
-  { id: 'blocked', name: 'Blocked', hint: 'Waiting on the card before it', kinds: [], statuses: ['blocked'] },
-  { id: 'bugs', name: 'Bugs', hint: 'Bug cards (type: bug)', kinds: [], statuses: [], label: 'bug' },
-  { id: 'notes', name: 'Done with notes', hint: 'Partial · pending items to clear', kinds: [], statuses: ['partial'] },
-  { id: 'unapproved', name: 'Unapproved stories', hint: 'User stories · Draft', kinds: ['story'], statuses: ['draft'] },
-  { id: 'missing', name: 'Not written yet', hint: 'Placeholders to scaffold', kinds: [], statuses: ['missing'] },
-  { id: 'overdue', name: 'Overdue', hint: 'Deadline missed 💀', kinds: [], statuses: [], due: ['missed'] },
-  { id: 'duesoon', name: 'Due now', hint: 'Inside the deadline window', kinds: [], statuses: [], due: ['_window'] },
-  { id: 'critical', name: 'Critical cards', hint: 'Highest priority', kinds: [], statuses: [], priorities: ['_top'] },
-];
+// every filter the sidebar sets, and their empty values: what Clear restores and what a saved view keeps
+const EMPTY_FILTERS = { q: '', modules: [], features: [], kinds: [], statuses: [], label: null, priorities: [], due: [], crFrom: '', crTo: '', updFrom: '', updTo: '', dlFrom: '', dlTo: '' };
+const FILTER_KEYS = Object.keys(EMPTY_FILTERS);
 // priorities and deadlines come from tree.json (docs.config.json priorities / deadlines); these are the fallbacks
 let PRIO = { levels: [], byId: {} };
 let DL = { windowDays: 3, zones: [{ id: 'on-track', label: 'On track', color: '#16a34a' }, { id: 'due-soon', label: 'Due soon', color: '#eab308' }, { id: 'last-day', label: 'Last day', color: '#dc2626' }], missed: { id: 'missed', label: 'Missed', color: '#6b7280', icon: '💀' } };
@@ -582,6 +586,9 @@ const S = {
 };
 const C = { laid: new Map(), mode: null, tx: 40, ty: 40, k: 1, graph: {} };
 const foldedGroups = new Set(store.get('foldedGroups', [])); // the filter groups the reader folded, as "<section>:<group title>"
+// saved views: the reader's own filter sets, kept in this browser's storage (none come with the page); { id, name, filters }
+let savedViews = store.get('savedViews', []); if (!Array.isArray(savedViews)) savedViews = [];
+let naming = false; // the name form is open in place of the save button
 let inst = [], byIid = new Map(), instById = new Map(), rootInst = null, items = null, itemByKey = null, totals = null, preFocus = null, preFilter = null, relCache = null;
 let vp, gLabels, gRel, gTree, gNodes, svg;
 const D = () => S.D;
@@ -597,6 +604,8 @@ const flowFolded = (id) => isFulfilled(node(id)) && !S.flowOpen.has(id);
 const followsStory = (container, child) => child.kind !== 'story' && (FLOW.order.indexOf(child.kind) > FLOW.order.indexOf('story') || (container.kind === 'task' && child.kind === 'task'));
 function setFlowOpen(ids) { S.flowOpen = new Set(ids); store.set('flowOpen', [...S.flowOpen]); }
 const kindOf = (k) => KIND[k] || { name: k, short: k, icon: 'ph-file-text' };
+// a filter chip or a summary names a kind as the page shows its cards: the bug cards are `task` nodes inside the tree, and read Bug (there are no tasks)
+const kindLabel = (k) => kindOf(k === 'task' ? 'bug' : k);
 
 function applyTheme(t) {
   const root = document.documentElement.style;
@@ -1255,10 +1264,10 @@ function setFilters(patch) {
 function renderSidebar() {
   const d = S.D, tot = totals;
   const same = (a, b) => a.length === b.length && a.every((x) => b.includes(x));
-  $('#presets').innerHTML = PRESETS.map((p) => { const on = same(p.kinds, S.kinds) && same(p.statuses, S.statuses) && (p.label || null) === S.label && same(p.due || [], S.due) && same(p.priorities || [], S.priorities) && !S.q && !S.modules.length && !S.features.length && !dateFiltersActive(); return `<button class="preset" data-preset="${p.id}" aria-pressed="${on}"><span class="pn">${esc(p.name)}</span><span class="ph">${esc(p.hint)}</span></button>`; }).join('');
+  renderSavedViews();
   renderModuleList();
   renderFeatureList();
-  $('#kinds').innerHTML = KIND_GROUPS.map((g) => `<div class="group"><div class="group-title">${g.color ? `<span class="ld" style="background:${g.color}"></span>` : ''}${esc(g.title)}</div><div class="chips">` + g.keys.map((k) => { const kd = kindOf(k); return `<button class="chip" data-kind="${k}" aria-pressed="${S.kinds.includes(k)}" title="${esc(kd.name)}"><i class="ph-duotone ${kd.icon}"></i>${esc(kd.short)}<span class="n">${tot.kind[k] || 0}</span></button>`; }).join('') + '</div></div>').join('');
+  $('#kinds').innerHTML = KIND_GROUPS.map((g) => `<div class="group"><div class="group-title">${g.color ? `<span class="ld" style="background:${g.color}"></span>` : ''}${esc(g.title)}</div><div class="chips">` + g.keys.map((k) => { const kd = kindLabel(k); return `<button class="chip" data-kind="${k}" aria-pressed="${S.kinds.includes(k)}" title="${esc(kd.name)}"><i class="ph-duotone ${kd.icon}"></i>${esc(kd.short)}<span class="n">${tot.kind[k] || 0}</span></button>`; }).join('') + '</div></div>').join('');
   $('#statuses').innerHTML = STATUS_GROUPS.map((g) => `<div class="group"><div class="group-title">${esc(g.title)}${g.hint ? `<span class="gh">${esc(g.hint)}</span>` : ''}</div><div class="chips">` + g.keys.map((k) => { const c = tot.status[k] || 0; return `<button class="chip${c ? '' : ' zero'}" data-status="${k}" aria-pressed="${S.statuses.includes(k)}"><span class="dot" style="background:${(ST[k] || ST.todo).c}"></span>${esc(legend(k))}<span class="n">${c}</span></button>`; }).join('') + '</div></div>').join('');
   const prioChips = PRIO.levels.map((l) => { const c = tot.priority[l.id] || 0; return `<button class="chip${c ? '' : ' zero'}" data-priority="${esc(l.id)}" aria-pressed="${S.priorities.includes(l.id)}" title="${esc(l.description || l.label)}"><span class="mark" style="--mc:${esc(l.color || 'currentColor')};width:16px;height:16px">${markSvg(FLAG_D)}</span>${esc(l.label)}<span class="n">${c}</span></button>`; }).join('');
   const noPrio = Object.values(d.nodes).filter((n) => n.path && !n.priority).length;
@@ -1288,6 +1297,44 @@ function applyGroupFolds() {
 const flipGroup = (t) => { const k = groupKey(t.parentElement); foldedGroups.has(k) ? foldedGroups.delete(k) : foldedGroups.add(k); store.set('foldedGroups', [...foldedGroups]); applyGroupFolds(); };
 $('#filters').addEventListener('click', (e) => { const t = e.target.closest('.group-title.foldable'); if (t) flipGroup(t); });
 $('#filters').addEventListener('keydown', (e) => { const t = e.target.closest('.group-title.foldable'); if (t && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); flipGroup(t); } });
+// ------------------------------------------------------------ saved views
+const filterState = () => Object.fromEntries(FILTER_KEYS.map((k) => [k, Array.isArray(S[k]) ? S[k].slice() : S[k]]));
+const sameFilters = (a, b) => FILTER_KEYS.every((k) => { const x = a[k] ?? EMPTY_FILTERS[k], y = b[k] ?? EMPTY_FILTERS[k]; return Array.isArray(x) ? Array.isArray(y) && x.length === y.length && x.every((v) => y.includes(v)) : x === y; });
+// what a saved view filters, in a few words: "Backend Delivery · In progress · Identity Core"
+function filterSummary(f) {
+  const few = (list, name) => (list.length <= 2 ? list.map(name).join(', ') : `${list.slice(0, 2).map(name).join(', ')} +${list.length - 2}`);
+  const range = (label, a, b) => (a || b ? `${label} ${a || '…'} → ${b || '…'}` : '');
+  const modName = (id) => node('module:' + id)?.name || id, featName = (id) => node('feature:' + id)?.name || id;
+  const prio = (p) => (p === '_none' ? 'No priority' : p === '_top' ? 'Top priority' : PRIO.byId[p]?.label || p);
+  const due = (z) => (z === '_none' ? 'No deadline' : z === '_window' ? 'Due now' : [...DL.zones, DL.missed].find((x) => x.id === z)?.label || z);
+  return [f.q && `“${f.q}”`, (f.modules || []).length && few(f.modules, modName), (f.features || []).length && few(f.features, featName), (f.kinds || []).length && few(f.kinds, (k) => kindLabel(k).name), (f.statuses || []).length && few(f.statuses, legend), f.label, (f.priorities || []).length && few(f.priorities, prio), (f.due || []).length && few(f.due, due), range('Created', f.crFrom, f.crTo), range('Updated', f.updFrom, f.updTo), range('Deadline', f.dlFrom, f.dlTo)].filter(Boolean).join(' · ');
+}
+function renderSavedViews() {
+  const now = filterState();
+  $('#presets').innerHTML = savedViews.length ? savedViews.map((v) => `<div class="saved-row"><button class="preset" data-view="${esc(v.id)}" aria-pressed="${sameFilters(now, v.filters)}" title="Apply these filters"><span class="pn">${esc(v.name)}</span><span class="ph">${esc(filterSummary(v.filters) || 'No filters')}</span></button><button class="saved-x" data-unsave="${esc(v.id)}" aria-label="Remove the saved view ${esc(v.name)}" title="Remove"><i class="ph-duotone ph-x"></i></button></div>`).join('') : '<div class="empty-row">No saved views yet. Set some filters, then save them here.</div>';
+  if (!naming) $('#saved-form').innerHTML = `<button class="btn btn-secondary btn-sm" id="save-view"${filtersActive() ? '' : ' disabled title="Set a filter first"'}><i class="ph-duotone ph-bookmark-simple"></i>Save current filters</button>`;
+}
+function openNaming() {
+  naming = true;
+  const summary = filterSummary(filterState());
+  $('#saved-form').innerHTML = `<div class="save-form"><input class="input" id="view-name" type="text" maxlength="60" aria-label="Name of the saved view" placeholder="Name this view" value="${esc(summary.slice(0, 60))}"><div class="note">${esc(summary)}</div><div class="acts"><button class="btn btn-secondary btn-sm" id="save-view-ok"><i class="ph-duotone ph-check"></i>Save</button><button class="btn btn-sm" id="save-view-cancel">Cancel</button></div></div>`;
+  const inp = $('#view-name'); inp.focus(); inp.select();
+}
+function closeNaming() { naming = false; renderSavedViews(); }
+function saveView() {
+  const name = ($('#view-name').value || '').trim() || filterSummary(filterState()) || 'Saved view';
+  const same = savedViews.find((v) => v.name.toLowerCase() === name.toLowerCase()); // a name used again replaces that view's filters
+  if (same) same.filters = filterState(); else savedViews.push({ id: `v${Date.now().toString(36)}`, name, filters: filterState() });
+  store.set('savedViews', savedViews); closeNaming();
+}
+function removeView(id) { savedViews = savedViews.filter((v) => v.id !== id); store.set('savedViews', savedViews); renderSavedViews(); }
+function applyView(id) {
+  const v = savedViews.find((x) => x.id === id); if (!v) return;
+  const on = sameFilters(filterState(), v.filters);
+  const next = on ? { ...EMPTY_FILTERS } : Object.fromEntries(FILTER_KEYS.map((k) => [k, Array.isArray(EMPTY_FILTERS[k]) ? [...(v.filters[k] || [])] : (v.filters[k] ?? EMPTY_FILTERS[k])]));
+  $('#search').value = next.q; setFilters(next); // clicking the view that is on turns it off
+}
+$('#saved-form').addEventListener('keydown', (e) => { if (e.target.id !== 'view-name') return; if (e.key === 'Enter') { e.preventDefault(); saveView(); } else if (e.key === 'Escape') { e.preventDefault(); closeNaming(); } });
 // the modules, narrowed to what is typed in their find box (name, id or code); a picked module always stays listed
 function renderModuleList() {
   const d = S.D, q = S.moduleQ.toLowerCase();
@@ -1306,7 +1353,11 @@ $('#feature-find').addEventListener('input', (e) => { S.featureQ = e.target.valu
 const arrToggle = (key, v) => { const a = S[key]; return a.includes(v) ? a.filter((x) => x !== v) : [...a, v]; };
 $('#filters').addEventListener('click', (e) => {
   const b = e.target.closest('button'); if (!b) return;
-  if (b.dataset.preset) { const p = PRESETS.find((x) => x.id === b.dataset.preset); const on = b.getAttribute('aria-pressed') === 'true'; setFilters(on ? { kinds: [], statuses: [], label: null, due: [], priorities: [] } : { kinds: p.kinds.slice(), statuses: p.statuses.slice(), label: p.label || null, due: (p.due || []).slice(), priorities: (p.priorities || []).slice(), modules: [], features: [], q: '', crFrom: '', crTo: '', updFrom: '', updTo: '', dlFrom: '', dlTo: '' }); if (!on) $('#search').value = ''; }
+  if (b.dataset.view) applyView(b.dataset.view);
+  else if (b.dataset.unsave) removeView(b.dataset.unsave);
+  else if (b.id === 'save-view') openNaming();
+  else if (b.id === 'save-view-ok') saveView();
+  else if (b.id === 'save-view-cancel') closeNaming();
   else if (b.dataset.priority) setFilters({ priorities: arrToggle('priorities', b.dataset.priority) });
   else if (b.dataset.due) setFilters({ due: arrToggle('due', b.dataset.due) });
   else if (b.dataset.quick) { const [key, id] = b.dataset.quick.split(':'); const q = DATE_QUICK[key].find((x) => x.id === id); const on = b.getAttribute('aria-pressed') === 'true'; setFilters({ [key + 'From']: on ? '' : q.from(), [key + 'To']: on ? '' : q.to() }); }
@@ -1315,7 +1366,7 @@ $('#filters').addEventListener('click', (e) => {
   else if (b.dataset.kind) setFilters({ kinds: arrToggle('kinds', b.dataset.kind) });
   else if (b.dataset.status) setFilters({ statuses: arrToggle('statuses', b.dataset.status) });
   else if (b.dataset.edge) { S.edgeKinds = arrToggle('edgeKinds', b.dataset.edge); store.set('edgeKinds', S.edgeKinds); relCache = null; renderSidebar(); if (S.view !== 'outline') { drawRel(); updateHover(); } }
-  else if (b.id === 'clear') { $('#search').value = ''; setFilters({ q: '', modules: [], features: [], kinds: [], statuses: [], label: null, priorities: [], due: [], updFrom: '', updTo: '', dlFrom: '', dlTo: '' }); }
+  else if (b.id === 'clear') { $('#search').value = ''; setFilters({ ...EMPTY_FILTERS }); } // every filter, the created: range included
 });
 let st; $('#search').addEventListener('input', (e) => { clearTimeout(st); st = setTimeout(() => setFilters({ q: e.target.value.trim() }), 120); });
 // the date ranges: a picked or typed date applies on change; anything that is not a full YYYY-MM-DD clears that end
