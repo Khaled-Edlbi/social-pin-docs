@@ -114,7 +114,7 @@ aside.filters { width: var(--drawer-w); min-width: 200px; max-width: 60vw; flex:
 .list-btn .sw { flex: none; width: 26px; }
 .list.scroll { max-height: 300px; overflow-y: auto; overscroll-behavior: contain; }
 .list-btn .code { font-size: 11px; color: var(--color-neutral-600); font-variant-numeric: tabular-nums; flex: none; min-width: 34px; }
-.feature-find { margin-bottom: 8px; }
+.list-find { margin-bottom: 8px; }
 .list .empty-row { font-size: 13px; font-style: italic; color: var(--color-neutral-600); padding: 5px 0; }
 .box { width: 14px; height: 14px; flex: none; border-radius: 2px; border: 1.5px solid var(--color-neutral-500); background: transparent; display: grid; place-items: center; }
 .box i { font-size: 10px; color: var(--color-bg); opacity: 0; }
@@ -325,11 +325,12 @@ article .obsidian-only { border: 1px dashed var(--color-neutral-400); color: var
     </section>
     <section class="sec">
       <div class="sec-head" data-sec="modules" role="button" tabindex="0" aria-expanded="true"><span class="sec-title"><i class="ph-duotone ph-caret-down fold"></i>Module</span><span class="sec-hint">where it lives</span></div>
+      <div class="search-wrap list-find"><i class="ph-duotone ph-magnifying-glass"></i><input class="input" id="module-find" type="search" placeholder="Find a module…" aria-label="Find a module"></div>
       <div class="list" id="modules"></div>
     </section>
     <section class="sec">
       <div class="sec-head" data-sec="features" role="button" tabindex="0" aria-expanded="true"><span class="sec-title"><i class="ph-duotone ph-caret-down fold"></i>Feature</span><span class="sec-hint">what it belongs to</span></div>
-      <div class="search-wrap feature-find"><i class="ph-duotone ph-magnifying-glass"></i><input class="input" id="feature-find" type="search" placeholder="Find a feature…" aria-label="Find a feature"></div>
+      <div class="search-wrap list-find"><i class="ph-duotone ph-magnifying-glass"></i><input class="input" id="feature-find" type="search" placeholder="Find a feature…" aria-label="Find a feature"></div>
       <div class="list scroll" id="features"></div>
     </section>
     <section class="sec kinds">
@@ -572,7 +573,7 @@ function sel(tag, attrs, parent, style) { const e = document.createElementNS(SVG
 
 // ------------------------------------------------------------ state
 const S = {
-  D: null, view: store.get('view', null), q: '', modules: [], features: [], featureQ: '', kinds: [], statuses: [], label: null, priorities: [], due: [], crFrom: '', crTo: '', updFrom: '', updTo: '', dlFrom: '', dlTo: '',
+  D: null, view: store.get('view', null), q: '', modules: [], moduleQ: '', features: [], featureQ: '', kinds: [], statuses: [], label: null, priorities: [], due: [], crFrom: '', crTo: '', updFrom: '', updTo: '', dlFrom: '', dlTo: '',
   edgeKinds: store.get('edgeKinds', EDGE_KINDS.slice()), orient: store.get('orient', 'vertical'), scope: store.get('scope', 'features'),
   collapsed: [], selected: null, focus: null, pane: null, hover: null,
   theme: store.get('theme', null) || (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'),
@@ -1255,7 +1256,7 @@ function renderSidebar() {
   const d = S.D, tot = totals;
   const same = (a, b) => a.length === b.length && a.every((x) => b.includes(x));
   $('#presets').innerHTML = PRESETS.map((p) => { const on = same(p.kinds, S.kinds) && same(p.statuses, S.statuses) && (p.label || null) === S.label && same(p.due || [], S.due) && same(p.priorities || [], S.priorities) && !S.q && !S.modules.length && !S.features.length && !dateFiltersActive(); return `<button class="preset" data-preset="${p.id}" aria-pressed="${on}"><span class="pn">${esc(p.name)}</span><span class="ph">${esc(p.hint)}</span></button>`; }).join('');
-  $('#modules').innerHTML = node(d.rootId).children.map(node).filter((n) => n.kind === 'module').map((n) => `<button class="list-btn" data-module="${esc(n.module)}" aria-pressed="${S.modules.includes(n.module)}"><span class="box"><i class="ph-duotone ph-check"></i></span><span class="grow">${esc(n.name || n.title)}</span><span class="n">${tot.module[n.module] || 0}</span></button>`).join('');
+  renderModuleList();
   renderFeatureList();
   $('#kinds').innerHTML = KIND_GROUPS.map((g) => `<div class="group"><div class="group-title">${g.color ? `<span class="ld" style="background:${g.color}"></span>` : ''}${esc(g.title)}</div><div class="chips">` + g.keys.map((k) => { const kd = kindOf(k); return `<button class="chip" data-kind="${k}" aria-pressed="${S.kinds.includes(k)}" title="${esc(kd.name)}"><i class="ph-duotone ${kd.icon}"></i>${esc(kd.short)}<span class="n">${tot.kind[k] || 0}</span></button>`; }).join('') + '</div></div>').join('');
   $('#statuses').innerHTML = STATUS_GROUPS.map((g) => `<div class="group"><div class="group-title">${esc(g.title)}${g.hint ? `<span class="gh">${esc(g.hint)}</span>` : ''}</div><div class="chips">` + g.keys.map((k) => { const c = tot.status[k] || 0; return `<button class="chip${c ? '' : ' zero'}" data-status="${k}" aria-pressed="${S.statuses.includes(k)}"><span class="dot" style="background:${(ST[k] || ST.todo).c}"></span>${esc(legend(k))}<span class="n">${c}</span></button>`; }).join('') + '</div></div>').join('');
@@ -1287,6 +1288,13 @@ function applyGroupFolds() {
 const flipGroup = (t) => { const k = groupKey(t.parentElement); foldedGroups.has(k) ? foldedGroups.delete(k) : foldedGroups.add(k); store.set('foldedGroups', [...foldedGroups]); applyGroupFolds(); };
 $('#filters').addEventListener('click', (e) => { const t = e.target.closest('.group-title.foldable'); if (t) flipGroup(t); });
 $('#filters').addEventListener('keydown', (e) => { const t = e.target.closest('.group-title.foldable'); if (t && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); flipGroup(t); } });
+// the modules, narrowed to what is typed in their find box (name, id or code); a picked module always stays listed
+function renderModuleList() {
+  const d = S.D, q = S.moduleQ.toLowerCase();
+  const list = node(d.rootId).children.map(node).filter((n) => n.kind === 'module' && (S.modules.includes(n.module) || !q || [n.name, n.title, n.module, n.card].join(' ').toLowerCase().includes(q)));
+  $('#modules').innerHTML = list.length ? list.map((n) => `<button class="list-btn" data-module="${esc(n.module)}" aria-pressed="${S.modules.includes(n.module)}" title="${esc(`${n.card || ''} · ${n.module}`)}"><span class="box"><i class="ph-duotone ph-check"></i></span><span class="grow">${esc(n.name || n.title)}</span><span class="n">${totals.module[n.module] || 0}</span></button>`).join('') : '<div class="empty-row">No module matches.</div>';
+}
+$('#module-find').addEventListener('input', (e) => { S.moduleQ = e.target.value.trim(); renderModuleList(); });
 // the features in module order, narrowed to the picked modules and to what is typed in its find box; a picked feature always stays listed
 function renderFeatureList() {
   const d = S.D, q = S.featureQ.toLowerCase();
