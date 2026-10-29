@@ -56,3 +56,4 @@ Output of `node scripts/build-tree.mjs --impact B-07` when the bug was filed: th
 ## Log
 
 - 2026-10-29 · filed with --scaffold bug, found against BD-04 Files Upload Backend Delivery, by `/backend` while reviewing [[ND-16 Viewer access to file bytes]] on `main @ b4984d6`
+- 2026-10-29 · fix merged: branch `B-07/file/uploads-public-only`, backend `main @ c85db4b`. The static mount serves only `<uploadsDir>/public` at `/uploads/public`; `GET /uploads/files/<key>` is a 404. Recorded in [[BD-04 Files Upload Backend Delivery]]. Left for QA: re-run against `main @ c85db4b`, then `resolution` and `status` (QA and the PM's, not the backend's).
