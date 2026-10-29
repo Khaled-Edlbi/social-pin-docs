@@ -3529,6 +3529,7 @@
       ],
       "kind": "screen",
       "notes": [
+        "feature:ring-projection",
         "frontend-requirements:ring-projection",
         "needs-decision:ND-05",
         "story:ring-projection"
@@ -3576,6 +3577,7 @@
         "backend-delivery:photo-library",
         "feature:files",
         "feature:photo-library",
+        "feature:ring-projection",
         "frontend-requirements:files",
         "frontend-requirements:photo-library",
         "frontend-requirements:ring-projection",
@@ -3675,6 +3677,7 @@
       "kind": "screen",
       "notes": [
         "backend-delivery:widgets",
+        "feature:ring-projection",
         "feature:widgets",
         "frontend-requirements:ring-projection",
         "frontend-requirements:widgets",
@@ -4208,6 +4211,7 @@
         "feature:linked-accounts",
         "feature:photo-library",
         "feature:profiles",
+        "feature:ring-projection",
         "frontend-delivery:account",
         "frontend-requirements:account",
         "frontend-requirements:auth",
@@ -40854,11 +40858,15 @@
         "s23",
         "s24",
         "s25",
+        "s28",
         "s29",
-        "s36"
+        "s30",
+        "s36",
+        "s37",
+        "s68"
       ],
       "status": null,
-      "summary": "What a Ring shows: photo, bio, nickname, theme, social and contact links, info blocks (\"Add a field\"), file attachments, and the per-Ring opt-ins for birthdate, gender, marital status, phone and…",
+      "summary": "What a Ring shows: the headline, role, company and location it goes by (following the Pin, its own, or hidden), the nickname, bio and photo, which social and contact links, which custom fields…",
       "tags": [
         "feature",
         "module/identity",
@@ -40867,7 +40875,7 @@
       ],
       "task": null,
       "title": "F-10 Ring Projection",
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "feature:rings": {
       "affects": [],

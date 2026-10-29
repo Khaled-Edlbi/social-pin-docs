@@ -5,34 +5,36 @@ name: "Ring Projection"
 priority: critical
 release: mvp
 module: identity
-screens: [s14, s20, s23, s24, s25, s29, s36]
+screens: [s14, s20, s23, s24, s25, s28, s29, s30, s36, s37, s68]
 created: 2026-10-18
-updated: 2026-10-28
-owner: "omar"
+updated: 2026-10-29
+owner: "Omar Fostok"
 tags: [feature, module/identity, priority/critical, release/mvp]
 ---
 
 # Ring Projection
 
-> ⚠ Affected by [[S-17 Ring Projection Story]] (2026-10-29): the story now also uses s28 (Copy from a Ring), s30 (Photo library, from s23's Upload), s37 (Widgets, from s36) and s68 (Me's privacy rows switch Rings); and S9 / S10 build the decided rules (the library, per field off / follow / own), so the Design reference's "decided (D-03 / D-05), not built" now points at them. Ask: `/owner add s28, s30, s37, s68 to Ring Projection's screens`.
-
 **Backend:** Done · **Priority:** Critical · **Release:** MVP · **Module:** [[M-01 Identity Core Module|Identity Core]]
 
 **Layers:** [[S-17 Ring Projection Story|Story]] · [[FR-10 Ring Projection Frontend Requirements|Frontend Requirements]] · [[BD-10 Ring Projection Backend Delivery|Backend Delivery]] · [[BI-07 Ring Projection Backend Integration|Backend Integration]] · [[Ring Projection Frontend Delivery|Frontend Delivery]] · [[Ring Projection QA Backend|QA Backend]] · [[Ring Projection QA Frontend|QA Frontend]]
 
-What a Ring shows: photo, bio, nickname, theme, social and contact links, info blocks ("Add a field"), file attachments, and the per-Ring opt-ins for birthdate, gender, marital status, phone and email.
+What a Ring shows: the headline, role, company and location it goes by (following the Pin, its own, or hidden), the nickname, bio and photo, which social and contact links, which custom fields ("Add a field"), which files, and whether it may see the birthdate, gender, marital status, phone and email. Links, custom fields and files are entered once and switched on per Ring.
 
 ## Design reference
 
 | Screen | Name | Note |
 |---|---|---|
-| [[Screen Index#s14|s14]] | Ring data |  |
-| [[Screen Index#s20|s20]] | New Ring · step 3 (what it shows) | Field library decided (D-03), not built |
-| [[Screen Index#s23|s23]] | Edit · how you appear | Inherit decided (D-05, D-02), not built |
-| [[Screen Index#s24|s24]] | Edit · what it shows | "4 of 7 on" decided (D-03), not built |
-| [[Screen Index#s25|s25]] | Edit · social profiles |  |
-| [[Screen Index#s29|s29]] | Photo for this Ring | "Reset to Pin" decided (D-02, D-05), not built |
-| [[Screen Index#s36|s36]] | Add to this Ring |  |
+| [[Screen Index#s14|s14]] | Ring data | Shows only what this Ring shows |
+| [[Screen Index#s20|s20]] | New Ring · step 3 (what it shows) | The library, switched on per Ring: [[S-17 Ring Projection Story\|S9]], not built (the app imitates it) |
+| [[Screen Index#s23|s23]] | Edit · how you appear | Follow the Pin / own / hidden per field: [[S-17 Ring Projection Story\|S10]], not built; nickname, bio and photo work |
+| [[Screen Index#s24|s24]] | Edit · what it shows | "N of M on": main-profile, contact and private fields, custom fields, files |
+| [[Screen Index#s25|s25]] | Edit · social profiles | "+ Add a social profile": paste a link, the type is detected |
+| [[Screen Index#s28|s28]] | Copy from a Ring | Copy another Ring's bio or photo, a snapshot; works today |
+| [[Screen Index#s29|s29]] | Photo for this Ring | "Reset to Pin" waits on the main photo ([[F-07 Profiles & Pin Name]]) |
+| [[Screen Index#s30|s30]] | Photo library | From s23's Upload ([[F-06 Photo Library]]) |
+| [[Screen Index#s36|s36]] | Add to this Ring | Field (the "Add a field" sheet), Social profile, File, Widget |
+| [[Screen Index#s37|s37]] | Widgets | From s36 ([[F-13 Widgets]]) |
+| [[Screen Index#s68|s68]] | Me / Account | The private fields switched per Ring from Me's privacy rows |
 
 Wireframe brief sections: [[Wireframe Brief#Home — Rings hub + active profile|§4.1 Home — Rings hub + active profile]], [[Wireframe Brief#Ring management|§4.2 Ring management]], [[Wireframe Brief#Account, subscription & settings|§12 Account, subscription & settings]]
 
