@@ -43287,8 +43287,8 @@
         "approved": 1,
         "current": 1,
         "done": 1,
-        "draft": 1,
-        "missing": 3
+        "missing": 3,
+        "ready": 1
       },
       "scope": null,
       "screens": [
@@ -48060,7 +48060,7 @@
       "depends": [
         "story:view-as"
       ],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "ready",
       "effort": null,
       "feature": "view-as",
       "foundOn": null,
@@ -48162,11 +48162,11 @@
         "s44",
         "s62"
       ],
-      "status": "draft",
+      "status": "ready",
       "summary": "What the client needs from the backend for every screen that renders another person, and for the owner's preview, and whether each need is met today. The viewer shape and the cache rule are in…",
       "tags": [
         "frontend-requirements",
-        "frontend-requirements/draft",
+        "frontend-requirements/ready",
         "module/identity",
         "layer/frontend"
       ],
@@ -48712,14 +48712,14 @@
         "decided": 8,
         "delivered": 2,
         "done": 11,
-        "draft": 3,
+        "draft": 2,
         "failing": 1,
         "in-progress": 13,
         "missing": 38,
         "needs-decision": 2,
         "partial": 4,
         "passing": 2,
-        "ready": 9,
+        "ready": 10,
         "todo": 4,
         "verified": 8
       },
@@ -55827,14 +55827,14 @@
         "decided": 15,
         "delivered": 2,
         "done": 12,
-        "draft": 32,
+        "draft": 31,
         "failing": 1,
         "in-progress": 45,
         "missing": 152,
         "needs-decision": 3,
         "partial": 4,
         "passing": 2,
-        "ready": 9,
+        "ready": 10,
         "reference": 31,
         "todo": 9,
         "verified": 15
