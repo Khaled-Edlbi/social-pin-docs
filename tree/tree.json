@@ -959,7 +959,8 @@
     "E_FILE_01": {
       "containers": [
         "feature:files",
-        "feature:photo-library"
+        "feature:photo-library",
+        "needs-decision:ND-16"
       ],
       "kind": "error",
       "notes": [
@@ -967,6 +968,7 @@
         "backend-integration:files",
         "frontend-requirements:files",
         "frontend-requirements:photo-library",
+        "needs-decision:ND-16",
         "story:files",
         "story:photo-library"
       ],
@@ -1552,6 +1554,16 @@
       "owner": "feature:files"
     },
     "GET /files/:id/content": {
+      "containers": [
+        "needs-decision:ND-16"
+      ],
+      "kind": "endpoint",
+      "notes": [
+        "needs-decision:ND-16"
+      ],
+      "owner": null
+    },
+    "GET /files/content/:token": {
       "containers": [
         "needs-decision:ND-16"
       ],
@@ -4352,7 +4364,7 @@
       "qa": 3,
       "shared": 10
     },
-    "concepts": 205,
+    "concepts": 206,
     "decisions": 21,
     "edges": 4114,
     "features": 41,
@@ -9848,6 +9860,7 @@
       "kind": "related",
       "to": "needs-decision:ND-16",
       "via": [
+        "E_FILE_01",
         "GET /files/:id"
       ]
     },
@@ -10311,6 +10324,7 @@
       "kind": "related",
       "to": "needs-decision:ND-16",
       "via": [
+        "E_FILE_01",
         "GET /files/:id"
       ]
     },
@@ -20481,6 +20495,7 @@
       "kind": "shares",
       "to": "needs-decision:ND-16",
       "via": [
+        "E_FILE_01",
         "GET /files/:id"
       ]
     },
@@ -21418,6 +21433,7 @@
       "kind": "shares",
       "to": "needs-decision:ND-16",
       "via": [
+        "E_FILE_01",
         "GET /files/:id"
       ]
     },
@@ -47461,7 +47477,7 @@
       ],
       "task": null,
       "title": "ND-16 Viewer access to file bytes",
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "needs-decision:ND-17": {
       "affects": [
