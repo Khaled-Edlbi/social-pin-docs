@@ -87,7 +87,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
         - ⚖️ [D-06 Yearly rename, old name freed, case-insensitive](social-pin/decisions/D-06%20Yearly%20rename%2C%20old%20name%20freed%2C%20case-insensitive.md) (Decision)
     - 🔵 [F-08 Ring Access Engine](social-pin/modules/Identity%20Core/features/Ring%20Access%20Engine/F-08%20Ring%20Access%20Engine.md) (release MVP, Critical)
       - 👍 [S-15 Ring Access Engine Story](social-pin/modules/Identity%20Core/features/Ring%20Access%20Engine/S-15%20Ring%20Access%20Engine%20Story.md) (User Story, Critical)
-      - ✏️ [FR-08 Ring Access Engine Frontend Requirements](social-pin/modules/Identity%20Core/features/Ring%20Access%20Engine/flow/FR-08%20Ring%20Access%20Engine%20Frontend%20Requirements.md) (Frontend Requirements, Critical)
+      - 📨 [FR-08 Ring Access Engine Frontend Requirements](social-pin/modules/Identity%20Core/features/Ring%20Access%20Engine/flow/FR-08%20Ring%20Access%20Engine%20Frontend%20Requirements.md) (Frontend Requirements, Critical)
       - ✅ [BD-08 Ring Access Engine Backend Delivery](social-pin/modules/Identity%20Core/features/Ring%20Access%20Engine/flow/BD-08%20Ring%20Access%20Engine%20Backend%20Delivery.md) (Backend Delivery, Critical)
       - 🔵 [BI-05 Ring Access Engine Backend Integration](social-pin/modules/Identity%20Core/features/Ring%20Access%20Engine/flow/BI-05%20Ring%20Access%20Engine%20Backend%20Integration.md) (Backend Integration, Critical)
       - ∅ _Ring Access Engine QA Backend_ (QA Backend)
