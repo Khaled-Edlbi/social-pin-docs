@@ -31888,7 +31888,7 @@
         {
           "id": "frontend-requirements:photo-library",
           "title": "FR-06 Photo Library Frontend Requirements",
-          "why": "FR-06 Photo Library Frontend Requirements is draft"
+          "why": "FR-06 Photo Library Frontend Requirements is ready"
         }
       ],
       "card": "BD-06",
@@ -37718,8 +37718,8 @@
         "approved": 1,
         "blocked": 1,
         "decided": 2,
-        "draft": 1,
         "missing": 4,
+        "ready": 1,
         "verified": 2
       },
       "scope": null,
@@ -42277,7 +42277,7 @@
       "depends": [
         "story:photo-library"
       ],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "ready",
       "effort": null,
       "feature": "photo-library",
       "foundOn": null,
@@ -42361,11 +42361,11 @@
         "s30",
         "s68"
       ],
-      "status": "draft",
+      "status": "ready",
       "summary": "What the client needs to build the per-Ring photo picker, the library grid and its management mode, and which of it exists. Upload works (BI-03 Files Upload Backend Integration); setting a Ring's…",
       "tags": [
         "frontend-requirements",
-        "frontend-requirements/draft",
+        "frontend-requirements/ready",
         "module/identity",
         "layer/frontend"
       ],
@@ -43486,14 +43486,14 @@
         "decided": 7,
         "delivered": 2,
         "done": 9,
-        "draft": 10,
+        "draft": 9,
         "failing": 1,
         "in-progress": 13,
         "missing": 39,
         "needs-decision": 1,
         "partial": 4,
         "passing": 1,
-        "ready": 3,
+        "ready": 4,
         "todo": 4,
         "verified": 7
       },
@@ -50324,14 +50324,14 @@
         "decided": 14,
         "delivered": 2,
         "done": 10,
-        "draft": 39,
+        "draft": 38,
         "failing": 1,
         "in-progress": 44,
         "missing": 153,
         "needs-decision": 1,
         "partial": 4,
         "passing": 1,
-        "ready": 4,
+        "ready": 5,
         "reference": 31,
         "todo": 9,
         "verified": 14

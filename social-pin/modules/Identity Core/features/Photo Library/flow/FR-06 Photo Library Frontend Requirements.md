@@ -4,7 +4,7 @@ code: photo-library
 scope: feature
 feature: photo-library
 module: identity
-status: draft
+status: ready
 screens: [s23, s29, s30, s68]
 owner: "Omar Fostok"
 depends: ["S-11 Photo Library Story"]
@@ -12,12 +12,12 @@ affects: ["BD-06 Photo Library Backend Delivery"]
 related: ["BI-03 Files Upload Backend Integration", "BI-07 Ring Projection Backend Integration", "FR-04 Files Upload Frontend Requirements", "FR-07 Profiles & Pin Name Frontend Requirements", "FR-10 Ring Projection Frontend Requirements", "FR-01 Account Frontend Requirements", "S-14 Profiles & Pin Name Story", "ND-16 Viewer access to file bytes", "D-02 One main profile every Ring starts from", "D-05 Inherit per field, copy without members", "POST /files", "GET /files", "GET /files/:id", "DELETE /files/:id", "GET /rings/:ringId/projection", "PATCH /rings/:ringId/projection", E_FILE_01, E_FILE_02, E_FILE_03, E_FILE_04, E_RING_02, E_RING_05]
 created: 2026-10-18
 updated: 2026-10-29
-tags: [frontend-requirements, frontend-requirements/draft, module/identity, layer/frontend]
+tags: [frontend-requirements, frontend-requirements/ready, module/identity, layer/frontend]
 ---
 
 # Photo Library · Frontend Requirements
 
-**Feature:** [[F-06 Photo Library]] · **Status:** Draft · **Story:** [[S-11 Photo Library Story]] · **API Integration:** not yet (backend not built)
+**Feature:** [[F-06 Photo Library]] · **Status:** 📨 Ready 2026-10-29, waiting on the backend's review · **Story:** [[S-11 Photo Library Story]] · **API Integration:** not yet (backend not built)
 
 What the client needs to build the per-Ring photo picker, the library grid and its management mode, and which of it exists. Upload works ([[BI-03 Files Upload Backend Integration]]); setting a Ring's photo works ([[BI-07 Ring Projection Backend Integration]]); listing, the Rings per photo, the main photo and displaying do not.
 
