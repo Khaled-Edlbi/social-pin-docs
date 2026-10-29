@@ -963,7 +963,8 @@
         "backend-integration:files",
         "frontend-requirements:files",
         "frontend-requirements:photo-library",
-        "story:files"
+        "story:files",
+        "story:photo-library"
       ],
       "owner": null
     },
@@ -1527,8 +1528,7 @@
         "backend-delivery:photo-library",
         "frontend-requirements:files",
         "frontend-requirements:photo-library",
-        "story:files",
-        "story:photo-library"
+        "story:files"
       ],
       "owner": "feature:photo-library"
     },
@@ -1582,11 +1582,24 @@
     },
     "GET /files?kind=image": {
       "containers": [
-        "feature:files"
+        "feature:files",
+        "feature:photo-library"
       ],
       "kind": "endpoint",
       "notes": [
-        "frontend-requirements:files"
+        "frontend-requirements:files",
+        "frontend-requirements:photo-library",
+        "story:photo-library"
+      ],
+      "owner": null
+    },
+    "GET /files?kind=image|document": {
+      "containers": [
+        "feature:photo-library"
+      ],
+      "kind": "endpoint",
+      "notes": [
+        "frontend-requirements:photo-library"
       ],
       "owner": null
     },
@@ -3351,6 +3364,7 @@
     },
     "s23": {
       "containers": [
+        "feature:photo-library",
         "feature:ring-projection",
         "needs-decision:ND-02",
         "needs-decision:ND-05"
@@ -3363,6 +3377,7 @@
         "frontend-requirements:ring-projection",
         "needs-decision:ND-02",
         "needs-decision:ND-05",
+        "story:photo-library",
         "story:ring-projection"
       ],
       "owner": null
@@ -4049,6 +4064,7 @@
         "feature:error-contract",
         "feature:linked-accounts",
         "feature:payments",
+        "feature:photo-library",
         "feature:profiles",
         "needs-decision:ND-20",
         "task:B-01",
@@ -4083,6 +4099,7 @@
         "story:counts",
         "story:linked-accounts",
         "story:payments",
+        "story:photo-library",
         "task:B-01",
         "task:B-02",
         "task:B-03"
@@ -4220,9 +4237,9 @@
       "qa": 3,
       "shared": 10
     },
-    "concepts": 202,
+    "concepts": 203,
     "decisions": 19,
-    "edges": 3799,
+    "edges": 3803,
     "features": 41,
     "layerNotes": 132,
     "modules": 8,
@@ -9702,8 +9719,8 @@
       "to": "story:photo-library",
       "via": [
         "DELETE /files/:id",
+        "E_FILE_01",
         "E_FILE_04",
-        "GET /files",
         "POST /files"
       ]
     },
@@ -11162,6 +11179,26 @@
       "from": "story:photo-library",
       "kind": "related",
       "to": "decision:D-05"
+    },
+    {
+      "from": "story:photo-library",
+      "kind": "related",
+      "to": "needs-decision:ND-16"
+    },
+    {
+      "from": "story:photo-library",
+      "kind": "related",
+      "to": "story:linked-accounts"
+    },
+    {
+      "from": "story:photo-library",
+      "kind": "related",
+      "to": "story:onboarding-imports"
+    },
+    {
+      "from": "story:photo-library",
+      "kind": "related",
+      "to": "story:profiles"
     },
     {
       "from": "story:profiles",
@@ -17304,6 +17341,7 @@
         "E_RING_05",
         "GET /files",
         "GET /files/:id",
+        "GET /files?kind=image",
         "GET /rings/:ringId/projection",
         "PATCH /rings/:ringId/projection",
         "POST /files"
@@ -43980,7 +44018,8 @@
         "feature:ring-projection",
         "feature:view-as",
         "frontend-requirements:files",
-        "story:files"
+        "story:files",
+        "story:photo-library"
       ],
       "release": null,
       "resolution": null,
@@ -51168,7 +51207,8 @@
         "backend-delivery:account",
         "backend-integration:account",
         "frontend-delivery:account",
-        "qa-backend:auth"
+        "qa-backend:auth",
+        "story:photo-library"
       ],
       "release": "v1",
       "resolution": null,
@@ -51338,6 +51378,7 @@
         "needs-decision:ND-21",
         "qa-backend:auth",
         "decision:D-02",
+        "story:photo-library",
         "frontend-requirements:profiles"
       ],
       "release": "mvp",
@@ -51517,14 +51558,20 @@
         "frontend-requirements:files",
         "story:files",
         "decision:D-02",
-        "decision:D-05"
+        "decision:D-05",
+        "story:onboarding-imports",
+        "story:profiles",
+        "story:linked-accounts",
+        "needs-decision:ND-16"
       ],
       "release": "v1",
       "resolution": null,
       "scope": "feature",
       "screens": [
+        "s23",
         "s29",
-        "s30"
+        "s30",
+        "s68"
       ],
       "status": "approved",
       "summary": "A Ring owner keeps a handful of photos, a formal headshot, a casual one, a team picture, and picks a different one per Ring. The library is the owner's private pool of uploads; a photo reaches an…",
@@ -51536,7 +51583,7 @@
       ],
       "task": null,
       "title": "S-11 Photo Library Story",
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "story:pincast": {
       "affects": [],
@@ -51681,6 +51728,7 @@
         "story:auth",
         "frontend-requirements:files",
         "frontend-requirements:onboarding-imports",
+        "story:photo-library",
         "decision:D-02",
         "decision:D-06"
       ],

@@ -13,6 +13,8 @@ tags: [frontend-requirements, frontend-requirements/draft, module/identity, laye
 
 # Photo Library · Frontend Requirements
 
+> ⚠ Affected by [[S-11 Photo Library Story]] (2026-10-29): design review. S1 (s29 is a picker: "Use my Pin photo" or a library photo from `GET /files?kind=image`; no large preview; no crop in v1), S2 (no names; usage line with Ring names from S8), S3 (Camera or Library, permission states), S4 (management mode from Me, tile sheet, count on s68), S5 (three delete cases, Delete disabled until S8), S6 ("Reset to Pin" shortcut), S7 (`GET /files?kind=image|document`) and S8 (`usedBy`, `followerCount`, photos only) changed; s23 and s68 added. "Base photo ❌ ND-02" and "Inherit ❌ ND-05" are decided (D-02, D-05); the bytes row is now ND-16.
+
 > ⚠ Affected by [[D-02 One main profile every Ring starts from]] (2026-10-25): ND-02 decided, one main profile (headline, role, company, location, photo, bio) every Ring starts from; a Ring may change all of them but the full name and keeps its own value when the main one changes.
 
 > ⚠ Affected by [[D-05 Inherit per field, copy without members]] (2026-10-25): ND-05 decided, a Ring inherits the main profile field by field until it changes that field; copying a Ring copies fields, bio, photo, colour and settings, never members.

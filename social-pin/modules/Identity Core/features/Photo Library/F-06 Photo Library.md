@@ -14,6 +14,8 @@ tags: [feature, module/identity, priority/high, release/v1]
 
 # Photo Library
 
+> ⚠ Affected by [[S-11 Photo Library Story]] (2026-10-29): the story now covers s23 (Change → s29, Upload → s30) and s68 (the Photo library row, management mode); `screens:` lists s29, s30 only. The summary line "with a 'N Rings inherit it' count" now reads "with the Rings that use each photo". Ask: `/owner add s23, s68 to Photo Library's screens`.
+
 **Backend:** Partial (needs more) · **Priority:** High · **Release:** v1 · **Module:** [[M-01 Identity Core Module|Identity Core]]
 
 **Layers:** [[S-11 Photo Library Story|Story]] · [[FR-06 Photo Library Frontend Requirements|Frontend Requirements]] · [[BD-06 Photo Library Backend Delivery|Backend Delivery]] · [[Photo Library Backend Integration|Backend Integration]] · [[Photo Library Frontend Delivery|Frontend Delivery]] · [[Photo Library QA Backend|QA Backend]] · [[Photo Library QA Frontend|QA Frontend]]
