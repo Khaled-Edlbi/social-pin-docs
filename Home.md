@@ -6,7 +6,7 @@ tags: [map]
 
 # Social Pin · Docs Vault
 
-> **Browse it as a tree:** `https://khaled-edlbi.github.io/social-pin-docs/` (or `node scripts/build-tree.mjs --serve` locally). Project → module → feature → one note per layer (story, frontend requirements, backend delivery, backend integration, frontend delivery, QA backend, QA frontend), then bugs and decisions, each with a status chip, as a tree, a relation graph or an outline; relations light up on hover; filter by module, layer, kind and status. How it works: [[Docs Tree]]. The rules every agent follows: [[Agent Rules]]. The sequence: [[Workflow]].
+> **Browse it as a tree:** `https://khaled-edlbi.github.io/social-pin-docs/` (or `node scripts/build-tree.mjs --serve` locally). Project → module → feature → one note per layer (story, frontend requirements, backend delivery, backend integration, frontend delivery, QA backend, QA frontend), then bugs and decisions, each with a status chip, as a tree, a relation graph or an outline; relations light up on hover; filter by module, feature, layer, kind and status. How it works: [[Docs Tree]]. The rules every agent follows: [[Agent Rules]]. The sequence: [[Workflow]].
 >
 > **Open this repository as an Obsidian vault.** Everything is plain Markdown with wikilinks, so it also reads fine on GitHub. Optional plugin: **Dataview**.
 

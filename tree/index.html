@@ -112,6 +112,10 @@ aside.filters { width: var(--drawer-w); min-width: 200px; max-width: 60vw; flex:
 .list-btn .n { font-size: 12px; color: var(--color-neutral-600); font-variant-numeric: tabular-nums; }
 .list-btn .grow { flex: 1; min-width: 0; }
 .list-btn .sw { flex: none; width: 26px; }
+.list.scroll { max-height: 300px; overflow-y: auto; overscroll-behavior: contain; }
+.list-btn .code { font-size: 11px; color: var(--color-neutral-600); font-variant-numeric: tabular-nums; flex: none; min-width: 34px; }
+.feature-find { margin-bottom: 8px; }
+.list .empty-row { font-size: 13px; font-style: italic; color: var(--color-neutral-600); padding: 5px 0; }
 .box { width: 14px; height: 14px; flex: none; border-radius: 2px; border: 1.5px solid var(--color-neutral-500); background: transparent; display: grid; place-items: center; }
 .box i { font-size: 10px; color: var(--color-bg); opacity: 0; }
 [aria-pressed="true"] > .box { border-color: var(--color-accent); background: var(--color-accent); }
@@ -313,6 +317,11 @@ article .obsidian-only { border: 1px dashed var(--color-neutral-400); color: var
     <section class="sec">
       <div class="sec-head" data-sec="modules" role="button" tabindex="0" aria-expanded="true"><span class="sec-title"><i class="ph-duotone ph-caret-down fold"></i>Module</span><span class="sec-hint">where it lives</span></div>
       <div class="list" id="modules"></div>
+    </section>
+    <section class="sec">
+      <div class="sec-head" data-sec="features" role="button" tabindex="0" aria-expanded="true"><span class="sec-title"><i class="ph-duotone ph-caret-down fold"></i>Feature</span><span class="sec-hint">what it belongs to</span></div>
+      <div class="search-wrap feature-find"><i class="ph-duotone ph-magnifying-glass"></i><input class="input" id="feature-find" type="search" placeholder="Find a feature…" aria-label="Find a feature"></div>
+      <div class="list scroll" id="features"></div>
     </section>
     <section class="sec kinds">
       <div class="sec-head" data-sec="kinds" role="button" tabindex="0" aria-expanded="true"><span class="sec-title"><i class="ph-duotone ph-caret-down fold"></i>Note type</span><span class="sec-hint">what it is, by layer</span></div>
@@ -554,7 +563,7 @@ function sel(tag, attrs, parent, style) { const e = document.createElementNS(SVG
 
 // ------------------------------------------------------------ state
 const S = {
-  D: null, view: store.get('view', null), q: '', modules: [], kinds: [], statuses: [], label: null, priorities: [], due: [], crFrom: '', crTo: '', updFrom: '', updTo: '', dlFrom: '', dlTo: '',
+  D: null, view: store.get('view', null), q: '', modules: [], features: [], featureQ: '', kinds: [], statuses: [], label: null, priorities: [], due: [], crFrom: '', crTo: '', updFrom: '', updTo: '', dlFrom: '', dlTo: '',
   edgeKinds: store.get('edgeKinds', EDGE_KINDS.slice()), orient: store.get('orient', 'vertical'), scope: store.get('scope', 'features'),
   collapsed: [], selected: null, focus: null, pane: null, hover: null,
   theme: store.get('theme', null) || (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'),
@@ -616,7 +625,7 @@ async function load() {
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { C.graph = {}; clearCards(); redraw(true); });
 }
 function computeTotals() {
-  const t = { status: {}, kind: {}, module: {}, edge: {}, priority: {}, due: {} };
+  const t = { status: {}, kind: {}, module: {}, feature: {}, edge: {}, priority: {}, due: {} };
   const now = new Date();
   for (const n of Object.values(S.D.nodes)) {
     t.status[n.effectiveStatus] = (t.status[n.effectiveStatus] || 0) + 1;
@@ -624,6 +633,7 @@ function computeTotals() {
     const z = dueOf(n, now); if (z) t.due[z.id] = (t.due[z.id] || 0) + 1;
     t.kind[n.kind] = (t.kind[n.kind] || 0) + 1;
     if (n.module && n.kind === 'feature') t.module[n.module] = (t.module[n.module] || 0) + 1;
+    if (n.path) for (const f of featuresOf(n)) t.feature[f] = (t.feature[f] || 0) + 1; // the written cards of each feature: its card, its notes, its bugs, its decisions
   }
   for (const e of S.D.edges) t.edge[e.kind] = (t.edge[e.kind] || 0) + 1;
   return t;
@@ -680,7 +690,9 @@ const chipStyle = (n) => { const st = stOf(n); return `--bg:${st.bg};--ink:${st.
 const chipHtml = (n, extraCls = '') => `<span class="stchip${stOf(n).dashed ? ' dashed' : ''}${extraCls ? ' ' + extraCls : ''}" style="${chipStyle(n)}">${esc(statusText(n))}</span>`;
 
 // ------------------------------------------------------------ filters
-const filtersActive = () => !!(S.q || S.modules.length || S.kinds.length || S.statuses.length || S.label || S.priorities.length || S.due.length || dateFiltersActive());
+// the features a card belongs to: the feature card itself, a layer note's or a bug's feature, a decision card's features (it can span several)
+const featuresOf = (n) => (n.kind === 'feature' ? [n.code] : n.feature ? [n.feature] : Array.isArray(n.features) ? n.features : []);
+const filtersActive = () => !!(S.q || S.modules.length || S.features.length || S.kinds.length || S.statuses.length || S.label || S.priorities.length || S.due.length || dateFiltersActive());
 const expandDue = (list) => list.flatMap((z) => (z === '_window' ? DL.zones.slice(1).map((x) => x.id) : [z])); // _window: every zone but the first (on track)
 const expandPrio = (list) => list.flatMap((p) => (p === '_top' && PRIO.levels.length ? [PRIO.levels[0].id] : [p]));
 function matches(n) {
@@ -691,6 +703,8 @@ function matches(n) {
   if ((S.updFrom || S.updTo) && !inRange(n.updated, S.updFrom, S.updTo)) return false;
   if ((S.dlFrom || S.dlTo) && !inRange(n.deadline, S.dlFrom, S.dlTo)) return false;
   if (S.modules.length && n.kind !== 'root' && !S.modules.includes(n.module)) return false;
+  // a module is no match of its own here: it stays as the path to the picked features
+  if (S.features.length && n.kind !== 'root' && !featuresOf(n).some((f) => S.features.includes(f))) return false;
   if (S.kinds.length && !S.kinds.includes(n.kind)) return false;
   if (S.label && !(Array.isArray(n.labels) && n.labels.includes(S.label))) return false;
   if (S.q) { const q = S.q.toLowerCase(); const hay = [n.title, n.id, n.code || '', n.card || '', n.summary || '', ...(n.screens || []), ...(n.labels || []), n.feature || '', prioOf(n) ? prioOf(n).label : '', n.deadline || ''].join(' ').toLowerCase(); if (!hay.includes(q)) return false; }
@@ -1230,8 +1244,9 @@ function setFilters(patch) {
 function renderSidebar() {
   const d = S.D, tot = totals;
   const same = (a, b) => a.length === b.length && a.every((x) => b.includes(x));
-  $('#presets').innerHTML = PRESETS.map((p) => { const on = same(p.kinds, S.kinds) && same(p.statuses, S.statuses) && (p.label || null) === S.label && same(p.due || [], S.due) && same(p.priorities || [], S.priorities) && !S.q && !S.modules.length && !dateFiltersActive(); return `<button class="preset" data-preset="${p.id}" aria-pressed="${on}"><span class="pn">${esc(p.name)}</span><span class="ph">${esc(p.hint)}</span></button>`; }).join('');
+  $('#presets').innerHTML = PRESETS.map((p) => { const on = same(p.kinds, S.kinds) && same(p.statuses, S.statuses) && (p.label || null) === S.label && same(p.due || [], S.due) && same(p.priorities || [], S.priorities) && !S.q && !S.modules.length && !S.features.length && !dateFiltersActive(); return `<button class="preset" data-preset="${p.id}" aria-pressed="${on}"><span class="pn">${esc(p.name)}</span><span class="ph">${esc(p.hint)}</span></button>`; }).join('');
   $('#modules').innerHTML = node(d.rootId).children.map(node).filter((n) => n.kind === 'module').map((n) => `<button class="list-btn" data-module="${esc(n.module)}" aria-pressed="${S.modules.includes(n.module)}"><span class="box"><i class="ph-duotone ph-check"></i></span><span class="grow">${esc(n.name || n.title)}</span><span class="n">${tot.module[n.module] || 0}</span></button>`).join('');
+  renderFeatureList();
   $('#kinds').innerHTML = KIND_GROUPS.map((g) => `<div class="group"><div class="group-title">${g.color ? `<span class="ld" style="background:${g.color}"></span>` : ''}${esc(g.title)}</div><div class="chips">` + g.keys.map((k) => { const kd = kindOf(k); return `<button class="chip" data-kind="${k}" aria-pressed="${S.kinds.includes(k)}" title="${esc(kd.name)}"><i class="ph-duotone ${kd.icon}"></i>${esc(kd.short)}<span class="n">${tot.kind[k] || 0}</span></button>`; }).join('') + '</div></div>').join('');
   $('#statuses').innerHTML = STATUS_GROUPS.map((g) => `<div class="group"><div class="group-title">${esc(g.title)}${g.hint ? `<span class="gh">${esc(g.hint)}</span>` : ''}</div><div class="chips">` + g.keys.map((k) => { const c = tot.status[k] || 0; return `<button class="chip${c ? '' : ' zero'}" data-status="${k}" aria-pressed="${S.statuses.includes(k)}"><span class="dot" style="background:${(ST[k] || ST.todo).c}"></span>${esc(legend(k))}<span class="n">${c}</span></button>`; }).join('') + '</div></div>').join('');
   const prioChips = PRIO.levels.map((l) => { const c = tot.priority[l.id] || 0; return `<button class="chip${c ? '' : ' zero'}" data-priority="${esc(l.id)}" aria-pressed="${S.priorities.includes(l.id)}" title="${esc(l.description || l.label)}"><span class="mark" style="--mc:${esc(l.color || 'currentColor')};width:16px;height:16px">${markSvg(FLAG_D)}</span>${esc(l.label)}<span class="n">${c}</span></button>`; }).join('');
@@ -1249,18 +1264,27 @@ function renderSidebar() {
     EDGE_KINDS.map((k) => `<button class="list-btn" data-edge="${k}" aria-pressed="${S.edgeKinds.includes(k)}"><span class="box"><i class="ph-duotone ph-check"></i></span><svg class="sw" width="26" height="8"><line x1="0" y1="4" x2="26" y2="4" stroke="${EDGE[k].color}" stroke-width="1.6" stroke-dasharray="${EDGE[k].dash || '4 3'}"></line></svg><span class="grow">${esc(EDGE[k].name)}${EDGE[k].arrow ? ' →' : ''}</span><span class="n">${tot.edge[k] || 0}</span></button>`).join('');
   $('#clear').classList.toggle('hidden', !filtersActive());
 }
+// the features in module order, narrowed to the picked modules and to what is typed in its find box; a picked feature always stays listed
+function renderFeatureList() {
+  const d = S.D, q = S.featureQ.toLowerCase();
+  const all = node(d.rootId).children.map(node).filter((m) => m.kind === 'module').flatMap((m) => m.children.map(node).filter((f) => f && f.kind === 'feature'));
+  const list = all.filter((f) => S.features.includes(f.code) || ((!S.modules.length || S.modules.includes(f.module)) && (!q || [f.name, f.title, f.code, f.card].join(' ').toLowerCase().includes(q))));
+  $('#features').innerHTML = list.length ? list.map((f) => `<button class="list-btn" data-feature="${esc(f.code)}" aria-pressed="${S.features.includes(f.code)}" title="${esc(`${f.card || ''} · ${f.code} · ${f.module}`)}"><span class="box"><i class="ph-duotone ph-check"></i></span><span class="code">${esc(f.card || '')}</span><span class="grow">${esc(f.name || shown(f))}</span><span class="n">${totals.feature[f.code] || 0}</span></button>`).join('') : `<div class="empty-row">No feature matches${S.modules.length ? ' in the picked modules' : ''}.</div>`;
+}
+$('#feature-find').addEventListener('input', (e) => { S.featureQ = e.target.value.trim(); renderFeatureList(); });
 const arrToggle = (key, v) => { const a = S[key]; return a.includes(v) ? a.filter((x) => x !== v) : [...a, v]; };
 $('#filters').addEventListener('click', (e) => {
   const b = e.target.closest('button'); if (!b) return;
-  if (b.dataset.preset) { const p = PRESETS.find((x) => x.id === b.dataset.preset); const on = b.getAttribute('aria-pressed') === 'true'; setFilters(on ? { kinds: [], statuses: [], label: null, due: [], priorities: [] } : { kinds: p.kinds.slice(), statuses: p.statuses.slice(), label: p.label || null, due: (p.due || []).slice(), priorities: (p.priorities || []).slice(), modules: [], q: '', crFrom: '', crTo: '', updFrom: '', updTo: '', dlFrom: '', dlTo: '' }); if (!on) $('#search').value = ''; }
+  if (b.dataset.preset) { const p = PRESETS.find((x) => x.id === b.dataset.preset); const on = b.getAttribute('aria-pressed') === 'true'; setFilters(on ? { kinds: [], statuses: [], label: null, due: [], priorities: [] } : { kinds: p.kinds.slice(), statuses: p.statuses.slice(), label: p.label || null, due: (p.due || []).slice(), priorities: (p.priorities || []).slice(), modules: [], features: [], q: '', crFrom: '', crTo: '', updFrom: '', updTo: '', dlFrom: '', dlTo: '' }); if (!on) $('#search').value = ''; }
   else if (b.dataset.priority) setFilters({ priorities: arrToggle('priorities', b.dataset.priority) });
   else if (b.dataset.due) setFilters({ due: arrToggle('due', b.dataset.due) });
   else if (b.dataset.quick) { const [key, id] = b.dataset.quick.split(':'); const q = DATE_QUICK[key].find((x) => x.id === id); const on = b.getAttribute('aria-pressed') === 'true'; setFilters({ [key + 'From']: on ? '' : q.from(), [key + 'To']: on ? '' : q.to() }); }
   else if (b.dataset.module) setFilters({ modules: arrToggle('modules', b.dataset.module) });
+  else if (b.dataset.feature) setFilters({ features: arrToggle('features', b.dataset.feature) });
   else if (b.dataset.kind) setFilters({ kinds: arrToggle('kinds', b.dataset.kind) });
   else if (b.dataset.status) setFilters({ statuses: arrToggle('statuses', b.dataset.status) });
   else if (b.dataset.edge) { S.edgeKinds = arrToggle('edgeKinds', b.dataset.edge); store.set('edgeKinds', S.edgeKinds); relCache = null; renderSidebar(); if (S.view !== 'outline') { drawRel(); updateHover(); } }
-  else if (b.id === 'clear') { $('#search').value = ''; setFilters({ q: '', modules: [], kinds: [], statuses: [], label: null, priorities: [], due: [], updFrom: '', updTo: '', dlFrom: '', dlTo: '' }); }
+  else if (b.id === 'clear') { $('#search').value = ''; setFilters({ q: '', modules: [], features: [], kinds: [], statuses: [], label: null, priorities: [], due: [], updFrom: '', updTo: '', dlFrom: '', dlTo: '' }); }
 });
 let st; $('#search').addEventListener('input', (e) => { clearTimeout(st); st = setTimeout(() => setFilters({ q: e.target.value.trim() }), 120); });
 // the date ranges: a picked or typed date applies on change; anything that is not a full YYYY-MM-DD clears that end
