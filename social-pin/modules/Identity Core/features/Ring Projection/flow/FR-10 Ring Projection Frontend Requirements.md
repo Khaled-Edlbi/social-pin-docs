@@ -8,7 +8,7 @@ status: ready
 screens: [s14, s20, s23, s24, s25, s28, s29, s30, s36, s37, s68]
 depends: ["S-17 Ring Projection Story"]
 affects: ["BD-10 Ring Projection Backend Delivery"]
-related: ["BI-07 Ring Projection Backend Integration", "D-02 One main profile every Ring starts from", "D-03 Links entered once, switched on or off per Ring", "D-05 Inherit per field, copy without members", "ND-16 Viewer access to file bytes", "FR-04 Files Upload Frontend Requirements", "FR-06 Photo Library Frontend Requirements", "FR-07 Profiles & Pin Name Frontend Requirements", "S-14 Profiles & Pin Name Story", "S-20 Widgets Story", "S-89 Gemma AI Story", "S-87 Error Contract Story", "GET /rings/:ringId/projection", "PATCH /rings/:ringId/projection", "GET /views/ring/:ringId", "GET /profiles", E_RING_05, E_RING_02, E_FILE_04]
+related: ["BI-07 Ring Projection Backend Integration", "D-02 One main profile every Ring starts from", "D-03 Links entered once, switched on or off per Ring", "D-05 Inherit per field, copy without members", "ND-16 Viewer access to file bytes", "D-16 Files load from signed links that expire in 15 minutes", "FR-04 Files Upload Frontend Requirements", "FR-06 Photo Library Frontend Requirements", "FR-07 Profiles & Pin Name Frontend Requirements", "S-14 Profiles & Pin Name Story", "S-20 Widgets Story", "S-89 Gemma AI Story", "S-87 Error Contract Story", "GET /rings/:ringId/projection", "PATCH /rings/:ringId/projection", "GET /views/ring/:ringId", "GET /profiles", E_RING_05, E_RING_02, E_FILE_04]
 created: 2026-10-18
 updated: 2026-10-29
 owner: "Omar Fostok"
@@ -28,7 +28,7 @@ What the client needs from the backend to build the "what this Ring shows" edito
 - Needs: the owner entity in one call (`displayName`, `nickname`, `bio`, `avatarFileId`, five `show*`, `links[]`, `infoBlocks[]`, `attachments[]`, `widgets[]`, each child with `isVisible` and `sortOrder`); the member count; entry points.
 - Renders **only what's on**: "What this Ring shows" (fields on, by name), "Social profiles · N" (links on), "Attachments & links" (chips, [[FR-04 Files Upload Frontend Requirements|FR-04]]); nothing off, greyed or not. An empty section shows only "+ Add" (→ s36). Sections open s24 (fields, files) or s25 (socials).
 - States: loading, empty, a section with nothing on, read-only (403).
-- Source today: `GET /rings/:ringId/projection`. Member count: not yet ([[S-03 Counts Story|Counts · S6–S10]]). Photo bytes: [[ND-16 Viewer access to file bytes]].
+- Source today: `GET /rings/:ringId/projection`. Member count: not yet ([[S-03 Counts Story|Counts · S6–S10]]). Photo and files: from the projection's signed `avatarUrl` and each attachment's `url` (valid 15 minutes) once the backend ships them ([[D-16 Files load from signed links that expire in 15 minutes]]).
 
 ### [[Screen Index#s20|s20]] New Ring · step 3 · [[Screen Index#s24|s24]] Edit · what it shows (S2, S4)
 
@@ -68,7 +68,7 @@ What the client needs from the backend to build the "what this Ring shows" edito
 ### [[Screen Index#s29|s29]] Photo for this Ring · [[Screen Index#s30|s30]] Photo library (S6)
 
 - Needs: set `avatarFileId` from an upload or a library photo; clear it to follow the main photo. The picker is [[FR-06 Photo Library Frontend Requirements|FR-06]]'s.
-- Source today: `POST /files` then `PATCH …/projection`. Display: [[ND-16 Viewer access to file bytes]]. Main photo: [[S-14 Profiles & Pin Name Story|Profiles & Pin Name · S9–S11]].
+- Source today: `POST /files` then `PATCH …/projection`. Display: from the signed `avatarUrl` (D-16). Main photo: [[S-14 Profiles & Pin Name Story|Profiles & Pin Name · S9–S11]].
 
 ### [[Screen Index#s36|s36]] Add to this Ring · [[Screen Index#s37|s37]] Widgets (S7)
 
@@ -92,7 +92,7 @@ What the client needs from the backend to build the "what this Ring shows" edito
 | **The library**: my links and custom fields as items of mine, each switched on or off per Ring; editing one changes it everywhere; today's per-Ring copies merged once (identical type and value → one item) | — | ❌ | [[S-17 Ring Projection Story\|Ring Projection · S9]] (D-03) |
 | **Per field, per Ring**: off / follow the Pin / own value for headline, role, company, location; follow / own for photo and bio | — | ❌ | [[S-17 Ring Projection Story\|Ring Projection · S10]] (D-05; needs [[S-14 Profiles & Pin Name Story\|Profiles & Pin Name · S9–S11]]) |
 | The five link types D-03 added (booking, Behance, Dribbble, GitHub, YouTube) in `LINK_TYPE` | — | ❌ | S5 (D-03) |
-| Display the photo and attachments | — | ❌ | [[ND-16 Viewer access to file bytes]] |
+| Display the photo and attachments: a signed `avatarUrl` and a signed `url` per attachment on the owner projection, valid 15 minutes | `GET /rings/:ringId/projection` | ❌ | [[D-16 Files load from signed links that expire in 15 minutes]] (decided) |
 | Widgets add / edit / remove | — | ❌ | [[S-20 Widgets Story\|Widgets · S6]], [[S-20 Widgets Story\|Widgets · S7]] |
 | Member count on s14 | — | ❌ | [[S-03 Counts Story\|Counts · S6–S10]] |
 
@@ -105,7 +105,7 @@ What the client needs from the backend to build the "what this Ring shows" edito
 - s14 never renders a row that's off (`isVisible: false`, a `show*` off); the editors do.
 - Link validation: mirror the per-type rule on the client and still show the server's 400 message when it disagrees. Type detection from the pasted link is on the client.
 - Value preview: show the stored value next to each contact and private switch; when it is empty, "not set", and the switch can't be turned on.
-- Photo: keep the local image for the session; placeholder after relaunch; never build a URL from `avatarFileId`.
+- Photo and files: load only from the signed `avatarUrl` / `url` (D-16); never build a URL from `avatarFileId`; when a link fails to load (expired, 15 minutes), read the projection again for fresh links. Until the links ship: keep the local image for the session, a placeholder after relaunch.
 - Until S9: the phone-side imitation copies a value from another Ring when a link is switched on in a Ring that lacks it; the screens say a change applies to this Ring only.
 - Create wizard: write to the Ring created in step 1; on Cancel, delete the Ring (`DELETE /rings/:id`) so an abandoned wizard leaves nothing behind (not allowed on the default Ring).
 
@@ -128,4 +128,4 @@ Until [[S-87 Error Contract Story|Error Contract · S4–S8]] ships, branch on s
 
 - [[S-17 Ring Projection Story|Ring Projection · S9]]: one library switched on per Ring (s20, s24, s25); the phone-side imitation until then.
 - [[S-17 Ring Projection Story|Ring Projection · S10]] and [[S-14 Profiles & Pin Name Story|Profiles & Pin Name · S9–S11]]: headline, role, company, location per Ring (s23, s24), and "Reset to Pin" on the photo (s29).
-- [[ND-16 Viewer access to file bytes]]: every photo and attachment preview.
+- [[D-16 Files load from signed links that expire in 15 minutes]] (decided, not built): every photo and attachment preview.
