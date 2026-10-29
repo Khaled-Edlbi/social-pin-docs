@@ -17,26 +17,26 @@ tags: [frontend-requirements, frontend-requirements/draft, module/identity, laye
 
 # Rings · Frontend Requirements
 
-> ⚠ Affected by [[S-18 Rings Story]] (2026-10-29): design review. S1: s08 templates pre-fill s09; s09 asks name, colour, what it shows, expiry. S4: step 1 "Start from" (Blank, Copy, Event Ring with dates), no type picker, name 1–24 in the app; step 2 people from my connections (with "in any of my Rings"); step 4 three settings and a summary. S6 / S7: "Make this my default Ring" on s26; a temporary Ring can't be the default (new small ask). Copy a Ring needs a copy endpoint (the "❌ ND-05" row). Gemma chips hidden. Screens: s27.
-
-> ⚠ Affected by [[D-05 Inherit per field, copy without members]] (2026-10-25): ND-05 decided, a Ring inherits the main profile field by field until it changes that field; copying a Ring copies fields, bio, photo, colour and settings, never members.
-
 **Feature:** [[F-11 Rings]] · **Status:** Draft · **Story:** [[S-18 Rings Story]] · **Backend Integration:** [[BI-08 Rings Backend Integration]]
 
 What the client needs from the backend to build the Ring lists, the create wizard, the edit screens and the post-event choice, and whether each need is met today. Field rules, enums and the disposition semantics are in [[BI-08 Rings Backend Integration]].
 
 ## Per screen
 
-### [[Screen Index#s08|s08]] First Ring · [[Screen Index#s09|s09]] Create first Ring
+### [[Screen Index#s08|s08]] First Ring · [[Screen Index#s09|s09]] Create first Ring (S1)
 
-- Needs: the default Ring by name and colour; create a second Ring with a name and colour.
-- Source today: `GET /rings`, `POST /rings`.
+- s08: the default Ring ("Public": everyone who scans me sees it) from `GET /rings`; three **templates** (Work, Events, Personal) that only pre-fill s09 in the app (nothing sent); "Take me to the app" creates nothing.
+- s09: **name** (1–24 in the app, chips), **colour** (swatches, pre-selected), **what this Ring exposes** (the s24 rows, [[FR-10 Ring Projection Frontend Requirements|FR-10]]), **expiry** (optional; on for Events). "Only you see this name, unless someone joins it with an invitation or a code."
+- "Create Ring": `POST /rings { name, colorHex, isTemporary?, startsAt?, expiresAt? }`, then the projection writes for what was ticked, then s10.
+- Source today: `GET /rings`, `POST /rings`, the projection routes ✅. Nothing new for the backend.
 
-### [[Screen Index#s16|s16]] My Rings
+### [[Screen Index#s16|s16]] My Rings (S2)
 
-- Needs: the owned list with `id`, `name`, `type`, `colorHex`, `style`, `isDefault`, `isTemporary`, `startsAt`, `expiresAt`, `status`, `disposition`; `meta.total`; make default; delete; "N people".
-- States: list, empty, expired chip, temporary badge, default star, delete disabled on the default.
-- Source today: `GET /rings`, `POST /rings/:id/default`, `DELETE /rings/:id`. Member count: not yet.
+- Needs: the owned list with `id`, `name`, `type`, `colorHex`, `style`, `isDefault`, `isTemporary`, `startsAt`, `expiresAt`, `status`, `disposition`; `meta.total`; the purpose for the row's short line; "N people".
+- A row: name, colour, the purpose or what it shows in a few words, "DEFAULT" on the default, "EVENT" and "expires <date>" on a temporary Ring, "expired" chip; "**N people**" (not "connections") once counts exist.
+- **No make-default or delete on the list** (both on s26).
+- States: list, empty, expired chip, temporary badge, default mark.
+- Source today: `GET /rings`. Member count: not yet. Purpose: not yet (S9).
 
 ### [[Screen Index#s17|s17]] Shared with me
 
@@ -51,23 +51,29 @@ What the client needs from the backend to build the Ring lists, the create wizar
 - Also on the screen: invite review and join with a code ([[S-33 Ring Invitations & Join Story]]); an invitation names its Ring (D-18).
 - Source today: `GET /rings/shared-with-me` returns Rings with their `name` to every member, and no owner card or count; then `GET /views/ring/:id`. Invites and join: not yet.
 
-### [[Screen Index#s18|s18]] – [[Screen Index#s21|s21]] New Ring wizard
+### [[Screen Index#s18|s18]] – [[Screen Index#s21|s21]] New Ring wizard (S4)
 
-- Needs: create with `name`, `type`, `colorHex`, `style`, `isTemporary`, `startsAt`, `expiresAt`, `profileId?`, `parentRingId?`; copy from another Ring; audience settings; projection editing in steps 3 and 4.
-- Source today: `POST /rings`; projection routes ([[FR-10 Ring Projection Frontend Requirements]]). Copy and audience settings: not yet.
+- **Step 1 · Name it (s18):** name (1–24 in the app; the server allows 80), suggestion chips ("Gemma: suggest" hidden); **colour & icon** (`colorHex`, the icon in `style`); **who is it for** (the purpose, S9); **Start from**: Blank Ring · **Copy an existing Ring** (❌ until a copy endpoint exists; shown "coming soon") · **Event Ring** (temporary: start / end pickers, end required). **No type picker**: always `PERSONAL` (or `type` left out). "Next" calls `POST /rings { name, colorHex, style?, isTemporary?, startsAt?, expiresAt? }`.
+- **Step 2 · Who is in it (s19):** search **my connections**, chips, filters **All** and **No Ring yet**; each picked person added with `POST /rings/:ringId/members { userId }` ✅. Needs: my connections, searchable, each with whether they're in any of my Rings ❌ ([[S-23 Connections Story|Connections · S19–S24]]); until then only "You can create the Ring empty and add people later" and Next. "Met this month" and Gemma's suggestions hidden; "Invite" is [[S-33 Ring Invitations & Join Story]]'s.
+- **Step 3 · What it shows (s20):** [[FR-10 Ring Projection Frontend Requirements|FR-10]].
+- **Step 4 · How you appear (s21):** photo and bio ([[FR-10 Ring Projection Frontend Requirements|FR-10]]); **Access**: Expiry, Who can request to join, Members see each other (S9's settings); **Summary**: people added, what it exposes, photo & bio inherited or own. "Create Ring" → s14.
+- Cancel deletes the Ring created in step 1.
+- Source today: `POST /rings`, `POST …/members`, projection routes ✅. Copy, my connections and the settings: not yet.
 
-### [[Screen Index#s22|s22]] Edit · name & purpose · [[Screen Index#s26|s26]] Edit · access
+### [[Screen Index#s22|s22]] Edit · name & purpose · [[Screen Index#s26|s26]] Edit · access (S5, S6, S7)
 
-- Needs: edit name, colour, style, window, temporary flag; delete; the Ring settings (below); delegated admins.
-- Source today: `PATCH /rings/:id`, `DELETE /rings/:id`. Settings and admins: not yet.
+- s22: name (1–24), "Only you see this name, unless someone joins it with an invitation or a code.", **who this Ring is for** as a short description ("Gemma: rewrite" hidden), colour; `PATCH /rings/:id { name?, colorHex?, style? }`.
+- s26: window (`PATCH /rings/:id { startsAt?, expiresAt?, isTemporary? }`), the settings (below), delegated admins, Delete Ring.
+- s26, **default**: on a Ring that isn't the default, "**Make this my default Ring**" with "This is what someone sees when they scan you and they're in no other Ring of yours.", a confirmation, then `POST /rings/:id/default`; on the default, "**This is your default Ring**" and no action, and Delete disabled ("Choose another default first"). **A temporary Ring can't be the default** (the row disabled: "A temporary Ring can't be your default.").
+- Source today: `PATCH /rings/:id`, `POST /rings/:id/default`, `DELETE /rings/:id` ✅. Settings and admins: not yet. Refusing a temporary default on the server: not yet.
 
-### Ring settings: [[Screen Index#s19|s19]] (wizard step 2), [[Screen Index#s22|s22]] (purpose), [[Screen Index#s26|s26]] (access), [[Screen Index#s27|s27]] (permissions) ([[S-18 Rings Story|Rings · S9]])
+### Ring settings: [[Screen Index#s21|s21]] (wizard step 4), [[Screen Index#s22|s22]] (purpose), [[Screen Index#s26|s26]] (access), [[Screen Index#s27|s27]] (permissions) ([[S-18 Rings Story|Rings · S9]])
 
 - **The six launch settings** ([[D-04 Ring settings at launch and their defaults]]), each saved and read on a Ring, with these defaults on a new Ring:
 
   | Setting | Values | Default |
   |---|---|---|
-  | Who it's for (purpose) | a label ("Clients", "Investors") | empty |
+  | Who it's for (purpose) | a short description, a few words or a sentence | empty |
   | Who can request to join | **anyone who scans**, **only with a code**, **only invited** | only with a code or by invitation |
   | Approve each one | on / off (off = auto-accept) | on |
   | Members can see each other | on / off | off |
@@ -102,7 +108,10 @@ What the client needs from the backend to build the Ring lists, the create wizar
 | Open a shared Ring's projection | `GET /views/ring/:ringId` | ✅ | — (listed under [[F-12 View As & Pin Views]]) |
 | "N people" on list and detail | — | ❌ | [[S-03 Counts Story|Counts · S6–S10]] |
 | **The six launch settings** (who it's for, who can request to join, approve each one, members can see each other, members can invite, members can save attachments): save and read each on a Ring, D-04's defaults on a new Ring, owner and admins may change them (s19, s22, s26, s27) | `POST /rings`, `PATCH /rings/:id`, `GET /rings/:id` | ❌ | [[S-18 Rings Story\|Rings · S9]] ([[D-04 Ring settings at launch and their defaults]]) |
-| Copy a Ring when creating (s18) | — | ❌ | [[ND-05 Copy or inherit]] |
+| **Copy a Ring** (s18 "Copy an existing Ring"): a new Ring with the source's settings, what it shows (the same library items switched on, [[S-17 Ring Projection Story\|Ring Projection · S9]]), bio, photo and colour, **never its members**, in one call | — | ❌ | [[S-18 Rings Story\|Rings · S4]] ([[D-05 Inherit per field, copy without members]]) |
+| **Refuse a temporary Ring as the default** (`POST /rings/:id/default` on an `isTemporary` Ring) | `POST /rings/:id/default` | ❌ | [[S-18 Rings Story\|Rings · S7]] |
+| **My connections**, searchable, each with whether they're in any of my Rings (s19, "No Ring yet") | — | ❌ | [[S-18 Rings Story\|Rings · S4]] ([[S-23 Connections Story\|Connections · S19–S24]]) |
+| Add a picked person to the new Ring | `POST /rings/:ringId/members` | ✅ | [[S-18 Rings Story\|Rings · S4]] (listed under [[F-09 Ring Members]]) |
 | Review / decline an invite, join with a code (s17) | — | ❌ | [[S-33 Ring Invitations & Join Story|Ring Invitations & Join · S7]], [[S-33 Ring Invitations & Join Story|Ring Invitations & Join · S8]] |
 | Delegated admins (s26, s27) | — | ❌ | [[S-31 Delegated Admins Story|Delegated Admins · S6]] |
 | Purge of AUTO_DELETE Rings | — | ❌ | [[S-76 Cleanup Jobs Story|Cleanup Jobs · S4]] |
@@ -113,9 +122,11 @@ What the client needs from the backend to build the Ring lists, the create wizar
 - Caching keys: `rings:<userId>` and `rings-shared:<userId>`, separate; `ring:<id>` for detail. Invalidate `ring:<id>` and `projection:<id>` on any edit.
 - Pagination / ordering: owned list default first then newest; shared list newest first; `limit` ≤ 50 (a 400 above it); `meta.total` unpaginated; filters `name`, `type`, `status`, `isTemporary` (send `false` deliberately).
 - Expired and lapsed: compute from `expiresAt`; `status` stays `ACTIVE` on an expired Ring. Show the disposition sheet when `isTemporary && disposition === "UNDECIDED" && expiresAt < now`.
-- Type picker: `PERSONAL` and `CORPORATE` only; never offer `EVENT`, `MINI_EVENT`, `MEETING`.
-- Wizard: create the Ring on step 1 so steps 3 and 4 have a projection; on Cancel delete it. `profileId` defaults server-side to the default profile.
-- Default: never flip `isDefault` locally; refetch after `POST …/default`. Hide delete on the default row.
+- No type picker: every Ring the app creates is `PERSONAL` (an Event Ring is `PERSONAL` with `isTemporary`); never send `EVENT`, `MINI_EVENT`, `MEETING`; `CORPORATE` Rings come from [[F-15 Companies]].
+- Names: 1–24 characters in the app (the counter reads /24); the server's limit is 80.
+- Wizard: create the Ring on step 1 so steps 2–4 have a Ring to write to; on Cancel delete it. `profileId` defaults server-side to the default profile. s08's templates live in the app.
+- Default: changed on s26 only; never flip `isDefault` locally; refetch after `POST …/default`. Disable "Make this my default Ring" on a temporary Ring; Delete is disabled on the default.
+- Gemma: "Gemma: suggest" (s18), "Gemma: rewrite" (s22) and "Suggested by Gemma" (s19) are hidden until [[S-89 Gemma AI Story]] ships.
 - MERGE picker: my own Rings excluding the source; the backend refuses anything else with 400 `E_RING_07`.
 - Expired Rings: list them on My Rings with the chip; keep edit routes available; do not call `GET /views/ring/:id` on them.
 - **Shared with me rows:** never use a Ring's `name` as the row title unless the API marks it as joined knowingly; never show "· N people" unless the API sends a count; never show a Ring's colour or type.
@@ -138,7 +149,8 @@ Until [[S-87 Error Contract Story|Error Contract · S4–S8]] ships, branch on s
 
 ## Blocked by
 
-- [[S-18 Rings Story|Rings · S9]] — the six settings: step 2 of the wizard (s19), Purpose on s22, Access on s26, Permissions on s27.
+- [[S-18 Rings Story|Rings · S9]] — the six settings: step 4 of the wizard (s21), Purpose on s22, Access on s26, Permissions on s27.
 - [[S-15 Ring Access Engine Story|Ring Access Engine · S1]] — Shared with me per person (the owner's card, the Ring's name only when joined knowingly, the count only when members can see each other).
-- [[ND-05 Copy or inherit]] — "Copy a Ring" on s18.
+- [[S-18 Rings Story|Rings · S4]] — "Copy an existing Ring" on s18 (a copy endpoint, D-05).
+- [[S-23 Connections Story|Connections · S19–S24]] — my connections for the wizard's step 2 (s19).
 - [[S-03 Counts Story|Counts · S6–S10]] — "N people" on every row.

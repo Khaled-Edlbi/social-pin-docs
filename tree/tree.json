@@ -2833,6 +2833,7 @@
         "decision:D-15",
         "feature:connections",
         "feature:ring-members",
+        "feature:rings",
         "needs-decision:ND-14",
         "needs-decision:ND-15",
         "project:spec-map"
@@ -2844,6 +2845,7 @@
         "decision:D-14",
         "decision:D-15",
         "frontend-requirements:ring-members",
+        "frontend-requirements:rings",
         "needs-decision:ND-14",
         "needs-decision:ND-15",
         "project:spec-map",
@@ -4415,7 +4417,7 @@
     },
     "concepts": 208,
     "decisions": 21,
-    "edges": 4170,
+    "edges": 4176,
     "features": 41,
     "layerNotes": 132,
     "modules": 8,
@@ -11838,7 +11840,8 @@
       "via": [
         "E_RING_02",
         "E_RING_05",
-        "GET /rings"
+        "GET /rings",
+        "POST /rings/:ringId/members"
       ]
     },
     {
@@ -15338,7 +15341,8 @@
       "kind": "shares",
       "to": "feature:rings",
       "via": [
-        "GET /rings/shared-with-me"
+        "GET /rings/shared-with-me",
+        "POST /rings/:ringId/members"
       ]
     },
     {
@@ -15413,6 +15417,14 @@
       "to": "feature:ring-members",
       "via": [
         "GET /views/user/:userId/perspectives",
+        "POST /rings/:ringId/members"
+      ]
+    },
+    {
+      "from": "decision:D-15",
+      "kind": "shares",
+      "to": "feature:rings",
+      "via": [
         "POST /rings/:ringId/members"
       ]
     },
@@ -18363,7 +18375,8 @@
         "GET /rings",
         "GET /rings/shared-with-me",
         "GET /views/ring/:ringId",
-        "POST /rings/:id/disposition"
+        "POST /rings/:id/disposition",
+        "POST /rings/:ringId/members"
       ]
     },
     {
@@ -22720,7 +22733,8 @@
         "E_RING_02",
         "E_RING_05",
         "E_RING_07",
-        "GET /rings"
+        "GET /rings",
+        "POST /rings/:ringId/members"
       ]
     },
     {
@@ -23026,7 +23040,16 @@
       "to": "needs-decision:ND-14",
       "via": [
         "GET /rings/shared-with-me",
-        "GET /views/ring/:id"
+        "GET /views/ring/:id",
+        "POST /rings/:ringId/members"
+      ]
+    },
+    {
+      "from": "feature:rings",
+      "kind": "shares",
+      "to": "needs-decision:ND-15",
+      "via": [
+        "POST /rings/:ringId/members"
       ]
     },
     {
@@ -23109,7 +23132,8 @@
         "GET /views/ring/:ringId",
         "POST /rings",
         "POST /rings/:id/default",
-        "POST /rings/:id/disposition"
+        "POST /rings/:id/disposition",
+        "POST /rings/:ringId/members"
       ]
     },
     {
@@ -28661,6 +28685,16 @@
     {
       "from": "frontend-requirements:rings",
       "kind": "wikilink",
+      "to": "feature:companies"
+    },
+    {
+      "from": "frontend-requirements:rings",
+      "kind": "wikilink",
+      "to": "feature:ring-members"
+    },
+    {
+      "from": "frontend-requirements:rings",
+      "kind": "wikilink",
       "to": "feature:view-as"
     },
     {
@@ -28672,6 +28706,16 @@
       "from": "frontend-requirements:rings",
       "kind": "wikilink",
       "to": "story:error-contract"
+    },
+    {
+      "from": "frontend-requirements:rings",
+      "kind": "wikilink",
+      "to": "story:gemma"
+    },
+    {
+      "from": "frontend-requirements:rings",
+      "kind": "wikilink",
+      "to": "story:ring-projection"
     },
     {
       "from": "frontend-requirements:subscription",
