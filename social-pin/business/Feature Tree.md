@@ -1,7 +1,7 @@
 ---
 type: map
 created: 2026-10-15
-updated: 2026-10-28
+updated: 2026-10-29
 tags: [map]
 layer: business
 ---
@@ -36,7 +36,7 @@ Social Pin backend
 │   ├── 🟡 Counts  [High]
 │   ├── 🟡 Photo Library  [High]
 │   ├── 🟡 Widgets  [High]
-│   └── ❌ Onboarding Imports  [High]
+│   └── ❌ Onboarding Imports  [Medium]
 ├── Connections  (❌1)
 │   └── ❌ Connections  [Critical]
 ├── Shared Rings & Companies  (🟡1 ❌2)
@@ -90,7 +90,7 @@ Account, profile, Rings, what each Ring shows, and the access engine. The part o
 | [[F-03 Counts]] | 🟡 Partial (needs more) | High | s11, s12, s14, s16, s17, s68 | 0 |
 | [[F-06 Photo Library]] | 🟡 Partial (needs more) | High | s29, s30 | 0 |
 | [[F-13 Widgets]] | 🟡 Partial (needs more) | High | s36, s37 | 0 |
-| [[F-05 Onboarding Imports]] | ❌ TODO | High | s03, s03a, s03b, s04, s05 | 0 |
+| [[F-05 Onboarding Imports]] | ❌ TODO | Medium | s03, s03a, s03b, s04, s05 | 0 |
 
 ## Connections
 

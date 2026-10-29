@@ -2,20 +2,20 @@
 type: feature
 id: onboarding-imports
 name: "Onboarding Imports"
-priority: high
+priority: medium
 release: mvp
 module: identity
 screens: [s03, s03a, s03b, s04, s05]
 related: ["F-04 Files Upload"]
 created: 2026-10-15
-updated: 2026-10-28
-owner: "omar"
-tags: [feature, module/identity, priority/high, release/mvp]
+updated: 2026-10-29
+owner: "khaled"
+tags: [feature, module/identity, priority/medium, release/mvp]
 ---
 
 # Onboarding Imports
 
-**Backend:** TODO · **Priority:** High · **Release:** MVP · **Module:** [[M-01 Identity Core Module|Identity Core]]
+**Backend:** TODO · **Priority:** Medium · **Release:** MVP · **Module:** [[M-01 Identity Core Module|Identity Core]]
 
 **Layers:** [[S-08 Onboarding Imports Story|Story]] · [[FR-05 Onboarding Imports Frontend Requirements|Frontend Requirements]] · [[BD-05 Onboarding Imports Backend Delivery|Backend Delivery]] · [[Onboarding Imports Backend Integration|Backend Integration]] · [[Onboarding Imports Frontend Delivery|Frontend Delivery]] · [[Onboarding Imports QA Backend|QA Backend]] · [[Onboarding Imports QA Frontend|QA Frontend]]
 

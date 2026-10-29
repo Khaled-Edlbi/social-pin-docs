@@ -34632,7 +34632,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Onboarding Imports/flow/BD-05 Onboarding Imports Backend Delivery.md",
       "pending": [],
-      "priority": "high",
+      "priority": "medium",
       "related": [],
       "release": "mvp",
       "resolution": null,
@@ -40494,7 +40494,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Onboarding Imports/F-05 Onboarding Imports.md",
       "pending": [],
-      "priority": "high",
+      "priority": "medium",
       "related": [
         "feature:files",
         "feature:linked-accounts",
@@ -40530,12 +40530,12 @@
       "tags": [
         "feature",
         "module/identity",
-        "priority/high",
+        "priority/medium",
         "release/mvp"
       ],
       "task": null,
       "title": "F-05 Onboarding Imports",
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "feature:operator-panel": {
       "affects": [],
@@ -45226,7 +45226,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Onboarding Imports/flow/FR-05 Onboarding Imports Frontend Requirements.md",
       "pending": [],
-      "priority": "high",
+      "priority": "medium",
       "related": [
         "task:B-05",
         "task:B-07",
@@ -49193,7 +49193,7 @@
       ],
       "task": null,
       "title": "Feature Tree",
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "project:frontend-agent": {
       "affects": [],
@@ -55543,7 +55543,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Onboarding Imports/S-08 Onboarding Imports Story.md",
       "pending": [],
-      "priority": "high",
+      "priority": "medium",
       "related": [
         "task:B-05",
         "needs-decision:ND-21",
