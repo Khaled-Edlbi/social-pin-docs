@@ -129,6 +129,14 @@ aside.filters { width: var(--drawer-w); min-width: 200px; max-width: 60vw; flex:
 .group-title { display: flex; align-items: baseline; gap: 6px; font-size: 12px; font-style: italic; color: var(--color-neutral-700); }
 .group-title .gh { font-size: 11px; font-style: normal; color: var(--color-neutral-600); }
 .group-title .ld { width: 8px; height: 8px; border-radius: 2px; display: inline-block; align-self: center; }
+/* each group inside a section folds on its title, like the section on its heading */
+.group-title.foldable { cursor: pointer; user-select: none; border-radius: 2px; }
+.group-title.foldable:hover { color: var(--color-accent-700); }
+.group-title.foldable:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+.group-title .gfold { font-size: 10px; font-style: normal; color: var(--color-neutral-600); align-self: center; display: inline-block; transition: transform .15s; }
+.group.folded .gfold { transform: rotate(-90deg); }
+.group.folded > :not(.group-title) { display: none; }
+.group.folded .group-title .gh { display: none; }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; }
 .chip { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; padding: 4px 10px 4px 8px; border-radius: 2px; font-size: 13px; border: 1px solid var(--color-divider); background: transparent; color: var(--color-text); }
 .chip:hover { border-color: var(--color-accent); }
@@ -571,6 +579,7 @@ const S = {
   flowOpen: new Set(store.get('flowOpen', [])), // fulfilled stories whose flow the reader expanded (a fulfilled story folds its flow by default)
 };
 const C = { laid: new Map(), mode: null, tx: 40, ty: 40, k: 1, graph: {} };
+const foldedGroups = new Set(store.get('foldedGroups', [])); // the filter groups the reader folded, as "<section>:<group title>"
 let inst = [], byIid = new Map(), instById = new Map(), rootInst = null, items = null, itemByKey = null, totals = null, preFocus = null, preFilter = null, relCache = null;
 let vp, gLabels, gRel, gTree, gNodes, svg;
 const D = () => S.D;
@@ -1263,7 +1272,20 @@ function renderSidebar() {
   $('#edges').innerHTML = `<div class="list-btn" style="cursor:default;color:var(--color-neutral-700)"><span style="width:14px;flex:none"></span><svg class="sw" width="26" height="8"><line x1="0" y1="4" x2="26" y2="4" stroke="var(--color-neutral-600)" stroke-width="2.2"></line></svg><span class="grow">Tree structure</span><span class="sec-hint">always</span></div>` +
     EDGE_KINDS.map((k) => `<button class="list-btn" data-edge="${k}" aria-pressed="${S.edgeKinds.includes(k)}"><span class="box"><i class="ph-duotone ph-check"></i></span><svg class="sw" width="26" height="8"><line x1="0" y1="4" x2="26" y2="4" stroke="${EDGE[k].color}" stroke-width="1.6" stroke-dasharray="${EDGE[k].dash || '4 3'}"></line></svg><span class="grow">${esc(EDGE[k].name)}${EDGE[k].arrow ? ' →' : ''}</span><span class="n">${tot.edge[k] || 0}</span></button>`).join('');
   $('#clear').classList.toggle('hidden', !filtersActive());
+  applyGroupFolds(); // the groups above were just redrawn
 }
+// each group inside a filter section (Note type › Backend, Status › …, Dates › Created) folds on its title, and stays folded across visits
+const groupKey = (g) => { const t = g.querySelector(':scope > .group-title'), sec = g.closest('.sec')?.querySelector('.sec-head')?.dataset.sec || ''; return `${sec}:${[...t.childNodes].filter((x) => x.nodeType === 3).map((x) => x.textContent).join('').trim()}`; };
+function applyGroupFolds() {
+  for (const g of document.querySelectorAll('#filters .group')) {
+    const t = g.querySelector(':scope > .group-title'); if (!t) continue;
+    if (!t.classList.contains('foldable')) { t.classList.add('foldable'); t.setAttribute('role', 'button'); t.tabIndex = 0; t.insertAdjacentHTML('afterbegin', '<i class="ph-duotone ph-caret-down gfold" aria-hidden="true"></i>'); }
+    const on = foldedGroups.has(groupKey(g)); g.classList.toggle('folded', on); t.setAttribute('aria-expanded', String(!on));
+  }
+}
+const flipGroup = (t) => { const k = groupKey(t.parentElement); foldedGroups.has(k) ? foldedGroups.delete(k) : foldedGroups.add(k); store.set('foldedGroups', [...foldedGroups]); applyGroupFolds(); };
+$('#filters').addEventListener('click', (e) => { const t = e.target.closest('.group-title.foldable'); if (t) flipGroup(t); });
+$('#filters').addEventListener('keydown', (e) => { const t = e.target.closest('.group-title.foldable'); if (t && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); flipGroup(t); } });
 // the features in module order, narrowed to the picked modules and to what is typed in its find box; a picked feature always stays listed
 function renderFeatureList() {
   const d = S.D, q = S.featureQ.toLowerCase();
