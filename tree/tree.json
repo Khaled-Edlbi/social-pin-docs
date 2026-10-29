@@ -3384,6 +3384,7 @@
       "notes": [
         "backend-delivery:ring-projection",
         "backend-integration:ring-projection",
+        "feature:files",
         "feature:ring-projection",
         "frontend-requirements:files",
         "frontend-requirements:ring-projection",
@@ -3467,6 +3468,7 @@
         "backend-delivery:photo-library",
         "backend-delivery:ring-projection",
         "backend-integration:ring-projection",
+        "feature:files",
         "feature:photo-library",
         "feature:ring-projection",
         "frontend-requirements:files",
@@ -3490,6 +3492,7 @@
       "kind": "screen",
       "notes": [
         "backend-delivery:photo-library",
+        "feature:files",
         "feature:photo-library",
         "frontend-requirements:files",
         "frontend-requirements:photo-library",
@@ -3509,6 +3512,7 @@
       "notes": [
         "backend-delivery:view-as",
         "backend-integration:view-as",
+        "feature:files",
         "feature:view-as",
         "frontend-requirements:files",
         "frontend-requirements:view-as",
@@ -3679,6 +3683,7 @@
         "backend-integration:view-as",
         "feature:badge-qr",
         "feature:connections",
+        "feature:files",
         "feature:view-as",
         "frontend-requirements:badge-qr",
         "frontend-requirements:connections",
@@ -37036,7 +37041,12 @@
       "screens": [
         "s14",
         "s20",
-        "s36"
+        "s24",
+        "s36",
+        "s29",
+        "s30",
+        "s31",
+        "s44"
       ],
       "status": null,
       "summary": "Multipart upload with type and size checks, metadata read, delete. A file becomes visible only when a reachable context (a Ring projection) references it.",
@@ -37048,7 +37058,7 @@
       ],
       "task": null,
       "title": "F-04 Files Upload",
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "feature:gemma": {
       "affects": [],
