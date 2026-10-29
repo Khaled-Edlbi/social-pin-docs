@@ -17,6 +17,8 @@ tags: [qa-backend, qa-backend/failing, module/identity, layer/qa]
 
 # 🧪 Auth & Sign-up · QA Backend
 
+> ⚠ Affected by [[BD-02 Auth & Sign-up Backend Delivery]] (2026-10-29): [[B-06 Timestamps the app writes are stored shifted by the server time zone]] fixed on backend `main @ 26958cd`: every Postgres session runs in UTC, so row B15 can be set up by ageing a code with Postgres's `now()` again. Re-run B15 that way on `main @ 26958cd` and clear the B-06 `pending` entry. Run on Node 20.19+ against a fully migrated database (`pnpm prisma:deploy`).
+
 > Blocked by default until [[BD-02 Auth & Sign-up Backend Delivery]] is `done` (the hand-off order in `docs.config.json`); `blockedBy: []` opts out, `blockedBy: [...]` names other blockers.
 
 **Feature:** [[F-02 Auth & Sign-up]] · **Verifies:** [[BD-02 Auth & Sign-up Backend Delivery]] against [[S-02 Auth & Sign-up Story]] and [[FR-02 Auth & Sign-up Frontend Requirements]], with the shapes and errors of [[BI-02 Auth & Sign-up Backend Integration]] · **Verdict:** 🔴 Failing · 2026-10-27 · `main @ b4984d6 · localhost:3001, Node 22.22.2` · 45 of 48 as expected

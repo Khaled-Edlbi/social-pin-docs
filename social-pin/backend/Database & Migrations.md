@@ -1,7 +1,10 @@
 ---
 type: project
 created: 2026-10-15
-updated: 2026-10-28
+updated: 2026-10-29
+depends: []
+affects: []
+related: ["B-06 Timestamps the app writes are stored shifted by the server time zone", "BD-02 Auth & Sign-up Backend Delivery"]
 tags: [project]
 layer: backend
 ---
@@ -23,6 +26,8 @@ layer: backend
 - Import from `../../generated/prisma/client`, never `@prisma/client`.
 - **No `Prisma.validator`** on this generator: use `satisfies` select objects and `GetPayload` types in `src/prisma/validators/`.
 - **All `DateTime` columns are `@db.Timestamptz(3)`.** A new one without it is a bug.
+- **Every database session runs in UTC.** `@prisma/adapter-pg` sends a `Date` as its UTC wall-clock time with no offset, and Postgres reads an offset-less `timestamptz` in the session's `TimeZone`; on a server whose default is not UTC every write was stored shifted by that offset, and the adapter shifted reads back, so only raw queries, `now()` and constraints saw it ([[B-06 Timestamps the app writes are stored shifted by the server time zone]]). `createPgAdapter` in `src/prisma/pg-adapter.ts` builds the one adapter `PrismaService` and the seed use, with `options: '-c TimeZone=UTC'`; never construct `PrismaPg` anywhere else. A `DATABASE_URL` with its own `options=` parameter replaces that pin (`pg` lets the connection string win), so do not put one there. `test/timestamps.e2e-spec.ts` compares a stored code's expiry with Postgres's `now()`; it only means something on a server whose `SHOW timezone` is not UTC.
+- **Rows written before `main @ 26958cd` on a non-UTC server stay shifted.** No data migration: there is no production database, and the shift is each writer's server offset at the time (DST included), so no single correction is right. A development database written that way is rebuilt (`pnpm prisma:deploy` on an empty database, then `pnpm db:seed`) or lived with.
 - Services use `TransactionHost#tx`, never `PrismaService`.
 
 ## The three migrations

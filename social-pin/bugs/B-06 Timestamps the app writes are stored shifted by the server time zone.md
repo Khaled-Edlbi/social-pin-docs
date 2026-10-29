@@ -19,6 +19,8 @@ tags: [bug, bug/todo, module/identity, priority/high]
 
 # ⬜ B-06 · Timestamps the app writes are stored shifted by the server time zone
 
+> ⚠ Affected by [[BD-02 Auth & Sign-up Backend Delivery]] (2026-10-29): fix merged to backend `main @ 26958cd` (branch `B-06/prisma/utc-session-timezone`): every Postgres session is pinned to UTC, so new writes match Postgres's `now()`; the non-UTC check is `test/timestamps.e2e-spec.ts`. Rows stored before it are not corrected; the backend's proposal for them is in [[Database & Migrations#Prisma 7 rules]] (no data migration, rebuild dev databases). Left for `/qa`: re-run QB-05 row B15 on `main @ 26958cd`; `resolution` and `status` are `/qa`'s and `/pm`'s.
+
 **Found against:** [[BD-02 Auth & Sign-up Backend Delivery]] · **Feature:** [[F-02 Auth & Sign-up]] (found here; the defect is in every module) · **Status:** To do · **Priority:** High · **Deadline:** — · **Effort:** M
 
 **Found by:** [[QB-05 Auth & Sign-up QA Backend]] while setting up row B15, on build `main @ b4984d6 · localhost:3001, Node 22.22.2`.
