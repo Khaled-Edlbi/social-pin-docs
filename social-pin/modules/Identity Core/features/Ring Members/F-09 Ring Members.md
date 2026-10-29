@@ -5,30 +5,31 @@ name: "Ring Members"
 priority: critical
 release: mvp
 module: identity
-screens: [s15, s47]
+screens: [s15, s16, s35, s46, s47]
 related: ["F-12 View As & Pin Views"]
 created: 2026-10-18
-updated: 2026-10-28
-owner: "omar"
+updated: 2026-10-29
+owner: "Omar Fostok"
 tags: [feature, module/identity, priority/critical, release/mvp]
 ---
 
 # Ring Members
 
-> ⚠ Affected by [[S-16 Ring Members Story]] (2026-10-29): the story now uses s16 (the picker for "Move from a Ring"), s35 (Scan someone in) and s46 (Add) besides s15 and s47; `screens:` lists s15 and s47 only. s47's note "Reassign / revoke done; detail todo" now reads as a checklist of Rings with a window per Ring. Ask: `/owner add s16, s35, s46 to Ring Members' screens`.
-
 **Backend:** Done · **Priority:** Critical · **Release:** MVP · **Module:** [[M-01 Identity Core Module|Identity Core]]
 
 **Layers:** [[S-16 Ring Members Story|Story]] · [[FR-09 Ring Members Frontend Requirements|Frontend Requirements]] · [[BD-09 Ring Members Backend Delivery|Backend Delivery]] · [[BI-06 Ring Members Backend Integration|Backend Integration]] · [[Ring Members Frontend Delivery|Frontend Delivery]] · [[Ring Members QA Backend|QA Backend]] · [[Ring Members QA Frontend|QA Frontend]]
 
-The owner's roster of a Ring: list, add, edit the access window, move someone to another Ring live, revoke.
+The owner's roster of a Ring: list and search it, add people, approve those who asked to join, set each person's access window, bring people in from another Ring, choose which of my Rings someone is in, remove them. When a Ring lets members see each other, its members see the others.
 
 ## Design reference
 
 | Screen | Name | Note |
 |---|---|---|
-| [[Screen Index#s15|s15]] | Ring people |  |
-| [[Screen Index#s47|s47]] | Connection detail | Reassign / revoke done; detail todo |
+| [[Screen Index#s15|s15]] | Ring people | The roster: search, All / Pending, waiting join requests, "Move from a Ring"; backend done for the owner's actions, names and search not yet |
+| [[Screen Index#s47|s47]] | Connection detail | A checklist of my Rings, with an access window per Ring; add / remove done, one person's Rings in one call and disconnect not yet |
+| [[Screen Index#s16|s16]] | My Rings | Used as the picker for "Move from a Ring" (the steps after it aren't drawn) |
+| [[Screen Index#s35|s35]] | Scanner | "Scan someone in" from s15 ([[F-18 Badge & QR]]) |
+| [[Screen Index#s46|s46]] | Accept · pick a Ring | "Add" from s15, once the connect flow ships ([[F-14 Connections]]) |
 
 Wireframe brief sections: [[Wireframe Brief#Ring management|§4.2 Ring management]], [[Wireframe Brief#Connection screens|§5.1 Connection screens]], [[Wireframe Brief#Connection motion & states|§5.2 Connection motion & states]]
 
