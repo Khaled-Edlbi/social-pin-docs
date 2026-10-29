@@ -3227,6 +3227,7 @@
       "notes": [
         "backend-delivery:ring-members",
         "backend-integration:ring-members",
+        "feature:ring-access",
         "feature:ring-members",
         "frontend-requirements:ring-access",
         "frontend-requirements:ring-members",
@@ -3248,6 +3249,7 @@
         "backend-delivery:rings",
         "backend-integration:rings",
         "feature:counts",
+        "feature:ring-access",
         "feature:rings",
         "frontend-requirements:counts",
         "frontend-requirements:ring-access",
@@ -3274,6 +3276,7 @@
         "backend-delivery:rings",
         "backend-integration:rings",
         "feature:counts",
+        "feature:ring-access",
         "feature:ring-invitations",
         "feature:rings",
         "frontend-requirements:counts",
@@ -3454,6 +3457,7 @@
         "backend-delivery:rings",
         "backend-integration:rings",
         "feature:delegated-admins",
+        "feature:ring-access",
         "feature:rings",
         "frontend-requirements:delegated-admins",
         "frontend-requirements:ring-access",
@@ -3476,6 +3480,7 @@
       "notes": [
         "backend-delivery:delegated-admins",
         "feature:delegated-admins",
+        "feature:ring-access",
         "frontend-requirements:delegated-admins",
         "frontend-requirements:ring-access",
         "frontend-requirements:rings",
@@ -3731,6 +3736,7 @@
         "feature:connections",
         "feature:files",
         "feature:profiles",
+        "feature:ring-access",
         "feature:view-as",
         "frontend-requirements:badge-qr",
         "frontend-requirements:connections",
@@ -3798,6 +3804,7 @@
         "backend-delivery:ring-members",
         "backend-integration:ring-members",
         "feature:connections",
+        "feature:ring-access",
         "feature:ring-members",
         "frontend-requirements:connections",
         "frontend-requirements:ring-access",
@@ -4031,6 +4038,7 @@
         "backend-integration:rings",
         "feature:connections",
         "feature:post-event",
+        "feature:ring-access",
         "feature:rings",
         "frontend-requirements:connections",
         "frontend-requirements:post-event",
@@ -39471,7 +39479,16 @@
         "ready": 1
       },
       "scope": null,
-      "screens": [],
+      "screens": [
+        "s15",
+        "s16",
+        "s17",
+        "s26",
+        "s27",
+        "s44",
+        "s47",
+        "s62"
+      ],
       "status": null,
       "summary": "RingAccessService: the one place that decides whether a viewer may see something. Every read path, and every future feature (events, meetings, chat, posts, Gemma), routes through it.",
       "tags": [
@@ -39482,7 +39499,7 @@
       ],
       "task": null,
       "title": "F-08 Ring Access Engine",
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "feature:ring-invitations": {
       "affects": [],
