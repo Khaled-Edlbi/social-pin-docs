@@ -15,6 +15,8 @@ tags: [feature, module/identity, priority/critical, release/mvp]
 
 # Ring Members
 
+> ⚠ Affected by [[S-16 Ring Members Story]] (2026-10-29): the story now uses s16 (the picker for "Move from a Ring"), s35 (Scan someone in) and s46 (Add) besides s15 and s47; `screens:` lists s15 and s47 only. s47's note "Reassign / revoke done; detail todo" now reads as a checklist of Rings with a window per Ring. Ask: `/owner add s16, s35, s46 to Ring Members' screens`.
+
 **Backend:** Done · **Priority:** Critical · **Release:** MVP · **Module:** [[M-01 Identity Core Module|Identity Core]]
 
 **Layers:** [[S-16 Ring Members Story|Story]] · [[FR-09 Ring Members Frontend Requirements|Frontend Requirements]] · [[BD-09 Ring Members Backend Delivery|Backend Delivery]] · [[BI-06 Ring Members Backend Integration|Backend Integration]] · [[Ring Members Frontend Delivery|Frontend Delivery]] · [[Ring Members QA Backend|QA Backend]] · [[Ring Members QA Frontend|QA Frontend]]

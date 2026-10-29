@@ -13,6 +13,8 @@ tags: [frontend-requirements, frontend-requirements/draft, module/identity, laye
 
 # Ring Members · Frontend Requirements
 
+> ⚠ Affected by [[S-16 Ring Members Story]] (2026-10-29): design review. S1: rows (name, headline, added; window and lapsed when set), **search by name** (new ask), All · Pending filters, "N people". S3: window line per ticked Ring on s47. S4: bring people in from another Ring (s15 → pick a Ring → pick people → `reassign`). S5: s47 checklist (tick adds, untick removes), **which of my Rings one person is in, with each window, in one call** (new ask). S8: "Members · N" on a person's card when the setting is on (**member-side list**, new ask). S9: approve join requests on s15 (S-33). The setting is [[S-18 Rings Story|Rings · S9]], not ND-04. Screens: s15, s16, s35, s46, s47.
+
 > ⚠ Affected by [[D-04 Ring settings at launch and their defaults]] (2026-10-25): ND-04 decided, six Ring settings at launch with private defaults (join with a code or invite, approve each one, members can't see each other, invite or save attachments); the owner and the Ring's admins change them; members who may see each other see full cards.
 
 > ⚠ Affected by [[D-14 Shared with me lists people, never the Ring]] (2026-10-25): ND-14 decided, option 2: Shared with me lists the people who share with me and never shows a Ring's name, colour or type to a member.

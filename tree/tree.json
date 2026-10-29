@@ -2285,8 +2285,7 @@
         "backend-delivery:ring-members",
         "backend-integration:ring-members",
         "frontend-requirements:connections",
-        "frontend-requirements:ring-members",
-        "story:ring-members"
+        "frontend-requirements:ring-members"
       ],
       "owner": "feature:ring-members"
     },
@@ -3241,6 +3240,7 @@
       "containers": [
         "feature:counts",
         "feature:ring-access",
+        "feature:ring-members",
         "feature:rings"
       ],
       "kind": "screen",
@@ -3256,6 +3256,7 @@
         "frontend-requirements:rings",
         "story:counts",
         "story:ring-access",
+        "story:ring-members",
         "story:rings"
       ],
       "owner": null
@@ -3592,6 +3593,16 @@
       ],
       "owner": null
     },
+    "s35": {
+      "containers": [
+        "feature:ring-members"
+      ],
+      "kind": "screen",
+      "notes": [
+        "story:ring-members"
+      ],
+      "owner": null
+    },
     "s36": {
       "containers": [
         "feature:files",
@@ -3778,6 +3789,7 @@
     "s46": {
       "containers": [
         "feature:connections",
+        "feature:ring-members",
         "needs-decision:ND-14"
       ],
       "kind": "screen",
@@ -3786,7 +3798,8 @@
         "feature:connections",
         "frontend-requirements:connections",
         "needs-decision:ND-14",
-        "story:connections"
+        "story:connections",
+        "story:ring-members"
       ],
       "owner": null
     },
@@ -4306,9 +4319,9 @@
       "qa": 3,
       "shared": 10
     },
-    "concepts": 203,
+    "concepts": 204,
     "decisions": 21,
-    "edges": 4002,
+    "edges": 4005,
     "features": 41,
     "layerNotes": 132,
     "modules": 8,
@@ -13125,6 +13138,21 @@
       "from": "story:ring-members",
       "kind": "related",
       "to": "decision:D-18"
+    },
+    {
+      "from": "story:ring-members",
+      "kind": "related",
+      "to": "story:connections"
+    },
+    {
+      "from": "story:ring-members",
+      "kind": "related",
+      "to": "story:ring-invitations"
+    },
+    {
+      "from": "story:ring-members",
+      "kind": "related",
+      "to": "story:rings"
     },
     {
       "from": "story:ring-projection",
@@ -27098,6 +27126,11 @@
       "to": "story:ring-members"
     },
     {
+      "from": "frontend-requirements:ring-members",
+      "kind": "wikilink",
+      "to": "story:rings"
+    },
+    {
       "from": "frontend-requirements:ring-projection",
       "kind": "wikilink",
       "to": "backend-integration:ring-projection"
@@ -30075,12 +30108,7 @@
     {
       "from": "story:ring-members",
       "kind": "wikilink",
-      "to": "story:connections"
-    },
-    {
-      "from": "story:ring-members",
-      "kind": "wikilink",
-      "to": "story:rings"
+      "to": "feature:badge-qr"
     },
     {
       "from": "story:ring-projection",
@@ -52737,6 +52765,7 @@
         "frontend-requirements:photo-library",
         "frontend-requirements:ring-access",
         "story:ring-access",
+        "story:ring-members",
         "frontend-requirements:rings"
       ],
       "release": "mvp",
@@ -54232,6 +54261,7 @@
       "priority": "high",
       "related": [
         "frontend-requirements:ring-access",
+        "story:ring-members",
         "frontend-requirements:rings",
         "decision:D-04",
         "decision:D-14",
@@ -54293,17 +54323,23 @@
         "decision:D-04",
         "decision:D-14",
         "decision:D-15",
-        "decision:D-18"
+        "decision:D-18",
+        "story:rings",
+        "story:connections",
+        "story:ring-invitations"
       ],
       "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
         "s15",
+        "s16",
+        "s35",
+        "s46",
         "s47"
       ],
       "status": "approved",
-      "summary": "A Ring owner manages who is in a Ring: sees the roster, adds someone, gives them a time-boxed window, moves them to another Ring when the relationship changes, or revokes them. Every change is…",
+      "summary": "A Ring owner manages who is in a Ring: sees the roster, adds someone, gives them a time-boxed window, moves them between Rings when the relationship changes, or removes them. Every change is live:…",
       "tags": [
         "story",
         "story/approved",
@@ -54312,7 +54348,7 @@
       ],
       "task": null,
       "title": "S-16 Ring Members Story",
-      "updated": "2026-10-28"
+      "updated": "2026-10-29"
     },
     "story:ring-projection": {
       "affects": [],
@@ -54413,6 +54449,7 @@
       "related": [
         "frontend-requirements:ring-access",
         "story:ring-access",
+        "story:ring-members",
         "frontend-requirements:rings",
         "decision:D-04",
         "decision:D-05",
