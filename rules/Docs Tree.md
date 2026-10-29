@@ -2,7 +2,7 @@
 type: project
 layer: shared
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-10-29
 related: ["Agent Rules", "Workflow", "Project Overview"]
 tags: [project, layer/shared, map]
 ---
@@ -58,7 +58,7 @@ On disk the story sits beside the feature card and the six other layer notes in 
 | Chip | Meaning |
 |---|---|
 | Done / Partial / In progress / To do | a card: a delivery note's state, a bug. **Partial** is done with `pending` notes left for a card or a person (the chip counts them). A feature or module shows the roll-up of its cards (the project card shows its stage and release progress instead, [[#Stage, release and environments]]): Done only when every card is done, Partial when every card is done or partial, In progress while the cards are a mix |
-| Draft ✏️ / Approved 👍 / Fulfilled ✅ | a story: before product sign-off, after it (handed off, not done), and once the PM fulfils it after both QA notes pass with nothing pending (`status: verified`); on the page a fulfilled story folds its flow until you expand it |
+| Draft ✏️ / Approved 👍 / Fulfilled ✅ | a story: before product sign-off, after it (handed off, not done), and once the PM fulfils it after both QA notes pass with nothing pending or unmet (`status: verified`); on the page a fulfilled story folds its flow until you expand it |
 | Draft ✏️ / Ready 📨 / Approved 👍 / Delivered ✅ | frontend requirements: being written, finished by the frontend and waiting for the backend, accepted by the backend, and delivered on its own once the backend cards of its scope are done with nothing pending (set by hand only on a `frontendOnly` feature) |
 | Draft ✏️ / Current 🔵 / Delivered ✅ | a Backend Integration note: being written (or out of date); matching `main`, in use by the frontend and QA but not done; and, computed by the build, done once the QA Backend of its scope is passing and its Frontend Delivery done, both with nothing pending |
 | Draft / Passing / Failing | a QA note before and after a run |
@@ -76,7 +76,7 @@ Nothing on a feature, a module or the project is typed by hand: the chip is the 
 
 ### Priority and deadline marks
 
-Two badges on the card's corners: the **priority flag** on the top-left, the **deadline clock** on the bottom-right (the story verdict keeps the top-right). Hover either for the words; the outline row and the pane repeat them as small chips.
+Two badges on the card's corners: the **priority flag** on the top-left, the **deadline clock** on the bottom-right (the story verdict keeps the top-right). Hover either for the words; the outline row and the pane repeat them as small chips. The **story verdict** answers *does the delivery fulfil the story*: ✕ *Not as the story says* while a QA note of the feature lists a part in `unmet`, ◷ *Pending* otherwise, open bugs included, ✓ *Fulfilled* once the PM sets it. A **🐞** on the bottom-left corner marks a card with open bugs found against it (not `done`); hover for their codes, the pane lists them under *Open bugs* and a QA note's unfulfilled parts under *Story parts unmet* ([[Agent Rules#4 · Statuses, blocking and sign-off]]).
 
 | Mark | Meaning |
 |---|---|

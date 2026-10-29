@@ -2,7 +2,7 @@
 type: project
 layer: shared
 created: 2026-10-19
-updated: 2026-10-28
+updated: 2026-10-29
 depends: ["Agent Protocol"]
 affects: []
 related: ["Agent Protocol", "Agent Rules", "Workflow"]
@@ -51,7 +51,14 @@ You read the story, both delivery notes and the integration note. You never writ
 
 ### 4B · Record a run
 
-Rows checked, `status: passing | failing`, the run date and the build in the verdict section, the tag and the emoji, `updated:`. A failing row names expected and actual. 
+Rows checked, `status: passing | failing`, the run date and the build in the verdict section, the tag and the emoji, `updated:`. A failing row names expected and actual, and is one of two findings ([[Agent Rules#4 · Statuses, blocking and sign-off]]):
+
+| The row fails because | It goes | The story's badge |
+|---|---|---|
+| the story part was not built, or was built other than the story says | a line in `unmet`, addressed to the card that owes it: `"[[BD-NN <Feature> Backend Delivery]]: S3 · what the story says, what was delivered"`; to the story itself, `[[S-NN …]]`, when the story is wrong or unclear (say so in your report: the PM raises the needs-decision card) | ✕ until you clear the line |
+| it was built as asked, but it breaks | a bug filed against the Backend Integration or the Frontend Delivery (4C), named in `pending` | stays ◷; the bug marks the card it was found against with 🐞 |
+
+When you cannot tell which it is, ask in your align message; never put the same row in both.
 
 ### 4C · File a bug
 
@@ -73,7 +80,7 @@ Flag the delivery note (`> ⚠ Affected by [[<the card> …]] (date): <what diff
 
 ### 4E · Report a story ready to fulfil
 
-You never change a story. When every QA note of a story's scope is `passing` with nothing left in `pending` (QA Backend and QA Frontend, only QA Frontend for a `frontendOnly` feature), say so in your report: "S-NN is ready to fulfil: `/pm fulfil S-NN`". The PM sets it ✅ Fulfilled ([[PM Agent#5 · Sign-off and status changes]]); a QA note still Partial (rows not run, `pending` not empty) keeps the story waiting, and the build refuses it.
+You never change a story. When every QA note of a story's scope is `passing` with nothing left in `pending` or `unmet` (QA Backend and QA Frontend, only QA Frontend for a `frontendOnly` feature), say so in your report: "S-NN is ready to fulfil: `/pm fulfil S-NN`". The PM sets it ✅ Fulfilled ([[PM Agent#5 · Sign-off and status changes]]); a QA note still Partial (rows not run, `pending` not empty) keeps the story waiting, and the build refuses it.
 
 ### 4F · Status transitions: yours, unasked
 
@@ -82,7 +89,8 @@ Moving these is part of the work, not a separate request: when the run ends, you
 | When | Card | Status | In the same commit |
 |---|---|---|---|
 | a run on a named build, every row run and as expected | QA Backend / QA Frontend | → `passing` | the verdict with the build and the date; `pending` cleared of what the run settled |
-| a run where a row differs | QA Backend / QA Frontend | → `failing` | the bug filed (4C) and named in `pending` |
+| a run where a row differs | QA Backend / QA Frontend | → `failing` | a story part not fulfilled in `unmet`, a bug filed (4C) and named in `pending` (4B) |
+| a re-run shows an `unmet` part delivered | QA Backend / QA Frontend | its line removed from `unmet`; `passing` once nothing differs | the row ✅; the story's badge returns from ✕ to ◷ by itself |
 | a row that differs | a new bug | `todo` (from the scaffold) | hung where it was found; the note it contradicts flagged (4D) |
 | a re-run shows the bug gone | the bug | `resolution:` on the user's word (4C) | the row ✅, the bug's entry removed from your note's `pending` |
 | every QA note of a story's scope passes with nothing pending | the story | **not yours** | report "S-NN is ready to fulfil" (4E); the PM sets it |

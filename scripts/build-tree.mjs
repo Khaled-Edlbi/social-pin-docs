@@ -440,7 +440,7 @@ export function build() {
     priority: n?.data?.priority ?? null, effort: n?.data?.effort ?? null, module: n?.data?.module ?? null, feature: null, task: null, code: null, scope: null,
     screens: list(n?.data?.screens), created: n?.data?.created ?? null, updated: n?.data?.updated ?? n?.data?.created ?? null, tags: list(n?.data?.tags),
     deadline: n?.data?.deadline ?? null, release: null, inherits: {},
-    depends: [], affects: [], related: [], children: [], parents: [], summary: n?.summary ?? null, label: null, parentTask: null, foundOn: null, pending: [], frontendOnly: false, labels: [], card: null, ...extra,
+    depends: [], affects: [], related: [], children: [], parents: [], summary: n?.summary ?? null, label: null, parentTask: null, foundOn: null, pending: [], unmet: [], openBugs: [], frontendOnly: false, labels: [], card: null, ...extra,
   });
   const byType = (t) => notes.filter((n) => n.data && n.data.type === t && !n.rel.startsWith('templates/'));
   const requireKeys = (n, keys) => { for (const k of keys) if (n.data[k] === undefined || n.data[k] === null || n.data[k] === '') err(n.rel, `missing frontmatter key "${k}"`); };
@@ -817,6 +817,8 @@ export function build() {
 
   // ---------------------------------------------------------- pending: done, but a note is left for a card or a person → Partial until cleared
   const PENDING_NOTE = /^\[\[([^\]]+?)\]\]\s*:?\s*(.*)$/, PENDING_PERSON = /^@([\w.-]+)\s*:?\s*(.*)$/;
+  // the QA kinds: the ones the flow hands back to the story (docs.config.json flow)
+  const QA_KIND_IDS = new Set((cfg.flow || []).filter(([, to]) => to === 'story').map(([from]) => from));
   for (const [id, note] of noteOf) {
     const n = nodes[id];
     if (!(n.kind === 'task' || KIND.has(n.kind))) continue;
@@ -831,6 +833,26 @@ export function build() {
       n.pending.push(item);
     }
     if (n.pending.length && isDone(n)) n.effectiveStatus = 'partial';
+    // unmet: the story parts a QA run found the delivery does not fulfil (not built, or built other than the story says), each naming
+    // the card that owes it; a QA note only. It turns the story's verdict ✕ and keeps it from being fulfilled; a bug goes in pending instead
+    const unmet = list(note.data.unmet);
+    if (unmet.length && !QA_KIND_IDS.has(n.kind)) { err(note.rel, `unmet: belongs on a QA note only (${[...QA_KIND_IDS].join(', ')}); a bug or a gap on this ${n.kind} goes in pending`); continue; }
+    for (const raw of unmet) {
+      let m, item = { text: raw.trim(), to: null, person: null };
+      if ((m = PENDING_NOTE.exec(raw.trim()))) {
+        const r = resolve(parseWikilink(m[1]).target, n);
+        if (!r) { err(note.rel, `unmet: "[[${m[1]}]]" is not a note name, bug, decision, feature or sibling kind`); continue; }
+        item = { text: m[2].trim(), to: r.ids[0], person: null };
+        addEdge(id, r.ids[0], 'pending');
+      } else if ((m = PENDING_PERSON.exec(raw.trim()))) item = { text: m[2].trim(), to: null, person: m[1] };
+      n.unmet.push(item);
+    }
+    if (n.unmet.length && isDone(n)) err(note.rel, `status: ${n.status} with ${n.unmet.length} unmet story part${n.unmet.length === 1 ? '' : 's'}: a run that finds the story not fulfilled is failing`);
+  }
+  // open bugs: a bug not done marks the card it was found against (foundOn), computed and never typed; it says nothing about the story
+  for (const [, t] of taskNodes) {
+    if (t.status === 'done') continue;
+    for (const p of t.parents) if (nodes[p] && nodes[p].kind !== 'feature') nodes[p].openBugs.push(t.id);
   }
   // a card is handed off (and stops blocking the next one) at its handoff statuses, else when done
   const handedOff = (n) => isDone(n) || (KIND.has(n.kind) && (KIND.get(n.kind).handoff || []).includes(n.status));
@@ -867,7 +889,7 @@ export function build() {
     if (bd.status === 'done' && !(bi && bi.status === 'current')) warn(bd.path, `status: done, but its Backend Integration is ${bi ? `\`${bi.status}\`` : 'not written'}: the requirements of this scope cannot reach \`delivered\` until it is \`current\``);
   }
 
-  // a story is fulfilled (`verified`) by the PM only once QA has finished on its scope: every QA note it needs is passing with nothing pending
+  // a story is fulfilled (`verified`) by the PM only once QA has finished on its scope: every QA note it needs is passing with nothing pending or unmet
   const QA_KINDS = { backend: 'qa-backend', frontend: 'qa-frontend' };
   for (const s of Object.values(nodes)) {
     if (s.kind !== 'story' || s.status !== 'verified' || !s.path) continue;
@@ -878,6 +900,7 @@ export function build() {
       const q = Object.values(nodes).find((x) => x.path && r.find(x));
       const label = KIND.get(r.kind)?.label || r.kind;
       if (!q) err(s.path, `status is verified (fulfilled) but ${label} for ${r.where} is not written yet: the PM fulfils a story only when QA has finished`);
+      else if (q.unmet.length) err(s.path, `status is verified (fulfilled) but ${q.title} found ${q.unmet.length} story part${q.unmet.length === 1 ? '' : 's'} unmet: the PM fulfils a story only when the delivery fulfils every part of it`);
       else if (!KIND.get(r.kind).done.includes(q.status)) err(s.path, `status is verified (fulfilled) but ${q.title} is ${q.status}: the PM fulfils a story only when every QA note of its scope is passing`);
       else if (q.pending.length) err(s.path, `status is verified (fulfilled) but ${q.title} still has ${q.pending.length} pending note${q.pending.length === 1 ? '' : 's'}: the PM fulfils a story only when QA has finished with no notes left`);
     }
@@ -1196,7 +1219,7 @@ function treeMarkdown(json) {
   const seen = new Set();
   const walkNode = (id, depth) => {
     const n = nodes[id];
-    const extra = [n.card && !n.title.startsWith(n.card) ? n.card : null, n.label && !['feature', 'module', 'task'].includes(n.kind) ? n.label : null, n.kind === 'root' ? stageText(json, n) : null, n.kind === 'feature' ? `release ${releaseLabel(json, n.release)}` : null, n.deployedTo?.length ? `on ${n.deployedTo.join(', ')}` : null, n.parentTask ? `sub-task of ${n.parentTask}` : null, ...(n.labels || []), n.resolution ? resolutionLabel(json, n.resolution) : null, n.frontendOnly ? 'frontend only' : null, n.pending?.length ? `${n.pending.length} pending note${n.pending.length === 1 ? '' : 's'}` : null, priorityLabel(json, n), n.deadline ? `due ${n.deadline}` : null, n.blockedBy?.length ? `blocked by ${n.blockedBy.map((b) => b.title).join(', ')}` : null].filter(Boolean).join(', ');
+    const extra = [n.card && !n.title.startsWith(n.card) ? n.card : null, n.label && !['feature', 'module', 'task'].includes(n.kind) ? n.label : null, n.kind === 'root' ? stageText(json, n) : null, n.kind === 'feature' ? `release ${releaseLabel(json, n.release)}` : null, n.deployedTo?.length ? `on ${n.deployedTo.join(', ')}` : null, n.parentTask ? `sub-task of ${n.parentTask}` : null, ...(n.labels || []), n.resolution ? resolutionLabel(json, n.resolution) : null, n.frontendOnly ? 'frontend only' : null, n.pending?.length ? `${n.pending.length} pending note${n.pending.length === 1 ? '' : 's'}` : null, n.unmet?.length ? `${n.unmet.length} story part${n.unmet.length === 1 ? '' : 's'} unmet` : null, n.openBugs?.length ? `open bug${n.openBugs.length === 1 ? '' : 's'} ${n.openBugs.map((b) => nodes[b]?.code ?? b).join(', ')}` : null, priorityLabel(json, n), n.deadline ? `due ${n.deadline}` : null, n.blockedBy?.length ? `blocked by ${n.blockedBy.map((b) => b.title).join(', ')}` : null].filter(Boolean).join(', ');
     lines.push(`${'  '.repeat(depth)}- ${emojiOf(n)} ${mdLink(n)}${extra ? ` (${extra})` : ''}`);
     if (seen.has(id) && n.children.length) { lines.push(`${'  '.repeat(depth + 1)}- (see above)`); return; }
     seen.add(id);
@@ -1615,7 +1638,7 @@ function renameLinks(text, renames) {
   if (end < 0) return out;
   const fm = out.slice(0, end).split('\n').map((raw) => {
     const cr = raw.endsWith('\r') ? '\r' : '', line = cr ? raw.slice(0, -1) : raw; // the notes keep the line endings they have
-    const m = /^(depends|affects|related|blockedBy|blocks|foundOn|pending): (.*)$/.exec(line);
+    const m = /^(depends|affects|related|blockedBy|blocks|foundOn|pending|unmet): (.*)$/.exec(line);
     if (!m) return raw;
     const item = (s) => { const q = /^"(.*)"$/.exec(s); const v = q ? q[1] : s; return renames.has(v) ? (q || /\s/.test(renames.get(v)) ? JSON.stringify(renames.get(v)) : renames.get(v)) : s; };
     const list = /^\[(.*)\]$/.exec(m[2]);
