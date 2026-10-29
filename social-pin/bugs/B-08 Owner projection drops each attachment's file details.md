@@ -1,7 +1,8 @@
 ---
 type: bug
 id: B-08
-status: todo
+status: done
+resolution: fixed
 priority: high
 effort: S
 feature: ring-projection
@@ -10,16 +11,16 @@ foundOn: "BI-07 Ring Projection Backend Integration"
 screens: [s14, s24, s36]
 depends: []
 affects: ["BI-07 Ring Projection Backend Integration", "QB-06 Files Upload QA Backend"]
-related: ["BI-07 Ring Projection Backend Integration", "QB-06 Files Upload QA Backend", "S-06 Files Upload Story", "BI-03 Files Upload Backend Integration", "BI-09 View As & Pin Views Backend Integration", "GET /rings/:ringId/projection", "PATCH /rings/:ringId/projection", "POST /rings/:ringId/projection/attachments"]
+related: ["BI-07 Ring Projection Backend Integration", "BD-10 Ring Projection Backend Delivery", "QB-06 Files Upload QA Backend", "S-06 Files Upload Story", "BI-03 Files Upload Backend Integration", "BI-09 View As & Pin Views Backend Integration", "GET /rings/:ringId/projection", "PATCH /rings/:ringId/projection", "POST /rings/:ringId/projection/attachments"]
 pending: []
 created: 2026-10-29
 updated: 2026-10-29
-tags: [bug, bug/todo, module/identity, priority/high]
+tags: [bug, bug/done, module/identity, priority/high, resolution/fixed]
 ---
 
-# ⬜ B-08 · Owner projection drops each attachment's file details
+# ✅ B-08 · Owner projection drops each attachment's file details
 
-**Found against:** [[BI-07 Ring Projection Backend Integration]] · **Feature:** [[F-10 Ring Projection]] · **Status:** To do · **Priority:** High · **Deadline:** — · **Effort:** S
+**Found against:** [[BI-07 Ring Projection Backend Integration]] · **Feature:** [[F-10 Ring Projection]] · **Status:** Done · **Resolution:** fixed · **Priority:** High · **Deadline:** — · **Effort:** S
 
 **Found by:** [[QB-06 Files Upload QA Backend]] rows B12 and B16, on build `main @ c85db4b · localhost:3101, Node 22.22.2`.
 
@@ -49,12 +50,13 @@ Output of `node scripts/build-tree.mjs --impact B-08` when the bug was filed: th
 
 ## Definition of done
 
-- [ ] The behaviour is fixed, or the notes are corrected, as the decision says (`resolution:` set, the tag `resolution/<id>` with it)
-- [ ] The QA rows that found it (B12, B16) re-run against the fix, on a named build
-- [ ] `depends` / `affects` / `related` declared; notes listed by `--impact` updated or flagged
-- [ ] `node scripts/build-tree.mjs` run; tree, board and backlog committed
+- [x] The behaviour is fixed: `RingProfileService.toOwnerView` returns each attachment's `fileId`, `filename`, `mimeType` and `sizeBytes` on every owner route (`main @ c80ed9d`); `resolution: fixed`, the tag `resolution/fixed` with it
+- [x] The QA rows that found it (B12, B16) re-run against the fix: ✅ on `main @ c80ed9d · localhost:3101, Node 22.22.2`, with the other 30 rows of [[QB-06 Files Upload QA Backend]]
+- [x] `depends` / `affects` / `related` declared; [[BD-10 Ring Projection Backend Delivery]] records the fix and the flag on [[BI-07 Ring Projection Backend Integration]] is cleared
+- [x] `node scripts/build-tree.mjs` run; tree, board and backlog committed
 
 ## Log
 
 - 2026-10-29 · filed with --scaffold bug, found against BI-07 Ring Projection Backend Integration, from [[QB-06 Files Upload QA Backend]] rows B12 and B16 on `main @ c85db4b`
 - 2026-10-29 · fix merged: branch `B-08/ring-profile/owner-attachment-file-details`, backend `main @ c80ed9d`. `RingProfileService.toOwnerView` flattens each attachment's file on every owner route; recorded in [[BD-10 Ring Projection Backend Delivery]], BI-07's flag cleared. [[QB-06 Files Upload QA Backend]] re-run on that build: B12 and B16 ✅, 32 of 32. Left: `resolution` and `status`, on the user's word.
+- 2026-10-29 · closed by `/qa` on khaled's word: [[QB-06 Files Upload QA Backend]] B12 and B16 ✅ on `main @ c80ed9d`. `status: done`, `resolution: fixed`.

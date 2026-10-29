@@ -4514,12 +4514,12 @@
     },
     "concepts": 213,
     "decisions": 21,
-    "edges": 4292,
+    "edges": 4291,
     "features": 41,
     "layerNotes": 133,
     "modules": 8,
     "notes": 276,
-    "partial": 5,
+    "partial": 4,
     "placeholders": 152,
     "records": 15
   },
@@ -7011,11 +7011,6 @@
       "from": "qa-backend:auth",
       "kind": "pending",
       "to": "task:B-06"
-    },
-    {
-      "from": "qa-backend:files",
-      "kind": "pending",
-      "to": "task:B-08"
     },
     {
       "from": "qa-frontend:account",
@@ -41209,7 +41204,7 @@
         "decided": 1,
         "done": 2,
         "missing": 2,
-        "partial": 1,
+        "passing": 1,
         "ready": 1,
         "verified": 1
       },
@@ -42479,10 +42474,9 @@
         "approved": 1,
         "current": 1,
         "decided": 3,
-        "done": 1,
+        "done": 2,
         "missing": 3,
         "ready": 1,
-        "todo": 1,
         "verified": 3
       },
       "scope": null,
@@ -48107,16 +48101,16 @@
         "current": 8,
         "decided": 8,
         "delivered": 2,
-        "done": 10,
+        "done": 11,
         "draft": 3,
         "failing": 1,
         "in-progress": 13,
         "missing": 38,
         "needs-decision": 2,
-        "partial": 5,
-        "passing": 1,
+        "partial": 4,
+        "passing": 2,
         "ready": 9,
-        "todo": 5,
+        "todo": 4,
         "verified": 8
       },
       "scope": null,
@@ -52234,7 +52228,7 @@
         "backend-delivery:files",
         "story:files"
       ],
-      "effectiveStatus": "partial",
+      "effectiveStatus": "passing",
       "effort": null,
       "feature": "files",
       "foundOn": null,
@@ -52254,13 +52248,7 @@
         "feature:files"
       ],
       "path": "social-pin/modules/Identity Core/features/Files Upload/flow/QB-06 Files Upload QA Backend.md",
-      "pending": [
-        {
-          "person": null,
-          "text": "rows B12 and B16 pass on `main @ c80ed9d`; closing the bug (resolution `fixed`) waits on the user's word",
-          "to": "task:B-08"
-        }
-      ],
+      "pending": [],
       "priority": "high",
       "related": [
         "task:B-07",
@@ -55217,17 +55205,17 @@
         "current": 8,
         "decided": 15,
         "delivered": 2,
-        "done": 11,
+        "done": 12,
         "draft": 32,
         "failing": 1,
         "in-progress": 45,
         "missing": 152,
         "needs-decision": 3,
-        "partial": 5,
-        "passing": 1,
+        "partial": 4,
+        "passing": 2,
         "ready": 9,
         "reference": 31,
-        "todo": 10,
+        "todo": 9,
         "verified": 15
       },
       "scope": null,
@@ -58356,7 +58344,7 @@
       "decision": null,
       "depends": [],
       "dir": null,
-      "effectiveStatus": "todo",
+      "effectiveStatus": "done",
       "effort": "S",
       "feature": "ring-projection",
       "foundOn": "BI-07 Ring Projection Backend Integration",
@@ -58381,6 +58369,7 @@
       "priority": "high",
       "related": [
         "backend-integration:ring-projection",
+        "backend-delivery:ring-projection",
         "qa-backend:files",
         "story:files",
         "backend-integration:files",
@@ -58389,7 +58378,6 @@
         "frontend-requirements:files",
         "frontend-requirements:photo-library",
         "frontend-requirements:profiles",
-        "backend-delivery:ring-projection",
         "frontend-requirements:ring-projection",
         "story:ring-projection",
         "frontend-requirements:widgets",
@@ -58399,7 +58387,7 @@
         "frontend-requirements:ring-access"
       ],
       "release": "mvp",
-      "resolution": null,
+      "resolution": "fixed",
       "rollup": {},
       "scope": null,
       "screens": [
@@ -58407,13 +58395,14 @@
         "s24",
         "s36"
       ],
-      "status": "todo",
+      "status": "done",
       "summary": "The fix is the backend's (/backend). Nothing in the viewer's shape changes.",
       "tags": [
         "bug",
-        "bug/todo",
+        "bug/done",
         "module/identity",
-        "priority/high"
+        "priority/high",
+        "resolution/fixed"
       ],
       "task": null,
       "title": "B-08 Owner projection drops each attachment's file details",
