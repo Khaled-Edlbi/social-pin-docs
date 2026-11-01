@@ -36706,7 +36706,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:ring-access",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:ring-access",
+        "release": "feature:ring-access"
+      },
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -36719,7 +36722,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Ring Access Engine/flow/BD-08 Ring Access Engine Backend Delivery.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "frontend-requirements:files",
         "qa-backend:files",
@@ -36728,7 +36731,7 @@
         "frontend-requirements:ring-members",
         "frontend-requirements:ring-projection"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [],
@@ -38807,7 +38810,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:ring-access",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:ring-access",
+        "release": "feature:ring-access"
+      },
       "kind": "backend-integration",
       "label": "Backend Integration",
       "labels": [],
@@ -38820,7 +38826,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Ring Access Engine/flow/BI-05 Ring Access Engine Backend Integration.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "frontend-requirements:files",
         "qa-backend:files",
@@ -38829,7 +38835,7 @@
         "frontend-requirements:ring-members",
         "frontend-requirements:ring-projection"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [],
@@ -42869,7 +42875,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Ring Access Engine/F-08 Ring Access Engine.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "feature:connections",
         "feature:badge-qr",
@@ -42887,7 +42893,7 @@
         "feature:delegated-admins",
         "needs-decision:ND-23"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "rollup": {
         "approved": 1,
@@ -42911,7 +42917,9 @@
       "summary": "RingAccessService: the one place that decides whether a viewer may see something. Every read path, and every future feature (events, meetings, chat, posts, Gemma), routes through it.",
       "tags": [
         "feature",
-        "module/identity"
+        "module/identity",
+        "priority/critical",
+        "release/mvp"
       ],
       "task": null,
       "title": "F-08 Ring Access Engine",
@@ -47669,7 +47677,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:ring-access",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:ring-access",
+        "release": "feature:ring-access"
+      },
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -47682,7 +47693,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Ring Access Engine/flow/FR-08 Ring Access Engine Frontend Requirements.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "frontend-requirements:files",
         "qa-backend:files",
@@ -47756,7 +47767,7 @@
         "project:api-conventions",
         "project:frontend-agent-prompt"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -56304,7 +56315,7 @@
           "done": 0,
           "id": "mvp",
           "partial": 0,
-          "total": 7
+          "total": 8
         },
         {
           "done": 0,
@@ -56322,7 +56333,7 @@
           "done": 0,
           "id": null,
           "partial": 0,
-          "total": 34
+          "total": 33
         }
       ],
       "rollup": {
@@ -58376,7 +58387,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:ring-access",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:ring-access",
+        "release": "feature:ring-access"
+      },
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -58389,7 +58403,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Ring Access Engine/S-15 Ring Access Engine Story.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "needs-decision:ND-23",
         "frontend-requirements:files",
@@ -58408,7 +58422,7 @@
         "frontend-requirements:rings",
         "frontend-requirements:view-as"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
