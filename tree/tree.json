@@ -35379,7 +35379,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:counts",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:counts",
+        "release": "feature:counts"
+      },
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -35392,9 +35395,9 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Counts/flow/BD-03 Counts Backend Delivery.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -41137,7 +41140,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Counts/F-03 Counts.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "feature:connections",
         "feature:account",
@@ -41148,7 +41151,7 @@
         "project:spec-map",
         "story:view-as"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "rollup": {
         "approved": 1,
@@ -41169,7 +41172,9 @@
       "summary": "Member counts per Ring (\"148 people\") and connection counts (\"218 connections\") shown on Home, Ring data, My Rings and Me.",
       "tags": [
         "feature",
-        "module/identity"
+        "module/identity",
+        "priority/critical",
+        "release/mvp"
       ],
       "task": null,
       "title": "F-03 Counts",
@@ -46172,7 +46177,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:counts",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:counts",
+        "release": "feature:counts"
+      },
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -46185,7 +46193,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Counts/flow/FR-03 Counts Frontend Requirements.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "decision:D-04",
         "decision:D-14",
@@ -46202,7 +46210,7 @@
         "frontend-requirements:rings",
         "frontend-requirements:view-as"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -56386,7 +56394,7 @@
           "done": 0,
           "id": "mvp",
           "partial": 0,
-          "total": 15
+          "total": 16
         },
         {
           "done": 0,
@@ -56404,7 +56412,7 @@
           "done": 0,
           "id": null,
           "partial": 0,
-          "total": 26
+          "total": 25
         }
       ],
       "rollup": {
@@ -57089,7 +57097,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:counts",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:counts",
+        "release": "feature:counts"
+      },
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -57102,7 +57113,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Counts/S-03 Counts Story.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "backend-integration:account",
         "frontend-delivery:account",
@@ -57113,7 +57124,7 @@
         "frontend-requirements:rings",
         "frontend-requirements:view-as"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
