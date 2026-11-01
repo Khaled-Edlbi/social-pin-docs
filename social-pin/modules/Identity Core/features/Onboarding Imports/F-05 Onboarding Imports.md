@@ -3,17 +3,19 @@ id: F-05
 type: feature
 module: identity
 feature: onboarding-imports
+priority: critical
+release: mvp
 screens: [s03, s03a, s03b, s04, s05]
 owner: "khaled"
 related: ["F-04 Files Upload"]
 created: 2026-10-15
 updated: 2026-11-01
-tags: [feature, module/identity]
+tags: [feature, module/identity, priority/critical, release/mvp]
 ---
 
 # Onboarding Imports
 
-**Backend:** TODO · **Module:** [[M-01 Identity Core Module|Identity Core]]
+**Backend:** TODO · **Priority:** Critical · **Release:** MVP · **Module:** [[M-01 Identity Core Module|Identity Core]]
 
 **Layers:** [[S-08 Onboarding Imports Story|Story]] · [[FR-05 Onboarding Imports Frontend Requirements|Frontend Requirements]] · [[BD-05 Onboarding Imports Backend Delivery|Backend Delivery]] · [[Onboarding Imports Backend Integration|Backend Integration]] · [[Onboarding Imports Frontend Delivery|Frontend Delivery]] · [[Onboarding Imports QA Backend|QA Backend]] · [[Onboarding Imports QA Frontend|QA Frontend]]
 

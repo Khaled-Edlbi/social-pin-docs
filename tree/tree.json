@@ -36333,7 +36333,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:onboarding-imports",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:onboarding-imports",
+        "release": "feature:onboarding-imports"
+      },
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -36346,9 +36349,9 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Onboarding Imports/flow/BD-05 Onboarding Imports Backend Delivery.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -42402,7 +42405,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Onboarding Imports/F-05 Onboarding Imports.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "feature:files",
         "feature:linked-accounts",
@@ -42415,7 +42418,7 @@
         "story:auth",
         "frontend-requirements:profiles"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "rollup": {
         "blocked": 2,
@@ -42437,7 +42440,9 @@
       "summary": "Start from an import: LinkedIn OAuth → importing → review fields (s04, s05), scan a paper business card (s03a), import from a portfolio or Behance URL (s03b). Only SocialIdentity has a table.",
       "tags": [
         "feature",
-        "module/identity"
+        "module/identity",
+        "priority/critical",
+        "release/mvp"
       ],
       "task": null,
       "title": "F-05 Onboarding Imports",
@@ -47265,7 +47270,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:onboarding-imports",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:onboarding-imports",
+        "release": "feature:onboarding-imports"
+      },
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -47278,7 +47286,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Onboarding Imports/flow/FR-05 Onboarding Imports Frontend Requirements.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "task:B-05",
         "task:B-07",
@@ -47298,7 +47306,7 @@
         "frontend-requirements:photo-library",
         "frontend-requirements:profiles"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -56450,7 +56458,7 @@
           "done": 0,
           "id": "mvp",
           "partial": 0,
-          "total": 23
+          "total": 24
         },
         {
           "done": 0,
@@ -56468,7 +56476,7 @@
           "done": 0,
           "id": null,
           "partial": 0,
-          "total": 18
+          "total": 17
         }
       ],
       "rollup": {
@@ -58102,7 +58110,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:onboarding-imports",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:onboarding-imports",
+        "release": "feature:onboarding-imports"
+      },
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -58115,7 +58126,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Onboarding Imports/S-08 Onboarding Imports Story.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "task:B-05",
         "needs-decision:ND-21",
@@ -58125,7 +58136,7 @@
         "frontend-requirements:profiles",
         "story:profiles"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
