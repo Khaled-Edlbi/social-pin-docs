@@ -35647,7 +35647,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:error-contract",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:error-contract",
+        "release": "feature:error-contract"
+      },
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -35660,7 +35663,7 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Error Contract/flow/BD-35 Error Contract Backend Delivery.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "task:B-02",
         "qa-backend:account",
@@ -35671,7 +35674,7 @@
         "frontend-requirements:ring-projection",
         "frontend-requirements:error-contract"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [],
@@ -41441,7 +41444,7 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Error Contract/F-35 Error Contract.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "project:api-conventions",
         "project:frontend-contract",
@@ -41449,7 +41452,7 @@
         "project:architecture",
         "project:spec-map"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "rollup": {
         "approved": 2,
@@ -41464,7 +41467,9 @@
       "summary": "One error body for the whole API, with a stable per-domain code the client branches on and a human message it displays.",
       "tags": [
         "feature",
-        "module/platform"
+        "module/platform",
+        "priority/critical",
+        "release/mvp"
       ],
       "task": null,
       "title": "F-35 Error Contract",
@@ -46377,7 +46382,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:error-contract",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:error-contract",
+        "release": "feature:error-contract"
+      },
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -46390,7 +46398,7 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Error Contract/flow/FR-35 Error Contract Frontend Requirements.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "task:B-03",
         "task:B-05",
@@ -46439,7 +46447,7 @@
         "story:code-delivery",
         "feature:account"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -56266,7 +56274,7 @@
           "done": 0,
           "id": "mvp",
           "partial": 0,
-          "total": 3
+          "total": 4
         },
         {
           "done": 0,
@@ -56284,7 +56292,7 @@
           "done": 0,
           "id": null,
           "partial": 0,
-          "total": 38
+          "total": 37
         }
       ],
       "rollup": {
@@ -57241,7 +57249,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:error-contract",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:error-contract",
+        "release": "feature:error-contract"
+      },
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -57254,7 +57265,7 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Error Contract/S-87 Error Contract Story.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "task:B-02",
         "task:B-05",
@@ -57278,7 +57289,7 @@
         "frontend-requirements:interests",
         "project:auth-model"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [],

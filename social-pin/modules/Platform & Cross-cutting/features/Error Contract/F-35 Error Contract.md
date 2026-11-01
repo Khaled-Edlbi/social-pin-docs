@@ -3,15 +3,17 @@ id: F-35
 type: feature
 module: platform
 feature: error-contract
+priority: critical
+release: mvp
 screens: []
 created: 2026-10-18
 updated: 2026-11-01
-tags: [feature, module/platform]
+tags: [feature, module/platform, priority/critical, release/mvp]
 ---
 
 # Error Contract
 
-**Backend:** Partial (needs more) · **Module:** [[M-08 Platform & Cross-cutting Module|Platform & Cross-cutting]]
+**Backend:** Partial (needs more) · **Priority:** Critical · **Release:** MVP · **Module:** [[M-08 Platform & Cross-cutting Module|Platform & Cross-cutting]]
 
 **Layers:** [[S-87 Error Contract Story|Story]] · [[FR-35 Error Contract Frontend Requirements|Frontend Requirements]] · [[BD-35 Error Contract Backend Delivery|Backend Delivery]] · [[Error Contract Backend Integration|Backend Integration]] · [[Error Contract Frontend Delivery|Frontend Delivery]] · [[Error Contract QA Backend|QA Backend]] · [[Error Contract QA Frontend|QA Frontend]]
 
