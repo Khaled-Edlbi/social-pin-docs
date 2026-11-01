@@ -35442,7 +35442,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:delegated-admins",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:delegated-admins",
+        "release": "feature:delegated-admins"
+      },
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -35455,11 +35458,11 @@
       ],
       "path": "social-pin/modules/Shared Rings & Companies/features/Delegated Admins/flow/BD-16 Delegated Admins Backend Delivery.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "frontend-requirements:rings"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -41226,7 +41229,7 @@
       ],
       "path": "social-pin/modules/Shared Rings & Companies/features/Delegated Admins/F-16 Delegated Admins.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "feature:ring-members",
         "feature:rings",
@@ -41238,7 +41241,7 @@
         "project:api-conventions",
         "project:spec-map"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "rollup": {
         "approved": 1,
@@ -41257,7 +41260,9 @@
       "summary": "Company Rings delegate administration at permission levels (RingAdmin). The rules are enforced by assertCanAdminister; there is no way to add, change or remove an admin.",
       "tags": [
         "feature",
-        "module/shared-rings"
+        "module/shared-rings",
+        "priority/critical",
+        "release/mvp"
       ],
       "task": null,
       "title": "F-16 Delegated Admins",
@@ -46259,7 +46264,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:delegated-admins",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:delegated-admins",
+        "release": "feature:delegated-admins"
+      },
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -46272,7 +46280,7 @@
       ],
       "path": "social-pin/modules/Shared Rings & Companies/features/Delegated Admins/flow/FR-16 Delegated Admins Frontend Requirements.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "task:B-03",
         "qa-backend:auth",
@@ -46285,7 +46293,7 @@
         "frontend-requirements:rings",
         "frontend-requirements:error-contract"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -56410,7 +56418,7 @@
           "done": 0,
           "id": "mvp",
           "partial": 0,
-          "total": 18
+          "total": 19
         },
         {
           "done": 0,
@@ -56428,7 +56436,7 @@
           "done": 0,
           "id": null,
           "partial": 0,
-          "total": 23
+          "total": 22
         }
       ],
       "rollup": {
@@ -57179,7 +57187,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:delegated-admins",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:delegated-admins",
+        "release": "feature:delegated-admins"
+      },
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -57192,7 +57203,7 @@
       ],
       "path": "social-pin/modules/Shared Rings & Companies/features/Delegated Admins/S-31 Delegated Admins Story.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "feature:operator-panel",
         "frontend-requirements:files",
@@ -57204,7 +57215,7 @@
         "frontend-requirements:rings",
         "decision:D-04"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
