@@ -35942,7 +35942,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:files",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:files",
+        "release": "feature:files"
+      },
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -35971,7 +35974,7 @@
           "to": "frontend-requirements:files"
         }
       ],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "task:B-07",
         "decision:D-16",
@@ -35980,7 +35983,7 @@
         "frontend-requirements:photo-library",
         "frontend-requirements:profiles"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -38165,7 +38168,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:files",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:files",
+        "release": "feature:files"
+      },
       "kind": "backend-integration",
       "label": "Backend Integration",
       "labels": [],
@@ -38178,7 +38184,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Files Upload/flow/BI-03 Files Upload Backend Integration.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "task:B-07",
         "task:B-08",
@@ -38189,7 +38195,7 @@
         "frontend-requirements:profiles",
         "frontend-requirements:ring-projection"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -41861,7 +41867,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Files Upload/F-04 Files Upload.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "feature:rings",
         "feature:photo-library",
@@ -41876,7 +41882,7 @@
         "frontend-requirements:onboarding-imports",
         "frontend-requirements:profiles"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "rollup": {
         "approved": 2,
@@ -41903,7 +41909,9 @@
       "summary": "Multipart upload with type and size checks, metadata read, delete. A file becomes visible only when a reachable context (a Ring projection) references it.",
       "tags": [
         "feature",
-        "module/identity"
+        "module/identity",
+        "priority/critical",
+        "release/mvp"
       ],
       "task": null,
       "title": "F-04 Files Upload",
@@ -46767,7 +46775,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:files",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:files",
+        "release": "feature:files"
+      },
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -46780,7 +46791,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Files Upload/flow/FR-04 Files Upload Frontend Requirements.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "task:B-07",
         "task:B-08",
@@ -46827,7 +46838,7 @@
         "frontend-requirements:delegated-admins",
         "story:delegated-admins"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -53254,7 +53265,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "qa-backend:files",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:files",
+        "release": "feature:files"
+      },
       "kind": "qa-backend",
       "label": "QA Backend",
       "labels": [],
@@ -53267,7 +53281,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Files Upload/flow/QB-06 Files Upload QA Backend.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "task:B-07",
         "task:B-08",
@@ -53322,7 +53336,7 @@
         "frontend-requirements:delegated-admins",
         "story:delegated-admins"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -56326,7 +56340,7 @@
           "done": 0,
           "id": "mvp",
           "partial": 0,
-          "total": 9
+          "total": 10
         },
         {
           "done": 0,
@@ -56344,7 +56358,7 @@
           "done": 0,
           "id": null,
           "partial": 0,
-          "total": 32
+          "total": 31
         }
       ],
       "rollup": {
@@ -57603,7 +57617,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:files",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:files",
+        "release": "feature:files"
+      },
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -57616,7 +57633,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Files Upload/S-06 Files Upload Story.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "task:B-07",
         "task:B-08",
@@ -57636,7 +57653,7 @@
         "frontend-requirements:ring-projection",
         "frontend-requirements:rings"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -59431,7 +59448,9 @@
       "foundOn": "BD-04 Files Upload Backend Delivery",
       "frontendOnly": false,
       "id": "task:B-07",
-      "inherits": {},
+      "inherits": {
+        "release": "feature:files"
+      },
       "kind": "task",
       "label": "Bug",
       "labels": [
@@ -59466,7 +59485,7 @@
         "project:frontend-contract",
         "decision:D-16"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": "fixed",
       "rollup": {},
       "scope": null,
