@@ -35500,7 +35500,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:devices",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:devices",
+        "release": "feature:devices"
+      },
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -35513,11 +35516,11 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Devices & NFC/flow/BD-33 Devices & NFC Backend Delivery.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "qa-backend:auth"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -41296,7 +41299,7 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Devices & NFC/F-33 Devices & NFC.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "feature:badge-qr",
         "feature:account",
@@ -41307,7 +41310,7 @@
         "project:api-conventions",
         "project:spec-map"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "rollup": {
         "approved": 1,
@@ -41323,7 +41326,9 @@
       "summary": "Linked-device management (s75): list devices, remove one, sign out all others, pair an NFC card.",
       "tags": [
         "feature",
-        "module/platform"
+        "module/platform",
+        "priority/critical",
+        "release/mvp"
       ],
       "task": null,
       "title": "F-33 Devices & NFC",
@@ -46310,7 +46315,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:devices",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:devices",
+        "release": "feature:devices"
+      },
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -46323,7 +46331,7 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Devices & NFC/flow/FR-33 Devices & NFC Frontend Requirements.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "task:B-03",
         "backend-delivery:account",
@@ -46332,7 +46340,7 @@
         "frontend-requirements:error-contract",
         "project:auth-model"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -56394,7 +56402,7 @@
           "done": 0,
           "id": "mvp",
           "partial": 0,
-          "total": 16
+          "total": 17
         },
         {
           "done": 0,
@@ -56412,7 +56420,7 @@
           "done": 0,
           "id": null,
           "partial": 0,
-          "total": 25
+          "total": 24
         }
       ],
       "rollup": {
@@ -57223,7 +57231,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:devices",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:devices",
+        "release": "feature:devices"
+      },
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -57236,12 +57247,12 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Devices & NFC/S-82 Devices & NFC Story.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "frontend-delivery:account",
         "qa-backend:auth"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
