@@ -217,6 +217,7 @@
     "M-06 Meetings Module": "module:meetings",
     "M-07 Commerce Module": "module:commerce",
     "M-08 Platform & Cross-cutting Module": "module:platform",
+    "MVP Order": "project:mvp-order",
     "ND-01 Passwordless login": "needs-decision:ND-01",
     "ND-02 Base profile work fields": "needs-decision:ND-02",
     "ND-03 Field library vs per-Ring copies": "needs-decision:ND-03",
@@ -516,6 +517,7 @@
     "P-25": "project:owner-agent",
     "P-26": "project:qa-agent",
     "P-27": "project:admin-agent",
+    "P-28": "project:mvp-order",
     "QB-04": "qa-backend:account",
     "QB-05": "qa-backend:auth",
     "QB-06": "qa-backend:files",
@@ -4516,7 +4518,7 @@
       "frontend-requirements": 39,
       "module": 8,
       "needs-decision": 21,
-      "project": 27,
+      "project": 28,
       "qa-backend": 3,
       "qa-frontend": 1,
       "story": 41,
@@ -4524,18 +4526,18 @@
     },
     "byLayer": {
       "backend": 56,
-      "business": 131,
+      "business": 132,
       "frontend": 44,
       "qa": 4,
       "shared": 10
     },
     "concepts": 214,
     "decisions": 21,
-    "edges": 4353,
+    "edges": 4413,
     "features": 41,
     "layerNotes": 133,
     "modules": 8,
-    "notes": 276,
+    "notes": 277,
     "partial": 5,
     "placeholders": 152,
     "records": 15
@@ -5131,6 +5133,101 @@
       "from": "project:agent-rules",
       "kind": "affects",
       "to": "project:workflow"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "affects",
+      "to": "decision:D-16"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "affects",
+      "to": "feature:badge-qr"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "affects",
+      "to": "feature:code-delivery"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "affects",
+      "to": "feature:companies"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "affects",
+      "to": "feature:connections"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "affects",
+      "to": "feature:counts"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "affects",
+      "to": "feature:delegated-admins"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "affects",
+      "to": "feature:devices"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "affects",
+      "to": "feature:error-contract"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "affects",
+      "to": "feature:interests"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "affects",
+      "to": "feature:linked-accounts"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "affects",
+      "to": "feature:notifications"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "affects",
+      "to": "feature:onboarding-imports"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "affects",
+      "to": "feature:photo-library"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "affects",
+      "to": "feature:ring-invitations"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "affects",
+      "to": "feature:subscription"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "affects",
+      "to": "feature:widgets"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "affects",
+      "to": "story:profiles"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "affects",
+      "to": "story:rings"
     },
     {
       "from": "story:payments",
@@ -6471,6 +6568,11 @@
       "from": "project:frontend-agent",
       "kind": "depends",
       "to": "project:agent-protocol"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "depends",
+      "to": "project:project-overview"
     },
     {
       "from": "project:owner-agent",
@@ -14093,6 +14195,31 @@
       "from": "project:frontend-agent-prompt",
       "kind": "related",
       "to": "project:frontend-contract"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "related",
+      "to": "needs-decision:ND-10"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "related",
+      "to": "needs-decision:ND-12"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "related",
+      "to": "project:feature-tree"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "related",
+      "to": "project:project-overview"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "related",
+      "to": "story:connections"
     },
     {
       "from": "project:owner-agent",
@@ -27381,6 +27508,11 @@
     {
       "from": "group:business",
       "kind": "tree",
+      "to": "project:mvp-order"
+    },
+    {
+      "from": "group:business",
+      "kind": "tree",
       "to": "project:project-overview"
     },
     {
@@ -32244,6 +32376,176 @@
       "to": "project:auth-model"
     },
     {
+      "from": "project:mvp-order",
+      "kind": "wikilink",
+      "to": "decision:D-16"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "wikilink",
+      "to": "feature:account"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "wikilink",
+      "to": "feature:app-shell"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "wikilink",
+      "to": "feature:auth"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "wikilink",
+      "to": "feature:badge-qr"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "wikilink",
+      "to": "feature:code-delivery"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "wikilink",
+      "to": "feature:companies"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "wikilink",
+      "to": "feature:connections"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "wikilink",
+      "to": "feature:counts"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "wikilink",
+      "to": "feature:delegated-admins"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "wikilink",
+      "to": "feature:devices"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "wikilink",
+      "to": "feature:discover-hub"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "wikilink",
+      "to": "feature:error-contract"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "wikilink",
+      "to": "feature:files"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "wikilink",
+      "to": "feature:gemma"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "wikilink",
+      "to": "feature:interests"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "wikilink",
+      "to": "feature:linked-accounts"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "wikilink",
+      "to": "feature:notifications"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "wikilink",
+      "to": "feature:onboarding-imports"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "wikilink",
+      "to": "feature:photo-library"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "wikilink",
+      "to": "feature:pincast"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "wikilink",
+      "to": "feature:profiles"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "wikilink",
+      "to": "feature:ring-access"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "wikilink",
+      "to": "feature:ring-invitations"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "wikilink",
+      "to": "feature:ring-members"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "wikilink",
+      "to": "feature:ring-projection"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "wikilink",
+      "to": "feature:rings"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "wikilink",
+      "to": "feature:subscription"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "wikilink",
+      "to": "feature:view-as"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "wikilink",
+      "to": "feature:widgets"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "wikilink",
+      "to": "module:events"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "wikilink",
+      "to": "needs-decision:ND-22"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "wikilink",
+      "to": "story:profiles"
+    },
+    {
+      "from": "project:mvp-order",
+      "kind": "wikilink",
+      "to": "story:rings"
+    },
+    {
       "from": "project:owner-agent",
       "kind": "wikilink",
       "to": "project:backend-agent"
@@ -33500,6 +33802,10 @@
     },
     "social-pin/business/Glossary.md": {
       "name": "Glossary",
+      "type": "project"
+    },
+    "social-pin/business/MVP Order.md": {
+      "name": "MVP Order",
       "type": "project"
     },
     "social-pin/business/Project Overview.md": {
@@ -48679,6 +48985,7 @@
         "project:feature-graph",
         "project:feature-tree",
         "project:glossary",
+        "project:mvp-order",
         "project:project-overview",
         "project:status-report-2026-10-15"
       ],
@@ -49822,7 +50129,8 @@
         "qa-backend:files",
         "frontend-requirements:ring-access",
         "frontend-requirements:ring-projection",
-        "frontend-requirements:view-as"
+        "frontend-requirements:view-as",
+        "project:mvp-order"
       ],
       "release": null,
       "resolution": null,
@@ -49938,7 +50246,8 @@
         "feature:badge-qr",
         "needs-decision:ND-22",
         "frontend-requirements:view-as",
-        "story:view-as"
+        "story:view-as",
+        "project:mvp-order"
       ],
       "release": null,
       "resolution": null,
@@ -51466,7 +51775,9 @@
       "path": "social-pin/business/Feature Tree.md",
       "pending": [],
       "priority": null,
-      "related": [],
+      "related": [
+        "project:mvp-order"
+      ],
       "release": null,
       "resolution": null,
       "scope": null,
@@ -51816,6 +52127,79 @@
       "unmet": [],
       "updated": "2026-10-29"
     },
+    "project:mvp-order": {
+      "affects": [
+        "feature:code-delivery",
+        "feature:error-contract",
+        "decision:D-16",
+        "feature:badge-qr",
+        "feature:connections",
+        "feature:counts",
+        "story:profiles",
+        "story:rings",
+        "feature:photo-library",
+        "feature:widgets",
+        "feature:ring-invitations",
+        "feature:companies",
+        "feature:delegated-admins",
+        "feature:devices",
+        "feature:notifications",
+        "feature:subscription",
+        "feature:interests",
+        "feature:linked-accounts",
+        "feature:onboarding-imports"
+      ],
+      "blockedBy": [],
+      "card": "P-28",
+      "children": [],
+      "code": null,
+      "created": "2026-11-01",
+      "deadline": null,
+      "depends": [
+        "project:project-overview"
+      ],
+      "effectiveStatus": "reference",
+      "effort": null,
+      "feature": null,
+      "foundOn": null,
+      "frontendOnly": false,
+      "id": "project:mvp-order",
+      "inherits": {},
+      "kind": "project",
+      "label": "Reference",
+      "labels": [],
+      "layer": "business",
+      "module": null,
+      "openBugs": [],
+      "parentTask": null,
+      "parents": [
+        "group:business"
+      ],
+      "path": "social-pin/business/MVP Order.md",
+      "pending": [],
+      "priority": null,
+      "related": [
+        "project:project-overview",
+        "project:feature-tree",
+        "needs-decision:ND-10",
+        "needs-decision:ND-12",
+        "story:connections"
+      ],
+      "release": null,
+      "resolution": null,
+      "scope": null,
+      "screens": [],
+      "status": null,
+      "summary": "The owner's order for the MVP, as set on 2026-11-01.",
+      "tags": [
+        "project",
+        "layer/business"
+      ],
+      "task": null,
+      "title": "MVP Order",
+      "unmet": [],
+      "updated": "2026-11-01"
+    },
     "project:owner-agent": {
       "affects": [],
       "blockedBy": [],
@@ -51957,7 +52341,8 @@
       "pending": [],
       "priority": null,
       "related": [
-        "project:docs-tree"
+        "project:docs-tree",
+        "project:mvp-order"
       ],
       "release": null,
       "resolution": null,
@@ -56510,7 +56895,7 @@
         "partial": 5,
         "passing": 2,
         "ready": 9,
-        "reference": 31,
+        "reference": 32,
         "todo": 9,
         "verified": 15
       },
@@ -57140,7 +57525,8 @@
         "frontend-requirements:rings",
         "story:rings",
         "frontend-requirements:view-as",
-        "story:view-as"
+        "story:view-as",
+        "project:mvp-order"
       ],
       "release": "mvp",
       "resolution": null,

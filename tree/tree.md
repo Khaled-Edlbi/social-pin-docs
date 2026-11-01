@@ -418,6 +418,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
     - 📘 [Feature Graph](social-pin/business/Feature%20Graph.md) (P-01, Map)
     - 📘 [Feature Tree](social-pin/business/Feature%20Tree.md) (P-02, Map)
     - 📘 [Glossary](social-pin/business/Glossary.md) (P-03, Reference)
+    - 📘 [MVP Order](social-pin/business/MVP%20Order.md) (P-28, Reference)
     - 📘 [Project Overview](social-pin/business/Project%20Overview.md) (P-04, Reference)
     - 📘 [Status Report 2026-10-15](social-pin/business/Status%20Report%202026-10-15.md) (P-05, Report)
   - 📘 _Frontend docs_ (Docs)
