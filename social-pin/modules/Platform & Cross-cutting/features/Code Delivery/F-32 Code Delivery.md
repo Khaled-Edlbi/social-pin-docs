@@ -3,15 +3,17 @@ id: F-32
 type: feature
 module: platform
 feature: code-delivery
+priority: critical
+release: mvp
 screens: [s02]
 created: 2026-10-18
 updated: 2026-11-01
-tags: [feature, module/platform]
+tags: [feature, module/platform, priority/critical, release/mvp]
 ---
 
 # Code Delivery
 
-**Backend:** Partial (needs more) · **Module:** [[M-08 Platform & Cross-cutting Module|Platform & Cross-cutting]]
+**Backend:** Partial (needs more) · **Priority:** Critical · **Release:** MVP · **Module:** [[M-08 Platform & Cross-cutting Module|Platform & Cross-cutting]]
 
 **Layers:** [[S-78 Code Delivery Story|Story]] · [[FR-32 Code Delivery Frontend Requirements|Frontend Requirements]] · [[BD-32 Code Delivery Backend Delivery|Backend Delivery]] · [[Code Delivery Backend Integration|Backend Integration]] · [[Code Delivery Frontend Delivery|Frontend Delivery]] · [[Code Delivery QA Backend|QA Backend]] · [[Code Delivery QA Frontend|QA Frontend]]
 

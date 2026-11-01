@@ -35197,7 +35197,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:code-delivery",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:code-delivery",
+        "release": "feature:code-delivery"
+      },
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -35210,9 +35213,9 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Code Delivery/flow/BD-32 Code Delivery Backend Delivery.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -40828,7 +40831,7 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Code Delivery/F-32 Code Delivery.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "feature:auth",
         "feature:notifications",
@@ -40838,7 +40841,7 @@
         "project:spec-map",
         "decision:D-01"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "rollup": {
         "approved": 1,
@@ -40854,7 +40857,9 @@
       "summary": "Delivering the one-time code by email or SMS. Today the code is only logged, and returned as devCode in every environment (product decision 2026-10-15, so the passwordless app can sign in before a…",
       "tags": [
         "feature",
-        "module/platform"
+        "module/platform",
+        "priority/critical",
+        "release/mvp"
       ],
       "task": null,
       "title": "F-32 Code Delivery",
@@ -45877,7 +45882,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:code-delivery",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:code-delivery",
+        "release": "feature:code-delivery"
+      },
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -45890,7 +45898,7 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Code Delivery/flow/FR-32 Code Delivery Frontend Requirements.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "task:B-04",
         "task:B-05",
@@ -45899,7 +45907,7 @@
         "qa-backend:auth",
         "frontend-requirements:error-contract"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -56258,7 +56266,7 @@
           "done": 0,
           "id": "mvp",
           "partial": 0,
-          "total": 2
+          "total": 3
         },
         {
           "done": 0,
@@ -56276,7 +56284,7 @@
           "done": 0,
           "id": null,
           "partial": 0,
-          "total": 39
+          "total": 38
         }
       ],
       "rollup": {
@@ -56739,7 +56747,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:code-delivery",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:code-delivery",
+        "release": "feature:code-delivery"
+      },
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -56752,7 +56763,7 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Code Delivery/S-78 Code Delivery Story.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "task:B-01",
         "task:B-04",
@@ -56763,7 +56774,7 @@
         "qa-backend:auth",
         "frontend-requirements:error-contract"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
