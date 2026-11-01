@@ -3,15 +3,17 @@ id: F-33
 type: feature
 module: platform
 feature: devices
+priority: critical
+release: mvp
 screens: [s75]
 created: 2026-10-15
 updated: 2026-11-01
-tags: [feature, module/platform]
+tags: [feature, module/platform, priority/critical, release/mvp]
 ---
 
 # Devices & NFC
 
-**Backend:** Partial (needs more) · **Module:** [[M-08 Platform & Cross-cutting Module|Platform & Cross-cutting]]
+**Backend:** Partial (needs more) · **Priority:** Critical · **Release:** MVP · **Module:** [[M-08 Platform & Cross-cutting Module|Platform & Cross-cutting]]
 
 **Layers:** [[S-82 Devices & NFC Story|Story]] · [[FR-33 Devices & NFC Frontend Requirements|Frontend Requirements]] · [[BD-33 Devices & NFC Backend Delivery|Backend Delivery]] · [[Devices & NFC Backend Integration|Backend Integration]] · [[Devices & NFC Frontend Delivery|Frontend Delivery]] · [[Devices & NFC QA Backend|QA Backend]] · [[Devices & NFC QA Frontend|QA Frontend]]
 
