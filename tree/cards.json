@@ -192,6 +192,7 @@
     "project:frontend-contract": "P-08",
     "project:frontend-passwordless-migration": "P-09",
     "project:glossary": "P-03",
+    "project:mvp-order": "P-28",
     "project:owner-agent": "P-25",
     "project:pm-agent": "P-21",
     "project:project-overview": "P-04",
