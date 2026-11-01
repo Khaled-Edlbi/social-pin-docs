@@ -36639,7 +36639,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:profiles",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:profiles",
+        "release": "feature:profiles"
+      },
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -36663,13 +36666,13 @@
           "to": "story:profiles"
         }
       ],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "qa-backend:auth",
         "frontend-requirements:profiles",
         "frontend-requirements:ring-projection"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -38741,7 +38744,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:profiles",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:profiles",
+        "release": "feature:profiles"
+      },
       "kind": "backend-integration",
       "label": "Backend Integration",
       "labels": [],
@@ -38754,7 +38760,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Profiles & Pin Name/flow/BI-04 Profiles & Pin Name Backend Integration.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "qa-backend:account",
         "qa-backend:auth",
@@ -38764,7 +38770,7 @@
         "frontend-requirements:ring-projection",
         "frontend-requirements:view-as"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -42772,7 +42778,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Profiles & Pin Name/F-07 Profiles & Pin Name.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "feature:auth",
         "feature:onboarding-imports",
@@ -42786,7 +42792,7 @@
         "needs-decision:ND-22",
         "frontend-delivery:account"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "rollup": {
         "blocked": 1,
@@ -42810,7 +42816,9 @@
       "summary": "One profile per person: the full name, the nickname, the main profile every Ring starts from, the !-prefixed unique Pin name with a public live availability check, and the sensitive base fields…",
       "tags": [
         "feature",
-        "module/identity"
+        "module/identity",
+        "priority/critical",
+        "release/mvp"
       ],
       "task": null,
       "title": "F-07 Profiles & Pin Name",
@@ -47542,7 +47550,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:profiles",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:profiles",
+        "release": "feature:profiles"
+      },
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -47555,7 +47566,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Profiles & Pin Name/flow/FR-07 Profiles & Pin Name Frontend Requirements.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "task:B-05",
         "task:B-07",
@@ -47608,7 +47619,7 @@
         "story:photo-library",
         "backend-integration:ring-projection"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -56282,7 +56293,7 @@
           "done": 0,
           "id": "mvp",
           "partial": 0,
-          "total": 5
+          "total": 6
         },
         {
           "done": 0,
@@ -56300,7 +56311,7 @@
           "done": 0,
           "id": null,
           "partial": 0,
-          "total": 36
+          "total": 35
         }
       ],
       "rollup": {
@@ -58274,7 +58285,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:profiles",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:profiles",
+        "release": "feature:profiles"
+      },
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -58287,7 +58301,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Profiles & Pin Name/S-14 Profiles & Pin Name Story.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "task:B-05",
         "task:B-07",
@@ -58313,7 +58327,7 @@
         "feature:badge-qr",
         "frontend-requirements:ring-projection"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
