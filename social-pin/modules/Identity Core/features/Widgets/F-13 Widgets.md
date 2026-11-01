@@ -3,16 +3,18 @@ id: F-13
 type: feature
 module: identity
 feature: widgets
+priority: critical
+release: mvp
 screens: [s36, s37]
 owner: "omar"
 created: 2026-10-15
 updated: 2026-11-01
-tags: [feature, module/identity]
+tags: [feature, module/identity, priority/critical, release/mvp]
 ---
 
 # Widgets
 
-**Backend:** Partial (needs more) · **Module:** [[M-01 Identity Core Module|Identity Core]]
+**Backend:** Partial (needs more) · **Priority:** Critical · **Release:** MVP · **Module:** [[M-01 Identity Core Module|Identity Core]]
 
 **Layers:** [[S-20 Widgets Story|Story]] · [[FR-13 Widgets Frontend Requirements|Frontend Requirements]] · [[BD-13 Widgets Backend Delivery|Backend Delivery]] · [[Widgets Backend Integration|Backend Integration]] · [[Widgets Frontend Delivery|Frontend Delivery]] · [[Widgets QA Backend|QA Backend]] · [[Widgets QA Frontend|QA Frontend]]
 

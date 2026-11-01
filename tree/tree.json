@@ -37150,7 +37150,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:widgets",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:widgets",
+        "release": "feature:widgets"
+      },
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -37163,9 +37166,9 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Widgets/flow/BD-13 Widgets Backend Delivery.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -43570,7 +43573,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Widgets/F-13 Widgets.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "feature:ring-projection",
         "feature:meetings",
@@ -43579,7 +43582,7 @@
         "project:api-conventions",
         "project:spec-map"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "rollup": {
         "approved": 1,
@@ -43598,7 +43601,9 @@
       "summary": "Widgets on a Ring (s37). The table exists; no endpoints; the type list does not match the design.",
       "tags": [
         "feature",
-        "module/identity"
+        "module/identity",
+        "priority/critical",
+        "release/mvp"
       ],
       "task": null,
       "title": "F-13 Widgets",
@@ -48519,7 +48524,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:widgets",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:widgets",
+        "release": "feature:widgets"
+      },
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -48532,7 +48540,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Widgets/flow/FR-13 Widgets Frontend Requirements.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "task:B-08",
         "frontend-requirements:files",
@@ -48543,7 +48551,7 @@
         "frontend-requirements:ring-projection",
         "frontend-requirements:view-as"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -56418,7 +56426,7 @@
           "done": 0,
           "id": "mvp",
           "partial": 0,
-          "total": 19
+          "total": 20
         },
         {
           "done": 0,
@@ -56436,7 +56444,7 @@
           "done": 0,
           "id": null,
           "partial": 0,
-          "total": 22
+          "total": 21
         }
       ],
       "rollup": {
@@ -59002,7 +59010,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:widgets",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:widgets",
+        "release": "feature:widgets"
+      },
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -59015,7 +59026,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Widgets/S-20 Widgets Story.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "task:B-08",
         "frontend-requirements:files",
@@ -59025,7 +59036,7 @@
         "frontend-requirements:view-as",
         "decision:D-03"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
