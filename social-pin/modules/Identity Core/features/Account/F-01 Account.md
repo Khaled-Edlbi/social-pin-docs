@@ -3,15 +3,17 @@ id: F-01
 type: feature
 module: identity
 feature: account
+priority: critical
+release: mvp
 screens: [s68]
 created: 2026-10-18
 updated: 2026-11-01
-tags: [feature, module/identity]
+tags: [feature, module/identity, priority/critical, release/mvp]
 ---
 
 # Account
 
-**Backend:** Done · **Module:** [[M-01 Identity Core Module|Identity Core]]
+**Backend:** Done · **Priority:** Critical · **Release:** MVP · **Module:** [[M-01 Identity Core Module|Identity Core]]
 
 **Layers:** [[S-01 Account Story|Story]] · [[FR-01 Account Frontend Requirements|Frontend Requirements]] · [[BD-01 Account Backend Delivery|Backend Delivery]] · [[BI-01 Account Backend Integration|Backend Integration]] · [[FD-04 Account Frontend Delivery|Frontend Delivery]] · [[QB-04 Account QA Backend|QA Backend]] · [[QF-04 Account QA Frontend|QA Frontend]]
 
