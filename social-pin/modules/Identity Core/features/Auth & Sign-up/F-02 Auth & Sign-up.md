@@ -3,17 +3,15 @@ id: F-02
 type: feature
 module: identity
 feature: auth
-priority: critical
-release: mvp
 screens: [s01, s02, s06, s08, s68]
 created: 2026-10-18
-updated: 2026-10-29
-tags: [feature, module/identity, priority/critical, release/mvp]
+updated: 2026-11-01
+tags: [feature, module/identity]
 ---
 
 # Auth & Sign-up
 
-**Backend:** Done · **Priority:** Critical · **Release:** MVP · **Module:** [[M-01 Identity Core Module|Identity Core]]
+**Backend:** Done · **Module:** [[M-01 Identity Core Module|Identity Core]]
 
 **Layers:** [[S-02 Auth & Sign-up Story|Story]] · [[FR-02 Auth & Sign-up Frontend Requirements|Frontend Requirements]] · [[BD-02 Auth & Sign-up Backend Delivery|Backend Delivery]] · [[BI-02 Auth & Sign-up Backend Integration|Backend Integration]] · [[Auth & Sign-up Frontend Delivery|Frontend Delivery]] · [[QB-05 Auth & Sign-up QA Backend|QA Backend]] · [[Auth & Sign-up QA Frontend|QA Frontend]]
 

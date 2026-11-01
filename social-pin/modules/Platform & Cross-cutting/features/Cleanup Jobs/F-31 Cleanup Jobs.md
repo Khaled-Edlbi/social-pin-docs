@@ -3,17 +3,15 @@ id: F-31
 type: feature
 module: platform
 feature: cleanup-jobs
-priority: high
-release: v1
 screens: []
 created: 2026-10-15
-updated: 2026-10-29
-tags: [feature, module/platform, priority/high, release/v1]
+updated: 2026-11-01
+tags: [feature, module/platform]
 ---
 
 # Cleanup Jobs
 
-**Backend:** TODO · **Priority:** High · **Release:** v1 · **Module:** [[M-08 Platform & Cross-cutting Module|Platform & Cross-cutting]]
+**Backend:** TODO · **Module:** [[M-08 Platform & Cross-cutting Module|Platform & Cross-cutting]]
 
 **Layers:** [[S-76 Cleanup Jobs Story|Story]] · [[FR-31 Cleanup Jobs Frontend Requirements|Frontend Requirements]] · [[BD-31 Cleanup Jobs Backend Delivery|Backend Delivery]] · [[Cleanup Jobs Backend Integration|Backend Integration]] · [[Cleanup Jobs Frontend Delivery|Frontend Delivery]] · [[Cleanup Jobs QA Backend|QA Backend]] · [[Cleanup Jobs QA Frontend|QA Frontend]]
 

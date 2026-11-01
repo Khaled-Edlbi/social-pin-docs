@@ -34760,10 +34760,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:account",
-      "inherits": {
-        "priority": "feature:account",
-        "release": "feature:account"
-      },
+      "inherits": {},
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -34776,7 +34773,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Account/flow/BD-01 Account Backend Delivery.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "task:B-02",
         "task:B-01",
@@ -34810,7 +34807,7 @@
         "story:error-contract",
         "project:frontend-api-guide"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -34844,10 +34841,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:app-shell",
-      "inherits": {
-        "priority": "feature:app-shell",
-        "release": "feature:app-shell"
-      },
+      "inherits": {},
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -34860,9 +34854,9 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/App Shell & Onboarding Narrative/flow/BD-29 App Shell & Onboarding Narrative Backend Delivery.md",
       "pending": [],
-      "priority": "medium",
+      "priority": null,
       "related": [],
-      "release": "later",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -34905,10 +34899,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:audit-log",
-      "inherits": {
-        "priority": "feature:audit-log",
-        "release": "feature:audit-log"
-      },
+      "inherits": {},
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -34921,9 +34912,9 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Audit Log/flow/BD-30 Audit Log Backend Delivery.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [],
@@ -34957,10 +34948,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:auth",
-      "inherits": {
-        "priority": "feature:auth",
-        "release": "feature:auth"
-      },
+      "inherits": {},
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -34975,7 +34963,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Auth & Sign-up/flow/BD-02 Auth & Sign-up Backend Delivery.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "task:B-03",
         "task:B-04",
@@ -34996,7 +34984,7 @@
         "project:database-migrations",
         "frontend-requirements:profiles"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -35040,10 +35028,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:badge-qr",
-      "inherits": {
-        "priority": "feature:badge-qr",
-        "release": "feature:badge-qr"
-      },
+      "inherits": {},
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -35056,13 +35041,13 @@
       ],
       "path": "social-pin/modules/Discovery/features/Badge & QR/flow/BD-18 Badge & QR Backend Delivery.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "frontend-requirements:ring-access",
         "frontend-requirements:ring-projection",
         "frontend-requirements:view-as"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -35153,10 +35138,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:cleanup-jobs",
-      "inherits": {
-        "priority": "feature:cleanup-jobs",
-        "release": "feature:cleanup-jobs"
-      },
+      "inherits": {},
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -35169,9 +35151,9 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Cleanup Jobs/flow/BD-31 Cleanup Jobs Backend Delivery.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [],
@@ -35209,10 +35191,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:code-delivery",
-      "inherits": {
-        "priority": "feature:code-delivery",
-        "release": "feature:code-delivery"
-      },
+      "inherits": {},
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -35225,9 +35204,9 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Code Delivery/flow/BD-32 Code Delivery Backend Delivery.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -35267,10 +35246,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:companies",
-      "inherits": {
-        "priority": "feature:companies",
-        "release": "feature:companies"
-      },
+      "inherits": {},
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -35283,9 +35259,9 @@
       ],
       "path": "social-pin/modules/Shared Rings & Companies/features/Companies/flow/BD-15 Companies Backend Delivery.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -35326,10 +35302,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:connections",
-      "inherits": {
-        "priority": "feature:connections",
-        "release": "feature:connections"
-      },
+      "inherits": {},
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -35342,9 +35315,9 @@
       ],
       "path": "social-pin/modules/Connections/features/Connections/flow/BD-14 Connections Backend Delivery.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -35388,10 +35361,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:counts",
-      "inherits": {
-        "priority": "feature:counts",
-        "release": "feature:counts"
-      },
+      "inherits": {},
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -35404,9 +35374,9 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Counts/flow/BD-03 Counts Backend Delivery.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -35451,10 +35421,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:delegated-admins",
-      "inherits": {
-        "priority": "feature:delegated-admins",
-        "release": "feature:delegated-admins"
-      },
+      "inherits": {},
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -35467,11 +35434,11 @@
       ],
       "path": "social-pin/modules/Shared Rings & Companies/features/Delegated Admins/flow/BD-16 Delegated Admins Backend Delivery.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "frontend-requirements:rings"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -35512,10 +35479,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:devices",
-      "inherits": {
-        "priority": "feature:devices",
-        "release": "feature:devices"
-      },
+      "inherits": {},
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -35528,11 +35492,11 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Devices & NFC/flow/BD-33 Devices & NFC Backend Delivery.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "qa-backend:auth"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -35572,10 +35536,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:discover-hub",
-      "inherits": {
-        "priority": "feature:discover-hub",
-        "release": "feature:discover-hub"
-      },
+      "inherits": {},
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -35588,9 +35549,9 @@
       ],
       "path": "social-pin/modules/Discovery/features/Discover Hub & Search/flow/BD-19 Discover Hub & Search Backend Delivery.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -35630,10 +35591,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:e2e-tests",
-      "inherits": {
-        "priority": "feature:e2e-tests",
-        "release": "feature:e2e-tests"
-      },
+      "inherits": {},
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -35646,9 +35604,9 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/E2E Test Run/flow/BD-34 E2E Test Run Backend Delivery.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [],
@@ -35680,10 +35638,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:error-contract",
-      "inherits": {
-        "priority": "feature:error-contract",
-        "release": "feature:error-contract"
-      },
+      "inherits": {},
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -35696,7 +35651,7 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Error Contract/flow/BD-35 Error Contract Backend Delivery.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "task:B-02",
         "qa-backend:account",
@@ -35707,7 +35662,7 @@
         "frontend-requirements:ring-projection",
         "frontend-requirements:error-contract"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [],
@@ -35745,10 +35700,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:event-ring-auto",
-      "inherits": {
-        "priority": "feature:event-ring-auto",
-        "release": "feature:event-ring-auto"
-      },
+      "inherits": {},
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -35761,9 +35713,9 @@
       ],
       "path": "social-pin/modules/Events/features/Event Ring Auto-creation/flow/BD-21 Event Ring Auto-creation Backend Delivery.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -35803,10 +35755,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:events-before",
-      "inherits": {
-        "priority": "feature:events-before",
-        "release": "feature:events-before"
-      },
+      "inherits": {},
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -35819,9 +35768,9 @@
       ],
       "path": "social-pin/modules/Events/features/Events Before/flow/BD-22 Events Before Backend Delivery.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -35865,10 +35814,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:events-during",
-      "inherits": {
-        "priority": "feature:events-during",
-        "release": "feature:events-during"
-      },
+      "inherits": {},
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -35881,9 +35827,9 @@
       ],
       "path": "social-pin/modules/Events/features/Events During/flow/BD-23 Events During Backend Delivery.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -35928,10 +35874,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:exhibitor",
-      "inherits": {
-        "priority": "feature:exhibitor",
-        "release": "feature:exhibitor"
-      },
+      "inherits": {},
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -35944,9 +35887,9 @@
       ],
       "path": "social-pin/modules/Events/features/Exhibitor/flow/BD-24 Exhibitor Backend Delivery.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -35984,10 +35927,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:files",
-      "inherits": {
-        "priority": "feature:files",
-        "release": "feature:files"
-      },
+      "inherits": {},
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -36016,7 +35956,7 @@
           "to": "frontend-requirements:files"
         }
       ],
-      "priority": "high",
+      "priority": null,
       "related": [
         "task:B-07",
         "decision:D-16",
@@ -36025,7 +35965,7 @@
         "frontend-requirements:photo-library",
         "frontend-requirements:profiles"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -36067,10 +36007,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:gemma",
-      "inherits": {
-        "priority": "feature:gemma",
-        "release": "feature:gemma"
-      },
+      "inherits": {},
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -36083,9 +36020,9 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Gemma AI/flow/BD-36 Gemma AI Backend Delivery.md",
       "pending": [],
-      "priority": "medium",
+      "priority": null,
       "related": [],
-      "release": "later",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -36126,10 +36063,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:interests",
-      "inherits": {
-        "priority": "feature:interests",
-        "release": "feature:interests"
-      },
+      "inherits": {},
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -36142,9 +36076,9 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Interests/flow/BD-37 Interests Backend Delivery.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -36185,10 +36119,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:linked-accounts",
-      "inherits": {
-        "priority": "feature:linked-accounts",
-        "release": "feature:linked-accounts"
-      },
+      "inherits": {},
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -36201,13 +36132,13 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Linked Accounts (OAuth)/flow/BD-38 Linked Accounts (OAuth) Backend Delivery.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "backend-delivery:account",
         "backend-integration:account",
         "qa-backend:auth"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -36249,10 +36180,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:meetings",
-      "inherits": {
-        "priority": "feature:meetings",
-        "release": "feature:meetings"
-      },
+      "inherits": {},
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -36265,9 +36193,9 @@
       ],
       "path": "social-pin/modules/Meetings/features/Meetings/flow/BD-26 Meetings Backend Delivery.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -36311,10 +36239,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:notifications",
-      "inherits": {
-        "priority": "feature:notifications",
-        "release": "feature:notifications"
-      },
+      "inherits": {},
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -36327,9 +36252,9 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Notifications/flow/BD-39 Notifications Backend Delivery.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -36369,10 +36294,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:onboarding-imports",
-      "inherits": {
-        "priority": "feature:onboarding-imports",
-        "release": "feature:onboarding-imports"
-      },
+      "inherits": {},
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -36385,9 +36307,9 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Onboarding Imports/flow/BD-05 Onboarding Imports Backend Delivery.md",
       "pending": [],
-      "priority": "medium",
+      "priority": null,
       "related": [],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -36479,10 +36401,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:payments",
-      "inherits": {
-        "priority": "feature:payments",
-        "release": "feature:payments"
-      },
+      "inherits": {},
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -36495,9 +36414,9 @@
       ],
       "path": "social-pin/modules/Commerce/features/Payments & Orders/flow/BD-27 Payments & Orders Backend Delivery.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -36538,10 +36457,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:photo-library",
-      "inherits": {
-        "priority": "feature:photo-library",
-        "release": "feature:photo-library"
-      },
+      "inherits": {},
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -36554,12 +36470,12 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Photo Library/flow/BD-06 Photo Library Backend Delivery.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "frontend-requirements:files",
         "frontend-requirements:photo-library"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -36600,10 +36516,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:pincast",
-      "inherits": {
-        "priority": "feature:pincast",
-        "release": "feature:pincast"
-      },
+      "inherits": {},
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -36616,9 +36529,9 @@
       ],
       "path": "social-pin/modules/Discovery/features/PinCast & Nearby/flow/BD-20 PinCast & Nearby Backend Delivery.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -36662,10 +36575,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:post-event",
-      "inherits": {
-        "priority": "feature:post-event",
-        "release": "feature:post-event"
-      },
+      "inherits": {},
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -36678,9 +36588,9 @@
       ],
       "path": "social-pin/modules/Events/features/Post-Event/flow/BD-25 Post-Event Backend Delivery.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -36714,10 +36624,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:profiles",
-      "inherits": {
-        "priority": "feature:profiles",
-        "release": "feature:profiles"
-      },
+      "inherits": {},
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -36741,13 +36648,13 @@
           "to": "story:profiles"
         }
       ],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "qa-backend:auth",
         "frontend-requirements:profiles",
         "frontend-requirements:ring-projection"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -36781,10 +36688,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:ring-access",
-      "inherits": {
-        "priority": "feature:ring-access",
-        "release": "feature:ring-access"
-      },
+      "inherits": {},
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -36797,7 +36701,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Ring Access Engine/flow/BD-08 Ring Access Engine Backend Delivery.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "frontend-requirements:files",
         "qa-backend:files",
@@ -36806,7 +36710,7 @@
         "frontend-requirements:ring-members",
         "frontend-requirements:ring-projection"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [],
@@ -36844,10 +36748,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:ring-invitations",
-      "inherits": {
-        "priority": "feature:ring-invitations",
-        "release": "feature:ring-invitations"
-      },
+      "inherits": {},
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -36860,9 +36761,9 @@
       ],
       "path": "social-pin/modules/Shared Rings & Companies/features/Ring Invitations & Join/flow/BD-17 Ring Invitations & Join Backend Delivery.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -36897,10 +36798,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:ring-members",
-      "inherits": {
-        "priority": "feature:ring-members",
-        "release": "feature:ring-members"
-      },
+      "inherits": {},
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -36913,11 +36811,11 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Ring Members/flow/BD-09 Ring Members Backend Delivery.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "frontend-requirements:ring-members"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -36952,10 +36850,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:ring-projection",
-      "inherits": {
-        "priority": "feature:ring-projection",
-        "release": "feature:ring-projection"
-      },
+      "inherits": {},
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -36968,7 +36863,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Ring Projection/flow/BD-10 Ring Projection Backend Delivery.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "task:B-08",
         "frontend-requirements:files",
@@ -36976,7 +36871,7 @@
         "frontend-requirements:photo-library",
         "frontend-requirements:ring-projection"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -37016,10 +36911,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:rings",
-      "inherits": {
-        "priority": "feature:rings",
-        "release": "feature:rings"
-      },
+      "inherits": {},
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -37032,14 +36924,14 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Rings/flow/BD-11 Rings Backend Delivery.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "frontend-requirements:ring-access",
         "frontend-requirements:ring-members",
         "frontend-requirements:rings",
         "frontend-requirements:view-as"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -37089,10 +36981,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:subscription",
-      "inherits": {
-        "priority": "feature:subscription",
-        "release": "feature:subscription"
-      },
+      "inherits": {},
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -37105,9 +36994,9 @@
       ],
       "path": "social-pin/modules/Commerce/features/Subscription (Free vs Pro)/flow/BD-28 Subscription (Free vs Pro) Backend Delivery.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -37142,10 +37031,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:view-as",
-      "inherits": {
-        "priority": "feature:view-as",
-        "release": "feature:view-as"
-      },
+      "inherits": {},
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -37158,14 +37044,14 @@
       ],
       "path": "social-pin/modules/Identity Core/features/View As & Pin Views/flow/BD-12 View As & Pin Views Backend Delivery.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "qa-backend:files",
         "frontend-requirements:ring-access",
         "frontend-requirements:ring-projection",
         "frontend-requirements:view-as"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -37207,10 +37093,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:widgets",
-      "inherits": {
-        "priority": "feature:widgets",
-        "release": "feature:widgets"
-      },
+      "inherits": {},
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -37223,9 +37106,9 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Widgets/flow/BD-13 Widgets Backend Delivery.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -37267,10 +37150,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:account",
-      "inherits": {
-        "priority": "feature:account",
-        "release": "feature:account"
-      },
+      "inherits": {},
       "kind": "backend-integration",
       "label": "Backend Integration",
       "labels": [],
@@ -37283,7 +37163,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Account/flow/BI-01 Account Backend Integration.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "task:B-01",
         "task:B-03",
@@ -37321,7 +37201,7 @@
         "project:frontend-api-guide",
         "frontend-requirements:profiles"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -37407,10 +37287,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:auth",
-      "inherits": {
-        "priority": "feature:auth",
-        "release": "feature:auth"
-      },
+      "inherits": {},
       "kind": "backend-integration",
       "label": "Backend Integration",
       "labels": [],
@@ -37427,7 +37304,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Auth & Sign-up/flow/BI-02 Auth & Sign-up Backend Integration.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "task:B-01",
         "task:B-03",
@@ -37449,7 +37326,7 @@
         "project:auth-model",
         "frontend-requirements:profiles"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -38255,10 +38132,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:files",
-      "inherits": {
-        "priority": "feature:files",
-        "release": "feature:files"
-      },
+      "inherits": {},
       "kind": "backend-integration",
       "label": "Backend Integration",
       "labels": [],
@@ -38271,7 +38145,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Files Upload/flow/BI-03 Files Upload Backend Integration.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "task:B-07",
         "task:B-08",
@@ -38282,7 +38156,7 @@
         "frontend-requirements:profiles",
         "frontend-requirements:ring-projection"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -38846,10 +38720,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:profiles",
-      "inherits": {
-        "priority": "feature:profiles",
-        "release": "feature:profiles"
-      },
+      "inherits": {},
       "kind": "backend-integration",
       "label": "Backend Integration",
       "labels": [],
@@ -38862,7 +38733,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Profiles & Pin Name/flow/BI-04 Profiles & Pin Name Backend Integration.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "qa-backend:account",
         "qa-backend:auth",
@@ -38872,7 +38743,7 @@
         "frontend-requirements:ring-projection",
         "frontend-requirements:view-as"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -38906,10 +38777,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:ring-access",
-      "inherits": {
-        "priority": "feature:ring-access",
-        "release": "feature:ring-access"
-      },
+      "inherits": {},
       "kind": "backend-integration",
       "label": "Backend Integration",
       "labels": [],
@@ -38922,7 +38790,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Ring Access Engine/flow/BI-05 Ring Access Engine Backend Integration.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "frontend-requirements:files",
         "qa-backend:files",
@@ -38931,7 +38799,7 @@
         "frontend-requirements:ring-members",
         "frontend-requirements:ring-projection"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [],
@@ -39011,10 +38879,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:ring-members",
-      "inherits": {
-        "priority": "feature:ring-members",
-        "release": "feature:ring-members"
-      },
+      "inherits": {},
       "kind": "backend-integration",
       "label": "Backend Integration",
       "labels": [],
@@ -39027,7 +38892,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Ring Members/flow/BI-06 Ring Members Backend Integration.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "frontend-requirements:files",
         "qa-backend:files",
@@ -39037,7 +38902,7 @@
         "frontend-requirements:ring-projection",
         "frontend-requirements:view-as"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -39074,10 +38939,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:ring-projection",
-      "inherits": {
-        "priority": "feature:ring-projection",
-        "release": "feature:ring-projection"
-      },
+      "inherits": {},
       "kind": "backend-integration",
       "label": "Backend Integration",
       "labels": [],
@@ -39090,7 +38952,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Ring Projection/flow/BI-07 Ring Projection Backend Integration.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "task:B-07",
         "task:B-08",
@@ -39104,7 +38966,7 @@
         "frontend-requirements:ring-projection",
         "frontend-requirements:view-as"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -39144,10 +39006,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:rings",
-      "inherits": {
-        "priority": "feature:rings",
-        "release": "feature:rings"
-      },
+      "inherits": {},
       "kind": "backend-integration",
       "label": "Backend Integration",
       "labels": [],
@@ -39160,7 +39019,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Rings/flow/BI-08 Rings Backend Integration.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "frontend-requirements:files",
         "qa-backend:files",
@@ -39171,7 +39030,7 @@
         "frontend-requirements:rings",
         "frontend-requirements:view-as"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -39263,10 +39122,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:view-as",
-      "inherits": {
-        "priority": "feature:view-as",
-        "release": "feature:view-as"
-      },
+      "inherits": {},
       "kind": "backend-integration",
       "label": "Backend Integration",
       "labels": [],
@@ -39279,7 +39135,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/View As & Pin Views/flow/BI-09 View As & Pin Views Backend Integration.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "task:B-08",
         "frontend-requirements:files",
@@ -39288,7 +39144,7 @@
         "frontend-requirements:ring-projection",
         "frontend-requirements:view-as"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -40413,7 +40269,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Account/F-01 Account.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "feature:badge-qr",
         "feature:auth",
@@ -40435,7 +40291,7 @@
         "frontend-requirements:error-contract",
         "project:auth-model"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "rollup": {
         "approved": 1,
@@ -40454,14 +40310,12 @@
       "summary": "The authenticated account: read it, change email or phone, soft-delete it.",
       "tags": [
         "feature",
-        "module/identity",
-        "priority/critical",
-        "release/mvp"
+        "module/identity"
       ],
       "task": null,
       "title": "F-01 Account",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-01"
     },
     "feature:app-shell": {
       "affects": [],
@@ -40499,7 +40353,7 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/App Shell & Onboarding Narrative/F-29 App Shell & Onboarding Narrative.md",
       "pending": [],
-      "priority": "medium",
+      "priority": null,
       "related": [
         "feature:auth",
         "project:ring-access-model",
@@ -40507,7 +40361,7 @@
         "project:api-conventions",
         "project:spec-map"
       ],
-      "release": "later",
+      "release": null,
       "resolution": null,
       "rollup": {
         "approved": 1,
@@ -40526,14 +40380,12 @@
       "summary": "Splash, the three value panels, tab bar and the signature motions. No backend work.",
       "tags": [
         "feature",
-        "module/platform",
-        "priority/medium",
-        "release/later"
+        "module/platform"
       ],
       "task": null,
       "title": "F-29 App Shell & Onboarding Narrative",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-01"
     },
     "feature:audit-log": {
       "affects": [],
@@ -40573,7 +40425,7 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Audit Log/F-30 Audit Log.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "feature:payments",
         "feature:auth",
@@ -40586,7 +40438,7 @@
         "feature:operator-panel",
         "story:payments"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "rollup": {
         "approved": 1,
@@ -40600,14 +40452,12 @@
       "summary": "The AuditLog table exists with indexes; nothing writes to it. Required for sensitive admin, access, payment and AI actions.",
       "tags": [
         "feature",
-        "module/platform",
-        "priority/critical",
-        "release/mvp"
+        "module/platform"
       ],
       "task": null,
       "title": "F-30 Audit Log",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-01"
     },
     "feature:auth": {
       "affects": [],
@@ -40648,7 +40498,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Auth & Sign-up/F-02 Auth & Sign-up.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "feature:account",
         "feature:profiles",
@@ -40669,7 +40519,7 @@
         "frontend-requirements:profiles",
         "frontend-requirements:interests"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "rollup": {
         "approved": 1,
@@ -40694,14 +40544,12 @@
       "summary": "Sign up with email or phone, verify the one-time code, finish registration with a Pin name, sign in with a one-time code, refresh, log out, log out everywhere. Passwordless since 2026-10-15 (ND-01…",
       "tags": [
         "feature",
-        "module/identity",
-        "priority/critical",
-        "release/mvp"
+        "module/identity"
       ],
       "task": null,
       "title": "F-02 Auth & Sign-up",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-01"
     },
     "feature:badge-qr": {
       "affects": [],
@@ -40741,7 +40589,7 @@
       ],
       "path": "social-pin/modules/Discovery/features/Badge & QR/F-18 Badge & QR.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "feature:subscription",
         "feature:connections",
@@ -40764,7 +40612,7 @@
         "frontend-requirements:profiles",
         "story:profiles"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "rollup": {
         "blocked": 2,
@@ -40782,14 +40630,12 @@
       "summary": "The centre-tab badge: a QR bound to the active Ring, rotated every 24 h, a share link, a scan counter, and a browser page for people without the app. Scanning resolves the token into that Ring's view.",
       "tags": [
         "feature",
-        "module/discovery",
-        "priority/critical",
-        "release/mvp"
+        "module/discovery"
       ],
       "task": null,
       "title": "F-18 Badge & QR",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-01"
     },
     "feature:build-deploy": {
       "affects": [],
@@ -40829,7 +40675,7 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Build & Deploy/F-43 Build & Deploy.md",
       "pending": [],
-      "priority": "medium",
+      "priority": null,
       "related": [
         "feature:e2e-tests",
         "project:developer-setup",
@@ -40840,7 +40686,7 @@
         "project:spec-map",
         "story:build-deploy"
       ],
-      "release": "later",
+      "release": null,
       "resolution": null,
       "rollup": {
         "draft": 1,
@@ -40852,14 +40698,12 @@
       "summary": "How the backend gets built and shipped: the GitLab pipeline, the Docker image and the compose files, and which branch deploys where. Not a product feature — nobody using Social Pin ever sees it —…",
       "tags": [
         "feature",
-        "module/platform",
-        "priority/medium",
-        "release/later"
+        "module/platform"
       ],
       "task": null,
       "title": "F-43 Build & Deploy",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-01"
     },
     "feature:cleanup-jobs": {
       "affects": [],
@@ -40899,7 +40743,7 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Cleanup Jobs/F-31 Cleanup Jobs.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "feature:pincast",
         "feature:rings",
@@ -40909,7 +40753,7 @@
         "project:api-conventions",
         "project:spec-map"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "rollup": {
         "approved": 1,
@@ -40923,14 +40767,12 @@
       "summary": "Scheduled sweepers: auto-delete Rings whose disposition is AUTODELETE, purge PincastRecipient rows, delete expired verification codes, and materialise EXPIRED statuses for reporting.",
       "tags": [
         "feature",
-        "module/platform",
-        "priority/high",
-        "release/v1"
+        "module/platform"
       ],
       "task": null,
       "title": "F-31 Cleanup Jobs",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-01"
     },
     "feature:code-delivery": {
       "affects": [],
@@ -40970,7 +40812,7 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Code Delivery/F-32 Code Delivery.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "feature:auth",
         "feature:notifications",
@@ -40980,7 +40822,7 @@
         "project:spec-map",
         "decision:D-01"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "rollup": {
         "approved": 1,
@@ -40996,14 +40838,12 @@
       "summary": "Delivering the one-time code by email or SMS. Today the code is only logged, and returned as devCode in every environment (product decision 2026-10-15, so the passwordless app can sign in before a…",
       "tags": [
         "feature",
-        "module/platform",
-        "priority/critical",
-        "release/mvp"
+        "module/platform"
       ],
       "task": null,
       "title": "F-32 Code Delivery",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-01"
     },
     "feature:companies": {
       "affects": [],
@@ -41044,7 +40884,7 @@
       ],
       "path": "social-pin/modules/Shared Rings & Companies/features/Companies/F-15 Companies.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "feature:exhibitor",
         "feature:ring-members",
@@ -41057,7 +40897,7 @@
         "project:spec-map",
         "needs-decision:ND-18"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "rollup": {
         "blocked": 2,
@@ -41075,14 +40915,12 @@
       "summary": "My companies (s72) and company detail (s73): the business tables exist (Business, BusinessMember, tags, files), no endpoints.",
       "tags": [
         "feature",
-        "module/shared-rings",
-        "priority/high",
-        "release/v1"
+        "module/shared-rings"
       ],
       "task": null,
       "title": "F-15 Companies",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-01"
     },
     "feature:connections": {
       "affects": [],
@@ -41122,7 +40960,7 @@
       ],
       "path": "social-pin/modules/Connections/features/Connections/F-14 Connections.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "feature:rings",
         "feature:ring-members",
@@ -41148,7 +40986,7 @@
         "needs-decision:ND-23",
         "frontend-requirements:counts"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "rollup": {
         "blocked": 3,
@@ -41170,14 +41008,12 @@
       "summary": "A connection is an access request, not a content subscription. Send a request after a scan, review the inbox, accept and pick a Ring (this sets ConnectionRequest.grantedRingId), connection detail,…",
       "tags": [
         "feature",
-        "module/connections",
-        "priority/critical",
-        "release/mvp"
+        "module/connections"
       ],
       "task": null,
       "title": "F-14 Connections",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-01"
     },
     "feature:counts": {
       "affects": [],
@@ -41217,7 +41053,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Counts/F-03 Counts.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "feature:connections",
         "feature:account",
@@ -41228,7 +41064,7 @@
         "project:spec-map",
         "story:view-as"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "rollup": {
         "approved": 1,
@@ -41249,14 +41085,12 @@
       "summary": "Member counts per Ring (\"148 people\") and connection counts (\"218 connections\") shown on Home, Ring data, My Rings and Me.",
       "tags": [
         "feature",
-        "module/identity",
-        "priority/high",
-        "release/mvp"
+        "module/identity"
       ],
       "task": null,
       "title": "F-03 Counts",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-01"
     },
     "feature:delegated-admins": {
       "affects": [],
@@ -41297,7 +41131,7 @@
       ],
       "path": "social-pin/modules/Shared Rings & Companies/features/Delegated Admins/F-16 Delegated Admins.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "feature:ring-members",
         "feature:rings",
@@ -41309,7 +41143,7 @@
         "project:api-conventions",
         "project:spec-map"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "rollup": {
         "approved": 1,
@@ -41328,14 +41162,12 @@
       "summary": "Company Rings delegate administration at permission levels (RingAdmin). The rules are enforced by assertCanAdminister; there is no way to add, change or remove an admin.",
       "tags": [
         "feature",
-        "module/shared-rings",
-        "priority/high",
-        "release/v1"
+        "module/shared-rings"
       ],
       "task": null,
       "title": "F-16 Delegated Admins",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-01"
     },
     "feature:devices": {
       "affects": [],
@@ -41375,7 +41207,7 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Devices & NFC/F-33 Devices & NFC.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "feature:badge-qr",
         "feature:account",
@@ -41386,7 +41218,7 @@
         "project:api-conventions",
         "project:spec-map"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "rollup": {
         "approved": 1,
@@ -41402,14 +41234,12 @@
       "summary": "Linked-device management (s75): list devices, remove one, sign out all others, pair an NFC card.",
       "tags": [
         "feature",
-        "module/platform",
-        "priority/high",
-        "release/v1"
+        "module/platform"
       ],
       "task": null,
       "title": "F-33 Devices & NFC",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-01"
     },
     "feature:discover-hub": {
       "affects": [],
@@ -41449,7 +41279,7 @@
       ],
       "path": "social-pin/modules/Discovery/features/Discover Hub & Search/F-19 Discover Hub & Search.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "feature:view-as",
         "feature:pincast",
@@ -41460,7 +41290,7 @@
         "project:api-conventions",
         "project:spec-map"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "rollup": {
         "approved": 1,
@@ -41476,14 +41306,12 @@
       "summary": "Discover tab (s38): search by !pinname, recent searches, entry points to People, Events, Companies, Exhibitors, PinCast, import contacts.",
       "tags": [
         "feature",
-        "module/discovery",
-        "priority/high",
-        "release/v1"
+        "module/discovery"
       ],
       "task": null,
       "title": "F-19 Discover Hub & Search",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-01"
     },
     "feature:e2e-tests": {
       "affects": [],
@@ -41523,7 +41351,7 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/E2E Test Run/F-34 E2E Test Run.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "feature:build-deploy",
         "feature:auth",
@@ -41533,7 +41361,7 @@
         "project:api-conventions",
         "project:spec-map"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "rollup": {
         "approved": 1,
@@ -41547,14 +41375,12 @@
       "summary": "The e2e specs are written and typecheck but have never run: they need a disposable, migrated and seeded PostGIS database.",
       "tags": [
         "feature",
-        "module/platform",
-        "priority/critical",
-        "release/mvp"
+        "module/platform"
       ],
       "task": null,
       "title": "F-34 E2E Test Run",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-01"
     },
     "feature:error-contract": {
       "affects": [],
@@ -41594,7 +41420,7 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Error Contract/F-35 Error Contract.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "project:api-conventions",
         "project:frontend-contract",
@@ -41602,7 +41428,7 @@
         "project:architecture",
         "project:spec-map"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "rollup": {
         "approved": 2,
@@ -41617,14 +41443,12 @@
       "summary": "One error body for the whole API, with a stable per-domain code the client branches on and a human message it displays.",
       "tags": [
         "feature",
-        "module/platform",
-        "priority/critical",
-        "release/mvp"
+        "module/platform"
       ],
       "task": null,
       "title": "F-35 Error Contract",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-01"
     },
     "feature:event-ring-auto": {
       "affects": [],
@@ -41664,7 +41488,7 @@
       ],
       "path": "social-pin/modules/Events/features/Event Ring Auto-creation/F-21 Event Ring Auto-creation.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "feature:payments",
         "feature:view-as",
@@ -41680,7 +41504,7 @@
         "story:payments",
         "story:events-before"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "rollup": {
         "approved": 1,
@@ -41696,14 +41520,12 @@
       "summary": "The EVENT Ring type exists and is rejected on manual create; nothing creates one when a registration succeeds (s52 \"Event Ring granted\").",
       "tags": [
         "feature",
-        "module/events",
-        "priority/critical",
-        "release/mvp"
+        "module/events"
       ],
       "task": null,
       "title": "F-21 Event Ring Auto-creation",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-01"
     },
     "feature:events-before": {
       "affects": [],
@@ -41743,7 +41565,7 @@
       ],
       "path": "social-pin/modules/Events/features/Events Before/F-22 Events Before.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "feature:payments",
         "feature:event-ring-auto",
@@ -41757,7 +41579,7 @@
         "project:spec-map",
         "story:payments"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "rollup": {
         "approved": 1,
@@ -41779,14 +41601,12 @@
       "summary": "Events list with filters and \"your contacts are going\" (s48), event landing page and schedule (s49), tickets, access levels, sub-events, sold out (s50), payment (s51), Event Ring granted on…",
       "tags": [
         "feature",
-        "module/events",
-        "priority/critical",
-        "release/mvp"
+        "module/events"
       ],
       "task": null,
       "title": "F-22 Events Before",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-01"
     },
     "feature:events-during": {
       "affects": [],
@@ -41826,7 +41646,7 @@
       ],
       "path": "social-pin/modules/Events/features/Events During/F-23 Events During.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "feature:subscription",
         "feature:badge-qr",
@@ -41845,7 +41665,7 @@
         "needs-decision:ND-23",
         "story:payments"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "rollup": {
         "blocked": 2,
@@ -41865,14 +41685,12 @@
       "summary": "Event mode hub (s53), exhibitors list and detail (s54, s55), event pass with a 60-second rotating code (s56), floor map and booths (s57), catalogue of products and talks (s58), lounges and upgrades.",
       "tags": [
         "feature",
-        "module/events",
-        "priority/critical",
-        "release/mvp"
+        "module/events"
       ],
       "task": null,
       "title": "F-23 Events During",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-01"
     },
     "feature:exhibitor": {
       "affects": [],
@@ -41912,7 +41730,7 @@
       ],
       "path": "social-pin/modules/Events/features/Exhibitor/F-24 Exhibitor.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "feature:events-during",
         "feature:view-as",
@@ -41925,7 +41743,7 @@
         "project:api-conventions",
         "project:spec-map"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "rollup": {
         "approved": 1,
@@ -41943,14 +41761,12 @@
       "summary": "Business account setup and business Ring (s63), team on the stand, \"Discoverable via Gemma\" toggle, booth analytics and leads CSV export (s65), organizer touchpoints (invitation, requested files,…",
       "tags": [
         "feature",
-        "module/events",
-        "priority/high",
-        "release/v1"
+        "module/events"
       ],
       "task": null,
       "title": "F-24 Exhibitor",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-01"
     },
     "feature:files": {
       "affects": [],
@@ -41990,7 +41806,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Files Upload/F-04 Files Upload.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "feature:rings",
         "feature:photo-library",
@@ -42005,7 +41821,7 @@
         "frontend-requirements:onboarding-imports",
         "frontend-requirements:profiles"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "rollup": {
         "approved": 2,
@@ -42032,14 +41848,12 @@
       "summary": "Multipart upload with type and size checks, metadata read, delete. A file becomes visible only when a reachable context (a Ring projection) references it.",
       "tags": [
         "feature",
-        "module/identity",
-        "priority/high",
-        "release/v1"
+        "module/identity"
       ],
       "task": null,
       "title": "F-04 Files Upload",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-01"
     },
     "feature:gemma": {
       "affects": [],
@@ -42080,7 +41894,7 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Gemma AI/F-36 Gemma AI.md",
       "pending": [],
-      "priority": "medium",
+      "priority": null,
       "related": [
         "feature:subscription",
         "feature:connections",
@@ -42097,7 +41911,7 @@
         "project:spec-map",
         "frontend-requirements:interests"
       ],
-      "release": "later",
+      "release": null,
       "resolution": null,
       "rollup": {
         "blocked": 2,
@@ -42115,14 +41929,12 @@
       "summary": "The cross-cutting assistant: assistant sheet (s13), Smart Match (s60), and suggestions everywhere (Pin name, Ring name, which Ring on accept, bio rewrite, meeting agenda).",
       "tags": [
         "feature",
-        "module/platform",
-        "priority/medium",
-        "release/later"
+        "module/platform"
       ],
       "task": null,
       "title": "F-36 Gemma AI",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-01"
     },
     "feature:interests": {
       "affects": [],
@@ -42162,7 +41974,7 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Interests/F-37 Interests.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "feature:gemma",
         "feature:account",
@@ -42172,7 +41984,7 @@
         "project:spec-map",
         "story:auth"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "rollup": {
         "approved": 1,
@@ -42189,14 +42001,12 @@
       "summary": "Interest picking during onboarding (s07) and from Me (s71). Used for search and matchmaking, never shown to others.",
       "tags": [
         "feature",
-        "module/platform",
-        "priority/high",
-        "release/mvp"
+        "module/platform"
       ],
       "task": null,
       "title": "F-37 Interests",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-01"
     },
     "feature:linked-accounts": {
       "affects": [],
@@ -42237,7 +42047,7 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Linked Accounts (OAuth)/F-38 Linked Accounts (OAuth).md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "feature:account",
         "feature:auth",
@@ -42248,7 +42058,7 @@
         "project:spec-map",
         "story:ring-projection"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "rollup": {
         "approved": 1,
@@ -42268,14 +42078,12 @@
       "summary": "Social providers for login and import (s68 linked accounts, s01 \"Continue with LinkedIn\"). SocialIdentity exists; there is no OAuth.",
       "tags": [
         "feature",
-        "module/platform",
-        "priority/high",
-        "release/v1"
+        "module/platform"
       ],
       "task": null,
       "title": "F-38 Linked Accounts (OAuth)",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-01"
     },
     "feature:meetings": {
       "affects": [],
@@ -42315,7 +42123,7 @@
       ],
       "path": "social-pin/modules/Meetings/features/Meetings/F-26 Meetings.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "feature:events-during",
         "feature:exhibitor",
@@ -42331,7 +42139,7 @@
         "project:api-conventions",
         "project:spec-map"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "rollup": {
         "approved": 1,
@@ -42351,14 +42159,12 @@
       "summary": "Availability slots, request a meeting with a slot (s59), a temporary Ring created per meeting, accept by offering slots or decline with a reason (s64), my meetings and calendar (s61, s66), meeting…",
       "tags": [
         "feature",
-        "module/meetings",
-        "priority/critical",
-        "release/mvp"
+        "module/meetings"
       ],
       "task": null,
       "title": "F-26 Meetings",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-01"
     },
     "feature:notifications": {
       "affects": [],
@@ -42398,7 +42204,7 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Notifications/F-39 Notifications.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "feature:connections",
         "feature:pincast",
@@ -42412,7 +42218,7 @@
         "project:spec-map",
         "feature:ring-invitations"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "rollup": {
         "approved": 1,
@@ -42428,14 +42234,12 @@
       "summary": "Grouped notifications (Today / Yesterday / Last 7 days), mark all read (s69), push delivery, preferences.",
       "tags": [
         "feature",
-        "module/platform",
-        "priority/high",
-        "release/v1"
+        "module/platform"
       ],
       "task": null,
       "title": "F-39 Notifications",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-01"
     },
     "feature:onboarding-imports": {
       "affects": [],
@@ -42476,7 +42280,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Onboarding Imports/F-05 Onboarding Imports.md",
       "pending": [],
-      "priority": "medium",
+      "priority": null,
       "related": [
         "feature:files",
         "feature:linked-accounts",
@@ -42489,7 +42293,7 @@
         "story:auth",
         "frontend-requirements:profiles"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "rollup": {
         "blocked": 2,
@@ -42511,14 +42315,12 @@
       "summary": "Start from an import: LinkedIn OAuth → importing → review fields (s04, s05), scan a paper business card (s03a), import from a portfolio or Behance URL (s03b). Only SocialIdentity has a table.",
       "tags": [
         "feature",
-        "module/identity",
-        "priority/medium",
-        "release/mvp"
+        "module/identity"
       ],
       "task": null,
       "title": "F-05 Onboarding Imports",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-01"
     },
     "feature:operator-panel": {
       "affects": [],
@@ -42558,7 +42360,7 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Operator Panel/F-42 Operator Panel.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "feature:audit-log",
         "feature:account",
@@ -42571,7 +42373,7 @@
         "project:api-conventions",
         "project:spec-map"
       ],
-      "release": "later",
+      "release": null,
       "resolution": null,
       "rollup": {
         "draft": 1,
@@ -42583,14 +42385,12 @@
       "summary": "How the team that runs Social Pin operates it: find an account, see its state, suspend or reactivate it, say what an operator may do (the platform role and the scoped grants in userroles), read…",
       "tags": [
         "feature",
-        "module/platform",
-        "priority/high",
-        "release/later"
+        "module/platform"
       ],
       "task": null,
       "title": "F-42 Operator Panel",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-01"
     },
     "feature:payments": {
       "affects": [],
@@ -42630,7 +42430,7 @@
       ],
       "path": "social-pin/modules/Commerce/features/Payments & Orders/F-27 Payments & Orders.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "feature:events-before",
         "feature:subscription",
@@ -42643,7 +42443,7 @@
         "needs-decision:ND-07",
         "story:events-before"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "rollup": {
         "approved": 1,
@@ -42662,14 +42462,12 @@
       "summary": "Ticket / package / sub-event purchase (s51): order with price snapshots, payment, provider webhook with idempotent providerReference.",
       "tags": [
         "feature",
-        "module/commerce",
-        "priority/high",
-        "release/v1"
+        "module/commerce"
       ],
       "task": null,
       "title": "F-27 Payments & Orders",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-01"
     },
     "feature:photo-library": {
       "affects": [],
@@ -42711,7 +42509,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Photo Library/F-06 Photo Library.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "feature:files",
         "feature:ring-projection",
@@ -42721,7 +42519,7 @@
         "project:api-conventions",
         "project:spec-map"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "rollup": {
         "approved": 1,
@@ -42742,14 +42540,12 @@
       "summary": "The user's uploaded photos, reusable across Rings, with the Rings that use each photo (s30).",
       "tags": [
         "feature",
-        "module/identity",
-        "priority/high",
-        "release/v1"
+        "module/identity"
       ],
       "task": null,
       "title": "F-06 Photo Library",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-01"
     },
     "feature:pincast": {
       "affects": [],
@@ -42789,7 +42585,7 @@
       ],
       "path": "social-pin/modules/Discovery/features/PinCast & Nearby/F-20 PinCast & Nearby.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "feature:discover-hub",
         "feature:rings",
@@ -42803,7 +42599,7 @@
         "project:api-conventions",
         "project:spec-map"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "rollup": {
         "approved": 1,
@@ -42823,14 +42619,12 @@
       "summary": "Proximity broadcast limited by distance and time (s39 – s42) and nearby-by-Ring. The PostGIS column, trigger and GiST index are in place.",
       "tags": [
         "feature",
-        "module/discovery",
-        "priority/high",
-        "release/v1"
+        "module/discovery"
       ],
       "task": null,
       "title": "F-20 PinCast & Nearby",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-01"
     },
     "feature:post-event": {
       "affects": [],
@@ -42870,7 +42664,7 @@
       ],
       "path": "social-pin/modules/Events/features/Post-Event/F-25 Post-Event.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "feature:event-ring-auto",
         "feature:view-as",
@@ -42884,7 +42678,7 @@
         "project:api-conventions",
         "project:spec-map"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "rollup": {
         "approved": 1,
@@ -42900,14 +42694,12 @@
       "summary": "Summary stats (connections, meetings, scans) and follow-up suggestions (s62). The keep / merge / expire choice for the Event Ring already exists.",
       "tags": [
         "feature",
-        "module/events",
-        "priority/high",
-        "release/v1"
+        "module/events"
       ],
       "task": null,
       "title": "F-25 Post-Event",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-01"
     },
     "feature:profiles": {
       "affects": [],
@@ -42949,7 +42741,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Profiles & Pin Name/F-07 Profiles & Pin Name.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "feature:auth",
         "feature:onboarding-imports",
@@ -42963,7 +42755,7 @@
         "needs-decision:ND-22",
         "frontend-delivery:account"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "rollup": {
         "blocked": 1,
@@ -42987,14 +42779,12 @@
       "summary": "One profile per person: the full name, the nickname, the main profile every Ring starts from, the !-prefixed unique Pin name with a public live availability check, and the sensitive base fields…",
       "tags": [
         "feature",
-        "module/identity",
-        "priority/critical",
-        "release/mvp"
+        "module/identity"
       ],
       "task": null,
       "title": "F-07 Profiles & Pin Name",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-01"
     },
     "feature:ring-access": {
       "affects": [],
@@ -43034,7 +42824,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Ring Access Engine/F-08 Ring Access Engine.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "feature:connections",
         "feature:badge-qr",
@@ -43052,7 +42842,7 @@
         "feature:delegated-admins",
         "needs-decision:ND-23"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "rollup": {
         "approved": 1,
@@ -43076,14 +42866,12 @@
       "summary": "RingAccessService: the one place that decides whether a viewer may see something. Every read path, and every future feature (events, meetings, chat, posts, Gemma), routes through it.",
       "tags": [
         "feature",
-        "module/identity",
-        "priority/critical",
-        "release/mvp"
+        "module/identity"
       ],
       "task": null,
       "title": "F-08 Ring Access Engine",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-01"
     },
     "feature:ring-invitations": {
       "affects": [],
@@ -43124,7 +42912,7 @@
       ],
       "path": "social-pin/modules/Shared Rings & Companies/features/Ring Invitations & Join/F-17 Ring Invitations & Join.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "feature:rings",
         "feature:companies",
@@ -43137,7 +42925,7 @@
         "project:spec-map",
         "needs-decision:ND-18"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "rollup": {
         "blocked": 2,
@@ -43155,14 +42943,12 @@
       "summary": "Being invited into someone else's Ring: review or decline an invite (s17), join with a code, a verified work email or a colleague's QR (s74), and \"what you contribute\" to a shared Ring.",
       "tags": [
         "feature",
-        "module/shared-rings",
-        "priority/high",
-        "release/v1"
+        "module/shared-rings"
       ],
       "task": null,
       "title": "F-17 Ring Invitations & Join",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-01"
     },
     "feature:ring-members": {
       "affects": [],
@@ -43203,7 +42989,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Ring Members/F-09 Ring Members.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "feature:connections",
         "feature:ring-access",
@@ -43219,7 +43005,7 @@
         "feature:ring-invitations",
         "needs-decision:ND-15"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "rollup": {
         "approved": 1,
@@ -43242,14 +43028,12 @@
       "summary": "The owner's roster of a Ring: list and search it, add people, approve those who asked to join, set each person's access window, bring people in from another Ring, choose which of my Rings someone…",
       "tags": [
         "feature",
-        "module/identity",
-        "priority/critical",
-        "release/mvp"
+        "module/identity"
       ],
       "task": null,
       "title": "F-09 Ring Members",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-01"
     },
     "feature:ring-projection": {
       "affects": [],
@@ -43292,7 +43076,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Ring Projection/F-10 Ring Projection.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "feature:files",
         "feature:onboarding-imports",
@@ -43309,7 +43093,7 @@
         "decision:D-16",
         "frontend-requirements:onboarding-imports"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "rollup": {
         "approved": 1,
@@ -43338,14 +43122,12 @@
       "summary": "What a Ring shows: the headline, role, company and location it goes by (following the Pin, its own, or hidden), the nickname, bio and photo, which social and contact links, which custom fields…",
       "tags": [
         "feature",
-        "module/identity",
-        "priority/critical",
-        "release/mvp"
+        "module/identity"
       ],
       "task": null,
       "title": "F-10 Ring Projection",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-01"
     },
     "feature:rings": {
       "affects": [],
@@ -43387,7 +43169,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Rings/F-11 Rings.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "feature:connections",
         "feature:badge-qr",
@@ -43419,7 +43201,7 @@
         "frontend-requirements:ring-access",
         "frontend-requirements:rings"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "rollup": {
         "approved": 1,
@@ -43449,14 +43231,12 @@
       "summary": "My Rings and Shared-with-me lists; the first Ring from a template at sign-up; a four-step wizard (name it → who is in it → what it shows → how you appear) with a colour, an icon, who it's for, and…",
       "tags": [
         "feature",
-        "module/identity",
-        "priority/critical",
-        "release/mvp"
+        "module/identity"
       ],
       "task": null,
       "title": "F-11 Rings",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-01"
     },
     "feature:subscription": {
       "affects": [],
@@ -43496,7 +43276,7 @@
       ],
       "path": "social-pin/modules/Commerce/features/Subscription (Free vs Pro)/F-28 Subscription (Free vs Pro).md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "feature:payments",
         "feature:badge-qr",
@@ -43510,7 +43290,7 @@
         "needs-decision:ND-07",
         "story:payments"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "rollup": {
         "approved": 1,
@@ -43529,14 +43309,12 @@
       "summary": "Free vs Pro (s70) and the Pro gates: Smart Match, any-lounge access, Gemma automation, permanent QR.",
       "tags": [
         "feature",
-        "module/commerce",
-        "priority/high",
-        "release/v1"
+        "module/commerce"
       ],
       "task": null,
       "title": "F-28 Subscription (Free vs Pro)",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-01"
     },
     "feature:view-as": {
       "affects": [],
@@ -43576,7 +43354,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/View As & Pin Views/F-12 View As & Pin Views.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "feature:connections",
         "feature:badge-qr",
@@ -43604,7 +43382,7 @@
         "decision:D-15",
         "decision:D-16"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "rollup": {
         "approved": 1,
@@ -43624,14 +43402,12 @@
       "summary": "The viewer-facing read path: open someone by Pin name, render one Ring (QR scan and the owner's \"View as\", with the owner's own \"where each field goes\" face), and list every perspective you hold…",
       "tags": [
         "feature",
-        "module/identity",
-        "priority/critical",
-        "release/mvp"
+        "module/identity"
       ],
       "task": null,
       "title": "F-12 View As & Pin Views",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-01"
     },
     "feature:widgets": {
       "affects": [],
@@ -43672,7 +43448,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Widgets/F-13 Widgets.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "feature:ring-projection",
         "feature:meetings",
@@ -43681,7 +43457,7 @@
         "project:api-conventions",
         "project:spec-map"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "rollup": {
         "approved": 1,
@@ -43700,14 +43476,12 @@
       "summary": "Widgets on a Ring (s37). The table exists; no endpoints; the type list does not match the design.",
       "tags": [
         "feature",
-        "module/identity",
-        "priority/high",
-        "release/v1"
+        "module/identity"
       ],
       "task": null,
       "title": "F-13 Widgets",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-01"
     },
     "frontend-delivery:account": {
       "affects": [],
@@ -43725,10 +43499,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-delivery:account",
-      "inherits": {
-        "priority": "feature:account",
-        "release": "feature:account"
-      },
+      "inherits": {},
       "kind": "frontend-delivery",
       "label": "Frontend Delivery",
       "labels": [],
@@ -43741,7 +43512,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Account/flow/FD-04 Account Frontend Delivery.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "needs-decision:ND-20",
         "decision:D-20",
@@ -43763,7 +43534,7 @@
         "frontend-requirements:error-contract",
         "project:auth-model"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -45664,10 +45435,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:account",
-      "inherits": {
-        "priority": "feature:account",
-        "release": "feature:account"
-      },
+      "inherits": {},
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -45680,7 +45448,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Account/flow/FR-01 Account Frontend Requirements.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "task:B-03",
         "task:B-08",
@@ -45701,7 +45469,7 @@
         "frontend-requirements:error-contract",
         "project:auth-model"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -45735,10 +45503,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:app-shell",
-      "inherits": {
-        "priority": "feature:app-shell",
-        "release": "feature:app-shell"
-      },
+      "inherits": {},
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -45751,7 +45516,7 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/App Shell & Onboarding Narrative/flow/FR-29 App Shell & Onboarding Narrative Frontend Requirements.md",
       "pending": [],
-      "priority": "medium",
+      "priority": null,
       "related": [
         "task:B-03",
         "qa-backend:auth",
@@ -45759,7 +45524,7 @@
         "frontend-requirements:view-as",
         "frontend-requirements:error-contract"
       ],
-      "release": "later",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -45796,10 +45561,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:audit-log",
-      "inherits": {
-        "priority": "feature:audit-log",
-        "release": "feature:audit-log"
-      },
+      "inherits": {},
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -45812,13 +45574,13 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Audit Log/flow/FR-30 Audit Log Frontend Requirements.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "backend-delivery:account",
         "backend-integration:account",
         "qa-backend:auth"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [],
@@ -45850,10 +45612,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:auth",
-      "inherits": {
-        "priority": "feature:auth",
-        "release": "feature:auth"
-      },
+      "inherits": {},
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -45866,7 +45625,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Auth & Sign-up/flow/FR-02 Auth & Sign-up Frontend Requirements.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "task:B-03",
         "task:B-04",
@@ -45889,7 +45648,7 @@
         "frontend-requirements:error-contract",
         "project:auth-model"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -45928,10 +45687,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:badge-qr",
-      "inherits": {
-        "priority": "feature:badge-qr",
-        "release": "feature:badge-qr"
-      },
+      "inherits": {},
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -45944,7 +45700,7 @@
       ],
       "path": "social-pin/modules/Discovery/features/Badge & QR/flow/FR-18 Badge & QR Frontend Requirements.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "task:B-03",
         "backend-integration:account",
@@ -45958,7 +45714,7 @@
         "frontend-requirements:view-as",
         "frontend-requirements:error-contract"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -46043,10 +45799,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:cleanup-jobs",
-      "inherits": {
-        "priority": "feature:cleanup-jobs",
-        "release": "feature:cleanup-jobs"
-      },
+      "inherits": {},
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -46059,7 +45812,7 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Cleanup Jobs/flow/FR-31 Cleanup Jobs Frontend Requirements.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "frontend-requirements:photo-library",
         "frontend-requirements:ring-access",
@@ -46067,7 +45820,7 @@
         "frontend-requirements:ring-projection",
         "frontend-requirements:view-as"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [],
@@ -46099,10 +45852,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:code-delivery",
-      "inherits": {
-        "priority": "feature:code-delivery",
-        "release": "feature:code-delivery"
-      },
+      "inherits": {},
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -46115,7 +45865,7 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Code Delivery/flow/FR-32 Code Delivery Frontend Requirements.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "task:B-04",
         "task:B-05",
@@ -46124,7 +45874,7 @@
         "qa-backend:auth",
         "frontend-requirements:error-contract"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -46164,10 +45914,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:companies",
-      "inherits": {
-        "priority": "feature:companies",
-        "release": "feature:companies"
-      },
+      "inherits": {},
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -46180,7 +45927,7 @@
       ],
       "path": "social-pin/modules/Shared Rings & Companies/features/Companies/flow/FR-15 Companies Frontend Requirements.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "task:B-03",
         "qa-backend:auth",
@@ -46194,7 +45941,7 @@
         "frontend-requirements:view-as",
         "frontend-requirements:error-contract"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -46235,10 +45982,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:connections",
-      "inherits": {
-        "priority": "feature:connections",
-        "release": "feature:connections"
-      },
+      "inherits": {},
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -46251,7 +45995,7 @@
       ],
       "path": "social-pin/modules/Connections/features/Connections/flow/FR-14 Connections Frontend Requirements.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "task:B-03",
         "qa-backend:auth",
@@ -46265,7 +46009,7 @@
         "frontend-requirements:view-as",
         "frontend-requirements:error-contract"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -46305,10 +46049,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:counts",
-      "inherits": {
-        "priority": "feature:counts",
-        "release": "feature:counts"
-      },
+      "inherits": {},
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -46321,7 +46062,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Counts/flow/FR-03 Counts Frontend Requirements.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "decision:D-04",
         "decision:D-14",
@@ -46338,7 +46079,7 @@
         "frontend-requirements:rings",
         "frontend-requirements:view-as"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -46377,10 +46118,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:delegated-admins",
-      "inherits": {
-        "priority": "feature:delegated-admins",
-        "release": "feature:delegated-admins"
-      },
+      "inherits": {},
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -46393,7 +46131,7 @@
       ],
       "path": "social-pin/modules/Shared Rings & Companies/features/Delegated Admins/flow/FR-16 Delegated Admins Frontend Requirements.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "task:B-03",
         "qa-backend:auth",
@@ -46406,7 +46144,7 @@
         "frontend-requirements:rings",
         "frontend-requirements:error-contract"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -46441,10 +46179,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:devices",
-      "inherits": {
-        "priority": "feature:devices",
-        "release": "feature:devices"
-      },
+      "inherits": {},
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -46457,7 +46192,7 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Devices & NFC/flow/FR-33 Devices & NFC Frontend Requirements.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "task:B-03",
         "backend-delivery:account",
@@ -46466,7 +46201,7 @@
         "frontend-requirements:error-contract",
         "project:auth-model"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -46500,10 +46235,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:discover-hub",
-      "inherits": {
-        "priority": "feature:discover-hub",
-        "release": "feature:discover-hub"
-      },
+      "inherits": {},
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -46516,7 +46248,7 @@
       ],
       "path": "social-pin/modules/Discovery/features/Discover Hub & Search/flow/FR-19 Discover Hub & Search Frontend Requirements.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "task:B-03",
         "qa-backend:auth",
@@ -46525,7 +46257,7 @@
         "frontend-requirements:view-as",
         "frontend-requirements:error-contract"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -46559,10 +46291,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:e2e-tests",
-      "inherits": {
-        "priority": "feature:e2e-tests",
-        "release": "feature:e2e-tests"
-      },
+      "inherits": {},
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -46575,13 +46304,13 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/E2E Test Run/flow/FR-34 E2E Test Run Frontend Requirements.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "qa-backend:files",
         "frontend-requirements:ring-access",
         "frontend-requirements:view-as"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [],
@@ -46615,10 +46344,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:error-contract",
-      "inherits": {
-        "priority": "feature:error-contract",
-        "release": "feature:error-contract"
-      },
+      "inherits": {},
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -46631,7 +46357,7 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Error Contract/flow/FR-35 Error Contract Frontend Requirements.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "task:B-03",
         "task:B-05",
@@ -46680,7 +46406,7 @@
         "story:code-delivery",
         "feature:account"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -46718,10 +46444,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:event-ring-auto",
-      "inherits": {
-        "priority": "feature:event-ring-auto",
-        "release": "feature:event-ring-auto"
-      },
+      "inherits": {},
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -46734,7 +46457,7 @@
       ],
       "path": "social-pin/modules/Events/features/Event Ring Auto-creation/flow/FR-21 Event Ring Auto-creation Frontend Requirements.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "frontend-requirements:photo-library",
         "frontend-requirements:ring-access",
@@ -46743,7 +46466,7 @@
         "frontend-requirements:rings",
         "frontend-requirements:view-as"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -46777,10 +46500,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:events-before",
-      "inherits": {
-        "priority": "feature:events-before",
-        "release": "feature:events-before"
-      },
+      "inherits": {},
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -46793,7 +46513,7 @@
       ],
       "path": "social-pin/modules/Events/features/Events Before/flow/FR-22 Events Before Frontend Requirements.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "task:B-03",
         "qa-backend:auth",
@@ -46801,7 +46521,7 @@
         "frontend-requirements:view-as",
         "frontend-requirements:error-contract"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -46845,10 +46565,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:events-during",
-      "inherits": {
-        "priority": "feature:events-during",
-        "release": "feature:events-during"
-      },
+      "inherits": {},
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -46861,13 +46578,13 @@
       ],
       "path": "social-pin/modules/Events/features/Events During/flow/FR-23 Events During Frontend Requirements.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "frontend-requirements:ring-access",
         "frontend-requirements:ring-projection",
         "frontend-requirements:view-as"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -46906,10 +46623,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:exhibitor",
-      "inherits": {
-        "priority": "feature:exhibitor",
-        "release": "feature:exhibitor"
-      },
+      "inherits": {},
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -46922,7 +46636,7 @@
       ],
       "path": "social-pin/modules/Events/features/Exhibitor/flow/FR-24 Exhibitor Frontend Requirements.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "frontend-requirements:files",
         "qa-backend:files",
@@ -46932,7 +46646,7 @@
         "frontend-requirements:ring-projection",
         "frontend-requirements:view-as"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -46972,10 +46686,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:files",
-      "inherits": {
-        "priority": "feature:files",
-        "release": "feature:files"
-      },
+      "inherits": {},
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -46988,7 +46699,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Files Upload/flow/FR-04 Files Upload Frontend Requirements.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "task:B-07",
         "task:B-08",
@@ -47035,7 +46746,7 @@
         "frontend-requirements:delegated-admins",
         "story:delegated-admins"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -47082,10 +46793,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:gemma",
-      "inherits": {
-        "priority": "feature:gemma",
-        "release": "feature:gemma"
-      },
+      "inherits": {},
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -47098,12 +46806,12 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Gemma AI/flow/FR-36 Gemma AI Frontend Requirements.md",
       "pending": [],
-      "priority": "medium",
+      "priority": null,
       "related": [
         "qa-backend:auth",
         "frontend-requirements:profiles"
       ],
-      "release": "later",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -47140,10 +46848,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:interests",
-      "inherits": {
-        "priority": "feature:interests",
-        "release": "feature:interests"
-      },
+      "inherits": {},
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -47156,7 +46861,7 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Interests/flow/FR-37 Interests Frontend Requirements.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "task:B-03",
         "frontend-requirements:auth",
@@ -47167,7 +46872,7 @@
         "story:gemma",
         "story:error-contract"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -47202,10 +46907,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:linked-accounts",
-      "inherits": {
-        "priority": "feature:linked-accounts",
-        "release": "feature:linked-accounts"
-      },
+      "inherits": {},
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -47218,7 +46920,7 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Linked Accounts (OAuth)/flow/FR-38 Linked Accounts (OAuth) Frontend Requirements.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "task:B-03",
         "task:B-04",
@@ -47227,7 +46929,7 @@
         "qa-backend:auth",
         "frontend-requirements:error-contract"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -47263,10 +46965,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:meetings",
-      "inherits": {
-        "priority": "feature:meetings",
-        "release": "feature:meetings"
-      },
+      "inherits": {},
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -47279,7 +46978,7 @@
       ],
       "path": "social-pin/modules/Meetings/features/Meetings/flow/FR-26 Meetings Frontend Requirements.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "frontend-requirements:photo-library",
         "frontend-requirements:ring-access",
@@ -47288,7 +46987,7 @@
         "frontend-requirements:rings",
         "frontend-requirements:view-as"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -47326,10 +47025,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:notifications",
-      "inherits": {
-        "priority": "feature:notifications",
-        "release": "feature:notifications"
-      },
+      "inherits": {},
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -47342,13 +47038,13 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Notifications/flow/FR-39 Notifications Frontend Requirements.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "task:B-03",
         "qa-backend:auth",
         "frontend-requirements:error-contract"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -47385,10 +47081,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:onboarding-imports",
-      "inherits": {
-        "priority": "feature:onboarding-imports",
-        "release": "feature:onboarding-imports"
-      },
+      "inherits": {},
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -47401,7 +47094,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Onboarding Imports/flow/FR-05 Onboarding Imports Frontend Requirements.md",
       "pending": [],
-      "priority": "medium",
+      "priority": null,
       "related": [
         "task:B-05",
         "task:B-07",
@@ -47421,7 +47114,7 @@
         "frontend-requirements:photo-library",
         "frontend-requirements:profiles"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -47508,10 +47201,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:payments",
-      "inherits": {
-        "priority": "feature:payments",
-        "release": "feature:payments"
-      },
+      "inherits": {},
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -47524,13 +47214,13 @@
       ],
       "path": "social-pin/modules/Commerce/features/Payments & Orders/flow/FR-27 Payments & Orders Frontend Requirements.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "task:B-03",
         "qa-backend:auth",
         "frontend-requirements:error-contract"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -47569,10 +47259,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:photo-library",
-      "inherits": {
-        "priority": "feature:photo-library",
-        "release": "feature:photo-library"
-      },
+      "inherits": {},
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -47585,7 +47272,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Photo Library/flow/FR-06 Photo Library Frontend Requirements.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "task:B-07",
         "task:B-08",
@@ -47644,7 +47331,7 @@
         "story:ring-access",
         "story:companies"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -47681,10 +47368,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:pincast",
-      "inherits": {
-        "priority": "feature:pincast",
-        "release": "feature:pincast"
-      },
+      "inherits": {},
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -47697,7 +47381,7 @@
       ],
       "path": "social-pin/modules/Discovery/features/PinCast & Nearby/flow/FR-20 PinCast & Nearby Frontend Requirements.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "task:B-03",
         "qa-backend:auth",
@@ -47709,7 +47393,7 @@
         "frontend-requirements:view-as",
         "frontend-requirements:error-contract"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -47747,10 +47431,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:post-event",
-      "inherits": {
-        "priority": "feature:post-event",
-        "release": "feature:post-event"
-      },
+      "inherits": {},
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -47763,7 +47444,7 @@
       ],
       "path": "social-pin/modules/Events/features/Post-Event/flow/FR-25 Post-Event Frontend Requirements.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "task:B-03",
         "qa-backend:auth",
@@ -47774,7 +47455,7 @@
         "frontend-requirements:view-as",
         "frontend-requirements:error-contract"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -47812,10 +47493,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:profiles",
-      "inherits": {
-        "priority": "feature:profiles",
-        "release": "feature:profiles"
-      },
+      "inherits": {},
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -47828,7 +47506,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Profiles & Pin Name/flow/FR-07 Profiles & Pin Name Frontend Requirements.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "task:B-05",
         "task:B-07",
@@ -47881,7 +47559,7 @@
         "story:photo-library",
         "backend-integration:ring-projection"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -47923,10 +47601,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:ring-access",
-      "inherits": {
-        "priority": "feature:ring-access",
-        "release": "feature:ring-access"
-      },
+      "inherits": {},
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -47939,7 +47614,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Ring Access Engine/flow/FR-08 Ring Access Engine Frontend Requirements.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "frontend-requirements:files",
         "qa-backend:files",
@@ -48013,7 +47688,7 @@
         "project:api-conventions",
         "project:frontend-agent-prompt"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -48061,10 +47736,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:ring-invitations",
-      "inherits": {
-        "priority": "feature:ring-invitations",
-        "release": "feature:ring-invitations"
-      },
+      "inherits": {},
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -48077,7 +47749,7 @@
       ],
       "path": "social-pin/modules/Shared Rings & Companies/features/Ring Invitations & Join/flow/FR-17 Ring Invitations & Join Frontend Requirements.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "task:B-03",
         "qa-backend:auth",
@@ -48087,7 +47759,7 @@
         "frontend-requirements:view-as",
         "frontend-requirements:error-contract"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -48126,10 +47798,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:ring-members",
-      "inherits": {
-        "priority": "feature:ring-members",
-        "release": "feature:ring-members"
-      },
+      "inherits": {},
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -48142,7 +47811,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Ring Members/flow/FR-09 Ring Members Frontend Requirements.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "frontend-requirements:files",
         "qa-backend:files",
@@ -48205,7 +47874,7 @@
         "project:api-conventions",
         "project:frontend-agent-prompt"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -48247,10 +47916,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:ring-projection",
-      "inherits": {
-        "priority": "feature:ring-projection",
-        "release": "feature:ring-projection"
-      },
+      "inherits": {},
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -48263,7 +47929,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Ring Projection/flow/FR-10 Ring Projection Frontend Requirements.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "task:B-07",
         "task:B-08",
@@ -48341,7 +48007,7 @@
         "backend-integration:files",
         "story:photo-library"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -48389,10 +48055,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:rings",
-      "inherits": {
-        "priority": "feature:rings",
-        "release": "feature:rings"
-      },
+      "inherits": {},
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -48405,7 +48068,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Rings/flow/FR-11 Rings Frontend Requirements.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "frontend-requirements:files",
         "qa-backend:files",
@@ -48449,7 +48112,7 @@
         "story:meetings",
         "frontend-requirements:view-as"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -48494,10 +48157,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:subscription",
-      "inherits": {
-        "priority": "feature:subscription",
-        "release": "feature:subscription"
-      },
+      "inherits": {},
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -48510,13 +48170,13 @@
       ],
       "path": "social-pin/modules/Commerce/features/Subscription (Free vs Pro)/flow/FR-28 Subscription (Free vs Pro) Frontend Requirements.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "task:B-03",
         "qa-backend:auth",
         "frontend-requirements:error-contract"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -48555,10 +48215,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:view-as",
-      "inherits": {
-        "priority": "feature:view-as",
-        "release": "feature:view-as"
-      },
+      "inherits": {},
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -48571,7 +48228,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/View As & Pin Views/flow/FR-12 View As & Pin Views Frontend Requirements.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "task:B-03",
         "task:B-08",
@@ -48643,7 +48300,7 @@
         "frontend-requirements:cleanup-jobs",
         "frontend-requirements:error-contract"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -48680,10 +48337,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:widgets",
-      "inherits": {
-        "priority": "feature:widgets",
-        "release": "feature:widgets"
-      },
+      "inherits": {},
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -48696,7 +48350,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Widgets/flow/FR-13 Widgets Frontend Requirements.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "task:B-08",
         "frontend-requirements:files",
@@ -48707,7 +48361,7 @@
         "frontend-requirements:ring-projection",
         "frontend-requirements:view-as"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -52460,9 +52114,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "qa-backend:account",
-      "inherits": {
-        "release": "feature:account"
-      },
+      "inherits": {},
       "kind": "qa-backend",
       "label": "QA Backend",
       "labels": [],
@@ -52499,7 +52151,7 @@
         "frontend-requirements:error-contract",
         "project:auth-model"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -52585,10 +52237,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "qa-backend:auth",
-      "inherits": {
-        "priority": "feature:auth",
-        "release": "feature:auth"
-      },
+      "inherits": {},
       "kind": "qa-backend",
       "label": "QA Backend",
       "labels": [],
@@ -52627,7 +52276,7 @@
           "to": "story:auth"
         }
       ],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "task:B-03",
         "task:B-04",
@@ -52697,7 +52346,7 @@
         "frontend-requirements:ring-members",
         "frontend-requirements:ring-projection"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -53507,10 +53156,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "qa-backend:files",
-      "inherits": {
-        "priority": "feature:files",
-        "release": "feature:files"
-      },
+      "inherits": {},
       "kind": "qa-backend",
       "label": "QA Backend",
       "labels": [],
@@ -53523,7 +53169,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Files Upload/flow/QB-06 Files Upload QA Backend.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "task:B-07",
         "task:B-08",
@@ -53578,7 +53224,7 @@
         "frontend-requirements:delegated-admins",
         "story:delegated-admins"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -54543,10 +54189,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "qa-frontend:account",
-      "inherits": {
-        "priority": "feature:account",
-        "release": "feature:account"
-      },
+      "inherits": {},
       "kind": "qa-frontend",
       "label": "QA Frontend",
       "labels": [],
@@ -54575,7 +54218,7 @@
           "to": null
         }
       ],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "task:B-01",
         "task:B-02",
@@ -54593,7 +54236,7 @@
         "frontend-requirements:error-contract",
         "project:auth-model"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -56582,19 +56225,25 @@
           "done": 0,
           "id": "mvp",
           "partial": 0,
-          "total": 21
+          "total": 0
         },
         {
           "done": 0,
           "id": "v1",
           "partial": 0,
-          "total": 16
+          "total": 0
         },
         {
           "done": 0,
           "id": "later",
           "partial": 0,
-          "total": 4
+          "total": 0
+        },
+        {
+          "done": 0,
+          "id": null,
+          "partial": 0,
+          "total": 41
         }
       ],
       "rollup": {
@@ -56642,10 +56291,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:account",
-      "inherits": {
-        "priority": "feature:account",
-        "release": "feature:account"
-      },
+      "inherits": {},
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -56658,7 +56304,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Account/S-01 Account Story.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "backend-delivery:account",
         "backend-integration:account",
@@ -56672,7 +56318,7 @@
         "frontend-requirements:error-contract",
         "project:auth-model"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -56706,10 +56352,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:app-shell",
-      "inherits": {
-        "priority": "feature:app-shell",
-        "release": "feature:app-shell"
-      },
+      "inherits": {},
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -56722,9 +56365,9 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/App Shell & Onboarding Narrative/S-73 App Shell & Onboarding Narrative Story.md",
       "pending": [],
-      "priority": "medium",
+      "priority": null,
       "related": [],
-      "release": "later",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -56761,10 +56404,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:audit-log",
-      "inherits": {
-        "priority": "feature:audit-log",
-        "release": "feature:audit-log"
-      },
+      "inherits": {},
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -56777,11 +56417,11 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Audit Log/S-74 Audit Log Story.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "feature:operator-panel"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [],
@@ -56813,10 +56453,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:auth",
-      "inherits": {
-        "priority": "feature:auth",
-        "release": "feature:auth"
-      },
+      "inherits": {},
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -56829,7 +56466,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Auth & Sign-up/S-02 Auth & Sign-up Story.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "task:B-03",
         "task:B-04",
@@ -56848,7 +56485,7 @@
         "frontend-requirements:error-contract",
         "project:auth-model"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -56907,10 +56544,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:badge-qr",
-      "inherits": {
-        "priority": "feature:badge-qr",
-        "release": "feature:badge-qr"
-      },
+      "inherits": {},
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -56923,7 +56557,7 @@
       ],
       "path": "social-pin/modules/Discovery/features/Badge & QR/S-37 Badge & QR Story.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "frontend-requirements:photo-library",
         "frontend-requirements:ring-access",
@@ -56931,7 +56565,7 @@
         "frontend-requirements:ring-projection",
         "frontend-requirements:view-as"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -56968,10 +56602,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:build-deploy",
-      "inherits": {
-        "priority": "feature:build-deploy",
-        "release": "feature:build-deploy"
-      },
+      "inherits": {},
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -56984,13 +56615,13 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Build & Deploy/S-116 Build & Deploy Story.md",
       "pending": [],
-      "priority": "medium",
+      "priority": null,
       "related": [
         "feature:build-deploy",
         "project:architecture",
         "project:developer-setup"
       ],
-      "release": "later",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [],
@@ -57022,10 +56653,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:cleanup-jobs",
-      "inherits": {
-        "priority": "feature:cleanup-jobs",
-        "release": "feature:cleanup-jobs"
-      },
+      "inherits": {},
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -57038,9 +56666,9 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Cleanup Jobs/S-76 Cleanup Jobs Story.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [],
@@ -57072,10 +56700,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:code-delivery",
-      "inherits": {
-        "priority": "feature:code-delivery",
-        "release": "feature:code-delivery"
-      },
+      "inherits": {},
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -57088,7 +56713,7 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Code Delivery/S-78 Code Delivery Story.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "task:B-01",
         "task:B-04",
@@ -57099,7 +56724,7 @@
         "qa-backend:auth",
         "frontend-requirements:error-contract"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -57135,10 +56760,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:companies",
-      "inherits": {
-        "priority": "feature:companies",
-        "release": "feature:companies"
-      },
+      "inherits": {},
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -57151,7 +56773,7 @@
       ],
       "path": "social-pin/modules/Shared Rings & Companies/features/Companies/S-29 Companies Story.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "frontend-requirements:files",
         "qa-backend:files",
@@ -57165,7 +56787,7 @@
         "decision:D-14",
         "decision:D-18"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -57218,10 +56840,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:connections",
-      "inherits": {
-        "priority": "feature:connections",
-        "release": "feature:connections"
-      },
+      "inherits": {},
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -57234,7 +56853,7 @@
       ],
       "path": "social-pin/modules/Connections/features/Connections/S-23 Connections Story.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "decision:D-04",
         "decision:D-13",
@@ -57253,7 +56872,7 @@
         "frontend-requirements:view-as",
         "story:view-as"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -57291,10 +56910,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:counts",
-      "inherits": {
-        "priority": "feature:counts",
-        "release": "feature:counts"
-      },
+      "inherits": {},
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -57307,7 +56923,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Counts/S-03 Counts Story.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "backend-integration:account",
         "frontend-delivery:account",
@@ -57318,7 +56934,7 @@
         "frontend-requirements:rings",
         "frontend-requirements:view-as"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -57357,10 +56973,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:delegated-admins",
-      "inherits": {
-        "priority": "feature:delegated-admins",
-        "release": "feature:delegated-admins"
-      },
+      "inherits": {},
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -57373,7 +56986,7 @@
       ],
       "path": "social-pin/modules/Shared Rings & Companies/features/Delegated Admins/S-31 Delegated Admins Story.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "feature:operator-panel",
         "frontend-requirements:files",
@@ -57385,7 +56998,7 @@
         "frontend-requirements:rings",
         "decision:D-04"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -57420,10 +57033,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:devices",
-      "inherits": {
-        "priority": "feature:devices",
-        "release": "feature:devices"
-      },
+      "inherits": {},
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -57436,12 +57046,12 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Devices & NFC/S-82 Devices & NFC Story.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "frontend-delivery:account",
         "qa-backend:auth"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -57475,10 +57085,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:discover-hub",
-      "inherits": {
-        "priority": "feature:discover-hub",
-        "release": "feature:discover-hub"
-      },
+      "inherits": {},
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -57491,7 +57098,7 @@
       ],
       "path": "social-pin/modules/Discovery/features/Discover Hub & Search/S-42 Discover Hub & Search Story.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "qa-backend:auth",
         "qa-backend:files",
@@ -57499,7 +57106,7 @@
         "frontend-requirements:ring-access",
         "frontend-requirements:view-as"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -57533,10 +57140,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:e2e-tests",
-      "inherits": {
-        "priority": "feature:e2e-tests",
-        "release": "feature:e2e-tests"
-      },
+      "inherits": {},
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -57549,11 +57153,11 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/E2E Test Run/S-85 E2E Test Run Story.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "feature:build-deploy"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [],
@@ -57587,10 +57191,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:error-contract",
-      "inherits": {
-        "priority": "feature:error-contract",
-        "release": "feature:error-contract"
-      },
+      "inherits": {},
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -57603,7 +57204,7 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Error Contract/S-87 Error Contract Story.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "task:B-02",
         "task:B-05",
@@ -57627,7 +57228,7 @@
         "frontend-requirements:interests",
         "project:auth-model"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [],
@@ -57659,10 +57260,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:event-ring-auto",
-      "inherits": {
-        "priority": "feature:event-ring-auto",
-        "release": "feature:event-ring-auto"
-      },
+      "inherits": {},
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -57675,7 +57273,7 @@
       ],
       "path": "social-pin/modules/Events/features/Event Ring Auto-creation/S-47 Event Ring Auto-creation Story.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "frontend-requirements:ring-access",
         "frontend-requirements:ring-members",
@@ -57683,7 +57281,7 @@
         "frontend-requirements:rings",
         "frontend-requirements:view-as"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -57721,10 +57319,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:events-before",
-      "inherits": {
-        "priority": "feature:events-before",
-        "release": "feature:events-before"
-      },
+      "inherits": {},
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -57737,13 +57332,13 @@
       ],
       "path": "social-pin/modules/Events/features/Events Before/S-49 Events Before Story.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "story:payments",
         "feature:payments",
         "feature:event-ring-auto"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -57781,10 +57376,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:events-during",
-      "inherits": {
-        "priority": "feature:events-during",
-        "release": "feature:events-during"
-      },
+      "inherits": {},
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -57797,11 +57389,11 @@
       ],
       "path": "social-pin/modules/Events/features/Events During/S-53 Events During Story.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "story:payments"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -57840,10 +57432,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:exhibitor",
-      "inherits": {
-        "priority": "feature:exhibitor",
-        "release": "feature:exhibitor"
-      },
+      "inherits": {},
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -57856,11 +57445,11 @@
       ],
       "path": "social-pin/modules/Events/features/Exhibitor/S-59 Exhibitor Story.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "frontend-requirements:rings"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -57898,10 +57487,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:files",
-      "inherits": {
-        "priority": "feature:files",
-        "release": "feature:files"
-      },
+      "inherits": {},
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -57914,7 +57500,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Files Upload/S-06 Files Upload Story.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "task:B-07",
         "task:B-08",
@@ -57934,7 +57520,7 @@
         "frontend-requirements:ring-projection",
         "frontend-requirements:rings"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -57975,10 +57561,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:gemma",
-      "inherits": {
-        "priority": "feature:gemma",
-        "release": "feature:gemma"
-      },
+      "inherits": {},
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -57991,7 +57574,7 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Gemma AI/S-89 Gemma AI Story.md",
       "pending": [],
-      "priority": "medium",
+      "priority": null,
       "related": [
         "frontend-requirements:profiles",
         "story:profiles",
@@ -58001,7 +57584,7 @@
         "decision:D-06",
         "frontend-requirements:interests"
       ],
-      "release": "later",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -58036,10 +57619,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:interests",
-      "inherits": {
-        "priority": "feature:interests",
-        "release": "feature:interests"
-      },
+      "inherits": {},
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -58052,9 +57632,9 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Interests/S-92 Interests Story.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -58089,10 +57669,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:linked-accounts",
-      "inherits": {
-        "priority": "feature:linked-accounts",
-        "release": "feature:linked-accounts"
-      },
+      "inherits": {},
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -58105,7 +57682,7 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Linked Accounts (OAuth)/S-94 Linked Accounts (OAuth) Story.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "backend-delivery:account",
         "backend-integration:account",
@@ -58113,7 +57690,7 @@
         "qa-backend:auth",
         "story:photo-library"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -58149,10 +57726,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:meetings",
-      "inherits": {
-        "priority": "feature:meetings",
-        "release": "feature:meetings"
-      },
+      "inherits": {},
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -58165,11 +57739,11 @@
       ],
       "path": "social-pin/modules/Meetings/features/Meetings/S-64 Meetings Story.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "frontend-requirements:rings"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -58207,10 +57781,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:notifications",
-      "inherits": {
-        "priority": "feature:notifications",
-        "release": "feature:notifications"
-      },
+      "inherits": {},
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -58223,9 +57794,9 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Notifications/S-96 Notifications Story.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -58267,10 +57838,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:onboarding-imports",
-      "inherits": {
-        "priority": "feature:onboarding-imports",
-        "release": "feature:onboarding-imports"
-      },
+      "inherits": {},
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -58283,7 +57851,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Onboarding Imports/S-08 Onboarding Imports Story.md",
       "pending": [],
-      "priority": "medium",
+      "priority": null,
       "related": [
         "task:B-05",
         "needs-decision:ND-21",
@@ -58293,7 +57861,7 @@
         "frontend-requirements:profiles",
         "story:profiles"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -58331,10 +57899,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:operator-panel",
-      "inherits": {
-        "priority": "feature:operator-panel",
-        "release": "feature:operator-panel"
-      },
+      "inherits": {},
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -58347,11 +57912,11 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Operator Panel/S-117 Operator Panel Story.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "qa-frontend:account"
       ],
-      "release": "later",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [],
@@ -58391,10 +57956,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:payments",
-      "inherits": {
-        "priority": "feature:payments",
-        "release": "feature:payments"
-      },
+      "inherits": {},
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -58407,7 +57969,7 @@
       ],
       "path": "social-pin/modules/Commerce/features/Payments & Orders/S-69 Payments & Orders Story.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "decision:D-07",
         "feature:events-before",
@@ -58418,7 +57980,7 @@
         "story:events-before",
         "story:events-during"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -58455,10 +58017,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:photo-library",
-      "inherits": {
-        "priority": "feature:photo-library",
-        "release": "feature:photo-library"
-      },
+      "inherits": {},
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -58471,7 +58030,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Photo Library/S-11 Photo Library Story.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "task:B-07",
         "decision:D-16",
@@ -58488,7 +58047,7 @@
         "frontend-requirements:profiles",
         "frontend-requirements:ring-projection"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -58525,10 +58084,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:pincast",
-      "inherits": {
-        "priority": "feature:pincast",
-        "release": "feature:pincast"
-      },
+      "inherits": {},
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -58541,12 +58097,12 @@
       ],
       "path": "social-pin/modules/Discovery/features/PinCast & Nearby/S-45 PinCast & Nearby Story.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "frontend-requirements:ring-access",
         "frontend-requirements:view-as"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -58584,10 +58140,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:post-event",
-      "inherits": {
-        "priority": "feature:post-event",
-        "release": "feature:post-event"
-      },
+      "inherits": {},
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -58600,14 +58153,14 @@
       ],
       "path": "social-pin/modules/Events/features/Post-Event/S-62 Post-Event Story.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "frontend-requirements:ring-access",
         "frontend-requirements:ring-members",
         "frontend-requirements:ring-projection",
         "frontend-requirements:view-as"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -58649,10 +58202,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:profiles",
-      "inherits": {
-        "priority": "feature:profiles",
-        "release": "feature:profiles"
-      },
+      "inherits": {},
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -58665,7 +58215,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Profiles & Pin Name/S-14 Profiles & Pin Name Story.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "task:B-05",
         "task:B-07",
@@ -58691,7 +58241,7 @@
         "feature:badge-qr",
         "frontend-requirements:ring-projection"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -58729,10 +58279,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:ring-access",
-      "inherits": {
-        "priority": "feature:ring-access",
-        "release": "feature:ring-access"
-      },
+      "inherits": {},
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -58745,7 +58292,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Ring Access Engine/S-15 Ring Access Engine Story.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "needs-decision:ND-23",
         "frontend-requirements:files",
@@ -58764,7 +58311,7 @@
         "frontend-requirements:rings",
         "frontend-requirements:view-as"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -58807,10 +58354,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:ring-invitations",
-      "inherits": {
-        "priority": "feature:ring-invitations",
-        "release": "feature:ring-invitations"
-      },
+      "inherits": {},
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -58823,7 +58367,7 @@
       ],
       "path": "social-pin/modules/Shared Rings & Companies/features/Ring Invitations & Join/S-33 Ring Invitations & Join Story.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "frontend-requirements:ring-access",
         "frontend-requirements:ring-members",
@@ -58836,7 +58380,7 @@
         "decision:D-14",
         "decision:D-18"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -58871,10 +58415,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:ring-members",
-      "inherits": {
-        "priority": "feature:ring-members",
-        "release": "feature:ring-members"
-      },
+      "inherits": {},
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -58887,7 +58428,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Ring Members/S-16 Ring Members Story.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "frontend-requirements:ring-access",
         "story:ring-access",
@@ -58900,7 +58441,7 @@
         "story:connections",
         "story:ring-invitations"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -58938,10 +58479,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:ring-projection",
-      "inherits": {
-        "priority": "feature:ring-projection",
-        "release": "feature:ring-projection"
-      },
+      "inherits": {},
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -58954,7 +58492,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Ring Projection/S-17 Ring Projection Story.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "task:B-08",
         "frontend-requirements:files",
@@ -58973,7 +58511,7 @@
         "story:rings",
         "frontend-requirements:view-as"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -59017,10 +58555,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:rings",
-      "inherits": {
-        "priority": "feature:rings",
-        "release": "feature:rings"
-      },
+      "inherits": {},
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -59033,7 +58568,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Rings/S-18 Rings Story.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "frontend-requirements:ring-access",
         "story:ring-access",
@@ -59051,7 +58586,7 @@
         "story:gemma",
         "frontend-requirements:view-as"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -59098,10 +58633,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:subscription",
-      "inherits": {
-        "priority": "feature:subscription",
-        "release": "feature:subscription"
-      },
+      "inherits": {},
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -59114,11 +58646,11 @@
       ],
       "path": "social-pin/modules/Commerce/features/Subscription (Free vs Pro)/S-71 Subscription (Free vs Pro) Story.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "frontend-delivery:account"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -59153,10 +58685,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:view-as",
-      "inherits": {
-        "priority": "feature:view-as",
-        "release": "feature:view-as"
-      },
+      "inherits": {},
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -59169,7 +58698,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/View As & Pin Views/S-19 View As & Pin Views Story.md",
       "pending": [],
-      "priority": "critical",
+      "priority": null,
       "related": [
         "needs-decision:ND-22",
         "qa-backend:files",
@@ -59186,7 +58715,7 @@
         "story:connections",
         "feature:counts"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -59223,10 +58752,7 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:widgets",
-      "inherits": {
-        "priority": "feature:widgets",
-        "release": "feature:widgets"
-      },
+      "inherits": {},
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -59239,7 +58765,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Widgets/S-20 Widgets Story.md",
       "pending": [],
-      "priority": "high",
+      "priority": null,
       "related": [
         "task:B-08",
         "frontend-requirements:files",
@@ -59249,7 +58775,7 @@
         "frontend-requirements:view-as",
         "decision:D-03"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -59292,9 +58818,7 @@
       "foundOn": "BI-01 Account Backend Integration",
       "frontendOnly": false,
       "id": "task:B-01",
-      "inherits": {
-        "release": "feature:account"
-      },
+      "inherits": {},
       "kind": "task",
       "label": "Bug",
       "labels": [
@@ -59336,7 +58860,7 @@
         "frontend-requirements:error-contract",
         "project:auth-model"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": "by-design",
       "rollup": {
         "decided": 1,
@@ -59381,9 +58905,7 @@
       "foundOn": "BI-01 Account Backend Integration",
       "frontendOnly": false,
       "id": "task:B-02",
-      "inherits": {
-        "release": "feature:account"
-      },
+      "inherits": {},
       "kind": "task",
       "label": "Bug",
       "labels": [
@@ -59429,7 +58951,7 @@
         "frontend-requirements:view-as",
         "frontend-requirements:error-contract"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": "fixed",
       "rollup": {},
       "scope": null,
@@ -59471,9 +58993,7 @@
       "foundOn": "BI-02 Auth & Sign-up Backend Integration",
       "frontendOnly": false,
       "id": "task:B-03",
-      "inherits": {
-        "release": "feature:auth"
-      },
+      "inherits": {},
       "kind": "task",
       "label": "Bug",
       "labels": [
@@ -59523,7 +59043,7 @@
         "frontend-requirements:ring-invitations",
         "project:frontend-contract"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "rollup": {},
       "scope": null,
@@ -59563,9 +59083,7 @@
       "foundOn": "BI-02 Auth & Sign-up Backend Integration",
       "frontendOnly": false,
       "id": "task:B-04",
-      "inherits": {
-        "release": "feature:auth"
-      },
+      "inherits": {},
       "kind": "task",
       "label": "Bug",
       "labels": [
@@ -59596,7 +59114,7 @@
         "project:frontend-contract",
         "project:frontend-passwordless-migration"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "rollup": {},
       "scope": null,
@@ -59636,9 +59154,7 @@
       "foundOn": "BI-02 Auth & Sign-up Backend Integration",
       "frontendOnly": false,
       "id": "task:B-05",
-      "inherits": {
-        "release": "feature:auth"
-      },
+      "inherits": {},
       "kind": "task",
       "label": "Bug",
       "labels": [
@@ -59672,7 +59188,7 @@
         "story:error-contract",
         "project:frontend-api-guide"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "rollup": {},
       "scope": null,
@@ -59713,9 +59229,7 @@
       "foundOn": "BD-02 Auth & Sign-up Backend Delivery",
       "frontendOnly": false,
       "id": "task:B-06",
-      "inherits": {
-        "release": "feature:auth"
-      },
+      "inherits": {},
       "kind": "task",
       "label": "Bug",
       "labels": [
@@ -59738,7 +59252,7 @@
         "qa-backend:account",
         "qa-backend:files"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": null,
       "rollup": {},
       "scope": null,
@@ -59777,9 +59291,7 @@
       "foundOn": "BD-04 Files Upload Backend Delivery",
       "frontendOnly": false,
       "id": "task:B-07",
-      "inherits": {
-        "release": "feature:files"
-      },
+      "inherits": {},
       "kind": "task",
       "label": "Bug",
       "labels": [
@@ -59814,7 +59326,7 @@
         "project:frontend-contract",
         "decision:D-16"
       ],
-      "release": "v1",
+      "release": null,
       "resolution": "fixed",
       "rollup": {},
       "scope": null,
@@ -59862,9 +59374,7 @@
       "foundOn": "BI-07 Ring Projection Backend Integration",
       "frontendOnly": false,
       "id": "task:B-08",
-      "inherits": {
-        "release": "feature:ring-projection"
-      },
+      "inherits": {},
       "kind": "task",
       "label": "Bug",
       "labels": [
@@ -59900,7 +59410,7 @@
         "project:status-report-2026-10-15",
         "frontend-requirements:ring-access"
       ],
-      "release": "mvp",
+      "release": null,
       "resolution": "fixed",
       "rollup": {},
       "scope": null,

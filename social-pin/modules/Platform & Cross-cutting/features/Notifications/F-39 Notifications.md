@@ -3,17 +3,15 @@ id: F-39
 type: feature
 module: platform
 feature: notifications
-priority: high
-release: v1
 screens: [s69]
 created: 2026-10-15
-updated: 2026-10-29
-tags: [feature, module/platform, priority/high, release/v1]
+updated: 2026-11-01
+tags: [feature, module/platform]
 ---
 
 # Notifications
 
-**Backend:** TODO · **Priority:** High · **Release:** v1 · **Module:** [[M-08 Platform & Cross-cutting Module|Platform & Cross-cutting]]
+**Backend:** TODO · **Module:** [[M-08 Platform & Cross-cutting Module|Platform & Cross-cutting]]
 
 **Layers:** [[S-96 Notifications Story|Story]] · [[FR-39 Notifications Frontend Requirements|Frontend Requirements]] · [[BD-39 Notifications Backend Delivery|Backend Delivery]] · [[Notifications Backend Integration|Backend Integration]] · [[Notifications Frontend Delivery|Frontend Delivery]] · [[Notifications QA Backend|QA Backend]] · [[Notifications QA Frontend|QA Frontend]]
 

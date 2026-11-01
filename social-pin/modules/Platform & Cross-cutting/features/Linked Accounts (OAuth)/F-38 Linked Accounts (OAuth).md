@@ -3,17 +3,15 @@ id: F-38
 type: feature
 module: platform
 feature: linked-accounts
-priority: high
-release: v1
 screens: [s01, s04, s68]
 created: 2026-10-15
-updated: 2026-10-29
-tags: [feature, module/platform, priority/high, release/v1]
+updated: 2026-11-01
+tags: [feature, module/platform]
 ---
 
 # Linked Accounts (OAuth)
 
-**Backend:** Partial (needs more) · **Priority:** High · **Release:** v1 · **Module:** [[M-08 Platform & Cross-cutting Module|Platform & Cross-cutting]]
+**Backend:** Partial (needs more) · **Module:** [[M-08 Platform & Cross-cutting Module|Platform & Cross-cutting]]
 
 **Layers:** [[S-94 Linked Accounts (OAuth) Story|Story]] · [[FR-38 Linked Accounts (OAuth) Frontend Requirements|Frontend Requirements]] · [[BD-38 Linked Accounts (OAuth) Backend Delivery|Backend Delivery]] · [[Linked Accounts (OAuth) Backend Integration|Backend Integration]] · [[Linked Accounts (OAuth) Frontend Delivery|Frontend Delivery]] · [[Linked Accounts (OAuth) QA Backend|QA Backend]] · [[Linked Accounts (OAuth) QA Frontend|QA Frontend]]
 

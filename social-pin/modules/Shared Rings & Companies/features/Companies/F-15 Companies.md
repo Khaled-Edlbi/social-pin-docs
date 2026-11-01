@@ -3,19 +3,17 @@ id: F-15
 type: feature
 module: shared-rings
 feature: companies
-priority: high
-release: v1
 screens: [s72, s73]
 owner: "omar"
 related: ["F-09 Ring Members"]
 created: 2026-10-15
-updated: 2026-10-29
-tags: [feature, module/shared-rings, priority/high, release/v1]
+updated: 2026-11-01
+tags: [feature, module/shared-rings]
 ---
 
 # Companies
 
-**Backend:** TODO · **Priority:** High · **Release:** v1 · **Module:** [[M-03 Shared Rings & Companies Module|Shared Rings & Companies]]
+**Backend:** TODO · **Module:** [[M-03 Shared Rings & Companies Module|Shared Rings & Companies]]
 
 **Layers:** [[S-29 Companies Story|Story]] · [[FR-15 Companies Frontend Requirements|Frontend Requirements]] · [[BD-15 Companies Backend Delivery|Backend Delivery]] · [[Companies Backend Integration|Backend Integration]] · [[Companies Frontend Delivery|Frontend Delivery]] · [[Companies QA Backend|QA Backend]] · [[Companies QA Frontend|QA Frontend]]
 

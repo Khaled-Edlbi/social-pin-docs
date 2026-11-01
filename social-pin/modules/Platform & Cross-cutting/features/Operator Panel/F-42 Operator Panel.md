@@ -3,20 +3,18 @@ id: F-42
 type: feature
 module: platform
 feature: operator-panel
-priority: high
-release: later
 screens: []
 depends: []
 affects: []
 related: ["F-30 Audit Log", "F-01 Account", "F-02 Auth & Sign-up", "F-16 Delegated Admins"]
 created: 2026-10-26
-updated: 2026-10-29
-tags: [feature, module/platform, priority/high, release/later]
+updated: 2026-11-01
+tags: [feature, module/platform]
 ---
 
 # Operator Panel
 
-**Backend:** 🟡 In progress · **Priority:** High · **Release:** Later · **Deadline:** — · **Module:** [[M-08 Platform & Cross-cutting Module|Platform & Cross-cutting]]
+**Backend:** 🟡 In progress · **Deadline:** — · **Module:** [[M-08 Platform & Cross-cutting Module|Platform & Cross-cutting]]
 
 **Layers:** [[S-117 Operator Panel Story|Story]] · [[Operator Panel Frontend Requirements|Frontend Requirements]] · [[Operator Panel Backend Delivery|Backend Delivery]] · [[Operator Panel Backend Integration|Backend Integration]] · [[Operator Panel Frontend Delivery|Frontend Delivery]] · [[Operator Panel QA Backend|QA Backend]] · [[Operator Panel QA Frontend|QA Frontend]]
 

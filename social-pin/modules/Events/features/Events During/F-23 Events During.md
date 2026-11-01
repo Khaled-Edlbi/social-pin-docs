@@ -3,18 +3,16 @@ id: F-23
 type: feature
 module: events
 feature: events-during
-priority: critical
-release: mvp
 screens: [s53, s54, s55, s56, s57, s58]
 related: ["F-11 Rings", "F-12 View As & Pin Views"]
 created: 2026-10-15
-updated: 2026-10-29
-tags: [feature, module/events, priority/critical, release/mvp]
+updated: 2026-11-01
+tags: [feature, module/events]
 ---
 
 # Events During
 
-**Backend:** TODO · **Priority:** Critical · **Release:** MVP · **Module:** [[M-05 Events Module|Events]]
+**Backend:** TODO · **Module:** [[M-05 Events Module|Events]]
 
 **Layers:** [[S-53 Events During Story|Story]] · [[FR-23 Events During Frontend Requirements|Frontend Requirements]] · [[BD-23 Events During Backend Delivery|Backend Delivery]] · [[Events During Backend Integration|Backend Integration]] · [[Events During Frontend Delivery|Frontend Delivery]] · [[Events During QA Backend|QA Backend]] · [[Events During QA Frontend|QA Frontend]]
 

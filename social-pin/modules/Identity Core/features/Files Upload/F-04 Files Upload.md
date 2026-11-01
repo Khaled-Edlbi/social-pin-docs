@@ -3,19 +3,17 @@ id: F-04
 type: feature
 module: identity
 feature: files
-priority: high
-release: v1
 screens: [s14, s20, s24, s36, s29, s30, s31, s44]
 owner: "Omar Fostok"
 related: ["F-11 Rings"]
 created: 2026-10-18
-updated: 2026-10-29
-tags: [feature, module/identity, priority/high, release/v1]
+updated: 2026-11-01
+tags: [feature, module/identity]
 ---
 
 # Files Upload
 
-**Backend:** Done · **Priority:** High · **Release:** v1 · **Module:** [[M-01 Identity Core Module|Identity Core]]
+**Backend:** Done · **Module:** [[M-01 Identity Core Module|Identity Core]]
 
 **Layers:** [[S-06 Files Upload Story|Story]] · [[FR-04 Files Upload Frontend Requirements|Frontend Requirements]] · [[BD-04 Files Upload Backend Delivery|Backend Delivery]] · [[BI-03 Files Upload Backend Integration|Backend Integration]] · [[Files Upload Frontend Delivery|Frontend Delivery]] · [[QB-06 Files Upload QA Backend|QA Backend]] · [[Files Upload QA Frontend|QA Frontend]]
 

@@ -3,18 +3,16 @@ id: F-20
 type: feature
 module: discovery
 feature: pincast
-priority: high
-release: v1
 screens: [s11, s39, s40, s41, s42]
 related: ["F-11 Rings", "F-12 View As & Pin Views"]
 created: 2026-10-15
-updated: 2026-10-29
-tags: [feature, module/discovery, priority/high, release/v1]
+updated: 2026-11-01
+tags: [feature, module/discovery]
 ---
 
 # PinCast & Nearby
 
-**Backend:** TODO · **Priority:** High · **Release:** v1 · **Module:** [[M-04 Discovery Module|Discovery]]
+**Backend:** TODO · **Module:** [[M-04 Discovery Module|Discovery]]
 
 **Layers:** [[S-45 PinCast & Nearby Story|Story]] · [[FR-20 PinCast & Nearby Frontend Requirements|Frontend Requirements]] · [[BD-20 PinCast & Nearby Backend Delivery|Backend Delivery]] · [[PinCast & Nearby Backend Integration|Backend Integration]] · [[PinCast & Nearby Frontend Delivery|Frontend Delivery]] · [[PinCast & Nearby QA Backend|QA Backend]] · [[PinCast & Nearby QA Frontend|QA Frontend]]
 

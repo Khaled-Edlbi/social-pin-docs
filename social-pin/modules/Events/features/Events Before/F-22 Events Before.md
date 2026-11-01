@@ -3,18 +3,16 @@ id: F-22
 type: feature
 module: events
 feature: events-before
-priority: critical
-release: mvp
 screens: [s48, s49, s50, s51, s52]
 related: ["F-11 Rings"]
 created: 2026-10-15
-updated: 2026-10-29
-tags: [feature, module/events, priority/critical, release/mvp]
+updated: 2026-11-01
+tags: [feature, module/events]
 ---
 
 # Events Before
 
-**Backend:** TODO · **Priority:** Critical · **Release:** MVP · **Module:** [[M-05 Events Module|Events]]
+**Backend:** TODO · **Module:** [[M-05 Events Module|Events]]
 
 **Layers:** [[S-49 Events Before Story|Story]] · [[FR-22 Events Before Frontend Requirements|Frontend Requirements]] · [[BD-22 Events Before Backend Delivery|Backend Delivery]] · [[Events Before Backend Integration|Backend Integration]] · [[Events Before Frontend Delivery|Frontend Delivery]] · [[Events Before QA Backend|QA Backend]] · [[Events Before QA Frontend|QA Frontend]]
 
