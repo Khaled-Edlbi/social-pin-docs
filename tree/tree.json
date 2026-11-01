@@ -36158,7 +36158,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:linked-accounts",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:linked-accounts",
+        "release": "feature:linked-accounts"
+      },
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -36171,13 +36174,13 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Linked Accounts (OAuth)/flow/BD-38 Linked Accounts (OAuth) Backend Delivery.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "backend-delivery:account",
         "backend-integration:account",
         "qa-backend:auth"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -42175,7 +42178,7 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Linked Accounts (OAuth)/F-38 Linked Accounts (OAuth).md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "feature:account",
         "feature:auth",
@@ -42186,7 +42189,7 @@
         "project:spec-map",
         "story:ring-projection"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "rollup": {
         "approved": 1,
@@ -42206,7 +42209,9 @@
       "summary": "Social providers for login and import (s68 linked accounts, s01 \"Continue with LinkedIn\"). SocialIdentity exists; there is no OAuth.",
       "tags": [
         "feature",
-        "module/platform"
+        "module/platform",
+        "priority/critical",
+        "release/mvp"
       ],
       "task": null,
       "title": "F-38 Linked Accounts (OAuth)",
@@ -47101,7 +47106,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:linked-accounts",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:linked-accounts",
+        "release": "feature:linked-accounts"
+      },
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -47114,7 +47122,7 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Linked Accounts (OAuth)/flow/FR-38 Linked Accounts (OAuth) Frontend Requirements.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "task:B-03",
         "task:B-04",
@@ -47123,7 +47131,7 @@
         "qa-backend:auth",
         "frontend-requirements:error-contract"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -56466,7 +56474,7 @@
           "done": 0,
           "id": "mvp",
           "partial": 0,
-          "total": 25
+          "total": 26
         },
         {
           "done": 0,
@@ -56484,7 +56492,7 @@
           "done": 0,
           "id": null,
           "partial": 0,
-          "total": 16
+          "total": 15
         }
       ],
       "rollup": {
@@ -57949,7 +57957,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:linked-accounts",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:linked-accounts",
+        "release": "feature:linked-accounts"
+      },
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -57962,7 +57973,7 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Linked Accounts (OAuth)/S-94 Linked Accounts (OAuth) Story.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "backend-delivery:account",
         "backend-integration:account",
@@ -57970,7 +57981,7 @@
         "qa-backend:auth",
         "story:photo-library"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
