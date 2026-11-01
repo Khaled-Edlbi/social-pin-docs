@@ -37064,7 +37064,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:view-as",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:view-as",
+        "release": "feature:view-as"
+      },
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -37077,14 +37080,14 @@
       ],
       "path": "social-pin/modules/Identity Core/features/View As & Pin Views/flow/BD-12 View As & Pin Views Backend Delivery.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "qa-backend:files",
         "frontend-requirements:ring-access",
         "frontend-requirements:ring-projection",
         "frontend-requirements:view-as"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -39176,7 +39179,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:view-as",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:view-as",
+        "release": "feature:view-as"
+      },
       "kind": "backend-integration",
       "label": "Backend Integration",
       "labels": [],
@@ -39189,7 +39195,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/View As & Pin Views/flow/BI-09 View As & Pin Views Backend Integration.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "task:B-08",
         "frontend-requirements:files",
@@ -39198,7 +39204,7 @@
         "frontend-requirements:ring-projection",
         "frontend-requirements:view-as"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -43430,7 +43436,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/View As & Pin Views/F-12 View As & Pin Views.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "feature:connections",
         "feature:badge-qr",
@@ -43458,7 +43464,7 @@
         "decision:D-15",
         "decision:D-16"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "rollup": {
         "approved": 1,
@@ -43478,7 +43484,9 @@
       "summary": "The viewer-facing read path: open someone by Pin name, render one Ring (QR scan and the owner's \"View as\", with the owner's own \"where each field goes\" face), and list every perspective you hold…",
       "tags": [
         "feature",
-        "module/identity"
+        "module/identity",
+        "priority/critical",
+        "release/mvp"
       ],
       "task": null,
       "title": "F-12 View As & Pin Views",
@@ -48327,7 +48335,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:view-as",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:view-as",
+        "release": "feature:view-as"
+      },
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -48340,7 +48351,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/View As & Pin Views/flow/FR-12 View As & Pin Views Frontend Requirements.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "task:B-03",
         "task:B-08",
@@ -48412,7 +48423,7 @@
         "frontend-requirements:cleanup-jobs",
         "frontend-requirements:error-contract"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -56348,7 +56359,7 @@
           "done": 0,
           "id": "mvp",
           "partial": 0,
-          "total": 11
+          "total": 12
         },
         {
           "done": 0,
@@ -56366,7 +56377,7 @@
           "done": 0,
           "id": null,
           "partial": 0,
-          "total": 30
+          "total": 29
         }
       ],
       "rollup": {
@@ -58841,7 +58852,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:view-as",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:view-as",
+        "release": "feature:view-as"
+      },
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -58854,7 +58868,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/View As & Pin Views/S-19 View As & Pin Views Story.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "needs-decision:ND-22",
         "qa-backend:files",
@@ -58871,7 +58885,7 @@
         "story:connections",
         "feature:counts"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [

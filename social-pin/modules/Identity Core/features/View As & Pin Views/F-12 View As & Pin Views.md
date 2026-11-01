@@ -3,16 +3,18 @@ id: F-12
 type: feature
 module: identity
 feature: view-as
+priority: critical
+release: mvp
 screens: [s10, s31, s44, s62]
 owner: "Omar Fostok"
 created: 2026-10-18
 updated: 2026-11-01
-tags: [feature, module/identity]
+tags: [feature, module/identity, priority/critical, release/mvp]
 ---
 
 # View As & Pin Views
 
-**Backend:** Done · **Module:** [[M-01 Identity Core Module|Identity Core]]
+**Backend:** Done · **Priority:** Critical · **Release:** MVP · **Module:** [[M-01 Identity Core Module|Identity Core]]
 
 **Layers:** [[S-19 View As & Pin Views Story|Story]] · [[FR-12 View As & Pin Views Frontend Requirements|Frontend Requirements]] · [[BD-12 View As & Pin Views Backend Delivery|Backend Delivery]] · [[BI-09 View As & Pin Views Backend Integration|Backend Integration]] · [[View As & Pin Views Frontend Delivery|Frontend Delivery]] · [[View As & Pin Views QA Backend|QA Backend]] · [[View As & Pin Views QA Frontend|QA Frontend]]
 
