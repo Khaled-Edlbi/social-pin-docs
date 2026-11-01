@@ -35261,7 +35261,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:companies",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:companies",
+        "release": "feature:companies"
+      },
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -35274,9 +35277,9 @@
       ],
       "path": "social-pin/modules/Shared Rings & Companies/features/Companies/flow/BD-15 Companies Backend Delivery.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -40981,7 +40984,7 @@
       ],
       "path": "social-pin/modules/Shared Rings & Companies/features/Companies/F-15 Companies.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "feature:exhibitor",
         "feature:ring-members",
@@ -40994,7 +40997,7 @@
         "project:spec-map",
         "needs-decision:ND-18"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "rollup": {
         "blocked": 2,
@@ -41012,7 +41015,9 @@
       "summary": "My companies (s72) and company detail (s73): the business tables exist (Business, BusinessMember, tags, files), no endpoints.",
       "tags": [
         "feature",
-        "module/shared-rings"
+        "module/shared-rings",
+        "priority/critical",
+        "release/mvp"
       ],
       "task": null,
       "title": "F-15 Companies",
@@ -46059,7 +46064,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:companies",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:companies",
+        "release": "feature:companies"
+      },
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -46072,7 +46080,7 @@
       ],
       "path": "social-pin/modules/Shared Rings & Companies/features/Companies/flow/FR-15 Companies Frontend Requirements.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "task:B-03",
         "qa-backend:auth",
@@ -46086,7 +46094,7 @@
         "frontend-requirements:view-as",
         "frontend-requirements:error-contract"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -56426,7 +56434,7 @@
           "done": 0,
           "id": "mvp",
           "partial": 0,
-          "total": 20
+          "total": 21
         },
         {
           "done": 0,
@@ -56444,7 +56452,7 @@
           "done": 0,
           "id": null,
           "partial": 0,
-          "total": 21
+          "total": 20
         }
       ],
       "rollup": {
@@ -56976,7 +56984,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:companies",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:companies",
+        "release": "feature:companies"
+      },
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -56989,7 +57000,7 @@
       ],
       "path": "social-pin/modules/Shared Rings & Companies/features/Companies/S-29 Companies Story.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "frontend-requirements:files",
         "qa-backend:files",
@@ -57003,7 +57014,7 @@
         "decision:D-14",
         "decision:D-18"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
