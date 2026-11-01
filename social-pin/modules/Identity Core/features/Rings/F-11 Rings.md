@@ -3,16 +3,18 @@ id: F-11
 type: feature
 module: identity
 feature: rings
+priority: critical
+release: mvp
 screens: [s08, s09, s16, s17, s18, s19, s20, s21, s22, s26, s27, s62]
 owner: "Omar Fostok"
 created: 2026-10-18
 updated: 2026-11-01
-tags: [feature, module/identity]
+tags: [feature, module/identity, priority/critical, release/mvp]
 ---
 
 # Rings
 
-**Backend:** Done · **Module:** [[M-01 Identity Core Module|Identity Core]]
+**Backend:** Done · **Priority:** Critical · **Release:** MVP · **Module:** [[M-01 Identity Core Module|Identity Core]]
 
 **Layers:** [[S-18 Rings Story|Story]] · [[FR-11 Rings Frontend Requirements|Frontend Requirements]] · [[BD-11 Rings Backend Delivery|Backend Delivery]] · [[BI-08 Rings Backend Integration|Backend Integration]] · [[Rings Frontend Delivery|Frontend Delivery]] · [[Rings QA Backend|QA Backend]] · [[Rings QA Frontend|QA Frontend]]
 

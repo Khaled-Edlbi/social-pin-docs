@@ -36929,7 +36929,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:rings",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:rings",
+        "release": "feature:rings"
+      },
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -36942,14 +36945,14 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Rings/flow/BD-11 Rings Backend Delivery.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "frontend-requirements:ring-access",
         "frontend-requirements:ring-members",
         "frontend-requirements:rings",
         "frontend-requirements:view-as"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -39033,7 +39036,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:rings",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:rings",
+        "release": "feature:rings"
+      },
       "kind": "backend-integration",
       "label": "Backend Integration",
       "labels": [],
@@ -39046,7 +39052,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Rings/flow/BI-08 Rings Backend Integration.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "frontend-requirements:files",
         "qa-backend:files",
@@ -39057,7 +39063,7 @@
         "frontend-requirements:rings",
         "frontend-requirements:view-as"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -43208,7 +43214,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Rings/F-11 Rings.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "feature:connections",
         "feature:badge-qr",
@@ -43240,7 +43246,7 @@
         "frontend-requirements:ring-access",
         "frontend-requirements:rings"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "rollup": {
         "approved": 1,
@@ -43270,7 +43276,9 @@
       "summary": "My Rings and Shared-with-me lists; the first Ring from a template at sign-up; a four-step wizard (name it → who is in it → what it shows → how you appear) with a colour, an icon, who it's for, and…",
       "tags": [
         "feature",
-        "module/identity"
+        "module/identity",
+        "priority/critical",
+        "release/mvp"
       ],
       "task": null,
       "title": "F-11 Rings",
@@ -48115,7 +48123,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:rings",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:rings",
+        "release": "feature:rings"
+      },
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -48128,7 +48139,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Rings/flow/FR-11 Rings Frontend Requirements.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "frontend-requirements:files",
         "qa-backend:files",
@@ -48172,7 +48183,7 @@
         "story:meetings",
         "frontend-requirements:view-as"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -56293,7 +56304,7 @@
           "done": 0,
           "id": "mvp",
           "partial": 0,
-          "total": 6
+          "total": 7
         },
         {
           "done": 0,
@@ -56311,7 +56322,7 @@
           "done": 0,
           "id": null,
           "partial": 0,
-          "total": 35
+          "total": 34
         }
       ],
       "rollup": {
@@ -58641,7 +58652,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:rings",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:rings",
+        "release": "feature:rings"
+      },
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -58654,7 +58668,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Rings/S-18 Rings Story.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "frontend-requirements:ring-access",
         "story:ring-access",
@@ -58672,7 +58686,7 @@
         "story:gemma",
         "frontend-requirements:view-as"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
