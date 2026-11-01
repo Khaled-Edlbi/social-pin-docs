@@ -34951,7 +34951,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:auth",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:auth",
+        "release": "feature:auth"
+      },
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -34966,7 +34969,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Auth & Sign-up/flow/BD-02 Auth & Sign-up Backend Delivery.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "task:B-03",
         "task:B-04",
@@ -34987,7 +34990,7 @@
         "project:database-migrations",
         "frontend-requirements:profiles"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -37293,7 +37296,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:auth",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:auth",
+        "release": "feature:auth"
+      },
       "kind": "backend-integration",
       "label": "Backend Integration",
       "labels": [],
@@ -37310,7 +37316,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Auth & Sign-up/flow/BI-02 Auth & Sign-up Backend Integration.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "task:B-01",
         "task:B-03",
@@ -37332,7 +37338,7 @@
         "project:auth-model",
         "frontend-requirements:profiles"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -40506,7 +40512,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Auth & Sign-up/F-02 Auth & Sign-up.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "feature:account",
         "feature:profiles",
@@ -40527,7 +40533,7 @@
         "frontend-requirements:profiles",
         "frontend-requirements:interests"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "rollup": {
         "approved": 1,
@@ -40552,7 +40558,9 @@
       "summary": "Sign up with email or phone, verify the one-time code, finish registration with a Pin name, sign in with a one-time code, refresh, log out, log out everywhere. Passwordless since 2026-10-15 (ND-01…",
       "tags": [
         "feature",
-        "module/identity"
+        "module/identity",
+        "priority/critical",
+        "release/mvp"
       ],
       "task": null,
       "title": "F-02 Auth & Sign-up",
@@ -45626,7 +45634,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:auth",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:auth",
+        "release": "feature:auth"
+      },
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -45639,7 +45650,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Auth & Sign-up/flow/FR-02 Auth & Sign-up Frontend Requirements.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "task:B-03",
         "task:B-04",
@@ -45662,7 +45673,7 @@
         "frontend-requirements:error-contract",
         "project:auth-model"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -52253,7 +52264,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "qa-backend:auth",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:auth",
+        "release": "feature:auth"
+      },
       "kind": "qa-backend",
       "label": "QA Backend",
       "labels": [],
@@ -52292,7 +52306,7 @@
           "to": "story:auth"
         }
       ],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "task:B-03",
         "task:B-04",
@@ -52362,7 +52376,7 @@
         "frontend-requirements:ring-members",
         "frontend-requirements:ring-projection"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -56244,7 +56258,7 @@
           "done": 0,
           "id": "mvp",
           "partial": 0,
-          "total": 1
+          "total": 2
         },
         {
           "done": 0,
@@ -56262,7 +56276,7 @@
           "done": 0,
           "id": null,
           "partial": 0,
-          "total": 40
+          "total": 39
         }
       ],
       "rollup": {
@@ -56475,7 +56489,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:auth",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:auth",
+        "release": "feature:auth"
+      },
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -56488,7 +56505,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Auth & Sign-up/S-02 Auth & Sign-up Story.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "task:B-03",
         "task:B-04",
@@ -56507,7 +56524,7 @@
         "frontend-requirements:error-contract",
         "project:auth-model"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -59019,7 +59036,9 @@
       "foundOn": "BI-02 Auth & Sign-up Backend Integration",
       "frontendOnly": false,
       "id": "task:B-03",
-      "inherits": {},
+      "inherits": {
+        "release": "feature:auth"
+      },
       "kind": "task",
       "label": "Bug",
       "labels": [
@@ -59069,7 +59088,7 @@
         "frontend-requirements:ring-invitations",
         "project:frontend-contract"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "rollup": {},
       "scope": null,
@@ -59109,7 +59128,9 @@
       "foundOn": "BI-02 Auth & Sign-up Backend Integration",
       "frontendOnly": false,
       "id": "task:B-04",
-      "inherits": {},
+      "inherits": {
+        "release": "feature:auth"
+      },
       "kind": "task",
       "label": "Bug",
       "labels": [
@@ -59140,7 +59161,7 @@
         "project:frontend-contract",
         "project:frontend-passwordless-migration"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "rollup": {},
       "scope": null,
@@ -59180,7 +59201,9 @@
       "foundOn": "BI-02 Auth & Sign-up Backend Integration",
       "frontendOnly": false,
       "id": "task:B-05",
-      "inherits": {},
+      "inherits": {
+        "release": "feature:auth"
+      },
       "kind": "task",
       "label": "Bug",
       "labels": [
@@ -59214,7 +59237,7 @@
         "story:error-contract",
         "project:frontend-api-guide"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "rollup": {},
       "scope": null,
@@ -59255,7 +59278,9 @@
       "foundOn": "BD-02 Auth & Sign-up Backend Delivery",
       "frontendOnly": false,
       "id": "task:B-06",
-      "inherits": {},
+      "inherits": {
+        "release": "feature:auth"
+      },
       "kind": "task",
       "label": "Bug",
       "labels": [
@@ -59278,7 +59303,7 @@
         "qa-backend:account",
         "qa-backend:files"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "rollup": {},
       "scope": null,
