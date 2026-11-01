@@ -3,17 +3,19 @@ id: F-14
 type: feature
 module: connections
 feature: connections
+priority: critical
+release: mvp
 screens: [s44, s45, s46, s47, s62]
 owner: "omar"
 related: ["F-11 Rings"]
 created: 2026-10-15
 updated: 2026-11-01
-tags: [feature, module/connections]
+tags: [feature, module/connections, priority/critical, release/mvp]
 ---
 
 # Connections
 
-**Backend:** TODO · **Module:** [[M-02 Connections Module|Connections]]
+**Backend:** TODO · **Priority:** Critical · **Release:** MVP · **Module:** [[M-02 Connections Module|Connections]]
 
 **Layers:** [[S-23 Connections Story|Story]] · [[FR-14 Connections Frontend Requirements|Frontend Requirements]] · [[BD-14 Connections Backend Delivery|Backend Delivery]] · [[Connections Backend Integration|Backend Integration]] · [[Connections Frontend Delivery|Frontend Delivery]] · [[Connections QA Backend|QA Backend]] · [[Connections QA Frontend|QA Frontend]]
 

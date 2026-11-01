@@ -35317,7 +35317,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:connections",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:connections",
+        "release": "feature:connections"
+      },
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -35330,9 +35333,9 @@
       ],
       "path": "social-pin/modules/Connections/features/Connections/flow/BD-14 Connections Backend Delivery.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -41033,7 +41036,7 @@
       ],
       "path": "social-pin/modules/Connections/features/Connections/F-14 Connections.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "feature:rings",
         "feature:ring-members",
@@ -41059,7 +41062,7 @@
         "needs-decision:ND-23",
         "frontend-requirements:counts"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "rollup": {
         "blocked": 3,
@@ -41081,7 +41084,9 @@
       "summary": "A connection is an access request, not a content subscription. Send a request after a scan, review the inbox, accept and pick a Ring (this sets ConnectionRequest.grantedRingId), connection detail,…",
       "tags": [
         "feature",
-        "module/connections"
+        "module/connections",
+        "priority/critical",
+        "release/mvp"
       ],
       "task": null,
       "title": "F-14 Connections",
@@ -46089,7 +46094,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:connections",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:connections",
+        "release": "feature:connections"
+      },
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -46102,7 +46110,7 @@
       ],
       "path": "social-pin/modules/Connections/features/Connections/flow/FR-14 Connections Frontend Requirements.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "task:B-03",
         "qa-backend:auth",
@@ -46116,7 +46124,7 @@
         "frontend-requirements:view-as",
         "frontend-requirements:error-contract"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -56367,7 +56375,7 @@
           "done": 0,
           "id": "mvp",
           "partial": 0,
-          "total": 13
+          "total": 14
         },
         {
           "done": 0,
@@ -56385,7 +56393,7 @@
           "done": 0,
           "id": null,
           "partial": 0,
-          "total": 28
+          "total": 27
         }
       ],
       "rollup": {
@@ -56997,7 +57005,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:connections",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:connections",
+        "release": "feature:connections"
+      },
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -57010,7 +57021,7 @@
       ],
       "path": "social-pin/modules/Connections/features/Connections/S-23 Connections Story.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "decision:D-04",
         "decision:D-13",
@@ -57029,7 +57040,7 @@
         "frontend-requirements:view-as",
         "story:view-as"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
