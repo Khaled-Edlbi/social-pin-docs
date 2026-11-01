@@ -36475,7 +36475,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:photo-library",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:photo-library",
+        "release": "feature:photo-library"
+      },
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -36488,12 +36491,12 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Photo Library/flow/BD-06 Photo Library Backend Delivery.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "frontend-requirements:files",
         "frontend-requirements:photo-library"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -42572,7 +42575,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Photo Library/F-06 Photo Library.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "feature:files",
         "feature:ring-projection",
@@ -42582,7 +42585,7 @@
         "project:api-conventions",
         "project:spec-map"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "rollup": {
         "approved": 1,
@@ -42603,7 +42606,9 @@
       "summary": "The user's uploaded photos, reusable across Rings, with the Rings that use each photo (s30).",
       "tags": [
         "feature",
-        "module/identity"
+        "module/identity",
+        "priority/critical",
+        "release/mvp"
       ],
       "task": null,
       "title": "F-06 Photo Library",
@@ -47351,7 +47356,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:photo-library",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:photo-library",
+        "release": "feature:photo-library"
+      },
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -47364,7 +47372,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Photo Library/flow/FR-06 Photo Library Frontend Requirements.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "task:B-07",
         "task:B-08",
@@ -47423,7 +47431,7 @@
         "story:ring-access",
         "story:companies"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -56340,7 +56348,7 @@
           "done": 0,
           "id": "mvp",
           "partial": 0,
-          "total": 10
+          "total": 11
         },
         {
           "done": 0,
@@ -56358,7 +56366,7 @@
           "done": 0,
           "id": null,
           "partial": 0,
-          "total": 31
+          "total": 30
         }
       ],
       "rollup": {
@@ -58150,7 +58158,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:photo-library",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:photo-library",
+        "release": "feature:photo-library"
+      },
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -58163,7 +58174,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Photo Library/S-11 Photo Library Story.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "task:B-07",
         "decision:D-16",
@@ -58180,7 +58191,7 @@
         "frontend-requirements:profiles",
         "frontend-requirements:ring-projection"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
