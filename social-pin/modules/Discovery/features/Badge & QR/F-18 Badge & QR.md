@@ -3,16 +3,18 @@ id: F-18
 type: feature
 module: discovery
 feature: badge-qr
+priority: critical
+release: mvp
 screens: [s34, s43, s44, s56]
 related: ["F-01 Account", "F-11 Rings"]
 created: 2026-10-15
 updated: 2026-11-01
-tags: [feature, module/discovery]
+tags: [feature, module/discovery, priority/critical, release/mvp]
 ---
 
 # Badge & QR
 
-**Backend:** Partial (needs more) · **Module:** [[M-04 Discovery Module|Discovery]]
+**Backend:** Partial (needs more) · **Priority:** Critical · **Release:** MVP · **Module:** [[M-04 Discovery Module|Discovery]]
 
 **Layers:** [[S-37 Badge & QR Story|Story]] · [[FR-18 Badge & QR Frontend Requirements|Frontend Requirements]] · [[BD-18 Badge & QR Backend Delivery|Backend Delivery]] · [[Badge & QR Backend Integration|Backend Integration]] · [[Badge & QR Frontend Delivery|Frontend Delivery]] · [[Badge & QR QA Backend|QA Backend]] · [[Badge & QR QA Frontend|QA Frontend]]
 

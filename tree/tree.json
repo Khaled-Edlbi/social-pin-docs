@@ -35037,7 +35037,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:badge-qr",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:badge-qr",
+        "release": "feature:badge-qr"
+      },
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -35050,13 +35053,13 @@
       ],
       "path": "social-pin/modules/Discovery/features/Badge & QR/flow/BD-18 Badge & QR Backend Delivery.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "frontend-requirements:ring-access",
         "frontend-requirements:ring-projection",
         "frontend-requirements:view-as"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -40655,7 +40658,7 @@
       ],
       "path": "social-pin/modules/Discovery/features/Badge & QR/F-18 Badge & QR.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "feature:subscription",
         "feature:connections",
@@ -40678,7 +40681,7 @@
         "frontend-requirements:profiles",
         "story:profiles"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "rollup": {
         "blocked": 2,
@@ -40696,7 +40699,9 @@
       "summary": "The centre-tab badge: a QR bound to the active Ring, rotated every 24 h, a share link, a scan counter, and a browser page for people without the app. Scanning resolves the token into that Ring's view.",
       "tags": [
         "feature",
-        "module/discovery"
+        "module/discovery",
+        "priority/critical",
+        "release/mvp"
       ],
       "task": null,
       "title": "F-18 Badge & QR",
@@ -45783,7 +45788,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:badge-qr",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:badge-qr",
+        "release": "feature:badge-qr"
+      },
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -45796,7 +45804,7 @@
       ],
       "path": "social-pin/modules/Discovery/features/Badge & QR/flow/FR-18 Badge & QR Frontend Requirements.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "task:B-03",
         "backend-integration:account",
@@ -45810,7 +45818,7 @@
         "frontend-requirements:view-as",
         "frontend-requirements:error-contract"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -56359,7 +56367,7 @@
           "done": 0,
           "id": "mvp",
           "partial": 0,
-          "total": 12
+          "total": 13
         },
         {
           "done": 0,
@@ -56377,7 +56385,7 @@
           "done": 0,
           "id": null,
           "partial": 0,
-          "total": 29
+          "total": 28
         }
       ],
       "rollup": {
@@ -56687,7 +56695,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:badge-qr",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:badge-qr",
+        "release": "feature:badge-qr"
+      },
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -56700,7 +56711,7 @@
       ],
       "path": "social-pin/modules/Discovery/features/Badge & QR/S-37 Badge & QR Story.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "frontend-requirements:photo-library",
         "frontend-requirements:ring-access",
@@ -56708,7 +56719,7 @@
         "frontend-requirements:ring-projection",
         "frontend-requirements:view-as"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
