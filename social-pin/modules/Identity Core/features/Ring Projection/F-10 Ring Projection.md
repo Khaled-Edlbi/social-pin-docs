@@ -3,16 +3,18 @@ id: F-10
 type: feature
 module: identity
 feature: ring-projection
+priority: critical
+release: mvp
 screens: [s14, s20, s23, s24, s25, s28, s29, s30, s36, s37, s68]
 owner: "Omar Fostok"
 created: 2026-10-18
 updated: 2026-11-01
-tags: [feature, module/identity]
+tags: [feature, module/identity, priority/critical, release/mvp]
 ---
 
 # Ring Projection
 
-**Backend:** Done · **Module:** [[M-01 Identity Core Module|Identity Core]]
+**Backend:** Done · **Priority:** Critical · **Release:** MVP · **Module:** [[M-01 Identity Core Module|Identity Core]]
 
 **Layers:** [[S-17 Ring Projection Story|Story]] · [[FR-10 Ring Projection Frontend Requirements|Frontend Requirements]] · [[BD-10 Ring Projection Backend Delivery|Backend Delivery]] · [[BI-07 Ring Projection Backend Integration|Backend Integration]] · [[Ring Projection Frontend Delivery|Frontend Delivery]] · [[Ring Projection QA Backend|QA Backend]] · [[Ring Projection QA Frontend|QA Frontend]]
 
