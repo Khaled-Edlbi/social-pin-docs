@@ -3,17 +3,19 @@ id: F-28
 type: feature
 module: commerce
 feature: subscription
+priority: critical
+release: mvp
 screens: [s34, s70]
 created: 2026-10-15
 updated: 2026-11-01
-tags: [feature, module/commerce]
+tags: [feature, module/commerce, priority/critical, release/mvp]
 ---
 
 # Subscription (Free vs Pro)
 
 > ⚠ Affected by [[ND-07 Payment provider]] (2026-10-21): Pro is billed as a Stripe subscription; the story and the requirements can name it where the design says "subscription".
 
-**Backend:** TODO · **Module:** [[M-07 Commerce Module|Commerce]]
+**Backend:** TODO · **Priority:** Critical · **Release:** MVP · **Module:** [[M-07 Commerce Module|Commerce]]
 
 **Layers:** [[S-71 Subscription (Free vs Pro) Story|Story]] · [[FR-28 Subscription (Free vs Pro) Frontend Requirements|Frontend Requirements]] · [[BD-28 Subscription (Free vs Pro) Backend Delivery|Backend Delivery]] · [[Subscription (Free vs Pro) Backend Integration|Backend Integration]] · [[Subscription (Free vs Pro) Frontend Delivery|Frontend Delivery]] · [[Subscription (Free vs Pro) QA Backend|QA Backend]] · [[Subscription (Free vs Pro) QA Frontend|QA Frontend]]
 

@@ -37041,7 +37041,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:subscription",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:subscription",
+        "release": "feature:subscription"
+      },
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -37054,9 +37057,9 @@
       ],
       "path": "social-pin/modules/Commerce/features/Subscription (Free vs Pro)/flow/BD-28 Subscription (Free vs Pro) Backend Delivery.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -43409,7 +43412,7 @@
       ],
       "path": "social-pin/modules/Commerce/features/Subscription (Free vs Pro)/F-28 Subscription (Free vs Pro).md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "feature:payments",
         "feature:badge-qr",
@@ -43423,7 +43426,7 @@
         "needs-decision:ND-07",
         "story:payments"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "rollup": {
         "approved": 1,
@@ -43442,7 +43445,9 @@
       "summary": "Free vs Pro (s70) and the Pro gates: Smart Match, any-lounge access, Gemma automation, permanent QR.",
       "tags": [
         "feature",
-        "module/commerce"
+        "module/commerce",
+        "priority/critical",
+        "release/mvp"
       ],
       "task": null,
       "title": "F-28 Subscription (Free vs Pro)",
@@ -48357,7 +48362,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:subscription",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:subscription",
+        "release": "feature:subscription"
+      },
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -48370,13 +48378,13 @@
       ],
       "path": "social-pin/modules/Commerce/features/Subscription (Free vs Pro)/flow/FR-28 Subscription (Free vs Pro) Frontend Requirements.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "task:B-03",
         "qa-backend:auth",
         "frontend-requirements:error-contract"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -56442,7 +56450,7 @@
           "done": 0,
           "id": "mvp",
           "partial": 0,
-          "total": 22
+          "total": 23
         },
         {
           "done": 0,
@@ -56460,7 +56468,7 @@
           "done": 0,
           "id": null,
           "partial": 0,
-          "total": 19
+          "total": 18
         }
       ],
       "rollup": {
@@ -58910,7 +58918,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:subscription",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:subscription",
+        "release": "feature:subscription"
+      },
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -58923,11 +58934,11 @@
       ],
       "path": "social-pin/modules/Commerce/features/Subscription (Free vs Pro)/S-71 Subscription (Free vs Pro) Story.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "frontend-delivery:account"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
