@@ -36871,7 +36871,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:ring-projection",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:ring-projection",
+        "release": "feature:ring-projection"
+      },
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -36884,7 +36887,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Ring Projection/flow/BD-10 Ring Projection Backend Delivery.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "task:B-08",
         "frontend-requirements:files",
@@ -36892,7 +36895,7 @@
         "frontend-requirements:photo-library",
         "frontend-requirements:ring-projection"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -38975,7 +38978,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:ring-projection",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:ring-projection",
+        "release": "feature:ring-projection"
+      },
       "kind": "backend-integration",
       "label": "Backend Integration",
       "labels": [],
@@ -38988,7 +38994,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Ring Projection/flow/BI-07 Ring Projection Backend Integration.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "task:B-07",
         "task:B-08",
@@ -39002,7 +39008,7 @@
         "frontend-requirements:ring-projection",
         "frontend-requirements:view-as"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -43129,7 +43135,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Ring Projection/F-10 Ring Projection.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "feature:files",
         "feature:onboarding-imports",
@@ -43146,7 +43152,7 @@
         "decision:D-16",
         "frontend-requirements:onboarding-imports"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "rollup": {
         "approved": 1,
@@ -43175,7 +43181,9 @@
       "summary": "What a Ring shows: the headline, role, company and location it goes by (following the Pin, its own, or hidden), the nickname, bio and photo, which social and contact links, which custom fields…",
       "tags": [
         "feature",
-        "module/identity"
+        "module/identity",
+        "priority/critical",
+        "release/mvp"
       ],
       "task": null,
       "title": "F-10 Ring Projection",
@@ -47995,7 +48003,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:ring-projection",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:ring-projection",
+        "release": "feature:ring-projection"
+      },
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -48008,7 +48019,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Ring Projection/flow/FR-10 Ring Projection Frontend Requirements.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "task:B-07",
         "task:B-08",
@@ -48086,7 +48097,7 @@
         "backend-integration:files",
         "story:photo-library"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -56315,7 +56326,7 @@
           "done": 0,
           "id": "mvp",
           "partial": 0,
-          "total": 8
+          "total": 9
         },
         {
           "done": 0,
@@ -56333,7 +56344,7 @@
           "done": 0,
           "id": null,
           "partial": 0,
-          "total": 33
+          "total": 32
         }
       ],
       "rollup": {
@@ -58590,7 +58601,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:ring-projection",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:ring-projection",
+        "release": "feature:ring-projection"
+      },
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -58603,7 +58617,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Ring Projection/S-17 Ring Projection Story.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "task:B-08",
         "frontend-requirements:files",
@@ -58622,7 +58636,7 @@
         "story:rings",
         "frontend-requirements:view-as"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -59500,7 +59514,9 @@
       "foundOn": "BI-07 Ring Projection Backend Integration",
       "frontendOnly": false,
       "id": "task:B-08",
-      "inherits": {},
+      "inherits": {
+        "release": "feature:ring-projection"
+      },
       "kind": "task",
       "label": "Bug",
       "labels": [
@@ -59536,7 +59552,7 @@
         "project:status-report-2026-10-15",
         "frontend-requirements:ring-access"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": "fixed",
       "rollup": {},
       "scope": null,
