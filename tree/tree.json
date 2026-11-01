@@ -36796,7 +36796,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:ring-invitations",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:ring-invitations",
+        "release": "feature:ring-invitations"
+      },
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -36809,9 +36812,9 @@
       ],
       "path": "social-pin/modules/Shared Rings & Companies/features/Ring Invitations & Join/flow/BD-17 Ring Invitations & Join Backend Delivery.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -43034,7 +43037,7 @@
       ],
       "path": "social-pin/modules/Shared Rings & Companies/features/Ring Invitations & Join/F-17 Ring Invitations & Join.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "feature:rings",
         "feature:companies",
@@ -43047,7 +43050,7 @@
         "project:spec-map",
         "needs-decision:ND-18"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "rollup": {
         "blocked": 2,
@@ -43065,7 +43068,9 @@
       "summary": "Being invited into someone else's Ring: review or decline an invite (s17), join with a code, a verified work email or a colleague's QR (s74), and \"what you contribute\" to a shared Ring.",
       "tags": [
         "feature",
-        "module/shared-rings"
+        "module/shared-rings",
+        "priority/critical",
+        "release/mvp"
       ],
       "task": null,
       "title": "F-17 Ring Invitations & Join",
@@ -47919,7 +47924,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:ring-invitations",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:ring-invitations",
+        "release": "feature:ring-invitations"
+      },
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -47932,7 +47940,7 @@
       ],
       "path": "social-pin/modules/Shared Rings & Companies/features/Ring Invitations & Join/flow/FR-17 Ring Invitations & Join Frontend Requirements.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "task:B-03",
         "qa-backend:auth",
@@ -47942,7 +47950,7 @@
         "frontend-requirements:view-as",
         "frontend-requirements:error-contract"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -56434,7 +56442,7 @@
           "done": 0,
           "id": "mvp",
           "partial": 0,
-          "total": 21
+          "total": 22
         },
         {
           "done": 0,
@@ -56452,7 +56460,7 @@
           "done": 0,
           "id": null,
           "partial": 0,
-          "total": 20
+          "total": 19
         }
       ],
       "rollup": {
@@ -58611,7 +58619,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:ring-invitations",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:ring-invitations",
+        "release": "feature:ring-invitations"
+      },
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -58624,7 +58635,7 @@
       ],
       "path": "social-pin/modules/Shared Rings & Companies/features/Ring Invitations & Join/S-33 Ring Invitations & Join Story.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "frontend-requirements:ring-access",
         "frontend-requirements:ring-members",
@@ -58637,7 +58648,7 @@
         "decision:D-14",
         "decision:D-18"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
