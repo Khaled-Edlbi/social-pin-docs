@@ -3,18 +3,16 @@ id: F-36
 type: feature
 module: platform
 feature: gemma
-priority: medium
-release: later
 screens: [s13, s60]
 owner: "omar"
 created: 2026-10-15
-updated: 2026-10-29
-tags: [feature, module/platform, priority/medium, release/later]
+updated: 2026-11-01
+tags: [feature, module/platform]
 ---
 
 # Gemma AI
 
-**Backend:** TODO · **Priority:** Medium · **Release:** Later · **Module:** [[M-08 Platform & Cross-cutting Module|Platform & Cross-cutting]]
+**Backend:** TODO · **Module:** [[M-08 Platform & Cross-cutting Module|Platform & Cross-cutting]]
 
 **Layers:** [[S-89 Gemma AI Story|Story]] · [[FR-36 Gemma AI Frontend Requirements|Frontend Requirements]] · [[BD-36 Gemma AI Backend Delivery|Backend Delivery]] · [[Gemma AI Backend Integration|Backend Integration]] · [[Gemma AI Frontend Delivery|Frontend Delivery]] · [[Gemma AI QA Backend|QA Backend]] · [[Gemma AI QA Frontend|QA Frontend]]
 

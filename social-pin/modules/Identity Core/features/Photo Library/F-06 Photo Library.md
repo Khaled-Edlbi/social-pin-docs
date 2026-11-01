@@ -3,18 +3,16 @@ id: F-06
 type: feature
 module: identity
 feature: photo-library
-priority: high
-release: v1
 screens: [s23, s29, s30, s68]
 owner: "Omar Fostok"
 created: 2026-10-15
-updated: 2026-10-29
-tags: [feature, module/identity, priority/high, release/v1]
+updated: 2026-11-01
+tags: [feature, module/identity]
 ---
 
 # Photo Library
 
-**Backend:** Partial (needs more) · **Priority:** High · **Release:** v1 · **Module:** [[M-01 Identity Core Module|Identity Core]]
+**Backend:** Partial (needs more) · **Module:** [[M-01 Identity Core Module|Identity Core]]
 
 **Layers:** [[S-11 Photo Library Story|Story]] · [[FR-06 Photo Library Frontend Requirements|Frontend Requirements]] · [[BD-06 Photo Library Backend Delivery|Backend Delivery]] · [[Photo Library Backend Integration|Backend Integration]] · [[Photo Library Frontend Delivery|Frontend Delivery]] · [[Photo Library QA Backend|QA Backend]] · [[Photo Library QA Frontend|QA Frontend]]
 

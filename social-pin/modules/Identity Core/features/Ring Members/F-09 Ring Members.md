@@ -3,19 +3,17 @@ id: F-09
 type: feature
 module: identity
 feature: ring-members
-priority: critical
-release: mvp
 screens: [s15, s16, s35, s46, s47]
 owner: "Omar Fostok"
 related: ["F-12 View As & Pin Views"]
 created: 2026-10-18
-updated: 2026-10-29
-tags: [feature, module/identity, priority/critical, release/mvp]
+updated: 2026-11-01
+tags: [feature, module/identity]
 ---
 
 # Ring Members
 
-**Backend:** Done · **Priority:** Critical · **Release:** MVP · **Module:** [[M-01 Identity Core Module|Identity Core]]
+**Backend:** Done · **Module:** [[M-01 Identity Core Module|Identity Core]]
 
 **Layers:** [[S-16 Ring Members Story|Story]] · [[FR-09 Ring Members Frontend Requirements|Frontend Requirements]] · [[BD-09 Ring Members Backend Delivery|Backend Delivery]] · [[BI-06 Ring Members Backend Integration|Backend Integration]] · [[Ring Members Frontend Delivery|Frontend Delivery]] · [[Ring Members QA Backend|QA Backend]] · [[Ring Members QA Frontend|QA Frontend]]
 

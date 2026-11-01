@@ -3,19 +3,17 @@ id: F-17
 type: feature
 module: shared-rings
 feature: ring-invitations
-priority: high
-release: v1
 screens: [s17, s74]
 owner: "omar"
 related: ["F-12 View As & Pin Views"]
 created: 2026-10-15
-updated: 2026-10-29
-tags: [feature, module/shared-rings, priority/high, release/v1]
+updated: 2026-11-01
+tags: [feature, module/shared-rings]
 ---
 
 # Ring Invitations & Join
 
-**Backend:** TODO · **Priority:** High · **Release:** v1 · **Module:** [[M-03 Shared Rings & Companies Module|Shared Rings & Companies]]
+**Backend:** TODO · **Module:** [[M-03 Shared Rings & Companies Module|Shared Rings & Companies]]
 
 **Layers:** [[S-33 Ring Invitations & Join Story|Story]] · [[FR-17 Ring Invitations & Join Frontend Requirements|Frontend Requirements]] · [[BD-17 Ring Invitations & Join Backend Delivery|Backend Delivery]] · [[Ring Invitations & Join Backend Integration|Backend Integration]] · [[Ring Invitations & Join Frontend Delivery|Frontend Delivery]] · [[Ring Invitations & Join QA Backend|QA Backend]] · [[Ring Invitations & Join QA Frontend|QA Frontend]]
 

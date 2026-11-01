@@ -3,18 +3,16 @@ id: F-16
 type: feature
 module: shared-rings
 feature: delegated-admins
-priority: high
-release: v1
 screens: [s26, s27]
 owner: "omar"
 created: 2026-10-15
-updated: 2026-10-29
-tags: [feature, module/shared-rings, priority/high, release/v1]
+updated: 2026-11-01
+tags: [feature, module/shared-rings]
 ---
 
 # Delegated Admins
 
-**Backend:** Partial (needs more) · **Priority:** High · **Release:** v1 · **Module:** [[M-03 Shared Rings & Companies Module|Shared Rings & Companies]]
+**Backend:** Partial (needs more) · **Module:** [[M-03 Shared Rings & Companies Module|Shared Rings & Companies]]
 
 **Layers:** [[S-31 Delegated Admins Story|Story]] · [[FR-16 Delegated Admins Frontend Requirements|Frontend Requirements]] · [[BD-16 Delegated Admins Backend Delivery|Backend Delivery]] · [[Delegated Admins Backend Integration|Backend Integration]] · [[Delegated Admins Frontend Delivery|Frontend Delivery]] · [[Delegated Admins QA Backend|QA Backend]] · [[Delegated Admins QA Frontend|QA Frontend]]
 

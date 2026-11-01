@@ -3,17 +3,15 @@ id: F-03
 type: feature
 module: identity
 feature: counts
-priority: high
-release: mvp
 screens: [s11, s12, s14, s16, s17, s68]
 created: 2026-10-15
-updated: 2026-10-29
-tags: [feature, module/identity, priority/high, release/mvp]
+updated: 2026-11-01
+tags: [feature, module/identity]
 ---
 
 # Counts
 
-**Backend:** Partial (needs more) · **Priority:** High · **Release:** MVP · **Module:** [[M-01 Identity Core Module|Identity Core]]
+**Backend:** Partial (needs more) · **Module:** [[M-01 Identity Core Module|Identity Core]]
 
 **Layers:** [[S-03 Counts Story|Story]] · [[FR-03 Counts Frontend Requirements|Frontend Requirements]] · [[BD-03 Counts Backend Delivery|Backend Delivery]] · [[Counts Backend Integration|Backend Integration]] · [[Counts Frontend Delivery|Frontend Delivery]] · [[Counts QA Backend|QA Backend]] · [[Counts QA Frontend|QA Frontend]]
 

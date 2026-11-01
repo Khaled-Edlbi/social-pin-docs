@@ -3,17 +3,15 @@ id: F-30
 type: feature
 module: platform
 feature: audit-log
-priority: critical
-release: mvp
 screens: []
 created: 2026-10-15
-updated: 2026-10-29
-tags: [feature, module/platform, priority/critical, release/mvp]
+updated: 2026-11-01
+tags: [feature, module/platform]
 ---
 
 # Audit Log
 
-**Backend:** TODO · **Priority:** Critical · **Release:** MVP · **Module:** [[M-08 Platform & Cross-cutting Module|Platform & Cross-cutting]]
+**Backend:** TODO · **Module:** [[M-08 Platform & Cross-cutting Module|Platform & Cross-cutting]]
 
 **Layers:** [[S-74 Audit Log Story|Story]] · [[FR-30 Audit Log Frontend Requirements|Frontend Requirements]] · [[BD-30 Audit Log Backend Delivery|Backend Delivery]] · [[Audit Log Backend Integration|Backend Integration]] · [[Audit Log Frontend Delivery|Frontend Delivery]] · [[Audit Log QA Backend|QA Backend]] · [[Audit Log QA Frontend|QA Frontend]]
 

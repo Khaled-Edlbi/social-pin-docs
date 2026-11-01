@@ -3,18 +3,16 @@ id: F-26
 type: feature
 module: meetings
 feature: meetings
-priority: critical
-release: mvp
 screens: [s59, s61, s64, s66, s67]
 related: ["F-12 View As & Pin Views"]
 created: 2026-10-15
-updated: 2026-10-29
-tags: [feature, module/meetings, priority/critical, release/mvp]
+updated: 2026-11-01
+tags: [feature, module/meetings]
 ---
 
 # Meetings
 
-**Backend:** TODO · **Priority:** Critical · **Release:** MVP · **Module:** [[M-06 Meetings Module|Meetings]]
+**Backend:** TODO · **Module:** [[M-06 Meetings Module|Meetings]]
 
 **Layers:** [[S-64 Meetings Story|Story]] · [[FR-26 Meetings Frontend Requirements|Frontend Requirements]] · [[BD-26 Meetings Backend Delivery|Backend Delivery]] · [[Meetings Backend Integration|Backend Integration]] · [[Meetings Frontend Delivery|Frontend Delivery]] · [[Meetings QA Backend|QA Backend]] · [[Meetings QA Frontend|QA Frontend]]
 

@@ -3,18 +3,16 @@ id: F-24
 type: feature
 module: events
 feature: exhibitor
-priority: high
-release: v1
 screens: [s63, s64, s65]
 related: ["F-12 View As & Pin Views"]
 created: 2026-10-15
-updated: 2026-10-29
-tags: [feature, module/events, priority/high, release/v1]
+updated: 2026-11-01
+tags: [feature, module/events]
 ---
 
 # Exhibitor
 
-**Backend:** TODO · **Priority:** High · **Release:** v1 · **Module:** [[M-05 Events Module|Events]]
+**Backend:** TODO · **Module:** [[M-05 Events Module|Events]]
 
 **Layers:** [[S-59 Exhibitor Story|Story]] · [[FR-24 Exhibitor Frontend Requirements|Frontend Requirements]] · [[BD-24 Exhibitor Backend Delivery|Backend Delivery]] · [[Exhibitor Backend Integration|Backend Integration]] · [[Exhibitor Frontend Delivery|Frontend Delivery]] · [[Exhibitor QA Backend|QA Backend]] · [[Exhibitor QA Frontend|QA Frontend]]
 

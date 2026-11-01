@@ -3,18 +3,16 @@ id: F-25
 type: feature
 module: events
 feature: post-event
-priority: high
-release: v1
 screens: [s62]
 related: ["F-12 View As & Pin Views"]
 created: 2026-10-15
-updated: 2026-10-29
-tags: [feature, module/events, priority/high, release/v1]
+updated: 2026-11-01
+tags: [feature, module/events]
 ---
 
 # Post-Event
 
-**Backend:** TODO · **Priority:** High · **Release:** v1 · **Module:** [[M-05 Events Module|Events]]
+**Backend:** TODO · **Module:** [[M-05 Events Module|Events]]
 
 **Layers:** [[S-62 Post-Event Story|Story]] · [[FR-25 Post-Event Frontend Requirements|Frontend Requirements]] · [[BD-25 Post-Event Backend Delivery|Backend Delivery]] · [[Post-Event Backend Integration|Backend Integration]] · [[Post-Event Frontend Delivery|Frontend Delivery]] · [[Post-Event QA Backend|QA Backend]] · [[Post-Event QA Frontend|QA Frontend]]
 

@@ -3,20 +3,18 @@ id: F-21
 type: feature
 module: events
 feature: event-ring-auto
-priority: critical
-release: mvp
 screens: [s52]
 related: ["F-12 View As & Pin Views"]
 created: 2026-10-15
-updated: 2026-10-29
-tags: [feature, module/events, priority/critical, release/mvp]
+updated: 2026-11-01
+tags: [feature, module/events]
 ---
 
 # Event Ring Auto-creation
 
 > ⚠ Affected by [[S-69 Payments & Orders Story]] (2026-10-25): when the registration carries a payment, the Ring on s52 is granted only after the payment is succeeded, never on pending or failed (S3, S4).
 
-**Backend:** Partial (needs more) · **Priority:** Critical · **Release:** MVP · **Module:** [[M-05 Events Module|Events]]
+**Backend:** Partial (needs more) · **Module:** [[M-05 Events Module|Events]]
 
 **Layers:** [[S-47 Event Ring Auto-creation Story|Story]] · [[FR-21 Event Ring Auto-creation Frontend Requirements|Frontend Requirements]] · [[BD-21 Event Ring Auto-creation Backend Delivery|Backend Delivery]] · [[Event Ring Auto-creation Backend Integration|Backend Integration]] · [[Event Ring Auto-creation Frontend Delivery|Frontend Delivery]] · [[Event Ring Auto-creation QA Backend|QA Backend]] · [[Event Ring Auto-creation QA Frontend|QA Frontend]]
 

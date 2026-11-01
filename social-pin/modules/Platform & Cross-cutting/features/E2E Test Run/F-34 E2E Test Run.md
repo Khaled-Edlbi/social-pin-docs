@@ -3,17 +3,15 @@ id: F-34
 type: feature
 module: platform
 feature: e2e-tests
-priority: critical
-release: mvp
 screens: []
 created: 2026-10-15
-updated: 2026-10-29
-tags: [feature, module/platform, priority/critical, release/mvp]
+updated: 2026-11-01
+tags: [feature, module/platform]
 ---
 
 # E2E Test Run
 
-**Backend:** TODO · **Priority:** Critical · **Release:** MVP · **Module:** [[M-08 Platform & Cross-cutting Module|Platform & Cross-cutting]]
+**Backend:** TODO · **Module:** [[M-08 Platform & Cross-cutting Module|Platform & Cross-cutting]]
 
 **Layers:** [[S-85 E2E Test Run Story|Story]] · [[FR-34 E2E Test Run Frontend Requirements|Frontend Requirements]] · [[BD-34 E2E Test Run Backend Delivery|Backend Delivery]] · [[E2E Test Run Backend Integration|Backend Integration]] · [[E2E Test Run Frontend Delivery|Frontend Delivery]] · [[E2E Test Run QA Backend|QA Backend]] · [[E2E Test Run QA Frontend|QA Frontend]]
 

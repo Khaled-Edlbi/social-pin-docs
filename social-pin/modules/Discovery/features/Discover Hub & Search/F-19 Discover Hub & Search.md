@@ -3,17 +3,15 @@ id: F-19
 type: feature
 module: discovery
 feature: discover-hub
-priority: high
-release: v1
 screens: [s38]
 created: 2026-10-15
-updated: 2026-10-29
-tags: [feature, module/discovery, priority/high, release/v1]
+updated: 2026-11-01
+tags: [feature, module/discovery]
 ---
 
 # Discover Hub & Search
 
-**Backend:** TODO · **Priority:** High · **Release:** v1 · **Module:** [[M-04 Discovery Module|Discovery]]
+**Backend:** TODO · **Module:** [[M-04 Discovery Module|Discovery]]
 
 **Layers:** [[S-42 Discover Hub & Search Story|Story]] · [[FR-19 Discover Hub & Search Frontend Requirements|Frontend Requirements]] · [[BD-19 Discover Hub & Search Backend Delivery|Backend Delivery]] · [[Discover Hub & Search Backend Integration|Backend Integration]] · [[Discover Hub & Search Frontend Delivery|Frontend Delivery]] · [[Discover Hub & Search QA Backend|QA Backend]] · [[Discover Hub & Search QA Frontend|QA Frontend]]
 

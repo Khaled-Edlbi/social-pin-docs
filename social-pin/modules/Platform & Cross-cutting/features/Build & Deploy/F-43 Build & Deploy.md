@@ -3,20 +3,18 @@ id: F-43
 type: feature
 module: platform
 feature: build-deploy
-priority: medium
-release: later
 screens: []
 depends: []
 affects: []
 related: ["F-34 E2E Test Run", "Developer Setup"]
 created: 2026-10-26
-updated: 2026-10-29
-tags: [feature, module/platform, priority/medium, release/later]
+updated: 2026-11-01
+tags: [feature, module/platform]
 ---
 
 # Build & Deploy
 
-**Backend:** 🟡 Partial (shipped, dev and stage only) · **Priority:** Medium · **Release:** Later · **Deadline:** — · **Module:** [[M-08 Platform & Cross-cutting Module|Platform & Cross-cutting]]
+**Backend:** 🟡 Partial (shipped, dev and stage only) · **Deadline:** — · **Module:** [[M-08 Platform & Cross-cutting Module|Platform & Cross-cutting]]
 
 **Layers:** [[S-116 Build & Deploy Story|Story]] · [[Build & Deploy Frontend Requirements|Frontend Requirements]] · [[Build & Deploy Backend Delivery|Backend Delivery]] · [[Build & Deploy Backend Integration|Backend Integration]] · [[Build & Deploy Frontend Delivery|Frontend Delivery]] · [[Build & Deploy QA Backend|QA Backend]] · [[Build & Deploy QA Frontend|QA Frontend]]
 
