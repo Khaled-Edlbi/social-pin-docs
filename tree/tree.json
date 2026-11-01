@@ -36269,7 +36269,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:notifications",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:notifications",
+        "release": "feature:notifications"
+      },
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -36282,9 +36285,9 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Notifications/flow/BD-39 Notifications Backend Delivery.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -42302,7 +42305,7 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Notifications/F-39 Notifications.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "feature:connections",
         "feature:pincast",
@@ -42316,7 +42319,7 @@
         "project:spec-map",
         "feature:ring-invitations"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "rollup": {
         "approved": 1,
@@ -42332,7 +42335,9 @@
       "summary": "Grouped notifications (Today / Yesterday / Last 7 days), mark all read (s69), push delivery, preferences.",
       "tags": [
         "feature",
-        "module/platform"
+        "module/platform",
+        "priority/critical",
+        "release/mvp"
       ],
       "task": null,
       "title": "F-39 Notifications",
@@ -47170,7 +47175,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:notifications",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:notifications",
+        "release": "feature:notifications"
+      },
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -47183,13 +47191,13 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Notifications/flow/FR-39 Notifications Frontend Requirements.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "task:B-03",
         "qa-backend:auth",
         "frontend-requirements:error-contract"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -56402,7 +56410,7 @@
           "done": 0,
           "id": "mvp",
           "partial": 0,
-          "total": 17
+          "total": 18
         },
         {
           "done": 0,
@@ -56420,7 +56428,7 @@
           "done": 0,
           "id": null,
           "partial": 0,
-          "total": 24
+          "total": 23
         }
       ],
       "rollup": {
@@ -57988,7 +57996,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:notifications",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:notifications",
+        "release": "feature:notifications"
+      },
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -58001,9 +58012,9 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Notifications/S-96 Notifications Story.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
