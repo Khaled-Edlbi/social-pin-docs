@@ -3,16 +3,18 @@ id: F-29
 type: feature
 module: platform
 feature: app-shell
+priority: critical
+release: mvp
 frontendOnly: true
 screens: [s00a, s00b, s00c, s00d]
 created: 2026-10-15
 updated: 2026-11-01
-tags: [feature, module/platform]
+tags: [feature, module/platform, priority/critical, release/mvp]
 ---
 
 # App Shell & Onboarding Narrative
 
-**Backend:** Frontend only · **Module:** [[M-08 Platform & Cross-cutting Module|Platform & Cross-cutting]]
+**Backend:** Frontend only · **Priority:** Critical · **Release:** MVP · **Module:** [[M-08 Platform & Cross-cutting Module|Platform & Cross-cutting]]
 
 **Layers:** [[S-73 App Shell & Onboarding Narrative Story|Story]] · [[FR-29 App Shell & Onboarding Narrative Frontend Requirements|Frontend Requirements]] · [[BD-29 App Shell & Onboarding Narrative Backend Delivery|Backend Delivery]] · [[App Shell & Onboarding Narrative Backend Integration|Backend Integration]] · [[App Shell & Onboarding Narrative Frontend Delivery|Frontend Delivery]] · [[App Shell & Onboarding Narrative QA Backend|QA Backend]] · [[App Shell & Onboarding Narrative QA Frontend|QA Frontend]]
 

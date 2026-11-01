@@ -34844,7 +34844,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:app-shell",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:app-shell",
+        "release": "feature:app-shell"
+      },
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -34857,9 +34860,9 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/App Shell & Onboarding Narrative/flow/BD-29 App Shell & Onboarding Narrative Backend Delivery.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -40373,7 +40376,7 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/App Shell & Onboarding Narrative/F-29 App Shell & Onboarding Narrative.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "feature:auth",
         "project:ring-access-model",
@@ -40381,7 +40384,7 @@
         "project:api-conventions",
         "project:spec-map"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "rollup": {
         "approved": 1,
@@ -40400,7 +40403,9 @@
       "summary": "Splash, the three value panels, tab bar and the signature motions. No backend work.",
       "tags": [
         "feature",
-        "module/platform"
+        "module/platform",
+        "priority/critical",
+        "release/mvp"
       ],
       "task": null,
       "title": "F-29 App Shell & Onboarding Narrative",
@@ -45535,7 +45540,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:app-shell",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:app-shell",
+        "release": "feature:app-shell"
+      },
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -45548,7 +45556,7 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/App Shell & Onboarding Narrative/flow/FR-29 App Shell & Onboarding Narrative Frontend Requirements.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "task:B-03",
         "qa-backend:auth",
@@ -45556,7 +45564,7 @@
         "frontend-requirements:view-as",
         "frontend-requirements:error-contract"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -56274,7 +56282,7 @@
           "done": 0,
           "id": "mvp",
           "partial": 0,
-          "total": 4
+          "total": 5
         },
         {
           "done": 0,
@@ -56292,7 +56300,7 @@
           "done": 0,
           "id": null,
           "partial": 0,
-          "total": 37
+          "total": 36
         }
       ],
       "rollup": {
@@ -56404,7 +56412,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:app-shell",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:app-shell",
+        "release": "feature:app-shell"
+      },
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -56417,9 +56428,9 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/App Shell & Onboarding Narrative/S-73 App Shell & Onboarding Narrative Story.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
