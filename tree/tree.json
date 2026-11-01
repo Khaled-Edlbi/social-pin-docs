@@ -36099,7 +36099,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:interests",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:interests",
+        "release": "feature:interests"
+      },
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -36112,9 +36115,9 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Interests/flow/BD-37 Interests Backend Delivery.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -42097,7 +42100,7 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Interests/F-37 Interests.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "feature:gemma",
         "feature:account",
@@ -42107,7 +42110,7 @@
         "project:spec-map",
         "story:auth"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "rollup": {
         "approved": 1,
@@ -42124,7 +42127,9 @@
       "summary": "Interest picking during onboarding (s07) and from Me (s71). Used for search and matchmaking, never shown to others.",
       "tags": [
         "feature",
-        "module/platform"
+        "module/platform",
+        "priority/critical",
+        "release/mvp"
       ],
       "task": null,
       "title": "F-37 Interests",
@@ -47034,7 +47039,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:interests",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:interests",
+        "release": "feature:interests"
+      },
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -47047,7 +47055,7 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Interests/flow/FR-37 Interests Frontend Requirements.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "task:B-03",
         "frontend-requirements:auth",
@@ -47058,7 +47066,7 @@
         "story:gemma",
         "story:error-contract"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -56458,7 +56466,7 @@
           "done": 0,
           "id": "mvp",
           "partial": 0,
-          "total": 24
+          "total": 25
         },
         {
           "done": 0,
@@ -56476,7 +56484,7 @@
           "done": 0,
           "id": null,
           "partial": 0,
-          "total": 17
+          "total": 16
         }
       ],
       "rollup": {
@@ -57888,7 +57896,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:interests",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:interests",
+        "release": "feature:interests"
+      },
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -57901,9 +57912,9 @@
       ],
       "path": "social-pin/modules/Platform & Cross-cutting/features/Interests/S-92 Interests Story.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
