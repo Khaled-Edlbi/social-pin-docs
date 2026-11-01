@@ -34760,7 +34760,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:account",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:account",
+        "release": "feature:account"
+      },
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -34773,7 +34776,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Account/flow/BD-01 Account Backend Delivery.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "task:B-02",
         "task:B-01",
@@ -34807,7 +34810,7 @@
         "story:error-contract",
         "project:frontend-api-guide"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -37150,7 +37153,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:account",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:account",
+        "release": "feature:account"
+      },
       "kind": "backend-integration",
       "label": "Backend Integration",
       "labels": [],
@@ -37163,7 +37169,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Account/flow/BI-01 Account Backend Integration.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "task:B-01",
         "task:B-03",
@@ -37201,7 +37207,7 @@
         "project:frontend-api-guide",
         "frontend-requirements:profiles"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -40269,7 +40275,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Account/F-01 Account.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "feature:badge-qr",
         "feature:auth",
@@ -40291,7 +40297,7 @@
         "frontend-requirements:error-contract",
         "project:auth-model"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "rollup": {
         "approved": 1,
@@ -40310,7 +40316,9 @@
       "summary": "The authenticated account: read it, change email or phone, soft-delete it.",
       "tags": [
         "feature",
-        "module/identity"
+        "module/identity",
+        "priority/critical",
+        "release/mvp"
       ],
       "task": null,
       "title": "F-01 Account",
@@ -43499,7 +43507,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-delivery:account",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:account",
+        "release": "feature:account"
+      },
       "kind": "frontend-delivery",
       "label": "Frontend Delivery",
       "labels": [],
@@ -43512,7 +43523,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Account/flow/FD-04 Account Frontend Delivery.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "needs-decision:ND-20",
         "decision:D-20",
@@ -43534,7 +43545,7 @@
         "frontend-requirements:error-contract",
         "project:auth-model"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -45435,7 +45446,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:account",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:account",
+        "release": "feature:account"
+      },
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -45448,7 +45462,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Account/flow/FR-01 Account Frontend Requirements.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "task:B-03",
         "task:B-08",
@@ -45469,7 +45483,7 @@
         "frontend-requirements:error-contract",
         "project:auth-model"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -52114,7 +52128,9 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "qa-backend:account",
-      "inherits": {},
+      "inherits": {
+        "release": "feature:account"
+      },
       "kind": "qa-backend",
       "label": "QA Backend",
       "labels": [],
@@ -52151,7 +52167,7 @@
         "frontend-requirements:error-contract",
         "project:auth-model"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -54189,7 +54205,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "qa-frontend:account",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:account",
+        "release": "feature:account"
+      },
       "kind": "qa-frontend",
       "label": "QA Frontend",
       "labels": [],
@@ -54218,7 +54237,7 @@
           "to": null
         }
       ],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "task:B-01",
         "task:B-02",
@@ -54236,7 +54255,7 @@
         "frontend-requirements:error-contract",
         "project:auth-model"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -56225,7 +56244,7 @@
           "done": 0,
           "id": "mvp",
           "partial": 0,
-          "total": 0
+          "total": 1
         },
         {
           "done": 0,
@@ -56243,7 +56262,7 @@
           "done": 0,
           "id": null,
           "partial": 0,
-          "total": 41
+          "total": 40
         }
       ],
       "rollup": {
@@ -56291,7 +56310,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:account",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:account",
+        "release": "feature:account"
+      },
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -56304,7 +56326,7 @@
       ],
       "path": "social-pin/modules/Identity Core/features/Account/S-01 Account Story.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "backend-delivery:account",
         "backend-integration:account",
@@ -56318,7 +56340,7 @@
         "frontend-requirements:error-contract",
         "project:auth-model"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -58818,7 +58840,9 @@
       "foundOn": "BI-01 Account Backend Integration",
       "frontendOnly": false,
       "id": "task:B-01",
-      "inherits": {},
+      "inherits": {
+        "release": "feature:account"
+      },
       "kind": "task",
       "label": "Bug",
       "labels": [
@@ -58860,7 +58884,7 @@
         "frontend-requirements:error-contract",
         "project:auth-model"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": "by-design",
       "rollup": {
         "decided": 1,
@@ -58905,7 +58929,9 @@
       "foundOn": "BI-01 Account Backend Integration",
       "frontendOnly": false,
       "id": "task:B-02",
-      "inherits": {},
+      "inherits": {
+        "release": "feature:account"
+      },
       "kind": "task",
       "label": "Bug",
       "labels": [
@@ -58951,7 +58977,7 @@
         "frontend-requirements:view-as",
         "frontend-requirements:error-contract"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": "fixed",
       "rollup": {},
       "scope": null,
