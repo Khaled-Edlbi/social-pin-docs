@@ -13,6 +13,8 @@ tags: [backend-delivery, backend-delivery/todo, module/connections, layer/backen
 
 # ⬜ Connections · Backend Delivery
 
+> ⚠ Affected by [[D-23 A count of mutual connections, events where both were visible]] (2026-11-04): ND-23 decided: the connection detail carries mutualCount, computed through the access engine without blocked pairs; events in common come with the events features.
+
 > ⚠ Affected by [[D-10 Connect sends what the requester already has]] (2026-11-04): ND-10 decided, option 3: POST /connections/requests accepts { qrToken } or { pinName }, resolves the person through the access engine, and answers the views' 404 on every failure.
 
 **Feature:** [[F-14 Connections]] · **Status:** To do · **Integration guide:** [[Connections Backend Integration]] · **Requirements:** [[FR-14 Connections Frontend Requirements]] · **QA:** [[Connections QA Backend]]
