@@ -165,6 +165,8 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
           - ⚖️ [D-17 Requests expire after 30 days, optional note, ask again at once](social-pin/decisions/D-17%20Requests%20expire%20after%2030%20days%2C%20optional%20note%2C%20ask%20again%20at%20once.md) (Decision)
         - ✅ [ND-23 Mutual connections and events in common](social-pin/needs-decisions/ND-23%20Mutual%20connections%20and%20events%20in%20common.md) (Needs decision)
           - ⚖️ [D-23 A count of mutual connections, events where both were visible](social-pin/decisions/D-23%20A%20count%20of%20mutual%20connections%2C%20events%20where%20both%20were%20visible.md) (Decision)
+        - ✅ [ND-24 Both people ask each other](social-pin/needs-decisions/ND-24%20Both%20people%20ask%20each%20other.md) (Needs decision)
+          - ⚖️ [D-24 One pending request per pair](social-pin/decisions/D-24%20One%20pending%20request%20per%20pair.md) (Decision)
       - ✏️ [FR-14 Connections Frontend Requirements](social-pin/modules/Connections/features/Connections/flow/FR-14%20Connections%20Frontend%20Requirements.md) (Frontend Requirements, Critical)
       - ⛔ [BD-14 Connections Backend Delivery](social-pin/modules/Connections/features/Connections/flow/BD-14%20Connections%20Backend%20Delivery.md) (Backend Delivery, Critical, blocked by FR-14 Connections Frontend Requirements)
       - ∅ _Connections Backend Integration_ (Backend Integration, blocked by BD-14 Connections Backend Delivery)

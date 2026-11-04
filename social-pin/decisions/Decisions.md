@@ -31,6 +31,7 @@ Where the design and the backend disagree, and every other decision a card needs
 | [[ND-21 How a business card and a portfolio page are read]] | open | — | [[F-05 Onboarding Imports]] | s03a, s03b |
 | [[ND-22 Public web page by Pin name]] | open | — | [[F-07 Profiles & Pin Name]] | s06, s44 |
 | [[ND-23 Mutual connections and events in common]] | fulfilled (2 and 2, a count only, events where both were visible) | [[D-23 A count of mutual connections, events where both were visible]] | [[F-14 Connections]] | s47 |
+| [[ND-24 Both people ask each other]] | fulfilled (1, one pending request per pair) | [[D-24 One pending request per pair]] | [[F-14 Connections]] | s44, s45, s46 |
 
 ```dataview
 TABLE status, features FROM #needs-decision

@@ -119,6 +119,7 @@
     "D-19 A ticket's layer notes live on the parent task": "decision:D-19",
     "D-20 The changed address still signs in, the words are corrected": "decision:D-20",
     "D-23 A count of mutual connections, events where both were visible": "decision:D-23",
+    "D-24 One pending request per pair": "decision:D-24",
     "Database & Migrations": "project:database-migrations",
     "Developer Guide": "project:developer-guide",
     "Developer Setup": "project:developer-setup",
@@ -242,6 +243,7 @@
     "ND-21 How a business card and a portfolio page are read": "needs-decision:ND-21",
     "ND-22 Public web page by Pin name": "needs-decision:ND-22",
     "ND-23 Mutual connections and events in common": "needs-decision:ND-23",
+    "ND-24 Both people ask each other": "needs-decision:ND-24",
     "Owner Agent": "project:owner-agent",
     "PM Agent": "project:pm-agent",
     "Project Overview": "project:project-overview",
@@ -386,6 +388,7 @@
     "D-19": "decision:D-19",
     "D-20": "decision:D-20",
     "D-23": "decision:D-23",
+    "D-24": "decision:D-24",
     "F-01": "feature:account",
     "F-02": "feature:auth",
     "F-03": "feature:counts",
@@ -496,6 +499,7 @@
     "ND-21": "needs-decision:ND-21",
     "ND-22": "needs-decision:ND-22",
     "ND-23": "needs-decision:ND-23",
+    "ND-24": "needs-decision:ND-24",
     "P-01": "project:feature-graph",
     "P-02": "project:feature-tree",
     "P-03": "project:glossary",
@@ -2823,14 +2827,18 @@
       "containers": [
         "decision:D-10",
         "decision:D-17",
+        "decision:D-24",
         "feature:connections",
-        "needs-decision:ND-10"
+        "needs-decision:ND-10",
+        "needs-decision:ND-24"
       ],
       "kind": "endpoint",
       "notes": [
         "decision:D-10",
         "decision:D-17",
+        "decision:D-24",
         "needs-decision:ND-10",
+        "needs-decision:ND-24",
         "story:connections"
       ],
       "owner": null
@@ -4012,6 +4020,7 @@
         "needs-decision:ND-16",
         "needs-decision:ND-17",
         "needs-decision:ND-22",
+        "needs-decision:ND-24",
         "task:B-07"
       ],
       "kind": "screen",
@@ -4037,6 +4046,7 @@
         "needs-decision:ND-16",
         "needs-decision:ND-17",
         "needs-decision:ND-22",
+        "needs-decision:ND-24",
         "qa-backend:files",
         "story:badge-qr",
         "story:connections",
@@ -4052,7 +4062,8 @@
       "containers": [
         "feature:connections",
         "needs-decision:ND-13",
-        "needs-decision:ND-17"
+        "needs-decision:ND-17",
+        "needs-decision:ND-24"
       ],
       "kind": "screen",
       "notes": [
@@ -4061,6 +4072,7 @@
         "frontend-requirements:connections",
         "needs-decision:ND-13",
         "needs-decision:ND-17",
+        "needs-decision:ND-24",
         "story:connections"
       ],
       "owner": null
@@ -4069,7 +4081,8 @@
       "containers": [
         "feature:connections",
         "feature:ring-members",
-        "needs-decision:ND-14"
+        "needs-decision:ND-14",
+        "needs-decision:ND-24"
       ],
       "kind": "screen",
       "notes": [
@@ -4079,6 +4092,7 @@
         "frontend-requirements:connections",
         "frontend-requirements:ring-members",
         "needs-decision:ND-14",
+        "needs-decision:ND-24",
         "story:connections",
         "story:ring-members"
       ],
@@ -4593,12 +4607,12 @@
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
-      "decision": 18,
+      "decision": 19,
       "feature": 41,
       "frontend-delivery": 1,
       "frontend-requirements": 39,
       "module": 8,
-      "needs-decision": 21,
+      "needs-decision": 22,
       "project": 28,
       "qa-backend": 3,
       "qa-frontend": 1,
@@ -4607,21 +4621,21 @@
     },
     "byLayer": {
       "backend": 56,
-      "business": 135,
+      "business": 137,
       "frontend": 44,
       "qa": 4,
       "shared": 10
     },
     "concepts": 219,
-    "decisions": 21,
-    "edges": 4488,
+    "decisions": 22,
+    "edges": 4512,
     "features": 41,
     "layerNotes": 133,
     "modules": 8,
-    "notes": 280,
+    "notes": 282,
     "partial": 5,
     "placeholders": 152,
-    "records": 18
+    "records": 19
   },
   "deadlines": {
     "missed": {
@@ -5124,6 +5138,21 @@
       "from": "decision:D-23",
       "kind": "affects",
       "to": "story:ring-access"
+    },
+    {
+      "from": "decision:D-24",
+      "kind": "affects",
+      "to": "backend-delivery:connections"
+    },
+    {
+      "from": "decision:D-24",
+      "kind": "affects",
+      "to": "frontend-requirements:connections"
+    },
+    {
+      "from": "decision:D-24",
+      "kind": "affects",
+      "to": "story:connections"
     },
     {
       "from": "frontend-requirements:counts",
@@ -6667,6 +6696,16 @@
     },
     {
       "from": "needs-decision:ND-23",
+      "kind": "decision",
+      "to": "story:connections"
+    },
+    {
+      "from": "needs-decision:ND-24",
+      "kind": "decision",
+      "to": "feature:connections"
+    },
+    {
+      "from": "needs-decision:ND-24",
       "kind": "decision",
       "to": "story:connections"
     },
@@ -8389,6 +8428,11 @@
       "from": "decision:D-23",
       "kind": "related",
       "to": "feature:ring-access"
+    },
+    {
+      "from": "decision:D-24",
+      "kind": "related",
+      "to": "feature:connections"
     },
     {
       "from": "feature:account",
@@ -14192,6 +14236,21 @@
       "to": "story:ring-access"
     },
     {
+      "from": "needs-decision:ND-24",
+      "kind": "related",
+      "to": "decision:D-17"
+    },
+    {
+      "from": "needs-decision:ND-24",
+      "kind": "related",
+      "to": "decision:D-24"
+    },
+    {
+      "from": "needs-decision:ND-24",
+      "kind": "related",
+      "to": "feature:connections"
+    },
+    {
       "from": "project:admin-agent",
       "kind": "related",
       "to": "project:agent-protocol"
@@ -17001,6 +17060,14 @@
     {
       "from": "decision:D-10",
       "kind": "shares",
+      "to": "decision:D-24",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "shares",
       "to": "feature:connections",
       "via": [
         "GET /views/pin/:pinName",
@@ -17061,6 +17128,14 @@
       "to": "needs-decision:ND-22",
       "via": [
         "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "shares",
+      "to": "needs-decision:ND-24",
+      "via": [
+        "POST /connections/requests"
       ]
     },
     {
@@ -17353,6 +17428,14 @@
     {
       "from": "decision:D-17",
       "kind": "shares",
+      "to": "decision:D-24",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "decision:D-17",
+      "kind": "shares",
       "to": "feature:connections",
       "via": [
         "POST /connections/requests"
@@ -17362,6 +17445,14 @@
       "from": "decision:D-17",
       "kind": "shares",
       "to": "needs-decision:ND-10",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "decision:D-17",
+      "kind": "shares",
+      "to": "needs-decision:ND-24",
       "via": [
         "POST /connections/requests"
       ]
@@ -17600,6 +17691,22 @@
       "to": "task:B-02",
       "via": [
         "E_AUTH_03"
+      ]
+    },
+    {
+      "from": "decision:D-24",
+      "kind": "shares",
+      "to": "feature:connections",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "decision:D-24",
+      "kind": "shares",
+      "to": "needs-decision:ND-10",
+      "via": [
+        "POST /connections/requests"
       ]
     },
     {
@@ -20344,6 +20451,14 @@
       "to": "needs-decision:ND-22",
       "via": [
         "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "feature:connections",
+      "kind": "shares",
+      "to": "needs-decision:ND-24",
+      "via": [
+        "POST /connections/requests"
       ]
     },
     {
@@ -25530,6 +25645,14 @@
     {
       "from": "needs-decision:ND-10",
       "kind": "shares",
+      "to": "needs-decision:ND-24",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "needs-decision:ND-10",
+      "kind": "shares",
       "to": "project:frontend-api-guide",
       "via": [
         "GET /views/pin/:pinName",
@@ -28295,6 +28418,11 @@
       "to": "decision:D-23"
     },
     {
+      "from": "needs-decision:ND-24",
+      "kind": "tree",
+      "to": "decision:D-24"
+    },
+    {
       "from": "root",
       "kind": "tree",
       "to": "group:backend"
@@ -28403,6 +28531,11 @@
       "from": "story:connections",
       "kind": "tree",
       "to": "needs-decision:ND-23"
+    },
+    {
+      "from": "story:connections",
+      "kind": "tree",
+      "to": "needs-decision:ND-24"
     },
     {
       "from": "story:error-contract",
@@ -29468,6 +29601,21 @@
       "from": "decision:D-23",
       "kind": "wikilink",
       "to": "story:ring-access"
+    },
+    {
+      "from": "decision:D-24",
+      "kind": "wikilink",
+      "to": "backend-delivery:connections"
+    },
+    {
+      "from": "decision:D-24",
+      "kind": "wikilink",
+      "to": "frontend-requirements:connections"
+    },
+    {
+      "from": "decision:D-24",
+      "kind": "wikilink",
+      "to": "story:connections"
     },
     {
       "from": "feature:account",
@@ -32035,6 +32183,16 @@
       "to": "qa-frontend:account"
     },
     {
+      "from": "needs-decision:ND-24",
+      "kind": "wikilink",
+      "to": "backend-delivery:connections"
+    },
+    {
+      "from": "needs-decision:ND-24",
+      "kind": "wikilink",
+      "to": "frontend-requirements:connections"
+    },
+    {
       "from": "project:admin-agent",
       "kind": "wikilink",
       "to": "project:backend-agent"
@@ -34402,6 +34560,10 @@
       "name": "D-23 A count of mutual connections, events where both were visible",
       "type": "decision"
     },
+    "social-pin/decisions/D-24 One pending request per pair.md": {
+      "name": "D-24 One pending request per pair",
+      "type": "decision"
+    },
     "social-pin/decisions/Decisions.md": {
       "name": "Decisions",
       "type": "map"
@@ -35252,6 +35414,10 @@
     },
     "social-pin/needs-decisions/ND-23 Mutual connections and events in common.md": {
       "name": "ND-23 Mutual connections and events in common",
+      "type": "needs-decision"
+    },
+    "social-pin/needs-decisions/ND-24 Both people ask each other.md": {
+      "name": "ND-24 Both people ask each other",
       "type": "needs-decision"
     },
     "templates/Backend Delivery Template.md": {
@@ -41081,6 +41247,7 @@
       "pending": [],
       "priority": null,
       "related": [
+        "needs-decision:ND-24",
         "needs-decision:ND-17",
         "decision:D-13",
         "story:connections"
@@ -41362,6 +41529,64 @@
       ],
       "task": null,
       "title": "D-23 A count of mutual connections, events where both were visible",
+      "unmet": [],
+      "updated": "2026-11-04"
+    },
+    "decision:D-24": {
+      "affects": [
+        "story:connections",
+        "frontend-requirements:connections",
+        "backend-delivery:connections"
+      ],
+      "blockedBy": [],
+      "card": "D-24",
+      "children": [],
+      "code": "D-24",
+      "created": "2026-11-04",
+      "deadline": null,
+      "decidedAt": "2026-11-04",
+      "decidedBy": "Omar Fostok",
+      "decides": "ND-24",
+      "depends": [],
+      "effectiveStatus": "decided",
+      "effort": null,
+      "feature": null,
+      "features": [
+        "connections"
+      ],
+      "foundOn": null,
+      "frontendOnly": false,
+      "id": "decision:D-24",
+      "inherits": {},
+      "kind": "decision",
+      "label": "Decision",
+      "labels": [],
+      "layer": "business",
+      "module": null,
+      "openBugs": [],
+      "parentTask": null,
+      "parents": [
+        "needs-decision:ND-24"
+      ],
+      "path": "social-pin/decisions/D-24 One pending request per pair.md",
+      "pending": [],
+      "priority": null,
+      "related": [
+        "needs-decision:ND-24",
+        "feature:connections"
+      ],
+      "release": null,
+      "resolution": null,
+      "scope": null,
+      "screens": [],
+      "status": "decided",
+      "summary": "An automatic accept would put each person in a Ring neither of them picked; the product's rule is that the receiver chooses the Ring (Connections · S5). Two pending requests between the same pair…",
+      "tags": [
+        "decision",
+        "decision/decided"
+      ],
+      "task": null,
+      "title": "D-24 One pending request per pair",
       "unmet": [],
       "updated": "2026-11-04"
     },
@@ -42134,8 +42359,10 @@
         "needs-decision:ND-15",
         "needs-decision:ND-17",
         "needs-decision:ND-23",
+        "needs-decision:ND-24",
         "decision:D-10",
         "decision:D-23",
+        "decision:D-24",
         "frontend-requirements:counts"
       ],
       "release": "mvp",
@@ -42143,10 +42370,10 @@
       "rollup": {
         "approved": 1,
         "blocked": 1,
-        "decided": 6,
+        "decided": 7,
         "draft": 1,
         "missing": 4,
-        "verified": 6
+        "verified": 7
       },
       "scope": null,
       "screens": [
@@ -49953,11 +50180,11 @@
       "rollup": {
         "approved": 1,
         "blocked": 1,
-        "decided": 6,
+        "decided": 7,
         "draft": 1,
         "in-progress": 1,
         "missing": 4,
-        "verified": 6
+        "verified": 7
       },
       "scope": null,
       "screens": [],
@@ -51750,6 +51977,69 @@
       ],
       "task": null,
       "title": "ND-23 Mutual connections and events in common",
+      "unmet": [],
+      "updated": "2026-11-04"
+    },
+    "needs-decision:ND-24": {
+      "affects": [],
+      "blockedBy": [],
+      "blocks": [
+        "story:connections"
+      ],
+      "card": "ND-24",
+      "children": [
+        "decision:D-24"
+      ],
+      "code": "ND-24",
+      "created": "2026-11-04",
+      "deadline": null,
+      "decider": "owner",
+      "depends": [],
+      "effectiveStatus": "verified",
+      "effort": null,
+      "feature": null,
+      "features": [
+        "connections"
+      ],
+      "foundOn": null,
+      "frontendOnly": false,
+      "fulfilledBy": "decision:D-24",
+      "id": "needs-decision:ND-24",
+      "inherits": {},
+      "kind": "needs-decision",
+      "label": "Needs decision",
+      "labels": [],
+      "layer": "business",
+      "module": null,
+      "openBugs": [],
+      "parentTask": null,
+      "parents": [
+        "story:connections"
+      ],
+      "path": "social-pin/needs-decisions/ND-24 Both people ask each other.md",
+      "pending": [],
+      "priority": null,
+      "related": [
+        "feature:connections",
+        "decision:D-17",
+        "decision:D-24"
+      ],
+      "release": null,
+      "resolution": null,
+      "scope": null,
+      "screens": [
+        "s44",
+        "s45",
+        "s46"
+      ],
+      "status": "needs-decision",
+      "summary": "What the server does when A sends a request to B while B's request to A is still pending. The app shows Accept instead of Connect when the other person asked first (Connections · S2), so this only…",
+      "tags": [
+        "needs-decision",
+        "needs-decision/open"
+      ],
+      "task": null,
+      "title": "ND-24 Both people ask each other",
       "unmet": [],
       "updated": "2026-11-04"
     },
@@ -57631,7 +57921,7 @@
         "approved": 34,
         "blocked": 35,
         "current": 8,
-        "decided": 18,
+        "decided": 19,
         "delivered": 2,
         "done": 11,
         "draft": 30,
@@ -57644,7 +57934,7 @@
         "ready": 9,
         "reference": 32,
         "todo": 7,
-        "verified": 18
+        "verified": 19
       },
       "scope": null,
       "screens": [],
@@ -58214,7 +58504,8 @@
         "needs-decision:ND-14",
         "needs-decision:ND-15",
         "needs-decision:ND-17",
-        "needs-decision:ND-23"
+        "needs-decision:ND-23",
+        "needs-decision:ND-24"
       ],
       "code": "connections",
       "created": "2026-10-18",
