@@ -177,7 +177,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
           - ⚖️ [D-28 Scan someone in is not in the MVP](social-pin/decisions/D-28%20Scan%20someone%20in%20is%20not%20in%20the%20MVP.md) (Decision)
         - ✅ [ND-29 Connection detail for a member who is not a connection](social-pin/needs-decisions/ND-29%20Connection%20detail%20for%20a%20member%20who%20is%20not%20a%20connection.md) (Needs decision)
           - ⚖️ [D-29 Connection detail opens a member who is not a connection](social-pin/decisions/D-29%20Connection%20detail%20opens%20a%20member%20who%20is%20not%20a%20connection.md) (Decision)
-      - ✏️ [FR-14 Connections Frontend Requirements](social-pin/modules/Connections/features/Connections/flow/FR-14%20Connections%20Frontend%20Requirements.md) (Frontend Requirements, Critical)
+      - 📨 [FR-14 Connections Frontend Requirements](social-pin/modules/Connections/features/Connections/flow/FR-14%20Connections%20Frontend%20Requirements.md) (Frontend Requirements, Critical)
       - ⛔ [BD-14 Connections Backend Delivery](social-pin/modules/Connections/features/Connections/flow/BD-14%20Connections%20Backend%20Delivery.md) (Backend Delivery, Critical, blocked by FR-14 Connections Frontend Requirements)
       - ∅ _Connections Backend Integration_ (Backend Integration, blocked by BD-14 Connections Backend Delivery)
       - ∅ _Connections QA Backend_ (QA Backend, blocked by BD-14 Connections Backend Delivery)
