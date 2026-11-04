@@ -108,6 +108,7 @@
     "D-05 Inherit per field, copy without members": "decision:D-05",
     "D-06 Yearly rename, old name freed, case-insensitive": "decision:D-06",
     "D-07 Stripe for all four flows": "decision:D-07",
+    "D-10 Connect sends what the requester already has": "decision:D-10",
     "D-13 The requester sees a declined request": "decision:D-13",
     "D-14 Shared with me lists people, never the Ring": "decision:D-14",
     "D-15 Several Rings per connection, remove or disconnect": "decision:D-15",
@@ -372,6 +373,7 @@
     "D-05": "decision:D-05",
     "D-06": "decision:D-06",
     "D-07": "decision:D-07",
+    "D-10": "decision:D-10",
     "D-13": "decision:D-13",
     "D-14": "decision:D-14",
     "D-15": "decision:D-15",
@@ -2203,6 +2205,7 @@
     },
     "GET /views/pin/:pinName": {
       "containers": [
+        "decision:D-10",
         "feature:connections",
         "feature:discover-hub",
         "feature:e2e-tests",
@@ -2222,6 +2225,7 @@
         "backend-delivery:view-as",
         "backend-integration:profiles",
         "backend-integration:view-as",
+        "decision:D-10",
         "frontend-requirements:connections",
         "frontend-requirements:discover-hub",
         "frontend-requirements:e2e-tests",
@@ -2813,12 +2817,14 @@
     },
     "POST /connections/requests": {
       "containers": [
+        "decision:D-10",
         "decision:D-17",
         "feature:connections",
         "needs-decision:ND-10"
       ],
       "kind": "endpoint",
       "notes": [
+        "decision:D-10",
         "decision:D-17",
         "needs-decision:ND-10",
         "story:connections"
@@ -4581,7 +4587,7 @@
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
-      "decision": 15,
+      "decision": 16,
       "feature": 41,
       "frontend-delivery": 1,
       "frontend-requirements": 39,
@@ -4595,21 +4601,21 @@
     },
     "byLayer": {
       "backend": 56,
-      "business": 132,
+      "business": 133,
       "frontend": 44,
       "qa": 4,
       "shared": 10
     },
     "concepts": 219,
     "decisions": 21,
-    "edges": 4429,
+    "edges": 4462,
     "features": 41,
     "layerNotes": 133,
     "modules": 8,
-    "notes": 277,
+    "notes": 278,
     "partial": 5,
     "placeholders": 152,
-    "records": 15
+    "records": 16
   },
   "deadlines": {
     "missed": {
@@ -4867,6 +4873,36 @@
       "from": "decision:D-07",
       "kind": "affects",
       "to": "story:subscription"
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "affects",
+      "to": "backend-delivery:badge-qr"
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "affects",
+      "to": "backend-delivery:connections"
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "affects",
+      "to": "frontend-requirements:badge-qr"
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "affects",
+      "to": "frontend-requirements:connections"
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "affects",
+      "to": "story:badge-qr"
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "affects",
+      "to": "story:connections"
     },
     {
       "from": "decision:D-13",
@@ -6267,16 +6303,6 @@
       "from": "frontend-requirements:widgets",
       "kind": "blocks",
       "to": "backend-delivery:widgets"
-    },
-    {
-      "from": "needs-decision:ND-10",
-      "kind": "blocks",
-      "to": "story:badge-qr"
-    },
-    {
-      "from": "needs-decision:ND-10",
-      "kind": "blocks",
-      "to": "story:connections"
     },
     {
       "from": "needs-decision:ND-11",
@@ -8116,6 +8142,26 @@
       "from": "decision:D-07",
       "kind": "related",
       "to": "needs-decision:ND-07"
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "related",
+      "to": "backend-integration:view-as"
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "related",
+      "to": "feature:badge-qr"
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "related",
+      "to": "feature:connections"
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "related",
+      "to": "needs-decision:ND-11"
     },
     {
       "from": "decision:D-13",
@@ -11529,6 +11575,14 @@
     {
       "from": "frontend-requirements:ring-access",
       "kind": "related",
+      "to": "decision:D-10",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "frontend-requirements:ring-access",
+      "kind": "related",
       "to": "decision:D-14",
       "via": [
         "GET /rings/shared-with-me"
@@ -13391,6 +13445,14 @@
     {
       "from": "frontend-requirements:view-as",
       "kind": "related",
+      "to": "decision:D-10",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "frontend-requirements:view-as",
+      "kind": "related",
       "to": "decision:D-15",
       "via": [
         "GET /views/user/:userId/perspectives"
@@ -13811,6 +13873,11 @@
       "from": "needs-decision:ND-07",
       "kind": "related",
       "to": "feature:subscription"
+    },
+    {
+      "from": "needs-decision:ND-10",
+      "kind": "related",
+      "to": "decision:D-10"
     },
     {
       "from": "needs-decision:ND-10",
@@ -15085,6 +15152,14 @@
       "from": "qa-backend:files",
       "kind": "related",
       "to": "backend-integration:view-as",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "qa-backend:files",
+      "kind": "related",
+      "to": "decision:D-10",
       "via": [
         "GET /views/pin/:pinName"
       ]
@@ -16832,6 +16907,111 @@
       "to": "story:widgets",
       "via": [
         "GET /rings/:ringId/projection"
+      ]
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "shares",
+      "to": "decision:D-17",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "shares",
+      "to": "feature:connections",
+      "via": [
+        "GET /views/pin/:pinName",
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "shares",
+      "to": "feature:discover-hub",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "shares",
+      "to": "feature:e2e-tests",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "shares",
+      "to": "feature:files",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "shares",
+      "to": "feature:profiles",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "shares",
+      "to": "feature:ring-access",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "shares",
+      "to": "feature:view-as",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "shares",
+      "to": "needs-decision:ND-22",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "shares",
+      "to": "project:frontend-api-guide",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "shares",
+      "to": "project:frontend-contract",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "shares",
+      "to": "project:status-report-2026-10-15",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "shares",
+      "to": "task:B-08",
+      "via": [
+        "GET /views/pin/:pinName"
       ]
     },
     {
@@ -27971,6 +28151,11 @@
       "to": "decision:D-07"
     },
     {
+      "from": "needs-decision:ND-10",
+      "kind": "tree",
+      "to": "decision:D-10"
+    },
+    {
       "from": "needs-decision:ND-13",
       "kind": "tree",
       "to": "decision:D-13"
@@ -29062,6 +29247,41 @@
     },
     {
       "from": "decision:D-07",
+      "kind": "wikilink",
+      "to": "story:subscription"
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "wikilink",
+      "to": "backend-delivery:badge-qr"
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "wikilink",
+      "to": "backend-delivery:connections"
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "wikilink",
+      "to": "frontend-requirements:badge-qr"
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "wikilink",
+      "to": "frontend-requirements:connections"
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "wikilink",
+      "to": "story:badge-qr"
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "wikilink",
+      "to": "story:connections"
+    },
+    {
+      "from": "decision:D-10",
       "kind": "wikilink",
       "to": "story:subscription"
     },
@@ -33997,6 +34217,10 @@
     },
     "social-pin/decisions/D-07 Stripe for all four flows.md": {
       "name": "D-07 Stripe for all four flows",
+      "type": "decision"
+    },
+    "social-pin/decisions/D-10 Connect sends what the requester already has.md": {
+      "name": "D-10 Connect sends what the requester already has",
       "type": "decision"
     },
     "social-pin/decisions/D-13 The requester sees a declined request.md": {
@@ -39704,6 +39928,7 @@
       "priority": "critical",
       "related": [
         "task:B-08",
+        "decision:D-10",
         "frontend-requirements:files",
         "qa-backend:files",
         "frontend-requirements:ring-access",
@@ -40259,6 +40484,74 @@
       "title": "D-07 Stripe for all four flows",
       "unmet": [],
       "updated": "2026-10-29"
+    },
+    "decision:D-10": {
+      "affects": [
+        "story:connections",
+        "story:badge-qr",
+        "frontend-requirements:connections",
+        "frontend-requirements:badge-qr",
+        "backend-delivery:connections",
+        "backend-delivery:badge-qr"
+      ],
+      "blockedBy": [],
+      "card": "D-10",
+      "children": [],
+      "code": "D-10",
+      "created": "2026-11-04",
+      "deadline": null,
+      "decidedAt": "2026-11-04",
+      "decidedBy": "Omar Fostok",
+      "decides": "ND-10",
+      "depends": [],
+      "effectiveStatus": "decided",
+      "effort": null,
+      "feature": null,
+      "features": [
+        "badge-qr",
+        "connections"
+      ],
+      "foundOn": null,
+      "frontendOnly": false,
+      "id": "decision:D-10",
+      "inherits": {},
+      "kind": "decision",
+      "label": "Decision",
+      "labels": [],
+      "layer": "business",
+      "module": null,
+      "openBugs": [],
+      "parentTask": null,
+      "parents": [
+        "needs-decision:ND-10"
+      ],
+      "path": "social-pin/decisions/D-10 Connect sends what the requester already has.md",
+      "pending": [],
+      "priority": null,
+      "related": [
+        "needs-decision:ND-10",
+        "needs-decision:ND-11",
+        "feature:connections",
+        "feature:badge-qr",
+        "backend-integration:view-as",
+        "qa-backend:files",
+        "frontend-requirements:ring-access",
+        "frontend-requirements:view-as"
+      ],
+      "release": null,
+      "resolution": null,
+      "scope": null,
+      "screens": [],
+      "status": "decided",
+      "summary": "The product's promise is that a scan shows what a Ring shares and nothing more (BI-09 View As & Pin Views Backend Integration: RingProfileViewEntity carries no user id, on purpose). Option 1 would…",
+      "tags": [
+        "decision",
+        "decision/decided"
+      ],
+      "task": null,
+      "title": "D-10 Connect sends what the requester already has",
+      "unmet": [],
+      "updated": "2026-11-04"
     },
     "decision:D-13": {
       "affects": [
@@ -41182,6 +41475,7 @@
         "needs-decision:ND-12",
         "needs-decision:ND-22",
         "decision:D-06",
+        "decision:D-10",
         "frontend-requirements:profiles",
         "story:profiles"
       ],
@@ -41189,8 +41483,10 @@
       "resolution": null,
       "rollup": {
         "blocked": 2,
-        "draft": 4,
-        "missing": 4
+        "decided": 1,
+        "draft": 3,
+        "missing": 4,
+        "verified": 1
       },
       "scope": null,
       "screens": [
@@ -41563,17 +41859,17 @@
         "needs-decision:ND-15",
         "needs-decision:ND-17",
         "needs-decision:ND-23",
+        "decision:D-10",
         "frontend-requirements:counts"
       ],
       "release": "mvp",
       "resolution": null,
       "rollup": {
         "blocked": 3,
-        "decided": 4,
-        "draft": 1,
+        "decided": 5,
         "missing": 4,
         "needs-decision": 1,
-        "verified": 4
+        "verified": 5
       },
       "scope": null,
       "screens": [
@@ -48334,6 +48630,7 @@
         "task:B-08",
         "needs-decision:ND-10",
         "needs-decision:ND-22",
+        "decision:D-10",
         "frontend-requirements:discover-hub",
         "story:discover-hub",
         "backend-integration:profiles",
@@ -48946,6 +49243,7 @@
         "story:badge-qr",
         "story:widgets",
         "story:error-contract",
+        "decision:D-10",
         "frontend-requirements:connections",
         "frontend-requirements:discover-hub",
         "story:discover-hub",
@@ -49381,12 +49679,11 @@
       "resolution": null,
       "rollup": {
         "blocked": 3,
-        "decided": 4,
-        "draft": 1,
+        "decided": 5,
         "missing": 4,
         "needs-decision": 1,
         "todo": 1,
-        "verified": 4
+        "verified": 5
       },
       "scope": null,
       "screens": [],
@@ -49442,9 +49739,11 @@
       "rollup": {
         "approved": 2,
         "blocked": 4,
-        "draft": 6,
+        "decided": 1,
+        "draft": 5,
         "in-progress": 3,
-        "missing": 12
+        "missing": 12,
+        "verified": 1
       },
       "scope": null,
       "screens": [],
@@ -50248,13 +50547,15 @@
         "story:connections"
       ],
       "card": "ND-10",
-      "children": [],
+      "children": [
+        "decision:D-10"
+      ],
       "code": "ND-10",
       "created": "2026-10-25",
       "deadline": null,
       "decider": "owner",
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "verified",
       "effort": null,
       "feature": null,
       "features": [
@@ -50263,6 +50564,7 @@
       ],
       "foundOn": null,
       "frontendOnly": false,
+      "fulfilledBy": "decision:D-10",
       "id": "needs-decision:ND-10",
       "inherits": {},
       "kind": "needs-decision",
@@ -50282,6 +50584,7 @@
       "related": [
         "feature:view-as",
         "feature:connections",
+        "decision:D-10",
         "story:connections",
         "qa-backend:files",
         "frontend-requirements:ring-access",
@@ -50296,16 +50599,16 @@
         "s43",
         "s44"
       ],
-      "status": "draft",
+      "status": "needs-decision",
       "summary": "What Connect on a scanned or looked-up card (s44) sends so that the request reaches the right person. The view body the scanner gets has no user id, so today the app has nothing to address the…",
       "tags": [
         "needs-decision",
-        "needs-decision/draft"
+        "needs-decision/open"
       ],
       "task": null,
       "title": "ND-10 How Connect addresses the scanned person",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-04"
     },
     "needs-decision:ND-11": {
       "affects": [],
@@ -50344,7 +50647,8 @@
       "pending": [],
       "priority": null,
       "related": [
-        "feature:badge-qr"
+        "feature:badge-qr",
+        "decision:D-10"
       ],
       "release": null,
       "resolution": null,
@@ -53990,6 +54294,7 @@
         "project:spec-map",
         "needs-decision:ND-10",
         "needs-decision:ND-22",
+        "decision:D-10",
         "frontend-requirements:connections",
         "story:connections",
         "frontend-requirements:discover-hub",
@@ -57044,10 +57349,10 @@
         "approved": 33,
         "blocked": 37,
         "current": 8,
-        "decided": 15,
+        "decided": 16,
         "delivered": 2,
         "done": 11,
-        "draft": 31,
+        "draft": 30,
         "failing": 1,
         "in-progress": 45,
         "missing": 152,
@@ -57057,7 +57362,7 @@
         "ready": 9,
         "reference": 32,
         "todo": 9,
-        "verified": 15
+        "verified": 16
       },
       "scope": null,
       "screens": [],
@@ -57315,11 +57620,6 @@
     "story:badge-qr": {
       "affects": [],
       "blockedBy": [
-        {
-          "id": "needs-decision:ND-10",
-          "title": "ND-10 How Connect addresses the scanned person",
-          "why": "needs decision ND-10 (draft)"
-        },
         {
           "id": "needs-decision:ND-11",
           "title": "ND-11 Get or rotate the badge token",
@@ -57630,11 +57930,6 @@
         "story:discover-hub"
       ],
       "blockedBy": [
-        {
-          "id": "needs-decision:ND-10",
-          "title": "ND-10 How Connect addresses the scanned person",
-          "why": "needs decision ND-10 (draft)"
-        },
         {
           "id": "needs-decision:ND-23",
           "title": "ND-23 Mutual connections and events in common",

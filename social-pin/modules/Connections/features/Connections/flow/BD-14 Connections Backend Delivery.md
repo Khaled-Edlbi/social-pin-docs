@@ -13,6 +13,8 @@ tags: [backend-delivery, backend-delivery/todo, module/connections, layer/backen
 
 # ⬜ Connections · Backend Delivery
 
+> ⚠ Affected by [[D-10 Connect sends what the requester already has]] (2026-11-04): ND-10 decided, option 3: POST /connections/requests accepts { qrToken } or { pinName }, resolves the person through the access engine, and answers the views' 404 on every failure.
+
 **Feature:** [[F-14 Connections]] · **Status:** To do · **Integration guide:** [[Connections Backend Integration]] · **Requirements:** [[FR-14 Connections Frontend Requirements]] · **QA:** [[Connections QA Backend]]
 
 What the backend shipped for this feature and how it works. The sum of this feature's task-level Backend Delivery notes (see the *Tasks* table below).
