@@ -32,6 +32,11 @@ Where the design and the backend disagree, and every other decision a card needs
 | [[ND-22 Public web page by Pin name]] | open | — | [[F-07 Profiles & Pin Name]] | s06, s44 |
 | [[ND-23 Mutual connections and events in common]] | fulfilled (2 and 2, a count only, events where both were visible) | [[D-23 A count of mutual connections, events where both were visible]] | [[F-14 Connections]] | s47 |
 | [[ND-24 Both people ask each other]] | fulfilled (1, one pending request per pair) | [[D-24 One pending request per pair]] | [[F-14 Connections]] | s44, s45, s46 |
+| [[ND-25 What deleting an account does to its connections]] | fulfilled (1, all end silently) | [[D-25 A deleted account's connections, requests and blocks end silently]] | [[F-14 Connections]] | s17, s45, s47, s68 |
+| [[ND-26 Whether a disconnect is announced]] | fulfilled (1, not told) | [[D-26 A disconnect is not announced]] | [[F-14 Connections]] | s47 |
+| [[ND-27 How long declined and expired requests stay on Sent]] | fulfilled (1, 30 days, no reminder) | [[D-27 Sent keeps declined and expired requests for 30 days]] | [[F-14 Connections]] | s45 |
+| [[ND-28 Scanning someone straight into a Ring]] | fulfilled (1, not in the MVP) | [[D-28 Scan someone in is not in the MVP]] | [[F-14 Connections]] | s15 |
+| [[ND-29 Connection detail for a member who is not a connection]] | fulfilled (1, s47 opens them) | [[D-29 Connection detail opens a member who is not a connection]] | [[F-14 Connections]] | s15, s47 |
 
 ```dataview
 TABLE status, features FROM #needs-decision
