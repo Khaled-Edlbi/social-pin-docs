@@ -13,6 +13,8 @@ tags: [frontend-requirements, frontend-requirements/draft, module/connections, l
 
 # Connections · Frontend Requirements
 
+> ⚠ Affected by [[D-23 A count of mutual connections, events where both were visible]] (2026-11-04): ND-23 decided: s47 shows the mutual-connection count when above zero, no names; the events-in-common row stays hidden in the MVP.
+
 > ⚠ Affected by [[D-10 Connect sends what the requester already has]] (2026-11-04): ND-10 decided, option 3: the app keeps the token or Pin name it opened the card with and sends it with Connect; Requested is kept per card opened.
 
 > ⚠ Affected by [[S-23 Connections Story]] (2026-11-04): S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.

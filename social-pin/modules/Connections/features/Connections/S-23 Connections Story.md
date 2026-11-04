@@ -20,6 +20,8 @@ tags: [story, story/draft, module/connections, layer/business]
 
 # Connections · User Story
 
+> ⚠ Affected by [[D-23 A count of mutual connections, events where both were visible]] (2026-11-04): ND-23 decided: s47 shows a count of mutual connections, never names (hidden at zero), and the events we were both visible at (hidden until Events ship). S9 no longer waits on ND-23.
+
 > ⚠ Affected by [[D-10 Connect sends what the requester already has]] (2026-11-04): ND-10 decided, option 3: Connect sends { qrToken } after a scan or { pinName } after a lookup; S2 no longer waits on ND-10.
 
 **Feature:** [[F-14 Connections]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[FR-14 Connections Frontend Requirements]] · **Backend Integration:** not yet · **Verified by:** [[Connections QA Backend]], [[Connections QA Frontend]]

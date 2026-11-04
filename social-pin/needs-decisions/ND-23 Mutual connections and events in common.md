@@ -8,13 +8,13 @@ decider: "owner"
 screens: [s47]
 owner: "Omar Fostok"
 affects: []
-related: ["F-14 Connections", "F-08 Ring Access Engine", "S-15 Ring Access Engine Story", "D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "F-23 Events During"]
+related: ["F-14 Connections", "F-08 Ring Access Engine", "S-15 Ring Access Engine Story", "D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "F-23 Events During", "D-23 A count of mutual connections, events where both were visible"]
 created: 2026-10-29
-updated: 2026-10-29
+updated: 2026-11-04
 tags: [needs-decision, needs-decision/open]
 ---
 
-# ❓ ND-23 · Mutual connections and events in common
+# ✅ ND-23 · Mutual connections and events in common
 
 > ⚠ Affected by [[S-23 Connections Story]] (2026-11-04): S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
 
@@ -57,4 +57,4 @@ Recommendation (PM): **mutual connections option 2 (a count only)** and **events
 
 ## Decision
 
-— (answered on its decision card, never written here: the PM or the owner, on the user's word, runs `node scripts/build-tree.mjs --scaffold decision ND-23 "<the answer>"`, fills the decision card D-NN (what was decided, why, what it changes with every feature and card in its `affects`, what stays open) and sets it `decided` with `decidedBy` and `decidedAt`; this card then shows Fulfilled by itself; the H1 gets ✅, and this line is replaced by "Fulfilled by" and a wikilink to the decision card, then "decided <date> by <who>: option <n>"; then `--impact D-NN` and flag the notes it lists)
+Fulfilled by [[D-23 A count of mutual connections, events where both were visible]] — decided 2026-11-04 by Omar Fostok: mutual connections option 2, events option 2.

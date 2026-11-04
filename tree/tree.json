@@ -118,6 +118,7 @@
     "D-18 Ring names shown when joined knowingly": "decision:D-18",
     "D-19 A ticket's layer notes live on the parent task": "decision:D-19",
     "D-20 The changed address still signs in, the words are corrected": "decision:D-20",
+    "D-23 A count of mutual connections, events where both were visible": "decision:D-23",
     "Database & Migrations": "project:database-migrations",
     "Developer Guide": "project:developer-guide",
     "Developer Setup": "project:developer-setup",
@@ -384,6 +385,7 @@
     "D-18": "decision:D-18",
     "D-19": "decision:D-19",
     "D-20": "decision:D-20",
+    "D-23": "decision:D-23",
     "F-01": "feature:account",
     "F-02": "feature:auth",
     "F-03": "feature:counts",
@@ -4586,12 +4588,12 @@
     }
   },
   "counts": {
-    "blocked": 37,
+    "blocked": 36,
     "bugs": 8,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
-      "decision": 17,
+      "decision": 18,
       "feature": 41,
       "frontend-delivery": 1,
       "frontend-requirements": 39,
@@ -4605,21 +4607,21 @@
     },
     "byLayer": {
       "backend": 56,
-      "business": 134,
+      "business": 135,
       "frontend": 44,
       "qa": 4,
       "shared": 10
     },
     "concepts": 219,
     "decisions": 21,
-    "edges": 4474,
+    "edges": 4489,
     "features": 41,
     "layerNotes": 133,
     "modules": 8,
-    "notes": 279,
+    "notes": 280,
     "partial": 5,
     "placeholders": 152,
-    "records": 17
+    "records": 18
   },
   "deadlines": {
     "missed": {
@@ -5102,6 +5104,26 @@
       "from": "decision:D-20",
       "kind": "affects",
       "to": "task:B-01"
+    },
+    {
+      "from": "decision:D-23",
+      "kind": "affects",
+      "to": "backend-delivery:connections"
+    },
+    {
+      "from": "decision:D-23",
+      "kind": "affects",
+      "to": "frontend-requirements:connections"
+    },
+    {
+      "from": "decision:D-23",
+      "kind": "affects",
+      "to": "story:connections"
+    },
+    {
+      "from": "decision:D-23",
+      "kind": "affects",
+      "to": "story:ring-access"
     },
     {
       "from": "frontend-requirements:counts",
@@ -6337,11 +6359,6 @@
       "from": "needs-decision:ND-22",
       "kind": "blocks",
       "to": "story:profiles"
-    },
-    {
-      "from": "needs-decision:ND-23",
-      "kind": "blocks",
-      "to": "story:connections"
     },
     {
       "from": "story:build-deploy",
@@ -8352,6 +8369,31 @@
       "from": "decision:D-20",
       "kind": "related",
       "to": "story:code-delivery"
+    },
+    {
+      "from": "decision:D-23",
+      "kind": "related",
+      "to": "decision:D-04"
+    },
+    {
+      "from": "decision:D-23",
+      "kind": "related",
+      "to": "decision:D-14"
+    },
+    {
+      "from": "decision:D-23",
+      "kind": "related",
+      "to": "feature:connections"
+    },
+    {
+      "from": "decision:D-23",
+      "kind": "related",
+      "to": "feature:events-during"
+    },
+    {
+      "from": "decision:D-23",
+      "kind": "related",
+      "to": "feature:ring-access"
     },
     {
       "from": "feature:account",
@@ -14128,6 +14170,11 @@
       "from": "needs-decision:ND-23",
       "kind": "related",
       "to": "decision:D-14"
+    },
+    {
+      "from": "needs-decision:ND-23",
+      "kind": "related",
+      "to": "decision:D-23"
     },
     {
       "from": "needs-decision:ND-23",
@@ -28248,6 +28295,11 @@
       "to": "decision:D-20"
     },
     {
+      "from": "needs-decision:ND-23",
+      "kind": "tree",
+      "to": "decision:D-23"
+    },
+    {
       "from": "root",
       "kind": "tree",
       "to": "group:backend"
@@ -29396,6 +29448,31 @@
       "from": "decision:D-20",
       "kind": "wikilink",
       "to": "qa-frontend:account"
+    },
+    {
+      "from": "decision:D-23",
+      "kind": "wikilink",
+      "to": "backend-delivery:connections"
+    },
+    {
+      "from": "decision:D-23",
+      "kind": "wikilink",
+      "to": "frontend-requirements:connections"
+    },
+    {
+      "from": "decision:D-23",
+      "kind": "wikilink",
+      "to": "project:mvp-order"
+    },
+    {
+      "from": "decision:D-23",
+      "kind": "wikilink",
+      "to": "story:connections"
+    },
+    {
+      "from": "decision:D-23",
+      "kind": "wikilink",
+      "to": "story:ring-access"
     },
     {
       "from": "feature:account",
@@ -34324,6 +34401,10 @@
     },
     "social-pin/decisions/D-20 The changed address still signs in, the words are corrected.md": {
       "name": "D-20 The changed address still signs in, the words are corrected",
+      "type": "decision"
+    },
+    "social-pin/decisions/D-23 A count of mutual connections, events where both were visible.md": {
+      "name": "D-23 A count of mutual connections, events where both were visible",
       "type": "decision"
     },
     "social-pin/decisions/Decisions.md": {
@@ -40331,6 +40412,7 @@
         "project:ring-access-model",
         "decision:D-05",
         "decision:D-18",
+        "decision:D-23",
         "story:connections",
         "frontend-requirements:counts",
         "story:counts",
@@ -40792,6 +40874,7 @@
         "feature:view-as",
         "decision:D-15",
         "decision:D-18",
+        "decision:D-23",
         "story:connections",
         "frontend-requirements:counts",
         "story:counts",
@@ -41223,6 +41306,69 @@
       "title": "D-20 The changed address still signs in, the words are corrected",
       "unmet": [],
       "updated": "2026-10-29"
+    },
+    "decision:D-23": {
+      "affects": [
+        "story:connections",
+        "frontend-requirements:connections",
+        "backend-delivery:connections",
+        "story:ring-access"
+      ],
+      "blockedBy": [],
+      "card": "D-23",
+      "children": [],
+      "code": "D-23",
+      "created": "2026-11-04",
+      "deadline": null,
+      "decidedAt": "2026-11-04",
+      "decidedBy": "Omar Fostok",
+      "decides": "ND-23",
+      "depends": [],
+      "effectiveStatus": "decided",
+      "effort": null,
+      "feature": null,
+      "features": [
+        "connections"
+      ],
+      "foundOn": null,
+      "frontendOnly": false,
+      "id": "decision:D-23",
+      "inherits": {},
+      "kind": "decision",
+      "label": "Decision",
+      "labels": [],
+      "layer": "business",
+      "module": null,
+      "openBugs": [],
+      "parentTask": null,
+      "parents": [
+        "needs-decision:ND-23"
+      ],
+      "path": "social-pin/decisions/D-23 A count of mutual connections, events where both were visible.md",
+      "pending": [],
+      "priority": null,
+      "related": [
+        "needs-decision:ND-23",
+        "feature:connections",
+        "feature:ring-access",
+        "feature:events-during",
+        "decision:D-04",
+        "decision:D-14"
+      ],
+      "release": null,
+      "resolution": null,
+      "scope": null,
+      "screens": [],
+      "status": "decided",
+      "summary": "This rules out showing names (mutual options 3 and 4), showing nothing (option 1 of both), and listing every event we both attended (events option 3). The count and the list are answered by the…",
+      "tags": [
+        "decision",
+        "decision/decided"
+      ],
+      "task": null,
+      "title": "D-23 A count of mutual connections, events where both were visible",
+      "unmet": [],
+      "updated": "2026-11-04"
     },
     "feature:account": {
       "affects": [],
@@ -41994,16 +42140,17 @@
         "needs-decision:ND-17",
         "needs-decision:ND-23",
         "decision:D-10",
+        "decision:D-23",
         "frontend-requirements:counts"
       ],
       "release": "mvp",
       "resolution": null,
       "rollup": {
-        "blocked": 3,
-        "decided": 5,
+        "blocked": 2,
+        "decided": 6,
+        "draft": 1,
         "missing": 4,
-        "needs-decision": 1,
-        "verified": 5
+        "verified": 6
       },
       "scope": null,
       "screens": [
@@ -42682,6 +42829,7 @@
         "project:spec-map",
         "feature:post-event",
         "needs-decision:ND-23",
+        "decision:D-23",
         "story:payments"
       ],
       "release": null,
@@ -43873,7 +44021,8 @@
         "project:spec-map",
         "feature:gemma",
         "feature:delegated-admins",
-        "needs-decision:ND-23"
+        "needs-decision:ND-23",
+        "decision:D-23"
       ],
       "release": "mvp",
       "resolution": null,
@@ -49812,12 +49961,12 @@
       "release": null,
       "resolution": null,
       "rollup": {
-        "blocked": 3,
-        "decided": 5,
+        "blocked": 2,
+        "decided": 6,
+        "draft": 1,
         "missing": 4,
-        "needs-decision": 1,
         "todo": 1,
-        "verified": 5
+        "verified": 6
       },
       "scope": null,
       "screens": [],
@@ -51553,13 +51702,15 @@
         "story:connections"
       ],
       "card": "ND-23",
-      "children": [],
+      "children": [
+        "decision:D-23"
+      ],
       "code": "ND-23",
       "created": "2026-10-29",
       "deadline": null,
       "decider": "owner",
       "depends": [],
-      "effectiveStatus": "needs-decision",
+      "effectiveStatus": "verified",
       "effort": null,
       "feature": null,
       "features": [
@@ -51567,6 +51718,7 @@
       ],
       "foundOn": null,
       "frontendOnly": false,
+      "fulfilledBy": "decision:D-23",
       "id": "needs-decision:ND-23",
       "inherits": {},
       "kind": "needs-decision",
@@ -51589,6 +51741,7 @@
         "decision:D-04",
         "decision:D-14",
         "feature:events-during",
+        "decision:D-23",
         "story:connections",
         "frontend-requirements:ring-access"
       ],
@@ -51607,7 +51760,7 @@
       "task": null,
       "title": "ND-23 Mutual connections and events in common",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-04"
     },
     "project:admin-agent": {
       "affects": [],
@@ -57485,22 +57638,22 @@
       ],
       "rollup": {
         "approved": 33,
-        "blocked": 37,
+        "blocked": 36,
         "current": 8,
-        "decided": 17,
+        "decided": 18,
         "delivered": 2,
         "done": 11,
-        "draft": 29,
+        "draft": 30,
         "failing": 1,
         "in-progress": 45,
         "missing": 152,
-        "needs-decision": 3,
+        "needs-decision": 2,
         "partial": 5,
         "passing": 2,
         "ready": 9,
         "reference": 32,
         "todo": 9,
-        "verified": 17
+        "verified": 18
       },
       "scope": null,
       "screens": [],
@@ -58062,13 +58215,7 @@
         "story:notifications",
         "story:discover-hub"
       ],
-      "blockedBy": [
-        {
-          "id": "needs-decision:ND-23",
-          "title": "ND-23 Mutual connections and events in common",
-          "why": "needs decision ND-23 (open)"
-        }
-      ],
+      "blockedBy": [],
       "card": "S-23",
       "children": [
         "needs-decision:ND-10",
@@ -58084,7 +58231,7 @@
       "depends": [
         "needs-decision:ND-10"
       ],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "connections",
       "foundOn": null,
