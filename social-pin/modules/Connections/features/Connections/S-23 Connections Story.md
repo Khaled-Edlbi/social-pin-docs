@@ -3,11 +3,11 @@ id: S-23
 type: story
 module: connections
 feature: connections
-status: draft
+status: approved
 scope: feature
 screens: [s11, s15, s17, s19, s38, s42, s43, s44, s45, s46, s47, s62, s68, s69]
-approvedBy: ""
-approvedAt: ""
+approvedBy: "Omar Fostok"
+approvedAt: 2026-11-04
 owner: "Omar Fostok"
 depends: ["ND-10 How Connect addresses the scanned person"]
 affects: ["S-16 Ring Members Story", "S-18 Rings Story", "S-19 View As & Pin Views Story", "S-37 Badge & QR Story", "S-03 Counts Story", "S-96 Notifications Story", "S-42 Discover Hub & Search Story"]
@@ -15,7 +15,7 @@ related: ["D-04 Ring settings at launch and their defaults", "D-13 The requester
 pending: []
 created: 2026-10-18
 updated: 2026-11-04
-tags: [story, story/draft, module/connections, layer/business]
+tags: [story, story/approved, module/connections, layer/business]
 ---
 
 # Connections · User Story
@@ -24,7 +24,7 @@ tags: [story, story/draft, module/connections, layer/business]
 
 > ⚠ Affected by [[D-10 Connect sends what the requester already has]] (2026-11-04): ND-10 decided, option 3: Connect sends { qrToken } after a scan or { pinName } after a lookup; S2 no longer waits on ND-10.
 
-**Feature:** [[F-14 Connections]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[FR-14 Connections Frontend Requirements]] · **Backend Integration:** not yet · **Verified by:** [[Connections QA Backend]], [[Connections QA Frontend]]
+**Feature:** [[F-14 Connections]] · **Status:** Approved 2026-11-04 by Omar Fostok · **Frontend Requirements:** [[FR-14 Connections Frontend Requirements]] · **Backend Integration:** not yet · **Verified by:** [[Connections QA Backend]], [[Connections QA Frontend]]
 
 > **Rewritten 2026-11-04.** The earlier draft had two sets of parts covering the same ground (S1–S7, and S8–S26 merged from T-021…T-025) and two empty ones (Block, Introduce). This version is one set, ordered as the journey happens, checked against the design (Wireframe Brief §4.5, §5, §6.4, §11, the prototype), the backend as it is today (BD-14: no routes yet), the decisions D-13, D-14, D-15, D-17, D-18, and every screen of the app that a connection touches. *Where the design disagrees* lists what the designer has to redraw.
 

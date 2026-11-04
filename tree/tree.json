@@ -4588,7 +4588,7 @@
     }
   },
   "counts": {
-    "blocked": 36,
+    "blocked": 35,
     "bugs": 8,
     "byKind": {
       "backend-delivery": 39,
@@ -4614,7 +4614,7 @@
     },
     "concepts": 219,
     "decisions": 21,
-    "edges": 4489,
+    "edges": 4488,
     "features": 41,
     "layerNotes": 133,
     "modules": 8,
@@ -6369,11 +6369,6 @@
       "from": "story:companies",
       "kind": "blocks",
       "to": "frontend-requirements:companies"
-    },
-    {
-      "from": "story:connections",
-      "kind": "blocks",
-      "to": "frontend-requirements:connections"
     },
     {
       "from": "story:events-during",
@@ -42095,7 +42090,7 @@
       "deadline": null,
       "depends": [],
       "dir": "social-pin/modules/Connections/features/Connections",
-      "effectiveStatus": "todo",
+      "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "connections",
       "foundOn": null,
@@ -42146,7 +42141,8 @@
       "release": "mvp",
       "resolution": null,
       "rollup": {
-        "blocked": 2,
+        "approved": 1,
+        "blocked": 1,
         "decided": 6,
         "draft": 1,
         "missing": 4,
@@ -47182,20 +47178,14 @@
     },
     "frontend-requirements:connections": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "story:connections",
-          "title": "S-23 Connections Story",
-          "why": "S-23 Connections Story is draft"
-        }
-      ],
+      "blockedBy": [],
       "card": "FR-14",
       "children": [],
       "code": "connections",
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "connections",
       "foundOn": null,
@@ -49936,7 +49926,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "todo",
+      "effectiveStatus": "in-progress",
       "effort": null,
       "feature": null,
       "foundOn": null,
@@ -49961,11 +49951,12 @@
       "release": null,
       "resolution": null,
       "rollup": {
-        "blocked": 2,
+        "approved": 1,
+        "blocked": 1,
         "decided": 6,
         "draft": 1,
+        "in-progress": 1,
         "missing": 4,
-        "todo": 1,
         "verified": 6
       },
       "scope": null,
@@ -57637,22 +57628,22 @@
         }
       ],
       "rollup": {
-        "approved": 33,
-        "blocked": 36,
+        "approved": 34,
+        "blocked": 35,
         "current": 8,
         "decided": 18,
         "delivered": 2,
         "done": 11,
         "draft": 30,
         "failing": 1,
-        "in-progress": 45,
+        "in-progress": 47,
         "missing": 152,
         "needs-decision": 2,
         "partial": 5,
         "passing": 2,
         "ready": 9,
         "reference": 32,
-        "todo": 9,
+        "todo": 7,
         "verified": 18
       },
       "scope": null,
@@ -58231,7 +58222,7 @@
       "depends": [
         "needs-decision:ND-10"
       ],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "connections",
       "foundOn": null,
@@ -58298,11 +58289,11 @@
         "s68",
         "s69"
       ],
-      "status": "draft",
+      "status": "approved",
       "summary": "Two people met. One of them wants to keep seeing the other after the moment passes. In Social Pin that is an access request, not a follow: the requester asks to be let in, the receiver decides…",
       "tags": [
         "story",
-        "story/draft",
+        "story/approved",
         "module/connections",
         "layer/business"
       ],
