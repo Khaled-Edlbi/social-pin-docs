@@ -13,6 +13,8 @@ tags: [backend-integration, backend-integration/current, module/identity, layer/
 
 # 🔌 View As & Pin Views · Backend Integration
 
+> ⚠ Affected by [[S-23 Connections Story]] (2026-11-04): S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+
 > ⚠ Affected by [[D-16 Files load from signed links that expire in 15 minutes]] (2026-10-29): the viewer's view will carry `avatarUrl` and a `url` per attachment, signed, valid 15 minutes, and still no file id. For `/backend`.
 
 **Feature:** [[F-12 View As & Pin Views]] · **Backend:** ✅ Done · **Read first:** [[Frontend Contract]], [[Ring Access Model]]

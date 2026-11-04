@@ -16,6 +16,8 @@ tags: [decision, decision/decided]
 
 # ⚖️ D-13 · The requester sees a declined request
 
+> ⚠ Affected by [[S-23 Connections Story]] (2026-11-04): S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+
 **Answers:** [[ND-13 Whether the requester sees a declined request]] · **Decided by:** molham · **On:** 2026-10-25 · **Feature:** [[F-14 Connections]]
 
 > This card is the answer to [[ND-13 Whether the requester sees a declined request]]. The needs-decision card keeps the question, the facts and the options; this decision card says what was decided, why, and what it changes. `draft` while the answer is prepared; `decided` only by the PM or the owner, on the user's word, with `decidedBy` and `decidedAt`: then [[ND-13 Whether the requester sees a declined request]] shows Fulfilled by itself and the cards it blocked continue.

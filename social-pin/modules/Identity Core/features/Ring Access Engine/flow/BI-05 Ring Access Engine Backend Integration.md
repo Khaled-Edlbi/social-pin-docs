@@ -13,6 +13,8 @@ tags: [backend-integration, backend-integration/current, module/identity, layer/
 
 # 🔌 Ring Access Engine · Backend Integration
 
+> ⚠ Affected by [[S-23 Connections Story]] (2026-11-04): S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+
 **Feature:** [[F-08 Ring Access Engine]] · **Backend:** ✅ Done · **Read first:** [[Ring Access Model]], [[Frontend Contract]]
 
 The engine has no endpoints of its own; it is what decides every `/views` answer, every `/rings/shared-with-me` row and every 403 on an owner route. This note is what the client must **assume** because of it.

@@ -17,6 +17,8 @@ tags: [story, story/approved, module/identity, layer/business]
 
 # View As & Pin Views · User Story
 
+> ⚠ Affected by [[S-23 Connections Story]] (2026-11-04): S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+
 **Feature:** [[F-12 View As & Pin Views]] · **Status:** Approved 2026-10-29 by Omar Fostok (first approved 2026-10-25 by khaled; reworked 2026-10-29 by the design review: S1, S2, S3, S7 changed) · **Frontend Requirements:** [[FR-12 View As & Pin Views Frontend Requirements]] · **Backend Integration:** [[BI-09 View As & Pin Views Backend Integration]]
 
 Two people, one screen component. The owner flips to "View as" to see a Ring exactly as its members do: the "aha" that teaches the whole model. A viewer scans a badge or types a `!pinname` and gets the one perspective they are allowed, with no hint of which Ring that is or whether other Rings exist. Both render the same shape from the same route, which is what makes the preview trustworthy. Photos and files load from signed links that expire in 15 minutes ([[D-16 Files load from signed links that expire in 15 minutes]]).

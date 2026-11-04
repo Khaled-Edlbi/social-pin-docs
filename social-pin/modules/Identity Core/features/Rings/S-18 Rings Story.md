@@ -17,6 +17,8 @@ tags: [story, story/approved, module/identity, layer/business]
 
 # Rings · User Story
 
+> ⚠ Affected by [[S-23 Connections Story]] (2026-11-04): S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+
 **Feature:** [[F-11 Rings]] · **Status:** Approved 2026-10-29 by Omar Fostok (first approved 2026-10-25 by khaled; reworked 2026-10-29 by the design review: S1, S2, S3, S4, S5, S6, S7, S9 changed) · **Frontend Requirements:** [[FR-11 Rings Frontend Requirements]] · **Backend Integration:** [[BI-08 Rings Backend Integration]]
 
 A person has one profile and many audiences. A Ring is one audience bound to one perspective: Family, Clients, Company, a temporary Event Ring. The owner creates Rings, names and colours them, gives them a window, picks the default (what a scanned badge or a Pin-name lookup resolves to), and, when a temporary Ring lapses, decides whether to keep it, merge it into another, or let it go. Each Ring has a few settings (who it's for, who can join, approve each request, what members may do), all private by default ([[D-04 Ring settings at launch and their defaults]]). Members see the people who share with them on a separate list, never the owner's roster, and never a Ring's name unless they joined it knowingly ([[D-14 Shared with me lists people, never the Ring]], [[D-18 Ring names shown when joined knowingly]]).

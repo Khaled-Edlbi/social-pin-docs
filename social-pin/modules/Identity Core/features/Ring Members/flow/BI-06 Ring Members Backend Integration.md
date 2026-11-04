@@ -13,6 +13,8 @@ tags: [backend-integration, backend-integration/current, module/identity, layer/
 
 # 🔌 Ring Members · Backend Integration
 
+> ⚠ Affected by [[S-23 Connections Story]] (2026-11-04): S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+
 > ⚠ Affected by [[D-18 Ring names shown when joined knowingly]] (2026-10-25): a membership has to record how it was created (invitation, code, work email, connection accept, owner add); only the first three let the member see the Ring's name.
 
 > ⚠ Affected by [[D-04 Ring settings at launch and their defaults]] (2026-10-25): ND-04 decided, six Ring settings at launch with private defaults (join with a code or invite, approve each one, members can't see each other, invite or save attachments); the owner and the Ring's admins change them; members who may see each other see full cards.

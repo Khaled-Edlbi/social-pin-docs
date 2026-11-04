@@ -13,6 +13,8 @@ tags: [frontend-requirements, frontend-requirements/draft, module/discovery, lay
 
 # PinCast & Nearby · Frontend Requirements
 
+> ⚠ Affected by [[S-23 Connections Story]] (2026-11-04): S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+
 **Feature:** [[F-20 PinCast & Nearby]] · **Status:** Draft · **Story:** [[S-45 PinCast & Nearby Story]] · **API Integration:** not yet (backend not built)
 
 What the client needs from the backend to build the screens in [[S-45 PinCast & Nearby Story]], and whether each need is met today. The geo column, trigger and index exist; no endpoint does. Only the Ring picker and opening a reached person work today.

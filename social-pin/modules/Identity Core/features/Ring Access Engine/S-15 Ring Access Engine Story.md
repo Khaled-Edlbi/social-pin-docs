@@ -17,6 +17,8 @@ tags: [story, story/approved, module/identity, layer/business]
 
 # Ring Access Engine · User Story
 
+> ⚠ Affected by [[S-23 Connections Story]] (2026-11-04): S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+
 **Feature:** [[F-08 Ring Access Engine]] · **Status:** Approved 2026-10-29 by Omar Fostok (first approved 2026-10-25 by khaled; reworked 2026-10-29 by the design review: S1 and S8 changed, screens listed) · **Frontend Requirements:** [[FR-08 Ring Access Engine Frontend Requirements]] · **Backend Integration:** [[BI-05 Ring Access Engine Backend Integration]]
 
 The engine has no screen of its own; it is the answer to the product's one question, *what is this viewer allowed to see about this person, in this context, at this moment?* These stories are the promises the app makes because of it: access is live, expiry is real, a block is mutual, and a viewer never learns which Ring they are in. They are written from the two sides, the Ring owner and the viewer, so every screen that renders another person can be tested against them.

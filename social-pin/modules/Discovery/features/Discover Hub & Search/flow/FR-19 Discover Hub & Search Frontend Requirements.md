@@ -13,6 +13,8 @@ tags: [frontend-requirements, frontend-requirements/draft, module/discovery, lay
 
 # Discover Hub & Search · Frontend Requirements
 
+> ⚠ Affected by [[S-23 Connections Story]] (2026-11-04): S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+
 **Feature:** [[F-19 Discover Hub & Search]] · **Status:** Draft · **Story:** [[S-42 Discover Hub & Search Story]] · **API Integration:** not yet (backend not built)
 
 What the client needs from the backend to build the screen in [[S-42 Discover Hub & Search Story]], and whether each need is met today. Exact-name resolve is done; recent searches, Gemma and contact import are not. The tiles hand over to other features and are listed here only for what the hub itself needs.

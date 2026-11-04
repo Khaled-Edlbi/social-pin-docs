@@ -17,6 +17,8 @@ tags: [frontend-requirements, frontend-requirements/ready, module/identity, laye
 
 # Rings · Frontend Requirements
 
+> ⚠ Affected by [[S-23 Connections Story]] (2026-11-04): S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+
 **Feature:** [[F-11 Rings]] · **Status:** 📨 Ready 2026-10-29, waiting on the backend's review · **Story:** [[S-18 Rings Story]] · **Backend Integration:** [[BI-08 Rings Backend Integration]]
 
 What the client needs from the backend to build the Ring lists, the create wizard, the edit screens and the post-event choice, and whether each need is met today. Field rules, enums and the disposition semantics are in [[BI-08 Rings Backend Integration]].

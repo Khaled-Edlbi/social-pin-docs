@@ -17,6 +17,8 @@ tags: [frontend-requirements, frontend-requirements/ready, module/identity, laye
 
 # Counts · Frontend Requirements
 
+> ⚠ Affected by [[S-23 Connections Story]] (2026-11-04): S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+
 **Feature:** [[F-03 Counts]] · **Status:** Ready (waiting for the backend) · **Story:** [[S-03 Counts Story]] · **API Integration:** not yet (backend not built)
 
 What the client needs to show the numbers the design puts on Home, the Ring picker, My Rings, Shared with me, Ring data and Me, and which of them can be read today. The feature has no endpoints of its own; two of the numbers fall out of list envelopes that already exist, the rest wait on tasks. In the MVP since 2026-10-27.

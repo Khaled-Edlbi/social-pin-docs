@@ -17,6 +17,8 @@ tags: [frontend-requirements, frontend-requirements/ready, module/identity, laye
 
 # Ring Access Engine · Frontend Requirements
 
+> ⚠ Affected by [[S-23 Connections Story]] (2026-11-04): S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+
 **Feature:** [[F-08 Ring Access Engine]] · **Status:** 📨 Ready 2026-10-29, waiting on the backend's review · **Story:** [[S-15 Ring Access Engine Story]] · **Backend Integration:** [[BI-05 Ring Access Engine Backend Integration]]
 
 The engine exposes no endpoint. What the client needs from it is a set of guarantees that other endpoints carry: which rows appear on Shared with me and what each may say, what every `/views` route answers, and when an owner route says 403. This note lists those guarantees per surface and the client behaviour they require; the assumptions are spelled out in [[BI-05 Ring Access Engine Backend Integration]] and [[Ring Access Model]]. The screens themselves belong to other features ([[F-11 Rings]], [[F-09 Ring Members]], [[F-12 View As & Pin Views]], [[F-14 Connections]]); each section here is only what the engine decides on it.
