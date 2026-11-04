@@ -18,7 +18,7 @@ Where the design and the backend disagree, and every other decision a card needs
 | [[ND-06 Pin name rules]] | fulfilled (A, yearly rename) | [[D-06 Yearly rename, old name freed, case-insensitive]] | [[F-07 Profiles & Pin Name]], [[F-36 Gemma AI]], [[F-02 Auth & Sign-up]] | s06 |
 | [[ND-07 Payment provider]] | fulfilled (1, Stripe for all four flows) | [[D-07 Stripe for all four flows]] | [[F-27 Payments & Orders]], [[F-28 Subscription (Free vs Pro)]] | s51, s70 |
 | [[ND-10 How Connect addresses the scanned person]] | fulfilled (3, sends what the requester already has) | [[D-10 Connect sends what the requester already has]] | [[F-18 Badge & QR]], [[F-14 Connections]] | s43, s44 |
-| [[ND-11 Get or rotate the badge token]] | draft | — | [[F-18 Badge & QR]] | s34 |
+| [[ND-11 Get or rotate the badge token]] | fulfilled (2, same code for its day, reset on request) | [[D-11 The badge code stays the same for its day]] | [[F-18 Badge & QR]] | s34 |
 | [[ND-12 What the badge QR encodes]] | draft | — | [[F-18 Badge & QR]] | s34, s43 |
 | [[ND-13 Whether the requester sees a declined request]] | fulfilled (3, shown as declined) | [[D-13 The requester sees a declined request]] | [[F-14 Connections]] | s44, s45 |
 | [[ND-14 Connection-granted Ring on Shared with me]] | fulfilled (2, people, never the Ring) | [[D-14 Shared with me lists people, never the Ring]] | [[F-14 Connections]], [[F-11 Rings]], [[F-09 Ring Members]] | s17, s46 |

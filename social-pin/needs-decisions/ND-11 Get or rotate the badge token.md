@@ -1,22 +1,22 @@
 ---
 id: ND-11
 type: needs-decision
-status: draft
+status: open
 features: [badge-qr]
 blocks: ["S-37 Badge & QR Story"]
 decider: "owner"
 screens: [s34]
 owner: "omar"
 affects: []
-related: ["F-18 Badge & QR"]
+related: ["F-18 Badge & QR", "D-11 The badge code stays the same for its day"]
 created: 2026-10-25
-updated: 2026-10-29
-tags: [needs-decision, needs-decision/draft]
+updated: 2026-11-04
+tags: [needs-decision, needs-decision/open]
 ---
 
-# ❓ ND-11 · Get or rotate the badge token
+# ✅ ND-11 · Get or rotate the badge token
 
-**Status:** draft · **Decider:** owner · **Raised:** 2026-10-25 · **Needed by:** [[S-37 Badge & QR Story|Badge & QR · S7–S12]] · **Feature:** [[F-18 Badge & QR]]
+**Status:** open · **Decider:** owner · **Raised:** 2026-10-25 · **Needed by:** [[S-37 Badge & QR Story|Badge & QR · S7–S12]] · **Feature:** [[F-18 Badge & QR]]
 
 > The needs-decision card: `draft` while the question is written, `open` once it is ready for the decider; it shows **Fulfilled** by itself once its decision card (D-NN) is `decided`. The cards in `blocks` are **Blocked · ND-11** while this is `draft` or `open` and return to their own status once it is fulfilled. Nobody edits their `status:` for this, and nobody types `fulfilled` or `decided` here.
 
@@ -45,4 +45,4 @@ Recommendation: option 2. It is what the story's acceptance criteria already des
 
 ## Decision
 
-— (answered on its decision card, never written here: the PM or the owner, on the user's word, runs `node scripts/build-tree.mjs --scaffold decision ND-11 "<the answer>"`, fills the decision card D-NN (what was decided, why, what it changes with every feature and task in its `affects`, what stays open) and sets it `decided` with `decidedBy` and `decidedAt`; this card then shows Fulfilled by itself; the H1 gets ✅, and this line is replaced by "Fulfilled by" and a wikilink to the decision card, then "decided <date> by <who>: option <n>"; then `--impact D-NN` and flag the notes it lists)
+Fulfilled by [[D-11 The badge code stays the same for its day]] — decided 2026-11-04 by Omar Fostok: option 2.
