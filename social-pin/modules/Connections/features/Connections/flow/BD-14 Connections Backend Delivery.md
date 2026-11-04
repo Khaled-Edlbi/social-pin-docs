@@ -13,6 +13,8 @@ tags: [backend-delivery, backend-delivery/todo, module/connections, layer/backen
 
 # ⬜ Connections · Backend Delivery
 
+> ⚠ Affected by [[S-23 Connections Story]] (2026-11-04): S-23's open questions are decided (D-24 to D-29): one pending request per pair, a crossing request answers 409 with the other request's id (D-24); account deletion ends connections, requests and blocks silently (D-25); DELETE /connections/:userId sends no notification (D-26); the Sent list drops declined and expired requests 30 days after they ended (D-27); no POST /rings/:ringId/members { qrToken } in the MVP (D-28); GET /connections/:userId answers a member who isn't a connection with connectedAt null (D-29).
+
 > ⚠ Affected by [[D-23 A count of mutual connections, events where both were visible]] (2026-11-04): ND-23 decided: the connection detail carries mutualCount, computed through the access engine without blocked pairs; events in common come with the events features.
 
 > ⚠ Affected by [[D-10 Connect sends what the requester already has]] (2026-11-04): ND-10 decided, option 3: POST /connections/requests accepts { qrToken } or { pinName }, resolves the person through the access engine, and answers the views' 404 on every failure.
