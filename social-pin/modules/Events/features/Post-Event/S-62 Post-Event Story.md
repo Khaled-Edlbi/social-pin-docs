@@ -16,6 +16,8 @@ tags: [story, story/approved, module/events, layer/business]
 
 # Post-Event · User Story
 
+> ⚠ Affected by [[S-23 Connections Story]] (2026-11-04): S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+
 **Feature:** [[F-25 Post-Event]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[FR-25 Post-Event Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 The event has ended and the Event Ring has lapsed. The visitor gets one screen that tells them what the event was worth (connections, meetings, scans), proposes follow-ups, and asks the one identity question a temporary Ring leaves behind: keep it, merge it into another Ring, or let it go. The disposition endpoint exists; the summary does not.

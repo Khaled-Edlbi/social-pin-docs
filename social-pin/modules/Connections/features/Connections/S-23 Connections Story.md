@@ -5,325 +5,332 @@ module: connections
 feature: connections
 status: draft
 scope: feature
-screens: [s44, s45, s46, s47, s62]
-owner: "omar"
-related: ["D-04 Ring settings at launch and their defaults", "D-13 The requester sees a declined request", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-17 Requests expire after 30 days, optional note, ask again at once"]
+screens: [s11, s15, s17, s19, s38, s42, s43, s44, s45, s46, s47, s62, s68, s69]
+approvedBy: ""
+approvedAt: ""
+owner: "Omar Fostok"
+depends: ["ND-10 How Connect addresses the scanned person"]
+affects: ["S-16 Ring Members Story", "S-18 Rings Story", "S-19 View As & Pin Views Story", "S-37 Badge & QR Story", "S-03 Counts Story", "S-96 Notifications Story", "S-42 Discover Hub & Search Story"]
+related: ["D-04 Ring settings at launch and their defaults", "D-13 The requester sees a declined request", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-17 Requests expire after 30 days, optional note, ask again at once", "D-18 Ring names shown when joined knowingly", "ND-10 How Connect addresses the scanned person", "ND-23 Mutual connections and events in common", "Ring Access Model"]
+pending: []
 created: 2026-10-18
-updated: 2026-10-29
+updated: 2026-11-04
 tags: [story, story/draft, module/connections, layer/business]
 ---
 
 # Connections · User Story
 
-> ⚠ Affected by [[S-18 Rings Story]] (2026-10-29): the new-Ring wizard's step 2 (s19) picks people from **my connections**: searchable, each with **whether they're in any of my Rings** (for the "No Ring yet" filter). That list is this story's (S19–S24).
+**Feature:** [[F-14 Connections]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[FR-14 Connections Frontend Requirements]] · **Backend Integration:** not yet · **Verified by:** [[Connections QA Backend]], [[Connections QA Frontend]]
 
-> ⚠ Affected by [[S-16 Ring Members Story]] (2026-10-29): s47's "IN RING" is now a **checklist** (S-16 S5): tick adds the person to a Ring, untick removes them, add before remove when moving; unticking the last Ring asks Remove from Rings or **Disconnect**, which needs this story's disconnect route. "Revoke access" removes them from all my Rings. S4 here ("Add to another Ring", "Move to another Ring") should follow the checklist; the window per Ring is S-16 S3.
+> **Rewritten 2026-11-04.** The earlier draft had two sets of parts covering the same ground (S1–S7, and S8–S26 merged from T-021…T-025) and two empty ones (Block, Introduce). This version is one set, ordered as the journey happens, checked against the design (Wireframe Brief §4.5, §5, §6.4, §11, the prototype), the backend as it is today (BD-14: no routes yet), the decisions D-13, D-14, D-15, D-17, D-18, and every screen of the app that a connection touches. *Where the design disagrees* lists what the designer has to redraw.
 
-**Feature:** [[F-14 Connections]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[FR-14 Connections Frontend Requirements]] · **API Integration:** not yet (backend not built)
+Two people met. One of them wants to keep seeing the other after the moment passes. In Social Pin that is an **access request**, not a follow: the requester asks to be let in, the receiver decides **which of their Rings** the requester lands in, and from then on the requester sees exactly what that Ring shares, and never which Ring it is ([[D-14 Shared with me lists people, never the Ring]]). A request is *pending*, *accepted*, *declined*, *cancelled* or *expired* (30 days), and the requester sees which ([[D-13 The requester sees a declined request]], [[D-17 Requests expire after 30 days, optional note, ask again at once]]). A person can sit in several of the receiver's Rings; a connection outlives access unless the receiver disconnects ([[D-15 Several Rings per connection, remove or disconnect]]). There is no feed, no follower count on show, no "following back".
 
-Two people met, one scanned the other, and now one of them wants access. A connection in Social Pin is an access request: the requester asks to be let in, the owner decides which Ring to put them in, and from that moment the requester sees exactly that Ring's perspective and nothing about the Ring itself ([[D-14 Shared with me lists people, never the Ring]]). A request is pending, accepted, declined, cancelled or expired after 30 days, and the requester sees which ([[D-13 The requester sees a declined request]], [[D-17 Requests expire after 30 days, optional note, ask again at once]]). A person can sit in several of the owner's Rings, and a connection outlives access unless the owner disconnects ([[D-15 Several Rings per connection, remove or disconnect]]). There is no feed, no follower count on display, no "following back".
-
-**Task stories:** [[S-23 Connections Story|Connections · S8–S12]] (Connections · S8–S12: sending, the inbox and cancel in S1 and S2) · [[S-23 Connections Story|Connections · S13–S18]] (Connections · S13–S18: accept into a Ring and decline in S3) · [[S-23 Connections Story|Connections · S19–S24]] (Connections · S19–S24: the connection detail and the contacts list in S4 and S6). S5 waits on [[S-23 Connections Story|Connections · S25]] and *Introduce* on [[S-23 Connections Story|Connections · S26]], both still the empty template; S7 has no task story yet.
+**What exists today.** The backend has the tables (`Connection`, `ConnectionRequest`, `UserBlock`, `ContactNote`, `RingQrToken`) and **no route** for connections, requests, blocks or QR resolution ([[BD-14 Connections Backend Delivery]]: "Endpoints: none yet"). What Connections can already use: the Ring members routes (add, change the window, move, remove), the views (`/views/pin/:pinName`, `/views/ring/:ringId`, `/views/user/:userId/perspectives`) and `GET /rings`. In the app, every connection screen is sample data except the person card on Shared with me, which is real.
 
 ## Persona
 
-Two roles on the same journey. The **requester** is a personal user who just scanned a badge (s44), found someone in PinCast results (s42) or typed a `!pinname` on Discover; they want to keep seeing this person after the moment passes. The **Ring owner** is the person being asked; they receive the request in the inbox (s45), accept it into one Ring (s46), and later manage that person from Connection detail (s47). After an event, the owner reviews the requests it produced from the post-event summary (s62).
+Two people on one journey.
+
+- **The requester**, a personal user who has just scanned someone's badge (s43 → s44), looked up a `!pinname` on Discover (s38), or seen someone in PinCast results (s42). They want to be let in.
+- **The receiver**, who owns the Rings. They see the request (Home s11, Notifications s69, Requests s45), choose a Ring for the person (s46), and later manage them from Connection detail (s47), the contacts list, a Ring's People tab (s15) and the New Ring wizard (s19).
+
+The same person is both, with different people, on the same day.
 
 ## Stories
 
-### S1 · Connect from a scanned Pin ([[Screen Index#s44|s44]])
+### S1 · Find the person ([[Screen Index#s43|s43]], [[Screen Index#s44|s44]], [[Screen Index#s38|s38]], [[Screen Index#s42|s42]])
 
-**As a** requester looking at a resolved profile, **I want** to tap *Connect* and send one request, **so that** the owner can decide to keep me in a Ring of theirs.
-
-Acceptance criteria:
-- [ ] *Connect* is shown under the resolved `RingProfileViewEntity`; tapping it sends a request addressed by the person's user id, never by a Ring id (the view carries none). How the app gets that id is [[ND-10 How Connect addresses the scanned person]], still open.
-- [ ] The request may carry an optional note ("We met at TechSummit") of up to 200 characters ([[D-17 Requests expire after 30 days, optional note, ask again at once]]).
-- [ ] After sending, the button becomes a *Requested* state and stays so on return to the screen; tapping again cancels (confirm first). After a decline or an expiry it shows that, and *Connect* sends a new request straight away.
-- [ ] If the pair is blocked in either direction, or the person does not exist, the request fails with the same 404 body the view gives; the UI shows one neutral message and never says "blocked".
-- [ ] *Save for later* returns Home without sending anything.
-
-### S2 · Requests inbox, incoming and sent ([[Screen Index#s45|s45]])
-
-**As a** Ring owner, **I want** an inbox of incoming requests and a tab of the ones I sent, **so that** nothing waits on me unnoticed and I can withdraw my own.
+**As a** requester **I want** to open the card of the person I just met **so that** I can see what they share and ask to connect.
 
 Acceptance criteria:
-- [ ] Two segments: *Incoming* (needs action) and *Sent · N*; each row shows the person's display name, Pin name, avatar placeholder, when it was sent and the note if there is one.
-- [ ] Incoming row: *Accept* opens s46; tapping the row opens the person's view (what they share with me, if anything). A request unanswered for 30 days expires and leaves the list.
-- [ ] Sent row: *Cancel* removes a pending request; a declined request is shown as *Declined* and an expired one as *Expired*, each with *Connect* again; an accepted one disappears from Sent ([[D-13 The requester sees a declined request]], [[D-17 Requests expire after 30 days, optional note, ask again at once]]).
-- [ ] Empty state per segment ("No requests") with a hint pointing to the badge.
-- [ ] The list refetches on screen focus and after every accept, decline or cancel.
+- [ ] **By scan:** the camera reads a Social Pin code and resolves it through `GET /views/qr/:token` ([[S-37 Badge & QR Story|Badge & QR · S13–S18]]). Not available yet: no QR route exists; the app's reader (s43) is a timer that opens a sample card.
+- [ ] **By Pin name:** `!pinname` on Discover resolves through `GET /views/pin/:pinName` (exists), exact and case-insensitive ([[S-42 Discover Hub & Search Story]]).
+- [ ] **From PinCast results** (s42): a row opens the same card. Not available yet (no PinCast API).
+- [ ] The card (s44) shows what their Ring shares with me (`RingProfileViewEntity`) and never the Ring's name, colour or type; the note "You see what their Ring shares, never which Ring you are in."
+- [ ] Every failure reads the same, "This profile isn't available to you": no such Pin, not shared, blocked either way, Ring gone or not live, token rotated or revoked (one 404, `E_RING_ACCESS_01` / `E_RING_ACCESS_02`). Nothing says "blocked".
+- [ ] A code that isn't a Social Pin code reads "Not a Social Pin code" on the phone, without a call (S-37 S15).
+- [ ] **My own code or Pin name** opens View as, marked as a preview, and offers no *Connect* (S-37 S16, S-42).
+- [ ] *Save for later* keeps the card in a recent list on the phone and sends nothing (S-37 S4).
 
-### S3 · Accept and pick a Ring ([[Screen Index#s46|s46]])
+### S2 · Ask to connect ([[Screen Index#s44|s44]])
 
-**As a** Ring owner accepting a request, **I want** a bottom sheet listing my Rings with one suggested, **so that** the person is placed in the right audience in one tap.
-
-Acceptance criteria:
-- [ ] The sheet lists the owner's live Rings (name, colour, type), default Ring first; one is pre-selected as suggested when Gemma is available, otherwise the default Ring.
-- [ ] *Accept & add to Ring* performs one atomic action: the connection exists, the person is a member of exactly that Ring, and the request is closed; a failure leaves none of the three.
-- [ ] *Not now* returns to s45 with the request still pending; *Decline* closes it as declined without creating anything. The requester sees the decline and may ask again straight away; to stop that, the owner blocks (S5), which never reads as a decline.
-- [ ] After acceptance the sheet navigates to Connection detail (s47) for that person.
-- [ ] An optional access window (from / until) can be set on the sheet; `null` means "until removed".
-
-### S4 · Connection detail, owner side ([[Screen Index#s47|s47]])
-
-**As a** Ring owner, **I want** one screen per connection showing which of my Rings they are in, events we have in common and mutual connections, **so that** I can move or revoke their access without leaving the person.
+**As a** requester **I want** one tap to ask, with a line saying how we met **so that** they remember me and let me in.
 
 Acceptance criteria:
-- [ ] Shows the person (name, Pin name, avatar placeholder), **the Rings they are in** (one or several; owner-only information), each with its access window, and when they connected ([[D-15 Several Rings per connection, remove or disconnect]]).
-- [ ] *Add to another Ring* and *Move to another Ring* list my other Rings; a move reassigns live; the copy states "what they see just changed". With several Rings, they see the version from the Ring they were put in first.
-- [ ] *Revoke access* removes them from one Ring; confirm first. From the **last** Ring it asks: *Remove from Rings* (still a connection, no access, listed in my contacts) or *Disconnect* (the connection ends; a new request is needed). Not available yet: there is no disconnect endpoint.
-- [ ] *Request meeting* goes to s59; *Introduce* is shown disabled with "not available yet" until its semantics are decided.
+- [ ] *Connect* sends `POST /connections/requests` addressed to the person on the card. **How it addresses them is [[ND-10 How Connect addresses the scanned person]]** (open; recommended: send what I already have, `{ qrToken }` after a scan or `{ pinName }` after a lookup). Until it's decided, *Connect* is shown disabled with "Not available yet". Not available yet: the route.
+- [ ] An optional **note** of up to **200 characters** ("We met at TechSummit"), with a live counter; longer is refused before sending ([[D-17 Requests expire after 30 days, optional note, ask again at once]]).
+- [ ] After sending, the button reads **Requested** and stays so when I come back to the card; tapping it offers *Cancel request* (S4).
+- [ ] Sending while one of mine is already pending to this person returns that same request (no duplicate).
+- [ ] Someone **already connected** with me: the card shows *Connected* instead of *Connect* and sends nothing.
+- [ ] **They already asked me** (a pending request from them): the card shows *Accept* instead of *Connect*, which opens S5 for their request (as PinCast does, [[S-45 PinCast & Nearby Story]]). What the server does if both send at the same moment is open (*Open questions*).
+- [ ] A blocked pair, either way: the request fails with the same 404 as the card (S1); the button returns to *Connect*.
+- [ ] After a **decline** or an **expiry**, the button reads *Declined* or *Expired* with *Connect* again, which sends a **new** request at once; no waiting period.
+- [ ] Offline: *Connect* says the request couldn't be sent and stays *Connect*; nothing is queued.
 
-### S5 · Block and unblock ([[Screen Index#s47|s47]])
+### S3 · See who wants to connect ([[Screen Index#s45|s45]], [[Screen Index#s11|s11]], [[Screen Index#s69|s69]])
 
-**As a** user, **I want** to block a person from Connection detail and undo it later from the same place, **so that** they lose every view of me at once.
-
-Acceptance criteria:
-- [ ] *Block* is under an overflow menu with a confirmation; on success the person's memberships in my Rings and mine in theirs are gone, the connection is closed, and the detail screen closes.
-- [ ] A blocked person's lookup of me returns the same 404 as "no such pin"; my lookup of them does the same.
-- [ ] A *Blocked people* list in Me offers *Unblock*; unblocking restores nothing, a new request is needed.
-
-### S6 · Contacts list, searchable (reached from [[Screen Index#s38|s38]] People)
-
-**As a** user, **I want** a searchable list of my connections, **so that** I can find one person fast and open their detail.
+**As a** receiver **I want** my incoming requests in one place, with who, how we met and their note **so that** nothing waits on me unnoticed.
 
 Acceptance criteria:
-- [ ] Paginated list ordered by display name, with a search field matching name and Pin name on my own connections only, never across the platform.
-- [ ] Connections with no access (removed from all my Rings but not disconnected) are listed and marked; people I disconnected, or who blocked me, are not ([[S-23 Connections Story|Connections · S19–S24]] S1).
-- [ ] Each row opens s47; the list carries the person's user id so the detail and the perspectives call can be made.
+- [ ] `GET /connections/requests?direction=incoming` lists **pending** requests, newest first, paged (`limit` ≤ 50, `meta.total`). Not available yet.
+- [ ] Each row: the person's `displayName`, `pinName`, photo (initials until photos load, [[D-16 Files load from signed links that expire in 15 minutes]]), when it was sent, **where from** when known (scan, Pin name, PinCast, an event), and the **note**.
+- [ ] The *Incoming* tab reads "Incoming · N" from `meta.total`.
+- [ ] *Accept* opens S5. *Decline* (✕) is S6. Tapping the row opens what they share with me, if anything (S10).
+- [ ] A request unanswered for **30 days expires** and leaves the list.
+- [ ] Empty: "No requests yet. Share your badge to get found."
+- [ ] The list refetches when the screen opens and after every accept, decline or cancel; a row already answered, cancelled or expired elsewhere leaves without an error.
+- [ ] **Where I hear about one:** a count on the People tile (Discover s38) and in Home's Gemma card (s11); a "wants to connect" row in Notifications (s69) with *Choose a Ring* → S5. Until push exists, counts refetch on focus at most once a minute ([[S-96 Notifications Story]]). Not available yet.
 
-### S7 · Review requests after an event ([[Screen Index#s62|s62]])
+### S4 · My sent requests and what happened to them ([[Screen Index#s45|s45]])
 
-**As a** Ring owner closing an event, **I want** *Review 4* to walk me through the requests that event produced, **so that** I place each one before the Event Ring expires.
-
-Acceptance criteria:
-- [ ] The count on s62 equals the number of pending incoming requests created during the event's window.
-- [ ] Each review step is the s46 sheet; *Not now* skips to the next; the summary updates its count as requests are settled.
-
-### S8 · Ask to connect from a scanned card ([[Screen Index#s44|s44]])
-
-*From T-021 Connect request send, inbox, cancel (status then: To do), merged 2026-10-27.*
-
-**As a** requester **I want** *Connect* on the card I just scanned **so that** this person can let me into one of their Rings.
+**As a** requester **I want** to see my requests and take one back **so that** I know where I stand.
 
 Acceptance criteria:
-- [ ] *Connect* sends `POST /connections/requests` addressed to the person on the card. The id comes from the scan ([[S-37 Badge & QR Story|Badge & QR · S13–S18]]) or the lookup, never derived from the view.
-- [ ] The request may carry a **note** ("We met at TechSummit"): optional, at most **200 characters**; a longer one is refused with a validation error and the app counts characters as they are typed. The receiver sees the note on the request (S3).
-- [ ] The button becomes *Requested* and stays so after leaving and coming back.
-- [ ] Asking again while a request is pending doesn't create a second one: the same request comes back.
-- [ ] After a decline or an expiry the button offers *Connect* again, and asking sends a **new** request straight away; there is no waiting period ([[D-17 Requests expire after 30 days, optional note, ask again at once]]).
-- [ ] Asking someone I'm already connected with says so, instead of sending.
+- [ ] `GET /connections/requests?direction=sent` lists my requests with their **status**: *Pending*, *Declined* or *Expired* ([[D-13 The requester sees a declined request]]). Accepted and cancelled ones leave the list. Not available yet.
+- [ ] *Declined* and *Expired* each offer *Connect* again (a new request, S2).
+- [ ] *Cancel* on a pending one (`DELETE /connections/requests/:id`) removes it at once, from my list and from their inbox.
+- [ ] Cancelling one that was answered or expired a moment ago refreshes the list instead of failing.
+- [ ] The tab reads "Sent · N". Empty: "You haven't asked anyone yet."
+- [ ] A **block** never shows here as a decline: the request reads as *Pending* until it expires, or disappears; it never says "blocked" (S13).
 
-### S9 · A blocked pair learns nothing ([[Screen Index#s44|s44]])
+### S5 · Accept into a Ring ([[Screen Index#s46|s46]])
 
-**As a** person who blocked someone **I want** their request to fail exactly like an unavailable profile **so that** they can't tell they're blocked.
-
-Acceptance criteria:
-- [ ] Sending to someone who blocked me, or whom I blocked, answers the same 404 body as `/views` ("This profile isn't available to you").
-- [ ] Nothing in the wording, timing or status says "blocked". A block is never shown as a decline.
-
-### S10 · See who wants to connect ([[Screen Index#s45|s45]])
-
-**As a** receiver **I want** my incoming requests in one list **so that** I answer them when I have a moment.
+**As a** receiver **I want** to accept and choose the Ring they go into **so that** they see the version of me I meant.
 
 Acceptance criteria:
-- [ ] `GET /connections/requests?direction=incoming` lists pending requests, newest first, paged (`limit` ≤ 50, `meta.total`).
-- [ ] Each row has the person's `displayName`, `pinName`, `avatarFileId` (shown once [[S-06 Files Upload Story|Files Upload · showing files]] ships), when it was sent, where from (scan, event) if known, and the **note** if there is one.
-- [ ] The tab label shows `meta.total`.
-- [ ] Accept and Decline on a row lead to [[S-23 Connections Story|Connections · S13–S18]].
-- [ ] A request left unanswered for **30 days expires**: it leaves the incoming list and closes with no connection.
+- [ ] A sheet titled "Add Maya to a Ring", "She will only see what that Ring shares", with the request's **note**.
+- [ ] It lists my **live** Rings from `GET /rings` (exists): name, colour, member count; Rings that have **ended** are not offered; **temporary** (Event) Rings are offered only when the request came from that event. Rings where I'm a delegated admin at `MEMBER_MANAGER` level are offered too, under their owner's name.
+- [ ] One Ring is picked to start: **my default Ring** (Gemma's suggestion, "Gemma suggests TechSummit '26", is not available yet, [[S-89 Gemma AI Story|Gemma AI · S7]]).
+- [ ] *+ New Ring for this person* opens the New Ring wizard and comes back to the sheet with the new Ring picked.
+- [ ] An optional access window, **Starts** and **Expires**, for this membership; none means until removed ([[S-16 Ring Members Story|Ring Members · S3]]). The Ring's own Expires still applies; whichever comes first ends access.
+- [ ] *Accept & add to Ring* sends the request id, the `ringId` and the window; **in one transaction** the server creates the connection, adds them as a member of that Ring and records `grantedRingId`. All three or none. Not available yet.
+- [ ] No optimistic accept: the sheet shows *Adding…* until the server answers, then opens Connection detail (S9).
+- [ ] Motion: the person's card **slides into the chosen Ring** on the sheet; reduced motion fades.
+- [ ] *Not now* closes the sheet; the request stays pending.
+- [ ] Errors, quiet and specific:
+  - the Ring was deleted or isn't mine any more: 404 `E_RING_02`, the list refetches;
+  - a block exists either way: 409 `E_RING_MEMBER_04`, "Can't add this person", never why;
+  - they're already in that Ring: 409 `E_RING_MEMBER_01`, treated as done;
+  - the request was cancelled, expired or already answered: "This request is no longer open", the sheet closes and the row leaves the inbox.
 
-### S11 · See and cancel what I sent ([[Screen Index#s45|s45]])
-
-**As a** requester **I want** my sent requests listed with what happened to them **so that** I know where I stand and can take one back.
-
-Acceptance criteria:
-- [ ] `GET /connections/requests?direction=sent` lists my requests the same way, each with its **status**: pending, declined or expired ([[D-13 The requester sees a declined request]]). Accepted and cancelled requests leave the list.
-- [ ] A **declined** request reads as declined, and an **expired** one as expired (no answer in 30 days); both offer *Connect* again (S1).
-- [ ] *Cancel* (`DELETE /connections/requests/:id`) on a pending request removes it at once (optimistic) and from the receiver's inbox.
-- [ ] Cancelling a request that was just accepted, declined or expired refreshes the list instead of failing loudly.
-
-### S12 · The other person sees the request
-
-**As a** receiver **I want** to know a request came in **so that** I don't miss it.
-
-Acceptance criteria:
-- [ ] The People tile shows a count of pending incoming requests. Push and the inbox are [[S-96 Notifications Story|Notifications · S7]]; until then the count refetches on focus, at most once a minute.
-
-### S13 · Accept into the right Ring ([[Screen Index#s46|s46]])
-
-*From T-022 Accept into a Ring (sets grantedRingId) (status then: To do), merged 2026-10-27.*
-
-**As a** receiver **I want** to accept a request and choose the Ring this person goes into **so that** they see the version of me I meant.
-
-Acceptance criteria:
-- [ ] s46 lists my live Rings from `GET /rings` (not `EVENT` or `MEETING` Rings unless the request came from that event), and shows the request's note if it has one.
-- [ ] Accept sends the request id and the chosen `ringId`, and in **one transaction** the server creates the connection, adds the requester as a member of that Ring and records `grantedRingId`. All three happen or none do.
-- [ ] The app shows the result only after the server answers (no optimistic accept); the request leaves the inbox.
-
-### S14 · Only for a while ([[Screen Index#s46|s46]])
-
-**As a** receiver **I want** to let someone in for a limited time **so that** event contacts don't keep access forever.
-
-Acceptance criteria:
-- [ ] Accept takes an optional `startsAt` / `expiresAt` for the membership; without them, access is open-ended.
-
-### S15 · The requester never learns the Ring
-
-**As a** receiver **I want** the Ring I chose kept private **so that** nobody knows they're in "Acquaintances" rather than "Friends".
-
-Acceptance criteria:
-- [ ] `grantedRingId` is never returned to the requester, in any response.
-- [ ] On the requester's side the connection appears, and the Ring's view becomes readable. On their Shared with me ([[Screen Index#s17|s17]]) I appear as a person ("Sam's card"), never with the Ring's name, colour or type ([[D-14 Shared with me lists people, never the Ring]]).
-
-### S16 · Decline ([[Screen Index#s45|s45]])
+### S6 · Decline ([[Screen Index#s45|s45]], [[Screen Index#s46|s46]])
 
 **As a** receiver **I want** to decline **so that** the request goes away without a connection.
 
 Acceptance criteria:
-- [ ] Decline closes the request as **declined**; no connection, no membership.
-- [ ] The requester **sees the decline**: the request shows as declined on their Sent list and on my card's button ([[D-13 The requester sees a declined request]], [[S-23 Connections Story|Connections · S8–S12]] S4).
-- [ ] The requester can **ask again straight away**; a new request arrives in my inbox like any other ([[D-17 Requests expire after 30 days, optional note, ask again at once]]). If I don't want that, I block them ([[S-23 Connections Story|Connections · S25]]), which never reads as a decline.
+- [ ] *Decline* (✕ on the row, or on the sheet) closes the request as **declined**: no connection, no membership. Not available yet.
+- [ ] No confirmation; an *Undo* for a few seconds instead.
+- [ ] The requester **sees** the decline (S4) and may ask again straight away; to stop that, the receiver blocks them (S13), which never reads as a decline.
 
-### S17 · It shows up everywhere at once
+### S7 · What the requester gets ([[Screen Index#s17|s17]])
 
-**As a** receiver **I want** the new person to appear where I'd look **so that** I can find them again.
-
-Acceptance criteria:
-- [ ] They're on the Ring's People tab ([[Screen Index#s15|s15]]) and in the Ring's `memberCount` ([[S-03 Counts Story|Counts · S6–S10]]) on the next fetch.
-- [ ] My connection count ([[S-03 Counts Story|Counts · S11]]) goes up by one.
-- [ ] Accepting someone already in that Ring is treated as done (`E_RING_MEMBER_01`), not as an error.
-
-### S18 · When adding them isn't allowed ([[Screen Index#s46|s46]])
-
-**As a** receiver **I want** a clear, quiet failure **so that** I'm not shown something I can't act on.
+**As a** requester who was accepted **I want** to find their card again **so that** the connection is useful.
 
 Acceptance criteria:
-- [ ] A Ring that's been deleted since the picker loaded, or isn't mine: 404 `E_RING_02`; the app refetches the picker.
-- [ ] A user who can't be added because a block exists in either direction: 409 `E_RING_MEMBER_04`, "Cannot add this user", without saying why.
-- [ ] A request already cancelled by the requester, or expired: the row leaves the inbox.
+- [ ] The request leaves my Sent list; the card's button reads *Connected*.
+- [ ] They appear on **Shared with me** (s17) as a **person** ("Maya Fadel", `!mayafadel`, initials), never with the Ring's name, colour or type ([[D-14 Shared with me lists people, never the Ring]]). Exists in the app today; the API still returns the Ring's name, which [[F-11 Rings]] has to stop.
+- [ ] Their card shows **the version from the Ring they put me in first** when I'm in several ([[D-15 Several Rings per connection, remove or disconnect]]). Not available yet on the server: `/views/pin` and the perspectives put the owner's default Ring first; the app stands in with the oldest membership.
+- [ ] `grantedRingId` reaches me in no response.
+- [ ] A notification "Maya accepted your request" opens her card. Not available yet ([[S-96 Notifications Story]]).
 
-### S19 · My contacts, searchable (People from [[Screen Index#s38|s38]])
+### S8 · My contacts ([[Screen Index#s38|s38]], [[Screen Index#s68|s68]])
 
-*From T-023 Connection detail and contacts list (status then: To do), merged 2026-10-27.*
-
-**As a** user **I want** a list of everyone I'm connected with **so that** I find someone again without scanning them twice.
-
-Acceptance criteria:
-- [ ] `GET /connections` lists my connections, paged (`limit` ≤ 50, `meta.total`), sorted by display name.
-- [ ] Each row has the person's `userId`, `displayName`, `pinName`, `avatarFileId` (shown once [[S-06 Files Upload Story|Files Upload · showing files]] ships) and when we connected.
-- [ ] A search (`q`) matches name or Pin name, only within my own connections; it never finds strangers.
-- [ ] Someone I removed from all my Rings but did not disconnect **is listed**, marked as having no access; I can add them to a Ring again without a new request.
-- [ ] Someone I **disconnected**, or who blocked me, is not listed.
-
-### S20 · Who they are and where they sit ([[Screen Index#s47|s47]])
-
-**As a** Ring owner **I want** a detail screen for one connection **so that** I see which of my Rings they're in, until when, and what they therefore see.
+**As a** user **I want** everyone I'm connected with in one searchable list **so that** I find someone without scanning them twice.
 
 Acceptance criteria:
-- [ ] The detail returns the person, the date we connected, and **the list of my Rings they're in** (one or several) with each membership's `startsAt` / `expiresAt`; an empty list when they have no access.
-- [ ] Only I see which of my Rings they're in; nothing of it reaches them ([[D-14 Shared with me lists people, never the Ring]]).
-- [ ] From here, the actions that exist already: add to another of my Rings (`POST /rings/:ringId/members`), move to another Ring (`POST …/members/:userId/reassign`), change the window (`PATCH …/members/:userId`), remove (`DELETE …/members/:userId`). After each, the screen refetches.
-- [ ] Removing them from the **last** of my Rings asks: *Remove from Rings* (they stay a connection with no access) or *Disconnect* (the connection ends and they leave my contacts; getting back in takes a new request). Not available yet: there is no disconnect endpoint.
-- [ ] When they are in several of my Rings, they see the version from the Ring they were put in first.
+- [ ] Reached from the **People** tile on Discover (s38) and from **Connections** on Me (s68); the Requests inbox (S3) is one tap from its header ("Requests · 3"). Today the People tile opens Requests.
+- [ ] `GET /connections?q=&limit=&skip=` lists my connections by display name, paged (`limit` ≤ 50, `meta.total`). Not available yet.
+- [ ] Each row: `userId`, `displayName`, `pinName`, photo, when we connected, and **No access** when they're in none of my Rings (after *Remove from Rings*, S11).
+- [ ] Search (`q`) matches name or Pin name **within my own connections only**; it never finds strangers. No results: "No one by that name."
+- [ ] People I **disconnected**, or who **blocked** me, aren't listed.
+- [ ] Empty: "No connections yet. Scan someone to start."
+- [ ] A row opens Connection detail (S9).
 
-### S21 · What they share with me ([[Screen Index#s47|s47]], [[Screen Index#s31|s31]])
+### S9 · Connection detail ([[Screen Index#s47|s47]])
 
-**As a** user **I want** to open everything a connection shares with me **so that** I see their card the way they meant me to.
-
-Acceptance criteria:
-- [ ] Tapping a contact opens their perspectives through `GET /views/user/:userId/perspectives`, which exists, using the `userId` from S1.
-- [ ] Empty perspectives (they share nothing with me, or access lapsed) read "Nothing shared with you right now".
-
-### S22 · Names and faces on the People tab ([[Screen Index#s15|s15]])
-
-**As a** Ring owner **I want** each member of my Ring shown by name, Pin name and photo **so that** the roster is people, not ids.
+**As a** receiver **I want** one screen per person **so that** I see where they sit, what they see, and change it.
 
 Acceptance criteria:
-- [ ] Every member row (`GET /rings/:ringId/members`) carries the member's `displayName`, `pinName` and `avatarFileId`, or the app can get them for every member in one request, not one per row.
-- [ ] A row opens that person's connection detail (S2).
+- [ ] Header: the person (name, Pin name, initials), "Connected 4 Nov" and how we met when known.
+- [ ] **IN RING · VISIBLE TO YOU ONLY**: every Ring of mine as a **checklist** ([[S-16 Ring Members Story|Ring Members · S5]]). Ticked = they're in it, each with its window ("Until removed ›", "Until 12 Nov ›", "Lapsed 12 Nov ›"). Tick adds (`POST /rings/:ringId/members`), untick removes (`DELETE …/members/:userId`), a window opens `PATCH …/members/:userId` (all exist). A move is add, then remove, so they're never in none by accident. Not available yet: one call that says which of my Rings a person is in (today it would be one roster call per Ring).
+- [ ] The copy after a change: "What they see just changed." Motion: the chip moves; reduced motion fades.
+- [ ] **WHAT THEY CAN SEE**: the fields of the **first** Ring they're in (D-15), the same rule the server uses, not the union of all their Rings. In no Ring: "Nothing: they're a connection without access."
+- [ ] **What they share with me**: their card through `GET /views/user/:userId/perspectives` (exists); several perspectives are "View 1 / View 2", never Ring names ([[S-19 View As & Pin Views Story|View As · S5]]). Empty: "Nothing shared with you right now."
+- [ ] Events in common and mutual connections are **hidden** (not empty) until [[ND-23 Mutual connections and events in common]] is decided.
+- [ ] *Request meeting* is hidden in the MVP (Meetings is v1). *Introduce* is shown disabled, "Not available yet" ([[#Open questions]]).
+- [ ] The ⋯ menu: *Block* (S13).
+- [ ] The screen refetches after every change; a 409 `E_RING_MEMBER_04` on a tick (they blocked me since) reads "Can't add this person".
 
-### S23 · Picking people for a Ring (New Ring step 2, [[Screen Index#s19|s19]])
+### S10 · Someone I'm connected with, from the other side ([[Screen Index#s17|s17]], [[Screen Index#s47|s47]])
 
-**As a** Ring owner **I want** to pick connections when I create a Ring **so that** it starts with the right people.
+**As a** user connected both ways (I'm in their Rings and they're in mine) **I want** one person, not two **so that** I'm not confused by two rows.
 
 Acceptance criteria:
-- [ ] Step 2 lists my connections from S1, including those with no access, searchable; the picked ones are added after the Ring is created (`POST /rings/:ringId/members`).
+- [ ] One connection per pair: Connection detail shows both my Rings for them (S9) and what they share with me.
+- [ ] On Shared with me they're one person row however many of their Rings I'm in.
 
-### S24 · What we have in common ([[Screen Index#s47|s47]])
+### S11 · Remove from Rings, or Disconnect ([[Screen Index#s47|s47]])
 
-**As a** user **I want** events in common and mutual connections **so that** I remember how I know this person.
+**As a** receiver **I want** to take away access without losing the connection, or to end it **so that** I control both separately.
 
 Acceptance criteria:
-- [ ] **What may be shown is [[ND-23 Mutual connections and events in common]]** (raised 2026-10-29); until it's decided, s47 shows **neither** section, hidden, not empty.
-- [ ] Events in common: may ship after the events features; until then the section is hidden, not empty.
-- [ ] Mutual connections: draft rule, to be confirmed or replaced by ND-23: only people who are connections of both of us, and only where a Ring's "members can see each other" is on (off by default, [[D-04 Ring settings at launch and their defaults]]); hidden otherwise. Not available yet: the setting does not exist.
-- [ ] A blocked pair never appears in each other's lists; the engine decides what's shown ([[F-08 Ring Access Engine]]).
+- [ ] Unticking a Ring that isn't their last asks nothing.
+- [ ] Unticking the **last** Ring asks: **Remove from Rings** (they stay a connection with no access, listed as *No access*; I can tick a Ring again without a new request) or **Disconnect** (the connection ends, they leave my contacts, getting back in takes a new request) ([[D-15 Several Rings per connection, remove or disconnect]]).
+- [ ] *Disconnect* is also in the ⋯ menu for someone in several Rings: it removes them from all of them first.
+- [ ] Not available yet: the disconnect route; whether the other person is told is open (D-15 *Still open*).
+- [ ] Either way, nothing reaches the other person beyond losing access: no notification "you were removed".
 
-### S25 · Block and unblock
+### S12 · Connections everywhere a person is picked ([[Screen Index#s19|s19]], [[Screen Index#s15|s15]])
 
-*From T-024 (status then: To do), merged 2026-10-27.*
+**As a** Ring owner **I want** my connections where I add people to a Ring **so that** I don't have to scan people I already know.
 
-`POST/DELETE /blocks/:userId`. `UserBlock` is already enforced by `RingAccessService`. Blocking removes both directions of membership.
+Acceptance criteria:
+- [ ] **New Ring, step 2** (s19): search my connections (S8's list), picked ones as chips; filters **All** and **No Ring yet** (connections in none of my Rings); each pick is a `POST /rings/:ringId/members` after the Ring is created; skippable ([[S-18 Rings Story|Rings · S4]]). Today the step says connections come later.
+- [ ] **A Ring's People tab** (s15): members by name, Pin name and photo, in one request for the whole roster (the members route gives `userId` only today, [[S-16 Ring Members Story|Ring Members · S1]]); a row opens Connection detail (S9). *Move from a Ring* is the reassign route (exists). *Scan someone in* opens the scanner, and the person scanned is added straight to this Ring once ND-10 allows it.
+- [ ] The People tab's **Waiting on you** shows join requests to that Ring only (invitations and codes, [[S-16 Ring Members Story|Ring Members · S9]]), **not** connection requests: a connection request has no Ring until I choose one (S5).
 
-Screens: [[Screen Index#s47|s47]] Connection detail
+### S13 · Block and unblock ([[Screen Index#s44|s44]], [[Screen Index#s47|s47]], [[Screen Index#s68|s68]])
 
+**As a** user **I want** to block someone so they lose every view of me at once, and to undo it later **so that** I'm safe without a fuss.
 
-### S26 · Introduce a connection to another
+Acceptance criteria:
+- [ ] *Block* is in the ⋯ menu on their card (s44) and on Connection detail (s47), with a confirmation: "Block Maya? She stops seeing every Ring of yours and can't ask to connect. She isn't told."
+- [ ] `POST /blocks/:userId`: their memberships in my Rings and mine in theirs end, the connection closes, pending requests between us close. Not available yet; `UserBlock` is already honoured by the access engine.
+- [ ] From then on each of us reads the other as "This profile isn't available to you" (S1); a request between us fails the same way (S2); nothing says "blocked".
+- [ ] **Blocked people** on Me (s68): the list with *Unblock* (`DELETE /blocks/:userId`). Unblocking **restores nothing**; a new request is needed.
 
-*From T-025 (status then: Needs a decision), merged 2026-10-27.*
+### S14 · Counts ([[Screen Index#s68|s68]], [[Screen Index#s38|s38]])
 
-Semantics unclear: does an introduction create a request on behalf of someone? Needs product input.
+**As a** user **I want** honest numbers **so that** I trust them.
 
-Screens: [[Screen Index#s47|s47]] Connection detail
+Acceptance criteria:
+- [ ] Me shows **N connections**: accepted, each person once; *Remove from Rings* still counts, *Disconnect* doesn't; pending, declined and expired requests don't ([[S-03 Counts Story|Counts · S11]]). **Hidden, not "0" and not a sample**, until the backend has connections. Today Me shows a sample "218".
+- [ ] Home shows no connection count ([[S-03 Counts Story|Counts · S4]]).
+- [ ] The pending incoming count (S3) on the People tile.
+
+### S15 · After an event ([[Screen Index#s62|s62]]) · v1
+
+**As a** receiver closing an event **I want** to place the people I met before the Event Ring ends **so that** none of them is lost.
+
+Acceptance criteria:
+- [ ] *Review N* walks through the pending requests created during the event's window, one S5 sheet each; *Not now* skips. Out of the MVP with the Events features; listed so the routes are built to allow it.
+- [ ] Whatever happens to the Event Ring, the people stay in my contacts; only their access changes.
+
+### S16 · When the account or the Pin name changes
+
+**As a** user **I want** connections to follow the person, not a name **so that** nothing points at the wrong person.
+
+Acceptance criteria:
+- [ ] Connections and requests are kept by **user id**, never by Pin name; a new Pin name shows everywhere on the next fetch.
+- [ ] A Pin name given up is free at once ([[D-06 Yearly rename, old name freed, case-insensitive]]): a saved `!pinname` may lead to someone else; a stale recent search shows the neutral 404 (S1).
+- [ ] **Deleting an account** ends its connections, closes its requests both ways and its blocks; the other person loses the row without being told. Not decided yet (*Open questions*).
+- [ ] Signing out keeps everything on the server; only the phone's caches clear.
 
 ## States and motion the design asks for
 
-- State: no requests (empty), pending, accepted, declined, expired; *Requested*, *Declined*, *Expired* on the requester's button.
-- Motion: accept = the person's card **slides into the chosen Ring** on the sheet (spatial confirmation); reassignment on s47 animates the move between Rings; reduced-motion fallback is a fade.
-- State on s47: the Ring row is owner-only; mutual connections and events in common list only what the current user may see and never name a Ring of the other person.
-- (Connections · S8–S12) s44: *Connect* → sending → *Requested*; *Declined* or *Expired* with *Connect* again; not available (404).
-- (Connections · S8–S12) s45: Incoming / Sent segments with counts; a row per request, with its note; on Sent, the status of each row; empty ("No requests yet"); an incoming row leaves the list once answered, cancelled or expired.
-- (Connections · S8–S12) Motion: none beyond the design's row exit.
-- (Connections · S13–S18) s46: the Ring picker with one Ring selected (the design opens with a suggestion picked: [[S-89 Gemma AI Story|Gemma AI · S7]]); the request's note; optional access window; *Accept into <Ring>* → saving → done.
-- (Connections · S13–S18) s45: a row leaves the list after accept or decline.
-- (Connections · S13–S18) Motion: none beyond the row exit.
-- (Connections · S19–S24) Contacts: list, search with no results ("No one by that name"), empty ("No connections yet. Scan someone to start"); a "No access" marker on a connection in none of my Rings.
-- (Connections · S19–S24) s47: loading; the person; their Rings with windows; actions; the *Remove from Rings* / *Disconnect* choice at the last removal; refreshing after an action.
-- (Connections · S19–S24) No avatars until Files Upload shows files (S7–S11): initials.
-- (Connections · S19–S24) Motion: none asked for.
+- **s44:** resolved card; *Connect* → *Sending…* → *Requested*; *Declined* / *Expired* + *Connect* again; *Connected*; *Accept* (they asked me); not available (neutral 404); my own card (preview, no *Connect*).
+- **s45:** Incoming · N / Sent · N; a row with where from and the note; Sent rows with *Pending*, *Declined*, *Expired*; empty per tab; a row leaving after an answer; *Undo* after a decline.
+- **s46:** the Ring list with one picked; the note; the window; *Adding…*; the card sliding into the Ring; the four errors of S5.
+- **s47:** loading; the checklist with windows; the last-Ring choice; "What they see just changed"; what they share with me; *No access*.
+- **Contacts:** list, search with no results, empty, *No access* marker.
+- **Me:** the connections count hidden until real; Blocked people.
+- No photos until files load (D-16): initials everywhere.
+- Reduced motion: every slide becomes a fade.
+
+## Where the design disagrees (for the designer)
+
+| Screen | What's drawn | What the decisions need |
+|---|---|---|
+| s44, s42 | *Connect* opens s46, the **receiver's** accept sheet | *Connect* sends a request on the spot and turns into *Requested* (S2) |
+| s44 | No note field | A note, up to 200 characters, with a counter (D-17) |
+| s44 | Only the resolved card | *Requested*, *Declined*, *Expired*, *Connected*, *Accept*, not available, my own card |
+| s45 | *Sent · 5* goes nowhere; no note; no *Undo* | A Sent list with *Pending* / *Declined* / *Expired*, *Cancel*, *Connect* again (D-13, D-17); the note on incoming rows |
+| s46 | A full screen | The brief asks for a bottom sheet; either is fine, but one is needed. Plus the note, the window, *Decline* |
+| s47 | Only *Revoke access* | The checklist, windows, *Remove from Rings* / *Disconnect* (D-15), *Block* in ⋯ |
+| s47 | "2 events in common", "4 mutual connections" | Hidden until ND-23 |
+| s17 | Ring names ("Acme Team") | People, never the Ring (D-14) |
+| s15 | "Waiting on you" shows scans of my badge in a Ring | Join requests to that Ring only (S12) |
+| s62 | *Review 4* as a group | One s46 sheet per person (S15) |
+| s68 | "218 connections", no Contacts, no Blocked | Count hidden until real; Contacts and Blocked people entries |
+| — | Contacts list, Blocked people: not drawn | Both needed for the MVP (S8, S13) |
+
+## What the backend has to build
+
+Not available yet, in the order the journey needs them:
+
+1. **Addressing** ([[ND-10 How Connect addresses the scanned person]]) and the QR resolve `GET /views/qr/:token` ([[S-37 Badge & QR Story]]).
+2. **Requests:** `POST /connections/requests { to, note? }`; `GET /connections/requests?direction=incoming|sent` with the person, `status`, `note`, `createdAt`, where from; `DELETE /connections/requests/:id`; the 30-day expiry; no duplicate while pending.
+3. **Accept and decline:** `POST /connections/requests/:id/accept { ringId, startsAt?, expiresAt? }` (one transaction: connection, membership, `grantedRingId`) and `…/decline`.
+4. **Contacts:** `GET /connections?q=` with the person and *no access*; one call for which of my Rings a person is in.
+5. **Disconnect:** a route; and whether the other person is told.
+6. **Blocks:** `POST/DELETE /blocks/:userId`, `GET /blocks`; ending memberships both ways and pending requests.
+7. **Names on the roster:** `displayName`, `pinName`, photo per `RingMemberEntity`, or one join call.
+8. **First-Ring order:** `/views/pin` and the perspectives return the oldest membership first (D-15), not the default Ring.
+9. **Shared with me without Ring names** (D-14, on [[F-11 Rings]]).
+10. **Counts:** connections on Me; pending incoming.
+11. **Notifications:** request received, accepted (push carries no profile fields or Ring names).
+12. **Request error codes** (none defined yet): not found, already connected, already pending, no longer open.
 
 ## Rules the backend already enforces
 
-- A block is mutual and overrides membership in both directions ([[Ring Access Model]]); `POST /rings/:ringId/members` already refuses a blocked pair with 409 `E_RING_MEMBER_04`, so acceptance of a blocked requester must fail the same way, surfaced as the neutral 404 to the requester.
-- Reassign and revoke on s47 exist today (`POST …/reassign`, `DELETE …/members/:userId`, [[BI-06 Ring Members Backend Integration]]) and take effect on the person's next request; both Rings must share an owner (400 `E_RING_07`).
-- "Not shared", "blocked" and "no such pin" are one 404 (`E_RING_ACCESS_01`); Connections · S8–S12 extends the same body to sending a request.
-- `ConnectionRequest.grantedRingId` is never exposed to the requester; `RingProfileViewEntity` has no `ringId`.
-- The owner may add a member only to a Ring they own or administer at `MEMBER_MANAGER` level; the picker on s46 must list only those.
-- (Connections · S8–S12) Views resolve through `RingAccessService` with one 404 for missing, not shared and blocked; the send must reuse that body.
-- (Connections · S8–S12) `{ data, meta: { total } }` pagination with `limit` ≤ 50, as every list.
-- (Connections · S8–S12) Membership and which Ring someone is in are private to the owner.
-- (Connections · S13–S18) `POST /rings/:ringId/members` already grants a Ring's view to a user, and re-adding someone whose access lapsed reactivates their row; accept should reuse it inside the transaction.
-- (Connections · S13–S18) Reassign (`POST …/members/:userId/reassign`) moves a member in one transaction, so they never see two perspectives at once; revoke marks the row `REMOVED`.
-- (Connections · S13–S18) Only the owner or a delegated admin manages a Ring's members ([[S-31 Delegated Admins Story|Delegated Admins · S6]]).
-- (Connections · S13–S18) Not available yet: `GET /rings/shared-with-me` still returns the Ring's name to members; hiding it is the change [[D-14 Shared with me lists people, never the Ring]] asks of [[F-11 Rings]].
-- (Connections · S19–S24) Reassign moves a member in one transaction, so they never see two perspectives at once; revoke marks the row `REMOVED`, never deleted.
-- (Connections · S19–S24) The roster is owner or delegated-admin only; a member never sees who else is in a Ring unless the Ring's "members can see each other" is on ([[D-04 Ring settings at launch and their defaults]], not available yet).
-- (Connections · S19–S24) `GET /views/user/:userId/perspectives` returns only what is live and shared with the caller.
-- (Connections · S19–S24) Blocks hide in both directions with the same 404 as views ([[S-23 Connections Story|Connections · S25]]).
+- A block is mutual and overrides membership both ways ([[Ring Access Model]]); `POST /rings/:ringId/members` refuses a blocked pair with 409 `E_RING_MEMBER_04`.
+- "Not shared", "blocked" and "no such Pin" are one 404 (`E_RING_ACCESS_01`); a Ring not live is `E_RING_ACCESS_02` with the same message.
+- `RingProfileViewEntity` carries no `userId`, `ringId` or owner id.
+- Members are managed only by the owner or a delegated admin at `MEMBER_MANAGER` level (403 `E_RING_05`).
+- Re-adding someone removed or lapsed reactivates their membership; reassign moves them in one transaction (both Rings must have the same owner, 400 `E_RING_07`); remove marks the row `REMOVED`, never deletes it.
+- The owner can't add themselves (400 `E_RING_MEMBER_03`); an active member again is 409 `E_RING_MEMBER_01`.
+- Access is checked on every request against both windows, the Ring's and the membership's.
 
 ## Open questions
 
-- [[S-23 Connections Story|Connections · S26]] — semantics of *Introduce* on s47 (a request on someone's behalf, or a suggestion to Gemma); the button stays disabled until decided.
-- [[ND-10 How Connect addresses the scanned person]] — open; blocks S1's addressing ([[S-23 Connections Story|Connections · S8–S12]]).
-- Decided: [[D-13 The requester sees a declined request]], [[D-14 Shared with me lists people, never the Ring]] (a connection-granted membership lists as the person, never the Ring's name; not available yet), [[D-15 Several Rings per connection, remove or disconnect]], [[D-17 Requests expire after 30 days, optional note, ask again at once]].
-- **Mutual connections and events in common on s47: [[ND-23 Mutual connections and events in common]]** (open; the owner decides). This line used to say "otherwise they are computed over the viewer's own connections only", which disagreed with S24; ND-23 settles both.
-- The disconnect route, and whether the other person is told anything (D-15, *Still open*).
-- [[S-89 Gemma AI Story|Gemma AI · S7]] — the suggested Ring on s46; the default Ring is the fallback.
-- (Connections · S8–S12) **The receiver's id** ([[ND-10 How Connect addresses the scanned person]]). The view body has no user id. The app needs it from the scan ([[S-37 Badge & QR Story|Badge & QR · S13–S18]]) or from a `pinName` lookup; or the request accepts the scanned token or the `pinName` and resolves the person itself. This story stays Blocked · ND-10 until it is decided.
-- (Connections · S8–S12) How long a declined or expired request stays on the Sent list, and whether the receiver is reminded before a request expires (left open by [[D-17 Requests expire after 30 days, optional note, ask again at once]]).
-- (Connections · S13–S18) **Accept route.** `POST /connections/requests/:id/accept { ringId, startsAt?, expiresAt? }` and `…/decline`, or a status `PATCH`.
-- (Connections · S13–S18) **The suggested Ring.** Whether the server suggests a Ring now (by last used, by event), or s46 opens with none picked until [[S-89 Gemma AI Story|Gemma AI · S7]].
-- (Connections · S19–S24) **Member identity: on the roster or from contacts.** Add `displayName`, `pinName`, `avatarFileId` to `RingMemberEntity`, or have the app join the roster with `GET /connections`. On the roster is one request and works for members added without a connection.
-- (Connections · S19–S24) **Disconnect.** Its route, and whether the other person is told anything (left open by [[D-15 Several Rings per connection, remove or disconnect]]).
+- [[ND-10 How Connect addresses the scanned person]] — open; blocks S2 and the QR resolve. Recommended: `{ qrToken }` after a scan, `{ pinName }` after a lookup.
+- [[ND-23 Mutual connections and events in common]] — open; S9 hides both until decided.
+- **Both ask each other** (new, needs a decision card): when A asks B while B's request to A is pending, does the server accept B's request, merge them, or keep both? Proposed: the second *Connect* shows *Accept* (S2), so it never happens from the app; the server keeps one pending request per pair.
+- **Deleting an account** (new, needs a decision card): what happens to its connections, the requests it sent and received, and the blocks it made or received. Proposed: all end; the other person loses the row silently.
+- **Disconnect:** the route, and whether the other person is told (D-15 *Still open*). Proposed: not told.
+- How long a declined or expired request stays on Sent, and whether the receiver is reminded before one expires (D-17 *Still open*). Proposed: 30 days on Sent; no reminder in the MVP.
+- **Introduce** (s47): what it means (a request on someone's behalf, or a suggestion). Disabled until decided; proposed v1.
+- **Auto-accept on the badge** (s34): the app's switch starts *on*; D-04 makes "approve each one" the default. Either the switch starts off, or what auto-accept does (into which Ring) needs a decision. Proposed: off, and hidden until defined.
+- The suggested Ring on s46: [[S-89 Gemma AI Story|Gemma AI · S7]]; the default Ring until then.
 
+## Log
+
+- 2026-11-04 · flagged [[BD-09 Ring Members Backend Delivery]]: S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+- 2026-11-04 · flagged [[BI-05 Ring Access Engine Backend Integration]]: S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+- 2026-11-04 · flagged [[BI-06 Ring Members Backend Integration]]: S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+- 2026-11-04 · flagged [[BI-09 View As & Pin Views Backend Integration]]: S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+- 2026-11-04 · flagged [[D-13 The requester sees a declined request]]: S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+- 2026-11-04 · flagged [[D-14 Shared with me lists people, never the Ring]]: S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+- 2026-11-04 · flagged [[D-15 Several Rings per connection, remove or disconnect]]: S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+- 2026-11-04 · flagged [[D-17 Requests expire after 30 days, optional note, ask again at once]]: S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+- 2026-11-04 · flagged [[F-03 Counts]]: S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+- 2026-11-04 · flagged [[F-14 Connections]]: S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+- 2026-11-04 · flagged [[FR-03 Counts Frontend Requirements]]: S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+- 2026-11-04 · flagged [[FR-08 Ring Access Engine Frontend Requirements]]: S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+- 2026-11-04 · flagged [[FR-09 Ring Members Frontend Requirements]]: S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+- 2026-11-04 · flagged [[FR-11 Rings Frontend Requirements]]: S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+- 2026-11-04 · flagged [[FR-12 View As & Pin Views Frontend Requirements]]: S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+- 2026-11-04 · flagged [[FR-14 Connections Frontend Requirements]]: S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+- 2026-11-04 · flagged [[FR-16 Delegated Admins Frontend Requirements]]: S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+- 2026-11-04 · flagged [[FR-17 Ring Invitations & Join Frontend Requirements]]: S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+- 2026-11-04 · flagged [[FR-18 Badge & QR Frontend Requirements]]: S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+- 2026-11-04 · flagged [[FR-19 Discover Hub & Search Frontend Requirements]]: S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+- 2026-11-04 · flagged [[FR-20 PinCast & Nearby Frontend Requirements]]: S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+- 2026-11-04 · flagged [[FR-22 Events Before Frontend Requirements]]: S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+- 2026-11-04 · flagged [[FR-25 Post-Event Frontend Requirements]]: S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+- 2026-11-04 · flagged [[ND-10 How Connect addresses the scanned person]]: S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+- 2026-11-04 · flagged [[ND-13 Whether the requester sees a declined request]]: S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+- 2026-11-04 · flagged [[ND-14 Connection-granted Ring on Shared with me]]: S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+- 2026-11-04 · flagged [[ND-15 One Ring or several per connection]]: S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+- 2026-11-04 · flagged [[ND-17 Request expiry, note and asking again]]: S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+- 2026-11-04 · flagged [[ND-23 Mutual connections and events in common]]: S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+- 2026-11-04 · flagged [[S-15 Ring Access Engine Story]]: S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+- 2026-11-04 · flagged [[S-16 Ring Members Story]]: S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+- 2026-11-04 · flagged [[S-18 Rings Story]]: S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+- 2026-11-04 · flagged [[S-19 View As & Pin Views Story]]: S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+- 2026-11-04 · flagged [[S-31 Delegated Admins Story]]: S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+- 2026-11-04 · flagged [[S-37 Badge & QR Story]]: S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+- 2026-11-04 · flagged [[S-49 Events Before Story]]: S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+- 2026-11-04 · flagged [[S-62 Post-Event Story]]: S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+- 2026-11-04 · flagged [[Status Report 2026-10-15]]: S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.

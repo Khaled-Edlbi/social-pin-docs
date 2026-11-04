@@ -10,6 +10,8 @@ tags: [project, report]
 
 # Status Report · Backend vs Design (2026-10-15)
 
+> ⚠ Affected by [[S-23 Connections Story]] (2026-11-04): S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+
 The comparison this vault was built from. The backend was checked against the design's 78 prototype screens (`.proto2.json`), the click-through map (`.wire.json`) and the wireframe brief. Screen ids (`s01` … `s75`) are the prototype's own numbering; see [[Screen Index]].
 
 **Overall.** The backend covers the identity core: sign-up, profiles, Rings, members, what each Ring shows, "View as", and the central access engine. The database schema covers almost everything else in the design, but about 30 tables have no service or endpoints yet: connections, PinCast, events, meetings, business, payments, notifications, Gemma and analytics. There are 49 endpoints. Typecheck passes and all 168 unit tests pass (9 suites). The e2e tests have never been run, because they need a test database.

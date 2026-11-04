@@ -15,6 +15,8 @@ tags: [feature, module/connections, priority/critical, release/mvp]
 
 # Connections
 
+> ⚠ Affected by [[S-23 Connections Story]] (2026-11-04): S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+
 **Backend:** TODO · **Priority:** Critical · **Release:** MVP · **Module:** [[M-02 Connections Module|Connections]]
 
 **Layers:** [[S-23 Connections Story|Story]] · [[FR-14 Connections Frontend Requirements|Frontend Requirements]] · [[BD-14 Connections Backend Delivery|Backend Delivery]] · [[Connections Backend Integration|Backend Integration]] · [[Connections Frontend Delivery|Frontend Delivery]] · [[Connections QA Backend|QA Backend]] · [[Connections QA Frontend|QA Frontend]]

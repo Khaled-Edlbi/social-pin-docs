@@ -17,6 +17,8 @@ tags: [story, story/approved, module/shared-rings, layer/business]
 
 # Delegated Admins · User Story
 
+> ⚠ Affected by [[S-23 Connections Story]] (2026-11-04): S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+
 **Feature:** [[F-16 Delegated Admins]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[FR-16 Delegated Admins Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 A company Ring is too big for one person to run. The owner hands parts of the job to colleagues at a permission level: one may edit what the Ring shows, another may manage who is in it. The owner stays the owner; admins act on the owner's Ring and the engine already honours them on every write. What is missing is any way to appoint, change or remove them.

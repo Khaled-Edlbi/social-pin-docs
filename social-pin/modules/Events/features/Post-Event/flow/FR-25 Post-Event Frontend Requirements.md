@@ -13,6 +13,8 @@ tags: [frontend-requirements, frontend-requirements/draft, module/events, layer/
 
 # Post-Event · Frontend Requirements
 
+> ⚠ Affected by [[S-23 Connections Story]] (2026-11-04): S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
+
 **Feature:** [[F-25 Post-Event]] · **Status:** Draft · **Story:** [[S-62 Post-Event Story]] · **API Integration:** not yet (backend not built)
 
 What the client needs for the post-event summary and the Ring disposition sheet, and whether each need is met today. The disposition is built; the summary and follow-ups are not.
