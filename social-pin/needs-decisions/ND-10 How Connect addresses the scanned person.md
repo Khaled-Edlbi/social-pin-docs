@@ -1,24 +1,24 @@
 ---
 id: ND-10
 type: needs-decision
-status: draft
+status: open
 features: [badge-qr, connections]
 blocks: ["S-37 Badge & QR Story", "S-23 Connections Story"]
 decider: "owner"
 screens: [s43, s44]
 owner: "omar"
 affects: []
-related: ["F-12 View As & Pin Views", "F-14 Connections"]
+related: ["F-12 View As & Pin Views", "F-14 Connections", "D-10 Connect sends what the requester already has"]
 created: 2026-10-25
-updated: 2026-10-29
-tags: [needs-decision, needs-decision/draft]
+updated: 2026-11-04
+tags: [needs-decision, needs-decision/open]
 ---
 
-# ❓ ND-10 · How Connect addresses the scanned person
+# ✅ ND-10 · How Connect addresses the scanned person
 
 > ⚠ Affected by [[S-23 Connections Story]] (2026-11-04): S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
 
-**Status:** draft · **Decider:** owner · **Raised:** 2026-10-25 · **Needed by:** [[S-37 Badge & QR Story|Badge & QR · S13–S18]], [[S-23 Connections Story|Connections · S8–S12]] · **Feature:** [[F-18 Badge & QR]], [[F-14 Connections]]
+**Status:** open · **Decider:** owner · **Raised:** 2026-10-25 · **Needed by:** [[S-37 Badge & QR Story|Badge & QR · S13–S18]], [[S-23 Connections Story|Connections · S8–S12]] · **Feature:** [[F-18 Badge & QR]], [[F-14 Connections]]
 
 > The needs-decision card: `draft` while the question is written, `open` once it is ready for the decider; it shows **Fulfilled** by itself once its decision card (D-NN) is `decided`. The cards in `blocks` are **Blocked · ND-10** while this is `draft` or `open` and return to their own status once it is fulfilled. Nobody edits their `status:` for this, and nobody types `fulfilled` or `decided` here.
 
@@ -48,4 +48,4 @@ Recommendation: option 3. It adds no identifier to the view contract and reuses 
 
 ## Decision
 
-— (answered on its decision card, never written here: the PM or the owner, on the user's word, runs `node scripts/build-tree.mjs --scaffold decision ND-10 "<the answer>"`, fills the decision card D-NN (what was decided, why, what it changes with every feature and task in its `affects`, what stays open) and sets it `decided` with `decidedBy` and `decidedAt`; this card then shows Fulfilled by itself; the H1 gets ✅, and this line is replaced by "Fulfilled by" and a wikilink to the decision card, then "decided <date> by <who>: option <n>"; then `--impact D-NN` and flag the notes it lists)
+Fulfilled by [[D-10 Connect sends what the requester already has]] — decided 2026-11-04 by Omar Fostok: option 3.

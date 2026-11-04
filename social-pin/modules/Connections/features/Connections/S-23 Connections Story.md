@@ -20,6 +20,8 @@ tags: [story, story/draft, module/connections, layer/business]
 
 # Connections · User Story
 
+> ⚠ Affected by [[D-10 Connect sends what the requester already has]] (2026-11-04): ND-10 decided, option 3: Connect sends { qrToken } after a scan or { pinName } after a lookup; S2 no longer waits on ND-10.
+
 **Feature:** [[F-14 Connections]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[FR-14 Connections Frontend Requirements]] · **Backend Integration:** not yet · **Verified by:** [[Connections QA Backend]], [[Connections QA Frontend]]
 
 > **Rewritten 2026-11-04.** The earlier draft had two sets of parts covering the same ground (S1–S7, and S8–S26 merged from T-021…T-025) and two empty ones (Block, Introduce). This version is one set, ordered as the journey happens, checked against the design (Wireframe Brief §4.5, §5, §6.4, §11, the prototype), the backend as it is today (BD-14: no routes yet), the decisions D-13, D-14, D-15, D-17, D-18, and every screen of the app that a connection touches. *Where the design disagrees* lists what the designer has to redraw.
