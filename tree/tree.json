@@ -109,6 +109,7 @@
     "D-06 Yearly rename, old name freed, case-insensitive": "decision:D-06",
     "D-07 Stripe for all four flows": "decision:D-07",
     "D-10 Connect sends what the requester already has": "decision:D-10",
+    "D-11 The badge code stays the same for its day": "decision:D-11",
     "D-13 The requester sees a declined request": "decision:D-13",
     "D-14 Shared with me lists people, never the Ring": "decision:D-14",
     "D-15 Several Rings per connection, remove or disconnect": "decision:D-15",
@@ -374,6 +375,7 @@
     "D-06": "decision:D-06",
     "D-07": "decision:D-07",
     "D-10": "decision:D-10",
+    "D-11": "decision:D-11",
     "D-13": "decision:D-13",
     "D-14": "decision:D-14",
     "D-15": "decision:D-15",
@@ -3047,11 +3049,13 @@
     },
     "POST /rings/:ringId/qr": {
       "containers": [
+        "decision:D-11",
         "feature:badge-qr",
         "needs-decision:ND-11"
       ],
       "kind": "endpoint",
       "notes": [
+        "decision:D-11",
         "needs-decision:ND-11",
         "story:badge-qr"
       ],
@@ -4587,7 +4591,7 @@
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
-      "decision": 16,
+      "decision": 17,
       "feature": 41,
       "frontend-delivery": 1,
       "frontend-requirements": 39,
@@ -4601,21 +4605,21 @@
     },
     "byLayer": {
       "backend": 56,
-      "business": 133,
+      "business": 134,
       "frontend": 44,
       "qa": 4,
       "shared": 10
     },
     "concepts": 219,
     "decisions": 21,
-    "edges": 4462,
+    "edges": 4474,
     "features": 41,
     "layerNotes": 133,
     "modules": 8,
-    "notes": 278,
+    "notes": 279,
     "partial": 5,
     "placeholders": 152,
-    "records": 16
+    "records": 17
   },
   "deadlines": {
     "missed": {
@@ -4903,6 +4907,21 @@
       "from": "decision:D-10",
       "kind": "affects",
       "to": "story:connections"
+    },
+    {
+      "from": "decision:D-11",
+      "kind": "affects",
+      "to": "backend-delivery:badge-qr"
+    },
+    {
+      "from": "decision:D-11",
+      "kind": "affects",
+      "to": "frontend-requirements:badge-qr"
+    },
+    {
+      "from": "decision:D-11",
+      "kind": "affects",
+      "to": "story:badge-qr"
     },
     {
       "from": "decision:D-13",
@@ -6303,11 +6322,6 @@
       "from": "frontend-requirements:widgets",
       "kind": "blocks",
       "to": "backend-delivery:widgets"
-    },
-    {
-      "from": "needs-decision:ND-11",
-      "kind": "blocks",
-      "to": "story:badge-qr"
     },
     {
       "from": "needs-decision:ND-12",
@@ -8162,6 +8176,26 @@
       "from": "decision:D-10",
       "kind": "related",
       "to": "needs-decision:ND-11"
+    },
+    {
+      "from": "decision:D-11",
+      "kind": "related",
+      "to": "decision:D-10"
+    },
+    {
+      "from": "decision:D-11",
+      "kind": "related",
+      "to": "feature:badge-qr"
+    },
+    {
+      "from": "decision:D-11",
+      "kind": "related",
+      "to": "story:connections"
+    },
+    {
+      "from": "decision:D-11",
+      "kind": "related",
+      "to": "story:subscription"
     },
     {
       "from": "decision:D-13",
@@ -13892,6 +13926,11 @@
     {
       "from": "needs-decision:ND-11",
       "kind": "related",
+      "to": "decision:D-11"
+    },
+    {
+      "from": "needs-decision:ND-11",
+      "kind": "related",
       "to": "feature:badge-qr"
     },
     {
@@ -17012,6 +17051,14 @@
       "to": "task:B-08",
       "via": [
         "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "decision:D-11",
+      "kind": "shares",
+      "to": "feature:badge-qr",
+      "via": [
+        "POST /rings/:ringId/qr"
       ]
     },
     {
@@ -28156,6 +28203,11 @@
       "to": "decision:D-10"
     },
     {
+      "from": "needs-decision:ND-11",
+      "kind": "tree",
+      "to": "decision:D-11"
+    },
+    {
       "from": "needs-decision:ND-13",
       "kind": "tree",
       "to": "decision:D-13"
@@ -29284,6 +29336,21 @@
       "from": "decision:D-10",
       "kind": "wikilink",
       "to": "story:subscription"
+    },
+    {
+      "from": "decision:D-11",
+      "kind": "wikilink",
+      "to": "backend-delivery:badge-qr"
+    },
+    {
+      "from": "decision:D-11",
+      "kind": "wikilink",
+      "to": "frontend-requirements:badge-qr"
+    },
+    {
+      "from": "decision:D-11",
+      "kind": "wikilink",
+      "to": "story:badge-qr"
     },
     {
       "from": "decision:D-15",
@@ -34221,6 +34288,10 @@
     },
     "social-pin/decisions/D-10 Connect sends what the requester already has.md": {
       "name": "D-10 Connect sends what the requester already has",
+      "type": "decision"
+    },
+    "social-pin/decisions/D-11 The badge code stays the same for its day.md": {
+      "name": "D-11 The badge code stays the same for its day",
       "type": "decision"
     },
     "social-pin/decisions/D-13 The requester sees a declined request.md": {
@@ -40534,6 +40605,7 @@
         "feature:connections",
         "feature:badge-qr",
         "backend-integration:view-as",
+        "decision:D-11",
         "qa-backend:files",
         "frontend-requirements:ring-access",
         "frontend-requirements:view-as"
@@ -40550,6 +40622,67 @@
       ],
       "task": null,
       "title": "D-10 Connect sends what the requester already has",
+      "unmet": [],
+      "updated": "2026-11-04"
+    },
+    "decision:D-11": {
+      "affects": [
+        "story:badge-qr",
+        "frontend-requirements:badge-qr",
+        "backend-delivery:badge-qr"
+      ],
+      "blockedBy": [],
+      "card": "D-11",
+      "children": [],
+      "code": "D-11",
+      "created": "2026-11-04",
+      "deadline": null,
+      "decidedAt": "2026-11-04",
+      "decidedBy": "Omar Fostok",
+      "decides": "ND-11",
+      "depends": [],
+      "effectiveStatus": "decided",
+      "effort": null,
+      "feature": null,
+      "features": [
+        "badge-qr"
+      ],
+      "foundOn": null,
+      "frontendOnly": false,
+      "id": "decision:D-11",
+      "inherits": {},
+      "kind": "decision",
+      "label": "Decision",
+      "labels": [],
+      "layer": "business",
+      "module": null,
+      "openBugs": [],
+      "parentTask": null,
+      "parents": [
+        "needs-decision:ND-11"
+      ],
+      "path": "social-pin/decisions/D-11 The badge code stays the same for its day.md",
+      "pending": [],
+      "priority": null,
+      "related": [
+        "needs-decision:ND-11",
+        "decision:D-10",
+        "feature:badge-qr",
+        "story:subscription",
+        "story:connections"
+      ],
+      "release": null,
+      "resolution": null,
+      "scope": null,
+      "screens": [],
+      "status": "decided",
+      "summary": "Badge & QR already assumes a stable token (S2 reuses a valid one, S3 rotates after 24 h, S4 shows the last one offline). Rotating on every call would kill the code someone is about to scan…",
+      "tags": [
+        "decision",
+        "decision/decided"
+      ],
+      "task": null,
+      "title": "D-11 The badge code stays the same for its day",
       "unmet": [],
       "updated": "2026-11-04"
     },
@@ -41476,6 +41609,7 @@
         "needs-decision:ND-22",
         "decision:D-06",
         "decision:D-10",
+        "decision:D-11",
         "frontend-requirements:profiles",
         "story:profiles"
       ],
@@ -41483,10 +41617,10 @@
       "resolution": null,
       "rollup": {
         "blocked": 2,
-        "decided": 1,
-        "draft": 3,
+        "decided": 2,
+        "draft": 2,
         "missing": 4,
-        "verified": 1
+        "verified": 2
       },
       "scope": null,
       "screens": [
@@ -49739,11 +49873,11 @@
       "rollup": {
         "approved": 2,
         "blocked": 4,
-        "decided": 1,
-        "draft": 5,
+        "decided": 2,
+        "draft": 4,
         "in-progress": 3,
         "missing": 12,
-        "verified": 1
+        "verified": 2
       },
       "scope": null,
       "screens": [],
@@ -50617,13 +50751,15 @@
         "story:badge-qr"
       ],
       "card": "ND-11",
-      "children": [],
+      "children": [
+        "decision:D-11"
+      ],
       "code": "ND-11",
       "created": "2026-10-25",
       "deadline": null,
       "decider": "owner",
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "verified",
       "effort": null,
       "feature": null,
       "features": [
@@ -50631,6 +50767,7 @@
       ],
       "foundOn": null,
       "frontendOnly": false,
+      "fulfilledBy": "decision:D-11",
       "id": "needs-decision:ND-11",
       "inherits": {},
       "kind": "needs-decision",
@@ -50648,6 +50785,7 @@
       "priority": null,
       "related": [
         "feature:badge-qr",
+        "decision:D-11",
         "decision:D-10"
       ],
       "release": null,
@@ -50656,16 +50794,16 @@
       "screens": [
         "s34"
       ],
-      "status": "draft",
+      "status": "needs-decision",
       "summary": "Whether opening the badge (s34) always issues a new token, or returns the one that is still valid. Badge & QR · S7–S12 says POST /rings/:ringId/qr returns a token and revokes the previous one. If…",
       "tags": [
         "needs-decision",
-        "needs-decision/draft"
+        "needs-decision/open"
       ],
       "task": null,
       "title": "ND-11 Get or rotate the badge token",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-04"
     },
     "needs-decision:ND-12": {
       "affects": [],
@@ -57349,10 +57487,10 @@
         "approved": 33,
         "blocked": 37,
         "current": 8,
-        "decided": 16,
+        "decided": 17,
         "delivered": 2,
         "done": 11,
-        "draft": 30,
+        "draft": 29,
         "failing": 1,
         "in-progress": 45,
         "missing": 152,
@@ -57362,7 +57500,7 @@
         "ready": 9,
         "reference": 32,
         "todo": 9,
-        "verified": 16
+        "verified": 17
       },
       "scope": null,
       "screens": [],
@@ -57620,11 +57758,6 @@
     "story:badge-qr": {
       "affects": [],
       "blockedBy": [
-        {
-          "id": "needs-decision:ND-11",
-          "title": "ND-11 Get or rotate the badge token",
-          "why": "needs decision ND-11 (draft)"
-        },
         {
           "id": "needs-decision:ND-12",
           "title": "ND-12 What the badge QR encodes",
@@ -57975,6 +58108,7 @@
       "pending": [],
       "priority": "critical",
       "related": [
+        "decision:D-11",
         "decision:D-04",
         "decision:D-13",
         "decision:D-14",
@@ -59834,6 +59968,7 @@
       "pending": [],
       "priority": "critical",
       "related": [
+        "decision:D-11",
         "frontend-delivery:account"
       ],
       "release": "mvp",
