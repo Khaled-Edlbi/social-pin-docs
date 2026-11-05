@@ -3593,7 +3593,6 @@
       "notes": [
         "backend-delivery:ring-members",
         "backend-integration:ring-members",
-        "frontend-requirements:ring-members",
         "project:spec-map"
       ],
       "owner": "feature:ring-members"
@@ -5284,7 +5283,7 @@
     },
     "concepts": 257,
     "decisions": 28,
-    "edges": 5345,
+    "edges": 5346,
     "features": 41,
     "layerNotes": 137,
     "modules": 8,
@@ -16115,8 +16114,7 @@
         "E_RING_05",
         "GET /rings",
         "PATCH /rings/:ringId/members/:userId",
-        "POST /rings/:ringId/members",
-        "POST /rings/:ringId/members/:userId/reassign"
+        "POST /rings/:ringId/members"
       ]
     },
     {
@@ -18856,6 +18854,11 @@
       "from": "frontend-requirements:ring-members",
       "kind": "related",
       "to": "decision:D-18"
+    },
+    {
+      "from": "frontend-requirements:ring-members",
+      "kind": "related",
+      "to": "decision:D-28"
     },
     {
       "from": "frontend-requirements:ring-members",
@@ -50320,7 +50323,8 @@
         "decision:D-10",
         "feature:connections",
         "frontend-requirements:connections",
-        "story:connections"
+        "story:connections",
+        "frontend-requirements:ring-members"
       ],
       "release": null,
       "resolution": null,
@@ -53332,8 +53336,8 @@
         "current": 1,
         "decided": 1,
         "done": 1,
-        "draft": 1,
         "missing": 3,
+        "ready": 1,
         "verified": 1
       },
       "scope": null,
@@ -58589,7 +58593,7 @@
       "depends": [
         "story:ring-members"
       ],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "ready",
       "effort": null,
       "feature": "ring-members",
       "foundOn": null,
@@ -58630,6 +58634,8 @@
         "story:connections",
         "story:ring-invitations",
         "story:error-contract",
+        "story:delegated-admins",
+        "decision:D-28",
         "story:counts",
         "backend-delivery:ring-members",
         "frontend-requirements:companies",
@@ -58662,7 +58668,6 @@
         "frontend-requirements:view-as",
         "frontend-requirements:app-shell",
         "frontend-requirements:cleanup-jobs",
-        "story:delegated-admins",
         "project:status-report-2026-10-15",
         "project:frontend-contract",
         "frontend-requirements:exhibitor",
@@ -58691,11 +58696,11 @@
         "s46",
         "s47"
       ],
-      "status": "draft",
+      "status": "ready",
       "summary": "What the client needs from the backend to build the owner's roster, the per-person checklist of Rings, the \"bring people in\" flow, join approvals and the members a member may see, and whether each…",
       "tags": [
         "frontend-requirements",
-        "frontend-requirements/draft",
+        "frontend-requirements/ready",
         "module/identity",
         "layer/frontend"
       ],
@@ -59736,13 +59741,13 @@
         "decided": 10,
         "delivered": 4,
         "done": 12,
-        "draft": 4,
+        "draft": 3,
         "in-progress": 13,
         "missing": 34,
         "needs-decision": 1,
         "partial": 11,
         "passing": 3,
-        "ready": 1,
+        "ready": 2,
         "verified": 10
       },
       "scope": null,
@@ -67762,13 +67767,13 @@
         "decided": 26,
         "delivered": 4,
         "done": 13,
-        "draft": 30,
+        "draft": 29,
         "in-progress": 47,
         "missing": 148,
         "needs-decision": 1,
         "partial": 11,
         "passing": 3,
-        "ready": 3,
+        "ready": 4,
         "reference": 32,
         "todo": 3,
         "verified": 26
