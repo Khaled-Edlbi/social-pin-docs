@@ -596,6 +596,10 @@ const node = (id) => S.D.nodes[id];
 const stOf = (n) => ST[n.effectiveStatus] || ST.todo;
 // a card that waits on the card before it (and every card below it in the ladder) is drawn dim until the blocker is done
 const inactive = (n) => n.effectiveStatus === 'blocked' || (n.effectiveStatus === 'missing' && Array.isArray(n.blockedBy) && n.blockedBy.length > 0);
+// the card the others wait on: a needs-decision card still draft or open (fulfilled shows as `verified`).
+// It is never drawn dim, whatever filter, search or hover is active: the dimmed cards cannot be worked on
+// until it is decided, so it must always read as the live card next to them (2026-11-05).
+const waitedOn = (n) => !!n && n.kind === 'needs-decision' && (n.effectiveStatus === 'needs-decision' || n.effectiveStatus === 'draft');
 const legend = (s) => (S.D && S.D.legend[s]) || s;
 // a story is fulfilled when the PM set it `verified` (✅); its flow then folds under it until the reader expands it
 const isFulfilled = (n) => !!n && n.kind === 'story' && n.status === 'verified';
@@ -1169,6 +1173,7 @@ function updateHover() {
     r.box.style.fill = (S.focus && id === act) ? 'var(--color-accent-100)' : r.baseFill;
     r.box.style.filter = (S.focus && id === act) ? 'drop-shadow(0 0 6px color-mix(in srgb, var(--color-accent) 55%, transparent))' : '';
     let op = r.faded ? 0.22 : (r.inactive && !isAct && id !== S.selected) ? 0.45 : 1; if (act && !isAct && !isFar) op = Math.min(op, 0.32);
+    if (waitedOn(node(id))) op = 1;
     r.g.style.opacity = op;
   }
   if (gTree) gTree.style.opacity = act ? 0.35 : 1;
@@ -1380,7 +1385,7 @@ function renderOutline() {
   const frag = document.createDocumentFragment();
   for (const it of flat) {
     const n = it.node, has = n.children.length > 0, big = n.kind === 'root' || n.kind === 'module';
-    const row = document.createElement('div'); row.className = `orow k-${n.kind}${big ? ' big' : ''}${S.selected === it.id ? ' sel' : ''}${active && !it.match ? ' faded' : ''}${inactive(n) ? ' inactive' : ''}`;
+    const row = document.createElement('div'); row.className = `orow k-${n.kind}${big ? ' big' : ''}${S.selected === it.id ? ' sel' : ''}${active && !it.match && !waitedOn(n) ? ' faded' : ''}${inactive(n) ? ' inactive' : ''}`;
     row.setAttribute('role', 'treeitem'); row.tabIndex = 0; row.dataset.row = it.iid; if (has) row.setAttribute('aria-expanded', String(!!it.open));
     row.style.paddingLeft = (10 + it.depth * 24) + 'px';
     row.innerHTML = `<button class="car" aria-label="Toggle" style="visibility:${has ? 'visible' : 'hidden'}"><i class="ph-duotone ${it.open ? 'ph-caret-down' : 'ph-caret-right'}"></i></button><i class="ki ph-duotone ${kindOf(displayKind(n)).icon}"></i><span class="t" title="${esc(n.path || n.title)}">${esc(shown(n))}</span><span class="kick">${n.kind === 'root' ? '' : esc(kicker(n))}</span>${marksHtml(n)}${tagsHtml(n)}${(n.labels || []).map((l) => `<span class="stchip" style="--bg:${labelStyle(l).bg};--ink:${labelStyle(l).ink};--bd:${labelStyle(l).c};text-transform:uppercase;letter-spacing:.06em;font-weight:700;font-size:10px">${esc(l)}</span>`).join('')}${n.kind === 'root' ? '' : chipHtml(n)}`;
