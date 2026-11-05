@@ -3,7 +3,7 @@ id: FR-08
 type: frontend-requirements
 module: identity
 feature: ring-access
-status: draft
+status: ready
 scope: feature
 screens: [s15, s16, s17, s26, s27, s31, s44, s47, s62]
 owner: "Omar Fostok"
@@ -12,21 +12,12 @@ affects: ["BD-08 Ring Access Engine Backend Delivery"]
 related: ["BI-05 Ring Access Engine Backend Integration", "Ring Access Model", "D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-18 Ring names shown when joined knowingly", "ND-23 Mutual connections and events in common", "FR-11 Rings Frontend Requirements", "FR-12 View As & Pin Views Frontend Requirements", "S-18 Rings Story", "S-16 Ring Members Story", "S-23 Connections Story", "S-31 Delegated Admins Story", "S-87 Error Contract Story", "GET /rings/shared-with-me", "GET /views/pin/:pinName", "GET /views/ring/:ringId", "GET /views/user/:userId/perspectives", E_RING_05, E_RING_02]
 created: 2026-10-18
 updated: 2026-11-05
-tags: [frontend-requirements, frontend-requirements/draft, module/identity, layer/frontend]
+tags: [frontend-requirements, frontend-requirements/ready, module/identity, layer/frontend]
 ---
 
 # Ring Access Engine · Frontend Requirements
 
-> ⚠ Affected by [[S-31 Delegated Admins Story]] (2026-11-05): S-31 was rewritten (2026-11-05) to match the app's one Edit Ring screen, with rules A1–A7 decided inside the story (no decision cards): company Rings only; an admin must be a member of the Ring; two levels (edit what it shows / also manage who's in it), owner-only appointing; member-managers change the joining settings, who it's for, delete and default stay owner-only; Rings you manage on My Rings and Company detail; rights end on removal, leaving the Ring or the company, silently. The old Delegated Admins · S6 (T-006, the admin routes) is now its 'What the backend has to build'; the levels are S3/A3. Repoint the links that name Delegated Admins · S6.
-
-> ⚠ Affected by [[S-23 Connections Story]] (2026-11-04): S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
-
-**Feature:** [[F-08 Ring Access Engine]] · **Status:** Draft, sent back by the backend 2026-11-05 · **Story:** [[S-15 Ring Access Engine Story]] · **Backend Integration:** [[BI-05 Ring Access Engine Backend Integration]]
-
-> **For `/frontend`, from the backend's review (2026-11-05, against backend `main` f186ba1).** Sent back to `draft` for three fixes; set it `ready` again once they're in.
-> 1. **Owner editing, 403.** Only `PATCH /rings/:id`, the `/rings/:ringId/members/*` routes and the `/rings/:ringId/projection/*` routes go through `assertCanAdminister` (403 `E_RING_05` below the level, expired Rings still editable). Set-default (`POST /rings/:id/default`), `POST /rings/:id/disposition` and `DELETE /rings/:id` are **owner-only**: anyone else, an admin included, gets 404 `E_RING_02`, which is what S-31 decides (delete and default stay the owner's). Fix the s16 / s62 line ("passes through `assertCanAdminister`") and the "403 when below the admin level · all `/rings/:id` editing routes" row.
-> 2. **`/views` 404 bodies.** They are not all identical: on `GET /views/ring/:ringId` an expired Ring answers *"Ring is not available"* (`E_RING_ACCESS_02`) to every caller, a Ring not shared with you *"This profile is not shared with you"* (`E_RING_ACCESS_01`). Keep the client rule (one message to a viewer), but drop the sentence that says the bodies are identical. The backend records the difference as a gap in [[BD-08 Ring Access Engine Backend Delivery]].
-> 3. **The two flags above.** Repoint *Connections · S25* (block) to [[S-23 Connections Story|Connections · S13]], and *Delegated Admins · S6* to S-31's *What the backend has to build*, in *Endpoints required* and *Blocked by*; then clear both flag lines.
+**Feature:** [[F-08 Ring Access Engine]] · **Status:** Ready (waiting for the backend; the 2026-11-05 review answered) · **Story:** [[S-15 Ring Access Engine Story]] · **Backend Integration:** [[BI-05 Ring Access Engine Backend Integration]]
 
 The engine exposes no endpoint. What the client needs from it is a set of guarantees that other endpoints carry: which rows appear on Shared with me and what each may say, what every `/views` route answers, and when an owner route says 403. This note lists those guarantees per surface and the client behaviour they require; the assumptions are spelled out in [[BI-05 Ring Access Engine Backend Integration]] and [[Ring Access Model]]. The screens themselves belong to other features ([[F-11 Rings]], [[F-09 Ring Members]], [[F-12 View As & Pin Views]], [[F-14 Connections]]); each section here is only what the engine decides on it.
 
@@ -51,7 +42,8 @@ The engine exposes no endpoint. What the client needs from it is a set of guaran
 ### Any owner editing screen ([[Screen Index#s14|s14]], [[Screen Index#s15|s15]], [[Screen Index#s22|s22]] – [[Screen Index#s27|s27]])
 
 - Needs: a 403 when the caller is below the required admin level; editing allowed on an expired Ring.
-- Source today: `assertCanAdminister` behind `PATCH /rings/:id`, `/rings/:ringId/members/*`, `/rings/:ringId/projection/*`.
+- Source today: `assertCanAdminister` behind `PATCH /rings/:id`, `/rings/:ringId/members/*`, `/rings/:ringId/projection/*` (403 `E_RING_05` below the level).
+- **Owner-only, not a level:** making a Ring the default (`POST /rings/:id/default`), its disposition (`POST /rings/:id/disposition`) and deleting it (`DELETE /rings/:id`). Anyone else, an admin included, gets 404 `E_RING_02`, as if the Ring did not exist ([[S-31 Delegated Admins Story|Delegated Admins · A4]]): the client shows these actions to the owner only and treats the 404 as a missing Ring.
 
 ### [[Screen Index#s26|s26]], [[Screen Index#s27|s27]] Ring settings: what the engine enforces (S8)
 
@@ -80,7 +72,7 @@ The engine exposes no endpoint. What the client needs from it is a set of guaran
 
 - s16: "expires 16 Mar" and the "expired" chip are computed from `expiresAt` on the owner's side.
 - s62: the expired Ring is still editable so the disposition can be chosen; it is never previewed with the view route.
-- Source today: `POST /rings/:id/disposition` passes through `assertCanAdminister`, which ignores expiry.
+- Source today: `POST /rings/:id/disposition`, owner-only: anyone else, an admin included, gets 404 `E_RING_02`.
 
 ## Guarantees the client may rely on
 
@@ -103,10 +95,11 @@ The engine exposes no endpoint. What the client needs from it is a set of guaran
 | Render one person, default access | `GET /views/pin/:pinName` | ✅ | — (listed under [[F-12 View As & Pin Views]]) |
 | Render one Ring, if readable | `GET /views/ring/:ringId` | ✅ | — (listed under [[F-12 View As & Pin Views]]) |
 | Every perspective I hold of one person | `GET /views/user/:userId/perspectives` | ✅ | — (listed under [[F-12 View As & Pin Views]]) |
-| 403 when below the admin level | all `/rings/:id` editing routes | ✅ | — |
+| 403 when below the admin level | `PATCH /rings/:id`, `/rings/:ringId/members/*`, `/rings/:ringId/projection/*` | ✅ | — |
+| Owner-only: 404 to anyone else, an admin included | `POST /rings/:id/default`, `POST /rings/:id/disposition`, `DELETE /rings/:id` | ✅ | — ([[S-31 Delegated Admins Story\|Delegated Admins · A4]]) |
 | The six launch settings, saved and enforced | — | ❌ | built in [[S-18 Rings Story\|Rings · S9]] (asked in FR-11); enforced per S-15 S8 |
-| Create or remove a block | — | ❌ | [[S-23 Connections Story\|Connections · S25]] |
-| Grant or revoke a delegated admin level | — | ❌ | [[S-31 Delegated Admins Story\|Delegated Admins · S6]] |
+| Create or remove a block | — | ❌ | [[S-23 Connections Story\|Connections · S13]] |
+| Grant or revoke a delegated admin level | — | ❌ | [[S-31 Delegated Admins Story#What the backend has to build\|Delegated Admins · What the backend has to build]] |
 | Mutual connections and events in common | — | ❌ | [[ND-23 Mutual connections and events in common]] |
 | Resolve a scanned QR token through the engine | — | ❌ | [[S-37 Badge & QR Story\|Badge & QR · S13–S18]] |
 
@@ -130,15 +123,15 @@ The engine exposes no endpoint. What the client needs from it is a set of guaran
 | 404 | `E_RING_ACCESS_01` | "This profile isn't available to you" (no such Pin, not shared, or blocked) |
 | 404 | `E_RING_ACCESS_02` | the same message to a viewer; "This Ring has expired" to the owner on View as |
 | 403 | `E_RING_05` | hide the editing UI; the caller is a member or an admin below the level |
-| 404 | `E_RING_02` | Ring not found or not administrable: treat as missing |
+| 404 | `E_RING_02` | Ring not found, or an owner-only action (default, disposition, delete) by anyone but the owner: treat as missing |
 | 409 | `E_RING_MEMBER_04` | "Cannot add this user" (a block exists; do not say so) |
 
-Until [[S-87 Error Contract Story|Error Contract · S4–S8]] ships, the body carries no `ErrorCode`: branch on status and endpoint. The `/views` 404 bodies are identical by design and by spec.
+Until [[S-87 Error Contract Story|Error Contract · S4–S8]] ships, the body carries no `ErrorCode`: branch on status and endpoint. The client shows one message for every `/views` 404 whatever the body says (on `GET /views/ring/:ringId` an expired Ring and a Ring not shared with you answer different messages; the backend records it as a gap in [[BD-08 Ring Access Engine Backend Delivery]]).
 
 ## Blocked by
 
 - [[S-18 Rings Story|Rings · S9]]: the six settings, saved; until then every Ring is all-off and no screen implies members see one another.
 - S-15 S1's membership origin: Ring names on Shared with me for Rings joined knowingly; until then every row is the person.
-- [[S-23 Connections Story|Connections · S25]]: a block screen; the engine already honours blocks but none can be created.
-- [[S-31 Delegated Admins Story|Delegated Admins · S6]]: admin management on s26 / s27; today only owners pass the level check.
+- [[S-23 Connections Story|Connections · S13]]: a block screen; the engine already honours blocks but none can be created.
+- [[S-31 Delegated Admins Story#What the backend has to build|Delegated Admins · What the backend has to build]]: admin management behind Edit Ring's *Joining and permissions* (s26 / s27 merged); today only owners pass the level check.
 - [[ND-23 Mutual connections and events in common]]: the two rows on s47.
