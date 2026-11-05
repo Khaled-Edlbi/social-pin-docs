@@ -9,9 +9,9 @@ screens: [s68, s01, s70]
 depends: []
 affects: []
 related: ["FR-01 Account Frontend Requirements", "QB-04 Account QA Backend", "S-87 Error Contract Story", "S-117 Operator Panel Story", "B-02 Deleted account answers 401, not the documented 404 E_USER_01", "S-06 Files Upload Story"]
-pending: ["[[S-87 Error Contract Story|Error Contract · S4–S8]]: F19 (suspended mid-session, AC-15) can only show the not-active copy once E_AUTH_03 is on the wire", "[[S-117 Operator Panel Story|Operator Panel · S3]]: F19 cannot be run until a route suspends an account", "@omar: F3 Pro side, F4, F5, F14 (Back, DA-05), F15, F16 and F20 (saving in Arabic) not run by the Maestro pass; run by hand"]
+pending: ["[[S-87 Error Contract Story|Error Contract · S4–S8]]: F19 (suspended mid-session, AC-15) can only show the not-active copy once E_AUTH_03 is on the wire", "[[S-117 Operator Panel Story|Operator Panel · S3]]: F19 cannot be run until a route suspends an account"]
 created: 2026-10-26
-updated: 2026-10-29
+updated: 2026-11-05
 tags: [qa-frontend, qa-frontend/passing, module/identity, layer/qa]
 ---
 
@@ -21,9 +21,7 @@ tags: [qa-frontend, qa-frontend/passing, module/identity, layer/qa]
 
 > ⚠ Affected by [[BI-02 Auth & Sign-up Backend Integration]] (2026-11-05): POST /auth/refresh for a SUSPENDED account answers 403 E_AUTH_03, not 401, on backend main @ 504cb21 (open on BD-02); a session that ends on 'the refresh that follows is refused' must treat a 403 from /auth/refresh as a sign-out too. Also: of two concurrent refreshes with one token, the loser now gets 401 E_AUTH_04 (B-03)
 
-> ⚠ Affected by [[B-01 An unverified changed email still signs in]] (2026-10-26): this note was written twice in parallel; the merge kept the run on `47ce960` and dropped the unrun draft. B-01's `pending` asks for "row F10" of the draft (the copy under the ACCOUNT group while anything is unverified, now the copy [[D-20 The changed address still signs in, the words are corrected]] accepts): find the row of this run that covers it and clear B-01's item. `/qa`.
-
-**Feature:** [[F-01 Account]] · **Verifies:** [[FD-04 Account Frontend Delivery]] against [[S-01 Account Story]] · **Verdict:** ✅ Passing on every row run · 2026-10-26 · `social_pin` `main` @ `47ce960` · 8 rows not run (see `pending`)
+**Feature:** [[F-01 Account]] · **Verifies:** [[FD-04 Account Frontend Delivery]] against [[S-01 Account Story]] · **Verdict:** ✅ Passing on every row run · 2026-11-05 · `social_pin` `rings/F-11/honest-rings` @ `f462a28` · 1 row not run, F19 (see `pending`)
 
 Expected behaviour of the screens, as artefacts: journeys, states and copy to check a build against, **not test code**. `status: passing` or `failing` after a run; the verdict tells the PM whether the story can be fulfilled (passing with nothing pending).
 
@@ -37,9 +35,9 @@ Expected behaviour of the screens, as artefacts: journeys, states and copy to ch
 |---|---|---|---|---|
 | F1 | S1 | Sign in → Me (PR-01) | The header shows the default profile's full name and `!pinName`; the photo is initials until [[S-06 Files Upload Story|Files Upload · showing files]]. | ✅ |
 | F2 | S1 | Me (AC-01, AC-02) | ACCOUNT group under the plan card: Email and Phone with the real values, each **Verified** or **Unverified** from `…VerifiedAt`; "Add" where there is none; "Last signed in" as a relative time. | ✅ |
-| F3 | S1 | A Free and a Pro account → Me (AC-03) | Free: "Free plan" and **Upgrade**, which opens [[Screen Index#s70|s70]]. Pro: "Pro plan", no Upgrade (shown on the plan card, not as a header badge: [[FD-04 Account Frontend Delivery#Deviations from the story or the integration note]]). | ⬜ Free side ✅ (AC-01); Pro side and Upgrade → s70 not run |
-| F4 | S1 | Change the plan or verify an address on the backend → background → foreground (AC-12, AC-10) | Me shows the change without a restart. | ⬜ not run: needs the plan or a verification changed on the backend |
-| F5 | S1 | Use every Account journey above and below | No sign-in code, access or refresh token is ever on screen; there is no password row. | ⬜ not run: a judgement check, by hand |
+| F3 | S1 | A Free and a Pro account → Me (AC-03) | Free: "Free plan" and **Upgrade**, which opens [[Screen Index#s70|s70]]. Pro: "Pro plan", no Upgrade (shown on the plan card, not as a header badge: [[FD-04 Account Frontend Delivery#Deviations from the story or the integration note]]). | ✅ Free side (AC-01, 2026-10-26); Pro side and Upgrade → s70 by hand (2026-11-05) |
+| F4 | S1 | Change the plan or verify an address on the backend → background → foreground (AC-12, AC-10) | Me shows the change without a restart. | ✅ by hand (2026-11-05) |
+| F5 | S1 | Use every Account journey above and below | No sign-in code, access or refresh token is ever on screen; there is no password row. | ✅ by hand (2026-11-05) |
 | F6 | S2 | Email → new address → Save (AC-04) | The sheet closes; the row shows the new address, **Unverified**, and the note "Confirming a new email or number isn't in the app yet." under the group. | ✅ |
 | F7 | S2 | Email → `not-an-email` → Save (AC-06) | "Enter an email like name@example.com." under the field; nothing sent. | ✅ |
 | F8 | S2 | Email → an address on another account → Save (AC-07) | "This email is already on another account." under the field; the sheet stays open. | ✅ |
@@ -48,13 +46,13 @@ Expected behaviour of the screens, as artefacts: journeys, states and copy to ch
 | F11 | S3 | Phone → a number on another account → Save (AC-08) | "This number is already on another account." under the field. | ✅ |
 | F12 | S3 | Phone → clear the field → Save | "Enter your phone number." under the field; nothing sent: a destination cannot be cleared. | ✅ |
 | F13 | S4 | Me → Delete account (DA-01, DA-02, DA-03) | "Delete account" in red under Sign out; a sheet names what happens; Cancel or swipe keeps you signed in on Me. | ✅ |
-| F14 | S4 | Delete account → Delete my account (DA-04, DA-05) | Loader, then Welcome with "Your account has been deleted."; Back cannot return; the same email then signs up as new. | ⬜ Welcome and "Your account has been deleted." ✅ (every flow's cleanup); Back and DA-05 not run |
-| F15 | S4 | Delete from phone B; phone A comes back to the foreground, or opens cold (AC-13, AC-14, DA-06) | Phone A lands on Welcome, not on the saved account. Copy: "Your account has been deleted." — the API answers 404 to the old token since `main @ b4984d6` ([[B-02 Deleted account answers 401, not the documented 404 E_USER_01]], fixed). | ⬜ not run: needs a second phone |
-| F16 | S4 | Airplane mode → Delete account → Delete my account (DA-07) | The connection error toast; still signed in, still on Me. | ⬜ not run: needs airplane mode |
+| F14 | S4 | Delete account → Delete my account (DA-04, DA-05) | Loader, then Welcome with "Your account has been deleted."; Back cannot return; the same email then signs up as new. | ✅ Welcome and "Your account has been deleted." (every flow's cleanup, 2026-10-26); Back and DA-05 by hand (2026-11-05) |
+| F15 | S4 | Delete from phone B; phone A comes back to the foreground, or opens cold (AC-13, AC-14, DA-06) | Phone A lands on Welcome, not on the saved account. Copy: "Your account has been deleted." — the API answers 404 to the old token since `main @ b4984d6` ([[B-02 Deleted account answers 401, not the documented 404 E_USER_01]], fixed). | ✅ by hand, two phones (2026-11-05) |
+| F16 | S4 | Airplane mode → Delete account → Delete my account (DA-07) | The connection error toast; still signed in, still on Me. | ✅ by hand (2026-11-05) |
 | F17 | S5 | Me → Privacy (AC-16, RP-13, RP-12) | Each row: on the right what's set on the profile or "Not set"; under the title which of your Rings show it, or "Hidden from all Rings"; never "public". The note says setting a value shows it on no Ring. | ✅ |
 | F18 | S5 | Tap Gender → Female; Marital status → the value already set; Birthdate → a date → OK (AC-16, AC-17, AC-18) | Gender shows **Female**; the line under the title is unchanged (no Ring starts showing it). The same value sends nothing. Birthdate shows the picked date. A picker opens, not a profile editor (recorded deviation). | ✅ |
 | F19 | S6 | Suspend the account while signed in → use the app (AC-15) | Welcome with "This account can't sign in right now. Contact support…", no retry loop. Until [[S-87 Error Contract Story|Error Contract · S4–S8]] the copy is "Your session has expired."; cannot be run until [[S-117 Operator Panel Story|Operator Panel · S3]] suspends an account. | ⬜ not run: see `pending` |
-| F20 | all | Repeat F2, F6, F13 and F18 in **Arabic** (AC-11, AC-19, DA-08) | Texts in Arabic, right-to-left; the phone number stays left-to-right. | ⬜ F2, the change sheet's title, F18 and the delete ✅ in Arabic (AC-19); saving a change in Arabic not run |
+| F20 | all | Repeat F2, F6, F13 and F18 in **Arabic** (AC-11, AC-19, DA-08) | Texts in Arabic, right-to-left; the phone number stays left-to-right. | ✅ F2, the change sheet's title, F18 and the delete in Arabic (AC-19, 2026-10-26); saving a change in Arabic by hand (2026-11-05) |
 
 ## Screen states
 
@@ -102,5 +100,12 @@ flowchart LR
 
 - Run on: 2026-10-26 · build: `social_pin` `main` @ `47ce960`, development debug APK, on an Android phone against the dev API (`social-pin.api.dev.brain-socket.com`) · result: ✅ **passing** on every row run: F1, F2, F6–F13, F17, F18 · failing rows: none
 - How: 11 Maestro flows in the client's `.maestro/account/` (one per case, AC-01…AC-19 and DA-01…DA-04), each signing up a throwaway account and deleting it at the end. All 11 passed; one flake (AC-04's cleanup waited past 8 s on a slow delete) passed on re-run.
-- Not run (⬜, in `pending`): F3 Pro side, F4, F5, F14 in part, F15, F16, F20 in part — by hand; F19 — waits on [[S-117 Operator Panel Story|Operator Panel · S3]] and [[S-87 Error Contract Story|Error Contract · S4–S8]]. The note stays Partial until they are.
+- Run on: 2026-11-05 · build: `social_pin` `rings/F-11/honest-rings` @ `f462a28` (the latest build) against the dev API · by hand, by Omar Fostok · result: ✅ **passing**: F3 (Pro side, Upgrade → s70), F4, F5, F14 (Back, DA-05), F15 (two phones), F16, F20 (saving in Arabic) · failing rows: none
+- B-01's "row F10" of the dropped draft (the note under the ACCOUNT group while anything is unverified) is this run's F6 and the *something unverified* screen state, ✅ on both runs.
+- Not run (⬜, in `pending`): F19 — waits on [[S-117 Operator Panel Story|Operator Panel · S3]] and [[S-87 Error Contract Story|Error Contract · S4–S8]]. The note stays Partial until they are.
 - Seen on the run, not a failure: an account that has only signed up has no "Last signed in" row — `lastLoginAt` is empty until the first sign-in, and the row is hidden then (AC-01b checks it on an account that has signed in).
+
+## Log
+
+- 2026-11-05 · flagged [[B-02 Deleted account answers 401, not the documented 404 E_USER_01]]: F15 ran by hand on two phones on social_pin f462a28 against the dev API: phone A lands on Welcome with 'Your account has been deleted.' Your QF-04 pending item is settled; /pm clears it
+- 2026-11-05 · flagged [[B-01 An unverified changed email still signs in]]: the row F10 asked for is QF-04's F6 and its 'something unverified' state, passing on 2026-10-26 and again 2026-11-05: your QF-04 pending item is settled; /pm clears it

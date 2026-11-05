@@ -59600,11 +59600,6 @@
           "person": null,
           "text": "F19 cannot be run until a route suspends an account",
           "to": "story:operator-panel"
-        },
-        {
-          "person": "omar",
-          "text": "F3 Pro side, F4, F5, F14 (Back, DA-05), F15, F16 and F20 (saving in Arabic) not run by the Maestro pass; run by hand",
-          "to": null
         }
       ],
       "priority": "critical",
@@ -59644,7 +59639,7 @@
       "task": null,
       "title": "QF-04 Account QA Frontend",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-05"
     },
     "qa-frontend:app-shell": {
       "affects": [],

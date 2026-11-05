@@ -20,6 +20,8 @@ tags: [bug, bug/done, module/identity, priority/medium, resolution/fixed]
 
 # ✅ B-02 · Deleted account answers 401, not the documented 404 E_USER_01
 
+> ⚠ Affected by [[QF-04 Account QA Frontend]] (2026-11-05): F15 ran by hand on two phones on social_pin f462a28 against the dev API: phone A lands on Welcome with 'Your account has been deleted.' Your QF-04 pending item is settled; /pm clears it
+
 **Found against:** [[BI-01 Account Backend Integration]] · **Feature:** [[F-01 Account]] · **Status:** Done · **Resolution:** fixed · **Priority:** Medium · **Deadline:** — · **Effort:** S
 
 **Found by:** [[QB-04 Account QA Backend]] row B14, on build `dev 2026-10-26 · localhost:3000`, and seen from the client in [[QF-04 Account QA Frontend]] row F19.
