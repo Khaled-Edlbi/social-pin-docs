@@ -3,7 +3,7 @@ id: FR-08
 type: frontend-requirements
 module: identity
 feature: ring-access
-status: ready
+status: draft
 scope: feature
 screens: [s15, s16, s17, s26, s27, s31, s44, s47, s62]
 owner: "Omar Fostok"
@@ -11,8 +11,8 @@ depends: ["S-15 Ring Access Engine Story"]
 affects: ["BD-08 Ring Access Engine Backend Delivery"]
 related: ["BI-05 Ring Access Engine Backend Integration", "Ring Access Model", "D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-18 Ring names shown when joined knowingly", "ND-23 Mutual connections and events in common", "FR-11 Rings Frontend Requirements", "FR-12 View As & Pin Views Frontend Requirements", "S-18 Rings Story", "S-16 Ring Members Story", "S-23 Connections Story", "S-31 Delegated Admins Story", "S-87 Error Contract Story", "GET /rings/shared-with-me", "GET /views/pin/:pinName", "GET /views/ring/:ringId", "GET /views/user/:userId/perspectives", E_RING_05, E_RING_02]
 created: 2026-10-18
-updated: 2026-10-29
-tags: [frontend-requirements, frontend-requirements/ready, module/identity, layer/frontend]
+updated: 2026-11-05
+tags: [frontend-requirements, frontend-requirements/draft, module/identity, layer/frontend]
 ---
 
 # Ring Access Engine · Frontend Requirements
@@ -21,7 +21,12 @@ tags: [frontend-requirements, frontend-requirements/ready, module/identity, laye
 
 > ⚠ Affected by [[S-23 Connections Story]] (2026-11-04): S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
 
-**Feature:** [[F-08 Ring Access Engine]] · **Status:** 📨 Ready 2026-10-29, waiting on the backend's review · **Story:** [[S-15 Ring Access Engine Story]] · **Backend Integration:** [[BI-05 Ring Access Engine Backend Integration]]
+**Feature:** [[F-08 Ring Access Engine]] · **Status:** Draft, sent back by the backend 2026-11-05 · **Story:** [[S-15 Ring Access Engine Story]] · **Backend Integration:** [[BI-05 Ring Access Engine Backend Integration]]
+
+> **For `/frontend`, from the backend's review (2026-11-05, against backend `main` f186ba1).** Sent back to `draft` for three fixes; set it `ready` again once they're in.
+> 1. **Owner editing, 403.** Only `PATCH /rings/:id`, the `/rings/:ringId/members/*` routes and the `/rings/:ringId/projection/*` routes go through `assertCanAdminister` (403 `E_RING_05` below the level, expired Rings still editable). Set-default (`POST /rings/:id/default`), `POST /rings/:id/disposition` and `DELETE /rings/:id` are **owner-only**: anyone else, an admin included, gets 404 `E_RING_02`, which is what S-31 decides (delete and default stay the owner's). Fix the s16 / s62 line ("passes through `assertCanAdminister`") and the "403 when below the admin level · all `/rings/:id` editing routes" row.
+> 2. **`/views` 404 bodies.** They are not all identical: on `GET /views/ring/:ringId` an expired Ring answers *"Ring is not available"* (`E_RING_ACCESS_02`) to every caller, a Ring not shared with you *"This profile is not shared with you"* (`E_RING_ACCESS_01`). Keep the client rule (one message to a viewer), but drop the sentence that says the bodies are identical. The backend records the difference as a gap in [[BD-08 Ring Access Engine Backend Delivery]].
+> 3. **The two flags above.** Repoint *Connections · S25* (block) to [[S-23 Connections Story|Connections · S13]], and *Delegated Admins · S6* to S-31's *What the backend has to build*, in *Endpoints required* and *Blocked by*; then clear both flag lines.
 
 The engine exposes no endpoint. What the client needs from it is a set of guarantees that other endpoints carry: which rows appear on Shared with me and what each may say, what every `/views` route answers, and when an owner route says 403. This note lists those guarantees per surface and the client behaviour they require; the assumptions are spelled out in [[BI-05 Ring Access Engine Backend Integration]] and [[Ring Access Model]]. The screens themselves belong to other features ([[F-11 Rings]], [[F-09 Ring Members]], [[F-12 View As & Pin Views]], [[F-14 Connections]]); each section here is only what the engine decides on it.
 
