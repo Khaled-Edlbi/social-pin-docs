@@ -7,7 +7,7 @@ status: done
 scope: feature
 screens: [s14, s20, s23, s24, s25, s29, s36]
 created: 2026-10-15
-updated: 2026-10-29
+updated: 2026-11-05
 tags: [backend-delivery, backend-delivery/done, module/identity, layer/backend]
 ---
 
@@ -52,15 +52,16 @@ What the backend shipped for this feature and how it works. The sum of this feat
 - Hidden rows are excluded by the query, not the serializer, so they are never read into a response.
 - Sensitive fields are gated in exactly one place: `RingProfileService.toView`. All `show*` flags default to `false`.
 - Link values are validated by type: absolute `http(s)` URLs, E.164 phones, `lat,lng` locations. Several links of one type are allowed.
+- The owner's projection carries `avatarUrl` and a `url` per attachment (hidden rows included), and the viewer's view the same for what it shows: signed links, valid 15 minutes, made in `toOwnerView` / `toView` after the request's access check ([[D-16 Files load from signed links that expire in 15 minutes]]; served by `GET /files/content/:token`, [[BD-04 Files Upload Backend Delivery]]).
 
 ### Gaps
 
 - The design assumes **one library of fields** that each Ring turns on or off ("4 of 7 on", s20 / s24). The backend stores a separate copy per Ring. See [[ND-03 Field library vs per-Ring copies]].
 - "Inherit, stays in sync with your Pin" (s23) and "Copy another Ring's bio" (s28) need the base profile bio and photo. See [[ND-05 Copy or inherit]] and [[ND-02 Base profile work fields]].
 - Widgets (s37) have a table but no endpoints. See [[F-13 Widgets]].
-- **`avatarFileId` and attachment ids cannot be fetched**: no route serves file bytes by id. See [[S-06 Files Upload Story|Files Upload · showing files]].
 
 ## Log
 
 - 2026-10-18 · split out of [[F-10 Ring Projection]] when the vault moved to layers
 - 2026-10-29 · branch `B-08/ring-profile/owner-attachment-file-details`, merged to `main @ c80ed9d` · fixes [[B-08 Owner projection drops each attachment's file details]]: `GET` and `PATCH /rings/:ringId/projection` and `POST …/attachments` return each attachment's `fileId`, `filename`, `mimeType` and `sizeBytes`, as [[BI-07 Ring Projection Backend Integration]] documents. No contract change; the viewer's shape is untouched. Specs in `ring-profile.service.spec.ts` (*owner editing view*). The flag on BI-07 is cleared.
+- 2026-11-05 · branch `FR-04/file/signed-links-and-library` (`df93921`), merged to `main @ 80e7fa2` · the projection and the view carry `avatarUrl` and `attachments[].url`, signed links valid 15 minutes ([[D-16 Files load from signed links that expire in 15 minutes]]); the rest is on [[BD-04 Files Upload Backend Delivery]]'s log. The viewer's attachments still carry no `fileId`; the view's `avatarFileId` stays for now ([[BI-09 View As & Pin Views Backend Integration]]). Specs in `ring-profile.service.spec.ts`. Updated [[BI-07 Ring Projection Backend Integration]].
