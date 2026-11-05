@@ -19,6 +19,8 @@ tags: [story, story/draft, module/platform, layer/business]
 
 # Operator Panel · User Story
 
+> ⚠ Affected by [[S-31 Delegated Admins Story]] (2026-11-05): S-31 was rewritten (2026-11-05) to match the app's one Edit Ring screen, with rules A1–A7 decided inside the story (no decision cards): company Rings only; an admin must be a member of the Ring; two levels (edit what it shows / also manage who's in it), owner-only appointing; member-managers change the joining settings, who it's for, delete and default stay owner-only; Rings you manage on My Rings and Company detail; rights end on removal, leaving the Ring or the company, silently. The old Delegated Admins · S6 (T-006, the admin routes) is now its 'What the backend has to build'; the levels are S3/A3. Repoint the links that name Delegated Admins · S6.
+
 **Feature:** [[F-42 Operator Panel]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[Operator Panel Frontend Requirements]] · **Backend Integration:** [[Operator Panel Backend Integration]] · **Verified by:** [[Operator Panel QA Backend]], [[Operator Panel QA Frontend]]
 
 One paragraph: who the user is here and what they are trying to get done, in product terms. `approved` (👍) when product signs off (`approvedBy`, `approvedAt`); `verified` (✅ Fulfilled) set by the PM once every QA note of its scope is `passing` with nothing pending.
