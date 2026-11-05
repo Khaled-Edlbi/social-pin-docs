@@ -5050,7 +5050,7 @@
     },
     "concepts": 249,
     "decisions": 28,
-    "edges": 4800,
+    "edges": 4801,
     "features": 41,
     "layerNotes": 133,
     "modules": 8,
@@ -36134,6 +36134,11 @@
     {
       "from": "story:account",
       "kind": "wikilink",
+      "to": "feature:profiles"
+    },
+    {
+      "from": "story:account",
+      "kind": "wikilink",
       "to": "needs-decision:ND-01"
     },
     {
@@ -61722,7 +61727,7 @@
       "task": null,
       "title": "S-01 Account Story",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-05"
     },
     "story:app-shell": {
       "affects": [],
