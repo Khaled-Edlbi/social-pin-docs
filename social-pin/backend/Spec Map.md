@@ -3,7 +3,7 @@ id: P-17
 type: project
 layer: backend
 created: 2026-10-15
-updated: 2026-10-29
+updated: 2026-11-05
 tags: [project]
 ---
 # Spec → code map
@@ -132,7 +132,7 @@ model instead of turning Social Pin into a generic social network."*
 | PostGIS / geospatial indexes for PinCast and nearby discovery | `…_extensions` migration creates `postgis`; `pincasts.geo` is a `geography(Point, 4326)` kept in sync by the `pincasts_sync_geo` trigger, with a GiST index. |
 | Centralize Ring access checks; do not duplicate privacy logic | `RingAccessService` — golden rule 8 in `CLAUDE.md`. |
 | Treat ring membership, hidden links, private notes, interests and exact location as privacy-sensitive | Membership is owner-only; hidden rows are excluded by the select; `ContactNote` and `Interest` have no outward entity; `Pincast` coordinates never reach a recipient. |
-| File binaries in object storage, metadata in the database | `File.storageKey`; `FileService.persist`/`discard` are the only two methods that touch bytes. |
+| File binaries in object storage, metadata in the database | `File.storageKey`; `FileService.persist`/`discard`/`openByLink` are the only methods that touch bytes. Bytes are reached only through a signed, encrypted 15-minute link (`FileLinkService`, `GET /files/content/:token`) made after the request's access check ([[D-16 Files load from signed links that expire in 15 minutes]]). |
 | Transactions for meeting booking and other atomic changes | `@Transactional<PrismaTxAdapter>()`; `availability_slots` additionally has an exclusion constraint, because a service check cannot stop two concurrent inserts. |
 | Idempotency for payment webhooks, notifications and automations | `Payment.providerReference`, `Notification.dedupeKey` and `FollowUpAutomation.dedupeKey` are each unique. |
 | Retention for temporary rings, PinCast recipients, chat, analytics, events | Modelled: `Ring.disposition` + `RING_DISPOSITION`, `PincastRecipient.detectedAt` indexed for purging, `AnalyticsEvent.createdAt` indexed. The jobs are not written. |
@@ -150,7 +150,8 @@ model instead of turning Social Pin into a generic social network."*
 | 4 | **View as** — preview as a chosen ring sees it | **API** | `GET /views/ring/:ringId` — same code path as the member's view |
 | 4 | Add widgets | schema | `RingWidget` |
 | 4 | Ring colour & style | **API** | `colorHex`, `style` on `CreateRingDto` |
-| 4 | File attachments on profile | **API** | `.../projection/attachments` |
+| 4 | File attachments on profile | **API** | `.../projection/attachments`; opened from each attachment's signed `url` |
+| 4 | Photo library (my files, which Rings use each) | **API** | `GET /files?kind=image\|document` with `usedBy`; `followerCount` waits on the main profile |
 | 4 | Interests, not shown to others | schema | `Interest`, `UserInterest`, seeded vocabulary |
 | 4 | Connections counter | — | Derived; not yet exposed |
 | 5 | Multiple rings + a default ring | **API** | `POST /rings`, `POST /rings/:id/default` |
