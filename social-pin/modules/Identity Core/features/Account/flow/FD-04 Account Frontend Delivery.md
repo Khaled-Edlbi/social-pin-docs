@@ -18,6 +18,8 @@ tags: [frontend-delivery, frontend-delivery/done, module/identity, layer/fronten
 
 # ✅ Account · Frontend Delivery
 
+> ⚠ Affected by [[BI-02 Auth & Sign-up Backend Integration]] (2026-11-05): POST /auth/refresh for a SUSPENDED account answers 403 E_AUTH_03, not 401, on backend main @ 504cb21 (open on BD-02); a session that ends on 'the refresh that follows is refused' must treat a 403 from /auth/refresh as a sign-out too. Also: of two concurrent refreshes with one token, the loser now gets 401 E_AUTH_04 (B-03)
+
 > ⚠ Affected by [[B-02 Deleted account answers 401, not the documented 404 E_USER_01]] (2026-10-26): the 404 branch on `GET /users/me` is live now (backend branch `B-02/auth/deleted-account-404`): keep it. The 404 comes from the auth guard, so **any** authenticated route can answer it for a deleted account, not only `GET /users/me`; decide whether the network layer ends the session on such a 404 elsewhere too, or relies on the next `GET /users/me`. `/frontend`.
 
 **Feature:** [[F-01 Account]] · **Status:** Done · **Built from:** [[BI-01 Account Backend Integration]] · **Against:** [[S-01 Account Story]] · **Requirements:** [[FR-01 Account Frontend Requirements]] · **QA:** [[QF-04 Account QA Frontend]]
