@@ -6,7 +6,7 @@ feature: ring-access
 status: done
 scope: feature
 screens: []
-related: ["S-29 Companies Story", "BD-03 Counts Backend Delivery", "BD-11 Rings Backend Delivery", "FR-08 Ring Access Engine Frontend Requirements", "GET /views/ring/:ringId", "GET /rings/shared-with-me"]
+related: ["S-29 Companies Story", "BD-03 Counts Backend Delivery", "BD-11 Rings Backend Delivery", "FR-08 Ring Access Engine Frontend Requirements", "D-04 Ring settings at launch and their defaults", "D-18 Ring names shown when joined knowingly", "GET /views/ring/:ringId", "GET /rings/shared-with-me"]
 pending: ["[[S-29 Companies Story]]: P9, every member of a company reads the company's card Ring (its top Ring) even from a lower Ring of it, with no membership, roster or other Ring; decided in the story 2026-11-05, to build in RingAccessService", "[[FR-08 Ring Access Engine Frontend Requirements]]: GET /views/ring/:ringId answers an expired Ring with its own body (E_RING_ACCESS_02) before the membership check; decide whether a non-member should get the not-shared body instead"]
 created: 2026-10-15
 updated: 2026-11-05
@@ -52,3 +52,4 @@ Since 2026-11-05 (backend `main` f186ba1, [[BD-03 Counts Backend Delivery]] and 
 
 - 2026-10-18 · split out of [[F-08 Ring Access Engine]] when the vault moved to layers
 - 2026-11-05 · `docs/backend/M-01-identity/F-08-ring-access/BD-08-engine-update` · brought up to backend `main` f186ba1: `sharedWithFilter`, `countPeopleSharingWith`, `countLiveMembers` (from `FR-03/ring/shared-with-me-blocks`); owner-only routes named; the `/views/ring` expired-body gap and [[S-29 Companies Story]] P9 added as `pending` (its flag cleared). [[FR-08 Ring Access Engine Frontend Requirements]] sent back to `draft` the same day on its own branch.
+- 2026-11-05 · backend branch `FR-11/ring/settings-copy-default-shared` (`d1a6204`), pushed, **not merged** ([[BD-11 Rings Backend Delivery]]) · the engine gains `resolvePeopleSharingWith`: Shared with me per person on `sharedWithFilter` (one entry per owner, the Ring the viewer was put in first, the earlier of the Ring's and the membership's end), with the D-18 gate `isRingNamedToMember` (false for every membership until [[F-09 Ring Members]] records how one was made) and the D-04 gate on the member count (only on a named row whose Ring has `membersCanSeeEachOther`), so today no row names a Ring or counts its members ([[S-15 Ring Access Engine Story|Ring Access Engine · S1]], S8). The Ring carries the six settings; `membersCanInvite`, `membersCanSaveAttachments`, `joinPolicy` and `requireApproval` are stored and enforced when their flows ship. This note's sections describe `main` until the merge.
