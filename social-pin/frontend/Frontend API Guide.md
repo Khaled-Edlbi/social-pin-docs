@@ -235,15 +235,17 @@ audience sees them is set per ring, not here.
 | Method | Path | |
 |---|---|---|
 | GET | `/rings` | Rings you own ("My Rings") |
-| GET | `/rings/shared-with-me` | Rings of others you are a live member of |
-| POST | `/rings` | PERSONAL or CORPORATE only |
+| GET | `/rings/shared-with-me` | The **people** who share with you, one row each: `{ ringId, pinName, displayName, avatarUrl, expiresAt, ringName, memberCount }`; pagination only (D-14) |
+| GET | `/rings/shared-with-me/count` | `{ people }`, equal to the list's `meta.total` |
+| POST | `/rings` | PERSONAL or CORPORATE only; takes the six D-04 settings |
 | GET | `/rings/:id` | |
-| PATCH | `/rings/:id` | Owner, or an admin at CONTENT_MANAGER+ |
-| POST | `/rings/:id/default` | |
+| PATCH | `/rings/:id` | Owner, or an admin at CONTENT_MANAGER+; includes the settings |
+| POST | `/rings/:id/default` | Owner only; 409 `E_RING_09` on a temporary ring |
+| POST | `/rings/:id/copy` | Owner only; a new ring with the settings and what it shows, never the members (D-05) |
 | POST | `/rings/:id/disposition` | `KEEP` / `MERGE` / `AUTO_DELETE` for a temporary ring |
 | DELETE | `/rings/:id` | 409 on the default |
 
-Filters: `name`, `type`, `status`, `isTemporary`.
+Filters on `GET /rings`: `name`, `type`, `status`, `isTemporary`. `GET /rings/shared-with-me` takes none (a 400): a filter on a Ring would tell a member which Ring they are in. Shapes and errors: [[BI-08 Rings Backend Integration]].
 
 `EVENT`, `MINI_EVENT` and `MEETING` rings are created by their own flows and are
 rejected here with a 400 — they would otherwise exist with no context behind
@@ -413,5 +415,7 @@ Per-feature client guides (screens → calls, flows, error tables, what is not
 available yet) live in the `social-pin-docs` vault under `frontend/`.
 
 ## Log
+
+- 2026-11-05 · backend `main` `12172c6` ([[BD-11 Rings Backend Delivery]]) · Rings table: `GET /rings/shared-with-me` lists people (new shape, no filters), `GET /rings/shared-with-me/count` listed, `POST /rings/:id/copy` added (one more endpoint), the D-04 settings on create and edit, 409 `E_RING_09` on a temporary default. Flagged [[Frontend Contract]] for the endpoint table, its count and the new code (/frontend).
 
 - 2026-11-05 · flagged [[Frontend Contract]]: new endpoints on backend main @ 80e7fa2: GET /files (the library, with usedBy) and the public GET /files/content/:token behind every signed link; url on files, avatarUrl and attachments[].url on the projection and the view (D-16). The F-04 row and the endpoint count (48) need updating (/frontend)

@@ -34,14 +34,14 @@ Written by the **backend** team for the frontend: how to call what was delivered
 | [[Screen Index#s14|s14]] Ring data | sees "N in Ring" in the header and "People · N" on the people tab | `GET /rings/:id` → `memberCount` |
 | [[Screen Index#s16|s16]] My Rings | sees "My Rings · N" and "N people" per row | `GET /rings` → `meta.total`, `data[].memberCount` |
 | [[Screen Index#s16|s16]] / [[Screen Index#s17|s17]] tab chips | reads "Shared with me · N", N people | `GET /rings/shared-with-me/count` → `people` |
-| [[Screen Index#s17|s17]] Shared with me | sees the list; **no member count on any row** | `GET /rings/shared-with-me` (no `memberCount`) |
+| [[Screen Index#s17|s17]] Shared with me | sees the people; **no member count on any row** | `GET /rings/shared-with-me` (`memberCount` is `null` on every row today) |
 | [[Screen Index#s68|s68]] Me | "N Rings": `meta.total` of `GET /rings`; the connections part stays hidden | `GET /rings` |
 
 ## Flow
 
 1. Home, the picker and My Rings read `GET /rings` once (`limit` ≤ 50); each Ring in `data` carries its own `memberCount`. Never call the roster or `GET /rings/:id` per card to get a number.
 2. Ring data (s14) reads `GET /rings/:id`; its `memberCount` drives the header, the switcher chip of that Ring and the People row. The People row still leads to the roster (s15) with no number of its own.
-3. The "Shared with me · N" chip reads `GET /rings/shared-with-me/count` when s16 or s17 gains focus; not `meta.total` of the list, which counts Rings.
+3. The "Shared with me · N" chip reads `GET /rings/shared-with-me/count` when s16 or s17 gains focus. Since backend `main` `12172c6` the list's `meta.total` counts people too and always equals it ([[BI-08 Rings Backend Integration]]); the count route stays the one to call when the list is not on screen. A list row's own `memberCount` is `null` today.
 4. After an add, remove, reassign or revoke on s15 / s47, refetch `GET /rings/:id` (and the list if it is on screen): the count moves on the next fetch, never before.
 
 ## Shapes that matter

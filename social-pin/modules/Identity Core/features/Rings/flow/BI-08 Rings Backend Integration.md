@@ -16,7 +16,7 @@ tags: [backend-integration, backend-integration/current, module/identity, layer/
 
 **Feature:** [[F-11 Rings]] · **Backend:** ✅ Done · **Read first:** [[Frontend Contract]], [[Ring Access Model]]
 
-> **Describes the backend branch `FR-11/ring/settings-copy-default-shared` (`4aad168`), not merged yet.** Everything marked **⏳ branch** (the six settings, copy, the temporary-default refusal and the new Shared-with-me shape) is not on `main` until that merge ([[BD-11 Rings Backend Delivery]]); the rest is on `main` a249ab2.
+Matches backend `main` `12172c6` ([[BD-11 Rings Backend Delivery]]).
 
 What the client builds: My Rings and Shared with me, the create-a-Ring wizard (name, colour, expiry, temporary, copy, settings), edit, set default, delete, and the keep / merge / let-it-expire choice for a temporary Ring after its event.
 
@@ -25,23 +25,23 @@ What the client builds: My Rings and Shared with me, the create-a-Ring wizard (n
 | Screen | The user does | Calls |
 |---|---|---|
 | [[Screen Index#s16\|s16]] My Rings | lists the Rings they own, with the purpose on each row | `GET /rings` |
-| [[Screen Index#s17\|s17]] Shared with me | lists the **people** who share with them | `GET /rings/shared-with-me` ⏳, then `GET /views/ring/:ringId` on tap |
+| [[Screen Index#s17\|s17]] Shared with me | lists the **people** who share with them | `GET /rings/shared-with-me`, then `GET /views/ring/:ringId` on tap |
 | [[Screen Index#s09\|s09]], [[Screen Index#s18\|s18]] – [[Screen Index#s21\|s21]] New Ring | creates one (Blank or Event Ring) | `POST /rings`, then `PATCH /rings/:id/projection` for what it shows ([[BI-07 Ring Projection Backend Integration]]) |
-| [[Screen Index#s18\|s18]] "Copy an existing Ring" | creates one from another of theirs | `POST /rings/:id/copy` ⏳ |
-| [[Screen Index#s21\|s21]], [[Screen Index#s22\|s22]], [[Screen Index#s26\|s26]], [[Screen Index#s27\|s27]] | changes the purpose and the settings | `PATCH /rings/:id` ⏳ (settings fields) |
+| [[Screen Index#s18\|s18]] "Copy an existing Ring" | creates one from another of theirs | `POST /rings/:id/copy` |
+| [[Screen Index#s21\|s21]], [[Screen Index#s22\|s22]], [[Screen Index#s26\|s26]], [[Screen Index#s27\|s27]] | changes the purpose and the settings | `PATCH /rings/:id` (settings fields) |
 | [[Screen Index#s22\|s22]], [[Screen Index#s26\|s26]] Edit | renames, recolours, changes expiry | `PATCH /rings/:id` |
-| s26 | makes one the default | `POST /rings/:id/default` (⏳ refuses a temporary Ring) |
+| s26 | makes one the default | `POST /rings/:id/default` (refuses a temporary Ring) |
 | s26 | deletes one | `DELETE /rings/:id` |
 | [[Screen Index#s62\|s62]] Post-event | keeps, merges or lets a temporary Ring go | `POST /rings/:id/disposition` |
 
 ## Flow
 
-1. **My Rings.** `GET /rings?limit=20&skip=0` → `{ data: OwnedRingEntity[], meta: { total } }`, the default Ring first, then newest first. Filters: `name` (partial), `type`, `status`, `isTemporary` (`false` is a real filter). `limit` is capped at 50. Each Ring carries `memberCount` ([[BI-14 Counts Backend Integration]]) and, ⏳ branch, its six settings, `purpose` included for the row's short line.
-2. **Shared with me (⏳ branch shape).** `GET /rings/shared-with-me?limit=20&skip=0` → `{ data: SharedWithMePersonEntity[], meta: { total } }`: **one row per person** who shares at least one Ring with you right now (the Ring live, your membership live, no block between you either way), newest first (the person who most recently started sharing). `meta.total` is the number of people and equals `GET /rings/shared-with-me/count` → `{ people }`. Pagination only: `name`, `type`, `status`, `isTemporary` are **rejected with 400** here. Tapping a row opens `GET /views/ring/:ringId` with the row's `ringId` ([[BI-09 View As & Pin Views Backend Integration]]).
-3. **Create.** `POST /rings` with `{ name, type?, parentRingId?, profileId?, startsAt?, expiresAt?, isTemporary?, colorHex?, style?, purpose?, joinPolicy?, requireApproval?, membersCanSeeEachOther?, membersCanInvite?, membersCanSaveAttachments? }` → 201 `RingEntity`. The six settings ⏳ branch; leave them out and the server applies D-04's private defaults (never send defaults from the client). The new Ring has a projection created on its first `GET /rings/:id/projection`; send the user on to "what it shows" next.
-4. **Copy (⏳ branch).** `POST /rings/:id/copy` with `{ name, colorHex?, style?, purpose? }` → 201 `RingEntity` of the **new** Ring: the source's settings, colour, style, purpose and profile (each of colour, style, purpose overridable), and its projection: bio, photo, and **the same library items switched on** ([[D-03 Links entered once, switched on or off per Ring]]; the same links and info blocks from the owner's library, in the same order, hidden ones staying hidden, nothing new in the library, so editing a library item later changes it on both Rings); **no members, no admins, no window**; always `PERSONAL`, permanent, not the default. The two Rings are independent afterwards. Owner-only.
-5. **Edit.** `PATCH /rings/:id` with any subset of the create fields, the settings included (⏳ branch); `purpose: null` clears it. Allowed for the owner or a delegated admin at `CONTENT_MANAGER` level or above; otherwise 403 `E_RING_05`.
-6. **Default.** `POST /rings/:id/default` → 201 with the Ring. The previous default is demoted in the same transaction. The default Ring is what a scanned QR or a Pin-name lookup resolves to for someone who is in no other Ring of this person. ⏳ branch: a temporary Ring is refused with 409 `E_RING_09`, and so is `PATCH /rings/:id { isTemporary: true }` on the current default. Owner-only.
+1. **My Rings.** `GET /rings?limit=20&skip=0` → `{ data: OwnedRingEntity[], meta: { total } }`, the default Ring first, then newest first. Filters: `name` (partial), `type`, `status`, `isTemporary` (`false` is a real filter). `limit` is capped at 50. Each Ring carries `memberCount` ([[BI-14 Counts Backend Integration]]) and its six settings, `purpose` included for the row's short line.
+2. **Shared with me.** `GET /rings/shared-with-me?limit=20&skip=0` → `{ data: SharedWithMePersonEntity[], meta: { total } }`: **one row per person** who shares at least one Ring with you right now (the Ring live, your membership live, no block between you either way), newest first (the person who most recently started sharing). `meta.total` is the number of people and equals `GET /rings/shared-with-me/count` → `{ people }`. Pagination only: `name`, `type`, `status`, `isTemporary` are **rejected with 400** here. Tapping a row opens `GET /views/ring/:ringId` with the row's `ringId` ([[BI-09 View As & Pin Views Backend Integration]]).
+3. **Create.** `POST /rings` with `{ name, type?, parentRingId?, profileId?, startsAt?, expiresAt?, isTemporary?, colorHex?, style?, purpose?, joinPolicy?, requireApproval?, membersCanSeeEachOther?, membersCanInvite?, membersCanSaveAttachments? }` → 201 `RingEntity`. Leave the six settings out and the server applies D-04's private defaults (never send defaults from the client). The new Ring has a projection created on its first `GET /rings/:id/projection`; send the user on to "what it shows" next.
+4. **Copy.** `POST /rings/:id/copy` with `{ name, colorHex?, style?, purpose? }` → 201 `RingEntity` of the **new** Ring: the source's settings, colour, style, purpose and profile (each of colour, style, purpose overridable), and its projection: bio, photo, and **the same library items switched on** ([[D-03 Links entered once, switched on or off per Ring]]; the same links and info blocks from the owner's library, in the same order, hidden ones staying hidden, nothing new in the library, so editing a library item later changes it on both Rings); **no members, no admins, no window**; always `PERSONAL`, permanent, not the default. The two Rings are independent afterwards. Owner-only.
+5. **Edit.** `PATCH /rings/:id` with any subset of the create fields, the settings included; `purpose: null` clears it. Allowed for the owner or a delegated admin at `CONTENT_MANAGER` level or above; otherwise 403 `E_RING_05`.
+6. **Default.** `POST /rings/:id/default` → 201 with the Ring. The previous default is demoted in the same transaction. The default Ring is what a scanned QR or a Pin-name lookup resolves to for someone who is in no other Ring of this person. A temporary Ring is refused with 409 `E_RING_09`, and so is `PATCH /rings/:id { isTemporary: true }` on the current default. Owner-only.
 7. **Delete.** `DELETE /rings/:id` → 200. Soft delete. The default Ring cannot be deleted (409 `E_RING_04`): make the user pick another default first. Owner-only.
 8. **Disposition** (temporary Rings, s62). `POST /rings/:id/disposition` with `{ disposition, mergedIntoRingId? }` → 201 with the updated Ring:
    - `KEEP`: the Ring becomes permanent (`isTemporary: false`, `expiresAt: null`, `ACTIVE`).
@@ -50,7 +50,7 @@ What the client builds: My Rings and Shared with me, the create-a-Ring wizard (n
 
 ## Shapes that matter
 
-`RingEntity` (owner only): `id`, `ownerUserId`, `name`, `type`, `parentRingId`, `profileId`, `isDefault`, `isTemporary`, `startsAt`, `expiresAt`, `status`, `disposition`, `mergedIntoRingId`, `colorHex`, `style`, ⏳ branch `purpose`, `joinPolicy`, `requireApproval`, `membersCanSeeEachOther`, `membersCanInvite`, `membersCanSaveAttachments`, then `createdAt`, `updatedAt`. `OwnedRingEntity` (`GET /rings`, `GET /rings/:id`) adds `memberCount`.
+`RingEntity` (owner only): `id`, `ownerUserId`, `name`, `type`, `parentRingId`, `profileId`, `isDefault`, `isTemporary`, `startsAt`, `expiresAt`, `status`, `disposition`, `mergedIntoRingId`, `colorHex`, `style`, `purpose`, `joinPolicy`, `requireApproval`, `membersCanSeeEachOther`, `membersCanInvite`, `membersCanSaveAttachments`, then `createdAt`, `updatedAt`. `OwnedRingEntity` (`GET /rings`, `GET /rings/:id`) adds `memberCount`.
 
 - `name`: 1 to 80 characters, unique per owner (409 `E_RING_01`).
 - `type`: `PERSONAL` (default) or `CORPORATE`. `EVENT`, `MINI_EVENT` and `MEETING` are rejected with 400 `E_RING_01`; their own flows create them.
@@ -60,7 +60,7 @@ What the client builds: My Rings and Shared with me, the create-a-Ring wizard (n
 - `status`: `ACTIVE`, `EXPIRED`, `ARCHIVED`, `DELETED`. **`EXPIRED` is never set by the backend today** (expiry is evaluated live from `expiresAt`). An expired Ring still reads `status: "ACTIVE"` with a past `expiresAt`: compute the "expired" chip on the client from `expiresAt`.
 - `disposition`: `UNDECIDED`, `KEEP`, `MERGE`, `AUTO_DELETE`. Show the s62 choice when `isTemporary` and `disposition === "UNDECIDED"` and `expiresAt` is past (or the event ended).
 
-**The six settings (⏳ branch, [[D-04 Ring settings at launch and their defaults]]):**
+**The six settings ([[D-04 Ring settings at launch and their defaults]]):**
 
 | Field | Values | Default on a new Ring | Enforced today |
 |---|---|---|---|
@@ -73,9 +73,9 @@ What the client builds: My Rings and Shared with me, the create-a-Ring wizard (n
 
 s26's summary uses the same words ("Only with a code"); "Permissions · N set" counts only the settings shown. Show the three later settings nowhere.
 
-**Shared with me, before and after (⏳ branch):**
+**Shared with me, before and after** (the shape changed with backend `main` `12172c6`):
 
-| | `main` f186ba1 (before) | branch (after) |
+| | before (`main` f186ba1) | now (`main` 12172c6) |
 |---|---|---|
 | Envelope | `{ data: RingEntity[], meta: { total } }` | `{ data: SharedWithMePersonEntity[], meta: { total } }` |
 | One row per | Ring you are in (two Rings of one person = two rows) | **person** who shares with you |
@@ -120,7 +120,7 @@ Cache the owned list and the shared list separately, keyed by the signed-in user
 | 400 | `E_RING_06` / `E_RING_08` | parent Ring or profile is not yours | validation |
 | 400 | `E_RING_07` | MERGE without a different Ring of yours | ask for a target |
 | 409 | `E_RING_04` | deleting the default Ring | "Choose another default first" |
-| 409 | `E_RING_09` ⏳ | making a temporary Ring the default, or making the default temporary | "A temporary Ring can't be your default." (keep the row disabled client-side too) |
+| 409 | `E_RING_09` | making a temporary Ring the default, or making the default temporary | "A temporary Ring can't be your default." (keep the row disabled client-side too) |
 | 400 | — (validation; `message` is a string array) | name length, `#RRGGBB`, ISO dates, `purpose` over 140, an unknown `joinPolicy`, `limit` > 50, a Ring filter on `GET /rings/shared-with-me` | inline / client bug |
 
 ## Rules the UI must respect
@@ -132,7 +132,6 @@ Cache the owned list and the shared list separately, keyed by the signed-in user
 
 ## Not available yet
 
-- On `main`: everything marked ⏳ branch, until the merge.
 - A Ring's name and a member count on Shared with me: memberships must first record how they were made ([[F-09 Ring Members]]); until then every row is the person.
 - Joining by scan or code, approvals, member invitations, saving attachments: the settings are stored but the flows are [[F-17 Ring Invitations & Join]]'s.
 - My connections for the wizard's step 2 (s19): [[S-23 Connections Story|Connections · S8–S12]].
@@ -152,3 +151,4 @@ Cache the owned list and the shared list separately, keyed by the signed-in user
 
 - 2026-11-05 · `docs/backend/M-01-identity/F-11-rings/BD-11-settings-copy-default-shared` · describes the backend branch `FR-11/ring/settings-copy-default-shared` (`d1a6204`), **not merged**: the six settings on `RingEntity`, `POST` and `PATCH /rings`; `POST /rings/:id/copy`; 409 `E_RING_09`; the new Shared-with-me shape (before / after table) and the 400 on Ring filters there. Status kept `current` for what is on `main`; the ⏳ parts become `main` at the merge. The D-04, D-05, D-14 and D-18 flags under the H1 cleared: this note carries all four.
 - 2026-11-05 · same vault branch, after merging vault `main` · describes the backend branch at `4aad168` (up to date with backend `main` a249ab2): `POST /rings/:id/copy` switches on the same library items as the source ([[D-03 Links entered once, switched on or off per Ring]]); no request or response shape changed. Still **not merged**.
+- 2026-11-05 · `docs/backend/M-01-identity/F-11-rings/BD-11-shipped-settings` · backend `main` `12172c6` merged the branch: this note now describes `main` (the branch banner and the ⏳ marks removed), `current`. Nothing in the shapes changed from what the branch described.

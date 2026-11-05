@@ -9,6 +9,8 @@ tags: [project]
 
 # Frontend Contract
 
+> ⚠ Affected by [[BD-11 Rings Backend Delivery]] (2026-11-05): backend main 12172c6: new POST /rings/:id/copy (endpoint count +1), new ErrorCode E_RING_09 (409, temporary Ring as default), GET /rings/shared-with-me now { ringId, pinName, displayName, avatarUrl, expiresAt, ringName, memberCount } per person with no filters (400), the D-04 settings on RingEntity (/frontend)
+
 > ⚠ Affected by [[BD-10 Ring Projection Backend Delivery]] (2026-11-05): LINK_TYPE has 20 values on main a249ab2: BOOKING, BEHANCE, DRIBBBLE, GITHUB, YOUTUBE added (S-17 S5)
 
 > ⚠ Affected by [[Frontend API Guide]] (2026-11-05): new endpoints on backend main @ 80e7fa2: GET /files (the library, with usedBy) and the public GET /files/content/:token behind every signed link; url on files, avatarUrl and attachments[].url on the projection and the view (D-16). The F-04 row and the endpoint count (48) need updating (/frontend)

@@ -4,7 +4,7 @@ type: project
 layer: backend
 depends: []
 affects: []
-related: ["B-06 Timestamps the app writes are stored shifted by the server time zone", "BD-02 Auth & Sign-up Backend Delivery"]
+related: ["B-06 Timestamps the app writes are stored shifted by the server time zone", "BD-02 Auth & Sign-up Backend Delivery", "BD-11 Rings Backend Delivery"]
 created: 2026-10-15
 updated: 2026-11-05
 tags: [project]
@@ -39,7 +39,7 @@ tags: [project]
 | 2 | `…_init` | The 75 tables, 72 enums, 135 FKs, 176 indexes |
 | 3 | `…_constraints_and_indexes` | Partial unique indexes, CHECK constraints, the `availability_slots` exclusion constraint, the PostGIS trigger and GiST index |
 
-Later migrations each carry one schema change, in timestamp order: `20261015120000_drop_password_hash`, `20261105130000_ring_profile_library` (`LINK_TYPE` + five values; `library_links` and `library_info_blocks`, with `ring_profile_links` / `ring_info_blocks` as each Ring's switch rows; it merges the per-Ring copies once, [[D-03 Links entered once, switched on or off per Ring]], see [[BD-10 Ring Projection Backend Delivery]]), `20261105140700_profile_main_fields_and_rename`.
+Later migrations each carry one schema change, in timestamp order: `20261015120000_drop_password_hash`, `20261105120000_ring_settings` (enum `RING_JOIN_POLICY`; six columns on `rings`, `purpose`, `join_policy`, `require_approval`, `members_can_see_each_other`, `members_can_invite`, `members_can_save_attachments`, every default the private one, [[D-04 Ring settings at launch and their defaults]], see [[BD-11 Rings Backend Delivery]]), `20261105130000_ring_profile_library` (`LINK_TYPE` + five values; `library_links` and `library_info_blocks`, with `ring_profile_links` / `ring_info_blocks` as each Ring's switch rows; it merges the per-Ring copies once, [[D-03 Links entered once, switched on or off per Ring]], see [[BD-10 Ring Projection Backend Delivery]]), `20261105140700_profile_main_fields_and_rename`.
 
 **Use `pnpm prisma:deploy`, never `prisma migrate dev`.** Prisma can see the GiST index on `geo` but cannot type the column, so `migrate dev` offers a migration that **drops the geospatial index**. `migrate deploy` never diffs.
 

@@ -3,13 +3,11 @@ id: P-16
 type: project
 layer: backend
 created: 2026-10-15
-updated: 2026-10-29
+updated: 2026-11-05
 tags: [project, core]
 ---
 
 # Ring Access Model
-
-> ⚠ Affected by [[D-04 Ring settings at launch and their defaults]] (2026-10-25): ND-04 decided, six Ring settings at launch with private defaults (join with a code or invite, approve each one, members can't see each other, invite or save attachments); the owner and the Ring's admins change them; members who may see each other see full cards.
 
 The part of the codebase most likely to be broken by a well-meaning change. Read before touching any read path, and before building any TODO feature: events, meetings, PinCast, chat, posts and Gemma all route through it.
 
@@ -26,7 +24,7 @@ The part of the codebase most likely to be broken by a well-meaning change. Read
 
 ## What the viewer never learns
 
-- **Which Ring they are in.** `RingProfileViewEntity` has no `ringId`. `RingMemberEntity` is owner / admin only; there is no route where a member reads their own row. `ConnectionRequest.grantedRingId` is never exposed to the requester.
+- **Which Ring they are in.** `RingProfileViewEntity` has no `ringId`. `RingMemberEntity` is owner / admin only; there is no route where a member reads their own row. `ConnectionRequest.grantedRingId` is never exposed to the requester. Shared with me lists **people**, one row each (`resolvePeopleSharingWith`, [[D-14 Shared with me lists people, never the Ring]]): the row's `ringId` only opens the card, and it takes no filter on a Ring, which would be a membership oracle. A Ring's name and member count appear only where `isRingNamedToMember` allows ([[D-18 Ring names shown when joined knowingly]]), which is never until memberships record how they were made.
 - **Whether a profile exists.** "Not shared with you", "blocked" and "no such pin name" return the **same 404 body**. Specs assert this; keep them passing.
 - **Hidden rows.** Excluded by the query (`selectRingProfileProjection`), never read into a response object.
 - **Sensitive fields** unless the Ring's `show*` flag is on. Gated in exactly one place: `RingProfileService.toView`.
@@ -41,10 +39,11 @@ The part of the codebase most likely to be broken by a well-meaning change. Read
 | [[F-23 Events During]] | Exhibitor lists, the floor map and the catalogue are scoped by Event Ring membership. |
 | [[F-26 Meetings]] | The meeting Ring makes both parties visible to each other for the meeting window only. |
 | [[F-36 Gemma AI]] | Every suggestion is computed over what the asking user may see, nothing more. |
-| [[F-17 Ring Invitations & Join]], [[ND-04 Ring settings]] | "Members can see each other" is a new, default-off setting that must be enforced **inside** the engine, not in a members endpoint. |
+| [[F-17 Ring Invitations & Join]] | `joinPolicy` and `requireApproval` decide whether a scan, a code or a request creates a live membership; `membersCanInvite` gates a member's invitation. Enforced **inside** the engine, when that flow ships. |
+| [[F-09 Ring Members]] | A membership records how it was made, so `isRingNamedToMember` can answer yes for a Ring joined knowingly (D-18). A member-facing roster, if ever built, asks the engine and needs `membersCanSeeEachOther`. |
 
-## Open decision that touches the engine
+## The Ring's settings ([[D-04 Ring settings at launch and their defaults]])
 
-[[ND-04 Ring settings]]: join policy, members visible to each other, members can invite. All of them are access rules and belong where the engine can read them.
+Six columns on the Ring since backend `main` `12172c6`, every default the private one: `purpose`, `joinPolicy` (`CODE_OR_INVITATION`), `requireApproval` (on), `membersCanSeeEachOther`, `membersCanInvite`, `membersCanSaveAttachments` (off). They are access rules, so the engine is where they are read. Enforced today: `membersCanSeeEachOther` (off: no member-facing roster or count anywhere). Stored until their flow exists: the rest ([[BD-11 Rings Backend Delivery]]).
 
 Code: `src/modules/ring-access/`. Related: [[F-08 Ring Access Engine]] (feature note) · [[Architecture]]

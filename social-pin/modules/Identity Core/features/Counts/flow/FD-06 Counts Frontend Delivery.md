@@ -19,6 +19,8 @@ tags: [frontend-delivery, frontend-delivery/done, module/identity, layer/fronten
 
 # ✅ Counts · Frontend Delivery
 
+> ⚠ Affected by [[BD-11 Rings Backend Delivery]] (2026-11-05): backend main 12172c6: meta.total of GET /rings/shared-with-me now counts people and equals GET /rings/shared-with-me/count; the row saying it counts Rings is stale (/frontend)
+
 **Feature:** [[F-03 Counts]] · **Status:** Done · **Built from:** [[BI-14 Counts Backend Integration]] · **Against:** [[S-03 Counts Story]] · **Requirements:** [[FR-03 Counts Frontend Requirements]] · **QA:** [[Counts QA Frontend]]
 
 What the client shipped for the numbers on Home, the Ring picker, My Rings, Shared with me, Ring data and Me, on `social_pin` `rings/F-11/honest-rings` @ `f2c2ad5` (2026-11-05), not on `main` yet. Every number comes from the API ([[BI-14 Counts Backend Integration]], backend `main` @ `f186ba1`); none is computed from a roster and none is a sample. The QA checklist is RG-10…RG-13 in the client's `docs/TEST_CASES_2026-10-18.md`.

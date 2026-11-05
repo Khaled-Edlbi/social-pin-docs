@@ -17,6 +17,8 @@ tags: [frontend-requirements, frontend-requirements/ready, module/identity, laye
 
 # Ring Access Engine · Frontend Requirements
 
+> ⚠ Affected by [[BD-11 Rings Backend Delivery]] (2026-11-05): backend main 12172c6: GET /rings/shared-with-me now lists people, one row { ringId, pinName, displayName, avatarUrl, expiresAt, ringName, memberCount } (ringName and memberCount null until F-09 records how a membership was made), no filters; the six D-04 settings exist on a Ring, membersCanSeeEachOther enforced, the rest stored until their flows ship. The Shared with me and Ring settings 'Source today' lines are stale; shapes in BI-08 (/frontend)
+
 **Feature:** [[F-08 Ring Access Engine]] · **Status:** Ready (waiting for the backend; the 2026-11-05 review answered) · **Story:** [[S-15 Ring Access Engine Story]] · **Backend Integration:** [[BI-05 Ring Access Engine Backend Integration]]
 
 The engine exposes no endpoint. What the client needs from it is a set of guarantees that other endpoints carry: which rows appear on Shared with me and what each may say, what every `/views` route answers, and when an owner route says 403. This note lists those guarantees per surface and the client behaviour they require; the assumptions are spelled out in [[BI-05 Ring Access Engine Backend Integration]] and [[Ring Access Model]]. The screens themselves belong to other features ([[F-11 Rings]], [[F-09 Ring Members]], [[F-12 View As & Pin Views]], [[F-14 Connections]]); each section here is only what the engine decides on it.

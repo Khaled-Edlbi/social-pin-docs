@@ -14,6 +14,8 @@ tags: [feature, module/identity, priority/critical, release/mvp]
 
 # Rings
 
+> ⚠ Affected by [[BD-11 Rings Backend Delivery]] (2026-11-05): backend main 12172c6: the six settings exist on a Ring and GET /rings/shared-with-me returns people, not the Ring's name; the 'Not built yet' line is stale (/owner)
+
 **Backend:** Done · **Priority:** Critical · **Release:** MVP · **Module:** [[M-01 Identity Core Module|Identity Core]]
 
 **Layers:** [[S-18 Rings Story|Story]] · [[FR-11 Rings Frontend Requirements|Frontend Requirements]] · [[BD-11 Rings Backend Delivery|Backend Delivery]] · [[BI-08 Rings Backend Integration|Backend Integration]] · [[Rings Frontend Delivery|Frontend Delivery]] · [[Rings QA Backend|QA Backend]] · [[Rings QA Frontend|QA Frontend]]
