@@ -5032,7 +5032,7 @@
     }
   },
   "counts": {
-    "blocked": 35,
+    "blocked": 34,
     "bugs": 8,
     "byKind": {
       "backend-delivery": 39,
@@ -5058,7 +5058,7 @@
     },
     "concepts": 249,
     "decisions": 28,
-    "edges": 4843,
+    "edges": 4842,
     "features": 41,
     "layerNotes": 133,
     "modules": 8,
@@ -6853,11 +6853,6 @@
       "from": "frontend-requirements:connections",
       "kind": "blocks",
       "to": "backend-delivery:connections"
-    },
-    {
-      "from": "frontend-requirements:counts",
-      "kind": "blocks",
-      "to": "backend-delivery:counts"
     },
     {
       "from": "frontend-requirements:delegated-admins",
@@ -39431,20 +39426,14 @@
     },
     "backend-delivery:counts": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "frontend-requirements:counts",
-          "title": "FR-03 Counts Frontend Requirements",
-          "why": "FR-03 Counts Frontend Requirements is ready"
-        }
-      ],
+      "blockedBy": [],
       "card": "BD-03",
       "children": [],
       "code": "counts",
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "counts",
       "foundOn": null,
@@ -41810,7 +41799,7 @@
         {
           "id": "backend-delivery:counts",
           "title": "BD-03 Counts Backend Delivery",
-          "why": "BD-03 Counts Backend Delivery is blocked"
+          "why": "BD-03 Counts Backend Delivery is in progress"
         }
       ],
       "card": null,
@@ -45981,10 +45970,9 @@
       "release": "mvp",
       "resolution": null,
       "rollup": {
-        "approved": 1,
-        "blocked": 1,
-        "missing": 4,
-        "ready": 1
+        "approved": 2,
+        "in-progress": 1,
+        "missing": 4
       },
       "scope": null,
       "screens": [
@@ -51207,7 +51195,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "ready",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "counts",
       "foundOn": null,
@@ -51257,11 +51245,11 @@
         "s17",
         "s68"
       ],
-      "status": "ready",
+      "status": "approved",
       "summary": "What the client needs to show the numbers the design puts on Home, the Ring picker, My Rings, Shared with me, Ring data and Me, and which of them can be read today. The feature has no endpoints of…",
       "tags": [
         "frontend-requirements",
-        "frontend-requirements/ready",
+        "frontend-requirements/approved",
         "module/identity",
         "layer/frontend"
       ],
@@ -54128,19 +54116,19 @@
       "release": null,
       "resolution": null,
       "rollup": {
-        "approved": 12,
-        "blocked": 6,
+        "approved": 13,
+        "blocked": 5,
         "current": 8,
         "decided": 9,
         "delivered": 3,
         "done": 14,
         "draft": 2,
-        "in-progress": 13,
+        "in-progress": 14,
         "missing": 38,
         "needs-decision": 2,
         "partial": 5,
         "passing": 3,
-        "ready": 8,
+        "ready": 7,
         "verified": 9
       },
       "scope": null,
@@ -58495,7 +58483,7 @@
         {
           "id": "backend-delivery:counts",
           "title": "BD-03 Counts Backend Delivery",
-          "why": "BD-03 Counts Backend Delivery is blocked"
+          "why": "BD-03 Counts Backend Delivery is in progress"
         }
       ],
       "card": null,
@@ -62080,19 +62068,19 @@
         }
       ],
       "rollup": {
-        "approved": 34,
-        "blocked": 35,
+        "approved": 35,
+        "blocked": 34,
         "current": 8,
         "decided": 25,
         "delivered": 3,
         "done": 15,
         "draft": 28,
-        "in-progress": 47,
+        "in-progress": 48,
         "missing": 152,
         "needs-decision": 2,
         "partial": 5,
         "passing": 3,
-        "ready": 10,
+        "ready": 9,
         "reference": 32,
         "todo": 3,
         "verified": 25
