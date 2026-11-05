@@ -3627,6 +3627,7 @@
     },
     "s14": {
       "containers": [
+        "feature:companies",
         "feature:counts",
         "feature:files",
         "feature:ring-projection",
@@ -3649,6 +3650,7 @@
         "frontend-requirements:ring-projection",
         "needs-decision:ND-16",
         "qa-backend:files",
+        "story:companies",
         "story:counts",
         "story:files",
         "story:ring-projection",
@@ -3659,6 +3661,7 @@
     },
     "s15": {
       "containers": [
+        "feature:companies",
         "feature:connections",
         "feature:ring-access",
         "feature:ring-members",
@@ -3678,6 +3681,7 @@
         "needs-decision:ND-15",
         "needs-decision:ND-28",
         "needs-decision:ND-29",
+        "story:companies",
         "story:connections",
         "story:ring-access",
         "story:ring-members"
@@ -3913,6 +3917,7 @@
     },
     "s26": {
       "containers": [
+        "feature:companies",
         "feature:delegated-admins",
         "feature:ring-access",
         "feature:rings",
@@ -3930,6 +3935,7 @@
         "frontend-requirements:ring-access",
         "frontend-requirements:rings",
         "needs-decision:ND-04",
+        "story:companies",
         "story:delegated-admins",
         "story:ring-access",
         "story:rings"
@@ -4141,6 +4147,7 @@
     },
     "s38": {
       "containers": [
+        "feature:companies",
         "feature:connections",
         "feature:discover-hub"
       ],
@@ -4150,6 +4157,7 @@
         "feature:discover-hub",
         "frontend-requirements:connections",
         "frontend-requirements:discover-hub",
+        "story:companies",
         "story:connections",
         "story:discover-hub"
       ],
@@ -4598,6 +4606,7 @@
     },
     "s63": {
       "containers": [
+        "feature:companies",
         "feature:exhibitor"
       ],
       "kind": "screen",
@@ -4605,6 +4614,7 @@
         "backend-delivery:exhibitor",
         "feature:exhibitor",
         "frontend-requirements:exhibitor",
+        "story:companies",
         "story:exhibitor"
       ],
       "owner": null
@@ -4670,6 +4680,7 @@
       "containers": [
         "feature:account",
         "feature:auth",
+        "feature:companies",
         "feature:connections",
         "feature:counts",
         "feature:error-contract",
@@ -4716,6 +4727,7 @@
         "qa-frontend:account",
         "story:account",
         "story:auth",
+        "story:companies",
         "story:connections",
         "story:counts",
         "story:linked-accounts",
@@ -4807,6 +4819,7 @@
     },
     "s74": {
       "containers": [
+        "feature:companies",
         "feature:ring-invitations",
         "needs-decision:ND-18"
       ],
@@ -4816,6 +4829,7 @@
         "feature:ring-invitations",
         "frontend-requirements:ring-invitations",
         "needs-decision:ND-18",
+        "story:companies",
         "story:ring-invitations"
       ],
       "owner": null
@@ -4865,7 +4879,7 @@
     },
     "concepts": 237,
     "decisions": 27,
-    "edges": 4666,
+    "edges": 4681,
     "features": 41,
     "layerNotes": 133,
     "modules": 8,
@@ -5718,6 +5732,36 @@
     },
     {
       "from": "project:mvp-order",
+      "kind": "affects",
+      "to": "story:rings"
+    },
+    {
+      "from": "story:companies",
+      "kind": "affects",
+      "to": "story:counts"
+    },
+    {
+      "from": "story:companies",
+      "kind": "affects",
+      "to": "story:delegated-admins"
+    },
+    {
+      "from": "story:companies",
+      "kind": "affects",
+      "to": "story:exhibitor"
+    },
+    {
+      "from": "story:companies",
+      "kind": "affects",
+      "to": "story:ring-invitations"
+    },
+    {
+      "from": "story:companies",
+      "kind": "affects",
+      "to": "story:ring-members"
+    },
+    {
+      "from": "story:companies",
       "kind": "affects",
       "to": "story:rings"
     },
@@ -16948,7 +16992,22 @@
     {
       "from": "story:companies",
       "kind": "related",
+      "to": "decision:D-15"
+    },
+    {
+      "from": "story:companies",
+      "kind": "related",
+      "to": "decision:D-16"
+    },
+    {
+      "from": "story:companies",
+      "kind": "related",
       "to": "decision:D-18"
+    },
+    {
+      "from": "story:companies",
+      "kind": "related",
+      "to": "project:ring-access-model"
     },
     {
       "from": "story:connections",
@@ -34895,6 +34954,11 @@
     {
       "from": "story:companies",
       "kind": "wikilink",
+      "to": "backend-delivery:companies"
+    },
+    {
+      "from": "story:companies",
+      "kind": "wikilink",
       "to": "backend-integration:rings"
     },
     {
@@ -34911,6 +34975,31 @@
       "from": "story:companies",
       "kind": "wikilink",
       "to": "feature:ring-invitations"
+    },
+    {
+      "from": "story:companies",
+      "kind": "wikilink",
+      "to": "feature:ring-members"
+    },
+    {
+      "from": "story:companies",
+      "kind": "wikilink",
+      "to": "story:delegated-admins"
+    },
+    {
+      "from": "story:companies",
+      "kind": "wikilink",
+      "to": "story:ring-invitations"
+    },
+    {
+      "from": "story:companies",
+      "kind": "wikilink",
+      "to": "story:ring-members"
+    },
+    {
+      "from": "story:companies",
+      "kind": "wikilink",
+      "to": "story:rings"
     },
     {
       "from": "story:connections",
@@ -42473,7 +42562,8 @@
         "story:ring-members",
         "frontend-requirements:rings",
         "story:rings",
-        "frontend-requirements:view-as"
+        "frontend-requirements:view-as",
+        "story:companies"
       ],
       "release": null,
       "resolution": null,
@@ -42551,7 +42641,8 @@
         "frontend-requirements:profiles",
         "frontend-requirements:ring-projection",
         "frontend-requirements:view-as",
-        "story:view-as"
+        "story:view-as",
+        "story:companies"
       ],
       "release": null,
       "resolution": null,
@@ -55653,6 +55744,7 @@
         "frontend-requirements:ring-access",
         "frontend-requirements:ring-projection",
         "frontend-requirements:view-as",
+        "story:companies",
         "project:backend-agent"
       ],
       "release": null,
@@ -60556,7 +60648,14 @@
       "updated": "2026-10-29"
     },
     "story:companies": {
-      "affects": [],
+      "affects": [
+        "story:ring-invitations",
+        "story:exhibitor",
+        "story:delegated-admins",
+        "story:ring-members",
+        "story:rings",
+        "story:counts"
+      ],
       "blockedBy": [],
       "card": "S-29",
       "children": [
@@ -60601,17 +60700,27 @@
         "frontend-requirements:view-as",
         "decision:D-04",
         "decision:D-14",
-        "decision:D-18"
+        "decision:D-15",
+        "decision:D-16",
+        "decision:D-18",
+        "project:ring-access-model"
       ],
       "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
+        "s14",
+        "s15",
+        "s26",
+        "s38",
+        "s63",
+        "s68",
         "s72",
-        "s73"
+        "s73",
+        "s74"
       ],
       "status": "draft",
-      "summary": "A person belongs to one or more businesses: as an employee of Acme Studio, as a founder of Northstar, as a speaker inserted into an organizer's business account. Each business shows itself through…",
+      "summary": "A person's work identity comes from the companies they belong to: an employee of Acme Studio, an advisor to Northstar, a speaker an organizer brought into their business account. A company shows…",
       "tags": [
         "story",
         "story/draft",
@@ -60621,7 +60730,7 @@
       "task": null,
       "title": "S-29 Companies Story",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-05"
     },
     "story:connections": {
       "affects": [
