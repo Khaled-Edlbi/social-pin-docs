@@ -2450,7 +2450,8 @@
       "kind": "endpoint",
       "notes": [
         "backend-delivery:counts",
-        "backend-integration:counts"
+        "backend-integration:counts",
+        "frontend-requirements:counts"
       ],
       "owner": null
     },
@@ -5155,7 +5156,7 @@
     }
   },
   "counts": {
-    "blocked": 34,
+    "blocked": 33,
     "bugs": 8,
     "byKind": {
       "backend-delivery": 39,
@@ -5181,12 +5182,12 @@
     },
     "concepts": 255,
     "decisions": 28,
-    "edges": 5088,
+    "edges": 5086,
     "features": 41,
     "layerNotes": 135,
     "modules": 8,
     "notes": 296,
-    "partial": 7,
+    "partial": 8,
     "placeholders": 150,
     "records": 25
   },
@@ -6363,16 +6364,6 @@
       "to": "qa-backend:connections"
     },
     {
-      "from": "backend-delivery:counts",
-      "kind": "blocks",
-      "to": "backend-integration:counts"
-    },
-    {
-      "from": "backend-delivery:counts",
-      "kind": "blocks",
-      "to": "qa-backend:counts"
-    },
-    {
       "from": "backend-delivery:delegated-admins",
       "kind": "blocks",
       "to": "backend-integration:delegated-admins"
@@ -6626,11 +6617,6 @@
       "from": "backend-integration:connections",
       "kind": "blocks",
       "to": "frontend-delivery:connections"
-    },
-    {
-      "from": "backend-integration:counts",
-      "kind": "blocks",
-      "to": "frontend-delivery:counts"
     },
     {
       "from": "backend-integration:delegated-admins",
@@ -8713,7 +8699,8 @@
         "E_RING_02",
         "GET /rings",
         "GET /rings/:id",
-        "GET /rings/shared-with-me"
+        "GET /rings/shared-with-me",
+        "GET /rings/shared-with-me/count"
       ]
     },
     {
@@ -10026,7 +10013,8 @@
         "E_RING_02",
         "GET /rings",
         "GET /rings/:id",
-        "GET /rings/shared-with-me"
+        "GET /rings/shared-with-me",
+        "GET /rings/shared-with-me/count"
       ]
     },
     {
@@ -34077,6 +34065,11 @@
     {
       "from": "backend-delivery:counts",
       "kind": "wikilink",
+      "to": "backend-delivery:connections"
+    },
+    {
+      "from": "backend-delivery:counts",
+      "kind": "wikilink",
       "to": "feature:connections"
     },
     {
@@ -41735,7 +41728,7 @@
         "frontend-requirements:counts",
         "story:counts"
       ],
-      "effectiveStatus": "in-progress",
+      "effectiveStatus": "partial",
       "effort": null,
       "feature": "counts",
       "foundOn": null,
@@ -41759,12 +41752,7 @@
       "pending": [
         {
           "person": null,
-          "text": "memberCount on GET /rings and GET /rings/:id (Counts · S6–S10) is built on the backend branch FR-03/ring/member-count (f5b48c7) and waits on its merge to main; then this note records the merge, FR-03's row flips ✅ and BI-14 goes current",
-          "to": "frontend-requirements:counts"
-        },
-        {
-          "person": null,
-          "text": "the people count on Shared with me, GET /rings/shared-with-me/count (Counts · S2), is built on the backend branch FR-03/ring/shared-people-count (f516afd, stacked on FR-03/ring/member-count) and waits on its merge to main",
+          "text": "the connection count on Me (Counts · S11); waits on connections themselves, which [[BD-14 Connections Backend Delivery]] builds",
           "to": "frontend-requirements:counts"
         }
       ],
@@ -41840,11 +41828,11 @@
         "s17",
         "s68"
       ],
-      "status": "in-progress",
-      "summary": "What the backend built for this feature and how it works. Counts · S6–S10 (the live member count per Ring) is built on the backend branch FR-03/ring/member-count, and the people count on Shared…",
+      "status": "done",
+      "summary": "What the backend shipped for this feature and how it works. On main since 2026-11-05 (f186ba1): the live member count per Ring (Counts · S6–S10) and the people count on Shared with me (Counts ·…",
       "tags": [
         "backend-delivery",
-        "backend-delivery/in-progress",
+        "backend-delivery/done",
         "module/identity",
         "layer/backend"
       ],
@@ -44263,13 +44251,7 @@
       "affects": [
         "frontend-requirements:counts"
       ],
-      "blockedBy": [
-        {
-          "id": "backend-delivery:counts",
-          "title": "BD-03 Counts Backend Delivery",
-          "why": "BD-03 Counts Backend Delivery is in progress"
-        }
-      ],
+      "blockedBy": [],
       "card": "BI-14",
       "children": [],
       "code": "counts",
@@ -44278,7 +44260,7 @@
       "depends": [
         "backend-delivery:counts"
       ],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "current",
       "effort": null,
       "feature": "counts",
       "foundOn": null,
@@ -44372,11 +44354,11 @@
         "s17",
         "s68"
       ],
-      "status": "draft",
+      "status": "current",
       "summary": "Written by the backend team for the frontend: how to call what was delivered. status: current once it matches the code on main.",
       "tags": [
         "backend-integration",
-        "backend-integration/draft",
+        "backend-integration/current",
         "module/identity",
         "layer/backend"
       ],
@@ -48606,9 +48588,9 @@
       "resolution": null,
       "rollup": {
         "approved": 2,
-        "blocked": 1,
-        "in-progress": 1,
-        "missing": 3
+        "current": 1,
+        "missing": 3,
+        "partial": 1
       },
       "scope": null,
       "screens": [
@@ -51565,13 +51547,7 @@
     },
     "frontend-delivery:counts": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "backend-integration:counts",
-          "title": "BI-14 Counts Backend Integration",
-          "why": "BI-14 Counts Backend Integration is blocked"
-        }
-      ],
+      "blockedBy": [],
       "card": null,
       "children": [],
       "code": "counts",
@@ -56827,16 +56803,16 @@
       "resolution": null,
       "rollup": {
         "approved": 15,
-        "blocked": 5,
-        "current": 9,
+        "blocked": 4,
+        "current": 10,
         "decided": 9,
         "delivered": 3,
         "done": 13,
         "draft": 2,
-        "in-progress": 14,
+        "in-progress": 13,
         "missing": 36,
         "needs-decision": 2,
-        "partial": 7,
+        "partial": 8,
         "passing": 3,
         "ready": 5,
         "verified": 9
@@ -61243,13 +61219,7 @@
     },
     "qa-backend:counts": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "backend-delivery:counts",
-          "title": "BD-03 Counts Backend Delivery",
-          "why": "BD-03 Counts Backend Delivery is in progress"
-        }
-      ],
+      "blockedBy": [],
       "card": null,
       "children": [],
       "code": "counts",
@@ -64832,16 +64802,16 @@
       ],
       "rollup": {
         "approved": 37,
-        "blocked": 34,
-        "current": 9,
+        "blocked": 33,
+        "current": 10,
         "decided": 25,
         "delivered": 3,
         "done": 14,
         "draft": 28,
-        "in-progress": 48,
+        "in-progress": 47,
         "missing": 150,
         "needs-decision": 2,
-        "partial": 7,
+        "partial": 8,
         "passing": 3,
         "ready": 7,
         "reference": 32,
