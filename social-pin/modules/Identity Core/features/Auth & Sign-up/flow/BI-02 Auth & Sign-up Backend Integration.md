@@ -14,8 +14,6 @@ tags: [backend-integration, backend-integration/current, module/identity, layer/
 
 # 🔌 Auth & Sign-up · Backend Integration
 
-> ⚠ Affected by [[D-30 The fifth wrong code try locks the code]] (2026-11-05): ND-30 decided, option 1: the fifth wrong guess answers 429 E_AUTH_06; the sign-up flow's 'Sixth wrong guess: 429' becomes the fifth once the backend ships it (/backend)
-
 **Feature:** [[F-02 Auth & Sign-up]] · **Backend:** ✅ Done (passwordless since 2026-10-15, [[ND-01 Passwordless login]]) · **Read first:** [[Frontend Contract]], [[Auth Model]], [[Frontend Passwordless Migration]]
 
 What the client builds: the welcome screen, one code-entry screen used by both sign-up and sign-in, the claim-your-Pin step, a token store that handles rotation, and sign-out. **There is no password anywhere**: not at sign-up, not at sign-in, not in account settings.
@@ -37,7 +35,7 @@ What the client builds: the welcome screen, one code-entry screen used by both s
    Re-submitting for an address that is still PENDING re-issues the code (no error). An address that already finished sign-up is a 409 `E_AUTH_01`: send them to sign-in.
 2. **`POST /auth/verify-code`** with `{ destination, code, purpose: "SIGN_UP" }` (`purpose` is always `SIGN_UP` here; sign-in codes go to `login/verify`).
    → `201 { onboardingToken, purpose, expiresIn: "15m" }`. Keep the token in memory for the length of the form; it is not a session and every API route rejects it.
-   Wrong or expired code: 400 `E_AUTH_05`. Sixth wrong guess: 429 `E_AUTH_06`, the code is burned and the only way on is resend.
+   Wrong or expired code: 400 `E_AUTH_05`. Fifth wrong guess: 429 `E_AUTH_06` on that guess itself, the code is burned and the only way on is resend; disable the cells on the 429, never by counting tries ([[D-30 The fifth wrong code try locks the code]]).
 3. **Pin name check** while the user types: `GET /profiles/pin-name/:pinName/availability` → `{ pinName, available }`. Send the handle without the `!`. Rules: 3 to 30 characters, letters, digits, `.` and `_`. Uniqueness ignores case; the original casing is kept for display. The answer never says who holds a taken name.
 4. **`POST /auth/complete-registration`** with `{ onboardingToken, pinName, fullName? }` (`fullName` up to 120 characters). **No password field.**
    → `201 { accessToken, refreshToken, tokenType: "Bearer", expiresIn: "15m" }`. One transaction activated the account and created the profile, the default Ring and its projection, so the app can go straight to Home.
@@ -85,7 +83,7 @@ OTP delivery is not wired ([[F-32 Code Delivery]]). Until it is, **every respons
 | 400 | `E_AUTH_07` | sign-up with neither or both of email / phone | form validation |
 | 409 | `E_AUTH_01` | sign-up for an address that already completed registration | "Already registered, sign in" |
 | 400 | `E_AUTH_05` | wrong, expired or consumed code; onboarding token expired, forged or for another purpose | "Invalid or expired code" + resend |
-| 429 | `E_AUTH_06` | five wrong guesses; the code is burned | "Request a new code" |
+| 429 | `E_AUTH_06` | the fifth wrong guess, on that guess; the code is burned, and the right code after it is refused | "Request a new code" |
 | 403 | `E_AUTH_03` | `login/verify` on a suspended or never-finished account | one message + "start sign-up again" |
 | 409 | `E_AUTH_08` | complete-registration on an account that already finished | go to sign-in |
 | 409 | `E_PROFILE_02` | pin name taken at the last moment, also by a concurrent registration | back to the Pin step |
