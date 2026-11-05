@@ -17,7 +17,7 @@ tags: [backend-delivery, backend-delivery/done, module/identity, layer/backend]
 
 # ✅ Profiles & Pin Name · Backend Delivery
 
-**Feature:** [[F-07 Profiles & Pin Name]] · **Status:** Done · **Integration guide:** [[BI-04 Profiles & Pin Name Backend Integration]] · **Requirements:** [[FR-07 Profiles & Pin Name Frontend Requirements]] · **QA:** [[Profiles & Pin Name QA Backend]]
+**Feature:** [[F-07 Profiles & Pin Name]] · **Status:** Done · **Integration guide:** [[BI-04 Profiles & Pin Name Backend Integration]] · **Requirements:** [[FR-07 Profiles & Pin Name Frontend Requirements]] · **QA:** [[QB-10 Profiles & Pin Name QA Backend]]
 
 What the backend shipped for this feature and how it works. S3, S4, S9–S12 and D-16's `avatarUrl` are on the backend's `main` since 2026-11-05 (`a249ab2`, the merge of `FR-07/profile/main-profile-fields`, 743f390). What is still open is in `pending`: the public look-up by Pin name for [[D-22 The public page only says the Pin exists]].
 
