@@ -6,35 +6,66 @@ feature: counts
 status: in-progress
 scope: feature
 screens: [s11, s12, s14, s16, s17, s68]
+depends: ["FR-03 Counts Frontend Requirements", "S-03 Counts Story"]
+affects: ["BI-14 Counts Backend Integration", "FR-03 Counts Frontend Requirements"]
+related: ["F-11 Rings", "BD-11 Rings Backend Delivery", "D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "GET /rings", "GET /rings/:id", "GET /rings/shared-with-me", "GET /rings/shared-with-me/count", E_RING_02]
+pending: ["[[FR-03 Counts Frontend Requirements]]: memberCount on GET /rings and GET /rings/:id (Counts · S6–S10) is built on the backend branch FR-03/ring/member-count (f5b48c7) and waits on its merge to main; then this note records the merge, FR-03's row flips ✅ and BI-14 goes current", "[[FR-03 Counts Frontend Requirements]]: the people count on Shared with me, GET /rings/shared-with-me/count (Counts · S2), is built on the backend branch FR-03/ring/shared-people-count (f516afd, stacked on FR-03/ring/member-count) and waits on its merge to main"]
 created: 2026-10-18
-updated: 2026-10-29
+updated: 2026-11-05
 tags: [backend-delivery, backend-delivery/in-progress, module/identity, layer/backend]
 ---
 
 # 🟡 Counts · Backend Delivery
 
-**Feature:** [[F-03 Counts]] · **Status:** In progress · **Integration guide:** [[Counts Backend Integration]] · **Requirements:** [[FR-03 Counts Frontend Requirements]] · **QA:** [[Counts QA Backend]]
+**Feature:** [[F-03 Counts]] · **Status:** In progress · **Integration guide:** [[BI-14 Counts Backend Integration]] · **Requirements:** [[FR-03 Counts Frontend Requirements]] · **QA:** [[Counts QA Backend]]
 
-What the backend shipped for this feature and how it works. The sum of this feature's task-level Backend Delivery notes (see the *Tasks* table below).
+What the backend built for this feature and how it works. [[S-03 Counts Story|Counts · S6–S10]] (the live member count per Ring) is built on the backend branch `FR-03/ring/member-count`, and the people count on Shared with me ([[S-03 Counts Story|Counts · S2]]) on `FR-03/ring/shared-people-count`, stacked on it; **neither is merged to `main` yet**: nothing below is available to the client until it is. [[S-03 Counts Story|Counts · S11]] (connections on Me) is not started.
 
 ## Endpoints, tables and code
 
-**Endpoints:** none yet.
+**Endpoints** (on the branches: two existing routes gain a field, one route is new)
 
-**Tables / models:** `RingMember`, `Connection`
+| Method | Path | Auth | Who may call it | What changes |
+|---|---|---|---|---|
+| `GET` | `/rings` | bearer | any signed-in user, for their own Rings | every Ring carries `memberCount` |
+| `GET` | `/rings/:id` | bearer | the Ring's owner; anyone else gets 404 `E_RING_02` | the Ring carries `memberCount` |
+| `GET` | `/rings/shared-with-me` | bearer | any signed-in user | unchanged: **no** `memberCount`, by design (S10) |
+| `GET` | `/rings/shared-with-me/count` | bearer | any signed-in user, about themselves | **new**: `{ "people": N }`, the people sharing with me (S2) |
 
-**Code:** `src/modules/ring/`
+**Tables / models:** `RingMember`, `Ring`, `User`, `UserBlock` (read only; no schema change, no migration)
+
+**Code:** `src/modules/ring-access/ring-access.service.ts` (`countLiveMembers`, `countPeopleSharingWith`), `src/modules/ring/ring.service.ts` (`findOwned`, `findOneForOwner`, `countSharedWithMe`), `src/modules/ring/entities/owned-ring.entity.ts` (`OwnedRingEntity`), `src/modules/ring/entities/shared-with-me-count.entity.ts` (`SharedWithMeCountEntity`), `src/modules/ring/ring.controller.ts`
+
+## How it works
+
+- **The count is a visibility question, so it lives in the access engine.** `RingAccessService.countLiveMembers(ownerUserId, ringIds, now)` is the only code that counts members; `RingService` never queries `ring_members` for it ([[Ring Access Model]]).
+- **Live members only, with the engine's own filters.** A member counts while `membershipLiveFilter(now)` holds (status `ACTIVE`, the membership's `startsAt` ≤ now < `expiresAt`), the Ring passes `ringLiveFilter(now)` (status `ACTIVE`, not deleted, the Ring's own window open) and no block stands between the member and the owner, in either direction: the same three rules every read path applies. So a removed, left or pending member is not counted, nor one whose window closed, and an expired, archived or deleted Ring counts 0. Expiry is exclusive, as on read: at the `expiresAt` instant the member (or the Ring) no longer counts.
+- **Evaluated against `now` on every request**, nothing cached: an add, remove, reassign or an expiry shows on the next fetch.
+- **One grouped query per page.** `GET /rings` reads the page, then one `groupBy` on `ring_members` by `ringId` for all the page's Ring ids; a Ring absent from the result is a real 0. `GET /rings/:id` runs the same count for one id. Never a query per Ring.
+- **Owner-only.** The owner's routes return `OwnedRingEntity` (`RingEntity` + `memberCount`); `GET /rings/shared-with-me` keeps `RingEntity`, which has no such field, so the size of someone else's Ring cannot reach a member even if a service handed it one (the serializer's allow-list drops it). The count is also scoped to `ownerUserId` in the query itself.
+- **Errors.** `GET /rings/:id` answers 404 `E_RING_02` for a Ring that is gone and for one that is not yours alike, and counts nothing in that case. `memberCount` adds no error of its own.
+- **People sharing with me (S2).** `GET /rings/shared-with-me/count` → `{ "people": N }` from `RingAccessService.countPeopleSharingWith(viewer, now)`: one `COUNT` over the users who own at least one Ring that passes `ringLiveFilter(now)` and in which the caller's membership passes `membershipLiveFilter(now)`, with no block between the two in either direction, never the caller themself. A person sharing two Rings counts once. The body is the number only: nothing that names or counts a Ring. `meta.total` of `GET /rings/shared-with-me` still counts Rings, and that list does not drop blocked pairs today (see *Gaps*), so the two can differ.
+- **Not the roster.** `GET /rings/:ringId/members?status=ACTIVE` → `meta.total` still counts `ACTIVE` rows whose window has lapsed; `memberCount` is the number to show.
 
 ### What exists
 
-- All the data exists; counts are derived.
+- On the branch `FR-03/ring/member-count` (`f5b48c7`), not on `main`: `memberCount` on every owned Ring in `GET /rings` and on `GET /rings/:id` (Counts · S6, S7, S8, S9, S10).
+- Specs: `ring-access.service.spec.ts` (one grouped query; a real 0; the membership filter, the Ring filter and the block rule in the query), `ring.service.spec.ts` (the count on the list and the detail; 404 `E_RING_02` without counting; shared-with-me never counted), `owned-ring.entity.spec.ts` (`memberCount` on `GET /rings`, absent on `GET /rings/shared-with-me`). `pnpm typecheck` clean, `pnpm test` 281 passed. The grouped query was also run once, read only, against a local PostgreSQL.
+- On the branch `FR-03/ring/shared-people-count` (`f516afd`, stacked on `FR-03/ring/member-count`), not on `main`: `GET /rings/shared-with-me/count` (Counts · S2). Specs: `ring-access.service.spec.ts` (counts users, not Rings; the live filters; blocks both ways), `ring.service.spec.ts`, `owned-ring.entity.spec.ts` (the body is `{ people }` only). `pnpm test` 286 passed; the query was run once, read only, against a local PostgreSQL.
+- On `main` already: the number of Rings I own, `meta.total` of `GET /rings`.
 
 ### Gaps
 
-- No endpoint returns a member count per Ring.
-- No endpoint returns a connection count (and connections do not exist yet).
-- Decide whether counts ride on the list entities (`memberCount` on `RingEntity`) or on a separate stats endpoint.
+- Nothing of S6–S10 or S2 is on `main` until `FR-03/ring/member-count`, then `FR-03/ring/shared-people-count`, are merged.
+- **Connections on Me** ([[S-03 Counts Story|Counts · S11]]): no endpoint; connections themselves do not exist yet ([[F-14 Connections]]).
+- `GET /rings/shared-with-me` itself still lists Rings, not people; the people list is [[S-15 Ring Access Engine Story|Ring Access Engine · S1]] ([[D-14 Shared with me lists people, never the Ring]]).
+- On `main`, that list does not drop a Ring whose owner and the caller have blocked each other. Fixed on `FR-03/ring/shared-with-me-blocks`, stacked on the two branches above: the list and the people count then share one filter, `RingAccessService.sharedWithFilter`, so they cannot disagree ([[BD-11 Rings Backend Delivery]]).
+- **"N added today"** on Home is not built (an open question of the story).
+- A member-side count for a Ring with "members can see each other" on is not built; that setting does not exist yet ([[D-04 Ring settings at launch and their defaults]]).
 
 ## Log
 
 - 2026-10-18 · split out of [[F-03 Counts]] when the vault moved to layers
+- 2026-11-05 · backend branch `FR-03/ring/member-count` (`f5b48c7`), pushed, **not merged** · Counts · S6–S10: `memberCount` on `GET /rings` and `GET /rings/:id`, live members only (the engine's membership and Ring filters plus the block rule, through `RingAccessService.countLiveMembers`), one grouped query per page, owner-only (`GET /rings/shared-with-me` has no `memberCount`). No new error code, no migration. 281 tests pass. Wrote [[BI-14 Counts Backend Integration]] as `draft`. The rows of [[FR-03 Counts Frontend Requirements]] stay ❌ until the merge; flagged nothing. This note stays `in-progress` with the merge in `pending`.
+- 2026-11-05 · backend branch `FR-03/ring/shared-people-count` (`f516afd`, stacked on `FR-03/ring/member-count`), pushed, **not merged** · Counts · S2: `GET /rings/shared-with-me/count` → `{ people }`, one per person, live access only, blocks excluded both ways, through `RingAccessService.countPeopleSharingWith`. No new error code, no migration. 286 tests pass. [[BI-14 Counts Backend Integration]] updated (still `draft`). Found: the list `GET /rings/shared-with-me` does not exclude blocked pairs, which [[BI-08 Rings Backend Integration]] says it does; written under *Gaps*, not fixed here. FR-03's rows stay ❌ until the merge; flagged nothing. Counts · S11 stays unbuilt: no route creates connections yet, and S11 forbids "0 connections" before they exist.
+- 2026-11-05 · backend branch `FR-03/ring/shared-with-me-blocks` (`0747754`, stacked on `FR-03/ring/shared-people-count`), pushed, **not merged** · the block rule on `GET /rings/shared-with-me`, found above: `RingAccessService.sharedWithFilter` now defines "shared with me" once, for the list, its `meta.total` and `GET /rings/shared-with-me/count`. 288 tests pass; checked on a local PostgreSQL in a rolled-back transaction. Recorded on [[BD-11 Rings Backend Delivery]] (Partial until the merge) and corrected in [[BI-08 Rings Backend Integration]]. Merge order: `FR-03/ring/member-count`, `FR-03/ring/shared-people-count`, `FR-03/ring/shared-with-me-blocks`.
