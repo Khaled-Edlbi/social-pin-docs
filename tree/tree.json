@@ -1932,6 +1932,7 @@
       "notes": [
         "backend-delivery:files",
         "backend-delivery:ring-projection",
+        "backend-delivery:view-as",
         "backend-integration:files",
         "frontend-requirements:files",
         "frontend-requirements:view-as",
@@ -5109,7 +5110,7 @@
     },
     "concepts": 252,
     "decisions": 28,
-    "edges": 4882,
+    "edges": 4886,
     "features": 41,
     "layerNotes": 133,
     "modules": 8,
@@ -8477,6 +8478,14 @@
     {
       "from": "backend-delivery:files",
       "kind": "related",
+      "to": "backend-delivery:view-as",
+      "via": [
+        "GET /files/content/:token"
+      ]
+    },
+    {
+      "from": "backend-delivery:files",
+      "kind": "related",
       "to": "backend-integration:files",
       "via": [
         "DELETE /files/:id",
@@ -8643,6 +8652,14 @@
       "from": "backend-delivery:photo-library",
       "kind": "related",
       "to": "backend-delivery:ring-projection",
+      "via": [
+        "GET /files/content/:token"
+      ]
+    },
+    {
+      "from": "backend-delivery:photo-library",
+      "kind": "related",
+      "to": "backend-delivery:view-as",
       "via": [
         "GET /files/content/:token"
       ]
@@ -9087,6 +9104,14 @@
     {
       "from": "backend-integration:files",
       "kind": "related",
+      "to": "backend-delivery:view-as",
+      "via": [
+        "GET /files/content/:token"
+      ]
+    },
+    {
+      "from": "backend-integration:files",
+      "kind": "related",
       "to": "backend-integration:ring-projection",
       "via": [
         "E_FILE_04",
@@ -9267,6 +9292,14 @@
     {
       "from": "backend-integration:ring-projection",
       "kind": "related",
+      "to": "backend-delivery:view-as",
+      "via": [
+        "GET /files/content/:token"
+      ]
+    },
+    {
+      "from": "backend-integration:ring-projection",
+      "kind": "related",
       "to": "decision:D-16"
     },
     {
@@ -9298,6 +9331,14 @@
       "from": "backend-integration:view-as",
       "kind": "related",
       "to": "backend-delivery:ring-projection",
+      "via": [
+        "GET /files/content/:token"
+      ]
+    },
+    {
+      "from": "backend-integration:view-as",
+      "kind": "related",
+      "to": "backend-delivery:view-as",
       "via": [
         "GET /files/content/:token"
       ]
@@ -32606,7 +32647,7 @@
     {
       "from": "backend-delivery:view-as",
       "kind": "wikilink",
-      "to": "backend-integration:view-as"
+      "to": "decision:D-16"
     },
     {
       "from": "backend-delivery:view-as",
@@ -32617,11 +32658,6 @@
       "from": "backend-delivery:view-as",
       "kind": "wikilink",
       "to": "feature:connections"
-    },
-    {
-      "from": "backend-delivery:view-as",
-      "kind": "wikilink",
-      "to": "story:files"
     },
     {
       "from": "backend-delivery:widgets",
@@ -40506,6 +40542,7 @@
         "story:files",
         "needs-decision:ND-16",
         "backend-delivery:ring-projection",
+        "backend-delivery:view-as",
         "frontend-requirements:view-as",
         "qa-backend:files",
         "frontend-requirements:photo-library",
@@ -41056,6 +41093,7 @@
         "story:files",
         "needs-decision:ND-16",
         "backend-delivery:ring-projection",
+        "backend-delivery:view-as",
         "frontend-requirements:view-as",
         "frontend-requirements:photo-library",
         "frontend-requirements:profiles",
@@ -41672,9 +41710,14 @@
       "priority": "critical",
       "related": [
         "frontend-requirements:connections",
+        "backend-delivery:files",
+        "backend-integration:files",
         "qa-backend:files",
+        "backend-delivery:photo-library",
         "frontend-requirements:ring-access",
+        "backend-integration:ring-projection",
         "frontend-requirements:ring-projection",
+        "backend-integration:view-as",
         "frontend-requirements:view-as",
         "frontend-requirements:companies"
       ],
@@ -41697,7 +41740,7 @@
       "task": null,
       "title": "BD-12 View As & Pin Views Backend Delivery",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-05"
     },
     "backend-delivery:widgets": {
       "affects": [],
@@ -42796,6 +42839,7 @@
         "story:files",
         "needs-decision:ND-16",
         "backend-delivery:ring-projection",
+        "backend-delivery:view-as",
         "frontend-requirements:view-as",
         "qa-backend:files",
         "frontend-requirements:photo-library",
@@ -43642,6 +43686,7 @@
         "decision:D-16",
         "needs-decision:ND-16",
         "backend-delivery:ring-projection",
+        "backend-delivery:view-as",
         "frontend-requirements:view-as",
         "frontend-requirements:ring-projection",
         "frontend-requirements:companies"
@@ -43837,6 +43882,7 @@
         "needs-decision:ND-16",
         "backend-delivery:files",
         "backend-delivery:ring-projection",
+        "backend-delivery:view-as",
         "frontend-requirements:view-as",
         "frontend-requirements:companies"
       ],
