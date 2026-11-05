@@ -16,6 +16,8 @@ tags: [story, story/approved, module/discovery, layer/business]
 
 # Discover Hub & Search · User Story
 
+> ⚠ Affected by [[S-29 Companies Story]] (2026-11-05): S-29 was rewritten as S1–S14 with its product rules decided inside the story (P1–P8, no decision cards). The old Companies · S6 (merged T-029) is gone: the list is S2, company detail S5, leave S9, and the business ↔ Ring link is decided as P2 (every company Ring carries its business; setup creates both). The domain shows as acme.co without Verified in the MVP (P6). Repoint the links that name Companies · S6.
+
 **Feature:** [[F-19 Discover Hub & Search]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[FR-19 Discover Hub & Search Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 Discover is the tab for finding something on purpose: a person whose Pin name you were given, an event, a company, an exhibitor, the people around you, or the contacts already on your phone. It is not a feed and it does not browse strangers. Search here means "resolve the exact `!pinname` I typed", and the answer is whatever that person shares with me, or one neutral "not available".
