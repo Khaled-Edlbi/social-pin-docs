@@ -81,7 +81,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
         - ✅ [ND-22 Public web page by Pin name](social-pin/needs-decisions/ND-22%20Public%20web%20page%20by%20Pin%20name.md) (Needs decision)
           - ⚖️ [D-22 The public page only says the Pin exists](social-pin/decisions/D-22%20The%20public%20page%20only%20says%20the%20Pin%20exists.md) (Decision)
       - 👍 [FR-07 Profiles & Pin Name Frontend Requirements](social-pin/modules/Identity%20Core/features/Profiles%20%26%20Pin%20Name/flow/FR-07%20Profiles%20%26%20Pin%20Name%20Frontend%20Requirements.md) (Frontend Requirements, Critical)
-      - 🟡 [BD-07 Profiles & Pin Name Backend Delivery](social-pin/modules/Identity%20Core/features/Profiles%20%26%20Pin%20Name/flow/BD-07%20Profiles%20%26%20Pin%20Name%20Backend%20Delivery.md) (Backend Delivery, 5 pending notes, Critical)
+      - 🟡 [BD-07 Profiles & Pin Name Backend Delivery](social-pin/modules/Identity%20Core/features/Profiles%20%26%20Pin%20Name/flow/BD-07%20Profiles%20%26%20Pin%20Name%20Backend%20Delivery.md) (Backend Delivery, 1 pending note, Critical)
       - 🔵 [BI-04 Profiles & Pin Name Backend Integration](social-pin/modules/Identity%20Core/features/Profiles%20%26%20Pin%20Name/flow/BI-04%20Profiles%20%26%20Pin%20Name%20Backend%20Integration.md) (Backend Integration, Critical)
       - ∅ _Profiles & Pin Name QA Backend_ (QA Backend)
       - ∅ _Profiles & Pin Name Frontend Delivery_ (Frontend Delivery)

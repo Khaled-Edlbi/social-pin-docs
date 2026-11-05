@@ -17,6 +17,8 @@ tags: [backend-delivery, backend-delivery/done, module/identity, layer/backend]
 
 # ✅ Ring Projection · Backend Delivery
 
+> ⚠ Affected by [[BD-07 Profiles & Pin Name Backend Delivery]] (2026-11-05): the main profile shipped on backend main a249ab2: headline, role, company, location, bio, avatarFileId on Profile; toView already falls back to the main bio and photo (S-14 S11); S10 per field (follow / own / hidden) can now build on these fields; for /backend
+
 > ⚠ Affected by [[D-05 Inherit per field, copy without members]] (2026-10-25): ND-05 decided, a Ring inherits the main profile field by field until it changes that field; copying a Ring copies fields, bio, photo, colour and settings, never members.
 
 **Feature:** [[F-10 Ring Projection]] · **Status:** Done · **Integration guide:** [[BI-07 Ring Projection Backend Integration]] · **Requirements:** [[FR-10 Ring Projection Frontend Requirements]] · **QA:** [[Ring Projection QA Backend]]
