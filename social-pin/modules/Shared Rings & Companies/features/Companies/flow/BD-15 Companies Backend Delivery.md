@@ -13,6 +13,8 @@ tags: [backend-delivery, backend-delivery/todo, module/shared-rings, layer/backe
 
 # ⬜ Companies · Backend Delivery
 
+> ⚠ Affected by [[S-29 Companies Story]] (2026-11-05): S-29 added P9 (every company member reads the company's card Ring, through the access engine) and P11 (the title shows only on the company matching the profile's company).
+
 **Feature:** [[F-15 Companies]] · **Status:** To do · **Integration guide:** [[Companies Backend Integration]] · **Requirements:** [[FR-15 Companies Frontend Requirements]] · **QA:** [[Companies QA Backend]]
 
 What the backend shipped for this feature and how it works. The sum of this feature's task-level Backend Delivery notes (see the *Tasks* table below).

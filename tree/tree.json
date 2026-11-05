@@ -4879,7 +4879,7 @@
     },
     "concepts": 237,
     "decisions": 27,
-    "edges": 4680,
+    "edges": 4685,
     "features": 41,
     "layerNotes": 133,
     "modules": 8,
@@ -16977,6 +16977,11 @@
     {
       "from": "story:companies",
       "kind": "related",
+      "to": "decision:D-02"
+    },
+    {
+      "from": "story:companies",
+      "kind": "related",
       "to": "decision:D-04"
     },
     {
@@ -17003,6 +17008,16 @@
       "from": "story:companies",
       "kind": "related",
       "to": "project:ring-access-model"
+    },
+    {
+      "from": "story:companies",
+      "kind": "related",
+      "to": "story:profiles"
+    },
+    {
+      "from": "story:companies",
+      "kind": "related",
+      "to": "story:ring-access"
     },
     {
       "from": "story:connections",
@@ -30057,6 +30072,11 @@
       "to": "frontend-requirements:companies"
     },
     {
+      "from": "backend-delivery:companies",
+      "kind": "wikilink",
+      "to": "story:companies"
+    },
+    {
       "from": "backend-delivery:connections",
       "kind": "wikilink",
       "to": "feature:gemma"
@@ -30310,6 +30330,11 @@
       "from": "backend-delivery:ring-access",
       "kind": "wikilink",
       "to": "feature:connections"
+    },
+    {
+      "from": "backend-delivery:ring-access",
+      "kind": "wikilink",
+      "to": "story:companies"
     },
     {
       "from": "backend-delivery:ring-invitations",
@@ -32255,6 +32280,11 @@
       "from": "frontend-requirements:post-event",
       "kind": "wikilink",
       "to": "story:post-event"
+    },
+    {
+      "from": "frontend-requirements:profiles",
+      "kind": "wikilink",
+      "to": "story:companies"
     },
     {
       "from": "frontend-requirements:profiles",
@@ -34945,11 +34975,6 @@
       "from": "story:code-delivery",
       "kind": "wikilink",
       "to": "project:auth-model"
-    },
-    {
-      "from": "story:companies",
-      "kind": "wikilink",
-      "to": "backend-delivery:companies"
     },
     {
       "from": "story:companies",
@@ -41866,7 +41891,8 @@
         "frontend-requirements:profiles",
         "story:profiles",
         "frontend-requirements:ring-projection",
-        "story:ring-projection"
+        "story:ring-projection",
+        "story:companies"
       ],
       "release": null,
       "resolution": null,
@@ -60688,6 +60714,9 @@
         "frontend-requirements:ring-projection",
         "frontend-requirements:rings",
         "frontend-requirements:view-as",
+        "decision:D-02",
+        "story:profiles",
+        "story:ring-access",
         "decision:D-04",
         "decision:D-14",
         "decision:D-15",
@@ -62228,7 +62257,8 @@
         "story:view-as",
         "story:gemma",
         "feature:badge-qr",
-        "frontend-requirements:ring-projection"
+        "frontend-requirements:ring-projection",
+        "story:companies"
       ],
       "release": "mvp",
       "resolution": null,
@@ -62302,7 +62332,8 @@
         "frontend-requirements:ring-members",
         "frontend-requirements:ring-projection",
         "frontend-requirements:rings",
-        "frontend-requirements:view-as"
+        "frontend-requirements:view-as",
+        "story:companies"
       ],
       "release": "mvp",
       "resolution": null,

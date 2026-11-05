@@ -13,6 +13,8 @@ tags: [frontend-requirements, frontend-requirements/draft, module/shared-rings, 
 
 # Companies · Frontend Requirements
 
+> ⚠ Affected by [[S-29 Companies Story]] (2026-11-05): S-29 added P9 (every company member reads the company's card Ring), P10 (a role field on the main profile) and P11 (my title only on the company row matching my profile's company), all decided in the story; cite them.
+
 > ⚠ Affected by [[S-29 Companies Story]] (2026-11-05): S-29 was rewritten as S1–S14 with its product rules decided inside the story (P1–P8, no decision cards). The old Companies · S6 (merged T-029) is gone: the list is S2, company detail S5, leave S9, and the business ↔ Ring link is decided as P2 (every company Ring carries its business; setup creates both). The domain shows as acme.co without Verified in the MVP (P6). Repoint the links that name Companies · S6.
 
 > ⚠ Affected by [[D-18 Ring names shown when joined knowingly]] (2026-10-25): company Rings a member joined knowingly are named on s72 and s73; one the owner placed them in stays unnamed; colour, type and hierarchy are never shown.
