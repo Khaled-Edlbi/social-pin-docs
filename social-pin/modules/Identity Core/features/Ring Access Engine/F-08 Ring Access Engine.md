@@ -16,7 +16,7 @@ tags: [feature, module/identity, priority/critical, release/mvp]
 
 **Backend:** Done · **Priority:** Critical · **Release:** MVP · **Module:** [[M-01 Identity Core Module|Identity Core]]
 
-**Layers:** [[S-15 Ring Access Engine Story|Story]] · [[FR-08 Ring Access Engine Frontend Requirements|Frontend Requirements]] · [[BD-08 Ring Access Engine Backend Delivery|Backend Delivery]] · [[BI-05 Ring Access Engine Backend Integration|Backend Integration]] · [[Ring Access Engine Frontend Delivery|Frontend Delivery]] · [[Ring Access Engine QA Backend|QA Backend]] · [[Ring Access Engine QA Frontend|QA Frontend]]
+**Layers:** [[S-15 Ring Access Engine Story|Story]] · [[FR-08 Ring Access Engine Frontend Requirements|Frontend Requirements]] · [[BD-08 Ring Access Engine Backend Delivery|Backend Delivery]] · [[BI-05 Ring Access Engine Backend Integration|Backend Integration]] · [[Ring Access Engine Frontend Delivery|Frontend Delivery]] · [[QB-09 Ring Access Engine QA Backend|QA Backend]] · [[Ring Access Engine QA Frontend|QA Frontend]]
 
 `RingAccessService`: the one place that decides whether a viewer may see something. Every read path, and every future feature (events, meetings, chat, posts, Gemma), routes through it.
 

@@ -95,7 +95,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
       - 📨 [FR-08 Ring Access Engine Frontend Requirements](social-pin/modules/Identity%20Core/features/Ring%20Access%20Engine/flow/FR-08%20Ring%20Access%20Engine%20Frontend%20Requirements.md) (Frontend Requirements, Critical)
       - 🟡 [BD-08 Ring Access Engine Backend Delivery](social-pin/modules/Identity%20Core/features/Ring%20Access%20Engine/flow/BD-08%20Ring%20Access%20Engine%20Backend%20Delivery.md) (Backend Delivery, 2 pending notes, Critical)
       - 🔵 [BI-05 Ring Access Engine Backend Integration](social-pin/modules/Identity%20Core/features/Ring%20Access%20Engine/flow/BI-05%20Ring%20Access%20Engine%20Backend%20Integration.md) (Backend Integration, Critical)
-      - ∅ _Ring Access Engine QA Backend_ (QA Backend)
+      - 🔴 [QB-09 Ring Access Engine QA Backend](social-pin/modules/Identity%20Core/features/Ring%20Access%20Engine/flow/QB-09%20Ring%20Access%20Engine%20QA%20Backend.md) (QA Backend, 2 pending notes, 1 story part unmet, Critical)
       - ∅ _Ring Access Engine Frontend Delivery_ (Frontend Delivery)
       - ∅ _Ring Access Engine QA Frontend_ (QA Frontend, blocked by Ring Access Engine Frontend Delivery)
     - 🔵 [F-09 Ring Members](social-pin/modules/Identity%20Core/features/Ring%20Members/F-09%20Ring%20Members.md) (release MVP, Critical)
