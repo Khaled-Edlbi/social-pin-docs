@@ -3,9 +3,11 @@ id: S-29
 type: story
 module: shared-rings
 feature: companies
-status: draft
+status: approved
 scope: feature
 screens: [s14, s15, s26, s38, s63, s68, s72, s73, s74]
+approvedBy: "Omar Fostok"
+approvedAt: 2026-11-05
 owner: "Omar Fostok"
 depends: []
 affects: ["S-33 Ring Invitations & Join Story", "S-59 Exhibitor Story", "S-31 Delegated Admins Story", "S-16 Ring Members Story", "S-18 Rings Story", "S-03 Counts Story"]
@@ -13,12 +15,12 @@ related: ["D-04 Ring settings at launch and their defaults", "D-14 Shared with m
 pending: []
 created: 2026-10-18
 updated: 2026-11-05
-tags: [story, story/draft, module/shared-rings, layer/business]
+tags: [story, story/approved, module/shared-rings, layer/business]
 ---
 
 # Companies · User Story
 
-**Feature:** [[F-15 Companies]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[FR-15 Companies Frontend Requirements]] · **Backend Integration:** not yet · **Verified by:** [[Companies QA Backend]], [[Companies QA Frontend]]
+**Feature:** [[F-15 Companies]] · **Status:** Approved 2026-11-05 by Omar Fostok · **Frontend Requirements:** [[FR-15 Companies Frontend Requirements]] · **Backend Integration:** not yet · **Verified by:** [[Companies QA Backend]], [[Companies QA Frontend]]
 
 > **Rewritten 2026-11-05.** The earlier draft (S1–S6) was written before the design was checked, and still carried the merged task T-029 as S6. This version is one set of parts, ordered as the member's journey happens, checked against the design (s72, s73, s74 in the prototype; Wireframe Brief §9.1, §9.3), the backend as it is today ([[BD-15 Companies Backend Delivery]]: tables, no routes), the decisions D-04, D-14, D-16 and D-18, and the stories next to it (S-33 Invitations & Join, S-59 Exhibitor, S-31 Delegated Admins). Eight product questions had no answer; Omar Fostok decided them on 2026-11-05, and they are recorded **in this story** under *Decided in this story* (P1–P8), on purpose without decision cards. The old S6 (list, detail, leave, the business ↔ Ring link) is now S2, S5, S9 and P2.
 

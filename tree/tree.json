@@ -4853,7 +4853,7 @@
     }
   },
   "counts": {
-    "blocked": 35,
+    "blocked": 34,
     "bugs": 8,
     "byKind": {
       "backend-delivery": 39,
@@ -4879,7 +4879,7 @@
     },
     "concepts": 237,
     "decisions": 27,
-    "edges": 4681,
+    "edges": 4680,
     "features": 41,
     "layerNotes": 133,
     "modules": 8,
@@ -6754,11 +6754,6 @@
       "from": "story:build-deploy",
       "kind": "blocks",
       "to": "frontend-requirements:build-deploy"
-    },
-    {
-      "from": "story:companies",
-      "kind": "blocks",
-      "to": "frontend-requirements:companies"
     },
     {
       "from": "story:events-during",
@@ -44040,7 +44035,8 @@
       "release": "mvp",
       "resolution": null,
       "rollup": {
-        "blocked": 2,
+        "approved": 1,
+        "blocked": 1,
         "decided": 2,
         "draft": 1,
         "missing": 4,
@@ -49121,20 +49117,14 @@
     },
     "frontend-requirements:companies": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "story:companies",
-          "title": "S-29 Companies Story",
-          "why": "S-29 Companies Story is draft"
-        }
-      ],
+      "blockedBy": [],
       "card": "FR-15",
       "children": [],
       "code": "companies",
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "companies",
       "foundOn": null,
@@ -52468,8 +52458,8 @@
       "release": null,
       "resolution": null,
       "rollup": {
-        "approved": 1,
-        "blocked": 5,
+        "approved": 2,
+        "blocked": 4,
         "decided": 2,
         "draft": 3,
         "in-progress": 3,
@@ -60144,8 +60134,8 @@
         }
       ],
       "rollup": {
-        "approved": 34,
-        "blocked": 35,
+        "approved": 35,
+        "blocked": 34,
         "current": 8,
         "decided": 24,
         "delivered": 2,
@@ -60665,7 +60655,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "companies",
       "foundOn": null,
@@ -60719,11 +60709,11 @@
         "s73",
         "s74"
       ],
-      "status": "draft",
+      "status": "approved",
       "summary": "A person's work identity comes from the companies they belong to: an employee of Acme Studio, an advisor to Northstar, a speaker an organizer brought into their business account. A company shows…",
       "tags": [
         "story",
-        "story/draft",
+        "story/approved",
         "module/shared-rings",
         "layer/business"
       ],
