@@ -3,25 +3,23 @@ id: QB-05
 type: qa-backend
 module: identity
 feature: auth
-status: failing
+status: passing
 scope: feature
 screens: [s01, s02, s06, s08, s68, s75]
 depends: ["BD-02 Auth & Sign-up Backend Delivery", "S-02 Auth & Sign-up Story"]
 affects: []
 related: ["BI-02 Auth & Sign-up Backend Integration", "FR-02 Auth & Sign-up Frontend Requirements", "QB-04 Account QA Backend", "Auth Model", "BI-04 Profiles & Pin Name Backend Integration", "BD-35 Error Contract Backend Delivery", "S-78 Code Delivery Story", "S-87 Error Contract Story", "ND-01 Passwordless login", "POST /auth/sign-up", "POST /auth/verify-code", "POST /auth/request-code", "POST /auth/complete-registration", "POST /auth/login", "POST /auth/login/verify", "POST /auth/refresh", "POST /auth/logout", "POST /auth/logout-everywhere", "GET /profiles/pin-name/:pinName/availability", E_AUTH_01, E_AUTH_03, E_AUTH_04, E_AUTH_05, E_AUTH_06, E_AUTH_07, E_AUTH_08, E_PROFILE_02, E_USER_01, "B-03 Two refreshes at once both succeed and fork the session", "B-04 Sign-up accepts an email and a phone together", "B-05 Expired onboarding token answers 401, not the documented 400", "B-06 Timestamps the app writes are stored shifted by the server time zone"]
-pending: ["[[B-03 Two refreshes at once both succeed and fork the session]]: row B42, filed 2026-10-27, re-run when it ships", "[[B-04 Sign-up accepts an email and a phone together]]: row B5, filed 2026-10-27, re-run when it ships", "[[B-05 Expired onboarding token answers 401, not the documented 400]]: row B30, filed 2026-10-27, re-run when it ships", "[[B-06 Timestamps the app writes are stored shifted by the server time zone]]: re-run B15 by ageing a code with Postgres now(), filed 2026-10-27", "[[S-02 Auth & Sign-up Story]]: S2 says the 429 comes after five wrong tries; the build answers it on the sixth submission (/pm)"]
+pending: ["[[S-02 Auth & Sign-up Story]]: S2 says the 429 comes after five wrong tries; the build answers it on the sixth submission (/pm)"]
 created: 2026-10-27
-updated: 2026-10-29
-tags: [qa-backend, qa-backend/failing, module/identity, layer/qa]
+updated: 2026-11-05
+tags: [qa-backend, qa-backend/passing, module/identity, layer/qa]
 ---
 
 # 🧪 Auth & Sign-up · QA Backend
 
-> ⚠ Affected by [[BD-02 Auth & Sign-up Backend Delivery]] (2026-10-29): [[B-06 Timestamps the app writes are stored shifted by the server time zone]] fixed on backend `main @ 26958cd`: every Postgres session runs in UTC, so row B15 can be set up by ageing a code with Postgres's `now()` again. Re-run B15 that way on `main @ 26958cd` and clear the B-06 `pending` entry. Run on Node 20.19+ against a fully migrated database (`pnpm prisma:deploy`).
-
 > Blocked by default until [[BD-02 Auth & Sign-up Backend Delivery]] is `done` (the hand-off order in `docs.config.json`); `blockedBy: []` opts out, `blockedBy: [...]` names other blockers.
 
-**Feature:** [[F-02 Auth & Sign-up]] · **Verifies:** [[BD-02 Auth & Sign-up Backend Delivery]] against [[S-02 Auth & Sign-up Story]] and [[FR-02 Auth & Sign-up Frontend Requirements]], with the shapes and errors of [[BI-02 Auth & Sign-up Backend Integration]] · **Verdict:** 🔴 Failing · 2026-10-27 · `main @ b4984d6 · localhost:3001, Node 22.22.2` · 45 of 48 as expected
+**Feature:** [[F-02 Auth & Sign-up]] · **Verifies:** [[BD-02 Auth & Sign-up Backend Delivery]] against [[S-02 Auth & Sign-up Story]] and [[FR-02 Auth & Sign-up Frontend Requirements]], with the shapes and errors of [[BI-02 Auth & Sign-up Backend Integration]] · **Verdict:** 🟢 Passing · 2026-11-05 · `main @ 504cb21 · localhost:3000, Node 22.22.2` · 48 of 48 as expected (B5, B15, B30, B42 re-run on this build; the other 44 last run on `main @ b4984d6`)
 
 Expected behaviour of the API, as artefacts a person can check a build against: tables and diagrams, **not test code** (the specs live in the backend repo). `status: passing` or `failing` after a run; the verdict tells the PM whether the story can be fulfilled (passing with nothing pending).
 
@@ -47,7 +45,7 @@ Every row is one acceptance criterion of [[S-02 Auth & Sign-up Story]] or one ru
 | B2 | an E.164 phone no account holds | `{ phone: "+442071838751" }` | 201, `channel: "PHONE"`, `destination` in E.164 | ✅ |
 | B3 | an email typed with spaces and capitals | `{ email: "  QA-Auth-A@Test.Local " }` | 201, `destination` trimmed and lower-cased | ✅ |
 | B4 | — | `{}` | 400 `E_AUTH_07` "Provide either an email address or a phone number"; nothing created | ✅ |
-| B5 | — | `{ email, phone }` together | 400 `E_AUTH_07` (the integration note: "neither or both"); nothing created. **Actual: 201, the code goes to the email, and the PENDING account stores the unproven phone too; a later sign-up with that phone alone continues the same account.** | 🔴 [[B-04 Sign-up accepts an email and a phone together]] |
+| B5 | — | `{ email, phone }` together | 400 `E_AUTH_07` (the integration note: "neither or both"); nothing created | ✅ re-run 2026-11-05 on `main @ 504cb21`: 400 "Provide either an email address or a phone number, not both", no user and no code stored ([[B-04 Sign-up accepts an email and a phone together]], fixed; on `b4984d6` it was a 201 that stored both) |
 | B6 | — | `{ email: "not-an-email" }`, `{ phone: "0501234567" }` (no country code) | 400, `message` an array naming the field; nothing created | ✅ |
 | B7 | — | `{ email, password: "x" }` | 400 `["property password should not exist"]`: there is no password anywhere | ✅ |
 | B8 | an address whose sign-up is still PENDING | `sign-up` again with it | 201 with a **new** `devCode`, no error; the previous code no longer verifies (B13) | ✅ |
@@ -62,7 +60,7 @@ Every row is one acceptance criterion of [[S-02 Auth & Sign-up Story]] or one ru
 | B12 | the same code | sent a second time | 400 `E_AUTH_05` "That code is invalid or has expired": a code works once | ✅ |
 | B13 | a code, then a resend | the **first** code | 400 `E_AUTH_05`: a resend supersedes the previous code; the new one verifies | ✅ |
 | B14 | a fresh code | five wrong codes, then a sixth submission **with the right code** | 400 `E_AUTH_05` five times, then 429 `E_AUTH_06` "Too many attempts. Request a new code."; the right code after that is 400 (the code is burned); a resend gives a code that works | ✅ |
-| B15 | a code older than 10 minutes | the right code | 400 `E_AUTH_05` | ✅ (the code was aged by moving its stored `expires_at` 11 minutes back; ageing it with Postgres's `now()` did not work and found [[B-06 Timestamps the app writes are stored shifted by the server time zone]]) |
+| B15 | a code older than 10 minutes | the right code | 400 `E_AUTH_05` | ✅ re-run 2026-11-05 on `main @ 504cb21` by ageing the code with Postgres's `now() - interval '1 minute'`: 400 "That code is invalid or has expired"; the fresh code's `expires_at` was 600 s after `now()` ([[B-06 Timestamps the app writes are stored shifted by the server time zone]], fixed; on `b4984d6` the code had to be aged by its stored `expires_at`) |
 | B16 | — | `destination` typed with other capitals or spaces than at sign-up | 201: the server normalises the destination the same way at both steps | ✅ |
 | B17 | — | `purpose: "LOGIN"`; `code: "12345"`; `code: "abcdef"` | 400 validation: `verify-code` takes `SIGN_UP` only, and exactly six digits | ✅ |
 | B18 | a PENDING address | `request-code { destination, purpose: "SIGN_UP" }` | 201 with a new `devCode`; the old code is superseded | ✅ |
@@ -82,7 +80,7 @@ Every row is one acceptance criterion of [[S-02 Auth & Sign-up Story]] or one ru
 | B27 | a Pin name held by another account, in other capitals | `complete-registration` with it | 409 `E_PROFILE_02` "This pin name is already taken"; the account is **still PENDING** with no profile and no Ring (nothing half-built); the same token then succeeds with a free name | ✅ |
 | B28 | B23's onboarding token, already used | `complete-registration` again | 409 `E_AUTH_08` "This account is already set up. Sign in instead." | ✅ |
 | B29 | an ACTIVE account | `request-code { purpose: "SIGN_UP" }`, `verify-code`, then `complete-registration` | 409 `E_AUTH_08` at the last step: an extra code cannot rebuild an existing identity | ✅ |
-| B30 | an onboarding token older than 15 minutes, or one with a broken signature | `complete-registration` | 400 `E_AUTH_05` (the integration note); back to s02. **Actual: 401 "Verification session is invalid or expired", for both.** | 🔴 [[B-05 Expired onboarding token answers 401, not the documented 400]] |
+| B30 | an onboarding token older than 15 minutes, or one with a broken signature | `complete-registration` | 400 `E_AUTH_05` (the integration note); back to s02 | ✅ re-run 2026-11-05 on `main @ 504cb21`: 400 "Verification session is invalid or expired" for both, the account stays PENDING ([[B-05 Expired onboarding token answers 401, not the documented 400]], fixed; on `b4984d6` it was 401) |
 | B31 | an onboarding token | used as `Authorization: Bearer` on `GET /users/me` | 401 `E_AUTH_04` "Token cannot be used for API access": it is not a session | ✅ |
 
 ### `POST /auth/login` and `POST /auth/login/verify` — S5 Come back later and sign in with a code (s01 → s02)
@@ -104,7 +102,7 @@ Every row is one acceptance criterion of [[S-02 Auth & Sign-up Story]] or one ru
 | # | Given | When | Then | Checked |
 |---|---|---|---|---|
 | B41 | a session | `POST /auth/refresh` with the **refresh** token as bearer | 201 with a new pair; the token sent is now dead: sending it again is 401 `E_AUTH_04` "Refresh token is no longer valid. Sign in again." | ✅ |
-| B42 | one refresh token | two `refresh` calls at the same moment | one 201, one 401 `E_AUTH_04` (single use holds under a race). **Actual: 201 and 201; both new refresh tokens stay live and both refresh again: the session forks.** | 🔴 [[B-03 Two refreshes at once both succeed and fork the session]] |
+| B42 | one refresh token | two `refresh` calls at the same moment | one 201, one 401 `E_AUTH_04` (single use holds under a race) | ✅ re-run 2026-11-05 on `main @ 504cb21`, 10 races: one 201 and one 401 "Refresh token is no longer valid. Sign in again." every time, one live refresh token after each, and the winner's token refreshes again ([[B-03 Two refreshes at once both succeed and fork the session]], fixed; on `b4984d6` both answered 201 and the session forked) |
 | B43 | a session | the **access** token sent to `refresh`; the **refresh** token sent to `GET /users/me` | 401 both times: each token works only where its scope allows | ✅ |
 | B44 | a session | `POST /auth/logout` with the refresh token; then the same call again | 201 both times (idempotent); that refresh token is dead; the access token keeps working until it expires (at most 15 minutes) | ✅ |
 | B45 | the same account signed in on two devices | `POST /auth/logout-everywhere` with one device's access token | 201 `{ revoked: N }`, N the live sessions; both devices' refresh tokens are then 401 `E_AUTH_04` | ✅ |
@@ -157,16 +155,16 @@ What the contract promises. The message column is the text the build sends; unti
 | Situation | Status | ErrorCode | Message | Rows |
 |---|---|---|---|---|
 | sign-up with neither of email and phone | 400 | `E_AUTH_07` | "Provide either an email address or a phone number" | B4 |
-| sign-up with both | **201, not 400** | `E_AUTH_07` (promised) | the code goes to the email; both are stored | B5 🔴 |
+| sign-up with both | 400 | `E_AUTH_07` | "Provide either an email address or a phone number, not both" | B5 |
 | a field fails validation, or an unknown key is sent | 400 | — | an array, one entry per constraint | B6, B7, B17, B22, B26 |
 | sign-up for an address that finished sign-up | 409 | `E_AUTH_01` | "An account already exists for this email or phone. Sign in instead." | B9 |
 | wrong, expired, used, superseded or burned code; code of the other purpose | 400 | `E_AUTH_05` | "That code is invalid or has expired" | B12–B15, B19, B33, B37, B40 |
 | sixth submission of one code | 429 | `E_AUTH_06` | "Too many attempts. Request a new code." | B14, B36 |
-| onboarding token expired or forged | **401, not 400** | `E_AUTH_05` | "Verification session is invalid or expired" | B30 🔴 |
+| onboarding token expired or forged | 400 | `E_AUTH_05` | "Verification session is invalid or expired" | B30 |
 | Pin name taken at the last moment | 409 | `E_PROFILE_02` | "This pin name is already taken" | B27 |
 | complete-registration on an account already set up | 409 | `E_AUTH_08` | "This account is already set up. Sign in instead." | B28, B29 |
 | login/verify for a PENDING or SUSPENDED account | 403 | `E_AUTH_03` | "This account is not active" | B38, B39 |
-| refresh token rotated, revoked or replayed | 401 | `E_AUTH_04` | "Refresh token is no longer valid. Sign in again." | B41, B45 (B42 🔴: a concurrent replay is **not** refused) |
+| refresh token rotated, revoked or replayed | 401 | `E_AUTH_04` | "Refresh token is no longer valid. Sign in again." | B41, B42 (a concurrent replay too), B45 |
 | an onboarding or refresh token on an API route | 401 | `E_AUTH_04` | "Token cannot be used for API access" / "Unauthorized" | B31, B43 |
 | suspended account on any later call | 401 | `E_AUTH_03` | "Account is not active" | B46 |
 | deleted account on any later call | 404 | `E_USER_01` | "User not found" | B47 |
@@ -185,15 +183,18 @@ Retired, and never to be seen: `E_AUTH_02` (invalid password), `E_USER_04` (curr
 
 ## Verdict
 
-- **Run on:** 2026-10-27 · **build:** `main @ b4984d6 · localhost:3001, Node 22.22.2` (the dev server on `localhost:3000` still runs Node 18.18) · **result:** 🔴 **failing** · 45 of 48 rows as expected, 3 differ (B5, B30, B42), none unrun.
+- **Re-run on:** 2026-11-05 · **build:** `main @ 504cb21 · localhost:3000, Node 22.22.2` (machine time zone UTC+3) · **result:** 🟢 **passing** · the four rows that differed or were set up around a bug re-run, all as expected: B5 ([[B-04 Sign-up accepts an email and a phone together]]), B15 ([[B-06 Timestamps the app writes are stored shifted by the server time zone]]), B30 ([[B-05 Expired onboarding token answers 401, not the documented 400]]), B42 ([[B-03 Two refreshes at once both succeed and fork the session]], 10 races). All four bugs closed `done`, `resolution: fixed`, on khaled's word. The other 44 rows were not re-run on this build; their last run is 2026-10-27 on `b4984d6`, and the backend's unit suite (233 tests) passes on `504cb21`.
+- **Still open, not rows of this note:** [[S-02 Auth & Sign-up Story]] S2 says the 429 comes after five wrong tries, the build answers it on the sixth (`pending`, `/pm`). Two asks of [[FR-02 Auth & Sign-up Frontend Requirements]] stay `pending` on [[BD-02 Auth & Sign-up Backend Delivery]] with no bug card yet: `POST /auth/refresh` for a SUSPENDED account answers 403, and two registrations racing for one free Pin name can answer 500.
+- **Previous run:** 2026-10-27 · **build:** `main @ b4984d6 · localhost:3001, Node 22.22.2` (the dev server on `localhost:3000` still runs Node 18.18) · **result:** 🔴 **failing** · 45 of 48 rows as expected, 3 differ (B5, B30, B42), none unrun.
 - **B42 — the refresh rotation breaks under a race. Security.** Two refreshes with one token at the same moment both succeed and both new tokens stay live, so a replayed (stolen) token used while its owner refreshes forks the session instead of ending it. Filed as [[B-03 Two refreshes at once both succeed and fork the session]], high, `/backend`.
 - **B5 — sign-up takes both an email and a phone**, and attaches the phone without proof. Filed as [[B-04 Sign-up accepts an email and a phone together]], medium, `/backend`.
 - **B30 — an expired or forged onboarding token is 401, not 400.** Same code, other status. Filed as [[B-05 Expired onboarding token answers 401, not the documented 400]], low, `/backend` (fix the status or the note).
 - **Found in passing, not a row: every timestamp the app writes is stored 3 hours early** on this machine (time zone UTC+3), while the API reads them back correctly. Found when ageing a code with Postgres's `now()` had no effect on B15. Filed as [[B-06 Timestamps the app writes are stored shifted by the server time zone]], high, `/backend`; it affects every table, not only auth.
 - Everything else behaves as the integration note says: normalisation, the six-digit code with its 10 minutes, five wrong guesses then 429, resend superseding, the onboarding token's scope, a whole identity from `complete-registration` or nothing (B27), one 403 for PENDING and SUSPENDED, the same challenge for unknown addresses, token scopes, logout and logout-everywhere.
-- **[[S-02 Auth & Sign-up Story]] (S-02) is not ready to fulfil:** B-03, B-04 and B-05 must be settled and B42, B5 and B30 re-run; the PM should look at S2's "five wrong tries"; and [[F-02 Auth & Sign-up]] has no QA Frontend note yet.
+- **[[S-02 Auth & Sign-up Story]] (S-02) is not ready to fulfil** (2026-11-05): B-03, B-04, B-05 and B-06 are closed, but this note still has the S2 "five wrong tries" entry for the PM in `pending`, and [[F-02 Auth & Sign-up]] has no QA Frontend note yet.
 
 ## Log
 
 - 2026-10-27 · branch `docs/qa/M-01-identity/F-02-auth/QB-05-written` · written: 48 rows across the six stories, the account and code state diagrams, the error matrix and the privacy checks. `status: draft` until the first run on a named build.
 - 2026-10-27 · same branch · first run on `main @ b4984d6` (localhost:3001, Node 22.22.2): 45 of 48 ✅, B5, B30 and B42 🔴, filed as [[B-04 Sign-up accepts an email and a phone together]], [[B-05 Expired onboarding token answers 401, not the documented 400]] and [[B-03 Two refreshes at once both succeed and fork the session]]; [[B-06 Timestamps the app writes are stored shifted by the server time zone]] found while setting up B15. B22's expectation corrected to the contract (the route answers a boolean only). Flagged [[BI-02 Auth & Sign-up Backend Integration]], [[BD-02 Auth & Sign-up Backend Delivery]] and [[S-02 Auth & Sign-up Story]].
+- 2026-11-05 · branch `docs/qa/M-01-identity/F-02-auth/QB-05-passing` · re-test on `main @ 504cb21` (localhost:3000, Node 22.22.2): B5, B15, B30 and B42 ✅; [[B-03 Two refreshes at once both succeed and fork the session]], [[B-04 Sign-up accepts an email and a phone together]], [[B-05 Expired onboarding token answers 401, not the documented 400]] and [[B-06 Timestamps the app writes are stored shifted by the server time zone]] closed `done`, `resolution: fixed`, on khaled's word, and removed from `pending`; `failing` → `passing` (Partial: the S2 entry for `/pm` stays). Test data: `qa-auth-b42-11051300@test.local` completed and deleted; `qa-auth-b15-11051300@test.local` and `qa-auth-b30-11051300@test.local` left PENDING (no API deletes a PENDING sign-up). The B-06 flag under the H1 is cleared.

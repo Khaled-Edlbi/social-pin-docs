@@ -3,7 +3,8 @@ id: B-05
 type: bug
 module: identity
 feature: auth
-status: ready
+status: done
+resolution: fixed
 priority: low
 effort: S
 foundOn: BI-02 Auth & Sign-up Backend Integration
@@ -14,14 +15,14 @@ related: ["BI-02 Auth & Sign-up Backend Integration", "QB-05 Auth & Sign-up QA B
 pending: []
 created: 2026-10-27
 updated: 2026-11-05
-tags: [bug, bug/ready, module/identity, priority/low]
+tags: [bug, bug/done, module/identity, priority/low, resolution/fixed]
 ---
 
-# 📨 B-05 · Expired onboarding token answers 401, not the documented 400
+# ✅ B-05 · Expired onboarding token answers 401, not the documented 400
 
 > ⚠ Affected by [[BD-02 Auth & Sign-up Backend Delivery]] (2026-11-05): fixed on backend main @ 504cb21 (branch B-05/auth/onboarding-token-400, commit 195f26c): an expired, forged or wrong-scope onboarding token on complete-registration answers 400 E_AUTH_05, as BI-02 documents; ready for re-test of QB-05 row B30
 
-**Found against:** [[BI-02 Auth & Sign-up Backend Integration]] · **Feature:** [[F-02 Auth & Sign-up]] · **Status:** Ready · **Priority:** Low · **Deadline:** — · **Effort:** S
+**Found against:** [[BI-02 Auth & Sign-up Backend Integration]] · **Feature:** [[F-02 Auth & Sign-up]] · **Status:** Done · **Priority:** Low · **Deadline:** — · **Effort:** S
 
 **Found by:** [[QB-05 Auth & Sign-up QA Backend]] row B30, on build `main @ b4984d6 · localhost:3001, Node 22.22.2`.
 
@@ -51,11 +52,12 @@ Output of `node scripts/build-tree.mjs --impact B-05` when the bug was filed: th
 
 ## Definition of done
 
-- [ ] The behaviour is fixed, or the notes are corrected, as the decision says (`resolution:` set, the tag `resolution/<id>` with it)
-- [ ] The QA row that found it (B30) re-run against the fix, on a named build
+- [x] The behaviour is fixed, or the notes are corrected, as the decision says (`resolution:` set, the tag `resolution/<id>` with it)
+- [x] The QA row that found it (B30) re-run against the fix, on a named build
 - [ ] `depends` / `affects` / `related` declared; notes listed by `--impact` updated or flagged
 - [ ] `node scripts/build-tree.mjs` run; tree, board and backlog committed
 
 ## Log
 
 - 2026-10-27 · filed with --scaffold bug, found against Auth & Sign-up Backend Integration, from [[QB-05 Auth & Sign-up QA Backend]] row B30 on `main @ b4984d6`
+- 2026-11-05 · re-test on `main @ 504cb21 · localhost:3000, Node 22.22.2` · **passed**: `complete-registration` with an onboarding token past its expiry → 400, and with a broken signature → 400, both "Verification session is invalid or expired"; the account stays PENDING. Closed `done`, `resolution: fixed`, on khaled's word.

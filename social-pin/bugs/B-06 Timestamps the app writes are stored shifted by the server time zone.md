@@ -3,7 +3,8 @@ id: B-06
 type: bug
 module: identity
 feature: auth
-status: ready
+status: done
+resolution: fixed
 priority: high
 effort: M
 foundOn: BD-02 Auth & Sign-up Backend Delivery
@@ -14,16 +15,16 @@ related: ["BD-02 Auth & Sign-up Backend Delivery", "QB-05 Auth & Sign-up QA Back
 pending: []
 created: 2026-10-27
 updated: 2026-11-05
-tags: [bug, bug/ready, module/identity, priority/high]
+tags: [bug, bug/done, module/identity, priority/high, resolution/fixed]
 ---
 
-# 📨 B-06 · Timestamps the app writes are stored shifted by the server time zone
+# ✅ B-06 · Timestamps the app writes are stored shifted by the server time zone
 
 > ⚠ Affected by [[BD-02 Auth & Sign-up Backend Delivery]] (2026-11-05): fixed, ready for re-test: the fix is on backend main since 26958cd (branch B-06/prisma/utc-session-timezone) and is unchanged at 504cb21; src/prisma/pg-adapter.spec.ts passes on 504cb21. Re-run QB-05 row B15 by ageing a code with Postgres now()
 
 > ⚠ Affected by [[BD-02 Auth & Sign-up Backend Delivery]] (2026-10-29): fix merged to backend `main @ 26958cd` (branch `B-06/prisma/utc-session-timezone`): every Postgres session is pinned to UTC, so new writes match Postgres's `now()`; the non-UTC check is `test/timestamps.e2e-spec.ts`. Rows stored before it are not corrected; the backend's proposal for them is in [[Database & Migrations#Prisma 7 rules]] (no data migration, rebuild dev databases). Left for `/qa`: re-run QB-05 row B15 on `main @ 26958cd`; `resolution` and `status` are `/qa`'s and `/pm`'s.
 
-**Found against:** [[BD-02 Auth & Sign-up Backend Delivery]] · **Feature:** [[F-02 Auth & Sign-up]] (found here; the defect is in every module) · **Status:** Ready · **Priority:** High · **Deadline:** — · **Effort:** M
+**Found against:** [[BD-02 Auth & Sign-up Backend Delivery]] · **Feature:** [[F-02 Auth & Sign-up]] (found here; the defect is in every module) · **Status:** Done · **Priority:** High · **Deadline:** — · **Effort:** M
 
 **Found by:** [[QB-05 Auth & Sign-up QA Backend]] while setting up row B15, on build `main @ b4984d6 · localhost:3001, Node 22.22.2`.
 
@@ -65,10 +66,11 @@ Output of `node scripts/build-tree.mjs --impact B-06` when the bug was filed: th
 
 - [ ] The behaviour is fixed, and a decision taken for the rows already stored (`resolution:` set, the tag `resolution/<id>` with it)
 - [ ] A check that runs with a non-UTC `TZ` and compares a stored value with Postgres `now()`
-- [ ] [[QB-05 Auth & Sign-up QA Backend]] row B15 re-run by ageing a code with Postgres's `now()`, on a named build
+- [x] [[QB-05 Auth & Sign-up QA Backend]] row B15 re-run by ageing a code with Postgres's `now()`, on a named build
 - [ ] `depends` / `affects` / `related` declared; notes listed by `--impact` updated or flagged
 - [ ] `node scripts/build-tree.mjs` run; tree, board and backlog committed
 
 ## Log
 
 - 2026-10-27 · filed with --scaffold bug, found against Auth & Sign-up Backend Delivery, while setting up [[QB-05 Auth & Sign-up QA Backend]] row B15 on `main @ b4984d6`
+- 2026-11-05 · re-test on `main @ 504cb21 · localhost:3000, Node 22.22.2` (machine time zone UTC+3) · **passed**: a fresh sign-up code's `expires_at` is 600 s after Postgres's `now()`, not 10 800 s early; aged with `now() - interval '1 minute'`, `verify-code` with the right code → 400 "That code is invalid or has expired". Rows stored before the fix are not corrected, as the backend proposed. Closed `done`, `resolution: fixed`, on khaled's word.
