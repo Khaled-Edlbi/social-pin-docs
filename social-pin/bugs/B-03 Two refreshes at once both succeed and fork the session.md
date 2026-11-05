@@ -3,7 +3,8 @@ id: B-03
 type: bug
 module: identity
 feature: auth
-status: ready
+status: done
+resolution: fixed
 priority: high
 effort: S
 foundOn: BI-02 Auth & Sign-up Backend Integration
@@ -14,14 +15,14 @@ related: ["BI-02 Auth & Sign-up Backend Integration", "QB-05 Auth & Sign-up QA B
 pending: []
 created: 2026-10-27
 updated: 2026-11-05
-tags: [bug, bug/ready, module/identity, priority/high]
+tags: [bug, bug/done, module/identity, priority/high, resolution/fixed]
 ---
 
-# 📨 B-03 · Two refreshes at once both succeed and fork the session
+# ✅ B-03 · Two refreshes at once both succeed and fork the session
 
 > ⚠ Affected by [[BD-02 Auth & Sign-up Backend Delivery]] (2026-11-05): fixed on backend main @ 504cb21 (branch B-03/auth/single-use-refresh-race, commit abbc9a8): the old row is revoked by a conditional write (revokedAt null, not expired) before the replacement is written, so the loser of a concurrent refresh gets 401 E_AUTH_04 and no new token; ready for re-test of QB-05 row B42
 
-**Found against:** [[BI-02 Auth & Sign-up Backend Integration]] · **Feature:** [[F-02 Auth & Sign-up]] · **Status:** Ready · **Priority:** High · **Deadline:** — · **Effort:** S
+**Found against:** [[BI-02 Auth & Sign-up Backend Integration]] · **Feature:** [[F-02 Auth & Sign-up]] · **Status:** Done · **Priority:** High · **Deadline:** — · **Effort:** S
 
 **Found by:** [[QB-05 Auth & Sign-up QA Backend]] row B42, on build `main @ b4984d6 · localhost:3001, Node 22.22.2`.
 
@@ -51,12 +52,13 @@ Output of `node scripts/build-tree.mjs --impact B-03` when the bug was filed: th
 
 ## Definition of done
 
-- [ ] The behaviour is fixed, or the notes are corrected, as the decision says (`resolution:` set, the tag `resolution/<id>` with it)
-- [ ] A spec in the backend repo that runs two rotations of one token concurrently and expects one 201 and one 401
-- [ ] The QA row that found it (B42) re-run against the fix, on a named build
+- [x] The behaviour is fixed, or the notes are corrected, as the decision says (`resolution:` set, the tag `resolution/<id>` with it)
+- [ ] A spec in the backend repo that runs two rotations of one token concurrently and expects one 201 and one 401 (written in `test/app.e2e-spec.ts`, not yet run in CI)
+- [x] The QA row that found it (B42) re-run against the fix, on a named build
 - [ ] `depends` / `affects` / `related` declared; notes listed by `--impact` updated or flagged
 - [ ] `node scripts/build-tree.mjs` run; tree, board and backlog committed
 
 ## Log
 
 - 2026-10-27 · filed with --scaffold bug, found against Auth & Sign-up Backend Integration, from [[QB-05 Auth & Sign-up QA Backend]] row B42 on `main @ b4984d6`
+- 2026-11-05 · re-test on `main @ 504cb21 · localhost:3000, Node 22.22.2` · **passed**: 10 races of two concurrent `POST /auth/refresh` with one token, each one 201 and one 401 `E_AUTH_04` ("Refresh token is no longer valid. Sign in again."), one live refresh token after each; the winner's token refreshes again (201). Closed `done`, `resolution: fixed`, on khaled's word.
