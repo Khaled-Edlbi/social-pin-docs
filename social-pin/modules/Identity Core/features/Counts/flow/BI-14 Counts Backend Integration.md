@@ -17,6 +17,8 @@ tags: [backend-integration, backend-integration/current, module/identity, layer/
 
 # 🔌 Counts · Backend Integration
 
+> ⚠ Affected by [[QB-07 Counts QA Backend]] (2026-11-05): on backend main f186ba1 the 404 body for GET /rings/:id carries no ErrorCode (statusCode, message, error: HttpException, path, timestamp); the error table reads as if E_RING_02 arrives. Known Error Contract gap (BD-35): say the client branches on 404 + endpoint until S-87 S4–S8 ships
+
 > Blocked by default until [[BD-03 Counts Backend Delivery]] is `done` (the hand-off order in `docs.config.json`); `blockedBy: []` opts out, `blockedBy: [...]` names other blockers.
 
 **Feature:** [[F-03 Counts]] · **Backend:** [[BD-03 Counts Backend Delivery]] · **Read first:** [[Frontend Contract]], [[Frontend API Guide]]
