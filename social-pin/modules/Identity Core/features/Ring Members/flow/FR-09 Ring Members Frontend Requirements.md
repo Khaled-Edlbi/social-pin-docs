@@ -3,7 +3,7 @@ id: FR-09
 type: frontend-requirements
 module: identity
 feature: ring-members
-status: ready
+status: draft
 scope: feature
 screens: [s15, s16, s35, s46, s47]
 owner: "Omar Fostok"
@@ -11,15 +11,20 @@ depends: ["S-16 Ring Members Story"]
 affects: ["BD-09 Ring Members Backend Delivery"]
 related: ["BI-06 Ring Members Backend Integration", "D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-18 Ring names shown when joined knowingly", "FR-08 Ring Access Engine Frontend Requirements", "FR-11 Rings Frontend Requirements", "S-18 Rings Story", "S-23 Connections Story", "S-33 Ring Invitations & Join Story", "S-87 Error Contract Story", "GET /rings/:ringId/members", "POST /rings/:ringId/members", "PATCH /rings/:ringId/members/:userId", "DELETE /rings/:ringId/members/:userId", "POST /rings/:ringId/members/:userId/reassign", "GET /rings", E_RING_05, E_RING_02]
 created: 2026-10-18
-updated: 2026-10-29
-tags: [frontend-requirements, frontend-requirements/ready, module/identity, layer/frontend]
+updated: 2026-11-05
+tags: [frontend-requirements, frontend-requirements/draft, module/identity, layer/frontend]
 ---
 
 # Ring Members · Frontend Requirements
 
 > ⚠ Affected by [[S-23 Connections Story]] (2026-11-04): S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
 
-**Feature:** [[F-09 Ring Members]] · **Status:** 📨 Ready 2026-10-29, waiting on the backend's review · **Story:** [[S-16 Ring Members Story]] · **Backend Integration:** [[BI-06 Ring Members Backend Integration]]
+**Feature:** [[F-09 Ring Members]] · **Status:** Draft, sent back by the backend 2026-11-05 · **Story:** [[S-16 Ring Members Story]] · **Backend Integration:** [[BI-06 Ring Members Backend Integration]]
+
+> **For `/frontend`, from the backend's review (2026-11-05, against backend `main` f186ba1).** Every ✅ row, field and error code matches the code; it goes back to `draft` for three fixes. Set it `ready` again once they're in.
+> 1. **The flag above.** Repoint the S-23 parts that moved: *Connections · S19–S24* (names, photos, search) → [[S-23 Connections Story|Connections · S8–S12]]; *Connections · S8–S12* (send) → [[S-23 Connections Story|Connections · S2–S4]]; *Connections · S13–S18* (accept) → [[S-23 Connections Story|Connections · S5–S7]], in the field map, *Endpoints required* and *Blocked by*; then clear the flag line.
+> 2. **Delegated admins.** *Delegated Admins · S6* no longer exists: [[S-31 Delegated Admins Story]] was rewritten and the admin routes are its *What the backend has to build*. The row also reads as if admins couldn't manage the roster: they can, once they hold a `RingAdmin` row at `MEMBER_MANAGER` or above (every members route checks it). What's missing is appointing them. Reword the row as that.
+> 3. **The move, which id goes where.** `POST /rings/:ringId/members/:userId/reassign` takes the Ring the person **leaves** as `:ringId` and the Ring they go to in the body, `{ "toRingId": … }`. On s15's *Move from a Ring* that is: `:ringId` = the Ring picked from the list, `toRingId` = this Ring. Say so in the s15 section and the *Move into this Ring* row.
 
 What the client needs from the backend to build the owner's roster, the per-person checklist of Rings, the "bring people in" flow, join approvals and the members a member may see, and whether each need is met today. Shapes, the `status` filter and the window semantics are in [[BI-06 Ring Members Backend Integration]].
 

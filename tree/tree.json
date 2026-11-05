@@ -51591,8 +51591,8 @@
         "current": 1,
         "decided": 1,
         "done": 1,
+        "draft": 1,
         "missing": 3,
-        "ready": 1,
         "verified": 1
       },
       "scope": null,
@@ -56813,7 +56813,7 @@
       "depends": [
         "story:ring-members"
       ],
-      "effectiveStatus": "ready",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "ring-members",
       "foundOn": null,
@@ -56913,18 +56913,18 @@
         "s46",
         "s47"
       ],
-      "status": "ready",
+      "status": "draft",
       "summary": "What the client needs from the backend to build the owner's roster, the per-person checklist of Rings, the \"bring people in\" flow, join approvals and the members a member may see, and whether each…",
       "tags": [
         "frontend-requirements",
-        "frontend-requirements/ready",
+        "frontend-requirements/draft",
         "module/identity",
         "layer/frontend"
       ],
       "task": null,
       "title": "FR-09 Ring Members Frontend Requirements",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-05"
     },
     "frontend-requirements:ring-projection": {
       "affects": [
@@ -57948,13 +57948,13 @@
         "decided": 10,
         "delivered": 4,
         "done": 15,
-        "draft": 3,
+        "draft": 4,
         "in-progress": 13,
         "missing": 34,
         "needs-decision": 1,
         "partial": 8,
         "passing": 3,
-        "ready": 4,
+        "ready": 3,
         "verified": 10
       },
       "scope": null,
@@ -65951,13 +65951,13 @@
         "decided": 26,
         "delivered": 4,
         "done": 16,
-        "draft": 29,
+        "draft": 30,
         "in-progress": 47,
         "missing": 148,
         "needs-decision": 1,
         "partial": 8,
         "passing": 3,
-        "ready": 6,
+        "ready": 5,
         "reference": 32,
         "todo": 3,
         "verified": 26
