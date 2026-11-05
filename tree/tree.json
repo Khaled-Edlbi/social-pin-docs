@@ -38296,11 +38296,6 @@
       "pending": [
         {
           "person": null,
-          "text": "each refresh token works once, also for two concurrent refreshes; the second is 401 E_AUTH_04 (B-03)",
-          "to": "frontend-requirements:auth"
-        },
-        {
-          "person": null,
           "text": "sign-up takes an email or a phone, exactly one; both together is 400 E_AUTH_07 (B-04)",
           "to": "frontend-requirements:auth"
         },
@@ -44605,7 +44600,8 @@
         "failing": 1,
         "missing": 2,
         "partial": 1,
-        "todo": 4,
+        "ready": 1,
+        "todo": 3,
         "verified": 1
       },
       "scope": null,
@@ -53325,8 +53321,8 @@
         "needs-decision": 2,
         "partial": 6,
         "passing": 2,
-        "ready": 8,
-        "todo": 4,
+        "ready": 9,
+        "todo": 3,
         "verified": 8
       },
       "scope": null,
@@ -61213,9 +61209,9 @@
         "needs-decision": 2,
         "partial": 6,
         "passing": 2,
-        "ready": 10,
+        "ready": 11,
         "reference": 32,
-        "todo": 7,
+        "todo": 6,
         "verified": 24
       },
       "scope": null,
@@ -64117,7 +64113,7 @@
       "decision": null,
       "depends": [],
       "dir": null,
-      "effectiveStatus": "todo",
+      "effectiveStatus": "ready",
       "effort": "S",
       "feature": "auth",
       "foundOn": "BI-02 Auth & Sign-up Backend Integration",
@@ -64182,18 +64178,18 @@
       "screens": [
         "s68"
       ],
-      "status": "todo",
+      "status": "ready",
       "summary": "The fix is the backend's (/backend): revoke with a conditional write (revokedAt: null in the where, and treat zero rows updated as 401), or lock the row, so exactly one rotation wins.",
       "tags": [
         "bug",
-        "bug/todo",
+        "bug/ready",
         "module/identity",
         "priority/high"
       ],
       "task": null,
       "title": "B-03 Two refreshes at once both succeed and fork the session",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-05"
     },
     "task:B-04": {
       "affects": [

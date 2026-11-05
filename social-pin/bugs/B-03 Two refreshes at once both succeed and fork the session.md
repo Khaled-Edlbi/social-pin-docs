@@ -3,7 +3,7 @@ id: B-03
 type: bug
 module: identity
 feature: auth
-status: todo
+status: ready
 priority: high
 effort: S
 foundOn: BI-02 Auth & Sign-up Backend Integration
@@ -13,13 +13,15 @@ affects: ["BI-02 Auth & Sign-up Backend Integration", "BD-02 Auth & Sign-up Back
 related: ["BI-02 Auth & Sign-up Backend Integration", "QB-05 Auth & Sign-up QA Backend", "Auth Model", "POST /auth/refresh", E_AUTH_04]
 pending: []
 created: 2026-10-27
-updated: 2026-10-29
-tags: [bug, bug/todo, module/identity, priority/high]
+updated: 2026-11-05
+tags: [bug, bug/ready, module/identity, priority/high]
 ---
 
-# ⬜ B-03 · Two refreshes at once both succeed and fork the session
+# 📨 B-03 · Two refreshes at once both succeed and fork the session
 
-**Found against:** [[BI-02 Auth & Sign-up Backend Integration]] · **Feature:** [[F-02 Auth & Sign-up]] · **Status:** To do · **Priority:** High · **Deadline:** — · **Effort:** S
+> ⚠ Affected by [[BD-02 Auth & Sign-up Backend Delivery]] (2026-11-05): fixed on backend main @ 504cb21 (branch B-03/auth/single-use-refresh-race, commit abbc9a8): the old row is revoked by a conditional write (revokedAt null, not expired) before the replacement is written, so the loser of a concurrent refresh gets 401 E_AUTH_04 and no new token; ready for re-test of QB-05 row B42
+
+**Found against:** [[BI-02 Auth & Sign-up Backend Integration]] · **Feature:** [[F-02 Auth & Sign-up]] · **Status:** Ready · **Priority:** High · **Deadline:** — · **Effort:** S
 
 **Found by:** [[QB-05 Auth & Sign-up QA Backend]] row B42, on build `main @ b4984d6 · localhost:3001, Node 22.22.2`.
 
