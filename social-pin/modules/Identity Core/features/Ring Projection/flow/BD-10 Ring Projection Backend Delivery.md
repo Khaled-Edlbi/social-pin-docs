@@ -6,14 +6,13 @@ feature: ring-projection
 status: done
 scope: feature
 screens: [s14, s20, s23, s24, s25, s29, s36]
+pending: ["[[FR-10 Ring Projection Frontend Requirements]]: S9 the library, links and custom fields entered once and switched on or off per Ring, today's per-Ring copies merged once (D-03)", "[[FR-10 Ring Projection Frontend Requirements]]: S10 per field, per Ring: off / follow the Pin / own value for headline, role, company, location; follow / own for photo and bio (D-05, D-02; needs the main profile fields pending on BD-07)", "[[FR-10 Ring Projection Frontend Requirements]]: S5 the five link types D-03 added to LINK_TYPE (booking, Behance, Dribbble, GitHub, YouTube)"]
 created: 2026-10-15
 updated: 2026-11-05
 tags: [backend-delivery, backend-delivery/done, module/identity, layer/backend]
 ---
 
 # ✅ Ring Projection · Backend Delivery
-
-> ⚠ Affected by [[D-02 One main profile every Ring starts from]] (2026-10-25): ND-02 decided, one main profile (headline, role, company, location, photo, bio) every Ring starts from; a Ring may change all of them but the full name and keeps its own value when the main one changes.
 
 > ⚠ Affected by [[D-03 Links entered once, switched on or off per Ring]] (2026-10-25): ND-03 decided, links are entered once and only switched on or off per Ring; booking, Behance, Dribbble, GitHub and YouTube join the types, detected from the pasted link.
 
@@ -65,3 +64,4 @@ What the backend shipped for this feature and how it works. The sum of this feat
 - 2026-10-18 · split out of [[F-10 Ring Projection]] when the vault moved to layers
 - 2026-10-29 · branch `B-08/ring-profile/owner-attachment-file-details`, merged to `main @ c80ed9d` · fixes [[B-08 Owner projection drops each attachment's file details]]: `GET` and `PATCH /rings/:ringId/projection` and `POST …/attachments` return each attachment's `fileId`, `filename`, `mimeType` and `sizeBytes`, as [[BI-07 Ring Projection Backend Integration]] documents. No contract change; the viewer's shape is untouched. Specs in `ring-profile.service.spec.ts` (*owner editing view*). The flag on BI-07 is cleared.
 - 2026-11-05 · branch `FR-04/file/signed-links-and-library` (`df93921`), merged to `main @ 80e7fa2` · the projection and the view carry `avatarUrl` and `attachments[].url`, signed links valid 15 minutes ([[D-16 Files load from signed links that expire in 15 minutes]]); the rest is on [[BD-04 Files Upload Backend Delivery]]'s log. The viewer's attachments still carry no `fileId`; the view's `avatarFileId` stays for now ([[BI-09 View As & Pin Views Backend Integration]]). Specs in `ring-profile.service.spec.ts`. Updated [[BI-07 Ring Projection Backend Integration]].
+- 2026-11-05 · `tickets/backend/M-01-identity/F-10-ring-projection/FR-10-accepted` · [[FR-10 Ring Projection Frontend Requirements]] reviewed against backend `main` f186ba1 and approved: every ✅ row, field and error code matches; the signed links and `memberCount` rows marked ✅ (shipped). Three new asks added to `pending` (S9 the library, S10 per field, S5 the five link types); widget routes are [[BD-13 Widgets Backend Delivery]]'s. The [[D-02 One main profile every Ring starts from]] flag is cleared: its work is the S10 entry.

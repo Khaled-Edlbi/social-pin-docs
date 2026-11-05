@@ -2250,6 +2250,7 @@
         "feature:events-during",
         "feature:meetings",
         "feature:post-event",
+        "feature:ring-projection",
         "feature:rings"
       ],
       "kind": "endpoint",
@@ -2267,6 +2268,7 @@
         "frontend-requirements:events-during",
         "frontend-requirements:meetings",
         "frontend-requirements:post-event",
+        "frontend-requirements:ring-projection",
         "frontend-requirements:rings",
         "story:counts",
         "story:delegated-admins",
@@ -5236,12 +5238,12 @@
     },
     "concepts": 255,
     "decisions": 28,
-    "edges": 5194,
+    "edges": 5196,
     "features": 41,
     "layerNotes": 137,
     "modules": 8,
     "notes": 299,
-    "partial": 8,
+    "partial": 9,
     "placeholders": 148,
     "records": 26
   },
@@ -8208,6 +8210,11 @@
       "to": "story:companies"
     },
     {
+      "from": "backend-delivery:ring-projection",
+      "kind": "pending",
+      "to": "frontend-requirements:ring-projection"
+    },
+    {
       "from": "qa-frontend:account",
       "kind": "pending",
       "to": "story:error-contract"
@@ -8947,7 +8954,8 @@
       "to": "frontend-requirements:ring-projection",
       "via": [
         "E_RING_02",
-        "GET /rings"
+        "GET /rings",
+        "GET /rings/:id"
       ]
     },
     {
@@ -10675,7 +10683,8 @@
       "to": "frontend-requirements:ring-projection",
       "via": [
         "E_RING_02",
-        "GET /rings"
+        "GET /rings",
+        "GET /rings/:id"
       ]
     },
     {
@@ -25369,7 +25378,8 @@
       "to": "feature:ring-projection",
       "via": [
         "E_RING_02",
-        "GET /rings"
+        "GET /rings",
+        "GET /rings/:id"
       ]
     },
     {
@@ -25847,6 +25857,7 @@
         "E_RING_05",
         "GET /profiles",
         "GET /rings",
+        "GET /rings/:id",
         "GET /views/ring/:ringId",
         "PATCH /rings/:ringId/projection"
       ]
@@ -26658,6 +26669,7 @@
       "via": [
         "E_RING_02",
         "GET /rings",
+        "GET /rings/:id",
         "GET /users/me"
       ]
     },
@@ -26972,7 +26984,8 @@
         "DELETE /rings/:id",
         "E_RING_02",
         "E_RING_05",
-        "GET /rings"
+        "GET /rings",
+        "GET /rings/:id"
       ]
     },
     {
@@ -28069,6 +28082,7 @@
       "via": [
         "E_RING_02",
         "GET /rings",
+        "GET /rings/:id",
         "GET /views/ring/:ringId"
       ]
     },
@@ -28429,6 +28443,7 @@
       "kind": "shares",
       "to": "feature:ring-projection",
       "via": [
+        "GET /rings/:id",
         "GET /views/ring/:ringId"
       ]
     },
@@ -29402,6 +29417,7 @@
       "to": "feature:ring-projection",
       "via": [
         "E_RING_02",
+        "GET /rings/:id",
         "GET /views/ring/:ringId"
       ]
     },
@@ -30277,6 +30293,7 @@
       "via": [
         "E_RING_02",
         "GET /rings",
+        "GET /rings/:id",
         "GET /views/ring/:ringId"
       ]
     },
@@ -31086,6 +31103,7 @@
         "E_RING_02",
         "E_RING_05",
         "GET /rings",
+        "GET /rings/:id",
         "GET /rings/:id/projection",
         "GET /views/ring/:ringId"
       ]
@@ -35190,6 +35208,11 @@
       "from": "backend-delivery:ring-members",
       "kind": "wikilink",
       "to": "story:rings"
+    },
+    {
+      "from": "backend-delivery:ring-projection",
+      "kind": "wikilink",
+      "to": "backend-delivery:widgets"
     },
     {
       "from": "backend-delivery:ring-projection",
@@ -44349,7 +44372,7 @@
       "created": "2026-10-15",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "done",
+      "effectiveStatus": "partial",
       "effort": null,
       "feature": "ring-projection",
       "foundOn": null,
@@ -44370,7 +44393,23 @@
         "feature:ring-projection"
       ],
       "path": "social-pin/modules/Identity Core/features/Ring Projection/flow/BD-10 Ring Projection Backend Delivery.md",
-      "pending": [],
+      "pending": [
+        {
+          "person": null,
+          "text": "S9 the library, links and custom fields entered once and switched on or off per Ring, today's per-Ring copies merged once (D-03)",
+          "to": "frontend-requirements:ring-projection"
+        },
+        {
+          "person": null,
+          "text": "S10 per field, per Ring: off / follow the Pin / own value for headline, role, company, location; follow / own for photo and bio (D-05, D-02; needs the main profile fields pending on BD-07)",
+          "to": "frontend-requirements:ring-projection"
+        },
+        {
+          "person": null,
+          "text": "S5 the five link types D-03 added to LINK_TYPE (booking, Behance, Dribbble, GitHub, YouTube)",
+          "to": "frontend-requirements:ring-projection"
+        }
+      ],
       "priority": "critical",
       "related": [
         "task:B-08",
@@ -51682,12 +51721,12 @@
       "release": "mvp",
       "resolution": null,
       "rollup": {
-        "approved": 1,
+        "approved": 2,
         "current": 1,
         "decided": 3,
-        "done": 2,
+        "done": 1,
         "missing": 3,
-        "ready": 1,
+        "partial": 1,
         "verified": 3
       },
       "scope": null,
@@ -56944,7 +56983,7 @@
       "depends": [
         "story:ring-projection"
       ],
-      "effectiveStatus": "ready",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "ring-projection",
       "foundOn": null,
@@ -57066,18 +57105,18 @@
         "s37",
         "s68"
       ],
-      "status": "ready",
+      "status": "approved",
       "summary": "What the client needs from the backend to build the \"what this Ring shows\" editor across its screens, and whether each need is met today. Shapes, the link-type table and field limits are in BI-07…",
       "tags": [
         "frontend-requirements",
-        "frontend-requirements/ready",
+        "frontend-requirements/approved",
         "module/identity",
         "layer/frontend"
       ],
       "task": null,
       "title": "FR-10 Ring Projection Frontend Requirements",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-05"
     },
     "frontend-requirements:rings": {
       "affects": [
@@ -57947,19 +57986,19 @@
       "release": null,
       "resolution": null,
       "rollup": {
-        "approved": 16,
+        "approved": 17,
         "blocked": 3,
         "current": 9,
         "decided": 10,
         "delivered": 4,
-        "done": 15,
+        "done": 14,
         "draft": 4,
         "in-progress": 13,
         "missing": 34,
         "needs-decision": 1,
-        "partial": 8,
+        "partial": 9,
         "passing": 3,
-        "ready": 3,
+        "ready": 2,
         "verified": 10
       },
       "scope": null,
@@ -65950,19 +65989,19 @@
         }
       ],
       "rollup": {
-        "approved": 38,
+        "approved": 39,
         "blocked": 32,
         "current": 9,
         "decided": 26,
         "delivered": 4,
-        "done": 16,
+        "done": 15,
         "draft": 30,
         "in-progress": 47,
         "missing": 148,
         "needs-decision": 1,
-        "partial": 8,
+        "partial": 9,
         "passing": 3,
-        "ready": 5,
+        "ready": 4,
         "reference": 32,
         "todo": 3,
         "verified": 26
