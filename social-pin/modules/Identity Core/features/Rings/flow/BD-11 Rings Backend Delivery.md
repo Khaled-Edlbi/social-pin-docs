@@ -15,7 +15,9 @@ tags: [backend-delivery, backend-delivery/done, module/identity, layer/backend]
 
 # ✅ Rings · Backend Delivery
 
-**Feature:** [[F-11 Rings]] · **Status:** Done · **Integration guide:** [[BI-08 Rings Backend Integration]] · **Requirements:** [[FR-11 Rings Frontend Requirements]] · **QA:** [[Rings QA Backend]]
+> ⚠ Affected by [[QB-12 Rings QA Backend]] (2026-11-05): QA run on backend main 12172c6 (failing, 71/78): the isTemporary=false filter returns temporary Rings and a string 'false' turns a setting on (B-13); PATCH null on a required field is 500 (B-14); disposition runs on a permanent Ring and the default, and UNDECIDED acts as KEEP (B-15); colorHex and an empty purpose are not refused (B-16). Bugs filed against BI-08 for /backend
+
+**Feature:** [[F-11 Rings]] · **Status:** Done · **Integration guide:** [[BI-08 Rings Backend Integration]] · **Requirements:** [[FR-11 Rings Frontend Requirements]] · **QA:** [[QB-12 Rings QA Backend]]
 
 What the backend shipped for this feature and how it works. Parts marked **⏳ branch** are on the backend branch `FR-11/ring/settings-copy-default-shared` (`4aad168`, up to date with `main` a249ab2), pushed and **not merged**: they are not on `main` until the merge clears them from `pending`.
 
