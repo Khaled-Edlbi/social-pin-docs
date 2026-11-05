@@ -69,7 +69,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
       - 👍 [FR-06 Photo Library Frontend Requirements](social-pin/modules/Identity%20Core/features/Photo%20Library/flow/FR-06%20Photo%20Library%20Frontend%20Requirements.md) (Frontend Requirements, Critical)
       - 🟡 [BD-06 Photo Library Backend Delivery](social-pin/modules/Identity%20Core/features/Photo%20Library/flow/BD-06%20Photo%20Library%20Backend%20Delivery.md) (Backend Delivery, 1 pending note, Critical)
       - 🔵 [BI-13 Photo Library Backend Integration](social-pin/modules/Identity%20Core/features/Photo%20Library/flow/BI-13%20Photo%20Library%20Backend%20Integration.md) (Backend Integration, Critical)
-      - ∅ _Photo Library QA Backend_ (QA Backend)
+      - 🟡 [QB-08 Photo Library QA Backend](social-pin/modules/Identity%20Core/features/Photo%20Library/flow/QB-08%20Photo%20Library%20QA%20Backend.md) (QA Backend, 1 pending note, Critical)
       - ✅ [FD-08 Photo Library Frontend Delivery](social-pin/modules/Identity%20Core/features/Photo%20Library/flow/FD-08%20Photo%20Library%20Frontend%20Delivery.md) (Frontend Delivery, Critical)
       - ∅ _Photo Library QA Frontend_ (QA Frontend)
       - ✅ [ND-02 Base profile work fields](social-pin/needs-decisions/ND-02%20Base%20profile%20work%20fields.md) (Needs decision)

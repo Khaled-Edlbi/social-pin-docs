@@ -229,6 +229,7 @@
     "qa-backend:auth": "QB-05",
     "qa-backend:counts": "QB-07",
     "qa-backend:files": "QB-06",
+    "qa-backend:photo-library": "QB-08",
     "qa-frontend:account": "QF-04",
     "story:account": "S-01",
     "story:app-shell": "S-73",
