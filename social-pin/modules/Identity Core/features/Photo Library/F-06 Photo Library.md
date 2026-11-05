@@ -16,7 +16,7 @@ tags: [feature, module/identity, priority/critical, release/mvp]
 
 **Backend:** Partial (needs more) · **Priority:** Critical · **Release:** MVP · **Module:** [[M-01 Identity Core Module|Identity Core]]
 
-**Layers:** [[S-11 Photo Library Story|Story]] · [[FR-06 Photo Library Frontend Requirements|Frontend Requirements]] · [[BD-06 Photo Library Backend Delivery|Backend Delivery]] · [[BI-13 Photo Library Backend Integration|Backend Integration]] · [[Photo Library Frontend Delivery|Frontend Delivery]] · [[Photo Library QA Backend|QA Backend]] · [[Photo Library QA Frontend|QA Frontend]]
+**Layers:** [[S-11 Photo Library Story|Story]] · [[FR-06 Photo Library Frontend Requirements|Frontend Requirements]] · [[BD-06 Photo Library Backend Delivery|Backend Delivery]] · [[BI-13 Photo Library Backend Integration|Backend Integration]] · [[FD-08 Photo Library Frontend Delivery|Frontend Delivery]] · [[Photo Library QA Backend|QA Backend]] · [[Photo Library QA Frontend|QA Frontend]]
 
 The user's uploaded photos, reusable across Rings, with the Rings that use each photo (s30).
 
