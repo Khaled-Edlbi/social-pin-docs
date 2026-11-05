@@ -21,7 +21,7 @@ tags: [backend-delivery, backend-delivery/done, module/identity, layer/backend]
 
 > ⚠ Affected by [[D-05 Inherit per field, copy without members]] (2026-10-25): ND-05 decided, a Ring inherits the main profile field by field until it changes that field; copying a Ring copies fields, bio, photo, colour and settings, never members.
 
-**Feature:** [[F-10 Ring Projection]] · **Status:** Done · **Integration guide:** [[BI-07 Ring Projection Backend Integration]] · **Requirements:** [[FR-10 Ring Projection Frontend Requirements]] · **QA:** [[Ring Projection QA Backend]]
+**Feature:** [[F-10 Ring Projection]] · **Status:** Done · **Integration guide:** [[BI-07 Ring Projection Backend Integration]] · **Requirements:** [[FR-10 Ring Projection Frontend Requirements]] · **QA:** [[QB-13 Ring Projection QA Backend]]
 
 What the backend shipped for this feature and how it works, as on backend `main` (`a249ab2`). S5 and S9 ([[D-03 Links entered once, switched on or off per Ring]]) shipped there; S10 is the one open ask.
 
