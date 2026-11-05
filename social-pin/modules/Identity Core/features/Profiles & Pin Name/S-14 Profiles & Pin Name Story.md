@@ -17,6 +17,8 @@ tags: [story, story/approved, module/identity, layer/business]
 
 # Profiles & Pin Name · User Story
 
+> ⚠ Affected by [[S-29 Companies Story]] (2026-11-05): S-29 P10 (decided in the story, 2026-11-05): the main profile gets a role field (job title) next to company; together they are the Company & role field Companies shows as the work identity (S-29 S4, S8).
+
 > ⚠ Affected by [[S-17 Ring Projection Story]] (2026-10-29): Me's privacy rows (S4) now **list and switch Rings**: each of Birthdate, Gender, Marital status shows which Rings show it ("Family Ring only") and opens the value plus a list of my Rings with a switch each; the same switches as each Ring's s24 (`showBirthdate`, `showGender`, `showMaritalStatus`; [[S-17 Ring Projection Story|Ring Projection · S4]]).
 
 **Feature:** [[F-07 Profiles & Pin Name]] · **Status:** Approved 2026-10-29 by Omar Fostok (first approved 2026-10-25 by khaled; reworked 2026-10-29 by the design review: S1–S3, S7, S9, S10, S12 changed; S5, S6, S8 merged or moved) · **Frontend Requirements:** [[FR-07 Profiles & Pin Name Frontend Requirements]] · **Backend Integration:** [[BI-04 Profiles & Pin Name Backend Integration]]

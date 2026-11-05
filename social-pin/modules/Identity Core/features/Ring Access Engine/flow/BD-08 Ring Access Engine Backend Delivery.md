@@ -13,6 +13,8 @@ tags: [backend-delivery, backend-delivery/done, module/identity, layer/backend]
 
 # ✅ Ring Access Engine · Backend Delivery
 
+> ⚠ Affected by [[S-29 Companies Story]] (2026-11-05): S-29 P9 (decided in the story, 2026-11-05): every member of a company can read the company's card Ring (its top Ring), even when only in a lower Ring of it; reading gives no membership, no roster, no other Ring. The engine answers it like every other view.
+
 **Feature:** [[F-08 Ring Access Engine]] · **Status:** Done · **Integration guide:** [[BI-05 Ring Access Engine Backend Integration]] · **Requirements:** [[FR-08 Ring Access Engine Frontend Requirements]] · **QA:** [[Ring Access Engine QA Backend]]
 
 What the backend shipped for this feature and how it works. The sum of this feature's task-level Backend Delivery notes (see the *Tasks* table below).

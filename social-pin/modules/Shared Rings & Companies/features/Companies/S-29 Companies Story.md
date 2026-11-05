@@ -11,7 +11,7 @@ approvedAt: 2026-11-05
 owner: "Omar Fostok"
 depends: []
 affects: ["S-33 Ring Invitations & Join Story", "S-59 Exhibitor Story", "S-31 Delegated Admins Story", "S-16 Ring Members Story", "S-18 Rings Story", "S-03 Counts Story"]
-related: ["D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-16 Files load from signed links that expire in 15 minutes", "D-18 Ring names shown when joined knowingly", "Ring Access Model"]
+related: ["D-02 One main profile every Ring starts from", "S-14 Profiles & Pin Name Story", "S-15 Ring Access Engine Story", "D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-16 Files load from signed links that expire in 15 minutes", "D-18 Ring names shown when joined knowingly", "Ring Access Model"]
 pending: []
 created: 2026-10-18
 updated: 2026-11-05
@@ -48,6 +48,11 @@ Decided 2026-11-05 by Omar Fostok. Each is a rule the design needs and no card h
 | P6 | **The company's domain on s73** | Shown as **"acme.co"**, **without the word *Verified*** in the MVP: the MVP only checks that the domain matches the business's website, which proves nothing. *Verified* comes back in v1 with a real proof of ownership (a DNS record, or an email to the domain's admin). | S5, S12 |
 | P7 | **Moved between company Rings** (D-18's *Still open*) | Someone the owner **moves** from a Ring they joined knowingly into another company Ring reads as **placed** there: the new Ring stays unnamed ([[D-18 Ring names shown when joined knowingly]]). | S6 |
 | P8 | **Handing a company to someone else, or deleting it** | **Not in the MVP**; it belongs with [[F-24 Exhibitor]] later. | S10, S11 |
+| P9 | **Who can read the company's card** (the header tap on s73) | **Every member of the company** (P1) can read its card Ring, the top Ring with its about text, address, contacts, links and files, even when they're only in a lower Ring of it. Reading the card gives no membership in that Ring, no place in its roster and no other of the company's Rings; the access engine answers it like every other view ([[S-15 Ring Access Engine Story]]). | S5 |
+| P10 | **A role field on the main profile** | The main profile ([[D-02 One main profile every Ring starts from]]) gets a **role** (job title, "Design lead") next to **company**; together they are the *Company & role* field P4 names. Mine to edit; a Ring shows them only where its *What this Ring shows* has them on. This adds to [[S-14 Profiles & Pin Name Story]]. | S4, S8 |
+| P11 | **My title on a company row** (s72) | With one *Company & role* field (P4), my title shows **only on the company whose name matches my profile's company**; the other companies' rows show no title. Never a title per company. | S2, S4 |
+
+Added 2026-11-05 by Omar Fostok: P9, P10, P11.
 
 ## Stories
 
@@ -66,7 +71,7 @@ Acceptance criteria:
 
 Acceptance criteria:
 - [ ] Title "My companies", "Where your work identity comes from". A **MEMBER OF · N** section lists my companies (P1), by name.
-- [ ] Each row: the company's logo (its initial until files load, [[D-16 Files load from signed links that expire in 15 minutes]]), its name, **my title** there ("Design lead"), **verified email** when I joined with one, and a badge: *Owner*, *Admin*, or none for a member.
+- [ ] Each row: the company's logo (its initial until files load, [[D-16 Files load from signed links that expire in 15 minutes]]), its name, **my title** ("Design lead") only on the company matching my profile's company (P11), **verified email** when I joined with one, and a badge: *Owner*, *Admin*, or none for a member.
 - [ ] **The people count** on a row ("22 people") shows only where I may see them: I'm the owner or an admin of one of its Rings, or one of its Rings I'm in has "members can see each other" on ([[D-04 Ring settings at launch and their defaults]]). Otherwise no count.
 - [ ] A row opens Company detail (s73).
 - [ ] A company is listed while I have **at least one live membership** in its Rings. A company whose Rings I'm in have all ended, or that removed me, leaves the list (S10).
@@ -93,7 +98,7 @@ Acceptance criteria:
 **As a** member **I want** to see and set how I appear at work **so that** Rings that show my company show it right.
 
 Acceptance criteria:
-- [ ] **YOUR WORK IDENTITY**: *Shown as* "Design lead, Acme Studio", from my profile's *Company & role* field; tapping it edits that field (P4). "Used by Rings that show company & role."
+- [ ] **YOUR WORK IDENTITY**: *Shown as* "Design lead, Acme Studio", from my main profile's **role** and **company** (P10); tapping it edits them (P4). Not available yet: the role field ([[S-14 Profiles & Pin Name Story]]). "Used by Rings that show company & role."
 - [ ] *Verified email* "noor@acme.co": the work address I verified, when I joined with one (S-33 S4); shown, not edited here.
 - [ ] *Show company on my Public Ring*, "Strangers see where you work": a switch for *Company & role* on my Public Ring, the same one as on that Ring's *What this Ring shows* (s24). Turning it here turns it there, and the other way round. Saved at once. Not available yet if my Public Ring has no such field: the switch is hidden.
 - [ ] *Let Acme Studio update my title* is **hidden** in the MVP (P4, v1).
@@ -105,7 +110,7 @@ Acceptance criteria:
 
 Acceptance criteria:
 - [ ] Header: the company's logo (initial until files load), name, and **its domain, "acme.co"**, when one is set (S12), **without the word *Verified*** in the MVP (P6); my title and **"joined 12 Feb 2026"** (when I first joined one of its Rings); my badge (*Owner* / *Admin*).
-- [ ] Tapping the header opens the company's **public card** (its top Ring, s14), where its about text, address, contacts, links and files are. **s73 doesn't repeat them** (they belong to the business Ring the setup made, [[S-59 Exhibitor Story|Exhibitor · S1]]).
+- [ ] Tapping the header opens the company's **public card** (its top Ring, s14), which every member of the company may read, whichever of its Rings they're in (P9; not available yet: today a view answers only members of that Ring), where its about text, address, contacts, links and files are. **s73 doesn't repeat them** (they belong to the business Ring the setup made, [[S-59 Exhibitor Story|Exhibitor · S1]]).
 - [ ] Sections, in order: **RINGS IT SHARES WITH YOU** (S6), **PEOPLE** (S7), **MY ROLE HERE** (S8), *Leave company* (S9).
 - [ ] Opening a company I'm no longer part of (removed while the screen was open, a stale link) reads "You're no longer part of this company" and goes back to s72.
 - [ ] Not available yet: the route.
@@ -272,3 +277,9 @@ Not available yet, in the order the journey needs them:
 - 2026-11-05 · flagged [[FR-24 Exhibitor Frontend Requirements]]: S-29 was rewritten as S1–S14 with its product rules decided inside the story (P1–P8, no decision cards). The old Companies · S6 (merged T-029) is gone: the list is S2, company detail S5, leave S9, and the business ↔ Ring link is decided as P2 (every company Ring carries its business; setup creates both). The domain shows as acme.co without Verified in the MVP (P6). Repoint the links that name Companies · S6.
 - 2026-11-05 · flagged [[S-42 Discover Hub & Search Story]]: S-29 was rewritten as S1–S14 with its product rules decided inside the story (P1–P8, no decision cards). The old Companies · S6 (merged T-029) is gone: the list is S2, company detail S5, leave S9, and the business ↔ Ring link is decided as P2 (every company Ring carries its business; setup creates both). The domain shows as acme.co without Verified in the MVP (P6). Repoint the links that name Companies · S6.
 - 2026-11-05 · flagged [[S-59 Exhibitor Story]]: S-29 was rewritten as S1–S14 with its product rules decided inside the story (P1–P8, no decision cards). The old Companies · S6 (merged T-029) is gone: the list is S2, company detail S5, leave S9, and the business ↔ Ring link is decided as P2 (every company Ring carries its business; setup creates both). The domain shows as acme.co without Verified in the MVP (P6). Repoint the links that name Companies · S6.
+- 2026-11-05 · flagged [[S-15 Ring Access Engine Story]]: S-29 P9 (decided in the story, 2026-11-05): every member of a company can read the company's card Ring (its top Ring), even when only in a lower Ring of it; reading gives no membership, no roster, no other Ring. The engine answers it like every other view.
+- 2026-11-05 · flagged [[BD-08 Ring Access Engine Backend Delivery]]: S-29 P9 (decided in the story, 2026-11-05): every member of a company can read the company's card Ring (its top Ring), even when only in a lower Ring of it; reading gives no membership, no roster, no other Ring. The engine answers it like every other view.
+- 2026-11-05 · flagged [[S-14 Profiles & Pin Name Story]]: S-29 P10 (decided in the story, 2026-11-05): the main profile gets a role field (job title) next to company; together they are the Company & role field Companies shows as the work identity (S-29 S4, S8).
+- 2026-11-05 · flagged [[FR-07 Profiles & Pin Name Frontend Requirements]]: S-29 P10 (decided in the story, 2026-11-05): the main profile gets a role field (job title) next to company; together they are the Company & role field Companies shows as the work identity (S-29 S4, S8).
+- 2026-11-05 · flagged [[FR-15 Companies Frontend Requirements]]: S-29 added P9 (every company member reads the company's card Ring), P10 (a role field on the main profile) and P11 (my title only on the company row matching my profile's company), all decided in the story; cite them.
+- 2026-11-05 · flagged [[BD-15 Companies Backend Delivery]]: S-29 added P9 (every company member reads the company's card Ring, through the access engine) and P11 (the title shows only on the company matching the profile's company).
