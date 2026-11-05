@@ -4,7 +4,7 @@ type: project
 layer: shared
 related: ["Agent Rules", "Docs Tree"]
 created: 2026-10-15
-updated: 2026-10-29
+updated: 2026-11-05
 tags: [project, layer/shared]
 ---
 
@@ -100,6 +100,17 @@ Per agent, branch and commit together (a decision card commits as `decision`, a 
 
 The body: two or three lines on what changed and why, the other files touched, the trailers `Feature: F-NN`, `Story: S-NN`, `Decision: ND-NN` when one is involved, then the attribution line. Rebuild before each commit and include the generated files, so every commit passes `--check` on its own. The bash guard reads the attribution line's angle brackets as a redirect: commit with `git commit -F <file outside the vault>`, or with a `git commit -F -` heredoc whose command starts with `git` and contains no `&&` or `;`.
 
+### One worktree per session
+
+A folder has one checked-out branch, and every session working in it shares that branch: when one of them runs `git switch`, the others are on the wrong branch from their next command on. So **every session works in a git worktree of its own**, one per card's branch, and the repository's main folder stays on `main` for reading, the docs page and merges (since 2026-11-05).
+
+- **Start in one.** `node scripts/build-tree.mjs --worktree <agent> <card> [<what-you-do>]` creates the card's branch (the name `--branch` prints) from `origin/main` in `.claude/worktrees/<agent>-<card>-<what>` under the main folder (git-ignored; the build skips `.claude/`); a branch that already exists, or is already in a worktree, is reused. Open the Claude Code session in that folder, or move a running one there with *EnterWorktree*; the desktop app's *worktree* option at a new session does the same. Then type `/<agent>` there: the active agent is kept per folder. A code repository works the same way, with its own `.claude/worktrees/`.
+- **The guard holds it.** In the main folder, while another session is live there (it used the guard in the last 12 hours), `git switch` and `git checkout <branch>` are refused to every agent, the admin included; in a worktree of its own a session may switch freely ([[Agent Protocol]], *The guard*).
+- **Changes already made in the main folder** are carried, not switched: `--finish` sees where it runs and, with another session live there, prints the route (`--worktree … --from HEAD`, a `git stash` of only your files, `git stash pop` in the worktree, `--finish` again there).
+- **Card codes do not collide.** Every scaffold's next free code skips the codes already given on the other branches not merged yet and in the other worktrees' files, and says which branch pushed it up; a code given twice anyway (a branch made on another machine, never pushed) fails the build at the merge, a repair for [[Admin Agent]].
+- **Merge with the build.** Each branch rebuilt the generated files, so two merged branches leave them in conflict or stale. `node scripts/build-tree.mjs --merge <branch>`, run in a folder on `main`, merges with `--no-ff`, keeps every code either side gave in `tree/cards.json`, rebuilds the rest and commits them with the merge, so `main` passes `--check` after every merge; a conflict in a note stops it for a person (resolve, `git add`, `--merge --continue`). A pull request merged on GitHub has no such step: CI's `--check` on the pull request fails while its branch is behind with stale generated files, so bring the branch up to date with `--merge main` in its worktree first.
+- **Finish the worktree.** Once the branch is merged: `git worktree remove "<path>"` (`--worktree` prints it), then delete the branch.
+
 ## 3 · The layers, in flow order
 
 ```
@@ -131,7 +142,7 @@ There is nothing to roll up: the story, the requirements, the deliveries and the
 2. The layer note you built: `status: done` (or the `pending` entry for the part removed), a `## Log` line (date · branch · story part · what shipped, which notes were flagged). Anything left for another card or a person goes in `pending:` (the note shows 🟡 Partial until it is cleared); nothing is typed into the feature note's status.
 3. Every touched note: today's `updated:`.
 4. The build (`--finish` runs it); commit `tree/tree.json`, `tree/tree.md`, `tree/cards.json`, `Card Index.md` with the notes (a new note gets its card code here, see [[Card Index]]). `--check` is what CI runs.
-5. Push every branch; open the pull requests; link them to each other and to the feature's story. Report what shipped and what stays open in the vault's words.
+5. Push every branch; open the pull requests; link them to each other and to the feature's story. A vault branch merged locally goes in with `node scripts/build-tree.mjs --merge <branch>` from a folder on `main` ([[#One worktree per session]]). Report what shipped and what stays open in the vault's words.
 
 ## Where to look for what
 

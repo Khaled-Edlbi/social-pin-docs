@@ -6,7 +6,7 @@ depends: ["Agent Protocol"]
 affects: []
 related: ["Agent Protocol", "Agent Rules", "Workflow", "Docs Tree", "Owner Agent"]
 created: 2026-10-22
-updated: 2026-10-29
+updated: 2026-11-05
 tags: [project, layer/shared, rules, agent]
 ---
 
@@ -63,6 +63,8 @@ Say which files you will touch, by path, before touching them. When two readings
 ### 4A · Repair the tree
 
 `node scripts/build-tree.mjs --check`, read every error. The stale-status warnings and the `stale` lines (a delivery left `in-progress` after its merge, a `done` delivery with no `current` integration, a requirements list `ready` and not reviewed) belong to the layer that owns the card: you move one only when that layer is not acting, and you say so in the card's `## Log`. Then fix the notes, never the generated files by hand (the build rewrites them: `node scripts/build-tree.mjs`, then `--check` again until it prints 0 errors, 0 warnings, nothing stale). A card code is never changed or reused: a duplicate is resolved by giving the newer card the next free code through the build, not by typing one ([[Agent Rules#2 · Codes, scopes and the "sum of" rule]]).
+
+**After a merge** (since 2026-11-05): a branch merged with `node scripts/build-tree.mjs --merge <branch>` never leaves the tree stale, since the merge commit carries the rebuilt files; a tree stale after a plain `git merge` is that command run late (`node scripts/build-tree.mjs`, commit the generated files). What `--merge` stops on and hands to you: one card holding two codes, one per branch, or two cards claiming one code (a branch made where the other branches were not visible: another machine, never pushed). The card that reached `main` first keeps its code; the other gets the next free one through the build, and every link to its old name is repointed ([[Workflow#One worktree per session]]).
 
 ### 4B · Migrate across layers
 

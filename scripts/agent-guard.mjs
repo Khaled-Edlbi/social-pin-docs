@@ -21,12 +21,17 @@
  * An agent whose `writes.all` is true (/admin, rules/Admin Agent.md) may write anything, generated files and the verbatim brief included,
  * from the shell too. While no agent is active, read-only shell commands still pass (git status/log/diff/show, build-tree.mjs --find /
  * --impact / --check / --branch / --list, cat, head, grep, ls, wc …); anything else is refused.
+ * One worktree per session (rules/Workflow.md §2): in the repository's main folder, while another session is live there (its marker
+ * touched in the last LIVE_HOURS; every hook call touches the caller's), `git switch` / `git checkout <branch>` is refused to every
+ * agent, the admin included, because it would move the other sessions' branch too; a linked worktree belongs to one session and
+ * is never refused it. AGENT_GUARD_SHARED=1|0 overrides the main-folder test (the selftest's rows).
  * It runs on every Bash, Edit and Write call, so it stays light: fs and path at load, docs.config.json read once, a file classified by
  * its own `type:` line (never tree/tree.json); the selftest's imports load only when it runs. scripts/build-tree.mjs imports `decide`
  * and `activeAgent` from here, so its one-call edits (--set-status, --set, --flag) are checked by the same rules. Node 22 built-ins only.
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -70,6 +75,33 @@ const sessions = () => { if (!markerDir()) return []; return fs.readdirSync(MARK
 // a session that ended without "/agent off" leaves its file behind; a new session sweeps those older than a month
 const PRUNE_DAYS = 30;
 const pruneStale = () => { if (!markerDir()) return; for (const f of fs.readdirSync(MARKER)) { try { const p = path.join(MARKER, f); if (Date.now() - fs.statSync(p).mtimeMs > PRUNE_DAYS * 864e5) fs.unlinkSync(p); } catch {} } };
+
+// ---------------------------------------------------------------- the shared folder: one worktree per session (rules/Workflow.md §2)
+// A folder has one checked-out branch. Sessions that share it share that branch, so one `git switch` moves them all; each session
+// works in a worktree of its own instead (`node scripts/build-tree.mjs --worktree`). A session is live while its marker was touched
+// in the last LIVE_HOURS: every hook call touches the caller's, so an idle or ended session stops counting on its own.
+const LIVE_HOURS = 12;
+const touch = (sid = SESSION) => { try { const p = markerOf(sid); if (markerDir() && fs.existsSync(p)) { const now = new Date(); fs.utimesSync(p, now, now); } } catch {} };
+export const liveSessions = (except = SESSION) => {
+  if (!markerDir()) return [];
+  const out = [];
+  for (const sid of fs.readdirSync(MARKER)) {
+    if (sid === except) continue;
+    try { const p = path.join(MARKER, sid); if (Date.now() - fs.statSync(p).mtimeMs > LIVE_HOURS * 36e5) continue; const agent = fs.readFileSync(p, 'utf8').trim(); if (agent) out.push({ sid, agent }); } catch {}
+  }
+  return out;
+};
+// the repository's main folder (where .git lives), as opposed to a linked worktree (`git worktree add`), which is one session's own
+export const isMainFolder = () => {
+  if (process.env.AGENT_GUARD_SHARED) return process.env.AGENT_GUARD_SHARED === '1';
+  const r = spawnSync('git', ['rev-parse', '--path-format=absolute', '--git-dir', '--git-common-dir'], { cwd: ROOT, encoding: 'utf8' });
+  if (r.status !== 0) return false;
+  const [dir, common] = r.stdout.trim().split(/\r?\n/).map((p) => path.resolve(p));
+  return !!dir && dir === common;
+};
+// a command that moves this folder's branch: git switch, git checkout <branch>; a path restore (git checkout -- <file>) does not
+export const switchesBranch = (c, ps = false) => segments(c, ps).some((s) => /^git\s+(switch|checkout)\b/.test(s) && !/\s--(\s|$)/.test(s) && !/\s(-h|--help)\b/.test(s));
+const sharedRefusal = (others) => `This is the repository's main folder, and ${others.length} other session${others.length === 1 ? '' : 's'} work${others.length === 1 ? 's' : ''} in it (${[...new Set(others.map((o) => `/${o.agent}`))].join(', ')}): switching its branch would switch theirs too. Work in a worktree of your own: node scripts/build-tree.mjs --worktree <agent> <card> [<what-you-do>] creates the card's branch in .claude/worktrees/; open the session there (or move this one into it with EnterWorktree) and type /<agent> again there, since the active agent is kept per folder. Changes already made here: --finish prints how to carry them. The rule: rules/Workflow.md §2.`;
 
 // ---------------------------------------------------------------- what may an agent write, in words
 function scopeWords(a) {
@@ -295,6 +327,7 @@ if (cmd === 'status') {
   process.exit(0);
 }
 if (cmd === 'check') {
+  touch();
   const a = agentOf(active() || '');
   const { tool_name: tool = '', tool_input: ti = {} } = input;
   const rel = relOf(ti.file_path || ti.notebook_path);
@@ -310,11 +343,14 @@ if (cmd === 'check') {
   process.exit(2);
 }
 if (cmd === 'bash' || cmd === 'powershell') {
+  touch();
   const a = agentOf(active() || '');
-  if (a?.writes?.all) process.exit(0); // the admin: the shell is not guarded either
   const { tool_input: ti = {} } = input;
   const c = String(ti.command || '').trim();
   const ps = cmd === 'powershell';
+  // the one refusal that holds for every agent, the admin included: it protects the other sessions, not a layer's files
+  if (switchesBranch(c, ps)) { const others = liveSessions(); if (others.length && isMainFolder()) { console.error(sharedRefusal(others)); process.exit(2); } }
+  if (a?.writes?.all) process.exit(0); // the admin: the shell is not guarded either
   // no agent: reading is free, writing waits for the user's choice of agent
   if (!a) { if (readOnly(c, ps)) process.exit(0); console.error(noAgent().message); process.exit(2); }
   const refuse = () => { console.error(`${a.id} agent: this command writes files around the guard. Use Edit or Write (the guard checks them), node scripts/build-tree.mjs --scaffold for new notes and --set-status / --set / --flag for the common edits, and git for commits.`); process.exit(2); };
@@ -441,11 +477,13 @@ if (cmd === 'selftest') {
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'agent-guard-'));
   const marker = path.join(tmp, '.active-agent');
   fs.writeFileSync(marker, 'owner\n');
-  const hook = (hookCmd, sid, payload) => spawnSync(process.execPath, [fileURLToPath(import.meta.url), hookCmd], {
-    input: JSON.stringify({ session_id: sid, ...payload }), encoding: 'utf8', env: { ...process.env, AGENT_GUARD_MARKER: marker, CLAUDE_CODE_SESSION_ID: '' },
+  // AGENT_GUARD_SHARED is 0 unless a row sets it, so the rows behave the same in the main folder, a worktree or CI
+  const hook = (hookCmd, sid, payload, env = {}) => spawnSync(process.execPath, [fileURLToPath(import.meta.url), hookCmd], {
+    input: JSON.stringify({ session_id: sid, ...payload }), encoding: 'utf8', env: { ...process.env, AGENT_GUARD_MARKER: marker, CLAUDE_CODE_SESSION_ID: '', AGENT_GUARD_SHARED: '0', ...env },
   });
   const agentIn = (sid) => { try { return fs.readFileSync(path.join(marker, sid), 'utf8').trim() || null; } catch { return null; } };
   const write = (file) => ({ tool_name: 'Write', tool_input: { file_path: file, content: 'x\n' } });
+  const SHARED = { AGENT_GUARD_SHARED: '1' };
   const S = [
     // session, hook, payload, expected exit, each session's agent afterwards
     ['A', 'check', write(overview), 2, { A: null, B: null }], // the old shared marker grants nobody
@@ -469,10 +507,20 @@ if (cmd === 'selftest') {
     ['C', 'powershell', { tool_input: { command: 'New-Item x.md' } }, 2, { A: 'owner', B: 'qa', C: null }],
     ['C', 'bash', { tool_input: { command: 'git commit -m x' } }, 2, { A: 'owner', B: 'qa', C: null }],
     ['A', 'session', {}, 0, { A: null, B: 'qa' }], // /clear or a restart of session A
+    // one worktree per session: in the main folder, with another session live there, nobody switches the branch, the admin included
+    ['A', 'prompt', { prompt: '/backend approve FR-06' }, 0, { A: 'backend', B: 'qa' }],
+    ['A', 'bash', { tool_input: { command: 'git switch -c tickets/backend/x/FR-06-accepted' } }, 2, { A: 'backend', B: 'qa' }, SHARED],
+    ['A', 'powershell', { tool_input: { command: 'git checkout docs/backend/x' } }, 2, { A: 'backend', B: 'qa' }, SHARED],
+    ['A', 'bash', { tool_input: { command: 'git checkout -- tree/tree.json' } }, 0, { A: 'backend', B: 'qa' }, SHARED], // a path restore moves no branch
+    ['A', 'bash', { tool_input: { command: 'git switch -c tickets/backend/x/FR-06-accepted' } }, 0, { A: 'backend', B: 'qa' }], // a worktree of its own
+    ['B', 'prompt', { prompt: '/admin repair the tree' }, 0, { A: 'backend', B: 'admin' }],
+    ['B', 'bash', { tool_input: { command: 'git switch main' } }, 2, { A: 'backend', B: 'admin' }, SHARED],
+    ['B', 'prompt', { prompt: '/agent off' }, 0, { A: 'backend', B: null }],
+    ['A', 'bash', { tool_input: { command: 'git switch -c tickets/backend/x/FR-06-accepted' } }, 0, { A: 'backend', B: null }, SHARED], // alone in the folder
   ];
   let sBad = 0;
-  for (const [sid, hookCmd, payload, exit, want] of S) {
-    const r = hook(hookCmd, sid, payload);
+  for (const [sid, hookCmd, payload, exit, want, env] of S) {
+    const r = hook(hookCmd, sid, payload, env);
     const got = Object.fromEntries(Object.keys(want).map((k) => [k, agentIn(k)]));
     const ok = r.status === exit && Object.keys(want).every((k) => got[k] === want[k]);
     if (!ok) sBad++;

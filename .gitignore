@@ -3,3 +3,5 @@
 .DS_Store
 site/
 .claude/.active-agent
+# one worktree per session (rules/Workflow.md §2): node scripts/build-tree.mjs --worktree puts them here
+.claude/worktrees/
