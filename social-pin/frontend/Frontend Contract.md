@@ -9,6 +9,8 @@ tags: [project]
 
 # Frontend Contract
 
+> ⚠ Affected by [[BD-10 Ring Projection Backend Delivery]] (2026-11-05): LINK_TYPE has 20 values on main a249ab2: BOOKING, BEHANCE, DRIBBBLE, GITHUB, YOUTUBE added (S-17 S5)
+
 > ⚠ Affected by [[Frontend API Guide]] (2026-11-05): new endpoints on backend main @ 80e7fa2: GET /files (the library, with usedBy) and the public GET /files/content/:token behind every signed link; url on files, avatarUrl and attachments[].url on the projection and the view (D-16). The F-04 row and the endpoint count (48) need updating (/frontend)
 
 What a client must get right. The OpenAPI document at `/docs` is the signature; [[Frontend API Guide]] is the full explanation; **each feature's Backend Integration note** (`modules/<Module>/features/<Feature>/flow/BI-NN <Feature> Backend Integration.md`, listed below) has the screens, the calls, the flow and the errors. Base URL `/api/v1`.

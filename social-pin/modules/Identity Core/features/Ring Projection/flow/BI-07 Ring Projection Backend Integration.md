@@ -24,7 +24,7 @@ tags: [backend-integration, backend-integration/current, module/identity, layer/
 
 What the client builds: the owner's "what this Ring shows" editor: display name, nickname, bio, photo, theme, social and contact links, custom fields ("Add a field", info blocks), file attachments, and the five opt-ins for sensitive fields. Then "View as" to check the result ([[BI-09 View As & Pin Views Backend Integration]]).
 
-> **This note describes the backend branch `FR-10/ring-profile/library-and-link-types`, not merged yet** ([[S-17 Ring Projection Story|Ring Projection · S5, S9]]). Until it is merged, `main` keeps a copy of each link and custom field per Ring (a change applies to that Ring only, and `:linkId` names the copy) and has 15 link types; keep the phone-side imitation until then. The routes, the request bodies and the response shapes are the same on both; what changes is what an id names and what an edit reaches.
+> **The library and the five link types are on backend `main`** (`a249ab2`, [[S-17 Ring Projection Story|Ring Projection · S5, S9]]): drop the phone-side imitation. The routes, the request bodies and the response shapes are the ones of before; what changed is what an id names and what an edit reaches.
 
 ## Screens → calls
 
@@ -123,3 +123,4 @@ One editor state per Ring, refetched after every write (every write but `DELETE`
 ## Log
 
 - 2026-11-05 · describes backend branch `FR-10/ring-profile/library-and-link-types` (`b0c14f2`), **not merged**: [[S-17 Ring Projection Story|Ring Projection · S5, S9]] (the library, the five link types), as [[BD-10 Ring Projection Backend Delivery]] logs it. The routes and shapes did not change; what `:linkId` / `:blockId` name, what an edit reaches, and the delegated admin's 403 did. The [[D-03 Links entered once, switched on or off per Ring]] flag is cleared: this note now describes its work.
+- 2026-11-05 · matches backend `main` `a249ab2`: the branch above is merged; S5 and S9 are live. With F-07's main profile fields merged before it, a viewer's `bio` and `avatarUrl` follow the main profile while the Ring's own are `null` ([[BI-04 Profiles & Pin Name Backend Integration]]).

@@ -17,6 +17,8 @@ tags: [frontend-requirements, frontend-requirements/draft, module/identity, laye
 
 # View As & Pin Views · Frontend Requirements
 
+> ⚠ Affected by [[BD-10 Ring Projection Backend Delivery]] (2026-11-05): links and custom fields are one library per account on main a249ab2 (S-17 S9): the view's links[] / infoBlocks[] shapes are unchanged, but a value is now the same in every Ring that shows it; the owner's GET /rings/:ringId/projection gives each item's isVisible per Ring, which 'where each field goes' can read
+
 > ⚠ Affected by [[BI-09 View As & Pin Views Backend Integration]] (2026-11-05): avatarUrl and attachments[].url are on every /views/* response on backend main @ 80e7fa2 (rows flipped ✅). avatarFileId is still sent on the view, from before D-16 (viewers never receive a file id): stop reading it, use avatarUrl, then the backend removes it (/frontend)
 
 > ⚠ Affected by [[S-23 Connections Story]] (2026-11-04): S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
