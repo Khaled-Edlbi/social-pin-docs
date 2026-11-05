@@ -18,6 +18,8 @@ tags: [frontend-requirements, frontend-requirements/ready, module/connections, l
 
 # 📨 Connections · Frontend Requirements
 
+> ⚠ Affected by [[BD-11 Rings Backend Delivery]] (2026-11-05): backend main 12172c6: GET /rings/shared-with-me returns the person, never the Ring's name, colour or type; the line saying the API still returns the Ring's name is stale (/frontend)
+
 **Feature:** [[F-14 Connections]] · **Status:** Ready (waiting on the backend's review) · **Story:** [[S-23 Connections Story]] (approved 2026-11-04) · **Backend Integration:** not yet (no routes: [[BD-14 Connections Backend Delivery]])
 
 What the client needs from the backend to build every part of [[S-23 Connections Story]], S1 to S16, and whether each need is met today. **Rewritten 2026-11-04** against the approved story and the decisions D-10, D-23 and D-24 to D-29: every link names the story's current parts, *Connect* sends `{ qrToken }` or `{ pinName }`, s47 shows the mutual count, and the questions the story left open are answered below.

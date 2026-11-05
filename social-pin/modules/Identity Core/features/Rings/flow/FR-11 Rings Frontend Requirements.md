@@ -19,6 +19,8 @@ tags: [frontend-requirements, frontend-requirements/approved, module/identity, l
 
 # Rings · Frontend Requirements
 
+> ⚠ Affected by [[BD-11 Rings Backend Delivery]] (2026-11-05): backend main 12172c6: the four rows are now ✅ (per-person Shared with me, the six settings, POST /rings/:id/copy, 409 E_RING_09); the 'Source today' lines for s16 purpose, s17, s18 copy, s22/s26 settings and default, and the settings section still say not yet (/frontend)
+
 > ⚠ Affected by [[S-31 Delegated Admins Story]] (2026-11-05): S-31 was rewritten (2026-11-05) to match the app's one Edit Ring screen, with rules A1–A7 decided inside the story (no decision cards): company Rings only; an admin must be a member of the Ring; two levels (edit what it shows / also manage who's in it), owner-only appointing; member-managers change the joining settings, who it's for, delete and default stay owner-only; Rings you manage on My Rings and Company detail; rights end on removal, leaving the Ring or the company, silently. The old Delegated Admins · S6 (T-006, the admin routes) is now its 'What the backend has to build'; the levels are S3/A3. Repoint the links that name Delegated Admins · S6.
 
 > ⚠ Affected by [[S-23 Connections Story]] (2026-11-04): S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
@@ -104,7 +106,7 @@ What the client needs from the backend to build the Ring lists, the create wizar
 |---|---|---|---|
 | List my Rings, default first | `GET /rings` | ✅ | — |
 | List Rings shared with me, live now | `GET /rings/shared-with-me` | ✅ | — |
-| Shared with me **per person**: the owner's card per row; a Ring's name and who shared it **only when joined knowingly**; a member count **only when members can see each other**; no colour or type | `GET /rings/shared-with-me` | ❌ | [[S-15 Ring Access Engine Story\|Ring Access Engine · S1]] (D-14, D-18, D-15) |
+| Shared with me **per person**: the owner's card per row; a Ring's name and who shared it **only when joined knowingly**; a member count **only when members can see each other**; no colour or type | `GET /rings/shared-with-me` → `data[]: { ringId, pinName, displayName, avatarUrl, expiresAt, ringName, memberCount }` (`ringName` and `memberCount` `null` until memberships record how they were made, [[F-09 Ring Members]]) | ✅ | [[S-15 Ring Access Engine Story\|Ring Access Engine · S1]] (D-14, D-18, D-15) |
 | Create a Ring | `POST /rings` | ✅ | — |
 | Read one Ring | `GET /rings/:id` | ✅ | — |
 | Edit name, colour, style, window, temporary flag | `PATCH /rings/:id` | ✅ | — |
@@ -113,9 +115,9 @@ What the client needs from the backend to build the Ring lists, the create wizar
 | Delete | `DELETE /rings/:id` | ✅ | — |
 | Open a shared Ring's projection | `GET /views/ring/:ringId` | ✅ | — (listed under [[F-12 View As & Pin Views]]) |
 | "N people" on list and detail | `GET /rings` → `data[].memberCount`, `GET /rings/:id` → `memberCount` | ✅ | [[S-03 Counts Story|Counts · S6–S10]] |
-| **The six launch settings** (who it's for, who can request to join, approve each one, members can see each other, members can invite, members can save attachments): save and read each on a Ring, D-04's defaults on a new Ring, owner and admins may change them (s19, s22, s26, s27) | `POST /rings`, `PATCH /rings/:id`, `GET /rings/:id` | ❌ | [[S-18 Rings Story\|Rings · S9]] ([[D-04 Ring settings at launch and their defaults]]) |
-| **Copy a Ring** (s18 "Copy an existing Ring"): a new Ring with the source's settings, what it shows (the same library items switched on, [[S-17 Ring Projection Story\|Ring Projection · S9]]), bio, photo and colour, **never its members**, in one call | — | ❌ | [[S-18 Rings Story\|Rings · S4]] ([[D-05 Inherit per field, copy without members]]) |
-| **Refuse a temporary Ring as the default** (`POST /rings/:id/default` on an `isTemporary` Ring) | `POST /rings/:id/default` | ❌ | [[S-18 Rings Story\|Rings · S7]] |
+| **The six launch settings** (who it's for, who can request to join, approve each one, members can see each other, members can invite, members can save attachments): save and read each on a Ring, D-04's defaults on a new Ring, owner and admins may change them (s19, s22, s26, s27) | `POST /rings`, `PATCH /rings/:id`, `GET /rings/:id`, `GET /rings` → `purpose`, `joinPolicy`, `requireApproval`, `membersCanSeeEachOther`, `membersCanInvite`, `membersCanSaveAttachments` | ✅ | [[S-18 Rings Story\|Rings · S9]] ([[D-04 Ring settings at launch and their defaults]]) |
+| **Copy a Ring** (s18 "Copy an existing Ring"): a new Ring with the source's settings, what it shows (the same library items switched on, [[S-17 Ring Projection Story\|Ring Projection · S9]]), bio, photo and colour, **never its members**, in one call | `POST /rings/:id/copy { name, colorHex?, style?, purpose? }` | ✅ | [[S-18 Rings Story\|Rings · S4]] ([[D-05 Inherit per field, copy without members]]) |
+| **Refuse a temporary Ring as the default** (`POST /rings/:id/default` on an `isTemporary` Ring) | `POST /rings/:id/default` → 409 `E_RING_09` | ✅ | [[S-18 Rings Story\|Rings · S7]] |
 | **My connections**, searchable, each with whether they're in any of my Rings (s19, "No Ring yet") | — | ❌ | [[S-18 Rings Story\|Rings · S4]] ([[S-23 Connections Story\|Connections · S19–S24]]) |
 | Add a picked person to the new Ring | `POST /rings/:ringId/members` | ✅ | [[S-18 Rings Story\|Rings · S4]] (listed under [[F-09 Ring Members]]) |
 | Review / decline an invite, join with a code (s17) | — | ❌ | [[S-33 Ring Invitations & Join Story|Ring Invitations & Join · S7]], [[S-33 Ring Invitations & Join Story|Ring Invitations & Join · S8]] |

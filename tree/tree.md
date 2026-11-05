@@ -126,7 +126,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
     - 🔵 [F-11 Rings](social-pin/modules/Identity%20Core/features/Rings/F-11%20Rings.md) (release MVP, Critical)
       - 👍 [S-18 Rings Story](social-pin/modules/Identity%20Core/features/Rings/S-18%20Rings%20Story.md) (User Story, Critical)
       - 👍 [FR-11 Rings Frontend Requirements](social-pin/modules/Identity%20Core/features/Rings/flow/FR-11%20Rings%20Frontend%20Requirements.md) (Frontend Requirements, Critical)
-      - 🟡 [BD-11 Rings Backend Delivery](social-pin/modules/Identity%20Core/features/Rings/flow/BD-11%20Rings%20Backend%20Delivery.md) (Backend Delivery, 4 pending notes, Critical)
+      - 🟡 [BD-11 Rings Backend Delivery](social-pin/modules/Identity%20Core/features/Rings/flow/BD-11%20Rings%20Backend%20Delivery.md) (Backend Delivery, 2 pending notes, Critical)
       - 🔵 [BI-08 Rings Backend Integration](social-pin/modules/Identity%20Core/features/Rings/flow/BI-08%20Rings%20Backend%20Integration.md) (Backend Integration, Critical)
       - ∅ _Rings QA Backend_ (QA Backend)
       - ∅ _Rings Frontend Delivery_ (Frontend Delivery)

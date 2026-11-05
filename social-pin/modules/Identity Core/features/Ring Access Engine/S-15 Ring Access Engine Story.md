@@ -17,6 +17,8 @@ tags: [story, story/approved, module/identity, layer/business]
 
 # Ring Access Engine · User Story
 
+> ⚠ Affected by [[BD-11 Rings Backend Delivery]] (2026-11-05): backend main 12172c6: S1 Shared with me lists people (no Ring name today, the first-placed Ring rendered) and S8 the settings exist (membersCanSeeEachOther enforced, the rest stored until their flows ship); both 'Not available yet' lines are stale except the membership origin (F-09) (/pm)
+
 > ⚠ Affected by [[S-31 Delegated Admins Story]] (2026-11-05): S-31 was rewritten (2026-11-05) to match the app's one Edit Ring screen, with rules A1–A7 decided inside the story (no decision cards): company Rings only; an admin must be a member of the Ring; two levels (edit what it shows / also manage who's in it), owner-only appointing; member-managers change the joining settings, who it's for, delete and default stay owner-only; Rings you manage on My Rings and Company detail; rights end on removal, leaving the Ring or the company, silently. The old Delegated Admins · S6 (T-006, the admin routes) is now its 'What the backend has to build'; the levels are S3/A3. Repoint the links that name Delegated Admins · S6.
 
 > ⚠ Affected by [[S-29 Companies Story]] (2026-11-05): S-29 P9 (decided in the story, 2026-11-05): every member of a company can read the company's card Ring (its top Ring), even when only in a lower Ring of it; reading gives no membership, no roster, no other Ring. The engine answers it like every other view.

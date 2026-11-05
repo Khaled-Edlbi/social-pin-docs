@@ -1530,12 +1530,18 @@
     },
     "E_RING_09": {
       "containers": [
-        "feature:rings"
+        "feature:rings",
+        "project:frontend-api-guide",
+        "project:frontend-contract"
       ],
       "kind": "error",
       "notes": [
         "backend-delivery:rings",
-        "backend-integration:rings"
+        "backend-integration:rings",
+        "frontend-requirements:rings",
+        "project:frontend-api-guide",
+        "project:frontend-contract",
+        "story:rings"
       ],
       "owner": null
     },
@@ -2249,6 +2255,7 @@
         "feature:ring-projection",
         "feature:rings",
         "feature:view-as",
+        "project:frontend-api-guide",
         "project:frontend-contract",
         "project:spec-map",
         "project:status-report-2026-10-15",
@@ -2280,6 +2287,7 @@
         "frontend-requirements:ring-projection",
         "frontend-requirements:rings",
         "frontend-requirements:view-as",
+        "project:frontend-api-guide",
         "project:frontend-contract",
         "project:spec-map",
         "project:status-report-2026-10-15",
@@ -2486,6 +2494,7 @@
         "feature:rings",
         "needs-decision:ND-14",
         "needs-decision:ND-18",
+        "project:frontend-api-guide",
         "project:frontend-contract",
         "project:spec-map",
         "project:status-report-2026-10-15"
@@ -2511,6 +2520,7 @@
         "frontend-requirements:rings",
         "needs-decision:ND-14",
         "needs-decision:ND-18",
+        "project:frontend-api-guide",
         "project:frontend-contract",
         "project:spec-map",
         "project:status-report-2026-10-15",
@@ -2525,7 +2535,8 @@
       "containers": [
         "feature:counts",
         "feature:ring-access",
-        "feature:rings"
+        "feature:rings",
+        "project:frontend-api-guide"
       ],
       "kind": "endpoint",
       "notes": [
@@ -2535,7 +2546,8 @@
         "backend-integration:counts",
         "backend-integration:rings",
         "frontend-delivery:counts",
-        "frontend-requirements:counts"
+        "frontend-requirements:counts",
+        "project:frontend-api-guide"
       ],
       "owner": "feature:rings"
     },
@@ -3563,12 +3575,14 @@
     },
     "POST /rings/:id/copy": {
       "containers": [
-        "feature:rings"
+        "feature:rings",
+        "project:frontend-api-guide"
       ],
       "kind": "endpoint",
       "notes": [
         "backend-delivery:rings",
-        "backend-integration:rings"
+        "backend-integration:rings",
+        "project:frontend-api-guide"
       ],
       "owner": "feature:rings"
     },
@@ -5355,7 +5369,7 @@
     },
     "concepts": 262,
     "decisions": 28,
-    "edges": 5400,
+    "edges": 5416,
     "features": 41,
     "layerNotes": 138,
     "modules": 8,
@@ -8409,7 +8423,12 @@
     {
       "from": "backend-delivery:rings",
       "kind": "pending",
-      "to": "frontend-requirements:rings"
+      "to": "feature:ring-invitations"
+    },
+    {
+      "from": "backend-delivery:rings",
+      "kind": "pending",
+      "to": "feature:ring-members"
     },
     {
       "from": "backend-delivery:view-as",
@@ -9276,6 +9295,16 @@
       "to": "project:frontend-agent-prompt",
       "via": [
         "E_RING_02"
+      ]
+    },
+    {
+      "from": "backend-delivery:counts",
+      "kind": "related",
+      "to": "project:frontend-api-guide",
+      "via": [
+        "GET /rings",
+        "GET /rings/shared-with-me",
+        "GET /rings/shared-with-me/count"
       ]
     },
     {
@@ -10327,6 +10356,7 @@
       "kind": "related",
       "to": "project:frontend-api-guide",
       "via": [
+        "GET /rings/shared-with-me",
         "GET /views/ring/:ringId"
       ]
     },
@@ -10960,6 +10990,7 @@
       "kind": "related",
       "to": "frontend-requirements:rings",
       "via": [
+        "E_RING_09",
         "GET /rings/shared-with-me",
         "PATCH /rings/:id",
         "POST /rings",
@@ -10985,8 +11016,20 @@
     {
       "from": "backend-delivery:rings",
       "kind": "related",
+      "to": "project:frontend-api-guide",
+      "via": [
+        "E_RING_09",
+        "GET /rings/shared-with-me",
+        "GET /rings/shared-with-me/count",
+        "POST /rings/:id/copy"
+      ]
+    },
+    {
+      "from": "backend-delivery:rings",
+      "kind": "related",
       "to": "project:frontend-contract",
       "via": [
+        "E_RING_09",
         "GET /rings/shared-with-me",
         "POST /rings/:id/default"
       ]
@@ -11053,6 +11096,7 @@
       "kind": "related",
       "to": "story:rings",
       "via": [
+        "E_RING_09",
         "GET /rings/shared-with-me",
         "PATCH /rings/:id",
         "POST /rings/:id/default"
@@ -11879,6 +11923,16 @@
       "to": "project:frontend-agent-prompt",
       "via": [
         "E_RING_02"
+      ]
+    },
+    {
+      "from": "backend-integration:counts",
+      "kind": "related",
+      "to": "project:frontend-api-guide",
+      "via": [
+        "GET /rings",
+        "GET /rings/shared-with-me",
+        "GET /rings/shared-with-me/count"
       ]
     },
     {
@@ -13170,6 +13224,7 @@
       "kind": "related",
       "to": "frontend-requirements:rings",
       "via": [
+        "E_RING_09",
         "GET /rings/shared-with-me",
         "PATCH /rings/:id",
         "POST /rings",
@@ -13195,8 +13250,20 @@
     {
       "from": "backend-integration:rings",
       "kind": "related",
+      "to": "project:frontend-api-guide",
+      "via": [
+        "E_RING_09",
+        "GET /rings/shared-with-me",
+        "GET /rings/shared-with-me/count",
+        "POST /rings/:id/copy"
+      ]
+    },
+    {
+      "from": "backend-integration:rings",
+      "kind": "related",
       "to": "project:frontend-contract",
       "via": [
+        "E_RING_09",
         "GET /rings/shared-with-me",
         "POST /rings/:id/default"
       ]
@@ -13263,6 +13330,7 @@
       "kind": "related",
       "to": "story:rings",
       "via": [
+        "E_RING_09",
         "GET /rings/shared-with-me",
         "PATCH /rings/:id",
         "POST /rings/:id/default"
@@ -15935,6 +16003,8 @@
       "kind": "related",
       "to": "project:frontend-api-guide",
       "via": [
+        "GET /rings",
+        "GET /rings/shared-with-me",
         "GET /views/ring/:ringId"
       ]
     },
@@ -16733,6 +16803,8 @@
       "kind": "related",
       "to": "project:frontend-api-guide",
       "via": [
+        "GET /rings",
+        "GET /rings/shared-with-me",
         "GET /views/pin/:pinName",
         "GET /views/user/:userId/perspectives"
       ]
@@ -19059,6 +19131,7 @@
       "kind": "related",
       "to": "project:frontend-api-guide",
       "via": [
+        "GET /rings/shared-with-me",
         "GET /views/pin/:pinName",
         "GET /views/ring/:ringId",
         "GET /views/user/:userId/perspectives"
@@ -19605,6 +19678,14 @@
       "to": "project:frontend-agent-prompt",
       "via": [
         "E_RING_02"
+      ]
+    },
+    {
+      "from": "frontend-requirements:ring-members",
+      "kind": "related",
+      "to": "project:frontend-api-guide",
+      "via": [
+        "GET /rings"
       ]
     },
     {
@@ -20429,6 +20510,14 @@
     {
       "from": "frontend-requirements:rings",
       "kind": "related",
+      "to": "project:frontend-api-guide",
+      "via": [
+        "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "frontend-requirements:rings",
+      "kind": "related",
       "to": "project:frontend-contract",
       "via": [
         "GET /rings/shared-with-me",
@@ -20836,6 +20925,7 @@
       "kind": "related",
       "to": "project:frontend-api-guide",
       "via": [
+        "GET /rings",
         "GET /views/pin/:pinName",
         "GET /views/ring/:ringId",
         "GET /views/user/:userId/perspectives"
@@ -21866,6 +21956,11 @@
       "from": "project:backend-agent",
       "kind": "related",
       "to": "project:workflow"
+    },
+    {
+      "from": "project:database-migrations",
+      "kind": "related",
+      "to": "backend-delivery:rings"
     },
     {
       "from": "project:docs-tree",
@@ -25002,6 +25097,14 @@
     {
       "from": "decision:D-14",
       "kind": "shares",
+      "to": "project:frontend-api-guide",
+      "via": [
+        "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "decision:D-14",
+      "kind": "shares",
       "to": "project:frontend-contract",
       "via": [
         "GET /rings/shared-with-me"
@@ -25232,6 +25335,14 @@
       "from": "decision:D-18",
       "kind": "shares",
       "to": "needs-decision:ND-14",
+      "via": [
+        "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "decision:D-18",
+      "kind": "shares",
+      "to": "project:frontend-api-guide",
       "via": [
         "GET /rings/shared-with-me"
       ]
@@ -25940,6 +26051,7 @@
       "via": [
         "E_AUTH_03",
         "E_AUTH_04",
+        "GET /rings",
         "GET /users/:id",
         "POST /auth/refresh"
       ]
@@ -26262,6 +26374,7 @@
       "to": "project:frontend-api-guide",
       "via": [
         "E_AUTH_04",
+        "GET /rings",
         "POST /auth/refresh"
       ]
     },
@@ -26771,6 +26884,7 @@
         "E_AUTH_05",
         "E_AUTH_06",
         "GET /profiles/pin-name/:pinName/availability",
+        "GET /rings",
         "POST /auth/logout-everywhere",
         "POST /auth/refresh"
       ]
@@ -27229,6 +27343,7 @@
       "to": "project:frontend-api-guide",
       "via": [
         "E_AUTH_04",
+        "GET /rings",
         "GET /views/ring/:ringId"
       ]
     },
@@ -27514,6 +27629,14 @@
       "to": "project:frontend-agent-prompt",
       "via": [
         "E_RING_02"
+      ]
+    },
+    {
+      "from": "feature:cleanup-jobs",
+      "kind": "shares",
+      "to": "project:frontend-api-guide",
+      "via": [
+        "GET /rings"
       ]
     },
     {
@@ -28051,6 +28174,8 @@
       "to": "project:frontend-api-guide",
       "via": [
         "E_AUTH_04",
+        "GET /rings",
+        "GET /rings/shared-with-me",
         "GET /views/ring/:ringId"
       ]
     },
@@ -28518,6 +28643,8 @@
       "to": "project:frontend-api-guide",
       "via": [
         "E_AUTH_04",
+        "GET /rings",
+        "GET /rings/shared-with-me",
         "GET /views/pin/:pinName",
         "GET /views/user/:userId/perspectives"
       ]
@@ -28821,6 +28948,16 @@
       "to": "project:frontend-agent-prompt",
       "via": [
         "E_RING_02"
+      ]
+    },
+    {
+      "from": "feature:counts",
+      "kind": "shares",
+      "to": "project:frontend-api-guide",
+      "via": [
+        "GET /rings",
+        "GET /rings/shared-with-me",
+        "GET /rings/shared-with-me/count"
       ]
     },
     {
@@ -29159,7 +29296,9 @@
       "to": "project:frontend-api-guide",
       "via": [
         "E_AUTH_04",
-        "E_RING_01"
+        "E_RING_01",
+        "GET /rings",
+        "GET /rings/shared-with-me"
       ]
     },
     {
@@ -30249,6 +30388,7 @@
       "to": "project:frontend-api-guide",
       "via": [
         "E_RING_01",
+        "GET /rings",
         "GET /views/ring/:ringId"
       ]
     },
@@ -30413,7 +30553,8 @@
       "kind": "shares",
       "to": "project:frontend-api-guide",
       "via": [
-        "E_AUTH_04"
+        "E_AUTH_04",
+        "GET /rings"
       ]
     },
     {
@@ -31601,6 +31742,7 @@
       "to": "project:frontend-api-guide",
       "via": [
         "E_RING_01",
+        "GET /rings/shared-with-me",
         "GET /views/ring/:ringId"
       ]
     },
@@ -32270,6 +32412,8 @@
       "to": "project:frontend-api-guide",
       "via": [
         "E_AUTH_04",
+        "GET /rings",
+        "GET /rings/shared-with-me",
         "GET /views/user/:userId/perspectives"
       ]
     },
@@ -32462,6 +32606,7 @@
       "to": "project:frontend-api-guide",
       "via": [
         "E_AUTH_04",
+        "GET /rings",
         "GET /views/ring/:ringId"
       ]
     },
@@ -32604,6 +32749,7 @@
       "to": "project:frontend-api-guide",
       "via": [
         "GET /profiles/pin-name/:pinName/availability",
+        "GET /rings",
         "GET /users/:id",
         "GET /views/pin/:pinName"
       ]
@@ -32834,6 +32980,8 @@
       "kind": "shares",
       "to": "project:frontend-api-guide",
       "via": [
+        "GET /rings/shared-with-me",
+        "GET /rings/shared-with-me/count",
         "GET /views/pin/:pinName",
         "GET /views/ring/:ringId",
         "GET /views/user/:userId/perspectives"
@@ -32965,6 +33113,7 @@
       "to": "project:frontend-api-guide",
       "via": [
         "E_AUTH_04",
+        "GET /rings/shared-with-me",
         "GET /views/ring/:ringId"
       ]
     },
@@ -33123,6 +33272,7 @@
       "kind": "shares",
       "to": "project:frontend-api-guide",
       "via": [
+        "GET /rings",
         "GET /views/user/:userId/perspectives"
       ]
     },
@@ -33260,6 +33410,7 @@
       "kind": "shares",
       "to": "project:frontend-api-guide",
       "via": [
+        "GET /rings",
         "GET /views/ring/:ringId"
       ]
     },
@@ -33424,7 +33575,12 @@
       "to": "project:frontend-api-guide",
       "via": [
         "E_RING_01",
-        "GET /views/ring/:ringId"
+        "E_RING_09",
+        "GET /rings",
+        "GET /rings/shared-with-me",
+        "GET /rings/shared-with-me/count",
+        "GET /views/ring/:ringId",
+        "POST /rings/:id/copy"
       ]
     },
     {
@@ -33432,6 +33588,7 @@
       "kind": "shares",
       "to": "project:frontend-contract",
       "via": [
+        "E_RING_09",
         "GET /rings",
         "GET /rings/shared-with-me",
         "GET /views/ring/:ringId",
@@ -33599,6 +33756,7 @@
       "via": [
         "E_AUTH_03",
         "E_AUTH_04",
+        "GET /rings",
         "GET /views/pin/:pinName",
         "GET /views/ring/:ringId",
         "GET /views/user/:userId/perspectives"
@@ -33911,6 +34069,7 @@
       "kind": "shares",
       "to": "project:frontend-api-guide",
       "via": [
+        "GET /rings/shared-with-me",
         "GET /views/user/:userId/perspectives"
       ]
     },
@@ -33989,6 +34148,14 @@
       "to": "project:spec-map",
       "via": [
         "GET /files/content/:token"
+      ]
+    },
+    {
+      "from": "needs-decision:ND-18",
+      "kind": "shares",
+      "to": "project:frontend-api-guide",
+      "via": [
+        "GET /rings/shared-with-me"
       ]
     },
     {
@@ -34336,7 +34503,10 @@
       "to": "project:frontend-contract",
       "via": [
         "E_AUTH_04",
+        "E_RING_09",
         "GET /profiles/pin-name/:pinName/availability",
+        "GET /rings",
+        "GET /rings/shared-with-me",
         "GET /views/pin/:pinName",
         "GET /views/ring/:ringId",
         "GET /views/user/:userId/perspectives"
@@ -34371,6 +34541,8 @@
       "via": [
         "E_ADMIN_07",
         "GET /profiles/pin-name/:pinName/availability",
+        "GET /rings",
+        "GET /rings/shared-with-me",
         "GET /views/ring/:ringId",
         "GET /views/user/:userId/perspectives"
       ]
@@ -34381,6 +34553,8 @@
       "to": "project:status-report-2026-10-15",
       "via": [
         "GET /profiles/pin-name/:pinName/availability",
+        "GET /rings",
+        "GET /rings/shared-with-me",
         "GET /views/pin/:pinName",
         "GET /views/ring/:ringId",
         "GET /views/user/:userId/perspectives"
@@ -34399,7 +34573,8 @@
       "kind": "shares",
       "to": "task:B-02",
       "via": [
-        "E_AUTH_03"
+        "E_AUTH_03",
+        "GET /rings"
       ]
     },
     {
@@ -37255,7 +37430,17 @@
     {
       "from": "backend-delivery:ring-access",
       "kind": "wikilink",
+      "to": "decision:D-15"
+    },
+    {
+      "from": "backend-delivery:ring-access",
+      "kind": "wikilink",
       "to": "feature:connections"
+    },
+    {
+      "from": "backend-delivery:ring-access",
+      "kind": "wikilink",
+      "to": "feature:ring-invitations"
     },
     {
       "from": "backend-delivery:ring-access",
@@ -37356,11 +37541,6 @@
       "from": "backend-delivery:rings",
       "kind": "wikilink",
       "to": "feature:ring-projection"
-    },
-    {
-      "from": "backend-delivery:rings",
-      "kind": "wikilink",
-      "to": "project:database-migrations"
     },
     {
       "from": "backend-delivery:subscription",
@@ -37476,11 +37656,6 @@
       "from": "backend-integration:auth",
       "kind": "wikilink",
       "to": "story:linked-accounts"
-    },
-    {
-      "from": "backend-integration:counts",
-      "kind": "wikilink",
-      "to": "project:frontend-api-guide"
     },
     {
       "from": "backend-integration:profiles",
@@ -41455,7 +41630,17 @@
     {
       "from": "project:ring-access-model",
       "kind": "wikilink",
-      "to": "needs-decision:ND-04"
+      "to": "backend-delivery:rings"
+    },
+    {
+      "from": "project:ring-access-model",
+      "kind": "wikilink",
+      "to": "decision:D-14"
+    },
+    {
+      "from": "project:ring-access-model",
+      "kind": "wikilink",
+      "to": "decision:D-18"
     },
     {
       "from": "project:spec-map",
@@ -42336,6 +42521,11 @@
       "from": "story:ring-invitations",
       "kind": "wikilink",
       "to": "story:badge-qr"
+    },
+    {
+      "from": "story:ring-members",
+      "kind": "wikilink",
+      "to": "backend-delivery:rings"
     },
     {
       "from": "story:ring-members",
@@ -44696,6 +44886,7 @@
         "story:delegated-admins",
         "project:spec-map",
         "project:status-report-2026-10-15",
+        "project:frontend-api-guide",
         "project:frontend-contract",
         "frontend-requirements:events-during",
         "frontend-requirements:meetings",
@@ -46538,23 +46729,13 @@
       "pending": [
         {
           "person": null,
-          "text": "Shared with me per person: the owner's card per row, a Ring's name only when joined knowingly, a member count only when members can see each other, no colour or type (S-15 S1, D-14, D-18); on backend branch FR-11/ring/settings-copy-default-shared (4aad168), waits on the merge",
-          "to": "frontend-requirements:rings"
+          "text": "a Ring's name (and, with members can see each other on, its member count) on Shared with me for a Ring joined knowingly (D-18) waits on a membership recording how it was made; RingAccessService.isRingNamedToMember answers false until then",
+          "to": "feature:ring-members"
         },
         {
           "person": null,
-          "text": "S9 the six launch settings saved and enforced, with the purpose on the s16 row (D-04); on backend branch FR-11/ring/settings-copy-default-shared (4aad168), waits on the merge",
-          "to": "frontend-requirements:rings"
-        },
-        {
-          "person": null,
-          "text": "S4 copy a Ring without its members (D-05); on backend branch FR-11/ring/settings-copy-default-shared (4aad168), waits on the merge",
-          "to": "frontend-requirements:rings"
-        },
-        {
-          "person": null,
-          "text": "S7 refuse a temporary Ring as the default (409 E_RING_09); on backend branch FR-11/ring/settings-copy-default-shared (4aad168), waits on the merge",
-          "to": "frontend-requirements:rings"
+          "text": "joinPolicy, requireApproval and membersCanInvite are saved but enforced only when invitations, join codes and requests ship; membersCanSaveAttachments when a save-attachment flow exists (D-04, S-15 S8)",
+          "to": "feature:ring-invitations"
         }
       ],
       "priority": "critical",
@@ -46592,11 +46773,13 @@
         "story:ring-invitations",
         "project:spec-map",
         "project:status-report-2026-10-15",
+        "project:frontend-api-guide",
         "project:frontend-contract",
         "frontend-delivery:counts",
         "backend-delivery:delegated-admins",
         "story:delegated-admins",
-        "frontend-requirements:view-as"
+        "frontend-requirements:view-as",
+        "project:database-migrations"
       ],
       "release": "mvp",
       "resolution": null,
@@ -46615,7 +46798,7 @@
         "s62"
       ],
       "status": "done",
-      "summary": "What the backend shipped for this feature and how it works. Parts marked ⏳ branch are on the backend branch FR-11/ring/settings-copy-default-shared (4aad168, up to date with main a249ab2), pushed…",
+      "summary": "What the backend shipped for this feature and how it works, as on backend main 12172c6.",
       "tags": [
         "backend-delivery",
         "backend-delivery/done",
@@ -47432,6 +47615,7 @@
         "story:delegated-admins",
         "project:spec-map",
         "project:status-report-2026-10-15",
+        "project:frontend-api-guide",
         "project:frontend-contract",
         "frontend-requirements:events-during",
         "frontend-requirements:meetings",
@@ -49039,6 +49223,7 @@
         "story:ring-invitations",
         "project:spec-map",
         "project:status-report-2026-10-15",
+        "project:frontend-api-guide",
         "project:frontend-contract",
         "story:ring-access",
         "backend-delivery:delegated-admins",
@@ -49062,7 +49247,7 @@
         "s62"
       ],
       "status": "current",
-      "summary": "What the client builds: My Rings and Shared with me, the create-a-Ring wizard (name, colour, expiry, temporary, copy, settings), edit, set default, delete, and the keep / merge / let-it-expire…",
+      "summary": "Matches backend main 12172c6 (BD-11 Rings Backend Delivery).",
       "tags": [
         "backend-integration",
         "backend-integration/current",
@@ -57065,6 +57250,7 @@
         "story:delegated-admins",
         "project:spec-map",
         "project:status-report-2026-10-15",
+        "project:frontend-api-guide",
         "feature:rings",
         "needs-decision:ND-14",
         "needs-decision:ND-18",
@@ -57080,7 +57266,6 @@
         "story:view-as",
         "frontend-requirements:widgets",
         "project:ring-access-model",
-        "project:frontend-api-guide",
         "backend-delivery:ring-members",
         "backend-delivery:error-contract",
         "project:agent-rules",
@@ -59046,6 +59231,7 @@
         "story:ring-invitations",
         "project:spec-map",
         "project:status-report-2026-10-15",
+        "project:frontend-api-guide",
         "project:frontend-contract",
         "task:B-08",
         "needs-decision:ND-10",
@@ -59058,7 +59244,6 @@
         "backend-integration:view-as",
         "story:view-as",
         "frontend-requirements:e2e-tests",
-        "project:frontend-api-guide",
         "backend-delivery:badge-qr",
         "frontend-requirements:badge-qr",
         "story:badge-qr",
@@ -59276,6 +59461,7 @@
         "frontend-requirements:app-shell",
         "frontend-requirements:cleanup-jobs",
         "project:status-report-2026-10-15",
+        "project:frontend-api-guide",
         "project:frontend-contract",
         "frontend-requirements:exhibitor",
         "backend-delivery:ring-access",
@@ -59537,6 +59723,7 @@
         "story:ring-invitations",
         "project:spec-map",
         "project:status-report-2026-10-15",
+        "project:frontend-api-guide",
         "project:frontend-contract",
         "backend-delivery:delegated-admins",
         "story:delegated-admins",
@@ -62984,14 +63171,15 @@
       "priority": null,
       "related": [
         "task:B-06",
-        "backend-delivery:auth"
+        "backend-delivery:auth",
+        "backend-delivery:rings"
       ],
       "release": null,
       "resolution": null,
       "scope": null,
       "screens": [],
       "status": null,
-      "summary": "Later migrations each carry one schema change, in timestamp order: 20261015120000droppasswordhash, 20261105130000ringprofilelibrary (LINKTYPE + five values; librarylinks and libraryinfoblocks,…",
+      "summary": "Later migrations each carry one schema change, in timestamp order: 20261015120000droppasswordhash, 20261105120000ringsettings (enum RINGJOINPOLICY; six columns on rings, purpose, joinpolicy,…",
       "tags": [
         "project"
       ],
@@ -63411,6 +63599,8 @@
         "backend-delivery:account",
         "backend-integration:account",
         "qa-backend:auth",
+        "backend-delivery:counts",
+        "backend-integration:counts",
         "backend-delivery:files",
         "backend-integration:files",
         "frontend-requirements:files",
@@ -63422,7 +63612,11 @@
         "frontend-requirements:profiles",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
+        "frontend-requirements:ring-members",
         "frontend-requirements:ring-projection",
+        "backend-delivery:rings",
+        "backend-integration:rings",
+        "frontend-requirements:rings",
         "frontend-requirements:view-as",
         "frontend-requirements:error-contract",
         "frontend-requirements:companies",
@@ -64003,7 +64197,7 @@
       "task": null,
       "title": "Ring Access Model",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-05"
     },
     "project:spec-map": {
       "affects": [],
