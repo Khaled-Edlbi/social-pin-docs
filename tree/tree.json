@@ -5692,7 +5692,7 @@
     },
     "concepts": 272,
     "decisions": 28,
-    "edges": 6131,
+    "edges": 6132,
     "features": 41,
     "layerNotes": 144,
     "modules": 8,
@@ -5755,9 +5755,7 @@
   ],
   "diagnostics": {
     "errors": [],
-    "warnings": [
-      "social-pin/modules/Identity Core/M-01 Identity Core Module.md: wikilink [[Counts QA Backend]]: the card is named with its code now, write [[QB-07 Counts QA Backend]]"
-    ]
+    "warnings": []
   },
   "edges": [
     {
@@ -46488,6 +46486,11 @@
       "from": "module:identity",
       "kind": "wikilink",
       "to": "qa-backend:auth"
+    },
+    {
+      "from": "module:identity",
+      "kind": "wikilink",
+      "to": "qa-backend:counts"
     },
     {
       "from": "module:identity",
