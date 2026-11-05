@@ -17,11 +17,9 @@ tags: [qa-backend, qa-backend/passing, module/identity, layer/qa]
 
 # 🧪 Auth & Sign-up · QA Backend
 
-> ⚠ Affected by [[BI-02 Auth & Sign-up Backend Integration]] (2026-11-05): two behaviours with no row yet, on backend main @ 8997be1: POST /auth/refresh for a SUSPENDED account is 401 E_AUTH_03 (was 403); two complete-registration calls racing for one free Pin name are 201 + 409 E_PROFILE_02 (was 201 + 500). Add rows and run them
-
 > Blocked by default until [[BD-02 Auth & Sign-up Backend Delivery]] is `done` (the hand-off order in `docs.config.json`); `blockedBy: []` opts out, `blockedBy: [...]` names other blockers.
 
-**Feature:** [[F-02 Auth & Sign-up]] · **Verifies:** [[BD-02 Auth & Sign-up Backend Delivery]] against [[S-02 Auth & Sign-up Story]] and [[FR-02 Auth & Sign-up Frontend Requirements]], with the shapes and errors of [[BI-02 Auth & Sign-up Backend Integration]] · **Verdict:** 🟢 Passing · 2026-11-05 · `main @ 504cb21 · localhost:3000, Node 22.22.2` · 48 of 48 as expected (B5, B15, B30, B42 re-run on this build; the other 44 last run on `main @ b4984d6`)
+**Feature:** [[F-02 Auth & Sign-up]] · **Verifies:** [[BD-02 Auth & Sign-up Backend Delivery]] against [[S-02 Auth & Sign-up Story]] and [[FR-02 Auth & Sign-up Frontend Requirements]], with the shapes and errors of [[BI-02 Auth & Sign-up Backend Integration]] · **Verdict:** 🟢 Passing · 2026-11-05 · `main @ 8997be1 · localhost:3000, Node 22.22.2` · 50 of 50 as expected (B49 and B50 new and run on this build; B5, B15, B30, B42 last run on `504cb21`; the other 44 on `b4984d6`)
 
 Expected behaviour of the API, as artefacts a person can check a build against: tables and diagrams, **not test code** (the specs live in the backend repo). `status: passing` or `failing` after a run; the verdict tells the PM whether the story can be fulfilled (passing with nothing pending).
 
@@ -84,6 +82,7 @@ Every row is one acceptance criterion of [[S-02 Auth & Sign-up Story]] or one ru
 | B29 | an ACTIVE account | `request-code { purpose: "SIGN_UP" }`, `verify-code`, then `complete-registration` | 409 `E_AUTH_08` at the last step: an extra code cannot rebuild an existing identity | ✅ |
 | B30 | an onboarding token older than 15 minutes, or one with a broken signature | `complete-registration` | 400 `E_AUTH_05` (the integration note); back to s02 | ✅ re-run 2026-11-05 on `main @ 504cb21`: 400 "Verification session is invalid or expired" for both, the account stays PENDING ([[B-05 Expired onboarding token answers 401, not the documented 400]], fixed; on `b4984d6` it was 401) |
 | B31 | an onboarding token | used as `Authorization: Bearer` on `GET /users/me` | 401 `E_AUTH_04` "Token cannot be used for API access": it is not a session | ✅ |
+| B50 | two PENDING accounts, each with a fresh onboarding token, and one free Pin name | both send `complete-registration` with that name at the same moment | one 201, one 409 `E_PROFILE_02` "This pin name is already taken", never 500; one profile holds the name; the loser stays PENDING and its same onboarding token registers with another handle (201) | ✅ added and run 2026-11-05 on `main @ 8997be1`: 5 races, 201 + 409 each, one holder, loser PENDING; a sixth race's loser then registered with another handle, 201. On `504cb21` the loser got 500 in 4 of 5 races (the backend's control run) |
 
 ### `POST /auth/login` and `POST /auth/login/verify` — S5 Come back later and sign in with a code (s01 → s02)
 
@@ -111,6 +110,7 @@ Every row is one acceptance criterion of [[S-02 Auth & Sign-up Story]] or one ru
 | B46 | a session, then the account is suspended | any call | 401 `E_AUTH_03` "Account is not active" (also [[QB-04 Account QA Backend]] B21) | ✅ |
 | B47 | a session, then the account is deleted | any call | 404 `E_USER_01` "User not found" (also [[QB-04 Account QA Backend]] B14) | ✅ |
 | B48 | an access token older than 15 minutes, or one with a forged signature | `GET /users/me` | 401; a refresh restores the session | ✅ |
+| B49 | a session, then the account is suspended | `POST /auth/refresh` with its refresh token | 401 `E_AUTH_03` "Account is not active", the same status and body as B46 on any other route, so the client's refused-refresh path ends the session; no new pair | ✅ added and run 2026-11-05 on `main @ 8997be1`: 401 "Account is not active", identical to `GET /users/me` on the same account (on `504cb21` it was 403 "This account is not active") |
 
 ## State diagram
 
@@ -163,12 +163,12 @@ What the contract promises. The message column is the text the build sends; unti
 | wrong, expired, used, superseded or burned code; code of the other purpose | 400 | `E_AUTH_05` | "That code is invalid or has expired" | B12–B15, B19, B33, B37, B40 |
 | sixth submission of one code | 429 | `E_AUTH_06` | "Too many attempts. Request a new code." | B14, B36 |
 | onboarding token expired or forged | 400 | `E_AUTH_05` | "Verification session is invalid or expired" | B30 |
-| Pin name taken at the last moment | 409 | `E_PROFILE_02` | "This pin name is already taken" | B27 |
+| Pin name taken at the last moment, also by a concurrent registration | 409 | `E_PROFILE_02` | "This pin name is already taken" | B27, B50 |
 | complete-registration on an account already set up | 409 | `E_AUTH_08` | "This account is already set up. Sign in instead." | B28, B29 |
 | login/verify for a PENDING or SUSPENDED account | 403 | `E_AUTH_03` | "This account is not active" | B38, B39 |
 | refresh token rotated, revoked or replayed | 401 | `E_AUTH_04` | "Refresh token is no longer valid. Sign in again." | B41, B42 (a concurrent replay too), B45 |
 | an onboarding or refresh token on an API route | 401 | `E_AUTH_04` | "Token cannot be used for API access" / "Unauthorized" | B31, B43 |
-| suspended account on any later call | 401 | `E_AUTH_03` | "Account is not active" | B46 |
+| suspended account on any later call, `POST /auth/refresh` included | 401 | `E_AUTH_03` | "Account is not active" | B46, B49 |
 | deleted account on any later call | 404 | `E_USER_01` | "User not found" | B47 |
 
 Retired, and never to be seen: `E_AUTH_02` (invalid password), `E_USER_04` (current password), purpose `PASSWORD_RESET`.
@@ -181,12 +181,14 @@ Retired, and never to be seen: `E_AUTH_02` (invalid password), `E_USER_04` (curr
 - The Pin check never names the holder of a taken name (B21).
 - No response carries a password, a code hash, a refresh-token hash or a user id at step 1; the challenge is `destination`, `channel`, `expiresAt` and (for now) `devCode` only (B1, B32).
 - Token scopes are not interchangeable: an onboarding or refresh token never opens an API route, an access token never refreshes (B31, B43).
-- `complete-registration` leaves no half identity: a failure writes nothing (B27).
+- `complete-registration` leaves no half identity: a failure writes nothing (B27), also when it loses a Pin-name race (B50).
 
 ## Verdict
 
+- **Run on:** 2026-11-05 · **build:** `main @ 8997be1 · localhost:3000, Node 22.22.2` · **result:** 🟢 **passing** · two rows added for what [[BI-02 Auth & Sign-up Backend Integration]] flagged and run, both as expected: **B49**, a suspended account's refresh is 401 `E_AUTH_03` (was 403); **B50**, two registrations racing for one free Pin name are 201 + 409 `E_PROFILE_02` in 5 of 5 (was 500 for the loser), and the loser registers with another handle on the same onboarding token. Those were the last two asks of [[FR-02 Auth & Sign-up Frontend Requirements]] left on [[BD-02 Auth & Sign-up Backend Delivery]], whose `pending` is now empty. The other 48 rows were not re-run on this build.
+- **Not a row yet, for a later run:** the backend notes on BD-02 that `POST /auth/logout` at the same moment as a refresh of the same token may leave the new token live. Not reproduced or filed here.
 - **Re-run on:** 2026-11-05 · **build:** `main @ 504cb21 · localhost:3000, Node 22.22.2` (machine time zone UTC+3) · **result:** 🟢 **passing** · the four rows that differed or were set up around a bug re-run, all as expected: B5 ([[B-04 Sign-up accepts an email and a phone together]]), B15 ([[B-06 Timestamps the app writes are stored shifted by the server time zone]]), B30 ([[B-05 Expired onboarding token answers 401, not the documented 400]]), B42 ([[B-03 Two refreshes at once both succeed and fork the session]], 10 races). All four bugs closed `done`, `resolution: fixed`, on khaled's word. The other 44 rows were not re-run on this build; their last run is 2026-10-27 on `b4984d6`, and the backend's unit suite (233 tests) passes on `504cb21`.
-- **Still open, not rows of this note:** [[S-02 Auth & Sign-up Story]] S2 says the 429 comes after five wrong tries, the build answers it on the sixth (`pending`, `/pm`). Two asks of [[FR-02 Auth & Sign-up Frontend Requirements]] stay `pending` on [[BD-02 Auth & Sign-up Backend Delivery]] with no bug card yet: `POST /auth/refresh` for a SUSPENDED account answers 403, and two registrations racing for one free Pin name can answer 500.
+- **Still open, not rows of this note:** [[S-02 Auth & Sign-up Story]] S2 says the 429 comes after five wrong tries, the build answers it on the sixth (`pending`, `/pm`). (The two FR-02 asks noted here on `504cb21` shipped on `8997be1`: rows B49 and B50 above.)
 - **Previous run:** 2026-10-27 · **build:** `main @ b4984d6 · localhost:3001, Node 22.22.2` (the dev server on `localhost:3000` still runs Node 18.18) · **result:** 🔴 **failing** · 45 of 48 rows as expected, 3 differ (B5, B30, B42), none unrun.
 - **B42 — the refresh rotation breaks under a race. Security.** Two refreshes with one token at the same moment both succeed and both new tokens stay live, so a replayed (stolen) token used while its owner refreshes forks the session instead of ending it. Filed as [[B-03 Two refreshes at once both succeed and fork the session]], high, `/backend`.
 - **B5 — sign-up takes both an email and a phone**, and attaches the phone without proof. Filed as [[B-04 Sign-up accepts an email and a phone together]], medium, `/backend`.
@@ -200,3 +202,4 @@ Retired, and never to be seen: `E_AUTH_02` (invalid password), `E_USER_04` (curr
 - 2026-10-27 · branch `docs/qa/M-01-identity/F-02-auth/QB-05-written` · written: 48 rows across the six stories, the account and code state diagrams, the error matrix and the privacy checks. `status: draft` until the first run on a named build.
 - 2026-10-27 · same branch · first run on `main @ b4984d6` (localhost:3001, Node 22.22.2): 45 of 48 ✅, B5, B30 and B42 🔴, filed as [[B-04 Sign-up accepts an email and a phone together]], [[B-05 Expired onboarding token answers 401, not the documented 400]] and [[B-03 Two refreshes at once both succeed and fork the session]]; [[B-06 Timestamps the app writes are stored shifted by the server time zone]] found while setting up B15. B22's expectation corrected to the contract (the route answers a boolean only). Flagged [[BI-02 Auth & Sign-up Backend Integration]], [[BD-02 Auth & Sign-up Backend Delivery]] and [[S-02 Auth & Sign-up Story]].
 - 2026-11-05 · branch `docs/qa/M-01-identity/F-02-auth/QB-05-passing` · re-test on `main @ 504cb21` (localhost:3000, Node 22.22.2): B5, B15, B30 and B42 ✅; [[B-03 Two refreshes at once both succeed and fork the session]], [[B-04 Sign-up accepts an email and a phone together]], [[B-05 Expired onboarding token answers 401, not the documented 400]] and [[B-06 Timestamps the app writes are stored shifted by the server time zone]] closed `done`, `resolution: fixed`, on khaled's word, and removed from `pending`; `failing` → `passing` (Partial: the S2 entry for `/pm` stays). Test data: `qa-auth-b42-11051300@test.local` completed and deleted; `qa-auth-b15-11051300@test.local` and `qa-auth-b30-11051300@test.local` left PENDING (no API deletes a PENDING sign-up). The B-06 flag under the H1 is cleared.
+- 2026-11-05 · branch `docs/qa/M-01-identity/F-02-auth/QB-05-b49-b50-passing` · rows B49 (refresh for a suspended account) and B50 (two registrations racing for one Pin name) added from [[BI-02 Auth & Sign-up Backend Integration]]'s flag and run on `main @ 8997be1` (localhost:3000, Node 22.22.2): both ✅; the error matrix and the privacy checks name them; the flag under the H1 is cleared. Stays `passing`, Partial on the S2 entry for `/pm`. Test data: stamps `11051600` and `11051610`; 8 completed accounts deleted, 5 race losers left PENDING.
