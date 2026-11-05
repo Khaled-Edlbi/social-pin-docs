@@ -12,7 +12,7 @@ affects: []
 related: ["FR-01 Account Frontend Requirements", "F-07 Profiles & Pin Name", "S-06 Files Upload Story", "S-03 Counts Story", "S-94 Linked Accounts (OAuth) Story", "S-82 Devices & NFC Story", "S-71 Subscription (Free vs Pro) Story", "S-87 Error Contract Story"]
 pending: []
 created: 2026-10-26
-updated: 2026-10-29
+updated: 2026-11-05
 tags: [frontend-delivery, frontend-delivery/done, module/identity, layer/frontend]
 ---
 
@@ -26,13 +26,13 @@ tags: [frontend-delivery, frontend-delivery/done, module/identity, layer/fronten
 
 **Feature:** [[F-01 Account]] · **Status:** Done · **Built from:** [[BI-01 Account Backend Integration]] · **Against:** [[S-01 Account Story]] · **Requirements:** [[FR-01 Account Frontend Requirements]] · **QA:** [[QF-04 Account QA Frontend]]
 
-What the client shipped for the account section of Me, on `social_pin` `main` @ `47ce960` (s68 in `99b97e7`, the account kept current and the sign-out states in `e032a48`, the Privacy rows in `47ce960`; delete in `461958f`, the header in `a58e6b8`). The QA checklist is AC-01…AC-19, DA-01…DA-08 and RP-12 / RP-13 in the client's `docs/TEST_CASES_2026-10-18.md`.
+What the client shipped for the account section of Me, on `social_pin` `main` @ `47ce960` (s68 in `99b97e7`, the account kept current and the sign-out states in `e032a48`, the Privacy rows in `47ce960`; delete in `461958f`, the header in `a58e6b8`), and on branch `rings/F-11/honest-rings` @ `f462a28`, not on `main` yet, the Me cleanup of 2026-11-05 (initials in `a1c14b1`, no made-up values in `98357f1` and `3064c9d`, Manage account removed in `fbb07c0`, messages inside the tabs in `f462a28`). The QA checklist is AC-01…AC-19, DA-01…DA-08 and RP-12 / RP-13 in the client's `docs/TEST_CASES_2026-10-18.md`.
 
 ## Screens shipped
 
 | Screen | State | Note |
 |---|---|---|
-| [[Screen Index#s68\|s68]] Me / Account | 🟡 | Header (name, `!pinName`), plan card from `accountType`, ACCOUNT group (email, phone, verified chips, last signed in), change email / phone in a sheet, PRIVACY group (birthdate, gender, marital status: what's set, which Rings show it, set it from the row), delete account. Photo, connections, devices, linked accounts and subscription still sample or placeholder (see *Not done yet*). |
+| [[Screen Index#s68\|s68]] Me / Account | 🟡 | Header (name, `!pinName`), plan card from `accountType`, ACCOUNT group (email, phone, verified chips, last signed in), change email / phone in a sheet, PRIVACY group (birthdate, gender, marital status: what's set, which Rings show it, set it from the row), delete account. The profile card shows your initials on a disc in your default Ring's colour and your Ring count (`· 3 Rings`), with no connections count and no tap. Rows with no API show no value (Photo library, Interests, Companies, Devices, Business account, Notifications: their screens still open); Linked accounts says Coming soon and opens nothing; Language shows the language in use (see *Not done yet*). |
 
 ## Calls made
 
@@ -56,7 +56,10 @@ What the client shipped for the account section of Me, on `social_pin` `main` @ 
 
 - **Email and phone are edited in a bottom sheet, not inline** (S2, S3). One field with the same input and checks as Welcome; Cancel sends nothing. A taken address shows under the field and the sheet stays open.
 - **The unverified copy** says "Confirming a new email or number isn't in the app yet", shown under the ACCOUNT group while anything is unverified. S2 asks for "must be verified before it can be used to sign in"; the backend does not refuse sign-in on an unverified address, so the copy does not claim it.
-- **No "saved" message after a change.** The row showing the new value as Unverified is the confirmation. A snack bar raised inside a tab has no scaffold to show on (auto_route 11.2's tab scaffold is not Flutter's), which affects every tab screen; to be fixed in the client shell.
+- **The "saved" message is a pill inside the tab** (`f462a28`): "Email changed." / "Phone number changed." shows above the tab bar, the same frosted pill as the tab bar, besides the row showing the new value as Unverified. The tab scaffold of auto_route 11.2 is not Flutter's, so the shell now shows short messages itself; errors still use the toast.
+- **No Manage account row** (`fbb07c0`): email, phone and delete are already on Me; the design's row went.
+- **The profile card opens nothing** (`fbb07c0`): no chevron and no tap until the profile editor exists ([[F-07 Profiles & Pin Name]]).
+- **No sample values** (`98357f1`, `3064c9d`): a row or count with no API behind it shows nothing rather than a made-up number; the card and My Rings show no Ring count until the Rings load.
 - **Pro:** the plan card reads "Pro plan" and hides Upgrade; there is no separate Pro badge in the header (S1).
 - **The not-active state (S6) is Welcome with a message**, not a screen of its own: the same place a suspended account lands at startup, with the support line in the message.
 - **Privacy rows (S5) open a picker for that one field, not the profile editor**: the client has no profile editor screen yet. Birthdate opens a date picker, gender and marital status a sheet of the API's values. Each row also keeps, under its title, which of your Rings show it; it never says "public".
@@ -64,9 +67,10 @@ What the client shipped for the account section of Me, on `social_pin` `main` @ 
 ## Not done yet
 
 - A suspension mid-session (S6) says "Your session has expired" rather than "not active" until [[S-87 Error Contract Story|Error Contract · S4–S8]] puts `E_AUTH_03` on the wire; the client branch is in and needs no change then.
-- Header photo: initials → [[S-06 Files Upload Story|Files Upload · showing files]].
-- Connection count (sample 218) → [[S-03 Counts Story|Counts · S11]].
-- Linked accounts → [[S-94 Linked Accounts (OAuth) Story|Linked Accounts (OAuth) · S7]]; devices → [[S-82 Devices & NFC Story|Devices & NFC · S6]]; subscription / Upgrade → [[S-71 Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]].
+- Header photo: initials (from the full name's first and last word, else the Pin name) in the default Ring's colour → [[S-06 Files Upload Story|Files Upload · showing files]].
+- Connection count: not shown → [[S-03 Counts Story|Counts · S11]].
+- The 2026-11-05 cleanup is on `rings/F-11/honest-rings`; it reaches `main` with that branch.
+- Linked accounts (Coming soon) → [[S-94 Linked Accounts (OAuth) Story|Linked Accounts (OAuth) · S7]]; devices → [[S-82 Devices & NFC Story|Devices & NFC · S6]]; subscription / Upgrade → [[S-71 Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]].
 - Re-verifying a changed email or phone: no backend route and no task yet ([[F-01 Account#Gaps]]).
 
 ## Log
@@ -74,3 +78,4 @@ What the client shipped for the account section of Me, on `social_pin` `main` @ 
 - 2026-10-26 · `main` @ `99b97e7` (social_pin) · s68 ACCOUNT group, change email / phone, plan from `accountType`; delete (`461958f`) and header (`a58e6b8`) shipped earlier · flagged nothing
 - 2026-10-26 · `main` @ `e032a48` (social_pin) · the account re-read on resume and after a refresh; 404 on `GET /users/me` and 401 `E_AUTH_03` end the session with their own message · flagged nothing
 - 2026-10-26 · `main` @ `47ce960` (social_pin) · s68 PRIVACY rows: what's set on the profile, set it from the row (`PATCH /profiles/:id`) · flagged nothing
+- 2026-11-05 · `rings/F-11/honest-rings` @ `f462a28` (social_pin, not on `main` yet) · s68: initials in the default Ring's colour (`a1c14b1`); no made-up connections count, Ring count only (`98357f1`); no sample values, Linked accounts Coming soon, Language as in use (`3064c9d`); Manage account removed, the card opens nothing (`fbb07c0`); "Email changed." / "Phone number changed." inside the tab (`f462a28`) · flagged nothing
