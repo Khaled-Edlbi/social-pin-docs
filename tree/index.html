@@ -594,10 +594,8 @@ let vp, gLabels, gRel, gTree, gNodes, svg;
 const D = () => S.D;
 const node = (id) => S.D.nodes[id];
 const stOf = (n) => ST[n.effectiveStatus] || ST.todo;
-// a card that is not written yet and waits on the card before it is drawn dim until the blocker is done.
-// A written card that is Blocked is drawn at full strength: its "Blocked · <card>" chip already says it waits,
-// and dimming it made the blocked card, and the card it waits on beside it, read as switched off (2026-11-05).
-const inactive = (n) => n.effectiveStatus === 'missing' && Array.isArray(n.blockedBy) && n.blockedBy.length > 0;
+// a card that waits on the card before it (and every card below it in the ladder) is drawn dim until the blocker is done
+const inactive = (n) => n.effectiveStatus === 'blocked' || (n.effectiveStatus === 'missing' && Array.isArray(n.blockedBy) && n.blockedBy.length > 0);
 const legend = (s) => (S.D && S.D.legend[s]) || s;
 // a story is fulfilled when the PM set it `verified` (✅); its flow then folds under it until the reader expands it
 const isFulfilled = (n) => !!n && n.kind === 'story' && n.status === 'verified';
