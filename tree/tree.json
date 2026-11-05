@@ -5099,7 +5099,7 @@
     },
     "concepts": 252,
     "decisions": 28,
-    "edges": 4866,
+    "edges": 4865,
     "features": 41,
     "layerNotes": 133,
     "modules": 8,
@@ -8474,6 +8474,7 @@
       "kind": "related",
       "to": "backend-integration:ring-projection",
       "via": [
+        "GET /files/content/:token",
         "POST /files"
       ]
     },
@@ -9015,6 +9016,7 @@
       "to": "backend-integration:ring-projection",
       "via": [
         "E_FILE_04",
+        "GET /files/content/:token",
         "POST /files"
       ]
     },
@@ -9167,6 +9169,19 @@
       "to": "story:ring-projection",
       "via": [
         "E_FILE_04"
+      ]
+    },
+    {
+      "from": "backend-integration:ring-projection",
+      "kind": "related",
+      "to": "decision:D-16"
+    },
+    {
+      "from": "backend-integration:ring-projection",
+      "kind": "related",
+      "to": "needs-decision:ND-16",
+      "via": [
+        "GET /files/content/:token"
       ]
     },
     {
@@ -13008,6 +13023,7 @@
       "via": [
         "E_FILE_04",
         "E_RING_05",
+        "GET /files/content/:token",
         "GET /rings/:ringId/projection",
         "PATCH /rings/:ringId/projection",
         "POST /files"
@@ -32676,11 +32692,6 @@
     {
       "from": "backend-integration:ring-projection",
       "kind": "wikilink",
-      "to": "story:files"
-    },
-    {
-      "from": "backend-integration:ring-projection",
-      "kind": "wikilink",
       "to": "story:widgets"
     },
     {
@@ -32872,11 +32883,6 @@
       "from": "decision:D-15",
       "kind": "wikilink",
       "to": "decision:D-13"
-    },
-    {
-      "from": "decision:D-16",
-      "kind": "wikilink",
-      "to": "backend-integration:ring-projection"
     },
     {
       "from": "decision:D-16",
@@ -35362,11 +35368,6 @@
       "from": "needs-decision:ND-15",
       "kind": "wikilink",
       "to": "backend-integration:view-as"
-    },
-    {
-      "from": "needs-decision:ND-16",
-      "kind": "wikilink",
-      "to": "backend-integration:ring-projection"
     },
     {
       "from": "needs-decision:ND-16",
@@ -43438,6 +43439,8 @@
         "frontend-requirements:profiles",
         "frontend-requirements:ring-access",
         "frontend-requirements:ring-members",
+        "decision:D-16",
+        "needs-decision:ND-16",
         "frontend-requirements:ring-projection",
         "frontend-requirements:view-as",
         "frontend-requirements:companies"
@@ -43465,7 +43468,7 @@
       "task": null,
       "title": "BI-07 Ring Projection Backend Integration",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-05"
     },
     "backend-integration:rings": {
       "affects": [],
@@ -44592,6 +44595,7 @@
         "story:photo-library",
         "frontend-requirements:connections",
         "frontend-requirements:profiles",
+        "backend-integration:ring-projection",
         "frontend-requirements:ring-projection",
         "frontend-requirements:view-as",
         "story:view-as",
@@ -55532,6 +55536,7 @@
         "frontend-requirements:photo-library",
         "story:photo-library",
         "frontend-requirements:profiles",
+        "backend-integration:ring-projection",
         "frontend-requirements:ring-projection"
       ],
       "release": null,

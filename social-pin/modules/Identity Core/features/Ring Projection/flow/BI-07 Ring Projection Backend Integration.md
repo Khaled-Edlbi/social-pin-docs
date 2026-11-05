@@ -6,14 +6,13 @@ feature: ring-projection
 status: current
 scope: feature
 screens: [s14, s20, s23, s24, s25, s29, s36]
+related: ["D-16 Files load from signed links that expire in 15 minutes", "BI-03 Files Upload Backend Integration", "GET /files/content/:token"]
 created: 2026-10-15
-updated: 2026-10-29
+updated: 2026-11-05
 tags: [backend-integration, backend-integration/current, module/identity, layer/backend]
 ---
 
 # 🔌 Ring Projection · Backend Integration
-
-> ⚠ Affected by [[D-16 Files load from signed links that expire in 15 minutes]] (2026-10-29): the owner's projection will carry `avatarUrl` and a `url` per attachment, signed, valid 15 minutes. For `/backend`.
 
 > ⚠ Affected by [[D-02 One main profile every Ring starts from]] (2026-10-25): ND-02 decided, one main profile (headline, role, company, location, photo, bio) every Ring starts from; a Ring may change all of them but the full name and keeps its own value when the main one changes.
 
@@ -47,7 +46,9 @@ What the client builds: the owner's "what this Ring shows" editor: display name,
 
 ## Shapes that matter
 
-`RingProfileOwnerEntity`: `id`, `ringId`, `profileId`, `displayName`, `nickname`, `bio`, `avatarFileId`, `themeConfig`, the five `show*` booleans, `links[]`, `infoBlocks[]`, `widgets[]`, `attachments[]`, `createdAt`, `updatedAt`. Child rows carry `isVisible` and `sortOrder`; attachments also `fileId`, `filename`, `mimeType`, `sizeBytes`.
+`RingProfileOwnerEntity`: `id`, `ringId`, `profileId`, `displayName`, `nickname`, `bio`, `avatarFileId`, **`avatarUrl`**, `themeConfig`, the five `show*` booleans, `links[]`, `infoBlocks[]`, `widgets[]`, `attachments[]`, `createdAt`, `updatedAt`. Child rows carry `isVisible` and `sortOrder`; attachments also `fileId`, `filename`, `mimeType`, `sizeBytes` and **`url`**.
+
+- **`avatarUrl` and `attachments[].url` are signed links, valid 15 minutes** ([[D-16 Files load from signed links that expire in 15 minutes]]): load them like any web image or download, with no bearer token. `avatarUrl` is `null` when the Ring has no photo. Every attachment the owner sees has one, hidden rows included. When a link fails to load, `GET …/projection` again for fresh links; never build a URL from `avatarFileId` or `fileId` ([[BI-03 Files Upload Backend Integration]]).
 
 **Link `value` by `type`** (`LINK_TYPE`, 15 values):
 
@@ -88,7 +89,6 @@ One editor state per Ring, refetched after every write (the server returns the f
 
 ## Not available yet
 
-- **No URL to display the photo or download an attachment.** `avatarFileId` and `attachments[].id` cannot be turned into bytes today: [[S-06 Files Upload Story|Files Upload · showing files]].
 - One library of fields each Ring switches on or off ("4 of 7 on", s20 / s24): the backend stores a copy per Ring: [[ND-03 Field library vs per-Ring copies]].
 - "Inherit from your Pin" / "Reset to Pin" / "Copy another Ring" (s23, s28, s29): [[ND-05 Copy or inherit]], [[ND-02 Base profile work fields]].
 - Widgets (s37): [[S-20 Widgets Story|Widgets · S6]], [[S-20 Widgets Story|Widgets · S7]].
