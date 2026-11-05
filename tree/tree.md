@@ -47,7 +47,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
         - ✅ [ND-16 Viewer access to file bytes](social-pin/needs-decisions/ND-16%20Viewer%20access%20to%20file%20bytes.md) (Needs decision)
           - ⚖️ [D-16 Files load from signed links that expire in 15 minutes](social-pin/decisions/D-16%20Files%20load%20from%20signed%20links%20that%20expire%20in%2015%20minutes.md) (Decision)
       - 👍 [FR-04 Files Upload Frontend Requirements](social-pin/modules/Identity%20Core/features/Files%20Upload/flow/FR-04%20Files%20Upload%20Frontend%20Requirements.md) (Frontend Requirements, Critical)
-      - 🟡 [BD-04 Files Upload Backend Delivery](social-pin/modules/Identity%20Core/features/Files%20Upload/flow/BD-04%20Files%20Upload%20Backend%20Delivery.md) (Backend Delivery, 3 pending notes, Critical)
+      - 🟡 [BD-04 Files Upload Backend Delivery](social-pin/modules/Identity%20Core/features/Files%20Upload/flow/BD-04%20Files%20Upload%20Backend%20Delivery.md) (Backend Delivery, 1 pending note, Critical)
         - ✅ [B-07 Context-scoped uploads are served by the public static mount](social-pin/bugs/B-07%20Context-scoped%20uploads%20are%20served%20by%20the%20public%20static%20mount.md) (bug, Fixed, High)
       - 🔵 [BI-03 Files Upload Backend Integration](social-pin/modules/Identity%20Core/features/Files%20Upload/flow/BI-03%20Files%20Upload%20Backend%20Integration.md) (Backend Integration, Critical)
       - 🟢 [QB-06 Files Upload QA Backend](social-pin/modules/Identity%20Core/features/Files%20Upload/flow/QB-06%20Files%20Upload%20QA%20Backend.md) (QA Backend, Critical)
