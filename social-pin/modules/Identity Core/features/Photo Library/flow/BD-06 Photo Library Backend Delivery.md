@@ -15,6 +15,8 @@ tags: [backend-delivery, backend-delivery/done, module/identity, layer/backend]
 
 # ✅ Photo Library · Backend Delivery
 
+> ⚠ Affected by [[BD-07 Profiles & Pin Name Backend Delivery]] (2026-11-05): the main photo shipped on backend main a249ab2: Profile.avatarFileId (an own image) with a signed avatarUrl on GET /profiles and PATCH /profiles/:id; followerCount on the main photo and reading/setting it (S8, S1) can now be built on it; for /backend
+
 > ⚠ Affected by [[D-02 One main profile every Ring starts from]] (2026-10-25): ND-02 decided, one main profile (headline, role, company, location, photo, bio) every Ring starts from; a Ring may change all of them but the full name and keeps its own value when the main one changes.
 
 **Feature:** [[F-06 Photo Library]] · **Status:** Done · **Integration guide:** [[BI-13 Photo Library Backend Integration]] · **Requirements:** [[FR-06 Photo Library Frontend Requirements]] · **QA:** [[Photo Library QA Backend]]

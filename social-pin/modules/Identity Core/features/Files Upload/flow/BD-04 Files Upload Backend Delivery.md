@@ -15,6 +15,8 @@ tags: [backend-delivery, backend-delivery/done, module/identity, layer/backend]
 
 # ✅ Files Upload · Backend Delivery
 
+> ⚠ Affected by [[BD-07 Profiles & Pin Name Backend Delivery]] (2026-11-05): the main photo shipped on backend main a249ab2 (Profile.avatarFileId, FK to files, ON DELETE SET NULL); followerCount on the main photo on GET /files?kind=image can now be built on it; for /backend
+
 **Feature:** [[F-04 Files Upload]] · **Status:** Done · **Integration guide:** [[BI-03 Files Upload Backend Integration]] · **Requirements:** [[FR-04 Files Upload Frontend Requirements]] · **QA:** [[QB-06 Files Upload QA Backend]]
 
 What the backend shipped for this feature and how it works. The sum of this feature's task-level Backend Delivery notes (see the *Tasks* table below).
