@@ -14,6 +14,8 @@ tags: [backend-delivery, backend-delivery/done, module/identity, layer/backend]
 
 # ✅ Profiles & Pin Name · Backend Delivery
 
+> ⚠ Affected by [[D-22 The public page only says the Pin exists]] (2026-11-05): ND-22 decided: the public page needs a look-up by Pin name with no sign-in that returns the name and the Pin name only, one not-found answer for a name nobody holds; for /backend
+
 > ⚠ Affected by [[D-02 One main profile every Ring starts from]] (2026-10-25): ND-02 decided, one main profile (headline, role, company, location, photo, bio) every Ring starts from; a Ring may change all of them but the full name and keeps its own value when the main one changes.
 
 > ⚠ Affected by [[D-06 Yearly rename, old name freed, case-insensitive]] (2026-10-25): ND-06 decided, a Pin name can be changed once a year, the old name is free at once, names ignore capitals, suggestions come only from the person's own name.
