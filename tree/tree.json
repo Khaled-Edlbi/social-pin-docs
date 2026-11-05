@@ -2440,6 +2440,17 @@
       ],
       "owner": "feature:rings"
     },
+    "GET /rings/shared-with-me/count": {
+      "containers": [
+        "feature:counts"
+      ],
+      "kind": "endpoint",
+      "notes": [
+        "backend-delivery:counts",
+        "backend-integration:counts"
+      ],
+      "owner": null
+    },
     "GET /rings?limit=20": {
       "containers": [
         "project:pm-agent"
@@ -5165,9 +5176,9 @@
       "qa": 4,
       "shared": 10
     },
-    "concepts": 254,
+    "concepts": 255,
     "decisions": 28,
-    "edges": 5050,
+    "edges": 5051,
     "features": 41,
     "layerNotes": 135,
     "modules": 8,
@@ -8560,7 +8571,8 @@
         "E_RING_02",
         "GET /rings",
         "GET /rings/:id",
-        "GET /rings/shared-with-me"
+        "GET /rings/shared-with-me",
+        "GET /rings/shared-with-me/count"
       ]
     },
     {
@@ -33736,6 +33748,11 @@
       "to": "project:ring-access-model"
     },
     {
+      "from": "backend-delivery:counts",
+      "kind": "wikilink",
+      "to": "story:ring-access"
+    },
+    {
       "from": "backend-delivery:delegated-admins",
       "kind": "wikilink",
       "to": "frontend-requirements:delegated-admins"
@@ -41427,6 +41444,11 @@
           "person": null,
           "text": "memberCount on GET /rings and GET /rings/:id (Counts · S6–S10) is built on the backend branch FR-03/ring/member-count (f5b48c7) and waits on its merge to main; then this note records the merge, FR-03's row flips ✅ and BI-14 goes current",
           "to": "frontend-requirements:counts"
+        },
+        {
+          "person": null,
+          "text": "the people count on Shared with me, GET /rings/shared-with-me/count (Counts · S2), is built on the backend branch FR-03/ring/shared-people-count (f516afd, stacked on FR-03/ring/member-count) and waits on its merge to main",
+          "to": "frontend-requirements:counts"
         }
       ],
       "priority": "critical",
@@ -41501,7 +41523,7 @@
         "s68"
       ],
       "status": "in-progress",
-      "summary": "What the backend built for this feature and how it works. Counts · S6–S10 (the live member count per Ring) is built on the backend branch FR-03/ring/member-count and not merged to main yet:…",
+      "summary": "What the backend built for this feature and how it works. Counts · S6–S10 (the live member count per Ring) is built on the backend branch FR-03/ring/member-count, and the people count on Shared…",
       "tags": [
         "backend-delivery",
         "backend-delivery/in-progress",

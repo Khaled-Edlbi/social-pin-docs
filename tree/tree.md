@@ -37,7 +37,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
     - 🔵 [F-03 Counts](social-pin/modules/Identity%20Core/features/Counts/F-03%20Counts.md) (release MVP, Critical)
       - 👍 [S-03 Counts Story](social-pin/modules/Identity%20Core/features/Counts/S-03%20Counts%20Story.md) (User Story, Critical)
       - 👍 [FR-03 Counts Frontend Requirements](social-pin/modules/Identity%20Core/features/Counts/flow/FR-03%20Counts%20Frontend%20Requirements.md) (Frontend Requirements, Critical)
-      - 🔵 [BD-03 Counts Backend Delivery](social-pin/modules/Identity%20Core/features/Counts/flow/BD-03%20Counts%20Backend%20Delivery.md) (Backend Delivery, 1 pending note, Critical)
+      - 🔵 [BD-03 Counts Backend Delivery](social-pin/modules/Identity%20Core/features/Counts/flow/BD-03%20Counts%20Backend%20Delivery.md) (Backend Delivery, 2 pending notes, Critical)
       - ⛔ [BI-14 Counts Backend Integration](social-pin/modules/Identity%20Core/features/Counts/flow/BI-14%20Counts%20Backend%20Integration.md) (Backend Integration, Critical, blocked by BD-03 Counts Backend Delivery)
       - ∅ _Counts QA Backend_ (QA Backend, blocked by BD-03 Counts Backend Delivery)
       - ∅ _Counts Frontend Delivery_ (Frontend Delivery, blocked by BI-14 Counts Backend Integration)
