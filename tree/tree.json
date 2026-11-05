@@ -5236,7 +5236,7 @@
     },
     "concepts": 255,
     "decisions": 28,
-    "edges": 5193,
+    "edges": 5194,
     "features": 41,
     "layerNotes": 137,
     "modules": 8,
@@ -35184,7 +35184,12 @@
     {
       "from": "backend-delivery:ring-members",
       "kind": "wikilink",
-      "to": "needs-decision:ND-04"
+      "to": "story:delegated-admins"
+    },
+    {
+      "from": "backend-delivery:ring-members",
+      "kind": "wikilink",
+      "to": "story:rings"
     },
     {
       "from": "backend-delivery:ring-projection",
@@ -44323,7 +44328,7 @@
         "s47"
       ],
       "status": "done",
-      "summary": "What the backend shipped for this feature and how it works. The sum of this feature's task-level Backend Delivery notes (see the Tasks table below).",
+      "summary": "What the backend shipped for this feature and how it works.",
       "tags": [
         "backend-delivery",
         "backend-delivery/done",
@@ -44333,7 +44338,7 @@
       "task": null,
       "title": "BD-09 Ring Members Backend Delivery",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-05"
     },
     "backend-delivery:ring-projection": {
       "affects": [],
