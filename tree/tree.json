@@ -1925,6 +1925,7 @@
     "GET /files/content/:token": {
       "containers": [
         "feature:files",
+        "feature:view-as",
         "needs-decision:ND-16"
       ],
       "kind": "endpoint",
@@ -1932,6 +1933,7 @@
         "backend-delivery:files",
         "backend-integration:files",
         "frontend-requirements:files",
+        "frontend-requirements:view-as",
         "needs-decision:ND-16"
       ],
       "owner": "feature:files"
@@ -5099,7 +5101,7 @@
     },
     "concepts": 252,
     "decisions": 28,
-    "edges": 4865,
+    "edges": 4866,
     "features": 41,
     "layerNotes": 133,
     "modules": 8,
@@ -8534,6 +8536,14 @@
     {
       "from": "backend-delivery:files",
       "kind": "related",
+      "to": "frontend-requirements:view-as",
+      "via": [
+        "GET /files/content/:token"
+      ]
+    },
+    {
+      "from": "backend-delivery:files",
+      "kind": "related",
       "to": "needs-decision:ND-16",
       "via": [
         "E_FILE_01",
@@ -9023,7 +9033,10 @@
     {
       "from": "backend-integration:files",
       "kind": "related",
-      "to": "backend-integration:view-as"
+      "to": "backend-integration:view-as",
+      "via": [
+        "GET /files/content/:token"
+      ]
     },
     {
       "from": "backend-integration:files",
@@ -9079,6 +9092,14 @@
       "via": [
         "E_FILE_04",
         "POST /files"
+      ]
+    },
+    {
+      "from": "backend-integration:files",
+      "kind": "related",
+      "to": "frontend-requirements:view-as",
+      "via": [
+        "GET /files/content/:token"
       ]
     },
     {
@@ -9178,6 +9199,47 @@
     },
     {
       "from": "backend-integration:ring-projection",
+      "kind": "related",
+      "to": "frontend-requirements:view-as",
+      "via": [
+        "GET /files/content/:token",
+        "GET /views/ring/:ringId"
+      ]
+    },
+    {
+      "from": "backend-integration:ring-projection",
+      "kind": "related",
+      "to": "needs-decision:ND-16",
+      "via": [
+        "GET /files/content/:token"
+      ]
+    },
+    {
+      "from": "backend-integration:view-as",
+      "kind": "related",
+      "to": "backend-delivery:files",
+      "via": [
+        "GET /files/content/:token"
+      ]
+    },
+    {
+      "from": "backend-integration:view-as",
+      "kind": "related",
+      "to": "decision:D-16"
+    },
+    {
+      "from": "backend-integration:view-as",
+      "kind": "related",
+      "to": "frontend-requirements:view-as",
+      "via": [
+        "GET /files/content/:token",
+        "GET /views/pin/:pinName",
+        "GET /views/ring/:ringId",
+        "GET /views/user/:userId/perspectives"
+      ]
+    },
+    {
+      "from": "backend-integration:view-as",
       "kind": "related",
       "to": "needs-decision:ND-16",
       "via": [
@@ -13040,7 +13102,10 @@
     {
       "from": "frontend-requirements:files",
       "kind": "related",
-      "to": "backend-integration:view-as"
+      "to": "backend-integration:view-as",
+      "via": [
+        "GET /files/content/:token"
+      ]
     },
     {
       "from": "frontend-requirements:files",
@@ -16062,27 +16127,9 @@
     {
       "from": "frontend-requirements:view-as",
       "kind": "related",
-      "to": "backend-integration:ring-projection",
-      "via": [
-        "GET /views/ring/:ringId"
-      ]
-    },
-    {
-      "from": "frontend-requirements:view-as",
-      "kind": "related",
       "to": "backend-integration:rings",
       "via": [
         "GET /rings"
-      ]
-    },
-    {
-      "from": "frontend-requirements:view-as",
-      "kind": "related",
-      "to": "backend-integration:view-as",
-      "via": [
-        "GET /views/pin/:pinName",
-        "GET /views/ring/:ringId",
-        "GET /views/user/:userId/perspectives"
       ]
     },
     {
@@ -26081,6 +26128,7 @@
       "kind": "shares",
       "to": "feature:view-as",
       "via": [
+        "GET /files/content/:token",
         "GET /rings/:ringId/projection",
         "GET /views/*",
         "GET /views/pin/:pinName",
@@ -28643,6 +28691,14 @@
       "to": "needs-decision:ND-15",
       "via": [
         "GET /views/user/:userId/perspectives"
+      ]
+    },
+    {
+      "from": "feature:view-as",
+      "kind": "shares",
+      "to": "needs-decision:ND-16",
+      "via": [
+        "GET /files/content/:token"
       ]
     },
     {
@@ -32122,22 +32178,12 @@
     {
       "from": "backend-delivery:files",
       "kind": "wikilink",
-      "to": "backend-integration:view-as"
-    },
-    {
-      "from": "backend-delivery:files",
-      "kind": "wikilink",
       "to": "decision:D-02"
     },
     {
       "from": "backend-delivery:files",
       "kind": "wikilink",
       "to": "decision:D-05"
-    },
-    {
-      "from": "backend-delivery:files",
-      "kind": "wikilink",
-      "to": "frontend-requirements:view-as"
     },
     {
       "from": "backend-delivery:gemma",
@@ -32775,11 +32821,6 @@
       "to": "project:ring-access-model"
     },
     {
-      "from": "backend-integration:view-as",
-      "kind": "wikilink",
-      "to": "story:files"
-    },
-    {
       "from": "decision:D-01",
       "kind": "wikilink",
       "to": "feature:auth"
@@ -32883,11 +32924,6 @@
       "from": "decision:D-15",
       "kind": "wikilink",
       "to": "decision:D-13"
-    },
-    {
-      "from": "decision:D-16",
-      "kind": "wikilink",
-      "to": "backend-integration:view-as"
     },
     {
       "from": "decision:D-16",
@@ -35366,11 +35402,6 @@
     },
     {
       "from": "needs-decision:ND-15",
-      "kind": "wikilink",
-      "to": "backend-integration:view-as"
-    },
-    {
-      "from": "needs-decision:ND-16",
       "kind": "wikilink",
       "to": "backend-integration:view-as"
     },
@@ -40326,6 +40357,7 @@
         "frontend-requirements:files",
         "story:files",
         "needs-decision:ND-16",
+        "frontend-requirements:view-as",
         "qa-backend:files",
         "frontend-requirements:photo-library",
         "needs-decision:ND-21",
@@ -40336,7 +40368,8 @@
         "backend-integration:ring-projection",
         "frontend-requirements:ring-projection",
         "project:status-report-2026-10-15",
-        "project:frontend-contract"
+        "project:frontend-contract",
+        "backend-integration:view-as"
       ],
       "release": "mvp",
       "resolution": null,
@@ -42597,6 +42630,7 @@
         "story:files",
         "backend-delivery:photo-library",
         "needs-decision:ND-16",
+        "frontend-requirements:view-as",
         "qa-backend:files",
         "frontend-requirements:photo-library",
         "needs-decision:ND-21",
@@ -43441,8 +43475,8 @@
         "frontend-requirements:ring-members",
         "decision:D-16",
         "needs-decision:ND-16",
-        "frontend-requirements:ring-projection",
         "frontend-requirements:view-as",
+        "frontend-requirements:ring-projection",
         "frontend-requirements:companies"
       ],
       "release": "mvp",
@@ -43632,6 +43666,9 @@
         "qa-backend:files",
         "frontend-requirements:ring-access",
         "frontend-requirements:ring-projection",
+        "decision:D-16",
+        "needs-decision:ND-16",
+        "backend-delivery:files",
         "frontend-requirements:view-as",
         "frontend-requirements:companies"
       ],
@@ -43654,7 +43691,7 @@
       "task": null,
       "title": "BI-09 View As & Pin Views Backend Integration",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-05"
     },
     "backend-integration:widgets": {
       "affects": [],
@@ -44597,6 +44634,7 @@
         "frontend-requirements:profiles",
         "backend-integration:ring-projection",
         "frontend-requirements:ring-projection",
+        "backend-integration:view-as",
         "frontend-requirements:view-as",
         "story:view-as",
         "frontend-requirements:companies",
@@ -53777,12 +53815,15 @@
         "task:B-08",
         "frontend-requirements:connections",
         "qa-backend:auth",
+        "backend-delivery:files",
+        "backend-integration:files",
         "frontend-requirements:files",
         "qa-backend:files",
         "frontend-requirements:photo-library",
         "frontend-requirements:profiles",
         "frontend-requirements:ring-access",
         "frontend-requirements:ring-members",
+        "backend-integration:ring-projection",
         "frontend-requirements:ring-projection",
         "backend-integration:view-as",
         "decision:D-16",
@@ -53812,7 +53853,6 @@
         "frontend-requirements:post-event",
         "story:post-event",
         "story:ring-access",
-        "backend-integration:ring-projection",
         "story:ring-projection",
         "frontend-requirements:rings",
         "frontend-requirements:widgets",
@@ -55537,7 +55577,8 @@
         "story:photo-library",
         "frontend-requirements:profiles",
         "backend-integration:ring-projection",
-        "frontend-requirements:ring-projection"
+        "frontend-requirements:ring-projection",
+        "backend-integration:view-as"
       ],
       "release": null,
       "resolution": null,

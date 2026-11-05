@@ -17,6 +17,8 @@ tags: [frontend-requirements, frontend-requirements/ready, module/identity, laye
 
 # View As & Pin Views · Frontend Requirements
 
+> ⚠ Affected by [[BI-09 View As & Pin Views Backend Integration]] (2026-11-05): avatarUrl and attachments[].url are on every /views/* response on backend main @ 80e7fa2 (rows flipped ✅). avatarFileId is still sent on the view, from before D-16 (viewers never receive a file id): stop reading it, use avatarUrl, then the backend removes it (/frontend)
+
 > ⚠ Affected by [[S-23 Connections Story]] (2026-11-04): S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
 
 **Feature:** [[F-12 View As & Pin Views]] · **Status:** 📨 Ready 2026-10-29, waiting on the backend's review · **Story:** [[S-19 View As & Pin Views Story]] · **Backend Integration:** [[BI-09 View As & Pin Views Backend Integration]]
@@ -69,11 +71,11 @@ What the client needs from the backend for every screen that renders another per
 | Nickname | `nickname` | a lighter line under the name, in quotes; only when not empty |
 | Headline · company | the Ring's main-profile fields ([[FR-10 Ring Projection Frontend Requirements\|FR-10]], S10) | when the Ring shows them |
 | `!pinName`, bio | `pinName`, `bio` | |
-| Photo | `avatarUrl` (signed, 15 minutes; D-16) | ❌ until the backend ships D-16; a placeholder until then |
+| Photo | `avatarUrl` (signed, 15 minutes; D-16) | ✅ `avatarUrl` on `GET /views/*` (2026-11-05); a placeholder when it is `null` |
 | Theme | `themeConfig` | free-form JSON; also the switcher's label |
 | Sensitive rows | `birthdate`, `gender`, `maritalStatus`, `email`, `phone` | shown only when not `null` |
 | Links, fields | `links[]`, `infoBlocks[]` | visible rows only; no `isVisible` here |
-| Files | `attachments[]` (`label`, `filename`, `mimeType`, `sizeBytes`, `url` signed 15 minutes) | name and size, no date; `url` ❌ until D-16 ships |
+| Files | `attachments[]` (`label`, `filename`, `mimeType`, `sizeBytes`, `url` signed 15 minutes) | name and size, no date; `url` ✅ on `GET /views/*` (2026-11-05) |
 | Which Ring this is | — | never provided, by design |
 | Where and when I scanned | the scan, on the phone | never from the view |
 
@@ -85,7 +87,7 @@ What the client needs from the backend for every screen that renders another per
 | Render one Ring (scan, View as, teaser) | `GET /views/ring/:ringId` | ✅ | S1, S2, S3 |
 | All perspectives of one person | `GET /views/user/:userId/perspectives` | ✅ | S5 |
 | My live Rings for the selector and the owner face | `GET /rings`, `GET /rings/:ringId/projection` | ✅ | S2 (listed under [[F-11 Rings]], [[F-10 Ring Projection]]) |
-| **The photo and files on the view**: `avatarUrl` and a `url` per attachment, signed, valid 15 minutes, no file id | `GET /views/*` | ❌ | [[D-16 Files load from signed links that expire in 15 minutes]] (decided; the backend builds it) |
+| **The photo and files on the view**: `avatarUrl` and a `url` per attachment, signed, valid 15 minutes, no file id | `GET /views/*` | ✅ `avatarUrl`, `attachments[].url`, served by `GET /files/content/:token` (2026-11-05) | [[D-16 Files load from signed links that expire in 15 minutes]] (decided; the backend builds it) |
 | Issue a rotating QR token for a Ring | — | ❌ | [[S-37 Badge & QR Story\|Badge & QR · S7–S12]], [[ND-12 What the badge QR encodes]] |
 | Resolve a scanned token to a view | — | ❌ | [[S-37 Badge & QR Story\|Badge & QR · S13–S18]] |
 | Connect after a scan | — | ❌ | [[S-23 Connections Story\|Connections · S8–S12]] |

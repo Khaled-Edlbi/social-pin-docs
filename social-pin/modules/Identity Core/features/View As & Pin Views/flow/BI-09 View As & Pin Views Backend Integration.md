@@ -6,16 +6,15 @@ feature: view-as
 status: current
 scope: feature
 screens: [s10, s31, s44]
+related: ["D-16 Files load from signed links that expire in 15 minutes", "BI-03 Files Upload Backend Integration", "GET /files/content/:token"]
 created: 2026-10-15
-updated: 2026-10-29
+updated: 2026-11-05
 tags: [backend-integration, backend-integration/current, module/identity, layer/backend]
 ---
 
 # 🔌 View As & Pin Views · Backend Integration
 
 > ⚠ Affected by [[S-23 Connections Story]] (2026-11-04): S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
-
-> ⚠ Affected by [[D-16 Files load from signed links that expire in 15 minutes]] (2026-10-29): the viewer's view will carry `avatarUrl` and a `url` per attachment, signed, valid 15 minutes, and still no file id. For `/backend`.
 
 **Feature:** [[F-12 View As & Pin Views]] · **Backend:** ✅ Done · **Read first:** [[Frontend Contract]], [[Ring Access Model]]
 
@@ -39,7 +38,10 @@ What the client builds: every screen that shows **another person**: the scanned 
 
 ## Shapes that matter
 
-`RingProfileViewEntity`: `pinName`, `displayName`, `nickname`, `bio`, `avatarFileId`, `themeConfig`, `birthdate`, `gender`, `maritalStatus`, `email`, `phone`, `links[]` (`id`, `type`, `label`, `value`, `sortOrder`), `infoBlocks[]` (`id`, `title`, `body`, `sortOrder`), `widgets[]`, `attachments[]` (`id`, `label`, `filename`, `mimeType`, `sizeBytes`).
+`RingProfileViewEntity`: `pinName`, `displayName`, `nickname`, `bio`, `avatarFileId`, **`avatarUrl`**, `themeConfig`, `birthdate`, `gender`, `maritalStatus`, `email`, `phone`, `links[]` (`id`, `type`, `label`, `value`, `sortOrder`), `infoBlocks[]` (`id`, `title`, `body`, `sortOrder`), `widgets[]`, `attachments[]` (`id`, `label`, `filename`, `mimeType`, `sizeBytes`, **`url`**).
+
+- **Show the photo from `avatarUrl` and open an attachment from its `url`**: signed links, valid 15 minutes, made only for what this viewer may see ([[D-16 Files load from signed links that expire in 15 minutes]]). Load them like any web image or download, with no bearer token. `avatarUrl` is `null` when the Ring has no photo. When a link fails to load, read the view again for fresh links ([[BI-03 Files Upload Backend Integration]]). The links name no file id, and attachments carry no `fileId`.
+- **Do not read `avatarFileId` on a view.** It is still sent, from before D-16, which says viewers never receive a file id; it will be removed once the client no longer reads it ([[FR-12 View As & Pin Views Frontend Requirements|FR-12]]). Use `avatarUrl`.
 
 - **There is no `ringId`, no `userId` and no owner id** in this entity, on purpose. To call `/perspectives` you need the person's user id from somewhere else (a connection, a scan payload); the view itself will never hand it to you.
 - **`null` means "not shared with you"**, not "empty". Render "not shared" or hide the row; never "none".
@@ -67,7 +69,6 @@ Do **not** try to tell the `E_RING_ACCESS_01` cases apart, from timing or from a
 
 ## Not available yet
 
-- **The photo and the attachments cannot be fetched**: `avatarFileId` and `attachments[].id` have no download URL yet: [[S-06 Files Upload Story|Files Upload · showing files]]. Render a placeholder avatar and list attachments without a download action.
 - **QR payload.** Scanning is meant to resolve a rotating **token**, not a Ring id ([[S-37 Badge & QR Story|Badge & QR · S7–S12]], [[S-37 Badge & QR Story|Badge & QR · S13–S18]]). Until then the only thing a QR can carry that the API resolves is the Ring id; treat any such encoding as temporary.
 - Connect after a scan (s44 bottom): [[S-23 Connections Story|Connections · S8–S12]].
 - A browser page for viewers without the app: [[S-37 Badge & QR Story|Badge & QR · S20]].
@@ -80,3 +81,7 @@ Do **not** try to tell the `E_RING_ACCESS_01` cases apart, from timing or from a
 - [ ] Cache keyed by (viewer, target); refetch on focus.
 - [ ] Switcher indexes by position; no Ring names.
 - [ ] Owner's View as calls the same route with their own Ring id.
+
+## Log
+
+- 2026-11-05 · flagged [[FR-12 View As & Pin Views Frontend Requirements]]: avatarUrl and attachments[].url are on every /views/* response on backend main @ 80e7fa2 (rows flipped ✅). avatarFileId is still sent on the view, from before D-16 (viewers never receive a file id): stop reading it, use avatarUrl, then the backend removes it (/frontend)
