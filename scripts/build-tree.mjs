@@ -17,6 +17,12 @@
  *                                                    (these three ask scripts/agent-guard.mjs whether the active agent may make exactly that change, refuse it
  *                                                    otherwise, and put the file back if it would break the build)
  *   node scripts/build-tree.mjs --finish <agent> <card> [<what-you-do>]   the build and --check in one pass, the notes to update or flag, the branch and the commit message
+ *                                                    (and how to commit from where the session stands: its own worktree, or the main folder)
+ *   node scripts/build-tree.mjs --worktree <agent> <card> [<what-you-do>] [--from <ref>]   the card's branch in a worktree of its own,
+ *                                                    .claude/worktrees/<agent>-<card>-<what>, from origin/main: one worktree per session
+ *   node scripts/build-tree.mjs --merge <branch> | --merge --continue   merges a branch into this folder's branch and rebuilds the
+ *                                                    generated files in the merge commit (the card registry keeps both sides' codes)
+ *   (a scaffold's next free code also skips the codes taken on the other branches and worktrees, so parallel sessions never collide)
  *   node scripts/build-tree.mjs --normalize <card> [<card> …] | all   a card's frontmatter in the vault's order (docs.config.json frontmatter):
  *                                                    the head id (the card code) · type · module · feature · status, the keys its type takes, then the rest
  *   node scripts/build-tree.mjs --scaffold <kind> <feature-id>   creates a feature's layer note from its template, named with its next free code
@@ -34,6 +40,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import http from 'node:http';
+import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -1490,7 +1497,42 @@ const today = () => new Date().toISOString().slice(0, 10);
 const yamlOf = (out, quote = []) => orderedEntries(out).map(([k, v]) => `${k}: ${Array.isArray(v) ? `[${v.join(', ')}]` : typeof v === 'string' && (quote.includes(k) || /[:#]/.test(v) || v === '') ? JSON.stringify(v) : v}`).join('\n');
 const fill = (text, map) => Object.entries(map).reduce((t, [k, v]) => t.split(k).join(v), text);
 const writeNote = (dest, fm, body, quote) => { fs.mkdirSync(path.dirname(dest), { recursive: true }); fs.writeFileSync(dest, `---\n${yamlOf(fm, quote)}\n---\n${body}`); return path.relative(ROOT, dest); };
-// the next free number for a structural prefix (T, D): higher than every code in the tree, in the registry and among the retired codes
+// The card codes other sessions have already taken: every session works on a branch of its own, in a worktree of its own
+// (rules/Workflow.md §2), and a scaffold that read only its own tree would hand out the number a parallel branch already gave.
+// Read here: the file names on every local and remote branch not merged into HEAD (a card is born with its code in its name),
+// and the files on disk in every other worktree of this repository (scaffolded, not committed yet). A code -> where it was seen.
+// Without git (a tarball, a shallow CI checkout with no other refs) the map is empty and nothing changes.
+let ELSEWHERE = null;
+function codesElsewhere() {
+  if (ELSEWHERE) return ELSEWHERE;
+  ELSEWHERE = new Map();
+  const git = (...a) => { const r = spawnSync('git', a, { cwd: ROOT, encoding: 'utf8', maxBuffer: 64 << 20 }); return r.status === 0 ? r.stdout : ''; };
+  const CODED = /^([A-Z]{1,4}-\d+)\s/;
+  const add = (file, where) => { const m = CODED.exec(path.posix.basename(file.replace(/\\/g, '/'))); if (m && !ELSEWHERE.has(m[1])) ELSEWHERE.set(m[1], where); };
+  const dir = PROJECT_DIR || '.';
+  for (const ref of git('for-each-ref', '--no-merged=HEAD', '--format=%(refname:short)', 'refs/heads', 'refs/remotes').split('\n').map((s) => s.trim())) {
+    if (!ref || /(^|\/)HEAD$/.test(ref) || ref === 'origin') continue; // origin/HEAD shortens to "origin"
+    for (const f of git('ls-tree', '-r', '--name-only', ref, '--', dir).split('\n')) if (f.endsWith('.md')) add(f, `branch ${ref}`);
+  }
+  const here = path.resolve(ROOT);
+  let wt = null;
+  for (const line of git('worktree', 'list', '--porcelain').split('\n')) {
+    if (line.startsWith('worktree ')) wt = { path: path.resolve(line.slice(9).trim()), branch: null };
+    else if (line.startsWith('branch ') && wt) wt.branch = line.slice(7).trim().replace(/^refs\/heads\//, '');
+    else if (!line.trim() && wt) { scanWorktree(wt); wt = null; }
+  }
+  if (wt) scanWorktree(wt);
+  function scanWorktree(w) {
+    if (w.path === here) return;
+    const root = path.join(w.path, PROJECT_DIR);
+    const walkMd = (d) => { let es; try { es = fs.readdirSync(d, { withFileTypes: true }); } catch { return; } for (const e of es) { if (e.isDirectory()) walkMd(path.join(d, e.name)); else if (e.name.endsWith('.md')) add(e.name, `worktree ${w.path}${w.branch ? ` (${w.branch})` : ''}`); } };
+    walkMd(root);
+  }
+  return ELSEWHERE;
+}
+
+// the next free number for a prefix: higher than every code in the tree, in the registry, among the retired codes,
+// and among the codes taken on the other branches and worktrees (codesElsewhere), so parallel sessions never collide
 function nextNumber(result, prefix, width) {
   const re = new RegExp(`^${prefix}-(\\d+)`);
   let max = 0;
@@ -1499,7 +1541,12 @@ function nextNumber(result, prefix, width) {
   const reg = result.cards ?? loadCards([]);
   for (const c of Object.values(reg.cards ?? {})) seen(c);
   for (const c of Object.keys(reg.retired ?? {})) seen(c);
-  return `${prefix}-${String(max + 1).padStart(width, '0')}`;
+  const local = max;
+  let from = null;
+  for (const [c, where] of codesElsewhere()) { const m = re.exec(c); if (m && Number(m[1]) > max) { max = Number(m[1]); from = where; } }
+  const code = `${prefix}-${String(max + 1).padStart(width, '0')}`;
+  if (from) console.log(`note: ${prefix}-${String(local + 1).padStart(width, '0')}${max > local + 1 ? ` … ${prefix}-${String(max).padStart(width, '0')}` : ''} ${max > local + 1 ? 'are' : 'is'} taken on another branch (highest on ${from}); this card takes ${code}`);
+  return code;
 }
 const screenLinks = (screens) => (screens.length ? screens.map((s) => `[[Screen Index#${s}|${s}]]`).join(', ') : '[[Screen Index#sNN|sNN]] …');
 
@@ -1594,6 +1641,7 @@ function scaffoldDecision(result, ref, title) {
   if (!target) { console.error(`no layer note, bug or feature named "${ref}" (use the note name, a feature id or a card code)`); process.exit(1); }
   const taken = new Set(Object.keys(result.cards.retired)); // a retired ND-NN is never handed out again
   for (const n of Object.values(nodes)) if (n.kind === 'needs-decision') taken.add(n.code);
+  for (const c of codesElsewhere().keys()) if (/^ND-\d+$/.test(c)) taken.add(c); // raised on a parallel branch or worktree
   let num = 1;
   while (taken.has(`ND-${String(num).padStart(2, '0')}`)) num++;
   const id = `ND-${String(num).padStart(2, '0')}`;
@@ -2013,18 +2061,115 @@ async function finishCard(result, agentId, ref, what) {
     : `${codeKind(n)}(${moduleId || 'project'}): ${n.title}${words ? ` · ${words}` : ''}`;
   const decision = n.kind === 'needs-decision' ? n.card : n.kind === 'decision' ? n.decides : null;
   const trailers = [feature?.card && `Feature: ${feature.card}`, n.kind === 'story' && `Story: ${n.card}`, decision && `Decision: ${decision}`].filter(Boolean);
-  const { spawnSync } = await import('node:child_process');
-  const changed = (spawnSync('git', ['status', '--porcelain', '--untracked-files=all'], { cwd: ROOT, encoding: 'utf8' }).stdout || '').split('\n').filter(Boolean).map((l) => l.slice(3).replace(/^"(.*)"$/, '$1'));
+  const git = (...a) => spawnSync('git', a, { cwd: ROOT, encoding: 'utf8' });
+  const changed = (git('status', '--porcelain', '--untracked-files=all').stdout || '').split('\n').filter(Boolean).map((l) => l.slice(3).replace(/^"(.*)"$/, '$1'));
   console.log(`\nbranch: ${br.branch}\ncommit: ${subject}${trailers.length ? `\n        ${trailers.join(' · ')}` : ''}`);
   if (changed.length) console.log(`files:  ${changed.join('\n        ')}`);
-  console.log(`\ngit switch -c ${br.branch}   (or git switch ${br.branch} when it exists)\ngit add -A\ngit commit -F - <<'MSG'\n${subject}\n\n<two or three lines: what changed and why>\n${trailers.length ? `\n${trailers.join('\n')}\n` : ''}\n<the attribution line>\nMSG`);
+  // 4 · how to commit it from where this session stands (Workflow §2: one worktree per session)
+  const commit = `git add -A\ngit commit -F - <<'MSG'\n${subject}\n\n<two or three lines: what changed and why>\n${trailers.length ? `\n${trailers.join('\n')}\n` : ''}\n<the attribution line>\nMSG`;
+  const current = (git('rev-parse', '--abbrev-ref', 'HEAD').stdout || '').trim();
+  const switchTo = `git switch -c ${br.branch}   (or git switch ${br.branch} when it exists)`;
+  const again = `${agentId} ${n.card}${what ? ` ${what}` : ''}`;
+  if (current === br.branch) { console.log(`\n${commit}`); return; }
+  if (!g.isMainFolder()) { console.log(`\n${switchTo}\n${commit}`); return; } // a worktree of its own: switching moves nobody else
+  const others = g.liveSessions();
+  if (!others.length) { console.log(`\n${switchTo}\n${commit}\n\nnote: this is the repository's main folder, and no other session is live in it. With more than one at work, each takes a worktree of its own: node scripts/build-tree.mjs --worktree ${again} (rules/Workflow.md §2).`); return; }
+  const mine = changed.filter((f) => !GENERATED.includes(f) && !f.startsWith('site/'));
+  const wt = worktreePlan(agentId, n.card, br.branch);
+  const q = (f) => (/[\s"'$]/.test(f) ? `"${f}"` : f);
+  console.log(`\n⚠ this is the repository's main folder, and ${others.length} other session${others.length === 1 ? ' is' : 's are'} live in it (${[...new Set(others.map((o) => `/${o.agent}`))].join(', ')}): its branch stays where it is, and the guard refuses git switch here. Carry the change to a worktree of its own, with only your files in the stash (the generated files are rebuilt there):\n\nnode scripts/build-tree.mjs --worktree ${again} --from HEAD\ngit stash push --include-untracked -m "${br.branch}" -- ${mine.length ? mine.map(q).join(' ') : '<your files>'}\ncd "${wt.abs}"\ngit stash pop\nnode scripts/build-tree.mjs --finish ${again}\n${commit}`);
+}
+
+// ---------------------------------------------------------------- worktrees: one per session (Workflow §2)
+// Where a card's worktree lives: .claude/worktrees/<agent>-<card>-<what> under the repository's main folder (git-ignored; the build
+// skips .claude/), whichever worktree the command runs from.
+function worktreePlan(agentId, card, branch) {
+  const r = spawnSync('git', ['rev-parse', '--path-format=absolute', '--git-common-dir'], { cwd: ROOT, encoding: 'utf8' });
+  const main = r.status === 0 && r.stdout.trim() ? path.dirname(path.resolve(r.stdout.trim())) : ROOT;
+  const last = branch.split('/').pop();
+  const slug = `${agentId}-${last === card || last.startsWith(`${card}-`) ? last : `${card}-${last}`}`.replace(/[^A-Za-z0-9._-]/g, '-');
+  return { abs: path.join(main, '.claude', 'worktrees', slug).split(path.sep).join('/'), main };
+}
+
+async function makeWorktree(result, agentId, ref, what) {
+  if (!agentId || !ref) die('usage: node scripts/build-tree.mjs --worktree <agent> <card> [<what-you-do>] [--from <ref>]');
+  const { json, cfg } = result;
+  if (!json) { for (const e of result.errors) console.error(`error    ${e}`); die('the tree does not build: /admin repairs it first'); }
+  const n = cardOrDie(json, ref);
+  const br = branchName(json, agentId, n.card, what, cfg.branches || {});
+  if (br.error) die(br.error);
+  const g = await import('./agent-guard.mjs');
+  if (!g.agentOf(agentId)) die(`no agent "${agentId}" in docs.config.json agents.list`);
+  const git = (...a) => spawnSync('git', a, { cwd: ROOT, encoding: 'utf8' });
+  const plan = worktreePlan(agentId, n.card, br.branch);
+  const next = (where) => `\nWork there, not in this folder: open the Claude Code session in it (or move this one there with EnterWorktree), and type /${agentId} again there, since the active agent is kept per folder. Commit and push from it; once the branch is merged, git worktree remove "${where}".`;
+  // the branch may already have a worktree (this card's, or one made by hand): use that one
+  let wt = null;
+  for (const line of `${git('worktree', 'list', '--porcelain').stdout || ''}\n`.split('\n')) {
+    if (line.startsWith('worktree ')) wt = line.slice(9).trim();
+    else if (line.trim() === `branch refs/heads/${br.branch}` && wt) { console.log(`worktree: ${wt}\nbranch:   ${br.branch} (already checked out there)${next(wt)}`); return; }
+  }
+  let from = opt('--from', null);
+  if (!from) { git('fetch', '--quiet', 'origin', 'main'); from = git('rev-parse', '--verify', '--quiet', 'origin/main').status === 0 ? 'origin/main' : 'main'; }
+  const exists = git('rev-parse', '--verify', '--quiet', `refs/heads/${br.branch}`).status === 0;
+  const r = exists ? git('worktree', 'add', plan.abs, br.branch) : git('worktree', 'add', '--no-track', '-b', br.branch, plan.abs, from);
+  if (r.status !== 0) die((r.stderr || r.stdout || 'git worktree add failed').trim());
+  console.log(`worktree: ${plan.abs}\nbranch:   ${br.branch}${exists ? ' (existing)' : ` (new, from ${from})`}${next(plan.abs)}`);
+}
+
+// ---------------------------------------------------------------- merge: a branch into this folder's branch, the generated files rebuilt
+// Every branch rebuilds tree/ and Card Index.md, so two merged branches leave them stale or in conflict. They are never resolved by
+// hand: the card registry (tree/cards.json) keeps every code either side gave, the rest is rebuilt from the merged notes, and the
+// merge commit carries the rebuilt files, so it passes --check on its own. A conflict in a note stops here for a person.
+async function mergeBranch(result, ref) {
+  const usage = 'usage: node scripts/build-tree.mjs --merge <branch>   (then, after resolving a conflict in a note: --merge --continue)';
+  if (!ref) die(usage);
+  const git = (...a) => spawnSync('git', a, { cwd: ROOT, encoding: 'utf8' });
+  const cont = ref === '--continue';
+  const inMerge = git('rev-parse', '-q', '--verify', 'MERGE_HEAD').status === 0;
+  const into = (git('rev-parse', '--abbrev-ref', 'HEAD').stdout || '').trim();
+  if (cont) { if (!inMerge) die('no merge is in progress here'); }
+  else {
+    if (inMerge) die('a merge is already in progress here: resolve it, then node scripts/build-tree.mjs --merge --continue (or git merge --abort)');
+    const dirty = (git('status', '--porcelain', '--untracked-files=no').stdout || '').trim();
+    if (dirty) die(`this folder has uncommitted changes; commit or stash them first:\n${dirty}`);
+    const m = git('merge', '--no-ff', '--no-commit', ref);
+    const out = `${m.stdout || ''}${m.stderr || ''}`.trim();
+    if (/Already up to date/i.test(out)) { console.log(out); return; }
+    if (m.status !== 0 && !/CONFLICT/.test(out)) die(out);
+  }
+  const unmerged = () => (git('diff', '--name-only', '--diff-filter=U').stdout || '').split('\n').map((s) => s.trim()).filter(Boolean);
+  for (const f of unmerged()) {
+    if (f === 'tree/cards.json') {
+      const side = (s) => { try { const j = JSON.parse(git('show', `:${s}:${f}`).stdout); return { cards: j.cards || {}, retired: j.retired || {} }; } catch { return { cards: {}, retired: {} }; } };
+      const ours = side(2), theirs = side(3);
+      const clash = Object.entries(theirs.cards).filter(([id, code]) => ours.cards[id] && ours.cards[id] !== code).map(([id, code]) => `${id}: ${ours.cards[id]} on ${into}, ${code} on the merged branch`);
+      if (clash.length) die(`one card has two codes, one per branch: /admin repairs it (rules/Admin Agent.md §4A), then --merge --continue:\n  ${clash.join('\n  ')}`);
+      fs.writeFileSync(path.join(ROOT, f), `${JSON.stringify({ schema: 1, cards: { ...theirs.cards, ...ours.cards }, retired: { ...theirs.retired, ...ours.retired } }, null, 2)}\n`);
+    } else if (GENERATED.includes(f)) git('checkout', '--ours', '--', f);
+    else continue;
+    git('add', '--', f);
+  }
+  const left = unmerged();
+  if (left.length) die(`these notes conflict: resolve them by hand, git add them, then node scripts/build-tree.mjs --merge --continue (or git merge --abort):\n  ${left.join('\n  ')}`);
+  const self = (...a) => spawnSync(process.execPath, [fileURLToPath(import.meta.url), ...a], { cwd: ROOT, encoding: 'utf8' });
+  const built = self();
+  if (built.status !== 0) die(`${`${built.stdout || ''}${built.stderr || ''}`.trim()}\n\nthe merged vault does not build: fix what it lists (a card code given on both branches is a repair for /admin), git add it, then node scripts/build-tree.mjs --merge --continue (or git merge --abort)`);
+  git('add', '--', ...GENERATED.filter((f) => fs.existsSync(path.join(ROOT, f))));
+  const c = git('commit', '--no-edit');
+  if (c.status !== 0) die(`${c.stderr || c.stdout}`.trim());
+  const check = self('--check');
+  const last = `${check.stdout || ''}`.trim().split('\n').pop();
+  console.log(`merged into ${into}: ${(git('log', '-1', '--format=%h %s').stdout || '').trim()}\n--check: ${last}`);
+  if (check.status !== 0) die(`${check.stderr || ''}`.trim());
 }
 
 // ---------------------------------------------------------------- main
 const result = build();
-for (const [flag, run] of [['--set-status', (i) => setStatus(result, args[i + 1], args[i + 2])], ['--set', (i) => setField(result, args[i + 1], args[i + 2], args[i + 3])], ['--flag', (i) => flagNote(result, args[i + 1], args[i + 2], args[i + 3])], ['--finish', (i) => finishCard(result, args[i + 1], args[i + 2], args[i + 3] && !args[i + 3].startsWith('--') ? args[i + 3] : undefined)], ['--normalize', (i) => { const refs = []; for (let j = i + 1; j < args.length && !args[j].startsWith('--'); j++) refs.push(args[j]); return normalizeCards(result, refs); }]]) {
+for (const [flag, run] of [['--set-status', (i) => setStatus(result, args[i + 1], args[i + 2])], ['--set', (i) => setField(result, args[i + 1], args[i + 2], args[i + 3])], ['--flag', (i) => flagNote(result, args[i + 1], args[i + 2], args[i + 3])], ['--finish', (i) => finishCard(result, args[i + 1], args[i + 2], args[i + 3] && !args[i + 3].startsWith('--') ? args[i + 3] : undefined)], ['--normalize', (i) => { const refs = []; for (let j = i + 1; j < args.length && !args[j].startsWith('--'); j++) refs.push(args[j]); return normalizeCards(result, refs); }], ['--worktree', (i) => makeWorktree(result, args[i + 1], args[i + 2], args[i + 3] && !args[i + 3].startsWith('--') ? args[i + 3] : undefined)], ['--merge', (i) => mergeBranch(result, args[i + 1])]]) {
   if (!has(flag)) continue;
-  if (!['--finish', '--normalize'].includes(flag) && result.errors.length) { for (const e of result.errors) console.error(`error    ${e}`); die('the vault has errors: fix them first (or /admin repairs them)'); }
+  // --merge runs on a half-merged tree (the generated files in conflict) and rebuilds it; --worktree changes no note
+  if (!['--finish', '--normalize', '--merge', '--worktree'].includes(flag) && result.errors.length) { for (const e of result.errors) console.error(`error    ${e}`); die('the vault has errors: fix them first (or /admin repairs them)'); }
   await run(args.indexOf(flag));
   process.exit(0);
 }

@@ -57290,7 +57290,7 @@
       "task": null,
       "title": "Admin Agent",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-05"
     },
     "project:agent-protocol": {
       "affects": [
@@ -57354,7 +57354,7 @@
       "task": null,
       "title": "Agent Protocol",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-05"
     },
     "project:agent-rules": {
       "affects": [
@@ -58991,7 +58991,7 @@
       "task": null,
       "title": "Workflow",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-05"
     },
     "qa-backend:account": {
       "affects": [],
