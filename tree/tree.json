@@ -175,6 +175,7 @@
     "F-43 Build & Deploy": "feature:build-deploy",
     "FD-04 Account Frontend Delivery": "frontend-delivery:account",
     "FD-05 Auth & Sign-up Frontend Delivery": "frontend-delivery:auth",
+    "FD-06 Counts Frontend Delivery": "frontend-delivery:counts",
     "FR-01 Account Frontend Requirements": "frontend-requirements:account",
     "FR-02 Auth & Sign-up Frontend Requirements": "frontend-requirements:auth",
     "FR-03 Counts Frontend Requirements": "frontend-requirements:counts",
@@ -455,6 +456,7 @@
     "F-43": "feature:build-deploy",
     "FD-04": "frontend-delivery:account",
     "FD-05": "frontend-delivery:auth",
+    "FD-06": "frontend-delivery:counts",
     "FR-01": "frontend-requirements:account",
     "FR-02": "frontend-requirements:auth",
     "FR-03": "frontend-requirements:counts",
@@ -1350,6 +1352,7 @@
         "backend-integration:ring-members",
         "backend-integration:ring-projection",
         "backend-integration:rings",
+        "frontend-delivery:counts",
         "frontend-requirements:badge-qr",
         "frontend-requirements:cleanup-jobs",
         "frontend-requirements:companies",
@@ -2199,6 +2202,7 @@
         "backend-integration:counts",
         "backend-integration:rings",
         "frontend-delivery:auth",
+        "frontend-delivery:counts",
         "frontend-requirements:account",
         "frontend-requirements:app-shell",
         "frontend-requirements:auth",
@@ -2249,6 +2253,7 @@
         "backend-delivery:rings",
         "backend-integration:counts",
         "backend-integration:rings",
+        "frontend-delivery:counts",
         "frontend-requirements:cleanup-jobs",
         "frontend-requirements:companies",
         "frontend-requirements:counts",
@@ -2465,6 +2470,7 @@
         "backend-delivery:rings",
         "backend-integration:counts",
         "backend-integration:rings",
+        "frontend-delivery:counts",
         "frontend-requirements:counts"
       ],
       "owner": null
@@ -3894,6 +3900,7 @@
         "backend-integration:counts",
         "feature:counts",
         "feature:pincast",
+        "frontend-delivery:counts",
         "frontend-requirements:connections",
         "frontend-requirements:counts",
         "frontend-requirements:pincast",
@@ -3913,6 +3920,7 @@
         "backend-delivery:counts",
         "backend-integration:counts",
         "feature:counts",
+        "frontend-delivery:counts",
         "frontend-requirements:counts",
         "story:counts"
       ],
@@ -3952,6 +3960,7 @@
         "feature:counts",
         "feature:files",
         "feature:ring-projection",
+        "frontend-delivery:counts",
         "frontend-requirements:companies",
         "frontend-requirements:counts",
         "frontend-requirements:files",
@@ -4017,6 +4026,7 @@
         "feature:ring-access",
         "feature:ring-members",
         "feature:rings",
+        "frontend-delivery:counts",
         "frontend-requirements:counts",
         "frontend-requirements:ring-access",
         "frontend-requirements:ring-members",
@@ -4051,6 +4061,7 @@
         "feature:ring-access",
         "feature:ring-invitations",
         "feature:rings",
+        "frontend-delivery:counts",
         "frontend-requirements:connections",
         "frontend-requirements:counts",
         "frontend-requirements:ring-access",
@@ -5037,6 +5048,7 @@
         "feature:ring-projection",
         "frontend-delivery:account",
         "frontend-delivery:auth",
+        "frontend-delivery:counts",
         "frontend-requirements:account",
         "frontend-requirements:auth",
         "frontend-requirements:companies",
@@ -5193,7 +5205,7 @@
       "backend-integration": 11,
       "decision": 25,
       "feature": 41,
-      "frontend-delivery": 2,
+      "frontend-delivery": 3,
       "frontend-requirements": 39,
       "module": 8,
       "needs-decision": 28,
@@ -5206,19 +5218,19 @@
     "byLayer": {
       "backend": 58,
       "business": 149,
-      "frontend": 45,
+      "frontend": 46,
       "qa": 4,
       "shared": 10
     },
     "concepts": 255,
     "decisions": 28,
-    "edges": 5120,
+    "edges": 5138,
     "features": 41,
-    "layerNotes": 136,
+    "layerNotes": 137,
     "modules": 8,
-    "notes": 297,
+    "notes": 298,
     "partial": 7,
-    "placeholders": 149,
+    "placeholders": 148,
     "records": 25
   },
   "deadlines": {
@@ -6799,11 +6811,6 @@
       "to": "qa-frontend:connections"
     },
     {
-      "from": "frontend-delivery:counts",
-      "kind": "blocks",
-      "to": "qa-frontend:counts"
-    },
-    {
       "from": "frontend-delivery:delegated-admins",
       "kind": "blocks",
       "to": "qa-frontend:delegated-admins"
@@ -7509,6 +7516,11 @@
       "to": "backend-integration:auth"
     },
     {
+      "from": "frontend-delivery:counts",
+      "kind": "depends",
+      "to": "backend-integration:counts"
+    },
+    {
       "from": "frontend-requirements:companies",
       "kind": "depends",
       "to": "story:companies"
@@ -7717,6 +7729,11 @@
       "from": "backend-integration:auth",
       "kind": "flow",
       "to": "frontend-delivery:auth"
+    },
+    {
+      "from": "backend-integration:counts",
+      "kind": "flow",
+      "to": "frontend-delivery:counts"
     },
     {
       "from": "frontend-delivery:account",
@@ -8695,6 +8712,17 @@
       "to": "frontend-delivery:auth",
       "via": [
         "GET /rings"
+      ]
+    },
+    {
+      "from": "backend-delivery:counts",
+      "kind": "related",
+      "to": "frontend-delivery:counts",
+      "via": [
+        "E_RING_02",
+        "GET /rings",
+        "GET /rings/:id",
+        "GET /rings/shared-with-me/count"
       ]
     },
     {
@@ -10040,6 +10068,17 @@
       "to": "frontend-delivery:auth",
       "via": [
         "GET /rings"
+      ]
+    },
+    {
+      "from": "backend-integration:counts",
+      "kind": "related",
+      "to": "frontend-delivery:counts",
+      "via": [
+        "E_RING_02",
+        "GET /rings",
+        "GET /rings/:id",
+        "GET /rings/shared-with-me/count"
       ]
     },
     {
@@ -13094,6 +13133,36 @@
       "to": "story:profiles"
     },
     {
+      "from": "frontend-delivery:counts",
+      "kind": "related",
+      "to": "backend-integration:rings"
+    },
+    {
+      "from": "frontend-delivery:counts",
+      "kind": "related",
+      "to": "decision:D-14"
+    },
+    {
+      "from": "frontend-delivery:counts",
+      "kind": "related",
+      "to": "frontend-delivery:account"
+    },
+    {
+      "from": "frontend-delivery:counts",
+      "kind": "related",
+      "to": "frontend-requirements:counts"
+    },
+    {
+      "from": "frontend-delivery:counts",
+      "kind": "related",
+      "to": "story:connections"
+    },
+    {
+      "from": "frontend-delivery:counts",
+      "kind": "related",
+      "to": "story:counts"
+    },
+    {
       "from": "frontend-requirements:auth",
       "kind": "related",
       "to": "decision:D-06"
@@ -13295,6 +13364,15 @@
       "kind": "related",
       "to": "frontend-delivery:auth",
       "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-requirements:companies",
+      "kind": "related",
+      "to": "frontend-delivery:counts",
+      "via": [
+        "E_RING_02",
         "GET /rings"
       ]
     },
@@ -13953,6 +14031,15 @@
       "kind": "related",
       "to": "frontend-delivery:auth",
       "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-requirements:connections",
+      "kind": "related",
+      "to": "frontend-delivery:counts",
+      "via": [
+        "E_RING_02",
         "GET /rings"
       ]
     },
@@ -15448,6 +15535,14 @@
     {
       "from": "frontend-requirements:photo-library",
       "kind": "related",
+      "to": "frontend-delivery:counts",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "frontend-requirements:photo-library",
+      "kind": "related",
       "to": "frontend-requirements:account",
       "via": [
         "GET /rings/:ringId/projection"
@@ -16296,6 +16391,14 @@
     {
       "from": "frontend-requirements:ring-access",
       "kind": "related",
+      "to": "frontend-delivery:counts",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "frontend-requirements:ring-access",
+      "kind": "related",
       "to": "frontend-requirements:badge-qr",
       "via": [
         "E_RING_02",
@@ -16867,6 +16970,15 @@
     {
       "from": "frontend-requirements:ring-members",
       "kind": "related",
+      "to": "frontend-delivery:counts",
+      "via": [
+        "E_RING_02",
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-requirements:ring-members",
+      "kind": "related",
       "to": "frontend-requirements:account",
       "via": [
         "GET /rings"
@@ -17369,6 +17481,14 @@
       "to": "frontend-delivery:account",
       "via": [
         "GET /profiles"
+      ]
+    },
+    {
+      "from": "frontend-requirements:ring-projection",
+      "kind": "related",
+      "to": "frontend-delivery:counts",
+      "via": [
+        "E_RING_02"
       ]
     },
     {
@@ -18110,6 +18230,14 @@
       "from": "frontend-requirements:view-as",
       "kind": "related",
       "to": "frontend-delivery:auth",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-requirements:view-as",
+      "kind": "related",
+      "to": "frontend-delivery:counts",
       "via": [
         "GET /rings"
       ]
@@ -35669,6 +35797,11 @@
       "to": "feature:rings"
     },
     {
+      "from": "frontend-delivery:counts",
+      "kind": "wikilink",
+      "to": "feature:ring-members"
+    },
+    {
       "from": "frontend-requirements:account",
       "kind": "wikilink",
       "to": "feature:profiles"
@@ -37072,6 +37205,11 @@
       "from": "module:identity",
       "kind": "wikilink",
       "to": "frontend-delivery:auth"
+    },
+    {
+      "from": "module:identity",
+      "kind": "wikilink",
+      "to": "frontend-delivery:counts"
     },
     {
       "from": "module:identity",
@@ -40491,6 +40629,10 @@
       "name": "BI-14 Counts Backend Integration",
       "type": "backend-integration"
     },
+    "social-pin/modules/Identity Core/features/Counts/flow/FD-06 Counts Frontend Delivery.md": {
+      "name": "FD-06 Counts Frontend Delivery",
+      "type": "frontend-delivery"
+    },
     "social-pin/modules/Identity Core/features/Counts/flow/FR-03 Counts Frontend Requirements.md": {
       "name": "FR-03 Counts Frontend Requirements",
       "type": "frontend-requirements"
@@ -42081,6 +42223,7 @@
         "qa-backend:auth",
         "story:auth",
         "backend-integration:counts",
+        "frontend-delivery:counts",
         "frontend-requirements:counts",
         "story:counts",
         "backend-delivery:profiles",
@@ -44605,6 +44748,7 @@
         "frontend-requirements:auth",
         "qa-backend:auth",
         "story:auth",
+        "frontend-delivery:counts",
         "frontend-requirements:counts",
         "backend-delivery:profiles",
         "frontend-requirements:ring-members",
@@ -46100,6 +46244,7 @@
         "frontend-requirements:connections",
         "backend-delivery:counts",
         "backend-integration:counts",
+        "frontend-delivery:counts",
         "frontend-requirements:files",
         "qa-backend:files",
         "frontend-requirements:photo-library",
@@ -47043,6 +47188,7 @@
         "story:connections",
         "backend-delivery:counts",
         "backend-integration:counts",
+        "frontend-delivery:counts",
         "frontend-requirements:counts",
         "story:counts",
         "frontend-requirements:ring-access",
@@ -48891,7 +49037,8 @@
       "rollup": {
         "approved": 2,
         "current": 1,
-        "missing": 3,
+        "done": 1,
+        "missing": 2,
         "partial": 1
       },
       "scope": null,
@@ -51404,6 +51551,7 @@
         "backend-integration:auth",
         "frontend-delivery:auth",
         "qa-backend:auth",
+        "frontend-delivery:counts",
         "frontend-requirements:profiles",
         "frontend-requirements:ring-projection",
         "frontend-requirements:error-contract",
@@ -51898,19 +52046,25 @@
     "frontend-delivery:counts": {
       "affects": [],
       "blockedBy": [],
-      "card": null,
+      "card": "FD-06",
       "children": [],
       "code": "counts",
-      "created": null,
+      "created": "2026-11-05",
       "deadline": null,
-      "depends": [],
-      "effectiveStatus": "missing",
+      "depends": [
+        "backend-integration:counts"
+      ],
+      "deployedTo": [],
+      "effectiveStatus": "done",
       "effort": null,
       "feature": "counts",
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-delivery:counts",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:counts",
+        "release": "feature:counts"
+      },
       "kind": "frontend-delivery",
       "label": "Frontend Delivery",
       "labels": [],
@@ -51921,21 +52075,49 @@
       "parents": [
         "feature:counts"
       ],
-      "path": null,
+      "path": "social-pin/modules/Identity Core/features/Counts/flow/FD-06 Counts Frontend Delivery.md",
       "pending": [],
-      "priority": null,
-      "related": [],
-      "release": null,
+      "priority": "critical",
+      "related": [
+        "frontend-requirements:connections",
+        "backend-delivery:counts",
+        "backend-integration:counts",
+        "frontend-requirements:counts",
+        "story:counts",
+        "backend-integration:rings",
+        "decision:D-14",
+        "story:connections",
+        "frontend-delivery:account",
+        "frontend-requirements:photo-library",
+        "frontend-requirements:ring-access",
+        "frontend-requirements:ring-members",
+        "frontend-requirements:ring-projection",
+        "frontend-requirements:view-as",
+        "frontend-requirements:companies"
+      ],
+      "release": "mvp",
+      "resolution": null,
       "scope": "feature",
-      "screens": [],
-      "status": null,
-      "summary": "Not written yet. Create it with: node scripts/build-tree.mjs --scaffold frontend-delivery counts",
-      "tags": [],
+      "screens": [
+        "s11",
+        "s12",
+        "s14",
+        "s16",
+        "s17",
+        "s68"
+      ],
+      "status": "done",
+      "summary": "What the client shipped for the numbers on Home, the Ring picker, My Rings, Shared with me, Ring data and Me, on socialpin rings/F-11/honest-rings @ f2c2ad5 (2026-11-05), not on main yet. Every…",
+      "tags": [
+        "frontend-delivery",
+        "frontend-delivery/done",
+        "module/identity",
+        "layer/frontend"
+      ],
       "task": null,
-      "template": "templates/Frontend Delivery Template.md",
-      "title": "Counts Frontend Delivery",
+      "title": "FD-06 Counts Frontend Delivery",
       "unmet": [],
-      "updated": null
+      "updated": "2026-11-05"
     },
     "frontend-delivery:delegated-admins": {
       "affects": [],
@@ -53930,6 +54112,7 @@
         "frontend-delivery:auth",
         "frontend-requirements:auth",
         "story:auth",
+        "frontend-delivery:counts",
         "frontend-requirements:counts",
         "story:counts",
         "backend-delivery:profiles",
@@ -54092,6 +54275,7 @@
         "story:auth",
         "backend-delivery:counts",
         "backend-integration:counts",
+        "frontend-delivery:counts",
         "story:counts",
         "backend-delivery:profiles",
         "frontend-requirements:ring-projection",
@@ -54202,6 +54386,7 @@
         "frontend-requirements:connections",
         "backend-delivery:counts",
         "backend-integration:counts",
+        "frontend-delivery:counts",
         "decision:D-04",
         "decision:D-14",
         "feature:rings",
@@ -55524,6 +55709,7 @@
         "frontend-requirements:event-ring-auto",
         "frontend-requirements:exhibitor",
         "frontend-requirements:post-event",
+        "frontend-delivery:counts",
         "frontend-requirements:counts",
         "frontend-requirements:ring-access",
         "backend-integration:ring-members",
@@ -55917,6 +56103,7 @@
         "backend-integration:ring-members",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-members",
+        "frontend-delivery:counts",
         "frontend-requirements:cleanup-jobs",
         "backend-delivery:error-contract",
         "project:agent-rules",
@@ -56099,6 +56286,7 @@
         "frontend-requirements:auth",
         "qa-backend:auth",
         "story:auth",
+        "frontend-delivery:counts",
         "frontend-requirements:counts",
         "backend-delivery:profiles",
         "frontend-requirements:ring-projection",
@@ -56257,6 +56445,7 @@
         "frontend-requirements:delegated-admins",
         "story:delegated-admins",
         "frontend-requirements:pincast",
+        "frontend-delivery:counts",
         "frontend-requirements:counts",
         "frontend-requirements:cleanup-jobs",
         "backend-delivery:error-contract",
@@ -56568,6 +56757,7 @@
         "frontend-delivery:auth",
         "frontend-requirements:auth",
         "story:auth",
+        "frontend-delivery:counts",
         "frontend-requirements:counts",
         "story:counts",
         "backend-delivery:profiles",
@@ -57164,10 +57354,10 @@
         "current": 9,
         "decided": 9,
         "delivered": 4,
-        "done": 15,
+        "done": 16,
         "draft": 2,
         "in-progress": 13,
-        "missing": 35,
+        "missing": 34,
         "needs-decision": 2,
         "partial": 7,
         "passing": 3,
@@ -63599,13 +63789,7 @@
     },
     "qa-frontend:counts": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "frontend-delivery:counts",
-          "title": "Counts Frontend Delivery",
-          "why": "Counts Frontend Delivery is not written yet"
-        }
-      ],
+      "blockedBy": [],
       "card": null,
       "children": [],
       "code": "counts",
@@ -65160,10 +65344,10 @@
         "current": 9,
         "decided": 25,
         "delivered": 4,
-        "done": 16,
+        "done": 17,
         "draft": 28,
         "in-progress": 47,
-        "missing": 149,
+        "missing": 148,
         "needs-decision": 2,
         "partial": 7,
         "passing": 3,
@@ -65843,6 +66027,7 @@
         "project:ring-access-model",
         "backend-delivery:counts",
         "backend-integration:counts",
+        "frontend-delivery:counts",
         "frontend-requirements:counts",
         "frontend-requirements:files",
         "qa-backend:files",
@@ -65928,6 +66113,7 @@
         "frontend-delivery:account",
         "backend-delivery:counts",
         "backend-integration:counts",
+        "frontend-delivery:counts",
         "decision:D-04",
         "decision:D-14",
         "frontend-requirements:ring-access",
