@@ -3,16 +3,18 @@ id: FR-11
 type: frontend-requirements
 module: identity
 feature: rings
-status: ready
+status: approved
 scope: feature
 screens: [s08, s09, s16, s17, s18, s19, s20, s21, s22, s26, s27, s62]
+approvedBy: "khaled"
+approvedAt: 2026-11-05
 owner: "Omar Fostok"
 depends: ["S-18 Rings Story"]
 affects: ["BD-11 Rings Backend Delivery"]
 related: ["D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-18 Ring names shown when joined knowingly", "S-15 Ring Access Engine Story", "FR-08 Ring Access Engine Frontend Requirements", "GET /rings/shared-with-me", "PATCH /rings/:id", "POST /rings"]
 created: 2026-10-18
-updated: 2026-10-29
-tags: [frontend-requirements, frontend-requirements/ready, module/identity, layer/frontend]
+updated: 2026-11-05
+tags: [frontend-requirements, frontend-requirements/approved, module/identity, layer/frontend]
 ---
 
 # Rings · Frontend Requirements
@@ -21,7 +23,7 @@ tags: [frontend-requirements, frontend-requirements/ready, module/identity, laye
 
 > ⚠ Affected by [[S-23 Connections Story]] (2026-11-04): S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
 
-**Feature:** [[F-11 Rings]] · **Status:** 📨 Ready 2026-10-29, waiting on the backend's review · **Story:** [[S-18 Rings Story]] · **Backend Integration:** [[BI-08 Rings Backend Integration]]
+**Feature:** [[F-11 Rings]] · **Status:** Approved 2026-11-05 by khaled · **Story:** [[S-18 Rings Story]] · **Backend Integration:** [[BI-08 Rings Backend Integration]]
 
 What the client needs from the backend to build the Ring lists, the create wizard, the edit screens and the post-event choice, and whether each need is met today. Field rules, enums and the disposition semantics are in [[BI-08 Rings Backend Integration]].
 
@@ -40,7 +42,7 @@ What the client needs from the backend to build the Ring lists, the create wizar
 - A row: name, colour, the purpose or what it shows in a few words, "DEFAULT" on the default, "EVENT" and "expires <date>" on a temporary Ring, "expired" chip; "**N people**" (not "connections") once counts exist.
 - **No make-default or delete on the list** (both on s26).
 - States: list, empty, expired chip, temporary badge, default mark.
-- Source today: `GET /rings`. Member count: not yet. Purpose: not yet (S9).
+- Source today: `GET /rings`. Member count: `memberCount` on each owned Ring ✅. Purpose: not yet (S9).
 
 ### [[Screen Index#s17|s17]] Shared with me
 
@@ -110,7 +112,7 @@ What the client needs from the backend to build the Ring lists, the create wizar
 | Keep / merge / let it go | `POST /rings/:id/disposition` | ✅ | — |
 | Delete | `DELETE /rings/:id` | ✅ | — |
 | Open a shared Ring's projection | `GET /views/ring/:ringId` | ✅ | — (listed under [[F-12 View As & Pin Views]]) |
-| "N people" on list and detail | — | ❌ | [[S-03 Counts Story|Counts · S6–S10]] |
+| "N people" on list and detail | `GET /rings` → `data[].memberCount`, `GET /rings/:id` → `memberCount` | ✅ | [[S-03 Counts Story|Counts · S6–S10]] |
 | **The six launch settings** (who it's for, who can request to join, approve each one, members can see each other, members can invite, members can save attachments): save and read each on a Ring, D-04's defaults on a new Ring, owner and admins may change them (s19, s22, s26, s27) | `POST /rings`, `PATCH /rings/:id`, `GET /rings/:id` | ❌ | [[S-18 Rings Story\|Rings · S9]] ([[D-04 Ring settings at launch and their defaults]]) |
 | **Copy a Ring** (s18 "Copy an existing Ring"): a new Ring with the source's settings, what it shows (the same library items switched on, [[S-17 Ring Projection Story\|Ring Projection · S9]]), bio, photo and colour, **never its members**, in one call | — | ❌ | [[S-18 Rings Story\|Rings · S4]] ([[D-05 Inherit per field, copy without members]]) |
 | **Refuse a temporary Ring as the default** (`POST /rings/:id/default` on an `isTemporary` Ring) | `POST /rings/:id/default` | ❌ | [[S-18 Rings Story\|Rings · S7]] |
