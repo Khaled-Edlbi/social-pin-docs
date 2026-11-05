@@ -6,8 +6,10 @@ feature: rings
 status: done
 scope: feature
 screens: [s08, s09, s16, s17, s18, s19, s20, s21, s22, s26, s62]
+related: ["BD-03 Counts Backend Delivery", "GET /rings/shared-with-me"]
+pending: ["[[BI-08 Rings Backend Integration]]: GET /rings/shared-with-me does not drop a Ring whose owner and the caller have blocked each other; fixed on the backend branch FR-03/ring/shared-with-me-blocks (0747754, stacked on FR-03/ring/shared-people-count) and waits on its merge to main"]
 created: 2026-10-15
-updated: 2026-10-29
+updated: 2026-11-05
 tags: [backend-delivery, backend-delivery/done, module/identity, layer/backend]
 ---
 
@@ -40,7 +42,7 @@ What the backend shipped for this feature and how it works. The sum of this feat
 
 ## How it works
 
-`RingService` owns the lifecycle; every permission question goes to `RingAccessService`. `POST /rings` defaults the type to `PERSONAL`, rejects `EVENT` / `MINI_EVENT` / `MEETING` (400 `E_RING_01`, their own flows create them with a context behind them), checks the per-owner name clash and inserts in one transaction (409 `E_RING_01`), requires `parentRingId` and `profileId` to be the caller's own (400 `E_RING_06` / `E_RING_08`) and falls back to the default profile. `GET /rings` is scoped by `RingQueryBuilderService` (`name`, `type`, `status`, `isTemporary`; `deletedAt: null` in `defaultQuery`), default first then newest. `GET /rings/shared-with-me` applies `ringLiveFilter` **and** `membershipLiveFilter` from the engine, so only Rings the caller can read right now appear, newest first. `PATCH /rings/:id` passes through `assertCanAdminister(…, 'CONTENT_MANAGER')`, which ignores the Ring's expiry so an expired Ring stays editable. `POST /rings/:id/default` demotes then promotes in one transaction (partial unique index: one default per owner). `POST /rings/:id/disposition` runs `UNDECIDED → KEEP | MERGE | AUTO_DELETE`: `KEEP` clears the expiry and the temporary flag; `MERGE` needs another Ring of the same owner (400 `E_RING_07`), upserts every active member into the target with their window (an expired row there is reactivated rather than skipped), marks the source rows `REMOVED` and the Ring `ARCHIVED` with `mergedIntoRingId`; `AUTO_DELETE` archives and sets `expiresAt` to now, leaving the purge to the retention job. `DELETE /rings/:id` is a soft delete and refuses the default (409 `E_RING_04`), because a scanned QR needs one Ring that resolves. The backend never writes `RING_STATUS.EXPIRED`; expiry is evaluated live from the timestamps.
+`RingService` owns the lifecycle; every permission question goes to `RingAccessService`. `POST /rings` defaults the type to `PERSONAL`, rejects `EVENT` / `MINI_EVENT` / `MEETING` (400 `E_RING_01`, their own flows create them with a context behind them), checks the per-owner name clash and inserts in one transaction (409 `E_RING_01`), requires `parentRingId` and `profileId` to be the caller's own (400 `E_RING_06` / `E_RING_08`) and falls back to the default profile. `GET /rings` is scoped by `RingQueryBuilderService` (`name`, `type`, `status`, `isTemporary`; `deletedAt: null` in `defaultQuery`), default first then newest. `GET /rings/shared-with-me` applies `ringLiveFilter` **and** `membershipLiveFilter` from the engine, so only Rings the caller can read right now appear, newest first; on `main` it does **not** yet apply the block rule (a Ring whose owner and the caller blocked each other still appears while the membership row is live): the fix, `RingAccessService.sharedWithFilter`, is on a branch (see *Gaps*). `PATCH /rings/:id` passes through `assertCanAdminister(…, 'CONTENT_MANAGER')`, which ignores the Ring's expiry so an expired Ring stays editable. `POST /rings/:id/default` demotes then promotes in one transaction (partial unique index: one default per owner). `POST /rings/:id/disposition` runs `UNDECIDED → KEEP | MERGE | AUTO_DELETE`: `KEEP` clears the expiry and the temporary flag; `MERGE` needs another Ring of the same owner (400 `E_RING_07`), upserts every active member into the target with their window (an expired row there is reactivated rather than skipped), marks the source rows `REMOVED` and the Ring `ARCHIVED` with `mergedIntoRingId`; `AUTO_DELETE` archives and sets `expiresAt` to now, leaving the purge to the retention job. `DELETE /rings/:id` is a soft delete and refuses the default (409 `E_RING_04`), because a scanned QR needs one Ring that resolves. The backend never writes `RING_STATUS.EXPIRED`; expiry is evaluated live from the timestamps.
 
 ### What exists
 
@@ -51,7 +53,8 @@ What the backend shipped for this feature and how it works. The sum of this feat
 
 ### Gaps
 
-- Lists carry no member counts ("148 people"). See [[F-03 Counts]].
+- Lists carry no member counts ("148 people") on `main`; built on a branch, see [[BD-03 Counts Backend Delivery]].
+- `GET /rings/shared-with-me` ignores blocks on `main`. Fixed on the backend branch `FR-03/ring/shared-with-me-blocks`: one filter in the access engine (`sharedWithFilter`: live Ring, live membership, no block either way, never your own Ring) for the list, its `meta.total` and the people count of [[BD-03 Counts Backend Delivery]]. Waits on the merge.
 - The create wizard's step 2 (who is in it, s19) and the Access / Permissions screens (s26, s27) need Ring settings the schema does not have. See [[ND-04 Ring settings]].
 - "Copy a Ring" when creating (s18) has no endpoint. See [[ND-05 Copy or inherit]].
 - The sweeper that materialises `RING_STATUS.EXPIRED` and purges `AUTO_DELETE` Rings is not written. See [[F-31 Cleanup Jobs]].
@@ -59,3 +62,4 @@ What the backend shipped for this feature and how it works. The sum of this feat
 ## Log
 
 - 2026-10-18 · split out of [[F-11 Rings]] when the vault moved to layers
+- 2026-11-05 · found while building [[BD-03 Counts Backend Delivery]]: `GET /rings/shared-with-me` lists a Ring whose owner and the caller have blocked each other, though [[BI-08 Rings Backend Integration]] says it does not. Fixed on the backend branch `FR-03/ring/shared-with-me-blocks` (`0747754`, stacked on `FR-03/ring/shared-people-count`), pushed, **not merged**: `RingAccessService.sharedWithFilter` is the one definition of "shared with me", used by the list, its total and the people count. Specs: `ring-access.service.spec.ts`, `ring.service.spec.ts`; 288 tests pass; checked on a local PostgreSQL inside a rolled-back transaction (a block takes the Ring off the list and the person off the count). No contract change. This note stays `done`, Partial, with the merge in `pending`. BI-08's line corrected to say what `main` does; flagged nothing.
