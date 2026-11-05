@@ -269,6 +269,7 @@
     "QB-04 Account QA Backend": "qa-backend:account",
     "QB-05 Auth & Sign-up QA Backend": "qa-backend:auth",
     "QB-06 Files Upload QA Backend": "qa-backend:files",
+    "QB-09 Ring Access Engine QA Backend": "qa-backend:ring-access",
     "QF-04 Account QA Frontend": "qa-frontend:account",
     "Ring Access Model": "project:ring-access-model",
     "S-01 Account Story": "story:account",
@@ -567,6 +568,7 @@
     "QB-04": "qa-backend:account",
     "QB-05": "qa-backend:auth",
     "QB-06": "qa-backend:files",
+    "QB-09": "qa-backend:ring-access",
     "QF-04": "qa-frontend:account",
     "S-01": "story:account",
     "S-02": "story:auth",
@@ -725,6 +727,7 @@
         "frontend-requirements:ring-projection",
         "frontend-requirements:rings",
         "project:status-report-2026-10-15",
+        "qa-backend:ring-access",
         "story:delegated-admins",
         "story:error-contract",
         "story:rings"
@@ -743,6 +746,7 @@
     },
     "DELETE /rings/:ringId/members/:userId": {
       "containers": [
+        "feature:ring-access",
         "feature:ring-members"
       ],
       "kind": "endpoint",
@@ -750,6 +754,7 @@
         "backend-delivery:ring-members",
         "backend-integration:ring-members",
         "frontend-requirements:ring-members",
+        "qa-backend:ring-access",
         "story:ring-members"
       ],
       "owner": "feature:ring-members"
@@ -1407,6 +1412,7 @@
         "project:docs-tree",
         "project:frontend-agent-prompt",
         "qa-backend:files",
+        "qa-backend:ring-access",
         "story:badge-qr",
         "story:connections",
         "story:delegated-admins"
@@ -1466,6 +1472,7 @@
         "frontend-requirements:rings",
         "frontend-requirements:widgets",
         "qa-backend:files",
+        "qa-backend:ring-access",
         "story:companies",
         "story:connections",
         "story:delegated-admins",
@@ -2245,6 +2252,7 @@
         "feature:pincast",
         "feature:post-event",
         "feature:profiles",
+        "feature:ring-access",
         "feature:ring-members",
         "feature:ring-projection",
         "feature:rings",
@@ -2285,6 +2293,7 @@
         "project:status-report-2026-10-15",
         "qa-backend:account",
         "qa-backend:auth",
+        "qa-backend:ring-access",
         "story:auth",
         "story:connections",
         "story:counts",
@@ -2306,6 +2315,7 @@
         "feature:events-during",
         "feature:meetings",
         "feature:post-event",
+        "feature:ring-access",
         "feature:ring-projection",
         "feature:rings"
       ],
@@ -2326,6 +2336,7 @@
         "frontend-requirements:post-event",
         "frontend-requirements:ring-projection",
         "frontend-requirements:rings",
+        "qa-backend:ring-access",
         "story:counts",
         "story:delegated-admins",
         "story:post-event"
@@ -2361,6 +2372,7 @@
       "containers": [
         "feature:companies",
         "feature:counts",
+        "feature:ring-access",
         "feature:ring-members"
       ],
       "kind": "endpoint",
@@ -2369,6 +2381,7 @@
         "backend-integration:ring-members",
         "frontend-requirements:companies",
         "frontend-requirements:ring-members",
+        "qa-backend:ring-access",
         "story:companies",
         "story:counts"
       ],
@@ -2415,6 +2428,7 @@
         "feature:connections",
         "feature:files",
         "feature:photo-library",
+        "feature:ring-access",
         "feature:ring-projection",
         "feature:view-as",
         "feature:widgets",
@@ -2434,6 +2448,7 @@
         "frontend-requirements:view-as",
         "frontend-requirements:widgets",
         "qa-backend:files",
+        "qa-backend:ring-access",
         "story:files",
         "story:ring-projection",
         "story:widgets",
@@ -2514,6 +2529,7 @@
         "project:frontend-contract",
         "project:spec-map",
         "project:status-report-2026-10-15",
+        "qa-backend:ring-access",
         "story:companies",
         "story:counts",
         "story:ring-invitations",
@@ -2776,6 +2792,7 @@
         "project:frontend-contract",
         "project:status-report-2026-10-15",
         "qa-backend:files",
+        "qa-backend:ring-access",
         "story:connections",
         "story:discover-hub",
         "story:view-as",
@@ -2783,15 +2800,37 @@
       ],
       "owner": "feature:view-as"
     },
+    "GET /views/pin/NoSuchPin": {
+      "containers": [
+        "feature:ring-access"
+      ],
+      "kind": "endpoint",
+      "notes": [
+        "qa-backend:ring-access"
+      ],
+      "owner": null
+    },
+    "GET /views/pin/OmarK": {
+      "containers": [
+        "feature:ring-access"
+      ],
+      "kind": "endpoint",
+      "notes": [
+        "qa-backend:ring-access"
+      ],
+      "owner": null
+    },
     "GET /views/pin/SaraAz": {
       "containers": [
         "feature:files",
+        "feature:ring-access",
         "project:developer-setup"
       ],
       "kind": "endpoint",
       "notes": [
         "project:developer-setup",
-        "qa-backend:files"
+        "qa-backend:files",
+        "qa-backend:ring-access"
       ],
       "owner": null
     },
@@ -2886,6 +2925,7 @@
         "project:ring-access-model",
         "project:spec-map",
         "project:status-report-2026-10-15",
+        "qa-backend:ring-access",
         "story:badge-qr",
         "story:companies",
         "story:event-ring-auto",
@@ -2940,6 +2980,7 @@
         "project:frontend-contract",
         "project:spec-map",
         "project:status-report-2026-10-15",
+        "qa-backend:ring-access",
         "story:connections",
         "story:pincast",
         "story:view-as"
@@ -3024,6 +3065,7 @@
         "frontend-requirements:delegated-admins",
         "frontend-requirements:ring-access",
         "frontend-requirements:rings",
+        "qa-backend:ring-access",
         "story:delegated-admins",
         "story:ring-access",
         "story:rings"
@@ -3058,6 +3100,7 @@
         "feature:files",
         "feature:photo-library",
         "feature:profiles",
+        "feature:ring-access",
         "feature:ring-projection",
         "project:spec-map",
         "project:status-report-2026-10-15",
@@ -3076,6 +3119,7 @@
         "frontend-requirements:ring-projection",
         "project:spec-map",
         "project:status-report-2026-10-15",
+        "qa-backend:ring-access",
         "story:ring-projection",
         "task:B-08"
       ],
@@ -3563,12 +3607,14 @@
     },
     "POST /rings/:id/copy": {
       "containers": [
+        "feature:ring-access",
         "feature:rings"
       ],
       "kind": "endpoint",
       "notes": [
         "backend-delivery:rings",
-        "backend-integration:rings"
+        "backend-integration:rings",
+        "qa-backend:ring-access"
       ],
       "owner": "feature:rings"
     },
@@ -3587,6 +3633,7 @@
         "frontend-requirements:rings",
         "project:frontend-contract",
         "project:spec-map",
+        "qa-backend:ring-access",
         "story:rings"
       ],
       "owner": "feature:rings"
@@ -3617,6 +3664,7 @@
         "project:frontend-contract",
         "project:spec-map",
         "project:status-report-2026-10-15",
+        "qa-backend:ring-access",
         "story:meetings",
         "story:post-event"
       ],
@@ -3627,6 +3675,7 @@
         "decision:D-14",
         "decision:D-15",
         "feature:connections",
+        "feature:ring-access",
         "feature:ring-members",
         "feature:rings",
         "needs-decision:ND-14",
@@ -3644,12 +3693,14 @@
         "needs-decision:ND-14",
         "needs-decision:ND-15",
         "project:spec-map",
+        "qa-backend:ring-access",
         "story:connections"
       ],
       "owner": "feature:ring-members"
     },
     "POST /rings/:ringId/members/:userId/reassign": {
       "containers": [
+        "feature:ring-access",
         "feature:ring-members",
         "project:spec-map"
       ],
@@ -3657,7 +3708,8 @@
       "notes": [
         "backend-delivery:ring-members",
         "backend-integration:ring-members",
-        "project:spec-map"
+        "project:spec-map",
+        "qa-backend:ring-access"
       ],
       "owner": "feature:ring-members"
     },
@@ -4120,6 +4172,7 @@
         "needs-decision:ND-15",
         "needs-decision:ND-28",
         "needs-decision:ND-29",
+        "qa-backend:ring-access",
         "story:companies",
         "story:connections",
         "story:delegated-admins",
@@ -4151,6 +4204,7 @@
         "frontend-requirements:ring-access",
         "frontend-requirements:ring-members",
         "frontend-requirements:rings",
+        "qa-backend:ring-access",
         "story:counts",
         "story:delegated-admins",
         "story:ring-access",
@@ -4190,6 +4244,7 @@
         "needs-decision:ND-14",
         "needs-decision:ND-18",
         "needs-decision:ND-25",
+        "qa-backend:ring-access",
         "story:connections",
         "story:counts",
         "story:ring-access",
@@ -4387,6 +4442,7 @@
         "frontend-requirements:ring-access",
         "frontend-requirements:rings",
         "needs-decision:ND-04",
+        "qa-backend:ring-access",
         "story:companies",
         "story:delegated-admins",
         "story:ring-access",
@@ -4411,6 +4467,7 @@
         "frontend-requirements:ring-access",
         "frontend-requirements:rings",
         "needs-decision:ND-04",
+        "qa-backend:ring-access",
         "story:delegated-admins",
         "story:ring-access",
         "story:rings"
@@ -4741,6 +4798,7 @@
         "needs-decision:ND-22",
         "needs-decision:ND-24",
         "qa-backend:files",
+        "qa-backend:ring-access",
         "story:badge-qr",
         "story:connections",
         "story:files",
@@ -4822,6 +4880,7 @@
         "needs-decision:ND-25",
         "needs-decision:ND-26",
         "needs-decision:ND-29",
+        "qa-backend:ring-access",
         "story:connections",
         "story:ring-access",
         "story:ring-members"
@@ -5058,6 +5117,7 @@
         "frontend-requirements:ring-access",
         "frontend-requirements:rings",
         "frontend-requirements:view-as",
+        "qa-backend:ring-access",
         "story:connections",
         "story:post-event",
         "story:ring-access",
@@ -5341,7 +5401,7 @@
       "module": 8,
       "needs-decision": 28,
       "project": 28,
-      "qa-backend": 3,
+      "qa-backend": 4,
       "qa-frontend": 1,
       "story": 41,
       "task": 8
@@ -5350,18 +5410,18 @@
       "backend": 58,
       "business": 150,
       "frontend": 47,
-      "qa": 4,
+      "qa": 5,
       "shared": 10
     },
-    "concepts": 262,
+    "concepts": 264,
     "decisions": 28,
-    "edges": 5400,
+    "edges": 5495,
     "features": 41,
-    "layerNotes": 138,
+    "layerNotes": 139,
     "modules": 8,
-    "notes": 300,
+    "notes": 301,
     "partial": 11,
-    "placeholders": 147,
+    "placeholders": 146,
     "records": 26
   },
   "deadlines": {
@@ -7852,6 +7912,16 @@
       "to": "story:files"
     },
     {
+      "from": "qa-backend:ring-access",
+      "kind": "depends",
+      "to": "backend-delivery:ring-access"
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "depends",
+      "to": "story:ring-access"
+    },
+    {
       "from": "story:connections",
       "kind": "depends",
       "to": "decision:D-10"
@@ -7915,6 +7985,11 @@
       "from": "backend-delivery:ring-access",
       "kind": "flow",
       "to": "backend-integration:ring-access"
+    },
+    {
+      "from": "backend-delivery:ring-access",
+      "kind": "flow",
+      "to": "qa-backend:ring-access"
     },
     {
       "from": "backend-delivery:ring-members",
@@ -8172,6 +8247,11 @@
       "to": "story:files"
     },
     {
+      "from": "qa-backend:ring-access",
+      "kind": "flow",
+      "to": "story:ring-access"
+    },
+    {
       "from": "qa-frontend:account",
       "kind": "flow",
       "to": "story:account"
@@ -8415,6 +8495,16 @@
       "from": "backend-delivery:view-as",
       "kind": "pending",
       "to": "frontend-requirements:view-as"
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "pending",
+      "to": "backend-delivery:ring-access"
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "pending",
+      "to": "frontend-requirements:ring-access"
     },
     {
       "from": "qa-frontend:account",
@@ -9332,6 +9422,18 @@
     {
       "from": "backend-delivery:counts",
       "kind": "related",
+      "to": "qa-backend:ring-access",
+      "via": [
+        "E_RING_02",
+        "GET /rings",
+        "GET /rings/:id",
+        "GET /rings/shared-with-me",
+        "GET /rings/shared-with-me/count"
+      ]
+    },
+    {
+      "from": "backend-delivery:counts",
+      "kind": "related",
       "to": "story:auth",
       "via": [
         "GET /rings"
@@ -9990,6 +10092,14 @@
     {
       "from": "backend-delivery:profiles",
       "kind": "related",
+      "to": "qa-backend:ring-access",
+      "via": [
+        "PATCH /rings/:ringId/projection"
+      ]
+    },
+    {
+      "from": "backend-delivery:profiles",
+      "kind": "related",
       "to": "story:account",
       "via": [
         "GET /profiles"
@@ -10363,6 +10473,19 @@
       "via": [
         "GET /rings/shared-with-me",
         "GET /views/ring/:ringId"
+      ]
+    },
+    {
+      "from": "backend-delivery:ring-access",
+      "kind": "related",
+      "to": "qa-backend:ring-access",
+      "via": [
+        "E_RING_02",
+        "E_RING_05",
+        "GET /rings/shared-with-me",
+        "GET /rings/shared-with-me/count",
+        "GET /views/ring/:ringId",
+        "PATCH /rings/:id"
       ]
     },
     {
@@ -11935,6 +12058,18 @@
     {
       "from": "backend-integration:counts",
       "kind": "related",
+      "to": "qa-backend:ring-access",
+      "via": [
+        "E_RING_02",
+        "GET /rings",
+        "GET /rings/:id",
+        "GET /rings/shared-with-me",
+        "GET /rings/shared-with-me/count"
+      ]
+    },
+    {
+      "from": "backend-integration:counts",
+      "kind": "related",
       "to": "story:auth",
       "via": [
         "GET /rings"
@@ -12466,6 +12601,14 @@
     {
       "from": "backend-integration:photo-library",
       "kind": "related",
+      "to": "qa-backend:ring-access",
+      "via": [
+        "PATCH /rings/:ringId/projection"
+      ]
+    },
+    {
+      "from": "backend-integration:photo-library",
+      "kind": "related",
       "to": "story:files",
       "via": [
         "DELETE /files/:id",
@@ -12749,6 +12892,15 @@
         "GET /profiles/pin-name/:pinName/availability",
         "PATCH /rings/:ringId/projection",
         "POST /files"
+      ]
+    },
+    {
+      "from": "backend-integration:profiles",
+      "kind": "related",
+      "to": "qa-backend:ring-access",
+      "via": [
+        "GET /views/pin/:pinName",
+        "PATCH /rings/:ringId/projection"
       ]
     },
     {
@@ -16802,6 +16954,23 @@
     {
       "from": "frontend-requirements:connections",
       "kind": "related",
+      "to": "qa-backend:ring-access",
+      "via": [
+        "DELETE /rings/:ringId/members/:userId",
+        "E_RING_02",
+        "E_RING_05",
+        "GET /rings",
+        "GET /rings/:ringId/projection",
+        "GET /rings/shared-with-me",
+        "GET /views/pin/:pinName",
+        "GET /views/user/:userId/perspectives",
+        "POST /rings/:ringId/members",
+        "POST /rings/:ringId/members/:userId/reassign"
+      ]
+    },
+    {
+      "from": "frontend-requirements:connections",
+      "kind": "related",
       "to": "story:auth",
       "via": [
         "GET /rings"
@@ -17669,6 +17838,17 @@
     {
       "from": "frontend-requirements:files",
       "kind": "related",
+      "to": "qa-backend:ring-access",
+      "via": [
+        "E_RING_05",
+        "GET /rings/:ringId/projection",
+        "GET /views/ring/:ringId",
+        "PATCH /rings/:ringId/projection"
+      ]
+    },
+    {
+      "from": "frontend-requirements:files",
+      "kind": "related",
       "to": "story:companies",
       "via": [
         "E_RING_05"
@@ -18201,6 +18381,17 @@
       "via": [
         "PATCH /rings/:ringId/projection",
         "POST /files"
+      ]
+    },
+    {
+      "from": "frontend-requirements:photo-library",
+      "kind": "related",
+      "to": "qa-backend:ring-access",
+      "via": [
+        "E_RING_02",
+        "E_RING_05",
+        "GET /rings/:ringId/projection",
+        "PATCH /rings/:ringId/projection"
       ]
     },
     {
@@ -19102,6 +19293,23 @@
         "GET /views/pin/:pinName",
         "GET /views/ring/:ringId",
         "GET /views/user/:userId/perspectives"
+      ]
+    },
+    {
+      "from": "frontend-requirements:ring-access",
+      "kind": "related",
+      "to": "qa-backend:ring-access",
+      "via": [
+        "DELETE /rings/:id",
+        "E_RING_02",
+        "E_RING_05",
+        "GET /rings/shared-with-me",
+        "GET /views/pin/:pinName",
+        "GET /views/ring/:ringId",
+        "GET /views/user/:userId/perspectives",
+        "PATCH /rings/:id",
+        "POST /rings/:id/default",
+        "POST /rings/:id/disposition"
       ]
     },
     {
@@ -22986,6 +23194,18 @@
     {
       "from": "qa-backend:files",
       "kind": "related",
+      "to": "qa-backend:ring-access",
+      "via": [
+        "E_RING_02",
+        "E_RING_05",
+        "GET /rings/:ringId/projection",
+        "GET /views/pin/:pinName",
+        "PATCH /rings/:ringId/projection"
+      ]
+    },
+    {
+      "from": "qa-backend:files",
+      "kind": "related",
       "to": "story:companies",
       "via": [
         "E_RING_05"
@@ -23089,6 +23309,666 @@
       "from": "qa-backend:files",
       "kind": "related",
       "to": "task:B-06"
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "backend-delivery:badge-qr",
+      "via": [
+        "GET /views/ring/:ringId"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "backend-delivery:delegated-admins",
+      "via": [
+        "PATCH /rings/:id"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "backend-delivery:error-contract",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "backend-delivery:post-event",
+      "via": [
+        "POST /rings/:id/disposition"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "backend-delivery:ring-projection",
+      "via": [
+        "E_RING_02",
+        "E_RING_05",
+        "GET /rings/:ringId/projection",
+        "PATCH /rings/:ringId/projection"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "backend-delivery:rings",
+      "via": [
+        "DELETE /rings/:id",
+        "E_RING_02",
+        "GET /rings/shared-with-me",
+        "GET /rings/shared-with-me/count",
+        "GET /views/ring/:ringId",
+        "PATCH /rings/:id",
+        "POST /rings/:id/copy",
+        "POST /rings/:id/default",
+        "POST /rings/:id/disposition"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "backend-delivery:view-as",
+      "via": [
+        "GET /views/pin/:pinName",
+        "GET /views/ring/:ringId",
+        "GET /views/user/:userId/perspectives"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "backend-integration:ring-access",
+      "via": [
+        "E_RING_05"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "backend-integration:ring-members",
+      "via": [
+        "E_RING_02",
+        "E_RING_05",
+        "GET /views/user/:userId/perspectives"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "backend-integration:ring-projection",
+      "via": [
+        "E_RING_02",
+        "E_RING_05",
+        "GET /rings/:ringId/projection",
+        "GET /views/ring/:ringId",
+        "PATCH /rings/:ringId/projection"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "backend-integration:rings",
+      "via": [
+        "DELETE /rings/:id",
+        "E_RING_02",
+        "E_RING_05",
+        "GET /rings/shared-with-me",
+        "GET /rings/shared-with-me/count",
+        "GET /views/ring/:ringId",
+        "PATCH /rings/:id",
+        "POST /rings/:id/copy",
+        "POST /rings/:id/default",
+        "POST /rings/:id/disposition"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "backend-integration:view-as",
+      "via": [
+        "GET /views/pin/:pinName",
+        "GET /views/ring/:ringId",
+        "GET /views/user/:userId/perspectives"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "decision:D-04"
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "decision:D-10",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "decision:D-14",
+      "via": [
+        "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "decision:D-15",
+      "via": [
+        "GET /views/user/:userId/perspectives"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "decision:D-18",
+      "via": [
+        "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "feature:rings",
+      "via": [
+        "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "frontend-delivery:counts",
+      "via": [
+        "E_RING_02",
+        "GET /rings/shared-with-me/count"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "frontend-requirements:badge-qr",
+      "via": [
+        "E_RING_02",
+        "E_RING_05",
+        "GET /views/ring/:ringId"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "frontend-requirements:cleanup-jobs",
+      "via": [
+        "E_RING_02",
+        "POST /rings/:id/disposition"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "frontend-requirements:companies",
+      "via": [
+        "E_RING_02",
+        "E_RING_05",
+        "GET /rings",
+        "GET /rings/:ringId/members",
+        "GET /rings/shared-with-me",
+        "GET /views/ring/:ringId",
+        "PATCH /rings/:id",
+        "PATCH /rings/:ringId/projection"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "frontend-requirements:counts",
+      "via": [
+        "E_RING_02",
+        "GET /rings/shared-with-me",
+        "GET /rings/shared-with-me/count"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "frontend-requirements:delegated-admins",
+      "via": [
+        "DELETE /rings/:id",
+        "E_RING_02",
+        "E_RING_05",
+        "GET /rings/shared-with-me",
+        "PATCH /rings/:id"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "frontend-requirements:discover-hub",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "frontend-requirements:e2e-tests",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "frontend-requirements:event-ring-auto",
+      "via": [
+        "E_RING_02",
+        "GET /views/ring/:ringId",
+        "POST /rings/:id/disposition"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "frontend-requirements:events-during",
+      "via": [
+        "GET /views/ring/:ringId"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "frontend-requirements:exhibitor",
+      "via": [
+        "E_RING_02",
+        "E_RING_05",
+        "GET /views/ring/:ringId"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "frontend-requirements:meetings",
+      "via": [
+        "E_RING_02",
+        "GET /rings/shared-with-me",
+        "GET /views/ring/:ringId",
+        "POST /rings/:id/disposition"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "frontend-requirements:pincast",
+      "via": [
+        "E_RING_02",
+        "GET /rings/shared-with-me",
+        "GET /views/user/:userId/perspectives"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "frontend-requirements:post-event",
+      "via": [
+        "E_RING_02",
+        "GET /views/ring/:ringId",
+        "POST /rings/:id/disposition"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "frontend-requirements:ring-invitations",
+      "via": [
+        "GET /rings/shared-with-me",
+        "GET /views/ring/:ringId"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "frontend-requirements:ring-members",
+      "via": [
+        "DELETE /rings/:ringId/members/:userId",
+        "E_RING_02",
+        "E_RING_05",
+        "GET /rings",
+        "GET /rings/:ringId/members",
+        "POST /rings/:ringId/members",
+        "POST /rings/:ringId/members/:userId/reassign"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "frontend-requirements:ring-projection",
+      "via": [
+        "DELETE /rings/:id",
+        "E_RING_02",
+        "E_RING_05",
+        "GET /rings/:ringId/projection",
+        "GET /views/ring/:ringId",
+        "PATCH /rings/:ringId/projection"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "frontend-requirements:rings",
+      "via": [
+        "DELETE /rings/:id",
+        "E_RING_02",
+        "E_RING_05",
+        "GET /rings/shared-with-me",
+        "GET /views/ring/:ringId",
+        "PATCH /rings/:id",
+        "POST /rings/:id/default",
+        "POST /rings/:id/disposition"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "frontend-requirements:view-as",
+      "via": [
+        "GET /rings",
+        "GET /views/pin/:pinName",
+        "GET /views/ring/:ringId",
+        "GET /views/user/:userId/perspectives"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "frontend-requirements:widgets",
+      "via": [
+        "E_RING_02",
+        "E_RING_05",
+        "GET /views/ring/:ringId"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "needs-decision:ND-10",
+      "via": [
+        "GET /views/pin/:pinName",
+        "GET /views/ring/:ringId",
+        "GET /views/user/:userId/perspectives"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "needs-decision:ND-14",
+      "via": [
+        "GET /rings/shared-with-me",
+        "GET /views/user/:userId/perspectives"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "needs-decision:ND-15",
+      "via": [
+        "GET /views/user/:userId/perspectives"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "needs-decision:ND-18",
+      "via": [
+        "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "needs-decision:ND-22",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "project:agent-rules",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "project:api-conventions",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "project:docs-tree",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "project:frontend-agent-prompt",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "project:frontend-api-guide",
+      "via": [
+        "GET /views/pin/:pinName",
+        "GET /views/ring/:ringId",
+        "GET /views/user/:userId/perspectives"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "project:frontend-contract",
+      "via": [
+        "GET /rings/shared-with-me",
+        "GET /views/pin/:pinName",
+        "GET /views/ring/:ringId",
+        "GET /views/user/:userId/perspectives",
+        "POST /rings/:id/default",
+        "POST /rings/:id/disposition"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "project:ring-access-model",
+      "via": [
+        "GET /views/ring/:ringId"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "project:spec-map",
+      "via": [
+        "GET /rings/shared-with-me",
+        "GET /views/ring/:ringId",
+        "GET /views/user/:userId/perspectives",
+        "POST /rings/:id/default",
+        "POST /rings/:id/disposition"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "project:status-report-2026-10-15",
+      "via": [
+        "DELETE /rings/:id",
+        "GET /rings/shared-with-me",
+        "GET /views/pin/:pinName",
+        "GET /views/ring/:ringId",
+        "GET /views/user/:userId/perspectives",
+        "POST /rings/:id/disposition"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "story:badge-qr",
+      "via": [
+        "E_RING_02",
+        "GET /views/ring/:ringId"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "story:companies",
+      "via": [
+        "E_RING_05",
+        "GET /rings/shared-with-me",
+        "GET /views/ring/:ringId"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "story:connections",
+      "via": [
+        "E_RING_02",
+        "E_RING_05",
+        "GET /views/pin/:pinName",
+        "GET /views/user/:userId/perspectives"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "story:counts",
+      "via": [
+        "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "story:delegated-admins",
+      "via": [
+        "DELETE /rings/:id",
+        "E_RING_02",
+        "E_RING_05",
+        "PATCH /rings/:id"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "story:discover-hub",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "story:error-contract",
+      "via": [
+        "DELETE /rings/:id"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "story:event-ring-auto",
+      "via": [
+        "GET /views/ring/:ringId"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "story:meetings",
+      "via": [
+        "POST /rings/:id/disposition"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "story:pincast",
+      "via": [
+        "GET /views/user/:userId/perspectives"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "story:post-event",
+      "via": [
+        "GET /views/ring/:ringId",
+        "POST /rings/:id/disposition"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "story:ring-access",
+      "via": [
+        "E_RING_05",
+        "GET /views/ring/:ringId",
+        "PATCH /rings/:id"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "story:ring-invitations",
+      "via": [
+        "GET /rings/shared-with-me",
+        "GET /views/ring/:ringId"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "story:ring-projection",
+      "via": [
+        "GET /views/ring/:ringId"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "story:rings",
+      "via": [
+        "DELETE /rings/:id",
+        "GET /rings/shared-with-me",
+        "PATCH /rings/:id",
+        "POST /rings/:id/default"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "story:view-as",
+      "via": [
+        "GET /views/pin/:pinName",
+        "GET /views/ring/:ringId",
+        "GET /views/user/:userId/perspectives"
+      ]
     },
     {
       "from": "qa-frontend:account",
@@ -24718,6 +25598,16 @@
     {
       "from": "task:B-08",
       "kind": "related",
+      "to": "qa-backend:ring-access",
+      "via": [
+        "GET /rings/:ringId/projection",
+        "GET /views/pin/:pinName",
+        "PATCH /rings/:ringId/projection"
+      ]
+    },
+    {
+      "from": "task:B-08",
+      "kind": "related",
       "to": "story:files",
       "via": [
         "GET /rings/:ringId/projection"
@@ -24955,7 +25845,8 @@
       "kind": "shares",
       "to": "feature:ring-access",
       "via": [
-        "GET /rings/shared-with-me"
+        "GET /rings/shared-with-me",
+        "POST /rings/:ringId/members"
       ]
     },
     {
@@ -25046,7 +25937,8 @@
       "kind": "shares",
       "to": "feature:ring-access",
       "via": [
-        "GET /views/user/:userId/perspectives"
+        "GET /views/user/:userId/perspectives",
+        "POST /rings/:ringId/members"
       ]
     },
     {
@@ -25821,6 +26713,15 @@
     {
       "from": "feature:account",
       "kind": "shares",
+      "to": "feature:ring-access",
+      "via": [
+        "GET /rings",
+        "GET /rings/:ringId/projection"
+      ]
+    },
+    {
+      "from": "feature:account",
+      "kind": "shares",
       "to": "feature:ring-invitations",
       "via": [
         "E_AUTH_04"
@@ -26195,6 +27096,14 @@
       "from": "feature:app-shell",
       "kind": "shares",
       "to": "feature:profiles",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "feature:app-shell",
+      "kind": "shares",
+      "to": "feature:ring-access",
       "via": [
         "GET /rings"
       ]
@@ -26638,6 +27547,14 @@
         "PATCH /profiles/:id",
         "POST /auth/complete-registration",
         "POST /profiles"
+      ]
+    },
+    {
+      "from": "feature:auth",
+      "kind": "shares",
+      "to": "feature:ring-access",
+      "via": [
+        "GET /rings"
       ]
     },
     {
@@ -27102,6 +28019,7 @@
       "via": [
         "E_RING_02",
         "E_RING_05",
+        "GET /rings",
         "GET /views/ring/:ringId"
       ]
     },
@@ -27435,6 +28353,8 @@
       "to": "feature:ring-access",
       "via": [
         "E_RING_02",
+        "GET /rings",
+        "GET /rings/:id",
         "POST /rings/:id/disposition"
       ]
     },
@@ -27897,9 +28817,13 @@
       "via": [
         "E_RING_02",
         "E_RING_05",
+        "GET /rings",
+        "GET /rings/:id",
+        "GET /rings/:ringId/members",
         "GET /rings/shared-with-me",
         "GET /views/ring/:ringId",
-        "PATCH /rings/:id"
+        "PATCH /rings/:id",
+        "PATCH /rings/:ringId/projection"
       ]
     },
     {
@@ -28321,9 +29245,12 @@
       "via": [
         "E_RING_02",
         "E_RING_05",
+        "GET /rings",
+        "GET /rings/:ringId/projection",
         "GET /rings/shared-with-me",
         "GET /views/pin/:pinName",
-        "GET /views/user/:userId/perspectives"
+        "GET /views/user/:userId/perspectives",
+        "POST /rings/:ringId/members"
       ]
     },
     {
@@ -28713,6 +29640,9 @@
       "to": "feature:ring-access",
       "via": [
         "E_RING_02",
+        "GET /rings",
+        "GET /rings/:id",
+        "GET /rings/:ringId/members",
         "GET /rings/shared-with-me",
         "GET /rings/shared-with-me/count"
       ]
@@ -29026,6 +29956,8 @@
         "DELETE /rings/:id",
         "E_RING_02",
         "E_RING_05",
+        "GET /rings",
+        "GET /rings/:id",
         "GET /rings/shared-with-me",
         "PATCH /rings/:id"
       ]
@@ -30131,6 +31063,8 @@
       "to": "feature:ring-access",
       "via": [
         "E_RING_02",
+        "GET /rings",
+        "GET /rings/:id",
         "GET /views/ring/:ringId",
         "POST /rings/:id/disposition"
       ]
@@ -30362,6 +31296,14 @@
     {
       "from": "feature:events-before",
       "kind": "shares",
+      "to": "feature:ring-access",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "feature:events-before",
+      "kind": "shares",
       "to": "feature:ring-invitations",
       "via": [
         "E_AUTH_04"
@@ -30504,6 +31446,7 @@
       "kind": "shares",
       "to": "feature:ring-access",
       "via": [
+        "GET /rings/:id",
         "GET /views/ring/:ringId"
       ]
     },
@@ -30880,8 +31823,11 @@
       "via": [
         "E_RING_02",
         "E_RING_05",
+        "GET /rings/:ringId/projection",
         "GET /views/pin/:pinName",
-        "GET /views/ring/:ringId"
+        "GET /views/pin/SaraAz",
+        "GET /views/ring/:ringId",
+        "PATCH /rings/:ringId/projection"
       ]
     },
     {
@@ -31466,6 +32412,7 @@
       "to": "feature:ring-access",
       "via": [
         "E_RING_02",
+        "GET /rings/:id",
         "GET /rings/shared-with-me",
         "GET /views/ring/:ringId",
         "POST /rings/:id/disposition"
@@ -31954,7 +32901,9 @@
       "to": "feature:ring-access",
       "via": [
         "E_RING_02",
-        "E_RING_05"
+        "E_RING_05",
+        "GET /rings/:ringId/projection",
+        "PATCH /rings/:ringId/projection"
       ]
     },
     {
@@ -32131,6 +33080,7 @@
       "to": "feature:ring-access",
       "via": [
         "E_RING_02",
+        "GET /rings",
         "GET /rings/shared-with-me",
         "GET /views/user/:userId/perspectives"
       ]
@@ -32342,6 +33292,8 @@
       "to": "feature:ring-access",
       "via": [
         "E_RING_02",
+        "GET /rings",
+        "GET /rings/:id",
         "GET /views/ring/:ringId",
         "POST /rings/:id/disposition"
       ]
@@ -32533,7 +33485,9 @@
       "kind": "shares",
       "to": "feature:ring-access",
       "via": [
-        "GET /views/pin/:pinName"
+        "GET /rings",
+        "GET /views/pin/:pinName",
+        "PATCH /rings/:ringId/projection"
       ]
     },
     {
@@ -32702,9 +33656,14 @@
       "kind": "shares",
       "to": "feature:ring-members",
       "via": [
+        "DELETE /rings/:ringId/members/:userId",
         "E_RING_02",
         "E_RING_05",
-        "GET /views/user/:userId/perspectives"
+        "GET /rings",
+        "GET /rings/:ringId/members",
+        "GET /views/user/:userId/perspectives",
+        "POST /rings/:ringId/members",
+        "POST /rings/:ringId/members/:userId/reassign"
       ]
     },
     {
@@ -32715,7 +33674,11 @@
         "DELETE /rings/:id",
         "E_RING_02",
         "E_RING_05",
-        "GET /views/ring/:ringId"
+        "GET /rings",
+        "GET /rings/:id",
+        "GET /rings/:ringId/projection",
+        "GET /views/ring/:ringId",
+        "PATCH /rings/:ringId/projection"
       ]
     },
     {
@@ -32726,12 +33689,16 @@
         "DELETE /rings/:id",
         "E_RING_02",
         "E_RING_05",
+        "GET /rings",
+        "GET /rings/:id",
         "GET /rings/shared-with-me",
         "GET /rings/shared-with-me/count",
         "GET /views/ring/:ringId",
         "PATCH /rings/:id",
+        "POST /rings/:id/copy",
         "POST /rings/:id/default",
-        "POST /rings/:id/disposition"
+        "POST /rings/:id/disposition",
+        "POST /rings/:ringId/members"
       ]
     },
     {
@@ -32739,6 +33706,8 @@
       "kind": "shares",
       "to": "feature:view-as",
       "via": [
+        "GET /rings",
+        "GET /rings/:ringId/projection",
         "GET /views/pin/:pinName",
         "GET /views/ring/:ringId",
         "GET /views/user/:userId/perspectives"
@@ -32751,6 +33720,7 @@
       "via": [
         "E_RING_02",
         "E_RING_05",
+        "GET /rings/:ringId/projection",
         "GET /views/ring/:ringId"
       ]
     },
@@ -32770,7 +33740,8 @@
       "to": "needs-decision:ND-14",
       "via": [
         "GET /rings/shared-with-me",
-        "GET /views/user/:userId/perspectives"
+        "GET /views/user/:userId/perspectives",
+        "POST /rings/:ringId/members"
       ]
     },
     {
@@ -32778,7 +33749,8 @@
       "kind": "shares",
       "to": "needs-decision:ND-15",
       "via": [
-        "GET /views/user/:userId/perspectives"
+        "GET /views/user/:userId/perspectives",
+        "POST /rings/:ringId/members"
       ]
     },
     {
@@ -32816,6 +33788,14 @@
     {
       "from": "feature:ring-access",
       "kind": "shares",
+      "to": "project:developer-setup",
+      "via": [
+        "GET /views/pin/SaraAz"
+      ]
+    },
+    {
+      "from": "feature:ring-access",
+      "kind": "shares",
       "to": "project:docs-tree",
       "via": [
         "E_RING_02"
@@ -32844,6 +33824,7 @@
       "kind": "shares",
       "to": "project:frontend-contract",
       "via": [
+        "GET /rings",
         "GET /rings/shared-with-me",
         "GET /views/pin/:pinName",
         "GET /views/ring/:ringId",
@@ -32865,11 +33846,15 @@
       "kind": "shares",
       "to": "project:spec-map",
       "via": [
+        "GET /rings",
         "GET /rings/shared-with-me",
         "GET /views/ring/:ringId",
         "GET /views/user/:userId/perspectives",
+        "PATCH /rings/:ringId/projection",
         "POST /rings/:id/default",
-        "POST /rings/:id/disposition"
+        "POST /rings/:id/disposition",
+        "POST /rings/:ringId/members",
+        "POST /rings/:ringId/members/:userId/reassign"
       ]
     },
     {
@@ -32878,11 +33863,21 @@
       "to": "project:status-report-2026-10-15",
       "via": [
         "DELETE /rings/:id",
+        "GET /rings",
         "GET /rings/shared-with-me",
         "GET /views/pin/:pinName",
         "GET /views/ring/:ringId",
         "GET /views/user/:userId/perspectives",
+        "PATCH /rings/:ringId/projection",
         "POST /rings/:id/disposition"
+      ]
+    },
+    {
+      "from": "feature:ring-access",
+      "kind": "shares",
+      "to": "task:B-02",
+      "via": [
+        "GET /rings"
       ]
     },
     {
@@ -32890,7 +33885,9 @@
       "kind": "shares",
       "to": "task:B-08",
       "via": [
-        "GET /views/pin/:pinName"
+        "GET /rings/:ringId/projection",
+        "GET /views/pin/:pinName",
+        "PATCH /rings/:ringId/projection"
       ]
     },
     {
@@ -39790,6 +40787,11 @@
     {
       "from": "module:identity",
       "kind": "wikilink",
+      "to": "qa-backend:ring-access"
+    },
+    {
+      "from": "module:identity",
+      "kind": "wikilink",
       "to": "qa-frontend:account"
     },
     {
@@ -41648,6 +42650,16 @@
       "to": "story:error-contract"
     },
     {
+      "from": "qa-backend:ring-access",
+      "kind": "wikilink",
+      "to": "feature:ring-projection"
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "wikilink",
+      "to": "feature:view-as"
+    },
+    {
       "from": "qa-frontend:account",
       "kind": "wikilink",
       "to": "story:account"
@@ -43186,6 +44198,10 @@
       "name": "FR-08 Ring Access Engine Frontend Requirements",
       "type": "frontend-requirements"
     },
+    "social-pin/modules/Identity Core/features/Ring Access Engine/flow/QB-09 Ring Access Engine QA Backend.md": {
+      "name": "QB-09 Ring Access Engine QA Backend",
+      "type": "qa-backend"
+    },
     "social-pin/modules/Identity Core/features/Ring Members/F-09 Ring Members.md": {
       "name": "F-09 Ring Members",
       "type": "feature"
@@ -44307,6 +45323,7 @@
       "related": [
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "frontend-requirements:ring-projection",
         "frontend-requirements:view-as",
         "frontend-requirements:companies"
@@ -44684,6 +45701,7 @@
         "story:counts",
         "backend-delivery:profiles",
         "backend-integration:profiles",
+        "qa-backend:ring-access",
         "frontend-requirements:ring-members",
         "frontend-requirements:ring-projection",
         "backend-integration:rings",
@@ -44785,6 +45803,7 @@
       "pending": [],
       "priority": "critical",
       "related": [
+        "qa-backend:ring-access",
         "backend-delivery:rings",
         "backend-integration:rings",
         "frontend-requirements:rings",
@@ -45019,6 +46038,7 @@
         "backend-integration:counts",
         "frontend-requirements:photo-library",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "frontend-requirements:ring-members",
         "backend-delivery:ring-projection",
         "frontend-requirements:ring-projection",
@@ -46003,7 +47023,9 @@
       "path": "social-pin/modules/Events/features/Post-Event/flow/BD-25 Post-Event Backend Delivery.md",
       "pending": [],
       "priority": null,
-      "related": [],
+      "related": [
+        "qa-backend:ring-access"
+      ],
       "release": null,
       "resolution": null,
       "scope": "feature",
@@ -46112,6 +47134,7 @@
         "frontend-requirements:ring-projection",
         "frontend-requirements:companies",
         "backend-delivery:auth",
+        "qa-backend:ring-access",
         "backend-delivery:ring-projection",
         "backend-integration:ring-projection",
         "story:ring-projection",
@@ -46211,6 +47234,7 @@
         "frontend-requirements:exhibitor",
         "frontend-requirements:post-event",
         "story:post-event",
+        "qa-backend:ring-access",
         "story:ring-access",
         "backend-integration:ring-projection",
         "frontend-requirements:ring-projection",
@@ -46432,6 +47456,7 @@
         "backend-delivery:profiles",
         "backend-integration:profiles",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "frontend-requirements:ring-members",
         "story:ring-projection",
         "decision:D-02",
@@ -46565,6 +47590,7 @@
         "frontend-requirements:photo-library",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "frontend-requirements:ring-members",
         "backend-delivery:ring-projection",
         "frontend-requirements:ring-projection",
@@ -46744,6 +47770,7 @@
         "backend-delivery:profiles",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "backend-integration:ring-projection",
         "frontend-requirements:ring-projection",
         "backend-integration:view-as",
@@ -47420,6 +48447,7 @@
         "frontend-requirements:counts",
         "backend-delivery:profiles",
         "backend-integration:profiles",
+        "qa-backend:ring-access",
         "frontend-requirements:ring-members",
         "frontend-requirements:ring-projection",
         "backend-delivery:rings",
@@ -48447,6 +49475,7 @@
         "project:status-report-2026-10-15",
         "project:frontend-contract",
         "task:B-08",
+        "qa-backend:ring-access",
         "story:ring-projection",
         "frontend-requirements:companies",
         "project:frontend-api-guide"
@@ -48647,6 +49676,7 @@
         "frontend-requirements:ring-projection",
         "frontend-requirements:companies",
         "backend-delivery:auth",
+        "qa-backend:ring-access",
         "backend-delivery:ring-projection",
         "story:ring-projection",
         "needs-decision:ND-21",
@@ -48720,6 +49750,7 @@
         "qa-backend:files",
         "frontend-requirements:photo-library",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "frontend-requirements:ring-members",
         "backend-delivery:ring-projection",
         "backend-integration:ring-projection",
@@ -48831,6 +49862,7 @@
         "qa-backend:files",
         "frontend-requirements:photo-library",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "frontend-requirements:ring-members",
         "backend-delivery:ring-projection",
         "backend-integration:ring-projection",
@@ -48915,6 +49947,7 @@
         "frontend-requirements:profiles",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "frontend-requirements:ring-members",
         "backend-delivery:ring-projection",
         "decision:D-03",
@@ -49011,6 +50044,7 @@
         "frontend-requirements:photo-library",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "frontend-requirements:ring-members",
         "backend-delivery:ring-projection",
         "backend-integration:ring-projection",
@@ -49163,6 +50197,7 @@
         "qa-backend:files",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "frontend-requirements:ring-projection",
         "backend-integration:rings",
         "decision:D-16",
@@ -49516,6 +50551,7 @@
         "story:counts",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "story:ring-access",
         "frontend-requirements:ring-members",
         "story:ring-members",
@@ -49802,6 +50838,7 @@
         "story:connections",
         "qa-backend:files",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "frontend-requirements:view-as"
       ],
       "release": null,
@@ -49998,6 +51035,7 @@
         "story:counts",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "story:ring-access",
         "frontend-requirements:ring-members",
         "story:ring-members",
@@ -50074,6 +51112,7 @@
         "frontend-requirements:connections",
         "story:connections",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "story:ring-access",
         "frontend-requirements:ring-members",
         "story:ring-members",
@@ -50303,6 +51342,7 @@
         "backend-integration:counts",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "story:ring-access",
         "frontend-requirements:ring-members",
         "story:ring-members",
@@ -53716,7 +54756,8 @@
       "rollup": {
         "approved": 1,
         "current": 1,
-        "missing": 3,
+        "failing": 1,
+        "missing": 2,
         "partial": 1,
         "ready": 1
       },
@@ -54085,6 +55126,7 @@
         "frontend-requirements:counts",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "backend-delivery:rings",
         "backend-integration:rings",
         "frontend-requirements:rings",
@@ -54973,6 +56015,7 @@
         "frontend-delivery:account",
         "frontend-requirements:photo-library",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "frontend-requirements:ring-members",
         "backend-delivery:ring-projection",
         "frontend-requirements:ring-projection",
@@ -56770,6 +57813,7 @@
         "frontend-requirements:photo-library",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "frontend-requirements:ring-members",
         "backend-delivery:ring-projection",
         "backend-integration:ring-projection",
@@ -56883,6 +57927,7 @@
         "backend-integration:counts",
         "frontend-requirements:photo-library",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "frontend-requirements:ring-members",
         "backend-delivery:ring-projection",
         "frontend-requirements:ring-projection",
@@ -57019,6 +58064,7 @@
         "frontend-requirements:profiles",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "frontend-requirements:ring-members",
         "backend-delivery:ring-projection",
         "backend-integration:ring-projection",
@@ -57191,6 +58237,7 @@
         "qa-backend:files",
         "backend-integration:profiles",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "backend-delivery:view-as",
         "story:view-as",
         "frontend-requirements:e2e-tests",
@@ -57336,6 +58383,7 @@
         "frontend-requirements:photo-library",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "frontend-requirements:ring-members",
         "backend-delivery:ring-projection",
         "frontend-requirements:ring-projection",
@@ -57418,6 +58466,7 @@
         "frontend-requirements:photo-library",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "frontend-requirements:ring-members",
         "backend-delivery:ring-projection",
         "backend-integration:ring-projection",
@@ -57542,6 +58591,7 @@
         "qa-backend:auth",
         "qa-backend:files",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "frontend-requirements:view-as",
         "frontend-requirements:error-contract"
       ],
@@ -57597,6 +58647,7 @@
         "frontend-requirements:connections",
         "qa-backend:files",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "frontend-requirements:view-as"
       ],
       "release": null,
@@ -57763,6 +58814,7 @@
         "frontend-requirements:photo-library",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "frontend-requirements:ring-members",
         "backend-delivery:ring-projection",
         "frontend-requirements:ring-projection",
@@ -57892,6 +58944,7 @@
         "backend-integration:counts",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "frontend-requirements:ring-projection",
         "frontend-requirements:view-as",
         "frontend-requirements:companies"
@@ -57958,6 +59011,7 @@
         "frontend-requirements:photo-library",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "frontend-requirements:ring-members",
         "backend-delivery:ring-projection",
         "backend-integration:ring-projection",
@@ -58051,6 +59105,7 @@
         "project:status-report-2026-10-15",
         "project:frontend-contract",
         "frontend-requirements:account",
+        "qa-backend:ring-access",
         "backend-delivery:ring-projection",
         "story:ring-projection",
         "frontend-requirements:widgets",
@@ -58321,6 +59376,7 @@
         "frontend-requirements:photo-library",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "frontend-requirements:ring-members",
         "backend-delivery:ring-projection",
         "frontend-requirements:ring-projection",
@@ -58661,6 +59717,7 @@
         "backend-integration:profiles",
         "project:status-report-2026-10-15",
         "project:frontend-contract",
+        "qa-backend:ring-access",
         "backend-delivery:ring-projection",
         "story:ring-projection",
         "frontend-requirements:view-as",
@@ -58758,6 +59815,7 @@
         "frontend-requirements:photo-library",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "frontend-requirements:ring-members",
         "backend-delivery:ring-projection",
         "frontend-requirements:ring-projection",
@@ -58829,6 +59887,7 @@
         "frontend-requirements:photo-library",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "frontend-requirements:ring-members",
         "backend-delivery:ring-projection",
         "frontend-requirements:ring-projection",
@@ -59036,6 +60095,7 @@
         "frontend-requirements:pincast",
         "frontend-requirements:counts",
         "story:counts",
+        "qa-backend:ring-access",
         "backend-delivery:rings",
         "backend-integration:rings",
         "frontend-requirements:meetings",
@@ -59159,6 +60219,7 @@
         "backend-integration:counts",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "frontend-requirements:ring-projection",
         "backend-delivery:rings",
         "backend-integration:rings",
@@ -59231,6 +60292,7 @@
         "qa-backend:files",
         "frontend-requirements:photo-library",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "backend-integration:ring-members",
         "decision:D-04",
         "decision:D-14",
@@ -59370,6 +60432,7 @@
         "frontend-requirements:profiles",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "frontend-requirements:ring-members",
         "backend-delivery:ring-projection",
         "backend-integration:ring-projection",
@@ -59511,6 +60574,7 @@
         "frontend-requirements:photo-library",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "frontend-requirements:ring-members",
         "backend-delivery:ring-projection",
         "backend-integration:ring-projection",
@@ -59694,6 +60758,7 @@
         "frontend-requirements:profiles",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "frontend-requirements:ring-members",
         "backend-delivery:ring-projection",
         "backend-integration:ring-projection",
@@ -59826,6 +60891,7 @@
         "frontend-requirements:photo-library",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "frontend-requirements:ring-members",
         "backend-delivery:ring-projection",
         "backend-integration:ring-projection",
@@ -60352,8 +61418,9 @@
         "delivered": 5,
         "done": 13,
         "draft": 3,
+        "failing": 1,
         "in-progress": 13,
-        "missing": 33,
+        "missing": 32,
         "needs-decision": 1,
         "partial": 11,
         "passing": 3,
@@ -61064,6 +62131,7 @@
         "qa-backend:files",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "frontend-requirements:ring-projection",
         "frontend-requirements:view-as",
         "frontend-requirements:companies",
@@ -61321,6 +62389,7 @@
         "backend-integration:counts",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "frontend-requirements:ring-members",
         "backend-delivery:rings",
         "backend-integration:rings",
@@ -61391,6 +62460,7 @@
         "decision:D-15",
         "frontend-requirements:connections",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "frontend-requirements:ring-members",
         "frontend-requirements:view-as"
       ],
@@ -61613,6 +62683,7 @@
         "backend-integration:counts",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "backend-delivery:rings",
         "backend-integration:rings",
         "frontend-requirements:rings",
@@ -61903,6 +62974,7 @@
         "frontend-requirements:profiles",
         "story:profiles",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "frontend-requirements:view-as"
       ],
       "release": null,
@@ -62607,6 +63679,7 @@
         "backend-integration:counts",
         "frontend-requirements:photo-library",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "frontend-requirements:ring-members",
         "backend-delivery:ring-projection",
         "frontend-requirements:ring-projection",
@@ -62714,6 +63787,7 @@
         "backend-integration:counts",
         "frontend-requirements:photo-library",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "frontend-requirements:ring-members",
         "backend-delivery:ring-projection",
         "frontend-requirements:ring-projection",
@@ -63136,6 +64210,7 @@
         "backend-integration:counts",
         "frontend-requirements:photo-library",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "frontend-requirements:ring-members",
         "backend-delivery:ring-projection",
         "frontend-requirements:ring-projection",
@@ -63347,6 +64422,7 @@
         "backend-integration:counts",
         "frontend-requirements:photo-library",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "frontend-requirements:ring-members",
         "backend-delivery:ring-projection",
         "frontend-requirements:ring-projection",
@@ -63422,6 +64498,7 @@
         "frontend-requirements:profiles",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "frontend-requirements:ring-projection",
         "frontend-requirements:view-as",
         "frontend-requirements:error-contract",
@@ -63494,6 +64571,7 @@
         "frontend-requirements:profiles",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "frontend-requirements:ring-members",
         "frontend-requirements:ring-projection",
         "backend-delivery:rings",
@@ -63983,6 +65061,7 @@
         "story:connections",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "frontend-requirements:ring-projection",
         "frontend-requirements:view-as",
         "frontend-requirements:companies",
@@ -64096,6 +65175,7 @@
         "frontend-requirements:profiles",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "frontend-requirements:ring-members",
         "backend-delivery:ring-projection",
         "backend-integration:ring-projection",
@@ -64170,6 +65250,7 @@
         "frontend-requirements:profiles",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "frontend-requirements:ring-members",
         "backend-delivery:ring-projection",
         "backend-integration:ring-projection",
@@ -65343,6 +66424,7 @@
         "project:frontend-contract",
         "needs-decision:ND-16",
         "frontend-requirements:account",
+        "qa-backend:ring-access",
         "backend-delivery:ring-projection",
         "story:ring-projection",
         "frontend-requirements:view-as",
@@ -65967,19 +67049,25 @@
     "qa-backend:ring-access": {
       "affects": [],
       "blockedBy": [],
-      "card": null,
+      "card": "QB-09",
       "children": [],
       "code": "ring-access",
-      "created": null,
+      "created": "2026-11-05",
       "deadline": null,
-      "depends": [],
-      "effectiveStatus": "missing",
+      "depends": [
+        "backend-delivery:ring-access",
+        "story:ring-access"
+      ],
+      "effectiveStatus": "failing",
       "effort": null,
       "feature": "ring-access",
       "foundOn": null,
       "frontendOnly": false,
       "id": "qa-backend:ring-access",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:ring-access",
+        "release": "feature:ring-access"
+      },
       "kind": "qa-backend",
       "label": "QA Backend",
       "labels": [],
@@ -65990,21 +67078,133 @@
       "parents": [
         "feature:ring-access"
       ],
-      "path": null,
-      "pending": [],
-      "priority": null,
-      "related": [],
-      "release": null,
+      "path": "social-pin/modules/Identity Core/features/Ring Access Engine/flow/QB-09 Ring Access Engine QA Backend.md",
+      "pending": [
+        {
+          "person": null,
+          "text": "S-29 P9, a company's card Ring readable by every member of the company, not delivered yet; row B61 not run",
+          "to": "backend-delivery:ring-access"
+        },
+        {
+          "person": null,
+          "text": "whether a non-member gets the not-shared body for an expired Ring (and for a Ring id nobody has) on GET /views/ring/:ringId, not decided yet; rows B59 and B60 record today's E_RING_ACCESS_02 body",
+          "to": "frontend-requirements:ring-access"
+        }
+      ],
+      "priority": "critical",
+      "related": [
+        "task:B-08",
+        "frontend-requirements:connections",
+        "backend-delivery:counts",
+        "backend-integration:counts",
+        "frontend-requirements:files",
+        "qa-backend:files",
+        "backend-integration:photo-library",
+        "frontend-requirements:photo-library",
+        "backend-delivery:profiles",
+        "backend-integration:profiles",
+        "backend-delivery:ring-access",
+        "frontend-requirements:ring-access",
+        "backend-integration:ring-access",
+        "backend-integration:ring-members",
+        "backend-integration:ring-projection",
+        "backend-integration:rings",
+        "backend-integration:view-as",
+        "decision:D-04",
+        "decision:D-14",
+        "decision:D-15",
+        "decision:D-18",
+        "story:companies",
+        "story:error-contract",
+        "needs-decision:ND-10",
+        "needs-decision:ND-22",
+        "decision:D-10",
+        "story:connections",
+        "frontend-requirements:discover-hub",
+        "story:discover-hub",
+        "backend-delivery:view-as",
+        "frontend-requirements:view-as",
+        "story:view-as",
+        "frontend-requirements:e2e-tests",
+        "project:status-report-2026-10-15",
+        "project:frontend-api-guide",
+        "project:frontend-contract",
+        "backend-delivery:badge-qr",
+        "frontend-requirements:badge-qr",
+        "story:badge-qr",
+        "frontend-requirements:event-ring-auto",
+        "story:event-ring-auto",
+        "frontend-requirements:events-during",
+        "frontend-requirements:exhibitor",
+        "frontend-requirements:post-event",
+        "story:post-event",
+        "story:ring-access",
+        "frontend-requirements:ring-projection",
+        "story:ring-projection",
+        "backend-delivery:rings",
+        "frontend-requirements:rings",
+        "frontend-requirements:widgets",
+        "frontend-requirements:meetings",
+        "frontend-requirements:companies",
+        "frontend-requirements:ring-invitations",
+        "story:ring-invitations",
+        "project:ring-access-model",
+        "project:spec-map",
+        "needs-decision:ND-14",
+        "needs-decision:ND-15",
+        "frontend-requirements:pincast",
+        "story:pincast",
+        "feature:rings",
+        "needs-decision:ND-18",
+        "frontend-requirements:counts",
+        "story:counts",
+        "story:rings",
+        "frontend-requirements:delegated-admins",
+        "frontend-delivery:counts",
+        "backend-delivery:delegated-admins",
+        "story:delegated-admins",
+        "backend-delivery:post-event",
+        "story:meetings",
+        "frontend-requirements:cleanup-jobs",
+        "frontend-requirements:ring-members",
+        "backend-delivery:error-contract",
+        "project:agent-rules",
+        "project:docs-tree",
+        "project:api-conventions",
+        "project:frontend-agent-prompt",
+        "backend-delivery:ring-projection"
+      ],
+      "release": "mvp",
+      "resolution": null,
       "scope": "feature",
-      "screens": [],
-      "status": null,
-      "summary": "Not written yet. Create it with: node scripts/build-tree.mjs --scaffold qa-backend ring-access",
-      "tags": [],
+      "screens": [
+        "s15",
+        "s16",
+        "s17",
+        "s26",
+        "s27",
+        "s44",
+        "s47",
+        "s62"
+      ],
+      "status": "failing",
+      "summary": "Expected behaviour of the API, as artefacts a person can check a build against: tables and diagrams, not test code (the specs live in the backend repo). status: passing or failing after a run; the…",
+      "tags": [
+        "qa-backend",
+        "qa-backend/failing",
+        "module/identity",
+        "layer/qa"
+      ],
       "task": null,
-      "template": "templates/QA Backend Template.md",
-      "title": "Ring Access Engine QA Backend",
-      "unmet": [],
-      "updated": null
+      "title": "QB-09 Ring Access Engine QA Backend",
+      "unmet": [
+        {
+          "person": null,
+          "text": "S1 · D-15, the person rendered from the Ring the viewer was put in first: Shared with me follows it (B51), but GET /views/pin/:pinName still renders the owner's default Ring, then the oldest (B58)",
+          "to": "backend-delivery:ring-access"
+        }
+      ],
+      "updated": "2026-11-05"
     },
     "qa-backend:ring-invitations": {
       "affects": [],
@@ -68378,8 +69578,9 @@
         "delivered": 5,
         "done": 14,
         "draft": 29,
+        "failing": 1,
         "in-progress": 47,
-        "missing": 147,
+        "missing": 146,
         "needs-decision": 1,
         "partial": 11,
         "passing": 3,
@@ -68705,6 +69906,7 @@
         "frontend-requirements:photo-library",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "frontend-requirements:ring-members",
         "backend-delivery:ring-projection",
         "frontend-requirements:ring-projection",
@@ -68945,6 +70147,7 @@
         "frontend-requirements:photo-library",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "frontend-requirements:ring-members",
         "backend-delivery:ring-projection",
         "backend-integration:ring-projection",
@@ -69075,6 +70278,7 @@
         "qa-backend:files",
         "frontend-requirements:photo-library",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "story:ring-access",
         "frontend-requirements:ring-members",
         "story:ring-members",
@@ -69162,6 +70366,7 @@
         "decision:D-14",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "frontend-requirements:ring-members",
         "backend-delivery:rings",
         "backend-integration:rings",
@@ -69240,6 +70445,7 @@
         "qa-backend:files",
         "frontend-requirements:photo-library",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "frontend-requirements:ring-members",
         "backend-delivery:ring-projection",
         "backend-integration:ring-projection",
@@ -69373,6 +70579,7 @@
         "backend-integration:profiles",
         "frontend-requirements:profiles",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "frontend-requirements:view-as"
       ],
       "release": null,
@@ -69499,6 +70706,7 @@
         "backend-integration:profiles",
         "frontend-requirements:profiles",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "frontend-requirements:ring-members",
         "frontend-requirements:ring-projection",
         "frontend-requirements:view-as",
@@ -69559,6 +70767,7 @@
         "backend-integration:counts",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "frontend-requirements:ring-members",
         "frontend-requirements:ring-projection",
         "frontend-requirements:rings",
@@ -70047,6 +71256,7 @@
       "pending": [],
       "priority": null,
       "related": [
+        "qa-backend:ring-access",
         "frontend-requirements:rings"
       ],
       "release": null,
@@ -70423,6 +71633,7 @@
       "related": [
         "frontend-requirements:connections",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "frontend-requirements:view-as"
       ],
       "release": null,
@@ -70483,6 +71694,7 @@
         "backend-integration:counts",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "frontend-requirements:ring-members",
         "frontend-requirements:ring-projection",
         "frontend-requirements:view-as",
@@ -70637,6 +71849,7 @@
         "frontend-requirements:photo-library",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "decision:D-04",
         "decision:D-14",
         "decision:D-15",
@@ -70721,6 +71934,7 @@
         "backend-integration:counts",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "frontend-requirements:ring-members",
         "story:ring-members",
         "frontend-requirements:ring-projection",
@@ -70870,6 +72084,7 @@
         "story:profiles",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "backend-delivery:ring-projection",
         "backend-integration:ring-projection",
         "frontend-requirements:ring-projection",
@@ -70951,6 +72166,7 @@
         "frontend-delivery:files",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "story:ring-access",
         "frontend-requirements:ring-members",
         "story:ring-members",
@@ -71098,6 +72314,7 @@
         "story:profiles",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
         "frontend-requirements:ring-projection",
         "story:ring-projection",
         "frontend-requirements:view-as",
@@ -71844,6 +73061,7 @@
         "frontend-requirements:files",
         "backend-delivery:photo-library",
         "frontend-requirements:photo-library",
+        "qa-backend:ring-access",
         "frontend-requirements:ring-projection",
         "story:ring-projection",
         "frontend-requirements:view-as",

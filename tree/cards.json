@@ -227,6 +227,7 @@
     "qa-backend:account": "QB-04",
     "qa-backend:auth": "QB-05",
     "qa-backend:files": "QB-06",
+    "qa-backend:ring-access": "QB-09",
     "qa-frontend:account": "QF-04",
     "story:account": "S-01",
     "story:app-shell": "S-73",
