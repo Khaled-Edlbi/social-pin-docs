@@ -117,6 +117,7 @@
     "feature:view-as": "F-12",
     "feature:widgets": "F-13",
     "frontend-delivery:account": "FD-04",
+    "frontend-delivery:auth": "FD-05",
     "frontend-requirements:account": "FR-01",
     "frontend-requirements:app-shell": "FR-29",
     "frontend-requirements:audit-log": "FR-30",
