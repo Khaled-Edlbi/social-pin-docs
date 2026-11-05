@@ -3,7 +3,7 @@ id: FR-12
 type: frontend-requirements
 module: identity
 feature: view-as
-status: ready
+status: draft
 scope: feature
 screens: [s10, s31, s44, s62]
 owner: "Omar Fostok"
@@ -11,8 +11,8 @@ depends: ["S-19 View As & Pin Views Story"]
 affects: ["BD-12 View As & Pin Views Backend Delivery"]
 related: ["BI-09 View As & Pin Views Backend Integration", "D-16 Files load from signed links that expire in 15 minutes", "ND-12 What the badge QR encodes", "ND-22 Public web page by Pin name", "ND-10 How Connect addresses the scanned person", "FR-07 Profiles & Pin Name Frontend Requirements", "FR-10 Ring Projection Frontend Requirements", "S-23 Connections Story", "S-37 Badge & QR Story", "S-20 Widgets Story", "S-87 Error Contract Story", "GET /views/pin/:pinName", "GET /views/ring/:ringId", "GET /views/user/:userId/perspectives", "GET /rings"]
 created: 2026-10-18
-updated: 2026-10-29
-tags: [frontend-requirements, frontend-requirements/ready, module/identity, layer/frontend]
+updated: 2026-11-05
+tags: [frontend-requirements, frontend-requirements/draft, module/identity, layer/frontend]
 ---
 
 # View As & Pin Views · Frontend Requirements
@@ -21,7 +21,13 @@ tags: [frontend-requirements, frontend-requirements/ready, module/identity, laye
 
 > ⚠ Affected by [[S-23 Connections Story]] (2026-11-04): S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
 
-**Feature:** [[F-12 View As & Pin Views]] · **Status:** 📨 Ready 2026-10-29, waiting on the backend's review · **Story:** [[S-19 View As & Pin Views Story]] · **Backend Integration:** [[BI-09 View As & Pin Views Backend Integration]]
+**Feature:** [[F-12 View As & Pin Views]] · **Status:** Draft, sent back by the backend 2026-11-05 · **Story:** [[S-19 View As & Pin Views Story]] · **Backend Integration:** [[BI-09 View As & Pin Views Backend Integration]]
+
+> **For `/frontend`, from the backend's review (2026-11-05, against backend `main` f186ba1).** The three `/views` routes, the view's shape (no `ringId`, `show*` gating, hidden rows left out), the signed links and both `E_RING_ACCESS_*` 404s match the code. It goes back to `draft` for four fixes; set it `ready` again once they're in.
+> 1. **401.** A missing or expired access token gets the plain 401 *Unauthorized*, with no code; `E_AUTH_04` is only a token of the wrong scope. Add the two account cases the guard answers on every route: 401 `E_AUTH_03` (account suspended) and 404 `E_USER_01` (account deleted). The client treats all three as "sign in again" / "this account is gone".
+> 2. **400.** A malformed **Pin name** is never a 400: `GET /views/pin/:pinName` only trims and lowercases it, so a bad one answers the same 404 as an unknown one, which is what the one-message rule wants. Only a malformed `ringId` or `userId` (not a UUID) is a 400. Reword the row.
+> 3. **"No file id" on the photo row.** Not true yet: the view still carries `avatarFileId` beside `avatarUrl`, against D-16. That is the backend's to remove (pending on [[BD-12 View As & Pin Views Backend Delivery]]); until it is gone, never read it. Say so on the row, and clear the BI-09 flag above once it is noted.
+> 4. **The S-23 flag above.** Repoint *Connections · S8–S12* (Connect after a scan) → [[S-23 Connections Story|Connections · S2–S4]], *S25* (block) → [[S-23 Connections Story|Connections · S13]], *S19–S24* → [[S-23 Connections Story|Connections · S8–S12]]; then clear it. Also *Blocked by* still says D-16 is "decided, not built": the links are built.
 
 What the client needs from the backend for every screen that renders another person, and for the owner's preview, and whether each need is met today. The viewer shape and the cache rule are in [[BI-09 View As & Pin Views Backend Integration]]. Photos and files load from signed links that expire in 15 minutes ([[D-16 Files load from signed links that expire in 15 minutes]]).
 
