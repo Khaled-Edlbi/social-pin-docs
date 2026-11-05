@@ -388,8 +388,10 @@ Worth knowing up front:
 - `RING_TYPE`: `PERSONAL`, `CORPORATE`, `EVENT`, `MINI_EVENT`, `MEETING`
 - `RING_STATUS`: `ACTIVE`, `EXPIRED`, `ARCHIVED`, `DELETED`
 - `RING_DISPOSITION`: `UNDECIDED`, `KEEP`, `MERGE`, `AUTO_DELETE`
-- `LINK_TYPE`: 15 values, including `FACEBOOK_PAGE` and `WHATSAPP_BUSINESS` as
-  distinct from `FACEBOOK` and `WHATSAPP`
+- `LINK_TYPE`: 20 values, including `FACEBOOK_PAGE` and `WHATSAPP_BUSINESS` as
+  distinct from `FACEBOOK` and `WHATSAPP`, and D-03's `BOOKING`, `BEHANCE`,
+  `DRIBBBLE`, `GITHUB`, `YOUTUBE` (all `http(s)` URLs); the value rules per type
+  are in [[BI-07 Ring Projection Backend Integration]]
 - `ACCOUNT_TYPE`: `FREE`, `PRO`
 - `USER_STATUS`: `PENDING`, `ACTIVE`, `SUSPENDED`, `DELETED`
 - `USER_ROLE`: `SUPER_ADMIN`, `ADMIN`, `ORGANIZER`, `EXHIBITOR`, `USER` — the
