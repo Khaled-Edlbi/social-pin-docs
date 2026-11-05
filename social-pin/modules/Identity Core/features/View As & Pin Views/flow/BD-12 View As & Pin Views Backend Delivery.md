@@ -16,7 +16,7 @@ tags: [backend-delivery, backend-delivery/done, module/identity, layer/backend]
 
 > ⚠ Affected by [[BD-07 Profiles & Pin Name Backend Delivery]] (2026-11-05): backend main a249ab2: a Ring's viewer view now shows the main profile's bio, and its photo as avatarUrl, while the Ring sets none (S-14 S11); the main photo's file id never reaches the viewer (avatarFileId stays the Ring's own); for /backend
 
-**Feature:** [[F-12 View As & Pin Views]] · **Status:** Done · **Integration guide:** [[BI-09 View As & Pin Views Backend Integration]] · **Requirements:** [[FR-12 View As & Pin Views Frontend Requirements]] · **QA:** [[View As & Pin Views QA Backend]]
+**Feature:** [[F-12 View As & Pin Views]] · **Status:** Done · **Integration guide:** [[BI-09 View As & Pin Views Backend Integration]] · **Requirements:** [[FR-12 View As & Pin Views Frontend Requirements]] · **QA:** [[QB-14 View As & Pin Views QA Backend]]
 
 What the backend shipped for this feature and how it works.
 
