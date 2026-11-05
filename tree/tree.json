@@ -177,6 +177,7 @@
     "FD-04 Account Frontend Delivery": "frontend-delivery:account",
     "FD-05 Auth & Sign-up Frontend Delivery": "frontend-delivery:auth",
     "FD-06 Counts Frontend Delivery": "frontend-delivery:counts",
+    "FD-07 Files Upload Frontend Delivery": "frontend-delivery:files",
     "FR-01 Account Frontend Requirements": "frontend-requirements:account",
     "FR-02 Auth & Sign-up Frontend Requirements": "frontend-requirements:auth",
     "FR-03 Counts Frontend Requirements": "frontend-requirements:counts",
@@ -459,6 +460,7 @@
     "FD-04": "frontend-delivery:account",
     "FD-05": "frontend-delivery:auth",
     "FD-06": "frontend-delivery:counts",
+    "FD-07": "frontend-delivery:files",
     "FR-01": "frontend-requirements:account",
     "FR-02": "frontend-requirements:auth",
     "FR-03": "frontend-requirements:counts",
@@ -683,6 +685,7 @@
         "backend-delivery:photo-library",
         "backend-integration:files",
         "backend-integration:photo-library",
+        "frontend-delivery:files",
         "frontend-requirements:files",
         "frontend-requirements:photo-library",
         "qa-backend:files",
@@ -767,6 +770,7 @@
       ],
       "kind": "endpoint",
       "notes": [
+        "frontend-delivery:files",
         "frontend-requirements:files",
         "qa-backend:files",
         "story:files"
@@ -2026,6 +2030,7 @@
       "kind": "endpoint",
       "notes": [
         "backend-integration:files",
+        "frontend-delivery:files",
         "frontend-requirements:files",
         "story:files"
       ],
@@ -2041,6 +2046,7 @@
         "backend-delivery:photo-library",
         "backend-integration:files",
         "backend-integration:photo-library",
+        "frontend-delivery:files",
         "frontend-requirements:files",
         "frontend-requirements:photo-library",
         "story:photo-library"
@@ -2405,6 +2411,7 @@
         "backend-delivery:photo-library",
         "backend-delivery:ring-projection",
         "backend-integration:ring-projection",
+        "frontend-delivery:files",
         "frontend-requirements:account",
         "frontend-requirements:connections",
         "frontend-requirements:files",
@@ -2915,6 +2922,16 @@
       ],
       "owner": "feature:view-as"
     },
+    "GET /views/…": {
+      "containers": [
+        "feature:files"
+      ],
+      "kind": "endpoint",
+      "notes": [
+        "frontend-delivery:files"
+      ],
+      "owner": null
+    },
     "PATCH /admin/users/:id/role": {
       "containers": [
         "project:spec-map"
@@ -3423,6 +3440,7 @@
         "backend-integration:photo-library",
         "backend-integration:profiles",
         "backend-integration:ring-projection",
+        "frontend-delivery:files",
         "frontend-requirements:files",
         "frontend-requirements:onboarding-imports",
         "frontend-requirements:photo-library",
@@ -3490,6 +3508,7 @@
       "notes": [
         "backend-delivery:rings",
         "backend-integration:rings",
+        "frontend-delivery:files",
         "frontend-requirements:auth",
         "frontend-requirements:companies",
         "frontend-requirements:connections",
@@ -4016,6 +4035,7 @@
         "feature:files",
         "feature:ring-projection",
         "frontend-delivery:counts",
+        "frontend-delivery:files",
         "frontend-requirements:companies",
         "frontend-requirements:counts",
         "frontend-requirements:files",
@@ -4189,6 +4209,7 @@
         "feature:files",
         "feature:ring-projection",
         "feature:rings",
+        "frontend-delivery:files",
         "frontend-requirements:files",
         "frontend-requirements:ring-projection",
         "frontend-requirements:rings",
@@ -4274,6 +4295,7 @@
         "backend-integration:ring-projection",
         "feature:files",
         "feature:ring-projection",
+        "frontend-delivery:files",
         "frontend-requirements:files",
         "frontend-requirements:ring-projection",
         "needs-decision:ND-03",
@@ -4384,6 +4406,7 @@
         "feature:files",
         "feature:photo-library",
         "feature:ring-projection",
+        "frontend-delivery:files",
         "frontend-requirements:files",
         "frontend-requirements:photo-library",
         "frontend-requirements:ring-projection",
@@ -4414,6 +4437,7 @@
         "feature:files",
         "feature:photo-library",
         "feature:ring-projection",
+        "frontend-delivery:files",
         "frontend-requirements:files",
         "frontend-requirements:photo-library",
         "frontend-requirements:ring-projection",
@@ -4440,6 +4464,7 @@
         "backend-integration:view-as",
         "feature:files",
         "feature:view-as",
+        "frontend-delivery:files",
         "frontend-requirements:files",
         "frontend-requirements:ring-access",
         "frontend-requirements:view-as",
@@ -4505,6 +4530,7 @@
         "feature:files",
         "feature:ring-projection",
         "feature:widgets",
+        "frontend-delivery:files",
         "frontend-requirements:files",
         "frontend-requirements:ring-projection",
         "frontend-requirements:widgets",
@@ -4656,6 +4682,7 @@
         "feature:profiles",
         "feature:ring-access",
         "feature:view-as",
+        "frontend-delivery:files",
         "frontend-requirements:badge-qr",
         "frontend-requirements:connections",
         "frontend-requirements:files",
@@ -5264,7 +5291,7 @@
       "backend-integration": 11,
       "decision": 26,
       "feature": 41,
-      "frontend-delivery": 3,
+      "frontend-delivery": 4,
       "frontend-requirements": 39,
       "module": 8,
       "needs-decision": 28,
@@ -5277,19 +5304,19 @@
     "byLayer": {
       "backend": 58,
       "business": 150,
-      "frontend": 46,
+      "frontend": 47,
       "qa": 4,
       "shared": 10
     },
-    "concepts": 257,
+    "concepts": 258,
     "decisions": 28,
-    "edges": 5346,
+    "edges": 5371,
     "features": 41,
-    "layerNotes": 137,
+    "layerNotes": 138,
     "modules": 8,
-    "notes": 299,
+    "notes": 300,
     "partial": 11,
-    "placeholders": 148,
+    "placeholders": 147,
     "records": 26
   },
   "deadlines": {
@@ -6955,11 +6982,6 @@
       "to": "qa-frontend:exhibitor"
     },
     {
-      "from": "frontend-delivery:files",
-      "kind": "blocks",
-      "to": "qa-frontend:files"
-    },
-    {
       "from": "frontend-delivery:gemma",
       "kind": "blocks",
       "to": "qa-frontend:gemma"
@@ -7655,6 +7677,11 @@
       "to": "backend-integration:counts"
     },
     {
+      "from": "frontend-delivery:files",
+      "kind": "depends",
+      "to": "backend-integration:files"
+    },
+    {
       "from": "frontend-requirements:companies",
       "kind": "depends",
       "to": "story:companies"
@@ -7868,6 +7895,11 @@
       "from": "backend-integration:counts",
       "kind": "flow",
       "to": "frontend-delivery:counts"
+    },
+    {
+      "from": "backend-integration:files",
+      "kind": "flow",
+      "to": "frontend-delivery:files"
     },
     {
       "from": "frontend-delivery:account",
@@ -9424,6 +9456,14 @@
     {
       "from": "backend-delivery:files",
       "kind": "related",
+      "to": "frontend-delivery:files",
+      "via": [
+        "POST /files"
+      ]
+    },
+    {
+      "from": "backend-delivery:files",
+      "kind": "related",
       "to": "frontend-requirements:files",
       "via": [
         "DELETE /files/:id",
@@ -9731,6 +9771,14 @@
       "via": [
         "E_PROFILE_02",
         "GET /profiles/pin-name/:pinName/availability"
+      ]
+    },
+    {
+      "from": "backend-delivery:profiles",
+      "kind": "related",
+      "to": "frontend-delivery:files",
+      "via": [
+        "POST /files"
       ]
     },
     {
@@ -10424,6 +10472,14 @@
       "to": "frontend-delivery:counts",
       "via": [
         "E_RING_02"
+      ]
+    },
+    {
+      "from": "backend-delivery:ring-projection",
+      "kind": "related",
+      "to": "frontend-delivery:files",
+      "via": [
+        "GET /rings/:ringId/projection"
       ]
     },
     {
@@ -11911,6 +11967,15 @@
     {
       "from": "backend-integration:files",
       "kind": "related",
+      "to": "frontend-delivery:files",
+      "via": [
+        "DELETE /files/:id",
+        "POST /files"
+      ]
+    },
+    {
+      "from": "backend-integration:files",
+      "kind": "related",
       "to": "frontend-requirements:files",
       "via": [
         "DELETE /files/:id",
@@ -12134,6 +12199,15 @@
       "via": [
         "E_FILE_04",
         "PATCH /rings/:ringId/projection",
+        "POST /files"
+      ]
+    },
+    {
+      "from": "backend-integration:photo-library",
+      "kind": "related",
+      "to": "frontend-delivery:files",
+      "via": [
+        "DELETE /files/:id",
         "POST /files"
       ]
     },
@@ -12380,6 +12454,14 @@
       "via": [
         "E_PROFILE_02",
         "GET /profiles/pin-name/:pinName/availability"
+      ]
+    },
+    {
+      "from": "backend-integration:profiles",
+      "kind": "related",
+      "to": "frontend-delivery:files",
+      "via": [
+        "POST /files"
       ]
     },
     {
@@ -15057,6 +15139,60 @@
       "to": "story:counts"
     },
     {
+      "from": "frontend-delivery:files",
+      "kind": "related",
+      "to": "backend-integration:ring-projection",
+      "via": [
+        "GET /rings/:ringId/projection"
+      ]
+    },
+    {
+      "from": "frontend-delivery:files",
+      "kind": "related",
+      "to": "decision:D-03"
+    },
+    {
+      "from": "frontend-delivery:files",
+      "kind": "related",
+      "to": "decision:D-16"
+    },
+    {
+      "from": "frontend-delivery:files",
+      "kind": "related",
+      "to": "frontend-requirements:files",
+      "via": [
+        "DELETE /files/:id",
+        "DELETE /rings/:ringId/projection/attachments/:attachmentId",
+        "GET /rings/:ringId/projection",
+        "POST /files"
+      ]
+    },
+    {
+      "from": "frontend-delivery:files",
+      "kind": "related",
+      "to": "story:files"
+    },
+    {
+      "from": "frontend-delivery:files",
+      "kind": "related",
+      "to": "story:photo-library"
+    },
+    {
+      "from": "frontend-delivery:files",
+      "kind": "related",
+      "to": "story:ring-projection"
+    },
+    {
+      "from": "frontend-delivery:files",
+      "kind": "related",
+      "to": "story:rings"
+    },
+    {
+      "from": "frontend-delivery:files",
+      "kind": "related",
+      "to": "story:widgets"
+    },
+    {
       "from": "frontend-requirements:auth",
       "kind": "related",
       "to": "decision:D-06"
@@ -15904,6 +16040,14 @@
       "via": [
         "E_RING_02",
         "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-requirements:connections",
+      "kind": "related",
+      "to": "frontend-delivery:files",
+      "via": [
+        "GET /rings/:ringId/projection"
       ]
     },
     {
@@ -17449,6 +17593,16 @@
     {
       "from": "frontend-requirements:photo-library",
       "kind": "related",
+      "to": "frontend-delivery:files",
+      "via": [
+        "DELETE /files/:id",
+        "GET /rings/:ringId/projection",
+        "POST /files"
+      ]
+    },
+    {
+      "from": "frontend-requirements:photo-library",
+      "kind": "related",
       "to": "frontend-requirements:account",
       "via": [
         "GET /rings/:ringId/projection"
@@ -17897,6 +18051,14 @@
         "E_PROFILE_02",
         "GET /profiles/pin-name/:pinName/availability",
         "POST /auth/complete-registration"
+      ]
+    },
+    {
+      "from": "frontend-requirements:profiles",
+      "kind": "related",
+      "to": "frontend-delivery:files",
+      "via": [
+        "POST /files"
       ]
     },
     {
@@ -19347,6 +19509,14 @@
     {
       "from": "frontend-requirements:ring-projection",
       "kind": "related",
+      "to": "frontend-delivery:files",
+      "via": [
+        "GET /rings/:ringId/projection"
+      ]
+    },
+    {
+      "from": "frontend-requirements:ring-projection",
+      "kind": "related",
       "to": "frontend-requirements:account",
       "via": [
         "GET /profiles",
@@ -19793,6 +19963,14 @@
       "to": "feature:rings",
       "via": [
         "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "frontend-requirements:rings",
+      "kind": "related",
+      "to": "frontend-delivery:files",
+      "via": [
+        "POST /rings"
       ]
     },
     {
@@ -22217,6 +22395,17 @@
     {
       "from": "qa-backend:files",
       "kind": "related",
+      "to": "frontend-delivery:files",
+      "via": [
+        "DELETE /files/:id",
+        "DELETE /rings/:ringId/projection/attachments/:attachmentId",
+        "GET /rings/:ringId/projection",
+        "POST /files"
+      ]
+    },
+    {
+      "from": "qa-backend:files",
+      "kind": "related",
       "to": "frontend-requirements:account",
       "via": [
         "GET /rings/:ringId/projection"
@@ -23896,6 +24085,14 @@
     {
       "from": "task:B-07",
       "kind": "related",
+      "to": "frontend-delivery:files",
+      "via": [
+        "POST /files"
+      ]
+    },
+    {
+      "from": "task:B-07",
+      "kind": "related",
       "to": "frontend-requirements:files",
       "via": [
         "POST /files"
@@ -24045,6 +24242,14 @@
       "from": "task:B-08",
       "kind": "related",
       "to": "backend-integration:view-as"
+    },
+    {
+      "from": "task:B-08",
+      "kind": "related",
+      "to": "frontend-delivery:files",
+      "via": [
+        "GET /rings/:ringId/projection"
+      ]
     },
     {
       "from": "task:B-08",
@@ -39152,6 +39357,11 @@
     {
       "from": "module:identity",
       "kind": "wikilink",
+      "to": "frontend-delivery:files"
+    },
+    {
+      "from": "module:identity",
+      "kind": "wikilink",
       "to": "frontend-requirements:account"
     },
     {
@@ -42585,6 +42795,10 @@
       "name": "BI-03 Files Upload Backend Integration",
       "type": "backend-integration"
     },
+    "social-pin/modules/Identity Core/features/Files Upload/flow/FD-07 Files Upload Frontend Delivery.md": {
+      "name": "FD-07 Files Upload Frontend Delivery",
+      "type": "frontend-delivery"
+    },
     "social-pin/modules/Identity Core/features/Files Upload/flow/FR-04 Files Upload Frontend Requirements.md": {
       "name": "FR-04 Files Upload Frontend Requirements",
       "type": "frontend-requirements"
@@ -44810,6 +45024,7 @@
         "qa-backend:files",
         "frontend-requirements:photo-library",
         "needs-decision:ND-21",
+        "frontend-delivery:files",
         "frontend-requirements:onboarding-imports",
         "backend-integration:photo-library",
         "story:photo-library",
@@ -45613,6 +45828,7 @@
         "backend-integration:ring-projection",
         "story:ring-projection",
         "needs-decision:ND-21",
+        "frontend-delivery:files",
         "story:files",
         "story:photo-library",
         "frontend-requirements:error-contract",
@@ -45943,6 +46159,7 @@
         "decision:D-05",
         "decision:D-16",
         "frontend-requirements:account",
+        "frontend-delivery:files",
         "story:files",
         "frontend-requirements:profiles",
         "backend-integration:ring-projection",
@@ -47409,6 +47626,7 @@
     },
     "backend-integration:files": {
       "affects": [],
+      "autoDelivered": true,
       "blockedBy": [],
       "card": "BI-03",
       "children": [],
@@ -47416,7 +47634,7 @@
       "created": "2026-10-15",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "current",
+      "effectiveStatus": "delivered",
       "effort": null,
       "feature": "files",
       "foundOn": null,
@@ -47456,6 +47674,7 @@
         "qa-backend:files",
         "frontend-requirements:photo-library",
         "needs-decision:ND-21",
+        "frontend-delivery:files",
         "frontend-requirements:onboarding-imports",
         "backend-delivery:photo-library",
         "backend-integration:photo-library",
@@ -47925,6 +48144,7 @@
         "frontend-requirements:view-as",
         "project:spec-map",
         "needs-decision:ND-21",
+        "frontend-delivery:files",
         "frontend-requirements:onboarding-imports",
         "backend-delivery:photo-library",
         "story:photo-library",
@@ -48139,6 +48359,7 @@
         "backend-delivery:ring-projection",
         "story:ring-projection",
         "needs-decision:ND-21",
+        "frontend-delivery:files",
         "story:files",
         "backend-delivery:photo-library",
         "story:photo-library",
@@ -48393,6 +48614,7 @@
         "backend-integration:counts",
         "backend-delivery:files",
         "backend-integration:files",
+        "frontend-delivery:files",
         "frontend-requirements:files",
         "qa-backend:files",
         "backend-integration:photo-library",
@@ -48888,6 +49110,7 @@
         "needs-decision:ND-21",
         "decision:D-02",
         "needs-decision:ND-03",
+        "frontend-delivery:files",
         "frontend-requirements:files",
         "story:files",
         "frontend-requirements:onboarding-imports",
@@ -49609,6 +49832,7 @@
         "story:photo-library",
         "project:frontend-api-guide",
         "frontend-requirements:connections",
+        "frontend-delivery:files",
         "backend-delivery:photo-library",
         "backend-integration:profiles",
         "frontend-requirements:profiles",
@@ -52128,10 +52352,10 @@
       "resolution": null,
       "rollup": {
         "approved": 2,
-        "current": 1,
         "decided": 1,
-        "done": 1,
-        "missing": 2,
+        "delivered": 1,
+        "done": 2,
+        "missing": 1,
         "partial": 1,
         "passing": 1,
         "verified": 1
@@ -54884,19 +55108,25 @@
     "frontend-delivery:files": {
       "affects": [],
       "blockedBy": [],
-      "card": null,
+      "card": "FD-07",
       "children": [],
       "code": "files",
-      "created": null,
+      "created": "2026-11-05",
       "deadline": null,
-      "depends": [],
-      "effectiveStatus": "missing",
+      "depends": [
+        "backend-integration:files"
+      ],
+      "deployedTo": [],
+      "effectiveStatus": "done",
       "effort": null,
       "feature": "files",
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-delivery:files",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:files",
+        "release": "feature:files"
+      },
       "kind": "frontend-delivery",
       "label": "Frontend Delivery",
       "labels": [],
@@ -54907,21 +55137,59 @@
       "parents": [
         "feature:files"
       ],
-      "path": null,
+      "path": "social-pin/modules/Identity Core/features/Files Upload/flow/FD-07 Files Upload Frontend Delivery.md",
       "pending": [],
-      "priority": null,
-      "related": [],
-      "release": null,
+      "priority": "critical",
+      "related": [
+        "task:B-07",
+        "task:B-08",
+        "frontend-requirements:connections",
+        "backend-delivery:files",
+        "backend-integration:files",
+        "frontend-requirements:files",
+        "story:files",
+        "decision:D-16",
+        "decision:D-03",
+        "backend-integration:ring-projection",
+        "story:photo-library",
+        "story:widgets",
+        "story:ring-projection",
+        "story:rings",
+        "qa-backend:files",
+        "backend-integration:photo-library",
+        "frontend-requirements:photo-library",
+        "backend-delivery:profiles",
+        "backend-integration:profiles",
+        "frontend-requirements:profiles",
+        "backend-delivery:ring-projection",
+        "frontend-requirements:ring-projection",
+        "frontend-requirements:rings"
+      ],
+      "release": "mvp",
+      "resolution": null,
       "scope": "feature",
-      "screens": [],
-      "status": null,
-      "summary": "Not written yet. Create it with: node scripts/build-tree.mjs --scaffold frontend-delivery files",
-      "tags": [],
+      "screens": [
+        "s14",
+        "s20",
+        "s24",
+        "s36",
+        "s29",
+        "s30",
+        "s31",
+        "s44"
+      ],
+      "status": "done",
+      "summary": "What the client shipped for uploading, attaching, showing and opening photos and files. Attaching from s36, the files on Ring data and switching them on s24 are on socialpin main (aae765d,…",
+      "tags": [
+        "frontend-delivery",
+        "frontend-delivery/done",
+        "module/identity",
+        "layer/frontend"
+      ],
       "task": null,
-      "template": "templates/Frontend Delivery Template.md",
-      "title": "Files Upload Frontend Delivery",
+      "title": "FD-07 Files Upload Frontend Delivery",
       "unmet": [],
-      "updated": null
+      "updated": "2026-11-05"
     },
     "frontend-delivery:gemma": {
       "affects": [],
@@ -56635,6 +56903,7 @@
         "story:ring-invitations",
         "backend-delivery:ring-members",
         "story:ring-members",
+        "frontend-delivery:files",
         "frontend-requirements:files",
         "story:files",
         "backend-delivery:photo-library",
@@ -57428,6 +57697,7 @@
         "frontend-requirements:connections",
         "backend-delivery:files",
         "backend-integration:files",
+        "frontend-delivery:files",
         "backend-integration:ring-projection",
         "backend-integration:view-as",
         "frontend-requirements:photo-library",
@@ -58049,6 +58319,7 @@
         "decision:D-02",
         "decision:D-05",
         "needs-decision:ND-21",
+        "frontend-delivery:files",
         "story:files",
         "frontend-requirements:onboarding-imports",
         "backend-delivery:photo-library",
@@ -58337,6 +58608,7 @@
         "backend-delivery:auth",
         "frontend-requirements:error-contract",
         "needs-decision:ND-21",
+        "frontend-delivery:files",
         "story:files",
         "backend-delivery:photo-library",
         "story:photo-library",
@@ -58776,6 +59048,7 @@
         "story:gemma",
         "story:error-contract",
         "frontend-requirements:account",
+        "frontend-delivery:files",
         "story:files",
         "backend-delivery:photo-library",
         "story:ring-projection",
@@ -58936,6 +59209,7 @@
         "story:event-ring-auto",
         "story:exhibitor",
         "frontend-requirements:auth",
+        "frontend-delivery:files",
         "story:files",
         "story:meetings",
         "frontend-requirements:view-as"
@@ -59737,13 +60011,13 @@
       "rollup": {
         "approved": 18,
         "blocked": 3,
-        "current": 9,
+        "current": 8,
         "decided": 10,
-        "delivered": 4,
-        "done": 12,
+        "delivered": 5,
+        "done": 13,
         "draft": 3,
         "in-progress": 13,
-        "missing": 34,
+        "missing": 33,
         "needs-decision": 1,
         "partial": 11,
         "passing": 3,
@@ -64712,6 +64986,7 @@
         "backend-integration:view-as",
         "task:B-06",
         "needs-decision:ND-21",
+        "frontend-delivery:files",
         "story:files",
         "frontend-requirements:onboarding-imports",
         "backend-delivery:photo-library",
@@ -66685,13 +66960,7 @@
     },
     "qa-frontend:files": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "frontend-delivery:files",
-          "title": "Files Upload Frontend Delivery",
-          "why": "Files Upload Frontend Delivery is not written yet"
-        }
-      ],
+      "blockedBy": [],
       "card": null,
       "children": [],
       "code": "files",
@@ -67763,13 +68032,13 @@
       "rollup": {
         "approved": 40,
         "blocked": 32,
-        "current": 9,
+        "current": 8,
         "decided": 26,
-        "delivered": 4,
-        "done": 13,
+        "delivered": 5,
+        "done": 14,
         "draft": 29,
         "in-progress": 47,
-        "missing": 148,
+        "missing": 147,
         "needs-decision": 1,
         "partial": 11,
         "passing": 3,
@@ -69183,6 +69452,7 @@
         "qa-frontend:account",
         "backend-delivery:files",
         "backend-integration:files",
+        "frontend-delivery:files",
         "frontend-requirements:files",
         "qa-backend:files",
         "decision:D-03",
@@ -69736,6 +70006,7 @@
         "decision:D-16",
         "backend-delivery:files",
         "backend-integration:files",
+        "frontend-delivery:files",
         "frontend-requirements:files",
         "qa-backend:files",
         "story:files",
@@ -70240,6 +70511,7 @@
         "task:B-08",
         "frontend-requirements:connections",
         "backend-integration:files",
+        "frontend-delivery:files",
         "frontend-requirements:files",
         "qa-backend:files",
         "story:files",
@@ -70328,6 +70600,7 @@
         "frontend-requirements:connections",
         "backend-delivery:counts",
         "backend-integration:counts",
+        "frontend-delivery:files",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
         "story:ring-access",
@@ -70544,6 +70817,7 @@
       "related": [
         "task:B-08",
         "frontend-requirements:connections",
+        "frontend-delivery:files",
         "frontend-requirements:files",
         "qa-backend:files",
         "frontend-requirements:photo-library",
@@ -71125,6 +71399,7 @@
         "needs-decision:ND-16",
         "story:files",
         "needs-decision:ND-21",
+        "frontend-delivery:files",
         "frontend-requirements:files",
         "frontend-requirements:onboarding-imports",
         "backend-delivery:photo-library",
@@ -71216,6 +71491,7 @@
         "backend-integration:view-as",
         "frontend-requirements:connections",
         "frontend-requirements:account",
+        "frontend-delivery:files",
         "frontend-requirements:files",
         "backend-delivery:photo-library",
         "frontend-requirements:photo-library",
