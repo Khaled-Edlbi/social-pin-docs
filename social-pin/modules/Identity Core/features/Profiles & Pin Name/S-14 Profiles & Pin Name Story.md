@@ -17,6 +17,8 @@ tags: [story, story/approved, module/identity, layer/business]
 
 # Profiles & Pin Name · User Story
 
+> ⚠ Affected by [[BD-07 Profiles & Pin Name Backend Delivery]] (2026-11-05): backend review of FR-07 (approved): for /pm: S9 still says the photo shows as initials until ND-16 is decided; ND-16 is decided as D-16 (files load from signed links that expire in 15 minutes), and FR-07 asks for a signed avatarUrl on GET /profiles, now pending on BD-07. S9's photo line should follow D-16.
+
 > ⚠ Affected by [[S-29 Companies Story]] (2026-11-05): S-29 P10 (decided in the story, 2026-11-05): the main profile gets a role field (job title) next to company; together they are the Company & role field Companies shows as the work identity (S-29 S4, S8).
 
 > ⚠ Affected by [[S-17 Ring Projection Story]] (2026-10-29): Me's privacy rows (S4) now **list and switch Rings**: each of Birthdate, Gender, Marital status shows which Rings show it ("Family Ring only") and opens the value plus a list of my Rings with a switch each; the same switches as each Ring's s24 (`showBirthdate`, `showGender`, `showMaritalStatus`; [[S-17 Ring Projection Story|Ring Projection · S4]]).

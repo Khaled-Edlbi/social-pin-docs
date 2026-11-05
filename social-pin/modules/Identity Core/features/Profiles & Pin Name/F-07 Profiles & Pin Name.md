@@ -8,13 +8,13 @@ release: mvp
 screens: [s05b, s06, s23, s44, s68]
 owner: "Omar Fostok"
 created: 2026-10-18
-updated: 2026-11-01
+updated: 2026-11-05
 tags: [feature, module/identity, priority/critical, release/mvp]
 ---
 
 # Profiles & Pin Name
 
-**Backend:** Done · **Priority:** Critical · **Release:** MVP · **Module:** [[M-01 Identity Core Module|Identity Core]]
+**Backend:** Partial: done, five asks pending on [[BD-07 Profiles & Pin Name Backend Delivery]] (S9–S11, S12, and three from [[FR-07 Profiles & Pin Name Frontend Requirements]], approved 2026-11-05) · **Priority:** Critical · **Release:** MVP · **Module:** [[M-01 Identity Core Module|Identity Core]]
 
 **Layers:** [[S-14 Profiles & Pin Name Story|Story]] · [[FR-07 Profiles & Pin Name Frontend Requirements|Frontend Requirements]] · [[BD-07 Profiles & Pin Name Backend Delivery|Backend Delivery]] · [[BI-04 Profiles & Pin Name Backend Integration|Backend Integration]] · [[Profiles & Pin Name Frontend Delivery|Frontend Delivery]] · [[Profiles & Pin Name QA Backend|QA Backend]] · [[Profiles & Pin Name QA Frontend|QA Frontend]]
 
