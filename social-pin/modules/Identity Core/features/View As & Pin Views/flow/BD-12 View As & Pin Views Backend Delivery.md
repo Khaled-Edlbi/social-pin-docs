@@ -6,6 +6,7 @@ feature: view-as
 status: done
 scope: feature
 screens: [s10, s31, s44]
+pending: ["[[FR-12 View As & Pin Views Frontend Requirements]]: remove avatarFileId from the viewer's view (RingProfileViewEntity), so a viewer never receives a file id (D-16); the owner's projection keeps it", "[[FR-12 View As & Pin Views Frontend Requirements]]: GET /views/ring/:ringId answers an expired Ring with its own 404 body before the membership check; decide with BD-08 whether a non-member gets the not-shared body"]
 created: 2026-10-15
 updated: 2026-11-05
 tags: [backend-delivery, backend-delivery/done, module/identity, layer/backend]
@@ -15,7 +16,7 @@ tags: [backend-delivery, backend-delivery/done, module/identity, layer/backend]
 
 **Feature:** [[F-12 View As & Pin Views]] · **Status:** Done · **Integration guide:** [[BI-09 View As & Pin Views Backend Integration]] · **Requirements:** [[FR-12 View As & Pin Views Frontend Requirements]] · **QA:** [[View As & Pin Views QA Backend]]
 
-What the backend shipped for this feature and how it works. The sum of this feature's task-level Backend Delivery notes (see the *Tasks* table below).
+What the backend shipped for this feature and how it works.
 
 ## Endpoints, tables and code
 
@@ -43,12 +44,15 @@ Three routes on `ProfileViewController`, all returning `RingProfileViewEntity`, 
 
 ### Gaps
 
-- The scanned-pin screen (s44) continues into a Connect request, which does not exist. See [[F-14 Connections]].
+- The scanned-pin screen (s44) continues into a Connect request, which does not exist: [[S-23 Connections Story|Connections · S2–S4]] ([[F-14 Connections]]).
 - Scanning resolves a **QR token**, not a ring id; token issue / resolve is not written. See [[F-18 Badge & QR]].
-- **The view still carries `avatarFileId`**, from before D-16, which says viewers never receive a file id. The client should read `avatarUrl` instead; the field is removed once [[FR-12 View As & Pin Views Frontend Requirements|FR-12]] no longer reads it (flagged there).
+- **The view still carries `avatarFileId`**, from before D-16, which says viewers never receive a file id. The client reads `avatarUrl` instead; removing the field from the viewer's entity is `pending` (FR-12 says so since its 2026-11-05 review).
+- Not built, each in its own feature: blocking a person ([[S-23 Connections Story|Connections · S13]]); the public page by Pin name ([[D-22 The public page only says the Pin exists]], on [[BD-07 Profiles & Pin Name Backend Delivery]]); headline and company on a view (the main profile fields, BD-07; per Ring, [[BD-10 Ring Projection Backend Delivery]]); widget routes ([[BD-13 Widgets Backend Delivery]]; `widgets[]` is already on the view).
+- No route validates a Pin name: a malformed one answers the same 404 as an unknown one. Only a malformed `ringId` or `userId` is a 400 (`ParseUUIDPipe`). Auth on these routes: a missing or expired token is a plain 401 with no code; a suspended account 401 `E_AUTH_03`, a deleted one 404 `E_USER_01`.
 - The owner's "View as" of an **expired** Ring is a 404 `E_RING_ACCESS_02`, because `assertRingReadable` applies the live filter to the owner too. Fine for the member's view; the s62 post-event screen must not rely on it to preview an expired Event Ring.
 
 ## Log
 
 - 2026-10-18 · split out of [[F-12 View As & Pin Views]] when the vault moved to layers
 - 2026-11-05 · branch `FR-04/file/signed-links-and-library` (`df93921`), merged to `main @ 80e7fa2` · every `/views/*` response carries `avatarUrl` and `attachments[].url`, signed, valid 15 minutes, made after the access check ([[D-16 Files load from signed links that expire in 15 minutes]]); the rest is on [[BD-04 Files Upload Backend Delivery]]'s log. Checked live on View as: both links load, the attachment carries no `fileId`. `avatarFileId` stays on the view for now (Gaps). Updated [[BI-09 View As & Pin Views Backend Integration]]; FR-12's rows flipped and FR-12 flagged.
+- 2026-11-05 · `docs/backend/M-01-identity/F-12-view-as/BD-12-open-asks` · checked against backend `main` f186ba1 in the review of [[FR-12 View As & Pin Views Frontend Requirements]] (sent back to `draft` on its own branch): removing `avatarFileId` from the view and the `/views/ring` expired-body question added to `pending`; the Gaps name what other features owe and how auth and a bad Pin name answer.
