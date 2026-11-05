@@ -5328,7 +5328,7 @@
     },
     "concepts": 261,
     "decisions": 28,
-    "edges": 5370,
+    "edges": 5372,
     "features": 41,
     "layerNotes": 137,
     "modules": 8,
@@ -10784,6 +10784,11 @@
     {
       "from": "backend-delivery:rings",
       "kind": "related",
+      "to": "decision:D-03"
+    },
+    {
+      "from": "backend-delivery:rings",
+      "kind": "related",
       "to": "decision:D-04"
     },
     {
@@ -12963,6 +12968,11 @@
       "from": "backend-integration:rings",
       "kind": "related",
       "to": "backend-integration:view-as"
+    },
+    {
+      "from": "backend-integration:rings",
+      "kind": "related",
+      "to": "decision:D-03"
     },
     {
       "from": "backend-integration:rings",
@@ -46338,22 +46348,22 @@
       "pending": [
         {
           "person": null,
-          "text": "Shared with me per person: the owner's card per row, a Ring's name only when joined knowingly, a member count only when members can see each other, no colour or type (S-15 S1, D-14, D-18); on backend branch FR-11/ring/settings-copy-default-shared (d1a6204), waits on the merge",
+          "text": "Shared with me per person: the owner's card per row, a Ring's name only when joined knowingly, a member count only when members can see each other, no colour or type (S-15 S1, D-14, D-18); on backend branch FR-11/ring/settings-copy-default-shared (4aad168), waits on the merge",
           "to": "frontend-requirements:rings"
         },
         {
           "person": null,
-          "text": "S9 the six launch settings saved and enforced, with the purpose on the s16 row (D-04); on backend branch FR-11/ring/settings-copy-default-shared (d1a6204), waits on the merge",
+          "text": "S9 the six launch settings saved and enforced, with the purpose on the s16 row (D-04); on backend branch FR-11/ring/settings-copy-default-shared (4aad168), waits on the merge",
           "to": "frontend-requirements:rings"
         },
         {
           "person": null,
-          "text": "S4 copy a Ring without its members (D-05); on backend branch FR-11/ring/settings-copy-default-shared (d1a6204), waits on the merge",
+          "text": "S4 copy a Ring without its members (D-05); on backend branch FR-11/ring/settings-copy-default-shared (4aad168), waits on the merge",
           "to": "frontend-requirements:rings"
         },
         {
           "person": null,
-          "text": "S7 refuse a temporary Ring as the default (409 E_RING_09); on backend branch FR-11/ring/settings-copy-default-shared (d1a6204), waits on the merge",
+          "text": "S7 refuse a temporary Ring as the default (409 E_RING_09); on backend branch FR-11/ring/settings-copy-default-shared (4aad168), waits on the merge",
           "to": "frontend-requirements:rings"
         }
       ],
@@ -46369,6 +46379,7 @@
         "backend-delivery:ring-projection",
         "frontend-requirements:ring-projection",
         "backend-integration:rings",
+        "decision:D-03",
         "decision:D-04",
         "decision:D-05",
         "decision:D-14",
@@ -46414,7 +46425,7 @@
         "s62"
       ],
       "status": "done",
-      "summary": "What the backend shipped for this feature and how it works. Parts marked ⏳ branch are on the backend branch FR-11/ring/settings-copy-default-shared (d1a6204), pushed and not merged: they are not…",
+      "summary": "What the backend shipped for this feature and how it works. Parts marked ⏳ branch are on the backend branch FR-11/ring/settings-copy-default-shared (4aad168, up to date with main a249ab2), pushed…",
       "tags": [
         "backend-delivery",
         "backend-delivery/done",
@@ -48810,6 +48821,7 @@
         "backend-integration:ring-projection",
         "frontend-requirements:ring-projection",
         "backend-delivery:rings",
+        "decision:D-03",
         "backend-integration:view-as",
         "decision:D-04",
         "decision:D-05",
@@ -49226,6 +49238,8 @@
         "backend-integration:ring-projection",
         "frontend-requirements:ring-projection",
         "story:ring-projection",
+        "backend-delivery:rings",
+        "backend-integration:rings",
         "story:widgets"
       ],
       "release": null,
