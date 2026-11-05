@@ -63,8 +63,8 @@ Every count here is **owner-facing**: a person only ever sees how many people ar
 | Need | Endpoint | Available | Task / decision |
 |---|---|---|---|
 | Number of Rings I own (Home "All N", My Rings tab, Me) | `GET /rings` → `meta.total` | ✅ | — (listed under [[F-11 Rings]]) |
-| Live member count per owned Ring, on the list and the detail | — | ❌ | [[S-03 Counts Story|Counts · S6–S10]] |
-| Number of **people** sharing a Ring with me, live now | — | ❌ | no task yet: asked here. `GET /rings/shared-with-me` → `meta.total` counts Rings today |
+| Live member count per owned Ring, on the list and the detail | `GET /rings` → `data[].memberCount`, `GET /rings/:id` → `memberCount` | ✅ | [[S-03 Counts Story|Counts · S6–S10]] ([[BI-14 Counts Backend Integration]]) |
+| Number of **people** sharing a Ring with me, live now | `GET /rings/shared-with-me/count` → `people` | ✅ | [[S-03 Counts Story|Counts · S2]] ([[BI-14 Counts Backend Integration]]); not `meta.total` of `GET /rings/shared-with-me`, which counts Rings |
 | Connection count on Me (Me only, no count on Home: [[S-03 Counts Story|Counts · S4]]) | — | ❌ | [[S-03 Counts Story|Counts · S11]] (waits on [[S-23 Connections Story|Connections · S2–S7]]) |
 
 Not asked, by decision: a member count on a Ring shared with me ([[D-14 Shared with me lists people, never the Ring]]).

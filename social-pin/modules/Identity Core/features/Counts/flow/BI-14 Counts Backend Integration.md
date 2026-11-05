@@ -3,7 +3,7 @@ id: BI-14
 type: backend-integration
 module: identity
 feature: counts
-status: draft
+status: current
 scope: feature
 screens: [s11, s12, s14, s16, s17, s68]
 depends: ["BD-03 Counts Backend Delivery"]
@@ -12,7 +12,7 @@ related: ["S-03 Counts Story", "BI-08 Rings Backend Integration", "D-14 Shared w
 pending: []
 created: 2026-11-05
 updated: 2026-11-05
-tags: [backend-integration, backend-integration/draft, module/identity, layer/backend]
+tags: [backend-integration, backend-integration/current, module/identity, layer/backend]
 ---
 
 # 🔌 Counts · Backend Integration
@@ -23,7 +23,7 @@ tags: [backend-integration, backend-integration/draft, module/identity, layer/ba
 
 Written by the **backend** team for the frontend: how to call what was delivered. `status: current` once it matches the code on `main`.
 
-**Draft: not on `main` yet.** `memberCount` is built on the backend branch `FR-03/ring/member-count`, and `GET /rings/shared-with-me/count` on `FR-03/ring/shared-people-count`; both wait on their merge. Until then `GET /rings` and `GET /rings/:id` do not send `memberCount` and the count route does not exist: keep showing "— people" / "People" with no number, exactly as today. Calls to the Rings endpoints themselves are in [[BI-08 Rings Backend Integration]]; this note covers only the counts.
+**On `main` since 2026-11-05 (`f186ba1`):** `memberCount` on `GET /rings` and `GET /rings/:id`, and `GET /rings/shared-with-me/count`. Calls to the Rings endpoints themselves are in [[BI-08 Rings Backend Integration]]; this note covers only the counts. The connection count on Me is not available yet (below).
 
 ## Screens → calls
 
@@ -46,17 +46,29 @@ Written by the **backend** team for the frontend: how to call what was delivered
 
 ## Shapes that matter
 
-`GET /rings` (each item is the Ring as [[BI-08 Rings Backend Integration]] describes it, plus one field):
+`GET /rings` (each item is the Ring as [[BI-08 Rings Backend Integration]] describes it, plus `memberCount`; every field as `main` sends it):
 
 ```json
 {
   "data": [
     {
-      "id": "6f1c…",
+      "id": "6f1c2a9e-3b7d-4c1a-9e2f-1a2b3c4d5e6f",
+      "ownerUserId": "0b8e7d6c-5a4f-4e3d-8c2b-1a0f9e8d7c6b",
       "name": "Family",
+      "type": "PERSONAL",
+      "parentRingId": null,
+      "profileId": "9a8b7c6d-5e4f-4a3b-8c2d-1e0f9a8b7c6d",
       "isDefault": true,
+      "isTemporary": false,
+      "startsAt": null,
       "expiresAt": null,
       "status": "ACTIVE",
+      "disposition": "UNDECIDED",
+      "mergedIntoRingId": null,
+      "colorHex": "#1E88E5",
+      "style": null,
+      "createdAt": "2026-11-05T09:41:22.104Z",
+      "updatedAt": "2026-11-05T09:41:22.104Z",
       "memberCount": 148
     }
   ],
@@ -64,7 +76,7 @@ Written by the **backend** team for the frontend: how to call what was delivered
 }
 ```
 
-`GET /rings/:id`: the same Ring object, `memberCount` included. `GET /rings/shared-with-me`: the Ring object **without** `memberCount`.
+`GET /rings/:id`: the same Ring object, `memberCount` included, not wrapped in `data`. `GET /rings/shared-with-me`: the same envelope, each Ring object **without** `memberCount`.
 
 `memberCount` is an integer ≥ 0, always present on the owner's two routes. `0` is a real zero.
 
@@ -74,7 +86,7 @@ Written by the **backend** team for the frontend: how to call what was delivered
 { "people": 2 }
 ```
 
-`people` is an integer ≥ 0: how many people share at least one Ring with me right now, one per person. `0` is a real zero ("No Rings shared with you yet").
+`people` is an integer ≥ 0: how many people share at least one Ring with me right now, one per person. `0` is a real zero ("No Rings shared with you yet"). It is the only field; the body names no Ring.
 
 ## State to keep on the client
 
@@ -88,20 +100,19 @@ Written by the **backend** team for the frontend: how to call what was delivered
 | 404 | `E_RING_02` | `GET /rings/:id`: the Ring is gone, or it is not yours; the body is the same for both | hide the number, drop the card, refetch `GET /rings` |
 | 400 | — (validation) | `limit` above 50 or an unknown query field | client bug; keep `limit` ≤ 50 |
 
-`memberCount` adds no error of its own.
+`memberCount` adds no error of its own; `GET /rings/shared-with-me/count` takes no parameters and answers only 200 (or 401 without a valid session, like every route).
 
 ## Rules the UI must respect
 
 - **Show the number as sent.** It counts only people who can see the Ring right now: membership active and inside its window, the Ring itself live (an expired, archived or deleted Ring is 0), and no block between them and you. Never compute it from the roster: `meta.total` of `GET /rings/:ringId/members?status=ACTIVE` still counts members whose window has lapsed.
 - **People, not Rings, on Shared with me.** The chip is `people` from the count route: a person sharing two Rings is one; access that lapsed, or a block between us, does not count. It can change without anything I do, so refetch on focus.
 - **Owner-only.** A Ring shared with you never shows a member count ([[D-14 Shared with me lists people, never the Ring]]); `GET /rings/shared-with-me` does not send one.
-- **No made-up numbers.** Before the merge, while loading, or if the field is absent: "— people", "— in Ring", "People", never "0".
+- **No made-up numbers.** While loading, or if a number is absent: "— people", "— in Ring", "People", never "0".
+- **The Shared with me list and the chip agree.** Both follow the same rule on the server (live Ring, live membership, no block either way), so a person in the chip always has at least one row in the list.
 
 ## Not available yet
 
-- `memberCount` itself until `FR-03/ring/member-count` is merged to `main` → [[S-03 Counts Story|Counts · S6–S10]].
-- "N connections" on Me → [[S-03 Counts Story|Counts · S11]] (waits on connections).
-- `GET /rings/shared-with-me/count` until `FR-03/ring/shared-people-count` is merged → [[S-03 Counts Story|Counts · S2]].
+- "N connections" on Me → [[S-03 Counts Story|Counts · S11]] (waits on connections). Keep the connections part **hidden**, never "0 connections".
 - "N added today" on Home → an open question of [[S-03 Counts Story]].
 
 ## Checklist
