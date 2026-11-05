@@ -16,7 +16,7 @@ tags: [feature, module/identity, priority/critical, release/mvp]
 
 **Backend:** Partial: done, five asks pending on [[BD-07 Profiles & Pin Name Backend Delivery]] (S9–S11, S12, and three from [[FR-07 Profiles & Pin Name Frontend Requirements]], approved 2026-11-05) · **Priority:** Critical · **Release:** MVP · **Module:** [[M-01 Identity Core Module|Identity Core]]
 
-**Layers:** [[S-14 Profiles & Pin Name Story|Story]] · [[FR-07 Profiles & Pin Name Frontend Requirements|Frontend Requirements]] · [[BD-07 Profiles & Pin Name Backend Delivery|Backend Delivery]] · [[BI-04 Profiles & Pin Name Backend Integration|Backend Integration]] · [[Profiles & Pin Name Frontend Delivery|Frontend Delivery]] · [[Profiles & Pin Name QA Backend|QA Backend]] · [[Profiles & Pin Name QA Frontend|QA Frontend]]
+**Layers:** [[S-14 Profiles & Pin Name Story|Story]] · [[FR-07 Profiles & Pin Name Frontend Requirements|Frontend Requirements]] · [[BD-07 Profiles & Pin Name Backend Delivery|Backend Delivery]] · [[BI-04 Profiles & Pin Name Backend Integration|Backend Integration]] · [[Profiles & Pin Name Frontend Delivery|Frontend Delivery]] · [[QB-10 Profiles & Pin Name QA Backend|QA Backend]] · [[Profiles & Pin Name QA Frontend|QA Frontend]]
 
 One profile per person: the full name, the nickname, the main profile every Ring starts from, the `!`-prefixed unique Pin name with a public live availability check, and the sensitive base fields (birthdate, gender, marital status) that Rings opt into. Several profiles per account (Personal, Professional, Business) are **later**, not in v1: the backend supports them, the app uses the default profile only, and a business identity is a company ([[F-15 Companies]]).
 

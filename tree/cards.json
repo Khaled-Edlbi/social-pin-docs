@@ -230,6 +230,7 @@
     "qa-backend:counts": "QB-07",
     "qa-backend:files": "QB-06",
     "qa-backend:photo-library": "QB-08",
+    "qa-backend:profiles": "QB-10",
     "qa-backend:ring-access": "QB-09",
     "qa-backend:ring-members": "QB-11",
     "qa-backend:rings": "QB-12",

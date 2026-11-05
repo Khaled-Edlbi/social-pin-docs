@@ -83,7 +83,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
       - 👍 [FR-07 Profiles & Pin Name Frontend Requirements](social-pin/modules/Identity%20Core/features/Profiles%20%26%20Pin%20Name/flow/FR-07%20Profiles%20%26%20Pin%20Name%20Frontend%20Requirements.md) (Frontend Requirements, Critical)
       - 🟡 [BD-07 Profiles & Pin Name Backend Delivery](social-pin/modules/Identity%20Core/features/Profiles%20%26%20Pin%20Name/flow/BD-07%20Profiles%20%26%20Pin%20Name%20Backend%20Delivery.md) (Backend Delivery, 1 pending note, Critical)
       - 🔵 [BI-04 Profiles & Pin Name Backend Integration](social-pin/modules/Identity%20Core/features/Profiles%20%26%20Pin%20Name/flow/BI-04%20Profiles%20%26%20Pin%20Name%20Backend%20Integration.md) (Backend Integration, Critical)
-      - ∅ _Profiles & Pin Name QA Backend_ (QA Backend)
+      - 🟢 [QB-10 Profiles & Pin Name QA Backend](social-pin/modules/Identity%20Core/features/Profiles%20%26%20Pin%20Name/flow/QB-10%20Profiles%20%26%20Pin%20Name%20QA%20Backend.md) (QA Backend, Critical)
       - ∅ _Profiles & Pin Name Frontend Delivery_ (Frontend Delivery)
       - ∅ _Profiles & Pin Name QA Frontend_ (QA Frontend, blocked by Profiles & Pin Name Frontend Delivery)
       - ✅ [ND-02 Base profile work fields](social-pin/needs-decisions/ND-02%20Base%20profile%20work%20fields.md) (Needs decision)
