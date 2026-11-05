@@ -17,7 +17,7 @@ tags: [backend-delivery, backend-delivery/done, module/identity, layer/backend]
 
 > ⚠ Affected by [[D-02 One main profile every Ring starts from]] (2026-10-25): ND-02 decided, one main profile (headline, role, company, location, photo, bio) every Ring starts from; a Ring may change all of them but the full name and keeps its own value when the main one changes.
 
-**Feature:** [[F-06 Photo Library]] · **Status:** Done · **Integration guide:** [[BI-13 Photo Library Backend Integration]] · **Requirements:** [[FR-06 Photo Library Frontend Requirements]] · **QA:** [[Photo Library QA Backend]]
+**Feature:** [[F-06 Photo Library]] · **Status:** Done · **Integration guide:** [[BI-13 Photo Library Backend Integration]] · **Requirements:** [[FR-06 Photo Library Frontend Requirements]] · **QA:** [[QB-08 Photo Library QA Backend]]
 
 What the backend shipped for this feature and how it works. The sum of this feature's task-level Backend Delivery notes (see the *Tasks* table below).
 
