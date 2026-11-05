@@ -188,7 +188,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
       - 👍 [S-29 Companies Story](social-pin/modules/Shared%20Rings%20%26%20Companies/features/Companies/S-29%20Companies%20Story.md) (User Story, Critical)
         - ✅ [ND-18 Company and invited Ring names shown to members](social-pin/needs-decisions/ND-18%20Company%20and%20invited%20Ring%20names%20shown%20to%20members.md) (Needs decision)
           - ⚖️ [D-18 Ring names shown when joined knowingly](social-pin/decisions/D-18%20Ring%20names%20shown%20when%20joined%20knowingly.md) (Decision)
-      - ✏️ [FR-15 Companies Frontend Requirements](social-pin/modules/Shared%20Rings%20%26%20Companies/features/Companies/flow/FR-15%20Companies%20Frontend%20Requirements.md) (Frontend Requirements, Critical)
+      - 📨 [FR-15 Companies Frontend Requirements](social-pin/modules/Shared%20Rings%20%26%20Companies/features/Companies/flow/FR-15%20Companies%20Frontend%20Requirements.md) (Frontend Requirements, Critical)
       - ⛔ [BD-15 Companies Backend Delivery](social-pin/modules/Shared%20Rings%20%26%20Companies/features/Companies/flow/BD-15%20Companies%20Backend%20Delivery.md) (Backend Delivery, Critical, blocked by FR-15 Companies Frontend Requirements)
       - ∅ _Companies Backend Integration_ (Backend Integration, blocked by BD-15 Companies Backend Delivery)
       - ∅ _Companies QA Backend_ (QA Backend, blocked by BD-15 Companies Backend Delivery)
