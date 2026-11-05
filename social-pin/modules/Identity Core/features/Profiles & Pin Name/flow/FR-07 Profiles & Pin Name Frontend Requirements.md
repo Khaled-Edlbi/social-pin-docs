@@ -19,6 +19,8 @@ tags: [frontend-requirements, frontend-requirements/approved, module/identity, l
 
 # Profiles & Pin Name · Frontend Requirements
 
+> ⚠ Affected by [[BD-07 Profiles & Pin Name Backend Delivery]] (2026-11-05): backend main a249ab2 shipped S3, S4, S9-S12 and D-16's avatarUrl; the rows are ticked ✅; for /frontend: the prose still reads as before (Source today on s05b and the editor, Behaviour expectations 'until then', Blocked by S9-S11, S12-S13, D-16)
+
 > ⚠ Affected by [[D-22 The public page only says the Pin exists]] (2026-11-05): ND-22 decided: socialpin.me/<pinName> is a public page showing only the name, the Pin name and Open in Social Pin, built by the frontend on socialpin.me with the app links; add the page and the public look-up it reads; for /frontend
 
 > ⚠ Affected by [[BD-07 Profiles & Pin Name Backend Delivery]] (2026-11-05): backend review of FR-07 (approved): for /frontend: (1) the Main profile fields row and the Field map should say what S-14 S10 says, that GET /profiles returns the six work fields as null when not set and PATCH /profiles/:id with null clears one; (2) the role field asked by S-29 P10 is already in the Main profile fields row: add S-29 S4, S8 to that row and clear the two flags above (FR-15, S-29).
@@ -37,7 +39,7 @@ What the client needs from the backend for *Profile basics* and the Pin-name cla
 
 - Where it sits: reached from "Fill it in myself" on s03; from Edit and each "Add" on s05 (Continue returns to s05, so the import is still confirmed); from Skip on the portfolio step; after a failed import. Continue → s06. The account doesn't exist yet.
 - Fields: **full name** (required, ≤ 120); photo (camera or library), headline, company, location (optional).
-- Needs: the full name goes into `POST /auth/complete-registration` (`fullName`) ✅. The other four are written to the new main profile **right after registration**, with `PATCH /profiles/:id` (the photo as a `POST /files` id): ❌ until [[S-14 Profiles & Pin Name Story|Profiles & Pin Name · S9–S11]].
+- Needs: the full name goes into `POST /auth/complete-registration` (`fullName`) ✅. The other four are written to the new main profile **right after registration**, with `PATCH /profiles/:id` (the photo as a `POST /files` id): ✅ ([[S-14 Profiles & Pin Name Story|Profiles & Pin Name · S9–S11]]).
 - States: name missing (error under the field), photo picked / removed, optional fields empty.
 - Source today: the name is saved; photo, headline, company and location are kept in memory for the session and lost.
 
@@ -59,7 +61,7 @@ What the client needs from the backend for *Profile basics* and the Pin-name cla
   - **Full name** (≤ 120), the same in every Ring.
   - **"What friends call you"**: the nickname, optional (≤ 60); clearing it sends `null` (see Endpoints). Rings show it unless a Ring sets its own ([[FR-10 Ring Projection Frontend Requirements|FR-10]], [[FR-12 View As & Pin Views Frontend Requirements|FR-12]]).
   - **Pin name** (`!` decoration), with the **next allowed rename date** when it's in the future; the same live check and chips as s06.
-  - **Work details**: headline, role, company, location, photo, bio ❌ until S9–S11.
+  - **Work details**: headline, role, company, location, photo, bio ✅ (S9–S11).
 - Each field is saved on its own (`PATCH /profiles/:id`, only that key); the response replaces the held profile.
 - States: loading, saving (loader on that field only), an empty field reads "Add", refused rename (the message under the field, the current name kept), next-rename date shown.
 - Not in v1: several profiles. No create, no "Make default", no delete.
@@ -70,7 +72,7 @@ What the client needs from the backend for *Profile basics* and the Pin-name cla
 - The header card opens the profile editor.
 - Privacy rows: birthdate, gender and marital status, set from the row with `PATCH /profiles/:id`, one field per request, `null` clears ✅ (shipped in the client 2026-10-26).
 - **Which Rings show each one** ([[S-17 Ring Projection Story|Ring Projection · S4]]): the row reads "Hidden from all Rings", "Family Ring only", "Family and Company". Tapping it opens the value **and a list of my Rings with a switch each**; switching one sets `showBirthdate` / `showGender` / `showMaritalStatus` on that Ring's projection (`PATCH /rings/:ringId/projection` ✅), the same switch as that Ring's s24. Each Ring in the list links to its s24. A field with no value can't be switched on for any Ring.
-- Needs: **my Rings with their five `show*` switches, in one call** ❌ (today one `GET /rings/:ringId/projection` per Ring).
+- Needs: **my Rings with their five `show*` switches, in one call** ✅ `GET /profiles/ring-privacy`.
 
 ### [[Screen Index#s23|s23]] Edit · how you appear (S11)
 
@@ -85,9 +87,9 @@ The screen and the look-up by Pin name are [[FR-12 View As & Pin Views Frontend 
 | Shown | Source | Rule |
 |---|---|---|
 | `!pinName` | `ProfileEntity.pinName` | 3–30 chars, letters, digits, `.`, `_`; sent without `!` |
-| Next allowed rename | the profile (S12) | ❌ not available yet; shown only when in the future |
+| Next allowed rename | `nextPinNameChangeAt` (S12) | ✅ `null` when a rename is allowed now; shown only when in the future |
 | Full name | `fullName` | ≤ 120 |
-| What friends call you | `nickname` | ≤ 60; `null` clears (❌ not accepted yet) |
+| What friends call you | `nickname` | ≤ 60; `null` clears ✅ |
 | Birthdate | `birthdate` | ISO date or `null` |
 | Gender | `gender` | enum from `/docs` or `null` |
 | Marital status | `maritalStatus` | enum from `/docs` or `null` |
@@ -107,12 +109,12 @@ The screen and the look-up by Pin name are [[FR-12 View As & Pin Views Frontend 
 | List my profiles, default first | `GET /profiles` | ✅ | S3, S10 (the client reads `data[0]`) |
 | Read one of my profiles | `GET /profiles/:id` | ✅ | — |
 | Edit name, nickname, handle, sensitive fields | `PATCH /profiles/:id` | ✅ | S3, S4, S12 |
-| **My Rings with their five `show*` switches** (`showBirthdate`, `showGender`, `showMaritalStatus`, `showPhone`, `showEmail`), in one call, for Me's privacy rows | — | ❌ | S4 ([[S-17 Ring Projection Story\|Ring Projection · S4]]); setting each is `PATCH /rings/:ringId/projection` ✅ |
-| **Clear the nickname** (`nickname: null`, as the sensitive fields already accept) | `PATCH /profiles/:id` | ❌ | S3 |
-| Main profile fields (headline, role, company, location, photo, bio) on read and `PATCH` | `GET /profiles`, `PATCH /profiles/:id` | ❌ | [[S-14 Profiles & Pin Name Story\|Profiles & Pin Name · S9–S11]] |
-| **Once-a-year rename**: the next allowed rename date on the profile, and a refused rename (inside the year) answered with its **own `ErrorCode`**; a change of capitals only is not a rename; the first rename after sign-up is allowed. Field and code to be named by the backend. | `GET /profiles`, `PATCH /profiles/:id` | ❌ | [[S-14 Profiles & Pin Name Story\|Profiles & Pin Name · S12–S13]] |
+| **My Rings with their five `show*` switches** (`showBirthdate`, `showGender`, `showMaritalStatus`, `showPhone`, `showEmail`), in one call, for Me's privacy rows | `GET /profiles/ring-privacy` | ✅ | S4 ([[S-17 Ring Projection Story\|Ring Projection · S4]]); setting each is `PATCH /rings/:ringId/projection` ✅ |
+| **Clear the nickname** (`nickname: null`, as the sensitive fields already accept) | `PATCH /profiles/:id` | ✅ | S3 |
+| Main profile fields (headline, role, company, location, photo, bio) on read and `PATCH` | `GET /profiles`, `PATCH /profiles/:id` | ✅ | [[S-14 Profiles & Pin Name Story\|Profiles & Pin Name · S9–S11]] |
+| **Once-a-year rename**: the next allowed rename date on the profile, and a refused rename (inside the year) answered with its **own `ErrorCode`**; a change of capitals only is not a rename; the first rename after sign-up is allowed. Named by the backend: `nextPinNameChangeAt` (and `pinNameChangedAt`) on the profile, 429 `E_PROFILE_05`. | `GET /profiles`, `PATCH /profiles/:id` | ✅ | [[S-14 Profiles & Pin Name Story\|Profiles & Pin Name · S12–S13]] |
 | Upload the profile photo | `POST /files` | ✅ | S9 ([[F-04 Files Upload]]) |
-| Show the profile photo: a signed `avatarUrl` for the main photo on `GET /profiles`, valid 15 minutes, no file id needed to show it | `GET /profiles` | ❌ | [[D-16 Files load from signed links that expire in 15 minutes]] (decided) |
+| Show the profile photo: a signed `avatarUrl` for the main photo on `GET /profiles`, valid 15 minutes, no file id needed to show it | `GET /profiles` | ✅ | [[D-16 Files load from signed links that expire in 15 minutes]] (decided) |
 | Public web page by Pin name (`socialpin.me/<pinName>`) | — | ❌ | [[ND-22 Public web page by Pin name]] |
 | Suggested handles on s06 and in the editor | — (client, from the person's own name) | ✅ | S1 ([[D-06 Yearly rename, old name freed, case-insensitive]]) |
 | Gemma's handle suggestions | — | ❌ | [[S-89 Gemma AI Story\|Gemma AI · S6]]; the chip is hidden until then |
@@ -138,7 +140,7 @@ The screen and the look-up by Pin name are [[FR-12 View As & Pin Views Frontend 
 |---|---|---|
 | 409 | `E_PROFILE_02` | "That Pin name is taken", inline, field focused (at sign-up: "That Pin name was just taken", the name kept) |
 | 404 | `E_PROFILE_01` | treat as missing; refetch the list |
-| — | refused rename, its own code (S12, to be named by the backend) | "You can change your Pin name once a year. Next change: <date>." under the field; the current name kept |
+| 429 | `E_PROFILE_05` (refused rename, S12) ✅ | "You can change your Pin name once a year. Next change: <date>." under the field; the current name kept |
 | 400 | — (validation; `message` is a string array) | inline on the field (length, format, enum) |
 
 Until [[S-87 Error Contract Story|Error Contract · S4–S8]] ships, branch on status and endpoint.
