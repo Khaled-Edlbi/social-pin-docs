@@ -3,21 +3,23 @@ id: FR-02
 type: frontend-requirements
 module: identity
 feature: auth
-status: ready
+status: approved
 scope: feature
 screens: [s01, s02, s06, s08, s68, s75]
+approvedBy: "khaled"
+approvedAt: 2026-11-05
 owner: "Omar Fostok"
 depends: []
 affects: []
 related: ["ND-01 Passwordless login", "D-06 Yearly rename, old name freed, case-insensitive", "FR-05 Onboarding Imports Frontend Requirements", "FR-07 Profiles & Pin Name Frontend Requirements", "FR-37 Interests Frontend Requirements", "F-11 Rings", "S-14 Profiles & Pin Name Story", "S-87 Error Contract Story"]
 created: 2026-10-18
-updated: 2026-10-29
-tags: [frontend-requirements, frontend-requirements/ready, module/identity, layer/frontend]
+updated: 2026-11-05
+tags: [frontend-requirements, frontend-requirements/approved, module/identity, layer/frontend]
 ---
 
 # Auth & Sign-up · Frontend Requirements
 
-**Feature:** [[F-02 Auth & Sign-up]] · **Status:** Ready (waiting for the backend) · **Story:** [[S-02 Auth & Sign-up Story]] · **Backend Integration:** [[BI-02 Auth & Sign-up Backend Integration]]
+**Feature:** [[F-02 Auth & Sign-up]] · **Status:** Approved (accepted by the backend 2026-11-05) · **Story:** [[S-02 Auth & Sign-up Story]] · **Backend Integration:** [[BI-02 Auth & Sign-up Backend Integration]]
 
 What the client needs from the backend for the welcome, code, Pin-name and session screens, and whether each need is met today, checked against the client's sign-up as built (2026-10-26). Everything this feature asks for exists; the one thing missing is the delivery of the code itself, which the backend papers over with `devCode` for now. Passwordless since 2026-10-15 ([[ND-01 Passwordless login]]); the client-side migration is in [[Frontend Passwordless Migration]].
 
