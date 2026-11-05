@@ -952,6 +952,7 @@
         "backend-delivery:auth",
         "backend-integration:account",
         "backend-integration:auth",
+        "frontend-delivery:account",
         "frontend-requirements:account",
         "frontend-requirements:app-shell",
         "frontend-requirements:auth",
@@ -5032,7 +5033,7 @@
     },
     "concepts": 249,
     "decisions": 27,
-    "edges": 4761,
+    "edges": 4762,
     "features": 41,
     "layerNotes": 133,
     "modules": 8,
@@ -12035,6 +12036,7 @@
       "to": "frontend-delivery:account",
       "via": [
         "E_AUTH_03",
+        "E_AUTH_04",
         "E_USER_01"
       ]
     },
@@ -16739,6 +16741,7 @@
       "to": "frontend-delivery:account",
       "via": [
         "E_AUTH_03",
+        "E_AUTH_04",
         "E_USER_01",
         "POST /auth/logout"
       ]
@@ -18418,6 +18421,14 @@
       "via": [
         "E_AUTH_04",
         "POST /auth/refresh"
+      ]
+    },
+    {
+      "from": "task:B-03",
+      "kind": "related",
+      "to": "frontend-delivery:account",
+      "via": [
+        "E_AUTH_04"
       ]
     },
     {
@@ -40781,7 +40792,7 @@
       "task": null,
       "title": "BI-02 Auth & Sign-up Backend Integration",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-05"
     },
     "backend-integration:badge-qr": {
       "affects": [],
@@ -47655,6 +47666,7 @@
       "pending": [],
       "priority": "critical",
       "related": [
+        "task:B-03",
         "needs-decision:ND-20",
         "decision:D-20",
         "backend-delivery:account",
@@ -64151,6 +64163,7 @@
         "frontend-requirements:events-before",
         "frontend-requirements:post-event",
         "backend-integration:account",
+        "frontend-delivery:account",
         "frontend-requirements:account",
         "qa-frontend:account",
         "frontend-requirements:view-as",

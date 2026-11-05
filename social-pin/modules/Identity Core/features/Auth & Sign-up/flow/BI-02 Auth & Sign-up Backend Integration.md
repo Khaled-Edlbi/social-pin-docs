@@ -6,15 +6,13 @@ feature: auth
 status: current
 scope: feature
 screens: [s01, s02, s06, s08, s68]
-related: ["B-02 Deleted account answers 401, not the documented 404 E_USER_01", E_USER_01]
+related: ["B-02 Deleted account answers 401, not the documented 404 E_USER_01", E_USER_01, "B-03 Two refreshes at once both succeed and fork the session", "B-04 Sign-up accepts an email and a phone together", "B-05 Expired onboarding token answers 401, not the documented 400"]
 created: 2026-10-15
-updated: 2026-10-29
+updated: 2026-11-05
 tags: [backend-integration, backend-integration/current, module/identity, layer/backend]
 ---
 
 # 🔌 Auth & Sign-up · Backend Integration
-
-> ⚠ Affected by [[QB-05 Auth & Sign-up QA Backend]] (2026-10-27): three rows differ on `main @ b4984d6`. **Refresh is not single-use under a race**: two concurrent `POST /auth/refresh` with one token both answer 201 and both new tokens stay live ([[B-03 Two refreshes at once both succeed and fork the session]]). **`sign-up { email, phone }` is a 201**, not 400 `E_AUTH_07`, and stores both ([[B-04 Sign-up accepts an email and a phone together]]). **An expired or forged onboarding token is 401**, not 400 `E_AUTH_05` ([[B-05 Expired onboarding token answers 401, not the documented 400]]). `/backend`.
 
 **Feature:** [[F-02 Auth & Sign-up]] · **Backend:** ✅ Done (passwordless since 2026-10-15, [[ND-01 Passwordless login]]) · **Read first:** [[Frontend Contract]], [[Auth Model]], [[Frontend Passwordless Migration]]
 
@@ -32,7 +30,7 @@ What the client builds: the welcome screen, one code-entry screen used by both s
 
 ## Flow · sign-up (three calls, in order)
 
-1. **`POST /auth/sign-up`** with `{ email }` or `{ phone }`. Exactly one: neither is a 400 `E_AUTH_07`. Phone is E.164 with the country code.
+1. **`POST /auth/sign-up`** with `{ email }` or `{ phone }`. Exactly one: neither **or both** is a 400 `E_AUTH_07`. Phone is E.164 with the country code.
    → `201 { destination, channel: "EMAIL" | "PHONE", expiresAt, devCode }`. The code lives 10 minutes; run the resend timer and the "expired" state from `expiresAt`, never from a client constant.
    Re-submitting for an address that is still PENDING re-issues the code (no error). An address that already finished sign-up is a 409 `E_AUTH_01`: send them to sign-in.
 2. **`POST /auth/verify-code`** with `{ destination, code, purpose: "SIGN_UP" }` (`purpose` is always `SIGN_UP` here; sign-in codes go to `login/verify`).
@@ -41,7 +39,7 @@ What the client builds: the welcome screen, one code-entry screen used by both s
 3. **Pin name check** while the user types: `GET /profiles/pin-name/:pinName/availability` → `{ pinName, available }`. Send the handle without the `!`. Rules: 3 to 30 characters, letters, digits, `.` and `_`. Uniqueness ignores case; the original casing is kept for display. The answer never says who holds a taken name.
 4. **`POST /auth/complete-registration`** with `{ onboardingToken, pinName, fullName? }` (`fullName` up to 120 characters). **No password field.**
    → `201 { accessToken, refreshToken, tokenType: "Bearer", expiresIn: "15m" }`. One transaction activated the account and created the profile, the default Ring and its projection, so the app can go straight to Home.
-   409 `E_AUTH_08`: sign-up already completed → sign-in. 409 `E_PROFILE_02`: the handle was taken between the check and the submit → back to s06. 400 `E_AUTH_05`: the onboarding token expired or was issued for another purpose → back to s02.
+   409 `E_AUTH_08`: sign-up already completed → sign-in. 409 `E_PROFILE_02`: the handle was taken between the check and the submit → back to s06. 400 `E_AUTH_05`: the onboarding token expired, was forged or was issued for another purpose → back to s02 (never a 401, so a session handler never tries a refresh here).
 
 ## Flow · sign-in (two calls)
 
@@ -71,7 +69,7 @@ OTP delivery is not wired ([[F-32 Code Delivery]]). Until it is, **every respons
 | `refreshToken` | 7 days | `Authorization: Bearer` | `POST /auth/refresh` and `POST /auth/logout` |
 
 - **Refresh is single-use.** `POST /auth/refresh` with the *refresh* token as bearer returns a new pair and kills the one sent, in the same transaction. Persist the new pair atomically.
-- **Serialise refreshes.** One in-flight refresh promise; every request that got a 401 waits on it and retries once. Two concurrent refreshes end the session.
+- **Serialise refreshes.** One in-flight refresh promise; every request that got a 401 waits on it and retries once. Two concurrent refreshes with one token: exactly one gets the new pair, the other 401 `E_AUTH_04`. A client that sends both and stores the losing answer signs itself out, so never send two.
 - 401 `E_AUTH_04` from `/auth/refresh` means sign in again. Rotated, revoked, expired and forged tokens all give that one answer.
 - A SUSPENDED account gets 401 `E_AUTH_03` on its next call, not after the access token expires: treat it as a sign-out, do not refresh.
 - A DELETED account (deleted on another device) gets **404 `E_USER_01`** on its next call, on any route: also a sign-out, with the "account deleted" copy ([[BI-01 Account Backend Integration]]).
@@ -84,14 +82,14 @@ OTP delivery is not wired ([[F-32 Code Delivery]]). Until it is, **every respons
 |---|---|---|---|
 | 400 | `E_AUTH_07` | sign-up with neither or both of email / phone | form validation |
 | 409 | `E_AUTH_01` | sign-up for an address that already completed registration | "Already registered, sign in" |
-| 400 | `E_AUTH_05` | wrong, expired or consumed code; onboarding token expired or for another purpose | "Invalid or expired code" + resend |
+| 400 | `E_AUTH_05` | wrong, expired or consumed code; onboarding token expired, forged or for another purpose | "Invalid or expired code" + resend |
 | 429 | `E_AUTH_06` | five wrong guesses; the code is burned | "Request a new code" |
 | 403 | `E_AUTH_03` | `login/verify` on a suspended or never-finished account | one message + "start sign-up again" |
 | 409 | `E_AUTH_08` | complete-registration on an account that already finished | go to sign-in |
 | 409 | `E_PROFILE_02` | pin name taken at the last moment | back to the Pin step |
 | 401 | `E_AUTH_03` | suspended account on any later call | sign-out state |
 | 404 | `E_USER_01` | deleted account on any later call | sign-out state, "account deleted" |
-| 401 | `E_AUTH_04` | refresh token rotated, revoked, expired or wrong scope | sign in again |
+| 401 | `E_AUTH_04` | refresh token rotated, revoked, expired or wrong scope; the loser of two concurrent refreshes | sign in again |
 
 Retired and never returned again: `E_AUTH_02` (invalid password) and `E_USER_04` (current password). Remove any handling of them. Until [[S-87 Error Contract Story|Error Contract · S4–S8]] ships, the wire body carries `statusCode`, `message` and `error` but **not** `ErrorCode`; branch on status and endpoint. See [[F-35 Error Contract]].
 
@@ -106,6 +104,7 @@ Retired and never returned again: `E_AUTH_02` (invalid password) and `E_USER_04`
 
 - **Code delivery.** No email or SMS provider is wired ([[S-78 Code Delivery Story|Code Delivery · S6]], [[S-78 Code Delivery Story|Code Delivery · S7]]); `devCode` stands in until then.
 - Social login ([[S-94 Linked Accounts (OAuth) Story|Linked Accounts (OAuth) · S7]]), device registration on login ([[S-82 Devices & NFC Story|Devices & NFC · S6]]).
+- Two known differences on `main @ 504cb21`, open on [[BD-02 Auth & Sign-up Backend Delivery]]: `POST /auth/refresh` for a SUSPENDED account answers **403** `E_AUTH_03`, not 401, so treat a 403 from `/auth/refresh` as a sign-out too; and two registrations claiming one free Pin name at the same instant can answer **500** instead of 409 `E_PROFILE_02`, so treat a 500 from `complete-registration` as "try another handle" until it is fixed.
 
 ## Checklist
 
@@ -117,3 +116,8 @@ Retired and never returned again: `E_AUTH_02` (invalid password) and `E_USER_04`
 - [ ] Token store: atomic pair replacement, one in-flight refresh, 401 retry once.
 - [ ] Logout sends the refresh token; logout-everywhere the access token.
 - [ ] No password UI, no `E_AUTH_02` / `E_USER_04` handling, no `PASSWORD_RESET` anywhere in the client.
+
+## Log
+
+- 2026-11-05 · flagged [[FD-04 Account Frontend Delivery]]: POST /auth/refresh for a SUSPENDED account answers 403 E_AUTH_03, not 401, on backend main @ 504cb21 (open on BD-02); a session that ends on 'the refresh that follows is refused' must treat a 403 from /auth/refresh as a sign-out too. Also: of two concurrent refreshes with one token, the loser now gets 401 E_AUTH_04 (B-03)
+- 2026-11-05 · flagged [[QF-04 Account QA Frontend]]: POST /auth/refresh for a SUSPENDED account answers 403 E_AUTH_03, not 401, on backend main @ 504cb21 (open on BD-02); a session that ends on 'the refresh that follows is refused' must treat a 403 from /auth/refresh as a sign-out too. Also: of two concurrent refreshes with one token, the loser now gets 401 E_AUTH_04 (B-03)
