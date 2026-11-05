@@ -14,6 +14,8 @@ tags: [backend-integration, backend-integration/current, module/identity, layer/
 
 # 🔌 Auth & Sign-up · Backend Integration
 
+> ⚠ Affected by [[D-30 The fifth wrong code try locks the code]] (2026-11-05): ND-30 decided, option 1: the fifth wrong guess answers 429 E_AUTH_06; the sign-up flow's 'Sixth wrong guess: 429' becomes the fifth once the backend ships it (/backend)
+
 **Feature:** [[F-02 Auth & Sign-up]] · **Backend:** ✅ Done (passwordless since 2026-10-15, [[ND-01 Passwordless login]]) · **Read first:** [[Frontend Contract]], [[Auth Model]], [[Frontend Passwordless Migration]]
 
 What the client builds: the welcome screen, one code-entry screen used by both sign-up and sign-in, the claim-your-Pin step, a token store that handles rotation, and sign-out. **There is no password anywhere**: not at sign-up, not at sign-in, not in account settings.

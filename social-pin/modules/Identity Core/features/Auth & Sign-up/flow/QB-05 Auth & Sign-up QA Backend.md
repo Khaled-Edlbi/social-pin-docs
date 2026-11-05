@@ -17,6 +17,8 @@ tags: [qa-backend, qa-backend/passing, module/identity, layer/qa]
 
 # 🧪 Auth & Sign-up · QA Backend
 
+> ⚠ Affected by [[D-30 The fifth wrong code try locks the code]] (2026-11-05): ND-30 decided, option 1: B14, B36 and the error matrix become four 400s then 429 on the fifth wrong guess, with a correct code after it refused; re-run once the backend ships, then clear the ND-30 pending entry (/qa)
+
 > Blocked by default until [[BD-02 Auth & Sign-up Backend Delivery]] is `done` (the hand-off order in `docs.config.json`); `blockedBy: []` opts out, `blockedBy: [...]` names other blockers.
 
 **Feature:** [[F-02 Auth & Sign-up]] · **Verifies:** [[BD-02 Auth & Sign-up Backend Delivery]] against [[S-02 Auth & Sign-up Story]] and [[FR-02 Auth & Sign-up Frontend Requirements]], with the shapes and errors of [[BI-02 Auth & Sign-up Backend Integration]] · **Verdict:** 🟢 Passing · 2026-11-05 · `main @ 8997be1 · localhost:3000, Node 22.22.2` · 50 of 50 as expected (B49 and B50 new and run on this build; B5, B15, B30, B42 last run on `504cb21`; the other 44 on `b4984d6`)
