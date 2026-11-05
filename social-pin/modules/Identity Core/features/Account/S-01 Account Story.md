@@ -8,16 +8,14 @@ scope: feature
 screens: [s68]
 approvedBy: "khaled"
 approvedAt: 2026-10-25
-owner: "khaled"
+owner: "Omar Fostok"
 related: ["ND-20 Whether an unverified new address may sign in", "D-20 The changed address still signs in, the words are corrected", "B-01 An unverified changed email still signs in"]
 created: 2026-10-18
-updated: 2026-10-29
+updated: 2026-11-05
 tags: [story, story/approved, module/identity, layer/business]
 ---
 
 # Account · User Story
-
-> ⚠ Affected by [[S-14 Profiles & Pin Name Story]] (2026-10-29): the profile editor opens from the **Me header card**, not from a row (S-14 S3). "Manage account" on s68 has no destination, and what the brief puts under it is elsewhere: personal info in the profile editor, email and phone on Me itself, no password (sign-in is by code, ND-01). This story decides whether the row gets a purpose (deleting the account, signed-in devices…) or is removed.
 
 **Feature:** [[F-01 Account]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[FR-01 Account Frontend Requirements]] · **Backend Integration:** [[BI-01 Account Backend Integration]]
 
@@ -37,6 +35,8 @@ Acceptance criteria:
 - [ ] The header shows the default profile's full name and `!pinName` and the default Ring's photo, composed from `GET /profiles` (`data[0]`) and the default Ring's projection; `GET /users/me` carries no name and no photo.
 - [ ] Email and phone each show a verified / unverified chip derived from `emailVerifiedAt` / `phoneVerifiedAt` (`null` = unverified).
 - [ ] A Pro badge appears when `accountType` is `PRO`; "Upgrade" leads to s70, which has no backend yet.
+- [ ] The header card opens the profile editor ([[S-14 Profiles & Pin Name Story|Profiles & Pin Name · S3]]). Until that editor exists ([[F-07 Profiles & Pin Name]]) the card does nothing: no chevron, no tap.
+- [ ] There is no "Manage account" row. What the brief puts under it is elsewhere: email, phone and delete on Me itself (S2–S4), personal info in the profile editor, no password (sign-in is by code, [[ND-01 Passwordless login]]).
 - [ ] The screen refetches on app resume and after any 401 recovery.
 - [ ] No code or token is ever rendered or logged; there is no password to show.
 
