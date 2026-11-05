@@ -917,6 +917,7 @@
       "notes": [
         "backend-delivery:account",
         "backend-delivery:auth",
+        "backend-delivery:view-as",
         "backend-integration:account",
         "backend-integration:auth",
         "decision:D-20",
@@ -1515,6 +1516,7 @@
       "notes": [
         "backend-delivery:account",
         "backend-delivery:auth",
+        "backend-delivery:view-as",
         "backend-integration:account",
         "backend-integration:auth",
         "feature:account",
@@ -5242,12 +5244,12 @@
     },
     "concepts": 255,
     "decisions": 28,
-    "edges": 5206,
+    "edges": 5219,
     "features": 41,
     "layerNotes": 137,
     "modules": 8,
     "notes": 299,
-    "partial": 10,
+    "partial": 11,
     "placeholders": 148,
     "records": 26
   },
@@ -8224,6 +8226,11 @@
       "to": "frontend-requirements:rings"
     },
     {
+      "from": "backend-delivery:view-as",
+      "kind": "pending",
+      "to": "frontend-requirements:view-as"
+    },
+    {
       "from": "qa-frontend:account",
       "kind": "pending",
       "to": "story:error-contract"
@@ -8265,6 +8272,15 @@
       "to": "backend-delivery:linked-accounts",
       "via": [
         "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "backend-delivery:account",
+      "kind": "related",
+      "to": "backend-delivery:view-as",
+      "via": [
+        "E_AUTH_03",
+        "E_USER_01"
       ]
     },
     {
@@ -8551,6 +8567,14 @@
         "PATCH /users/me",
         "POST /auth/login",
         "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "backend-delivery:auth",
+      "kind": "related",
+      "to": "backend-delivery:view-as",
+      "via": [
+        "E_USER_01"
       ]
     },
     {
@@ -10031,6 +10055,15 @@
     {
       "from": "backend-integration:account",
       "kind": "related",
+      "to": "backend-delivery:view-as",
+      "via": [
+        "E_AUTH_03",
+        "E_USER_01"
+      ]
+    },
+    {
+      "from": "backend-integration:account",
+      "kind": "related",
       "to": "backend-integration:auth",
       "via": [
         "E_AUTH_03",
@@ -10328,6 +10361,14 @@
         "E_AUTH_03",
         "E_USER_01",
         "GET /users/me"
+      ]
+    },
+    {
+      "from": "backend-integration:auth",
+      "kind": "related",
+      "to": "backend-delivery:view-as",
+      "via": [
+        "E_USER_01"
       ]
     },
     {
@@ -15138,6 +15179,15 @@
     {
       "from": "frontend-requirements:error-contract",
       "kind": "related",
+      "to": "backend-delivery:view-as",
+      "via": [
+        "E_AUTH_03",
+        "E_USER_01"
+      ]
+    },
+    {
+      "from": "frontend-requirements:error-contract",
+      "kind": "related",
       "to": "decision:D-20",
       "via": [
         "E_AUTH_03"
@@ -19779,6 +19829,15 @@
     {
       "from": "project:auth-model",
       "kind": "related",
+      "to": "backend-delivery:view-as",
+      "via": [
+        "E_AUTH_03",
+        "E_USER_01"
+      ]
+    },
+    {
+      "from": "project:auth-model",
+      "kind": "related",
       "to": "decision:D-20",
       "via": [
         "E_AUTH_03"
@@ -20121,6 +20180,15 @@
       "via": [
         "E_PROFILE_02",
         "GET /profiles/pin-name/:pinName/availability"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "backend-delivery:view-as",
+      "via": [
+        "E_AUTH_03",
+        "E_USER_01"
       ]
     },
     {
@@ -35392,7 +35460,27 @@
     {
       "from": "backend-delivery:view-as",
       "kind": "wikilink",
+      "to": "backend-delivery:profiles"
+    },
+    {
+      "from": "backend-delivery:view-as",
+      "kind": "wikilink",
+      "to": "backend-delivery:ring-projection"
+    },
+    {
+      "from": "backend-delivery:view-as",
+      "kind": "wikilink",
+      "to": "backend-delivery:widgets"
+    },
+    {
+      "from": "backend-delivery:view-as",
+      "kind": "wikilink",
       "to": "decision:D-16"
+    },
+    {
+      "from": "backend-delivery:view-as",
+      "kind": "wikilink",
+      "to": "decision:D-22"
     },
     {
       "from": "backend-delivery:view-as",
@@ -35403,6 +35491,11 @@
       "from": "backend-delivery:view-as",
       "kind": "wikilink",
       "to": "feature:connections"
+    },
+    {
+      "from": "backend-delivery:view-as",
+      "kind": "wikilink",
+      "to": "story:connections"
     },
     {
       "from": "backend-delivery:widgets",
@@ -42181,6 +42274,7 @@
         "project:developer-setup",
         "feature:account",
         "qa-frontend:account",
+        "backend-delivery:view-as",
         "frontend-requirements:view-as",
         "project:auth-model",
         "frontend-requirements:devices",
@@ -42366,6 +42460,7 @@
         "backend-integration:auth",
         "frontend-delivery:auth",
         "qa-backend:auth",
+        "backend-delivery:view-as",
         "frontend-requirements:view-as",
         "frontend-requirements:error-contract",
         "project:auth-model",
@@ -44732,7 +44827,7 @@
       "created": "2026-10-15",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "done",
+      "effectiveStatus": "partial",
       "effort": null,
       "feature": "view-as",
       "foundOn": null,
@@ -44753,10 +44848,26 @@
         "feature:view-as"
       ],
       "path": "social-pin/modules/Identity Core/features/View As & Pin Views/flow/BD-12 View As & Pin Views Backend Delivery.md",
-      "pending": [],
+      "pending": [
+        {
+          "person": null,
+          "text": "remove avatarFileId from the viewer's view (RingProfileViewEntity), so a viewer never receives a file id (D-16); the owner's projection keeps it",
+          "to": "frontend-requirements:view-as"
+        },
+        {
+          "person": null,
+          "text": "GET /views/ring/:ringId answers an expired Ring with its own 404 body before the membership check; decide with BD-08 whether a non-member gets the not-shared body",
+          "to": "frontend-requirements:view-as"
+        }
+      ],
       "priority": "critical",
       "related": [
         "frontend-requirements:connections",
+        "backend-delivery:account",
+        "backend-integration:account",
+        "backend-delivery:auth",
+        "backend-integration:auth",
+        "qa-backend:auth",
         "backend-delivery:files",
         "backend-integration:files",
         "qa-backend:files",
@@ -44768,7 +44879,9 @@
         "frontend-requirements:ring-projection",
         "backend-integration:view-as",
         "frontend-requirements:view-as",
-        "frontend-requirements:companies"
+        "frontend-requirements:error-contract",
+        "frontend-requirements:companies",
+        "project:auth-model"
       ],
       "release": "mvp",
       "resolution": null,
@@ -44779,7 +44892,7 @@
         "s44"
       ],
       "status": "done",
-      "summary": "What the backend shipped for this feature and how it works. The sum of this feature's task-level Backend Delivery notes (see the Tasks table below).",
+      "summary": "What the backend shipped for this feature and how it works.",
       "tags": [
         "backend-delivery",
         "backend-delivery/done",
@@ -44923,6 +45036,7 @@
         "story:counts",
         "frontend-requirements:ring-projection",
         "feature:account",
+        "backend-delivery:view-as",
         "frontend-requirements:view-as",
         "project:auth-model",
         "frontend-requirements:devices",
@@ -45054,6 +45168,7 @@
         "qa-frontend:account",
         "frontend-delivery:auth",
         "qa-backend:auth",
+        "backend-delivery:view-as",
         "frontend-requirements:view-as",
         "frontend-requirements:error-contract",
         "project:auth-model",
@@ -52148,9 +52263,9 @@
       "rollup": {
         "approved": 1,
         "current": 1,
-        "done": 1,
         "draft": 1,
-        "missing": 3
+        "missing": 3,
+        "partial": 1
       },
       "scope": null,
       "screens": [
@@ -55482,6 +55597,7 @@
         "frontend-delivery:auth",
         "frontend-requirements:auth",
         "story:auth",
+        "backend-delivery:view-as",
         "frontend-requirements:view-as",
         "frontend-requirements:devices",
         "project:auth-model",
@@ -58120,12 +58236,12 @@
         "current": 9,
         "decided": 10,
         "delivered": 4,
-        "done": 13,
+        "done": 12,
         "draft": 5,
         "in-progress": 13,
         "missing": 34,
         "needs-decision": 1,
-        "partial": 10,
+        "partial": 11,
         "passing": 3,
         "verified": 10
       },
@@ -60633,6 +60749,7 @@
         "qa-backend:account",
         "qa-frontend:account",
         "frontend-delivery:auth",
+        "backend-delivery:view-as",
         "frontend-requirements:view-as",
         "task:B-01",
         "decision:D-20",
@@ -62215,6 +62332,7 @@
         "frontend-requirements:gemma",
         "task:B-02",
         "qa-frontend:account",
+        "backend-delivery:view-as",
         "frontend-requirements:view-as",
         "frontend-requirements:payments",
         "frontend-requirements:subscription",
@@ -66123,12 +66241,12 @@
         "current": 9,
         "decided": 26,
         "delivered": 4,
-        "done": 14,
+        "done": 13,
         "draft": 31,
         "in-progress": 47,
         "missing": 148,
         "needs-decision": 1,
-        "partial": 10,
+        "partial": 11,
         "passing": 3,
         "ready": 2,
         "reference": 32,
