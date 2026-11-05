@@ -11,13 +11,11 @@ depends: []
 affects: ["S-03 Counts Story"]
 related: ["D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "F-11 Rings", "F-14 Connections", "S-23 Connections Story", "S-87 Error Contract Story"]
 created: 2026-10-18
-updated: 2026-10-29
+updated: 2026-11-05
 tags: [frontend-requirements, frontend-requirements/ready, module/identity, layer/frontend]
 ---
 
 # Counts · Frontend Requirements
-
-> ⚠ Affected by [[S-23 Connections Story]] (2026-11-04): S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
 
 **Feature:** [[F-03 Counts]] · **Status:** Ready (waiting for the backend) · **Story:** [[S-03 Counts Story]] · **API Integration:** not yet (backend not built)
 
@@ -56,7 +54,7 @@ Every count here is **owner-facing**: a person only ever sees how many people ar
 ### [[Screen Index#s68|s68]] Me / Account
 
 - Needs: "N Rings · N connections" under the name on the profile card. The Rings part from `meta.total` of `GET /rings` ✅; the connections part **hidden, not zero,** until connections exist.
-- Source today: connections: not yet ([[S-03 Counts Story|Counts · S11]], which waits on connections themselves, [[S-23 Connections Story|Connections · S8–S12]]).
+- Source today: connections: not yet ([[S-03 Counts Story|Counts · S11]], which waits on connections themselves, [[S-23 Connections Story|Connections · S2–S7]]).
 
 ## Endpoints required
 
@@ -65,7 +63,7 @@ Every count here is **owner-facing**: a person only ever sees how many people ar
 | Number of Rings I own (Home "All N", My Rings tab, Me) | `GET /rings` → `meta.total` | ✅ | — (listed under [[F-11 Rings]]) |
 | Live member count per owned Ring, on the list and the detail | — | ❌ | [[S-03 Counts Story|Counts · S6–S10]] |
 | Number of **people** sharing a Ring with me, live now | — | ❌ | no task yet: asked here. `GET /rings/shared-with-me` → `meta.total` counts Rings today |
-| Connection count on Me (and Home, if the story keeps it) | — | ❌ | [[S-03 Counts Story|Counts · S11]] (waits on [[S-23 Connections Story|Connections · S8–S12]]) |
+| Connection count on Me (Me only, no count on Home: [[S-03 Counts Story|Counts · S4]]) | — | ❌ | [[S-03 Counts Story|Counts · S11]] (waits on [[S-23 Connections Story|Connections · S2–S7]]) |
 
 Not asked, by decision: a member count on a Ring shared with me ([[D-14 Shared with me lists people, never the Ring]]).
 
@@ -82,8 +80,7 @@ Not asked, by decision: a member count on a Ring shared with me ([[D-14 Shared w
 
 | Status | ErrorCode | Show |
 |---|---|---|
-| 404 | `E_RING_02` | the Ring is gone: drop the card and refetch the list |
-| 403 | `E_RING_05` | an owner-only count asked for a Ring the person doesn't own: hide the number |
+| 404 | `E_RING_02` | the Ring is gone, or it isn't yours: `GET /rings/:id` answers the same for both and never says which. Hide the number, drop the card and refetch the list |
 | 400 | — (validation; `limit` above 50) | client bug; keep `limit` ≤ 50 |
 
 No code of its own exists yet; the rows above are the codes of the list endpoints the counts depend on. Until [[S-87 Error Contract Story|Error Contract · S4–S8]] ships, branch on status and endpoint.
@@ -91,5 +88,5 @@ No code of its own exists yet; the rows above are the codes of the list endpoint
 ## Blocked by
 
 - [[S-03 Counts Story|Counts · S6–S10]] — every "N people" on Home, the Ring picker, Ring data and My Rings.
-- [[S-03 Counts Story|Counts · S11]] — "N connections" on Me; itself waiting on [[S-23 Connections Story|Connections · S8–S12]].
+- [[S-03 Counts Story|Counts · S11]] — "N connections" on Me; itself waiting on [[S-23 Connections Story|Connections · S2–S7]].
 - The people count on Shared with me has no task yet.
