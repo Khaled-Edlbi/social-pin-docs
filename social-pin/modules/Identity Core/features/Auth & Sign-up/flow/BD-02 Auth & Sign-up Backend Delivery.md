@@ -14,6 +14,8 @@ tags: [backend-delivery, backend-delivery/done, module/identity, layer/backend]
 
 # ✅ Auth & Sign-up · Backend Delivery
 
+> ⚠ Affected by [[D-30 The fifth wrong code try locks the code]] (2026-11-05): ND-30 decided, option 1: AuthService.consumeCode must answer 429 E_AUTH_06 and burn the code on the wrong guess that brings its count to five (today the 429 comes on the next submission), for verify-code and login/verify; take it as a pending entry and ship it (/backend)
+
 **Feature:** [[F-02 Auth & Sign-up]] · **Status:** Done · **Integration guide:** [[BI-02 Auth & Sign-up Backend Integration]] · **Requirements:** [[FR-02 Auth & Sign-up Frontend Requirements]] · **QA:** [[QB-05 Auth & Sign-up QA Backend]]
 
 What the backend shipped for this feature and how it works. The sum of this feature's task-level Backend Delivery notes (see the *Tasks* table below).

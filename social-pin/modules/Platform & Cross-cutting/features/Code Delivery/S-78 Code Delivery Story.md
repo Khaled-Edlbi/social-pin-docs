@@ -16,6 +16,8 @@ tags: [story, story/approved, module/platform, layer/business]
 
 # Code Delivery · User Story
 
+> ⚠ Affected by [[D-30 The fifth wrong code try locks the code]] (2026-11-05): ND-30 decided, option 1: S4's 'After the sixth wrong guess the code is burned' should read the fifth; S-78 is approved, so the reword sends it back to draft until product re-approves it (/pm, on the user's word)
+
 **Feature:** [[F-32 Code Delivery]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[FR-32 Code Delivery Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 A new user has typed their email or phone on s01 and is now on s02 waiting for a six-digit code. Everything after the code works end to end; the code itself is only written to the server log, and on a development server also returned in the response as `devCode`. This feature is the delivery leg: the email, the SMS, the resend timer and the "code expired" state, all of which depend on a provider that is not wired.
