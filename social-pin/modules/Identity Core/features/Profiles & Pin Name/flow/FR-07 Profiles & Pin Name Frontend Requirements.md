@@ -19,6 +19,8 @@ tags: [frontend-requirements, frontend-requirements/approved, module/identity, l
 
 # Profiles & Pin Name · Frontend Requirements
 
+> ⚠ Affected by [[D-22 The public page only says the Pin exists]] (2026-11-05): ND-22 decided: socialpin.me/<pinName> is a public page showing only the name, the Pin name and Open in Social Pin, built by the frontend on socialpin.me with the app links; add the page and the public look-up it reads; for /frontend
+
 > ⚠ Affected by [[BD-07 Profiles & Pin Name Backend Delivery]] (2026-11-05): backend review of FR-07 (approved): for /frontend: (1) the Main profile fields row and the Field map should say what S-14 S10 says, that GET /profiles returns the six work fields as null when not set and PATCH /profiles/:id with null clears one; (2) the role field asked by S-29 P10 is already in the Main profile fields row: add S-29 S4, S8 to that row and clear the two flags above (FR-15, S-29).
 
 > ⚠ Affected by [[FR-15 Companies Frontend Requirements]] (2026-11-05): FR-15 (Companies) needs the main profile's role field next to company (S-29 P10): read on GET /profiles, edited with PATCH /profiles/:id { role, company }, for the work identity on s72 and the title on s73. Add the row (S-29 S4, S8).

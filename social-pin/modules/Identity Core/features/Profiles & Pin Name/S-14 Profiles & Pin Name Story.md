@@ -9,9 +9,9 @@ screens: [s05b, s06, s23, s44, s68]
 approvedBy: "Omar Fostok"
 approvedAt: 2026-10-29
 owner: "Omar Fostok"
-related: ["D-02 One main profile every Ring starts from", "D-05 Inherit per field, copy without members", "D-06 Yearly rename, old name freed, case-insensitive", "ND-22 Public web page by Pin name", "S-01 Account Story", "S-08 Onboarding Imports Story", "S-17 Ring Projection Story", "S-19 View As & Pin Views Story", "S-89 Gemma AI Story", "F-18 Badge & QR"]
+related: ["D-02 One main profile every Ring starts from", "D-05 Inherit per field, copy without members", "D-06 Yearly rename, old name freed, case-insensitive", "ND-22 Public web page by Pin name", "D-22 The public page only says the Pin exists", "S-01 Account Story", "S-08 Onboarding Imports Story", "S-17 Ring Projection Story", "S-19 View As & Pin Views Story", "S-89 Gemma AI Story", "F-18 Badge & QR"]
 created: 2026-10-18
-updated: 2026-10-29
+updated: 2026-11-05
 tags: [story, story/approved, module/identity, layer/business]
 ---
 
@@ -42,7 +42,7 @@ Acceptance criteria:
 - [ ] Client rule before any request: **3 to 30** characters, letters, digits, `.` and `_`; the hint reads the rule, not a regex. The design's counter "/24" is out of date: the rule is 30, as the backend and the app already enforce.
 - [ ] A debounced (300 ms) `GET /profiles/pin-name/:pinName/availability` returns `{ pinName, available }`; the field shows a check or "Taken" without naming anyone.
 - [ ] Case does not matter for availability (`SaraAz` = `saraaz`); the casing typed is what is displayed later.
-- [ ] When available, the line reads "Available — socialpin.me/<handle>", as designed. It is **text, not a link**, until [[ND-22 Public web page by Pin name]] is decided and the page is built.
+- [ ] When available, the line reads "Available — socialpin.me/<handle>", as designed. It is **text, not a link**, until the page is built: `socialpin.me/<pinName>` shows only the name, the Pin name and "Open in Social Pin", nothing from any Ring ([[D-22 The public page only says the Pin exists]]).
 - [ ] Continue is enabled only on `available: true`; the ring progress indicator fills a segment on success.
 - [ ] Suggestion chips are built **on the phone, only from my own name** (what I typed and my full name), each checked as free; a suggestion never reveals or derives from who holds a taken name ([[D-06 Yearly rename, old name freed, case-insensitive]]).
 - [ ] The design's **"Gemma: suggest"** chip is [[S-89 Gemma AI Story|Gemma AI · S6]]'s and is **not shown** until Gemma is built.
@@ -182,7 +182,7 @@ Acceptance criteria:
 - Whether a Ring may change **role** was not asked; until product says otherwise it follows headline (D-02, *Still open*).
 - D-06 left open whether the year starts at sign-up or at the first rename; this story takes the natural reading (first rename free). Product can say otherwise before S12 is built.
 - Which main-profile fields an import may overwrite without asking is [[F-05 Onboarding Imports]]' story to say.
-- **Public web page by Pin name** (`socialpin.me/<pinName>`): [[ND-22 Public web page by Pin name]]; it blocks this story until decided, though only S1's link waits on it.
+- **Public web page by Pin name** (`socialpin.me/<pinName>`): decided 2026-11-05 in [[D-22 The public page only says the Pin exists]] (option 2 of [[ND-22 Public web page by Pin name]]): the name and the Pin name only, D-06 kept after a rename, built by the frontend on `socialpin.me`. The page is new scope for this story: a part to write and have approved before it is built.
 - **Several profiles per account** (Personal, Professional, Business) and choosing the default: later, not in v1. The backend supports it (`POST /profiles`, `POST /profiles/:id/default`, `DELETE /profiles/:id`, 409 `E_PROFILE_03`); the app uses the default profile only. A business identity is a company ([[F-15 Companies]], s63), not a second profile.
 - **The nickname on Rings**: shown to every Ring by default, or only to Rings that switch it on (like the sensitive fields)? Until product says otherwise, it follows the main profile like the bio: shown unless a Ring changes it. For the designer, with S3.
 - What a printed badge or saved link does after its name is released: [[F-18 Badge & QR]], [[ND-12 What the badge QR encodes]].
