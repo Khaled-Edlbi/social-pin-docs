@@ -905,6 +905,7 @@
         "feature:auth",
         "feature:devices",
         "feature:error-contract",
+        "feature:view-as",
         "needs-decision:ND-20",
         "project:auth-model",
         "project:frontend-api-guide",
@@ -925,6 +926,7 @@
         "frontend-requirements:auth",
         "frontend-requirements:devices",
         "frontend-requirements:error-contract",
+        "frontend-requirements:view-as",
         "needs-decision:ND-20",
         "project:auth-model",
         "project:frontend-api-guide",
@@ -1505,6 +1507,7 @@
         "feature:account",
         "feature:auth",
         "feature:error-contract",
+        "feature:view-as",
         "project:auth-model",
         "task:B-02"
       ],
@@ -1519,6 +1522,7 @@
         "frontend-delivery:auth",
         "frontend-requirements:account",
         "frontend-requirements:error-contract",
+        "frontend-requirements:view-as",
         "project:auth-model",
         "qa-backend:account",
         "qa-backend:auth",
@@ -5238,7 +5242,7 @@
     },
     "concepts": 255,
     "decisions": 28,
-    "edges": 5197,
+    "edges": 5206,
     "features": 41,
     "layerNotes": 137,
     "modules": 8,
@@ -8395,6 +8399,15 @@
     {
       "from": "backend-delivery:account",
       "kind": "related",
+      "to": "frontend-requirements:view-as",
+      "via": [
+        "E_AUTH_03",
+        "E_USER_01"
+      ]
+    },
+    {
+      "from": "backend-delivery:account",
+      "kind": "related",
       "to": "needs-decision:ND-20",
       "via": [
         "E_AUTH_03",
@@ -8589,6 +8602,14 @@
         "E_AUTH_04",
         "E_AUTH_05",
         "E_AUTH_06",
+        "E_USER_01"
+      ]
+    },
+    {
+      "from": "backend-delivery:auth",
+      "kind": "related",
+      "to": "frontend-requirements:view-as",
+      "via": [
         "E_USER_01"
       ]
     },
@@ -10147,6 +10168,15 @@
     {
       "from": "backend-integration:account",
       "kind": "related",
+      "to": "frontend-requirements:view-as",
+      "via": [
+        "E_AUTH_03",
+        "E_USER_01"
+      ]
+    },
+    {
+      "from": "backend-integration:account",
+      "kind": "related",
       "to": "needs-decision:ND-20",
       "via": [
         "E_AUTH_03",
@@ -10341,6 +10371,14 @@
         "E_AUTH_04",
         "E_AUTH_05",
         "E_AUTH_06",
+        "E_USER_01"
+      ]
+    },
+    {
+      "from": "backend-integration:auth",
+      "kind": "related",
+      "to": "frontend-requirements:view-as",
+      "via": [
         "E_USER_01"
       ]
     },
@@ -15297,7 +15335,9 @@
       "kind": "related",
       "to": "frontend-requirements:view-as",
       "via": [
-        "E_AUTH_04"
+        "E_AUTH_03",
+        "E_AUTH_04",
+        "E_USER_01"
       ]
     },
     {
@@ -19798,6 +19838,15 @@
     {
       "from": "project:auth-model",
       "kind": "related",
+      "to": "frontend-requirements:view-as",
+      "via": [
+        "E_AUTH_03",
+        "E_USER_01"
+      ]
+    },
+    {
+      "from": "project:auth-model",
+      "kind": "related",
       "to": "project:frontend-api-guide",
       "via": [
         "E_AUTH_03"
@@ -20372,7 +20421,9 @@
       "kind": "related",
       "to": "frontend-requirements:view-as",
       "via": [
+        "E_AUTH_03",
         "E_AUTH_04",
+        "E_USER_01",
         "GET /rings"
       ]
     },
@@ -23275,6 +23326,14 @@
     {
       "from": "decision:D-20",
       "kind": "shares",
+      "to": "feature:view-as",
+      "via": [
+        "E_AUTH_03"
+      ]
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "shares",
       "to": "needs-decision:ND-30",
       "via": [
         "POST /auth/login/verify"
@@ -23800,7 +23859,9 @@
       "kind": "shares",
       "to": "feature:view-as",
       "via": [
+        "E_AUTH_03",
         "E_AUTH_04",
+        "E_USER_01",
         "GET /rings",
         "GET /rings/:ringId/projection"
       ]
@@ -24622,7 +24683,9 @@
       "kind": "shares",
       "to": "feature:view-as",
       "via": [
+        "E_AUTH_03",
         "E_AUTH_04",
+        "E_USER_01",
         "GET /rings"
       ]
     },
@@ -27241,6 +27304,7 @@
       "kind": "shares",
       "to": "feature:view-as",
       "via": [
+        "E_AUTH_03",
         "E_AUTH_04"
       ]
     },
@@ -27797,7 +27861,9 @@
       "kind": "shares",
       "to": "feature:view-as",
       "via": [
-        "E_AUTH_04"
+        "E_AUTH_03",
+        "E_AUTH_04",
+        "E_USER_01"
       ]
     },
     {
@@ -31506,6 +31572,14 @@
     {
       "from": "feature:view-as",
       "kind": "shares",
+      "to": "needs-decision:ND-20",
+      "via": [
+        "E_AUTH_03"
+      ]
+    },
+    {
+      "from": "feature:view-as",
+      "kind": "shares",
       "to": "needs-decision:ND-22",
       "via": [
         "GET /views/pin/:pinName"
@@ -31514,8 +31588,18 @@
     {
       "from": "feature:view-as",
       "kind": "shares",
+      "to": "project:auth-model",
+      "via": [
+        "E_AUTH_03",
+        "E_USER_01"
+      ]
+    },
+    {
+      "from": "feature:view-as",
+      "kind": "shares",
       "to": "project:frontend-api-guide",
       "via": [
+        "E_AUTH_03",
         "E_AUTH_04",
         "GET /views/pin/:pinName",
         "GET /views/ring/:ringId",
@@ -31539,6 +31623,7 @@
       "kind": "shares",
       "to": "project:frontend-passwordless-migration",
       "via": [
+        "E_AUTH_03",
         "E_AUTH_04"
       ]
     },
@@ -31575,8 +31660,18 @@
     {
       "from": "feature:view-as",
       "kind": "shares",
+      "to": "task:B-01",
+      "via": [
+        "E_AUTH_03"
+      ]
+    },
+    {
+      "from": "feature:view-as",
+      "kind": "shares",
       "to": "task:B-02",
       "via": [
+        "E_AUTH_03",
+        "E_USER_01",
         "GET /rings"
       ]
     },
@@ -42086,6 +42181,7 @@
         "project:developer-setup",
         "feature:account",
         "qa-frontend:account",
+        "frontend-requirements:view-as",
         "project:auth-model",
         "frontend-requirements:devices",
         "story:error-contract",
@@ -42270,6 +42366,7 @@
         "backend-integration:auth",
         "frontend-delivery:auth",
         "qa-backend:auth",
+        "frontend-requirements:view-as",
         "frontend-requirements:error-contract",
         "project:auth-model",
         "project:database-migrations",
@@ -44826,6 +44923,7 @@
         "story:counts",
         "frontend-requirements:ring-projection",
         "feature:account",
+        "frontend-requirements:view-as",
         "project:auth-model",
         "frontend-requirements:devices",
         "story:error-contract",
@@ -44956,6 +45054,7 @@
         "qa-frontend:account",
         "frontend-delivery:auth",
         "qa-backend:auth",
+        "frontend-requirements:view-as",
         "frontend-requirements:error-contract",
         "project:auth-model",
         "frontend-requirements:profiles"
@@ -52050,8 +52149,8 @@
         "approved": 1,
         "current": 1,
         "done": 1,
-        "missing": 3,
-        "ready": 1
+        "draft": 1,
+        "missing": 3
       },
       "scope": null,
       "screens": [
@@ -55383,6 +55482,7 @@
         "frontend-delivery:auth",
         "frontend-requirements:auth",
         "story:auth",
+        "frontend-requirements:view-as",
         "frontend-requirements:devices",
         "project:auth-model",
         "project:frontend-passwordless-migration",
@@ -55394,7 +55494,6 @@
         "frontend-requirements:pincast",
         "frontend-requirements:events-before",
         "frontend-requirements:post-event",
-        "frontend-requirements:view-as",
         "frontend-requirements:app-shell",
         "frontend-requirements:interests",
         "frontend-requirements:linked-accounts",
@@ -57324,7 +57423,7 @@
       "depends": [
         "story:view-as"
       ],
-      "effectiveStatus": "ready",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "view-as",
       "foundOn": null,
@@ -57351,6 +57450,10 @@
         "task:B-03",
         "task:B-08",
         "frontend-requirements:connections",
+        "backend-delivery:account",
+        "backend-integration:account",
+        "backend-delivery:auth",
+        "backend-integration:auth",
         "qa-backend:auth",
         "backend-delivery:counts",
         "backend-integration:counts",
@@ -57428,7 +57531,8 @@
         "frontend-requirements:app-shell",
         "frontend-requirements:cleanup-jobs",
         "story:delegated-admins",
-        "frontend-requirements:error-contract"
+        "frontend-requirements:error-contract",
+        "project:auth-model"
       ],
       "release": "mvp",
       "resolution": null,
@@ -57439,18 +57543,18 @@
         "s44",
         "s62"
       ],
-      "status": "ready",
+      "status": "draft",
       "summary": "What the client needs from the backend for every screen that renders another person, and for the owner's preview, and whether each need is met today. The viewer shape and the cache rule are in…",
       "tags": [
         "frontend-requirements",
-        "frontend-requirements/ready",
+        "frontend-requirements/draft",
         "module/identity",
         "layer/frontend"
       ],
       "task": null,
       "title": "FR-12 View As & Pin Views Frontend Requirements",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-05"
     },
     "frontend-requirements:widgets": {
       "affects": [],
@@ -58017,13 +58121,12 @@
         "decided": 10,
         "delivered": 4,
         "done": 13,
-        "draft": 4,
+        "draft": 5,
         "in-progress": 13,
         "missing": 34,
         "needs-decision": 1,
         "partial": 10,
         "passing": 3,
-        "ready": 1,
         "verified": 10
       },
       "scope": null,
@@ -60530,6 +60633,7 @@
         "qa-backend:account",
         "qa-frontend:account",
         "frontend-delivery:auth",
+        "frontend-requirements:view-as",
         "task:B-01",
         "decision:D-20",
         "story:account",
@@ -62111,6 +62215,7 @@
         "frontend-requirements:gemma",
         "task:B-02",
         "qa-frontend:account",
+        "frontend-requirements:view-as",
         "frontend-requirements:payments",
         "frontend-requirements:subscription",
         "frontend-requirements:badge-qr",
@@ -62118,7 +62223,6 @@
         "frontend-requirements:pincast",
         "frontend-requirements:events-before",
         "frontend-requirements:post-event",
-        "frontend-requirements:view-as",
         "frontend-requirements:interests",
         "frontend-requirements:notifications",
         "frontend-requirements:companies",
@@ -66020,13 +66124,13 @@
         "decided": 26,
         "delivered": 4,
         "done": 14,
-        "draft": 30,
+        "draft": 31,
         "in-progress": 47,
         "missing": 148,
         "needs-decision": 1,
         "partial": 10,
         "passing": 3,
-        "ready": 3,
+        "ready": 2,
         "reference": 32,
         "todo": 3,
         "verified": 26
