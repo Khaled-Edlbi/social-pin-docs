@@ -17,6 +17,8 @@ tags: [qa-backend, qa-backend/passing, module/identity, layer/qa]
 
 # 🧪 Files Upload · QA Backend
 
+> ⚠ Affected by [[BD-04 Files Upload Backend Delivery]] (2026-11-05): shipped on backend main @ 80e7fa2: GET /files?kind=image|document (owner only, newest first, paginated, usedBy), signed 15-minute links (url on files, avatarUrl and attachments[].url on the projection and the view) served by public GET /files/content/:token, one 404 E_FILE_01 for forged, expired or deleted links. Rows to add and run (/qa)
+
 > Blocked by default until [[BD-04 Files Upload Backend Delivery]] is `done` (the hand-off order in `docs.config.json`); `blockedBy: []` opts out, `blockedBy: [...]` names other blockers.
 
 **Feature:** [[F-04 Files Upload]] · **Verifies:** [[BD-04 Files Upload Backend Delivery]] against [[S-06 Files Upload Story]] and [[FR-04 Files Upload Frontend Requirements]], with the shapes and errors of [[BI-03 Files Upload Backend Integration]] and [[BI-07 Ring Projection Backend Integration]] · **Verdict:** 🟢 Passing · 2026-10-29 · `main @ c80ed9d · localhost:3101, Node 22.22.2` · 32 of 32 as expected
