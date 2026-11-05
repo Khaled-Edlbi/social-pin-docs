@@ -1044,6 +1044,7 @@
       ],
       "kind": "error",
       "notes": [
+        "backend-delivery:auth",
         "backend-integration:auth",
         "frontend-requirements:auth",
         "frontend-requirements:code-delivery",
@@ -8337,6 +8338,7 @@
         "E_AUTH_04",
         "E_AUTH_05",
         "E_AUTH_06",
+        "E_AUTH_07",
         "E_AUTH_08",
         "E_PROFILE_02",
         "E_USER_01",
@@ -18661,6 +18663,7 @@
       "kind": "related",
       "to": "backend-delivery:auth",
       "via": [
+        "E_AUTH_07",
         "POST /auth/sign-up"
       ]
     },
@@ -38296,11 +38299,6 @@
       "pending": [
         {
           "person": null,
-          "text": "sign-up takes an email or a phone, exactly one; both together is 400 E_AUTH_07 (B-04)",
-          "to": "frontend-requirements:auth"
-        },
-        {
-          "person": null,
           "text": "an expired or forged onboarding token on complete-registration answers the documented status, not 401 (B-05)",
           "to": "frontend-requirements:auth"
         },
@@ -44600,8 +44598,8 @@
         "failing": 1,
         "missing": 2,
         "partial": 1,
-        "ready": 1,
-        "todo": 3,
+        "ready": 2,
+        "todo": 2,
         "verified": 1
       },
       "scope": null,
@@ -53321,8 +53319,8 @@
         "needs-decision": 2,
         "partial": 6,
         "passing": 2,
-        "ready": 9,
-        "todo": 3,
+        "ready": 10,
+        "todo": 2,
         "verified": 8
       },
       "scope": null,
@@ -61209,9 +61207,9 @@
         "needs-decision": 2,
         "partial": 6,
         "passing": 2,
-        "ready": 11,
+        "ready": 12,
         "reference": 32,
-        "todo": 6,
+        "todo": 5,
         "verified": 24
       },
       "scope": null,
@@ -64205,7 +64203,7 @@
       "decision": null,
       "depends": [],
       "dir": null,
-      "effectiveStatus": "todo",
+      "effectiveStatus": "ready",
       "effort": "S",
       "feature": "auth",
       "foundOn": "BI-02 Auth & Sign-up Backend Integration",
@@ -64251,18 +64249,18 @@
       "screens": [
         "s01"
       ],
-      "status": "todo",
+      "status": "ready",
       "summary": "The fix is the backend's (/backend): reject both with 400 EAUTH07, as the contract says. Or, if both should be allowed, that is a product call and the integration note moves instead.",
       "tags": [
         "bug",
-        "bug/todo",
+        "bug/ready",
         "module/identity",
         "priority/medium"
       ],
       "task": null,
       "title": "B-04 Sign-up accepts an email and a phone together",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-05"
     },
     "task:B-05": {
       "affects": [
