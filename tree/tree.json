@@ -44593,8 +44593,7 @@
         "failing": 1,
         "missing": 2,
         "partial": 1,
-        "ready": 3,
-        "todo": 1,
+        "ready": 4,
         "verified": 1
       },
       "scope": null,
@@ -53314,8 +53313,7 @@
         "needs-decision": 2,
         "partial": 6,
         "passing": 2,
-        "ready": 11,
-        "todo": 1,
+        "ready": 12,
         "verified": 8
       },
       "scope": null,
@@ -61202,9 +61200,9 @@
         "needs-decision": 2,
         "partial": 6,
         "passing": 2,
-        "ready": 13,
+        "ready": 14,
         "reference": 32,
-        "todo": 4,
+        "todo": 3,
         "verified": 24
       },
       "scope": null,
@@ -64348,7 +64346,7 @@
       "decision": null,
       "depends": [],
       "dir": null,
-      "effectiveStatus": "todo",
+      "effectiveStatus": "ready",
       "effort": "M",
       "feature": "auth",
       "foundOn": "BD-02 Auth & Sign-up Backend Delivery",
@@ -64384,18 +64382,18 @@
       "rollup": {},
       "scope": null,
       "screens": [],
-      "status": "todo",
+      "status": "ready",
       "summary": "The app reads its own values back shifted the other way, so the API looks right (lastLoginAt and expiresAt come back correct, rows B1 and B34) and the app's own comparisons agree with each other.…",
       "tags": [
         "bug",
-        "bug/todo",
+        "bug/ready",
         "module/identity",
         "priority/high"
       ],
       "task": null,
       "title": "B-06 Timestamps the app writes are stored shifted by the server time zone",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-05"
     },
     "task:B-07": {
       "affects": [
