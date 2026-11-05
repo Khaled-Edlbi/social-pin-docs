@@ -125,6 +125,7 @@
     "D-27 Sent keeps declined and expired requests for 30 days": "decision:D-27",
     "D-28 Scan someone in is not in the MVP": "decision:D-28",
     "D-29 Connection detail opens a member who is not a connection": "decision:D-29",
+    "D-30 The fifth wrong code try locks the code": "decision:D-30",
     "Database & Migrations": "project:database-migrations",
     "Developer Guide": "project:developer-guide",
     "Developer Setup": "project:developer-setup",
@@ -405,6 +406,7 @@
     "D-27": "decision:D-27",
     "D-28": "decision:D-28",
     "D-29": "decision:D-29",
+    "D-30": "decision:D-30",
     "F-01": "feature:account",
     "F-02": "feature:auth",
     "F-03": "feature:counts",
@@ -988,6 +990,7 @@
     },
     "E_AUTH_05": {
       "containers": [
+        "decision:D-30",
         "feature:auth",
         "feature:code-delivery",
         "feature:error-contract",
@@ -1000,6 +1003,7 @@
       "notes": [
         "backend-delivery:auth",
         "backend-integration:auth",
+        "decision:D-30",
         "frontend-requirements:auth",
         "frontend-requirements:code-delivery",
         "frontend-requirements:error-contract",
@@ -1016,6 +1020,7 @@
     },
     "E_AUTH_06": {
       "containers": [
+        "decision:D-30",
         "feature:auth",
         "feature:code-delivery",
         "feature:error-contract",
@@ -1028,6 +1033,7 @@
       "notes": [
         "backend-delivery:auth",
         "backend-integration:auth",
+        "decision:D-30",
         "frontend-requirements:auth",
         "frontend-requirements:code-delivery",
         "frontend-requirements:error-contract",
@@ -2964,6 +2970,7 @@
     "POST /auth/login/verify": {
       "containers": [
         "decision:D-20",
+        "decision:D-30",
         "feature:account",
         "feature:audit-log",
         "feature:auth",
@@ -2983,6 +2990,7 @@
         "backend-integration:account",
         "backend-integration:auth",
         "decision:D-20",
+        "decision:D-30",
         "frontend-requirements:audit-log",
         "frontend-requirements:auth",
         "frontend-requirements:error-contract",
@@ -3134,6 +3142,7 @@
     },
     "POST /auth/verify-code": {
       "containers": [
+        "decision:D-30",
         "feature:auth",
         "feature:code-delivery",
         "needs-decision:ND-30",
@@ -3143,6 +3152,7 @@
       "notes": [
         "backend-delivery:auth",
         "backend-integration:auth",
+        "decision:D-30",
         "frontend-requirements:auth",
         "frontend-requirements:code-delivery",
         "needs-decision:ND-30",
@@ -5024,12 +5034,12 @@
     }
   },
   "counts": {
-    "blocked": 36,
+    "blocked": 35,
     "bugs": 8,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 9,
-      "decision": 24,
+      "decision": 25,
       "feature": 41,
       "frontend-delivery": 1,
       "frontend-requirements": 39,
@@ -5043,21 +5053,21 @@
     },
     "byLayer": {
       "backend": 56,
-      "business": 148,
+      "business": 149,
       "frontend": 44,
       "qa": 4,
       "shared": 10
     },
     "concepts": 249,
     "decisions": 28,
-    "edges": 4801,
+    "edges": 4846,
     "features": 41,
     "layerNotes": 133,
     "modules": 8,
-    "notes": 293,
+    "notes": 294,
     "partial": 6,
     "placeholders": 152,
-    "records": 24
+    "records": 25
   },
   "deadlines": {
     "missed": {
@@ -5650,6 +5660,31 @@
       "from": "decision:D-29",
       "kind": "affects",
       "to": "story:connections"
+    },
+    {
+      "from": "decision:D-30",
+      "kind": "affects",
+      "to": "backend-delivery:auth"
+    },
+    {
+      "from": "decision:D-30",
+      "kind": "affects",
+      "to": "backend-integration:auth"
+    },
+    {
+      "from": "decision:D-30",
+      "kind": "affects",
+      "to": "qa-backend:auth"
+    },
+    {
+      "from": "decision:D-30",
+      "kind": "affects",
+      "to": "story:auth"
+    },
+    {
+      "from": "decision:D-30",
+      "kind": "affects",
+      "to": "story:code-delivery"
     },
     {
       "from": "frontend-requirements:companies",
@@ -6950,11 +6985,6 @@
       "from": "needs-decision:ND-22",
       "kind": "blocks",
       "to": "story:profiles"
-    },
-    {
-      "from": "needs-decision:ND-30",
-      "kind": "blocks",
-      "to": "story:auth"
     },
     {
       "from": "story:build-deploy",
@@ -9110,6 +9140,220 @@
       "from": "decision:D-29",
       "kind": "related",
       "to": "feature:ring-members"
+    },
+    {
+      "from": "decision:D-30",
+      "kind": "related",
+      "to": "backend-delivery:account",
+      "via": [
+        "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "decision:D-30",
+      "kind": "related",
+      "to": "backend-delivery:auth",
+      "via": [
+        "E_AUTH_05",
+        "E_AUTH_06",
+        "POST /auth/login/verify",
+        "POST /auth/verify-code"
+      ]
+    },
+    {
+      "from": "decision:D-30",
+      "kind": "related",
+      "to": "backend-delivery:linked-accounts",
+      "via": [
+        "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "decision:D-30",
+      "kind": "related",
+      "to": "backend-integration:account",
+      "via": [
+        "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "decision:D-30",
+      "kind": "related",
+      "to": "backend-integration:auth",
+      "via": [
+        "E_AUTH_05",
+        "E_AUTH_06",
+        "POST /auth/login/verify",
+        "POST /auth/verify-code"
+      ]
+    },
+    {
+      "from": "decision:D-30",
+      "kind": "related",
+      "to": "decision:D-20",
+      "via": [
+        "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "decision:D-30",
+      "kind": "related",
+      "to": "feature:auth"
+    },
+    {
+      "from": "decision:D-30",
+      "kind": "related",
+      "to": "frontend-requirements:audit-log",
+      "via": [
+        "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "decision:D-30",
+      "kind": "related",
+      "to": "frontend-requirements:auth",
+      "via": [
+        "E_AUTH_05",
+        "E_AUTH_06",
+        "POST /auth/login/verify",
+        "POST /auth/verify-code"
+      ]
+    },
+    {
+      "from": "decision:D-30",
+      "kind": "related",
+      "to": "frontend-requirements:code-delivery",
+      "via": [
+        "E_AUTH_05",
+        "E_AUTH_06",
+        "POST /auth/verify-code"
+      ]
+    },
+    {
+      "from": "decision:D-30",
+      "kind": "related",
+      "to": "frontend-requirements:error-contract",
+      "via": [
+        "E_AUTH_05",
+        "E_AUTH_06",
+        "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "decision:D-30",
+      "kind": "related",
+      "to": "needs-decision:ND-20",
+      "via": [
+        "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "decision:D-30",
+      "kind": "related",
+      "to": "project:auth-model",
+      "via": [
+        "E_AUTH_06"
+      ]
+    },
+    {
+      "from": "decision:D-30",
+      "kind": "related",
+      "to": "project:developer-setup",
+      "via": [
+        "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "decision:D-30",
+      "kind": "related",
+      "to": "project:frontend-api-guide",
+      "via": [
+        "E_AUTH_05",
+        "E_AUTH_06"
+      ]
+    },
+    {
+      "from": "decision:D-30",
+      "kind": "related",
+      "to": "project:frontend-passwordless-migration",
+      "via": [
+        "E_AUTH_05",
+        "E_AUTH_06",
+        "POST /auth/login/verify",
+        "POST /auth/verify-code"
+      ]
+    },
+    {
+      "from": "decision:D-30",
+      "kind": "related",
+      "to": "qa-backend:account",
+      "via": [
+        "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "decision:D-30",
+      "kind": "related",
+      "to": "qa-backend:auth",
+      "via": [
+        "E_AUTH_05",
+        "E_AUTH_06",
+        "POST /auth/login/verify",
+        "POST /auth/verify-code"
+      ]
+    },
+    {
+      "from": "decision:D-30",
+      "kind": "related",
+      "to": "story:account",
+      "via": [
+        "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "decision:D-30",
+      "kind": "related",
+      "to": "story:auth",
+      "via": [
+        "E_AUTH_05",
+        "E_AUTH_06",
+        "POST /auth/verify-code"
+      ]
+    },
+    {
+      "from": "decision:D-30",
+      "kind": "related",
+      "to": "story:code-delivery",
+      "via": [
+        "E_AUTH_05",
+        "E_AUTH_06",
+        "POST /auth/verify-code"
+      ]
+    },
+    {
+      "from": "decision:D-30",
+      "kind": "related",
+      "to": "story:error-contract",
+      "via": [
+        "E_AUTH_05",
+        "E_AUTH_06"
+      ]
+    },
+    {
+      "from": "decision:D-30",
+      "kind": "related",
+      "to": "story:linked-accounts",
+      "via": [
+        "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "decision:D-30",
+      "kind": "related",
+      "to": "task:B-01",
+      "via": [
+        "POST /auth/login/verify"
+      ]
     },
     {
       "from": "feature:account",
@@ -16376,6 +16620,17 @@
     {
       "from": "needs-decision:ND-30",
       "kind": "related",
+      "to": "decision:D-30",
+      "via": [
+        "E_AUTH_05",
+        "E_AUTH_06",
+        "POST /auth/login/verify",
+        "POST /auth/verify-code"
+      ]
+    },
+    {
+      "from": "needs-decision:ND-30",
+      "kind": "related",
       "to": "feature:auth"
     },
     {
@@ -19024,6 +19279,14 @@
     {
       "from": "task:B-05",
       "kind": "related",
+      "to": "decision:D-30",
+      "via": [
+        "E_AUTH_05"
+      ]
+    },
+    {
+      "from": "task:B-05",
+      "kind": "related",
       "to": "frontend-requirements:auth",
       "via": [
         "E_AUTH_05",
@@ -19972,6 +20235,14 @@
     {
       "from": "decision:D-20",
       "kind": "shares",
+      "to": "decision:D-30",
+      "via": [
+        "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "decision:D-20",
+      "kind": "shares",
       "to": "feature:account",
       "via": [
         "E_AUTH_03",
@@ -20155,6 +20426,121 @@
       "to": "feature:connections",
       "via": [
         "GET /connections/:userId"
+      ]
+    },
+    {
+      "from": "decision:D-30",
+      "kind": "shares",
+      "to": "feature:account",
+      "via": [
+        "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "decision:D-30",
+      "kind": "shares",
+      "to": "feature:audit-log",
+      "via": [
+        "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "decision:D-30",
+      "kind": "shares",
+      "to": "feature:auth",
+      "via": [
+        "E_AUTH_05",
+        "E_AUTH_06",
+        "POST /auth/login/verify",
+        "POST /auth/verify-code"
+      ]
+    },
+    {
+      "from": "decision:D-30",
+      "kind": "shares",
+      "to": "feature:code-delivery",
+      "via": [
+        "E_AUTH_05",
+        "E_AUTH_06",
+        "POST /auth/verify-code"
+      ]
+    },
+    {
+      "from": "decision:D-30",
+      "kind": "shares",
+      "to": "feature:error-contract",
+      "via": [
+        "E_AUTH_05",
+        "E_AUTH_06",
+        "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "decision:D-30",
+      "kind": "shares",
+      "to": "feature:linked-accounts",
+      "via": [
+        "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "decision:D-30",
+      "kind": "shares",
+      "to": "needs-decision:ND-20",
+      "via": [
+        "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "decision:D-30",
+      "kind": "shares",
+      "to": "project:auth-model",
+      "via": [
+        "E_AUTH_06"
+      ]
+    },
+    {
+      "from": "decision:D-30",
+      "kind": "shares",
+      "to": "project:developer-setup",
+      "via": [
+        "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "decision:D-30",
+      "kind": "shares",
+      "to": "project:frontend-api-guide",
+      "via": [
+        "E_AUTH_05",
+        "E_AUTH_06"
+      ]
+    },
+    {
+      "from": "decision:D-30",
+      "kind": "shares",
+      "to": "project:frontend-passwordless-migration",
+      "via": [
+        "E_AUTH_05",
+        "E_AUTH_06",
+        "POST /auth/login/verify",
+        "POST /auth/verify-code"
+      ]
+    },
+    {
+      "from": "decision:D-30",
+      "kind": "shares",
+      "to": "task:B-01",
+      "via": [
+        "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "decision:D-30",
+      "kind": "shares",
+      "to": "task:B-05",
+      "via": [
+        "E_AUTH_05"
       ]
     },
     {
@@ -31102,6 +31488,11 @@
       "to": "decision:D-29"
     },
     {
+      "from": "needs-decision:ND-30",
+      "kind": "tree",
+      "to": "decision:D-30"
+    },
+    {
       "from": "root",
       "kind": "tree",
       "to": "group:backend"
@@ -37253,6 +37644,10 @@
       "name": "D-29 Connection detail opens a member who is not a connection",
       "type": "decision"
     },
+    "social-pin/decisions/D-30 The fifth wrong code try locks the code.md": {
+      "name": "D-30 The fifth wrong code try locks the code",
+      "type": "decision"
+    },
     "social-pin/decisions/Decisions.md": {
       "name": "Decisions",
       "type": "map"
@@ -38491,6 +38886,7 @@
       "related": [
         "task:B-02",
         "needs-decision:ND-30",
+        "decision:D-30",
         "task:B-01",
         "decision:D-20",
         "story:code-delivery",
@@ -38689,6 +39085,7 @@
         "task:B-05",
         "task:B-06",
         "needs-decision:ND-30",
+        "decision:D-30",
         "backend-delivery:account",
         "backend-integration:account",
         "task:B-02",
@@ -39892,6 +40289,7 @@
       "priority": "critical",
       "related": [
         "needs-decision:ND-30",
+        "decision:D-30",
         "backend-delivery:account",
         "backend-integration:account",
         "qa-backend:auth"
@@ -40975,6 +41373,7 @@
         "task:B-01",
         "task:B-03",
         "needs-decision:ND-30",
+        "decision:D-30",
         "backend-delivery:account",
         "task:B-02",
         "decision:D-20",
@@ -41120,6 +41519,7 @@
         "needs-decision:ND-20",
         "needs-decision:ND-30",
         "decision:D-20",
+        "decision:D-30",
         "backend-delivery:account",
         "backend-integration:account",
         "qa-backend:account",
@@ -44212,6 +44612,7 @@
         "backend-integration:auth",
         "frontend-delivery:account",
         "story:code-delivery",
+        "decision:D-30",
         "backend-delivery:account",
         "backend-integration:account",
         "story:account",
@@ -44665,6 +45066,90 @@
       "unmet": [],
       "updated": "2026-11-04"
     },
+    "decision:D-30": {
+      "affects": [
+        "story:auth",
+        "backend-delivery:auth",
+        "backend-integration:auth",
+        "qa-backend:auth",
+        "story:code-delivery"
+      ],
+      "blockedBy": [],
+      "card": "D-30",
+      "children": [],
+      "code": "D-30",
+      "created": "2026-11-05",
+      "deadline": null,
+      "decidedAt": "2026-11-05",
+      "decidedBy": "khaled",
+      "decides": "ND-30",
+      "depends": [],
+      "effectiveStatus": "decided",
+      "effort": null,
+      "feature": null,
+      "features": [
+        "auth"
+      ],
+      "foundOn": null,
+      "frontendOnly": false,
+      "id": "decision:D-30",
+      "inherits": {},
+      "kind": "decision",
+      "label": "Decision",
+      "labels": [],
+      "layer": "business",
+      "module": null,
+      "openBugs": [],
+      "parentTask": null,
+      "parents": [
+        "needs-decision:ND-30"
+      ],
+      "path": "social-pin/decisions/D-30 The fifth wrong code try locks the code.md",
+      "pending": [],
+      "priority": null,
+      "related": [
+        "task:B-05",
+        "needs-decision:ND-30",
+        "feature:auth",
+        "frontend-requirements:auth",
+        "backend-delivery:auth",
+        "backend-integration:auth",
+        "qa-backend:auth",
+        "story:auth",
+        "frontend-requirements:code-delivery",
+        "story:code-delivery",
+        "project:frontend-passwordless-migration",
+        "task:B-01",
+        "needs-decision:ND-20",
+        "decision:D-20",
+        "backend-delivery:account",
+        "backend-integration:account",
+        "qa-backend:account",
+        "story:account",
+        "frontend-requirements:audit-log",
+        "frontend-requirements:error-contract",
+        "backend-delivery:linked-accounts",
+        "story:linked-accounts",
+        "project:developer-setup",
+        "story:error-contract",
+        "project:frontend-api-guide",
+        "project:auth-model"
+      ],
+      "release": null,
+      "resolution": null,
+      "scope": null,
+      "screens": [],
+      "status": "decided",
+      "summary": null,
+      "tags": [
+        "decision",
+        "decision/decided"
+      ],
+      "task": null,
+      "title": "D-30 The fifth wrong code try locks the code",
+      "unmet": [],
+      "updated": "2026-11-05"
+    },
     "feature:account": {
       "affects": [],
       "blockedBy": [],
@@ -44956,6 +45441,7 @@
         "feature:e2e-tests",
         "feature:operator-panel",
         "needs-decision:ND-30",
+        "decision:D-30",
         "frontend-requirements:onboarding-imports",
         "frontend-requirements:profiles",
         "frontend-requirements:interests"
@@ -44963,15 +45449,14 @@
       "release": "mvp",
       "resolution": null,
       "rollup": {
-        "blocked": 1,
+        "approved": 1,
         "current": 1,
-        "decided": 1,
+        "decided": 2,
         "delivered": 1,
         "done": 5,
         "missing": 2,
-        "needs-decision": 1,
         "partial": 1,
-        "verified": 1
+        "verified": 2
       },
       "scope": null,
       "screens": [
@@ -50106,6 +50591,7 @@
       "priority": null,
       "related": [
         "needs-decision:ND-30",
+        "decision:D-30",
         "backend-delivery:account",
         "backend-integration:account",
         "qa-backend:auth"
@@ -50165,6 +50651,7 @@
         "task:B-04",
         "task:B-05",
         "needs-decision:ND-30",
+        "decision:D-30",
         "frontend-requirements:connections",
         "backend-delivery:account",
         "backend-integration:account",
@@ -50417,6 +50904,7 @@
         "task:B-04",
         "task:B-05",
         "needs-decision:ND-30",
+        "decision:D-30",
         "backend-delivery:account",
         "backend-integration:account",
         "qa-backend:auth",
@@ -51103,6 +51591,7 @@
         "task:B-03",
         "task:B-05",
         "needs-decision:ND-30",
+        "decision:D-30",
         "backend-delivery:account",
         "backend-integration:account",
         "backend-delivery:auth",
@@ -53683,20 +54172,20 @@
       "release": null,
       "resolution": null,
       "rollup": {
-        "approved": 11,
-        "blocked": 7,
+        "approved": 12,
+        "blocked": 6,
         "current": 8,
-        "decided": 8,
+        "decided": 9,
         "delivered": 3,
         "done": 14,
         "draft": 2,
         "in-progress": 13,
         "missing": 38,
-        "needs-decision": 3,
+        "needs-decision": 2,
         "partial": 6,
         "passing": 2,
         "ready": 8,
-        "verified": 8
+        "verified": 9
       },
       "scope": null,
       "screens": [],
@@ -55071,6 +55560,7 @@
         "story:code-delivery",
         "decision:D-20",
         "needs-decision:ND-30",
+        "decision:D-30",
         "backend-delivery:account",
         "backend-integration:account",
         "story:account",
@@ -55681,13 +56171,15 @@
         "story:auth"
       ],
       "card": "ND-30",
-      "children": [],
+      "children": [
+        "decision:D-30"
+      ],
       "code": "ND-30",
       "created": "2026-11-05",
       "deadline": null,
       "decider": "pm",
       "depends": [],
-      "effectiveStatus": "needs-decision",
+      "effectiveStatus": "verified",
       "effort": null,
       "feature": null,
       "features": [
@@ -55695,6 +56187,7 @@
       ],
       "foundOn": null,
       "frontendOnly": false,
+      "fulfilledBy": "decision:D-30",
       "id": "needs-decision:ND-30",
       "inherits": {},
       "kind": "needs-decision",
@@ -55717,6 +56210,7 @@
         "backend-integration:auth",
         "backend-delivery:auth",
         "frontend-requirements:auth",
+        "decision:D-30",
         "story:auth",
         "frontend-requirements:code-delivery",
         "story:code-delivery",
@@ -56156,6 +56650,7 @@
         "task:B-03",
         "needs-decision:ND-20",
         "needs-decision:ND-30",
+        "decision:D-30",
         "backend-delivery:account",
         "backend-integration:account",
         "backend-delivery:auth",
@@ -56375,6 +56870,7 @@
       "related": [
         "feature:build-deploy",
         "needs-decision:ND-30",
+        "decision:D-30",
         "backend-delivery:account",
         "backend-integration:account",
         "qa-backend:auth",
@@ -56693,6 +57189,7 @@
         "task:B-03",
         "task:B-05",
         "needs-decision:ND-30",
+        "decision:D-30",
         "frontend-requirements:connections",
         "backend-delivery:account",
         "backend-integration:account",
@@ -56821,6 +57318,7 @@
         "task:B-04",
         "task:B-05",
         "needs-decision:ND-30",
+        "decision:D-30",
         "backend-delivery:account",
         "backend-integration:account",
         "qa-backend:auth",
@@ -57529,6 +58027,7 @@
         "task:B-04",
         "task:B-06",
         "needs-decision:ND-30",
+        "decision:D-30",
         "frontend-requirements:connections",
         "backend-delivery:account",
         "backend-integration:account",
@@ -57663,6 +58162,7 @@
         "task:B-05",
         "task:B-06",
         "needs-decision:ND-30",
+        "decision:D-30",
         "frontend-requirements:connections",
         "backend-delivery:account",
         "backend-integration:account",
@@ -61631,22 +62131,22 @@
         }
       ],
       "rollup": {
-        "approved": 33,
-        "blocked": 36,
+        "approved": 34,
+        "blocked": 35,
         "current": 8,
-        "decided": 24,
+        "decided": 25,
         "delivered": 3,
         "done": 15,
         "draft": 28,
         "in-progress": 47,
         "missing": 152,
-        "needs-decision": 3,
+        "needs-decision": 2,
         "partial": 6,
         "passing": 2,
         "ready": 10,
         "reference": 32,
         "todo": 3,
-        "verified": 24
+        "verified": 25
       },
       "scope": null,
       "screens": [],
@@ -61693,6 +62193,7 @@
       "priority": "critical",
       "related": [
         "needs-decision:ND-30",
+        "decision:D-30",
         "backend-delivery:account",
         "backend-integration:account",
         "needs-decision:ND-20",
@@ -61830,13 +62331,7 @@
     },
     "story:auth": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "needs-decision:ND-30",
-          "title": "ND-30 When five wrong code tries lock the code",
-          "why": "needs decision ND-30 (open)"
-        }
-      ],
+      "blockedBy": [],
       "card": "S-02",
       "children": [
         "needs-decision:ND-30"
@@ -61845,7 +62340,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "auth",
       "foundOn": null,
@@ -61873,6 +62368,7 @@
         "task:B-04",
         "task:B-05",
         "needs-decision:ND-30",
+        "decision:D-30",
         "frontend-requirements:connections",
         "backend-delivery:account",
         "backend-integration:account",
@@ -62123,6 +62619,7 @@
         "needs-decision:ND-20",
         "needs-decision:ND-30",
         "decision:D-20",
+        "decision:D-30",
         "backend-delivery:account",
         "qa-backend:auth",
         "frontend-requirements:error-contract"
@@ -62707,6 +63204,7 @@
         "needs-decision:ND-19",
         "needs-decision:ND-30",
         "decision:D-19",
+        "decision:D-30",
         "frontend-requirements:connections",
         "backend-delivery:account",
         "backend-integration:account",
@@ -63196,6 +63694,7 @@
       "priority": "critical",
       "related": [
         "needs-decision:ND-30",
+        "decision:D-30",
         "backend-delivery:account",
         "backend-integration:account",
         "frontend-delivery:account",
@@ -64424,6 +64923,7 @@
         "needs-decision:ND-20",
         "decision:D-20",
         "needs-decision:ND-30",
+        "decision:D-30",
         "backend-delivery:account",
         "story:account",
         "qa-backend:auth",
@@ -64766,6 +65266,7 @@
         "project:status-report-2026-10-15",
         "project:frontend-passwordless-migration",
         "needs-decision:ND-30",
+        "decision:D-30",
         "story:auth",
         "frontend-requirements:code-delivery",
         "story:code-delivery",

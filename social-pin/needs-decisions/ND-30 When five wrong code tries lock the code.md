@@ -14,7 +14,7 @@ updated: 2026-11-05
 tags: [needs-decision, needs-decision/open]
 ---
 
-# ❓ ND-30 · When five wrong code tries lock the code
+# ✅ ND-30 · When five wrong code tries lock the code
 
 **Status:** open · **Decider:** PM · **Raised:** 2026-11-05 · **Needed by:** [[S-02 Auth & Sign-up Story]] (S2) · **Feature:** [[F-02 Auth & Sign-up]]
 
@@ -49,4 +49,4 @@ Recommendation: option 1. The server tells the client the code is dead on the tr
 
 ## Decision
 
-— (answered on its decision card, never written here: the PM or the owner, on the user's word, runs `node scripts/build-tree.mjs --scaffold decision ND-30 "<the answer>"`, fills the decision card D-30 (what was decided, why, what it changes with every feature and card in its `affects`, what stays open) and sets it `decided` with `decidedBy` and `decidedAt`; this card then shows Fulfilled by itself; the H1 gets ✅, and this line is replaced by "Fulfilled by" and a wikilink to the decision card, then "decided <date> by <who>: option <n>"; then `--impact D-30` and flag the notes it lists)
+Fulfilled by [[D-30 The fifth wrong code try locks the code]] — decided 2026-11-05 by khaled: option 1.
