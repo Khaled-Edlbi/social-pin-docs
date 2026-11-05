@@ -6935,11 +6935,6 @@
       "to": "backend-delivery:payments"
     },
     {
-      "from": "frontend-requirements:photo-library",
-      "kind": "blocks",
-      "to": "backend-delivery:photo-library"
-    },
-    {
       "from": "frontend-requirements:pincast",
       "kind": "blocks",
       "to": "backend-delivery:pincast"
@@ -40548,20 +40543,14 @@
     },
     "backend-delivery:photo-library": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "frontend-requirements:photo-library",
-          "title": "FR-06 Photo Library Frontend Requirements",
-          "why": "FR-06 Photo Library Frontend Requirements is ready"
-        }
-      ],
+      "blockedBy": [],
       "card": "BD-06",
       "children": [],
       "code": "photo-library",
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "photo-library",
       "foundOn": null,
@@ -42726,7 +42715,7 @@
         {
           "id": "backend-delivery:photo-library",
           "title": "BD-06 Photo Library Backend Delivery",
-          "why": "BD-06 Photo Library Backend Delivery is blocked"
+          "why": "BD-06 Photo Library Backend Delivery is in progress"
         }
       ],
       "card": null,
@@ -47442,11 +47431,10 @@
       "release": "mvp",
       "resolution": null,
       "rollup": {
-        "approved": 1,
-        "blocked": 1,
+        "approved": 2,
         "decided": 2,
+        "in-progress": 1,
         "missing": 4,
-        "ready": 1,
         "verified": 2
       },
       "scope": null,
@@ -52454,7 +52442,7 @@
       "depends": [
         "story:photo-library"
       ],
-      "effectiveStatus": "ready",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "photo-library",
       "foundOn": null,
@@ -52544,18 +52532,18 @@
         "s30",
         "s68"
       ],
-      "status": "ready",
+      "status": "approved",
       "summary": "What the client needs to build the per-Ring photo picker, the library grid and its management mode, and which of it exists. Upload works (BI-03 Files Upload Backend Integration); setting a Ring's…",
       "tags": [
         "frontend-requirements",
-        "frontend-requirements/ready",
+        "frontend-requirements/approved",
         "module/identity",
         "layer/frontend"
       ],
       "task": null,
       "title": "FR-06 Photo Library Frontend Requirements",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-05"
     },
     "frontend-requirements:pincast": {
       "affects": [],
@@ -59463,7 +59451,7 @@
         {
           "id": "backend-delivery:photo-library",
           "title": "BD-06 Photo Library Backend Delivery",
-          "why": "BD-06 Photo Library Backend Delivery is blocked"
+          "why": "BD-06 Photo Library Backend Delivery is in progress"
         }
       ],
       "card": null,
