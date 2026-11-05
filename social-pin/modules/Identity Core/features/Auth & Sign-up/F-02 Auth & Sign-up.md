@@ -15,7 +15,7 @@ tags: [feature, module/identity, priority/critical, release/mvp]
 
 **Backend:** Done · **Priority:** Critical · **Release:** MVP · **Module:** [[M-01 Identity Core Module|Identity Core]]
 
-**Layers:** [[S-02 Auth & Sign-up Story|Story]] · [[FR-02 Auth & Sign-up Frontend Requirements|Frontend Requirements]] · [[BD-02 Auth & Sign-up Backend Delivery|Backend Delivery]] · [[BI-02 Auth & Sign-up Backend Integration|Backend Integration]] · [[Auth & Sign-up Frontend Delivery|Frontend Delivery]] · [[QB-05 Auth & Sign-up QA Backend|QA Backend]] · [[Auth & Sign-up QA Frontend|QA Frontend]]
+**Layers:** [[S-02 Auth & Sign-up Story|Story]] · [[FR-02 Auth & Sign-up Frontend Requirements|Frontend Requirements]] · [[BD-02 Auth & Sign-up Backend Delivery|Backend Delivery]] · [[BI-02 Auth & Sign-up Backend Integration|Backend Integration]] · [[FD-05 Auth & Sign-up Frontend Delivery|Frontend Delivery]] · [[QB-05 Auth & Sign-up QA Backend|QA Backend]] · [[Auth & Sign-up QA Frontend|QA Frontend]]
 
 Sign up with email or phone, verify the one-time code, finish registration with a Pin name, sign in with a one-time code, refresh, log out, log out everywhere. **Passwordless** since 2026-10-15 ([[ND-01 Passwordless login]]); client changes in [[Frontend Passwordless Migration]].
 

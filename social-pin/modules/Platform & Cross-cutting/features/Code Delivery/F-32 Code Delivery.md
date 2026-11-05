@@ -13,6 +13,8 @@ tags: [feature, module/platform, priority/critical, release/mvp]
 
 # Code Delivery
 
+> ⚠ Affected by [[FD-05 Auth & Sign-up Frontend Delivery]] (2026-11-05): the client pre-fills devCode in production builds too, decided 2026-11-05 by Omar Fostok: no code is delivered yet, so a production build could sign nobody in. Anyone who knows an account's email or phone can sign in as it until Code Delivery · S8; DevCode.untilCodeDelivery goes to false then. /owner records the decision here
+
 **Backend:** Partial (needs more) · **Priority:** Critical · **Release:** MVP · **Module:** [[M-08 Platform & Cross-cutting Module|Platform & Cross-cutting]]
 
 **Layers:** [[S-78 Code Delivery Story|Story]] · [[FR-32 Code Delivery Frontend Requirements|Frontend Requirements]] · [[BD-32 Code Delivery Backend Delivery|Backend Delivery]] · [[Code Delivery Backend Integration|Backend Integration]] · [[Code Delivery Frontend Delivery|Frontend Delivery]] · [[Code Delivery QA Backend|QA Backend]] · [[Code Delivery QA Frontend|QA Frontend]]
