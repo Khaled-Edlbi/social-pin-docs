@@ -3,20 +3,21 @@ id: BD-06
 type: backend-delivery
 module: identity
 feature: photo-library
-status: in-progress
+status: done
 scope: feature
 screens: [s29, s30]
 related: ["BD-04 Files Upload Backend Delivery", "BD-07 Profiles & Pin Name Backend Delivery", "D-16 Files load from signed links that expire in 15 minutes", "GET /files", "GET /files/content/:token"]
+pending: ["[[FR-06 Photo Library Frontend Requirements]]: followerCount on the main photo, and reading and setting the main photo (S8, S1); waits on the main photo itself, which [[BD-07 Profiles & Pin Name Backend Delivery]] builds in S-14 S9–S11"]
 created: 2026-10-18
 updated: 2026-11-05
-tags: [backend-delivery, backend-delivery/in-progress, module/identity, layer/backend]
+tags: [backend-delivery, backend-delivery/done, module/identity, layer/backend]
 ---
 
-# 🟡 Photo Library · Backend Delivery
+# ✅ Photo Library · Backend Delivery
 
 > ⚠ Affected by [[D-02 One main profile every Ring starts from]] (2026-10-25): ND-02 decided, one main profile (headline, role, company, location, photo, bio) every Ring starts from; a Ring may change all of them but the full name and keeps its own value when the main one changes.
 
-**Feature:** [[F-06 Photo Library]] · **Status:** In progress · **Integration guide:** [[Photo Library Backend Integration]] · **Requirements:** [[FR-06 Photo Library Frontend Requirements]] · **QA:** [[Photo Library QA Backend]]
+**Feature:** [[F-06 Photo Library]] · **Status:** Done · **Integration guide:** [[BI-13 Photo Library Backend Integration]] · **Requirements:** [[FR-06 Photo Library Frontend Requirements]] · **QA:** [[Photo Library QA Backend]]
 
 What the backend shipped for this feature and how it works. The sum of this feature's task-level Backend Delivery notes (see the *Tasks* table below).
 
@@ -43,9 +44,9 @@ What the backend shipped for this feature and how it works. The sum of this feat
 ### Gaps
 
 - **`followerCount` on the main photo (S8, the other half)** and **reading and setting the main photo**: there is no main photo until the main profile exists ([[D-02 One main profile every Ring starts from]], [[D-05 Inherit per field, copy without members]]), which is [[BD-07 Profiles & Pin Name Backend Delivery]]'s S-14 S9–S11. "Reset to Pin" (s29) waits on the same.
-- [[FR-06 Photo Library Frontend Requirements]] is `ready`, not yet approved by the backend: the list and `usedBy` shipped as asks of [[FR-04 Files Upload Frontend Requirements]], which asks for the same endpoint.
 
 ## Log
 
 - 2026-10-18 · split out of [[F-06 Photo Library]] when the vault moved to layers
 - 2026-11-05 · the endpoint this feature asks for shipped as asks of [[FR-04 Files Upload Frontend Requirements]]; the branch and the build are on [[BD-04 Files Upload Backend Delivery]]'s log. For this feature: S7 (`GET /files?kind=image`), S8's `usedBy` and thumbnails from signed links (D-16) exist. Still open: `followerCount` and the main photo, waiting on [[BD-07 Profiles & Pin Name Backend Delivery]]. FR-06's rows flipped ✅ where they exist. This note stays `in-progress` and blocked until [[FR-06 Photo Library Frontend Requirements]] is approved; then it goes `done` with `followerCount` in `pending`.
+- 2026-11-05 · FR-06 was approved on `main` (`6c54025`), so this note goes `done`, Partial: `followerCount` and the main photo stay in `pending`, waiting on [[BD-07 Profiles & Pin Name Backend Delivery]]. Its integration note [[BI-13 Photo Library Backend Integration]] is written (`current`), pointing at [[BI-03 Files Upload Backend Integration]] for the shared endpoint.
