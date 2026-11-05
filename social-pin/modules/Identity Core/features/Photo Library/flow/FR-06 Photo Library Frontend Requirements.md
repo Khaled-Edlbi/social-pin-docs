@@ -73,10 +73,10 @@ The screen is [[FR-01 Account Frontend Requirements|Account's]]; this section is
 | Set a Ring's photo, or follow the main photo (`null`) | `PATCH /rings/:ringId/projection` | ✅ | S1, S5, S6 (listed under [[F-10 Ring Projection]]) |
 | Read a Ring's current photo id | `GET /rings/:ringId/projection` | ✅ | S1 (listed under [[F-10 Ring Projection]]) |
 | Delete a photo | `DELETE /files/:id` | ✅ | S5 (listed under [[F-04 Files Upload]]) |
-| List my photos: `kind=image` (JPEG, PNG, WebP, GIF), paginated (`limit` ≤ 50, `meta.total`), newest first, owner only; `kind=document` on the same endpoint for [[FR-04 Files Upload Frontend Requirements\|FR-04]] | `GET /files?kind=` | ❌ | [[S-11 Photo Library Story\|Photo Library · S7]] |
-| Rings using each photo: `usedBy: [{ ringId, name }]` (live Rings whose `avatarFileId` is the file; attachments not counted) and `followerCount` on the main photo, on the list items | `GET /files?kind=image` | ❌ | [[S-11 Photo Library Story\|Photo Library · S8]] |
+| List my photos: `kind=image` (JPEG, PNG, WebP, GIF), paginated (`limit` ≤ 50, `meta.total`), newest first, owner only; `kind=document` on the same endpoint for [[FR-04 Files Upload Frontend Requirements\|FR-04]] | `GET /files?kind=` | ✅ `GET /files?kind=image\|document` (2026-11-05) | [[S-11 Photo Library Story\|Photo Library · S7]] |
+| Rings using each photo: `usedBy: [{ ringId, name }]` (live Rings whose `avatarFileId` is the file; attachments not counted) and `followerCount` on the main photo, on the list items | `GET /files?kind=image` | 🟡 `usedBy` ✅ (2026-11-05); `followerCount` ❌ until the main photo exists ([[BD-07 Profiles & Pin Name Backend Delivery]]) | [[S-11 Photo Library Story\|Photo Library · S8]] |
 | Read and set the main photo (by file id) | — | ❌ | the main profile fields: [[S-14 Profiles & Pin Name Story\|Profiles & Pin Name · S9–S11]], as [[FR-07 Profiles & Pin Name Frontend Requirements\|FR-07]] asks; not asked twice here |
-| Thumbnails and the full photo: a signed `url` per image on the `GET /files?kind=image` list, and `avatarUrl` on a Ring's projection, valid 15 minutes | `GET /files?kind=image`, `GET …/projection` | ❌ | [[D-16 Files load from signed links that expire in 15 minutes]] (decided) |
+| Thumbnails and the full photo: a signed `url` per image on the `GET /files?kind=image` list, and `avatarUrl` on a Ring's projection, valid 15 minutes | `GET /files?kind=image`, `GET …/projection` | ✅ `url` on the list, `avatarUrl` on the projection and the view (2026-11-05) | [[D-16 Files load from signed links that expire in 15 minutes]] (decided) |
 | A photo's name (`label`) | — | not asked | later, not in v1 (S2) |
 | A crop frame per Ring | — | not asked | later, not in v1 (S1) |
 
