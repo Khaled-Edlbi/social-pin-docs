@@ -3,7 +3,7 @@ id: P-15
 type: project
 layer: backend
 created: 2026-10-15
-updated: 2026-10-29
+updated: 2026-11-05
 tags: [project]
 ---
 
@@ -34,10 +34,12 @@ pnpm start:dev
 
 Read the startup banner, not Nest's route log: the real base is `http://localhost:3000/api/v1`, docs at `/docs`, OpenAPI at `/docs-json`.
 
+Two optional variables for the signed file links ([[D-16 Files load from signed links that expire in 15 minutes]]): `FILE_LINK_SECRET` (the key; left empty, it is derived from `JWT_SECRET`, so nothing is needed locally) and `PUBLIC_BASE_URL` (the API's public origin, e.g. `https://api.example.com`; left empty, links are paths from the API root, `/api/v1/files/content/…`). Set `PUBLIC_BASE_URL` in any deployment a client loads images from directly.
+
 ## Verify
 
 ```bash
-pnpm prisma:generate && pnpm typecheck && pnpm test     # 168 tests, 9 suites
+pnpm prisma:generate && pnpm typecheck && pnpm test     # 267 tests, 19 suites (2026-11-05)
 pnpm test:e2e                                            # needs a migrated + seeded disposable DB (never run yet, see T-055)
 ```
 

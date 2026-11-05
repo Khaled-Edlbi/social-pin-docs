@@ -3,7 +3,7 @@ id: P-07
 type: project
 layer: frontend
 created: 2026-10-15
-updated: 2026-10-29
+updated: 2026-11-05
 tags: [project]
 ---
 # Frontend API guide
@@ -303,16 +303,30 @@ owner sees byte-for-byte what that audience sees.
 
 | Method | Path | |
 |---|---|---|
-| POST | `/files` | `multipart/form-data`, field `file`. Max 25 MB |
-| GET | `/files/:id` | Metadata for a file you uploaded |
+| POST | `/files` | `multipart/form-data`, field `file`. Max 25 MB. Returns the file with its signed `url` |
+| GET | `/files` | Your own library, newest first, paginated: `?kind=image\|document&limit=&skip=`. Each item has `url` and `usedBy: [{ ringId, name }]` (the Rings using it as their photo) |
+| GET | `/files/:id` | Metadata for a file you uploaded, with its signed `url` |
+| GET | `/files/content/:token` | **Public.** The bytes behind a signed link. You never build this URL: load the `url` / `avatarUrl` the API gave you |
 | DELETE | `/files/:id` | |
 
 Accepted types: JPEG, PNG, WebP, GIF, PDF, DOCX/XLSX/PPTX, DOC/PPT, TXT, CSV.
-Anything else is a 415.
+Anything else is a 415. `kind=image` is the four image types; `kind=document` the rest.
 
 Uploading does **not** make a file visible to anyone. It becomes readable when a
 context the viewer can reach references it — attach it to a ring projection. The
 response deliberately omits the storage path.
+
+**Showing a file: signed links ([[D-16 Files load from signed links that expire in 15 minutes]]).**
+Every place the API hands out a file carries a ready-to-load link: `url` on your
+own files, `avatarUrl` and `attachments[].url` on a Ring's projection (owner) and
+on every `/views/*` response (viewer). A link is made only after the request's
+access check, so it opens exactly what that person may see. It needs **no
+bearer token**, so an image loader and its cache work unchanged, and it is valid
+**15 minutes**. When one fails to load, read the entity that carried it again
+for a fresh link; never store a link or build one from an id. A forged, expired
+or deleted link answers 404 `E_FILE_01`, the same as a missing file. Links are
+paths from the API root (`/api/v1/files/content/…`) unless the API runs with
+`PUBLIC_BASE_URL`, in which case they are absolute.
 
 ### Admin panel — `/admin`
 
@@ -357,9 +371,9 @@ ring projections or memberships — those stay behind `RingAccessService`, so th
 detail screen returns counts rather than rows. There is no delete route for an
 audit entry at any role.
 
-**There is no way to fetch the bytes back yet.** The response has no URL and
-no route serves a file by id, so `avatarFileId` and attachment ids cannot be
-rendered; show placeholders until Files Upload serves file bytes (its story S7–S11).
+**Files are shown from signed links**, not from ids: `avatarUrl` and
+`attachments[].url` on the projection and on every view, `url` on your own files
+(see *Files* above). Never render from `avatarFileId` or an attachment id.
 
 ---
 
@@ -395,3 +409,7 @@ ring, but the endpoints to issue and revoke a badge token are not written yet.
 
 Per-feature client guides (screens → calls, flows, error tables, what is not
 available yet) live in the `social-pin-docs` vault under `frontend/`.
+
+## Log
+
+- 2026-11-05 · flagged [[Frontend Contract]]: new endpoints on backend main @ 80e7fa2: GET /files (the library, with usedBy) and the public GET /files/content/:token behind every signed link; url on files, avatarUrl and attachments[].url on the projection and the view (D-16). The F-04 row and the endpoint count (48) need updating (/frontend)
