@@ -3,7 +3,7 @@ id: B-04
 type: bug
 module: identity
 feature: auth
-status: todo
+status: ready
 priority: medium
 effort: S
 foundOn: BI-02 Auth & Sign-up Backend Integration
@@ -13,13 +13,15 @@ affects: ["BI-02 Auth & Sign-up Backend Integration", "QB-05 Auth & Sign-up QA B
 related: ["BI-02 Auth & Sign-up Backend Integration", "QB-05 Auth & Sign-up QA Backend", "POST /auth/sign-up", E_AUTH_07]
 pending: []
 created: 2026-10-27
-updated: 2026-10-29
-tags: [bug, bug/todo, module/identity, priority/medium]
+updated: 2026-11-05
+tags: [bug, bug/ready, module/identity, priority/medium]
 ---
 
-# ⬜ B-04 · Sign-up accepts an email and a phone together
+# 📨 B-04 · Sign-up accepts an email and a phone together
 
-**Found against:** [[BI-02 Auth & Sign-up Backend Integration]] · **Feature:** [[F-02 Auth & Sign-up]] · **Status:** To do · **Priority:** Medium · **Deadline:** — · **Effort:** S
+> ⚠ Affected by [[BD-02 Auth & Sign-up Backend Delivery]] (2026-11-05): fixed on backend main @ 504cb21 (branch B-04/auth/sign-up-exactly-one-destination, commit f086aa5): sign-up with both an email and a phone answers 400 E_AUTH_07 before any query; ready for re-test of QB-05 row B5
+
+**Found against:** [[BI-02 Auth & Sign-up Backend Integration]] · **Feature:** [[F-02 Auth & Sign-up]] · **Status:** Ready · **Priority:** Medium · **Deadline:** — · **Effort:** S
 
 **Found by:** [[QB-05 Auth & Sign-up QA Backend]] row B5, on build `main @ b4984d6 · localhost:3001, Node 22.22.2`.
 

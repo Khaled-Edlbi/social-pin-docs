@@ -7,7 +7,7 @@ status: done
 scope: feature
 screens: [s01, s02, s06, s08, s68]
 related: ["B-02 Deleted account answers 401, not the documented 404 E_USER_01", E_USER_01, "B-06 Timestamps the app writes are stored shifted by the server time zone", "Database & Migrations"]
-pending: ["[[FR-02 Auth & Sign-up Frontend Requirements]]: sign-up takes an email or a phone, exactly one; both together is 400 E_AUTH_07 (B-04)", "[[FR-02 Auth & Sign-up Frontend Requirements]]: an expired or forged onboarding token on complete-registration answers the documented status, not 401 (B-05)", "[[FR-02 Auth & Sign-up Frontend Requirements]]: a refused refresh for a SUSPENDED account is 401, not 403, so the client's refused-refresh path ends the session", "[[FR-02 Auth & Sign-up Frontend Requirements]]: two concurrent complete-registration calls claiming one free pin name answer 409 E_PROFILE_02, not 500 (the unique-index P2002 is not mapped)"]
+pending: ["[[FR-02 Auth & Sign-up Frontend Requirements]]: an expired or forged onboarding token on complete-registration answers the documented status, not 401 (B-05)", "[[FR-02 Auth & Sign-up Frontend Requirements]]: a refused refresh for a SUSPENDED account is 401, not 403, so the client's refused-refresh path ends the session", "[[FR-02 Auth & Sign-up Frontend Requirements]]: two concurrent complete-registration calls claiming one free pin name answer 409 E_PROFILE_02, not 500 (the unique-index P2002 is not mapped)"]
 created: 2026-10-15
 updated: 2026-11-05
 tags: [backend-delivery, backend-delivery/done, module/identity, layer/backend]
@@ -54,6 +54,7 @@ What the backend shipped for this feature and how it works. The sum of this feat
 ### What exists
 
 - Three-call sign-up: `sign-up` → `verify-code` → `complete-registration` (pin name, no password). The last call activates the account and creates the profile, the default Ring and its projection in **one transaction**.
+- `sign-up` takes exactly one of email and phone: neither **or both** is 400 `E_AUTH_07`, rejected in `UserService.findOrCreatePending` before any query, so a second, unverified address is never stored ([[B-04 Sign-up accepts an email and a phone together]]).
 - Two-call sign-in: `login { identifier }` issues a LOGIN code, `login/verify { identifier, code }` returns the session. `request-code` resends `SIGN_UP` or `LOGIN` codes.
 - No password anywhere: `users.password_hash` dropped, `reset-password` and `change-password` removed, `PASSWORD_RESET` / `E_AUTH_02` / `E_USER_04` retired.
 - Three token scopes (`access`, `refresh`, `onboarding`); the `scope` claim is checked, so an onboarding token is never a session.
@@ -66,7 +67,6 @@ What the backend shipped for this feature and how it works. The sum of this feat
 
 - Code delivery is not wired, see [[F-32 Code Delivery]]. Until it is, `devCode` is returned in every environment.
 - Asks of [[FR-02 Auth & Sign-up Frontend Requirements]] not met by `main @ 26958cd`, carried in `pending:` (checked against the code 2026-11-05):
-  - `POST /auth/sign-up` accepts an email and a phone together; `SignUpDto` allows both and the service only rejects neither ([[B-04 Sign-up accepts an email and a phone together]]).
   - An expired or forged onboarding token on `complete-registration` answers 401 `E_AUTH_05` (`TokenService.verifyOnboardingToken`), not the documented 400 ([[B-05 Expired onboarding token answers 401, not the documented 400]]).
   - `POST /auth/refresh` for a SUSPENDED account answers **403** `E_AUTH_03` (`AuthService.refresh`), while FR-02 ends the session on a refused refresh by its 401.
   - Two concurrent `complete-registration` calls with the same free pin name: both pass `assertPinNameFree`, the second insert hits the unique index and Prisma's `P2002` is not mapped, so it answers 500 instead of 409 `E_PROFILE_02`.
@@ -77,3 +77,4 @@ What the backend shipped for this feature and how it works. The sum of this feat
 - 2026-10-29 · branch `B-06/prisma/utc-session-timezone`, merged to `main @ 26958cd` · fixes [[B-06 Timestamps the app writes are stored shifted by the server time zone]]: every Postgres session is pinned to UTC (`createPgAdapter` in `src/prisma/pg-adapter.ts`, used by `PrismaService` and the seed), so a sign-up code's `expires_at` is 10 minutes after Postgres's `now()` on a UTC+3 server, not 2 h 50 min before it. No endpoint, shape or error changed. Specs: `src/prisma/pg-adapter.spec.ts`, and `test/timestamps.e2e-spec.ts` (fails with 10 800 s of drift without the fix on an `Asia/Damascus` server, passes with it). Rows stored before the fix are not corrected ([[Database & Migrations#Prisma 7 rules]]). Flagged [[B-06 Timestamps the app writes are stored shifted by the server time zone]] and [[QB-05 Auth & Sign-up QA Backend]] (row B15 to re-run); the B-06 half of QB-05's flag on this note is cleared, the B-03 half stays.
 - 2026-11-05 · vault branch `tickets/backend/M-01-identity/F-02-auth/FR-02-accepted` · [[FR-02 Auth & Sign-up Frontend Requirements]] accepted by the backend (approved by khaled); this note stays `done` with five `pending` asks (B-03, B-04, B-05, refresh 403 for a suspended account, the pin-name race 500), listed under *Gaps*. No code changed.
 - 2026-11-05 · flagged [[B-03 Two refreshes at once both succeed and fork the session]]: fixed on backend main @ 504cb21 (branch B-03/auth/single-use-refresh-race, commit abbc9a8): the old row is revoked by a conditional write (revokedAt null, not expired) before the replacement is written, so the loser of a concurrent refresh gets 401 E_AUTH_04 and no new token; ready for re-test of QB-05 row B42
+- 2026-11-05 · flagged [[B-04 Sign-up accepts an email and a phone together]]: fixed on backend main @ 504cb21 (branch B-04/auth/sign-up-exactly-one-destination, commit f086aa5): sign-up with both an email and a phone answers 400 E_AUTH_07 before any query; ready for re-test of QB-05 row B5
