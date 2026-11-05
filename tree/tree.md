@@ -29,7 +29,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
         - ✅ [B-03 Two refreshes at once both succeed and fork the session](social-pin/bugs/B-03%20Two%20refreshes%20at%20once%20both%20succeed%20and%20fork%20the%20session.md) (bug, Fixed, High)
         - ✅ [B-04 Sign-up accepts an email and a phone together](social-pin/bugs/B-04%20Sign-up%20accepts%20an%20email%20and%20a%20phone%20together.md) (bug, Fixed, Medium)
         - ✅ [B-05 Expired onboarding token answers 401, not the documented 400](social-pin/bugs/B-05%20Expired%20onboarding%20token%20answers%20401%2C%20not%20the%20documented%20400.md) (bug, Fixed, Low)
-      - 🟡 [QB-05 Auth & Sign-up QA Backend](social-pin/modules/Identity%20Core/features/Auth%20%26%20Sign-up/flow/QB-05%20Auth%20%26%20Sign-up%20QA%20Backend.md) (QA Backend, 1 pending note, Critical)
+      - 🟢 [QB-05 Auth & Sign-up QA Backend](social-pin/modules/Identity%20Core/features/Auth%20%26%20Sign-up/flow/QB-05%20Auth%20%26%20Sign-up%20QA%20Backend.md) (QA Backend, Critical)
       - ∅ _Auth & Sign-up Frontend Delivery_ (Frontend Delivery)
       - ∅ _Auth & Sign-up QA Frontend_ (QA Frontend, blocked by Auth & Sign-up Frontend Delivery)
       - ✅ [ND-01 Passwordless login](social-pin/needs-decisions/ND-01%20Passwordless%20login.md) (Needs decision)

@@ -5060,12 +5060,12 @@
     },
     "concepts": 249,
     "decisions": 28,
-    "edges": 4846,
+    "edges": 4845,
     "features": 41,
     "layerNotes": 133,
     "modules": 8,
     "notes": 294,
-    "partial": 6,
+    "partial": 5,
     "placeholders": 152,
     "records": 25
   },
@@ -7985,11 +7985,6 @@
       "from": "backend-delivery:profiles",
       "kind": "pending",
       "to": "story:profiles"
-    },
-    {
-      "from": "qa-backend:auth",
-      "kind": "pending",
-      "to": "story:auth"
     },
     {
       "from": "qa-frontend:account",
@@ -45455,7 +45450,7 @@
         "delivered": 1,
         "done": 5,
         "missing": 2,
-        "partial": 1,
+        "passing": 1,
         "verified": 2
       },
       "scope": null,
@@ -54182,8 +54177,8 @@
         "in-progress": 13,
         "missing": 38,
         "needs-decision": 2,
-        "partial": 6,
-        "passing": 2,
+        "partial": 5,
+        "passing": 3,
         "ready": 8,
         "verified": 9
       },
@@ -58127,7 +58122,7 @@
         "backend-delivery:auth",
         "story:auth"
       ],
-      "effectiveStatus": "partial",
+      "effectiveStatus": "passing",
       "effort": null,
       "feature": "auth",
       "foundOn": null,
@@ -58148,13 +58143,7 @@
         "feature:auth"
       ],
       "path": "social-pin/modules/Identity Core/features/Auth & Sign-up/flow/QB-05 Auth & Sign-up QA Backend.md",
-      "pending": [
-        {
-          "person": null,
-          "text": "S2 says the 429 comes after five wrong tries; the build answers it on the sixth submission; raised as ND-30 for the PM, re-run B14 and B36 once it is decided",
-          "to": "story:auth"
-        }
-      ],
+      "pending": [],
       "priority": "critical",
       "related": [
         "task:B-03",
@@ -62141,8 +62130,8 @@
         "in-progress": 47,
         "missing": 152,
         "needs-decision": 2,
-        "partial": 6,
-        "passing": 2,
+        "partial": 5,
+        "passing": 3,
         "ready": 10,
         "reference": 32,
         "todo": 3,
