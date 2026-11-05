@@ -17,7 +17,7 @@ tags: [backend-delivery, backend-delivery/done, module/identity, layer/backend]
 
 # ✅ Counts · Backend Delivery
 
-**Feature:** [[F-03 Counts]] · **Status:** Done · **Integration guide:** [[BI-14 Counts Backend Integration]] · **Requirements:** [[FR-03 Counts Frontend Requirements]] · **QA:** [[Counts QA Backend]]
+**Feature:** [[F-03 Counts]] · **Status:** Done · **Integration guide:** [[BI-14 Counts Backend Integration]] · **Requirements:** [[FR-03 Counts Frontend Requirements]] · **QA:** [[QB-07 Counts QA Backend]]
 
 What the backend shipped for this feature and how it works. On `main` since 2026-11-05 (`f186ba1`): the live member count per Ring ([[S-03 Counts Story|Counts · S6–S10]]) and the people count on Shared with me ([[S-03 Counts Story|Counts · S2]]). Still open: the connection count on Me ([[S-03 Counts Story|Counts · S11]]), in `pending`.
 

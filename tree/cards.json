@@ -227,6 +227,7 @@
     "project:workflow": "P-20",
     "qa-backend:account": "QB-04",
     "qa-backend:auth": "QB-05",
+    "qa-backend:counts": "QB-07",
     "qa-backend:files": "QB-06",
     "qa-frontend:account": "QF-04",
     "story:account": "S-01",
