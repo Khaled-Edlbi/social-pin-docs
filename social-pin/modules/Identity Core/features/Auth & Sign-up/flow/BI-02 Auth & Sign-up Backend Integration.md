@@ -39,7 +39,7 @@ What the client builds: the welcome screen, one code-entry screen used by both s
 3. **Pin name check** while the user types: `GET /profiles/pin-name/:pinName/availability` → `{ pinName, available }`. Send the handle without the `!`. Rules: 3 to 30 characters, letters, digits, `.` and `_`. Uniqueness ignores case; the original casing is kept for display. The answer never says who holds a taken name.
 4. **`POST /auth/complete-registration`** with `{ onboardingToken, pinName, fullName? }` (`fullName` up to 120 characters). **No password field.**
    → `201 { accessToken, refreshToken, tokenType: "Bearer", expiresIn: "15m" }`. One transaction activated the account and created the profile, the default Ring and its projection, so the app can go straight to Home.
-   409 `E_AUTH_08`: sign-up already completed → sign-in. 409 `E_PROFILE_02`: the handle was taken between the check and the submit → back to s06. 400 `E_AUTH_05`: the onboarding token expired, was forged or was issued for another purpose → back to s02 (never a 401, so a session handler never tries a refresh here).
+   409 `E_AUTH_08`: sign-up already completed → sign-in. 409 `E_PROFILE_02`: the handle was taken between the check and the submit, including by another registration at the same instant → back to s06; the account stays PENDING and the same onboarding token can submit another handle while it lasts. 400 `E_AUTH_05`: the onboarding token expired, was forged or was issued for another purpose → back to s02 (never a 401, so a session handler never tries a refresh here).
 
 ## Flow · sign-in (two calls)
 
@@ -71,7 +71,7 @@ OTP delivery is not wired ([[F-32 Code Delivery]]). Until it is, **every respons
 - **Refresh is single-use.** `POST /auth/refresh` with the *refresh* token as bearer returns a new pair and kills the one sent, in the same transaction. Persist the new pair atomically.
 - **Serialise refreshes.** One in-flight refresh promise; every request that got a 401 waits on it and retries once. Two concurrent refreshes with one token: exactly one gets the new pair, the other 401 `E_AUTH_04`. A client that sends both and stores the losing answer signs itself out, so never send two.
 - 401 `E_AUTH_04` from `/auth/refresh` means sign in again. Rotated, revoked, expired and forged tokens all give that one answer.
-- A SUSPENDED account gets 401 `E_AUTH_03` on its next call, not after the access token expires: treat it as a sign-out, do not refresh.
+- A SUSPENDED account gets 401 `E_AUTH_03` on its next call, not after the access token expires: treat it as a sign-out, do not refresh. `POST /auth/refresh` answers it the same 401 `E_AUTH_03`, so a client that refreshes anyway still ends the session.
 - A DELETED account (deleted on another device) gets **404 `E_USER_01`** on its next call, on any route: also a sign-out, with the "account deleted" copy ([[BI-01 Account Backend Integration]]).
 - `POST /auth/logout` takes the **refresh** token as bearer; `POST /auth/logout-everywhere` takes the access token and revokes every session, the caller's included. It is the only "sign me out of every device" action; there is no change-password to do it any more.
 - Sending the access token to `/auth/refresh`, or the refresh token to any other route, is a 401 `E_AUTH_04`: the scopes are checked.
@@ -86,8 +86,8 @@ OTP delivery is not wired ([[F-32 Code Delivery]]). Until it is, **every respons
 | 429 | `E_AUTH_06` | five wrong guesses; the code is burned | "Request a new code" |
 | 403 | `E_AUTH_03` | `login/verify` on a suspended or never-finished account | one message + "start sign-up again" |
 | 409 | `E_AUTH_08` | complete-registration on an account that already finished | go to sign-in |
-| 409 | `E_PROFILE_02` | pin name taken at the last moment | back to the Pin step |
-| 401 | `E_AUTH_03` | suspended account on any later call | sign-out state |
+| 409 | `E_PROFILE_02` | pin name taken at the last moment, also by a concurrent registration | back to the Pin step |
+| 401 | `E_AUTH_03` | suspended account on any later call, `POST /auth/refresh` included | sign-out state |
 | 404 | `E_USER_01` | deleted account on any later call | sign-out state, "account deleted" |
 | 401 | `E_AUTH_04` | refresh token rotated, revoked, expired or wrong scope; the loser of two concurrent refreshes | sign in again |
 
@@ -104,8 +104,6 @@ Retired and never returned again: `E_AUTH_02` (invalid password) and `E_USER_04`
 
 - **Code delivery.** No email or SMS provider is wired ([[S-78 Code Delivery Story|Code Delivery · S6]], [[S-78 Code Delivery Story|Code Delivery · S7]]); `devCode` stands in until then.
 - Social login ([[S-94 Linked Accounts (OAuth) Story|Linked Accounts (OAuth) · S7]]), device registration on login ([[S-82 Devices & NFC Story|Devices & NFC · S6]]).
-- Two known differences on `main @ 504cb21`, open on [[BD-02 Auth & Sign-up Backend Delivery]]: `POST /auth/refresh` for a SUSPENDED account answers **403** `E_AUTH_03`, not 401, so treat a 403 from `/auth/refresh` as a sign-out too; and two registrations claiming one free Pin name at the same instant can answer **500** instead of 409 `E_PROFILE_02`, so treat a 500 from `complete-registration` as "try another handle" until it is fixed.
-
 ## Checklist
 
 - [ ] Welcome accepts email **or** phone, with E.164 formatting for phone; the same screen starts sign-up and sign-in.
@@ -121,3 +119,6 @@ Retired and never returned again: `E_AUTH_02` (invalid password) and `E_USER_04`
 
 - 2026-11-05 · flagged [[FD-04 Account Frontend Delivery]]: POST /auth/refresh for a SUSPENDED account answers 403 E_AUTH_03, not 401, on backend main @ 504cb21 (open on BD-02); a session that ends on 'the refresh that follows is refused' must treat a 403 from /auth/refresh as a sign-out too. Also: of two concurrent refreshes with one token, the loser now gets 401 E_AUTH_04 (B-03)
 - 2026-11-05 · flagged [[QF-04 Account QA Frontend]]: POST /auth/refresh for a SUSPENDED account answers 403 E_AUTH_03, not 401, on backend main @ 504cb21 (open on BD-02); a session that ends on 'the refresh that follows is refused' must treat a 403 from /auth/refresh as a sign-out too. Also: of two concurrent refreshes with one token, the loser now gets 401 E_AUTH_04 (B-03)
+- 2026-11-05 · flagged [[FD-04 Account Frontend Delivery]]: the 403 noted on 2026-11-05 is fixed on backend main @ 8997be1: POST /auth/refresh for a SUSPENDED account now answers 401 E_AUTH_03 'Account is not active', the same as every other route, so the refused-refresh path ends the session with no 403 case
+- 2026-11-05 · flagged [[QF-04 Account QA Frontend]]: the 403 noted on 2026-11-05 is fixed on backend main @ 8997be1: POST /auth/refresh for a SUSPENDED account now answers 401 E_AUTH_03 'Account is not active', the same as every other route, so the refused-refresh path ends the session with no 403 case
+- 2026-11-05 · flagged [[QB-05 Auth & Sign-up QA Backend]]: two behaviours with no row yet, on backend main @ 8997be1: POST /auth/refresh for a SUSPENDED account is 401 E_AUTH_03 (was 403); two complete-registration calls racing for one free Pin name are 201 + 409 E_PROFILE_02 (was 201 + 500). Add rows and run them

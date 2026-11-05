@@ -17,6 +17,8 @@ tags: [qa-frontend, qa-frontend/passing, module/identity, layer/qa]
 
 # 🧪 Account · QA Frontend
 
+> ⚠ Affected by [[BI-02 Auth & Sign-up Backend Integration]] (2026-11-05): the 403 noted on 2026-11-05 is fixed on backend main @ 8997be1: POST /auth/refresh for a SUSPENDED account now answers 401 E_AUTH_03 'Account is not active', the same as every other route, so the refused-refresh path ends the session with no 403 case
+
 > ⚠ Affected by [[BI-02 Auth & Sign-up Backend Integration]] (2026-11-05): POST /auth/refresh for a SUSPENDED account answers 403 E_AUTH_03, not 401, on backend main @ 504cb21 (open on BD-02); a session that ends on 'the refresh that follows is refused' must treat a 403 from /auth/refresh as a sign-out too. Also: of two concurrent refreshes with one token, the loser now gets 401 E_AUTH_04 (B-03)
 
 > ⚠ Affected by [[B-01 An unverified changed email still signs in]] (2026-10-26): this note was written twice in parallel; the merge kept the run on `47ce960` and dropped the unrun draft. B-01's `pending` asks for "row F10" of the draft (the copy under the ACCOUNT group while anything is unverified, now the copy [[D-20 The changed address still signs in, the words are corrected]] accepts): find the row of this run that covers it and clear B-01's item. `/qa`.

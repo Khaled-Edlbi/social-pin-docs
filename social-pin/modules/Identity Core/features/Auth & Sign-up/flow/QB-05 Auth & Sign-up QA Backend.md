@@ -17,6 +17,8 @@ tags: [qa-backend, qa-backend/passing, module/identity, layer/qa]
 
 # 🧪 Auth & Sign-up · QA Backend
 
+> ⚠ Affected by [[BI-02 Auth & Sign-up Backend Integration]] (2026-11-05): two behaviours with no row yet, on backend main @ 8997be1: POST /auth/refresh for a SUSPENDED account is 401 E_AUTH_03 (was 403); two complete-registration calls racing for one free Pin name are 201 + 409 E_PROFILE_02 (was 201 + 500). Add rows and run them
+
 > Blocked by default until [[BD-02 Auth & Sign-up Backend Delivery]] is `done` (the hand-off order in `docs.config.json`); `blockedBy: []` opts out, `blockedBy: [...]` names other blockers.
 
 **Feature:** [[F-02 Auth & Sign-up]] · **Verifies:** [[BD-02 Auth & Sign-up Backend Delivery]] against [[S-02 Auth & Sign-up Story]] and [[FR-02 Auth & Sign-up Frontend Requirements]], with the shapes and errors of [[BI-02 Auth & Sign-up Backend Integration]] · **Verdict:** 🟢 Passing · 2026-11-05 · `main @ 504cb21 · localhost:3000, Node 22.22.2` · 48 of 48 as expected (B5, B15, B30, B42 re-run on this build; the other 44 last run on `main @ b4984d6`)
