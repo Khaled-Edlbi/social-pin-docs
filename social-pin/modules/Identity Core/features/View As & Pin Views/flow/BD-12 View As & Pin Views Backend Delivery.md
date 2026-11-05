@@ -7,7 +7,7 @@ status: done
 scope: feature
 screens: [s10, s31, s44]
 created: 2026-10-15
-updated: 2026-10-29
+updated: 2026-11-05
 tags: [backend-delivery, backend-delivery/done, module/identity, layer/backend]
 ---
 
@@ -39,14 +39,16 @@ Three routes on `ProfileViewController`, all returning `RingProfileViewEntity`, 
 - `RingProfileViewEntity` has no `ringId`: the viewer never learns which Ring they are in.
 - "Not shared with you", "blocked" and "no such pin name" return the **same 404 body**. Specs assert the bodies are identical.
 - Perspectives arrive in a stable order (default Ring first) with no identifier; the switcher indexes by position.
+- Every view carries `avatarUrl` and a `url` per attachment: signed links valid 15 minutes, made in `toView` after `RingAccessService` let the request through, so a viewer gets a link for exactly what they may see and never a file id on an attachment ([[D-16 Files load from signed links that expire in 15 minutes]]; served by `GET /files/content/:token`, [[BD-04 Files Upload Backend Delivery]]).
 
 ### Gaps
 
 - The scanned-pin screen (s44) continues into a Connect request, which does not exist. See [[F-14 Connections]].
 - Scanning resolves a **QR token**, not a ring id; token issue / resolve is not written. See [[F-18 Badge & QR]].
-- **The photo and the attachments cannot be rendered**: no route serves file bytes by id. See [[S-06 Files Upload Story|Files Upload · showing files]].
+- **The view still carries `avatarFileId`**, from before D-16, which says viewers never receive a file id. The client should read `avatarUrl` instead; the field is removed once [[FR-12 View As & Pin Views Frontend Requirements|FR-12]] no longer reads it (flagged there).
 - The owner's "View as" of an **expired** Ring is a 404 `E_RING_ACCESS_02`, because `assertRingReadable` applies the live filter to the owner too. Fine for the member's view; the s62 post-event screen must not rely on it to preview an expired Event Ring.
 
 ## Log
 
 - 2026-10-18 · split out of [[F-12 View As & Pin Views]] when the vault moved to layers
+- 2026-11-05 · branch `FR-04/file/signed-links-and-library` (`df93921`), merged to `main @ 80e7fa2` · every `/views/*` response carries `avatarUrl` and `attachments[].url`, signed, valid 15 minutes, made after the access check ([[D-16 Files load from signed links that expire in 15 minutes]]); the rest is on [[BD-04 Files Upload Backend Delivery]]'s log. Checked live on View as: both links load, the attachment carries no `fileId`. `avatarFileId` stays on the view for now (Gaps). Updated [[BI-09 View As & Pin Views Backend Integration]]; FR-12's rows flipped and FR-12 flagged.
