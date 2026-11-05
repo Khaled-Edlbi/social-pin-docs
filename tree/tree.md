@@ -17,7 +17,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
         - 🟡 [B-02 Deleted account answers 401, not the documented 404 E_USER_01](social-pin/bugs/B-02%20Deleted%20account%20answers%20401%2C%20not%20the%20documented%20404%20E_USER_01.md) (bug, Fixed, 2 pending notes, Medium)
       - 🟢 [QB-04 Account QA Backend](social-pin/modules/Identity%20Core/features/Account/flow/QB-04%20Account%20QA%20Backend.md) (QA Backend, Critical)
       - ✅ [FD-04 Account Frontend Delivery](social-pin/modules/Identity%20Core/features/Account/flow/FD-04%20Account%20Frontend%20Delivery.md) (Frontend Delivery, Critical)
-      - 🟡 [QF-04 Account QA Frontend](social-pin/modules/Identity%20Core/features/Account/flow/QF-04%20Account%20QA%20Frontend.md) (QA Frontend, 3 pending notes, Critical)
+      - 🟡 [QF-04 Account QA Frontend](social-pin/modules/Identity%20Core/features/Account/flow/QF-04%20Account%20QA%20Frontend.md) (QA Frontend, 2 pending notes, Critical)
     - 🔵 [F-02 Auth & Sign-up](social-pin/modules/Identity%20Core/features/Auth%20%26%20Sign-up/F-02%20Auth%20%26%20Sign-up.md) (release MVP, Critical)
       - ⛔ [S-02 Auth & Sign-up Story](social-pin/modules/Identity%20Core/features/Auth%20%26%20Sign-up/S-02%20Auth%20%26%20Sign-up%20Story.md) (User Story, Critical, blocked by ND-30 When five wrong code tries lock the code)
         - ❓ [ND-30 When five wrong code tries lock the code](social-pin/needs-decisions/ND-30%20When%20five%20wrong%20code%20tries%20lock%20the%20code.md) (Needs decision)
