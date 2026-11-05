@@ -2458,6 +2458,7 @@
       "kind": "endpoint",
       "notes": [
         "backend-delivery:account",
+        "backend-delivery:auth",
         "backend-integration:account",
         "frontend-delivery:account",
         "frontend-requirements:account",
@@ -2750,12 +2751,14 @@
     "PATCH /profiles/:id": {
       "containers": [
         "feature:account",
+        "feature:auth",
         "feature:companies",
         "feature:onboarding-imports",
         "feature:profiles"
       ],
       "kind": "endpoint",
       "notes": [
+        "backend-delivery:auth",
         "backend-delivery:profiles",
         "backend-integration:profiles",
         "frontend-delivery:account",
@@ -3226,11 +3229,13 @@
     },
     "POST /profiles": {
       "containers": [
+        "feature:auth",
         "feature:profiles",
         "project:spec-map"
       ],
       "kind": "endpoint",
       "notes": [
+        "backend-delivery:auth",
         "backend-delivery:profiles",
         "backend-integration:profiles",
         "frontend-requirements:profiles",
@@ -5033,12 +5038,12 @@
     },
     "concepts": 249,
     "decisions": 27,
-    "edges": 4758,
+    "edges": 4757,
     "features": 41,
     "layerNotes": 133,
     "modules": 8,
     "notes": 292,
-    "partial": 7,
+    "partial": 6,
     "placeholders": 152,
     "records": 24
   },
@@ -7915,11 +7920,6 @@
       "to": "frontend-requirements:widgets"
     },
     {
-      "from": "backend-delivery:auth",
-      "kind": "pending",
-      "to": "frontend-requirements:auth"
-    },
-    {
       "from": "backend-delivery:files",
       "kind": "pending",
       "to": "frontend-requirements:files"
@@ -8357,6 +8357,7 @@
       "via": [
         "E_AUTH_03",
         "E_USER_01",
+        "GET /users/me",
         "POST /auth/login",
         "POST /auth/login/verify"
       ]
@@ -13223,7 +13224,9 @@
       "to": "backend-delivery:auth",
       "via": [
         "E_PROFILE_02",
-        "POST /auth/complete-registration"
+        "PATCH /profiles/:id",
+        "POST /auth/complete-registration",
+        "POST /profiles"
       ]
     },
     {
@@ -19926,6 +19929,7 @@
         "GET /profiles",
         "GET /rings",
         "GET /users/me",
+        "PATCH /profiles/:id",
         "POST /auth/login",
         "POST /auth/login/verify",
         "POST /auth/logout",
@@ -20730,6 +20734,7 @@
         "E_AUTH_04",
         "GET /profiles",
         "GET /rings",
+        "PATCH /profiles/:id",
         "POST /rings"
       ]
     },
@@ -20886,6 +20891,7 @@
       "via": [
         "E_PROFILE_02",
         "GET /profiles/pin-name/:pinName/availability",
+        "PATCH /profiles/:id",
         "POST /auth/complete-registration"
       ]
     },
@@ -20923,7 +20929,9 @@
         "E_PROFILE_02",
         "GET /profiles",
         "GET /profiles/pin-name/:pinName/availability",
-        "POST /auth/complete-registration"
+        "PATCH /profiles/:id",
+        "POST /auth/complete-registration",
+        "POST /profiles"
       ]
     },
     {
@@ -21097,6 +21105,7 @@
         "GET /profiles/pin-name/:pinName/availability",
         "GET /rings",
         "POST /auth/sign-up",
+        "POST /profiles",
         "POST /rings"
       ]
     },
@@ -38264,7 +38273,7 @@
       "created": "2026-10-15",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "partial",
+      "effectiveStatus": "done",
       "effort": null,
       "feature": "auth",
       "foundOn": null,
@@ -38285,18 +38294,7 @@
         "feature:auth"
       ],
       "path": "social-pin/modules/Identity Core/features/Auth & Sign-up/flow/BD-02 Auth & Sign-up Backend Delivery.md",
-      "pending": [
-        {
-          "person": null,
-          "text": "a refused refresh for a SUSPENDED account is 401, not 403, so the client's refused-refresh path ends the session",
-          "to": "frontend-requirements:auth"
-        },
-        {
-          "person": null,
-          "text": "two concurrent complete-registration calls claiming one free pin name answer 409 E_PROFILE_02, not 500 (the unique-index P2002 is not mapped)",
-          "to": "frontend-requirements:auth"
-        }
-      ],
+      "pending": [],
       "priority": "critical",
       "related": [
         "task:B-03",
@@ -44572,12 +44570,13 @@
       "release": "mvp",
       "resolution": null,
       "rollup": {
-        "approved": 2,
+        "approved": 1,
         "current": 1,
         "decided": 1,
-        "done": 4,
+        "delivered": 1,
+        "done": 5,
         "missing": 2,
-        "partial": 2,
+        "partial": 1,
         "verified": 1
       },
       "scope": null,
@@ -49735,6 +49734,7 @@
     },
     "frontend-requirements:auth": {
       "affects": [],
+      "autoDelivered": true,
       "blockedBy": [],
       "card": "FR-02",
       "children": [],
@@ -49742,7 +49742,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "approved",
+      "effectiveStatus": "delivered",
       "effort": null,
       "feature": "auth",
       "foundOn": null,
@@ -53285,17 +53285,17 @@
       "release": null,
       "resolution": null,
       "rollup": {
-        "approved": 13,
+        "approved": 12,
         "blocked": 6,
         "current": 8,
         "decided": 8,
-        "delivered": 2,
-        "done": 13,
+        "delivered": 3,
+        "done": 14,
         "draft": 2,
         "in-progress": 13,
         "missing": 38,
         "needs-decision": 2,
-        "partial": 7,
+        "partial": 6,
         "passing": 2,
         "ready": 8,
         "verified": 8
@@ -61151,17 +61151,17 @@
         }
       ],
       "rollup": {
-        "approved": 35,
+        "approved": 34,
         "blocked": 35,
         "current": 8,
         "decided": 24,
-        "delivered": 2,
-        "done": 14,
+        "delivered": 3,
+        "done": 15,
         "draft": 28,
         "in-progress": 47,
         "missing": 152,
         "needs-decision": 2,
-        "partial": 7,
+        "partial": 6,
         "passing": 2,
         "ready": 10,
         "reference": 32,
