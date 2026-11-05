@@ -3,7 +3,7 @@ id: B-05
 type: bug
 module: identity
 feature: auth
-status: todo
+status: ready
 priority: low
 effort: S
 foundOn: BI-02 Auth & Sign-up Backend Integration
@@ -13,13 +13,15 @@ affects: ["BI-02 Auth & Sign-up Backend Integration", "QB-05 Auth & Sign-up QA B
 related: ["BI-02 Auth & Sign-up Backend Integration", "QB-05 Auth & Sign-up QA Backend", "POST /auth/complete-registration", E_AUTH_05]
 pending: []
 created: 2026-10-27
-updated: 2026-10-29
-tags: [bug, bug/todo, module/identity, priority/low]
+updated: 2026-11-05
+tags: [bug, bug/ready, module/identity, priority/low]
 ---
 
-# ⬜ B-05 · Expired onboarding token answers 401, not the documented 400
+# 📨 B-05 · Expired onboarding token answers 401, not the documented 400
 
-**Found against:** [[BI-02 Auth & Sign-up Backend Integration]] · **Feature:** [[F-02 Auth & Sign-up]] · **Status:** To do · **Priority:** Low · **Deadline:** — · **Effort:** S
+> ⚠ Affected by [[BD-02 Auth & Sign-up Backend Delivery]] (2026-11-05): fixed on backend main @ 504cb21 (branch B-05/auth/onboarding-token-400, commit 195f26c): an expired, forged or wrong-scope onboarding token on complete-registration answers 400 E_AUTH_05, as BI-02 documents; ready for re-test of QB-05 row B30
+
+**Found against:** [[BI-02 Auth & Sign-up Backend Integration]] · **Feature:** [[F-02 Auth & Sign-up]] · **Status:** Ready · **Priority:** Low · **Deadline:** — · **Effort:** S
 
 **Found by:** [[QB-05 Auth & Sign-up QA Backend]] row B30, on build `main @ b4984d6 · localhost:3001, Node 22.22.2`.
 
