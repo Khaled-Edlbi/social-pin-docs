@@ -120,6 +120,7 @@
     "D-18 Ring names shown when joined knowingly": "decision:D-18",
     "D-19 A ticket's layer notes live on the parent task": "decision:D-19",
     "D-20 The changed address still signs in, the words are corrected": "decision:D-20",
+    "D-22 The public page only says the Pin exists": "decision:D-22",
     "D-23 A count of mutual connections, events where both were visible": "decision:D-23",
     "D-24 One pending request per pair": "decision:D-24",
     "D-25 A deleted account's connections, requests and blocks end silently": "decision:D-25",
@@ -404,6 +405,7 @@
     "D-18": "decision:D-18",
     "D-19": "decision:D-19",
     "D-20": "decision:D-20",
+    "D-22": "decision:D-22",
     "D-23": "decision:D-23",
     "D-24": "decision:D-24",
     "D-25": "decision:D-25",
@@ -5196,12 +5198,12 @@
     }
   },
   "counts": {
-    "blocked": 33,
+    "blocked": 32,
     "bugs": 8,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 11,
-      "decision": 25,
+      "decision": 26,
       "feature": 41,
       "frontend-delivery": 2,
       "frontend-requirements": 39,
@@ -5215,21 +5217,21 @@
     },
     "byLayer": {
       "backend": 58,
-      "business": 149,
+      "business": 150,
       "frontend": 45,
       "qa": 4,
       "shared": 10
     },
     "concepts": 255,
     "decisions": 28,
-    "edges": 5163,
+    "edges": 5175,
     "features": 41,
     "layerNotes": 136,
     "modules": 8,
-    "notes": 297,
+    "notes": 298,
     "partial": 8,
     "placeholders": 149,
-    "records": 25
+    "records": 26
   },
   "deadlines": {
     "missed": {
@@ -5727,6 +5729,21 @@
       "from": "decision:D-20",
       "kind": "affects",
       "to": "task:B-01"
+    },
+    {
+      "from": "decision:D-22",
+      "kind": "affects",
+      "to": "backend-delivery:profiles"
+    },
+    {
+      "from": "decision:D-22",
+      "kind": "affects",
+      "to": "frontend-requirements:profiles"
+    },
+    {
+      "from": "decision:D-22",
+      "kind": "affects",
+      "to": "story:profiles"
     },
     {
       "from": "decision:D-23",
@@ -7112,11 +7129,6 @@
       "from": "needs-decision:ND-21",
       "kind": "blocks",
       "to": "story:onboarding-imports"
-    },
-    {
-      "from": "needs-decision:ND-22",
-      "kind": "blocks",
-      "to": "story:profiles"
     },
     {
       "from": "story:build-deploy",
@@ -11650,6 +11662,31 @@
       "from": "decision:D-20",
       "kind": "related",
       "to": "story:code-delivery"
+    },
+    {
+      "from": "decision:D-22",
+      "kind": "related",
+      "to": "decision:D-06"
+    },
+    {
+      "from": "decision:D-22",
+      "kind": "related",
+      "to": "feature:badge-qr"
+    },
+    {
+      "from": "decision:D-22",
+      "kind": "related",
+      "to": "needs-decision:ND-12"
+    },
+    {
+      "from": "decision:D-22",
+      "kind": "related",
+      "to": "needs-decision:ND-22"
+    },
+    {
+      "from": "decision:D-22",
+      "kind": "related",
+      "to": "story:view-as"
     },
     {
       "from": "decision:D-23",
@@ -21278,6 +21315,11 @@
       "from": "story:profiles",
       "kind": "related",
       "to": "decision:D-06"
+    },
+    {
+      "from": "story:profiles",
+      "kind": "related",
+      "to": "decision:D-22"
     },
     {
       "from": "story:profiles",
@@ -34387,6 +34429,11 @@
       "to": "decision:D-20"
     },
     {
+      "from": "needs-decision:ND-22",
+      "kind": "tree",
+      "to": "decision:D-22"
+    },
+    {
       "from": "needs-decision:ND-23",
       "kind": "tree",
       "to": "decision:D-23"
@@ -35585,6 +35632,21 @@
       "from": "decision:D-20",
       "kind": "wikilink",
       "to": "qa-frontend:account"
+    },
+    {
+      "from": "decision:D-22",
+      "kind": "wikilink",
+      "to": "backend-delivery:profiles"
+    },
+    {
+      "from": "decision:D-22",
+      "kind": "wikilink",
+      "to": "feature:profiles"
+    },
+    {
+      "from": "decision:D-22",
+      "kind": "wikilink",
+      "to": "frontend-requirements:profiles"
     },
     {
       "from": "decision:D-23",
@@ -40533,6 +40595,10 @@
     },
     "social-pin/decisions/D-20 The changed address still signs in, the words are corrected.md": {
       "name": "D-20 The changed address still signs in, the words are corrected",
+      "type": "decision"
+    },
+    "social-pin/decisions/D-22 The public page only says the Pin exists.md": {
+      "name": "D-22 The public page only says the Pin exists",
       "type": "decision"
     },
     "social-pin/decisions/D-23 A count of mutual connections, events where both were visible.md": {
@@ -47161,6 +47227,7 @@
         "needs-decision:ND-22",
         "needs-decision:ND-06",
         "feature:badge-qr",
+        "decision:D-22",
         "frontend-requirements:connections",
         "frontend-requirements:auth",
         "story:auth",
@@ -47951,6 +48018,68 @@
       "title": "D-20 The changed address still signs in, the words are corrected",
       "unmet": [],
       "updated": "2026-10-29"
+    },
+    "decision:D-22": {
+      "affects": [
+        "story:profiles",
+        "frontend-requirements:profiles",
+        "backend-delivery:profiles"
+      ],
+      "blockedBy": [],
+      "card": "D-22",
+      "children": [],
+      "code": "D-22",
+      "created": "2026-11-05",
+      "deadline": null,
+      "decidedAt": "2026-11-05",
+      "decidedBy": "khaled",
+      "decides": "ND-22",
+      "depends": [],
+      "effectiveStatus": "decided",
+      "effort": null,
+      "feature": null,
+      "features": [
+        "profiles"
+      ],
+      "foundOn": null,
+      "frontendOnly": false,
+      "id": "decision:D-22",
+      "inherits": {},
+      "kind": "decision",
+      "label": "Decision",
+      "labels": [],
+      "layer": "business",
+      "module": null,
+      "openBugs": [],
+      "parentTask": null,
+      "parents": [
+        "needs-decision:ND-22"
+      ],
+      "path": "social-pin/decisions/D-22 The public page only says the Pin exists.md",
+      "pending": [],
+      "priority": null,
+      "related": [
+        "needs-decision:ND-22",
+        "decision:D-06",
+        "needs-decision:ND-12",
+        "story:view-as",
+        "feature:badge-qr",
+        "story:profiles"
+      ],
+      "release": null,
+      "resolution": null,
+      "scope": null,
+      "screens": [],
+      "status": "decided",
+      "summary": "Ruled out: a page that shows the Public Ring (option 1), and no page at all (option 3); holding a freed name for a period, or a \"this Pin was renamed\" page.",
+      "tags": [
+        "decision",
+        "decision/decided"
+      ],
+      "task": null,
+      "title": "D-22 The public page only says the Pin exists",
+      "unmet": [],
+      "updated": "2026-11-05"
     },
     "decision:D-23": {
       "affects": [
@@ -48856,6 +48985,7 @@
         "decision:D-06",
         "decision:D-10",
         "decision:D-11",
+        "decision:D-22",
         "frontend-requirements:profiles",
         "story:profiles"
       ],
@@ -51051,14 +51181,12 @@
       "release": "mvp",
       "resolution": null,
       "rollup": {
-        "approved": 1,
-        "blocked": 1,
+        "approved": 2,
         "current": 1,
-        "decided": 2,
+        "decided": 3,
         "missing": 3,
-        "needs-decision": 1,
         "partial": 1,
-        "verified": 2
+        "verified": 3
       },
       "scope": null,
       "screens": [
@@ -57624,20 +57752,20 @@
       "release": null,
       "resolution": null,
       "rollup": {
-        "approved": 15,
-        "blocked": 4,
+        "approved": 16,
+        "blocked": 3,
         "current": 9,
-        "decided": 9,
+        "decided": 10,
         "delivered": 4,
         "done": 14,
         "draft": 3,
         "in-progress": 13,
         "missing": 35,
-        "needs-decision": 2,
+        "needs-decision": 1,
         "partial": 8,
         "passing": 3,
         "ready": 4,
-        "verified": 9
+        "verified": 10
       },
       "scope": null,
       "screens": [],
@@ -58466,6 +58594,7 @@
       "related": [
         "feature:badge-qr",
         "needs-decision:ND-22",
+        "decision:D-22",
         "frontend-requirements:view-as",
         "story:view-as",
         "project:mvp-order"
@@ -59132,13 +59261,15 @@
         "story:profiles"
       ],
       "card": "ND-22",
-      "children": [],
+      "children": [
+        "decision:D-22"
+      ],
       "code": "ND-22",
       "created": "2026-10-29",
       "deadline": null,
       "decider": "owner",
       "depends": [],
-      "effectiveStatus": "needs-decision",
+      "effectiveStatus": "verified",
       "effort": null,
       "feature": null,
       "features": [
@@ -59146,6 +59277,7 @@
       ],
       "foundOn": null,
       "frontendOnly": false,
+      "fulfilledBy": "decision:D-22",
       "id": "needs-decision:ND-22",
       "inherits": {},
       "kind": "needs-decision",
@@ -59168,6 +59300,7 @@
         "needs-decision:ND-12",
         "decision:D-06",
         "story:view-as",
+        "decision:D-22",
         "frontend-requirements:connections",
         "qa-backend:files",
         "frontend-requirements:profiles",
@@ -59191,7 +59324,7 @@
       "task": null,
       "title": "ND-22 Public web page by Pin name",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-05"
     },
     "needs-decision:ND-23": {
       "affects": [],
@@ -65628,22 +65761,22 @@
         }
       ],
       "rollup": {
-        "approved": 37,
-        "blocked": 33,
+        "approved": 38,
+        "blocked": 32,
         "current": 9,
-        "decided": 25,
+        "decided": 26,
         "delivered": 4,
         "done": 15,
         "draft": 29,
         "in-progress": 47,
         "missing": 149,
-        "needs-decision": 2,
+        "needs-decision": 1,
         "partial": 8,
         "passing": 3,
         "ready": 6,
         "reference": 32,
         "todo": 3,
-        "verified": 25
+        "verified": 26
       },
       "scope": null,
       "screens": [],
@@ -67736,13 +67869,7 @@
     },
     "story:profiles": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "needs-decision:ND-22",
-          "title": "ND-22 Public web page by Pin name",
-          "why": "needs decision ND-22 (open)"
-        }
-      ],
+      "blockedBy": [],
       "card": "S-14",
       "children": [
         "needs-decision:ND-22"
@@ -67751,7 +67878,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "profiles",
       "foundOn": null,
@@ -67795,6 +67922,7 @@
         "decision:D-05",
         "decision:D-06",
         "needs-decision:ND-22",
+        "decision:D-22",
         "story:account",
         "story:onboarding-imports",
         "story:ring-projection",
@@ -67825,7 +67953,7 @@
       "task": null,
       "title": "S-14 Profiles & Pin Name Story",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-05"
     },
     "story:ring-access": {
       "affects": [],
@@ -68309,6 +68437,7 @@
       "priority": "critical",
       "related": [
         "needs-decision:ND-22",
+        "decision:D-22",
         "frontend-requirements:connections",
         "qa-backend:files",
         "story:files",

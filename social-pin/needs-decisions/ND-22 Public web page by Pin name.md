@@ -10,11 +10,11 @@ owner: "Omar Fostok"
 affects: []
 related: ["F-07 Profiles & Pin Name", "F-18 Badge & QR", "F-12 View As & Pin Views", "ND-12 What the badge QR encodes", "D-06 Yearly rename, old name freed, case-insensitive", "S-19 View As & Pin Views Story"]
 created: 2026-10-29
-updated: 2026-10-29
+updated: 2026-11-05
 tags: [needs-decision, needs-decision/open]
 ---
 
-# ❓ ND-22 · Public web page by Pin name
+# ✅ ND-22 · Public web page by Pin name
 
 **Status:** open · **Decider:** owner · **Raised:** 2026-10-29 · **Needed by:** [[S-14 Profiles & Pin Name Story]] (S1, the "socialpin.me/<handle>" line) · **Feature:** [[F-07 Profiles & Pin Name]]
 
@@ -49,4 +49,4 @@ Recommendation (PM): option 2 for v1. It makes the address real and shareable, r
 
 ## Decision
 
-— (answered on its decision card, never written here: the PM or the owner, on the user's word, runs `node scripts/build-tree.mjs --scaffold decision ND-22 "<the answer>"`, fills the decision card D-NN (what was decided, why, what it changes with every feature and card in its `affects`, what stays open) and sets it `decided` with `decidedBy` and `decidedAt`; this card then shows Fulfilled by itself; the H1 gets ✅, and this line is replaced by "Fulfilled by" and a wikilink to the decision card, then "decided <date> by <who>: option <n>"; then `--impact D-NN` and flag the notes it lists)
+Fulfilled by [[D-22 The public page only says the Pin exists]], decided 2026-11-05 by khaled: option 2 (D-06 kept after a rename; the frontend builds the page on `socialpin.me`).

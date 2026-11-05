@@ -1,6 +1,6 @@
 ---
 type: map
-updated: 2026-11-04
+updated: 2026-11-05
 tags: [map]
 ---
 
@@ -29,7 +29,7 @@ Where the design and the backend disagree, and every other decision a card needs
 | [[ND-19 Where a ticket's layer notes live]] | fulfilled (1, the parent task) | [[D-19 A ticket's layer notes live on the parent task]] | [[F-35 Error Contract]] | — |
 | [[ND-20 Whether an unverified new address may sign in]] | fulfilled (2, it signs in, the words are corrected) | [[D-20 The changed address still signs in, the words are corrected]] | [[F-01 Account]] | s68 |
 | [[ND-21 How a business card and a portfolio page are read]] | open | — | [[F-05 Onboarding Imports]] | s03a, s03b |
-| [[ND-22 Public web page by Pin name]] | open | — | [[F-07 Profiles & Pin Name]] | s06, s44 |
+| [[ND-22 Public web page by Pin name]] | fulfilled (2, the page only says the Pin exists; D-06 kept) | [[D-22 The public page only says the Pin exists]] | [[F-07 Profiles & Pin Name]] | s06, s44 |
 | [[ND-23 Mutual connections and events in common]] | fulfilled (2 and 2, a count only, events where both were visible) | [[D-23 A count of mutual connections, events where both were visible]] | [[F-14 Connections]] | s47 |
 | [[ND-24 Both people ask each other]] | fulfilled (1, one pending request per pair) | [[D-24 One pending request per pair]] | [[F-14 Connections]] | s44, s45, s46 |
 | [[ND-25 What deleting an account does to its connections]] | fulfilled (1, all end silently) | [[D-25 A deleted account's connections, requests and blocks end silently]] | [[F-14 Connections]] | s17, s45, s47, s68 |
