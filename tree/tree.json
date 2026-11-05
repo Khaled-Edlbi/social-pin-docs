@@ -1149,7 +1149,8 @@
       "containers": [
         "feature:files",
         "feature:photo-library",
-        "needs-decision:ND-16"
+        "needs-decision:ND-16",
+        "project:frontend-api-guide"
       ],
       "kind": "error",
       "notes": [
@@ -1158,6 +1159,7 @@
         "frontend-requirements:files",
         "frontend-requirements:photo-library",
         "needs-decision:ND-16",
+        "project:frontend-api-guide",
         "qa-backend:files",
         "story:files",
         "story:photo-library"
@@ -1926,7 +1928,8 @@
         "feature:files",
         "feature:ring-projection",
         "feature:view-as",
-        "needs-decision:ND-16"
+        "needs-decision:ND-16",
+        "project:spec-map"
       ],
       "kind": "endpoint",
       "notes": [
@@ -1936,7 +1939,8 @@
         "backend-integration:files",
         "frontend-requirements:files",
         "frontend-requirements:view-as",
-        "needs-decision:ND-16"
+        "needs-decision:ND-16",
+        "project:spec-map"
       ],
       "owner": "feature:files"
     },
@@ -1994,12 +1998,14 @@
     "GET /files?kind=image\\|document": {
       "containers": [
         "feature:files",
-        "feature:photo-library"
+        "feature:photo-library",
+        "project:spec-map"
       ],
       "kind": "endpoint",
       "notes": [
         "frontend-requirements:files",
-        "frontend-requirements:photo-library"
+        "frontend-requirements:photo-library",
+        "project:spec-map"
       ],
       "owner": null
     },
@@ -5110,7 +5116,7 @@
     },
     "concepts": 252,
     "decisions": 28,
-    "edges": 4886,
+    "edges": 4901,
     "features": 41,
     "layerNotes": 133,
     "modules": 8,
@@ -8589,9 +8595,25 @@
     {
       "from": "backend-delivery:files",
       "kind": "related",
+      "to": "project:frontend-api-guide",
+      "via": [
+        "E_FILE_01"
+      ]
+    },
+    {
+      "from": "backend-delivery:files",
+      "kind": "related",
       "to": "project:frontend-contract",
       "via": [
         "POST /files"
+      ]
+    },
+    {
+      "from": "backend-delivery:files",
+      "kind": "related",
+      "to": "project:spec-map",
+      "via": [
+        "GET /files/content/:token"
       ]
     },
     {
@@ -8681,6 +8703,14 @@
       "from": "backend-delivery:photo-library",
       "kind": "related",
       "to": "needs-decision:ND-16",
+      "via": [
+        "GET /files/content/:token"
+      ]
+    },
+    {
+      "from": "backend-delivery:photo-library",
+      "kind": "related",
+      "to": "project:spec-map",
       "via": [
         "GET /files/content/:token"
       ]
@@ -9212,9 +9242,25 @@
     {
       "from": "backend-integration:files",
       "kind": "related",
+      "to": "project:frontend-api-guide",
+      "via": [
+        "E_FILE_01"
+      ]
+    },
+    {
+      "from": "backend-integration:files",
+      "kind": "related",
       "to": "project:frontend-contract",
       "via": [
         "POST /files"
+      ]
+    },
+    {
+      "from": "backend-integration:files",
+      "kind": "related",
+      "to": "project:spec-map",
+      "via": [
+        "GET /files/content/:token"
       ]
     },
     {
@@ -9320,6 +9366,14 @@
       ]
     },
     {
+      "from": "backend-integration:ring-projection",
+      "kind": "related",
+      "to": "project:spec-map",
+      "via": [
+        "GET /files/content/:token"
+      ]
+    },
+    {
       "from": "backend-integration:view-as",
       "kind": "related",
       "to": "backend-delivery:files",
@@ -9363,6 +9417,14 @@
       "from": "backend-integration:view-as",
       "kind": "related",
       "to": "needs-decision:ND-16",
+      "via": [
+        "GET /files/content/:token"
+      ]
+    },
+    {
+      "from": "backend-integration:view-as",
+      "kind": "related",
+      "to": "project:spec-map",
       "via": [
         "GET /files/content/:token"
       ]
@@ -9545,6 +9607,14 @@
       "from": "decision:D-16",
       "kind": "related",
       "to": "frontend-requirements:photo-library",
+      "via": [
+        "E_FILE_01"
+      ]
+    },
+    {
+      "from": "decision:D-16",
+      "kind": "related",
+      "to": "project:frontend-api-guide",
       "via": [
         "E_FILE_01"
       ]
@@ -13399,6 +13469,14 @@
     {
       "from": "frontend-requirements:files",
       "kind": "related",
+      "to": "project:frontend-api-guide",
+      "via": [
+        "E_FILE_01"
+      ]
+    },
+    {
+      "from": "frontend-requirements:files",
+      "kind": "related",
       "to": "project:frontend-contract",
       "via": [
         "POST /files"
@@ -13892,6 +13970,14 @@
       "to": "project:frontend-agent-prompt",
       "via": [
         "E_RING_02"
+      ]
+    },
+    {
+      "from": "frontend-requirements:photo-library",
+      "kind": "related",
+      "to": "project:frontend-api-guide",
+      "via": [
+        "E_FILE_01"
       ]
     },
     {
@@ -18505,6 +18591,7 @@
       "kind": "related",
       "to": "project:frontend-api-guide",
       "via": [
+        "E_FILE_01",
         "GET /views/pin/:pinName"
       ]
     },
@@ -26413,6 +26500,7 @@
       "kind": "shares",
       "to": "project:frontend-api-guide",
       "via": [
+        "E_FILE_01",
         "GET /views/pin/:pinName",
         "GET /views/ring/:ringId"
       ]
@@ -26441,6 +26529,8 @@
       "kind": "shares",
       "to": "project:spec-map",
       "via": [
+        "GET /files/content/:token",
+        "GET /files?kind=image\\|document",
         "GET /views/ring/:ringId",
         "PATCH /rings/:ringId/projection",
         "POST /rings"
@@ -27429,6 +27519,14 @@
     {
       "from": "feature:photo-library",
       "kind": "shares",
+      "to": "project:frontend-api-guide",
+      "via": [
+        "E_FILE_01"
+      ]
+    },
+    {
+      "from": "feature:photo-library",
+      "kind": "shares",
       "to": "project:frontend-contract",
       "via": [
         "POST /files"
@@ -27439,6 +27537,7 @@
       "kind": "shares",
       "to": "project:spec-map",
       "via": [
+        "GET /files?kind=image\\|document",
         "PATCH /rings/:ringId/projection"
       ]
     },
@@ -28610,6 +28709,7 @@
       "kind": "shares",
       "to": "project:spec-map",
       "via": [
+        "GET /files/content/:token",
         "GET /rings",
         "GET /views/ring/:ringId",
         "PATCH /rings/:ringId/projection",
@@ -28942,6 +29042,7 @@
       "kind": "shares",
       "to": "project:spec-map",
       "via": [
+        "GET /files/content/:token",
         "GET /rings",
         "GET /views/ring/:ringId",
         "GET /views/user/:userId/perspectives"
@@ -29266,6 +29367,22 @@
       "to": "project:status-report-2026-10-15",
       "via": [
         "GET /views/user/:userId/perspectives"
+      ]
+    },
+    {
+      "from": "needs-decision:ND-16",
+      "kind": "shares",
+      "to": "project:frontend-api-guide",
+      "via": [
+        "E_FILE_01"
+      ]
+    },
+    {
+      "from": "needs-decision:ND-16",
+      "kind": "shares",
+      "to": "project:spec-map",
+      "via": [
+        "GET /files/content/:token"
       ]
     },
     {
@@ -35902,6 +36019,11 @@
     {
       "from": "project:developer-setup",
       "kind": "wikilink",
+      "to": "decision:D-16"
+    },
+    {
+      "from": "project:developer-setup",
+      "kind": "wikilink",
       "to": "feature:e2e-tests"
     },
     {
@@ -36290,6 +36412,11 @@
       "to": "project:docs-tree"
     },
     {
+      "from": "project:frontend-api-guide",
+      "kind": "wikilink",
+      "to": "project:frontend-contract"
+    },
+    {
       "from": "project:frontend-contract",
       "kind": "wikilink",
       "to": "feature:account"
@@ -36328,11 +36455,6 @@
       "from": "project:frontend-contract",
       "kind": "wikilink",
       "to": "feature:view-as"
-    },
-    {
-      "from": "project:frontend-contract",
-      "kind": "wikilink",
-      "to": "project:frontend-api-guide"
     },
     {
       "from": "project:frontend-contract",
@@ -36758,6 +36880,11 @@
       "from": "project:ring-access-model",
       "kind": "wikilink",
       "to": "needs-decision:ND-04"
+    },
+    {
+      "from": "project:spec-map",
+      "kind": "wikilink",
+      "to": "decision:D-16"
     },
     {
       "from": "project:spec-map",
@@ -40544,6 +40671,7 @@
         "backend-delivery:ring-projection",
         "backend-delivery:view-as",
         "frontend-requirements:view-as",
+        "project:spec-map",
         "qa-backend:files",
         "frontend-requirements:photo-library",
         "needs-decision:ND-21",
@@ -40555,6 +40683,7 @@
         "frontend-requirements:ring-projection",
         "project:status-report-2026-10-15",
         "project:frontend-contract",
+        "project:frontend-api-guide",
         "backend-integration:view-as"
       ],
       "release": "mvp",
@@ -41095,6 +41224,7 @@
         "backend-delivery:ring-projection",
         "backend-delivery:view-as",
         "frontend-requirements:view-as",
+        "project:spec-map",
         "frontend-requirements:photo-library",
         "frontend-requirements:profiles",
         "frontend-requirements:ring-projection"
@@ -42841,6 +42971,7 @@
         "backend-delivery:ring-projection",
         "backend-delivery:view-as",
         "frontend-requirements:view-as",
+        "project:spec-map",
         "qa-backend:files",
         "frontend-requirements:photo-library",
         "needs-decision:ND-21",
@@ -42852,6 +42983,7 @@
         "frontend-requirements:ring-projection",
         "project:status-report-2026-10-15",
         "project:frontend-contract",
+        "project:frontend-api-guide",
         "story:ring-projection"
       ],
       "release": "mvp",
@@ -43688,6 +43820,7 @@
         "backend-delivery:ring-projection",
         "backend-delivery:view-as",
         "frontend-requirements:view-as",
+        "project:spec-map",
         "frontend-requirements:ring-projection",
         "frontend-requirements:companies"
       ],
@@ -43884,6 +44017,7 @@
         "backend-delivery:ring-projection",
         "backend-delivery:view-as",
         "frontend-requirements:view-as",
+        "project:spec-map",
         "frontend-requirements:companies"
       ],
       "release": "mvp",
@@ -44844,6 +44978,7 @@
         "story:files",
         "frontend-requirements:photo-library",
         "story:photo-library",
+        "project:frontend-api-guide",
         "frontend-requirements:connections",
         "backend-delivery:photo-library",
         "frontend-requirements:profiles",
@@ -52475,6 +52610,7 @@
         "story:widgets",
         "frontend-requirements:companies",
         "project:spec-map",
+        "project:frontend-api-guide",
         "story:connections",
         "frontend-requirements:badge-qr",
         "frontend-requirements:exhibitor",
@@ -53068,6 +53204,7 @@
         "story:widgets",
         "frontend-requirements:companies",
         "project:spec-map",
+        "project:frontend-api-guide",
         "story:connections",
         "frontend-requirements:badge-qr",
         "story:badge-qr",
@@ -57405,7 +57542,7 @@
       "task": null,
       "title": "Developer Setup",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-05"
     },
     "project:docs-tree": {
       "affects": [],
@@ -57706,12 +57843,17 @@
         "task:B-03",
         "task:B-05",
         "needs-decision:ND-30",
+        "decision:D-16",
         "decision:D-30",
         "frontend-requirements:connections",
         "backend-delivery:account",
         "backend-integration:account",
         "qa-backend:auth",
+        "backend-delivery:files",
+        "backend-integration:files",
+        "frontend-requirements:files",
         "qa-backend:files",
+        "frontend-requirements:photo-library",
         "frontend-requirements:profiles",
         "frontend-requirements:ring-access",
         "frontend-requirements:ring-projection",
@@ -57735,7 +57877,7 @@
       "task": null,
       "title": "Frontend API Guide",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-05"
     },
     "project:frontend-contract": {
       "affects": [],
@@ -58363,14 +58505,19 @@
         "backend-delivery:account",
         "backend-integration:account",
         "qa-backend:auth",
+        "backend-delivery:files",
+        "backend-integration:files",
         "frontend-requirements:files",
         "qa-backend:files",
+        "backend-delivery:photo-library",
         "frontend-requirements:photo-library",
         "frontend-requirements:profiles",
         "frontend-requirements:ring-access",
         "frontend-requirements:ring-members",
+        "backend-integration:ring-projection",
         "frontend-requirements:ring-projection",
         "frontend-requirements:rings",
+        "backend-integration:view-as",
         "frontend-requirements:view-as",
         "frontend-requirements:companies"
       ],
@@ -58386,7 +58533,7 @@
       "task": null,
       "title": "Spec Map",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-05"
     },
     "project:status-report-2026-10-15": {
       "affects": [],
