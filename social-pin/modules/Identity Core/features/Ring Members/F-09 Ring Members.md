@@ -17,7 +17,7 @@ tags: [feature, module/identity, priority/critical, release/mvp]
 
 **Backend:** Done · **Priority:** Critical · **Release:** MVP · **Module:** [[M-01 Identity Core Module|Identity Core]]
 
-**Layers:** [[S-16 Ring Members Story|Story]] · [[FR-09 Ring Members Frontend Requirements|Frontend Requirements]] · [[BD-09 Ring Members Backend Delivery|Backend Delivery]] · [[BI-06 Ring Members Backend Integration|Backend Integration]] · [[Ring Members Frontend Delivery|Frontend Delivery]] · [[Ring Members QA Backend|QA Backend]] · [[Ring Members QA Frontend|QA Frontend]]
+**Layers:** [[S-16 Ring Members Story|Story]] · [[FR-09 Ring Members Frontend Requirements|Frontend Requirements]] · [[BD-09 Ring Members Backend Delivery|Backend Delivery]] · [[BI-06 Ring Members Backend Integration|Backend Integration]] · [[Ring Members Frontend Delivery|Frontend Delivery]] · [[QB-11 Ring Members QA Backend|QA Backend]] · [[Ring Members QA Frontend|QA Frontend]]
 
 The owner's roster of a Ring: list and search it, add people, approve those who asked to join, set each person's access window, bring people in from another Ring, choose which of my Rings someone is in, remove them. When a Ring lets members see each other, its members see the others.
 

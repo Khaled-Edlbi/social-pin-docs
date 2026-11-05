@@ -13,7 +13,9 @@ tags: [backend-delivery, backend-delivery/done, module/identity, layer/backend]
 
 # ✅ Ring Members · Backend Delivery
 
-**Feature:** [[F-09 Ring Members]] · **Status:** Done · **Integration guide:** [[BI-06 Ring Members Backend Integration]] · **Requirements:** [[FR-09 Ring Members Frontend Requirements]] · **QA:** [[Ring Members QA Backend]]
+> ⚠ Affected by [[QB-11 Ring Members QA Backend]] (2026-11-05): QA run on main 12172c6: re-adding a lapsed member answers 409 E_RING_MEMBER_01, not the reactivation How it works describes (B-09); an unknown userId on add answers 500 (B-10)
+
+**Feature:** [[F-09 Ring Members]] · **Status:** Done · **Integration guide:** [[BI-06 Ring Members Backend Integration]] · **Requirements:** [[FR-09 Ring Members Frontend Requirements]] · **QA:** [[QB-11 Ring Members QA Backend]]
 
 What the backend shipped for this feature and how it works.
 
