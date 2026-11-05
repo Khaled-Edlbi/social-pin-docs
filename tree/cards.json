@@ -235,6 +235,7 @@
     "qa-backend:ring-members": "QB-11",
     "qa-backend:ring-projection": "QB-13",
     "qa-backend:rings": "QB-12",
+    "qa-backend:view-as": "QB-14",
     "qa-frontend:account": "QF-04",
     "story:account": "S-01",
     "story:app-shell": "S-73",
@@ -292,7 +293,8 @@
     "task:B-13": "B-13",
     "task:B-14": "B-14",
     "task:B-15": "B-15",
-    "task:B-16": "B-16"
+    "task:B-16": "B-16",
+    "task:B-17": "B-17"
   },
   "retired": {
     "BD-40": "backend-delivery:T-065-be",
