@@ -7,7 +7,7 @@ status: current
 scope: feature
 screens: [s08, s09, s16, s17, s18, s19, s20, s21, s22, s26, s62]
 created: 2026-10-15
-updated: 2026-10-29
+updated: 2026-11-05
 tags: [backend-integration, backend-integration/current, module/identity, layer/backend]
 ---
 
@@ -40,7 +40,7 @@ What the client builds: My Rings and Shared with me, the create-a-Ring wizard (n
 ## Flow
 
 1. **My Rings.** `GET /rings?limit=20&skip=0` → `{ data: RingEntity[], meta: { total } }`, the default Ring first, then newest first. Filters: `name` (partial), `type`, `status`, `isTemporary` (`false` is a real filter). `limit` is capped at 50.
-2. **Shared with me.** `GET /rings/shared-with-me` → the same envelope, newest first, containing **only Rings whose access is live right now** (the Ring's window, the membership's window, no block). It returns the Ring row (name, colour, type, owner id, expiry), not the owner's projection: to show the person, call `GET /views/ring/:id` ([[BI-09 View As & Pin Views Backend Integration]]).
+2. **Shared with me.** `GET /rings/shared-with-me` → the same envelope, newest first, containing **only Rings whose access is live right now** (the Ring's window, the membership's window). A block between you and the owner should drop the Ring too, but on `main` it does not yet: fixed on the backend branch `FR-03/ring/shared-with-me-blocks`, not merged ([[BD-11 Rings Backend Delivery]]). Nothing to change on the client: once merged, such a Ring simply stops appearing. It returns the Ring row (name, colour, type, owner id, expiry), not the owner's projection: to show the person, call `GET /views/ring/:id` ([[BI-09 View As & Pin Views Backend Integration]]).
 3. **Create.** `POST /rings` with `{ name, type?, parentRingId?, profileId?, startsAt?, expiresAt?, isTemporary?, colorHex?, style? }` → 201 `RingEntity`. The new Ring has a projection created on its first `GET /rings/:id/projection`; send the user on to "what it shows" next.
 4. **Edit.** `PATCH /rings/:id` with any subset of the create fields. Allowed for the owner or a delegated admin at `CONTENT_MANAGER` level or above; otherwise 403 `E_RING_05`.
 5. **Default.** `POST /rings/:id/default` → 201 with the Ring. The previous default is demoted in the same transaction. The default Ring is what a scanned QR or a Pin-name lookup resolves to for someone who is in no other Ring of this person.
