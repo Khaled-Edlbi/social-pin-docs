@@ -188,6 +188,7 @@
     "FD-06 Counts Frontend Delivery": "frontend-delivery:counts",
     "FD-07 Files Upload Frontend Delivery": "frontend-delivery:files",
     "FD-08 Photo Library Frontend Delivery": "frontend-delivery:photo-library",
+    "FD-09 Profiles & Pin Name Frontend Delivery": "frontend-delivery:profiles",
     "FR-01 Account Frontend Requirements": "frontend-requirements:account",
     "FR-02 Auth & Sign-up Frontend Requirements": "frontend-requirements:auth",
     "FR-03 Counts Frontend Requirements": "frontend-requirements:counts",
@@ -489,6 +490,7 @@
     "FD-06": "frontend-delivery:counts",
     "FD-07": "frontend-delivery:files",
     "FD-08": "frontend-delivery:photo-library",
+    "FD-09": "frontend-delivery:profiles",
     "FR-01": "frontend-requirements:account",
     "FR-02": "frontend-requirements:auth",
     "FR-03": "frontend-requirements:counts",
@@ -1375,6 +1377,7 @@
         "backend-integration:auth",
         "backend-integration:profiles",
         "frontend-delivery:auth",
+        "frontend-delivery:profiles",
         "frontend-requirements:auth",
         "frontend-requirements:error-contract",
         "frontend-requirements:onboarding-imports",
@@ -2310,6 +2313,7 @@
         "backend-integration:account",
         "backend-integration:profiles",
         "frontend-delivery:account",
+        "frontend-delivery:profiles",
         "frontend-requirements:account",
         "frontend-requirements:companies",
         "frontend-requirements:profiles",
@@ -2354,6 +2358,7 @@
         "backend-integration:auth",
         "backend-integration:profiles",
         "frontend-delivery:auth",
+        "frontend-delivery:profiles",
         "frontend-requirements:auth",
         "frontend-requirements:gemma",
         "frontend-requirements:onboarding-imports",
@@ -2388,6 +2393,7 @@
       "notes": [
         "backend-delivery:profiles",
         "backend-integration:profiles",
+        "frontend-delivery:profiles",
         "frontend-requirements:profiles",
         "qa-backend:profiles"
       ],
@@ -3415,6 +3421,7 @@
         "backend-delivery:profiles",
         "backend-integration:profiles",
         "frontend-delivery:account",
+        "frontend-delivery:profiles",
         "frontend-requirements:companies",
         "frontend-requirements:onboarding-imports",
         "frontend-requirements:profiles",
@@ -3506,6 +3513,7 @@
         "backend-delivery:ring-projection",
         "backend-integration:profiles",
         "backend-integration:ring-projection",
+        "frontend-delivery:profiles",
         "frontend-requirements:companies",
         "frontend-requirements:files",
         "frontend-requirements:photo-library",
@@ -3928,6 +3936,7 @@
         "backend-integration:ring-projection",
         "frontend-delivery:files",
         "frontend-delivery:photo-library",
+        "frontend-delivery:profiles",
         "frontend-requirements:files",
         "frontend-requirements:onboarding-imports",
         "frontend-requirements:photo-library",
@@ -4411,6 +4420,7 @@
         "backend-delivery:profiles",
         "backend-integration:profiles",
         "feature:profiles",
+        "frontend-delivery:profiles",
         "frontend-requirements:profiles",
         "qa-backend:profiles",
         "story:profiles"
@@ -4436,6 +4446,7 @@
         "feature:auth",
         "feature:profiles",
         "frontend-delivery:auth",
+        "frontend-delivery:profiles",
         "frontend-requirements:auth",
         "frontend-requirements:error-contract",
         "frontend-requirements:profiles",
@@ -5807,6 +5818,7 @@
         "frontend-delivery:auth",
         "frontend-delivery:counts",
         "frontend-delivery:photo-library",
+        "frontend-delivery:profiles",
         "frontend-requirements:account",
         "frontend-requirements:auth",
         "frontend-requirements:companies",
@@ -5968,7 +5980,7 @@
       "backend-integration": 11,
       "decision": 26,
       "feature": 41,
-      "frontend-delivery": 5,
+      "frontend-delivery": 6,
       "frontend-requirements": 39,
       "module": 8,
       "needs-decision": 28,
@@ -5981,19 +5993,19 @@
     "byLayer": {
       "backend": 58,
       "business": 159,
-      "frontend": 48,
+      "frontend": 49,
       "qa": 12,
       "shared": 10
     },
     "concepts": 290,
     "decisions": 28,
-    "edges": 6570,
+    "edges": 6601,
     "features": 41,
-    "layerNotes": 147,
+    "layerNotes": 148,
     "modules": 8,
-    "notes": 318,
+    "notes": 319,
     "partial": 13,
-    "placeholders": 138,
+    "placeholders": 137,
     "records": 26
   },
   "deadlines": {
@@ -7784,11 +7796,6 @@
       "to": "qa-frontend:post-event"
     },
     {
-      "from": "frontend-delivery:profiles",
-      "kind": "blocks",
-      "to": "qa-frontend:profiles"
-    },
-    {
       "from": "frontend-delivery:ring-access",
       "kind": "blocks",
       "to": "qa-frontend:ring-access"
@@ -8434,6 +8441,11 @@
       "to": "backend-integration:photo-library"
     },
     {
+      "from": "frontend-delivery:profiles",
+      "kind": "depends",
+      "to": "backend-integration:profiles"
+    },
+    {
       "from": "frontend-requirements:companies",
       "kind": "depends",
       "to": "story:companies"
@@ -8782,6 +8794,11 @@
       "from": "backend-integration:photo-library",
       "kind": "flow",
       "to": "frontend-delivery:photo-library"
+    },
+    {
+      "from": "backend-integration:profiles",
+      "kind": "flow",
+      "to": "frontend-delivery:profiles"
     },
     {
       "from": "frontend-delivery:account",
@@ -10569,6 +10586,14 @@
     {
       "from": "backend-delivery:files",
       "kind": "related",
+      "to": "frontend-delivery:profiles",
+      "via": [
+        "POST /files"
+      ]
+    },
+    {
+      "from": "backend-delivery:files",
+      "kind": "related",
       "to": "frontend-requirements:files",
       "via": [
         "DELETE /files/:id",
@@ -10948,6 +10973,20 @@
       "to": "frontend-delivery:photo-library",
       "via": [
         "E_FILE_04",
+        "POST /files"
+      ]
+    },
+    {
+      "from": "backend-delivery:profiles",
+      "kind": "related",
+      "to": "frontend-delivery:profiles",
+      "via": [
+        "E_PROFILE_02",
+        "GET /profiles",
+        "GET /profiles/pin-name/:pinName/availability",
+        "GET /profiles/ring-privacy",
+        "PATCH /profiles/:id",
+        "PATCH /rings/:ringId/projection",
         "POST /files"
       ]
     },
@@ -11776,6 +11815,14 @@
       "to": "frontend-delivery:photo-library",
       "via": [
         "E_FILE_04"
+      ]
+    },
+    {
+      "from": "backend-delivery:ring-projection",
+      "kind": "related",
+      "to": "frontend-delivery:profiles",
+      "via": [
+        "PATCH /rings/:ringId/projection"
       ]
     },
     {
@@ -13532,6 +13579,14 @@
     {
       "from": "backend-integration:files",
       "kind": "related",
+      "to": "frontend-delivery:profiles",
+      "via": [
+        "POST /files"
+      ]
+    },
+    {
+      "from": "backend-integration:files",
+      "kind": "related",
       "to": "frontend-requirements:files",
       "via": [
         "DELETE /files/:id",
@@ -13820,6 +13875,15 @@
       "via": [
         "DELETE /files/:id",
         "E_FILE_04",
+        "POST /files"
+      ]
+    },
+    {
+      "from": "backend-integration:photo-library",
+      "kind": "related",
+      "to": "frontend-delivery:profiles",
+      "via": [
+        "PATCH /rings/:ringId/projection",
         "POST /files"
       ]
     },
@@ -14140,6 +14204,20 @@
       "to": "frontend-delivery:photo-library",
       "via": [
         "E_FILE_04",
+        "POST /files"
+      ]
+    },
+    {
+      "from": "backend-integration:profiles",
+      "kind": "related",
+      "to": "frontend-delivery:profiles",
+      "via": [
+        "E_PROFILE_02",
+        "GET /profiles",
+        "GET /profiles/pin-name/:pinName/availability",
+        "GET /profiles/ring-privacy",
+        "PATCH /profiles/:id",
+        "PATCH /rings/:ringId/projection",
         "POST /files"
       ]
     },
@@ -14467,6 +14545,14 @@
       "from": "backend-integration:ring-projection",
       "kind": "related",
       "to": "decision:D-16"
+    },
+    {
+      "from": "backend-integration:ring-projection",
+      "kind": "related",
+      "to": "frontend-delivery:profiles",
+      "via": [
+        "PATCH /rings/:ringId/projection"
+      ]
     },
     {
       "from": "backend-integration:ring-projection",
@@ -17289,6 +17375,63 @@
       "to": "story:profiles"
     },
     {
+      "from": "frontend-delivery:profiles",
+      "kind": "related",
+      "to": "decision:D-02"
+    },
+    {
+      "from": "frontend-delivery:profiles",
+      "kind": "related",
+      "to": "decision:D-05"
+    },
+    {
+      "from": "frontend-delivery:profiles",
+      "kind": "related",
+      "to": "decision:D-06"
+    },
+    {
+      "from": "frontend-delivery:profiles",
+      "kind": "related",
+      "to": "decision:D-22"
+    },
+    {
+      "from": "frontend-delivery:profiles",
+      "kind": "related",
+      "to": "feature:ring-projection"
+    },
+    {
+      "from": "frontend-delivery:profiles",
+      "kind": "related",
+      "to": "frontend-delivery:account"
+    },
+    {
+      "from": "frontend-delivery:profiles",
+      "kind": "related",
+      "to": "frontend-delivery:auth"
+    },
+    {
+      "from": "frontend-delivery:profiles",
+      "kind": "related",
+      "to": "frontend-delivery:photo-library"
+    },
+    {
+      "from": "frontend-delivery:profiles",
+      "kind": "related",
+      "to": "frontend-requirements:profiles",
+      "via": [
+        "E_PROFILE_02",
+        "GET /profiles",
+        "GET /profiles/pin-name/:pinName/availability",
+        "PATCH /profiles/:id",
+        "POST /files"
+      ]
+    },
+    {
+      "from": "frontend-delivery:profiles",
+      "kind": "related",
+      "to": "story:profiles"
+    },
+    {
       "from": "frontend-requirements:auth",
       "kind": "related",
       "to": "decision:D-06"
@@ -17453,6 +17596,14 @@
       "via": [
         "E_RING_02",
         "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-requirements:companies",
+      "kind": "related",
+      "to": "frontend-delivery:profiles",
+      "via": [
+        "PATCH /rings/:ringId/projection"
       ]
     },
     {
@@ -19322,6 +19473,15 @@
     {
       "from": "frontend-requirements:files",
       "kind": "related",
+      "to": "frontend-delivery:profiles",
+      "via": [
+        "PATCH /rings/:ringId/projection",
+        "POST /files"
+      ]
+    },
+    {
+      "from": "frontend-requirements:files",
+      "kind": "related",
       "to": "frontend-requirements:account",
       "via": [
         "GET /rings/:ringId/projection"
@@ -19890,6 +20050,15 @@
       "via": [
         "DELETE /files/:id",
         "GET /rings/:ringId/projection",
+        "POST /files"
+      ]
+    },
+    {
+      "from": "frontend-requirements:photo-library",
+      "kind": "related",
+      "to": "frontend-delivery:profiles",
+      "via": [
+        "PATCH /rings/:ringId/projection",
         "POST /files"
       ]
     },
@@ -22070,6 +22239,15 @@
       "to": "frontend-delivery:photo-library",
       "via": [
         "E_FILE_04"
+      ]
+    },
+    {
+      "from": "frontend-requirements:ring-projection",
+      "kind": "related",
+      "to": "frontend-delivery:profiles",
+      "via": [
+        "GET /profiles",
+        "PATCH /rings/:ringId/projection"
       ]
     },
     {
@@ -24431,6 +24609,15 @@
     {
       "from": "qa-backend:auth",
       "kind": "related",
+      "to": "frontend-delivery:profiles",
+      "via": [
+        "E_PROFILE_02",
+        "GET /profiles/pin-name/:pinName/availability"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
       "to": "frontend-requirements:account",
       "via": [
         "E_AUTH_03",
@@ -25763,6 +25950,15 @@
     {
       "from": "qa-backend:files",
       "kind": "related",
+      "to": "frontend-delivery:profiles",
+      "via": [
+        "PATCH /rings/:ringId/projection",
+        "POST /files"
+      ]
+    },
+    {
+      "from": "qa-backend:files",
+      "kind": "related",
       "to": "frontend-requirements:account",
       "via": [
         "GET /rings/:ringId/projection"
@@ -26340,6 +26536,15 @@
       "via": [
         "DELETE /files/:id",
         "E_FILE_04",
+        "POST /files"
+      ]
+    },
+    {
+      "from": "qa-backend:photo-library",
+      "kind": "related",
+      "to": "frontend-delivery:profiles",
+      "via": [
+        "PATCH /rings/:ringId/projection",
         "POST /files"
       ]
     },
@@ -26973,6 +27178,20 @@
       "to": "frontend-delivery:photo-library",
       "via": [
         "E_FILE_04",
+        "POST /files"
+      ]
+    },
+    {
+      "from": "qa-backend:profiles",
+      "kind": "related",
+      "to": "frontend-delivery:profiles",
+      "via": [
+        "E_PROFILE_02",
+        "GET /profiles",
+        "GET /profiles/pin-name/:pinName/availability",
+        "GET /profiles/ring-privacy",
+        "PATCH /profiles/:id",
+        "PATCH /rings/:ringId/projection",
         "POST /files"
       ]
     },
@@ -28547,6 +28766,15 @@
       "to": "frontend-delivery:photo-library",
       "via": [
         "E_FILE_04",
+        "POST /files"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-projection",
+      "kind": "related",
+      "to": "frontend-delivery:profiles",
+      "via": [
+        "PATCH /rings/:ringId/projection",
         "POST /files"
       ]
     },
@@ -31595,6 +31823,14 @@
     {
       "from": "task:B-07",
       "kind": "related",
+      "to": "frontend-delivery:profiles",
+      "via": [
+        "POST /files"
+      ]
+    },
+    {
+      "from": "task:B-07",
+      "kind": "related",
       "to": "frontend-requirements:files",
       "via": [
         "POST /files"
@@ -31767,6 +32003,14 @@
       "to": "frontend-delivery:files",
       "via": [
         "GET /rings/:ringId/projection"
+      ]
+    },
+    {
+      "from": "task:B-08",
+      "kind": "related",
+      "to": "frontend-delivery:profiles",
+      "via": [
+        "PATCH /rings/:ringId/projection"
       ]
     },
     {
@@ -32182,6 +32426,14 @@
       "from": "task:B-11",
       "kind": "related",
       "to": "backend-integration:ring-projection",
+      "via": [
+        "PATCH /rings/:ringId/projection"
+      ]
+    },
+    {
+      "from": "task:B-11",
+      "kind": "related",
+      "to": "frontend-delivery:profiles",
       "via": [
         "PATCH /rings/:ringId/projection"
       ]
@@ -50434,6 +50686,11 @@
     {
       "from": "module:identity",
       "kind": "wikilink",
+      "to": "frontend-delivery:profiles"
+    },
+    {
+      "from": "module:identity",
+      "kind": "wikilink",
       "to": "frontend-requirements:account"
     },
     {
@@ -54144,6 +54401,10 @@
       "name": "BI-04 Profiles & Pin Name Backend Integration",
       "type": "backend-integration"
     },
+    "social-pin/modules/Identity Core/features/Profiles & Pin Name/flow/FD-09 Profiles & Pin Name Frontend Delivery.md": {
+      "name": "FD-09 Profiles & Pin Name Frontend Delivery",
+      "type": "frontend-delivery"
+    },
     "social-pin/modules/Identity Core/features/Profiles & Pin Name/flow/FR-07 Profiles & Pin Name Frontend Requirements.md": {
       "name": "FR-07 Profiles & Pin Name Frontend Requirements",
       "type": "frontend-requirements"
@@ -56374,6 +56635,7 @@
         "qa-backend:photo-library",
         "story:photo-library",
         "backend-integration:profiles",
+        "frontend-delivery:profiles",
         "frontend-requirements:profiles",
         "qa-backend:profiles",
         "story:profiles",
@@ -57150,6 +57412,7 @@
         "story:auth",
         "frontend-requirements:onboarding-imports",
         "backend-integration:profiles",
+        "frontend-delivery:profiles",
         "frontend-requirements:profiles",
         "frontend-requirements:gemma",
         "project:spec-map",
@@ -57529,6 +57792,7 @@
         "frontend-requirements:view-as",
         "frontend-requirements:widgets",
         "story:widgets",
+        "frontend-delivery:profiles",
         "frontend-requirements:profiles",
         "frontend-requirements:companies",
         "project:spec-map",
@@ -59089,6 +59353,7 @@
         "story:photo-library",
         "backend-delivery:profiles",
         "backend-integration:profiles",
+        "frontend-delivery:profiles",
         "frontend-requirements:profiles",
         "qa-backend:profiles",
         "story:profiles",
@@ -59562,6 +59827,7 @@
         "story:photo-library",
         "backend-delivery:profiles",
         "backend-integration:profiles",
+        "frontend-delivery:profiles",
         "frontend-requirements:profiles",
         "qa-backend:profiles",
         "story:profiles",
@@ -59698,6 +59964,7 @@
       "affects": [
         "frontend-requirements:profiles"
       ],
+      "autoDelivered": true,
       "blockedBy": [],
       "card": "BI-04",
       "children": [],
@@ -59707,7 +59974,7 @@
       "depends": [
         "backend-delivery:profiles"
       ],
-      "effectiveStatus": "current",
+      "effectiveStatus": "delivered",
       "effort": null,
       "feature": "profiles",
       "foundOn": null,
@@ -59760,6 +60027,7 @@
         "frontend-requirements:auth",
         "story:auth",
         "frontend-requirements:onboarding-imports",
+        "frontend-delivery:profiles",
         "frontend-requirements:profiles",
         "story:profiles",
         "frontend-requirements:gemma",
@@ -60101,6 +60369,7 @@
         "story:ring-projection",
         "frontend-requirements:widgets",
         "story:widgets",
+        "frontend-delivery:profiles",
         "frontend-requirements:companies",
         "project:status-report-2026-10-15",
         "story:connections",
@@ -60566,6 +60835,7 @@
         "frontend-requirements:photo-library",
         "story:photo-library",
         "backend-integration:profiles",
+        "frontend-delivery:profiles",
         "frontend-requirements:profiles",
         "qa-backend:profiles",
         "story:profiles",
@@ -60805,6 +61075,7 @@
         "decision:D-04",
         "frontend-requirements:photo-library",
         "story:photo-library",
+        "frontend-delivery:profiles",
         "frontend-requirements:profiles",
         "story:profiles",
         "backend-delivery:ring-projection",
@@ -60881,6 +61152,7 @@
         "frontend-requirements:auth",
         "story:auth",
         "backend-integration:profiles",
+        "frontend-delivery:profiles",
         "frontend-requirements:profiles",
         "qa-backend:profiles",
         "story:profiles",
@@ -61751,6 +62023,7 @@
         "story:view-as",
         "feature:badge-qr",
         "backend-delivery:profiles",
+        "frontend-delivery:profiles",
         "qa-backend:profiles",
         "story:profiles"
       ],
@@ -64875,9 +65148,10 @@
       "resolution": null,
       "rollup": {
         "approved": 2,
-        "current": 1,
         "decided": 3,
-        "missing": 2,
+        "delivered": 1,
+        "done": 1,
+        "missing": 1,
         "partial": 1,
         "passing": 1,
         "verified": 3
@@ -65223,7 +65497,8 @@
         "needs-decision:ND-16",
         "decision:D-16",
         "frontend-requirements:onboarding-imports",
-        "backend-delivery:profiles"
+        "backend-delivery:profiles",
+        "frontend-delivery:profiles"
       ],
       "release": "mvp",
       "resolution": null,
@@ -65694,6 +65969,7 @@
         "frontend-delivery:counts",
         "backend-delivery:profiles",
         "backend-integration:profiles",
+        "frontend-delivery:profiles",
         "frontend-requirements:profiles",
         "qa-backend:profiles",
         "frontend-requirements:ring-projection",
@@ -65872,6 +66148,7 @@
         "qa-backend:counts",
         "backend-delivery:profiles",
         "backend-integration:profiles",
+        "frontend-delivery:profiles",
         "frontend-requirements:profiles",
         "qa-backend:profiles",
         "frontend-requirements:ring-members",
@@ -67241,6 +67518,7 @@
         "qa-backend:photo-library",
         "backend-delivery:profiles",
         "backend-integration:profiles",
+        "frontend-delivery:profiles",
         "frontend-requirements:profiles",
         "qa-backend:profiles",
         "backend-delivery:ring-projection",
@@ -67367,19 +67645,25 @@
     "frontend-delivery:profiles": {
       "affects": [],
       "blockedBy": [],
-      "card": null,
+      "card": "FD-09",
       "children": [],
       "code": "profiles",
-      "created": null,
+      "created": "2026-11-06",
       "deadline": null,
-      "depends": [],
-      "effectiveStatus": "missing",
+      "depends": [
+        "backend-integration:profiles"
+      ],
+      "deployedTo": [],
+      "effectiveStatus": "done",
       "effort": null,
       "feature": "profiles",
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-delivery:profiles",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:profiles",
+        "release": "feature:profiles"
+      },
       "kind": "frontend-delivery",
       "label": "Frontend Delivery",
       "labels": [],
@@ -67390,21 +67674,60 @@
       "parents": [
         "feature:profiles"
       ],
-      "path": null,
+      "path": "social-pin/modules/Identity Core/features/Profiles & Pin Name/flow/FD-09 Profiles & Pin Name Frontend Delivery.md",
       "pending": [],
-      "priority": null,
-      "related": [],
-      "release": null,
+      "priority": "critical",
+      "related": [
+        "task:B-07",
+        "task:B-08",
+        "task:B-11",
+        "qa-backend:auth",
+        "backend-delivery:files",
+        "backend-integration:files",
+        "frontend-requirements:files",
+        "qa-backend:files",
+        "backend-integration:photo-library",
+        "frontend-requirements:photo-library",
+        "qa-backend:photo-library",
+        "backend-delivery:profiles",
+        "backend-integration:profiles",
+        "frontend-requirements:profiles",
+        "story:profiles",
+        "decision:D-02",
+        "decision:D-05",
+        "decision:D-06",
+        "decision:D-22",
+        "frontend-delivery:account",
+        "frontend-delivery:auth",
+        "frontend-delivery:photo-library",
+        "feature:ring-projection",
+        "qa-backend:profiles",
+        "backend-delivery:ring-projection",
+        "backend-integration:ring-projection",
+        "frontend-requirements:ring-projection",
+        "qa-backend:ring-projection",
+        "frontend-requirements:companies"
+      ],
+      "release": "mvp",
+      "resolution": null,
       "scope": "feature",
-      "screens": [],
-      "status": null,
-      "summary": "Not written yet. Create it with: node scripts/build-tree.mjs --scaffold frontend-delivery profiles",
-      "tags": [],
+      "screens": [
+        "s05b",
+        "s06",
+        "s68"
+      ],
+      "status": "done",
+      "summary": "What the client shipped for the main profile, the profile editor, renaming the Pin name and the privacy rows, on socialpin rings/F-11/honest-rings @ bf5088d (2026-11-06), not on main yet. Claiming…",
+      "tags": [
+        "frontend-delivery",
+        "frontend-delivery/done",
+        "module/identity",
+        "layer/frontend"
+      ],
       "task": null,
-      "template": "templates/Frontend Delivery Template.md",
-      "title": "Profiles & Pin Name Frontend Delivery",
+      "title": "FD-09 Profiles & Pin Name Frontend Delivery",
       "unmet": [],
-      "updated": null
+      "updated": "2026-11-06"
     },
     "frontend-delivery:ring-access": {
       "affects": [],
@@ -68449,6 +68772,7 @@
         "frontend-requirements:widgets",
         "project:ring-access-model",
         "backend-delivery:ring-members",
+        "frontend-delivery:profiles",
         "backend-delivery:error-contract",
         "project:agent-rules",
         "project:docs-tree",
@@ -69487,6 +69811,7 @@
         "story:photo-library",
         "backend-delivery:profiles",
         "backend-integration:profiles",
+        "frontend-delivery:profiles",
         "frontend-requirements:profiles",
         "qa-backend:profiles",
         "story:profiles",
@@ -70124,6 +70449,7 @@
         "story:photo-library",
         "backend-delivery:profiles",
         "backend-integration:profiles",
+        "frontend-delivery:profiles",
         "qa-backend:profiles",
         "project:status-report-2026-10-15",
         "project:frontend-contract",
@@ -70397,6 +70723,7 @@
         "qa-backend:photo-library",
         "backend-delivery:profiles",
         "backend-integration:profiles",
+        "frontend-delivery:profiles",
         "decision:D-02",
         "decision:D-05",
         "decision:D-06",
@@ -70925,6 +71252,7 @@
         "story:ring-projection",
         "frontend-requirements:view-as",
         "frontend-requirements:widgets",
+        "frontend-delivery:profiles",
         "frontend-requirements:companies",
         "project:spec-map",
         "project:status-report-2026-10-15",
@@ -71920,14 +72248,14 @@
       "rollup": {
         "approved": 18,
         "blocked": 3,
-        "current": 8,
+        "current": 7,
         "decided": 10,
-        "delivered": 5,
-        "done": 14,
+        "delivered": 6,
+        "done": 15,
         "draft": 3,
         "failing": 5,
         "in-progress": 13,
-        "missing": 24,
+        "missing": 23,
         "needs-decision": 1,
         "partial": 13,
         "passing": 4,
@@ -76177,6 +76505,7 @@
         "story:devices",
         "story:discover-hub",
         "backend-delivery:profiles",
+        "frontend-delivery:profiles",
         "frontend-requirements:gemma",
         "task:B-02",
         "qa-frontend:account",
@@ -77156,6 +77485,7 @@
         "story:photo-library",
         "backend-delivery:profiles",
         "backend-integration:profiles",
+        "frontend-delivery:profiles",
         "frontend-requirements:profiles",
         "qa-backend:profiles",
         "story:profiles",
@@ -77677,6 +78007,7 @@
         "story:photo-library",
         "backend-delivery:profiles",
         "backend-integration:profiles",
+        "frontend-delivery:profiles",
         "frontend-requirements:profiles",
         "qa-backend:profiles",
         "story:profiles",
@@ -77923,6 +78254,7 @@
         "frontend-requirements:auth",
         "story:auth",
         "frontend-requirements:onboarding-imports",
+        "frontend-delivery:profiles",
         "story:profiles",
         "frontend-requirements:gemma",
         "project:spec-map",
@@ -78437,6 +78769,7 @@
         "frontend-requirements:view-as",
         "frontend-requirements:widgets",
         "story:widgets",
+        "frontend-delivery:profiles",
         "frontend-requirements:companies",
         "project:spec-map",
         "project:status-report-2026-10-15",
@@ -80525,13 +80858,7 @@
     },
     "qa-frontend:profiles": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "frontend-delivery:profiles",
-          "title": "Profiles & Pin Name Frontend Delivery",
-          "why": "Profiles & Pin Name Frontend Delivery is not written yet"
-        }
-      ],
+      "blockedBy": [],
       "card": null,
       "children": [],
       "code": "profiles",
@@ -81027,14 +81354,14 @@
       "rollup": {
         "approved": 40,
         "blocked": 32,
-        "current": 8,
+        "current": 7,
         "decided": 26,
-        "delivered": 5,
-        "done": 15,
+        "delivered": 6,
+        "done": 16,
         "draft": 29,
         "failing": 5,
         "in-progress": 47,
-        "missing": 138,
+        "missing": 137,
         "needs-decision": 1,
         "partial": 13,
         "passing": 4,
@@ -83322,6 +83649,7 @@
         "story:photo-library",
         "backend-delivery:profiles",
         "backend-integration:profiles",
+        "frontend-delivery:profiles",
         "frontend-requirements:profiles",
         "qa-backend:profiles",
         "decision:D-02",
@@ -84577,6 +84905,7 @@
         "story:photo-library",
         "backend-delivery:profiles",
         "backend-integration:profiles",
+        "frontend-delivery:profiles",
         "frontend-requirements:profiles",
         "qa-backend:profiles",
         "story:profiles",
@@ -84677,6 +85006,7 @@
         "task:B-11",
         "backend-delivery:profiles",
         "backend-integration:profiles",
+        "frontend-delivery:profiles",
         "frontend-requirements:profiles",
         "qa-backend:profiles",
         "frontend-requirements:companies",
@@ -84918,6 +85248,7 @@
         "frontend-requirements:photo-library",
         "backend-delivery:profiles",
         "backend-integration:profiles",
+        "frontend-delivery:profiles",
         "frontend-requirements:profiles",
         "qa-backend:profiles",
         "qa-backend:ring-access",
