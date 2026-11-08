@@ -3,22 +3,23 @@ id: BD-17
 type: backend-delivery
 module: shared-rings
 feature: ring-invitations
-status: in-progress
+status: done
 scope: feature
 screens: [s15, s17, s19, s26, s43, s74]
 depends: ["FR-17 Ring Invitations & Join Frontend Requirements", "S-33 Ring Invitations & Join Story"]
 affects: ["BD-11 Rings Backend Delivery", "BD-08 Ring Access Engine Backend Delivery"]
 related: ["D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-18 Ring names shown when joined knowingly", "D-31 An invitation is its own record", "D-32 Several join codes per Ring", "D-33 Work email joining waits for real emails and Companies", "D-34 A member shows one of their own Rings", "D-35 A join code can be shown as a QR", "D-36 Who it's for stays the owner's alone", "FR-15 Companies Frontend Requirements", "S-37 Badge & QR Story", "GET /rings/shared-with-me", "GET /rings/invitations/mine", "POST /rings/invitations/:id/accept", "POST /rings/invitations/:id/decline", "POST /rings/invitations/:id/dismiss", "GET /rings/:ringId/invitations", "POST /rings/:ringId/invitations", "POST /rings/:ringId/invitations/:id/withdraw", "POST /rings/join-codes/resolve", "POST /rings/join-codes/join", "GET /rings/:ringId/join-codes", "POST /rings/:ringId/join-codes", "POST /rings/:ringId/join-codes/:codeId/turn-off", "GET /rings/join-requests/mine", "DELETE /rings/join-requests/:id", "GET /rings/:ringId/join-requests", "POST /rings/:ringId/join-requests/:id/approve", "POST /rings/:ringId/join-requests/:id/decline"]
+pending: ["[[S-33 Ring Invitations & Join Story]]: S4 joining with a verified work email waits on Code Delivery and the Companies work-email domain (D-33)", "[[S-33 Ring Invitations & Join Story]]: S10 the member's card in a Ring they joined (the picked-Ring pointer, D-34) is not built", "[[S-33 Ring Invitations & Join Story]]: S11 the member-facing roster of picked cards and Leave this Ring are not built", "[[S-33 Ring Invitations & Join Story]]: S12 notifications wait on F-39 Notifications", "@pm: confirm that a Shared with me row opens the oldest Ring joined knowingly before an older placed one (a reading of D-15 next to S-33 S2)"]
 created: 2026-10-18
 updated: 2026-11-08
-tags: [backend-delivery, backend-delivery/in-progress, module/shared-rings, layer/backend]
+tags: [backend-delivery, backend-delivery/done, module/shared-rings, layer/backend]
 ---
 
-# 🟡 Ring Invitations & Join · Backend Delivery
+# ✅ Ring Invitations & Join · Backend Delivery
 
-**Feature:** [[F-17 Ring Invitations & Join]] · **Status:** In progress · **Integration guide:** [[BI-17 Ring Invitations & Join Backend Integration]] · **Requirements:** [[FR-17 Ring Invitations & Join Frontend Requirements]] · **QA:** [[Ring Invitations & Join QA Backend]]
+**Feature:** [[F-17 Ring Invitations & Join]] · **Status:** Done · **Integration guide:** [[BI-17 Ring Invitations & Join Backend Integration]] · **Requirements:** [[FR-17 Ring Invitations & Join Frontend Requirements]] · **QA:** [[Ring Invitations & Join QA Backend]]
 
-What the backend built for [[S-33 Ring Invitations & Join Story]] S1–S3 and S5–S9 and how it works. **Not on `main` yet:** everything below is on the backend branch `FR-17/ring-invitation/invitations-codes-origin` @ `21899a6` (from `main` `cb95a39`), pushed, not merged. Until the merge, `main` has none of it, and `ringName` / `memberCount` on Shared with me stay `null`.
+What the backend shipped for [[S-33 Ring Invitations & Join Story]] S1–S3 and S5–S9 and how it works, as on backend `main` `1c460b0` (the merge of `FR-17/ring-invitation/invitations-codes-origin` @ `21899a6`). What S-33 asks that is not there is in *Gaps* and in `pending`.
 
 ## Endpoints, tables and code
 
@@ -61,7 +62,7 @@ What the backend built for [[S-33 Ring Invitations & Join Story]] S1–S3 and S5
 - **Join requests (S5, S8).** **Approve** is one transaction: `APPROVED` (guarded on `PENDING`, so two admins can't both decide) and the membership as `JOIN_REQUEST`. A block either way since they asked refuses it with `E_RING_MEMBER_04`. **Decline** → `DECLINED`. The person's `DELETE` cancels a pending request (`CANCELLED`) or dismisses a declined one; an approved request leaves their list. Turning approval off leaves the waiting ones to decide.
 - **Never shown** to an invitee, a code holder or a requester: the Ring's id (until accept or `JOINED`), colour, type, `purpose` (D-36), settings, or a code's label. People are shown from their default profile (Pin name, name, headline, signed photo).
 
-### What exists (on the branch)
+### What exists
 
 - S1: my invitations with the Ring's name, owner, inviter, window, `valid` and `business`; my join requests; Shared with me naming a Ring joined knowingly, with its member count when allowed.
 - S2: accept (returns `ringId`, `ringName`), decline, dismiss.
@@ -71,7 +72,8 @@ What the backend built for [[S-33 Ring Invitations & Join Story]] S1–S3 and S5
 - S7: list, make and turn off codes, with label, end date, use limit, uses, state and QR payload.
 - S8: Waiting on you with the code's label; approve, decline.
 - Enforced: `joinPolicy` (codes), `requireApproval`, `membersCanInvite`.
-- Checks: typecheck and lint clean; 832/832 unit tests (716 on `main`), including the specs that assert a placed membership never shows the Ring's name. On a throwaway database (`social_pin_f17`, migrated and seeded, app on :3142, dropped after): the migration replays cleanly (the only residual diff is the known `pincasts` GiST index), and a 92-check live run of every route and refusal above passed.
+- Connections ([[F-14 Connections]]) accept into a Ring through `RingMemberService.add`, so those memberships are `PLACED` and the Ring is never named to them; the badge ([[F-18 Badge & QR]]) carries `https://socialpin.me/q/<token>`, never the `socialpin://join/` prefix.
+- Checks: on the branch, typecheck and lint clean, 832/832 unit tests including the specs that assert a placed membership never shows the Ring's name, and a 92-check live run of every route and refusal above on a throwaway database (`social_pin_f17`, dropped). On `main` `1c460b0` (F-18, F-14 and this branch together), as rerun at the merge: typecheck clean, 981/981 tests, every migration and the seed apply on a fresh database, which matches the schema apart from the known `pincasts` GiST index.
 
 ### Gaps
 
@@ -90,3 +92,4 @@ What the backend built for [[S-33 Ring Invitations & Join Story]] S1–S3 and S5
 - 2026-11-08 · backend branch `FR-17/ring-invitation/invitations-codes-origin` @ `21899a6` (from `main` `cb95a39`), pushed, **not merged** · S-33 S1–S3, S5–S9 built: 17 routes above, migration `20261108150000_ring_invitations_and_join`, `RingMember.origin`, `E_RING_INVITATION_01`–`07`, `E_RING_JOIN_CODE_01`–`06`, `E_RING_JOIN_REQUEST_01`–`02`; Shared with me names a Ring joined knowingly (closes BD-11's pending on merge). 832/832 tests, 92/92 live checks on `social_pin_f17` (dropped). The nine ⚠ flags under the H1 (S-33 ×2, D-04, D-31 to D-36) are answered by this note and cleared. Flagged [[BD-11 Rings Backend Delivery]] and [[BD-08 Ring Access Engine Backend Delivery]]. Stays in progress until the merge.
 - 2026-11-08 · flagged [[BD-11 Rings Backend Delivery]]: backend branch FR-17/ring-invitation/invitations-codes-origin (21899a6, not merged) records how a membership was made (RingMember.origin) and enforces joinPolicy, requireApproval and membersCanInvite: both pending entries close on its merge; a Shared with me row then names a Ring joined knowingly and opens it before an older placed one
 - 2026-11-08 · flagged [[BD-08 Ring Access Engine Backend Delivery]]: RingAccessService on FR-17/ring-invitation/invitations-codes-origin (not merged): isRingNamedToMember reads RingMember.origin; new ringOpenFilter, isRingOpen, joinPolicyAllowsCodes, assertCanInvite, ownerNotBlockedWithFilter; the Shared with me row prefers a Ring joined knowingly
+- 2026-11-08 · backend `main` `1c460b0` (merge of `FR-17/ring-invitation/invitations-codes-origin` @ `21899a6`, after F-18 and F-14) · **shipped**: S-33 S1–S3, S5–S9; the 17 routes above (invitations mine / accept / decline / dismiss, a Ring's invitations / invite / withdraw, join-codes resolve / join, a Ring's join codes / make / turn off, join-requests mine / cancel, a Ring's join requests / approve / decline) and `GET /rings/shared-with-me` naming a Ring joined knowingly; tables `ring_invitations`, `ring_join_codes`, `ring_join_code_uses`, `ring_join_code_failed_attempts`, `ring_join_requests` and `ring_members.origin` (migration `20261108150000_ring_invitations_and_join`); codes `E_RING_INVITATION_01`–`07`, `E_RING_JOIN_CODE_01`–`06`, `E_RING_JOIN_REQUEST_01`–`02`. 981/981 tests on `main`. → done; S4, S10, S11, S12 and the D-15 reading stay in `pending`. [[BI-17 Ring Invitations & Join Backend Integration]] → current. No QA Backend card exists for this feature yet: QA writes it (`--scaffold qa-backend ring-invitations`)
