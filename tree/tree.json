@@ -6184,7 +6184,7 @@
     }
   },
   "counts": {
-    "blocked": 30,
+    "blocked": 29,
     "bugs": 17,
     "byKind": {
       "backend-delivery": 39,
@@ -6210,7 +6210,7 @@
     },
     "concepts": 291,
     "decisions": 34,
-    "edges": 7105,
+    "edges": 7104,
     "features": 41,
     "layerNotes": 152,
     "modules": 8,
@@ -8235,11 +8235,6 @@
       "from": "frontend-requirements:companies",
       "kind": "blocks",
       "to": "backend-delivery:companies"
-    },
-    {
-      "from": "frontend-requirements:connections",
-      "kind": "blocks",
-      "to": "backend-delivery:connections"
     },
     {
       "from": "frontend-requirements:delegated-admins",
@@ -59928,20 +59923,14 @@
     },
     "backend-delivery:connections": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "frontend-requirements:connections",
-          "title": "FR-14 Connections Frontend Requirements",
-          "why": "FR-14 Connections Frontend Requirements is ready"
-        }
-      ],
+      "blockedBy": [],
       "card": "BD-14",
       "children": [],
       "code": "connections",
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "connections",
       "foundOn": null,
@@ -59975,18 +59964,18 @@
         "s47",
         "s62"
       ],
-      "status": "todo",
+      "status": "in-progress",
       "summary": "What the backend shipped for this feature and how it works. The sum of this feature's task-level Backend Delivery notes (see the Tasks table below).",
       "tags": [
         "backend-delivery",
-        "backend-delivery/todo",
+        "backend-delivery/in-progress",
         "module/connections",
         "layer/backend"
       ],
       "task": null,
       "title": "BD-14 Connections Backend Delivery",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-08"
     },
     "backend-delivery:counts": {
       "affects": [
@@ -62814,7 +62803,7 @@
         {
           "id": "backend-delivery:connections",
           "title": "BD-14 Connections Backend Delivery",
-          "why": "BD-14 Connections Backend Delivery is blocked"
+          "why": "BD-14 Connections Backend Delivery is in progress"
         }
       ],
       "card": null,
@@ -68070,11 +68059,10 @@
       "release": "mvp",
       "resolution": null,
       "rollup": {
-        "approved": 1,
-        "blocked": 1,
+        "approved": 2,
         "decided": 12,
+        "in-progress": 1,
         "missing": 4,
-        "ready": 1,
         "verified": 12
       },
       "scope": null,
@@ -73742,7 +73730,7 @@
       "depends": [
         "story:connections"
       ],
-      "effectiveStatus": "ready",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "connections",
       "foundOn": null,
@@ -73906,11 +73894,11 @@
         "s68",
         "s69"
       ],
-      "status": "ready",
+      "status": "approved",
       "summary": "What the client needs from the backend to build every part of S-23 Connections Story, S1 to S16, and whether each need is met today. Rewritten 2026-11-04 against the approved story and the…",
       "tags": [
         "frontend-requirements",
-        "frontend-requirements/ready",
+        "frontend-requirements/approved",
         "module/connections",
         "layer/frontend"
       ],
@@ -77054,12 +77042,10 @@
       "release": null,
       "resolution": null,
       "rollup": {
-        "approved": 1,
-        "blocked": 1,
+        "approved": 2,
         "decided": 12,
-        "in-progress": 1,
+        "in-progress": 2,
         "missing": 4,
-        "ready": 1,
         "verified": 12
       },
       "scope": null,
@@ -82238,7 +82224,7 @@
         {
           "id": "backend-delivery:connections",
           "title": "BD-14 Connections Backend Delivery",
-          "why": "BD-14 Connections Backend Delivery is blocked"
+          "why": "BD-14 Connections Backend Delivery is in progress"
         }
       ],
       "card": null,
@@ -86860,20 +86846,20 @@
         }
       ],
       "rollup": {
-        "approved": 40,
-        "blocked": 30,
+        "approved": 41,
+        "blocked": 29,
         "current": 5,
         "decided": 33,
         "delivered": 11,
         "done": 31,
         "draft": 27,
         "failing": 1,
-        "in-progress": 47,
+        "in-progress": 48,
         "missing": 133,
         "needs-decision": 1,
         "partial": 11,
         "passing": 7,
-        "ready": 5,
+        "ready": 4,
         "reference": 32,
         "todo": 3,
         "verified": 33
