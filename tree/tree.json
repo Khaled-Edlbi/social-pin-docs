@@ -6512,7 +6512,7 @@
     }
   },
   "counts": {
-    "blocked": 30,
+    "blocked": 29,
     "bugs": 17,
     "byKind": {
       "backend-delivery": 39,
@@ -6538,7 +6538,7 @@
     },
     "concepts": 314,
     "decisions": 34,
-    "edges": 7394,
+    "edges": 7393,
     "features": 41,
     "layerNotes": 154,
     "modules": 8,
@@ -8568,11 +8568,6 @@
       "from": "frontend-requirements:audit-log",
       "kind": "blocks",
       "to": "backend-delivery:audit-log"
-    },
-    {
-      "from": "frontend-requirements:badge-qr",
-      "kind": "blocks",
-      "to": "backend-delivery:badge-qr"
     },
     {
       "from": "frontend-requirements:build-deploy",
@@ -62450,20 +62445,14 @@
     },
     "backend-delivery:badge-qr": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "frontend-requirements:badge-qr",
-          "title": "FR-18 Badge & QR Frontend Requirements",
-          "why": "FR-18 Badge & QR Frontend Requirements is ready"
-        }
-      ],
+      "blockedBy": [],
       "card": "BD-18",
       "children": [],
       "code": "badge-qr",
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "badge-qr",
       "foundOn": null,
@@ -65558,7 +65547,7 @@
         {
           "id": "backend-delivery:badge-qr",
           "title": "BD-18 Badge & QR Backend Delivery",
-          "why": "BD-18 Badge & QR Backend Delivery is blocked"
+          "why": "BD-18 Badge & QR Backend Delivery is in progress"
         }
       ],
       "card": null,
@@ -70914,11 +70903,10 @@
       "release": "mvp",
       "resolution": null,
       "rollup": {
-        "approved": 1,
-        "blocked": 1,
+        "approved": 2,
         "decided": 3,
+        "in-progress": 1,
         "missing": 4,
-        "ready": 1,
         "verified": 3
       },
       "scope": null,
@@ -76553,7 +76541,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "ready",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "badge-qr",
       "foundOn": null,
@@ -76630,11 +76618,11 @@
         "s44",
         "s56"
       ],
-      "status": "ready",
+      "status": "approved",
       "summary": "What the client needs from the backend to build S-37 Badge & QR Story S1–S15, and whether each need is met today. Rewritten 2026-11-08 against the approved story and D-10, D-11, D-12, D-35. The…",
       "tags": [
         "frontend-requirements",
-        "frontend-requirements/ready",
+        "frontend-requirements/approved",
         "module/discovery",
         "layer/frontend"
       ],
@@ -80441,13 +80429,12 @@
       "release": null,
       "resolution": null,
       "rollup": {
-        "approved": 3,
-        "blocked": 3,
+        "approved": 4,
+        "blocked": 2,
         "decided": 3,
         "draft": 2,
-        "in-progress": 3,
+        "in-progress": 4,
         "missing": 12,
-        "ready": 1,
         "verified": 3
       },
       "scope": null,
@@ -85368,7 +85355,7 @@
         {
           "id": "backend-delivery:badge-qr",
           "title": "BD-18 Badge & QR Backend Delivery",
-          "why": "BD-18 Badge & QR Backend Delivery is blocked"
+          "why": "BD-18 Badge & QR Backend Delivery is in progress"
         }
       ],
       "card": null,
@@ -90260,20 +90247,20 @@
         }
       ],
       "rollup": {
-        "approved": 42,
-        "blocked": 30,
+        "approved": 43,
+        "blocked": 29,
         "current": 5,
         "decided": 33,
         "delivered": 11,
         "done": 31,
         "draft": 27,
         "failing": 1,
-        "in-progress": 49,
+        "in-progress": 50,
         "missing": 131,
         "needs-decision": 1,
         "partial": 11,
         "passing": 7,
-        "ready": 3,
+        "ready": 2,
         "reference": 32,
         "todo": 3,
         "verified": 33
