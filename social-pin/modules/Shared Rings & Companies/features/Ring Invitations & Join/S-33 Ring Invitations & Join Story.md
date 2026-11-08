@@ -17,6 +17,8 @@ tags: [story, story/approved, module/shared-rings, layer/business]
 
 # Ring Invitations & Join · User Story
 
+> ⚠ Affected by [[BD-17 Ring Invitations & Join Backend Delivery]] (2026-11-08): backend main 1c460b0 shipped S1-S3 and S5-S9 (invitations, join codes and the join QR, join requests, Ring names on Shared with me for Rings joined knowingly, joinPolicy / requireApproval / membersCanInvite enforced); the Not available yet lines of those parts and What exists today no longer hold. S10, S11, S12 not built; a Shared with me row now opens the oldest Ring joined knowingly before an older placed one (D-15, to confirm)
+
 **Feature:** [[F-17 Ring Invitations & Join]] · **Status:** Approved (2026-11-08 by Omar Fostok) · **Frontend Requirements:** [[FR-17 Ring Invitations & Join Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 > **Rewritten 2026-11-08** as one set of parts, ordered as the journey happens, against backend `main` @ `12172c6` ([[BI-08 Rings Backend Integration]]), [[D-04 Ring settings at launch and their defaults]] and [[D-18 Ring names shown when joined knowingly]]; **updated the same day** with the answers to its six questions, [[D-31 An invitation is its own record|D-31]] to [[D-36 Who it's for stays the owner's alone|D-36]]. The merged tasks T-026 to T-028 (old S7–S9) are folded into the parts below. The owner's side, which [[S-16 Ring Members Story]] and [[S-18 Rings Story]] handed to this story, is S6–S8; the company asks of [[FR-15 Companies Frontend Requirements]] are in S1 and S5.

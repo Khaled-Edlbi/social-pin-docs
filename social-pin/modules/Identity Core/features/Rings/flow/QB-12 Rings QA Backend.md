@@ -18,6 +18,8 @@ tags: [qa-backend, qa-backend/passing, module/identity, layer/qa]
 
 # 🧪 Rings · QA Backend
 
+> ⚠ Affected by [[BD-17 Ring Invitations & Join Backend Delivery]] (2026-11-08): backend main 1c460b0: GET /rings/shared-with-me now names a Ring joined knowingly (ringName) and gives memberCount when members can see each other, and a row opens the oldest Ring joined knowingly first: the Not delivered yet line is delivered and can be run (/qa)
+
 > Blocked by default until [[BD-11 Rings Backend Delivery]] is `done` (the hand-off order in `docs.config.json`); `blockedBy: []` opts out, `blockedBy: [...]` names other blockers.
 
 **Feature:** [[F-11 Rings]] · **Verifies:** [[BD-11 Rings Backend Delivery]] against [[S-18 Rings Story]] and [[FR-11 Rings Frontend Requirements]], with the shapes and errors of [[BI-08 Rings Backend Integration]] · **Verdict:** 🟢 Passing · 2026-11-08 · backend `main @ e483d49` · 78 of 78 as expected, nothing pending, no story part unmet ([[B-13 The string false is read as true on Ring filters and settings|B-13]], [[B-14 PATCH a Ring with null on a required field answers 500|B-14]], [[B-15 Disposition runs on a permanent Ring, the default included|B-15]], [[B-16 Ring colour and purpose accept values the contract refuses|B-16]] re-tested and closed)

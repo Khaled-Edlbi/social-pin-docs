@@ -18,6 +18,8 @@ tags: [qa-backend, qa-backend/passing, module/identity, layer/qa]
 
 # 🧪 Ring Members · QA Backend
 
+> ⚠ Affected by [[BD-17 Ring Invitations & Join Backend Delivery]] (2026-11-08): backend main 1c460b0: RingMemberEntity carries origin (PLACED, INVITATION, JOIN_CODE, JOIN_REQUEST) on every members route; add and reassign always write PLACED, even on a row first made by joining knowingly (/qa)
+
 **Feature:** [[F-09 Ring Members]] · **Verifies:** [[BD-09 Ring Members Backend Delivery]] against [[S-16 Ring Members Story]] and [[FR-09 Ring Members Frontend Requirements]], on the contract [[BI-06 Ring Members Backend Integration]] · **Verdict:** ✅ Passing · 2026-11-08 · `main @ e483d49 · localhost:3109, Node 22.22.2` · 44 of 44 rows pass; [[B-09 Re-adding a lapsed member answers 409, not a reactivation|B-09]] and [[B-10 Adding an unknown userId answers 500|B-10]] fixed and closed
 
 Expected behaviour of the API, as artefacts a person can check a build against: tables and diagrams, **not test code** (the specs live in the backend repo). `status: passing` or `failing` after a run; the verdict tells the PM whether the story can be fulfilled (passing with nothing pending or unmet). A failing row is one of two things: a story part the delivery does not fulfil (not built, or built other than the story says) goes in `unmet` and turns the story's badge ✕; a bug (built as asked, but it breaks) is filed against the Backend Integration and goes in `pending`, and leaves the story alone.
