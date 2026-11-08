@@ -1581,7 +1581,6 @@
     },
     "E_RING_05": {
       "containers": [
-        "feature:badge-qr",
         "feature:companies",
         "feature:connections",
         "feature:delegated-admins",
@@ -1602,7 +1601,6 @@
         "backend-integration:ring-members",
         "backend-integration:ring-projection",
         "backend-integration:rings",
-        "frontend-requirements:badge-qr",
         "frontend-requirements:companies",
         "frontend-requirements:connections",
         "frontend-requirements:delegated-admins",
@@ -3131,6 +3129,7 @@
         "backend-integration:view-as",
         "decision:D-10",
         "frontend-delivery:ring-access",
+        "frontend-requirements:badge-qr",
         "frontend-requirements:connections",
         "frontend-requirements:discover-hub",
         "frontend-requirements:e2e-tests",
@@ -3254,6 +3253,7 @@
       "kind": "endpoint",
       "notes": [
         "decision:D-12",
+        "frontend-requirements:badge-qr",
         "frontend-requirements:connections",
         "story:badge-qr",
         "story:connections"
@@ -3969,6 +3969,7 @@
         "decision:D-10",
         "decision:D-17",
         "decision:D-24",
+        "feature:badge-qr",
         "feature:connections",
         "needs-decision:ND-10",
         "needs-decision:ND-24"
@@ -3978,6 +3979,7 @@
         "decision:D-10",
         "decision:D-17",
         "decision:D-24",
+        "frontend-requirements:badge-qr",
         "frontend-requirements:connections",
         "needs-decision:ND-10",
         "needs-decision:ND-24",
@@ -4301,6 +4303,7 @@
       "notes": [
         "decision:D-11",
         "decision:D-12",
+        "frontend-requirements:badge-qr",
         "needs-decision:ND-11",
         "story:badge-qr"
       ],
@@ -6172,7 +6175,7 @@
     },
     "concepts": 291,
     "decisions": 34,
-    "edges": 6969,
+    "edges": 6978,
     "features": 41,
     "layerNotes": 151,
     "modules": 8,
@@ -7027,6 +7030,11 @@
       "from": "decision:D-36",
       "kind": "affects",
       "to": "story:ring-invitations"
+    },
+    {
+      "from": "frontend-requirements:badge-qr",
+      "kind": "affects",
+      "to": "backend-delivery:badge-qr"
     },
     {
       "from": "frontend-requirements:companies",
@@ -12280,8 +12288,7 @@
       "kind": "related",
       "to": "frontend-requirements:badge-qr",
       "via": [
-        "E_RING_02",
-        "E_RING_05"
+        "E_RING_02"
       ]
     },
     {
@@ -15168,14 +15175,6 @@
       "to": "frontend-requirements:account",
       "via": [
         "GET /rings/:ringId/projection"
-      ]
-    },
-    {
-      "from": "backend-integration:ring-projection",
-      "kind": "related",
-      "to": "frontend-requirements:badge-qr",
-      "via": [
-        "E_RING_05"
       ]
     },
     {
@@ -18596,6 +18595,76 @@
       "to": "story:profiles"
     },
     {
+      "from": "frontend-requirements:badge-qr",
+      "kind": "related",
+      "to": "backend-integration:view-as"
+    },
+    {
+      "from": "frontend-requirements:badge-qr",
+      "kind": "related",
+      "to": "decision:D-10"
+    },
+    {
+      "from": "frontend-requirements:badge-qr",
+      "kind": "related",
+      "to": "decision:D-11"
+    },
+    {
+      "from": "frontend-requirements:badge-qr",
+      "kind": "related",
+      "to": "decision:D-12"
+    },
+    {
+      "from": "frontend-requirements:badge-qr",
+      "kind": "related",
+      "to": "decision:D-22"
+    },
+    {
+      "from": "frontend-requirements:badge-qr",
+      "kind": "related",
+      "to": "decision:D-28"
+    },
+    {
+      "from": "frontend-requirements:badge-qr",
+      "kind": "related",
+      "to": "decision:D-35"
+    },
+    {
+      "from": "frontend-requirements:badge-qr",
+      "kind": "related",
+      "to": "frontend-requirements:ring-invitations"
+    },
+    {
+      "from": "frontend-requirements:badge-qr",
+      "kind": "related",
+      "to": "project:frontend-contract"
+    },
+    {
+      "from": "frontend-requirements:badge-qr",
+      "kind": "related",
+      "to": "story:badge-qr"
+    },
+    {
+      "from": "frontend-requirements:badge-qr",
+      "kind": "related",
+      "to": "story:devices"
+    },
+    {
+      "from": "frontend-requirements:badge-qr",
+      "kind": "related",
+      "to": "story:error-contract"
+    },
+    {
+      "from": "frontend-requirements:badge-qr",
+      "kind": "related",
+      "to": "story:events-during"
+    },
+    {
+      "from": "frontend-requirements:badge-qr",
+      "kind": "related",
+      "to": "story:subscription"
+    },
+    {
       "from": "frontend-requirements:companies",
       "kind": "related",
       "to": "backend-delivery:badge-qr",
@@ -18782,7 +18851,6 @@
       "to": "frontend-requirements:badge-qr",
       "via": [
         "E_RING_02",
-        "E_RING_05",
         "GET /rings",
         "GET /views/ring/:ringId"
       ]
@@ -19504,8 +19572,8 @@
       "to": "frontend-requirements:badge-qr",
       "via": [
         "E_RING_02",
-        "E_RING_05",
-        "GET /rings"
+        "GET /rings",
+        "GET /views/pin/:pinName"
       ]
     },
     {
@@ -20711,14 +20779,6 @@
     {
       "from": "frontend-requirements:files",
       "kind": "related",
-      "to": "frontend-requirements:badge-qr",
-      "via": [
-        "E_RING_05"
-      ]
-    },
-    {
-      "from": "frontend-requirements:files",
-      "kind": "related",
       "to": "frontend-requirements:companies",
       "via": [
         "E_RING_05",
@@ -21306,8 +21366,7 @@
       "kind": "related",
       "to": "frontend-requirements:badge-qr",
       "via": [
-        "E_RING_02",
-        "E_RING_05"
+        "E_RING_02"
       ]
     },
     {
@@ -22277,7 +22336,7 @@
       "to": "frontend-requirements:badge-qr",
       "via": [
         "E_RING_02",
-        "E_RING_05",
+        "GET /views/pin/:pinName",
         "GET /views/ring/:ringId"
       ]
     },
@@ -23056,7 +23115,6 @@
       "to": "frontend-requirements:badge-qr",
       "via": [
         "E_RING_02",
-        "E_RING_05",
         "GET /rings"
       ]
     },
@@ -23619,7 +23677,6 @@
       "to": "frontend-requirements:badge-qr",
       "via": [
         "E_RING_02",
-        "E_RING_05",
         "GET /views/ring/:ringId"
       ]
     },
@@ -24506,6 +24563,7 @@
       "to": "frontend-requirements:badge-qr",
       "via": [
         "GET /rings",
+        "GET /views/pin/:pinName",
         "GET /views/ring/:ringId"
       ]
     },
@@ -27599,7 +27657,7 @@
       "kind": "related",
       "to": "frontend-requirements:badge-qr",
       "via": [
-        "E_RING_05"
+        "GET /views/pin/:pinName"
       ]
     },
     {
@@ -28218,7 +28276,7 @@
       "to": "frontend-requirements:badge-qr",
       "via": [
         "E_RING_02",
-        "E_RING_05"
+        "GET /views/pin/:pinName"
       ]
     },
     {
@@ -28889,6 +28947,14 @@
     {
       "from": "qa-backend:profiles",
       "kind": "related",
+      "to": "frontend-requirements:badge-qr",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "qa-backend:profiles",
+      "kind": "related",
       "to": "frontend-requirements:companies",
       "via": [
         "GET /profiles",
@@ -29430,7 +29496,7 @@
       "to": "frontend-requirements:badge-qr",
       "via": [
         "E_RING_02",
-        "E_RING_05",
+        "GET /views/pin/:pinName",
         "GET /views/ring/:ringId"
       ]
     },
@@ -30086,8 +30152,7 @@
       "kind": "related",
       "to": "frontend-requirements:badge-qr",
       "via": [
-        "E_RING_02",
-        "E_RING_05"
+        "E_RING_02"
       ]
     },
     {
@@ -30526,7 +30591,6 @@
       "to": "frontend-requirements:badge-qr",
       "via": [
         "E_RING_02",
-        "E_RING_05",
         "GET /views/ring/:ringId"
       ]
     },
@@ -31149,7 +31213,6 @@
       "to": "frontend-requirements:badge-qr",
       "via": [
         "E_RING_02",
-        "E_RING_05",
         "GET /rings",
         "GET /views/ring/:ringId"
       ]
@@ -31806,6 +31869,7 @@
       "kind": "related",
       "to": "frontend-requirements:badge-qr",
       "via": [
+        "GET /views/pin/:pinName",
         "GET /views/ring/:ringId"
       ]
     },
@@ -36196,7 +36260,8 @@
       "kind": "shares",
       "to": "feature:badge-qr",
       "via": [
-        "GET /views/pin/:pinName"
+        "GET /views/pin/:pinName",
+        "POST /connections/requests"
       ]
     },
     {
@@ -36669,6 +36734,14 @@
     {
       "from": "decision:D-17",
       "kind": "shares",
+      "to": "feature:badge-qr",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "decision:D-17",
+      "kind": "shares",
       "to": "feature:connections",
       "via": [
         "POST /connections/requests"
@@ -36964,6 +37037,14 @@
       "to": "task:B-02",
       "via": [
         "E_AUTH_03"
+      ]
+    },
+    {
+      "from": "decision:D-24",
+      "kind": "shares",
+      "to": "feature:badge-qr",
+      "via": [
+        "POST /connections/requests"
       ]
     },
     {
@@ -38551,7 +38632,6 @@
       "via": [
         "E_AUTH_04",
         "E_RING_02",
-        "E_RING_05",
         "GET /rings",
         "GET /views/ring/:ringId"
       ]
@@ -38563,11 +38643,11 @@
       "via": [
         "E_AUTH_04",
         "E_RING_02",
-        "E_RING_05",
         "GET /rings",
         "GET /views/pin/:pinName",
         "GET /views/qr/:token",
-        "GET /views/ring/:ringId"
+        "GET /views/ring/:ringId",
+        "POST /connections/requests"
       ]
     },
     {
@@ -38587,7 +38667,6 @@
       "via": [
         "E_AUTH_04",
         "E_RING_02",
-        "E_RING_05",
         "GET /rings"
       ]
     },
@@ -38658,7 +38737,6 @@
       "to": "feature:exhibitor",
       "via": [
         "E_RING_02",
-        "E_RING_05",
         "GET /views/ring/:ringId"
       ]
     },
@@ -38668,7 +38746,6 @@
       "to": "feature:files",
       "via": [
         "E_RING_02",
-        "E_RING_05",
         "GET /views/pin/:pinName",
         "GET /views/ring/:ringId"
       ]
@@ -38720,8 +38797,7 @@
       "kind": "shares",
       "to": "feature:photo-library",
       "via": [
-        "E_RING_02",
-        "E_RING_05"
+        "E_RING_02"
       ]
     },
     {
@@ -38760,7 +38836,6 @@
       "to": "feature:ring-access",
       "via": [
         "E_RING_02",
-        "E_RING_05",
         "GET /rings",
         "GET /views/pin/:pinName",
         "GET /views/ring/:ringId"
@@ -38782,7 +38857,6 @@
       "to": "feature:ring-members",
       "via": [
         "E_RING_02",
-        "E_RING_05",
         "GET /rings",
         "GET /views/pin/:pinName"
       ]
@@ -38793,7 +38867,6 @@
       "to": "feature:ring-projection",
       "via": [
         "E_RING_02",
-        "E_RING_05",
         "GET /rings",
         "GET /users/me",
         "GET /views/ring/:ringId"
@@ -38805,7 +38878,6 @@
       "to": "feature:rings",
       "via": [
         "E_RING_02",
-        "E_RING_05",
         "GET /rings",
         "GET /views/ring/:ringId"
       ]
@@ -38835,7 +38907,6 @@
       "to": "feature:widgets",
       "via": [
         "E_RING_02",
-        "E_RING_05",
         "GET /views/ring/:ringId"
       ]
     },
@@ -38845,7 +38916,8 @@
       "to": "needs-decision:ND-10",
       "via": [
         "GET /views/pin/:pinName",
-        "GET /views/ring/:ringId"
+        "GET /views/ring/:ringId",
+        "POST /connections/requests"
       ]
     },
     {
@@ -38862,6 +38934,14 @@
       "to": "needs-decision:ND-22",
       "via": [
         "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "feature:badge-qr",
+      "kind": "shares",
+      "to": "needs-decision:ND-24",
+      "via": [
+        "POST /connections/requests"
       ]
     },
     {
@@ -51230,11 +51310,6 @@
     {
       "from": "decision:D-10",
       "kind": "wikilink",
-      "to": "frontend-requirements:badge-qr"
-    },
-    {
-      "from": "decision:D-10",
-      "kind": "wikilink",
       "to": "story:subscription"
     },
     {
@@ -51243,19 +51318,9 @@
       "to": "backend-delivery:badge-qr"
     },
     {
-      "from": "decision:D-11",
-      "kind": "wikilink",
-      "to": "frontend-requirements:badge-qr"
-    },
-    {
       "from": "decision:D-12",
       "kind": "wikilink",
       "to": "backend-delivery:badge-qr"
-    },
-    {
-      "from": "decision:D-12",
-      "kind": "wikilink",
-      "to": "frontend-requirements:badge-qr"
     },
     {
       "from": "decision:D-12",
@@ -52055,32 +52120,7 @@
     {
       "from": "frontend-requirements:badge-qr",
       "kind": "wikilink",
-      "to": "story:badge-qr"
-    },
-    {
-      "from": "frontend-requirements:badge-qr",
-      "kind": "wikilink",
-      "to": "story:devices"
-    },
-    {
-      "from": "frontend-requirements:badge-qr",
-      "kind": "wikilink",
-      "to": "story:error-contract"
-    },
-    {
-      "from": "frontend-requirements:badge-qr",
-      "kind": "wikilink",
-      "to": "story:events-during"
-    },
-    {
-      "from": "frontend-requirements:badge-qr",
-      "kind": "wikilink",
-      "to": "story:files"
-    },
-    {
-      "from": "frontend-requirements:badge-qr",
-      "kind": "wikilink",
-      "to": "story:subscription"
+      "to": "backend-delivery:ring-invitations"
     },
     {
       "from": "frontend-requirements:cleanup-jobs",
@@ -60499,7 +60539,6 @@
         "project:spec-map",
         "project:status-report-2026-10-15",
         "story:connections",
-        "frontend-requirements:badge-qr",
         "frontend-requirements:exhibitor",
         "backend-delivery:ring-access",
         "backend-integration:ring-access",
@@ -60512,6 +60551,7 @@
         "frontend-requirements:delegated-admins",
         "story:delegated-admins",
         "task:B-15",
+        "frontend-requirements:badge-qr",
         "story:badge-qr",
         "frontend-requirements:pincast",
         "frontend-requirements:event-ring-auto",
@@ -63093,7 +63133,6 @@
         "frontend-requirements:companies",
         "project:status-report-2026-10-15",
         "story:connections",
-        "frontend-requirements:badge-qr",
         "frontend-requirements:exhibitor",
         "backend-integration:ring-access",
         "story:ring-access",
@@ -63358,6 +63397,7 @@
         "task:B-17",
         "decision:D-10",
         "frontend-requirements:connections",
+        "frontend-requirements:badge-qr",
         "story:badge-qr",
         "backend-integration:files",
         "frontend-requirements:files",
@@ -64040,6 +64080,7 @@
         "decision:D-28",
         "frontend-requirements:connections",
         "story:connections",
+        "frontend-requirements:badge-qr",
         "story:badge-qr",
         "qa-backend:files",
         "qa-backend:photo-library",
@@ -64112,6 +64153,7 @@
         "story:connections",
         "decision:D-12",
         "decision:D-35",
+        "frontend-requirements:badge-qr",
         "story:badge-qr"
       ],
       "release": null,
@@ -64178,6 +64220,7 @@
         "decision:D-22",
         "decision:D-35",
         "feature:subscription",
+        "frontend-requirements:badge-qr",
         "story:badge-qr"
       ],
       "release": null,
@@ -64866,6 +64909,7 @@
         "needs-decision:ND-12",
         "story:view-as",
         "feature:badge-qr",
+        "frontend-requirements:badge-qr",
         "story:badge-qr",
         "backend-delivery:profiles",
         "frontend-delivery:profiles",
@@ -65242,6 +65286,7 @@
         "decision:D-35",
         "frontend-requirements:connections",
         "story:connections",
+        "frontend-requirements:badge-qr",
         "story:badge-qr",
         "frontend-requirements:ring-members"
       ],
@@ -65735,6 +65780,7 @@
         "decision:D-28",
         "decision:D-18",
         "decision:D-04",
+        "frontend-requirements:badge-qr",
         "story:badge-qr",
         "frontend-requirements:ring-invitations",
         "story:ring-invitations"
@@ -71819,7 +71865,9 @@
       "updated": "2026-11-05"
     },
     "frontend-requirements:badge-qr": {
-      "affects": [],
+      "affects": [
+        "backend-delivery:badge-qr"
+      ],
       "blockedBy": [],
       "card": "FR-18",
       "children": [],
@@ -71855,22 +71903,35 @@
         "task:B-13",
         "task:B-17",
         "frontend-requirements:connections",
+        "story:badge-qr",
+        "backend-integration:view-as",
+        "frontend-requirements:ring-invitations",
+        "decision:D-10",
+        "decision:D-11",
+        "decision:D-12",
+        "decision:D-22",
+        "decision:D-28",
+        "decision:D-35",
+        "story:events-during",
+        "story:subscription",
+        "story:devices",
+        "story:error-contract",
+        "project:frontend-contract",
         "backend-integration:account",
         "qa-backend:auth",
         "backend-delivery:counts",
         "backend-integration:counts",
         "qa-backend:counts",
-        "frontend-requirements:files",
         "qa-backend:files",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-backend:profiles",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
         "qa-backend:ring-access",
         "frontend-requirements:ring-members",
         "qa-backend:ring-members",
         "backend-delivery:ring-projection",
-        "backend-integration:ring-projection",
         "frontend-requirements:ring-projection",
         "qa-backend:ring-projection",
         "qa-backend:rings",
@@ -71889,7 +71950,7 @@
         "s56"
       ],
       "status": "draft",
-      "summary": "What the client needs from the backend to build the screens in S-37 Badge & QR Story, and whether each need is met today. Rendering a resolved Ring is done; issuing a token, resolving one,…",
+      "summary": "What the client needs from the backend to build S-37 Badge & QR Story S1–S15, and whether each need is met today. Rewritten 2026-11-08 against the approved story and D-10, D-11, D-12, D-35. The…",
       "tags": [
         "frontend-requirements",
         "frontend-requirements/draft",
@@ -71899,7 +71960,7 @@
       "task": null,
       "title": "FR-18 Badge & QR Frontend Requirements",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-08"
     },
     "frontend-requirements:build-deploy": {
       "affects": [],
@@ -73276,7 +73337,6 @@
         "qa-backend:view-as",
         "project:frontend-api-guide",
         "story:connections",
-        "frontend-requirements:badge-qr",
         "frontend-requirements:exhibitor",
         "backend-delivery:ring-access",
         "backend-integration:ring-access",
@@ -74337,6 +74397,7 @@
         "needs-decision:ND-10",
         "needs-decision:ND-22",
         "decision:D-10",
+        "frontend-requirements:badge-qr",
         "story:badge-qr",
         "frontend-requirements:discover-hub",
         "story:discover-hub",
@@ -74349,7 +74410,6 @@
         "frontend-requirements:e2e-tests",
         "task:B-11",
         "backend-delivery:badge-qr",
-        "frontend-requirements:badge-qr",
         "frontend-requirements:event-ring-auto",
         "story:event-ring-auto",
         "frontend-requirements:events-during",
@@ -74443,6 +74503,7 @@
         "task:B-16",
         "task:B-17",
         "frontend-requirements:connections",
+        "frontend-requirements:badge-qr",
         "qa-backend:auth",
         "backend-delivery:counts",
         "backend-integration:counts",
@@ -75078,6 +75139,7 @@
         "story:widgets",
         "story:error-contract",
         "decision:D-10",
+        "frontend-requirements:badge-qr",
         "frontend-requirements:discover-hub",
         "story:discover-hub",
         "backend-integration:profiles",
@@ -75092,7 +75154,6 @@
         "project:frontend-contract",
         "task:B-11",
         "backend-delivery:badge-qr",
-        "frontend-requirements:badge-qr",
         "frontend-requirements:event-ring-auto",
         "story:event-ring-auto",
         "frontend-requirements:events-during",
@@ -79366,6 +79427,7 @@
         "task:B-16",
         "task:B-17",
         "frontend-requirements:connections",
+        "frontend-requirements:badge-qr",
         "qa-backend:auth",
         "backend-delivery:counts",
         "backend-integration:counts",
@@ -81412,6 +81474,7 @@
         "needs-decision:ND-22",
         "decision:D-10",
         "story:connections",
+        "frontend-requirements:badge-qr",
         "story:badge-qr",
         "frontend-requirements:discover-hub",
         "story:discover-hub",
@@ -81423,7 +81486,6 @@
         "story:view-as",
         "frontend-requirements:e2e-tests",
         "project:frontend-api-guide",
-        "frontend-requirements:badge-qr",
         "frontend-requirements:exhibitor",
         "backend-delivery:ring-access",
         "backend-integration:ring-access",
@@ -81942,6 +82004,7 @@
         "needs-decision:ND-22",
         "decision:D-10",
         "story:connections",
+        "frontend-requirements:badge-qr",
         "story:badge-qr",
         "frontend-requirements:discover-hub",
         "story:discover-hub",
@@ -81951,7 +82014,6 @@
         "story:view-as",
         "frontend-requirements:e2e-tests",
         "project:frontend-api-guide",
-        "frontend-requirements:badge-qr",
         "frontend-requirements:pincast",
         "frontend-requirements:event-ring-auto",
         "frontend-requirements:exhibitor",
@@ -82197,6 +82259,7 @@
         "needs-decision:ND-22",
         "decision:D-10",
         "story:connections",
+        "frontend-requirements:badge-qr",
         "story:badge-qr",
         "frontend-requirements:discover-hub",
         "frontend-delivery:ring-access",
@@ -82319,6 +82382,7 @@
         "needs-decision:ND-22",
         "decision:D-10",
         "story:connections",
+        "frontend-requirements:badge-qr",
         "story:badge-qr",
         "frontend-requirements:discover-hub",
         "story:discover-hub",
@@ -82333,7 +82397,6 @@
         "project:frontend-api-guide",
         "project:frontend-contract",
         "backend-delivery:badge-qr",
-        "frontend-requirements:badge-qr",
         "frontend-requirements:event-ring-auto",
         "story:event-ring-auto",
         "frontend-requirements:events-during",
@@ -83053,6 +83116,7 @@
         "needs-decision:ND-22",
         "decision:D-10",
         "story:connections",
+        "frontend-requirements:badge-qr",
         "story:badge-qr",
         "frontend-requirements:discover-hub",
         "story:discover-hub",
@@ -83067,7 +83131,6 @@
         "project:frontend-contract",
         "task:B-11",
         "backend-delivery:badge-qr",
-        "frontend-requirements:badge-qr",
         "frontend-requirements:event-ring-auto",
         "story:event-ring-auto",
         "frontend-requirements:events-during",
@@ -85538,6 +85601,7 @@
         "task:B-17",
         "needs-decision:ND-35",
         "frontend-requirements:connections",
+        "frontend-requirements:badge-qr",
         "decision:D-10",
         "decision:D-11",
         "decision:D-12",
@@ -86239,6 +86303,7 @@
       "pending": [],
       "priority": "critical",
       "related": [
+        "frontend-requirements:badge-qr",
         "story:badge-qr",
         "frontend-delivery:account",
         "frontend-delivery:auth",
@@ -86417,6 +86482,7 @@
         "decision:D-19",
         "decision:D-30",
         "frontend-requirements:connections",
+        "frontend-requirements:badge-qr",
         "backend-delivery:account",
         "backend-integration:account",
         "frontend-delivery:account",
@@ -86624,6 +86690,7 @@
       "priority": null,
       "related": [
         "story:payments",
+        "frontend-requirements:badge-qr",
         "story:badge-qr"
       ],
       "release": null,
@@ -88101,6 +88168,7 @@
       "priority": "critical",
       "related": [
         "decision:D-11",
+        "frontend-requirements:badge-qr",
         "story:badge-qr",
         "frontend-delivery:account"
       ],
