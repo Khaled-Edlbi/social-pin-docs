@@ -2048,6 +2048,7 @@
         "backend-delivery:connections",
         "backend-delivery:counts",
         "backend-integration:connections",
+        "backend-integration:counts",
         "frontend-requirements:connections",
         "frontend-requirements:counts"
       ],
@@ -2079,6 +2080,7 @@
         "backend-delivery:connections",
         "backend-delivery:counts",
         "backend-integration:connections",
+        "backend-integration:counts",
         "frontend-requirements:connections",
         "frontend-requirements:counts"
       ],
@@ -11545,7 +11547,9 @@
       "kind": "related",
       "to": "backend-integration:counts",
       "via": [
-        "E_RING_02"
+        "E_RING_02",
+        "GET /connections",
+        "GET /connections/count"
       ]
     },
     {
@@ -12256,6 +12260,8 @@
       "to": "backend-integration:counts",
       "via": [
         "E_RING_02",
+        "GET /connections",
+        "GET /connections/count",
         "GET /rings",
         "GET /rings/:id",
         "GET /rings/shared-with-me",
@@ -16584,6 +16590,8 @@
       "to": "backend-integration:counts",
       "via": [
         "E_RING_02",
+        "GET /connections",
+        "GET /connections/count",
         "GET /rings",
         "GET /rings/shared-with-me"
       ]
@@ -17608,6 +17616,7 @@
       "to": "frontend-requirements:counts",
       "via": [
         "E_RING_02",
+        "GET /connections/count",
         "GET /rings",
         "GET /rings/:id",
         "GET /rings/shared-with-me",
@@ -23663,6 +23672,7 @@
       "to": "backend-integration:counts",
       "via": [
         "E_RING_02",
+        "GET /connections/count",
         "GET /rings",
         "GET /rings/shared-with-me"
       ]
@@ -64298,6 +64308,7 @@
         "story:connections",
         "frontend-requirements:badge-qr",
         "backend-delivery:counts",
+        "backend-integration:counts",
         "frontend-requirements:counts",
         "needs-decision:ND-29",
         "task:B-09",
@@ -64334,7 +64345,6 @@
         "frontend-requirements:event-ring-auto",
         "frontend-requirements:exhibitor",
         "frontend-requirements:post-event",
-        "backend-integration:counts",
         "frontend-delivery:counts",
         "qa-backend:counts",
         "frontend-requirements:photo-library",
@@ -67459,6 +67469,7 @@
         "frontend-requirements:connections",
         "frontend-requirements:badge-qr",
         "backend-delivery:counts",
+        "backend-integration:counts",
         "frontend-requirements:counts",
         "needs-decision:ND-29",
         "needs-decision:ND-22",
@@ -67494,7 +67505,6 @@
         "qa-backend:auth",
         "qa-frontend:auth",
         "story:auth",
-        "backend-integration:counts",
         "frontend-delivery:counts",
         "qa-backend:counts",
         "story:counts",
@@ -67710,7 +67720,7 @@
       "task": null,
       "title": "BI-14 Counts Backend Integration",
       "unmet": [],
-      "updated": "2026-11-05"
+      "updated": "2026-11-08"
     },
     "backend-integration:delegated-admins": {
       "affects": [],
