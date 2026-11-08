@@ -65,9 +65,9 @@ What the client needs from the backend to build every part of [[S-29 Companies S
 ### [[Screen Index#s72|s72]] Waiting: invitations and my join requests (S3)
 
 - Above the list, hidden when both are empty. The invitations and join requests are [[S-33 Ring Invitations & Join Story]]'s ([[FR-17 Ring Invitations & Join Frontend Requirements|FR-17]]); s72 needs them **by company**:
-  - **Invitations to me** for a company Ring: FR-17's pending-invitations route, with each row carrying `business { id, name, logoFileId }`, the Ring's name (an invitation names its Ring, D-18) and its "who it's for" label. ❌ *Review* → s74 for it.
-  - **My join requests** to a company Ring: `GET /rings/join-requests/mine` ❌ → `{ id, status: PENDING | DECLINED, createdAt, business { id, name, logoFileId }, ringName }`. Not in FR-17 yet: asked here, flagged there.
-- *Cancel* a pending request: `DELETE /rings/join-requests/:id` ❌ → 204. The row leaves at once (optimistic) and comes back with "Couldn't cancel" on failure. Already answered: 409 `E_JOIN_REQUEST_02` (proposed) → refetch, no error.
+  - **Invitations to me** for a company Ring: FR-17's pending-invitations route, with each row carrying `business { id, name, logoFileId }`, the Ring's name (an invitation names its Ring, D-18) and its "who it's for" label. `GET /rings/invitations/mine` ✅ (backend `main` `1c460b0`, [[BI-17 Ring Invitations & Join Backend Integration|BI-17]]): `business` is on each row, `null` until a company Ring is linked to its business (the business ↔ Ring row below); no "who it's for" label, which stays the owner's ([[D-36 Who it's for stays the owner's alone|D-36]]). *Review* → s74 for it.
+  - **My join requests** to a company Ring: `GET /rings/join-requests/mine` ✅ → `{ id, status: PENDING | DECLINED, createdAt, business { id, name, logoFileId } | null, ringName }`.
+- *Cancel* a pending request: `DELETE /rings/join-requests/:id` ✅ → 200, no body; the same call dismisses a declined one. The row leaves at once (optimistic) and comes back with "Couldn't cancel" on failure. Already answered (approved, cancelled, dismissed): 404 `E_RING_JOIN_REQUEST_01` → refetch, no error.
 - **Approved:** the request is not returned any more, and the company is in `GET /businesses/mine` on the next refetch.
 - **Declined:** "Not approved" with *Dismiss*, never why. *Dismiss*: `DELETE /rings/join-requests/:id` (the same call removes it from my list).
 - **An invitation to a Ring that ended or was deleted:** the row carries `valid: false` → "This invitation is no longer valid", *Dismiss* only (FR-17's dismiss).
@@ -153,8 +153,8 @@ What the client needs from the backend to build every part of [[S-29 Companies S
 | People count on a row / a Ring | `peopleCount`, null when not allowed | ❌ |
 | My title | the main profile's `role`, `company` (D-02, P10) | ❌ FR-07 |
 | *Show company on my Public Ring* | the default Ring's projection | ❌ FR-10 |
-| Waiting: invitations | FR-17's invitations, with `business` | ❌ |
-| Waiting: my join requests | `GET /rings/join-requests/mine` | ❌ |
+| Waiting: invitations | `GET /rings/invitations/mine`, with `business` (`null` until the business ↔ Ring link) | ✅ |
+| Waiting: my join requests | `GET /rings/join-requests/mine` | ✅ |
 | Domain on s73 | `domain` | ❌ |
 | The company's card | `GET /views/ring/:cardRingId`, readable by every company member (P9) | 🟡 the view ✅, the access rule ❌ |
 | Its Rings for me, named or not, in order | `rings[]` | ❌ |
@@ -169,13 +169,13 @@ What the client needs from the backend to build every part of [[S-29 Companies S
 | Need | Endpoint | Available | Story part / decision |
 |---|---|---|---|
 | **The business ↔ Ring link** (every company Ring carries its business) | — (server side) | ❌ | P2 |
-| **How a membership was made** (invitation, code, work email, owner add, connection accept, owner move) | — (server side) | ❌ | P1, P7, D-18 · shared with [[FR-09 Ring Members Frontend Requirements\|FR-09]], [[FR-17 Ring Invitations & Join Frontend Requirements\|FR-17]] |
+| **How a membership was made** (invitation, code, work email, owner add, connection accept, owner move) | server side: `RingMember.origin` (`PLACED` for an owner add, a connection accept and an owner move; `INVITATION`, `JOIN_CODE`, `JOIN_REQUEST`); work email is not in this version (D-33) | ✅ | P1, P7, D-18 · shared with [[FR-09 Ring Members Frontend Requirements\|FR-09]], [[FR-17 Ring Invitations & Join Frontend Requirements\|FR-17]] |
 | My companies, paged, with `meta.total` | `GET /businesses/mine` | ❌ | [[S-29 Companies Story\|S1, S2]] · P1, P11 |
 | Company detail, with its Rings for me, admin rights, colleagues | `GET /businesses/:id` | ❌ | S5–S8, S11 · P6, P7 |
 | The company's card, readable by every member | `GET /views/ring/:cardRingId` with a company-member rule in the access engine | 🟡 | S5 · P1, P9 · [[S-15 Ring Access Engine Story]] |
 | A Ring's card | `GET /views/ring/:ringId` | ✅ | S6 |
-| Invitations to me, by company | FR-17's invitations route, with `business` | ❌ | S3 · [[FR-17 Ring Invitations & Join Frontend Requirements\|FR-17]] |
-| My join requests, cancel, dismiss | `GET /rings/join-requests/mine`, `DELETE /rings/join-requests/:id` | ❌ | S3 (flagged on FR-17) |
+| Invitations to me, by company | `GET /rings/invitations/mine`, with `business` (`null` until the business ↔ Ring link) | ✅ | S3 · [[FR-17 Ring Invitations & Join Frontend Requirements\|FR-17]] |
+| My join requests, cancel, dismiss | `GET /rings/join-requests/mine`, `DELETE /rings/join-requests/:id` | ✅ | S3 · [[FR-17 Ring Invitations & Join Frontend Requirements\|FR-17]] |
 | Leave, one transaction | `POST /businesses/:id/leave` | ❌ | S9 · P5 |
 | My title (role, company) | `GET` / `PATCH /profiles/:id` | ❌ | S4, S8 · D-02, P10 · [[FR-07 Profiles & Pin Name Frontend Requirements\|FR-07]] |
 | *Company & role* on the default Ring | `PATCH /rings/:ringId/projection` | ❌ | S4 · [[FR-10 Ring Projection Frontend Requirements\|FR-10]] |
@@ -240,3 +240,4 @@ The story is approved and its decisions P1–P11 are in it, so this list isn't b
 
 - 2026-11-05 · flagged [[FR-17 Ring Invitations & Join Frontend Requirements]]: FR-15 (Companies) asks FR-17 for: business { id, name, logoFileId } on each pending invitation to a company Ring, my join requests GET /rings/join-requests/mine (id, status PENDING | DECLINED, createdAt, business, ringName), cancel and dismiss DELETE /rings/join-requests/:id, and valid: false on an invitation whose Ring ended. Add these rows (S-29 S3).
 - 2026-11-05 · flagged [[FR-07 Profiles & Pin Name Frontend Requirements]]: FR-15 (Companies) needs the main profile's role field next to company (S-29 P10): read on GET /profiles, edited with PATCH /profiles/:id { role, company }, for the work identity on s72 and the title on s73. Add the row (S-29 S4, S8).
+- 2026-11-08 · `tickets/backend/M-03-shared-rings/F-15-companies/FR-15-f17-rows` · backend `main` `1c460b0` (F-17, [[BI-17 Ring Invitations & Join Backend Integration]]) delivers four rows → ✅: invitations to me with `business`, my join requests with cancel / dismiss, and how a membership was made (`RingMember.origin`). On the wire: cancel answers 200 with no body (not 204), an already-answered request 404 `E_RING_JOIN_REQUEST_01` (not the proposed `E_JOIN_REQUEST_02`), `business` is `null` until the business ↔ Ring link exists, and an invitation carries no "who it's for" label ([[D-36 Who it's for stays the owner's alone|D-36]]). The list stays `ready` for its own backend review
