@@ -51,7 +51,9 @@ What the client builds: the owner's "Ring people" roster: list who is in a Ring,
 
 ## Shapes that matter
 
-`RingMemberEntity`: `id`, `ringId`, `userId`, `status` (`PENDING` / `ACTIVE` / `EXPIRED` / `REMOVED`), `addedById`, `startsAt`, `expiresAt`, `createdAt`, `updatedAt`.
+`RingMemberEntity`: `id`, `ringId`, `userId`, `status` (`PENDING` / `ACTIVE` / `EXPIRED` / `REMOVED`), `origin`, `addedById`, `startsAt`, `expiresAt`, `createdAt`, `updatedAt`.
+
+- `origin` (since backend `main` `1c460b0`, [[BD-17 Ring Invitations & Join Backend Delivery|F-17]]) says how the membership was made: `PLACED` (you or an admin added them, a connection accepted into this Ring, a reassign) or joined knowingly through an `INVITATION`, a `JOIN_CODE` or an approved `JOIN_REQUEST`. Read-only: no route takes it. An add or a reassign always makes the row `PLACED`. The owner may show it ("joined with a code"); only a non-`PLACED` member sees the Ring's name on their side.
 
 - `EXPIRED` is never set by the backend today; compute "lapsed" from `expiresAt` on the client.
 - The roster carries **`userId` only**. There is no endpoint that turns a user id into a name or Pin name, and `GET /views/user/:userId/perspectives` returns what *that person shares with the viewer*, which is empty unless they added the owner to a Ring of theirs. A people screen with names needs the contacts work: [[S-23 Connections Story|Connections · S19–S24]]. See [[F-09 Ring Members#Gaps]].
