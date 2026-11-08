@@ -898,6 +898,7 @@
       "kind": "endpoint",
       "notes": [
         "frontend-requirements:companies",
+        "frontend-requirements:ring-invitations",
         "story:ring-invitations"
       ],
       "owner": null
@@ -2487,6 +2488,7 @@
         "feature:post-event",
         "feature:profiles",
         "feature:ring-access",
+        "feature:ring-invitations",
         "feature:ring-members",
         "feature:ring-projection",
         "feature:rings",
@@ -2521,6 +2523,7 @@
         "frontend-requirements:events-before",
         "frontend-requirements:pincast",
         "frontend-requirements:post-event",
+        "frontend-requirements:ring-invitations",
         "frontend-requirements:ring-members",
         "frontend-requirements:ring-projection",
         "frontend-requirements:rings",
@@ -2768,6 +2771,7 @@
       "kind": "endpoint",
       "notes": [
         "frontend-requirements:companies",
+        "frontend-requirements:ring-invitations",
         "story:ring-invitations"
       ],
       "owner": null
@@ -3513,6 +3517,7 @@
         "feature:companies",
         "feature:delegated-admins",
         "feature:ring-access",
+        "feature:ring-invitations",
         "feature:rings",
         "task:B-13",
         "task:B-14",
@@ -3528,6 +3533,7 @@
         "frontend-requirements:companies",
         "frontend-requirements:delegated-admins",
         "frontend-requirements:ring-access",
+        "frontend-requirements:ring-invitations",
         "frontend-requirements:rings",
         "qa-backend:ring-access",
         "qa-backend:rings",
@@ -4730,6 +4736,7 @@
         "frontend-requirements:companies",
         "frontend-requirements:connections",
         "frontend-requirements:ring-access",
+        "frontend-requirements:ring-invitations",
         "frontend-requirements:ring-members",
         "needs-decision:ND-15",
         "needs-decision:ND-28",
@@ -4875,6 +4882,7 @@
         "feature:rings",
         "frontend-delivery:rings",
         "frontend-requirements:connections",
+        "frontend-requirements:ring-invitations",
         "frontend-requirements:rings",
         "needs-decision:ND-04",
         "qa-backend:rings",
@@ -5075,6 +5083,7 @@
         "frontend-requirements:companies",
         "frontend-requirements:delegated-admins",
         "frontend-requirements:ring-access",
+        "frontend-requirements:ring-invitations",
         "frontend-requirements:rings",
         "needs-decision:ND-04",
         "needs-decision:ND-32",
@@ -5426,6 +5435,7 @@
         "feature:badge-qr",
         "frontend-requirements:badge-qr",
         "frontend-requirements:connections",
+        "frontend-requirements:ring-invitations",
         "needs-decision:ND-10",
         "needs-decision:ND-12",
         "needs-decision:ND-35",
@@ -6154,7 +6164,7 @@
     },
     "concepts": 291,
     "decisions": 34,
-    "edges": 6902,
+    "edges": 6916,
     "features": 41,
     "layerNotes": 151,
     "modules": 8,
@@ -7039,6 +7049,11 @@
       "from": "frontend-requirements:ring-access",
       "kind": "affects",
       "to": "backend-delivery:ring-access"
+    },
+    {
+      "from": "frontend-requirements:ring-invitations",
+      "kind": "affects",
+      "to": "backend-delivery:ring-invitations"
     },
     {
       "from": "frontend-requirements:ring-members",
@@ -10549,6 +10564,7 @@
       "kind": "related",
       "to": "frontend-requirements:ring-invitations",
       "via": [
+        "GET /rings",
         "GET /rings/shared-with-me"
       ]
     },
@@ -12733,7 +12749,8 @@
       "kind": "related",
       "to": "frontend-requirements:ring-invitations",
       "via": [
-        "GET /rings/shared-with-me"
+        "GET /rings/shared-with-me",
+        "PATCH /rings/:id"
       ]
     },
     {
@@ -13688,6 +13705,7 @@
       "kind": "related",
       "to": "frontend-requirements:ring-invitations",
       "via": [
+        "GET /rings",
         "GET /rings/shared-with-me"
       ]
     },
@@ -15485,7 +15503,8 @@
       "kind": "related",
       "to": "frontend-requirements:ring-invitations",
       "via": [
-        "GET /rings/shared-with-me"
+        "GET /rings/shared-with-me",
+        "PATCH /rings/:id"
       ]
     },
     {
@@ -18811,8 +18830,10 @@
       "kind": "related",
       "to": "frontend-requirements:ring-invitations",
       "via": [
+        "GET /rings",
         "GET /rings/shared-with-me",
-        "GET /views/ring/:ringId"
+        "GET /views/ring/:ringId",
+        "PATCH /rings/:id"
       ]
     },
     {
@@ -19575,6 +19596,7 @@
       "kind": "related",
       "to": "frontend-requirements:ring-invitations",
       "via": [
+        "GET /rings",
         "GET /rings/shared-with-me"
       ]
     },
@@ -22691,6 +22713,76 @@
       ]
     },
     {
+      "from": "frontend-requirements:ring-invitations",
+      "kind": "related",
+      "to": "decision:D-04"
+    },
+    {
+      "from": "frontend-requirements:ring-invitations",
+      "kind": "related",
+      "to": "decision:D-14"
+    },
+    {
+      "from": "frontend-requirements:ring-invitations",
+      "kind": "related",
+      "to": "decision:D-18"
+    },
+    {
+      "from": "frontend-requirements:ring-invitations",
+      "kind": "related",
+      "to": "decision:D-31"
+    },
+    {
+      "from": "frontend-requirements:ring-invitations",
+      "kind": "related",
+      "to": "decision:D-32"
+    },
+    {
+      "from": "frontend-requirements:ring-invitations",
+      "kind": "related",
+      "to": "decision:D-33"
+    },
+    {
+      "from": "frontend-requirements:ring-invitations",
+      "kind": "related",
+      "to": "decision:D-34"
+    },
+    {
+      "from": "frontend-requirements:ring-invitations",
+      "kind": "related",
+      "to": "decision:D-35"
+    },
+    {
+      "from": "frontend-requirements:ring-invitations",
+      "kind": "related",
+      "to": "decision:D-36"
+    },
+    {
+      "from": "frontend-requirements:ring-invitations",
+      "kind": "related",
+      "to": "project:frontend-contract"
+    },
+    {
+      "from": "frontend-requirements:ring-invitations",
+      "kind": "related",
+      "to": "story:badge-qr"
+    },
+    {
+      "from": "frontend-requirements:ring-invitations",
+      "kind": "related",
+      "to": "story:error-contract"
+    },
+    {
+      "from": "frontend-requirements:ring-invitations",
+      "kind": "related",
+      "to": "story:notifications"
+    },
+    {
+      "from": "frontend-requirements:ring-invitations",
+      "kind": "related",
+      "to": "story:ring-invitations"
+    },
+    {
       "from": "frontend-requirements:ring-members",
       "kind": "related",
       "to": "backend-delivery:error-contract",
@@ -22971,6 +23063,14 @@
       "to": "frontend-requirements:post-event",
       "via": [
         "E_RING_02",
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-requirements:ring-members",
+      "kind": "related",
+      "to": "frontend-requirements:ring-invitations",
+      "via": [
         "GET /rings"
       ]
     },
@@ -23982,7 +24082,8 @@
       "kind": "related",
       "to": "frontend-requirements:ring-invitations",
       "via": [
-        "GET /rings/shared-with-me"
+        "GET /rings/shared-with-me",
+        "PATCH /rings/:id"
       ]
     },
     {
@@ -24421,6 +24522,7 @@
       "kind": "related",
       "to": "frontend-requirements:ring-invitations",
       "via": [
+        "GET /rings",
         "GET /views/ring/:ringId"
       ]
     },
@@ -26845,6 +26947,7 @@
       "kind": "related",
       "to": "frontend-requirements:ring-invitations",
       "via": [
+        "GET /rings",
         "GET /rings/shared-with-me"
       ]
     },
@@ -29340,7 +29443,8 @@
       "to": "frontend-requirements:ring-invitations",
       "via": [
         "GET /rings/shared-with-me",
-        "GET /views/ring/:ringId"
+        "GET /views/ring/:ringId",
+        "PATCH /rings/:id"
       ]
     },
     {
@@ -31067,8 +31171,10 @@
       "kind": "related",
       "to": "frontend-requirements:ring-invitations",
       "via": [
+        "GET /rings",
         "GET /rings/shared-with-me",
-        "GET /views/ring/:ringId"
+        "GET /views/ring/:ringId",
+        "PATCH /rings/:id"
       ]
     },
     {
@@ -34436,6 +34542,15 @@
     {
       "from": "task:B-13",
       "kind": "related",
+      "to": "frontend-requirements:ring-invitations",
+      "via": [
+        "GET /rings",
+        "PATCH /rings/:id"
+      ]
+    },
+    {
+      "from": "task:B-13",
+      "kind": "related",
       "to": "frontend-requirements:ring-members",
       "via": [
         "GET /rings"
@@ -34771,6 +34886,14 @@
       "from": "task:B-14",
       "kind": "related",
       "to": "frontend-requirements:ring-access",
+      "via": [
+        "PATCH /rings/:id"
+      ]
+    },
+    {
+      "from": "task:B-14",
+      "kind": "related",
+      "to": "frontend-requirements:ring-invitations",
       "via": [
         "PATCH /rings/:id"
       ]
@@ -35179,6 +35302,14 @@
       "from": "task:B-16",
       "kind": "related",
       "to": "frontend-requirements:ring-access",
+      "via": [
+        "PATCH /rings/:id"
+      ]
+    },
+    {
+      "from": "task:B-16",
+      "kind": "related",
+      "to": "frontend-requirements:ring-invitations",
       "via": [
         "PATCH /rings/:id"
       ]
@@ -36988,7 +37119,8 @@
       "kind": "shares",
       "to": "feature:ring-invitations",
       "via": [
-        "E_AUTH_04"
+        "E_AUTH_04",
+        "GET /rings"
       ]
     },
     {
@@ -37397,7 +37529,8 @@
       "kind": "shares",
       "to": "feature:ring-invitations",
       "via": [
-        "E_AUTH_04"
+        "E_AUTH_04",
+        "GET /rings"
       ]
     },
     {
@@ -37855,7 +37988,8 @@
       "kind": "shares",
       "to": "feature:ring-invitations",
       "via": [
-        "E_AUTH_04"
+        "E_AUTH_04",
+        "GET /rings"
       ]
     },
     {
@@ -38362,6 +38496,7 @@
       "to": "feature:ring-invitations",
       "via": [
         "E_AUTH_04",
+        "GET /rings",
         "GET /views/ring/:ringId"
       ]
     },
@@ -38714,6 +38849,14 @@
         "GET /rings",
         "GET /rings/:id",
         "POST /rings/:id/disposition"
+      ]
+    },
+    {
+      "from": "feature:cleanup-jobs",
+      "kind": "shares",
+      "to": "feature:ring-invitations",
+      "via": [
+        "GET /rings"
       ]
     },
     {
@@ -39224,9 +39367,11 @@
       "via": [
         "DELETE /rings/join-requests/:id",
         "E_AUTH_04",
+        "GET /rings",
         "GET /rings/join-requests/mine",
         "GET /rings/shared-with-me",
-        "GET /views/ring/:ringId"
+        "GET /views/ring/:ringId",
+        "PATCH /rings/:id"
       ]
     },
     {
@@ -39717,6 +39862,7 @@
       "to": "feature:ring-invitations",
       "via": [
         "E_AUTH_04",
+        "GET /rings",
         "GET /rings/shared-with-me",
         "GET /views/ring/:ringId"
       ]
@@ -40196,6 +40342,7 @@
       "kind": "shares",
       "to": "feature:ring-invitations",
       "via": [
+        "GET /rings",
         "GET /rings/shared-with-me"
       ]
     },
@@ -40534,7 +40681,9 @@
       "to": "feature:ring-invitations",
       "via": [
         "E_AUTH_04",
-        "GET /rings/shared-with-me"
+        "GET /rings",
+        "GET /rings/shared-with-me",
+        "PATCH /rings/:id"
       ]
     },
     {
@@ -41702,6 +41851,7 @@
       "kind": "shares",
       "to": "feature:ring-invitations",
       "via": [
+        "GET /rings",
         "GET /views/ring/:ringId"
       ]
     },
@@ -41987,7 +42137,8 @@
       "kind": "shares",
       "to": "feature:ring-invitations",
       "via": [
-        "E_AUTH_04"
+        "E_AUTH_04",
+        "GET /rings"
       ]
     },
     {
@@ -43991,6 +44142,7 @@
       "to": "feature:ring-invitations",
       "via": [
         "E_AUTH_04",
+        "GET /rings",
         "GET /rings/shared-with-me"
       ]
     },
@@ -44222,6 +44374,7 @@
       "to": "feature:ring-invitations",
       "via": [
         "E_AUTH_04",
+        "GET /rings",
         "GET /views/ring/:ringId"
       ]
     },
@@ -44445,6 +44598,14 @@
     {
       "from": "feature:profiles",
       "kind": "shares",
+      "to": "feature:ring-invitations",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "feature:profiles",
+      "kind": "shares",
       "to": "feature:ring-members",
       "via": [
         "GET /rings",
@@ -44628,8 +44789,10 @@
       "kind": "shares",
       "to": "feature:ring-invitations",
       "via": [
+        "GET /rings",
         "GET /rings/shared-with-me",
-        "GET /views/ring/:ringId"
+        "GET /views/ring/:ringId",
+        "PATCH /rings/:id"
       ]
     },
     {
@@ -44953,8 +45116,17 @@
     {
       "from": "feature:ring-invitations",
       "kind": "shares",
+      "to": "feature:ring-members",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "feature:ring-invitations",
+      "kind": "shares",
       "to": "feature:ring-projection",
       "via": [
+        "GET /rings",
         "GET /views/ring/:ringId"
       ]
     },
@@ -44963,8 +45135,10 @@
       "kind": "shares",
       "to": "feature:rings",
       "via": [
+        "GET /rings",
         "GET /rings/shared-with-me",
-        "GET /views/ring/:ringId"
+        "GET /views/ring/:ringId",
+        "PATCH /rings/:id"
       ]
     },
     {
@@ -44981,6 +45155,7 @@
       "to": "feature:view-as",
       "via": [
         "E_AUTH_04",
+        "GET /rings",
         "GET /views/ring/:ringId"
       ]
     },
@@ -45022,6 +45197,7 @@
       "to": "project:frontend-api-guide",
       "via": [
         "E_AUTH_04",
+        "GET /rings",
         "GET /rings/shared-with-me",
         "GET /views/ring/:ringId"
       ]
@@ -45032,6 +45208,7 @@
       "to": "project:frontend-contract",
       "via": [
         "E_AUTH_04",
+        "GET /rings",
         "GET /rings/shared-with-me",
         "GET /views/ring/:ringId"
       ]
@@ -45057,6 +45234,7 @@
       "kind": "shares",
       "to": "project:spec-map",
       "via": [
+        "GET /rings",
         "GET /rings/shared-with-me",
         "GET /views/ring/:ringId"
       ]
@@ -45066,8 +45244,17 @@
       "kind": "shares",
       "to": "project:status-report-2026-10-15",
       "via": [
+        "GET /rings",
         "GET /rings/shared-with-me",
         "GET /views/ring/:ringId"
+      ]
+    },
+    {
+      "from": "feature:ring-invitations",
+      "kind": "shares",
+      "to": "task:B-02",
+      "via": [
+        "GET /rings"
       ]
     },
     {
@@ -45084,6 +45271,31 @@
       "to": "task:B-11",
       "via": [
         "GET /views/ring/:ringId"
+      ]
+    },
+    {
+      "from": "feature:ring-invitations",
+      "kind": "shares",
+      "to": "task:B-13",
+      "via": [
+        "GET /rings",
+        "PATCH /rings/:id"
+      ]
+    },
+    {
+      "from": "feature:ring-invitations",
+      "kind": "shares",
+      "to": "task:B-14",
+      "via": [
+        "PATCH /rings/:id"
+      ]
+    },
+    {
+      "from": "feature:ring-invitations",
+      "kind": "shares",
+      "to": "task:B-16",
+      "via": [
+        "PATCH /rings/:id"
       ]
     },
     {
@@ -50709,11 +50921,6 @@
     {
       "from": "decision:D-31",
       "kind": "wikilink",
-      "to": "frontend-requirements:ring-invitations"
-    },
-    {
-      "from": "decision:D-31",
-      "kind": "wikilink",
       "to": "story:companies"
     },
     {
@@ -50725,11 +50932,6 @@
       "from": "decision:D-32",
       "kind": "wikilink",
       "to": "backend-delivery:ring-invitations"
-    },
-    {
-      "from": "decision:D-32",
-      "kind": "wikilink",
-      "to": "frontend-requirements:ring-invitations"
     },
     {
       "from": "decision:D-32",
@@ -50754,22 +50956,12 @@
     {
       "from": "decision:D-33",
       "kind": "wikilink",
-      "to": "frontend-requirements:ring-invitations"
-    },
-    {
-      "from": "decision:D-33",
-      "kind": "wikilink",
       "to": "story:companies"
     },
     {
       "from": "decision:D-34",
       "kind": "wikilink",
       "to": "backend-delivery:ring-invitations"
-    },
-    {
-      "from": "decision:D-34",
-      "kind": "wikilink",
-      "to": "frontend-requirements:ring-invitations"
     },
     {
       "from": "decision:D-34",
@@ -50794,11 +50986,6 @@
     {
       "from": "decision:D-35",
       "kind": "wikilink",
-      "to": "frontend-requirements:ring-invitations"
-    },
-    {
-      "from": "decision:D-35",
-      "kind": "wikilink",
       "to": "story:badge-qr"
     },
     {
@@ -50810,11 +50997,6 @@
       "from": "decision:D-36",
       "kind": "wikilink",
       "to": "backend-delivery:ring-invitations"
-    },
-    {
-      "from": "decision:D-36",
-      "kind": "wikilink",
-      "to": "frontend-requirements:ring-invitations"
     },
     {
       "from": "decision:D-36",
@@ -52099,37 +52281,7 @@
     {
       "from": "frontend-requirements:ring-invitations",
       "kind": "wikilink",
-      "to": "decision:D-04"
-    },
-    {
-      "from": "frontend-requirements:ring-invitations",
-      "kind": "wikilink",
-      "to": "decision:D-18"
-    },
-    {
-      "from": "frontend-requirements:ring-invitations",
-      "kind": "wikilink",
-      "to": "needs-decision:ND-04"
-    },
-    {
-      "from": "frontend-requirements:ring-invitations",
-      "kind": "wikilink",
-      "to": "story:badge-qr"
-    },
-    {
-      "from": "frontend-requirements:ring-invitations",
-      "kind": "wikilink",
-      "to": "story:error-contract"
-    },
-    {
-      "from": "frontend-requirements:ring-invitations",
-      "kind": "wikilink",
-      "to": "story:notifications"
-    },
-    {
-      "from": "frontend-requirements:ring-invitations",
-      "kind": "wikilink",
-      "to": "story:ring-invitations"
+      "to": "story:ring-members"
     },
     {
       "from": "frontend-requirements:ring-members",
@@ -58094,6 +58246,7 @@
         "frontend-requirements:cleanup-jobs",
         "frontend-requirements:companies",
         "story:delegated-admins",
+        "frontend-requirements:ring-invitations",
         "project:spec-map",
         "project:status-report-2026-10-15",
         "project:frontend-api-guide",
@@ -58108,7 +58261,6 @@
         "frontend-delivery:ring-access",
         "frontend-requirements:ring-access",
         "story:companies",
-        "frontend-requirements:ring-invitations",
         "story:ring-invitations",
         "story:badge-qr",
         "frontend-requirements:exhibitor",
@@ -60948,6 +61100,7 @@
         "frontend-requirements:cleanup-jobs",
         "frontend-requirements:companies",
         "story:delegated-admins",
+        "frontend-requirements:ring-invitations",
         "project:spec-map",
         "project:status-report-2026-10-15",
         "project:frontend-api-guide",
@@ -60963,7 +61116,6 @@
         "frontend-delivery:ring-access",
         "frontend-requirements:ring-access",
         "story:companies",
-        "frontend-requirements:ring-invitations",
         "story:ring-invitations",
         "story:badge-qr",
         "frontend-requirements:exhibitor",
@@ -63191,6 +63343,7 @@
         "frontend-requirements:companies",
         "story:companies",
         "story:delegated-admins",
+        "frontend-requirements:ring-invitations",
         "story:ring-invitations"
       ],
       "release": null,
@@ -63699,6 +63852,7 @@
         "frontend-requirements:companies",
         "story:companies",
         "story:delegated-admins",
+        "frontend-requirements:ring-invitations",
         "story:ring-invitations"
       ],
       "release": null,
@@ -64034,6 +64188,7 @@
         "frontend-requirements:companies",
         "story:companies",
         "story:delegated-admins",
+        "frontend-requirements:ring-invitations",
         "story:ring-invitations"
       ],
       "release": null,
@@ -64819,6 +64974,7 @@
         "decision:D-33",
         "decision:D-34",
         "decision:D-36",
+        "frontend-requirements:ring-invitations",
         "story:ring-invitations"
       ],
       "release": null,
@@ -64888,6 +65044,7 @@
         "decision:D-33",
         "decision:D-34",
         "decision:D-35",
+        "frontend-requirements:ring-invitations",
         "story:ring-invitations"
       ],
       "release": null,
@@ -64954,6 +65111,7 @@
         "decision:D-18",
         "decision:D-31",
         "decision:D-32",
+        "frontend-requirements:ring-invitations",
         "story:ring-invitations"
       ],
       "release": null,
@@ -65022,6 +65180,7 @@
         "decision:D-31",
         "decision:D-32",
         "backend-integration:rings",
+        "frontend-requirements:ring-invitations",
         "story:ring-invitations"
       ],
       "release": null,
@@ -65089,6 +65248,7 @@
         "decision:D-28",
         "decision:D-18",
         "decision:D-04",
+        "frontend-requirements:ring-invitations",
         "story:ring-invitations"
       ],
       "release": null,
@@ -65154,6 +65314,7 @@
         "decision:D-31",
         "backend-integration:rings",
         "story:rings",
+        "frontend-requirements:ring-invitations",
         "story:ring-invitations"
       ],
       "release": null,
@@ -71715,12 +71876,12 @@
         "frontend-requirements:cleanup-jobs",
         "frontend-requirements:companies",
         "story:delegated-admins",
+        "frontend-requirements:ring-invitations",
         "feature:rings",
         "needs-decision:ND-18",
         "backend-delivery:ring-access",
         "frontend-requirements:meetings",
         "story:companies",
-        "frontend-requirements:ring-invitations",
         "story:ring-invitations",
         "task:B-09",
         "task:B-10",
@@ -73750,7 +73911,9 @@
       "updated": "2026-11-05"
     },
     "frontend-requirements:ring-invitations": {
-      "affects": [],
+      "affects": [
+        "backend-delivery:ring-invitations"
+      ],
       "blockedBy": [],
       "card": "FR-17",
       "children": [],
@@ -73783,6 +73946,9 @@
       "priority": "critical",
       "related": [
         "task:B-03",
+        "task:B-13",
+        "task:B-14",
+        "task:B-16",
         "task:B-17",
         "frontend-requirements:connections",
         "qa-backend:auth",
@@ -73792,6 +73958,7 @@
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
         "qa-backend:ring-access",
+        "frontend-requirements:ring-members",
         "frontend-requirements:ring-projection",
         "qa-backend:ring-projection",
         "backend-delivery:rings",
@@ -73801,17 +73968,35 @@
         "frontend-requirements:view-as",
         "qa-backend:view-as",
         "frontend-requirements:error-contract",
-        "frontend-requirements:companies"
+        "frontend-requirements:companies",
+        "story:ring-invitations",
+        "decision:D-04",
+        "decision:D-14",
+        "decision:D-18",
+        "decision:D-31",
+        "decision:D-32",
+        "decision:D-33",
+        "decision:D-34",
+        "decision:D-35",
+        "decision:D-36",
+        "story:badge-qr",
+        "story:error-contract",
+        "story:notifications",
+        "project:frontend-contract"
       ],
       "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
+        "s15",
         "s17",
+        "s19",
+        "s26",
+        "s43",
         "s74"
       ],
       "status": "draft",
-      "summary": "What the client needs from the backend to build the screens in S-33 Ring Invitations & Join Story, and whether each need is met today. The shared-Rings list is done; every invitation and join…",
+      "summary": "What the client needs from the backend to build S-33 Ring Invitations & Join Story S1–S12, and whether each need is met today. Rewritten 2026-11-08 against the approved story, D-31 to D-36, and…",
       "tags": [
         "frontend-requirements",
         "frontend-requirements/draft",
@@ -73821,7 +74006,7 @@
       "task": null,
       "title": "FR-17 Ring Invitations & Join Frontend Requirements",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-08"
     },
     "frontend-requirements:ring-members": {
       "affects": [
@@ -73921,6 +74106,7 @@
         "frontend-requirements:view-as",
         "frontend-requirements:app-shell",
         "frontend-requirements:cleanup-jobs",
+        "frontend-requirements:ring-invitations",
         "project:status-report-2026-10-15",
         "project:frontend-api-guide",
         "project:frontend-contract",
@@ -78709,6 +78895,7 @@
         "qa-backend:view-as",
         "frontend-requirements:error-contract",
         "frontend-requirements:companies",
+        "frontend-requirements:ring-invitations",
         "project:frontend-agent",
         "project:frontend-agent-prompt"
       ],
@@ -80142,6 +80329,7 @@
         "frontend-requirements:cleanup-jobs",
         "frontend-requirements:companies",
         "story:delegated-admins",
+        "frontend-requirements:ring-invitations",
         "project:spec-map",
         "project:status-report-2026-10-15",
         "project:frontend-api-guide",
@@ -80157,7 +80345,6 @@
         "frontend-delivery:ring-access",
         "frontend-requirements:ring-access",
         "story:companies",
-        "frontend-requirements:ring-invitations",
         "story:ring-invitations",
         "task:B-09",
         "task:B-10",
@@ -82192,6 +82379,7 @@
         "frontend-requirements:cleanup-jobs",
         "frontend-requirements:companies",
         "story:delegated-admins",
+        "frontend-requirements:ring-invitations",
         "project:spec-map",
         "project:status-report-2026-10-15",
         "project:frontend-api-guide",
@@ -82215,7 +82403,6 @@
         "feature:rings",
         "needs-decision:ND-14",
         "needs-decision:ND-18",
-        "frontend-requirements:ring-invitations",
         "story:ring-invitations",
         "task:B-11",
         "needs-decision:ND-10",
@@ -84917,6 +85104,7 @@
         "frontend-requirements:view-as",
         "qa-backend:view-as",
         "frontend-requirements:companies",
+        "frontend-requirements:ring-invitations",
         "story:ring-invitations"
       ],
       "release": "mvp",
@@ -85783,6 +85971,7 @@
         "frontend-requirements:error-contract",
         "frontend-requirements:interests",
         "frontend-requirements:companies",
+        "frontend-requirements:ring-invitations",
         "project:auth-model"
       ],
       "release": "mvp",
@@ -86410,7 +86599,9 @@
       "path": "social-pin/modules/Platform & Cross-cutting/features/Notifications/S-96 Notifications Story.md",
       "pending": [],
       "priority": "critical",
-      "related": [],
+      "related": [
+        "frontend-requirements:ring-invitations"
+      ],
       "release": "mvp",
       "resolution": null,
       "scope": "feature",
@@ -87081,6 +87272,7 @@
         "story:rings",
         "frontend-requirements:companies",
         "story:delegated-admins",
+        "frontend-requirements:ring-invitations",
         "decision:D-04",
         "decision:D-14",
         "decision:D-15",
@@ -88708,6 +88900,7 @@
         "frontend-requirements:cleanup-jobs",
         "frontend-requirements:companies",
         "story:delegated-admins",
+        "frontend-requirements:ring-invitations",
         "project:spec-map",
         "project:status-report-2026-10-15",
         "project:frontend-api-guide",
@@ -88805,7 +88998,8 @@
         "frontend-requirements:companies",
         "backend-delivery:delegated-admins",
         "frontend-requirements:delegated-admins",
-        "story:delegated-admins"
+        "story:delegated-admins",
+        "frontend-requirements:ring-invitations"
       ],
       "release": "mvp",
       "resolution": null,
@@ -88984,6 +89178,7 @@
         "backend-delivery:delegated-admins",
         "frontend-requirements:delegated-admins",
         "story:delegated-admins",
+        "frontend-requirements:ring-invitations",
         "project:frontend-api-guide"
       ],
       "release": "mvp",
