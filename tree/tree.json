@@ -6210,7 +6210,7 @@
     },
     "concepts": 291,
     "decisions": 34,
-    "edges": 7104,
+    "edges": 7105,
     "features": 41,
     "layerNotes": 152,
     "modules": 8,
@@ -30978,6 +30978,11 @@
       "via": [
         "GET /views/ring/:ringId"
       ]
+    },
+    {
+      "from": "qa-backend:ring-projection",
+      "kind": "related",
+      "to": "decision:D-02"
     },
     {
       "from": "qa-backend:ring-projection",
@@ -65001,6 +65006,7 @@
         "backend-delivery:ring-projection",
         "backend-integration:ring-projection",
         "frontend-requirements:ring-projection",
+        "qa-backend:ring-projection",
         "story:ring-projection",
         "backend-integration:view-as",
         "qa-backend:view-as",
@@ -84189,6 +84195,7 @@
         "story:ring-projection",
         "decision:D-03",
         "decision:D-05",
+        "decision:D-02",
         "decision:D-16",
         "backend-integration:view-as",
         "story:error-contract",

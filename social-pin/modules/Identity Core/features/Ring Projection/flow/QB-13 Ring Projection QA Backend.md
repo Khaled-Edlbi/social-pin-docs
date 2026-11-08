@@ -8,7 +8,7 @@ scope: feature
 screens: [s14, s20, s23, s24, s25, s28, s29, s30, s36, s37, s68]
 depends: ["BD-10 Ring Projection Backend Delivery", "BI-07 Ring Projection Backend Integration"]
 affects: ["S-17 Ring Projection Story"]
-related: ["S-17 Ring Projection Story", "BD-10 Ring Projection Backend Delivery", "BI-07 Ring Projection Backend Integration", "FR-10 Ring Projection Frontend Requirements", "D-03 Links entered once, switched on or off per Ring", "D-05 Inherit per field, copy without members", "D-16 Files load from signed links that expire in 15 minutes", "BI-03 Files Upload Backend Integration", "BI-09 View As & Pin Views Backend Integration", "S-87 Error Contract Story", "B-11 Projection switches read any string as true", "B-12 Null on a link or custom field's required field answers 500", "GET /rings/:ringId/projection", "PATCH /rings/:ringId/projection", "POST /rings/:ringId/projection/links", "PATCH /rings/:ringId/projection/links/:linkId", "POST /rings/:ringId/projection/attachments", "DELETE /rings/:ringId/projection/attachments/:attachmentId", "GET /views/ring/:ringId", "GET /files/content/:token", "POST /files", E_RING_05, E_RING_02, E_PROFILE_01, E_FILE_04]
+related: ["S-17 Ring Projection Story", "BD-10 Ring Projection Backend Delivery", "BI-07 Ring Projection Backend Integration", "FR-10 Ring Projection Frontend Requirements", "D-03 Links entered once, switched on or off per Ring", "D-05 Inherit per field, copy without members", "D-02 One main profile every Ring starts from", "BI-04 Profiles & Pin Name Backend Integration", "D-16 Files load from signed links that expire in 15 minutes", "BI-03 Files Upload Backend Integration", "BI-09 View As & Pin Views Backend Integration", "S-87 Error Contract Story", "B-11 Projection switches read any string as true", "B-12 Null on a link or custom field's required field answers 500", "GET /rings/:ringId/projection", "PATCH /rings/:ringId/projection", "POST /rings/:ringId/projection/links", "PATCH /rings/:ringId/projection/links/:linkId", "POST /rings/:ringId/projection/attachments", "DELETE /rings/:ringId/projection/attachments/:attachmentId", "GET /views/ring/:ringId", "GET /files/content/:token", "POST /files", E_RING_05, E_RING_02, E_PROFILE_01, E_FILE_04]
 pending: []
 unmet: []
 created: 2026-11-05
@@ -18,17 +18,15 @@ tags: [qa-backend, qa-backend/passing, module/identity, layer/qa]
 
 # 🧪 Ring Projection · QA Backend
 
-> ⚠ Affected by [[BD-10 Ring Projection Backend Delivery]] (2026-11-08): backend main cb95a39 ships S-17 S10, per field, per Ring: new projection fields headline, role, company, location (own value; null follows the main profile) and showHeadline, showRole, showCompany, showLocation (default true; false is off), read-only headlineMode, roleMode, companyMode, locationMode (OFF / FOLLOW / OWN) and bioMode, photoMode (FOLLOW / OWN) on GET and PATCH /rings/:ringId/projection; a blank value is 400; existing projections migrated to on, following; copying a Ring copies the eight fields as they are; new behaviour to test (/qa)
-
-**Feature:** [[F-10 Ring Projection]] · **Verifies:** [[BD-10 Ring Projection Backend Delivery]] against [[S-17 Ring Projection Story]] and [[FR-10 Ring Projection Frontend Requirements]], through the contract in [[BI-07 Ring Projection Backend Integration]] · **Verdict:** Passing on backend `main @ e483d49`, 2026-11-08 (failing on `12172c6`, 2026-11-05: [[B-11 Projection switches read any string as true]] and [[B-12 Null on a link or custom field's required field answers 500]], both fixed)
+**Feature:** [[F-10 Ring Projection]] · **Verifies:** [[BD-10 Ring Projection Backend Delivery]] against [[S-17 Ring Projection Story]] and [[FR-10 Ring Projection Frontend Requirements]], through the contract in [[BI-07 Ring Projection Backend Integration]] · **Verdict:** Passing on backend `main @ cb95a39`, 2026-11-08, S10 included (passing on `e483d49` the same day; failing on `12172c6`, 2026-11-05: [[B-11 Projection switches read any string as true]] and [[B-12 Null on a link or custom field's required field answers 500]], both fixed)
 
 Expected behaviour of the API, as artefacts a person can check a build against: tables and diagrams, **not test code** (the specs live in the backend repo). `status: passing` or `failing` after a run; the verdict tells the PM whether the story can be fulfilled (passing with nothing pending or unmet). A failing row is one of two things: a story part the delivery does not fulfil (not built, or built other than the story says) goes in `unmet` and turns the story's badge ✕; a bug (built as asked, but it breaks) is filed against the Backend Integration and goes in `pending`, and leaves the story alone.
 
 ## Scope
 
-**Covered:** the owner's projection on [[S-17 Ring Projection Story|S1–S7]] and [[S-17 Ring Projection Story|S9]] as [[BI-07 Ring Projection Backend Integration]] describes it on `main`: the read, `PATCH` of the surface (nickname, bio, `displayName`, `avatarFileId`, `themeConfig`, the five `show*`) and its limits; links and custom fields as **library items switched on per Ring** (S9, [[D-03 Links entered once, switched on or off per Ring]]); the five link types added by D-03 and per-type value validation (S5); attachments; the signed `avatarUrl` and `attachments[].url` ([[D-16 Files load from signed links that expire in 15 minutes]]); who may do what (owner, `CONTENT_MANAGER` delegated admin, `MEMBER_MANAGER` admin, member, stranger); and the error codes. Every write is checked from the viewer's side too, through `GET /views/ring/:ringId` as a member of each Ring, so a switch on one Ring is shown not to leak to the other.
+**Covered:** the owner's projection on [[S-17 Ring Projection Story|S1–S7]], [[S-17 Ring Projection Story|S9]] and [[S-17 Ring Projection Story|S10]] as [[BI-07 Ring Projection Backend Integration]] describes it on `main`: the read, `PATCH` of the surface (nickname, bio, `displayName`, `avatarFileId`, `themeConfig`, the five `show*`) and its limits; links and custom fields as **library items switched on per Ring** (S9, [[D-03 Links entered once, switched on or off per Ring]]); the five link types added by D-03 and per-type value validation (S5); attachments; the main-profile fields per field and per Ring (S10, [[D-02 One main profile every Ring starts from]], [[D-05 Inherit per field, copy without members]]): headline, role, company and location each off, following the main profile or this Ring's own, bio and photo following or own, the defaults, a main-profile change, the copy of a Ring; the signed `avatarUrl` and `attachments[].url` ([[D-16 Files load from signed links that expire in 15 minutes]]); who may do what (owner, `CONTENT_MANAGER` delegated admin, `MEMBER_MANAGER` admin, member, stranger); and the error codes. Every write is checked from the viewer's side too, through `GET /views/ring/:ringId` as a member of each Ring, so a switch on one Ring is shown not to leak to the other.
 
-**Not delivered yet, not tested:** S10, per field and per Ring (headline, role, company, location following the Pin, own value, or hidden; "Reset to Pin"). It is open on [[BD-10 Ring Projection Backend Delivery]]'s `pending` and listed under *Not available yet* in BI-07; its rows are added here when it ships. Widgets have no routes ([[F-13 Widgets]]). The viewer's own 404 bodies and pin lookups are [[BI-09 View As & Pin Views Backend Integration]]'s.
+**Not covered:** widgets have no routes ([[F-13 Widgets]]). The viewer's own 404 bodies and pin lookups are [[BI-09 View As & Pin Views Backend Integration]]'s.
 
 **The cast** (seed data plus three accounts made through sign-up for the run):
 
@@ -53,7 +51,7 @@ No route appoints a Ring admin yet, so the two admin rows were written into the 
 
 | # | Given | When | Then | Checked |
 |---|---|---|---|---|
-| B1 | Ring A | the owner `GET /rings/:ringId/projection` | 200, the owner entity: `id`, `ringId`, `profileId`, `displayName`, `nickname`, `bio`, `avatarFileId`, `avatarUrl`, `themeConfig`, the five `show*`, `links[]`, `infoBlocks[]`, `widgets[]`, `attachments[]`, `createdAt`, `updatedAt`, nothing else | ✅ |
+| B1 | Ring A | the owner `GET /rings/:ringId/projection` | 200, the owner entity: `id`, `ringId`, `profileId`, `displayName`, `nickname`, `bio`, `avatarFileId`, `avatarUrl`, `themeConfig`, the five sensitive `show*`, S10's `headline`, `role`, `company`, `location`, `showHeadline`, `showRole`, `showCompany`, `showLocation`, `headlineMode`, `roleMode`, `companyMode`, `locationMode`, `bioMode`, `photoMode`, `links[]`, `infoBlocks[]`, `widgets[]`, `attachments[]`, `createdAt`, `updatedAt`, nothing else | ✅ |
 | B2 | Sara's library holds 5 links; A has rows for 3 of them (Telegram off) | the owner reads A | all 5 listed: A's rows first by A's order (WhatsApp Business on, LinkedIn on, Telegram off), then the 2 A never placed, `isVisible: false`, `sortOrder: 0` ("N of M on") | ✅ |
 | B3 | — | the owner reads A | each `links[]` entry is exactly `{ id, type, label, value, sortOrder, isVisible }` | ✅ |
 | B4 | the seeded LinkedIn, on in A, not on in B | the owner reads A and B | the same `id` in both (the library id); on in A, off in B | ✅ |
@@ -201,6 +199,47 @@ No route appoints a Ring admin yet, so the two admin rows were written into the 
 | B111 | a Ring with no projection, no profile of its own, and an owner whose default profile is deleted | the owner reads it | 409 `E_PROFILE_01` "This ring has no profile to present" | ✅ |
 | B112 | Ring F, soft-deleted with `DELETE /rings/:id` | the owner reads its projection | 404 `E_RING_02` | ✅ |
 
+### 9 · The main-profile fields, per field and per Ring (S10)
+
+Sara's main profile: headline "Operations lead, GCC logistics", role "Head of Operations", company "Azzam Trading", location "Dubai, UAE". `<field>` is each of headline, role, company and location; `show<Field>` its switch; `<field>Mode` the read-only state. Rows B115–B134 are the same five steps for each of the four fields, on Ring A, read as the owner and through view A.
+
+| # | Given | When | Then | Checked |
+|---|---|---|---|---|
+| B113 | a Ring just made with `POST /rings` | the owner reads it | the four fields `null`, the four `show<Field>` `true`, every `<field>Mode` `FOLLOW`; `bioMode` and `photoMode` `FOLLOW` | ✅ |
+| B114 | Ring B, seeded with no S10 value written | the owner reads B; the member of B reads it | the four modes `FOLLOW`; view B shows the four main values | ✅ |
+| B115 | headline, the default | the owner reads A; view A | `headline: null`, `headlineMode: FOLLOW`; view A "Operations lead, GCC logistics" | ✅ |
+| B116 | — | `PATCH` A `{ headline: "  QA own headline  " }` | 200; trimmed; `headlineMode: OWN`; view A "QA own headline"; view B keeps the main headline | ✅ |
+| B117 | B116 done | `PATCH` A `{ showHeadline: false }` | 200; `headlineMode: OFF`, the own value kept on the owner's entity; view A `headline: null` | ✅ |
+| B118 | B117 done | `PATCH` A `{ showHeadline: true }` | 200; back as it was, `OWN`; view A "QA own headline" | ✅ |
+| B119 | B118 done | `PATCH` A `{ headline: null }` ("Reset to Pin") | 200; `headline: null`, `FOLLOW`; view A the main headline | ✅ |
+| B120 | role, the default | read A; view A | `roleMode: FOLLOW`; view A "Head of Operations" | ✅ |
+| B121 | — | `PATCH` A `{ role: "  QA own role  " }` | 200; `OWN`; view A "QA own role"; view B the main role | ✅ |
+| B122 | — | `{ showRole: false }` | `OFF`, own value kept; view A `role: null` | ✅ |
+| B123 | — | `{ showRole: true }` | `OWN` again; view A "QA own role" | ✅ |
+| B124 | — | `{ role: null }` | `FOLLOW`; view A the main role | ✅ |
+| B125 | company, the default | read A; view A | `companyMode: FOLLOW`; view A "Azzam Trading" | ✅ |
+| B126 | — | `PATCH` A `{ company: "  QA own company  " }` | 200; `OWN`; view A "QA own company"; view B the main company | ✅ |
+| B127 | — | `{ showCompany: false }` | `OFF`, own value kept; view A `company: null` | ✅ |
+| B128 | — | `{ showCompany: true }` | `OWN` again; view A "QA own company" | ✅ |
+| B129 | — | `{ company: null }` | `FOLLOW`; view A the main company | ✅ |
+| B130 | location, the default | read A; view A | `locationMode: FOLLOW`; view A "Dubai, UAE" | ✅ |
+| B131 | — | `PATCH` A `{ location: "  QA own location  " }` | 200; `OWN`; view A "QA own location"; view B the main location | ✅ |
+| B132 | — | `{ showLocation: false }` | `OFF`, own value kept; view A `location: null` | ✅ |
+| B133 | — | `{ showLocation: true }` | `OWN` again; view A "QA own location" | ✅ |
+| B134 | — | `{ location: null }` | `FOLLOW`; view A the main location | ✅ |
+| B135 | A's headline own ("Clients headline"), the rest of A and all of B following | `PATCH /profiles/:id` with a new headline, role, company and location | view B shows the four new values; view A keeps "Clients headline" and shows the new role, company and location | ✅ |
+| B136 | B's location following | `PATCH` B `{ showLocation: false }`, then `true` | `OFF`, view B `location: null` while view A still shows the main one; then `FOLLOW`, view B the main location | ✅ |
+| B137 | Omar's main profile has no location | Omar reads his Ring; Sara, his member, reads it | `locationMode: FOLLOW`; Sara sees `location: null` and his main headline | ✅ |
+| B138 | — | `{ headline: "   " }`, `{ role: "" }`, `{ location: " " }` | 400 each (validation): to show nothing, switch the field off | ✅ |
+| B139 | — | headline 120 / 121, role 80 / 81, company 120 / 121, location 120 / 121 characters | 200 at the limit, 400 one over, each | ✅ |
+| B140 | — | `{ headlineMode: "OWN" }`; `{ bioMode: "FOLLOW" }` | 400 each (unknown property: the modes are read-only) | ✅ |
+| B141 | — | `{ showHeadline: "yes" }`; `{ showRole: null }`; `{ showCompany: "false" }` | 400; 400; 200 with `companyMode: OFF` | ✅ |
+| B142 | — | `{ bio: "Own bio for A" }`, then `{ bio: null }`; an own `avatarFileId`, then `null` | `bioMode` `OWN` then `FOLLOW`; `photoMode` `OWN` then `FOLLOW` (never `OFF`) | ✅ |
+| B143 | the `CONTENT_MANAGER` admin of A | `PATCH` A `{ company: "Delegate Co" }` | 200, `companyMode: OWN` | ✅ |
+| B144 | A: headline own, location off, role and company following | `POST /rings/:id/copy { name }` | 201; the copy reads headline `OWN` with the same value, location `OFF`, role and company `FOLLOW` | ✅ |
+| B145 | B144's A | the owner's `GET /views/ring/:ringId` ("View as") and the member's | the same resolved headline, role, company and location (location `null`, off) | ✅ |
+| B146 | — | view A | carries `headline`, `role`, `company`, `location` resolved; no `show<Field>`, no `<field>Mode`, no `avatarFileId` | ✅ |
+
 ## State diagram
 
 One library item (a link or a custom field) as one Ring sees it. The owner lists it in every state but *Deleted*; a viewer of that Ring gets it only while it is **On**.
@@ -225,6 +264,29 @@ stateDiagram-v2
   end note
 ```
 
+One main-profile field (headline, role, company or location) on one Ring (S10). Bio and photo have only *Follow* and *Own* (`null` / a value).
+
+```mermaid
+stateDiagram-v2
+  [*] --> Follow: a new Ring, or one that existed before S10
+  Follow --> Own: PATCH { field: "a value" }
+  Own --> Own: PATCH { field: "another value" }
+  Own --> Follow: PATCH { field: null } (Reset to Pin)
+  Follow --> OffFollowing: PATCH { showField: false }
+  Own --> OffOwn: PATCH { showField: false } (own value kept)
+  OffFollowing --> Follow: PATCH { showField: true }
+  OffOwn --> Own: PATCH { showField: true }
+  note right of Follow
+    mode FOLLOW · viewer: the main profile's current value (null if none)
+  end note
+  note right of Own
+    mode OWN · viewer: this Ring's value; a main-profile change does not reach it
+  end note
+  note right of OffOwn
+    mode OFF (both off states) · viewer: null
+  end note
+```
+
 ## Error matrix
 
 | Situation | Status | ErrorCode | Same body as |
@@ -238,6 +300,7 @@ stateDiagram-v2
 | `avatarFileId` or `fileId` not a file the caller uploaded, or no such file | 400 | `E_FILE_04` | one body for both |
 | the Ring has no profile to present | 409 | `E_PROFILE_01` | — |
 | a field over its limit, a wrong type, an unknown property, a non-uuid id | 400 | — | the validation body |
+| a blank `headline`, `role`, `company` or `location` (empty or whitespace only), one over its limit, or a `<field>Mode` / `bioMode` / `photoMode` sent | 400 | — | the validation body |
 | `E_RING_PROFILE_01`, `E_RING_PROFILE_02` | — | — | in the enum, returned by no route |
 | a `show*` or `isVisible` switch that is not `true` / `false` (`"yes"`, `"0"`, `"1"`, `null`); the strings `"true"` / `"false"` are read as booleans | 400 | — | the validation body (fixed on `e483d49`, [[B-11 Projection switches read any string as true]]) |
 | `null` for a link's `type`, `value`, `isVisible` or a field's `title` | 400 | — | the validation body (fixed on `e483d49`, [[B-12 Null on a link or custom field's required field answers 500]]) |
@@ -249,10 +312,12 @@ stateDiagram-v2
 - A viewer never gets a library id or a `fileId`: links, fields and attachments carry the Ring's row ids (B41, B82, B96), so two Rings of one person share no id with their viewers.
 - A delegated `CONTENT_MANAGER` sees and switches only the items of their Ring, cannot change or delete what other Rings show, and adds into the owner's library (B9, B52–B56, B83–B85).
 - Another account's link, field or file is unreachable through your Ring (B19, B46, B47, B89, B97).
+- A main-profile field switched off on a Ring is `null` to that Ring's viewers and only there; its own value stays with the owner, and a viewer never learns whether a field follows, is the Ring's own or is off: the view carries resolved values only, no switch, mode or file id (B117, B122, B127, B132, B136, B146).
 - A switch sent as a string never shares by accident: `"false"` keeps the field hidden and any other string is refused (B25, B26; on `12172c6` it shared the email, [[B-11 Projection switches read any string as true]], fixed on `e483d49`).
 
 ## Verdict
 
+- Run on: 2026-11-08 · build: backend `main @ cb95a39` · localhost:3110, a fresh throwaway database `social_pin_qa_f10` (migrated and seeded from that commit, migration `20261108120000_ring_profile_main_fields` included, dropped afterwards), Node 22.22.2 · result: **passing**, 146 of 146 rows ✅: the 34 S10 rows (B113–B146) new, and every earlier row re-run on this build but B110, the 15-minute expiry, which passed on `12172c6` and whose link code has not changed since. Nothing earlier moved: the owner entity gained S10's fields (B1) and the view lost `avatarFileId` (B146), as [[BI-07 Ring Projection Backend Integration]] says · story parts unmet: none · bugs: none
 - Run on: 2026-11-08 · build: backend `main @ e483d49` · localhost:3110, a fresh throwaway database `social_pin_qa_f10` (migrated and seeded from that commit, dropped afterwards), Node 22.22.2 · result: **passing**, 112 of 112 rows ✅: every row re-run on this build but B110, the 15-minute expiry, which passed on `12172c6` and whose link code did not change. Nothing else moved, though the view path changed in between (a Ring with no projection now renders as the empty one) · story parts unmet: none (S10 is not delivered yet, open on [[BD-10 Ring Projection Backend Delivery]]) · bugs: none open ([[B-11 Projection switches read any string as true]] and [[B-12 Null on a link or custom field's required field answers 500]] closed, fixed)
 - Run on: 2026-11-05 · build: backend `main @ 12172c6` · localhost:3110, throwaway database `social_pin_qa_f10` (migrated and seeded from that commit), Node 22.22.2 · result: **failing**, 106 of 112 rows ✅, 6 🔴 (B25, B26, B64, B65, B67, B90), none ⬜ · story parts unmet: none (S10 is not delivered yet, open on [[BD-10 Ring Projection Backend Delivery]]) · bugs: [[B-11 Projection switches read any string as true]], [[B-12 Null on a link or custom field's required field answers 500]]
 
@@ -260,4 +325,5 @@ stateDiagram-v2
 
 - 2026-11-05 · written and run on backend `main @ 12172c6` (localhost:3110, throwaway database `social_pin_qa_f10`, dropped afterwards): 112 rows; failing; filed [[B-11 Projection switches read any string as true]] (B25, B26) and [[B-12 Null on a link or custom field's required field answers 500]] (B64, B65, B67, B90) against [[BI-07 Ring Projection Backend Integration]]. S10 not delivered yet, no rows.
 - 2026-11-08 · re-run on backend `main @ e483d49` (fresh throwaway database, dropped afterwards): all rows but B110 again; B25, B26, B64, B65, B67, B90 now ✅; B26's expectation follows [[BI-07 Ring Projection Backend Integration]] as it now reads (`"false"` is false). Passing; [[B-11 Projection switches read any string as true]] and [[B-12 Null on a link or custom field's required field answers 500]] closed (resolution fixed) on their own branches and removed from `pending`; the BD-10 flag cleared.
+- 2026-11-08 · re-run on backend `main @ cb95a39` for [[S-17 Ring Projection Story|S10]] (fresh throwaway database, dropped afterwards): 34 rows added (B113–B146: each mode of each field on the owner's entity and on a view, a main-profile change, off on a following field, the defaults of a new and a seeded Ring, the limits, read-only modes, bio and photo modes, the copy, View as, the view's shape); every earlier row but B110 re-run; B1 lists S10's fields. 146 of 146 passing, no bug. The BD-10 flag cleared.
 - 2026-11-05 · flagged [[BI-07 Ring Projection Backend Integration]]: failing on main 12172c6: a string for show* / isVisible is stored as true, so "false" turns sharing on (B-11); null on a link's type, value, isVisible or a field's title answers 500, not 400 (B-12); for /backend
