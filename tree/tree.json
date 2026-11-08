@@ -6666,7 +6666,7 @@
     },
     "concepts": 318,
     "decisions": 34,
-    "edges": 7543,
+    "edges": 7544,
     "features": 41,
     "layerNotes": 155,
     "modules": 8,
@@ -60936,6 +60936,11 @@
       "from": "project:project-overview",
       "kind": "wikilink",
       "to": "project:status-report-2026-10-15"
+    },
+    {
+      "from": "project:ring-access-model",
+      "kind": "wikilink",
+      "to": "backend-delivery:ring-invitations"
     },
     {
       "from": "project:ring-access-model",
