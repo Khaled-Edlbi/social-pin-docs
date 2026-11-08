@@ -13,6 +13,8 @@ tags: [backend-delivery, backend-delivery/todo, module/shared-rings, layer/backe
 
 # ⬜ Ring Invitations & Join · Backend Delivery
 
+> ⚠ Affected by [[D-34 A member shows one of their own Rings]] (2026-11-08): a picked-Ring pointer on the membership (one of the member's own live Rings, falling back to their default when deleted) and a member-facing read of colleagues' cards gated by membersCanSeeEachOther, without the picked Ring's name or id
+
 > ⚠ Affected by [[D-33 Work email joining waits for real emails and Companies]] (2026-11-08): ND-33 decided "not now": nothing to build for work-email joining in this version (no verification route, no address on the membership); it waits on Code Delivery (S-78) and Companies S-29 S12
 
 > ⚠ Affected by [[D-32 Several join codes per Ring]] (2026-11-08): ND-32 decided 2026-11-08 by Omar Fostok, option 2: several join codes per Ring (up to 10 active), each 8 characters without look-alikes (K7QM-4RXT) with a required owner-only label, an optional end date and an optional use limit; Turn off per code, Make a new code adds one; one neutral message for a wrong, off, ended or used-up code, tries limited per person; with approve-each-one on a code makes a join request showing which code was used; managed under Edit Ring → Joining → Join codes by the owner (later admins who manage who's in it)

@@ -13,6 +13,8 @@ tags: [frontend-requirements, frontend-requirements/draft, module/shared-rings, 
 
 # Ring Invitations & Join · Frontend Requirements
 
+> ⚠ Affected by [[D-34 A member shows one of their own Rings]] (2026-11-08): a member picks one of their own Rings as their card in a Ring they joined; read and set the picked Ring, and the colleagues list only when members may see each other, without the picked Ring's name
+
 > ⚠ Affected by [[D-33 Work email joining waits for real emails and Companies]] (2026-11-08): ND-33 decided "not now": no work-email rows in this version; work-email verification is listed as later (waits on Code Delivery S-78 and Companies S-29 S12)
 
 > ⚠ Affected by [[D-32 Several join codes per Ring]] (2026-11-08): ND-32 decided 2026-11-08 by Omar Fostok, option 2: several join codes per Ring (up to 10 active), each 8 characters without look-alikes (K7QM-4RXT) with a required owner-only label, an optional end date and an optional use limit; Turn off per code, Make a new code adds one; one neutral message for a wrong, off, ended or used-up code, tries limited per person; with approve-each-one on a code makes a join request showing which code was used; managed under Edit Ring → Joining → Join codes by the owner (later admins who manage who's in it)
