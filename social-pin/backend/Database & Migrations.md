@@ -39,7 +39,7 @@ tags: [project]
 | 2 | `…_init` | The 75 tables, 72 enums, 135 FKs, 176 indexes |
 | 3 | `…_constraints_and_indexes` | Partial unique indexes, CHECK constraints, the `availability_slots` exclusion constraint, the PostGIS trigger and GiST index |
 
-Later migrations each carry one schema change, in timestamp order: `20261015120000_drop_password_hash`, `20261105120000_ring_settings` (enum `RING_JOIN_POLICY`; six columns on `rings`, `purpose`, `join_policy`, `require_approval`, `members_can_see_each_other`, `members_can_invite`, `members_can_save_attachments`, every default the private one, [[D-04 Ring settings at launch and their defaults]], see [[BD-11 Rings Backend Delivery]]), `20261105130000_ring_profile_library` (`LINK_TYPE` + five values; `library_links` and `library_info_blocks`, with `ring_profile_links` / `ring_info_blocks` as each Ring's switch rows; it merges the per-Ring copies once, [[D-03 Links entered once, switched on or off per Ring]], see [[BD-10 Ring Projection Backend Delivery]]), `20261105140700_profile_main_fields_and_rename`.
+Later migrations each carry one schema change, in timestamp order: `20261015120000_drop_password_hash`, `20261105120000_ring_settings` (enum `RING_JOIN_POLICY`; six columns on `rings`, `purpose`, `join_policy`, `require_approval`, `members_can_see_each_other`, `members_can_invite`, `members_can_save_attachments`, every default the private one, [[D-04 Ring settings at launch and their defaults]], see [[BD-11 Rings Backend Delivery]]), `20261105130000_ring_profile_library` (`LINK_TYPE` + five values; `library_links` and `library_info_blocks`, with `ring_profile_links` / `ring_info_blocks` as each Ring's switch rows; it merges the per-Ring copies once, [[D-03 Links entered once, switched on or off per Ring]], see [[BD-10 Ring Projection Backend Delivery]]), `20261105140700_profile_main_fields_and_rename`, `20261108150000_ring_invitations_and_join` ([[F-17 Ring Invitations & Join]], see [[BD-17 Ring Invitations & Join Backend Delivery]]: enum `RING_MEMBER_ORIGIN` and `ring_members.origin`, default `PLACED` so every existing membership stays placed, [[D-18 Ring names shown when joined knowingly]]; enums `RING_INVITATION_STATUS`, `RING_JOIN_REQUEST_STATUS`; tables `ring_invitations`, `ring_join_codes`, `ring_join_code_uses`, `ring_join_code_failed_attempts`, `ring_join_requests`; additive).
 
 **Use `pnpm prisma:deploy`, never `prisma migrate dev`.** Prisma can see the GiST index on `geo` but cannot type the column, so `migrate dev` offers a migration that **drops the geospatial index**. `migrate deploy` never diffs.
 
@@ -56,7 +56,8 @@ Read the SQL before committing.
 
 ## Constraints the database owns
 
-- One default profile per account, one default Ring per owner, one GLOBAL role grant per user, one live subscription per owner and plan (partial unique indexes).
+- One default profile per account, one default Ring per owner, one GLOBAL role grant per user, one live subscription per owner and plan, one `PENDING` invitation and one `PENDING` join request per Ring and person (partial unique indexes).
+- A join code is 8 characters of `[A-HJ-NP-Z2-9]` (no 0/O/1/I), its label 1–40 characters, its use limit at least 1 and its use count never above it; an invitation's window ends after it starts (CHECK constraints, `20261108150000_ring_invitations_and_join`).
 - An order has exactly one buyer; a post carries a Ring or an event; time windows are ordered; money is non-negative; a connection pair is canonical (`user_a_id < user_b_id`).
 - `availability_slots`: `EXCLUDE USING GIST (user_id WITH =, tstzrange(starts_at, ends_at, '[)') WITH &&)`. Two concurrent bookings cannot both commit.
 - `pincasts.geo` kept in sync by the `pincasts_sync_geo` trigger, GiST-indexed.
@@ -70,7 +71,6 @@ Read the SQL before committing.
 | `pinNameChangedAt` | [[ND-06 Pin name rules]] |
 | `WIDGET_TYPE` + AVAILABILITY, PAYMENT, NOW_PLAYING, TESTIMONIAL | [[F-13 Widgets]] |
 | Products / catalogue table | [[F-23 Events During]] |
-| Ring invitation state | [[F-17 Ring Invitations & Join]] |
 
 ## Seeding
 
