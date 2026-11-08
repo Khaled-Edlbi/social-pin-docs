@@ -94,8 +94,8 @@ The engine exposes no endpoint. What the client needs from it is a set of guaran
 
 | Need | Endpoint | Available | Story part / decision |
 |---|---|---|---|
-| Shared with me, one row per person: the owner's card; a Ring's name and who shared it **only when joined knowingly**; a member count **only when members can see each other** | `GET /rings/shared-with-me` → one row per person `{ ringId, pinName, displayName, avatarUrl, expiresAt, ringName, memberCount }`; `ringName` and `memberCount` stay `null` until the next row exists | ✅ | S-15 S1 (D-14, D-18, D-15); listed under [[F-11 Rings]], asked in [[FR-11 Rings Frontend Requirements\|FR-11]] |
-| How each membership was made (invitation, code, work email, placed) | — (server-side) | ❌ | S-15 S1 ([[F-09 Ring Members]] records it) |
+| Shared with me, one row per person: the owner's card; a Ring's name and who shared it **only when joined knowingly**; a member count **only when members can see each other** | `GET /rings/shared-with-me` → one row per person `{ ringId, pinName, displayName, avatarUrl, expiresAt, ringName, memberCount }`; `ringName` set on a row the viewer joined knowingly, `memberCount` there when the Ring lets members see each other (since `main` `1c460b0`) | ✅ | S-15 S1 (D-14, D-18, D-15); listed under [[F-11 Rings]], asked in [[FR-11 Rings Frontend Requirements\|FR-11]] |
+| How each membership was made (invitation, code, work email, placed) | server-side: `RingMember.origin` (`PLACED`, `INVITATION`, `JOIN_CODE`, `JOIN_REQUEST`; owner-facing on `GET /rings/:ringId/members`); work email is not in this version (D-33) | ✅ | S-15 S1 (recorded by [[F-17 Ring Invitations & Join]], [[BD-17 Ring Invitations & Join Backend Delivery\|BD-17]]) |
 | Render one person, default access | `GET /views/pin/:pinName` | ✅ | — (listed under [[F-12 View As & Pin Views]]) |
 | Render one Ring, if readable | `GET /views/ring/:ringId` | ✅ | — (listed under [[F-12 View As & Pin Views]]) |
 | Every perspective I hold of one person | `GET /views/user/:userId/perspectives` | ✅ | — (listed under [[F-12 View As & Pin Views]]) |
@@ -135,7 +135,6 @@ Until [[S-87 Error Contract Story|Error Contract · S4–S8]] ships, the body ca
 ## Blocked by
 
 - [[S-18 Rings Story|Rings · S9]]: the six settings, saved; until then every Ring is all-off and no screen implies members see one another.
-- S-15 S1's membership origin: Ring names on Shared with me for Rings joined knowingly; until then every row is the person.
 - [[S-23 Connections Story|Connections · S13]]: a block screen; the engine already honours blocks but none can be created.
 - [[S-31 Delegated Admins Story#What the backend has to build|Delegated Admins · What the backend has to build]]: admin management behind Edit Ring's *Joining and permissions* (s26 / s27 merged); today only owners pass the level check.
 - [[ND-23 Mutual connections and events in common]]: the two rows on s47.
