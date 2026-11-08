@@ -3,7 +3,7 @@ id: BI-16
 type: backend-integration
 module: connections
 feature: connections
-status: draft
+status: current
 scope: feature
 screens: [s11, s15, s17, s19, s38, s44, s45, s46, s47, s68]
 depends: ["BD-14 Connections Backend Delivery", "FR-14 Connections Frontend Requirements"]
@@ -12,7 +12,7 @@ related: ["S-23 Connections Story", "D-10 Connect sends what the requester alrea
 pending: []
 created: 2026-11-08
 updated: 2026-11-08
-tags: [backend-integration, backend-integration/draft, module/connections, layer/backend]
+tags: [backend-integration, backend-integration/current, module/connections, layer/backend]
 ---
 
 # 🔌 Connections · Backend Integration
@@ -21,7 +21,7 @@ tags: [backend-integration, backend-integration/draft, module/connections, layer
 
 **Feature:** [[F-14 Connections]] · **Backend:** [[BD-14 Connections Backend Delivery]] · **Read first:** [[Frontend Contract]], [[Frontend API Guide]]
 
-Written by the **backend** team for the frontend: how to call what was delivered. **Draft:** it describes the backend branch `FR-14/connection/requests-accept-contacts-block`, which is not on `main` yet; it goes `current` at the merge. Every route is under `/api/v1`, bearer-authenticated, and acts for the signed-in user.
+Written by the **backend** team for the frontend: how to call what was delivered. It matches backend `main` `1c460b0` (F-14 merged as `25fcc8c`, with F-18 and F-17 on either side). Every route is under `/api/v1`, bearer-authenticated, and acts for the signed-in user.
 
 ## Screens → calls
 
@@ -137,7 +137,7 @@ Until [[S-87 Error Contract Story|Error Contract]] puts `ErrorCode` on the wire,
 - **A note** is trimmed; an empty one is no note; over 200 characters is a 400. Show it as plain text, never as a link.
 - **Sent** returns `PENDING`, `DECLINED` and `EXPIRED`; a declined or expired row for 30 days after it ended, then it is gone. Count nothing on the phone.
 - **Expiry**: a request lapses 30 days after it was sent (`expiresAt`). It leaves Incoming at once and reads `EXPIRED` on Sent.
-- **The person on a row** is the card you may see: someone who asked you shows their public card; someone who shares with you, the card they share with you; anyone else only their Pin name (`displayName` and `avatarUrl` null: show the Pin name and initials).
+- **The person on a row** is the card you may see: someone who asked you shows their public card; someone who shares with you, the card they share with you (the same Ring their Shared with me row opens: one you joined knowingly if there is one, else the one they put you in first); anyone else only their Pin name (`displayName` and `avatarUrl` null: show the Pin name and initials).
 - **Contacts search** (`q`) matches the name or Pin name you see, among your contacts only; never filter the loaded page yourself.
 - **`ringCount` 0** is *No access*: a contact in none of your live Rings.
 - **Detail's `memberships`** are your Rings only, oldest first; "What they can see" is the oldest live one's projection (`GET /rings/:ringId/projection`). `mutualCount` 0 hides the row.
@@ -148,7 +148,7 @@ Until [[S-87 Error Contract Story|Error Contract]] puts `ErrorCode` on the wire,
 
 ## Not available yet
 
-- *Connect*, *Block* and the button after a **scan** (`{ qrToken }`) → [[S-37 Badge & QR Story|Badge & QR · S13–S18]]; today only by Pin name.
+- *Connect*, *Block* and the button after a **scan** (`{ qrToken }`): the scan itself is on `main` ([[S-37 Badge & QR Story|Badge & QR · S13–S18]]), but these three routes take a Pin name only and refuse `qrToken` with a 400 → [[BD-14 Connections Backend Delivery]] `pending`. After a scan, *Connect* works only when the card also opens by its Pin name.
 - `relationship` **on the views** themselves: it is its own call, `GET /connections/relationship` → [[FR-12 View As & Pin Views Frontend Requirements|FR-12]].
 - The 409 body carrying `requestId` and `ErrorCode` → [[S-87 Error Contract Story|Error Contract · S4–S8]]; use relationship meanwhile.
 - `source` other than `PIN_NAME`, `eventName`, `eventRingId` and the event filter on Incoming → [[S-23 Connections Story|Connections · S15]] (v1).
