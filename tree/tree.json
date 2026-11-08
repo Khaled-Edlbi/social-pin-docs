@@ -6637,7 +6637,7 @@
     },
     "concepts": 318,
     "decisions": 34,
-    "edges": 7552,
+    "edges": 7553,
     "features": 41,
     "layerNotes": 155,
     "modules": 8,
@@ -56577,6 +56577,11 @@
       "from": "backend-delivery:ring-invitations",
       "kind": "wikilink",
       "to": "story:error-contract"
+    },
+    {
+      "from": "backend-delivery:ring-members",
+      "kind": "wikilink",
+      "to": "backend-delivery:ring-invitations"
     },
     {
       "from": "backend-delivery:ring-members",
