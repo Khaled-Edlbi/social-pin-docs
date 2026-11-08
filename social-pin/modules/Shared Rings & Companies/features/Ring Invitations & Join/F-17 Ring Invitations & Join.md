@@ -9,7 +9,7 @@ screens: [s17, s74]
 owner: "omar"
 related: ["F-12 View As & Pin Views"]
 created: 2026-10-15
-updated: 2026-11-01
+updated: 2026-11-08
 tags: [feature, module/shared-rings, priority/critical, release/mvp]
 ---
 
@@ -68,6 +68,12 @@ One story per feature (since 2026-10-27): all of this feature's work is in [[S-3
 
 - [[ND-04 Ring settings]] — decided, join with a code or by invitation and approve each one by default ([[D-04 Ring settings at launch and their defaults|D-04]])
 - [[ND-18 Company and invited Ring names shown to members]] — decided, an invitation names its Ring and a Ring joined knowingly stays named ([[D-18 Ring names shown when joined knowingly|D-18]])
+- [[ND-31 What an invitation is]] — decided, an invitation is its own record, never a membership while pending; expires after 30 days ([[D-31 An invitation is its own record|D-31]])
+- [[ND-32 How a Ring's join code works]] — decided, several labelled join codes per Ring, up to 10 active, each with an optional end date and use limit ([[D-32 Several join codes per Ring|D-32]])
+- [[ND-33 When a work email is checked]] — decided not now, work-email joining waits for real emails and the Companies domain ([[D-33 Work email joining waits for real emails and Companies|D-33]])
+- [[ND-34 What a member contributes to a shared Ring]] — decided, a member picks one of their own Rings as their card in a Ring they joined ([[D-34 A member shows one of their own Rings|D-34]])
+- [[ND-35 A colleague's QR offering their company Ring]] — decided, each join code can be shown as a QR; a personal badge never offers a Ring ([[D-35 A join code can be shown as a QR|D-35]])
+- [[ND-36 Whether an invitee sees who a Ring is for]] — decided, "who it's for" stays the owner's alone ([[D-36 Who it's for stays the owner's alone|D-36]])
 
 ## Related
 
