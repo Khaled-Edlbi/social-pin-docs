@@ -37,7 +37,7 @@ Where the design and the backend disagree, and every other decision a card needs
 | [[ND-27 How long declined and expired requests stay on Sent]] | fulfilled (1, 30 days, no reminder) | [[D-27 Sent keeps declined and expired requests for 30 days]] | [[F-14 Connections]] | s45 |
 | [[ND-28 Scanning someone straight into a Ring]] | fulfilled (1, not in the MVP) | [[D-28 Scan someone in is not in the MVP]] | [[F-14 Connections]] | s15 |
 | [[ND-29 Connection detail for a member who is not a connection]] | fulfilled (1, s47 opens them) | [[D-29 Connection detail opens a member who is not a connection]] | [[F-14 Connections]] | s15, s47 |
-| [[ND-31 What an invitation is]] | open (recommended 1, its own record) | — | [[F-17 Ring Invitations & Join]] | s15, s17, s72, s74 |
+| [[ND-31 What an invitation is]] | fulfilled (1, its own record) | [[D-31 An invitation is its own record]] | [[F-17 Ring Invitations & Join]] | s15, s17, s72, s74 |
 | [[ND-32 How a Ring's join code works]] | open (recommended 1, one code per Ring) | — | [[F-17 Ring Invitations & Join]] | s26, s72, s74 |
 | [[ND-33 When a work email is checked]] | open (recommended 1, once at joining) | — | [[F-17 Ring Invitations & Join]], [[F-15 Companies]] | s26, s73, s74 |
 | [[ND-34 What a member contributes to a shared Ring]] | open (recommended 1, one of my own Rings) | — | [[F-17 Ring Invitations & Join]], [[F-09 Ring Members]] | s17, s73, s74 |

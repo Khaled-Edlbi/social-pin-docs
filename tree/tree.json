@@ -138,6 +138,7 @@
     "D-28 Scan someone in is not in the MVP": "decision:D-28",
     "D-29 Connection detail opens a member who is not a connection": "decision:D-29",
     "D-30 The fifth wrong code try locks the code": "decision:D-30",
+    "D-31 An invitation is its own record": "decision:D-31",
     "Database & Migrations": "project:database-migrations",
     "Developer Guide": "project:developer-guide",
     "Developer Setup": "project:developer-setup",
@@ -453,6 +454,7 @@
     "D-28": "decision:D-28",
     "D-29": "decision:D-29",
     "D-30": "decision:D-30",
+    "D-31": "decision:D-31",
     "F-01": "feature:account",
     "F-02": "feature:auth",
     "F-03": "feature:counts",
@@ -6096,7 +6098,7 @@
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 11,
-      "decision": 26,
+      "decision": 27,
       "feature": 41,
       "frontend-delivery": 9,
       "frontend-requirements": 39,
@@ -6110,21 +6112,21 @@
     },
     "byLayer": {
       "backend": 58,
-      "business": 165,
+      "business": 166,
       "frontend": 52,
       "qa": 12,
       "shared": 10
     },
     "concepts": 290,
     "decisions": 34,
-    "edges": 6769,
+    "edges": 6786,
     "features": 41,
     "layerNotes": 151,
     "modules": 8,
-    "notes": 328,
+    "notes": 329,
     "partial": 13,
     "placeholders": 134,
-    "records": 26
+    "records": 27
   },
   "deadlines": {
     "missed": {
@@ -6807,6 +6809,31 @@
       "from": "decision:D-30",
       "kind": "affects",
       "to": "story:code-delivery"
+    },
+    {
+      "from": "decision:D-31",
+      "kind": "affects",
+      "to": "backend-delivery:ring-invitations"
+    },
+    {
+      "from": "decision:D-31",
+      "kind": "affects",
+      "to": "frontend-requirements:ring-invitations"
+    },
+    {
+      "from": "decision:D-31",
+      "kind": "affects",
+      "to": "story:companies"
+    },
+    {
+      "from": "decision:D-31",
+      "kind": "affects",
+      "to": "story:ring-invitations"
+    },
+    {
+      "from": "decision:D-31",
+      "kind": "affects",
+      "to": "story:ring-members"
     },
     {
       "from": "frontend-requirements:companies",
@@ -8087,11 +8114,6 @@
       "from": "needs-decision:ND-21",
       "kind": "blocks",
       "to": "story:onboarding-imports"
-    },
-    {
-      "from": "needs-decision:ND-31",
-      "kind": "blocks",
-      "to": "story:ring-invitations"
     },
     {
       "from": "needs-decision:ND-32",
@@ -16095,6 +16117,41 @@
       "via": [
         "POST /auth/login/verify"
       ]
+    },
+    {
+      "from": "decision:D-31",
+      "kind": "related",
+      "to": "decision:D-04"
+    },
+    {
+      "from": "decision:D-31",
+      "kind": "related",
+      "to": "decision:D-17"
+    },
+    {
+      "from": "decision:D-31",
+      "kind": "related",
+      "to": "decision:D-18"
+    },
+    {
+      "from": "decision:D-31",
+      "kind": "related",
+      "to": "feature:ring-invitations"
+    },
+    {
+      "from": "decision:D-31",
+      "kind": "related",
+      "to": "frontend-requirements:companies"
+    },
+    {
+      "from": "decision:D-31",
+      "kind": "related",
+      "to": "needs-decision:ND-31"
+    },
+    {
+      "from": "decision:D-31",
+      "kind": "related",
+      "to": "story:delegated-admins"
     },
     {
       "from": "feature:account",
@@ -48858,6 +48915,11 @@
       "to": "decision:D-30"
     },
     {
+      "from": "needs-decision:ND-31",
+      "kind": "tree",
+      "to": "decision:D-31"
+    },
+    {
       "from": "root",
       "kind": "tree",
       "to": "group:backend"
@@ -50011,6 +50073,31 @@
       "from": "decision:D-29",
       "kind": "wikilink",
       "to": "backend-delivery:connections"
+    },
+    {
+      "from": "decision:D-31",
+      "kind": "wikilink",
+      "to": "backend-delivery:ring-invitations"
+    },
+    {
+      "from": "decision:D-31",
+      "kind": "wikilink",
+      "to": "frontend-requirements:ring-invitations"
+    },
+    {
+      "from": "decision:D-31",
+      "kind": "wikilink",
+      "to": "story:companies"
+    },
+    {
+      "from": "decision:D-31",
+      "kind": "wikilink",
+      "to": "story:ring-invitations"
+    },
+    {
+      "from": "decision:D-31",
+      "kind": "wikilink",
+      "to": "story:ring-members"
     },
     {
       "from": "feature:account",
@@ -55221,6 +55308,10 @@
     },
     "social-pin/decisions/D-30 The fifth wrong code try locks the code.md": {
       "name": "D-30 The fifth wrong code try locks the code",
+      "type": "decision"
+    },
+    "social-pin/decisions/D-31 An invitation is its own record.md": {
+      "name": "D-31 An invitation is its own record",
       "type": "decision"
     },
     "social-pin/decisions/Decisions.md": {
@@ -62288,6 +62379,7 @@
         "decision:D-05",
         "decision:D-18",
         "decision:D-23",
+        "decision:D-31",
         "frontend-requirements:connections",
         "story:connections",
         "backend-delivery:counts",
@@ -63049,6 +63141,7 @@
         "needs-decision:ND-17",
         "decision:D-13",
         "decision:D-27",
+        "decision:D-31",
         "frontend-requirements:connections",
         "story:connections"
       ],
@@ -63119,6 +63212,7 @@
         "needs-decision:ND-18",
         "decision:D-14",
         "decision:D-04",
+        "decision:D-31",
         "frontend-requirements:connections",
         "story:connections",
         "backend-delivery:counts",
@@ -63870,6 +63964,71 @@
       "title": "D-30 The fifth wrong code try locks the code",
       "unmet": [],
       "updated": "2026-11-05"
+    },
+    "decision:D-31": {
+      "affects": [
+        "story:ring-invitations",
+        "frontend-requirements:ring-invitations",
+        "backend-delivery:ring-invitations",
+        "story:ring-members",
+        "story:companies"
+      ],
+      "blockedBy": [],
+      "card": "D-31",
+      "children": [],
+      "code": "D-31",
+      "created": "2026-11-08",
+      "deadline": null,
+      "decidedAt": "2026-11-08",
+      "decidedBy": "Omar Fostok",
+      "decides": "ND-31",
+      "depends": [],
+      "effectiveStatus": "decided",
+      "effort": null,
+      "feature": null,
+      "features": [
+        "ring-invitations"
+      ],
+      "foundOn": null,
+      "frontendOnly": false,
+      "id": "decision:D-31",
+      "inherits": {},
+      "kind": "decision",
+      "label": "Decision",
+      "labels": [],
+      "layer": "business",
+      "module": null,
+      "openBugs": [],
+      "parentTask": null,
+      "parents": [
+        "needs-decision:ND-31"
+      ],
+      "path": "social-pin/decisions/D-31 An invitation is its own record.md",
+      "pending": [],
+      "priority": null,
+      "related": [
+        "needs-decision:ND-31",
+        "feature:ring-invitations",
+        "decision:D-04",
+        "decision:D-17",
+        "decision:D-18",
+        "story:delegated-admins",
+        "frontend-requirements:companies"
+      ],
+      "release": null,
+      "resolution": null,
+      "scope": null,
+      "screens": [],
+      "status": "decided",
+      "summary": "This rules out option 2, a membership in an INVITED state.",
+      "tags": [
+        "decision",
+        "decision/decided"
+      ],
+      "task": null,
+      "title": "D-31 An invitation is its own record",
+      "unmet": [],
+      "updated": "2026-11-08"
     },
     "feature:account": {
       "affects": [],
@@ -66641,16 +66800,17 @@
         "needs-decision:ND-34",
         "needs-decision:ND-35",
         "needs-decision:ND-36",
-        "decision:D-29"
+        "decision:D-29",
+        "decision:D-31"
       ],
       "release": "mvp",
       "resolution": null,
       "rollup": {
         "blocked": 3,
-        "decided": 2,
+        "decided": 3,
         "missing": 4,
-        "needs-decision": 6,
-        "verified": 2
+        "needs-decision": 5,
+        "verified": 3
       },
       "scope": null,
       "screens": [
@@ -70163,6 +70323,7 @@
         "task:B-14",
         "task:B-16",
         "task:B-17",
+        "decision:D-31",
         "frontend-requirements:connections",
         "qa-backend:auth",
         "backend-delivery:counts",
@@ -73936,13 +74097,13 @@
       "rollup": {
         "approved": 1,
         "blocked": 6,
-        "decided": 2,
+        "decided": 3,
         "draft": 1,
         "in-progress": 3,
         "missing": 12,
-        "needs-decision": 6,
+        "needs-decision": 5,
         "ready": 1,
-        "verified": 2
+        "verified": 3
       },
       "scope": null,
       "screens": [],
@@ -75890,13 +76051,15 @@
         "story:ring-invitations"
       ],
       "card": "ND-31",
-      "children": [],
+      "children": [
+        "decision:D-31"
+      ],
       "code": "ND-31",
       "created": "2026-11-08",
       "deadline": null,
       "decider": "owner",
       "depends": [],
-      "effectiveStatus": "needs-decision",
+      "effectiveStatus": "verified",
       "effort": null,
       "feature": null,
       "features": [
@@ -75904,6 +76067,7 @@
       ],
       "foundOn": null,
       "frontendOnly": false,
+      "fulfilledBy": "decision:D-31",
       "id": "needs-decision:ND-31",
       "inherits": {},
       "kind": "needs-decision",
@@ -75926,6 +76090,7 @@
         "story:ring-members",
         "story:companies",
         "backend-delivery:ring-members",
+        "decision:D-31",
         "story:ring-invitations"
       ],
       "release": null,
@@ -83229,20 +83394,20 @@
         "approved": 40,
         "blocked": 33,
         "current": 7,
-        "decided": 26,
+        "decided": 27,
         "delivered": 6,
         "done": 19,
         "draft": 28,
         "failing": 5,
         "in-progress": 47,
         "missing": 134,
-        "needs-decision": 7,
+        "needs-decision": 6,
         "partial": 13,
         "passing": 4,
         "ready": 4,
         "reference": 32,
         "todo": 12,
-        "verified": 26
+        "verified": 27
       },
       "scope": null,
       "screens": [],
@@ -84153,6 +84318,7 @@
         "task:B-15",
         "task:B-16",
         "needs-decision:ND-32",
+        "decision:D-31",
         "frontend-requirements:connections",
         "backend-delivery:counts",
         "backend-integration:counts",
@@ -85684,11 +85850,6 @@
     "story:ring-invitations": {
       "affects": [],
       "blockedBy": [
-        {
-          "id": "needs-decision:ND-31",
-          "title": "ND-31 What an invitation is",
-          "why": "needs decision ND-31 (open)"
-        },
         {
           "id": "needs-decision:ND-32",
           "title": "ND-32 How a Ring's join code works",
