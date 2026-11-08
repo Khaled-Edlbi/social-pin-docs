@@ -3,23 +3,25 @@ id: FR-08
 type: frontend-requirements
 module: identity
 feature: ring-access
-status: ready
+status: approved
 scope: feature
 screens: [s15, s16, s17, s26, s27, s31, s44, s47, s62]
+approvedBy: "khaled"
+approvedAt: 2026-11-08
 owner: "Omar Fostok"
 depends: ["S-15 Ring Access Engine Story"]
 affects: ["BD-08 Ring Access Engine Backend Delivery"]
 related: ["BI-05 Ring Access Engine Backend Integration", "Ring Access Model", "D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-18 Ring names shown when joined knowingly", "ND-23 Mutual connections and events in common", "FR-11 Rings Frontend Requirements", "FR-12 View As & Pin Views Frontend Requirements", "S-18 Rings Story", "S-16 Ring Members Story", "S-23 Connections Story", "S-31 Delegated Admins Story", "S-87 Error Contract Story", "GET /rings/shared-with-me", "GET /views/pin/:pinName", "GET /views/ring/:ringId", "GET /views/user/:userId/perspectives", E_RING_05, E_RING_02]
 created: 2026-10-18
-updated: 2026-11-05
-tags: [frontend-requirements, frontend-requirements/ready, module/identity, layer/frontend]
+updated: 2026-11-08
+tags: [frontend-requirements, frontend-requirements/approved, module/identity, layer/frontend]
 ---
 
 # Ring Access Engine · Frontend Requirements
 
 > ⚠ Affected by [[BD-11 Rings Backend Delivery]] (2026-11-05): backend main 12172c6: GET /rings/shared-with-me now lists people, one row { ringId, pinName, displayName, avatarUrl, expiresAt, ringName, memberCount } (ringName and memberCount null until F-09 records how a membership was made), no filters; the six D-04 settings exist on a Ring, membersCanSeeEachOther enforced, the rest stored until their flows ship. The Shared with me and Ring settings 'Source today' lines are stale; shapes in BI-08 (/frontend)
 
-**Feature:** [[F-08 Ring Access Engine]] · **Status:** Ready (waiting for the backend; the 2026-11-05 review answered) · **Story:** [[S-15 Ring Access Engine Story]] · **Backend Integration:** [[BI-05 Ring Access Engine Backend Integration]]
+**Feature:** [[F-08 Ring Access Engine]] · **Status:** Approved 2026-11-08 by khaled · **Story:** [[S-15 Ring Access Engine Story]] · **Backend Integration:** [[BI-05 Ring Access Engine Backend Integration]]
 
 The engine exposes no endpoint. What the client needs from it is a set of guarantees that other endpoints carry: which rows appear on Shared with me and what each may say, what every `/views` route answers, and when an owner route says 403. This note lists those guarantees per surface and the client behaviour they require; the assumptions are spelled out in [[BI-05 Ring Access Engine Backend Integration]] and [[Ring Access Model]]. The screens themselves belong to other features ([[F-11 Rings]], [[F-09 Ring Members]], [[F-12 View As & Pin Views]], [[F-14 Connections]]); each section here is only what the engine decides on it.
 
@@ -92,14 +94,14 @@ The engine exposes no endpoint. What the client needs from it is a set of guaran
 
 | Need | Endpoint | Available | Story part / decision |
 |---|---|---|---|
-| Shared with me, one row per person: the owner's card; a Ring's name and who shared it **only when joined knowingly**; a member count **only when members can see each other** | `GET /rings/shared-with-me` | ❌ | S-15 S1 (D-14, D-18, D-15); listed under [[F-11 Rings]], asked in [[FR-11 Rings Frontend Requirements\|FR-11]] |
+| Shared with me, one row per person: the owner's card; a Ring's name and who shared it **only when joined knowingly**; a member count **only when members can see each other** | `GET /rings/shared-with-me` → one row per person `{ ringId, pinName, displayName, avatarUrl, expiresAt, ringName, memberCount }`; `ringName` and `memberCount` stay `null` until the next row exists | ✅ | S-15 S1 (D-14, D-18, D-15); listed under [[F-11 Rings]], asked in [[FR-11 Rings Frontend Requirements\|FR-11]] |
 | How each membership was made (invitation, code, work email, placed) | — (server-side) | ❌ | S-15 S1 ([[F-09 Ring Members]] records it) |
 | Render one person, default access | `GET /views/pin/:pinName` | ✅ | — (listed under [[F-12 View As & Pin Views]]) |
 | Render one Ring, if readable | `GET /views/ring/:ringId` | ✅ | — (listed under [[F-12 View As & Pin Views]]) |
 | Every perspective I hold of one person | `GET /views/user/:userId/perspectives` | ✅ | — (listed under [[F-12 View As & Pin Views]]) |
 | 403 when below the admin level | `PATCH /rings/:id`, `/rings/:ringId/members/*`, `/rings/:ringId/projection/*` | ✅ | — |
 | Owner-only: 404 to anyone else, an admin included | `POST /rings/:id/default`, `POST /rings/:id/disposition`, `DELETE /rings/:id` | ✅ | — ([[S-31 Delegated Admins Story\|Delegated Admins · A4]]) |
-| The six launch settings, saved and enforced | — | ❌ | built in [[S-18 Rings Story\|Rings · S9]] (asked in FR-11); enforced per S-15 S8 |
+| The six launch settings, saved and enforced | saved on the Ring (`GET` / `PATCH /rings/:id`); "members can see each other" enforced, the other five stored until their flows ship | ✅ | built in [[S-18 Rings Story\|Rings · S9]] (asked in FR-11); enforced per S-15 S8 |
 | Create or remove a block | — | ❌ | [[S-23 Connections Story\|Connections · S13]] |
 | Grant or revoke a delegated admin level | — | ❌ | [[S-31 Delegated Admins Story#What the backend has to build\|Delegated Admins · What the backend has to build]] |
 | Mutual connections and events in common | — | ❌ | [[ND-23 Mutual connections and events in common]] |
