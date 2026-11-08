@@ -18,7 +18,7 @@ tags: [feature, module/identity, priority/critical, release/mvp]
 
 **Backend:** Done · **Priority:** Critical · **Release:** MVP · **Module:** [[M-01 Identity Core Module|Identity Core]]
 
-**Layers:** [[S-18 Rings Story|Story]] · [[FR-11 Rings Frontend Requirements|Frontend Requirements]] · [[BD-11 Rings Backend Delivery|Backend Delivery]] · [[BI-08 Rings Backend Integration|Backend Integration]] · [[Rings Frontend Delivery|Frontend Delivery]] · [[QB-12 Rings QA Backend|QA Backend]] · [[Rings QA Frontend|QA Frontend]]
+**Layers:** [[S-18 Rings Story|Story]] · [[FR-11 Rings Frontend Requirements|Frontend Requirements]] · [[BD-11 Rings Backend Delivery|Backend Delivery]] · [[BI-08 Rings Backend Integration|Backend Integration]] · [[FD-12 Rings Frontend Delivery|Frontend Delivery]] · [[QB-12 Rings QA Backend|QA Backend]] · [[Rings QA Frontend|QA Frontend]]
 
 My Rings and Shared-with-me lists; the first Ring from a template at sign-up; a four-step wizard (name it → who is in it → what it shows → how you appear) with a colour, an icon, who it's for, and a start (blank, a copy of another Ring, or a temporary Event Ring); edit; the default Ring (the "Public" Ring strangers see, changed on a Ring's Access screen); delete; the six Ring settings; and the keep / merge / let it go choice for temporary Rings.
 
