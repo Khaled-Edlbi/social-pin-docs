@@ -14,7 +14,7 @@ updated: 2026-11-08
 tags: [needs-decision, needs-decision/open]
 ---
 
-# ❓ ND-31 · What an invitation is
+# ✅ ND-31 · What an invitation is
 
 **Status:** open · **Decider:** owner · **Raised:** 2026-11-08 · **Needed by:** [[S-33 Ring Invitations & Join Story]] (S2, S6) · **Feature:** [[F-17 Ring Invitations & Join]]
 
@@ -46,4 +46,4 @@ Recommendation: option 1. An invitation is not access, so it should not live whe
 
 ## Decision
 
-— (answered on its decision card, never written here: the PM or the owner, on the user's word, runs `node scripts/build-tree.mjs --scaffold decision ND-31 "<the answer>"`, fills the decision card D-NN and sets it `decided` with `decidedBy` and `decidedAt`; this card then shows Fulfilled by itself.)
+Fulfilled by [[D-31 An invitation is its own record]] — decided 2026-11-08 by Omar Fostok: option 1

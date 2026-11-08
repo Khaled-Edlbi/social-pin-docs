@@ -20,6 +20,8 @@ tags: [story, story/approved, module/shared-rings, layer/business]
 
 # Companies · User Story
 
+> ⚠ Affected by [[D-31 An invitation is its own record]] (2026-11-08): ND-31 decided 2026-11-08 by Omar Fostok, option 1: an invitation is its own record (Ring, invitee, inviter, optional window, PENDING/ACCEPTED/DECLINED/WITHDRAWN), never a membership while pending; accept creates the membership recorded as joined knowingly; decline, withdraw, 30-day expiry, valid:false on an ended Ring
+
 > ⚠ Affected by [[S-31 Delegated Admins Story]] (2026-11-05): S-31 was rewritten (2026-11-05) to match the app's one Edit Ring screen, with rules A1–A7 decided inside the story (no decision cards): company Rings only; an admin must be a member of the Ring; two levels (edit what it shows / also manage who's in it), owner-only appointing; member-managers change the joining settings, who it's for, delete and default stay owner-only; Rings you manage on My Rings and Company detail; rights end on removal, leaving the Ring or the company, silently. The old Delegated Admins · S6 (T-006, the admin routes) is now its 'What the backend has to build'; the levels are S3/A3. Repoint the links that name Delegated Admins · S6.
 
 **Feature:** [[F-15 Companies]] · **Status:** Approved 2026-11-05 by Omar Fostok · **Frontend Requirements:** [[FR-15 Companies Frontend Requirements]] · **Backend Integration:** not yet · **Verified by:** [[Companies QA Backend]], [[Companies QA Frontend]]

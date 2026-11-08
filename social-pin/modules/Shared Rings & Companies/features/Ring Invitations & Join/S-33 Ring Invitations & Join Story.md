@@ -15,6 +15,8 @@ tags: [story, story/draft, module/shared-rings, layer/business]
 
 # Ring Invitations & Join · User Story
 
+> ⚠ Affected by [[D-31 An invitation is its own record]] (2026-11-08): ND-31 decided 2026-11-08 by Omar Fostok, option 1: an invitation is its own record (Ring, invitee, inviter, optional window, PENDING/ACCEPTED/DECLINED/WITHDRAWN), never a membership while pending; accept creates the membership recorded as joined knowingly; decline, withdraw, 30-day expiry, valid:false on an ended Ring
+
 **Feature:** [[F-17 Ring Invitations & Join]] · **Status:** Draft (rewritten 2026-11-08, six questions open) · **Frontend Requirements:** [[FR-17 Ring Invitations & Join Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 > **Rewritten 2026-11-08** as one set of parts, ordered as the journey happens, against backend `main` @ `12172c6` ([[BI-08 Rings Backend Integration]]), [[D-04 Ring settings at launch and their defaults]] and [[D-18 Ring names shown when joined knowingly]]. The merged tasks T-026 to T-028 (old S7–S9) are folded into the parts below. The owner's side, which [[S-16 Ring Members Story]] and [[S-18 Rings Story]] handed to this story, is S6–S8; the company asks of [[FR-15 Companies Frontend Requirements]] are in S1 and S5. Six questions are open as needs-decision cards (ND-31 to ND-36); every part that waits on one says so.
