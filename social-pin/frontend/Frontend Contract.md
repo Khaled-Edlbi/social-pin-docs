@@ -9,6 +9,8 @@ tags: [project]
 
 # Frontend Contract
 
+> ⚠ Affected by [[BD-11 Rings Backend Delivery]] (2026-11-08): backend main e483d49: new ErrorCode E_RING_10 (409, disposition on a Ring that is not temporary or whose window has not ended, the default included); a boolean other than true/false and null on a PATCH field that does not clear are now 400 everywhere (/frontend)
+
 > ⚠ Affected by [[BD-11 Rings Backend Delivery]] (2026-11-05): backend main 12172c6: new POST /rings/:id/copy (endpoint count +1), new ErrorCode E_RING_09 (409, temporary Ring as default), GET /rings/shared-with-me now { ringId, pinName, displayName, avatarUrl, expiresAt, ringName, memberCount } per person with no filters (400), the D-04 settings on RingEntity (/frontend)
 
 > ⚠ Affected by [[BD-10 Ring Projection Backend Delivery]] (2026-11-05): LINK_TYPE has 20 values on main a249ab2: BOOKING, BEHANCE, DRIBBBLE, GITHUB, YOUTUBE added (S-17 S5)

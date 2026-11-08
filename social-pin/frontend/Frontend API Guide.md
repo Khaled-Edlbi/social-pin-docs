@@ -3,7 +3,7 @@ id: P-07
 type: project
 layer: frontend
 created: 2026-10-15
-updated: 2026-11-05
+updated: 2026-11-08
 tags: [project]
 ---
 # Frontend API guide
@@ -166,6 +166,14 @@ constraint. Handle both shapes.
 Unknown body keys are rejected with a 400 rather than ignored, so a typo'd field
 name fails loudly in development.
 
+Booleans are `true` / `false`: JSON booleans in a body, the strings `"true"` /
+`"false"` in a query string (either is accepted in both places). Any other value
+(`"yes"`, `"0"`, `1`, `null`) is a 400, never read as `true`.
+
+On a `PATCH`, `null` clears a field only where its note says so (a Ring's
+`purpose`, a link's `label`, …); `null` on any other field is a 400. To leave a
+field unchanged, leave it out.
+
 ---
 
 ## List endpoints
@@ -242,7 +250,7 @@ audience sees them is set per ring, not here.
 | PATCH | `/rings/:id` | Owner, or an admin at CONTENT_MANAGER+; includes the settings |
 | POST | `/rings/:id/default` | Owner only; 409 `E_RING_09` on a temporary ring |
 | POST | `/rings/:id/copy` | Owner only; a new ring with the settings and what it shows, never the members (D-05) |
-| POST | `/rings/:id/disposition` | `KEEP` / `MERGE` / `AUTO_DELETE` for a temporary ring |
+| POST | `/rings/:id/disposition` | `KEEP` / `MERGE` / `AUTO_DELETE` for a temporary ring whose window has ended; 409 `E_RING_10` on any other ring, the default included |
 | DELETE | `/rings/:id` | 409 on the default |
 
 Filters on `GET /rings`: `name`, `type`, `status`, `isTemporary`. `GET /rings/shared-with-me` takes none (a 400): a filter on a Ring would tell a member which Ring they are in. Shapes and errors: [[BI-08 Rings Backend Integration]].
@@ -419,3 +427,4 @@ available yet) live in the `social-pin-docs` vault under `frontend/`.
 - 2026-11-05 · backend `main` `12172c6` ([[BD-11 Rings Backend Delivery]]) · Rings table: `GET /rings/shared-with-me` lists people (new shape, no filters), `GET /rings/shared-with-me/count` listed, `POST /rings/:id/copy` added (one more endpoint), the D-04 settings on create and edit, 409 `E_RING_09` on a temporary default. Flagged [[Frontend Contract]] for the endpoint table, its count and the new code (/frontend).
 
 - 2026-11-05 · flagged [[Frontend Contract]]: new endpoints on backend main @ 80e7fa2: GET /files (the library, with usedBy) and the public GET /files/content/:token behind every signed link; url on files, avatarUrl and attachments[].url on the projection and the view (D-16). The F-04 row and the endpoint count (48) need updating (/frontend)
+- 2026-11-08 · backend `main` `e483d49` ([[BD-11 Rings Backend Delivery]]) · *Errors*: booleans are `true` / `false` only, anything else 400 ([[B-11 Projection switches read any string as true]], [[B-13 The string false is read as true on Ring filters and settings]]); `null` on a `PATCH` only where it clears ([[B-12 Null on a link or custom field's required field answers 500]], [[B-14 PATCH a Ring with null on a required field answers 500]]). Rings table: disposition only on a lapsed temporary Ring, 409 `E_RING_10` (new, [[B-15 Disposition runs on a permanent Ring, the default included]]).
