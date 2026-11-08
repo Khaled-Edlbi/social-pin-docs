@@ -62741,7 +62741,6 @@
       "layer": "backend",
       "module": "identity",
       "openBugs": [
-        "task:B-14",
         "task:B-15",
         "task:B-16"
       ],
@@ -68414,11 +68413,11 @@
         "approved": 2,
         "current": 1,
         "decided": 2,
-        "done": 2,
+        "done": 3,
         "failing": 1,
         "missing": 1,
         "partial": 1,
-        "ready": 3,
+        "ready": 2,
         "verified": 2
       },
       "scope": null,
@@ -75236,7 +75235,7 @@
         "current": 6,
         "decided": 10,
         "delivered": 7,
-        "done": 23,
+        "done": 24,
         "draft": 3,
         "failing": 3,
         "in-progress": 13,
@@ -75244,7 +75243,7 @@
         "needs-decision": 1,
         "partial": 13,
         "passing": 6,
-        "ready": 6,
+        "ready": 5,
         "verified": 10
       },
       "scope": null,
@@ -84729,7 +84728,7 @@
         "current": 6,
         "decided": 32,
         "delivered": 7,
-        "done": 24,
+        "done": 25,
         "draft": 29,
         "failing": 3,
         "in-progress": 47,
@@ -84737,7 +84736,7 @@
         "needs-decision": 1,
         "partial": 13,
         "passing": 6,
-        "ready": 8,
+        "ready": 7,
         "reference": 32,
         "todo": 3,
         "verified": 32
@@ -88940,7 +88939,7 @@
       "decision": null,
       "depends": [],
       "dir": null,
-      "effectiveStatus": "ready",
+      "effectiveStatus": "done",
       "effort": "S",
       "feature": "rings",
       "foundOn": "BI-08 Rings Backend Integration",
@@ -88984,7 +88983,7 @@
         "frontend-requirements:ring-invitations"
       ],
       "release": "mvp",
-      "resolution": null,
+      "resolution": "fixed",
       "rollup": {},
       "scope": null,
       "screens": [
@@ -88992,13 +88991,14 @@
         "s26",
         "s27"
       ],
-      "status": "ready",
+      "status": "done",
       "summary": "The fix is /backend's. That agent sets in-progress when it starts and ready when the fix ships (status, tag, H1 and the Status segment only; the fix itself is recorded in its own delivery note,…",
       "tags": [
         "bug",
-        "bug/ready",
+        "bug/done",
         "module/identity",
-        "priority/medium"
+        "priority/medium",
+        "resolution/fixed"
       ],
       "task": null,
       "title": "B-14 PATCH a Ring with null on a required field answers 500",
