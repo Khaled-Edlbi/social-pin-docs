@@ -3,7 +3,8 @@ id: B-17
 type: bug
 module: identity
 feature: view-as
-status: ready
+status: done
+resolution: fixed
 priority: high
 effort: S
 foundOn: "BI-09 View As & Pin Views Backend Integration"
@@ -14,14 +15,12 @@ related: ["BI-09 View As & Pin Views Backend Integration", "BD-12 View As & Pin 
 pending: []
 created: 2026-11-05
 updated: 2026-11-08
-tags: [bug, bug/ready, module/identity, priority/high]
+tags: [bug, bug/done, module/identity, priority/high, resolution/fixed]
 ---
 
-# 📨 B-17 · A new Ring answers 404 to its own owner until its projection is opened
+# ✅ B-17 · A new Ring answers 404 to its own owner until its projection is opened
 
-> ⚠ Affected by [[BD-12 View As & Pin Views Backend Delivery]] (2026-11-08): fixed on backend main e483d49, ready for re-test
-
-**Found against:** [[BI-09 View As & Pin Views Backend Integration]] · **Feature:** [[F-12 View As & Pin Views]] · **Status:** Ready · **Priority:** High (`critical | high | medium | low`, from `docs.config.json`) · **Deadline:** — · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
+**Found against:** [[BI-09 View As & Pin Views Backend Integration]] · **Feature:** [[F-12 View As & Pin Views]] · **Status:** Done · **Priority:** High (`critical | high | medium | low`, from `docs.config.json`) · **Deadline:** — · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
 
 **Found by:** [[QB-14 View As & Pin Views QA Backend]] rows B33, B34 and B45, on build `main @ 12172c6 · localhost:3112, Node 22.22.2`.
 
@@ -50,11 +49,12 @@ Output of `node scripts/build-tree.mjs --impact B-17` when the bug was filed: th
 
 ## Definition of done
 
-- [ ] The behaviour is fixed, or the notes are corrected, as the decision says (`resolution:` set, the tag `resolution/<id>` with it)
-- [ ] The QA row that found it re-run against the fix, on a named build
-- [ ] `depends` / `affects` / `related` declared; notes listed by `--impact` updated or flagged
-- [ ] `node scripts/build-tree.mjs` run; tree, board and backlog committed
+- [x] The behaviour is fixed, or the notes are corrected, as the decision says (`resolution:` set, the tag `resolution/<id>` with it)
+- [x] The QA row that found it re-run against the fix, on a named build
+- [x] `depends` / `affects` / `related` declared; notes listed by `--impact` updated or flagged
+- [x] `node scripts/build-tree.mjs` run; tree, board and backlog committed
 
 ## Log
 
 - 2026-11-05 · filed with --scaffold bug, found against BI-09 View As & Pin Views Backend Integration, by [[QB-14 View As & Pin Views QA Backend]] rows B33, B34, B45 on `main @ 12172c6`
+- 2026-11-08 · backend main e483d49 · re-test passed: [[QB-14 View As & Pin Views QA Backend]] rows B33, B34, B35, B45 and the new rows B64, B65 on a throwaway database (localhost:3112). A Ring made with `POST /rings` answers 200 with the empty projection to its owner on View as, to its members, and through `/views/pin` for a viewer in it alone; `/perspectives` includes it; the reads write no projection row, and the view is byte for byte the same once the owner opens the projection. Closed `done`, `resolution: fixed`
