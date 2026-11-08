@@ -41,6 +41,7 @@
     "backend-delivery:widgets": "BD-13",
     "backend-integration:account": "BI-01",
     "backend-integration:auth": "BI-02",
+    "backend-integration:badge-qr": "BI-15",
     "backend-integration:counts": "BI-14",
     "backend-integration:files": "BI-03",
     "backend-integration:photo-library": "BI-13",

@@ -16,7 +16,7 @@ tags: [backend-delivery, backend-delivery/in-progress, module/discovery, layer/b
 
 # 🟡 Badge & QR · Backend Delivery
 
-**Feature:** [[F-18 Badge & QR]] · **Status:** In progress · **Integration guide:** [[Badge & QR Backend Integration]] · **Requirements:** [[FR-18 Badge & QR Frontend Requirements]] · **QA:** [[Badge & QR QA Backend]]
+**Feature:** [[F-18 Badge & QR]] · **Status:** In progress · **Integration guide:** [[BI-15 Badge & QR Backend Integration]] · **Requirements:** [[FR-18 Badge & QR Frontend Requirements]] · **QA:** [[Badge & QR QA Backend]]
 
 What the backend built for this feature and how it works. **Not on `main` yet:** everything below is on the code branch `FR-18/badge/qr-token-issue-resolve` (`a566a2e`, from `main` `cb95a39`), waiting for review and merge. Until it merges, `main` has the `RingQrToken` table and no route that issues or resolves a code.
 
