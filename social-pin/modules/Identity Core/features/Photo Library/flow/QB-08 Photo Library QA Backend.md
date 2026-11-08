@@ -18,6 +18,8 @@ tags: [qa-backend, qa-backend/passing, module/identity, layer/qa]
 
 # 🧪 Photo Library · QA Backend
 
+> ⚠ Affected by [[BD-06 Photo Library Backend Delivery]] (2026-11-08): followerCount and isMainPhoto shipped on backend main cb95a39: GET /files?kind=image marks the main photo (isMainPhoto true) with followerCount = live Rings with no photo of their own; every other item isMainPhoto false, followerCount null. The main photo is read and set with GET /profiles and PATCH /profiles/:id { avatarFileId }, so B22, S4 Make main and S6 Reset to Pin can run now; for /qa
+
 > Blocked by default until [[BD-06 Photo Library Backend Delivery]] is `done` (the hand-off order in `docs.config.json`); `blockedBy: []` opts out, `blockedBy: [...]` names other blockers.
 
 **Feature:** [[F-06 Photo Library]] · **Verifies:** [[BD-06 Photo Library Backend Delivery]] against [[S-11 Photo Library Story]] and [[FR-06 Photo Library Frontend Requirements]], with the shapes and errors of [[BI-13 Photo Library Backend Integration]] (and the shared endpoints of [[BI-03 Files Upload Backend Integration]] and [[BI-07 Ring Projection Backend Integration]] it points to) · **Verdict:** 🟢 Passing · 2026-11-05 · `main @ f186ba1 · localhost:3100, Node 22.22.2` · 40 of 40 delivered cases as expected; B22 (`followerCount`) not delivered yet

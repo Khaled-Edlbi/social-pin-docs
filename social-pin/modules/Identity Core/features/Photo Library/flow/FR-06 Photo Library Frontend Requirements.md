@@ -11,9 +11,9 @@ approvedAt: 2026-11-05
 owner: "Omar Fostok"
 depends: ["S-11 Photo Library Story"]
 affects: ["BD-06 Photo Library Backend Delivery"]
-related: ["BI-03 Files Upload Backend Integration", "BI-07 Ring Projection Backend Integration", "FR-04 Files Upload Frontend Requirements", "FR-07 Profiles & Pin Name Frontend Requirements", "FR-10 Ring Projection Frontend Requirements", "FR-01 Account Frontend Requirements", "S-14 Profiles & Pin Name Story", "ND-16 Viewer access to file bytes", "D-16 Files load from signed links that expire in 15 minutes", "D-02 One main profile every Ring starts from", "D-05 Inherit per field, copy without members", "POST /files", "GET /files", "GET /files/:id", "DELETE /files/:id", "GET /rings/:ringId/projection", "PATCH /rings/:ringId/projection", E_FILE_01, E_FILE_02, E_FILE_03, E_FILE_04, E_RING_02, E_RING_05]
+related: ["BI-03 Files Upload Backend Integration", "BI-07 Ring Projection Backend Integration", "FR-04 Files Upload Frontend Requirements", "FR-07 Profiles & Pin Name Frontend Requirements", "FR-10 Ring Projection Frontend Requirements", "FR-01 Account Frontend Requirements", "S-14 Profiles & Pin Name Story", "ND-16 Viewer access to file bytes", "D-16 Files load from signed links that expire in 15 minutes", "D-02 One main profile every Ring starts from", "D-05 Inherit per field, copy without members", "POST /files", "GET /files", "GET /files/:id", "DELETE /files/:id", "GET /rings/:ringId/projection", "PATCH /rings/:ringId/projection", "GET /profiles", "PATCH /profiles/:id", E_FILE_01, E_FILE_02, E_FILE_03, E_FILE_04, E_RING_02, E_RING_05]
 created: 2026-10-18
-updated: 2026-11-05
+updated: 2026-11-08
 tags: [frontend-requirements, frontend-requirements/approved, module/identity, layer/frontend]
 ---
 
@@ -76,8 +76,8 @@ The screen is [[FR-01 Account Frontend Requirements|Account's]]; this section is
 | Read a Ring's current photo id | `GET /rings/:ringId/projection` | ✅ | S1 (listed under [[F-10 Ring Projection]]) |
 | Delete a photo | `DELETE /files/:id` | ✅ | S5 (listed under [[F-04 Files Upload]]) |
 | List my photos: `kind=image` (JPEG, PNG, WebP, GIF), paginated (`limit` ≤ 50, `meta.total`), newest first, owner only; `kind=document` on the same endpoint for [[FR-04 Files Upload Frontend Requirements\|FR-04]] | `GET /files?kind=` | ✅ `GET /files?kind=image\|document` (2026-11-05) | [[S-11 Photo Library Story\|Photo Library · S7]] |
-| Rings using each photo: `usedBy: [{ ringId, name }]` (live Rings whose `avatarFileId` is the file; attachments not counted) and `followerCount` on the main photo, on the list items | `GET /files?kind=image` | 🟡 `usedBy` ✅ (2026-11-05); `followerCount` ❌ until the main photo exists ([[BD-07 Profiles & Pin Name Backend Delivery]]) | [[S-11 Photo Library Story\|Photo Library · S8]] |
-| Read and set the main photo (by file id) | — | ❌ | the main profile fields: [[S-14 Profiles & Pin Name Story\|Profiles & Pin Name · S9–S11]], as [[FR-07 Profiles & Pin Name Frontend Requirements\|FR-07]] asks; not asked twice here |
+| Rings using each photo: `usedBy: [{ ringId, name }]` (live Rings whose `avatarFileId` is the file; attachments not counted) and `followerCount` on the main photo, on the list items | `GET /files?kind=image` | ✅ `usedBy` (2026-11-05); `followerCount` on the main photo, `null` on the others (2026-11-08) | [[S-11 Photo Library Story\|Photo Library · S8]] |
+| Read and set the main photo (by file id); which list item is the main photo | `GET /profiles`, `PATCH /profiles/:id { avatarFileId }`; `isMainPhoto` on `GET /files?kind=image` | ✅ (main photo on the profile, 2026-11-05; `isMainPhoto` on the list, 2026-11-08) | the main profile fields: [[S-14 Profiles & Pin Name Story\|Profiles & Pin Name · S9–S11]], as [[FR-07 Profiles & Pin Name Frontend Requirements\|FR-07]] asks; not asked twice here |
 | Thumbnails and the full photo: a signed `url` per image on the `GET /files?kind=image` list, and `avatarUrl` on a Ring's projection, valid 15 minutes | `GET /files?kind=image`, `GET …/projection` | ✅ `url` on the list, `avatarUrl` on the projection and the view (2026-11-05) | [[D-16 Files load from signed links that expire in 15 minutes]] (decided) |
 | A photo's name (`label`) | — | not asked | later, not in v1 (S2) |
 | A crop frame per Ring | — | not asked | later, not in v1 (S1) |

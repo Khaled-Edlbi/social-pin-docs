@@ -19,6 +19,8 @@ tags: [frontend-delivery, frontend-delivery/done, module/identity, layer/fronten
 
 # ✅ Photo Library · Frontend Delivery
 
+> ⚠ Affected by [[BD-06 Photo Library Backend Delivery]] (2026-11-08): the main photo is on backend main cb95a39: GET /files?kind=image marks it (isMainPhoto true) with followerCount; it is read and set with GET /profiles and PATCH /profiles/:id { avatarFileId }; so the PIN mark, N Rings inherit it, Make this my main photo, Use my Pin photo and Reset to Pin can be built; shapes in BI-13; for /frontend
+
 **Feature:** [[F-06 Photo Library]] · **Status:** Done · **Built from:** [[BI-13 Photo Library Backend Integration]] · **Against:** [[S-11 Photo Library Story]] · **Requirements:** [[FR-06 Photo Library Frontend Requirements]] · **QA:** [[Photo Library QA Frontend]]
 
 What the client shipped for a Ring's photo and the photo library, on `social_pin` `rings/F-11/honest-rings` @ `3369288` (2026-11-05), not on `main` yet: the library and the Ring photo in `8939d8e` (shared with [[FD-07 Files Upload Frontend Delivery]]), the polish from [[BI-13 Photo Library Backend Integration]] in `3369288`. The QA checklist is PH-01…PH-15 in the client's `docs/TEST_CASES_2026-10-18.md`.

@@ -16,6 +16,8 @@ tags: [backend-integration, backend-integration/current, module/identity, layer/
 
 # 🔌 Profiles & Pin Name · Backend Integration
 
+> ⚠ Affected by [[BD-10 Ring Projection Backend Delivery]] (2026-11-08): backend main cb95a39 ships S-17 S10: 'Headline, role, company and location are not on a viewer's view' and the Not available yet line on a Ring's own value per field no longer hold: a viewer's view carries headline, role, company and location resolved per Ring (off: null; following: the main value; own: the Ring's), set on PATCH /rings/:ringId/projection (BI-07); for /backend
+
 **Feature:** [[F-07 Profiles & Pin Name]] · **Backend:** ✅ Done · **Read first:** [[Frontend Contract]]
 
 What the client builds: the Pin-name claim, *Profile basics* at sign-up, the owner's profile editor (name, nickname, Pin name, the main profile: headline, role, company, location, photo, bio) and Me's privacy rows (the three sensitive fields and which Rings show each). Plus, for accounts that use it, several profiles and the choice of the default.

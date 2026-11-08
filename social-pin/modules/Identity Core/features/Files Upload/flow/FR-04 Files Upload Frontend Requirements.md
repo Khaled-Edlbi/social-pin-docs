@@ -13,7 +13,7 @@ depends: ["S-06 Files Upload Story"]
 affects: ["BD-04 Files Upload Backend Delivery"]
 related: ["BI-03 Files Upload Backend Integration", "BI-07 Ring Projection Backend Integration", "BI-09 View As & Pin Views Backend Integration", "FR-06 Photo Library Frontend Requirements", "FR-10 Ring Projection Frontend Requirements", "FR-12 View As & Pin Views Frontend Requirements", "ND-16 Viewer access to file bytes", "D-16 Files load from signed links that expire in 15 minutes", "D-03 Links entered once, switched on or off per Ring", "POST /files", "GET /files", "GET /files/:id", "DELETE /files/:id", "GET /rings/:ringId/projection", "PATCH /rings/:ringId/projection", "POST /rings/:ringId/projection/attachments", "DELETE /rings/:ringId/projection/attachments/:attachmentId", E_FILE_01, E_FILE_02, E_FILE_03, E_FILE_04, E_RING_05]
 created: 2026-10-18
-updated: 2026-10-29
+updated: 2026-11-08
 tags: [frontend-requirements, frontend-requirements/approved, module/identity, layer/frontend]
 ---
 
@@ -94,7 +94,7 @@ The screens are [[FR-12 View As & Pin Views Frontend Requirements|View As & Pin 
 | Use a file as the Ring photo | `PATCH /rings/:ringId/projection` | ✅ | S4 (listed under [[F-10 Ring Projection]]) |
 | List my files by kind: `kind=image` (JPEG, PNG, WebP, GIF) and `kind=document` (every other type on the allow-list) | `GET /files?kind=` | ✅ `GET /files?kind=image\|document` (2026-11-05) | [[S-11 Photo Library Story\|Photo Library · S7]]; F-04 needs `document` as well as `image` (S12, S2) |
 | Display or download the bytes (owner and viewer): a signed `avatarUrl` and a signed `url` per attachment on the owner projection and the view, valid 15 minutes, no file id | `GET …/projection`, `GET /views/*` | ✅ `avatarUrl`, `attachments[].url` (and `url` on `GET /files`, `/files/:id`), served by `GET /files/content/:token` (2026-11-05) | [[D-16 Files load from signed links that expire in 15 minutes]] (decided); S7–S11 |
-| Rings using each photo: `usedBy: [{ ringId, name }]` and `followerCount` on the main photo, photos only (attachments not counted) | `GET /files?kind=image` | 🟡 `usedBy` ✅ (2026-11-05); `followerCount` ❌ until the main photo exists ([[BD-07 Profiles & Pin Name Backend Delivery]], S-14 S9–S11) | [[S-11 Photo Library Story\|Photo Library · S8]], asked in [[FR-06 Photo Library Frontend Requirements\|FR-06]]; s30 only, not needed for documents |
+| Rings using each photo: `usedBy: [{ ringId, name }]` and `followerCount` on the main photo, photos only (attachments not counted) | `GET /files?kind=image` | ✅ `usedBy` (2026-11-05); `followerCount` on the main photo (marked `isMainPhoto`), `null` on the others (2026-11-08) | [[S-11 Photo Library Story\|Photo Library · S8]], asked in [[FR-06 Photo Library Frontend Requirements\|FR-06]]; s30 only, not needed for documents |
 | Reorder or rename an attachment | — | not asked | not in the design; later (S12) |
 
 ## Behaviour expectations
