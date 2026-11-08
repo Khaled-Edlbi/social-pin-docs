@@ -17,6 +17,8 @@ tags: [story, story/approved, module/identity, layer/business]
 
 # View As & Pin Views · User Story
 
+> ⚠ Affected by [[BD-18 Badge & QR Backend Delivery]] (2026-11-08): S3: a scanned badge now resolves with GET /views/qr/:token (backend main 1c460b0), not GET /views/ring/:ringId; the QR carries https://socialpin.me/q/<token>, never a Ring id
+
 > ⚠ Affected by [[S-23 Connections Story]] (2026-11-04): S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
 
 **Feature:** [[F-12 View As & Pin Views]] · **Status:** Approved 2026-10-29 by Omar Fostok (first approved 2026-10-25 by khaled; reworked 2026-10-29 by the design review: S1, S2, S3, S7 changed) · **Frontend Requirements:** [[FR-12 View As & Pin Views Frontend Requirements]] · **Backend Integration:** [[BI-09 View As & Pin Views Backend Integration]]

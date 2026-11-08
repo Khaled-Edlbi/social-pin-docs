@@ -6,7 +6,7 @@ feature: view-as
 status: current
 scope: feature
 screens: [s10, s31, s44]
-related: ["D-02 One main profile every Ring starts from", "D-05 Inherit per field, copy without members", "BI-07 Ring Projection Backend Integration", "D-16 Files load from signed links that expire in 15 minutes", "BI-03 Files Upload Backend Integration", "GET /files/content/:token"]
+related: ["D-02 One main profile every Ring starts from", "D-05 Inherit per field, copy without members", "BI-07 Ring Projection Backend Integration", "D-16 Files load from signed links that expire in 15 minutes", "BI-03 Files Upload Backend Integration", "GET /files/content/:token", "BI-15 Badge & QR Backend Integration", "GET /views/qr/:token"]
 created: 2026-10-15
 updated: 2026-11-08
 tags: [backend-integration, backend-integration/current, module/identity, layer/backend]
@@ -25,7 +25,7 @@ What the client builds: every screen that shows **another person**: the scanned 
 | Screen | The user does | Calls |
 |---|---|---|
 | [[Screen Index#s44\|s44]] Scanned Pin | opens someone by handle | `GET /views/pin/:pinName` |
-| s44 (from a QR) | scans a badge | `GET /views/ring/:ringId` |
+| s44 (from a QR) | scans a badge | `GET /views/qr/:token`: this entity plus the code's `expiresAt` ([[BI-15 Badge & QR Backend Integration\|BI-15]]) |
 | Perspective switcher | flips between the Rings they are in | `GET /views/user/:userId/perspectives` |
 | [[Screen Index#s10\|s10]], [[Screen Index#s31\|s31]] View as | previews their own Ring | `GET /views/ring/:ringId` with their own Ring id |
 
@@ -71,9 +71,10 @@ Do **not** try to tell the `E_RING_ACCESS_01` cases apart, from timing or from a
 
 ## Not available yet
 
-- **QR payload.** Scanning is meant to resolve a rotating **token**, not a Ring id ([[S-37 Badge & QR Story|Badge & QR · S7–S12]], [[S-37 Badge & QR Story|Badge & QR · S13–S18]]). Until then the only thing a QR can carry that the API resolves is the Ring id; treat any such encoding as temporary.
-- Connect after a scan (s44 bottom): [[S-23 Connections Story|Connections · S8–S12]].
-- A browser page for viewers without the app: [[S-37 Badge & QR Story|Badge & QR · S20]].
+- Connect after a scan (s44 bottom, `{ qrToken }`): [[S-23 Connections Story|Connections · S2]]; `{ pinName }` exists.
+- A browser page for viewers without the app: [[S-37 Badge & QR Story|Badge & QR · S12]], with the domain.
+
+The QR payload is no longer a Ring id: since backend `main` `1c460b0` a badge carries `https://socialpin.me/q/<token>` and resolves with `GET /views/qr/:token` ([[BI-15 Badge & QR Backend Integration]]). Never put a Ring id in a QR.
 
 ## Checklist
 
@@ -90,3 +91,4 @@ Do **not** try to tell the `E_RING_ACCESS_01` cases apart, from timing or from a
 - 2026-11-08 · matches backend `main` `e483d49`: [[B-17 A new Ring answers 404 to its own owner until its projection is opened]] is fixed (`90fc7b3`). A Ring with no projection yet renders as the empty projection on `/views/ring`, `/views/pin` and `/perspectives`, as *Flow* 2 now says. No shape or error changed. The [[QB-14 View As & Pin Views QA Backend]] flag is cleared: B-17 is `ready` for re-test.
 - 2026-11-08 · matches backend `main` `cb95a39`: `FR-12/ring-profile/view-without-file-id` (`35fe046`) took `avatarFileId` off `RingProfileViewEntity`, so no `/views/*` response carries a file id (D-16). *Shapes that matter* updated: the view has `avatarUrl` and `attachments[].url` only; the owner's projection keeps `avatarFileId`. Logged on [[BD-12 View As & Pin Views Backend Delivery]], which flags FR-12 and QB-14.
 - 2026-11-08 · `docs/backend/M-01-identity/F-12-view-as/BI-09-s10-resolved-fields` · matches backend `main` `cb95a39`: [[S-17 Ring Projection Story|Ring Projection · S10]] (`ffb05c8`, `7e99942`, logged on [[BD-10 Ring Projection Backend Delivery]]) adds `headline`, `role`, `company` and `location` to `RingProfileViewEntity` on every `/views/*` route, each resolved for the Ring (own, else the main profile's, `null` when hidden). *Shapes that matter* and *Flow* 2 updated. No route or error changed. This branch is stacked on `BI-09-view-without-file-id` (`73323e6`), which edits the same shape line.
+- 2026-11-08 · `docs/backend/M-04-discovery/F-18-badge-qr/BD-18-shipped` · matches backend `main` `1c460b0`: a scanned badge now resolves with `GET /views/qr/:token` ([[BI-15 Badge & QR Backend Integration]], F-18), not `GET /views/ring/:ringId`; *Screens → calls* and *Not available yet* updated. No route or shape of this note changed.

@@ -17,6 +17,8 @@ tags: [backend-delivery, backend-delivery/in-progress, module/connections, layer
 
 # 🟡 Connections · Backend Delivery
 
+> ⚠ Affected by [[BD-18 Badge & QR Backend Delivery]] (2026-11-08): BadgeService.resolveCode (BadgeModule export, main 1c460b0) is the token lookup and access decision for POST /connections/requests { qrToken }; the 'By scan waits on the QR resolve' gap can now be built
+
 **Feature:** [[F-14 Connections]] · **Status:** In progress · **Integration guide:** [[BI-16 Connections Backend Integration]] · **Requirements:** [[FR-14 Connections Frontend Requirements]] · **QA:** [[Connections QA Backend]]
 
 What the backend built for this feature and how it works. **Nothing below is on `main` yet:** it is on the backend branch `FR-14/connection/requests-accept-contacts-block` (`345daf1`, `7b58cc8`, `4beb29e`), pushed and not merged. Until the merge, `main` has the tables and no route.
