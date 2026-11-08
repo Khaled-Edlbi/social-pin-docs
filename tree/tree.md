@@ -130,7 +130,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
     - 🔵 [F-11 Rings](social-pin/modules/Identity%20Core/features/Rings/F-11%20Rings.md) (release MVP, Critical)
       - 👍 [S-18 Rings Story](social-pin/modules/Identity%20Core/features/Rings/S-18%20Rings%20Story.md) (User Story, Critical)
       - 👍 [FR-11 Rings Frontend Requirements](social-pin/modules/Identity%20Core/features/Rings/flow/FR-11%20Rings%20Frontend%20Requirements.md) (Frontend Requirements, Critical)
-      - 🟡 [BD-11 Rings Backend Delivery](social-pin/modules/Identity%20Core/features/Rings/flow/BD-11%20Rings%20Backend%20Delivery.md) (Backend Delivery, 2 pending notes, Critical)
+      - 🟡 [BD-11 Rings Backend Delivery](social-pin/modules/Identity%20Core/features/Rings/flow/BD-11%20Rings%20Backend%20Delivery.md) (Backend Delivery, 1 pending note, Critical)
       - ✅ [BI-08 Rings Backend Integration](social-pin/modules/Identity%20Core/features/Rings/flow/BI-08%20Rings%20Backend%20Integration.md) (Backend Integration, Critical)
         - ✅ [B-13 The string false is read as true on Ring filters and settings](social-pin/bugs/B-13%20The%20string%20false%20is%20read%20as%20true%20on%20Ring%20filters%20and%20settings.md) (bug, Fixed, High)
         - ✅ [B-14 PATCH a Ring with null on a required field answers 500](social-pin/bugs/B-14%20PATCH%20a%20Ring%20with%20null%20on%20a%20required%20field%20answers%20500.md) (bug, Fixed, Medium)

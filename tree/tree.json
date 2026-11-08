@@ -6626,7 +6626,7 @@
     },
     "concepts": 318,
     "decisions": 34,
-    "edges": 7552,
+    "edges": 7551,
     "features": 41,
     "layerNotes": 155,
     "modules": 8,
@@ -10275,12 +10275,7 @@
     {
       "from": "backend-delivery:rings",
       "kind": "pending",
-      "to": "feature:ring-invitations"
-    },
-    {
-      "from": "backend-delivery:rings",
-      "kind": "pending",
-      "to": "feature:ring-members"
+      "to": "story:ring-access"
     },
     {
       "from": "backend-delivery:view-as",
@@ -66550,13 +66545,8 @@
       "pending": [
         {
           "person": null,
-          "text": "a Ring's name (and, with members can see each other on, its member count) on Shared with me for a Ring joined knowingly (D-18) waits on a membership recording how it was made; RingAccessService.isRingNamedToMember answers false until then",
-          "to": "feature:ring-members"
-        },
-        {
-          "person": null,
-          "text": "joinPolicy, requireApproval and membersCanInvite are saved but enforced only when invitations, join codes and requests ship; membersCanSaveAttachments when a save-attachment flow exists (D-04, S-15 S8)",
-          "to": "feature:ring-invitations"
+          "text": "membersCanSaveAttachments is saved but enforced only when a save-attachment flow exists (D-04, S-15 S8)",
+          "to": "story:ring-access"
         }
       ],
       "priority": "critical",
