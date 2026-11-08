@@ -33,7 +33,7 @@ database/business concept."*
 | `users` | Critical | `User` | `user.prisma` | **schema + API** | `modules/user/` |
 | `profiles` | Critical | `Profile` | `profile.prisma` | **schema + API** | `modules/profile/` |
 | `rings` | Critical | `Ring` | `ring.prisma` | **schema + API** | `modules/ring/` |
-| `ring_members` | Critical | `RingMember` | `ring.prisma` | **schema + API** | `modules/ring/ring-member.service.ts` |
+| `ring_members` | Critical | `RingMember` | `ring.prisma` | **schema + API** | `modules/ring/ring-member.service.ts`; `origin` records how a membership was made (D-18) |
 | `ring_profiles` | Critical | `RingProfile` | `ring.prisma` | **schema + API** | `modules/ring-profile/` |
 | `ring_profile_links` | Critical | `RingProfileLink` | `ring.prisma` | **schema + API** | `modules/ring-profile/` |
 | `connections` | Critical | `Connection` | `connection.prisma` | schema | — |
@@ -88,6 +88,11 @@ feature in the features list needs it.
 | `RingWidget` | "Add widgets" (§4). |
 | `RingProfileFile` | "File attachments on profile (Portfolio.pdf, Pitch Deck)" (§4). |
 | `RingQrToken` | "QR / badge is bound to the currently selected ring" (§5). Opaque (an HMAC of the row id), only `sha256(token)` stored, revocable, 24 h window; owned by `src/modules/badge`. |
+| `RingInvitation` | "Invite" into a Ring, as its own record, never a membership while pending ([[D-31 An invitation is its own record]]): Ring, invitee, inviter, window, `PENDING` / `ACCEPTED` / `DECLINED` / `WITHDRAWN` / `EXPIRED`, lapsing 30 days after it was sent. Owned by `src/modules/ring-invitation`. |
+| `RingJoinCode` | A Ring's join codes, several per Ring, up to 10 active ([[D-32 Several join codes per Ring]]): 8 characters without look-alikes, owner-only label, optional end date and use limit, a use count; shown as a join QR `socialpin://join/<code>` ([[D-35 A join code can be shown as a QR]]). |
+| `RingJoinCodeUse` | Who has used a code once, so "one use is one person" holds when they come back (D-32). |
+| `RingJoinCodeFailedAttempt` | The codes a person typed that didn't work, behind the try limit (10 per person in 15 minutes); written outside any transaction so the refusal cannot roll it back. |
+| `RingJoinRequest` | A join with a code while the Ring approves each one, recording the code used; the owner approves or declines, the person cancels or dismisses (S-33 S5, S8). |
 | `RolePermission` | The join the doc implies between `roles` and `permissions`. |
 | `OrderItem` | Needed to satisfy "Do not derive historical totals from mutable prices" — a price snapshot per line. |
 | `BusinessTag`, `BusinessFile` | The business setup form's tags and uploads (§10). |
@@ -160,6 +165,7 @@ model instead of turning Social Pin into a generic social network."*
 | 5 | Ring expiry dates | **API** | Enforced in `RingAccessService`, both windows |
 | 5 | Shared Rings vs My Rings | **API** | `GET /rings` and `GET /rings/shared-with-me` |
 | 5 | QR / badge bound to the selected ring | **API** | `src/modules/badge`: `POST /rings/:ringId/qr` (+ `/reset`, `GET …/qr/scans`), `GET /views/qr/:token` through `RingAccessService.assertRingPresented`; the web page waits on the domain |
+| 5 | Join a Ring knowingly: invitations, join codes (typed or as a join QR), join requests, enforced by `joinPolicy`, `requireApproval`, `membersCanInvite` | **API** | `src/modules/ring-invitation` ([[F-17 Ring Invitations & Join]], [[BD-17 Ring Invitations & Join Backend Delivery]]): `/rings/invitations/*`, `/rings/:ringId/invitations`, `/rings/join-codes/{resolve,join}`, `/rings/:ringId/join-codes`, `/rings/join-requests/*`, `/rings/:ringId/join-requests`; a Ring joined this way is named to its member on `GET /rings/shared-with-me`. Work email not in this version (D-33) |
 | 5 | Corporate rings (public/employees/c-suite), delegated admins | partial | `RING_TYPE.CORPORATE`, `parentRingId`, `RingAdmin` + `assertCanAdminister` enforce it; no corporate-specific endpoints |
 | 5 | MiniRings for sub-events | schema | `Ring.parentRingId`, `MiniEvent.ringId` |
 | 5 | Temporary rings → keep / merge / auto-delete | **API** | `POST /rings/:id/disposition` |

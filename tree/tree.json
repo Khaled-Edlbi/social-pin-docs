@@ -6666,7 +6666,7 @@
     },
     "concepts": 318,
     "decisions": 34,
-    "edges": 7543,
+    "edges": 7546,
     "features": 41,
     "layerNotes": 155,
     "modules": 8,
@@ -60961,6 +60961,21 @@
       "from": "project:spec-map",
       "kind": "wikilink",
       "to": "decision:D-16"
+    },
+    {
+      "from": "project:spec-map",
+      "kind": "wikilink",
+      "to": "decision:D-31"
+    },
+    {
+      "from": "project:spec-map",
+      "kind": "wikilink",
+      "to": "decision:D-32"
+    },
+    {
+      "from": "project:spec-map",
+      "kind": "wikilink",
+      "to": "decision:D-35"
     },
     {
       "from": "project:spec-map",
