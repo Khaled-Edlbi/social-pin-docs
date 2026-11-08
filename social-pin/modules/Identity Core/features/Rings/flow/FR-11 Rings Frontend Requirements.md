@@ -19,6 +19,8 @@ tags: [frontend-requirements, frontend-requirements/approved, module/identity, l
 
 # Rings · Frontend Requirements
 
+> ⚠ Affected by [[BD-14 Connections Backend Delivery]] (2026-11-08): F-14 shipped on backend main 1c460b0: 'My connections, searchable, each with whether they are in any of my Rings' for s19 step 2 is GET /connections?q=&noAccess=true (ringCount 0 is No Ring yet); the row and Blocked by read not available
+
 > ⚠ Affected by [[BD-11 Rings Backend Delivery]] (2026-11-05): backend main 12172c6: the four rows are now ✅ (per-person Shared with me, the six settings, POST /rings/:id/copy, 409 E_RING_09); the 'Source today' lines for s16 purpose, s17, s18 copy, s22/s26 settings and default, and the settings section still say not yet (/frontend)
 
 > ⚠ Affected by [[S-31 Delegated Admins Story]] (2026-11-05): S-31 was rewritten (2026-11-05) to match the app's one Edit Ring screen, with rules A1–A7 decided inside the story (no decision cards): company Rings only; an admin must be a member of the Ring; two levels (edit what it shows / also manage who's in it), owner-only appointing; member-managers change the joining settings, who it's for, delete and default stay owner-only; Rings you manage on My Rings and Company detail; rights end on removal, leaving the Ring or the company, silently. The old Delegated Admins · S6 (T-006, the admin routes) is now its 'What the backend has to build'; the levels are S3/A3. Repoint the links that name Delegated Admins · S6.

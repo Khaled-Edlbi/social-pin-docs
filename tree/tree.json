@@ -6575,7 +6575,7 @@
     }
   },
   "counts": {
-    "blocked": 30,
+    "blocked": 29,
     "bugs": 17,
     "byKind": {
       "backend-delivery": 39,
@@ -6601,12 +6601,12 @@
     },
     "concepts": 318,
     "decisions": 34,
-    "edges": 7554,
+    "edges": 7552,
     "features": 41,
     "layerNotes": 155,
     "modules": 8,
     "notes": 339,
-    "partial": 11,
+    "partial": 12,
     "placeholders": 130,
     "records": 33
   },
@@ -6664,7 +6664,9 @@
   ],
   "diagnostics": {
     "errors": [],
-    "warnings": []
+    "warnings": [
+      "social-pin/modules/Connections/features/Connections/flow/BD-14 Connections Backend Delivery.md: status: done, but its Backend Integration is `draft`: the requirements of this scope cannot reach `delivered` until it is `current`"
+    ]
   },
   "edges": [
     {
@@ -8106,16 +8108,6 @@
       "from": "backend-delivery:companies",
       "kind": "blocks",
       "to": "qa-backend:companies"
-    },
-    {
-      "from": "backend-delivery:connections",
-      "kind": "blocks",
-      "to": "backend-integration:connections"
-    },
-    {
-      "from": "backend-delivery:connections",
-      "kind": "blocks",
-      "to": "qa-backend:connections"
     },
     {
       "from": "backend-delivery:delegated-admins",
@@ -10246,6 +10238,11 @@
       "from": "story:widgets",
       "kind": "flow",
       "to": "frontend-requirements:widgets"
+    },
+    {
+      "from": "backend-delivery:connections",
+      "kind": "pending",
+      "to": "decision:D-25"
     },
     {
       "from": "backend-delivery:connections",
@@ -56235,11 +56232,6 @@
     {
       "from": "backend-delivery:connections",
       "kind": "wikilink",
-      "to": "feature:badge-qr"
-    },
-    {
-      "from": "backend-delivery:connections",
-      "kind": "wikilink",
       "to": "feature:ring-invitations"
     },
     {
@@ -64234,7 +64226,7 @@
         "frontend-requirements:connections",
         "story:connections"
       ],
-      "effectiveStatus": "in-progress",
+      "effectiveStatus": "partial",
       "effort": null,
       "feature": "connections",
       "foundOn": null,
@@ -64258,8 +64250,13 @@
       "pending": [
         {
           "person": null,
-          "text": "merge backend branch FR-14/connection/requests-accept-contacts-block to main",
+          "text": "Connect, Block and the relationship by scanned code ({ qrToken }, S2, S13): POST /connections/requests, POST /blocks and GET /connections/relationship take a Pin name only; BadgeService.resolveCode (F-18, on main) is the lookup they should share (D-10)",
           "to": "story:connections"
+        },
+        {
+          "person": null,
+          "text": "UserService.softDelete does not yet end the deleted account's connections, requests and blocks; every list and the detail already leave the account out",
+          "to": "decision:D-25"
         }
       ],
       "priority": "critical",
@@ -64371,11 +64368,11 @@
         "s62",
         "s68"
       ],
-      "status": "in-progress",
-      "summary": "What the backend built for this feature and how it works. Nothing below is on main yet: it is on the backend branch FR-14/connection/requests-accept-contacts-block (345daf1, 7b58cc8, 4beb29e),…",
+      "status": "done",
+      "summary": "What the backend shipped for this feature and how it works. On backend main since 2026-11-08 (1c460b0, the merge of FR-14/connection/requests-accept-contacts-block: 345daf1, 7b58cc8, 4beb29e),…",
       "tags": [
         "backend-delivery",
-        "backend-delivery/in-progress",
+        "backend-delivery/done",
         "module/connections",
         "layer/backend"
       ],
@@ -67396,13 +67393,7 @@
       "affects": [
         "frontend-requirements:connections"
       ],
-      "blockedBy": [
-        {
-          "id": "backend-delivery:connections",
-          "title": "BD-14 Connections Backend Delivery",
-          "why": "BD-14 Connections Backend Delivery is in progress"
-        }
-      ],
+      "blockedBy": [],
       "card": "BI-16",
       "children": [],
       "code": "connections",
@@ -67412,7 +67403,7 @@
         "backend-delivery:connections",
         "frontend-requirements:connections"
       ],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "connections",
       "foundOn": null,
@@ -72941,10 +72932,10 @@
       "resolution": null,
       "rollup": {
         "approved": 2,
-        "blocked": 1,
         "decided": 12,
-        "in-progress": 1,
+        "draft": 1,
         "missing": 3,
+        "partial": 1,
         "verified": 12
       },
       "scope": null,
@@ -76038,7 +76029,7 @@
         {
           "id": "backend-integration:connections",
           "title": "BI-16 Connections Backend Integration",
-          "why": "BI-16 Connections Backend Integration is blocked"
+          "why": "BI-16 Connections Backend Integration is draft"
         }
       ],
       "card": null,
@@ -82054,10 +82045,11 @@
       "resolution": null,
       "rollup": {
         "approved": 2,
-        "blocked": 1,
         "decided": 12,
-        "in-progress": 2,
+        "draft": 1,
+        "in-progress": 1,
         "missing": 3,
+        "partial": 1,
         "verified": 12
       },
       "scope": null,
@@ -87298,13 +87290,7 @@
     },
     "qa-backend:connections": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "backend-delivery:connections",
-          "title": "BD-14 Connections Backend Delivery",
-          "why": "BD-14 Connections Backend Delivery is in progress"
-        }
-      ],
+      "blockedBy": [],
       "card": null,
       "children": [],
       "code": "connections",
@@ -91970,17 +91956,17 @@
       ],
       "rollup": {
         "approved": 43,
-        "blocked": 30,
+        "blocked": 29,
         "current": 5,
         "decided": 33,
         "delivered": 11,
         "done": 31,
-        "draft": 27,
+        "draft": 28,
         "failing": 1,
-        "in-progress": 50,
+        "in-progress": 49,
         "missing": 130,
         "needs-decision": 1,
-        "partial": 11,
+        "partial": 12,
         "passing": 7,
         "ready": 2,
         "reference": 32,
