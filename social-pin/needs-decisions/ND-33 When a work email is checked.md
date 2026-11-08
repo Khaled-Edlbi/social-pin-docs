@@ -14,7 +14,7 @@ updated: 2026-11-08
 tags: [needs-decision, needs-decision/open]
 ---
 
-# ❓ ND-33 · When a work email is checked
+# ✅ ND-33 · When a work email is checked
 
 **Status:** open · **Decider:** owner · **Raised:** 2026-11-08 · **Needed by:** [[S-33 Ring Invitations & Join Story]] (S4) · **Feature:** [[F-17 Ring Invitations & Join]]
 
@@ -45,4 +45,4 @@ Recommendation: option 1 for the MVP. It needs no scheduler and nothing that can
 
 ## Decision
 
-— (answered on its decision card, never written here: the PM or the owner, on the user's word, runs `node scripts/build-tree.mjs --scaffold decision ND-33 "<the answer>"`, fills the decision card D-NN and sets it `decided` with `decidedBy` and `decidedAt`; this card then shows Fulfilled by itself.)
+Fulfilled by [[D-33 Work email joining waits for real emails and Companies]] — decided 2026-11-08 by Omar Fostok: not now; a new card settles once vs yearly when Code Delivery and the work-email domain exist
