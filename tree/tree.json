@@ -6188,7 +6188,7 @@
     },
     "concepts": 291,
     "decisions": 34,
-    "edges": 6999,
+    "edges": 7002,
     "features": 41,
     "layerNotes": 151,
     "modules": 8,
@@ -15899,6 +15899,16 @@
       "via": [
         "GET /files/content/:token"
       ]
+    },
+    {
+      "from": "backend-integration:view-as",
+      "kind": "related",
+      "to": "decision:D-02"
+    },
+    {
+      "from": "backend-integration:view-as",
+      "kind": "related",
+      "to": "decision:D-05"
     },
     {
       "from": "backend-integration:view-as",
@@ -51513,6 +51523,11 @@
       "to": "project:ring-access-model"
     },
     {
+      "from": "backend-integration:view-as",
+      "kind": "wikilink",
+      "to": "story:ring-projection"
+    },
+    {
       "from": "decision:D-01",
       "kind": "wikilink",
       "to": "feature:auth"
@@ -63688,6 +63703,8 @@
         "backend-integration:rings",
         "frontend-requirements:rings",
         "qa-backend:rings",
+        "decision:D-02",
+        "decision:D-05",
         "decision:D-16",
         "needs-decision:ND-16",
         "backend-delivery:files",
@@ -63896,6 +63913,7 @@
         "backend-integration:ring-projection",
         "frontend-requirements:ring-projection",
         "story:ring-projection",
+        "backend-integration:view-as",
         "frontend-requirements:companies",
         "story:companies"
       ],
@@ -64160,7 +64178,8 @@
         "backend-delivery:rings",
         "backend-integration:rings",
         "qa-backend:rings",
-        "story:rings"
+        "story:rings",
+        "backend-integration:view-as"
       ],
       "release": null,
       "resolution": null,
