@@ -50730,6 +50730,11 @@
       "to": "story:payments"
     },
     {
+      "from": "backend-delivery:photo-library",
+      "kind": "wikilink",
+      "to": "frontend-delivery:photo-library"
+    },
+    {
       "from": "backend-delivery:pincast",
       "kind": "wikilink",
       "to": "feature:cleanup-jobs"
@@ -51918,11 +51923,6 @@
       "from": "frontend-delivery:counts",
       "kind": "wikilink",
       "to": "feature:ring-members"
-    },
-    {
-      "from": "frontend-delivery:photo-library",
-      "kind": "wikilink",
-      "to": "backend-delivery:photo-library"
     },
     {
       "from": "frontend-delivery:ring-access",
