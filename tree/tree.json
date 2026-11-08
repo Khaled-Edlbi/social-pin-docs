@@ -4228,6 +4228,7 @@
       "notes": [
         "backend-delivery:badge-qr",
         "backend-delivery:connections",
+        "backend-integration:badge-qr",
         "backend-integration:connections",
         "decision:D-10",
         "decision:D-17",
@@ -6616,7 +6617,7 @@
     },
     "concepts": 318,
     "decisions": 34,
-    "edges": 7539,
+    "edges": 7538,
     "features": 41,
     "layerNotes": 155,
     "modules": 8,
@@ -6679,9 +6680,7 @@
   ],
   "diagnostics": {
     "errors": [],
-    "warnings": [
-      "social-pin/modules/Discovery/features/Badge & QR/flow/BD-18 Badge & QR Backend Delivery.md: status: done, but its Backend Integration is `draft`: the requirements of this scope cannot reach `delivered` until it is `current`"
-    ]
+    "warnings": []
   },
   "edges": [
     {
@@ -8348,11 +8347,6 @@
       "from": "backend-integration:audit-log",
       "kind": "blocks",
       "to": "frontend-delivery:audit-log"
-    },
-    {
-      "from": "backend-integration:badge-qr",
-      "kind": "blocks",
-      "to": "frontend-delivery:badge-qr"
     },
     {
       "from": "backend-integration:build-deploy",
@@ -11529,7 +11523,8 @@
       "via": [
         "E_RING_02",
         "GET /views/pin/:pinName",
-        "GET /views/qr/:token"
+        "GET /views/qr/:token",
+        "POST /connections/requests"
       ]
     },
     {
@@ -16599,7 +16594,8 @@
       "via": [
         "E_RING_02",
         "GET /rings",
-        "GET /views/pin/:pinName"
+        "GET /views/pin/:pinName",
+        "POST /connections/requests"
       ]
     },
     {
@@ -64269,6 +64265,7 @@
         "frontend-requirements:connections",
         "story:connections",
         "backend-delivery:badge-qr",
+        "backend-integration:badge-qr",
         "frontend-requirements:badge-qr",
         "needs-decision:ND-29",
         "task:B-09",
@@ -64283,7 +64280,6 @@
         "project:spec-map",
         "task:B-08",
         "needs-decision:ND-22",
-        "backend-integration:badge-qr",
         "story:badge-qr",
         "frontend-requirements:discover-hub",
         "story:discover-hub",
@@ -67042,7 +67038,7 @@
         "frontend-requirements:badge-qr",
         "story:badge-qr"
       ],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "current",
       "effort": null,
       "feature": "badge-qr",
       "foundOn": null,
@@ -67162,11 +67158,11 @@
         "s44",
         "s56"
       ],
-      "status": "draft",
-      "summary": "Written by the backend team for the frontend: how to call what was delivered. draft: the routes below are on the backend branch FR-18/badge/qr-token-issue-resolve, not on main yet; this note goes…",
+      "status": "current",
+      "summary": "Written by the backend team for the frontend: how to call what was delivered. current: matches backend main 1c460b0 (the badge module from FR-18/badge/qr-token-issue-resolve, a566a2e).",
       "tags": [
         "backend-integration",
-        "backend-integration/draft",
+        "backend-integration/current",
         "module/discovery",
         "layer/backend"
       ],
@@ -67436,10 +67432,10 @@
         "needs-decision:ND-24",
         "frontend-requirements:connections",
         "backend-delivery:badge-qr",
+        "backend-integration:badge-qr",
         "frontend-requirements:badge-qr",
         "needs-decision:ND-29",
         "needs-decision:ND-22",
-        "backend-integration:badge-qr",
         "story:badge-qr",
         "frontend-requirements:discover-hub",
         "story:discover-hub",
@@ -72518,10 +72514,11 @@
       "release": "mvp",
       "resolution": null,
       "rollup": {
-        "approved": 2,
+        "approved": 1,
+        "current": 1,
         "decided": 3,
+        "delivered": 1,
         "done": 1,
-        "draft": 1,
         "missing": 3,
         "verified": 3
       },
@@ -75774,13 +75771,7 @@
     },
     "frontend-delivery:badge-qr": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "backend-integration:badge-qr",
-          "title": "BI-15 Badge & QR Backend Integration",
-          "why": "BI-15 Badge & QR Backend Integration is draft"
-        }
-      ],
+      "blockedBy": [],
       "card": null,
       "children": [],
       "code": "badge-qr",
@@ -78156,6 +78147,7 @@
       "affects": [
         "backend-delivery:badge-qr"
       ],
+      "autoDelivered": true,
       "blockedBy": [],
       "card": "FR-18",
       "children": [],
@@ -78163,7 +78155,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "approved",
+      "effectiveStatus": "delivered",
       "effort": null,
       "feature": "badge-qr",
       "foundOn": null,
@@ -82089,11 +82081,13 @@
       "release": null,
       "resolution": null,
       "rollup": {
-        "approved": 4,
+        "approved": 3,
         "blocked": 2,
+        "current": 1,
         "decided": 3,
+        "delivered": 1,
         "done": 1,
-        "draft": 3,
+        "draft": 2,
         "in-progress": 3,
         "missing": 11,
         "verified": 3
@@ -91933,13 +91927,13 @@
         }
       ],
       "rollup": {
-        "approved": 43,
+        "approved": 42,
         "blocked": 29,
-        "current": 5,
+        "current": 6,
         "decided": 33,
-        "delivered": 11,
+        "delivered": 12,
         "done": 32,
-        "draft": 28,
+        "draft": 27,
         "failing": 1,
         "in-progress": 49,
         "missing": 130,

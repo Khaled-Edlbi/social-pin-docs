@@ -3,7 +3,7 @@ id: BI-15
 type: backend-integration
 module: discovery
 feature: badge-qr
-status: draft
+status: current
 scope: feature
 screens: [s34, s43, s44, s56]
 depends: ["BD-18 Badge & QR Backend Delivery", "FR-18 Badge & QR Frontend Requirements", "S-37 Badge & QR Story"]
@@ -12,16 +12,14 @@ related: ["POST /rings/:ringId/qr", "POST /rings/:ringId/qr/reset", "GET /rings/
 pending: []
 created: 2026-11-08
 updated: 2026-11-08
-tags: [backend-integration, backend-integration/draft, module/discovery, layer/backend]
+tags: [backend-integration, backend-integration/current, module/discovery, layer/backend]
 ---
 
 # 🔌 Badge & QR · Backend Integration
 
-> Blocked by default until [[BD-18 Badge & QR Backend Delivery]] is `done` (the hand-off order in `docs.config.json`); `blockedBy: []` opts out, `blockedBy: [...]` names other blockers.
+**Feature:** [[F-18 Badge & QR]] · **Backend:** ✅ [[BD-18 Badge & QR Backend Delivery]] · **Read first:** [[Frontend Contract]], [[Frontend API Guide]], [[BI-09 View As & Pin Views Backend Integration]]
 
-**Feature:** [[F-18 Badge & QR]] · **Backend:** [[BD-18 Badge & QR Backend Delivery]] (in progress) · **Read first:** [[Frontend Contract]], [[Frontend API Guide]], [[BI-09 View As & Pin Views Backend Integration]]
-
-Written by the **backend** team for the frontend: how to call what was delivered. **`draft`:** the routes below are on the backend branch `FR-18/badge/qr-token-issue-resolve`, **not on `main` yet**; this note goes `current` when that branch merges. Build against it; don't ship against it before then.
+Written by the **backend** team for the frontend: how to call what was delivered. **`current`:** matches backend `main` `1c460b0` (the badge module from `FR-18/badge/qr-token-issue-resolve`, `a566a2e`).
 
 ## Screens → calls
 
@@ -32,7 +30,7 @@ Written by the **backend** team for the frontend: how to call what was delivered
 | s34 | sees the scan count | `GET /rings/:ringId/qr/scans` on badge open, no polling |
 | [[Screen Index#s43\|s43]] Scanner | reads a `https://socialpin.me/q/<token>` code, camera or *From photos* | `GET /views/qr/:token` → s44 |
 | s43 | *Enter a Pin name* | `GET /views/pin/:pinName` (exists, [[BI-09 View As & Pin Views Backend Integration\|BI-09]]) |
-| [[Screen Index#s44\|s44]] Scanned card | *Connect* | `POST /connections/requests { qrToken }` ([[FR-14 Connections Frontend Requirements\|FR-14]], not built here) |
+| [[Screen Index#s44\|s44]] Scanned card | *Connect* | `POST /connections/requests { qrToken }` ([[FR-14 Connections Frontend Requirements\|FR-14]]): **not accepted yet** on `main`; `{ pinName }` is |
 
 ## Flow
 
@@ -104,8 +102,8 @@ The error body carries no `ErrorCode` field today: branch on `statusCode` (and t
 
 ## Not available yet
 
-- On `main`: none of these routes until `FR-18/badge/qr-token-issue-resolve` merges ([[BD-18 Badge & QR Backend Delivery]]).
-- *Connect* by scanned code: [[FR-14 Connections Frontend Requirements]] / BD-14.
+- *Connect* by scanned code: `POST /connections/requests` takes `{ pinName }` but not `{ qrToken }` yet ([[FR-14 Connections Frontend Requirements]], [[BD-14 Connections Backend Delivery]]); keep *Connect* off on a scanned card until it does.
+- Scanning someone into a Ring: not in the MVP ([[D-28 Scan someone in is not in the MVP|D-28]]).
 - Telling a join QR from a badge: BD-17 ([[D-35 A join code can be shown as a QR|D-35]]).
 - *Share link*, the `/q/<token>` web page, app links: wait on the domain ([[D-12 The badge QR is a socialpin.me link|D-12]], [[S-37 Badge & QR Story|S-37 S12]]).
 - A Pro permanent code (S14) and the 60 s event pass (S15): not built.
@@ -123,3 +121,4 @@ The error body carries no `ErrorCode` field today: branch on `statusCode` (and t
 ## Log
 
 - 2026-11-08 · `docs/backend/M-04-discovery/F-18-badge-qr/BI-15-backend-integration` (stacked on `BD-18-qr-code-route`) · written as `draft` against the backend branch `FR-18/badge/qr-token-issue-resolve` (`a566a2e`, not merged): the code, reset, scan count and resolve routes, shapes, errors (`E_BADGE_01` new, `E_RING_03` now used), rules; goes `current` when the branch merges
+- 2026-11-08 · `docs/backend/M-04-discovery/F-18-badge-qr/BI-15-current` (stacked on `BD-18-shipped`) · `current`: checked against backend `main` `1c460b0` (badge module unchanged since `a566a2e`; `assertRingPresented` and the `E_RING_ACCESS_01` body unchanged by the F-14 and F-17 merges): token 32 characters, 24 h from `issuedAt`; the four routes; the one 404 body; 429 `E_BADGE_01` past 20 a minute. Connect by `{ qrToken }` marked not accepted yet
