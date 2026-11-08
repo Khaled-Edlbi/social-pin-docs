@@ -18,6 +18,8 @@ tags: [qa-backend, qa-backend/failing, module/identity, layer/qa]
 
 # 🧪 Rings · QA Backend
 
+> ⚠ Affected by [[BD-11 Rings Backend Delivery]] (2026-11-08): backend main e483d49 fixes B-13, B-14, B-15 and B-16 (rows B4, B22, B30, B36, B37, B63, B64): the four bugs are ready for re-test; disposition outside a lapsed temporary Ring is now 409 E_RING_10 (/qa)
+
 > Blocked by default until [[BD-11 Rings Backend Delivery]] is `done` (the hand-off order in `docs.config.json`); `blockedBy: []` opts out, `blockedBy: [...]` names other blockers.
 
 **Feature:** [[F-11 Rings]] · **Verifies:** [[BD-11 Rings Backend Delivery]] against [[S-18 Rings Story]] and [[FR-11 Rings Frontend Requirements]], with the shapes and errors of [[BI-08 Rings Backend Integration]] · **Verdict:** 🔴 Failing · 2026-11-05 · backend `main @ 12172c6` · 71 of 78 as expected, 7 differ (4 bugs filed: [[B-13 The string false is read as true on Ring filters and settings|B-13]], [[B-14 PATCH a Ring with null on a required field answers 500|B-14]], [[B-15 Disposition runs on a permanent Ring, the default included|B-15]], [[B-16 Ring colour and purpose accept values the contract refuses|B-16]]), no story part unmet
