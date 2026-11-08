@@ -2824,6 +2824,7 @@
         "backend-delivery:ring-members",
         "backend-integration:ring-members",
         "frontend-requirements:companies",
+        "frontend-requirements:ring-access",
         "frontend-requirements:ring-members",
         "qa-backend:ring-access",
         "qa-backend:ring-members",
@@ -6636,7 +6637,7 @@
     },
     "concepts": 318,
     "decisions": 34,
-    "edges": 7551,
+    "edges": 7552,
     "features": 41,
     "layerNotes": 155,
     "modules": 8,
@@ -26891,6 +26892,7 @@
       "via": [
         "E_RING_02",
         "E_RING_05",
+        "GET /rings/:ringId/members",
         "GET /rings/shared-with-me",
         "GET /views/ring/:ringId",
         "PATCH /rings/:id"
@@ -27002,7 +27004,8 @@
       "to": "frontend-requirements:ring-members",
       "via": [
         "E_RING_02",
-        "E_RING_05"
+        "E_RING_05",
+        "GET /rings/:ringId/members"
       ]
     },
     {
@@ -27202,6 +27205,7 @@
       "via": [
         "E_RING_02",
         "E_RING_05",
+        "GET /rings/:ringId/members",
         "GET /views/pin/:pinName"
       ]
     },
@@ -58393,6 +58397,11 @@
       "from": "frontend-requirements:ring-access",
       "kind": "wikilink",
       "to": "feature:connections"
+    },
+    {
+      "from": "frontend-requirements:ring-access",
+      "kind": "wikilink",
+      "to": "feature:ring-invitations"
     },
     {
       "from": "frontend-requirements:ring-access",
