@@ -15,6 +15,8 @@ tags: [backend-delivery, backend-delivery/done, module/identity, layer/backend]
 
 # ✅ Ring Access Engine · Backend Delivery
 
+> ⚠ Affected by [[BD-17 Ring Invitations & Join Backend Delivery]] (2026-11-08): RingAccessService on FR-17/ring-invitation/invitations-codes-origin (not merged): isRingNamedToMember reads RingMember.origin; new ringOpenFilter, isRingOpen, joinPolicyAllowsCodes, assertCanInvite, ownerNotBlockedWithFilter; the Shared with me row prefers a Ring joined knowingly
+
 **Feature:** [[F-08 Ring Access Engine]] · **Status:** Done · **Integration guide:** [[BI-05 Ring Access Engine Backend Integration]] · **Requirements:** [[FR-08 Ring Access Engine Frontend Requirements]] · **QA:** [[QB-09 Ring Access Engine QA Backend]]
 
 What the backend shipped for this feature and how it works.
