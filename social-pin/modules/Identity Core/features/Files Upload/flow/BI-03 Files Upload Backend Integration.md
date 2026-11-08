@@ -6,9 +6,9 @@ feature: files
 status: current
 scope: feature
 screens: [s14, s20, s29, s30, s36]
-related: ["D-16 Files load from signed links that expire in 15 minutes", "BD-04 Files Upload Backend Delivery", "BI-07 Ring Projection Backend Integration", "BI-09 View As & Pin Views Backend Integration", "GET /files", "GET /files/content/:token", "GET /files/:id", "POST /files", "DELETE /files/:id", E_FILE_01, E_FILE_02, E_FILE_03, E_FILE_04]
+related: ["D-02 One main profile every Ring starts from", "D-16 Files load from signed links that expire in 15 minutes", "BD-04 Files Upload Backend Delivery", "BI-13 Photo Library Backend Integration", "BI-07 Ring Projection Backend Integration", "BI-09 View As & Pin Views Backend Integration", "GET /files", "GET /files/content/:token", "GET /files/:id", "POST /files", "DELETE /files/:id", E_FILE_01, E_FILE_02, E_FILE_03, E_FILE_04]
 created: 2026-10-15
-updated: 2026-11-05
+updated: 2026-11-08
 tags: [backend-integration, backend-integration/current, module/identity, layer/backend]
 ---
 
@@ -23,7 +23,7 @@ What the client builds: the upload step behind a Ring photo and a Ring attachmen
 | Screen | The user does | Calls |
 |---|---|---|
 | [[Screen Index#s29\|s29]] Photo for this Ring | picks a photo | `POST /files` then `PATCH /rings/:ringId/projection { avatarFileId }`; shows it from the projection's `avatarUrl` |
-| [[Screen Index#s30\|s30]] Photo library | sees every photo they uploaded, and which Rings use each | `GET /files?kind=image` (thumbnails from each item's `url`, Rings from `usedBy`) |
+| [[Screen Index#s30\|s30]] Photo library | sees every photo they uploaded, and which Rings use each | `GET /files?kind=image` (thumbnails from each item's `url`, Rings from `usedBy`, the PIN mark from `isMainPhoto`, "N Rings inherit it" from `followerCount`) |
 | [[Screen Index#s24\|s24]], [[Screen Index#s20\|s20]] | switches files on and off for a Ring | `GET /files?kind=document`, merged with the projection's `attachments[]` by `fileId` |
 | [[Screen Index#s36\|s36]], [[Screen Index#s20\|s20]], [[Screen Index#s14\|s14]] | attaches a file; opens one | `POST /files` then `POST /rings/:ringId/projection/attachments { fileId }`; opens it from the attachment's `url` |
 | any | checks a file they uploaded | `GET /files/:id` |
@@ -42,7 +42,19 @@ What the client builds: the upload step behind a Ring photo and a Ring attachmen
 
 `FileEntity`: `id`, `filename`, `mimeType`, `sizeBytes`, `checksum` (SHA-256), `visibility` (`CONTEXT_SCOPED` / `PUBLIC`), `createdById`, `createdAt`, **`url`** (signed, 15 minutes). **No storage path**, on purpose.
 
-`FileListItem` (`GET /files`): `FileEntity` plus **`usedBy: [{ ringId, name }]`**: the caller's live Rings whose photo (`avatarFileId`) is this file, by name. Attachments are not counted. Empty for a file no Ring uses as its photo (every document).
+`FileListItem` (`GET /files`): `FileEntity` plus
+- **`usedBy: [{ ringId, name }]`**: the caller's Rings whose photo (`avatarFileId`) is this file, by name. Attachments are not counted. Deleted Rings are left out; an expired or archived one is still named. Empty for a file no Ring uses as its photo (every document).
+- **`isMainPhoto: boolean`**: `true` on the main photo (the main profile's `avatarFileId`, set with `PATCH /profiles/:id`), `false` on every other file and on every file while there is no main photo.
+- **`followerCount: number | null`**: on the main photo, how many of the caller's **live** Rings follow it, because their projection has no photo of its own (`avatarFileId: null`), `0` included; Rings that picked the main photo themselves are in its `usedBy` instead. `null` on every other file. Always present.
+
+```json
+{ "id": "5a0c…", "filename": "me.png", "mimeType": "image/png", "url": "/api/v1/files/content/Qm9…",
+  "usedBy": [{ "ringId": "20b0…", "name": "Clients" }], "isMainPhoto": true, "followerCount": 3 }
+{ "id": "7c41…", "filename": "Portfolio.pdf", "mimeType": "application/pdf", "url": "/api/v1/files/content/Zx1…",
+  "usedBy": [], "isMainPhoto": false, "followerCount": null }
+```
+
+(abridged: every item carries the full `FileEntity` too).
 
 A **signed link** looks like `/api/v1/files/content/<opaque token>` (absolute, `https://…/api/v1/files/content/…`, when the API is deployed with `PUBLIC_BASE_URL`; otherwise prefix the API's origin). The token names no file id. The response carries the file's own `Content-Type`, `Content-Disposition: inline` with the original name, `X-Content-Type-Options: nosniff`, and `Cache-Control: private, max-age=<seconds left>`: an image cache keeps it no longer than the link lives.
 
@@ -83,7 +95,6 @@ Send the real MIME type with the part; the allow-list is checked on the declared
 
 ## Not available yet
 
-- **`followerCount`** on the main photo ("N Rings inherit it", [[S-11 Photo Library Story|Photo Library · S8]]): there is no main photo until the main profile ships ([[BD-07 Profiles & Pin Name Backend Delivery]], S-14 S9–S11). Until then show no inherit count.
 - Thumbnails and resized images: every link serves the original; downsize on the client.
 
 ## Checklist
@@ -94,3 +105,4 @@ Send the real MIME type with the part; the allow-list is checked on the declared
 - [ ] Library pages from `GET /files?kind=`, infinite scroll on `skip`, `meta.total` for the count.
 - [ ] Every image and download from a signed link, no bearer; one re-read of the entity when a link fails, never a URL built from ids.
 - [ ] Delete clears the Rings in `usedBy` first.
+- [ ] PIN mark from `isMainPhoto`; the inherit count from `followerCount`, never computed on the client.
