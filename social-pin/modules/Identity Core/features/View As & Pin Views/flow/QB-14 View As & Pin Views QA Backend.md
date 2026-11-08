@@ -3,24 +3,24 @@ id: QB-14
 type: qa-backend
 module: identity
 feature: view-as
-status: failing
+status: passing
 scope: feature
 screens: [s10, s31, s44, s62]
 depends: ["BD-12 View As & Pin Views Backend Delivery", "S-19 View As & Pin Views Story"]
 affects: ["BI-09 View As & Pin Views Backend Integration"]
 related: ["BI-09 View As & Pin Views Backend Integration", "FR-12 View As & Pin Views Frontend Requirements", "D-16 Files load from signed links that expire in 15 minutes", "BD-08 Ring Access Engine Backend Delivery", "BI-03 Files Upload Backend Integration", "QB-06 Files Upload QA Backend", "S-87 Error Contract Story", "B-17 A new Ring answers 404 to its own owner until its projection is opened", "GET /views/pin/:pinName", "GET /views/ring/:ringId", "GET /views/user/:userId/perspectives", "GET /files/content/:token", E_AUTH_03, E_USER_01, E_FILE_01]
-pending: ["[[B-17 A new Ring answers 404 to its own owner until its projection is opened]]: rows B33, B34 and B45 re-run once the fix ships", "[[BD-12 View As & Pin Views Backend Delivery]]: row B56 re-run once avatarFileId leaves the viewer's view (D-16)", "[[BD-12 View As & Pin Views Backend Delivery]]: row B32 re-run once BD-08 decides what a non-member gets for an expired Ring"]
+pending: ["[[BD-12 View As & Pin Views Backend Delivery]]: row B56 re-run once avatarFileId leaves the viewer's view (D-16)", "[[BD-12 View As & Pin Views Backend Delivery]]: row B32 re-run once BD-08 decides what a non-member gets for an expired Ring"]
 unmet: []
 created: 2026-11-05
-updated: 2026-11-05
-tags: [qa-backend, qa-backend/failing, module/identity, layer/qa]
+updated: 2026-11-08
+tags: [qa-backend, qa-backend/passing, module/identity, layer/qa]
 ---
 
 # 🧪 View As & Pin Views · QA Backend
 
 > Blocked by default until [[BD-12 View As & Pin Views Backend Delivery]] is `done` (the hand-off order in `docs.config.json`); `blockedBy: []` opts out, `blockedBy: [...]` names other blockers.
 
-**Feature:** [[F-12 View As & Pin Views]] · **Verifies:** [[BD-12 View As & Pin Views Backend Delivery]] against [[S-19 View As & Pin Views Story]] and [[FR-12 View As & Pin Views Frontend Requirements]], with the shapes and errors of [[BI-09 View As & Pin Views Backend Integration]] · **Verdict:** 🔴 Failing · 2026-11-05 · `main @ 12172c6 · localhost:3112, Node 22.22.2` · 58 of 61 delivered rows as expected, 2 not delivered yet, [[B-17 A new Ring answers 404 to its own owner until its projection is opened|B-17]] filed
+**Feature:** [[F-12 View As & Pin Views]] · **Verifies:** [[BD-12 View As & Pin Views Backend Delivery]] against [[S-19 View As & Pin Views Story]] and [[FR-12 View As & Pin Views Frontend Requirements]], with the shapes and errors of [[BI-09 View As & Pin Views Backend Integration]] · **Verdict:** 🟢 Passing · 2026-11-08 · `main @ e483d49 · localhost:3112, Node 22.22.2` · 63 of 63 delivered rows as expected, 2 not delivered yet (BD-12 pending), [[B-17 A new Ring answers 404 to its own owner until its projection is opened|B-17]] closed
 
 Expected behaviour of the API, as artefacts a person can check a build against: tables and diagrams, **not test code** (the specs live in the backend repo). `status: passing` or `failing` after a run; the verdict tells the PM whether the story can be fulfilled (passing with nothing pending or unmet). A failing row is one of two things: a story part the delivery does not fulfil (not built, or built other than the story says) goes in `unmet` and turns the story's badge ✕; a bug (built as asked, but it breaks) is filed against the Backend Integration and goes in `pending`, and leaves the story alone.
 
@@ -30,7 +30,7 @@ Expected behaviour of the API, as artefacts a person can check a build against: 
 
 **Not covered.** S2's owner face ("where each field goes") is worked out on the phone. S3's scan context, S7's Save contact and the screens' copy and motion are client work: the QA Frontend covers them. Connect, Block as a feature and the QR token are other features ([[S-23 Connections Story|Connections]], [[F-18 Badge & QR]]); the block rows here insert the block row directly, as below. `widgets[]` is on the view but no route writes a widget yet ([[BD-13 Widgets Backend Delivery]]), so it is checked only as an empty list.
 
-**Accounts.** Seeded demo accounts, signed in with the one-time code from `devCode`: **Sara** (`SaraAz`, the owner), **Omar** (`OmarK`, a member of Sara's *My Ring* (her default), *E-commerce Clients* and *Family*, and of the Rings the run creates), the **organizer** (`GulfExpo`, a member of *E-commerce Clients* and *Family*, not of her default) and the **admin** (`SPAdmin`, in no Ring of Sara's: the stranger). Two accounts were signed up for the auth rows, **dina** and **eli**. Memberships, files, attachments, custom fields and the run's Rings (*TechSummit*, *FutureLaunch* starting 2027-01-01, *ToDelete*, *Fresh*) were made through the API. On *E-commerce Clients*: a hidden Telegram link (seeded), a hidden custom field "Private note", a hidden attachment "Internal margins", a visible custom field "Terms", a visible attachment "Price list" and a Ring photo. Sara's profile got `gender` and `maritalStatus` so that every sensitive field has a value.
+**Accounts.** Seeded demo accounts, signed in with the one-time code from `devCode`: **Sara** (`SaraAz`, the owner), **Omar** (`OmarK`, a member of Sara's *My Ring* (her default), *E-commerce Clients* and *Family*, and of the Rings the run creates), the **organizer** (`GulfExpo`, a member of *E-commerce Clients* and *Family*, not of her default) and the **admin** (`SPAdmin`, in no Ring of Sara's: the stranger). Two accounts were signed up for the auth rows, **dina** and **eli**; on 2026-11-08 dina was also added to *Fresh* alone for B64. Memberships, files, attachments, custom fields and the run's Rings (*TechSummit*, *FutureLaunch* starting 2027-01-01, *ToDelete*, *Fresh*) were made through the API. On *E-commerce Clients*: a hidden Telegram link (seeded), a hidden custom field "Private note", a hidden attachment "Internal margins", a visible custom field "Terms", a visible attachment "Price list" and a Ring photo. Sara's profile got `gender` and `maritalStatus` so that every sensitive field has a value.
 
 **Set in the database.** These states have no route yet, so they were written with SQL through the project's `pg` package, in the throwaway database `social_pin_qa_f12` only (never `social_pin`): a `user_blocks` row in each direction between Sara and the organizer (then deleted), `rings.expires_at` in the past on *TechSummit*, `ring_members.expires_at` in the past on the organizer's *E-commerce Clients* membership (then cleared), `users.status` `SUSPENDED` on dina and `DELETED` on eli.
 
@@ -84,9 +84,11 @@ Expected behaviour of the API, as artefacts a person can check a build against: 
 | B30 | — | the admin: a well-formed uuid no Ring has | 404 `E_RING_ACCESS_02` "Ring is not available" | ✅ |
 | B31 | — | `GET /views/ring/not-a-uuid` | 400 "Validation failed (uuid is expected)" | ✅ |
 | B32 | *TechSummit* expired | the admin, **not a member**: `GET /views/ring/<TechSummit>` | **Not delivered yet (BD-12 pending).** Today: 404 `E_RING_ACCESS_02` "Ring is not available", the expired body, which differs from the not-shared body a non-member gets on a live Ring (B22). Whether a non-member gets the not-shared body instead waits on [[BD-08 Ring Access Engine Backend Delivery]] | ⏳ |
-| B33 | *Fresh*, made by Sara with `POST /rings`, Omar a member, its projection never opened | Sara: View as on it (S1: "works on a Ring with almost nothing set") | expected 200, a view with the profile's name and the rest absent; **actual 404 `E_RING_ACCESS_01` "This profile is not shared with you"**: [[B-17 A new Ring answers 404 to its own owner until its projection is opened]] | 🔴 |
-| B34 | the same Ring | Omar: `GET /views/ring/<Fresh>` | expected 200; **actual 404 `E_RING_ACCESS_01`**, the not-shared body to a live member of a live Ring: B-17 | 🔴 |
-| B35 | Sara opens `GET /rings/<Fresh>/projection` once | Sara, then Omar: the same call | 200 for both: `displayName` "Sara Azzam", every sensitive field `null`, `links`, `infoBlocks`, `attachments` `[]` | ✅ |
+| B33 | *Fresh*, made by Sara with `POST /rings`, Omar a member, its projection never opened | Sara: View as on it (S1: "works on a Ring with almost nothing set") | 200, the **empty projection**: `pinName` "SaraAz", `displayName` "Sara Azzam", the main profile's bio, every sensitive field `null`, `links`, `infoBlocks`, `widgets`, `attachments` `[]`, no `ringId`. Failed on 12172c6 (404 not-shared, [[B-17 A new Ring answers 404 to its own owner until its projection is opened]]); passes on e483d49 | ✅ |
+| B34 | the same Ring | Omar: `GET /views/ring/<Fresh>` | 200, byte for byte the body of B33. Failed on 12172c6 (B-17); passes on e483d49 | ✅ |
+| B35 | Sara opens `GET /rings/<Fresh>/projection` once, which creates the projection row | Sara, then Omar: the same call | 200 for both, **byte for byte the body of B33**: the view does not change when the row is created | ✅ |
+| B64 | dina, a member of *Fresh* only, its projection still never opened | `GET /views/pin/SaraAz`, then `GET /views/user/<Sara>/perspectives` | pin 200, the empty projection of B33; perspectives one entry, the same view | ✅ |
+| B65 | B33, B34 and B64 have run | count the projection rows of *Fresh* in the database | still none: a viewer's read writes nothing | ✅ |
 
 ### `GET /views/user/:userId/perspectives` — S5
 
@@ -101,7 +103,7 @@ Expected behaviour of the API, as artefacts a person can check a build against: 
 | B42 | Sara makes *Family* the default | Omar: the same call | *Family* first, then *My Ring*, *E-commerce Clients*, … in creation order | ✅ |
 | B43 | a block either way between Sara and the organizer | the organizer: the same call | 200 `[]` | ✅ |
 | B44 | *TechSummit* expired | Omar: the same call | five entries, *TechSummit* gone | ✅ |
-| B45 | *Fresh* as in B33 | Omar: the same call, before and after Sara opens its projection | expected *Fresh* among the entries from the start; **actual: left out (five entries) until the projection is opened, then six**: B-17 | 🔴 |
+| B45 | *Fresh* as in B33 | Omar: the same call, before and after Sara opens its projection | *Fresh* among the entries from the start, as its empty projection: six entries before and six after. Failed on 12172c6 (left out until the projection was opened, B-17); passes on e483d49 | ✅ |
 
 ### The view's shape — what a viewer may and may not receive
 
@@ -140,19 +142,16 @@ stateDiagram-v2
   direction LR
   [*] --> NotLive: Ring not started, expired, deleted or unknown id
   [*] --> NotShared: viewer not a member
-  [*] --> Shown: viewer is the owner, or a live member, of a live Ring
+  [*] --> Shown: viewer is the owner, or a live member, of a live Ring (a Ring with no projection row yet shows the empty projection)
   NotShared --> Shown: owner adds the viewer
   Shown --> NotShared: membership expires or is removed
   Shown --> NotShared: a block, either way (owner's own read stays Shown)
   NotShared --> Shown: block removed
   Shown --> NotLive: Ring expires or is deleted (owner included)
   NotLive --> Shown: startsAt reached
-  Shown --> NoProjection: B-17, a Ring made by POST /rings before its projection is opened
-  NoProjection --> Shown: owner opens GET /rings/:id/projection once
   state "200 view" as Shown
   state "404 E_RING_ACCESS_01" as NotShared
   state "404 E_RING_ACCESS_02" as NotLive
-  state "404 E_RING_ACCESS_01 (bug)" as NoProjection
 ```
 
 ## Error matrix
@@ -169,7 +168,6 @@ stateDiagram-v2
 | Ring expired, not started, deleted, unknown id | ring | 404 | `E_RING_ACCESS_02` | "Ring is not available" | the owner's and the member's are one body | B26–B30 |
 | malformed `ringId` / `userId` | ring, perspectives | 400 | — | "Validation failed (uuid is expected)" | — | B31, B40 |
 | expired Ring, viewer not a member | ring | 404 | not decided ([[BD-12 View As & Pin Views Backend Delivery]] pending) | "Ring is not available" today | — | B32 ⏳ |
-| live Ring, projection never opened | ring | 404 | — (should be 200) | "This profile is not shared with you" | B-17 | B33, B34 🔴 |
 | signed link forged, expired | `GET /files/content/:token` | 404 | `E_FILE_01` | "File not found" | — | B60, B63 |
 
 ## Privacy and access checks
@@ -184,11 +182,13 @@ stateDiagram-v2
 
 ## Verdict
 
-- Run on: 2026-11-05 · build: `main @ 12172c6 · localhost:3112, Node 22.22.2`, throwaway database `social_pin_qa_f12` (seeded, then dropped) · result: 🔴 failing, 58 of 61 delivered rows as expected · failing rows: B33, B34, B45 · not delivered yet: B32, B56 (BD-12 pending, not failures) · story parts unmet: none · bugs: [[B-17 A new Ring answers 404 to its own owner until its projection is opened]] (`/backend`).
-- B-17 is a bug, not an unmet part: the route is built as BI-09 says, and breaks on one state of a Ring, the one a Ring is in between `POST /rings` and the owner's first `GET /rings/:id/projection`. It breaks S-19 S1 ("works on a Ring with almost nothing set") when the client creates a Ring and previews it without writing any projection field first.
-- The rest of S-19's backend half holds on this build: the default-then-oldest rule, one 404 body, no Ring on the view, the `show*` gates, hidden rows, signed links, and auth on all three routes.
+- Run on: 2026-11-08 · build: `main @ e483d49 · localhost:3112, Node 22.22.2`, a fresh throwaway database `social_pin_qa_f12` (seeded, then dropped) · result: 🟢 passing, 63 of 63 delivered rows as expected · failing rows: none · not delivered yet: B32, B56 (BD-12 pending, not failures) · story parts unmet: none · bugs: none open; [[B-17 A new Ring answers 404 to its own owner until its projection is opened]] re-tested and closed (`done`, `resolution: fixed`).
+- 61 rows were re-run on `e483d49`: every `/views/*` row, auth, shape and links B57–B61, plus the new B64 and B65. B62 and B63 (the 15-minute link expiry) were not waited out again. They stand from the 2026-11-05 run on `12172c6`: `src/modules/file`, which mints and serves the links, did not change between the two builds.
+- Previous run: 2026-11-05 on `12172c6`, 🔴 failing, 58 of 61. B33, B34 and B45 failed on B-17, which is now fixed.
+- The backend half of S-19 holds on this build. What is left is BD-12's own pending items (rows B32, B56); the QA Frontend is still to be run.
 
 ## Log
 
 - 2026-11-05 · written and run on `main @ 12172c6` (localhost:3112, throwaway database `social_pin_qa_f12`): 58 of 61 delivered rows as expected, B33, B34, B45 failing, filed [[B-17 A new Ring answers 404 to its own owner until its projection is opened]]; B32 and B56 recorded as not delivered yet (BD-12 pending)
 - 2026-11-05 · flagged [[BI-09 View As & Pin Views Backend Integration]]: on main 12172c6, GET /views/ring/:ringId answers 404 E_RING_ACCESS_01 to the owner and to live members of a Ring made with POST /rings until the owner first opens GET /rings/:id/projection, and /perspectives leaves it out: B-17 (/backend)
+- 2026-11-08 · re-run on `main @ e483d49` (localhost:3112, fresh throwaway database `social_pin_qa_f12`): 63 of 63 delivered rows as expected. B33, B34 and B45 now pass; B64 and B65 added (a viewer in the new Ring alone; reads write no projection row). B-17 closed on its own branch. Status → passing. B32 and B56 stay not delivered yet (BD-12 pending)

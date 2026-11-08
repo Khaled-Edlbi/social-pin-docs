@@ -3,7 +3,8 @@ id: B-14
 type: bug
 module: identity
 feature: rings
-status: ready
+status: done
+resolution: fixed
 priority: medium
 effort: S
 foundOn: "BI-08 Rings Backend Integration"
@@ -14,14 +15,12 @@ related: ["BI-08 Rings Backend Integration", "QB-12 Rings QA Backend", "BD-11 Ri
 pending: []
 created: 2026-11-05
 updated: 2026-11-08
-tags: [bug, bug/ready, module/identity, priority/medium]
+tags: [bug, bug/done, module/identity, priority/medium, resolution/fixed]
 ---
 
-# 📨 B-14 · PATCH a Ring with null on a required field answers 500
+# ✅ B-14 · PATCH a Ring with null on a required field answers 500
 
-> ⚠ Affected by [[BD-11 Rings Backend Delivery]] (2026-11-08): fixed on backend main e483d49 (38b2b97: `PATCH /rings/:id` takes `null` only where it clears (`purpose`, `colorHex`, `style`, `startsAt`, `expiresAt`, `parentRingId`); `null` on any other field is a 400 validation error), ready for re-test
-
-**Found against:** [[BI-08 Rings Backend Integration]] · **Feature:** [[F-11 Rings]] · **Status:** Ready · **Priority:** Medium (`critical | high | medium | low`, from `docs.config.json`) · **Deadline:** — · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
+**Found against:** [[BI-08 Rings Backend Integration]] · **Feature:** [[F-11 Rings]] · **Status:** Done · **Priority:** Medium (`critical | high | medium | low`, from `docs.config.json`) · **Deadline:** — · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
 
 **Found by:** [[QB-12 Rings QA Backend]] row B30, on build backend `main @ 12172c6` (2026-11-05).
 
@@ -51,12 +50,13 @@ Output of `node scripts/build-tree.mjs --impact B-14` when the bug was filed: th
 
 ## Definition of done
 
-- [ ] The behaviour is fixed, or the notes are corrected, as the decision says (`resolution:` set, the tag `resolution/<id>` with it)
-- [ ] The QA row that found it re-run against the fix, on a named build
-- [ ] `depends` / `affects` / `related` declared; notes listed by `--impact` updated or flagged
-- [ ] `node scripts/build-tree.mjs` run; tree, board and backlog committed
+- [x] The behaviour is fixed, or the notes are corrected, as the decision says (`resolution:` set, the tag `resolution/<id>` with it)
+- [x] The QA row that found it re-run against the fix, on a named build
+- [x] `depends` / `affects` / `related` declared; notes listed by `--impact` updated or flagged
+- [x] `node scripts/build-tree.mjs` run; tree, board and backlog committed
 
 ## Log
 
 - 2026-11-05 · filed with --scaffold bug, found against BI-08 Rings Backend Integration
 - 2026-11-05 · filled from [[QB-12 Rings QA Backend]] B30 on backend `main @ 12172c6`
+- 2026-11-08 · backend main e483d49 · re-test passed: `PATCH /rings/:id` with `null` on `name`, `type`, `isTemporary`, `joinPolicy`, `requireApproval`, `membersCanSeeEachOther`, `membersCanInvite`, `membersCanSaveAttachments` and `profileId` is 400 naming the field each time, no 500 in the server log; `null` on `purpose`, `colorHex`, `style`, `startsAt`, `expiresAt`, `parentRingId` is 200 and clears. Closed `done`, `resolution: fixed`, on the user's word relayed by the session that asked for the re-test

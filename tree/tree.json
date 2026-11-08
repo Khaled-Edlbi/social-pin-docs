@@ -906,6 +906,7 @@
     "DELETE /users/me": {
       "containers": [
         "feature:account",
+        "feature:ring-members",
         "task:B-02"
       ],
       "kind": "endpoint",
@@ -915,6 +916,7 @@
         "frontend-delivery:account",
         "frontend-requirements:account",
         "qa-backend:account",
+        "qa-backend:ring-members",
         "story:account",
         "task:B-02"
       ],
@@ -1506,7 +1508,8 @@
         "project:agent-rules",
         "project:api-conventions",
         "project:docs-tree",
-        "project:frontend-agent-prompt"
+        "project:frontend-agent-prompt",
+        "task:B-15"
       ],
       "kind": "error",
       "notes": [
@@ -1549,7 +1552,8 @@
         "qa-backend:rings",
         "story:badge-qr",
         "story:connections",
-        "story:delegated-admins"
+        "story:delegated-admins",
+        "task:B-15"
       ],
       "owner": null
     },
@@ -2604,8 +2608,7 @@
       "containers": [
         "feature:auth",
         "feature:ring-projection",
-        "feature:rings",
-        "feature:view-as"
+        "feature:rings"
       ],
       "kind": "endpoint",
       "notes": [
@@ -2613,7 +2616,6 @@
         "frontend-requirements:ring-projection",
         "qa-backend:auth",
         "qa-backend:rings",
-        "qa-backend:view-as",
         "story:auth"
       ],
       "owner": null
@@ -3501,14 +3503,12 @@
     },
     "PATCH /rings": {
       "containers": [
-        "feature:rings",
-        "task:B-13"
+        "feature:rings"
       ],
       "kind": "endpoint",
       "notes": [
         "backend-delivery:rings",
-        "backend-integration:rings",
-        "task:B-13"
+        "backend-integration:rings"
       ],
       "owner": null
     },
@@ -6164,12 +6164,12 @@
     },
     "concepts": 291,
     "decisions": 34,
-    "edges": 6916,
+    "edges": 6934,
     "features": 41,
     "layerNotes": 151,
     "modules": 8,
     "notes": 334,
-    "partial": 13,
+    "partial": 14,
     "placeholders": 134,
     "records": 32
   },
@@ -9706,54 +9706,9 @@
       "to": "frontend-requirements:ring-access"
     },
     {
-      "from": "qa-backend:ring-members",
-      "kind": "pending",
-      "to": "task:B-09"
-    },
-    {
-      "from": "qa-backend:ring-members",
-      "kind": "pending",
-      "to": "task:B-10"
-    },
-    {
-      "from": "qa-backend:ring-projection",
-      "kind": "pending",
-      "to": "task:B-11"
-    },
-    {
-      "from": "qa-backend:ring-projection",
-      "kind": "pending",
-      "to": "task:B-12"
-    },
-    {
-      "from": "qa-backend:rings",
-      "kind": "pending",
-      "to": "task:B-13"
-    },
-    {
-      "from": "qa-backend:rings",
-      "kind": "pending",
-      "to": "task:B-14"
-    },
-    {
-      "from": "qa-backend:rings",
-      "kind": "pending",
-      "to": "task:B-15"
-    },
-    {
-      "from": "qa-backend:rings",
-      "kind": "pending",
-      "to": "task:B-16"
-    },
-    {
       "from": "qa-backend:view-as",
       "kind": "pending",
       "to": "backend-delivery:view-as"
-    },
-    {
-      "from": "qa-backend:view-as",
-      "kind": "pending",
-      "to": "task:B-17"
     },
     {
       "from": "qa-frontend:account",
@@ -10030,6 +9985,14 @@
         "E_USER_01",
         "POST /auth/login",
         "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "backend-delivery:account",
+      "kind": "related",
+      "to": "qa-backend:ring-members",
+      "via": [
+        "DELETE /users/me"
       ]
     },
     {
@@ -10885,6 +10848,14 @@
       "to": "task:B-02",
       "via": [
         "GET /rings"
+      ]
+    },
+    {
+      "from": "backend-delivery:counts",
+      "kind": "related",
+      "to": "task:B-15",
+      "via": [
+        "E_RING_02"
       ]
     },
     {
@@ -12569,6 +12540,14 @@
       ]
     },
     {
+      "from": "backend-delivery:ring-projection",
+      "kind": "related",
+      "to": "task:B-15",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
       "from": "backend-delivery:rings",
       "kind": "related",
       "to": "backend-delivery:delegated-admins",
@@ -13197,6 +13176,14 @@
         "GET /users/me",
         "POST /auth/login",
         "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "backend-integration:account",
+      "kind": "related",
+      "to": "qa-backend:ring-members",
+      "via": [
+        "DELETE /users/me"
       ]
     },
     {
@@ -14026,6 +14013,14 @@
       "to": "task:B-02",
       "via": [
         "GET /rings"
+      ]
+    },
+    {
+      "from": "backend-integration:counts",
+      "kind": "related",
+      "to": "task:B-15",
+      "via": [
+        "E_RING_02"
       ]
     },
     {
@@ -19098,6 +19093,14 @@
       ]
     },
     {
+      "from": "frontend-requirements:companies",
+      "kind": "related",
+      "to": "task:B-15",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
       "from": "frontend-requirements:connections",
       "kind": "related",
       "to": "backend-delivery:counts",
@@ -20090,6 +20093,14 @@
       "to": "task:B-10",
       "via": [
         "POST /rings/:ringId/members"
+      ]
+    },
+    {
+      "from": "frontend-requirements:connections",
+      "kind": "related",
+      "to": "task:B-15",
+      "via": [
+        "E_RING_02"
       ]
     },
     {
@@ -21641,6 +21652,14 @@
       "to": "story:widgets",
       "via": [
         "GET /rings/:ringId/projection"
+      ]
+    },
+    {
+      "from": "frontend-requirements:photo-library",
+      "kind": "related",
+      "to": "task:B-15",
+      "via": [
+        "E_RING_02"
       ]
     },
     {
@@ -23364,6 +23383,14 @@
       "to": "task:B-02",
       "via": [
         "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-requirements:ring-members",
+      "kind": "related",
+      "to": "task:B-15",
+      "via": [
+        "E_RING_02"
       ]
     },
     {
@@ -27305,6 +27332,14 @@
       ]
     },
     {
+      "from": "qa-backend:counts",
+      "kind": "related",
+      "to": "task:B-15",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
       "from": "qa-backend:files",
       "kind": "related",
       "to": "backend-delivery:photo-library",
@@ -30239,6 +30274,14 @@
       ]
     },
     {
+      "from": "qa-backend:ring-members",
+      "kind": "related",
+      "to": "task:B-15",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
       "from": "qa-backend:ring-projection",
       "kind": "related",
       "to": "backend-delivery:badge-qr",
@@ -31267,6 +31310,7 @@
       "via": [
         "E_RING_01",
         "E_RING_09",
+        "E_RING_10",
         "GET /rings",
         "GET /rings/shared-with-me",
         "GET /rings/shared-with-me/count",
@@ -31280,6 +31324,7 @@
       "to": "project:frontend-contract",
       "via": [
         "E_RING_09",
+        "E_RING_10",
         "GET /rings",
         "GET /rings/shared-with-me",
         "GET /views/ring/:ringId",
@@ -35051,6 +35096,7 @@
       "to": "frontend-requirements:ring-access",
       "via": [
         "DELETE /rings/:id",
+        "E_RING_02",
         "POST /rings/:id/disposition"
       ]
     },
@@ -35059,7 +35105,8 @@
       "kind": "related",
       "to": "frontend-requirements:ring-projection",
       "via": [
-        "DELETE /rings/:id"
+        "DELETE /rings/:id",
+        "E_RING_02"
       ]
     },
     {
@@ -35102,7 +35149,8 @@
       "kind": "related",
       "to": "qa-backend:photo-library",
       "via": [
-        "DELETE /rings/:id"
+        "DELETE /rings/:id",
+        "E_RING_02"
       ]
     },
     {
@@ -35111,6 +35159,7 @@
       "to": "qa-backend:ring-access",
       "via": [
         "DELETE /rings/:id",
+        "E_RING_02",
         "POST /rings/:id/disposition"
       ]
     },
@@ -35119,7 +35168,8 @@
       "kind": "related",
       "to": "qa-backend:ring-projection",
       "via": [
-        "DELETE /rings/:id"
+        "DELETE /rings/:id",
+        "E_RING_02"
       ]
     },
     {
@@ -35128,7 +35178,9 @@
       "to": "qa-backend:rings",
       "via": [
         "DELETE /rings/:id",
+        "E_RING_02",
         "E_RING_04",
+        "E_RING_10",
         "POST /rings/:id/disposition"
       ]
     },
@@ -37128,6 +37180,7 @@
       "kind": "shares",
       "to": "feature:ring-members",
       "via": [
+        "DELETE /users/me",
         "GET /rings"
       ]
     },
@@ -38041,7 +38094,6 @@
         "E_AUTH_04",
         "E_USER_01",
         "GET /rings",
-        "GET /rings/:id/projection",
         "POST /rings"
       ]
     },
@@ -38699,6 +38751,14 @@
     {
       "from": "feature:badge-qr",
       "kind": "shares",
+      "to": "task:B-15",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "feature:badge-qr",
+      "kind": "shares",
       "to": "task:B-17",
       "via": [
         "GET /views/ring/:ringId"
@@ -38993,6 +39053,7 @@
       "kind": "shares",
       "to": "task:B-15",
       "via": [
+        "E_RING_02",
         "POST /rings/:id/disposition"
       ]
     },
@@ -39629,6 +39690,14 @@
     {
       "from": "feature:companies",
       "kind": "shares",
+      "to": "task:B-15",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "feature:companies",
+      "kind": "shares",
       "to": "task:B-16",
       "via": [
         "PATCH /rings/:id",
@@ -40191,6 +40260,14 @@
     {
       "from": "feature:connections",
       "kind": "shares",
+      "to": "task:B-15",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "feature:connections",
+      "kind": "shares",
       "to": "task:B-16",
       "via": [
         "POST /rings"
@@ -40499,6 +40576,14 @@
       "to": "task:B-13",
       "via": [
         "GET /rings"
+      ]
+    },
+    {
+      "from": "feature:counts",
+      "kind": "shares",
+      "to": "task:B-15",
+      "via": [
+        "E_RING_02"
       ]
     },
     {
@@ -40887,6 +40972,7 @@
       "kind": "shares",
       "to": "task:B-15",
       "via": [
+        "E_RING_02",
         "E_RING_04"
       ]
     },
@@ -41743,6 +41829,7 @@
       "kind": "shares",
       "to": "task:B-15",
       "via": [
+        "E_RING_02",
         "E_RING_04"
       ]
     },
@@ -42046,6 +42133,7 @@
       "kind": "shares",
       "to": "task:B-15",
       "via": [
+        "E_RING_02",
         "POST /rings/:id/disposition"
       ]
     },
@@ -42633,6 +42721,14 @@
     {
       "from": "feature:exhibitor",
       "kind": "shares",
+      "to": "task:B-15",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "feature:exhibitor",
+      "kind": "shares",
       "to": "task:B-16",
       "via": [
         "POST /rings"
@@ -42985,6 +43081,14 @@
       "to": "task:B-14",
       "via": [
         "POST /rings"
+      ]
+    },
+    {
+      "from": "feature:files",
+      "kind": "shares",
+      "to": "task:B-15",
+      "via": [
+        "E_RING_02"
       ]
     },
     {
@@ -43586,6 +43690,7 @@
       "kind": "shares",
       "to": "task:B-15",
       "via": [
+        "E_RING_02",
         "POST /rings/:id/disposition"
       ]
     },
@@ -44102,6 +44207,14 @@
     {
       "from": "feature:photo-library",
       "kind": "shares",
+      "to": "task:B-15",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "feature:photo-library",
+      "kind": "shares",
       "to": "task:B-17",
       "via": [
         "GET /rings/:ringId/projection"
@@ -44343,6 +44456,14 @@
     {
       "from": "feature:pincast",
       "kind": "shares",
+      "to": "task:B-15",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "feature:pincast",
+      "kind": "shares",
       "to": "task:B-17",
       "via": [
         "GET /views/user/:userId/perspectives"
@@ -44573,6 +44694,7 @@
       "kind": "shares",
       "to": "task:B-15",
       "via": [
+        "E_RING_02",
         "POST /rings/:id/disposition"
       ]
     },
@@ -45091,6 +45213,7 @@
       "kind": "shares",
       "to": "task:B-15",
       "via": [
+        "E_RING_02",
         "POST /rings/:id/disposition"
       ]
     },
@@ -45469,6 +45592,7 @@
       "kind": "shares",
       "to": "task:B-02",
       "via": [
+        "DELETE /users/me",
         "GET /rings"
       ]
     },
@@ -45507,6 +45631,14 @@
     {
       "from": "feature:ring-members",
       "kind": "shares",
+      "to": "task:B-15",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "feature:ring-members",
+      "kind": "shares",
       "to": "task:B-17",
       "via": [
         "GET /views/user/:userId/perspectives"
@@ -45536,7 +45668,6 @@
         "DELETE /rings/:id",
         "GET /files/content/:token",
         "GET /rings",
-        "GET /rings/:id/projection",
         "GET /rings/:ringId/projection",
         "GET /views/ring/:ringId",
         "POST /rings"
@@ -45720,6 +45851,14 @@
     {
       "from": "feature:ring-projection",
       "kind": "shares",
+      "to": "task:B-15",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "feature:ring-projection",
+      "kind": "shares",
       "to": "task:B-16",
       "via": [
         "POST /rings"
@@ -45742,7 +45881,6 @@
       "via": [
         "DELETE /rings/:id",
         "GET /rings",
-        "GET /rings/:id/projection",
         "GET /rings/:ringId/projection",
         "GET /views/ring/:id",
         "GET /views/ring/:ringId",
@@ -45970,7 +46108,6 @@
       "to": "task:B-13",
       "via": [
         "GET /rings",
-        "PATCH /rings",
         "PATCH /rings/:id",
         "POST /rings"
       ]
@@ -45989,6 +46126,7 @@
       "kind": "shares",
       "to": "task:B-15",
       "via": [
+        "E_RING_02",
         "E_RING_04",
         "E_RING_10",
         "POST /rings/:id/disposition"
@@ -46384,6 +46522,14 @@
       "to": "task:B-11",
       "via": [
         "GET /views/ring/:ringId"
+      ]
+    },
+    {
+      "from": "feature:widgets",
+      "kind": "shares",
+      "to": "task:B-15",
+      "via": [
+        "E_RING_02"
       ]
     },
     {
@@ -46937,6 +47083,14 @@
       ]
     },
     {
+      "from": "project:agent-rules",
+      "kind": "shares",
+      "to": "task:B-15",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
       "from": "project:api-conventions",
       "kind": "shares",
       "to": "project:docs-tree",
@@ -46948,6 +47102,14 @@
       "from": "project:api-conventions",
       "kind": "shares",
       "to": "project:frontend-agent-prompt",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "project:api-conventions",
+      "kind": "shares",
+      "to": "task:B-15",
       "via": [
         "E_RING_02"
       ]
@@ -47030,6 +47192,14 @@
       ]
     },
     {
+      "from": "project:docs-tree",
+      "kind": "shares",
+      "to": "task:B-15",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
       "from": "project:frontend-agent-prompt",
       "kind": "shares",
       "to": "project:frontend-api-guide",
@@ -47051,6 +47221,14 @@
       "to": "task:B-03",
       "via": [
         "POST /auth/refresh"
+      ]
+    },
+    {
+      "from": "project:frontend-agent-prompt",
+      "kind": "shares",
+      "to": "task:B-15",
+      "via": [
+        "E_RING_02"
       ]
     },
     {
@@ -54984,6 +55162,11 @@
       "to": "story:ring-invitations"
     },
     {
+      "from": "qa-backend:ring-members",
+      "kind": "wikilink",
+      "to": "task:B-17"
+    },
+    {
       "from": "qa-backend:ring-projection",
       "kind": "wikilink",
       "to": "feature:widgets"
@@ -57566,6 +57749,7 @@
         "frontend-requirements:account",
         "qa-backend:account",
         "story:account",
+        "qa-backend:ring-members",
         "needs-decision:ND-20",
         "project:spec-map",
         "backend-delivery:auth",
@@ -58262,6 +58446,7 @@
         "frontend-requirements:ring-access",
         "story:companies",
         "story:ring-invitations",
+        "task:B-15",
         "story:badge-qr",
         "frontend-requirements:exhibitor",
         "qa-backend:files",
@@ -60091,6 +60276,7 @@
         "story:companies",
         "frontend-requirements:delegated-admins",
         "story:delegated-admins",
+        "task:B-15",
         "story:badge-qr",
         "frontend-requirements:pincast",
         "frontend-requirements:event-ring-auto",
@@ -60564,6 +60750,7 @@
         "qa-frontend:account",
         "story:counts",
         "frontend-requirements:ring-projection",
+        "qa-backend:ring-members",
         "feature:account",
         "backend-delivery:view-as",
         "frontend-requirements:view-as",
@@ -61117,6 +61304,7 @@
         "frontend-requirements:ring-access",
         "story:companies",
         "story:ring-invitations",
+        "task:B-15",
         "story:badge-qr",
         "frontend-requirements:exhibitor",
         "qa-backend:files",
@@ -62526,10 +62714,7 @@
       "labels": [],
       "layer": "backend",
       "module": "identity",
-      "openBugs": [
-        "task:B-09",
-        "task:B-10"
-      ],
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:ring-members"
@@ -62586,6 +62771,7 @@
       "affects": [
         "frontend-requirements:ring-projection"
       ],
+      "autoDelivered": true,
       "blockedBy": [],
       "card": "BI-07",
       "children": [
@@ -62599,7 +62785,7 @@
       "depends": [
         "backend-delivery:ring-projection"
       ],
-      "effectiveStatus": "current",
+      "effectiveStatus": "delivered",
       "effort": null,
       "feature": "ring-projection",
       "foundOn": null,
@@ -62614,10 +62800,7 @@
       "labels": [],
       "layer": "backend",
       "module": "identity",
-      "openBugs": [
-        "task:B-11",
-        "task:B-12"
-      ],
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:ring-projection"
@@ -62714,6 +62897,7 @@
     },
     "backend-integration:rings": {
       "affects": [],
+      "autoDelivered": true,
       "blockedBy": [],
       "card": "BI-08",
       "children": [
@@ -62726,7 +62910,7 @@
       "created": "2026-10-15",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "current",
+      "effectiveStatus": "delivered",
       "effort": null,
       "feature": "rings",
       "foundOn": null,
@@ -62741,12 +62925,7 @@
       "labels": [],
       "layer": "backend",
       "module": "identity",
-      "openBugs": [
-        "task:B-13",
-        "task:B-14",
-        "task:B-15",
-        "task:B-16"
-      ],
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:rings"
@@ -62929,9 +63108,7 @@
       "labels": [],
       "layer": "backend",
       "module": "identity",
-      "openBugs": [
-        "task:B-17"
-      ],
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:view-as"
@@ -68202,10 +68379,10 @@
         "approved": 1,
         "current": 1,
         "decided": 1,
-        "done": 1,
-        "failing": 1,
+        "done": 3,
         "missing": 2,
-        "ready": 3,
+        "passing": 1,
+        "ready": 1,
         "verified": 1
       },
       "scope": null,
@@ -68293,13 +68470,12 @@
       "resolution": null,
       "rollup": {
         "approved": 2,
-        "current": 1,
         "decided": 3,
-        "done": 2,
-        "failing": 1,
+        "delivered": 1,
+        "done": 4,
         "missing": 1,
         "partial": 1,
-        "ready": 2,
+        "passing": 1,
         "verified": 3
       },
       "scope": null,
@@ -68415,13 +68591,12 @@
       "resolution": null,
       "rollup": {
         "approved": 2,
-        "current": 1,
         "decided": 2,
-        "done": 1,
-        "failing": 1,
+        "delivered": 1,
+        "done": 5,
         "missing": 1,
         "partial": 1,
-        "ready": 4,
+        "passing": 1,
         "verified": 2
       },
       "scope": null,
@@ -68603,11 +68778,10 @@
       "rollup": {
         "approved": 1,
         "current": 1,
+        "done": 1,
         "draft": 1,
-        "failing": 1,
         "missing": 2,
-        "partial": 1,
-        "ready": 1
+        "partial": 2
       },
       "scope": null,
       "screens": [
@@ -71722,6 +71896,7 @@
         "backend-delivery:ring-members",
         "frontend-delivery:profiles",
         "frontend-delivery:ring-projection",
+        "task:B-15",
         "backend-delivery:error-contract",
         "project:agent-rules",
         "project:docs-tree",
@@ -71899,6 +72074,7 @@
         "story:ring-projection",
         "frontend-requirements:widgets",
         "story:widgets",
+        "task:B-15",
         "story:badge-qr",
         "frontend-requirements:exhibitor",
         "qa-backend:photo-library",
@@ -73422,6 +73598,7 @@
         "project:spec-map",
         "qa-backend:view-as",
         "project:frontend-api-guide",
+        "task:B-15",
         "story:connections",
         "frontend-requirements:badge-qr",
         "story:badge-qr",
@@ -74119,6 +74296,7 @@
         "qa-backend:ring-projection",
         "frontend-requirements:widgets",
         "frontend-requirements:delegated-admins",
+        "task:B-15",
         "story:badge-qr",
         "frontend-requirements:meetings",
         "backend-delivery:error-contract",
@@ -75236,18 +75414,18 @@
       "rollup": {
         "approved": 18,
         "blocked": 3,
-        "current": 7,
+        "current": 5,
         "decided": 10,
-        "delivered": 6,
-        "done": 18,
+        "delivered": 8,
+        "done": 27,
         "draft": 3,
-        "failing": 5,
+        "failing": 1,
         "in-progress": 13,
         "missing": 20,
         "needs-decision": 1,
-        "partial": 13,
-        "passing": 4,
-        "ready": 11,
+        "partial": 14,
+        "passing": 7,
+        "ready": 2,
         "verified": 10
       },
       "scope": null,
@@ -80354,6 +80532,7 @@
         "backend-integration:ring-members",
         "qa-backend:ring-members",
         "story:ring-members",
+        "task:B-15",
         "story:badge-qr",
         "frontend-requirements:exhibitor",
         "qa-backend:files",
@@ -81968,7 +82147,7 @@
         "backend-delivery:ring-members",
         "story:ring-members"
       ],
-      "effectiveStatus": "failing",
+      "effectiveStatus": "passing",
       "effort": null,
       "feature": "ring-members",
       "foundOn": null,
@@ -81989,23 +82168,14 @@
         "feature:ring-members"
       ],
       "path": "social-pin/modules/Identity Core/features/Ring Members/flow/QB-11 Ring Members QA Backend.md",
-      "pending": [
-        {
-          "person": null,
-          "text": "row B10, re-run when the fix ships",
-          "to": "task:B-09"
-        },
-        {
-          "person": null,
-          "text": "row B15, re-run when the fix ships",
-          "to": "task:B-10"
-        }
-      ],
+      "pending": [],
       "priority": "critical",
       "related": [
         "task:B-09",
         "task:B-10",
         "frontend-requirements:connections",
+        "backend-delivery:account",
+        "backend-integration:account",
         "backend-delivery:counts",
         "backend-integration:counts",
         "qa-backend:counts",
@@ -82034,6 +82204,7 @@
         "frontend-requirements:rings",
         "project:spec-map",
         "story:ring-members",
+        "task:B-15",
         "frontend-requirements:badge-qr",
         "story:badge-qr",
         "frontend-requirements:pincast",
@@ -82074,18 +82245,18 @@
         "s46",
         "s47"
       ],
-      "status": "failing",
+      "status": "passing",
       "summary": "Expected behaviour of the API, as artefacts a person can check a build against: tables and diagrams, not test code (the specs live in the backend repo). status: passing or failing after a run; the…",
       "tags": [
         "qa-backend",
-        "qa-backend/failing",
+        "qa-backend/passing",
         "module/identity",
         "layer/qa"
       ],
       "task": null,
       "title": "QB-11 Ring Members QA Backend",
       "unmet": [],
-      "updated": "2026-11-05"
+      "updated": "2026-11-08"
     },
     "qa-backend:ring-projection": {
       "affects": [
@@ -82101,7 +82272,7 @@
         "backend-delivery:ring-projection",
         "backend-integration:ring-projection"
       ],
-      "effectiveStatus": "failing",
+      "effectiveStatus": "passing",
       "effort": null,
       "feature": "ring-projection",
       "foundOn": null,
@@ -82122,18 +82293,7 @@
         "feature:ring-projection"
       ],
       "path": "social-pin/modules/Identity Core/features/Ring Projection/flow/QB-13 Ring Projection QA Backend.md",
-      "pending": [
-        {
-          "person": null,
-          "text": "rows B25, B26",
-          "to": "task:B-11"
-        },
-        {
-          "person": null,
-          "text": "rows B64, B65, B67, B90",
-          "to": "task:B-12"
-        }
-      ],
+      "pending": [],
       "priority": "critical",
       "related": [
         "task:B-08",
@@ -82247,18 +82407,18 @@
         "s37",
         "s68"
       ],
-      "status": "failing",
+      "status": "passing",
       "summary": "Expected behaviour of the API, as artefacts a person can check a build against: tables and diagrams, not test code (the specs live in the backend repo). status: passing or failing after a run; the…",
       "tags": [
         "qa-backend",
-        "qa-backend/failing",
+        "qa-backend/passing",
         "module/identity",
         "layer/qa"
       ],
       "task": null,
       "title": "QB-13 Ring Projection QA Backend",
       "unmet": [],
-      "updated": "2026-11-05"
+      "updated": "2026-11-08"
     },
     "qa-backend:rings": {
       "affects": [],
@@ -82272,7 +82432,7 @@
         "backend-delivery:rings",
         "story:rings"
       ],
-      "effectiveStatus": "failing",
+      "effectiveStatus": "passing",
       "effort": null,
       "feature": "rings",
       "foundOn": null,
@@ -82293,28 +82453,7 @@
         "feature:rings"
       ],
       "path": "social-pin/modules/Identity Core/features/Rings/flow/QB-12 Rings QA Backend.md",
-      "pending": [
-        {
-          "person": null,
-          "text": "rows B4 and B37 (/backend)",
-          "to": "task:B-13"
-        },
-        {
-          "person": null,
-          "text": "row B30 (/backend)",
-          "to": "task:B-14"
-        },
-        {
-          "person": null,
-          "text": "rows B63 and B64 (/backend)",
-          "to": "task:B-15"
-        },
-        {
-          "person": null,
-          "text": "rows B22 and B36 (/backend)",
-          "to": "task:B-16"
-        }
-      ],
+      "pending": [],
       "priority": "critical",
       "related": [
         "task:B-13",
@@ -82442,18 +82581,18 @@
         "s27",
         "s62"
       ],
-      "status": "failing",
+      "status": "passing",
       "summary": "Expected behaviour of the API, as artefacts a person can check a build against: tables and diagrams, not test code (the specs live in the backend repo). status: passing or failing after a run; the…",
       "tags": [
         "qa-backend",
-        "qa-backend/failing",
+        "qa-backend/passing",
         "module/identity",
         "layer/qa"
       ],
       "task": null,
       "title": "QB-12 Rings QA Backend",
       "unmet": [],
-      "updated": "2026-11-05"
+      "updated": "2026-11-08"
     },
     "qa-backend:subscription": {
       "affects": [],
@@ -82517,7 +82656,7 @@
         "backend-delivery:view-as",
         "story:view-as"
       ],
-      "effectiveStatus": "failing",
+      "effectiveStatus": "partial",
       "effort": null,
       "feature": "view-as",
       "foundOn": null,
@@ -82539,11 +82678,6 @@
       ],
       "path": "social-pin/modules/Identity Core/features/View As & Pin Views/flow/QB-14 View As & Pin Views QA Backend.md",
       "pending": [
-        {
-          "person": null,
-          "text": "rows B33, B34 and B45 re-run once the fix ships",
-          "to": "task:B-17"
-        },
         {
           "person": null,
           "text": "row B56 re-run once avatarFileId leaves the viewer's view (D-16)",
@@ -82662,18 +82796,18 @@
         "s44",
         "s62"
       ],
-      "status": "failing",
+      "status": "passing",
       "summary": "Expected behaviour of the API, as artefacts a person can check a build against: tables and diagrams, not test code (the specs live in the backend repo). status: passing or failing after a run; the…",
       "tags": [
         "qa-backend",
-        "qa-backend/failing",
+        "qa-backend/passing",
         "module/identity",
         "layer/qa"
       ],
       "task": null,
       "title": "QB-14 View As & Pin Views QA Backend",
       "unmet": [],
-      "updated": "2026-11-05"
+      "updated": "2026-11-08"
     },
     "qa-backend:widgets": {
       "affects": [],
@@ -84749,18 +84883,18 @@
       "rollup": {
         "approved": 41,
         "blocked": 31,
-        "current": 7,
+        "current": 5,
         "decided": 32,
-        "delivered": 6,
-        "done": 19,
+        "delivered": 8,
+        "done": 28,
         "draft": 28,
-        "failing": 5,
+        "failing": 1,
         "in-progress": 47,
         "missing": 134,
         "needs-decision": 1,
-        "partial": 13,
-        "passing": 4,
-        "ready": 14,
+        "partial": 14,
+        "passing": 7,
+        "ready": 5,
         "reference": 32,
         "todo": 3,
         "verified": 32
@@ -88520,7 +88654,7 @@
       "decision": null,
       "depends": [],
       "dir": null,
-      "effectiveStatus": "ready",
+      "effectiveStatus": "done",
       "effort": "S",
       "feature": "ring-members",
       "foundOn": "BI-06 Ring Members Backend Integration",
@@ -88563,7 +88697,7 @@
         "qa-backend:counts"
       ],
       "release": "mvp",
-      "resolution": null,
+      "resolution": "fixed",
       "rollup": {},
       "scope": null,
       "screens": [
@@ -88573,13 +88707,14 @@
         "s46",
         "s47"
       ],
-      "status": "ready",
+      "status": "done",
       "summary": "The fix is the backend's (/backend). That agent sets in-progress when it starts and ready when the fix ships (status, tag, H1 and the Status segment only; the fix itself is recorded in its own…",
       "tags": [
         "bug",
-        "bug/ready",
+        "bug/done",
         "module/identity",
-        "priority/high"
+        "priority/high",
+        "resolution/fixed"
       ],
       "task": null,
       "title": "B-09 Re-adding a lapsed member answers 409, not a reactivation",
@@ -88600,7 +88735,7 @@
       "decision": null,
       "depends": [],
       "dir": null,
-      "effectiveStatus": "ready",
+      "effectiveStatus": "done",
       "effort": "S",
       "feature": "ring-members",
       "foundOn": "BI-06 Ring Members Backend Integration",
@@ -88643,7 +88778,7 @@
         "qa-backend:counts"
       ],
       "release": "mvp",
-      "resolution": null,
+      "resolution": "fixed",
       "rollup": {},
       "scope": null,
       "screens": [
@@ -88653,13 +88788,14 @@
         "s46",
         "s47"
       ],
-      "status": "ready",
+      "status": "done",
       "summary": "The fix is the backend's (/backend). That agent sets in-progress when it starts and ready when the fix ships (status, tag, H1 and the Status segment only; the fix itself is recorded in its own…",
       "tags": [
         "bug",
-        "bug/ready",
+        "bug/done",
         "module/identity",
-        "priority/high"
+        "priority/high",
+        "resolution/fixed"
       ],
       "task": null,
       "title": "B-10 Adding an unknown userId answers 500",
@@ -88680,7 +88816,7 @@
       "decision": null,
       "depends": [],
       "dir": null,
-      "effectiveStatus": "ready",
+      "effectiveStatus": "done",
       "effort": "S",
       "feature": "ring-projection",
       "foundOn": "BI-07 Ring Projection Backend Integration",
@@ -88735,7 +88871,7 @@
         "qa-backend:view-as"
       ],
       "release": "mvp",
-      "resolution": null,
+      "resolution": "fixed",
       "rollup": {},
       "scope": null,
       "screens": [
@@ -88745,13 +88881,14 @@
         "s36",
         "s68"
       ],
-      "status": "ready",
+      "status": "done",
       "summary": "The fix is the backend's (/backend). That agent sets in-progress when it starts and ready when the fix ships (status, tag, H1 and the Status segment only; the fix itself is recorded in its own…",
       "tags": [
         "bug",
-        "bug/ready",
+        "bug/done",
         "module/identity",
-        "priority/high"
+        "priority/high",
+        "resolution/fixed"
       ],
       "task": null,
       "title": "B-11 Projection switches read any string as true",
@@ -88772,7 +88909,7 @@
       "decision": null,
       "depends": [],
       "dir": null,
-      "effectiveStatus": "ready",
+      "effectiveStatus": "done",
       "effort": "S",
       "feature": "ring-projection",
       "foundOn": "BI-07 Ring Projection Backend Integration",
@@ -88803,7 +88940,7 @@
         "backend-delivery:ring-projection"
       ],
       "release": "mvp",
-      "resolution": null,
+      "resolution": "fixed",
       "rollup": {},
       "scope": null,
       "screens": [
@@ -88811,13 +88948,14 @@
         "s25",
         "s36"
       ],
-      "status": "ready",
+      "status": "done",
       "summary": "The fix is the backend's (/backend). That agent sets in-progress when it starts and ready when the fix ships (status, tag, H1 and the Status segment only; the fix itself is recorded in its own…",
       "tags": [
         "bug",
-        "bug/ready",
+        "bug/done",
         "module/identity",
-        "priority/medium"
+        "priority/medium",
+        "resolution/fixed"
       ],
       "task": null,
       "title": "B-12 Null on a link or custom field's required field answers 500",
@@ -88835,7 +88973,7 @@
       "decision": null,
       "depends": [],
       "dir": null,
-      "effectiveStatus": "ready",
+      "effectiveStatus": "done",
       "effort": "S",
       "feature": "rings",
       "foundOn": "BI-08 Rings Backend Integration",
@@ -88925,7 +89063,7 @@
         "frontend-requirements:delegated-admins"
       ],
       "release": "mvp",
-      "resolution": null,
+      "resolution": "fixed",
       "rollup": {},
       "scope": null,
       "screens": [
@@ -88934,13 +89072,14 @@
         "s26",
         "s27"
       ],
-      "status": "ready",
+      "status": "done",
       "summary": "The fix is /backend's. That agent sets in-progress when it starts and ready when the fix ships (status, tag, H1 and the Status segment only; the fix itself is recorded in its own delivery note,…",
       "tags": [
         "bug",
-        "bug/ready",
+        "bug/done",
         "module/identity",
-        "priority/high"
+        "priority/high",
+        "resolution/fixed"
       ],
       "task": null,
       "title": "B-13 The string false is read as true on Ring filters and settings",
@@ -88958,7 +89097,7 @@
       "decision": null,
       "depends": [],
       "dir": null,
-      "effectiveStatus": "ready",
+      "effectiveStatus": "done",
       "effort": "S",
       "feature": "rings",
       "foundOn": "BI-08 Rings Backend Integration",
@@ -89002,7 +89141,7 @@
         "frontend-requirements:ring-invitations"
       ],
       "release": "mvp",
-      "resolution": null,
+      "resolution": "fixed",
       "rollup": {},
       "scope": null,
       "screens": [
@@ -89010,13 +89149,14 @@
         "s26",
         "s27"
       ],
-      "status": "ready",
+      "status": "done",
       "summary": "The fix is /backend's. That agent sets in-progress when it starts and ready when the fix ships (status, tag, H1 and the Status segment only; the fix itself is recorded in its own delivery note,…",
       "tags": [
         "bug",
-        "bug/ready",
+        "bug/done",
         "module/identity",
-        "priority/medium"
+        "priority/medium",
+        "resolution/fixed"
       ],
       "task": null,
       "title": "B-14 PATCH a Ring with null on a required field answers 500",
@@ -89034,7 +89174,7 @@
       "decision": null,
       "depends": [],
       "dir": null,
-      "effectiveStatus": "ready",
+      "effectiveStatus": "done",
       "effort": "S",
       "feature": "rings",
       "foundOn": "BI-08 Rings Backend Integration",
@@ -89084,23 +89224,33 @@
         "qa-backend:view-as",
         "story:error-contract",
         "frontend-requirements:delegated-admins",
-        "story:delegated-admins"
+        "story:delegated-admins",
+        "frontend-requirements:connections",
+        "backend-delivery:counts",
+        "backend-integration:counts",
+        "qa-backend:counts",
+        "frontend-requirements:photo-library",
+        "frontend-requirements:ring-members",
+        "qa-backend:ring-members",
+        "backend-delivery:ring-projection",
+        "frontend-requirements:companies"
       ],
       "release": "mvp",
-      "resolution": null,
+      "resolution": "fixed",
       "rollup": {},
       "scope": null,
       "screens": [
         "s26",
         "s62"
       ],
-      "status": "ready",
+      "status": "done",
       "summary": "The fix is /backend's. That agent sets in-progress when it starts and ready when the fix ships (status, tag, H1 and the Status segment only; the fix itself is recorded in its own delivery note,…",
       "tags": [
         "bug",
-        "bug/ready",
+        "bug/done",
         "module/identity",
-        "priority/medium"
+        "priority/medium",
+        "resolution/fixed"
       ],
       "task": null,
       "title": "B-15 Disposition runs on a permanent Ring, the default included",
@@ -89118,7 +89268,7 @@
       "decision": null,
       "depends": [],
       "dir": null,
-      "effectiveStatus": "ready",
+      "effectiveStatus": "done",
       "effort": "S",
       "feature": "rings",
       "foundOn": "BI-08 Rings Backend Integration",
@@ -89182,7 +89332,7 @@
         "project:frontend-api-guide"
       ],
       "release": "mvp",
-      "resolution": null,
+      "resolution": "fixed",
       "rollup": {},
       "scope": null,
       "screens": [
@@ -89190,13 +89340,14 @@
         "s18",
         "s22"
       ],
-      "status": "ready",
+      "status": "done",
       "summary": "The fix is /backend's. That agent sets in-progress when it starts and ready when the fix ships (status, tag, H1 and the Status segment only; the fix itself is recorded in its own delivery note,…",
       "tags": [
         "bug",
-        "bug/ready",
+        "bug/done",
         "module/identity",
-        "priority/low"
+        "priority/low",
+        "resolution/fixed"
       ],
       "task": null,
       "title": "B-16 Ring colour and purpose accept values the contract refuses",
@@ -89217,7 +89368,7 @@
       "decision": null,
       "depends": [],
       "dir": null,
-      "effectiveStatus": "ready",
+      "effectiveStatus": "done",
       "effort": "S",
       "feature": "view-as",
       "foundOn": "BI-09 View As & Pin Views Backend Integration",
@@ -89305,7 +89456,7 @@
         "qa-backend:photo-library"
       ],
       "release": "mvp",
-      "resolution": null,
+      "resolution": "fixed",
       "rollup": {},
       "scope": null,
       "screens": [
@@ -89314,13 +89465,14 @@
         "s44",
         "s62"
       ],
-      "status": "ready",
+      "status": "done",
       "summary": "The fix is the layer's work: /backend (create the projection with the Ring, or render a missing one as the empty projection). That agent sets in-progress when it starts and ready when the fix…",
       "tags": [
         "bug",
-        "bug/ready",
+        "bug/done",
         "module/identity",
-        "priority/high"
+        "priority/high",
+        "resolution/fixed"
       ],
       "task": null,
       "title": "B-17 A new Ring answers 404 to its own owner until its projection is opened",
