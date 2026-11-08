@@ -94,6 +94,7 @@ A service change ships a spec covering every thrown domain error, each query-bui
 | `ring-profile` | projections, `/views` | [[F-10 Ring Projection]], [[F-12 View As & Pin Views]] |
 | `file` | uploads | [[F-04 Files Upload]] |
 | `ring-access` | the engine | [[F-08 Ring Access Engine]] |
+| `ring-invitation` | invitations, join codes (and the join QR), join requests; every way in ends in `RingMemberService.admitKnowingly`, which records the membership's origin | [[F-17 Ring Invitations & Join]] |
 
 Every TODO feature becomes a new folder under `src/modules/` and a new row here.
 
