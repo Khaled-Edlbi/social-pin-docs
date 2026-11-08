@@ -46,6 +46,7 @@
     "backend-integration:photo-library": "BI-13",
     "backend-integration:profiles": "BI-04",
     "backend-integration:ring-access": "BI-05",
+    "backend-integration:ring-invitations": "BI-17",
     "backend-integration:ring-members": "BI-06",
     "backend-integration:ring-projection": "BI-07",
     "backend-integration:rings": "BI-08",
