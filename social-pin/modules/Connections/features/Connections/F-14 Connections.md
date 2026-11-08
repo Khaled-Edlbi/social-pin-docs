@@ -19,7 +19,7 @@ tags: [feature, module/connections, priority/critical, release/mvp]
 
 **Backend:** TODO · **Priority:** Critical · **Release:** MVP · **Module:** [[M-02 Connections Module|Connections]]
 
-**Layers:** [[S-23 Connections Story|Story]] · [[FR-14 Connections Frontend Requirements|Frontend Requirements]] · [[BD-14 Connections Backend Delivery|Backend Delivery]] · [[Connections Backend Integration|Backend Integration]] · [[Connections Frontend Delivery|Frontend Delivery]] · [[Connections QA Backend|QA Backend]] · [[Connections QA Frontend|QA Frontend]]
+**Layers:** [[S-23 Connections Story|Story]] · [[FR-14 Connections Frontend Requirements|Frontend Requirements]] · [[BD-14 Connections Backend Delivery|Backend Delivery]] · [[BI-16 Connections Backend Integration|Backend Integration]] · [[Connections Frontend Delivery|Frontend Delivery]] · [[Connections QA Backend|QA Backend]] · [[Connections QA Frontend|QA Frontend]]
 
 A connection is an **access request**, not a content subscription. Send a request after a scan, review the inbox, accept and pick a Ring (this sets `ConnectionRequest.grantedRingId`), connection detail, introduce, block and unblock, contacts list.
 

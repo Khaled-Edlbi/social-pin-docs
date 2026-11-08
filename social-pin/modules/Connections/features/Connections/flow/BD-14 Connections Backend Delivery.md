@@ -17,7 +17,7 @@ tags: [backend-delivery, backend-delivery/in-progress, module/connections, layer
 
 # 🟡 Connections · Backend Delivery
 
-**Feature:** [[F-14 Connections]] · **Status:** In progress · **Integration guide:** [[Connections Backend Integration]] · **Requirements:** [[FR-14 Connections Frontend Requirements]] · **QA:** [[Connections QA Backend]]
+**Feature:** [[F-14 Connections]] · **Status:** In progress · **Integration guide:** [[BI-16 Connections Backend Integration]] · **Requirements:** [[FR-14 Connections Frontend Requirements]] · **QA:** [[Connections QA Backend]]
 
 What the backend built for this feature and how it works. **Nothing below is on `main` yet:** it is on the backend branch `FR-14/connection/requests-accept-contacts-block` (`345daf1`, `7b58cc8`, `4beb29e`), pushed and not merged. Until the merge, `main` has the tables and no route.
 
