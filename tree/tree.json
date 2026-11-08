@@ -6046,7 +6046,7 @@
     },
     "concepts": 290,
     "decisions": 28,
-    "edges": 6692,
+    "edges": 6693,
     "features": 41,
     "layerNotes": 151,
     "modules": 8,
@@ -17646,6 +17646,11 @@
     {
       "from": "frontend-delivery:ring-access",
       "kind": "related",
+      "to": "frontend-delivery:rings"
+    },
+    {
+      "from": "frontend-delivery:ring-access",
+      "kind": "related",
       "to": "frontend-requirements:ring-access",
       "via": [
         "GET /rings/shared-with-me",
@@ -17746,11 +17751,6 @@
       "from": "frontend-delivery:rings",
       "kind": "related",
       "to": "frontend-delivery:counts"
-    },
-    {
-      "from": "frontend-delivery:rings",
-      "kind": "related",
-      "to": "frontend-delivery:ring-access"
     },
     {
       "from": "frontend-delivery:rings",
@@ -49972,6 +49972,11 @@
       "to": "backend-integration:ring-access"
     },
     {
+      "from": "frontend-delivery:ring-access",
+      "kind": "wikilink",
+      "to": "story:ring-invitations"
+    },
+    {
       "from": "frontend-delivery:rings",
       "kind": "wikilink",
       "to": "feature:ring-members"
@@ -68548,6 +68553,7 @@
         "decision:D-14",
         "decision:D-18",
         "frontend-delivery:counts",
+        "frontend-delivery:rings",
         "story:rings",
         "story:connections",
         "story:delegated-admins",
@@ -68558,7 +68564,6 @@
         "qa-backend:ring-projection",
         "backend-delivery:rings",
         "backend-integration:rings",
-        "frontend-delivery:rings",
         "frontend-requirements:rings",
         "qa-backend:rings",
         "frontend-requirements:view-as",
@@ -68812,6 +68817,7 @@
         "backend-integration:counts",
         "qa-backend:counts",
         "backend-delivery:ring-access",
+        "frontend-delivery:ring-access",
         "frontend-requirements:ring-access",
         "qa-backend:ring-access",
         "frontend-requirements:ring-members",
@@ -68822,7 +68828,6 @@
         "decision:D-04",
         "decision:D-14",
         "frontend-delivery:counts",
-        "frontend-delivery:ring-access",
         "frontend-delivery:ring-projection",
         "story:connections",
         "story:delegated-admins",
