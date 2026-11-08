@@ -243,7 +243,7 @@ audience sees them is set per ring, not here.
 | Method | Path | |
 |---|---|---|
 | GET | `/rings` | Rings you own ("My Rings") |
-| GET | `/rings/shared-with-me` | The **people** who share with you, one row each: `{ ringId, pinName, displayName, avatarUrl, expiresAt, ringName, memberCount }`; pagination only (D-14) |
+| GET | `/rings/shared-with-me` | The **people** who share with you, one row each: `{ ringId, pinName, displayName, avatarUrl, expiresAt, ringName, memberCount }`; pagination only (D-14). `ringName` only on a Ring you joined knowingly (an invitation, a code, an approved request, D-18), `memberCount` there only when its members may see each other; both `null` otherwise |
 | GET | `/rings/shared-with-me/count` | `{ people }`, equal to the list's `meta.total` |
 | POST | `/rings` | PERSONAL or CORPORATE only; takes the six D-04 settings |
 | GET | `/rings/:id` | |
@@ -274,6 +274,44 @@ even their own row, because the row names the ring.
 
 Both `reassign` and expiry take effect **immediately** — access is resolved per
 request, so there is nothing to invalidate client-side beyond refetching.
+
+Each row carries `origin`: `PLACED` (added by you or an admin, a connection
+accepted into the ring, a reassign) or joined knowingly through an
+`INVITATION`, a `JOIN_CODE` or an approved `JOIN_REQUEST`. Read-only; an add or
+a reassign always makes it `PLACED`.
+
+### Joining a ring — invitations, join codes, join requests
+
+How a person gets into **someone else's** ring knowingly ([[F-17 Ring Invitations & Join]]).
+Literal routes first; the owner's hang off one ring (owner, or an admin at
+MEMBER_MANAGER+).
+
+| Method | Path | |
+|---|---|---|
+| GET | `/rings/invitations/mine` | My pending invitations: the ring's **name**, owner, inviter, window, `valid`, `business`; never the ring's id, colour, type or purpose |
+| POST | `/rings/invitations/:id/accept` | Join: a member at once, with the invitation's window → `{ ringId, ringName }` |
+| POST | `/rings/invitations/:id/decline` | Decline |
+| POST | `/rings/invitations/:id/dismiss` | Dismiss one with `valid: false` (409 `E_RING_INVITATION_06` on a valid one) |
+| GET | `/rings/:ringId/invitations` | Invited · N: pending and declined |
+| POST | `/rings/:ringId/invitations` | Invite `{ userId }` or `{ pinName }`, optional `startsAt` / `expiresAt`; the owner, an admin, or a member while `membersCanInvite`; works under every `joinPolicy` |
+| POST | `/rings/:ringId/invitations/:id/withdraw` | Whoever sent it, the owner or an admin |
+| POST | `/rings/join-codes/resolve` | `{ code }` → the review `{ ringName, owner, requireApproval, business }` before anything happens |
+| POST | `/rings/join-codes/join` | `{ code }` → `{ outcome: JOINED \| REQUESTED, ringName, ringId, requestId }` |
+| GET / POST | `/rings/:ringId/join-codes` | The ring's codes / make one `{ label, endsAt?, useLimit? }` (up to 10 active; 409 under `INVITATION_ONLY`) |
+| POST | `/rings/:ringId/join-codes/:codeId/turn-off` | Stop a code and its QR at once |
+| GET | `/rings/join-requests/mine` | My pending and declined requests |
+| DELETE | `/rings/join-requests/:id` | Cancel a pending one, dismiss a declined one (200, no body) |
+| GET | `/rings/:ringId/join-requests` | Waiting on you · N, with the label of the code each person used |
+| POST | `/rings/:ringId/join-requests/:id/approve` · `/decline` | Approve (a member at once, origin `JOIN_REQUEST`) or decline |
+
+A code is 8 characters without look-alikes, shown `K7QM-4RXT`; send it in any
+case, dash optional. A **join QR** carries `socialpin://join/<code>`: send the
+scanned text as `code` (a badge carries `https://socialpin.me/q/<token>` and goes
+to `/views/qr/:token`). Every code that doesn't work (wrong, off, ended, used
+up, an invitation-only ring, your own, a block) is one 404,
+`E_RING_JOIN_CODE_01`; 10 such tries in 15 minutes is 429 `E_RING_JOIN_CODE_02`.
+A pending invitation or request grants nothing. Details:
+[[BI-17 Ring Invitations & Join Backend Integration]].
 
 ### Ring projection — `/rings/:ringId/projection`
 
@@ -425,6 +463,10 @@ Worth knowing up front:
 - `USER_ROLE`: `SUPER_ADMIN`, `ADMIN`, `ORGANIZER`, `EXHIBITOR`, `USER` — the
   platform role on the JWT, distinct from the scoped `roles` table
 - `ROLE_SCOPE`: `GLOBAL`, `EVENT`, `BUSINESS`, `RING`
+- `RING_MEMBER_ORIGIN`: `PLACED`, `INVITATION`, `JOIN_CODE`, `JOIN_REQUEST`
+- `RING_INVITATION_STATUS`: `PENDING`, `ACCEPTED`, `DECLINED`, `WITHDRAWN`, `EXPIRED`
+- `RING_JOIN_REQUEST_STATUS`: `PENDING`, `APPROVED`, `DECLINED`, `CANCELLED`
+- `JOIN_CODE_STATE` (computed): `ACTIVE`, `OFF`, `ENDED`, `USED_UP`; `JOIN_CODE_OUTCOME`: `JOINED`, `REQUESTED`
 
 ## Not yet available
 
@@ -447,3 +489,4 @@ available yet) live in the `social-pin-docs` vault under `frontend/`.
 
 - 2026-11-05 · flagged [[Frontend Contract]]: new endpoints on backend main @ 80e7fa2: GET /files (the library, with usedBy) and the public GET /files/content/:token behind every signed link; url on files, avatarUrl and attachments[].url on the projection and the view (D-16). The F-04 row and the endpoint count (48) need updating (/frontend)
 - 2026-11-08 · backend `main` `e483d49` ([[BD-11 Rings Backend Delivery]]) · *Errors*: booleans are `true` / `false` only, anything else 400 ([[B-11 Projection switches read any string as true]], [[B-13 The string false is read as true on Ring filters and settings]]); `null` on a `PATCH` only where it clears ([[B-12 Null on a link or custom field's required field answers 500]], [[B-14 PATCH a Ring with null on a required field answers 500]]). Rings table: disposition only on a lapsed temporary Ring, 409 `E_RING_10` (new, [[B-15 Disposition runs on a permanent Ring, the default included]]).
+- 2026-11-08 · backend `main` `1c460b0` ([[BD-17 Ring Invitations & Join Backend Delivery]]) · new section *Joining a ring*: 17 routes for invitations, join codes (and the join QR `socialpin://join/<code>`) and join requests; `ringName` / `memberCount` on Shared with me now filled for a ring joined knowingly; `origin` on the members rows; four enums. New codes `E_RING_INVITATION_01`–`07`, `E_RING_JOIN_CODE_01`–`06`, `E_RING_JOIN_REQUEST_01`–`02` (not on the body until Error Contract). [[Frontend Contract]] already flagged from BD-17
