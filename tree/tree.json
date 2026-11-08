@@ -65,6 +65,7 @@
     "B-19 Claim your Pin shows the prefix @ instead of !": "task:B-19",
     "B-20 In Arabic the code boxes fill right to left": "task:B-20",
     "B-21 A failed resend restarts the countdown": "task:B-21",
+    "B-22 The code's expiry counts with the phone clock": "task:B-22",
     "BD-01 Account Backend Delivery": "backend-delivery:account",
     "BD-02 Auth & Sign-up Backend Delivery": "backend-delivery:auth",
     "BD-03 Counts Backend Delivery": "backend-delivery:counts",
@@ -396,6 +397,7 @@
     "B-19": "task:B-19",
     "B-20": "task:B-20",
     "B-21": "task:B-21",
+    "B-22": "task:B-22",
     "BD-01": "backend-delivery:account",
     "BD-02": "backend-delivery:auth",
     "BD-03": "backend-delivery:counts",
@@ -4881,7 +4883,8 @@
         "needs-decision:ND-30",
         "task:B-18",
         "task:B-20",
-        "task:B-21"
+        "task:B-21",
+        "task:B-22"
       ],
       "kind": "screen",
       "notes": [
@@ -4902,7 +4905,8 @@
         "story:code-delivery",
         "task:B-18",
         "task:B-20",
-        "task:B-21"
+        "task:B-21",
+        "task:B-22"
       ],
       "owner": null
     },
@@ -6663,7 +6667,7 @@
   },
   "counts": {
     "blocked": 27,
-    "bugs": 21,
+    "bugs": 22,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 14,
@@ -6677,22 +6681,22 @@
       "qa-backend": 11,
       "qa-frontend": 2,
       "story": 41,
-      "task": 21
+      "task": 22
     },
     "byLayer": {
       "backend": 61,
-      "business": 176,
+      "business": 177,
       "frontend": 52,
       "qa": 13,
       "shared": 10
     },
     "concepts": 318,
     "decisions": 34,
-    "edges": 7614,
+    "edges": 7641,
     "features": 41,
     "layerNotes": 155,
     "modules": 8,
-    "notes": 343,
+    "notes": 344,
     "partial": 12,
     "placeholders": 130,
     "records": 33
@@ -42335,6 +42339,221 @@
       ]
     },
     {
+      "from": "task:B-22",
+      "kind": "related",
+      "to": "backend-delivery:account",
+      "via": [
+        "POST /auth/login"
+      ]
+    },
+    {
+      "from": "task:B-22",
+      "kind": "related",
+      "to": "backend-delivery:auth",
+      "via": [
+        "POST /auth/login",
+        "POST /auth/request-code",
+        "POST /auth/sign-up"
+      ]
+    },
+    {
+      "from": "task:B-22",
+      "kind": "related",
+      "to": "backend-integration:account",
+      "via": [
+        "POST /auth/login"
+      ]
+    },
+    {
+      "from": "task:B-22",
+      "kind": "related",
+      "to": "backend-integration:auth",
+      "via": [
+        "POST /auth/login",
+        "POST /auth/request-code",
+        "POST /auth/sign-up"
+      ]
+    },
+    {
+      "from": "task:B-22",
+      "kind": "related",
+      "to": "decision:D-20",
+      "via": [
+        "POST /auth/login"
+      ]
+    },
+    {
+      "from": "task:B-22",
+      "kind": "related",
+      "to": "frontend-delivery:auth",
+      "via": [
+        "POST /auth/login",
+        "POST /auth/request-code",
+        "POST /auth/sign-up"
+      ]
+    },
+    {
+      "from": "task:B-22",
+      "kind": "related",
+      "to": "frontend-requirements:auth",
+      "via": [
+        "POST /auth/login",
+        "POST /auth/request-code",
+        "POST /auth/sign-up"
+      ]
+    },
+    {
+      "from": "task:B-22",
+      "kind": "related",
+      "to": "frontend-requirements:code-delivery",
+      "via": [
+        "POST /auth/login",
+        "POST /auth/request-code",
+        "POST /auth/sign-up"
+      ]
+    },
+    {
+      "from": "task:B-22",
+      "kind": "related",
+      "to": "frontend-requirements:linked-accounts",
+      "via": [
+        "POST /auth/login",
+        "POST /auth/sign-up"
+      ]
+    },
+    {
+      "from": "task:B-22",
+      "kind": "related",
+      "to": "needs-decision:ND-20",
+      "via": [
+        "POST /auth/login"
+      ]
+    },
+    {
+      "from": "task:B-22",
+      "kind": "related",
+      "to": "project:developer-guide",
+      "via": [
+        "POST /auth/login"
+      ]
+    },
+    {
+      "from": "task:B-22",
+      "kind": "related",
+      "to": "project:frontend-contract",
+      "via": [
+        "POST /auth/sign-up"
+      ]
+    },
+    {
+      "from": "task:B-22",
+      "kind": "related",
+      "to": "project:frontend-passwordless-migration",
+      "via": [
+        "POST /auth/login",
+        "POST /auth/request-code",
+        "POST /auth/sign-up"
+      ]
+    },
+    {
+      "from": "task:B-22",
+      "kind": "related",
+      "to": "project:spec-map",
+      "via": [
+        "POST /auth/sign-up"
+      ]
+    },
+    {
+      "from": "task:B-22",
+      "kind": "related",
+      "to": "project:status-report-2026-10-15",
+      "via": [
+        "POST /auth/sign-up"
+      ]
+    },
+    {
+      "from": "task:B-22",
+      "kind": "related",
+      "to": "qa-backend:account",
+      "via": [
+        "POST /auth/login",
+        "POST /auth/sign-up"
+      ]
+    },
+    {
+      "from": "task:B-22",
+      "kind": "related",
+      "to": "qa-backend:auth",
+      "via": [
+        "POST /auth/login",
+        "POST /auth/request-code",
+        "POST /auth/sign-up"
+      ]
+    },
+    {
+      "from": "task:B-22",
+      "kind": "related",
+      "to": "qa-backend:rings",
+      "via": [
+        "POST /auth/login"
+      ]
+    },
+    {
+      "from": "task:B-22",
+      "kind": "related",
+      "to": "qa-frontend:auth"
+    },
+    {
+      "from": "task:B-22",
+      "kind": "related",
+      "to": "story:account",
+      "via": [
+        "POST /auth/login"
+      ]
+    },
+    {
+      "from": "task:B-22",
+      "kind": "related",
+      "to": "story:auth",
+      "via": [
+        "POST /auth/login",
+        "POST /auth/sign-up"
+      ]
+    },
+    {
+      "from": "task:B-22",
+      "kind": "related",
+      "to": "story:code-delivery",
+      "via": [
+        "POST /auth/request-code",
+        "POST /auth/sign-up"
+      ]
+    },
+    {
+      "from": "task:B-22",
+      "kind": "related",
+      "to": "task:B-01",
+      "via": [
+        "POST /auth/login"
+      ]
+    },
+    {
+      "from": "task:B-22",
+      "kind": "related",
+      "to": "task:B-04",
+      "via": [
+        "POST /auth/sign-up"
+      ]
+    },
+    {
+      "from": "task:B-22",
+      "kind": "related",
+      "to": "task:B-21",
+      "via": [
+        "POST /auth/request-code"
+      ]
+    },
+    {
       "from": "decision:D-10",
       "kind": "shares",
       "to": "decision:D-17",
@@ -56088,6 +56307,11 @@
       "to": "task:B-21"
     },
     {
+      "from": "frontend-delivery:auth",
+      "kind": "tree",
+      "to": "task:B-22"
+    },
+    {
       "from": "group:backend",
       "kind": "tree",
       "to": "project:api-conventions"
@@ -62596,6 +62820,11 @@
       "from": "task:B-21",
       "kind": "wikilink",
       "to": "feature:auth"
+    },
+    {
+      "from": "task:B-22",
+      "kind": "wikilink",
+      "to": "feature:auth"
     }
   ],
   "emoji": {
@@ -62814,6 +63043,10 @@
     },
     "social-pin/bugs/B-21 A failed resend restarts the countdown.md": {
       "name": "B-21 A failed resend restarts the countdown",
+      "type": "bug"
+    },
+    "social-pin/bugs/B-22 The code's expiry counts with the phone clock.md": {
+      "name": "B-22 The code's expiry counts with the phone clock",
       "type": "bug"
     },
     "social-pin/business/Feature Graph.md": {
@@ -64322,6 +64555,7 @@
       "related": [
         "task:B-02",
         "task:B-18",
+        "task:B-22",
         "needs-decision:ND-30",
         "decision:D-30",
         "task:B-01",
@@ -64530,6 +64764,7 @@
         "task:B-06",
         "task:B-18",
         "task:B-21",
+        "task:B-22",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-delivery:account",
@@ -67588,6 +67823,7 @@
         "task:B-01",
         "task:B-03",
         "task:B-18",
+        "task:B-22",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-delivery:account",
@@ -67746,6 +67982,7 @@
         "task:B-05",
         "task:B-18",
         "task:B-21",
+        "task:B-22",
         "needs-decision:ND-20",
         "needs-decision:ND-30",
         "decision:D-20",
@@ -71817,6 +72054,7 @@
       "related": [
         "task:B-01",
         "task:B-18",
+        "task:B-22",
         "needs-decision:ND-20",
         "needs-decision:ND-30",
         "backend-integration:auth",
@@ -73185,7 +73423,7 @@
         "done": 6,
         "draft": 1,
         "passing": 1,
-        "todo": 4,
+        "todo": 5,
         "verified": 2
       },
       "scope": null,
@@ -76444,7 +76682,8 @@
         "task:B-18",
         "task:B-19",
         "task:B-20",
-        "task:B-21"
+        "task:B-21",
+        "task:B-22"
       ],
       "code": "auth",
       "created": "2026-11-05",
@@ -76472,7 +76711,8 @@
         "task:B-18",
         "task:B-19",
         "task:B-20",
-        "task:B-21"
+        "task:B-21",
+        "task:B-22"
       ],
       "parentTask": null,
       "parents": [
@@ -76490,6 +76730,7 @@
         "task:B-19",
         "task:B-20",
         "task:B-21",
+        "task:B-22",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-integration:connections",
@@ -78857,6 +79098,7 @@
         "task:B-16",
         "task:B-18",
         "task:B-21",
+        "task:B-22",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-integration:connections",
@@ -79177,6 +79419,7 @@
         "task:B-04",
         "task:B-05",
         "task:B-21",
+        "task:B-22",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-delivery:account",
@@ -80666,6 +80909,7 @@
       "related": [
         "task:B-03",
         "task:B-04",
+        "task:B-22",
         "backend-delivery:account",
         "backend-integration:account",
         "qa-backend:auth",
@@ -83010,7 +83254,7 @@
         "partial": 10,
         "passing": 7,
         "ready": 1,
-        "todo": 4,
+        "todo": 5,
         "verified": 10
       },
       "scope": null,
@@ -84453,6 +84697,7 @@
       "related": [
         "task:B-01",
         "task:B-18",
+        "task:B-22",
         "backend-integration:auth",
         "frontend-delivery:account",
         "project:auth-model",
@@ -86191,6 +86436,7 @@
       "pending": [],
       "priority": null,
       "related": [
+        "task:B-22",
         "backend-delivery:account",
         "backend-integration:account",
         "qa-backend:auth",
@@ -86694,6 +86940,7 @@
         "task:B-15",
         "task:B-16",
         "task:B-17",
+        "task:B-22",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-requirements:connections",
@@ -86785,6 +87032,7 @@
         "task:B-05",
         "task:B-18",
         "task:B-21",
+        "task:B-22",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-delivery:account",
@@ -87321,6 +87569,7 @@
         "task:B-15",
         "task:B-16",
         "task:B-17",
+        "task:B-22",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-requirements:connections",
@@ -87418,6 +87667,7 @@
         "task:B-15",
         "task:B-16",
         "task:B-17",
+        "task:B-22",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-requirements:connections",
@@ -87569,6 +87819,7 @@
         "task:B-06",
         "task:B-13",
         "task:B-18",
+        "task:B-22",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-integration:connections",
@@ -87711,6 +87962,7 @@
         "task:B-13",
         "task:B-18",
         "task:B-21",
+        "task:B-22",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-integration:connections",
@@ -90164,6 +90416,7 @@
         "task:B-15",
         "task:B-16",
         "task:B-17",
+        "task:B-22",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-requirements:connections",
@@ -90791,6 +91044,7 @@
         "task:B-19",
         "task:B-20",
         "task:B-21",
+        "task:B-22",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-integration:connections",
@@ -92727,7 +92981,7 @@
         "passing": 7,
         "ready": 2,
         "reference": 32,
-        "todo": 7,
+        "todo": 8,
         "verified": 33
       },
       "scope": null,
@@ -92775,6 +93029,7 @@
       "priority": "critical",
       "related": [
         "task:B-18",
+        "task:B-22",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-delivery:account",
@@ -92961,6 +93216,7 @@
         "task:B-19",
         "task:B-20",
         "task:B-21",
+        "task:B-22",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-integration:connections",
@@ -93257,6 +93513,7 @@
         "task:B-04",
         "task:B-05",
         "task:B-21",
+        "task:B-22",
         "needs-decision:ND-20",
         "needs-decision:ND-30",
         "needs-decision:ND-33",
@@ -95923,6 +96180,7 @@
         "needs-decision:ND-20",
         "decision:D-20",
         "task:B-18",
+        "task:B-22",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-delivery:account",
@@ -96213,6 +96471,7 @@
         "project:status-report-2026-10-15",
         "project:frontend-contract",
         "project:frontend-passwordless-migration",
+        "task:B-22",
         "qa-frontend:auth"
       ],
       "release": "mvp",
@@ -97688,7 +97947,8 @@
         "qa-backend:auth",
         "frontend-requirements:code-delivery",
         "story:code-delivery",
-        "project:frontend-passwordless-migration"
+        "project:frontend-passwordless-migration",
+        "task:B-22"
       ],
       "release": "mvp",
       "resolution": null,
@@ -97707,6 +97967,88 @@
       ],
       "task": null,
       "title": "B-21 A failed resend restarts the countdown",
+      "unmet": [],
+      "updated": "2026-11-08"
+    },
+    "task:B-22": {
+      "affects": [],
+      "blockedBy": [],
+      "card": "B-22",
+      "children": [],
+      "code": "B-22",
+      "created": "2026-11-08",
+      "deadline": null,
+      "decision": null,
+      "depends": [],
+      "dir": null,
+      "effectiveStatus": "todo",
+      "effort": "S",
+      "feature": "auth",
+      "foundOn": "FD-05 Auth & Sign-up Frontend Delivery",
+      "frontendOnly": false,
+      "id": "task:B-22",
+      "inherits": {
+        "release": "feature:auth"
+      },
+      "kind": "task",
+      "label": "Bug",
+      "labels": [
+        "bug"
+      ],
+      "layer": "business",
+      "module": "identity",
+      "openBugs": [],
+      "parentTask": null,
+      "parents": [
+        "frontend-delivery:auth"
+      ],
+      "path": "social-pin/bugs/B-22 The code's expiry counts with the phone clock.md",
+      "pending": [],
+      "priority": "high",
+      "related": [
+        "frontend-delivery:auth",
+        "qa-frontend:auth",
+        "story:auth",
+        "task:B-04",
+        "qa-backend:account",
+        "backend-delivery:auth",
+        "backend-integration:auth",
+        "frontend-requirements:auth",
+        "qa-backend:auth",
+        "frontend-requirements:code-delivery",
+        "story:code-delivery",
+        "frontend-requirements:linked-accounts",
+        "project:spec-map",
+        "project:status-report-2026-10-15",
+        "project:frontend-contract",
+        "project:frontend-passwordless-migration",
+        "task:B-01",
+        "needs-decision:ND-20",
+        "decision:D-20",
+        "backend-delivery:account",
+        "backend-integration:account",
+        "story:account",
+        "qa-backend:rings",
+        "project:developer-guide",
+        "task:B-21"
+      ],
+      "release": "mvp",
+      "resolution": null,
+      "rollup": {},
+      "scope": null,
+      "screens": [
+        "s02"
+      ],
+      "status": "todo",
+      "summary": "The fix is /frontend's. It sets in-progress when it starts and ready when the fix ships; QA re-runs AU-60 and closes or reopens it.",
+      "tags": [
+        "bug",
+        "bug/todo",
+        "module/identity",
+        "priority/high"
+      ],
+      "task": null,
+      "title": "B-22 The code's expiry counts with the phone clock",
       "unmet": [],
       "updated": "2026-11-08"
     }
