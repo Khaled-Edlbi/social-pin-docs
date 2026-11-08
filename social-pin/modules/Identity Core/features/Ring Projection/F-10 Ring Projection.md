@@ -16,7 +16,7 @@ tags: [feature, module/identity, priority/critical, release/mvp]
 
 **Backend:** Done · **Priority:** Critical · **Release:** MVP · **Module:** [[M-01 Identity Core Module|Identity Core]]
 
-**Layers:** [[S-17 Ring Projection Story|Story]] · [[FR-10 Ring Projection Frontend Requirements|Frontend Requirements]] · [[BD-10 Ring Projection Backend Delivery|Backend Delivery]] · [[BI-07 Ring Projection Backend Integration|Backend Integration]] · [[Ring Projection Frontend Delivery|Frontend Delivery]] · [[QB-13 Ring Projection QA Backend|QA Backend]] · [[Ring Projection QA Frontend|QA Frontend]]
+**Layers:** [[S-17 Ring Projection Story|Story]] · [[FR-10 Ring Projection Frontend Requirements|Frontend Requirements]] · [[BD-10 Ring Projection Backend Delivery|Backend Delivery]] · [[BI-07 Ring Projection Backend Integration|Backend Integration]] · [[FD-11 Ring Projection Frontend Delivery|Frontend Delivery]] · [[QB-13 Ring Projection QA Backend|QA Backend]] · [[Ring Projection QA Frontend|QA Frontend]]
 
 What a Ring shows: the headline, role, company and location it goes by (following the Pin, its own, or hidden), the nickname, bio and photo, which social and contact links, which custom fields ("Add a field"), which files, and whether it may see the birthdate, gender, marital status, phone and email. Links, custom fields and files are entered once and switched on per Ring.
 
