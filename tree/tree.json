@@ -6128,7 +6128,7 @@
     }
   },
   "counts": {
-    "blocked": 32,
+    "blocked": 31,
     "bugs": 17,
     "byKind": {
       "backend-delivery": 39,
@@ -6154,7 +6154,7 @@
     },
     "concepts": 291,
     "decisions": 34,
-    "edges": 6903,
+    "edges": 6902,
     "features": 41,
     "layerNotes": 151,
     "modules": 8,
@@ -8289,11 +8289,6 @@
       "from": "story:operator-panel",
       "kind": "blocks",
       "to": "frontend-requirements:operator-panel"
-    },
-    {
-      "from": "story:ring-invitations",
-      "kind": "blocks",
-      "to": "frontend-requirements:ring-invitations"
     },
     {
       "from": "needs-decision:ND-01",
@@ -67958,7 +67953,8 @@
       "release": "mvp",
       "resolution": null,
       "rollup": {
-        "blocked": 2,
+        "approved": 1,
+        "blocked": 1,
         "decided": 8,
         "draft": 1,
         "missing": 4,
@@ -73755,20 +73751,14 @@
     },
     "frontend-requirements:ring-invitations": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "story:ring-invitations",
-          "title": "S-33 Ring Invitations & Join Story",
-          "why": "S-33 Ring Invitations & Join Story is draft"
-        }
-      ],
+      "blockedBy": [],
       "card": "FR-17",
       "children": [],
       "code": "ring-invitations",
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "ring-invitations",
       "foundOn": null,
@@ -75254,8 +75244,8 @@
       "release": null,
       "resolution": null,
       "rollup": {
-        "approved": 1,
-        "blocked": 5,
+        "approved": 2,
+        "blocked": 4,
         "decided": 8,
         "draft": 2,
         "in-progress": 3,
@@ -84570,8 +84560,8 @@
         }
       ],
       "rollup": {
-        "approved": 40,
-        "blocked": 32,
+        "approved": 41,
+        "blocked": 31,
         "current": 7,
         "decided": 32,
         "delivered": 6,
@@ -87050,7 +87040,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "ring-invitations",
       "foundOn": null,
@@ -87125,11 +87115,11 @@
         "s73",
         "s74"
       ],
-      "status": "draft",
+      "status": "approved",
       "summary": "Being let into someone else's Ring knowingly. A company invites its new hire into \"Acme Team\"; an organizer invites a speaker into \"TechSummit Speakers\"; a company hands out a join code, or shows…",
       "tags": [
         "story",
-        "story/draft",
+        "story/approved",
         "module/shared-rings",
         "layer/business"
       ],
