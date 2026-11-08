@@ -31,7 +31,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
         - ✅ [B-05 Expired onboarding token answers 401, not the documented 400](social-pin/bugs/B-05%20Expired%20onboarding%20token%20answers%20401%2C%20not%20the%20documented%20400.md) (bug, Fixed, Low)
       - 🟢 [QB-05 Auth & Sign-up QA Backend](social-pin/modules/Identity%20Core/features/Auth%20%26%20Sign-up/flow/QB-05%20Auth%20%26%20Sign-up%20QA%20Backend.md) (QA Backend, Critical)
       - ✅ [FD-05 Auth & Sign-up Frontend Delivery](social-pin/modules/Identity%20Core/features/Auth%20%26%20Sign-up/flow/FD-05%20Auth%20%26%20Sign-up%20Frontend%20Delivery.md) (Frontend Delivery, Critical)
-      - ∅ _Auth & Sign-up QA Frontend_ (QA Frontend)
+      - ✏️ [QF-05 Auth & Sign-up QA Frontend](social-pin/modules/Identity%20Core/features/Auth%20%26%20Sign-up/flow/QF-05%20Auth%20%26%20Sign-up%20QA%20Frontend.md) (QA Frontend, Critical)
       - ✅ [ND-01 Passwordless login](social-pin/needs-decisions/ND-01%20Passwordless%20login.md) (Needs decision)
         - ⚖️ [D-01 Code-only login](social-pin/decisions/D-01%20Code-only%20login.md) (Decision)
     - 🔵 [F-03 Counts](social-pin/modules/Identity%20Core/features/Counts/F-03%20Counts.md) (release MVP, Critical)

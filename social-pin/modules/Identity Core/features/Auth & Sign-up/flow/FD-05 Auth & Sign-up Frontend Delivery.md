@@ -19,7 +19,7 @@ tags: [frontend-delivery, frontend-delivery/done, module/identity, layer/fronten
 
 # ✅ Auth & Sign-up · Frontend Delivery
 
-**Feature:** [[F-02 Auth & Sign-up]] · **Status:** Done · **Built from:** [[BI-02 Auth & Sign-up Backend Integration]] · **Against:** [[S-02 Auth & Sign-up Story]] · **Requirements:** [[FR-02 Auth & Sign-up Frontend Requirements]] · **QA:** [[Auth & Sign-up QA Frontend]]
+**Feature:** [[F-02 Auth & Sign-up]] · **Status:** Done · **Built from:** [[BI-02 Auth & Sign-up Backend Integration]] · **Against:** [[S-02 Auth & Sign-up Story]] · **Requirements:** [[FR-02 Auth & Sign-up Frontend Requirements]] · **QA:** [[QF-05 Auth & Sign-up QA Frontend]]
 
 What the client shipped for sign-up, sign-in and the session. The flow is on `social_pin` `main` @ `839e74f` (the real API in `68085f3`, passwordless from one Welcome screen in `4231492`, Maestro flows in `157d303`); the registration-error fix, the retired `PASSWORD_RESET` and pre-filling the code in production are on `rings/F-11/honest-rings` @ `76e5f6b` (2026-11-05), not on `main` yet. The QA checklist is PL-01…PL-22 in the client's `.maestro/auth/`. Checked against [[BI-02 Auth & Sign-up Backend Integration#Checklist]] in the client's `docs/BI-02 Auth gap review.md` (2026-11-05).
 
