@@ -15,6 +15,8 @@ tags: [story, story/draft, module/shared-rings, layer/business]
 
 # Ring Invitations & Join · User Story
 
+> ⚠ Affected by [[D-34 A member shows one of their own Rings]] (2026-11-08): ND-34 decided, option 1: a member picks one of their own Rings as their card in a Ring they joined (default: their default Ring), changeable from Shared with me; colleagues see it only when members may see each other, never its name; falls back to the default if deleted; ends with the membership
+
 > ⚠ Affected by [[D-33 Work email joining waits for real emails and Companies]] (2026-11-08): ND-33 decided "not now": joining with a verified work email (S4) is left out of this version and hidden in the app; it waits on Code Delivery (S-78, real emails) and Companies' work-email domain (S-29 S12); s74 and s72 list only invitation and code; a new needs-decision card settles once vs yearly later
 
 > ⚠ Affected by [[D-32 Several join codes per Ring]] (2026-11-08): ND-32 decided 2026-11-08 by Omar Fostok, option 2: several join codes per Ring (up to 10 active), each 8 characters without look-alikes (K7QM-4RXT) with a required owner-only label, an optional end date and an optional use limit; Turn off per code, Make a new code adds one; one neutral message for a wrong, off, ended or used-up code, tries limited per person; with approve-each-one on a code makes a join request showing which code was used; managed under Edit Ring → Joining → Join codes by the owner (later admins who manage who's in it)

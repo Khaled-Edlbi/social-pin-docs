@@ -20,6 +20,8 @@ tags: [story, story/approved, module/shared-rings, layer/business]
 
 # Companies · User Story
 
+> ⚠ Affected by [[D-34 A member shows one of their own Rings]] (2026-11-08): colleagues on Company detail (s73) open each one's card, the Ring they picked for that company Ring
+
 > ⚠ Affected by [[D-33 Work email joining waits for real emails and Companies]] (2026-11-08): ND-33 decided "not now": joining a company Ring with a verified work email is not in this version; S12's work-email domain has no join flow behind it yet; "Verified email" on Company detail and P5's "the work email I verified stops counting" apply once it exists; the Join a company Ring hint drops "work email" until then
 
 > ⚠ Affected by [[D-31 An invitation is its own record]] (2026-11-08): ND-31 decided 2026-11-08 by Omar Fostok, option 1: an invitation is its own record (Ring, invitee, inviter, optional window, PENDING/ACCEPTED/DECLINED/WITHDRAWN), never a membership while pending; accept creates the membership recorded as joined knowingly; decline, withdraw, 30-day expiry, valid:false on an ended Ring

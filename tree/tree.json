@@ -141,6 +141,7 @@
     "D-31 An invitation is its own record": "decision:D-31",
     "D-32 Several join codes per Ring": "decision:D-32",
     "D-33 Work email joining waits for real emails and Companies": "decision:D-33",
+    "D-34 A member shows one of their own Rings": "decision:D-34",
     "Database & Migrations": "project:database-migrations",
     "Developer Guide": "project:developer-guide",
     "Developer Setup": "project:developer-setup",
@@ -459,6 +460,7 @@
     "D-31": "decision:D-31",
     "D-32": "decision:D-32",
     "D-33": "decision:D-33",
+    "D-34": "decision:D-34",
     "F-01": "feature:account",
     "F-02": "feature:auth",
     "F-03": "feature:counts",
@@ -6102,7 +6104,7 @@
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 11,
-      "decision": 29,
+      "decision": 30,
       "feature": 41,
       "frontend-delivery": 9,
       "frontend-requirements": 39,
@@ -6116,21 +6118,21 @@
     },
     "byLayer": {
       "backend": 58,
-      "business": 168,
+      "business": 169,
       "frontend": 52,
       "qa": 12,
       "shared": 10
     },
     "concepts": 290,
     "decisions": 34,
-    "edges": 6820,
+    "edges": 6839,
     "features": 41,
     "layerNotes": 151,
     "modules": 8,
-    "notes": 331,
+    "notes": 332,
     "partial": 13,
     "placeholders": 134,
-    "records": 29
+    "records": 30
   },
   "deadlines": {
     "missed": {
@@ -6883,6 +6885,31 @@
       "from": "decision:D-33",
       "kind": "affects",
       "to": "story:ring-invitations"
+    },
+    {
+      "from": "decision:D-34",
+      "kind": "affects",
+      "to": "backend-delivery:ring-invitations"
+    },
+    {
+      "from": "decision:D-34",
+      "kind": "affects",
+      "to": "frontend-requirements:ring-invitations"
+    },
+    {
+      "from": "decision:D-34",
+      "kind": "affects",
+      "to": "story:companies"
+    },
+    {
+      "from": "decision:D-34",
+      "kind": "affects",
+      "to": "story:ring-invitations"
+    },
+    {
+      "from": "decision:D-34",
+      "kind": "affects",
+      "to": "story:ring-members"
     },
     {
       "from": "frontend-requirements:companies",
@@ -8163,11 +8190,6 @@
       "from": "needs-decision:ND-21",
       "kind": "blocks",
       "to": "story:onboarding-imports"
-    },
-    {
-      "from": "needs-decision:ND-34",
-      "kind": "blocks",
-      "to": "story:ring-invitations"
     },
     {
       "from": "needs-decision:ND-35",
@@ -16266,6 +16288,51 @@
       "from": "decision:D-33",
       "kind": "related",
       "to": "story:code-delivery"
+    },
+    {
+      "from": "decision:D-34",
+      "kind": "related",
+      "to": "backend-integration:rings"
+    },
+    {
+      "from": "decision:D-34",
+      "kind": "related",
+      "to": "decision:D-04"
+    },
+    {
+      "from": "decision:D-34",
+      "kind": "related",
+      "to": "decision:D-05"
+    },
+    {
+      "from": "decision:D-34",
+      "kind": "related",
+      "to": "decision:D-14"
+    },
+    {
+      "from": "decision:D-34",
+      "kind": "related",
+      "to": "decision:D-18"
+    },
+    {
+      "from": "decision:D-34",
+      "kind": "related",
+      "to": "decision:D-31"
+    },
+    {
+      "from": "decision:D-34",
+      "kind": "related",
+      "to": "decision:D-32"
+    },
+    {
+      "from": "decision:D-34",
+      "kind": "related",
+      "to": "feature:ring-invitations"
+    },
+    {
+      "from": "decision:D-34",
+      "kind": "related",
+      "to": "needs-decision:ND-34"
     },
     {
       "from": "feature:account",
@@ -49044,6 +49111,11 @@
       "to": "decision:D-33"
     },
     {
+      "from": "needs-decision:ND-34",
+      "kind": "tree",
+      "to": "decision:D-34"
+    },
+    {
       "from": "root",
       "kind": "tree",
       "to": "group:backend"
@@ -50272,6 +50344,31 @@
       "from": "decision:D-33",
       "kind": "wikilink",
       "to": "story:ring-invitations"
+    },
+    {
+      "from": "decision:D-34",
+      "kind": "wikilink",
+      "to": "backend-delivery:ring-invitations"
+    },
+    {
+      "from": "decision:D-34",
+      "kind": "wikilink",
+      "to": "frontend-requirements:ring-invitations"
+    },
+    {
+      "from": "decision:D-34",
+      "kind": "wikilink",
+      "to": "story:companies"
+    },
+    {
+      "from": "decision:D-34",
+      "kind": "wikilink",
+      "to": "story:ring-invitations"
+    },
+    {
+      "from": "decision:D-34",
+      "kind": "wikilink",
+      "to": "story:ring-members"
     },
     {
       "from": "feature:account",
@@ -55494,6 +55591,10 @@
     },
     "social-pin/decisions/D-33 Work email joining waits for real emails and Companies.md": {
       "name": "D-33 Work email joining waits for real emails and Companies",
+      "type": "decision"
+    },
+    "social-pin/decisions/D-34 A member shows one of their own Rings.md": {
+      "name": "D-34 A member shows one of their own Rings",
       "type": "decision"
     },
     "social-pin/decisions/Decisions.md": {
@@ -62021,6 +62122,7 @@
         "needs-decision:ND-34",
         "needs-decision:ND-36",
         "decision:D-32",
+        "decision:D-34",
         "frontend-requirements:connections",
         "backend-delivery:counts",
         "backend-integration:counts",
@@ -62565,6 +62667,7 @@
         "decision:D-31",
         "decision:D-32",
         "decision:D-33",
+        "decision:D-34",
         "frontend-requirements:connections",
         "story:connections",
         "backend-delivery:counts",
@@ -62650,6 +62753,7 @@
         "decision:D-02",
         "needs-decision:ND-05",
         "decision:D-04",
+        "decision:D-34",
         "frontend-requirements:photo-library",
         "story:photo-library",
         "frontend-delivery:profiles",
@@ -63064,6 +63168,7 @@
         "decision:D-15",
         "decision:D-18",
         "decision:D-23",
+        "decision:D-34",
         "frontend-requirements:connections",
         "story:connections",
         "backend-delivery:counts",
@@ -63400,6 +63505,7 @@
         "decision:D-31",
         "decision:D-32",
         "decision:D-33",
+        "decision:D-34",
         "frontend-requirements:connections",
         "story:connections",
         "backend-delivery:counts",
@@ -64202,7 +64308,8 @@
         "story:delegated-admins",
         "frontend-requirements:companies",
         "decision:D-32",
-        "decision:D-33"
+        "decision:D-33",
+        "decision:D-34"
       ],
       "release": null,
       "resolution": null,
@@ -64268,7 +64375,8 @@
         "decision:D-31",
         "backend-integration:rings",
         "story:companies",
-        "decision:D-33"
+        "decision:D-33",
+        "decision:D-34"
       ],
       "release": null,
       "resolution": null,
@@ -64347,6 +64455,73 @@
       ],
       "task": null,
       "title": "D-33 Work email joining waits for real emails and Companies",
+      "unmet": [],
+      "updated": "2026-11-08"
+    },
+    "decision:D-34": {
+      "affects": [
+        "story:ring-invitations",
+        "frontend-requirements:ring-invitations",
+        "backend-delivery:ring-invitations",
+        "story:ring-members",
+        "story:companies"
+      ],
+      "blockedBy": [],
+      "card": "D-34",
+      "children": [],
+      "code": "D-34",
+      "created": "2026-11-08",
+      "deadline": null,
+      "decidedAt": "2026-11-08",
+      "decidedBy": "Omar Fostok",
+      "decides": "ND-34",
+      "depends": [],
+      "effectiveStatus": "decided",
+      "effort": null,
+      "feature": null,
+      "features": [
+        "ring-invitations"
+      ],
+      "foundOn": null,
+      "frontendOnly": false,
+      "id": "decision:D-34",
+      "inherits": {},
+      "kind": "decision",
+      "label": "Decision",
+      "labels": [],
+      "layer": "business",
+      "module": null,
+      "openBugs": [],
+      "parentTask": null,
+      "parents": [
+        "needs-decision:ND-34"
+      ],
+      "path": "social-pin/decisions/D-34 A member shows one of their own Rings.md",
+      "pending": [],
+      "priority": null,
+      "related": [
+        "needs-decision:ND-34",
+        "feature:ring-invitations",
+        "decision:D-04",
+        "decision:D-05",
+        "decision:D-14",
+        "decision:D-18",
+        "decision:D-31",
+        "decision:D-32",
+        "backend-integration:rings"
+      ],
+      "release": null,
+      "resolution": null,
+      "scope": null,
+      "screens": [],
+      "status": "decided",
+      "summary": "This rules out option 2 (a card made for that Ring, a member-side editor) and option 3 (always the default Ring, nothing to choose).",
+      "tags": [
+        "decision",
+        "decision/decided"
+      ],
+      "task": null,
+      "title": "D-34 A member shows one of their own Rings",
       "unmet": [],
       "updated": "2026-11-08"
     },
@@ -67124,16 +67299,17 @@
         "decision:D-29",
         "decision:D-31",
         "decision:D-32",
-        "decision:D-33"
+        "decision:D-33",
+        "decision:D-34"
       ],
       "release": "mvp",
       "resolution": null,
       "rollup": {
         "blocked": 3,
-        "decided": 5,
+        "decided": 6,
         "missing": 4,
-        "needs-decision": 3,
-        "verified": 5
+        "needs-decision": 2,
+        "verified": 6
       },
       "scope": null,
       "screens": [
@@ -74420,13 +74596,13 @@
       "rollup": {
         "approved": 1,
         "blocked": 6,
-        "decided": 5,
+        "decided": 6,
         "draft": 1,
         "in-progress": 3,
         "missing": 12,
-        "needs-decision": 3,
+        "needs-decision": 2,
         "ready": 1,
-        "verified": 5
+        "verified": 6
       },
       "scope": null,
       "screens": [],
@@ -76579,13 +76755,15 @@
         "story:ring-invitations"
       ],
       "card": "ND-34",
-      "children": [],
+      "children": [
+        "decision:D-34"
+      ],
       "code": "ND-34",
       "created": "2026-11-08",
       "deadline": null,
       "decider": "owner",
       "depends": [],
-      "effectiveStatus": "needs-decision",
+      "effectiveStatus": "verified",
       "effort": null,
       "feature": null,
       "features": [
@@ -76593,6 +76771,7 @@
       ],
       "foundOn": null,
       "frontendOnly": false,
+      "fulfilledBy": "decision:D-34",
       "id": "needs-decision:ND-34",
       "inherits": {},
       "kind": "needs-decision",
@@ -76615,6 +76794,7 @@
         "story:ring-members",
         "story:companies",
         "backend-integration:rings",
+        "decision:D-34",
         "story:ring-invitations"
       ],
       "release": null,
@@ -83725,20 +83905,20 @@
         "approved": 40,
         "blocked": 33,
         "current": 7,
-        "decided": 29,
+        "decided": 30,
         "delivered": 6,
         "done": 19,
         "draft": 28,
         "failing": 5,
         "in-progress": 47,
         "missing": 134,
-        "needs-decision": 4,
+        "needs-decision": 3,
         "partial": 13,
         "passing": 4,
         "ready": 4,
         "reference": 32,
         "todo": 12,
-        "verified": 29
+        "verified": 30
       },
       "scope": null,
       "screens": [],
@@ -86183,11 +86363,6 @@
     "story:ring-invitations": {
       "affects": [],
       "blockedBy": [
-        {
-          "id": "needs-decision:ND-34",
-          "title": "ND-34 What a member contributes to a shared Ring",
-          "why": "needs decision ND-34 (open)"
-        },
         {
           "id": "needs-decision:ND-35",
           "title": "ND-35 A colleague's QR offering their company Ring",
