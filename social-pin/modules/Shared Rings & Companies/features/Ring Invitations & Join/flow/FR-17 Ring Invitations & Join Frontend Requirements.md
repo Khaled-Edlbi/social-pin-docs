@@ -3,20 +3,22 @@ id: FR-17
 type: frontend-requirements
 module: shared-rings
 feature: ring-invitations
-status: ready
+status: approved
 scope: feature
 screens: [s15, s17, s19, s26, s43, s74]
+approvedBy: "khaled"
+approvedAt: 2026-11-08
 owner: "Omar Fostok"
 affects: ["BD-17 Ring Invitations & Join Backend Delivery"]
 related: ["S-33 Ring Invitations & Join Story", "BI-08 Rings Backend Integration", "FR-15 Companies Frontend Requirements", "D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "D-18 Ring names shown when joined knowingly", "D-31 An invitation is its own record", "D-32 Several join codes per Ring", "D-33 Work email joining waits for real emails and Companies", "D-34 A member shows one of their own Rings", "D-35 A join code can be shown as a QR", "D-36 Who it's for stays the owner's alone", "S-37 Badge & QR Story", "S-87 Error Contract Story", "S-96 Notifications Story", "Frontend Contract"]
 created: 2026-10-18
 updated: 2026-11-08
-tags: [frontend-requirements, frontend-requirements/ready, module/shared-rings, layer/frontend]
+tags: [frontend-requirements, frontend-requirements/approved, module/shared-rings, layer/frontend]
 ---
 
 # 📨 Ring Invitations & Join · Frontend Requirements
 
-**Feature:** [[F-17 Ring Invitations & Join]] · **Status:** Ready · **Story:** [[S-33 Ring Invitations & Join Story]] (approved 2026-11-08) · **API Integration:** not yet (backend not built)
+**Feature:** [[F-17 Ring Invitations & Join]] · **Status:** Approved 2026-11-08 by khaled · **Story:** [[S-33 Ring Invitations & Join Story]] (approved 2026-11-08) · **API Integration:** not yet (backend not built)
 
 What the client needs from the backend to build [[S-33 Ring Invitations & Join Story]] S1–S12, and whether each need is met today. **Rewritten 2026-11-08** against the approved story, [[D-31 An invitation is its own record|D-31]] to [[D-36 Who it's for stays the owner's alone|D-36]], and backend `main` @ `12172c6` ([[BI-08 Rings Backend Integration]]). Routes that don't exist yet are asked for as needs, not names: the backend names them in [[BD-17 Ring Invitations & Join Backend Delivery]]; the two join-request routes keep the names [[FR-15 Companies Frontend Requirements|FR-15]] already asked for.
 
@@ -158,3 +160,4 @@ Each screen ends with **What changes in the app**: the app as it is today (`soci
 
 - 2026-11-08 · `tickets/frontend/M-03-shared-rings/F-17-ring-invitations/FR-17-draft` · rewritten against the approved S-33 (S1–S12) and D-31 to D-36: per screen s17, s74, the "Your card" step, s43, s15, s19, s26, inside the Ring, with **What changes in the app** under each; the endpoints table re-keyed to S-33's parts (no work email, several join codes with QR, invitations as their own record, the picked-Ring pointer, the member roster); FR-15's asks added; no purpose anywhere; all 13 ⚠ flags settled and cleared (S-33 ×2, D-31 to D-36, D-04, D-18, FR-15, S-23's renumbering, which no longer applies: no Connections part is linked); stays draft
 - 2026-11-08 · `tickets/frontend/M-03-shared-rings/F-17-ring-invitations/FR-17-ready` · set ready on Omar Fostok's word: handed to `/backend` to review, approve or send back
+- 2026-11-08 · `tickets/backend/M-03-shared-rings/F-17-ring-invitations/FR-17-accepted` · reviewed by `/backend` against backend `main` @ `cb95a39` and approved (khaled): every ✅ row holds (`GET /rings/shared-with-me` and its fields, `GET /views/ring/:ringId`, `GET /rings`, `PATCH /rings/:id` with `joinPolicy` / `requireApproval`, `E_RING_ACCESS_01` / `02`, `E_AUTH_04`); the ❌ asks match S-33 S1–S12. [[BD-17 Ring Invitations & Join Backend Delivery]] → in progress; the ❌ rows stay until the backend branch is merged

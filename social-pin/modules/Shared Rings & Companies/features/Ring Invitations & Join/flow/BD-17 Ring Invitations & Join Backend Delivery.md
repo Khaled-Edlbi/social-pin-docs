@@ -3,15 +3,15 @@ id: BD-17
 type: backend-delivery
 module: shared-rings
 feature: ring-invitations
-status: todo
+status: in-progress
 scope: feature
 screens: [s17, s74]
 created: 2026-10-18
-updated: 2026-10-29
-tags: [backend-delivery, backend-delivery/todo, module/shared-rings, layer/backend]
+updated: 2026-11-08
+tags: [backend-delivery, backend-delivery/in-progress, module/shared-rings, layer/backend]
 ---
 
-# ⬜ Ring Invitations & Join · Backend Delivery
+# 🟡 Ring Invitations & Join · Backend Delivery
 
 > ⚠ Affected by [[S-33 Ring Invitations & Join Story]] (2026-11-08): S-33 updated with D-31 to D-36: "What the backend has to build" now reads the invitation record, several join codes with QR, no work email, the member's card pointer and the member-facing roster
 
@@ -31,7 +31,7 @@ tags: [backend-delivery, backend-delivery/todo, module/shared-rings, layer/backe
 
 > ⚠ Affected by [[D-04 Ring settings at launch and their defaults]] (2026-10-25): ND-04 decided, six Ring settings at launch with private defaults (join with a code or invite, approve each one, members can't see each other, invite or save attachments); the owner and the Ring's admins change them; members who may see each other see full cards.
 
-**Feature:** [[F-17 Ring Invitations & Join]] · **Status:** To do · **Integration guide:** [[Ring Invitations & Join Backend Integration]] · **Requirements:** [[FR-17 Ring Invitations & Join Frontend Requirements]] · **QA:** [[Ring Invitations & Join QA Backend]]
+**Feature:** [[F-17 Ring Invitations & Join]] · **Status:** In progress · **Integration guide:** [[Ring Invitations & Join Backend Integration]] · **Requirements:** [[FR-17 Ring Invitations & Join Frontend Requirements]] · **QA:** [[Ring Invitations & Join QA Backend]]
 
 What the backend shipped for this feature and how it works. The sum of this feature's task-level Backend Delivery notes (see the *Tasks* table below).
 
