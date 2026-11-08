@@ -3,19 +3,21 @@ id: S-37
 type: story
 module: discovery
 feature: badge-qr
-status: draft
+status: approved
 scope: feature
 screens: [s34, s43, s44, s56]
+approvedBy: "Omar Fostok"
+approvedAt: 2026-11-08
 owner: "Omar Fostok"
 related: ["D-10 Connect sends what the requester already has", "D-11 The badge code stays the same for its day", "D-12 The badge QR is a socialpin.me link", "D-22 The public page only says the Pin exists", "D-28 Scan someone in is not in the MVP", "D-35 A join code can be shown as a QR", "ND-10 How Connect addresses the scanned person", "ND-11 Get or rotate the badge token", "ND-12 What the badge QR encodes", "S-19 View As & Pin Views Story", "S-23 Connections Story", "S-33 Ring Invitations & Join Story", "S-53 Events During Story", "S-71 Subscription (Free vs Pro) Story", "S-82 Devices & NFC Story", "BI-09 View As & Pin Views Backend Integration", "F-12 View As & Pin Views", "F-28 Subscription (Free vs Pro)"]
 created: 2026-10-18
 updated: 2026-11-08
-tags: [story, story/draft, module/discovery, layer/business]
+tags: [story, story/approved, module/discovery, layer/business]
 ---
 
 # Badge & QR · User Story
 
-**Feature:** [[F-18 Badge & QR]] · **Status:** Draft (rewritten 2026-11-08, waiting for approval) · **Frontend Requirements:** [[FR-18 Badge & QR Frontend Requirements]] · **API Integration:** not yet (backend not built)
+**Feature:** [[F-18 Badge & QR]] · **Status:** Approved (2026-11-08 by Omar Fostok) · **Frontend Requirements:** [[FR-18 Badge & QR Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 > **Rewritten 2026-11-08** as one set of parts, in the order the moment happens, with [[D-10 Connect sends what the requester already has|D-10]], [[D-11 The badge code stays the same for its day|D-11]], [[D-12 The badge QR is a socialpin.me link|D-12]], [[D-22 The public page only says the Pin exists|D-22]], [[D-28 Scan someone in is not in the MVP|D-28]] and [[D-35 A join code can be shown as a QR|D-35]]. It replaces the old S1–S20, where S1–S6 and the merged tasks T-007 to T-010 (S7–S20) said the same things twice. The story was approved on 2026-10-25 (khaled) and goes back to draft for approval of the rewrite.
 
@@ -223,3 +225,4 @@ Left, none blocking:
 - 2026-11-08 · `tickets/pm/M-04-discovery/F-18-badge-qr/S-37-rewrite` · rewritten as one set of parts (S1–S15) with D-10, D-11, D-12, D-22, D-28 and D-35, replacing the doubled S1–S20; a reset (S2); the scanner reads the link on the phone and sends a join QR to S-33 (S6); own badge known by the app (S7); Save for later connects until the code expires (S8); Pin name lookup, which exists (S9); what a scan never does (S11); Share link "Not available yet" until the domain, Save image kept (S12); the five flags cleared; back to draft for approval
 - 2026-11-08 · flagged [[FR-18 Badge & QR Frontend Requirements]]: S-37 rewritten (S1–S15): the code with url, reset, offline, the link read on the phone with join QR to S-33, own badge by the app, Save for later until expiresAt, Pin name lookup, no auto-accept or "land in", Share link not available until the domain, Save image kept
 - 2026-11-08 · flagged [[BD-18 Badge & QR Backend Delivery]]: S-37 rewritten (S1–S15): "What the backend has to build" lists the code route with url and reset, the resolve with expiresAt, a 429 rate limit and the scan count, Connect sharing the token lookup, and the domain routes later
+- 2026-11-08 · `tickets/pm/M-04-discovery/F-18-badge-qr/S-37-approved` · approved by Omar Fostok; FR-18 continues
