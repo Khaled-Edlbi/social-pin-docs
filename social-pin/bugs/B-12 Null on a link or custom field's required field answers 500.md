@@ -3,7 +3,8 @@ id: B-12
 type: bug
 module: identity
 feature: ring-projection
-status: ready
+status: done
+resolution: fixed
 priority: medium
 effort: S
 foundOn: "BI-07 Ring Projection Backend Integration"
@@ -14,14 +15,13 @@ related: ["BI-07 Ring Projection Backend Integration", "QB-13 Ring Projection QA
 pending: []
 created: 2026-11-05
 updated: 2026-11-08
-tags: [bug, bug/ready, module/identity, priority/medium]
+tags: [bug, bug/done, module/identity, priority/medium, resolution/fixed]
 ---
 
-# 📨 B-12 · Null on a link or custom field's required field answers 500
+# ✅ B-12 · Null on a link or custom field's required field answers 500
 
-> ⚠ Affected by [[BD-10 Ring Projection Backend Delivery]] (2026-11-08): fixed on backend main e483d49, ready for re-test
 
-**Found against:** [[BI-07 Ring Projection Backend Integration]] · **Feature:** [[F-10 Ring Projection]] · **Status:** Ready · **Priority:** Medium (`critical | high | medium | low`, from `docs.config.json`) · **Deadline:** — · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
+**Found against:** [[BI-07 Ring Projection Backend Integration]] · **Feature:** [[F-10 Ring Projection]] · **Status:** Done · **Priority:** Medium (`critical | high | medium | low`, from `docs.config.json`) · **Deadline:** — · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
 
 **Found by:** [[QB-13 Ring Projection QA Backend]] rows B64, B65, B67 and B90, on build `main @ 12172c6 · localhost:3110, Node 22.22.2`.
 
@@ -50,11 +50,12 @@ Output of `node scripts/build-tree.mjs --impact B-12` when the bug was filed: th
 
 ## Definition of done
 
-- [ ] The behaviour is fixed, or the notes are corrected, as the decision says (`resolution:` set, the tag `resolution/<id>` with it)
-- [ ] The QA row that found it re-run against the fix, on a named build
+- [x] The behaviour is fixed, or the notes are corrected, as the decision says (`resolution:` set, the tag `resolution/<id>` with it)
+- [x] The QA row that found it re-run against the fix, on a named build
 - [ ] `depends` / `affects` / `related` declared; notes listed by `--impact` updated or flagged
 - [ ] `node scripts/build-tree.mjs` run; tree, board and backlog committed
 
 ## Log
 
 - 2026-11-05 · filed with --scaffold bug, found against BI-07 Ring Projection Backend Integration
+- 2026-11-08 · backend main e483d49 · re-test passed: [[QB-13 Ring Projection QA Backend]] B64 `value: null`, B65 `type: null`, B67 `isVisible: null` on a link and B90 `title: null` on a custom field each answer 400 with the validation body, not 500; `label: null` and `body: null` still clear (B66, B91, 200). Closed, resolution fixed.
