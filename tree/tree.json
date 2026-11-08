@@ -6148,7 +6148,7 @@
     },
     "concepts": 291,
     "decisions": 34,
-    "edges": 6849,
+    "edges": 6847,
     "features": 41,
     "layerNotes": 151,
     "modules": 8,
@@ -9643,16 +9643,6 @@
       "from": "qa-backend:ring-members",
       "kind": "pending",
       "to": "task:B-10"
-    },
-    {
-      "from": "qa-backend:ring-projection",
-      "kind": "pending",
-      "to": "task:B-11"
-    },
-    {
-      "from": "qa-backend:ring-projection",
-      "kind": "pending",
-      "to": "task:B-12"
     },
     {
       "from": "qa-backend:rings",
@@ -62151,6 +62141,7 @@
       "affects": [
         "frontend-requirements:ring-projection"
       ],
+      "autoDelivered": true,
       "blockedBy": [],
       "card": "BI-07",
       "children": [
@@ -62164,7 +62155,7 @@
       "depends": [
         "backend-delivery:ring-projection"
       ],
-      "effectiveStatus": "current",
+      "effectiveStatus": "delivered",
       "effort": null,
       "feature": "ring-projection",
       "foundOn": null,
@@ -67624,12 +67615,12 @@
       "resolution": null,
       "rollup": {
         "approved": 2,
-        "current": 1,
         "decided": 3,
+        "delivered": 1,
         "done": 2,
-        "failing": 1,
         "missing": 1,
         "partial": 1,
+        "passing": 1,
         "ready": 2,
         "verified": 3
       },
@@ -74548,17 +74539,17 @@
       "rollup": {
         "approved": 18,
         "blocked": 3,
-        "current": 7,
+        "current": 6,
         "decided": 10,
-        "delivered": 6,
+        "delivered": 7,
         "done": 18,
         "draft": 3,
-        "failing": 5,
+        "failing": 4,
         "in-progress": 13,
         "missing": 20,
         "needs-decision": 1,
         "partial": 13,
-        "passing": 4,
+        "passing": 5,
         "ready": 11,
         "verified": 10
       },
@@ -81401,7 +81392,7 @@
         "backend-delivery:ring-projection",
         "backend-integration:ring-projection"
       ],
-      "effectiveStatus": "failing",
+      "effectiveStatus": "passing",
       "effort": null,
       "feature": "ring-projection",
       "foundOn": null,
@@ -81422,18 +81413,7 @@
         "feature:ring-projection"
       ],
       "path": "social-pin/modules/Identity Core/features/Ring Projection/flow/QB-13 Ring Projection QA Backend.md",
-      "pending": [
-        {
-          "person": null,
-          "text": "rows B25, B26",
-          "to": "task:B-11"
-        },
-        {
-          "person": null,
-          "text": "rows B64, B65, B67, B90",
-          "to": "task:B-12"
-        }
-      ],
+      "pending": [],
       "priority": "critical",
       "related": [
         "task:B-08",
@@ -81547,18 +81527,18 @@
         "s37",
         "s68"
       ],
-      "status": "failing",
+      "status": "passing",
       "summary": "Expected behaviour of the API, as artefacts a person can check a build against: tables and diagrams, not test code (the specs live in the backend repo). status: passing or failing after a run; the…",
       "tags": [
         "qa-backend",
-        "qa-backend/failing",
+        "qa-backend/passing",
         "module/identity",
         "layer/qa"
       ],
       "task": null,
       "title": "QB-13 Ring Projection QA Backend",
       "unmet": [],
-      "updated": "2026-11-05"
+      "updated": "2026-11-08"
     },
     "qa-backend:rings": {
       "affects": [],
@@ -84049,17 +84029,17 @@
       "rollup": {
         "approved": 40,
         "blocked": 33,
-        "current": 7,
+        "current": 6,
         "decided": 29,
-        "delivered": 6,
+        "delivered": 7,
         "done": 19,
         "draft": 28,
-        "failing": 5,
+        "failing": 4,
         "in-progress": 47,
         "missing": 134,
         "needs-decision": 4,
         "partial": 13,
-        "passing": 4,
+        "passing": 5,
         "ready": 13,
         "reference": 32,
         "todo": 3,

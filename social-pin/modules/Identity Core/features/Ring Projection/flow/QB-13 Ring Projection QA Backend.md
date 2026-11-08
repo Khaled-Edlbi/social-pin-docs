@@ -3,24 +3,22 @@ id: QB-13
 type: qa-backend
 module: identity
 feature: ring-projection
-status: failing
+status: passing
 scope: feature
 screens: [s14, s20, s23, s24, s25, s28, s29, s30, s36, s37, s68]
 depends: ["BD-10 Ring Projection Backend Delivery", "BI-07 Ring Projection Backend Integration"]
 affects: ["S-17 Ring Projection Story"]
 related: ["S-17 Ring Projection Story", "BD-10 Ring Projection Backend Delivery", "BI-07 Ring Projection Backend Integration", "FR-10 Ring Projection Frontend Requirements", "D-03 Links entered once, switched on or off per Ring", "D-05 Inherit per field, copy without members", "D-16 Files load from signed links that expire in 15 minutes", "BI-03 Files Upload Backend Integration", "BI-09 View As & Pin Views Backend Integration", "S-87 Error Contract Story", "B-11 Projection switches read any string as true", "B-12 Null on a link or custom field's required field answers 500", "GET /rings/:ringId/projection", "PATCH /rings/:ringId/projection", "POST /rings/:ringId/projection/links", "PATCH /rings/:ringId/projection/links/:linkId", "POST /rings/:ringId/projection/attachments", "DELETE /rings/:ringId/projection/attachments/:attachmentId", "GET /views/ring/:ringId", "GET /files/content/:token", "POST /files", E_RING_05, E_RING_02, E_PROFILE_01, E_FILE_04]
-pending: ["[[B-11 Projection switches read any string as true]]: rows B25, B26", "[[B-12 Null on a link or custom field's required field answers 500]]: rows B64, B65, B67, B90"]
+pending: []
 unmet: []
 created: 2026-11-05
-updated: 2026-11-05
-tags: [qa-backend, qa-backend/failing, module/identity, layer/qa]
+updated: 2026-11-08
+tags: [qa-backend, qa-backend/passing, module/identity, layer/qa]
 ---
 
 # 🧪 Ring Projection · QA Backend
 
-> ⚠ Affected by [[BD-10 Ring Projection Backend Delivery]] (2026-11-08): backend main e483d49 fixes B-11 (rows B25, B26): show* and isVisible take true/false only, anything else 400; ready for re-test (/qa)
-
-**Feature:** [[F-10 Ring Projection]] · **Verifies:** [[BD-10 Ring Projection Backend Delivery]] against [[S-17 Ring Projection Story]] and [[FR-10 Ring Projection Frontend Requirements]], through the contract in [[BI-07 Ring Projection Backend Integration]] · **Verdict:** Failing on backend `main @ 12172c6`, 2026-11-05 ([[B-11 Projection switches read any string as true]], [[B-12 Null on a link or custom field's required field answers 500]])
+**Feature:** [[F-10 Ring Projection]] · **Verifies:** [[BD-10 Ring Projection Backend Delivery]] against [[S-17 Ring Projection Story]] and [[FR-10 Ring Projection Frontend Requirements]], through the contract in [[BI-07 Ring Projection Backend Integration]] · **Verdict:** Passing on backend `main @ e483d49`, 2026-11-08 (failing on `12172c6`, 2026-11-05: [[B-11 Projection switches read any string as true]] and [[B-12 Null on a link or custom field's required field answers 500]], both fixed)
 
 Expected behaviour of the API, as artefacts a person can check a build against: tables and diagrams, **not test code** (the specs live in the backend repo). `status: passing` or `failing` after a run; the verdict tells the PM whether the story can be fulfilled (passing with nothing pending or unmet). A failing row is one of two things: a story part the delivery does not fulfil (not built, or built other than the story says) goes in `unmet` and turns the story's badge ✕; a bug (built as asked, but it breaks) is filed against the Backend Integration and goes in `pending`, and leaves the story alone.
 
@@ -82,8 +80,8 @@ No route appoints a Ring admin yet, so the two admin rows were written into the 
 | B22 | a birthdate, gender, marital status, phone and email on the profile and account | `PATCH` A with the five `show*` `true` | view A shows all five values | ✅ |
 | B23 | B22 done; B shares phone and birthdate only | the member of B reads B | phone and birthdate; gender, marital status and email `null`: A's switches never reach B | ✅ |
 | B24 | — | `PATCH` A with the five `show*` `false` | view A: all five `null` | ✅ |
-| B25 | — | `PATCH` A `{ showEmail: "yes" }` | 400: `show*` are booleans | 🔴 200, stored as `true` ([[B-11 Projection switches read any string as true]]) |
-| B26 | B's email switch off | `PATCH` B `{ showEmail: "false" }` | 400; B's email stays hidden | 🔴 200, `showEmail: true`, and the member of B now sees Sara's email ([[B-11 Projection switches read any string as true]]) |
+| B25 | — | `PATCH` A `{ showEmail: "yes" }` | 400: `show*` are booleans | ✅ re-run 2026-11-08 on `main @ e483d49`: 400 "showEmail must be a boolean value" (on `12172c6` it was 200, stored `true`: [[B-11 Projection switches read any string as true]], fixed) |
+| B26 | B's email switch off | `PATCH` B `{ showEmail: "false" }` | 200 with `showEmail: false` (BI-07 since 2026-11-08: the strings `"true"` / `"false"` are read as booleans, any other value is a 400); B's email stays hidden | ✅ re-run 2026-11-08 on `main @ e483d49`: 200, `showEmail: false`, the member of B gets `email: null` (on `12172c6` it was `showEmail: true` and the member saw Sara's email: [[B-11 Projection switches read any string as true]], fixed; this row expected a 400 before BI-07 said how strings are read) |
 | B27 | — | `{ showPhone: null }` | 400 | ✅ |
 | B28 | — | `displayName` 120 / 121, `nickname` 60 / 61, `bio` 2000 / 2001 characters | 200 at the limit, 400 one over, each | ✅ |
 | B29 | — | `themeConfig` an object, then a string, then `null` | 200 stored as sent; 400; 200 cleared | ✅ |
@@ -126,10 +124,10 @@ No route appoints a Ring admin yet, so the two admin rows were written into the 
 | B61 | — | `label` 61 characters | 400 | ✅ |
 | B62 | — | `value` over 500 characters | 400 | ✅ |
 | B63 | — | `type` not a `LINK_TYPE` | 400 | ✅ |
-| B64 | a link | `PATCH { value: null }` | 400 | 🔴 500 "Internal server error" ([[B-12 Null on a link or custom field's required field answers 500]]) |
-| B65 | a link | `PATCH { type: null }` | 400 | 🔴 500 ([[B-12 Null on a link or custom field's required field answers 500]]) |
+| B64 | a link | `PATCH { value: null }` | 400 | ✅ re-run 2026-11-08 on `main @ e483d49`: 400 "value must be a string" (on `12172c6` a 500: [[B-12 Null on a link or custom field's required field answers 500]], fixed) |
+| B65 | a link | `PATCH { type: null }` | 400 | ✅ re-run 2026-11-08 on `main @ e483d49`: 400 "type must be one of the following values …" (on `12172c6` a 500, B-12) |
 | B66 | a link with a label | `PATCH { label: null }` | 200, label cleared | ✅ |
-| B67 | a link | `PATCH { isVisible: null }` | 400 | 🔴 500 ([[B-12 Null on a link or custom field's required field answers 500]]) |
+| B67 | a link | `PATCH { isVisible: null }` | 400 | ✅ re-run 2026-11-08 on `main @ e483d49`: 400 "isVisible must be a boolean value" (on `12172c6` a 500, B-12) |
 
 ### 4 · Link types and their values (S5)
 
@@ -162,7 +160,7 @@ No route appoints a Ring admin yet, so the two admin rows were written into the 
 | B87 | — | `title` 120 / 121, `body` 4000 / 4001, no `title` | 201, 400, 201, 400, 400 | ✅ |
 | B88 | — | an id that names no field | 404 `E_RING_PROFILE_03` "Info block not found" | ✅ |
 | B89 | a field of Omar's library | Sara `PATCH` it through A | 404 `E_RING_PROFILE_03` | ✅ |
-| B90 | a field | `PATCH { title: null }` | 400 | 🔴 500 ([[B-12 Null on a link or custom field's required field answers 500]]) |
+| B90 | a field | `PATCH { title: null }` | 400 | ✅ re-run 2026-11-08 on `main @ e483d49`: 400 "title must be a string" (on `12172c6` a 500, B-12) |
 | B91 | a field with a body | `PATCH { body: null }` | 200, body cleared | ✅ |
 | B92 | on in A, B and F | the owner `DELETE` it through A | 200; gone from B, F and view B | ✅ |
 | B93 | B92 done | `DELETE` it again | 404 `E_RING_PROFILE_03` | ✅ |
@@ -239,8 +237,8 @@ stateDiagram-v2
 | the Ring has no profile to present | 409 | `E_PROFILE_01` | — |
 | a field over its limit, a wrong type, an unknown property, a non-uuid id | 400 | — | the validation body |
 | `E_RING_PROFILE_01`, `E_RING_PROFILE_02` | — | — | in the enum, returned by no route |
-| a string sent for a `show*` or `isVisible` switch | **200** (should be 400) | — | [[B-11 Projection switches read any string as true]] |
-| `null` for a link's `type`, `value`, `isVisible` or a field's `title` | **500** (should be 400) | — | [[B-12 Null on a link or custom field's required field answers 500]] |
+| a `show*` or `isVisible` switch that is not `true` / `false` (`"yes"`, `"0"`, `"1"`, `null`); the strings `"true"` / `"false"` are read as booleans | 400 | — | the validation body (fixed on `e483d49`, [[B-11 Projection switches read any string as true]]) |
+| `null` for a link's `type`, `value`, `isVisible` or a field's `title` | 400 | — | the validation body (fixed on `e483d49`, [[B-12 Null on a link or custom field's required field answers 500]]) |
 
 ## Privacy and access checks
 
@@ -249,13 +247,15 @@ stateDiagram-v2
 - A viewer never gets a library id or a `fileId`: links, fields and attachments carry the Ring's row ids (B41, B82, B96), so two Rings of one person share no id with their viewers.
 - A delegated `CONTENT_MANAGER` sees and switches only the items of their Ring, cannot change or delete what other Rings show, and adds into the owner's library (B9, B52–B56, B83–B85).
 - Another account's link, field or file is unreachable through your Ring (B19, B46, B47, B89, B97).
-- **Breaks:** a string switch turns sharing on (B26: the member of Family saw Sara's email after `showEmail: "false"`), [[B-11 Projection switches read any string as true]].
+- A switch sent as a string never shares by accident: `"false"` keeps the field hidden and any other string is refused (B25, B26; on `12172c6` it shared the email, [[B-11 Projection switches read any string as true]], fixed on `e483d49`).
 
 ## Verdict
 
+- Run on: 2026-11-08 · build: backend `main @ e483d49` · localhost:3110, a fresh throwaway database `social_pin_qa_f10` (migrated and seeded from that commit, dropped afterwards), Node 22.22.2 · result: **passing**, 112 of 112 rows ✅: every row re-run on this build but B110, the 15-minute expiry, which passed on `12172c6` and whose link code did not change. Nothing else moved, though the view path changed in between (a Ring with no projection now renders as the empty one) · story parts unmet: none (S10 is not delivered yet, open on [[BD-10 Ring Projection Backend Delivery]]) · bugs: none open ([[B-11 Projection switches read any string as true]] and [[B-12 Null on a link or custom field's required field answers 500]] closed, fixed)
 - Run on: 2026-11-05 · build: backend `main @ 12172c6` · localhost:3110, throwaway database `social_pin_qa_f10` (migrated and seeded from that commit), Node 22.22.2 · result: **failing**, 106 of 112 rows ✅, 6 🔴 (B25, B26, B64, B65, B67, B90), none ⬜ · story parts unmet: none (S10 is not delivered yet, open on [[BD-10 Ring Projection Backend Delivery]]) · bugs: [[B-11 Projection switches read any string as true]], [[B-12 Null on a link or custom field's required field answers 500]]
 
 ## Log
 
 - 2026-11-05 · written and run on backend `main @ 12172c6` (localhost:3110, throwaway database `social_pin_qa_f10`, dropped afterwards): 112 rows; failing; filed [[B-11 Projection switches read any string as true]] (B25, B26) and [[B-12 Null on a link or custom field's required field answers 500]] (B64, B65, B67, B90) against [[BI-07 Ring Projection Backend Integration]]. S10 not delivered yet, no rows.
+- 2026-11-08 · re-run on backend `main @ e483d49` (fresh throwaway database, dropped afterwards): all rows but B110 again; B25, B26, B64, B65, B67, B90 now ✅; B26's expectation follows [[BI-07 Ring Projection Backend Integration]] as it now reads (`"false"` is false). Passing; [[B-11 Projection switches read any string as true]] and [[B-12 Null on a link or custom field's required field answers 500]] closed (resolution fixed) on their own branches and removed from `pending`; the BD-10 flag cleared.
 - 2026-11-05 · flagged [[BI-07 Ring Projection Backend Integration]]: failing on main 12172c6: a string for show* / isVisible is stored as true, so "false" turns sharing on (B-11); null on a link's type, value, isVisible or a field's title answers 500, not 400 (B-12); for /backend
