@@ -38,6 +38,7 @@ Where the design and the backend disagree, and every other decision a card needs
 | [[ND-28 Scanning someone straight into a Ring]] | fulfilled (1, not in the MVP) | [[D-28 Scan someone in is not in the MVP]] | [[F-14 Connections]] | s15 |
 | [[ND-29 Connection detail for a member who is not a connection]] | fulfilled (1, s47 opens them) | [[D-29 Connection detail opens a member who is not a connection]] | [[F-14 Connections]] | s15, s47 |
 | [[ND-31 What an invitation is]] | open (recommended 1, its own record) | — | [[F-17 Ring Invitations & Join]] | s15, s17, s72, s74 |
+| [[ND-32 How a Ring's join code works]] | open (recommended 1, one code per Ring) | — | [[F-17 Ring Invitations & Join]] | s26, s72, s74 |
 
 ```dataview
 TABLE status, features FROM #needs-decision
