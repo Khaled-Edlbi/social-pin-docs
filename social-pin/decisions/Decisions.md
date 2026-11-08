@@ -40,6 +40,7 @@ Where the design and the backend disagree, and every other decision a card needs
 | [[ND-31 What an invitation is]] | open (recommended 1, its own record) | — | [[F-17 Ring Invitations & Join]] | s15, s17, s72, s74 |
 | [[ND-32 How a Ring's join code works]] | open (recommended 1, one code per Ring) | — | [[F-17 Ring Invitations & Join]] | s26, s72, s74 |
 | [[ND-33 When a work email is checked]] | open (recommended 1, once at joining) | — | [[F-17 Ring Invitations & Join]], [[F-15 Companies]] | s26, s73, s74 |
+| [[ND-34 What a member contributes to a shared Ring]] | open (recommended 1, one of my own Rings) | — | [[F-17 Ring Invitations & Join]], [[F-09 Ring Members]] | s17, s73, s74 |
 
 ```dataview
 TABLE status, features FROM #needs-decision
