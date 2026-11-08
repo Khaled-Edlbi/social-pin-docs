@@ -108,7 +108,7 @@ What the client needs from the backend to build the Ring lists, the create wizar
 |---|---|---|---|
 | List my Rings, default first | `GET /rings` | ✅ | — |
 | List Rings shared with me, live now | `GET /rings/shared-with-me` | ✅ | — |
-| Shared with me **per person**: the owner's card per row; a Ring's name and who shared it **only when joined knowingly**; a member count **only when members can see each other**; no colour or type | `GET /rings/shared-with-me` → `data[]: { ringId, pinName, displayName, avatarUrl, expiresAt, ringName, memberCount }` (`ringName` and `memberCount` `null` until memberships record how they were made, [[F-09 Ring Members]]) | ✅ | [[S-15 Ring Access Engine Story\|Ring Access Engine · S1]] (D-14, D-18, D-15) |
+| Shared with me **per person**: the owner's card per row; a Ring's name and who shared it **only when joined knowingly**; a member count **only when members can see each other**; no colour or type | `GET /rings/shared-with-me` → `data[]: { ringId, pinName, displayName, avatarUrl, expiresAt, ringName, memberCount }` (`ringName` set on a row the viewer joined knowingly, `memberCount` there when the Ring lets members see each other, since `main` `1c460b0`, [[BD-17 Ring Invitations & Join Backend Delivery\|BD-17]]) | ✅ | [[S-15 Ring Access Engine Story\|Ring Access Engine · S1]] (D-14, D-18, D-15) |
 | Create a Ring | `POST /rings` | ✅ | — |
 | Read one Ring | `GET /rings/:id` | ✅ | — |
 | Edit name, colour, style, window, temporary flag | `PATCH /rings/:id` | ✅ | — |
@@ -122,7 +122,7 @@ What the client needs from the backend to build the Ring lists, the create wizar
 | **Refuse a temporary Ring as the default** (`POST /rings/:id/default` on an `isTemporary` Ring) | `POST /rings/:id/default` → 409 `E_RING_09` | ✅ | [[S-18 Rings Story\|Rings · S7]] |
 | **My connections**, searchable, each with whether they're in any of my Rings (s19, "No Ring yet") | — | ❌ | [[S-18 Rings Story\|Rings · S4]] ([[S-23 Connections Story\|Connections · S19–S24]]) |
 | Add a picked person to the new Ring | `POST /rings/:ringId/members` | ✅ | [[S-18 Rings Story\|Rings · S4]] (listed under [[F-09 Ring Members]]) |
-| Review / decline an invite, join with a code (s17) | — | ❌ | [[S-33 Ring Invitations & Join Story|Ring Invitations & Join · S7]], [[S-33 Ring Invitations & Join Story|Ring Invitations & Join · S8]] |
+| Review / decline an invite, join with a code (s17) | `GET /rings/invitations/mine`, `POST /rings/invitations/:id/accept`, `POST /rings/invitations/:id/decline`, `POST /rings/join-codes/resolve`, `POST /rings/join-codes/join` ([[BI-17 Ring Invitations & Join Backend Integration\|BI-17]]) | ✅ | [[S-33 Ring Invitations & Join Story|Ring Invitations & Join · S1–S3]] |
 | Delegated admins (s26, s27) | — | ❌ | [[S-31 Delegated Admins Story|Delegated Admins · S6]] |
 | Purge of AUTO_DELETE Rings | — | ❌ | [[S-76 Cleanup Jobs Story|Cleanup Jobs · S4]] |
 
