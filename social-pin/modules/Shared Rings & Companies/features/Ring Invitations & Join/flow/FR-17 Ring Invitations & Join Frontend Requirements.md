@@ -5,99 +5,155 @@ module: shared-rings
 feature: ring-invitations
 status: draft
 scope: feature
-screens: [s17, s74]
+screens: [s15, s17, s19, s26, s43, s74]
+owner: "Omar Fostok"
+affects: ["BD-17 Ring Invitations & Join Backend Delivery"]
+related: ["S-33 Ring Invitations & Join Story", "BI-08 Rings Backend Integration", "FR-15 Companies Frontend Requirements", "D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "D-18 Ring names shown when joined knowingly", "D-31 An invitation is its own record", "D-32 Several join codes per Ring", "D-33 Work email joining waits for real emails and Companies", "D-34 A member shows one of their own Rings", "D-35 A join code can be shown as a QR", "D-36 Who it's for stays the owner's alone", "S-37 Badge & QR Story", "S-87 Error Contract Story", "S-96 Notifications Story", "Frontend Contract"]
 created: 2026-10-18
-updated: 2026-10-29
+updated: 2026-11-08
 tags: [frontend-requirements, frontend-requirements/draft, module/shared-rings, layer/frontend]
 ---
 
 # Ring Invitations & Join · Frontend Requirements
 
-> ⚠ Affected by [[S-33 Ring Invitations & Join Story]] (2026-11-08): S-33 updated with D-31 to D-36: invitation statuses and 30-day expiry, a Join codes list (labels, end date, use limit, Show as QR), no work email, the "Your card in <Ring>" step and the colleagues' cards, no purpose on the review
+**Feature:** [[F-17 Ring Invitations & Join]] · **Status:** Draft · **Story:** [[S-33 Ring Invitations & Join Story]] (approved 2026-11-08) · **API Integration:** not yet (backend not built)
 
-> ⚠ Affected by [[D-36 Who it's for stays the owner's alone]] (2026-11-08): no purpose ("who it's for") on s74 or s72; only the owner's own screens show it
+What the client needs from the backend to build [[S-33 Ring Invitations & Join Story]] S1–S12, and whether each need is met today. **Rewritten 2026-11-08** against the approved story, [[D-31 An invitation is its own record|D-31]] to [[D-36 Who it's for stays the owner's alone|D-36]], and backend `main` @ `12172c6` ([[BI-08 Rings Backend Integration]]). Routes that don't exist yet are asked for as needs, not names: the backend names them in [[BD-17 Ring Invitations & Join Backend Delivery]]; the two join-request routes keep the names [[FR-15 Companies Frontend Requirements|FR-15]] already asked for.
 
-> ⚠ Affected by [[D-35 A join code can be shown as a QR]] (2026-11-08): Show as QR on each active join code; the scanner recognises a join QR and opens the s74 review with the code's rules and errors; a badge never offers a Ring
-
-> ⚠ Affected by [[D-34 A member shows one of their own Rings]] (2026-11-08): a member picks one of their own Rings as their card in a Ring they joined; read and set the picked Ring, and the colleagues list only when members may see each other, without the picked Ring's name
-
-> ⚠ Affected by [[D-33 Work email joining waits for real emails and Companies]] (2026-11-08): ND-33 decided "not now": no work-email rows in this version; work-email verification is listed as later (waits on Code Delivery S-78 and Companies S-29 S12)
-
-> ⚠ Affected by [[D-32 Several join codes per Ring]] (2026-11-08): ND-32 decided 2026-11-08 by Omar Fostok, option 2: several join codes per Ring (up to 10 active), each 8 characters without look-alikes (K7QM-4RXT) with a required owner-only label, an optional end date and an optional use limit; Turn off per code, Make a new code adds one; one neutral message for a wrong, off, ended or used-up code, tries limited per person; with approve-each-one on a code makes a join request showing which code was used; managed under Edit Ring → Joining → Join codes by the owner (later admins who manage who's in it)
-
-> ⚠ Affected by [[D-31 An invitation is its own record]] (2026-11-08): ND-31 decided 2026-11-08 by Omar Fostok, option 1: an invitation is its own record (Ring, invitee, inviter, optional window, PENDING/ACCEPTED/DECLINED/WITHDRAWN), never a membership while pending; accept creates the membership recorded as joined knowingly; decline, withdraw, 30-day expiry, valid:false on an ended Ring
-
-> ⚠ Affected by [[S-33 Ring Invitations & Join Story]] (2026-11-08): S-33 was rewritten (2026-11-08) as one set of parts S1-S12 against backend main 12172c6: invitations on s17 (by company for s72), review (s74), code, work email, my join requests (cancel, dismiss), the owner's Invite and Invited list, the join code on Joining and permissions, Waiting on you on s15, QR join, what a member shows, inside the Ring, notifications; six questions open as ND-31 to ND-36. The old S7-S9 (T-026 to T-028) are folded in
-
-> ⚠ Affected by [[FR-15 Companies Frontend Requirements]] (2026-11-05): FR-15 (Companies) asks FR-17 for: business { id, name, logoFileId } on each pending invitation to a company Ring, my join requests GET /rings/join-requests/mine (id, status PENDING | DECLINED, createdAt, business, ringName), cancel and dismiss DELETE /rings/join-requests/:id, and valid: false on an invitation whose Ring ended. Add these rows (S-29 S3).
-
-> ⚠ Affected by [[S-23 Connections Story]] (2026-11-04): S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
-
-> ⚠ Affected by [[D-18 Ring names shown when joined knowingly]] (2026-10-25): an invitation names its Ring on s17 and s74, and a Ring joined by invitation, code or work email keeps showing its name; never its colour or type.
-
-> ⚠ Affected by [[D-04 Ring settings at launch and their defaults]] (2026-10-25): ND-04 decided, six Ring settings at launch with private defaults (join with a code or invite, approve each one, members can't see each other, invite or save attachments); the owner and the Ring's admins change them; members who may see each other see full cards.
-
-**Feature:** [[F-17 Ring Invitations & Join]] · **Status:** Draft · **Story:** [[S-33 Ring Invitations & Join Story]] · **API Integration:** not yet (backend not built)
-
-What the client needs from the backend to build the screens in [[S-33 Ring Invitations & Join Story]], and whether each need is met today. The shared-Rings list is done; every invitation and join action waits on Ring settings.
+Each screen ends with **What changes in the app**: the app as it is today (`social_pin`, `rings/F-11/honest-rings`) and what this feature changes on it.
 
 ## Per screen
 
-### [[Screen Index#s17|s17]] Shared with me
+### [[Screen Index#s17|s17]] Shared with me (S1, S5, S10)
 
-- Needs: live shared Rings (done); pending invitations with invitation id, Ring name and colour, owner display name and Pin name, inviter, sent-at, optional window; the two entry actions.
-- Source today: `GET /rings/shared-with-me` for the list; it returns `RingEntity` rows (`id`, `name`, `colorHex`, `type`, `ownerUserId`, `expiresAt`), not the owner's name. Invitations: not yet.
+- **Needs:**
+  - the people who share with me (exists): one row per person, `ringId`, `pinName`, `displayName`, `avatarUrl`, `expiresAt`, `ringName`, `memberCount`;
+  - on a row I **joined knowingly**: `ringName` set, and `memberCount` set only when the Ring lets members see each other (D-18);
+  - on that row, **my picked Ring** for my card there (its id and name: it is my own Ring, so I may see its name) (S10, D-34);
+  - my **pending invitations**: invitation id, Ring name, owner (display name, Pin name, photo), inviter (display name), sent at, optional access window, `valid` (false once the Ring ended or was deleted), and `business { id, name, logoFileId }` on a company Ring (D-31, FR-15);
+  - my **join requests**: `id`, `status` (`PENDING` | `DECLINED`), `createdAt`, `ringName`, `business` (FR-15).
+- **Source today:** `GET /rings/shared-with-me` ✅ (`ringName` and `memberCount` always `null` until a membership records how it was made). Invitations, requests and the picked Ring: not yet.
+- **What changes in the app:** today the tab lists people only. It gains an **Invitations** section and a **My requests** section above the people (each hidden while empty, each loading on its own); a joined-knowingly row shows "Acme Team · Shared by …" and **"Your card here: <my Ring> ›"**, which opens the picker (s74 step below). *Join with a code* opens s74.
 
-### [[Screen Index#s74|s74]] Join a company Ring
+### [[Screen Index#s74|s74]] Review an invitation, join with a code (S2, S3, S4)
 
-- Needs: one invitation to review (the fields above plus purpose), accept, decline; a code field that resolves to a reviewable Ring; a work-email verification step; the "no longer valid" state.
-- Source today: not yet, for all of it. The owner's projection for the preview: `GET /views/ring/:ringId` after joining only (before joining the viewer is not a member and gets the neutral 404).
+- **Needs:**
+  - one invitation to review: the fields above (never the Ring's colour, type or `purpose`: D-36); accept, decline, dismiss (an invalid one);
+  - accept returns the new membership (its `ringId`), so the card opens and the next step can save my pick;
+  - **a code resolved to a review** before anything happens: the Ring's name, the owner (display name, Pin name, photo), and whether joining makes a request (`requireApproval`); then join, or send the request;
+  - one neutral refusal for a code that is wrong, off, ended or used up, and one for too many tries (with when I may try again, if the backend gives it);
+  - a code refused under "only by invitation" reads the same as a wrong one.
+- **Source today:** none. `GET /views/ring/:ringId` ✅ opens the owner's card only **after** joining (before, the viewer gets the neutral 404).
+- **What changes in the app:** today `join_company_ring_screen.dart` is a sample (Alma Group) with four ways in and a "What you contribute" list. It keeps **This invite** and **Invite code** only:
+  - **Work email** goes (D-33), with "verified domain alma.co";
+  - **Scan a colleague** goes: the app's scanner opens this screen instead (D-35);
+  - **"What you contribute"** (name, work email, phone, photo) goes: replaced by the "Your card in <Ring>" step (D-34);
+  - no "who it's for" line (D-36); "What joining gives you" is the Ring's bio once joined, not before;
+  - the code field takes K7QM-4RXT, any case, dash optional; with approval on, *Join Ring* shows "Request sent: {owner} will approve it".
 
-### After joining (s17, then the Ring)
+### s74 → "Your card in <Ring>" (S10, D-34)
 
-- Needs: the Ring in the list and its projection.
-- Source today: `GET /rings/shared-with-me` and `GET /views/ring/:ringId` ✅.
+- **Needs:** my own Rings (exists, `GET /rings`); **set** the picked Ring on my membership in that Ring, and **read** it back; a picked Ring that is not one of my live Rings refused; when the picked Ring is deleted, the read answers my default Ring.
+- **Source today:** `GET /rings` ✅; the pointer: not yet.
+- **What changes in the app:** a **new step** after *Join Ring* (and the first time I open a Ring whose request was approved): "Your card in Acme Team", my Rings with the default pre-selected, one line on who sees it ("Members see this card" / "Nobody sees it unless the owner lets members see each other"), *Done*. Not drawn: the app's own list style.
+
+### [[Screen Index#s43|s43]] Scanner (S9, D-35)
+
+- **Needs:** a scanned **join QR** resolved to the same review as a typed code, with the same refusals; a way to tell a join QR from a badge (the backend writes it in BD-17); a badge resolve that never returns a join offer.
+- **Source today:** none; the badge resolve route doesn't exist yet either ([[S-37 Badge & QR Story|Badge & QR · S13–S18]]).
+- **What changes in the app:** today the scanner is a timer that shows a sample card. When it reads a join QR it opens s74 with the code's review; a badge still opens only a person's card.
+
+### [[Screen Index#s15|s15]] The Ring's people, the owner's side (S6, S8)
+
+- **Needs:**
+  - **invite** one person: a connection or a Pin name, an optional access window; refused when I may not invite (not the owner, not an admin at "can also manage who's in it", or a member while "members can invite others" is off);
+  - **Invited · N**: the invitations sent and not answered (invitee display name, Pin name, photo, sent at, status `PENDING` | `DECLINED`), **withdraw** one;
+  - **Waiting on you · N**: the join requests (person display name, headline, photo, **the label of the code they used**, asked at), **approve**, **decline**.
+- **Source today:** the members list ✅ ([[S-16 Ring Members Story|Ring Members]]); the rest: not yet.
+- **What changes in the app:** *Invite* on the Ring's people; two new sections, **Invited · N** (with *Withdraw*) and **Waiting on you · N** ("asked with *Onboarding week*", *Add*, *Decline*). Pending invitations are never shown or counted as members.
+
+### [[Screen Index#s19|s19]] New Ring wizard, step 2 (S6)
+
+- **Needs:** the same invite as s15, sent for the Ring just created.
+- **What changes in the app:** step 2 offers *Invite* beside adding members, with the D-18 line "People who join this way will see this Ring's name."
+
+### [[Screen Index#s26|s26]] Edit Ring → Joining → Join codes (S7, S9, D-32, D-35)
+
+- **Needs:**
+  - **list** the Ring's codes: id, label, the code text, end date, use limit, uses so far, state (active, off, ended, used up);
+  - **make** a code: label (required, ≤ 40), optional end date, optional use limit; refused at 10 active;
+  - **turn off** a code;
+  - the code text is what *Share* sends and what *Show as QR* draws (the client draws the QR from what the backend says a join QR carries);
+  - managed by the owner (later admins at "can also manage who's in it"); refused, and the list hidden, under "only by invitation".
+- **Source today:** the Ring's settings ✅ (`PATCH /rings/:id`, `joinPolicy`, `requireApproval`); codes: not yet.
+- **What changes in the app:** today *Joining* has who can join and approval, each with "Takes effect when…", an approval line "Auto-accept is set per QR code" and an old **"Verified email required"** row. It gains a **Join codes** list (label, K7QM-4RXT, "12 of 20 used", *Off* / *Ended*), *Make a new code* (a sheet: label, end date, use limit), and per active code **Share**, **Show as QR** (a new full-screen QR with the code under it) and **Turn off**. The "Verified email" row and the "per QR code" wording go. Not drawn: the app's own style.
+
+### Inside a Ring I joined (S11, D-34)
+
+- **Needs:** when `membersCanSeeEachOther` is on: **Members · N** and each member's card rendered from **the Ring they picked**, never that Ring's name or id; nothing at all while it's off. **Leave this Ring** as a member.
+- **Source today:** the owner's card `GET /views/ring/:ringId` ✅; the member-facing roster and leave: not yet.
+- **What changes in the app:** the owner's card gains **Members · N** (only when allowed), each colleague opening their picked card; a colleague who is also my connection opens that card here and the card they share with me everywhere else. **Leave this Ring** at the bottom.
+
+### [[Screen Index#s72|s72]] My companies (FR-15)
+
+- Owned by [[FR-15 Companies Frontend Requirements]]; FR-17 brings it `business` on invitations and my join requests (rows below).
+- **What changes in the app:** "Invite code, work email or a QR from a colleague" reads "Invitation, code or a join QR" (D-33, D-35); the invitation row ("Company Ring · brand kit, directory, support line") shows no purpose (D-36). FR-15 takes the copy.
 
 ## Endpoints required
 
-| Need | Endpoint | Available | Task / decision |
+| Need | Endpoint | Available | Story part / decision |
 |---|---|---|---|
-| Rings I am a live member of | `GET /rings/shared-with-me` | ✅ | — |
-| The owner's projection of a Ring I am in | `GET /views/ring/:ringId` | ✅ | — |
-| Pending invitations for me | — | ❌ | [[S-33 Ring Invitations & Join Story|Ring Invitations & Join · S7]] |
-| Accept an invitation | — | ❌ | [[S-33 Ring Invitations & Join Story|Ring Invitations & Join · S7]] |
-| Decline an invitation | — | ❌ | [[S-33 Ring Invitations & Join Story|Ring Invitations & Join · S7]] |
-| Owner sends an invitation (from s15) | — | ❌ | [[S-33 Ring Invitations & Join Story|Ring Invitations & Join · S7]] |
-| Resolve a join code to a reviewable Ring, then join | — | ❌ | [[S-33 Ring Invitations & Join Story|Ring Invitations & Join · S8]] |
-| Verify a work email against the Ring's domain, then join | — | ❌ | [[S-33 Ring Invitations & Join Story|Ring Invitations & Join · S8]] |
-| Join policy, join code, required domain on the Ring | — | ❌ | [[ND-04 Ring settings]] |
-| Owner's display name on an invitation row | — | ❌ | [[S-23 Connections Story|Connections · S19–S24]] |
-| What I contribute to a shared Ring | — | ❌ | [[S-33 Ring Invitations & Join Story|Ring Invitations & Join · S9]] |
-| Notification on invite | — | ❌ | [[S-96 Notifications Story|Notifications · S7]] |
-| Join offer carried by a scanned token | — | ❌ | [[S-37 Badge & QR Story|Badge & QR · S13–S18]] |
+| People who share with me | `GET /rings/shared-with-me` | ✅ | S1 |
+| The owner's card of a Ring I'm in | `GET /views/ring/:ringId` | ✅ | S2, S11 |
+| My own Rings (for the card picker) | `GET /rings` | ✅ | S10 |
+| The Ring's joining settings | `PATCH /rings/:id` (`joinPolicy`, `requireApproval`) | ✅ | S7 |
+| `ringName` / `memberCount` filled when joined knowingly | `GET /rings/shared-with-me` | ❌ (always `null`) | S1, D-18 |
+| My pending invitations, with `valid` and `business` | — | ❌ | S1, D-31, FR-15 |
+| Accept an invitation (returns the membership) | — | ❌ | S2, D-31 |
+| Decline an invitation | — | ❌ | S2, D-31 |
+| Dismiss an invitation that is no longer valid | — | ❌ | S1, D-31 |
+| Resolve a join code to a review | — | ❌ | S3, D-32 |
+| Join, or send a request, with a code | — | ❌ | S3, D-32 |
+| Resolve a scanned join QR to a review | — (or the code route) | ❌ | S9, D-35 |
+| My join requests | `GET /rings/join-requests/mine` | ❌ | S5, FR-15 |
+| Cancel or dismiss my join request | `DELETE /rings/join-requests/:id` | ❌ | S5, FR-15 |
+| Set / read my picked Ring in a Ring I joined | — | ❌ | S10, D-34 |
+| Invite a person (connection or Pin name, window) | — | ❌ | S6, D-31 |
+| The Ring's invitations (Invited · N), withdraw | — | ❌ | S6, D-31 |
+| The Ring's join requests with the code label, approve, decline | — | ❌ | S8, D-32 |
+| The Ring's join codes: list, make, turn off | — | ❌ | S7, D-32 |
+| The member-facing roster (picked cards) | — | ❌ | S11, D-34 |
+| Leave a Ring as a member | — | ❌ | S11 |
+| Notifications: invitation received, request approved, request waiting | — | ❌ | S12, [[S-96 Notifications Story|Notifications]] |
+| Join with a verified work email | — | not in this version | S4, D-33 |
 
 ## Behaviour expectations
 
-- Refetch / realtime: s17 refetches both the live list and the invitations on screen focus; the live list changes without any action of the viewer (owner reassigns, Ring expires). After accept or decline, refetch both. Until notifications exist, no polling.
-- Caching keys: shared Rings by (signed-in user); invitations by (signed-in user); a Ring's projection by (viewer, ring id). Invalidate the shared-Rings cache on accept.
-- Pagination / ordering: `{ data, meta: { total } }`; shared Rings newest first (server); invitations newest first; `limit` ≤ 50.
-- Code entry: trim and uppercase client-side only if Ring Invitations & Join · S8 defines the format; do not validate the shape locally beyond non-empty, so the UI never leaks the expected pattern.
-- One neutral message for every join failure (wrong code, wrong domain, revoked, Ring gone); never branch the copy on cause.
+- **Refetch:** s17 reads the people, the invitations and my requests on screen focus and on app resume, each on its own (one failing never blanks the others). After accept, decline, dismiss, cancel or join: refetch all three and My companies. s15 reads Invited and Waiting on focus; s26 reads the codes on open and after make or turn off. No polling until notifications exist.
+- **Caching keys:** people, invitations and requests by (signed-in user); a Ring's invitations, requests and codes by (ring id); my picked Ring by (membership / ring id); a card by (viewer, ring id). Never compare or show `ringId` to the user.
+- **Pagination / ordering:** `{ data, meta: { total } }`, `limit` ≤ 50; invitations and requests newest first; codes active first, then newest.
+- **Code entry:** uppercase, strip spaces and the dash before sending; no shape check beyond non-empty, so the UI never reveals the pattern. Show it back grouped (K7QM-4RXT).
+- **One neutral message** for every failed code or QR ("This code doesn't work"); a separate one only for too many tries. Never branch the copy on the cause.
+- **Never shown:** a Ring's colour or type to a member or invitee; `purpose` anywhere outside the owner's own screens (D-36); the picked Ring's name to anyone but me (D-34); which Ring a badge's holder is in (D-14).
+- **After *Join Ring*:** the "Your card" step, then s17 (not My Rings).
 
 ## Error states the UI must handle
 
 | Status | ErrorCode | Show |
 |---|---|---|
-| 404 | `E_RING_ACCESS_02` | the Ring I just joined is not live: "This Ring has expired"; drop it on next refetch |
-| 404 | `E_RING_ACCESS_01` | not a member any more or blocked: the same neutral message as any view |
+| 404 | `E_RING_ACCESS_02` | the Ring ended: "This invitation is no longer valid" (review) or "This Ring has ended" (card); drop it on the next refetch |
+| 404 | `E_RING_ACCESS_01` | not a member any more, or blocked: the neutral "not available" of any view |
 | 401 | `E_AUTH_04` | sign in again |
-| 400 | — | validation on the code or email field: inline, generic |
-| — | invitation / join codes | to be defined by Ring Invitations & Join · S7 / Ring Invitations & Join · S8; the UI maps all join failures to one message; branch on `statusCode` until [[S-87 Error Contract Story|Error Contract · S4–S8]] |
+| 400 | — | an invalid label, end date, use limit or window on the owner's forms: inline |
+| — | the code, invitation, request, limit and permission codes | named by the backend in BD-17; until then: a refused code → the neutral message; too many tries → "Too many tries. Try again later."; 10 active codes → "Turn a code off first"; not allowed to invite or manage → the action hidden after one refusal. Branch on `statusCode` until [[S-87 Error Contract Story|Error Contract · S4–S8]] |
 
 ## Blocked by
 
-- [[ND-04 Ring settings]] — join policy, code and domain: the code and email rows, and the review step's "approval required" variant.
-- [[S-33 Ring Invitations & Join Story|Ring Invitations & Join · S7]] — the invitation object; every invitation row above.
-- [[S-33 Ring Invitations & Join Story|Ring Invitations & Join · S8]] — both self-service join rows.
-- [[S-33 Ring Invitations & Join Story|Ring Invitations & Join · S9]] — the optional step after joining.
-- [[S-87 Error Contract Story|Error Contract · S4–S8]] — the error table is by status until then.
+- [[BD-17 Ring Invitations & Join Backend Delivery]]: every ❌ row above.
+- [[S-87 Error Contract Story|Error Contract · S4–S8]]: the error table is by status until then.
+- [[S-96 Notifications Story|Notifications]]: S12.
+- Not drawn (the app's own style until a designer): the Join codes list and its sheet, Show as QR, the "Your card in <Ring>" step, Invited and Waiting on s15.
+
+## Log
+
+- 2026-11-08 · `tickets/frontend/M-03-shared-rings/F-17-ring-invitations/FR-17-draft` · rewritten against the approved S-33 (S1–S12) and D-31 to D-36: per screen s17, s74, the "Your card" step, s43, s15, s19, s26, inside the Ring, with **What changes in the app** under each; the endpoints table re-keyed to S-33's parts (no work email, several join codes with QR, invitations as their own record, the picked-Ring pointer, the member roster); FR-15's asks added; no purpose anywhere; all 13 ⚠ flags settled and cleared (S-33 ×2, D-31 to D-36, D-04, D-18, FR-15, S-23's renumbering, which no longer applies: no Connections part is linked); stays draft
