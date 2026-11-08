@@ -2712,6 +2712,7 @@
         "backend-delivery:photo-library",
         "backend-delivery:ring-projection",
         "backend-delivery:rings",
+        "backend-delivery:view-as",
         "backend-integration:ring-projection",
         "frontend-delivery:files",
         "frontend-delivery:ring-projection",
@@ -6187,7 +6188,7 @@
     },
     "concepts": 291,
     "decisions": 34,
-    "edges": 6996,
+    "edges": 6999,
     "features": 41,
     "layerNotes": 151,
     "modules": 8,
@@ -12274,6 +12275,14 @@
     {
       "from": "backend-delivery:ring-projection",
       "kind": "related",
+      "to": "backend-delivery:view-as",
+      "via": [
+        "GET /rings/:ringId/projection"
+      ]
+    },
+    {
+      "from": "backend-delivery:ring-projection",
+      "kind": "related",
       "to": "backend-integration:counts",
       "via": [
         "E_RING_02"
@@ -15251,7 +15260,8 @@
       "kind": "related",
       "to": "backend-delivery:view-as",
       "via": [
-        "GET /files/content/:token"
+        "GET /files/content/:token",
+        "GET /rings/:ringId/projection"
       ]
     },
     {
@@ -19467,6 +19477,7 @@
       "kind": "related",
       "to": "backend-delivery:view-as",
       "via": [
+        "GET /rings/:ringId/projection",
         "GET /views/pin/:pinName",
         "GET /views/user/:userId/perspectives"
       ]
@@ -20820,6 +20831,14 @@
     {
       "from": "frontend-requirements:files",
       "kind": "related",
+      "to": "backend-delivery:view-as",
+      "via": [
+        "GET /rings/:ringId/projection"
+      ]
+    },
+    {
+      "from": "frontend-requirements:files",
+      "kind": "related",
       "to": "backend-integration:photo-library",
       "via": [
         "DELETE /files/:id",
@@ -21420,6 +21439,14 @@
       "to": "backend-delivery:rings",
       "via": [
         "E_RING_02",
+        "GET /rings/:ringId/projection"
+      ]
+    },
+    {
+      "from": "frontend-requirements:photo-library",
+      "kind": "related",
+      "to": "backend-delivery:view-as",
+      "via": [
         "GET /rings/:ringId/projection"
       ]
     },
@@ -23790,6 +23817,7 @@
       "kind": "related",
       "to": "backend-delivery:view-as",
       "via": [
+        "GET /rings/:ringId/projection",
         "GET /views/ring/:ringId"
       ]
     },
@@ -27752,6 +27780,7 @@
       "kind": "related",
       "to": "backend-delivery:view-as",
       "via": [
+        "GET /rings/:ringId/projection",
         "GET /views/pin/:pinName"
       ]
     },
@@ -28373,6 +28402,7 @@
       "to": "backend-delivery:view-as",
       "via": [
         "GET /files/content/:token",
+        "GET /rings/:ringId/projection",
         "GET /views/pin/:pinName"
       ]
     },
@@ -30702,6 +30732,7 @@
       "to": "backend-delivery:view-as",
       "via": [
         "GET /files/content/:token",
+        "GET /rings/:ringId/projection",
         "GET /views/ring/:ringId"
       ]
     },
@@ -34209,6 +34240,14 @@
     {
       "from": "task:B-08",
       "kind": "related",
+      "to": "backend-delivery:view-as",
+      "via": [
+        "GET /rings/:ringId/projection"
+      ]
+    },
+    {
+      "from": "task:B-08",
+      "kind": "related",
       "to": "backend-integration:files"
     },
     {
@@ -36042,6 +36081,7 @@
       "kind": "related",
       "to": "backend-delivery:view-as",
       "via": [
+        "GET /rings/:ringId/projection",
         "GET /views/ring/:ringId",
         "GET /views/user/:userId/perspectives"
       ]
@@ -51155,11 +51195,6 @@
     {
       "from": "backend-delivery:ring-projection",
       "kind": "wikilink",
-      "to": "backend-delivery:view-as"
-    },
-    {
-      "from": "backend-delivery:ring-projection",
-      "kind": "wikilink",
       "to": "backend-delivery:widgets"
     },
     {
@@ -60761,6 +60796,7 @@
         "frontend-requirements:ring-projection",
         "qa-backend:ring-projection",
         "backend-delivery:rings",
+        "backend-delivery:view-as",
         "frontend-requirements:view-as",
         "frontend-requirements:widgets",
         "story:widgets",
@@ -61059,17 +61095,13 @@
       "pending": [
         {
           "person": null,
-          "text": "remove avatarFileId from the viewer's view (RingProfileViewEntity), so a viewer never receives a file id (D-16); the owner's projection keeps it",
-          "to": "frontend-requirements:view-as"
-        },
-        {
-          "person": null,
           "text": "GET /views/ring/:ringId answers an expired Ring with its own 404 body before the membership check; decide with BD-08 whether a non-member gets the not-shared body",
           "to": "frontend-requirements:view-as"
         }
       ],
       "priority": "critical",
       "related": [
+        "task:B-08",
         "task:B-13",
         "task:B-16",
         "task:B-17",
@@ -61081,15 +61113,18 @@
         "qa-backend:auth",
         "backend-delivery:files",
         "backend-integration:files",
+        "frontend-requirements:files",
         "qa-backend:files",
         "backend-delivery:photo-library",
         "backend-integration:photo-library",
+        "frontend-requirements:photo-library",
         "qa-backend:photo-library",
         "backend-delivery:profiles",
         "qa-backend:profiles",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
         "qa-backend:ring-access",
+        "backend-delivery:ring-projection",
         "backend-integration:ring-projection",
         "frontend-requirements:ring-projection",
         "qa-backend:ring-projection",
@@ -73585,6 +73620,7 @@
         "frontend-delivery:ring-projection",
         "story:ring-projection",
         "backend-delivery:rings",
+        "backend-delivery:view-as",
         "frontend-requirements:widgets",
         "story:widgets",
         "frontend-requirements:companies",
@@ -74223,6 +74259,7 @@
         "frontend-delivery:ring-projection",
         "story:ring-projection",
         "backend-delivery:rings",
+        "backend-delivery:view-as",
         "frontend-requirements:view-as",
         "frontend-requirements:widgets",
         "story:widgets",
@@ -75052,6 +75089,7 @@
         "qa-backend:ring-projection",
         "story:ring-projection",
         "backend-delivery:rings",
+        "backend-delivery:view-as",
         "frontend-requirements:view-as",
         "frontend-requirements:widgets",
         "frontend-delivery:profiles",
@@ -75074,7 +75112,6 @@
         "backend-integration:rings",
         "frontend-requirements:rings",
         "qa-backend:rings",
-        "backend-delivery:view-as",
         "backend-integration:view-as",
         "qa-backend:view-as",
         "story:view-as",
@@ -81731,6 +81768,7 @@
         "frontend-delivery:ring-projection",
         "story:ring-projection",
         "backend-delivery:rings",
+        "backend-delivery:view-as",
         "frontend-requirements:view-as",
         "frontend-requirements:widgets",
         "story:widgets",
@@ -81748,7 +81786,6 @@
         "frontend-delivery:ring-access",
         "frontend-requirements:ring-access",
         "qa-backend:ring-members",
-        "backend-delivery:view-as",
         "qa-backend:view-as",
         "story:view-as",
         "frontend-requirements:e2e-tests",
@@ -82992,6 +83029,7 @@
         "story:files",
         "frontend-delivery:ring-projection",
         "backend-delivery:rings",
+        "backend-delivery:view-as",
         "frontend-requirements:view-as",
         "frontend-requirements:widgets",
         "story:widgets",
@@ -83015,7 +83053,6 @@
         "backend-integration:rings",
         "frontend-requirements:rings",
         "qa-backend:rings",
-        "backend-delivery:view-as",
         "qa-backend:view-as",
         "story:view-as",
         "frontend-requirements:meetings",
@@ -89280,6 +89317,7 @@
         "qa-backend:ring-projection",
         "story:ring-projection",
         "backend-delivery:rings",
+        "backend-delivery:view-as",
         "frontend-requirements:view-as",
         "frontend-requirements:widgets",
         "story:widgets",
